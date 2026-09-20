@@ -1,0 +1,306 @@
+{
+  "tests": [
+    "A single-screen binder contains both pages across desktop and mobile sizes",
+    "Pagination visits exactly forty characters and forty-one versions without changing the deck",
+    "Momo versions, art, story, printed profile, career and owned copies remain available in the reader",
+    "Search, filters, favourites and sorting are independent from deck management",
+    "Reader tabs and filters fit portrait and short landscape, with keyboard navigation",
+    "Reduced motion stops page animations; normal transitions remain short and finite",
+    "Touch gestures turn pages; vertical and cancelled gestures leave the page unchanged",
+    "Ownership and match data stay unchanged; Tokyo sees no Paris cards or favourites",
+    "Deck and arena navigation still work and return to the binder"
+  ],
+  "errors": [],
+  "geometry": [
+    {
+      "label": "1600-book",
+      "width": 1600,
+      "height": 1080,
+      "scrollH": 1080,
+      "scrollW": 1600,
+      "outside": [],
+      "overflow": []
+    },
+    {
+      "label": "2560-book",
+      "width": 2560,
+      "height": 1440,
+      "scrollH": 1440,
+      "scrollW": 2560,
+      "outside": [],
+      "overflow": []
+    },
+    {
+      "label": "1440-book",
+      "width": 1440,
+      "height": 900,
+      "scrollH": 900,
+      "scrollW": 1440,
+      "outside": [],
+      "overflow": []
+    },
+    {
+      "label": "1280-book",
+      "width": 1280,
+      "height": 720,
+      "scrollH": 720,
+      "scrollW": 1280,
+      "outside": [],
+      "overflow": []
+    },
+    {
+      "label": "390-book",
+      "width": 390,
+      "height": 844,
+      "scrollH": 844,
+      "scrollW": 390,
+      "outside": [],
+      "overflow": []
+    },
+    {
+      "label": "360-book",
+      "width": 360,
+      "height": 740,
+      "scrollH": 740,
+      "scrollW": 360,
+      "outside": [],
+      "overflow": []
+    },
+    {
+      "label": "844-book",
+      "width": 844,
+      "height": 390,
+      "scrollH": 390,
+      "scrollW": 844,
+      "outside": [],
+      "overflow": []
+    },
+    {
+      "label": "reader-story",
+      "width": 1600,
+      "height": 1080,
+      "scrollH": 1080,
+      "scrollW": 1600,
+      "outside": [],
+      "overflow": []
+    },
+    {
+      "label": "reader-profile",
+      "width": 1600,
+      "height": 1080,
+      "scrollH": 1080,
+      "scrollW": 1600,
+      "outside": [],
+      "overflow": []
+    },
+    {
+      "label": "reader-career",
+      "width": 1600,
+      "height": 1080,
+      "scrollH": 1080,
+      "scrollW": 1600,
+      "outside": [],
+      "overflow": []
+    },
+    {
+      "label": "reader-copies",
+      "width": 1600,
+      "height": 1080,
+      "scrollH": 1080,
+      "scrollW": 1600,
+      "outside": [],
+      "overflow": []
+    },
+    {
+      "label": "filters",
+      "width": 1600,
+      "height": 1080,
+      "scrollH": 1080,
+      "scrollW": 1600,
+      "outside": [],
+      "overflow": []
+    },
+    {
+      "label": "1280-story",
+      "width": 1280,
+      "height": 720,
+      "scrollH": 720,
+      "scrollW": 1280,
+      "outside": [],
+      "overflow": []
+    },
+    {
+      "label": "1280-profile",
+      "width": 1280,
+      "height": 720,
+      "scrollH": 720,
+      "scrollW": 1280,
+      "outside": [],
+      "overflow": []
+    },
+    {
+      "label": "1280-career",
+      "width": 1280,
+      "height": 720,
+      "scrollH": 720,
+      "scrollW": 1280,
+      "outside": [],
+      "overflow": []
+    },
+    {
+      "label": "1280-copies",
+      "width": 1280,
+      "height": 720,
+      "scrollH": 720,
+      "scrollW": 1280,
+      "outside": [],
+      "overflow": []
+    },
+    {
+      "label": "390-story",
+      "width": 390,
+      "height": 844,
+      "scrollH": 844,
+      "scrollW": 390,
+      "outside": [],
+      "overflow": []
+    },
+    {
+      "label": "390-profile",
+      "width": 390,
+      "height": 844,
+      "scrollH": 844,
+      "scrollW": 390,
+      "outside": [],
+      "overflow": []
+    },
+    {
+      "label": "390-career",
+      "width": 390,
+      "height": 844,
+      "scrollH": 844,
+      "scrollW": 390,
+      "outside": [],
+      "overflow": []
+    },
+    {
+      "label": "390-copies",
+      "width": 390,
+      "height": 844,
+      "scrollH": 844,
+      "scrollW": 390,
+      "outside": [],
+      "overflow": []
+    },
+    {
+      "label": "360-story",
+      "width": 360,
+      "height": 740,
+      "scrollH": 740,
+      "scrollW": 360,
+      "outside": [],
+      "overflow": []
+    },
+    {
+      "label": "360-profile",
+      "width": 360,
+      "height": 740,
+      "scrollH": 740,
+      "scrollW": 360,
+      "outside": [],
+      "overflow": []
+    },
+    {
+      "label": "360-career",
+      "width": 360,
+      "height": 740,
+      "scrollH": 740,
+      "scrollW": 360,
+      "outside": [],
+      "overflow": []
+    },
+    {
+      "label": "360-copies",
+      "width": 360,
+      "height": 740,
+      "scrollH": 740,
+      "scrollW": 360,
+      "outside": [],
+      "overflow": []
+    },
+    {
+      "label": "844-story",
+      "width": 844,
+      "height": 390,
+      "scrollH": 390,
+      "scrollW": 844,
+      "outside": [],
+      "overflow": []
+    },
+    {
+      "label": "844-profile",
+      "width": 844,
+      "height": 390,
+      "scrollH": 390,
+      "scrollW": 844,
+      "outside": [],
+      "overflow": []
+    },
+    {
+      "label": "844-career",
+      "width": 844,
+      "height": 390,
+      "scrollH": 390,
+      "scrollW": 844,
+      "outside": [],
+      "overflow": []
+    },
+    {
+      "label": "844-copies",
+      "width": 844,
+      "height": 390,
+      "scrollH": 390,
+      "scrollW": 844,
+      "outside": [],
+      "overflow": []
+    },
+    {
+      "label": "small-filters",
+      "width": 844,
+      "height": 390,
+      "scrollH": 390,
+      "scrollW": 844,
+      "outside": [],
+      "overflow": []
+    }
+  ],
+  "screenshots": [
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-collection\\binder-1600.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-collection\\binder-2560.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-collection\\binder-1440.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-collection\\binder-1280.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-collection\\binder-390.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-collection\\binder-360.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-collection\\binder-844.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-collection\\reader-story.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-collection\\reader-profile.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-collection\\reader-career.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-collection\\reader-copies.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-collection\\reader-1280-story.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-collection\\reader-1280-profile.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-collection\\reader-1280-career.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-collection\\reader-1280-copies.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-collection\\reader-390-story.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-collection\\reader-390-profile.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-collection\\reader-390-career.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-collection\\reader-390-copies.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-collection\\reader-360-story.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-collection\\reader-360-profile.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-collection\\reader-360-career.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-collection\\reader-360-copies.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-collection\\reader-844-story.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-collection\\reader-844-profile.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-collection\\reader-844-career.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-collection\\reader-844-copies.png"
+  ]
+}

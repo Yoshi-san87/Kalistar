@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 4,
+  "id": "30000033",
+  "name": "BLOOM",
+  "title": "LA GRAINE SOUS SCELLES",
+  "job": "BOTANISTE",
+  "race": "TOXINAR",
+  "element": "HERBO",
+  "faction": "Arborium",
+  "weapon": "Orbe",
+  "positions": [
+    4
+  ],
+  "atk": [
+    295,
+    243,
+    191,
+    146,
+    94,
+    42
+  ],
+  "defense": [
+    170,
+    145,
+    113,
+    81,
+    56,
+    24
+  ],
+  "magic": [
+    6,
+    5,
+    4,
+    3,
+    2,
+    1
+  ],
+  "barriers": [
+    4
+  ],
+  "slug": "33_HERBO_BLOOM",
+  "hue": 100,
+  "color": "89D355",
+  "weapon_index": 14,
+  "description": "Bloom tourne la graine sous le verre. La fleur qu'elle promet pourrait sauver la serre ou l'étouffer. Il prend le temps d'apprendre la différence.",
+  "artwork": "BLOOM",
+  "artworkSource": "V3/assets/illustrations/33_HERBO_BLOOM.png",
+  "artworkUnchanged": true,
+  "sourcePSD": "V3/templates/33_HERBO_BLOOM.psd",
+  "output": "BLOOM_V4_01_HERBO",
+  "profile": "V4/template-stable/elements-01/bloom/card.json"
+}

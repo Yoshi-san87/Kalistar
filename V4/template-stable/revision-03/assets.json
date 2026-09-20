@@ -1,0 +1,40 @@
+{
+  "specs": [
+    {
+      "key": "momo",
+      "oldOutput": "MOMO_V4_10_FONDS_RECENTRES",
+      "output": "MOMO_V4_11_POSITIONS",
+      "id": "30000001"
+    },
+    {
+      "key": "taulio",
+      "oldOutput": "TAULIO_V4_01_TEMPLATE_STABLE",
+      "output": "TAULIO_V4_02_POSITIONS",
+      "profile": "V4/template-stable/taulio.json"
+    },
+    {
+      "key": "jelly-joe",
+      "oldOutput": "JELLY_JOE_V4_01_TEMPLATE_ELECTRO",
+      "output": "JELLY_JOE_V4_02_VISAGE_POSITIONS",
+      "profile": "V4/template-stable/jelly-joe/card.json"
+    }
+  ],
+  "artwork": "V4/assets/illustrations/32_ELECTRO_JELLY_JOE_V4_02.png",
+  "generatedSource": "C:/Users/guill/.codex/generated_images/019e30c1-21b0-7e11-9f9d-2fe692f111d2/exec-67078516-112a-4da3-89e5-65ccc8b00675.png",
+  "artworkSha256": "cc9810eb8f527a5e6a6b6bda4e2b6f5625f91253d1ac6d4efceb13153d37dbdc",
+  "tool": "built-in image_gen",
+  "prompt": "V4/donnees/prompt-jelly-joe-v4-02.txt",
+  "protectedFiles": {
+    "V4/templates/MOMO_V4_10_FONDS_RECENTRES.psd": "b7107dab8e58e291badff32c39e94a6fda9d90ef94aeba6c9d0cd80727d3c861",
+    "V4/cartes/MOMO_V4_10_FONDS_RECENTRES.png": "5cf7f7fe2c21a819470afd2a2d8e2ba3eb9d8fdf8d05181488f0e336cbf83544",
+    "V4/templates/TAULIO_V4_01_TEMPLATE_STABLE.psd": "e79430848795a047d4636dd6ed86874e48b1c97fd4b316db2fcc7ad7ee11861e",
+    "V4/cartes/TAULIO_V4_01_TEMPLATE_STABLE.png": "99aadcabb3056cef6151ec3135ca690a115663715ee2e6a45f1bf20370c5defe",
+    "V4/templates/JELLY_JOE_V4_01_TEMPLATE_ELECTRO.psd": "b7538f5fd12ff7b625393465fbd15405a29caea4eef605d4c514205ccc40f89e",
+    "V4/cartes/JELLY_JOE_V4_01_TEMPLATE_ELECTRO.png": "12b42160db871bc799a3b8e3482fdf78e1e14d185e9f2863c3bbfe8692e4ff11",
+    "V4/template-stable/KALISTAR_V4_TEMPLATE_02_ELECTRO.psd": "81a68b9813a99c8f6c75ffa73e6e3d8a490907108445d963149bbe2b92d6c388",
+    "V4/template-stable/registry-electro-02.json": "070ee847e8a993ea22d51daf54a6394f1f7b9cf4f65ba75a8c3a155f3349b453",
+    "V3/donnees/cartes.json": "bb6de0d7b2b7eec0f1a9348dc892faa002fe542c169bbe202e11aca7e3788761",
+    "V3/templates/32_ELECTRO_JELLY_JOE.psd": "d93d1080b2ed03f35d08a813160a5ded1c94ec5899e8e3606123603942b795d4",
+    "V4/assets/illustrations/32_ELECTRO_JELLY_JOE_V4_01.png": "cb5a331c71265497924236c7bad91c45bb94af7babf83437ad8de9531a9759c1"
+  }
+}

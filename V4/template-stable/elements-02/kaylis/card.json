@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 4,
+  "id": "30000012",
+  "name": "KAYLIS",
+  "title": "LA PREMIÈRE BRÈCHE",
+  "job": "ÉVASION",
+  "race": "HUMAIN",
+  "element": "RAINBOW",
+  "faction": "Z13",
+  "weapon": "Dague",
+  "positions": [
+    5
+  ],
+  "atk": [
+    175,
+    143,
+    111,
+    86,
+    "guard",
+    "revive"
+  ],
+  "defense": [
+    200,
+    170,
+    133,
+    96,
+    66,
+    "retry"
+  ],
+  "magic": [
+    6,
+    5,
+    4,
+    3
+  ],
+  "barriers": [
+    6,
+    3
+  ],
+  "slug": "12_RAINBOW_KAYLIS",
+  "hue": 280,
+  "color": "E4D5FB",
+  "weapon_index": 15,
+  "description": "Kaylis s’arrête. Ses bras éclairent la roche, et cette lumière vient d’elle. Les deux pieds dans la poussière, elle regarde ses tatouages s’éveiller. La peur est encore là, mais elle ne la fait plus reculer.",
+  "artwork": "KAYLIS",
+  "artworkSource": "V3/assets/illustrations/12_RAINBOW_KAYLIS.png",
+  "artworkUnchanged": true,
+  "sourcePSD": "V3/templates/12_RAINBOW_KAYLIS.psd",
+  "output": "KAYLIS_V4_01_RAINBOW",
+  "profile": "V4/template-stable/elements-02/kaylis/card.json"
+}

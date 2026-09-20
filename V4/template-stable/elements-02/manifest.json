@@ -1,0 +1,996 @@
+{
+  "schemaVersion": 4,
+  "effectLayouts": [
+    {
+      "layer": "ATK D6 - effet death",
+      "width": 49.53,
+      "height": 78,
+      "anchor": [
+        0.49708225310358656,
+        0.3991686358319086
+      ],
+      "center": [
+        142,
+        147
+      ],
+      "safeRadius": 49
+    }
+  ],
+  "batch": "elements-02",
+  "baseRegistry": "V4/template-stable/registry-electro-03f.json",
+  "template": "V4/template-stable/KALISTAR_V4_TEMPLATE_04_ELEMENTS.psd",
+  "registry": "V4/template-stable/registry-elements-05.json",
+  "fixedMaster": "V4/template-stable/elements-01/fixed-master.png",
+  "cards": [
+    {
+      "schemaVersion": 4,
+      "id": "30000012",
+      "name": "KAYLIS",
+      "title": "LA PREMIÈRE BRÈCHE",
+      "job": "ÉVASION",
+      "race": "HUMAIN",
+      "element": "RAINBOW",
+      "faction": "Z13",
+      "weapon": "Dague",
+      "positions": [
+        5
+      ],
+      "atk": [
+        175,
+        143,
+        111,
+        86,
+        "guard",
+        "revive"
+      ],
+      "defense": [
+        200,
+        170,
+        133,
+        96,
+        66,
+        "retry"
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "slug": "12_RAINBOW_KAYLIS",
+      "hue": 280,
+      "color": "E4D5FB",
+      "weapon_index": 15,
+      "description": "Kaylis s’arrête. Ses bras éclairent la roche, et cette lumière vient d’elle. Les deux pieds dans la poussière, elle regarde ses tatouages s’éveiller. La peur est encore là, mais elle ne la fait plus reculer.",
+      "artwork": "KAYLIS",
+      "artworkSource": "V3/assets/illustrations/12_RAINBOW_KAYLIS.png",
+      "artworkUnchanged": true,
+      "sourcePSD": "V3/templates/12_RAINBOW_KAYLIS.psd",
+      "output": "KAYLIS_V4_01_RAINBOW",
+      "profile": "V4/template-stable/elements-02/kaylis/card.json"
+    },
+    {
+      "schemaVersion": 4,
+      "id": "30000036",
+      "name": "ELENION",
+      "title": "LA FLÈCHE DU SERMENT",
+      "job": "ARPENTEUR",
+      "race": "CERELF",
+      "element": "GEO",
+      "faction": "Woodland",
+      "weapon": "Arc",
+      "positions": [
+        3
+      ],
+      "atk": [
+        233,
+        191,
+        156,
+        114,
+        72,
+        30
+      ],
+      "defense": [
+        235,
+        193,
+        151,
+        116,
+        74,
+        32
+      ],
+      "magic": [
+        6,
+        4,
+        2
+      ],
+      "barriers": [
+        4
+      ],
+      "slug": "36_GEO_ELENION",
+      "hue": 41,
+      "color": "C7AB6D",
+      "weapon_index": 5,
+      "description": "Elenion retient son souffle. La corde tendue ne tremble plus entre ses bois et son épaule. À la lisière, chaque passage laisse une trace ; celui qu’il vise vient de laisser la dernière.",
+      "artwork": "ELENION",
+      "artworkSource": "V3/assets/illustrations/36_GEO_ELENION.png",
+      "artworkUnchanged": true,
+      "sourcePSD": "V3/templates/36_GEO_ELENION.psd",
+      "output": "ELENION_V4_01_GEO",
+      "profile": "V4/template-stable/elements-02/elenion/card.json"
+    },
+    {
+      "schemaVersion": 4,
+      "id": "30000020",
+      "name": "SERAPHINA",
+      "title": "LE SERMENT SUSPENDU",
+      "job": "MÉDIATRICE",
+      "race": "VAMP",
+      "element": "HEMATO",
+      "faction": "Draevenheim",
+      "weapon": "Fouet",
+      "positions": [
+        5
+      ],
+      "atk": [
+        172,
+        140,
+        115,
+        83,
+        "guard",
+        "retry"
+      ],
+      "defense": [
+        204,
+        167,
+        130,
+        100,
+        63,
+        26
+      ],
+      "magic": [
+        6,
+        4,
+        3
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "slug": "20_HEMATO_SERAPHINA",
+      "hue": 343,
+      "color": "E84976",
+      "weapon_index": 6,
+      "description": "Seraphina laisse le sceau se dissoudre entre ses doigts. Pour une nuit, aucune dette de sang ne franchira cette porte. Demain, elle devra répondre de ce répit.",
+      "artwork": "SERAPHINA",
+      "artworkSource": "V3/assets/illustrations/20_HEMATO_SERAPHINA.png",
+      "artworkUnchanged": true,
+      "sourcePSD": "V3/templates/20_HEMATO_SERAPHINA.psd",
+      "output": "SERAPHINA_V4_01_HEMATO",
+      "profile": "V4/template-stable/elements-02/seraphina/card.json"
+    },
+    {
+      "schemaVersion": 4,
+      "id": "30000034",
+      "name": "VALAZAR",
+      "title": "LE NOM DANS LA CENDRE",
+      "job": "NÉCROMANCIEN",
+      "race": "SKULLZ",
+      "element": "NECRO",
+      "faction": "Cryptown",
+      "weapon": "Sceptre",
+      "positions": [
+        4
+      ],
+      "atk": [
+        "death",
+        240,
+        195,
+        143,
+        91,
+        46
+      ],
+      "defense": [
+        174,
+        142,
+        110,
+        85,
+        53,
+        21
+      ],
+      "magic": [
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "barriers": [
+        4
+      ],
+      "slug": "34_NECRO_VALAZAR",
+      "hue": 270,
+      "color": "A979F7",
+      "weapon_index": 12,
+      "description": "Valazar suit du doigt une ligne de cendre. Il ne cherche pas à rappeler le mort, seulement son nom. Même Cryptown a des oublis qu'il refuse.",
+      "artwork": "VALAZAR",
+      "artworkSource": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+      "artworkUnchanged": true,
+      "sourcePSD": "V3/templates/34_NECRO_VALAZAR.psd",
+      "output": "VALAZAR_V4_01_NECRO",
+      "profile": "V4/template-stable/elements-02/valazar/card.json"
+    },
+    {
+      "schemaVersion": 4,
+      "id": "30000022",
+      "name": "MALABA",
+      "title": "UNE PLACE AU COMPTOIR",
+      "job": "MINEUR",
+      "race": "HUMAIN",
+      "element": "NONE",
+      "faction": "Z13",
+      "weapon": "Poing",
+      "positions": [
+        1
+      ],
+      "atk": [
+        203,
+        166,
+        136,
+        99,
+        "guard",
+        "buff_atk"
+      ],
+      "defense": [
+        295,
+        243,
+        191,
+        146,
+        94,
+        42
+      ],
+      "magic": [],
+      "barriers": [],
+      "slug": "22_NONE_MALABA",
+      "hue": 160,
+      "color": "93AAA5",
+      "weapon_index": 3,
+      "description": "Baba lève sa chope et plaisante avec la salle. Ses épaules occupent presque tout le comptoir. Pourtant, à la Gueule Fumante, personne ne sait faire autant de place aux autres.",
+      "artwork": "MALABA",
+      "artworkSource": "V3/assets/illustrations/22_NONE_MALABA.png",
+      "artworkUnchanged": true,
+      "sourcePSD": "V3/templates/22_NONE_MALABA.psd",
+      "output": "MALABA_V4_01_NONE",
+      "profile": "V4/template-stable/elements-02/malaba/card.json"
+    }
+  ],
+  "flags": {
+    "Z13": {
+      "source": "V3/assets/factions/Z13.png",
+      "output": "V4/template-stable/elements-02/resources/flag-Z13.png",
+      "crop": {
+        "left": 13,
+        "top": 48,
+        "width": 138,
+        "height": 282
+      }
+    },
+    "Woodland": {
+      "source": "V3/assets/factions/Woodland.png",
+      "output": "V4/template-stable/elements-02/resources/flag-Woodland.png",
+      "crop": {
+        "left": 78,
+        "top": 233,
+        "width": 821,
+        "height": 1377
+      }
+    },
+    "Draevenheim": {
+      "source": "V3/assets/factions/Draevenheim.png",
+      "output": "V4/template-stable/elements-02/resources/flag-Draevenheim.png",
+      "crop": {
+        "left": 13,
+        "top": 48,
+        "width": 138,
+        "height": 282
+      }
+    },
+    "Cryptown": {
+      "source": "V3/assets/factions/Cryptown.png",
+      "output": "V4/template-stable/elements-02/resources/flag-Cryptown.png",
+      "crop": {
+        "left": 13,
+        "top": 48,
+        "width": 138,
+        "height": 282
+      }
+    }
+  },
+  "palette": {
+    "GEO": {
+      "hue": 35,
+      "saturation": 38,
+      "lightness": -8
+    },
+    "HEMATO": {
+      "hue": 343,
+      "saturation": 52,
+      "lightness": -10
+    },
+    "NECRO": {
+      "hue": 274,
+      "saturation": 42,
+      "lightness": -14
+    },
+    "RAINBOW": {
+      "spectrum": [
+        [
+          0,
+          "171726"
+        ],
+        [
+          850,
+          "494275"
+        ],
+        [
+          1550,
+          "398294"
+        ],
+        [
+          2250,
+          "82A184"
+        ],
+        [
+          3100,
+          "C8AA77"
+        ],
+        [
+          3650,
+          "C48CBA"
+        ],
+        [
+          4096,
+          "EFE2EA"
+        ]
+      ]
+    },
+    "NONE": {
+      "hue": 210,
+      "saturation": 5,
+      "lightness": -30
+    }
+  },
+  "branchPalette": {
+    "NONE": {
+      "hue": 210,
+      "saturation": 0,
+      "lightness": -52
+    }
+  },
+  "crystalBoxes": {
+    "NONE": {
+      "width": 116,
+      "height": 144
+    }
+  },
+  "geometry": {
+    "halos": {
+      "AERO": {
+        "cx": 0.5194475138121547,
+        "cy": 0.5194475138121547,
+        "r": 0.3373480662983426,
+        "aspect": 1
+      },
+      "HYDRO": {
+        "cx": 0.5111602209944751,
+        "cy": 0.5277348066298342,
+        "r": 0.3373480662983426,
+        "aspect": 1
+      },
+      "ELECTRO": {
+        "cx": 0.494585635359116,
+        "cy": 0.5194475138121547,
+        "r": 0.3428729281767956,
+        "aspect": 1
+      },
+      "PYRO": {
+        "cx": 0.494585635359116,
+        "cy": 0.5277348066298342,
+        "r": 0.3428729281767956,
+        "aspect": 1
+      },
+      "CRYO": {
+        "cx": 0.5194475138121547,
+        "cy": 0.494585635359116,
+        "r": 0.32629834254143647,
+        "aspect": 1
+      },
+      "LUXO": {
+        "cx": 0.5028729281767955,
+        "cy": 0.48629834254143645,
+        "r": 0.32629834254143647,
+        "aspect": 1
+      },
+      "MINERO": {
+        "cx": 0.510586319218241,
+        "cy": 0.503257328990228,
+        "r": 0.3745928338762215,
+        "aspect": 1.013843648208469
+      },
+      "HERBO": {
+        "cx": 0.494585635359116,
+        "cy": 0.4697237569060773,
+        "r": 0.3373480662983426,
+        "aspect": 1
+      },
+      "HEMATO": {
+        "cx": 0.5111602209944751,
+        "cy": 0.4365745856353591,
+        "r": 0.35392265193370165,
+        "aspect": 1
+      },
+      "NECRO": {
+        "cx": 0.5111602209944751,
+        "cy": 0.44486187845303865,
+        "r": 0.30972375690607734,
+        "aspect": 1
+      },
+      "GEO": {
+        "cx": 0.5,
+        "cy": 0.5,
+        "r": 0.375,
+        "aspect": 1
+      },
+      "RAINBOW": {
+        "cx": 0.5028729281767955,
+        "cy": 0.4365745856353591,
+        "r": 0.3483977900552486,
+        "aspect": 1
+      }
+    },
+    "flags": {
+      "Chroma": {
+        "bar": 0.1157556270096463,
+        "aspect": 1.896341463414634
+      },
+      "Nestown": {
+        "bar": 0.09146341463414634,
+        "aspect": 2
+      },
+      "Thalassea": {
+        "bar": 0.1054421768707483,
+        "aspect": 1.7926829268292683
+      },
+      "Vulkar": {
+        "bar": 0.11036789297658862,
+        "aspect": 1.8231707317073171
+      },
+      "Niveria": {
+        "bar": 0.12424242424242424,
+        "aspect": 2.129032258064516
+      },
+      "Solaria": {
+        "bar": 0.13636363636363635,
+        "aspect": 2.037037037037037
+      },
+      "Durane": {
+        "bar": 0.0932475884244373,
+        "aspect": 1.896341463414634
+      },
+      "Arborium": {
+        "bar": 0.12121212121212122,
+        "aspect": 2.1710526315789473
+      },
+      "Draevenheim": {
+        "bar": 0.03985507246376811,
+        "aspect": 1.6829268292682926
+      },
+      "Cryptown": {
+        "bar": 0.041666666666666664,
+        "aspect": 1.7560975609756098
+      },
+      "Zarok": {
+        "bar": 0.038461538461538464,
+        "aspect": 1.7439024390243902
+      },
+      "Z13": {
+        "bar": 0.039735099337748346,
+        "aspect": 1.8414634146341464
+      },
+      "Crabazar": {
+        "bar": 0.039765319426336376,
+        "aspect": 1.6096537250786989
+      },
+      "Woodland": {
+        "bar": 0.023575638506876228,
+        "aspect": 1.582383419689119
+      }
+    },
+    "icons": {
+      "weapons": {
+        "10": {
+          "r": 0.6989625542205379,
+          "aspect": 1.0025641025641026,
+          "alphaBounds": [
+            57,
+            56,
+            447,
+            447
+          ]
+        },
+        "11": {
+          "r": 0.6385288879434092,
+          "aspect": 1.036697247706422,
+          "alphaBounds": [
+            103,
+            96,
+            430,
+            435
+          ]
+        },
+        "12": {
+          "r": 0.6978126688271167,
+          "aspect": 1,
+          "alphaBounds": [
+            67,
+            66,
+            447,
+            446
+          ]
+        },
+        "13": {
+          "r": 0.5709426312988981,
+          "aspect": 1.0644257703081232,
+          "alphaBounds": [
+            79,
+            66,
+            436,
+            446
+          ]
+        },
+        "14": {
+          "r": 0.6918856568309808,
+          "aspect": 1.0598802395209581,
+          "alphaBounds": [
+            69,
+            72,
+            403,
+            426
+          ]
+        },
+        "15": {
+          "r": 0.6951132965555757,
+          "aspect": 1.0190114068441065,
+          "alphaBounds": [
+            138,
+            144,
+            401,
+            412
+          ]
+        },
+        "16": {
+          "r": 0.6931311474052442,
+          "aspect": 0.9830028328611898,
+          "alphaBounds": [
+            90,
+            89,
+            443,
+            436
+          ]
+        },
+        "17": {
+          "r": 0.6951674025415918,
+          "aspect": 0.9869791666666666,
+          "alphaBounds": [
+            69,
+            68,
+            453,
+            447
+          ]
+        },
+        "18": {
+          "r": 0.7407863689650644,
+          "aspect": 1.1226666666666667,
+          "alphaBounds": [
+            89,
+            37,
+            464,
+            458
+          ]
+        },
+        "19": {
+          "r": 0.6355543500864115,
+          "aspect": 0.8212669683257918,
+          "alphaBounds": [
+            27,
+            59,
+            469,
+            422
+          ]
+        },
+        "00": {
+          "r": 0.6125662170265468,
+          "aspect": 0.8423529411764706,
+          "alphaBounds": [
+            44,
+            66,
+            469,
+            424
+          ]
+        },
+        "01": {
+          "r": 0.6462839366944441,
+          "aspect": 1,
+          "alphaBounds": [
+            46,
+            46,
+            456,
+            456
+          ]
+        },
+        "02": {
+          "r": 0.6799259599455306,
+          "aspect": 1.0075949367088608,
+          "alphaBounds": [
+            51,
+            49,
+            446,
+            447
+          ]
+        },
+        "03": {
+          "r": 0.5992475480111528,
+          "aspect": 1,
+          "alphaBounds": [
+            58,
+            59,
+            456,
+            457
+          ]
+        },
+        "04": {
+          "r": 0.6598680594729703,
+          "aspect": 0.8913043478260869,
+          "alphaBounds": [
+            44,
+            56,
+            458,
+            425
+          ]
+        },
+        "05": {
+          "r": 0.6942924221741377,
+          "aspect": 1,
+          "alphaBounds": [
+            92,
+            91,
+            423,
+            422
+          ]
+        },
+        "06": {
+          "r": 0.5166328359002039,
+          "aspect": 0.8743455497382199,
+          "alphaBounds": [
+            81,
+            89,
+            463,
+            423
+          ]
+        },
+        "07": {
+          "r": 0.647886587552278,
+          "aspect": 1.042296072507553,
+          "alphaBounds": [
+            94,
+            89,
+            425,
+            434
+          ]
+        },
+        "08": {
+          "r": 0.6959935120487386,
+          "aspect": 1,
+          "alphaBounds": [
+            66,
+            66,
+            447,
+            447
+          ]
+        },
+        "09": {
+          "r": 0.5088916214618844,
+          "aspect": 1,
+          "alphaBounds": [
+            91,
+            91,
+            424,
+            424
+          ]
+        }
+      },
+      "races": {
+        "ROBOT": {
+          "r": 0.5113590091333344,
+          "aspect": 1.002439024390244,
+          "alphaBounds": [
+            0,
+            21,
+            1230,
+            1254
+          ]
+        },
+        "FALCO": {
+          "r": 0.6185963505446278,
+          "aspect": 1.008130081300813,
+          "alphaBounds": [
+            0,
+            14,
+            1230,
+            1254
+          ]
+        },
+        "SIRENA": {
+          "r": 0.5357061069278595,
+          "aspect": 1.0188834154351396,
+          "alphaBounds": [
+            0,
+            13,
+            1218,
+            1254
+          ]
+        },
+        "DRAX": {
+          "r": 0.6539082974490368,
+          "aspect": 1.0316139767054908,
+          "alphaBounds": [
+            0,
+            14,
+            1202,
+            1254
+          ]
+        },
+        "HUMAIN": {
+          "r": 0.5097916472731675,
+          "aspect": 1.051304347826087,
+          "alphaBounds": [
+            49,
+            21,
+            1199,
+            1230
+          ]
+        },
+        "AURELION": {
+          "r": 0.6040801662215225,
+          "aspect": 1.0366666666666666,
+          "alphaBounds": [
+            0,
+            10,
+            1200,
+            1254
+          ]
+        },
+        "NAIN": {
+          "r": 0.5761751829892208,
+          "aspect": 0.9991896272285251,
+          "alphaBounds": [
+            0,
+            21,
+            1234,
+            1254
+          ]
+        },
+        "CARNIVERT": {
+          "r": 0.42667404208170306,
+          "aspect": 1.048653344917463,
+          "alphaBounds": [
+            41,
+            21,
+            1192,
+            1228
+          ]
+        },
+        "VAMP": {
+          "r": 0.5666986517015955,
+          "aspect": 0.9762510602205259,
+          "alphaBounds": [
+            49,
+            57,
+            1228,
+            1208
+          ]
+        },
+        "SKULLZ": {
+          "r": 0.5566474603029538,
+          "aspect": 1.1013333333333333,
+          "alphaBounds": [
+            97,
+            15,
+            1222,
+            1254
+          ]
+        },
+        "RHINOZ": {
+          "r": 0.6118010320882928,
+          "aspect": 1.0532188841201717,
+          "alphaBounds": [
+            43,
+            13,
+            1208,
+            1240
+          ]
+        },
+        "KORBOW": {
+          "r": 0.5441104745075387,
+          "aspect": 0.9866332497911445,
+          "alphaBounds": [
+            33,
+            47,
+            1230,
+            1228
+          ]
+        },
+        "CYBORG": {
+          "r": 0.5114087717792227,
+          "aspect": 0.9845528455284552,
+          "alphaBounds": [
+            0,
+            17,
+            1230,
+            1228
+          ]
+        },
+        "GOLEM": {
+          "r": 0.4656907394241129,
+          "aspect": 0.9829545454545454,
+          "alphaBounds": [
+            0,
+            19,
+            1232,
+            1230
+          ]
+        },
+        "CARDEMORTIS": {
+          "r": 0.5505722892773512,
+          "aspect": 1.1097345132743364,
+          "alphaBounds": [
+            61,
+            0,
+            1191,
+            1254
+          ]
+        },
+        "FELINEUS": {
+          "r": 0.5714959626810324,
+          "aspect": 1.0759962928637627,
+          "alphaBounds": [
+            55,
+            39,
+            1134,
+            1200
+          ]
+        },
+        "TANTALAK": {
+          "r": 0.49531170040243905,
+          "aspect": 1.0283333333333333,
+          "alphaBounds": [
+            0,
+            20,
+            1200,
+            1254
+          ]
+        },
+        "TOXINAR": {
+          "r": 0.5238468146048958,
+          "aspect": 1.0008064516129032,
+          "alphaBounds": [
+            0,
+            13,
+            1240,
+            1254
+          ]
+        },
+        "CERELF": {
+          "r": 0.4955137822380568,
+          "aspect": 1.002439024390244,
+          "alphaBounds": [
+            0,
+            21,
+            1230,
+            1254
+          ]
+        }
+      }
+    }
+  },
+  "protectedFiles": {
+    "V4/template-stable/KALISTAR_V4_TEMPLATE_04_ELEMENTS.psd": "8debe18c083cad5684c826b2b6267fd545b28d2d248974fd450afe02af05b7a3",
+    "V4/template-stable/registry-elements-04.json": "7f68e21169a407b9a0a2ba500125ec67be953d9f733880b68098998436de7ddd",
+    "V4/template-stable/KALISTAR_V4_TEMPLATE_03F_ELECTRO_RIKKA.psd": "5693665379b64970b4f698e6348d2fa9683e8246509bd8141971bf397c1bd56d",
+    "V4/template-stable/registry-electro-03f.json": "9179294bcb6140e92386092a43c4ed93915747e00660712befb7198f3f6dc42f",
+    "V4/template-stable/current.json": "3a493b934c47d94100056ac294e1ca7a95557f52ef3570798dce60587b8bce06",
+    "V3/donnees/cartes.json": "bb6de0d7b2b7eec0f1a9348dc892faa002fe542c169bbe202e11aca7e3788761",
+    "V3/site/index.html": "a61fb96c9f3cd4fe12d9573cbcce9ad6174888219f565b80e05f2c500a3bf768",
+    "V3/site/engine.js": "a1c3c6c3b6c4363adbcff6e00a41609513171a91a119f5ced864d68f18a49def",
+    "V4/templates/RUBY_V4_01_HYDRO.psd": "19f138df7cce37419c76bcc252ab9c5f3d9d6c5a31283c934534b8a2caf2236b",
+    "V4/cartes/RUBY_V4_01_HYDRO.png": "96d997cdad9345dcd04068837d851a4c51e83d1afbf7800831209ac4caf90e72",
+    "V4/template-stable/elements-01/ruby/card.json": "10080ffbc9a2ea9c3f28e6b52f30041cc7872450338dedab3b6bc9acfc64ac0a",
+    "V4/templates/CANA_V4_01_AERO.psd": "f4af5e29fde77611a754e050dd41d4c14b01f521497aa7acecab220710b5e0ab",
+    "V4/cartes/CANA_V4_01_AERO.png": "5797733c8ee9480ef2d05d8b5fdf8a3384fd7bc57e810c8b25df80e6e91993ef",
+    "V4/template-stable/elements-01/cana/card.json": "94299a595377751b39d7a7b5a761c19609eac55fa4e1d311ef2c0722785eca74",
+    "V4/templates/SCROW_V4_01_AERO.psd": "a048ade7a9ff60a1d8fc3c1e024bcad16f6e66a06b7d6937119595ebe08e0e4c",
+    "V4/cartes/SCROW_V4_01_AERO.png": "e1cf3104f465e77772d77778707e911c462c08d7a7d2c87c0f16f74f5d445fe4",
+    "V4/template-stable/elements-01/scrow/card.json": "a49ccc9a924fbea16bd2eeeb5091e8a557678666b9d4d188f7f8bd78973f2380",
+    "V4/templates/SORYN_V4_01_AERO.psd": "80ee36417aff2ea7a4cd6714ead40664f45bc74cb67d2f6aca09de63d8deb42b",
+    "V4/cartes/SORYN_V4_01_AERO.png": "06ba1ace1600d5cfe07852b090e4d4fe631f0e5a309c3d76c2d14a4c42f05ab8",
+    "V4/template-stable/elements-01/soryn/card.json": "4cd629c32ef877c6384f40c9d6887099d95487c442f1a5049d72ef511f7c9c79",
+    "V4/templates/GILMARR_V4_01_AERO.psd": "7ea7ac6469cc8982b475fdd30c1deb8de4a08a24c1d62a9ce35781b763ea2d13",
+    "V4/cartes/GILMARR_V4_01_AERO.png": "0a962c1c097863d1faa64c25f7785ab2ee23a0dfb366e1f664986191a4f190d0",
+    "V4/template-stable/elements-01/gilmarr/card.json": "93a99c0f0cdb4d5d7f7fd60dd592f1962b3f8d3be25b30fad067b79816cc56d6",
+    "V4/templates/DARNAKO_V4_01_PYRO.psd": "f6b9cdca2ff7d127aaee74d5d1c15e5465a901a915e72faee5cbe65b64861284",
+    "V4/cartes/DARNAKO_V4_01_PYRO.png": "fc137ca1dafe840ebcfd4aafbbca5d66dd71906cb748bf29124cc74b181444e5",
+    "V4/template-stable/elements-01/darnako/card.json": "5d95c2a594a1e5ff4158e6f8c290a6399370195fbdc82978ddd8b184906c70ab",
+    "V4/templates/MALINIA_V4_01_CRYO.psd": "2e967c4b46681d4630d553a09c91d63f00a50fc41f27b4d011a903279c8aef44",
+    "V4/cartes/MALINIA_V4_01_CRYO.png": "8c0d3dfb1c6f48f1657d6a3220cdfdce3efc84e152fffeedbafa3489ff58ae4a",
+    "V4/template-stable/elements-01/malinia/card.json": "dd120ff338a1c0b2501f1d99f95f945abe3496aeb0db7eea39fcc83d617dcd59",
+    "V4/templates/AELIS_V4_01_LUXO.psd": "195622b825c9adf11dad1b6b52e3eba0c6dc5227db23cc04e7b7e73013151fa4",
+    "V4/cartes/AELIS_V4_01_LUXO.png": "5f5ec39d7854c6de4ae64dba32bf8d356424d946957c3a12c5c5779a9ee80188",
+    "V4/template-stable/elements-01/aelis/card.json": "bf031eb85e523bd830d3702e7ffa9c9cef0c751eee91ae689f42e935fa2dbab6",
+    "V4/templates/ILIANE_V4_01_LUXO.psd": "71d6443869d02872f7cd1a04e30122f5a8e1a54de7ae1893cd0c3fd4b5e30e31",
+    "V4/cartes/ILIANE_V4_01_LUXO.png": "83673e4f0e0a2eb7d6fc8dab167d52a852f5596b7d7b8c47bbab3387fbde04bb",
+    "V4/template-stable/elements-01/iliane/card.json": "6c39d6a46f5bb253aba56c7c2cbe90dca1bcc2c4f1d17648388fbccd753b0648",
+    "V4/templates/BELROG_V4_01_MINERO.psd": "498ad060c8ae284a17f81b92ec87c0020baa817940d1c5054d454676be78617d",
+    "V4/cartes/BELROG_V4_01_MINERO.png": "e8b4fa8944a320d88d99fa3366502c8e8f3929d90e63df6304f9c441f84940c1",
+    "V4/template-stable/elements-01/belrog/card.json": "f11576c0d5b46677dcf8ab378c01383c158532030674321b1f9e4a3130f8bf93",
+    "V4/templates/LOK_V4_01_MINERO.psd": "5a22022e7127975fc3029939f5925627a89e1c6e2fd5290b1f180881b9750eee",
+    "V4/cartes/LOK_V4_01_MINERO.png": "37251d1c95909ae77b0bc60afa76bf85fdea26c57c3dc25d0e267ec60ae2ceaa",
+    "V4/template-stable/elements-01/lok/card.json": "49c70acc375d4359ad1bea372ecf564a47e849db2f99aa8db60347a364dbd56a",
+    "V4/templates/BALMHYR_V4_01_MINERO.psd": "edd7490d7d1c9c0c6d5f25049d6ec2439351e92795773016f48e4ed6768e4729",
+    "V4/cartes/BALMHYR_V4_01_MINERO.png": "e57aa28a0a23834491382b9951a85ef7d722e247485e508db4ba9e3e6c95c72d",
+    "V4/template-stable/elements-01/balmhyr/card.json": "cfee695e30cbb4fd5e06490d2a7952706781e572e546d349eb04036a80f9ac9e",
+    "V4/templates/MAGNAR_V4_01_MINERO.psd": "a372ddc89999753e87b263fb03cca65dbbc7804e546c44c7e267e0dfbf6f6bc2",
+    "V4/cartes/MAGNAR_V4_01_MINERO.png": "041b8494778a22ab6c561e9b2e400b4d22343f4ceff906f09408e4e6a8c7f176",
+    "V4/template-stable/elements-01/magnar/card.json": "8d9034b184d1e8414baa4791ec7753b55127c7f0879c1a2a87640b8749f77446",
+    "V4/templates/THALIE_V4_01_HERBO.psd": "1825a3851aadb6d6a2316728c22521df57383d14353c880a7612f9e66216b719",
+    "V4/cartes/THALIE_V4_01_HERBO.png": "621d0aa6f8bb2c823705bf506b28300457400cd19a1702cbd76d1c1ef7e33c31",
+    "V4/template-stable/elements-01/thalie/card.json": "145e271e48a2e1dc1006fd61a52bcaa969e96be960274f6856027546befe6f00",
+    "V4/templates/BLOOM_V4_01_HERBO.psd": "d508982db2551669e15e7da7b2ea00c268c790eb96a08b17f361ce723de69bf7",
+    "V4/cartes/BLOOM_V4_01_HERBO.png": "be2e14c7fcdb1701bde8644fe34a6fe45346d8b02928fdc053f495c1e016411e",
+    "V4/template-stable/elements-01/bloom/card.json": "ef15a1780a4671fbf90e6120573c6d9b15feea402cbe5d5ae1d9763d7bef6d52",
+    "V4/templates/VICTORVINE_V4_01_HERBO.psd": "37f8cd747b5a3791b18c9cb968e6fea88a484182f84e7f4d00ad3a33760da20d",
+    "V4/cartes/VICTORVINE_V4_01_HERBO.png": "633e8630d1a5d98d180d4354266edccf99713b459685e0d43608e794c7931a34",
+    "V4/template-stable/elements-01/victorvine/card.json": "f19152df41002291d83e6df948c98cb5c333dbe56807e5dbbbc36f3d41d9c6fd",
+    "V4/templates/MOMO_V4_11_POSITIONS.psd": "42e096da659456c189e37936ffd745ed31627549cdf5ed6c8eb42e1b3df878a7",
+    "V4/cartes/MOMO_V4_11_POSITIONS.png": "a6a2e0ee1824583445c7718b56bd3dc870281f41bfc0ace77522d6b16cb4e146",
+    "V4/template-stable/revision-03/momo/card.json": "9c8623abb0d147f02e66d41fdeac310fb1b6774856690d8d29c7a82f5cbdba46",
+    "V4/templates/TAULIO_V4_02_POSITIONS.psd": "015d50f916f05d483e8e918453909f0d753ce04753cb83def350b791929685e6",
+    "V4/cartes/TAULIO_V4_02_POSITIONS.png": "35c9d2b395e8566d7c0862ad333b1cb2cf06f58b8244f65b26bf7d2e6e842180",
+    "V4/template-stable/revision-03/taulio/card.json": "fe9d2922ea7d82b2e8acf8c5fab3a5427c7f446b1831d7c7e054f125ca4c4033",
+    "V4/templates/JELLY_JOE_V4_03_ENCRE.psd": "de6e1aa2391f5ace1ef776eec20bad99ed3f9a0e1d1400972ee514d157c0cac3",
+    "V4/cartes/JELLY_JOE_V4_03_ENCRE.png": "5cea90f6d4fd2277c8bd0e9545e8002c4601bba0efee3455159979bac68b72ef",
+    "V4/template-stable/jelly-joe-encre/card.json": "78f604994680fc9970e33fa82983c243cf04691150f0df99aa0df480134032b6",
+    "V4/templates/MOMO_BAL_V4_01_TEMPLATE_ELECTRO.psd": "57fcba88b4d8ffd7e8dcd26b3fe1c1d358e21a044190fc6af87b136ea06b476f",
+    "V4/cartes/MOMO_BAL_V4_01_TEMPLATE_ELECTRO.png": "5466f2024fe84eb26f1b96499ba0a8cb70e199e82cc73020a01daf5ea57ccd7e",
+    "V4/template-stable/momo-bal/card.json": "eb5a8a46f34e6147a9d94f5e88c696feb506ed42bbc1c34d7ea4d4f2b0328c67",
+    "V4/templates/RIKKA_V4_03_RECADRAGE.psd": "bac249fcd0047629fe5fcc8aa043811eef0eabe9ac76c4971da754a150139015",
+    "V4/cartes/RIKKA_V4_03_RECADRAGE.png": "2c1591449b9fbf482893769f50b6aef79969ffb7b5aff6d5b2d7544b71e13759",
+    "V4/template-stable/rikka-revision-03/card.json": "6b16597e05378444bd8b2b30f986644462f1b0253e9eae0f8dafcbb4a397efce",
+    "V3/templates/12_RAINBOW_KAYLIS.psd": "e19f9aea31e15766c1a09aba53e558857cd9b64ad823b6b177022b3d87dea907",
+    "V3/assets/illustrations/12_RAINBOW_KAYLIS.png": "5aa38b060778cc434454f5e6a36a5ebd64e75efb7dfa3939f2b96c11d8decf75",
+    "V3/templates/36_GEO_ELENION.psd": "c0a2671de4530aa14dc7fea6ad4cc1fa429a60cb8a8af6b59bf520045c0ad98a",
+    "V3/assets/illustrations/36_GEO_ELENION.png": "14a45dc36a9fe8582c18402721d500eb6390c330855acaf5ad22d5993b5cea7a",
+    "V3/templates/20_HEMATO_SERAPHINA.psd": "71870c2956c006aef2e80f82840db8bb33ff901bdec56b45d7ad7f9eda78144c",
+    "V3/assets/illustrations/20_HEMATO_SERAPHINA.png": "2b1375ed4ea9e7657eaa739d68f077a9cedf179f497204490bb77c063d6a1794",
+    "V3/templates/34_NECRO_VALAZAR.psd": "10818a3e2e11413347e6be3d65820dfeaaa05b949d249952ab54efd86c717ac5",
+    "V3/assets/illustrations/34_NECRO_VALAZAR.png": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee",
+    "V3/templates/22_NONE_MALABA.psd": "7efedf990fbedb9ddb3ccd03511b251b32e2485c14ff32ee194654f858addbb6",
+    "V3/assets/illustrations/22_NONE_MALABA.png": "3ce4447d4bcc85a53108ad3d3547a759041fc2720a7c37d829832b95f0d00f05"
+  },
+  "branchRevision": {
+    "id": "branches-2026-09-18",
+    "audit": "V4/revisions/2026-09-18-branches/verification.json"
+  }
+}

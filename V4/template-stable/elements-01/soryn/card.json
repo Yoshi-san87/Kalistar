@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 4,
+  "id": "30000040",
+  "name": "SORYN",
+  "title": "LE VENT JUSTE",
+  "job": "ACCORDEUR",
+  "race": "FALCO",
+  "element": "AERO",
+  "faction": "Nestown",
+  "weapon": "Instrument",
+  "positions": [
+    4
+  ],
+  "atk": [
+    295,
+    243,
+    191,
+    146,
+    94,
+    "mana"
+  ],
+  "defense": [
+    170,
+    145,
+    113,
+    81,
+    56,
+    24
+  ],
+  "magic": [
+    6,
+    5,
+    4,
+    3,
+    2
+  ],
+  "barriers": [
+    4
+  ],
+  "slug": "40_AERO_SORYN",
+  "hue": 155,
+  "color": "89EDC2",
+  "weapon_index": 11,
+  "description": "Soryn attend que le vent tourne avant de toucher la corde. Une note traverse le brouillard. Sur le pont invisible, les voyageurs savent de nouveau où poser le pied.",
+  "artwork": "SORYN",
+  "artworkSource": "V4/assets/illustrations/elements-01/air/SORYN_V4_01.png",
+  "artworkUnchanged": false,
+  "sourcePSD": "V3/templates/40_AERO_SORYN.psd",
+  "output": "SORYN_V4_01_AERO",
+  "profile": "V4/template-stable/elements-01/soryn/card.json"
+}

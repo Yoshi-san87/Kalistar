@@ -1,0 +1,21 @@
+.boot-status { padding: 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 20px; }
+.boot-status h1, .boot-status p { flex-basis: 100%; }
+.masthead { gap: 20px; }
+.main-nav button { padding-inline: 16px; }
+#atelier-panel { width: 100%; min-width: 0; height: calc(100dvh - var(--masthead-height, 100px)); }
+#atelier-panel iframe { display: block; width: 100%; height: 100%; border: 0; background: #101413; }
+.catalogue-refresh { position: fixed; right: 18px; bottom: 18px; z-index: 10; background: #d6eee0; color: #162e20; border-color: #83b99b; }
+.registry-catalogue-notice { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 18px; border-bottom: 1px solid #536459; }
+@media (max-width: 1100px) {
+  .masthead { flex-wrap: wrap; padding: 12px 18px; gap: 12px; }
+  .main-nav { order: 3; width: 100%; justify-content: center; }
+  .main-nav button { flex: 1; min-width: 0; padding: 10px 8px; }
+  .header-actions { gap: 6px; }
+}
+@media (max-width: 640px) {
+  .masthead .brand { width: 135px; }
+  .masthead .brand img { width: 115px; }
+  .main-nav button { font-size: 12px; gap: 5px; }
+  .header-actions .deck-button span { display: none; }
+  .main-nav .lucide { width: 16px; height: 16px; }
+}

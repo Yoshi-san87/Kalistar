@@ -1,0 +1,20 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path');
+const root=path.resolve(__dirname,'..');
+const read=file=>JSON.parse(fs.readFileSync(path.join(root,file),'utf8'));
+const cards=read('donnees/cartes.json'),record=read('donnees/revision_buffs_scenes_integration.json');
+const selected=process.argv.find(x=>x.startsWith('--ids='))?.slice(6).split(',').map(Number);
+const ids=cards.filter(c=>{
+ if(selected&&!selected.includes(Number(c.id)-30000000))return false;
+ const art=record.protected[c.slug]||record.assets['illustrations/'+c.slug+'.png'];
+ if(!art||!record.assets['races/'+c.race+'.png']||!record.assets['armes/'+String(c.weapon_index).padStart(2,'0')+'.png'])return false;
+ const proof=path.join(root,'verification',c.slug+'_render_inputs.txt');
+ if(!fs.existsSync(proof))return true;
+ const png=path.join(root,'cartes',c.slug+'.png');
+ const inputs=['scripts/build_cards.jsx','scripts/version_band.jsx','assets/illustrations/'+c.slug+'.png','assets/races/'+c.race+'.png','assets/armes/'+String(c.weapon_index).padStart(2,'0')+'.png'];
+ if(c.element==='MINERO')inputs.push('assets/effets/MINERO.png');
+ return !fs.existsSync(png)||inputs.some(file=>fs.statSync(path.join(root,file)).mtimeMs>fs.statSync(png).mtimeMs);
+}).map(c=>c.id);
+if(!ids.length)throw new Error('No ready cards awaiting export.');
+fs.writeFileSync(path.join(root,'donnees/build_config.json'),JSON.stringify({ids},null,2)+'\n');
+console.log(JSON.stringify({count:ids.length,ids}));

@@ -1,0 +1,51 @@
+{
+  "revision": "buffs-scenes-20260914",
+  "tool": "image_gen.imagegen built-in",
+  "images": [
+    {
+      "asset": "effets/MINERO.png",
+      "prompt": "Generate one transparent game UI asset, PNG RGBA with REAL alpha outside the object. No colored background, no black background, no checkerboard pattern. It will be placed over existing card artwork. Kalistar hand-painted fantasy game. A single SOLID irregular round flat piece of dark basalt rock with a thick faceted chipped perimeter. Front-facing stone stat capsule, roughly square overall silhouette, not a hollow ring. 65 percent of the central area is opaque dark quiet rock reserved for readable white stat text to be added later; no text in this asset. Pale icy blue-white magic glows softly from sparse cracks along the outer edges only, slight outward magical wisps. Avoid a perfect circular metallic rim, avoid an arrangement of separate stones. One piece of stone, almost like a palm-sized heavy shield-shaped slab with angular edges, but no straps. Large deliberate painted facets and brushwork, restrained fine detail, readable at 75px. Full object entirely in view, centered with transparent margin on all four sides, square canvas. RGBA alpha is essential; transparent exterior and opaque stone center.",
+      "native": "C:/Users/guill/.codex/generated_images/019e30c1-21b0-7e11-9f9d-2fe692f111d2/exec-2da6b7e6-e9a3-4380-bc58-36630fffba8d.png",
+      "sha256": "e11f94c19990b41fd3f87d359791ccffc348b978432ad45688c116bdc1e8a99b",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "qa": {
+        "opaqueCenter": true,
+        "transparentCorners": true,
+        "nativePhotoshopPrototypeApproved": true,
+        "stoneReplacesOldCircle": true,
+        "numericTextSeparate": true
+      },
+      "discardedAttempt": {
+        "native": "C:/Users/guill/.codex/generated_images/019e30c1-21b0-7e11-9f9d-2fe692f111d2/exec-87fa86f4-7f26-4c7c-b6da-1b3f6df10a5f.png",
+        "prompt": "Use case: precise-object-edit. Asset type: Kalistar fantasy card game ATK numeric stat capsule, isolated transparent PNG. Reference image 1 is the REJECTED hollow stone ring, use its hand-painted mineral material and pale cool magic only, NOT its ring shape. Replace it with ONE SOLID, almost circular but irregular faceted dark stone slab, front view, thick beveled broken-rock edges. The center must be filled opaque dark charcoal rock, broadly flat and quiet, and cover a central circular area at least 65% of the width so a bright two/three-digit number can later be typeset on top (DO NOT draw any numbers or text). Jagged perimeter, recognizably real stone not a jewel or medallion. Fine restrained pale blue-white magical fissures ONLY on the perimeter and a tiny magical aura just outside, no bright line across center. Readable even reduced to 75 pixels. No metal ring, no hollow hole, no stones arranged in circle, no black background, no checkerboard. Genuine transparent alpha outside silhouette including around faint magic. Centered square composition, modest transparent margin all sides, nearly same width and height. Painterly sculptural material matching Kalistar, polished game icon. Do not add any text or symbols.",
+        "references": [
+          "V3/sources/avant-buffs-scenes-20260914/assets/effets/MINERO.png"
+        ],
+        "reason": "RGB without alpha, not integrated"
+      }
+    }
+  ],
+  "originalSkully": {
+    "source": "V3/sources/template-source.psd",
+    "layerId": 873,
+    "layerName": "yoshisan78_Full_length_image_of_skull_Pirate_with_long_gun_on_bb70302c-4690-4e84-b396-6c0306adcabd_0",
+    "extracted": "V3/sources/skully-original-psd.png",
+    "method": "Native Photoshop layer extracted in duplicate; clipping removed only in duplicate; canvas expanded to original layer bounds. Source PSD unchanged.",
+    "artAgent": "art_b"
+  },
+  "gameplay": {
+    "buffs": "One per category, five categories may coexist",
+    "order": [
+      "ward",
+      "luck",
+      "reraise"
+    ],
+    "automatic": true,
+    "physicalGrant": "Any living ally including self",
+    "schema": 6,
+    "database": "kalistar-v3-cards",
+    "databaseReset": false
+  }
+}

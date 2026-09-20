@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-09-17T22:08:33.8940682+09:00",
+  "project_root": "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar",
+  "tool_mode": "builtin image_gen; one generation per illustration; no CLI; no Photoshop",
+  "source_database": {
+    "modified": false,
+    "sha256": "BB6DE0D7B2B7EEC0F1A9348DC892FAA002FE542C169BBE202E11ACA7E3788761",
+    "path": "V3/donnees/cartes.json"
+  },
+  "instructions_read": [
+    "V4/AGENTS.md",
+    "V4/DIRECTION_ARTISTIQUE.md",
+    "C:/Users/guill/.codex/skills/.system/imagegen/SKILL.md"
+  ],
+  "allowed_write_scopes": [
+    "V4/assets/illustrations/elements-01/eau-feu-glace/",
+    "V4/donnees/elements-01/eau-feu-glace/"
+  ],
+  "source_modifications": false,
+  "psd_or_template_work": false,
+  "notes": [
+    "User directions supersede the old Darnako rescue story for this V4 scene; V3 database is unchanged.",
+    "Malinia is a generative local-content revision, not a guarantee of pixel-identical pixels outside the stone.",
+    "QA window previews and contact sheets are derived only for inspection; final PNGs are unmodified generator outputs."
+  ],
+  "illustrations": [
+    {
+      "name": "RUBY",
+      "final_path": "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V4\\assets\\illustrations\\elements-01\\eau-feu-glace\\RUBY_V4_01.png",
+      "relative_path": "V4/assets/illustrations/elements-01/eau-feu-glace/RUBY_V4_01.png",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a0af75-4ebb-7150-a425-551a144bd81a\\exec-fb2b046a-33d2-4661-9164-ddfca682bb3f.png",
+      "sha256": "A711CF9E5D71BA6C1FABDB7DDC2B441CEA67E720CDA6B39F36E143C66686BF1B",
+      "copy_byte_identical": true,
+      "width": 1122,
+      "height": 1402,
+      "window": {
+        "width": 737,
+        "height": 921
+      },
+      "aspect_ratio_difference_percent": 0.008517,
+      "final_resampled_or_cropped": false,
+      "generator": "builtin image_gen",
+      "generation_calls": 1,
+      "use_case": "illustration-story",
+      "prompt": "V4/donnees/elements-01/eau-feu-glace/RUBY_V4_01.prompt.txt",
+      "prompt_sha256": "40A174684D6B537746082A40F5B2412F87331F07D80622F683E6DA57F46F19AF",
+      "references": [
+        {
+          "path": "V3/assets/illustrations/39_HYDRO_RUBY.png",
+          "role": "identity_clothing_equipment_reference",
+          "sha256": "AA97188FEC8B52E6161DA6CA6CC592B44BD92F32043DE7BC195782B2116FEB89",
+          "viewed_before_generation": true
+        },
+        {
+          "path": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "role": "painterly_style_reference",
+          "sha256": "44966D49AF5D5F916C3AD3F3B62BF846FA1D6646CA609CB3BEE9ED6EEDC94AC8",
+          "viewed_before_generation": true
+        },
+        {
+          "path": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "role": "painterly_style_reference",
+          "sha256": "2C443D9ADC4525953869B2DCC69433EBF00FD7243EC93E01BFFF5E11ED5DC6EE",
+          "viewed_before_generation": true
+        }
+      ],
+      "source_card": {
+        "id": "30000039",
+        "name": "RUBY",
+        "art": "V3/assets/illustrations/39_HYDRO_RUBY.png",
+        "race": "SIRENA",
+        "faction": "Thalassea",
+        "job": "CARTOGRAPHE",
+        "weapon": "Gun",
+        "text": "Ruby plonge là où les cartes s’arrêtent. Un dauphin tourne dans son sillage ; à ses hanches, les deux petits harpons restent au repos. Pour retrouver une route, elle préfère d’abord écouter l’eau.",
+        "story_scene": "Direction utilisateur : Ruby sirene nage sous l eau avec un dauphin, deux mini-pistolets harpons aux hanches, pas de tir. La queue de sirene est ici une exception explicite au corps humanoide terrestre."
+      },
+      "qa_observations": "V4/donnees/elements-01/eau-feu-glace/QA.md",
+      "approval_status": "illustration_reviewed_pending_parent_card_integration"
+    },
+    {
+      "name": "DARNAKO",
+      "final_path": "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V4\\assets\\illustrations\\elements-01\\eau-feu-glace\\DARNAKO_V4_01.png",
+      "relative_path": "V4/assets/illustrations/elements-01/eau-feu-glace/DARNAKO_V4_01.png",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a0af75-4ebb-7150-a425-551a144bd81a\\exec-5070c1fc-6813-40d1-90c6-a2458fc98108.png",
+      "sha256": "61BCB2B218F2F9D6286D9B7116511AA9FE804DFB7BBC5A318152415C71F39679",
+      "copy_byte_identical": true,
+      "width": 1122,
+      "height": 1402,
+      "window": {
+        "width": 737,
+        "height": 921
+      },
+      "aspect_ratio_difference_percent": 0.008517,
+      "final_resampled_or_cropped": false,
+      "generator": "builtin image_gen",
+      "generation_calls": 1,
+      "use_case": "illustration-story",
+      "prompt": "V4/donnees/elements-01/eau-feu-glace/DARNAKO_V4_01.prompt.txt",
+      "prompt_sha256": "4F7845C20986B02F4A57C7BC86821DC61A862D4B5C18E600CA82A4A0B9791911",
+      "references": [
+        {
+          "path": "V3/assets/illustrations/04_PYRO_DARNAKO.png",
+          "role": "identity_clothing_equipment_reference",
+          "sha256": "424A366D96EDFAFEC08D82BF634403C57855FF271840613CBD2E668CFABD7EE7",
+          "viewed_before_generation": true
+        },
+        {
+          "path": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "role": "painterly_style_reference",
+          "sha256": "44966D49AF5D5F916C3AD3F3B62BF846FA1D6646CA609CB3BEE9ED6EEDC94AC8",
+          "viewed_before_generation": true
+        },
+        {
+          "path": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "role": "painterly_style_reference",
+          "sha256": "2C443D9ADC4525953869B2DCC69433EBF00FD7243EC93E01BFFF5E11ED5DC6EE",
+          "viewed_before_generation": true
+        }
+      ],
+      "source_card": {
+        "id": "30000004",
+        "name": "DARNAKO",
+        "art": "V3/assets/illustrations/04_PYRO_DARNAKO.png",
+        "race": "DRAX",
+        "faction": "Vulkar",
+        "job": "FORGERON",
+        "weapon": "Epée longue",
+        "text": "La forge s'effondre. Darnako cale sa lame sous une poutre brûlante et abrite le dernier apprenti. Aujourd'hui, sa force ne sert ni un roi ni une guerre : elle laisse à un enfant le temps de vivre.",
+        "story_scene": "Darnako retient une poutre dans sa forge pour permettre une evacuation."
+      },
+      "qa_observations": "V4/donnees/elements-01/eau-feu-glace/QA.md",
+      "approval_status": "illustration_reviewed_pending_parent_card_integration"
+    },
+    {
+      "name": "MALINIA",
+      "final_path": "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V4\\assets\\illustrations\\elements-01\\eau-feu-glace\\MALINIA_V4_01.png",
+      "relative_path": "V4/assets/illustrations/elements-01/eau-feu-glace/MALINIA_V4_01.png",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a0af75-4ebb-7150-a425-551a144bd81a\\exec-a4f74cdc-5880-47e1-ba49-eb4f460b05f9.png",
+      "sha256": "73E47165BF33F7776420A8AA68B5494CCFC4575F9A2E36932857860A5E095E8F",
+      "copy_byte_identical": true,
+      "width": 1122,
+      "height": 1402,
+      "window": {
+        "width": 737,
+        "height": 921
+      },
+      "aspect_ratio_difference_percent": 0.008517,
+      "final_resampled_or_cropped": false,
+      "generator": "builtin image_gen",
+      "generation_calls": 1,
+      "use_case": "precise-object-edit",
+      "prompt": "V4/donnees/elements-01/eau-feu-glace/MALINIA_V4_01.prompt.txt",
+      "prompt_sha256": "D40DCD3766BE22AF995767204D267AD703BE65CD5B96FA144E6C2F52CE4CAD48",
+      "references": [
+        {
+          "path": "V3/assets/illustrations/05_CRYO_MALINIA.png",
+          "role": "edit_target",
+          "sha256": "61E94B985D223CEA9DB8436EAE5B8776961FCE1C354FBE9DF141AA486EBB395E",
+          "viewed_before_generation": true
+        }
+      ],
+      "source_card": {
+        "id": "30000005",
+        "name": "MALINIA",
+        "art": "V3/assets/illustrations/05_CRYO_MALINIA.png",
+        "race": "HUMAIN",
+        "faction": "Niveria",
+        "job": "VEILLEUSE",
+        "weapon": "Sceptre",
+        "text": "Au fond du lac dort un souvenir que Niveria croyait perdu. Malinia retient les fissures du gel pendant qu'une lueur ancienne réchauffe ses mains. Sauver le passé commence parfois par le laisser fondre.",
+        "story_scene": "Malinia retrouve une memoire emprisonnee dans la glace de Niveria."
+      },
+      "qa_observations": "V4/donnees/elements-01/eau-feu-glace/QA.md",
+      "approval_status": "illustration_reviewed_pending_parent_card_integration"
+    }
+  ]
+}

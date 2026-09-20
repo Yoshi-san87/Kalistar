@@ -1,0 +1,251 @@
+{
+  "schema": 1,
+  "edition": "V3",
+  "batch": "races-a",
+  "generatedAt": "2026-09-14T10:47:43Z",
+  "status": "ready_for_parent_render_validation",
+  "generation": {
+    "mode": "built-in image_gen",
+    "tool": "image_gen.imagegen",
+    "callCount": 4,
+    "callsPerAsset": 1,
+    "cliUsed": false,
+    "sourceArt": "Original generated raster artwork; no FFBE raster extraction.",
+    "postprocessing": "None. Final PNGs are byte-identical copies of the built-in generated outputs; generated alpha preserved."
+  },
+  "scope": {
+    "created": [
+      "V3/assets/races/KORBOW.png",
+      "V3/assets/races/CYBORG.png",
+      "V3/assets/races/GOLEM.png",
+      "V3/assets/races/CARDEMORTIS.png",
+      "V3/donnees/generation_races_a_manifest.json"
+    ],
+    "otherProjectFilesModified": false
+  },
+  "references": {
+    "styleInspected": [
+      "V3/assets/races/DRAX.png",
+      "V3/assets/races/NAIN.png"
+    ],
+    "differentiationInspected": [
+      "V3/assets/races/SKULLZ.png"
+    ],
+    "portraitInspected": [
+      "V3/assets/illustrations/28_NECRO_VOLODEN.png"
+    ],
+    "loreSources": [
+      "V3/donnees/cartes.json",
+      "V3/sources/sources-extraites.json",
+      "V3/sources/histoire.txt:6495"
+    ],
+    "referenceMethod": "Local references inspected visually and translated into the prompt text. Four new-image calls, no edit targets."
+  },
+  "verification": {
+    "method": "Sharp PNG metadata and raw alpha analysis; in-memory 52x52 downsampled comparison on light and dark backgrounds, with NAIN and SKULLZ alongside; visual anatomy inspection of full generated outputs.",
+    "previewPixels": [
+      52,
+      52
+    ],
+    "previewBackgrounds": [
+      "#f4f5f6",
+      "#20252b"
+    ],
+    "previewFilesWritten": false,
+    "allHaveTrueAlpha": true,
+    "allHaveTransparentBackgroundPixels": true,
+    "allSilhouettesInsideCanvasAtAlpha128": true,
+    "allReadableAt52px": true,
+    "noOuterDisc": true,
+    "noText": true,
+    "alphaNote": "Built-in alpha preserved, including antialiased and near-opaque values. Interior dominant alpha is 252-253/255; isolated canvas-edge remnants reach at most 3/255. No opaque background or checkerboard."
+  },
+  "assets": [
+    {
+      "race": "KORBOW",
+      "status": "ready",
+      "file": "V3/assets/races/KORBOW.png",
+      "prompt": "Use case: stylized-concept. Create ONE new raster fantasy race emblem for the Kalistar V3 card game, KORBOW. A single raven head in strong side profile, facing right: long mostly straight closed black raven beak, one visible alert eye, sloping raven forehead, strong neck with only five or six broad angular feather plates. Must unmistakably read as a raven, not an eagle or hawk: no strongly hooked eagle beak, no crest. Style: polished illustrated metal heraldic badge matching a silver dragon head and silver/copper dwarf helmet icon set: sculpted bright silver beveled feather planes, charcoal inset shadows, restrained warm copper rim accents, strong dark contour, crisp broad highlights, subtle hand-painted shading. Head silhouette itself is the badge. Large simple forms must remain immediately readable at 52x52 pixels. Single isolated head only, no body, no wings, no weapons. Square 1024x1024 PNG, centered, silhouette occupies about 90 percent of canvas with small equal clear safety margins, entirely uncut. TRUE transparent RGBA background: alpha zero outside the emblem and in negative spaces, opaque metal interior, clean anti-aliased edge, no white or black background, no drawn transparency checkerboard, no backdrop, no cast shadow outside silhouette. Absolutely no outer disc, circular border, shield backing, frame, lettering, number, logo or watermark. Original smooth high-resolution raster artwork, not pixel art, not an extracted FFBE sprite.",
+      "interpretation": {
+        "cardIds": [
+          "30000015"
+        ],
+        "character": "SCROW",
+        "workbookCells": [
+          "Personnages!A25",
+          "Personnages!D25"
+        ],
+        "visual": "One raven head in profile, one visible eye, one closed elongated beak; broad silver feather plates and copper edges. No wings or duplicate anatomy.",
+        "source": "V3/donnees/cartes.json: 30000015 prompt and story_scene; main/Kalistar.xlsx via V3/sources/sources-extraites.json."
+      },
+      "qa": {
+        "race": "KORBOW",
+        "file": "V3/assets/races/KORBOW.png",
+        "source": "C:\\Users\\guill/.codex/generated_images/01a09f6e-3912-74c2-a5d4-c660a01fc541/exec-75f4fed7-ff5d-4b37-8c87-b59d0ff8d04f.png",
+        "bytes": 1770048,
+        "sha256": "21bfbe6876cbb971e6317365b0506ee5e656af53ac0495914df4b9fd7e7b1157",
+        "identicalToGeneratedSource": true,
+        "width": 1254,
+        "height": 1254,
+        "channels": 4,
+        "hasAlpha": true,
+        "alphaZeroPixels": 896461,
+        "alpha255Pixels": 744,
+        "alpha250PlusPixels": 647568,
+        "alphaZeroFraction": 0.570081,
+        "visibleBoundsAlpha128": [
+          32,
+          82,
+          1234,
+          1198
+        ],
+        "maxAlphaAtCanvasEdge": 1,
+        "visiblePixelsAt52": 1132,
+        "anatomyChecked": true,
+        "readability52px": "pass",
+        "styleMatch": "Silver/copper highlights, large readable forms, isolated silhouette.",
+        "alphaPreserved": true
+      }
+    },
+    {
+      "race": "CYBORG",
+      "status": "ready",
+      "file": "V3/assets/races/CYBORG.png",
+      "prompt": "Use case: stylized-concept. Create ONE new raster fantasy race emblem for the Kalistar V3 card game, CYBORG. A single clearly HUMAN head seen straight from the front, half organic face and half mechanical face. One coherent head with exactly two eyes, one central nose, one closed mouth and one jaw. The viewer-left half has a recognizably living sculpted human face, smooth cheek, eyebrow, visible normal eye and a simple swept lock of hair; the viewer-right half has broad silver prosthetic plates replacing cheek and temple, one simple inset mechanical eye and a couple of large copper hinge or connector shapes. The human half must remain obvious at 52 pixels, do not make an all-robot mask or exposed skull. Expressive but calm, no bared teeth. Style: polished illustrated silver/copper heraldic metal badge matching a silver dragon head and silver/copper dwarf helmet icon set, bright silver planes and beveled highlights, charcoal inset shadows, copper details, strong dark contour, a single small emerald enamel accent permitted in the swept hair as a nod to Gen. Head silhouette itself is the badge. Broad simplified shapes, no fine circuitry or microtexture. Single isolated head only, no torso or limbs, no halo, no magic, no crown. Square 1024x1024 PNG, centered, roughly 90 percent canvas occupancy, small equal clear margins, fully visible. TRUE transparent RGBA background with alpha zero outside the head, opaque emblem interior and clean anti-aliased edges. No white/black background, no painted checkerboard, no outside shadow. No surrounding disc, ring, backing shield, frame, letters, text, watermark. Original smooth high-resolution raster, not pixel art and not an extracted FFBE asset.",
+      "interpretation": {
+        "cardIds": [
+          "30000023"
+        ],
+        "character": "GEN",
+        "workbookCells": [
+          "Personnages!A15",
+          "Personnages!D15"
+        ],
+        "visual": "One coherent human face with two eyes, one nose and one closed mouth; human half clearly separate from prosthetic half. Emerald hair accent nods to Gen without presenting this generic race badge as his literal portrait.",
+        "source": "V3/donnees/cartes.json: 30000023 prompt and story_scene; main/Kalistar.xlsx via V3/sources/sources-extraites.json."
+      },
+      "qa": {
+        "race": "CYBORG",
+        "file": "V3/assets/races/CYBORG.png",
+        "source": "C:\\Users\\guill/.codex/generated_images/01a09f6e-3912-74c2-a5d4-c660a01fc541/exec-28eb5182-9c5a-4a0f-a137-b56c15fa5df2.png",
+        "bytes": 1811161,
+        "sha256": "544d0a584739b5194984d2d069225f0afd1366abc1f010746316bc78e699e95c",
+        "identicalToGeneratedSource": true,
+        "width": 1254,
+        "height": 1254,
+        "channels": 4,
+        "hasAlpha": true,
+        "alphaZeroPixels": 782842,
+        "alpha255Pixels": 559,
+        "alpha250PlusPixels": 771694,
+        "alphaZeroFraction": 0.497828,
+        "visibleBoundsAlpha128": [
+          165,
+          7,
+          1077,
+          1152
+        ],
+        "maxAlphaAtCanvasEdge": 3,
+        "visiblePixelsAt52": 1344,
+        "anatomyChecked": true,
+        "readability52px": "pass",
+        "styleMatch": "Silver/copper highlights, large readable forms, isolated silhouette.",
+        "alphaPreserved": true
+      }
+    },
+    {
+      "race": "GOLEM",
+      "status": "ready",
+      "file": "V3/assets/races/GOLEM.png",
+      "prompt": "Use case: stylized-concept. Create ONE new raster fantasy race emblem for the Kalistar V3 card game, GOLEM. Single front-facing colossal granite golem face as a bold faceted stone mask: wide heavy flat brow, two recessed horizontal eye slits, a broad block-shaped nose, one closed horizontal mouth seam, massive square cheeks and a blunt angular chin. Recognizable rock construction, no flesh, no skull, no teeth, no helmet, no horns. Use five to eight BIG irregular granite slabs, a few deep structural cracks, and broad carved facets; no fine rubble or granular noise. Style: match a polished illustrated silver/copper fantasy heraldic badge set: stone-silver planes with luminous beveled silver edges, charcoal-dark fissures, restrained copper metal joins along a few structural boundaries, crisp high-contrast hand-painted dimensional shading, strong dark silhouette contour. Keep the subject reading as STONE rather than robot armor. Head silhouette itself is the emblem, no other objects. Large forms should stay highly legible when displayed at 52x52 px. Square 1024x1024 PNG, centered, roughly 90 percent occupancy with small even safe margins, full silhouette uncut. Genuine transparent RGBA background: alpha zero outside the head and negative gaps, opaque stone interior, clean antialiasing. No floor, no scenery, no solid background, no fake checkerboard or shadow outside silhouette. No exterior disc, circular ring, backing shield, border, frame, text, letters, logo or watermark. Original smooth high-resolution painted raster icon, never pixel art or a raster cutout from FFBE.",
+      "interpretation": {
+        "cardIds": [
+          "30000024"
+        ],
+        "character": "MAGNAR",
+        "workbookCells": [
+          "Personnages!A6",
+          "Personnages!D6"
+        ],
+        "visual": "One broad faceted granite face, two recessed eye slits, one block nose, one closed mouth seam. Rock slabs remain distinct from robot armor; no extra anatomy.",
+        "source": "V3/donnees/cartes.json: 30000024 prompt and story_scene; main/Kalistar.xlsx via V3/sources/sources-extraites.json."
+      },
+      "qa": {
+        "race": "GOLEM",
+        "file": "V3/assets/races/GOLEM.png",
+        "source": "C:\\Users\\guill/.codex/generated_images/01a09f6e-3912-74c2-a5d4-c660a01fc541/exec-4dd49271-737a-4e30-99f8-21f7fca16a9e.png",
+        "bytes": 2560119,
+        "sha256": "de2352629dbcf6f5028704b482dfcb1ba2788670cff4b80d7f73027622b1e163",
+        "identicalToGeneratedSource": true,
+        "width": 1254,
+        "height": 1254,
+        "channels": 4,
+        "hasAlpha": true,
+        "alphaZeroPixels": 516679,
+        "alpha255Pixels": 1079,
+        "alpha250PlusPixels": 1038019,
+        "alphaZeroFraction": 0.328568,
+        "visibleBoundsAlpha128": [
+          64,
+          28,
+          1187,
+          1225
+        ],
+        "maxAlphaAtCanvasEdge": 1,
+        "visiblePixelsAt52": 1803,
+        "anatomyChecked": true,
+        "readability52px": "pass",
+        "styleMatch": "Silver/copper highlights, large readable forms, isolated silhouette.",
+        "alphaPreserved": true
+      }
+    },
+    {
+      "race": "CARDEMORTIS",
+      "status": "ready",
+      "file": "V3/assets/races/CARDEMORTIS.png",
+      "prompt": "Use case: stylized-concept. Create ONE new raster fantasy race emblem for Kalistar V3, CARDEMORTIS. Lore-specific subject based on Voloden: a single dignified adult HUMAN face, intact living facial anatomy, pale pearlescent silver-white face, austere high cheekbones, narrow icy eyes, straight nose, one closed mouth, long silver hair falling in two clean broad locks, dark high collar flaring modestly below the jaw. Front view with a slight three-quarter turn for a cold aristocratic expression. This is NOT the SKULLZ race: absolutely no bare skull, skeletal teeth, exposed bone, hollow nasal socket, skeleton, crown or horned helmet. No vampire fangs, no bat ears. Retain a recognizable human face and long silver hair as the primary 52-pixel signals. Style: polished illustrated metallic heraldic badge matching silver dragon-head and silver/copper dwarf icons, sculpted bright silver face and hair, large smooth silver beveled planes, restrained warm copper collar edges, deep charcoal collar and shadow recesses, bold dark contour and broad crisp highlights. Use only broad flowing hair shapes, not hundreds of strands. The head and small collar silhouette themselves form the emblem; no weapon, scythe, shoulders, scene or ornament around it. Square 1024x1024 PNG, centered, approximately 90 percent canvas occupancy, small even transparent margins, uncut silhouette. TRUE RGBA PNG alpha: fully transparent outside the emblem, opaque face and metal interior, clean antialiased edge, no opaque black or white backdrop, no drawn checkerboard, no outside cast shadow. No exterior disk, ring, halo, backing shield, frame, writing, letters, logo or watermark. Original smooth high-resolution painted raster icon, not pixel art, not an extracted FFBE sprite.",
+      "interpretation": {
+        "cardIds": [
+          "30000028"
+        ],
+        "character": "VOLODEN",
+        "workbookCells": [
+          "Personnages!A10",
+          "Personnages!C10",
+          "Personnages!D10",
+          "Personnages!AD10"
+        ],
+        "visual": "Intact pearlescent human face with two eyes, one nose and closed lips, long silver hair and copper-edged dark collar. No bare skull, exposed teeth, crown, fangs or horns; clearly distinct from SKULLZ.",
+        "source": "V3/donnees/cartes.json: 30000028 prompt and story_scene; main/Kalistar.xlsx via V3/sources/sources-extraites.json; V3/sources/histoire.txt:6495; inspected V3/assets/illustrations/28_NECRO_VOLODEN.png."
+      },
+      "qa": {
+        "race": "CARDEMORTIS",
+        "file": "V3/assets/races/CARDEMORTIS.png",
+        "source": "C:\\Users\\guill/.codex/generated_images/01a09f6e-3912-74c2-a5d4-c660a01fc541/exec-705ba708-9d7c-4003-bbd2-077e24cbfe2d.png",
+        "bytes": 1942936,
+        "sha256": "d851ecb8909cc57d9f6f8bd5b04633bd6c31c64c4d0e5a2deea2ee03430b3e15",
+        "identicalToGeneratedSource": true,
+        "width": 1254,
+        "height": 1254,
+        "channels": 4,
+        "hasAlpha": true,
+        "alphaZeroPixels": 693121,
+        "alpha255Pixels": 494,
+        "alpha250PlusPixels": 853556,
+        "alphaZeroFraction": 0.440772,
+        "visibleBoundsAlpha128": [
+          81,
+          13,
+          1172,
+          1240
+        ],
+        "maxAlphaAtCanvasEdge": 1,
+        "visiblePixelsAt52": 1481,
+        "anatomyChecked": true,
+        "readability52px": "pass",
+        "styleMatch": "Silver/copper highlights, large readable forms, isolated silhouette.",
+        "alphaPreserved": true
+      }
+    }
+  ]
+}

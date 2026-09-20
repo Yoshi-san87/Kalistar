@@ -1,0 +1,51 @@
+.arena-view .formation .slot .inspect{top:auto;left:auto;right:6px;bottom:30px;opacity:.9;background:#101916ef;border:1px solid #aabcad}
+.arena-view .formation .slot .inspect:hover{opacity:1;background:#355443}
+.duel-match-stats{position:absolute;top:calc(100% + 3px);left:0;width:100%;padding:5px 4px 6px;background:#101b18f5;border-block:1px solid color-mix(in srgb,var(--element-color) 55%,#71645a);box-shadow:0 5px 12px #0007;color:#f0e6d3;z-index:4;pointer-events:auto}
+.duel-match-stats>small{display:block;font-size:7px;line-height:1.4;text-transform:uppercase;color:#c6d0c5;margin-bottom:4px}
+.duel-match-stats dl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(2,auto);grid-auto-flow:column;gap:6px 4px;margin:0}
+.duel-match-stats dl>div{display:flex;align-items:center;justify-content:center;gap:3px;min-width:0;font-size:9px;line-height:1.2;font-variant-numeric:tabular-nums}
+.duel-match-stats dt{display:flex;align-items:center;flex:none}.duel-match-stats dd{margin:0;font-weight:600;white-space:nowrap}.duel-match-stats .lucide{width:10px;height:10px;stroke-width:1.7}
+.duel-match-stats [data-metric=kills]{color:#f4bcc7}.duel-match-stats [data-metric=holds]{color:#eed5a3}.duel-match-stats [data-metric=attack],.duel-match-stats [data-metric=physical]{color:#f4d3be}.duel-match-stats [data-metric=defense],.duel-match-stats [data-metric=guards]{color:#bfe5ec}.duel-match-stats [data-metric=clovers]{color:#a1e3b8}.duel-match-stats [data-metric=hearts]{color:#f1aaba}
+.match-metric-plus{font-size:10px;font-weight:600;line-height:1;margin-right:1px}
+.match-metric-label{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.battlefield-viewport,.arena-view .reserve-cards{scrollbar-width:none}.battlefield-viewport::-webkit-scrollbar,.arena-view .reserve-cards::-webkit-scrollbar{display:none}
+html:has(body.decks-view),html:has(body.arena-view),body.decks-view,body.arena-view{scrollbar-width:none}
+html:has(body.decks-view)::-webkit-scrollbar,html:has(body.arena-view)::-webkit-scrollbar,body.decks-view::-webkit-scrollbar,body.arena-view::-webkit-scrollbar{display:none}
+.arena-view .formation .slot:not(.enemy):has(.trait-badge:nth-child(5)) .inspect{right:calc(var(--token-size)*.55 + 6px)}
+.arena-view .duel-console{border:1px solid color-mix(in srgb,var(--arena-accent) 65%,#41494a);border-radius:3px;background:linear-gradient(90deg,#ffffff05,transparent 10%,transparent 90%,#ffffff05),var(--arena-surface);box-shadow:0 16px 32px #0009,inset 0 0 0 4px #101717,inset 0 0 0 5px color-mix(in srgb,var(--arena-accent) 30%,transparent);padding-inline:17px;margin-top:48px}
+.arena-view .duel-console::before,.arena-view .duel-console::after{content:'';position:absolute;inset:8px -5px auto;width:auto;height:22px;border:0;border-inline:4px solid var(--arena-accent);border-image:none;background:none;clip-path:none;box-shadow:none;pointer-events:none;z-index:0}
+.arena-view .duel-console::after{inset:auto -5px 8px}
+.arena-crown{position:absolute;top:-22px;left:calc(50% - 23px);width:46px;height:36px;display:grid;place-items:center;color:var(--arena-accent);background:var(--arena-surface);border:1px solid var(--arena-accent);clip-path:polygon(15% 0,85% 0,100% 30%,100% 70%,50% 100%,0 70%,0 30%)}
+.arena-crown .lucide{width:23px;height:23px}
+.duel-console[data-material=ice]{border-radius:0;border-style:double;border-width:3px;box-shadow:0 15px 32px #0009,inset 0 0 24px #aeefff0b}
+.arena-view .duel-console[data-material=ice]::before,.arena-view .duel-console[data-material=ice]::after{height:32px;transform:skewY(-12deg)}
+.duel-console[data-material=circuit]{background:repeating-linear-gradient(90deg,transparent 0 36px,#ffffff03 36px 37px),var(--arena-surface)}
+.arena-view .duel-console[data-material=circuit]::before,.arena-view .duel-console[data-material=circuit]::after{height:44px;border-inline-style:dashed}
+.duel-console[data-material=water]{border-radius:8px 8px 3px 3px;background:repeating-linear-gradient(0deg,transparent 0 34px,#7bdce406 34px 36px),var(--arena-surface)}
+.duel-console[data-material=forge]{border-width:2px;border-color:#ae8775;background:repeating-linear-gradient(135deg,transparent 0 28px,#f7c48d04 28px 30px),var(--arena-surface)}
+.duel-console[data-material=stone]{border:3px double #b5b4a7;background:repeating-linear-gradient(0deg,transparent 0 62px,#dfe4d005 62px 64px),var(--arena-surface)}
+.duel-console[data-material=gates]{border-inline-width:3px;background:linear-gradient(90deg,#ffffff09,transparent 12%,transparent 88%,#ffffff09),var(--arena-surface)}
+.arena-view .duel-console[data-material=gates]::before{height:42px;border-top:1px solid var(--arena-accent);inset:6px 7px auto}
+.duel-console[data-material=leaves]{border-radius:8px 2px 8px 2px;border-color:#6e9770;background:repeating-linear-gradient(55deg,transparent 0 38px,#95df8305 38px 39px),var(--arena-surface)}
+.duel-console[data-material=prism]{border-color:#cdc5e0;box-shadow:0 16px 32px #0009,inset 3px 0 #d1939b55,inset -3px 0 #85cbb755,inset 0 3px #e6d29355,inset 0 -3px #8bbdde55}
+.duel-console[data-material=street]{border-block:3px solid #b39b7a;border-inline:1px solid #7b8f7c}
+.arena-view .duel-status{overflow:visible}.arena-view .duel-status .outcome{font-size:14px;line-height:1.25}
+.match-scoreboard{display:grid;grid-template-columns:66px 64px 66px;align-items:center;gap:10px;flex:none;min-height:55px;padding-inline:12px;border-inline:1px solid #76847966;font-variant-numeric:tabular-nums}
+.match-scoreboard>div{display:grid;justify-items:center;gap:3px}.match-scoreboard small{font-size:9px;white-space:nowrap;color:#b7cabc}.match-scoreboard strong{font:28px/1 var(--serif);color:#bdecd8}.match-scoreboard>div:last-child strong{color:#efb6c4}.match-scoreboard>span{display:grid;justify-items:center;gap:4px;color:#b6a68d}.match-scoreboard .lucide{width:16px;height:16px}.match-scoreboard>span small{font-size:9px;color:#cdbb99}
+.arena-view .reserve-cards{padding:5px 4px}.arena-view .reserve-card.reinforcement-eligible{border:2px solid #d6f6bc;box-shadow:0 0 0 2px #68b58366,0 0 18px #8fd48d66}.arena-view .reserve-card.reinforcement-unavailable{opacity:.43;filter:saturate(.45)}.reserve-eligibility{position:absolute;bottom:3px;left:3px;right:3px;font-size:10px;background:#122f21ed;color:#dffcc8;text-align:center;line-height:16px}.arena-view .replacement-target .slot-card{border:2px dashed #dcf8b6;box-shadow:0 0 14px #b1d8775c;background:#30452bb0}.arena-view .replacement-target .position-label b{color:#e3fab8}
+.reserve-preview{position:fixed;inset:auto;margin:0;padding:10px;width:min(570px,calc((100dvh - 180px)*797/1388 + 22px),calc(100vw - 16px));max-height:calc(100dvh - 16px);overflow:hidden;border:1px solid var(--preview-color,#aec9b1);border-radius:6px;background:#131e1b;color:#e7e9da;box-shadow:0 18px 55px #000c;z-index:150}.reserve-preview::backdrop{background:transparent;pointer-events:none}.reserve-preview>img{display:block;height:auto;aspect-ratio:797/1388;width:100%;object-fit:contain;margin:7px 0;filter:drop-shadow(0 5px 9px #0009)}.reserve-preview-head{display:flex;justify-content:space-between;align-items:center;gap:8px;font-family:var(--serif);font-size:19px}.reserve-preview-head>b{min-width:0;overflow-wrap:anywhere;line-height:1.15}.reserve-preview-head button{flex:none;width:28px;height:28px;min-height:28px;padding:5px}.reserve-preview .lucide{width:16px;height:16px}.reserve-preview-meta{display:grid;gap:5px;font-size:11px;color:#d4d4c4;overflow-wrap:anywhere}.reserve-preview-meta>span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.reserve-preview-meta small{font-size:10px;color:#9fc4ad}.reserve-preview-actions{display:flex;gap:7px;margin-top:10px;padding-top:9px;border-top:1px solid #4a6255}.reserve-preview-actions button{min-width:38px;min-height:34px;font-size:12px;padding:7px 10px}.reserve-preview-actions button:last-child{margin-left:auto}
+@media(max-width:1100px){.match-scoreboard{grid-template-columns:55px 48px 55px;gap:7px;padding-inline:8px}.arena-view .duel-console{padding-inline:13px}}
+@media(max-width:640px){.match-scoreboard{order:2;margin:4px auto;width:200px;border:0}.arena-view .arena-toolbar .tools{order:3;justify-content:center;width:100%}.arena-view .duel-console{margin-top:30px;padding-inline:11px}.arena-view .masthead{flex-wrap:wrap}.masthead .main-nav{gap:0;flex:none}.main-nav button{padding-inline:9px}.arena-view .formation .slot .inspect{bottom:29px;right:5px}}
+.decks-view{height:100dvh;min-height:0;display:flex;flex-direction:column;overflow:hidden}
+.decks-view .masthead{flex:none;min-height:64px;gap:24px;padding-inline:20px}
+.decks-view .brand{width:205px}.decks-view .main-nav{min-height:64px}
+.decks-view #app{max-width:none;padding:0;flex:1;min-height:0;overflow:hidden}
+.decks-shell{width:100%;height:100%;min-height:0;display:grid;grid-template-rows:32px minmax(0,1fr);padding:0}
+#deck-builder-root{height:100%;min-height:0}
+.decks-preset-tools{display:flex;align-items:center;gap:7px;padding:2px 18px;border-bottom:1px solid #586856;background:#101a16;min-width:0}
+.decks-preset-tools label{display:flex;flex-direction:row;align-items:center;gap:8px;font-size:10px;color:#b8c3b8;min-width:0}
+.decks-preset-tools select{width:180px;max-width:100%;min-height:25px;height:25px;padding:2px 5px;font-size:10px}
+.decks-preset-tools button{flex:none;height:25px;min-height:25px;padding:3px 6px;font-size:10px}
+.decks-preset-tools .icon-button{width:28px}.decks-preset-tools .lucide{width:13px;height:13px}
+@media(max-width:640px){.decks-view .masthead{min-height:0;gap:6px;padding:6px 10px}.decks-view .brand{width:150px}.decks-view .main-nav{min-height:34px;height:34px}.decks-preset-tools{padding-inline:7px;gap:4px}.decks-preset-tools label{font-size:0;flex:1}.decks-preset-tools select{width:100%}.decks-view .edition{display:none}}
+@media(max-height:500px) and (min-width:641px){.decks-view .masthead,.decks-view .main-nav{min-height:42px;height:42px}.decks-view .brand{width:160px}.decks-view .header-actions .edition{display:none}.decks-shell{grid-template-rows:28px minmax(0,1fr)}}

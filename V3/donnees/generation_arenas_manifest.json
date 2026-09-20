@@ -1,0 +1,717 @@
+{
+  "version": "V3-arenas-14",
+  "tool": "built-in image_gen",
+  "createdAt": "2026-09-14T10:32:18.712Z",
+  "updatedAt": "2026-09-14T10:47:08.124Z",
+  "requestedNewImages": 14,
+  "webpQuality": 92,
+  "protected": [
+    {
+      "path": "V3/assets/arenas/z13.png",
+      "sha256": "9cb2bb1242e9f685123fa419b826f1d31fe7b6fd6b779a845c6ec0de598cde3d"
+    },
+    {
+      "path": "V3/site/assets/arenas/z13.webp",
+      "sha256": "5971301d12770fbc905b3c72d4e689b7be409b4090e6d8e44353ff100178ffc9"
+    }
+  ],
+  "entries": [
+    {
+      "id": "aero",
+      "status": "complete",
+      "prompt": "Use case: stylized-concept. Asset: Kalistar arena environment painting.\nPeinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Les ponts de Nestown : large esplanade de pierre claire et metal patine au-dessus des nuages, garde-corps fins, ponts suspendus conduisant aux tours de guet a plusieurs niveaux. Cloches de brume suspendues sur les bords, petits cristaux AERO vert menthe enchasses dans les balises. Ciel de matin bleu pale, ombres nettes, voiles tendues par le vent, accents rouges sur cordages. Sol central libre, horizon aerien, aucune silhouette volante.\nDeliver one distinct finished raster environment, landscape 16:9, high resolution 2560 by 1440 or higher if supported. No collage. No text. No characters.",
+      "source": "V2 Nestown ; architecture du Guide complet des mondes, scene de lieu proposee V3",
+      "source_history": {
+        "file": "V3/sources/histoire.txt",
+        "docx": "KALISTAR - GUIDE COMPLET DES MONDES.docx",
+        "section": "Guide complet des mondes, tome 5, Architecture & Climat",
+        "lineStart": 2666,
+        "lineEnd": 2673,
+        "anchor": "TOME 5 - ALTITIA"
+      },
+      "story_scene": "Esplanade de Nestown reliee a des ponts suspendus et a des tours de guet ; composition inventee a partir de V2 et de l architecture aerienne du guide.",
+      "original": "V3/assets/arenas/aero.png",
+      "webp": "V3/site/assets/arenas/aero.webp",
+      "generation_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-3a80c69e-e85c-4146-8830-6ab3a2f36af1.png",
+      "attempts": [
+        {
+          "startedAt": "2026-09-14T10:32:20.039Z",
+          "tool": "built-in image_gen",
+          "prompt": "Use case: stylized-concept. Asset: Kalistar arena environment painting.\nPeinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Les ponts de Nestown : large esplanade de pierre claire et metal patine au-dessus des nuages, garde-corps fins, ponts suspendus conduisant aux tours de guet a plusieurs niveaux. Cloches de brume suspendues sur les bords, petits cristaux AERO vert menthe enchasses dans les balises. Ciel de matin bleu pale, ombres nettes, voiles tendues par le vent, accents rouges sur cordages. Sol central libre, horizon aerien, aucune silhouette volante.\nDeliver one distinct finished raster environment, landscape 16:9, high resolution 2560 by 1440 or higher if supported. No collage. No text. No characters.",
+          "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-3a80c69e-e85c-4146-8830-6ab3a2f36af1.png"
+        }
+      ],
+      "visual_qa": {
+        "status": "reviewed",
+        "notes": "Generated image inspected: distinct intended architecture, high three-quarter perspective, clear central floor, no characters or text.",
+        "reviewedAt": "2026-09-14T10:33:18.724Z"
+      },
+      "generatedAt": "2026-09-14T10:33:18.718Z",
+      "original_metadata": {
+        "width": 1672,
+        "height": 941,
+        "format": "png",
+        "sha256": "9112c71dc3368898b06464113412df81e54a8263e6fe11de77986804475e1cf5",
+        "bytes": 2735285
+      },
+      "webp_metadata": {
+        "width": 1672,
+        "height": 941,
+        "quality": 92,
+        "sha256": "9960d0c8cf7e19767da04d5bee5fe80b3dadd6c113ade6b4dede3b21a6818647",
+        "bytes": 466638
+      }
+    },
+    {
+      "id": "hydro",
+      "status": "complete",
+      "prompt": "Use case: stylized-concept. Asset: Kalistar arena environment painting.\nPeinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Les portes de Thalassea : vaste bassin de maree borde d arches de nacre et de corail vivant, marches de pierre descendantes, passage central emerge tres peu profond. Murs immerges visibles sous une eau turquoise transparente, ecluses laterales ouvertes sur la mer, cristaux HYDRO cyan dans les piliers. Lumiere diurne filtree par l eau, reflets naturels et coquilles bordeaux. Pas de vague geante ni de personnage ; deux rives utilisables et sol central clairement visible.\nDeliver one distinct finished raster environment, landscape 16:9, high resolution 2560 by 1440 or higher if supported. No collage. No text. No characters.",
+      "source": "V2 Thalassea ; Guide complet des mondes, region Eau ; lieu de Julienne extrapole",
+      "source_history": {
+        "file": "V3/sources/histoire.txt",
+        "docx": "KALISTAR - GUIDE COMPLET DES MONDES.docx",
+        "section": "Guide complet des mondes, tome 4, Architecture & Climat",
+        "lineStart": 2646,
+        "lineEnd": 2653,
+        "anchor": "TOME 4 -"
+      },
+      "story_scene": "Portes noyees de Thalassea, derivees de la vignette de Julienne V2 et des architectures amphibies du guide.",
+      "original": "V3/assets/arenas/hydro.png",
+      "webp": "V3/site/assets/arenas/hydro.webp",
+      "generation_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-a540e88d-b4b8-47e9-b911-326d5872ae7e.png",
+      "attempts": [
+        {
+          "startedAt": "2026-09-14T10:33:19.648Z",
+          "tool": "built-in image_gen",
+          "prompt": "Use case: stylized-concept. Asset: Kalistar arena environment painting.\nPeinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Les portes de Thalassea : vaste bassin de maree borde d arches de nacre et de corail vivant, marches de pierre descendantes, passage central emerge tres peu profond. Murs immerges visibles sous une eau turquoise transparente, ecluses laterales ouvertes sur la mer, cristaux HYDRO cyan dans les piliers. Lumiere diurne filtree par l eau, reflets naturels et coquilles bordeaux. Pas de vague geante ni de personnage ; deux rives utilisables et sol central clairement visible.\nDeliver one distinct finished raster environment, landscape 16:9, high resolution 2560 by 1440 or higher if supported. No collage. No text. No characters.",
+          "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-a540e88d-b4b8-47e9-b911-326d5872ae7e.png"
+        }
+      ],
+      "visual_qa": {
+        "status": "reviewed",
+        "notes": "Generated image inspected: distinct intended architecture, high three-quarter perspective, clear central floor, no characters or text.",
+        "reviewedAt": "2026-09-14T10:34:18.484Z"
+      },
+      "generatedAt": "2026-09-14T10:34:18.475Z",
+      "original_metadata": {
+        "width": 1672,
+        "height": 941,
+        "format": "png",
+        "sha256": "24a8ade6d00377b432594de2674ec0e1daf484c8062639f9ad438350803a455b",
+        "bytes": 3158878
+      },
+      "webp_metadata": {
+        "width": 1672,
+        "height": 941,
+        "quality": 92,
+        "sha256": "8b463be39208900544b2296e4f004b2d9d9241439af480a259ea3e626acbc9ce",
+        "bytes": 630670
+      }
+    },
+    {
+      "id": "electro",
+      "status": "complete",
+      "prompt": "Use case: stylized-concept. Asset: Kalistar arena environment painting.\nPeinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. La decharge de Chroma : cour ouverte entre des piles organisees de machines anciennes, rails conducteurs incrustes dans le sol, petits carillons de recuperation suspendus aux poutres. Au fond, tours conductrices et reseaux electriques visibles, pas de grand ecran publicitaire. Cristaux ELECTRO jaune clair dans des bornes laterales ; acier patine, morceaux de peinture rouge et vert, lumiere de fin d apres-midi douce. Passage central degage, quelques fleurs dans les interstices, aucune machine humanoide active, aucun robot personnage.\nDeliver one distinct finished raster environment, landscape 16:9, high resolution 2560 by 1440 or higher if supported. No collage. No text. No characters.",
+      "source": "V2 Momo et Taulio ; faction Chroma conservee selon confirmation utilisateur V2",
+      "source_history": {
+        "file": "V3/sources/histoire.txt",
+        "docx": "KALISTAR - GUIDE COMPLET DES MONDES.docx",
+        "section": "Guide complet des mondes, tome 2, Architecture & Climat ; cartes V2 Momo et Taulio",
+        "lineStart": 2606,
+        "lineEnd": 2613,
+        "anchor": "TOME 2 - VOLTANIA"
+      },
+      "story_scene": "Decharge de Chroma des deux robots V2, mise en scene inventee ; ne pas renommer leur faction en Voltania.",
+      "original": "V3/assets/arenas/electro.png",
+      "webp": "V3/site/assets/arenas/electro.webp",
+      "generation_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-ae4a8f95-d956-4393-8596-97f787201d63.png",
+      "attempts": [
+        {
+          "startedAt": "2026-09-14T10:34:19.456Z",
+          "tool": "built-in image_gen",
+          "prompt": "Use case: stylized-concept. Asset: Kalistar arena environment painting.\nPeinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. La decharge de Chroma : cour ouverte entre des piles organisees de machines anciennes, rails conducteurs incrustes dans le sol, petits carillons de recuperation suspendus aux poutres. Au fond, tours conductrices et reseaux electriques visibles, pas de grand ecran publicitaire. Cristaux ELECTRO jaune clair dans des bornes laterales ; acier patine, morceaux de peinture rouge et vert, lumiere de fin d apres-midi douce. Passage central degage, quelques fleurs dans les interstices, aucune machine humanoide active, aucun robot personnage.\nDeliver one distinct finished raster environment, landscape 16:9, high resolution 2560 by 1440 or higher if supported. No collage. No text. No characters.",
+          "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-ae4a8f95-d956-4393-8596-97f787201d63.png"
+        }
+      ],
+      "visual_qa": {
+        "status": "reviewed",
+        "notes": "Generated image inspected: distinct intended architecture, high three-quarter perspective, clear central floor, no characters or text.",
+        "reviewedAt": "2026-09-14T10:35:22.255Z"
+      },
+      "generatedAt": "2026-09-14T10:35:22.248Z",
+      "original_metadata": {
+        "width": 1672,
+        "height": 941,
+        "format": "png",
+        "sha256": "c233da2129a9c12b5afe9c405bfd38a12234d777c6e3c473a181d7010d7c9862",
+        "bytes": 2939318
+      },
+      "webp_metadata": {
+        "width": 1672,
+        "height": 941,
+        "quality": 92,
+        "sha256": "376ed738ee596a66b582a7c3212043a7a944a94dd441a69a02e5e2ae629a96bd",
+        "bytes": 575040
+      }
+    },
+    {
+      "id": "pyro",
+      "status": "complete",
+      "prompt": "Use case: stylized-concept. Asset: Kalistar arena environment painting.\nPeinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. La grande forge de Vulkar : plateforme immense de basalte et de fer entre deux vannes de lave, ponts metalliques et grandes enclumes sur les bords, forge titanesque dans un cratere ouvert au ciel. Lave rouge-orange confinee dans des canaux en contrebas, cristaux PYRO rouges dans les verrous, vapeur blanche ponctuelle. Lumiere du jour gris clair entrant par la toiture ouverte, acier bleute, materiaux nets ; aucun incendie de surface, sol praticable sombre au centre, pas de personnage.\nDeliver one distinct finished raster environment, landscape 16:9, high resolution 2560 by 1440 or higher if supported. No collage. No text. No characters.",
+      "source": "Classeur Vulkar et Guide complet des mondes, region Feu ; aire de combat proposee",
+      "source_history": {
+        "file": "V3/sources/histoire.txt",
+        "docx": "KALISTAR - GUIDE COMPLET DES MONDES.docx",
+        "section": "Guide complet des mondes, tome 3, Architecture & Climat ; classeur Ville Vulkar",
+        "lineStart": 2626,
+        "lineEnd": 2633,
+        "anchor": "TOME 3 - PYROTHIA"
+      },
+      "story_scene": "Plateforme de forge de Vulkar, au-dessus de canaux de lave ; emplacement precis invente.",
+      "original": "V3/assets/arenas/pyro.png",
+      "webp": "V3/site/assets/arenas/pyro.webp",
+      "generation_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-70e8b16e-673f-462b-ae79-160f1b1fe1a1.png",
+      "attempts": [
+        {
+          "startedAt": "2026-09-14T10:35:23.172Z",
+          "tool": "built-in image_gen",
+          "prompt": "Use case: stylized-concept. Asset: Kalistar arena environment painting.\nPeinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. La grande forge de Vulkar : plateforme immense de basalte et de fer entre deux vannes de lave, ponts metalliques et grandes enclumes sur les bords, forge titanesque dans un cratere ouvert au ciel. Lave rouge-orange confinee dans des canaux en contrebas, cristaux PYRO rouges dans les verrous, vapeur blanche ponctuelle. Lumiere du jour gris clair entrant par la toiture ouverte, acier bleute, materiaux nets ; aucun incendie de surface, sol praticable sombre au centre, pas de personnage.\nDeliver one distinct finished raster environment, landscape 16:9, high resolution 2560 by 1440 or higher if supported. No collage. No text. No characters.",
+          "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-70e8b16e-673f-462b-ae79-160f1b1fe1a1.png"
+        }
+      ],
+      "visual_qa": {
+        "status": "reviewed",
+        "notes": "Generated image inspected: distinct intended architecture, high three-quarter perspective, clear central floor, no characters or text.",
+        "reviewedAt": "2026-09-14T10:36:15.656Z"
+      },
+      "generatedAt": "2026-09-14T10:36:15.649Z",
+      "original_metadata": {
+        "width": 1672,
+        "height": 941,
+        "format": "png",
+        "sha256": "95a9f85493c3b1f474d0aeae3decae127d0ac5b2c6a7e07319721aa30121be12",
+        "bytes": 2843206
+      },
+      "webp_metadata": {
+        "width": 1672,
+        "height": 941,
+        "quality": 92,
+        "sha256": "9440d32701201ceaeee9789c4a6cfb2c96ef95b46b5c6fd68360ddfb2a730de3",
+        "bytes": 509702
+      }
+    },
+    {
+      "id": "cryo",
+      "status": "complete",
+      "prompt": "Use case: stylized-concept. Asset: Kalistar arena environment painting.\nPeinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Le lac de Niveria : large plateau de glace solide au premier plan, petites fractures sous la surface laissant voir de vieilles pierres et des bulles immobiles, aucun personnage emprisonne. Palais de glace et ponts de givre sur les rives, cristaux CRYO bleu pale dans des bornes et sapins sombres aux extremites. Matin clair, neige blanche, reflets turquoise et tissus rouges sur les balises, ciel froid sans aurore envahissante. Le centre reste plat, securisant et ouvert.\nDeliver one distinct finished raster environment, landscape 16:9, high resolution 2560 by 1440 or higher if supported. No collage. No text. No characters.",
+      "source": "V2 Niveria ; extension originale du lieu de Malinia",
+      "source_history": {
+        "file": "V3/sources/histoire.txt",
+        "docx": "KALISTAR - GUIDE COMPLET DES MONDES.docx",
+        "section": "Guide complet des mondes, tome 11, Architecture & Climat ; carte V2 Malinia",
+        "lineStart": 2786,
+        "lineEnd": 2793,
+        "anchor": "TOME 11 - GLACIALIS"
+      },
+      "story_scene": "Plateau du lac de Niveria, rive et memoires gelees de Malinia ; emplacement invente dans le biome du guide.",
+      "original": "V3/assets/arenas/cryo.png",
+      "webp": "V3/site/assets/arenas/cryo.webp",
+      "generation_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-de9c3025-9994-4831-82a1-79b2fc341c6f.png",
+      "attempts": [
+        {
+          "startedAt": "2026-09-14T10:36:18.744Z",
+          "tool": "built-in image_gen",
+          "prompt": "Use case: stylized-concept. Asset: Kalistar arena environment painting.\nPeinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Le lac de Niveria : large plateau de glace solide au premier plan, petites fractures sous la surface laissant voir de vieilles pierres et des bulles immobiles, aucun personnage emprisonne. Palais de glace et ponts de givre sur les rives, cristaux CRYO bleu pale dans des bornes et sapins sombres aux extremites. Matin clair, neige blanche, reflets turquoise et tissus rouges sur les balises, ciel froid sans aurore envahissante. Le centre reste plat, securisant et ouvert.\nDeliver one distinct finished raster environment, landscape 16:9, high resolution 2560 by 1440 or higher if supported. No collage. No text. No characters.",
+          "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-de9c3025-9994-4831-82a1-79b2fc341c6f.png"
+        }
+      ],
+      "visual_qa": {
+        "status": "reviewed",
+        "notes": "Generated image inspected: distinct intended architecture, high three-quarter perspective, clear central floor, no characters or text.",
+        "reviewedAt": "2026-09-14T10:37:22.643Z"
+      },
+      "generatedAt": "2026-09-14T10:37:22.634Z",
+      "original_metadata": {
+        "width": 1672,
+        "height": 941,
+        "format": "png",
+        "sha256": "1ea17817488c013084325535eaee772789d875f118baee5f2bc0f24526b6d7e4",
+        "bytes": 2953702
+      },
+      "webp_metadata": {
+        "width": 1672,
+        "height": 941,
+        "quality": 92,
+        "sha256": "4eda367c325ccfc6a8c5cbe8ecb2f45beecd2de1d8e624b769c2a8f43b3be469",
+        "bytes": 582290
+      }
+    },
+    {
+      "id": "luxo",
+      "status": "complete",
+      "prompt": "Use case: stylized-concept. Asset: Kalistar arena environment painting.\nPeinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Le sanctuaire de Solaria : grande nef de cristal et pierre blanche, prismes verticaux, lanternes reparees et rayonnages d archives sur les murs lateraux. Escalier de lumiere solidifiee visible au fond, fontaines de lumiere liquide discretes, cristaux LUXO ivoire enchasses dans les colonnes. Lumiere blanche chaleureuse, fines refractions colorees locales, touches de tissu rouge et bronze. Sol central clair et libre, reliefs architecturaux nets, aucune statue ressemblant a un personnage principal.\nDeliver one distinct finished raster environment, landscape 16:9, high resolution 2560 by 1440 or higher if supported. No collage. No text. No characters.",
+      "source": "V2 Solaria ; Guide complet des mondes, region Lumiere",
+      "source_history": {
+        "file": "V3/sources/histoire.txt",
+        "docx": "KALISTAR - GUIDE COMPLET DES MONDES.docx",
+        "section": "Guide complet des mondes, tome 7, Architecture & Climat ; carte V2 Aelis",
+        "lineStart": 2706,
+        "lineEnd": 2713,
+        "anchor": "TOME 7 - SOLARIA"
+      },
+      "story_scene": "Sanctuaire de Solaria, lanternes d Aelis et archives d Iliane ; architecture du guide, salle precise inventee.",
+      "original": "V3/assets/arenas/luxo.png",
+      "webp": "V3/site/assets/arenas/luxo.webp",
+      "generation_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-bd1c4112-55c8-45e7-9fc1-4b6cfda24dbc.png",
+      "attempts": [
+        {
+          "startedAt": "2026-09-14T10:37:23.471Z",
+          "tool": "built-in image_gen",
+          "prompt": "Use case: stylized-concept. Asset: Kalistar arena environment painting.\nPeinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Le sanctuaire de Solaria : grande nef de cristal et pierre blanche, prismes verticaux, lanternes reparees et rayonnages d archives sur les murs lateraux. Escalier de lumiere solidifiee visible au fond, fontaines de lumiere liquide discretes, cristaux LUXO ivoire enchasses dans les colonnes. Lumiere blanche chaleureuse, fines refractions colorees locales, touches de tissu rouge et bronze. Sol central clair et libre, reliefs architecturaux nets, aucune statue ressemblant a un personnage principal.\nDeliver one distinct finished raster environment, landscape 16:9, high resolution 2560 by 1440 or higher if supported. No collage. No text. No characters.",
+          "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-bd1c4112-55c8-45e7-9fc1-4b6cfda24dbc.png"
+        }
+      ],
+      "visual_qa": {
+        "status": "reviewed",
+        "notes": "Generated image inspected: distinct intended architecture, high three-quarter perspective, clear central floor, no characters or text.",
+        "reviewedAt": "2026-09-14T10:38:42.912Z"
+      },
+      "generatedAt": "2026-09-14T10:38:42.903Z",
+      "original_metadata": {
+        "width": 1672,
+        "height": 941,
+        "format": "png",
+        "sha256": "e4eb6c74395f3a3a7678912c092ab168a726d27f47d1606ffb098c81a90d403a",
+        "bytes": 2707530
+      },
+      "webp_metadata": {
+        "width": 1672,
+        "height": 941,
+        "quality": 92,
+        "sha256": "12c9bc01a6fc248f963c00f52708b38382d2e6b8c63ca92a40cdd176f60528a1",
+        "bytes": 473820
+      }
+    },
+    {
+      "id": "minero",
+      "status": "complete",
+      "prompt": "Use case: stylized-concept. Asset: Kalistar arena environment painting.\nPeinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Les terrasses de Canyonero : large terrasse de roche stratifee et plaques de fer, rails de mine et treuils lourds repartis sur les bords. Perspective ouverte sur le canyon d extraction geant en spirale et la cite de Durane sur le rebord, passerelles metalliques tres lisibles. Cristaux MINERO gris argent dans la roche, soleil oblique et ciel pale, poussiere fine limitee. Deux acces symetriques au plateau, centre libre, aucun effondrement, pas de personnage.\nDeliver one distinct finished raster environment, landscape 16:9, high resolution 2560 by 1440 or higher if supported. No collage. No text. No characters.",
+      "source": "Histoire chapitres 7-10 et Guide complet des mondes ; aire de combat proposee",
+      "source_history": {
+        "file": "V3/sources/histoire.txt",
+        "docx": "KALISTAR - GUIDE COMPLET DES MONDES.docx",
+        "section": "Guide complet des mondes, tome 1, Architecture & Climat ; Le Reveil V2 chapitre 1",
+        "lineStart": 2586,
+        "lineEnd": 2593,
+        "anchor": "TOME 1 - CANYONERO"
+      },
+      "story_scene": "Terrasse industrielle de Canyonero, dominant les mines en spirale sous Durane.",
+      "original": "V3/assets/arenas/minero.png",
+      "webp": "V3/site/assets/arenas/minero.webp",
+      "generation_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-9dc13a67-90bc-4a10-a92f-b7d9695677c7.png",
+      "attempts": [
+        {
+          "startedAt": "2026-09-14T10:38:43.790Z",
+          "tool": "built-in image_gen",
+          "prompt": "Use case: stylized-concept. Asset: Kalistar arena environment painting.\nPeinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Les terrasses de Canyonero : large terrasse de roche stratifee et plaques de fer, rails de mine et treuils lourds repartis sur les bords. Perspective ouverte sur le canyon d extraction geant en spirale et la cite de Durane sur le rebord, passerelles metalliques tres lisibles. Cristaux MINERO gris argent dans la roche, soleil oblique et ciel pale, poussiere fine limitee. Deux acces symetriques au plateau, centre libre, aucun effondrement, pas de personnage.\nDeliver one distinct finished raster environment, landscape 16:9, high resolution 2560 by 1440 or higher if supported. No collage. No text. No characters.",
+          "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-9dc13a67-90bc-4a10-a92f-b7d9695677c7.png"
+        }
+      ],
+      "visual_qa": {
+        "status": "reviewed",
+        "notes": "Generated image inspected: distinct intended architecture, high three-quarter perspective, clear central floor, no characters or text.",
+        "reviewedAt": "2026-09-14T10:39:46.997Z"
+      },
+      "generatedAt": "2026-09-14T10:39:46.988Z",
+      "original_metadata": {
+        "width": 1672,
+        "height": 941,
+        "format": "png",
+        "sha256": "6dc6d167781f980d41794d642742e43cbaef40bb52214a93c0bfc44d8f6ca08d",
+        "bytes": 3205680
+      },
+      "webp_metadata": {
+        "width": 1672,
+        "height": 941,
+        "quality": 92,
+        "sha256": "ef88c89ba6d06c32c7509cd9c545e13605d15b3f014d9548de22621c33de9f97",
+        "bytes": 646116
+      }
+    },
+    {
+      "id": "herbo",
+      "status": "complete",
+      "prompt": "Use case: stylized-concept. Asset: Kalistar arena environment painting.\nPeinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. La serre d Arborium : tres grande serre cathedrale faite de bois vivant, verre transparent et lianes-ponts, vue a hauteur du sol depuis une allee de pierre couverte de mousse basse. Massifs de plantes et tables de semences sur les bords, canopee habitee en arriere-plan sans personnages visibles. Cristaux HERBO verts dans des niches racinaires, fleurs corail et blanches, rayons de soleil lisibles a travers les vitres. Espace central degage et fertile, aucune racine bloquant la marche.\nDeliver one distinct finished raster environment, landscape 16:9, high resolution 2560 by 1440 or higher if supported. No collage. No text. No characters.",
+      "source": "V2 Arborium ; Guide complet des mondes, region Plante ; serre proposee",
+      "source_history": {
+        "file": "V3/sources/histoire.txt",
+        "docx": "KALISTAR - GUIDE COMPLET DES MONDES.docx",
+        "section": "Guide complet des mondes, tome 10, Architecture & Climat ; classeur Ville Arborium",
+        "lineStart": 2766,
+        "lineEnd": 2773,
+        "anchor": "TOME 10 - VERDANIA"
+      },
+      "story_scene": "Serre cathedrale d Arborium ; lieu de production original dans l architecture vegetale du guide.",
+      "original": "V3/assets/arenas/herbo.png",
+      "webp": "V3/site/assets/arenas/herbo.webp",
+      "generation_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-bc7dce2e-f0fa-4781-b705-cd0a2bdc8df3.png",
+      "attempts": [
+        {
+          "startedAt": "2026-09-14T10:39:47.864Z",
+          "tool": "built-in image_gen",
+          "prompt": "Use case: stylized-concept. Asset: Kalistar arena environment painting.\nPeinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. La serre d Arborium : tres grande serre cathedrale faite de bois vivant, verre transparent et lianes-ponts, vue a hauteur du sol depuis une allee de pierre couverte de mousse basse. Massifs de plantes et tables de semences sur les bords, canopee habitee en arriere-plan sans personnages visibles. Cristaux HERBO verts dans des niches racinaires, fleurs corail et blanches, rayons de soleil lisibles a travers les vitres. Espace central degage et fertile, aucune racine bloquant la marche.\nDeliver one distinct finished raster environment, landscape 16:9, high resolution 2560 by 1440 or higher if supported. No collage. No text. No characters.",
+          "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-bc7dce2e-f0fa-4781-b705-cd0a2bdc8df3.png"
+        }
+      ],
+      "visual_qa": {
+        "status": "reviewed",
+        "notes": "Generated image inspected: distinct intended architecture, high three-quarter perspective, clear central floor, no characters or text.",
+        "reviewedAt": "2026-09-14T10:40:41.319Z"
+      },
+      "generatedAt": "2026-09-14T10:40:41.310Z",
+      "original_metadata": {
+        "width": 1672,
+        "height": 941,
+        "format": "png",
+        "sha256": "2a3ba51fa6f7f901044c66e42d25dfcccd358709a2f89264cd2fba49bc1a1be6",
+        "bytes": 3066369
+      },
+      "webp_metadata": {
+        "width": 1672,
+        "height": 941,
+        "quality": 92,
+        "sha256": "6bfcf1194139624fa87373c0a6d4c72080e6f819c3ed7a0e660afa6e545c318f",
+        "bytes": 618522
+      }
+    },
+    {
+      "id": "hemato",
+      "status": "complete",
+      "prompt": "Use case: stylized-concept. Asset: Kalistar arena environment painting.\nPeinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Les grilles de Draevenheim : cour gothique pavée devant des grilles de fer entrouvertes, manoir de pierre rouge et tours elancees, roses sombres et ronces taillees le long des murs. Fontaine scellee au fond, cristaux HEMATO rose carmin dans les ferrures, clairiere et lunes pales au-dessus des toits. Nuit lisible grace a des lanternes ivoire, pierre grise et feuillage vert froid pour varier la palette. Aucun sang repandu, aucune victime, centre ouvert pour un duel.\nDeliver one distinct finished raster environment, landscape 16:9, high resolution 2560 by 1440 or higher if supported. No collage. No text. No characters.",
+      "source": "V2 Draevenheim ; Guide complet des mondes, region Sang",
+      "source_history": {
+        "file": "V3/sources/histoire.txt",
+        "docx": "KALISTAR - GUIDE COMPLET DES MONDES.docx",
+        "section": "Guide complet des mondes, tome 9, Architecture & Climat ; carte V2 Verminia",
+        "lineStart": 2746,
+        "lineEnd": 2753,
+        "anchor": "TOME 9 - HEMOGLOBIA"
+      },
+      "story_scene": "Cour des grilles de Draevenheim ; decor original prolongeant la scene de Verminia.",
+      "original": "V3/assets/arenas/hemato.png",
+      "webp": "V3/site/assets/arenas/hemato.webp",
+      "generation_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-72797964-c206-492d-90f7-e796c1f98104.png",
+      "attempts": [
+        {
+          "startedAt": "2026-09-14T10:40:44.884Z",
+          "tool": "built-in image_gen",
+          "prompt": "Use case: stylized-concept. Asset: Kalistar arena environment painting.\nPeinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Les grilles de Draevenheim : cour gothique pavée devant des grilles de fer entrouvertes, manoir de pierre rouge et tours elancees, roses sombres et ronces taillees le long des murs. Fontaine scellee au fond, cristaux HEMATO rose carmin dans les ferrures, clairiere et lunes pales au-dessus des toits. Nuit lisible grace a des lanternes ivoire, pierre grise et feuillage vert froid pour varier la palette. Aucun sang repandu, aucune victime, centre ouvert pour un duel.\nDeliver one distinct finished raster environment, landscape 16:9, high resolution 2560 by 1440 or higher if supported. No collage. No text. No characters.",
+          "rejected_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-479f795c-8caf-4ab8-b1c0-3e2ccd70ab5b.png",
+          "issue": "Small unwanted signature in the lower-right corner"
+        },
+        {
+          "startedAt": "2026-09-14T10:41:45.679Z",
+          "tool": "built-in image_gen edit",
+          "prompt": "Use case: precise-object-edit. Remove ONLY the small unwanted signature/letter-like watermark in the extreme bottom-right corner of this image. Seamlessly reconstruct the few background stone and foliage pixels underneath it. Keep absolutely everything else identical: composition, dimensions, Gothic courtyard, lighting, colors, central floor, statues, banners, camera. No new text, no signature, no logo, no new objects. Preserve original detail and resolution.",
+          "reference": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-479f795c-8caf-4ab8-b1c0-3e2ccd70ab5b.png",
+          "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-72797964-c206-492d-90f7-e796c1f98104.png"
+        }
+      ],
+      "visual_qa": {
+        "status": "reviewed",
+        "notes": "Generated image inspected: distinct intended architecture, high three-quarter perspective, clear central floor, no characters or text.",
+        "reviewedAt": "2026-09-14T10:42:43.528Z"
+      },
+      "revision_prompt": "Use case: precise-object-edit. Remove ONLY the small unwanted signature/letter-like watermark in the extreme bottom-right corner of this image. Seamlessly reconstruct the few background stone and foliage pixels underneath it. Keep absolutely everything else identical: composition, dimensions, Gothic courtyard, lighting, colors, central floor, statues, banners, camera. No new text, no signature, no logo, no new objects. Preserve original detail and resolution.",
+      "generatedAt": "2026-09-14T10:42:43.521Z",
+      "original_metadata": {
+        "width": 1672,
+        "height": 941,
+        "format": "png",
+        "sha256": "e76723a722895ac2a305d3a988ab56b2c6a3a297752375d191530db3b55cb85b",
+        "bytes": 2463588
+      },
+      "webp_metadata": {
+        "width": 1672,
+        "height": 941,
+        "quality": 92,
+        "sha256": "f32fd2d1dd018ef61948123ec2d0eb7140d0fd87c8d69af785664c5fb282a327",
+        "bytes": 380784
+      }
+    },
+    {
+      "id": "necro",
+      "status": "complete",
+      "prompt": "Use case: stylized-concept. Asset: Kalistar arena environment painting.\nPeinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Le quai de Cryptown : quai de pierre sombre au bord d un lac souterrain tres calme, portes de necropole et piliers d obsidienne en arriere-plan, une embarcation ancienne attachee a droite. Bollards, cordes et petits braseros pales sur les bords, cristaux NECRO violet fume discretement incrustes sous les arches. Reflets argent, murs charbon, bois vert patine, lumiere diffuse rendant chaque marche lisible. Melancolie paisible, aucun squelette personnage, pas de brouillard opaque, centre plat et degage.\nDeliver one distinct finished raster environment, landscape 16:9, high resolution 2560 by 1440 or higher if supported. No collage. No text. No characters.",
+      "source": "Classeur Cryptown ; quai invente pour la scene de Skully",
+      "source_history": {
+        "file": "V3/sources/histoire.txt",
+        "docx": "KALISTAR - GUIDE COMPLET DES MONDES.docx",
+        "section": "Guide complet des mondes, tome 8, Architecture & Climat ; classeur Cryptown et Capitaine Skully",
+        "lineStart": 2726,
+        "lineEnd": 2733,
+        "anchor": "TOME 8 - UMBRIA"
+      },
+      "story_scene": "Quai souterrain de Cryptown invente ; necropole, obsidienne et lac issus du guide.",
+      "original": "V3/assets/arenas/necro.png",
+      "webp": "V3/site/assets/arenas/necro.webp",
+      "generation_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-829ae89d-13df-45c2-9fd9-7185686bcdd4.png",
+      "attempts": [
+        {
+          "startedAt": "2026-09-14T10:42:44.259Z",
+          "tool": "built-in image_gen",
+          "prompt": "Use case: stylized-concept. Asset: Kalistar arena environment painting.\nPeinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Le quai de Cryptown : quai de pierre sombre au bord d un lac souterrain tres calme, portes de necropole et piliers d obsidienne en arriere-plan, une embarcation ancienne attachee a droite. Bollards, cordes et petits braseros pales sur les bords, cristaux NECRO violet fume discretement incrustes sous les arches. Reflets argent, murs charbon, bois vert patine, lumiere diffuse rendant chaque marche lisible. Melancolie paisible, aucun squelette personnage, pas de brouillard opaque, centre plat et degage.\nDeliver one distinct finished raster environment, landscape 16:9, high resolution 2560 by 1440 or higher if supported. No collage. No text. No characters.",
+          "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-829ae89d-13df-45c2-9fd9-7185686bcdd4.png"
+        }
+      ],
+      "visual_qa": {
+        "status": "reviewed",
+        "notes": "Generated image inspected: distinct intended architecture, high three-quarter perspective, clear central floor, no characters or text.",
+        "reviewedAt": "2026-09-14T10:43:29.521Z"
+      },
+      "generatedAt": "2026-09-14T10:43:29.514Z",
+      "original_metadata": {
+        "width": 1672,
+        "height": 941,
+        "format": "png",
+        "sha256": "677de5aa71c6661e09e6a08b8b7f30a91f3a3dd84def22538b468b9df81e0af2",
+        "bytes": 2903943
+      },
+      "webp_metadata": {
+        "width": 1672,
+        "height": 941,
+        "quality": 92,
+        "sha256": "926b27f62f8cdfab81c26151a28f0e6c1bfa0d453db9e46f1cb34671803c9ad4",
+        "bytes": 519762
+      }
+    },
+    {
+      "id": "geo",
+      "status": "complete",
+      "prompt": "Use case: stylized-concept. Asset: Kalistar arena environment painting.\nPeinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Les remparts de Zarok : large place de terre compacte et de pierre gravee devant des maisons taillees dans les parois du canyon, ponts suspendus et toits de metal avec vegetation locale. Monument Rhinoz de pierre noire en arriere-plan : statue d un HUMANOIDE a tete de rhinoceros avec exactement deux bras, deux jambes et une lance. Cristaux GEO ocre dans des bornes, drapeaux verts et blancs, lumiere de fin d apres-midi. Terre humide et canal longeant le bord, sol central bien libre, aucun personnage vivant.\nDeliver one distinct finished raster environment, landscape 16:9, high resolution 2560 by 1440 or higher if supported. No collage. No text. No characters.",
+      "source": "Histoire chapitre 10, village de Zarok ; affinites de jeu proposees",
+      "source_history": {
+        "file": "V3/sources/histoire.txt",
+        "docx": "Kalistar - Le réveil.docx",
+        "section": "Histoire, chapitre 10, accueil au village de Zarok",
+        "lineStart": 3966,
+        "lineEnd": 3973,
+        "anchor": "Au centre du village, une immense statue"
+      },
+      "story_scene": "Rempart jouable de Zarok, village sculpte dans le canyon ; site canonique, plateforme inventee.",
+      "original": "V3/assets/arenas/geo.png",
+      "webp": "V3/site/assets/arenas/geo.webp",
+      "generation_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-f35df2f5-3b1e-49a0-b1a8-a60c15542e05.png",
+      "attempts": [
+        {
+          "startedAt": "2026-09-14T10:43:30.357Z",
+          "tool": "built-in image_gen",
+          "prompt": "Use case: stylized-concept. Asset: Kalistar arena environment painting.\nPeinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Les remparts de Zarok : large place de terre compacte et de pierre gravee devant des maisons taillees dans les parois du canyon, ponts suspendus et toits de metal avec vegetation locale. Monument Rhinoz de pierre noire en arriere-plan : statue d un HUMANOIDE a tete de rhinoceros avec exactement deux bras, deux jambes et une lance. Cristaux GEO ocre dans des bornes, drapeaux verts et blancs, lumiere de fin d apres-midi. Terre humide et canal longeant le bord, sol central bien libre, aucun personnage vivant.\nDeliver one distinct finished raster environment, landscape 16:9, high resolution 2560 by 1440 or higher if supported. No collage. No text. No characters.",
+          "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-f35df2f5-3b1e-49a0-b1a8-a60c15542e05.png"
+        }
+      ],
+      "visual_qa": {
+        "status": "reviewed",
+        "notes": "Generated image inspected: distinct intended architecture, high three-quarter perspective, clear central floor, no characters or text.",
+        "reviewedAt": "2026-09-14T10:44:17.208Z"
+      },
+      "generatedAt": "2026-09-14T10:44:17.201Z",
+      "original_metadata": {
+        "width": 1672,
+        "height": 941,
+        "format": "png",
+        "sha256": "e4414627e139672703fa636711ea9799abd78e38874c6741ab8e4ca7c0b438c5",
+        "bytes": 3111674
+      },
+      "webp_metadata": {
+        "width": 1672,
+        "height": 941,
+        "quality": 92,
+        "sha256": "200aa89adb24b8f7825b73e6c642b0aab1b3d6f524b82a8d1fbd9ba7aef98b38",
+        "bytes": 622680
+      }
+    },
+    {
+      "id": "rainbow",
+      "status": "complete",
+      "prompt": "Use case: stylized-concept. Asset: Kalistar arena environment painting.\nPeinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Le seuil du Temple de Kalistopolis : vaste parvis de pierre blanche sur une ile suspendue entre mer et ciel, temple monumental au fond, douze petites niches architecturales pour les cristaux autour de la place. Eau, vegetaux, roche et metal coexistent dans des details localises, cristal RAINBOW translucide dans une seule clef de voute. Refractions arc-en-ciel fines sur la pierre, lumiere du matin naturelle, ciel bleu et accents vermillon. Pas de personnage royal, pas de trone, pas de portail noir, aucune explosion de couleurs ; centre simple et degage.\nDeliver one distinct finished raster environment, landscape 16:9, high resolution 2560 by 1440 or higher if supported. No collage. No text. No characters.",
+      "source": "Classeur Ville, Temple et Rainbow ; lieu et affinite Kaylis symboliques inventes, pas un voyage canonique",
+      "source_history": {
+        "file": "V3/sources/histoire.txt",
+        "docx": "KALISTAR - GUIDE COMPLET DES MONDES.docx",
+        "section": "Guide complet des mondes, tome 12, description de la cite ; classeur Ville, Temple",
+        "lineStart": 2806,
+        "lineEnd": 2813,
+        "anchor": "TOME 12 - KALISTOPOLIS"
+      },
+      "story_scene": "Seuil du Temple de Kalistopolis propose V3 ; aucune visite de Kaylis ici n est affirmee pour sa version evasion.",
+      "original": "V3/assets/arenas/rainbow.png",
+      "webp": "V3/site/assets/arenas/rainbow.webp",
+      "generation_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-b450b60f-c0ea-4cc5-82f8-54a25398d3c6.png",
+      "attempts": [
+        {
+          "startedAt": "2026-09-14T10:44:18.030Z",
+          "tool": "built-in image_gen",
+          "prompt": "Use case: stylized-concept. Asset: Kalistar arena environment painting.\nPeinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Le seuil du Temple de Kalistopolis : vaste parvis de pierre blanche sur une ile suspendue entre mer et ciel, temple monumental au fond, douze petites niches architecturales pour les cristaux autour de la place. Eau, vegetaux, roche et metal coexistent dans des details localises, cristal RAINBOW translucide dans une seule clef de voute. Refractions arc-en-ciel fines sur la pierre, lumiere du matin naturelle, ciel bleu et accents vermillon. Pas de personnage royal, pas de trone, pas de portail noir, aucune explosion de couleurs ; centre simple et degage.\nDeliver one distinct finished raster environment, landscape 16:9, high resolution 2560 by 1440 or higher if supported. No collage. No text. No characters.",
+          "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-b450b60f-c0ea-4cc5-82f8-54a25398d3c6.png"
+        }
+      ],
+      "visual_qa": {
+        "status": "reviewed",
+        "notes": "Generated image inspected: distinct intended architecture, high three-quarter perspective, clear central floor, no characters or text.",
+        "reviewedAt": "2026-09-14T10:45:02.974Z"
+      },
+      "generatedAt": "2026-09-14T10:45:02.967Z",
+      "original_metadata": {
+        "width": 1672,
+        "height": 941,
+        "format": "png",
+        "sha256": "c075d457d061090314af04c5648201e5902e33839a061e4176c8282f8c1a95ee",
+        "bytes": 2871002
+      },
+      "webp_metadata": {
+        "width": 1672,
+        "height": 941,
+        "quality": 92,
+        "sha256": "1b97fad3e59a599d8f9d2ea192fb19bb4fb351c938c5d29acbd89cb53687929e",
+        "bytes": 530548
+      }
+    },
+    {
+      "id": "trone-fer",
+      "status": "complete",
+      "prompt": "Use case: stylized-concept. Asset: Kalistar arena environment painting.\nPeinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Le Trone de Fer de Durane, salle du Conseil des Zones : vaste salle circulaire d acier sombre et metal poli, douze sieges massifs disposes autour d une estrade ronde, chaque dossier portant un motif geometrique different sans lettres ni nombres. Grandes baies en hauteur, passerelles techniques et ancien pupitre de retransmission sur le cote. Siege royal en metal forge sobre au fond, PAS un amoncellement depee ni reference a Game of Thrones. Lumiere bleutee naturelle et reflets chauds discrets, sol central degage, aucun dirigeant ni foule, aucun cristal de bonus mis en evidence.\nDeliver one distinct finished raster environment, landscape 16:9, high resolution 2560 by 1440 or higher if supported. No collage. No text. No characters.",
+      "source": "Histoire chapitres 16-17, Tour de Fer et Conseil ; titre de lieu de jeu Trone de Fer",
+      "source_history": {
+        "file": "V3/sources/histoire.txt",
+        "docx": "🔥 Chapitre 16 – Le Conseil des Zones.docx",
+        "section": "Chapitre 16, Le Conseil des Zones, ouverture",
+        "lineStart": 7261,
+        "lineEnd": 7268,
+        "anchor": "La salle haute de la Tour de Fer"
+      },
+      "story_scene": "Salle haute de la Tour de Fer avec les douze trones massifs et l estrade circulaire du Conseil ; pas un trone de lames emprunte a une autre licence.",
+      "original": "V3/assets/arenas/trone-fer.png",
+      "webp": "V3/site/assets/arenas/trone-fer.webp",
+      "generation_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-2ed4afac-4f60-4eb8-a8ce-3d34ebf9ab3b.png",
+      "attempts": [
+        {
+          "startedAt": "2026-09-14T10:45:07.227Z",
+          "tool": "built-in image_gen",
+          "prompt": "Use case: stylized-concept. Asset: Kalistar arena environment painting.\nPeinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Le Trone de Fer de Durane, salle du Conseil des Zones : vaste salle circulaire d acier sombre et metal poli, douze sieges massifs disposes autour d une estrade ronde, chaque dossier portant un motif geometrique different sans lettres ni nombres. Grandes baies en hauteur, passerelles techniques et ancien pupitre de retransmission sur le cote. Siege royal en metal forge sobre au fond, PAS un amoncellement depee ni reference a Game of Thrones. Lumiere bleutee naturelle et reflets chauds discrets, sol central degage, aucun dirigeant ni foule, aucun cristal de bonus mis en evidence.\nDeliver one distinct finished raster environment, landscape 16:9, high resolution 2560 by 1440 or higher if supported. No collage. No text. No characters.",
+          "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-2ed4afac-4f60-4eb8-a8ce-3d34ebf9ab3b.png"
+        }
+      ],
+      "visual_qa": {
+        "status": "reviewed",
+        "notes": "Generated image inspected: distinct intended architecture, high three-quarter perspective, clear central floor, no characters or text.",
+        "reviewedAt": "2026-09-14T10:45:47.062Z"
+      },
+      "generatedAt": "2026-09-14T10:45:47.055Z",
+      "original_metadata": {
+        "width": 1672,
+        "height": 941,
+        "format": "png",
+        "sha256": "71b62ab03c587961db390241d2a088dc03c1b52cd839b850a46bf1a713b3cb0d",
+        "bytes": 2728579
+      },
+      "webp_metadata": {
+        "width": 1672,
+        "height": 941,
+        "quality": 92,
+        "sha256": "0569ac8a2889e0cac9cff629a527744c117eeca22ed93ce2662cb94e3e19bef0",
+        "bytes": 473814
+      }
+    },
+    {
+      "id": "astraball",
+      "status": "complete",
+      "prompt": "Use case: stylized-concept. Asset: Kalistar arena environment painting.\nPeinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Le terrain d Astraball de Zarok : terrain sportif improvise mais spacieux en terre compacte pres de la grande place du village, entre des maisons taillees dans le canyon. Le sport utilise pieds et mains, comme un melange de basket et de contact. A chaque extremite, un PANIER EN FORME DE U INVERSE, arche etroite arrondie avec deux montants et filet de reception, de taille humaine proportionnee au terrain ; PAS de cercle de basket, pas anneaux, pas cage de football. Marques au sol simples pour la zone du pilier qui ne peut la quitter et les transitions des cinq roles, sans texte ni chiffres. Gradins bas tailles dans la roche, structures robustes, une balle pres du bord, drapeaux vert et blanc. Grand ciel lumineux, ombres franches, aucun joueur ni foule ni magie. Centre entierement libre. Dimensions exactes, nombre et disposition des paniers sont une extrapolation visuelle, pas une regle additionnelle.\nDeliver one distinct finished raster environment, landscape 16:9, high resolution 2560 by 1440 or higher if supported. No collage. No text. No characters.",
+      "source": "Histoire chapitres 10-12, Astraball a Zarok ; affinite Nazar, hote local, proposee",
+      "source_history": {
+        "file": "V3/sources/histoire.txt",
+        "docx": "Chapitre 11 – Les Flammes de la Fonderie.docx",
+        "section": "Chapitre 11, L Astraball : Le Jeu des Elements, panier en U inverse et cinq roles",
+        "lineStart": 380,
+        "lineEnd": 387,
+        "anchor": "panier en forme de U inversé"
+      },
+      "story_scene": "Terrain d Astraball chez les Rhinoz de Zarok ; lieu canonique, details de marquage proposes.",
+      "original": "V3/assets/arenas/astraball.png",
+      "webp": "V3/site/assets/arenas/astraball.webp",
+      "generation_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-7d06f72d-c992-4cb6-997f-a0e0750e49b2.png",
+      "attempts": [
+        {
+          "startedAt": "2026-09-14T10:45:47.970Z",
+          "tool": "built-in image_gen",
+          "prompt": "Use case: stylized-concept. Asset: Kalistar arena environment painting.\nPeinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Le terrain d Astraball de Zarok : terrain sportif improvise mais spacieux en terre compacte pres de la grande place du village, entre des maisons taillees dans le canyon. Le sport utilise pieds et mains, comme un melange de basket et de contact. A chaque extremite, un PANIER EN FORME DE U INVERSE, arche etroite arrondie avec deux montants et filet de reception, de taille humaine proportionnee au terrain ; PAS de cercle de basket, pas anneaux, pas cage de football. Marques au sol simples pour la zone du pilier qui ne peut la quitter et les transitions des cinq roles, sans texte ni chiffres. Gradins bas tailles dans la roche, structures robustes, une balle pres du bord, drapeaux vert et blanc. Grand ciel lumineux, ombres franches, aucun joueur ni foule ni magie. Centre entierement libre. Dimensions exactes, nombre et disposition des paniers sont une extrapolation visuelle, pas une regle additionnelle.\nDeliver one distinct finished raster environment, landscape 16:9, high resolution 2560 by 1440 or higher if supported. No collage. No text. No characters.",
+          "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-8f28-7f83-b074-87e3048024da\\exec-7d06f72d-c992-4cb6-997f-a0e0750e49b2.png"
+        }
+      ],
+      "visual_qa": {
+        "status": "reviewed",
+        "notes": "Generated image inspected: distinct intended architecture, high three-quarter perspective, clear central floor, no characters or text.",
+        "reviewedAt": "2026-09-14T10:46:29.677Z"
+      },
+      "generatedAt": "2026-09-14T10:46:29.668Z",
+      "original_metadata": {
+        "width": 1672,
+        "height": 941,
+        "format": "png",
+        "sha256": "18b1f2738017e85345e92ef045fb512d23dc400921013c9e24bdb355613efb4f",
+        "bytes": 2723719
+      },
+      "webp_metadata": {
+        "width": 1672,
+        "height": 941,
+        "quality": 92,
+        "sha256": "d8bb2c5682ae7c23a756e0567756e732cfde0a2c0ec67cd679a3d70d84ab7fec",
+        "bytes": 473330
+      }
+    }
+  ],
+  "reused": {
+    "id": "ruins",
+    "source": "V3/site/assets/arena.webp",
+    "destination": "V3/site/assets/arenas/ruins.webp",
+    "status": "copied",
+    "sha256": "9f7e76e072a10cef60a01d0a9aad472e48406056e8074d8acc73f7090cd72c9d",
+    "metadata": {
+      "format": "webp",
+      "mediaType": "image/webp",
+      "width": 1800,
+      "height": 1013,
+      "space": "srgb",
+      "channels": 3,
+      "depth": "uchar",
+      "isProgressive": false,
+      "isPalette": false,
+      "hasProfile": false,
+      "hasAlpha": false,
+      "autoOrient": {
+        "width": 1800,
+        "height": 1013
+      }
+    }
+  },
+  "verification": {
+    "checkedAt": "2026-09-14T10:47:08.123Z",
+    "completed": 14,
+    "uniqueOriginals": 14,
+    "allWebp16x9": true,
+    "webpQuality": 92,
+    "z13Unchanged": true,
+    "ruinsExactCopy": true,
+    "lockedIllustrationsChecked": 6
+  },
+  "status": "complete",
+  "delivery": {
+    "originalResolution": "1672x941 native PNG, no upscaling",
+    "requestedResolution": "2560x1440 or higher if supported",
+    "resolutionNote": "Built-in tool returned 1672x941; preserved originals. Aspect-ratio error below 0.1 percent relative to 16:9.",
+    "generationCalls": 14,
+    "targetedEditCalls": 1,
+    "editedArena": "hemato",
+    "editReason": "Removal of unwanted generated signature before publication"
+  }
+}

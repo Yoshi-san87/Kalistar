@@ -1,0 +1,1159 @@
+{
+  "schema_version": 1,
+  "scope": "Only ten noncanonical race logo revision PNGs; parent integrates",
+  "started_at": "2026-09-14T12:27:18.303Z",
+  "status": "ready_for_parent_with_native_framing_notes",
+  "art_direction_source": "V3/sources/DIRECTION_ARTISTIQUE_KALISTAR.md",
+  "shared_style_prompt": "Use case: logo-brand. Generate ONE original heraldic RACE LOGO for Kalistar V3, a clean GRAPHIC SYMBOL designed for 80x80 pixel display. Not a character illustration, not a painted portrait, not an elaborate sculpted head. Square high-resolution PNG with GENUINELY TRANSPARENT ALPHA in every empty area. One centered standalone silhouette fills about 80 percent of the canvas, with balanced 10 percent transparent margin; keep all tips inside that safe area. Art direction shared across this set: broad flat shapes with VERY SHALLOW bas-relief only, warm IVORY #E3DFD0 and PATINATED SILVER #AAAFA9, a single large race-color ENAMEL inset, restrained dark graphite #303634 edge for contrast. Maximum THREE main graphic masses. Clean confident shapes, controlled positive/negative space, minimal edge bevel, matte lightly worn material suggested by a few broad tone changes only. Still reads perfectly as a logo in one-color silhouette. NOT shiny jewelry, chrome, photorealism, 3D collectible, complex armor or esports mascot. No realistic eyes, no individual hairs/feathers/scales, no fine texture, grain overlay, tiny filigree, micro-engraving, extra pieces, dropshadow, floor, atmospheric glow or scene. Absolutely NO circle, disc, shield, medallion, coin, outer frame, wreath, background shape, text, letters, numbers, label, logo lettering, watermark or painted checkerboard. The parent creates its own medallion later, so deliver ONLY the unframed race sign.",
+  "output_folder": "V3/assets/revisions-20260914/races",
+  "readability_px": 80,
+  "rendering_policy": "One built-in imagegen call per independent logo. New text-driven designs, canonical images inspected as race references but not supplied as edit targets. No atlas, no Python retouching, no local image modification. Native PNG copied byte-for-byte.",
+  "source_inspection": {
+    "contact_sheet": "C:/Users/guill/AppData/Local/Temp/kalistar-races-b-source-review-20260914.png",
+    "view_image_inspected": true,
+    "additional_native_images": [
+      "V3/assets/races/KORBOW.png",
+      "V3/assets/races/GOLEM.png"
+    ],
+    "profiles": "V3/donnees/cartes.json",
+    "notes": "Existing badges are often highly modelled faces. This request replaces their visual language only in the revision folder; no canonical overwrite."
+  },
+  "assets": [
+    {
+      "id": "RHINOZ",
+      "destination": "V3/assets/revisions-20260914/races/RHINOZ.png",
+      "status": "ready_for_parent",
+      "race_enamel_color": "#92744C",
+      "prompt": "Use case: logo-brand. Generate ONE original heraldic RACE LOGO for Kalistar V3, a clean GRAPHIC SYMBOL designed for 80x80 pixel display. Not a character illustration, not a painted portrait, not an elaborate sculpted head. Square high-resolution PNG with GENUINELY TRANSPARENT ALPHA in every empty area. One centered standalone silhouette fills about 80 percent of the canvas, with balanced 10 percent transparent margin; keep all tips inside that safe area. Art direction shared across this set: broad flat shapes with VERY SHALLOW bas-relief only, warm IVORY #E3DFD0 and PATINATED SILVER #AAAFA9, a single large race-color ENAMEL inset, restrained dark graphite #303634 edge for contrast. Maximum THREE main graphic masses. Clean confident shapes, controlled positive/negative space, minimal edge bevel, matte lightly worn material suggested by a few broad tone changes only. Still reads perfectly as a logo in one-color silhouette. NOT shiny jewelry, chrome, photorealism, 3D collectible, complex armor or esports mascot. No realistic eyes, no individual hairs/feathers/scales, no fine texture, grain overlay, tiny filigree, micro-engraving, extra pieces, dropshadow, floor, atmospheric glow or scene. Absolutely NO circle, disc, shield, medallion, coin, outer frame, wreath, background shape, text, letters, numbers, label, logo lettering, watermark or painted checkerboard. The parent creates its own medallion later, so deliver ONLY the unframed race sign.\nRace enamel color: #92744C.\nSubject: THREE graphic masses at most: (1) one broad right-facing rhinoceros head-and-neck PROFILE silhouette with a heavy blunt squared muzzle, (2) one strong upward-curving single nasal horn integrated into the silhouette, (3) one broad ochre enamel cheek plane. One tiny triangular eye incision only. Horn and thick nose identify the race instantly. No frontal mask, no second eye, no fur, skin folds, helmet or extra ornamental spikes.",
+      "source": {
+        "id": "RHINOZ",
+        "canonical_path": "V3/assets/races/RHINOZ.png",
+        "sha256": "50E5675A3A73430178E5F8FAFF8603C5992B6FB50138631150EF03A241A01B5E",
+        "profiles": [
+          {
+            "id": "30000011",
+            "name": "NAZAR",
+            "race": "RHINOZ",
+            "element": "GEO",
+            "faction": "Zarok",
+            "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Rhinoz humanoide a tete de rhinoceros, deux mains dans la terre, pieds fermement plantes, grand effort et regard bienveillant, charrette minuscule au fond."
+          },
+          {
+            "id": "30000019",
+            "name": "BELROG",
+            "race": "RHINOZ",
+            "element": "MINERO",
+            "faction": "Zarok",
+            "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Rhinoz humanoide vieillissant a tete de rhinoceros, masse de voyage, deux bras relevant un signal de col, poussiere et attente patiente, deux jambes robustes."
+          },
+          {
+            "id": "30000037",
+            "name": "YVAR",
+            "race": "RHINOZ",
+            "element": "GEO",
+            "faction": "Zarok",
+            "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Rhinoz humanoide adulte a tete de rhinoceros, corne courte marquee d une rayure, armure legere verte, lance gravee. Plein corps vu en leger plongee, accroupi au bord d un canal asseche et montrant une piste, vigilance tranquille, pas de corps animal."
+          },
+          {
+            "id": "30000038",
+            "name": "GILMARR",
+            "race": "RHINOZ",
+            "element": "AERO",
+            "faction": "Zarok",
+            "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Jeune adulte Rhinoz humanoide a tete de rhinoceros, carrure de pilier sportif, maillot vert bouteille et blanc, deux bras deux jambes. Debout bras ouvert invitant a entrer, autre main tient un plot, sourire confiant, anneaux d Astraball derriere, souffle AERO discret soulevant la poussiere et non une boule magique."
+          }
+        ]
+      },
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "mode": "built-in",
+        "input_images": [],
+        "calls": 1,
+        "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-b150fb70-3feb-44e1-8247-1d297a138fc2.png",
+        "generated_at": "2026-09-14T12:29:07.293Z"
+      },
+      "qa": {
+        "status": "passed",
+        "metrics": {
+          "Width": 1254,
+          "Height": 1254,
+          "MinX": 52,
+          "MinY": 116,
+          "MaxX": 1212,
+          "MaxY": 1152,
+          "BorderMaxAlpha": 0,
+          "PixelFormat": "Format32bppArgb",
+          "CornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "TransparentPixels": 983573,
+          "VisiblePixels": 579649,
+          "AlphaCenterX": 635.6369342938307,
+          "AlphaCenterY": 677.15535277043,
+          "WidthFraction": 0.9258373205741627,
+          "HeightFraction": 0.8269537480063796
+        },
+        "sha256": "0A228A0C16A85B3FEA0731BE813898B0A33831E3CE384DB65C9409DF56928B7A",
+        "copy_exact": true,
+        "bytes": 1211905,
+        "preview": "C:/Users/guill/AppData/Local/Temp/kalistar-harmony-b-RHINOZ-80px.png",
+        "alpha_bounds_threshold": 8,
+        "thumbnail_px": 80,
+        "visual_review": {
+          "reviewed_with": "view_image 248px overview plus actual 80px on white and charcoal; generated native image also inspected",
+          "notes": "Broad rhino profile, one prominent horn and ochre cheek; distinct silhouette at 80px. Native bounds occupy 92.6% width and 82.7% height, wider than the nominal 80% target; transparent margin intact and no clipping.",
+          "readable_at_80px": true,
+          "no_outer_frame": true,
+          "no_front_painted_portrait": true,
+          "main_masses_at_most_three": true,
+          "native_canvas_unchanged": true
+        },
+        "framing": {
+          "target_long_axis_fraction": 0.8,
+          "measured_long_axis_fraction": 0.9258373205741627,
+          "alpha_bounds_normalized": [
+            0.04146730462519936,
+            0.09250398724082935,
+            0.967304625199362,
+            0.919457735247209
+          ],
+          "alpha_center_normalized": [
+            0.5068875074113482,
+            0.539996294075303
+          ],
+          "status": "native_framing_variance_documented",
+          "note": "Native ImageGen canvas preserved. The 80% fill target is approximate, not pixel-exact. Exact visible bounds are available for parent integration; no crop, rescale, recenter or alpha repair applied."
+        }
+      },
+      "ready_at": "2026-09-14T12:29:36.002Z"
+    },
+    {
+      "id": "FALCO",
+      "destination": "V3/assets/revisions-20260914/races/FALCO.png",
+      "status": "ready_for_parent",
+      "race_enamel_color": "#2E8993",
+      "prompt": "Use case: logo-brand. Generate ONE original heraldic RACE LOGO for Kalistar V3, a clean GRAPHIC SYMBOL designed for 80x80 pixel display. Not a character illustration, not a painted portrait, not an elaborate sculpted head. Square high-resolution PNG with GENUINELY TRANSPARENT ALPHA in every empty area. One centered standalone silhouette fills about 80 percent of the canvas, with balanced 10 percent transparent margin; keep all tips inside that safe area. Art direction shared across this set: broad flat shapes with VERY SHALLOW bas-relief only, warm IVORY #E3DFD0 and PATINATED SILVER #AAAFA9, a single large race-color ENAMEL inset, restrained dark graphite #303634 edge for contrast. Maximum THREE main graphic masses. Clean confident shapes, controlled positive/negative space, minimal edge bevel, matte lightly worn material suggested by a few broad tone changes only. Still reads perfectly as a logo in one-color silhouette. NOT shiny jewelry, chrome, photorealism, 3D collectible, complex armor or esports mascot. No realistic eyes, no individual hairs/feathers/scales, no fine texture, grain overlay, tiny filigree, micro-engraving, extra pieces, dropshadow, floor, atmospheric glow or scene. Absolutely NO circle, disc, shield, medallion, coin, outer frame, wreath, background shape, text, letters, numbers, label, logo lettering, watermark or painted checkerboard. The parent creates its own medallion later, so deliver ONLY the unframed race sign.\nRace enamel color: #2E8993.\nSubject: One bold heraldic FALCON-WING SIGN in an ascending diagonal gesture, not a portrait. THREE masses maximum: (1) a single raised swept wing with exactly THREE broad feather steps rather than individual feathers, (2) a small integrated falcon body and short strongly hooked beak in right-facing profile, (3) one broad turquoise enamel inset following the wing. Wide confident sweep, not a raven head. No round eye jewel, little feather lines, full bird realism or extra wing.",
+      "source": {
+        "id": "FALCO",
+        "canonical_path": "V3/assets/races/FALCO.png",
+        "sha256": "EA8E968CBC4D68E8C481C5030D2E80F59E736E532D46BEC3DB4D8E33C4970833",
+        "profiles": [
+          {
+            "id": "30000002",
+            "name": "CANA",
+            "race": "FALCO",
+            "element": "AERO",
+            "faction": "Nestown",
+            "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Messagere Falco humanoide a tete de faucon, une aile repliee blessee, bras tendu avec un courrier au-dessus du vide, urgence et determination."
+          },
+          {
+            "id": "30000040",
+            "name": "SORYN",
+            "race": "FALCO",
+            "element": "AERO",
+            "faction": "Nestown",
+            "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Falco humanoide adulte a tete de faucon claire, petites plumes rousses, ailes dorsales repliees distinctes des deux bras. Assis sur une traverse stable, deux pieds visibles, pince les cordes d une cithare portable, yeux mi-clos de concentration heureuse, cloches et ponts suspendus dans un brouillard lumineux."
+          }
+        ]
+      },
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "mode": "built-in",
+        "input_images": [],
+        "calls": 1,
+        "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-2a06e47a-8d11-4586-98a4-fb37965071b4.png",
+        "generated_at": "2026-09-14T12:30:19.494Z"
+      },
+      "qa": {
+        "status": "passed",
+        "metrics": {
+          "Width": 1254,
+          "Height": 1254,
+          "MinX": 138,
+          "MinY": 59,
+          "MaxX": 1139,
+          "MaxY": 1179,
+          "BorderMaxAlpha": 1,
+          "PixelFormat": "Format32bppArgb",
+          "CornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "TransparentPixels": 1159650,
+          "VisiblePixels": 404611,
+          "AlphaCenterX": 602.7226768956715,
+          "AlphaCenterY": 643.3365558441012,
+          "WidthFraction": 0.7990430622009569,
+          "HeightFraction": 0.8939393939393939
+        },
+        "sha256": "060F244175B7102E15EF8870B1B5973F922FB6C2765F894BDD7671A40D0B5984",
+        "copy_exact": true,
+        "bytes": 831481,
+        "preview": "C:/Users/guill/AppData/Local/Temp/kalistar-harmony-b-FALCO-80px.png",
+        "alpha_bounds_threshold": 8,
+        "thumbnail_px": 80,
+        "visual_review": {
+          "reviewed_with": "view_image 248px overview plus actual 80px on white and charcoal; generated native image also inspected",
+          "notes": "Heraldic raised falcon wing with three broad feather steps and a hooked beak; not a painted head. Turquoise enamel, shallow edge relief, clean transparency. Native bounds 79.9% width by 89.4% height; no clipping.",
+          "readable_at_80px": true,
+          "no_outer_frame": true,
+          "no_front_painted_portrait": true,
+          "main_masses_at_most_three": true,
+          "native_canvas_unchanged": true
+        },
+        "framing": {
+          "target_long_axis_fraction": 0.8,
+          "measured_long_axis_fraction": 0.8939393939393939,
+          "alpha_bounds_normalized": [
+            0.11004784688995216,
+            0.04704944178628389,
+            0.9090909090909091,
+            0.9409888357256778
+          ],
+          "alpha_center_normalized": [
+            0.4806400932182388,
+            0.5130275564944986
+          ],
+          "status": "native_framing_variance_documented",
+          "note": "Native ImageGen canvas preserved. The 80% fill target is approximate, not pixel-exact. Exact visible bounds are available for parent integration; no crop, rescale, recenter or alpha repair applied."
+        }
+      },
+      "ready_at": "2026-09-14T12:30:43.888Z"
+    },
+    {
+      "id": "KORBOW",
+      "destination": "V3/assets/revisions-20260914/races/KORBOW.png",
+      "status": "ready_for_parent",
+      "race_enamel_color": "#343B56",
+      "prompt": "Use case: logo-brand. Generate ONE original heraldic RACE LOGO for Kalistar V3, a clean GRAPHIC SYMBOL designed for 80x80 pixel display. Not a character illustration, not a painted portrait, not an elaborate sculpted head. Square high-resolution PNG with GENUINELY TRANSPARENT ALPHA in every empty area. One centered standalone silhouette fills about 80 percent of the canvas, with balanced 10 percent transparent margin; keep all tips inside that safe area. Art direction shared across this set: broad flat shapes with VERY SHALLOW bas-relief only, warm IVORY #E3DFD0 and PATINATED SILVER #AAAFA9, a single large race-color ENAMEL inset, restrained dark graphite #303634 edge for contrast. Maximum THREE main graphic masses. Clean confident shapes, controlled positive/negative space, minimal edge bevel, matte lightly worn material suggested by a few broad tone changes only. Still reads perfectly as a logo in one-color silhouette. NOT shiny jewelry, chrome, photorealism, 3D collectible, complex armor or esports mascot. No realistic eyes, no individual hairs/feathers/scales, no fine texture, grain overlay, tiny filigree, micro-engraving, extra pieces, dropshadow, floor, atmospheric glow or scene. Absolutely NO circle, disc, shield, medallion, coin, outer frame, wreath, background shape, text, letters, numbers, label, logo lettering, watermark or painted checkerboard. The parent creates its own medallion later, so deliver ONLY the unframed race sign.\nRace enamel color: #343B56.\nSubject: One bold RAVEN HEAD PROFILE facing right. THREE masses maximum: (1) smooth low-domed crown and compact neck silhouette, (2) a long thick straight pointed beak with only a slight downward tip, (3) one broad charcoal-indigo enamel nape plane. One small eye incision; exactly two broad angular nape feather steps, not many feathers. Clearly a raven: long beak, low crown, no raised wing or short falcon hook. A heraldic graphic mark, not a lifelike painted bird portrait.",
+      "source": {
+        "id": "KORBOW",
+        "canonical_path": "V3/assets/races/KORBOW.png",
+        "sha256": "21BFBE6876CBB971E6317365B0506EE5E656AF53AC0495914DF4B9FD7E7B1157",
+        "profiles": [
+          {
+            "id": "30000015",
+            "name": "SCROW",
+            "race": "KORBOW",
+            "element": "AERO",
+            "faction": "Nestown",
+            "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Korbow adulte humanoide a tete de corbeau, bec sombre, mantelet gris clair, deux bras tenant un arc, deux jambes sur un parapet, ailes dorsales repliees. Profil serre, corde relachee, doute lucide, ville aerienne de Nestown."
+          }
+        ]
+      },
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "mode": "built-in",
+        "input_images": [],
+        "calls": 1,
+        "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-c50fae0c-af75-4510-8464-281200126cb0.png",
+        "generated_at": "2026-09-14T12:31:29.773Z"
+      },
+      "qa": {
+        "status": "passed",
+        "metrics": {
+          "Width": 1254,
+          "Height": 1254,
+          "MinX": 119,
+          "MinY": 238,
+          "MaxX": 1198,
+          "MaxY": 1067,
+          "BorderMaxAlpha": 0,
+          "PixelFormat": "Format32bppArgb",
+          "CornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "TransparentPixels": 1167276,
+          "VisiblePixels": 398231,
+          "AlphaCenterX": 573.8354162240481,
+          "AlphaCenterY": 574.1579391641436,
+          "WidthFraction": 0.861244019138756,
+          "HeightFraction": 0.6618819776714514
+        },
+        "sha256": "64FF53B18A3603E617C10508C39FA6D12FFDBEAF3701506B10D9279AC25FFF9D",
+        "copy_exact": true,
+        "bytes": 702670,
+        "preview": "C:/Users/guill/AppData/Local/Temp/kalistar-harmony-b-KORBOW-80px.png",
+        "alpha_bounds_threshold": 8,
+        "thumbnail_px": 80,
+        "visual_review": {
+          "reviewed_with": "view_image 248px overview plus actual 80px on white and charcoal; generated native image also inspected",
+          "notes": "Long straight raven beak, low smooth crown and charcoal-indigo neck mass; distinct from Falco's raised wing. Broad profile remains legible at 80px; modest relief, no painted frontal face.",
+          "readable_at_80px": true,
+          "no_outer_frame": true,
+          "no_front_painted_portrait": true,
+          "main_masses_at_most_three": true,
+          "native_canvas_unchanged": true
+        },
+        "framing": {
+          "target_long_axis_fraction": 0.8,
+          "measured_long_axis_fraction": 0.861244019138756,
+          "alpha_bounds_normalized": [
+            0.094896331738437,
+            0.189792663476874,
+            0.956140350877193,
+            0.8516746411483254
+          ],
+          "alpha_center_normalized": [
+            0.45760400017866676,
+            0.45786119550569665
+          ],
+          "status": "native_framing_variance_documented",
+          "note": "Native ImageGen canvas preserved. The 80% fill target is approximate, not pixel-exact. Exact visible bounds are available for parent integration; no crop, rescale, recenter or alpha repair applied."
+        }
+      },
+      "ready_at": "2026-09-14T12:31:54.427Z"
+    },
+    {
+      "id": "DRAX",
+      "destination": "V3/assets/revisions-20260914/races/DRAX.png",
+      "status": "ready_for_parent",
+      "race_enamel_color": "#A5362A",
+      "prompt": "Use case: logo-brand. Generate ONE original heraldic RACE LOGO for Kalistar V3, a clean GRAPHIC SYMBOL designed for 80x80 pixel display. Not a character illustration, not a painted portrait, not an elaborate sculpted head. Square high-resolution PNG with GENUINELY TRANSPARENT ALPHA in every empty area. One centered standalone silhouette fills about 80 percent of the canvas, with balanced 10 percent transparent margin; keep all tips inside that safe area. Art direction shared across this set: broad flat shapes with VERY SHALLOW bas-relief only, warm IVORY #E3DFD0 and PATINATED SILVER #AAAFA9, a single large race-color ENAMEL inset, restrained dark graphite #303634 edge for contrast. Maximum THREE main graphic masses. Clean confident shapes, controlled positive/negative space, minimal edge bevel, matte lightly worn material suggested by a few broad tone changes only. Still reads perfectly as a logo in one-color silhouette. NOT shiny jewelry, chrome, photorealism, 3D collectible, complex armor or esports mascot. No realistic eyes, no individual hairs/feathers/scales, no fine texture, grain overlay, tiny filigree, micro-engraving, extra pieces, dropshadow, floor, atmospheric glow or scene. Absolutely NO circle, disc, shield, medallion, coin, outer frame, wreath, background shape, text, letters, numbers, label, logo lettering, watermark or painted checkerboard. The parent creates its own medallion later, so deliver ONLY the unframed race sign.\nRace enamel color: #A5362A.\nSubject: One angular heraldic DRAGON PROFILE facing right. THREE masses maximum: (1) a strong swept neck, skull and one backward horn as a coherent ivory-silver silhouette, (2) a bold lower jaw defining one clean triangular open-mouth gap, (3) one broad dark vermilion enamel neck plane. One large fang suggested in the contour at most. Instantly dragon, not a raven, lizard-flower or rhinoceros. No scales, rows of teeth, realistic eye, fire, additional horns, mane or portrait lighting.",
+      "source": {
+        "id": "DRAX",
+        "canonical_path": "V3/assets/races/DRAX.png",
+        "sha256": "5358D2F3DCE40510F3C48A9DF3F1762A19F1A4C4F6E02BC0B167808C06C0943A",
+        "profiles": [
+          {
+            "id": "30000004",
+            "name": "DARNAKO",
+            "race": "DRAX",
+            "element": "PYRO",
+            "faction": "Vulkar",
+            "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Forgeron Drax humanoide a tete de dragon, deux bras et deux jambes, lame longue utilisee comme levier sous une poutre, effort physique et peur maitrisee."
+          },
+          {
+            "id": "30000029",
+            "name": "THANOR",
+            "race": "DRAX",
+            "element": "PYRO",
+            "faction": "Vulkar",
+            "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Drax adulte humanoide a tete de dragon rouge sombre, petites cornes abimees, deux bras deux jambes, tablier de forge ceremonial. Debout penche sur une enclume, une main depose une couronne de metal, epee longue au dos, fierte lasse, aucun dragon quadrupede."
+          },
+          {
+            "id": "30000030",
+            "name": "DARUK",
+            "race": "DRAX",
+            "element": "PYRO",
+            "faction": "Vulkar",
+            "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Drax humanoide robuste a tete de dragon aux ecailles claires et cornes courtes, exactement deux bras deux jambes. Vue laterale plein corps, il pousse une grande roue de vanne, hache accrochee a la taille, effort obstine et sueur, lave confinee sous un pont de basalte."
+          }
+        ]
+      },
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "mode": "built-in",
+        "input_images": [],
+        "calls": 1,
+        "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-6a52f29a-4206-4e68-b2b2-94c84f7b0eb4.png",
+        "generated_at": "2026-09-14T12:32:53.207Z"
+      },
+      "qa": {
+        "status": "passed",
+        "metrics": {
+          "Width": 1254,
+          "Height": 1254,
+          "MinX": 126,
+          "MinY": 99,
+          "MaxX": 1172,
+          "MaxY": 1172,
+          "BorderMaxAlpha": 0,
+          "PixelFormat": "Format32bppArgb",
+          "CornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "TransparentPixels": 1145920,
+          "VisiblePixels": 414761,
+          "AlphaCenterX": 668.8971774805021,
+          "AlphaCenterY": 601.5425662970068,
+          "WidthFraction": 0.8349282296650717,
+          "HeightFraction": 0.8564593301435407
+        },
+        "sha256": "8DBA3FDC9D9583E90CCC4CBFCFAE25922B9387663435C57509CB666B53F7C2F0",
+        "copy_exact": true,
+        "bytes": 883237,
+        "preview": "C:/Users/guill/AppData/Local/Temp/kalistar-harmony-b-DRAX-80px.png",
+        "alpha_bounds_threshold": 8,
+        "thumbnail_px": 80,
+        "visual_review": {
+          "reviewed_with": "view_image 248px overview plus actual 80px on white and charcoal; generated native image also inspected",
+          "notes": "Angular dragon profile with backward horn, one open jaw gap and broad vermilion neck mass. Clear dragon identity at 80px; shallow edge relief, no scale microdetails, alpha preserved.",
+          "readable_at_80px": true,
+          "no_outer_frame": true,
+          "no_front_painted_portrait": true,
+          "main_masses_at_most_three": true,
+          "native_canvas_unchanged": true
+        },
+        "framing": {
+          "target_long_axis_fraction": 0.8,
+          "measured_long_axis_fraction": 0.8564593301435407,
+          "alpha_bounds_normalized": [
+            0.10047846889952153,
+            0.07894736842105263,
+            0.9354066985645934,
+            0.9354066985645934
+          ],
+          "alpha_center_normalized": [
+            0.5334108273369236,
+            0.47969901618581084
+          ],
+          "status": "native_framing_variance_documented",
+          "note": "Native ImageGen canvas preserved. The 80% fill target is approximate, not pixel-exact. Exact visible bounds are available for parent integration; no crop, rescale, recenter or alpha repair applied."
+        }
+      },
+      "ready_at": "2026-09-14T12:33:19.944Z"
+    },
+    {
+      "id": "FELINEUS",
+      "destination": "V3/assets/revisions-20260914/races/FELINEUS.png",
+      "status": "ready_for_parent",
+      "race_enamel_color": "#B67828",
+      "prompt": "Use case: logo-brand. Generate ONE original heraldic RACE LOGO for Kalistar V3, a clean GRAPHIC SYMBOL designed for 80x80 pixel display. Not a character illustration, not a painted portrait, not an elaborate sculpted head. Square high-resolution PNG with GENUINELY TRANSPARENT ALPHA in every empty area. One centered standalone silhouette fills about 80 percent of the canvas, with balanced 10 percent transparent margin; keep all tips inside that safe area. Art direction shared across this set: broad flat shapes with VERY SHALLOW bas-relief only, warm IVORY #E3DFD0 and PATINATED SILVER #AAAFA9, a single large race-color ENAMEL inset, restrained dark graphite #303634 edge for contrast. Maximum THREE main graphic masses. Clean confident shapes, controlled positive/negative space, minimal edge bevel, matte lightly worn material suggested by a few broad tone changes only. Still reads perfectly as a logo in one-color silhouette. NOT shiny jewelry, chrome, photorealism, 3D collectible, complex armor or esports mascot. No realistic eyes, no individual hairs/feathers/scales, no fine texture, grain overlay, tiny filigree, micro-engraving, extra pieces, dropshadow, floor, atmospheric glow or scene. Absolutely NO circle, disc, shield, medallion, coin, outer frame, wreath, background shape, text, letters, numbers, label, logo lettering, watermark or painted checkerboard. The parent creates its own medallion later, so deliver ONLY the unframed race sign.\nRace enamel color: #B67828.\nSubject: One elegant LYNX HEAD PROFILE facing LEFT, not a frontal cat portrait. THREE masses maximum: (1) compact curved cheek-neck and short feline muzzle silhouette, (2) one tall triangular ear with a short distinct lynx tuft, (3) one broad amber enamel cheek plane. Minimal tiny eye notch, broad clean cheek ruff with just two points. Strong feline profile, no lion mane, fangs, whisker hairs, realistic iris, armor mask or second eye.",
+      "source": {
+        "id": "FELINEUS",
+        "canonical_path": "V3/assets/races/FELINEUS.png",
+        "sha256": "2BE4349446E56F7050F05F79CF950E211CE43A3B722132D213A8A580CFFF3A96",
+        "profiles": [
+          {
+            "id": "30000031",
+            "name": "POLUX",
+            "race": "FELINEUS",
+            "element": "PYRO",
+            "faction": "Vulkar",
+            "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Felineus adulte humanoide a tete de lynx couleur gris cendre, touffes aux oreilles, deux mains et deux pieds, pas pattes de quadrupede. Soigneur en tablier blanc et vert, assis seul, baton au cote, chauffe des compresses dans ses paumes avec une flamme minuscule, douceur serieuse, dispensaire sobre."
+          }
+        ]
+      },
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "mode": "built-in",
+        "input_images": [],
+        "calls": 1,
+        "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-f13b6bbd-3a8a-4349-be31-c929191845b7.png",
+        "generated_at": "2026-09-14T12:34:04.714Z"
+      },
+      "qa": {
+        "status": "passed",
+        "metrics": {
+          "Width": 1254,
+          "Height": 1254,
+          "MinX": 254,
+          "MinY": 38,
+          "MaxX": 1001,
+          "MaxY": 1209,
+          "BorderMaxAlpha": 0,
+          "PixelFormat": "Format32bppArgb",
+          "CornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "TransparentPixels": 1150040,
+          "VisiblePixels": 416142,
+          "AlphaCenterX": 673.3672947374436,
+          "AlphaCenterY": 708.8114779918699,
+          "WidthFraction": 0.5964912280701754,
+          "HeightFraction": 0.9346092503987241
+        },
+        "sha256": "C3F6932AE5E32146B09ED35998EECF2F8BC9EE06508788FB390798BC837811ED",
+        "copy_exact": true,
+        "bytes": 834064,
+        "preview": "C:/Users/guill/AppData/Local/Temp/kalistar-harmony-b-FELINEUS-80px.png",
+        "alpha_bounds_threshold": 8,
+        "thumbnail_px": 80,
+        "visual_review": {
+          "reviewed_with": "view_image 248px overview plus actual 80px on white and charcoal; generated native image also inspected",
+          "notes": "Lynx profile facing left, short feline muzzle, tall tufted ear and amber cheek. No frontal face or realistic painted eye. Native silhouette is tall (93.5% height), with transparent margin; parent has exact alpha bounds for placement.",
+          "readable_at_80px": true,
+          "no_outer_frame": true,
+          "no_front_painted_portrait": true,
+          "main_masses_at_most_three": true,
+          "native_canvas_unchanged": true
+        },
+        "framing": {
+          "target_long_axis_fraction": 0.8,
+          "measured_long_axis_fraction": 0.9346092503987241,
+          "alpha_bounds_normalized": [
+            0.2025518341307815,
+            0.030303030303030304,
+            0.7990430622009569,
+            0.9649122807017544
+          ],
+          "alpha_center_normalized": [
+            0.5369755141446918,
+            0.5652404130716666
+          ],
+          "status": "native_framing_variance_documented",
+          "note": "Native ImageGen canvas preserved. The 80% fill target is approximate, not pixel-exact. Exact visible bounds are available for parent integration; no crop, rescale, recenter or alpha repair applied."
+        }
+      },
+      "ready_at": "2026-09-14T12:34:26.021Z"
+    },
+    {
+      "id": "CARNIVERT",
+      "destination": "V3/assets/revisions-20260914/races/CARNIVERT.png",
+      "status": "ready_for_parent",
+      "race_enamel_color": "#497B32",
+      "prompt": "Use case: logo-brand. Generate ONE original heraldic RACE LOGO for Kalistar V3, a clean GRAPHIC SYMBOL designed for 80x80 pixel display. Not a character illustration, not a painted portrait, not an elaborate sculpted head. Square high-resolution PNG with GENUINELY TRANSPARENT ALPHA in every empty area. One centered standalone silhouette fills about 80 percent of the canvas, with balanced 10 percent transparent margin; keep all tips inside that safe area. Art direction shared across this set: broad flat shapes with VERY SHALLOW bas-relief only, warm IVORY #E3DFD0 and PATINATED SILVER #AAAFA9, a single large race-color ENAMEL inset, restrained dark graphite #303634 edge for contrast. Maximum THREE main graphic masses. Clean confident shapes, controlled positive/negative space, minimal edge bevel, matte lightly worn material suggested by a few broad tone changes only. Still reads perfectly as a logo in one-color silhouette. NOT shiny jewelry, chrome, photorealism, 3D collectible, complex armor or esports mascot. No realistic eyes, no individual hairs/feathers/scales, no fine texture, grain overlay, tiny filigree, micro-engraving, extra pieces, dropshadow, floor, atmospheric glow or scene. Absolutely NO circle, disc, shield, medallion, coin, outer frame, wreath, background shape, text, letters, numbers, label, logo lettering, watermark or painted checkerboard. The parent creates its own medallion later, so deliver ONLY the unframed race sign.\nRace enamel color: #497B32.\nSubject: One LIVING LEAF heraldic SIGN, not a head portrait and not a flower. THREE masses maximum: (1) one large broad asymmetrically curved leaf silhouette in rich living green enamel, (2) one strong ivory-silver central rib following its upward curve, (3) a short integrated curled leaf-base tip. A single small eye-like negative-space notch can suggest a gentle plant spirit without drawing a human face. Broad botanical organic shape, no petals, purple, thorns, poison drop, humanoid mask, branch crown or many vein lines. Must be unmistakably foliage and visually distinct from the Toxinar three-petal poisonous flower.",
+      "source": {
+        "id": "CARNIVERT",
+        "canonical_path": "V3/assets/races/CARNIVERT.png",
+        "sha256": "80A3ECDB8948E6D2BED1C4749222B659ED07F8E253C0966777C65A3D08A261F6",
+        "profiles": [
+          {
+            "id": "30000008",
+            "name": "VICTORVINE",
+            "race": "CARNIVERT",
+            "element": "HERBO",
+            "faction": "Arborium",
+            "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Carnivert humanoide vegetal, accroupi au bord de l eau, protege une jeune pousse entre ses deux mains, concentration silencieuse, racines au decor et non membres supplementaires."
+          },
+          {
+            "id": "30000041",
+            "name": "THALIE",
+            "race": "CARNIVERT",
+            "element": "HERBO",
+            "faction": "Arborium",
+            "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Carnivert humanoide adulte au visage vegetal ovale et expressif, coiffure de feuilles courtes, peau vert sombre, habit de voyage blanc et corail. Assise en tailleur sur un tronc, deux mains dans un herbier ouvert, sourire de soulagement, jeunes pousses clairement visibles parmi des troncs brules, aucune silhouette secondaire principale."
+          }
+        ]
+      },
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "mode": "built-in",
+        "input_images": [],
+        "calls": 1,
+        "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-c82e5cb6-06b9-444c-9b07-35fb0524a981.png",
+        "generated_at": "2026-09-14T12:35:11.205Z"
+      },
+      "qa": {
+        "status": "passed",
+        "metrics": {
+          "Width": 1254,
+          "Height": 1254,
+          "MinX": 244,
+          "MinY": 71,
+          "MaxX": 1123,
+          "MaxY": 1159,
+          "BorderMaxAlpha": 0,
+          "PixelFormat": "Format32bppArgb",
+          "CornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "TransparentPixels": 1078714,
+          "VisiblePixels": 485481,
+          "AlphaCenterX": 663.3633899010252,
+          "AlphaCenterY": 623.4198539386053,
+          "WidthFraction": 0.7017543859649122,
+          "HeightFraction": 0.868421052631579
+        },
+        "sha256": "833E6F1C114381AC66A439E01FC8BB3F68BD4151C853EB55797A078E6E895442",
+        "copy_exact": true,
+        "bytes": 924520,
+        "preview": "C:/Users/guill/AppData/Local/Temp/kalistar-harmony-b-CARNIVERT-80px.png",
+        "alpha_bounds_threshold": 8,
+        "thumbnail_px": 80,
+        "visual_review": {
+          "reviewed_with": "view_image 248px overview plus actual 80px on white and charcoal; generated native image also inspected",
+          "notes": "Single living leaf logo with broad green enamel fields and ivory curved rib. Clear leaf silhouette at actual 80px on light and dark; no humanoid face, flower or outer frame.",
+          "readable_at_80px": true,
+          "no_outer_frame": true,
+          "no_front_painted_portrait": true,
+          "main_masses_at_most_three": true,
+          "native_canvas_unchanged": true
+        },
+        "framing": {
+          "target_long_axis_fraction": 0.8,
+          "measured_long_axis_fraction": 0.868421052631579,
+          "alpha_bounds_normalized": [
+            0.19457735247208932,
+            0.05661881977671451,
+            0.8963317384370016,
+            0.9250398724082934
+          ],
+          "alpha_center_normalized": [
+            0.5289979185813598,
+            0.4971450190897969
+          ],
+          "status": "native_framing_variance_documented",
+          "note": "Native ImageGen canvas preserved. The 80% fill target is approximate, not pixel-exact. Exact visible bounds are available for parent integration; no crop, rescale, recenter or alpha repair applied."
+        }
+      },
+      "ready_at": "2026-09-14T12:36:49.105Z"
+    },
+    {
+      "id": "CERELF",
+      "destination": "V3/assets/revisions-20260914/races/CERELF.png",
+      "status": "ready_for_parent",
+      "race_enamel_color": "#246451",
+      "prompt": "Use case: logo-brand. Generate ONE original heraldic RACE LOGO for Kalistar V3, a clean GRAPHIC SYMBOL designed for 80x80 pixel display. Not a character illustration, not a painted portrait, not an elaborate sculpted head. Square high-resolution PNG with GENUINELY TRANSPARENT ALPHA in every empty area. One centered standalone silhouette fills about 80 percent of the canvas, with balanced 10 percent transparent margin; keep all tips inside that safe area. Art direction shared across this set: broad flat shapes with VERY SHALLOW bas-relief only, warm IVORY #E3DFD0 and PATINATED SILVER #AAAFA9, a single large race-color ENAMEL inset, restrained dark graphite #303634 edge for contrast. Maximum THREE main graphic masses. Clean confident shapes, controlled positive/negative space, minimal edge bevel, matte lightly worn material suggested by a few broad tone changes only. Still reads perfectly as a logo in one-color silhouette. NOT shiny jewelry, chrome, photorealism, 3D collectible, complex armor or esports mascot. No realistic eyes, no individual hairs/feathers/scales, no fine texture, grain overlay, tiny filigree, micro-engraving, extra pieces, dropshadow, floor, atmospheric glow or scene. Absolutely NO circle, disc, shield, medallion, coin, outer frame, wreath, background shape, text, letters, numbers, label, logo lettering, watermark or painted checkerboard. The parent creates its own medallion later, so deliver ONLY the unframed race sign.\nRace enamel color: #246451.\nSubject: One graphic DEER ANTLER heraldic SIGN, no head and NO FACE. THREE masses maximum: (1) one bold left antler branch, (2) one bold right antler branch, connected low at a simple narrow base as one coherent emblem, (3) one small deep forest-jade enamel inset at the join. Each antler has only TWO broad tines, with slight natural asymmetry. Open branching silhouette and substantial ivory-silver strokes, elven woodland elegance. No large crown, hair, skull, eyes, ears, full deer or extra decorative foliage.",
+      "source": {
+        "id": "CERELF",
+        "canonical_path": "V3/assets/races/CERELF.png",
+        "sha256": "4C758923ADFD11C548FD3B2D224F46971C223C55B4E833BF74C6930D087263A1",
+        "profiles": [
+          {
+            "id": "30000036",
+            "name": "ELENION",
+            "race": "CERELF",
+            "element": "GEO",
+            "faction": "Woodland",
+            "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Cerelf adulte humanoide a tete de cerf, bois courts asymetriques, deux bras humains et deux jambes vetues, tunique verte et rouge. Agenouille sur un seul genou pres d une borne, fleau de marche pose au sol, regard mesure et pensif, clairiere humide."
+          }
+        ]
+      },
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "mode": "built-in",
+        "input_images": [],
+        "calls": 1,
+        "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-7e41a316-c5e4-4805-8fdd-57f2495158ed.png",
+        "generated_at": "2026-09-14T12:37:40.572Z"
+      },
+      "qa": {
+        "status": "passed",
+        "metrics": {
+          "Width": 1254,
+          "Height": 1254,
+          "MinX": 55,
+          "MinY": 100,
+          "MaxX": 1198,
+          "MaxY": 1148,
+          "BorderMaxAlpha": 0,
+          "PixelFormat": "Format32bppArgb",
+          "CornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "TransparentPixels": 1280777,
+          "VisiblePixels": 280056,
+          "AlphaCenterX": 632.118128998576,
+          "AlphaCenterY": 646.3145986541015,
+          "WidthFraction": 0.9122807017543859,
+          "HeightFraction": 0.8365231259968102
+        },
+        "sha256": "71D6E007194718A1729668849AC50CCC19A4582D5DE5E8CFE60887BB4B1D486E",
+        "copy_exact": true,
+        "bytes": 686671,
+        "preview": "C:/Users/guill/AppData/Local/Temp/kalistar-harmony-b-CERELF-80px.png",
+        "alpha_bounds_threshold": 8,
+        "thumbnail_px": 80,
+        "visual_review": {
+          "reviewed_with": "view_image 248px overview plus actual 80px on white and charcoal; generated native image also inspected",
+          "notes": "Open antler sign with two bold tines on each side and a jade base accent, no head or face. Clear at 80px on light and dark. Native bounds are 91.2% width and 83.7% height; unclipped transparent margins.",
+          "readable_at_80px": true,
+          "no_outer_frame": true,
+          "no_front_painted_portrait": true,
+          "main_masses_at_most_three": true,
+          "native_canvas_unchanged": true
+        },
+        "framing": {
+          "target_long_axis_fraction": 0.8,
+          "measured_long_axis_fraction": 0.9122807017543859,
+          "alpha_bounds_normalized": [
+            0.043859649122807015,
+            0.07974481658692185,
+            0.956140350877193,
+            0.916267942583732
+          ],
+          "alpha_center_normalized": [
+            0.5040814425825965,
+            0.5154023912712133
+          ],
+          "status": "native_framing_variance_documented",
+          "note": "Native ImageGen canvas preserved. The 80% fill target is approximate, not pixel-exact. Exact visible bounds are available for parent integration; no crop, rescale, recenter or alpha repair applied."
+        }
+      },
+      "ready_at": "2026-09-14T12:37:49.090Z"
+    },
+    {
+      "id": "GOLEM",
+      "destination": "V3/assets/revisions-20260914/races/GOLEM.png",
+      "status": "ready_for_parent",
+      "race_enamel_color": "#676D74",
+      "prompt": "Use case: logo-brand. Generate ONE original heraldic RACE LOGO for Kalistar V3, a clean GRAPHIC SYMBOL designed for 80x80 pixel display. Not a character illustration, not a painted portrait, not an elaborate sculpted head. Square high-resolution PNG with GENUINELY TRANSPARENT ALPHA in every empty area. One centered standalone silhouette fills about 80 percent of the canvas, with balanced 10 percent transparent margin; keep all tips inside that safe area. Art direction shared across this set: broad flat shapes with VERY SHALLOW bas-relief only, warm IVORY #E3DFD0 and PATINATED SILVER #AAAFA9, a single large race-color ENAMEL inset, restrained dark graphite #303634 edge for contrast. Maximum THREE main graphic masses. Clean confident shapes, controlled positive/negative space, minimal edge bevel, matte lightly worn material suggested by a few broad tone changes only. Still reads perfectly as a logo in one-color silhouette. NOT shiny jewelry, chrome, photorealism, 3D collectible, complex armor or esports mascot. No realistic eyes, no individual hairs/feathers/scales, no fine texture, grain overlay, tiny filigree, micro-engraving, extra pieces, dropshadow, floor, atmospheric glow or scene. Absolutely NO circle, disc, shield, medallion, coin, outer frame, wreath, background shape, text, letters, numbers, label, logo lettering, watermark or painted checkerboard. The parent creates its own medallion later, so deliver ONLY the unframed race sign.\nRace enamel color: #676D74.\nSubject: One graphic STONE heraldic SIGN made from EXACTLY THREE chunky interlocking irregular stone slabs, each one a large simple mass, arranged as a compact sturdy almost-square ancient boulder. Very broad facets and TWO thick clear negative-space cracks separate the three masses; slate-gray enamel faces with an ivory-silver patinated edge. Symbolic enduring stone, not a crystal prism or crown. NO FACE, no eyes, nose, mouth, mask, robot, masonry building, rune, tiny rock chips, scattered fragments or fine cracks.",
+      "source": {
+        "id": "GOLEM",
+        "canonical_path": "V3/assets/races/GOLEM.png",
+        "sha256": "DE2352629DBCF6F5028704B482DFCB1BA2788670CFF4B80D7F73027622B1E163",
+        "profiles": [
+          {
+            "id": "30000024",
+            "name": "MAGNAR",
+            "race": "GOLEM",
+            "element": "MINERO",
+            "faction": "Durane",
+            "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Golem humanoide colossal de granit, silhouette humaine deux bras deux jambes, fissures minerales fines, masse de pierre tenue basse. Contre-plongee au seuil d une galerie, calme menacant, epaules presque au plafond, aucun autre personnage principal."
+          }
+        ]
+      },
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "mode": "built-in",
+        "input_images": [],
+        "calls": 1,
+        "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-40e13397-0ebf-49f3-90cc-794a2708a76b.png",
+        "generated_at": "2026-09-14T12:38:41.435Z"
+      },
+      "qa": {
+        "status": "passed",
+        "metrics": {
+          "Width": 1254,
+          "Height": 1254,
+          "MinX": 144,
+          "MinY": 158,
+          "MaxX": 1124,
+          "MaxY": 1136,
+          "BorderMaxAlpha": 1,
+          "PixelFormat": "Format32bppArgb",
+          "CornerAlpha": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "TransparentPixels": 729701,
+          "VisiblePixels": 828427,
+          "AlphaCenterX": 634.6691990824506,
+          "AlphaCenterY": 647.6693942426581,
+          "WidthFraction": 0.7822966507177034,
+          "HeightFraction": 0.7807017543859649
+        },
+        "sha256": "3BB09F3255543CE5BB0188C973BADE33665FD2D35491CEF0024920793990958F",
+        "copy_exact": true,
+        "bytes": 1406304,
+        "preview": "C:/Users/guill/AppData/Local/Temp/kalistar-harmony-b-GOLEM-80px.png",
+        "alpha_bounds_threshold": 8,
+        "thumbnail_px": 80,
+        "visual_review": {
+          "reviewed_with": "view_image 248px overview plus actual 80px on white and charcoal; generated native image also inspected",
+          "notes": "Exactly three chunky interlocking stone masses with broad ivory edges and two clear negative cracks. No eyes, face, small chips or outer frame. Readable at 80px; native footprint about 78% square. One corner has negligible alpha 1/255; no visible background or matte.",
+          "readable_at_80px": true,
+          "no_outer_frame": true,
+          "no_front_painted_portrait": true,
+          "main_masses_at_most_three": true,
+          "native_canvas_unchanged": true
+        },
+        "framing": {
+          "target_long_axis_fraction": 0.8,
+          "measured_long_axis_fraction": 0.7822966507177034,
+          "alpha_bounds_normalized": [
+            0.11483253588516747,
+            0.12599681020733652,
+            0.8971291866028708,
+            0.9066985645933014
+          ],
+          "alpha_center_normalized": [
+            0.5061157887419862,
+            0.5164827705284355
+          ],
+          "status": "native_framing_variance_documented",
+          "note": "Native ImageGen canvas preserved. The 80% fill target is approximate, not pixel-exact. Exact visible bounds are available for parent integration; no crop, rescale, recenter or alpha repair applied."
+        }
+      },
+      "ready_at": "2026-09-14T12:38:50.194Z"
+    },
+    {
+      "id": "TANTALAK",
+      "destination": "V3/assets/revisions-20260914/races/TANTALAK.png",
+      "status": "ready_for_parent",
+      "race_enamel_color": "#59A5B3",
+      "prompt": "Use case: logo-brand. Generate ONE original heraldic RACE LOGO for Kalistar V3, a clean GRAPHIC SYMBOL designed for 80x80 pixel display. Not a character illustration, not a painted portrait, not an elaborate sculpted head. Square high-resolution PNG with GENUINELY TRANSPARENT ALPHA in every empty area. One centered standalone silhouette fills about 80 percent of the canvas, with balanced 10 percent transparent margin; keep all tips inside that safe area. Art direction shared across this set: broad flat shapes with VERY SHALLOW bas-relief only, warm IVORY #E3DFD0 and PATINATED SILVER #AAAFA9, a single large race-color ENAMEL inset, restrained dark graphite #303634 edge for contrast. Maximum THREE main graphic masses. Clean confident shapes, controlled positive/negative space, minimal edge bevel, matte lightly worn material suggested by a few broad tone changes only. Still reads perfectly as a logo in one-color silhouette. NOT shiny jewelry, chrome, photorealism, 3D collectible, complex armor or esports mascot. No realistic eyes, no individual hairs/feathers/scales, no fine texture, grain overlay, tiny filigree, micro-engraving, extra pieces, dropshadow, floor, atmospheric glow or scene. Absolutely NO circle, disc, shield, medallion, coin, outer frame, wreath, background shape, text, letters, numbers, label, logo lettering, watermark or painted checkerboard. The parent creates its own medallion later, so deliver ONLY the unframed race sign.\nRace enamel color: #59A5B3.\nSubject: One graphic JELLYFISH heraldic SIGN, NOT a humanoid head or octopus. EXACTLY THREE bold masses: (1) a broad smoothly domed jellyfish bell in sea-aqua enamel with a simple scalloped lower lip, (2) one thick short flowing ribbon filament curling downward on the left, (3) one thick short flowing ribbon filament curling downward on the right. The two ribbons attach under the bell and leave generous transparent negative space between them. Recognizable compact jellyfish silhouette. No face, no eyes, tentacle beard, suckers, long thin strands, brain veins, luminous water, glow or realistic translucent animal rendering.",
+      "source": {
+        "id": "TANTALAK",
+        "canonical_path": "V3/assets/races/TANTALAK.png",
+        "sha256": "AA5766F9A632815428A0A278DF824929A6CE2D9D871CF32ED890518F52D45073",
+        "profiles": [
+          {
+            "id": "30000032",
+            "name": "JELLY-JOE",
+            "race": "TANTALAK",
+            "element": "ELECTRO",
+            "faction": "Crabazar",
+            "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Tantalak adulte humanoide amphibie a tete de meduse translucide compacte, torse vetu et exactement deux bras et deux jambes ; filaments courts uniquement comme details de tete, aucun bras-tentacule supplementaire. Mercenaire en ciré jaune desature, une botte sur une bitte d amarrage, lance droite dans une main, sourire goguenard, leger reflet Electro dans une lanterne de quai."
+          }
+        ]
+      },
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "mode": "built-in",
+        "input_images": [],
+        "calls": 1,
+        "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-5fbcdd3c-92cf-4ac8-9917-c1b8df4db50e.png",
+        "generated_at": "2026-09-14T12:39:40.416Z"
+      },
+      "qa": {
+        "status": "passed",
+        "metrics": {
+          "Width": 1254,
+          "Height": 1254,
+          "MinX": 174,
+          "MinY": 130,
+          "MaxX": 1079,
+          "MaxY": 1089,
+          "BorderMaxAlpha": 0,
+          "PixelFormat": "Format32bppArgb",
+          "CornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "TransparentPixels": 1078941,
+          "VisiblePixels": 482866,
+          "AlphaCenterX": 626.3411680456536,
+          "AlphaCenterY": 549.1891774724364,
+          "WidthFraction": 0.722488038277512,
+          "HeightFraction": 0.7655502392344498
+        },
+        "sha256": "409FCB7D96E8C83F05040D5CD3DFE462942933B8997A95D41DE4DF651D488D5D",
+        "copy_exact": true,
+        "bytes": 933942,
+        "preview": "C:/Users/guill/AppData/Local/Temp/kalistar-harmony-b-TANTALAK-80px.png",
+        "alpha_bounds_threshold": 8,
+        "thumbnail_px": 80,
+        "visual_review": {
+          "reviewed_with": "view_image 248px overview plus actual 80px on white and charcoal; generated native image also inspected",
+          "notes": "Jellyfish sign with one broad cyan enamel bell and two thick ivory curled filaments: three primary masses. No eyes, painted face or octopus head. Clean negative space and readable at 80px on both backgrounds.",
+          "readable_at_80px": true,
+          "no_outer_frame": true,
+          "no_front_painted_portrait": true,
+          "main_masses_at_most_three": true,
+          "native_canvas_unchanged": true
+        },
+        "framing": {
+          "target_long_axis_fraction": 0.8,
+          "measured_long_axis_fraction": 0.7655502392344498,
+          "alpha_bounds_normalized": [
+            0.13875598086124402,
+            0.10366826156299841,
+            0.861244019138756,
+            0.8692185007974481
+          ],
+          "alpha_center_normalized": [
+            0.49947461566639045,
+            0.43794990229061914
+          ],
+          "status": "native_framing_variance_documented",
+          "note": "Native ImageGen canvas preserved. The 80% fill target is approximate, not pixel-exact. Exact visible bounds are available for parent integration; no crop, rescale, recenter or alpha repair applied."
+        }
+      },
+      "ready_at": "2026-09-14T12:39:51.250Z"
+    },
+    {
+      "id": "TOXINAR",
+      "destination": "V3/assets/revisions-20260914/races/TOXINAR.png",
+      "status": "ready_for_parent",
+      "race_enamel_color": "#783A79",
+      "prompt": "Use case: logo-brand. Generate ONE original heraldic RACE LOGO for Kalistar V3, a clean GRAPHIC SYMBOL designed for 80x80 pixel display. Not a character illustration, not a painted portrait, not an elaborate sculpted head. Square high-resolution PNG with GENUINELY TRANSPARENT ALPHA in every empty area. One centered standalone silhouette fills about 80 percent of the canvas, with balanced 10 percent transparent margin; keep all tips inside that safe area. Art direction shared across this set: broad flat shapes with VERY SHALLOW bas-relief only, warm IVORY #E3DFD0 and PATINATED SILVER #AAAFA9, a single large race-color ENAMEL inset, restrained dark graphite #303634 edge for contrast. Maximum THREE main graphic masses. Clean confident shapes, controlled positive/negative space, minimal edge bevel, matte lightly worn material suggested by a few broad tone changes only. Still reads perfectly as a logo in one-color silhouette. NOT shiny jewelry, chrome, photorealism, 3D collectible, complex armor or esports mascot. No realistic eyes, no individual hairs/feathers/scales, no fine texture, grain overlay, tiny filigree, micro-engraving, extra pieces, dropshadow, floor, atmospheric glow or scene. Absolutely NO circle, disc, shield, medallion, coin, outer frame, wreath, background shape, text, letters, numbers, label, logo lettering, watermark or painted checkerboard. The parent creates its own medallion later, so deliver ONLY the unframed race sign.\nRace enamel color: #783A79.\nSubject: One graphic POISONOUS FLOWER heraldic SIGN with EXACTLY THREE broad pointed amethyst-purple petals meeting around a tiny dark moss-green triangular centre. Each petal is one strong simple mass, the three petals form a single coherent flower silhouette with clear negative gaps. Ivory-silver shallow material edges unify it. A compact unsettling botanical glyph, not a portrait. No stem, separate leaf, face, eyes, dragon snout, snake, realistic stamens, many petal layers, poison cloud, drops, thorns or fine veins. Must be unmistakably a three-petal flower, clearly distinct from the single green living leaf of Carnivert.",
+      "source": {
+        "id": "TOXINAR",
+        "canonical_path": "V3/assets/races/TOXINAR.png",
+        "sha256": "52D37348215A438ABE1734FFB159F185F5E7240C0A8EF54DF2E2A560061211ED",
+        "profiles": [
+          {
+            "id": "30000033",
+            "name": "BLOOM",
+            "race": "TOXINAR",
+            "element": "HERBO",
+            "faction": "Arborium",
+            "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Toxinar vegetal humanoide adulte, tete florale ramassee avec visage lisible, peau verte et petales pourpres courts, deux bras deux jambes. Debout courbe devant un orbe de verre contenant une graine, pince dans une main, curiosite prudente, serre blanche eclairee par un matin net."
+          }
+        ]
+      },
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "mode": "built-in",
+        "input_images": [],
+        "calls": 1,
+        "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-4b55a476-3f8d-424f-b549-0fda581483cb.png",
+        "generated_at": "2026-09-14T12:40:44.623Z"
+      },
+      "qa": {
+        "status": "passed",
+        "metrics": {
+          "Width": 1254,
+          "Height": 1254,
+          "MinX": 75,
+          "MinY": 78,
+          "MaxX": 1179,
+          "MaxY": 1072,
+          "BorderMaxAlpha": 1,
+          "PixelFormat": "Format32bppArgb",
+          "CornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "TransparentPixels": 1095843,
+          "VisiblePixels": 467755,
+          "AlphaCenterX": 626.7156922101973,
+          "AlphaCenterY": 719.7316623937311,
+          "WidthFraction": 0.8811802232854864,
+          "HeightFraction": 0.7934609250398724
+        },
+        "sha256": "C0E7826D18CAB51A33BFABEAAE66A03D32C70AACA5DAC0D79E6D7FB8847F3655",
+        "copy_exact": true,
+        "bytes": 889787,
+        "preview": "C:/Users/guill/AppData/Local/Temp/kalistar-harmony-b-TOXINAR-80px.png",
+        "alpha_bounds_threshold": 8,
+        "thumbnail_px": 80,
+        "visual_review": {
+          "reviewed_with": "view_image 248px overview plus actual 80px on white and charcoal; generated native image also inspected",
+          "notes": "Three broad pointed purple petals around a small green center form a poisonous flower sign. Clearly distinct from the single green Carnivert leaf at 80px. No stem, face, circle or additional frame.",
+          "readable_at_80px": true,
+          "no_outer_frame": true,
+          "no_front_painted_portrait": true,
+          "main_masses_at_most_three": true,
+          "native_canvas_unchanged": true
+        },
+        "framing": {
+          "target_long_axis_fraction": 0.8,
+          "measured_long_axis_fraction": 0.8811802232854864,
+          "alpha_bounds_normalized": [
+            0.05980861244019139,
+            0.06220095693779904,
+            0.9409888357256778,
+            0.8556618819776715
+          ],
+          "alpha_center_normalized": [
+            0.4997732792744795,
+            0.5739486940938845
+          ],
+          "status": "native_framing_variance_documented",
+          "note": "Native ImageGen canvas preserved. The 80% fill target is approximate, not pixel-exact. Exact visible bounds are available for parent integration; no crop, rescale, recenter or alpha repair applied."
+        }
+      },
+      "ready_at": "2026-09-14T12:41:00.656Z"
+    }
+  ],
+  "batch_announcements": [
+    {
+      "batch": 1,
+      "ids": [
+        "RHINOZ",
+        "FALCO",
+        "KORBOW"
+      ],
+      "status": "ready_for_parent",
+      "time": "2026-09-14T12:31:54.733Z"
+    },
+    {
+      "batch": 2,
+      "ids": [
+        "DRAX",
+        "FELINEUS",
+        "CARNIVERT"
+      ],
+      "status": "ready_for_parent",
+      "time": "2026-09-14T12:36:53.946Z"
+    },
+    {
+      "batch": 3,
+      "ids": [
+        "CERELF",
+        "GOLEM",
+        "TANTALAK"
+      ],
+      "status": "ready_for_parent",
+      "time": "2026-09-14T12:39:51.603Z"
+    },
+    {
+      "batch": 4,
+      "ids": [
+        "TOXINAR"
+      ],
+      "status": "ready_for_parent",
+      "time": "2026-09-14T12:41:46.941Z"
+    }
+  ],
+  "verification": {
+    "status": "passed_with_native_framing_notes",
+    "checked_at": "2026-09-14T12:41:46.941Z",
+    "total_assets": 10,
+    "built_in_imagegen_calls": 10,
+    "one_call_per_asset": true,
+    "all_png_square_1254": true,
+    "true_alpha": true,
+    "all_native_copies_exact": true,
+    "all_canonical_source_hashes_unchanged": true,
+    "filenames_case_verified": true,
+    "all_visual_reviews_passed_at_80px": true,
+    "combined_80px_contact_sheet": "C:\\Users\\guill\\AppData\\Local\\Temp\\kalistar-harmony-b-all-80px-20260914.png",
+    "combined_contact_sheet_view_image_inspected": true,
+    "style_review": "Ten distinguishable heraldic signs, common warm ivory and patinated-silver shallow relief with race-specific enamel. No frontal painted portraits, external circle, added frame, or text.",
+    "framing_note": "Native long-axis alpha occupancy ranges from 76.6% to 93.5% rather than uniformly 80%. Measured bounds and alpha-weighted centers are recorded per asset. Source pixels remain unmodified.",
+    "negligible_border_alpha_note": "FALCO, GOLEM and TOXINAR have sparse border alpha of at most 1/255; remaining assets have zero border alpha. No visible background or baked checkerboard observed.",
+    "project_writes": [
+      "V3/assets/revisions-20260914/races/RHINOZ.png",
+      "V3/assets/revisions-20260914/races/FALCO.png",
+      "V3/assets/revisions-20260914/races/KORBOW.png",
+      "V3/assets/revisions-20260914/races/DRAX.png",
+      "V3/assets/revisions-20260914/races/FELINEUS.png",
+      "V3/assets/revisions-20260914/races/CARNIVERT.png",
+      "V3/assets/revisions-20260914/races/CERELF.png",
+      "V3/assets/revisions-20260914/races/GOLEM.png",
+      "V3/assets/revisions-20260914/races/TANTALAK.png",
+      "V3/assets/revisions-20260914/races/TOXINAR.png",
+      "V3/donnees/harmonisation_races_b_20260914.json"
+    ],
+    "no_local_image_editing": true,
+    "assets": [
+      {
+        "id": "RHINOZ",
+        "canonical_unchanged": true,
+        "native_copy_exact": true,
+        "manifest_hash_matches": true,
+        "filename_case_exact": true,
+        "square": true,
+        "width": 1254,
+        "height": 1254,
+        "calls": 1,
+        "status": "ready_for_parent"
+      },
+      {
+        "id": "FALCO",
+        "canonical_unchanged": true,
+        "native_copy_exact": true,
+        "manifest_hash_matches": true,
+        "filename_case_exact": true,
+        "square": true,
+        "width": 1254,
+        "height": 1254,
+        "calls": 1,
+        "status": "ready_for_parent"
+      },
+      {
+        "id": "KORBOW",
+        "canonical_unchanged": true,
+        "native_copy_exact": true,
+        "manifest_hash_matches": true,
+        "filename_case_exact": true,
+        "square": true,
+        "width": 1254,
+        "height": 1254,
+        "calls": 1,
+        "status": "ready_for_parent"
+      },
+      {
+        "id": "DRAX",
+        "canonical_unchanged": true,
+        "native_copy_exact": true,
+        "manifest_hash_matches": true,
+        "filename_case_exact": true,
+        "square": true,
+        "width": 1254,
+        "height": 1254,
+        "calls": 1,
+        "status": "ready_for_parent"
+      },
+      {
+        "id": "FELINEUS",
+        "canonical_unchanged": true,
+        "native_copy_exact": true,
+        "manifest_hash_matches": true,
+        "filename_case_exact": true,
+        "square": true,
+        "width": 1254,
+        "height": 1254,
+        "calls": 1,
+        "status": "ready_for_parent"
+      },
+      {
+        "id": "CARNIVERT",
+        "canonical_unchanged": true,
+        "native_copy_exact": true,
+        "manifest_hash_matches": true,
+        "filename_case_exact": true,
+        "square": true,
+        "width": 1254,
+        "height": 1254,
+        "calls": 1,
+        "status": "ready_for_parent"
+      },
+      {
+        "id": "CERELF",
+        "canonical_unchanged": true,
+        "native_copy_exact": true,
+        "manifest_hash_matches": true,
+        "filename_case_exact": true,
+        "square": true,
+        "width": 1254,
+        "height": 1254,
+        "calls": 1,
+        "status": "ready_for_parent"
+      },
+      {
+        "id": "GOLEM",
+        "canonical_unchanged": true,
+        "native_copy_exact": true,
+        "manifest_hash_matches": true,
+        "filename_case_exact": true,
+        "square": true,
+        "width": 1254,
+        "height": 1254,
+        "calls": 1,
+        "status": "ready_for_parent"
+      },
+      {
+        "id": "TANTALAK",
+        "canonical_unchanged": true,
+        "native_copy_exact": true,
+        "manifest_hash_matches": true,
+        "filename_case_exact": true,
+        "square": true,
+        "width": 1254,
+        "height": 1254,
+        "calls": 1,
+        "status": "ready_for_parent"
+      },
+      {
+        "id": "TOXINAR",
+        "canonical_unchanged": true,
+        "native_copy_exact": true,
+        "manifest_hash_matches": true,
+        "filename_case_exact": true,
+        "square": true,
+        "width": 1254,
+        "height": 1254,
+        "calls": 1,
+        "status": "ready_for_parent"
+      }
+    ]
+  },
+  "constraints": {
+    "canonical_assets": "Read-only",
+    "no_changes_to": [
+      "profiles",
+      "scripts",
+      "UI",
+      "BDD",
+      "Photoshop",
+      "other art"
+    ],
+    "write_allowlist": [
+      "V3/assets/revisions-20260914/races/<one of ten requested RACE>.png",
+      "V3/donnees/harmonisation_races_b_20260914.json"
+    ]
+  },
+  "completed_at": "2026-09-14T12:41:46.941Z"
+}

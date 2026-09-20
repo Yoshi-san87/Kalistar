@@ -1,0 +1,15 @@
+# Balmhyr: Canyonero
+
+Illustration generated separately from the approved card frame, 18 September 2026.
+Tool: built-in image generation/editing. Output: portrait 1122 x 1402 PNG.
+
+References:
+- `V4/assets/illustrations/elements-01/terre-plantes/BALMHYR_V4_01.png`: character identity and original pose.
+- `V3/assets/illustrations/01_ELECTRO_MOMO.png`: Kalistar painterly art direction only.
+
+Saved output: `V4/assets/illustrations/elements-01/terre-plantes/BALMHYR_V4_02_CANYONERO.png`.
+Original generation: `C:/Users/guill/.codex/generated_images/019e30c1-21b0-7e11-9f9d-2fe692f111d2/exec-b49f1c47-6014-4fba-9d12-3fd9ebae00ef.png`.
+
+## Prompt
+
+Edit target: image 1, BALMHYR illustration. Image 2 is ONLY the Kalistar painterly art-direction reference; do not put Momo into the scene. Deliver ONE finished portrait 4:5 illustration, no card border, no words, no UI. Preserve Balmhyr's recognizable face, grey braided hair and beard with gold clasps, dignified mature dwarf proportions, paternal wise charisma, worn leather and dark metal armour and rust cape, both hands resting on the long axe held upright. Preserve his loyal natural brown bear. Main requested correction: carefully recompose the pair so the BEAR is actually readable inside a card's central illustration window, not squeezed against the left edge. Shift Balmhyr moderately to the RIGHT, his face around 57% across; put the bear behind his left shoulder with its entire head, ears, broad muzzle and a substantial upper torso visible around 31% across. Keep both heads and all emotional action between 23% and 73% of image width; reserve the outer 17% on both sides for comparatively quiet scenery because the card's stat columns overlay those areas. Do not scale the dwarf absurdly small; full-body or nearly full-body framing as in the source, feet on a rocky overlook, dwarf's head around 22% of image height, bear head slightly lower. Both calmly looking toward the right-hand horizon, with the strong familiar feeling of a wise fallen king and his protective companion, not a smiling kindly grandpa. Replace the crowded fortress-city/waterfalls background with CANYONERO: a vast arid desert grand canyon, layered RED sandstone mesas and GREY slate rock faces, broad empty chasms, pale dusty distant plateaus, a clear spacious sky with restrained warm late-day illumination. No waterfalls, rivers, green vegetation, densely packed buildings or architecture. Less background detail and visual noise than image 1; clear depth in large painterly masses, readable red-and-grey geology, not an orange-only image. Art style is golden-rule KALISTAR narrative fantasy painting: brush-built volumes, visible confident painterly strokes, worn believable materials, emotionally distinct face and pose, harmonious level of detail like the supplied Momo, neither photography nor shiny 3D nor manga. Keep the original dwarf design and axe silhouette. Accurate hands, two arms and two legs, one bear, no extra figures. Bear face must not be hidden by Balmhyr or an edge. This is a precise professional artwork revision, NOT a new card design.

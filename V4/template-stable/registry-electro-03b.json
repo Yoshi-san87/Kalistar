@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 3,
+  "template": "V4/template-stable/KALISTAR_V4_TEMPLATE_03B_ELECTRO_ENCRE.psd",
+  "canvas": [
+    897,
+    1497
+  ],
+  "elements": [
+    "ELECTRO"
+  ],
+  "banks": [
+    {
+      "field": "artwork",
+      "variants": {
+        "MOMO": [
+          "ART - MOMO"
+        ],
+        "TAULIO": [
+          "ART - TAULIO"
+        ],
+        "JELLY-JOE": [
+          "ART - JELLY-JOE"
+        ]
+      }
+    },
+    {
+      "field": "id",
+      "variants": {
+        "30000001": [
+          "ID CODE128 - 30000001"
+        ],
+        "30000013": [
+          "ID CODE128 - 30000013"
+        ],
+        "30000032": [
+          "ID CODE128 - 30000032"
+        ]
+      }
+    },
+    {
+      "field": "weapon",
+      "variants": {
+        "Instrument": [
+          "ARME Instrument"
+        ],
+        "Poing": [
+          "ARME Poing - pictogramme",
+          "ARME Poing - email interieur"
+        ],
+        "Lance": [
+          "ARME Lance - pictogramme",
+          "ARME Lance - email interieur"
+        ]
+      }
+    },
+    {
+      "field": "race",
+      "variants": {
+        "ROBOT": [
+          "RACE ROBOT"
+        ],
+        "TANTALAK": [
+          "RACE TANTALAK - pictogramme",
+          "RACE TANTALAK - email interieur"
+        ]
+      }
+    },
+    {
+      "field": "faction",
+      "variants": {
+        "Chroma": [
+          "FACTION - Chroma - tissu source agrandi",
+          "OMBRE - detachement du tissu"
+        ],
+        "Crabazar": [
+          "FACTION - Crabazar - tissu source",
+          "OMBRE - Crabazar - detachement"
+        ]
+      }
+    }
+  ],
+  "positionLayout": {
+    "textX": 224,
+    "textY": 1020.5,
+    "step": 58,
+    "maxTextWidth": 34,
+    "sizePt": 7.84,
+    "supportScale": 112,
+    "supportCenterX": 226,
+    "supportCenterY": 1020.5,
+    "shadow": {
+      "opacity": 65,
+      "distance": 3,
+      "blur": 4
+    }
+  },
+  "artworkRevision": "JELLY-JOE ENCRE 08B",
+  "artworkAssets": {
+    "JELLY-JOE": {
+      "source": "V4/assets/illustrations/32_ELECTRO_JELLY_JOE_V4_03_ENCRE.png",
+      "approvedProposal": "V4/propositions/jelly-joe-dandy-02/08b-encre-visage-affine.png",
+      "sha256": "9385a53634053d8c3acdf17b4773bd1d11c4441d8d03111e1cafc31a050ceaaa",
+      "placement": {
+        "width": 737,
+        "height": 921,
+        "centerX": 432,
+        "top": 156
+      }
+    }
+  }
+}

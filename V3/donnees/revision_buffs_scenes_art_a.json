@@ -1,0 +1,471 @@
+{
+  "schema_version": 1,
+  "lot": "art_a",
+  "revision": "20260914",
+  "status": "qa_passed_staged_ready",
+  "tool": "image_gen.imagegen",
+  "mode": "edit",
+  "authority": "V3/sources/REVISION_BUFFS_SCENES_20260914.md",
+  "scope": {
+    "slugs": [
+      "07_MINERO_BALMHYR",
+      "12_RAINBOW_KAYLIS",
+      "16_CRYO_NERIS",
+      "23_NONE_GEN",
+      "36_GEO_ELENION"
+    ],
+    "staged_directory": "V3/assets/revisions-buffs-scenes-20260914/illustrations",
+    "canonical_writes": false,
+    "gameplay_writes": false,
+    "other_assets_writes": false,
+    "integration": "Parent only after approval"
+  },
+  "primary_style_reference": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+  "source_inputs_sha256": [
+    {
+      "slug": "01_ELECTRO_MOMO",
+      "path": "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\assets\\illustrations\\01_ELECTRO_MOMO.png",
+      "sha256": "44966D49AF5D5F916C3AD3F3B62BF846FA1D6646CA609CB3BEE9ED6EEDC94AC8"
+    },
+    {
+      "slug": "07_MINERO_BALMHYR",
+      "path": "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\assets\\illustrations\\07_MINERO_BALMHYR.png",
+      "sha256": "9C56975CE994C7778DEABB2315F67016B2DD1A174745A0E90BFD577CBFDC526E"
+    },
+    {
+      "slug": "12_RAINBOW_KAYLIS",
+      "path": "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\assets\\illustrations\\12_RAINBOW_KAYLIS.png",
+      "sha256": "44149ED7E870B8DEB0903AF8B1138ED9E897E5856EDF7593151DB470ECE93D73"
+    },
+    {
+      "slug": "16_CRYO_NERIS",
+      "path": "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\assets\\illustrations\\16_CRYO_NERIS.png",
+      "sha256": "2A76E7A271A6A405DFCE10AC1B1D8CD89B3D8BCD203B9C6B5B9C845D76663CFC"
+    },
+    {
+      "slug": "23_NONE_GEN",
+      "path": "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\assets\\illustrations\\23_NONE_GEN.png",
+      "sha256": "C9B7FCE3908A5A0A9B87ACAF94FDA826DBD79CA302F301E05FDA1622BAEAE26F"
+    },
+    {
+      "slug": "36_GEO_ELENION",
+      "path": "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\assets\\illustrations\\36_GEO_ELENION.png",
+      "sha256": "8167EA45407398726DCA7A91B44E22821C31231B88EDB4C68721FF1868D18D29"
+    }
+  ],
+  "completed": 5,
+  "total": 5,
+  "assets": [
+    {
+      "slug": "07_MINERO_BALMHYR",
+      "status": "qa_passed_staged_ready",
+      "profile_snapshot": {
+        "slug": "07_MINERO_BALMHYR",
+        "name": "BALMHYR",
+        "characterId": "balmhyr",
+        "element": "MINERO",
+        "race": "NAIN",
+        "faction": "Durane",
+        "job": "MENTOR",
+        "title": "LA ROCHE QUI ELEVE",
+        "weapon": "Hache",
+        "text": "Derrière sa maison de Canyonero, Balmhyr soulève la pierre sous les pas de ses compagnons. L'ancien exilé leur enseigne qu'un pouvoir ne vaut pas seulement par ce qu'il renverse, mais par ceux qu'il aide à se relever.",
+        "source": "statistiques Personnages ligne 13; scene inspiree du chapitre 8 ; V2/donnees/cartes.json 00000007 ; scene conservee, profil reequilibre V3",
+        "story_scene": "Balmhyr enseigne la maitrise de la roche derriere sa maison de Canyonero, chapitre 8.",
+        "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Vieux nain robuste, longue barbe blanche tressee, hache gravee, posture ouverte de mentor levant la roche avec une main, assurance malicieuse.",
+        "art": "V3/assets/illustrations/07_MINERO_BALMHYR.png"
+      },
+      "sources": [
+        {
+          "path": "V3/sources/REVISION_BUFFS_SCENES_20260914.md",
+          "section": "07 BALMHYR"
+        },
+        {
+          "path": "V3/donnees/cartes.json",
+          "selector": "slug=07_MINERO_BALMHYR"
+        },
+        {
+          "path": "V3/sources/histoire.txt",
+          "lines": "1090-1128; 2139-2143; 122-126",
+          "use": "Exiled rightful king, identity and Belzebuth companion"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "Use case: identity-preserve edit, narrative fantasy illustration.\nEdit image 1 (Balmhyr). Image 2 (Momo) is the actual primary PAINTING STYLE reference only: visibly constructed opaque color planes, deliberate textured brush marks, sculpted painted edges, tactile worn surfaces, expressive storytelling, not a photograph with a texture filter.\nNEW SCENE replaces the teaching scene entirely: Balmhyr, the charismatic exiled rightful dwarf king, stands on a rugged canyon overlook OUTSIDE Durane, gazing across the distance toward his lost homeland and its stone settlement integrated into far canyon walls. His gigantic loyal bear Belzebuth stands calmly BEHIND him, a protective natural bear companion with thick fur, not a humanoid or a costume. No girl, no child, no training, no levitating platforms.\nIDENTITY LOCK: the same short strongly built elderly male DWARF from image 1, same broad face and nose, rich long white/gray carefully braided beard and braided hair with simple gold bindings, practical olive and rust worn canyon clothing and leather bracers, engraved axe retained at his hip. Keep distinctly short powerful dwarf proportions, not a tall human.\nPOSE AND EMOTION: grounded full body in three-quarter profile, both boots visible on the rock, one hand resting naturally on the axe haft at his hip, the other relaxed beside him. His face remains visible in three-quarter view while his eyes gaze toward the distant homeland. Contained sorrow, regal courage and quiet charisma in the brow and mouth; proud upright bearing, no theatrical screaming. The bear's face is visible behind his shoulder at a different depth, vigilant but calm. No throne, no added crown or royal regalia.\nLIGHT: late sunlight strikes cheek, white beard and the edge of bear fur, with cool open-sky shadows; broad sky and canyon depth make the horizon palpable. Paint the face and clothing with the same purposeful visible brushwork as Momo, not realistic smooth portrait rendering.\nPortrait approximately 4:5, at least 1024px wide, one continuous full-bleed finished painting. Clear anatomy: one dwarf head, exactly two arms, two legs, coherent elbows/wrists, natural five-digit hands, no fused fingers or extra limbs. Bear has normal quadruped anatomy, partly occluded naturally behind him. No text, border, signature, watermark, UI, collage, comic panels, anime eyes, photographic skin, plastic 3D.",
+          "referenced_image_paths": [
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/07_MINERO_BALMHYR.png",
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png"
+          ],
+          "reference_roles": [
+            "edit target and identity",
+            "Momo painting style only"
+          ],
+          "native_generated_source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-2bd16760-c686-4900-8809-9d1020f0631c.png",
+          "output_hint": "Generated images are saved to C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-ba77-7d02-85cd-976892688aab as C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-ba77-7d02-85cd-976892688aab\\exec-2bd16760-c686-4900-8809-9d1020f0631c.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+          "status": "selected",
+          "qa": {
+            "method": "view_image original full resolution after generation",
+            "anatomy": "PASS: dwarf has two attached arms and two grounded legs; hand gripping axe and relaxed hand have coherent visible digits and wrists; bear naturally occluded behind, no duplicate head or limbs.",
+            "emotion": "PASS: grave upright bearing and horizon gaze, intact recognizable beard/face; calm protective Belzebuth behind.",
+            "scene": "PASS: distant Durane, no child, teaching gesture, throne or added crown.",
+            "style": "PASS: visible angular brush planes across skin, beard, clothing, fur and canyon; no text or frame."
+          }
+        }
+      ],
+      "final": {
+        "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/revisions-buffs-scenes-20260914/illustrations/07_MINERO_BALMHYR.png",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 3072058,
+        "sha256": "D4264912A6427F7A7D598EBF89CDA97C0DE6110056C0119A4BAC8FB999F6F83D",
+        "native_generated_source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-2bd16760-c686-4900-8809-9d1020f0631c.png"
+      },
+      "user_approval": "pending"
+    },
+    {
+      "slug": "12_RAINBOW_KAYLIS",
+      "status": "qa_passed_staged_ready",
+      "profile_snapshot": {
+        "slug": "12_RAINBOW_KAYLIS",
+        "name": "KAYLIS",
+        "characterId": "kaylis",
+        "element": "RAINBOW",
+        "race": "HUMAIN",
+        "faction": "Z13",
+        "job": "EVASION",
+        "title": "LA PREMIERE BRECHE",
+        "weapon": "Dague",
+        "text": "La lame s est brisee contre ses tatouages. Kaylis ne comprend pas encore cette lumiere, mais elle sait a qui ouvrir le passage. Dans sa tenue noire couverte de poussiere, la Flamme de la Z13 fait son premier pas vers la liberte.",
+        "source": "V3/sources/histoire.txt, Le Reveil V2, chapitre 5, evasion et lame de Xiaomi brisee, lignes 6725-6733 ; direction physique explicite utilisateur",
+        "story_scene": "Kaylis vient de briser la lame de Xiaomi avec son bras tatoue pendant l evasion de la Z13. Son pouvoir Rainbow est deja eveille ; elle avance vers la sortie, avant la Tour de Fer.",
+        "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Kaylis, belle jeune femme clairement adulte de 23 ans, metissee indienne et antillaise, peau brune halee, traits delicats, corps athletique de mineuse, cheveux noirs attaches avec quelques meches libres. Tenue NOIRE fonctionnelle de mine, pantalon noir et haut noir de travail, poussiere de roche, pas robe ni armure de reine. Seule figure centrale en mouvement de sortie, torsion dynamique, un avant-bras tatoue leve devant elle ; tatouages Rainbow deja eveilles emettant une iridescence precise. Regard farouche, surprise dans les yeux, respiration courte. Barreaux ouverts et fragments d une lame au sol, galerie de la Z13 en arriere-plan. Ne pas representer Lanio mort, un trone, une resurrection ou une scene de couple.",
+        "art": "V3/assets/illustrations/12_RAINBOW_KAYLIS.png"
+      },
+      "sources": [
+        {
+          "path": "V3/sources/REVISION_BUFFS_SCENES_20260914.md",
+          "section": "12 KAYLIS"
+        },
+        {
+          "path": "V3/donnees/cartes.json",
+          "selector": "slug=12_RAINBOW_KAYLIS"
+        },
+        {
+          "path": "V3/sources/histoire.txt",
+          "lines": "6725-6734",
+          "use": "Rainbow already awakened during Z13 escape; new brief directs the moment of realization"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "Use case: identity-preserve edit. One narrative Kalistar fantasy painting, portrait approximately 4:5, at least 1024px wide.\nINPUTS: image 1 is Kaylis, edit target and precise character identity. Image 2 is Momo, actual primary PAINTING reference only. Use its clearly constructed opaque brush planes and visibly painted light, not photoreal skin plus noise, not anime.\nKEEP EXACT IDENTITY from image 1: same beautiful young ADULT woman about 23, mixed Indian and Afro-Caribbean features, warm brown skin, slim sprinter-athletic proportions, same natural face shape and realistic adult eyes, black curly hair tied back, worn fitted BLACK sleeveless mine clothes, pants and boots. Keep the dark rocky Z13 cave and vibrant flowing Rainbow tattoos already awakened on BOTH ARMS.\nREPLACE POSE AND GAZE AS THE KEY EDIT: she has stopped during escape, standing solidly on BOTH LEGS, both boots flat bearing weight, knees softly braced. No hip-pop, crossed legs, raised leg or fashion pose. Lift BOTH bent forearms IN FRONT of her torso, comfortably separated and visible from shoulder through elbow to wrist, palms partly upward, fingers naturally opened in stunned disbelief. Her head is tilted DOWN toward her OWN glowing forearms; both pupils unmistakably look down at the radiant patterns on her nearer forearm/wrist, NOT into the distance, not above, not at viewer. Place the lifted hands below eye level so the gaze relationship is unmistakable. Do not retain the original upward horizon gaze.\nEXPRESSION is the emotional center: lips parted in a caught breath, brows lifted and knitted with shock and dawning resolve, restrained tears in the eyes, heroic vulnerable astonishment as she realizes a power beyond herself. Not smiling, neutral posing, grimacing or screaming. Believable painted adult eyes, no manga eyes.\nLIGHTING: BOTH arms incandescent from bold flowing Rainbow tattoos across upper arms and forearms. Strong colored light from the arms sculpts her face from below, red/gold on one plane and cyan/violet on another, spilling onto nearby rock. Luminous tattoo patterns stay embedded in skin and do not turn into separate floating arms, bracelets, weapons or flames. Deep cave darkness remains; no bright exit competes with the arms.\nSTYLE: rich narrative painting following Momo: assertive brushwork, angular but sensitive painted facial planes, worn black cloth, stone with large tactile strokes, motivated magical light. Keep her recognizable beauty and slim anatomy, no smooth photo portrait, airbrushed fantasy model, manga, 3D plastic or grain filter.\nFull figure visible including both grounded feet. Exactly ONE head, TWO arms total, TWO natural hands, TWO legs. Hands have five coherent digits each with natural knuckles, no extra arms, duplicated wrists, dislocated shoulders, fused fingers or impossible joints. No other people. No border, text, logo, watermark or panels.",
+          "referenced_image_paths": [
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/12_RAINBOW_KAYLIS.png",
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png"
+          ],
+          "reference_roles": [
+            "edit target and identity",
+            "Momo painting style only"
+          ],
+          "native_generated_source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-f500db49-9579-4b24-8b30-552e874b92b6.png",
+          "output_hint": "Generated images are saved to C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-ba77-7d02-85cd-976892688aab as C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-ba77-7d02-85cd-976892688aab\\exec-f500db49-9579-4b24-8b30-552e874b92b6.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+          "status": "selected",
+          "qa": {
+            "method": "view_image original full resolution after generation",
+            "anatomy": "PASS: two arms with continuous shoulders/elbows/wrists, two separated five-digit hands, two legs with both boots planted; no duplication or dislocation.",
+            "emotion": "PASS: downward gaze unmistakably on her own incandescent arms/hands, parted lips and furrowed brows conveying vulnerable heroic astonishment; realistic adult eyes.",
+            "scene": "PASS: both legs support her, no model hip pose; Rainbow on both arms lights her face and dark cave; adult mixed identity and slim black-clothed silhouette preserved.",
+            "style": "PASS: visible painted planes and worn textures; no frame or text."
+          }
+        }
+      ],
+      "final": {
+        "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/revisions-buffs-scenes-20260914/illustrations/12_RAINBOW_KAYLIS.png",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 2613406,
+        "sha256": "5AA38B060778CC434454F5E6A36A5EBD64E75EFB7DFA3939F2B96C11D8DECF75",
+        "native_generated_source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-f500db49-9579-4b24-8b30-552e874b92b6.png"
+      },
+      "user_approval": "pending"
+    },
+    {
+      "slug": "16_CRYO_NERIS",
+      "status": "qa_passed_staged_ready",
+      "profile_snapshot": {
+        "slug": "16_CRYO_NERIS",
+        "name": "NERIS",
+        "characterId": "neris",
+        "element": "CRYO",
+        "race": "HUMAIN",
+        "faction": "Niveria",
+        "job": "SOIGNEUSE",
+        "title": "LE POULS SOUS LA GLACE",
+        "weapon": "Orbe",
+        "text": "Neris ferme la tempete derriere une paroi de givre. Dans l abri, les couvertures sont pretes. Elle compte les souffles jusqu a ne plus entendre que le vent dehors.",
+        "source": "Creation V3 ; Niveria et cristal CRYO issus du repertoire V2",
+        "story_scene": "Scene inventee : Neris chauffe un abri de secours en isolant la tempete par une paroi de givre.",
+        "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Soigneuse humaine adulte d une cinquantaine d annees, visage rond, cheveux gris courts, lunettes rondes, manteau prune et blanc. Vue de face a hauteur de poitrine, mains autour d un orbe de glace translucide, expression rassurante et fatigue reelle, abri de montagne et lits vides derriere.",
+        "art": "V3/assets/illustrations/16_CRYO_NERIS.png"
+      },
+      "sources": [
+        {
+          "path": "V3/sources/REVISION_BUFFS_SCENES_20260914.md",
+          "section": "16 NERIS"
+        },
+        {
+          "path": "V3/donnees/cartes.json",
+          "selector": "slug=16_CRYO_NERIS",
+          "use": "V3 invented healer/refuge narrative, not a novel passage"
+        }
+      ],
+      "brief_overrides": "New mature adult portrayal and active refuge scene replace the previous elderly chest-up portrait; CRYO, round glasses, short gray hair and plum/white identity retained.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "Use case: identity-preserve narrative scene edit with a deliberately rebuilt painted character.\nImage 1 is NERIS, the edit target and identity/clothing/refuge reference. Image 2 is MOMO, the principal painting style reference: visible opaque brush planes, rich tactile painted materials, color-defined expressive forms, not a photograph with a grain overlay.\nNEW BRIEF OVERRIDES the old elderly portrait. Completely rebuild the scene and character rendering, not a texture filter. Show Neris as a capable mature ADULT cryomantic healer, about early forties, NOT a grandmother or elderly photo portrait. Keep her recognizable round face, short tousled silver-gray hair, round wire spectacles, plum coat with white lining, practical healer clothing and transparent CRYO ice orb. Preserve these identifying features but remove the deeply aged face, elderly sagging cheeks and posed sympathetic headshot smile. Do not change her into a young fashion model.\nNEW REFUGE SCENE: medium-wide full-body narrative composition inside a rough timber mountain emergency refuge. Neris is between the storm-facing doorway and rows of waiting cots with neatly gathered blankets. She braces one hand firmly against a thick translucent wall of frost sealing the doorway, while her other arm cradles a SMALL glowing ice orb close to her ribs. Both limbs are distinct and attach naturally; she is maintaining shelter, not firing a combat blast. Cold snow and wind are visible beyond the frost; the small stove and lantern warm the safe interior. One boot forward and the other planted back gives her a stable working stance, with both legs visible beneath the open lower coat. No extra characters are needed.\nEMOTION: head turned toward the refuge interior, a resolute, attentive, deeply humane expression as she checks the prepared shelter, tense brows and set mouth with restrained compassion and fatigue, active responsibility rather than a smile to camera. Her face must remain readable and painted with deliberate simplified planes and expressive adult eyes behind the round glasses.\nPAINT AND LIGHT: forceful handcrafted fantasy painting like Momo, broad strokes in hair and facial planes, layered plum cloth, white lining and icy facets, all clearly painted. Cool reflected light from the frost on her working hand and one side of face, warm stove/lantern on the opposite side. Avoid photographic pores, glossy airbrush skin, anime facial proportions, 3D render or global grain treatment.\nPortrait approximately 4:5, at least 1024px wide, continuous borderless illustration. Exactly one head, TWO arms total, TWO hands with natural five-digit anatomy, TWO legs and two boots, coherent shoulders/elbows/wrists; no extra hands growing from the orb, no dislocated body. Small orb never covers her face or joins the two arms. No text, labels, card symbols, frame, logo, signature or panels.",
+          "referenced_image_paths": [
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/16_CRYO_NERIS.png",
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png"
+          ],
+          "reference_roles": [
+            "edit target, identity and refuge",
+            "Momo painting style only"
+          ],
+          "native_generated_source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-a4a39059-1aa2-4fe3-bcaa-c9bbbdb096f4.png",
+          "output_hint": "Generated images are saved to C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-ba77-7d02-85cd-976892688aab as C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-ba77-7d02-85cd-976892688aab\\exec-a4a39059-1aa2-4fe3-bcaa-c9bbbdb096f4.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+          "status": "selected",
+          "qa": {
+            "method": "view_image original full resolution after generation",
+            "anatomy": "PASS: two attached arms, wall hand with five separated digits, orb hand with natural partial occlusion; coherent wrists/elbows; two planted boots and distinct legs beneath open coat.",
+            "emotion": "PASS: resolute concerned adult healer, attentive gaze into refuge, active braced posture; no elderly posed smiling headshot. Silver hair retained as identity marker.",
+            "scene": "PASS: protective frost wall separates storm from prepared cots and stove; small CRYO orb, active refuge scene.",
+            "style": "PASS: painted facial planes and substantial brushwork throughout, no photo portrait, frame or text."
+          }
+        }
+      ],
+      "final": {
+        "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/revisions-buffs-scenes-20260914/illustrations/16_CRYO_NERIS.png",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 3099520,
+        "sha256": "4BD44F826E965B1189D49EA968D90D419FCFC3BB53A56A67AF422F5933B22221",
+        "native_generated_source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-a4a39059-1aa2-4fe3-bcaa-c9bbbdb096f4.png"
+      },
+      "user_approval": "pending"
+    },
+    {
+      "slug": "23_NONE_GEN",
+      "status": "qa_passed_staged_ready",
+      "profile_snapshot": {
+        "slug": "23_NONE_GEN",
+        "name": "GEN",
+        "characterId": "gen",
+        "element": "NONE",
+        "race": "CYBORG",
+        "faction": "Z13",
+        "job": "MECANICIEN",
+        "title": "AVANT L ETINCELLE",
+        "weapon": "Projectile",
+        "text": "Gen bloque le petit engrenage entre ses doigts et reprend l ajustement. Dans cet atelier fait de recuperation, son bras gauche reste une mecanique imparfaite. Il n y a pas encore d eclair, seulement une idee qui refuse de ceder.",
+        "source": "main/Kalistar.xlsx, Personnages ligne 15, via V3/sources/sources-extraites.json ; V3/sources/histoire.txt, Le Reveil V2 chapitre 1, bras gauche et meche verte, lignes 6297-6299 ; chapitre 4 atelier avant transfusion",
+        "story_scene": "Vignette de Gen reparant son bras gauche dans l atelier improvise, AVANT la transfusion Electro du chapitre 4.",
+        "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Gen, jeune homme adulte plutot petit et mince, yeux sombres attentifs, cheveux noirs soigneusement peignes avec UNE meche vert emeraude. Assis seul a son etabli de recuperation dans la Z13, penche avec concentration, main DROITE organique tenant un petit tournevis et reparant son propre bras GAUCHE partiellement mecanique, qui reste attache a son epaule. Exactement deux bras, deux jambes, pas de bras de rechange ressemblant a un membre vivant. Pieces, cables, lampe de travail ; leger sourire d une solution trouvee. Prothese rudimentaire, avant fusion, sans cristal, aucun arc electrique, aucun halo, aucune barriere magique. Sans cristal : aucun halo ni barriere elementaire.",
+        "art": "V3/assets/illustrations/23_NONE_GEN.png"
+      },
+      "sources": [
+        {
+          "path": "V3/sources/REVISION_BUFFS_SCENES_20260914.md",
+          "section": "23 GEN"
+        },
+        {
+          "path": "V3/donnees/cartes.json",
+          "selector": "slug=23_NONE_GEN"
+        },
+        {
+          "path": "V3/sources/histoire.txt",
+          "lines": "6295-6299; 6616-6617",
+          "use": "Small young man, black hair/emerald lock, own left mechanical arm and clandestine workshop; pre-fusion repair vignette"
+        }
+      ],
+      "brief_overrides": "Small local sparks and short circuit explicitly requested now, replacing old no-sparks prompt; no crystal or fusion.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "Use case: precise-object-edit. A tightly localized modification to image 1, GEN repairing his attached mechanical LEFT arm in his clandestine Z13 workshop before fusion.\nImage 1 is the exact edit target: preserve its entire character, anatomy, pose, facial identity, framing, scenery and painting. Image 2 is Momo, supporting Kalistar PAINTING style reference only; do not import Momo's robot body, hat, flute or background.\nCHANGE ONLY: add a small believable electrical short circuit and a few crisp tiny sparks at the mechanical forearm repair point where the screwdriver tip touches the exposed panel near the wrist. A short blue-white arc bridging two nearby contacts with several small warm sparks, confined close to the repair point, provides a little reflected glint on nearby metal and working fingers. Enough to be clearly visible, still a minor workshop fault, not an explosion or magical attack. Do NOT alter the repair position to make room for the sparks.\nLOCK ALL ELSE to image 1: same small/slim young adult male, black hair with ONE emerald-green lock, dark focused eyes and concentrated expression; same worn black work clothes; same seated pose, two legs and boots, screwdriver held by organic RIGHT hand. His anatomical LEFT arm begins at his left shoulder on the viewer's RIGHT, articulated down through elbow to forearm resting across the bench and its metal hand on the cloth. It stays ATTACHED to his body. Exactly TWO ARMS TOTAL: one organic right arm and one mechanical left arm. No loose spare limb, no third arm or new fingers. Preserve recognizable forearm and prosthetic hand geometry.\nKeep the workbench, cloth, salvaged tools, task lamp, pipes, ducts, cool rear ventilation opening, chair, shadows, warm existing lighting and visibly painted worn materials in exactly the same positions. Maintain the original expressive painted face, not photoreal skin. The only new light is the very LOCAL small short circuit.\nNo crystal or Kalistel, no infusion, no body-wide lightning, no glowing eyes, no fire, smoke plume or explosion, no extra characters. Do not change expression, camera, pose, workshop or outfit. No text, border, watermark or signature. Single full-bleed portrait approximately 4:5, at least 1024px wide, same framing as input.",
+          "referenced_image_paths": [
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/23_NONE_GEN.png",
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png"
+          ],
+          "reference_roles": [
+            "exact edit target; preserve character and composition",
+            "Momo painting style only"
+          ],
+          "native_generated_source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-57aabeb8-cc26-4faa-9c09-2f4f337e58df.png",
+          "output_hint": "Generated images are saved to C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-ba77-7d02-85cd-976892688aab as C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-ba77-7d02-85cd-976892688aab\\exec-57aabeb8-cc26-4faa-9c09-2f4f337e58df.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+          "status": "selected",
+          "qa": {
+            "method": "view_image original full resolution after generation and comparison to source",
+            "anatomy": "PASS: exactly two arms total; attached mechanical anatomical LEFT arm on viewer right, organic RIGHT hand holding screwdriver, prosthetic digits preserved; two seated legs/boots, no duplication.",
+            "emotion": "PASS: original focused expression and black hair with emerald lock preserved.",
+            "scene": "PASS: original workshop and seated repair composition preserved; small blue-white local short and warm sparks at screwdriver contact; no crystal, fire or global lightning.",
+            "style": "PASS: painterly workshop preserved; no text or frame."
+          }
+        }
+      ],
+      "final": {
+        "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/revisions-buffs-scenes-20260914/illustrations/23_NONE_GEN.png",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 2468432,
+        "sha256": "2C15755FBB67DED62B6DD614A6A25EC81129474640B1C2F648CB57DCC03A1E51",
+        "native_generated_source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-57aabeb8-cc26-4faa-9c09-2f4f337e58df.png"
+      },
+      "user_approval": "pending"
+    },
+    {
+      "slug": "36_GEO_ELENION",
+      "status": "qa_passed_staged_ready",
+      "profile_snapshot": {
+        "slug": "36_GEO_ELENION",
+        "name": "ELENION",
+        "characterId": "elenion",
+        "element": "GEO",
+        "race": "CERELF",
+        "faction": "Woodland",
+        "job": "ARPENTEUR",
+        "title": "LA LISIERE DEPLACEE",
+        "weapon": "Fléau",
+        "text": "Elenion retrouve la borne loin du chemin. La foret n a pas efface la limite ; la riviere l a deplacee. Il prend une nouvelle mesure avant de juger les traces.",
+        "source": "main/Kalistar.xlsx, Personnages ligne 48, via V3/sources/sources-extraites.json ; cristal Terre conserve malgre HERBO dans la table generique des Cerelf ; scene proposee V3",
+        "story_scene": "Scene inventee : Elenion releve une borne de Woodland deracinee par la crue.",
+        "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Cerelf adulte humanoide a tete de cerf, bois courts asymetriques, deux bras humains et deux jambes vetues, tunique verte et rouge. Agenouille sur un seul genou pres d une borne, fleau de marche pose au sol, regard mesure et pensif, clairiere humide.",
+        "art": "V3/assets/illustrations/36_GEO_ELENION.png"
+      },
+      "sources": [
+        {
+          "path": "V3/sources/REVISION_BUFFS_SCENES_20260914.md",
+          "section": "36 ELENION"
+        },
+        {
+          "path": "V3/donnees/cartes.json",
+          "selector": "slug=36_GEO_ELENION",
+          "use": "CERELF identity, green/red clothing, Woodland; previous survey scene is V3 invented"
+        }
+      ],
+      "brief_overrides": "Drawn bow and aiming scene replace surveyor/flail depiction in art only. No weapon or gameplay metadata changed.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "Use case: identity-preserve narrative fantasy scene edit.\nINPUTS: image 1 is ELENION, edit target and identity reference; image 2 is MOMO, primary Kalistar painting reference ONLY. Inherit Momo's visible opaque brush-built planes, sculpted painted edges, tactile worn surfaces and motivated light, not its robot, flute or setting.\nREPLACE the kneeling surveyor scene with an imposing, threatening humanoid stag archer ALREADY AT FULL DRAW, aiming a single nocked arrow toward an unseen danger beyond the frame. He is not measuring a stone, holding a relaxed bow, or preparing to nock. No survey cord, plumb bob or flail in this painting.\nIDENTITY: same adult male CERELF with a recognizable natural stag head, fur markings, ears and asymmetrical antlers; now a stronger broad-shouldered muscular humanoid presence. Keep the worn green tunic with red woven trim/scarf, leather bracers and belts, practical gray trousers and boots. Strictly bipedal humanoid torso and limb arrangement: ONE stag head, TWO human-shaped arms ending in dexterous five-digit hands, TWO trousered legs. No deer quadruped body, centaur form, extra forelegs or animal paws holding the bow.\nCOMPOSITION AND ACTION: full figure in a strong stable side-on/three-quarter archer stance on wet forest stones in Woodland; two boots grounded apart, knees softly bent, torso upright and taut. Slight low viewpoint makes him formidable. His LEFT arm extends toward the target on the left side of the image, holding ONE simple wooden recurve bow at its central grip. His RIGHT elbow draws back behind him, right hand anchored at his cheek/jaw, fingers hooking the bowstring. Keep the bow, string and arrow all clearly separated from his antlers, face and clothing.\nARCHERY GEOMETRY IS ESSENTIAL: bow is visibly flexed under load with both limb tips connected by ONE taut string pulled back into TWO STRAIGHT segments meeting at the arrow nock by his drawing hand. ONE straight arrow shaft runs from that nock beside his cheek, across the bow's arrow rest immediately ABOVE the grip, then forward toward the left target; pointed arrowhead beyond the bow, small fletching near the nock. Drawing forearm aligns with the arrow, draw fingers naturally hook the string at the nock, bow wrist grips the riser correctly, no floating arrow, doubled string, disconnected bow limbs, inverted elbow or impossible hand. Show the entire bow and enough arrowhead inside the composition to inspect the action.\nEMOTION: severe intense gaze aligned down the arrow toward the threat; lowered brow ridge, alert ears, firm clenched muzzle, restrained controlled menace, an intimidating guardian not a cute gentle deer. Recognizable deer face, not a wolf or human face with antlers.\nSETTING/LIGHT: dense wet woodland and river stones, rough bark, broken cool daylight through foliage lights his face, drawn forearms and bow; deeper forest shadows establish tension while silhouette and equipment remain legible. No extra people or targets. Bold purposeful painting strokes across fur, face, cloth, wood and stone, not anime outlines, photographic fur or plastic 3D.\nSingle finished full-bleed portrait approximately 4:5, at least 1024px wide, full feet and antlers inside the composition. No text, frame, card UI, symbols, watermark, signature or collage.",
+          "referenced_image_paths": [
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/36_GEO_ELENION.png",
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png"
+          ],
+          "reference_roles": [
+            "edit target and CERELF identity",
+            "Momo painting style only"
+          ],
+          "native_generated_source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-090ec061-3f40-4786-921f-6352f722c04d.png",
+          "output_hint": "Generated images are saved to C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-ba77-7d02-85cd-976892688aab as C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-ba77-7d02-85cd-976892688aab\\exec-090ec061-3f40-4786-921f-6352f722c04d.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+          "status": "selected",
+          "qa": {
+            "method": "view_image original full resolution after generation",
+            "anatomy": "PASS: one stag head, two humanoid arms and two trousered legs with planted boots; coherent bow grip, drawing hand and elbows, no duplicated limbs.",
+            "emotion": "PASS: broad imposing stance, narrowed intense eyes and tense muzzle; recognizable stag rather than cute animal or human with antlers.",
+            "scene": "PASS: flexed bow at full draw; single straight arrow above grip with visible arrowhead and rear fletching; taut string segments meet near nock/drawing hand; no old measuring action.",
+            "style": "PASS: substantial painted strokes on fur, tunic and woodland; no text or frame.",
+            "framing_note": "Upper bow tip extends slightly beyond top edge. Grip, arrow, nock region and visible string tension remain readable; no anatomical correction required."
+          }
+        }
+      ],
+      "final": {
+        "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/revisions-buffs-scenes-20260914/illustrations/36_GEO_ELENION.png",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 3163455,
+        "sha256": "14A45DC36A9FE8582C18402721D500EB6390C330855ACAF5AD22D5993B5CEA7A",
+        "native_generated_source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-090ec061-3f40-4786-921f-6352f722c04d.png"
+      },
+      "user_approval": "pending"
+    }
+  ],
+  "built_in_calls": 5,
+  "corrective_calls": 0,
+  "native_output_policy": "Five native PNGs copied byte-for-byte; no resize, repaint, compositing, layers or Photoshop export.",
+  "final_verification": {
+    "assets": [
+      {
+        "slug": "07_MINERO_BALMHYR",
+        "sha256_match": true,
+        "native_identical": true,
+        "width": 1122,
+        "height": 1402,
+        "status": "qa_passed_staged_ready"
+      },
+      {
+        "slug": "12_RAINBOW_KAYLIS",
+        "sha256_match": true,
+        "native_identical": true,
+        "width": 1122,
+        "height": 1402,
+        "status": "qa_passed_staged_ready"
+      },
+      {
+        "slug": "16_CRYO_NERIS",
+        "sha256_match": true,
+        "native_identical": true,
+        "width": 1122,
+        "height": 1402,
+        "status": "qa_passed_staged_ready"
+      },
+      {
+        "slug": "23_NONE_GEN",
+        "sha256_match": true,
+        "native_identical": true,
+        "width": 1122,
+        "height": 1402,
+        "status": "qa_passed_staged_ready"
+      },
+      {
+        "slug": "36_GEO_ELENION",
+        "sha256_match": true,
+        "native_identical": true,
+        "width": 1122,
+        "height": 1402,
+        "status": "qa_passed_staged_ready"
+      }
+    ],
+    "canonical_input_checks": [
+      {
+        "slug": "01_ELECTRO_MOMO",
+        "unchanged": true
+      },
+      {
+        "slug": "07_MINERO_BALMHYR",
+        "unchanged": true
+      },
+      {
+        "slug": "12_RAINBOW_KAYLIS",
+        "unchanged": true
+      },
+      {
+        "slug": "16_CRYO_NERIS",
+        "unchanged": true
+      },
+      {
+        "slug": "23_NONE_GEN",
+        "unchanged": true
+      },
+      {
+        "slug": "36_GEO_ELENION",
+        "unchanged": true
+      }
+    ],
+    "manifest_valid": true,
+    "note": "Canonical targets and Momo hashes unchanged between input capture and final verification. Only five staged PNGs and this manifest were written by this task."
+  }
+}

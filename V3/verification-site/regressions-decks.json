@@ -1,0 +1,57 @@
+{
+  "date": "2026-09-15",
+  "ok": true,
+  "functionalAndSecurityChecksPassed": true,
+  "remainingIssue": null,
+  "isolation": "Fresh nonpersistent Chrome contexts and temporary loopback origins; no user profile or database access",
+  "results": {
+    "verify_presets_v3": {"passed": 10, "failed": 0, "latestParentBuilderIncluded": true},
+    "verify_site_v3": {"passed": 13, "failed": 0, "requireFinal": true, "requireAssets": true, "missingAssets": 0, "assetGeometryIssues": 0},
+    "verify_stacked_buffs_ui": {"passed": 23, "failed": 0, "testedAt": "2026-09-15T06:07:57.628Z", "assertionsUnchanged": true, "browserErrors": [], "sourceChangesDuringRun": []},
+    "verify_ownership_db": {"passed": 41, "failed": 0, "scriptUnchanged": true},
+    "verify_ownership_ui": {"passed": 16, "failed": 0, "scriptUnchanged": true},
+    "verify_db_engine_contract": {"passed": 9, "failed": 0, "scriptUnchanged": true, "sourceChangesDuringRun": []},
+    "existingEngineNamedTests": {"passed": 116, "failed": 0, "filesUnchanged": true},
+    "engineRoster": {"cards": 41, "arenas": 16, "attackFaces": 246, "campaigns": 80},
+    "existingEngineCampaigns": 200,
+    "deckRules": {"passed": 13, "failed": 0, "strictMatches": 4, "fileUnchanged": true}
+  },
+  "geometry": [
+    {"viewport": [1440, 1000], "affectedCards": 0, "badges": 50, "detailsClicksPassed": 10},
+    {"viewport": [390, 844], "affectedCards": 0, "badges": 50, "detailsClicksPassed": 10},
+    {"viewport": [360, 800], "affectedCards": 0, "badges": 50, "detailsClicksPassed": 10},
+    {"viewport": [2560, 1440], "affectedCards": 0, "badges": 50, "detailsClicksPassed": 10}
+  ],
+  "lastRecheck": {
+    "suite": "verify_stacked_buffs_ui.cjs",
+    "resolvedIssue": "Physical badge/inspect overlap resolved by parent CSS; all four viewport assertions pass unchanged",
+    "onlyReportsWritten": true,
+    "otherSuiteResultsRetainedFromPreviousRuns": true,
+    "parentReportedFlow": {"passed": 15, "failed": 0, "independentlyRerunHere": false},
+    "dice": {"moving": true, "front": "3", "colors": 324, "opaque": 1122},
+    "sourceSHA256": {
+      "battle-ui.css": "5f619010eb3efe5134a14db458354819f65d4ed417be823973a8c58b87ac5a9c",
+      "duel-focus.js": "a8cb398940db549fd9e923ea6ab0c9d52d50f16c8b0dc505e5c272e31210ebe4"
+    }
+  },
+  "presets": {
+    "canonicalEqualsBundle": true,
+    "allFiveStrictlyPlayable": true,
+    "unionCards": 41,
+    "coverageP1ToP5": {"player": [2, 2, 3, 3, 2], "enemy": [2, 2, 2, 2, 2], "z13": [2, 2, 2, 2, 2], "cites": [2, 2, 2, 2, 2], "frontieres": [2, 2, 2, 2, 2]}
+  },
+  "modifiedScripts": [
+    "V3/scripts/verify_presets_v3.cjs",
+    "V3/scripts/verify_site_v3.cjs",
+    "V3/scripts/verify_stacked_buffs_ui.cjs"
+  ],
+  "scriptSHA256": {
+    "verify_presets_v3.cjs": "7c3d9f44cb60f29c981674781b3ff5183d12fb139e9c0d264c409eed5aad2a17",
+    "verify_site_v3.cjs": "fef8279d6431a284ca10153e207a5888befb58bcba09f46ef52ee7892ebf9019",
+    "verify_stacked_buffs_ui.cjs": "2c186c52e22a21373fdefab15e9d63dbb6d83c267abb49fc6398d3ab3896f5be"
+  },
+  "noProductFilesModified": true,
+  "securityAssertionsWeakened": false,
+  "recursiveBuilderSearchErrorObserved": false,
+  "nextAction": null
+}

@@ -1,0 +1,1504 @@
+{
+  "schemaVersion": 4,
+  "baseTemplate": "V4/template-stable/KALISTAR_V4_TEMPLATE_03F_ELECTRO_RIKKA.psd",
+  "baseRegistry": "V4/template-stable/registry-electro-03f.json",
+  "template": "V4/template-stable/KALISTAR_V4_TEMPLATE_04_ELEMENTS.psd",
+  "registry": "V4/template-stable/registry-elements-04.json",
+  "cards": [
+    {
+      "schemaVersion": 4,
+      "id": "30000039",
+      "name": "RUBY",
+      "title": "LA CARTE DES COURANTS",
+      "job": "CARTOGRAPHE",
+      "race": "SIRENA",
+      "element": "HYDRO",
+      "faction": "Thalassea",
+      "weapon": "Gun",
+      "positions": [
+        4
+      ],
+      "atk": [
+        291,
+        246,
+        194,
+        142,
+        90,
+        45
+      ],
+      "defense": [
+        173,
+        141,
+        116,
+        84,
+        52,
+        20
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "barriers": [
+        4
+      ],
+      "slug": "39_HYDRO_RUBY",
+      "hue": 192,
+      "color": "38CBED",
+      "weapon_index": 7,
+      "description": "Ruby rit dans le silence de l'eau. Les dauphins croisent son sillage, et elle oublie un instant les routes a tracer. Ses deux petits harpons restent a ses hanches : aujourd'hui, la mer lui offre simplement sa joie.",
+      "artwork": "RUBY",
+      "artworkSource": "V4/assets/illustrations/elements-01/eau-feu-glace/RUBY_V4_01.png",
+      "artworkUnchanged": false,
+      "sourcePSD": "V3/templates/39_HYDRO_RUBY.psd",
+      "output": "RUBY_V4_01_HYDRO",
+      "profile": "V4/template-stable/elements-01/ruby/card.json"
+    },
+    {
+      "schemaVersion": 4,
+      "id": "30000002",
+      "name": "CANA",
+      "title": "LE DERNIER PASSAGE",
+      "job": "MESSAGERE",
+      "race": "FALCO",
+      "element": "AERO",
+      "faction": "Nestown",
+      "weapon": "Arc",
+      "positions": [
+        2
+      ],
+      "atk": [
+        290,
+        245,
+        193,
+        141,
+        96,
+        44
+      ],
+      "defense": [
+        172,
+        140,
+        115,
+        83,
+        51,
+        26
+      ],
+      "magic": [
+        3
+      ],
+      "barriers": [
+        4
+      ],
+      "slug": "02_AERO_CANA",
+      "hue": 155,
+      "color": "89EDC2",
+      "weapon_index": 5,
+      "description": "Le pont a cédé avant l'aube. Cana replie son aile blessée et tend le message au-delà du vide. A Nestown, une promesse doit parfois voyager plus loin que celui qui la porte.",
+      "artwork": "CANA",
+      "artworkSource": "V4/assets/illustrations/elements-01/air/CANA_V4_01.png",
+      "artworkUnchanged": false,
+      "sourcePSD": "V3/templates/02_AERO_CANA.psd",
+      "output": "CANA_V4_01_AERO",
+      "profile": "V4/template-stable/elements-01/cana/card.json"
+    },
+    {
+      "schemaVersion": 4,
+      "id": "30000015",
+      "name": "SCROW",
+      "title": "LA FLECHE RETENUE",
+      "job": "GUETTEUR",
+      "race": "KORBOW",
+      "element": "AERO",
+      "faction": "Nestown",
+      "weapon": "Arc",
+      "positions": [
+        4
+      ],
+      "atk": [
+        293,
+        241,
+        196,
+        144,
+        92,
+        40
+      ],
+      "defense": [
+        175,
+        143,
+        111,
+        86,
+        54,
+        22
+      ],
+      "magic": [],
+      "barriers": [
+        4
+      ],
+      "slug": "15_AERO_SCROW",
+      "hue": 155,
+      "color": "89EDC2",
+      "weapon_index": 5,
+      "description": "Scrow reconnait le sceau avant de lacher la corde. Il laisse le messager franchir les toits. Une fleche retenue peut peser autant qu une fleche tiree.",
+      "artwork": "SCROW",
+      "artworkSource": "V4/assets/illustrations/elements-01/air/SCROW_V4_01.png",
+      "artworkUnchanged": false,
+      "sourcePSD": "V3/templates/15_AERO_SCROW.psd",
+      "output": "SCROW_V4_01_AERO",
+      "profile": "V4/template-stable/elements-01/scrow/card.json"
+    },
+    {
+      "schemaVersion": 4,
+      "id": "30000040",
+      "name": "SORYN",
+      "title": "LE VENT JUSTE",
+      "job": "ACCORDEUR",
+      "race": "FALCO",
+      "element": "AERO",
+      "faction": "Nestown",
+      "weapon": "Instrument",
+      "positions": [
+        4
+      ],
+      "atk": [
+        295,
+        243,
+        191,
+        146,
+        94,
+        "mana"
+      ],
+      "defense": [
+        170,
+        145,
+        113,
+        81,
+        56,
+        24
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3,
+        2
+      ],
+      "barriers": [
+        4
+      ],
+      "slug": "40_AERO_SORYN",
+      "hue": 155,
+      "color": "89EDC2",
+      "weapon_index": 11,
+      "description": "Soryn attend que le vent tourne avant de toucher la corde. Une note traverse le brouillard. Sur le pont invisible, les voyageurs savent de nouveau ou poser le pied.",
+      "artwork": "SORYN",
+      "artworkSource": "V4/assets/illustrations/elements-01/air/SORYN_V4_01.png",
+      "artworkUnchanged": false,
+      "sourcePSD": "V3/templates/40_AERO_SORYN.psd",
+      "output": "SORYN_V4_01_AERO",
+      "profile": "V4/template-stable/elements-01/soryn/card.json"
+    },
+    {
+      "schemaVersion": 4,
+      "id": "30000038",
+      "name": "GILMARR",
+      "title": "LA PLACE DANS L EQUIPE",
+      "job": "PILIER D ASTRABALL",
+      "race": "RHINOZ",
+      "element": "AERO",
+      "faction": "Zarok",
+      "weapon": "Poing",
+      "positions": [
+        1
+      ],
+      "atk": [
+        204,
+        167,
+        130,
+        100,
+        "guard",
+        26
+      ],
+      "defense": [
+        296,
+        244,
+        192,
+        140,
+        95,
+        43
+      ],
+      "magic": [
+        6,
+        3
+      ],
+      "barriers": [
+        5,
+        2
+      ],
+      "slug": "38_AERO_GILMARR",
+      "hue": 155,
+      "color": "89EDC2",
+      "weapon_index": 3,
+      "description": "Gilmarr decale le plot de la ligne et fait signe d entrer. Une place vient de s ouvrir dans l equipe. Son sourire promet un match difficile, pas une faveur.",
+      "artwork": "GILMARR",
+      "artworkSource": "V4/assets/illustrations/elements-01/air/GILMARR_V4_01.png",
+      "artworkUnchanged": false,
+      "sourcePSD": "V3/templates/38_AERO_GILMARR.psd",
+      "output": "GILMARR_V4_01_AERO",
+      "profile": "V4/template-stable/elements-01/gilmarr/card.json"
+    },
+    {
+      "schemaVersion": 4,
+      "id": "30000004",
+      "name": "DARNAKO",
+      "title": "AVANT LE PREMIER CHOC",
+      "job": "FORGERON",
+      "race": "DRAX",
+      "element": "PYRO",
+      "faction": "Vulkar",
+      "weapon": "Epée longue",
+      "positions": [
+        2
+      ],
+      "atk": [
+        291,
+        246,
+        194,
+        142,
+        90,
+        45
+      ],
+      "defense": [
+        173,
+        141,
+        116,
+        84,
+        52,
+        20
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "slug": "04_PYRO_DARNAKO",
+      "hue": 12,
+      "color": "FF704A",
+      "weapon_index": 17,
+      "description": "La chaleur lui serre la gorge. Darnako tire sa lame, les yeux fixes sur ce qui approche. Sous la peur, sa decision est deja prise : il tiendra sa place, et le feu de Vulkar avec lui.",
+      "artwork": "DARNAKO",
+      "artworkSource": "V4/assets/illustrations/elements-01/eau-feu-glace/DARNAKO_V4_01.png",
+      "artworkUnchanged": false,
+      "sourcePSD": "V3/templates/04_PYRO_DARNAKO.psd",
+      "output": "DARNAKO_V4_01_PYRO",
+      "profile": "V4/template-stable/elements-01/darnako/card.json"
+    },
+    {
+      "schemaVersion": 4,
+      "id": "30000005",
+      "name": "MALINIA",
+      "title": "LA MEMOIRE SOUS LE GIVRE",
+      "job": "VEILLEUSE",
+      "race": "HUMAIN",
+      "element": "CRYO",
+      "faction": "Niveria",
+      "weapon": "Sceptre",
+      "positions": [
+        4
+      ],
+      "atk": [
+        295,
+        243,
+        191,
+        146,
+        94,
+        42
+      ],
+      "defense": [
+        170,
+        145,
+        113,
+        81,
+        56,
+        24
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "slug": "05_CRYO_MALINIA",
+      "hue": 201,
+      "color": "ACDFFD",
+      "weapon_index": 12,
+      "description": "Au fond du lac dort un souvenir que Niveria croyait perdu. Malinia retient les fissures du gel pendant qu'une lueur ancienne réchauffe ses mains. Sauver le passé commence parfois par le laisser fondre.",
+      "artwork": "MALINIA",
+      "artworkSource": "V4/assets/illustrations/elements-01/eau-feu-glace/MALINIA_V4_01.png",
+      "artworkUnchanged": false,
+      "sourcePSD": "V3/templates/05_CRYO_MALINIA.psd",
+      "output": "MALINIA_V4_01_CRYO",
+      "profile": "V4/template-stable/elements-01/malinia/card.json"
+    },
+    {
+      "schemaVersion": 4,
+      "id": "30000006",
+      "name": "AELIS",
+      "title": "LA LUMIERE AUX OUBLIES",
+      "job": "SOIGNEUSE",
+      "race": "AURELION",
+      "element": "LUXO",
+      "faction": "Solaria",
+      "weapon": "Bâton",
+      "positions": [
+        5
+      ],
+      "atk": [
+        172,
+        140,
+        115,
+        83,
+        51,
+        "revive"
+      ],
+      "defense": [
+        204,
+        167,
+        130,
+        100,
+        63,
+        26
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3,
+        2
+      ],
+      "barriers": [
+        6,
+        5,
+        3
+      ],
+      "slug": "06_LUXO_AELIS",
+      "hue": 47,
+      "color": "F4E9AF",
+      "weapon_index": 10,
+      "description": "Dans le sanctuaire brisé, Aelis ramasse les fragments d'une lanterne. Elle en recoud la lumière pour ceux que la cité a rejetés. Son premier miracle n'est pas de juger les âmes, mais de leur faire une place.",
+      "artwork": "AELIS",
+      "artworkSource": "V3/assets/illustrations/06_LUXO_AELIS.png",
+      "artworkUnchanged": true,
+      "sourcePSD": "V3/templates/06_LUXO_AELIS.psd",
+      "output": "AELIS_V4_01_LUXO",
+      "profile": "V4/template-stable/elements-01/aelis/card.json"
+    },
+    {
+      "schemaVersion": 4,
+      "id": "30000017",
+      "name": "ILIANE",
+      "title": "LE NOM RETROUVE",
+      "job": "ARCHIVISTE",
+      "race": "AURELION",
+      "element": "LUXO",
+      "faction": "Solaria",
+      "weapon": "Tome",
+      "positions": [
+        4
+      ],
+      "atk": [
+        294,
+        242,
+        190,
+        145,
+        93,
+        41
+      ],
+      "defense": [
+        176,
+        144,
+        112,
+        80,
+        55,
+        23
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "barriers": [
+        4
+      ],
+      "slug": "17_LUXO_ILIANE",
+      "hue": 47,
+      "color": "F4E9AF",
+      "weapon_index": 13,
+      "description": "Iliane eclaire les pages que le conseil voulait oublier. Lettre apres lettre, les noms reviennent. Elle ne baisse plus les yeux quand la porte s ouvre.",
+      "artwork": "ILIANE",
+      "artworkSource": "V3/assets/illustrations/17_LUXO_ILIANE.png",
+      "artworkUnchanged": true,
+      "sourcePSD": "V3/templates/17_LUXO_ILIANE.psd",
+      "output": "ILIANE_V4_01_LUXO",
+      "profile": "V4/template-stable/elements-01/iliane/card.json"
+    },
+    {
+      "schemaVersion": 4,
+      "id": "30000019",
+      "name": "BELROG",
+      "title": "LE SILENCE DE LA MONTAGNE",
+      "job": "ECLAIREUR",
+      "race": "RHINOZ",
+      "element": "MINERO",
+      "faction": "Zarok",
+      "weapon": "Masse",
+      "positions": [
+        1
+      ],
+      "atk": [
+        205,
+        168,
+        131,
+        101,
+        "guard",
+        27
+      ],
+      "defense": [
+        290,
+        245,
+        193,
+        141,
+        96,
+        44
+      ],
+      "magic": [
+        6,
+        3
+      ],
+      "barriers": [
+        5,
+        2
+      ],
+      "slug": "19_MINERO_BELROG",
+      "hue": 210,
+      "color": "B3BFCA",
+      "weapon_index": 2,
+      "description": "Au sommet du col, Belrog redresse le signal renversé par l'avalanche. La vallée ne répond pas encore. Il attend debout, couvert de poussière, jusqu'à distinguer une première lumière au loin.",
+      "artwork": "BELROG",
+      "artworkSource": "V3/assets/illustrations/19_MINERO_BELROG.png",
+      "artworkUnchanged": true,
+      "sourcePSD": "V3/templates/19_MINERO_BELROG.psd",
+      "output": "BELROG_V4_01_MINERO",
+      "profile": "V4/template-stable/elements-01/belrog/card.json"
+    },
+    {
+      "schemaVersion": 4,
+      "id": "30000018",
+      "name": "LOK",
+      "title": "LE POIDS DU TRONE",
+      "job": "ROI DE DURANE",
+      "race": "NAIN",
+      "element": "MINERO",
+      "faction": "Durane",
+      "weapon": "Marteau",
+      "positions": [
+        2
+      ],
+      "atk": [
+        291,
+        246,
+        194,
+        142,
+        90,
+        45
+      ],
+      "defense": [
+        173,
+        141,
+        116,
+        84,
+        52,
+        20
+      ],
+      "magic": [
+        6
+      ],
+      "barriers": [
+        5
+      ],
+      "slug": "18_MINERO_LOK",
+      "hue": 210,
+      "color": "B3BFCA",
+      "weapon_index": 1,
+      "description": "Sur le trone de Durane, Lok serre les accoudoirs. Chaque bruit de pas lui semble une menace. Il porte la couronne comme une arme, mais le silence de la salle lui pese plus lourd que le fer.",
+      "artwork": "LOK",
+      "artworkSource": "V4/assets/illustrations/elements-01/terre-plantes/LOK_V4_01.png",
+      "artworkUnchanged": false,
+      "sourcePSD": "V3/templates/18_MINERO_LOK.psd",
+      "output": "LOK_V4_01_MINERO",
+      "profile": "V4/template-stable/elements-01/lok/card.json"
+    },
+    {
+      "schemaVersion": 4,
+      "id": "30000007",
+      "name": "BALMHYR",
+      "title": "LE ROYAUME A L HORIZON",
+      "job": "MENTOR",
+      "race": "NAIN",
+      "element": "MINERO",
+      "faction": "Durane",
+      "weapon": "Hache",
+      "positions": [
+        1
+      ],
+      "atk": [
+        206,
+        169,
+        132,
+        95,
+        "guard",
+        28
+      ],
+      "defense": [
+        291,
+        246,
+        194,
+        142,
+        90,
+        45
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "slug": "07_MINERO_BALMHYR",
+      "hue": 210,
+      "color": "B3BFCA",
+      "weapon_index": 0,
+      "description": "Balmhyr regarde Durane sans courber le dos. Son ours veille derriere lui. Le roi dechu n'a plus de trone, mais ceux qui croisent son regard y trouvent encore la force d'un pere et la patience d'un guide.",
+      "artwork": "BALMHYR",
+      "artworkSource": "V4/assets/illustrations/elements-01/terre-plantes/BALMHYR_V4_01.png",
+      "artworkUnchanged": false,
+      "sourcePSD": "V3/templates/07_MINERO_BALMHYR.psd",
+      "output": "BALMHYR_V4_01_MINERO",
+      "profile": "V4/template-stable/elements-01/balmhyr/card.json"
+    },
+    {
+      "schemaVersion": 4,
+      "id": "30000024",
+      "name": "MAGNAR",
+      "title": "LA PORTE DE PIERRE",
+      "job": "GEOLIER",
+      "race": "GOLEM",
+      "element": "MINERO",
+      "faction": "Durane",
+      "weapon": "Masse",
+      "positions": [
+        1
+      ],
+      "atk": [
+        204,
+        167,
+        130,
+        100,
+        "guard",
+        26
+      ],
+      "defense": [
+        296,
+        244,
+        192,
+        140,
+        95,
+        43
+      ],
+      "magic": [
+        6,
+        3
+      ],
+      "barriers": [
+        5,
+        2
+      ],
+      "slug": "24_MINERO_MAGNAR",
+      "hue": 210,
+      "color": "B3BFCA",
+      "weapon_index": 2,
+      "description": "Magnar avance d un pas et la galerie semble retrecir. Il n a pas besoin de hausser la voix. La roche de son corps connait chaque vibration de la mine.",
+      "artwork": "MAGNAR",
+      "artworkSource": "V4/assets/illustrations/elements-01/terre-plantes/MAGNAR_V4_01.png",
+      "artworkUnchanged": false,
+      "sourcePSD": "V3/templates/24_MINERO_MAGNAR.psd",
+      "output": "MAGNAR_V4_01_MINERO",
+      "profile": "V4/template-stable/elements-01/magnar/card.json"
+    },
+    {
+      "schemaVersion": 4,
+      "id": "30000041",
+      "name": "THALIE",
+      "title": "CE QUI REPOUSSE",
+      "job": "HERBORISTE",
+      "race": "CARNIVERT",
+      "element": "HERBO",
+      "faction": "Arborium",
+      "weapon": "Tome",
+      "positions": [
+        5
+      ],
+      "atk": [
+        172,
+        140,
+        115,
+        83,
+        "retry",
+        "revive"
+      ],
+      "defense": [
+        204,
+        167,
+        130,
+        100,
+        63,
+        26
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "slug": "41_HERBO_THALIE",
+      "hue": 100,
+      "color": "89D355",
+      "weapon_index": 13,
+      "description": "Thalie tourne la page couverte de suie et pose une feuille neuve entre les feuillets. La foret ne reprend pas tout d un coup. Elle commence ici.",
+      "artwork": "THALIE",
+      "artworkSource": "V3/assets/illustrations/41_HERBO_THALIE.png",
+      "artworkUnchanged": true,
+      "sourcePSD": "V3/templates/41_HERBO_THALIE.psd",
+      "output": "THALIE_V4_01_HERBO",
+      "profile": "V4/template-stable/elements-01/thalie/card.json"
+    },
+    {
+      "schemaVersion": 4,
+      "id": "30000033",
+      "name": "BLOOM",
+      "title": "LA GRAINE SOUS SCELLES",
+      "job": "BOTANISTE",
+      "race": "TOXINAR",
+      "element": "HERBO",
+      "faction": "Arborium",
+      "weapon": "Orbe",
+      "positions": [
+        4
+      ],
+      "atk": [
+        295,
+        243,
+        191,
+        146,
+        94,
+        42
+      ],
+      "defense": [
+        170,
+        145,
+        113,
+        81,
+        56,
+        24
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "barriers": [
+        4
+      ],
+      "slug": "33_HERBO_BLOOM",
+      "hue": 100,
+      "color": "89D355",
+      "weapon_index": 14,
+      "description": "Bloom tourne la graine sous le verre. La fleur qu elle promet pourrait sauver la serre ou l etouffer. Il prend le temps d apprendre la difference.",
+      "artwork": "BLOOM",
+      "artworkSource": "V3/assets/illustrations/33_HERBO_BLOOM.png",
+      "artworkUnchanged": true,
+      "sourcePSD": "V3/templates/33_HERBO_BLOOM.psd",
+      "output": "BLOOM_V4_01_HERBO",
+      "profile": "V4/template-stable/elements-01/bloom/card.json"
+    },
+    {
+      "schemaVersion": 4,
+      "id": "30000008",
+      "name": "VICTORVINE",
+      "title": "LA DERNIERE POUSSE",
+      "job": "VEILLEUR",
+      "race": "CARNIVERT",
+      "element": "HERBO",
+      "faction": "Arborium",
+      "weapon": "Bâton",
+      "positions": [
+        3
+      ],
+      "atk": [
+        233,
+        191,
+        156,
+        114,
+        72,
+        30
+      ],
+      "defense": [
+        235,
+        193,
+        151,
+        116,
+        74,
+        32
+      ],
+      "magic": [
+        6,
+        4,
+        2
+      ],
+      "barriers": [
+        5,
+        2
+      ],
+      "slug": "08_HERBO_VICTORVINE",
+      "hue": 100,
+      "color": "89D355",
+      "weapon_index": 10,
+      "description": "Victorvine recueille une jeune pousse au bord des eaux mortes. Autour, la foret porte encore ses blessures. Dans ce geste fragile demeure une promesse : tout ce qui a ete brise n'est pas encore perdu.",
+      "artwork": "VICTORVINE",
+      "artworkSource": "V4/assets/illustrations/elements-01/terre-plantes/VICTORVINE_V4_01.png",
+      "artworkUnchanged": false,
+      "sourcePSD": "V3/templates/08_HERBO_VICTORVINE.psd",
+      "output": "VICTORVINE_V4_01_HERBO",
+      "profile": "V4/template-stable/elements-01/victorvine/card.json"
+    }
+  ],
+  "flags": {
+    "Thalassea": {
+      "source": "V3/assets/factions/Thalassea.png",
+      "output": "V4/template-stable/elements-01/resources/flag-Thalassea.png",
+      "crop": {
+        "left": 13,
+        "top": 48,
+        "width": 138,
+        "height": 282
+      }
+    },
+    "Nestown": {
+      "source": "V3/assets/factions/Nestown.png",
+      "output": "V4/template-stable/elements-01/resources/flag-Nestown.png",
+      "crop": {
+        "left": 13,
+        "top": 48,
+        "width": 138,
+        "height": 282
+      }
+    },
+    "Zarok": {
+      "source": "V3/assets/factions/Zarok.png",
+      "output": "V4/template-stable/elements-01/resources/flag-Zarok.png",
+      "crop": {
+        "left": 13,
+        "top": 48,
+        "width": 138,
+        "height": 282
+      }
+    },
+    "Vulkar": {
+      "source": "V3/assets/factions/Vulkar.png",
+      "output": "V4/template-stable/elements-01/resources/flag-Vulkar.png",
+      "crop": {
+        "left": 13,
+        "top": 48,
+        "width": 138,
+        "height": 282
+      }
+    },
+    "Niveria": {
+      "source": "V3/assets/factions/Niveria.png",
+      "output": "V4/template-stable/elements-01/resources/flag-Niveria.png",
+      "crop": {
+        "left": 13,
+        "top": 48,
+        "width": 138,
+        "height": 282
+      }
+    },
+    "Solaria": {
+      "source": "V3/assets/factions/Solaria.png",
+      "output": "V4/template-stable/elements-01/resources/flag-Solaria.png",
+      "crop": {
+        "left": 13,
+        "top": 48,
+        "width": 138,
+        "height": 282
+      }
+    },
+    "Durane": {
+      "source": "V3/assets/factions/Durane.png",
+      "output": "V4/template-stable/elements-01/resources/flag-Durane.png",
+      "crop": {
+        "left": 13,
+        "top": 48,
+        "width": 138,
+        "height": 282
+      }
+    },
+    "Arborium": {
+      "source": "V3/assets/factions/Arborium.png",
+      "output": "V4/template-stable/elements-01/resources/flag-Arborium.png",
+      "crop": {
+        "left": 13,
+        "top": 48,
+        "width": 138,
+        "height": 282
+      }
+    }
+  },
+  "palette": {
+    "HYDRO": {
+      "hue": 192,
+      "saturation": 65,
+      "lightness": -3
+    },
+    "AERO": {
+      "hue": 155,
+      "saturation": 45,
+      "lightness": -3
+    },
+    "PYRO": {
+      "hue": 12,
+      "saturation": 65,
+      "lightness": -5
+    },
+    "CRYO": {
+      "hue": 201,
+      "saturation": 32,
+      "lightness": 8
+    },
+    "LUXO": {
+      "hue": 45,
+      "saturation": 35,
+      "lightness": 9
+    },
+    "MINERO": {
+      "hue": 210,
+      "saturation": 12,
+      "lightness": -9
+    },
+    "HERBO": {
+      "hue": 100,
+      "saturation": 50,
+      "lightness": -6
+    }
+  },
+  "geometry": {
+    "halos": {
+      "AERO": {
+        "cx": 0.5194475138121547,
+        "cy": 0.5194475138121547,
+        "r": 0.3373480662983426,
+        "aspect": 1
+      },
+      "HYDRO": {
+        "cx": 0.5111602209944751,
+        "cy": 0.5277348066298342,
+        "r": 0.3373480662983426,
+        "aspect": 1
+      },
+      "ELECTRO": {
+        "cx": 0.494585635359116,
+        "cy": 0.5194475138121547,
+        "r": 0.3428729281767956,
+        "aspect": 1
+      },
+      "PYRO": {
+        "cx": 0.494585635359116,
+        "cy": 0.5277348066298342,
+        "r": 0.3428729281767956,
+        "aspect": 1
+      },
+      "CRYO": {
+        "cx": 0.5194475138121547,
+        "cy": 0.494585635359116,
+        "r": 0.32629834254143647,
+        "aspect": 1
+      },
+      "LUXO": {
+        "cx": 0.5028729281767955,
+        "cy": 0.48629834254143645,
+        "r": 0.32629834254143647,
+        "aspect": 1
+      },
+      "MINERO": {
+        "cx": 0.510586319218241,
+        "cy": 0.503257328990228,
+        "r": 0.3745928338762215,
+        "aspect": 1.013843648208469
+      },
+      "HERBO": {
+        "cx": 0.494585635359116,
+        "cy": 0.4697237569060773,
+        "r": 0.3373480662983426,
+        "aspect": 1
+      },
+      "HEMATO": {
+        "cx": 0.5111602209944751,
+        "cy": 0.4365745856353591,
+        "r": 0.35392265193370165,
+        "aspect": 1
+      },
+      "NECRO": {
+        "cx": 0.5111602209944751,
+        "cy": 0.44486187845303865,
+        "r": 0.30972375690607734,
+        "aspect": 1
+      },
+      "GEO": {
+        "cx": 0.5,
+        "cy": 0.5,
+        "r": 0.375,
+        "aspect": 1
+      },
+      "RAINBOW": {
+        "cx": 0.5028729281767955,
+        "cy": 0.4365745856353591,
+        "r": 0.3483977900552486,
+        "aspect": 1
+      }
+    },
+    "flags": {
+      "Chroma": {
+        "bar": 0.1157556270096463,
+        "aspect": 1.896341463414634
+      },
+      "Nestown": {
+        "bar": 0.09146341463414634,
+        "aspect": 2
+      },
+      "Thalassea": {
+        "bar": 0.1054421768707483,
+        "aspect": 1.7926829268292683
+      },
+      "Vulkar": {
+        "bar": 0.11036789297658862,
+        "aspect": 1.8231707317073171
+      },
+      "Niveria": {
+        "bar": 0.12424242424242424,
+        "aspect": 2.129032258064516
+      },
+      "Solaria": {
+        "bar": 0.13636363636363635,
+        "aspect": 2.037037037037037
+      },
+      "Durane": {
+        "bar": 0.0932475884244373,
+        "aspect": 1.896341463414634
+      },
+      "Arborium": {
+        "bar": 0.12121212121212122,
+        "aspect": 2.1710526315789473
+      },
+      "Draevenheim": {
+        "bar": 0.03985507246376811,
+        "aspect": 1.6829268292682926
+      },
+      "Cryptown": {
+        "bar": 0.041666666666666664,
+        "aspect": 1.7560975609756098
+      },
+      "Zarok": {
+        "bar": 0.038461538461538464,
+        "aspect": 1.7439024390243902
+      },
+      "Z13": {
+        "bar": 0.039735099337748346,
+        "aspect": 1.8414634146341464
+      },
+      "Crabazar": {
+        "bar": 0.039765319426336376,
+        "aspect": 1.6096537250786989
+      },
+      "Woodland": {
+        "bar": 0.023575638506876228,
+        "aspect": 1.582383419689119
+      }
+    },
+    "icons": {
+      "weapons": {
+        "10": {
+          "r": 0.6989625542205379,
+          "aspect": 1.0025641025641026,
+          "alphaBounds": [
+            57,
+            56,
+            447,
+            447
+          ]
+        },
+        "11": {
+          "r": 0.6385288879434092,
+          "aspect": 1.036697247706422,
+          "alphaBounds": [
+            103,
+            96,
+            430,
+            435
+          ]
+        },
+        "12": {
+          "r": 0.6978126688271167,
+          "aspect": 1,
+          "alphaBounds": [
+            67,
+            66,
+            447,
+            446
+          ]
+        },
+        "13": {
+          "r": 0.5709426312988981,
+          "aspect": 1.0644257703081232,
+          "alphaBounds": [
+            79,
+            66,
+            436,
+            446
+          ]
+        },
+        "14": {
+          "r": 0.6918856568309808,
+          "aspect": 1.0598802395209581,
+          "alphaBounds": [
+            69,
+            72,
+            403,
+            426
+          ]
+        },
+        "15": {
+          "r": 0.6951132965555757,
+          "aspect": 1.0190114068441065,
+          "alphaBounds": [
+            138,
+            144,
+            401,
+            412
+          ]
+        },
+        "16": {
+          "r": 0.6931311474052442,
+          "aspect": 0.9830028328611898,
+          "alphaBounds": [
+            90,
+            89,
+            443,
+            436
+          ]
+        },
+        "17": {
+          "r": 0.6951674025415918,
+          "aspect": 0.9869791666666666,
+          "alphaBounds": [
+            69,
+            68,
+            453,
+            447
+          ]
+        },
+        "18": {
+          "r": 0.7407863689650644,
+          "aspect": 1.1226666666666667,
+          "alphaBounds": [
+            89,
+            37,
+            464,
+            458
+          ]
+        },
+        "19": {
+          "r": 0.6355543500864115,
+          "aspect": 0.8212669683257918,
+          "alphaBounds": [
+            27,
+            59,
+            469,
+            422
+          ]
+        },
+        "00": {
+          "r": 0.6125662170265468,
+          "aspect": 0.8423529411764706,
+          "alphaBounds": [
+            44,
+            66,
+            469,
+            424
+          ]
+        },
+        "01": {
+          "r": 0.6462839366944441,
+          "aspect": 1,
+          "alphaBounds": [
+            46,
+            46,
+            456,
+            456
+          ]
+        },
+        "02": {
+          "r": 0.6799259599455306,
+          "aspect": 1.0075949367088608,
+          "alphaBounds": [
+            51,
+            49,
+            446,
+            447
+          ]
+        },
+        "03": {
+          "r": 0.5992475480111528,
+          "aspect": 1,
+          "alphaBounds": [
+            58,
+            59,
+            456,
+            457
+          ]
+        },
+        "04": {
+          "r": 0.6598680594729703,
+          "aspect": 0.8913043478260869,
+          "alphaBounds": [
+            44,
+            56,
+            458,
+            425
+          ]
+        },
+        "05": {
+          "r": 0.6942924221741377,
+          "aspect": 1,
+          "alphaBounds": [
+            92,
+            91,
+            423,
+            422
+          ]
+        },
+        "06": {
+          "r": 0.5166328359002039,
+          "aspect": 0.8743455497382199,
+          "alphaBounds": [
+            81,
+            89,
+            463,
+            423
+          ]
+        },
+        "07": {
+          "r": 0.647886587552278,
+          "aspect": 1.042296072507553,
+          "alphaBounds": [
+            94,
+            89,
+            425,
+            434
+          ]
+        },
+        "08": {
+          "r": 0.6959935120487386,
+          "aspect": 1,
+          "alphaBounds": [
+            66,
+            66,
+            447,
+            447
+          ]
+        },
+        "09": {
+          "r": 0.5088916214618844,
+          "aspect": 1,
+          "alphaBounds": [
+            91,
+            91,
+            424,
+            424
+          ]
+        }
+      },
+      "races": {
+        "ROBOT": {
+          "r": 0.5113590091333344,
+          "aspect": 1.002439024390244,
+          "alphaBounds": [
+            0,
+            21,
+            1230,
+            1254
+          ]
+        },
+        "FALCO": {
+          "r": 0.6185963505446278,
+          "aspect": 1.008130081300813,
+          "alphaBounds": [
+            0,
+            14,
+            1230,
+            1254
+          ]
+        },
+        "SIRENA": {
+          "r": 0.5357061069278595,
+          "aspect": 1.0188834154351396,
+          "alphaBounds": [
+            0,
+            13,
+            1218,
+            1254
+          ]
+        },
+        "DRAX": {
+          "r": 0.6539082974490368,
+          "aspect": 1.0316139767054908,
+          "alphaBounds": [
+            0,
+            14,
+            1202,
+            1254
+          ]
+        },
+        "HUMAIN": {
+          "r": 0.5097916472731675,
+          "aspect": 1.051304347826087,
+          "alphaBounds": [
+            49,
+            21,
+            1199,
+            1230
+          ]
+        },
+        "AURELION": {
+          "r": 0.6040801662215225,
+          "aspect": 1.0366666666666666,
+          "alphaBounds": [
+            0,
+            10,
+            1200,
+            1254
+          ]
+        },
+        "NAIN": {
+          "r": 0.5761751829892208,
+          "aspect": 0.9991896272285251,
+          "alphaBounds": [
+            0,
+            21,
+            1234,
+            1254
+          ]
+        },
+        "CARNIVERT": {
+          "r": 0.42667404208170306,
+          "aspect": 1.048653344917463,
+          "alphaBounds": [
+            41,
+            21,
+            1192,
+            1228
+          ]
+        },
+        "VAMP": {
+          "r": 0.5666986517015955,
+          "aspect": 0.9762510602205259,
+          "alphaBounds": [
+            49,
+            57,
+            1228,
+            1208
+          ]
+        },
+        "SKULLZ": {
+          "r": 0.5566474603029538,
+          "aspect": 1.1013333333333333,
+          "alphaBounds": [
+            97,
+            15,
+            1222,
+            1254
+          ]
+        },
+        "RHINOZ": {
+          "r": 0.6118010320882928,
+          "aspect": 1.0532188841201717,
+          "alphaBounds": [
+            43,
+            13,
+            1208,
+            1240
+          ]
+        },
+        "KORBOW": {
+          "r": 0.5441104745075387,
+          "aspect": 0.9866332497911445,
+          "alphaBounds": [
+            33,
+            47,
+            1230,
+            1228
+          ]
+        },
+        "CYBORG": {
+          "r": 0.5114087717792227,
+          "aspect": 0.9845528455284552,
+          "alphaBounds": [
+            0,
+            17,
+            1230,
+            1228
+          ]
+        },
+        "GOLEM": {
+          "r": 0.4656907394241129,
+          "aspect": 0.9829545454545454,
+          "alphaBounds": [
+            0,
+            19,
+            1232,
+            1230
+          ]
+        },
+        "CARDEMORTIS": {
+          "r": 0.5505722892773512,
+          "aspect": 1.1097345132743364,
+          "alphaBounds": [
+            61,
+            0,
+            1191,
+            1254
+          ]
+        },
+        "FELINEUS": {
+          "r": 0.5714959626810324,
+          "aspect": 1.0759962928637627,
+          "alphaBounds": [
+            55,
+            39,
+            1134,
+            1200
+          ]
+        },
+        "TANTALAK": {
+          "r": 0.49531170040243905,
+          "aspect": 1.0283333333333333,
+          "alphaBounds": [
+            0,
+            20,
+            1200,
+            1254
+          ]
+        },
+        "TOXINAR": {
+          "r": 0.5238468146048958,
+          "aspect": 1.0008064516129032,
+          "alphaBounds": [
+            0,
+            13,
+            1240,
+            1254
+          ]
+        },
+        "CERELF": {
+          "r": 0.4955137822380568,
+          "aspect": 1.002439024390244,
+          "alphaBounds": [
+            0,
+            21,
+            1230,
+            1254
+          ]
+        }
+      }
+    }
+  },
+  "protectedFiles": {
+    "V4/template-stable/KALISTAR_V4_TEMPLATE_03F_ELECTRO_RIKKA.psd": "5693665379b64970b4f698e6348d2fa9683e8246509bd8141971bf397c1bd56d",
+    "V4/template-stable/registry-electro-03f.json": "9179294bcb6140e92386092a43c4ed93915747e00660712befb7198f3f6dc42f",
+    "V3/donnees/cartes.json": "bb6de0d7b2b7eec0f1a9348dc892faa002fe542c169bbe202e11aca7e3788761",
+    "V3/site/index.html": "a61fb96c9f3cd4fe12d9573cbcce9ad6174888219f565b80e05f2c500a3bf768",
+    "V4/template-stable/current.json": "3a493b934c47d94100056ac294e1ca7a95557f52ef3570798dce60587b8bce06",
+    "V3/templates/39_HYDRO_RUBY.psd": "da7ff7495c32b63009f18cbaaa400f4c472a47d25d6c5f4acace4d5684842c02",
+    "V3/assets/illustrations/39_HYDRO_RUBY.png": "aa97188fec8b52e6161da6ca6cc592b44bd92f32043de7bc195782b2116feb89",
+    "V3/templates/02_AERO_CANA.psd": "c0fcf574a37ed9203d2de173f9b632dacccb3b0aeaa69fa6567a6130766097ae",
+    "V3/assets/illustrations/02_AERO_CANA.png": "1f41383c6fd37352685c965e930234e740c2470d812e490ac086a7a77ffa6d79",
+    "V3/templates/15_AERO_SCROW.psd": "be64cfcf7d28588dfb7d22af7ad21c0001325c28b39cc0a2efe03b36ec91d17f",
+    "V3/assets/illustrations/15_AERO_SCROW.png": "be4d74b4c3792db4437931c03f09922e274bf5192880cc90037e99a1bf939b7a",
+    "V3/templates/40_AERO_SORYN.psd": "5d47e085da70ad6cf4e3b86d2bd0393f1098e16179b4d6395c5d111b9d08e441",
+    "V3/assets/illustrations/40_AERO_SORYN.png": "aae106608f05a77c0a537ba1bc11fd302d87868b9c751b7bec59e01495138c9d",
+    "V3/templates/38_AERO_GILMARR.psd": "ea9c6924a0a819ba29cd756bf5c385da51399afd8a79641b377c4c214684cf18",
+    "V3/assets/illustrations/38_AERO_GILMARR.png": "8409efcaf0cc9c80c4119e4bb11ee6ee6f3c0dba7a6148733317958c82f38a51",
+    "V3/templates/04_PYRO_DARNAKO.psd": "6db86afb507ec18692d2e2db337d371ce0ad3329e676e54123804431cfbb767f",
+    "V3/assets/illustrations/04_PYRO_DARNAKO.png": "424a366d96edfafec08d82bf634403c57855ff271840613cbd2e668cfabd7ee7",
+    "V3/templates/05_CRYO_MALINIA.psd": "fc7bce2606d4299551964d4e5847c585c023e71379d8105667bd7b58b9ef9d60",
+    "V3/assets/illustrations/05_CRYO_MALINIA.png": "61e94b985d223cea9db8436eae5b8776961fce1c354fbe9df141aa486ebb395e",
+    "V3/templates/06_LUXO_AELIS.psd": "0bbcae4ba4b6fcecbc399eafab3d22b65277110ce25050cd48d79a23095a7bec",
+    "V3/assets/illustrations/06_LUXO_AELIS.png": "dc36531ecb2504f6de940fea3be097a01ffcecfe917f1db6ab01add2fe48ed58",
+    "V3/templates/17_LUXO_ILIANE.psd": "af7a54d10ad6fa871b5488872fdd0650b4f4aa48052e1e3ed1f7aa9f5157cdd7",
+    "V3/assets/illustrations/17_LUXO_ILIANE.png": "f94ea227561f617798f6901bd3043a3c2f2e71d5603738ace29ea7cecb27b2be",
+    "V3/templates/19_MINERO_BELROG.psd": "546645013a630c8d7fbe28468111d14919670e350b0d90ef5888934a625445f4",
+    "V3/assets/illustrations/19_MINERO_BELROG.png": "e3a8c1466c95027dd8a5cc5ff7ff2d92e7e262a1304c55dfc86c432b1ad2888c",
+    "V3/templates/18_MINERO_LOK.psd": "0d928012cd130c509f31805276a9a15a0a1095cf5b1e3c3c685159f8f77b386d",
+    "V3/assets/illustrations/18_MINERO_LOK.png": "440df970801cef0e7dae2dc3b670431e7564ffdbf0a209592a8c74d29fdea551",
+    "V3/templates/07_MINERO_BALMHYR.psd": "5b35e462efe9ef1dfba95571245724f58e348abba6910cf26572f67ea1e745d0",
+    "V3/assets/illustrations/07_MINERO_BALMHYR.png": "d4264912a6427f7a7d598ebf89cda97c0de6110056c0119a4bac8fb999f6f83d",
+    "V3/templates/24_MINERO_MAGNAR.psd": "c01ac3c4f8b0a11b3a2622caf46d1cb0247619f50bb914b51e785b1e953a7a62",
+    "V3/assets/illustrations/24_MINERO_MAGNAR.png": "abb80c08908de9c5a966b96005358607acf59545ac9c29a3f496af561e47f729",
+    "V3/templates/41_HERBO_THALIE.psd": "eb11680ef80705080a3f11c6865b5c6be1beb49f45170491cf02d2cea103f47f",
+    "V3/assets/illustrations/41_HERBO_THALIE.png": "f26ec17de3d5fc6a06619e1a279c1545e9a4e1a4435f0055e68aec20d6e5ea83",
+    "V3/templates/33_HERBO_BLOOM.psd": "c25440d2189436397b8df5f24e4764075bd781476c5c199ee003c1bd0b886288",
+    "V3/assets/illustrations/33_HERBO_BLOOM.png": "69bea26eae57d48cb7d840d62a440c205cf97bcb074e29a3856677df0aaf8210",
+    "V3/templates/08_HERBO_VICTORVINE.psd": "3805a326f28cf9b39c0916ad787a94f8754dd580f35d05f764483cbc6cf2d691",
+    "V3/assets/illustrations/08_HERBO_VICTORVINE.png": "ef67ce6b64f7d5e1c2b056a0225a4e28c69fd4d1180ad8af20de01485b2ea556",
+    "V4/templates/MOMO_V4_11_POSITIONS.psd": "42e096da659456c189e37936ffd745ed31627549cdf5ed6c8eb42e1b3df878a7",
+    "V4/cartes/MOMO_V4_11_POSITIONS.png": "a6a2e0ee1824583445c7718b56bd3dc870281f41bfc0ace77522d6b16cb4e146",
+    "V4/templates/TAULIO_V4_02_POSITIONS.psd": "015d50f916f05d483e8e918453909f0d753ce04753cb83def350b791929685e6",
+    "V4/cartes/TAULIO_V4_02_POSITIONS.png": "35c9d2b395e8566d7c0862ad333b1cb2cf06f58b8244f65b26bf7d2e6e842180",
+    "V4/templates/JELLY_JOE_V4_03_ENCRE.psd": "de6e1aa2391f5ace1ef776eec20bad99ed3f9a0e1d1400972ee514d157c0cac3",
+    "V4/cartes/JELLY_JOE_V4_03_ENCRE.png": "5cea90f6d4fd2277c8bd0e9545e8002c4601bba0efee3455159979bac68b72ef",
+    "V4/templates/MOMO_BAL_V4_01_TEMPLATE_ELECTRO.psd": "57fcba88b4d8ffd7e8dcd26b3fe1c1d358e21a044190fc6af87b136ea06b476f",
+    "V4/cartes/MOMO_BAL_V4_01_TEMPLATE_ELECTRO.png": "5466f2024fe84eb26f1b96499ba0a8cb70e199e82cc73020a01daf5ea57ccd7e",
+    "V4/templates/RIKKA_V4_03_RECADRAGE.psd": "bac249fcd0047629fe5fcc8aa043811eef0eabe9ac76c4971da754a150139015",
+    "V4/cartes/RIKKA_V4_03_RECADRAGE.png": "2c1591449b9fbf482893769f50b6aef79969ffb7b5aff6d5b2d7544b71e13759"
+  }
+}

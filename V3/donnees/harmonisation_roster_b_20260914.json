@@ -1,0 +1,906 @@
+{
+  "schema_version": 1,
+  "scope": "Kalistar V3 harmonisation roster B - 15 illustrations",
+  "date": "2026-09-14",
+  "direction": "V3/sources/DIRECTION_ARTISTIQUE_KALISTAR.md",
+  "tool": "built-in image_gen",
+  "mode": "edit",
+  "expected_count": 15,
+  "completed_count": 15,
+  "status": "approved_and_integrated",
+  "canonical_sources_overwritten": false,
+  "finalized_at": "2026-09-14T12:57:35.3210480Z",
+  "final_qa": {
+    "result": "approved",
+    "reviewer": "user",
+    "review_method": [
+      "all 15 images reviewed on contact sheets",
+      "selected images reviewed at full size"
+    ],
+    "approved_count": 15,
+    "integration_confirmed_by": "user",
+    "integration_owner": "parent",
+    "verified_canonical_matches_revision_count": 15,
+    "verified_revision_matches_sourcegen_count": 15,
+    "verification_method": "read-only SHA256 comparison",
+    "verified_at": "2026-09-14T12:57:35.3210480Z",
+    "changes_in_finalization": "manifest only; no new ImageGen call or image write"
+  },
+  "provenance_notes": [
+    "source and source_sha256 describe the original edit input; final_source describes the approved image integrated by the parent.",
+    "canonical_sources_overwritten refers only to this worker. canonical_source_unchanged records the check when each revision was saved, before parent integration.",
+    "effective_reference_hashes were sampled when each revision was saved; refs records the exact ordered paths submitted to ImageGen."
+  ],
+  "images": [
+    {
+      "id": "30000025",
+      "slug": "25_NONE_KOGNUS",
+      "name": "KOGNUS",
+      "source": "V3/assets/illustrations/25_NONE_KOGNUS.png",
+      "story_scene": "Vignette inventee de Kognus comptant les cles avant sa ronde dans la Z13.",
+      "source_sha256": "367B0E0E26369E539C63659FB11B1F72962E7AFC74F176B49E03A7633B8F8728",
+      "prompt": "Use case: style-transfer / identity-preserving narrative illustration edit for Kalistar.\nINPUT ROLES, in exact order: Image 1 is the sole EDIT TARGET and the authority for ALL content and composition. Image 2 MOMO is the PRIMARY PAINTING-STYLE reference. Image 3 VALAZAR and Image 4 VOLODEN are supporting painting-language/detail references only. Never import their characters, costumes, objects, buildings, poses or palettes into Image 1.\nTASK: Repaint the ENTIRE target image in the recognizable handmade painterly language of Momo, while strictly preserving its content. Make a substantial visible change of painting execution, NOT a grain filter over the original, NOT merely color grading.\nPAINTING: construct faces, hands, clothing and environment from deliberate opaque gouache and oil brush planes. Broad and medium broken bristle strokes, scumbled worn surfaces, chiseled painted highlights, colored shadows, layered irregular paint edges. Alternate lost and found contours as in Momo. Facial anatomy stays believable and expressive but rendered by color shapes, without photographic pores or smoothly airbrushed skin. Unify figure and background in the SAME painterly treatment; no sharp photographic character on a painted backdrop. Retain the reference level of narrative detail and legibility, not a crude abstract sketch. Avoid photo-realism, plastic 3D, anime linework, manga eyes, glossy game render, artificial depth-of-field blur and superficial canvas-grain overlays.\nSTRICT CONTENT INVARIANTS: same unique character identity, face proportions, age, expression, gaze, hair, species, head silhouette, clothes, colors, armor, jewelry, weapons and every prop. Identical scene, body pose, hand gestures, limb positions, framing, viewpoint, scale, composition, architecture and object locations. Change ONLY painting execution. Exactly two arms and two legs in the same humanoid anatomy and the same natural occlusions; no new limb, paw, tentacle, wing or joint. Do not add, remove or exchange characters or props.\nCOLOR/LIGHT: preserve Image 1's own local palette, saturation relationships, light direction, time of day, climate and overall brightness. Do NOT make every image dark or blue. Borrow brush language, not Momo's nocturnal blue palette or the other references' gloom.\nOUTPUT: one full-bleed portrait PNG around 4:5, shortest side at least 1024 pixels; keep the source framing and aspect. No text, frame, card border, logo, watermark, collage or comparison panel.\nTARGET: KOGNUS (25_NONE_KOGNUS). Preserve Kognus holding the key ring in his raised hand and the dagger at his waist with the other, his russet beard, heavy grey guard coat, warm lantern and cool stone corridor. He is without crystal: no magic or aura.",
+      "refs": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/25_NONE_KOGNUS.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "path": "V3/assets/revisions-20260914/illustrations/25_NONE_KOGNUS.png",
+      "status": "approved_and_integrated",
+      "final_source": {
+        "path": "V3/assets/illustrations/25_NONE_KOGNUS.png",
+        "sha256": "9A15EAD88520FB524DBAF49D707E7E961FE5C66F8CADF8FA69EF6E1494EBC21E",
+        "approved_revision": "V3/assets/revisions-20260914/illustrations/25_NONE_KOGNUS.png",
+        "matches_approved_revision": true,
+        "matches_sourcegen": true,
+        "integrated_by": "parent",
+        "verified_at": "2026-09-14T12:57:35.3210480Z"
+      },
+      "qa": {
+        "result": "pass",
+        "final_approval": "approved_by_user",
+        "input_and_output_inspected_with_view_image": true,
+        "review": "Opaque brush planes visible across face, hands, coat and stone; identity, key ring, dagger grips and framing preserved; two arms, no extra limb; warm lantern and cool corridor retained."
+      },
+      "sourcegen": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-6ce8207a-a9e2-4f1e-8484-53a777582f0b.png",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-6ce8207a-a9e2-4f1e-8484-53a777582f0b.png",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "9A15EAD88520FB524DBAF49D707E7E961FE5C66F8CADF8FA69EF6E1494EBC21E",
+      "imagegen_call_count": 1,
+      "completed_at": "2026-09-14T12:28:26.1863963Z",
+      "canonical_source_unchanged": true,
+      "effective_reference_hashes": [
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/25_NONE_KOGNUS.png",
+          "sha256": "367B0E0E26369E539C63659FB11B1F72962E7AFC74F176B49E03A7633B8F8728"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966D49AF5D5F916C3AD3F3B62BF846FA1D6646CA609CB3BEE9ED6EEDC94AC8"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "036F5BEAF9448EF7259C71A464B9494CB5079891AEE422C7686EC5FFA0B4CA91"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+          "sha256": "73DE7D13FE5525F05CA6543F2C0BCE5DCC1B015BCAA731EFF4467B86E36F4C3A"
+        }
+      ]
+    },
+    {
+      "id": "30000026",
+      "slug": "26_NONE_REEVUS",
+      "name": "REEVUS",
+      "source": "V3/assets/illustrations/26_NONE_REEVUS.png",
+      "story_scene": "Vignette inventee : Reevus seul a la Z13 apres le depart de Voloden, devant le registre des travailleurs.",
+      "source_sha256": "6F5858AE7B9B8E4A2E9437AB59CF374D202A71B95295DA3BE52A83C877CE515C",
+      "prompt": "Use case: style-transfer / identity-preserving narrative illustration edit for Kalistar.\nINPUT ROLES, in exact order: Image 1 is the sole EDIT TARGET and the authority for ALL content and composition. Image 2 MOMO is the PRIMARY PAINTING-STYLE reference. Image 3 VALAZAR and Image 4 VOLODEN are supporting painting-language/detail references only. Never import their characters, costumes, objects, buildings, poses or palettes into Image 1.\nTASK: Repaint the ENTIRE target image in the recognizable handmade painterly language of Momo, while strictly preserving its content. Make a substantial visible change of painting execution, NOT a grain filter over the original, NOT merely color grading.\nPAINTING: construct faces, hands, clothing and environment from deliberate opaque gouache and oil brush planes. Broad and medium broken bristle strokes, scumbled worn surfaces, chiseled painted highlights, colored shadows, layered irregular paint edges. Alternate lost and found contours as in Momo. Facial anatomy stays believable and expressive but rendered by color shapes, without photographic pores or smoothly airbrushed skin. Unify figure and background in the SAME painterly treatment; no sharp photographic character on a painted backdrop. Retain the reference level of narrative detail and legibility, not a crude abstract sketch. Avoid photo-realism, plastic 3D, anime linework, manga eyes, glossy game render, artificial depth-of-field blur and superficial canvas-grain overlays.\nSTRICT CONTENT INVARIANTS: same unique character identity, face proportions, age, expression, gaze, hair, species, head silhouette, clothes, colors, armor, jewelry, weapons and every prop. Identical scene, body pose, hand gestures, limb positions, framing, viewpoint, scale, composition, architecture and object locations. Change ONLY painting execution. Exactly two arms and two legs in the same humanoid anatomy and the same natural occlusions; no new limb, paw, tentacle, wing or joint. Do not add, remove or exchange characters or props.\nCOLOR/LIGHT: preserve Image 1's own local palette, saturation relationships, light direction, time of day, climate and overall brightness. Do NOT make every image dark or blue. Borrow brush language, not Momo's nocturnal blue palette or the other references' gloom.\nOUTPUT: one full-bleed portrait PNG around 4:5, shortest side at least 1024 pixels; keep the source framing and aspect. No text, frame, card border, logo, watermark, collage or comparison panel.\nTARGET: REEVUS (26_NONE_REEVUS). Reevus source is already corrected: the left stone pillar is EMPTY. Do not add any hammer, flail or other weapon. Preserve his twin grey beard braids, green work coat, goggles on forehead, two visible boots, his hand closing the high ledger, desk and stool.",
+      "refs": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/26_NONE_REEVUS.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "path": "V3/assets/revisions-20260914/illustrations/26_NONE_REEVUS.png",
+      "status": "approved_and_integrated",
+      "final_source": {
+        "path": "V3/assets/illustrations/26_NONE_REEVUS.png",
+        "sha256": "181AC674DA9C521E9B96CF5A9399D4CC924A973D8BEA23D74782959D6DD71956",
+        "approved_revision": "V3/assets/revisions-20260914/illustrations/26_NONE_REEVUS.png",
+        "matches_approved_revision": true,
+        "matches_sourcegen": true,
+        "integrated_by": "parent",
+        "verified_at": "2026-09-14T12:57:35.3210480Z"
+      },
+      "qa": {
+        "result": "pass",
+        "final_approval": "approved_by_user",
+        "input_and_output_inspected_with_view_image": true,
+        "review": "Broken opaque paint planes across coat, ledger, stone and floor; face identity and tired expression retained; hands and two boots coherent, far arm naturally occluded; empty pillar preserved without hammer; scene and warm-cool light retained."
+      },
+      "sourcegen": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-cae0d513-1f08-4158-8591-b8fc167f424b.png",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-cae0d513-1f08-4158-8591-b8fc167f424b.png",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "181AC674DA9C521E9B96CF5A9399D4CC924A973D8BEA23D74782959D6DD71956",
+      "imagegen_call_count": 1,
+      "completed_at": "2026-09-14T12:30:20.7467785Z",
+      "canonical_source_unchanged": true,
+      "effective_reference_hashes": [
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/26_NONE_REEVUS.png",
+          "sha256": "6F5858AE7B9B8E4A2E9437AB59CF374D202A71B95295DA3BE52A83C877CE515C"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966D49AF5D5F916C3AD3F3B62BF846FA1D6646CA609CB3BEE9ED6EEDC94AC8"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "036F5BEAF9448EF7259C71A464B9494CB5079891AEE422C7686EC5FFA0B4CA91"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+          "sha256": "73DE7D13FE5525F05CA6543F2C0BCE5DCC1B015BCAA731EFF4467B86E36F4C3A"
+        }
+      ]
+    },
+    {
+      "id": "30000027",
+      "slug": "27_NONE_XIAOMI",
+      "name": "XIAOMI",
+      "source": "V3/assets/illustrations/27_NONE_XIAOMI.png",
+      "story_scene": "Xiaomi observe le katana brise apres l intervention de Kaylis, sans pouvoir personnel affirme.",
+      "source_sha256": "D3DA23F46B6DCD97A0F2BDB7019FBBD47FEB104CB260A50808D4A9ED7BB2D152",
+      "prompt": "Use case: style-transfer / identity-preserving narrative illustration edit for Kalistar.\nINPUT ROLES, in exact order: Image 1 is the sole EDIT TARGET and the authority for ALL content and composition. Image 2 MOMO is the PRIMARY PAINTING-STYLE reference. Image 3 VALAZAR and Image 4 VOLODEN are supporting painting-language/detail references only. Never import their characters, costumes, objects, buildings, poses or palettes into Image 1.\nTASK: Repaint the ENTIRE target image in the recognizable handmade painterly language of Momo, while strictly preserving its content. Make a substantial visible change of painting execution, NOT a grain filter over the original, NOT merely color grading.\nPAINTING: construct faces, hands, clothing and environment from deliberate opaque gouache and oil brush planes. Broad and medium broken bristle strokes, scumbled worn surfaces, chiseled painted highlights, colored shadows, layered irregular paint edges. Alternate lost and found contours as in Momo. Facial anatomy stays believable and expressive but rendered by color shapes, without photographic pores or smoothly airbrushed skin. Unify figure and background in the SAME painterly treatment; no sharp photographic character on a painted backdrop. Retain the reference level of narrative detail and legibility, not a crude abstract sketch. Avoid photo-realism, plastic 3D, anime linework, manga eyes, glossy game render, artificial depth-of-field blur and superficial canvas-grain overlays.\nSTRICT CONTENT INVARIANTS: same unique character identity, face proportions, age, expression, gaze, hair, species, head silhouette, clothes, colors, armor, jewelry, weapons and every prop. Identical scene, body pose, hand gestures, limb positions, framing, viewpoint, scale, composition, architecture and object locations. Change ONLY painting execution. Exactly two arms and two legs in the same humanoid anatomy and the same natural occlusions; no new limb, paw, tentacle, wing or joint. Do not add, remove or exchange characters or props.\nCOLOR/LIGHT: preserve Image 1's own local palette, saturation relationships, light direction, time of day, climate and overall brightness. Do NOT make every image dark or blue. Borrow brush language, not Momo's nocturnal blue palette or the other references' gloom.\nOUTPUT: one full-bleed portrait PNG around 4:5, shortest side at least 1024 pixels; keep the source framing and aspect. No text, frame, card border, logo, watermark, collage or comparison panel.\nTARGET: XIAOMI (27_NONE_XIAOMI). Preserve Xiaomi in profile studying the two pieces of her broken katana, her exact two hand grips, black hair bun, dark long coat and empty corridor. No personal magic or aura.",
+      "refs": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/27_NONE_XIAOMI.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "path": "V3/assets/revisions-20260914/illustrations/27_NONE_XIAOMI.png",
+      "status": "approved_and_integrated",
+      "final_source": {
+        "path": "V3/assets/illustrations/27_NONE_XIAOMI.png",
+        "sha256": "37E94EF5BE5548C6877EDA680E39C42BAD256753A486B107C5E982C462867BA5",
+        "approved_revision": "V3/assets/revisions-20260914/illustrations/27_NONE_XIAOMI.png",
+        "matches_approved_revision": true,
+        "matches_sourcegen": true,
+        "integrated_by": "parent",
+        "verified_at": "2026-09-14T12:57:35.3210480Z"
+      },
+      "qa": {
+        "result": "pass",
+        "final_approval": "approved_by_user",
+        "input_and_output_inspected_with_view_image": true,
+        "review": "Painterly planes replace smooth rendering on face, hands, black cloth and corridor; same profile, bun, two broken katana pieces and hand grips; anatomy and framing preserved, no aura."
+      },
+      "sourcegen": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-3d261853-1b56-4e7a-9b34-84e49d7055a8.png",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-3d261853-1b56-4e7a-9b34-84e49d7055a8.png",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "37E94EF5BE5548C6877EDA680E39C42BAD256753A486B107C5E982C462867BA5",
+      "imagegen_call_count": 1,
+      "completed_at": "2026-09-14T12:32:00.7726339Z",
+      "canonical_source_unchanged": true,
+      "effective_reference_hashes": [
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/27_NONE_XIAOMI.png",
+          "sha256": "D3DA23F46B6DCD97A0F2BDB7019FBBD47FEB104CB260A50808D4A9ED7BB2D152"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966D49AF5D5F916C3AD3F3B62BF846FA1D6646CA609CB3BEE9ED6EEDC94AC8"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "036F5BEAF9448EF7259C71A464B9494CB5079891AEE422C7686EC5FFA0B4CA91"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+          "sha256": "73DE7D13FE5525F05CA6543F2C0BCE5DCC1B015BCAA731EFF4467B86E36F4C3A"
+        }
+      ]
+    },
+    {
+      "id": "30000029",
+      "slug": "29_PYRO_THANOR",
+      "name": "THANOR",
+      "source": "V3/assets/illustrations/29_PYRO_THANOR.png",
+      "story_scene": "Scene inventee : Thanor depose une couronne de cerement a la forge de Vulkar.",
+      "source_sha256": "EDFF9CED7F4916FD0F8439C807F66151D31BEF05CC7FB5DD9DA1A7E6CD9F4EDF",
+      "prompt": "Use case: style-transfer / identity-preserving narrative illustration edit for Kalistar.\nINPUT ROLES, in exact order: Image 1 is the sole EDIT TARGET and the authority for ALL content and composition. Image 2 MOMO is the PRIMARY PAINTING-STYLE reference. Image 3 VALAZAR and Image 4 VOLODEN are supporting painting-language/detail references only. Never import their characters, costumes, objects, buildings, poses or palettes into Image 1.\nTASK: Repaint the ENTIRE target image in the recognizable handmade painterly language of Momo, while strictly preserving its content. Make a substantial visible change of painting execution, NOT a grain filter over the original, NOT merely color grading.\nPAINTING: construct faces, hands, clothing and environment from deliberate opaque gouache and oil brush planes. Broad and medium broken bristle strokes, scumbled worn surfaces, chiseled painted highlights, colored shadows, layered irregular paint edges. Alternate lost and found contours as in Momo. Facial anatomy stays believable and expressive but rendered by color shapes, without photographic pores or smoothly airbrushed skin. Unify figure and background in the SAME painterly treatment; no sharp photographic character on a painted backdrop. Retain the reference level of narrative detail and legibility, not a crude abstract sketch. Avoid photo-realism, plastic 3D, anime linework, manga eyes, glossy game render, artificial depth-of-field blur and superficial canvas-grain overlays.\nSTRICT CONTENT INVARIANTS: same unique character identity, face proportions, age, expression, gaze, hair, species, head silhouette, clothes, colors, armor, jewelry, weapons and every prop. Identical scene, body pose, hand gestures, limb positions, framing, viewpoint, scale, composition, architecture and object locations. Change ONLY painting execution. Exactly two arms and two legs in the same humanoid anatomy and the same natural occlusions; no new limb, paw, tentacle, wing or joint. Do not add, remove or exchange characters or props.\nCOLOR/LIGHT: preserve Image 1's own local palette, saturation relationships, light direction, time of day, climate and overall brightness. Do NOT make every image dark or blue. Borrow brush language, not Momo's nocturnal blue palette or the other references' gloom.\nOUTPUT: one full-bleed portrait PNG around 4:5, shortest side at least 1024 pixels; keep the source framing and aspect. No text, frame, card border, logo, watermark, collage or comparison panel.\nTARGET: THANOR (29_PYRO_THANOR). Preserve every specific identity and scene detail from Image 1.",
+      "refs": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/29_PYRO_THANOR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "path": "V3/assets/revisions-20260914/illustrations/29_PYRO_THANOR.png",
+      "status": "approved_and_integrated",
+      "final_source": {
+        "path": "V3/assets/illustrations/29_PYRO_THANOR.png",
+        "sha256": "E491D4339F2692F51AD867F23A7F7B8DAA9456EB088FC08858092DC81B45335C",
+        "approved_revision": "V3/assets/revisions-20260914/illustrations/29_PYRO_THANOR.png",
+        "matches_approved_revision": true,
+        "matches_sourcegen": true,
+        "integrated_by": "parent",
+        "verified_at": "2026-09-14T12:57:35.3210480Z"
+      },
+      "qa": {
+        "result": "pass",
+        "final_approval": "approved_by_user",
+        "input_and_output_inspected_with_view_image": true,
+        "review": "Visible gouache/oil planes across dragon face, apron, anvil and architecture; same crown contact, sword, two arms and humanoid stance; occluded legs unchanged; forge palette and light retained."
+      },
+      "sourcegen": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-dafa3df5-2329-484f-8a6c-3d46371f13ef.png",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-dafa3df5-2329-484f-8a6c-3d46371f13ef.png",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "E491D4339F2692F51AD867F23A7F7B8DAA9456EB088FC08858092DC81B45335C",
+      "imagegen_call_count": 1,
+      "completed_at": "2026-09-14T12:33:53.3820257Z",
+      "canonical_source_unchanged": true,
+      "effective_reference_hashes": [
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/29_PYRO_THANOR.png",
+          "sha256": "EDFF9CED7F4916FD0F8439C807F66151D31BEF05CC7FB5DD9DA1A7E6CD9F4EDF"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966D49AF5D5F916C3AD3F3B62BF846FA1D6646CA609CB3BEE9ED6EEDC94AC8"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "036F5BEAF9448EF7259C71A464B9494CB5079891AEE422C7686EC5FFA0B4CA91"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+          "sha256": "73DE7D13FE5525F05CA6543F2C0BCE5DCC1B015BCAA731EFF4467B86E36F4C3A"
+        }
+      ]
+    },
+    {
+      "id": "30000030",
+      "slug": "30_PYRO_DARUK",
+      "name": "DARUK",
+      "source": "V3/assets/illustrations/30_PYRO_DARUK.png",
+      "story_scene": "Scene inventee : Daruk ferme une vanne de lave au bout d un pont de Vulkar.",
+      "source_sha256": "92B19316025D0EB80FED9E152458E3A7729E89AFE4441A20B02EA25FCB9B73E1",
+      "prompt": "Use case: style-transfer / identity-preserving narrative illustration edit for Kalistar.\nINPUT ROLES, in exact order: Image 1 is the sole EDIT TARGET and the authority for ALL content and composition. Image 2 MOMO is the PRIMARY PAINTING-STYLE reference. Image 3 VALAZAR and Image 4 VOLODEN are supporting painting-language/detail references only. Never import their characters, costumes, objects, buildings, poses or palettes into Image 1.\nTASK: Repaint the ENTIRE target image in the recognizable handmade painterly language of Momo, while strictly preserving its content. Make a substantial visible change of painting execution, NOT a grain filter over the original, NOT merely color grading.\nPAINTING: construct faces, hands, clothing and environment from deliberate opaque gouache and oil brush planes. Broad and medium broken bristle strokes, scumbled worn surfaces, chiseled painted highlights, colored shadows, layered irregular paint edges. Alternate lost and found contours as in Momo. Facial anatomy stays believable and expressive but rendered by color shapes, without photographic pores or smoothly airbrushed skin. Unify figure and background in the SAME painterly treatment; no sharp photographic character on a painted backdrop. Retain the reference level of narrative detail and legibility, not a crude abstract sketch. Avoid photo-realism, plastic 3D, anime linework, manga eyes, glossy game render, artificial depth-of-field blur and superficial canvas-grain overlays.\nSTRICT CONTENT INVARIANTS: same unique character identity, face proportions, age, expression, gaze, hair, species, head silhouette, clothes, colors, armor, jewelry, weapons and every prop. Identical scene, body pose, hand gestures, limb positions, framing, viewpoint, scale, composition, architecture and object locations. Change ONLY painting execution. Exactly two arms and two legs in the same humanoid anatomy and the same natural occlusions; no new limb, paw, tentacle, wing or joint. Do not add, remove or exchange characters or props.\nCOLOR/LIGHT: preserve Image 1's own local palette, saturation relationships, light direction, time of day, climate and overall brightness. Do NOT make every image dark or blue. Borrow brush language, not Momo's nocturnal blue palette or the other references' gloom.\nOUTPUT: one full-bleed portrait PNG around 4:5, shortest side at least 1024 pixels; keep the source framing and aspect. No text, frame, card border, logo, watermark, collage or comparison panel.\nTARGET: DARUK (30_PYRO_DARUK). Preserve every specific identity and scene detail from Image 1.",
+      "refs": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/30_PYRO_DARUK.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "path": "V3/assets/revisions-20260914/illustrations/30_PYRO_DARUK.png",
+      "status": "approved_and_integrated",
+      "final_source": {
+        "path": "V3/assets/illustrations/30_PYRO_DARUK.png",
+        "sha256": "F41C099AE1F9B72F6BC59031B2EB4586B5DF37CA7AEDAAE571AA359D56BC9BB3",
+        "approved_revision": "V3/assets/revisions-20260914/illustrations/30_PYRO_DARUK.png",
+        "matches_approved_revision": true,
+        "matches_sourcegen": true,
+        "integrated_by": "parent",
+        "verified_at": "2026-09-14T12:57:35.3210480Z"
+      },
+      "qa": {
+        "result": "pass",
+        "final_approval": "approved_by_user",
+        "input_and_output_inspected_with_view_image": true,
+        "review": "Humanoid dragon identity and braced full-body pose preserved, two arms/hands on valve and two separate boots coherent; axe and bridge intact; painted planes throughout, lava orange and basalt contrasts retained."
+      },
+      "sourcegen": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-3d660e1e-36d2-44da-9538-7403fc27a708.png",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-3d660e1e-36d2-44da-9538-7403fc27a708.png",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "F41C099AE1F9B72F6BC59031B2EB4586B5DF37CA7AEDAAE571AA359D56BC9BB3",
+      "imagegen_call_count": 1,
+      "completed_at": "2026-09-14T12:34:58.2388669Z",
+      "canonical_source_unchanged": true,
+      "effective_reference_hashes": [
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/30_PYRO_DARUK.png",
+          "sha256": "92B19316025D0EB80FED9E152458E3A7729E89AFE4441A20B02EA25FCB9B73E1"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966D49AF5D5F916C3AD3F3B62BF846FA1D6646CA609CB3BEE9ED6EEDC94AC8"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "036F5BEAF9448EF7259C71A464B9494CB5079891AEE422C7686EC5FFA0B4CA91"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+          "sha256": "73DE7D13FE5525F05CA6543F2C0BCE5DCC1B015BCAA731EFF4467B86E36F4C3A"
+        }
+      ]
+    },
+    {
+      "id": "30000031",
+      "slug": "31_PYRO_POLUX",
+      "name": "POLUX",
+      "source": "V3/assets/illustrations/31_PYRO_POLUX.png",
+      "story_scene": "Scene inventee : Polux entretient des compresses chaudes dans un dispensaire de Vulkar.",
+      "source_sha256": "793EEA211A77D467ACED5F23A81B6797F1341AB0BE6AD2C50E713514AC77E576",
+      "prompt": "Use case: style-transfer / identity-preserving narrative illustration edit for Kalistar.\nINPUT ROLES, in exact order: Image 1 is the sole EDIT TARGET and the authority for ALL content and composition. Image 2 MOMO is the PRIMARY PAINTING-STYLE reference. Image 3 VALAZAR and Image 4 VOLODEN are supporting painting-language/detail references only. Never import their characters, costumes, objects, buildings, poses or palettes into Image 1.\nTASK: Repaint the ENTIRE target image in the recognizable handmade painterly language of Momo, while strictly preserving its content. Make a substantial visible change of painting execution, NOT a grain filter over the original, NOT merely color grading.\nPAINTING: construct faces, hands, clothing and environment from deliberate opaque gouache and oil brush planes. Broad and medium broken bristle strokes, scumbled worn surfaces, chiseled painted highlights, colored shadows, layered irregular paint edges. Alternate lost and found contours as in Momo. Facial anatomy stays believable and expressive but rendered by color shapes, without photographic pores or smoothly airbrushed skin. Unify figure and background in the SAME painterly treatment; no sharp photographic character on a painted backdrop. Retain the reference level of narrative detail and legibility, not a crude abstract sketch. Avoid photo-realism, plastic 3D, anime linework, manga eyes, glossy game render, artificial depth-of-field blur and superficial canvas-grain overlays.\nSTRICT CONTENT INVARIANTS: same unique character identity, face proportions, age, expression, gaze, hair, species, head silhouette, clothes, colors, armor, jewelry, weapons and every prop. Identical scene, body pose, hand gestures, limb positions, framing, viewpoint, scale, composition, architecture and object locations. Change ONLY painting execution. Exactly two arms and two legs in the same humanoid anatomy and the same natural occlusions; no new limb, paw, tentacle, wing or joint. Do not add, remove or exchange characters or props.\nCOLOR/LIGHT: preserve Image 1's own local palette, saturation relationships, light direction, time of day, climate and overall brightness. Do NOT make every image dark or blue. Borrow brush language, not Momo's nocturnal blue palette or the other references' gloom.\nOUTPUT: one full-bleed portrait PNG around 4:5, shortest side at least 1024 pixels; keep the source framing and aspect. No text, frame, card border, logo, watermark, collage or comparison panel.\nTARGET: POLUX (31_PYRO_POLUX). Preserve every specific identity and scene detail from Image 1.",
+      "refs": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/31_PYRO_POLUX.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "path": "V3/assets/revisions-20260914/illustrations/31_PYRO_POLUX.png",
+      "status": "approved_and_integrated",
+      "final_source": {
+        "path": "V3/assets/illustrations/31_PYRO_POLUX.png",
+        "sha256": "76F30EF0A544B60BEABD940197966646C740E0DF6CA99EBC55DCBD640D2C2B71",
+        "approved_revision": "V3/assets/revisions-20260914/illustrations/31_PYRO_POLUX.png",
+        "matches_approved_revision": true,
+        "matches_sourcegen": true,
+        "integrated_by": "parent",
+        "verified_at": "2026-09-14T12:57:35.3210480Z"
+      },
+      "qa": {
+        "result": "pass",
+        "final_approval": "approved_by_user",
+        "input_and_output_inspected_with_view_image": true,
+        "review": "Same lynx identity, seated humanoid anatomy and two hands warming compress; staff, apron, basin and dispensary preserved; broad painted planes on cloth and room, fur simplified into marks; green-white palette and local warm glow retained."
+      },
+      "sourcegen": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-34b95b3c-1172-4e8e-a079-90858dc28777.png",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-34b95b3c-1172-4e8e-a079-90858dc28777.png",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "76F30EF0A544B60BEABD940197966646C740E0DF6CA99EBC55DCBD640D2C2B71",
+      "imagegen_call_count": 1,
+      "completed_at": "2026-09-14T12:36:38.1024992Z",
+      "canonical_source_unchanged": true,
+      "effective_reference_hashes": [
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/31_PYRO_POLUX.png",
+          "sha256": "793EEA211A77D467ACED5F23A81B6797F1341AB0BE6AD2C50E713514AC77E576"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966D49AF5D5F916C3AD3F3B62BF846FA1D6646CA609CB3BEE9ED6EEDC94AC8"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "036F5BEAF9448EF7259C71A464B9494CB5079891AEE422C7686EC5FFA0B4CA91"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+          "sha256": "73DE7D13FE5525F05CA6543F2C0BCE5DCC1B015BCAA731EFF4467B86E36F4C3A"
+        }
+      ]
+    },
+    {
+      "id": "30000032",
+      "slug": "32_ELECTRO_JELLY_JOE",
+      "name": "JELLY-JOE",
+      "source": "V3/assets/illustrations/32_ELECTRO_JELLY_JOE.png",
+      "story_scene": "Scene inventee : Jelly-Joe refuse de laisser un quai de Crabazar sans protection.",
+      "source_sha256": "00C9F65A004447A250311F32ADE89243804718C319D003A3C5C3F6068149DCB4",
+      "prompt": "Use case: style-transfer / identity-preserving narrative illustration edit for Kalistar.\nINPUT ROLES, in exact order: Image 1 is the sole EDIT TARGET and the authority for ALL content and composition. Image 2 MOMO is the PRIMARY PAINTING-STYLE reference. Image 3 VALAZAR and Image 4 VOLODEN are supporting painting-language/detail references only. Never import their characters, costumes, objects, buildings, poses or palettes into Image 1.\nTASK: Repaint the ENTIRE target image in the recognizable handmade painterly language of Momo, while strictly preserving its content. Make a substantial visible change of painting execution, NOT a grain filter over the original, NOT merely color grading.\nPAINTING: construct faces, hands, clothing and environment from deliberate opaque gouache and oil brush planes. Broad and medium broken bristle strokes, scumbled worn surfaces, chiseled painted highlights, colored shadows, layered irregular paint edges. Alternate lost and found contours as in Momo. Facial anatomy stays believable and expressive but rendered by color shapes, without photographic pores or smoothly airbrushed skin. Unify figure and background in the SAME painterly treatment; no sharp photographic character on a painted backdrop. Retain the reference level of narrative detail and legibility, not a crude abstract sketch. Avoid photo-realism, plastic 3D, anime linework, manga eyes, glossy game render, artificial depth-of-field blur and superficial canvas-grain overlays.\nSTRICT CONTENT INVARIANTS: same unique character identity, face proportions, age, expression, gaze, hair, species, head silhouette, clothes, colors, armor, jewelry, weapons and every prop. Identical scene, body pose, hand gestures, limb positions, framing, viewpoint, scale, composition, architecture and object locations. Change ONLY painting execution. Exactly two arms and two legs in the same humanoid anatomy and the same natural occlusions; no new limb, paw, tentacle, wing or joint. Do not add, remove or exchange characters or props.\nCOLOR/LIGHT: preserve Image 1's own local palette, saturation relationships, light direction, time of day, climate and overall brightness. Do NOT make every image dark or blue. Borrow brush language, not Momo's nocturnal blue palette or the other references' gloom.\nOUTPUT: one full-bleed portrait PNG around 4:5, shortest side at least 1024 pixels; keep the source framing and aspect. No text, frame, card border, logo, watermark, collage or comparison panel.\nTARGET: JELLY-JOE (32_ELECTRO_JELLY_JOE). Preserve every specific identity and scene detail from Image 1.",
+      "refs": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/32_ELECTRO_JELLY_JOE.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "path": "V3/assets/revisions-20260914/illustrations/32_ELECTRO_JELLY_JOE.png",
+      "status": "approved_and_integrated",
+      "final_source": {
+        "path": "V3/assets/illustrations/32_ELECTRO_JELLY_JOE.png",
+        "sha256": "E43D338342FEB2B8B12D3D43BC049BF3DFF885303E5C05996517084D95C5FFA4",
+        "approved_revision": "V3/assets/revisions-20260914/illustrations/32_ELECTRO_JELLY_JOE.png",
+        "matches_approved_revision": true,
+        "matches_sourcegen": true,
+        "integrated_by": "parent",
+        "verified_at": "2026-09-14T12:57:35.3210480Z"
+      },
+      "qa": {
+        "result": "pass",
+        "final_approval": "approved_by_user",
+        "input_and_output_inspected_with_view_image": true,
+        "review": "Translucent head interpreted as layered paint, same compact head filaments and smile; two arms, two legs and boots intact; spear, yellow coat, knife and bollard pose unchanged; sunset port palette retained, no tentacle limb."
+      },
+      "sourcegen": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-0805516b-0e2a-4230-8d30-c4da14678b25.png",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-0805516b-0e2a-4230-8d30-c4da14678b25.png",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "E43D338342FEB2B8B12D3D43BC049BF3DFF885303E5C05996517084D95C5FFA4",
+      "imagegen_call_count": 1,
+      "completed_at": "2026-09-14T12:38:35.3929196Z",
+      "canonical_source_unchanged": true,
+      "effective_reference_hashes": [
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/32_ELECTRO_JELLY_JOE.png",
+          "sha256": "00C9F65A004447A250311F32ADE89243804718C319D003A3C5C3F6068149DCB4"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966D49AF5D5F916C3AD3F3B62BF846FA1D6646CA609CB3BEE9ED6EEDC94AC8"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "036F5BEAF9448EF7259C71A464B9494CB5079891AEE422C7686EC5FFA0B4CA91"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+          "sha256": "73DE7D13FE5525F05CA6543F2C0BCE5DCC1B015BCAA731EFF4467B86E36F4C3A"
+        }
+      ]
+    },
+    {
+      "id": "30000033",
+      "slug": "33_HERBO_BLOOM",
+      "name": "BLOOM",
+      "source": "V3/assets/illustrations/33_HERBO_BLOOM.png",
+      "story_scene": "Scene inventee : Bloom examine une semence toxique dans la serre d Arborium.",
+      "source_sha256": "07FA35ED641F2258DE4EAA8F8DC0218C23C54D556DD9A05B9007D6309540482C",
+      "prompt": "Use case: style-transfer / identity-preserving narrative illustration edit for Kalistar.\nINPUT ROLES, in exact order: Image 1 is the sole EDIT TARGET and the authority for ALL content and composition. Image 2 MOMO is the PRIMARY PAINTING-STYLE reference. Image 3 VALAZAR and Image 4 VOLODEN are supporting painting-language/detail references only. Never import their characters, costumes, objects, buildings, poses or palettes into Image 1.\nTASK: Repaint the ENTIRE target image in the recognizable handmade painterly language of Momo, while strictly preserving its content. Make a substantial visible change of painting execution, NOT a grain filter over the original, NOT merely color grading.\nPAINTING: construct faces, hands, clothing and environment from deliberate opaque gouache and oil brush planes. Broad and medium broken bristle strokes, scumbled worn surfaces, chiseled painted highlights, colored shadows, layered irregular paint edges. Alternate lost and found contours as in Momo. Facial anatomy stays believable and expressive but rendered by color shapes, without photographic pores or smoothly airbrushed skin. Unify figure and background in the SAME painterly treatment; no sharp photographic character on a painted backdrop. Retain the reference level of narrative detail and legibility, not a crude abstract sketch. Avoid photo-realism, plastic 3D, anime linework, manga eyes, glossy game render, artificial depth-of-field blur and superficial canvas-grain overlays.\nSTRICT CONTENT INVARIANTS: same unique character identity, face proportions, age, expression, gaze, hair, species, head silhouette, clothes, colors, armor, jewelry, weapons and every prop. Identical scene, body pose, hand gestures, limb positions, framing, viewpoint, scale, composition, architecture and object locations. Change ONLY painting execution. Exactly two arms and two legs in the same humanoid anatomy and the same natural occlusions; no new limb, paw, tentacle, wing or joint. Do not add, remove or exchange characters or props.\nCOLOR/LIGHT: preserve Image 1's own local palette, saturation relationships, light direction, time of day, climate and overall brightness. Do NOT make every image dark or blue. Borrow brush language, not Momo's nocturnal blue palette or the other references' gloom.\nOUTPUT: one full-bleed portrait PNG around 4:5, shortest side at least 1024 pixels; keep the source framing and aspect. No text, frame, card border, logo, watermark, collage or comparison panel.\nTARGET: BLOOM (33_HERBO_BLOOM). Preserve every specific identity and scene detail from Image 1.",
+      "refs": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/33_HERBO_BLOOM.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "path": "V3/assets/revisions-20260914/illustrations/33_HERBO_BLOOM.png",
+      "status": "approved_and_integrated",
+      "final_source": {
+        "path": "V3/assets/illustrations/33_HERBO_BLOOM.png",
+        "sha256": "69BEA26EAE57D48CB7D840D62A440C205CF97BCB074E29A3856677DF0AAF8210",
+        "approved_revision": "V3/assets/revisions-20260914/illustrations/33_HERBO_BLOOM.png",
+        "matches_approved_revision": true,
+        "matches_sourcegen": true,
+        "integrated_by": "parent",
+        "verified_at": "2026-09-14T12:57:35.3210480Z"
+      },
+      "qa": {
+        "result": "pass",
+        "final_approval": "approved_by_user",
+        "input_and_output_inspected_with_view_image": true,
+        "review": "Same green face and purple floral head, gaze, two hands with tweezers/globe and clothed anatomy; greenhouse composition preserved; visible opaque paint marks through figure, glass and plants, bright daylight green-white-purple palette retained."
+      },
+      "sourcegen": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-5fb65d0f-2835-4297-bb44-c6a52ea80556.png",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-5fb65d0f-2835-4297-bb44-c6a52ea80556.png",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "69BEA26EAE57D48CB7D840D62A440C205CF97BCB074E29A3856677DF0AAF8210",
+      "imagegen_call_count": 1,
+      "completed_at": "2026-09-14T12:40:32.8562863Z",
+      "canonical_source_unchanged": true,
+      "effective_reference_hashes": [
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/33_HERBO_BLOOM.png",
+          "sha256": "07FA35ED641F2258DE4EAA8F8DC0218C23C54D556DD9A05B9007D6309540482C"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966D49AF5D5F916C3AD3F3B62BF846FA1D6646CA609CB3BEE9ED6EEDC94AC8"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "036F5BEAF9448EF7259C71A464B9494CB5079891AEE422C7686EC5FFA0B4CA91"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+          "sha256": "73DE7D13FE5525F05CA6543F2C0BCE5DCC1B015BCAA731EFF4467B86E36F4C3A"
+        }
+      ]
+    },
+    {
+      "id": "30000035",
+      "slug": "35_NECRO_CAPITAINE_SKULLY",
+      "name": "CAPITAINE SKULLY",
+      "source": "V3/assets/illustrations/35_NECRO_CAPITAINE_SKULLY.png",
+      "story_scene": "Scene inventee : le capitaine Skully ramene seul son navire a quai.",
+      "source_sha256": "D5FBCAEA05D3C6440BF9810089C0CA7014B10F2D29FABA9DCC9812295612757C",
+      "prompt": "Use case: style-transfer / identity-preserving narrative illustration edit for Kalistar.\nINPUT ROLES, in exact order: Image 1 is the sole EDIT TARGET and the authority for ALL content and composition. Image 2 MOMO is the PRIMARY PAINTING-STYLE reference. Image 3 VALAZAR and Image 4 VOLODEN are supporting painting-language/detail references only. Never import their characters, costumes, objects, buildings, poses or palettes into Image 1.\nTASK: Repaint the ENTIRE target image in the recognizable handmade painterly language of Momo, while strictly preserving its content. Make a substantial visible change of painting execution, NOT a grain filter over the original, NOT merely color grading.\nPAINTING: construct faces, hands, clothing and environment from deliberate opaque gouache and oil brush planes. Broad and medium broken bristle strokes, scumbled worn surfaces, chiseled painted highlights, colored shadows, layered irregular paint edges. Alternate lost and found contours as in Momo. Facial anatomy stays believable and expressive but rendered by color shapes, without photographic pores or smoothly airbrushed skin. Unify figure and background in the SAME painterly treatment; no sharp photographic character on a painted backdrop. Retain the reference level of narrative detail and legibility, not a crude abstract sketch. Avoid photo-realism, plastic 3D, anime linework, manga eyes, glossy game render, artificial depth-of-field blur and superficial canvas-grain overlays.\nSTRICT CONTENT INVARIANTS: same unique character identity, face proportions, age, expression, gaze, hair, species, head silhouette, clothes, colors, armor, jewelry, weapons and every prop. Identical scene, body pose, hand gestures, limb positions, framing, viewpoint, scale, composition, architecture and object locations. Change ONLY painting execution. Exactly two arms and two legs in the same humanoid anatomy and the same natural occlusions; no new limb, paw, tentacle, wing or joint. Do not add, remove or exchange characters or props.\nCOLOR/LIGHT: preserve Image 1's own local palette, saturation relationships, light direction, time of day, climate and overall brightness. Do NOT make every image dark or blue. Borrow brush language, not Momo's nocturnal blue palette or the other references' gloom.\nOUTPUT: one full-bleed portrait PNG around 4:5, shortest side at least 1024 pixels; keep the source framing and aspect. No text, frame, card border, logo, watermark, collage or comparison panel.\nTARGET: CAPITAINE SKULLY (35_NECRO_CAPITAINE_SKULLY). Preserve every specific identity and scene detail from Image 1.",
+      "refs": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/35_NECRO_CAPITAINE_SKULLY.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "path": "V3/assets/revisions-20260914/illustrations/35_NECRO_CAPITAINE_SKULLY.png",
+      "status": "approved_and_integrated",
+      "final_source": {
+        "path": "V3/assets/illustrations/35_NECRO_CAPITAINE_SKULLY.png",
+        "sha256": "1720B15AB83268CBFE21CF12A23EC727E0C15B793360FFD6A6676460C2DB0C3D",
+        "approved_revision": "V3/assets/revisions-20260914/illustrations/35_NECRO_CAPITAINE_SKULLY.png",
+        "matches_approved_revision": true,
+        "matches_sourcegen": true,
+        "integrated_by": "parent",
+        "verified_at": "2026-09-14T12:57:35.3210480Z"
+      },
+      "qa": {
+        "result": "pass",
+        "final_approval": "approved_by_user",
+        "input_and_output_inspected_with_view_image": true,
+        "review": "Skull identity, tricorne salute, rope grip, sword, two legs and boots preserved; boat, ropes and quayside framing intact; broad paint planes across coat/stone/sky/water, maritime teal and sunset warmth retained."
+      },
+      "sourcegen": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-3f6eeac9-49ec-4e67-bed2-94ae08e36f9d.png",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-3f6eeac9-49ec-4e67-bed2-94ae08e36f9d.png",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "1720B15AB83268CBFE21CF12A23EC727E0C15B793360FFD6A6676460C2DB0C3D",
+      "imagegen_call_count": 1,
+      "completed_at": "2026-09-14T12:41:48.7720323Z",
+      "canonical_source_unchanged": true,
+      "effective_reference_hashes": [
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/35_NECRO_CAPITAINE_SKULLY.png",
+          "sha256": "D5FBCAEA05D3C6440BF9810089C0CA7014B10F2D29FABA9DCC9812295612757C"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966D49AF5D5F916C3AD3F3B62BF846FA1D6646CA609CB3BEE9ED6EEDC94AC8"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "036F5BEAF9448EF7259C71A464B9494CB5079891AEE422C7686EC5FFA0B4CA91"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+          "sha256": "73DE7D13FE5525F05CA6543F2C0BCE5DCC1B015BCAA731EFF4467B86E36F4C3A"
+        }
+      ]
+    },
+    {
+      "id": "30000036",
+      "slug": "36_GEO_ELENION",
+      "name": "ELENION",
+      "source": "V3/assets/illustrations/36_GEO_ELENION.png",
+      "story_scene": "Scene inventee : Elenion releve une borne de Woodland deracinee par la crue.",
+      "source_sha256": "0AB221F013477052E061A089CC6B12B99A52B62D622475315005FD075E50E47F",
+      "prompt": "Use case: style-transfer / identity-preserving narrative illustration edit for Kalistar.\nINPUT ROLES, in exact order: Image 1 is the sole EDIT TARGET and the authority for ALL content and composition. Image 2 MOMO is the PRIMARY PAINTING-STYLE reference. Image 3 VALAZAR and Image 4 VOLODEN are supporting painting-language/detail references only. Never import their characters, costumes, objects, buildings, poses or palettes into Image 1.\nTASK: Repaint the ENTIRE target image in the recognizable handmade painterly language of Momo, while strictly preserving its content. Make a substantial visible change of painting execution, NOT a grain filter over the original, NOT merely color grading.\nPAINTING: construct faces, hands, clothing and environment from deliberate opaque gouache and oil brush planes. Broad and medium broken bristle strokes, scumbled worn surfaces, chiseled painted highlights, colored shadows, layered irregular paint edges. Alternate lost and found contours as in Momo. Facial anatomy stays believable and expressive but rendered by color shapes, without photographic pores or smoothly airbrushed skin. Unify figure and background in the SAME painterly treatment; no sharp photographic character on a painted backdrop. Retain the reference level of narrative detail and legibility, not a crude abstract sketch. Avoid photo-realism, plastic 3D, anime linework, manga eyes, glossy game render, artificial depth-of-field blur and superficial canvas-grain overlays.\nSTRICT CONTENT INVARIANTS: same unique character identity, face proportions, age, expression, gaze, hair, species, head silhouette, clothes, colors, armor, jewelry, weapons and every prop. Identical scene, body pose, hand gestures, limb positions, framing, viewpoint, scale, composition, architecture and object locations. Change ONLY painting execution. Exactly two arms and two legs in the same humanoid anatomy and the same natural occlusions; no new limb, paw, tentacle, wing or joint. Do not add, remove or exchange characters or props.\nCOLOR/LIGHT: preserve Image 1's own local palette, saturation relationships, light direction, time of day, climate and overall brightness. Do NOT make every image dark or blue. Borrow brush language, not Momo's nocturnal blue palette or the other references' gloom.\nOUTPUT: one full-bleed portrait PNG around 4:5, shortest side at least 1024 pixels; keep the source framing and aspect. No text, frame, card border, logo, watermark, collage or comparison panel.\nTARGET: ELENION (36_GEO_ELENION). Preserve every specific identity and scene detail from Image 1.",
+      "refs": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/36_GEO_ELENION.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "path": "V3/assets/revisions-20260914/illustrations/36_GEO_ELENION.png",
+      "status": "approved_and_integrated",
+      "final_source": {
+        "path": "V3/assets/illustrations/36_GEO_ELENION.png",
+        "sha256": "8167EA45407398726DCA7A91B44E22821C31231B88EDB4C68721FF1868D18D29",
+        "approved_revision": "V3/assets/revisions-20260914/illustrations/36_GEO_ELENION.png",
+        "matches_approved_revision": true,
+        "matches_sourcegen": true,
+        "integrated_by": "parent",
+        "verified_at": "2026-09-14T12:57:35.3210480Z"
+      },
+      "qa": {
+        "result": "pass",
+        "final_approval": "approved_by_user",
+        "input_and_output_inspected_with_view_image": true,
+        "review": "Deer head, antlers and humanoid kneeling anatomy preserved; two hands at stone/plumb line and two legs coherent; ground flail and river scene intact; fur, stone, mud and foliage rebuilt in opaque planes, diffuse woodland palette retained."
+      },
+      "sourcegen": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-d08aca38-2c80-4976-b43c-e2ab1841dc29.png",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-d08aca38-2c80-4976-b43c-e2ab1841dc29.png",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "8167EA45407398726DCA7A91B44E22821C31231B88EDB4C68721FF1868D18D29",
+      "imagegen_call_count": 1,
+      "completed_at": "2026-09-14T12:43:58.3821546Z",
+      "canonical_source_unchanged": true,
+      "effective_reference_hashes": [
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/36_GEO_ELENION.png",
+          "sha256": "0AB221F013477052E061A089CC6B12B99A52B62D622475315005FD075E50E47F"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966D49AF5D5F916C3AD3F3B62BF846FA1D6646CA609CB3BEE9ED6EEDC94AC8"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2C443D9ADC4525953869B2DCC69433EBF00FD7243EC93E01BFFF5E11ED5DC6EE"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+          "sha256": "73DE7D13FE5525F05CA6543F2C0BCE5DCC1B015BCAA731EFF4467B86E36F4C3A"
+        }
+      ]
+    },
+    {
+      "id": "30000037",
+      "slug": "37_GEO_YVAR",
+      "name": "YVAR",
+      "source": "V3/assets/illustrations/37_GEO_YVAR.png",
+      "story_scene": "Yvar reconnait le canal asseche avant la mission de sauvetage de Gen ; instant de preparation extrapole du chapitre 15.",
+      "source_sha256": "FCA24D30AF96A096778974F5971D4DA9C2D4EE7E5838431A9464D3E859784C4F",
+      "prompt": "Use case: style-transfer / identity-preserving narrative illustration edit for Kalistar.\nINPUT ROLES, in exact order: Image 1 is the sole EDIT TARGET and the authority for ALL content and composition. Image 2 MOMO is the PRIMARY PAINTING-STYLE reference. Image 3 VALAZAR and Image 4 VOLODEN are supporting painting-language/detail references only. Never import their characters, costumes, objects, buildings, poses or palettes into Image 1.\nTASK: Repaint the ENTIRE target image in the recognizable handmade painterly language of Momo, while strictly preserving its content. Make a substantial visible change of painting execution, NOT a grain filter over the original, NOT merely color grading.\nPAINTING: construct faces, hands, clothing and environment from deliberate opaque gouache and oil brush planes. Broad and medium broken bristle strokes, scumbled worn surfaces, chiseled painted highlights, colored shadows, layered irregular paint edges. Alternate lost and found contours as in Momo. Facial anatomy stays believable and expressive but rendered by color shapes, without photographic pores or smoothly airbrushed skin. Unify figure and background in the SAME painterly treatment; no sharp photographic character on a painted backdrop. Retain the reference level of narrative detail and legibility, not a crude abstract sketch. Avoid photo-realism, plastic 3D, anime linework, manga eyes, glossy game render, artificial depth-of-field blur and superficial canvas-grain overlays.\nSTRICT CONTENT INVARIANTS: same unique character identity, face proportions, age, expression, gaze, hair, species, head silhouette, clothes, colors, armor, jewelry, weapons and every prop. Identical scene, body pose, hand gestures, limb positions, framing, viewpoint, scale, composition, architecture and object locations. Change ONLY painting execution. Exactly two arms and two legs in the same humanoid anatomy and the same natural occlusions; no new limb, paw, tentacle, wing or joint. Do not add, remove or exchange characters or props.\nCOLOR/LIGHT: preserve Image 1's own local palette, saturation relationships, light direction, time of day, climate and overall brightness. Do NOT make every image dark or blue. Borrow brush language, not Momo's nocturnal blue palette or the other references' gloom.\nOUTPUT: one full-bleed portrait PNG around 4:5, shortest side at least 1024 pixels; keep the source framing and aspect. No text, frame, card border, logo, watermark, collage or comparison panel.\nTARGET: YVAR (37_GEO_YVAR). Preserve every specific identity and scene detail from Image 1.",
+      "refs": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/37_GEO_YVAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "path": "V3/assets/revisions-20260914/illustrations/37_GEO_YVAR.png",
+      "status": "approved_and_integrated",
+      "final_source": {
+        "path": "V3/assets/illustrations/37_GEO_YVAR.png",
+        "sha256": "A979E1EB8C983602F97A3D503339D4D7F472DF742FD0C0D6753BA084B3206F3D",
+        "approved_revision": "V3/assets/revisions-20260914/illustrations/37_GEO_YVAR.png",
+        "matches_approved_revision": true,
+        "matches_sourcegen": true,
+        "integrated_by": "parent",
+        "verified_at": "2026-09-14T12:57:35.3210480Z"
+      },
+      "qa": {
+        "result": "pass",
+        "final_approval": "approved_by_user",
+        "input_and_output_inspected_with_view_image": true,
+        "review": "Same rhino head/corne, crouched humanoid pose, spear grip and pointing hand; two legs and boots coherent; channel depth and tracks retained; cloth, skin and canyon all painted in broken planes with original dusk color relationships."
+      },
+      "sourcegen": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-a08012f5-0f44-4ec3-8d34-cd5afd53035a.png",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-a08012f5-0f44-4ec3-8d34-cd5afd53035a.png",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "A979E1EB8C983602F97A3D503339D4D7F472DF742FD0C0D6753BA084B3206F3D",
+      "imagegen_call_count": 1,
+      "completed_at": "2026-09-14T12:45:33.4084701Z",
+      "canonical_source_unchanged": true,
+      "effective_reference_hashes": [
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/37_GEO_YVAR.png",
+          "sha256": "FCA24D30AF96A096778974F5971D4DA9C2D4EE7E5838431A9464D3E859784C4F"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966D49AF5D5F916C3AD3F3B62BF846FA1D6646CA609CB3BEE9ED6EEDC94AC8"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2C443D9ADC4525953869B2DCC69433EBF00FD7243EC93E01BFFF5E11ED5DC6EE"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+          "sha256": "73DE7D13FE5525F05CA6543F2C0BCE5DCC1B015BCAA731EFF4467B86E36F4C3A"
+        }
+      ]
+    },
+    {
+      "id": "30000038",
+      "slug": "38_AERO_GILMARR",
+      "name": "GILMARR",
+      "source": "V3/assets/illustrations/38_AERO_GILMARR.png",
+      "story_scene": "Gilmarr accueille Lanio sur le terrain. Pose individuelle et specialisation AERO proposees V3.",
+      "source_sha256": "AE7C576FDCBBF6591040923FA2AFF0E039865446B8347D281415258917CBD017",
+      "prompt": "Use case: style-transfer / identity-preserving narrative illustration edit for Kalistar.\nINPUT ROLES, in exact order: Image 1 is the sole EDIT TARGET and the authority for ALL content and composition. Image 2 MOMO is the PRIMARY PAINTING-STYLE reference. Image 3 VALAZAR and Image 4 VOLODEN are supporting painting-language/detail references only. Never import their characters, costumes, objects, buildings, poses or palettes into Image 1.\nTASK: Repaint the ENTIRE target image in the recognizable handmade painterly language of Momo, while strictly preserving its content. Make a substantial visible change of painting execution, NOT a grain filter over the original, NOT merely color grading.\nPAINTING: construct faces, hands, clothing and environment from deliberate opaque gouache and oil brush planes. Broad and medium broken bristle strokes, scumbled worn surfaces, chiseled painted highlights, colored shadows, layered irregular paint edges. Alternate lost and found contours as in Momo. Facial anatomy stays believable and expressive but rendered by color shapes, without photographic pores or smoothly airbrushed skin. Unify figure and background in the SAME painterly treatment; no sharp photographic character on a painted backdrop. Retain the reference level of narrative detail and legibility, not a crude abstract sketch. Avoid photo-realism, plastic 3D, anime linework, manga eyes, glossy game render, artificial depth-of-field blur and superficial canvas-grain overlays.\nSTRICT CONTENT INVARIANTS: same unique character identity, face proportions, age, expression, gaze, hair, species, head silhouette, clothes, colors, armor, jewelry, weapons and every prop. Identical scene, body pose, hand gestures, limb positions, framing, viewpoint, scale, composition, architecture and object locations. Change ONLY painting execution. Exactly two arms and two legs in the same humanoid anatomy and the same natural occlusions; no new limb, paw, tentacle, wing or joint. Do not add, remove or exchange characters or props.\nCOLOR/LIGHT: preserve Image 1's own local palette, saturation relationships, light direction, time of day, climate and overall brightness. Do NOT make every image dark or blue. Borrow brush language, not Momo's nocturnal blue palette or the other references' gloom.\nOUTPUT: one full-bleed portrait PNG around 4:5, shortest side at least 1024 pixels; keep the source framing and aspect. No text, frame, card border, logo, watermark, collage or comparison panel.\nTARGET: GILMARR (38_AERO_GILMARR). Preserve every specific identity and scene detail from Image 1.",
+      "refs": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/38_AERO_GILMARR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "path": "V3/assets/revisions-20260914/illustrations/38_AERO_GILMARR.png",
+      "status": "approved_and_integrated",
+      "final_source": {
+        "path": "V3/assets/illustrations/38_AERO_GILMARR.png",
+        "sha256": "8409EFCAF0CC9C80C4119E4BB11EE6EE6F3C0DBA7A6148733317958C82F38A51",
+        "approved_revision": "V3/assets/revisions-20260914/illustrations/38_AERO_GILMARR.png",
+        "matches_approved_revision": true,
+        "matches_sourcegen": true,
+        "integrated_by": "parent",
+        "verified_at": "2026-09-14T12:57:35.3210480Z"
+      },
+      "qa": {
+        "result": "pass",
+        "final_approval": "approved_by_user",
+        "input_and_output_inspected_with_view_image": true,
+        "review": "Athletic rhino identity, tattoos, green-white kit, inviting open hand and marker grip preserved; two arms/two legs and shoes coherent; same court, architecture and background players; painted skin/cloth/stone, bright daylight retained."
+      },
+      "sourcegen": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-70cd6091-7d35-41f7-8a52-2984a339f790.png",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-70cd6091-7d35-41f7-8a52-2984a339f790.png",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "8409EFCAF0CC9C80C4119E4BB11EE6EE6F3C0DBA7A6148733317958C82F38A51",
+      "imagegen_call_count": 1,
+      "completed_at": "2026-09-14T12:47:23.305336Z",
+      "canonical_source_unchanged": true,
+      "effective_reference_hashes": [
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/38_AERO_GILMARR.png",
+          "sha256": "AE7C576FDCBBF6591040923FA2AFF0E039865446B8347D281415258917CBD017"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966D49AF5D5F916C3AD3F3B62BF846FA1D6646CA609CB3BEE9ED6EEDC94AC8"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2C443D9ADC4525953869B2DCC69433EBF00FD7243EC93E01BFFF5E11ED5DC6EE"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+          "sha256": "73DE7D13FE5525F05CA6543F2C0BCE5DCC1B015BCAA731EFF4467B86E36F4C3A"
+        }
+      ]
+    },
+    {
+      "id": "30000039",
+      "slug": "39_HYDRO_RUBY",
+      "name": "RUBY",
+      "source": "V3/assets/illustrations/39_HYDRO_RUBY.png",
+      "story_scene": "Scene inventee : Ruby cartographie les courants depuis un phare de Thalassea.",
+      "source_sha256": "48156D2DE68E32F9B84DEF18826F6E91466D345ED25BCB264DDA9ED00D66F504",
+      "prompt": "Use case: style-transfer / identity-preserving narrative illustration edit for Kalistar.\nINPUT ROLES, in exact order: Image 1 is the sole EDIT TARGET and the authority for ALL content and composition. Image 2 MOMO is the PRIMARY PAINTING-STYLE reference. Image 3 VALAZAR and Image 4 VOLODEN are supporting painting-language/detail references only. Never import their characters, costumes, objects, buildings, poses or palettes into Image 1.\nTASK: Repaint the ENTIRE target image in the recognizable handmade painterly language of Momo, while strictly preserving its content. Make a substantial visible change of painting execution, NOT a grain filter over the original, NOT merely color grading.\nPAINTING: construct faces, hands, clothing and environment from deliberate opaque gouache and oil brush planes. Broad and medium broken bristle strokes, scumbled worn surfaces, chiseled painted highlights, colored shadows, layered irregular paint edges. Alternate lost and found contours as in Momo. Facial anatomy stays believable and expressive but rendered by color shapes, without photographic pores or smoothly airbrushed skin. Unify figure and background in the SAME painterly treatment; no sharp photographic character on a painted backdrop. Retain the reference level of narrative detail and legibility, not a crude abstract sketch. Avoid photo-realism, plastic 3D, anime linework, manga eyes, glossy game render, artificial depth-of-field blur and superficial canvas-grain overlays.\nSTRICT CONTENT INVARIANTS: same unique character identity, face proportions, age, expression, gaze, hair, species, head silhouette, clothes, colors, armor, jewelry, weapons and every prop. Identical scene, body pose, hand gestures, limb positions, framing, viewpoint, scale, composition, architecture and object locations. Change ONLY painting execution. Exactly two arms and two legs in the same humanoid anatomy and the same natural occlusions; no new limb, paw, tentacle, wing or joint. Do not add, remove or exchange characters or props.\nCOLOR/LIGHT: preserve Image 1's own local palette, saturation relationships, light direction, time of day, climate and overall brightness. Do NOT make every image dark or blue. Borrow brush language, not Momo's nocturnal blue palette or the other references' gloom.\nOUTPUT: one full-bleed portrait PNG around 4:5, shortest side at least 1024 pixels; keep the source framing and aspect. No text, frame, card border, logo, watermark, collage or comparison panel.\nTARGET: RUBY (39_HYDRO_RUBY). Preserve every specific identity and scene detail from Image 1.",
+      "refs": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/39_HYDRO_RUBY.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "path": "V3/assets/revisions-20260914/illustrations/39_HYDRO_RUBY.png",
+      "status": "approved_and_integrated",
+      "final_source": {
+        "path": "V3/assets/illustrations/39_HYDRO_RUBY.png",
+        "sha256": "EF1A1D16F4152E882ACAD987CBE1C21B28FD127811A4E9287B71A7F9CF4426F7",
+        "approved_revision": "V3/assets/revisions-20260914/illustrations/39_HYDRO_RUBY.png",
+        "matches_approved_revision": true,
+        "matches_sourcegen": true,
+        "integrated_by": "parent",
+        "verified_at": "2026-09-14T12:57:35.3210480Z"
+      },
+      "qa": {
+        "result": "pass",
+        "final_approval": "approved_by_user",
+        "input_and_output_inspected_with_view_image": true,
+        "review": "Same blue amphibian face, red hair, clothing and standing pose; gun grip, support hand, two legs/boots, water jets and chart retained; painterly color planes across skin, lighthouse and sea; bright marine palette preserved."
+      },
+      "sourcegen": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-ae06f7cc-8a21-4452-85d6-2d95da2a0cb5.png",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-ae06f7cc-8a21-4452-85d6-2d95da2a0cb5.png",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "EF1A1D16F4152E882ACAD987CBE1C21B28FD127811A4E9287B71A7F9CF4426F7",
+      "imagegen_call_count": 1,
+      "completed_at": "2026-09-14T12:49:51.6582518Z",
+      "canonical_source_unchanged": true,
+      "effective_reference_hashes": [
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/39_HYDRO_RUBY.png",
+          "sha256": "48156D2DE68E32F9B84DEF18826F6E91466D345ED25BCB264DDA9ED00D66F504"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966D49AF5D5F916C3AD3F3B62BF846FA1D6646CA609CB3BEE9ED6EEDC94AC8"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2C443D9ADC4525953869B2DCC69433EBF00FD7243EC93E01BFFF5E11ED5DC6EE"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+          "sha256": "73DE7D13FE5525F05CA6543F2C0BCE5DCC1B015BCAA731EFF4467B86E36F4C3A"
+        }
+      ]
+    },
+    {
+      "id": "30000040",
+      "slug": "40_AERO_SORYN",
+      "name": "SORYN",
+      "source": "V3/assets/illustrations/40_AERO_SORYN.png",
+      "story_scene": "Scene inventee : Soryn accorde les cloches de brume des ponts de Nestown.",
+      "source_sha256": "8DC56F4A781704938587BC0EC7044E1301596F56431B3EB4B209F1096A8773F3",
+      "prompt": "Use case: style-transfer / identity-preserving narrative illustration edit for Kalistar.\nINPUT ROLES, in exact order: Image 1 is the sole EDIT TARGET and the authority for ALL content and composition. Image 2 MOMO is the PRIMARY PAINTING-STYLE reference. Image 3 VALAZAR and Image 4 VOLODEN are supporting painting-language/detail references only. Never import their characters, costumes, objects, buildings, poses or palettes into Image 1.\nTASK: Repaint the ENTIRE target image in the recognizable handmade painterly language of Momo, while strictly preserving its content. Make a substantial visible change of painting execution, NOT a grain filter over the original, NOT merely color grading.\nPAINTING: construct faces, hands, clothing and environment from deliberate opaque gouache and oil brush planes. Broad and medium broken bristle strokes, scumbled worn surfaces, chiseled painted highlights, colored shadows, layered irregular paint edges. Alternate lost and found contours as in Momo. Facial anatomy stays believable and expressive but rendered by color shapes, without photographic pores or smoothly airbrushed skin. Unify figure and background in the SAME painterly treatment; no sharp photographic character on a painted backdrop. Retain the reference level of narrative detail and legibility, not a crude abstract sketch. Avoid photo-realism, plastic 3D, anime linework, manga eyes, glossy game render, artificial depth-of-field blur and superficial canvas-grain overlays.\nSTRICT CONTENT INVARIANTS: same unique character identity, face proportions, age, expression, gaze, hair, species, head silhouette, clothes, colors, armor, jewelry, weapons and every prop. Identical scene, body pose, hand gestures, limb positions, framing, viewpoint, scale, composition, architecture and object locations. Change ONLY painting execution. Exactly two arms and two legs in the same humanoid anatomy and the same natural occlusions; no new limb, paw, tentacle, wing or joint. Do not add, remove or exchange characters or props.\nCOLOR/LIGHT: preserve Image 1's own local palette, saturation relationships, light direction, time of day, climate and overall brightness. Do NOT make every image dark or blue. Borrow brush language, not Momo's nocturnal blue palette or the other references' gloom.\nOUTPUT: one full-bleed portrait PNG around 4:5, shortest side at least 1024 pixels; keep the source framing and aspect. No text, frame, card border, logo, watermark, collage or comparison panel.\nTARGET: SORYN (40_AERO_SORYN). Preserve every specific identity and scene detail from Image 1.",
+      "refs": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/40_AERO_SORYN.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "path": "V3/assets/revisions-20260914/illustrations/40_AERO_SORYN.png",
+      "status": "approved_and_integrated",
+      "final_source": {
+        "path": "V3/assets/illustrations/40_AERO_SORYN.png",
+        "sha256": "AAE106608F05A77C0A537BA1BC11FD302D87868B9C751B7BEC59E01495138C9D",
+        "approved_revision": "V3/assets/revisions-20260914/illustrations/40_AERO_SORYN.png",
+        "matches_approved_revision": true,
+        "matches_sourcegen": true,
+        "integrated_by": "parent",
+        "verified_at": "2026-09-14T12:57:35.3210480Z"
+      },
+      "qa": {
+        "result": "pass",
+        "final_approval": "approved_by_user",
+        "input_and_output_inspected_with_view_image": true,
+        "review": "Falcon identity, clothes, seated pose, two hands on zither, two suspended feet and folded dorsal wings distinct from arms preserved; bells and bridges intact; painted planes throughout feathers, wood and luminous mist, no new limb."
+      },
+      "sourcegen": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-24dc2818-a455-465d-b29f-7e12ae15cd53.png",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-24dc2818-a455-465d-b29f-7e12ae15cd53.png",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "AAE106608F05A77C0A537BA1BC11FD302D87868B9C751B7BEC59E01495138C9D",
+      "imagegen_call_count": 1,
+      "completed_at": "2026-09-14T12:51:55.8365899Z",
+      "canonical_source_unchanged": true,
+      "effective_reference_hashes": [
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/40_AERO_SORYN.png",
+          "sha256": "8DC56F4A781704938587BC0EC7044E1301596F56431B3EB4B209F1096A8773F3"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966D49AF5D5F916C3AD3F3B62BF846FA1D6646CA609CB3BEE9ED6EEDC94AC8"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2C443D9ADC4525953869B2DCC69433EBF00FD7243EC93E01BFFF5E11ED5DC6EE"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+          "sha256": "73DE7D13FE5525F05CA6543F2C0BCE5DCC1B015BCAA731EFF4467B86E36F4C3A"
+        }
+      ]
+    },
+    {
+      "id": "30000041",
+      "slug": "41_HERBO_THALIE",
+      "name": "THALIE",
+      "source": "V3/assets/illustrations/41_HERBO_THALIE.png",
+      "story_scene": "Scene inventee : Thalie consigne la reprise d une foret apres un incendie.",
+      "source_sha256": "A345905C6A7EF17C2AEFF26124A0E88D98025ADD983075B80A7ACE9CDC1A015C",
+      "prompt": "Use case: style-transfer / identity-preserving narrative illustration edit for Kalistar.\nINPUT ROLES, in exact order: Image 1 is the sole EDIT TARGET and the authority for ALL content and composition. Image 2 MOMO is the PRIMARY PAINTING-STYLE reference. Image 3 VALAZAR and Image 4 VOLODEN are supporting painting-language/detail references only. Never import their characters, costumes, objects, buildings, poses or palettes into Image 1.\nTASK: Repaint the ENTIRE target image in the recognizable handmade painterly language of Momo, while strictly preserving its content. Make a substantial visible change of painting execution, NOT a grain filter over the original, NOT merely color grading.\nPAINTING: construct faces, hands, clothing and environment from deliberate opaque gouache and oil brush planes. Broad and medium broken bristle strokes, scumbled worn surfaces, chiseled painted highlights, colored shadows, layered irregular paint edges. Alternate lost and found contours as in Momo. Facial anatomy stays believable and expressive but rendered by color shapes, without photographic pores or smoothly airbrushed skin. Unify figure and background in the SAME painterly treatment; no sharp photographic character on a painted backdrop. Retain the reference level of narrative detail and legibility, not a crude abstract sketch. Avoid photo-realism, plastic 3D, anime linework, manga eyes, glossy game render, artificial depth-of-field blur and superficial canvas-grain overlays.\nSTRICT CONTENT INVARIANTS: same unique character identity, face proportions, age, expression, gaze, hair, species, head silhouette, clothes, colors, armor, jewelry, weapons and every prop. Identical scene, body pose, hand gestures, limb positions, framing, viewpoint, scale, composition, architecture and object locations. Change ONLY painting execution. Exactly two arms and two legs in the same humanoid anatomy and the same natural occlusions; no new limb, paw, tentacle, wing or joint. Do not add, remove or exchange characters or props.\nCOLOR/LIGHT: preserve Image 1's own local palette, saturation relationships, light direction, time of day, climate and overall brightness. Do NOT make every image dark or blue. Borrow brush language, not Momo's nocturnal blue palette or the other references' gloom.\nOUTPUT: one full-bleed portrait PNG around 4:5, shortest side at least 1024 pixels; keep the source framing and aspect. No text, frame, card border, logo, watermark, collage or comparison panel.\nTARGET: THALIE (41_HERBO_THALIE). Preserve every specific identity and scene detail from Image 1.",
+      "refs": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/41_HERBO_THALIE.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "path": "V3/assets/revisions-20260914/illustrations/41_HERBO_THALIE.png",
+      "status": "approved_and_integrated",
+      "final_source": {
+        "path": "V3/assets/illustrations/41_HERBO_THALIE.png",
+        "sha256": "F26EC17DE3D5FC6A06619E1A279C1545E9A4E1A4435F0055E68AEC20D6E5EA83",
+        "approved_revision": "V3/assets/revisions-20260914/illustrations/41_HERBO_THALIE.png",
+        "matches_approved_revision": true,
+        "matches_sourcegen": true,
+        "integrated_by": "parent",
+        "verified_at": "2026-09-14T12:57:35.3210480Z"
+      },
+      "qa": {
+        "result": "pass",
+        "final_approval": "approved_by_user",
+        "input_and_output_inspected_with_view_image": true,
+        "review": "Same leafy green identity, relieved expression, coral scarf/white clothes, cross-legged anatomy and two hands with herbarium preserved; book, saplings and burned forest intact; layered brush planes throughout, daylight and green/coral contrasts retained."
+      },
+      "sourcegen": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-ecb6a79d-099d-4711-97f3-03a4b400b9c7.png",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-ecb6a79d-099d-4711-97f3-03a4b400b9c7.png",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "F26EC17DE3D5FC6A06619E1A279C1545E9A4E1A4435F0055E68AEC20D6E5EA83",
+      "imagegen_call_count": 1,
+      "completed_at": "2026-09-14T12:54:01.4176918Z",
+      "canonical_source_unchanged": true,
+      "effective_reference_hashes": [
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/41_HERBO_THALIE.png",
+          "sha256": "A345905C6A7EF17C2AEFF26124A0E88D98025ADD983075B80A7ACE9CDC1A015C"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966D49AF5D5F916C3AD3F3B62BF846FA1D6646CA609CB3BEE9ED6EEDC94AC8"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2C443D9ADC4525953869B2DCC69433EBF00FD7243EC93E01BFFF5E11ED5DC6EE"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+          "sha256": "73DE7D13FE5525F05CA6543F2C0BCE5DCC1B015BCAA731EFF4467B86E36F4C3A"
+        }
+      ]
+    }
+  ]
+}

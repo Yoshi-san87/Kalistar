@@ -1,0 +1,174 @@
+{
+  "suite": "deck-library and deck-builder isolated contracts",
+  "at": "2026-09-15T08:45:39.936Z",
+  "tests": [
+    {
+      "name": "empty library is read-only and isolated from legacy preferences",
+      "ok": true
+    },
+    {
+      "name": "Paris and Tokyo own separate namespaces",
+      "ok": true
+    },
+    {
+      "name": "ten slots preserve interior nulls through a new library instance",
+      "ok": true
+    },
+    {
+      "name": "incomplete and currently unowned compositions are persistable drafts",
+      "ok": true
+    },
+    {
+      "name": "names trim, preserve French text, and accept fifty characters",
+      "ok": true
+    },
+    {
+      "name": "invalid names reject without any write",
+      "ok": true
+    },
+    {
+      "name": "slot length, sparse arrays, undefined and non-array inputs reject atomically",
+      "ok": true
+    },
+    {
+      "name": "only strings within the 41 V3 ids and injected catalogue are accepted",
+      "ok": true
+    },
+    {
+      "name": "catalogue and user configuration are validated",
+      "ok": true
+    },
+    {
+      "name": "strict draft shape rejects unknown and inherited fields",
+      "ok": true
+    },
+    {
+      "name": "save, get, list and validated drafts return defensive copies",
+      "ok": true
+    },
+    {
+      "name": "save updates one id with one JSON write, duplicate gets a new secure id",
+      "ok": true
+    },
+    {
+      "name": "ten-entry limit holds for save and duplicate; updates remain available",
+      "ok": true
+    },
+    {
+      "name": "unknown ids never overwrite or delete a different entry",
+      "ok": true
+    },
+    {
+      "name": "remove frees one slot and returns a detached composition",
+      "ok": true
+    },
+    {
+      "name": "no insecure id fallback and no collision retry writes",
+      "ok": true
+    },
+    {
+      "name": "valid JSON export imports atomically into another profile and preserves holes",
+      "ok": true
+    },
+    {
+      "name": "JSON import rejects schema, edition, extra fields and invalid late entries",
+      "ok": true
+    },
+    {
+      "name": "merge collision and aggregate overflow reject before writing",
+      "ok": true
+    },
+    {
+      "name": "corrupt stored JSON is surfaced and never silently reset",
+      "ok": true
+    },
+    {
+      "name": "storage quota failure leaves old JSON readable",
+      "ok": true
+    },
+    {
+      "name": "each operation rereads storage rather than overwriting another instance",
+      "ok": true
+    },
+    {
+      "name": "optimistic read detects changes between preparation and commit",
+      "ok": true
+    },
+    {
+      "name": "real engine and real registry accept a fully covered owned formation",
+      "ok": true
+    },
+    {
+      "name": "incomplete ten-slot drafts are never playable",
+      "ok": true
+    },
+    {
+      "name": "strict coverage rejects historically valid decks; multi-position cards count in each role",
+      "ok": true
+    },
+    {
+      "name": "two compatibles per position cannot substitute for a complete matching",
+      "ok": true
+    },
+    {
+      "name": "new strict engine methods are used, and additional validator fails closed",
+      "ok": true
+    },
+    {
+      "name": "old engine fallback remains strict and enforces two copies even with looser rules",
+      "ok": true
+    },
+    {
+      "name": "ownership and pending transfers cap candidates and invalidate play immediately",
+      "ok": true
+    },
+    {
+      "name": "two copies require two available collectibles; a third is always blocked",
+      "ok": true
+    },
+    {
+      "name": "Tokyo and unavailable registries cannot play borrowed compositions",
+      "ok": true
+    },
+    {
+      "name": "Rainbow addition is blocked while another Rainbow remains in the deck",
+      "ok": true
+    },
+    {
+      "name": "affinities cap at five synthetic board units and do not mutate engine data or registry",
+      "ok": true
+    },
+    {
+      "name": "candidate shows shared members, gain and coverage relative to the replaced slot",
+      "ok": true
+    },
+    {
+      "name": "potential saturated at five produces no fictitious sixth-member gain",
+      "ok": true
+    },
+    {
+      "name": "builder contract is standalone, scoped, escaped, read-only until an action",
+      "ok": false,
+      "error": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /<h1>Mes decks<\\/h1>/. Input:\n\n'<section class=\"kdb-page  \" data-panel=\"board\" aria-label=\"Composition du deck\" >\\n' +\n  '        <header class=\"kdb-heading\"><div class=\"kdb-heading-title\"><span class=\"kdb-eyebrow\">KALISTAR · Paris</span><h1>Escouade</h1></div>\\n' +\n  '        <div class=\"kdb-deck-picker\"><button type=\"button\" class=\"kdb-icon\" data-deck-action=\"deck-previous\" title=\"Deck précédent\" aria-label=\"Deck précédent\" disabled><i data-lucide=\"chevron-left\" aria-hidden=\"true\"></i></button><select data-deck-action=\"select\" aria-label=\"Deck sauvegardé\" ><option value=\"\">Brouillon du profil</option></select><button type=\"button\" class=\"kdb-icon\" data-deck-action=\"deck-next\" title=\"Deck suivant\" aria-label=\"Deck suivant\" disabled><i data-lucide=\"chevron-right\" aria-hidden=\"true\"></i></button></div>\\n' +\n  '        <label class=\"kdb-name-label\"><span class=\"kdb-sr-only\">Nom du deck</span><input data-deck-action=\"name\" aria-label=\"Nom du deck\" maxlength=\"50\" value=\"&lt;img src=x onerror=alert(1)&gt;\" autocomplete=\"off\" ></label>\\n' +\n  '        <div class=\"kdb-heading-state\"><span class=\"kdb-badge is-ready\">Prêt</span><strong>10<small>/10</small></strong></div>\\n' +\n  '        <button type=\"button\" class=\"kdb-icon\" data-deck-action=\"save\" title=\"Sauvegarder le deck\" aria-label=\"Sauvegarder le deck\" ><i data-lucide=\"save\" aria-hidden=\"true\"></i></button><button type=\"button\" class=\"kdb-icon\" data-deck-action=\"manage\" title=\"Gestion des decks\" aria-label=\"Gestion des decks\" aria-expanded=\"false\"><i data-lucide=\"settings-2\" aria-hidden=\"true\"></i></button><button type=\"button\" class=\"kdb-play\" data-deck-action=\"play\" ><i data-lucide=\"swords\" aria-hidden=\"true\"></i><span>Jouer</span></button></header>\\n' +\n  '        <div class=\"kdb-library-bar\" hidden><div class=\"kdb-menu-heading\"><b>0/10 decks</b><span class=\"kdb-save-state\" data-deck-save-state>Non enregistré</span><button type=\"button\" class=\"kdb-icon\" data-deck-action=\"manage\" title=\"Fermer la gestion\" aria-label=\"Fermer la gestion\" ><i data-lucide=\"x\" aria-hidden=\"true\"></i></button></div><div class=\"kdb-library-actions\"><button type=\"button\" class=\"kdb-icon\" data-deck-action=\"duplicate\" title=\"Dupliquer le deck courant\" aria-label=\"Dupliquer le deck courant\" ><i data-lucide=\"copy\" aria-hidden=\"true\"></i></button><button type=\"button\" class=\"kdb-icon\" data-deck-action=\"new\" title=\"Nouveau brouillon\" aria-label=\"Nouveau brouillon\" ><i data-lucide=\"file-plus-2\" aria-hidden=\"true\"></i></button><button type=\"button\" class=\"kdb-icon\" data-deck-action=\"delete\" title=\"Supprimer le deck sauvegardé\" aria-label=\"Supprimer le deck sauvegardé\" disabled><i data-lucide=\"trash-2\" aria-hidden=\"true\"></i></button><button type=\"button\" class=\"kdb-icon\" data-deck-action=\"export\" title=\"Exporter la bibliothèque JSON\" aria-label=\"Exporter la bibliothèque JSON\" disabled><i data-lucide=\"download\" aria-hidden=\"true\"></i></button><button type=\"button\" class=\"kdb-icon\" data-deck-action=\"import\" title=\"Importer une bibliothèque JSON\" aria-label=\"Importer une bibliothèque JSON\" ><i data-lucide=\"upload\" aria-hidden=\"true\"></i></button></div></div><input type=\"file\" accept=\"application/json,.json\" data-deck-file hidden>\\n' +\n  '        \\n' +\n  '        \\n' +\n  '        <nav class=\"kdb-mobile-nav\" role=\"tablist\" aria-label=\"Vues de composition\"><button data-deck-action=\"panel\" data-id=\"board\" role=\"tab\" aria-selected=\"true\" aria-controls=\"kdb-panel-board\" tabindex=\"0\"><i data-lucide=\"layout-grid\" aria-hidden=\"true\"></i>Composition</button><button data-deck-action=\"panel\" data-id=\"synergy\" role=\"tab\" aria-selected=\"false\" aria-controls=\"kdb-panel-synergy\" tabindex=\"-1\"><i data-lucide=\"git-branch\" aria-hidden=\"true\"></i>Synergies</button><button data-deck-action=\"panel\" data-id=\"inspect\" role=\"tab\" aria-selected=\"false\" aria-controls=\"kdb-panel-inspect\" tabindex=\"-1\"><i data-lucide=\"scan-eye\" aria-hidden=\"true\"></i>Carte</button></nav>\\n' +\n  '        <div class=\"kdb-workbench\"><aside class=\"kdb-affinities\" id=\"kdb-panel-synergy\" aria-label=\"Synergies du deck\"><div class=\"kdb-band-heading\"><h2>Synergies</h2><i data-lucide=\"git-branch\" aria-hidden=\"true\"></i></div><div class=\"kdb-affinity-tabs\" role=\"group\" aria-label=\"Type de synergie\"><button data-deck-action=\"affinity-type\" data-id=\"faction\" aria-pressed=\"true\"><i data-lucide=\"flag\" aria-hidden=\"true\"></i>Factions</button><button data-deck-action=\"affinity-type\" data-id=\"race\" aria-pressed=\"false\"><i data-lucide=\"users-round\" aria-hidden=\"true\"></i>Races</button></div><section class=\"kdb-affinity\"><h3>Liens offensifs</h3><ul><li data-affinity=\"Chroma\"><button type=\"button\" data-deck-action=\"group-filter\" data-field=\"faction\" data-value=\"Chroma\" title=\"Filtrer Chroma\" aria-pressed=\"false\"><i data-lucide=\"flag\" aria-hidden=\"true\"></i><span><b>Chroma</b><small>3 cartes</small><span class=\"kdb-link-pips\" aria-hidden=\"true\"><i class=\"lit\"></i><i class=\"lit\"></i><i class=\"lit\"></i><i class=\"\"></i><i class=\"\"></i></span></span><strong>+20<small>ATK</small></strong></button></li><li data-affinity=\"Solaria\"><button type=\"button\" data-deck-action=\"group-filter\" data-field=\"faction\" data-value=\"Solaria\" title=\"Filtrer Solaria\" aria-pressed=\"false\"><i data-lucide=\"flag\" aria-hidden=\"true\"></i><span><b>Solaria</b><small>2 cartes</small><span class=\"kdb-link-pips\" aria-hidden=\"true\"><i class=\"lit\"></i><i class=\"lit\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i></span></span><strong>+10<small>ATK</small></strong></button></li><li data-affinity=\"Durane\"><button type=\"button\" data-deck-action=\"group-filter\" data-field=\"faction\" data-value=\"Durane\" title=\"Filtrer Durane\" aria-pressed=\"false\"><i data-lucide=\"flag\" aria-hidden=\"true\"></i><span><b>Durane</b><small>1 carte</small><span class=\"kdb-link-pips\" aria-hidden=\"true\"><i class=\"lit\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i></span></span><strong>+0<small>ATK</small></strong></button></li><li data-affinity=\"Nestown\"><button type=\"button\" data-deck-action=\"group-filter\" data-field=\"faction\" data-value=\"Nestown\" title=\"Filtrer Nestown\" aria-pressed=\"false\"><i data-lucide=\"flag\" aria-hidden=\"true\"></i><span><b>Nestown</b><small>1 carte</small><span class=\"kdb-link-pips\" aria-hidden=\"true\"><i class=\"lit\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i></span></span><strong>+0<small>ATK</small></strong></button></li></ul><nav class=\"kdb-affinity-pagination\" aria-label=\"Pages de synergies\"><button type=\"button\" class=\"kdb-icon\" data-deck-action=\"affinity-previous\" title=\"Synergies précédentes\" aria-label=\"Synergies précédentes\" disabled><i data-lucide=\"chevron-left\" aria-hidden=\"true\"></i></button><span>1 / 2</span><button type=\"button\" class=\"kdb-icon\" data-deck-action=\"affinity-next\" title=\"Synergies suivantes\" aria-label=\"Synergies suivantes\" ><i data-lucide=\"chevron-right\" aria-hidden=\"true\"></i></button></nav></section><p class=\"kdb-synergy-note\">Potentiel · 5 cartes sur le plateau</p></aside>\\n' +\n  '        <section class=\"kdb-composition\" id=\"kdb-panel-board\" aria-label=\"Dix emplacements du deck\"><div class=\"kdb-band-heading\"><h2>Composition</h2><small>Slot 1 sélectionné</small></div>\\n' +\n  '        <div class=\"kdb-slots\"><svg class=\"kdb-links\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\" aria-hidden=\"true\"><line x1=\"30\" y1=\"25\" x2=\"90\" y2=\"25\" class=\"\" vector-effect=\"non-scaling-stroke\"/><line x1=\"90\" y1=\"25\" x2=\"10\" y2=\"75\" class=\"\" vector-effect=\"non-scaling-stroke\"/><line x1=\"50\" y1=\"75\" x2=\"90\" y2=\"75\" class=\"\" vector-effect=\"non-scaling-stroke\"/></svg><div class=\"kdb-slot is-selected \" data-deck-slot=\"0\" data-deck-preview=\"30000007\"><div class=\"kdb-slot-top\"><span>01</span><button type=\"button\" class=\"kdb-icon\" data-deck-action=\"reorder\" title=\"Échanger le slot 1 : BALMHYR\" aria-label=\"Échanger le slot 1 : BALMHYR\" data-slot=\"0\" aria-pressed=\"false\" ><i data-lucide=\"grip-vertical\" aria-hidden=\"true\"></i></button><button type=\"button\" class=\"kdb-icon\" data-deck-action=\"remove\" title=\"Retirer BALMHYR du slot 1\" aria-label=\"Retirer BALMHYR du slot 1\" data-slot=\"0\" ><i data-lucide=\"x\" aria-hidden=\"true\"></i></button></div>\\n' +\n  '          <button type=\"button\" class=\"kdb-slot-image\" data-deck-action=\"slot\" data-slot=\"0\" aria-pressed=\"true\" aria-label=\"Slot 1 : BALMHYR\" ><img src=\"assets/cards/07_MINERO_BALMHYR-full.png\" alt=\"BALMHYR\" draggable=\"false\"></button><span class=\"kdb-slot-label\" title=\"BALMHYR\">BALMHYR</span></div><div class=\"kdb-slot  \" data-deck-slot=\"1\" data-deck-preview=\"30000013\"><div class=\"kdb-slot-top\"><span>02</span><button type=\"button\" class=\"kdb-icon\" data-deck-action=\"reorder\" title=\"Échanger le slot 2 : TAULIO\" aria-label=\"Échanger le slot 2 : TAULIO\" data-slot=\"1\" aria-pressed=\"false\" ><i data-lucide=\"grip-vertical\" aria-hidden=\"true\"></i></button><button type=\"button\" class=\"kdb-icon\" data-deck-action=\"remove\" title=\"Retirer TAULIO du slot 2\" aria-label=\"Retirer TAULIO du slot 2\" data-slot=\"1\" ><i data-lucide=\"x\" aria-hidden=\"true\"></i></button></div>\\n' +\n  '          <button type=\"button\" class=\"kdb-slot-image\" data-deck-action=\"slot\" data-slot=\"1\" aria-pressed=\"false\" aria-label=\"Slot 2 : TAULIO\" ><img src=\"assets/cards/13_ELECTRO_TAULIO-full.png\" alt=\"TAULIO\" draggable=\"false\"></button><span class=\"kdb-slot-label\" title=\"TAULIO\">TAULIO</span></div><div class=\"kdb-slot  \" data-deck-slot=\"2\" data-deck-preview=\"30000002\"><div class=\"kdb-slot-top\"><span>03</span><button type=\"button\" class=\"kdb-icon\" data-deck-action=\"reorder\" title=\"Échanger le slot 3 : CANA\" aria-label=\"Échanger le slot 3 : CANA\" data-slot=\"2\" aria-pressed=\"false\" ><i data-lucide=\"grip-vertical\" aria-hidden=\"true\"></i></button><button type=\"button\" class=\"kdb-icon\" data-deck-action=\"remove\" title=\"Retirer CANA du slot 3\" aria-label=\"Retirer CANA du slot 3\" data-slot=\"2\" ><i data-lucide=\"x\" aria-hidden=\"true\"></i></button></div>\\n' +\n  '          <button type=\"button\" class=\"kdb-slot-image\" data-deck-action=\"slot\" data-slot=\"2\" aria-pressed=\"false\" aria-label=\"Slot 3 : CANA\" ><img src=\"assets/cards/02_AERO_CANA-full.png\" alt=\"CANA\" draggable=\"false\"></button><span class=\"kdb-slot-label\" title=\"'... 21085 more characters\n\n    at C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\site\\deck-library.test.cjs:300:10\n    at C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\site\\deck-library.test.cjs:348:17"
+    },
+    {
+      "name": "builder refresh keeps holes when a legacy parent echoes compact preferences",
+      "ok": true
+    },
+    {
+      "name": "builder shows corrupted storage without erasing it or the supplied draft",
+      "ok": true
+    },
+    {
+      "name": "builder rejects unknown legacy card ids instead of silently dropping them",
+      "ok": true
+    },
+    {
+      "name": "all 41 existing full PNG assets match the cropped 797/1388 aspect ratio",
+      "ok": true
+    }
+  ],
+  "passed": 40,
+  "failed": 1,
+  "scope": "Only V3/site/deck-library.test.cjs and V3/verification-flow/deck-tests.json are authored by this test. Browser integration belongs to the parent."
+}

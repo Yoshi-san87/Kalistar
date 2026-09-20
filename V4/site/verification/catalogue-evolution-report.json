@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "isolated": true,
+  "checks": [
+    "old backup preserves transferred newer originals, issued copies, activation and transfer proofs",
+    "default merge rejects old ownership conflicts; explicit restore retains newer transfers",
+    "mixed old/new matches preserve connected owners, release proofs and recomputed counters",
+    "tampered owners, missing origins and omitted approved profiles fail atomically",
+    "old backup restores into a fresh expanded registry without reminting newer originals",
+    "stale connection reports new IDs and cannot import until its catalogue is refreshed",
+    "two real tabs: complete ownership rows/counts, manual refresh, unchanged active game"
+  ],
+  "errors": []
+}

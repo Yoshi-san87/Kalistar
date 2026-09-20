@@ -1,0 +1,27 @@
+{
+  "checks": [
+    "Ally selection, rejected enemy, animated grant, persistent badge, clickable explanation and exact engine result",
+    "Original 897px images cover HiDPI duel size; no forced low-resolution compositing; heart and clover badges do not overlap",
+    "Failed DEF triggers clover effect and automatic animated reroll for a human player; no extra click, stale score or heart consumption",
+    "Reload during pending second chance resumes exact seeded result; second failed roll then consumes Reraise",
+    "AI awards an allied clover; schema 2 pending ATK retry migrates to recipient selection",
+    "Navigation cancels pending grant and automatic reroll without ghost commits; return resumes the saved second chance"
+  ],
+  "images": [
+    {
+      "natural": 897,
+      "display": 378.7225341796875,
+      "dpr": 2,
+      "source": "file:///C:/Users/guill/Documents/Doc/GP-2%20inside/Cartes/Kalistar/V2/cartes/13_ELECTRO_TAULIO.png",
+      "promoted": "auto"
+    },
+    {
+      "natural": 897,
+      "display": 378.7225341796875,
+      "dpr": 2,
+      "source": "file:///C:/Users/guill/Documents/Doc/GP-2%20inside/Cartes/Kalistar/V2/cartes/11_GEO_NAZAR.png",
+      "promoted": "auto"
+    }
+  ],
+  "errors": []
+}

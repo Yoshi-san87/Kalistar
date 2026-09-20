@@ -1,0 +1,117 @@
+{
+  "revision": "balmhyr-icons-2026-09-18",
+  "items": [
+    {
+      "key": "balmhyr",
+      "psd": "V4/templates/BALMHYR_V4_01_MINERO.psd",
+      "png": "V4/cartes/BALMHYR_V4_01_MINERO.png",
+      "profile": "V4/template-stable/elements-01/balmhyr/card.json",
+      "report": "V4/template-stable/elements-01/balmhyr/render.json",
+      "destination": "V4/revisions/2026-09-18-balmhyr-icons/staged/balmhyr"
+    },
+    {
+      "key": "lok",
+      "psd": "V4/templates/LOK_V4_01_MINERO.psd",
+      "png": "V4/cartes/LOK_V4_01_MINERO.png",
+      "profile": "V4/template-stable/elements-01/lok/card.json",
+      "report": "V4/template-stable/elements-01/lok/render.json",
+      "destination": "V4/revisions/2026-09-18-balmhyr-icons/staged/lok"
+    }
+  ],
+  "artwork": "V4/assets/illustrations/elements-01/terre-plantes/BALMHYR_V4_02_CANYONERO.png",
+  "install": [
+    {
+      "from": "V4/revisions/2026-09-18-balmhyr-icons/staged/balmhyr/card.psd",
+      "to": "V4/templates/BALMHYR_V4_01_MINERO.psd"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-balmhyr-icons/staged/balmhyr/card.png",
+      "to": "V4/cartes/BALMHYR_V4_01_MINERO.png"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-balmhyr-icons/staged/lok/card.psd",
+      "to": "V4/templates/LOK_V4_01_MINERO.psd"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-balmhyr-icons/staged/lok/card.png",
+      "to": "V4/cartes/LOK_V4_01_MINERO.png"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-balmhyr-icons/staged/publication/V4/assets/illustrations/elements-01/terre-plantes/BALMHYR_V4_02_CANYONERO.png",
+      "to": "V4/assets/illustrations/elements-01/terre-plantes/BALMHYR_V4_02_CANYONERO.png"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-balmhyr-icons/staged/icon-layouts.json",
+      "to": "V4/template-stable/icon-layouts.json"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-balmhyr-icons/staged/elements-common.jsx",
+      "to": "V4/scripts/stable/elements-common.jsx"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-balmhyr-icons/staged/publication/V4/template-stable/elements-01/balmhyr/card.json",
+      "to": "V4/template-stable/elements-01/balmhyr/card.json"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-balmhyr-icons/staged/publication/V4/template-stable/elements-01/balmhyr/render.json",
+      "to": "V4/template-stable/elements-01/balmhyr/render.json"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-balmhyr-icons/staged/publication/V4/template-stable/elements-01/lok/card.json",
+      "to": "V4/template-stable/elements-01/lok/card.json"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-balmhyr-icons/staged/publication/V4/template-stable/elements-01/lok/render.json",
+      "to": "V4/template-stable/elements-01/lok/render.json"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-balmhyr-icons/staged/publication/V4/template-stable/elements-01/manifest.json",
+      "to": "V4/template-stable/elements-01/manifest.json"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-balmhyr-icons/staged/publication/V4/template-stable/elements-02/manifest.json",
+      "to": "V4/template-stable/elements-02/manifest.json"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-balmhyr-icons/staged/publication/V4/template-stable/current-elements.json",
+      "to": "V4/template-stable/current-elements.json"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-balmhyr-icons/staged/publication/V4/atelier/designer-assets/packed/banks/weapon-Hache.png",
+      "to": "V4/atelier/designer-assets/packed/banks/weapon-Hache.png"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-balmhyr-icons/staged/publication/V4/atelier/designer-assets/banks/weapon-Hache.png",
+      "to": "V4/atelier/designer-assets/banks/weapon-Hache.png"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-balmhyr-icons/staged/publication/V4/atelier/designer-assets/packed/banks/race-NAIN.png",
+      "to": "V4/atelier/designer-assets/packed/banks/race-NAIN.png"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-balmhyr-icons/staged/publication/V4/atelier/designer-assets/banks/race-NAIN.png",
+      "to": "V4/atelier/designer-assets/banks/race-NAIN.png"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-balmhyr-icons/staged/publication/V4/atelier/designer-assets/manifest.json",
+      "to": "V4/atelier/designer-assets/manifest.json"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-balmhyr-icons/staged/publication/V4/atelier/designer-assets/manifest.raw.json",
+      "to": "V4/atelier/designer-assets/manifest.raw.json"
+    }
+  ],
+  "protect": [
+    "V4/revisions/2026-09-18-balmhyr-icons/plan.json",
+    "V4/revisions/2026-09-18-balmhyr-icons/verification.json",
+    "V4/revisions/2026-09-18-balmhyr-icons/references-before.json",
+    "V4/revisions/2026-09-18-balmhyr-icons/publish.cjs",
+    "V4/assets/illustrations/elements-01/terre-plantes/BALMHYR_V4_02_CANYONERO.png",
+    "V4/template-stable/icon-layouts.json",
+    "V4/atelier/designer-assets/packed/banks/weapon-Hache.png",
+    "V4/atelier/designer-assets/banks/weapon-Hache.png",
+    "V4/atelier/designer-assets/packed/banks/race-NAIN.png",
+    "V4/atelier/designer-assets/banks/race-NAIN.png"
+  ],
+  "referenceId": "af17ee6bd1c0aba0771193bbe87d2498e1ffee55df90c5506507740b667af4ea"
+}

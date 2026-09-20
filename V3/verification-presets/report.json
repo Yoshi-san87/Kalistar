@@ -1,0 +1,100 @@
+{
+  "ok": true,
+  "checks": 10,
+  "cases": [
+    "Five named canonical/bundled presets cover 41 cards and all pass validatePlayableDeck",
+    "Editing the initial draft cannot mutate source presets",
+    "Selecting is inert; Charger loads each draft without changing the active match",
+    "Draft and preset preferences persist in V3; canceled IA choice preserves the match",
+    "Each of the five IA decks is used only by the next confirmed match",
+    "Opponent selector remains coherent for local two-player matches",
+    "An invalid draft cannot replace an active game, even by forged form submission",
+    "Preset controls fit desktop and mobile deck page and new-game dialog without horizontal overflow",
+    "Invalid saved presets fall back; invalid presets are disabled and cannot bypass validation",
+    "Unknown stored preference IDs are normalized without disturbing an existing game"
+  ],
+  "decks": 5,
+  "cards": 41,
+  "coverage": [
+    {
+      "id": "player",
+      "counts": {
+        "1": 2,
+        "2": 2,
+        "3": 3,
+        "4": 3,
+        "5": 2
+      }
+    },
+    {
+      "id": "enemy",
+      "counts": {
+        "1": 2,
+        "2": 2,
+        "3": 2,
+        "4": 2,
+        "5": 2
+      }
+    },
+    {
+      "id": "z13",
+      "counts": {
+        "1": 2,
+        "2": 2,
+        "3": 2,
+        "4": 2,
+        "5": 2
+      }
+    },
+    {
+      "id": "cites",
+      "counts": {
+        "1": 2,
+        "2": 2,
+        "3": 2,
+        "4": 2,
+        "5": 2
+      }
+    },
+    {
+      "id": "frontieres",
+      "counts": {
+        "1": 2,
+        "2": 2,
+        "3": 2,
+        "4": 2,
+        "5": 2
+      }
+    }
+  ],
+  "browserErrors": [],
+  "changedDuringTest": [],
+  "sourceHashes": {
+    "accounts-ui.js": "0fd97264bcd5",
+    "accounts.css": "0354690435c7",
+    "app.js": "309924f1f571",
+    "arena.css": "516b7cf6c56c",
+    "battle-ui.css": "6084a5f25944",
+    "catalogue.css": "bbfc0125c7e3",
+    "catalogue.js": "aa94fa0a19d4",
+    "combat-effects.js": "35e550dc977d",
+    "data.js": "55cce888a355",
+    "deck-builder.css": "3fe399065a20",
+    "deck-builder.js": "99b7fae62a6f",
+    "deck-library.js": "fa11851b6059",
+    "dice-view.js": "d69d74eb5d13",
+    "duel-console.css": "743b8097a061",
+    "duel-focus.js": "a8cb398940db",
+    "duel-presentation.css": "3e6c77796d04",
+    "engine.js": "a1c3c6c3b6c4",
+    "formation-drag.js": "91a25752afe9",
+    "index.html": "c0a4c516460c",
+    "local-db.js": "4fb3827624fa",
+    "match-report.css": "7e181979a159",
+    "match-report.js": "36166ee96dc3",
+    "ownership.js": "abc4d66224d9",
+    "reserve-preview.js": "297e4a980971",
+    "style.css": "3a62d9b52787",
+    "v3.css": "fc12eb47aec9"
+  }
+}

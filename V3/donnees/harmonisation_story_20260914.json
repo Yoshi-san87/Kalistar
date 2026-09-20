@@ -1,0 +1,424 @@
+{
+  "schema_version": 1,
+  "version": "V3",
+  "lot": "harmonisation_story_20260914",
+  "status": "approved_for_integration",
+  "brief": "V3/sources/DIRECTION_ARTISTIQUE_KALISTAR.md",
+  "source_snapshots": [
+    {
+      "path": "V3/sources/DIRECTION_ARTISTIQUE_KALISTAR.md",
+      "sha256": "49C2CA60CCF90415319CE3DAF05A48C5FADDDD27E0BCC88C201CCF390877E907"
+    },
+    {
+      "path": "V3/assets/illustrations/12_RAINBOW_KAYLIS.png",
+      "sha256": "F6BEFFFEE9085E8415321215717A3D4BE651216F48C00AA9AB776DC0A3B603F4"
+    },
+    {
+      "path": "V3/assets/illustrations/21_NONE_LANIO.png",
+      "sha256": "7D2300CF6CB6D137A4AB8D8FB54422A9BE30A5719335F6CE882173D31BE19EA1"
+    },
+    {
+      "path": "V3/assets/illustrations/22_NONE_MALABA.png",
+      "sha256": "2CA0260D587127E19B4DE5A1E0F65AF1E9973E58AD81DB9F008065E5186BB92C"
+    },
+    {
+      "path": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+      "sha256": "44966D49AF5D5F916C3AD3F3B62BF846FA1D6646CA609CB3BEE9ED6EEDC94AC8"
+    },
+    {
+      "path": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+      "sha256": "036F5BEAF9448EF7259C71A464B9494CB5079891AEE422C7686EC5FFA0B4CA91"
+    },
+    {
+      "path": "V3/assets/illustrations/28_NECRO_VOLODEN.png",
+      "sha256": "73DE7D13FE5525F05CA6543F2C0BCE5DCC1B015BCAA731EFF4467B86E36F4C3A"
+    }
+  ],
+  "generator": {
+    "tool": "image_gen.imagegen",
+    "mode": "edit",
+    "one_call_per_asset": false,
+    "expected_calls": 4,
+    "actual_calls": 4,
+    "returned_via_generatedImage": true,
+    "initial_pass_calls": 3,
+    "additional_background_edit_calls": 1,
+    "one_asset_per_call": true,
+    "note": "Trois appels initiaux, puis un appel supplementaire explicitement demande pour corriger uniquement le decor du Lanio staged."
+  },
+  "scope": {
+    "exclusive_assets": [
+      "12_RAINBOW_KAYLIS",
+      "21_NONE_LANIO",
+      "22_NONE_MALABA"
+    ],
+    "canonical_files_modified": false,
+    "other_images_modified": false,
+    "profiles_mechanics_scripts_ui_database_modified": false,
+    "photoshop_exports": false
+  },
+  "reference_policy": "Premier passage: quatre referenced_image_paths explicites, cible puis Momo01, Valazar34, Voloden28. Correction de decor Lanio: seule la cible staged est fournie, style et premier plan deja valides; input et output vus avec view_image original.",
+  "assets": [
+    {
+      "slug": "12_RAINBOW_KAYLIS",
+      "status": "approved_for_integration",
+      "edit_target": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/12_RAINBOW_KAYLIS.png",
+      "references": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/12_RAINBOW_KAYLIS.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "reference_roles": [
+        "edit_target_identity",
+        "primary_painting_Momo",
+        "support_painting_Valazar",
+        "support_painting_Voloden"
+      ],
+      "prompt": "Use case: identity-preserve / style-transfer. EDIT IMAGE 1 into ONE revised Kalistar narrative painting. This is not a collage, not four variants. Output only the revised image-1 character.\nINPUT ROLES, exact order: image 1 is the EDIT TARGET and exclusive reference for the character's identity, body and clothing; image 2, MOMO, is the PRIMARY visual PAINTING reference; image 3, VALAZAR, and image 4, VOLODEN, support the world's serious storytelling, tactile materials and motivated lighting. Do NOT copy the robot, skeleton, pale ruler, their faces, costume, weapon, architecture or poses. Do NOT output or modify images 2-4.\nCrucial requested transformation: ACTUALLY REPAINT image 1 in Momo's visible painted language, not a photographic picture with grain overlaid. Use broad constructed opaque brush planes, broken impasto-like marks, colored shadows, lost-and-found edges, carved patches of light. Face, hands, clothing AND environment must share the same painting technique. Build credible expressive HUMAN faces from color planes, not pore detail, plastic shading, glamour retouching or manga eyes. Momo's reference brushwork has priority over image 1's photographic microtexture. Preserve identity while making the brushwork clearly visible at normal viewing size. NO photo, photo pores, lens blur, artificial depth-of-field, glossy 3D, anime contour, manga proportions, airbrushed skin or fake texture filter.\nFraming and invariants: single full-bleed approximately 4:5 portrait PNG, 1024+ pixels wide. Main character visible from head to BOTH feet, with breathing room around head and boots. Exactly TWO arms, TWO hands, TWO legs, TWO feet and ONE head, anatomically coherent shoulder-elbow-wrist and hip-knee-ankle chains. Five plausible fingers per hand, one thumb per hand, no duplicated fingers or fused wrists. No extra limbs or motion ghosts. No frame, text, logo, letters, numbers, watermark or interface.\nKAYLIS specific changes: retain the SAME beautiful clearly young ADULT woman of mixed Indian and Afro-Caribbean heritage from image 1, the same warm brown skin, facial identity, dark curled hair tied back loosely, slim athletic sprinter's proportions and toned but slender body, same fitted worn BLACK mine-worker top and trousers and rugged boots. Do not bulk her up or change her ethnicity. The user specifically loves her body; preserve those proportions.\nReplace the running-at-a-sunlit-exit scene with a DARK INNER CAVE and a powerful intimate moment of destiny embraced. Kaylis has stopped, standing grounded on rough stone, one boot a little ahead of the other, both knees natural and separated. Her spine is straightening after pain and uncertainty, shoulders release into quiet strength. One forearm is lifted gently in front of her torso with a relaxed open hand, palm angled upward; her OTHER arm stays lower beside the hip, slightly bent with hand visible and softly curled. Those are her only two arms, with both elbows visibly connected to her shoulders. No criss-crossed arms or concealed hands.\nHer RAINBOW tattoos on BOTH upper arms and forearms are now bold, complex and badass: strongly designed abstract branching ornamental bands following the musculature, recognizable RED, ORANGE, GOLD, GREEN, CYAN, BLUE and VIOLET areas with separation. They are ALREADY AWAKENED tattoos and she now accepts what they mean, not a blank-skin transformation. They emit a believable vivid but controlled light from WITHIN the painted skin; light falls physically onto her fingers, cheekbones, neck, black top and nearby cave stone. These tattoo patterns, not daylight, are the main light source. Keep rich DARK stone behind her so the carved colored light is unmistakable; modest dim cool cave ambient reveals legs and boots. No giant rainbow beam, neon fog, multicolored halo, ribbon circling the body, floating symbol, writing or hologram.\nEmotion is the essential subject: intense lucid eyes slightly wet with emotion, restrained pain becoming certainty, chin gently lifted toward something beyond frame, lips gathered in a quiet breath, courage and chosen responsibility. An expression that says she knows the cost and will go forward anyway. Powerful calm resolve rather than surprise, screaming, a grin, model posing or an advertising superhero stance. Paint human vulnerability AND inner strength. One person alone. Cave darkness and tattoo reflections painted with the confident light-on-matter brushwork of MOMO.",
+      "generated_source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-f9c0fd23-11d1-44fb-8c74-197ba538e467.png",
+      "path": "V3/assets/revisions-20260914/illustrations/12_RAINBOW_KAYLIS.png",
+      "qa": {
+        "status": "passed",
+        "inspection": "view_image original, image complete affichee apres generation; verification directe des doigts et articulations.",
+        "full_format_seen": true,
+        "checks": [
+          "Identite adulte metisse, silhouette svelte et athletique et tenue noire conservees.",
+          "Deux bras, deux mains; doigts lisibles sans duplication evidente, continuites epaule-coude-poignet.",
+          "Deux jambes et deux bottes distinctes, appuis et bassin coherents.",
+          "Tatouages Rainbow affirmes sur les deux bras, couleurs separees; reflets sur visage, vetements et pierre.",
+          "Grotte sombre et posture posee, emotion grave; peinture visible sur personnage et decor.",
+          "Aucun cadre, texte ou logo."
+        ],
+        "notes": "Validation parent recue. Fichier staged final verifie; aucun remplacement canonique effectue.",
+        "external_raster_edits": false,
+        "parent_approved": true,
+        "integration_ready": true
+      },
+      "output": {
+        "width": 1122,
+        "height": 1402,
+        "bytes": 2706419,
+        "sha256": "44149ED7E870B8DEB0903AF8B1138ED9E897E5856EDF7593151DB470ECE93D73",
+        "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/revisions-20260914/illustrations/12_RAINBOW_KAYLIS.png"
+      },
+      "parent_approval": {
+        "status": "approved",
+        "authority": "user",
+        "approved_sha256": "44149ED7E870B8DEB0903AF8B1138ED9E897E5856EDF7593151DB470ECE93D73"
+      }
+    },
+    {
+      "slug": "21_NONE_LANIO",
+      "status": "approved_for_integration",
+      "edit_target": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/revisions-20260914/illustrations/21_NONE_LANIO.png",
+      "references": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/revisions-20260914/illustrations/21_NONE_LANIO.png"
+      ],
+      "reference_roles": [
+        "staged_edit_target_foreground_and_style_locked"
+      ],
+      "prompt": "Use case: precise-object-edit. BACKGROUND-ONLY EDIT of the supplied staged Kalistar Lanio painting. Output ONE revised painting, same portrait canvas, same crop and resolution.\nLOCKED FOREGROUND / DO NOT REPAINT: preserve EXACTLY the existing blond human LANIO, his entire silhouette, placement, proportions, golden hair strands, recognizable smiling face, eye expression, red shirt, trousers, belt, boots, airborne pose, both arms, both hands, every visible finger, both bent legs, and the SINGLE ball with its current texture and angle. Preserve EXACTLY the FIRST LARGE RHINOZ OPPONENT along the LEFT foreground, including its rhino face, horn, armor, raised reaching hand, pose, scale, crop and relationship to Lanio. Keep all painted foreground edges and lighting as if those subjects were protected by a precise mask. Do not improve, redesign, relight, move or resize them. Do not introduce extra fingers, limbs or another ball. Keep the lively wild athletic action and warm friendly grin. Keep the original clear visible painted brush planes, NOT a new style.\nONLY REPLACE THE SCENERY AROUND AND BEHIND THESE LOCKED FOREGROUND FIGURES. The current tall stacked walls, densely packed terraces, stadium-like bleachers, monumental city and high skyline are rejected. REMOVE THEM COMPLETELY, including the tall left wall behind the reaching Rhinoz, ALL elevated spectators, ALL layered spectator rows, ALL city towers, ALL huge carved-rock spires and ALL distant monumental buildings. Do not merely roughen, shorten a little, darken or relight the old arena. It must be gone.\nNEW BACKGROUND: a modest OPEN-AIR neighborhood dirt court between just a FEW SMALL SINGLE-STORY WORKSHOPS made of rough stone and patched planks. Their simple low sloping roofs sit LOW in the composition behind the players, nowhere near Lanio's head. Low waist-high patched wooden fences, a shed door, one small stack of working crates, rutted uneven packed-earth playing ground. NO seating structures, NO bleachers AT ALL, NO arena seating, no terraces, no balconies crowded with spectators, no enclosing high walls, no monumental arches, no towers, no castle, no amphitheater, no stadium. At most FIVE local neighbors watching warmly beside the low fence, all at GROUND LEVEL, with comfortable visible gaps between them; NOT a crowd. They are secondary and small. The two small distant Rhinoz PLAYERS may remain as upright two-armed two-legged humanoids on the dirt playing surface, not a spectator mass.\nONE AND ONLY ONE ASTRABALL GOAL: replace the old elaborate arch with ONE modest improvised inverted-U goal at the far edge of the court on the right. A visibly battered bent metal pipe forming a rounded upside-down U with two descending ends, OPEN BELOW, lashed to simple narrow wooden supports. No backboard, no circular basketball hoop, no ornate gateway or stone arch. Clearly sports equipment, not architecture.\nLATER EVENING: broad breathing room of deep MIDNIGHT BLUE sky in the upper background, only a narrow last pale pink glow low along the horizon. NO sun disk or broad golden sunset. A few small warm lanterns hanging from short workshop eaves and low poles light the ruts, fence and neighbors. Their warm pools should motivate the foreground's EXISTING warm light without changing the painted figures. Welcoming wild STREET GAME after work, village-scale and handmade, not a grand event.\nMaintain the exact staged painting technique already present: clear purposeful strokes and colored shadow planes across sky, dirt, stone and planks, no photographic textures, no artificial lens blur, no manga. Background perspective must agree with the existing low court-side viewpoint and locked airborne characters. Preserve foreground scale; only simplify and open up surroundings. Full-bleed approximately 4:5 portrait, no frame, text, logo, signage, watermark or UI.",
+      "generated_source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-267cf5b3-ecf3-4889-b3c6-551a5bff7870.png",
+      "path": "V3/assets/revisions-20260914/illustrations/21_NONE_LANIO.png",
+      "qa": {
+        "status": "passed_background_correction",
+        "inspection": "view_image original de la cible staged puis du resultat complet; comparaison visuelle du premier plan, mains, doigts et articulations.",
+        "full_format_seen": true,
+        "checks": [
+          "Lanio: visage souriant, cheveux blonds, position, tenue, pose aerienne, ballon unique et prises des mains conserves visuellement.",
+          "Premier adversaire Rhinoz a gauche: tete, corne, armure, main tendue, pose et echelle conserves visuellement.",
+          "Deux bras, deux mains, deux jambes et deux bottes de Lanio lisibles; pas de doigt ou membre supplementaire evident.",
+          "Arene, hauts gradins, murs monumentaux, tours et foule etagee supprimes.",
+          "Terrain cabosse entre ateliers bas de pierre et planches; clotures basses; trois voisins visibles au niveau du sol.",
+          "Un seul but en U inverse bricole, sans panneau ni panier de basketball.",
+          "Ciel bleu nuit ouvert, derniere lueur rose et lanternes; peinture visible coherente avec la version staged.",
+          "Aucun cadre, texte ou logo."
+        ],
+        "foreground_preservation": {
+          "method": "comparaison visuelle a taille originale",
+          "pixel_identical_claimed": false
+        },
+        "previous_scene_reservation": "resolved_by_background_replacement",
+        "external_raster_edits": false,
+        "parent_approved": true,
+        "integration_ready": true,
+        "notes": "Validation parent recue. Fichier staged final verifie; aucun remplacement canonique effectue."
+      },
+      "output": {
+        "width": 1122,
+        "height": 1402,
+        "bytes": 2778678,
+        "sha256": "F8A38A205079384B40DFB229C28A231B314AC7527FF76233A42439227D4F29EE",
+        "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/revisions-20260914/illustrations/21_NONE_LANIO.png",
+        "first_attempt_retained": true
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "kind": "initial_harmonisation_edit",
+          "status": "superseded_background_rejected_by_parent",
+          "parent_feedback": "Lanio reste une grande arene; seuls son decor et l'heure doivent changer. Personnage, sourire, pose, ballon, premier Rhinoz et style valides.",
+          "edit_target": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/21_NONE_LANIO.png",
+          "references": [
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/21_NONE_LANIO.png",
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+          ],
+          "reference_roles": [
+            "edit_target_identity",
+            "primary_painting_Momo",
+            "support_painting_Valazar",
+            "support_painting_Voloden"
+          ],
+          "prompt": "Use case: identity-preserve / style-transfer. EDIT IMAGE 1 into ONE revised Kalistar narrative painting. This is not a collage, not four variants. Output only the revised image-1 character.\nINPUT ROLES, exact order: image 1 is the EDIT TARGET and exclusive reference for the character's identity, body and clothing; image 2, MOMO, is the PRIMARY visual PAINTING reference; image 3, VALAZAR, and image 4, VOLODEN, support the world's serious storytelling, tactile materials and motivated lighting. Do NOT copy the robot, skeleton, pale ruler, their faces, costume, weapon, architecture or poses. Do NOT output or modify images 2-4.\nCrucial requested transformation: ACTUALLY REPAINT image 1 in Momo's visible painted language, not a photographic picture with grain overlaid. Use broad constructed opaque brush planes, broken impasto-like marks, colored shadows, lost-and-found edges, carved patches of light. Face, hands, clothing AND environment must share the same painting technique. Build credible expressive HUMAN faces from color planes, not pore detail, plastic shading, glamour retouching or manga eyes. Momo's reference brushwork has priority over image 1's photographic microtexture. Preserve identity while making the brushwork clearly visible at normal viewing size. NO photo, photo pores, lens blur, artificial depth-of-field, glossy 3D, anime contour, manga proportions, airbrushed skin or fake texture filter.\nFraming and invariants: single full-bleed approximately 4:5 portrait PNG, 1024+ pixels wide. Main character visible from head to BOTH feet, with breathing room around head and boots. Exactly TWO arms, TWO hands, TWO legs, TWO feet and ONE head, anatomically coherent shoulder-elbow-wrist and hip-knee-ankle chains. Five plausible fingers per hand, one thumb per hand, no duplicated fingers or fused wrists. No extra limbs or motion ghosts. No frame, text, logo, letters, numbers, watermark or interface.\nLANIO specific changes: retain the SAME blond attractive charismatic young ADULT human man from image 1, same golden tousled hair, handsome face, lean athletic body, red worn sleeveless top, dark practical pants, boots and ONE dense worn metallic-leather Astraball ball. Keep the coherent athletic leaping interception from the source, two separated bent legs and two hands holding the single ball near shoulder height. Both elbows and wrists anatomically readable; hands grip the same ball naturally, exactly two hands, never a third hand or duplicated ball. His grin should feel genuinely alive and endearing: bright competitive focus and mischievous delight at finally belonging, eyes HUMAN-sized not manga.\nCHANGE THE SETTING AND LIGHT ENTIRELY: wild neighborhood STREET ASTRABALL among Rhinoz at DUSK / EARLY EVENING, an intimate rough dirt court hemmed by LOW patched stone dwellings and timber fences. A few makeshift TWO-LEVEL plank bleachers, salvaged crates, uneven packed earth, scuffed informal boundary lines, neighbors close to the play, sparse warm practical lanterns on ropes or walls. A dusty improvised working-class village sports ground, NOT a huge arena, not a colosseum, no grand urban towers, marble terraces, luxurious stadium or thousands of spectators. There can be a modest amount of steep Zarok rock beyond the low homes, but no palatial architecture.\nA humanoid Rhinoz defender with TWO arms and TWO legs tries to intercept a few steps behind Lanio, clearly separated so their arms cannot merge. Other Rhinoz and onlookers remain small secondary figures. Rhinoz have rhino heads and upright clothed HUMANLIKE torsos and biped legs, not animal bodies. The game's goal MUST be a simple freestanding INVERTED U made of bent salvaged metal on timber supports: rounded arch with two vertical ends OPEN AT THE BOTTOM, clearly visible behind the action. NOT a circular basketball rim, NO rectangular backboard, not an ordinary soccer goal.\nStrong expressive PAINTED evening light: cool indigo-violet shadows, a remaining muted rose sunset strip, lantern warm accents on golden hair and sweat rendered as a few paint strokes rather than photographic droplets. Dust and flying loose fabric describe the rough intensity of play, but no motion-blur anatomy or magic ball; LANIO is NONE, no elemental aura. Momo's large confident brush planes must be visible on Lanio's face, arms, clothes and neighborhood. Preserve the original character, not the arena or daytime light.",
+          "generated_source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-15ff466a-29dc-4446-832d-7bfca12d1341.png",
+          "retained_image_path": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-15ff466a-29dc-4446-832d-7bfca12d1341.png",
+          "retained_source_sha256_verified": true,
+          "staged_path_at_delivery": "V3/assets/revisions-20260914/illustrations/21_NONE_LANIO.png",
+          "output": {
+            "width": 1122,
+            "height": 1402,
+            "bytes": 2809501,
+            "sha256": "1DD2EC849A0B5E17CE1CB0D6D963A50125AAAFF68A368292B8A5DC5160D13F1F",
+            "path": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-15ff466a-29dc-4446-832d-7bfca12d1341.png"
+          },
+          "qa": {
+            "status": "passed_anatomy_and_painting_scene_reservation",
+            "inspection": "view_image original, image complete affichee apres generation; controle des deux prises du ballon et des articulations.",
+            "full_format_seen": true,
+            "checks": [
+              "Identite humaine blonde, visage attachant et geste sportif conserves.",
+              "Deux bras et deux mains coherentes autour d'un ballon unique; doigts visibles bien rattaches, autres occultes par la prise.",
+              "Deux jambes pliees et deux bottes separees; bassin, genoux, chevilles et coudes coherents.",
+              "Touches de peinture visibles sur visage, peau, vetements, ciel et decor.",
+              "Soiree au crepuscule, lanternes, terre et palissades usees, but en U inverse sans panneau de basket.",
+              "Rhinoz humanoides; aucun effet elementaire sur Lanio; aucun cadre, texte ou logo."
+            ],
+            "reservation": "Les gradins, murets et spectateurs restent assez hauts et denses. Le decor est rustique et non luxueux, mais conserve davantage d'etagement qu'un petit terrain de quartier minimal; a arbitrer par le parent.",
+            "external_raster_edits": false
+          }
+        },
+        {
+          "attempt": 2,
+          "kind": "background_only_edit",
+          "status": "approved_for_integration",
+          "edit_target": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/revisions-20260914/illustrations/21_NONE_LANIO.png",
+          "edit_target_snapshot": {
+            "sha256": "1DD2EC849A0B5E17CE1CB0D6D963A50125AAAFF68A368292B8A5DC5160D13F1F",
+            "retained_image_path": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-15ff466a-29dc-4446-832d-7bfca12d1341.png"
+          },
+          "references": [
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/revisions-20260914/illustrations/21_NONE_LANIO.png"
+          ],
+          "reference_roles": [
+            "staged_edit_target_foreground_and_style_locked"
+          ],
+          "prompt": "Use case: precise-object-edit. BACKGROUND-ONLY EDIT of the supplied staged Kalistar Lanio painting. Output ONE revised painting, same portrait canvas, same crop and resolution.\nLOCKED FOREGROUND / DO NOT REPAINT: preserve EXACTLY the existing blond human LANIO, his entire silhouette, placement, proportions, golden hair strands, recognizable smiling face, eye expression, red shirt, trousers, belt, boots, airborne pose, both arms, both hands, every visible finger, both bent legs, and the SINGLE ball with its current texture and angle. Preserve EXACTLY the FIRST LARGE RHINOZ OPPONENT along the LEFT foreground, including its rhino face, horn, armor, raised reaching hand, pose, scale, crop and relationship to Lanio. Keep all painted foreground edges and lighting as if those subjects were protected by a precise mask. Do not improve, redesign, relight, move or resize them. Do not introduce extra fingers, limbs or another ball. Keep the lively wild athletic action and warm friendly grin. Keep the original clear visible painted brush planes, NOT a new style.\nONLY REPLACE THE SCENERY AROUND AND BEHIND THESE LOCKED FOREGROUND FIGURES. The current tall stacked walls, densely packed terraces, stadium-like bleachers, monumental city and high skyline are rejected. REMOVE THEM COMPLETELY, including the tall left wall behind the reaching Rhinoz, ALL elevated spectators, ALL layered spectator rows, ALL city towers, ALL huge carved-rock spires and ALL distant monumental buildings. Do not merely roughen, shorten a little, darken or relight the old arena. It must be gone.\nNEW BACKGROUND: a modest OPEN-AIR neighborhood dirt court between just a FEW SMALL SINGLE-STORY WORKSHOPS made of rough stone and patched planks. Their simple low sloping roofs sit LOW in the composition behind the players, nowhere near Lanio's head. Low waist-high patched wooden fences, a shed door, one small stack of working crates, rutted uneven packed-earth playing ground. NO seating structures, NO bleachers AT ALL, NO arena seating, no terraces, no balconies crowded with spectators, no enclosing high walls, no monumental arches, no towers, no castle, no amphitheater, no stadium. At most FIVE local neighbors watching warmly beside the low fence, all at GROUND LEVEL, with comfortable visible gaps between them; NOT a crowd. They are secondary and small. The two small distant Rhinoz PLAYERS may remain as upright two-armed two-legged humanoids on the dirt playing surface, not a spectator mass.\nONE AND ONLY ONE ASTRABALL GOAL: replace the old elaborate arch with ONE modest improvised inverted-U goal at the far edge of the court on the right. A visibly battered bent metal pipe forming a rounded upside-down U with two descending ends, OPEN BELOW, lashed to simple narrow wooden supports. No backboard, no circular basketball hoop, no ornate gateway or stone arch. Clearly sports equipment, not architecture.\nLATER EVENING: broad breathing room of deep MIDNIGHT BLUE sky in the upper background, only a narrow last pale pink glow low along the horizon. NO sun disk or broad golden sunset. A few small warm lanterns hanging from short workshop eaves and low poles light the ruts, fence and neighbors. Their warm pools should motivate the foreground's EXISTING warm light without changing the painted figures. Welcoming wild STREET GAME after work, village-scale and handmade, not a grand event.\nMaintain the exact staged painting technique already present: clear purposeful strokes and colored shadow planes across sky, dirt, stone and planks, no photographic textures, no artificial lens blur, no manga. Background perspective must agree with the existing low court-side viewpoint and locked airborne characters. Preserve foreground scale; only simplify and open up surroundings. Full-bleed approximately 4:5 portrait, no frame, text, logo, signage, watermark or UI.",
+          "generated_source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-267cf5b3-ecf3-4889-b3c6-551a5bff7870.png",
+          "path": "V3/assets/revisions-20260914/illustrations/21_NONE_LANIO.png",
+          "output": {
+            "width": 1122,
+            "height": 1402,
+            "bytes": 2778678,
+            "sha256": "F8A38A205079384B40DFB229C28A231B314AC7527FF76233A42439227D4F29EE",
+            "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/revisions-20260914/illustrations/21_NONE_LANIO.png",
+            "first_attempt_retained": true
+          },
+          "qa": {
+            "status": "passed_background_correction",
+            "inspection": "view_image original de la cible staged puis du resultat complet; comparaison visuelle du premier plan, mains, doigts et articulations.",
+            "full_format_seen": true,
+            "checks": [
+              "Lanio: visage souriant, cheveux blonds, position, tenue, pose aerienne, ballon unique et prises des mains conserves visuellement.",
+              "Premier adversaire Rhinoz a gauche: tete, corne, armure, main tendue, pose et echelle conserves visuellement.",
+              "Deux bras, deux mains, deux jambes et deux bottes de Lanio lisibles; pas de doigt ou membre supplementaire evident.",
+              "Arene, hauts gradins, murs monumentaux, tours et foule etagee supprimes.",
+              "Terrain cabosse entre ateliers bas de pierre et planches; clotures basses; trois voisins visibles au niveau du sol.",
+              "Un seul but en U inverse bricole, sans panneau ni panier de basketball.",
+              "Ciel bleu nuit ouvert, derniere lueur rose et lanternes; peinture visible coherente avec la version staged.",
+              "Aucun cadre, texte ou logo."
+            ],
+            "foreground_preservation": {
+              "method": "comparaison visuelle a taille originale",
+              "pixel_identical_claimed": false
+            },
+            "previous_scene_reservation": "resolved_by_background_replacement",
+            "external_raster_edits": false,
+            "parent_approved": true,
+            "integration_ready": true
+          },
+          "parent_approval": {
+            "status": "approved",
+            "authority": "user",
+            "approved_sha256": "F8A38A205079384B40DFB229C28A231B314AC7527FF76233A42439227D4F29EE"
+          }
+        }
+      ],
+      "edit_target_snapshot": {
+        "sha256": "1DD2EC849A0B5E17CE1CB0D6D963A50125AAAFF68A368292B8A5DC5160D13F1F",
+        "retained_image_path": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-15ff466a-29dc-4446-832d-7bfca12d1341.png"
+      },
+      "parent_approval": {
+        "status": "approved",
+        "authority": "user",
+        "approved_sha256": "F8A38A205079384B40DFB229C28A231B314AC7527FF76233A42439227D4F29EE"
+      }
+    },
+    {
+      "slug": "22_NONE_MALABA",
+      "status": "approved_for_integration",
+      "edit_target": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/22_NONE_MALABA.png",
+      "references": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/22_NONE_MALABA.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "reference_roles": [
+        "edit_target_identity",
+        "primary_painting_Momo",
+        "support_painting_Valazar",
+        "support_painting_Voloden"
+      ],
+      "prompt": "Use case: identity-preserve / style-transfer. EDIT IMAGE 1 into ONE revised Kalistar narrative painting. This is not a collage, not four variants. Output only the revised image-1 character.\nINPUT ROLES, exact order: image 1 is the EDIT TARGET and exclusive reference for the character's identity, body and clothing; image 2, MOMO, is the PRIMARY visual PAINTING reference; image 3, VALAZAR, and image 4, VOLODEN, support the world's serious storytelling, tactile materials and motivated lighting. Do NOT copy the robot, skeleton, pale ruler, their faces, costume, weapon, architecture or poses. Do NOT output or modify images 2-4.\nCrucial requested transformation: ACTUALLY REPAINT image 1 in Momo's visible painted language, not a photographic picture with grain overlaid. Use broad constructed opaque brush planes, broken impasto-like marks, colored shadows, lost-and-found edges, carved patches of light. Face, hands, clothing AND environment must share the same painting technique. Build credible expressive HUMAN faces from color planes, not pore detail, plastic shading, glamour retouching or manga eyes. Momo's reference brushwork has priority over image 1's photographic microtexture. Preserve identity while making the brushwork clearly visible at normal viewing size. NO photo, photo pores, lens blur, artificial depth-of-field, glossy 3D, anime contour, manga proportions, airbrushed skin or fake texture filter.\nFraming and invariants: single full-bleed approximately 4:5 portrait PNG, 1024+ pixels wide. Main character visible from head to BOTH feet, with breathing room around head and boots. Exactly TWO arms, TWO hands, TWO legs, TWO feet and ONE head, anatomically coherent shoulder-elbow-wrist and hip-knee-ankle chains. Five plausible fingers per hand, one thumb per hand, no duplicated fingers or fused wrists. No extra limbs or motion ghosts. No frame, text, logo, letters, numbers, watermark or interface.\nMALABA / BABA specific changes: retain the SAME very tall and massively built ADULT human man from image 1, same friendly recognizable face, deep warm brown eyes, strong jaw, short facial stubble, enormous shoulders, thick working arms and big hands, same sturdy human proportions and practical sleeveless worn mine shirt, trousers and boots. The only identity adjustment is a FULLY SHAVED SCALP: bald head, absolutely no hair tuft, curly top, mohawk or hat. Keep his original face and body size, do not replace him with a different man, no stone skin or mineral armor. Element NONE.\nPreserve the original warm bar-at-the-start-of-the-adventure setup at the Gueule Fumante and the grounded seated three-quarter composition, but REPAINT it substantially in MOMO'S language. Baba sits sideways on a sturdy stool at a scuffed counter, head to both boots visible, two legs apart with both soles solid on the floor, one broad arm naturally bent holding ONE substantial pewter mug of BEER at counter/chest height. The mug has a modest visible creamy foam head above amber beer, weight supported by a clearly attached hand with a believable grip; only one mug, no extra mug arm. His other great hand rests loose and readable on his thigh. Natural fingers and knuckles, no duplicates, two arms total.\nHis face is the story: amused kindness in the eyes, a welcoming easy smile as though greeting an off-frame friend with a good joke, relaxed protective warmth under enormous strength. No bellowing tough-guy aggression and no bland stock-photo smile. Keep his face identity while painting it with expressive planes, slight eye crinkles suggested by brushwork, not pores.\nTavern: rough smoke-darkened timber, chipped stone, an unpretentious candle or lantern near the counter, mine passage visible behind, a ration of bread and very small indistinct distant patrons only. Rich warm light locally cut into worn material balanced by cool olive-gray mine shadows, not a uniformly orange photographic tavern. Clearly VISIBLE BRUSHWORK on the bald scalp, face, huge shoulders, forearms, cloth, beer mug and backdrop. Avoid photoreal musculature highlights, lens blur or CGI wood detail. The painting should sit naturally beside MOMO as part of the same illustrated world. No written tavern sign.",
+      "generated_source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-6ca0272e-db76-4465-a9fd-b7112c6481cc.png",
+      "path": "V3/assets/revisions-20260914/illustrations/22_NONE_MALABA.png",
+      "qa": {
+        "status": "passed",
+        "inspection": "view_image original, image complete affichee apres generation; controle direct des doigts sur le gobelet et de la main sur la cuisse.",
+        "full_format_seen": true,
+        "checks": [
+          "Meme visage adulte chaleureux, meme carrure tres massive; crane completement rase.",
+          "Deux bras et deux mains; prise du gobelet plausible, main libre avec cinq doigts lisibles.",
+          "Deux jambes et deux bottes au sol; coudes, poignets, genoux et appuis coherents.",
+          "Biere mousseuse dans un gobelet, comptoir et debut d'aventure preserves; sourire accueillant.",
+          "Peinture visible sur crane, visage, muscles, tissus, metal et decor; ombres froides et lumiere locale chaude.",
+          "Aucun effet Minero, cadre, texte ou logo."
+        ],
+        "notes": "Validation parent recue. Fichier staged final verifie; aucun remplacement canonique effectue.",
+        "external_raster_edits": false,
+        "parent_approved": true,
+        "integration_ready": true
+      },
+      "output": {
+        "width": 1122,
+        "height": 1402,
+        "bytes": 2787655,
+        "sha256": "3CE4447D4BCC85A53108AD3D3547A759041FC2720A7C37D829832B95F0D00F05",
+        "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/revisions-20260914/illustrations/22_NONE_MALABA.png"
+      },
+      "parent_approval": {
+        "status": "approved",
+        "authority": "user",
+        "approved_sha256": "3CE4447D4BCC85A53108AD3D3547A759041FC2720A7C37D829832B95F0D00F05"
+      }
+    }
+  ],
+  "format": {
+    "requested": "portrait environ 4:5, 1024+ pixels",
+    "actual_width": 1122,
+    "actual_height": 1402,
+    "native_png": true,
+    "external_resize_or_crop": false
+  },
+  "latest_revision": {
+    "scope": [
+      "V3/assets/revisions-20260914/illustrations/21_NONE_LANIO.png",
+      "V3/donnees/harmonisation_story_20260914.json"
+    ],
+    "parent_feedback": {
+      "kaylis": "valided_by_parent_no_change",
+      "malaba": "valided_by_parent_no_change",
+      "lanio": "background_only_correction_requested"
+    },
+    "first_attempt_retained_in_generated_images": true,
+    "protected_file_checks": [
+      {
+        "path": "V3/assets/revisions-20260914/illustrations/12_RAINBOW_KAYLIS.png",
+        "unchanged": true,
+        "sha256": "44149ED7E870B8DEB0903AF8B1138ED9E897E5856EDF7593151DB470ECE93D73"
+      },
+      {
+        "path": "V3/assets/revisions-20260914/illustrations/22_NONE_MALABA.png",
+        "unchanged": true,
+        "sha256": "3CE4447D4BCC85A53108AD3D3547A759041FC2720A7C37D829832B95F0D00F05"
+      },
+      {
+        "path": "V3/assets/illustrations/12_RAINBOW_KAYLIS.png",
+        "unchanged": true,
+        "sha256": "F6BEFFFEE9085E8415321215717A3D4BE651216F48C00AA9AB776DC0A3B603F4"
+      },
+      {
+        "path": "V3/assets/illustrations/21_NONE_LANIO.png",
+        "unchanged": true,
+        "sha256": "7D2300CF6CB6D137A4AB8D8FB54422A9BE30A5719335F6CE882173D31BE19EA1"
+      },
+      {
+        "path": "V3/assets/illustrations/22_NONE_MALABA.png",
+        "unchanged": true,
+        "sha256": "2CA0260D587127E19B4DE5A1E0F65AF1E9973E58AD81DB9F008065E5186BB92C"
+      }
+    ]
+  },
+  "parent_approval": {
+    "status": "approved",
+    "authority": "user",
+    "approved_assets": [
+      "12_RAINBOW_KAYLIS",
+      "21_NONE_LANIO",
+      "22_NONE_MALABA"
+    ],
+    "statement": "Lanio corrige sur le terrain street du soir valide; Kaylis et Malaba deja valides; les trois peuvent etre integres.",
+    "outstanding_reservations": [],
+    "final_file_checks": [
+      {
+        "slug": "12_RAINBOW_KAYLIS",
+        "path": "V3/assets/revisions-20260914/illustrations/12_RAINBOW_KAYLIS.png",
+        "width": 1122,
+        "height": 1402,
+        "sha256": "44149ED7E870B8DEB0903AF8B1138ED9E897E5856EDF7593151DB470ECE93D73",
+        "verified": true
+      },
+      {
+        "slug": "21_NONE_LANIO",
+        "path": "V3/assets/revisions-20260914/illustrations/21_NONE_LANIO.png",
+        "width": 1122,
+        "height": 1402,
+        "sha256": "F8A38A205079384B40DFB229C28A231B314AC7527FF76233A42439227D4F29EE",
+        "verified": true
+      },
+      {
+        "slug": "22_NONE_MALABA",
+        "path": "V3/assets/revisions-20260914/illustrations/22_NONE_MALABA.png",
+        "width": 1122,
+        "height": 1402,
+        "sha256": "3CE4447D4BCC85A53108AD3D3547A759041FC2720A7C37D829832B95F0D00F05",
+        "verified": true
+      }
+    ]
+  },
+  "integration": {
+    "status": "ready",
+    "performed": false,
+    "note": "Les trois PNG staged sont les sources finales approuvees. L'integration reste a effectuer par le parent.",
+    "assets": [
+      {
+        "slug": "12_RAINBOW_KAYLIS",
+        "source": "V3/assets/revisions-20260914/illustrations/12_RAINBOW_KAYLIS.png",
+        "sha256": "44149ED7E870B8DEB0903AF8B1138ED9E897E5856EDF7593151DB470ECE93D73"
+      },
+      {
+        "slug": "21_NONE_LANIO",
+        "source": "V3/assets/revisions-20260914/illustrations/21_NONE_LANIO.png",
+        "sha256": "F8A38A205079384B40DFB229C28A231B314AC7527FF76233A42439227D4F29EE"
+      },
+      {
+        "slug": "22_NONE_MALABA",
+        "source": "V3/assets/revisions-20260914/illustrations/22_NONE_MALABA.png",
+        "sha256": "3CE4447D4BCC85A53108AD3D3547A759041FC2720A7C37D829832B95F0D00F05"
+      }
+    ]
+  }
+}

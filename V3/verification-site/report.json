@@ -1,0 +1,37 @@
+{
+  "testedAt": "2026-09-15T09:47:08.138Z",
+  "mode": "final-data-real-v3-engine",
+  "cards": 41,
+  "characters": 40,
+  "arenas": 16,
+  "tests": [
+    "41 cartes / 40 personnages ; regroupement par characterId ; Momo seul doublé",
+    "Arènes dynamiques ; choix setup et verrouillage après début",
+    "Guard allié/auteur/IA ; ward 60 coexiste avec le trèfle ; dés fixes",
+    "Animation physique Guard sur le bon allié ; nettoyage des effets ; icône chargée",
+    "Calcul moteur/UI concordant ; ward physique consommé, magie/esquive/Mort conservé ; NONE sans halo",
+    "Prévisualisation arène : les deux Momo partagent l’affinité characterId",
+    "Imports V2 partie/deck/BDD explicitement refusés sans écriture",
+    "Archivage terminé ; export/import idempotent ; conflit arène finale refusé ; V2 intacte",
+    "Snapshots d’arènes validés et préservés ; scores historiques inchangés ; imports invalides atomiques",
+    "Desktop/mobile : centre sans scroll interne ; dés 3D non vides, lisibles et animés ; captures",
+    "NONE sans métadonnées ; c.art avec préfixe V3 normalisé",
+    "Ouverture directe index.html sans serveur ; IndexedDB disponible",
+    "BDD inspectable ; aucune exception navigateur"
+  ],
+  "missingAssets": [],
+  "assetGeometryIssues": [],
+  "browserErrors": [],
+  "screenshots": [
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-site\\collection-desktop.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-site\\guard-animation.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-site\\arena-1440.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-site\\arena-390.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-site\\arena-2560.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-site\\arena-360.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-site\\collection-mobile.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-site\\archives-mobile.png"
+  ],
+  "assetsReady": true,
+  "ok": true
+}

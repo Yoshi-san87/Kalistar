@@ -1,0 +1,70 @@
+{
+  "element": "ELECTRO",
+  "name": "MOMO",
+  "race": "ROBOT",
+  "faction": "Chroma",
+  "job": "NETTOYEUR",
+  "title": "L’ARTISTE MAGIQUE",
+  "positions": [
+    3,
+    4
+  ],
+  "weapon": "Instrument",
+  "atk": [
+    202,
+    167,
+    "retry",
+    84,
+    "mana",
+    29
+  ],
+  "defense": [
+    200,
+    167,
+    "retry",
+    100,
+    59,
+    11
+  ],
+  "magic": [
+    6,
+    5,
+    3,
+    1
+  ],
+  "barriers": [
+    6,
+    5,
+    2
+  ],
+  "text": "2XM0 alias “Momo” est un petit robot triste vivant dans une décharge. Etant auparavant un petit robot de ménage, il est doté d'un talent artistique rare et incompris, il utilise une flûte traversière magique pour créer des sortilèges enchanteurs.",
+  "source": "carte JPG Momo et positions confirmees ; V2/donnees/cartes.json 00000001 ; scene conservee, profil reequilibre V3",
+  "color": "F5DC32",
+  "hue": 53,
+  "advantage": 30,
+  "disadvantage": 30,
+  "id": "30000001",
+  "slug": "01_ELECTRO_MOMO",
+  "art": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+  "reference": null,
+  "weapon_index": 11,
+  "visual_revision": "V3-repertoire-41",
+  "barcode_style": "spectrum_dark",
+  "characterId": "momo",
+  "role": 3,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": false,
+  "story_scene": "Momo joue de sa flute dans la decharge de Chroma.",
+  "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Petit robot nettoyeur sensible, seul, flute traversiere tenue horizontalement, melancolie tendre au milieu des objets abandonnes.",
+  "source_art": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V2/assets/illustrations/electro.png",
+  "art_action": "copy",
+  "previous_id": "00000001",
+  "replaces_v2_id": null,
+  "aliases": [],
+  "balance_source": "main/Kalistar.xlsx, Capacite base ; ajustements V3 decrits dans DECISIONS_NARRATIVES.md",
+  "artwork": "MOMO",
+  "description": "Au milieu des rebuts de Chroma, Momo joue pour ceux que l'on a oubliés. Sa flûte éveille une lumière dans la ferraille. Il ne sait pas encore si quelqu'un l'écoute. Alors il continue.",
+  "schemaVersion": 3,
+  "output": "MOMO_V4_11_POSITIONS"
+}

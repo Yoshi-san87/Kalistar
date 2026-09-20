@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 4,
+  "id": "30000007",
+  "name": "BALMHYR",
+  "title": "LE ROYAUME À L'HORIZON",
+  "job": "MENTOR",
+  "race": "NAIN",
+  "element": "MINERO",
+  "faction": "Durane",
+  "weapon": "Hache",
+  "positions": [
+    1
+  ],
+  "atk": [
+    206,
+    169,
+    132,
+    95,
+    "guard",
+    28
+  ],
+  "defense": [
+    291,
+    246,
+    194,
+    142,
+    90,
+    45
+  ],
+  "magic": [
+    6,
+    4
+  ],
+  "barriers": [
+    6,
+    3
+  ],
+  "slug": "07_MINERO_BALMHYR",
+  "hue": 210,
+  "color": "B3BFCA",
+  "weapon_index": 0,
+  "description": "Balmhyr regarde Durane sans courber le dos. Son ours veille derrière lui. Le roi déchu n'a plus de trône, mais ceux qui croisent son regard y trouvent encore la force d'un père et la patience d'un guide.",
+  "artwork": "BALMHYR",
+  "artworkSource": "V4/assets/illustrations/elements-01/terre-plantes/BALMHYR_V4_02_CANYONERO.png",
+  "artworkUnchanged": false,
+  "sourcePSD": "V3/templates/07_MINERO_BALMHYR.psd",
+  "output": "BALMHYR_V4_01_MINERO",
+  "profile": "V4/template-stable/elements-01/balmhyr/card.json"
+}

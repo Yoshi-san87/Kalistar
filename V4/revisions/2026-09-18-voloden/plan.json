@@ -1,0 +1,82 @@
+{
+  "revision": "voloden-2026-09-18",
+  "referenceId": "776dc4d80df6962de648b1553c1ae6868ffa95a10eefe8982fe1e0e38c82ce1a",
+  "key": "voloden",
+  "profile": "V4/template-stable/voloden/card.json",
+  "psd": "V4/templates/VOLODEN_V4_01_NECRO.psd",
+  "png": "V4/cartes/VOLODEN_V4_01_NECRO.png",
+  "report": "V4/template-stable/voloden/render.json",
+  "destination": "V4/revisions/2026-09-18-voloden/staged",
+  "sourceHashes": {
+    "V3/templates/28_NECRO_VOLODEN.psd": "47b48e30bbcf41c4dba79ead77ee8dc7c3a9671c9299adfec157629bee1d0ad2",
+    "V3/assets/illustrations/28_NECRO_VOLODEN.png": "73de7d13fe5525f05ca6543f2c0bce5dcc1b015bcaa731eff4467b86e36f4c3a",
+    "V3/donnees/cartes.json": "bb6de0d7b2b7eec0f1a9348dc892faa002fe542c169bbe202e11aca7e3788761"
+  },
+  "install": [
+    {
+      "from": "V4/revisions/2026-09-18-voloden/staged/publication/V4/template-stable/voloden/card.json",
+      "to": "V4/template-stable/voloden/card.json"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-voloden/staged/card.psd",
+      "to": "V4/templates/VOLODEN_V4_01_NECRO.psd"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-voloden/staged/card.png",
+      "to": "V4/cartes/VOLODEN_V4_01_NECRO.png"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-voloden/staged/publication/V4/template-stable/voloden/render.json",
+      "to": "V4/template-stable/voloden/render.json"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-voloden/staged/icon-layouts.json",
+      "to": "V4/template-stable/icon-layouts.json"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-voloden/staged/publication/V4/template-stable/current-elements.json",
+      "to": "V4/template-stable/current-elements.json"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-voloden/staged/publication/V4/atelier/designer-assets/packed/banks/weapon-Faucille.png",
+      "to": "V4/atelier/designer-assets/packed/banks/weapon-Faucille.png"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-voloden/staged/publication/V4/atelier/designer-assets/banks/weapon-Faucille.png",
+      "to": "V4/atelier/designer-assets/banks/weapon-Faucille.png"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-voloden/staged/publication/V4/atelier/designer-assets/packed/banks/race-CARDEMORTIS.png",
+      "to": "V4/atelier/designer-assets/packed/banks/race-CARDEMORTIS.png"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-voloden/staged/publication/V4/atelier/designer-assets/banks/race-CARDEMORTIS.png",
+      "to": "V4/atelier/designer-assets/banks/race-CARDEMORTIS.png"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-voloden/staged/publication/V4/atelier/designer-assets/manifest.json",
+      "to": "V4/atelier/designer-assets/manifest.json"
+    },
+    {
+      "from": "V4/revisions/2026-09-18-voloden/staged/publication/V4/atelier/designer-assets/manifest.raw.json",
+      "to": "V4/atelier/designer-assets/manifest.raw.json"
+    }
+  ],
+  "protect": [
+    "V4/templates/VOLODEN_V4_01_NECRO.psd",
+    "V4/cartes/VOLODEN_V4_01_NECRO.png",
+    "V4/template-stable/voloden/card.json",
+    "V4/template-stable/voloden/render.json",
+    "V4/atelier/designer-assets/banks/weapon-Faucille.png",
+    "V4/atelier/designer-assets/packed/banks/weapon-Faucille.png",
+    "V4/atelier/designer-assets/banks/race-CARDEMORTIS.png",
+    "V4/atelier/designer-assets/packed/banks/race-CARDEMORTIS.png",
+    "V4/revisions/2026-09-18-voloden/plan.json",
+    "V4/revisions/2026-09-18-voloden/verification.json",
+    "V4/revisions/2026-09-18-voloden/references-before.json",
+    "V4/revisions/2026-09-18-voloden/publish.cjs",
+    "V3/templates/28_NECRO_VOLODEN.psd",
+    "V3/assets/illustrations/28_NECRO_VOLODEN.png",
+    "V3/donnees/cartes.json"
+  ]
+}

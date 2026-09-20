@@ -1,0 +1,100 @@
+{
+  "schema": "kalistar.v4.illustration-provenance.v1",
+  "name": "GILMARR",
+  "version": "V4_01",
+  "source_database": {
+    "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/donnees/cartes.json",
+    "card_id": "30000038",
+    "art": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/38_AERO_GILMARR.png",
+    "lore": "Gilmarr decale le plot de la ligne et fait signe d entrer. Une place vient de s ouvrir dans l equipe. Son sourire promet un match difficile, pas une faveur.",
+    "story_scene": "Gilmarr accueille Lanio sur le terrain. Pose individuelle et specialisation AERO proposees V3."
+  },
+  "source_sha256": "8409EFCAF0CC9C80C4119E4BB11EE6EE6F3C0DBA7A6148733317958C82F38A51",
+  "source_file_unchanged_verified": true,
+  "instructions": [
+    "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/AGENTS.md",
+    "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/DIRECTION_ARTISTIQUE.md",
+    "C:/Users/guill/.codex/skills/.system/imagegen/SKILL.md"
+  ],
+  "generation": {
+    "tool": "image_gen builtin",
+    "callable_tool": "image_gen__imagegen",
+    "mode": "edit",
+    "use_case": "identity-preserve",
+    "calls": 1,
+    "cli_used": false,
+    "model_override": null,
+    "prompt_path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/donnees/elements-01/air/GILMARR_V4_01.prompt.txt",
+    "prompt_sha256": "819BE900500836508ECB55499D04F17FBE360DFD9DD5078D0B0E0D43E607C7C3",
+    "reference_images_in_call_order": [
+      {
+        "role": "edit_target",
+        "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/38_AERO_GILMARR.png",
+        "view_image_inspected": true
+      },
+      {
+        "role": "style_only",
+        "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "view_image_inspected": true
+      },
+      {
+        "role": "style_only",
+        "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "view_image_inspected": true
+      }
+    ],
+    "generated_path": "C:/Users/guill/.codex/generated_images/01a0af75-4daa-7b01-a046-e727c648c1e8/exec-b6d21134-bb70-4002-a4d2-e51c0b67617a.png"
+  },
+  "output": {
+    "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/assets/illustrations/elements-01/air/GILMARR_V4_01.png",
+    "format": "PNG",
+    "width": 1122,
+    "height": 1402,
+    "bytes": 2729377,
+    "sha256": "D49D2B9442A724A764C35085A7102A31E801760CC2DBD42688E91BB6059C109E",
+    "copy_method": "PowerShell Copy-Item",
+    "exact_generated_file_copy_verified": true,
+    "overwrote_existing_file": false,
+    "resized": false,
+    "cropped": false
+  },
+  "framing": {
+    "target_window": {
+      "width": 737,
+      "height": 921
+    },
+    "method": "Native high-resolution illustration supplied for parent to fit to art window.",
+    "cover_crop_total_at_target_pixels": {
+      "horizontal": 0.0628,
+      "vertical": 0
+    },
+    "character_positions": "Approved source positions retained; central faces/action remain readable. No recentering that would change approved poses.",
+    "psd_template_work": "Not performed; parent owns template and final card integration."
+  },
+  "qa": {
+    "source_inspected_with": "view_image",
+    "final_inspected_with": "view_image",
+    "status": "accepted_for_parent_integration",
+    "observations": [
+      "Meme visage Rhinoz souriant, meme carrure, main ouverte d'accueil, autre main tenant le plot, tatouages et tenue sportive verte/blanche conserves visuellement.",
+      "Terrain poussiereux, traces blanches, plot du premier plan, arche sportive et petits joueurs conserves.",
+      "Les immeubles et terrasses superposes sont fortement reduits ; quelques volumes distants et davantage de ciel rendent le fond plus calme.",
+      "Silhouette en pied et deux chaussures visibles, sujet centre et geste lisible.",
+      "Peinture narrative avec matieres usees, aucune derive photo/anime observee, sans cadre ni texte."
+    ],
+    "correction_needed": false,
+    "additional_generation_calls": 0,
+    "character_preservation_assessment": "Visual comparison against approved source; not a claim of pixel-identical character regions.",
+    "card_composite_checked": false,
+    "card_composite_reason": "Explicitly out of scope; no Photoshop launched."
+  },
+  "scope": {
+    "new_project_files_only": true,
+    "allowed_project_write_directories": [
+      "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/assets/illustrations/elements-01/air/",
+      "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/donnees/elements-01/air/"
+    ],
+    "photoshop_launched": false,
+    "existing_project_files_modified": []
+  }
+}

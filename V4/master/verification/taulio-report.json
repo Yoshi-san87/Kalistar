@@ -1,0 +1,30 @@
+{
+  "checks": {
+    "sourcesUnchanged": true,
+    "mechanicsPreserved": true,
+    "dimensions": true,
+    "sharedFrameIdentical": true,
+    "artCorePreserved": true,
+    "psdReexportIdentical": true,
+    "psdGeometry": true,
+    "allSmartObjectsRegistered": true,
+    "slotContents": true,
+    "positionP1Only": true,
+    "opticalTextBoundsCentered": true,
+    "textFits": true,
+    "psdIdentity": true,
+    "barcodeColorAndGray": true
+  },
+  "metrics": {
+    "fixedFrame": {
+      "comparedPixels": 373350,
+      "changedPixels": 0
+    },
+    "artCoreChangedPixels": 0
+  },
+  "profile": "master/profiles/taulio.json",
+  "master": "templates/KALISTAR_MASTER_V4_01-supports.psd",
+  "masterSha256": "f8ad104a73c43404f66468eeafa7b23f91ce90e86882b1965f7b48afe55ca83f",
+  "renderSha256": "8c0cfc10f7f3f187e2eac9d901006ce91e9f8e4ddc73a43efa25b403b36dca1f",
+  "note": "Shared-frame pixel identity uses the fixed-frame mask and the same revised master. Comparison does not imply a whole-card match to the approved flattened Momo or print approval."
+}

@@ -1,0 +1,243 @@
+{
+  "schemaVersion": 5,
+  "status": "artistic-review",
+  "template": "V4/template-stable/KALISTAR_V4_TEMPLATE_04_ELEMENTS.psd",
+  "registry": "V4/template-stable/registry-elements-05.json",
+  "renderer": [
+    "V4/scripts/stable/common.jsx",
+    "V4/scripts/stable/registered.jsx",
+    "V4/scripts/stable/elements-common.jsx",
+    "V4/scripts/stable/element-batch.jsx",
+    "V4/scripts/stable/render-elements-02.jsx"
+  ],
+  "gallery": "V4/galerie-elements.html",
+  "batches": [
+    {
+      "manifest": "V4/template-stable/elements-01/manifest.json",
+      "registry": "V4/template-stable/registry-elements-04.json",
+      "renderer": "V4/scripts/stable/render-elements.jsx"
+    },
+    {
+      "manifest": "V4/template-stable/elements-02/manifest.json",
+      "registry": "V4/template-stable/registry-elements-05.json",
+      "renderer": "V4/scripts/stable/render-elements-02.jsx"
+    }
+  ],
+  "cards": [
+    {
+      "key": "ruby",
+      "element": "HYDRO",
+      "profile": "V4/template-stable/elements-01/ruby/card.json",
+      "output": "RUBY_V4_01_HYDRO",
+      "psd": "V4/templates/RUBY_V4_01_HYDRO.psd",
+      "png": "V4/cartes/RUBY_V4_01_HYDRO.png",
+      "artwork": "V4/assets/illustrations/elements-01/eau-feu-glace/RUBY_V4_01.png",
+      "artworkUnchanged": false
+    },
+    {
+      "key": "cana",
+      "element": "AERO",
+      "profile": "V4/template-stable/elements-01/cana/card.json",
+      "output": "CANA_V4_01_AERO",
+      "psd": "V4/templates/CANA_V4_01_AERO.psd",
+      "png": "V4/cartes/CANA_V4_01_AERO.png",
+      "artwork": "V4/assets/illustrations/elements-01/air/CANA_V4_01.png",
+      "artworkUnchanged": false
+    },
+    {
+      "key": "scrow",
+      "element": "AERO",
+      "profile": "V4/template-stable/elements-01/scrow/card.json",
+      "output": "SCROW_V4_01_AERO",
+      "psd": "V4/templates/SCROW_V4_01_AERO.psd",
+      "png": "V4/cartes/SCROW_V4_01_AERO.png",
+      "artwork": "V4/assets/illustrations/elements-01/air/SCROW_V4_01.png",
+      "artworkUnchanged": false
+    },
+    {
+      "key": "soryn",
+      "element": "AERO",
+      "profile": "V4/template-stable/elements-01/soryn/card.json",
+      "output": "SORYN_V4_01_AERO",
+      "psd": "V4/templates/SORYN_V4_01_AERO.psd",
+      "png": "V4/cartes/SORYN_V4_01_AERO.png",
+      "artwork": "V4/assets/illustrations/elements-01/air/SORYN_V4_01.png",
+      "artworkUnchanged": false
+    },
+    {
+      "key": "gilmarr",
+      "element": "AERO",
+      "profile": "V4/template-stable/elements-01/gilmarr/card.json",
+      "output": "GILMARR_V4_01_AERO",
+      "psd": "V4/templates/GILMARR_V4_01_AERO.psd",
+      "png": "V4/cartes/GILMARR_V4_01_AERO.png",
+      "artwork": "V4/assets/illustrations/elements-01/air/GILMARR_V4_01.png",
+      "artworkUnchanged": false
+    },
+    {
+      "key": "darnako",
+      "element": "PYRO",
+      "profile": "V4/template-stable/elements-01/darnako/card.json",
+      "output": "DARNAKO_V4_01_PYRO",
+      "psd": "V4/templates/DARNAKO_V4_01_PYRO.psd",
+      "png": "V4/cartes/DARNAKO_V4_01_PYRO.png",
+      "artwork": "V4/assets/illustrations/elements-01/eau-feu-glace/DARNAKO_V4_01.png",
+      "artworkUnchanged": false
+    },
+    {
+      "key": "malinia",
+      "element": "CRYO",
+      "profile": "V4/template-stable/elements-01/malinia/card.json",
+      "output": "MALINIA_V4_01_CRYO",
+      "psd": "V4/templates/MALINIA_V4_01_CRYO.psd",
+      "png": "V4/cartes/MALINIA_V4_01_CRYO.png",
+      "artwork": "V4/assets/illustrations/elements-01/eau-feu-glace/MALINIA_V4_01.png",
+      "artworkUnchanged": false
+    },
+    {
+      "key": "aelis",
+      "element": "LUXO",
+      "profile": "V4/template-stable/elements-01/aelis/card.json",
+      "output": "AELIS_V4_01_LUXO",
+      "psd": "V4/templates/AELIS_V4_01_LUXO.psd",
+      "png": "V4/cartes/AELIS_V4_01_LUXO.png",
+      "artwork": "V3/assets/illustrations/06_LUXO_AELIS.png",
+      "artworkUnchanged": true
+    },
+    {
+      "key": "iliane",
+      "element": "LUXO",
+      "profile": "V4/template-stable/elements-01/iliane/card.json",
+      "output": "ILIANE_V4_01_LUXO",
+      "psd": "V4/templates/ILIANE_V4_01_LUXO.psd",
+      "png": "V4/cartes/ILIANE_V4_01_LUXO.png",
+      "artwork": "V3/assets/illustrations/17_LUXO_ILIANE.png",
+      "artworkUnchanged": true
+    },
+    {
+      "key": "belrog",
+      "element": "MINERO",
+      "profile": "V4/template-stable/elements-01/belrog/card.json",
+      "output": "BELROG_V4_01_MINERO",
+      "psd": "V4/templates/BELROG_V4_01_MINERO.psd",
+      "png": "V4/cartes/BELROG_V4_01_MINERO.png",
+      "artwork": "V3/assets/illustrations/19_MINERO_BELROG.png",
+      "artworkUnchanged": true
+    },
+    {
+      "key": "lok",
+      "element": "MINERO",
+      "profile": "V4/template-stable/elements-01/lok/card.json",
+      "output": "LOK_V4_01_MINERO",
+      "psd": "V4/templates/LOK_V4_01_MINERO.psd",
+      "png": "V4/cartes/LOK_V4_01_MINERO.png",
+      "artwork": "V4/assets/illustrations/elements-01/terre-plantes/LOK_V4_01.png",
+      "artworkUnchanged": false
+    },
+    {
+      "key": "balmhyr",
+      "element": "MINERO",
+      "profile": "V4/template-stable/elements-01/balmhyr/card.json",
+      "output": "BALMHYR_V4_01_MINERO",
+      "psd": "V4/templates/BALMHYR_V4_01_MINERO.psd",
+      "png": "V4/cartes/BALMHYR_V4_01_MINERO.png",
+      "artwork": "V4/assets/illustrations/elements-01/terre-plantes/BALMHYR_V4_02_CANYONERO.png",
+      "artworkUnchanged": false
+    },
+    {
+      "key": "magnar",
+      "element": "MINERO",
+      "profile": "V4/template-stable/elements-01/magnar/card.json",
+      "output": "MAGNAR_V4_01_MINERO",
+      "psd": "V4/templates/MAGNAR_V4_01_MINERO.psd",
+      "png": "V4/cartes/MAGNAR_V4_01_MINERO.png",
+      "artwork": "V4/assets/illustrations/elements-01/terre-plantes/MAGNAR_V4_01.png",
+      "artworkUnchanged": false
+    },
+    {
+      "key": "thalie",
+      "element": "HERBO",
+      "profile": "V4/template-stable/elements-01/thalie/card.json",
+      "output": "THALIE_V4_01_HERBO",
+      "psd": "V4/templates/THALIE_V4_01_HERBO.psd",
+      "png": "V4/cartes/THALIE_V4_01_HERBO.png",
+      "artwork": "V3/assets/illustrations/41_HERBO_THALIE.png",
+      "artworkUnchanged": true
+    },
+    {
+      "key": "bloom",
+      "element": "HERBO",
+      "profile": "V4/template-stable/elements-01/bloom/card.json",
+      "output": "BLOOM_V4_01_HERBO",
+      "psd": "V4/templates/BLOOM_V4_01_HERBO.psd",
+      "png": "V4/cartes/BLOOM_V4_01_HERBO.png",
+      "artwork": "V3/assets/illustrations/33_HERBO_BLOOM.png",
+      "artworkUnchanged": true
+    },
+    {
+      "key": "victorvine",
+      "element": "HERBO",
+      "profile": "V4/template-stable/elements-01/victorvine/card.json",
+      "output": "VICTORVINE_V4_01_HERBO",
+      "psd": "V4/templates/VICTORVINE_V4_01_HERBO.psd",
+      "png": "V4/cartes/VICTORVINE_V4_01_HERBO.png",
+      "artwork": "V4/assets/illustrations/elements-01/terre-plantes/VICTORVINE_V4_01.png",
+      "artworkUnchanged": false
+    },
+    {
+      "key": "kaylis",
+      "element": "RAINBOW",
+      "profile": "V4/template-stable/elements-02/kaylis/card.json",
+      "output": "KAYLIS_V4_01_RAINBOW",
+      "psd": "V4/templates/KAYLIS_V4_01_RAINBOW.psd",
+      "png": "V4/cartes/KAYLIS_V4_01_RAINBOW.png",
+      "artwork": "V3/assets/illustrations/12_RAINBOW_KAYLIS.png",
+      "artworkUnchanged": true
+    },
+    {
+      "key": "elenion",
+      "element": "GEO",
+      "profile": "V4/template-stable/elements-02/elenion/card.json",
+      "output": "ELENION_V4_01_GEO",
+      "psd": "V4/templates/ELENION_V4_01_GEO.psd",
+      "png": "V4/cartes/ELENION_V4_01_GEO.png",
+      "artwork": "V3/assets/illustrations/36_GEO_ELENION.png",
+      "artworkUnchanged": true
+    },
+    {
+      "key": "seraphina",
+      "element": "HEMATO",
+      "profile": "V4/template-stable/elements-02/seraphina/card.json",
+      "output": "SERAPHINA_V4_01_HEMATO",
+      "psd": "V4/templates/SERAPHINA_V4_01_HEMATO.psd",
+      "png": "V4/cartes/SERAPHINA_V4_01_HEMATO.png",
+      "artwork": "V3/assets/illustrations/20_HEMATO_SERAPHINA.png",
+      "artworkUnchanged": true
+    },
+    {
+      "key": "valazar",
+      "element": "NECRO",
+      "profile": "V4/template-stable/elements-02/valazar/card.json",
+      "output": "VALAZAR_V4_01_NECRO",
+      "psd": "V4/templates/VALAZAR_V4_01_NECRO.psd",
+      "png": "V4/cartes/VALAZAR_V4_01_NECRO.png",
+      "artwork": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+      "artworkUnchanged": true
+    },
+    {
+      "key": "malaba",
+      "element": "NONE",
+      "profile": "V4/template-stable/elements-02/malaba/card.json",
+      "output": "MALABA_V4_01_NONE",
+      "psd": "V4/templates/MALABA_V4_01_NONE.psd",
+      "png": "V4/cartes/MALABA_V4_01_NONE.png",
+      "artwork": "V3/assets/illustrations/22_NONE_MALABA.png",
+      "artworkUnchanged": true
+    }
+  ],
+  "frameRevision": {
+    "id": "branches-2026-09-18",
+    "component": "V4/revisions/2026-09-18-branches/branches-complete.png",
+    "audit": "V4/revisions/2026-09-18-branches/verification.json"
+  }
+}

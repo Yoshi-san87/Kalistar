@@ -1,0 +1,58 @@
+{
+  "tests": {
+    "sourceUnchanged": true,
+    "taulioRemoved": true,
+    "dimensions": true,
+    "fixedFramePixelIdentity": true,
+    "test-identique": true,
+    "test-valeur-203": true,
+    "test-valeur-203-active": true,
+    "test-illustration": true,
+    "test-illustration-active": true,
+    "test-cinq-positions": true,
+    "test-cinq-positions-active": true,
+    "test-tout-physique": true,
+    "test-tout-physique-active": true,
+    "textCenters": true
+  },
+  "reports": {
+    "fixedVsApproved": {
+      "compared": 373350,
+      "changed": 0,
+      "maxDelta": 0
+    },
+    "test-identique": {
+      "compared": 1572250,
+      "changed": 0,
+      "maxDelta": 0
+    },
+    "test-valeur-203": {
+      "compared": 1560070,
+      "changed": 0,
+      "maxDelta": 0,
+      "totalChanged": 577
+    },
+    "test-illustration": {
+      "compared": 915399,
+      "changed": 0,
+      "maxDelta": 0,
+      "totalChanged": 629482
+    },
+    "test-cinq-positions": {
+      "compared": 1545422,
+      "changed": 0,
+      "maxDelta": 0,
+      "totalChanged": 12920
+    },
+    "test-tout-physique": {
+      "compared": 373350,
+      "changed": 0,
+      "maxDelta": 0,
+      "totalChanged": 216510
+    }
+  },
+  "reference": "cartes/MOMO_ELECTRO_V4_04-typographie.png",
+  "referenceHash": "b2b0211565dacdcdb902866ee94dfdc41648d5ee7d51c7a652ad72ae0740ba11",
+  "renderHash": "322f7c7186f8f61d7bc588224a875117a12dc935f89db9e76df26835e6097922",
+  "note": "Pixel identity applies to the fixed-frame mask, not to reconstructed backgrounds, newly typeset text, the valid barcode or decomposited glow edges. No print approval implied."
+}

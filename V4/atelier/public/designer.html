@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#171b19">
+  <title>Kalistar | Atelier</title>
+  <link rel="stylesheet" href="/designer.css">
+  <script defer src="/lucide.js"></script>
+  <script defer src="/designer.js"></script>
+</head>
+<body>
+  <div class="atelier" id="atelier" data-pane="preview">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Kalistar, atelier"><i data-lucide="gem"></i><span>Kalistar<small>Atelier des cartes</small></span></a>
+      <span class="version"><span></span>V4</span>
+      <nav class="header-actions" aria-label="Navigation principale">
+        <button id="open-library" class="quiet-button"><i data-lucide="library"></i><span>Collection</span></button>
+        <a href="/legacy" class="legacy-link" title="Ouvrir l'ancien atelier">Ancien atelier</a>
+        <a href="/jeu/" class="play-link"><i data-lucide="swords"></i>Jouer<i data-lucide="arrow-up-right"></i></a>
+      </nav>
+    </header>
+
+    <main class="workbench">
+      <aside class="palette" aria-label="Composition">
+        <div class="section-heading"><span class="eyebrow">Composition</span><h1>Nouvelle carte</h1><span class="fine-rule"></span></div>
+        <fieldset class="crystal-field"><legend>Cristal</legend><div id="crystals" class="crystal-grid"></div><output id="crystal-name" class="crystal-name"></output></fieldset>
+        <fieldset class="positions-field"><legend>Positions</legend><div id="positions" class="position-chips"></div></fieldset>
+        <dl class="composition-facts"><div><dt>Race</dt><dd id="fact-race"></dd></div><div><dt>Arme</dt><dd id="fact-weapon"></dd></div><div><dt>Faction</dt><dd id="fact-faction"></dd></div></dl>
+        <div class="palette-foot"><button id="new-card" class="quiet-button"><i data-lucide="file-plus-2"></i>Carte vierge</button><button id="open-drafts" class="quiet-button"><i data-lucide="folder-open"></i>Brouillons</button></div>
+      </aside>
+
+      <section class="preview" aria-label="Apercu de la carte">
+        <div class="preview-toolbar"><span id="preview-label" class="preview-label" role="status">Connexion</span><div class="preview-tools"><button id="retry-preview" class="icon-button" title="Relancer l'apercu" aria-label="Relancer l'apercu" hidden><i data-lucide="refresh-cw"></i></button><button id="zoom-card" class="icon-button" title="Agrandir la carte" aria-label="Agrandir la carte" disabled><i data-lucide="maximize-2"></i></button></div></div>
+        <div id="card-stage" class="card-stage">
+          <div id="card-shell" class="card-shell">
+            <div id="card-placeholder" class="card-placeholder"><i data-lucide="gem"></i><span>Kalistar</span></div>
+            <img id="card-image" width="897" height="1497" alt="Carte vierge" hidden>
+            <div id="card-pan" class="card-pan" tabindex="0" role="group" aria-label="Recadrage de l'illustration, fleches pour deplacer" title="Deplacer l'illustration" hidden></div>
+          </div>
+        </div>
+        <div class="preview-caption"><div><h2 id="card-name">Carte sans nom</h2><p id="card-subtitle">&nbsp;</p></div><span id="card-element" class="element-caption"></span></div>
+        <div id="published-links" class="published-links" hidden><a id="result-game" class="quiet-button" href="/jeu/#collection" target="_top"><i data-lucide="swords"></i>Collection</a><a id="result-open" class="icon-button" target="_blank" rel="noopener" title="Ouvrir le PNG natif" aria-label="Ouvrir le PNG natif"><i data-lucide="external-link"></i></a><a id="result-png" class="quiet-button" download><i data-lucide="download"></i>PNG</a><a id="result-psd" class="quiet-button" download><i data-lucide="file-down"></i>PSD</a></div>
+      </section>
+
+      <section class="editor" aria-label="Reglages de la carte">
+        <header class="editor-heading"><div><span class="eyebrow">Votre creation</span><h2>Fa&ccedil;onner</h2></div><button id="save-draft" class="icon-button" title="Enregistrer le brouillon" aria-label="Enregistrer le brouillon" disabled><i data-lucide="save"></i></button></header>
+        <nav class="editor-tabs" role="tablist" aria-label="Reglages">
+          <button id="tab-identity" role="tab" data-tab="identity" aria-controls="panel-identity" aria-selected="true"><i data-lucide="fingerprint"></i>Identit&eacute;</button>
+          <button id="tab-combat" role="tab" data-tab="combat" aria-controls="panel-combat" aria-selected="false" tabindex="-1"><i data-lucide="swords"></i>Combat</button>
+          <button id="tab-image" role="tab" data-tab="image" aria-controls="panel-image" aria-selected="false" tabindex="-1"><i data-lucide="image"></i>Image</button>
+        </nav>
+        <fieldset id="editor-fields" class="editor-fields" disabled>
+          <section id="panel-identity" class="editor-panel" role="tabpanel" aria-labelledby="tab-identity">
+            <label class="field">Nom<input id="field-name" maxlength="30" placeholder="Nom du personnage" autocomplete="off" aria-describedby="validation-message"></label>
+            <label class="field">Titre<input id="field-title" maxlength="60" autocomplete="off"></label>
+            <label class="field">M&eacute;tier<input id="field-job" maxlength="22" autocomplete="off"></label>
+            <div class="field-pair"><label class="field">Race<select id="field-race"></select></label><label class="field">Arme<select id="field-weapon"></select></label></div>
+            <label class="field">Faction<select id="field-faction"></select></label>
+            <label class="field mobile-crystal">Cristal<select id="field-element"></select></label>
+            <label class="field story-field"><span>R&eacute;cit<output id="description-count">0 / 320</output></span><textarea id="field-description" maxlength="320" rows="3"></textarea></label>
+          </section>
+          <section id="panel-combat" class="editor-panel combat-panel" role="tabpanel" aria-labelledby="tab-combat" hidden>
+            <div class="segmented combat-switch" role="group" aria-label="Caracteristiques"><button id="side-atk" aria-pressed="true"><i data-lucide="sword"></i>Attaque</button><button id="side-defense" aria-pressed="false"><i data-lucide="shield"></i>D&eacute;fense</button></div>
+            <div class="stat-heading"><span>D&eacute;</span><span>Valeur / effet</span><span id="mode-heading">Magie</span></div>
+            <div id="stat-rows" class="stat-rows"></div>
+            <div class="combat-summary"><span id="combat-total"></span><span id="combat-mode"></span></div>
+            <fieldset class="combat-positions"><legend>Positions</legend><div id="combat-positions" class="position-chips"></div></fieldset>
+          </section>
+          <section id="panel-image" class="editor-panel image-panel" role="tabpanel" aria-labelledby="tab-image" hidden>
+            <div id="crop-viewport" class="crop-viewport" tabindex="0" role="group" aria-label="Recadrage, fleches pour deplacer l'image"><img id="crop-image" alt="Illustration importee" draggable="false" hidden><div id="crop-empty"><i data-lucide="image-plus"></i></div><span class="crop-crosshair" aria-hidden="true"></span></div>
+            <input id="art-upload" type="file" accept="image/png,image/jpeg,image/webp" hidden>
+            <button id="import-art" class="command secondary"><i data-lucide="upload"></i><span id="import-label">Importer une illustration</span></button>
+            <div class="image-file-meta"><span id="image-meta">PNG, JPEG, WebP</span><span>8 Mo max.</span></div>
+            <fieldset id="crop-controls" disabled>
+              <label class="range-field"><span>Zoom<output id="zoom-value">1.00&times;</output></span><input id="crop-zoom" type="range" min="1" max="3" step="0.01" value="1"></label>
+              <div class="field-pair"><label class="range-field">Horizontal<input id="crop-x" type="range" min="-1" max="1" step="0.01" value="0"></label><label class="range-field">Vertical<input id="crop-y" type="range" min="-1" max="1" step="0.01" value="0"></label></div>
+              <div class="crop-actions"><button id="reset-crop" class="quiet-button"><i data-lucide="scan"></i>Recentrer</button><button id="remove-art" class="icon-button" title="Retirer l'illustration" aria-label="Retirer l'illustration"><i data-lucide="trash-2"></i></button></div>
+            </fieldset>
+          </section>
+        </fieldset>
+        <footer class="editor-foot"><span id="save-state">Brouillon local</span><span id="validation-message" role="status"></span></footer>
+      </section>
+    </main>
+
+    <nav class="mobile-nav" aria-label="Espace de travail"><button data-pane="preview" aria-current="page"><i data-lucide="scan-eye"></i>Carte</button><button data-pane="editor"><i data-lucide="sliders-horizontal"></i>Atelier</button><button id="mobile-library"><i data-lucide="library"></i>Collection</button></nav>
+    <footer class="statusbar"><div class="job-status"><span id="status-dot" class="status-dot busy"></span><div><strong id="status-title" role="status">Connexion &agrave; l'atelier</strong><span id="status-detail"></span></div><button id="retry-connection" class="icon-button" title="Reessayer la connexion" aria-label="Reessayer la connexion" hidden><i data-lucide="refresh-cw"></i></button></div><button id="create-card" class="command primary" disabled><i data-lucide="hammer"></i><span>Cr&eacute;er la carte</span></button></footer>
+  </div>
+
+  <dialog id="library-dialog" class="library-dialog"><header class="dialog-header"><div><span class="eyebrow">Kalistar</span><h2>Collection</h2></div><button data-close="library-dialog" class="icon-button" aria-label="Fermer la collection" title="Fermer"><i data-lucide="x"></i></button></header><div class="segmented library-tabs" role="group" aria-label="Collection"><button id="library-catalogue" aria-pressed="true">Cartes</button><button id="library-drafts" aria-pressed="false">Brouillons</button></div><label class="search-field"><i data-lucide="search"></i><input id="library-search" type="search" placeholder="Rechercher" aria-label="Rechercher dans la collection"></label><div id="library-list" class="library-list"></div><footer class="pagination"><button id="library-prev" class="icon-button" title="Page precedente" aria-label="Page precedente"><i data-lucide="chevron-left"></i></button><span id="library-page">1 / 1</span><button id="library-next" class="icon-button" title="Page suivante" aria-label="Page suivante"><i data-lucide="chevron-right"></i></button></footer><button id="drawer-new" class="quiet-button drawer-new"><i data-lucide="file-plus-2"></i>Carte vierge</button></dialog>
+  <dialog id="viewer" class="viewer"><header class="dialog-header"><h2 id="viewer-name">Carte</h2><button data-close="viewer" class="icon-button" aria-label="Fermer l'apercu" title="Fermer"><i data-lucide="x"></i></button></header><div class="viewer-stage"><img id="viewer-image" alt="Carte agrandie"></div><p id="viewer-error" role="status" hidden>Image indisponible.</p></dialog>
+  <dialog id="leave-dialog" class="leave-dialog"><h2>Changer de carte ?</h2><p>Les modifications non enregistr&eacute;es de cette carte seront remplac&eacute;es.</p><div><button id="cancel-leave" class="command secondary">Annuler</button><button id="confirm-leave" class="command primary">Continuer</button></div></dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>

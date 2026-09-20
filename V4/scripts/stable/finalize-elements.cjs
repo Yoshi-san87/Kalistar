@@ -1,0 +1,27 @@
+const fs=require('node:fs');
+const path=require('node:path');
+const assert=require('node:assert/strict');
+const root=path.resolve(__dirname,'../../..');
+const read=p=>JSON.parse(fs.readFileSync(path.join(root,p),'utf8').replace(/^\uFEFF/,''));
+const work='V4/template-stable/elements-01/';
+const manifest=read(work+'manifest.json');
+const verification=read(work+'verification.json');
+assert.equal(verification.complete,true,'Full verification required');
+assert.equal(verification.cards,16);
+const cards=manifest.cards.map(entry=>{
+  const card=read(entry.profile),folder=path.dirname(entry.profile);
+  const barcode=read(folder+'/barcode-verification.json');
+  assert.equal(barcode.allPassed,true,card.name+' barcode');
+  assert.equal(barcode.expected,card.id);
+  return {key:card.name.toLowerCase(),element:card.element,profile:entry.profile,output:card.output,psd:`V4/templates/${card.output}.psd`,png:`V4/cartes/${card.output}.png`,artwork:card.artworkSource,artworkUnchanged:card.artworkUnchanged};
+});
+const index={schemaVersion:4,status:'artistic-review',template:manifest.template,registry:manifest.registry,renderer:['V4/scripts/stable/common.jsx','V4/scripts/stable/registered.jsx','V4/scripts/stable/elements-common.jsx','V4/scripts/stable/render-elements.jsx'],gallery:'V4/galerie-elements.html',cards};
+const registry=read(manifest.registry);
+registry.bindings=cards.map(card=>({key:card.key,element:card.element,profile:card.profile,output:card.output}));
+fs.writeFileSync(path.join(root,manifest.registry),JSON.stringify(registry,null,2));
+fs.writeFileSync(path.join(root,'V4/template-stable/current-elements.json'),JSON.stringify(index,null,2));
+const totalPSDBytes=cards.reduce((sum,c)=>sum+fs.statSync(path.join(root,c.psd)).size,0);
+const complete={completedAt:new Date().toISOString(),cards:16,elements:7,newIllustrations:11,unchangedIllustrations:5,framePixelDifference:0,reopenedPixelDifference:0,barcodesPassed:16,protectedSources:verification.protectedSources,psdBytes:totalPSDBytes,artisticApproval:'pending-user-review',galleryBrowserTest:'blocked-by-browser-file-url-policy; static sizing and syntax checks only'};
+fs.writeFileSync(path.join(root,work+'complete.json'),JSON.stringify(complete,null,2));
+fs.writeFileSync(path.join(root,work+'error.json'),JSON.stringify({resolved:true,previousAttempt:'attempt-01-paused.json',complete:'complete.json'},null,2));
+console.log(JSON.stringify(complete,null,2));

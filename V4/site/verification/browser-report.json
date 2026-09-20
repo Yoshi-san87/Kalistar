@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "mode": "isolated-http-route-fixture",
+  "url": "http://127.0.0.1:43874",
+  "checks": [
+    "HTTP boot: 27 approved V4 cards, Paris27/Tokyo0, independent IndexedDB",
+    "collection grimoire, edge arrows, card drag and reduced-motion fallback",
+    "3D dice have nonblank pixels and animate on interaction",
+    "Atelier tab is full-width, persistent, and leaves active game unchanged",
+    "publication + reload preserves active match and V3 preferences, seeds once",
+    "desktop/mobile images, scripts, layout and 3D dice mount have no failures"
+  ],
+  "errors": [],
+  "badResponses": []
+}

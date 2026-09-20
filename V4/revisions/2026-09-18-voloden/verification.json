@@ -1,0 +1,103 @@
+{
+  "passed": true,
+  "revision": "voloden-2026-09-18",
+  "originalReferenceId": "776dc4d80df6962de648b1553c1ae6868ffa95a10eefe8982fe1e0e38c82ce1a",
+  "modelId": "30000028",
+  "fixed": {
+    "changed": 0,
+    "outside": 0
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "repeat": {
+    "changed": 0,
+    "outside": 0
+  },
+  "illustration": {
+    "changed": 0,
+    "outside": 0
+  },
+  "icons": {
+    "weapon": {
+      "maxRadius": 42.89813515760329,
+      "safeRadius": 44,
+      "center": [
+        137.135925186321,
+        1163.7461523374814
+      ],
+      "opticalError": [
+        0.13592518632100337,
+        0.24615233748136234
+      ],
+      "opticalMethodChecked": true
+    },
+    "race": {
+      "maxRadius": 43.02615483633183,
+      "safeRadius": 44,
+      "center": [
+        758.7140498723434,
+        1163.8761766039975
+      ],
+      "opticalError": [
+        0.2859501276566334,
+        0.37617660399746455
+      ],
+      "opticalMethodChecked": true
+    },
+    "death": {
+      "maxRadius": 46.50268809434568,
+      "safeRadius": 49,
+      "center": [
+        141.8049286568763,
+        148.6592654949431
+      ],
+      "opticalError": [
+        0.19507134312368635,
+        1.6592654949430994
+      ],
+      "opticalMethodChecked": false
+    }
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "30000028",
+    "cases": {
+      "color-1": [
+        "30000028"
+      ],
+      "color-4": [
+        "30000028"
+      ],
+      "gray-1": [
+        "30000028"
+      ],
+      "gray-4": [
+        "30000028"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "installHashes": {
+    "V4/template-stable/voloden/card.json": "3879dd722d7fd002875d386bf12331c3fcd85caf5bd2ee5b0b0f9c5a77ff9c68",
+    "V4/templates/VOLODEN_V4_01_NECRO.psd": "4980c5aa758ba370eff0f7bf51d52d099808c12da6a6c7bbe397f2843e7781b2",
+    "V4/cartes/VOLODEN_V4_01_NECRO.png": "0dfeb957bfdef3a06846685cf898218cb260fba3278d81a8ae9a38c6de4dc68d",
+    "V4/template-stable/voloden/render.json": "3cb4abf905aad61efbdc4703bec967f672a31feb45ce5dcdef26a837cb5066c0",
+    "V4/template-stable/icon-layouts.json": "1a1537fd83da200a6bc2edb054a6fdd259e08050ba457057db284e495eb3500e",
+    "V4/template-stable/current-elements.json": "272908883940c98b2290bab6b7d485d3c22ab22a88253758a627cc0b5351c463",
+    "V4/atelier/designer-assets/packed/banks/weapon-Faucille.png": "dc3a312f21a1cf8d77c927b58e6d04649f1824052588b54104046c670e0fb467",
+    "V4/atelier/designer-assets/banks/weapon-Faucille.png": "15cf65992f9e8f8567818cdf54d32f52cb69eee8e2c4b9f327d0b64fb5a28f97",
+    "V4/atelier/designer-assets/packed/banks/race-CARDEMORTIS.png": "e36033a00a6c7dd8a832f6fdcdcc2a1abcd955cbb1df6f2cf7c9fd5c0ab0dfbd",
+    "V4/atelier/designer-assets/banks/race-CARDEMORTIS.png": "b43355e8ae95fb8e8c266cec842bcba7750d4133deabc31819dc68951f5ae20e",
+    "V4/atelier/designer-assets/manifest.json": "1955a7e6bde54de7961adf49591ca08a4348b448395f41801230d4bad6e175cd",
+    "V4/atelier/designer-assets/manifest.raw.json": "699ca65f1103e76fdcf521594508fb978f4280fbb46e47ed829569a09034272a"
+  },
+  "psdHash": "4980c5aa758ba370eff0f7bf51d52d099808c12da6a6c7bbe397f2843e7781b2",
+  "pngHash": "0dfeb957bfdef3a06846685cf898218cb260fba3278d81a8ae9a38c6de4dc68d",
+  "nativeHash": "19bd9408af3b3290e723bd744f1b70ede3959ef00a7ea411aca3e3189cca6716",
+  "profileHash": "3879dd722d7fd002875d386bf12331c3fcd85caf5bd2ee5b0b0f9c5a77ff9c68",
+  "layoutHash": "1a1537fd83da200a6bc2edb054a6fdd259e08050ba457057db284e495eb3500e",
+  "sourcesUnchanged": true,
+  "checkedAt": "2026-09-18T14:36:08.293Z"
+}

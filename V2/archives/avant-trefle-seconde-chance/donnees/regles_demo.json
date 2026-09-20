@@ -1,0 +1,22 @@
+{
+  "version": "V2-demo-2-reraise",
+  "copy_limit": 2,
+  "token_bonus": 60,
+  "max_turns": 200,
+  "conventions": [
+    "Deux exemplaires par version au maximum, une seule Rainbow. Les deux decks de depart couvrent les 20 versions disponibles.",
+    "Le joueur commence. Les roles alternent apres chaque duel ou action de soutien.",
+    "Potion et Buff ATK remplacent l'attaque du tour : jeton de +60 sur la carte, non cumulable, consomme au prochain jet numerique du type correspondant, meme si la cible esquive.",
+    "Le coeur (champ technique revive) accorde un Reraise a la carte qui obtient cette face. L'action remplace l'attaque. Un coeur actif maximum, sans cumul ; il peut etre regagne apres consommation. A la prochaine elimination, meme par Mort, le coeur est consomme et la carte reste a sa position, sans passage au cimetiere ni remplacement. Les autres jetons sont conserves. Les cartes deja mortes ne reviennent pas.",
+    "L'esquive et le bouclier du type approprie priment sur Mort. Une barriere ordinaire de -30 n'annule pas Mort.",
+    "Le bouclier magique annule une attaque magique. La cellule C5 du classeur duplique le texte physique de C4 : cette divergence est tranchee ici.",
+    "Un bouclier special du mauvais type donne un nouveau jet DEF, jamais une valeur zero fictive. Taulio porte le bouclier physique.",
+    "Retry relance le meme de, en conservant attaquant et cible. Pas de limite arbitraire de relances dans un duel.",
+    "Les remplacements compatibles sont effectues avant le duel suivant. Aucun deplacement de carte vivante hors formation initiale.",
+    "Defaite quand le plateau est vide et qu'aucune reserve ne peut occuper une position libre. La reserve incompatible seule ne prolonge pas la partie.",
+    "Garde-fou de demo : match nul apres 200 echanges. Ce n'est pas une regle definitive du jeu.",
+    "Mode local avec deux joueurs ou adversaire automatique. L'IA lit le plateau public, jamais les jets futurs. La graine rend les essais reproductibles."
+  ],
+  "source_specials": "main/Kalistar.xlsx, Capacite Speciale, B2:G9",
+  "status": "Conventions provisoires explicites, a valider en tests. Statistiques imprimees inchangees."
+}

@@ -1,0 +1,133 @@
+{
+  "checks": [
+    "Pointer drag swaps occupied legal positions atomically; enemy and incompatible drops rejected; Escape cancels; keyboard fallback and local second player work",
+    "Real touch drag and replacement-phase drag work; hidden AI reserve cannot be dragged",
+    "All ten positions can become nonoverlapping 1.72x duel cards; others shrink; logical formation unchanged; aura pixels animate and respect reduced motion",
+    "Both dice and central recap keep exactly the same geometry across formation, choice, attack, defense, result and next turn",
+    "Every bonus chip opens the correct unit popup, explains counted board members and tokens, preserves game state and shows a card wider than 500px at 1920px",
+    "Clover and heart gain have their own effects; Reraise dims then reanimates the same card; navigation during revival cancels the pending result"
+  ],
+  "screens": [
+    {
+      "width": 2493,
+      "height": 1461,
+      "cards": [
+        {
+          "width": 382.1624755859375,
+          "height": 637.7706298828125
+        },
+        {
+          "width": 382.1624755859375,
+          "height": 637.7706298828125
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 1000,
+      "cards": [
+        {
+          "width": 288.96002197265625,
+          "height": 482.2181091308594
+        },
+        {
+          "width": 288.9599609375,
+          "height": 482.2181091308594
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "cards": [
+        {
+          "width": 182.32000732421875,
+          "height": 304.25189208984375
+        },
+        {
+          "width": 182.32000732421875,
+          "height": 304.25189208984375
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "cards": [
+        {
+          "width": 182.32000732421875,
+          "height": 304.25189208984375
+        },
+        {
+          "width": 182.32000732421875,
+          "height": 304.25189208984375
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "height": 740,
+      "cards": [
+        {
+          "width": 182.32000732421875,
+          "height": 304.25189208984375
+        },
+        {
+          "width": 182.32000732421875,
+          "height": 304.25189208984375
+        }
+      ]
+    }
+  ],
+  "auras": [
+    {
+      "element": "AERO",
+      "visible": 8126
+    },
+    {
+      "element": "HYDRO",
+      "visible": 12091
+    },
+    {
+      "element": "ELECTRO",
+      "visible": 9512
+    },
+    {
+      "element": "PYRO",
+      "visible": 19751
+    },
+    {
+      "element": "CRYO",
+      "visible": 10031
+    },
+    {
+      "element": "LUXO",
+      "visible": 8451
+    },
+    {
+      "element": "MINERO",
+      "visible": 10031
+    },
+    {
+      "element": "HERBO",
+      "visible": 12554
+    },
+    {
+      "element": "HEMATO",
+      "visible": 10766
+    },
+    {
+      "element": "NECRO",
+      "visible": 8126
+    },
+    {
+      "element": "GEO",
+      "visible": 10031
+    },
+    {
+      "element": "RAINBOW",
+      "visible": 8451
+    }
+  ],
+  "errors": []
+}

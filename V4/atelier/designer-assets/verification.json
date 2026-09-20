@@ -1,0 +1,537 @@
+{
+  "protectedPSDsUnchanged": 26,
+  "sources": [
+    {
+      "file": "V4/templates/RUBY_V4_01_HYDRO.psd",
+      "sha256": "19f138df7cce37419c76bcc252ab9c5f3d9d6c5a31283c934534b8a2caf2236b"
+    },
+    {
+      "file": "V4/templates/RIKKA_V4_03_RECADRAGE.psd",
+      "sha256": "bac249fcd0047629fe5fcc8aa043811eef0eabe9ac76c4971da754a150139015"
+    },
+    {
+      "file": "V4/templates/MOMO_V4_11_POSITIONS.psd",
+      "sha256": "42e096da659456c189e37936ffd745ed31627549cdf5ed6c8eb42e1b3df878a7"
+    },
+    {
+      "file": "V4/templates/TAULIO_V4_02_POSITIONS.psd",
+      "sha256": "015d50f916f05d483e8e918453909f0d753ce04753cb83def350b791929685e6"
+    },
+    {
+      "file": "V4/templates/JELLY_JOE_V4_03_ENCRE.psd",
+      "sha256": "de6e1aa2391f5ace1ef776eec20bad99ed3f9a0e1d1400972ee514d157c0cac3"
+    },
+    {
+      "file": "V4/templates/MOMO_BAL_V4_01_TEMPLATE_ELECTRO.psd",
+      "sha256": "57fcba88b4d8ffd7e8dcd26b3fe1c1d358e21a044190fc6af87b136ea06b476f"
+    },
+    {
+      "file": "V4/templates/CANA_V4_01_AERO.psd",
+      "sha256": "f4af5e29fde77611a754e050dd41d4c14b01f521497aa7acecab220710b5e0ab"
+    },
+    {
+      "file": "V4/templates/SCROW_V4_01_AERO.psd",
+      "sha256": "a048ade7a9ff60a1d8fc3c1e024bcad16f6e66a06b7d6937119595ebe08e0e4c"
+    },
+    {
+      "file": "V4/templates/SORYN_V4_01_AERO.psd",
+      "sha256": "80ee36417aff2ea7a4cd6714ead40664f45bc74cb67d2f6aca09de63d8deb42b"
+    },
+    {
+      "file": "V4/templates/GILMARR_V4_01_AERO.psd",
+      "sha256": "7ea7ac6469cc8982b475fdd30c1deb8de4a08a24c1d62a9ce35781b763ea2d13"
+    },
+    {
+      "file": "V4/templates/DARNAKO_V4_01_PYRO.psd",
+      "sha256": "f6b9cdca2ff7d127aaee74d5d1c15e5465a901a915e72faee5cbe65b64861284"
+    },
+    {
+      "file": "V4/templates/MALINIA_V4_01_CRYO.psd",
+      "sha256": "2e967c4b46681d4630d553a09c91d63f00a50fc41f27b4d011a903279c8aef44"
+    },
+    {
+      "file": "V4/templates/AELIS_V4_01_LUXO.psd",
+      "sha256": "195622b825c9adf11dad1b6b52e3eba0c6dc5227db23cc04e7b7e73013151fa4"
+    },
+    {
+      "file": "V4/templates/ILIANE_V4_01_LUXO.psd",
+      "sha256": "71d6443869d02872f7cd1a04e30122f5a8e1a54de7ae1893cd0c3fd4b5e30e31"
+    },
+    {
+      "file": "V4/templates/BELROG_V4_01_MINERO.psd",
+      "sha256": "498ad060c8ae284a17f81b92ec87c0020baa817940d1c5054d454676be78617d"
+    },
+    {
+      "file": "V4/templates/LOK_V4_01_MINERO.psd",
+      "sha256": "76f26a01085c346f3eec1cc1026ea108207b0cc4f765f39bf1b99eaae0ccc7c4"
+    },
+    {
+      "file": "V4/templates/BALMHYR_V4_01_MINERO.psd",
+      "sha256": "f910f2611597b6844e7c69e46e00ae33e89db19a21cb27f7e7c3e4817faef32d"
+    },
+    {
+      "file": "V4/templates/MAGNAR_V4_01_MINERO.psd",
+      "sha256": "a372ddc89999753e87b263fb03cca65dbbc7804e546c44c7e267e0dfbf6f6bc2"
+    },
+    {
+      "file": "V4/templates/THALIE_V4_01_HERBO.psd",
+      "sha256": "1825a3851aadb6d6a2316728c22521df57383d14353c880a7612f9e66216b719"
+    },
+    {
+      "file": "V4/templates/BLOOM_V4_01_HERBO.psd",
+      "sha256": "d508982db2551669e15e7da7b2ea00c268c790eb96a08b17f361ce723de69bf7"
+    },
+    {
+      "file": "V4/templates/VICTORVINE_V4_01_HERBO.psd",
+      "sha256": "37f8cd747b5a3791b18c9cb968e6fea88a484182f84e7f4d00ad3a33760da20d"
+    },
+    {
+      "file": "V4/templates/KAYLIS_V4_01_RAINBOW.psd",
+      "sha256": "3e8addb01a8e1911242d0d2cb1cce356ea668a6dc38666d250691a7cdbb9afa1"
+    },
+    {
+      "file": "V4/templates/ELENION_V4_01_GEO.psd",
+      "sha256": "acc78a86a15f269c80dc34775235a5ccfe12e6195777d2b6eb5bb9945c093224"
+    },
+    {
+      "file": "V4/templates/SERAPHINA_V4_01_HEMATO.psd",
+      "sha256": "20edfc3c723a31544412b7837de3b4839706f48af657224443b18f8160919dcc"
+    },
+    {
+      "file": "V4/templates/VALAZAR_V4_01_NECRO.psd",
+      "sha256": "12d04d689112ab9991e02cd9b91bffede12c3e2b6598bf7caa746d4a500c35fe"
+    },
+    {
+      "file": "V4/templates/MALABA_V4_01_NONE.psd",
+      "sha256": "4d9bd46dc1ddd5aeda38f379c979b4cc744af19bdfebe2d3bc0fbc6e171d3fad"
+    }
+  ],
+  "proofs": [
+    {
+      "key": "ruby",
+      "excluded": "native identity/numeric text; barcode region",
+      "pixelsDifferentAbove1": 1674,
+      "maxChannelDifference": 6,
+      "meanAbsoluteChannelDifference": 0.0471831809289333,
+      "fixedOpaqueChanged": 4,
+      "fixedOpaqueMax": 1,
+      "regions": {
+        "ATK D6": {
+          "pixels": 22985,
+          "above1": 260,
+          "above2": 0,
+          "above8": 0,
+          "max": 2,
+          "bounds": [
+            50,
+            53,
+            229,
+            231
+          ]
+        },
+        "artwork matte": {
+          "pixels": 37506,
+          "above1": 460,
+          "above2": 3,
+          "above8": 0,
+          "max": 3,
+          "bounds": [
+            178,
+            168,
+            776,
+            1068
+          ]
+        },
+        "ATK D5": {
+          "pixels": 11486,
+          "above1": 99,
+          "above2": 0,
+          "above8": 0,
+          "max": 2,
+          "bounds": [
+            92,
+            306,
+            218,
+            432
+          ]
+        },
+        "DEF D4": {
+          "pixels": 6263,
+          "above1": 24,
+          "above2": 0,
+          "above8": 0,
+          "max": 2,
+          "bounds": [
+            675,
+            417,
+            793,
+            534
+          ]
+        },
+        "ATK D4": {
+          "pixels": 10421,
+          "above1": 99,
+          "above2": 0,
+          "above8": 0,
+          "max": 2,
+          "bounds": [
+            92,
+            419,
+            218,
+            536
+          ]
+        },
+        "ATK D3": {
+          "pixels": 10212,
+          "above1": 99,
+          "above2": 0,
+          "above8": 0,
+          "max": 2,
+          "bounds": [
+            92,
+            522,
+            218,
+            637
+          ]
+        },
+        "ATK D2": {
+          "pixels": 10138,
+          "above1": 108,
+          "above2": 0,
+          "above8": 0,
+          "max": 2,
+          "bounds": [
+            92,
+            622,
+            218,
+            737
+          ]
+        },
+        "ATK D1": {
+          "pixels": 9891,
+          "above1": 147,
+          "above2": 0,
+          "above8": 0,
+          "max": 2,
+          "bounds": [
+            92,
+            719,
+            218,
+            834
+          ]
+        },
+        "static frame": {
+          "pixels": 4,
+          "above1": 0,
+          "above2": 0,
+          "above8": 0,
+          "max": 1,
+          "bounds": [
+            690,
+            765,
+            694,
+            814
+          ]
+        },
+        "faction": {
+          "pixels": 3813,
+          "above1": 181,
+          "above2": 58,
+          "above8": 0,
+          "max": 6,
+          "bounds": [
+            667,
+            829,
+            776,
+            1019
+          ]
+        },
+        "positions": {
+          "pixels": 1733,
+          "above1": 197,
+          "above2": 58,
+          "above8": 0,
+          "max": 4,
+          "bounds": [
+            197,
+            985,
+            256,
+            1062
+          ]
+        },
+        "weapon": {
+          "pixels": 315,
+          "above1": 0,
+          "above2": 0,
+          "above8": 0,
+          "max": 1,
+          "bounds": [
+            89,
+            1116,
+            185,
+            1211
+          ]
+        },
+        "race": {
+          "pixels": 290,
+          "above1": 0,
+          "above2": 0,
+          "above8": 0,
+          "max": 1,
+          "bounds": [
+            711,
+            1116,
+            807,
+            1211
+          ]
+        },
+        "crystal": {
+          "pixels": 8932,
+          "above1": 0,
+          "above2": 0,
+          "above8": 0,
+          "max": 1,
+          "bounds": [
+            390,
+            1123,
+            506,
+            1267
+          ]
+        },
+        "branches": {
+          "pixels": 611,
+          "above1": 0,
+          "above2": 0,
+          "above8": 0,
+          "max": 1,
+          "bounds": [
+            182,
+            1190,
+            703,
+            1227
+          ]
+        }
+      }
+    },
+    {
+      "key": "rikka",
+      "excluded": "native identity/numeric text; barcode region",
+      "pixelsDifferentAbove1": 1240,
+      "maxChannelDifference": 8,
+      "meanAbsoluteChannelDifference": 0.03232663766775468,
+      "fixedOpaqueChanged": 5,
+      "fixedOpaqueMax": 1,
+      "regions": {
+        "ATK D6": {
+          "pixels": 7446,
+          "above1": 0,
+          "above2": 0,
+          "above8": 0,
+          "max": 1,
+          "bounds": [
+            90,
+            95,
+            194,
+            199
+          ]
+        },
+        "DEF D6": {
+          "pixels": 470,
+          "above1": 0,
+          "above2": 0,
+          "above8": 0,
+          "max": 1,
+          "bounds": [
+            718,
+            118,
+            790,
+            190
+          ]
+        },
+        "artwork matte": {
+          "pixels": 43751,
+          "above1": 724,
+          "above2": 2,
+          "above8": 0,
+          "max": 4,
+          "bounds": [
+            178,
+            167,
+            776,
+            1068
+          ]
+        },
+        "ATK D5": {
+          "pixels": 12435,
+          "above1": 156,
+          "above2": 0,
+          "above8": 0,
+          "max": 2,
+          "bounds": [
+            94,
+            307,
+            218,
+            431
+          ]
+        },
+        "ATK D4": {
+          "pixels": 3197,
+          "above1": 0,
+          "above2": 0,
+          "above8": 0,
+          "max": 1,
+          "bounds": [
+            122,
+            441,
+            193,
+            512
+          ]
+        },
+        "ATK D3": {
+          "pixels": 3206,
+          "above1": 0,
+          "above2": 0,
+          "above8": 0,
+          "max": 1,
+          "bounds": [
+            122,
+            542,
+            193,
+            613
+          ]
+        },
+        "ATK D2": {
+          "pixels": 3202,
+          "above1": 0,
+          "above2": 0,
+          "above8": 0,
+          "max": 1,
+          "bounds": [
+            122,
+            642,
+            193,
+            713
+          ]
+        },
+        "DEF D1": {
+          "pixels": 2278,
+          "above1": 0,
+          "above2": 0,
+          "above8": 0,
+          "max": 1,
+          "bounds": [
+            688,
+            728,
+            781,
+            819
+          ]
+        },
+        "ATK D1": {
+          "pixels": 3208,
+          "above1": 0,
+          "above2": 0,
+          "above8": 0,
+          "max": 1,
+          "bounds": [
+            122,
+            739,
+            193,
+            810
+          ]
+        },
+        "static frame": {
+          "pixels": 5,
+          "above1": 0,
+          "above2": 0,
+          "above8": 0,
+          "max": 1,
+          "bounds": [
+            178,
+            798,
+            691,
+            832
+          ]
+        },
+        "faction": {
+          "pixels": 4446,
+          "above1": 198,
+          "above2": 66,
+          "above8": 0,
+          "max": 8,
+          "bounds": [
+            667,
+            829,
+            776,
+            1059
+          ]
+        },
+        "positions": {
+          "pixels": 1610,
+          "above1": 162,
+          "above2": 32,
+          "above8": 0,
+          "max": 3,
+          "bounds": [
+            197,
+            985,
+            256,
+            1062
+          ]
+        },
+        "weapon": {
+          "pixels": 315,
+          "above1": 0,
+          "above2": 0,
+          "above8": 0,
+          "max": 1,
+          "bounds": [
+            89,
+            1116,
+            185,
+            1211
+          ]
+        },
+        "race": {
+          "pixels": 294,
+          "above1": 0,
+          "above2": 0,
+          "above8": 0,
+          "max": 1,
+          "bounds": [
+            711,
+            1116,
+            807,
+            1211
+          ]
+        },
+        "crystal": {
+          "pixels": 519,
+          "above1": 0,
+          "above2": 0,
+          "above8": 0,
+          "max": 1,
+          "bounds": [
+            383,
+            1123,
+            512,
+            1267
+          ]
+        },
+        "branches": {
+          "pixels": 626,
+          "above1": 0,
+          "above2": 0,
+          "above8": 0,
+          "max": 1,
+          "bounds": [
+            196,
+            1190,
+            702,
+            1227
+          ]
+        }
+      }
+    }
+  ],
+  "assets": 418
+}

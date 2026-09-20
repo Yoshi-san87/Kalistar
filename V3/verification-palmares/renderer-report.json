@@ -1,0 +1,543 @@
+{
+  "tests": [
+    {
+      "name": "Fallback core icons and granted clovers/hearts use exact per-UID values",
+      "ok": true
+    },
+    {
+      "name": "All 20 units including unused reserves and duplicate versions are reachable exactly once",
+      "ok": true
+    },
+    {
+      "name": "Sort always belongs to visible columns, with kills/core and debuff/extras defaults",
+      "ok": true
+    },
+    {
+      "name": "Global metric labels and definitions are read at render time; extras stay distinct",
+      "ok": true
+    },
+    {
+      "name": "Twenty tied MVPs have bounded captions and navigation to every UID",
+      "ok": true
+    },
+    {
+      "name": "Spotlights only change presentation; scores, leaders and MVP metrics remain exact",
+      "ok": true
+    },
+    {
+      "name": "Archived names and titles survive sorting, pagination and awards; unsafe text is escaped",
+      "ok": true
+    },
+    {
+      "name": "Actual engine support events render granted values without consumed-token substitution",
+      "ok": true
+    },
+    {
+      "name": "Setup keeps all reserves and zero counters, with no premature awards or rematch",
+      "ok": true
+    },
+    {
+      "name": "All tabs fit without scroll and identities align at 1440x1000",
+      "ok": true
+    },
+    {
+      "name": "All tabs fit without scroll and identities align at 1280x720",
+      "ok": true
+    },
+    {
+      "name": "All tabs fit without scroll and identities align at 390x844",
+      "ok": true
+    },
+    {
+      "name": "All tabs fit without scroll and identities align at 360x640",
+      "ok": true
+    },
+    {
+      "name": "All tabs fit without scroll and identities align at 320x568",
+      "ok": true
+    },
+    {
+      "name": "All tabs fit without scroll and identities align at 844x390",
+      "ok": true
+    },
+    {
+      "name": "All tabs fit without scroll and identities align at 320x480",
+      "ok": true
+    },
+    {
+      "name": "No browser errors and input statistics are unchanged",
+      "ok": true
+    }
+  ],
+  "geometry": [
+    {
+      "viewport": [
+        1440,
+        1000
+      ],
+      "tab": "lineup",
+      "issues": []
+    },
+    {
+      "viewport": [
+        1440,
+        1000
+      ],
+      "tab": "lineup",
+      "issues": []
+    },
+    {
+      "viewport": [
+        1440,
+        1000
+      ],
+      "tab": "awards",
+      "issues": []
+    },
+    {
+      "viewport": [
+        1440,
+        1000
+      ],
+      "tab": "awards",
+      "issues": []
+    },
+    {
+      "viewport": [
+        1440,
+        1000
+      ],
+      "tab": "teams",
+      "issues": []
+    },
+    {
+      "viewport": [
+        1440,
+        1000
+      ],
+      "tab": "teams",
+      "issues": []
+    },
+    {
+      "viewport": [
+        1440,
+        1000
+      ],
+      "tab": "definitions",
+      "issues": []
+    },
+    {
+      "viewport": [
+        1440,
+        1000
+      ],
+      "tab": "definitions",
+      "issues": []
+    },
+    {
+      "viewport": [
+        1280,
+        720
+      ],
+      "tab": "lineup",
+      "issues": []
+    },
+    {
+      "viewport": [
+        1280,
+        720
+      ],
+      "tab": "lineup",
+      "issues": []
+    },
+    {
+      "viewport": [
+        1280,
+        720
+      ],
+      "tab": "awards",
+      "issues": []
+    },
+    {
+      "viewport": [
+        1280,
+        720
+      ],
+      "tab": "awards",
+      "issues": []
+    },
+    {
+      "viewport": [
+        1280,
+        720
+      ],
+      "tab": "teams",
+      "issues": []
+    },
+    {
+      "viewport": [
+        1280,
+        720
+      ],
+      "tab": "teams",
+      "issues": []
+    },
+    {
+      "viewport": [
+        1280,
+        720
+      ],
+      "tab": "definitions",
+      "issues": []
+    },
+    {
+      "viewport": [
+        1280,
+        720
+      ],
+      "tab": "definitions",
+      "issues": []
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "tab": "lineup",
+      "issues": []
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "tab": "lineup",
+      "issues": []
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "tab": "awards",
+      "issues": []
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "tab": "awards",
+      "issues": []
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "tab": "teams",
+      "issues": []
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "tab": "teams",
+      "issues": []
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "tab": "definitions",
+      "issues": []
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "tab": "definitions",
+      "issues": []
+    },
+    {
+      "viewport": [
+        360,
+        640
+      ],
+      "tab": "lineup",
+      "issues": []
+    },
+    {
+      "viewport": [
+        360,
+        640
+      ],
+      "tab": "lineup",
+      "issues": []
+    },
+    {
+      "viewport": [
+        360,
+        640
+      ],
+      "tab": "awards",
+      "issues": []
+    },
+    {
+      "viewport": [
+        360,
+        640
+      ],
+      "tab": "awards",
+      "issues": []
+    },
+    {
+      "viewport": [
+        360,
+        640
+      ],
+      "tab": "teams",
+      "issues": []
+    },
+    {
+      "viewport": [
+        360,
+        640
+      ],
+      "tab": "teams",
+      "issues": []
+    },
+    {
+      "viewport": [
+        360,
+        640
+      ],
+      "tab": "definitions",
+      "issues": []
+    },
+    {
+      "viewport": [
+        360,
+        640
+      ],
+      "tab": "definitions",
+      "issues": []
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "tab": "lineup",
+      "issues": []
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "tab": "lineup",
+      "issues": []
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "tab": "awards",
+      "issues": []
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "tab": "awards",
+      "issues": []
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "tab": "teams",
+      "issues": []
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "tab": "teams",
+      "issues": []
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "tab": "definitions",
+      "issues": []
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "tab": "definitions",
+      "issues": []
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "tab": "lineup",
+      "issues": []
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "tab": "lineup",
+      "issues": []
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "tab": "awards",
+      "issues": []
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "tab": "awards",
+      "issues": []
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "tab": "teams",
+      "issues": []
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "tab": "teams",
+      "issues": []
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "tab": "definitions",
+      "issues": []
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "tab": "definitions",
+      "issues": []
+    },
+    {
+      "viewport": [
+        320,
+        480
+      ],
+      "tab": "lineup",
+      "issues": []
+    },
+    {
+      "viewport": [
+        320,
+        480
+      ],
+      "tab": "lineup",
+      "issues": []
+    },
+    {
+      "viewport": [
+        320,
+        480
+      ],
+      "tab": "awards",
+      "issues": []
+    },
+    {
+      "viewport": [
+        320,
+        480
+      ],
+      "tab": "awards",
+      "issues": []
+    },
+    {
+      "viewport": [
+        320,
+        480
+      ],
+      "tab": "teams",
+      "issues": []
+    },
+    {
+      "viewport": [
+        320,
+        480
+      ],
+      "tab": "teams",
+      "issues": []
+    },
+    {
+      "viewport": [
+        320,
+        480
+      ],
+      "tab": "definitions",
+      "issues": []
+    },
+    {
+      "viewport": [
+        320,
+        480
+      ],
+      "tab": "definitions",
+      "issues": []
+    }
+  ],
+  "screenshots": [
+    "C:\\Users\\guill\\AppData\\Local\\Temp\\kalistar-match-report-oKVK28\\lineup-1440x1000.png",
+    "C:\\Users\\guill\\AppData\\Local\\Temp\\kalistar-match-report-oKVK28\\awards-1440x1000.png",
+    "C:\\Users\\guill\\AppData\\Local\\Temp\\kalistar-match-report-oKVK28\\lineup-1280x720.png",
+    "C:\\Users\\guill\\AppData\\Local\\Temp\\kalistar-match-report-oKVK28\\awards-1280x720.png",
+    "C:\\Users\\guill\\AppData\\Local\\Temp\\kalistar-match-report-oKVK28\\lineup-390x844.png",
+    "C:\\Users\\guill\\AppData\\Local\\Temp\\kalistar-match-report-oKVK28\\awards-390x844.png",
+    "C:\\Users\\guill\\AppData\\Local\\Temp\\kalistar-match-report-oKVK28\\lineup-360x640.png",
+    "C:\\Users\\guill\\AppData\\Local\\Temp\\kalistar-match-report-oKVK28\\awards-360x640.png",
+    "C:\\Users\\guill\\AppData\\Local\\Temp\\kalistar-match-report-oKVK28\\lineup-320x568.png",
+    "C:\\Users\\guill\\AppData\\Local\\Temp\\kalistar-match-report-oKVK28\\awards-320x568.png",
+    "C:\\Users\\guill\\AppData\\Local\\Temp\\kalistar-match-report-oKVK28\\lineup-844x390.png",
+    "C:\\Users\\guill\\AppData\\Local\\Temp\\kalistar-match-report-oKVK28\\awards-844x390.png",
+    "C:\\Users\\guill\\AppData\\Local\\Temp\\kalistar-match-report-oKVK28\\lineup-320x480.png",
+    "C:\\Users\\guill\\AppData\\Local\\Temp\\kalistar-match-report-oKVK28\\awards-320x480.png"
+  ],
+  "browserErrors": [],
+  "output": "C:\\Users\\guill\\AppData\\Local\\Temp\\kalistar-match-report-oKVK28",
+  "passed": 17,
+  "failed": 0,
+  "ok": true
+}

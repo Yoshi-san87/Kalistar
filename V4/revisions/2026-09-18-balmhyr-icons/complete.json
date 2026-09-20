@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "referenceId": "776dc4d80df6962de648b1553c1ae6868ffa95a10eefe8982fe1e0e38c82ce1a",
+  "protectedCount": 176,
+  "cards": [
+    {
+      "key": "balmhyr",
+      "id": "30000007",
+      "servedHash": "e57aa28a0a23834491382b9951a85ef7d722e247485e508db4ba9e3e6c95c72d",
+      "fieldsPreserved": true
+    },
+    {
+      "key": "lok",
+      "id": "30000018",
+      "servedHash": "37251d1c95909ae77b0bc60afa76bf85fdea26c57c3dc25d0e267ec60ae2ceaa",
+      "fieldsPreserved": true
+    }
+  ],
+  "unchangedCards": 24,
+  "unchangedComponents": 416,
+  "changedComponents": [
+    "packed/banks/weapon-Hache.png",
+    "packed/banks/race-NAIN.png"
+  ],
+  "restoredBanks": [
+    {
+      "file": "packed/banks/weapon-Hache.png",
+      "alphaIdentical": true,
+      "visiblePixelsIdentical": true
+    },
+    {
+      "file": "packed/banks/race-NAIN.png",
+      "alphaIdentical": true,
+      "visiblePixelsIdentical": true
+    }
+  ],
+  "catalogueCount": 26,
+  "regression": {
+    "passed": true,
+    "cards": 26,
+    "checkedAt": "2026-09-18T14:00:52.137Z"
+  },
+  "checkedAt": "2026-09-18T14:01:22.248Z"
+}

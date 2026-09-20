@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101413">
+  <title>Kalistar V3 · Collection, Decks et Arène</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="arena.css">
+  <link rel="stylesheet" href="duel-presentation.css">
+  <link rel="stylesheet" href="duel-console.css">
+  <link rel="stylesheet" href="match-report.css">
+  <link rel="stylesheet" href="catalogue.css">
+  <link rel="stylesheet" href="v3.css">
+  <link rel="stylesheet" href="accounts.css">
+  <link rel="stylesheet" href="battle-ui.css">
+  <link rel="stylesheet" href="deck-builder.css">
+  <link rel="stylesheet" href="collection-binder.css">
+  <script defer src="assets/lucide.min.js"></script>
+  <script defer src="data.js"></script>
+  <script defer src="engine.js"></script>
+  <script defer src="assets/dice.bundle.js"></script>
+  <script defer src="combat-effects.js"></script>
+  <script defer src="duel-focus.js"></script>
+  <script defer src="formation-drag.js"></script>
+  <script defer src="match-metrics.js"></script>
+  <script defer src="match-report.js"></script>
+  <script defer src="ownership.js"></script>
+  <script defer src="local-db.js"></script>
+  <script defer src="catalogue.js"></script>
+  <script defer src="collection-binder.js"></script>
+  <script defer src="accounts-ui.js"></script>
+  <script defer src="reserve-preview.js"></script>
+  <script defer src="deck-library.js"></script>
+  <script defer src="deck-builder.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body data-edition="V3">
+  <header class="masthead">
+    <a class="brand" href="#collection" aria-label="Kalistar, collection"><img src="assets/logo.webp" alt="Kalistar Card Game" width="300" height="100"></a>
+    <nav class="main-nav" aria-label="Navigation principale">
+      <button data-view="collection" class="active"><i data-lucide="book-open"></i><span>Collection</span></button>
+      <button data-view="decks"><i data-lucide="layers-3"></i><span>Decks</span></button>
+      <button data-view="arena"><i data-lucide="swords"></i><span>Arène</span></button>
+    </nav>
+    <div class="header-actions"><span class="edition">ÉDITION V3</span><button class="account-button" data-action="account" title="Profils locaux et transferts" aria-label="Profils locaux et transferts"><i data-lucide="users-round"></i><span id="account-name">Paris</span></button><button class="icon-button" data-action="rules" title="Règles de la démo" aria-label="Règles de la démo"><i data-lucide="scroll-text"></i></button><button class="deck-button" data-action="deck"><i data-lucide="layers-3"></i><span>Mon deck</span><b id="deck-count">10</b></button></div>
+  </header>
+  <main id="app"></main>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <dialog id="detail-dialog" aria-label="Fiche de carte"></dialog>
+  <dialog id="deck-dialog" aria-label="Préparation du deck"></dialog>
+  <dialog id="rules-dialog" aria-label="Règles de Kalistar"></dialog>
+  <dialog id="new-game-dialog" aria-label="Nouvelle partie"></dialog>
+  <dialog id="journal-dialog" aria-label="Journal du duel"></dialog>
+  <dialog id="arena-dialog" class="arena-picker-dialog" aria-label="Choisir une arène"></dialog>
+  <dialog id="match-dialog" aria-label="Bilan du match"></dialog>
+  <dialog id="database-dialog" aria-label="Archives personnelles"></dialog>
+  <dialog id="account-dialog" aria-label="Profils locaux et transferts"></dialog>
+  <script>window.addEventListener('error',function(){var t=document.getElementById('toast');if(t&&!window.KALISTAR_READY){t.textContent='Le site ne s’est pas chargé. Ouvrez index.html depuis le dossier V3/site complet.';t.classList.add('visible');}});</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 4,
+  "id": "30000024",
+  "name": "MAGNAR",
+  "title": "LA PORTE DE PIERRE",
+  "job": "GEOLIER",
+  "race": "GOLEM",
+  "element": "MINERO",
+  "faction": "Durane",
+  "weapon": "Masse",
+  "positions": [
+    1
+  ],
+  "atk": [
+    204,
+    167,
+    130,
+    100,
+    "guard",
+    26
+  ],
+  "defense": [
+    296,
+    244,
+    192,
+    140,
+    95,
+    43
+  ],
+  "magic": [
+    6,
+    3
+  ],
+  "barriers": [
+    5,
+    2
+  ],
+  "slug": "24_MINERO_MAGNAR",
+  "hue": 210,
+  "color": "B3BFCA",
+  "weapon_index": 2,
+  "description": "Magnar avance d'un pas et la galerie semble rétrécir. Il n'a pas besoin de hausser la voix. La roche de son corps connaît chaque vibration de la mine.",
+  "artwork": "MAGNAR",
+  "artworkSource": "V4/assets/illustrations/elements-01/terre-plantes/MAGNAR_V4_01.png",
+  "artworkUnchanged": false,
+  "sourcePSD": "V3/templates/24_MINERO_MAGNAR.psd",
+  "output": "MAGNAR_V4_01_MINERO",
+  "profile": "V4/template-stable/elements-01/magnar/card.json"
+}

@@ -1,0 +1,564 @@
+{
+  "schema_version": 1,
+  "version": "V3",
+  "lot": "roster_final_35_41",
+  "status": "complete",
+  "generator": {
+    "mode": "built-in",
+    "tool": "image_gen.imagegen",
+    "initial_calls": 7,
+    "revision_calls": 0,
+    "one_asset_per_call": true,
+    "atlas": false,
+    "returned_via_generatedImage": true
+  },
+  "scope": {
+    "project_root": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar",
+    "assets": [
+      "V3/assets/illustrations/35_NECRO_CAPITAINE_SKULLY.png",
+      "V3/assets/illustrations/36_GEO_ELENION.png",
+      "V3/assets/illustrations/37_GEO_YVAR.png",
+      "V3/assets/illustrations/38_AERO_GILMARR.png",
+      "V3/assets/illustrations/39_HYDRO_RUBY.png",
+      "V3/assets/illustrations/40_AERO_SORYN.png",
+      "V3/assets/illustrations/41_HERBO_THALIE.png"
+    ],
+    "manifest": "V3/donnees/generation_roster_final_manifest.json",
+    "card_registry_ui_or_other_files_modified": false,
+    "disjoint_from_other_worker": true
+  },
+  "sources_read": [
+    {
+      "path": "V3/donnees/cartes.json",
+      "selection": "Les sept slugs 35 a 41 demandes; profils, prompt, story_scene, text et source."
+    },
+    {
+      "path": "V3/donnees/registre_personnages.json",
+      "selection": "characters correspondant aux sept characterId."
+    },
+    {
+      "path": "V2/assets/illustrations/electro.png",
+      "usage": "Reference DA Momo inspectee visuellement en lecture seule; direction picturale verbalisee dans les prompts."
+    }
+  ],
+  "request_overrides": [
+    "Portrait 4:5 selon l'instruction actuelle au lieu du 3:4 des prompts sources; les JSON sources restent inchanges.",
+    "Morphologie humanoide et bipedale lisible pour chaque personnage: deux bras et deux jambes; extremites aviaires et ailes dorsales distinctes conservees pour Soryn.",
+    "Skully reste un squelette humanoide navigateur; nostalgie et dignite, aucune horreur gratuite.",
+    "Sept scenes individuelles variees, aucun atlas ni composition a plusieurs portraits.",
+    "But d'Astraball en U inverse pour Gilmarr selon la regle lue dans V3/sources/histoire.txt, lignes 379-386, au lieu d'un anneau de basket moderne."
+  ],
+  "format": {
+    "requested_aspect_ratio": "4:5",
+    "minimum_requested_width_px": 1024,
+    "actual_width_px": 1122,
+    "actual_height_px": 1402,
+    "actual_aspect_ratio": 0.8002853067047075,
+    "note": "PNG natifs du built-in proches de 4:5; ecart relatif au ratio de 0.036 pour cent. Aucun redimensionnement, recadrage ou retouche externe.",
+    "frame": false,
+    "lettering": false
+  },
+  "visual_qa": {
+    "method": "Inspection visuelle de chaque sortie affichee, controle des bras, mains, jambes, pieds, continuite du bassin, accessoires et scene.",
+    "all_seven_reviewed": true,
+    "revision_needed": false,
+    "progress_notifications_at": [
+      3,
+      6
+    ]
+  },
+  "assets": [
+    {
+      "slug": "35_NECRO_CAPITAINE_SKULLY",
+      "characterId": "capitaine-skully",
+      "card_id": "30000035",
+      "name": "CAPITAINE SKULLY",
+      "element": "NECRO",
+      "race": "SKULLZ",
+      "faction": "Cryptown",
+      "job": "CAPITAINE",
+      "title": "LE DERNIER AMARRAGE",
+      "destination": "V3/assets/illustrations/35_NECRO_CAPITAINE_SKULLY.png",
+      "absolute_destination": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/35_NECRO_CAPITAINE_SKULLY.png",
+      "status": "accepted",
+      "source_profile": {
+        "path": "V3/donnees/cartes.json",
+        "selector": "slug == 35_NECRO_CAPITAINE_SKULLY",
+        "story_scene": "Scene inventee : le capitaine Skully ramene seul son navire a quai.",
+        "narrative_text": "Skully enroule la derniere aussiere autour du bollard. Le bateau tient enfin. Avant de descendre, il salue le pont vide avec le serieux d un capitaine devant tout son equipage.",
+        "source_prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Capitaine Skullz adulte, crane large use, tricorne de toile bleu petrole, manteau maritime vert, epee courte a la ceinture. Debout sur un quai, un bras tire une corde, l autre salue, fierte nostalgique et humour discret, bateau ancien entier visible au fond.",
+        "declared_provenance": "main/Kalistar.xlsx, Personnages ligne 47, via V3/sources/sources-extraites.json ; contradiction classe Middle / pos 2 tranchee vers P3, scene proposee V3",
+        "weapon": "Epée courte",
+        "art_action": "generate"
+      },
+      "source_registry": {
+        "path": "V3/donnees/registre_personnages.json",
+        "selector": "characters.characterId == capitaine-skully",
+        "snapshot": {
+          "characterId": "capitaine-skully",
+          "name": "CAPITAINE SKULLY",
+          "aliases": [],
+          "race": "SKULLZ",
+          "faction": "Cryptown",
+          "cardIds": [
+            "30000035"
+          ],
+          "slugs": [
+            "35_NECRO_CAPITAINE_SKULLY"
+          ],
+          "origin": "main/Kalistar.xlsx, Personnages ligne 47, via V3/sources/sources-extraites.json ; contradiction classe Middle / pos 2 tranchee vers P3, scene proposee V3",
+          "homeArenas": [
+            "necro"
+          ]
+        }
+      },
+      "final_generation_prompt": "Use case: illustration-story. Create ONE standalone finished Kalistar narrative fantasy painting. Portrait 4:5 canvas, at least 1024 pixels wide, ideally 1024 x 1280 or 1280 x 1600. Full bleed art, no frame, no card layout, no border, no inset, no grid or atlas. Absolutely no typography, lettering, numbers, logo, watermark or signature.\nArt direction: the inspected Kalistar Momo electro.png painting, in the same visual family as the preceding Kalistar story portraits. Tactile hand-painted oil/gouache planes, confidently visible selective brushwork, expressive sculpted forms, richly painted worn cloth, metal, wood and stone; believable lived-in fantasy and emotion carried by a specific small action. Face and hands receive selective detail; background has grouped painted masses rather than synthetic micro-noise. NOT a photo, NOT CGI/3D rendering, NOT anime or comic outlining, NOT generic promotional hero art. Momo is a style reference, not a character to depict; do not copy its robot body, straw hat, flute, seated pose or blue night palette.\nAnatomy priority: ONE main adult humanoid, ONE head, EXACTLY TWO arms attached at two shoulders, EXACTLY TWO legs attached to one coherent pelvis, one hand per arm and one foot per leg. Humanlike torso and biped proportions even for animal-headed or plant people. Clear elbows, wrists, knees and ankles, readable hands with plausible fingers. No extra limbs, no disconnected hands, no crossed or dislocated hips, no quadruped animal body, no duplicated lower body. Show the entire main figure including both feet with a little margin. Natural weight and stable contact with the scene. Do not hide anatomical mistakes with fabric or scenery.\nSubject/canon: CAPITAINE SKULLY, adult male Skullz of Cryptown, NECRO navigator. Humanoid weathered skeleton with a broad worn ivory skull, normal bone hands, TWO arms and TWO legs, dignified and approachable, not menacing. A petrol-blue canvas tricorn, worn maritime green captain's coat over practical dark clothing, two leather sea boots and ONE short sword SHEATHED at the belt. No flesh decay or body damage.\nScene: he has single-handedly brought his old sailing vessel safely back to a stone quay and is making the last mooring fast. A thick hawser from his ship wraps credibly around ONE dock bollard. The old vessel is visible in the middle background as a whole readable small ship with furled sail, weathered hull and EMPTY deck, tied beside the quay.\nAction/composition: full-length three-quarter view on the quay. Two boots planted wide on wet stone. One skeletal hand holds the free end of the mooring rope beside his hip after its wraps around the bollard; the other raises a restrained captain's salute to the brim of his tricorn. ONLY these two hands, no extra hand tying the rope. Skull turned toward the EMPTY ship as if respectfully saluting an absent crew. Emotion is nostalgic pride and gentle dry humor through skull tilt, shoulders and gesture, no aggressive grin; tiny quiet plum reflections in the eye sockets if needed for NECRO but no magical fire.\nLighting: last pearly daylight over water, cool marine turquoise and green contrasted with muted wine-red distant harbor roofs and one warm harbor lamp. Patient, slightly bittersweet maritime story, calm ripples. No ghosts, crowd, additional skulls, blood, gore, zombies, horror props or gratuitous horror.",
+      "generated_source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-07999988-02da-44d6-ad66-d84a2bad62dd.png",
+      "output": {
+        "width": 1122,
+        "height": 1402,
+        "format": "PNG",
+        "bytes": 2990647,
+        "sha256": "D5FBCAEA05D3C6440BF9810089C0CA7014B10F2D29FABA9DCC9812295612757C",
+        "source_copy_sha256_verified": true
+      },
+      "iterations": [
+        {
+          "pass": 1,
+          "kind": "generate",
+          "accepted": true
+        }
+      ],
+      "visual_review": {
+        "passed": true,
+        "checks": [
+          "Deux bras squelettiques distincts et deux jambes avec deux bottes; mains rattachees.",
+          "Tricorne petrol, manteau vert, epee courte au fourreau.",
+          "Aussiere autour du bollard, salut au pont vide; fierte nostalgique sans horreur gratuite."
+        ]
+      }
+    },
+    {
+      "slug": "36_GEO_ELENION",
+      "characterId": "elenion",
+      "card_id": "30000036",
+      "name": "ELENION",
+      "element": "GEO",
+      "race": "CERELF",
+      "faction": "Woodland",
+      "job": "ARPENTEUR",
+      "title": "LA LISIERE DEPLACEE",
+      "destination": "V3/assets/illustrations/36_GEO_ELENION.png",
+      "absolute_destination": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/36_GEO_ELENION.png",
+      "status": "accepted",
+      "source_profile": {
+        "path": "V3/donnees/cartes.json",
+        "selector": "slug == 36_GEO_ELENION",
+        "story_scene": "Scene inventee : Elenion releve une borne de Woodland deracinee par la crue.",
+        "narrative_text": "Elenion retrouve la borne loin du chemin. La foret n a pas efface la limite ; la riviere l a deplacee. Il prend une nouvelle mesure avant de juger les traces.",
+        "source_prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Cerelf adulte humanoide a tete de cerf, bois courts asymetriques, deux bras humains et deux jambes vetues, tunique verte et rouge. Agenouille sur un seul genou pres d une borne, fleau de marche pose au sol, regard mesure et pensif, clairiere humide.",
+        "declared_provenance": "main/Kalistar.xlsx, Personnages ligne 48, via V3/sources/sources-extraites.json ; cristal Terre conserve malgre HERBO dans la table generique des Cerelf ; scene proposee V3",
+        "weapon": "Fléau",
+        "art_action": "generate"
+      },
+      "source_registry": {
+        "path": "V3/donnees/registre_personnages.json",
+        "selector": "characters.characterId == elenion",
+        "snapshot": {
+          "characterId": "elenion",
+          "name": "ELENION",
+          "aliases": [],
+          "race": "CERELF",
+          "faction": "Woodland",
+          "cardIds": [
+            "30000036"
+          ],
+          "slugs": [
+            "36_GEO_ELENION"
+          ],
+          "origin": "main/Kalistar.xlsx, Personnages ligne 48, via V3/sources/sources-extraites.json ; cristal Terre conserve malgre HERBO dans la table generique des Cerelf ; scene proposee V3",
+          "homeArenas": []
+        }
+      },
+      "final_generation_prompt": "Use case: illustration-story. Create ONE standalone finished Kalistar narrative fantasy painting. Portrait 4:5 canvas, at least 1024 pixels wide, ideally 1024 x 1280 or 1280 x 1600. Full bleed art, no frame, no card layout, no border, no inset, no grid or atlas. Absolutely no typography, lettering, numbers, logo, watermark or signature.\nArt direction: the inspected Kalistar Momo electro.png painting, in the same visual family as the preceding Kalistar story portraits. Tactile hand-painted oil/gouache planes, confidently visible selective brushwork, expressive sculpted forms, richly painted worn cloth, metal, wood and stone; believable lived-in fantasy and emotion carried by a specific small action. Face and hands receive selective detail; background has grouped painted masses rather than synthetic micro-noise. NOT a photo, NOT CGI/3D rendering, NOT anime or comic outlining, NOT generic promotional hero art. Momo is a style reference, not a character to depict; do not copy its robot body, straw hat, flute, seated pose or blue night palette.\nAnatomy priority: ONE main adult humanoid, ONE head, EXACTLY TWO arms attached at two shoulders, EXACTLY TWO legs attached to one coherent pelvis, one hand per arm and one foot per leg. Humanlike torso and biped proportions even for animal-headed or plant people. Clear elbows, wrists, knees and ankles, readable hands with plausible fingers. No extra limbs, no disconnected hands, no crossed or dislocated hips, no quadruped animal body, no duplicated lower body. Show the entire main figure including both feet with a little margin. Natural weight and stable contact with the scene. Do not hide anatomical mistakes with fabric or scenery.\nSubject/canon: ELENION, adult male Cerelf surveyor of Woodland, GEO affinity. An upright humanoid with a DEER HEAD, expressive calm deer eyes, short asymmetrical antlers, small deer ears, a humanlike clothed torso, two human-shaped arms and TWO trousered human-proportioned legs. No deer body or four hooved legs. Practical green and muted red woven tunic, charcoal work trousers and soft sturdy walking boots, restrained worn materials.\nScene: damp woodland clearing after a flood. A modest old stone boundary marker has been uprooted and shifted by the river. He checks its position before judging the tracks. Mud, washed stones, a shallow changed river course and wet trunks explain the displacement; the marker has plain geometric wear but NO text or carved glyphs. ONE walking flail lies safely on the ground off to one side: one wooden handle with a short chain and one small metal weight, not several weapons.\nAction/composition: full figure in thoughtful side-three-quarter profile, kneeling on ONE knee beside the displaced marker. One knee rests on a patch of moss with its lower leg and rear boot visibly trailing sideways; the other knee is raised with that foot planted on earth. Both legs are clearly different, continuous and plausible. One hand braces the marker near its top while the other holds a simple unlettered measuring cord down to the old boundary groove in the ground. The two arms have clearly separated silhouettes and traceable shoulders.\nHis deer head is tilted thoughtfully, gaze comparing the cord and stone, compassionate seriousness rather than heroic stare. Quiet measured judgment and attention. Soft cool daylight through cloud, wet jade foliage, pearl-gray stone, earthy maroon mud, small red garment accents. GEO expressed by tactile earth and stone, not neon floating boulders. Paint a specific surveyor's task with lovely woodland depth, not generic nature magic.",
+      "generated_source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-35e9ce20-323f-4d50-8852-861f97ac0a52.png",
+      "output": {
+        "width": 1122,
+        "height": 1402,
+        "format": "PNG",
+        "bytes": 3060544,
+        "sha256": "0AB221F013477052E061A089CC6B12B99A52B62D622475315005FD075E50E47F",
+        "source_copy_sha256_verified": true
+      },
+      "iterations": [
+        {
+          "pass": 1,
+          "kind": "generate",
+          "accepted": true
+        }
+      ],
+      "visual_review": {
+        "passed": true,
+        "checks": [
+          "Tete de cerf avec bois asymetriques, torse humanoide vetu.",
+          "Deux bras et deux mains, deux jambes distinctes; un genou au sol et deux bottes visibles.",
+          "Borne deplacee, corde de mesure, fleau au sol et terrain de crue; attitude attentive."
+        ]
+      }
+    },
+    {
+      "slug": "37_GEO_YVAR",
+      "characterId": "yvar",
+      "card_id": "30000037",
+      "name": "YVAR",
+      "element": "GEO",
+      "race": "RHINOZ",
+      "faction": "Zarok",
+      "job": "ECLAIREUR",
+      "title": "LA ROUTE SOUS LE SABLE",
+      "destination": "V3/assets/illustrations/37_GEO_YVAR.png",
+      "absolute_destination": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/37_GEO_YVAR.png",
+      "status": "accepted",
+      "source_profile": {
+        "path": "V3/donnees/cartes.json",
+        "selector": "slug == 37_GEO_YVAR",
+        "story_scene": "Yvar reconnait le canal asseche avant la mission de sauvetage de Gen ; instant de preparation extrapole du chapitre 15.",
+        "narrative_text": "Yvar descend dans le canal et ecoute le sable sous ses pas. Il retrouve le passage sans allumer sa lampe. Ceux qui le suivent n auront pas besoin de connaitre tous ses detours.",
+        "source_prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Rhinoz humanoide adulte a tete de rhinoceros, corne courte marquee d une rayure, armure legere verte, lance gravee. Plein corps vu en leger plongee, accroupi au bord d un canal asseche et montrant une piste, vigilance tranquille, pas de corps animal.",
+        "declared_provenance": "main/Kalistar.xlsx, Personnages ligne 4, via V3/sources/sources-extraites.json ; V3/sources/histoire.txt, chapitres 10 et 15, Yvar fils de Koronak, lance et route d infiltration ; cristal GEO et scene proposes V3",
+        "weapon": "Lance",
+        "art_action": "generate"
+      },
+      "source_registry": {
+        "path": "V3/donnees/registre_personnages.json",
+        "selector": "characters.characterId == yvar",
+        "snapshot": {
+          "characterId": "yvar",
+          "name": "YVAR",
+          "aliases": [],
+          "race": "RHINOZ",
+          "faction": "Zarok",
+          "cardIds": [
+            "30000037"
+          ],
+          "slugs": [
+            "37_GEO_YVAR"
+          ],
+          "origin": "main/Kalistar.xlsx, Personnages ligne 4, via V3/sources/sources-extraites.json ; V3/sources/histoire.txt, chapitres 10 et 15, Yvar fils de Koronak, lance et route d infiltration ; cristal GEO et scene proposes V3",
+          "homeArenas": [
+            "geo"
+          ]
+        }
+      },
+      "final_generation_prompt": "Use case: illustration-story. Create ONE standalone finished Kalistar narrative fantasy painting. Portrait 4:5 canvas, at least 1024 pixels wide, ideally 1024 x 1280 or 1280 x 1600. Full bleed art, no frame, no card layout, no border, no inset, no grid or atlas. Absolutely no typography, lettering, numbers, logo, watermark or signature.\nArt direction: the inspected Kalistar Momo electro.png painting, in the same visual family as the preceding Kalistar story portraits. Tactile hand-painted oil/gouache planes, confidently visible selective brushwork, expressive sculpted forms, richly painted worn cloth, metal, wood and stone; believable lived-in fantasy and emotion carried by a specific small action. Face and hands receive selective detail; background has grouped painted masses rather than synthetic micro-noise. NOT a photo, NOT CGI/3D rendering, NOT anime or comic outlining, NOT generic promotional hero art. Momo is a style reference, not a character to depict; do not copy its robot body, straw hat, flute, seated pose or blue night palette.\nAnatomy priority: ONE main adult humanoid, ONE head, EXACTLY TWO arms attached at two shoulders, EXACTLY TWO legs attached to one coherent pelvis, one hand per arm and one foot per leg. Humanlike torso and biped proportions even for animal-headed or plant people. Clear elbows, wrists, knees and ankles, readable hands with plausible fingers. No extra limbs, no disconnected hands, no crossed or dislocated hips, no quadruped animal body, no duplicated lower body. Show the entire main figure including both feet with a little margin. Natural weight and stable contact with the scene. Do not hide anatomical mistakes with fabric or scenery.\nSubject/canon: YVAR, adult male Rhinoz scout of Zarok, GEO affinity. Humanoid with a RHINOCEROS HEAD, short horn with one distinct old scratch, gray rugged skin, alert thoughtful eyes. Broad strong HUMANLIKE torso, two arms with humanlike grasping hands and two trousered biped legs. Lightweight worn green scout armor, practical dark pants and boots. ONE engraved spear; engravings are simple non-writing grooves.\nScene: reconnaissance of a dry drainage canal before the mission to rescue Gen, preparation extrapolated from chapter 15. An old shallow stone canal partly filled with sand runs toward a shadowed infiltration route between canyon masonry and low retaining walls. A few footprints and a narrow exposed strip of paving reveal the concealed route. No writing, no map, no troops or enemies.\nAction/composition: full body seen from a mild overhead angle, crouched low AT the edge of the dry canal, not on all fours. Two bent legs in a balanced squat, boots spaced apart visibly and supporting his weight. One hand grips the upright spear planted into the ground beside his shoulder; the other extends ONE index finger toward the track in the sand below. Both arms separated and visibly attached to shoulders, no additional bracing hand. Spine and pelvis coherent; head cocked as if listening to the route, lips and eyes expressing quiet vigilance and confidence.\nLow dusk light rakes over sand and weathered masonry; cool gray-green armor against pale muted terra-cotta stone and dusky blue shaded canal. No lamp lit, no magical spotlight, no glowing orb. A solitary scouting story with a diagonal canal leading the eye into the depth. Keep both boot outlines clear of the spear and pointing arm.",
+      "generated_source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-41cbf7b9-8c49-4b5f-a862-eafd5daee66d.png",
+      "output": {
+        "width": 1122,
+        "height": 1402,
+        "format": "PNG",
+        "bytes": 2742404,
+        "sha256": "FCA24D30AF96A096778974F5971D4DA9C2D4EE7E5838431A9464D3E859784C4F",
+        "source_copy_sha256_verified": true
+      },
+      "iterations": [
+        {
+          "pass": 1,
+          "kind": "generate",
+          "accepted": true
+        }
+      ],
+      "visual_review": {
+        "passed": true,
+        "checks": [
+          "Rhinoz a torse et posture humanoides, corne marquee, armure verte et lance.",
+          "Deux bras: main tenant la lance et main pointant la piste; deux jambes accroupies et deux bottes visibles.",
+          "Canal asseche et empreintes lisibles; vigilance calme, aucun corps quadrupede."
+        ]
+      }
+    },
+    {
+      "slug": "38_AERO_GILMARR",
+      "characterId": "gilmarr",
+      "card_id": "30000038",
+      "name": "GILMARR",
+      "element": "AERO",
+      "race": "RHINOZ",
+      "faction": "Zarok",
+      "job": "PILIER D ASTRABALL",
+      "title": "LA PLACE DANS L EQUIPE",
+      "destination": "V3/assets/illustrations/38_AERO_GILMARR.png",
+      "absolute_destination": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/38_AERO_GILMARR.png",
+      "status": "accepted",
+      "source_profile": {
+        "path": "V3/donnees/cartes.json",
+        "selector": "slug == 38_AERO_GILMARR",
+        "story_scene": "Gilmarr accueille Lanio sur le terrain. Pose individuelle et specialisation AERO proposees V3.",
+        "narrative_text": "Gilmarr decale le plot de la ligne et fait signe d entrer. Une place vient de s ouvrir dans l equipe. Son sourire promet un match difficile, pas une faveur.",
+        "source_prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Jeune adulte Rhinoz humanoide a tete de rhinoceros, carrure de pilier sportif, maillot vert bouteille et blanc, deux bras deux jambes. Debout bras ouvert invitant a entrer, autre main tient un plot, sourire confiant, anneaux d Astraball derriere, souffle AERO discret soulevant la poussiere et non une boule magique.",
+        "declared_provenance": "main/Kalistar.xlsx, Personnages ligne 3, via V3/sources/sources-extraites.json ; V3/sources/histoire.txt, chapitre 11, rencontre de Gilmarr sur le terrain ; role pilier et cristal AERO inventes, Sentry aerien anonyme non identifie a Gilmarr par le recit",
+        "weapon": "Poing",
+        "art_action": "generate"
+      },
+      "source_registry": {
+        "path": "V3/donnees/registre_personnages.json",
+        "selector": "characters.characterId == gilmarr",
+        "snapshot": {
+          "characterId": "gilmarr",
+          "name": "GILMARR",
+          "aliases": [],
+          "race": "RHINOZ",
+          "faction": "Zarok",
+          "cardIds": [
+            "30000038"
+          ],
+          "slugs": [
+            "38_AERO_GILMARR"
+          ],
+          "origin": "main/Kalistar.xlsx, Personnages ligne 3, via V3/sources/sources-extraites.json ; V3/sources/histoire.txt, chapitre 11, rencontre de Gilmarr sur le terrain ; role pilier et cristal AERO inventes, Sentry aerien anonyme non identifie a Gilmarr par le recit",
+          "homeArenas": [
+            "geo",
+            "astraball"
+          ]
+        }
+      },
+      "final_generation_prompt": "Use case: illustration-story. Create ONE standalone finished Kalistar narrative fantasy painting. Portrait 4:5 canvas, at least 1024 pixels wide, ideally 1024 x 1280 or 1280 x 1600. Full bleed art, no frame, no card layout, no border, no inset, no grid or atlas. Absolutely no typography, lettering, numbers, logo, watermark or signature.\nArt direction: the inspected Kalistar Momo electro.png painting, in the same visual family as the preceding Kalistar story portraits. Tactile hand-painted oil/gouache planes, confidently visible selective brushwork, expressive sculpted forms, richly painted worn cloth, metal, wood and stone; believable lived-in fantasy and emotion carried by a specific small action. Face and hands receive selective detail; background has grouped painted masses rather than synthetic micro-noise. NOT a photo, NOT CGI/3D rendering, NOT anime or comic outlining, NOT generic promotional hero art. Momo is a style reference, not a character to depict; do not copy its robot body, straw hat, flute, seated pose or blue night palette.\nAnatomy priority: ONE main adult humanoid, ONE head, EXACTLY TWO arms attached at two shoulders, EXACTLY TWO legs attached to one coherent pelvis, one hand per arm and one foot per leg. Humanlike torso and biped proportions even for animal-headed or plant people. Clear elbows, wrists, knees and ankles, readable hands with plausible fingers. No extra limbs, no disconnected hands, no crossed or dislocated hips, no quadruped animal body, no duplicated lower body. Show the entire main figure including both feet with a little margin. Natural weight and stable contact with the scene. Do not hide anatomical mistakes with fabric or scenery.\nSubject/canon: GILMARR, young ADULT male Rhinoz, athletic Astraball pillar from Zarok. Humanoid rhinoceros head and horn, warm dark gray skin, alert friendly eyes, broad strong sporting torso, two muscular human-shaped arms and two human-proportioned legs. Bottle-green and OFF-WHITE worn athletic jersey, practical shorts over leggings, playing boots. Subtle tribal markings on the bare arms without letters. Confident welcoming grin, not a threatening beast. AERO affinity in current V3 profile.\nScene: on the edge of the Astraball court in the carved-stone village of Zarok, he has shifted the boundary marker and invites Lanio to join. Lanio stays OFF FRAME; this is an individual character story, not two people exchanging gestures. Court markings are simple lines with NO lettering; distant players are tiny secondary silhouettes only.\nAction/composition: full-length standing pose with weight on one leg, two feet firmly on the court. One arm extended naturally with an open palm inviting the off-frame newcomer through the gap; the OTHER hand holds ONE modest worn wooden training marker at hip height. Two arms only; no additional hand holding a ball. His face looks toward the invited newcomer just outside frame with an amused challenging smile. The opened gap and displaced marker must read.\nBackground scoring structure follows canonical Astraball: a goal/basket shaped like an INVERTED U, arch OPEN AT THE BOTTOM, not a circular modern basketball hoop. It is only a secondary landmark. A discrete AERO breeze lifts a light ribbon of dust along the ground and stirs his jersey, not glowing energy, magic orb or extra phantom limbs. Warm clear afternoon, off-white stone, deep green sportswear, sky blue and small muted red fabric accents in the village. Feeling: a hard game promised, genuine belonging offered without condescension.",
+      "generated_source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-2027c50c-c838-4625-b37c-4ec3d77a47b3.png",
+      "output": {
+        "width": 1122,
+        "height": 1402,
+        "format": "PNG",
+        "bytes": 2582303,
+        "sha256": "AE7C576FDCBBF6591040923FA2AFF0E039865446B8347D281415258917CBD017",
+        "source_copy_sha256_verified": true
+      },
+      "iterations": [
+        {
+          "pass": 1,
+          "kind": "generate",
+          "accepted": true
+        }
+      ],
+      "visual_review": {
+        "passed": true,
+        "checks": [
+          "Deux bras et deux mains lisibles: invitation paume ouverte et plot dans l'autre main.",
+          "Deux jambes humaines en tenue sportive, deux chaussures distinctes; tete Rhinoz souriante.",
+          "Maillot vert et blanc, terrain et U inverse; poussiere animee discretement; Lanio hors champ."
+        ]
+      }
+    },
+    {
+      "slug": "39_HYDRO_RUBY",
+      "characterId": "ruby",
+      "card_id": "30000039",
+      "name": "RUBY",
+      "element": "HYDRO",
+      "race": "SIRENA",
+      "faction": "Thalassea",
+      "job": "CARTOGRAPHE",
+      "title": "LA CARTE DES COURANTS",
+      "destination": "V3/assets/illustrations/39_HYDRO_RUBY.png",
+      "absolute_destination": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/39_HYDRO_RUBY.png",
+      "status": "accepted",
+      "source_profile": {
+        "path": "V3/donnees/cartes.json",
+        "selector": "slug == 39_HYDRO_RUBY",
+        "story_scene": "Scene inventee : Ruby cartographie les courants depuis un phare de Thalassea.",
+        "narrative_text": "Ruby incline son instrument vers la passe. Les filets d eau dessinent une route que la carte n avait jamais montree. Elle sourit : le retour sera plus court.",
+        "source_prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Sirena adulte amphibie a peau bleu profond, fines ouies, cheveux rouges attaches, deux jambes en bottes de pont. Debout seule dans un phare ouvert, pistolet hydrographique categorie Gun et carte sans ecriture lisible sur la table, lignes d eau fines forment un releve, enthousiasme methodique.",
+        "declared_provenance": "main/Kalistar.xlsx, Pull1 Carte A85 et AA85 (Ruby, HYDRO, Sirenas) ; faction, arme et scene proposees V3",
+        "weapon": "Gun",
+        "art_action": "generate"
+      },
+      "source_registry": {
+        "path": "V3/donnees/registre_personnages.json",
+        "selector": "characters.characterId == ruby",
+        "snapshot": {
+          "characterId": "ruby",
+          "name": "RUBY",
+          "aliases": [],
+          "race": "SIRENA",
+          "faction": "Thalassea",
+          "cardIds": [
+            "30000039"
+          ],
+          "slugs": [
+            "39_HYDRO_RUBY"
+          ],
+          "origin": "main/Kalistar.xlsx, Pull1 Carte A85 et AA85 (Ruby, HYDRO, Sirenas) ; faction, arme et scene proposees V3",
+          "homeArenas": [
+            "hydro"
+          ]
+        }
+      },
+      "final_generation_prompt": "Use case: illustration-story. Create ONE standalone finished Kalistar narrative fantasy painting. Portrait 4:5 canvas, at least 1024 pixels wide, ideally 1024 x 1280 or 1280 x 1600. Full bleed art, no frame, no card layout, no border, no inset, no grid or atlas. Absolutely no typography, lettering, numbers, logo, watermark or signature.\nArt direction: the inspected Kalistar Momo electro.png painting, in the same visual family as the preceding Kalistar story portraits. Tactile hand-painted oil/gouache planes, confidently visible selective brushwork, expressive sculpted forms, richly painted worn cloth, metal, wood and stone; believable lived-in fantasy and emotion carried by a specific small action. Face and hands receive selective detail; background has grouped painted masses rather than synthetic micro-noise. NOT a photo, NOT CGI/3D rendering, NOT anime or comic outlining, NOT generic promotional hero art. Momo is a style reference, not a character to depict; do not copy its robot body, straw hat, flute, seated pose or blue night palette.\nAnatomy priority: ONE main adult humanoid, ONE head, EXACTLY TWO arms attached at two shoulders, EXACTLY TWO legs attached to one coherent pelvis, one hand per arm and one foot per leg. Humanlike torso and biped proportions even for animal-headed or plant people. Clear elbows, wrists, knees and ankles, readable hands with plausible fingers. No extra limbs, no disconnected hands, no crossed or dislocated hips, no quadruped animal body, no duplicated lower body. Show the entire main figure including both feet with a little margin. Natural weight and stable contact with the scene. Do not hide anatomical mistakes with fabric or scenery.\nSubject/canon: RUBY, adult female amphibious Sirena cartographer from Thalassea, HYDRO. Deep blue skin, fine gill slits at the neck, humanlike expressive adult face, RED HAIR tied back. Full humanoid human-proportioned torso, exactly TWO normal biped legs in trousers and TWO deck boots, NOT a mermaid, no fish tail or extra fins shaped like legs. Functional weathered maritime clothing: off-white work blouse with sleeves rolled back, muted sea-green cropped jacket and dark fitted deck trousers. No glamorous exposed costume.\nScene: working ALONE in an OPEN lighthouse overlooking a narrow sea passage and coastal rocks. A sturdy chart table beside her carries ONE large unlettered chart with simple coast shapes and current lines, no writing or numbers. The lighthouse opening and the ocean passage are clearly recognizable. Her discovery is a shorter safe route home.\nAction/composition: full figure, three-quarter profile turned slightly toward the water, leaning a little forward with two feet planted separately. One hand holds ONE hydrographic PISTOL-shaped survey instrument (Gun category) tilted toward the open passage; it is a brass-and-steel measuring device with a small nozzle, not a drawn combat weapon and no firing. The OTHER hand lightly steadies a corner of the chart. Two arms only; no extra hand operating the instrument. A few delicate threads of water arc from the nozzle ABOVE the table and align with the current route on the map, fluid not electrical, not a giant glowing sphere. The instrument, fine water tracery and map tell the story.\nExpression: a small delighted smile and focused curious eyes, methodical enthusiasm as she recognizes the new route. Crisp reflected sea light on deep blue skin, coral-red hair and pale maritime stone, worn brass glints, cool aqua water and clean white daylight. Keep lower body, hands and fine gills readable.",
+      "generated_source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-de045dec-d75c-48a7-9784-0d947b21d59d.png",
+      "output": {
+        "width": 1122,
+        "height": 1402,
+        "format": "PNG",
+        "bytes": 2807981,
+        "sha256": "48156D2DE68E32F9B84DEF18826F6E91466D345ED25BCB264DDA9ED00D66F504",
+        "source_copy_sha256_verified": true
+      },
+      "iterations": [
+        {
+          "pass": 1,
+          "kind": "generate",
+          "accepted": true
+        }
+      ],
+      "visual_review": {
+        "passed": true,
+        "checks": [
+          "Deux bras, une main sur le pistolet hydrographique et l'autre sur la table.",
+          "Deux jambes de morphologie humaine et deux bottes; aucune queue de sirene.",
+          "Peau bleue, ouies fines, cheveux rouges attaches; phare, carte non lettree et filets d'eau lisibles.",
+          "Expression concentree et sourire de decouverte, scene individuelle."
+        ]
+      }
+    },
+    {
+      "slug": "40_AERO_SORYN",
+      "characterId": "soryn",
+      "card_id": "30000040",
+      "name": "SORYN",
+      "element": "AERO",
+      "race": "FALCO",
+      "faction": "Nestown",
+      "job": "ACCORDEUR",
+      "title": "LE VENT JUSTE",
+      "destination": "V3/assets/illustrations/40_AERO_SORYN.png",
+      "absolute_destination": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/40_AERO_SORYN.png",
+      "status": "accepted",
+      "source_profile": {
+        "path": "V3/donnees/cartes.json",
+        "selector": "slug == 40_AERO_SORYN",
+        "story_scene": "Scene inventee : Soryn accorde les cloches de brume des ponts de Nestown.",
+        "narrative_text": "Soryn attend que le vent tourne avant de toucher la corde. Une note traverse le brouillard. Sur le pont invisible, les voyageurs savent de nouveau ou poser le pied.",
+        "source_prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Falco humanoide adulte a tete de faucon claire, petites plumes rousses, ailes dorsales repliees distinctes des deux bras. Assis sur une traverse stable, deux pieds visibles, pince les cordes d une cithare portable, yeux mi-clos de concentration heureuse, cloches et ponts suspendus dans un brouillard lumineux.",
+        "declared_provenance": "Creation V3 ; race Falco et faction Nestown issues du repertoire V2",
+        "weapon": "Instrument",
+        "art_action": "generate"
+      },
+      "source_registry": {
+        "path": "V3/donnees/registre_personnages.json",
+        "selector": "characters.characterId == soryn",
+        "snapshot": {
+          "characterId": "soryn",
+          "name": "SORYN",
+          "aliases": [],
+          "race": "FALCO",
+          "faction": "Nestown",
+          "cardIds": [
+            "30000040"
+          ],
+          "slugs": [
+            "40_AERO_SORYN"
+          ],
+          "origin": "Creation V3 ; race Falco et faction Nestown issues du repertoire V2",
+          "homeArenas": [
+            "aero"
+          ]
+        }
+      },
+      "final_generation_prompt": "Use case: illustration-story. Create ONE standalone finished Kalistar narrative fantasy painting. Portrait 4:5 canvas, at least 1024 pixels wide, ideally 1024 x 1280 or 1280 x 1600. Full bleed art, no frame, no card layout, no border, no inset, no grid or atlas. Absolutely no typography, lettering, numbers, logo, watermark or signature.\nArt direction: the inspected Kalistar Momo electro.png painting, in the same visual family as the preceding Kalistar story portraits. Tactile hand-painted oil/gouache planes, confidently visible selective brushwork, expressive sculpted forms, richly painted worn cloth, metal, wood and stone; believable lived-in fantasy and emotion carried by a specific small action. Face and hands receive selective detail; background has grouped painted masses rather than synthetic micro-noise. NOT a photo, NOT CGI/3D rendering, NOT anime or comic outlining, NOT generic promotional hero art. Momo is a style reference, not a character to depict; do not copy its robot body, straw hat, flute, seated pose or blue night palette.\nAnatomy priority: ONE main adult humanoid, ONE head, EXACTLY TWO arms attached at two shoulders, EXACTLY TWO legs attached to one coherent pelvis, one hand per arm and one foot per leg. Humanlike torso and biped proportions even for animal-headed or plant people. Clear elbows, wrists, knees and ankles, readable hands with plausible fingers. No extra limbs, no disconnected hands, no crossed or dislocated hips, no quadruped animal body, no duplicated lower body. Show the entire main figure including both feet with a little margin. Natural weight and stable contact with the scene. Do not hide anatomical mistakes with fabric or scenery.\nSubject/canon: SORYN, adult Falco humanoid tuner of Nestown, AERO. A light-colored FALCON HEAD, clear curved beak, small russet feathers at the temples and crown, thoughtful half-closed eyes. Upright humanlike torso in a worn ivory tunic and muted red-brown vest, fitted dark trousers, exactly TWO ordinary articulated humanoid arms ending in grasping hands with five slender digits, exactly TWO humanoid legs and TWO feet. A PAIR OF SMALL FOLDED DORSAL WINGS lies neatly behind the shoulder blades, feathered and clearly distinct from both arms. Wings do not replace arms and do not become extra arms or hands. No four legs or bird torso.\nScene: the hanging bridges of Nestown in luminous fog. Soryn tunes the fog bells so distant travelers know where to step on the bridge they cannot see clearly. Two or three modest bronze bells hang at different depths from the wooden support, connected by taut simple ropes. Farther out a narrow suspended bridge recedes through mist, at most two tiny distant traveler silhouettes.\nAction/composition: full-body intimate three-quarter view, seated securely on a broad stable timber crossbeam with enough surface to support the pelvis. TWO knees and TWO lower legs visibly hanging separately and two feet fully in frame. ONE portable wooden ZITHER with a clear single set of strings rests stably across the thighs. One hand delicately plucks one string while the other hand turns one tuning peg at the opposite end. Two cleanly attached elbows and wrists, no hidden third supporting hand. He listens to the note through the fog, half-closed falcon eyes expressing happy concentration and calm care. The folded wings remain a small backdrop to his upper torso, no spread dramatic wings.\nSoft luminous white-gray fog, weathered cedar red, small russet feather accents, pale sky with a little rose light, subtle cool green reflected in distant bridge ropes. Wind shown by a few feather tips and a flutter of cloth, not neon sound rings or writing. Painted narrative, tender and precise, not a flying action pose.",
+      "generated_source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-7505ff2e-e31e-42ea-b03d-9ce98e28f2d2.png",
+      "output": {
+        "width": 1122,
+        "height": 1402,
+        "format": "PNG",
+        "bytes": 2633071,
+        "sha256": "8DC56F4A781704938587BC0EC7044E1301596F56431B3EB4B209F1096A8773F3",
+        "source_copy_sha256_verified": true
+      },
+      "iterations": [
+        {
+          "pass": 1,
+          "kind": "generate",
+          "accepted": true
+        }
+      ],
+      "visual_review": {
+        "passed": true,
+        "checks": [
+          "Tete Falco claire a plumes rousses, deux ailes dorsales repliees distinctes des bras.",
+          "Deux bras humanoides, une main pince les cordes et l'autre regle une cheville; aucun bras supplementaire.",
+          "Deux jambes de posture humaine, deux pieds a extremites aviaires visibles, assise stable.",
+          "Cithare, cloches de brume et ponts suspendus; concentration paisible."
+        ]
+      }
+    },
+    {
+      "slug": "41_HERBO_THALIE",
+      "characterId": "thalie",
+      "card_id": "30000041",
+      "name": "THALIE",
+      "element": "HERBO",
+      "race": "CARNIVERT",
+      "faction": "Arborium",
+      "job": "HERBORISTE",
+      "title": "CE QUI REPOUSSE",
+      "destination": "V3/assets/illustrations/41_HERBO_THALIE.png",
+      "absolute_destination": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/41_HERBO_THALIE.png",
+      "status": "accepted",
+      "source_profile": {
+        "path": "V3/donnees/cartes.json",
+        "selector": "slug == 41_HERBO_THALIE",
+        "story_scene": "Scene inventee : Thalie consigne la reprise d une foret apres un incendie.",
+        "narrative_text": "Thalie tourne la page couverte de suie et pose une feuille neuve entre les feuillets. La foret ne reprend pas tout d un coup. Elle commence ici.",
+        "source_prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Carnivert humanoide adulte au visage vegetal ovale et expressif, coiffure de feuilles courtes, peau vert sombre, habit de voyage blanc et corail. Assise en tailleur sur un tronc, deux mains dans un herbier ouvert, sourire de soulagement, jeunes pousses clairement visibles parmi des troncs brules, aucune silhouette secondaire principale.",
+        "declared_provenance": "Creation V3 ; Carnivert et Arborium issus du repertoire V2",
+        "weapon": "Tome",
+        "art_action": "generate"
+      },
+      "source_registry": {
+        "path": "V3/donnees/registre_personnages.json",
+        "selector": "characters.characterId == thalie",
+        "snapshot": {
+          "characterId": "thalie",
+          "name": "THALIE",
+          "aliases": [],
+          "race": "CARNIVERT",
+          "faction": "Arborium",
+          "cardIds": [
+            "30000041"
+          ],
+          "slugs": [
+            "41_HERBO_THALIE"
+          ],
+          "origin": "Creation V3 ; Carnivert et Arborium issus du repertoire V2",
+          "homeArenas": [
+            "herbo"
+          ]
+        }
+      },
+      "final_generation_prompt": "Use case: illustration-story. Create ONE standalone finished Kalistar narrative fantasy painting. Portrait 4:5 canvas, at least 1024 pixels wide, ideally 1024 x 1280 or 1280 x 1600. Full bleed art, no frame, no card layout, no border, no inset, no grid or atlas. Absolutely no typography, lettering, numbers, logo, watermark or signature.\nArt direction: the inspected Kalistar Momo electro.png painting, in the same visual family as the preceding Kalistar story portraits. Tactile hand-painted oil/gouache planes, confidently visible selective brushwork, expressive sculpted forms, richly painted worn cloth, metal, wood and stone; believable lived-in fantasy and emotion carried by a specific small action. Face and hands receive selective detail; background has grouped painted masses rather than synthetic micro-noise. NOT a photo, NOT CGI/3D rendering, NOT anime or comic outlining, NOT generic promotional hero art. Momo is a style reference, not a character to depict; do not copy its robot body, straw hat, flute, seated pose or blue night palette.\nAnatomy priority: ONE main adult humanoid, ONE head, EXACTLY TWO arms attached at two shoulders, EXACTLY TWO legs attached to one coherent pelvis, one hand per arm and one foot per leg. Humanlike torso and biped proportions even for animal-headed or plant people. Clear elbows, wrists, knees and ankles, readable hands with plausible fingers. No extra limbs, no disconnected hands, no crossed or dislocated hips, no quadruped animal body, no duplicated lower body. Show the entire main figure including both feet with a little margin. Natural weight and stable contact with the scene. Do not hide anatomical mistakes with fabric or scenery.\nSubject/canon: THALIE, adult female Carnivert herbalist of Arborium, HERBO. Humanlike oval PLANT FACE with a readable expressive adult face, dark green skin, short leaf-like hair, warm expressive eyes. Humanlike torso, exactly two arms with slender hand-shaped fingers and two HUMAN-PROPORTIONED legs, no root cluster replacing legs, no extra vine arms, no monster mouth. Worn WHITE and CORAL travel clothes, trousers allowing leg outlines to read, simple shoes, modest practical silhouette.\nScene: she records the recovery of a forest after fire. In a clearing of charcoal-black burned trunks, fresh green seedlings and tiny new leaves are unmistakable in the foreground. The fire is long extinguished; soft ash and a few charred branches remain, no active flames or victims. Thalie is the only main character.\nAction/composition: seated CROSS-LEGGED on the broad flat top of a fallen trunk, viewed from slightly above in a frontal three-quarter view. Carefully composed symmetrical folded human legs: TWO thighs clearly emerge from one pelvis, two knees spread naturally, each shin folds back to one distinct small shoe visible at the opposing side, exactly TWO feet. No extra knees, no skirt obscuring anatomy, no tangled roots. ONE open HERBARIUM book rests on her lap with pressed plant silhouettes and blank soot-smudged pages, absolutely NO writing. One hand gently lifts the edge of a soot-marked page; the OTHER places ONE fresh green leaf between the pages. Both forearms visibly attached to shoulders with natural fingers, no duplicated hands.\nEmotion: a small unmistakable smile of relief, tired but softened eyes, tenderness toward the tiny signs of return. Her gaze lowered to the fresh leaf rather than to viewer. Overcast daylight opening toward soft morning brightness, charcoal black and muted ash-gray with vivid living greens, ivory and coral clothes. HERBO expressed by living shoots and her plant identity, not a magical explosion. Show the full figure, two feet, open book and resilient seedlings with selective beautiful painted detail.",
+      "generated_source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-ff30b9a5-efd2-44d1-bab3-17d01a6820d0.png",
+      "output": {
+        "width": 1122,
+        "height": 1402,
+        "format": "PNG",
+        "bytes": 2948341,
+        "sha256": "A345905C6A7EF17C2AEFF26124A0E88D98025ADD983075B80A7ACE9CDC1A015C",
+        "source_copy_sha256_verified": true
+      },
+      "iterations": [
+        {
+          "pass": 1,
+          "kind": "generate",
+          "accepted": true
+        }
+      ],
+      "visual_review": {
+        "passed": true,
+        "checks": [
+          "Visage vegetal ovale, feuilles courtes, peau verte, habits blanc et corail.",
+          "Deux bras avec mains dans l'herbier; une main pose une feuille, l'autre tourne une page.",
+          "Deux jambes humaines croisees, deux genoux et deux chaussures visibles; aucune racine substituee aux membres.",
+          "Herbier sans texte, troncs brules et nombreuses jeunes pousses; sourire de soulagement."
+        ]
+      }
+    }
+  ]
+}

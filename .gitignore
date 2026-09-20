@@ -1,0 +1,39 @@
+# Runtime files, not project sources. No repository is initialized here.
+**/node_modules/
+**/__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+Thumbs.db
+Desktop.ini
+.env
+.env.*
+!.env.example
+!.env.sample
+*.log
+*.tmp
+~$*
+
+# Local Atelier state and private drafts. Preserve these in a full PC backup.
+/V4/atelier/data/runtime.json
+/V4/atelier/data/active.json
+/V4/atelier/data/render.lock
+/V4/atelier/data/server.lock
+/V4/atelier/data/jobs/
+/V4/atelier/data/drafts/
+/V4/atelier/data/uploads/
+/V4/atelier/data/designer/
+
+# Redundant publication staging; original revision backups remain included.
+/V4/revisions/*/staged/
+/V4/revisions/*/transaction/
+
+# Optional private exports, outside the game's canonical card database.
+/sauvegardes-personnelles/
+/paquets-transfert/
+
+# Do NOT ignore PSDs, V1/scripts/vendor, designer-assets, creations,
+# references.json, regression.json, revision proofs, or V3 shared resources.
+
+# Archive de transfert privee, conservee sur le partage reseau.
+/Kalistar.zip

@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: 26 references, immutable identity and independent working copies
+ok 1 - 26 references, immutable identity and independent working copies
+  ---
+  duration_ms: 3.9115
+  type: 'test'
+  ...
+# Subtest: strict stats, calibrated icons and crystal rules
+ok 2 - strict stats, calibrated icons and crystal rules
+  ---
+  duration_ms: 1.1207
+  type: 'test'
+  ...
+# Subtest: filesystem containment rejects traversal and absolute paths
+ok 3 - filesystem containment rejects traversal and absolute paths
+  ---
+  duration_ms: 0.4808
+  type: 'test'
+  ...
+# Subtest: native worker parses and public scripts compile
+ok 4 - native worker parses and public scripts compile
+  ---
+  duration_ms: 3.8026
+  type: 'test'
+  ...
+# Subtest: source fingerprints detect a changed file without rewriting it
+ok 5 - source fingerprints detect a changed file without rewriting it
+  ---
+  duration_ms: 18.4689
+  type: 'test'
+  ...
+# Subtest: HTTP origin, token, read-only originals and draft conflicts
+ok 6 - HTTP origin, token, read-only originals and draft conflicts
+  ---
+  duration_ms: 284.6762
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 539.2043

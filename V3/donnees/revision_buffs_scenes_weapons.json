@@ -1,0 +1,2377 @@
+{
+  "schema_version": 1,
+  "batch": "WEAPONS20",
+  "date": "2026-09-14",
+  "status": "complete_staged_for_parent_review",
+  "ready_count": 20,
+  "requested_count": 20,
+  "integration": "staged_only; parent reviews and integrates; no canonical writes",
+  "brief": "White silhouettes like historical originals, no blue square or disc. On card left, point/tip/head upper-left and grip lower-right. Non-directional categories naturally centered. Index 11 is generic guitar, never Momo flute. Preserve all 20 category indexes and mechanics.",
+  "direction_file": "V3/sources/REVISION_BUFFS_SCENES_20260914.md",
+  "method": {
+    "mode": "authorized_native_extraction_and_existing_SVG_glyph_workflow",
+    "imagegen_used": false,
+    "reason": "Explicit permission to extract known assets through the native workflow. V2/scripts/prepare_assets.cjs already isolates white glyphs with sharp/min-RGB alpha and renders native SVG glyphs. Historical weapon geometry is recovered from actual workbook JPEGs, not from colored paintings.",
+    "extractor": "V3/scripts/revision_weapons_extract.cjs",
+    "audit_helper": "V3/scripts/revision_weapons_audit.cjs",
+    "historical_geometry": "19 icons preserve the complete 46x46 source coordinate system without mirroring, rotation or cropping; index 11 is the explicitly requested native vector guitar.",
+    "source_limitations": "All 20 historical weapon JPEGs are 46x46. The V2/V3 armes_transparentes SVG files embed those JPEGs with circular clips; they contain no editable weapon path geometry. No higher-resolution complete native weapon set was found in the inspected main workbooks or template assets. The extraction intentionally retains the original small-symbol character; it is not a claimed recovery of nonexistent high-resolution vector masters.",
+    "image_processing": "Extract existing white glyphs only; remove edge-connected white frame and low-level JPEG speckles; cubic interpolation followed by alpha smoothstep; RGB fixed to white. No colored painting is processed, recolored or traced.",
+    "helper_sha256": {
+      "V3/scripts/revision_weapons_audit.cjs": "bbb261fca92a5bf08d63f6fef8f672d58b2437066e6230b5f531b00129e30b89",
+      "V3/scripts/revision_weapons_extract.cjs": "b7cefdb72d8bfa6946da1988f16578cb6a0b11e775b354d19b7807a4bf8bb063",
+      "V3/scripts/revision_weapons_verify.cjs": "5fd3cd8ccd6bd29b44ee9f39b14f9c989dcc25ef5f87fd49efc91d265f99d3ff"
+    }
+  },
+  "evidence": {
+    "workbooks": [
+      {
+        "file": "main/Kalistar.xlsx",
+        "sha256": "7201c413030e05dce6f349df10bccd23e35a8a867a7ffcc6edf5a7253dec0386",
+        "weapon_media_count": 20,
+        "weapon_media_size": [
+          46,
+          46
+        ]
+      },
+      {
+        "file": "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx",
+        "sha256": "723872450e4d7f83d896abe46da8859c57b70e57cbca7ae7ed54245c5d2d989d",
+        "weapon_media_count": 20,
+        "weapon_media_size": [
+          46,
+          46
+        ]
+      }
+    ],
+    "historical_sets": [
+      "V1/assets/armes/00.jpg..19.jpg",
+      "V2/assets/armes/00.jpg..19.jpg",
+      "V2/assets/armes_transparentes/00.svg..19.svg",
+      "V3/assets/armes_transparentes/00.svg..19.svg"
+    ],
+    "native_workflows": [
+      "V1/scripts/prepare_data.py",
+      "V2/scripts/prepare_data.py",
+      "V2/scripts/prepare_revision.cjs",
+      "V2/scripts/prepare_assets.cjs"
+    ],
+    "template_files": [
+      "Templates/Template_Kalistar_Card_TENEBRE.psd",
+      "Templates/Template_Kalistar_Card_PROPRE.psd",
+      "Templates/Template_Kalistar_Card_TENEBRE_layers.txt",
+      "Templates/Template_Kalistar_Card_PROPRE_layers.txt",
+      "Templates/Template_Kalistar_Card_PROPRE_preview.png"
+    ],
+    "template_findings": "Historical left weapon slot confirmed visually. Layer inventory contains raster long-sword/whip/bow layers and a staff smart object, not a complete vector set of 20.",
+    "historical_contact_sheet": "V3\\assets\\revisions-buffs-scenes-20260914\\armes\\qa\\historical-20.png",
+    "source_visual_inspection": "view_image: historical-20.png (all 20 originals at nearest-neighbor 184px) and Template_Kalistar_Card_PROPRE_preview.png; original axe JPEG and V2 PNG also viewed individually."
+  },
+  "qa": {
+    "contact_sheets": [
+      "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-dark.png",
+      "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-checker.png"
+    ],
+    "visual_inspected_indexes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "technical_all_ready_passed": true,
+    "actual_thumbnail_size": [
+      90,
+      90
+    ],
+    "canonical_and_gameplay_hashes_unchanged_during_run": [
+      {
+        "file": "V3/donnees/armes.json",
+        "sha256": "f179c9f8e8744e388aa32588e7b8c3dec1cf783428d57baeac55997fd916ff8f"
+      },
+      {
+        "file": "V3/donnees/cartes.json",
+        "sha256": "116cc03112798fe11b9be24f5321040cbf2b99ac99d6fd13428ab1dad050bac5"
+      },
+      {
+        "file": "V3/assets/armes/00.png",
+        "sha256": "952331f3ebad3b3f4ec376e26d0c94cdc9f8eb7b021253b1d00a3c5c925f73f9"
+      },
+      {
+        "file": "V3/assets/armes/01.png",
+        "sha256": "b5e6cef5c12c5518911b25b8c90836517cd57697745d492466713a2186684a1c"
+      },
+      {
+        "file": "V3/assets/armes/02.png",
+        "sha256": "5efebc278600ac6cda2340b966b33064ede48da6e55391a4a408761237cc8f52"
+      },
+      {
+        "file": "V3/assets/armes/03.png",
+        "sha256": "e04b8d0659f76715ed3332243e4d94943e1e406d93285bd9113c48434f519dc5"
+      },
+      {
+        "file": "V3/assets/armes/04.png",
+        "sha256": "c043bdbb0c311421b3660fe2a37d62ced89962bf2f89c81bf5fc66fde4be4126"
+      },
+      {
+        "file": "V3/assets/armes/05.png",
+        "sha256": "23e691c8a7b5579be9bf7d3d8a4fca8026dfc289c2086a604ccf94a68888e77e"
+      },
+      {
+        "file": "V3/assets/armes/06.png",
+        "sha256": "13d1bbfd55b26e9292889c2ad84bae2192e6f63003e5b15fea4070be7aacb484"
+      },
+      {
+        "file": "V3/assets/armes/07.png",
+        "sha256": "98154e8585b1727cb9a8e1fa623f71e859fe1942fdeb50541a7e9754903c76ae"
+      },
+      {
+        "file": "V3/assets/armes/08.png",
+        "sha256": "291a80c257ab599c51bde4283cf0b68da4d35baa9c49b7504285606516511e9e"
+      },
+      {
+        "file": "V3/assets/armes/09.png",
+        "sha256": "f547378339f83e6852ef62693c4673a76aaed5b8a41f6a2135266103fc611f60"
+      },
+      {
+        "file": "V3/assets/armes/10.png",
+        "sha256": "09f831a48d0724d9e090c45f20005307688e0efb1a8d32efb8ec2c6b95955019"
+      },
+      {
+        "file": "V3/assets/armes/11.png",
+        "sha256": "99fef1fda8b2bb16aa070d4f5c653ff3057ea1c3416090686c44ff29385e49d0"
+      },
+      {
+        "file": "V3/assets/armes/12.png",
+        "sha256": "46166700c60d02c949544b3c748b97474a6f001c964edd06b49201b560efbda6"
+      },
+      {
+        "file": "V3/assets/armes/13.png",
+        "sha256": "1bc568cdceac36271b5607036951e2ffe00f141c736d91f651064f72a1f8fbec"
+      },
+      {
+        "file": "V3/assets/armes/14.png",
+        "sha256": "bf8dcb72bd45ecc13b12a16a8a8ae80add9dde3f54aa9c03ae8c04d9f535dabd"
+      },
+      {
+        "file": "V3/assets/armes/15.png",
+        "sha256": "b231318d4ce6a10b8e214966c82d564c4abae27c5acd0b350e398883852efc92"
+      },
+      {
+        "file": "V3/assets/armes/16.png",
+        "sha256": "41e20a7916f6beb7d704d335add43b849256fed9b4ca1bbf8a0e08cb7e81af8b"
+      },
+      {
+        "file": "V3/assets/armes/17.png",
+        "sha256": "80e0401e5799b377ff8f0873accdb87d8b2b94220cae7747b6f33f054e4ca19f"
+      },
+      {
+        "file": "V3/assets/armes/18.png",
+        "sha256": "81326c39b137454db57e16b0fa904c20a89606f3d3774630ba06c187e9e8aa36"
+      },
+      {
+        "file": "V3/assets/armes/19.png",
+        "sha256": "f21421f8ea316ccf60853ce31fea1d465fc9aa2ae7804488aa43bcc37bd0ddbb"
+      }
+    ],
+    "visual_inspection_method": "view_image on the complete final 20-icon contact sheets, both dark card-like circular slots and checkerboard, with each asset actually rendered at 90 x 90 px. Circle/checker are QA backgrounds only, not present in delivered PNGs.",
+    "canonical_and_gameplay_unchanged_across_all_three_production_runs": true,
+    "alpha_contract": "All 20 are 512x512 RGBA PNG. Alpha min 0 / max 255; entire outer edge alpha 0; all visible RGB exactly (255,255,255). Transparent interior cutouts and antialiased edges, no blue support, baked checker, frame or medallion.",
+    "mechanics_contract": "Index 00..19 and category names are read directly from the unchanged V3/donnees/armes.json. No matrix, card data, renderer, UI or Photoshop changes.",
+    "integration_approval": "pending_parent; production QA is not user approval",
+    "corrective_passes": [
+      {
+        "index": 14,
+        "reason": "Original orb outline was under-extracted because the 46px JPEG has dim gray/cyan antialiasing.",
+        "change": "Lower native white-glyph extraction threshold for index 14 only; same source geometry and coordinate system. Final dark/checker 90px sheets inspected after correction."
+      }
+    ],
+    "final_verification": {
+      "status": "passed",
+      "timestamp_utc": "2026-09-14 14:05:22 UTC",
+      "helper": "V3/scripts/revision_weapons_verify.cjs",
+      "asset_count": 20,
+      "unique_output_sha256": 20,
+      "matrix_size": [
+        20,
+        20
+      ],
+      "canonical_and_gameplay_files_checked_unchanged": 22,
+      "contact_sheets_checked": 2
+    }
+  },
+  "assets": [
+    {
+      "index": 0,
+      "category": "Hache",
+      "status": "ready_for_parent_review",
+      "source_evidence": {
+        "index": 0,
+        "name": "Hache",
+        "source": "V1/assets/armes/00.jpg",
+        "width": 46,
+        "height": 46,
+        "sha256": "1e2ac6d3999d8905638907fa510ac100f5c49d9b8e2ffe6280000755c62fcd6e",
+        "workbook_matches": [
+          {
+            "file": "main/Kalistar.xlsx",
+            "media": "xl/media/image18.jpg"
+          },
+          {
+            "file": "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx",
+            "media": "xl/media/image12.jpg"
+          }
+        ],
+        "v2_jpeg_identical": true
+      },
+      "orientation": {
+        "note": "Tete de hache en haut-gauche, manche et pommeau en bas-droit.",
+        "mirror": false,
+        "rotation_applied_degrees": 0,
+        "verified_visually": true
+      },
+      "output": "V3/assets/revisions-buffs-scenes-20260914/armes/00.png",
+      "sha256": "e10ebf9e959a735045602a57bc500680af995ff2398c0ada2a39ea39fc12bcb1",
+      "production": {
+        "source_size": [
+          46,
+          46
+        ],
+        "threshold": 80,
+        "component_min_area": 2,
+        "component_min_peak": 125,
+        "frame_components_removed": 4,
+        "glyph_components_retained": 1,
+        "interpolation": "cubic",
+        "alpha_smoothstep": [
+          85,
+          135
+        ],
+        "transform": "identity; no mirror, no rotation, no crop",
+        "foreground_rgb": [
+          255,
+          255,
+          255
+        ],
+        "source": "V1/assets/armes/00.jpg",
+        "source_sha256": "1e2ac6d3999d8905638907fa510ac100f5c49d9b8e2ffe6280000755c62fcd6e"
+      },
+      "alpha_qa": {
+        "width": 512,
+        "height": 512,
+        "channels": 4,
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "fully_transparent_pixels": 229183,
+        "fully_opaque_pixels": 28749,
+        "antialiased_pixels": 4212,
+        "nonwhite_visible_pixels": 0,
+        "border_alpha_max": 0,
+        "alpha_bounds_128": [
+          45,
+          67,
+          467,
+          422
+        ],
+        "opaque_components": [
+          15690,
+          4784,
+          3582,
+          3456,
+          3366
+        ],
+        "visible_pixels_at_90": 941,
+        "technical_status": "passed"
+      },
+      "visual_qa": {
+        "status": "passed",
+        "scale_px": 90,
+        "white_silhouette": true,
+        "no_blue_square_or_disc": true,
+        "transparent_negative_spaces": true,
+        "category_recognizable": true,
+        "outward_or_nondirectional_as_specified": true,
+        "source_orientation_preserved": true,
+        "contact_sheets": [
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-dark.png",
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-checker.png"
+        ],
+        "notes": "Historical form and engraving separations retained."
+      },
+      "production_instruction": "Return category Hache at fixed index 00. Tete de hache en haut-gauche, manche et pommeau en bas-droit. Strong white historical silhouette; real transparency outside the glyph and in its cutouts; no blue square/disc, paint, color, halo or text. Extract the actual archived glyph in the established native pipeline, retaining geometry and original orientation.",
+      "imagegen_prompt": null,
+      "imagegen_prompt_reason": "Not applicable: user-authorized existing native glyph extraction / code-vector workflow, no generative raster edit.",
+      "references_ordered": [
+        "V1/assets/armes/00.jpg",
+        "V2/assets/armes/00.jpg",
+        "main/Kalistar.xlsx#xl/media/image18.jpg",
+        "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx#xl/media/image12.jpg",
+        "V3/sources/REVISION_BUFFS_SCENES_20260914.md"
+      ]
+    },
+    {
+      "index": 1,
+      "category": "Marteau",
+      "status": "ready_for_parent_review",
+      "source_evidence": {
+        "index": 1,
+        "name": "Marteau",
+        "source": "V1/assets/armes/01.jpg",
+        "width": 46,
+        "height": 46,
+        "sha256": "048ac562c298aaa537e6cc217d08b03f857d98653f6d662ea47b0ec214f11a4e",
+        "workbook_matches": [
+          {
+            "file": "main/Kalistar.xlsx",
+            "media": "xl/media/image9.jpg"
+          },
+          {
+            "file": "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx",
+            "media": "xl/media/image5.jpg"
+          }
+        ],
+        "v2_jpeg_identical": true
+      },
+      "orientation": {
+        "note": "Tete de marteau en haut-gauche, manche en bas-droit.",
+        "mirror": false,
+        "rotation_applied_degrees": 0,
+        "verified_visually": true
+      },
+      "output": "V3/assets/revisions-buffs-scenes-20260914/armes/01.png",
+      "sha256": "d8e3ef5594546e0a26b56c1bbea9e179db014203ec5040c3ebe7683da53f5490",
+      "production": {
+        "source_size": [
+          46,
+          46
+        ],
+        "threshold": 80,
+        "component_min_area": 2,
+        "component_min_peak": 125,
+        "frame_components_removed": 4,
+        "glyph_components_retained": 1,
+        "interpolation": "cubic",
+        "alpha_smoothstep": [
+          85,
+          135
+        ],
+        "transform": "identity; no mirror, no rotation, no crop",
+        "foreground_rgb": [
+          255,
+          255,
+          255
+        ],
+        "source": "V1/assets/armes/01.jpg",
+        "source_sha256": "048ac562c298aaa537e6cc217d08b03f857d98653f6d662ea47b0ec214f11a4e"
+      },
+      "alpha_qa": {
+        "width": 512,
+        "height": 512,
+        "channels": 4,
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "fully_transparent_pixels": 216395,
+        "fully_opaque_pixels": 41011,
+        "antialiased_pixels": 4738,
+        "nonwhite_visible_pixels": 0,
+        "border_alpha_max": 0,
+        "alpha_bounds_128": [
+          48,
+          48,
+          454,
+          454
+        ],
+        "opaque_components": [
+          14706,
+          14696,
+          5163,
+          4822,
+          2088,
+          1910
+        ],
+        "visible_pixels_at_90": 1325,
+        "technical_status": "passed"
+      },
+      "visual_qa": {
+        "status": "passed",
+        "scale_px": 90,
+        "white_silhouette": true,
+        "no_blue_square_or_disc": true,
+        "transparent_negative_spaces": true,
+        "category_recognizable": true,
+        "outward_or_nondirectional_as_specified": true,
+        "source_orientation_preserved": true,
+        "contact_sheets": [
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-dark.png",
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-checker.png"
+        ],
+        "notes": "Historical form and engraving separations retained."
+      },
+      "production_instruction": "Return category Marteau at fixed index 01. Tete de marteau en haut-gauche, manche en bas-droit. Strong white historical silhouette; real transparency outside the glyph and in its cutouts; no blue square/disc, paint, color, halo or text. Extract the actual archived glyph in the established native pipeline, retaining geometry and original orientation.",
+      "imagegen_prompt": null,
+      "imagegen_prompt_reason": "Not applicable: user-authorized existing native glyph extraction / code-vector workflow, no generative raster edit.",
+      "references_ordered": [
+        "V1/assets/armes/01.jpg",
+        "V2/assets/armes/01.jpg",
+        "main/Kalistar.xlsx#xl/media/image9.jpg",
+        "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx#xl/media/image5.jpg",
+        "V3/sources/REVISION_BUFFS_SCENES_20260914.md"
+      ]
+    },
+    {
+      "index": 2,
+      "category": "Masse",
+      "status": "ready_for_parent_review",
+      "source_evidence": {
+        "index": 2,
+        "name": "Masse",
+        "source": "V1/assets/armes/02.jpg",
+        "width": 46,
+        "height": 46,
+        "sha256": "3f14fa3aae8393fa020130fb74073b184127434c9964ecf5e9246751ce433553",
+        "workbook_matches": [
+          {
+            "file": "main/Kalistar.xlsx",
+            "media": "xl/media/image17.jpg"
+          },
+          {
+            "file": "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx",
+            "media": "xl/media/image18.jpg"
+          }
+        ],
+        "v2_jpeg_identical": true
+      },
+      "orientation": {
+        "note": "Tete de masse en haut-gauche, poignee en bas-droit.",
+        "mirror": false,
+        "rotation_applied_degrees": 0,
+        "verified_visually": true
+      },
+      "output": "V3/assets/revisions-buffs-scenes-20260914/armes/02.png",
+      "sha256": "4e83b033dbb7eefd7467923915fb45a96c4e7f62b8e673473fb4fb1504e199f4",
+      "production": {
+        "source_size": [
+          46,
+          46
+        ],
+        "threshold": 80,
+        "component_min_area": 2,
+        "component_min_peak": 125,
+        "frame_components_removed": 5,
+        "glyph_components_retained": 5,
+        "interpolation": "cubic",
+        "alpha_smoothstep": [
+          85,
+          135
+        ],
+        "transform": "identity; no mirror, no rotation, no crop",
+        "foreground_rgb": [
+          255,
+          255,
+          255
+        ],
+        "source": "V1/assets/armes/02.jpg",
+        "source_sha256": "3f14fa3aae8393fa020130fb74073b184127434c9964ecf5e9246751ce433553"
+      },
+      "alpha_qa": {
+        "width": 512,
+        "height": 512,
+        "channels": 4,
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "fully_transparent_pixels": 233259,
+        "fully_opaque_pixels": 22255,
+        "antialiased_pixels": 6630,
+        "nonwhite_visible_pixels": 0,
+        "border_alpha_max": 0,
+        "alpha_bounds_128": [
+          53,
+          51,
+          444,
+          445
+        ],
+        "opaque_components": [
+          14235,
+          3132,
+          1118,
+          1007,
+          941,
+          852,
+          835,
+          778,
+          720,
+          611,
+          595,
+          201,
+          162,
+          144,
+          97,
+          47
+        ],
+        "visible_pixels_at_90": 763,
+        "technical_status": "passed"
+      },
+      "visual_qa": {
+        "status": "passed",
+        "scale_px": 90,
+        "white_silhouette": true,
+        "no_blue_square_or_disc": true,
+        "transparent_negative_spaces": true,
+        "category_recognizable": true,
+        "outward_or_nondirectional_as_specified": true,
+        "source_orientation_preserved": true,
+        "contact_sheets": [
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-dark.png",
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-checker.png"
+        ],
+        "notes": "Historical form and engraving separations retained."
+      },
+      "production_instruction": "Return category Masse at fixed index 02. Tete de masse en haut-gauche, poignee en bas-droit. Strong white historical silhouette; real transparency outside the glyph and in its cutouts; no blue square/disc, paint, color, halo or text. Extract the actual archived glyph in the established native pipeline, retaining geometry and original orientation.",
+      "imagegen_prompt": null,
+      "imagegen_prompt_reason": "Not applicable: user-authorized existing native glyph extraction / code-vector workflow, no generative raster edit.",
+      "references_ordered": [
+        "V1/assets/armes/02.jpg",
+        "V2/assets/armes/02.jpg",
+        "main/Kalistar.xlsx#xl/media/image17.jpg",
+        "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx#xl/media/image18.jpg",
+        "V3/sources/REVISION_BUFFS_SCENES_20260914.md"
+      ]
+    },
+    {
+      "index": 3,
+      "category": "Poing",
+      "status": "ready_for_parent_review",
+      "source_evidence": {
+        "index": 3,
+        "name": "Poing",
+        "source": "V1/assets/armes/03.jpg",
+        "width": 46,
+        "height": 46,
+        "sha256": "0d66f78e0fa13b126dae98e7094695b45227f6bd777fff47ae8cc6eaeb72f83a",
+        "workbook_matches": [
+          {
+            "file": "main/Kalistar.xlsx",
+            "media": "xl/media/image11.jpg"
+          },
+          {
+            "file": "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx",
+            "media": "xl/media/image6.jpg"
+          }
+        ],
+        "v2_jpeg_identical": true
+      },
+      "orientation": {
+        "note": "Griffes du poing en haut-gauche, gantelet en bas-droit.",
+        "mirror": false,
+        "rotation_applied_degrees": 0,
+        "verified_visually": true
+      },
+      "output": "V3/assets/revisions-buffs-scenes-20260914/armes/03.png",
+      "sha256": "f66049699f0f846bc5d90db3712dcfc2bed2da2493e88acafe70389c40124422",
+      "production": {
+        "source_size": [
+          46,
+          46
+        ],
+        "threshold": 80,
+        "component_min_area": 2,
+        "component_min_peak": 125,
+        "frame_components_removed": 4,
+        "glyph_components_retained": 1,
+        "interpolation": "cubic",
+        "alpha_smoothstep": [
+          85,
+          135
+        ],
+        "transform": "identity; no mirror, no rotation, no crop",
+        "foreground_rgb": [
+          255,
+          255,
+          255
+        ],
+        "source": "V1/assets/armes/03.jpg",
+        "source_sha256": "0d66f78e0fa13b126dae98e7094695b45227f6bd777fff47ae8cc6eaeb72f83a"
+      },
+      "production_instruction": "Return category Poing at fixed index 03. Griffes du poing en haut-gauche, gantelet en bas-droit. Strong white historical silhouette; real transparency outside the glyph and in its cutouts; no blue square/disc, paint, color, halo or text. Extract the actual archived glyph in the established native pipeline, retaining geometry and original orientation.",
+      "imagegen_prompt": null,
+      "imagegen_prompt_reason": "Not applicable: user-authorized existing native glyph extraction / code-vector workflow, no generative raster edit.",
+      "references_ordered": [
+        "V1/assets/armes/03.jpg",
+        "V2/assets/armes/03.jpg",
+        "main/Kalistar.xlsx#xl/media/image11.jpg",
+        "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx#xl/media/image6.jpg",
+        "V3/sources/REVISION_BUFFS_SCENES_20260914.md"
+      ],
+      "alpha_qa": {
+        "width": 512,
+        "height": 512,
+        "channels": 4,
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "fully_transparent_pixels": 212054,
+        "fully_opaque_pixels": 41329,
+        "antialiased_pixels": 8761,
+        "nonwhite_visible_pixels": 0,
+        "border_alpha_max": 0,
+        "alpha_bounds_128": [
+          60,
+          68,
+          454,
+          455
+        ],
+        "opaque_components": [
+          11006,
+          9811,
+          5794,
+          5645,
+          4667,
+          4452,
+          4258
+        ],
+        "visible_pixels_at_90": 1407,
+        "technical_status": "passed"
+      },
+      "visual_qa": {
+        "status": "passed",
+        "scale_px": 90,
+        "white_silhouette": true,
+        "no_blue_square_or_disc": true,
+        "transparent_negative_spaces": true,
+        "category_recognizable": true,
+        "outward_or_nondirectional_as_specified": true,
+        "source_orientation_preserved": true,
+        "contact_sheets": [
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-dark.png",
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-checker.png"
+        ],
+        "notes": "Historical form and engraving separations retained."
+      }
+    },
+    {
+      "index": 4,
+      "category": "Fléau",
+      "status": "ready_for_parent_review",
+      "source_evidence": {
+        "index": 4,
+        "name": "Fléau",
+        "source": "V1/assets/armes/04.jpg",
+        "width": 46,
+        "height": 46,
+        "sha256": "9226b89290bb6d42d8b187f663cc7e171904f8f77262e1d90fad4cb73e981793",
+        "workbook_matches": [
+          {
+            "file": "main/Kalistar.xlsx",
+            "media": "xl/media/image14.jpg"
+          },
+          {
+            "file": "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx",
+            "media": "xl/media/image16.jpg"
+          }
+        ],
+        "v2_jpeg_identical": true
+      },
+      "orientation": {
+        "note": "Boulet et chaine en haut-gauche, poignee en bas-droit.",
+        "mirror": false,
+        "rotation_applied_degrees": 0,
+        "verified_visually": true
+      },
+      "output": "V3/assets/revisions-buffs-scenes-20260914/armes/04.png",
+      "sha256": "20757256d883befff149387f6aaf98e30ed26094d2548a64aa12669d0a59c23b",
+      "production": {
+        "source_size": [
+          46,
+          46
+        ],
+        "threshold": 80,
+        "component_min_area": 2,
+        "component_min_peak": 125,
+        "frame_components_removed": 4,
+        "glyph_components_retained": 8,
+        "interpolation": "cubic",
+        "alpha_smoothstep": [
+          85,
+          135
+        ],
+        "transform": "identity; no mirror, no rotation, no crop",
+        "foreground_rgb": [
+          255,
+          255,
+          255
+        ],
+        "source": "V1/assets/armes/04.jpg",
+        "source_sha256": "9226b89290bb6d42d8b187f663cc7e171904f8f77262e1d90fad4cb73e981793"
+      },
+      "production_instruction": "Return category Fléau at fixed index 04. Boulet et chaine en haut-gauche, poignee en bas-droit. Strong white historical silhouette; real transparency outside the glyph and in its cutouts; no blue square/disc, paint, color, halo or text. Extract the actual archived glyph in the established native pipeline, retaining geometry and original orientation.",
+      "imagegen_prompt": null,
+      "imagegen_prompt_reason": "Not applicable: user-authorized existing native glyph extraction / code-vector workflow, no generative raster edit.",
+      "references_ordered": [
+        "V1/assets/armes/04.jpg",
+        "V2/assets/armes/04.jpg",
+        "main/Kalistar.xlsx#xl/media/image14.jpg",
+        "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx#xl/media/image16.jpg",
+        "V3/sources/REVISION_BUFFS_SCENES_20260914.md"
+      ],
+      "alpha_qa": {
+        "width": 512,
+        "height": 512,
+        "channels": 4,
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "fully_transparent_pixels": 230159,
+        "fully_opaque_pixels": 27163,
+        "antialiased_pixels": 4822,
+        "nonwhite_visible_pixels": 0,
+        "border_alpha_max": 0,
+        "alpha_bounds_128": [
+          45,
+          57,
+          456,
+          423
+        ],
+        "opaque_components": [
+          16505,
+          4011,
+          2844,
+          2233,
+          729,
+          512,
+          493,
+          459,
+          456,
+          448,
+          432,
+          416,
+          6
+        ],
+        "visible_pixels_at_90": 903,
+        "technical_status": "passed"
+      },
+      "visual_qa": {
+        "status": "passed",
+        "scale_px": 90,
+        "white_silhouette": true,
+        "no_blue_square_or_disc": true,
+        "transparent_negative_spaces": true,
+        "category_recognizable": true,
+        "outward_or_nondirectional_as_specified": true,
+        "source_orientation_preserved": true,
+        "contact_sheets": [
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-dark.png",
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-checker.png"
+        ],
+        "notes": "Historical form and engraving separations retained."
+      }
+    },
+    {
+      "index": 5,
+      "category": "Arc",
+      "status": "ready_for_parent_review",
+      "source_evidence": {
+        "index": 5,
+        "name": "Arc",
+        "source": "V1/assets/armes/05.jpg",
+        "width": 46,
+        "height": 46,
+        "sha256": "0b6a6db86b9c70714fb028adf7fe158c34127fd342089832d86f3953615e483f",
+        "workbook_matches": [
+          {
+            "file": "main/Kalistar.xlsx",
+            "media": "xl/media/image7.jpg"
+          },
+          {
+            "file": "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx",
+            "media": "xl/media/image10.jpg"
+          }
+        ],
+        "v2_jpeg_identical": true
+      },
+      "orientation": {
+        "note": "Pointe de fleche en haut-gauche, empennage en bas-droit; arc historique conserve.",
+        "mirror": false,
+        "rotation_applied_degrees": 0,
+        "verified_visually": true
+      },
+      "output": "V3/assets/revisions-buffs-scenes-20260914/armes/05.png",
+      "sha256": "c9a96fd5b8f802f043a5ea15dcb82f743fe289484c8a86f46fc2764ec1110225",
+      "production": {
+        "source_size": [
+          46,
+          46
+        ],
+        "threshold": 80,
+        "component_min_area": 2,
+        "component_min_peak": 125,
+        "frame_components_removed": 4,
+        "glyph_components_retained": 1,
+        "interpolation": "cubic",
+        "alpha_smoothstep": [
+          85,
+          135
+        ],
+        "transform": "identity; no mirror, no rotation, no crop",
+        "foreground_rgb": [
+          255,
+          255,
+          255
+        ],
+        "source": "V1/assets/armes/05.jpg",
+        "source_sha256": "0b6a6db86b9c70714fb028adf7fe158c34127fd342089832d86f3953615e483f"
+      },
+      "production_instruction": "Return category Arc at fixed index 05. Pointe de fleche en haut-gauche, empennage en bas-droit; arc historique conserve. Strong white historical silhouette; real transparency outside the glyph and in its cutouts; no blue square/disc, paint, color, halo or text. Extract the actual archived glyph in the established native pipeline, retaining geometry and original orientation.",
+      "imagegen_prompt": null,
+      "imagegen_prompt_reason": "Not applicable: user-authorized existing native glyph extraction / code-vector workflow, no generative raster edit.",
+      "references_ordered": [
+        "V1/assets/armes/05.jpg",
+        "V2/assets/armes/05.jpg",
+        "main/Kalistar.xlsx#xl/media/image7.jpg",
+        "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx#xl/media/image10.jpg",
+        "V3/sources/REVISION_BUFFS_SCENES_20260914.md"
+      ],
+      "alpha_qa": {
+        "width": 512,
+        "height": 512,
+        "channels": 4,
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "fully_transparent_pixels": 235858,
+        "fully_opaque_pixels": 18924,
+        "antialiased_pixels": 7362,
+        "nonwhite_visible_pixels": 0,
+        "border_alpha_max": 0,
+        "alpha_bounds_128": [
+          95,
+          93,
+          421,
+          419
+        ],
+        "opaque_components": [
+          9458,
+          6705,
+          6632
+        ],
+        "visible_pixels_at_90": 690,
+        "technical_status": "passed"
+      },
+      "visual_qa": {
+        "status": "passed",
+        "scale_px": 90,
+        "white_silhouette": true,
+        "no_blue_square_or_disc": true,
+        "transparent_negative_spaces": true,
+        "category_recognizable": true,
+        "outward_or_nondirectional_as_specified": true,
+        "source_orientation_preserved": true,
+        "contact_sheets": [
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-dark.png",
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-checker.png"
+        ],
+        "notes": "Historical form and engraving separations retained."
+      }
+    },
+    {
+      "index": 6,
+      "category": "Fouet",
+      "status": "ready_for_parent_review",
+      "source_evidence": {
+        "index": 6,
+        "name": "Fouet",
+        "source": "V1/assets/armes/06.jpg",
+        "width": 46,
+        "height": 46,
+        "sha256": "9435682570a583d3a7930375e7d5bc470702f130182855f127702955381ad06c",
+        "workbook_matches": [
+          {
+            "file": "main/Kalistar.xlsx",
+            "media": "xl/media/image6.jpg"
+          },
+          {
+            "file": "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx",
+            "media": "xl/media/image20.jpg"
+          }
+        ],
+        "v2_jpeg_identical": true
+      },
+      "orientation": {
+        "note": "Boucle du fouet a gauche et en haut, poignee en bas-droit selon original.",
+        "mirror": false,
+        "rotation_applied_degrees": 0,
+        "verified_visually": true
+      },
+      "output": "V3/assets/revisions-buffs-scenes-20260914/armes/06.png",
+      "sha256": "ee3c6b12acebc66e5bb2cbfb9b7fde054d44113fa9ff4fa3d6c2c6e13a7208ad",
+      "production": {
+        "source_size": [
+          46,
+          46
+        ],
+        "threshold": 80,
+        "component_min_area": 2,
+        "component_min_peak": 125,
+        "frame_components_removed": 4,
+        "glyph_components_retained": 1,
+        "interpolation": "cubic",
+        "alpha_smoothstep": [
+          85,
+          135
+        ],
+        "transform": "identity; no mirror, no rotation, no crop",
+        "foreground_rgb": [
+          255,
+          255,
+          255
+        ],
+        "source": "V1/assets/armes/06.jpg",
+        "source_sha256": "9435682570a583d3a7930375e7d5bc470702f130182855f127702955381ad06c"
+      },
+      "production_instruction": "Return category Fouet at fixed index 06. Boucle du fouet a gauche et en haut, poignee en bas-droit selon original. Strong white historical silhouette; real transparency outside the glyph and in its cutouts; no blue square/disc, paint, color, halo or text. Extract the actual archived glyph in the established native pipeline, retaining geometry and original orientation.",
+      "imagegen_prompt": null,
+      "imagegen_prompt_reason": "Not applicable: user-authorized existing native glyph extraction / code-vector workflow, no generative raster edit.",
+      "references_ordered": [
+        "V1/assets/armes/06.jpg",
+        "V2/assets/armes/06.jpg",
+        "main/Kalistar.xlsx#xl/media/image6.jpg",
+        "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx#xl/media/image20.jpg",
+        "V3/sources/REVISION_BUFFS_SCENES_20260914.md"
+      ],
+      "alpha_qa": {
+        "width": 512,
+        "height": 512,
+        "channels": 4,
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "fully_transparent_pixels": 233917,
+        "fully_opaque_pixels": 22692,
+        "antialiased_pixels": 5535,
+        "nonwhite_visible_pixels": 0,
+        "border_alpha_max": 0,
+        "alpha_bounds_128": [
+          82,
+          90,
+          460,
+          421
+        ],
+        "opaque_components": [
+          18452,
+          7077
+        ],
+        "visible_pixels_at_90": 785,
+        "technical_status": "passed"
+      },
+      "visual_qa": {
+        "status": "passed",
+        "scale_px": 90,
+        "white_silhouette": true,
+        "no_blue_square_or_disc": true,
+        "transparent_negative_spaces": true,
+        "category_recognizable": true,
+        "outward_or_nondirectional_as_specified": true,
+        "source_orientation_preserved": true,
+        "contact_sheets": [
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-dark.png",
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-checker.png"
+        ],
+        "notes": "Historical form and engraving separations retained."
+      }
+    },
+    {
+      "index": 7,
+      "category": "Gun",
+      "status": "ready_for_parent_review",
+      "source_evidence": {
+        "index": 7,
+        "name": "Gun",
+        "source": "V1/assets/armes/07.jpg",
+        "width": 46,
+        "height": 46,
+        "sha256": "2bb9bc7390ff42ff7890d107404cdbb399d9d07e1913d2bd9f1af287e7a36804",
+        "workbook_matches": [
+          {
+            "file": "main/Kalistar.xlsx",
+            "media": "xl/media/image12.jpg"
+          },
+          {
+            "file": "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx",
+            "media": "xl/media/image14.jpg"
+          }
+        ],
+        "v2_jpeg_identical": true
+      },
+      "orientation": {
+        "note": "Bouche du pistolet en haut-gauche, crosse en bas-droit.",
+        "mirror": false,
+        "rotation_applied_degrees": 0,
+        "verified_visually": true
+      },
+      "output": "V3/assets/revisions-buffs-scenes-20260914/armes/07.png",
+      "sha256": "8e1dd2f83e026277cca0c6810bc081015297d8b9cee918ee0a3dc861ed5ed257",
+      "production": {
+        "source_size": [
+          46,
+          46
+        ],
+        "threshold": 80,
+        "component_min_area": 2,
+        "component_min_peak": 125,
+        "frame_components_removed": 4,
+        "glyph_components_retained": 1,
+        "interpolation": "cubic",
+        "alpha_smoothstep": [
+          85,
+          135
+        ],
+        "transform": "identity; no mirror, no rotation, no crop",
+        "foreground_rgb": [
+          255,
+          255,
+          255
+        ],
+        "source": "V1/assets/armes/07.jpg",
+        "source_sha256": "2bb9bc7390ff42ff7890d107404cdbb399d9d07e1913d2bd9f1af287e7a36804"
+      },
+      "production_instruction": "Return category Gun at fixed index 07. Bouche du pistolet en haut-gauche, crosse en bas-droit. Strong white historical silhouette; real transparency outside the glyph and in its cutouts; no blue square/disc, paint, color, halo or text. Extract the actual archived glyph in the established native pipeline, retaining geometry and original orientation.",
+      "imagegen_prompt": null,
+      "imagegen_prompt_reason": "Not applicable: user-authorized existing native glyph extraction / code-vector workflow, no generative raster edit.",
+      "references_ordered": [
+        "V1/assets/armes/07.jpg",
+        "V2/assets/armes/07.jpg",
+        "main/Kalistar.xlsx#xl/media/image12.jpg",
+        "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx#xl/media/image14.jpg",
+        "V3/sources/REVISION_BUFFS_SCENES_20260914.md"
+      ],
+      "alpha_qa": {
+        "width": 512,
+        "height": 512,
+        "channels": 4,
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "fully_transparent_pixels": 228403,
+        "fully_opaque_pixels": 28463,
+        "antialiased_pixels": 5278,
+        "nonwhite_visible_pixels": 0,
+        "border_alpha_max": 0,
+        "alpha_bounds_128": [
+          96,
+          90,
+          423,
+          432
+        ],
+        "opaque_components": [
+          21824,
+          7220,
+          2031
+        ],
+        "visible_pixels_at_90": 956,
+        "technical_status": "passed"
+      },
+      "visual_qa": {
+        "status": "passed",
+        "scale_px": 90,
+        "white_silhouette": true,
+        "no_blue_square_or_disc": true,
+        "transparent_negative_spaces": true,
+        "category_recognizable": true,
+        "outward_or_nondirectional_as_specified": true,
+        "source_orientation_preserved": true,
+        "contact_sheets": [
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-dark.png",
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-checker.png"
+        ],
+        "notes": "Historical form and engraving separations retained."
+      }
+    },
+    {
+      "index": 8,
+      "category": "Lance",
+      "status": "ready_for_parent_review",
+      "source_evidence": {
+        "index": 8,
+        "name": "Lance",
+        "source": "V1/assets/armes/08.jpg",
+        "width": 46,
+        "height": 46,
+        "sha256": "52613b229740174fa8992bb7daae934c0322d57e15b1f5e4084d12485bf792a4",
+        "workbook_matches": [
+          {
+            "file": "main/Kalistar.xlsx",
+            "media": "xl/media/image2.jpg"
+          },
+          {
+            "file": "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx",
+            "media": "xl/media/image9.jpg"
+          }
+        ],
+        "v2_jpeg_identical": true
+      },
+      "orientation": {
+        "note": "Fer de lance en haut-gauche, hampe en bas-droit.",
+        "mirror": false,
+        "rotation_applied_degrees": 0,
+        "verified_visually": true
+      },
+      "output": "V3/assets/revisions-buffs-scenes-20260914/armes/08.png",
+      "sha256": "1cbc5edbdabbd1d40115bfa980744a897188f571d47a002799473dbe363bfd3d",
+      "production": {
+        "source_size": [
+          46,
+          46
+        ],
+        "threshold": 80,
+        "component_min_area": 2,
+        "component_min_peak": 125,
+        "frame_components_removed": 4,
+        "glyph_components_retained": 1,
+        "interpolation": "cubic",
+        "alpha_smoothstep": [
+          85,
+          135
+        ],
+        "transform": "identity; no mirror, no rotation, no crop",
+        "foreground_rgb": [
+          255,
+          255,
+          255
+        ],
+        "source": "V1/assets/armes/08.jpg",
+        "source_sha256": "52613b229740174fa8992bb7daae934c0322d57e15b1f5e4084d12485bf792a4"
+      },
+      "production_instruction": "Return category Lance at fixed index 08. Fer de lance en haut-gauche, hampe en bas-droit. Strong white historical silhouette; real transparency outside the glyph and in its cutouts; no blue square/disc, paint, color, halo or text. Extract the actual archived glyph in the established native pipeline, retaining geometry and original orientation.",
+      "imagegen_prompt": null,
+      "imagegen_prompt_reason": "Not applicable: user-authorized existing native glyph extraction / code-vector workflow, no generative raster edit.",
+      "references_ordered": [
+        "V1/assets/armes/08.jpg",
+        "V2/assets/armes/08.jpg",
+        "main/Kalistar.xlsx#xl/media/image2.jpg",
+        "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx#xl/media/image9.jpg",
+        "V3/sources/REVISION_BUFFS_SCENES_20260914.md"
+      ],
+      "alpha_qa": {
+        "width": 512,
+        "height": 512,
+        "channels": 4,
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "fully_transparent_pixels": 244372,
+        "fully_opaque_pixels": 14638,
+        "antialiased_pixels": 3134,
+        "nonwhite_visible_pixels": 0,
+        "border_alpha_max": 0,
+        "alpha_bounds_128": [
+          67,
+          67,
+          445,
+          445
+        ],
+        "opaque_components": [
+          9055,
+          5276,
+          1161,
+          709
+        ],
+        "visible_pixels_at_90": 497,
+        "technical_status": "passed"
+      },
+      "visual_qa": {
+        "status": "passed",
+        "scale_px": 90,
+        "white_silhouette": true,
+        "no_blue_square_or_disc": true,
+        "transparent_negative_spaces": true,
+        "category_recognizable": true,
+        "outward_or_nondirectional_as_specified": true,
+        "source_orientation_preserved": true,
+        "contact_sheets": [
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-dark.png",
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-checker.png"
+        ],
+        "notes": "Historical form and engraving separations retained."
+      }
+    },
+    {
+      "index": 9,
+      "category": "Projectile",
+      "status": "ready_for_parent_review",
+      "source_evidence": {
+        "index": 9,
+        "name": "Projectile",
+        "source": "V1/assets/armes/09.jpg",
+        "width": 46,
+        "height": 46,
+        "sha256": "1a519a73729bcb54b6a062edbdd3a0811eb8a9a0c9773105f103e0150348dcfb",
+        "workbook_matches": [
+          {
+            "file": "main/Kalistar.xlsx",
+            "media": "xl/media/image15.jpg"
+          },
+          {
+            "file": "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx",
+            "media": "xl/media/image17.jpg"
+          }
+        ],
+        "v2_jpeg_identical": true
+      },
+      "orientation": {
+        "note": "Chakram annulaire non directionnel, naturellement centre.",
+        "mirror": false,
+        "rotation_applied_degrees": 0,
+        "verified_visually": true
+      },
+      "output": "V3/assets/revisions-buffs-scenes-20260914/armes/09.png",
+      "sha256": "c3cad629267cd585f1e4a6d15da7381c1652f77464a1a1bef98ee202daaa9efe",
+      "production": {
+        "source_size": [
+          46,
+          46
+        ],
+        "threshold": 80,
+        "component_min_area": 2,
+        "component_min_peak": 125,
+        "frame_components_removed": 4,
+        "glyph_components_retained": 1,
+        "interpolation": "cubic",
+        "alpha_smoothstep": [
+          85,
+          135
+        ],
+        "transform": "identity; no mirror, no rotation, no crop",
+        "foreground_rgb": [
+          255,
+          255,
+          255
+        ],
+        "source": "V1/assets/armes/09.jpg",
+        "source_sha256": "1a519a73729bcb54b6a062edbdd3a0811eb8a9a0c9773105f103e0150348dcfb"
+      },
+      "production_instruction": "Return category Projectile at fixed index 09. Chakram annulaire non directionnel, naturellement centre. Strong white historical silhouette; real transparency outside the glyph and in its cutouts; no blue square/disc, paint, color, halo or text. Extract the actual archived glyph in the established native pipeline, retaining geometry and original orientation.",
+      "imagegen_prompt": null,
+      "imagegen_prompt_reason": "Not applicable: user-authorized existing native glyph extraction / code-vector workflow, no generative raster edit.",
+      "references_ordered": [
+        "V1/assets/armes/09.jpg",
+        "V2/assets/armes/09.jpg",
+        "main/Kalistar.xlsx#xl/media/image15.jpg",
+        "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx#xl/media/image17.jpg",
+        "V3/sources/REVISION_BUFFS_SCENES_20260914.md"
+      ],
+      "alpha_qa": {
+        "width": 512,
+        "height": 512,
+        "channels": 4,
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "fully_transparent_pixels": 218010,
+        "fully_opaque_pixels": 38669,
+        "antialiased_pixels": 5465,
+        "nonwhite_visible_pixels": 0,
+        "border_alpha_max": 0,
+        "alpha_bounds_128": [
+          93,
+          93,
+          421,
+          421
+        ],
+        "opaque_components": [
+          19785,
+          19531,
+          1082,
+          1040
+        ],
+        "visible_pixels_at_90": 1266,
+        "technical_status": "passed"
+      },
+      "visual_qa": {
+        "status": "passed",
+        "scale_px": 90,
+        "white_silhouette": true,
+        "no_blue_square_or_disc": true,
+        "transparent_negative_spaces": true,
+        "category_recognizable": true,
+        "outward_or_nondirectional_as_specified": true,
+        "source_orientation_preserved": true,
+        "contact_sheets": [
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-dark.png",
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-checker.png"
+        ],
+        "notes": "Historical form and engraving separations retained."
+      }
+    },
+    {
+      "index": 10,
+      "category": "Bâton",
+      "status": "ready_for_parent_review",
+      "source_evidence": {
+        "index": 10,
+        "name": "Bâton",
+        "source": "V1/assets/armes/10.jpg",
+        "width": 46,
+        "height": 46,
+        "sha256": "0256359cd554b8fec0ed56d8aed4bfb381639eaba35d75562e886fbebb2d48f7",
+        "workbook_matches": [
+          {
+            "file": "main/Kalistar.xlsx",
+            "media": "xl/media/image8.jpg"
+          },
+          {
+            "file": "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx",
+            "media": "xl/media/image13.jpg"
+          }
+        ],
+        "v2_jpeg_identical": true
+      },
+      "orientation": {
+        "note": "Crosse du baton en haut-gauche, hampe en bas-droit.",
+        "mirror": false,
+        "rotation_applied_degrees": 0,
+        "verified_visually": true
+      },
+      "output": "V3/assets/revisions-buffs-scenes-20260914/armes/10.png",
+      "sha256": "b8fe5fd1bcb278c788043a03fa8aaf60c0e51ec47ab4f56e7c2e711c0f86f089",
+      "production": {
+        "source_size": [
+          46,
+          46
+        ],
+        "threshold": 80,
+        "component_min_area": 2,
+        "component_min_peak": 125,
+        "frame_components_removed": 4,
+        "glyph_components_retained": 1,
+        "interpolation": "cubic",
+        "alpha_smoothstep": [
+          85,
+          135
+        ],
+        "transform": "identity; no mirror, no rotation, no crop",
+        "foreground_rgb": [
+          255,
+          255,
+          255
+        ],
+        "source": "V1/assets/armes/10.jpg",
+        "source_sha256": "0256359cd554b8fec0ed56d8aed4bfb381639eaba35d75562e886fbebb2d48f7"
+      },
+      "production_instruction": "Return category Bâton at fixed index 10. Crosse du baton en haut-gauche, hampe en bas-droit. Strong white historical silhouette; real transparency outside the glyph and in its cutouts; no blue square/disc, paint, color, halo or text. Extract the actual archived glyph in the established native pipeline, retaining geometry and original orientation.",
+      "imagegen_prompt": null,
+      "imagegen_prompt_reason": "Not applicable: user-authorized existing native glyph extraction / code-vector workflow, no generative raster edit.",
+      "references_ordered": [
+        "V1/assets/armes/10.jpg",
+        "V2/assets/armes/10.jpg",
+        "main/Kalistar.xlsx#xl/media/image8.jpg",
+        "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx#xl/media/image13.jpg",
+        "V3/sources/REVISION_BUFFS_SCENES_20260914.md"
+      ],
+      "alpha_qa": {
+        "width": 512,
+        "height": 512,
+        "channels": 4,
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "fully_transparent_pixels": 239658,
+        "fully_opaque_pixels": 19180,
+        "antialiased_pixels": 3306,
+        "nonwhite_visible_pixels": 0,
+        "border_alpha_max": 0,
+        "alpha_bounds_128": [
+          58,
+          57,
+          445,
+          445
+        ],
+        "opaque_components": [
+          13935,
+          5152,
+          1733
+        ],
+        "visible_pixels_at_90": 640,
+        "technical_status": "passed"
+      },
+      "visual_qa": {
+        "status": "passed",
+        "scale_px": 90,
+        "white_silhouette": true,
+        "no_blue_square_or_disc": true,
+        "transparent_negative_spaces": true,
+        "category_recognizable": true,
+        "outward_or_nondirectional_as_specified": true,
+        "source_orientation_preserved": true,
+        "contact_sheets": [
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-dark.png",
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-checker.png"
+        ],
+        "notes": "Historical form and engraving separations retained."
+      }
+    },
+    {
+      "index": 11,
+      "category": "Instrument",
+      "status": "ready_for_parent_review",
+      "source_evidence": {
+        "index": 11,
+        "name": "Instrument",
+        "source": "V1/assets/armes/11.jpg",
+        "width": 46,
+        "height": 46,
+        "sha256": "d4bbf3e2c0ae130a6ce7f52815332dee302ec0e43ec876b33c7c864faf3371c4",
+        "workbook_matches": [
+          {
+            "file": "main/Kalistar.xlsx",
+            "media": "xl/media/image13.jpg"
+          },
+          {
+            "file": "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx",
+            "media": "xl/media/image7.jpg"
+          }
+        ],
+        "v2_jpeg_identical": true
+      },
+      "orientation": {
+        "note": "Guitare generique: tete du manche en haut-gauche, caisse en bas-droit; ni harpe ni flute.",
+        "mirror": false,
+        "rotation_applied_degrees": -43,
+        "verified_visually": true
+      },
+      "output": "V3/assets/revisions-buffs-scenes-20260914/armes/11.png",
+      "sha256": "1a01c981b53a1cd110fa8fe07dad1ad49329a35564bd5b6bed0946ac92cb8ddf",
+      "production": {
+        "method": "native SVG glyph in established V2 SVG/sharp workflow",
+        "historical_instrument": "harp; replaced by explicit user request for generic guitar",
+        "transform": "guitar headstock upper-left; body lower-right; rotation -43 degrees",
+        "foreground_rgb": [
+          255,
+          255,
+          255
+        ],
+        "source": "V3/scripts/revision_weapons_extract.cjs#guitarSvg",
+        "native_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 0 100 100\">\n    <defs><mask id=\"cut\"><rect width=\"100\" height=\"100\" fill=\"white\"/>\n      <circle cx=\"50\" cy=\"61\" r=\"4.5\" fill=\"black\"/>\n      <path d=\"M44 73h12\" stroke=\"black\" stroke-width=\"2.3\" stroke-linecap=\"round\"/>\n    </mask></defs>\n    <g transform=\"rotate(-43 50 50)\" fill=\"white\">\n      <g mask=\"url(#cut)\">\n        <path d=\"M46.5 13Q50 11 53.5 13L54 25L52.8 28V48H47.2V28L46 25Z\"/>\n        <path d=\"M47 43C41 39 35 43 35 50C35 55 40 57 37 63C26 75 33 89 50 90C67 89 74 75 63 63C60 57 65 55 65 50C65 43 59 39 53 43V50H47Z\"/>\n      </g>\n      <path d=\"M43.5 15H47M53 15H56.5M43.5 19.5H47M53 19.5H56.5M43.5 24H47M53 24H56.5\" stroke=\"white\" stroke-width=\"2.3\" stroke-linecap=\"round\"/>\n    </g>\n  </svg>"
+      },
+      "production_instruction": "Return category Instrument at fixed index 11. Guitare generique: tete du manche en haut-gauche, caisse en bas-droit; ni harpe ni flute. Strong white historical silhouette; real transparency outside the glyph and in its cutouts; no blue square/disc, paint, color, halo or text. Native generic acoustic guitar, explicitly replacing historical harp; not Momo flute.",
+      "imagegen_prompt": null,
+      "imagegen_prompt_reason": "Not applicable: user-authorized existing native glyph extraction / code-vector workflow, no generative raster edit.",
+      "references_ordered": [
+        "V1/assets/armes/11.jpg",
+        "V2/assets/armes/11.jpg",
+        "main/Kalistar.xlsx#xl/media/image13.jpg",
+        "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx#xl/media/image7.jpg",
+        "V3/sources/REVISION_BUFFS_SCENES_20260914.md"
+      ],
+      "alpha_qa": {
+        "width": 512,
+        "height": 512,
+        "channels": 4,
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "fully_transparent_pixels": 221022,
+        "fully_opaque_pixels": 38909,
+        "antialiased_pixels": 2213,
+        "nonwhite_visible_pixels": 0,
+        "border_alpha_max": 0,
+        "alpha_bounds_128": [
+          104,
+          96,
+          429,
+          434
+        ],
+        "opaque_components": [
+          40030
+        ],
+        "visible_pixels_at_90": 1242,
+        "technical_status": "passed"
+      },
+      "visual_qa": {
+        "status": "passed",
+        "scale_px": 90,
+        "white_silhouette": true,
+        "no_blue_square_or_disc": true,
+        "transparent_negative_spaces": true,
+        "category_recognizable": true,
+        "outward_or_nondirectional_as_specified": true,
+        "source_orientation_preserved": "explicit guitar replacement; outward neck",
+        "contact_sheets": [
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-dark.png",
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-checker.png"
+        ],
+        "notes": "Acoustic guitar body, neck, six tuning pegs and transparent sound hole; a single coherent white silhouette."
+      }
+    },
+    {
+      "index": 12,
+      "category": "Sceptre",
+      "status": "ready_for_parent_review",
+      "source_evidence": {
+        "index": 12,
+        "name": "Sceptre",
+        "source": "V1/assets/armes/12.jpg",
+        "width": 46,
+        "height": 46,
+        "sha256": "34f7d02ad457f771fe19f72e70c5605850dd0b10885df316e346c5c98487fbce",
+        "workbook_matches": [
+          {
+            "file": "main/Kalistar.xlsx",
+            "media": "xl/media/image19.jpg"
+          },
+          {
+            "file": "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx",
+            "media": "xl/media/image3.jpg"
+          }
+        ],
+        "v2_jpeg_identical": true
+      },
+      "orientation": {
+        "note": "Tete du sceptre en haut-gauche, manche en bas-droit.",
+        "mirror": false,
+        "rotation_applied_degrees": 0,
+        "verified_visually": true
+      },
+      "output": "V3/assets/revisions-buffs-scenes-20260914/armes/12.png",
+      "sha256": "6211ec8526eff0a6c82f600086bc0a135991f81e5b37a516fb6a694182c57a51",
+      "production": {
+        "source_size": [
+          46,
+          46
+        ],
+        "threshold": 80,
+        "component_min_area": 2,
+        "component_min_peak": 125,
+        "frame_components_removed": 4,
+        "glyph_components_retained": 3,
+        "interpolation": "cubic",
+        "alpha_smoothstep": [
+          85,
+          135
+        ],
+        "transform": "identity; no mirror, no rotation, no crop",
+        "foreground_rgb": [
+          255,
+          255,
+          255
+        ],
+        "source": "V1/assets/armes/12.jpg",
+        "source_sha256": "34f7d02ad457f771fe19f72e70c5605850dd0b10885df316e346c5c98487fbce"
+      },
+      "production_instruction": "Return category Sceptre at fixed index 12. Tete du sceptre en haut-gauche, manche en bas-droit. Strong white historical silhouette; real transparency outside the glyph and in its cutouts; no blue square/disc, paint, color, halo or text. Extract the actual archived glyph in the established native pipeline, retaining geometry and original orientation.",
+      "imagegen_prompt": null,
+      "imagegen_prompt_reason": "Not applicable: user-authorized existing native glyph extraction / code-vector workflow, no generative raster edit.",
+      "references_ordered": [
+        "V1/assets/armes/12.jpg",
+        "V2/assets/armes/12.jpg",
+        "main/Kalistar.xlsx#xl/media/image19.jpg",
+        "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx#xl/media/image3.jpg",
+        "V3/sources/REVISION_BUFFS_SCENES_20260914.md"
+      ],
+      "alpha_qa": {
+        "width": 512,
+        "height": 512,
+        "channels": 4,
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "fully_transparent_pixels": 236743,
+        "fully_opaque_pixels": 20924,
+        "antialiased_pixels": 4477,
+        "nonwhite_visible_pixels": 0,
+        "border_alpha_max": 0,
+        "alpha_bounds_128": [
+          68,
+          67,
+          445,
+          444
+        ],
+        "opaque_components": [
+          7953,
+          6231,
+          3416,
+          1929,
+          1827,
+          1780
+        ],
+        "visible_pixels_at_90": 701,
+        "technical_status": "passed"
+      },
+      "visual_qa": {
+        "status": "passed",
+        "scale_px": 90,
+        "white_silhouette": true,
+        "no_blue_square_or_disc": true,
+        "transparent_negative_spaces": true,
+        "category_recognizable": true,
+        "outward_or_nondirectional_as_specified": true,
+        "source_orientation_preserved": true,
+        "contact_sheets": [
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-dark.png",
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-checker.png"
+        ],
+        "notes": "Historical form and engraving separations retained."
+      }
+    },
+    {
+      "index": 13,
+      "category": "Tome",
+      "status": "ready_for_parent_review",
+      "source_evidence": {
+        "index": 13,
+        "name": "Tome",
+        "source": "V1/assets/armes/13.jpg",
+        "width": 46,
+        "height": 46,
+        "sha256": "c7079886419c7f00b2ac30d4b21e7c3d3d2b33c890578f351cc5e27869544b40",
+        "workbook_matches": [
+          {
+            "file": "main/Kalistar.xlsx",
+            "media": "xl/media/image5.jpg"
+          },
+          {
+            "file": "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx",
+            "media": "xl/media/image1.jpg"
+          }
+        ],
+        "v2_jpeg_identical": true
+      },
+      "orientation": {
+        "note": "Tome non directionnel, inclinaison historique preservee.",
+        "mirror": false,
+        "rotation_applied_degrees": 0,
+        "verified_visually": true
+      },
+      "output": "V3/assets/revisions-buffs-scenes-20260914/armes/13.png",
+      "sha256": "eee52bf81da0bdad1c942abaa55277667796fd43ddd72d6191059756d7026cef",
+      "production": {
+        "source_size": [
+          46,
+          46
+        ],
+        "threshold": 80,
+        "component_min_area": 2,
+        "component_min_peak": 125,
+        "frame_components_removed": 5,
+        "glyph_components_retained": 1,
+        "interpolation": "cubic",
+        "alpha_smoothstep": [
+          85,
+          135
+        ],
+        "transform": "identity; no mirror, no rotation, no crop",
+        "foreground_rgb": [
+          255,
+          255,
+          255
+        ],
+        "source": "V1/assets/armes/13.jpg",
+        "source_sha256": "c7079886419c7f00b2ac30d4b21e7c3d3d2b33c890578f351cc5e27869544b40"
+      },
+      "production_instruction": "Return category Tome at fixed index 13. Tome non directionnel, inclinaison historique preservee. Strong white historical silhouette; real transparency outside the glyph and in its cutouts; no blue square/disc, paint, color, halo or text. Extract the actual archived glyph in the established native pipeline, retaining geometry and original orientation.",
+      "imagegen_prompt": null,
+      "imagegen_prompt_reason": "Not applicable: user-authorized existing native glyph extraction / code-vector workflow, no generative raster edit.",
+      "references_ordered": [
+        "V1/assets/armes/13.jpg",
+        "V2/assets/armes/13.jpg",
+        "main/Kalistar.xlsx#xl/media/image5.jpg",
+        "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx#xl/media/image1.jpg",
+        "V3/sources/REVISION_BUFFS_SCENES_20260914.md"
+      ],
+      "alpha_qa": {
+        "width": 512,
+        "height": 512,
+        "channels": 4,
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "fully_transparent_pixels": 180082,
+        "fully_opaque_pixels": 73858,
+        "antialiased_pixels": 8204,
+        "nonwhite_visible_pixels": 0,
+        "border_alpha_max": 0,
+        "alpha_bounds_128": [
+          80,
+          68,
+          434,
+          444
+        ],
+        "opaque_components": [
+          78567
+        ],
+        "visible_pixels_at_90": 2416,
+        "technical_status": "passed"
+      },
+      "visual_qa": {
+        "status": "passed",
+        "scale_px": 90,
+        "white_silhouette": true,
+        "no_blue_square_or_disc": true,
+        "transparent_negative_spaces": true,
+        "category_recognizable": true,
+        "outward_or_nondirectional_as_specified": true,
+        "source_orientation_preserved": true,
+        "contact_sheets": [
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-dark.png",
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-checker.png"
+        ],
+        "notes": "Historical form and engraving separations retained."
+      }
+    },
+    {
+      "index": 14,
+      "category": "Orbe",
+      "status": "ready_for_parent_review",
+      "source_evidence": {
+        "index": 14,
+        "name": "Orbe",
+        "source": "V1/assets/armes/14.jpg",
+        "width": 46,
+        "height": 46,
+        "sha256": "b811c7690a1e85508baf1077fc7ec306e779f5b1b8cc17392ddbdd4078a60bd3",
+        "workbook_matches": [
+          {
+            "file": "main/Kalistar.xlsx",
+            "media": "xl/media/image20.jpg"
+          },
+          {
+            "file": "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx",
+            "media": "xl/media/image19.jpg"
+          }
+        ],
+        "v2_jpeg_identical": true
+      },
+      "orientation": {
+        "note": "Orbe sur socle non directionnel, naturellement centre.",
+        "mirror": false,
+        "rotation_applied_degrees": 0,
+        "verified_visually": true
+      },
+      "output": "V3/assets/revisions-buffs-scenes-20260914/armes/14.png",
+      "sha256": "2a9f1f86884687b3e85b8c1117b2c1c2cc2ea0dca64ee768d2a0b6604657a48e",
+      "production": {
+        "source_size": [
+          46,
+          46
+        ],
+        "threshold": 45,
+        "component_min_area": 2,
+        "component_min_peak": 90,
+        "frame_components_removed": 3,
+        "glyph_components_retained": 4,
+        "interpolation": "cubic",
+        "alpha_smoothstep": [
+          45,
+          95
+        ],
+        "transform": "identity; no mirror, no rotation, no crop",
+        "foreground_rgb": [
+          255,
+          255,
+          255
+        ],
+        "source": "V1/assets/armes/14.jpg",
+        "source_sha256": "b811c7690a1e85508baf1077fc7ec306e779f5b1b8cc17392ddbdd4078a60bd3"
+      },
+      "production_instruction": "Return category Orbe at fixed index 14. Orbe sur socle non directionnel, naturellement centre. Strong white historical silhouette; real transparency outside the glyph and in its cutouts; no blue square/disc, paint, color, halo or text. Extract the actual archived glyph in the established native pipeline, retaining geometry and original orientation.",
+      "imagegen_prompt": null,
+      "imagegen_prompt_reason": "Not applicable: user-authorized existing native glyph extraction / code-vector workflow, no generative raster edit.",
+      "references_ordered": [
+        "V1/assets/armes/14.jpg",
+        "V2/assets/armes/14.jpg",
+        "main/Kalistar.xlsx#xl/media/image20.jpg",
+        "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx#xl/media/image19.jpg",
+        "V3/sources/REVISION_BUFFS_SCENES_20260914.md"
+      ],
+      "alpha_qa": {
+        "width": 512,
+        "height": 512,
+        "channels": 4,
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "fully_transparent_pixels": 227787,
+        "fully_opaque_pixels": 24412,
+        "antialiased_pixels": 9945,
+        "nonwhite_visible_pixels": 0,
+        "border_alpha_max": 0,
+        "alpha_bounds_128": [
+          72,
+          74,
+          400,
+          424
+        ],
+        "opaque_components": [
+          12173,
+          4460,
+          2574,
+          2179,
+          1864,
+          1342,
+          1321,
+          1144,
+          992,
+          490,
+          437,
+          258,
+          6
+        ],
+        "visible_pixels_at_90": 918,
+        "technical_status": "passed"
+      },
+      "visual_qa": {
+        "status": "passed",
+        "scale_px": 90,
+        "white_silhouette": true,
+        "no_blue_square_or_disc": true,
+        "transparent_negative_spaces": true,
+        "category_recognizable": true,
+        "outward_or_nondirectional_as_specified": true,
+        "source_orientation_preserved": true,
+        "contact_sheets": [
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-dark.png",
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-checker.png"
+        ],
+        "notes": "Orb contour is stronger and legible at 90px after threshold correction; base and historical sparkles retained."
+      }
+    },
+    {
+      "index": 15,
+      "category": "Dague",
+      "status": "ready_for_parent_review",
+      "source_evidence": {
+        "index": 15,
+        "name": "Dague",
+        "source": "V1/assets/armes/15.jpg",
+        "width": 46,
+        "height": 46,
+        "sha256": "c08d249d6ff8ec4b62b0e588bf9204c8fafbf813561ec0e8249fb7e9fea26f24",
+        "workbook_matches": [
+          {
+            "file": "main/Kalistar.xlsx",
+            "media": "xl/media/image16.jpg"
+          },
+          {
+            "file": "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx",
+            "media": "xl/media/image4.jpg"
+          }
+        ],
+        "v2_jpeg_identical": true
+      },
+      "orientation": {
+        "note": "Pointe de dague en haut-gauche, garde et manche en bas-droit.",
+        "mirror": false,
+        "rotation_applied_degrees": 0,
+        "verified_visually": true
+      },
+      "output": "V3/assets/revisions-buffs-scenes-20260914/armes/15.png",
+      "sha256": "71b8f69a9c066296ffb4cb62ef46f51f974d71ebdba786341ad1d24b74947a33",
+      "production": {
+        "source_size": [
+          46,
+          46
+        ],
+        "threshold": 80,
+        "component_min_area": 2,
+        "component_min_peak": 125,
+        "frame_components_removed": 4,
+        "glyph_components_retained": 1,
+        "interpolation": "cubic",
+        "alpha_smoothstep": [
+          85,
+          135
+        ],
+        "transform": "identity; no mirror, no rotation, no crop",
+        "foreground_rgb": [
+          255,
+          255,
+          255
+        ],
+        "source": "V1/assets/armes/15.jpg",
+        "source_sha256": "c08d249d6ff8ec4b62b0e588bf9204c8fafbf813561ec0e8249fb7e9fea26f24"
+      },
+      "production_instruction": "Return category Dague at fixed index 15. Pointe de dague en haut-gauche, garde et manche en bas-droit. Strong white historical silhouette; real transparency outside the glyph and in its cutouts; no blue square/disc, paint, color, halo or text. Extract the actual archived glyph in the established native pipeline, retaining geometry and original orientation.",
+      "imagegen_prompt": null,
+      "imagegen_prompt_reason": "Not applicable: user-authorized existing native glyph extraction / code-vector workflow, no generative raster edit.",
+      "references_ordered": [
+        "V1/assets/armes/15.jpg",
+        "V2/assets/armes/15.jpg",
+        "main/Kalistar.xlsx#xl/media/image16.jpg",
+        "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx#xl/media/image4.jpg",
+        "V3/sources/REVISION_BUFFS_SCENES_20260914.md"
+      ],
+      "alpha_qa": {
+        "width": 512,
+        "height": 512,
+        "channels": 4,
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "fully_transparent_pixels": 243696,
+        "fully_opaque_pixels": 15747,
+        "antialiased_pixels": 2701,
+        "nonwhite_visible_pixels": 0,
+        "border_alpha_max": 0,
+        "alpha_bounds_128": [
+          140,
+          145,
+          399,
+          410
+        ],
+        "opaque_components": [
+          9008,
+          4682,
+          3384
+        ],
+        "visible_pixels_at_90": 525,
+        "technical_status": "passed"
+      },
+      "visual_qa": {
+        "status": "passed",
+        "scale_px": 90,
+        "white_silhouette": true,
+        "no_blue_square_or_disc": true,
+        "transparent_negative_spaces": true,
+        "category_recognizable": true,
+        "outward_or_nondirectional_as_specified": true,
+        "source_orientation_preserved": true,
+        "contact_sheets": [
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-dark.png",
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-checker.png"
+        ],
+        "notes": "Short dagger scale retained to distinguish it from the two longer swords."
+      }
+    },
+    {
+      "index": 16,
+      "category": "Epée courte",
+      "status": "ready_for_parent_review",
+      "source_evidence": {
+        "index": 16,
+        "name": "Epée courte",
+        "source": "V1/assets/armes/16.jpg",
+        "width": 46,
+        "height": 46,
+        "sha256": "4e8937443fee08831a9d40bb3ae45982b75db3b45e7f2f6fc2d65df88404af89",
+        "workbook_matches": [
+          {
+            "file": "main/Kalistar.xlsx",
+            "media": "xl/media/image10.jpg"
+          },
+          {
+            "file": "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx",
+            "media": "xl/media/image11.jpg"
+          }
+        ],
+        "v2_jpeg_identical": true
+      },
+      "orientation": {
+        "note": "Pointe de lame en haut-gauche, garde et manche en bas-droit.",
+        "mirror": false,
+        "rotation_applied_degrees": 0,
+        "verified_visually": true
+      },
+      "output": "V3/assets/revisions-buffs-scenes-20260914/armes/16.png",
+      "sha256": "c78fa3b2a2887d992ec02868287573c7d95c1819292c185ded298a6c379c04fe",
+      "production": {
+        "source_size": [
+          46,
+          46
+        ],
+        "threshold": 80,
+        "component_min_area": 2,
+        "component_min_peak": 125,
+        "frame_components_removed": 0,
+        "glyph_components_retained": 1,
+        "interpolation": "cubic",
+        "alpha_smoothstep": [
+          85,
+          135
+        ],
+        "transform": "identity; no mirror, no rotation, no crop",
+        "foreground_rgb": [
+          255,
+          255,
+          255
+        ],
+        "source": "V1/assets/armes/16.jpg",
+        "source_sha256": "4e8937443fee08831a9d40bb3ae45982b75db3b45e7f2f6fc2d65df88404af89"
+      },
+      "production_instruction": "Return category Epée courte at fixed index 16. Pointe de lame en haut-gauche, garde et manche en bas-droit. Strong white historical silhouette; real transparency outside the glyph and in its cutouts; no blue square/disc, paint, color, halo or text. Extract the actual archived glyph in the established native pipeline, retaining geometry and original orientation.",
+      "imagegen_prompt": null,
+      "imagegen_prompt_reason": "Not applicable: user-authorized existing native glyph extraction / code-vector workflow, no generative raster edit.",
+      "references_ordered": [
+        "V1/assets/armes/16.jpg",
+        "V2/assets/armes/16.jpg",
+        "main/Kalistar.xlsx#xl/media/image10.jpg",
+        "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx#xl/media/image11.jpg",
+        "V3/sources/REVISION_BUFFS_SCENES_20260914.md"
+      ],
+      "alpha_qa": {
+        "width": 512,
+        "height": 512,
+        "channels": 4,
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "fully_transparent_pixels": 238612,
+        "fully_opaque_pixels": 20090,
+        "antialiased_pixels": 3442,
+        "nonwhite_visible_pixels": 0,
+        "border_alpha_max": 0,
+        "alpha_bounds_128": [
+          91,
+          90,
+          440,
+          434
+        ],
+        "opaque_components": [
+          13822,
+          4107,
+          3890
+        ],
+        "visible_pixels_at_90": 668,
+        "technical_status": "passed"
+      },
+      "visual_qa": {
+        "status": "passed",
+        "scale_px": 90,
+        "white_silhouette": true,
+        "no_blue_square_or_disc": true,
+        "transparent_negative_spaces": true,
+        "category_recognizable": true,
+        "outward_or_nondirectional_as_specified": true,
+        "source_orientation_preserved": true,
+        "contact_sheets": [
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-dark.png",
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-checker.png"
+        ],
+        "notes": "Historical form and engraving separations retained."
+      }
+    },
+    {
+      "index": 17,
+      "category": "Epée longue",
+      "status": "ready_for_parent_review",
+      "source_evidence": {
+        "index": 17,
+        "name": "Epée longue",
+        "source": "V1/assets/armes/17.jpg",
+        "width": 46,
+        "height": 46,
+        "sha256": "0ecc1bf53f0d3b66c895af0cb4c7608dd816459360c34beedab7aeb5fbbea64d",
+        "workbook_matches": [
+          {
+            "file": "main/Kalistar.xlsx",
+            "media": "xl/media/image3.jpg"
+          },
+          {
+            "file": "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx",
+            "media": "xl/media/image15.jpg"
+          }
+        ],
+        "v2_jpeg_identical": true
+      },
+      "orientation": {
+        "note": "Large lame en haut-gauche, garde et manche en bas-droit.",
+        "mirror": false,
+        "rotation_applied_degrees": 0,
+        "verified_visually": true
+      },
+      "output": "V3/assets/revisions-buffs-scenes-20260914/armes/17.png",
+      "sha256": "5a72bacb59cdc60f435627859bf59abfc855ac7b66d56d7201a91e682171f481",
+      "production": {
+        "source_size": [
+          46,
+          46
+        ],
+        "threshold": 80,
+        "component_min_area": 2,
+        "component_min_peak": 125,
+        "frame_components_removed": 4,
+        "glyph_components_retained": 1,
+        "interpolation": "cubic",
+        "alpha_smoothstep": [
+          85,
+          135
+        ],
+        "transform": "identity; no mirror, no rotation, no crop",
+        "foreground_rgb": [
+          255,
+          255,
+          255
+        ],
+        "source": "V1/assets/armes/17.jpg",
+        "source_sha256": "0ecc1bf53f0d3b66c895af0cb4c7608dd816459360c34beedab7aeb5fbbea64d"
+      },
+      "production_instruction": "Return category Epée longue at fixed index 17. Large lame en haut-gauche, garde et manche en bas-droit. Strong white historical silhouette; real transparency outside the glyph and in its cutouts; no blue square/disc, paint, color, halo or text. Extract the actual archived glyph in the established native pipeline, retaining geometry and original orientation.",
+      "imagegen_prompt": null,
+      "imagegen_prompt_reason": "Not applicable: user-authorized existing native glyph extraction / code-vector workflow, no generative raster edit.",
+      "references_ordered": [
+        "V1/assets/armes/17.jpg",
+        "V2/assets/armes/17.jpg",
+        "main/Kalistar.xlsx#xl/media/image3.jpg",
+        "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx#xl/media/image15.jpg",
+        "V3/sources/REVISION_BUFFS_SCENES_20260914.md"
+      ],
+      "alpha_qa": {
+        "width": 512,
+        "height": 512,
+        "channels": 4,
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "fully_transparent_pixels": 221924,
+        "fully_opaque_pixels": 36399,
+        "antialiased_pixels": 3821,
+        "nonwhite_visible_pixels": 0,
+        "border_alpha_max": 0,
+        "alpha_bounds_128": [
+          70,
+          69,
+          449,
+          445
+        ],
+        "opaque_components": [
+          29825,
+          6307,
+          2183
+        ],
+        "visible_pixels_at_90": 1178,
+        "technical_status": "passed"
+      },
+      "visual_qa": {
+        "status": "passed",
+        "scale_px": 90,
+        "white_silhouette": true,
+        "no_blue_square_or_disc": true,
+        "transparent_negative_spaces": true,
+        "category_recognizable": true,
+        "outward_or_nondirectional_as_specified": true,
+        "source_orientation_preserved": true,
+        "contact_sheets": [
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-dark.png",
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-checker.png"
+        ],
+        "notes": "Historical form and engraving separations retained."
+      }
+    },
+    {
+      "index": 18,
+      "category": "Katana",
+      "status": "ready_for_parent_review",
+      "source_evidence": {
+        "index": 18,
+        "name": "Katana",
+        "source": "V1/assets/armes/18.jpg",
+        "width": 46,
+        "height": 46,
+        "sha256": "f6d2ecf5c98d04017b73261c727926cda23d2c2d43c01f54f1fed4d574ffd495",
+        "workbook_matches": [
+          {
+            "file": "main/Kalistar.xlsx",
+            "media": "xl/media/image4.jpg"
+          },
+          {
+            "file": "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx",
+            "media": "xl/media/image8.jpg"
+          }
+        ],
+        "v2_jpeg_identical": true
+      },
+      "orientation": {
+        "note": "Pointe du katana en haut-gauche, garde et tsuka en bas-droit.",
+        "mirror": false,
+        "rotation_applied_degrees": 0,
+        "verified_visually": true
+      },
+      "output": "V3/assets/revisions-buffs-scenes-20260914/armes/18.png",
+      "sha256": "81845068b870d2f2bee3ebb92e3b7671d0d1955b9fddfbca72b1489c91bea8be",
+      "production": {
+        "source_size": [
+          46,
+          46
+        ],
+        "threshold": 80,
+        "component_min_area": 2,
+        "component_min_peak": 125,
+        "frame_components_removed": 4,
+        "glyph_components_retained": 1,
+        "interpolation": "cubic",
+        "alpha_smoothstep": [
+          85,
+          135
+        ],
+        "transform": "identity; no mirror, no rotation, no crop",
+        "foreground_rgb": [
+          255,
+          255,
+          255
+        ],
+        "source": "V1/assets/armes/18.jpg",
+        "source_sha256": "f6d2ecf5c98d04017b73261c727926cda23d2c2d43c01f54f1fed4d574ffd495"
+      },
+      "production_instruction": "Return category Katana at fixed index 18. Pointe du katana en haut-gauche, garde et tsuka en bas-droit. Strong white historical silhouette; real transparency outside the glyph and in its cutouts; no blue square/disc, paint, color, halo or text. Extract the actual archived glyph in the established native pipeline, retaining geometry and original orientation.",
+      "imagegen_prompt": null,
+      "imagegen_prompt_reason": "Not applicable: user-authorized existing native glyph extraction / code-vector workflow, no generative raster edit.",
+      "references_ordered": [
+        "V1/assets/armes/18.jpg",
+        "V2/assets/armes/18.jpg",
+        "main/Kalistar.xlsx#xl/media/image4.jpg",
+        "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx#xl/media/image8.jpg",
+        "V3/sources/REVISION_BUFFS_SCENES_20260914.md"
+      ],
+      "alpha_qa": {
+        "width": 512,
+        "height": 512,
+        "channels": 4,
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "fully_transparent_pixels": 241495,
+        "fully_opaque_pixels": 16686,
+        "antialiased_pixels": 3963,
+        "nonwhite_visible_pixels": 0,
+        "border_alpha_max": 0,
+        "alpha_bounds_128": [
+          90,
+          40,
+          461,
+          456
+        ],
+        "opaque_components": [
+          12886,
+          2955,
+          1001,
+          809,
+          570,
+          414
+        ],
+        "visible_pixels_at_90": 560,
+        "technical_status": "passed"
+      },
+      "visual_qa": {
+        "status": "passed",
+        "scale_px": 90,
+        "white_silhouette": true,
+        "no_blue_square_or_disc": true,
+        "transparent_negative_spaces": true,
+        "category_recognizable": true,
+        "outward_or_nondirectional_as_specified": true,
+        "source_orientation_preserved": true,
+        "contact_sheets": [
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-dark.png",
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-checker.png"
+        ],
+        "notes": "Historical form and engraving separations retained."
+      }
+    },
+    {
+      "index": 19,
+      "category": "Faucille",
+      "status": "ready_for_parent_review",
+      "source_evidence": {
+        "index": 19,
+        "name": "Faucille",
+        "source": "V1/assets/armes/19.jpg",
+        "width": 46,
+        "height": 46,
+        "sha256": "347a8f5a1ec050399113fd4fec1f6a2ae15f56e8ac5cb9396d801a07d6c5e96c",
+        "workbook_matches": [
+          {
+            "file": "main/Kalistar.xlsx",
+            "media": "xl/media/image1.jpg"
+          },
+          {
+            "file": "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx",
+            "media": "xl/media/image2.jpg"
+          }
+        ],
+        "v2_jpeg_identical": true
+      },
+      "orientation": {
+        "note": "Lame recourbee vers le haut-gauche et l exterieur gauche, manche en bas-droit.",
+        "mirror": false,
+        "rotation_applied_degrees": 0,
+        "verified_visually": true
+      },
+      "output": "V3/assets/revisions-buffs-scenes-20260914/armes/19.png",
+      "sha256": "c496303d87c09c08c94ca2cf7c34a0479c91b866ba5373044ce902d1767be6eb",
+      "production": {
+        "source_size": [
+          46,
+          46
+        ],
+        "threshold": 80,
+        "component_min_area": 2,
+        "component_min_peak": 125,
+        "frame_components_removed": 5,
+        "glyph_components_retained": 1,
+        "interpolation": "cubic",
+        "alpha_smoothstep": [
+          85,
+          135
+        ],
+        "transform": "identity; no mirror, no rotation, no crop",
+        "foreground_rgb": [
+          255,
+          255,
+          255
+        ],
+        "source": "V1/assets/armes/19.jpg",
+        "source_sha256": "347a8f5a1ec050399113fd4fec1f6a2ae15f56e8ac5cb9396d801a07d6c5e96c"
+      },
+      "production_instruction": "Return category Faucille at fixed index 19. Lame recourbee vers le haut-gauche et l exterieur gauche, manche en bas-droit. Strong white historical silhouette; real transparency outside the glyph and in its cutouts; no blue square/disc, paint, color, halo or text. Extract the actual archived glyph in the established native pipeline, retaining geometry and original orientation.",
+      "imagegen_prompt": null,
+      "imagegen_prompt_reason": "Not applicable: user-authorized existing native glyph extraction / code-vector workflow, no generative raster edit.",
+      "references_ordered": [
+        "V1/assets/armes/19.jpg",
+        "V2/assets/armes/19.jpg",
+        "main/Kalistar.xlsx#xl/media/image1.jpg",
+        "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx#xl/media/image2.jpg",
+        "V3/sources/REVISION_BUFFS_SCENES_20260914.md"
+      ],
+      "alpha_qa": {
+        "width": 512,
+        "height": 512,
+        "channels": 4,
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "fully_transparent_pixels": 236334,
+        "fully_opaque_pixels": 21159,
+        "antialiased_pixels": 4651,
+        "nonwhite_visible_pixels": 0,
+        "border_alpha_max": 0,
+        "alpha_bounds_128": [
+          30,
+          61,
+          467,
+          419
+        ],
+        "opaque_components": [
+          23572
+        ],
+        "visible_pixels_at_90": 725,
+        "technical_status": "passed"
+      },
+      "visual_qa": {
+        "status": "passed",
+        "scale_px": 90,
+        "white_silhouette": true,
+        "no_blue_square_or_disc": true,
+        "transparent_negative_spaces": true,
+        "category_recognizable": true,
+        "outward_or_nondirectional_as_specified": true,
+        "source_orientation_preserved": true,
+        "contact_sheets": [
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-dark.png",
+          "V3/assets/revisions-buffs-scenes-20260914/armes/qa/weapons-20-90px-checker.png"
+        ],
+        "notes": "Historical form and engraving separations retained."
+      }
+    }
+  ],
+  "handoff": {
+    "parent_thread_id": "019e30c1-21b0-7e11-9f9d-2fe692f111d2",
+    "first_three_notified": true,
+    "final_notification": "sent_to_parent_after_manifest_verification",
+    "staged_only": true
+  }
+}

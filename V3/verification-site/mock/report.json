@@ -1,0 +1,272 @@
+{
+  "testedAt": "2026-09-14T10:41:18.607Z",
+  "mode": "mock-data-real-v3-engine",
+  "cards": 41,
+  "characters": 40,
+  "arenas": 2,
+  "tests": [
+    "41 cartes / 40 personnages ; regroupement par characterId ; Momo seul doublé",
+    "Arènes dynamiques ; choix setup et verrouillage après début",
+    "Guard allié/auteur/IA ; ward 60 remplace le trait ; dés fixes",
+    "Animation physique Guard sur le bon allié ; nettoyage des effets ; icône chargée",
+    "Calcul moteur/UI concordant ; ward physique consommé, magie/esquive/Mort conservé ; NONE sans halo",
+    "Prévisualisation arène : les deux Momo partagent l’affinité characterId",
+    "Imports V2 partie/deck/BDD explicitement refusés sans écriture",
+    "Archivage terminé ; export/import idempotent ; conflit arène finale refusé ; V2 intacte",
+    "Snapshots d’arènes validés et préservés ; scores historiques inchangés ; imports invalides atomiques",
+    "Desktop/mobile : centre sans scroll interne ; canvas dés non vides ; captures",
+    "NONE sans métadonnées ; c.art avec préfixe V3 normalisé",
+    "BDD inspectable ; aucune exception navigateur"
+  ],
+  "missingAssets": [
+    "site/assets/cards/01_ELECTRO_MOMO-full.png",
+    "site/assets/cards/02_AERO_CANA-full.png",
+    "cartes/02_AERO_CANA.png",
+    "site/assets/cards/03_HYDRO_JULIENNE-full.png",
+    "cartes/03_HYDRO_JULIENNE.png",
+    "site/assets/cards/04_PYRO_DARNAKO-full.png",
+    "cartes/04_PYRO_DARNAKO.png",
+    "site/assets/cards/05_CRYO_MALINIA-full.png",
+    "cartes/05_CRYO_MALINIA.png",
+    "site/assets/cards/06_LUXO_AELIS-full.png",
+    "cartes/06_LUXO_AELIS.png",
+    "site/assets/cards/07_MINERO_BALMHYR-full.png",
+    "cartes/07_MINERO_BALMHYR.png",
+    "site/assets/cards/08_HERBO_VICTORVINE-full.png",
+    "cartes/08_HERBO_VICTORVINE.png",
+    "site/assets/cards/09_HEMATO_VERMINIA-full.png",
+    "cartes/09_HEMATO_VERMINIA.png",
+    "site/assets/cards/10_NECRO_ZVIRI-full.png",
+    "cartes/10_NECRO_ZVIRI.png",
+    "site/assets/cards/11_GEO_NAZAR-full.png",
+    "cartes/11_GEO_NAZAR.png",
+    "site/assets/cards/12_RAINBOW_KAYLIS-full.png",
+    "cartes/12_RAINBOW_KAYLIS.png",
+    "site/assets/cards/13_ELECTRO_TAULIO-full.png",
+    "cartes/13_ELECTRO_TAULIO.png",
+    "site/assets/cards/14_ELECTRO_MOMO_CARILLON-full.png",
+    "cartes/14_ELECTRO_MOMO_CARILLON.png",
+    "site/assets/cards/15_AERO_SCROW.webp",
+    "site/assets/cards/15_AERO_SCROW-full.png",
+    "cartes/15_AERO_SCROW.png",
+    "site/assets/cards/16_CRYO_NERIS.webp",
+    "site/assets/cards/16_CRYO_NERIS-full.png",
+    "cartes/16_CRYO_NERIS.png",
+    "site/assets/cards/17_LUXO_ILIANE.webp",
+    "site/assets/cards/17_LUXO_ILIANE-full.png",
+    "cartes/17_LUXO_ILIANE.png",
+    "site/assets/cards/18_MINERO_LOK-full.png",
+    "cartes/18_MINERO_LOK.png",
+    "site/assets/cards/19_MINERO_BELROG-full.png",
+    "cartes/19_MINERO_BELROG.png",
+    "site/assets/cards/20_HEMATO_SERAPHINA.webp",
+    "site/assets/cards/20_HEMATO_SERAPHINA-full.png",
+    "cartes/20_HEMATO_SERAPHINA.png",
+    "site/assets/cards/21_NONE_LANIO.webp",
+    "site/assets/cards/21_NONE_LANIO-full.png",
+    "cartes/21_NONE_LANIO.png",
+    "site/assets/cards/22_NONE_MALABA.webp",
+    "site/assets/cards/22_NONE_MALABA-full.png",
+    "cartes/22_NONE_MALABA.png",
+    "site/assets/cards/23_NONE_GEN.webp",
+    "site/assets/cards/23_NONE_GEN-full.png",
+    "cartes/23_NONE_GEN.png",
+    "site/assets/cards/24_MINERO_MAGNAR.webp",
+    "site/assets/cards/24_MINERO_MAGNAR-full.png",
+    "cartes/24_MINERO_MAGNAR.png",
+    "site/assets/cards/25_NONE_KOGNUS.webp",
+    "site/assets/cards/25_NONE_KOGNUS-full.png",
+    "cartes/25_NONE_KOGNUS.png",
+    "site/assets/cards/26_NONE_REEVUS.webp",
+    "site/assets/cards/26_NONE_REEVUS-full.png",
+    "cartes/26_NONE_REEVUS.png",
+    "site/assets/cards/27_NONE_XIAOMI.webp",
+    "site/assets/cards/27_NONE_XIAOMI-full.png",
+    "cartes/27_NONE_XIAOMI.png",
+    "site/assets/cards/28_NECRO_VOLODEN.webp",
+    "site/assets/cards/28_NECRO_VOLODEN-full.png",
+    "cartes/28_NECRO_VOLODEN.png",
+    "site/assets/cards/29_PYRO_THANOR.webp",
+    "site/assets/cards/29_PYRO_THANOR-full.png",
+    "cartes/29_PYRO_THANOR.png",
+    "site/assets/cards/30_PYRO_DARUK.webp",
+    "site/assets/cards/30_PYRO_DARUK-full.png",
+    "cartes/30_PYRO_DARUK.png",
+    "site/assets/cards/31_PYRO_POLUX.webp",
+    "site/assets/cards/31_PYRO_POLUX-full.png",
+    "cartes/31_PYRO_POLUX.png",
+    "site/assets/cards/32_ELECTRO_JELLY_JOE.webp",
+    "site/assets/cards/32_ELECTRO_JELLY_JOE-full.png",
+    "cartes/32_ELECTRO_JELLY_JOE.png",
+    "site/assets/cards/33_HERBO_BLOOM.webp",
+    "site/assets/cards/33_HERBO_BLOOM-full.png",
+    "cartes/33_HERBO_BLOOM.png",
+    "site/assets/cards/34_NECRO_VALAZAR.webp",
+    "site/assets/cards/34_NECRO_VALAZAR-full.png",
+    "cartes/34_NECRO_VALAZAR.png",
+    "site/assets/cards/35_NECRO_CAPITAINE_SKULLY.webp",
+    "site/assets/cards/35_NECRO_CAPITAINE_SKULLY-full.png",
+    "cartes/35_NECRO_CAPITAINE_SKULLY.png",
+    "site/assets/cards/36_GEO_ELENION.webp",
+    "site/assets/cards/36_GEO_ELENION-full.png",
+    "cartes/36_GEO_ELENION.png",
+    "site/assets/cards/37_GEO_YVAR.webp",
+    "site/assets/cards/37_GEO_YVAR-full.png",
+    "cartes/37_GEO_YVAR.png",
+    "site/assets/cards/38_AERO_GILMARR.webp",
+    "site/assets/cards/38_AERO_GILMARR-full.png",
+    "cartes/38_AERO_GILMARR.png",
+    "site/assets/cards/39_HYDRO_RUBY.webp",
+    "site/assets/cards/39_HYDRO_RUBY-full.png",
+    "cartes/39_HYDRO_RUBY.png",
+    "site/assets/cards/40_AERO_SORYN.webp",
+    "site/assets/cards/40_AERO_SORYN-full.png",
+    "cartes/40_AERO_SORYN.png",
+    "site/assets/cards/41_HERBO_THALIE.webp",
+    "site/assets/cards/41_HERBO_THALIE-full.png",
+    "cartes/41_HERBO_THALIE.png"
+  ],
+  "assetGeometryIssues": [
+    {
+      "src": "assets/cards/01_ELECTRO_MOMO.webp",
+      "actual": [
+        538,
+        898
+      ],
+      "expected": "ratio 797/1388"
+    },
+    {
+      "src": "assets/cards/02_AERO_CANA.webp",
+      "actual": [
+        538,
+        898
+      ],
+      "expected": "ratio 797/1388"
+    },
+    {
+      "src": "assets/cards/03_HYDRO_JULIENNE.webp",
+      "actual": [
+        538,
+        898
+      ],
+      "expected": "ratio 797/1388"
+    },
+    {
+      "src": "assets/cards/04_PYRO_DARNAKO.webp",
+      "actual": [
+        538,
+        898
+      ],
+      "expected": "ratio 797/1388"
+    },
+    {
+      "src": "assets/cards/05_CRYO_MALINIA.webp",
+      "actual": [
+        538,
+        898
+      ],
+      "expected": "ratio 797/1388"
+    },
+    {
+      "src": "assets/cards/06_LUXO_AELIS.webp",
+      "actual": [
+        538,
+        898
+      ],
+      "expected": "ratio 797/1388"
+    },
+    {
+      "src": "assets/cards/07_MINERO_BALMHYR.webp",
+      "actual": [
+        538,
+        898
+      ],
+      "expected": "ratio 797/1388"
+    },
+    {
+      "src": "assets/cards/08_HERBO_VICTORVINE.webp",
+      "actual": [
+        538,
+        898
+      ],
+      "expected": "ratio 797/1388"
+    },
+    {
+      "src": "assets/cards/09_HEMATO_VERMINIA.webp",
+      "actual": [
+        538,
+        898
+      ],
+      "expected": "ratio 797/1388"
+    },
+    {
+      "src": "assets/cards/10_NECRO_ZVIRI.webp",
+      "actual": [
+        538,
+        898
+      ],
+      "expected": "ratio 797/1388"
+    },
+    {
+      "src": "assets/cards/11_GEO_NAZAR.webp",
+      "actual": [
+        538,
+        898
+      ],
+      "expected": "ratio 797/1388"
+    },
+    {
+      "src": "assets/cards/12_RAINBOW_KAYLIS.webp",
+      "actual": [
+        538,
+        898
+      ],
+      "expected": "ratio 797/1388"
+    },
+    {
+      "src": "assets/cards/13_ELECTRO_TAULIO.webp",
+      "actual": [
+        538,
+        898
+      ],
+      "expected": "ratio 797/1388"
+    },
+    {
+      "src": "assets/cards/14_ELECTRO_MOMO_CARILLON.webp",
+      "actual": [
+        538,
+        898
+      ],
+      "expected": "ratio 797/1388"
+    },
+    {
+      "src": "assets/cards/18_MINERO_LOK.webp",
+      "actual": [
+        538,
+        898
+      ],
+      "expected": "ratio 797/1388"
+    },
+    {
+      "src": "assets/cards/19_MINERO_BELROG.webp",
+      "actual": [
+        538,
+        898
+      ],
+      "expected": "ratio 797/1388"
+    }
+  ],
+  "browserErrors": [],
+  "screenshots": [
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-site\\mock\\collection-desktop.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-site\\mock\\guard-animation.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-site\\mock\\arena-1440.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-site\\mock\\arena-390.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-site\\mock\\arena-2560.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-site\\mock\\arena-360.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-site\\mock\\collection-mobile.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-site\\mock\\archives-mobile.png"
+  ],
+  "assetsReady": false,
+  "ok": true
+}

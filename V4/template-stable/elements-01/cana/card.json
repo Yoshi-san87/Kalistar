@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 4,
+  "id": "30000002",
+  "name": "CANA",
+  "title": "LE DERNIER PASSAGE",
+  "job": "MESSAGERE",
+  "race": "FALCO",
+  "element": "AERO",
+  "faction": "Nestown",
+  "weapon": "Arc",
+  "positions": [
+    2
+  ],
+  "atk": [
+    290,
+    245,
+    193,
+    141,
+    96,
+    44
+  ],
+  "defense": [
+    172,
+    140,
+    115,
+    83,
+    51,
+    26
+  ],
+  "magic": [
+    3
+  ],
+  "barriers": [
+    4
+  ],
+  "slug": "02_AERO_CANA",
+  "hue": 155,
+  "color": "89EDC2",
+  "weapon_index": 5,
+  "description": "Le pont a cédé avant l'aube. Cana replie son aile blessée et tend le message au-delà du vide. A Nestown, une promesse doit parfois voyager plus loin que celui qui la porte.",
+  "artwork": "CANA",
+  "artworkSource": "V4/assets/illustrations/elements-01/air/CANA_V4_01.png",
+  "artworkUnchanged": false,
+  "sourcePSD": "V3/templates/02_AERO_CANA.psd",
+  "output": "CANA_V4_01_AERO",
+  "profile": "V4/template-stable/elements-01/cana/card.json"
+}
