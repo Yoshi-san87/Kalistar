@@ -13,7 +13,7 @@
   }
   function image(card, kind = 'card') {
     if (!card?.pngUrl) throw Error('Visuel V4 indisponible.');
-    const source = card.pngUrl + (kind === 'art' ? '#v4-art' : '#v4-card');
+    const source = (globalThis.KalistarSite?.url(card.pngUrl) || card.pngUrl) + (kind === 'art' ? '#v4-art' : '#v4-card');
     requests.set(source, kind);
     return cache.get(source)?.url || source;
   }

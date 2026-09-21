@@ -4,7 +4,7 @@
   let db=null,dbError='',lastStored='',reportGame=null,reportArchive=null,accountsUI=null;
   const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const icon=n=>`<i data-lucide="${n}"></i>`,ib=(action,n,title,extra='')=>`<button class="icon-button" data-action="${action}" title="${esc(title)}" aria-label="${esc(title)}" ${extra}>${icon(n)}</button>`;
-  const asset=(folder,name)=>folder==='factions'&&['FF7','FF8'].includes(name)?`/jeu/assets/factions/${name}.png`:`/jeu/shared/${folder}/${encodeURIComponent(name)}.png`;
+  const asset=(folder,name)=>folder==='factions'&&['FF7','FF8'].includes(name)?`assets/factions/${name}.png`:`shared/${folder}/${encodeURIComponent(name)}.png`;
   const cardImage=c=>KalistarCardMedia.image(c),artImage=c=>KalistarCardMedia.image(c,'art');
   const duelImage=cardImage;
   const noCrystal={id:'NONE',label:'SANS CRISTAL',color:'93AAA5',hue:160};
@@ -15,7 +15,7 @@
   const names={guard:'Garde · Bouclier',retry:'Relance',mana:'Potion',revive:'Cœur · Reraise',death:'Mort',dodge:'Esquive',buff_atk:'Buff physique',shield_magic:'Bouclier magique',shield_physical:'Bouclier physique'};
   const traitInfo={ward:{asset:'guard',name:'Garde physique'},reraise:{asset:'revive',name:'Reraise'},luck:{asset:'retry',name:'Trèfle'},mana:{asset:'mana',name:'Potion magique'},physical:{asset:'buff_atk',name:'Puissance physique'}};
   const roles=['Tank','DPS physique','Middle','DPS magique','Support'];
-  const arenas=data.arenas?.length?data.arenas:[{id:'ruins',name:'Ruines',subtitle:'Terrain neutre',image:'assets/arena.webp',element:'NONE',elementBonus:0,homeCharacters:[],homeAttack:0,homeDefense:0}];
+  const arenas=(data.arenas?.length?data.arenas:[{id:'ruins',name:'Ruines',subtitle:'Terrain neutre',image:'assets/arena.webp',element:'NONE',elementBonus:0,homeCharacters:[],homeAttack:0,homeDefense:0}]).map(a=>({...a,image:window.KalistarSite?.url(a.image)||a.image}));
   const arenaById=id=>arenas.find(a=>a.id===id)||arenas[0];
   let statsSort='kills',statsSide='all',statsTab='lineup',statsPage=0,statsGroup='core',statsAward=0,statsSpotlight='rating';
   const format=v=>typeof v==='number'?String(v):names[v]||v;
@@ -52,7 +52,8 @@
   const restored=load('game',null);let restoreError='';
   if(restored){try{game=E.restoreGame(KalistarLocalDB.validateGame(restored));db.registry.validateGame(game,accountId);}catch(error){game=null;restoreError=error.message;}}
   let boardScale=Math.max(85,Math.min(140,Number(load('boardScale',100))||100));
-  const hashView=()=>['arena','decks','atelier'].includes(location.hash.slice(1))?location.hash.slice(1):'collection';
+  const views=window.KalistarSite?.online?['arena','decks']:['arena','decks','atelier'];
+  const hashView=()=>views.includes(location.hash.slice(1))?location.hash.slice(1):'collection';
   const ui={view:hashView(),attacker:null,target:null,reserve:null,replacementSlot:null,detail:null,art:false};
   let deckBuilder=null,collectionBinder=null;
   const overlayOpen=()=>!!document.querySelector('dialog[open]')||!!window.KalistarReservePreview?.isOpen();
@@ -91,6 +92,7 @@
   function modal(id,html){const d=$('#'+id);d.innerHTML=html;if(!d.open)d.showModal();icons();}
   function head(title){return `<div class="dialog-head"><h2>${esc(title)}</h2>${ib('close','x','Fermer')}</div>`;}
   async function setView(view){
+    if(view==='atelier'&&window.KalistarSite?.online)return;
     if(rolling)return toast('Le duel se termine…');
     clearTimeout(aiTimer);
     if(ui.view!==view)epoch++;
@@ -176,7 +178,7 @@ function showDeck(){setView('decks');}
     const c=profile?{...profile,id:current.id,slug:current.slug,pngUrl:current.pngUrl}:current,el=elementInfo(c);
     const v=(x,attack=false)=>typeof x==='number'?x:`<img src="${asset('effets',x)}" alt="${dieLabel(x,attack)}" title="${dieLabel(x,attack)}">`;
     $('#detail-dialog').classList.add('card-detail');
-    modal('detail-dialog',head(c.name)+`<div class="dialog-body detail-body"><div class="detail-visual" style="--element-color:#${el.color}"><img src="${art?artImage(c):duelImage(c)}" alt="${art?'Illustration':'Carte'} de ${esc(c.name)}"></div><div class="detail-info"><div><span class="eyebrow">${esc(c.element)} · #${c.id}</span><h2>${esc(c.title)}</h2>${profile?'<p class="muted">Profil du match archivé · visuel actuel</p>':''}</div>${profile?'':Catalogue.versionStrip(id)}${bonusDetails(context)}<div class="identity-strip"><img src="${asset('factions',c.faction)}" alt="Drapeau ${esc(c.faction)}"><span><b>${esc(c.faction)}</b><br>${esc(c.job)}</span><img class="race-icon" src="${asset('races',c.race)}" alt=""><span>${esc(c.race)}<br>${c.positions.map(p=>'P'+p).join(' / ')}</span></div><div class="muted">${esc(c.weapon)}</div><table class="stats-table"><thead><tr><th>Dé</th>${[6,5,4,3,2,1].map(d=>`<th>${d}</th>`).join('')}</tr></thead><tbody><tr><th>ATK</th>${c.atk.map((x,i)=>`<td class="${c.magic.includes(6-i)?'magic':''}" title="${c.magic.includes(6-i)?'Magique':'Physique'}">${v(x,true)}</td>`).join('')}</tr><tr><th>DEF</th>${c.defense.map((x,i)=>`<td class="${hasCrystal(c)&&c.barriers.includes(6-i)?'barrier':''}" title="${hasCrystal(c)&&c.barriers.includes(6-i)?'Barrière : -30 contre magie':'Défense sans barrière'}">${v(x)}</td>`).join('')}</tr></tbody></table><div class="affinities">${!hasCrystal(c)?'Sans cristal · aucun bonus élémentaire ni barrière':c.element==='RAINBOW'?'+40 contre les cristaux classiques · +30 contre sans cristal':`+${esc(c.advantage)} ${esc(data.elements[el.strong_against]?.label||'')}<span>-${esc(c.disadvantage)} ${esc(data.elements[el.weak_against]?.label||'')}</span> · +20 contre sans cristal`}</div><p class="story">${esc(c.text)}</p>${Catalogue.career(id,db,ui.careerInstance)}<div class="detail-actions"><button data-action="toggle-art">${icon(art?'credit-card':'image')}${art?'Carte':'Illustration'}</button><a href="${esc(c.pngUrl)}" download>${icon('download')} PNG d’impression${profile?' actuel':''}</a>${ib('favorite','star','Favori',`data-id="${id}" aria-pressed="${favorites.has(id)}"`)}</div></div></div>`);
+    modal('detail-dialog',head(c.name)+`<div class="dialog-body detail-body"><div class="detail-visual" style="--element-color:#${el.color}"><img src="${art?artImage(c):duelImage(c)}" alt="${art?'Illustration':'Carte'} de ${esc(c.name)}"></div><div class="detail-info"><div><span class="eyebrow">${esc(c.element)} · #${c.id}</span><h2>${esc(c.title)}</h2>${profile?'<p class="muted">Profil du match archivé · visuel actuel</p>':''}</div>${profile?'':Catalogue.versionStrip(id)}${bonusDetails(context)}<div class="identity-strip"><img src="${asset('factions',c.faction)}" alt="Drapeau ${esc(c.faction)}"><span><b>${esc(c.faction)}</b><br>${esc(c.job)}</span><img class="race-icon" src="${asset('races',c.race)}" alt=""><span>${esc(c.race)}<br>${c.positions.map(p=>'P'+p).join(' / ')}</span></div><div class="muted">${esc(c.weapon)}</div><table class="stats-table"><thead><tr><th>Dé</th>${[6,5,4,3,2,1].map(d=>`<th>${d}</th>`).join('')}</tr></thead><tbody><tr><th>ATK</th>${c.atk.map((x,i)=>`<td class="${c.magic.includes(6-i)?'magic':''}" title="${c.magic.includes(6-i)?'Magique':'Physique'}">${v(x,true)}</td>`).join('')}</tr><tr><th>DEF</th>${c.defense.map((x,i)=>`<td class="${hasCrystal(c)&&c.barriers.includes(6-i)?'barrier':''}" title="${hasCrystal(c)&&c.barriers.includes(6-i)?'Barrière : -30 contre magie':'Défense sans barrière'}">${v(x)}</td>`).join('')}</tr></tbody></table><div class="affinities">${!hasCrystal(c)?'Sans cristal · aucun bonus élémentaire ni barrière':c.element==='RAINBOW'?'+40 contre les cristaux classiques · +30 contre sans cristal':`+${esc(c.advantage)} ${esc(data.elements[el.strong_against]?.label||'')}<span>-${esc(c.disadvantage)} ${esc(data.elements[el.weak_against]?.label||'')}</span> · +20 contre sans cristal`}</div><p class="story">${esc(c.text)}</p>${Catalogue.career(id,db,ui.careerInstance)}<div class="detail-actions"><button data-action="toggle-art">${icon(art?'credit-card':'image')}${art?'Carte':'Illustration'}</button><a href="${esc(globalThis.KalistarSite?.url(c.pngUrl)||c.pngUrl)}" download>${icon('download')} PNG d’impression${profile?' actuel':''}</a>${ib('favorite','star','Favori',`data-id="${id}" aria-pressed="${favorites.has(id)}"`)}</div></div></div>`);
     if(!profile){$('#detail-dialog .career-panel').outerHTML=Catalogue.career(id,collectionDB(),ui.careerInstance);$('#detail-dialog .detail-info>div').insertAdjacentHTML('afterend',ownershipBanner(id));icons();}
     if(context?.bonus)requestAnimationFrame(()=>$('#detail-dialog .highlighted')?.scrollIntoView({block:'nearest'}));
   }

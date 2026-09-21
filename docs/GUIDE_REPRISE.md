@@ -55,6 +55,7 @@ temporaires du presse-papiers ou les preferences non encore documentees.
 | Jeu, collection, decks | `V4/site/`, servis sous `/jeu/` |
 | Atelier interactif | `V4/atelier/`, serveur `server.cjs`, onglet `/jeu/#atelier` |
 | Catalogue du jeu | `V4/atelier/game-catalog.cjs`, route `/api/game/catalogue` |
+| Jeu en ligne (ajout du 21 septembre) | [Publication GitHub Pages](../V4/deploy/README.md), sortie jouable sans Atelier |
 | References approuvees | `V4/atelier/data/references.json` |
 | Publications Atelier | `V4/donnees/catalogue.json`, sorties `V4/creations/` |
 | PSD et PNG approuves | Chemins du verrou, normalement `V4/templates/` et `V4/cartes/` |

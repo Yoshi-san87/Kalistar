@@ -1,9 +1,15 @@
 # Kalistar
 
+## Jouer en ligne
+
+[Ouvrir Kalistar](https://yoshi-san87.github.io/Kalistar/) sur ordinateur ou telephone.
+Le jeu est public ; les sauvegardes restent dans chaque navigateur. L'Atelier
+de creation reste local. [Publication et mises a jour](V4/deploy/README.md).
+
 ## Commencer ici
 
 La version courante est **V4** : collection, decks, arene et Atelier.
-Ouvrir [Lancer-Atelier.cmd](V4/atelier/Lancer-Atelier.cmd) sur le poste actuellement
+Ouvrir [Lancer-Kalistar.cmd](Lancer-Kalistar.cmd) sur le poste actuellement
 configure. Le service local ouvre le jeu sur `http://127.0.0.1:4304/jeu/`
 (ou un port libre voisin si necessaire).
 

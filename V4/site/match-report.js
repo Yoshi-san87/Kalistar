@@ -37,7 +37,8 @@
     const stats=engine.matchStats(s),units=stats.units;
     const currentArenas=window.KALISTAR_DATA.arenas||[],arena=(Array.isArray(arenas)?arenas:currentArenas).find(a=>a.id===s.arenaId);
     const arenaVisual=currentArenas.find(a=>a.id===s.arenaId),accent=window.KALISTAR_DATA.elements?.[arenaVisual?.element]?.color;
-    const arenaStyle=`--match-arena:url(${JSON.stringify(arenaVisual?.image||'assets/arena.webp')});--match-accent:#${/^[\da-f]{6}$/i.test(accent)?accent:'BDA77A'}`;
+    const arenaImage=arenaVisual?.image||'assets/arena.webp';
+    const arenaStyle=`--match-arena:url(${JSON.stringify(globalThis.KalistarSite?.url(arenaImage)||arenaImage)});--match-accent:#${/^[\da-f]{6}$/i.test(accent)?accent:'BDA77A'}`;
     spotlight=categories.some(([key])=>key===spotlight)?spotlight:'rating';
     side=['0','1'].includes(String(side))?String(side):'all';
     tab=tabs.some(([id])=>id===tab)?tab:'lineup';group=group==='extras'?'extras':'core';

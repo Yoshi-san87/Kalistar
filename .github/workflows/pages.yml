@@ -1,0 +1,46 @@
+name: Publish Kalistar
+on:
+  push:
+    branches: [main]
+    paths: ['V4/**', 'V3/donnees/**', 'V3/site/assets/**', 'V3/assets/**', '.github/workflows/pages.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: kalistar-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - name: Fetch only playable media
+        run: git lfs pull --include="$(node V4/deploy/build.cjs --lfs-paths)" --exclude=""
+      - name: Check catalogue and mechanics
+        run: |
+          node --test V4/atelier/game-catalog.test.cjs V4/atelier/collaboration-arenas.test.cjs V4/deploy/build.test.cjs
+          node V4/site/kalistel.test.cjs
+      - name: Build playable release
+        run: node V4/deploy/build.cjs
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: V4/deploy/dist
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment

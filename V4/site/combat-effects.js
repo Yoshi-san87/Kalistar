@@ -98,7 +98,7 @@
     const append=(parent,cls)=>{const node=document.createElement('div');node.className=cls;node.setAttribute('aria-hidden','true');parent.append(node);nodes.add(node);return node;};
     function emblem(parent,asset,label,tint,duration=880){
       const node=append(parent,'combat-emblem');node.dataset.effect=asset;node.style.setProperty('--effect-color',tint);
-      const img=document.createElement('img');img.src=`/jeu/shared/effets/${asset}.png`;img.alt='';
+      const img=document.createElement('img');img.src=`shared/effets/${asset}.png`;img.alt='';
       const text=document.createElement('strong');text.textContent=label;node.append(img,text);
       return animate(node,[{opacity:0,transform:'translateY(12px) scale(.55)'},{opacity:1,transform:'translateY(0) scale(1.08)',offset:.25},{opacity:1,transform:'translateY(-4px) scale(1)',offset:.72},{opacity:0,transform:'translateY(-18px) scale(1.1)'}],duration);
     }
