@@ -88,8 +88,8 @@
       if(ids.length!==rules.deck_size)errors.push('Le deck doit contenir exactement 10 cartes.');
       if(ids.some(id=>!validCardId(id)))errors.push('Identifiants V4 requis : les decks V2 sont refusés.');
       if(ids.some(id=>!byId[id]))errors.push('Carte inconnue dans le deck.');
-      const counts={};for(const id of ids)counts[id]=(counts[id]||0)+1;
-      if(Object.values(counts).some(n=>n>rules.copy_limit))errors.push('Deux exemplaires maximum par version.');
+      const characters={};for(const id of ids){const characterId=byId[id]?.characterId;if(characterId)characters[characterId]=(characters[characterId]||0)+1;}
+      if(Object.values(characters).some(n=>n>1))errors.push('Une seule carte par personnage, toutes versions confondues.');
       if(ids.filter(id=>byId[id]?.element==='RAINBOW').length>rules.rainbow_limit)errors.push('Une seule carte Rainbow par deck.');
       if(!lineup(ids))errors.push('Une formation complète P1 à P5 est nécessaire.');
       if(coverage===2)for(const [position,count] of Object.entries(deckCoverage(ids))){
@@ -107,6 +107,7 @@
       const seed=String(options.seed || 'KALISTAR');let random=2166136261;
       for(const char of seed)random=Math.imul(random^char.charCodeAt(0),16777619)>>>0;
       const s={schema:6,edition:'V4',phase:'setup',turn:0,round:1,rng:random||1,seed,mode:options.mode||'ai',players:[],log:[],duel:null,lastDuel:null,winner:null,replacing:null};
+      if(options.kalistel!==false)s.kalistel={version:1,spent:[]};
       // Unmarked schema-6 archives retain their original deck validation.
       if(coverage===2)s.deckCoverage=2;
       s.matchId='match-'+globalThis.crypto.randomUUID();
@@ -343,6 +344,33 @@
       const die=roll(s,forced),value=dieValue(c,'atk',die);
       d.attackRolls.push(die);d.attackDie=die;d.attackValue=value;d.magic=c.magic.includes(die);
       addLog(s,'roll',`${c.name} : ATK D${die} = ${value}.`);
+      if(kalistelRemaining(s,d.side)>0){s.phase='kalistel';return s;}
+      return resolveAttack(s);
+    }
+    function kalistelRemaining(s,side) {
+      return s.kalistel?2-s.kalistel.spent.filter(use=>use.side===side).length:0;
+    }
+    function acceptAttack(s) {
+      if(s.phase!=='kalistel')throw new Error('Aucun jet ATK à confirmer.');
+      return resolveAttack(s);
+    }
+    function useKalistel(s,forced) {
+      if(s.phase!=='kalistel'||s.duel.kalistelUsed||kalistelRemaining(s,s.turn)<1)throw new Error('Éclat de Kalistel indisponible.');
+      const d=s.duel,c=card(s.players[d.side].board[d.attackerSlot]),die=roll(s,forced);
+      s.kalistel.spent.push({round:s.round,side:d.side});d.kalistelUsed=true;
+      d.attackRolls.push(die);d.attackDie=die;d.attackValue=dieValue(c,'atk',die);d.magic=c.magic.includes(die);
+      addLog(s,'effect',`${c.name} utilise un Éclat de Kalistel : ATK D${die} = ${d.attackValue}. Nouveau résultat conservé.`);
+      return resolveAttack(s);
+    }
+    function aiUseKalistel(s) {
+      if(s.phase!=='kalistel'||kalistelRemaining(s,s.turn)<1)return false;
+      const d=s.duel,c=card(s.players[d.side].board[d.attackerSlot]);
+      // Public faces only: never inspect the RNG or a future defense roll.
+      return typeof d.attackValue==='number'&&d.attackValue<mean(c.atk)*.75;
+    }
+    function resolveAttack(s) {
+      const d=s.duel,u=s.players[d.side].board[d.attackerSlot],c=card(u),value=d.attackValue;
+      // Commit effects only after the player's decision, never on a discarded die.
       if(value==='guard'){
         s.phase='guard';addLog(s,'effect',`${c.name} obtient une garde. Choix d'une carte alliée bénéficiaire.`);return s;
       }
@@ -431,9 +459,14 @@
       if(Object.hasOwn(s,'deckCoverage')&&![1,2].includes(s.deckCoverage))throw new Error('Couverture de deck invalide : 1 ou 2 requis.');
       if(!Array.isArray(s.players)||s.players.length!==2)throw new Error('Sauvegarde incompatible.');
       validatePerformance(s);
-      const phases=['setup','choose','attack','defense','clover','potion','physical','heart','guard','result','replace','over'];
+      const phases=['setup','choose','attack','kalistel','defense','clover','potion','physical','heart','guard','result','replace','over'];
       const validText=(v,n=1000)=>typeof v==='string'&&v.length<=n;
       if(!phases.includes(s.phase)||![0,1].includes(s.turn)||!['ai','local'].includes(s.mode)||!Number.isInteger(s.round)||s.round<1||s.round>201||!Number.isInteger(s.rng)||s.rng<1||s.rng>4294967295||!validText(s.seed,60))throw new Error('Phase invalide.');
+      if(s.kalistel!==undefined){
+        const k=s.kalistel;
+        if(!k||k.version!==1||!Array.isArray(k.spent)||k.spent.length>4||k.spent.some(u=>!u||![0,1].includes(u.side)||!Number.isInteger(u.round)||u.round<1||u.round>s.round||u.round>200)||new Set(k.spent.map(u=>u.round)).size!==k.spent.length||[0,1].some(side=>kalistelRemaining(s,side)<0))throw new Error('Éclats de Kalistel invalides.');
+        if(s.phase==='setup'&&k.spent.length)throw new Error('Éclat dépensé avant le match.');
+      }
       if(![null,0,1].includes(s.replacing)||!([null,0,1,'draw'].includes(s.winner)))throw new Error('Etat invalide.');
       if(s.phase==='replace'&&s.replacing===null||s.phase==='over'&&s.winner===null)throw new Error('Etat incomplet.');
       if(typeof s.matchId!=='string'||!/^match-[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/.test(s.matchId))throw new Error('Identifiant de rencontre invalide.');
@@ -462,6 +495,10 @@
         if(d.outcome!==undefined&&!validText(d.outcome))throw new Error('Resultat invalide.');
         if(![0,60].includes(d.buff)||![0,60].includes(d.ward)||d.ward&&(d.magic||typeof d.attackValue!=='number'||!d.defenseRolls.length))throw new Error('Trait consommé invalide.');
         const author=card(units.find(u=>u.uid===d.attacker));
+        if(d.kalistelUsed!==undefined&&(d.kalistelUsed!==true||!s.kalistel||d.attackRolls.length!==2||!s.kalistel.spent.some(use=>use.side===d.side)))throw new Error('Relance Kalistel invalide.');
+        if(s.kalistel&&d.attackRolls.length){
+          if(d.attackRolls.length!==(d.kalistelUsed?2:1)||d.attackDie!==d.attackRolls.at(-1)||d.attackValue!==dieValue(author,'atk',d.attackDie)||d.magic!==author.magic.includes(d.attackDie))throw new Error('Résultat Kalistel incohérent.');
+        }
         if(d.attackValue==='guard'&&!canGuard(author)||d.attackValue==='revive'&&!canHeal(author))throw new Error('Soutien incompatible avec le profil V4.');
         for(const f of [d.formula,d.failedDefense])if(f!==undefined){
           const fields=['baseAttack','weapon','element','faction','buff','barrier','baseDefense','race','attack','defense','arenaAttack','arenaDefense','ward'];
@@ -480,17 +517,22 @@
         if(d.luckUsed!==undefined&&(d.luckUsed!==d.target||!d.failedDefense||d.failedDefense.attack<=d.failedDefense.defense))throw new Error('Trèfle consommé invalide.');
         if(d.autoDefense&&(!d.luckUsed||typeof d.attackValue!=='number'||!d.defenseRolls.length))throw new Error('Seconde chance invalide.');
       }
-      if(['attack','defense','clover','potion','physical','heart','guard','result'].includes(s.phase)&&!s.duel)throw new Error('Duel manquant.');
-      if(['attack','defense','clover','potion','physical','heart','guard'].includes(s.phase)){
+      if(['attack','kalistel','defense','clover','potion','physical','heart','guard','result'].includes(s.phase)&&!s.duel)throw new Error('Duel manquant.');
+      if(['attack','kalistel','defense','clover','potion','physical','heart','guard'].includes(s.phase)){
         const d=s.duel;
         if(d.side!==s.turn||s.players[d.side].board[d.attackerSlot]?.uid!==d.attacker||s.players[1-d.side].board[d.targetSlot]?.uid!==d.target)throw new Error('Participants invalides.');
       }
       if(s.phase==='attack'&&(s.duel.attackRolls.length||s.duel.defenseRolls.length||s.duel.attackValue!==undefined||s.duel.buff||s.duel.ward))throw new Error('Jet ATK déjà effectué.');
+      if(s.kalistel&&['attack','kalistel','defense','clover','potion','physical','heart','guard','result'].includes(s.phase)){
+        const use=s.kalistel.spent.find(u=>u.round===s.round);
+        if(!!use!==!!s.duel.kalistelUsed||use&&use.side!==s.duel.side)throw new Error('Dépense Kalistel incohérente.');
+      }
+      if(s.phase==='kalistel'&&(!s.kalistel||kalistelRemaining(s,s.turn)<1||s.duel.kalistelUsed||s.duel.attackRolls.length!==1||s.duel.defenseRolls.length||s.duel.buff||s.duel.ward||s.duel.formula||['cloverGranted','manaGranted','physicalGranted','reraiseGranted','guardGranted'].some(k=>s.duel[k]!==undefined)))throw new Error('Décision Kalistel invalide.');
       if(s.phase==='clover'&&(s.duel.attackValue!=='retry'||s.duel.cloverGranted||s.duel.defenseRolls.length||!s.duel.attackRolls.length))throw new Error('Attribution de trèfle invalide.');
       if(s.phase==='potion'&&(s.duel.attackValue!=='mana'||s.duel.manaGranted||s.duel.defenseRolls.length||!s.duel.attackRolls.length))throw new Error('Attribution de potion invalide.');
-      if(s.phase==='physical'&&(s.duel.attackValue!=='buff_atk'||s.duel.physicalGranted||s.duel.defenseRolls.length||s.duel.attackRolls.length!==1||s.duel.buff||s.duel.ward||typeof s.duel.magic!=='boolean'))throw new Error('Attribution de puissance physique invalide.');
+      if(s.phase==='physical'&&(s.duel.attackValue!=='buff_atk'||s.duel.physicalGranted||s.duel.defenseRolls.length||s.duel.attackRolls.length!==(s.duel.kalistelUsed?2:1)||s.duel.buff||s.duel.ward||typeof s.duel.magic!=='boolean'))throw new Error('Attribution de puissance physique invalide.');
       if(s.phase==='heart'&&(s.duel.attackValue!=='revive'||s.duel.reraiseGranted||s.duel.defenseRolls.length||!s.duel.attackRolls.length))throw new Error('Attribution de Reraise invalide.');
-      if(s.phase==='guard'&&(s.duel.attackValue!=='guard'||s.duel.guardGranted||s.duel.defenseRolls.length||s.duel.attackRolls.length!==1||s.duel.ward||s.duel.buff||typeof s.duel.magic!=='boolean'))throw new Error('Attribution de garde invalide.');
+      if(s.phase==='guard'&&(s.duel.attackValue!=='guard'||s.duel.guardGranted||s.duel.defenseRolls.length||s.duel.attackRolls.length!==(s.duel.kalistelUsed?2:1)||s.duel.ward||s.duel.buff||typeof s.duel.magic!=='boolean'))throw new Error('Attribution de garde invalide.');
       if(s.phase==='result'&&s.duel.attackValue==='guard'){
         const recipient=s.players[s.duel.side].board.find(u=>u?.uid===s.duel.guardGranted);
         if(!recipient||recipient.ward!==60)throw new Error('Bénéficiaire de garde absent du plateau.');
@@ -512,7 +554,7 @@
       assertState(value);
       return clone(value);
     }
-    return {data,rules,byId,card,trait,traits,clone,dieValue,mean,lineup,deckCoverage,validateDeck,validatePlayableDeck,newGame,deploy,recall,autoDeploy,start,synergy,elementModifier,lock,rollAttack,rollDefense,grantClover,grantPotion,grantPhysical,grantReraise,grantGuard,aiCloverChoice,aiPotionChoice,aiPhysicalChoice,aiReraiseChoice,aiGuardChoice,arenaBonuses,setArena,next,aiChoice,assertState,restoreGame,matchStats,instanceId};
+    return {data,rules,byId,card,trait,traits,clone,dieValue,mean,lineup,deckCoverage,validateDeck,validatePlayableDeck,newGame,deploy,recall,autoDeploy,start,synergy,elementModifier,lock,rollAttack,acceptAttack,useKalistel,kalistelRemaining,aiUseKalistel,rollDefense,grantClover,grantPotion,grantPhysical,grantReraise,grantGuard,aiCloverChoice,aiPotionChoice,aiPhysicalChoice,aiReraiseChoice,aiGuardChoice,arenaBonuses,setArena,next,aiChoice,assertState,restoreGame,matchStats,instanceId};
   }
   return {createEngine,clone,dieValue,mean};
 });

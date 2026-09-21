@@ -1,0 +1,31 @@
+{
+  "mode": "built-in image_gen",
+  "selected": [
+    {
+      "key": "seifer",
+      "source": "C:\\Users\\guill\\.codex\\generated_images\\019e30c1-21b0-7e11-9f9d-2fe692f111d2\\exec-df708e6f-f19d-4286-9654-7697516faaf8.png"
+    },
+    {
+      "key": "ward",
+      "source": "C:\\Users\\guill\\.codex\\generated_images\\019e30c1-21b0-7e11-9f9d-2fe692f111d2\\exec-107cd23c-8db4-4a9e-85a3-510462328505.png"
+    },
+    {
+      "key": "squall",
+      "source": "C:\\Users\\guill\\.codex\\generated_images\\019e30c1-21b0-7e11-9f9d-2fe692f111d2\\exec-3b805d20-9e72-4614-a177-005a0c4e9b3c.png"
+    },
+    {
+      "key": "irvine",
+      "source": "C:\\Users\\guill\\.codex\\generated_images\\019e30c1-21b0-7e11-9f9d-2fe692f111d2\\exec-fa77cfbb-8250-464c-a73f-d833b3a9bf78.png"
+    }
+  ],
+  "prompts": {
+    "seifer": "seifer-classroom-prompt.json",
+    "ward": "prompts.json#ward",
+    "squall": "squall-straight-prompt.json",
+    "irvine": "irvine-final-prompt.json"
+  },
+  "rejected": {
+    "squall": "Curved blade candidate rejected by user; replaced with straight rigid silhouette.",
+    "irvine": "Earlier closer views concealed muzzle behind DEF column; final balances scale and complete rifle."
+  }
+}

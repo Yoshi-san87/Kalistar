@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "key": "tifa",
+  "modelId": "46437046",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "6ba09f24ff7877fd71e1fe58bc302a60c9c1a510d3da5999f4f9df2c081d1c91",
+  "hashes": {
+    "card.png": "aed0ec86f454c4980bfc7d484524df764b4c38c291ae59e4d74728671c5b64ea",
+    "card.psd": "95d9b354282ce1eafcdc81839e3863c333e7c75fd023236ef435be27bf10e7dc"
+  },
+  "components": {
+    "changed": 108013,
+    "maxChannelDelta": 1,
+    "severePixels": 0,
+    "fixedDifferences": 0
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "46437046",
+    "cases": {
+      "color-1": [
+        "46437046"
+      ],
+      "color-4": [
+        "46437046"
+      ],
+      "gray-1": [
+        "46437046"
+      ],
+      "gray-4": [
+        "46437046"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-20T10:16:48.554Z"
+}

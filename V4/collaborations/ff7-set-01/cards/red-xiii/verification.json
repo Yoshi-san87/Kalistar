@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "key": "red-xiii",
+  "modelId": "42139493",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "2e0897abb63cddaa175f3057f31b22710cdd31833a9a99bd7b36452695cd865c",
+  "hashes": {
+    "card.png": "8db0814536088e395cca738c526f4f9983046021452dc6dc44c745118e6f6f92",
+    "card.psd": "e7e0c4fe2d6f4d7907682924c813483e6fcee3368c8f1ab876f609dfa3abad6f"
+  },
+  "components": {
+    "changed": 116331,
+    "maxChannelDelta": 1,
+    "severePixels": 0,
+    "fixedDifferences": 0
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "42139493",
+    "cases": {
+      "color-1": [
+        "42139493"
+      ],
+      "color-4": [
+        "42139493"
+      ],
+      "gray-1": [
+        "42139493"
+      ],
+      "gray-4": [
+        "42139493"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-20T10:16:49.196Z"
+}

@@ -43,7 +43,9 @@ function makeDeck(engine, preference) {
   const byId = engine.byId, candidates = [...new Set([...preference, ...Object.keys(byId)])].filter(id => byId[id]);
   const selected = [], coverage = [0, 0, 0, 0, 0];
   while (selected.length < 10) {
-    const available = candidates.filter(id => !selected.includes(id) && (byId[id].element !== 'RAINBOW' || !selected.some(other => byId[other].element === 'RAINBOW')));
+    const available = candidates.filter(id => !selected.includes(id)
+      && !selected.some(other => byId[other].characterId === byId[id].characterId)
+      && (byId[id].element !== 'RAINBOW' || !selected.some(other => byId[other].element === 'RAINBOW')));
     available.sort((a, b) => {
       const gain = id => byId[id].positions.reduce((n, p) => n + Math.max(0, 2 - coverage[p - 1]), 0);
       return gain(b) - gain(a) || candidates.indexOf(a) - candidates.indexOf(b);
@@ -55,6 +57,30 @@ function makeDeck(engine, preference) {
   const errors = engine.validatePlayableDeck(selected);
   if (errors.length) throw Error('Deck V4 invalide : ' + errors.join(' '));
   return selected;
+}
+
+function collaborationArenas(entries, characterIds, elements, existing) {
+  if (!Array.isArray(entries)) throw Error('La liste des arenes de collaboration est invalide.');
+  const ids = new Set(existing.map(a => a.id)), arenas = [];
+  const slug = value => typeof value === 'string' && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value) && value.length <= 80;
+  for (const a of entries) {
+    if (!a || typeof a !== 'object' || Array.isArray(a) || !slug(a.id) || ids.has(a.id) || !slug(a.collaboration)) throw Error('Identifiant d arene de collaboration invalide ou duplique.');
+    ids.add(a.id);
+    for (const field of ['name', 'subtitle', 'source']) {
+      if (typeof a[field] !== 'string' || !a[field].trim() || a[field].length > 500 || /[<>"\x00-\x1f]/.test(a[field])) throw Error('Champ d arene de collaboration invalide : ' + field);
+    }
+    if (typeof a.image !== 'string' || !/^\/jeu\/assets\/arenes\/[a-z0-9][a-z0-9_-]*\.(png|webp|jpg|jpeg)$/.test(a.image)) throw Error('Image d arene de collaboration invalide.');
+    if (![null, 'NONE', ...Object.keys(elements)].includes(a.element)) throw Error('Element d arene de collaboration invalide.');
+    for (const [field, max] of [['elementBonus', 15], ['homeAttack', 10], ['homeDefense', 10]]) {
+      if (!Number.isInteger(a[field]) || a[field] < 0 || a[field] > max) throw Error('Bonus d arene de collaboration invalide : ' + field);
+    }
+    if (!Array.isArray(a.homeCharacters) || a.homeCharacters.some(id => !slug(id)) || new Set(a.homeCharacters).size !== a.homeCharacters.length) throw Error('Affinites d arene de collaboration invalides.');
+    // A collaboration becomes playable only when one of its character IDs is in the catalogue.
+    if (![...characterIds].some(id => id.endsWith('-' + a.collaboration))) continue;
+    const { collaboration, ...arena } = a;
+    arenas.push({ ...arena, homeCharacters: a.homeCharacters.filter(id => characterIds.has(id)) });
+  }
+  return arenas;
 }
 
 // Pure catalogue builder: callers own publication persistence and HTTP media routes.
@@ -77,6 +103,7 @@ async function buildCatalog({ published = [] } = {}) {
     element: a.element, elementBonus: a.elementBonus, homeCharacters: a.homeCharacters.filter(id => characterIds.has(id)),
     homeAttack: a.homeAttack, homeDefense: a.homeDefense, source: a.source
   }));
+  arenas.push(...collaborationArenas(await read('V4/donnees/arenes-collaborations.json'), characterIds, elements, arenas));
   const data = { version: 4, edition: 'V4', referenceId: references.id, crop: { ...CROP },
     imageSize: { width: 897, height: 1497 }, cards, elements, weapons, arenas,
     rules: await read('V3/donnees/regles.json'), demo: await read('V3/donnees/regles_demo.json') };
@@ -84,6 +111,19 @@ async function buildCatalog({ published = [] } = {}) {
   const engine = createEngine(data), previous = await read('V3/donnees/decks_demo.json');
   data.decks = { player: makeDeck(engine, previous.player), enemy: makeDeck(engine, previous.enemy),
     presets: previous.presets.map(p => ({ id: p.id, name: p.name + ' - V4', cards: makeDeck(engine, p.cards) })) };
+  const ff7 = ['cloud','barret','tifa','aeris','red-xiii','cait-sith','cid','vincent','yuffie','sephiroth']
+    .map(key => cards.find(c => c.characterId === key + '-ff7' && c.faction === 'FF7'));
+  if (ff7.every(Boolean) && !engine.validatePlayableDeck(ff7.map(c => c.id)).length) {
+    data.decks.presets.push({ id: 'ff7-set-01', name: 'FF7 - Les voix de la planete', cards: ff7.map(c => c.id) });
+  }
+  if (cards.some(c => c.faction === 'FF8' && c.characterId.endsWith('-ff8'))) {
+    const set = await read('V4/collaborations/ff8-set-01/set.json');
+    const ff8 = new Map(set.cards.map(spec => [spec.key, cards.find(c => c.characterId === spec.key + '-ff8' && c.faction === 'FF8')]));
+    if ([...ff8.values()].every(Boolean)) for (const preset of set.presets) {
+      const ids = preset.characters.map(key => ff8.get(key)?.id);
+      if (!engine.validatePlayableDeck(ids).length) data.decks.presets.push({ id: preset.id, name: preset.name, cards: ids });
+    }
+  }
   return JSON.parse(JSON.stringify(data));
 }
 

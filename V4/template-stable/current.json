@@ -1,12 +1,40 @@
 {
   "registry": "V4/template-stable/registry-electro-03f.json",
   "template": "V4/template-stable/KALISTAR_V4_TEMPLATE_03F_ELECTRO_RIKKA.psd",
-  "renderer": ["V4/scripts/stable/common.jsx", "V4/scripts/stable/registered.jsx"],
+  "renderer": [
+    "V4/scripts/stable/common.jsx",
+    "V4/scripts/stable/registered.jsx"
+  ],
   "cards": [
-    {"key": "momo", "profile": "V4/template-stable/revision-03/momo/card.json", "output": "MOMO_V4_11_POSITIONS"},
-    {"key": "taulio", "profile": "V4/template-stable/revision-03/taulio/card.json", "output": "TAULIO_V4_02_POSITIONS"},
-    {"key": "jelly-joe", "profile": "V4/template-stable/jelly-joe-encre/card.json", "output": "JELLY_JOE_V4_03_ENCRE"},
-    {"key": "momo-bal", "profile": "V4/template-stable/momo-bal/card.json", "output": "MOMO_BAL_V4_01_TEMPLATE_ELECTRO"},
-    {"key": "rikka", "profile": "V4/template-stable/rikka-revision-03/card.json", "output": "RIKKA_V4_03_RECADRAGE"}
-  ]
+    {
+      "key": "momo",
+      "profile": "V4/template-stable/revision-03/momo/card.json",
+      "output": "MOMO_V4_11_POSITIONS"
+    },
+    {
+      "key": "taulio",
+      "profile": "V4/template-stable/revision-03/taulio/card.json",
+      "output": "TAULIO_V4_02_POSITIONS"
+    },
+    {
+      "key": "jelly-joe",
+      "profile": "V4/template-stable/jelly-joe-encre/card.json",
+      "output": "JELLY_JOE_V4_03_ENCRE"
+    },
+    {
+      "key": "momo-bal",
+      "profile": "V4/template-stable/momo-bal/card.json",
+      "output": "MOMO_BAL_V4_01_TEMPLATE_ELECTRO"
+    },
+    {
+      "key": "rikka",
+      "profile": "V4/template-stable/rikka-revision-03/card.json",
+      "output": "RIKKA_V4_03_RECADRAGE"
+    }
+  ],
+  "weaponRimRevision": {
+    "id": "2026-09-20-weapon-rim",
+    "audit": "V4/revisions/2026-09-20-weapon-rim/verification.json",
+    "source": "V4/revisions/2026-09-20-weapon-rim/frame-clean.png"
+  }
 }

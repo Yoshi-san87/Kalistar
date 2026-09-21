@@ -4,7 +4,7 @@
   let db=null,dbError='',lastStored='',reportGame=null,reportArchive=null,accountsUI=null;
   const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const icon=n=>`<i data-lucide="${n}"></i>`,ib=(action,n,title,extra='')=>`<button class="icon-button" data-action="${action}" title="${esc(title)}" aria-label="${esc(title)}" ${extra}>${icon(n)}</button>`;
-  const asset=(folder,name)=>`/jeu/shared/${folder}/${encodeURIComponent(name)}.png`;
+  const asset=(folder,name)=>folder==='factions'&&['FF7','FF8'].includes(name)?`/jeu/assets/factions/${name}.png`:`/jeu/shared/${folder}/${encodeURIComponent(name)}.png`;
   const cardImage=c=>KalistarCardMedia.image(c),artImage=c=>KalistarCardMedia.image(c,'art');
   const duelImage=cardImage;
   const noCrystal={id:'NONE',label:'SANS CRISTAL',color:'93AAA5',hue:160};
@@ -181,7 +181,8 @@ function showDeck(){setView('decks');}
     if(context?.bonus)requestAnimationFrame(()=>$('#detail-dialog .highlighted')?.scrollIntoView({block:'nearest'}));
   }
   function showRules(){
-    modal('rules-dialog',head('Règles · V4')+`<div class="dialog-body rules-body"><h3>Formation et victoire</h3><p>10 cartes, 5 positions : Tank, DPS physique, Middle, DPS magique et Support. Chaque deck doit couvrir au moins deux fois chaque position P1 à P5. Une carte polyvalente compte dans chacun de ses postes. Deux exemplaires par version au maximum, une seule Rainbow. Une carte vivante reste à sa position après le début du match. ATK strictement supérieure à DEF élimine la cible ; une égalité la conserve. Le premier à dix éliminations définitives gagne ; un Reraise sauve la carte et ne compte pas comme kill. Limite de démo : match nul après 200 échanges.</p><div class="formula">ATK = jet + arme + cristal + faction + jeton + arène − barrière<br>DEF = jet + race + arène + ward<br>Totaux négatifs ramenés à zéro. Faces spéciales résolues séparément.</div><h3>Arènes</h3><p>Lieu verrouillé au début du match, identique pour les deux camps. Cristal correspondant : +15 ATK. Affinité de personnage : +10 ATK et +10 DEF, toutes ses versions comprises. Maximum +25 ATK et +10 DEF, uniquement sur les scores numériques.</p><h3>Cristaux et barrières</h3><p>Classique contre sans cristal : +20 ATK. Rainbow contre sans cristal : +30. Sans cristal contre un cristal : 0. Sans cristal n’a ni halo ni barrière élémentaire. Rainbow contre classique : +40 ; classique contre Rainbow : −40.</p><p>Air &gt; Eau &gt; Feu &gt; Glace &gt; Plante &gt; Terre &gt; Roche &gt; Électricité &gt; Air. Sang &gt; Ténèbres &gt; Lumière &gt; Sang. Les avantages imprimés et la matrice d’armes s’appliquent une seule fois à l’ATK. Une barrière retire 30 ATK uniquement contre une attaque magique.</p><h3>Buffs complémentaires</h3><p>Garde, trèfle, Reraise, potion magique et puissance physique peuvent coexister. Une seule charge par catégorie : attribuer à nouveau le même buff ne le double pas. Résolution automatique : bouclier dans le score DEF, trèfle si ce score ne suffit pas, puis Reraise si la seconde chance échoue. Faction, race et arène restent cumulables.</p><table><tr><th>Garde / ward 60</th><td>La face bouclier ATK permet de choisir un allié vivant du plateau, auteur compris. Il reçoit +60 DEF sur sa prochaine défense numérique contre une ATK physique. Le bonus est consommé une seule fois et conservé dans le même duel en cas de relance. Magie, esquive et Mort ne le consomment pas. Mort le contourne.</td></tr><tr><th>Trèfle</th><td>En ATK : choix d’un allié, auteur compris. Sa prochaine défense insuffisante déclenche une relance automatique. Égalité et Mort ne le consomment pas. En DEF : relance immédiate.</td></tr><tr><th>Potion / puissance</th><td>+60 sur la prochaine attaque numérique du type correspondant : magique pour la potion, physique pour la puissance. La potion magique et la puissance physique sont toutes deux attribuables à un allié vivant du plateau, auteur compris.</td></tr><tr><th>Reraise</th><td>Face réservée aux soigneurs P5. Choix d’un allié vivant, auteur compris. À sa prochaine élimination, même par Mort, le cœur est consommé et la carte reste à sa place.</td></tr><tr><th>Esquive / Mort</th><td>Esquive annule l’attaque, y compris Mort. Mort ignore les scores, la barrière et ward ; Reraise peut sauver la cible.</td></tr></table><h3>Synergies</h3><p>Pour 1 à 5 cartes de même faction ou race sur le plateau : +0, +10, +20, +30, +40. Faction en ATK, race en DEF. Réserve et cartes éliminées exclues.</p><h3>Archives V4</h3><p>Les parties et statistiques V4 sont séparées de V2. Une sauvegarde V2 est refusée sans modifier les données V2.</p></div>`);
+    modal('rules-dialog',head('Règles · V4')+`<div class="dialog-body rules-body"><h3>Formation et victoire</h3><p>10 cartes, 5 positions : Tank, DPS physique, Middle, DPS magique et Support. Chaque deck doit couvrir au moins deux fois chaque position P1 à P5. Une carte polyvalente compte dans chacun de ses postes. Une seule carte par personnage, toutes versions confondues, et une seule Rainbow. Une carte vivante reste à sa position après le début du match. ATK strictement supérieure à DEF élimine la cible ; une égalité la conserve. Le premier à dix éliminations définitives gagne ; un Reraise sauve la carte et ne compte pas comme kill. Limite de démo : match nul après 200 échanges.</p><div class="formula">ATK = jet + arme + cristal + faction + jeton + arène − barrière<br>DEF = jet + race + arène + ward<br>Totaux négatifs ramenés à zéro. Faces spéciales résolues séparément.</div><h3>Arènes</h3><p>Lieu verrouillé au début du match, identique pour les deux camps. Cristal correspondant : +15 ATK. Affinité de personnage : +10 ATK et +10 DEF, toutes ses versions comprises. Maximum +25 ATK et +10 DEF, uniquement sur les scores numériques.</p><h3>Cristaux et barrières</h3><p>Classique contre sans cristal : +20 ATK. Rainbow contre sans cristal : +30. Sans cristal contre un cristal : 0. Sans cristal n’a ni halo ni barrière élémentaire. Rainbow contre classique : +40 ; classique contre Rainbow : −40.</p><p>Air &gt; Eau &gt; Feu &gt; Glace &gt; Plante &gt; Terre &gt; Roche &gt; Électricité &gt; Air. Sang &gt; Ténèbres &gt; Lumière &gt; Sang. Les avantages imprimés et la matrice d’armes s’appliquent une seule fois à l’ATK. Une barrière retire 30 ATK uniquement contre une attaque magique.</p><h3>Buffs complémentaires</h3><p>Garde, trèfle, Reraise, potion magique et puissance physique peuvent coexister. Une seule charge par catégorie : attribuer à nouveau le même buff ne le double pas. Résolution automatique : bouclier dans le score DEF, trèfle si ce score ne suffit pas, puis Reraise si la seconde chance échoue. Faction, race et arène restent cumulables.</p><table><tr><th>Garde / ward 60</th><td>La face bouclier ATK permet de choisir un allié vivant du plateau, auteur compris. Il reçoit +60 DEF sur sa prochaine défense numérique contre une ATK physique. Le bonus est consommé une seule fois et conservé dans le même duel en cas de relance. Magie, esquive et Mort ne le consomment pas. Mort le contourne.</td></tr><tr><th>Trèfle</th><td>En ATK : choix d’un allié, auteur compris. Sa prochaine défense insuffisante déclenche une relance automatique. Égalité et Mort ne le consomment pas. En DEF : relance immédiate.</td></tr><tr><th>Potion / puissance</th><td>+60 sur la prochaine attaque numérique du type correspondant : magique pour la potion, physique pour la puissance. La potion magique et la puissance physique sont toutes deux attribuables à un allié vivant du plateau, auteur compris.</td></tr><tr><th>Reraise</th><td>Face réservée aux soigneurs P5. Choix d’un allié vivant, auteur compris. À sa prochaine élimination, même par Mort, le cœur est consommé et la carte reste à sa place.</td></tr><tr><th>Esquive / Mort</th><td>Esquive annule l’attaque, y compris Mort. Mort ignore les scores, la barrière et ward ; Reraise peut sauver la cible.</td></tr></table><h3>Synergies</h3><p>Pour 1 à 5 cartes de même faction ou race sur le plateau : +0, +10, +20, +30, +40. Faction en ATK, race en DEF. Réserve et cartes éliminées exclues.</p><h3>Archives V4</h3><p>Les parties et statistiques V4 sont séparées de V2. Une sauvegarde V2 est refusée sans modifier les données V2.</p></div>`);
+    $('#rules-dialog .formula').insertAdjacentHTML('beforebegin','<h3>Éclats de Kalistel</h3><p>Deux éclats par joueur dans les nouvelles rencontres, partagés par toute l’équipe, même sans cristal. Après le premier jet ATK et avant la défense, gardez le jet ou utilisez le diamant. Une seule relance par attaque, avec les mêmes participants ; le nouveau résultat est obligatoire, même moins favorable. Les effets et jetons ne sont appliqués qu’au résultat conservé. Aucun objet de collection n’est consommé. Les sauvegardes antérieures conservent leurs règles sans éclats.</p>');
   }
   async function createGame(mode,seed,arenaId=load('arena',arenas[0].id),opponentId=enemyPresetId){
     if(!['grantGuard','aiGuardChoice','arenaBonuses','setArena'].every(key=>typeof E[key]==='function')||cards.some(c=>!/^[34]\d{7}$/.test(c.id)||!c.characterId))throw new Error('Moteur ou profils V4 en attente. Aucune partie V2 ne sera créée dans V4.');
@@ -250,7 +251,7 @@ function showDeck(){setView('decks');}
     const p=game.players[side],selectedReserve=p.reserve.find(u=>u.uid===ui.reserve);
     const stats=E.matchStats(game),performance=new Map(stats.units.map(u=>[u.uid,u]));
     return `<div class="formation cross-formation ${side?'right-cross':'left-cross'}" data-player="${side}">${p.board.map((u,slot)=>{
-      const c=u?E.card(u):null,duel=['attack','defense','result'].includes(game.phase)?game.duel:null;
+      const c=u?E.card(u):null,duel=['attack','kalistel','defense','result'].includes(game.phase)?game.duel:null;
       const isA=!!u&&(duel?duel.side===side&&duel.attackerSlot===slot:game.phase==='choose'&&game.turn===side&&ui.attacker===slot),isT=!!u&&(duel?duel.side!==side&&duel.targetSlot===slot:game.phase==='choose'&&game.turn!==side&&ui.target===slot);
       const beneficiary=u&&['clover','potion','physical','heart','guard'].includes(game.phase)&&game.turn===side&&!(game.mode==='ai'&&side===1);
       const grantKey={guard:'ward',heart:'reraise',potion:'mana',physical:'physical',clover:'luck'}[game.phase],grantName=grantKey?traitInfo[grantKey].name:'';
@@ -261,14 +262,17 @@ function showDeck(){setView('decks');}
   }
   function sideHeading(side){const p=game.players[side];return `<div class="side-heading"><div class="player-name ${side?'enemy':'ally'}">${side?(game.mode==='ai'?'Le Veilleur · IA':'Joueur 2'):'Joueur 1'}${game.turn===side&&game.phase!=='setup'?' · ATK':''}</div><div class="resources"><span>${p.board.filter(Boolean).length}/5</span><button data-action="reserves" data-side="${side}">${icon('layers-3')}${p.reserve.length}</button><button data-action="grave" data-side="${side}">${icon('skull')}${p.dead.length}</button></div></div>`;}
   function dice(side){
-    const d=['attack','defense','clover','potion','physical','heart','guard','result'].includes(game.phase)?game.duel:null,isAttack=d?d.side===side:game.turn===side,rolls=d?(isAttack?d.attackRolls:d.defenseRolls):[],die=rolls.at(-1);
+    const d=['attack','kalistel','defense','clover','potion','physical','heart','guard','result'].includes(game.phase)?game.duel:null,isAttack=d?d.side===side:game.turn===side,rolls=d?(isAttack?d.attackRolls:d.defenseRolls):[],die=rolls.at(-1);
     const selected=game.phase==='choose'?game.players[side].board[isAttack?ui.attacker:ui.target]:null;
     const name=d?(isAttack?d.attackerName:d.targetName):selected?E.card(selected).name:'En attente';
     const active=(game.phase==='attack'&&game.turn===side)||(game.phase==='defense'&&game.turn!==side);
-    return `<div class="duel-die player-${side} ${active?'active':''}" data-player="${side}"><div class="dice-owner">Joueur ${side+1}<span>${isAttack?'ATK':'DEF'}</span></div><b>${esc(name)}</b><div class="dice-stage" data-player="${side}" data-value="${die||6}" role="img" aria-label="Dé du joueur ${side+1}${die?' : '+die:' en attente'}"><div class="die-fallback">${icon('dice-'+(die||6))}</div></div><small>${die?'D'+die+' · '+esc(dieLabel(isAttack?d.attackValue:d.defenseValue,isAttack)):'En attente'}</small></div>`;
+    const charges=E.kalistelRemaining(game,side),available=game.phase==='kalistel'&&game.turn===side&&!(game.mode==='ai'&&side===1)&&!rolling;
+    const hint=`Éclat de Kalistel · ${charges}/2 · Relancer l’attaque, nouveau résultat obligatoire`;
+    const shard=game.kalistel?`<button class="kalistel-control ${charges?'':'depleted'}" data-action="kalistel" data-side="${side}" ${available?'':'disabled'} title="${hint}" aria-label="${hint}"><span class="kalistel-art" aria-hidden="true"><img src="${asset('cristaux','RAINBOW')}" alt="" draggable="false"></span><span class="kalistel-charges" aria-hidden="true">${[0,1].map(i=>`<i class="${i<charges?'lit':''}"></i>`).join('')}</span></button>`:'';
+    return `<div class="duel-die player-${side} ${active?'active':''}" data-player="${side}"><div class="dice-owner">Joueur ${side+1}<span>${isAttack?'ATK':'DEF'}</span></div><b>${esc(name)}</b><div class="dice-well"><div class="dice-stage" data-player="${side}" data-value="${die||6}" role="img" aria-label="Dé du joueur ${side+1}${die?' : '+die:' en attente'}"><div class="die-fallback">${icon('dice-'+(die||6))}</div></div>${shard}</div><small>${die?'D'+die+' · '+esc(dieLabel(isAttack?d.attackValue:d.defenseValue,isAttack)):'En attente'}</small></div>`;
   }
   function consoleParticipants(s){
-    const d=['attack','defense','clover','potion','physical','heart','guard','result'].includes(s.phase)?s.duel:null,side=d?.side??s.turn;
+    const d=['attack','kalistel','defense','clover','potion','physical','heart','guard','result'].includes(s.phase)?s.duel:null,side=d?.side??s.turn;
     const unit=(player,uid)=>[...player.board,...player.reserve,...player.dead].find(u=>u?.uid===uid);
     return {side,a:d?unit(s.players[side],d.attacker):s.phase==='choose'?s.players[side].board[ui.attacker]:null,b:d?unit(s.players[1-side],d.target):s.phase==='choose'?s.players[1-side].board[ui.target]:null};
   }
@@ -305,7 +309,7 @@ function showDeck(){setView('decks');}
     return `<section class="duel-recap preview-recap ${!a&&!b?'pending-recap':''}" aria-label="Aperçu des bonus avant les dés"><div class="recap-type">${icon('scan-eye')}<span>Forces engagées</span><small>AVANT JET</small></div>${row('baseAttack','Jet ATK','À lancer',false)}${row('weapon','Arme',weapon)}${row('element','Cristal',element,true,pair?elementInfo(ac).label+' contre '+elementInfo(bc).label:'Selon les deux cristaux')}${row('faction','Faction',faction)}${row('arenaAttack','Arène ATK',attackArena?.attack,true,arenaHelp(attackArena))}${row('buff','Jeton',tokens,true,'M : attaque magique. P : attaque physique. Aucun jeton consommé avant le jet.')}${row('barrier','Barrière',barrier,true,'Seulement contre une attaque magique ; aucune barrière sans cristal.')}<div class="recap-defense">${row('baseDefense','Jet DEF','À lancer',false)}${row('race','Race',race)}${row('arenaDefense','Arène DEF',defenseArena?.defense,true,arenaHelp(defenseArena))}${row('ward','Garde',ward,true,'Ward 60 : prochaine défense numérique contre une ATK physique. Mort le contourne.')}</div>${scoreTotals(side,'Modif. ATK',signed(fixed),'Bonus DEF',signed(defense),true)}<p class="preview-note">Hors dés et effets conditionnels</p></section>`;
   }
   function duelRecap(s){
-    const d=['attack','defense','clover','potion','physical','heart','guard','result'].includes(s.phase)?s.duel:null;
+    const d=['attack','kalistel','defense','clover','potion','physical','heart','guard','result'].includes(s.phase)?s.duel:null;
     if(!d?.attackRolls.length)return previewRecap(s);
     const numeric=typeof d.attackValue==='number',final=d.formula;
     if(s.phase==='result'&&numeric&&!final)return `<div class="duel-recap special-recap">${icon(d.defenseValue==='dodge'?'move-up-right':'shield-check')}<span>${esc(format(d.defenseValue))}</span><span>Attaque annulée · aucun score appliqué</span></div>`;
@@ -316,7 +320,7 @@ function showDeck(){setView('decks');}
     const a=s.players[d.side].board[d.attackerSlot],b=s.players[1-d.side].board[d.targetSlot];
     if(!final&&(!a||!b))return '';
     // Resolved duels retain their original synergies, including an eliminated target.
-    const f=final||{baseAttack:d.attackValue,weapon:data.weapons[E.card(a).weapon]?.[E.card(b).weapon]||0,element:E.elementModifier(E.card(a),E.card(b)),faction:E.synergy(s.players[d.side],a,'faction'),buff:d.buff||0,race:E.synergy(s.players[1-d.side],b,'race'),arenaAttack:E.arenaBonuses(s,a).attack,arenaDefense:E.arenaBonuses(s,b).defense,ward:d.magic?0:d.ward||b.ward||0};
+    const f=final||{baseAttack:d.attackValue,weapon:data.weapons[E.card(a).weapon]?.[E.card(b).weapon]||0,element:E.elementModifier(E.card(a),E.card(b)),faction:E.synergy(s.players[d.side],a,'faction'),buff:s.phase==='kalistel'?a[d.magic?'mana':'physical']||0:d.buff||0,race:E.synergy(s.players[1-d.side],b,'race'),arenaAttack:E.arenaBonuses(s,a).attack,arenaDefense:E.arenaBonuses(s,b).defense,ward:d.magic?0:d.ward||b.ward||0};
     const row=recapRow;
     const subtotal=Math.max(0,f.baseAttack+f.weapon+f.element+f.faction+f.buff+(f.arenaAttack||0));
     return `<section class="duel-recap" aria-label="Détail des bonus du duel"><div class="recap-type">${icon(d.magic?'sparkles':'swords')}<span>${d.magic?'Attaque magique':'Attaque physique'}</span></div>${row('baseAttack','Jet ATK · D'+d.attackDie,f.baseAttack,false)}${row('weapon','Arme',f.weapon)}${row('element','Cristal',f.element)}${row('faction','Faction',f.faction)}${row('arenaAttack','Arène ATK',f.arenaAttack||0)}${row('buff','Jeton',f.buff)}${row('barrier','Barrière',final?f.barrier:null)}<div class="recap-defense">${row('baseDefense','Jet DEF'+(d.defenseDie?' · D'+d.defenseDie:''),final?f.baseDefense:null,false)}${row('race','Race',f.race)}${row('arenaDefense','Arène DEF',f.arenaDefense||0)}${row('ward','Garde',final?f.ward||0:f.ward?'+60 si numérique':0)}</div>${!final&&d.defenseRolls.length?`<p class="recap-event">${esc(format(d.defenseValue))}${s.phase==='defense'?' · nouveau jet':''}</p>`:''}${scoreTotals(d.side,final?'ATK finale':'ATK avant DEF',final?f.attack:subtotal,final?'DEF finale':'DEF',final?f.defense:'…')}</section>`;
@@ -333,6 +337,10 @@ function showDeck(){setView('decks');}
       label=`JOUEUR ${s.turn+1} · CHOIX DU DUEL`;title=`${a?E.card(a).name:'Attaquant'} ${a&&b?'contre':' / '} ${b?E.card(b).name:'Cible'}`;
       if(s.turn===1&&s.mode==='ai')title='Le Veilleur choisit son duel';
       else actions=duelAction('lock','swords','Engager le duel',{disabled:!a||!b});
+    }else if(s.phase==='kalistel'){
+      const auto=s.mode==='ai'&&s.turn===1;
+      label=`ÉCLAT DE KALISTEL · JOUEUR ${s.turn+1}`;title=auto?'Le Veilleur décide':'Le destin est entre vos mains';
+      actions=duelAction('accept-attack','check',auto?'Décision adverse…':'Garder le jet',{disabled:auto||rolling});
     }else if(['clover','potion','physical','heart','guard'].includes(s.phase)){
       const potion=s.phase==='potion',physical=s.phase==='physical',heart=s.phase==='heart',guard=s.phase==='guard';label=`${guard?'GARDE PHYSIQUE':heart?'RERAISE':potion?'POTION MAGIQUE':physical?'PUISSANCE PHYSIQUE':'TRÈFLE'} · JOUEUR ${s.turn+1}`;title=s.mode==='ai'&&s.turn===1?'Le Veilleur choisit un allié':'Choisir une carte alliée';
       actions=`<span class="clover-choice-status">${icon(guard?'shield-check':heart?'heart-pulse':potion?'flask-conical':physical?'swords':'clover')}${guard?'Attribution de la garde':heart?'Attribution du Reraise':potion?'Attribution de la potion':physical?'Attribution de la puissance':'Attribution du trèfle'}</span>`;
@@ -365,6 +373,8 @@ function showDeck(){setView('decks');}
     const arena=arenaById(game.arenaId),styles={aero:['wind','#acdccc','#152322','bridge'],hydro:['waves','#82dce3','#112429','water'],electro:['zap','#f2d668','#20232c','circuit'],pyro:['flame','#ee9b72','#2b1c1e','forge'],cryo:['snowflake','#b8eaf0','#1b2830','ice'],luxo:['sun','#e8d590','#262521','sun'],minero:['mountain','#b5cbae','#232922','stone'],herbo:['leaf','#a6d88d','#1b2a23','leaves'],hemato:['droplets','#ee879a','#291d28','gates'],necro:['moon','#b2aedf','#211f2e','gates'],geo:['brick-wall','#cfb87f','#282620','stone'],rainbow:['gem','#e4c5e2','#242231','prism'],z13:['pickaxe','#7fded6','#162a2c','circuit'],'trone-fer':['crown','#ddc799','#24282a','gates'],astraball:['goal','#e5b184','#242924','street'],ruins:['landmark','#b7c7ae','#232723','stone']};
     const [symbol,accent,surface,material]=styles[arena.id]||styles.ruins;
     shell.dataset.arena=arena.id;console.dataset.material=material;console.style.setProperty('--arena-accent',accent);console.style.setProperty('--arena-surface',surface);
+    $('.arena-toolbar .tools').insertAdjacentHTML('beforeend',`<button class="icon-button mobile-only" data-action="arena-menu" aria-label="Options du match" title="Options du match">${icon('ellipsis')}</button>`);
+    shell.querySelectorAll('.resources [data-action]').forEach(button=>button.setAttribute('aria-label',(button.dataset.action==='reserves'?'Réserve':'Cimetière')+' du joueur '+(Number(button.dataset.side)+1)));
     console.insertAdjacentHTML('beforeend',`<div class="arena-crown" title="${esc(arena.name)}" aria-label="${esc(arena.name)}">${icon(symbol)}</div>`);
     const score=[game.players[1].dead.length,game.players[0].dead.length];
     const toolbar=$('.arena-toolbar');toolbar.querySelector('.tools').insertAdjacentHTML('beforebegin',`<div class="match-scoreboard" aria-label="Score du match : joueur 1 ${score[0]}, joueur 2 ${score[1]}"><div><small>Joueur 1</small><strong data-kills="0">${score[0]}</strong></div><span>${icon('crosshair')}<small>10 KILLS</small></span><div><small>${game.mode==='ai'?'Le Veilleur':'Joueur 2'}</small><strong data-kills="1">${score[1]}</strong></div></div>`);
@@ -394,23 +404,26 @@ function showDeck(){setView('decks');}
     if(!game.players[side].board[slot])return;
     if(side===game.turn)ui.attacker=slot;else ui.target=slot;
   }
-  async function animatedRoll(){
-    if(rolling||!['attack','defense'].includes(game.phase))return;
-    const token=epoch,phase=game.phase,actor=phase==='attack'?game.turn:1-game.turn,next=E.clone(game);
+  async function animatedRoll(kalistel=false){
+    if(rolling||!(kalistel?game.phase==='kalistel':['attack','defense'].includes(game.phase)))return;
+    const token=epoch,phase=kalistel?'attack':game.phase,actor=phase==='attack'?game.turn:1-game.turn,next=E.clone(game);
     try{
       checkGame();
-      if(phase==='attack')E.rollAttack(next);else E.rollDefense(next);E.assertState(next);
+      if(kalistel)E.useKalistel(next);else if(phase==='attack')E.rollAttack(next);else E.rollDefense(next);E.assertState(next);
       const value=phase==='attack'?next.duel.attackDie:next.duel.defenseDie;
       rolling=true;clearTimeout(aiTimer);$('#app').classList.add('rolling');
+      document.querySelectorAll('.kalistel-control').forEach(button=>{button.disabled=true;if(kalistel&&Number(button.dataset.side)===actor)button.classList.add('is-spent');});
       const button=$('[data-action="roll"]');if(button){button.disabled=true;button.classList.add('is-casting');button.setAttribute('aria-busy','true');button.querySelector('.action-label').textContent='Jet en cours…';}
       $('.duel-console').dataset.casting=phase;
       const reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
+      combatController=new AbortController();
+      if(kalistel)await window.KalistarCombat?.shatterKalistel($(`.kalistel-control[data-side="${actor}"]`),{reduced,signal:combatController.signal});
+      if(token!==epoch||combatController.signal.aborted)return;
       const landed=window.KalistarDice?await KalistarDice.play(actor,value,reduced):await new Promise(r=>setTimeout(()=>r(true),reduced?30:700));
       if(token===epoch&&landed){
         $('.duel-centre').innerHTML=consoleBody(next);syncConsole(next);delete $('.duel-console').dataset.casting;icons();
         const label=$(`.duel-die[data-player="${actor}"] small`);
         if(label)label.textContent='D'+value+' · '+dieLabel(phase==='attack'?next.duel.attackValue:next.duel.defenseValue,phase==='attack');
-        combatController=new AbortController();
         const d=next.duel,c=E.card(game.players[d.side].board[d.attackerSlot]);
         await window.KalistarCombat?.play({before:game,after:next,element:c.element,color:'#'+(data.elements[c.element]?.color||'E4D5FB'),reduced,signal:combatController.signal});
         if(token===epoch&&!combatController.signal.aborted){checkGame(next);game=next;epoch++;}
@@ -435,10 +448,11 @@ function showDeck(){setView('decks');}
     clearTimeout(aiTimer);if(!game||ui.view!=='arena'||rolling||document.hidden||overlayOpen())return;
     const p=game.phase,token=epoch;
     const second=p==='defense'&&game.duel.autoDefense;
-    const active=second||game.mode==='ai'&&((p==='choose'&&game.turn===1)||(['clover','potion','physical','heart','guard'].includes(p)&&game.turn===1)||(p==='attack'&&game.turn===1)||(p==='defense'&&game.turn===0)||(p==='replace'&&game.replacing===1));
+    const active=second||game.mode==='ai'&&((p==='choose'&&game.turn===1)||(['kalistel','clover','potion','physical','heart','guard'].includes(p)&&game.turn===1)||(p==='attack'&&game.turn===1)||(p==='defense'&&game.turn===0)||(p==='replace'&&game.replacing===1));
     if(!active)return;
     aiTimer=setTimeout(()=>{if(token!==epoch||ui.view!=='arena'||document.hidden||overlayOpen())return;
       if(p==='attack'||p==='defense')return animatedRoll();
+      if(p==='kalistel')return E.aiUseKalistel(game)?animatedRoll(true):act(()=>E.acceptAttack(game));
       if(['clover','potion','physical','heart','guard'].includes(p))return animatedTrait(p==='guard'?E.aiGuardChoice(game):p==='heart'?E.aiReraiseChoice(game):p==='potion'?E.aiPotionChoice(game):p==='physical'?E.aiPhysicalChoice(game):E.aiCloverChoice(game));
       act(()=>{if(p==='choose'){const pair=E.aiChoice(game);E.lock(game,...pair);}else if(p==='replace')E.autoDeploy(game,1);});
     },second?1000:p==='choose'?650:450);
@@ -453,13 +467,43 @@ function showDeck(){setView('decks');}
     valid:(source,side,slot)=>source.epoch===epoch&&source.side===side&&canDeployReserve(side,source.uid,slot),
     drop:(source,side,slot)=>{if(source.epoch===epoch&&source.side===side)act(()=>placeReserve(side,source.uid,slot));}
   });
-  function showArchive(side,kind){const p=game.players[side],units=kind==='dead'?p.dead:p.reserve,hidden=kind==='reserve'&&side===1&&game.mode==='ai';modal('detail-dialog',head(`${kind==='dead'?'Cimetière':'Réserve'} · ${side===0?'Joueur 1':'Adversaire'}`)+`<div class="dialog-body archive-list">${units.map(u=>`<figure>${hidden?'<img src="assets/back.webp" alt="Carte adverse face cachée">':`<button class="card-open" data-action="detail" data-id="${u.cardId}"><img src="${cardImage(E.card(u))}" alt="${E.card(u).name}"></button>`}<figcaption>${hidden?'Carte en réserve':E.card(u).name}${u.revived?'<br><span class="revived">Déjà ressuscitée</span>':''}</figcaption></figure>`).join('')||'<p class="muted">Aucune carte.</p>'}</div>`);}
+  const phoneLayout=()=>matchMedia('(max-width:699px), (max-width:950px) and (max-height:500px)').matches;
+  function showArenaMenu(){
+    const items=[['duel-details','list-plus','Calculs et effets du duel'],['arena-picker','map','Choisir l’arène'],['auto-formation','shuffle','Formation automatique'],['match-stats','trophy','Bilan du match'],['journal','scroll-text','Journal du duel'],['rules','book-open','Règles'],['save-game','download','Exporter la partie'],['load-game','upload','Importer une partie'],['new-game','rotate-ccw','Nouvelle partie']];
+    modal('mobile-dialog',head('La rencontre')+`<div class="dialog-body mobile-menu"><button data-view="collection">${icon('book-open')}Collection${icon('chevron-right')}</button><button data-view="decks">${icon('layers-3')}Mes decks${icon('chevron-right')}</button>${items.map(([action,symbol,label])=>`<button data-action="${action}" ${['arena-picker','auto-formation'].includes(action)&&game.phase!=='setup'?'disabled':''}>${icon(symbol)}${label}${icon('chevron-right')}</button>`).join('')}</div>`);
+    $('#mobile-dialog .mobile-menu').insertAdjacentHTML('beforeend',`<button data-action="reserves" data-side="1">${icon('layers-3')}Réserve adverse · ${game.players[1].reserve.length}${icon('chevron-right')}</button><button data-action="grave" data-side="1">${icon('skull')}Cimetière adverse · ${game.players[1].dead.length}${icon('chevron-right')}</button>`);icons();
+  }
+  function showArchive(side,kind){
+    const p=game.players[side],units=kind==='dead'?p.dead:p.reserve,hidden=kind==='reserve'&&side===1&&game.mode==='ai';
+    modal('detail-dialog',head(`${kind==='dead'?'Cimetière':'Réserve'} · ${side===0?'Joueur 1':'Adversaire'}`)+`<div class="dialog-body archive-list">${units.map(u=>{
+      const c=E.card(u),positions=kind==='reserve'&&!hidden?c.positions.filter(pos=>canDeployReserve(side,u.uid,pos-1)):[];
+      return `<figure>${hidden?'<img src="assets/back.webp" alt="Carte adverse face cachée">':`<button class="card-open" data-action="detail" data-id="${u.cardId}" aria-label="Inspecter ${esc(c.name)}"><img src="${cardImage(c)}" alt="${esc(c.name)}"></button>`}<figcaption>${hidden?'Carte en réserve':esc(c.name)}${u.revived?'<br><span class="revived">Déjà ressuscitée</span>':''}</figcaption>${positions.length?`<div class="reserve-placements" aria-label="Déployer ${esc(c.name)}">${positions.map(pos=>`<button data-action="deploy-reserve" data-side="${side}" data-uid="${u.uid}" data-slot="${pos-1}" title="${p.board[pos-1]?'Remplacer '+esc(E.card(p.board[pos-1]).name):'Déployer'} en P${pos}">${icon('plus')}P${pos}</button>`).join('')}</div>`:''}</figure>`;
+    }).join('')||'<p class="muted">Aucune carte.</p>'}</div>`);
+  }
   document.addEventListener('click',event=>{
-    const view=event.target.closest('[data-view]');if(view){setView(view.dataset.view);return;}
+    const view=event.target.closest('[data-view]');if(view){view.closest('dialog')?.close();setView(view.dataset.view);return;}
     const b=event.target.closest('[data-action]');if(!b||b.disabled)return;const action=b.dataset.action,id=b.dataset.id;
     try{
       if(action==='close'){b.closest('dialog').close();return;}
+      if(b.closest('#mobile-dialog')&&action!=='duel-details')$('#mobile-dialog').close();
+      if(action==='arena-menu')return showArenaMenu();
+      if(action==='duel-details')return modal('mobile-dialog',head('Calculs du duel')+`<div class="dialog-body mobile-recap">${duelRecap(game)}</div>`);
+      if(action==='deploy-reserve'){
+        const side=Number(b.dataset.side),slot=Number(b.dataset.slot);
+        if(!canDeployReserve(side,b.dataset.uid,slot))return toast('Ce poste n’est plus disponible.');
+        $('#detail-dialog').close();return act(()=>placeReserve(side,b.dataset.uid,slot));
+      }
+      if(action==='slot'&&phoneLayout()&&game.phase==='setup'){
+        $('#detail-dialog').classList.remove('card-detail');return showArchive(Number(b.dataset.side),'reserve');
+      }
       if(action==='catalogue-refresh')return refreshCatalogue();
+      if(action==='phone-preview'){
+        if(rolling)return toast('Le duel se termine…');
+        persist();
+        if(!storageAvailable)return toast('La sauvegarde locale est indisponible.');
+        clearTimeout(aiTimer);
+        Promise.resolve(db?.idle()).then(()=>{if(!window.KalistarPhonePreview.enter())scheduleAI();}).catch(error=>{toast(error.message);scheduleAI();});return;
+      }
       if(action==='account')return openAccounts();
       if(action==='owned-cards')return openAccounts(owned(id).length?'collection':'activation',owned(id)[0]?.id||null);
       if(action==='detail'){
@@ -517,6 +561,10 @@ function showDeck(){setView('decks');}
       if(action==='slot'&&!['setup','replace','choose'].includes(game.phase)){
         const side=Number(b.dataset.side),unit=game.players[side].board[Number(b.dataset.slot)];
         if(unit)inspectUnit(side,unit.uid);return;
+      }
+      if(action==='kalistel'||action==='accept-attack'){
+        if(rolling||game.phase!=='kalistel'||game.mode==='ai'&&game.turn===1||action==='kalistel'&&Number(b.dataset.side)!==game.turn)return;
+        return action==='kalistel'?animatedRoll(true):act(()=>E.acceptAttack(game));
       }
       if(action==='roll'){
         const actor=game.phase==='attack'?game.turn:1-game.turn;

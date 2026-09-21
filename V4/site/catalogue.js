@@ -20,15 +20,21 @@
   }
   function brief(s){return `<span title="Victoires / défaites des exemplaires de cette version">${icon('trophy')}<b>${num(s?.wins)}</b> V · ${num(s?.losses)} D</span><span title="Éliminations">${icon('crosshair')}${num(s?.kills)}</span>`;}
   function versionStrip(id){return `<div class="detail-versions" aria-label="Versions du personnage">${versions(id).map(c=>`<button data-action="detail-version" data-id="${c.id}" aria-pressed="${id===c.id}" title="${esc(c.title)}"><img src="${KalistarCardMedia.image(c)}" alt=""><span>${esc(c.title)}<small>${c.element} · #${c.id}</small></span></button>`).join('')}</div>`;}
+  function careerStatistics(stats){
+    const metrics=[['kills','skull','Kills'],['holds','ban','Stops'],['attack','sword','ATK'],['defense','shield','DEF'],['support','hand-heart','Soutiens'],['debuff','shield-minus','ATK retirée'],['reraises','heart-pulse','Vies sauvées'],['mvp','trophy','MVP']];
+    const games=Number.isFinite(stats?.games)&&stats.games>0?stats.games:0;
+    return `<table class="career-statistics" aria-label="Moyennes par match et totaux de carrière" data-career-games="${games}"><thead><tr><th scope="col">Statistique</th><th scope="col" title="Total divisé par les participations aux matchs terminés, hors historiques partiels.">Par match</th><th scope="col">Total</th></tr></thead><tbody>${metrics.map(([key,symbol,label])=>{
+      const total=Number.isFinite(stats?.[key])?stats[key]:0,average=games?(total/games).toLocaleString('fr-FR',{maximumFractionDigits:1}):'-';
+      return `<tr data-career-stat="${key}"><th scope="row"><span>${icon(symbol)}${label}</span></th><td class="career-average" data-career-average="${key}" ${games?'':'title="Aucun match terminé"'}>${average}</td><td class="career-total" data-career-total="${key}">${num(total)}</td></tr>`;
+    }).join('')}</tbody></table>`;
+  }
   function career(id,db,selected='all'){
     if(!db)return '<section class="career-panel"><h3>Carrière</h3><p class="muted">Base locale indisponible.</p></section>';
     const instances=db.instances(id);if(selected!=='all'&&!instances.some(i=>i.id===selected))selected='all';
     const s=db.career(id,selected==='all'?null:selected),rate=s.games?Math.round(s.wins/s.games*100):0;
-    const cell=(symbol,value,label,cls='')=>`<div class="career-stat ${cls}">${icon(symbol)}<b>${num(value)}</b><span>${label}</span></div>`;
     return `<section class="career-panel"><div class="career-heading"><h3>${icon('medal')}Carrière</h3><label>Exemplaire<select id="career-instance"><option value="all">Tous · ${instances.length} exemplaire${instances.length>1?'s':''}</option>${instances.map(i=>`<option value="${i.id}" ${selected===i.id?'selected':''}>${i.id}</option>`).join('')}</select></label></div>
       <div class="career-record"><strong>${rate}<small>% victoires</small></strong><div><b>${s.wins} V <span>· ${s.losses} D · ${s.draws} N</span></b><span>${s.games} participation${s.games>1?'s':''} · matchs terminés</span><div class="career-rate"><i style="width:${rate}%"></i></div></div></div>
-      <div class="career-grid">${cell('trophy',s.mvp,'MVP','gold')}${cell('crosshair',s.kills,'Kills','rose')}${cell('shield-check',s.holds,'Stop','cyan')}${cell('hand-heart',s.support,'Buffer','jade')}${cell('shield-minus',s.debuff,'ATK retirée','rose')}${cell('heart-pulse',s.reraises,'Vies sauvées','gold')}</div>
-      <div class="career-pressure"><span>ATK cumulée <b>${num(s.attack)}</b></span><span>DEF cumulée <b>${num(s.defense)}</b></span></div>
+      ${careerStatistics(s)}
       <div class="career-history"><h4>Dernières rencontres</h4>${s.history.slice(0,6).map(r=>`<button data-action="history-match" data-id="${esc(r.matchId)}"><b class="${r.winner===r.side?'won':'lost'}">${r.winner==='draw'?'N':r.winner===r.side?'V':'D'}</b><span>${esc(r.seed)}<small>J${r.side+1} · ${esc(r.instanceId)} · ${new Date(r.finishedAt).toLocaleDateString('fr-FR')}</small></span><span>${r.kills} K<br>${r.holds} Stop</span>${icon('chevron-right')}</button>`).join('')||'<p class="muted">Aucune rencontre terminée.</p>'}</div></section>`;
   }
   function database(db,error){
@@ -36,5 +42,5 @@
     const counts={...db.counts(),instances:db.ownedCount?db.ownedCount():db.counts().instances},matches=db.matches();
     return `<div class="dialog-body database-body"><div class="database-totals"><div><b>${counts.versions}</b>Versions</div><div><b>${counts.instances}</b>Exemplaires</div><div><b>${matches.filter(m=>m.finalized).length}</b>Matchs terminés</div></div><div class="database-actions"><button class="primary" data-action="export-library">${icon('download')}Sauvegarder la collection</button><button data-action="import-library">${icon('upload')}Importer une sauvegarde</button><input id="library-file" type="file" accept="application/json,.json" hidden></div><p class="database-notice">Stockage local à ce navigateur. Un effacement de ses données supprime la base : gardez une sauvegarde JSON. Base <code>kalistar-v4-cards</code> · parties schéma 6 · exemplaires K4-. Les imports V2 sont refusés ; les données V2 ne sont jamais modifiées.</p><h3>Rencontres enregistrées</h3><div class="database-matches">${matches.map(m=>`<button data-action="history-match" data-id="${esc(m.id)}">${icon(m.finalized?'trophy':'swords')}<span><b>${esc(m.state.seed)}</b><small>${new Date(m.updatedAt).toLocaleString('fr-FR')} · ${m.summary.exchanges} échanges</small></span><span>${m.finalized?m.state.winner==='draw'?'Nul':'J'+(m.state.winner+1)+' gagne':'En cours'}${m.summary.partial?' · partiel':''}</span>${icon('chevron-right')}</button>`).join('')||'<p class="muted">Aucune rencontre enregistrée.</p>'}</div><section class="database-inspector"><h3>Tables locales V4</h3>${['versions','instances','matches','results'].map(store=>`<details><summary>${store} · ${counts[store]}</summary><pre tabindex="0" aria-label="Table ${store}">${esc(JSON.stringify(db.inspect(store),null,2))}</pre></details>`).join('')}</section></div>`;
   }
-  window.KalistarCatalogue={key,groups,item,brief,versionStrip,career,database};
+  window.KalistarCatalogue={key,groups,item,brief,versionStrip,careerStatistics,career,database};
 })();

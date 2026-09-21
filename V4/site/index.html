@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#101413">
   <title>Kalistar V4 · Collection, Decks et Arène</title>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
@@ -18,6 +18,9 @@
   <link rel="stylesheet" href="deck-builder.css">
   <link rel="stylesheet" href="collection-binder.css">
   <link rel="stylesheet" href="integration.css">
+  <link rel="stylesheet" href="mobile.css">
+  <link rel="stylesheet" href="phone-preview.css">
+  <script defer src="phone-preview.js"></script>
   <script defer src="boot.js"></script>
 </head>
 <body data-edition="V4">
@@ -29,7 +32,7 @@
       <button data-view="arena"><i data-lucide="swords"></i><span>Arène</span></button>
       <button data-view="atelier"><i data-lucide="paintbrush"></i><span>Atelier</span></button>
     </nav>
-    <div class="header-actions"><span class="edition">ÉDITION V4</span><button class="account-button" data-action="account" title="Profils locaux et transferts" aria-label="Profils locaux et transferts"><i data-lucide="users-round"></i><span id="account-name">Paris</span></button><button class="icon-button" data-action="rules" title="Règles de la démo" aria-label="Règles de la démo"><i data-lucide="scroll-text"></i></button><button class="deck-button" data-action="deck"><i data-lucide="layers-3"></i><span>Mon deck</span><b id="deck-count">10</b></button></div>
+    <div class="header-actions"><span class="edition">ÉDITION V4</span><button class="icon-button phone-preview-entry" data-action="phone-preview" title="Aperçu téléphone · Motorola Razr 50" aria-label="Mode téléphone · Motorola Razr 50" aria-pressed="false"><i data-lucide="smartphone"></i></button><button class="account-button" data-action="account" title="Profils locaux et transferts" aria-label="Profils locaux et transferts"><i data-lucide="users-round"></i><span id="account-name">Paris</span></button><button class="icon-button" data-action="rules" title="Règles de la démo" aria-label="Règles de la démo"><i data-lucide="scroll-text"></i></button><button class="deck-button" data-action="deck"><i data-lucide="layers-3"></i><span>Mon deck</span><b id="deck-count">10</b></button></div>
   </header>
   <main id="app"><p class="boot-status" role="status">Chargement du catalogue V4...</p></main>
   <section id="atelier-panel" aria-label="Atelier de cartes" hidden></section>
@@ -44,5 +47,6 @@
   <dialog id="match-dialog" aria-label="Bilan du match"></dialog>
   <dialog id="database-dialog" aria-label="Archives personnelles"></dialog>
   <dialog id="account-dialog" aria-label="Profils locaux et transferts"></dialog>
+  <dialog id="mobile-dialog" class="mobile-sheet" aria-label="Actions de l’arène"></dialog>
 </body>
 </html>

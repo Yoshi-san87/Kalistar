@@ -1,0 +1,20 @@
+.phone-preview-host { display: grid; grid-template-rows: 52px minmax(0,1fr); height: 100dvh; width: 100%; padding: 0; overflow: hidden; background: #101614; }
+.phone-preview-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 4px 16px; color: #c4cfc7; border-bottom: 1px solid #3c4941; }
+.phone-preview-toolbar > span { font-size: 13px; }
+.phone-preview-toolbar button { min-height: 44px; font-size: 12px; }
+.phone-preview-toolbar button[aria-pressed=true] { color: #d2f6e3; border-color: #92c3ab; background: #243e32; }
+.phone-preview-stage { display: grid; place-items: center; min-width: 0; min-height: 0; overflow: hidden; }
+.phone-preview-device { position: relative; flex: none; background: #050908; border-radius: 8px; box-shadow: 0 0 0 4px #3c4540,0 12px 35px #0008; overflow: hidden; }
+#phone-preview-frame { display: block; max-width: none; border: 0; transform-origin: top left; }
+.phone-preview-desktop { grid-template-rows: minmax(0,1fr); }
+.phone-preview-desktop .phone-preview-toolbar { display: none; }
+.phone-preview-desktop .phone-preview-device { border-radius: 0; box-shadow: none; }
+.phone-preview-entry[aria-pressed=true] { color: #c9efd9; border-color: #a5c8b6; }
+.phone-preview-entry { flex: none; }
+@media (max-width:699px) {
+  .masthead .phone-preview-entry { display: none; }
+}
+@media (max-width:699px), (max-width:950px) and (max-height:500px) {
+  .phone-preview-host.phone-preview-desktop { grid-template-rows: 52px minmax(0,1fr); }
+  .phone-preview-desktop .phone-preview-toolbar { display: flex; }
+}

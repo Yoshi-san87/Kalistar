@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "key": "laguna",
+  "modelId": "44143252",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "734da4dd578de3ad015ffcf1a6d388f2d22f05e4b387c9bfa6e8c0ae10774123",
+  "hashes": {
+    "card.png": "0c47700bb7da64147810eaca1f2586596cc384551bc57378ee9716505ecf3822",
+    "card.psd": "3446522e004b8259b4f564cc814e5dd05c5f5b075bafc7f0014fd7ca209e7c72"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 102102
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "44143252",
+    "cases": {
+      "color-1": [
+        "44143252"
+      ],
+      "color-4": [
+        "44143252"
+      ],
+      "gray-1": [
+        "44143252"
+      ],
+      "gray-4": [
+        "44143252"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-20T15:14:48.433Z",
+  "illustrationOnly": {
+    "withoutArt": {
+      "changed": 0,
+      "outside": 0
+    },
+    "outside": {
+      "changed": 442949,
+      "outside": 0
+    },
+    "originalPixels": {
+      "changed": 0,
+      "outside": 0
+    },
+    "layerStateIdentical": true
+  },
+  "revision": "2026-09-21-ff8-details"
+}

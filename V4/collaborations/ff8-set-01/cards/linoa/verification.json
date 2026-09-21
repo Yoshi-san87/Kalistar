@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "key": "linoa",
+  "modelId": "45513029",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "929d7320b62fd3ac607c3b2e47284d177a71591db2d4bf5eef547b36d7818c21",
+  "hashes": {
+    "card.png": "adb552fe2745069129a2c53fc082acd81494d571538d1b077047a78c99169dcd",
+    "card.psd": "ca8abfdc390c73dc4d272bb71a86ef9aa89ce25a725590870c9315a8829f1145"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 138848
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "45513029",
+    "cases": {
+      "color-1": [
+        "45513029"
+      ],
+      "color-4": [
+        "45513029"
+      ],
+      "gray-1": [
+        "45513029"
+      ],
+      "gray-4": [
+        "45513029"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-20T15:14:47.339Z",
+  "illustrationOnly": {
+    "withoutArt": {
+      "changed": 0,
+      "outside": 0
+    },
+    "outside": {
+      "changed": 447919,
+      "outside": 0
+    },
+    "originalPixels": {
+      "changed": 0,
+      "outside": 0
+    },
+    "layerStateIdentical": true
+  },
+  "revision": "2026-09-21-ff8-details"
+}

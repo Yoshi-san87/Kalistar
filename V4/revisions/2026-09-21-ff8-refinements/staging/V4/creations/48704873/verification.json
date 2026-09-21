@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "key": "irvine",
+  "modelId": "48704873",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "6f42fc17baa3ec58087be22957455955b57837343f3f3da1bfb5783c1b0d8762",
+  "hashes": {
+    "card.png": "dc0cd112b8d5e20b696a60f56dee19fefbee960d82d626b22ba8311ceff3c7e5",
+    "card.psd": "8ed86d664011e6a01da96b80bb716022f872fbf439c6551129a7d9c56423c2f1"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 111820
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "48704873",
+    "cases": {
+      "color-1": [
+        "48704873"
+      ],
+      "color-4": [
+        "48704873"
+      ],
+      "gray-1": [
+        "48704873"
+      ],
+      "gray-4": [
+        "48704873"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-20T16:06:06.501Z",
+  "illustrationOnly": {
+    "withoutArt": {
+      "changed": 0,
+      "outside": 0
+    },
+    "outside": {
+      "changed": 451766,
+      "outside": 0
+    },
+    "originalPixels": {
+      "changed": 0,
+      "outside": 0
+    },
+    "layerStateIdentical": true
+  },
+  "revision": "2026-09-21-ff8-refinements"
+}

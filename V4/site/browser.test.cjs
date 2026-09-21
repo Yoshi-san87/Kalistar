@@ -9,6 +9,8 @@ const { chromium } = createRequire(path.join(runtime, '__v4_browser__.cjs'))('pl
 const ROOT = path.resolve(__dirname, '../..');
 const references = require('../atelier/data/references.json');
 const approvedCount = references.cards.length;
+const persistedPublications = require('../donnees/catalogue.json').cards.filter(card => card.kind === 'created');
+const initialCount = approvedCount + persistedPublications.length;
 const url = process.env.KALISTAR_URL || 'http://127.0.0.1:43874';
 const live = !!process.env.KALISTAR_URL;
 const output = path.join(__dirname, 'verification');
@@ -17,7 +19,7 @@ const checks = [], errors = [], badResponses = [];
 let browser;
 async function main() {
   fs.mkdirSync(output, { recursive: true });
-  let catalog = await buildCatalog(), overrideCatalog = false;
+  let catalog = await buildCatalog({ published: persistedPublications }), overrideCatalog = false;
   browser = await chromium.launch({ channel: process.env.KALISTAR_BROWSER || 'chrome', headless: true });
   const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: 'reduce' });
   if (!live) await context.route(url + '/**', async route => {
@@ -28,6 +30,10 @@ async function main() {
     if (p.startsWith('/media/reference/')) {
       const ref = references.cards.find(c => p === '/media/reference/' + c.key + '.png');
       if (ref) file = path.join(ROOT, ref.png);
+    } else if (/^\/media\/created\/4\d{7}\.(png|psd)$/.test(p)) {
+      const [, id, extension] = p.match(/^\/media\/created\/(4\d{7})\.(png|psd)$/);
+      const publication = persistedPublications.find(card => card.id === id);
+      if (publication) file = path.join(ROOT, extension === 'png' ? publication.png : publication.psd);
     } else if (p.startsWith('/jeu/shared/')) file = path.join(ROOT, 'V3/assets', p.slice('/jeu/shared/'.length));
     else if (p.startsWith('/jeu/')) {
       file = path.join(__dirname, p.slice('/jeu/'.length) || 'index.html');
@@ -44,11 +50,18 @@ async function main() {
   await page.goto(url + '/jeu/');
   await page.waitForFunction(() => window.KALISTAR_READY === true);
   assert.equal(await page.title(), 'Kalistar V4 · Collection, Decks et Arène');
-  assert.deepEqual(await page.evaluate(() => [KALISTAR_DATA.cards.length, KALISTAR_DB.name, KALISTAR_DB.registry.owned('user-paris').length, KALISTAR_DB.registry.owned('user-tokyo').length]), [approvedCount, 'kalistar-v4-cards', approvedCount, 0]);
-  assert.deepEqual(await page.evaluate(() => KALISTAR_DATA.cards.map(c => c.id).sort()), references.cards.map(c => c.card.id).sort());
-  checks.push(`HTTP boot: ${approvedCount} approved V4 cards, Paris${approvedCount}/Tokyo0, independent IndexedDB`);
+  assert.deepEqual(await page.evaluate(() => [KALISTAR_DATA.cards.length, KALISTAR_DB.name, KALISTAR_DB.registry.owned('user-paris').length, KALISTAR_DB.registry.owned('user-tokyo').length]), [initialCount, 'kalistar-v4-cards', initialCount, 0]);
+  assert.deepEqual(await page.evaluate(() => KALISTAR_DATA.cards.map(c => c.id).sort()), catalog.cards.map(c => c.id).sort());
+  checks.push(`HTTP boot: ${approvedCount} approved + ${persistedPublications.length} published V4 cards, Paris${initialCount}/Tokyo0, independent IndexedDB`);
   await page.waitForFunction(() => document.querySelectorAll('img[data-v4-cropped]').length > 0);
   await page.waitForFunction(() => [...document.images].filter(img => img.getClientRects().length).every(img => img.complete && img.naturalWidth > 0 && !img.src.includes('#v4-')));
+  const ff7Count = catalog.cards.filter(c => c.faction === 'FF7').length;
+  const ff7Scope = page.locator('[data-binder-action=scope][data-id=ff7]');
+  assert.equal(await ff7Scope.textContent().then(text => text.replace(/\s+/g, ' ').trim()), `FF7 ${ff7Count}`);
+  await ff7Scope.click();
+  await page.waitForFunction(count => document.querySelector('.cb-count')?.textContent.includes(`${count} versions`), ff7Count);
+  assert.ok(await page.locator('.cb-pocket').evaluateAll((nodes, ids) => nodes.length > 0 && nodes.every(node => ids.includes(node.dataset.cardId)), catalog.cards.filter(c => c.faction === 'FF7').map(c => c.id)));
+  await page.locator('[data-binder-action=scope][data-id=owned]').click();
   const collectionLabel = page.locator('.cb-page-label span');
   const collectionPages = Math.ceil(new Set(catalog.cards.map(c => c.characterId || c.id)).size / Number(await page.locator('.cb-spread').getAttribute('data-page-size')));
   assert.equal((await collectionLabel.textContent()).trim(), `Double page 1 / ${collectionPages}`);
@@ -112,9 +125,14 @@ async function main() {
   });
   assert.deepEqual(wideBinder, { columns: '3', rows: '2', cardWidth: 240, contained: true, balanced: true, usedWidth: true, rowCounts: [[3, 3], [3, 3]], emptySlots: 0, fills: true });
   await page.screenshot({ path: path.join(output, 'wide-collection.png') });
-  await page.locator('.cb-page-edge-next').click();
-  await page.locator('.cb-page-edge-next').click();
-  await page.waitForFunction(() => document.querySelector('.cb-page-label span')?.textContent.includes('3 / 3'));
+  const characterCount = new Set(catalog.cards.map(c => c.characterId || c.id)).size;
+  const widePages = Math.ceil(characterCount / 12);
+  for (let pageIndex = 1; pageIndex < widePages; pageIndex++) await page.locator('.cb-page-edge-next').click();
+  await page.waitForFunction(pages => document.querySelector('.cb-page-label span')?.textContent.includes(`${pages} / ${pages}`), widePages);
+  const lastSpreadCount = characterCount - 12 * (widePages - 1);
+  const leftCount = Math.min(6, Math.ceil(lastSpreadCount / 2)), rightCount = lastSpreadCount - leftCount;
+  const rowsFor = count => count <= 3 ? count ? [count] : [] : [Math.ceil(count / 2), Math.floor(count / 2)];
+  const expectedLastRows = [rowsFor(leftCount), rowsFor(rightCount)];
   assert.deepEqual(await page.evaluate(() => {
     const rowCounts = [...document.querySelectorAll('.cb-sheet')].map(sheet => [...sheet.querySelectorAll('.cb-shelf-row')].map(row => row.querySelectorAll('.cb-card').length));
     const balanced = [...document.querySelectorAll('.cb-shelf-row')].every(row => {
@@ -122,10 +140,9 @@ async function main() {
       return cards.length && Math.abs((cards[0].left + cards.at(-1).right) / 2 - (sheet.left + sheet.right) / 2) <= 2;
     });
     return { rowCounts, balanced, emptySlots: document.querySelectorAll('.cb-pocket-empty').length };
-  }), { rowCounts: [[1], [1]], balanced: true, emptySlots: 0 }, 'partial spreads distribute cards evenly between both pages');
-  await page.locator('.cb-page-edge-previous').click();
-  await page.locator('.cb-page-edge-previous').click();
-  await page.waitForFunction(() => document.querySelector('.cb-page-label span')?.textContent.includes('1 / 3'));
+  }), { rowCounts: expectedLastRows, balanced: true, emptySlots: 0 }, 'the last spread distributes cards evenly between both pages');
+  for (let pageIndex = 1; pageIndex < widePages; pageIndex++) await page.locator('.cb-page-edge-previous').click();
+  await page.waitForFunction(pages => document.querySelector('.cb-page-label span')?.textContent.includes(`1 / ${pages}`), widePages);
   await page.locator('.cb-card').first().click();
   await page.locator('.cb-reader').waitFor({ state: 'visible' });
   assert.ok(await page.evaluate(() => {
@@ -180,16 +197,16 @@ async function main() {
   assert.equal(await frame.locator('body').getAttribute('data-test-draft'), 'persistent');
   checks.push('Atelier tab is full-width, persistent, and leaves active game unchanged');
   const item = { id: '40000099', profile: { ...references.cards[4].card, name: 'TEST PUBLICATION', description: 'Publication de test.' }, pngUrl: '/media/reference/rikka.png', psdUrl: '/exports/test/card.psd' };
-  catalog = await buildCatalog({ published: [item] }); overrideCatalog = true;
+  catalog = await buildCatalog({ published: [...persistedPublications, item] }); overrideCatalog = true;
   await frame.locator('body').evaluate((el, id) => window.parent.postMessage({ type: 'kalistar:card-published', id }, location.origin), item.id);
   await page.locator('#catalogue-refresh').waitFor({ state: 'visible' });
-  assert.equal(await page.evaluate(() => KALISTAR_DATA.cards.length), approvedCount, 'engine not swapped during match');
+  assert.equal(await page.evaluate(() => KALISTAR_DATA.cards.length), initialCount, 'engine not swapped during match');
   await page.locator('#catalogue-refresh').click();
-  await page.waitForFunction(count => window.KALISTAR_READY && KALISTAR_DATA.cards.length === count, approvedCount + 1);
+  await page.waitForFunction(count => window.KALISTAR_READY && KALISTAR_DATA.cards.length === count, initialCount + 1);
   assert.equal(await page.evaluate(() => localStorage.getItem('kalistar.v4.game')), savedGame);
-  assert.deepEqual(await page.evaluate(() => [KALISTAR_DB.registry.owned('user-paris').length, KALISTAR_DB.registry.owned('user-tokyo').length, localStorage.getItem('kalistar.v3.sentinel')]), [approvedCount + 1, 0, 'preserved']);
+  assert.deepEqual(await page.evaluate(() => [KALISTAR_DB.registry.owned('user-paris').length, KALISTAR_DB.registry.owned('user-tokyo').length, localStorage.getItem('kalistar.v3.sentinel')]), [initialCount + 1, 0, 'preserved']);
   await page.reload(); await page.waitForFunction(() => window.KALISTAR_READY);
-  assert.equal(await page.evaluate(() => KALISTAR_DB.registry.owned('user-paris').length), approvedCount + 1);
+  assert.equal(await page.evaluate(() => KALISTAR_DB.registry.owned('user-paris').length), initialCount + 1);
   checks.push('publication + reload preserves active match and V3 preferences, seeds once');
   await page.setViewportSize({ width: 390, height: 844 });
   await page.locator('[data-view=collection]').click();

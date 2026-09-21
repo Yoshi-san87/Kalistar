@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "key": "vincent",
+  "modelId": "46129541",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "df735d522c5f1a0b7fc8f44101a82b50e4fe84f7ca1fccf716686f01434f6a09",
+  "hashes": {
+    "card.png": "33ac4a8deff8183add14ac3a2ae90f15c6257865e0d7f887d3d83161be2b39bf",
+    "card.psd": "a8514e5dd9870a18a5606223a9dae4f6139c9efd7519518597a2d73ae9b65f03"
+  },
+  "components": {
+    "changed": 117440,
+    "maxChannelDelta": 1,
+    "severePixels": 0,
+    "fixedDifferences": 0
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "46129541",
+    "cases": {
+      "color-1": [
+        "46129541"
+      ],
+      "color-4": [
+        "46129541"
+      ],
+      "gray-1": [
+        "46129541"
+      ],
+      "gray-4": [
+        "46129541"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-20T10:16:50.177Z"
+}

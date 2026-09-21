@@ -5,7 +5,7 @@
     'ownership.js', 'local-db.js', 'catalogue.js', 'collection-binder.js', 'accounts-ui.js',
     'reserve-preview.js', 'deck-library.js', 'deck-builder.js', 'app.js'];
   const fail = error => {
-    if (window.KALISTAR_READY) return;
+    if (window.KALISTAR_READY || window.KALISTAR_PREVIEW_READY) return;
     const app = document.getElementById('app'); app.replaceChildren();
     const panel = document.createElement('section'); panel.className = 'boot-status';
     const title = document.createElement('h1'); title.textContent = 'Jeu V4 indisponible';
@@ -17,6 +17,13 @@
   window.addEventListener('unhandledrejection', event => fail(event.reason || {}));
   window.addEventListener('error', event => { if (event.message) fail(event); });
   async function start() {
+    if(window.KalistarPhonePreview?.isHost){
+      await new Promise((resolve,reject)=>{
+        const script=document.createElement('script');script.src='/jeu/assets/lucide.min.js';
+        script.onload=resolve;script.onerror=()=>reject(Error('Icônes indisponibles.'));document.head.append(script);
+      });
+      window.KalistarPhonePreview.mountHost();return;
+    }
     const response = await fetch('/api/game/catalogue', { cache: 'no-store' });
     if (!response.ok) throw Error('Catalogue V4 indisponible (HTTP ' + response.status + ').');
     const data = await response.json();

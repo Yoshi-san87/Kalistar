@@ -1,0 +1,82 @@
+{
+  "passed": true,
+  "testOnly": true,
+  "published": false,
+  "modelId": "47208326",
+  "referenceId": "aaee4023166e9997f865e9972caddb34022764b8d3ed5e1d53c30e68adcc1ace",
+  "protectedFiles": 190,
+  "components": {
+    "changed": 98163,
+    "maxChannelDelta": 1,
+    "severePixels": 0,
+    "fixedDifferences": 0
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "47208326",
+    "cases": {
+      "color-1": [
+        "47208326"
+      ],
+      "color-4": [
+        "47208326"
+      ],
+      "gray-1": [
+        "47208326"
+      ],
+      "gray-4": [
+        "47208326"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "nativeTexts": 16,
+  "smartObjects": 17,
+  "faction": {
+    "id": "FF7",
+    "label": "Final Fantasy VII",
+    "status": "private-experiment-not-published",
+    "flag": "flag-FF7.png",
+    "packedFlag": "flag-FF7-packed.png",
+    "packedGeometry": {
+      "left": 672,
+      "top": 829,
+      "width": 98,
+      "height": 223
+    },
+    "bonusField": "faction",
+    "bonusStat": "ATK",
+    "membersScope": "living-board-only",
+    "factionTests": [
+      {
+        "members": 1,
+        "attackBonus": 0
+      },
+      {
+        "members": 2,
+        "attackBonus": 10
+      },
+      {
+        "members": 3,
+        "attackBonus": 20
+      },
+      {
+        "members": 4,
+        "attackBonus": 30
+      },
+      {
+        "members": 5,
+        "attackBonus": 40
+      }
+    ],
+    "testsScope": "pure engine grouping fixtures, not five legal copies of Cloud",
+    "chromaExcluded": true
+  },
+  "pngHash": "08f43c166bc6aa8e4884971204549a5f6eb25478713277e0e31a286b05d3c4ad",
+  "psdHash": "de43440394c41b566eb6adc000f04f544132e8d71f40c078e735d9dd7141c71d",
+  "checkedAt": "2026-09-20T08:58:33.930Z"
+}

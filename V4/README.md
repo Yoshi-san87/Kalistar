@@ -21,6 +21,14 @@ Voloden inclus. Le nombre et les chemins de reference font autorite dans
 - Consultation des exports : [galerie-elements.html](galerie-elements.html).
 - Direction artistique : [DIRECTION_ARTISTIQUE.md](DIRECTION_ARTISTIQUE.md).
 - Production et securite locale : [Atelier](atelier/README.md).
+- Set FF7 du 20 septembre 2026 : [sources et controles](collaborations/ff7-set-01/README.md).
+  Dix creations publiees (Cloud preserve et neuf ajouts), deux arenes et un
+  deck preconfigure. Le catalogue jouable compte alors 37 cartes ; les 27
+  references approuvees restent inchangees. Collaboration privee non officielle.
+- Set FF8 du 20 septembre 2026 : [sources et controles](collaborations/ff8-set-01/README.md).
+  Douze creations publiees, deux arenes (Balamb Garden et Deling City), deux
+  decks preconfigures de dix cartes et un filtre FF8 dans le classeur.
+  Le catalogue jouable compte 49 cartes, dont les 37 precedentes preservees.
 
 ## Ou trouver les fichiers
 
@@ -35,6 +43,7 @@ Voloden inclus. Le nombre et les chemins de reference font autorite dans
 | `atelier/designer-assets/` | Composants controles de l'apercu interactif |
 | `donnees/catalogue.json` | Catalogue publie pour le site |
 | `creations/` | Creations Atelier publiees, si presentes |
+| `collaborations/` | Sets prives, illustrations, compositions PSD et controles |
 | `revisions/` | Preuves, originaux de retour arriere et migrations terminees |
 | `propositions/` | Explorations artistiques conservees |
 

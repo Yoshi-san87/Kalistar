@@ -108,6 +108,7 @@ async function runDatabaseScenarios({ old, next, addedId, namespace = 'kalistar-
       for (let n = 0; n < 10000 && s.phase !== 'over'; n++) {
         if (s.phase === 'choose') e.lock(s, ...e.aiChoice(s));
         else if (s.phase === 'attack') e.rollAttack(s);
+        else if (s.phase === 'kalistel') e.acceptAttack(s);
         else if (s.phase === 'defense') e.rollDefense(s);
         else if (s.phase === 'result') e.next(s);
         else if (s.phase === 'replace') e.autoDeploy(s, s.replacing);

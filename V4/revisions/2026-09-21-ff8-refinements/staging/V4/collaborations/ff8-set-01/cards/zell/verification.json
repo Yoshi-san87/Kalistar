@@ -1,0 +1,63 @@
+{
+  "passed": true,
+  "key": "zell",
+  "modelId": "48933308",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "54c3683869479ac297783704abda38f0469cc66dce87f7a1913b8dd5859d2396",
+  "hashes": {
+    "card.png": "87d0abdd61f816291162f1a90a4b31dc89e1f288f61df10ddc3ed85fc01ede5f",
+    "card.psd": "072069bd66732d58b683b7df975762a581822026df8ecc5c108485567d63a5cb"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 88831
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "48933308",
+    "cases": {
+      "color-1": [
+        "48933308"
+      ],
+      "color-4": [
+        "48933308"
+      ],
+      "gray-1": [
+        "48933308"
+      ],
+      "gray-4": [
+        "48933308"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-20T16:06:07.330Z",
+  "revision": "2026-09-21-ff8-refinements",
+  "elementRevision": {
+    "outside": {
+      "changed": 43831,
+      "outside": 0,
+      "allowedPixels": 52636
+    },
+    "withoutChanges": {
+      "changed": 0,
+      "outside": 0
+    },
+    "artwork": {
+      "changed": 0,
+      "outside": 0
+    },
+    "from": "PYRO",
+    "to": "ELECTRO",
+    "originalPixels": {
+      "changed": 0,
+      "outside": 0
+    },
+    "editableTextsUnchanged": true
+  }
+}

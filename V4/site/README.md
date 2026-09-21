@@ -1,6 +1,6 @@
 # Kalistar V4 Game Integration
 
-`/jeu/` is the playable V3 application migrated to the approved V4 catalogue, with unchanged game mechanics. Do not serve a static V3 `data.js` fallback.
+`/jeu/` is the playable V3 application migrated to the approved V4 catalogue. Existing mechanics are preserved except for explicitly documented V4 additions below. Do not serve a static V3 `data.js` fallback.
 
 Read the [handoff guide](../../docs/GUIDE_REPRISE.md) and the
 [current gameplay summary](../docs/REGLES_JEU.md), including the documented
@@ -23,6 +23,8 @@ Required read-only HTTP routes:
 - `/jeu/` and `/jeu/*`: `V4/site/index.html` and `V4/site/*`.
 - `/jeu/assets/*`: fall back to `V3/site/assets/*` (arenas, card back, logo, dice bundle, Lucide).
 - `/jeu/shared/*`: `V3/assets/*` (crystals, factions, races, effect icons).
+- `/jeu/assets/factions/FF7.png`: private V4 collaboration flag used by the
+  published Cloud card; V3 shared assets remain unchanged.
 - `/media/reference/<key>.png`: approved V4 PNG from the reference lock.
 - Each published `pngUrl` / `psdUrl`: its validated export.
 - `/`: designer, with `/?embedded=1` suppressing duplicate navigation.
@@ -49,11 +51,91 @@ window.parent.postMessage({ type: 'kalistar:card-published', id }, location.orig
 
 The game accepts messages only from this same-origin iframe. It displays the `Nouvelles cartes` refresh action instead of swapping the engine during a match. Clicking it saves the current state, waits for pending registry writes and reloads into Collection. The existing match is restored against the expanded catalogue; no reset occurs. Refresh is blocked during dice/trait resolution or when preference storage is unavailable.
 
+## Smartphone Layout
+
+`mobile.css` is loaded after the desktop styles. Below 700 CSS pixels (and for
+short landscape windows up to 950 pixels), navigation moves to the bottom with
+safe-area insets. Collection uses one existing parchment leaf, with two columns
+and one or two rows calculated from the actual available height. Swipe and arrow
+pagination, FF7 filtering and character grouping are preserved. The reader has
+separate Card and Notebook views; its existing story, profile, career and copy
+tabs remain available inside the manuscript margins.
+
+The phone arena uses the full screen without the masthead, location heading or
+bottom navigation; Collection and Decks remain accessible from the match menu.
+The player uses a cross: P1 above, P2 left, P3 centre, P4 right, P5 below. The
+opponent's cross is rotated 180 degrees. Score is in the upper-left free corner,
+the explicit action in the lower-right corner, and compact dice between teams.
+`duel-focus.js` fits an enlarged player challenger on the left with four allies
+on the right; the opponent gets the inverse layout. It measures each formation
+and reserves corner space before calculating the transforms. Card art retains
+its aspect ratio, and element effects stay clipped to the formation area.
+Since the 2026-09-21 visual adjustment, duel auras compensate for challenger
+zoom on both desktop and mobile: fine outlines, smaller screen-sized particles,
+reduced glow and slower movement. Enlarging a card no longer enlarges its magic.
+Reserves offer legal deployment positions, inspection opens the full card, and
+the menu includes opponent reserves, formation automation, journal, statistics,
+imports and exports. Very short screens can scroll vertically; landscape does
+not force a wide desktop battlefield. Rules, registry data and approved assets do not
+change. The local server remains loopback-only; mobile layout does not expose the
+atelier or its write endpoints to the network.
+
+## Kalistel Shards
+
+Added at the user's request on 2026-09-21. New matches have two shards per side,
+shared by the team. `engine.js` pauses the first ATK die in phase `kalistel` when
+charges remain. `acceptAttack()` commits the original die; `useKalistel()` spends
+one charge, rerolls once and commits the second result, including special faces.
+Discarded rolls have no effects and consume no attack buffs. Defense cannot
+start while the decision is pending. The AI only evaluates public attack faces.
+Legacy schema-6 states without the optional `kalistel` marker retain their rules;
+`newGame(...,{kalistel:false})` is used solely by the legacy parity test.
+Charges are derived from `kalistel.spent`, with at most two entries per side and
+one per exchange. Decisions and charges persist through normal saves/imports.
+
+The image-only button uses the diamond inside the existing RAINBOW artwork,
+clipped in CSS without changing the source or tying the action to that element.
+Two lights show remaining charges; title/ARIA provide the name and consequence.
+Touch targets remain at least 44 pixels, glow respects reduced motion.
+On activation, the actual crystal image breaks into eight textured facets and
+fine luminous splinters for 900 ms before the die rerolls. The local canvas never
+intercepts input and is removed on completion or cancellation. Reduced motion
+skips flying fragments. This visual effect does not change RNG or charge rules.
+
+```powershell
+node V4/site/kalistel.test.cjs
+node V4/site/kalistel-browser.test.cjs
+node V4/site/kalistel-browser.test.cjs --motion
+```
+
+Tests cover effects, mandatory second result, charge limits, legacy saves,
+invalid states, eight complete games, both local players, AI, reload, image-only
+controls and five viewports. Browser tests use disposable profiles and the local
+server, with screenshots in `site/verification/kalistel/`.
+
+## Phone Preview
+
+The header's smartphone toggle opens `?phone=razr50`: a same-origin preview host
+with one game iframe, not a second running game. Initial entry persists the match
+and waits for database writes. Subsequent toggles resize that same document.
+The 412 x 1007 CSS-pixel viewport approximates the opened Razr 50's 1080 x 2640
+screen ratio ([Motorola specifications](https://en-us.support.motorola.com/app/answers/detail/a_id/180539/p/7901%2C7906%2C)); the preview scales to fit its parent
+window. This is a layout preview, not emulation of Android, DPR, touch hardware
+or browser chrome. Existing loopback and same-origin restrictions remain intact.
+
+On phones, the match report uses continuous vertical scrolling inside the active
+tab. All award ties and all table rows remain available without pagination;
+desktop keeps its paginated presentation. Updated at the user's request on
+2026-09-21.
+
 ## Verification
 
 ```powershell
 node V4/atelier/game-catalog.test.cjs
 node V4/site/browser.test.cjs
+node V4/site/mobile-browser.test.cjs
+node V4/site/phone-preview.test.cjs
+node V4/site/career-statistics.test.cjs
 node V4/site/catalogue-evolution.test.cjs
 $env:KALISTAR_URL = 'http://127.0.0.1:4304'
 node V4/site/browser.test.cjs
@@ -62,3 +144,25 @@ node V4/site/browser.test.cjs
 The Node tests cover approved-only filtering, printed metadata, crop dimensions, valid owned decks, publication validation, additive ownership, storage/import isolation, match restoration and five deterministic full-game comparisons against the unchanged V3 engine. The browser test uses a disposable browser profile, never writes the persisted server catalogue, and mocks one new publication response. Without `KALISTAR_URL` it serves read-only fixtures through Playwright routing; with it the existing parent server is exercised. Screenshots and the report are under `site/verification/`.
 
 `catalogue-evolution.test.cjs` always uses an isolated browser context and routed local fixtures, never the parent server. It covers old backups restored after additions/transfers/activations, preservation of mixed-model final and released matches, counter replay, atomic rejection of forged histories, default-merge conflicts, pristine restores, stale import refusal and two simultaneous UI tabs with active-game preservation.
+
+`mobile-browser.test.cjs` requires the running parent server (default port 4304).
+It uses a disposable touch-enabled Chromium profile and never writes server card
+data. It checks 320, 360, 390 and 430 pixel portrait widths, landscape, touch
+swiping, reader tabs, legal reserve placement, mirrored cross positions, enlarged
+challengers, absence of card/control overlap, nonblank
+dice, an explicit next-turn action and modal navigation. Screenshots are under
+`site/verification/mobile-cross/`. Set `KALISTAR_MOTION=full` to exercise animations too.
+
+`phone-preview.test.cjs` also uses the running server and a disposable profile.
+It checks the toggle, unchanged match state, a single game document, 412 x 1007
+viewport dimensions, fit in a smaller host window, access to all mobile award
+ties/table rows, and preserved desktop pagination. Synthetic report events stay
+in the test DOM; screenshots are under `site/verification/razr50/`.
+
+Career tables in the collection reader and card detail share
+`KalistarCatalogue.careerStatistics()`. Each metric shows total / participated
+completed matches alongside its exact total; partial records and unused reserves
+stay excluded by the existing career aggregators. No stored counters change.
+`career-statistics.test.cjs` checks rounding, zero matches, instance selection,
+weighted aggregate means and responsive layouts using a read-only fixture adapter
+in a disposable browser profile. Screenshots: `site/verification/career-statistics/`.

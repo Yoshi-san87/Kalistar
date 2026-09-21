@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "key": "laguna",
+  "modelId": "44143252",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "734da4dd578de3ad015ffcf1a6d388f2d22f05e4b387c9bfa6e8c0ae10774123",
+  "hashes": {
+    "card.png": "338ba85df2ab9f9b51dfdc0b17ed9ee74f92344e6d25481277080ecc3f5fa7c6",
+    "card.psd": "a12946ba0f67ffa1ff02599affb8bf327e1e026f047efea4275d33f63bfd03ea"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 102597
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "44143252",
+    "cases": {
+      "color-1": [
+        "44143252"
+      ],
+      "color-4": [
+        "44143252"
+      ],
+      "gray-1": [
+        "44143252"
+      ],
+      "gray-4": [
+        "44143252"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-20T14:39:02.930Z"
+}

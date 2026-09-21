@@ -80,9 +80,20 @@ test('default and preset decks use only owned V4 cards and cover P1-P5 twice', a
   const d = await buildCatalog(), e = createEngine(d);
   for (const ids of [d.decks.player, d.decks.enemy, ...d.decks.presets.map(p => p.cards)]) {
     assert.equal(ids.length, 10); assert.equal(new Set(ids).size, 10);
+    assert.equal(new Set(ids.map(id => e.byId[id].characterId)).size, 10);
     assert.deepEqual(e.validatePlayableDeck(ids), []);
     assert.ok(Object.values(e.deckCoverage(ids)).every(n => n >= 2));
   }
+});
+
+test('a deck accepts only one card per character across copies and variants', async () => {
+  const d = await buildCatalog(), e = createEngine(d);
+  const momo = d.cards.filter(c => c.characterId === 'momo');
+  assert.equal(momo.length, 2);
+  const others = d.cards.filter(c => c.characterId !== 'momo').slice(0, 8).map(c => c.id);
+  const error = /Une seule carte par personnage/;
+  assert.match(e.validatePlayableDeck([...others, momo[0].id, momo[0].id]).join(' '), error);
+  assert.match(e.validatePlayableDeck([...others, momo[0].id, momo[1].id]).join(' '), error);
 });
 
 test('publication appended with its new ID and correct URLs, no legacy fallbacks', async () => {
@@ -163,7 +174,7 @@ test('unchanged V3 mechanics: deterministic full games agree after identity norm
   };
   const normalize = s => { const value = JSON.parse(JSON.stringify(s).replaceAll('K4-', 'K3-')); delete value.edition; return value; };
   for (let i = 0; i < 5; i++) {
-    const options = { seed: 'V4-MECHANICS-' + i, deckCoverage: 2 };
+    const options = { seed: 'V4-MECHANICS-' + i, deckCoverage: 2, kalistel: false };
     const old = v3.newGame(d.decks.player, d.decks.enemy, options), current = v4.newGame(d.decks.player, d.decks.enemy, options);
     current.matchId = old.matchId;
     for (const [e, s] of [[v3, old], [v4, current]]) { e.autoDeploy(s, 0); e.autoDeploy(s, 1); e.start(s); }

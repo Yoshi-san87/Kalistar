@@ -1,6 +1,57 @@
 (() => {
   'use strict';
   const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
+  async function shatterKalistel(button,{reduced=false,signal}={}){
+    const art=button?.querySelector('.kalistel-art'),img=art?.querySelector('img');
+    if(!art||!img?.complete||!img.naturalWidth||signal?.aborted||reduced)return;
+    const rect=art.getBoundingClientRect(),imageRect=img.getBoundingClientRect();
+    const size=Math.min(300,innerWidth,innerHeight),radius=innerWidth<700?76:110;
+    const cx=rect.left+rect.width/2,cy=rect.top+rect.height/2;
+    const left=clamp(cx-size/2,0,innerWidth-size),top=clamp(cy-size/2,0,innerHeight-size);
+    const canvas=document.createElement('canvas'),ratio=Math.min(devicePixelRatio||1,2);
+    canvas.className='kalistel-burst';canvas.setAttribute('aria-hidden','true');
+    Object.assign(canvas.style,{position:'fixed',left:left+'px',top:top+'px',width:size+'px',height:size+'px',pointerEvents:'none',zIndex:80});
+    canvas.width=Math.round(size*ratio);canvas.height=Math.round(size*ratio);
+    const ctx=canvas.getContext('2d');if(!ctx)return;
+    document.body.append(canvas);
+    const points=[[.5,0],[1,.36],[.5,1],[0,.36],[.5,.36],[.36,.58],[.64,.58]];
+    const mesh=[[0,3,4],[0,4,1],[3,5,4],[4,5,6],[4,6,1],[3,2,5],[5,2,6],[6,2,1]];
+    const shards=mesh.map((indices,i)=>{
+      const vertices=indices.map(n=>[points[n][0]*rect.width,points[n][1]*rect.height]);
+      const x=vertices.reduce((v,p)=>v+p[0],0)/3,y=vertices.reduce((v,p)=>v+p[1],0)/3;
+      const angle=-Math.PI/2+i*Math.PI*2/mesh.length;
+      return {vertices,x,y,vx:Math.cos(angle)*radius*(.65+i%3*.12),vy:Math.sin(angle)*radius,spin:(i%2?1:-1)*(1.7+i*.3)};
+    });
+    let frame=0,timeout=0,finish;
+    const done=new Promise(resolve=>{finish=resolve;});
+    const clean=()=>{cancelAnimationFrame(frame);clearTimeout(timeout);canvas.remove();finish();};
+    const start=performance.now(),duration=900;
+    const draw=now=>{
+      if(signal?.aborted||!button.isConnected){clean();return;}
+      const t=clamp((now-start)/duration,0,1),flight=1-Math.pow(1-t,2),fade=Math.pow(1-t,1.25);
+      ctx.setTransform(ratio,0,0,ratio,0,0);ctx.clearRect(0,0,size,size);
+      for(const shard of shards){
+        ctx.save();ctx.translate(rect.left-left+shard.x+shard.vx*flight,rect.top-top+shard.y+shard.vy*flight+32*t*t);
+        ctx.rotate(shard.spin*t);ctx.scale(1-t*.3,1-t*.3);ctx.globalAlpha=fade;
+        ctx.beginPath();shard.vertices.forEach(([x,y],i)=>i?ctx.lineTo(x-shard.x,y-shard.y):ctx.moveTo(x-shard.x,y-shard.y));ctx.closePath();
+        ctx.save();ctx.clip();ctx.drawImage(img,imageRect.left-rect.left-shard.x,imageRect.top-rect.top-shard.y,imageRect.width,imageRect.height);ctx.restore();
+        ctx.strokeStyle='#e0fbff';ctx.lineWidth=.7;ctx.shadowColor='#9deaff';ctx.shadowBlur=5;ctx.stroke();ctx.restore();
+      }
+      // Fine angular splinters and glints, rather than a screen-filling flash.
+      for(let i=0;i<18;i++){
+        const angle=i*2.39996,reach=radius*(.4+(i%5)*.14),x=cx-left+Math.cos(angle)*reach*flight,y=cy-top+Math.sin(angle)*reach*flight+20*t*t;
+        ctx.save();ctx.translate(x,y);ctx.rotate(angle+t*2);ctx.globalAlpha=fade*.8;
+        ctx.fillStyle=['#d9fbff','#a3dcf4','#ecd3fa','#fff0bf'][i%4];
+        ctx.beginPath();ctx.moveTo(0,-3);ctx.lineTo(1.7,1);ctx.lineTo(-1.2,2);ctx.closePath();ctx.fill();
+        if(i%3===0){ctx.strokeStyle='#eaffff';ctx.lineWidth=.7;ctx.beginPath();ctx.moveTo(-4,0);ctx.lineTo(4,0);ctx.moveTo(0,-4);ctx.lineTo(0,4);ctx.stroke();}
+        ctx.restore();
+      }
+      if(t===1)clean();else frame=requestAnimationFrame(draw);
+    };
+    signal?.addEventListener('abort',clean,{once:true});
+    timeout=setTimeout(clean,duration+250);frame=requestAnimationFrame(draw);
+    try{await done;}finally{signal?.removeEventListener('abort',clean);clean();}
+  }
   function outcome(before,after){
     const d=after.duel;
     if(before.phase==='guard')return 'guard-gain';
@@ -9,7 +60,8 @@
     if(before.phase==='physical')return 'power-gain';
     if(before.phase==='heart')return 'heart-gain';
     if(before.phase==='defense'&&d.luckUsed&&!before.duel.luckUsed)return 'second-chance';
-    if(before.phase==='attack')return {guard:'guard',revive:'heart',mana:'mana',buff_atk:'power',retry:'luck'}[d.attackValue]||null;
+    if(after.phase==='kalistel')return null;
+    if(['attack','kalistel'].includes(before.phase))return {guard:'guard',revive:'heart',mana:'mana',buff_atk:'power',retry:'luck'}[d.attackValue]||null;
     if(before.phase==='defense'&&d.defenseValue==='retry')return 'luck';
     if(before.phase!=='defense'||after.phase!=='result')return null;
     if(d.defenseValue==='dodge')return 'dodge';
@@ -123,9 +175,9 @@
     }
     try{
       if(['guard','guard-gain','heart','heart-gain','mana','mana-gain','power','power-gain','luck','clover-gain','second-chance'].includes(reaction)){
-        const recipient=(['guard-gain','heart-gain','clover-gain','mana-gain','power-gain'].includes(reaction)?field.querySelector(`.slot[data-unit="${d.guardGranted||d.reraiseGranted||d.cloverGranted||d.manaGranted||d.physicalGranted}"]`):before.phase==='attack'?source:target)||source,card=recipient.querySelector('.slot-card');
+        const recipient=(['guard-gain','heart-gain','clover-gain','mana-gain','power-gain'].includes(reaction)?field.querySelector(`.slot[data-unit="${d.guardGranted||d.reraiseGranted||d.cloverGranted||d.manaGranted||d.physicalGranted}"]`):['attack','kalistel'].includes(before.phase)?source:target)||source,card=recipient.querySelector('.slot-card');
         field.dataset.combat='support';field.dataset.reaction=reaction;recipient.classList.add('effect-recipient');
-        const [asset,label,tint]=reaction==='guard-gain'||reaction==='guard'?['guard',reaction==='guard'?'Garde obtenue':'DEF physique +60','#a6d8eb']:reaction==='heart-gain'||reaction==='heart'?['revive',reaction==='heart'?'Cœur obtenu':'Reraise','#ff96b7']:reaction==='mana-gain'?['mana','Magie +60','#74d9f7']:reaction==='mana'?['mana','Potion obtenue','#74d9f7']:reaction==='power'||reaction==='power-gain'?['buff_atk',reaction==='power'?'Puissance obtenue':'Physique +60','#f49b78']:['retry',reaction==='clover-gain'?'Trèfle':reaction==='second-chance'?'Seconde chance':before.phase==='attack'?'Trèfle obtenu':'Relance','#7eeb9b'];
+        const [asset,label,tint]=reaction==='guard-gain'||reaction==='guard'?['guard',reaction==='guard'?'Garde obtenue':'DEF physique +60','#a6d8eb']:reaction==='heart-gain'||reaction==='heart'?['revive',reaction==='heart'?'Cœur obtenu':'Reraise','#ff96b7']:reaction==='mana-gain'?['mana','Magie +60','#74d9f7']:reaction==='mana'?['mana','Potion obtenue','#74d9f7']:reaction==='power'||reaction==='power-gain'?['buff_atk',reaction==='power'?'Puissance obtenue':'Physique +60','#f49b78']:['retry',reaction==='clover-gain'?'Trèfle':reaction==='second-chance'?'Seconde chance':['attack','kalistel'].includes(before.phase)?'Trèfle obtenu':'Relance','#7eeb9b'];
         const symbol=emblem(recipient,asset,label,tint);
         if(reaction==='guard-gain')await shield(recipient,true);
         await animate(card,[{boxShadow:`0 0 0 ${tint}`},{boxShadow:`0 0 30px ${tint}`,offset:.4},{boxShadow:`0 0 0 ${tint}`}],880);
@@ -165,5 +217,5 @@
       await attack;
     }finally{delete field.dataset.reanimation;signal.removeEventListener('abort',clean);clean();}
   }
-  window.KalistarCombat={play};
+  window.KalistarCombat={play,shatterKalistel};
 })();

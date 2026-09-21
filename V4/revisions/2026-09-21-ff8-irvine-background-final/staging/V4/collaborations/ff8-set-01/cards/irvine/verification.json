@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "key": "irvine",
+  "modelId": "48704873",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "6f42fc17baa3ec58087be22957455955b57837343f3f3da1bfb5783c1b0d8762",
+  "hashes": {
+    "card.png": "34fadd25598a8b44b4f686bd8230c1fa6137e14920fe65fa1f102e848317ef21",
+    "card.psd": "4cda06a1572f6b5b5d4508ca3fc923dd8d0a08a65545424c1932ba79b1416885"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 112967
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "48704873",
+    "cases": {
+      "color-1": [
+        "48704873"
+      ],
+      "color-4": [
+        "48704873"
+      ],
+      "gray-1": [
+        "48704873"
+      ],
+      "gray-4": [
+        "48704873"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-20T16:15:33.449Z",
+  "illustrationOnly": {
+    "withoutArt": {
+      "changed": 0,
+      "outside": 0
+    },
+    "outside": {
+      "changed": 453909,
+      "outside": 0
+    },
+    "originalPixels": {
+      "changed": 0,
+      "outside": 0
+    },
+    "layerStateIdentical": true
+  },
+  "revision": "2026-09-21-ff8-irvine-background-final"
+}

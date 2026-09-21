@@ -1,0 +1,40 @@
+{
+  "id": "FF7",
+  "label": "Final Fantasy VII",
+  "status": "private-experiment-not-published",
+  "flag": "flag-FF7.png",
+  "packedFlag": "flag-FF7-packed.png",
+  "packedGeometry": {
+    "left": 672,
+    "top": 829,
+    "width": 98,
+    "height": 223
+  },
+  "bonusField": "faction",
+  "bonusStat": "ATK",
+  "membersScope": "living-board-only",
+  "factionTests": [
+    {
+      "members": 1,
+      "attackBonus": 0
+    },
+    {
+      "members": 2,
+      "attackBonus": 10
+    },
+    {
+      "members": 3,
+      "attackBonus": 20
+    },
+    {
+      "members": 4,
+      "attackBonus": 30
+    },
+    {
+      "members": 5,
+      "attackBonus": 40
+    }
+  ],
+  "testsScope": "pure engine grouping fixtures, not five legal copies of Cloud",
+  "chromaExcluded": true
+}

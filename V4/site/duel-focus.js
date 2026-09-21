@@ -2,6 +2,7 @@
   'use strict';
   let boards=[],frame=0,observer=null,previous=new Map(),lastPaint=0;
   const animations=new Set(),motion=matchMedia('(prefers-reduced-motion:reduce)');
+  const phone=matchMedia('(max-width:699px), (max-width:950px) and (max-height:500px)');
   function capture(){
     previous=new Map(boards.flatMap(board=>[...board.querySelectorAll('.slot')].map(node=>{
       const style=getComputedStyle(node);return [node.dataset.key,{transform:style.transform,opacity:style.opacity}];
@@ -16,7 +17,17 @@
       let index=0;
       for(const node of slots){
         const cw=node.offsetWidth,ch=node.offsetHeight;let scale=1,dx=0,dy=0,opacity=1;
-        if(selected){
+        if(selected&&phone.matches){
+          // Keep the two free corners for the score/menu and the player's action.
+          const chosen=node===selected,supportHeight=Math.min((h-102)/2,(w*.24-14)/.57420749);
+          scale=chosen?Math.min((h-74)/ch,w*.43/cw):supportHeight/ch;
+          opacity=1;
+          const column=index%2,row=Math.floor(index/2);
+          const x=chosen?w*(side ? .77 : .23):w*(side ? .12+column*.24 : .64+column*.24);
+          const y=chosen?(h+(side?44:-44))/2:(side?78:12)+supportHeight/2+row*(supportHeight+12);
+          dx=x-(node.offsetLeft+cw/2);dy=y-(node.offsetTop+ch/2);
+          if(!chosen)index++;
+        }else if(selected){
           const chosen=node===selected;
           scale=chosen?1.72:.60;opacity=chosen?1:.67;
           const column=index%2,row=Math.floor(index/2);
@@ -26,6 +37,7 @@
           if(!chosen)index++;
         }
         const transform=`translate(${dx.toFixed(2)}px,${dy.toFixed(2)}px) scale(${scale})`;
+        node.style.setProperty('--focus-scale',String(scale));
         if(node._kalistarFocusTransform!==transform){
           const style=getComputedStyle(node),from=node.style.transform?{transform:style.transform,opacity:style.opacity}:previous.get(node.dataset.key)||{transform:'none',opacity:'1'};
           node._kalistarFocusTransform=transform;
@@ -41,9 +53,9 @@
         }
         const canvas=node.querySelector('.element-aura');
         if(canvas){
-          const card=node.querySelector('.slot-card'),width=cw+48,height=card.offsetHeight+48,ratio=Math.min(devicePixelRatio*scale,2.5);
-          canvas.style.top=(card.offsetTop-24)+'px';canvas.style.left='-24px';canvas.style.width=width+'px';canvas.style.height=height+'px';
-          canvas.width=Math.round(width*ratio);canvas.height=Math.round(height*ratio);canvas._size={width,height,ratio};
+          const card=node.querySelector('.slot-card'),width=card.offsetWidth+48,height=card.offsetHeight+48,ratio=Math.min(devicePixelRatio*scale,2.5);
+          canvas.style.top=(card.offsetTop-24)+'px';canvas.style.left=(card.offsetLeft-24)+'px';canvas.style.width=width+'px';canvas.style.height=height+'px';
+          canvas.width=Math.round(width*ratio);canvas.height=Math.round(height*ratio);canvas._size={width,height,ratio,scale};
         }
       }
     }
@@ -57,24 +69,26 @@
   }
   function paint(canvas,time){
     const ctx=canvas.getContext('2d');if(!ctx||!canvas._size)return;
-    const {width,height,ratio}=canvas._size,w=width-48,h=height-48,node=canvas.closest('.slot'),element=node.dataset.element;
+    const {width,height,ratio,scale}=canvas._size,w=width-48,h=height-48,node=canvas.closest('.slot'),element=node.dataset.element;
     if(!element||element==='NONE'){ctx.clearRect(0,0,canvas.width,canvas.height);return;}
     const color=getComputedStyle(node).getPropertyValue('--element-color').trim()||'#bae6d0';
-    const t=motion.matches?1:time/1000;
+    // Aura details keep their screen size when the challenger is enlarged.
+    const unit=1/Math.max(1,scale),t=motion.matches?1:time/1000*.65;
     ctx.setTransform(ratio,0,0,ratio,0,0);ctx.clearRect(0,0,width,height);ctx.translate(24,24);
-    ctx.strokeStyle=color;ctx.lineWidth=1.4;ctx.shadowColor=color;ctx.shadowBlur=12;
-    ctx.globalAlpha=.85;ctx.beginPath();ctx.roundRect(-2,-2,w+4,h+4,7);ctx.stroke();
-    const count=element==='ELECTRO'?10:26;
+    ctx.strokeStyle=color;ctx.lineWidth=unit;ctx.shadowColor=color;ctx.shadowBlur=4*ratio*unit;
+    ctx.globalAlpha=.4;ctx.beginPath();ctx.roundRect(-unit,-unit,w+2*unit,h+2*unit,4*unit);ctx.stroke();
+    const count=element==='ELECTRO'?6:14;
     for(let i=0;i<count;i++){
       const phase=(t*.48+i*.371)%1,p=borderPoint((i/count+t*.045)%1,w,h);
-      const alpha=Math.sin(phase*Math.PI)*.8+.1;
+      const alpha=Math.sin(phase*Math.PI)*.4+.05;
       ctx.globalAlpha=alpha;ctx.fillStyle=element==='RAINBOW'?`hsl(${i*360/count+t*22},94%,73%)`:color;
-      ctx.strokeStyle=ctx.fillStyle;ctx.shadowColor=ctx.fillStyle;ctx.shadowBlur=8;
+      ctx.strokeStyle=ctx.fillStyle;ctx.shadowColor=ctx.fillStyle;ctx.shadowBlur=3*ratio*unit;
       ctx.save();ctx.translate(p.x,p.y);
+      if(element!=='ELECTRO')ctx.scale(.65*unit,.65*unit);
       if(element==='ELECTRO'){
-        ctx.lineWidth=1.6;ctx.beginPath();
+        ctx.lineWidth=1.1*unit;ctx.beginPath();
         for(let j=0;j<8;j++){
-          const q=borderPoint((i/count+t*.045+j*.004)%1,w,h),shake=Math.sin(i*7+j*4+t*7)*5;
+          const q=borderPoint((i/count+t*.045+j*.004)%1,w,h),shake=Math.sin(i*7+j*4+t*7)*3*unit;
           if(j===0)ctx.moveTo(q.x-p.x,q.y-p.y);else ctx.lineTo(q.x-p.x+shake,q.y-p.y-shake);
         }
         ctx.stroke();
@@ -112,8 +126,10 @@
     lastPaint=0;tick(performance.now());
   }
   motion.addEventListener('change',()=>{const nodes=boards.slice();capture();mount(nodes);});
+  phone.addEventListener('change',()=>{const nodes=boards.slice();capture();mount(nodes);});
   window.addEventListener('pagehide',capture);
   function reveal(side){
+    if(phone.matches)return;
     const board=boards.find(b=>Number(b.dataset.player)===side),selected=board?.querySelector('.challenger'),viewport=document.querySelector('.battlefield-viewport');
     if(!selected||!viewport)return;
     const x=side?selected.offsetWidth*1.72/2+10:board.clientWidth-selected.offsetWidth*1.72/2-10;

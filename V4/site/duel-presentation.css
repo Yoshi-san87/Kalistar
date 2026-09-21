@@ -3,7 +3,7 @@
 .arena-view .slot{transform-origin:center;--token-size:clamp(28px,calc(var(--card-width)*.2),42px)}
 .arena-view .slot.challenger{z-index:6}
 .arena-view .has-challenger .slot:not(.challenger){z-index:1}
-.arena-view .slot.challenger .slot-card{outline-color:var(--element-color);border-color:var(--element-color);box-shadow:0 12px 35px #000c,0 0 22px color-mix(in srgb,var(--element-color) 45%,transparent)}
+.arena-view .slot.challenger .slot-card{--aura-unit:calc(1px / max(1,var(--focus-scale,1)));outline-color:var(--element-color);outline-width:calc(1.25 * var(--aura-unit));outline-offset:calc(2 * var(--aura-unit));border-color:var(--element-color);box-shadow:0 calc(6 * var(--aura-unit)) calc(14 * var(--aura-unit)) #0009,0 0 calc(8 * var(--aura-unit)) color-mix(in srgb,var(--element-color) 25%,transparent)}
 .arena-view .formation .slot.combat-actor,.arena-view .formation .slot.combat-target{z-index:10}
 .element-aura{position:absolute;pointer-events:none;z-index:2}
 .arena-view .slot .inspect{z-index:4;left:5px;right:auto}

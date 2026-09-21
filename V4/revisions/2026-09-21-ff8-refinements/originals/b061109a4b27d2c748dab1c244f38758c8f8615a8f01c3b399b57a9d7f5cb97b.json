@@ -1,0 +1,498 @@
+{
+  "id": "ff8-set-01",
+  "label": "FINAL FANTASY VIII",
+  "faction": "FF8",
+  "status": "production",
+  "officialCollaboration": false,
+  "narrativeStatus": "Reinterpretations de fans, pas des captures exactes ni de nouvelles affirmations canoniques.",
+  "narrativeSource": "https://na.finalfantasy.com/titles/finalfantasy8",
+  "narrativeNotes": [
+    "Les biographies officielles cadrent les personnalites ; les instants et sentiments des descriptions sont des reinterpretations demandees par l'utilisateur.",
+    "Scenes revisees : Squall avec l'epee sur l'epaule ; Zell souriant en garde de combat ; Linoa parmi les fleurs avec Angelo ; Irvine vise pour le tir de Deling.",
+    "Selphie rit a l'ecole en tenue jaune, nunchakus demandes a la hanche, sans lance. Categorie existante Fleau choisie pour ces nunchakus ; pictogramme local au set, matrice d'armes inchangee.",
+    "Edea conserve son personnage, ajoute l'armature de robe derriere elle et un fond de ciel seul. Seifer : attitude de mauvais garcon. Ward reste a Centra, pas Dollet."
+  ],
+  "balanceNotes": "Base de valeurs comparable au set FF7 ; equilibrage initial, sans revendication de taux de victoire. HUMAIN commun et faction FF8 imposes. Decks de dix inchanges.",
+  "cards": [
+    {
+      "key": "squall",
+      "id": "45410910",
+      "name": "SQUALL",
+      "title": "LE POIDS DES PROMESSES",
+      "job": "SEED",
+      "element": "CRYO",
+      "weapon": "Ep\u00e9e longue",
+      "positions": [
+        2,
+        1
+      ],
+      "atk": [
+        275,
+        229,
+        183,
+        137,
+        "buff_atk",
+        45
+      ],
+      "defense": [
+        235,
+        195,
+        155,
+        115,
+        75,
+        35
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "description": "Sa gunblade sur l'\u00e9paule, Squall regarde devant lui avec cette r\u00e9serve qui le prot\u00e8ge si mal. Depuis le bal des SeeD, Linoa a fissur\u00e9 son silence. La lame p\u00e8se moins lourd que les promesses qu'il commence \u00e0 faire.",
+      "race": "HUMAIN"
+    },
+    {
+      "key": "zell",
+      "id": "48933308",
+      "name": "ZELL",
+      "title": "LE SOURIRE AVANT L'IMPACT",
+      "job": "PUGILISTE",
+      "element": "PYRO",
+      "weapon": "Poing",
+      "positions": [
+        2
+      ],
+      "atk": [
+        300,
+        248,
+        196,
+        144,
+        92,
+        40
+      ],
+      "defense": [
+        174,
+        144,
+        "dodge",
+        84,
+        54,
+        24
+      ],
+      "magic": [],
+      "barriers": [
+        5
+      ],
+      "description": "Zell l\u00e8ve les poings et sourit d\u00e9j\u00e0 au prochain \u00e9change. Le pain de la caf\u00e9t\u00e9ria de Balamb peut attendre : ses amis ont besoin de lui. Cette joie n'efface pas le danger ; elle lui donne une raison de ne pas reculer.",
+      "race": "HUMAIN"
+    },
+    {
+      "key": "linoa",
+      "id": "45513029",
+      "name": "LINOA",
+      "title": "LES JOURS A DEFENDRE",
+      "job": "SORCIERE",
+      "element": "LUXO",
+      "weapon": "Projectile",
+      "positions": [
+        5
+      ],
+      "atk": [
+        164,
+        136,
+        108,
+        "mana",
+        "revive",
+        "retry"
+      ],
+      "defense": [
+        222,
+        184,
+        146,
+        108,
+        70,
+        32
+      ],
+      "magic": [
+        6,
+        5,
+        4
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "description": "Parmi les fleurs, Linoa retrouve Angelo et laisse enfin retomber sa garde. \u00c0 Timber, elle r\u00eavait de libert\u00e9 ; voici ce qu'elle voulait sauver aussi : un jour paisible, une pr\u00e9sence fid\u00e8le, le droit de rire sans peur.",
+      "race": "HUMAIN"
+    },
+    {
+      "key": "irvine",
+      "id": "48704873",
+      "name": "IRVINE",
+      "title": "UN SOUVENIR DANS LA MIRE",
+      "job": "TIREUR",
+      "element": "GEO",
+      "weapon": "Gun",
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        274,
+        226,
+        178,
+        130,
+        82,
+        34
+      ],
+      "defense": [
+        188,
+        154,
+        120,
+        86,
+        "retry",
+        18
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        4
+      ],
+      "description": "Dans la tour de Deling, Irvine \u00e9paule son fusil et vise Edea pour le tir d\u00e9cisif. Matrone reste l\u00e0, au fond de sa m\u00e9moire. Il retient son souffle ; pour couvrir ses amis, il lui faut traverser ce souvenir sans le renier.",
+      "race": "HUMAIN"
+    },
+    {
+      "key": "quistis",
+      "id": "49163588",
+      "name": "QUISTIS",
+      "title": "AU-DELA DES LECONS",
+      "job": "INSTRUCTRICE",
+      "element": "HYDRO",
+      "weapon": "Fouet",
+      "positions": [
+        4
+      ],
+      "atk": [
+        272,
+        224,
+        176,
+        "mana",
+        80,
+        32
+      ],
+      "defense": [
+        196,
+        162,
+        128,
+        94,
+        "retry",
+        26
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        2
+      ],
+      "barriers": [
+        5,
+        3
+      ],
+      "description": "Au centre de combat de Balamb, Quistis laisse enfin tomber le ton de l'instructrice. Le fouet reste pr\u00eat, les mots beaucoup moins. Sous la lune, elle apprend qu'on peut guider les autres sans savoir o\u00f9 d\u00e9poser sa solitude.",
+      "race": "HUMAIN"
+    },
+    {
+      "key": "selphie",
+      "id": "40976482",
+      "name": "SELPHIE",
+      "title": "LA JOIE FAIT ECOLE",
+      "job": "SEED",
+      "element": "AERO",
+      "weapon": "Fl\u00e9au",
+      "positions": [
+        3,
+        2
+      ],
+      "atk": [
+        232,
+        192,
+        152,
+        112,
+        "buff_atk",
+        "retry"
+      ],
+      "defense": [
+        216,
+        178,
+        140,
+        102,
+        64,
+        26
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        4
+      ],
+      "description": "Dans la cour de l'\u00e9cole, Selphie \u00e9clate de rire, sa tenue jaune au soleil et ses nunchakus rang\u00e9s \u00e0 la hanche. Elle pense aux amis de Trabia et au prochain festival : pour elle, personne ne devrait rester \u00e0 l'\u00e9cart.",
+      "race": "HUMAIN"
+    },
+    {
+      "key": "edea",
+      "id": "49134060",
+      "name": "EDEA",
+      "title": "SOUS LES ORNEMENTS",
+      "job": "SORCIERE",
+      "element": "CRYO",
+      "weapon": "B\u00e2ton",
+      "positions": [
+        4,
+        5
+      ],
+      "atk": [
+        252,
+        208,
+        164,
+        "mana",
+        "retry",
+        32
+      ],
+      "defense": [
+        222,
+        184,
+        146,
+        108,
+        70,
+        32
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        1
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "description": "Le ciel seul entoure Edea et l'armature de sa robe. Sous la possession, Matrone demeure, li\u00e9e aux enfants qu'elle a aim\u00e9s. La glace ob\u00e9it \u00e0 sa main ; ces liens r\u00e9sistent \u00e0 la voix qui parle \u00e0 sa place.",
+      "race": "HUMAIN"
+    },
+    {
+      "key": "seifer",
+      "id": "46860270",
+      "name": "SEIFER",
+      "title": "LE DEFI DANS LES YEUX",
+      "job": "CHEVALIER",
+      "element": "PYRO",
+      "weapon": "Ep\u00e9e longue",
+      "positions": [
+        1
+      ],
+      "atk": [
+        210,
+        174,
+        138,
+        102,
+        "guard",
+        30
+      ],
+      "defense": [
+        282,
+        234,
+        186,
+        138,
+        90,
+        42
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "description": "Seifer rel\u00e8ve le menton, sourire insolent et gunblade pr\u00eate. Sous ses airs de mauvais gar\u00e7on, le r\u00eave du chevalier tient bon. Il veut une place dans l'histoire, quitte \u00e0 ne plus voir ceux qui l'attendent.",
+      "race": "HUMAIN"
+    },
+    {
+      "key": "ward",
+      "id": "47264450",
+      "name": "WARD",
+      "title": "LA FORCE DE RESTER",
+      "job": "GARDIEN",
+      "element": "NONE",
+      "weapon": "Lance",
+      "positions": [
+        1
+      ],
+      "atk": [
+        172,
+        144,
+        116,
+        88,
+        "guard",
+        32
+      ],
+      "defense": [
+        312,
+        258,
+        204,
+        150,
+        96,
+        42
+      ],
+      "magic": [],
+      "barriers": [],
+      "description": "Sur la falaise de Centra, Ward s'appuie sur son harpon pour m\u00e9nager son \u00e9paule. Avant la mer en contrebas, il cherche Laguna et Kiros du regard. Dans leur trio, sa force n'a jamais servi \u00e0 partir le premier.",
+      "race": "HUMAIN"
+    },
+    {
+      "key": "kiros",
+      "id": "43695729",
+      "name": "KIROS",
+      "title": "TE RETROUVER ENFIN",
+      "job": "ECLAIREUR",
+      "element": "NONE",
+      "weapon": "Dague",
+      "positions": [
+        2
+      ],
+      "atk": [
+        292,
+        242,
+        192,
+        142,
+        92,
+        42
+      ],
+      "defense": [
+        182,
+        150,
+        118,
+        86,
+        "dodge",
+        22
+      ],
+      "magic": [],
+      "barriers": [],
+      "description": "\u00c0 Winhill, Kiros retrouve Laguna vivant. Ses lames s'abaissent et son sourire revient. Il aura le temps de railler son ami ; pour l'instant, cette pr\u00e9sence apaise les craintes de sa longue route.",
+      "race": "HUMAIN"
+    },
+    {
+      "key": "laguna",
+      "id": "44143252",
+      "name": "LAGUNA",
+      "title": "UNE MELODIE POUR DEMAIN",
+      "job": "SOLDAT",
+      "element": "ELECTRO",
+      "weapon": "Gun",
+      "positions": [
+        3
+      ],
+      "atk": [
+        238,
+        196,
+        154,
+        112,
+        "buff_atk",
+        28
+      ],
+      "defense": [
+        220,
+        182,
+        144,
+        106,
+        68,
+        30
+      ],
+      "magic": [
+        5,
+        3
+      ],
+      "barriers": [
+        4
+      ],
+      "description": "Au piano de l'h\u00f4tel de Deling, Julia joue et Laguna perd ses mots. Son fusil repose, ses jambes le trahissent. Lui qui r\u00eave de devenir journaliste voudrait garder cet instant sans avoir \u00e0 le raconter.",
+      "race": "HUMAIN"
+    },
+    {
+      "key": "ultimecia",
+      "id": "47842924",
+      "name": "ULTIMECIA",
+      "title": "NE PLUS ETRE SEULE",
+      "job": "SORCIERE",
+      "element": "NECRO",
+      "weapon": "B\u00e2ton",
+      "positions": [
+        5
+      ],
+      "atk": [
+        188,
+        156,
+        "mana",
+        "revive",
+        "death",
+        28
+      ],
+      "defense": [
+        216,
+        178,
+        140,
+        102,
+        "retry",
+        26
+      ],
+      "magic": [
+        6,
+        5,
+        1
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "description": "Seule dans son ch\u00e2teau, Ultimecia veut comprimer le temps jusqu'\u00e0 tout poss\u00e9der. La col\u00e8re remplit le vide entre les heures. Abolir hier et demain semble plus facile que d'affronter sa propre solitude.",
+      "race": "HUMAIN"
+    }
+  ],
+  "presets": [
+    {
+      "id": "ff8-set-01-a",
+      "name": "FF8 - Les liens retrouves",
+      "characters": [
+        "squall",
+        "zell",
+        "linoa",
+        "irvine",
+        "quistis",
+        "edea",
+        "ward",
+        "kiros",
+        "laguna",
+        "ultimecia"
+      ]
+    },
+    {
+      "id": "ff8-set-01-b",
+      "name": "FF8 - Les promesses du Garden",
+      "characters": [
+        "squall",
+        "zell",
+        "linoa",
+        "irvine",
+        "quistis",
+        "selphie",
+        "edea",
+        "seifer",
+        "laguna",
+        "ultimecia"
+      ]
+    }
+  ],
+  "arenas": [
+    "ff8-balamb-garden",
+    "ff8-deling-parade"
+  ]
+}

@@ -33,7 +33,7 @@
         if (!byId.has(id) || !registry || typeof registry.owned !== 'function') return { owned: 0, available: 0 };
         const owned = registry.owned(userId, id);
         if (!Array.isArray(owned)) return { owned: 0, available: 0 };
-        let available = Math.min(2, owned.length);
+        let available = Math.min(1, owned.length);
         while (available > 0 && ownership(Array(available).fill(id)).length) available--;
         return { owned: owned.length, available };
       } catch { return { owned: 0, available: 0 }; }
@@ -44,7 +44,8 @@
       const errors = errorsFrom(() => strict ? engine.validatePlayableDeck(ids.slice()) : engine.validateDeck(ids.slice()));
       if (slots.length !== 10 || ids.length !== 10) errors.push('10 cartes requises.');
       if (ids.some(id => !byId.has(id))) errors.push('Carte V4 inconnue.');
-      if (ids.some(id => ids.filter(other => id === other).length > 2)) errors.push('Deux exemplaires maximum par version.');
+      const characters = ids.map(id => byId.get(id)?.characterId).filter(Boolean);
+      if (new Set(characters).size !== characters.length) errors.push('Une seule carte par personnage, toutes versions confondues.');
       const missing = coverage.flatMap((n, p) => n < 2 ? [p + 1] : []);
       if (missing.length && !strict) errors.push('Deux compatibles requis : ' + missing.map(p => 'P' + p).join(', ') + '.');
       let formation = null;
@@ -76,10 +77,11 @@
       const c = byId.get(id); if (!c || !Number.isInteger(index) || index < 0 || index > 9) return null;
       const base = slots.filter((_, i) => i !== index), next = slots.slice(); next[index] = id;
       const available = availability(id), copies = base.filter(other => other === id).length;
+      const characterConflict = base.some(other => byId.get(other)?.characterId === c.characterId);
       const rainbow = c.element === 'RAINBOW' && base.some(other => byId.get(other)?.element === 'RAINBOW');
       const same = slots[index] === id;
-      const allowed = !same && copies < available.available && !rainbow;
-      const reason = same ? 'D\u00e9j\u00e0 dans ce slot' : rainbow ? 'Une seule Rainbow' : copies >= 2 ? 'Limite de deux exemplaires' : copies >= available.available ? 'Aucun exemplaire disponible' : '';
+      const allowed = !same && !characterConflict && copies < available.available && !rainbow;
+      const reason = same ? 'D\u00e9j\u00e0 dans ce slot' : characterConflict ? 'Une seule carte par personnage' : rainbow ? 'Une seule Rainbow' : copies >= available.available ? 'Aucun exemplaire disponible' : '';
       const affinities = {};
       for (const field of ['faction', 'race']) {
         const members = base.flatMap(other => byId.get(other)?.[field] === c[field] ? [{ id: other, name: byId.get(other).name }] : []);

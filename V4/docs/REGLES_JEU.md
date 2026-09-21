@@ -18,8 +18,10 @@ comportement actuel, sans changement de gameplay. Retour au
 
 ## Deck et formation
 
-- Dix cartes par deck, au maximum deux exemplaires de la meme version et une
-  seule carte Rainbow. Les possessions du compte sont verifiees par l'interface.
+- Dix cartes par deck, une seule carte par personnage toutes versions confondues,
+  et une seule carte Rainbow. Les possessions du compte sont verifiees par
+  l'interface. Deux exemplaires identiques ou deux variantes du meme personnage
+  sont donc interdits dans un meme deck.
 - Cinq positions : P1 Tank, P2 DPS physique, P3 Middle, P4 DPS magique ou distance,
   P5 Support. Une position ne donne pas de bonus de statistiques a elle seule.
 - Pour un deck jouable nouveau, au moins deux cartes compatibles avec CHAQUE
@@ -58,6 +60,25 @@ remplacements compatibles. Une reserve incompatible peut donc rester, et la
 victoire survenir avant dix kills. Ce point doit etre arbitre explicitement
 avant un changement de moteur ; ce guide ne le presente pas comme deja corrige.
 Le moteur impose aussi un match nul de demo apres 200 echanges.
+
+## Eclats de Kalistel
+
+Ajout demande le 21 septembre 2026 : deux Eclats de Kalistel par joueur et par
+nouvelle rencontre, partages par son equipe, y compris les cartes sans cristal.
+Apres le premier jet ATK, avant toute defense ou attribution d'effet, le joueur
+garde le resultat ou depense un eclat pour relancer. Une relance au maximum par
+attaque ; attaquant et cible restent identiques. Le second resultat est
+obligatoire, meme moins favorable. Les soutiens et Mort sont aussi eligibles.
+Le jet abandonne ne consomme ni potion ni puissance physique et n'attribue aucun
+effet. Seul le resultat conserve est resolu ; aucun objet de collection consomme.
+Le trefle conserve ses regles de relance DEF automatique, distinctes des eclats.
+
+Le choix n'a pas de compte a rebours. L'IA dispose des memes deux charges et
+decide uniquement selon les faces publiques, sans consulter le futur RNG.
+Les anciennes parties sans marqueur `kalistel` restent inchangees. Les nouvelles
+sauvegardent le choix en phase `kalistel` et les depenses `{round, side}` ; une
+reprise ne regenere aucune charge. Le bilan ne compte que le resultat final,
+avec deux jets ATK lorsqu'un eclat a ete utilise.
 
 ## Scores numeriques
 
@@ -167,6 +188,15 @@ Ne pas multiplier aussi les donnees stockees, ce qui compterait 60 deux fois.
 L'indice actuel vaut 5 par kill + 3 par stop + 2 par soutien + 1 par Reraise
 consomme + 1 par tranche de 30 points de debuff. C'est une formule de classement,
 pas une preuve d'equilibrage des cartes.
+
+Depuis la demande du 21 septembre 2026, la carriere affiche ensemble les totaux
+et les moyennes par match pour kills, stops, ATK, DEF, soutiens, ATK retiree,
+vies sauvees et MVP. Moyenne = total / participations aux matchs termines, pour
+le meme exemplaire ou le meme ensemble d'exemplaires selectionne. Les cartes
+restees en reserve et les historiques partiels sont exclus par les agregats
+existants. Arrondi d'affichage a une decimale, sans modifier les totaux ni
+les archives. Sans participation, la moyenne est indisponible (`-`), total 0.
+ATK/DEF conservent leur definition de scores finaux cumules, pas de degats nets.
 
 ## Edition, sauvegardes et limites
 

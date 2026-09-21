@@ -17,6 +17,22 @@
 .duel-console .dice-stage::before{content:'';position:absolute;width:78px;height:22px;left:calc(50% - 39px);bottom:9px;border:1px solid #a09f9080;border-radius:50%;box-shadow:0 0 0 4px #a2a18b0d,inset 0 0 0 3px #c7b79c10;pointer-events:none;z-index:-1}
 .duel-console[data-casting] .duel-die.active .dice-stage::before{border-color:var(--action-color);animation:ritual-pedestal 1s ease-in-out infinite}
 .arena-view .duel-die small{font-size:11px;color:#bac6bd}
+.dice-well{display:flex;align-items:center;justify-content:center;min-width:0;min-height:0;height:100%}
+.dice-well .dice-stage{flex:1 1 0;min-width:0;width:auto}
+.duel-console .kalistel-control{position:relative;display:grid;place-items:center;align-content:center;gap:3px;flex:0 0 44px;width:44px;height:58px;min-height:44px;padding:0;border:0;background:none;box-shadow:none;opacity:1;cursor:pointer;transition:filter .25s ease,transform .25s ease}
+.kalistel-art{position:relative;display:block;width:24px;height:44px;overflow:hidden;clip-path:polygon(50% 0,100% 36%,50% 100%,0 36%);background:#d4f5f5}
+.kalistel-art img{position:absolute;width:74px;max-width:none;height:auto;left:-25px;top:-25px;pointer-events:none}
+.kalistel-control:not(:disabled){filter:drop-shadow(0 0 6px #99eaff);animation:kalistel-breathe 2.8s ease-in-out infinite}
+.kalistel-control:hover:not(:disabled){transform:translateY(-2px);filter:drop-shadow(0 0 9px #e0fcff)}
+.kalistel-control:focus-visible{outline:2px solid #d7f7ff;outline-offset:3px}
+.duel-console .kalistel-control:disabled{cursor:default;filter:saturate(.7);background:none;border:0}
+.duel-console .kalistel-control.depleted{filter:grayscale(1);opacity:.35}
+.kalistel-charges{display:flex;gap:5px;height:4px}
+.kalistel-charges i{width:4px;height:4px;transform:rotate(45deg);background:#536266}
+.kalistel-charges .lit{background:#d7faff;box-shadow:0 0 4px #80dfee}
+.duel-console .kalistel-control.is-spent{animation:none;filter:none}
+.kalistel-control.is-spent .kalistel-art{opacity:.12;filter:grayscale(1)}
+@keyframes kalistel-breathe{50%{filter:drop-shadow(0 0 10px #bdefff) brightness(1.15)}}
 .arena-view .duel-status{gap:3px;border-top:1px solid #967f7066;padding:5px 0 3px}
 .arena-view .duel-status .phase-label{display:flex;align-items:center;justify-content:center;gap:5px;color:#d8c1a6;font-size:9px;min-height:24px;line-height:1.35}
 .phase-label>span{min-width:0}.phase-label>.lucide{width:18px;height:18px;color:var(--ritual-color)}
