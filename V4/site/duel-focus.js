@@ -18,13 +18,13 @@
       for(const node of slots){
         const cw=node.offsetWidth,ch=node.offsetHeight;let scale=1,dx=0,dy=0,opacity=1;
         if(selected&&phone.matches){
-          // Keep the two free corners for the score/menu and the player's action.
+          // Keep the upper corners free for score/menu or player resources/action.
           const chosen=node===selected,supportHeight=Math.min((h-102)/2,(w*.24-14)/.57420749);
           scale=chosen?Math.min((h-74)/ch,w*.43/cw):supportHeight/ch;
           opacity=1;
           const column=index%2,row=Math.floor(index/2);
           const x=chosen?w*(side ? .77 : .23):w*(side ? .12+column*.24 : .64+column*.24);
-          const y=chosen?(h+(side?44:-44))/2:(side?78:12)+supportHeight/2+row*(supportHeight+12);
+          const y=chosen?(h+44)/2:78+supportHeight/2+row*(supportHeight+12);
           dx=x-(node.offsetLeft+cw/2);dy=y-(node.offsetTop+ch/2);
           if(!chosen)index++;
         }else if(selected){

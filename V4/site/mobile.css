@@ -133,7 +133,7 @@
   .battlefield .team-left { grid-row: 3; }
   .team .side-heading { position: absolute; z-index: 15; width: 96px; min-height: 0; padding: 0; margin: 0; gap: 2px; flex-direction: column; align-items: flex-start; }
   .team-right .side-heading { display: none; }
-  .team-left .side-heading { bottom: 0; left: 0; }
+  .team-left .side-heading { top: 0; bottom: auto; left: 6px; min-height: 64px; justify-content: center; }
   .team .player-name { font-size: 10px; line-height: 1.2; text-shadow: 0 1px 3px #000,0 0 6px #000; }
   .team .resources { gap: 4px; font-size: 10px; }
   .team .resources > span { display: none; }
@@ -169,8 +169,8 @@
   .slot.target .slot-card { outline: calc(1.25 * var(--aura-unit,1px)) solid #ee8c9c; outline-offset: calc(2 * var(--aura-unit,1px)); }
   .slot.trait-eligible .slot-card { outline: 2px solid var(--trait-color); outline-offset: 2px; }
   .battlefield .duel-console {
-    position: static; width: 100%; max-width: none; min-width: 0; min-height: 0; height: 110px;
-    display: grid; grid-template-columns: 90px minmax(0,1fr) 90px; grid-template-rows: minmax(0,1fr); align-items: center; gap: 6px;
+    position: relative; width: 100%; max-width: none; min-width: 0; min-height: 0; height: 110px;
+    display: grid; grid-template-columns: 90px minmax(0,1fr) 90px; grid-template-rows: minmax(0,1fr); align-items: start; gap: 6px;
     padding: 4px 6px; margin: 0; border-radius: 0; border: 0; border-block: 1px solid #c6b69866; background: #071519e8; box-shadow: none; transform: none; z-index: 20;
   }
   .duel-console > .arena-crown, .duel-console::before, .duel-console::after { display: none; }
@@ -198,7 +198,7 @@
   .duel-console .recap-totals .score-owner { display: none; }
   .duel-console .recap-totals .score-role { font-size: 9px; }
   .duel-console .duel-actions {
-    position: absolute; z-index: 30; bottom: 12px; left: auto; right: 12px; width: 32%; max-width: 160px; min-height: 64px;
+    position: absolute; z-index: 30; top: calc(100% + 8px); bottom: auto; left: auto; right: 6px; width: 32%; max-width: 160px; min-height: 64px;
     display: flex; align-items: center; justify-content: center; margin: 0; padding: 0;
     background: none; border: 0; box-shadow: none;
   }

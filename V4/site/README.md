@@ -128,6 +128,13 @@ tab. All award ties and all table rows remain available without pagination;
 desktop keeps its paginated presentation. Updated at the user's request on
 2026-09-21.
 
+On phones, the primary combat action sits below the right-hand opponent die,
+outside the dice console frame, in the free upper-right corner beside P1. The
+reserve and grave counters occupy the matching upper-left corner. No extra row
+is reserved: P1 stays at the top of the cross. During focused combat, enlarged
+cards leave these upper corners clear.
+Desktop placement is unchanged. Updated at the user's request on 2026-09-22.
+
 ## Verification
 
 ```powershell
