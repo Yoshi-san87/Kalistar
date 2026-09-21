@@ -2,7 +2,7 @@
 
 ## Atelier interactif et jeu V4
 
-Le lanceur ouvre maintenant `/jeu/#atelier`. Le jeu V4 dispose des onglets Collection, Decks, Arene et Atelier. Son catalogue contient uniquement les cartes V4 approuvees du verrou courant, puis les nouvelles creations validees. La V3 et ses sauvegardes restent separees et inchangees.
+Le lanceur `Lancer-Kalistar.cmd`, a la racine du projet, ouvre directement `/jeu/`. `Lancer-Atelier.cmd` conserve l'ouverture de `/jeu/#atelier`. Le jeu V4 dispose des onglets Collection, Decks, Arene et Atelier. Son catalogue contient uniquement les cartes V4 approuvees du verrou courant, puis les nouvelles creations validees. La V3 et ses sauvegardes restent separees et inchangees.
 
 L'Atelier demarre sur une carte vierge, avec le logo Kalistar dans l'illustration. Il n'utilise aucun prompt ni service de generation d'images. Choisir le cristal, la race, l'arme, la faction et les positions ; chaque face ATK/DEF peut porter une valeur ou un effet propose par le moteur. Les cases de magie et de barriere s'appliquent aux valeurs numeriques. Sans cristal, elles sont desactivees. Le Reraise exige P5, et la garde P1 ou P5, conformement aux regles du jeu conservees.
 
@@ -30,7 +30,15 @@ La premiere interface reste accessible a `/legacy` : declinaisons de cartes vali
 
 ## Lancement
 
-Ouvrir `Lancer-Atelier.cmd`. Le service ecoute uniquement sur `127.0.0.1`, port 4304 ou un port libre jusqu'a 4324. Photoshop 2025 doit etre installe. Node et Python utilisent les runtimes locaux deja presents. Aucune installation reseau ni compte externe.
+Double-cliquer sur `../../Lancer-Kalistar.cmd` pour le jeu, ou `Lancer-Atelier.cmd` pour l'Atelier. Le serveur existant est reutilise ; sinon il demarre en arriere-plan, puis le navigateur ouvre l'adresse effective. Le service ecoute uniquement sur `127.0.0.1`, port 4304 ou un port libre jusqu'a 4324. Le lanceur cherche Node dans le runtime local, puis dans le PATH. Cela ne rend pas le moteur natif portable : ses autres dependances restent a configurer sur un nouveau poste, et Photoshop 2025 est necessaire aux rendus. Aucune installation reseau ni compte externe.
+
+Pour verifier le demarrage sans ouvrir de navigateur : `powershell.exe -NoProfile -ExecutionPolicy RemoteSigned -File start.ps1 -View Game -NoBrowser`. Tests isoles du lanceur : `node --test start.test.cjs`.
+
+Le raccourci `Kalistar.lnk`, a la racine, utilise le favicon du site converti en
+icone Windows multi-resolution (`../site/assets/kalistar.ico`, source V3 inchangee).
+`Lancer-Kalistar.cmd` le recree avec les chemins du poste courant. Apres transfert
+sur un autre PC ou deplacement du dossier, ouvrir le `.cmd` une fois. Le `.lnk`
+reste local et exclu de Git ; le lanceur et son icone sont des fichiers du projet.
 
 Le lanceur demarre le service en arriere-plan puis ouvre le navigateur. Le script Photoshop est execute avec RemoteSigned uniquement pour son processus PowerShell, sans changer la politique Windows permanente.
 
