@@ -163,7 +163,7 @@ dice, an explicit next-turn action and modal navigation. Screenshots are under
 `phone-preview.test.cjs` also uses the running server and a disposable profile.
 It checks the toggle, unchanged match state, a single game document, 412 x 1007
 viewport dimensions, fit in a smaller host window, access to all mobile award
-ties/table rows, and preserved desktop pagination. Synthetic report events stay
+ties/table rows, and shared trophies without award pagination. Synthetic report events stay
 in the test DOM; screenshots are under `site/verification/razr50/`.
 
 Career tables in the collection reader and card detail share
@@ -201,3 +201,38 @@ engine or RNG. Existing modal, hidden-tab and navigation guards pause/resume
 the sequence. The result still waits for the explicit next-turn action.
 `node V4/site/ai-presentation.browser.test.cjs` checks the order, timing,
 pauses, original engine choice/roll and desktop/phone presentation.
+
+Statistics and Golden trophies (2026-09-22): `#statistics` is the full-page
+sortable ledger (`statistics.js`, `statistics.css`). It groups by character or
+card version, filters search/element/collaboration/period/minimum appearances,
+and switches totals / one-decimal weighted means. Owned-collection scope uses
+the existing ownership-aware career; all-teams scope uses only this local
+profile's archived matches, not another user's matches. Unused reserves,
+unfinished and partial histories are excluded. Zero-appearance means are
+unavailable, not zero. CSV exports all filtered rows in current order and column
+group, with UTF-8 BOM, semicolon delimiters and formula-injection protection.
+The phone table keeps identity and rank pinned while its columns scroll.
+
+`trophies.js` is the shared rule source: Golden Crystal = existing rating,
+Golden Killer = kills, Golden Blocker = holds, Golden Clover = newly granted
+clovers, Golden Heart = newly granted Reraise hearts (not consumed hearts).
+Every tied positive leader across both teams receives the full award. No
+positive score means no winner. Provisional reports never grant awards.
+Completed full-history result rows store derived `trophies` and `trophyVersion`;
+old rows are backfilled additively on open. Imports rebuild them from validated
+games instead of trusting imported counters. Repeated saves stay idempotent.
+Career cabinets follow existing collectible ownership/instance selection.
+The match report shows all tied identities under one shared trophy, including
+on phones. Engine rules, RNG, schema 6 and approved artwork remain unchanged.
+
+Generated artwork originals and exact built-in image-generation prompts:
+`../donnees/trophees-2026-09-22/`. The five alpha-preserving 512px WebP assets
+under `assets/trophies/` total approximately 280 KiB. No image generation runs
+when a match completes. The build automatically includes these local assets.
+
+Focused checks: `node V4/site/statistics.test.cjs`,
+`node V4/site/statistics.browser.test.cjs`,
+`node V4/site/career-statistics.test.cjs`, and
+`node V4/site/phone-preview.test.cjs`. The browser checks use isolated databases,
+six engine-completed matches, migration/forged-import/idempotence assertions,
+filters/sorts/CSV and seven screen sizes. Screenshots: `verification/statistics/`.

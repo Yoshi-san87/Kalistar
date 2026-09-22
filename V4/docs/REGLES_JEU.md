@@ -200,6 +200,27 @@ ATK/DEF conservent leur definition de scores finaux cumules, pas de degats nets.
 
 ## Edition, sauvegardes et limites
 
+### Trophees individuels (22 septembre 2026)
+
+Demande utilisateur : Golden Crystal (MVP, indice existant), Golden Killer
+(kills definitifs), Golden Blocker (stops), Golden Clover (nouveaux trefles
+attribues) et Golden Heart (nouveaux coeurs Reraise attribues). La distinction
+recompense le donneur de coeurs, pas leur consommation par le beneficiaire.
+Classement sur les deux equipes : tous les premiers ex aequo avec un score
+strictement positif recoivent chacun le trophee entier. A zero, aucun laureat.
+Une seule attribution par categorie, instance et rencontre terminee. Les
+rapports provisoires et historiques partiels ne donnent aucun trophee.
+
+La source commune est `site/trophies.js`. Les recompenses sont derivees des
+evenements verifies, ajoutees aux resultats archives et reconstituees lors des
+imports. Les anciennes rencontres completes sont prises en compte. Les
+totaux de carriere respectent la selection d'exemplaires et leur propriete
+existante. Le nouvel onglet Statistiques permet aussi le regroupement par
+personnage, toutes versions comprises ; les moyennes sont toujours ponderees
+par les participations, jamais une moyenne des moyennes de versions.
+
+### Stockage
+
 Parties schema 6 avec edition V4 ; IndexedDB `kalistar-v4-cards`, preferences
 `kalistar.v4.*`. Ne pas importer silencieusement les sauvegardes V2/V3.
 Le peuplement ajoute uniquement les originaux manquants sans annuler un transfert.

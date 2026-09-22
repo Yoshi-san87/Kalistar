@@ -68,6 +68,8 @@ async function main(){
       assert.ok(metric.y+metric.height<=panel.y+panel.height+1,'all career metrics fit the desktop manuscript without scrolling');
     }
     await page.locator('.cb-career [data-career-stat=mvp]').scrollIntoViewIfNeeded();
+    assert.ok(await page.locator('.cb-career .career-statistics .lucide').first().evaluate(n=>parseFloat(getComputedStyle(n).width)>=20&&parseFloat(getComputedStyle(n).strokeWidth)>=2),'career icons are visibly larger and stronger');
+    assert.ok(await page.locator('.cb-reading-tabs .lucide').first().evaluate(n=>parseFloat(getComputedStyle(n).width)>=20),'notebook tabs keep readable icons');
     const fits=await page.locator('.cb-career .career-statistics').evaluate(table=>{
       const r=table.getBoundingClientRect(),page=table.closest('.cb-read-content').getBoundingClientRect();
       return r.left>=page.left-1&&r.right<=page.right+1&&table.scrollWidth<=table.clientWidth+1;

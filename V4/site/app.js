@@ -52,10 +52,10 @@
   const restored=load('game',null);let restoreError='';
   if(restored){try{game=E.restoreGame(KalistarLocalDB.validateGame(restored));db.registry.validateGame(game,accountId);}catch(error){game=null;restoreError=error.message;}}
   let boardScale=Math.max(85,Math.min(140,Number(load('boardScale',100))||100));
-  const views=window.KalistarSite?.online?['arena','decks']:['arena','decks','atelier'];
+  const views=window.KalistarSite?.online?['arena','decks','statistics']:['arena','decks','statistics','atelier'];
   const hashView=()=>views.includes(location.hash.slice(1))?location.hash.slice(1):'collection';
   const ui={view:hashView(),attacker:null,target:null,reserve:null,replacementSlot:null,detail:null,art:false};
-  let deckBuilder=null,collectionBinder=null;
+  let deckBuilder=null,collectionBinder=null,statisticsSheet=null;
   const overlayOpen=()=>!!document.querySelector('dialog[open]')||!!window.KalistarReservePreview?.isOpen();
   function icons(){if(window.lucide)lucide.createIcons();}
   function toast(message){clearTimeout(toastTimer);$('#toast').textContent=message;$('#toast').classList.add('visible');toastTimer=setTimeout(()=>$('#toast').classList.remove('visible'),3500);}
@@ -71,6 +71,7 @@
           if($('#detail-dialog').open&&ui.detail&&$('#detail-dialog .career-panel'))$('#detail-dialog .career-panel').outerHTML=Catalogue.career(ui.detail,ui.detailContext?.profile?db:collectionDB(),ui.careerInstance);
           if($('#database-dialog').open)showDatabase();
           if(ui.view==='collection')collectionBinder?.refresh();
+          if(ui.view==='statistics')statisticsSheet?.refresh();
           icons();
         }).catch(error=>{lastStored='';dbError=error.message;if(error.name==='OwnershipError'&&game?.matchId===JSON.parse(fingerprint).matchId)suspendGame();toast('Base locale : '+error.message);});
       }
@@ -106,7 +107,8 @@
     const scroll=$('.battlefield-viewport')?.scrollLeft||0;
     document.body.classList.toggle('arena-view',ui.view==='arena');
     document.querySelectorAll('[data-view]').forEach(b=>{const on=b.dataset.view===ui.view;b.classList.toggle('active',on);b.setAttribute('aria-current',on?'page':'false');});
-    deckBuilder?.destroy();collectionBinder?.destroy();
+    deckBuilder?.destroy();collectionBinder?.destroy();statisticsSheet?.destroy();
+    document.body.classList.toggle('statistics-view',ui.view==='statistics');
     document.body.classList.toggle('decks-view',ui.view==='decks');
     document.body.classList.toggle('collection-view',ui.view==='collection');
     document.body.classList.toggle('atelier-view',ui.view==='atelier');
@@ -120,7 +122,11 @@
       $('#account-name').textContent=accountId===KalistarOwnership.PARIS?'Paris':'Tokyo';
       icons();persist();return;
     }
-    $('#app').innerHTML=ui.view==='collection'?collection():ui.view==='decks'?decksPage():arena();
+    $('#app').innerHTML=ui.view==='collection'?collection():ui.view==='decks'?decksPage():ui.view==='statistics'?'<div id="statistics-root"></div>':arena();
+    if(ui.view==='statistics'){
+      statisticsSheet??=KalistarStatistics.create({data,getDB:collectionDB,onDetail:id=>showDetail(id)});
+      statisticsSheet.mount($('#statistics-root'));
+    }
     if(ui.view==='decks')builder().mount($('#deck-builder-root'));
     if(ui.view==='collection')collectionView().mount($('#collection-binder-root'));
     syncConsole();icons();
@@ -494,7 +500,7 @@ function showDeck(){setView('decks');}
   const phoneLayout=()=>matchMedia('(max-width:699px), (max-width:950px) and (max-height:500px)').matches;
   function showArenaMenu(){
     const items=[['duel-details','list-plus','Calculs et effets du duel'],['arena-picker','map','Choisir l’arène'],['auto-formation','shuffle','Formation automatique'],['match-stats','trophy','Bilan du match'],['journal','scroll-text','Journal du duel'],['rules','book-open','Règles'],['save-game','download','Exporter la partie'],['load-game','upload','Importer une partie'],['new-game','rotate-ccw','Nouvelle partie']];
-    modal('mobile-dialog',head('La rencontre')+`<div class="dialog-body mobile-menu"><button data-view="collection">${icon('book-open')}Collection${icon('chevron-right')}</button><button data-view="decks">${icon('layers-3')}Mes decks${icon('chevron-right')}</button>${items.map(([action,symbol,label])=>`<button data-action="${action}" ${['arena-picker','auto-formation'].includes(action)&&game.phase!=='setup'?'disabled':''}>${icon(symbol)}${label}${icon('chevron-right')}</button>`).join('')}</div>`);
+    modal('mobile-dialog',head('La rencontre')+`<div class="dialog-body mobile-menu"><button data-view="collection">${icon('book-open')}Collection${icon('chevron-right')}</button><button data-view="decks">${icon('layers-3')}Mes decks${icon('chevron-right')}</button><button data-view="statistics">${icon('chart-no-axes-combined')}Statistiques${icon('chevron-right')}</button>${items.map(([action,symbol,label])=>`<button data-action="${action}" ${['arena-picker','auto-formation'].includes(action)&&game.phase!=='setup'?'disabled':''}>${icon(symbol)}${label}${icon('chevron-right')}</button>`).join('')}</div>`);
     $('#mobile-dialog .mobile-menu').insertAdjacentHTML('beforeend',`<button data-action="reserves" data-side="1">${icon('layers-3')}Réserve adverse · ${game.players[1].reserve.length}${icon('chevron-right')}</button><button data-action="grave" data-side="1">${icon('skull')}Cimetière adverse · ${game.players[1].dead.length}${icon('chevron-right')}</button>`);icons();
   }
   function showArchive(side,kind,slot=null){

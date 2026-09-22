@@ -17,7 +17,7 @@
   async function open(data,{name=NAME}={}) {
     if(!name.startsWith(NAME))throw new Error('La base V4 doit rester isolée de V2.');
     if(data.version!==4||data.edition!=='V4'||!data.cards?.length||data.cards.some(c=>c.edition!=='V4'||!c.characterId))throw new Error('Profils V4 indisponibles : aucune donnée historique copiée dans la base V4.');
-    const E=KalistarEngine.createEngine(data),O=window.KalistarOwnership;
+    const E=KalistarEngine.createEngine(data),O=window.KalistarOwnership,T=window.KalistarTrophies;
     async function connect(version){
       const req=version===undefined?indexedDB.open(name):indexedDB.open(name,version);
       req.onupgradeneeded=()=>{
@@ -99,6 +99,13 @@
           const item=instance(card.id,1,date);if(!s.instances.some(i=>i.id===item.id))write('instances',item);
         }
         if(O)O.seed(s,write,data);
+        // Add derived honours to old archives without changing a game or ownership.
+        if(T)for(const match of s.matches.filter(m=>m.finalized)){
+          const rows=s.results.filter(r=>r.matchId===match.id);
+          if(rows.every(r=>r.trophyVersion===T.version))continue;
+          const awarded=T.awards(E.matchStats(E.restoreGame(validateGame(match.state))));
+          for(const row of rows)write('results',{...row,trophyVersion:T.version,trophies:awarded[row.uid]||[]});
+        }
       });
     }catch(e){opened=false;db.close();throw e;}
     if(!connections.has(name))connections.set(name,new Set());connections.get(name).add(refresh);
@@ -189,9 +196,10 @@
           if(old){match.createdAt=old.createdAt;}
           if(O&&!restoring)O.recordBindings(match.state,old,s,write);
           write('matches',match);
+          const awarded=T?.awards(match.summary)||{};
           for(const u of match.summary.units){
             ensure(instance(u.cardId,Number(u.instanceId.slice(-3)),match.createdAt));
-            if(match.finalized)write('results',{...u,matchId:match.id,winner:match.state.winner,partial:match.summary.partial,finishedAt:match.updatedAt});
+            if(match.finalized)write('results',{...u,matchId:match.id,winner:match.state.winner,partial:match.summary.partial,finishedAt:match.updatedAt,...(T?{trophyVersion:T.version,trophies:awarded[u.uid]||[]}: {})});
           }
       }
     }
@@ -200,13 +208,19 @@
     }
     function career(cardId,instanceId=null){
       const rows=cache.results.filter(r=>r.cardId===cardId&&(!instanceId||r.instanceId===instanceId)&&r.participated&&!r.partial);
-      const result={games:0,wins:0,losses:0,draws:0,kills:0,holds:0,support:0,debuff:0,attack:0,defense:0,reraises:0,mvp:0,history:[]};
+      const matches=new Map(cache.matches.map(m=>[m.id,m]));
+      const result=T?T.empty():{games:0,wins:0,losses:0,draws:0,kills:0,holds:0,support:0,debuff:0,attack:0,defense:0,reraises:0,mvp:0,history:[]};
       for(const row of rows){
+        const match=matches.get(row.matchId);if(!match?.finalized)continue;
+        const trophies=T?.awards(match.summary)[row.uid]||[];
+        if(T)T.add(result,row,trophies);
+        else{
         result.games++;result[row.winner==='draw'?'draws':row.winner===row.side?'wins':'losses']++;
         for(const key of ['kills','holds','support','debuff','attack','defense','reraises'])result[key]+=row[key]||0;
-        const match=cache.matches.find(m=>m.id===row.matchId),top=Math.max(...match.summary.units.map(u=>u.rating));
+        const top=Math.max(...match.summary.units.map(u=>u.rating));
         if(row.rating>0&&row.rating===top)result.mvp++;
-        result.history.push({...row,seed:match.state.seed});
+        }
+        result.history.push({...row,trophies,seed:match.state.seed});
       }
       result.history.sort((a,b)=>b.finishedAt.localeCompare(a.finishedAt));
       return result;

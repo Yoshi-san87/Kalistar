@@ -34,7 +34,7 @@
     const s=db.career(id,selected==='all'?null:selected),rate=s.games?Math.round(s.wins/s.games*100):0;
     return `<section class="career-panel"><div class="career-heading"><h3>${icon('medal')}Carrière</h3><label>Exemplaire<select id="career-instance"><option value="all">Tous · ${instances.length} exemplaire${instances.length>1?'s':''}</option>${instances.map(i=>`<option value="${i.id}" ${selected===i.id?'selected':''}>${i.id}</option>`).join('')}</select></label></div>
       <div class="career-record"><strong>${rate}<small>% victoires</small></strong><div><b>${s.wins} V <span>· ${s.losses} D · ${s.draws} N</span></b><span>${s.games} participation${s.games>1?'s':''} · matchs terminés</span><div class="career-rate"><i style="width:${rate}%"></i></div></div></div>
-      ${careerStatistics(s)}
+      ${careerStatistics(s)}${window.KalistarTrophies?.cabinet(s)||''}
       <div class="career-history"><h4>Dernières rencontres</h4>${s.history.slice(0,6).map(r=>`<button data-action="history-match" data-id="${esc(r.matchId)}"><b class="${r.winner===r.side?'won':'lost'}">${r.winner==='draw'?'N':r.winner===r.side?'V':'D'}</b><span>${esc(r.seed)}<small>J${r.side+1} · ${esc(r.instanceId)} · ${new Date(r.finishedAt).toLocaleDateString('fr-FR')}</small></span><span>${r.kills} K<br>${r.holds} Stop</span>${icon('chevron-right')}</button>`).join('')||'<p class="muted">Aucune rencontre terminée.</p>'}</div></section>`;
   }
   function database(db,error){

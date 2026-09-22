@@ -23,7 +23,7 @@
   body .account-button span { display: none; }
   body .main-nav, body.collection-view .main-nav, body.arena-view .main-nav, body.decks-view .main-nav {
     position: fixed; z-index: 90; inset: auto 0 0; width: 100%; height: var(--phone-nav); min-height: 0;
-    display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); margin: 0;
+    display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0,1fr); grid-template-columns: none; margin: 0;
     padding: 0 env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px);
     background: #0b1412f5; border-top: 1px solid #b69c7066; box-shadow: 0 -5px 24px #0004; backdrop-filter: blur(16px);
   }

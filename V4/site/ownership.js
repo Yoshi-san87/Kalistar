@@ -237,18 +237,24 @@
       }),
       career(userId,cardId,id=null){
         const s=ready();known(s,userId);
+        const T=globalThis.KalistarTrophies;
+        const matches=new Map(s.matches.map(m=>[m.id,m]));
         const owned=own(s,userId,cardId).filter(c=>!id||c.id===id),byId=new Map(owned.map(c=>[c.id,c]));
-        const result={games:0,wins:0,losses:0,draws:0,kills:0,holds:0,support:0,debuff:0,attack:0,defense:0,reraises:0,mvp:0,history:[]};
+        const result=T?T.empty():{games:0,wins:0,losses:0,draws:0,kills:0,holds:0,support:0,debuff:0,attack:0,defense:0,reraises:0,mvp:0,history:[]};
         for(const row of s.results){
           if(String(row.cardId)!==String(cardId)||row.side!==0||!row.participated||row.partial)continue;
-          const match=s.matches.find(m=>m.id===row.matchId);if(!match)continue;
+          const match=matches.get(row.matchId);if(!match?.finalized)continue;
           const bound=match.state.collection;
           const item=bound?byId.get(bound.bindings[row.instanceId]):owned.find(c=>c.legacyInstanceId===row.instanceId);
           if(!item)continue;
+          const trophies=T?.awards(match.summary)[row.uid]||[];
+          if(T)T.add(result,row,trophies);
+          else{
           result.games++;result[row.winner==='draw'?'draws':row.winner===row.side?'wins':'losses']++;
           for(const key of ['kills','holds','support','debuff','attack','defense','reraises'])result[key]+=row[key]||0;
           if(row.rating>0&&row.rating===Math.max(...match.summary.units.map(u=>u.rating)))result.mvp++;
-          result.history.push({...copy(row),publicId:item.id,seed:match.state.seed});
+          }
+          result.history.push({...copy(row),trophies,publicId:item.id,seed:match.state.seed});
         }
         result.history.sort((a,b)=>b.finishedAt.localeCompare(a.finishedAt));return result;
       },

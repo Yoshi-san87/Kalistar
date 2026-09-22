@@ -20,7 +20,8 @@
     {key:'rating',label:'Indice',icon:'trophy',help:'5 par élimination + 3 par arrêt + 2 par soutien + 1 par vie sauvée + 1 par tranche de 30 ATK retirée.'}
   ];
   const tabs=[['awards','Palmarès','trophy'],['teams','Équipes','swords'],['lineup','Feuille','list-ordered'],['definitions','Décompte','chart-no-axes-combined']];
-  const categories=[['rating','MVP','trophy'],['kills','Finisseur','skull'],['holds','Rempart','ban'],['support','Soutien','hand-heart'],['debuff','Entrave','shield-minus']];
+  const trophies=window.KalistarTrophies;
+  const categories=trophies.categories.map(c=>[c.key,c.name,c.id]);
   const integer=value=>Number.isFinite(Number(value))?Math.max(0,Math.floor(Number(value))):0;
   function metrics(defaults,provided){
     return defaults.map(metric=>{
@@ -86,18 +87,11 @@
       const slice=paginate(columns);
       content=`<section class="match-definitions"><div class="match-table-heading">${groupControls()}</div><dl>${slice.items.map(metric=>`<div data-definition="${metric.key}"><dt>${icon(metric.icon)}${esc(metric.label)}</dt><dd>${esc(metric.help)}</dd></div>`).join('')}</dl>${slice.footer}</section>`;
     }else{
-      const leaders=metric=>{const best=Math.max(0,...units.map(u=>u[metric]||0));return best>0?units.filter(u=>u[metric]===best):[];};
-      const ties=categories.map(([metric])=>leaders(metric)),count=Math.max(1,...ties.map(list=>list.length)),current=Math.min(integer(award),count-1);
-      if(!continuous){reportPage=current;reportPages=count;}
-      const distinction=(index,mvp=false,tie=null)=>{
-        const [metric,label,symbol]=categories[index],list=ties[index],position=tie??(list.length?current%list.length:0),u=list[position];
-        const c=u?byId[u.cardId]:null,help=allMetrics.find(item=>item.key===metric);
-        const awardIdentity=u?`<button type="button" class="match-unit award-portrait ${mvp?'mvp-portrait':''}" data-action="detail" data-id="${esc(u.cardId)}" data-instance="${esc(u.instanceId)}" aria-label="${esc(c.name+' · '+c.title+' · '+player(u.side)+' · '+u.uid)}" title="${esc('Voir '+c.name+' · '+c.title)}">${artwork(u)}<span class="award-identity"><b>${esc(c.name)}</b><small>${esc(c.title)}</small><small class="team-color-${u.side}">${player(u.side)} · #${esc(u.uid)}</small></span><span class="award-inspect" aria-hidden="true">${icon('scan-eye')}</span></button>`:'';
-        const highlights=mvp&&u?`<dl class="mvp-metrics" aria-label="Statistiques du MVP">${['kills','holds','attack','defense'].map(key=>{const metric=core.find(m=>m.key===key);return `<div title="${esc(metric.help)}"><dt>${icon(metric.icon)}<span>${esc(metric.label)}</span></dt><dd data-mvp-stat="${key}">${num(u[key])}</dd></div>`;}).join('')}</dl>`:'';
-        return `<article class="${mvp?'match-mvp':'match-award'} award-${metric}" data-spotlight="${metric}" data-featured="${spotlight===metric}" ${u?`data-award-unit="${esc(u.uid)}"`:''}><div class="award-label">${icon(symbol)}<span>${label}</span>${list.length>1?`<small>${position+1}/${list.length} ex æquo</small>`:''}</div>${u?`${awardIdentity}<strong class="award-value" title="${esc(help.help)}">${num(u[metric])}<small>${esc(help.label)}</small></strong>${highlights}`:`<p class="award-empty">${icon(symbol)}Pas encore attribué</p>`}</article>`;
-      };
-      content=`<section class="match-palmares"><div class="match-spotlight-tabs" role="group" aria-label="Distinction en vedette">${categories.map(([key,label,symbol])=>`<button type="button" data-action="stats-spotlight" data-id="${key}" aria-label="${label}" title="${label}" aria-pressed="${spotlight===key}">${icon(symbol)}<span>${label}</span></button>`).join('')}</div>${distinction(0,true)}<div class="match-awards" aria-label="Distinctions du match">${categories.slice(1).map((_,index)=>distinction(index+1)).join('')}</div>${controls('stats-award',current,count,'Navigation des ex æquo',count>1?`${count} ex æquo au maximum`:'Distinctions')}</section>`;
-      if(continuous)content=`<section class="match-palmares" aria-label="Distinctions du match">${categories.map((_,index)=>Array.from({length:Math.max(1,ties[index].length)},(_,tie)=>distinction(index,index===0,tie)).join('')).join('')}</section>`;
+      content=`<section class="match-palmares golden-palmares" aria-label="Trophées de la rencontre">${!stats.complete||stats.partial?`<p class="golden-provisional">${stats.partial?'Historique partiel : trophées non attribués.':'Classement provisoire · trophées attribués en fin de match'}</p>`:''}${trophies.categories.map((t,index)=>{
+        const winners=trophies.leaders(stats,t.key),first=winners[0];
+        const portraits=winners.map(u=>`<button class="golden-portrait" type="button" data-action="detail" data-id="${esc(u.cardId)}" data-instance="${esc(u.instanceId)}" aria-label="${esc('Voir '+byId[u.cardId].name+' · '+player(u.side))}">${artwork(u)}</button>`).join('');
+        return `<article class="${index===0?'match-mvp':'match-award'} golden-award" style="--winner-count:${Math.max(1,winners.length)}" data-trophy="${t.id}" data-award-unit="${esc(first?.uid||'')}" data-empty="${!first}"><header class="golden-title"><span>${t.name}<small>${index===0?'MVP · Meilleur joueur':esc(t.label)}</small></span>${winners.length>1?`<b>${winners.length} ex æquo</b>`:''}</header><div class="golden-scene"><div class="golden-object">${trophies.image(t.id)}</div><div class="golden-portraits" data-count="${Math.min(winners.length,4)}">${portraits}</div></div><div class="golden-result"><div class="golden-winners" tabindex="0" aria-label="Lauréats du ${t.name}">${winners.map(u=>`<button type="button" data-action="detail" data-id="${esc(u.cardId)}" data-instance="${esc(u.instanceId)}"><b>${esc(byId[u.cardId].name)}</b><small class="team-color-${u.side}">${player(u.side)} · ${esc(byId[u.cardId].title)}</small></button>`).join('')||'<span>Aucun lauréat</span>'}</div><strong title="${esc(t.help)}">${first?num(first[t.key]):'—'}<small>${index===0?'Indice':esc(t.label)}</small></strong></div></article>`;
+      }).join('')}</section>`;
     }
     const winner=s.winner==='draw'?'Match nul':s.winner===null?'Match en cours':player(s.winner)+' remporte le match';
     const teamScore=side=>`<div class="match-score-team team-color-${side}" data-score-side="${side}" data-winner="${s.winner===side}"><b>${player(side)}</b><strong class="match-final-score" aria-label="${player(side)+' : '+stats.teams[side].kills+' éliminations'}">${num(stats.teams[side].kills)}</strong><small>${icon(s.winner===side?'crown':'skull')}${s.winner===side?'Victoire':'Éliminations'}</small></div>`;

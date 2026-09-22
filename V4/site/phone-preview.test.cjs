@@ -50,13 +50,14 @@ async function main(){
   await frame.locator('body').evaluate(()=>{
     const s=JSON.parse(localStorage.getItem('kalistar.v4.game'));
     s.phase='over';s.winner=0;
+    s.players.forEach(p=>p.board.filter(Boolean).forEach(u=>{u.entered=true;}));
     s.match.events=[0,1].map(i=>({round:i+1,attacker:s.players[0].board[i].uid,target:s.players[1].board[i].uid,attackRolls:1,defenseRolls:1,attack:250,defense:100,breakthrough:150,buff:0,kill:true,hold:false,dodge:false,shield:false,reraise:false,luck:false,barrier:0,debuff:0,support:null}));
     window.testReportState=s;
     document.querySelector('#match-dialog .match-report').outerHTML=KalistarMatchReport.render(s,{tab:'awards'});lucide.createIcons();
   });
-  assert.equal(await frame.locator('.award-rating').count(),2,'both tied MVPs are included');
-  assert.equal(await frame.locator('.award-kills').count(),2,'both tied finishers are included');
-  assert.equal(await frame.locator('.match-palmares article:visible').count(),7);
+  assert.equal(await frame.locator('[data-trophy=crystal] .golden-winners button').count(),2,'both tied MVPs are included');
+  assert.equal(await frame.locator('[data-trophy=killer] .golden-winners button').count(),2,'both tied killers are included');
+  assert.equal(await frame.locator('.match-palmares article:visible').count(),5);
   assert.ok(await frame.locator('.match-view').evaluate(n=>n.scrollHeight>n.clientHeight));
   await frame.locator('.award-art').first().evaluate(img=>img.decode());
   await page.screenshot({path:path.join(output,'palmares-preview.png')});
@@ -70,8 +71,8 @@ async function main(){
     document.querySelector('#match-dialog .match-report').outerHTML=KalistarMatchReport.render(window.testReportState,{tab:'awards'});lucide.createIcons();
   });
   assert.equal(await frame.locator('.match-palmares article').count(),5,'desktop retains its five-window composition');
-  assert.equal(await frame.locator('.match-palmares .match-pagination').count(),1,'desktop ties retain pagination');
-  assert.equal(await frame.locator('.match-report').getAttribute('data-report-pages'),'2');
+  assert.equal(await frame.locator('.match-palmares .match-pagination').count(),0,'shared trophies keep every winner together');
+  assert.equal(await frame.locator('.match-report').getAttribute('data-report-pages'),'1');
   assert.equal(await frame.locator('body').evaluate(()=>localStorage.getItem('kalistar.v4.game')),saved,'preview and report do not change the match');
   await frame.locator('#match-dialog > .dialog-head [data-action=close]').click();
   await page.setViewportSize({width:360,height:740});
