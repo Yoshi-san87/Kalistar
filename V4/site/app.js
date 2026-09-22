@@ -404,6 +404,11 @@ function showDeck(){setView('decks');}
     return `${!storageAvailable?'<div class="storage-note">Sauvegarde navigateur indisponible. Exportez la partie pour la conserver.</div>':''}<div class="game-shell" style="--board-scale:${boardScale/100};--arena-image:url('${arenaById(game.arenaId).image}')"><div class="arena-toolbar"><div><h1>${arenaById(game.arenaId).name} <span class="round">Échange ${game.round} / 200</span></h1><span class="muted game-seed">${esc(game.seed)} · ${game.mode==='ai'?'Adversaire automatique':'Deux joueurs locaux'}</span><span class="arena-rules">${arenaRule(arenaById(game.arenaId))}</span></div><div class="tools"><label class="board-zoom" title="Taille des cartes">${icon('scan')}<input id="board-scale" type="range" min="85" max="140" step="5" value="${boardScale}" aria-label="Taille des cartes"><output>${boardScale}%</output></label>${ib('arena-picker','map',game.phase==='setup'?'Choisir une arène':'Arène verrouillée',game.phase==='setup'?'':'disabled')}${ib('match-stats','trophy','Bilan et statistiques du match')}${ib('journal','scroll-text','Ouvrir le journal du duel')}${ib('fullscreen','maximize','Plein écran')}${ib('save-game','save','Exporter la sauvegarde')}${ib('load-game','upload','Importer une sauvegarde')}${ib('new-game','rotate-ccw','Nouvelle partie')}<input hidden type="file" id="game-file" accept="application/json,.json"></div><div class="board-navigation">${ib('focus-left','panel-left','Centrer le joueur 1')}${ib('focus-duel','dice-6','Centrer les dés')}${ib('focus-right','panel-right','Centrer le joueur 2')}</div></div><div class="arena-layout"><div class="battlefield-viewport"><section class="battlefield" aria-label="Plateau de jeu"><section class="team team-left" data-team="0">${sideHeading(0)}${board(0)}${reserveZone(0)}</section><div class="duel-console" aria-live="polite">${dice(0)}<div class="duel-centre">${consoleBody()}</div>${dice(1)}</div><section class="team team-right" data-team="1">${sideHeading(1)}${board(1)}${reserveZone(1)}</section></section></div></div></div>`;
   }
   function act(fn){if(rolling)return;try{checkGame();fn();E.assertState(game);epoch++;render();}catch(e){toast(e.message);}}
+  function engageDuel(){
+    if(rolling||game?.phase!=='choose')return;
+    act(()=>{E.lock(game,ui.attacker,ui.target);ui.attacker=ui.target=null;});
+    if(game?.phase==='attack')window.KalistarDice?.engage();
+  }
   function slotClick(side,slot){
     if(game.phase==='setup'||game.phase==='replace'){
       if(game.mode==='ai'&&side===1)return;
@@ -463,12 +468,18 @@ function showDeck(){setView('decks');}
     const second=p==='defense'&&game.duel.autoDefense;
     const active=second||game.mode==='ai'&&((p==='choose'&&game.turn===1)||(['kalistel','clover','potion','physical','heart','guard'].includes(p)&&game.turn===1)||(p==='attack'&&game.turn===1)||(p==='defense'&&game.turn===0)||(p==='replace'&&game.replacing===1));
     if(!active)return;
+    // Card focus needs 520ms to settle; the crystal ignition then gets its own beat.
+    const delay=second?1000:p==='choose'?(ui.attacker===null?450:650):p==='attack'||p==='defense'?850:650;
     aiTimer=setTimeout(()=>{if(token!==epoch||ui.view!=='arena'||document.hidden||overlayOpen())return;
+      if(p==='choose'){
+        if(ui.attacker!==null&&ui.target!==null)return engageDuel();
+        return act(()=>{const pair=E.aiChoice(game);if(ui.attacker===null)ui.attacker=pair[0];else ui.target=pair[1];});
+      }
       if(p==='attack'||p==='defense')return animatedRoll();
       if(p==='kalistel')return E.aiUseKalistel(game)?animatedRoll(true):act(()=>E.acceptAttack(game));
       if(['clover','potion','physical','heart','guard'].includes(p))return animatedTrait(p==='guard'?E.aiGuardChoice(game):p==='heart'?E.aiReraiseChoice(game):p==='potion'?E.aiPotionChoice(game):p==='physical'?E.aiPhysicalChoice(game):E.aiCloverChoice(game));
-      act(()=>{if(p==='choose'){const pair=E.aiChoice(game);E.lock(game,...pair);}else if(p==='replace')E.autoDeploy(game,1);});
-    },second?1000:p==='choose'?650:450);
+      if(p==='replace')act(()=>E.autoDeploy(game,1));
+    },delay);
   }
   function download(name,value){const blob=new Blob([JSON.stringify(value,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
   function inspectUnit(side,uid,bonus){
@@ -595,6 +606,10 @@ function showDeck(){setView('decks');}
         if(game.mode==='ai'&&actor===1)return;
         return animatedRoll();
       }
+      if(action==='lock'){
+        if(game.mode==='ai'&&game.turn===1)return;
+        return engageDuel();
+      }
       if(game?.mode==='ai'&&action==='auto-replace'&&game.replacing===1)return;
       act(()=>{
         if(action==='slot')slotClick(Number(b.dataset.side),Number(b.dataset.slot));
@@ -602,7 +617,6 @@ function showDeck(){setView('decks');}
         else if(action==='auto-formation'){E.autoDeploy(game,0);E.autoDeploy(game,1);ui.reserve=null;}
         else if(action==='setup-side'){ui.setupSide=1-(ui.setupSide||0);ui.reserve=null;}
         else if(action==='start'){E.start(game);ui.reserve=null;}
-        else if(action==='lock'){E.lock(game,ui.attacker,ui.target);ui.attacker=ui.target=null;}
         else if(action==='next'){E.next(game);ui.attacker=ui.target=ui.reserve=ui.replacementSlot=null;}
         else if(action==='auto-replace')E.autoDeploy(game,game.replacing);
       });

@@ -35,7 +35,7 @@ async function pixels(page) {
       const clear = CanvasRenderingContext2D.prototype.clearRect;
       CanvasRenderingContext2D.prototype.clearRect = function(...args) { this.canvas.testPaints=(this.canvas.testPaints||0)+1;return clear.apply(this,args); };
       const mount = () => KalistarDice.mount(document.querySelectorAll('.dice-stage'));
-      document.querySelector('#engage').onclick = () => { document.querySelector('main').dataset.phase='attack';mount(); };
+      document.querySelector('#engage').onclick = () => { document.querySelector('main').dataset.phase='attack';mount();KalistarDice.engage(); };
       document.querySelector('#roll').onclick = () => { window.rollFinished=KalistarDice.play(0,4,false); };
       mount();
     </script></body></html>` }));
@@ -49,7 +49,12 @@ async function pixels(page) {
     const dormant = await pixels(page);
     assert.ok(dormant.every(p => p.nonblank > 400));
     await page.locator('#engage').click();
+    assert.equal(await page.locator('.is-setting').count(), 12, 'engagement starts one ignition per elemental crystal');
+    assert.equal(await page.locator('[data-element=NONE].is-setting').count(), 0, 'no magical ignition for a weapon');
+    await page.waitForTimeout(110);
+    await page.screenshot({ path: path.join(output, 'elemental-setting-all.png'), scale: 'css' });
     await page.waitForTimeout(1700);
+    assert.equal(await page.locator('.is-setting').count(), 0, 'one-shot ignition ends while the aura continues');
     const awake = await pixels(page);
     await page.screenshot({ path: path.join(output, 'elemental-awakening-all.png'), scale: 'css' });
     await page.waitForTimeout(650);
@@ -79,6 +84,8 @@ async function pixels(page) {
     assert.ok(afterRelease[1].paints > stopped[1].paints, 'other crystals remain alive');
     await page.locator('#engage').click();
     await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.waitForFunction(() => !document.querySelector('.is-setting'));
+    assert.equal(await page.locator('.is-setting').count(), 0, 'reduced motion removes the burst');
     const reduced = await pixels(page);
     await page.waitForTimeout(400);
     assert.deepEqual((await pixels(page)).map(p => p.paints), reduced.map(p => p.paints), 'reduced motion is fully static');
@@ -101,6 +108,11 @@ async function pixels(page) {
     const cancelled = await pixels(page);
     await page.waitForTimeout(200);
     assert.deepEqual((await pixels(page)).map(p => p.paints), cancelled.map(p => p.paints), 'explicit navigation cancellation leaves no loop');
+    await page.locator('#engage').click();
+    await page.locator('#roll').click();
+    assert.equal(await page.locator('.is-setting').count(), 12, 'an immediate roll preserves the ignition');
+    assert.equal(await page.locator('.is-releasing').count(), 0, 'release waits until ignition and wind-up complete');
+    assert.equal(await page.evaluate(() => window.rollFinished), true);
     await page.locator('#engage').click();
     assert.equal(await page.evaluate(() => KalistarDice.play(12, 3, false)), true);
     assert.equal((await pixels(page))[12].opaqueCore, 0, 'weapon disappears after its roll like the crystal');

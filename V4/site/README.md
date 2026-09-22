@@ -189,3 +189,15 @@ but remains touch/keyboard-scrollable when needed. Run
 `node V4/site/mobile-duel-stats.browser.test.cjs` for shared-stat accuracy,
 large counters, five phone viewports, desktop preservation, weapon pixels and
 keyboard access to long support results in a disposable profile.
+
+Duel pacing (2026-09-22): an explicit engagement triggers a single 520ms
+element-colored ignition around each crystal, then leaves its continuous aura
+intact. A quick manual roll waits for ignition to finish before its wind-up.
+Remounts do not replay ignition; reduced motion skips it and NONE stays neutral.
+The AI previews its attacker after 450ms, the target 650ms later, and engages
+after another 650ms. Automatic rolls wait 850ms; other AI decisions wait 650ms
+(automatic clover defense keeps its 1000ms delay). Previews do not mutate the
+engine or RNG. Existing modal, hidden-tab and navigation guards pause/resume
+the sequence. The result still waits for the explicit next-turn action.
+`node V4/site/ai-presentation.browser.test.cjs` checks the order, timing,
+pauses, original engine choice/roll and desktop/phone presentation.

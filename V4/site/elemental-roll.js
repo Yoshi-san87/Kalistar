@@ -3,7 +3,7 @@
   // Presentation only: no random draws or writes to the combat state.
   const views = new Map(), images = new Map(), silhouettes = new WeakMap(), pending = new Set();
   const motion = matchMedia('(prefers-reduced-motion:reduce)');
-  const rows = [774, 676, 577, 475, 371, 147], TAU = Math.PI * 2;
+  const rows = [774, 676, 577, 475, 371, 147], TAU = Math.PI * 2, SET_DURATION = 520;
   let generation = 0, idleFrame = 0, lastPaint = 0;
 
   function art(src) {
@@ -196,14 +196,47 @@
     ctx.restore();
   }
 
+  function drawSet(v, t) {
+    const ctx = v.ctx, spread = 1 - Math.pow(1 - t, 3), fade = Math.pow(1 - t, 1.4);
+    ctx.save(); ctx.translate(80, 77); ctx.globalCompositeOperation = 'lighter';
+    // The ignition surrounds the crystal without dissolving its painted silhouette.
+    ctx.beginPath(); ctx.rect(-80, -77, 160, 160);
+    ctx.moveTo(0, -57); ctx.lineTo(29, -15); ctx.lineTo(0, 50); ctx.lineTo(-29, -15); ctx.closePath(); ctx.clip('evenodd');
+    ctx.strokeStyle = v.color; ctx.lineWidth = 2; ctx.globalAlpha = fade * .75;
+    ctx.beginPath(); ctx.ellipse(0, -3, 24 + spread * 49, 36 + spread * 36, 0, 0, TAU); ctx.stroke();
+    ctx.lineCap = 'round';
+    for (let i = 0; i < 20; i++) {
+      const angle = i * 2.4, distance = 1 + i % 3 * .08;
+      const x = Math.cos(angle) * (23 + spread * 40) * distance, y = Math.sin(angle) * (34 + spread * 28) - 3;
+      ctx.strokeStyle = i % 4 ? v.color : '#fff4da'; ctx.fillStyle = ctx.strokeStyle;
+      ctx.globalAlpha = fade * (i % 4 ? .85 : 1); ctx.lineWidth = i % 3 ? 1.5 : 2.3;
+      ctx.beginPath(); ctx.moveTo(x * (1 - .22 * (1 - t)), y * (1 - .18 * (1 - t)));
+      ctx.lineTo(x, y); ctx.stroke();
+      ctx.beginPath(); ctx.arc(x, y, (i % 3 ? 1.2 : 2) * (1 - t * .6), 0, TAU); ctx.fill();
+    }
+    ctx.restore();
+  }
   function drawWaiting(v, now = performance.now()) {
     const seconds = motion.matches ? 0 : (now - v.started) / 1000;
     draw(v, seconds, v.waiting ? (motion.matches ? .5 : .96 + Math.sin(seconds * 2.5) * .04) : 0);
+    const setting = v.waiting && !motion.matches && v.setAt !== null && now - v.setAt < SET_DURATION;
+    v.host.classList.toggle('is-setting', setting);
+    if (setting) drawSet(v, Math.max(0, (now - v.setAt) / SET_DURATION));
+    else v.setAt = null;
+  }
+  function engage() {
+    if (motion.matches || document.hidden) return;
+    const now = performance.now();
+    for (const v of views.values()) if (v.waiting && !v.revealing) {
+      v.setAt = now; drawWaiting(v, now);
+    }
+    syncIdle();
   }
   function stopFrame() { cancelAnimationFrame(idleFrame); idleFrame = 0; }
   function idleTick(now) {
     idleFrame = 0;
-    if (document.hidden || motion.matches) return;
+    if (document.hidden) return;
+    if (motion.matches) { syncIdle(); return; }
     const waiting = [...views.values()].filter(v => v.waiting && !v.revealing && v.host.isConnected);
     if (!waiting.length) return;
     // One shared 30 fps loop, also on high-refresh-rate phones.
@@ -218,7 +251,7 @@
   function stopWaiting() {
     stopFrame();
     for (const v of views.values()) {
-      v.waiting = false; v.host.classList.remove('is-engaging'); draw(v);
+      v.waiting = false; v.setAt = null; v.host.classList.remove('is-engaging', 'is-setting'); draw(v);
     }
   }
   function animate(duration, signal, fn) {
@@ -261,7 +294,7 @@
     views.clear();
   }
   function mount(hosts) {
-    const previous = new Map([...views].map(([side, v]) => [side, { crystal: v.host.dataset.crystal, started: v.started }]));
+    const previous = new Map([...views].map(([side, v]) => [side, { crystal: v.host.dataset.crystal, started: v.started, setAt: v.setAt }]));
     cancel();
     const phase = document.querySelector('.duel-console')?.dataset.phase;
     for (const host of hosts) {
@@ -276,6 +309,7 @@
       const awaitingRoll = phase === 'attack' || host.dataset.role === 'DEF' && ['kalistel', 'defense'].includes(phase);
       const v = { host, canvas, ctx, color, halo, image: host.dataset.crystal ? art(host.dataset.crystal) : null,
         weapon: host.dataset.weapon ? art(host.dataset.weapon) : null,
+        setAt: sameCrystal ? prior.setAt : null,
         started: sameCrystal ? prior.started : performance.now(), spent: !!Number(host.dataset.result) && !awaitingRoll,
         waiting: awaitingRoll && host.dataset.selected === 'true' && host.dataset.element !== 'NONE' };
       host.dataset.spent = String(v.spent);
@@ -299,6 +333,9 @@
     v.host.classList.add('is-awakening');
     try {
       if (!reduced) {
+        const remaining = v.setAt === null ? 0 : SET_DURATION - (performance.now() - v.setAt);
+        if (remaining > 0 && !await animate(remaining, signal, () => drawWaiting(v))) return false;
+        v.setAt = null; v.host.classList.remove('is-setting');
         const time = (performance.now() - v.started) / 1000;
         if (!await animate(370, signal, t => draw(v, time + t * .37, .96 + t * .04))) return false;
         v.waiting = false; v.spent = true; v.host.dataset.spent = 'true';
@@ -322,7 +359,7 @@
       if (token === generation) { drawWaiting(v); syncIdle(); }
     }
   }
-  window.KalistarDice = { mount, play, cancel };
+  window.KalistarDice = { mount, engage, play, cancel };
   document.addEventListener('visibilitychange', syncIdle);
   motion.addEventListener('change', syncIdle);
   window.addEventListener('pagehide', cancel);
