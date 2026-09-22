@@ -47,7 +47,7 @@ async function pixels(page) {
     await page.locator('#engage').click();
     await page.waitForTimeout(1700);
     const awake = await pixels(page);
-    await page.screenshot({ path: path.join(output, 'elemental-awakening-all.png') });
+    await page.screenshot({ path: path.join(output, 'elemental-awakening-all.png'), scale: 'css' });
     await page.waitForTimeout(650);
     const later = await pixels(page);
     for (let i = 0; i < 12; i++) {
@@ -57,11 +57,19 @@ async function pixels(page) {
     }
     assert.equal(awake[12].paints, later[12].paints, 'NONE stays neutral');
     await page.locator('#roll').click();
-    assert.equal(await page.locator('.is-engaging').count(), 0, 'all crystals stop waiting at roll start');
+    assert.equal(await page.locator('.is-engaging').count(), 12, 'aura remains during wind-up');
+    await page.waitForFunction(() => document.querySelector('.dice-stage[data-player="0"].is-releasing'));
+    assert.equal(await page.locator('.is-engaging').count(), 11, 'only the launching crystal stops waiting');
+    const burst = (await pixels(page))[0];
+    await page.waitForTimeout(80);
+    assert.notEqual((await pixels(page))[0].hash, burst.hash, 'colored fragments move at release');
+    await page.screenshot({ path: path.join(output, 'elemental-release-burst.png'), scale: 'css' });
     assert.equal(await page.evaluate(() => window.rollFinished), true);
     const stopped = await pixels(page);
     await page.waitForTimeout(400);
-    assert.deepEqual((await pixels(page)).map(p => p.paints), stopped.map(p => p.paints), 'no idle paints after roll');
+    const afterRelease = await pixels(page);
+    assert.equal(afterRelease[0].paints, stopped[0].paints, 'released crystal stops painting');
+    assert.ok(afterRelease[1].paints > stopped[1].paints, 'other crystals remain alive');
     await page.locator('#engage').click();
     await page.emulateMedia({ reducedMotion: 'reduce' });
     const reduced = await pixels(page);
@@ -98,6 +106,7 @@ async function pixels(page) {
     await page.locator('[data-action=auto-formation]').first().click();
     await page.locator('[data-action=start]').click();
     await page.waitForFunction(() => document.querySelector('.duel-console')?.dataset.phase === 'choose');
+    const base = await page.evaluate(() => JSON.parse(localStorage.getItem('kalistar.v4.game')));
     await page.locator('.formation[data-player="0"] .slot-card:not(.empty)').first().click();
     await page.locator('.formation[data-player="1"] .slot-card:not(.empty)').first().click();
     await page.locator('[data-action=lock]').click();
@@ -108,19 +117,48 @@ async function pixels(page) {
     await page.waitForTimeout(350);
     assert.notEqual((await pixels(page))[0].hash, frame[0].hash);
     assert.equal(await page.evaluate(() => localStorage.getItem('kalistar.v4.game')), saved, 'waiting never changes game state or RNG');
-    await page.screenshot({ path: path.join(output, 'elemental-awakening-desktop.png') });
+    await page.screenshot({ path: path.join(output, 'elemental-awakening-desktop.png'), scale: 'css' });
     await page.reload();
     await page.waitForFunction(() => window.KALISTAR_READY);
     await page.waitForSelector('.dice-stage.is-engaging');
     await page.setViewportSize({ width: 412, height: 1007 });
     await page.waitForTimeout(400);
-    await page.screenshot({ path: path.join(output, 'elemental-awakening-phone.png') });
+    await page.screenshot({ path: path.join(output, 'elemental-awakening-phone.png'), scale: 'css' });
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
     await page.locator('[data-action=roll]').click();
-    assert.equal(await page.locator('.is-engaging').count(), 0);
+    assert.equal(await page.locator('.is-engaging').count(), 2, 'both remain awake until attack departure');
+    await page.waitForFunction(() => document.querySelector('.dice-stage[data-role=ATK].is-releasing'));
+    assert.equal(await page.locator('.dice-stage[data-role=DEF].is-engaging').count(), 1);
+    assert.equal(await page.locator('.ritual-flight').count(), 1, 'burst and travelling jet start together');
+    await page.screenshot({ path: path.join(output, 'elemental-release-phone.png'), scale: 'css' });
     await page.waitForFunction(() => !document.querySelector('#app').classList.contains('rolling'));
     assert.notEqual(await page.evaluate(() => JSON.parse(localStorage.getItem('kalistar.v4.game')).phase), 'attack');
+
+    for (const side of [0, 1]) {
+      await page.evaluate(async ({ base, side }) => {
+        await KALISTAR_DB.idle();
+        const e = KalistarEngine.createEngine(KALISTAR_DATA), s = structuredClone(base);
+        s.turn = side;
+        e.lock(s, 0, 0);
+        const die = 6 - e.card(s.players[side].board[0]).atk.findIndex(v => typeof v === 'number');
+        e.rollAttack(s, die); e.assertState(s);
+        await KALISTAR_DB.saveGame(s); localStorage.setItem('kalistar.v4.game', JSON.stringify(s));
+      }, { base, side });
+      await page.reload(); await page.waitForFunction(() => window.KALISTAR_READY);
+      const defender = page.locator(`.dice-stage[data-player="${1-side}"]`);
+      assert.equal(await page.locator('.is-engaging').count(), 1, 'only DEF reawakens in a saved Kalistel decision');
+      assert.match(await defender.getAttribute('class'), /is-engaging/);
+      await page.locator('[data-action=accept-attack]').click();
+      assert.match(await defender.getAttribute('class'), /is-engaging/, 'DEF persists across phase remount');
+      const waiting = await pixels(page); await page.waitForTimeout(350);
+      assert.notEqual((await pixels(page))[1-side].hash, waiting[1-side].hash);
+      await page.locator('[data-action=roll]').click();
+      assert.match(await defender.getAttribute('class'), /is-engaging/, 'DEF keeps its aura during its own wind-up');
+      await page.waitForFunction(() => document.querySelector('.dice-stage[data-role=DEF].is-releasing'));
+      assert.equal(await page.locator('.is-engaging').count(), 0);
+      await page.waitForFunction(() => !document.querySelector('#app').classList.contains('rolling'));
+    }
     assert.deepEqual(errors, []);
-    console.log('PASS: 12 elemental auras + NONE, continuous waiting, stable gem, 30fps, roll/cancel, reduced motion, visibility, actual duel, reload, phone, unchanged RNG.');
+    console.log('PASS: all elements, independent ATK/DEF awakening on both sides, wind-up, burst + flight, Kalistel/reload continuity, cancellation, reduced motion, phone, unchanged RNG.');
   } finally { await browser.close(); }
 })().catch(error => { console.error(error); process.exitCode = 1; });

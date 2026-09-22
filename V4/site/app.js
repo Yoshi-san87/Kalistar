@@ -384,7 +384,11 @@ function showDeck(){setView('decks');}
     console.insertAdjacentHTML('beforeend',`<div class="arena-crown" title="${esc(arena.name)}" aria-label="${esc(arena.name)}">${icon(symbol)}</div>`);
     const score=[game.players[1].dead.length,game.players[0].dead.length];
     const toolbar=$('.arena-toolbar');toolbar.querySelector('.tools').insertAdjacentHTML('beforebegin',`<div class="match-scoreboard" aria-label="Score du match : joueur 1 ${score[0]}, joueur 2 ${score[1]}"><div><small>Joueur 1</small><strong data-kills="0">${score[0]}</strong></div><span>${icon('crosshair')}<small>10 KILLS</small></span><div><small>${game.mode==='ai'?'Le Veilleur':'Joueur 2'}</small><strong data-kills="1">${score[1]}</strong></div></div>`);
-    if(game.phase==='replace')$(`.formation[data-player="${game.replacing}"] .slot[data-position="${replacementSlot()+1}"]`)?.classList.add('replacement-target');
+    if(game.phase==='replace'){
+      const slot=replacementSlot(),target=$(`.formation[data-player="${game.replacing}"] .slot[data-position="${slot+1}"]`);
+      target?.classList.add('replacement-target');
+      if(target&&phoneLayout()&&!(game.mode==='ai'&&game.replacing===1))target.querySelector('.slot-card').setAttribute('aria-label','Ouvrir la réserve pour la position P'+(slot+1));
+    }
     icons();
   }
   function journal(){
@@ -479,10 +483,11 @@ function showDeck(){setView('decks');}
     modal('mobile-dialog',head('La rencontre')+`<div class="dialog-body mobile-menu"><button data-view="collection">${icon('book-open')}Collection${icon('chevron-right')}</button><button data-view="decks">${icon('layers-3')}Mes decks${icon('chevron-right')}</button>${items.map(([action,symbol,label])=>`<button data-action="${action}" ${['arena-picker','auto-formation'].includes(action)&&game.phase!=='setup'?'disabled':''}>${icon(symbol)}${label}${icon('chevron-right')}</button>`).join('')}</div>`);
     $('#mobile-dialog .mobile-menu').insertAdjacentHTML('beforeend',`<button data-action="reserves" data-side="1">${icon('layers-3')}Réserve adverse · ${game.players[1].reserve.length}${icon('chevron-right')}</button><button data-action="grave" data-side="1">${icon('skull')}Cimetière adverse · ${game.players[1].dead.length}${icon('chevron-right')}</button>`);icons();
   }
-  function showArchive(side,kind){
-    const p=game.players[side],units=kind==='dead'?p.dead:p.reserve,hidden=kind==='reserve'&&side===1&&game.mode==='ai';
-    modal('detail-dialog',head(`${kind==='dead'?'Cimetière':'Réserve'} · ${side===0?'Joueur 1':'Adversaire'}`)+`<div class="dialog-body archive-list">${units.map(u=>{
-      const c=E.card(u),positions=kind==='reserve'&&!hidden?c.positions.filter(pos=>canDeployReserve(side,u.uid,pos-1)):[];
+  function showArchive(side,kind,slot=null){
+    const p=game.players[side],hidden=kind==='reserve'&&side===1&&game.mode==='ai',target=kind==='reserve'&&!hidden&&Number.isInteger(slot)?slot:null;
+    const units=(kind==='dead'?p.dead:p.reserve).filter(u=>target===null||canDeployReserve(side,u.uid,target));
+    modal('detail-dialog',head(`${kind==='dead'?'Cimetière':'Réserve'} · ${side===0?'Joueur 1':'Adversaire'}${target===null?'':' · P'+(target+1)}`)+`<div class="dialog-body archive-list">${units.map(u=>{
+      const c=E.card(u),positions=kind==='reserve'&&!hidden?c.positions.filter(pos=>(target===null||pos===target+1)&&canDeployReserve(side,u.uid,pos-1)):[];
       return `<figure>${hidden?'<img src="assets/back.webp" alt="Carte adverse face cachée">':`<button class="card-open" data-action="detail" data-id="${u.cardId}" aria-label="Inspecter ${esc(c.name)}"><img src="${cardImage(c)}" alt="${esc(c.name)}"></button>`}<figcaption>${hidden?'Carte en réserve':esc(c.name)}${u.revived?'<br><span class="revived">Déjà ressuscitée</span>':''}</figcaption>${positions.length?`<div class="reserve-placements" aria-label="Déployer ${esc(c.name)}">${positions.map(pos=>`<button data-action="deploy-reserve" data-side="${side}" data-uid="${u.uid}" data-slot="${pos-1}" title="${p.board[pos-1]?'Remplacer '+esc(E.card(p.board[pos-1]).name):'Déployer'} en P${pos}">${icon('plus')}P${pos}</button>`).join('')}</div>`:''}</figure>`;
     }).join('')||'<p class="muted">Aucune carte.</p>'}</div>`);
   }
@@ -501,6 +506,13 @@ function showDeck(){setView('decks');}
       }
       if(action==='slot'&&phoneLayout()&&game.phase==='setup'){
         $('#detail-dialog').classList.remove('card-detail');return showArchive(Number(b.dataset.side),'reserve');
+      }
+      if(action==='slot'&&phoneLayout()&&game.phase==='replace'&&!rolling){
+        const side=Number(b.dataset.side),slot=Number(b.dataset.slot);
+        if(side===game.replacing&&!game.players[side].board[slot]&&game.players[side].reserve.some(u=>canDeployReserve(side,u.uid,slot))){
+          ui.replacementSlot=slot;ui.reserve=null;render();
+          $('#detail-dialog').classList.remove('card-detail');return showArchive(side,'reserve',slot);
+        }
       }
       if(action==='catalogue-refresh')return refreshCatalogue();
       if(action==='phone-preview'){

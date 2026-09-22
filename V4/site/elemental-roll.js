@@ -134,12 +134,12 @@
     }
     ctx.restore();
   }
-  function draw(v, time = 0, energy = 0) {
+  function draw(v, time = 0, energy = 0, gemOpacity = 1) {
     const ctx = v.ctx, active = v.host.dataset.selected === 'true';
     ctx.clearRect(0, 0, 160, 160); ctx.save(); ctx.translate(80, 77);
     ctx.globalAlpha = active ? .65 : .25; ctx.strokeStyle = v.color; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.ellipse(0, 57, 41, 10, 0, 0, TAU); ctx.stroke();
-    ctx.globalAlpha = active ? 1 : .35;
+    ctx.globalAlpha = (active ? 1 : .35) * gemOpacity;
     ctx.save(); gemPath(ctx); ctx.clip();
     if (active && v.image?.complete && v.image.naturalWidth) ctx.drawImage(v.image, -89, -118, 178, 178);
     else {
@@ -152,6 +152,25 @@
     ctx.restore();
   }
 
+  function drawBurst(v, t) {
+    draw(v, 0, 0, Math.max(0, 1 - t * 5));
+    if (v.host.dataset.element === 'NONE') return;
+    const ctx = v.ctx, spread = 1 - Math.pow(1 - t, 3), fade = Math.pow(1 - t, 1.5);
+    ctx.save(); ctx.translate(80, 77); ctx.globalCompositeOperation = 'lighter';
+    ctx.globalAlpha = fade * .7; ctx.fillStyle = v.halo; ctx.fillRect(-65, -72, 130, 140);
+    ctx.lineWidth = 1.5; ctx.strokeStyle = v.color; ctx.globalAlpha = fade * .6;
+    ctx.beginPath(); ctx.ellipse(0, 0, 8 + spread * 48, 12 + spread * 46, 0, 0, TAU); ctx.stroke();
+    for (let i = 0; i < 14; i++) {
+      const angle = i * 2.4, radius = 10 + spread * (35 + i % 3 * 6), size = (2 + i % 3) * (1 - t * .6);
+      ctx.save(); ctx.translate(Math.cos(angle) * radius, Math.sin(angle) * radius);
+      ctx.rotate(angle + t * (i % 2 ? 1 : -1)); ctx.globalAlpha = fade;
+      ctx.fillStyle = i % 3 ? v.color : '#fff3d8';
+      ctx.beginPath(); ctx.moveTo(0, -size * 1.8); ctx.lineTo(size, size); ctx.lineTo(-size * .6, size * .5); ctx.closePath(); ctx.fill();
+      ctx.restore();
+    }
+    ctx.restore();
+  }
+
   function drawWaiting(v, now = performance.now()) {
     const seconds = motion.matches ? 0 : (now - v.started) / 1000;
     draw(v, seconds, v.waiting ? (motion.matches ? .5 : .78 + Math.sin(seconds * 2) * .08) : 0);
@@ -160,7 +179,7 @@
   function idleTick(now) {
     idleFrame = 0;
     if (document.hidden || motion.matches) return;
-    const waiting = [...views.values()].filter(v => v.waiting && v.host.isConnected);
+    const waiting = [...views.values()].filter(v => v.waiting && !v.revealing && v.host.isConnected);
     if (!waiting.length) return;
     // One shared 30 fps loop, also on high-refresh-rate phones.
     if (now - lastPaint >= 1000 / 30) { waiting.forEach(v => drawWaiting(v, now)); lastPaint = now; }
@@ -168,8 +187,8 @@
   }
   function syncIdle() {
     stopFrame();
-    for (const v of views.values()) if (v.waiting && v.host.isConnected) drawWaiting(v);
-    if (!document.hidden && !motion.matches && [...views.values()].some(v => v.waiting && v.host.isConnected)) idleFrame = requestAnimationFrame(idleTick);
+    for (const v of views.values()) if (v.waiting && !v.revealing && v.host.isConnected) drawWaiting(v);
+    if (!document.hidden && !motion.matches && [...views.values()].some(v => v.waiting && !v.revealing && v.host.isConnected)) idleFrame = requestAnimationFrame(idleTick);
   }
   function stopWaiting() {
     stopFrame();
@@ -217,7 +236,7 @@
     views.clear();
   }
   function mount(hosts) {
-    const previous = new Map([...views].map(([side, v]) => [side, v.host.dataset.crystal]));
+    const previous = new Map([...views].map(([side, v]) => [side, { crystal: v.host.dataset.crystal, started: v.started }]));
     cancel();
     const phase = document.querySelector('.duel-console')?.dataset.phase;
     for (const host of hosts) {
@@ -228,10 +247,12 @@
       const color = host.dataset.color || '#b8c7bc';
       const halo = ctx.createRadialGradient(0, -2, 20, 0, -2, 66);
       halo.addColorStop(0, color + '00'); halo.addColorStop(.5, color + '24'); halo.addColorStop(1, color + '00');
+      const prior = previous.get(Number(host.dataset.player)), sameCrystal = prior?.crystal === host.dataset.crystal;
+      const awaitingRoll = phase === 'attack' || host.dataset.role === 'DEF' && ['kalistel', 'defense'].includes(phase);
       const v = { host, canvas, ctx, color, halo, image: host.dataset.crystal ? art(host.dataset.crystal) : null,
-        started: performance.now(), waiting: phase === 'attack' && host.dataset.selected === 'true' && host.dataset.element !== 'NONE' };
+        started: sameCrystal ? prior.started : performance.now(), waiting: awaitingRoll && host.dataset.selected === 'true' && host.dataset.element !== 'NONE' };
       views.set(Number(host.dataset.player), v);
-      if (previous.get(Number(host.dataset.player)) !== host.dataset.crystal) host.classList.add('crystal-change');
+      if (!sameCrystal) host.classList.add('crystal-change');
       host.classList.toggle('is-engaging', v.waiting); drawWaiting(v);
       if (v.image && !v.image.complete) v.image.addEventListener('load', () => {
         if (views.get(Number(host.dataset.player)) === v && !host.classList.contains('is-awakening')) drawWaiting(v);
@@ -243,22 +264,33 @@
   async function play(side, value, reduced, signal) {
     const v = views.get(side);
     if (!v || signal?.aborted) return false;
-    // Both participants leave the waiting ritual on the very first roll click.
-    stopWaiting();
+    // Only this participant releases its energy; the other keeps waiting.
+    v.revealing = true;
     const token = generation, alive = () => token === generation && v.host.isConnected && !signal?.aborted;
     v.host.classList.add('is-awakening');
     try {
       if (!reduced) {
-        if (!await animate(370, signal, t => draw(v, t * 1.5, Math.sin(Math.PI * t)))) return false;
-        if (!await flight(center(v.host), point(v, 6), v.color, signal, 240)) return false;
+        const time = (performance.now() - v.started) / 1000;
+        if (!await animate(370, signal, t => draw(v, time + t * .37, .85 + t * .15))) return false;
+        v.waiting = false; v.host.classList.remove('is-engaging'); v.host.classList.add('is-releasing');
+        const released = await Promise.all([
+          animate(300, signal, t => drawBurst(v, t)),
+          flight(center(v.host), point(v, 6), v.color, signal, 300)
+        ]);
+        v.host.classList.remove('is-releasing');
+        if (!released.every(Boolean)) return false;
         const order = [6, 5, 4, 3, 2, 1, value];
         if (!await animate(480, signal, t => mark(v, order[Math.min(6, Math.floor((1 - Math.pow(1 - t, 1.6)) * 7))]))) return false;
       }
       if (!alive()) return false;
+      v.waiting = false; v.host.classList.remove('is-engaging');
       mark(v, value)?.classList.add('settled'); v.host.dataset.front = String(value);
       v.host.setAttribute('aria-label', `${v.host.dataset.role} \u00b7 r\u00e9sultat ${value}`); draw(v);
       return true;
-    } finally { v.host.classList.remove('is-awakening'); }
+    } finally {
+      v.revealing = false; v.host.classList.remove('is-awakening', 'is-releasing');
+      if (token === generation) { drawWaiting(v); syncIdle(); }
+    }
   }
   window.KalistarDice = { mount, play, cancel };
   document.addEventListener('visibilitychange', syncIdle);
