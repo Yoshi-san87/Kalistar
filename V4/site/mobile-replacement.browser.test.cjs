@@ -31,19 +31,32 @@ const output = path.join(__dirname, 'verification/mobile-replacement');
             if (s.phase !== 'defense') continue;
             e.rollDefense(s, def);
             if (s.phase !== 'result' || s.players[side].board[target]) continue;
+            const result = structuredClone(s);
             e.next(s);
-            if (s.phase === 'replace' && s.replacing === side) chosen = { state: s, slot: target };
+            if (s.phase === 'replace' && s.replacing === side) chosen = { state: s, result, slot: target };
           }
         }
         if (!chosen) throw new Error('No lethal replacement fixture');
         e.assertState(chosen.state);
-        await KALISTAR_DB.saveGame(chosen.state);
-        localStorage.setItem('kalistar.v4.game', JSON.stringify(chosen.state));
+        await KALISTAR_DB.saveGame(chosen.result);
+        localStorage.setItem('kalistar.v4.game', JSON.stringify(chosen.result));
         return { ...chosen, compatible: chosen.state.players[side].reserve.filter(u => e.card(u).positions.includes(chosen.slot + 1)).map(u => u.uid) };
       }, { base, side });
       await page.reload(); await page.waitForFunction(() => window.KALISTAR_READY);
       const target = page.locator(`.formation[data-player="${side}"] .slot[data-position="${staged.slot + 1}"]`);
+      for (const [width, height] of [[1440,1000], [412,1007]]) {
+        await page.setViewportSize({ width, height });
+        assert.equal(await target.locator('.slot-card.empty').count(), 1, 'killed card leaves a vacant position');
+        assert.equal(await target.locator('.ritual-result').count(), 0, 'no die marker is recreated on the vacant position');
+        assert.equal(await page.locator(`.formation[data-player="${1-side}"] .ritual-result`).count(), 1, 'surviving attacker retains its result');
+        await page.screenshot({ path: path.join(output, `kill-player-${side + 1}-${width}.png`), scale: 'css' });
+      }
+      await page.reload(); await page.waitForFunction(() => window.KALISTAR_READY);
+      assert.equal(await target.locator('.ritual-result').count(), 0, 'reloading a lethal result cannot restore the orphan marker');
+      await page.locator('[data-action=next]').tap();
+      assert.deepEqual(await page.evaluate(() => JSON.parse(localStorage.getItem('kalistar.v4.game'))), staged.state);
       assert.match(await target.getAttribute('class'), /replacement-target/);
+      assert.equal(await target.locator('.ritual-result').count(), 0);
       await target.locator('.slot-card').tap();
       const dialog = page.locator('#detail-dialog[open]');
       await dialog.waitFor();
@@ -62,6 +75,7 @@ const output = path.join(__dirname, 'verification/mobile-replacement');
       await options.first().tap();
       assert.equal(await page.locator('#detail-dialog').evaluate(n => n.open), false);
       assert.equal(await target.getAttribute('data-unit'), uid);
+      assert.equal(await target.locator('.ritual-result').count(), 0, 'new reserve card does not inherit the previous result');
       const after = await page.evaluate(() => JSON.parse(localStorage.getItem('kalistar.v4.game')));
       assert.deepEqual(after.players[1-side].board, staged.state.players[1-side].board, 'other team is unchanged');
       assert.equal(after.players[side].reserve.length, staged.state.players[side].reserve.length - 1);

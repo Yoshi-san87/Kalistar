@@ -28,7 +28,7 @@
     return silhouettes.get(image);
   }
   function card(v) {
-    return document.querySelector(`.formation[data-player="${v.host.dataset.player}"] .slot[data-position="${v.host.dataset.slot}"] .slot-card`);
+    return document.querySelector(`.formation[data-player="${v.host.dataset.player}"] .slot[data-position="${v.host.dataset.slot}"] .slot-card:not(.empty)`);
   }
   function position(v, face) {
     const attack = v.host.dataset.role === 'ATK';
