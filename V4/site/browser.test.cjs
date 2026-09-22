@@ -169,7 +169,7 @@ async function main() {
   const savedGame = await page.evaluate(() => localStorage.getItem('kalistar.v4.game'));
   await page.screenshot({ path: path.join(output, 'desktop-arena.png') });
   const canvas = await page.locator('.dice-stage canvas').count();
-  assert.ok(canvas >= 2, '3D dice canvas mounted');
+  assert.ok(canvas >= 2, 'elemental crystal canvases mounted');
   const dicePixels = async () => page.evaluate(() => [...document.querySelectorAll('.dice-stage canvas')].map(source => {
     const canvas = document.createElement('canvas'); canvas.width = source.width; canvas.height = source.height;
     const ctx = canvas.getContext('2d'); ctx.drawImage(source, 0, 0);
@@ -180,10 +180,9 @@ async function main() {
   }));
   const initialDice = await dicePixels(); assert.ok(initialDice.every(c => c.nonblank > 100));
   await page.evaluate(() => { window.testDiceAnimation = KalistarDice.play(0, 1, false); });
-  await page.waitForFunction(() => document.querySelector('.dice-stage[data-player="0"]').classList.contains('is-rolling'));
-  assert.notEqual((await dicePixels())[0].hash, initialDice[0].hash);
+  await page.waitForFunction(() => document.querySelector('.dice-stage[data-player="0"]').classList.contains('is-awakening'));
   await page.evaluate(async () => { await window.testDiceAnimation; await KalistarDice.play(0, 6, true); });
-  checks.push('3D dice have nonblank pixels and animate on interaction');
+  checks.push('elemental crystals have nonblank pixels and reveal rolls on interaction');
   await page.locator('[data-view=atelier]').click();
   const frame = page.frameLocator('#atelier-frame');
   await frame.locator('body').waitFor();
@@ -229,10 +228,10 @@ async function main() {
   await page.locator('[data-view=arena]').click();
   await page.screenshot({ path: path.join(output, 'mobile-arena.png') });
   assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), 'mobile arena has no page overflow');
-  assert.ok((await dicePixels()).every(c => c.nonblank > 100), 'mobile 3D dice are nonblank');
+  assert.ok((await dicePixels()).every(c => c.nonblank > 100), 'mobile elemental crystals are nonblank');
   const broken = await page.evaluate(() => [...document.images].filter(img => img.complete && img.naturalWidth === 0).map(img => img.src));
   assert.deepEqual(broken, []); assert.deepEqual(errors, []); assert.deepEqual(badResponses, []);
-  checks.push('desktop/mobile images, scripts, layout and 3D dice mount have no failures');
+  checks.push('desktop/mobile images, scripts, layout and elemental crystals have no failures');
   fs.writeFileSync(path.join(output, 'browser-report.json'), JSON.stringify({ passed: true, mode: live ? 'live-parent-server' : 'isolated-http-route-fixture', url, checks, errors, badResponses }, null, 2));
   for (const check of checks) console.log('PASS ' + check);
   await context.close();

@@ -1,26 +1,268 @@
 (() => {
   'use strict';
-  // Presentation only: the engine supplies the face before this animation starts.
-  const views=new Map(),images=new Map(),motion=matchMedia('(prefers-reduced-motion:reduce)');
-  let generation=0,lastPhase='',pending=new Set();
-  const rows=[774,676,577,475,371,147];
-  function art(src){if(!images.has(src)){const i=new Image();i.src=src;images.set(src,i);}return images.get(src);}
-  function card(v){return document.querySelector(`.formation[data-player="${v.host.dataset.player}"] .slot[data-position="${v.host.dataset.slot}"] .slot-card`);}
-  function point(v,face){const r=card(v)?.getBoundingClientRect();if(!r)return null;const attack=v.host.dataset.role==='ATK';return {x:r.left+r.width*((attack?(face===6?142:156):(face===6?755:741))-50)/797,y:r.top+r.height*(rows[face-1]-50)/1388};}
-  function center(node){const r=node.getBoundingClientRect();return {x:r.left+r.width/2,y:r.top+r.height/2};}
-  function mark(v,face){const c=card(v);if(!c)return;let n=c.querySelector('.ritual-result');if(!n){n=document.createElement('span');n.className='ritual-result';n.setAttribute('aria-hidden','true');c.append(n);}const attack=v.host.dataset.role==='ATK';n.style.left=(((attack?(face===6?142:156):(face===6?755:741))-50)/797*100)+'%';n.style.top=((rows[face-1]-50)/1388*100)+'%';n.style.setProperty('--ritual-tint',v.color);n.dataset.face=face;return n;}
-  function draw(v,t=0,spin=false){const ctx=v.canvas.getContext('2d'),s=160;ctx.clearRect(0,0,s,s);ctx.save();ctx.translate(80,77);const active=v.host.dataset.selected==='true';ctx.globalAlpha=active?1:.35;ctx.strokeStyle=v.color;ctx.lineWidth=1;ctx.beginPath();ctx.ellipse(0,57,41,10,0,0,Math.PI*2);ctx.stroke();
-    const glow=t?Math.sin(Math.PI*t):0;ctx.shadowColor=v.color;ctx.shadowBlur=glow*22;ctx.save();ctx.translate(Math.sin(t*Math.PI*4)*glow*2,-glow*4);if(spin)ctx.scale(Math.cos(t*Math.PI*2),1);ctx.beginPath();ctx.moveTo(0,-57);ctx.lineTo(29,-15);ctx.lineTo(0,50);ctx.lineTo(-29,-15);ctx.closePath();ctx.clip();
-    if(active&&v.image?.complete&&v.image.naturalWidth){ctx.drawImage(v.image,-89,-118,178,178);}else{const g=ctx.createLinearGradient(-28,0,28,0);g.addColorStop(0,'#344340');g.addColorStop(.5,'#b4c4bb');g.addColorStop(1,'#52635c');ctx.fillStyle=g;ctx.fillRect(-30,-58,60,110);}
-    if(glow){ctx.globalAlpha=glow*.55;const g=ctx.createLinearGradient(-30,-58,30,50);g.addColorStop(0,'transparent');g.addColorStop(.5,v.color);g.addColorStop(1,'#fff3d4');ctx.fillStyle=g;ctx.fillRect(-30,-58,60,110);}ctx.restore();
-    if(t&&v.host.dataset.element!=='NONE')for(let i=0;i<9;i++){const a=i*2.4+t*4,x=Math.cos(a)*(31+glow*13),y=Math.sin(a)*49-t*12;ctx.globalAlpha=glow*.65;ctx.fillStyle=v.color;ctx.save();ctx.translate(x,y);ctx.rotate(a);const el=v.host.dataset.element;if(['GEO','MINERO','CRYO'].includes(el)){ctx.fillRect(-2,-2,4,4);}else if(el==='ELECTRO'){ctx.beginPath();ctx.moveTo(-3,-5);ctx.lineTo(1,0);ctx.lineTo(-1,2);ctx.lineTo(3,6);ctx.stroke();}else if(el==='PYRO'){ctx.beginPath();ctx.moveTo(-3,3);ctx.quadraticCurveTo(-5,-3,0,-9-glow*5);ctx.quadraticCurveTo(0,-2,3,3);ctx.closePath();ctx.fill();}else{ctx.beginPath();ctx.ellipse(0,0,el==='HERBO'?2:1.3,el==='PYRO'?4:2.5,0,0,Math.PI*2);ctx.fill();}ctx.restore();}ctx.restore();}
-  function animate(duration,signal,fn){const token=generation;return new Promise(resolve=>{let frame,timer,done=false;const finish=ok=>{if(done)return;done=true;cancelAnimationFrame(frame);clearTimeout(timer);signal?.removeEventListener('abort',abort);pending.delete(abort);resolve(ok);};const abort=()=>finish(false);pending.add(abort);signal?.addEventListener('abort',abort,{once:true});const start=performance.now();function tick(now){if(signal?.aborted||token!==generation){finish(false);return;}const t=Math.min(1,(now-start)/duration);fn(t);if(t===1)finish(true);else frame=requestAnimationFrame(tick);}timer=setTimeout(()=>{if(token===generation&&!signal?.aborted){fn(1);finish(true);}else finish(false);},duration+200);tick(start);});}
-  async function flight(from,to,color,signal,duration=260){if(!from||!to)return true;const n=document.createElement('span');n.className='ritual-flight';n.style.setProperty('--ritual-tint',color);document.body.append(n);try{return await animate(duration,signal,t=>{const e=1-Math.pow(1-t,2);n.style.left=(from.x+(to.x-from.x)*e)+'px';n.style.top=(from.y+(to.y-from.y)*e-Math.sin(Math.PI*t)*18)+'px';n.style.opacity=String(Math.sin(Math.PI*t));});}finally{n.remove();}}
-  function cancel(){generation++;for(const stop of [...pending])stop();}
-  function mount(hosts){const previous=new Map([...views].map(([side,v])=>[side,v.host.dataset.crystal]));cancel();views.clear();const phase=document.querySelector('.duel-console')?.dataset.phase;const entering=phase==='attack'&&lastPhase==='choose';lastPhase=phase;
-    for(const host of hosts){const canvas=document.createElement('canvas');canvas.width=canvas.height=160;canvas.setAttribute('aria-hidden','true');host.replaceChildren(canvas);host.classList.add('elemental-stage');const v={host,canvas,color:host.dataset.color||'#b8c7bc',image:host.dataset.crystal?art(host.dataset.crystal):null};views.set(Number(host.dataset.player),v);if(previous.get(Number(host.dataset.player))!==host.dataset.crystal)host.classList.add('crystal-change');draw(v);if(v.image&&!v.image.complete)v.image.addEventListener('load',()=>{if(host.isConnected)draw(v);},{once:true});const value=Number(host.dataset.result);if(value)mark(v,value);
-      if(entering&&!motion.matches){v.awake=new AbortController();host.classList.add('is-engaging');animate(900,v.awake.signal,t=>draw(v,t,true)).then(()=>{host.classList.remove('is-engaging');if(host.isConnected&&!host.classList.contains('is-awakening'))draw(v);});}}
+  // Presentation only: no random draws or writes to the combat state.
+  const views = new Map(), images = new Map(), pending = new Set();
+  const motion = matchMedia('(prefers-reduced-motion:reduce)');
+  const rows = [774, 676, 577, 475, 371, 147], TAU = Math.PI * 2;
+  let generation = 0, idleFrame = 0, lastPaint = 0;
+
+  function art(src) {
+    if (!images.has(src)) { const image = new Image(); image.src = src; images.set(src, image); }
+    return images.get(src);
   }
-  async function play(side,value,reduced,signal){const v=views.get(side);if(!v)return false;v.awake?.abort();const alive=()=>v.host.isConnected&&!signal?.aborted;v.host.classList.add('is-awakening');try{if(!reduced){if(!await animate(370,signal,t=>draw(v,t)))return false;if(!await flight(center(v.host),point(v,6),v.color,signal,240))return false;const order=[6,5,4,3,2,1,value];if(!await animate(480,signal,t=>{const i=Math.min(6,Math.floor((1-Math.pow(1-t,1.6))*7));mark(v,order[i]);}))return false;}if(!alive())return false;const n=mark(v,value);n?.classList.add('settled');v.host.dataset.front=String(value);v.host.setAttribute('aria-label',`${v.host.dataset.role} · résultat ${value}`);draw(v);return true;}finally{v.host.classList.remove('is-awakening');}}
-  window.KalistarDice={mount,play};window.addEventListener('pagehide',cancel);
+  function card(v) {
+    return document.querySelector(`.formation[data-player="${v.host.dataset.player}"] .slot[data-position="${v.host.dataset.slot}"] .slot-card`);
+  }
+  function position(v, face) {
+    const attack = v.host.dataset.role === 'ATK';
+    return { x: ((attack ? (face === 6 ? 142 : 156) : (face === 6 ? 755 : 741)) - 50) / 797, y: (rows[face - 1] - 50) / 1388 };
+  }
+  function point(v, face) {
+    const r = card(v)?.getBoundingClientRect();
+    if (!r) return null;
+    const p = position(v, face);
+    return { x: r.left + r.width * p.x, y: r.top + r.height * p.y };
+  }
+  function center(node) {
+    const r = node.getBoundingClientRect();
+    return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+  }
+  function mark(v, face) {
+    const c = card(v);
+    if (!c) return;
+    let n = c.querySelector('.ritual-result');
+    if (!n) { n = document.createElement('span'); n.className = 'ritual-result'; n.setAttribute('aria-hidden', 'true'); c.append(n); }
+    const p = position(v, face);
+    n.style.left = p.x * 100 + '%'; n.style.top = p.y * 100 + '%';
+    n.style.setProperty('--ritual-tint', v.color); n.dataset.face = face;
+    return n;
+  }
+  function gemPath(ctx) {
+    ctx.beginPath(); ctx.moveTo(0, -57); ctx.lineTo(29, -15); ctx.lineTo(0, 50); ctx.lineTo(-29, -15); ctx.closePath();
+  }
+  function drop(ctx, x, y, size) {
+    ctx.beginPath(); ctx.moveTo(x, y - size * 2);
+    ctx.bezierCurveTo(x + size * 2, y, x + size, y + size, x, y + size);
+    ctx.bezierCurveTo(x - size, y + size, x - size * 2, y, x, y - size * 2); ctx.fill();
+  }
+  function sparks(ctx, t, color, strength, count = 9) {
+    ctx.fillStyle = color;
+    for (let i = 0; i < count; i++) {
+      const p = (t * .24 + i * .618) % 1, x = Math.sin(i * 2.4) * (34 + p * 12);
+      ctx.globalAlpha = Math.sin(p * Math.PI) * .75 * strength;
+      ctx.beginPath(); ctx.arc(x, 47 - p * 106, 1 + (i % 3) * .3, 0, TAU); ctx.fill();
+    }
+  }
+  function aura(v, t, strength) {
+    const ctx = v.ctx, element = v.host.dataset.element;
+    ctx.save(); ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = strength;
+    ctx.fillStyle = v.halo; ctx.fillRect(-65, -72, 130, 140);
+    // Render outside the painted gem: motion belongs to its element, not its silhouette.
+    ctx.beginPath(); ctx.rect(-80, -77, 160, 160);
+    ctx.moveTo(0, -54); ctx.lineTo(27, -15); ctx.lineTo(0, 47); ctx.lineTo(-27, -15); ctx.closePath(); ctx.clip('evenodd');
+    ctx.strokeStyle = v.color; ctx.fillStyle = v.color; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    if (element === 'PYRO') {
+      for (let i = 0; i < 9; i++) {
+        const x = (i - 4) * 8, base = 39 - Math.abs(x) * .75;
+        const length = 26 + (1 + Math.sin(t * 3.3 + i * 2.1)) * 14;
+        const sway = Math.sin(t * 2.7 + i) * 7;
+        ctx.globalAlpha = strength * (.58 + Math.sin(t * 2 + i) * .12);
+        const flame = ctx.createLinearGradient(x, base, x, base - length);
+        flame.addColorStop(0, '#ff552700'); flame.addColorStop(.28, '#ec531e');
+        flame.addColorStop(.65, '#ffa631'); flame.addColorStop(1, '#fff2b8'); ctx.fillStyle = flame;
+        ctx.beginPath(); ctx.moveTo(x - 8, base);
+        ctx.bezierCurveTo(x - 16, base - length * .45, x + sway + 5, base - length * .6, x + sway, base - length);
+        ctx.bezierCurveTo(x + sway + 15, base - length * .45, x + 10, base - length * .3, x + 8, base);
+        ctx.closePath(); ctx.fill();
+      }
+      sparks(ctx, t, '#ffbf6c', strength, 10);
+    } else if (element === 'ELECTRO') {
+      for (let side = -1; side <= 1; side += 2) for (let strand = 0; strand < 2; strand++) {
+        const pulse = .48 + .22 * Math.sin(t * 7 + strand * 3 + side);
+        ctx.beginPath();
+        for (let i = 0; i <= 12; i++) {
+          const y = -57 + i * 9, edge = y < -15 ? (y + 57) / 42 * 29 : (50 - y) / 65 * 29;
+          const jag = Math.sin(i * 9 + t * 13 + strand * 5) * Math.sin(i * 2.8 - t * 8) * 7;
+          const x = side * (Math.max(0, edge) + 5 + strand * 6 + jag);
+          if (i) ctx.lineTo(x, y); else ctx.moveTo(x, y);
+        }
+        ctx.globalAlpha = strength * pulse; ctx.strokeStyle = '#eab92c'; ctx.lineWidth = 5; ctx.stroke();
+        ctx.globalAlpha = strength * (.65 + pulse * .3); ctx.strokeStyle = '#fff5bb'; ctx.lineWidth = 1.7; ctx.stroke();
+      }
+      sparks(ctx, t * 1.6, '#fff6c8', strength, 6);
+    } else if (element === 'AERO' || element === 'HYDRO' || element === 'NECRO') {
+      for (let i = 0; i < 4; i++) {
+        const p = (t * (element === 'NECRO' ? .13 : .22) + i / 4) % 1;
+        ctx.globalAlpha = strength * Math.sin(p * Math.PI) * .65;
+        ctx.lineWidth = element === 'NECRO' ? 4 : 1.8;
+        ctx.beginPath(); ctx.ellipse(Math.sin(p * TAU) * 4, 49 - p * 97, 32 + Math.sin(p * Math.PI) * 10, 7 + p * 6, -.15, p * 3, p * 3 + Math.PI * 1.65); ctx.stroke();
+      }
+      if (element === 'HYDRO') for (let i = 0; i < 7; i++) {
+        const p = (t * .24 + i / 7) % 1;
+        ctx.globalAlpha = strength * Math.sin(p * Math.PI) * .8;
+        drop(ctx, Math.sin(i * 2.4) * 42, 49 - p * 108, 2.1);
+      }
+    } else if (['CRYO', 'MINERO', 'GEO', 'HERBO', 'HEMATO'].includes(element)) {
+      for (let i = 0; i < 10; i++) {
+        const p = (t * .14 + i * .618) % 1, x = Math.sin(i * 2.4 + p * .7) * 42, y = 50 - p * 108;
+        ctx.save(); ctx.globalAlpha = strength * Math.sin(p * Math.PI) * .85;
+        ctx.translate(x, y); ctx.rotate(Math.sin(t + i) * .4 + i); ctx.lineWidth = 1.2;
+        if (element === 'HEMATO') drop(ctx, 0, 0, 2.5);
+        else if (element === 'HERBO') {
+          ctx.beginPath(); ctx.moveTo(-4, 3); ctx.quadraticCurveTo(-5, -6, 4, -4); ctx.quadraticCurveTo(5, 3, -4, 3); ctx.fill();
+        } else {
+          const size = element === 'CRYO' ? 3.4 : 3;
+          ctx.beginPath(); ctx.moveTo(0, -size * 1.7); ctx.lineTo(size, 0); ctx.lineTo(0, size); ctx.lineTo(-size, 0); ctx.closePath();
+          if (element === 'CRYO') ctx.stroke(); else ctx.fill();
+        }
+        ctx.restore();
+      }
+      if (element === 'GEO' || element === 'MINERO') {
+        ctx.globalAlpha = strength * .35; ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.ellipse(0, 54, 37 + Math.sin(t * 2) * 3, 8, 0, 0, TAU); ctx.stroke();
+      }
+    } else {
+      // Light and prismatic crystals: drifting rays rather than a rotating sprite.
+      for (let i = 0; i < 10; i++) {
+        const a = i / 10 * TAU, pulse = (1 + Math.sin(t * 2 + i * 1.9)) / 2;
+        ctx.globalAlpha = strength * (.18 + pulse * .45);
+        ctx.strokeStyle = element === 'RAINBOW' ? `hsl(${i * 36 + Math.sin(t) * 20} 85% 78%)` : '#fff0bf';
+        ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(Math.cos(a) * 32, Math.sin(a) * 48);
+        ctx.lineTo(Math.cos(a) * (36 + pulse * 12), Math.sin(a) * (52 + pulse * 12)); ctx.stroke();
+      }
+      sparks(ctx, t, '#fff7dd', strength, 7);
+    }
+    ctx.restore();
+  }
+  function draw(v, time = 0, energy = 0) {
+    const ctx = v.ctx, active = v.host.dataset.selected === 'true';
+    ctx.clearRect(0, 0, 160, 160); ctx.save(); ctx.translate(80, 77);
+    ctx.globalAlpha = active ? .65 : .25; ctx.strokeStyle = v.color; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.ellipse(0, 57, 41, 10, 0, 0, TAU); ctx.stroke();
+    ctx.globalAlpha = active ? 1 : .35;
+    ctx.save(); gemPath(ctx); ctx.clip();
+    if (active && v.image?.complete && v.image.naturalWidth) ctx.drawImage(v.image, -89, -118, 178, 178);
+    else {
+      const g = ctx.createLinearGradient(-28, 0, 28, 0);
+      g.addColorStop(0, '#344340'); g.addColorStop(.5, '#b4c4bb'); g.addColorStop(1, '#52635c');
+      ctx.fillStyle = g; ctx.fillRect(-30, -58, 60, 110);
+    }
+    ctx.restore();
+    if (energy && active && v.host.dataset.element !== 'NONE') aura(v, time, energy);
+    ctx.restore();
+  }
+
+  function drawWaiting(v, now = performance.now()) {
+    const seconds = motion.matches ? 0 : (now - v.started) / 1000;
+    draw(v, seconds, v.waiting ? (motion.matches ? .5 : .78 + Math.sin(seconds * 2) * .08) : 0);
+  }
+  function stopFrame() { cancelAnimationFrame(idleFrame); idleFrame = 0; }
+  function idleTick(now) {
+    idleFrame = 0;
+    if (document.hidden || motion.matches) return;
+    const waiting = [...views.values()].filter(v => v.waiting && v.host.isConnected);
+    if (!waiting.length) return;
+    // One shared 30 fps loop, also on high-refresh-rate phones.
+    if (now - lastPaint >= 1000 / 30) { waiting.forEach(v => drawWaiting(v, now)); lastPaint = now; }
+    idleFrame = requestAnimationFrame(idleTick);
+  }
+  function syncIdle() {
+    stopFrame();
+    for (const v of views.values()) if (v.waiting && v.host.isConnected) drawWaiting(v);
+    if (!document.hidden && !motion.matches && [...views.values()].some(v => v.waiting && v.host.isConnected)) idleFrame = requestAnimationFrame(idleTick);
+  }
+  function stopWaiting() {
+    stopFrame();
+    for (const v of views.values()) {
+      v.waiting = false; v.host.classList.remove('is-engaging'); draw(v);
+    }
+  }
+  function animate(duration, signal, fn) {
+    const token = generation;
+    return new Promise(resolve => {
+      let frame, timer, done = false;
+      const finish = ok => {
+        if (done) return;
+        done = true; cancelAnimationFrame(frame); clearTimeout(timer);
+        signal?.removeEventListener('abort', abort); pending.delete(abort); resolve(ok);
+      };
+      const abort = () => finish(false);
+      pending.add(abort); signal?.addEventListener('abort', abort, { once: true });
+      const start = performance.now();
+      function tick(now) {
+        if (signal?.aborted || token !== generation) { finish(false); return; }
+        const t = Math.min(1, (now - start) / duration); fn(t);
+        if (t === 1) finish(true); else frame = requestAnimationFrame(tick);
+      }
+      timer = setTimeout(() => { if (token === generation && !signal?.aborted) { fn(1); finish(true); } else finish(false); }, duration + 200);
+      tick(start);
+    });
+  }
+  async function flight(from, to, color, signal, duration = 260) {
+    if (!from || !to) return true;
+    const n = document.createElement('span'); n.className = 'ritual-flight';
+    n.style.setProperty('--ritual-tint', color); document.body.append(n);
+    try {
+      return await animate(duration, signal, t => {
+        const e = 1 - Math.pow(1 - t, 2);
+        n.style.left = (from.x + (to.x - from.x) * e) + 'px';
+        n.style.top = (from.y + (to.y - from.y) * e - Math.sin(Math.PI * t) * 18) + 'px';
+        n.style.opacity = String(Math.sin(Math.PI * t));
+      });
+    } finally { n.remove(); }
+  }
+  function cancel() {
+    generation++; stopWaiting();
+    for (const stop of [...pending]) stop();
+    views.clear();
+  }
+  function mount(hosts) {
+    const previous = new Map([...views].map(([side, v]) => [side, v.host.dataset.crystal]));
+    cancel();
+    const phase = document.querySelector('.duel-console')?.dataset.phase;
+    for (const host of hosts) {
+      const canvas = document.createElement('canvas'), ratio = Math.min(2, window.devicePixelRatio || 1);
+      canvas.width = canvas.height = 160 * ratio; canvas.setAttribute('aria-hidden', 'true');
+      host.replaceChildren(canvas); host.classList.add('elemental-stage');
+      const ctx = canvas.getContext('2d'); ctx.scale(ratio, ratio);
+      const color = host.dataset.color || '#b8c7bc';
+      const halo = ctx.createRadialGradient(0, -2, 20, 0, -2, 66);
+      halo.addColorStop(0, color + '00'); halo.addColorStop(.5, color + '24'); halo.addColorStop(1, color + '00');
+      const v = { host, canvas, ctx, color, halo, image: host.dataset.crystal ? art(host.dataset.crystal) : null,
+        started: performance.now(), waiting: phase === 'attack' && host.dataset.selected === 'true' && host.dataset.element !== 'NONE' };
+      views.set(Number(host.dataset.player), v);
+      if (previous.get(Number(host.dataset.player)) !== host.dataset.crystal) host.classList.add('crystal-change');
+      host.classList.toggle('is-engaging', v.waiting); drawWaiting(v);
+      if (v.image && !v.image.complete) v.image.addEventListener('load', () => {
+        if (views.get(Number(host.dataset.player)) === v && !host.classList.contains('is-awakening')) drawWaiting(v);
+      }, { once: true });
+      const value = Number(host.dataset.result); if (value) mark(v, value);
+    }
+    syncIdle();
+  }
+  async function play(side, value, reduced, signal) {
+    const v = views.get(side);
+    if (!v || signal?.aborted) return false;
+    // Both participants leave the waiting ritual on the very first roll click.
+    stopWaiting();
+    const token = generation, alive = () => token === generation && v.host.isConnected && !signal?.aborted;
+    v.host.classList.add('is-awakening');
+    try {
+      if (!reduced) {
+        if (!await animate(370, signal, t => draw(v, t * 1.5, Math.sin(Math.PI * t)))) return false;
+        if (!await flight(center(v.host), point(v, 6), v.color, signal, 240)) return false;
+        const order = [6, 5, 4, 3, 2, 1, value];
+        if (!await animate(480, signal, t => mark(v, order[Math.min(6, Math.floor((1 - Math.pow(1 - t, 1.6)) * 7))]))) return false;
+      }
+      if (!alive()) return false;
+      mark(v, value)?.classList.add('settled'); v.host.dataset.front = String(value);
+      v.host.setAttribute('aria-label', `${v.host.dataset.role} \u00b7 r\u00e9sultat ${value}`); draw(v);
+      return true;
+    } finally { v.host.classList.remove('is-awakening'); }
+  }
+  window.KalistarDice = { mount, play, cancel };
+  document.addEventListener('visibilitychange', syncIdle);
+  motion.addEventListener('change', syncIdle);
+  window.addEventListener('pagehide', cancel);
+  window.addEventListener('pageshow', event => { if (event.persisted) mount(document.querySelectorAll('#app:not([hidden]) .dice-stage')); });
 })();

@@ -112,6 +112,7 @@
     document.body.classList.toggle('atelier-view',ui.view==='atelier');
     $('#app').hidden=ui.view==='atelier';$('#atelier-panel').hidden=ui.view!=='atelier';
     if(ui.view==='atelier'){
+      window.KalistarDice?.cancel();
       if(!$('#atelier-frame')){
         const frame=document.createElement('iframe');frame.id='atelier-frame';frame.title='Atelier Kalistar V4';frame.src='/?embedded=1';
         $('#atelier-panel').append(frame);
