@@ -1,5 +1,5 @@
 /* Phone composition is isolated from the approved desktop layouts. */
-.mobile-only, .cb-mobile-panes, .cb-page .cb-mobile-sort { display: none; }
+.mobile-only, .mobile-duel-stats, .cb-mobile-panes, .cb-page .cb-mobile-sort { display: none; }
 .reserve-placements { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 8px; }
 .reserve-placements button { min-width: 44px; min-height: 44px; }
 
@@ -162,6 +162,23 @@
     min-height: 32px; margin: 0; padding: 8px; opacity: 1; transform: scale(calc(1 / var(--focus-scale,1))); transform-origin: bottom right; background: #0d1c1de8; border: 1px solid #c1b69a88; border-radius: 4px;
   }
   .slot .slot-buffs, .slot .duel-match-stats { display: none; }
+  /* Outside the scaled cards, inside the 64px reserved control strip. */
+  .mobile-duel-stats { display: flex; align-items: center; position: absolute; top: 0; height: 64px; z-index: 16; container-type: inline-size; }
+  .team-left .mobile-duel-stats { left: 106px; right: calc(32% + 12px); }
+  .team-right .mobile-duel-stats { left: 118px; right: 52px; }
+  .mobile-duel-stats .duel-match-stats { position: static; width: 100%; padding: 3px 0; border: 0; border-radius: 3px; box-shadow: none; background: #091819e8; }
+  .mobile-duel-stats .duel-match-stats > small { display: none; }
+  .mobile-duel-stats .duel-match-stats dl { grid-template-columns: repeat(2,minmax(0,1fr)); grid-template-rows: repeat(4,13px); gap: 2px; }
+  .mobile-duel-stats .duel-match-stats dl > div { gap: 2px; font-size: 10px; line-height: 13px; }
+  .mobile-duel-stats .duel-match-stats .lucide { width: 12px; height: 12px; stroke-width: 2; }
+  @container (max-width: 100px) {
+    .mobile-duel-stats .duel-match-stats dl > div, .mobile-duel-stats .match-metric-plus { font-size: 9px; }
+    .mobile-duel-stats .duel-match-stats .lucide { width: 11px; height: 11px; }
+  }
+  @container (min-width: 190px) {
+    .mobile-duel-stats .duel-match-stats dl { grid-template-columns: repeat(4,minmax(0,1fr)); grid-template-rows: repeat(2,20px); }
+    .mobile-duel-stats .duel-match-stats dl > div { font-size: 11px; }
+  }
   .slot .trait-stack { top: 18px; right: 0; left: auto; bottom: auto; transform: scale(calc(1 / var(--focus-scale,1))); transform-origin: top right; gap: 1px; }
   .slot .trait-stack .trait-badge { width: 20px; height: 20px; min-height: 20px; padding: 1px; }
   .slot .inspect { filter: drop-shadow(0 1px 2px #000); }
@@ -186,12 +203,12 @@
   .duel-console .dice-stage { flex: 0 0 46px; width: 46px; height: 46px; min-height: 46px; margin: 0 auto; }
   .duel-console .dice-stage::before { width: 40px; height: 12px; left: calc(50% - 20px); }
   .duel-console .duel-die small { font-size: 9px; line-height: 1.25; }
-  .duel-console .duel-centre { display: flex; flex-direction: column; min-width: 0; min-height: 0; height: auto; gap: 4px; padding: 0; }
-  .duel-console .duel-status { min-height: 0; padding: 0; margin: 0; }
-  .duel-console .phase-label { font-size: 9px; line-height: 1.4; gap: 3px; }
+  .duel-console .duel-centre { display: flex; flex-direction: column; min-width: 0; min-height: 0; height: 100%; gap: 4px; padding: 0; }
+  .duel-console .duel-status { flex: 1 1 auto; min-height: 0; max-height: 94px; padding: 0; margin: 0; }
+  .duel-console .phase-label { flex: none; font-size: 9px; line-height: 1.4; gap: 3px; }
   .duel-console .console-crystal { width: 15px; height: 19px; }
-  .duel-console .duel-status h2 { font-size: 13px; line-height: 1.25; margin: 2px 0; max-height: 49px; overflow-y: auto; }
-  .duel-console .duel-recap { margin: 4px 0 0; padding: 0; border: 0; background: transparent; }
+  .duel-console .duel-status h2 { flex: none; font-size: 13px; line-height: 1.25; margin: 2px 0; max-height: none; overflow: visible; }
+  .duel-console .duel-recap { flex: none; height: auto; margin: 4px 0 0; padding: 0; border: 0; background: transparent; }
   .duel-console .duel-recap > :not(.recap-totals) { display: none; }
   .duel-console .recap-totals { margin: 0; padding: 2px; gap: 2px; }
   .duel-console .recap-totals strong { font-size: 20px; }

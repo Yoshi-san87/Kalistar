@@ -179,3 +179,13 @@ Elemental roll presentation (2026-09-22): choosing or changing a card immediatel
 Focused verification: with the local server running, `node V4/site/elemental-roll.browser.test.cjs` checks all elements, persistent animation, cancellation, motion preferences, tab visibility, saved combat state and the smartphone layout in a disposable browser profile. Set `KALISTAR_URL` if the server is not on port 4304.
 
 Phone reinforcements: tapping a vacant replaceable position opens the reserve filtered to compatible cards. The highlighted card image deploys directly into that position, without a separate position button; a distinct eye control preserves inspection. Opening the general reserve during replacement uses the current vacant position too. Position-based setup uses the same direct selection. This works for either human player and never exposes or controls the AI reserve. Desktop controls remain unchanged. `node V4/site/mobile-replacement.browser.test.cjs` checks both players, cancellation and deployment through real engine-generated replacement states.
+
+Selected-card HUD (2026-09-22): phone match statistics reuse `match-metrics.js`
+in icon/number docks beside the action and scoreboard, outside scaled cards.
+They disappear when the selected unit leaves the board. NONE displays its
+existing weapon silhouette instead of a crystal, without elemental effects;
+the weapon also disappears after its roll. Duel text has no visible scrollbar,
+but remains touch/keyboard-scrollable when needed. Run
+`node V4/site/mobile-duel-stats.browser.test.cjs` for shared-stat accuracy,
+large counters, five phone viewports, desktop preservation, weapon pixels and
+keyboard access to long support results in a disposable profile.

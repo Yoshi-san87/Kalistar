@@ -1,7 +1,7 @@
 (() => {
   'use strict';
   // Presentation only: no random draws or writes to the combat state.
-  const views = new Map(), images = new Map(), pending = new Set();
+  const views = new Map(), images = new Map(), silhouettes = new WeakMap(), pending = new Set();
   const motion = matchMedia('(prefers-reduced-motion:reduce)');
   const rows = [774, 676, 577, 475, 371, 147], TAU = Math.PI * 2;
   let generation = 0, idleFrame = 0, lastPaint = 0;
@@ -9,6 +9,23 @@
   function art(src) {
     if (!images.has(src)) { const image = new Image(); image.src = src; images.set(src, image); }
     return images.get(src);
+  }
+  function weaponBounds(image) {
+    if (!silhouettes.has(image)) {
+      // Fit the painted silhouette, not the transparent margins of the source icon.
+      const canvas = document.createElement('canvas');
+      canvas.width = image.naturalWidth; canvas.height = image.naturalHeight;
+      const ctx = canvas.getContext('2d'); ctx.drawImage(image, 0, 0);
+      const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+      let left = canvas.width, top = canvas.height, right = 0, bottom = 0;
+      for (let y = 0; y < canvas.height; y++) for (let x = 0; x < canvas.width; x++) {
+        if (pixels[(y * canvas.width + x) * 4 + 3] > 8) {
+          left = Math.min(left, x); top = Math.min(top, y); right = Math.max(right, x); bottom = Math.max(bottom, y);
+        }
+      }
+      silhouettes.set(image, right >= left ? [left, top, right - left + 1, bottom - top + 1] : [0, 0, canvas.width, canvas.height]);
+    }
+    return silhouettes.get(image);
   }
   function card(v) {
     return document.querySelector(`.formation[data-player="${v.host.dataset.player}"] .slot[data-position="${v.host.dataset.slot}"] .slot-card`);
@@ -141,12 +158,19 @@
     ctx.globalAlpha = active && !v.spent ? .65 : .25; ctx.strokeStyle = v.spent ? '#93aaa5' : v.color; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.ellipse(0, 57, 41, 10, 0, 0, TAU); ctx.stroke();
     ctx.globalAlpha = (active ? 1 : .35) * gemOpacity;
-    ctx.save(); gemPath(ctx); ctx.clip();
-    if (active && v.image?.complete && v.image.naturalWidth) ctx.drawImage(v.image, -89, -118, 178, 178);
-    else {
-      const g = ctx.createLinearGradient(-28, 0, 28, 0);
-      g.addColorStop(0, '#344340'); g.addColorStop(.5, '#b4c4bb'); g.addColorStop(1, '#52635c');
-      ctx.fillStyle = g; ctx.fillRect(-30, -58, 60, 110);
+    ctx.save();
+    if (active && v.host.dataset.element === 'NONE' && v.weapon?.complete && v.weapon.naturalWidth) {
+      const [x, y, w, h] = weaponBounds(v.weapon), scale = Math.min(82 / w, 106 / h);
+      ctx.shadowColor = '#000b'; ctx.shadowBlur = 3; ctx.shadowOffsetY = 2;
+      ctx.drawImage(v.weapon, x, y, w, h, -w * scale / 2, -4 - h * scale / 2, w * scale, h * scale);
+    } else if (!active || v.host.dataset.element !== 'NONE') {
+      gemPath(ctx); ctx.clip();
+      if (active && v.image?.complete && v.image.naturalWidth) ctx.drawImage(v.image, -89, -118, 178, 178);
+      else {
+        const g = ctx.createLinearGradient(-28, 0, 28, 0);
+        g.addColorStop(0, '#344340'); g.addColorStop(.5, '#b4c4bb'); g.addColorStop(1, '#52635c');
+        ctx.fillStyle = g; ctx.fillRect(-30, -58, 60, 110);
+      }
     }
     ctx.restore();
     if (energy && active && v.host.dataset.element !== 'NONE') aura(v, time, energy);
@@ -251,13 +275,14 @@
       const prior = previous.get(Number(host.dataset.player)), sameCrystal = prior?.crystal === host.dataset.crystal;
       const awaitingRoll = phase === 'attack' || host.dataset.role === 'DEF' && ['kalistel', 'defense'].includes(phase);
       const v = { host, canvas, ctx, color, halo, image: host.dataset.crystal ? art(host.dataset.crystal) : null,
+        weapon: host.dataset.weapon ? art(host.dataset.weapon) : null,
         started: sameCrystal ? prior.started : performance.now(), spent: !!Number(host.dataset.result) && !awaitingRoll,
         waiting: awaitingRoll && host.dataset.selected === 'true' && host.dataset.element !== 'NONE' };
       host.dataset.spent = String(v.spent);
       views.set(Number(host.dataset.player), v);
       if (!sameCrystal) host.classList.add('crystal-change');
       host.classList.toggle('is-engaging', v.waiting); drawWaiting(v);
-      if (v.image && !v.image.complete) v.image.addEventListener('load', () => {
+      for (const image of [v.image, v.weapon]) if (image && !image.complete) image.addEventListener('load', () => {
         if (views.get(Number(host.dataset.player)) === v && !host.classList.contains('is-awakening')) drawWaiting(v);
       }, { once: true });
       const value = Number(host.dataset.result); if (value) mark(v, value);

@@ -40,6 +40,10 @@ async function pixels(page) {
       mount();
     </script></body></html>` }));
     await page.goto(url + '/__elemental_fixture');
+    await page.evaluate(() => {
+      document.querySelector('[data-element=NONE]').dataset.weapon = '/jeu/shared/armes/03.png';
+      KalistarDice.mount(document.querySelectorAll('.dice-stage'));
+    });
     await page.waitForFunction(() => performance.getEntriesByType('resource').filter(r => r.name.includes('/cristaux/')).length === 12);
     await page.waitForTimeout(200);
     const dormant = await pixels(page);
@@ -56,6 +60,8 @@ async function pixels(page) {
       assert.ok(later[i].paints - awake[i].paints < 26, 'drawing is capped at 30 fps');
     }
     assert.equal(awake[12].paints, later[12].paints, 'NONE stays neutral');
+    assert.equal(awake[12].nonblank, later[12].nonblank, 'weapon silhouette stays fixed without elemental particles');
+    assert.equal(await page.locator('[data-element=NONE].is-engaging').count(), 0);
     await page.locator('#roll').click();
     assert.equal(await page.locator('.is-engaging').count(), 12, 'aura remains during wind-up');
     await page.waitForFunction(() => document.querySelector('.dice-stage[data-player="0"].is-releasing'));
@@ -95,6 +101,9 @@ async function pixels(page) {
     const cancelled = await pixels(page);
     await page.waitForTimeout(200);
     assert.deepEqual((await pixels(page)).map(p => p.paints), cancelled.map(p => p.paints), 'explicit navigation cancellation leaves no loop');
+    await page.locator('#engage').click();
+    assert.equal(await page.evaluate(() => KalistarDice.play(12, 3, false)), true);
+    assert.equal((await pixels(page))[12].opaqueCore, 0, 'weapon disappears after its roll like the crystal');
 
     // Exercise the actual game UI and saved engine state in a disposable profile.
     await page.goto(url + '/jeu/');

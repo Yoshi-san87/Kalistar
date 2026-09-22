@@ -253,7 +253,9 @@ function showDeck(){setView('decks');}
   function board(side){
     const p=game.players[side],selectedReserve=p.reserve.find(u=>u.uid===ui.reserve);
     const stats=E.matchStats(game),performance=new Map(stats.units.map(u=>[u.uid,u]));
-    return `<div class="formation cross-formation ${side?'right-cross':'left-cross'}" data-player="${side}">${p.board.map((u,slot)=>{
+    const participants=consoleParticipants(game),chosen=side===participants.side?participants.a:participants.b;
+    const mobileStats=chosen&&p.board.includes(chosen)&&['choose','attack','kalistel','defense','result'].includes(game.phase)?`<div class="mobile-duel-stats" role="group" aria-label="${esc(E.card(chosen).name)} · statistiques du match">${KalistarMatchMetrics.strip(performance.get(chosen.uid),stats)}</div>`:'';
+    return `${mobileStats}<div class="formation cross-formation ${side?'right-cross':'left-cross'}" data-player="${side}">${p.board.map((u,slot)=>{
       const c=u?E.card(u):null,duel=['attack','kalistel','defense','result'].includes(game.phase)?game.duel:null;
       const isA=!!u&&(duel?duel.side===side&&duel.attackerSlot===slot:game.phase==='choose'&&game.turn===side&&ui.attacker===slot),isT=!!u&&(duel?duel.side!==side&&duel.targetSlot===slot:game.phase==='choose'&&game.turn!==side&&ui.target===slot);
       const beneficiary=u&&['clover','potion','physical','heart','guard'].includes(game.phase)&&game.turn===side&&!(game.mode==='ai'&&side===1);
@@ -269,13 +271,14 @@ function showDeck(){setView('decks');}
     const selected=game.phase==='choose'?game.players[side].board[isAttack?ui.attacker:ui.target]:null;
     const participants=consoleParticipants(game),unit=side===participants.side?participants.a:participants.b,c=unit?E.card(unit):null;
     const locked=!!d,element=c?.element||'NONE',crystal=element==='NONE'?'':asset('cristaux',element);
-    const stageData=`data-selected="${!!c}" data-locked="${locked}" data-element="${element}" data-crystal="${crystal}" data-color="#${data.elements[element]?.color||'B8C7BC'}" data-slot="${d?(isAttack?d.attackerSlot:d.targetSlot)+1:0}" data-role="${isAttack?'ATK':'DEF'}" data-result="${die||''}"`;
+    const weapon=c&&element==='NONE'?asset('armes',String(c.weapon_index).padStart(2,'0')):'';
+    const stageData=`data-selected="${!!c}" data-locked="${locked}" data-element="${element}" data-crystal="${crystal}" data-weapon="${weapon}" data-color="#${data.elements[element]?.color||'B8C7BC'}" data-slot="${d?(isAttack?d.attackerSlot:d.targetSlot)+1:0}" data-role="${isAttack?'ATK':'DEF'}" data-result="${die||''}"`;
     const name=d?(isAttack?d.attackerName:d.targetName):selected?E.card(selected).name:'En attente';
     const active=(game.phase==='attack'&&game.turn===side)||(game.phase==='defense'&&game.turn!==side);
     const charges=E.kalistelRemaining(game,side),available=game.phase==='kalistel'&&game.turn===side&&!(game.mode==='ai'&&side===1)&&!rolling;
     const hint=`Éclat de Kalistel · ${charges}/2 · Relancer l’attaque, nouveau résultat obligatoire`;
     const shard=game.kalistel?`<button class="kalistel-control ${charges?'':'depleted'}" data-action="kalistel" data-side="${side}" ${available?'':'disabled'} title="${hint}" aria-label="${hint}"><span class="kalistel-art" aria-hidden="true"><img src="${asset('cristaux','RAINBOW')}" alt="" draggable="false"></span><span class="kalistel-charges" aria-hidden="true">${[0,1].map(i=>`<i class="${i<charges?'lit':''}"></i>`).join('')}</span></button>`:'';
-    return `<div class="duel-die player-${side} ${active?'active':''}" data-player="${side}"><div class="dice-owner">Joueur ${side+1}<span>${isAttack?'ATK':'DEF'}</span></div><b>${esc(name)}</b><div class="dice-well"><div class="dice-stage" ${stageData} data-player="${side}" data-value="${die||6}" role="img" aria-label="Kalistel du joueur ${side+1}${die?' : '+die:' en attente'}"><div class="die-fallback">${icon('dice-'+(die||6))}</div></div>${shard}</div><small>${die?'D'+die+' · '+esc(dieLabel(isAttack?d.attackValue:d.defenseValue,isAttack)):'En attente'}</small></div>`;
+    return `<div class="duel-die player-${side} ${active?'active':''}" data-player="${side}"><div class="dice-owner">Joueur ${side+1}<span>${isAttack?'ATK':'DEF'}</span></div><b>${esc(name)}</b><div class="dice-well"><div class="dice-stage" ${stageData} data-player="${side}" data-value="${die||6}" role="img" aria-label="${weapon?esc(c.weapon):'Kalistel'} du joueur ${side+1}${die?' : '+die:' en attente'}"><div class="die-fallback">${icon('dice-'+(die||6))}</div></div>${shard}</div><small>${die?'D'+die+' · '+esc(dieLabel(isAttack?d.attackValue:d.defenseValue,isAttack)):'En attente'}</small></div>`;
   }
   function consoleParticipants(s){
     const d=['attack','kalistel','defense','clover','potion','physical','heart','guard','result'].includes(s.phase)?s.duel:null,side=d?.side??s.turn;
@@ -362,7 +365,7 @@ function showDeck(){setView('decks');}
       label='DUEL RÉSOLU';title=s.duel.outcome;actions=duelAction('next','arrow-right','Tour suivant',{disabled:rolling});
     }
     const {a}=consoleParticipants(s),element=a?E.card(a).element:null;
-    return `<div class="duel-status"><div class="phase-label">${hasCrystal({element})?`<img class="console-crystal" src="${asset('cristaux',element)}" alt="Cristal ${element}">`:icon(element==='NONE'?'circle-slash':'swords')}<span>${label}</span></div><h2 class="${s.phase==='result'?'outcome':''}">${esc(title)}</h2></div>${duelRecap(s)}<div class="duel-actions">${actions}</div>`;
+    return `<div class="duel-status" tabindex="0" role="region" aria-label="État du duel"><div class="phase-label">${hasCrystal({element})?`<img class="console-crystal" src="${asset('cristaux',element)}" alt="Cristal ${element}">`:icon(element==='NONE'?'circle-slash':'swords')}<span>${label}</span></div><h2 class="${s.phase==='result'?'outcome':''}">${esc(title)}</h2></div>${duelRecap(s)}<div class="duel-actions">${actions}</div>`;
   }
   function reserveZone(side){
     const p=game.players[side],hidden=game.mode==='ai'&&side===1,draggable=!hidden&&(game.phase==='setup'||game.phase==='replace'&&game.replacing===side);

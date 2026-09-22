@@ -9,6 +9,9 @@
 .match-metric-plus{font-size:10px;font-weight:600;line-height:1;margin-right:1px}
 .match-metric-label{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .battlefield-viewport,.arena-view .reserve-cards{scrollbar-width:none}.battlefield-viewport::-webkit-scrollbar,.arena-view .reserve-cards::-webkit-scrollbar{display:none}
+.arena-view .duel-status{scrollbar-width:none;overscroll-behavior:contain}
+.arena-view .duel-status::-webkit-scrollbar{display:none}
+.arena-view .duel-status:focus-visible{outline:1px solid #d8c29b;outline-offset:2px}
 html:has(body.decks-view),html:has(body.arena-view),body.decks-view,body.arena-view{scrollbar-width:none}
 html:has(body.decks-view)::-webkit-scrollbar,html:has(body.arena-view)::-webkit-scrollbar,body.decks-view::-webkit-scrollbar,body.arena-view::-webkit-scrollbar{display:none}
 .arena-view .formation .slot:not(.enemy):has(.trait-badge:nth-child(5)) .inspect{right:calc(var(--token-size)*.55 + 6px)}
@@ -29,7 +32,7 @@ html:has(body.decks-view)::-webkit-scrollbar,html:has(body.arena-view)::-webkit-
 .duel-console[data-material=leaves]{border-radius:8px 2px 8px 2px;border-color:#6e9770;background:repeating-linear-gradient(55deg,transparent 0 38px,#95df8305 38px 39px),var(--arena-surface)}
 .duel-console[data-material=prism]{border-color:#cdc5e0;box-shadow:0 16px 32px #0009,inset 3px 0 #d1939b55,inset -3px 0 #85cbb755,inset 0 3px #e6d29355,inset 0 -3px #8bbdde55}
 .duel-console[data-material=street]{border-block:3px solid #b39b7a;border-inline:1px solid #7b8f7c}
-.arena-view .duel-status{overflow:visible}.arena-view .duel-status .outcome{font-size:14px;line-height:1.25}
+.arena-view .duel-status{overflow:auto}.arena-view .duel-status .outcome{font-size:14px;line-height:1.25}
 .match-scoreboard{display:grid;grid-template-columns:66px 64px 66px;align-items:center;gap:10px;flex:none;min-height:55px;padding-inline:12px;border-inline:1px solid #76847966;font-variant-numeric:tabular-nums}
 .match-scoreboard>div{display:grid;justify-items:center;gap:3px}.match-scoreboard small{font-size:9px;white-space:nowrap;color:#b7cabc}.match-scoreboard strong{font:28px/1 var(--serif);color:#bdecd8}.match-scoreboard>div:last-child strong{color:#efb6c4}.match-scoreboard>span{display:grid;justify-items:center;gap:4px;color:#b6a68d}.match-scoreboard .lucide{width:16px;height:16px}.match-scoreboard>span small{font-size:9px;color:#cdbb99}
 .arena-view .reserve-cards{padding:5px 4px}.arena-view .reserve-card.reinforcement-eligible{border:2px solid #d6f6bc;box-shadow:0 0 0 2px #68b58366,0 0 18px #8fd48d66}.arena-view .reserve-card.reinforcement-unavailable{opacity:.43;filter:saturate(.45)}.reserve-eligibility{position:absolute;bottom:3px;left:3px;right:3px;font-size:10px;background:#122f21ed;color:#dffcc8;text-align:center;line-height:16px}.arena-view .replacement-target .slot-card{border:2px dashed #dcf8b6;box-shadow:0 0 14px #b1d8775c;background:#30452bb0}.arena-view .replacement-target .position-label b{color:#e3fab8}

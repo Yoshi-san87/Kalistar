@@ -31,7 +31,7 @@ async function main() {
   }
   async function noCardOverlap() {
     const rects=await page.locator('.slot-card').evaluateAll(nodes=>nodes.map(n=>n.getBoundingClientRect().toJSON()));
-    const controls=await page.locator('.duel-actions,.match-scoreboard,[data-action=arena-menu],.side-heading').evaluateAll(nodes=>nodes.map(n=>n.getBoundingClientRect().toJSON()));
+    const controls=await page.locator('.duel-actions,.match-scoreboard,[data-action=arena-menu],.side-heading,.mobile-duel-stats').evaluateAll(nodes=>nodes.map(n=>n.getBoundingClientRect().toJSON()));
     const overlaps=(a,b)=>Math.min(a.right,b.right)-Math.max(a.left,b.left)>2&&Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top)>2;
     rects.forEach((r,i)=>{
       for(const other of rects.slice(i+1))assert.ok(!overlaps(r,other),'cards do not overlap');
