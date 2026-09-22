@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const scripts = ['assets/lucide.min.js', 'engine.js', 'card-media.js', 'assets/dice.bundle.js',
+  const scripts = ['assets/lucide.min.js', 'engine.js', 'card-media.js', 'elemental-roll.js',
     'combat-effects.js', 'duel-focus.js', 'formation-drag.js', 'match-metrics.js', 'match-report.js',
     'ownership.js', 'local-db.js', 'catalogue.js', 'collection-binder.js', 'accounts-ui.js',
     'reserve-preview.js', 'deck-library.js', 'deck-builder.js', 'app.js'];

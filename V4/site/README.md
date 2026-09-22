@@ -173,3 +173,5 @@ stay excluded by the existing career aggregators. No stored counters change.
 `career-statistics.test.cjs` checks rounding, zero matches, instance selection,
 weighted aggregate means and responsive layouts using a read-only fixture adapter
 in a disposable browser profile. Screenshots: `site/verification/career-statistics/`.
+
+Elemental roll presentation (2026-09-22): choosing or changing a card immediately displays its existing elemental crystal in the roll well. Engaging the duel awakens both crystals with elemental particles and one 900 ms turn; rolling interrupts this decorative awakening cleanly. The engine still chooses the face; light travels to the printed ATK/DEF value. NONE uses a neutral crystal without elemental particles. Reduced motion reveals immediately. Existing Kalistel charges and combat rules are preserved.

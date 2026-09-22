@@ -126,8 +126,8 @@
     $('#account-name').textContent=accountId===KalistarOwnership.PARIS?'Paris':'Tokyo';
     $('[data-action="account"]').title='Profil local : '+(db?.registry?.user(accountId)?.email||'indisponible');
     if($('.battlefield-viewport'))$('.battlefield-viewport').scrollLeft=scroll;
-    window.KalistarDice?.mount(document.querySelectorAll('.dice-stage'));
     window.KalistarFocus?.mount(document.querySelectorAll('.formation'));
+    window.KalistarDice?.mount(document.querySelectorAll('.dice-stage'));
     if($('#journal-dialog').open){$('#journal-dialog').innerHTML=head('Journal du duel')+journal();icons();}
     if($('#detail-dialog').open&&ui.detailContext&&$('#detail-dialog .live-bonuses')){
       $('#detail-dialog .live-bonuses').outerHTML=bonusDetails(ui.detailContext)||'<div class="live-bonuses"><p class="muted">Cette carte n’est plus sur le plateau.</p></div>';
@@ -266,12 +266,15 @@ function showDeck(){setView('decks');}
   function dice(side){
     const d=['attack','kalistel','defense','clover','potion','physical','heart','guard','result'].includes(game.phase)?game.duel:null,isAttack=d?d.side===side:game.turn===side,rolls=d?(isAttack?d.attackRolls:d.defenseRolls):[],die=rolls.at(-1);
     const selected=game.phase==='choose'?game.players[side].board[isAttack?ui.attacker:ui.target]:null;
+    const participants=consoleParticipants(game),unit=side===participants.side?participants.a:participants.b,c=unit?E.card(unit):null;
+    const locked=!!d,element=c?.element||'NONE',crystal=element==='NONE'?'':asset('cristaux',element);
+    const stageData=`data-selected="${!!c}" data-locked="${locked}" data-element="${element}" data-crystal="${crystal}" data-color="#${data.elements[element]?.color||'B8C7BC'}" data-slot="${d?(isAttack?d.attackerSlot:d.targetSlot)+1:0}" data-role="${isAttack?'ATK':'DEF'}" data-result="${die||''}"`;
     const name=d?(isAttack?d.attackerName:d.targetName):selected?E.card(selected).name:'En attente';
     const active=(game.phase==='attack'&&game.turn===side)||(game.phase==='defense'&&game.turn!==side);
     const charges=E.kalistelRemaining(game,side),available=game.phase==='kalistel'&&game.turn===side&&!(game.mode==='ai'&&side===1)&&!rolling;
     const hint=`Éclat de Kalistel · ${charges}/2 · Relancer l’attaque, nouveau résultat obligatoire`;
     const shard=game.kalistel?`<button class="kalistel-control ${charges?'':'depleted'}" data-action="kalistel" data-side="${side}" ${available?'':'disabled'} title="${hint}" aria-label="${hint}"><span class="kalistel-art" aria-hidden="true"><img src="${asset('cristaux','RAINBOW')}" alt="" draggable="false"></span><span class="kalistel-charges" aria-hidden="true">${[0,1].map(i=>`<i class="${i<charges?'lit':''}"></i>`).join('')}</span></button>`:'';
-    return `<div class="duel-die player-${side} ${active?'active':''}" data-player="${side}"><div class="dice-owner">Joueur ${side+1}<span>${isAttack?'ATK':'DEF'}</span></div><b>${esc(name)}</b><div class="dice-well"><div class="dice-stage" data-player="${side}" data-value="${die||6}" role="img" aria-label="Dé du joueur ${side+1}${die?' : '+die:' en attente'}"><div class="die-fallback">${icon('dice-'+(die||6))}</div></div>${shard}</div><small>${die?'D'+die+' · '+esc(dieLabel(isAttack?d.attackValue:d.defenseValue,isAttack)):'En attente'}</small></div>`;
+    return `<div class="duel-die player-${side} ${active?'active':''}" data-player="${side}"><div class="dice-owner">Joueur ${side+1}<span>${isAttack?'ATK':'DEF'}</span></div><b>${esc(name)}</b><div class="dice-well"><div class="dice-stage" ${stageData} data-player="${side}" data-value="${die||6}" role="img" aria-label="Kalistel du joueur ${side+1}${die?' : '+die:' en attente'}"><div class="die-fallback">${icon('dice-'+(die||6))}</div></div>${shard}</div><small>${die?'D'+die+' · '+esc(dieLabel(isAttack?d.attackValue:d.defenseValue,isAttack)):'En attente'}</small></div>`;
   }
   function consoleParticipants(s){
     const d=['attack','kalistel','defense','clover','potion','physical','heart','guard','result'].includes(s.phase)?s.duel:null,side=d?.side??s.turn;
@@ -421,7 +424,7 @@ function showDeck(){setView('decks');}
       combatController=new AbortController();
       if(kalistel)await window.KalistarCombat?.shatterKalistel($(`.kalistel-control[data-side="${actor}"]`),{reduced,signal:combatController.signal});
       if(token!==epoch||combatController.signal.aborted)return;
-      const landed=window.KalistarDice?await KalistarDice.play(actor,value,reduced):await new Promise(r=>setTimeout(()=>r(true),reduced?30:700));
+      const landed=window.KalistarDice?await KalistarDice.play(actor,value,reduced,combatController.signal):await new Promise(r=>setTimeout(()=>r(true),reduced?30:700));
       if(token===epoch&&landed){
         $('.duel-centre').innerHTML=consoleBody(next);syncConsole(next);delete $('.duel-console').dataset.casting;icons();
         const label=$(`.duel-die[data-player="${actor}"] small`);
