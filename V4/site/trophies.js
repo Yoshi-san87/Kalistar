@@ -16,7 +16,15 @@
   const number=n=>Number.isFinite(n)?n:0;
   function leaders(summary,key){
     const units=(summary?.units||[]).filter(u=>u.participated!==false),best=Math.max(0,...units.map(u=>number(u[key])));
-    return best>0?units.filter(u=>u[key]===best):[];
+    const tied=best>0?units.filter(u=>u[key]===best):[];
+    if(key!=='rating')return tied;
+    // A unique MVP, independent of rendering order or the current viewer's team.
+    return tied.sort((a,b)=>{
+      for(const metric of ['kills','holds','support','reraises','debuff']){
+        const difference=number(b[metric])-number(a[metric]);if(difference)return difference;
+      }
+      return String(a.uid)<String(b.uid)?-1:String(a.uid)>String(b.uid)?1:0;
+    }).slice(0,1);
   }
   function awards(summary){
     if(!summary?.complete||summary.partial)return {};
@@ -42,5 +50,5 @@
       return `<div class="trophy-keepsake" data-trophy="${c.id}" data-earned="${n>0}" title="${esc(c.name+' : '+n+'. '+c.help)}">${image(c.id)}<b>${n.toLocaleString('fr-FR')}</b><span>${c.label}</span></div>`;
     }).join('')}</div>`;
   }
-  return {version:1,categories,totals,leaders,awards,empty,add,image,cabinet};
+  return {version:2,categories,totals,leaders,awards,empty,add,image,cabinet};
 });

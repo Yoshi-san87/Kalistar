@@ -216,7 +216,9 @@ The phone table keeps identity and rank pinned while its columns scroll.
 `trophies.js` is the shared rule source: Golden Crystal = existing rating,
 Golden Killer = kills, Golden Blocker = holds, Golden Clover = newly granted
 clovers, Golden Heart = newly granted Reraise hearts (not consumed hearts).
-Every tied positive leader across both teams receives the full award. No
+Every tied positive leader across both teams receives the full award except
+MVP, which is unique. Rating ties break by kills, holds, support, reraises,
+debuff, then lexical match uid. No RNG or team preference is involved. No
 positive score means no winner. Provisional reports never grant awards.
 Completed full-history result rows store derived `trophies` and `trophyVersion`;
 old rows are backfilled additively on open. Imports rebuild them from validated
@@ -224,6 +226,11 @@ games instead of trusting imported counters. Repeated saves stay idempotent.
 Career cabinets follow existing collectible ownership/instance selection.
 The match report shows all tied identities under one shared trophy, including
 on phones. Engine rules, RNG, schema 6 and approved artwork remain unchanged.
+Portraits fill the image area with top-centered cropping. Desktop MVP overlays
+its trophy at bottom center (25% of image height). Other trophies occupy a
+fixed 25% column beside the names, including mobile MVP. Winner lists expand
+without nested scrolling; smaller screens scroll the report without a visible
+scrollbar. Trophy rule version 2 backfills the unique MVP in old result rows.
 
 Generated artwork originals and exact built-in image-generation prompts:
 `../donnees/trophees-2026-09-22/`. The five alpha-preserving 512px WebP assets
@@ -235,4 +242,5 @@ Focused checks: `node V4/site/statistics.test.cjs`,
 `node V4/site/career-statistics.test.cjs`, and
 `node V4/site/phone-preview.test.cjs`. The browser checks use isolated databases,
 six engine-completed matches, migration/forged-import/idempotence assertions,
-filters/sorts/CSV and seven screen sizes. Screenshots: `verification/statistics/`.
+filters/sorts/CSV, nine ledger sizes (up to 3440px wide) and eight report sizes (including
+2041 x 1383). Screenshots: `verification/statistics/`.

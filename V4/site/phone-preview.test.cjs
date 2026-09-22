@@ -55,7 +55,7 @@ async function main(){
     window.testReportState=s;
     document.querySelector('#match-dialog .match-report').outerHTML=KalistarMatchReport.render(s,{tab:'awards'});lucide.createIcons();
   });
-  assert.equal(await frame.locator('[data-trophy=crystal] .golden-winners button').count(),2,'both tied MVPs are included');
+  assert.equal(await frame.locator('[data-trophy=crystal] .golden-winners button').count(),1,'MVP stays unique');
   assert.equal(await frame.locator('[data-trophy=killer] .golden-winners button').count(),2,'both tied killers are included');
   assert.equal(await frame.locator('.match-palmares article:visible').count(),5);
   assert.ok(await frame.locator('.match-view').evaluate(n=>n.scrollHeight>n.clientHeight));

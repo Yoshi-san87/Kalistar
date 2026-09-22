@@ -207,7 +207,11 @@ Demande utilisateur : Golden Crystal (MVP, indice existant), Golden Killer
 attribues) et Golden Heart (nouveaux coeurs Reraise attribues). La distinction
 recompense le donneur de coeurs, pas leur consommation par le beneficiaire.
 Classement sur les deux equipes : tous les premiers ex aequo avec un score
-strictement positif recoivent chacun le trophee entier. A zero, aucun laureat.
+strictement positif recoivent chacun le trophee entier, sauf le MVP qui reste
+unique (demande du 23 septembre). A indice egal, departage successif par kills,
+stops, soutiens, vies sauvees, puis ATK retiree. Une egalite parfaite utilise
+l'identifiant d'instance du match en ordre lexical, sans tirage aleatoire.
+A zero, aucun laureat.
 Une seule attribution par categorie, instance et rencontre terminee. Les
 rapports provisoires et historiques partiels ne donnent aucun trophee.
 

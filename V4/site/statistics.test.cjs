@@ -3,7 +3,13 @@ const assert=require('node:assert/strict');
 const T=require('./trophies.js'),S=require('./statistics.js');
 const unit=(uid,values={})=>({uid,instanceId:uid,participated:true,...values});
 const summary={complete:true,partial:false,units:[unit('a',{rating:12,kills:2,holds:3,clovers:1,hearts:0}),unit('b',{rating:12,kills:2,holds:1,clovers:1,hearts:0}),unit('reserve',{rating:999,kills:999,participated:false})]};
-assert.deepEqual(T.awards(summary),{a:['crystal','killer','blocker','clover'],b:['crystal','killer','clover']});
+assert.deepEqual(T.awards(summary),{a:['crystal','killer','blocker','clover'],b:['killer','clover']});
+assert.equal(T.leaders({...summary,units:summary.units.slice().reverse()},'rating')[0].uid,'a','MVP ignores input order');
+for(const metric of ['kills','holds','support','reraises','debuff']){
+  const tie={units:[unit('a',{rating:10}),unit('b',{rating:10,[metric]:1})]};
+  assert.equal(T.leaders(tie,'rating')[0].uid,'b','unique MVP tiebreak: '+metric);
+}
+assert.equal(T.leaders({units:[unit('b',{rating:10}),unit('a',{rating:10})]},'rating')[0].uid,'a','stable final tiebreak');
 assert.deepEqual(T.awards({...summary,complete:false}),{});
 assert.deepEqual(T.awards({...summary,partial:true}),{});
 assert.deepEqual(T.awards({complete:true,units:[unit('a')]}),{});
