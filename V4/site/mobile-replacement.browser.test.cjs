@@ -49,6 +49,8 @@ const output = path.join(__dirname, 'verification/mobile-replacement');
       await dialog.waitFor();
       assert.match(await dialog.locator('.dialog-head').textContent(), new RegExp('P' + (staged.slot + 1)));
       const options = dialog.locator('[data-action=deploy-reserve]');
+      assert.equal(await dialog.locator('.reserve-placements').count(), 0, 'no separate position buttons');
+      assert.equal(await dialog.locator('.reinforcement-card img').count(), staged.compatible.length, 'compatible card images are the deploy controls');
       assert.deepEqual((await options.evaluateAll(nodes => nodes.map(n => n.dataset.uid))).sort(), staged.compatible.sort());
       assert.ok(await options.evaluateAll((nodes, slot) => nodes.every(n => Number(n.dataset.slot) === slot), staged.slot));
       assert.equal(await dialog.locator('figure').count(), staged.compatible.length, 'only compatible cards are offered');

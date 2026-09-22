@@ -66,6 +66,7 @@ async function pixels(page) {
     await page.screenshot({ path: path.join(output, 'elemental-release-burst.png'), scale: 'css' });
     assert.equal(await page.evaluate(() => window.rollFinished), true);
     const stopped = await pixels(page);
+    assert.equal(stopped[0].opaqueCore, 0, 'released crystal does not reappear after the jet');
     await page.waitForTimeout(400);
     const afterRelease = await pixels(page);
     assert.equal(afterRelease[0].paints, stopped[0].paints, 'released crystal stops painting');
@@ -133,6 +134,7 @@ async function pixels(page) {
     await page.screenshot({ path: path.join(output, 'elemental-release-phone.png'), scale: 'css' });
     await page.waitForFunction(() => !document.querySelector('#app').classList.contains('rolling'));
     assert.notEqual(await page.evaluate(() => JSON.parse(localStorage.getItem('kalistar.v4.game')).phase), 'attack');
+    assert.equal((await pixels(page))[0].opaqueCore, 0, 'phase remount preserves the empty ATK well');
 
     for (const side of [0, 1]) {
       await page.evaluate(async ({ base, side }) => {
@@ -148,6 +150,7 @@ async function pixels(page) {
       const defender = page.locator(`.dice-stage[data-player="${1-side}"]`);
       assert.equal(await page.locator('.is-engaging').count(), 1, 'only DEF reawakens in a saved Kalistel decision');
       assert.match(await defender.getAttribute('class'), /is-engaging/);
+      assert.equal((await pixels(page))[side].opaqueCore, 0, 'reload keeps the released crystal absent');
       await page.locator('[data-action=accept-attack]').click();
       assert.match(await defender.getAttribute('class'), /is-engaging/, 'DEF persists across phase remount');
       const waiting = await pixels(page); await page.waitForTimeout(350);

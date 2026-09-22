@@ -484,10 +484,13 @@ function showDeck(){setView('decks');}
     $('#mobile-dialog .mobile-menu').insertAdjacentHTML('beforeend',`<button data-action="reserves" data-side="1">${icon('layers-3')}Réserve adverse · ${game.players[1].reserve.length}${icon('chevron-right')}</button><button data-action="grave" data-side="1">${icon('skull')}Cimetière adverse · ${game.players[1].dead.length}${icon('chevron-right')}</button>`);icons();
   }
   function showArchive(side,kind,slot=null){
+    if(slot===null&&kind==='reserve'&&phoneLayout()&&game.phase==='replace'&&game.replacing===side)slot=replacementSlot();
     const p=game.players[side],hidden=kind==='reserve'&&side===1&&game.mode==='ai',target=kind==='reserve'&&!hidden&&Number.isInteger(slot)?slot:null;
     const units=(kind==='dead'?p.dead:p.reserve).filter(u=>target===null||canDeployReserve(side,u.uid,target));
     modal('detail-dialog',head(`${kind==='dead'?'Cimetière':'Réserve'} · ${side===0?'Joueur 1':'Adversaire'}${target===null?'':' · P'+(target+1)}`)+`<div class="dialog-body archive-list">${units.map(u=>{
       const c=E.card(u),positions=kind==='reserve'&&!hidden?c.positions.filter(pos=>(target===null||pos===target+1)&&canDeployReserve(side,u.uid,pos-1)):[];
+      const direct=phoneLayout()&&target!==null&&positions.length;
+      if(direct)return `<figure class="reinforcement-choice"><div class="reinforcement-image"><button class="card-open reinforcement-card" data-action="deploy-reserve" data-side="${side}" data-uid="${u.uid}" data-slot="${target}" aria-label="Déployer ${esc(c.name)} en P${target+1}"><img src="${cardImage(c)}" alt="${esc(c.name)}"></button><button class="reinforcement-inspect" data-action="detail" data-id="${u.cardId}" aria-label="Inspecter ${esc(c.name)}" title="Inspecter ${esc(c.name)}">${icon('scan-eye')}</button></div><figcaption><span class="reinforcement-position">P${target+1}</span>${esc(c.name)}</figcaption></figure>`;
       return `<figure>${hidden?'<img src="assets/back.webp" alt="Carte adverse face cachée">':`<button class="card-open" data-action="detail" data-id="${u.cardId}" aria-label="Inspecter ${esc(c.name)}"><img src="${cardImage(c)}" alt="${esc(c.name)}"></button>`}<figcaption>${hidden?'Carte en réserve':esc(c.name)}${u.revived?'<br><span class="revived">Déjà ressuscitée</span>':''}</figcaption>${positions.length?`<div class="reserve-placements" aria-label="Déployer ${esc(c.name)}">${positions.map(pos=>`<button data-action="deploy-reserve" data-side="${side}" data-uid="${u.uid}" data-slot="${pos-1}" title="${p.board[pos-1]?'Remplacer '+esc(E.card(p.board[pos-1]).name):'Déployer'} en P${pos}">${icon('plus')}P${pos}</button>`).join('')}</div>`:''}</figure>`;
     }).join('')||'<p class="muted">Aucune carte.</p>'}</div>`);
   }
@@ -505,7 +508,7 @@ function showDeck(){setView('decks');}
         $('#detail-dialog').close();return act(()=>placeReserve(side,b.dataset.uid,slot));
       }
       if(action==='slot'&&phoneLayout()&&game.phase==='setup'){
-        $('#detail-dialog').classList.remove('card-detail');return showArchive(Number(b.dataset.side),'reserve');
+        $('#detail-dialog').classList.remove('card-detail');return showArchive(Number(b.dataset.side),'reserve',Number(b.dataset.slot));
       }
       if(action==='slot'&&phoneLayout()&&game.phase==='replace'&&!rolling){
         const side=Number(b.dataset.side),slot=Number(b.dataset.slot);

@@ -55,6 +55,7 @@
   }
   function aura(v, t, strength) {
     const ctx = v.ctx, element = v.host.dataset.element;
+    t *= 1.25;
     ctx.save(); ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = strength;
     ctx.fillStyle = v.halo; ctx.fillRect(-65, -72, 130, 140);
     // Render outside the painted gem: motion belongs to its element, not its silhouette.
@@ -64,9 +65,9 @@
     if (element === 'PYRO') {
       for (let i = 0; i < 9; i++) {
         const x = (i - 4) * 8, base = 39 - Math.abs(x) * .75;
-        const length = 26 + (1 + Math.sin(t * 3.3 + i * 2.1)) * 14;
+        const length = 32 + (1 + Math.sin(t * 3.3 + i * 2.1)) * 17;
         const sway = Math.sin(t * 2.7 + i) * 7;
-        ctx.globalAlpha = strength * (.58 + Math.sin(t * 2 + i) * .12);
+        ctx.globalAlpha = strength * (.72 + Math.sin(t * 2 + i) * .12);
         const flame = ctx.createLinearGradient(x, base, x, base - length);
         flame.addColorStop(0, '#ff552700'); flame.addColorStop(.28, '#ec531e');
         flame.addColorStop(.65, '#ffa631'); flame.addColorStop(1, '#fff2b8'); ctx.fillStyle = flame;
@@ -87,7 +88,7 @@
           if (i) ctx.lineTo(x, y); else ctx.moveTo(x, y);
         }
         ctx.globalAlpha = strength * pulse; ctx.strokeStyle = '#eab92c'; ctx.lineWidth = 5; ctx.stroke();
-        ctx.globalAlpha = strength * (.65 + pulse * .3); ctx.strokeStyle = '#fff5bb'; ctx.lineWidth = 1.7; ctx.stroke();
+        ctx.globalAlpha = strength * (.65 + pulse * .3); ctx.strokeStyle = '#fff5bb'; ctx.lineWidth = 2.1; ctx.stroke();
       }
       sparks(ctx, t * 1.6, '#fff6c8', strength, 6);
     } else if (element === 'AERO' || element === 'HYDRO' || element === 'NECRO') {
@@ -100,7 +101,7 @@
       if (element === 'HYDRO') for (let i = 0; i < 7; i++) {
         const p = (t * .24 + i / 7) % 1;
         ctx.globalAlpha = strength * Math.sin(p * Math.PI) * .8;
-        drop(ctx, Math.sin(i * 2.4) * 42, 49 - p * 108, 2.1);
+        drop(ctx, Math.sin(i * 2.4) * 42, 49 - p * 108, 2.7);
       }
     } else if (['CRYO', 'MINERO', 'GEO', 'HERBO', 'HEMATO'].includes(element)) {
       for (let i = 0; i < 10; i++) {
@@ -134,10 +135,10 @@
     }
     ctx.restore();
   }
-  function draw(v, time = 0, energy = 0, gemOpacity = 1) {
+  function draw(v, time = 0, energy = 0, gemOpacity = v.spent ? 0 : 1) {
     const ctx = v.ctx, active = v.host.dataset.selected === 'true';
     ctx.clearRect(0, 0, 160, 160); ctx.save(); ctx.translate(80, 77);
-    ctx.globalAlpha = active ? .65 : .25; ctx.strokeStyle = v.color; ctx.lineWidth = 1;
+    ctx.globalAlpha = active && !v.spent ? .65 : .25; ctx.strokeStyle = v.spent ? '#93aaa5' : v.color; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.ellipse(0, 57, 41, 10, 0, 0, TAU); ctx.stroke();
     ctx.globalAlpha = (active ? 1 : .35) * gemOpacity;
     ctx.save(); gemPath(ctx); ctx.clip();
@@ -173,7 +174,7 @@
 
   function drawWaiting(v, now = performance.now()) {
     const seconds = motion.matches ? 0 : (now - v.started) / 1000;
-    draw(v, seconds, v.waiting ? (motion.matches ? .5 : .78 + Math.sin(seconds * 2) * .08) : 0);
+    draw(v, seconds, v.waiting ? (motion.matches ? .5 : .96 + Math.sin(seconds * 2.5) * .04) : 0);
   }
   function stopFrame() { cancelAnimationFrame(idleFrame); idleFrame = 0; }
   function idleTick(now) {
@@ -246,11 +247,13 @@
       const ctx = canvas.getContext('2d'); ctx.scale(ratio, ratio);
       const color = host.dataset.color || '#b8c7bc';
       const halo = ctx.createRadialGradient(0, -2, 20, 0, -2, 66);
-      halo.addColorStop(0, color + '00'); halo.addColorStop(.5, color + '24'); halo.addColorStop(1, color + '00');
+      halo.addColorStop(0, color + '00'); halo.addColorStop(.5, color + '36'); halo.addColorStop(1, color + '00');
       const prior = previous.get(Number(host.dataset.player)), sameCrystal = prior?.crystal === host.dataset.crystal;
       const awaitingRoll = phase === 'attack' || host.dataset.role === 'DEF' && ['kalistel', 'defense'].includes(phase);
       const v = { host, canvas, ctx, color, halo, image: host.dataset.crystal ? art(host.dataset.crystal) : null,
-        started: sameCrystal ? prior.started : performance.now(), waiting: awaitingRoll && host.dataset.selected === 'true' && host.dataset.element !== 'NONE' };
+        started: sameCrystal ? prior.started : performance.now(), spent: !!Number(host.dataset.result) && !awaitingRoll,
+        waiting: awaitingRoll && host.dataset.selected === 'true' && host.dataset.element !== 'NONE' };
+      host.dataset.spent = String(v.spent);
       views.set(Number(host.dataset.player), v);
       if (!sameCrystal) host.classList.add('crystal-change');
       host.classList.toggle('is-engaging', v.waiting); drawWaiting(v);
@@ -266,13 +269,15 @@
     if (!v || signal?.aborted) return false;
     // Only this participant releases its energy; the other keeps waiting.
     v.revealing = true;
+    v.spent = false; v.host.dataset.spent = 'false';
     const token = generation, alive = () => token === generation && v.host.isConnected && !signal?.aborted;
     v.host.classList.add('is-awakening');
     try {
       if (!reduced) {
         const time = (performance.now() - v.started) / 1000;
-        if (!await animate(370, signal, t => draw(v, time + t * .37, .85 + t * .15))) return false;
-        v.waiting = false; v.host.classList.remove('is-engaging'); v.host.classList.add('is-releasing');
+        if (!await animate(370, signal, t => draw(v, time + t * .37, .96 + t * .04))) return false;
+        v.waiting = false; v.spent = true; v.host.dataset.spent = 'true';
+        v.host.classList.remove('is-engaging'); v.host.classList.add('is-releasing');
         const released = await Promise.all([
           animate(300, signal, t => drawBurst(v, t)),
           flight(center(v.host), point(v, 6), v.color, signal, 300)
@@ -283,7 +288,7 @@
         if (!await animate(480, signal, t => mark(v, order[Math.min(6, Math.floor((1 - Math.pow(1 - t, 1.6)) * 7))]))) return false;
       }
       if (!alive()) return false;
-      v.waiting = false; v.host.classList.remove('is-engaging');
+      v.waiting = false; v.spent = true; v.host.dataset.spent = 'true'; v.host.classList.remove('is-engaging');
       mark(v, value)?.classList.add('settled'); v.host.dataset.front = String(value);
       v.host.setAttribute('aria-label', `${v.host.dataset.role} \u00b7 r\u00e9sultat ${value}`); draw(v);
       return true;

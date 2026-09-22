@@ -229,6 +229,12 @@
   .archive-list .card-open, .archive-list figure > img { width: 100%; max-width: 150px; margin: auto; }
   .archive-list img { width: 100%; object-fit: contain; }
   .archive-list figcaption { font-size: 13px; margin-top: 8px; text-align: center; }
+  .archive-list .reinforcement-image { position: relative; max-width: 150px; margin: auto; }
+  .archive-list .reinforcement-card { outline: 2px solid #b9f0c6; outline-offset: 2px; box-shadow: 0 0 12px #8fd48d55; }
+  .archive-list .reinforcement-card:hover,.archive-list .reinforcement-card:focus-visible { outline-color: #efffd6; filter: brightness(1.08); }
+  .archive-list .reinforcement-inspect { position: absolute; right: 3px; bottom: 3px; width: 44px; height: 44px; padding: 10px; background: #0b191de8; }
+  .archive-list .reinforcement-choice figcaption { display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; }
+  .reinforcement-position { color: #c5f5bd; font-size: 11px; }
   body #detail-dialog.card-detail { width: calc(100% - 16px); }
   body #detail-dialog .detail-body { display: flex; flex-direction: column; gap: 16px; }
   #match-dialog .match-report[data-continuous=true] {

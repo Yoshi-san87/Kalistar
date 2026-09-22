@@ -38,10 +38,11 @@ async function main(){
     await page.setViewportSize({width,height});
     await page.waitForFunction(()=>[...document.querySelectorAll('.kalistel-art img')].every(i=>i.complete&&i.naturalWidth));
     const geometry=await page.locator('.kalistel-control').evaluateAll(nodes=>nodes.map(n=>{
-      const b=n.getBoundingClientRect(),d=n.parentNode.querySelector('.dice-stage').getBoundingClientRect(),style=getComputedStyle(n);
-      return {x:b.x,right:b.right,width:b.width,height:b.height,overlap:Math.min(b.right,d.right)-Math.max(b.left,d.left),background:style.backgroundColor,text:n.textContent.trim()};
+      const b=n.getBoundingClientRect(),d=n.parentNode.querySelector('.dice-stage').getBoundingClientRect(),style=getComputedStyle(n),art=n.querySelector('.kalistel-art').getBoundingClientRect(),well=n.parentNode.getBoundingClientRect();
+      const size=Math.min(d.width,d.height),cx=d.left+d.width/2;
+      return {x:b.x,right:b.right,width:b.width,height:b.height,overlap:Math.min(art.right,cx+size*29/160)-Math.max(art.left,cx-size*29/160),centerError:Math.abs(cx-well.left-well.width/2),mainHeight:size*107/160,shardHeight:art.height,background:style.backgroundColor,text:n.textContent.trim()};
     }));
-    for(const g of geometry){assert.ok(g.x>=0&&g.right<=width&&g.width>=44&&g.height>=44,JSON.stringify(g));assert.ok(g.overlap<=1,'gem never covers die');assert.equal(g.background,'rgba(0, 0, 0, 0)');assert.equal(g.text,'');}
+    for(const g of geometry){assert.ok(g.x>=0&&g.right<=width&&g.width>=44&&g.height>=44,JSON.stringify(g));assert.ok(g.overlap<=1,'shard art never covers the main crystal');assert.ok(g.centerError<1,'main crystal centered in the full well');assert.ok(g.mainHeight>=g.shardHeight*1.65,JSON.stringify(g));assert.equal(g.background,'rgba(0, 0, 0, 0)');assert.equal(g.text,'');}
     await page.screenshot({path:path.join(output,`choice-${width}x${height}.png`)});
   }
   await page.setViewportSize({width:412,height:1007});

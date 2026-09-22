@@ -13,3 +13,19 @@
 .crystal-change canvas{animation:crystal-arrive .22s ease-out}
 @keyframes crystal-arrive{from{opacity:.25;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
 @media(prefers-reduced-motion:reduce){.crystal-change canvas{animation:none}}
+
+/* The main crystal owns the center; the small shard never displaces it. */
+body.arena-view .duel-console .duel-die{grid-template-rows:16px 20px minmax(0,1fr) 22px}
+body.arena-view .duel-console .dice-well{position:relative;display:block;width:100%;height:100%;min-height:0}
+body.arena-view .duel-console .dice-stage{width:100%;height:100%;min-height:0;margin:0;flex:none}
+body.arena-view .duel-console .kalistel-control{position:absolute;right:-5px;bottom:0;width:44px;height:44px;min-height:44px;gap:3px;z-index:1}
+body.arena-view .duel-console .kalistel-art{width:13px;height:24px}
+body.arena-view .duel-console .kalistel-art img{width:40.08px;left:-13.54px;top:-13.54px}
+@media(max-width:699px),(max-width:950px) and (max-height:500px){
+  body.arena-view .duel-console .duel-die{height:100%;display:grid;grid-template-rows:12px 12px minmax(0,1fr) 14px;align-items:center;gap:0}
+  body.arena-view .duel-console .duel-die>b{height:12px;min-height:0;max-height:12px;line-height:12px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+  body.arena-view .duel-console .kalistel-control{right:-7px;bottom:-2px}
+  body.arena-view .duel-console .player-1 .kalistel-control{right:auto;left:-7px}
+  body.arena-view .duel-console .kalistel-art{width:12px;height:22px}
+  body.arena-view .duel-console .kalistel-art img{width:37px;left:-12.5px;top:-12.5px}
+}
