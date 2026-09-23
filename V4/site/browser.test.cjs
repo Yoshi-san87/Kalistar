@@ -94,7 +94,7 @@ async function main() {
   assert.deepEqual(await page.locator('.cb-reading').evaluate(node => {
     const style = getComputedStyle(node);
     return { background: style.backgroundColor, border: style.borderTopWidth, color: style.color };
-  }), { background: 'rgba(0, 0, 0, 0)', border: '0px', color: 'rgb(47, 30, 23)' });
+  }), { background: 'rgba(0, 0, 0, 0)', border: '0px', color: 'rgb(36, 22, 15)' });
   await page.screenshot({ path: path.join(output, 'desktop-collection-reader.png') });
   await page.locator('[data-binder-action=back]').click();
   await page.locator('.cb-spread').waitFor({ state: 'visible' });

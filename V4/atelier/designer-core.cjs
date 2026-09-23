@@ -11,8 +11,23 @@ const EFFECTS = {
 };
 function options() {
   const cards = baseline().cards.map(c=>c.card);
-  const choices = field => [...new Set(cards.map(c=>c[field]))].sort().map(value=>({value,label:value}));
+  cards.push(...Object.keys(raceComponents()).map(race=>({race})));
+  const choices = field => [...new Set(cards.map(c=>c[field]).filter(Boolean))].sort().map(value=>({value,label:value}));
   return {elements:Object.entries(LABELS).map(([value,label])=>({value,label,color:'#'+cards.find(c=>c.element===value).color})), races:choices('race'), weapons:choices('weapon'), factions:choices('faction'), effects:Object.fromEntries(Object.entries(EFFECTS).map(([side,list])=>[side,list.map(([value,label,icon])=>({value,label,icon}))]))};
+}
+function raceComponents() {
+  const bank = path.join(ROOT, 'V4/atelier/designer-assets'), file = path.join(bank, 'race-extensions.json');
+  if (!fs.existsSync(file)) return {};
+  const extension = read(file);
+  if (extension.schemaVersion !== 1) throw Error('Extension de races invalide.');
+  for (const [race, spec] of Object.entries(extension.races)) {
+    if (!['ANDROID', 'CYBORG'].includes(race) || spec.file !== 'extensions/race-' + race + '.png' ||
+        spec.left !== 711 || spec.top !== 1116 || spec.width !== 96 || spec.height !== 95 ||
+        crypto.createHash('sha256').update(fs.readFileSync(path.join(bank, spec.file))).digest('hex') !== spec.sha256) {
+      throw Error('Composant de race non calibre : ' + race);
+    }
+  }
+  return extension.races;
 }
 function defaults() {
   return {name:'',title:'',job:'',description:'',element:'ELECTRO',race:'ROBOT',weapon:'Instrument',faction:'Chroma',positions:[3],atk:[200,165,130,95,60,25],defense:[200,165,130,95,60,25],magic:[],barriers:[],upload:null,crop:{zoom:1,x:0,y:0}};
@@ -124,4 +139,4 @@ async function publish(id){
   if(!prior)cat.cards.push(entry);write(CATALOGUE,cat);
   const result={...entry,gameUrl:'/jeu/#collection'};setStatus(id,'published',{message:'Carte ajoutee a la collection V4.',result});return result;
 }
-module.exports={HOME,CATALOGUE,UUID,FIELDS,options,defaults,validate,catalogue,initialize,folder,draftList,saveDraft,profileCard,status,setStatus,create,publish};
+module.exports={HOME,CATALOGUE,UUID,FIELDS,options,defaults,validate,catalogue,initialize,folder,draftList,saveDraft,profileCard,status,setStatus,create,publish,raceComponents};

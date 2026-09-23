@@ -132,7 +132,7 @@ async function main({ requireMedia = false } = {}) {
       if (spec.key === 'selphie') {
         await page.locator('[data-binder-action=tab][data-id=profile]').click();
         assert.ok((await page.locator('#cb-read-content').textContent()).includes('Fl\u00e9au'));
-        assert.equal(await page.locator('#cb-read-content img[src$="/factions/FF8.png"]').getAttribute('src'), '/jeu/assets/factions/FF8.png');
+        assert.equal(new URL(await page.locator('#cb-read-content img[src$="/factions/FF8.png"]').getAttribute('src'), page.url()).pathname, '/jeu/assets/factions/FF8.png');
         for (const viewport of viewports) { await page.setViewportSize(viewport); await checkHeading(page); }
         await page.setViewportSize(viewports[0]);
         await page.screenshot({ path: path.join(output, 'selphie-collection.png') });

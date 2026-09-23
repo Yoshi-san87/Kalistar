@@ -3,12 +3,12 @@
   "mode": "isolated-http-route-fixture",
   "url": "http://127.0.0.1:43874",
   "checks": [
-    "HTTP boot: 27 approved + 22 published V4 cards, Paris49/Tokyo0, independent IndexedDB",
+    "HTTP boot: 27 approved + 30 published V4 cards, Paris57/Tokyo0, independent IndexedDB",
     "collection grimoire, edge arrows, card drag and reduced-motion fallback",
-    "3D dice have nonblank pixels and animate on interaction",
+    "elemental crystals have nonblank pixels and reveal rolls on interaction",
     "Atelier tab is full-width, persistent, and leaves active game unchanged",
     "publication + reload preserves active match and V3 preferences, seeds once",
-    "desktop/mobile images, scripts, layout and 3D dice mount have no failures"
+    "desktop/mobile images, scripts, layout and elemental crystals have no failures"
   ],
   "errors": [],
   "badResponses": []

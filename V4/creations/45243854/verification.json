@@ -1,0 +1,64 @@
+{
+  "passed": true,
+  "modelId": "45243854",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "553fec61e8158449638d4c1c8e697dc9be64c1c91098c4477c6fb8a1e9fbc39f",
+  "hashes": {
+    "card.png": "fd3a90346e78085f4552f826b9a1275cdb2dc2696ebb8a4d4a40b97ab8b1e28c",
+    "card.psd": "14173a1a8defb96b582b0c682f8a9209f1da0fd016f5a68a773999a9429c892b"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 99157
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "45243854",
+    "cases": {
+      "color-1": [
+        "45243854"
+      ],
+      "color-4": [
+        "45243854"
+      ],
+      "gray-1": [
+        "45243854"
+      ],
+      "gray-4": [
+        "45243854"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-23T02:14:49.180Z",
+  "key": "anemone",
+  "revision": "2026-09-23-nier-art-refinement",
+  "lineage": {
+    "originalPreparationHash": "6988a00d5b12b2f6499ddd611c083a4eb8c98310865cbf354b9f04816274d73f",
+    "originalVerificationHash": "e11b96675b259f9f988c18f150e062e15d072504f68999e985c16f0397a61d75",
+    "selectedArtHash": "77bb2a112542c91361a539cbd93a048a3bfe12fd6b57a3f044e0b36a0bd66a55",
+    "originalPsdHash": "188735886f61e9ef891fe007eae37f39bb5c678dbaeb6b3350b5fbb165abb3c2"
+  },
+  "scope": {
+    "originalPixels": {
+      "changed": 0,
+      "outside": 0
+    },
+    "withoutChanges": {
+      "changed": 0,
+      "outside": 0
+    },
+    "outside": {
+      "changed": 447846,
+      "outside": 0
+    },
+    "changedFields": [],
+    "nativeTextUnchanged": true,
+    "embeddedObjects": true
+  }
+}

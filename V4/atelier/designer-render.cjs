@@ -72,7 +72,7 @@ async function components(profile,{id='00000000',positionsText=false}={}){
   }
   add(m.factions[profile.faction],'FACTION - '+profile.faction);
   add(m.weapons[profile.weapon],'ARME - '+profile.weapon);
-  add(m.races[profile.race],'RACE - '+profile.race);
+  add(m.races[profile.race]||D.raceComponents()[profile.race],'RACE - '+profile.race);
   add(m.elements[profile.element].branch,'BRANCHES '+profile.element+' - couleur du cristal');
   add(m.elements[profile.element].crystal,'CRISTAL '+profile.element);
   layers.push({input:await barcode(id),left:132,top:848,width:22,height:210,name:'ID CODE128 - '+id});

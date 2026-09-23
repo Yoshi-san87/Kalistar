@@ -41,6 +41,30 @@ Schema-3 registry backups validate against their own `versions` snapshot, which 
 
 `db.catalogueChanges()` returns IDs present in the shared registry but absent from the loaded engine. `db.onCatalogueChange(listener)` subscribes to these changes (including the initial state) and returns an unsubscribe function. Old tabs keep the existing engine and active match, show the manual refresh action, and render all owned rows from the stored version profiles in the account dialog. Counts include pending versions. Import from a stale tab fails with `CATALOGUE_STALE` until it refreshes; this prevents a partial catalogue from overwriting newer records.
 
+## Collection Editions (23 September 2026)
+
+The notebook uses each card's printed title for edition buttons. The current
+edition has a dark ink background, a check mark and `aria-pressed`. Story text
+keeps its existing font sizes, with stronger ink and a small left inset.
+The same dark ink and semibold lettering now cover the notebook header, profile,
+career and copy details, without light text shadows or larger type. Magic ATK
+and barrier DEF keep distinct brown and teal ink. `reader-legibility.test.cjs`
+checks type sizes, contrast, overflow and access to all three tabs at seven sizes.
+
+Book captions distinguish owned copies of the visible edition from the number
+of editions in the filtered character group. Clicking the stacked-card counter
+cycles that group's editions without opening the notebook or changing pages.
+The rear card moves forward in 640 ms; reduced-motion preferences skip the
+animation. Copy counts, favorite actions and the notebook target follow the
+visible card. Selection is kept in memory, not written to ownership records.
+An interrupted animation is cancelled on repaint, resize or navigation.
+
+Short phone leaves keep the whole manuscript scrollable without a visible
+scrollbar; landscape book pages retain a minimum readable card height.
+`node V4/site/collection-versions.test.cjs` checks seven viewport sizes, named
+selection, copy counts, keyboard focus, filtering, ownership, rapid clicks and
+animation cancellation using a disposable browser profile and the local server.
+
 ## Embedded Atelier
 
 The top navigation includes `/jeu/#atelier`. Its full-width iframe `#atelier-frame` loads `/?embedded=1` once and remains mounted across tab switches. Active matches pause while outside the arena. The designer can send:

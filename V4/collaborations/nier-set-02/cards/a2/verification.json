@@ -1,0 +1,64 @@
+{
+  "passed": true,
+  "modelId": "47952087",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "d627ccad3bd2ac3f6f09bd63b57bded24a7a0dd1c0be372d91d5d28ccfd8e2db",
+  "hashes": {
+    "card.png": "0427148e5eaed919e088d5ec9111e805251a7494ccf599296603db8504ac78a4",
+    "card.psd": "6e2ba7491fea1fd31b603c2dac1d1dac53e6127fbbe60e869032e105b6340112"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 99827
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "47952087",
+    "cases": {
+      "color-1": [
+        "47952087"
+      ],
+      "color-4": [
+        "47952087"
+      ],
+      "gray-1": [
+        "47952087"
+      ],
+      "gray-4": [
+        "47952087"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-23T02:14:47.243Z",
+  "key": "a2",
+  "revision": "2026-09-23-nier-art-refinement",
+  "lineage": {
+    "originalPreparationHash": "e44a97e7ce12b13e829890a570304790a718aebe3f3e7c2d8e186d84e0c8841c",
+    "originalVerificationHash": "e96a1203844bb64ce6ee2ec2b83b074ac1a222c5378aacbf09ade538e4f34ed5",
+    "selectedArtHash": "5ea4a081bda4e4a8556e9496614a0bbcb7be0dd2f545e7f6922e3ba02895d206",
+    "originalPsdHash": "37bbcd521ef02dcb86bd6b6085801b38b056525cc58d577a39cf7865e0c1fe46"
+  },
+  "scope": {
+    "originalPixels": {
+      "changed": 0,
+      "outside": 0
+    },
+    "withoutChanges": {
+      "changed": 0,
+      "outside": 0
+    },
+    "outside": {
+      "changed": 446542,
+      "outside": 0
+    },
+    "changedFields": [],
+    "nativeTextUnchanged": true,
+    "embeddedObjects": true
+  }
+}

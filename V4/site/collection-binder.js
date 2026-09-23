@@ -27,10 +27,10 @@
     const elements={...data.elements,NONE:data.elements.NONE||{id:'NONE',label:'Sans cristal',color:'93AAA5'}};
     let root=null,observer=null,painting=false,scope='owned',page=0,pageSize=8,columns=2,rows=2,selected=null,tab='story',art=false,filtersOpen=false,sort='id';
     let storyPage=0,historyPage=0,copyPage=0,instance='all',textLimit=600,motion='',swipe=null,suppressClick=false,transitionTimer=null,transitioning=false;
-    let singlePage=false,readerPane='visual';
+    let singlePage=false,readerPane='visual',versionTransition=null;
     const filters={search:'',element:'',faction:'',race:'',position:'',weapon:'',favorite:false};
     const owns=id=>getOwned(id)||[];
-    const asset=(folder,name)=>folder==='factions'&&['FF7','FF8'].includes(name)?'assets/factions/'+name+'.png':'shared/'+folder+'/'+encodeURIComponent(name)+'.png';
+    const asset=(folder,name)=>(folder==='factions'&&['FF7','FF8','NieR'].includes(name)||folder==='races'&&name==='ANDROID')?'assets/'+folder+'/'+encodeURIComponent(name)+'.png':'shared/'+folder+'/'+encodeURIComponent(name)+'.png';
     const image=c=>globalThis.KalistarCardMedia.image(c);
     const button=(action,symbol,label,extra='')=>`<button type="button" class="cb-icon" data-binder-action="${action}" aria-label="${esc(label)}" title="${esc(label)}" ${extra}>${icon(symbol)}</button>`;
     const edgeButton=(action,symbol,label,side,disabled)=>`<button type="button" class="cb-page-edge cb-page-edge-${side}" data-binder-action="${action}" aria-label="${esc(label)}" title="${esc(label)}" ${disabled?'disabled':''}><span>${icon(symbol)}</span></button>`;
@@ -38,7 +38,7 @@
     const crystal=c=>`<img src="${asset('cristaux',c.element)}" alt="${esc(element(c).label)}">`;
     function filtered(){
       const favorites=getFavorites(),search=normalize(filters.search.trim());
-      return cards.filter(c=>(scope==='catalogue'||scope==='ff7'&&c.faction==='FF7'||scope==='ff8'&&c.faction==='FF8'||scope==='owned'&&owns(c.id).length)&&(!filters.favorite||favorites.has(c.id))&&
+      return cards.filter(c=>(scope==='catalogue'||scope==='ff7'&&c.faction==='FF7'||scope==='ff8'&&c.faction==='FF8'||scope==='nier'&&c.faction==='NieR'||scope==='owned'&&owns(c.id).length)&&(!filters.favorite||favorites.has(c.id))&&
         (!search||normalize([c.name,c.title,c.faction,c.race,c.id].join(' ')).includes(search))&&
         ['element','faction','race','weapon'].every(field=>!filters[field]||filters[field]===c[field])&&
         (!filters.position||c.positions.includes(Number(filters.position))))
@@ -56,11 +56,13 @@
     function pager(action,index,count,label){return `<nav class="cb-subpager" aria-label="${esc(label)}">${button(action,'chevron-left','Précédent',`data-index="${index-1}" ${index===0?'disabled':''}`)}<span>${index+1} / ${count}</span>${button(action,'chevron-right','Suivant',`data-index="${index+1}" ${index>=count-1?'disabled':''}`)}</nav>`;}
     function pocket(group,index){
       const c=group.find(c=>c.id===covers.get(key(c)))||group.find(c=>getFavorites().has(c.id))||group[0],owned=owns(c.id).length,favorite=getFavorites().has(c.id);
+      const current=group.indexOf(c),behind=[...group.slice(current+1),...group.slice(0,current)],next=behind[0];
+      const versionCount=`${icon('layers-3')}<b>${group.length}</b>`;
       return `<article class="cb-pocket ${owned?'':'is-unowned'}" data-character="${esc(key(c))}" data-card-id="${c.id}" style="--card-color:#${element(c).color};--pocket-order:${index}">
-        <div class="cb-stack">${group.filter(v=>v.id!==c.id).slice(0,2).map((v,i)=>`<img class="cb-behind cb-layer-${i}" src="${image(v)}" alt="" aria-hidden="true" draggable="false">`).join('')}
+        <div class="cb-stack">${behind.slice(0,2).map((v,i)=>`<img class="cb-behind cb-layer-${i}" data-version-id="${v.id}" src="${image(v)}" alt="" aria-hidden="true" draggable="false">`).join('')}
         <button type="button" class="cb-card" data-binder-action="open" data-id="${c.id}" aria-label="Consulter ${esc(c.name+' : '+c.title)}"><img src="${image(c)}" alt="${esc(c.name+' : '+c.title)}" draggable="false"></button>
-        ${group.length>1?`<span class="cb-version-count" title="${group.length} versions">${icon('layers-3')}${group.length}</span>`:''}</div>
-        <div class="cb-caption"><span class="cb-copy-count" role="img" aria-label="${owned} exemplaire${owned>1?'s':''}" title="${owned} exemplaire${owned>1?'s':''}">${icon('copy')}<b>${owned}</b></span><div class="cb-caption-title"><h2 class="${c.name.length>8?'is-long-name':''}">${esc(c.name)}</h2>${group.length>1?`<span>${group.length} versions</span>`:''}</div>${button('favorite','star','Favori : '+c.name,`data-id="${c.id}" aria-pressed="${favorite}"`)}</div>
+        </div>
+        <div class="cb-caption"><span class="cb-copy-count" role="img" aria-label="${owned} exemplaire${owned>1?'s':''}" title="${owned} exemplaire${owned>1?'s':''} de ${esc(c.title)}">${icon('copy')}<b>${owned}</b></span><div class="cb-caption-title">${next?`<button type="button" class="cb-version-count" data-binder-action="cycle-version" data-id="${c.id}" aria-label="${esc(group.length+' versions de '+c.name+' · Afficher '+next.title)}" title="${esc(c.title+' · '+(current+1)+' / '+group.length+' · Suivante : '+next.title)}">${versionCount}</button>`:`<span class="cb-version-count" role="img" aria-label="1 version" title="${esc(c.title)}">${versionCount}</span>`}<h2 class="${c.name.length>8?'is-long-name':''}">${esc(c.name)}</h2></div>${button('favorite','star','Favori : '+c.name,`data-id="${c.id}" aria-pressed="${favorite}"`)}</div>
       </article>`;
     }
     function filtersHTML(){
@@ -110,7 +112,7 @@
       const content=tab==='profile'?profileHTML(c):tab==='career'?careerHTML(c):tab==='copies'?copiesHTML(c):`<div class="cb-story"><span class="cb-story-kicker">${esc(c.job)} · ${esc(c.faction)}</span><p>${esc(pages[storyPage])}</p>${pages.length>1?pager('story-page',storyPage,pages.length,'Récit'):''}</div>`;
       return `<div class="cb-reader" data-motion="${motion}" style="--card-color:#${element(c).color}"><figure class="cb-visual"><div class="cb-media-tools" role="group" aria-label="Visuel de la carte"><button type="button" data-binder-action="media" data-id="card" aria-pressed="${!art}">${icon('credit-card')}Carte</button><button type="button" data-binder-action="media" data-id="art" aria-pressed="${art}">${icon('image')}Illustration</button></div><img class="cb-hero-image ${art?'is-art':''}" src="${art?artImage(c):image(c)}" alt="${esc((art?'Illustration de ':'Carte de ')+c.name+' : '+c.title)}"><figcaption>#${c.id}<a href="${esc(globalThis.KalistarSite?.url(c.pngUrl)||c.pngUrl)}" download title="PNG d’impression" aria-label="Télécharger le PNG d’impression">${icon('download')}</a></figcaption></figure>
         <section class="cb-reading"><header class="cb-card-heading"><div><span class="cb-eyebrow">${esc(element(c).label)} · ${owns(c.id).length?'Dans ton classeur':'Non possédée'}</span><h2>${esc(c.name)}</h2><p>${esc(c.title)}</p></div>${button('favorite','star','Favori : '+c.name,`data-id="${c.id}" aria-pressed="${getFavorites().has(c.id)}"`)}</header>
-        <div class="cb-versions" aria-label="Versions de ${esc(c.name)}">${versions.map((v,i)=>`<button type="button" data-binder-action="version" data-id="${v.id}" aria-pressed="${v.id===selected}" title="${esc(v.title)}">${crystal(v)}<span>${versions.length>1?'Version '+(i+1):'Édition V4'}</span></button>`).join('')}</div>
+        <div class="cb-versions" role="group" aria-label="Versions de ${esc(c.name)}">${versions.map(v=>`<button type="button" data-binder-action="version" data-id="${v.id}" aria-pressed="${v.id===selected}" title="${esc(v.title)}">${crystal(v)}<span>${esc(v.title)}</span>${icon('check')}</button>`).join('')}</div>
         <div class="cb-reading-tabs" role="tablist" aria-label="Détails de la carte">${[['story','book-open','Récit'],['profile','scan-line','Fiche'],['career','medal','Carrière'],['copies','fingerprint','Exemplaires']].map(([id,symbol,label])=>`<button type="button" role="tab" id="cb-tab-${id}" aria-controls="cb-read-content" aria-selected="${tab===id}" tabindex="${tab===id?0:-1}" data-binder-action="tab" data-id="${id}">${icon(symbol)}${label}</button>`).join('')}</div>
         <div id="cb-read-content" class="cb-read-content" role="tabpanel" aria-labelledby="cb-tab-${tab}">${content}</div></section></div>`;
     }
@@ -118,23 +120,53 @@
       const s=snapshot(),allOwned=owns(),ownedVersions=new Set(allOwned.map(i=>i.cardId)).size;
       const catalogueSize=new Set([...cards.map(c=>c.id),...getCatalogueChanges(),...allOwned.map(i=>i.cardId)]).size;
       const ff7Versions=cards.filter(c=>c.faction==='FF7').length;
-      const ff8Versions=cards.filter(c=>c.faction==='FF8').length;
+      const ff8Versions=cards.filter(c=>c.faction==='FF8').length, nierVersions=cards.filter(c=>c.faction==='NieR').length;
       const active=Object.values(filters).some(Boolean),index=s.list.findIndex(c=>c.id===selected);
       const toolbar=selected?`<button type="button" class="cb-back" data-binder-action="back">${icon('arrow-left')}Classeur</button>`:`<span class="cb-count">${s.groups.length} personnage${s.groups.length>1?'s':''} · ${s.list.length} versions</span><label class="cb-search">${icon('search')}<input type="search" data-binder-field="search" aria-label="Rechercher une carte" placeholder="Retrouver une carte" value="${esc(filters.search)}"></label>${button('favorites','star','Mes favoris',`aria-pressed="${filters.favorite}"`)}${button('filters','sliders-horizontal','Filtres du classeur',`aria-expanded="${filtersOpen}"`)}${active?button('reset','filter-x','Effacer les filtres'):''}<select data-binder-field="sort" aria-label="Trier le classeur">${[['id','Ordre du classeur'],['name','Personnage'],['element','Cristal'],['faction','Faction']].map(([id,label])=>`<option value="${id}" ${sort===id?'selected':''}>${label}</option>`).join('')}</select>`;
       const panes=selected?`<div class="cb-mobile-panes" role="group" aria-label="Page du carnet"><button data-binder-action="pane" data-id="visual" aria-pressed="${readerPane==='visual'}">${icon('image')}Carte</button><button data-binder-action="pane" data-id="notes" aria-pressed="${readerPane==='notes'}">${icon('book-open')}Carnet</button></div>`:'';
       return `<section class="cb-page" data-reader-pane="${readerPane}" data-mode="${selected?'reader':'book'}" tabindex="-1" aria-label="Classeur de collection">
-        <header class="cb-heading"><div class="cb-title"><span class="cb-eyebrow">Kalistar · ${esc(profile)}</span><h1>${selected?'Au fil des cartes':'Mon classeur'}</h1></div><div class="cb-scopes" role="group" aria-label="Contenu du classeur"><button type="button" data-binder-action="scope" data-id="owned" aria-pressed="${scope==='owned'}">${icon('book-heart')}Mes cartes <b>${allOwned.length}</b></button><button type="button" data-binder-action="scope" data-id="catalogue" aria-pressed="${scope==='catalogue'}">${icon('library')}Catalogue</button><button type="button" data-binder-action="scope" data-id="ff7" aria-pressed="${scope==='ff7'}" title="Collaboration Final Fantasy VII">${icon('sparkles')}FF7 <b>${ff7Versions}</b></button>${ff8Versions?`<button type="button" data-binder-action="scope" data-id="ff8" aria-pressed="${scope==='ff8'}" title="Collaboration Final Fantasy VIII">${icon('sparkles')}FF8 <b>${ff8Versions}</b></button>`:''}</div><div class="cb-completion"><span><b>${ownedVersions}</b> / ${catalogueSize} versions</span><meter min="0" max="${catalogueSize}" value="${ownedVersions}" aria-label="Versions possédées">${ownedVersions}/${catalogueSize}</meter></div>${button('archives','archive','Archives et sauvegardes')}</header>
+        <header class="cb-heading"><div class="cb-title"><span class="cb-eyebrow">Kalistar · ${esc(profile)}</span><h1>${selected?'Au fil des cartes':'Mon classeur'}</h1></div><div class="cb-scopes" role="group" aria-label="Contenu du classeur"><button type="button" data-binder-action="scope" data-id="owned" aria-pressed="${scope==='owned'}">${icon('book-heart')}Mes cartes <b>${allOwned.length}</b></button><button type="button" data-binder-action="scope" data-id="catalogue" aria-pressed="${scope==='catalogue'}">${icon('library')}Catalogue</button><button type="button" data-binder-action="scope" data-id="ff7" aria-pressed="${scope==='ff7'}" title="Collaboration Final Fantasy VII">${icon('sparkles')}FF7 <b>${ff7Versions}</b></button>${ff8Versions?`<button type="button" data-binder-action="scope" data-id="ff8" aria-pressed="${scope==='ff8'}" title="Collaboration Final Fantasy VIII">${icon('sparkles')}FF8 <b>${ff8Versions}</b></button>`:''}${nierVersions?`<button type="button" data-binder-action="scope" data-id="nier" aria-pressed="${scope==='nier'}" title="Collaboration NieR:Automata">${icon('sparkles')}NieR <b>${nierVersions}</b></button>`:''}</div><div class="cb-completion"><span><b>${ownedVersions}</b> / ${catalogueSize} versions</span><meter min="0" max="${catalogueSize}" value="${ownedVersions}" aria-label="Versions possédées">${ownedVersions}/${catalogueSize}</meter></div>${button('archives','archive','Archives et sauvegardes')}</header>
         <div class="cb-toolbar">${toolbar}${panes}</div>
         ${selected?'':filtersHTML()}<div class="cb-workbench">${selected?reader(s):book(s)}</div>
         <footer class="cb-footer">${button(selected?'previous-card':'previous-page','chevron-left',selected?'Carte précédente':'Page précédente',(selected?index<=0:page===0)?'disabled':'')}<div class="cb-page-label" role="status" aria-live="polite"><b>${selected?esc(byId.get(selected).name):'Édition V4'}</b><span>${selected?`${index+1} / ${s.list.length} cartes`:`${singlePage?'Page':'Double page'} ${page+1} / ${s.pages}`}</span></div>${button(selected?'next-card':'next-page','chevron-right',selected?'Carte suivante':'Page suivante',(selected?index>=s.list.length-1:page>=s.pages-1)?'disabled':'')}</footer></section>`;
     }
     function paint(focus){
       if(!root||painting)return;painting=true;
+      cancelVersionTransition();
       const active=root.ownerDocument.activeElement,descriptor=focus||(root.contains(active)?{action:active.dataset.binderAction,id:active.dataset.id,field:active.dataset.binderField,start:active.selectionStart,end:active.selectionEnd}:null);
       try{
         root.innerHTML=render();globalThis.lucide?.createIcons({root});motion='';
         if(descriptor){const n=[...root.querySelectorAll('button,input,select')].find(n=>n.getClientRects().length&&(descriptor.field?n.dataset.binderField===descriptor.field:descriptor.action&&n.dataset.binderAction===descriptor.action&&(!descriptor.id||n.dataset.id===descriptor.id)));if(n&&!n.disabled){n.focus({preventScroll:true});if(n.type==='search'&&descriptor.start!=null)n.setSelectionRange(descriptor.start,descriptor.end);}else root.querySelector('.cb-page').focus({preventScroll:true});}
       }finally{painting=false;}
+    }
+    function cancelVersionTransition(){
+      const previous=versionTransition;versionTransition=null;if(!previous)return;
+      previous.animations.forEach(animation=>animation.cancel());
+      delete previous.stack.dataset.cycling;previous.button.removeAttribute('aria-busy');
+    }
+    async function cycleVersion(node){
+      if(versionTransition||transitioning||selected)return;
+      const group=snapshot().groups.find(g=>g.some(c=>c.id===node.dataset.id));
+      if(!group||group.length<2)return;
+      const next=group[(group.findIndex(c=>c.id===node.dataset.id)+1)%group.length];
+      const stack=node.closest('.cb-pocket')?.querySelector('.cb-stack'),front=stack?.querySelector('.cb-card'),back=stack?.querySelector('.cb-layer-0');
+      covers.set(key(next),next.id);
+      const focus={action:'cycle-version',id:next.id};
+      if(!front?.animate||!back||globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches){paint(focus);return;}
+      const transition={stack,button:node,animations:[]};versionTransition=transition;node.setAttribute('aria-busy','true');
+      try{
+        await back.decode();
+        if(versionTransition!==transition)return;
+        stack.dataset.cycling='true';
+        const style=root.ownerDocument.defaultView.getComputedStyle(back),rest=style.transform;
+        const timing={duration:640,easing:'cubic-bezier(.45,0,.55,1)',fill:'forwards'};
+        transition.animations=[
+          front.animate([{transform:'none',filter:'brightness(1)',zIndex:1},{transform:'translate(-16%,3%) rotate(-4deg) scale(.97)',filter:'brightness(.85)',zIndex:1,offset:.48},{transform:rest,filter:'brightness(.8)',zIndex:-1}],timing),
+          back.animate([{transform:rest,filter:style.filter,zIndex:-1},{transform:'translate(16%,-5%) rotate(3deg) scale(1.025)',filter:'brightness(1)',zIndex:2,offset:.48},{transform:'none',filter:'brightness(1)',zIndex:2}],timing)
+        ];
+        await Promise.all(transition.animations.map(animation=>animation.finished));
+      }catch{/* Image failures and animation cancellation must not strand the selection. */}
+      if(versionTransition===transition)paint(focus);
     }
     function navigate(delta){
       if(transitioning)return;
@@ -142,6 +174,7 @@
       const direction=delta>0?'next':'previous';
       if(selected){const index=s.list.findIndex(c=>c.id===selected),next=s.list[index+delta];if(!next)return;select(next.id);motion=direction;paint();return;}
       const next=page+delta;if(next<0||next>=s.pages)return;
+      cancelVersionTransition();
       let committed=false;
       const commit=()=>{if(committed)return;committed=true;if(transitionTimer)globalThis.clearTimeout(transitionTimer);transitionTimer=null;page=next;motion=direction;transitioning=false;paint();};
       const spread=root?.querySelector('.cb-spread');
@@ -155,6 +188,7 @@
       if(suppressClick){suppressClick=false;if(event.target.closest('.cb-workbench')){event.preventDefault();event.stopPropagation();return;}}
       const node=event.target.closest('[data-binder-action]');if(!root?.contains(node)||node.disabled||painting)return;
       event.stopPropagation();const action=node.dataset.binderAction,id=node.dataset.id,returnId=selected;
+      if(action==='cycle-version')return cycleVersion(node);
       if(action==='previous-page'||action==='previous-card')return navigate(-1);
       if(action==='next-page'||action==='next-card')return navigate(1);
       if(action==='archives')return onArchives();
@@ -164,7 +198,7 @@
       if(action==='open')readerPane='visual';
       if(action==='pane')readerPane=id==='notes'?'notes':'visual';
       if(action==='back'){selected=null;filtersOpen=false;motion='back';}
-      if(action==='scope'){scope=['catalogue','ff7','ff8'].includes(id)?id:'owned';page=0;selected=null;filtersOpen=false;}
+      if(action==='scope'){scope=['catalogue','ff7','ff8','nier'].includes(id)?id:'owned';page=0;selected=null;filtersOpen=false;}
       if(action==='favorite'){onFavorite(id);}
       if(action==='favorites'){filters.favorite=!filters.favorite;page=0;}
       if(action==='filters')filtersOpen=!filtersOpen;
@@ -256,7 +290,7 @@
       if(next!==pageSize||nextColumns!==columns||nextRows!==rows||limit!==textLimit||phone!==singlePage){const first=page*pageSize;singlePage=phone;columns=nextColumns;rows=nextRows;pageSize=next;page=Math.floor(first/pageSize);textLimit=limit;storyPage=0;paint();}
     }
     const listeners=[['click',click],['input',input],['change',change],['keydown',keyboard],['pointerdown',pointerDown],['pointermove',pointerMove],['pointerup',pointerUp],['pointercancel',cancelSwipe]];
-    function destroy(){observer?.disconnect();observer=null;if(transitionTimer)globalThis.clearTimeout(transitionTimer);transitionTimer=null;transitioning=false;if(root)for(const [event,fn]of listeners)root.removeEventListener(event,fn);root=null;swipe=null;}
+    function destroy(){observer?.disconnect();observer=null;cancelVersionTransition();if(transitionTimer)globalThis.clearTimeout(transitionTimer);transitionTimer=null;transitioning=false;if(root)for(const [event,fn]of listeners)root.removeEventListener(event,fn);root=null;swipe=null;}
     return {render,mount(element){destroy();root=element;paint();size();for(const [event,fn]of listeners)root.addEventListener(event,fn);const Resize=root.ownerDocument.defaultView.ResizeObserver;if(Resize){observer=new Resize(size);observer.observe(root);}},refresh(){paint();},destroy,inspect:()=>({scope,page,pageSize,columns,rows,selected,tab,art,filters:{...filters},sort})};
   }
   return {create,groupCards,textPages};

@@ -1,0 +1,58 @@
+{
+  "id": "nier-set-02",
+  "faction": "NieR",
+  "officialCollaboration": false,
+  "adaptation": "Crossover prive : races, cristaux, armes et pouvoirs sont des adaptations Kalistar, pas des affirmations canoniques. Anemone HUMAIN selon demande explicite, en attente de clarification.",
+  "arenas": [],
+  "presets": [],
+  "cards": [
+    {
+      "key": "emil", "id": "43525184", "name": "EMIL",
+      "title": "Les fleurs se souviennent", "job": "GARDIEN",
+      "description": "Sous la terre, Emil veille parmi les larmes lunaires. Son sourire immobile abrite une tendresse que les si\u00e8cles n'ont pas effac\u00e9e ; au bout de son sceptre, un souvenir demeure, fragile et plus tenace que la guerre.",
+      "race": "CYBORG", "weapon": "Sceptre", "element": "HEMATO", "positions": [4, 3], "role": 4,
+      "atk": [278, 226, 176, "mana", 82, 32], "defense": [166, 134, "retry", 78, 48, 20],
+      "magic": [6, 5, 4, 2], "barriers": [6, 3]
+    },
+    {
+      "key": "a2", "id": "47952087", "name": "A2",
+      "title": "Au seuil du dernier serment", "job": "D\u00c9SERTEUSE",
+      "description": "Au seuil des ruines que le d\u00e9sert engloutit, A2 serre son \u00e9p\u00e9e. La fatigue p\u00e8se plus lourd que le m\u00e9tal, mais elle avance encore : derri\u00e8re son refus des ordres, les voix perdues exigent autre chose que l'oubli.",
+      "race": "ANDROID", "weapon": "Ep\u00e9e longue", "element": "CRYO", "positions": [2, 1], "role": 2,
+      "atk": [292, 242, 190, 140, 90, 40], "defense": [168, "dodge", 108, 78, "retry", 22],
+      "magic": [], "barriers": [4]
+    },
+    {
+      "key": "pascal", "id": "42650442", "name": "PASCAL",
+      "title": "La paix entre les pages", "job": "PACIFISTE",
+      "description": "Dans le village suspendu aux arbres, Pascal ouvre un livre aux petites machines. Chaque page offre un monde o\u00f9 l'on peut apprendre sans d\u00e9truire ; sa voix patiente prot\u00e8ge cette paix que nul blindage ne garantit.",
+      "race": "ROBOT", "weapon": "Tome", "element": "HERBO", "positions": [5], "role": 5,
+      "atk": ["revive", "guard", "retry", "mana", "buff_atk", 18], "defense": [184, 150, 116, 82, 48, 20],
+      "magic": [], "barriers": [5]
+    },
+    {
+      "key": "adam", "id": "47023549", "name": "ADAM",
+      "title": "La raison dans le vide blanc", "job": "OBSERVATEUR",
+      "description": "Dans la Cit\u00e9 copi\u00e9e, Adam l\u00e8ve les mains dans un calme sans chaleur. Entre les fa\u00e7ades blanches, il cherche dans le combat une r\u00e9ponse aux passions humaines, comme si comprendre la douleur donnait un sens au vide.",
+      "race": "ROBOT", "weapon": "Poing", "element": "LUXO", "positions": [3, 4], "role": 4,
+      "atk": [282, 232, 182, 132, 82, 32], "defense": [164, 134, 104, "retry", 46, 18],
+      "magic": [6, 5, 4, 3], "barriers": [6, 4]
+    },
+    {
+      "key": "eve", "id": "48867563", "name": "EVE",
+      "title": "Le deuil ne sait plus se taire", "job": "RAVAGEUR",
+      "description": "Dans les ruines de la ville, Eve ne cherche plus de r\u00e9ponse. L'absence d'Adam br\u00fble jusque dans son bras marqu\u00e9 ; chaque coup veut nier la perte, et sa fureur dresse contre le monde un rempart que rien ne console.",
+      "race": "ROBOT", "weapon": "Poing", "element": "PYRO", "positions": [1, 2], "role": 1,
+      "atk": [204, 168, 132, 96, 62, 28], "defense": [286, 236, 186, 138, 90, 42],
+      "magic": [], "barriers": [4]
+    },
+    {
+      "key": "anemone", "id": "45243854", "name": "ANEMONE",
+      "title": "Ceux qui tiennent encore", "job": "COMMANDANTE",
+      "description": "Au camp de la R\u00e9sistance, Anemone compte les retours avant les victoires. Le fusil \u00e0 port\u00e9e de main, elle \u00e9coute, tranche et rassemble : tant qu'un refuge tient debout, les disparus n'auront pas emport\u00e9 tout l'espoir.",
+      "race": "HUMAIN", "weapon": "Gun", "element": "GEO", "positions": [4], "role": 4,
+      "atk": [272, 222, 172, "buff_atk", 76, 28], "defense": [160, 130, 100, 72, "retry", 18],
+      "magic": [4], "barriers": [5]
+    }
+  ]
+}

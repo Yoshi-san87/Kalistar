@@ -6,6 +6,9 @@ const FILES = ['profile.json', 'card.png', 'card.psd', 'verification.json', 'ill
 const ARENAS = ['ff8-balamb-garden', 'ff8-deling-parade'];
 
 function createPublisher(options = {}) {
+  const M = options.model || require('./model.cjs');
+  const SET = options.setId || 'ff8-set-01', faction = options.faction || 'FF8';
+  const ARENAS = options.arenas || ['ff8-balamb-garden', 'ff8-deling-parade'];
   const L = options.L || require('../../atelier/lib.cjs');
   const D = options.D || require('../../atelier/designer-core.cjs');
   const buildCatalog = options.buildCatalog || require('../../atelier/game-catalog.cjs').buildCatalog;
@@ -53,7 +56,7 @@ function createPublisher(options = {}) {
       assert.ok(p && typeof p.id === 'string' && /^4\d{7}$/.test(p.id) && !ids.has(p.id), 'Douze identifiants V4 uniques sont requis.');
       ids.add(p.id);
       M.validateProfile(p, spec);
-      assert.ok(p.faction === 'FF8' && p.collaboration === 'FF8' && p.characterId === spec.key + '-ff8', 'Identite FF8 invalide : ' + spec.key);
+      assert.ok(p.faction === faction && p.collaboration === faction && p.characterId === spec.key + '-' + faction.toLowerCase(), 'Identite de collaboration invalide : ' + spec.key);
       assert.notEqual(p.testOnly, true, 'Profil testOnly non publiable : conversion explicite requise.');
       assert.ok(Array.isArray(p.positions) && new Set(p.positions).size === p.positions.length && p.positions.every(n => Number.isInteger(n) && n >= 1 && n <= 5), 'Positions invalides.');
       same([...p.positions].sort(), [...spec.positions].sort(), 'Positions utilisateur modifiees : ' + spec.key);
@@ -83,7 +86,7 @@ function createPublisher(options = {}) {
       const media = { png: rel + '/card.png', psd: rel + '/card.psd', pngUrl: '/media/created/' + p.id + '.png', psdUrl: '/media/created/' + p.id + '.psd' };
       let creation;
       if (prior) {
-        assert.ok(prior.kind === 'created' && prior.profile?.collaboration === 'FF8', 'Identifiant appartenant a une autre carte : ' + p.id);
+        assert.ok(prior.kind === 'created' && prior.profile?.collaboration === faction, 'Identifiant appartenant a une autre carte : ' + p.id);
         same(prior.profile, p, 'Profil deja publie different : ' + p.id);
         for (const [field, value] of Object.entries(media)) assert.equal(prior[field], value, 'Route existante differente.');
         same(read(path.join(target, 'profile.json')), p, 'Profil publie sur disque different.');

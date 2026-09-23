@@ -1,21 +1,16 @@
 {
   "passed": true,
-  "key": "barret",
   "modelId": "43698921",
   "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
-  "profileHash": "ede37c82630793df754f53e9522aaef26835f38e94ff4d4bc5f412e4d8878e49",
+  "profileHash": "bd51d5917a59d97be3666ebd8ee798f25a1b54db55b19b5af9930dc0d70f9978",
   "hashes": {
-    "card.png": "ff1b9ce7d3f6ff31e0c70bdab5dad4ab3ec24990922ec4eb55cc032a716850c9",
-    "card.psd": "03fbcc3a3efb41334884c98013297be56d11837c6f691b736758ef88361a047d"
+    "card.png": "38dda06602fe0fe30f9b6b96e2f5300ec948a7979709c79efdda1ef165af26f2",
+    "card.psd": "a38705391eee7ca2b53712689a789b74422c0a856e1aa74a63e5999c81f361a6"
   },
   "components": {
     "fixedDifferences": 0,
     "severePixels": 0,
-    "proof": "same PSD with only embedded artwork replaced",
-    "withoutArt": {
-      "changed": 0,
-      "outside": 0
-    }
+    "changed": 114073
   },
   "roundtrip": {
     "changed": 0,
@@ -40,13 +35,21 @@
     },
     "physicalPrintVerified": false
   },
-  "checkedAt": "2026-09-20T13:09:14.275Z",
-  "illustrationOnly": {
-    "outside": {
-      "changed": 454054,
+  "checkedAt": "2026-09-23T00:25:49.844Z",
+  "key": "barret",
+  "revision": "2026-09-23-barret-cyborg",
+  "raceOnly": {
+    "originalPixels": {
+      "changed": 0,
       "outside": 0
     },
-    "layerStateIdentical": true
-  },
-  "revision": "2026-09-20-barret-original-mako"
+    "withoutRace": {
+      "changed": 0,
+      "outside": 0
+    },
+    "outside": {
+      "changed": 3878,
+      "outside": 0
+    }
+  }
 }

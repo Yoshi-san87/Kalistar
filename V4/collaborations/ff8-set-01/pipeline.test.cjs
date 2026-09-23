@@ -51,7 +51,9 @@ test('Selphie uses a native Fouet donor but the existing Fleau profile and engin
     engine.autoDeploy(state, 0); engine.autoDeploy(state, 1); engine.start(state);
     const attackerSlot = state.players[0].board.findIndex(u => u.cardId === spec.id), targetSlot = state.players[1].board.findIndex(u => u.cardId === target.id);
     assert.ok(attackerSlot >= 0 && targetSlot >= 0);
-    engine.lock(state, attackerSlot, targetSlot); engine.rollAttack(state, 6); engine.rollDefense(state, 6);
+    engine.lock(state, attackerSlot, targetSlot); engine.rollAttack(state, 6);
+    if (state.phase === 'kalistel') engine.acceptAttack(state);
+    engine.rollDefense(state, 6);
     assert.equal(state.lastDuel.formula.weapon, bonus);
     assert.equal(bonus, weapons['Fl\u00e9au'][target.weapon]);
   }
@@ -126,6 +128,7 @@ test('both presets deploy, play and restore with the current engine', async () =
     for (let i = 0; i < 10000 && s.phase !== 'over'; i++) {
       if (s.phase === 'choose') e.lock(s, ...e.aiChoice(s));
       else if (s.phase === 'attack') e.rollAttack(s);
+      else if (s.phase === 'kalistel') { if (e.aiUseKalistel(s)) e.useKalistel(s); else e.acceptAttack(s); }
       else if (s.phase === 'defense') e.rollDefense(s);
       else if (s.phase === 'result') e.next(s);
       else if (s.phase === 'replace') e.autoDeploy(s, s.replacing);

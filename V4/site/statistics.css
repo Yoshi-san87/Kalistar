@@ -103,14 +103,15 @@ body.statistics-view { display: flex; flex-direction: column; height: 100dvh; ov
 .trophy-keepsake b { font: 19px/1.1 var(--serif); }
 .trophy-keepsake > span { font: 10px/1.2 var(--sans); text-align: center; }
 .trophy-keepsake[data-earned=false] img { filter: grayscale(.8); opacity: .38; }
-.cb-career .trophy-keepsake { color: #37291b; }
+.cb-career .trophy-keepsake { color: var(--cb-ink); }
+.cb-career .trophy-keepsake :is(b,span) { font-weight: 600; }
 .cb-career .trophy-keepsake img { height: 62px; }
-.cb-career .career-statistics { --career-icon: #372717; --career-muted: #443423; }
+.cb-career .trophy-keepsake[data-earned=false] img { filter: grayscale(.9) brightness(.65); opacity: .65; }
 .career-statistics .lucide,.cb-page .career-statistics .lucide { width: 21px; height: 21px; stroke-width: 2.2; }
 .career-statistics th[scope=row] { font-size: 13px; font-weight: 500; }
 .career-statistics th[scope=row] > span { gap: 10px; }
 .cb-page[data-mode=reader] .cb-reading-tabs .lucide { width: 22px; height: 22px; stroke-width: 2.2; color: #382615; }
-.cb-page .cb-reading-tabs button { color: #44301e; }
+.cb-page .cb-reading-tabs button { color: var(--cb-ink-soft); }
 .cb-page .cb-mobile-panes .lucide { width: 21px; height: 21px; stroke-width: 2; }
 .cb-page .cb-profile .lucide { stroke-width: 2.1; color: #44301e; }
 

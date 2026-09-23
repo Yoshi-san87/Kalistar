@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "modelId": "48867563",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "ef9d1582b11bef12918d8ba2f6576f5225f700944e0c6d1f02b4ce0fd5f13c96",
+  "hashes": {
+    "card.png": "bf0ea1389de865c698f5fee9b93c3ca7f7227292dfb3d88e301cb1b7380a1cdc",
+    "card.psd": "d37d806678ee80b47815662401bad5aea3fc26304f74618c73cf10b7c8d47de0"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 94560
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "48867563",
+    "cases": {
+      "color-1": [
+        "48867563"
+      ],
+      "color-4": [
+        "48867563"
+      ],
+      "gray-1": [
+        "48867563"
+      ],
+      "gray-4": [
+        "48867563"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-23T01:35:01.499Z",
+  "key": "eve",
+  "preparationHash": "19e5a8d031cb0eba82b3c576120ec1099958525830dd76c4d1c34ef61aebb8a9"
+}

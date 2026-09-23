@@ -1,0 +1,84 @@
+{
+  "left": 89,
+  "top": 1116,
+  "width": 96,
+  "height": 95,
+  "source": "V3\\assets\\revisions-buffs-scenes-20260914\\armes\\18.png",
+  "sourceHash": "81845068b870d2f2bee3ebb92e3b7671d0d1955b9fddfbca72b1489c91bea8be",
+  "sha256": "a3d7e5a8dd5cc8bf0493f9cb690825975427bcac87175159d1fb67070bec2c42",
+  "nativeEmail": "V4\\collaborations\\ff7-set-01\\weapon-email-native.png",
+  "nativeEmailHash": "c6ef219cbe72e7addf544d52fac5e047e4eda5552bda1d2f985c84e250ce3bd6",
+  "crop": {
+    "left": 89,
+    "top": 37,
+    "width": 375,
+    "height": 421
+  },
+  "placement": {
+    "left": 23,
+    "top": 18
+  },
+  "sourceMetrics": {
+    "fullBounds": [
+      89,
+      37,
+      464,
+      458
+    ],
+    "visibleBounds": [
+      89,
+      38,
+      463,
+      458
+    ],
+    "centroid": [
+      262.6426199671406,
+      253.60068670272935
+    ],
+    "optical": [
+      267.31770297864136,
+      251.64044635677408
+    ],
+    "fullAlphaRadius": 576.6508909210147,
+    "opticalError": 299.6223901489515,
+    "visibleAlphaThreshold": 16
+  },
+  "metrics": {
+    "fullBounds": [
+      23,
+      18,
+      75,
+      76
+    ],
+    "visibleBounds": [
+      23,
+      18,
+      75,
+      76
+    ],
+    "centroid": [
+      47.06058229182297,
+      47.79494891921571
+    ],
+    "optical": [
+      47.739378489684924,
+      47.51671679749022
+    ],
+    "fullAlphaRadius": 38.66846260197062,
+    "opticalError": 0.26115708483064404,
+    "visibleAlphaThreshold": 16
+  },
+  "motif": "V4\\collaborations\\nier-pilot-01\\components\\weapon-Katana.motif.png",
+  "motifHash": "fbec35e3fc87030c743cedcf6f8f3bd6add21dc102083d951d9a0f283198e7fc",
+  "opticalTarget": [
+    137,
+    1163.5
+  ],
+  "measuredOpticalCenter": [
+    136.73937848968492,
+    1163.5167167974903
+  ],
+  "radiusLimit": 39,
+  "opticalTolerance": 0.75,
+  "method": "65% visible luminance-alpha centroid / 35% visible bounds centre; full nonzero alpha contour contained; visible alpha >=16"
+}

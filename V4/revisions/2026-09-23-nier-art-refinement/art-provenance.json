@@ -1,0 +1,75 @@
+{
+  "date": "2026-09-23",
+  "request": "Pascal book binding; A2 large sword; painterly face consistency; Adam weapon Orbe",
+  "references": [
+    {
+      "file": "art/references/type40-official.jpg",
+      "source": "https://images.darkhorse.com/common/salestools/previews/3003284/3003284p9.jpg",
+      "page": "https://www.darkhorse.com/books/3003-284/nier-automata-world-guide-volume-2-hc/",
+      "role": "Type-4O Blade geometry only; official World Guide preview"
+    }
+  ],
+  "entries": [
+    {
+      "key": "pascal",
+      "tool": "image_gen.imagegen",
+      "prompt": "Use case: precise-object-edit. Edit the FIRST image, Pascal teaching a little machine from an open book. Correct ONLY the book construction and necessary hand contact. The open brown leather hardcover must be one physically coherent bound book: the two cream page blocks visibly sewn into one continuous central spine/gutter, attached endpapers, each cover board lying immediately beneath and parallel to its own page block, slightly larger than its pages; no detached page block, floating cover, impossible gap, duplicated spine or extraneous slab. It is opened about 140 degrees, naturally supported from below by his articulated left hand; his other index finger gently points to a drawing. Legible credible perspective and thickness, subtle binding shadow, age-worn leather. Preserve Pascal's exact canonical cylindrical head, eyes, mouth slots, copper torso, proportions, mechanical legs, teacher gesture, the attentive little seated robot, forest machine village, warm filtered light and the original composition. Image 2 Momo and image 3 Valazar are painting-style references only: detailed narrative fantasy painting, visible broad brushwork, textured color planes, worn materials, NOT anime/manga, NOT photograph or smooth 3D. Do not replace their scene or characters into Pascal. Standalone portrait illustration, same aspect ratio and composition as image1, no text, logos, card border or UI. This is a coherent illustration-source revision, not a pasted book or patch.",
+      "referenced_image_paths": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/collaborations/nier-set-02/art/pascal.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png"
+      ],
+      "generatedFile": "C:\\Users\\guill\\.codex\\generated_images\\019e30c1-21b0-7e11-9f9d-2fe692f111d2\\exec-489b8325-6bd6-4248-80e2-c8b96b1f6ff5.png",
+      "selectedFile": "V4/revisions/2026-09-23-nier-art-refinement/art/pascal.png"
+    },
+    {
+      "key": "a2",
+      "tool": "image_gen.imagegen",
+      "prompt": "Use case: precise-object-edit and painterly refinement. FIRST image is the A2 artwork to revise. Replace her thin sword with the canonical LARGE Type-4O Blade shown in the FOURTH image (bottom-right broad rectangular greatsword, NOT the top thin Type-4O Sword and NOT the lance). Large straight broad slab of weathered silver steel, nearly rectangular squared/chamfered tip, three small round holes near the tip, black mechanical base with two small yellow vents, aligned long dark grip. Show one continuous correct silhouette from grip through blade, no bends, no disconnected guard, no duplicate sword. Same lowered-sword stance, her right gloved hand (viewer left) grips the handle firmly, broad blade angled down beside her with tip fully inside the art window and not behind her legs; allow body/arm placement to naturally handle its mass. Keep its breadth convincing but not absurdly huge. Tip at x around23% and y90%, grip x40% y45%, face center. Correct A2 face to Kalistar painterly mature natural proportions: smaller naturally shaped eyes, nuanced cheek/nose planes, tired determined expression, softer lost-and-found brush edges, NOT manga ink outlines or doll skin. Preserve long windblown silver hair, adult identity, torn black outfit, boots, desert/ruined arch, full-body composition and warm sunlight. Images2 Momo and3 Kaylis are visual PAINTING STYLE references only: rich narrative fantasy painting, sculpted painted values, visible varied brushwork, worn fabric and metal, emotional presence, no photo or glossy3D. Do not import their characters, clothes or scenery. The fourth image is engineering identity reference only, do NOT import its typography or page. Single portrait standalone illustration, original aspect ratio, no text, frame, logos, UI or watermark. Repaint coherently in source, no pasted cutouts.",
+      "referenced_image_paths": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/collaborations/nier-set-02/art/a2.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/12_RAINBOW_KAYLIS.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/revisions/2026-09-23-nier-art-refinement/art/references/type40-official.jpg"
+      ],
+      "generatedFile": "C:\\Users\\guill\\.codex\\generated_images\\019e30c1-21b0-7e11-9f9d-2fe692f111d2\\exec-300b382d-238e-4064-8d38-788d2e89a016.png",
+      "selectedFile": "V4/revisions/2026-09-23-nier-art-refinement/art/a2.png"
+    },
+    {
+      "key": "adam",
+      "tool": "image_gen.imagegen",
+      "prompt": "Use case: style-transfer with precise-object-edit. Repaint the FIRST Adam illustration as a unified Kalistar narrative fantasy painting. Keep the same adult man Adam, long white-silver hair, thin black rectangular glasses, composed analytical gaze, white collared shirt with black ribbon tie, black fitted trousers/gloves/boots, full body and white geometric Copied City with stairway. Replace the tiny floating cubes over his raised open hand with ONE clear hand-sized crystal ORB levitating close above his palm, softly glowing ivory-gold inside, refracting the white architecture; anatomically correct natural fingers, no staff or other weapon. Main correction: the face in image1 is too anime/manga. Render a believable adult face in painted three-dimensional color planes, natural-sized eyes and eyelids behind the glasses, anatomically modeled nose, lips and cheeks, subtle asymmetry and thoughtful tension. No manga line outlines, cel shading, triangular anime chin, pointed graphic nose or oversized eyes. Do not change him into a different age or a generic photographic model. The SECOND reference Momo and THIRD Kaylis define the Kalistar painting technique: warm/cool brush-shaped volume, visible strokes, varied edges, worn cloth/materials, natural emotional expression; apply to face AND hair AND hands so they belong to the same painting as the environment. Retain pale luminous city and Adam's identity, do not import their characters, costumes or environments. Restrained refined rendering, NOT photoreal or smooth CGI. Composition unchanged, main action within central70%, single portrait illustration same aspect ratio, no writing/frame/card/interface/logo/watermark. Full source repaint, not a new face pasted on old pixels.",
+      "referenced_image_paths": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/collaborations/nier-set-02/art/adam.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/12_RAINBOW_KAYLIS.png"
+      ],
+      "generatedFile": "C:\\Users\\guill\\.codex\\generated_images\\019e30c1-21b0-7e11-9f9d-2fe692f111d2\\exec-bb78c205-e103-4558-853a-c27af58abcc0.png",
+      "selectedFile": "V4/revisions/2026-09-23-nier-art-refinement/art/adam.png"
+    },
+    {
+      "key": "eve",
+      "tool": "image_gen.imagegen",
+      "prompt": "Use case: style-transfer. Repaint the FIRST Eve illustration to remove the manga/anime facial treatment while preserving the character, pose, narrative and composition. Eve is an adult pale muscular man, short tousled silver hair, red irises, bare torso, black geometric corruption on HIS left arm (viewer right), black fragmented trousers and boots, clenched fists, grief becoming rage amid the ruined city. Preserve all this. The main failing to correct is his ink-outlined anime face and overly drawn eyes: give natural human adult eye size, realistic painted eyelids/brow/nose/jaw/lips, anguished furious expression, tense mouth and brow with nuance rather than manga yelling, credible facial muscles, subtler natural hair clumps and lost-and-found brush edges. No black graphic outline around eyes/lips, no cel shading, no doll face. Repaint head/neck/upper body coherently so facial brushwork belongs with the rest; not a portrait patch. Images2 Momo and3 Kaylis define the Kalistar painting style: narrative fantasy painting, deliberately visible brushstrokes and textured color planes, modeled volumes, worn matter and emotional immediacy, NOT photo or smooth CGI. Do NOT import their characters/clothes/scenes. Keep Eve's original stormy ruined avenue, embers, full-body dynamic stance and framing. Face/action safe within central70% for card art window, same portrait aspect ratio, no text/frame/card/UI/logo/watermark.",
+      "referenced_image_paths": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/collaborations/nier-set-02/art/eve.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/12_RAINBOW_KAYLIS.png"
+      ],
+      "generatedFile": "C:\\Users\\guill\\.codex\\generated_images\\019e30c1-21b0-7e11-9f9d-2fe692f111d2\\exec-aa34241b-a66d-4dbf-9541-0972086ae3d5.png",
+      "selectedFile": "V4/revisions/2026-09-23-nier-art-refinement/art/eve.png"
+    },
+    {
+      "key": "anemone",
+      "tool": "image_gen.imagegen",
+      "prompt": "Use case: style-transfer. Repaint the FIRST Anemone illustration into the established Kalistar narrative fantasy painting, correcting specifically its anime/manga facial treatment. Preserve Anemone's identity as the adult Resistance leader: short black bob, olive hood with small gold trim, star brooch, cream tunic, black gloves, gray-brown field trousers with knee protectors and boots, wooden/black rifle. Preserve her exact upright walking pose and diagonal rifle geometry, both proper hand contacts, full muzzle visible near x70% y9%, original gun size and camera framing. Keep the ruined Resistance camp, shelter canvas, warm small lamp, quiet cool daylight, relieved but tired small smile. Rebuild her face using natural adult proportions, smaller believable eyes and eyelids, dimensional painted nose and lips, expressive cheeks and slightly tired gaze. Replace clean anime outlines and cel-shaded skin with nuanced brush-shaped warm/cool planes and lost-and-found edges; hair must feel painted, not ink-drawn. Do not make her older, photographic, a doll, glamour model or change her recognizable costume. Image2 Momo and image3 Kaylis are painting-style references only: detailed narrative fantasy, visible varied strokes, worn matter, modeled volumes and emotional truth; do not import their identities/clothes/scenes. Repaint coherently, no pasted face or texture-filter trick. Same portrait aspect ratio, full-body composition and margins for stat columns, no typography/card/frame/interface/logo/watermark.",
+      "referenced_image_paths": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/collaborations/nier-set-02/art/anemone.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/12_RAINBOW_KAYLIS.png"
+      ],
+      "generatedFile": "C:\\Users\\guill\\.codex\\generated_images\\019e30c1-21b0-7e11-9f9d-2fe692f111d2\\exec-4c8e0eab-3f6d-408f-a3ae-0159a1fb7f1d.png",
+      "selectedFile": "V4/revisions/2026-09-23-nier-art-refinement/art/anemone.png"
+    }
+  ]
+}
