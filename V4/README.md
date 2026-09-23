@@ -29,13 +29,17 @@ Voloden inclus. Le nombre et les chemins de reference font autorite dans
   Douze creations publiees, deux arenes (Balamb Garden et Deling City), deux
   decks preconfigures de dix cartes et un filtre FF8 dans le classeur.
   Le catalogue jouable compte 49 cartes, dont les 37 precedentes preservees.
+- Extension du 24 septembre 2026 : [publication et controles](expansions/2026-09-23-return/RESULTAT.md).
+  22 ajouts Kalistar / NieR / Replicant et l'arene Village de Nier. Le catalogue
+  atteint 80 cartes et 23 arenes, avec 38 references et 42 creations verifiees.
+  Les versions Automata et Replicant ont des factions distinctes.
 
 ## Ou trouver les fichiers
 
 | Dossier / fichier | Usage |
 | --- | --- |
 | `cartes/` | PNG des cartes ; certains essais historiques restent presentes |
-| `templates/` | Les 27 PSD courants, textes natifs et objets dynamiques |
+| `templates/` | PSD canoniques courants du registre, textes natifs et objets dynamiques |
 | `template-stable/` | Maitres, profils par carte, registres et calibrages |
 | `assets/` | Illustrations et composants sources |
 | `site/` | Jeu V4, collection et decks |

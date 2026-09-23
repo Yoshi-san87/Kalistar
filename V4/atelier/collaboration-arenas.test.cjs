@@ -39,9 +39,37 @@ function withArenas(value) {
 }
 
 test('unpublished FF7 arenas stay absent; V3 arena output is unchanged', async () => {
-  for (const publishedCards of [[], [published('unrelated')], [published('cloud')], [published('cloud-ff7-extra')]]) {
+  const unrelated = id => { const card = published(id); card.profile.faction = 'Chroma'; return card; };
+  for (const publishedCards of [[], [unrelated('unrelated')], [unrelated('cloud')], [unrelated('cloud-ff7')], [unrelated('cloud-ff7-extra')]]) {
     const data = await buildCatalog({ published: publishedCards });
     assert.deepEqual(data.arenas, expectedLegacy(data));
+  }
+});
+
+test('arena availability follows version faction, not a shared NieR character suffix', async () => {
+  const entries = [
+    { ...collaborations[0], id: 'replicant-test', collaboration: 'replicant', homeCharacters: ['devola-nier', 'popola-nier'] },
+    { ...collaborations[0], id: 'nier-test', collaboration: 'nier', homeCharacters: ['devola-nier', 'popola-nier'] }
+  ];
+  const replicant = published('devola-nier');
+  replicant.profile.faction = 'Replicant';
+  replicant.profile.collaboration = 'Replicant';
+  const build = withArenas(entries), onlyReplicant = await build({ published: [replicant] });
+  assert.deepEqual(onlyReplicant.arenas.slice(legacyArenas.length).map(a => a.id), ['replicant-test']);
+  assert.deepEqual(onlyReplicant.arenas.at(-1).homeCharacters, ['devola-nier']);
+  assert.equal(onlyReplicant.cards.find(c => c.id === replicant.id).collaboration, 'Replicant');
+  const automata = published('devola-nier', 1);
+  automata.profile.faction = 'NieR'; automata.profile.collaboration = 'NieR';
+  const both = await build({ published: [replicant, automata] });
+  assert.deepEqual(both.arenas.slice(legacyArenas.length).map(a => a.id), ['replicant-test', 'nier-test']);
+  assert.deepEqual(both.cards.filter(c => [replicant.id, automata.id].includes(c.id)).map(c => c.characterId), ['devola-nier', 'devola-nier']);
+});
+
+test('arena availability accepts explicit collaboration without changing a character identity', async () => {
+  const card = published('shared-character'); card.profile.faction = 'Chroma'; card.profile.collaboration = 'FF7';
+  assert.equal(additions(await buildCatalog({ published: [card] })).length, 2);
+  for (const value of ['', '<NieR>', 42, 'a'.repeat(81)]) {
+    await assert.rejects(buildCatalog({ published: [{ ...card, profile: { ...card.profile, collaboration: value } }] }), /Collaboration.*invalide/);
   }
 });
 

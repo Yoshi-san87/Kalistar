@@ -1,0 +1,68 @@
+{
+  "name": "POLUX",
+  "title": "LA CHALEUR QUI RESTE",
+  "job": "SOIGNEUR",
+  "description": "Polux réchauffe les linges sans les brûler. Il écoute la respiration derrière le rideau. Le feu, entre ses mains, sait aussi parler doucement.",
+  "element": "PYRO",
+  "race": "FELINEUS",
+  "weapon": "Bâton",
+  "faction": "Vulkar",
+  "positions": [
+    5
+  ],
+  "atk": [
+    174,
+    142,
+    110,
+    85,
+    "revive",
+    21
+  ],
+  "defense": [
+    206,
+    169,
+    132,
+    95,
+    65,
+    28
+  ],
+  "magic": [
+    6,
+    5,
+    4,
+    3,
+    1
+  ],
+  "barriers": [
+    6,
+    3
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "30000031",
+  "characterId": "polux",
+  "slug": "V4_30000031",
+  "output": "KALISTAR_V4_30000031",
+  "text": "Polux réchauffe les linges sans les brûler. Il écoute la respiration derrière le rideau. Le feu, entre ses mains, sait aussi parler doucement.",
+  "color": "FF704A",
+  "hue": 12,
+  "weapon_index": 10,
+  "role": 5,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": true,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Kalistar V4 - expansion 2026-09-23-return",
+  "visual_revision": "V4-2026-09-23-return",
+  "edition": "canonical",
+  "artwork": "polux",
+  "legacyId": "30000031",
+  "legacySource": "V3/donnees/cartes.json",
+  "replacesModel": false
+}

@@ -4,7 +4,7 @@
   let db=null,dbError='',lastStored='',reportGame=null,reportArchive=null,accountsUI=null;
   const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const icon=n=>`<i data-lucide="${n}"></i>`,ib=(action,n,title,extra='')=>`<button class="icon-button" data-action="${action}" title="${esc(title)}" aria-label="${esc(title)}" ${extra}>${icon(n)}</button>`;
-  const asset=(folder,name)=>(folder==='factions'&&['FF7','FF8','NieR'].includes(name)||folder==='races'&&name==='ANDROID')?`assets/${folder}/${encodeURIComponent(name)}.png`:`shared/${folder}/${encodeURIComponent(name)}.png`;
+  const asset=window.KalistarCollaborations.asset;
   const cardImage=c=>KalistarCardMedia.image(c),artImage=c=>KalistarCardMedia.image(c,'art');
   const duelImage=cardImage;
   const noCrystal={id:'NONE',label:'SANS CRISTAL',color:'93AAA5',hue:160};

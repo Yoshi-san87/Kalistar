@@ -1,8 +1,9 @@
 (function(root,factory){
-  const api=factory();
+  const C=typeof module==='object'&&module.exports?require('./collaborations.js'):root.KalistarCollaborations;
+  const api=factory(C);
   if(typeof module==='object'&&module.exports)module.exports=api;
   else root.KalistarCollection=api;
-})(typeof globalThis==='undefined'?this:globalThis,()=>{
+})(typeof globalThis==='undefined'?this:globalThis,C=>{
   'use strict';
   const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const icon=name=>`<i data-lucide="${name}" aria-hidden="true"></i>`;
@@ -30,7 +31,7 @@
     let singlePage=false,readerPane='visual',versionTransition=null;
     const filters={search:'',element:'',faction:'',race:'',position:'',weapon:'',favorite:false};
     const owns=id=>getOwned(id)||[];
-    const asset=(folder,name)=>(folder==='factions'&&['FF7','FF8','NieR'].includes(name)||folder==='races'&&name==='ANDROID')?'assets/'+folder+'/'+encodeURIComponent(name)+'.png':'shared/'+folder+'/'+encodeURIComponent(name)+'.png';
+    const asset=C.asset;
     const image=c=>globalThis.KalistarCardMedia.image(c);
     const button=(action,symbol,label,extra='')=>`<button type="button" class="cb-icon" data-binder-action="${action}" aria-label="${esc(label)}" title="${esc(label)}" ${extra}>${icon(symbol)}</button>`;
     const edgeButton=(action,symbol,label,side,disabled)=>`<button type="button" class="cb-page-edge cb-page-edge-${side}" data-binder-action="${action}" aria-label="${esc(label)}" title="${esc(label)}" ${disabled?'disabled':''}><span>${icon(symbol)}</span></button>`;
@@ -38,7 +39,7 @@
     const crystal=c=>`<img src="${asset('cristaux',c.element)}" alt="${esc(element(c).label)}">`;
     function filtered(){
       const favorites=getFavorites(),search=normalize(filters.search.trim());
-      return cards.filter(c=>(scope==='catalogue'||scope==='ff7'&&c.faction==='FF7'||scope==='ff8'&&c.faction==='FF8'||scope==='nier'&&c.faction==='NieR'||scope==='owned'&&owns(c.id).length)&&(!filters.favorite||favorites.has(c.id))&&
+      return cards.filter(c=>(scope==='catalogue'||C.matches(c,scope)||scope==='owned'&&owns(c.id).length)&&(!filters.favorite||favorites.has(c.id))&&
         (!search||normalize([c.name,c.title,c.faction,c.race,c.id].join(' ')).includes(search))&&
         ['element','faction','race','weapon'].every(field=>!filters[field]||filters[field]===c[field])&&
         (!filters.position||c.positions.includes(Number(filters.position))))
@@ -119,13 +120,12 @@
     function render(){
       const s=snapshot(),allOwned=owns(),ownedVersions=new Set(allOwned.map(i=>i.cardId)).size;
       const catalogueSize=new Set([...cards.map(c=>c.id),...getCatalogueChanges(),...allOwned.map(i=>i.cardId)]).size;
-      const ff7Versions=cards.filter(c=>c.faction==='FF7').length;
-      const ff8Versions=cards.filter(c=>c.faction==='FF8').length, nierVersions=cards.filter(c=>c.faction==='NieR').length;
+      const collaborations=C.entries.map(entry=>({...entry,count:cards.filter(c=>C.matches(c,entry.id)).length})).filter(entry=>entry.id==='ff7'||entry.count);
       const active=Object.values(filters).some(Boolean),index=s.list.findIndex(c=>c.id===selected);
       const toolbar=selected?`<button type="button" class="cb-back" data-binder-action="back">${icon('arrow-left')}Classeur</button>`:`<span class="cb-count">${s.groups.length} personnage${s.groups.length>1?'s':''} · ${s.list.length} versions</span><label class="cb-search">${icon('search')}<input type="search" data-binder-field="search" aria-label="Rechercher une carte" placeholder="Retrouver une carte" value="${esc(filters.search)}"></label>${button('favorites','star','Mes favoris',`aria-pressed="${filters.favorite}"`)}${button('filters','sliders-horizontal','Filtres du classeur',`aria-expanded="${filtersOpen}"`)}${active?button('reset','filter-x','Effacer les filtres'):''}<select data-binder-field="sort" aria-label="Trier le classeur">${[['id','Ordre du classeur'],['name','Personnage'],['element','Cristal'],['faction','Faction']].map(([id,label])=>`<option value="${id}" ${sort===id?'selected':''}>${label}</option>`).join('')}</select>`;
       const panes=selected?`<div class="cb-mobile-panes" role="group" aria-label="Page du carnet"><button data-binder-action="pane" data-id="visual" aria-pressed="${readerPane==='visual'}">${icon('image')}Carte</button><button data-binder-action="pane" data-id="notes" aria-pressed="${readerPane==='notes'}">${icon('book-open')}Carnet</button></div>`:'';
       return `<section class="cb-page" data-reader-pane="${readerPane}" data-mode="${selected?'reader':'book'}" tabindex="-1" aria-label="Classeur de collection">
-        <header class="cb-heading"><div class="cb-title"><span class="cb-eyebrow">Kalistar · ${esc(profile)}</span><h1>${selected?'Au fil des cartes':'Mon classeur'}</h1></div><div class="cb-scopes" role="group" aria-label="Contenu du classeur"><button type="button" data-binder-action="scope" data-id="owned" aria-pressed="${scope==='owned'}">${icon('book-heart')}Mes cartes <b>${allOwned.length}</b></button><button type="button" data-binder-action="scope" data-id="catalogue" aria-pressed="${scope==='catalogue'}">${icon('library')}Catalogue</button><button type="button" data-binder-action="scope" data-id="ff7" aria-pressed="${scope==='ff7'}" title="Collaboration Final Fantasy VII">${icon('sparkles')}FF7 <b>${ff7Versions}</b></button>${ff8Versions?`<button type="button" data-binder-action="scope" data-id="ff8" aria-pressed="${scope==='ff8'}" title="Collaboration Final Fantasy VIII">${icon('sparkles')}FF8 <b>${ff8Versions}</b></button>`:''}${nierVersions?`<button type="button" data-binder-action="scope" data-id="nier" aria-pressed="${scope==='nier'}" title="Collaboration NieR:Automata">${icon('sparkles')}NieR <b>${nierVersions}</b></button>`:''}</div><div class="cb-completion"><span><b>${ownedVersions}</b> / ${catalogueSize} versions</span><meter min="0" max="${catalogueSize}" value="${ownedVersions}" aria-label="Versions possédées">${ownedVersions}/${catalogueSize}</meter></div>${button('archives','archive','Archives et sauvegardes')}</header>
+        <header class="cb-heading"><div class="cb-title"><span class="cb-eyebrow">Kalistar · ${esc(profile)}</span><h1>${selected?'Au fil des cartes':'Mon classeur'}</h1></div><div class="cb-scopes" role="group" aria-label="Contenu du classeur"><button type="button" data-binder-action="scope" data-id="owned" aria-pressed="${scope==='owned'}">${icon('book-heart')}Mes cartes <b>${allOwned.length}</b></button><button type="button" data-binder-action="scope" data-id="catalogue" aria-pressed="${scope==='catalogue'}">${icon('library')}Catalogue</button>${collaborations.map(entry=>`<button type="button" data-binder-action="scope" data-collaboration="${entry.id}" data-id="${entry.id}" aria-pressed="${scope===entry.id}" title="Collaboration ${esc(entry.title)}">${icon('sparkles')}${esc(entry.faction)} <b>${entry.count}</b></button>`).join('')}</div><div class="cb-completion"><span><b>${ownedVersions}</b> / ${catalogueSize} versions</span><meter min="0" max="${catalogueSize}" value="${ownedVersions}" aria-label="Versions possédées">${ownedVersions}/${catalogueSize}</meter></div>${button('archives','archive','Archives et sauvegardes')}</header>
         <div class="cb-toolbar">${toolbar}${panes}</div>
         ${selected?'':filtersHTML()}<div class="cb-workbench">${selected?reader(s):book(s)}</div>
         <footer class="cb-footer">${button(selected?'previous-card':'previous-page','chevron-left',selected?'Carte précédente':'Page précédente',(selected?index<=0:page===0)?'disabled':'')}<div class="cb-page-label" role="status" aria-live="polite"><b>${selected?esc(byId.get(selected).name):'Édition V4'}</b><span>${selected?`${index+1} / ${s.list.length} cartes`:`${singlePage?'Page':'Double page'} ${page+1} / ${s.pages}`}</span></div>${button(selected?'next-card':'next-page','chevron-right',selected?'Carte suivante':'Page suivante',(selected?index>=s.list.length-1:page>=s.pages-1)?'disabled':'')}</footer></section>`;
@@ -198,7 +198,7 @@
       if(action==='open')readerPane='visual';
       if(action==='pane')readerPane=id==='notes'?'notes':'visual';
       if(action==='back'){selected=null;filtersOpen=false;motion='back';}
-      if(action==='scope'){scope=['catalogue','ff7','ff8','nier'].includes(id)?id:'owned';page=0;selected=null;filtersOpen=false;}
+      if(action==='scope'){scope=id==='catalogue'||C.entries.some(entry=>entry.id===id)?id:'owned';page=0;selected=null;filtersOpen=false;}
       if(action==='favorite'){onFavorite(id);}
       if(action==='favorites'){filters.favorite=!filters.favorite;page=0;}
       if(action==='filters')filtersOpen=!filtersOpen;

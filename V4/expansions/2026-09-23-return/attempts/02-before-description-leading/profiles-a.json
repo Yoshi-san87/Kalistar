@@ -1,0 +1,86 @@
+[
+  {
+    "key": "zviri-tueuse", "legacyId": "30000010", "characterId": "zviri",
+    "art": "V4/expansions/2026-09-23-return/art-a/zviri-tueuse.png",
+    "name": "ZVIRI", "title": "TUEUSE REDOUTABLE", "job": "ASSASSIN",
+    "text": "Mercenaire assassin de Cryptown, Zviri traque ses cibles dans les ombres. Son fouet ne laisse aucune seconde chance. Elle rapporte le sang de ses victimes, et sa réputation arrive toujours avant elle.",
+    "element": "NECRO", "race": "SKULLZ", "faction": "Cryptown", "weapon": "Fouet",
+    "positions": [2], "role": 2,
+    "atk": [294, 242, "death", 145, 93, 41],
+    "defense": ["dodge", 144, 112, 80, 55, 23], "magic": [], "barriers": [],
+    "gameplayOrigin": "Exact V3 gameplay; only description shortened and original typo corrected.",
+    "artOrigin": "Preserve V3 approved illustration byte-for-byte."
+  },
+  {
+    "key": "zviri-chasse", "legacyId": "30000010", "characterId": "zviri",
+    "art": "V4/expansions/2026-09-23-return/art-a/zviri-chasse.png",
+    "name": "ZVIRI", "title": "LA PATIENCE DU PREDATEUR", "job": "TRAQUEUSE",
+    "text": "Dans les ruelles de Cryptown, Zviri s'arrête sur une trace presque effacée. Le fouet glisse sans bruit entre ses doigts. La chasse peut durer une nuit entière : elle sait que sa proie finira par regarder derrière elle.",
+    "element": "NECRO", "race": "SKULLZ", "faction": "Cryptown", "weapon": "Fouet",
+    "positions": [2], "role": 2,
+    "atk": [284, 238, 185, 140, 90, "retry"],
+    "defense": ["dodge", 138, 108, 78, "retry", 22], "magic": [], "barriers": [],
+    "gameplayOrigin": "New P2 variant: loses instant death and some damage; gains luck attribution and one defensive reroll. Same character identity, never deckable with other Zviri.",
+    "artOrigin": "New hunting scene, identity from V3."
+  },
+  {
+    "key": "julienne", "legacyId": "30000003", "characterId": "julienne",
+    "art": "V4/expansions/2026-09-23-return/art-a/julienne.png",
+    "name": "JULIENNE", "title": "UN SOUFFLE SOUS LA MAREE", "job": "GARDIENNE",
+    "text": "Sous les portes noyées de Thalasséa, Julienne retient la mer au-dessus des naufragés. Chaque souffle qu'elle leur offre lui coûte un peu de force. Elle ne relâchera l'arche qu'au dernier survivant.",
+    "element": "HYDRO", "race": "SIRENA", "faction": "Thalassea", "weapon": "Bâton",
+    "positions": [5], "role": 5,
+    "atk": [174, 142, 110, 85, "guard", "revive"],
+    "defense": [206, 169, 132, 95, 65, 28], "magic": [6, 5, 4, 3], "barriers": [6, 4],
+    "gameplayOrigin": "Exact V3 gameplay and description.",
+    "artOrigin": "Preserve V3 approved illustration byte-for-byte."
+  },
+  {
+    "key": "verminia-bureau", "legacyId": "30000009", "characterId": "verminia",
+    "art": "V4/expansions/2026-09-23-return/art-a/verminia-bureau.png",
+    "name": "VERMINIA", "title": "LES COMPTES DE LA NUIT", "job": "DISSIDENTE",
+    "text": "Derrière son bureau de Draevenheim, Verminia efface un nom du registre de sa maison. Une signature suffit parfois à libérer une vie. Elle écoute les pas dans le couloir, puis reprend sa plume sans trembler.",
+    "element": "HEMATO", "race": "VAMP", "faction": "Draevenheim", "weapon": "Dague",
+    "positions": [3], "role": 3,
+    "atk": [230, 195, 153, 111, 76, 34],
+    "defense": [232, 190, "dodge", 113, 71, 36], "magic": [6, 5, 3], "barriers": [6, 3],
+    "gameplayOrigin": "Exact V3 gameplay. New requested desk scene and corresponding proposed narrative.",
+    "artOrigin": "New desk scene, identity from V3."
+  },
+  {
+    "key": "verminia-portail", "legacyId": "30000009", "characterId": "verminia",
+    "art": "V4/expansions/2026-09-23-return/art-a/verminia-portail.png",
+    "name": "VERMINIA", "title": "LE DERNIER PASSAGE", "job": "DISSIDENTE",
+    "text": "Les derniers fugitifs ont traversé. Verminia rassemble les fils de son Kalistel et force le portail à se refermer. De l'autre côté grondent les hommes de sa maison. Cette fois, son héritage leur ferme la route.",
+    "element": "HEMATO", "race": "VAMP", "faction": "Draevenheim", "weapon": "Dague",
+    "positions": [3, 4], "role": 4,
+    "atk": [278, 229, 177, "mana", 81, 30],
+    "defense": [172, 141, "dodge", 84, 54, 24], "magic": [6, 5, 4, 2], "barriers": [5, 2],
+    "gameplayOrigin": "New caster variant, role P4 bounds with P3 deployment. More magic and one mana support face, substantially reduced numeric defense. Same character identity as desk version.",
+    "artOrigin": "New magical portal-closing scene; not a repaint of the former iron-gate illustration."
+  },
+  {
+    "key": "polux", "legacyId": "30000031", "characterId": "polux",
+    "art": "V4/expansions/2026-09-23-return/art-a/polux.png",
+    "name": "POLUX", "title": "LA CHALEUR QUI RESTE", "job": "SOIGNEUR",
+    "text": "Polux réchauffe les linges sans les brûler. Il écoute la respiration derrière le rideau. Le feu, entre ses mains, sait aussi parler doucement.",
+    "element": "PYRO", "race": "FELINEUS", "faction": "Vulkar", "weapon": "Bâton",
+    "positions": [5], "role": 5,
+    "atk": [174, 142, 110, 85, "revive", 21],
+    "defense": [206, 169, 132, 95, 65, 28], "magic": [6, 5, 4, 3, 1], "barriers": [6, 3],
+    "gameplayOrigin": "Exact V3 gameplay; French accents restored in unchanged description.",
+    "artOrigin": "Preserve V3 approved illustration byte-for-byte."
+  },
+  {
+    "key": "nazar", "legacyId": "30000011", "characterId": "nazar",
+    "art": "V4/expansions/2026-09-23-return/art-a/nazar.png",
+    "name": "NAZAR", "title": "LA RONDE DE CANYONERO", "job": "GARDIEN",
+    "text": "Nazar parcourt les plaines rocheuses de Canyonero, lance en main et regard au loin. Fils de Belrog, il connaît la valeur d'un passage sûr. La poussière peut effacer ses traces, jamais sa vigilance.",
+    "element": "GEO", "race": "RHINOZ", "faction": "Zarok", "weapon": "Lance",
+    "positions": [1], "role": 1,
+    "atk": [201, 171, 134, 97, "guard", 30],
+    "defense": [293, 241, 196, 144, 92, 40], "magic": [6, 3], "barriers": [4, 2],
+    "gameplayOrigin": "Exact V3 gameplay and faction; Canyonero is the requested new scene, not a faction change.",
+    "artOrigin": "New Canyonero patrol scene, identity from V3."
+  }
+]

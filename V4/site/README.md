@@ -33,6 +33,32 @@ The inherited UI sets dynamic inline styles. Its CSP needs `style-src 'self' 'un
 
 ## Catalogue, Images, And Storage
 
+### Collaboration Metadata (23 September 2026)
+
+`collaborations.js` supplies the existing FF7/FF8/NieR mappings plus Replicant
+to the collection, statistics, detail-media paths and catalogue arena gating.
+A recognized faction takes priority over optional `profile.collaboration`;
+character-ID suffixes never classify UI versions. Devola and Popola keep
+`devola-nier` / `popola-nier` across Automata and Replicant while their factions
+and synergy groups differ. Statistics filter versions before aggregation.
+The collection binder has a dedicated Replicant scope when cards exist; compact headers
+use a second row so the additional scope remains accessible without scrolling.
+
+`game-catalog.cjs` preserves validated optional collaboration metadata.
+Its arena validator accepts cards as an optional fifth argument for version-
+aware availability; the four-argument API remains compatible with historical
+native preflight callers. `buildCatalog` always supplies the card list.
+Home bonuses remain character-based across versions, unchanged.
+Deck filters already use catalogue values. Atelier choices remain restricted
+to its validated component bank: this change does not add an unrenderable
+faction to the native designer or modify that bank.
+
+Isolated coverage: `collaborations.test.cjs` and
+`../atelier/collaboration-arenas.test.cjs`. The optional
+`collaborations.browser.test.cjs` uses only a static fixture in a temporary
+browser, no server, IndexedDB or publication. Header screenshots and geometry
+proofs are under `verification/replicant-ui/`.
+
 `boot.js` fetches the endpoint with `cache: 'no-store'` before loading any game-dependent module. Failed or historical catalogues fail closed with a retry action. Card media is exclusively the approved/published V4 PNG, not a historical slug. `card-media.js` validates 897 x 1497 pixels, crops `{left:50, top:50, width:797, height:1388}` on image load, and caches WebP blob URLs in memory. The illustration view is a center crop of that same printed artwork. No original asset is written and no giant media directory is copied.
 
 Storage is isolated: IndexedDB `kalistar-v4-cards`, preferences `kalistar.v4.*`, deck library `kalistar.v4.deckLibrary.<user>`, instance IDs `K4-<cardId>-00n`, edition `V4`. V3 imports are rejected. Game schema 6 retains the V3 mechanics and additionally requires edition V4. Initial approved and newly published originals go to Paris once each, Tokyo starts empty. Reload seeds only missing originals and never reclaims transferred cards, clears matches, or resets preferences.

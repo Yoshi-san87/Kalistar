@@ -1,0 +1,64 @@
+{
+  "passed": true,
+  "modelId": "47414613",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "0e91e7505f39f72c55d43b4ab31a9b79dad3ffa02e5eaa8c6446b0a0d58789c2",
+  "hashes": {
+    "card.png": "ee62b0da4333447be203d53aa52221aeae6e172877bba28ee8a25d221a642312",
+    "card.psd": "62dd59b3827d422dcd31c88c473be5a2b83004f655147698da96cc32a0c4b2ab"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 85712
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "47414613",
+    "cases": {
+      "color-1": [
+        "47414613"
+      ],
+      "color-4": [
+        "47414613"
+      ],
+      "gray-1": [
+        "47414613"
+      ],
+      "gray-4": [
+        "47414613"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-23T16:02:36.598Z",
+  "key": "lanio-mines",
+  "typography": {
+    "NOM": {
+      "font": "TimesNewRomanPSMT",
+      "sizePt": 10.0000012207031,
+      "tracking": 0,
+      "capitalization": "TextCase.NORMAL",
+      "fauxBold": false,
+      "fauxItalic": false
+    },
+    "TITLE": {
+      "font": "TimesNewRomanPSMT",
+      "sizePt": 7.68,
+      "tracking": 0,
+      "capitalization": "TextCase.ALLCAPS",
+      "fauxBold": false,
+      "fauxItalic": false
+    }
+  },
+  "none": {
+    "unlit": true,
+    "crystalHash": "fd16efbb06ac645589885aed82cadacab4461f08dcc4f4dd1d58d7d42b11f8bf",
+    "branchHash": "c8bf5bb6de74db43356255c19c6747ffd0daa03ae6476c0ef1b66c628d77a7cb"
+  },
+  "preparationHash": "71b7be2876c540feed27117604c1e2a8f2b8c581ba4b2a9961f48be3da04968b"
+}

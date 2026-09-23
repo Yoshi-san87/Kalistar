@@ -1,0 +1,20 @@
+[
+  {
+    "file": "V4/atelier/game-catalog.cjs",
+    "beforeHash": "520944adc5517499007e20fac18f0105e4632fbc858b73b67fff7c1089233128",
+    "afterHash": "19c2cabf915cfe1c87ad023358eb0f1af5b415772f26f7a7147e1c0adf1db085",
+    "beforeCopy": "dependency-revision-01/before-game-catalog.cjs",
+    "afterCopy": "dependency-revision-01/after-game-catalog.cjs",
+    "reason": "Parent-authorized Replicant UI integration: arena membership follows version faction/collaboration, not shared twin characterId. Reviewed exact diff; 39 tests passed. No gameplay arithmetic or native template changed.",
+    "reviewedAt": "2026-09-23T08:13:24.928Z"
+  },
+  {
+    "file": "V4/site/collaborations.js",
+    "beforeHash": null,
+    "afterHash": "c4286882c75837a51ffe52b561c67ccdede17cbfc43caae898ad1532dcae5c7a",
+    "beforeCopy": null,
+    "afterCopy": "dependency-revision-01/after-collaborations.js",
+    "reason": "Parent-authorized Replicant UI integration: arena membership follows version faction/collaboration, not shared twin characterId. Reviewed exact diff; 39 tests passed. No gameplay arithmetic or native template changed.",
+    "reviewedAt": "2026-09-23T08:13:24.931Z"
+  }
+]

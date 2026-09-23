@@ -1,0 +1,87 @@
+{
+  "mode": "prepared",
+  "arenaId": "replicant-village",
+  "added": true,
+  "registryBefore": "e904fcdc151b33fb715f45f3d0c8581cedb6d6f8d137d38b520befe99b083589",
+  "registryAfter": "80fbee87e3ef949c223470a89a828a84c6bb0ffbc91455a3baf6c51b08bd2b9e",
+  "insertion": {
+    "offset": 3004,
+    "bytes": 608
+  },
+  "previousRegistryBytesPreserved": true,
+  "eligibleCards": [
+    {
+      "id": "47689975",
+      "characterId": "nier-replicant",
+      "faction": "Replicant"
+    },
+    {
+      "id": "45951088",
+      "characterId": "kaine-replicant",
+      "faction": "Replicant"
+    },
+    {
+      "id": "42252625",
+      "characterId": "devola-nier",
+      "faction": "Replicant"
+    },
+    {
+      "id": "44230782",
+      "characterId": "popola-nier",
+      "faction": "Replicant"
+    }
+  ],
+  "arena": {
+    "id": "replicant-village",
+    "name": "VILLAGE DE NIER",
+    "subtitle": "Un matin avant le départ",
+    "image": "/jeu/assets/arenes/replicant-village.png",
+    "element": "AERO",
+    "elementBonus": 15,
+    "homeCharacters": [
+      "nier-replicant",
+      "kaine-replicant",
+      "devola-nier",
+      "popola-nier"
+    ],
+    "homeAttack": 10,
+    "homeDefense": 10,
+    "source": "NieR Replicant : collaboration privée non officielle ; village, place de la fontaine et bibliothèque réinterprétés en peinture Kalistar. Affinités de jeu proposées."
+  },
+  "observed": {
+    "V4/expansions/2026-09-23-return/arena/spec.json": "3e5761fc6a7e97553b61debb82b381b9b18bdbf7d9ddf4341bca8e71e5ea2cf9",
+    "V4/expansions/2026-09-23-return/arena/manifest.json": "2d6b7361fe0e5b54dbd7e78d4959cf986f41ccea4c015a8aa2c5957707def4db",
+    "V4/donnees/arenes-collaborations.json": "e904fcdc151b33fb715f45f3d0c8581cedb6d6f8d137d38b520befe99b083589",
+    "V4/atelier/data/references.json": "4251c3c91d66dc4b24531ece6b11901dfa6130c9efe50a2fdb1185bed06cc0f2",
+    "V4/donnees/catalogue.json": "60e77e73cae0e96722e12e423dee98341e3f42dc9fd711c066cc4258c424390f",
+    "V4/expansions/2026-09-23-return/arena/verification.json": "6e5e370c2bd747384fc8023c98159cc2aa537d0f78bf13660bb16b968624f0d6",
+    "V4/expansions/2026-09-23-return/arena/art-review.json": "542b9d7be973ae18f51bcd9ad18c02f6ac5122045d58dab632eb9c7ecb9094e5",
+    "V4/expansions/2026-09-23-return/banner/faction.json": "2a3fdb4d19849813e1c09ba3bdb7c53df15ca63a102655dbea09403eeb7dec84",
+    "V4/expansions/2026-09-23-return/banner/verification.json": "51ba271c99738d969675fb60e42744f926b83be717a30bf166747eb0058df14a",
+    "V4/expansions/2026-09-23-return/banner/flag-source.png": "888bc680d721386e273f7c8414ea247ce79eed477b7ca535c241887345ee25ff",
+    "V4/expansions/2026-09-23-return/banner/flag-Replicant-packed.png": "ee380b3c1e886151cef44e9c2cb0203f1f0492d95246d9a43847ee25a39b976b",
+    "V4/propositions/collaborations/cloud-ff7-01/flag-FF7.png": "4400df3646ef3a625acaa0bd230b0d7aeadc113b649ddd6dbeaab23a0de3433c",
+    "V4/expansions/2026-09-23-return/arena/replicant-village.png": "a49dc033b3e570e20fd117fad964b44a34b729712fbc30a0c40d91aae8601ff3",
+    "V4/expansions/2026-09-23-return/banner/flag-Replicant.png": "e97d77b787f98aaae448ef6d0181aab4ef8c6f7217a7ab29164ec654c3fc46ec"
+  },
+  "assets": [
+    {
+      "key": "village",
+      "source": "V4/expansions/2026-09-23-return/arena/replicant-village.png",
+      "target": "V4/site/assets/arenes/replicant-village.png",
+      "sha256": "a49dc033b3e570e20fd117fad964b44a34b729712fbc30a0c40d91aae8601ff3",
+      "width": 1672,
+      "height": 941,
+      "existed": false
+    },
+    {
+      "key": "faction-Replicant",
+      "source": "V4/expansions/2026-09-23-return/banner/flag-Replicant.png",
+      "target": "V4/site/assets/factions/Replicant.png",
+      "sha256": "e97d77b787f98aaae448ef6d0181aab4ef8c6f7217a7ab29164ec654c3fc46ec",
+      "width": 109,
+      "height": 230,
+      "existed": false
+    }
+  ]
+}

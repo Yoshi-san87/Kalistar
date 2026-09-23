@@ -1,0 +1,64 @@
+{
+  "passed": true,
+  "modelId": "30000027",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "0600f225f64490f06fa6b8761ef5ad7b7973f3e2cf03aca8b2ed8abb5190ba21",
+  "hashes": {
+    "card.png": "88855013fc576950188b66f8affec30aac5480da8e6e25ab729caf409a2c7c01",
+    "card.psd": "123ad3353ead5f9a8fed7e8fb0959c87d7cb20de3264945978ad1ffc44c8d70f"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 85733
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "30000027",
+    "cases": {
+      "color-1": [
+        "30000027"
+      ],
+      "color-4": [
+        "30000027"
+      ],
+      "gray-1": [
+        "30000027"
+      ],
+      "gray-4": [
+        "30000027"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-23T15:59:45.111Z",
+  "key": "xiaomi",
+  "typography": {
+    "NOM": {
+      "font": "TimesNewRomanPSMT",
+      "sizePt": 10.0000012207031,
+      "tracking": 0,
+      "capitalization": "TextCase.NORMAL",
+      "fauxBold": false,
+      "fauxItalic": false
+    },
+    "TITLE": {
+      "font": "TimesNewRomanPSMT",
+      "sizePt": 7.68,
+      "tracking": 0,
+      "capitalization": "TextCase.ALLCAPS",
+      "fauxBold": false,
+      "fauxItalic": false
+    }
+  },
+  "none": {
+    "unlit": true,
+    "crystalHash": "fd16efbb06ac645589885aed82cadacab4461f08dcc4f4dd1d58d7d42b11f8bf",
+    "branchHash": "c8bf5bb6de74db43356255c19c6747ffd0daa03ae6476c0ef1b66c628d77a7cb"
+  },
+  "preparationHash": "8f1c0cbfd16cd76ac7700c75859f95d8d300d235264f12cc85524dee1dfa994f"
+}

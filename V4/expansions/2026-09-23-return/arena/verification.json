@@ -1,0 +1,83 @@
+{
+  "passed": true,
+  "published": false,
+  "sha256": "a49dc033b3e570e20fd117fad964b44a34b729712fbc30a0c40d91aae8601ff3",
+  "width": 1672,
+  "height": 941,
+  "bytes": 3085981,
+  "fullPixelCount": 1573352,
+  "notOpaquePixels": 0,
+  "rgbStandardDeviations": [
+    51.700818868699805,
+    50.58090474791894,
+    60.90116298020082
+  ],
+  "byteIdenticalToGeneratedOriginal": true,
+  "registryValidationPassed": true,
+  "collaborationGatingPassed": true,
+  "unavailableHomeFilteringPassed": true,
+  "overpoweredBonusRejected": true,
+  "duplicateArenaRejected": true,
+  "sources": [
+    {
+      "file": "V4/expansions/2026-09-23-return/arena/refs/northern-plains-official.jpg",
+      "sha256": "ea43bdda9421a277b3f7039840f53fe64dbf8441bceccd22a07d09256d4706be",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "V4/expansions/2026-09-23-return/arena/refs/village-street-official.jpg",
+      "sha256": "a513584db7d19db4570f55d13a2b161b00bb5e275a99ff3d2ce18de46ff8d032",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "V4/expansions/2026-09-23-return/arena/refs/world-village-official.jpg",
+      "sha256": "d6c12a3d8746cc23b78ea95cbaa5130814e50b95ebf62312302a3f34829e6707",
+      "width": 1920,
+      "height": 984
+    },
+    {
+      "file": "V4/expansions/2026-09-23-return/arena/refs/library-exterior-gameplay.jpg",
+      "sha256": "d2e83ba6318859bcf597ae34a15ab19039c63864c749bfc57c0d7e076bc53a30",
+      "width": 1200,
+      "height": 675
+    },
+    {
+      "file": "V4/expansions/2026-09-23-return/arena/refs/fountain-gameplay.jpg",
+      "sha256": "edd2304966de65945db0740daf36eb0ca1c4e7fb920b440ea62513785f997617",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+      "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8",
+      "width": 1122,
+      "height": 1402
+    },
+    {
+      "file": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+      "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee",
+      "width": 1122,
+      "height": 1402
+    }
+  ],
+  "entry": {
+    "id": "replicant-village",
+    "collaboration": "replicant",
+    "name": "VILLAGE DE NIER",
+    "subtitle": "Un matin avant le départ",
+    "image": "/jeu/assets/arenes/replicant-village.png",
+    "element": "AERO",
+    "elementBonus": 15,
+    "homeCharacters": [
+      "nier-replicant",
+      "kaine-replicant",
+      "devola-nier",
+      "popola-nier"
+    ],
+    "homeAttack": 10,
+    "homeDefense": 10,
+    "source": "NieR Replicant : collaboration privée non officielle ; village, place de la fontaine et bibliothèque réinterprétés en peinture Kalistar. Affinités de jeu proposées."
+  }
+}

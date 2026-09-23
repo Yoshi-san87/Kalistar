@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "modelId": "43683372",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "36a43c7179701425d73dbf41a084a3501eef3e9d14c09f59f399753470148c06",
+  "hashes": {
+    "card.png": "acf6b1b3d6caccb6d0a479cfdc4a5ddf5df7be2b997016741932f55dcdb250b9",
+    "card.psd": "66261f7720b81dea686cfb0acb3c75c2a0a2ea2ab665ccbee8182b43d3818faa"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 116241
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "43683372",
+    "cases": {
+      "color-1": [
+        "43683372"
+      ],
+      "color-4": [
+        "43683372"
+      ],
+      "gray-1": [
+        "43683372"
+      ],
+      "gray-4": [
+        "43683372"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-23T15:55:26.342Z",
+  "key": "verminia-portail",
+  "typography": {
+    "NOM": {
+      "font": "TimesNewRomanPSMT",
+      "sizePt": 10.0000012207031,
+      "tracking": 0,
+      "capitalization": "TextCase.NORMAL",
+      "fauxBold": false,
+      "fauxItalic": false
+    },
+    "TITLE": {
+      "font": "TimesNewRomanPSMT",
+      "sizePt": 7.68,
+      "tracking": 0,
+      "capitalization": "TextCase.ALLCAPS",
+      "fauxBold": false,
+      "fauxItalic": false
+    }
+  },
+  "preparationHash": "f24744797ad85e30319b17f92448328010a6ffe5b49fc49cb2a880703762b4fc"
+}

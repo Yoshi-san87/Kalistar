@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "modelId": "30000010",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "d5271fe8eddda6882c6ea2cd104ab7018790f08cc5f4562aec9dd90596a3a323",
+  "hashes": {
+    "card.png": "d7d845bdd1cc1083be586b533c1d770645f98dc1dad5533dfd3f93e1e503c940",
+    "card.psd": "6569747745d13a28f775fcecc8cef7b898e7cb84b9b1420d176293259afb1e85"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 86338
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "30000010",
+    "cases": {
+      "color-1": [
+        "30000010"
+      ],
+      "color-4": [
+        "30000010"
+      ],
+      "gray-1": [
+        "30000010"
+      ],
+      "gray-4": [
+        "30000010"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-23T15:52:30.218Z",
+  "key": "zviri-tueuse",
+  "typography": {
+    "NOM": {
+      "font": "TimesNewRomanPSMT",
+      "sizePt": 10.0000012207031,
+      "tracking": 0,
+      "capitalization": "TextCase.NORMAL",
+      "fauxBold": false,
+      "fauxItalic": false
+    },
+    "TITLE": {
+      "font": "TimesNewRomanPSMT",
+      "sizePt": 7.68,
+      "tracking": 0,
+      "capitalization": "TextCase.ALLCAPS",
+      "fauxBold": false,
+      "fauxItalic": false
+    }
+  },
+  "preparationHash": "b860a25e908fd2059b1ee2083e5c45a09dfcbc46c928a46d9d108f76d171c1cc"
+}

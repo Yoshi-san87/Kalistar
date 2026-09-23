@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "batch": "2026-09-23-return/art-a",
+  "created": "2026-09-23",
+  "scope": "Seven additive Kalistar illustrations and gameplay profiles only; no native composition, publication, shared edits or Git operations.",
+  "profileFile": "V4/expansions/2026-09-23-return/profiles-a.json",
+  "styleReferencesInspected": [
+    "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+    "V3/assets/illustrations/34_NECRO_VALAZAR.png"
+  ],
+  "sourceData": [
+    "V3/donnees/cartes.json",
+    "V3/donnees/registre_personnages.json",
+    "V3/donnees/regles_demo.json",
+    "V3/sources/DECISIONS_NARRATIVES.md",
+    "V3/sources/sources-extraites.json",
+    "V4/docs/REGLES_JEU.md"
+  ],
+  "assets": [
+    {
+      "key": "zviri-tueuse", "method": "byte-identical-reuse",
+      "source": "V3/assets/illustrations/10_NECRO_ZVIRI.png",
+      "selected": "V4/expansions/2026-09-23-return/art-a/zviri-tueuse.png",
+      "sha256": "113f014588179ca98b58930ec70c6ae6685faace13b017cbdca7ae34a29af959",
+      "promptRecord": "Historical metadata in V3/donnees/cartes.json, id 30000010; no new prompt or generation.",
+      "review": "Existing full-figure Skullz assassin, long red hair, whip and blood vial. Matches the requested Tueuse redoutable version. Protected identity/art preserved; no need to regenerate."
+    },
+    {
+      "key": "zviri-chasse", "method": "image_gen built-in, illustration-story",
+      "request": "V4/expansions/2026-09-23-return/art-a/zviri-chasse.request.json",
+      "generatedOriginal": "C:/Users/guill/.codex/generated_images/01a0cd3e-b87a-7ae3-a510-82d2ed9c08a4/exec-5af3bbd7-dd82-4978-9ec1-1318b162c0fb.png",
+      "selected": "V4/expansions/2026-09-23-return/art-a/zviri-chasse.png",
+      "sha256": "490cdb6d4317a92ea9bed2705b60763f6904ba8b94e2e647dd05256ee7614a50",
+      "review": "Recognizable V3 skull, copper hair and green worn armor. Clear crouched tracking gesture, coherent whip, readable footprint, broad blue evening sky. No gore, no frame or interface. Full figure and face readable."
+    },
+    {
+      "key": "julienne", "method": "byte-identical-reuse",
+      "source": "V3/assets/illustrations/03_HYDRO_JULIENNE.png",
+      "selected": "V4/expansions/2026-09-23-return/art-a/julienne.png",
+      "sha256": "e3a5880bb9fba4428059fbd8cc014f563c886898769650dbd7d5158d65d657ae",
+      "promptRecord": "Historical metadata in V3/donnees/cartes.json, id 30000003; no new prompt or generation.",
+      "review": "Established expressive Sirena with two legs holding a water arch over fleeing survivors. Confident painterly strokes, clearly motivated action and readable staff. No new scene requested, so illustration retained."
+    },
+    {
+      "key": "verminia-bureau", "method": "image_gen built-in, illustration-story",
+      "request": "V4/expansions/2026-09-23-return/art-a/verminia-bureau.request.json",
+      "generatedOriginal": "C:/Users/guill/.codex/generated_images/01a0cd3e-b87a-7ae3-a510-82d2ed9c08a4/exec-333f702f-eb70-4881-9dbf-10e455c8133e.png",
+      "selected": "V4/expansions/2026-09-23-return/art-a/verminia-bureau.png",
+      "sha256": "3aa16d3607332333185edb6ac77860d90fd08bcd157d2fbf3273e36480338407",
+      "review": "V3 face, auburn pinned hair and burgundy clothing retained. Seated behind a coherent desk, quill touches a bound ledger, both hands readable, sheathed dagger visible. Restrained wall and window background. Attentive worried gaze, not an empty beauty portrait."
+    },
+    {
+      "key": "verminia-portail", "method": "image_gen built-in, illustration-story",
+      "request": "V4/expansions/2026-09-23-return/art-a/verminia-portail.request.json",
+      "generatedOriginal": "C:/Users/guill/.codex/generated_images/01a0cd3e-b87a-7ae3-a510-82d2ed9c08a4/exec-82abafb5-537e-4f3d-95d2-281570534a0a.png",
+      "selected": "V4/expansions/2026-09-23-return/art-a/verminia-portail.png",
+      "sha256": "2de5122bcf4a2d7a759ef378d8803d2e01f7f8a0cb9add7163faff89084378fc",
+      "review": "Recognizable Verminia, body visibly braced while both hands gather red threads to close a narrow magical passage. Full figure with central face and hands, dagger at belt. Portal energy is behind her rather than hiding expression. Requested magical scene differs from former iron gate."
+    },
+    {
+      "key": "polux", "method": "byte-identical-reuse",
+      "source": "V3/assets/illustrations/31_PYRO_POLUX.png",
+      "selected": "V4/expansions/2026-09-23-return/art-a/polux.png",
+      "sha256": "76f30ef0a544b60beabd940197966646c740e0df6ca99ebc55dcbd640d2c2b71",
+      "promptRecord": "Historical metadata in V3/donnees/cartes.json, id 30000031; no new prompt or generation.",
+      "review": "Grey lynx-headed Felineus healer warming compresses, strong gentle emotion and clear painterly Kalistar material. Original scene and image retained."
+    },
+    {
+      "key": "nazar", "method": "image_gen built-in, illustration-story",
+      "request": "V4/expansions/2026-09-23-return/art-a/nazar.request.json",
+      "generatedOriginal": "C:/Users/guill/.codex/generated_images/01a0cd3e-b87a-7ae3-a510-82d2ed9c08a4/exec-8a59c045-e958-49b6-aff6-1c8b539dd023.png",
+      "selected": "V4/expansions/2026-09-23-return/art-a/nazar.png",
+      "sha256": "12717945920503d1c14954c796ee4ac9270e1a1c809c46e9cb7460c301fc8ff9",
+      "review": "Rhinoz identity and worn cloak/armor retained. Upright patrol gesture, attentive expression, straight spear visible from butt to tip, two arms and legs. Red mesas with grey strata, open sky, arid winding trail. No inappropriate faction change despite moving scene to Canyonero."
+    }
+  ],
+  "approval": "Assistant visual review only. New artwork remains subject to final native-card inspection and user artistic approval; no claim of publication or approved reference lock."
+}

@@ -1,0 +1,114 @@
+{
+  "schema": 1,
+  "date": "2026-09-23",
+  "scope": "Art B only; no native frame, template, publication, shared asset or git edits.",
+  "method": "Built-in image_gen for three final standalone illustrations, four calls including one rejected wrong-side arm. Five existing V3 artworks copied byte-identically.",
+  "artisticStatus": "Selected after visual review against Momo/Valazar; user artistic approval and native card crop QA remain separate.",
+  "styleReferences": [
+    "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+    "V3/assets/illustrations/34_NECRO_VALAZAR.png"
+  ],
+  "entries": [
+    {
+      "key": "capitaine-skully",
+      "mode": "byte-identical-reuse",
+      "legacyId": "30000035",
+      "original": "V3/assets/illustrations/35_NECRO_CAPITAINE_SKULLY.png",
+      "selected": "V4/expansions/2026-09-23-return/art-b/capitaine-skully.png",
+      "originalPromptSource": {
+        "file": "V3/donnees/cartes.json",
+        "cardId": "30000035",
+        "field": "prompt"
+      },
+      "review": "Charismatic Skullz captain, storm prow stance, painted textures and clear emotion match requested unchanged scene."
+    },
+    {
+      "key": "gen-reparation",
+      "mode": "byte-identical-reuse",
+      "legacyId": "30000023",
+      "original": "V3/assets/illustrations/23_NONE_GEN.png",
+      "selected": "V4/expansions/2026-09-23-return/art-b/gen-reparation.png",
+      "originalPromptSource": {
+        "file": "V3/donnees/cartes.json",
+        "cardId": "30000023",
+        "field": "prompt"
+      },
+      "review": "Black hair and green forelock, mechanical LEFT arm attached at shoulder, organic right hand repairing it, local short circuit not magic."
+    },
+    {
+      "key": "lanio-astraball",
+      "mode": "byte-identical-reuse",
+      "legacyId": "30000021",
+      "original": "V3/assets/illustrations/21_NONE_LANIO.png",
+      "selected": "V4/expansions/2026-09-23-return/art-b/lanio-astraball.png",
+      "originalPromptSource": {
+        "file": "V3/donnees/cartes.json",
+        "cardId": "30000021",
+        "field": "prompt"
+      },
+      "review": "Adult blond human joyfully playing Astraball among Rhinoz at Zarok; exactly the requested scene, no crystal."
+    },
+    {
+      "key": "reevus",
+      "mode": "byte-identical-reuse",
+      "legacyId": "30000026",
+      "original": "V3/assets/illustrations/26_NONE_REEVUS.png",
+      "selected": "V4/expansions/2026-09-23-return/art-b/reevus.png",
+      "originalPromptSource": {
+        "file": "V3/donnees/cartes.json",
+        "cardId": "30000026",
+        "field": "prompt"
+      },
+      "review": "Mean, obtuse grey-braided dwarf at his register, not kind sage; original painted artwork retained."
+    },
+    {
+      "key": "kognus",
+      "mode": "byte-identical-reuse",
+      "legacyId": "30000025",
+      "original": "V3/assets/illustrations/25_NONE_KOGNUS.png",
+      "selected": "V4/expansions/2026-09-23-return/art-b/kognus.png",
+      "originalPromptSource": {
+        "file": "V3/donnees/cartes.json",
+        "cardId": "30000025",
+        "field": "prompt"
+      },
+      "review": "Cunning mean red-bearded dwarf, keys and dagger, preserved canonical identity."
+    },
+    {
+      "key": "xiaomi",
+      "mode": "generated-standalone",
+      "tool": "image_gen.imagegen",
+      "exactRequest": "V4/expansions/2026-09-23-return/art-b/xiaomi.request.json",
+      "generatedOriginal": "C:/Users/guill/.codex/generated_images/01a0cd3e-b962-7433-ad26-5f0bfa5d12c3/exec-a63e9d65-fff2-4658-8355-9f986c76f29b.png",
+      "selected": "V4/expansions/2026-09-23-return/art-b/xiaomi.png",
+      "review": "Adult Asian face and shinobi identity preserved. Complete long coherent slim blade, aligned hilt, two readable hands. Tip approaches right edge; final native crop must keep its length readable."
+    },
+    {
+      "key": "gen-electro",
+      "mode": "generated-standalone",
+      "tool": "image_gen.imagegen",
+      "exactRequest": "V4/expansions/2026-09-23-return/art-b/gen-electro-correction.request.json",
+      "generatedOriginal": "C:/Users/guill/.codex/generated_images/01a0cd3e-b962-7433-ad26-5f0bfa5d12c3/exec-0da1c41c-4bc0-45d9-a443-9938fb86511a.png",
+      "selected": "V4/expansions/2026-09-23-return/art-b/gen-electro.png",
+      "review": "Corrected final has fully mechanical anatomical LEFT arm from shoulder to hand. Right arm organic. Golden Kalistel integrated in forearm; finger contacts produce local discharge while gallery lamps dim. Panel is on left, native crop should not hide contact completely."
+    },
+    {
+      "key": "lanio-mines",
+      "mode": "generated-standalone",
+      "tool": "image_gen.imagegen",
+      "exactRequest": "V4/expansions/2026-09-23-return/art-b/lanio-mines.request.json",
+      "generatedOriginal": "C:/Users/guill/.codex/generated_images/01a0cd3e-b962-7433-ad26-5f0bfa5d12c3/exec-6d4469d2-b4f7-4a94-a8dd-e4ff1f575c82.png",
+      "selected": "V4/expansions/2026-09-23-return/art-b/lanio-mines.png",
+      "review": "Recognisable adult blond Lanio, cheeky smile and breath in mine; two hands attached to rock/timber and both boots supported. Double-ended spear secured to back. Top/right handhold near edge; use full artwork crop."
+    }
+  ],
+  "rejected": [
+    {
+      "key": "gen-electro",
+      "exactRequest": "V4/expansions/2026-09-23-return/art-b/gen-electro.request.json",
+      "generatedOriginal": "C:/Users/guill/.codex/generated_images/01a0cd3e-b962-7433-ad26-5f0bfa5d12c3/exec-cc1604af-c003-4011-b1fe-7a84668bf06c.png",
+      "preserved": "V4/expansions/2026-09-23-return/art-b/gen-electro-rejected-arm-side.png",
+      "reason": "Mechanical arm on anatomical right and upper arm organic, contradicting canonical LEFT full mechanical arm. Not selected or used in profile."
+    }
+  ]
+}

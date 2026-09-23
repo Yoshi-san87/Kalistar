@@ -5,7 +5,7 @@
   "height": 1497,
   "resolution": 300,
   "colorSpace": "sRGB",
-  "referenceId": "aaee4023166e9997f865e9972caddb34022764b8d3ed5e1d53c30e68adcc1ace",
+  "referenceId": "4e489e527f047e2e6def3264718abb509cddb105cbc705bcd678ba0b20dc4bec",
   "frame": {
     "file": "frame/default.png",
     "left": 0,
@@ -3552,6 +3552,50 @@
         "ARME - EMAIL"
       ],
       "sourceCard": "voloden"
+    },
+    "Epée courte": {
+      "file": "banks/return-weapon-16.png",
+      "left": 89,
+      "top": 1116,
+      "width": 96,
+      "height": 95,
+      "sourceCard": "capitaine-skully",
+      "sourceLayers": [
+        "ARME - Epée courte"
+      ]
+    },
+    "Katana": {
+      "file": "banks/return-weapon-18.png",
+      "left": 89,
+      "top": 1116,
+      "width": 96,
+      "height": 95,
+      "sourceCard": "xiaomi",
+      "sourceLayers": [
+        "ARME - Katana"
+      ]
+    },
+    "Projectile": {
+      "file": "banks/return-weapon-9.png",
+      "left": 89,
+      "top": 1116,
+      "width": 96,
+      "height": 95,
+      "sourceCard": "gen-reparation",
+      "sourceLayers": [
+        "ARME - Projectile"
+      ]
+    },
+    "Fléau": {
+      "file": "banks/return-weapon-4.png",
+      "left": 89,
+      "top": 1116,
+      "width": 96,
+      "height": 95,
+      "sourceCard": "reevus",
+      "sourceLayers": [
+        "ARME - Fléau"
+      ]
     }
   },
   "races": {
@@ -29814,6 +29858,72 @@
       "psd": "V4/templates/VOLODEN_V4_01_NECRO.psd",
       "png": "V4/cartes/VOLODEN_V4_01_NECRO.png",
       "profile": "V4/template-stable/voloden/card.json"
+    },
+    {
+      "key": "zviri-tueuse",
+      "psd": "V4/templates/KALISTAR_V4_30000010.psd",
+      "png": "V4/cartes/KALISTAR_V4_30000010.png",
+      "profile": "V4/template-stable/return-20260923/zviri-tueuse/card.json"
+    },
+    {
+      "key": "julienne",
+      "psd": "V4/templates/KALISTAR_V4_30000003.psd",
+      "png": "V4/cartes/KALISTAR_V4_30000003.png",
+      "profile": "V4/template-stable/return-20260923/julienne/card.json"
+    },
+    {
+      "key": "verminia-bureau",
+      "psd": "V4/templates/KALISTAR_V4_30000009.psd",
+      "png": "V4/cartes/KALISTAR_V4_30000009.png",
+      "profile": "V4/template-stable/return-20260923/verminia-bureau/card.json"
+    },
+    {
+      "key": "polux",
+      "psd": "V4/templates/KALISTAR_V4_30000031.psd",
+      "png": "V4/cartes/KALISTAR_V4_30000031.png",
+      "profile": "V4/template-stable/return-20260923/polux/card.json"
+    },
+    {
+      "key": "nazar",
+      "psd": "V4/templates/KALISTAR_V4_30000011.psd",
+      "png": "V4/cartes/KALISTAR_V4_30000011.png",
+      "profile": "V4/template-stable/return-20260923/nazar/card.json"
+    },
+    {
+      "key": "capitaine-skully",
+      "psd": "V4/templates/KALISTAR_V4_30000035.psd",
+      "png": "V4/cartes/KALISTAR_V4_30000035.png",
+      "profile": "V4/template-stable/return-20260923/capitaine-skully/card.json"
+    },
+    {
+      "key": "xiaomi",
+      "psd": "V4/templates/KALISTAR_V4_30000027.psd",
+      "png": "V4/cartes/KALISTAR_V4_30000027.png",
+      "profile": "V4/template-stable/return-20260923/xiaomi/card.json"
+    },
+    {
+      "key": "gen-reparation",
+      "psd": "V4/templates/KALISTAR_V4_30000023.psd",
+      "png": "V4/cartes/KALISTAR_V4_30000023.png",
+      "profile": "V4/template-stable/return-20260923/gen-reparation/card.json"
+    },
+    {
+      "key": "lanio-astraball",
+      "psd": "V4/templates/KALISTAR_V4_30000021.psd",
+      "png": "V4/cartes/KALISTAR_V4_30000021.png",
+      "profile": "V4/template-stable/return-20260923/lanio-astraball/card.json"
+    },
+    {
+      "key": "reevus",
+      "psd": "V4/templates/KALISTAR_V4_30000026.psd",
+      "png": "V4/cartes/KALISTAR_V4_30000026.png",
+      "profile": "V4/template-stable/return-20260923/reevus/card.json"
+    },
+    {
+      "key": "kognus",
+      "psd": "V4/templates/KALISTAR_V4_30000025.psd",
+      "png": "V4/cartes/KALISTAR_V4_30000025.png",
+      "profile": "V4/template-stable/return-20260923/kognus/card.json"
     }
   ],
   "warnings": [],
@@ -29837,6 +29947,10 @@
     "banks/weapon-Hache.png": "b6bc6ee406aae69f48b2f46afe856aae1c70abf20d38ad6950928d743b0508e5",
     "banks/race-NAIN.png": "753dde8c47725f9f2541c3bd09d38904f115b1017e1b62bdac2ebbd3a65c43d4",
     "banks/weapon-Faucille.png": "15cf65992f9e8f8567818cdf54d32f52cb69eee8e2c4b9f327d0b64fb5a28f97",
-    "banks/race-CARDEMORTIS.png": "b43355e8ae95fb8e8c266cec842bcba7750d4133deabc31819dc68951f5ae20e"
+    "banks/race-CARDEMORTIS.png": "b43355e8ae95fb8e8c266cec842bcba7750d4133deabc31819dc68951f5ae20e",
+    "banks/return-weapon-16.png": "c74a770279a2b5117518eaf4404a2c7941aab2d498bbda8eea18455ac4008778",
+    "banks/return-weapon-18.png": "a3d7e5a8dd5cc8bf0493f9cb690825975427bcac87175159d1fb67070bec2c42",
+    "banks/return-weapon-9.png": "342f8b550336fb612cbd6ffd92f563b8173e731d76eb4398e281b183ed63fcd3",
+    "banks/return-weapon-4.png": "1fa215ead205d67fe863a93ae6619825993d952c219f368e8dd841302d2dd77b"
   }
 }
