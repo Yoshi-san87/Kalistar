@@ -100,11 +100,11 @@ body.statistics-view { display: flex; flex-direction: column; height: 100dvh; ov
 .trophy-cabinet { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 8px; padding: 12px 0; border-block: 1px solid #93784960; }
 .trophy-keepsake { display: grid; justify-items: center; align-content: start; gap: 3px; min-width: 0; color: #e5c383; }
 .trophy-keepsake img { width: 100%; height: 70px; object-fit: contain; }
-.trophy-keepsake b { font: 19px/1.1 var(--serif); }
+.trophy-keepsake b,.kill-medal-keepsake > b { font: 19px/1.1 var(--serif); }
 .trophy-keepsake > span { font: 10px/1.2 var(--sans); text-align: center; }
 .trophy-keepsake[data-earned=false] img { filter: grayscale(.8); opacity: .38; }
 .cb-career .trophy-keepsake { color: var(--cb-ink); }
-.cb-career .trophy-keepsake :is(b,span) { font-weight: 600; }
+.cb-career .trophy-keepsake :is(b,span),.cb-career .kill-medal-keepsake > b { font-weight: 600; }
 .cb-career .trophy-keepsake img { height: 62px; }
 .cb-career .trophy-keepsake[data-earned=false] img { filter: grayscale(.9) brightness(.65); opacity: .65; }
 .career-statistics .lucide,.cb-page .career-statistics .lucide { width: 21px; height: 21px; stroke-width: 2.2; }

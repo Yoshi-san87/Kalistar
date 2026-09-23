@@ -268,3 +268,32 @@ Focused checks: `node V4/site/statistics.test.cjs`,
 six engine-completed matches, migration/forged-import/idempotence assertions,
 filters/sorts/CSV, nine ledger sizes (up to 3440px wide) and eight report sizes (including
 2041 x 1383). Screenshots: `verification/statistics/`.
+
+Kill medals (2026-09-23): `trophies.js` defines numbered tiers 2 through 10
+(Double, Triple, Quadra, Penta, Hexa, Hepta, Octo, Nona, Deca). Definitive kills
+by one match instance accumulate throughout the match; there is no time window
+or reset on another unit's turn. Reraise saves do not count. These honours have
+no gameplay effect. `kill-medals.css` draws crisp geometric metal/enamel badges,
+with a shimmering rainbow Deca and reduced-motion support.
+
+`animatedRoll()` compares the verified summaries before/after the committed
+defense. Only one new resolved kill crossing a tier triggers the nonblocking
+1.8-second announcement; restoring or repainting never triggers it. Rendering
+another view cancels the effect. The existing kill number is unchanged: a small
+medal sits before the skull only in sufficiently wide PC/mobile stat strips.
+Match awards and the lineup sheet prefix each qualifying identity with its
+current medal; partial histories omit them.
+
+Career aggregation awards only the highest tier per completed participating
+result. No additional persistence field or trophy migration is required: medal
+totals are derived by `T.add()` from validated result kills, including older
+full-history games. Imports still rebuild results from the archived game, not
+caller-supplied counters. The notebook uses the five full Golden trophy names
+and shows only earned medal tiers with their occurrence counts below them.
+
+Checks: `node V4/site/kill-medals.test.cjs` and
+`node V4/site/kill-medals.browser.test.cjs` (local server and disposable Chrome).
+Coverage includes all thresholds, no Reraise/repaint/partial-history awards,
+best-tier career totals, live defense, reload, idempotent saves, forged imports,
+instance ownership and PC/phone layouts with motion enabled and reduced.
+Screenshots: `verification/kill-medals/`.

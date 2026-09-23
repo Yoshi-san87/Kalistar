@@ -102,6 +102,7 @@
   }
   function render(){
     combatController?.abort();
+    window.KalistarCombat?.cancelKillCelebration();
     window.KalistarFormationDrag?.cancel();
     window.KalistarFocus?.capture();
     const scroll=$('.battlefield-viewport')?.scrollLeft||0;
@@ -431,6 +432,7 @@ function showDeck(){setView('decks');}
   async function animatedRoll(kalistel=false){
     if(rolling||!(kalistel?game.phase==='kalistel':['attack','defense'].includes(game.phase)))return;
     const token=epoch,phase=kalistel?'attack':game.phase,actor=phase==='attack'?game.turn:1-game.turn,next=E.clone(game);
+    let celebration=null;
     try{
       checkGame();
       if(kalistel)E.useKalistel(next);else if(phase==='attack')E.rollAttack(next);else E.rollDefense(next);E.assertState(next);
@@ -450,10 +452,15 @@ function showDeck(){setView('decks');}
         if(label)label.textContent='D'+value+' · '+dieLabel(phase==='attack'?next.duel.attackValue:next.duel.defenseValue,phase==='attack');
         const d=next.duel,c=E.card(game.players[d.side].board[d.attackerSlot]);
         await window.KalistarCombat?.play({before:game,after:next,element:c.element,color:'#'+(data.elements[c.element]?.color||'E4D5FB'),reduced,signal:combatController.signal});
-        if(token===epoch&&!combatController.signal.aborted){checkGame(next);game=next;epoch++;}
+        if(token===epoch&&!combatController.signal.aborted){
+          checkGame(next);
+          const medal=window.KalistarTrophies?.killMilestone(E.matchStats(game),E.matchStats(next),d.attacker);
+          if(medal)celebration={tier:medal.tier,name:c.name,side:d.side,reduced};
+          game=next;epoch++;
+        }
       }
     }catch(e){toast(e.message);}
-    finally{combatController?.abort();combatController=null;rolling=false;$('#app').classList.remove('rolling');render();}
+    finally{combatController?.abort();combatController=null;rolling=false;$('#app').classList.remove('rolling');render();if(celebration&&ui.view==='arena')window.KalistarCombat?.celebrateKill(celebration);}
   }
   async function animatedTrait(uid){
     if(rolling||!['clover','potion','physical','heart','guard'].includes(game.phase))return;

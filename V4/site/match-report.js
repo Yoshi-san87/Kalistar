@@ -36,6 +36,7 @@
     const byId={...engine.byId};
     if(Array.isArray(profiles))for(const c of profiles)if(c&&engine.byId[c.id])byId[c.id]={...c,slug:engine.byId[c.id].slug};
     const stats=engine.matchStats(s),units=stats.units;
+    const medal=u=>stats.partial?'':trophies.medal(u.kills);
     const currentArenas=window.KALISTAR_DATA.arenas||[],arena=(Array.isArray(arenas)?arenas:currentArenas).find(a=>a.id===s.arenaId);
     const arenaVisual=currentArenas.find(a=>a.id===s.arenaId),accent=window.KALISTAR_DATA.elements?.[arenaVisual?.element]?.color;
     const arenaImage=arenaVisual?.image||'assets/arena.webp';
@@ -57,7 +58,7 @@
     };
     const identity=(u,className='match-unit')=>{
       const c=byId[u.cardId];
-      return `<button type="button" class="${className}" data-action="detail" data-id="${esc(u.cardId)}" data-instance="${esc(u.instanceId)}" title="${esc(c.name+' · '+c.title)}" aria-label="${esc(c.name+' · '+c.title+' · '+player(u.side)+' · '+u.uid)}">${portrait(u)}<span><b>${esc(c.name)}</b><small>${esc(c.title)}</small><small class="team-color-${u.side}">${player(u.side)} · #${esc(u.uid)}</small></span></button>`;
+      return `<button type="button" class="${className}" data-action="detail" data-id="${esc(u.cardId)}" data-instance="${esc(u.instanceId)}" title="${esc(c.name+' · '+c.title)}" aria-label="${esc(c.name+' · '+c.title+' · '+player(u.side)+' · '+u.uid)}">${portrait(u)}<span><b class="kill-decorated-name">${medal(u)}<span>${esc(c.name)}</span></b><small>${esc(c.title)}</small><small class="team-color-${u.side}">${player(u.side)} · #${esc(u.uid)}</small></span></button>`;
     };
     const controls=(action,current,count,label,range='')=>{
       const button=(target,symbol,name,disabled)=>`<button type="button" data-action="${action}" data-id="${Math.max(0,target)}" ${disabled?'disabled':''} aria-label="${name}" title="${name}">${icon(symbol)}</button>`;
@@ -94,7 +95,7 @@
         return `<article class="${index===0?'match-mvp':'match-award'} golden-award" style="--winner-count:${Math.max(1,winners.length)};--portrait-columns:${Math.max(1,Math.min(winners.length,4))}" data-trophy="${t.id}" data-award-unit="${esc(first?.uid||'')}" data-empty="${!first}">
           <header class="golden-title"><span>${t.name}<small>${index===0?'MVP · Meilleur joueur':esc(t.label)}</small></span>${winners.length>1?`<b>${winners.length} ex æquo</b>`:''}</header>
           <div class="golden-scene"><div class="golden-portraits">${portraits}</div>${index===0?`<div class="golden-mvp-overlay" aria-hidden="true">${trophy}</div>`:''}</div>
-          <div class="golden-result">${trophy}<div class="golden-winners" aria-label="Lauréats du ${t.name}">${winners.map(u=>`<button type="button" data-action="detail" data-id="${esc(u.cardId)}" data-instance="${esc(u.instanceId)}"><b>${esc(byId[u.cardId].name)}</b><small class="team-color-${u.side}">${player(u.side)} · ${esc(byId[u.cardId].title)}</small></button>`).join('')||'<span>Aucun lauréat</span>'}</div><strong title="${esc(t.help)}">${first?num(first[t.key]):'—'}<small>${index===0?'Indice':esc(t.label)}</small></strong></div>
+          <div class="golden-result">${trophy}<div class="golden-winners" aria-label="Lauréats du ${t.name}">${winners.map(u=>`<button type="button" data-action="detail" data-id="${esc(u.cardId)}" data-instance="${esc(u.instanceId)}"><b class="kill-decorated-name">${medal(u)}<span>${esc(byId[u.cardId].name)}</span></b><small class="team-color-${u.side}">${player(u.side)} · ${esc(byId[u.cardId].title)}</small></button>`).join('')||'<span>Aucun lauréat</span>'}</div><strong title="${esc(t.help)}">${first?num(first[t.key]):'—'}<small>${index===0?'Indice':esc(t.label)}</small></strong></div>
         </article>`;
       }).join('')}</section>`;
     }

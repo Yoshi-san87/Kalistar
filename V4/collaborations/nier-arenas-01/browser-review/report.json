@@ -1,0 +1,292 @@
+{
+  "passed": true,
+  "mode": "live-local-get-only-ephemeral",
+  "modelId": "45862715",
+  "startedAt": "2026-09-23T06:35:38.284Z",
+  "errors": [],
+  "views": [
+    {
+      "width": 1600,
+      "height": 1000,
+      "screenshots": [
+        {
+          "file": "simone-collection-1600.png",
+          "width": 1600,
+          "height": 1000,
+          "stdev": [
+            63.64,
+            56.24,
+            50.4
+          ]
+        },
+        {
+          "file": "simone-card-1600.png",
+          "width": 651,
+          "height": 597,
+          "stdev": [
+            58.84,
+            52.36,
+            44.61
+          ]
+        },
+        {
+          "file": "nier-city-ruins-option-1600.png",
+          "width": 158,
+          "height": 268,
+          "stdev": [
+            61.39,
+            63.46,
+            62.19
+          ]
+        },
+        {
+          "file": "nier-city-ruins-picker-1600.png",
+          "width": 1600,
+          "height": 1000,
+          "stdev": [
+            30.43,
+            29.74,
+            29.34
+          ]
+        },
+        {
+          "file": "nier-city-ruins-match-1600.png",
+          "width": 1600,
+          "height": 1000,
+          "stdev": [
+            46.43,
+            45.35,
+            46.7
+          ]
+        },
+        {
+          "file": "nier-amusement-park-option-1600.png",
+          "width": 158,
+          "height": 210,
+          "stdev": [
+            55.36,
+            51.43,
+            49.28
+          ]
+        },
+        {
+          "file": "nier-amusement-park-picker-1600.png",
+          "width": 1600,
+          "height": 1000,
+          "stdev": [
+            26.92,
+            26.9,
+            26.7
+          ]
+        },
+        {
+          "file": "nier-amusement-park-match-1600.png",
+          "width": 1600,
+          "height": 1000,
+          "stdev": [
+            43.63,
+            35.64,
+            36.37
+          ]
+        }
+      ],
+      "arenas": [
+        {
+          "id": "nier-city-ruins",
+          "media": {
+            "url": "/jeu/assets/arenes/nier-city-ruins.png",
+            "sha256": "86f33625652101e7afa643b0114ba64e51f7f18b1f93f2850b3dd265c6ccc5b0",
+            "width": 1672,
+            "height": 941,
+            "contentType": "image/png"
+          },
+          "background": "linear-gradient(rgba(8, 17, 13, 0.208), rgba(8, 17, 13, 0.46)), url(\"http://127.0.0.1:4304/jeu/assets/arenes/nier-city-ruins.png\")",
+          "layout": {
+            "width": 1600,
+            "height": 1000,
+            "scrollWidth": 1600,
+            "scrollHeight": 1062
+          },
+          "phase": "choose",
+          "restored": true
+        },
+        {
+          "id": "nier-amusement-park",
+          "media": {
+            "url": "/jeu/assets/arenes/nier-amusement-park.png",
+            "sha256": "70aaf90546f6aef56b0bdb126076ad750a492efd4f133e0041c4e1f9cd4c5968",
+            "width": 1672,
+            "height": 941,
+            "contentType": "image/png"
+          },
+          "background": "linear-gradient(rgba(8, 17, 13, 0.208), rgba(8, 17, 13, 0.46)), url(\"http://127.0.0.1:4304/jeu/assets/arenes/nier-amusement-park.png\")",
+          "layout": {
+            "width": 1600,
+            "height": 1000,
+            "scrollWidth": 1600,
+            "scrollHeight": 1062
+          },
+          "phase": "choose",
+          "restored": true
+        }
+      ],
+      "requests": 239,
+      "cardMedia": {
+        "url": "/media/created/45862715.png",
+        "sha256": "ec6b4d0bbd353bef05d4bc8b89451d0f6a628fb2ce691b9088c7e2b3481a5a7c",
+        "width": 897,
+        "height": 1497,
+        "contentType": "image/png"
+      },
+      "collectionLayout": {
+        "width": 1600,
+        "height": 1000,
+        "scrollWidth": 1600,
+        "scrollHeight": 1000
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "screenshots": [
+        {
+          "file": "simone-collection-390.png",
+          "width": 390,
+          "height": 844,
+          "stdev": [
+            56.26,
+            46.29,
+            40.5
+          ]
+        },
+        {
+          "file": "simone-card-390.png",
+          "width": 295,
+          "height": 424,
+          "stdev": [
+            55.76,
+            45.47,
+            40.11
+          ]
+        },
+        {
+          "file": "nier-city-ruins-option-390.png",
+          "width": 340,
+          "height": 98,
+          "stdev": [
+            65.48,
+            68.27,
+            67.27
+          ]
+        },
+        {
+          "file": "nier-city-ruins-picker-390.png",
+          "width": 390,
+          "height": 844,
+          "stdev": [
+            51.38,
+            48.5,
+            48.57
+          ]
+        },
+        {
+          "file": "nier-city-ruins-match-390.png",
+          "width": 390,
+          "height": 844,
+          "stdev": [
+            51.72,
+            50.31,
+            50.9
+          ]
+        },
+        {
+          "file": "nier-amusement-park-option-390.png",
+          "width": 340,
+          "height": 98,
+          "stdev": [
+            58.05,
+            51.18,
+            48.76
+          ]
+        },
+        {
+          "file": "nier-amusement-park-picker-390.png",
+          "width": 390,
+          "height": 844,
+          "stdev": [
+            47.94,
+            45.02,
+            44.17
+          ]
+        },
+        {
+          "file": "nier-amusement-park-match-390.png",
+          "width": 390,
+          "height": 844,
+          "stdev": [
+            45.35,
+            34.13,
+            33.2
+          ]
+        }
+      ],
+      "arenas": [
+        {
+          "id": "nier-city-ruins",
+          "media": {
+            "url": "/jeu/assets/arenes/nier-city-ruins.png",
+            "sha256": "86f33625652101e7afa643b0114ba64e51f7f18b1f93f2850b3dd265c6ccc5b0",
+            "width": 1672,
+            "height": 941,
+            "contentType": "image/png"
+          },
+          "background": "linear-gradient(rgba(8, 17, 13, 0.208), rgba(8, 17, 13, 0.46)), url(\"http://127.0.0.1:4304/jeu/assets/arenes/nier-city-ruins.png\")",
+          "layout": {
+            "width": 390,
+            "height": 844,
+            "scrollWidth": 390,
+            "scrollHeight": 844
+          },
+          "phase": "choose",
+          "restored": true
+        },
+        {
+          "id": "nier-amusement-park",
+          "media": {
+            "url": "/jeu/assets/arenes/nier-amusement-park.png",
+            "sha256": "70aaf90546f6aef56b0bdb126076ad750a492efd4f133e0041c4e1f9cd4c5968",
+            "width": 1672,
+            "height": 941,
+            "contentType": "image/png"
+          },
+          "background": "linear-gradient(rgba(8, 17, 13, 0.208), rgba(8, 17, 13, 0.46)), url(\"http://127.0.0.1:4304/jeu/assets/arenes/nier-amusement-park.png\")",
+          "layout": {
+            "width": 390,
+            "height": 844,
+            "scrollWidth": 390,
+            "scrollHeight": 844
+          },
+          "phase": "choose",
+          "restored": true
+        }
+      ],
+      "requests": 239,
+      "cardMedia": {
+        "url": "/media/created/45862715.png",
+        "sha256": "ec6b4d0bbd353bef05d4bc8b89451d0f6a628fb2ce691b9088c7e2b3481a5a7c",
+        "width": 897,
+        "height": 1497,
+        "contentType": "image/png"
+      },
+      "collectionLayout": {
+        "width": 390,
+        "height": 844,
+        "scrollWidth": 390,
+        "scrollHeight": 844
+      }
+    }
+  ],
+  "sourcePreservation": true,
+  "origin": "http://127.0.0.1:4304",
+  "finishedAt": "2026-09-23T06:35:48.148Z"
+}

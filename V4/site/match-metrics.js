@@ -30,7 +30,8 @@
     const scope=partial?'Match partiel \u00b7 depuis E'+fromRound:'Ce match';
     return `<div class="duel-match-stats" data-match-unit="${esc(unit.uid)}" data-stat-scope="match" role="group" aria-label="Performances de cette carte dans ce match"><small title="${esc(scope)}">${esc(scope)}</small><dl>${duelMetrics.map(m=>{
       const value=Number.isFinite(unit[m.key])?(unit[m.key]*(m.pointsPerGrant??1)).toLocaleString('fr-FR'):'-';
-      return `<div data-metric="${m.key}" title="${esc(m.label+' : '+value+'. '+m.help)}"><dt>${m.plus?'<span class="match-metric-plus" aria-hidden="true">+</span>':''}<i data-lucide="${m.icon}" aria-hidden="true"></i><span class="match-metric-label">${esc(m.label)}</span></dt><dd>${value}</dd></div>`;
+      const medal=m.key==='kills'&&!partial?globalThis.KalistarTrophies?.medal(unit.kills)||'':'';
+      return `<div data-metric="${m.key}" title="${esc(m.label+' : '+value+'. '+m.help)}"><dt>${medal}${m.plus?'<span class="match-metric-plus" aria-hidden="true">+</span>':''}<i data-lucide="${m.icon}" aria-hidden="true"></i><span class="match-metric-label">${esc(m.label)}</span></dt><dd>${value}</dd></div>`;
     }).join('')}</dl></div>`;
   }
   return {core,extras,strip};

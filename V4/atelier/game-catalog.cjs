@@ -127,4 +127,4 @@ async function buildCatalog({ published = [] } = {}) {
   return JSON.parse(JSON.stringify(data));
 }
 
-module.exports = { buildCatalog, CROP };
+module.exports = { buildCatalog, collaborationArenas, CROP };

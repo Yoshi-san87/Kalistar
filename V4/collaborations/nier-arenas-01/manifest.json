@@ -1,0 +1,41 @@
+{
+  "id": "nier-arenas-01",
+  "collaboration": "nier",
+  "officialCollaboration": false,
+  "arenas": [
+    {
+      "key": "city-ruins",
+      "source": "V4/collaborations/nier-arenas-01/art/city-ruins.png",
+      "entry": {
+        "id": "nier-city-ruins",
+        "collaboration": "nier",
+        "name": "RUINES DE LA CITE",
+        "subtitle": "La vie entre les tours brisees",
+        "image": "/jeu/assets/arenes/nier-city-ruins.png",
+        "element": "HERBO",
+        "elementBonus": 15,
+        "homeCharacters": ["2b-nier", "9s-nier", "anemone-nier"],
+        "homeAttack": 10,
+        "homeDefense": 10,
+        "source": "NieR:Automata : collaboration privee non officielle ; lieu et affinites reinterpretes par des fans."
+      }
+    },
+    {
+      "key": "amusement-park",
+      "source": "V4/collaborations/nier-arenas-01/art/amusement-park.png",
+      "entry": {
+        "id": "nier-amusement-park",
+        "collaboration": "nier",
+        "name": "FETE FORAINE",
+        "subtitle": "Les lumieres d'une fete sans fin",
+        "image": "/jeu/assets/arenes/nier-amusement-park.png",
+        "element": "HEMATO",
+        "elementBonus": 15,
+        "homeCharacters": ["simone-nier"],
+        "homeAttack": 10,
+        "homeDefense": 10,
+        "source": "NieR:Automata : collaboration privee non officielle ; lieu et affinites reinterpretes par des fans."
+      }
+    }
+  ]
+}

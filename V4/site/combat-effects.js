@@ -1,6 +1,21 @@
 (() => {
   'use strict';
   const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
+  let clearKillCelebration=()=>{};
+  function cancelKillCelebration(){clearKillCelebration();}
+  function celebrateKill({tier,name,side,reduced=false}){
+    cancelKillCelebration();
+    const host=document.querySelector('.duel-console'),T=window.KalistarTrophies,definition=T?.killMedals.find(m=>m.tier===tier);
+    if(!host||!definition)return;
+    const node=document.createElement('div');node.className='kill-celebration';node.dataset.side=String(side);node.dataset.tier=String(tier);node.dataset.reduced=String(reduced);
+    node.setAttribute('role','status');node.setAttribute('aria-live','polite');node.setAttribute('aria-atomic','true');
+    node.innerHTML=T.medal(tier,{decorative:true});
+    const copy=document.createElement('div'),who=document.createElement('span'),title=document.createElement('strong');
+    who.className='kill-celebration-name';who.textContent=name;title.textContent=definition.name;copy.append(who,title);node.append(copy);host.append(node);
+    const timeout=setTimeout(clean,1800);
+    function clean(){clearTimeout(timeout);node.remove();if(clearKillCelebration===clean)clearKillCelebration=()=>{};}
+    clearKillCelebration=clean;
+  }
   async function shatterKalistel(button,{reduced=false,signal}={}){
     const art=button?.querySelector('.kalistel-art'),img=art?.querySelector('img');
     if(!art||!img?.complete||!img.naturalWidth||signal?.aborted||reduced)return;
@@ -217,5 +232,5 @@
       await attack;
     }finally{delete field.dataset.reanimation;signal.removeEventListener('abort',clean);clean();}
   }
-  window.KalistarCombat={play,shatterKalistel};
+  window.KalistarCombat={play,shatterKalistel,celebrateKill,cancelKillCelebration};
 })();

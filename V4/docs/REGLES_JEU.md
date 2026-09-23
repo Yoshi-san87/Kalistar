@@ -223,6 +223,33 @@ existante. Le nouvel onglet Statistiques permet aussi le regroupement par
 personnage, toutes versions comprises ; les moyennes sont toujours ponderees
 par les participations, jamais une moyenne des moyennes de versions.
 
+### Medailles de kills (23 septembre 2026)
+
+Distinctions honorifiques, sans bonus : une meme instance cumule ses kills
+definitifs sur toute la rencontre. Aucun delai entre deux kills, aucune remise
+a zero apres un tour sans kill ou un kill allie. Un sauvetage Reraise n'est pas
+une elimination et ne fait pas progresser le palier.
+
+Paliers : 2 Double-Kill, 3 Triple-Kill, 4 Quadra-Kill, 5 Penta-Kill,
+6 Hexa-Kill, 7 Hepta-Kill, 8 Octo-Kill, 9 Nona-Kill, 10 Deca-Kill.
+Le chiffre tient lieu d'abreviation. Le medaillon est rond a 2, triangulaire
+a 3, carre a 4, puis polygonal ; le Deca est Rainbow et scintillant.
+
+Chaque nouveau palier declenche une breve annonce apres resolution du combat,
+sans bloquer Tour suivant. Une reprise ne rejoue pas l'annonce. Pas de compteur
+supplementaire : la medaille courante se place a gauche de la tete de mort
+uniquement si la largeur permet de conserver les statistiques lisibles.
+Le palmares et la feuille de match la montrent devant le nom du personnage.
+
+En carriere, seule la meilleure medaille de CHAQUE rencontre terminee compte.
+Un Penta-Kill attribue une medaille 5, pas aussi les medailles 2, 3 et 4.
+Sous les cinq trophees, seules les medailles deja gagnees sont affichees avec
+leur nombre d'obtentions. Les historiques partiels, matchs non termines et
+cartes restees en reserve sont exclus. Les anciens matchs complets restent
+eligibles : calcul depuis leurs kills verifies, sans compteur parallele ni
+nouveau schema de sauvegarde. La selection d'exemplaire et la propriete du
+registre sont preservees. Les cinq trophees portent leur nom Golden complet.
+
 ### Stockage
 
 Parties schema 6 avec edition V4 ; IndexedDB `kalistar-v4-cards`, preferences
