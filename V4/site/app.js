@@ -208,10 +208,10 @@ function showDeck(){setView('decks');}
     modal('rules-dialog',head('Règles · V4')+`<div class="dialog-body rules-body"><h3>Formation et victoire</h3><p>10 cartes, 5 positions : Tank, DPS physique, Middle, DPS magique et Support. Chaque deck doit couvrir au moins deux fois chaque position P1 à P5. Une carte polyvalente compte dans chacun de ses postes. Une seule carte par personnage, toutes versions confondues, et une seule Rainbow. Une carte vivante reste à sa position après le début du match. ATK strictement supérieure à DEF élimine la cible ; une égalité la conserve. Le premier à dix éliminations définitives gagne ; un Reraise sauve la carte et ne compte pas comme kill. Limite de démo : match nul après 200 échanges.</p><div class="formula">ATK = jet + arme + cristal + faction + jeton + arène − barrière<br>DEF = jet + race + arène + ward<br>Totaux négatifs ramenés à zéro. Faces spéciales résolues séparément.</div><h3>Arènes</h3><p>Lieu verrouillé au début du match, identique pour les deux camps. Cristal correspondant : +15 ATK. Affinité de personnage : +10 ATK et +10 DEF, toutes ses versions comprises. Maximum +25 ATK et +10 DEF, uniquement sur les scores numériques.</p><h3>Cristaux et barrières</h3><p>Classique contre sans cristal : +20 ATK. Rainbow contre sans cristal : +30. Sans cristal contre un cristal : 0. Sans cristal n’a ni halo ni barrière élémentaire. Rainbow contre classique : +40 ; classique contre Rainbow : −40.</p><p>Air &gt; Eau &gt; Feu &gt; Glace &gt; Plante &gt; Terre &gt; Roche &gt; Électricité &gt; Air. Sang &gt; Ténèbres &gt; Lumière &gt; Sang. Les avantages imprimés et la matrice d’armes s’appliquent une seule fois à l’ATK. Une barrière retire 30 ATK uniquement contre une attaque magique.</p><h3>Buffs complémentaires</h3><p>Garde, trèfle, Reraise, potion magique et puissance physique peuvent coexister. Une seule charge par catégorie : attribuer à nouveau le même buff ne le double pas. Résolution automatique : bouclier dans le score DEF, trèfle si ce score ne suffit pas, puis Reraise si la seconde chance échoue. Faction, race et arène restent cumulables.</p><table><tr><th>Garde / ward 60</th><td>La face bouclier ATK permet de choisir un allié vivant du plateau, auteur compris. Il reçoit +60 DEF sur sa prochaine défense numérique contre une ATK physique. Le bonus est consommé une seule fois et conservé dans le même duel en cas de relance. Magie, esquive et Mort ne le consomment pas. Mort le contourne.</td></tr><tr><th>Trèfle</th><td>En ATK : choix d’un allié, auteur compris. Sa prochaine défense insuffisante déclenche une relance automatique. Égalité et Mort ne le consomment pas. En DEF : relance immédiate.</td></tr><tr><th>Potion / puissance</th><td>+60 sur la prochaine attaque numérique du type correspondant : magique pour la potion, physique pour la puissance. La potion magique et la puissance physique sont toutes deux attribuables à un allié vivant du plateau, auteur compris.</td></tr><tr><th>Reraise</th><td>Face réservée aux soigneurs P5. Choix d’un allié vivant, auteur compris. À sa prochaine élimination, même par Mort, le cœur est consommé et la carte reste à sa place.</td></tr><tr><th>Esquive / Mort</th><td>Esquive annule l’attaque, y compris Mort. Mort ignore les scores, la barrière et ward ; Reraise peut sauver la cible.</td></tr></table><h3>Synergies</h3><p>Pour 1 à 5 cartes de même faction ou race sur le plateau : +0, +10, +20, +30, +40. Faction en ATK, race en DEF. Réserve et cartes éliminées exclues.</p><h3>Archives V4</h3><p>Les parties et statistiques V4 sont séparées de V2. Une sauvegarde V2 est refusée sans modifier les données V2.</p></div>`);
     $('#rules-dialog .formula').insertAdjacentHTML('beforebegin','<h3>Éclats de Kalistel</h3><p>Deux éclats par joueur dans les nouvelles rencontres, partagés par toute l’équipe, même sans cristal. Après le premier jet ATK et avant la défense, gardez le jet ou utilisez le diamant. Une seule relance par attaque, avec les mêmes participants ; le nouveau résultat est obligatoire, même moins favorable. Les effets et jetons ne sont appliqués qu’au résultat conservé. Aucun objet de collection n’est consommé. Les sauvegardes antérieures conservent leurs règles sans éclats.</p>');
   }
-  async function createGame(mode,seed,arenaId=load('arena',arenas[0].id),opponentId=enemyPresetId){
+  async function createGame(mode,seed,arenaId=load('arena',arenas[0].id),opponentId=enemyPresetId,playerDeck=deck){
     if(!['grantGuard','aiGuardChoice','arenaBonuses','setArena'].every(key=>typeof E[key]==='function')||cards.some(c=>!/^[34]\d{7}$/.test(c.id)||!c.characterId))throw new Error('Moteur ou profils V4 en attente. Aucune partie V2 ne sera créée dans V4.');
-    const errors=deckErrors(deck);if(errors.length)throw new Error(errors.join(' '));
-    const opponent=validatedPreset(opponentId),next=E.newGame(deck.slice(),opponent.cards.slice(),{mode,seed,arenaId:arenaById(arenaId).id,deckCoverage:2});
+    const errors=deckErrors(playerDeck);if(errors.length)throw new Error(errors.join(' '));
+    const opponent=validatedPreset(opponentId),next=E.newGame(playerDeck.slice(),opponent.cards.slice(),{mode,seed,arenaId:arenaById(arenaId).id,deckCoverage:2});
     E.setArena(next,arenaById(arenaId).id);KalistarLocalDB.validateGame(next);E.autoDeploy(next,0);E.autoDeploy(next,1);E.assertState(next);
     const bound=db.registry.bindGame(accountId,next);
     await db.idle();
@@ -225,6 +225,42 @@ function showDeck(){setView('decks');}
     return esc(crystal+(home.length?' · '+home.join(', ')+' : +'+(a.homeAttack||0)+' ATK / +'+(a.homeDefense||0)+' DEF':''));
   }
   function arenaChoices(id){return `<fieldset class="arena-options"><legend>Lieu de la rencontre</legend>${arenas.map(a=>`<label class="arena-option"><input type="radio" name="arena" value="${a.id}" ${arenaById(id).id===a.id?'checked':''}><img src="${a.image}" alt="${a.name}"><span>${a.name}<small>${esc(a.subtitle)}</small><small class="arena-bonus-rule">${arenaRule(a)}</small></span></label>`).join('')}</fieldset>`;}
+  function matchDeckSources(){
+    let saved=[];try{saved=builder().listDecks();}catch{}
+    return [{id:'active',name:deckName||'Brouillon actuel',cards:deck.slice()},...saved.map(value=>({id:'saved:'+value.id,name:value.name,cards:value.cards.slice()}))];
+  }
+  function matchDeckOptions(selected){return matchDeckSources().map(value=>`<option value="${esc(value.id)}" ${value.id===selected?'selected':''}>${esc(value.name)}</option>`).join('');}
+  function matchDeckByChoice(choice){return matchDeckSources().find(value=>value.id===choice)||null;}
+  function matchDeckSummary(ids,errors){
+    const valid=ids.filter(id=>E.byId[id]),coverage=E.deckCoverage?.(valid)||{};
+    let formation=[];try{if(valid.length===10)formation=E.lineup(valid);}catch{}
+    if(!Array.isArray(formation)||formation.length!==5)formation=valid.slice(0,5).map((_,index)=>index);
+    const cardsInFormation=formation.map((index,position)=>({card:E.byId[valid[index]],position})).filter(item=>item.card);
+    const positions=Array.from({length:5},(_,index)=>{const count=Number(coverage[index+1])||0;return `<span class="${count<2?'is-short':''}"><b>P${index+1}</b><small>${count}/2</small></span>`;}).join('');
+    const preview=cardsInFormation.map(({card,position})=>`<div class="match-lineup-card" title="${esc('P'+(position+1)+' · '+card.name)}"><img src="${duelImage(card)}" alt="${esc(card.name)}"><span>P${position+1}</span></div>`).join('');
+    const problem=errors.length?`<p class="match-deck-state is-invalid">${icon('triangle-alert')}<span>${esc(errors[0])}</span></p>`:`<p class="match-deck-state">${icon('circle-check')}<span>Deck valide · prêt au combat</span></p>`;
+    return `<div class="match-deck-summary"><div class="match-deck-topline"><b>${valid.length}<small> / 10 cartes</small></b>${problem}</div><div class="match-position-coverage" aria-label="Couverture des positions">${positions}</div><div class="match-lineup-preview" aria-label="Aperçu de la formation">${preview||'<span class="match-empty-lineup">Formation à compléter</span>'}</div></div>`;
+  }
+  function matchArenaSummary(id){
+    const a=arenaById(id);
+    return `<img src="${a.image}" alt=""><div class="match-arena-copy"><span class="eyebrow">Champ de bataille</span><h3>${esc(a.name)}</h3><p>${esc(a.subtitle)}</p><div class="match-arena-rule">${icon(a.element&&a.element!=='NONE'?'gem':'compass')}<span>${arenaRule(a)}</span></div></div>`;
+  }
+  function matchArenaOptions(id){return `<div class="match-arena-rail"><button type="button" class="match-arena-arrow" data-action="match-arena-scroll" data-direction="-1" title="Arènes précédentes" aria-label="Arènes précédentes">${icon('chevron-left')}</button><fieldset class="match-arena-options" aria-label="Choisir une arène">${arenas.map(a=>`<label class="match-arena-choice" title="${esc(a.name)}"><input type="radio" name="arena" value="${esc(a.id)}" ${arenaById(id).id===a.id?'checked':''}><img src="${a.image}" alt=""><span>${esc(a.name)}</span></label>`).join('')}</fieldset><button type="button" class="match-arena-arrow" data-action="match-arena-scroll" data-direction="1" title="Arènes suivantes" aria-label="Arènes suivantes">${icon('chevron-right')}</button></div>`;}
+  function refreshMatchLobby(){
+    const form=$('#new-game-form');if(!form)return;
+    const playerChoice=$('#player-match-deck').value,player=matchDeckByChoice(playerChoice),playerErrors=player?deckErrors(player.cards):['Deck introuvable.'];
+    const enemyChoice=$('#enemy-deck-preset').value;let enemy=null,enemyErrors=[];
+    try{enemy=validatedPreset(enemyChoice);}catch(error){enemyErrors=[error.message];}
+    $('#match-player-preview').innerHTML=matchDeckSummary(player?.cards||[],playerErrors);
+    $('#match-enemy-preview').innerHTML=matchDeckSummary(enemy?.cards||[],enemyErrors);
+    const arenaId=new FormData(form).get('arena');$('#match-arena-summary').innerHTML=matchArenaSummary(arenaId);
+    const mode=$('#game-mode').value,enemyTitle=$('#match-enemy-title');
+    enemyTitle.textContent=mode==='ai'?'ADVERSAIRE IA':'JOUEUR 2';
+    $('#match-enemy-name').textContent=mode==='ai'?'Rival':'Joueur 2';
+    $('#enemy-deck-label').textContent=mode==='ai'?'Deck IA':'Deck du joueur 2';
+    $('.match-arena-note').textContent=arenas.length+' arènes disponibles';
+    const submit=form.querySelector('[type="submit"]');submit.disabled=!!(playerErrors.length||enemyErrors.length||!arenas.some(a=>a.id===arenaId));
+  }
   function showArenaPicker(){
     if(rolling)return toast('Le duel se termine…');
     if(game&&game.phase!=='setup')return toast('Arène verrouillée : la rencontre a commencé.');
@@ -243,7 +279,23 @@ function showDeck(){setView('decks');}
       (control||$('#match-dialog [role=tab][aria-selected=true]'))?.focus({preventScroll:true});
     }
   }
-  function newGameDialog(){$('#new-game-dialog').classList.add('arena-picker-dialog');modal('new-game-dialog',head('Nouvelle partie')+`<div class="dialog-body"><form class="dialog-form" id="new-game-form">${arenaChoices(game?.arenaId||load('arena','ruins'))}<label>Adversaire<select id="game-mode"><option value="ai">Adversaire automatique</option><option value="local">Deux joueurs sur cet écran</option></select></label><label><span id="enemy-deck-label">Deck IA</span><select id="enemy-deck-preset">${presetOptions(enemyPresetId)}</select></label><label>Graine des dés<input id="game-seed" maxlength="60" value="KALI-${Math.floor(Math.random()*999999)}" required></label><p class="muted">Deck : ${esc(deckName)} · ${deck.length}/10</p>${game&&game.phase!=='over'?'<p class="validation">La nouvelle partie remplacera la sauvegarde de la partie en cours.</p>':''}<div class="actions"><button type="button" data-action="close">Annuler</button><button class="primary" type="submit" ${deckErrors(deck).length?'disabled':''}>Préparer la formation</button></div></form></div>`);}
+  function newGameDialog(){
+    const arenaId=game?.arenaId||load('arena','ruins'),player=matchDeckSources()[0];
+    $('#new-game-dialog').classList.add('arena-picker-dialog','pre-match-dialog');
+    modal('new-game-dialog',head('Briefing de rencontre')+`<div class="dialog-body"><form id="new-game-form" class="pre-match-form">
+      <div class="matchup-heading"><div><span class="eyebrow">Avant-match · V4</span><h3>Préparez votre affrontement</h3></div><label class="match-mode-control"><span>Format</span><select id="game-mode"><option value="ai">Solo · contre l’IA</option><option value="local">Duel local · 2 joueurs</option></select></label></div>
+      <section class="matchup-decks" aria-label="Composition des équipes">
+        <article class="match-side-card match-side-player"><div class="match-side-heading"><span class="match-team-mark">P1</span><div><small>VOTRE ÉQUIPE</small><h3>Joueur 1</h3></div><span class="match-side-record">VOTRE CAMP</span></div><label class="match-deck-select"><span>Deck de départ</span><select id="player-match-deck">${matchDeckOptions(player.id)}</select></label><div id="match-player-preview">${matchDeckSummary(player.cards,deckErrors(player.cards))}</div></article>
+        <div class="match-versus" aria-hidden="true"><span>VS</span><i></i></div>
+        <article class="match-side-card match-side-enemy"><div class="match-side-heading"><span class="match-team-mark">P2</span><div><small id="match-enemy-title">ADVERSAIRE IA</small><h3 id="match-enemy-name">Rival</h3></div><span class="match-side-record">CAMP ADVERSE</span></div><label class="match-deck-select"><span id="enemy-deck-label">Deck IA</span><select id="enemy-deck-preset">${presetOptions(enemyPresetId)}</select></label><div id="match-enemy-preview"></div></article>
+      </section>
+      <section class="match-arena-section"><div class="match-section-heading"><div><span class="eyebrow">Terrain & affinités</span><h3>Choisissez l’arène</h3></div><span class="match-arena-note">Les bonus s’appliquent aux deux équipes</span></div><div class="match-arena-showcase" id="match-arena-summary">${matchArenaSummary(arenaId)}</div>${matchArenaOptions(arenaId)}</section>
+      <details class="match-advanced"><summary>${icon('settings-2')}Options avancées <span>Graine des dés</span></summary><label>Graine de la rencontre<input id="game-seed" maxlength="60" value="KALI-${Math.floor(Math.random()*999999)}" required></label></details>
+      ${game&&game.phase!=='over'?'<p class="validation match-replace-warning">Cette rencontre remplacera la partie actuellement en cours. Son historique restera archivé.</p>':''}
+      <footer class="match-footer"><div><span class="eyebrow">PRÊT À JOUER ?</span><small>Vérifiez vos postes et vos affinités avant le lancement.</small></div><div class="actions"><button type="button" data-action="close">Retour</button><button class="primary match-launch" type="submit">${icon('swords')}<span>Lancer la rencontre</span></button></div></footer>
+    </form></div>`);
+    refreshMatchLobby();
+  }
   function buffs(p,u,side){
     const f=E.synergy(p,u,'faction'),r=E.synergy(p,u,'race'),arena=E.arenaBonuses(game,u);
     const chip=(key,text,title)=>`<button class="buff-chip ${key}" data-action="bonus" data-side="${side}" data-uid="${u.uid}" data-bonus="${key}" title="${title}" aria-label="${title}">${text}</button>`;
@@ -542,6 +594,9 @@ function showDeck(){setView('decks');}
       if(action==='close'){b.closest('dialog').close();return;}
       if(b.closest('#mobile-dialog')&&action!=='duel-details')$('#mobile-dialog').close();
       if(action==='arena-menu')return showArenaMenu();
+      if(action==='match-arena-scroll'){
+        const rail=$('.match-arena-options');if(rail)rail.scrollBy({left:Number(b.dataset.direction)*Math.max(180,rail.clientWidth*.75),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});return;
+      }
       if(action==='exit-arena')return setView('collection');
       if(action==='duel-details')return modal('mobile-dialog',head('Calculs du duel')+`<div class="dialog-body mobile-recap">${duelRecap(game)}</div>`);
       if(action==='deploy-reserve'){
@@ -661,9 +716,9 @@ function showDeck(){setView('decks');}
     if(e.target.id==='deck-preset'||e.target.id==='enemy-deck-preset'){
       const enemy=e.target.id==='enemy-deck-preset';
       try{const preset=validatedPreset(e.target.value);if(enemy)enemyPresetId=preset.id;else deckPresetId=preset.id;save(enemy?'enemyDeckPreset':'deckPreset',preset.id);}
-      catch(error){e.target.value=enemy?enemyPresetId:deckPresetId;toast(error.message);}return;
+      catch(error){e.target.value=enemy?enemyPresetId:deckPresetId;toast(error.message);}if(enemy)refreshMatchLobby();return;
     }
-    if(e.target.id==='game-mode')$('#enemy-deck-label').textContent=e.target.value==='ai'?'Deck IA':'Deck du joueur 2';
+    if(e.target.id==='player-match-deck'||e.target.id==='game-mode'||e.target.name==='arena'&&e.target.closest('#new-game-form')){refreshMatchLobby();return;}
     if(e.target.id==='career-instance'){ui.careerInstance=e.target.value;$('#detail-dialog .career-panel').outerHTML=Catalogue.career(ui.detail,ui.detailContext?.profile?db:collectionDB(),ui.careerInstance);icons();}
     if(e.target.id==='library-file'){
       const file=e.target.files[0];if(!file||!db)return;
@@ -697,7 +752,7 @@ function showDeck(){setView('decks');}
     if(game?.collection&&game.phase!=='over'&&!confirm('Remplacer cette partie ? La partie actuelle sera abandonnee et ne pourra plus etre reprise. Ses archives seront conservees.'))return;
     const submit=e.target.querySelector('[type="submit"]');submit.disabled=true;
     const requestedFullscreen=!document.fullscreenElement;if(requestedFullscreen)enterFullscreen(false);
-    try{await createGame($('#game-mode').value,$('#game-seed').value.trim()||'KALISTAR',new FormData(e.target).get('arena'),$('#enemy-deck-preset').value);$('#new-game-dialog').close();await setView('arena');}catch(err){if(requestedFullscreen)exitFullscreen();toast(err.message);submit.disabled=false;}
+    try{const selectedDeck=matchDeckByChoice($('#player-match-deck').value);if(!selectedDeck)throw new Error('Deck de départ introuvable.');await createGame($('#game-mode').value,$('#game-seed').value.trim()||'KALISTAR',new FormData(e.target).get('arena'),$('#enemy-deck-preset').value,selectedDeck.cards);$('#new-game-dialog').close();await setView('arena');}catch(err){if(requestedFullscreen)exitFullscreen();toast(err.message);submit.disabled=false;}
   });
   document.addEventListener('error',event=>{
     const img=event.target;
