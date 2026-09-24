@@ -335,3 +335,43 @@ Coverage includes all thresholds, no Reraise/repaint/partial-history awards,
 best-tier career totals, live defense, reload, idempotent saves, forged imports,
 instance ownership and PC/phone layouts with motion enabled and reduced.
 Screenshots: `verification/kill-medals/`.
+
+## Collection and deck comfort (2026-09-24)
+
+The collection filter dialog becomes a bottom sheet on phones. Crystal buttons
+and P1-P5 toggles use the existing filter pipeline and respect collection,
+catalogue and collaboration scopes. The page number opens a thumbnail index
+derived from the measured page capacity, current filters and version groups.
+Both dialogs use native modal focus, Escape/backdrop dismissal, reduced-motion
+support and hidden-scrollbar touch scrolling. Existing book and version-swap
+animations remain unchanged.
+
+The notebook's Fiche lists saved decks for the active local profile containing
+the same character. Exact versions and other versions are distinguished. Links
+open the deck builder without discarding its other in-memory working drafts;
+the matching slot is selected when it is still present in that working draft.
+
+Replacing an occupied slot, by button or drag, opens an outgoing/incoming
+comparison before committing. It displays all six ATK/DEF faces, effect assets,
+magical faces, positions, weapon, gained/lost coverage and faction/race potential
+changes for both cards' groups. Confirmation rechecks availability and slot
+identity. Empty-slot recruitment remains direct. No combat or deck rules change.
+
+Undo/redo covers card recruitment, replacement, removal and slot exchanges.
+Each draft/deck has its own bounded 40-edit session history. Names, imports and
+library deletion are not undoable; imports and external draft replacement reset
+history. Restoring cards rechecks ownership and character/Rainbow limits. Failed
+onDraft writes roll back the edit. Saved decks still require explicit saving.
+
+Phone recruitment shows two larger candidates (three in wide phone layouts),
+with a persistent target slot and previous/next slot controls. The Recruter tab
+can expand recruitment to the whole stage. Screens at most 900px wide and 700px
+high use separate composition/recruitment views to keep controls from overlapping.
+
+Checks: `node V4/site/collection-deck-ux.browser.test.cjs`,
+`node V4/site/collection-versions.test.cjs`,
+`node V4/site/collaborations.test.cjs` and `node V4/site/browser.test.cjs`.
+The new browser suite uses disposable desktop/touch contexts and an in-memory
+failure fixture, checks six viewport sizes, profile isolation, saved/working
+draft navigation, undo branches, drag confirmation and ownership revalidation.
+Screenshots: `verification/collection-deck-ux/`. No personal browser is modified.

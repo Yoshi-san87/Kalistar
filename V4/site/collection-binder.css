@@ -60,6 +60,56 @@ body.collection-view #app { flex: 1 1 0; width: 100%; height: 100%; min-height: 
 .cb-page :is(.lucide,i[data-lucide]) { flex: none; width: 16px; height: 16px; stroke-width: 1.6; }
 .cb-page .cb-icon { flex: 0 0 32px; width: 32px; height: 32px; min-height: 0; padding: 6px; }
 .cb-page [hidden] { display: none !important; }
+/* Native dialogs keep keyboard and touch focus on the active book tools. */
+.cb-page .cb-overlay { inset: 0; width: min(680px,calc(100% - 32px)); max-width: none; max-height: calc(100dvh - 40px); height: auto; margin: auto; padding: 0; border: 1px solid #c8aa78; border-radius: 6px; color: #efe9d8; background: #15251e; box-shadow: 0 18px 70px #0009; overflow: hidden; }
+.cb-overlay::backdrop { background: #040c09b5; backdrop-filter: blur(4px); }
+.cb-page .cb-overlay[open] { height: fit-content; }
+.cb-page .cb-overlay-body { max-height: calc(100dvh - 44px); overflow: auto; overscroll-behavior: contain; scrollbar-width: none; padding: 20px; }
+.cb-overlay-body::-webkit-scrollbar { display: none; }
+.cb-page .cb-overlay .cb-filters { position: static; inset: auto; width: 100%; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; border: 0; background: transparent; box-shadow: none; }
+.cb-overlay .cb-filter-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; grid-column: 1/-1; }
+.cb-overlay .cb-filter-heading h2 { font-size: 23px; }
+.cb-overlay fieldset { min-width: 0; margin: 0; padding: 0; border: 0; grid-column: 1/-1; }
+.cb-overlay legend { padding: 0 0 8px; color: #d6cba9; }
+.cb-filter-crystals > div { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 6px; }
+.cb-page .cb-filter-crystals button { flex-direction: column; min-height: 70px; padding: 6px 2px; font-size: 11px; }
+.cb-filter-crystals img { width: 28px; height: 32px; object-fit: contain; }
+.cb-filter-positions > div { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 6px; }
+.cb-page .cb-overlay button[aria-pressed=true] { background: #594429; color: #fff0c9; border-color: #e5c68b; box-shadow: inset 0 -2px #e5c68b; }
+.cb-page .cb-overlay :is(select,button) { min-height: 44px; }
+.cb-filter-actions { grid-column: 1/-1; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 10px; border-top: 1px solid #d4bd8040; }
+.cb-page .cb-filter-actions > :last-child { color: #18271e; background: #e3d2a6; }
+.cb-page .cb-footer button.cb-page-label { display: flex; flex-direction: column; gap: 2px; background: transparent; border-color: transparent; padding: 3px 14px; min-height: 40px; }
+.cb-page-label > span { display: flex; align-items: center; justify-content: center; gap: 7px; }
+.cb-page-label .lucide { width: 13px; height: 13px; }
+.cb-page .cb-index { width: min(900px,calc(100% - 32px)); }
+.cb-page-thumbnails { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; margin-top: 18px; }
+.cb-page .cb-page-thumbnails > button { display: flex; flex-direction: column; padding: 6px; border-color: transparent; background: transparent; gap: 7px; }
+.cb-page-thumbnails > button > span:last-child { display: flex; align-items: center; gap: 8px; }
+.cb-page .cb-page-thumbnails > button[aria-current=page] { border-color: #ead19e; color: #f8ddac; background: #caae6520; }
+.cb-mini-book { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; width: 100%; aspect-ratio: 2/1; padding: 8% 9%; background: url('assets/ui/collection-grimoire-v1.png') center / 100% 100%; }
+.cb-mini-book[data-single=true] { grid-template-columns: 1fr; aspect-ratio: .85; background: url('assets/ui/collection-reader-grimoire-v1.png') right / 200% 100%; }
+.cb-mini-leaf { display: grid; grid-template-columns: repeat(var(--mini-columns),minmax(0,1fr)); grid-auto-rows: minmax(0,1fr); align-items: center; justify-items: center; gap: 5px; min-height: 0; }
+.cb-mini-leaf img { display: block; width: 100%; height: 100%; min-height: 0; max-height: 110px; object-fit: contain; }
+.cb-deck-usage { grid-column: 1/-1; margin-top: 16px; padding-top: 12px; border-top: 1px solid #68432655; }
+.cb-page .cb-deck-usage h3 { font-size: 17px; margin-bottom: 8px; color: #362314; }
+.cb-read-content:has(.cb-profile) { overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; scrollbar-width: none; }
+.cb-page .cb-index .cb-filter-heading { position: sticky; top: -20px; z-index: 2; margin-top: -20px; padding-block: 16px; background: #15251e; }
+.cb-page .cb-deck-usage > button { display: flex; width: 100%; gap: 10px; justify-content: flex-start; padding: 9px 8px; margin-bottom: 5px; }
+.cb-deck-usage button > span { display: flex; flex: 1; flex-direction: column; min-width: 0; text-align: left; overflow-wrap: anywhere; }
+.cb-deck-usage p { font-size: 13px; }
+@media (max-width:699px), (max-width:950px) and (max-height:500px) {
+  .cb-page .cb-overlay { width: 100%; max-height: calc(100dvh - 24px); margin: auto 0 0; border-radius: 8px 8px 0 0; border-bottom: 0; }
+  .cb-page .cb-overlay-body { max-height: calc(100dvh - 26px); padding: 16px 16px max(16px,env(safe-area-inset-bottom)); }
+  .cb-page .cb-overlay .cb-filters { gap: 12px; }
+  .cb-filter-crystals > div { grid-template-columns: repeat(4,minmax(0,1fr)); }
+  .cb-page-thumbnails { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
+  .cb-page .cb-overlay select { font-size: 16px; }
+}
+@media (prefers-reduced-motion:no-preference) {
+  .cb-overlay.is-entering[open] { animation: cb-tools-enter .24s ease-out; }
+  @keyframes cb-tools-enter { from { opacity: 0; translate: 0 14px; } to { opacity: 1; translate: 0 0; } }
+}
 .cb-page [data-binder-action=favorite][aria-pressed=true],.cb-page [data-binder-action=favorites][aria-pressed=true] { color: var(--cb-rose); border-color: #e4a8b55c; }
 .cb-page [data-binder-action=favorite][aria-pressed=true] .lucide { fill: #e4a8b52b; }
 .cb-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; clip-path: inset(50%); overflow: hidden; white-space: nowrap; }

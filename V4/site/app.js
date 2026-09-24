@@ -148,6 +148,8 @@
     if(!collectionBinder)collectionBinder=KalistarCollection.create({
       data,getOwned:owned,getCatalogueChanges:()=>db?.catalogueChanges()||[],getFavorites:()=>favorites,getCareer:(id,instance)=>collectionDB()?.career(id,instance),artImage,
       profile:accountId===KalistarOwnership.PARIS?'Paris':'Tokyo',
+      getDecks:()=>builder().listDecks(),
+      onOpenDeck:async(id,cardId)=>{try{builder().openDeck(id,cardId);await setView('decks');}catch(error){toast(error.message);}},
       onFavorite:id=>{favorites.has(id)?favorites.delete(id):favorites.add(id);save('favorites',[...favorites]);},
       onRegistry:id=>openAccounts(id&&owned(id).length?'collection':'activation',id?owned(id)[0]?.id:null),
       onArchives:showDatabase,onHistory:id=>{const archived=db?.match(id);if(archived)showMatchStats(archived.state,archived);}

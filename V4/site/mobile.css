@@ -62,6 +62,7 @@
     background-position: right center; background-size: 200% 112%; filter: none;
   }
   .cb-spread::before, .cb-spread::after, .cb-page .cb-page-edge { display: none; }
+  @media (max-height:650px) { .cb-page[data-mode=book] .cb-spread { padding-bottom: 42px; } }
   .cb-sheet { padding: 0; row-gap: 16px; }
   .cb-shelf-row { grid-template-columns: repeat(var(--cb-row-count),minmax(0,1fr)); gap: 12px; }
   .cb-pocket, .cb-spread[data-rows="2"] .cb-pocket {
@@ -109,6 +110,11 @@
   .cb-page[data-mode=reader] .cb-versions button { font-size: 11px; }
   .cb-page[data-mode=reader] .cb-copy b { overflow-wrap: anywhere; font-size: 12px; }
   .cb-page[data-mode=reader] .cb-reading :is(button,select) { min-height: 44px; }
+  @media (min-width:700px) and (max-height:500px) {
+    .cb-page:has(.cb-scopes [data-id=replicant]) { --cb-header: 44px; }
+    .cb-heading:has(.cb-scopes [data-id=replicant]) { display: flex; gap: 4px; }
+    .cb-page[data-mode=reader] .cb-workbench { padding: 18px 10% 24px 8%; }
+  }
 
   /* Short leaves scroll as one manuscript, so edition titles cannot hide the story. */
   @container (max-height: 440px) {

@@ -106,6 +106,8 @@
     let drag = null, dragFrame = 0, reorderFrom = null, reorderTo = null, suppressClickUntil = 0, announcement = '';
     let mountedWindow = null, mountedDocument = null;
     let affinityType = 'faction', affinityPage = 0, panel = 'board', managing = false, filtering = false;
+    const histories = new Map();
+    let comparison = null;
     let filters = { search: '', position: '', faction: '', race: '', element: '', weapon: '', synergy: '' };
     function normalize(value) {
       if (!value || typeof value.name !== 'string' || value.name.length > 50 || /[\x00-\x1f\x7f]/.test(value.name) || !Array.isArray(value.cards) || value.cards.length > 10)
@@ -126,8 +128,34 @@
       catch (error) { libraryError = error.message; return []; }
     }
     function emit() { working.set(selected, clone(draft)); onDraft(clone(draft)); }
+    const editState = () => ({ cards: draft.cards.slice(), target, previewId });
+    function history() {
+      if (!histories.has(selected)) histories.set(selected, { undo: [], redo: [] });
+      return histories.get(selected);
+    }
+    function remember(before) {
+      const h = history(); h.undo.push(before); if (h.undo.length > 40) h.undo.shift(); h.redo = [];
+    }
+    function travel(direction) {
+      if (busy || comparison) return;
+      const h = history(), next = h[direction].at(-1); if (!next) return;
+      const ids = next.cards.filter(Boolean), characters = ids.map(id => byId.get(id)?.characterId || id);
+      const errors = errorsFrom(() => registry.deckErrors(userId, ids));
+      if (errors.length || new Set(characters).size !== characters.length || ids.filter(id => byId.get(id)?.element === 'RAINBOW').length > 1) {
+        toast(errors[0] || 'Cette composition n\u2019est plus disponible.'); return;
+      }
+      const before = editState();
+      draft.cards = next.cards.slice(); target = next.target; previewId = next.previewId;
+      try { emit(); }
+      catch (error) { draft.cards = before.cards; target = before.target; previewId = before.previewId; working.set(selected, clone(draft)); toast(error.message); return; }
+      h[direction].pop(); h[direction === 'undo' ? 'redo' : 'undo'].push(before);
+      cancelReorder(); page = 0; pendingDelete = false;
+      announce(direction === 'undo' ? 'Modification annul\u00e9e.' : 'Modification r\u00e9tablie.');
+      repaint({ action: direction });
+    }
     function setDraft(next, id = selected) {
       cancelReorder();
+      comparison = null;
       draft = normalize(next); selected = id; pendingDelete = false;
       target = Math.max(0, draft.cards.indexOf(null)); page = 0; previewId = null; emit();
     }
@@ -205,6 +233,28 @@
         <span class="kdb-candidate-gain" title="Variation de potentiel au slot ${target+1}">${icon('sword')}${signed(f.delta)} ${icon('shield')}${signed(r.delta)}</span>
         <div class="kdb-candidate-controls"><span>${d.copies}/${d.available}</span>${button('add', draft.cards[target] ? 'replace' : 'plus', d.allowed ? (draft.cards[target] ? 'Remplacer le slot ' : 'Ajouter au slot ') + (target + 1) + ' : ' + c.name : d.reason, `data-id="${c.id}" ${d.allowed && !busy ? '' : 'disabled'}`)}</div></div></article>`;
     }
+    function comparisonHTML() {
+      if (!comparison) return '';
+      const old = byId.get(comparison.outgoing), next = byId.get(comparison.id), detail = model.candidate(draft.cards, comparison.index, next.id);
+      const face = (c, field, i) => {
+        const value = c[field][i], magical = (field === 'atk' ? c.magic : c.barriers).includes(6-i);
+        const label = ({guard:'Garde',retry:'Tr\u00e8fle',mana:'Potion',revive:'Reraise',death:'Mort',dodge:'Esquive',buff_atk:'Puissance physique'})[value] || value;
+        return `<td class="${magical?'is-magic':''}" title="${magical?field==='atk'?'Magique':'Barri\u00e8re magique':'Physique'}">${typeof value === 'number'?`${magical?icon('sparkles'):''}${value}`:`<img src="${globalThis.KalistarCollaborations.asset('effets',value)}" alt="${esc(label)}">`}</td>`;
+      };
+      const after = draft.cards.slice(); after[comparison.index] = next.id;
+      const gains = ['faction','race'].flatMap(field => {
+        const beforeGroups = model.groups(draft.cards,field), afterGroups = model.groups(after,field);
+        return [...new Set([old[field],next[field]])].flatMap(value => {
+          const before = beforeGroups.find(g=>g.value===value)?.bonus||0, bonus = afterGroups.find(g=>g.value===value)?.bonus||0;
+          return bonus===before?[]:[`<span class="${bonus>before?'kdb-positive':'kdb-warning'}">${icon(field==='faction'?'sword':'shield')}${esc(value)} ${signed(bonus-before)}</span>`];
+        });
+      });
+      return `<dialog class="kdb-compare" aria-labelledby="kdb-compare-title"><header><h2 id="kdb-compare-title">Remplacement · Slot ${comparison.index+1}</h2>${button('cancel-replace','x','Annuler le remplacement','autofocus')}</header><div class="kdb-compare-body"><div class="kdb-compare-cards">${[old,next].map((c,i)=>`<figure><small>${i?'Entrante':'Sortante'}</small><img src="${image(c)}" alt="${esc(c.name+' : '+c.title)}"><figcaption><b>${esc(c.name)}</b><span>${esc(c.title)}</span><small>${c.positions.map(p=>'P'+p).join(' · ')} · ${esc(c.weapon)}</small></figcaption></figure>`).join('')}</div><table class="kdb-compare-faces"><caption>Faces ATK / DEF</caption><thead><tr><th colspan="2">${esc(old.name)}</th><th>Dé</th><th colspan="2">${esc(next.name)}</th></tr><tr><th>${icon('sword')}ATK</th><th>${icon('shield')}DEF</th><th></th><th>${icon('sword')}ATK</th><th>${icon('shield')}DEF</th></tr></thead><tbody>${[6,5,4,3,2,1].map((die,i)=>`<tr>${face(old,'atk',i)}${face(old,'defense',i)}<th>${die}</th>${face(next,'atk',i)}${face(next,'defense',i)}</tr>`).join('')}</tbody></table><div class="kdb-compare-gains"><h3>Variation du potentiel de synergie</h3>${gains.join('')||'<span>Inchangé</span>'}${detail.lostCoverage.length?`<p class="kdb-warning">Couverture perdue : ${detail.lostCoverage.map(p=>'P'+p).join(', ')}</p>`:''}${detail.coverage.length?`<p class="kdb-positive">Couverture renforcée : ${detail.coverage.map(p=>'P'+p).join(', ')}</p>`:''}</div></div><footer><button type="button" data-deck-action="cancel-replace">Annuler</button><button type="button" data-deck-action="confirm-replace" ${detail.allowed?'':'disabled'}>${icon('replace')}Remplacer</button></footer></dialog>`;
+    }
+    function targetHTML() {
+      const c = byId.get(draft.cards[target]);
+      return `<div class="kdb-target" aria-label="Emplacement ciblé">${c?`<img src="${image(c)}" alt="">`:icon('plus')}<span><small>Slot ${target+1} · ${c?'Remplacement':'Libre'}</small><b>${c?esc(c.name):'Nouvelle carte'}</b></span>${button('target-previous','chevron-left','Emplacement précédent',target===0?'disabled':'')}${button('target-next','chevron-right','Emplacement suivant',target===9?'disabled':'')}</div>`;
+    }
     function render() {
       const saved = savedDecks(), state = model.evaluate(draft.cards), list = visibleCandidates();
       const entry = saved.find(d => d.id === selected), dirty = !entry || JSON.stringify(clone(entry)) !== JSON.stringify(draft);
@@ -219,9 +269,9 @@
         <div class="kdb-library-bar" ${managing ? '' : 'hidden'}><div class="kdb-menu-heading"><b>${saved.length}/10 decks</b><span class="kdb-save-state" data-deck-save-state>${dirty ? 'Non enregistré' : 'Enregistré'}</span>${button('manage','x','Fermer la gestion')}</div><div class="kdb-library-actions">${button('duplicate','copy','Dupliquer le deck courant',locked || saved.length >= 10 ? 'disabled' : '')}${button('new','file-plus-2','Nouveau brouillon',busy ? 'disabled' : '')}${button('delete','trash-2','Supprimer le deck sauvegardé',locked || !selected ? 'disabled' : '')}${button('export','download','Exporter la bibliothèque JSON',locked || !saved.length ? 'disabled' : '')}${button('import','upload','Importer une bibliothèque JSON',locked ? 'disabled' : '')}</div></div><input type="file" accept="application/json,.json" data-deck-file hidden>
         ${libraryError ? `<p class="kdb-storage-error" role="alert">Bibliothèque : ${esc(libraryError)}</p>` : ''}
         ${pendingDelete ? `<div class="kdb-delete-confirm" role="group" aria-label="Confirmer la suppression"><span>Supprimer ${esc(entry?.name)} ?</span>${button('confirm-delete','check','Confirmer la suppression')}${button('cancel-delete','x','Annuler la suppression')}</div>` : ''}
-        <nav class="kdb-mobile-nav" role="tablist" aria-label="Vues de composition">${[['board','Composition','layout-grid'],['synergy','Synergies','git-branch'],['inspect','Carte','scan-eye']].map(([id,label,symbol]) => `<button data-deck-action="panel" data-id="${id}" role="tab" aria-selected="${panel === id}" aria-controls="kdb-panel-${id}" tabindex="${panel === id ? 0 : -1}">${icon(symbol)}${label}</button>`).join('')}</nav>
+        <nav class="kdb-mobile-nav" role="tablist" aria-label="Vues de composition">${[['board','Composition','layout-grid'],['recruit','Recruter','user-plus'],['synergy','Synergies','git-branch'],['inspect','Carte','scan-eye']].map(([id,label,symbol]) => `<button data-deck-action="panel" data-id="${id}" role="tab" aria-selected="${panel === id}" aria-controls="kdb-panel-${id}" tabindex="${panel === id ? 0 : -1}">${icon(symbol)}${label}</button>`).join('')}</nav>
         <div class="kdb-workbench"><aside class="kdb-affinities" id="kdb-panel-synergy" aria-label="Synergies du deck"><div class="kdb-band-heading"><h2>Synergies</h2>${icon('git-branch')}</div><div class="kdb-affinity-tabs" role="group" aria-label="Type de synergie">${[['faction','Factions','flag'],['race','Races','users-round']].map(([id,label,symbol])=>`<button data-deck-action="affinity-type" data-id="${id}" aria-pressed="${affinityType === id}">${icon(symbol)}${label}</button>`).join('')}</div>${groupHTML(affinityType)}<p class="kdb-synergy-note">Potentiel · 5 cartes sur le plateau</p></aside>
-        <section class="kdb-composition" id="kdb-panel-board" aria-label="Dix emplacements du deck"><div class="kdb-band-heading"><h2>Composition</h2><small>Slot ${target + 1} sélectionné</small></div>
+        <section class="kdb-composition" id="kdb-panel-board" aria-label="Dix emplacements du deck"><div class="kdb-band-heading"><h2>Composition</h2><div class="kdb-edit-tools">${button('undo','undo-2','Annuler la modification',history().undo.length&&!busy?'':'disabled')}${button('redo','redo-2','Rétablir la modification',history().redo.length&&!busy?'':'disabled')}<small>Slot ${target + 1}</small></div></div>
         <div class="kdb-slots"><svg class="kdb-links" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">${linksHTML()}</svg>${draft.cards.map((id, i) => {
           const c = byId.get(id), unavailable = c && draft.cards.filter(other => other === id).length > model.availability(id).available;
           return `<div class="kdb-slot ${i === target ? 'is-selected' : ''} ${unavailable ? 'is-unavailable' : ''}" data-deck-slot="${i}" ${c ? `data-deck-preview="${id}"` : ''}><div class="kdb-slot-top"><span>${String(i + 1).padStart(2, '0')}</span>${button('reorder', 'grip-vertical', '\u00c9changer le slot ' + (i + 1) + (c ? ' : ' + c.name : ' vide'), `data-slot="${i}" aria-pressed="${reorderFrom === i}" ${busy ? 'disabled' : ''}`)}${c ? button('remove', 'x', 'Retirer ' + c.name + ' du slot ' + (i + 1), `data-slot="${i}" ${busy ? 'disabled' : ''}`) : '<span class="kdb-empty-tool"></span>'}</div>
@@ -230,9 +280,9 @@
 
         <p class="kdb-reorder-status" data-deck-reorder-status role="status" aria-live="polite" aria-atomic="true">${esc(announcement)}</p>
         <div class="kdb-coverage" aria-label="Compatibilité par poste">${state.coverage.map((n,p)=>`<button type="button" data-deck-action="position-filter" data-id="${p+1}" class="${n < 2 ? 'is-missing' : ''}" title="P${p+1} ${ROLES[p]} : ${n} compatibles, 2 requis"><b>${icon(['shield','sword','compass','sparkles','heart-pulse'][p])}P${p+1}<span>${n}/2</span></b><small>${ROLES[p]}</small></button>`).join('')}</div>
-        <div class="kdb-validation" role="status"><span class="${state.playable ? 'kdb-positive' : 'kdb-warning'}" title="${esc(state.errors.join(' '))}">${state.playable ? 'Formation P1–P5 possible' : esc(state.errors.join(' '))}</span></div></section>
+        <div class="kdb-validation" role="status"><span class="${state.playable ? 'kdb-positive' : 'kdb-warning'}" title="${esc(state.errors.join(' '))}">${state.playable ? 'Formation P1–P5 possible' : state.count<10?`${10-state.count} carte${state.count<9?'s':''} à recruter` : esc(state.errors[0]||'Formation incomplète')}</span></div></section>
         <aside class="kdb-preview" id="kdb-panel-inspect" aria-label="Aperçu de carte"><div class="kdb-preview-content" data-deck-preview-panel>${previewHTML()}</div></aside>
-        <section class="kdb-browser" aria-label="Cartes candidates"><div class="kdb-band-heading"><h2>Recrutement <small>${list.total}</small></h2><div class="kdb-recruit-tools"><label class="kdb-search"><span class="kdb-sr-only">Recherche</span><input type="search" data-deck-filter="search" aria-label="Recherche de cartes" value="${esc(filters.search)}" placeholder="Rechercher" autocomplete="off"></label>${button('filters','sliders-horizontal','Filtres de recrutement',`aria-expanded="${filtering}"`)}${Object.values(filters).some(Boolean)?button('reset-filters','filter-x','Effacer les filtres'):''}<nav class="kdb-pagination" aria-label="Pages de candidates">${button('previous','chevron-left','Page précédente',page === 0 ? 'disabled' : '')}<span>${page+1} / ${list.pages}</span>${button('next','chevron-right','Page suivante',page >= list.pages-1 ? 'disabled' : '')}</nav></div></div>${filtersHTML()}<div class="kdb-candidates" style="--recruit-count:${pageSize}">${list.items.map(candidateHTML).join('') || '<p class="kdb-empty-results">Aucune carte pour ces filtres.</p>'}</div></section></div></section>`;
+        <section class="kdb-browser" aria-label="Cartes candidates"><div class="kdb-band-heading"><h2>Recrutement <small>${list.total}</small></h2><div class="kdb-recruit-tools"><label class="kdb-search"><span class="kdb-sr-only">Recherche</span><input type="search" data-deck-filter="search" aria-label="Recherche de cartes" value="${esc(filters.search)}" placeholder="Rechercher" autocomplete="off"></label>${button('filters','sliders-horizontal','Filtres de recrutement',`aria-expanded="${filtering}"`)}${Object.values(filters).some(Boolean)?button('reset-filters','filter-x','Effacer les filtres'):''}<nav class="kdb-pagination" aria-label="Pages de candidates">${button('previous','chevron-left','Page précédente',page === 0 ? 'disabled' : '')}<span>${page+1} / ${list.pages}</span>${button('next','chevron-right','Page suivante',page >= list.pages-1 ? 'disabled' : '')}</nav></div></div>${filtersHTML()}${targetHTML()}<div class="kdb-candidates" style="--recruit-count:${pageSize}">${list.items.map(candidateHTML).join('') || '<p class="kdb-empty-results">Aucune carte pour ces filtres.</p>'}</div></section></div>${comparisonHTML()}</section>`;
     }
     function icons(node) { globalThis.lucide?.createIcons({ root: node }); }
     function repaint(focus) {
@@ -244,9 +294,13 @@
       painting = true;
       try {
         root.innerHTML = render(); icons(root); markReorder(); highlightLinks();
+        root.querySelector('.kdb-browser').id = 'kdb-panel-recruit';
+        const dialog = root.querySelector('.kdb-compare'); dialog?.showModal();
+        if (dialog) return;
         if (!descriptor) return;
         const next = [...root.querySelectorAll('button,input,select')].find(n => descriptor.filter ? n.dataset.deckFilter === descriptor.filter : descriptor.action && n.dataset.deckAction === descriptor.action && (descriptor.id === undefined || n.dataset.id === descriptor.id) && (descriptor.slot === undefined || n.dataset.slot === descriptor.slot));
         if (next && !next.disabled) { next.focus({ preventScroll: true }); if (descriptor.start !== null && descriptor.start !== undefined && next.type === 'search') next.setSelectionRange(descriptor.start, descriptor.end); }
+        else { const stage = root.querySelector('.kdb-page'); stage.tabIndex = -1; stage.focus({ preventScroll: true }); }
       } finally { painting = false; }
     }
     function showPreview(id) {
@@ -290,23 +344,28 @@
     }
     function swapSlots(from, to) {
       if (busy || painting || !Number.isInteger(from) || !Number.isInteger(to) || from < 0 || from > 9 || to < 0 || to > 9 || from === to) return;
-      const before = clone(draft), oldTarget = target, oldPreview = previewId;
+      const before = clone(draft), oldTarget = target, oldPreview = previewId, undo = editState();
       if (before.cards[from] === before.cards[to]) return;
       const next = clone(draft); [next.cards[from], next.cards[to]] = [next.cards[to], next.cards[from]];
       draft = next; target = to; previewId = next.cards[to]; pendingDelete = false; page = 0;
       try { emit(); }
       catch (error) { draft = before; target = oldTarget; previewId = oldPreview; working.set(selected, clone(before)); toast(error.message); repaint(); return; }
+      remember(undo);
       announce('Slots ' + (from + 1) + ' et ' + (to + 1) + ' \u00e9chang\u00e9s.');
       repaint({ action: 'slot', slot: String(to) });
     }
-    function recruitTo(id, index, advance = false) {
+    function recruitTo(id, index, advance = false, confirmed = false) {
       const candidate = model.candidate(draft.cards, index, id);
       if (busy || !candidate?.allowed) { toast(candidate?.reason || 'Carte indisponible.'); return; }
-      const before = clone(draft), oldTarget = target, oldPreview = previewId;
+      if (draft.cards[index] && !confirmed) {
+        comparison = { id, index, advance, outgoing: draft.cards[index], deck: selected }; repaint(); return;
+      }
+      const before = clone(draft), oldTarget = target, oldPreview = previewId, undo = editState();
       draft = clone(draft); draft.cards[index] = id; target = index; previewId = id; pendingDelete = false;
       if (advance) { const empty = draft.cards.indexOf(null); if (empty >= 0) target = empty; }
       try { emit(); }
       catch (error) { draft = before; target = oldTarget; previewId = oldPreview; working.set(selected, clone(before)); toast(error.message); repaint(); return; }
+      remember(undo);
       announce(byId.get(id).name + ' rejoint le slot ' + (index + 1) + '.');
       repaint({ action: 'slot', slot: String(target) });
     }
@@ -388,11 +447,15 @@
     function nativeDrag(event) { if (event.target.closest('[data-deck-slot],[data-deck-recruit]')) event.preventDefault(); }
     function reorderKey(event) {
       if (busy || painting) return;
+      if (comparison) { if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); closeComparison(); } return; }
+      if ((event.ctrlKey || event.metaKey) && !event.altKey && !event.target.closest('input,textarea,select,[contenteditable=true]') && ['z','y'].includes(event.key.toLowerCase())) {
+        event.preventDefault(); event.stopPropagation(); travel(event.key.toLowerCase()==='y'||event.shiftKey?'redo':'undo'); return;
+      }
       if (event.key === 'Escape' && (drag || reorderFrom !== null)) { event.preventDefault(); event.stopPropagation(); interrupt(); return; }
       if (event.key === 'Escape' && (managing || filtering)) { event.preventDefault(); managing = filtering = pendingDelete = false; repaint(); return; }
       if (event.target.matches('[data-deck-action=panel]') && ['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) {
-        const panels = ['board','synergy','inspect'], i = panels.indexOf(panel);
-        panel = panels[event.key === 'Home' ? 0 : event.key === 'End' ? 2 : (i + (event.key === 'ArrowRight' ? 1 : 2)) % 3];
+        const panels = ['board','recruit','synergy','inspect'], i = panels.indexOf(panel);
+        panel = panels[event.key === 'Home' ? 0 : event.key === 'End' ? panels.length-1 : (i + (event.key === 'ArrowRight' ? 1 : panels.length-1)) % panels.length];
         event.preventDefault(); repaint({action:'panel',id:panel}); return;
       }
       if (reorderFrom === null) return;
@@ -422,14 +485,28 @@
       const value = clone(draft);
       if (asCopy) value.name = value.name.slice(0, 42) + ' (copie)';
       else if (selected) value.id = selected;
-      const result = library.save(value); setDraft(result, result.id); toast('Deck enregistr\u00e9.');
+      const edits = history(), result = library.save(value); setDraft(result, result.id);
+      histories.set(result.id, { undo: edits.undo.slice(), redo: edits.redo.slice() }); toast('Deck enregistr\u00e9.');
+    }
+    function closeComparison() {
+      const pending = comparison; comparison = null;
+      repaint(pending ? { action: 'add', id: pending.id } : undefined);
     }
     async function click(event) {
+      if (event.target.matches('.kdb-compare')) { event.stopPropagation(); closeComparison(); return; }
       const control = event.target.closest('[data-deck-action]');
       if (!control || !root?.contains(control) || control.tagName !== 'BUTTON') return;
       event.stopPropagation(); if (control.disabled || busy || painting) return;
       const action = control.dataset.deckAction, id = control.dataset.id;
       try {
+        if (action === 'cancel-replace') { closeComparison(); return; }
+        if (action === 'confirm-replace' && comparison) {
+          const pending = comparison; comparison = null;
+          if (selected !== pending.deck || draft.cards[pending.index] !== pending.outgoing) { toast('La composition a changé.'); repaint(); return; }
+          recruitTo(pending.id, pending.index, pending.advance, true); repaint({action:'slot',slot:String(target)}); return;
+        }
+        if (comparison) return;
+        if (action === 'undo' || action === 'redo') { travel(action); return; }
         if (action === 'reorder') {
           const index = Number(control.dataset.slot), from = reorderFrom;
           cancelReorder();
@@ -456,17 +533,22 @@
           const ids = ['', ...savedDecks().map(d=>d.id)], at = ids.indexOf(selected), nextId = ids[(at + (action === 'deck-next' ? 1 : ids.length - 1)) % ids.length];
           working.set(selected, clone(draft)); setDraft(working.get(nextId) || library.get(nextId), nextId);
         }
-        if (action === 'slot') { target = Number(control.dataset.slot); previewId = draft.cards[target]; page = 0; }
-        if (action === 'remove') { target = Number(control.dataset.slot); draft.cards[target] = null; pendingDelete = false; emit(); }
+        if (action === 'slot' || action === 'target-previous' || action === 'target-next') { target = action==='slot'?Number(control.dataset.slot):Math.max(0,Math.min(9,target+(action==='target-next'?1:-1))); previewId = draft.cards[target]; page = 0; }
+        if (action === 'slot' && mountedWindow?.matchMedia('(max-width:900px) and (max-height:700px)').matches) panel='recruit';
+        if (action === 'remove') {
+          const before = editState(); target = Number(control.dataset.slot); draft.cards = draft.cards.slice(); draft.cards[target] = null; pendingDelete = false; previewId = null;
+          try { emit(); remember(before); }
+          catch (error) { draft.cards = before.cards; target = before.target; previewId = before.previewId; working.set(selected, clone(draft)); throw error; }
+        }
         if (action === 'add') {
           recruitTo(id, target, true); return;
         }
         if (action === 'save' || action === 'duplicate') saveCurrent(action === 'duplicate');
-        if (action === 'new') { working.set(selected, clone(draft)); setDraft({ name: 'Nouveau deck', cards: Array(10).fill(null) }, ''); }
+        if (action === 'new') { working.set(selected, clone(draft)); histories.delete(''); setDraft({ name: 'Nouveau deck', cards: Array(10).fill(null) }, ''); }
         if (action === 'delete') pendingDelete = true;
         if (action === 'cancel-delete') pendingDelete = false;
         if (action === 'confirm-delete' && pendingDelete && selected) {
-          library.remove(selected); working.delete(selected); selected = ''; pendingDelete = false; emit(); toast('Deck supprim\u00e9. Composition conserv\u00e9e en brouillon.');
+          library.remove(selected); histories.delete(selected); histories.delete(''); working.delete(selected); selected = ''; pendingDelete = false; emit(); toast('Deck supprim\u00e9. Composition conserv\u00e9e en brouillon.');
         }
         if (action === 'group-filter') { filters[control.dataset.field] = filters[control.dataset.field] === control.dataset.value ? '' : control.dataset.value; page = 0; }
         if (action === 'reset-filters') { filters = Object.fromEntries(Object.keys(filters).map(k => [k, ''])); page = 0; }
@@ -515,21 +597,23 @@
           if (file.size > 65536) throw new Error('Fichier JSON trop volumineux.');
           const epoch = ++fileEpoch, content = await file.text();
           if (!root || fileEpoch !== epoch) return;
-          library.importJSON(content); toast('Biblioth\u00e8que import\u00e9e.');
+          library.importJSON(content); histories.clear(); working = new Map(); selected = ''; emit(); toast('Biblioth\u00e8que import\u00e9e.');
         }
         if (node.dataset.deckAction !== 'name') repaint();
       } catch (error) { toast(error.message); repaint(); }
     }
     function preview(event) {
-      if (painting || drag?.active || reorderFrom !== null) return;
+      if (painting || comparison || drag?.active || reorderFrom !== null) return;
       const node = event.target.closest('[data-deck-preview]');
       if (node && root?.contains(node)) showPreview(node.dataset.deckPreview);
     }
     function size() {
-      const width = root?.querySelector('.kdb-browser')?.getBoundingClientRect().width || 1200, next = Math.max(3, Math.min(10, Math.floor(width / 150)));
+      const width = root?.querySelector('.kdb-browser')?.getBoundingClientRect().width || root?.getBoundingClientRect().width || 1200;
+      const next = width < 600 ? 2 : root?.getBoundingClientRect().width<=900?3:Math.max(3, Math.min(10, Math.floor(width / 150)));
       if (pageSize !== next) { pageSize = next; page = 0; repaint(); }
     }
     function detach() {
+      root?.querySelector('.kdb-compare')?.close(); comparison = null;
       cancelReorder(); suppressClickUntil = 0;
       fileEpoch++; resizeObserver?.disconnect(); resizeObserver = null;
       if (root) for (const [type, fn, capture] of listeners) root.removeEventListener(type, fn, capture);
@@ -545,7 +629,7 @@
       if (source.cards.length < 10 && source.cards.every(id => id !== null) &&
           JSON.stringify(source.cards) === JSON.stringify(draft.cards.filter(id => id !== null))) incoming.cards = draft.cards.slice();
       if (JSON.stringify(incoming) !== JSON.stringify(draft)) {
-        working = new Map(); draft = incoming; selected = ''; working.set('', clone(draft));
+        histories.clear(); comparison = null; working = new Map(); draft = incoming; selected = ''; working.set('', clone(draft));
         target = Math.max(0, draft.cards.indexOf(null)); pendingDelete = false; previewId = null;
       }
       const saved = savedDecks();
@@ -570,6 +654,13 @@
         if (Observer) { resizeObserver = new Observer(size); resizeObserver.observe(root); }
       },
       refresh, destroy: detach,
+      listDecks: () => savedDecks().map(d=>({...d,cards:d.cards.slice()})),
+      openDeck(id, cardId) {
+        const saved = savedDecks().find(d=>d.id===id); if (!saved) throw new Error('Deck introuvable pour ce profil.');
+        working.set(selected, clone(draft)); setDraft(working.get(id)||saved, id);
+        const index = draft.cards.findIndex(value=>value===cardId); if(index>=0){target=index;previewId=cardId;}
+        panel='board'; filtering=managing=false;
+      },
       inspect: () => ({ draft: clone(draft), selectedId: selected || null, targetSlot: target, ...model.evaluate(draft.cards) })
     });
   }
