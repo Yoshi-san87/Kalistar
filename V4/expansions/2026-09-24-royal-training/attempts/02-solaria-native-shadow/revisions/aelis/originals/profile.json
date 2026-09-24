@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 4,
+  "id": "30000006",
+  "name": "AELIS",
+  "title": "LA LUMIERE AUX OUBLIES",
+  "job": "SOIGNEUSE",
+  "race": "AURELION",
+  "element": "LUXO",
+  "faction": "Solaria",
+  "weapon": "Bâton",
+  "positions": [
+    5
+  ],
+  "atk": [
+    172,
+    140,
+    115,
+    83,
+    51,
+    "revive"
+  ],
+  "defense": [
+    204,
+    167,
+    130,
+    100,
+    63,
+    26
+  ],
+  "magic": [
+    6,
+    5,
+    4,
+    3,
+    2
+  ],
+  "barriers": [
+    6,
+    5,
+    3
+  ],
+  "slug": "06_LUXO_AELIS",
+  "hue": 47,
+  "color": "F4E9AF",
+  "weapon_index": 10,
+  "description": "Dans le sanctuaire brisé, Aelis ramasse les fragments d'une lanterne. Elle en recoud la lumière pour ceux que la cité a rejetés. Son premier miracle n'est pas de juger les âmes, mais de leur faire une place.",
+  "artwork": "AELIS",
+  "artworkSource": "V3/assets/illustrations/06_LUXO_AELIS.png",
+  "artworkUnchanged": true,
+  "sourcePSD": "V3/templates/06_LUXO_AELIS.psd",
+  "output": "AELIS_V4_01_LUXO",
+  "profile": "V4/template-stable/elements-01/aelis/card.json"
+}

@@ -1,0 +1,56 @@
+{
+  "status": "preview-not-native",
+  "spec": {
+    "key": "keryn",
+    "characterId": "keryn",
+    "name": "KERYN",
+    "title": "PERSONNE SUR L'AUTRE RIVE",
+    "job": "PASSEUR",
+    "description": "Keryn ramène sa nacelle contre les vents de Nestown. Sous son manteau, les remèdes sont encore secs. Il aurait pu attendre une accalmie, mais quelqu'un, sur l'autre rive, n'avait plus ce temps-là.",
+    "element": "AERO",
+    "race": "KORBOW",
+    "weapon": "Bâton",
+    "faction": "Nestown",
+    "positions": [
+      5
+    ],
+    "role": 5,
+    "atk": [
+      160,
+      "retry",
+      96,
+      "guard",
+      49,
+      "revive"
+    ],
+    "defense": [
+      195,
+      160,
+      126,
+      92,
+      "retry",
+      25
+    ],
+    "magic": [
+      6,
+      4
+    ],
+    "barriers": [
+      5
+    ],
+    "art": "art-b/keryn.png",
+    "crop": {
+      "zoom": 1,
+      "x": 0,
+      "y": 0
+    },
+    "id": "49983331"
+  },
+  "artHash": "cc36dd320e7c7ff78f943fa0005565697f4cf5478ca96725586449aabdad2dd0",
+  "candidate": {
+    "file": "V4/expansions/2026-09-24-royal-training/audit/cards/keryn-art-cc36dd320e.png",
+    "sha256": "2d412c0f50216525a3014b952b83f30dc079ad73e5859d2bbc9e13458034b7a5"
+  },
+  "previewArtOverride": false,
+  "photoshopRun": false
+}

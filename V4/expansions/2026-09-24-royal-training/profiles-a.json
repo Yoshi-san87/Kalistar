@@ -1,0 +1,189 @@
+[
+  {
+    "key": "kaylis-entrainement",
+    "name": "KAYLIS",
+    "title": "L'ÉLAN DES COULEURS",
+    "job": "COMBATTANTE",
+    "description": "Sur la pierre soulevée par Balmhyr, Kaylis apprend à guider l'élan qui l'emportait. Sa lame dessine une ligne nette ; les couleurs courent sur ses bras. Cette fois, elle ne fuit plus : elle choisit son prochain pas.",
+    "element": "RAINBOW",
+    "race": "HUMAIN",
+    "weapon": "Katana",
+    "faction": "Z13",
+    "positions": [
+      1,
+      2,
+      3
+    ],
+    "role": 3,
+    "atk": [
+      224,
+      184,
+      144,
+      104,
+      64,
+      28
+    ],
+    "defense": [
+      216,
+      178,
+      138,
+      "dodge",
+      64,
+      28
+    ],
+    "magic": [
+      6,
+      4
+    ],
+    "barriers": [
+      5
+    ],
+    "characterId": "kaylis",
+    "art": "art-a/kaylis-entrainement.png",
+    "crop": {
+      "zoom": 1,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "key": "baptiste",
+    "name": "BAPTISTE",
+    "title": "LE DERNIER ACCORD",
+    "job": "VIOLONISTE",
+    "description": "Sous les voûtes de Draevenheim, Baptiste retient la dernière note. Dans la salle, personne n'ose rompre le silence. Son archet repart ; l'élégance du geste ne dit pas encore à qui ce concert est destiné.",
+    "element": "HEMATO",
+    "race": "VAMP",
+    "weapon": "Instrument",
+    "faction": "Draevenheim",
+    "positions": [
+      3
+    ],
+    "role": 3,
+    "atk": [
+      228,
+      186,
+      148,
+      "mana",
+      68,
+      "retry"
+    ],
+    "defense": [
+      224,
+      184,
+      144,
+      104,
+      66,
+      30
+    ],
+    "magic": [
+      6,
+      5,
+      4
+    ],
+    "barriers": [
+      4,
+      2
+    ],
+    "characterId": "baptiste",
+    "art": "art-a/baptiste.png",
+    "crop": {
+      "zoom": 1,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "key": "sapphire",
+    "name": "SAPPHIRE",
+    "title": "L'HÉRITIÈRE DES ABYSSES",
+    "job": "PRINCESSE",
+    "description": "La fille du roi de Thalassea n'attend pas derrière les gardes. Bras ouverts, griffes en avant, Sapphire sourit à ce qui vient. Ruby connaît les courants ; sa sœur sait leur résister.",
+    "element": "HYDRO",
+    "race": "SIRENA",
+    "weapon": "Poing",
+    "faction": "Thalassea",
+    "positions": [
+      1
+    ],
+    "role": 1,
+    "atk": [
+      208,
+      172,
+      136,
+      100,
+      64,
+      30
+    ],
+    "defense": [
+      284,
+      234,
+      184,
+      136,
+      88,
+      42
+    ],
+    "magic": [],
+    "barriers": [
+      6,
+      3
+    ],
+    "characterId": "sapphire",
+    "art": "art-a/sapphire.png",
+    "crop": {
+      "zoom": 1,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "key": "aelis-veille",
+    "name": "AELIS",
+    "title": "LA PRIERE SANS REPONSE",
+    "job": "SOIGNEUSE",
+    "description": "Aelis a rallumé chaque veilleuse du sanctuaire. Devant la dernière, elle ne demande plus de miracle. Elle reste simplement là, pour que ceux qui reviendront ne trouvent pas la nuit seule à les attendre.",
+    "element": "LUXO",
+    "race": "AURELION",
+    "weapon": "Bâton",
+    "faction": "Solaria",
+    "positions": [
+      3,
+      5
+    ],
+    "role": 5,
+    "atk": [
+      175,
+      145,
+      115,
+      85,
+      55,
+      "revive"
+    ],
+    "defense": [
+      200,
+      166,
+      132,
+      98,
+      64,
+      30
+    ],
+    "magic": [
+      6,
+      5,
+      4,
+      3,
+      2
+    ],
+    "barriers": [
+      6,
+      2
+    ],
+    "characterId": "aelis",
+    "art": "art-a/aelis-veille.png",
+    "crop": {
+      "zoom": 1,
+      "x": 0,
+      "y": 0
+    }
+  }
+]

@@ -30,6 +30,8 @@ test('collaboration follows the version metadata, never the shared character suf
 test('faction media is V4-local while legacy assets retain their routes',()=>{
   for(const faction of ['FF7','FF8','NieR','Replicant'])assert.equal(C.asset('factions',faction),'assets/factions/'+faction+'.png');
   assert.equal(C.asset('factions','Chroma'),'shared/factions/Chroma.png');
+  assert.equal(C.asset('factions','Solaria'),'assets/factions/Solaria.png');
+  assert.equal(C.universe({faction:'Solaria'}),'kalistar');
   assert.equal(C.asset('races','ANDROID'),'assets/races/ANDROID.png');
   assert.equal(C.asset('races','ROBOT'),'shared/races/ROBOT.png');
   assert.equal(C.asset('armes','Epée longue'),'shared/armes/Ep%C3%A9e%20longue.png');

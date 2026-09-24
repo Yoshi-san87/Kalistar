@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-09-24 14:58:06 UTC",
+  "scope": "Parent-selected standalone art and component-preview fit; native PSD regression and publication are not performed by this worker.",
+  "approvals": {
+    "parentArtSelection": true,
+    "user": false,
+    "nativeRender": false,
+    "publication": false
+  },
+  "assets": [
+    {
+      "key": "kaylis-entrainement",
+      "status": "parent-selected-for-native-production",
+      "observations": [
+        "Same adult mixed-heritage Kaylis identity, black sleeveless turtleneck, white trousers, black boots and Rainbow arm tattoos.",
+        "Long coherent straight rapier, guard lowered, blade steeper; whole tip visible between rails, no shortening into a dagger.",
+        "Complete head/hair, face and both boots visible in the actual component preview; active athletic pivot retained."
+      ],
+      "warnings": [],
+      "revision": 3,
+      "parentSelected": true,
+      "userApproved": false,
+      "componentPreview": {
+        "path": "art-a/revisions/v3/kaylis-entrainement-art-d9804a69b3.png",
+        "sha256": "675fa1d4473cddac20dfd5ed0a449f47b610ab1acb9b4ecf6fd027f7b09ad9ce",
+        "fit": "passed-Einstein-and-parent-review",
+        "photoshopRun": false
+      }
+    },
+    {
+      "key": "baptiste",
+      "status": "parent-selected-for-native-production",
+      "observations": [
+        "Adult Vamp with angular painted face, subtle ears/fang, restrained predatory expression.",
+        "Narrative concert, coherent violin held beneath chin with bow and separated hands; instrument and bow visible.",
+        "Worn wine/black fabrics, painted cathedral light; no anime eyes or glossy CGI finish."
+      ],
+      "warnings": [
+        "Native small-size instrument/face legibility still requires the renderer's QA."
+      ],
+      "parentSelected": true,
+      "userApproved": false
+    },
+    {
+      "key": "sapphire",
+      "status": "parent-selected-for-native-production",
+      "observations": [
+        "Same muscular blue Sirena identity, aggressive smile, two arms and one coherent scaled fish tail.",
+        "Both gauntlets project forward before the torso; all SIX blade tips and both hands visible between the rails.",
+        "The outer right cuff approaches the rail, but no claw tip is hidden; parent reviewed and selected this composition."
+      ],
+      "warnings": [],
+      "revision": 2,
+      "parentSelected": true,
+      "userApproved": false,
+      "componentPreview": {
+        "path": "art-a/revisions/v2/sapphire-art-6a9311077a.png",
+        "sha256": "a1adba31be005749a2c8fedd5d35078784ee0050390cd6af36dff2ef4ddd4594",
+        "fit": "passed-Einstein-and-parent-review",
+        "photoshopRun": false
+      }
+    },
+    {
+      "key": "aelis-veille",
+      "status": "parent-selected-for-native-production",
+      "observations": [
+        "Source and selected PNG are byte-identical.",
+        "Historical scene, title and description retained; only proposed gameplay adapted with explicit user approval."
+      ],
+      "warnings": [],
+      "parentSelected": true,
+      "userApproved": false
+    }
+  ],
+  "styleAssessment": "Parent-selected coherent Kalistar painted identity on the four illustrations. This is not end-user approval or a native PSD rendering/regression proof.",
+  "nativeWindowPreview": {
+    "path": "art-a/qa/native-window-contact.png",
+    "checkedAt": "2026-09-24 14:58:06 UTC",
+    "order": [
+      "kaylis-entrainement",
+      "baptiste",
+      "sapphire",
+      "aelis-veille"
+    ],
+    "method": "Actual batch cropArt helper at default crop, reduced only for contact-sheet inspection; no native frame rendered."
+  },
+  "initialReview": "art-a/revisions/v1/art-review.json"
+}

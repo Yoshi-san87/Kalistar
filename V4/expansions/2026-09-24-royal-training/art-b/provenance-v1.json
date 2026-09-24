@@ -1,0 +1,291 @@
+{
+  "schemaVersion": 1,
+  "batch": "2026-09-24-royal-training",
+  "subset": "B",
+  "createdAt": "2026-09-24",
+  "ownership": [
+    "art-b/",
+    "profiles-b.json",
+    "NOTES-B.md"
+  ],
+  "generation": {
+    "method": "built-in image_gen.imagegen",
+    "calls": 5,
+    "oneCallPerCharacter": true,
+    "fallbackCliUsed": false,
+    "completeCardGeneration": false,
+    "referenceRoles": "Images 1-2 mandatory Momo/Valazar painting style. Image 3 existing race anatomy only; new identities, outfits and scenes."
+  },
+  "identityStatus": "Original narrative proposals, not claimed manuscript canon. Names checked against complete V3 extracted source text: zero matches.",
+  "profiles": {
+    "file": "V4/expansions/2026-09-24-royal-training/profiles-b.json",
+    "sha256": "d9aa3d671def68833ec448fb8bcce0a1fd5ca7ab1b4807824c4bf51649fa8a85",
+    "idAssignment": "Parent/native pipeline only",
+    "bounds": "V3 source minima; established V3 builder maxima, including documented DEF D5 P2/P4 normalization to 150."
+  },
+  "sources": [
+    {
+      "file": "V3/sources/sources-extraites.json",
+      "sha256": "3883bf27b0b9672b700f051ea9db12c94a2d0db0a7b2973895565851d64febcc"
+    },
+    {
+      "file": "V3/donnees/cartes.json",
+      "sha256": "bb6de0d7b2b7eec0f1a9348dc892faa002fe542c169bbe202e11aca7e3788761"
+    },
+    {
+      "file": "V3/scripts/build_repertoire.cjs",
+      "sha256": "60e1ea280a5a8a1a6bf921208d2f0e4c4c0030806cf69e43ab1ab940b46a3ac6"
+    },
+    {
+      "file": "V4/DIRECTION_ARTISTIQUE.md",
+      "sha256": "5c1d030e09d482cc9ea5064d50ee401cb1b6196315b2f12d98a1784f0da7fbf1"
+    },
+    {
+      "file": "V4/docs/IDENTITE_VISUELLE.md",
+      "sha256": "bedab71c2f374634c99a888a4bc33dfca61838ae0e791141d3fe0744c6ff88e8"
+    },
+    {
+      "file": "V4/docs/REGLES_JEU.md",
+      "sha256": "798cdce36584857aabae8196ed209699a15937488b098306432d727c46280cdd"
+    }
+  ],
+  "selection": {
+    "status": "All five individual arts conditionally accepted by parent pending native fit",
+    "stableAssetBytes": true,
+    "published": false,
+    "productionReady": false,
+    "reviewFile": "V4/expansions/2026-09-24-royal-training/art-b/visual-review.json",
+    "remaining": "Three weapon placement blockers confirmed by native-component overlays. No further retouching while parent reviews selections."
+  },
+  "artworks": [
+    {
+      "key": "keryn",
+      "original": "C:/Users/guill/.codex/generated_images/01a0cd3e-b87a-7ae3-a510-82d2ed9c08a4/exec-7c4bd79c-cc31-4107-ac77-136cbc04dd97.png",
+      "selected": "V4/expansions/2026-09-24-royal-training/art-b/keryn.png",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "cc36dd320e7c7ff78f943fa0005565697f4cf5478ca96725586449aabdad2dd0",
+      "requestFile": "V4/expansions/2026-09-24-royal-training/art-b/keryn.request.json",
+      "requestFileSha256": "348092a84302e4e28e169df67ee39ed1b850f3692b2ff67a22f129b89bdae3b7",
+      "request": {
+        "prompt": "Use case: illustration-story. One standalone Kalistar character painting, vertical 4:5 for a 737x921 art window; NEVER draw a card or frame. Images 1 Momo and 2 Valazar are the mandatory PAINTING STYLE references: broad confident brush marks, faceted color planes, worn matter, narrative emotion, selective detail. Image 3 Scrow is a RACE ANATOMY reference only: do not copy his identity, bow, pale mantle or pose. Invent KERYN, a mature male KORBOW ferryman with an unmistakable BLACK RAVEN head, slender long black beak, alert kind dark eyes, blue-black plumage, humanoid torso, exactly two arms with articulate hands and two legs. No spread wings; any folded dorsal feathers remain hidden by his weathered deep-teal work coat. Ochre scarf and leather medicine satchel, no fancy armor. Scene: he is bringing a small wooden aerial ferry nacelle to a stone landing in Nestown after a difficult windy crossing. One boot planted in the boat and one braced on the landing, he leans with believable weight. One hand grips a mooring rope held taut to a visible iron ring on the dock, the other holds his plain long ferryman's staff against the stone to steady the boat. Straight continuous staff, coherent rope attachment, exactly two hands. His head turns back toward unseen passengers with reassuring vigilance. A closed medicine case is secured inside the boat, not floating. Full working gesture and face in the central 60 percent; boat occupies only the lower third, no huge foreground. Calm sky dominates the background with just two distant pale towers and a broad bank of clouds. Wind visible through scarf and cloak, not particle noise. Cool morning light, warm face highlights, black feathers still readable. Detailed narrative fantasy PAINTING matching Momo/Valazar, never a photography or 3D render. Not Scrow, not eagle or owl, not a human face, not giant wings, not extra limbs, not anime/manga/cartoon, no bokeh or airbrush, no dense city clutter. No text, numbers, logo, banner, frame, interface or watermark.",
+        "referenced_image_paths": [
+          "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/15_AERO_SCROW.png"
+        ]
+      },
+      "references": [
+        {
+          "file": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8",
+          "role": "mandatory_painting_style"
+        },
+        {
+          "file": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee",
+          "role": "mandatory_painting_style"
+        },
+        {
+          "file": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/15_AERO_SCROW.png",
+          "sha256": "be4d74b4c3792db4437931c03f09922e274bf5192880cc90037e99a1bf939b7a",
+          "role": "race_anatomy_only"
+        }
+      ],
+      "retouching": "None. Byte-identical copy of built-in generated original.",
+      "visualReview": {
+        "key": "keryn",
+        "artSelection": "accepted_conditional_on_native_fit",
+        "fit": "readable_with_reservation",
+        "face": "clear",
+        "weapon": "Staff upper end and parts of shaft meet left rail; staff-gripping hand partly occluded. Rope-gripping hand, rope and dock action remain readable.",
+        "action": "Docking pose, two arms and black raven identity clear.",
+        "nextStep": "Parent native preview: preserve rope hand/face; decide whether partial utility staff is acceptable. No automatic art edit."
+      }
+    },
+    {
+      "key": "brindor",
+      "original": "C:/Users/guill/.codex/generated_images/01a0cd3e-b87a-7ae3-a510-82d2ed9c08a4/exec-60b6f5a5-ba98-4419-b455-79a5a54561bf.png",
+      "selected": "V4/expansions/2026-09-24-royal-training/art-b/brindor.png",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "ca816eaa92395db67784b31083bcd0cb8a1df2c8649cc761ab475b72b0e5eb08",
+      "requestFile": "V4/expansions/2026-09-24-royal-training/art-b/brindor.request.json",
+      "requestFileSha256": "28b0b6310eba5273c2072699268598724a2e78cebcf11d87188c6618b585c0b8",
+      "request": {
+        "prompt": "Use case: illustration-story. Asset: one standalone Kalistar character painting, portrait 4:5 composition for a 737x921 illustration window. Never draw a card. Image 1 Momo and image 2 Valazar are mandatory PAINTING STYLE references, not identities to copy: visible broad confident brush strokes, faceted color planes, selective detail and hierarchical edges, painted light, worn fabrics and matter. Valazar's darkness is not required. Image 3 is RACE ANATOMY ONLY, not character identity, clothing or composition. Invent BRINDOR, an adult male CARNIVERT seed keeper of Arborium. Thalie in image 3 establishes that this race has a HUMANLIKE expressive face with green plant skin and foliage integrated in hair, not a giant tree monster. Brindor has a broad sturdy humanoid build, moss-green face, woody veins, dark leaf-like short hair and a modest leaf beard; clear adult eyes. He wears a worn burgundy work apron over an ochre linen shirt and simple bark-reinforced vest. Scene and emotion: a strong storm is forcing the seed granary's heavy wooden door inward. Seen from inside, he crouches in a low, physically credible brace: one shoulder and corresponding forearm firmly push back against the door, the OTHER arm clutches a closed earthen seed jar safely against his chest. Stubborn resolve mixed with tenderness in his downward glance to the jar. Both boots firmly on the floor. His weapon, a substantial simple square-headed iron HAMMER, leans clearly against the inner jamb beside his boot, fully visible with one straight unbroken wooden handle; he is NOT holding a third object. A thin gap in the doorway shows rain-blown foliage and cool sky, not a tornado. Most background is a broad quiet granary wall with just two large seed jars and warm window light. Low three-quarter view, enough of the full braced figure and hammer to understand the action. Warm face and jar contrast cool rain; clear silhouettes, weathered material and narrative brushwork. Keep face and main gesture in the central 60 percent and comfortably inside the canvas, allow margin for side stat columns and crop. Detailed narrative fantasy painting, not photorealism, not smooth 3D, not anime or manga, no plastic skin, no uniform digital noise, no ornamental sparkles or bokeh. One head, exactly two arms and two legs, credible hands and object contacts. Background evocative but calm and subordinate. No text, lettering, numbers, logo, banner, watermark, card frame or interface.",
+        "referenced_image_paths": [
+          "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/41_HERBO_THALIE.png"
+        ]
+      },
+      "references": [
+        {
+          "file": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8",
+          "role": "mandatory_painting_style"
+        },
+        {
+          "file": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee",
+          "role": "mandatory_painting_style"
+        },
+        {
+          "file": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/41_HERBO_THALIE.png",
+          "sha256": "f26ec17de3d5fc6a06619e1a279c1545e9a4e1a4435f0055e68aec20d6e5ea83",
+          "role": "race_anatomy_only"
+        }
+      ],
+      "retouching": "None. Byte-identical copy of built-in generated original.",
+      "visualReview": {
+        "key": "brindor",
+        "artSelection": "accepted_conditional_on_native_fit",
+        "fit": "needs_adjustment_before_production",
+        "face": "clear",
+        "weapon": "Hammer head and much of the handle are behind the bottom-right faction flag. Door-bracing hand also meets right rail.",
+        "action": "Seed jar, protective posture and emotion remain clear.",
+        "nextStep": "Move weapon inward through an approved art recomposition or a proven native fit. Do not hide/reduce the locked UI to solve it."
+      }
+    },
+    {
+      "key": "asteran",
+      "original": "C:/Users/guill/.codex/generated_images/01a0cd3e-b87a-7ae3-a510-82d2ed9c08a4/exec-4331b2ab-a351-47f9-b281-0c48cddda2a2.png",
+      "selected": "V4/expansions/2026-09-24-royal-training/art-b/asteran.png",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "0028f5748be2755c56ac0183e04fb180e64cb4ecb7e5bbe423616357dc1ef545",
+      "requestFile": "V4/expansions/2026-09-24-royal-training/art-b/asteran.request.json",
+      "requestFileSha256": "33b0f86e1971411c4c92c6750118fe80eba9ee59e4425821044fac8d47d53c10",
+      "request": {
+        "prompt": "Use case: illustration-story. Asset: one standalone Kalistar character painting, portrait 4:5 composition for a 737x921 illustration window. Never draw a card. Image 1 Momo and image 2 Valazar are mandatory PAINTING STYLE references, not identities to copy: visible broad confident brush strokes, faceted color planes, selective detail and hierarchical edges, painted light, worn fabrics and matter. Valazar's darkness is not required. Image 3 is RACE ANATOMY ONLY, not character identity, clothing or composition. Invent ASTERAN, an adult male AURELION fighter of Solaria, distinct from the bald robed person in image 3. His humanlike face and exposed arms have translucent, softly faceted crystalline opal skin, expressive human proportions rather than a featureless crystal golem. Short swept silver hair; one old fine fracture crosses a cheek without gore. He wears a practical weathered ivory tunic with a cobalt shoulder sash, dark charcoal fitted trousers and worn leather equipment, no red priest robe. Scene and emotion: in a low forward fighting stance at a sunlit white-stone gateway, he has just brought his LONG STRAIGHT SWORD down through an iron chain barring the passage between two low gate posts. Show a single believable straight sword blade with continuous alignment from both hands on its hilt to its tip, medium blade width, no bent metal or split blade. His hands and the sword are fully in frame. The two broken chain ends have just fallen apart at the point of impact, attached to the respective posts. His determined face turns toward the now-open way with protective hope, not a rage pose. Full figure or boots nearly visible, action readable from across the room. One small cloaked adult silhouette can be seen through the passage, subordinate and unobtrusive. Calm background of pale Solaria stone, one crystal-edged arch and wide blue morning sky, not a dense city. Physical sunlight passes lightly through his opal skin; subtle luminous LUXO edge on the sword only, no explosive magical cloud. Emotional narrative painting with matte worn clothes and painted crystalline facets. Keep face and main gesture in the central 60 percent and comfortably inside the canvas, allow margin for side stat columns and crop. Detailed narrative fantasy painting, not photorealism, not smooth 3D, not anime or manga, no plastic skin, no uniform digital noise, no ornamental sparkles or bokeh. One head, exactly two arms and two legs, credible hands and object contacts. Background evocative but calm and subordinate. No text, lettering, numbers, logo, banner, watermark, card frame or interface.",
+        "referenced_image_paths": [
+          "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/17_LUXO_ILIANE.png"
+        ]
+      },
+      "references": [
+        {
+          "file": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8",
+          "role": "mandatory_painting_style"
+        },
+        {
+          "file": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee",
+          "role": "mandatory_painting_style"
+        },
+        {
+          "file": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/17_LUXO_ILIANE.png",
+          "sha256": "f94ea227561f617798f6901bd3043a3c2f2e71d5603738ace29ea7cecb27b2be",
+          "role": "race_anatomy_only"
+        }
+      ],
+      "retouching": "None. Byte-identical copy of built-in generated original.",
+      "visualReview": {
+        "key": "asteran",
+        "artSelection": "accepted_conditional_on_native_fit",
+        "fit": "needs_adjustment_before_production",
+        "face": "clear",
+        "weapon": "Sword is straight and readable, but distal blade/tip enters the lower-right faction flag. Confirmed in native-window composite.",
+        "action": "Two-handed grip and broken chain visible.",
+        "nextStep": "Parent/Einstein native fit check; tip must be kept inward from the flag without bending sword or moving locked components."
+      }
+    },
+    {
+      "key": "ornelle",
+      "original": "C:/Users/guill/.codex/generated_images/01a0cd3e-b87a-7ae3-a510-82d2ed9c08a4/exec-8b24d409-4c7d-4581-8153-a06982cce77e.png",
+      "selected": "V4/expansions/2026-09-24-royal-training/art-b/ornelle.png",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "60a4ca1906433fb127b42871118d3c5f244bf49bdf3838362be052564ecbf998",
+      "requestFile": "V4/expansions/2026-09-24-royal-training/art-b/ornelle.request.json",
+      "requestFileSha256": "5a4b5a98092d94679ccf13962b99d3fcb1948e45fde014a71db55e063facc356",
+      "request": {
+        "prompt": "Use case: illustration-story. Asset: one standalone Kalistar character painting, portrait 4:5 composition for a 737x921 illustration window. Never draw a card. Image 1 Momo and image 2 Valazar are mandatory PAINTING STYLE references, not identities to copy: visible broad confident brush strokes, faceted color planes, selective detail and hierarchical edges, painted light, worn fabrics and matter. Valazar's darkness is not required. Image 3 is RACE ANATOMY ONLY, not character identity, clothing or composition. Invent ORNELLE, an adult FEMALE CERELF root architect of Woodland. The male Cerelf in image 3 establishes a genuine DEER HEAD on a two-armed upright humanoid body, not a human elf with deer accessories. Ornelle has a graceful brown DOE face with a modest elongated muzzle, black moist nose, long soft deer ears, expressive dark eyes and NO antlers. She is an adult female with a natural practical physique, NOT a sexualized pinup. Cream work-linen tunic, indigo woven waist sash, moss short cape, ochre leggings; a few braided cords, no ornate costume overload. Scene and emotion: kneeling on the broken bank of a small forest stream, she presses one palm into the earth and uses living-root magic to weave a narrow root footbridge to the opposite bank. Her OTHER hand holds a short wooden SCEPTRE upright beside her, one continuous shaft with a modest living seed-stone at its head. Exactly two arms, roots clearly grow from the bank rather than from her limbs. The bridge curves across the middle distance behind her, not over her face. Her head turns toward the now-connected bridge and her concentrated expression releases into quiet relieved happiness, a small genuine smile in a doe's facial anatomy. Both her folded legs and the contact of her hand on the earth are readable. Only two large tree trunks, a still stream and broad shafts of daylight in the background; calm open forest, no wall of microscopic foliage. Painted morning light catches the tawny fur, pale cloth and fresh root tips, saturated green only as a restrained accent. Keep face and main gesture in the central 60 percent and comfortably inside the canvas, allow margin for side stat columns and crop. Detailed narrative fantasy painting, not photorealism, not smooth 3D, not anime or manga, no plastic skin, no uniform digital noise, no ornamental sparkles or bokeh. One head, exactly two arms and two legs, credible hands and object contacts. Background evocative but calm and subordinate. No text, lettering, numbers, logo, banner, watermark, card frame or interface.",
+        "referenced_image_paths": [
+          "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/36_GEO_ELENION.png"
+        ]
+      },
+      "references": [
+        {
+          "file": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8",
+          "role": "mandatory_painting_style"
+        },
+        {
+          "file": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee",
+          "role": "mandatory_painting_style"
+        },
+        {
+          "file": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/36_GEO_ELENION.png",
+          "sha256": "14a45dc36a9fe8582c18402721d500eb6390c330855acaf5ad22d5993b5cea7a",
+          "role": "race_anatomy_only"
+        }
+      ],
+      "retouching": "None. Byte-identical copy of built-in generated original.",
+      "visualReview": {
+        "key": "ornelle",
+        "artSelection": "accepted_conditional_on_native_fit",
+        "fit": "needs_adjustment_before_production",
+        "face": "clear",
+        "weapon": "Sceptre head and upper shaft fall behind the left rail; the lower shaft alone is insufficient weapon identification.",
+        "action": "Root-working hand, doe face and bridge readable.",
+        "nextStep": "Bring sceptre head and holding hand inward via approved recomposition or demonstrated native fit; preserve female Cerelf identity and root action."
+      }
+    },
+    {
+      "key": "tazrik",
+      "original": "C:/Users/guill/.codex/generated_images/01a0cd3e-b87a-7ae3-a510-82d2ed9c08a4/exec-d88891fd-dabf-49c8-aae0-a899e34c6b6d.png",
+      "selected": "V4/expansions/2026-09-24-royal-training/art-b/tazrik.png",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "ec2038c38202cdfcaabe68ea1a9ff7b78055cd6bf38c571755fb849ae98257a3",
+      "requestFile": "V4/expansions/2026-09-24-royal-training/art-b/tazrik.request.json",
+      "requestFileSha256": "1a07b0a4fb440cd49a64f5ba2198dd2a7a239b73370c6e14a99ac875625f182f",
+      "request": {
+        "prompt": "Use case: illustration-story. Asset: one standalone Kalistar character painting, portrait 4:5 composition for a 737x921 illustration window. Never draw a card. Image 1 Momo and image 2 Valazar are mandatory PAINTING STYLE references, not identities to copy: visible broad confident brush strokes, faceted color planes, selective detail and hierarchical edges, painted light, worn fabrics and matter. Valazar's darkness is not required. Image 3 is RACE ANATOMY ONLY, not character identity, clothing or composition. Invent TAZRIK, an adult male FELINEUS street acrobat of Chroma. Use image 3 only for Kalistar's animal-headed humanoid anatomy. Tazrik is an ORANGE AND BLACK STRIPED TIGER, not Polux the grey lynx, with cream muzzle, short rounded tiger ears, natural feline eyes, a strong expressive jaw and a slim agile adult humanoid body. He wears a weathered teal and crimson patchwork performer jacket, cream shirt, simple trousers and soft leather boots; no cyber armor. Scene and emotion: an energetic candid moment on a small old-stone public square. He is balancing sideways atop a low horizontal rolling wooden barrel, knees bent and torso counterbalancing, both boot soles in plausible contact with the curved barrel. He is laughing with delighted surprise as he recovers a near-slip and juggles THREE smooth copper spheres, his Projectile weapon. One sphere rests just above one open hand, two are clearly airborne inside the central scene; the other hand is poised naturally to catch. Two arms only. Very fine short golden ELECTRO arcs between fingertips and the nearest copper ball suggest his skill without obscuring the hands or becoming a shower of particles. His tiger tail curves naturally behind his waist and never looks like a third arm. Full figure, feet and barrel in frame, face and hand action central, no extreme perspective. Background: one warm stone Chroma cafe frontage with a plain small fabric awning, quiet teal-painted door and one restrained brass street lamp, broad warm afternoon light. A couple of tiny adult spectator shapes far behind may suggest an audience, not a detailed crowd. Honest joy and actual movement, not a frontal model pose or cartoon mascot. Keep face and main gesture in the central 60 percent and comfortably inside the canvas, allow margin for side stat columns and crop. Detailed narrative fantasy painting, not photorealism, not smooth 3D, not anime or manga, no plastic skin, no uniform digital noise, no ornamental sparkles or bokeh. One head, exactly two arms and two legs, credible hands and object contacts. Background evocative but calm and subordinate. No text, lettering, numbers, logo, banner, watermark, card frame or interface.",
+        "referenced_image_paths": [
+          "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/31_PYRO_POLUX.png"
+        ]
+      },
+      "references": [
+        {
+          "file": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8",
+          "role": "mandatory_painting_style"
+        },
+        {
+          "file": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee",
+          "role": "mandatory_painting_style"
+        },
+        {
+          "file": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/31_PYRO_POLUX.png",
+          "sha256": "76f30ef0a544b60beabd940197966646c740e0df6ca99ebc55dcbd640d2c2b71",
+          "role": "race_anatomy_only"
+        }
+      ],
+      "retouching": "None. Byte-identical copy of built-in generated original.",
+      "visualReview": {
+        "key": "tazrik",
+        "artSelection": "accepted_conditional_on_native_fit",
+        "fit": "pass_component_preview",
+        "face": "clear",
+        "weapon": "Three copper projectile spheres, catching hands and electrical cue visible inside rails.",
+        "action": "Tiger anatomy, balance on barrel and joyful expression readable.",
+        "nextStep": "Final native PSD/render checks only."
+      }
+    }
+  ],
+  "noSharedEdits": true,
+  "noPhotoshop": true,
+  "noGit": true,
+  "nativeQaOwner": "Parent / Einstein"
+}

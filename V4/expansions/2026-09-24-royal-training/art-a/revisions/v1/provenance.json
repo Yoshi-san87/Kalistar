@@ -1,0 +1,253 @@
+{
+  "schemaVersion": 1,
+  "batch": "2026-09-24-royal-training",
+  "scope": "art-a",
+  "recordedAt": "2026-09-24T14:36:08.920Z",
+  "status": "selected-proposals-not-user-validated",
+  "publication": false,
+  "profile": {
+    "path": "profiles-a.json",
+    "sha256": "dea2662e49aec7ab7319f15a2ff0d055d5f22efe69c8240b7b401b5079f87941"
+  },
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "mode": "builtin",
+    "totalCalls": 3,
+    "oneCallPerNewIllustration": true,
+    "fullCardsGenerated": false,
+    "postGenerationPixelEdits": false
+  },
+  "sourcePriority": [
+    "latest explicit user request and Aelis V4 approval",
+    "V4/AGENTS.md",
+    "docs/GUIDE_REPRISE.md",
+    "V4/docs/IDENTITE_VISUELLE.md",
+    "V4/DIRECTION_ARTISTIQUE.md",
+    "V3/sources/DIRECTION_ARTISTIQUE_KALISTAR.md",
+    "V4/docs/REGLES_JEU.md",
+    "V3/donnees/regles_demo.json",
+    "V3/sources/histoire.txt",
+    "V3/sources/DECISIONS_NARRATIVES.md"
+  ],
+  "assets": [
+    {
+      "key": "kaylis-entrainement",
+      "selected": "art-a/kaylis-entrainement.png",
+      "sha256": "4f7d9427686502fb301501944441fb694824735c941422e92e38c5dcd3d2d259",
+      "width": 1060,
+      "height": 1484,
+      "format": "png",
+      "decodedPixels": 1573040,
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "rgbStdev": [
+        60.9882,
+        52.9996,
+        57.5576
+      ],
+      "crop": {
+        "left": 0,
+        "top": 80,
+        "width": 1060,
+        "height": 1325
+      },
+      "request": "art-a/kaylis-entrainement.request.json",
+      "requestSha256": "9d1b3325de7ac2d6cef04945528bcb71da649eff569822490bf61a989a7b7d47",
+      "archive": "art-a/originals/kaylis-entrainement.png",
+      "archiveSha256": "4f7d9427686502fb301501944441fb694824735c941422e92e38c5dcd3d2d259",
+      "references": [
+        {
+          "path": "V3/assets/illustrations/12_RAINBOW_KAYLIS.png",
+          "sha256": "5aa38b060778cc434454f5e6a36a5ebd64e75efb7dfa3939f2b96c11d8decf75"
+        },
+        {
+          "path": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8"
+        },
+        {
+          "path": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee"
+        }
+      ],
+      "method": "builtin-generation",
+      "generatedOriginalAbsolutePath": "C:/Users/guill/.codex/generated_images/01a0cd3e-b962-7433-ad26-5f0bfa5d12c3/exec-ab49b4d0-3754-45e4-b5e1-c084c320d885.png",
+      "generatedOriginalArchivedUnmodified": true,
+      "userValidated": false
+    },
+    {
+      "key": "baptiste",
+      "selected": "art-a/baptiste.png",
+      "sha256": "49e0afc211a4b2224a488b4c46f8ee35e0542eff5b74d677067e218e9637464d",
+      "width": 1122,
+      "height": 1402,
+      "format": "png",
+      "decodedPixels": 1573044,
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "rgbStdev": [
+        43.4554,
+        33.5678,
+        31.7101
+      ],
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "width": 1122,
+        "height": 1402
+      },
+      "request": "art-a/baptiste.request.json",
+      "requestSha256": "95acd252abfad75f7dc88cdea4abfcef5f2c84f8201ac600c0ac3fc993c4b559",
+      "archive": "art-a/originals/baptiste.png",
+      "archiveSha256": "49e0afc211a4b2224a488b4c46f8ee35e0542eff5b74d677067e218e9637464d",
+      "references": [
+        {
+          "path": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8"
+        },
+        {
+          "path": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee"
+        },
+        {
+          "path": "V3/assets/illustrations/20_HEMATO_SERAPHINA.png",
+          "sha256": "2b1375ed4ea9e7657eaa739d68f077a9cedf179f497204490bb77c063d6a1794"
+        }
+      ],
+      "method": "builtin-generation",
+      "generatedOriginalAbsolutePath": "C:/Users/guill/.codex/generated_images/01a0cd3e-b962-7433-ad26-5f0bfa5d12c3/exec-7d2a527e-1b98-40cf-a1c2-027456ffb9e6.png",
+      "generatedOriginalArchivedUnmodified": true,
+      "userValidated": false
+    },
+    {
+      "key": "sapphire",
+      "selected": "art-a/sapphire.png",
+      "sha256": "4b429f0623d4b63f265896d9c6fc69a949acfa8c2759fbbac8a532d3158d61fe",
+      "width": 1122,
+      "height": 1402,
+      "format": "png",
+      "decodedPixels": 1573044,
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "rgbStdev": [
+        52.2684,
+        56.1682,
+        56.4948
+      ],
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "width": 1122,
+        "height": 1402
+      },
+      "request": "art-a/sapphire.request.json",
+      "requestSha256": "6132295c03bd5c8388a6fbff0d649e78b055ff253d608996e304d9307b274821",
+      "archive": "art-a/originals/sapphire.png",
+      "archiveSha256": "4b429f0623d4b63f265896d9c6fc69a949acfa8c2759fbbac8a532d3158d61fe",
+      "references": [
+        {
+          "path": "V4/expansions/2026-09-24-royal-training/retouches/ruby.png",
+          "sha256": "7fb4770ab8c2f6eba56fbd8852f44213d0b73d319933ed798841bc212c244605",
+          "archivedReference": "art-a/references/ruby-red-used-for-sapphire.png",
+          "recoveredFrom": "V4/expansions/2026-09-24-royal-training/retouches/ruby-red-v1.png",
+          "note": "Original request path was updated by the parent after generation. This byte-identical archive preserves the reference actually inspected and used; original SHA256 is unchanged."
+        },
+        {
+          "path": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8"
+        },
+        {
+          "path": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee"
+        }
+      ],
+      "method": "builtin-generation",
+      "generatedOriginalAbsolutePath": "C:/Users/guill/.codex/generated_images/01a0cd3e-b962-7433-ad26-5f0bfa5d12c3/exec-2de41575-595c-4399-b18c-123b836c72b9.png",
+      "generatedOriginalArchivedUnmodified": true,
+      "userValidated": false
+    },
+    {
+      "key": "aelis-veille",
+      "selected": "art-a/aelis-veille.png",
+      "sha256": "a190f989ecd5f14c7d9f3042df190cdb7e29441851a8bc45bd0fc848b8c0b300",
+      "width": 1122,
+      "height": 1402,
+      "format": "png",
+      "decodedPixels": 1573044,
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "rgbStdev": [
+        50.0079,
+        42.53,
+        36.5566
+      ],
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "width": 1122,
+        "height": 1402
+      },
+      "source": "V2/assets/illustrations/17_luxo_aelis_veille.png",
+      "sourceSha256": "a190f989ecd5f14c7d9f3042df190cdb7e29441851a8bc45bd0fc848b8c0b300",
+      "byteIdentical": true,
+      "method": "exact-byte-copy",
+      "userValidated": false
+    }
+  ],
+  "decisions": {
+    "aelis": {
+      "userApproved": "2026-09-24",
+      "approval": "Oui adapte aux regles V4. Role 5, positions 3/5, Reraise, numeriques sous plafonds du role 5; art et titre historiques conserves.",
+      "historicalSource": "V2/donnees/cartes.json",
+      "historicalId": "00000017",
+      "historicalAtk": [
+        213,
+        176,
+        142,
+        107,
+        71,
+        "revive"
+      ],
+      "historicalDefense": [
+        230,
+        191,
+        154,
+        114,
+        77,
+        37
+      ],
+      "historicalMagic": [
+        6,
+        5,
+        4,
+        3,
+        2
+      ],
+      "historicalBarriers": [
+        6,
+        2
+      ],
+      "previousPublishedAelisUntouched": true
+    },
+    "kaylis": {
+      "identitySource": "V3/assets/illustrations/12_RAINBOW_KAYLIS.png",
+      "loreSource": "V3/sources/histoire.txt, chapitre 8",
+      "illustratedWeapon": "rapiere/fleuret",
+      "gameWeapon": "Katana",
+      "weaponDifference": "explicit user direction",
+      "principalRole": 3
+    },
+    "baptiste": {
+      "faction": "Draevenheim",
+      "factionSpellingSource": "existing V3 Seraphina profile",
+      "newUserCharacter": true
+    },
+    "sapphire": {
+      "blueSkin": true,
+      "twoArms": true,
+      "mermaidTail": true,
+      "newRoyalFamilyRelationship": "explicit user direction",
+      "rubyReference": "latest retouched red-skin/ruby-scale Ruby; anatomy and painting only, not colours",
+      "newUserCharacter": true
+    }
+  }
+}

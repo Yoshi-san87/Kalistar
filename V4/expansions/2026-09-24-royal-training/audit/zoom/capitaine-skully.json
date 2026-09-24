@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "status": "preview-not-native",
+  "key": "capitaine-skully",
+  "id": "30000035",
+  "crop": {
+    "zoom": 1.12,
+    "x": 0,
+    "y": 0
+  },
+  "inputs": {
+    "V4/cartes/KALISTAR_V4_30000035.png": "f52ebf305c1372a056704d066fb662c96f2b99e6606ed794e421640b47d8f39e",
+    "V4/expansions/2026-09-23-return/cards/capitaine-skully/illustration.png": "04b30244e3624cc20f71ce0bc8569252e51ffeac8f3c108526686f287a155bd9",
+    "V4/expansions/2026-09-23-return/cards/capitaine-skully/render/composition.json": "eab8659410c21004a7756a6d957e752db491b25bd0651a3949597a1f6c4c0b66"
+  },
+  "candidate": {
+    "file": "V4/expansions/2026-09-24-royal-training/audit/zoom/capitaine-skully-12pct.png",
+    "sha256": "f3dc47c79339fc30d4003e46745eef721bf624fcb5487a5050dc7fdfde26e5da"
+  },
+  "comparison": {
+    "file": "V4/expansions/2026-09-24-royal-training/audit/zoom/capitaine-skully-comparison.png",
+    "sha256": "d82f8fb3d0f6b036f021fd81ff6581a36fde2f15e9602e3202335ba8dc31b3f6"
+  },
+  "diff": {
+    "changed": 475949,
+    "outside": 0
+  },
+  "textPixelsPreserved": 16460,
+  "photoshopRun": false,
+  "limitation": "Compositor de consultation ; quelques pixels anti-aliases de texte conservent leur ancien fond. Aucun de ces fichiers ne sera publie. Le rendu final sera natif."
+}

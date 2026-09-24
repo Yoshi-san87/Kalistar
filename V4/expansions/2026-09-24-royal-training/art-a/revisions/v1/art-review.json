@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-09-24T14:36:08.920Z",
+  "scope": "standalone illustration review; native card fit and user validation remain pending",
+  "approvals": {
+    "user": false,
+    "nativeFrame": false,
+    "publication": false
+  },
+  "assets": [
+    {
+      "key": "kaylis-entrainement",
+      "status": "needs-framing-review-before-approval",
+      "observations": [
+        "Adult mixed-heritage identity, black sleeveless turtleneck, white trousers and black boots retained.",
+        "Rainbow vine-like arm motifs, visible crown braids and tied curls, muscular arms, stone training ground, active pivot.",
+        "Two arms, two legs, one straight coherent rapier."
+      ],
+      "warnings": [
+        "Rapier tip extends beyond the right image boundary despite the prompt requesting the complete weapon.",
+        "Generated ratio is 1060:1484 rather than 4:5; native default crop removes 80px at top and 79px at bottom. Contact-sheet inspection confirms that the top of the tied hairstyle is slightly cropped; both boots remain visible. Needs framing acceptance or a new generation before approval."
+      ]
+    },
+    {
+      "key": "baptiste",
+      "status": "selected-pending-native-review",
+      "observations": [
+        "Adult Vamp with angular painted face, subtle ears/fang, restrained predatory expression.",
+        "Narrative concert, coherent violin held beneath chin with bow and separated hands; instrument and bow visible.",
+        "Worn wine/black fabrics, painted cathedral light; no anime eyes or glossy CGI finish."
+      ],
+      "warnings": [
+        "Native small-size instrument/face legibility still requires the renderer's QA."
+      ]
+    },
+    {
+      "key": "sapphire",
+      "status": "needs-composition-review-before-approval",
+      "observations": [
+        "Blue adult Sirena, muscular arms and shoulders, royal circlet, aggressive smile.",
+        "Exactly two arms and one continuous scaled fish tail; no human legs.",
+        "Two coherent claw gauntlets, entirely underwater, independent blue palette from red Ruby."
+      ],
+      "warnings": [
+        "Generation did not fully respect the requested central 65 percent zone: claw tips approach both side edges. Do not label frame fit approved; review actual native overlays or request a new generative composition if occluded.",
+        "No local painted patch, compositing or second call used to conceal this limitation."
+      ]
+    },
+    {
+      "key": "aelis-veille",
+      "status": "exact-historical-reuse-pending-native-review",
+      "observations": [
+        "Source and selected PNG are byte-identical.",
+        "Historical scene, title and description retained; only proposed gameplay adapted with explicit user approval."
+      ],
+      "warnings": []
+    }
+  ],
+  "styleAssessment": "Constructed painted colour planes and narrative gesture present on all three new outputs. This is an agent selection assessment, not user approval or native frame regression.",
+  "nativeWindowPreview": {
+    "path": "art-a/qa/native-window-contact.png",
+    "checkedAt": "2026-09-24T14:38:42.542Z",
+    "order": [
+      "kaylis-entrainement",
+      "baptiste",
+      "sapphire",
+      "aelis-veille"
+    ],
+    "method": "Actual batch cropArt helper at default crop, reduced only for contact-sheet inspection; no native frame rendered."
+  }
+}

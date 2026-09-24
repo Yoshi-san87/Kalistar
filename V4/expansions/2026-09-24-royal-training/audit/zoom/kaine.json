@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "status": "preview-not-native",
+  "key": "kaine",
+  "id": "45951088",
+  "crop": {
+    "zoom": 1.12,
+    "x": 0,
+    "y": 0
+  },
+  "inputs": {
+    "V4/creations/45951088/card.png": "24729907ac30bd33ca52e25e49b23aa6093c104e3bb2555c8634fd0d0ac98074",
+    "V4/expansions/2026-09-23-return/cards/kaine/illustration.png": "61615a12c884053fb27ae580350f812ba3e1697f545e4ede300d782ea3f4b2b2",
+    "V4/expansions/2026-09-23-return/cards/kaine/render/composition.json": "7db0f6d55f5db856c461813b1ec714b1e64674aaa8ea6f6f7cb6da8040ccda50"
+  },
+  "candidate": {
+    "file": "V4/expansions/2026-09-24-royal-training/audit/zoom/kaine-12pct.png",
+    "sha256": "09b7f962e6440113e677213f8b86efb589f065d0027bba1c219ee04ca24daa5c"
+  },
+  "comparison": {
+    "file": "V4/expansions/2026-09-24-royal-training/audit/zoom/kaine-comparison.png",
+    "sha256": "6a3087f90df9038f70a18fd9c0af82db009c8b6060f014e76985135918e07d1d"
+  },
+  "diff": {
+    "changed": 484110,
+    "outside": 0
+  },
+  "textPixelsPreserved": 13959,
+  "photoshopRun": false,
+  "limitation": "Compositor de consultation ; quelques pixels anti-aliases de texte conservent leur ancien fond. Aucun de ces fichiers ne sera publie. Le rendu final sera natif."
+}

@@ -1,0 +1,377 @@
+{
+  "status": "pass",
+  "generatedAt": "2026-09-24T15:10:22.383Z",
+  "profilesSha256": "38d40e0915d847e03c9661b25eb030ff3f5b72f1f72adf2279c89a4a7e3d3792",
+  "bounds": {
+    "1": {
+      "atk": {
+        "max": [
+          210,
+          175,
+          140,
+          105,
+          70,
+          35
+        ],
+        "min": [
+          175,
+          140,
+          105,
+          70,
+          35,
+          0
+        ]
+      },
+      "defense": {
+        "max": [
+          300,
+          250,
+          200,
+          150,
+          100,
+          50
+        ],
+        "min": [
+          250,
+          200,
+          150,
+          100,
+          50,
+          0
+        ]
+      }
+    },
+    "2": {
+      "atk": {
+        "max": [
+          300,
+          250,
+          200,
+          150,
+          100,
+          50
+        ],
+        "min": [
+          250,
+          200,
+          150,
+          100,
+          50,
+          0
+        ]
+      },
+      "defense": {
+        "max": [
+          180,
+          150,
+          120,
+          90,
+          60,
+          30
+        ],
+        "min": [
+          150,
+          120,
+          90,
+          60,
+          30,
+          0
+        ]
+      }
+    },
+    "3": {
+      "atk": {
+        "max": [
+          240,
+          200,
+          160,
+          120,
+          80,
+          40
+        ],
+        "min": [
+          200,
+          160,
+          120,
+          80,
+          40,
+          0
+        ]
+      },
+      "defense": {
+        "max": [
+          240,
+          200,
+          160,
+          120,
+          80,
+          40
+        ],
+        "min": [
+          200,
+          160,
+          120,
+          80,
+          40,
+          0
+        ]
+      }
+    },
+    "4": {
+      "atk": {
+        "max": [
+          300,
+          250,
+          200,
+          150,
+          100,
+          50
+        ],
+        "min": [
+          250,
+          200,
+          150,
+          100,
+          50,
+          0
+        ]
+      },
+      "defense": {
+        "max": [
+          180,
+          150,
+          120,
+          90,
+          60,
+          30
+        ],
+        "min": [
+          150,
+          120,
+          90,
+          60,
+          30,
+          0
+        ]
+      }
+    },
+    "5": {
+      "atk": {
+        "max": [
+          180,
+          150,
+          120,
+          90,
+          60,
+          30
+        ],
+        "min": [
+          150,
+          120,
+          90,
+          60,
+          30,
+          0
+        ]
+      },
+      "defense": {
+        "max": [
+          210,
+          175,
+          140,
+          105,
+          70,
+          35
+        ],
+        "min": [
+          175,
+          140,
+          105,
+          70,
+          35,
+          0
+        ]
+      }
+    }
+  },
+  "spreadsheetException": "DEF D5 P2/P4: spreadsheet maximum 50 contradicts minimum 120. Use established V3/scripts/build_repertoire.cjs:67 maximum 150; no source or gameplay change.",
+  "previewMethod": "Read-only native component JSON composite at 897x1497. Art cover at [80,156,817,1077], frame, selected backgrounds/halos/barriers, native position tile/numeral, faction overlay. No stats text, identity text or generated barcode: occlusion proof only, not a native PSD validation.",
+  "manifest": {
+    "file": "V4/atelier/designer-assets/manifest.json",
+    "sha256": "08d16514307b9eabb543ef9bbdb363422f7afd3f465b67b1528b3637e9ce99d7"
+  },
+  "components": {
+    "V4/atelier/designer-assets/frame/default.png": "37d01c485e59e9cfe69e91dcd6659d102edd20988545ed490f8b2a6fbaee700a",
+    "V4/atelier/designer-assets/packed/stats/AERO-atk-1-physical.png": "8b22b911eeb162a5d59a30a604cc3416a51f1fd90db260fa73382c32744464d5",
+    "V4/atelier/designer-assets/packed/stats/AERO-atk-2-physical.png": "8b22b911eeb162a5d59a30a604cc3416a51f1fd90db260fa73382c32744464d5",
+    "V4/atelier/designer-assets/packed/stats/AERO-atk-3-physical.png": "8b22b911eeb162a5d59a30a604cc3416a51f1fd90db260fa73382c32744464d5",
+    "V4/atelier/designer-assets/packed/stats/AERO-atk-4-magic.png": "1e9f6109b34b32986567ec9a4223d97a3a261aec9e657d223f786d8b7b972517",
+    "V4/atelier/designer-assets/packed/stats/AERO-atk-5-physical.png": "8b22b911eeb162a5d59a30a604cc3416a51f1fd90db260fa73382c32744464d5",
+    "V4/atelier/designer-assets/packed/stats/AERO-atk-6-magic.png": "1f8c52093956544d83eb9a9ba6180255f274252cc720684dfefcebff9abada87",
+    "V4/atelier/designer-assets/packed/stats/def-5-barrier.png": "a6537301967fe1bf7dfa035f91fe768d7232b04d129d84740d352dfa194e7b9e",
+    "V4/atelier/designer-assets/packed/position/support-1.png": "1afe426c08b908ce9559a374edb1bd2bb2b2e99380911ae277ee0066233aeab5",
+    "V4/atelier/designer-assets/packed/position/numeral-1-5.png": "35d7876f38b46882b6a7be1e8fa1e9df4c3aa48b97520071dfff94e3d63d10b7",
+    "V4/atelier/designer-assets/packed/banks/faction-Nestown.png": "65573fd781be6ae57fbdb81cb3b45558d98ad9da49108107afd14dbc9e861641",
+    "V4/atelier/designer-assets/packed/stats/HERBO-atk-1-physical.png": "02b4e4eb385c7847514cdcf71d0adeda8a0fce9026476058c5801e36944096e2",
+    "V4/atelier/designer-assets/packed/stats/HERBO-atk-2-physical.png": "02b4e4eb385c7847514cdcf71d0adeda8a0fce9026476058c5801e36944096e2",
+    "V4/atelier/designer-assets/packed/stats/HERBO-atk-3-magic.png": "cee0202388f4b9549726f201415999b4e8544739c4ca5561106a0da4fa902043",
+    "V4/atelier/designer-assets/packed/stats/HERBO-atk-4-physical.png": "02b4e4eb385c7847514cdcf71d0adeda8a0fce9026476058c5801e36944096e2",
+    "V4/atelier/designer-assets/packed/stats/HERBO-atk-5-magic.png": "465ba9295ddfa5f8cc90f02ea4e4c9cc787ca1a8caf4d3e85a4c2072c2cfa9f5",
+    "V4/atelier/designer-assets/packed/stats/HERBO-atk-6-physical.png": "6231b8a77cb73a482f384cda1914354a3ed51ed141a27b328d66fde6759358ed",
+    "V4/atelier/designer-assets/packed/stats/def-6-barrier.png": "e2e5e8f4717ece3b402fdd9e129c7cf5d9637f5a7577e34880305a9d5fda74eb",
+    "V4/atelier/designer-assets/packed/stats/def-4-barrier.png": "58c00288c5c59c338611373aa18aec935affea36f97b9bf209cdb7139ed85a23",
+    "V4/atelier/designer-assets/packed/position/numeral-1-1.png": "916aaf841a505c7fa3f55a58d05591ae70414400a200cc7551bb7107e3e2ada2",
+    "V4/atelier/designer-assets/packed/banks/faction-Arborium.png": "8e103eabfe8a7551f14c2eb5045a15ecd532f0a8097b240309c722cbeda8e2f7",
+    "V4/atelier/designer-assets/packed/stats/LUXO-atk-1-physical.png": "426323794c11c7bf5979c8722f365d855fb8f19614b9f3dafb9c566565f6be8a",
+    "V4/atelier/designer-assets/packed/stats/LUXO-atk-2-physical.png": "426323794c11c7bf5979c8722f365d855fb8f19614b9f3dafb9c566565f6be8a",
+    "V4/atelier/designer-assets/packed/stats/LUXO-atk-3-physical.png": "426323794c11c7bf5979c8722f365d855fb8f19614b9f3dafb9c566565f6be8a",
+    "V4/atelier/designer-assets/packed/stats/LUXO-atk-4-magic.png": "4e66cda7dc13bf3ace03b715298fd584f9a67b1df24a433b2030c2c26f2e9827",
+    "V4/atelier/designer-assets/packed/stats/LUXO-atk-5-physical.png": "426323794c11c7bf5979c8722f365d855fb8f19614b9f3dafb9c566565f6be8a",
+    "V4/atelier/designer-assets/packed/stats/LUXO-atk-6-physical.png": "47f7843c9e45c856f42f29aafb279f0976bef18f41acc629f2c2bb9090f45fa6",
+    "V4/atelier/designer-assets/packed/stats/def-2-barrier.png": "1d067b177673fad0ab275b833998cc600401095c6c9615ff544c1e2e4e08d922",
+    "V4/atelier/designer-assets/packed/position/numeral-1-2.png": "1734434c39c360d5356f26571cabfae4aa2994ed011ac5df621cc76f7af2c80f",
+    "V4/atelier/designer-assets/packed/banks/faction-Solaria.png": "7533eaec88bea6582af17332eb1e2be0c179baca2f96996ecae9355bd8b8a2c9",
+    "V4/atelier/designer-assets/packed/stats/HERBO-atk-4-magic.png": "d9a3f3a076e53db8a9801e685f3bc49d760ab20518d3054510db45e09cadedeb",
+    "V4/atelier/designer-assets/packed/stats/HERBO-atk-6-magic.png": "958dcc4eadab1e74e0e431d1fe1a4b0063836170070199777f164edd44355384",
+    "V4/atelier/designer-assets/packed/stats/def-3-barrier.png": "caa0b43f1203a30145f4a3f111b851afdebdaefbbb894d585233692cf0cafc46",
+    "V4/atelier/designer-assets/packed/position/numeral-1-4.png": "8ef84c090f0759ba2630c08fdbdee3ef967ec789838fd8b078e5ba8b80268189",
+    "V4/atelier/designer-assets/packed/banks/faction-Woodland.png": "f23bb9a133be864d94ded9de009ceffc459b290b8501e6ce96fdf9f44b789c85",
+    "V4/atelier/designer-assets/frame/electro.png": "37d01c485e59e9cfe69e91dcd6659d102edd20988545ed490f8b2a6fbaee700a",
+    "V4/atelier/designer-assets/packed/stats/ELECTRO-atk-1-physical.png": "03ec0e716997a9aac3f288b9a90af43586c390e3d53fa96b71faee605153a5e5",
+    "V4/atelier/designer-assets/packed/stats/ELECTRO-atk-2-physical.png": "03ec0e716997a9aac3f288b9a90af43586c390e3d53fa96b71faee605153a5e5",
+    "V4/atelier/designer-assets/packed/stats/ELECTRO-atk-3-physical.png": "03ec0e716997a9aac3f288b9a90af43586c390e3d53fa96b71faee605153a5e5",
+    "V4/atelier/designer-assets/packed/stats/ELECTRO-atk-4-physical.png": "03ec0e716997a9aac3f288b9a90af43586c390e3d53fa96b71faee605153a5e5",
+    "V4/atelier/designer-assets/packed/stats/ELECTRO-atk-5-magic.png": "088a16bd1e649adc8bb48afefe41e07e2cc7f17044e036e70e95bec95a6fa817",
+    "V4/atelier/designer-assets/packed/stats/ELECTRO-atk-6-physical.png": "8e4112a4ea700212f65046d9a942a4108e6035c0cb507dfd1b7f54fd61100754",
+    "V4/atelier/designer-assets/packed/position/numeral-1-3.png": "707abf1f676bf7290a083abb03fc8f6da25b30867a5b8bd501166e92576998a7",
+    "V4/atelier/designer-assets/packed/banks/faction-Chroma.png": "66b3c71665fd88f579209e9b57c0f4941a2e63919497140e3a5d79713cf583f6"
+  },
+  "profiles": [
+    {
+      "key": "keryn",
+      "status": "pass",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 2813299,
+      "sha256": "cc36dd320e7c7ff78f943fa0005565697f4cf5478ca96725586449aabdad2dd0",
+      "art": "V4/expansions/2026-09-24-royal-training/art-b/keryn.png",
+      "request": "V4/expansions/2026-09-24-royal-training/art-b/keryn.request.json",
+      "windowPreview": "V4/expansions/2026-09-24-royal-training/art-b/qa-v2/keryn-window.png",
+      "framePreview": "V4/expansions/2026-09-24-royal-training/art-b/qa-v2/keryn-native-frame.png",
+      "validation": [
+        "numeric role minima/maxima",
+        "six faces per side",
+        "effect permissions",
+        "numeric-only magic and barriers",
+        "existing weapon/race/faction",
+        "original identity",
+        "five-race/five-role diversity",
+        "PNG dimensions",
+        "existing references or preserved V1 edit-target lineage"
+      ]
+    },
+    {
+      "key": "brindor",
+      "status": "pass",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 2320683,
+      "sha256": "0bce1a70379353c1bc829f2e5984f6df6b0d1a05c76b470c421cb2e4fed08174",
+      "art": "V4/expansions/2026-09-24-royal-training/art-b/brindor-v2.png",
+      "request": "V4/expansions/2026-09-24-royal-training/art-b/brindor-v2.request.json",
+      "windowPreview": "V4/expansions/2026-09-24-royal-training/art-b/qa-v2/brindor-window.png",
+      "framePreview": "V4/expansions/2026-09-24-royal-training/art-b/qa-v2/brindor-native-frame.png",
+      "validation": [
+        "numeric role minima/maxima",
+        "six faces per side",
+        "effect permissions",
+        "numeric-only magic and barriers",
+        "existing weapon/race/faction",
+        "original identity",
+        "five-race/five-role diversity",
+        "PNG dimensions",
+        "existing references or preserved V1 edit-target lineage"
+      ]
+    },
+    {
+      "key": "asteran",
+      "status": "pass",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 2664263,
+      "sha256": "9c21cf89d0ee5440c4a1ea1050ceb3ee6dd44e46d8a495f179f3ed767177adbb",
+      "art": "V4/expansions/2026-09-24-royal-training/art-b/asteran-v2.png",
+      "request": "V4/expansions/2026-09-24-royal-training/art-b/asteran-v2.request.json",
+      "windowPreview": "V4/expansions/2026-09-24-royal-training/art-b/qa-v2/asteran-window.png",
+      "framePreview": "V4/expansions/2026-09-24-royal-training/art-b/qa-v2/asteran-native-frame.png",
+      "validation": [
+        "numeric role minima/maxima",
+        "six faces per side",
+        "effect permissions",
+        "numeric-only magic and barriers",
+        "existing weapon/race/faction",
+        "original identity",
+        "five-race/five-role diversity",
+        "PNG dimensions",
+        "existing references or preserved V1 edit-target lineage"
+      ]
+    },
+    {
+      "key": "ornelle",
+      "status": "pass",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 2856510,
+      "sha256": "723cf37f44f5b74b3621d18397f1c7aa7e2bb50d500576c0d4f36bd2cfc2b779",
+      "art": "V4/expansions/2026-09-24-royal-training/art-b/ornelle-v2.png",
+      "request": "V4/expansions/2026-09-24-royal-training/art-b/ornelle-v2.request.json",
+      "windowPreview": "V4/expansions/2026-09-24-royal-training/art-b/qa-v2/ornelle-window.png",
+      "framePreview": "V4/expansions/2026-09-24-royal-training/art-b/qa-v2/ornelle-native-frame.png",
+      "validation": [
+        "numeric role minima/maxima",
+        "six faces per side",
+        "effect permissions",
+        "numeric-only magic and barriers",
+        "existing weapon/race/faction",
+        "original identity",
+        "five-race/five-role diversity",
+        "PNG dimensions",
+        "existing references or preserved V1 edit-target lineage"
+      ]
+    },
+    {
+      "key": "tazrik",
+      "status": "pass",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 2680413,
+      "sha256": "ec2038c38202cdfcaabe68ea1a9ff7b78055cd6bf38c571755fb849ae98257a3",
+      "art": "V4/expansions/2026-09-24-royal-training/art-b/tazrik.png",
+      "request": "V4/expansions/2026-09-24-royal-training/art-b/tazrik.request.json",
+      "windowPreview": "V4/expansions/2026-09-24-royal-training/art-b/qa-v2/tazrik-window.png",
+      "framePreview": "V4/expansions/2026-09-24-royal-training/art-b/qa-v2/tazrik-native-frame.png",
+      "validation": [
+        "numeric role minima/maxima",
+        "six faces per side",
+        "effect permissions",
+        "numeric-only magic and barriers",
+        "existing weapon/race/faction",
+        "original identity",
+        "five-race/five-role diversity",
+        "PNG dimensions",
+        "existing references or preserved V1 edit-target lineage"
+      ]
+    }
+  ],
+  "pending": [
+    "Parent/Einstein final native PSD/render, text, barcode and protected-frame checks",
+    "Final Solaria banner/component revision belongs to parent"
+  ],
+  "profilesFile": "V4/expansions/2026-09-24-royal-training/profiles-b.json",
+  "visualReview": {
+    "file": "V4/expansions/2026-09-24-royal-training/art-b/visual-review-v2.json",
+    "sha256": "cbccb3433e0a9552739cc005abe1d2d16923369a216947b539357afc4cc2fe91",
+    "summary": "Three weapon occlusions resolved in native-component preview. All five faces clear. Keryn partial staff explicitly accepted by parent; Tazrik unchanged and clear. No locked layout change."
+  },
+  "productionReady": false
+}

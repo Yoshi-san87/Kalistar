@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "modelId": "49983331",
+  "referenceId": "4e489e527f047e2e6def3264718abb509cddb105cbc705bcd678ba0b20dc4bec",
+  "profileHash": "999b96f0b92fdeee1e0778d1af9d29ac7e66a03f9862bcd1607bd539260ca080",
+  "hashes": {
+    "card.png": "1aa9b626aa54cfc15d55422c9e5dbc7df57110c90598f96377eae2367830e8ec",
+    "card.psd": "1ef3de974021e371dbf79f24d26124c611d33ff57928dc3ff02a740ba3f76c4f"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 112924
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49983331",
+    "cases": {
+      "color-1": [
+        "49983331"
+      ],
+      "color-4": [
+        "49983331"
+      ],
+      "gray-1": [
+        "49983331"
+      ],
+      "gray-4": [
+        "49983331"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-24T15:45:32.184Z",
+  "key": "keryn",
+  "preparationHash": "e0eef2a51ba65a57881c48972e9473d727a7d8ee470bb57594cd2765ac566ec6",
+  "nativeFiles": {
+    "V4/expansions/2026-09-24-royal-training/cards/keryn/render/native.json": "5aebd367e4b83bcf8cf5eaf6078f05494d2b336d6cac53a39e7b6bbb3f21856f",
+    "V4/expansions/2026-09-24-royal-training/cards/keryn/render/reopened.png": "606429acfe27c7b09c980b02eb0a87ffb5b1475e0012efec817c3471b2db90de",
+    "V4/expansions/2026-09-24-royal-training/cards/keryn/render/without-text.png": "292452dc00c510d55c3fa20625546b2e99213d2a3b16dac218fa9a9bd3edc7aa"
+  }
+}

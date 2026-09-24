@@ -1,0 +1,97 @@
+{
+  "purpose": "Review only, never production artwork.",
+  "inputs": [
+    {
+      "key": "kaylis-entrainement",
+      "file": "V4/expansions/2026-09-24-royal-training/cards/kaylis-entrainement/card.png",
+      "sha256": "043b9851c1e1ce2b79f297850be29bb0719573a0defcf729c51154875060677f",
+      "proof": "V4/expansions/2026-09-24-royal-training/cards/kaylis-entrainement/verification.json",
+      "proofHash": "5d9f6c9c822bb7fe31235d42444e6f06b168745efed2dce9d2b4c5e51a5e1351"
+    },
+    {
+      "key": "baptiste",
+      "file": "V4/expansions/2026-09-24-royal-training/cards/baptiste/card.png",
+      "sha256": "1a70bbceb335ffabe80aba1cd84bc63aed415879146422205ffb5a67cfc59826",
+      "proof": "V4/expansions/2026-09-24-royal-training/cards/baptiste/verification.json",
+      "proofHash": "d192d56731c1ba0f4defc2d246d6e018e94d537d7d5e9172403b54e51e6c84dd"
+    },
+    {
+      "key": "sapphire",
+      "file": "V4/expansions/2026-09-24-royal-training/cards/sapphire/card.png",
+      "sha256": "69976d77b1e9673de5c3e2cc9f94f7d999422aa82d1898d40f44392808728acc",
+      "proof": "V4/expansions/2026-09-24-royal-training/cards/sapphire/verification.json",
+      "proofHash": "e046c7003d1f4b61e8fd9daad3c88b8f1c5c60176f58d78118ffa34a812f9e9f"
+    },
+    {
+      "key": "aelis-veille",
+      "file": "V4/expansions/2026-09-24-royal-training/cards/aelis-veille/card.png",
+      "sha256": "3424787ceeb51178f085a6efe48776cb1b80cc2707ef19d85a2083200e9d77d0",
+      "proof": "V4/expansions/2026-09-24-royal-training/cards/aelis-veille/verification.json",
+      "proofHash": "455924be12610b0be3482e6563887a69da56cff229ede8db5eea89c5ec049f5b"
+    },
+    {
+      "key": "keryn",
+      "file": "V4/expansions/2026-09-24-royal-training/cards/keryn/card.png",
+      "sha256": "1aa9b626aa54cfc15d55422c9e5dbc7df57110c90598f96377eae2367830e8ec",
+      "proof": "V4/expansions/2026-09-24-royal-training/cards/keryn/verification.json",
+      "proofHash": "f40811e5a1aaa5354893d130f118c5e85ff74f029b710a4ae6a241a7a2e3b562"
+    },
+    {
+      "key": "brindor",
+      "file": "V4/expansions/2026-09-24-royal-training/cards/brindor/card.png",
+      "sha256": "59be33fabd251967dd609c18d20c83e7eec95568d6c6fff9fa98246ebffdec69",
+      "proof": "V4/expansions/2026-09-24-royal-training/cards/brindor/verification.json",
+      "proofHash": "14a893f92b9e8e68fff07d87eac45dba4b44c369a01cd1ff177be635ab3d1273"
+    },
+    {
+      "key": "asteran",
+      "file": "V4/expansions/2026-09-24-royal-training/cards/asteran/card.png",
+      "sha256": "5116820fb996ac5c1423ba106611df66103277f0b648a1559e8506e98b5adaca",
+      "proof": "V4/expansions/2026-09-24-royal-training/cards/asteran/verification.json",
+      "proofHash": "8056e156af4ba0e431fa2029a4156a9d1d89ebcc73d14f01b00fa3438c664f51"
+    },
+    {
+      "key": "ornelle",
+      "file": "V4/expansions/2026-09-24-royal-training/cards/ornelle/card.png",
+      "sha256": "6677fa9a196ace0e494a3c854a80e7ca43d0341de852957bb363f3dc8ddbad01",
+      "proof": "V4/expansions/2026-09-24-royal-training/cards/ornelle/verification.json",
+      "proofHash": "972649143051ddfb864ffa2e4fcd22da2caf859d1a6fac222996ce16d5fbb232"
+    },
+    {
+      "key": "tazrik",
+      "file": "V4/expansions/2026-09-24-royal-training/cards/tazrik/card.png",
+      "sha256": "6a124a430d60b860b2b8bc8f0229638d1e3f91602250d244020b033932c91412",
+      "proof": "V4/expansions/2026-09-24-royal-training/cards/tazrik/verification.json",
+      "proofHash": "c88a3c8d161e9f89ffeee7641711552ca409d6980a83d801435c77eb0c84f2aa"
+    }
+  ],
+  "sheets": [
+    {
+      "file": "V4/expansions/2026-09-24-royal-training/visual-review/native/1.png",
+      "sha256": "5a6869c5b6583ba4f252dd451a0deef72d8b3ae12f48587959167af21a98d4f3",
+      "keys": [
+        "kaylis-entrainement",
+        "baptiste",
+        "sapphire"
+      ]
+    },
+    {
+      "file": "V4/expansions/2026-09-24-royal-training/visual-review/native/2.png",
+      "sha256": "d586e4cb17dafefa0cb6257ed894add52a5f235ea1269f0288adb053192e37c1",
+      "keys": [
+        "aelis-veille",
+        "keryn",
+        "brindor"
+      ]
+    },
+    {
+      "file": "V4/expansions/2026-09-24-royal-training/visual-review/native/3.png",
+      "sha256": "7f0747d21ce5de22ac068b3b75de1018a9e96052714ec49b044633d84a5094b7",
+      "keys": [
+        "asteran",
+        "ornelle",
+        "tazrik"
+      ]
+    }
+  ]
+}

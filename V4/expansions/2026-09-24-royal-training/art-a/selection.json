@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 1,
+  "batch": "2026-09-24-royal-training",
+  "scope": "art-a",
+  "status": "parent-selected-ready-for-native-preparation",
+  "selectedAt": "2026-09-24T15:00:19.782Z",
+  "hashAlgorithm": "SHA256",
+  "readyForNativePreparation": true,
+  "parentSelection": true,
+  "userApprovalClaimed": false,
+  "photoshopRun": false,
+  "publicationPerformed": false,
+  "additionalIterationsAuthorized": false,
+  "profiles": {
+    "file": "profiles-a.json",
+    "sha256": "dea2662e49aec7ab7319f15a2ff0d055d5f22efe69c8240b7b401b5079f87941",
+    "unchangedFromInitial": true
+  },
+  "cards": [
+    {
+      "key": "kaylis-entrainement",
+      "revision": 3,
+      "file": "art-a/kaylis-entrainement.png",
+      "sha256": "d9804a69b3b587da1b1951934e7420a29418e4a9365843ff5591e740d3ffdccf",
+      "width": 1122,
+      "height": 1402,
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      },
+      "method": "builtin-generation",
+      "parentSelected": true,
+      "userApproved": false,
+      "request": {
+        "file": "art-a/kaylis-entrainement.revision-03.request.json",
+        "sha256": "af082c8540a86d9c3bc21414d057d875efd63bb1181c1e61971529b10ebfdf79"
+      },
+      "original": {
+        "file": "art-a/originals/kaylis-entrainement-v3.png",
+        "sha256": "d9804a69b3b587da1b1951934e7420a29418e4a9365843ff5591e740d3ffdccf"
+      }
+    },
+    {
+      "key": "baptiste",
+      "revision": 1,
+      "file": "art-a/baptiste.png",
+      "sha256": "49e0afc211a4b2224a488b4c46f8ee35e0542eff5b74d677067e218e9637464d",
+      "width": 1122,
+      "height": 1402,
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      },
+      "method": "builtin-generation",
+      "parentSelected": true,
+      "userApproved": false,
+      "request": {
+        "file": "art-a/baptiste.request.json",
+        "sha256": "95acd252abfad75f7dc88cdea4abfcef5f2c84f8201ac600c0ac3fc993c4b559"
+      },
+      "original": {
+        "file": "art-a/originals/baptiste.png",
+        "sha256": "49e0afc211a4b2224a488b4c46f8ee35e0542eff5b74d677067e218e9637464d"
+      }
+    },
+    {
+      "key": "sapphire",
+      "revision": 2,
+      "file": "art-a/sapphire.png",
+      "sha256": "6a9311077a5cfd68c9383939beb93817bd21926f32086044b2e3008d369d1dc4",
+      "width": 1122,
+      "height": 1402,
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      },
+      "method": "builtin-generation",
+      "parentSelected": true,
+      "userApproved": false,
+      "request": {
+        "file": "art-a/sapphire.revision-02.request.json",
+        "sha256": "deb004d0e7795ddf172fc5f05a348deed7ee9ee2f9a4c8a1f13ffa2ec078749e"
+      },
+      "original": {
+        "file": "art-a/originals/sapphire-v2.png",
+        "sha256": "6a9311077a5cfd68c9383939beb93817bd21926f32086044b2e3008d369d1dc4"
+      }
+    },
+    {
+      "key": "aelis-veille",
+      "revision": 1,
+      "file": "art-a/aelis-veille.png",
+      "sha256": "a190f989ecd5f14c7d9f3042df190cdb7e29441851a8bc45bd0fc848b8c0b300",
+      "width": 1122,
+      "height": 1402,
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      },
+      "method": "exact-byte-copy",
+      "parentSelected": true,
+      "userApproved": false,
+      "source": {
+        "file": "V2/assets/illustrations/17_luxo_aelis_veille.png",
+        "sha256": "a190f989ecd5f14c7d9f3042df190cdb7e29441851a8bc45bd0fc848b8c0b300"
+      },
+      "exactByteCopy": true
+    }
+  ],
+  "proofs": [
+    {
+      "file": "art-a/provenance.json",
+      "sha256": "6cf9bdf24812a321564fed7efa32207f839142782434c2c40f03e62a8849ec0d"
+    },
+    {
+      "file": "art-a/art-review.json",
+      "sha256": "0ecd7b8c6e55ed18963f67c57654ca8cf6a4ce35f0af9c3c5fdc9b3e02ed53e0"
+    },
+    {
+      "file": "art-a/verification.json",
+      "sha256": "c6f9b3d116b4bb1f1687f64406bebf68c5f6deec8d758e4a01fcb100d96b05db"
+    },
+    {
+      "file": "art-a/verify.cjs",
+      "sha256": "47a8bd6476168b7df43af0b366eb57f96884778e519d6bf234034cd50cc18dba"
+    },
+    {
+      "file": "art-a/revisions/history.json",
+      "sha256": "4450e52806f54d337541d3b9428c71b463beb273dcb419d82f86702536c6405f"
+    },
+    {
+      "file": "art-a/revisions/v1/provenance.json",
+      "sha256": "22101d7ccb0aeee95e14f541b249343608914c4086ac392e3e0ed503e04031ad"
+    },
+    {
+      "file": "art-a/qa/native-window-contact.png",
+      "sha256": "f7dd51be3442d1b85c47c6691405744a9aae79fe74b892e7069754f12a7092ba"
+    },
+    {
+      "file": "art-a/revisions/v3/kaylis-entrainement-art-d9804a69b3.png",
+      "sha256": "675fa1d4473cddac20dfd5ed0a449f47b610ab1acb9b4ecf6fd027f7b09ad9ce"
+    },
+    {
+      "file": "art-a/revisions/v2/sapphire-art-6a9311077a.png",
+      "sha256": "a1adba31be005749a2c8fedd5d35078784ee0050390cd6af36dff2ef4ddd4594"
+    },
+    {
+      "file": "NOTES-A.md",
+      "sha256": "5c34c63c2dd515c3337c73b420462ce5af9f320f18b029b4a1bd103b543fe57a"
+    }
+  ]
+}

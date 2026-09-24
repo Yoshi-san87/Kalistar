@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "modelId": "48874445",
+  "referenceId": "4e489e527f047e2e6def3264718abb509cddb105cbc705bcd678ba0b20dc4bec",
+  "profileHash": "81b38a2290975598f1aa551b409a7c19f146680c3552cfc327f2baa8a8317f39",
+  "hashes": {
+    "card.png": "5ecf9d4fd99b2cc6fed9493af9c9bf21b872f74774d2a4fdfd81a946d4afcae8",
+    "card.psd": "be64206599930d9b3e13880adadb0fd078dd4b29d151ea580dd2a3a21eecfa58"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 125686
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "48874445",
+    "cases": {
+      "color-1": [
+        "48874445"
+      ],
+      "color-4": [
+        "48874445"
+      ],
+      "gray-1": [
+        "48874445"
+      ],
+      "gray-4": [
+        "48874445"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-24T15:45:48.561Z",
+  "key": "ornelle",
+  "preparationHash": "67050eabea1240176b89f67320a173cec279dbebb3dc58a573a0bbf7c9154944",
+  "nativeFiles": {
+    "V4/expansions/2026-09-24-royal-training/cards/ornelle/render/native.json": "b62574f7c150a8099d348dbfab03bf60a8863c78e4a412a3f7778992a95efcab",
+    "V4/expansions/2026-09-24-royal-training/cards/ornelle/render/reopened.png": "96896f33c483958131310073c1d25e0ec370806a5f54df8dc2f2223df55467a0",
+    "V4/expansions/2026-09-24-royal-training/cards/ornelle/render/without-text.png": "1c66b50ebe8037c7b7fa9aa608da7425180b11c2be0e9eb2c3feb39b0663b93d"
+  }
+}

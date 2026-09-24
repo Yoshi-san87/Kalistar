@@ -145,9 +145,9 @@ reference pour une reprise. Une nouvelle demande peut changer un point precis.
 | Taulio | Protecteur robot, imposant mais loyal et empathique ; conserver son illustration validee et l'homogeneite avec Momo. |
 | Jelly-Joe | Pirate dandy mince, meduse Encre, visage legerement allonge, joyeux et ivre mais pas effrayant ; manteau noir, lance et chope transparente avec biere ; ambiance de Crabazar. Positions 3 et 5. |
 | Rikka | Felineus guepard, voleuse athletique de Chroma, jambes elancees, carre asymetrique, blessure et fouet electrique visible. Vole un Kalistel Luxo pour sauver un ami ; vitrine et geste physiquement coherents, action plutot que pose. |
-| Ruby | Sirene heureuse nageant avec des dauphins, emotion partagee, deux mini pistolets-harpons aux hanches. |
+| Ruby | Sirene heureuse nageant avec des dauphins, emotion partagee, deux mini pistolets-harpons aux hanches. Decision utilisateur du 24 septembre 2026 : peau rouge rubis et cheveux noirs ; conserver la scene. |
 | Cana, Scrow, Soryn, Gilmarr | Preserver les personnages ; decors plus calmes et davantage de ciel. Scrow surveille le chateau de Nestown, bannieres coherentes ; terrain de jeu de Gilmarr sans immeubles trop denses. |
-| Darnako | Adulte, sort son epee pret a combattre ; pression et agressivite lisibles. Pas d'enfant. |
+| Darnako | Adulte, epee entierement sortie (revision demandee le 24 septembre 2026), pret a combattre ; pression et agressivite lisibles. Pas d'enfant. |
 | Malinia | Lac des souvenirs, pierre tenue sans image a l'interieur. |
 | Aelis, Iliane, Belrog, Thalie, Bloom | Illustrations aimees et conservees ; aucune regeneration spontanee. |
 | Lok | Roi sur son trone, nerveux, pas simple ouvrier. |
@@ -155,12 +155,20 @@ reference pour une reprise. Une nouvelle demande peut changer un point precis.
 | Magnar | Apparence plus humaine avec peau de pierre ; conserver l'idee de la porte de pierre. |
 | Victorvine | Emotion de la scene conservee, echelle non geante, recul et foret ravagee en fond. |
 | Kaylis | Heroine debout sur ses deux jambes, surprise emue devant ses bras tatoues Rainbow incandescents qui eclairent la grotte. |
+| Kaylis, seconde version | Meme heroine, legerement plus musclee, cheveux tresses, haut noir sans manches a col roule, pantalon blanc, chaussures noires. Entrainement virevoltant au fleuret dans une enceinte de pierre construite par Balmhyr, absent de l'image ; lueurs Rainbow des bras. Arme de jeu Katana, P1/P2/P3. |
+| Sapphire | Princesse Sirena, soeur de Ruby : peau bleue saphir, tres musclee, sourire agressif sous l'eau, bras ouverts et lames sortant des mains. Arme de jeu Poing, P1. |
 | Valazar, Voloden | Illustrations approuvees conservees ; Valazar avec habits violets, Voloden incarne son siege vacant. |
 
 L'ancienne demande de preserver Cana n'interdit pas le changement de fond
 explicitement demande plus tard. De meme, les anciennes propositions de visage
 humain pour Jelly-Joe ne remplacent pas le choix final Encre. Appliquer la
 derniere decision, pas toutes les etapes contradictoires a la fois.
+
+Ajout narratif utilisateur du 24 septembre 2026 : le roi des Sirenas a plusieurs
+filles portant des noms de pierres precieuses, avec une couleur de peau liee a
+leur nom. Ruby et Sapphire suivent cette regle. Les cinq autres personnages du
+lot `expansions/2026-09-24-royal-training/NOTES-B.md` sont des propositions
+originales, pas des personnages retrouves dans les manuscrits historiques.
 
 ## Reception artistique et technique
 

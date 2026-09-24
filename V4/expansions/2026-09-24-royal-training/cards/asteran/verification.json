@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "modelId": "44077247",
+  "referenceId": "4e489e527f047e2e6def3264718abb509cddb105cbc705bcd678ba0b20dc4bec",
+  "profileHash": "7ad81002846853a0622bc3fcdfdeb4a62ce4c7401403247b0486be08a0095bd9",
+  "hashes": {
+    "card.png": "5116820fb996ac5c1423ba106611df66103277f0b648a1559e8506e98b5adaca",
+    "card.psd": "67ed411974e40ef26371f303990c23d15fe280bbfab82bafc741052fe52b0aac"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 108048
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "44077247",
+    "cases": {
+      "color-1": [
+        "44077247"
+      ],
+      "color-4": [
+        "44077247"
+      ],
+      "gray-1": [
+        "44077247"
+      ],
+      "gray-4": [
+        "44077247"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-24T15:45:43.309Z",
+  "key": "asteran",
+  "preparationHash": "9ae65377916463944be0bee1acaa76ce5b91fe209b18bd1cdc39c7081b480e2a",
+  "nativeFiles": {
+    "V4/expansions/2026-09-24-royal-training/cards/asteran/render/native.json": "608845d3b2e68949b76d17e2d8a4dcdb3b78ed124049f88e97b746cdd7a63d31",
+    "V4/expansions/2026-09-24-royal-training/cards/asteran/render/reopened.png": "378f9666903e2ef63a32b99694146a78c3b87c18fa2bc4d5d87547401c5e2150",
+    "V4/expansions/2026-09-24-royal-training/cards/asteran/render/without-text.png": "3450515b6308d37e957ab9c7913f4a961539285341db3a34ab3ce478cc62464f"
+  }
+}

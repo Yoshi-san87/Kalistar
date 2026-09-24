@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-09-24",
+  "method": "Visual inspection of all five original illustrations and native-component window overlays; not Photoshop output validation.",
+  "contactSheet": "V4/expansions/2026-09-24-royal-training/art-b/qa/contact-native-windows.png",
+  "summary": "All faces readable. Three weapon-fit blockers before production: Brindor hammer, Asteran tip, Ornelle sceptre. Keryn staff partially occluded but main action remains visible. Tazrik passes component preview.",
+  "cards": [
+    {
+      "key": "keryn",
+      "artSelection": "accepted_conditional_on_native_fit",
+      "fit": "readable_with_reservation",
+      "face": "clear",
+      "weapon": "Staff upper end and parts of shaft meet left rail; staff-gripping hand partly occluded. Rope-gripping hand, rope and dock action remain readable.",
+      "action": "Docking pose, two arms and black raven identity clear.",
+      "nextStep": "Parent native preview: preserve rope hand/face; decide whether partial utility staff is acceptable. No automatic art edit."
+    },
+    {
+      "key": "brindor",
+      "artSelection": "accepted_conditional_on_native_fit",
+      "fit": "needs_adjustment_before_production",
+      "face": "clear",
+      "weapon": "Hammer head and much of the handle are behind the bottom-right faction flag. Door-bracing hand also meets right rail.",
+      "action": "Seed jar, protective posture and emotion remain clear.",
+      "nextStep": "Move weapon inward through an approved art recomposition or a proven native fit. Do not hide/reduce the locked UI to solve it."
+    },
+    {
+      "key": "asteran",
+      "artSelection": "accepted_conditional_on_native_fit",
+      "fit": "needs_adjustment_before_production",
+      "face": "clear",
+      "weapon": "Sword is straight and readable, but distal blade/tip enters the lower-right faction flag. Confirmed in native-window composite.",
+      "action": "Two-handed grip and broken chain visible.",
+      "nextStep": "Parent/Einstein native fit check; tip must be kept inward from the flag without bending sword or moving locked components."
+    },
+    {
+      "key": "ornelle",
+      "artSelection": "accepted_conditional_on_native_fit",
+      "fit": "needs_adjustment_before_production",
+      "face": "clear",
+      "weapon": "Sceptre head and upper shaft fall behind the left rail; the lower shaft alone is insufficient weapon identification.",
+      "action": "Root-working hand, doe face and bridge readable.",
+      "nextStep": "Bring sceptre head and holding hand inward via approved recomposition or demonstrated native fit; preserve female Cerelf identity and root action."
+    },
+    {
+      "key": "tazrik",
+      "artSelection": "accepted_conditional_on_native_fit",
+      "fit": "pass_component_preview",
+      "face": "clear",
+      "weapon": "Three copper projectile spheres, catching hands and electrical cue visible inside rails.",
+      "action": "Tiger anatomy, balance on barrel and joyful expression readable.",
+      "nextStep": "Final native PSD/render checks only."
+    }
+  ]
+}

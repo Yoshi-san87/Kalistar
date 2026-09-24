@@ -1,0 +1,58 @@
+{
+  "status": "preview-not-native",
+  "spec": {
+    "key": "kaylis-entrainement",
+    "name": "KAYLIS",
+    "title": "L'ÉLAN DES COULEURS",
+    "job": "COMBATTANTE",
+    "description": "Sur la pierre soulevée par Balmhyr, Kaylis apprend à guider l'élan qui l'emportait. Sa lame dessine une ligne nette ; les couleurs courent sur ses bras. Cette fois, elle ne fuit plus : elle choisit son prochain pas.",
+    "element": "RAINBOW",
+    "race": "HUMAIN",
+    "weapon": "Katana",
+    "faction": "Z13",
+    "positions": [
+      1,
+      2,
+      3
+    ],
+    "role": 3,
+    "atk": [
+      224,
+      184,
+      144,
+      104,
+      64,
+      28
+    ],
+    "defense": [
+      216,
+      178,
+      138,
+      "dodge",
+      64,
+      28
+    ],
+    "magic": [
+      6,
+      4
+    ],
+    "barriers": [
+      5
+    ],
+    "characterId": "kaylis",
+    "art": "art-a/kaylis-entrainement-v3.png",
+    "crop": {
+      "zoom": 1,
+      "x": 0,
+      "y": 0
+    },
+    "id": "49055457"
+  },
+  "artHash": "d9804a69b3b587da1b1951934e7420a29418e4a9365843ff5591e740d3ffdccf",
+  "candidate": {
+    "file": "V4/expansions/2026-09-24-royal-training/audit/cards/kaylis-entrainement-art-d9804a69b3.png",
+    "sha256": "675fa1d4473cddac20dfd5ed0a449f47b610ab1acb9b4ecf6fd027f7b09ad9ce"
+  },
+  "previewArtOverride": true,
+  "photoshopRun": false
+}

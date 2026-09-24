@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "modelId": "43434046",
+  "referenceId": "4e489e527f047e2e6def3264718abb509cddb105cbc705bcd678ba0b20dc4bec",
+  "profileHash": "1e6174e2b6ed5ad86f81394e94f7fadb968f847b60047b9dce33f62bed6b70b6",
+  "hashes": {
+    "card.png": "59be33fabd251967dd609c18d20c83e7eec95568d6c6fff9fa98246ebffdec69",
+    "card.psd": "2c6843df7ddb90a24d76e33c51379e6237dfcc756fef071585f5d11f02257772"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 112511
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "43434046",
+    "cases": {
+      "color-1": [
+        "43434046"
+      ],
+      "color-4": [
+        "43434046"
+      ],
+      "gray-1": [
+        "43434046"
+      ],
+      "gray-4": [
+        "43434046"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-24T15:45:37.936Z",
+  "key": "brindor",
+  "preparationHash": "5d109e5e12b028da283061e3dd3488ff47bb404d3202b5795f59a01de4b5785e",
+  "nativeFiles": {
+    "V4/expansions/2026-09-24-royal-training/cards/brindor/render/native.json": "bbcac696686b68e23f75b8da1804d86b3a4c789ca6a8d005de072a6878f5ca83",
+    "V4/expansions/2026-09-24-royal-training/cards/brindor/render/reopened.png": "94a970a4166c71599f19c5d57d555a896cfb8563b50c742b59e9253bdc563323",
+    "V4/expansions/2026-09-24-royal-training/cards/brindor/render/without-text.png": "71f2becd32d599a98dc2cf465d11c3603c543fb0d248a1995aab1a7242773b63"
+  }
+}

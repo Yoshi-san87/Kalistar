@@ -1,0 +1,232 @@
+{
+  "schemaVersion": 1,
+  "batch": "2026-09-24-royal-training",
+  "tool": "image_gen.imagegen",
+  "mode": "builtin",
+  "generationCalls": 6,
+  "photoshopRun": false,
+  "postGenerationPixelEdits": false,
+  "profileEditsDuringRevisions": false,
+  "authorizations": [
+    {
+      "scope": "initial",
+      "calls": 3,
+      "note": "One generation each for Kaylis, Baptiste, Sapphire; Aelis exact copy."
+    },
+    {
+      "scope": "revision-02",
+      "calls": 2,
+      "note": "User explicitly authorized one revision each for Kaylis and Sapphire if native preview hid claws. Sapphire v1 preview confirmed both hands hidden."
+    },
+    {
+      "scope": "kaylis-revision-03",
+      "calls": 1,
+      "note": "User explicitly authorized third Kaylis, guard at45%/55%, tip68%/24%, mention17% side rails. No further generation assumed."
+    }
+  ],
+  "initialEvidenceSnapshot": "art-a/revisions/v1/provenance.json",
+  "records": [
+    {
+      "key": "kaylis-entrainement",
+      "revision": 1,
+      "archive": "art-a/originals/kaylis-entrainement.png",
+      "sha256": "4f7d9427686502fb301501944441fb694824735c941422e92e38c5dcd3d2d259",
+      "request": "art-a/kaylis-entrainement.request.json",
+      "requestSha256": "9d1b3325de7ac2d6cef04945528bcb71da649eff569822490bf61a989a7b7d47",
+      "references": [
+        {
+          "path": "V3/assets/illustrations/12_RAINBOW_KAYLIS.png",
+          "sha256": "5aa38b060778cc434454f5e6a36a5ebd64e75efb7dfa3939f2b96c11d8decf75"
+        },
+        {
+          "path": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8"
+        },
+        {
+          "path": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee"
+        }
+      ],
+      "generatedOriginalAbsolutePath": "C:/Users/guill/.codex/generated_images/01a0cd3e-b962-7433-ad26-5f0bfa5d12c3/exec-ab49b4d0-3754-45e4-b5e1-c084c320d885.png",
+      "disposition": "superseded-framing-failed"
+    },
+    {
+      "key": "baptiste",
+      "revision": 1,
+      "archive": "art-a/originals/baptiste.png",
+      "sha256": "49e0afc211a4b2224a488b4c46f8ee35e0542eff5b74d677067e218e9637464d",
+      "request": "art-a/baptiste.request.json",
+      "requestSha256": "95acd252abfad75f7dc88cdea4abfcef5f2c84f8201ac600c0ac3fc993c4b559",
+      "references": [
+        {
+          "path": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8"
+        },
+        {
+          "path": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee"
+        },
+        {
+          "path": "V3/assets/illustrations/20_HEMATO_SERAPHINA.png",
+          "sha256": "2b1375ed4ea9e7657eaa739d68f077a9cedf179f497204490bb77c063d6a1794"
+        }
+      ],
+      "generatedOriginalAbsolutePath": "C:/Users/guill/.codex/generated_images/01a0cd3e-b962-7433-ad26-5f0bfa5d12c3/exec-7d2a527e-1b98-40cf-a1c2-027456ffb9e6.png",
+      "disposition": "retained-parent-reviewed"
+    },
+    {
+      "key": "sapphire",
+      "revision": 1,
+      "archive": "art-a/originals/sapphire.png",
+      "sha256": "4b429f0623d4b63f265896d9c6fc69a949acfa8c2759fbbac8a532d3158d61fe",
+      "request": "art-a/sapphire.request.json",
+      "requestSha256": "6132295c03bd5c8388a6fbff0d649e78b055ff253d608996e304d9307b274821",
+      "references": [
+        {
+          "path": "V4/expansions/2026-09-24-royal-training/retouches/ruby.png",
+          "sha256": "7fb4770ab8c2f6eba56fbd8852f44213d0b73d319933ed798841bc212c244605",
+          "archivedReference": "art-a/references/ruby-red-used-for-sapphire.png",
+          "recoveredFrom": "V4/expansions/2026-09-24-royal-training/retouches/ruby-red-v1.png",
+          "note": "Original request path was updated by the parent after generation. This byte-identical archive preserves the reference actually inspected and used; original SHA256 is unchanged."
+        },
+        {
+          "path": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8"
+        },
+        {
+          "path": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee"
+        }
+      ],
+      "generatedOriginalAbsolutePath": "C:/Users/guill/.codex/generated_images/01a0cd3e-b962-7433-ad26-5f0bfa5d12c3/exec-2de41575-595c-4399-b18c-123b836c72b9.png",
+      "disposition": "superseded-framing-failed"
+    },
+    {
+      "key": "kaylis-entrainement",
+      "revision": 2,
+      "path": "art-a/kaylis-entrainement-v2.png",
+      "sha256": "d93dbd9a1cf2c699f1778d40ac4f9bbe7b54582616bc318fddf5cb467b9b95e1",
+      "archive": "art-a/originals/kaylis-entrainement-v2.png",
+      "archiveSha256": "d93dbd9a1cf2c699f1778d40ac4f9bbe7b54582616bc318fddf5cb467b9b95e1",
+      "width": 1122,
+      "height": 1402,
+      "decodedPixels": 1573044,
+      "opaquePixels": 1573044,
+      "defaultCrop": {
+        "left": 0,
+        "top": 0,
+        "width": 1122,
+        "height": 1402
+      },
+      "request": "art-a/kaylis-entrainement.revision-02.request.json",
+      "requestSha256": "bb77bbf60002b41caa01a9f14ba5e9326f619c9f60e885abe93fc581d0721bf6",
+      "references": [
+        {
+          "path": "V4/expansions/2026-09-24-royal-training/art-a/revisions/v1/kaylis-entrainement.png",
+          "sha256": "4f7d9427686502fb301501944441fb694824735c941422e92e38c5dcd3d2d259"
+        },
+        {
+          "path": "V3/assets/illustrations/12_RAINBOW_KAYLIS.png",
+          "sha256": "5aa38b060778cc434454f5e6a36a5ebd64e75efb7dfa3939f2b96c11d8decf75"
+        },
+        {
+          "path": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8"
+        },
+        {
+          "path": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee"
+        }
+      ],
+      "disposition": "rejected-tip-hidden-by-DEF-rail",
+      "generatedOriginalAbsolutePath": "C:/Users/guill/.codex/generated_images/01a0cd3e-b962-7433-ad26-5f0bfa5d12c3/exec-ac3f5d48-ccac-4e69-8951-12cec5d24ef5.png"
+    },
+    {
+      "key": "sapphire",
+      "revision": 2,
+      "path": "art-a/sapphire-v2.png",
+      "sha256": "6a9311077a5cfd68c9383939beb93817bd21926f32086044b2e3008d369d1dc4",
+      "archive": "art-a/originals/sapphire-v2.png",
+      "archiveSha256": "6a9311077a5cfd68c9383939beb93817bd21926f32086044b2e3008d369d1dc4",
+      "width": 1122,
+      "height": 1402,
+      "decodedPixels": 1573044,
+      "opaquePixels": 1573044,
+      "defaultCrop": {
+        "left": 0,
+        "top": 0,
+        "width": 1122,
+        "height": 1402
+      },
+      "request": "art-a/sapphire.revision-02.request.json",
+      "requestSha256": "deb004d0e7795ddf172fc5f05a348deed7ee9ee2f9a4c8a1f13ffa2ec078749e",
+      "references": [
+        {
+          "path": "V4/expansions/2026-09-24-royal-training/art-a/revisions/v1/sapphire.png",
+          "sha256": "4b429f0623d4b63f265896d9c6fc69a949acfa8c2759fbbac8a532d3158d61fe"
+        },
+        {
+          "path": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8"
+        },
+        {
+          "path": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee"
+        }
+      ],
+      "disposition": "parent-selected-for-native-production-not-user-approved",
+      "generatedOriginalAbsolutePath": "C:/Users/guill/.codex/generated_images/01a0cd3e-b962-7433-ad26-5f0bfa5d12c3/exec-2e7ba5c9-83bf-4fc9-8c3b-4f422e98cc02.png",
+      "parentSelection": {
+        "reason": "Parent viewed actual component preview: all six claw tips visible, face/muscle/emotion coherent.",
+        "nativeRenderingValidated": false,
+        "userApproved": false
+      }
+    },
+    {
+      "key": "kaylis-entrainement",
+      "revision": 3,
+      "path": "art-a/kaylis-entrainement-v3.png",
+      "sha256": "d9804a69b3b587da1b1951934e7420a29418e4a9365843ff5591e740d3ffdccf",
+      "archive": "art-a/originals/kaylis-entrainement-v3.png",
+      "archiveSha256": "d9804a69b3b587da1b1951934e7420a29418e4a9365843ff5591e740d3ffdccf",
+      "width": 1122,
+      "height": 1402,
+      "decodedPixels": 1573044,
+      "opaquePixels": 1573044,
+      "defaultCrop": {
+        "left": 0,
+        "top": 0,
+        "width": 1122,
+        "height": 1402
+      },
+      "request": "art-a/kaylis-entrainement.revision-03.request.json",
+      "requestSha256": "af082c8540a86d9c3bc21414d057d875efd63bb1181c1e61971529b10ebfdf79",
+      "references": [
+        {
+          "path": "V4/expansions/2026-09-24-royal-training/art-a/kaylis-entrainement-v2.png",
+          "sha256": "d93dbd9a1cf2c699f1778d40ac4f9bbe7b54582616bc318fddf5cb467b9b95e1"
+        },
+        {
+          "path": "V3/assets/illustrations/12_RAINBOW_KAYLIS.png",
+          "sha256": "5aa38b060778cc434454f5e6a36a5ebd64e75efb7dfa3939f2b96c11d8decf75"
+        },
+        {
+          "path": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8"
+        },
+        {
+          "path": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee"
+        }
+      ],
+      "disposition": "parent-selected-for-native-production-not-user-approved",
+      "generatedOriginalAbsolutePath": "C:/Users/guill/.codex/generated_images/01a0cd3e-b962-7433-ad26-5f0bfa5d12c3/exec-063be779-2766-4840-97b9-04f476d51530.png",
+      "parentSelection": {
+        "reason": "Parent viewed actual component preview; whole tip, head and boots visible; identity and athletic action approved for native preparation.",
+        "nativeRenderingValidated": false,
+        "userApproved": false
+      }
+    }
+  ],
+  "selectionFinalizedAt": "2026-09-24 14:58:06 UTC"
+}

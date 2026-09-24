@@ -1,0 +1,70 @@
+{
+  "name": "AELIS",
+  "title": "LA PRIERE SANS REPONSE",
+  "job": "SOIGNEUSE",
+  "description": "Aelis a rallumé chaque veilleuse du sanctuaire. Devant la dernière, elle ne demande plus de miracle. Elle reste simplement là, pour que ceux qui reviendront ne trouvent pas la nuit seule à les attendre.",
+  "element": "LUXO",
+  "race": "AURELION",
+  "weapon": "Bâton",
+  "faction": "Solaria",
+  "positions": [
+    3,
+    5
+  ],
+  "atk": [
+    175,
+    145,
+    115,
+    85,
+    55,
+    "revive"
+  ],
+  "defense": [
+    200,
+    166,
+    132,
+    98,
+    64,
+    30
+  ],
+  "magic": [
+    6,
+    5,
+    4,
+    3,
+    2
+  ],
+  "barriers": [
+    6,
+    2
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "48428173",
+  "characterId": "aelis",
+  "slug": "V4_48428173",
+  "output": "KALISTAR_V4_48428173",
+  "text": "Aelis a rallumé chaque veilleuse du sanctuaire. Devant la dernière, elle ne demande plus de miracle. Elle reste simplement là, pour que ceux qui reviendront ne trouvent pas la nuit seule à les attendre.",
+  "color": "F4E9AF",
+  "hue": 47,
+  "weapon_index": 10,
+  "role": 5,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": true,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Kalistar V4 - expansion 2026-09-24-royal-training",
+  "visual_revision": "V4-2026-09-24-royal-training",
+  "edition": "new",
+  "historicalScene": {
+    "source": "V2/donnees/cartes.json",
+    "id": "00000017",
+    "gameplay": "V4 role 5 - reequilibrage utilisateur approuve 2026-09-24"
+  }
+}

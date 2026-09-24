@@ -1,0 +1,81 @@
+{
+  "purpose": "Review only, never production artwork.",
+  "inputs": [
+    {
+      "key": "kaine",
+      "file": "V4/expansions/2026-09-24-royal-training/revisions/kaine/card.png",
+      "sha256": "6897e05f4b5da1e7042bd2bc1d2cc5cf9eb76551f229149bd83b7058b7dcf73b",
+      "proof": "V4/expansions/2026-09-24-royal-training/revisions/kaine/verification.json",
+      "proofHash": "32375c1497b22f590e4789bfcf8898352dc0d9f49b7fce9426c5c5fc74c47087"
+    },
+    {
+      "key": "capitaine-skully",
+      "file": "V4/expansions/2026-09-24-royal-training/revisions/capitaine-skully/card.png",
+      "sha256": "a4bc965a96befb28eec7e5026911eac4d2c0dab1bad08e0b2c220bc9ef512121",
+      "proof": "V4/expansions/2026-09-24-royal-training/revisions/capitaine-skully/verification.json",
+      "proofHash": "8d5961c01242f7d9dda3f1bd1ff76c8accc004dd055e9ae194f318afc63f0150"
+    },
+    {
+      "key": "darnako",
+      "file": "V4/expansions/2026-09-24-royal-training/revisions/darnako/card.png",
+      "sha256": "570f63c948b2817303c142f4f03e47567a2dc3bc0f900775363acd63c48cbbfe",
+      "proof": "V4/expansions/2026-09-24-royal-training/revisions/darnako/verification.json",
+      "proofHash": "e9b543e966290d19d09780ea4886c26877cd092267f02ba53f9865af5a35ef42"
+    },
+    {
+      "key": "xiaomi",
+      "file": "V4/expansions/2026-09-24-royal-training/revisions/xiaomi/card.png",
+      "sha256": "b36dc16361d591e5a507587a3337e5e9a2582806e24eb88353ca10d9c15cf7f2",
+      "proof": "V4/expansions/2026-09-24-royal-training/revisions/xiaomi/verification.json",
+      "proofHash": "ec423805315d3a78b0491426f5460264dae635b4e89fbab9472d3b99e83905be"
+    },
+    {
+      "key": "ruby",
+      "file": "V4/expansions/2026-09-24-royal-training/revisions/ruby/card.png",
+      "sha256": "7b6f7a3faa423f674fe6f5fab961aa96d4db46271b380184a0e21b82f7242efc",
+      "proof": "V4/expansions/2026-09-24-royal-training/revisions/ruby/verification.json",
+      "proofHash": "62827e4684edb3d94a20897fc87c6696dafaded077e499349fbc501a08127216"
+    },
+    {
+      "key": "aelis",
+      "file": "V4/expansions/2026-09-24-royal-training/revisions/aelis/card.png",
+      "sha256": "48ba05c03f1feb41fd3f5550636e8242e5e630f46c81d230bedeab68eca3be72",
+      "proof": "V4/expansions/2026-09-24-royal-training/revisions/aelis/verification.json",
+      "proofHash": "96b80e7bb2f0a6a701d3ce21085339ba0159894c0d0f50e82324496dcccf51dc"
+    },
+    {
+      "key": "iliane",
+      "file": "V4/expansions/2026-09-24-royal-training/revisions/iliane/card.png",
+      "sha256": "00d088693369b693c3662effbb567654ca9cb183a3bba49761a591fb7956198d",
+      "proof": "V4/expansions/2026-09-24-royal-training/revisions/iliane/verification.json",
+      "proofHash": "86cfa5ed1bf656fac6531da8fae319bad473e809725b2177bf396168ba9d84a6"
+    }
+  ],
+  "sheets": [
+    {
+      "file": "V4/expansions/2026-09-24-royal-training/visual-review/revisions/1.png",
+      "sha256": "db4f05f626b8b324ff78ee04d67e13f1e09592d6d9da8bfef907fb76d323e15c",
+      "keys": [
+        "kaine",
+        "capitaine-skully",
+        "darnako"
+      ]
+    },
+    {
+      "file": "V4/expansions/2026-09-24-royal-training/visual-review/revisions/2.png",
+      "sha256": "c5854cff5afb90d170d13a70ed2ad626d09f1d20e97c4acc1c444d7301cce7d6",
+      "keys": [
+        "xiaomi",
+        "ruby",
+        "aelis"
+      ]
+    },
+    {
+      "file": "V4/expansions/2026-09-24-royal-training/visual-review/revisions/3.png",
+      "sha256": "27e3fb45e09f8a2f4eb2f3ab23906d23b6061c733a754c20ace143fed60d7cfc",
+      "keys": [
+        "iliane"
+      ]
+    }
+  ]
+}

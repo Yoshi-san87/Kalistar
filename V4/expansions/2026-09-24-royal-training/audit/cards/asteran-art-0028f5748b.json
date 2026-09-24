@@ -1,0 +1,56 @@
+{
+  "status": "preview-not-native",
+  "spec": {
+    "key": "asteran",
+    "characterId": "asteran",
+    "name": "ASTERAN",
+    "title": "UNE FAILLE DANS LE JUGEMENT",
+    "job": "LIBERATEUR",
+    "description": "Au seuil de Solaria, Asteran abat sa lame sur la chaîne qui barre le passage aux bannis. Le cristal de sa peau porte déjà une fêlure. Il ne cherche plus à paraître sans faute : il veut que quelqu'un puisse encore espérer.",
+    "element": "LUXO",
+    "race": "AURELION",
+    "weapon": "Epée longue",
+    "faction": "Solaria",
+    "positions": [
+      2
+    ],
+    "role": 2,
+    "atk": [
+      286,
+      236,
+      186,
+      136,
+      88,
+      "buff_atk"
+    ],
+    "defense": [
+      171,
+      140,
+      108,
+      "dodge",
+      53,
+      23
+    ],
+    "magic": [
+      4
+    ],
+    "barriers": [
+      6,
+      2
+    ],
+    "art": "art-b/asteran.png",
+    "crop": {
+      "zoom": 1,
+      "x": 0,
+      "y": 0
+    },
+    "id": "44077247"
+  },
+  "artHash": "0028f5748be2755c56ac0183e04fb180e64cb4ecb7e5bbe423616357dc1ef545",
+  "candidate": {
+    "file": "V4/expansions/2026-09-24-royal-training/audit/cards/asteran-art-0028f5748b.png",
+    "sha256": "bdc2fa9d755855064e1d61ce67f383c6f3a36077614cdb47d80209f0007da3ca"
+  },
+  "previewArtOverride": false,
+  "photoshopRun": false
+}

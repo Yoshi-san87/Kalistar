@@ -1,0 +1,299 @@
+{
+  "schemaVersion": 1,
+  "status": "candidate-awaiting-native-review",
+  "photoshopRun": false,
+  "referenceId": "4e489e527f047e2e6def3264718abb509cddb105cbc705bcd678ba0b20dc4bec",
+  "createdAt": "2026-09-24T14:34:25.144Z",
+  "geometry": {
+    "file": "packed/banks/faction-Solaria.png",
+    "left": 667,
+    "top": 829,
+    "width": 109,
+    "height": 203,
+    "sourceLayers": [
+      "OMBRE CONTACT - barre DEF sur le tissu",
+      "FACTION - CONTENU",
+      "OMBRE - CONTENU"
+    ],
+    "sourceCard": "aelis",
+    "nativeGroupMaskApplied": "frame/faction-mask.png",
+    "nativeExportFile": "banks/faction-Solaria.png"
+  },
+  "diagnosis": "Motif parasite deja dans le fichier V3, distinct du tissu ; ombre propagee dans les exports natifs. V3 conserve intact.",
+  "nativePlan": "Reviser le contenu du drapeau et son ombre dans des copies des PSD ; verifier les limites du groupe et toute difference hors zone. Les PNG candidats ne sont pas une preuve native.",
+  "sharedDisplay": {
+    "newAsset": "V4/site/assets/factions/Solaria.png",
+    "sourceCandidate": "V4/expansions/2026-09-24-royal-training/audit/solaria/source-candidate.png",
+    "routeChangeOwner": "parent",
+    "instruction": "Router Solaria vers assets/factions/Solaria.png dans V4 uniquement et inclure cet asset dans le build statique."
+  },
+  "results": [
+    {
+      "name": "source",
+      "file": "V3/assets/factions/Solaria.png",
+      "cutoff": 287,
+      "sourceHash": "6c4a48d89936bd2f7e3a96fd4ded204a201c5dca836528f1c93b8a45da49adfb",
+      "original": {
+        "file": "V4/expansions/2026-09-24-royal-training/audit/solaria/source-before.png",
+        "sha256": "6c4a48d89936bd2f7e3a96fd4ded204a201c5dca836528f1c93b8a45da49adfb"
+      },
+      "output": {
+        "file": "V4/expansions/2026-09-24-royal-training/audit/solaria/source-candidate.png",
+        "sha256": "46bb701d008c8742428eca8fac99cbfc0c32a6e8551204a9c43cea9597cc1289"
+      },
+      "comparison": {
+        "file": "V4/expansions/2026-09-24-royal-training/audit/solaria/source-comparison.png",
+        "sha256": "6ae37912f63e28046d27b64e15fb9d2f7de4539907a0221eb5ba84518b20ce06"
+      },
+      "width": 164,
+      "height": 330,
+      "changedAlpha": 1196,
+      "rgbChanged": 0,
+      "outsideChanged": 0,
+      "nearbyRows": [
+        {
+          "y": 279,
+          "count": 7
+        },
+        {
+          "y": 280,
+          "count": 6
+        },
+        {
+          "y": 281,
+          "count": 6
+        },
+        {
+          "y": 282,
+          "count": 5
+        },
+        {
+          "y": 283,
+          "count": 4
+        },
+        {
+          "y": 284,
+          "count": 1
+        },
+        {
+          "y": 285,
+          "count": 2
+        },
+        {
+          "y": 286,
+          "count": 1
+        },
+        {
+          "y": 287,
+          "count": 0
+        },
+        {
+          "y": 288,
+          "count": 0
+        },
+        {
+          "y": 289,
+          "count": 0
+        },
+        {
+          "y": 290,
+          "count": 1
+        },
+        {
+          "y": 291,
+          "count": 2
+        },
+        {
+          "y": 292,
+          "count": 3
+        },
+        {
+          "y": 293,
+          "count": 5
+        },
+        {
+          "y": 294,
+          "count": 6
+        }
+      ]
+    },
+    {
+      "name": "raw",
+      "file": "V4/atelier/designer-assets/banks/faction-Solaria.png",
+      "cutoff": 185,
+      "sourceHash": "4b42e5ff6c6ed96666f4dd99528772501f449db758510967ca28fad59fbc974b",
+      "original": {
+        "file": "V4/expansions/2026-09-24-royal-training/audit/solaria/raw-before.png",
+        "sha256": "4b42e5ff6c6ed96666f4dd99528772501f449db758510967ca28fad59fbc974b"
+      },
+      "output": {
+        "file": "V4/expansions/2026-09-24-royal-training/audit/solaria/raw-candidate.png",
+        "sha256": "2d23f863f8b6165253fb3d0ed0b26eb444ec35226e5349e50e8c72c97414ce44"
+      },
+      "comparison": {
+        "file": "V4/expansions/2026-09-24-royal-training/audit/solaria/raw-comparison.png",
+        "sha256": "25c0ed648fd5466d9ad1611d511091300150723416120d01ccbb092908cb5632"
+      },
+      "width": 126,
+      "height": 224,
+      "changedAlpha": 1675,
+      "rgbChanged": 0,
+      "outsideChanged": 0,
+      "nearbyRows": [
+        {
+          "y": 177,
+          "count": 15
+        },
+        {
+          "y": 178,
+          "count": 15
+        },
+        {
+          "y": 179,
+          "count": 13
+        },
+        {
+          "y": 180,
+          "count": 13
+        },
+        {
+          "y": 181,
+          "count": 13
+        },
+        {
+          "y": 182,
+          "count": 11
+        },
+        {
+          "y": 183,
+          "count": 11
+        },
+        {
+          "y": 184,
+          "count": 10
+        },
+        {
+          "y": 185,
+          "count": 9
+        },
+        {
+          "y": 186,
+          "count": 10
+        },
+        {
+          "y": 187,
+          "count": 11
+        },
+        {
+          "y": 188,
+          "count": 12
+        },
+        {
+          "y": 189,
+          "count": 13
+        },
+        {
+          "y": 190,
+          "count": 14
+        },
+        {
+          "y": 191,
+          "count": 14
+        },
+        {
+          "y": 192,
+          "count": 16
+        }
+      ]
+    },
+    {
+      "name": "packed",
+      "file": "V4/atelier/designer-assets/packed/banks/faction-Solaria.png",
+      "cutoff": 168,
+      "sourceHash": "7533eaec88bea6582af17332eb1e2be0c179baca2f96996ecae9355bd8b8a2c9",
+      "original": {
+        "file": "V4/expansions/2026-09-24-royal-training/audit/solaria/packed-before.png",
+        "sha256": "7533eaec88bea6582af17332eb1e2be0c179baca2f96996ecae9355bd8b8a2c9"
+      },
+      "output": {
+        "file": "V4/expansions/2026-09-24-royal-training/audit/solaria/packed-candidate.png",
+        "sha256": "7a2d01660a9137f2e103ad6dd9b0775727785aa13dac6b4a2ca4252dbbb98a2a"
+      },
+      "comparison": {
+        "file": "V4/expansions/2026-09-24-royal-training/audit/solaria/packed-comparison.png",
+        "sha256": "52e0c323ab30ba6e2a03558213936ab2bf2146204c16fef267cbbf991567df46"
+      },
+      "width": 109,
+      "height": 203,
+      "changedAlpha": 1675,
+      "rgbChanged": 0,
+      "outsideChanged": 0,
+      "nearbyRows": [
+        {
+          "y": 160,
+          "count": 15
+        },
+        {
+          "y": 161,
+          "count": 15
+        },
+        {
+          "y": 162,
+          "count": 13
+        },
+        {
+          "y": 163,
+          "count": 13
+        },
+        {
+          "y": 164,
+          "count": 13
+        },
+        {
+          "y": 165,
+          "count": 11
+        },
+        {
+          "y": 166,
+          "count": 11
+        },
+        {
+          "y": 167,
+          "count": 10
+        },
+        {
+          "y": 168,
+          "count": 9
+        },
+        {
+          "y": 169,
+          "count": 10
+        },
+        {
+          "y": 170,
+          "count": 11
+        },
+        {
+          "y": 171,
+          "count": 12
+        },
+        {
+          "y": 172,
+          "count": 13
+        },
+        {
+          "y": 173,
+          "count": 14
+        },
+        {
+          "y": 174,
+          "count": 14
+        },
+        {
+          "y": 175,
+          "count": 16
+        }
+      ]
+    }
+  ]
+}

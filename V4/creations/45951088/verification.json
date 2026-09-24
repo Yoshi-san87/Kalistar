@@ -1,16 +1,12 @@
 {
   "passed": true,
   "modelId": "45951088",
-  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
-  "profileHash": "c0e96685a9a0211b99cf628501387f48becc19ebf2b578c167c07a8adea09851",
+  "referenceId": "4e489e527f047e2e6def3264718abb509cddb105cbc705bcd678ba0b20dc4bec",
+  "kind": "verified-visual-revision",
+  "profileHash": "19b899147ca8626295c61cdbe52a1fe808decb1459d1ff35ab2bb9e9e06826e1",
   "hashes": {
-    "card.png": "24729907ac30bd33ca52e25e49b23aa6093c104e3bb2555c8634fd0d0ac98074",
-    "card.psd": "1462bf65a5387ab81843e0b60d6c785d9472ea05cdf0626bd749b4fc3ea818a7"
-  },
-  "components": {
-    "fixedDifferences": 0,
-    "severePixels": 0,
-    "changed": 108253
+    "card.psd": "b88e3d52d44ba6afdea9a7d2024d98356c16c5633658f8c8af10d8efdf9766ed",
+    "card.png": "6897e05f4b5da1e7042bd2bc1d2cc5cf9eb76551f229149bd83b7058b7dcf73b"
   },
   "roundtrip": {
     "changed": 0,
@@ -35,25 +31,10 @@
     },
     "physicalPrintVerified": false
   },
-  "checkedAt": "2026-09-23T15:51:24.280Z",
-  "key": "kaine",
-  "typography": {
-    "NOM": {
-      "font": "TimesNewRomanPSMT",
-      "sizePt": 10.0000012207031,
-      "tracking": 0,
-      "capitalization": "TextCase.NORMAL",
-      "fauxBold": false,
-      "fauxItalic": false
-    },
-    "TITLE": {
-      "font": "TimesNewRomanPSMT",
-      "sizePt": 7.68,
-      "tracking": 0,
-      "capitalization": "TextCase.ALLCAPS",
-      "fauxBold": false,
-      "fauxItalic": false
-    }
-  },
-  "preparationHash": "6683798c0d1563267acbb8f6b6999b3b6961bd9bc05c0f1c3a581fa2eacd936d"
+  "originalVerificationHash": "05edd1c0d33046a3cf192b1891a797859978a7bbd3258917239e220052082901",
+  "visualRevision": {
+    "setId": "2026-09-24-royal-training",
+    "report": "V4/expansions/2026-09-24-royal-training/revisions/kaine/verification.json",
+    "sha256": "32375c1497b22f590e4789bfcf8898352dc0d9f49b7fce9426c5c5fc74c47087"
+  }
 }
