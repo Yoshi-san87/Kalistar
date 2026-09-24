@@ -228,6 +228,18 @@ Elemental roll presentation (2026-09-22): choosing or changing a card immediatel
 
 Focused verification: with the local server running, `node V4/site/elemental-roll.browser.test.cjs` checks all elements, persistent animation, cancellation, motion preferences, tab visibility, saved combat state and the smartphone layout in a disposable browser profile. Set `KALISTAR_URL` if the server is not on port 4304.
 
+Card-bound reactions (2026-09-24): `combat-effects.js` sizes each shield, impact,
+emblem, Reraise wave and dodge afterimage from the actual `.slot-card` border box,
+in local slot coordinates. The slot's focus transform applies once to both card
+and effect. A per-effect-run ResizeObserver keeps those bounds current during
+screen rotation/resizing and disconnects on completion or cancellation. Do not
+restore the old fixed top/bottom offsets: mobile labels and hidden buff rows
+have different dimensions from desktop. Combat rules and timings are unchanged.
+`node V4/site/combat-effect-layout.browser.test.cjs` checks both teams, 14 outcome
+presentations (including stops, death, Reraise and supports), six viewport sizes,
+active rotation, cleanup and reduced motion with non-persisted visual fixtures.
+Screenshots: `verification/combat-effect-layout/`.
+
 Phone reinforcements: tapping a vacant replaceable position opens the reserve filtered to compatible cards. The highlighted card image deploys directly into that position, without a separate position button; a distinct eye control preserves inspection. Opening the general reserve during replacement uses the current vacant position too. Position-based setup uses the same direct selection. This works for either human player and never exposes or controls the AI reserve. Desktop controls remain unchanged. `node V4/site/mobile-replacement.browser.test.cjs` checks both players, cancellation and deployment through real engine-generated replacement states.
 
 Selected-card HUD (2026-09-22): phone match statistics reuse `match-metrics.js`

@@ -92,10 +92,12 @@
     const source=slot(d.side,d.attackerSlot),target=slot(1-d.side,d.targetSlot);
     if(!source||!target)return;
     const sourceCard=source.querySelector('.slot-card'),targetCard=target.querySelector('.slot-card');
-    const animations=new Set(),nodes=new Set();
+    const animations=new Set(),nodes=new Set(),surfaces=new Map();
+    const resizeObserver=new ResizeObserver(()=>{for(const sync of surfaces.values())sync();});
     let frame=0,timer=0,releaseWait=null,releaseFlight=null;
     const clean=()=>{
       cancelAnimationFrame(frame);clearTimeout(timer);
+      resizeObserver.disconnect();surfaces.clear();
       releaseWait?.();releaseFlight?.();
       for(const animation of animations)animation.cancel();
       for(const node of nodes)node.remove();
@@ -111,8 +113,18 @@
       try{await animation.finished;}catch{}finally{animation.cancel();animations.delete(animation);}
     };
     const append=(parent,cls)=>{const node=document.createElement('div');node.className=cls;node.setAttribute('aria-hidden','true');parent.append(node);nodes.add(node);return node;};
+    function cardEffect(parent,cls){
+      const card=parent.querySelector('.slot-card'),node=append(parent,cls+' combat-card-effect');
+      // Local border-box coordinates inherit the slot's focus scale exactly once.
+      const sync=()=>{
+        const style=getComputedStyle(card);
+        Object.assign(node.style,{left:card.offsetLeft+'px',top:card.offsetTop+'px',width:style.width,height:style.height,borderRadius:style.borderRadius});
+      };
+      surfaces.set(node,sync);resizeObserver.observe(parent);resizeObserver.observe(card);sync();
+      return node;
+    }
     function emblem(parent,asset,label,tint,duration=880){
-      const node=append(parent,'combat-emblem');node.dataset.effect=asset;node.style.setProperty('--effect-color',tint);
+      const node=cardEffect(parent,'combat-emblem');node.dataset.effect=asset;node.style.setProperty('--effect-color',tint);
       const img=document.createElement('img');img.src=`shared/effets/${asset}.png`;img.alt='';
       const text=document.createElement('strong');text.textContent=label;node.append(img,text);
       return animate(node,[{opacity:0,transform:'translateY(12px) scale(.55)'},{opacity:1,transform:'translateY(0) scale(1.08)',offset:.25},{opacity:1,transform:'translateY(-4px) scale(1)',offset:.72},{opacity:0,transform:'translateY(-18px) scale(1.1)'}],duration);
@@ -122,20 +134,20 @@
       await animate(targetCard,[{filter:'grayscale(0) brightness(1)',opacity:1,transform:'translateY(0)'},{filter:'grayscale(1) brightness(.3)',opacity:.3,transform:'translateY(10px) scale(.94)'}],260);
       if(signal.aborted)return;
       field.dataset.reanimation='reviving';
-      const wave=append(target,'combat-life-wave');
+      const wave=cardEffect(target,'combat-life-wave');
       const glow=animate(wave,[{opacity:0,clipPath:'inset(100% 0 0 0)'},{opacity:1,clipPath:'inset(0 0 0 0)',offset:.55},{opacity:0,clipPath:'inset(0 0 0 0)'}],1000);
       const heart=emblem(target,'revive','Reraise','#ff98b6',1050);
       await animate(targetCard,[{filter:'grayscale(1) brightness(.3)',opacity:.3,transform:'translateY(10px) scale(.94)'},{filter:'grayscale(.2) brightness(1.3)',opacity:1,transform:'translateY(-5px) scale(1.02)',offset:.6},{filter:'grayscale(0) brightness(1)',opacity:1,transform:'translateY(0) scale(1)'}],1000);
       await heart;await glow;delete field.dataset.reanimation;
     }
     function shield(recipient=target,ward=false){
-      const node=append(recipient,'combat-shield'+(ward?' combat-ward':''));
+      const node=cardEffect(recipient,'combat-shield'+(ward?' combat-ward':''));
       node.innerHTML='<i data-lucide="shield-check"></i>'+(ward?'<strong>DEF +60</strong>':'');
       window.lucide?.createIcons();
       return animate(node,[{opacity:0,transform:'scale(.86)'},{opacity:1,transform:'scale(1)',offset:.2},{opacity:.9,offset:.7},{opacity:0,transform:'scale(1.08)'}],640);
     }
     function impact(){
-      const node=append(target,'combat-impact');node.style.setProperty('--impact-color',d.magic&&element&&element!=='NONE'?color:'#f3ddd0');
+      const node=cardEffect(target,'combat-impact');node.style.setProperty('--impact-color',d.magic&&element&&element!=='NONE'?color:'#f3ddd0');
       return animate(node,[{opacity:0,transform:'scale(.6)'},{opacity:.9,transform:'scale(1)',offset:.2},{opacity:0,transform:'scale(1.25)'}],420);
     }
     function magicFlight(){
@@ -216,7 +228,7 @@
       if(signal.aborted)return;
       if(reaction==='dodge'){
         const echoes=[];
-        for(const sign of [-1,1]){const echo=append(target,'combat-afterimage');echo.append(targetCard.querySelector('img').cloneNode());echoes.push(animate(echo,[{opacity:.32,transform:'translateX(0)'},{opacity:0,transform:`translateX(${sign*32}px)`}],620));}
+        for(const sign of [-1,1]){const echo=cardEffect(target,'combat-afterimage');echo.append(targetCard.querySelector('img').cloneNode());echoes.push(animate(echo,[{opacity:.32,transform:'translateX(0)'},{opacity:0,transform:`translateX(${sign*32}px)`}],620));}
         const symbol=emblem(target,'dodge','Esquive','#9df6cd',720);
         await animate(targetCard,[{transform:'translateY(0)',opacity:1},{transform:'translateY(-26px)',opacity:.48,offset:.4},{transform:'translateY(0)',opacity:1}],650);
         await symbol;for(const echo of echoes)await echo;
