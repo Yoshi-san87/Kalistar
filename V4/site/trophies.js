@@ -5,9 +5,9 @@
 })(typeof window==='undefined'?globalThis:window,()=>{
   'use strict';
   const categories=Object.freeze([
-    {id:'crystal',key:'rating',name:'Golden Crystal',label:'MVP',help:'Meilleur indice du match : 5 par kill, 3 par stop, 2 par soutien, 1 par vie sauv\u00e9e et 1 par tranche de 30 ATK retir\u00e9e.'},
+    {id:'crystal',key:'rating',name:'Golden Crystal',label:'MVP',help:'Meilleur indice du match : 5 par kill, 3 par Block, 2 par soutien, 1 par vie sauv\u00e9e et 1 par tranche de 30 ATK retir\u00e9e.'},
     {id:'killer',key:'kills',name:'Golden Killer',label:'Kills',help:'Le plus d\u2019\u00e9liminations d\u00e9finitives.'},
-    {id:'blocker',key:'holds',name:'Golden Blocker',label:'Stops',help:'Le plus d\u2019attaques arr\u00eat\u00e9es. Les sauvetages Reraise sont exclus.'},
+    {id:'blocker',key:'holds',name:'Golden Blocker',label:'Blocks',help:'Le plus d\u2019attaques bloqu\u00e9es. Les sauvetages Reraise sont exclus.'},
     {id:'clover',key:'clovers',name:'Golden Clover',label:'Tr\u00e8fles',help:'Le plus de nouveaux tr\u00e8fles attribu\u00e9s, pas consomm\u00e9s.'},
     {id:'heart',key:'hearts',name:'Golden Heart',label:'Reraise',help:'Le plus de nouveaux c\u0153urs Reraise attribu\u00e9s, pas consomm\u00e9s.'}
   ]);

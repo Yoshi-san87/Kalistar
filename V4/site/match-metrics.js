@@ -6,7 +6,7 @@
   'use strict';
   const core=[
     {key:'kills',label:'Kills',icon:'skull',help:'\u00c9liminations r\u00e9elles. Un Reraise ne compte pas comme un kill.'},
-    {key:'holds',label:'Stops',icon:'ban',help:'Attaques arr\u00eat\u00e9es par une d\u00e9fense suffisante, une esquive ou un ancien bouclier DEF. Reraise exclu.'},
+    {key:'holds',label:'Blocks',icon:'ban',help:'Attaques bloqu\u00e9es par une d\u00e9fense suffisante, une esquive ou un ancien bouclier DEF. Reraise exclu.'},
     {key:'attack',label:'ATK cumul\u00e9e',icon:'sword',help:'Somme des scores ATK finaux de ce match, bonus inclus. Les jets interm\u00e9diaires ne se cumulent pas.'},
     {key:'defense',label:'DEF cumul\u00e9e',icon:'shield',help:'Somme des scores DEF finaux de ce match, bonus de race, d\u2019ar\u00e8ne et de garde (ward) inclus, apr\u00e8s les relances.'},
     {key:'clovers',label:'Tr\u00e8fles accord\u00e9s',icon:'clover',help:'Nouveaux tr\u00e8fles attribu\u00e9s par cette carte, \u00e0 soi ou \u00e0 un alli\u00e9. Ni consommations ni renouvellements.'},
@@ -17,7 +17,7 @@
     {key:'support',label:'Soutiens',icon:'hand-heart',help:'Nouveaux traits accord\u00e9s, \u00e0 soi ou \u00e0 un alli\u00e9. Renouvellements exclus.'},
     {key:'reraises',label:'Vies sauv\u00e9es',icon:'heart-pulse',help:'Reraise consomm\u00e9s par cette carte, distincts des Reraise accord\u00e9s.'},
     {key:'luckUsed',label:'Secondes chances',icon:'rotate-ccw',help:'Tr\u00e8fles consomm\u00e9s pour relancer la d\u00e9fense, distincts des tr\u00e8fles accord\u00e9s.'},
-    {key:'rating',label:'Indice',icon:'trophy',help:'5 par kill + 3 par stop + 2 par soutien + 1 par vie sauv\u00e9e + 1 par tranche de 30 ATK retir\u00e9e.'}
+    {key:'rating',label:'Indice',icon:'trophy',help:'5 par kill + 3 par Block + 2 par soutien + 1 par vie sauv\u00e9e + 1 par tranche de 30 ATK retir\u00e9e.'}
   ];
   // V4 physical grants are fixed at 60 points; stored support counters stay in grants.
   const duelMetrics=core.concat([

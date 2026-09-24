@@ -6,7 +6,7 @@
   const num=value=>(Number.isFinite(value)?value:0).toLocaleString('fr-FR');
   const coreDefaults=[
     {key:'kills',label:'Éliminations',icon:'skull',help:'Cartes réellement éliminées. Une carte sauvée par Reraise ne compte pas.'},
-    {key:'holds',label:'Arrêts',icon:'ban',help:'Attaques arrêtées par une défense suffisante, une esquive ou un bouclier. Reraise est compté séparément.'},
+    {key:'holds',label:'Blocks',icon:'ban',help:'Attaques bloquées par une défense suffisante, une esquive ou un bouclier. Reraise est compté séparément.'},
     {key:'attack',label:'ATK',icon:'sword',help:'Somme des scores ATK finaux des duels numériques, bonus compris. Les relances intermédiaires ne sont pas ajoutées.'},
     {key:'defense',label:'DEF',icon:'shield',help:'Somme des scores DEF finaux, après bonus de race, arène et ward. Un seul score par duel numérique.'},
     {key:'clovers',label:'Trèfles',icon:'clover',help:'Nouveaux trèfles accordés par cette carte, à elle-même ou à un allié. Ce ne sont pas les trèfles consommés.'},
@@ -17,7 +17,7 @@
     {key:'support',label:'Soutiens',icon:'hand-heart',help:'Nouveaux traits accordés, à soi ou à un allié : cœurs, trèfles, potions, puissance et garde. Renouvellements exclus.'},
     {key:'reraises',label:'Vies sauvées',icon:'heart-pulse',help:'Cœurs consommés pour survivre à une élimination. À distinguer des cœurs accordés.'},
     {key:'luckUsed',label:'Trèfles utilisés',icon:'rotate-ccw',help:'Trèfles consommés pour relancer une défense insuffisante. À distinguer des trèfles accordés.'},
-    {key:'rating',label:'Indice',icon:'trophy',help:'5 par élimination + 3 par arrêt + 2 par soutien + 1 par vie sauvée + 1 par tranche de 30 ATK retirée.'}
+    {key:'rating',label:'Indice',icon:'trophy',help:'5 par élimination + 3 par Block + 2 par soutien + 1 par vie sauvée + 1 par tranche de 30 ATK retirée.'}
   ];
   const tabs=[['awards','Palmarès','trophy'],['teams','Équipes','swords'],['lineup','Feuille','list-ordered'],['definitions','Décompte','chart-no-axes-combined']];
   const trophies=window.KalistarTrophies;
