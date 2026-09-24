@@ -467,6 +467,27 @@ function showDeck(){setView('decks');}
     }
     icons();
   }
+  function weaponMatchupGrid(attacker){
+    const weapons=Object.keys(data.weapons);
+    return weapons.map((defender,index)=>{
+      const modifier=data.weapons[attacker]?.[defender]||0,sign=modifier>0?'+':'';
+      return `<div class="weapon-matchup" data-defender="${esc(defender)}" data-modifier="${modifier}" title="${esc(attacker)} contre ${esc(defender)}"><img src="${asset('armes',String(index).padStart(2,'0'))}" alt=""><span>${esc(defender)}</span><b class="weapon-modifier ${modifier>0?'positive':modifier<0?'negative':'neutral'}">${sign}${modifier}</b></div>`;
+    }).join('');
+  }
+  function showCombatReference(kind){
+    if(kind==='elements'){
+      const matchups=Object.values(data.elements).filter(e=>e.strong_against&&data.elements[e.strong_against]);
+      const grid=matchups.map(e=>{
+        const defender=data.elements[e.strong_against];
+        return `<article class="element-matchup" data-attacker="${esc(e.id)}" data-defender="${esc(defender.id)}"><img src="${asset('cristaux',e.id)}" alt="Cristal ${esc(e.label)}"><span class="element-matchup-names"><b>${esc(e.label)}</b><small>contre ${esc(defender.label)}</small></span>${icon('arrow-right')}<img src="${asset('cristaux',defender.id)}" alt="Cristal ${esc(defender.label)}"><span class="element-matchup-result">AVANTAGE ATK</span></article>`;
+      }).join('');
+      return modal('combat-reference-dialog',head('Codex · Affinités des cristaux')+`<div class="dialog-body combat-reference"><p class="reference-intro">Le cristal de l’attaquant est avantagé contre celui de la cible.</p><div class="element-matchup-grid">${grid}</div><section class="element-specials" aria-label="Règles spéciales des cristaux"><h3>Affinités spéciales</h3><div class="element-special-grid"><p><img src="${asset('cristaux','RAINBOW')}" alt=""> <span><b>Rainbow contre un cristal classique</b><small>+40 ATK · un cristal classique contre Rainbow : −40</small></span></p><p><img src="${asset('cristaux','RAINBOW')}" alt=""> <span><b>Rainbow contre sans cristal</b><small>+30 ATK</small></span></p><p><img src="${asset('cristaux','NONE')}" alt=""> <span><b>Classique contre sans cristal</b><small>+20 ATK · sans cristal n’apporte aucun bonus élémentaire</small></span></p></div></section><p class="reference-note">Entre cristaux classiques, la valeur d’avantage ou de désavantage dépend du profil de la carte (généralement 30). Même cristal : aucun bonus.</p></div>`);
+    }
+    const weapons=Object.keys(data.weapons),duel=game?.duel;
+    const unit=duel?game.players[duel.side]?.board[duel.attackerSlot]:game?.phase==='choose'&&Number.isInteger(ui.attacker)?game.players[game.turn]?.board[ui.attacker]:null;
+    const selected=weapons.includes(unit?E.card(unit).weapon:'')?E.card(unit).weapon:weapons[0];
+    modal('combat-reference-dialog',head('Codex · Avantages des armes')+`<div class="dialog-body combat-reference"><p class="reference-intro">Choisis l’arme de l’attaquant pour comparer son bonus contre chaque arme en défense.</p><label class="weapon-reference-select">Arme attaquante<select id="weapon-reference-attack">${weapons.map(weapon=>`<option value="${esc(weapon)}" ${weapon===selected?'selected':''}>${esc(weapon)}</option>`).join('')}</select></label><div class="weapon-reference-legend"><span class="positive">Bonus ATK</span><span class="neutral">Neutre</span><span class="negative">Malus ATK</span></div><div id="weapon-reference-grid" class="weapon-matchup-grid" aria-label="Arme attaquante contre arme en défense">${weaponMatchupGrid(selected)}</div></div>`);
+  }
   function journal(){
     const f=(game.duel||game.lastDuel)?.formula;
     const row=(label,v,cls='')=>`<div class="formula-row ${cls}"><span>${label}</span><b class="${v>0?'positive':v<0?'negative':''}">${v>0&&cls!=='total'?'+':''}${v}</b></div>`;
@@ -474,7 +495,7 @@ function showDeck(){setView('decks');}
   }
   function arena(){
     if(!game)return '<div class="resume-strip"><h2>Arène de Kalistar</h2><button class="primary" data-action="new-game">Préparer une partie</button></div>';
-    return `${!storageAvailable?'<div class="storage-note">Sauvegarde navigateur indisponible. Exportez la partie pour la conserver.</div>':''}<div class="game-shell" style="--board-scale:${boardScale/100};--arena-image:url('${arenaById(game.arenaId).image}')"><div class="arena-toolbar"><div><h1>${arenaById(game.arenaId).name} <span class="round">Échange ${game.round} / 200</span></h1><span class="muted game-seed">${esc(game.seed)} · ${game.mode==='ai'?'Adversaire automatique':'Deux joueurs locaux'}</span><span class="arena-rules">${arenaRule(arenaById(game.arenaId))}</span></div><div class="tools"><label class="board-zoom" title="Taille des cartes">${icon('scan')}<input id="board-scale" type="range" min="85" max="140" step="5" value="${boardScale}" aria-label="Taille des cartes"><output>${boardScale}%</output></label>${ib('arena-picker','map',game.phase==='setup'?'Choisir une arène':'Arène verrouillée',game.phase==='setup'?'':'disabled')}${ib('match-stats','trophy','Bilan et statistiques du match')}${ib('journal','scroll-text','Ouvrir le journal du duel')}${ib('fullscreen','maximize','Plein écran')}${ib('exit-arena','log-out','Quitter l’arène')}${ib('save-game','save','Exporter la sauvegarde')}${ib('load-game','upload','Importer une sauvegarde')}${ib('new-game','rotate-ccw','Nouvelle partie')}<input hidden type="file" id="game-file" accept="application/json,.json"></div><div class="board-navigation">${ib('focus-left','panel-left','Centrer le joueur 1')}${ib('focus-duel','dice-6','Centrer les dés')}${ib('focus-right','panel-right','Centrer le joueur 2')}</div></div><div class="arena-layout"><div class="battlefield-viewport"><section class="battlefield" aria-label="Plateau de jeu"><section class="team team-left" data-team="0">${sideHeading(0)}${board(0)}${reserveZone(0)}</section><div class="duel-console" aria-live="polite">${dice(0)}<div class="duel-centre">${consoleBody()}</div>${dice(1)}</div><section class="team team-right" data-team="1">${sideHeading(1)}${board(1)}${reserveZone(1)}</section></section></div></div></div>`;
+    return `${!storageAvailable?'<div class="storage-note">Sauvegarde navigateur indisponible. Exportez la partie pour la conserver.</div>':''}<div class="game-shell" style="--board-scale:${boardScale/100};--arena-image:url('${arenaById(game.arenaId).image}')"><div class="arena-toolbar"><div><h1>${arenaById(game.arenaId).name} <span class="round">Échange ${game.round} / 200</span></h1><span class="muted game-seed">${esc(game.seed)} · ${game.mode==='ai'?'Adversaire automatique':'Deux joueurs locaux'}</span><span class="arena-rules">${arenaRule(arenaById(game.arenaId))}</span></div><div class="tools"><label class="board-zoom" title="Taille des cartes">${icon('scan')}<input id="board-scale" type="range" min="85" max="140" step="5" value="${boardScale}" aria-label="Taille des cartes"><output>${boardScale}%</output></label>${ib('arena-picker','map',game.phase==='setup'?'Choisir une arène':'Arène verrouillée',game.phase==='setup'?'':'disabled')}${ib('combat-reference','gem','Avantages des cristaux','data-reference="elements"')}${ib('combat-reference','swords','Avantages des armes','data-reference="weapons"')}${ib('match-stats','trophy','Bilan et statistiques du match')}${ib('journal','scroll-text','Ouvrir le journal du duel')}${ib('fullscreen','maximize','Plein écran')}${ib('exit-arena','log-out','Quitter l’arène')}${ib('save-game','save','Exporter la sauvegarde')}${ib('load-game','upload','Importer une sauvegarde')}${ib('new-game','rotate-ccw','Nouvelle partie')}<input hidden type="file" id="game-file" accept="application/json,.json"></div><div class="board-navigation">${ib('focus-left','panel-left','Centrer le joueur 1')}${ib('focus-duel','dice-6','Centrer les dés')}${ib('focus-right','panel-right','Centrer le joueur 2')}</div></div><div class="arena-reference-dock" aria-label="Codex de combat">${ib('combat-reference','gem','Avantages des cristaux','data-reference="elements"')}${ib('combat-reference','swords','Avantages des armes','data-reference="weapons"')}</div><div class="arena-layout"><div class="battlefield-viewport"><section class="battlefield" aria-label="Plateau de jeu"><section class="team team-left" data-team="0">${sideHeading(0)}${board(0)}${reserveZone(0)}</section><div class="duel-console" aria-live="polite">${dice(0)}<div class="duel-centre">${consoleBody()}</div>${dice(1)}</div><section class="team team-right" data-team="1">${sideHeading(1)}${board(1)}${reserveZone(1)}</section></section></div></div></div>`;
   }
   function act(fn){if(rolling)return;try{checkGame();fn();E.assertState(game);epoch++;render();}catch(e){toast(e.message);}}
   function engageDuel(){
@@ -594,6 +615,7 @@ function showDeck(){setView('decks');}
       if(action==='close'){b.closest('dialog').close();return;}
       if(b.closest('#mobile-dialog')&&action!=='duel-details')$('#mobile-dialog').close();
       if(action==='arena-menu')return showArenaMenu();
+      if(action==='combat-reference')return showCombatReference(b.dataset.reference);
       if(action==='match-arena-scroll'){
         const rail=$('.match-arena-options');if(rail)rail.scrollBy({left:Number(b.dataset.direction)*Math.max(180,rail.clientWidth*.75),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});return;
       }
@@ -713,6 +735,9 @@ function showDeck(){setView('decks');}
     if(e.target.id==='deck-name'){deckName=e.target.value;persist();}
   });
   document.addEventListener('change',async e=>{
+    if(e.target.id==='weapon-reference-attack'){
+      $('#weapon-reference-grid').innerHTML=weaponMatchupGrid(e.target.value);return;
+    }
     if(e.target.id==='deck-preset'||e.target.id==='enemy-deck-preset'){
       const enemy=e.target.id==='enemy-deck-preset';
       try{const preset=validatedPreset(e.target.value);if(enemy)enemyPresetId=preset.id;else deckPresetId=preset.id;save(enemy?'enemyDeckPreset':'deckPreset',preset.id);}

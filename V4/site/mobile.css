@@ -320,7 +320,7 @@ html:fullscreen body.arena-view .arena-toolbar h1 { font-size: 18px; white-space
 html:fullscreen body.arena-view .arena-toolbar .game-seed,
 html:fullscreen body.arena-view .arena-toolbar .arena-rules { display: none; }
 html:fullscreen body.arena-view .arena-toolbar .tools { flex: 0 0 auto; margin-left: auto; }
-html:fullscreen body.arena-view .arena-toolbar .tools > :not(.board-zoom):not([data-action="arena-menu"]):not([data-action="exit-arena"]) { display: none; }
+html:fullscreen body.arena-view .arena-toolbar .tools > :not(.board-zoom):not([data-action="arena-menu"]):not([data-action="exit-arena"]):not([data-action="combat-reference"]) { display: none; }
 html:fullscreen body.arena-view .arena-toolbar .tools [data-action="arena-menu"] { display: inline-flex; }
 html:fullscreen body.arena-view .arena-layout { flex: 1 1 0; min-height: 0; overflow: hidden; }
 html:fullscreen body.arena-view .battlefield-viewport {

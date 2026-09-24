@@ -1,0 +1,80 @@
+#combat-reference-dialog {
+  width: min(920px,calc(100vw - 32px));
+  max-height: min(90dvh,920px);
+  overflow: hidden;
+  border: 1px solid #b99a61;
+  border-radius: 6px;
+  background: radial-gradient(ellipse at 50% 0,#23352b,#0b1412 68%);
+  box-shadow: 0 24px 80px #000c,0 0 28px #d6b57224;
+}
+#combat-reference-dialog[open] { display: flex; flex-direction: column; }
+#combat-reference-dialog::backdrop { background: #020705dc; backdrop-filter: blur(5px); }
+#combat-reference-dialog .dialog-head { flex: 0 0 auto; position: static; padding: 14px 18px; background: #0b1412; }
+#combat-reference-dialog .dialog-head h2 { color: #f0d6a0; font-size: 22px; }
+#combat-reference-dialog .combat-reference { min-height: 0; overflow: auto; overscroll-behavior: contain; padding: 16px 18px 20px; scrollbar-color: #927b51 #101a15; }
+.reference-intro { margin: 0 0 14px; color: #d7e2d8; font-size: 14px; }
+.element-matchup-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; }
+.element-matchup { position: relative; min-width: 0; min-height: 92px; display: grid; grid-template-columns: 42px minmax(0,1fr) 18px 42px; align-items: center; gap: 7px; padding: 9px 9px 27px; border: 1px solid #9b83544c; border-radius: 4px; background: linear-gradient(135deg,#203027d9,#101a16f2); }
+.element-matchup > img { width: 40px; height: 40px; object-fit: contain; filter: drop-shadow(0 2px 4px #000a); }
+.element-matchup > .lucide { width: 17px; height: 17px; color: #e4c786; }
+.element-matchup-names { display: grid; gap: 2px; min-width: 0; }
+.element-matchup-names b { overflow-wrap: anywhere; color: #f2e6c8; font-size: 12px; }
+.element-matchup-names small { color: #bdc9c0; font-size: 10px; }
+.element-matchup-result { position: absolute; right: 8px; bottom: 6px; color: #c8e8ce; font-size: 9px; font-weight: 700; letter-spacing: .04em; }
+.element-specials { margin-top: 16px; padding-top: 12px; border-top: 1px solid #aa936350; }
+.element-specials h3 { margin-bottom: 8px; color: #eed39b; font-size: 16px; }
+.element-special-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; }
+.element-special-grid p { min-width: 0; display: flex; align-items: center; gap: 8px; margin: 0; padding: 8px; border: 1px solid #b69a6340; border-radius: 4px; background: #0b1713b8; }
+.element-special-grid img { width: 34px; height: 34px; flex: 0 0 34px; object-fit: contain; }
+.element-special-grid span { display: grid; gap: 3px; min-width: 0; }
+.element-special-grid b { color: #e4e9dc; font-size: 11px; line-height: 1.3; }
+.element-special-grid small { color: #bac8bd; font-size: 10px; line-height: 1.35; }
+.reference-note { margin-top: 12px; color: #b8c6bb; font-size: 11px; line-height: 1.5; }
+.weapon-reference-select { display: grid; grid-template-columns: auto minmax(180px,260px); align-items: center; justify-content: start; gap: 12px; margin: 10px 0; color: #dce4d9; font-size: 13px; }
+.weapon-reference-select select { width: 100%; min-height: 42px; border-color: #9a8356; background: #111b16; }
+.weapon-reference-legend { display: flex; gap: 16px; margin: 10px 0; font-size: 11px; }
+.weapon-reference-legend span::before { content: ''; display: inline-block; width: 7px; height: 7px; margin-right: 5px; border-radius: 50%; background: currentColor; }
+.weapon-matchup-grid { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 8px; }
+.weapon-matchup { min-width: 0; min-height: 96px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 7px 4px; border: 1px solid #9b83544c; border-radius: 4px; background: linear-gradient(145deg,#1e2c24,#101714); text-align: center; }
+.weapon-matchup img { width: 36px; height: 36px; object-fit: contain; filter: drop-shadow(0 2px 3px #0009); }
+.weapon-matchup > span { width: 100%; min-height: 26px; display: flex; align-items: center; justify-content: center; overflow-wrap: anywhere; color: #dce3d8; font-size: 10px; line-height: 1.2; }
+.weapon-matchup > b { font-size: 15px; font-variant-numeric: tabular-nums; line-height: 1; }
+.weapon-matchup .positive,.weapon-reference-legend .positive { color: #a9dfb9; }
+.weapon-matchup .negative,.weapon-reference-legend .negative { color: #eda4a5; }
+.weapon-matchup .neutral,.weapon-reference-legend .neutral { color: #d6cba9; }
+.arena-reference-dock { display: none; }
+@media (max-width: 1100px) {
+  .element-matchup-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .element-special-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 699px), (max-width: 950px) and (max-height: 500px) {
+  .arena-reference-dock { position: fixed; z-index: 44; right: max(12px,env(safe-area-inset-right,0px)); bottom: calc(12px + env(safe-area-inset-bottom,0px)); display: flex; gap: 6px; }
+  .arena-reference-dock .icon-button { width: 44px; height: 44px; min-height: 44px; padding: 10px; border: 1px solid #c3a66f; border-radius: 4px; color: #f1d99f; background: #0b1715ed; box-shadow: 0 4px 14px #0009; }
+  .arena-reference-dock .icon-button:hover { background: #233a31; }
+  #combat-reference-dialog { width: calc(100vw - 16px); max-height: calc(100dvh - 16px); border-radius: 5px; }
+  #combat-reference-dialog .dialog-head { padding: 8px 10px; }
+  #combat-reference-dialog .dialog-head h2 { font-size: 18px; }
+  #combat-reference-dialog .combat-reference { padding: 10px; }
+  .reference-intro { margin-bottom: 10px; font-size: 13px; }
+  .element-matchup-grid { gap: 6px; }
+  .element-matchup { min-height: 84px; grid-template-columns: 32px minmax(0,1fr) 14px 32px; gap: 4px; padding: 7px 5px 24px; }
+  .element-matchup > img { width: 31px; height: 31px; }
+  .element-matchup > .lucide { width: 14px; height: 14px; }
+  .element-matchup-names b { font-size: 10px; }
+  .element-matchup-names small { font-size: 9px; }
+  .element-matchup-result { right: 5px; bottom: 5px; font-size: 8px; }
+  .element-special-grid { gap: 5px; }
+  .element-special-grid p { padding: 6px; }
+  .reference-note { font-size: 10px; }
+  .weapon-reference-select { grid-template-columns: 1fr; gap: 4px; margin: 8px 0; }
+  .weapon-reference-select select { min-height: 44px; }
+  .weapon-reference-legend { gap: 10px; flex-wrap: wrap; font-size: 10px; }
+  .weapon-matchup-grid { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 5px; }
+  .weapon-matchup { min-height: 84px; gap: 3px; padding: 5px 2px; }
+  .weapon-matchup img { width: 30px; height: 30px; }
+  .weapon-matchup > span { min-height: 25px; font-size: 9px; }
+  .weapon-matchup > b { font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .arena-reference-dock .icon-button { transition: none; }
+}
