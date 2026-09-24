@@ -109,6 +109,7 @@ async function main() {
     assert.equal(await page.locator('#combat-reference-dialog .element-matchup').count(),11);
     const waterFire=page.locator('.element-matchup[data-attacker=HYDRO][data-defender=PYRO]');
     assert.match(await waterFire.innerText(),/EAU[\s\S]*FEU[\s\S]*AVANTAGE ATK/);
+    await page.waitForFunction(() => [...document.querySelectorAll('.element-matchup[data-attacker=HYDRO][data-defender=PYRO] img')].every(img=>img.complete&&img.naturalWidth>0));
     assert.ok(await waterFire.locator('img').evaluateAll(images=>images.every(img=>img.complete&&img.naturalWidth>0)));
     await page.screenshot({path:path.join(output,'combat-reference-crystals-desktop.png')});
     await page.locator('#combat-reference-dialog [data-action=close]').click();
