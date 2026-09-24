@@ -52,3 +52,13 @@ les possessions, decks, preferences ou parties existantes. Une partie ouverte
 conserve son catalogue jusqu'a l'actualisation. Aucun service worker ne fige une
 ancienne version des fichiers. GitHub Pages peut mettre quelques minutes a
 propager une mise a jour.
+
+## Application installable et plein ecran
+
+Sous Chrome ou Edge, installer Kalistar depuis l'action d'installation du site
+ou le menu du navigateur ouvre `/Kalistar/jeu/` dans une fenetre autonome sans
+barre d'adresse. Dans l'arene, le clic sur l'onglet demande le plein ecran avant
+la preparation du match ; le bouton de sortie revient a la Collection. Le plein
+ecran natif reste soumis a l'autorisation du navigateur et a une interaction
+explicite de l'utilisateur. Aucun service worker n'est utilise afin que Pages
+serve toujours la version publiee la plus recente.

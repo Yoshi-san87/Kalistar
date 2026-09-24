@@ -14,6 +14,10 @@ test('release contains all published cards and only playable files', async () =>
   assert.ok(files.every(f => !/\/(drafts|jobs|uploads|verification|templates|revisions)\//.test(f.target)));
   assert.ok(catalogue.cards.every(c => !c.psdUrl && files.some(f => '/' + f.target === c.pngUrl)));
   assert.ok(files.filter(f => f.target.startsWith('media/reference/')).every(f => f.expectedHash));
+  assert.ok(files.some(f => f.target === 'jeu/manifest.webmanifest'));
+  assert.ok(files.some(f => f.target === 'jeu/pwa.js'));
+  assert.ok(files.some(f => f.target === 'jeu/assets/pwa-192.png'));
+  assert.ok(files.some(f => f.target === 'jeu/assets/pwa-512.png'));
 });
 test('build paths cannot escape the generated directory', () => {
   for (const value of ['../README.md', '..\\README.md', '/outside', '']) assert.throws(() => inside(DIST, value));

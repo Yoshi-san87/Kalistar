@@ -92,9 +92,21 @@
   function checkGame(value=game){try{db.registry.validateGame(value,accountId);}catch(error){suspendGame();throw error;}}
   function modal(id,html){const d=$('#'+id);d.innerHTML=html;if(!d.open)d.showModal();icons();}
   function head(title){return `<div class="dialog-head"><h2>${esc(title)}</h2>${ib('close','x','Fermer')}</div>`;}
-  async function setView(view){
+  function enterFullscreen(reportFailure=true){
+    const root=document.documentElement;
+    if(document.fullscreenElement||typeof root.requestFullscreen!=='function')return null;
+    let operation;
+    try{operation=root.requestFullscreen({navigationUI:'hide'});}
+    catch{try{operation=root.requestFullscreen();}catch{return null;}}
+    operation?.catch(()=>{if(reportFailure)toast('Le navigateur n’a pas autorisé le plein écran. Essaie dans Chrome ou Edge, ou utilise son bouton Plein écran.');});
+    return operation;
+  }
+  function exitFullscreen(){if(document.fullscreenElement)document.exitFullscreen().catch(()=>{});}
+  async function setView(view,{immersive=false}={}){
     if(view==='atelier'&&window.KalistarSite?.online)return;
     if(rolling)return toast('Le duel se termine…');
+    if(view!=='arena')exitFullscreen();
+    if(immersive)enterFullscreen();
     clearTimeout(aiTimer);
     if(ui.view!==view)epoch++;
     if(view==='arena'&&!game){try{await createGame('ai','KALI-'+Math.floor(Math.random()*999999));}catch(e){toast(e.message);showDeck();return;}}
@@ -410,7 +422,7 @@ function showDeck(){setView('decks');}
   }
   function arena(){
     if(!game)return '<div class="resume-strip"><h2>Arène de Kalistar</h2><button class="primary" data-action="new-game">Préparer une partie</button></div>';
-    return `${!storageAvailable?'<div class="storage-note">Sauvegarde navigateur indisponible. Exportez la partie pour la conserver.</div>':''}<div class="game-shell" style="--board-scale:${boardScale/100};--arena-image:url('${arenaById(game.arenaId).image}')"><div class="arena-toolbar"><div><h1>${arenaById(game.arenaId).name} <span class="round">Échange ${game.round} / 200</span></h1><span class="muted game-seed">${esc(game.seed)} · ${game.mode==='ai'?'Adversaire automatique':'Deux joueurs locaux'}</span><span class="arena-rules">${arenaRule(arenaById(game.arenaId))}</span></div><div class="tools"><label class="board-zoom" title="Taille des cartes">${icon('scan')}<input id="board-scale" type="range" min="85" max="140" step="5" value="${boardScale}" aria-label="Taille des cartes"><output>${boardScale}%</output></label>${ib('arena-picker','map',game.phase==='setup'?'Choisir une arène':'Arène verrouillée',game.phase==='setup'?'':'disabled')}${ib('match-stats','trophy','Bilan et statistiques du match')}${ib('journal','scroll-text','Ouvrir le journal du duel')}${ib('fullscreen','maximize','Plein écran')}${ib('save-game','save','Exporter la sauvegarde')}${ib('load-game','upload','Importer une sauvegarde')}${ib('new-game','rotate-ccw','Nouvelle partie')}<input hidden type="file" id="game-file" accept="application/json,.json"></div><div class="board-navigation">${ib('focus-left','panel-left','Centrer le joueur 1')}${ib('focus-duel','dice-6','Centrer les dés')}${ib('focus-right','panel-right','Centrer le joueur 2')}</div></div><div class="arena-layout"><div class="battlefield-viewport"><section class="battlefield" aria-label="Plateau de jeu"><section class="team team-left" data-team="0">${sideHeading(0)}${board(0)}${reserveZone(0)}</section><div class="duel-console" aria-live="polite">${dice(0)}<div class="duel-centre">${consoleBody()}</div>${dice(1)}</div><section class="team team-right" data-team="1">${sideHeading(1)}${board(1)}${reserveZone(1)}</section></section></div></div></div>`;
+    return `${!storageAvailable?'<div class="storage-note">Sauvegarde navigateur indisponible. Exportez la partie pour la conserver.</div>':''}<div class="game-shell" style="--board-scale:${boardScale/100};--arena-image:url('${arenaById(game.arenaId).image}')"><div class="arena-toolbar"><div><h1>${arenaById(game.arenaId).name} <span class="round">Échange ${game.round} / 200</span></h1><span class="muted game-seed">${esc(game.seed)} · ${game.mode==='ai'?'Adversaire automatique':'Deux joueurs locaux'}</span><span class="arena-rules">${arenaRule(arenaById(game.arenaId))}</span></div><div class="tools"><label class="board-zoom" title="Taille des cartes">${icon('scan')}<input id="board-scale" type="range" min="85" max="140" step="5" value="${boardScale}" aria-label="Taille des cartes"><output>${boardScale}%</output></label>${ib('arena-picker','map',game.phase==='setup'?'Choisir une arène':'Arène verrouillée',game.phase==='setup'?'':'disabled')}${ib('match-stats','trophy','Bilan et statistiques du match')}${ib('journal','scroll-text','Ouvrir le journal du duel')}${ib('fullscreen','maximize','Plein écran')}${ib('exit-arena','log-out','Quitter l’arène')}${ib('save-game','save','Exporter la sauvegarde')}${ib('load-game','upload','Importer une sauvegarde')}${ib('new-game','rotate-ccw','Nouvelle partie')}<input hidden type="file" id="game-file" accept="application/json,.json"></div><div class="board-navigation">${ib('focus-left','panel-left','Centrer le joueur 1')}${ib('focus-duel','dice-6','Centrer les dés')}${ib('focus-right','panel-right','Centrer le joueur 2')}</div></div><div class="arena-layout"><div class="battlefield-viewport"><section class="battlefield" aria-label="Plateau de jeu"><section class="team team-left" data-team="0">${sideHeading(0)}${board(0)}${reserveZone(0)}</section><div class="duel-console" aria-live="polite">${dice(0)}<div class="duel-centre">${consoleBody()}</div>${dice(1)}</div><section class="team team-right" data-team="1">${sideHeading(1)}${board(1)}${reserveZone(1)}</section></section></div></div></div>`;
   }
   function act(fn){if(rolling)return;try{checkGame();fn();E.assertState(game);epoch++;render();}catch(e){toast(e.message);}}
   function engageDuel(){
@@ -508,7 +520,7 @@ function showDeck(){setView('decks');}
   });
   const phoneLayout=()=>matchMedia('(max-width:699px), (max-width:950px) and (max-height:500px)').matches;
   function showArenaMenu(){
-    const items=[['duel-details','list-plus','Calculs et effets du duel'],['arena-picker','map','Choisir l’arène'],['auto-formation','shuffle','Formation automatique'],['match-stats','trophy','Bilan du match'],['journal','scroll-text','Journal du duel'],['rules','book-open','Règles'],['save-game','download','Exporter la partie'],['load-game','upload','Importer une partie'],['new-game','rotate-ccw','Nouvelle partie']];
+    const items=[['duel-details','list-plus','Calculs et effets du duel'],['arena-picker','map','Choisir l’arène'],['auto-formation','shuffle','Formation automatique'],['match-stats','trophy','Bilan du match'],['journal','scroll-text','Journal du duel'],['fullscreen',document.fullscreenElement?'minimize':'maximize',document.fullscreenElement?'Quitter le plein écran':'Plein écran'],['rules','book-open','Règles'],['save-game','download','Exporter la partie'],['load-game','upload','Importer une partie'],['new-game','rotate-ccw','Nouvelle partie']];
     modal('mobile-dialog',head('La rencontre')+`<div class="dialog-body mobile-menu"><button data-view="collection">${icon('book-open')}Collection${icon('chevron-right')}</button><button data-view="decks">${icon('layers-3')}Mes decks${icon('chevron-right')}</button><button data-view="statistics">${icon('chart-no-axes-combined')}Statistiques${icon('chevron-right')}</button>${items.map(([action,symbol,label])=>`<button data-action="${action}" ${['arena-picker','auto-formation'].includes(action)&&game.phase!=='setup'?'disabled':''}>${icon(symbol)}${label}${icon('chevron-right')}</button>`).join('')}</div>`);
     $('#mobile-dialog .mobile-menu').insertAdjacentHTML('beforeend',`<button data-action="reserves" data-side="1">${icon('layers-3')}Réserve adverse · ${game.players[1].reserve.length}${icon('chevron-right')}</button><button data-action="grave" data-side="1">${icon('skull')}Cimetière adverse · ${game.players[1].dead.length}${icon('chevron-right')}</button>`);icons();
   }
@@ -524,12 +536,13 @@ function showDeck(){setView('decks');}
     }).join('')||'<p class="muted">Aucune carte.</p>'}</div>`);
   }
   document.addEventListener('click',event=>{
-    const view=event.target.closest('[data-view]');if(view){view.closest('dialog')?.close();setView(view.dataset.view);return;}
+    const view=event.target.closest('[data-view]');if(view){view.closest('dialog')?.close();setView(view.dataset.view,{immersive:view.dataset.view==='arena'});return;}
     const b=event.target.closest('[data-action]');if(!b||b.disabled)return;const action=b.dataset.action,id=b.dataset.id;
     try{
       if(action==='close'){b.closest('dialog').close();return;}
       if(b.closest('#mobile-dialog')&&action!=='duel-details')$('#mobile-dialog').close();
       if(action==='arena-menu')return showArenaMenu();
+      if(action==='exit-arena')return setView('collection');
       if(action==='duel-details')return modal('mobile-dialog',head('Calculs du duel')+`<div class="dialog-body mobile-recap">${duelRecap(game)}</div>`);
       if(action==='deploy-reserve'){
         const side=Number(b.dataset.side),slot=Number(b.dataset.slot);
@@ -585,8 +598,7 @@ function showDeck(){setView('decks');}
       if(action==='rematch'){$('#match-dialog').close();return newGameDialog();}
       if(action==='journal')return modal('journal-dialog',head('Journal du duel')+journal());
       if(action==='fullscreen'){
-        const operation=document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();
-        operation.catch(()=>toast('Le plein écran n’est pas disponible dans ce navigateur.'));return;
+        if(document.fullscreenElement)exitFullscreen();else enterFullscreen();return;
       }
       if(action.startsWith('focus-')){
         const viewport=$('.battlefield-viewport'),team=$(action==='focus-left'?'.team-left':action==='focus-right'?'.team-right':'.duel-console'),target=team.querySelector('.challenger')||team;
@@ -684,7 +696,8 @@ function showDeck(){setView('decks');}
     e.preventDefault();if(rolling)return;
     if(game?.collection&&game.phase!=='over'&&!confirm('Remplacer cette partie ? La partie actuelle sera abandonnee et ne pourra plus etre reprise. Ses archives seront conservees.'))return;
     const submit=e.target.querySelector('[type="submit"]');submit.disabled=true;
-    try{await createGame($('#game-mode').value,$('#game-seed').value.trim()||'KALISTAR',new FormData(e.target).get('arena'),$('#enemy-deck-preset').value);$('#new-game-dialog').close();await setView('arena');}catch(err){toast(err.message);submit.disabled=false;}
+    const requestedFullscreen=!document.fullscreenElement;if(requestedFullscreen)enterFullscreen(false);
+    try{await createGame($('#game-mode').value,$('#game-seed').value.trim()||'KALISTAR',new FormData(e.target).get('arena'),$('#enemy-deck-preset').value);$('#new-game-dialog').close();await setView('arena');}catch(err){if(requestedFullscreen)exitFullscreen();toast(err.message);submit.disabled=false;}
   });
   document.addEventListener('error',event=>{
     const img=event.target;

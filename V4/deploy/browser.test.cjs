@@ -8,7 +8,7 @@ const {DIST, inside} = require('./build.cjs');
 const runtime = process.env.KALISTAR_NODE_MODULES || path.join(process.env.USERPROFILE, '.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const {chromium} = createRequire(path.join(runtime, '_pages_test.cjs'))('playwright');
 const output = path.join(__dirname, 'verification');
-const mime = {'.html':'text/html; charset=utf-8','.json':'application/json','.js':'text/javascript','.css':'text/css','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.woff2':'font/woff2'};
+const mime = {'.html':'text/html; charset=utf-8','.json':'application/json','.webmanifest':'application/manifest+json','.js':'text/javascript','.css':'text/css','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.woff2':'font/woff2'};
 async function main() {
   const server = http.createServer((req,res) => {
     try {
@@ -34,6 +34,12 @@ async function main() {
     page.on('response', r => {if(r.status() >= 400) failures.push(r.status() + ' ' + r.url());});
     await page.goto(base);
     await page.waitForFunction(() => window.KALISTAR_READY);
+    const {appManifest, manifestUrl} = await page.evaluate(async () => {
+      const manifestUrl = new URL('manifest.webmanifest', location.href);
+      return {appManifest: await (await fetch(manifestUrl)).json(), manifestUrl: manifestUrl.href};
+    });
+    assert.equal(appManifest.display, 'standalone');
+    assert.equal(new URL(appManifest.start_url, manifestUrl).pathname, new URL('./', manifestUrl).pathname);
     assert.equal(await page.locator('[data-view=atelier]').count(), 0);
     assert.equal(await page.evaluate(() => KalistarSite.online), true);
     const count = await page.evaluate(() => KALISTAR_DATA.cards.length);
@@ -49,6 +55,19 @@ async function main() {
     await page.locator('[data-view=decks]').first().click();
     await page.locator('#deck-builder-root').waitFor();
     await page.locator('[data-view=arena]').first().click();
+    await page.waitForFunction(() => document.fullscreenElement === document.documentElement);
+    await page.waitForFunction(() => document.body.classList.contains('arena-view'));
+    assert.equal(await page.locator('.masthead').evaluate(el => getComputedStyle(el).display), 'none');
+    assert.equal(await page.locator('.arena-toolbar .tools [data-action=new-game]').isVisible(), false);
+    await page.locator('[data-action=arena-menu]').click();
+    await page.locator('#mobile-dialog [data-action=save-game]').waitFor();
+    await page.locator('#mobile-dialog [data-action=close]').click();
+    await page.screenshot({path:path.join(output,'arena-immersive.png')});
+    await page.locator('[data-action=exit-arena]').click();
+    await page.locator('.cb-spread').waitFor();
+    await page.waitForFunction(() => !document.fullscreenElement);
+    await page.locator('[data-view=arena]').first().click();
+    await page.waitForFunction(() => document.fullscreenElement === document.documentElement);
     await page.locator('[data-action=auto-formation]').first().click();
     await page.locator('[data-action=start]').first().click();
     const before = await page.evaluate(() => JSON.parse(localStorage.getItem('kalistar.v4.game')).matchId);
@@ -61,6 +80,13 @@ async function main() {
     await page.waitForTimeout(500);
     assert.ok(await page.locator('.slot-card img').count() >= 10);
     await page.screenshot({path:path.join(output,'arena-phone.png')});
+    await page.locator('[data-action=arena-menu]').click();
+    await page.locator('#mobile-dialog [data-action=fullscreen]').click();
+    await page.waitForFunction(() => document.fullscreenElement === document.documentElement);
+    assert.equal(await page.locator('[data-action=exit-arena]').isVisible(), true);
+    await page.screenshot({path:path.join(output,'arena-phone-immersive.png')});
+    await page.locator('[data-action=exit-arena]').click();
+    await page.waitForFunction(() => !document.fullscreenElement);
     // Reload into the collection with the same registry and match saved.
     await page.goto(base+'jeu/#collection');
     await page.waitForFunction(() => window.KALISTAR_READY);

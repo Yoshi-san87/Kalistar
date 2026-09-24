@@ -1,7 +1,7 @@
 const L=require('./lib.cjs');
 const D=require('./designer-core.cjs');
 const {fs,path,ROOT,DATA,read}=L;
-const MIME={'.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.html':'text/html; charset=utf-8','.png':'image/png','.webp':'image/webp','.jpg':'image/jpeg','.svg':'image/svg+xml','.woff2':'font/woff2','.mp3':'audio/mpeg','.json':'application/json'};
+const MIME={'.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.html':'text/html; charset=utf-8','.webmanifest':'application/manifest+json; charset=utf-8','.png':'image/png','.webp':'image/webp','.jpg':'image/jpeg','.svg':'image/svg+xml','.woff2':'font/woff2','.mp3':'audio/mpeg','.json':'application/json'};
 function makeDesigner({token,json,file,body,getIntegrity}){
   let queue=[],running=false,previewRunning=0,recoveryEnabled=false;
   const ready=()=>{const p=path.join(__dirname,'designer-assets/manifest.json');try{return ['ready','complete'].includes(read(p).status);}catch{return false;}};

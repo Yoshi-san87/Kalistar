@@ -16,6 +16,8 @@ test('V4 Atelier API uses the same local security boundary as the legacy editor'
     const create=await fetch(base+'/api/designer/create',{method:'POST',headers,body:JSON.stringify({requestId:L.crypto.randomUUID(),profile:{...D.defaults(),name:'Test'}})});assert.equal(create.status,409);
     assert.equal((await fetch(base+'/media/created/49999999.png')).status,400);
     assert.equal((await fetch(base+'/jeu/engine.js')).status,200);
+    const manifestResponse=await fetch(base+'/jeu/manifest.webmanifest');assert.equal(manifestResponse.status,200);assert.match(manifestResponse.headers.get('content-type'),/^application\/manifest\+json/);assert.equal((await manifestResponse.json()).display,'standalone');
+    assert.equal((await fetch(base+'/jeu/assets/pwa-192.png')).status,200);
     assert.equal((await fetch(base+'/jeu/package.json')).status,404);
     const game=await (await fetch(base+'/api/game/catalogue')).json();assert.equal(game.version,4);assert.deepEqual(game.cards.filter(c=>c.origin!=='published').map(c=>c.id).sort(),referenceIds);
     assert.equal((await fetch(base+'/legacy')).status,200);

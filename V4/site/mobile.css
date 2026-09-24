@@ -296,3 +296,66 @@
   .cb-page[data-mode=book] .cb-workbench { overflow-y: auto; scrollbar-width: none; }
   .cb-spread { min-height: 360px; }
 }
+
+html:fullscreen body.arena-view {
+  display: flex; flex-direction: column; gap: 0; width: 100%; height: 100dvh;
+  min-height: 0; margin: 0; padding: 0; overflow: hidden; background: var(--ink);
+}
+html:fullscreen body.arena-view > .masthead { display: none !important; }
+html:fullscreen body.arena-view #app {
+  flex: 1 1 0; width: 100%; height: 100%; min-width: 0; min-height: 0;
+  max-width: none; margin: 0; padding: 0; overflow: hidden;
+}
+html:fullscreen body.arena-view .game-shell {
+  display: flex; flex-direction: column; width: 100%; height: 100%; min-height: 0;
+}
+html:fullscreen body.arena-view .arena-toolbar {
+  flex: 0 0 auto; min-height: 50px; padding: 4px 12px; gap: 8px;
+  background: #09120df0; border-bottom: 1px solid #a88b5e66;
+}
+html:fullscreen body.arena-view .arena-toolbar > div:first-child {
+  display: flex; flex: 1 1 auto; align-items: center; min-width: 0; gap: 10px;
+}
+html:fullscreen body.arena-view .arena-toolbar h1 { font-size: 18px; white-space: nowrap; }
+html:fullscreen body.arena-view .arena-toolbar .game-seed,
+html:fullscreen body.arena-view .arena-toolbar .arena-rules { display: none; }
+html:fullscreen body.arena-view .arena-toolbar .tools { flex: 0 0 auto; margin-left: auto; }
+html:fullscreen body.arena-view .arena-toolbar .tools > :not(.board-zoom):not([data-action="arena-menu"]):not([data-action="exit-arena"]) { display: none; }
+html:fullscreen body.arena-view .arena-toolbar .tools [data-action="arena-menu"] { display: inline-flex; }
+html:fullscreen body.arena-view .arena-layout { flex: 1 1 0; min-height: 0; overflow: hidden; }
+html:fullscreen body.arena-view .battlefield-viewport {
+  width: 100%; height: 100%; min-height: 0; overflow: auto; scrollbar-width: thin;
+}
+html:fullscreen body.arena-view .battlefield { height: 100%; min-height: 100%; align-items: center; }
+html:fullscreen body.arena-view .arena-toolbar .tools [data-action="exit-arena"] { display: inline-flex; }
+
+@media (min-width: 700px) {
+  html:fullscreen body.arena-view .board-navigation { display: none; }
+  html:fullscreen #mobile-dialog {
+    position: fixed; width: min(430px,calc(100vw - 32px)); max-height: min(80dvh,760px);
+    margin: auto; padding: 0; border: 1px solid #b89b6d; border-radius: 5px;
+    background: #0b1412; color: var(--text); box-shadow: 0 24px 80px #000b;
+  }
+  html:fullscreen #mobile-dialog::backdrop { background: #020806a6; backdrop-filter: blur(4px); }
+  html:fullscreen #mobile-dialog .dialog-body.mobile-menu {
+    display: grid; gap: 6px; max-height: calc(80dvh - 72px); padding: 12px;
+    overflow-y: auto; scrollbar-width: thin;
+  }
+  html:fullscreen #mobile-dialog .mobile-menu > button {
+    width: 100%; min-height: 42px; justify-content: flex-start; text-align: left;
+  }
+  html:fullscreen #mobile-dialog .mobile-menu > button svg:last-child { margin-left: auto; }
+}
+
+@media (max-width: 699px), (max-width: 950px) and (max-height: 500px) {
+  html:fullscreen body.arena-view {
+    padding: env(safe-area-inset-top,0px) env(safe-area-inset-right,0px)
+      env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px);
+  }
+  html:fullscreen body.arena-view .arena-toolbar > div:first-child { display: none; }
+  html:fullscreen body.arena-view .arena-toolbar .tools [data-action="exit-arena"] {
+    position: absolute; z-index: 36; top: 12px; right: 64px;
+    width: 44px; height: 44px; min-height: 44px; padding: 10px;
+    background: #0c1819de;
+  }
+}
