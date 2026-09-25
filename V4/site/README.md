@@ -41,8 +41,10 @@ A recognized faction takes priority over optional `profile.collaboration`;
 character-ID suffixes never classify UI versions. Devola and Popola keep
 `devola-nier` / `popola-nier` across Automata and Replicant while their factions
 and synergy groups differ. Statistics filter versions before aggregation.
-The collection binder has a dedicated Replicant scope when cards exist; compact headers
-use a second row so the additional scope remains accessible without scrolling.
+The collection binder groups browsing scopes as Kalistar, Final Fantasy (FF7 +
+FF8) and NieR (NieR:Automata + Replicant). The faction selector remains
+independent and keeps each exact faction available. Compact headers use a
+second row so every universe scope remains accessible without scrolling.
 
 `game-catalog.cjs` preserves validated optional collaboration metadata.
 Its arena validator accepts cards as an optional fifth argument for version-
@@ -107,9 +109,9 @@ The game accepts messages only from this same-origin iframe. It displays the `No
 short landscape windows up to 950 pixels), navigation moves to the bottom with
 safe-area insets. Collection uses one existing parchment leaf, with two columns
 and one or two rows calculated from the actual available height. Swipe and arrow
-pagination, FF7 filtering and character grouping are preserved. The reader has
-separate Card and Notebook views; its existing story, profile, career and copy
-tabs remain available inside the manuscript margins.
+pagination, exact faction filtering and character grouping are preserved. The
+reader has separate Card and Notebook views; its existing story, profile,
+career and copy tabs remain available inside the manuscript margins.
 
 The phone arena uses the full screen without the masthead, location heading or
 bottom navigation; Collection and Decks remain accessible from the match menu.

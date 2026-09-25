@@ -25,6 +25,25 @@ async function main(){
   const readyImages=()=>page.waitForFunction(()=>[...document.querySelectorAll('.cb-stack img,.cb-hero-image')].every(i=>i.complete&&i.naturalWidth>0&&!i.src.includes('#v4-')));
   await page.locator('[data-binder-action=scope][data-id=catalogue]').click();
   await readyImages();
+  const universeCounts=await page.evaluate(()=>{
+    const cards=KALISTAR_DATA.cards,collab=KalistarCollaborations;
+    return {kalistar:cards.filter(c=>collab.universe(c)==='kalistar').length,'final-fantasy':cards.filter(c=>collab.matches(c,'ff7')||collab.matches(c,'ff8')).length,nier:cards.filter(c=>collab.matches(c,'nier')||collab.matches(c,'replicant')).length};
+  });
+  for(const [scope,count] of Object.entries(universeCounts)){
+    await page.locator('[data-binder-action=scope][data-id="'+scope+'"]').click();
+    await page.waitForFunction(expected=>document.querySelector('.cb-count')?.textContent.includes(expected+' versions'),count);
+  }
+  await page.locator('[data-binder-action=scope][data-id=nier]').click();
+  await page.locator('[data-binder-action=filters]').click();
+  const factionChoices=await page.locator('[data-binder-filter=faction] option').evaluateAll(options=>options.map(option=>option.value));
+  for(const faction of ['FF7','FF8','NieR','Replicant'])assert(factionChoices.includes(faction),'Faction filter remains available: '+faction);
+  const replicantCount=await page.evaluate(()=>KALISTAR_DATA.cards.filter(c=>KalistarCollaborations.matches(c,'replicant')).length);
+  await page.locator('[data-binder-filter=faction]').selectOption('Replicant');
+  await page.waitForFunction(expected=>document.querySelector('.cb-count')?.textContent.includes(expected+' versions'),replicantCount);
+  await page.locator('.cb-filter-actions [data-binder-action=close-overlay]').click();
+  await page.locator('.cb-toolbar [data-binder-action=reset]').click();
+  await page.locator('[data-binder-action=scope][data-id=catalogue]').click();
+  await readyImages();
   assert.equal(await pocket.locator('.cb-copy-count b').textContent(),'2');
   assert.equal(await pocket.locator('.cb-version-count b').textContent(),'2');
   const folio=await page.locator('.cb-page-label').textContent(),before=await pocket.boundingBox();

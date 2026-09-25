@@ -15,6 +15,12 @@
     for(const card of cards){if(!groups.has(key(card)))groups.set(key(card),[]);groups.get(key(card)).push(card);}
     return [...groups.values()];
   }
+  function matchesScope(card,scope){
+    if(scope==='kalistar')return C.universe(card)==='kalistar';
+    if(scope==='final-fantasy')return C.matches(card,'ff7')||C.matches(card,'ff8');
+    if(scope==='nier')return C.matches(card,'nier')||C.matches(card,'replicant');
+    return false;
+  }
   function textPages(text,limit){
     const pages=[];let page='';
     for(const word of String(text||'').match(/\S+\s*/g)||[]){
@@ -39,7 +45,7 @@
     const crystal=c=>`<img src="${asset('cristaux',c.element)}" alt="${esc(element(c).label)}">`;
     function filtered(){
       const favorites=getFavorites(),search=normalize(filters.search.trim());
-      return cards.filter(c=>(scope==='catalogue'||C.matches(c,scope)||scope==='owned'&&owns(c.id).length)&&(!filters.favorite||favorites.has(c.id))&&
+      return cards.filter(c=>(scope==='catalogue'||scope==='owned'&&owns(c.id).length||matchesScope(c,scope))&&(!filters.favorite||favorites.has(c.id))&&
         (!search||normalize([c.name,c.title,c.faction,c.race,c.id].join(' ')).includes(search))&&
         ['element','faction','race','weapon'].every(field=>!filters[field]||filters[field]===c[field])&&
         (!filters.position||c.positions.includes(Number(filters.position))))
@@ -135,12 +141,16 @@
     function render(){
       const s=snapshot(),allOwned=owns(),ownedVersions=new Set(allOwned.map(i=>i.cardId)).size;
       const catalogueSize=new Set([...cards.map(c=>c.id),...getCatalogueChanges(),...allOwned.map(i=>i.cardId)]).size;
-      const collaborations=C.entries.map(entry=>({...entry,count:cards.filter(c=>C.matches(c,entry.id)).length})).filter(entry=>entry.id==='ff7'||entry.count);
+      const universes=[
+        {id:'kalistar',label:'Kalistar',icon:'gem'},
+        {id:'final-fantasy',label:'Final Fantasy',icon:'sparkles'},
+        {id:'nier',label:'NieR',icon:'orbit'}
+      ].map(entry=>({...entry,count:cards.filter(c=>matchesScope(c,entry.id)).length}));
       const active=Object.values(filters).some(Boolean),index=s.list.findIndex(c=>c.id===selected);
       const toolbar=selected?`<button type="button" class="cb-back" data-binder-action="back">${icon('arrow-left')}Classeur</button>`:`<span class="cb-count">${s.groups.length} personnage${s.groups.length>1?'s':''} · ${s.list.length} versions</span><label class="cb-search">${icon('search')}<input type="search" data-binder-field="search" aria-label="Rechercher une carte" placeholder="Retrouver une carte" value="${esc(filters.search)}"></label>${button('favorites','star','Mes favoris',`aria-pressed="${filters.favorite}"`)}${button('filters','sliders-horizontal','Filtres du classeur',`aria-expanded="${filtersOpen}"`)}${active?button('reset','filter-x','Effacer les filtres'):''}<select data-binder-field="sort" aria-label="Trier le classeur">${[['id','Ordre du classeur'],['name','Personnage'],['element','Cristal'],['faction','Faction']].map(([id,label])=>`<option value="${id}" ${sort===id?'selected':''}>${label}</option>`).join('')}</select>`;
       const panes=selected?`<div class="cb-mobile-panes" role="group" aria-label="Page du carnet"><button data-binder-action="pane" data-id="visual" aria-pressed="${readerPane==='visual'}">${icon('image')}Carte</button><button data-binder-action="pane" data-id="notes" aria-pressed="${readerPane==='notes'}">${icon('book-open')}Carnet</button></div>`:'';
       return `<section class="cb-page" data-reader-pane="${readerPane}" data-mode="${selected?'reader':'book'}" tabindex="-1" aria-label="Classeur de collection">
-        <header class="cb-heading"><div class="cb-title"><span class="cb-eyebrow">Kalistar · ${esc(profile)}</span><h1>${selected?'Au fil des cartes':'Mon classeur'}</h1></div><div class="cb-scopes" role="group" aria-label="Contenu du classeur"><button type="button" data-binder-action="scope" data-id="owned" aria-pressed="${scope==='owned'}">${icon('book-heart')}Mes cartes <b>${allOwned.length}</b></button><button type="button" data-binder-action="scope" data-id="catalogue" aria-pressed="${scope==='catalogue'}">${icon('library')}Catalogue</button>${collaborations.map(entry=>`<button type="button" data-binder-action="scope" data-collaboration="${entry.id}" data-id="${entry.id}" aria-pressed="${scope===entry.id}" title="Collaboration ${esc(entry.title)}">${icon('sparkles')}${esc(entry.faction)} <b>${entry.count}</b></button>`).join('')}</div><div class="cb-completion"><span><b>${ownedVersions}</b> / ${catalogueSize} versions</span><meter min="0" max="${catalogueSize}" value="${ownedVersions}" aria-label="Versions possédées">${ownedVersions}/${catalogueSize}</meter></div>${button('archives','archive','Archives et sauvegardes')}</header>
+        <header class="cb-heading"><div class="cb-title"><span class="cb-eyebrow">Kalistar · ${esc(profile)}</span><h1>${selected?'Au fil des cartes':'Mon classeur'}</h1></div><div class="cb-scopes" role="group" aria-label="Contenu du classeur"><button type="button" data-binder-action="scope" data-id="owned" aria-pressed="${scope==='owned'}">${icon('book-heart')}Mes cartes <b>${allOwned.length}</b></button><button type="button" data-binder-action="scope" data-id="catalogue" aria-pressed="${scope==='catalogue'}">${icon('library')}Catalogue</button>${universes.map(entry=>`<button type="button" data-binder-action="scope" data-universe="${entry.id}" data-id="${entry.id}" aria-pressed="${scope===entry.id}" title="Cartes ${esc(entry.label)}">${icon(entry.icon)}${esc(entry.label)} <b>${entry.count}</b></button>`).join('')}</div><div class="cb-completion"><span><b>${ownedVersions}</b> / ${catalogueSize} versions</span><meter min="0" max="${catalogueSize}" value="${ownedVersions}" aria-label="Versions possédées">${ownedVersions}/${catalogueSize}</meter></div>${button('archives','archive','Archives et sauvegardes')}</header>
         <div class="cb-toolbar">${toolbar}${panes}</div>
         <div class="cb-workbench">${selected?reader(s):book(s)}</div>
         <footer class="cb-footer">${button(selected?'previous-card':'previous-page','chevron-left',selected?'Carte précédente':'Page précédente',(selected?index<=0:page===0)?'disabled':'')}<${selected?'div':'button type="button" data-binder-action="pages" title="Sommaire du classeur" aria-haspopup="dialog"'} class="cb-page-label"><b>${selected?esc(byId.get(selected).name):'Édition V4'}</b><span aria-live="polite">${selected?`${index+1} / ${s.list.length} cartes`:`${singlePage?'Page':'Double page'} ${page+1} / ${s.pages} ${icon('grid-2x2')}`}</span></${selected?'div':'button'}>${button(selected?'next-card':'next-page','chevron-right',selected?'Carte suivante':'Page suivante',(selected?index>=s.list.length-1:page>=s.pages-1)?'disabled':'')}</footer>${selected?'':filtersHTML()+pagesHTML(s)}</section>`;
@@ -225,7 +235,7 @@
       if(action==='open')readerPane='visual';
       if(action==='pane')readerPane=id==='notes'?'notes':'visual';
       if(action==='back'){selected=null;filtersOpen=false;motion='back';}
-      if(action==='scope'){scope=id==='catalogue'||C.entries.some(entry=>entry.id===id)?id:'owned';page=0;selected=null;filtersOpen=false;}
+      if(action==='scope'){scope=id==='catalogue'||['kalistar','final-fantasy','nier'].includes(id)?id:'owned';page=0;selected=null;filtersOpen=false;}
       if(action==='favorite'){onFavorite(id);}
       if(action==='favorites'){filters.favorite=!filters.favorite;page=0;}
       if(action==='filters'){filtersOpen=!filtersOpen;pagesOpen=false;}
@@ -321,5 +331,5 @@
     function destroy(){observer?.disconnect();observer=null;cancelVersionTransition();if(transitionTimer)globalThis.clearTimeout(transitionTimer);transitionTimer=null;transitioning=false;root?.querySelector('.cb-overlay')?.close();pagesOpen=filtersOpen=false;if(root)for(const [event,fn]of listeners)root.removeEventListener(event,fn);root=null;swipe=null;}
     return {render,mount(element){destroy();root=element;paint();size();for(const [event,fn]of listeners)root.addEventListener(event,fn);const Resize=root.ownerDocument.defaultView.ResizeObserver;if(Resize){observer=new Resize(size);observer.observe(root);}},refresh(){paint();},destroy,inspect:()=>({scope,page,pageSize,columns,rows,selected,tab,art,filters:{...filters},sort})};
   }
-  return {create,groupCards,textPages};
+  return {create,groupCards,textPages,matchesScope};
 });

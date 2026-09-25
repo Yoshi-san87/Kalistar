@@ -42,14 +42,24 @@ test('universe choices expose Replicant only when its versions exist',()=>{
   assert.deepEqual(C.choices(cards),[['FF7','FF7'],['FF8','FF8'],['NieR','NieR'],['Replicant','Replicant']]);
 });
 
-test('collection renders separate scope counts but keeps both versions in one character group',t=>{
+test('collection groups Kalistar, Final Fantasy and NieR while retaining faction filters',t=>{
   const previous=globalThis.KalistarCardMedia;
   globalThis.KalistarCardMedia={image:c=>'/fixture/'+c.id+'.png'};
   t.after(()=>{globalThis.KalistarCardMedia=previous;});
-  const binder=Binder.create({data:{cards,elements:{ELECTRO:{id:'ELECTRO',label:'Electricite',color:'FFDD00'}}}});
+  const extras=['FF7','FF8','Chroma'].map((faction,index)=>({...cards[0],id:String(49998104+index),characterId:'scope-'+index,name:'SCOPE '+faction,faction,collaboration:['FF7','FF8'].includes(faction)?faction:undefined}));
+  const scopedCards=[...cards,...extras],binder=Binder.create({data:{cards:scopedCards,elements:{ELECTRO:{id:'ELECTRO',label:'Electricite',color:'FFDD00'}}}});
   const html=binder.render();
-  assert.match(html,/data-collaboration="replicant"[^>]*title="Collaboration NieR Replicant"[^>]*>.*?Replicant <b>2<\/b>/);
-  assert.match(html,/data-collaboration="nier"[^>]*title="Collaboration NieR:Automata"[^>]*>.*?NieR <b>2<\/b>/);
+  const tab=id=>html.match(new RegExp(`<button[^>]*data-binder-action="scope"[^>]*data-id="${id}"[^>]*>([\\s\\S]*?)<\\/button>`))?.[1]||'';
+  assert.match(tab('kalistar'),/Kalistar <b>1<\/b>/);
+  assert.match(tab('final-fantasy'),/Final Fantasy <b>2<\/b>/);
+  assert.match(tab('nier'),/NieR <b>4<\/b>/);
+  const scopeHeader=html.match(/<div class="cb-scopes"[^>]*>([\s\S]*?)<\/div>/)?.[1]||'';
+  assert.equal((scopeHeader.match(/data-binder-action="scope"/g)||[]).length,5);
+  assert.equal(Binder.matchesScope(extras[2],'kalistar'),true);
+  assert.equal(scopedCards.filter(c=>Binder.matchesScope(c,'final-fantasy')).length,2);
+  assert.equal(scopedCards.filter(c=>Binder.matchesScope(c,'nier')).length,4);
+  for(const faction of ['FF7','FF8','NieR','Replicant','Chroma'])assert(html.includes(`<option value="${faction}"`),'Missing faction filter '+faction);
+  assert.equal(/data-binder-action="scope"[^>]*data-id="(?:ff7|ff8|replicant)"/.test(html),false,'faction-specific tabs are grouped, but remain available as filters');
   assert.match(html,/<option value="Replicant" >Replicant<\/option>/);
   assert.deepEqual(Binder.groupCards(cards).map(g=>g.map(c=>c.id)),[['49998100','49998101'],['49998102','49998103']]);
   assert.equal(binder.inspect().scope,'owned');
