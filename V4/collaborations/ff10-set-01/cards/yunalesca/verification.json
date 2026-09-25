@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "modelId": "43726101",
+  "referenceId": "02f0808cbd56d2b0d4103450e7943db69b95ac120a0df349f4374c82f7f712e5",
+  "profileHash": "c98431be1231abe94f7e63db395d3669109c46655046751839ac1009854f5c5d",
+  "hashes": {
+    "card.png": "2979beb49a52f7d1ebe320f5b35a76ec0824a29f804acb577d36a27a03ccd898",
+    "card.psd": "169531d0b07c082e82e373434923e8d2aa0d37fd3399009f6ef823d013566abe"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 125739
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "43726101",
+    "cases": {
+      "color-1": [
+        "43726101"
+      ],
+      "color-4": [
+        "43726101"
+      ],
+      "gray-1": [
+        "43726101"
+      ],
+      "gray-4": [
+        "43726101"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-25T14:10:37.719Z",
+  "key": "yunalesca",
+  "preparationHash": "c266d3b01097957dce0c98f0ee55b93a4eee1eb089eac20036057f543b8c7c3d"
+}

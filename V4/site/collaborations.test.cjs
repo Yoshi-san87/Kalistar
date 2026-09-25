@@ -28,7 +28,7 @@ test('collaboration follows the version metadata, never the shared character suf
 });
 
 test('faction media is V4-local while legacy assets retain their routes',()=>{
-  for(const faction of ['FF7','FF8','NieR','Replicant'])assert.equal(C.asset('factions',faction),'assets/factions/'+faction+'.png');
+  for(const faction of ['FF7','FF8','FF10','NieR','Replicant'])assert.equal(C.asset('factions',faction),'assets/factions/'+faction+'.png');
   assert.equal(C.asset('factions','Chroma'),'shared/factions/Chroma.png');
   assert.equal(C.asset('factions','Solaria'),'assets/factions/Solaria.png');
   assert.equal(C.universe({faction:'Solaria'}),'kalistar');
@@ -46,20 +46,20 @@ test('collection groups Kalistar, Final Fantasy and NieR while retaining faction
   const previous=globalThis.KalistarCardMedia;
   globalThis.KalistarCardMedia={image:c=>'/fixture/'+c.id+'.png'};
   t.after(()=>{globalThis.KalistarCardMedia=previous;});
-  const extras=['FF7','FF8','Chroma'].map((faction,index)=>({...cards[0],id:String(49998104+index),characterId:'scope-'+index,name:'SCOPE '+faction,faction,collaboration:['FF7','FF8'].includes(faction)?faction:undefined}));
+  const extras=['FF7','FF8','Chroma','FF10'].map((faction,index)=>({...cards[0],id:String(49998104+index),characterId:'scope-'+index,name:'SCOPE '+faction,faction,collaboration:['FF7','FF8','FF10'].includes(faction)?faction:undefined}));
   const scopedCards=[...cards,...extras],binder=Binder.create({data:{cards:scopedCards,elements:{ELECTRO:{id:'ELECTRO',label:'Electricite',color:'FFDD00'}}}});
   const html=binder.render();
   const tab=id=>html.match(new RegExp(`<button[^>]*data-binder-action="scope"[^>]*data-id="${id}"[^>]*>([\\s\\S]*?)<\\/button>`))?.[1]||'';
   assert.match(tab('kalistar'),/Kalistar <b>1<\/b>/);
-  assert.match(tab('final-fantasy'),/Final Fantasy <b>2<\/b>/);
+  assert.match(tab('final-fantasy'),/Final Fantasy <b>3<\/b>/);
   assert.match(tab('nier'),/NieR <b>4<\/b>/);
   const scopeHeader=html.match(/<div class="cb-scopes"[^>]*>([\s\S]*?)<\/div>/)?.[1]||'';
   assert.equal((scopeHeader.match(/data-binder-action="scope"/g)||[]).length,5);
   assert.equal(Binder.matchesScope(extras[2],'kalistar'),true);
-  assert.equal(scopedCards.filter(c=>Binder.matchesScope(c,'final-fantasy')).length,2);
+  assert.equal(scopedCards.filter(c=>Binder.matchesScope(c,'final-fantasy')).length,3);
   assert.equal(scopedCards.filter(c=>Binder.matchesScope(c,'nier')).length,4);
-  for(const faction of ['FF7','FF8','NieR','Replicant','Chroma'])assert(html.includes(`<option value="${faction}"`),'Missing faction filter '+faction);
-  assert.equal(/data-binder-action="scope"[^>]*data-id="(?:ff7|ff8|replicant)"/.test(html),false,'faction-specific tabs are grouped, but remain available as filters');
+  for(const faction of ['FF7','FF8','FF10','NieR','Replicant','Chroma'])assert(html.includes(`<option value="${faction}"`),'Missing faction filter '+faction);
+  assert.equal(/data-binder-action="scope"[^>]*data-id="(?:ff7|ff8|ff10|replicant)"/.test(html),false,'faction-specific tabs are grouped, but remain available as filters');
   assert.match(html,/<option value="Replicant" >Replicant<\/option>/);
   assert.deepEqual(Binder.groupCards(cards).map(g=>g.map(c=>c.id)),[['49998100','49998101'],['49998102','49998103']]);
   assert.equal(binder.inspect().scope,'owned');

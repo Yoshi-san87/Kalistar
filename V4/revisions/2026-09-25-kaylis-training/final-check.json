@@ -1,0 +1,64 @@
+{
+  "revision": "2026-09-25-kaylis-training",
+  "state": "published",
+  "targets": 6,
+  "catalogue": 89,
+  "profileUnchanged": true,
+  "checkedAt": "2026-09-25T12:26:56.130Z",
+  "selectedArtHash": "6e58eb561d8e5ef2a08f99ecdf133b1b25a19bae61c801b8f802c92c45f8ccde",
+  "photoshop": "26.11.7",
+  "protectedFiles": 901,
+  "observedFiles": 1232,
+  "scope": {
+    "originalPixels": {
+      "changed": 0,
+      "outside": 0
+    },
+    "withoutArt": {
+      "changed": 0,
+      "outside": 0
+    },
+    "outside": {
+      "changed": 445463,
+      "outside": 0
+    },
+    "nativeTextUnchanged": true,
+    "nativeStyleRunsUnchanged": true,
+    "geometryUnchanged": true,
+    "embeddedObjects": true,
+    "changedProfileFields": []
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49055457",
+    "cases": {
+      "color-1": [
+        "49055457"
+      ],
+      "color-4": [
+        "49055457"
+      ],
+      "gray-1": [
+        "49055457"
+      ],
+      "gray-4": [
+        "49055457"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "hashes": {
+    "card.png": "984532fdeef4983632a291b3d2bb3c6569e76961e5b254a48665aa95ae42ddd0",
+    "card.psd": "3280b0b6f393cd9982786e4a32c65a80ba7ffcb5f00fc6ac3c649f2bbab0c413"
+  },
+  "tests": {
+    "passed": 12,
+    "failed": 0,
+    "report": "tests-published.tap"
+  },
+  "browserQA": "parent-owned"
+}

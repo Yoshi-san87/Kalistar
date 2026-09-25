@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "modelId": "41354159",
+  "referenceId": "02f0808cbd56d2b0d4103450e7943db69b95ac120a0df349f4374c82f7f712e5",
+  "profileHash": "0679bace1e22a967a3a3b955503b030b92dab1ebde5deafd645da59842f963f6",
+  "hashes": {
+    "card.png": "858e2f3451f6b0027fc9ff29f74ec8007533dcfb2e5392d1688dbd00bf6309cf",
+    "card.psd": "2b92ee05788245c059f02037f2a802add1dfb26b57b634b9dd7e3656c5ccee67"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 119254
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "41354159",
+    "cases": {
+      "color-1": [
+        "41354159"
+      ],
+      "color-4": [
+        "41354159"
+      ],
+      "gray-1": [
+        "41354159"
+      ],
+      "gray-4": [
+        "41354159"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-25T14:06:19.204Z",
+  "key": "kimahri",
+  "preparationHash": "2c8b0b1e5e73395affba3446ed8a784364ebb6d7250f87555c5874516270e5c2"
+}

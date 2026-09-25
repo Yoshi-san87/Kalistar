@@ -1,0 +1,76 @@
+TAP version 13
+# Subtest: publication has exactly six targets, never protected expansion, source art or profile
+ok 1 - publication has exactly six targets, never protected expansion, source art or profile
+  ---
+  duration_ms: 10.6542
+  type: 'test'
+  ...
+# Subtest: native and publication routes reject missing explicit GO before reading or writing anything
+ok 2 - native and publication routes reject missing explicit GO before reading or writing anything
+  ---
+  duration_ms: 1.7888
+  type: 'test'
+  ...
+# Subtest: preview is separate and non-publishable, rejects path escapes
+ok 3 - preview is separate and non-publishable, rejects path escapes
+  ---
+  duration_ms: 0.4634
+  type: 'test'
+  ...
+# Subtest: layer audit catches native geometry and text changes; only transient IDs are ignored
+ok 4 - layer audit catches native geometry and text changes; only transient IDs are ignored
+  ---
+  duration_ms: 2.7646
+  type: 'test'
+  ...
+# Subtest: native script replaces exactly one embedded object, with no transforms, flattening or text writes
+ok 5 - native script replaces exactly one embedded object, with no transforms, flattening or text writes
+  ---
+  duration_ms: 0.6039
+  type: 'test'
+  ...
+# Subtest: source and creation profiles agree, including unchanged crop and exact art window
+ok 6 - source and creation profiles agree, including unchanged crop and exact art window
+  ---
+  duration_ms: 0.8501
+  type: 'test'
+  ...
+# Subtest: 89-card catalogue changes only Kaylis native evidence metadata; input is never mutated
+ok 7 - 89-card catalogue changes only Kaylis native evidence metadata; input is never mutated
+  ---
+  duration_ms: 3.871
+  type: 'test'
+  ...
+# Subtest: existing atomic transaction publishes all six files and can restore exact original bytes
+ok 8 - existing atomic transaction publishes all six files and can restore exact original bytes
+  ---
+  duration_ms: 74.4084
+  type: 'test'
+  ...
+# Subtest: CAS rejects an external edit before publication without changing any other file
+ok 9 - CAS rejects an external edit before publication without changing any other file
+  ---
+  duration_ms: 24.1088
+  type: 'test'
+  ...
+# Subtest: failure mid-publication restores all originals, preserving a recovery journal
+ok 10 - failure mid-publication restores all originals, preserving a recovery journal
+  ---
+  duration_ms: 53.6762
+  type: 'test'
+  ...
+# Subtest: rollback refuses to overwrite a concurrent external change
+ok 11 - rollback refuses to overwrite a concurrent external change
+  ---
+  duration_ms: 37.1779
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 275.3343

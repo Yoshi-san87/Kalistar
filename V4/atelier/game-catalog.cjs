@@ -129,6 +129,14 @@ async function buildCatalog({ published = [] } = {}) {
       if (!engine.validatePlayableDeck(ids).length) data.decks.presets.push({ id: preset.id, name: preset.name, cards: ids });
     }
   }
+  if (cards.some(c => c.faction === 'FF10')) {
+    const set = await read('V4/collaborations/ff10-set-01/set.json');
+    const ff10 = new Map(set.cards.map(spec => [spec.key, cards.find(c => c.id === spec.id && c.faction === 'FF10')]));
+    if ([...ff10.values()].every(Boolean)) for (const preset of set.presets) {
+      const ids = preset.characters.map(key => ff10.get(key)?.id);
+      if (!engine.validatePlayableDeck(ids).length) data.decks.presets.push({ id: preset.id, name: preset.name, cards: ids });
+    }
+  }
   return JSON.parse(JSON.stringify(data));
 }
 

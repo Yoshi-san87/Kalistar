@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "modelId": "40738164",
+  "referenceId": "02f0808cbd56d2b0d4103450e7943db69b95ac120a0df349f4374c82f7f712e5",
+  "profileHash": "d587d431c111b438bddd8dea3d3e965cc5507f86648bd04df254a50686adef46",
+  "hashes": {
+    "card.png": "b7947a2743fddb2b43929a6df8f39ad926bb57f1435ca378d606e3357310892f",
+    "card.psd": "ab7ba84ae259d4eb5b395460eafb94d2510aa1fd5cba48c0dc197f2ecd4d3000"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 107785
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "40738164",
+    "cases": {
+      "color-1": [
+        "40738164"
+      ],
+      "color-4": [
+        "40738164"
+      ],
+      "gray-1": [
+        "40738164"
+      ],
+      "gray-4": [
+        "40738164"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-25T14:01:06.296Z",
+  "key": "tidus-epee",
+  "preparationHash": "66e2071ea26ab8142977fe0245244f52fe8771a01adc027aef976dbade8b8ed0"
+}

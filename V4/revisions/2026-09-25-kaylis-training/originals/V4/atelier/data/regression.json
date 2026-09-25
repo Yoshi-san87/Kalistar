@@ -1,0 +1,1380 @@
+{
+  "passed": true,
+  "baseReferenceId": "4e489e527f047e2e6def3264718abb509cddb105cbc705bcd678ba0b20dc4bec",
+  "candidateDigest": "800988a624c04b6ca9bdaf8e0537e8037ca38e888afeac4cb3181bc24b5305ab",
+  "requestHash": "799ef8736f8b06e102975fd91acfd1d23b6bc54d58e51ebda91bcf8228b3d497",
+  "rendererHash": "14d63922b3cd61e0a0b8c8eeda130a822620ef90ea6b224ad304de2ddca3cb90",
+  "checkedAt": "2026-09-24T16:11:42.822Z",
+  "results": [
+    {
+      "key": "momo",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000001",
+        "cases": {
+          "color-1": [
+            "30000001"
+          ],
+          "color-4": [
+            "30000001"
+          ],
+          "gray-1": [
+            "30000001"
+          ],
+          "gray-4": [
+            "30000001"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "63683661ecc50bff2855d4f6100fe7902725886a73df048daf113be921cafd4c",
+        "reopened.png": "7ef22ef36b2fdbe0478c7850962af8ddf18b9d34d0ab200bc05b29ca4f910b99",
+        "native.json": "51a8cadfe43e46769c337441c5571d476bdb7b82d646ffc177671c6055af8392"
+      }
+    },
+    {
+      "key": "taulio",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000013",
+        "cases": {
+          "color-1": [
+            "30000013"
+          ],
+          "color-4": [
+            "30000013"
+          ],
+          "gray-1": [
+            "30000013"
+          ],
+          "gray-4": [
+            "30000013"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "2fa5734bcf2d5dcd2f265d25ad78f22244f855dc2b2386d019977b26de28af49",
+        "reopened.png": "2e14a7a05c5aac3e4ed22598d969054f6a3bc40dd2952285a7318712969fbb5e",
+        "native.json": "a448a91c8e680923ada0e5cec686b3c555492bd7fe9b201653c8a1af48e030e8"
+      }
+    },
+    {
+      "key": "jelly-joe",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000032",
+        "cases": {
+          "color-1": [
+            "30000032"
+          ],
+          "color-4": [
+            "30000032"
+          ],
+          "gray-1": [
+            "30000032"
+          ],
+          "gray-4": [
+            "30000032"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "e580a5f202b4974be1c2b55183bd2fad28497c321bbb444b420bdb9242f0793c",
+        "reopened.png": "01fa48057400657a871250b804ebb5bf4c5dbbd6b8a010f31949a54c1bd00a6b",
+        "native.json": "f3a9e97b516c61e99755909e802f963b2451ae1d8615b417228725cfed8c82a6"
+      }
+    },
+    {
+      "key": "momo-bal",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000014",
+        "cases": {
+          "color-1": [
+            "30000014"
+          ],
+          "color-4": [
+            "30000014"
+          ],
+          "gray-1": [
+            "30000014"
+          ],
+          "gray-4": [
+            "30000014"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "5d7767e4bb4282d6852522b569ed82cc099bb3ef4cda938c3e3623bb1bef7998",
+        "reopened.png": "fc2f27da3c14a9385e07a52697fea7931df4331c086bd60eb9c0317e4968feb9",
+        "native.json": "b499b0f22d59d8ebd3d67c30e511aa8533a596886893cee7ba8bba57b699d61f"
+      }
+    },
+    {
+      "key": "rikka",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "40000042",
+        "cases": {
+          "color-1": [
+            "40000042"
+          ],
+          "color-4": [
+            "40000042"
+          ],
+          "gray-1": [
+            "40000042"
+          ],
+          "gray-4": [
+            "40000042"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "fcced3e7131ee4d7ba24ac04d67c24db9f157bc5e20d8943dfce1e231672d14a",
+        "reopened.png": "215e311ff179cac78ae7e67a10259583d2ba4d85cd7f9395e328439535ae583b",
+        "native.json": "284eb574e80173743c9bfe9fc74ddfb0a44fad8a9a32df95b43dd02a1cf787c7"
+      }
+    },
+    {
+      "key": "ruby",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000039",
+        "cases": {
+          "color-1": [
+            "30000039"
+          ],
+          "color-4": [
+            "30000039"
+          ],
+          "gray-1": [
+            "30000039"
+          ],
+          "gray-4": [
+            "30000039"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "091158742a88adae3370c0674645671399ba996c7e660ee9b2f711a7ae27e099",
+        "reopened.png": "9cc46fe082ec80e9c8ce4f4e14996378d87d28f3669412c9daa8073ce3785a5e",
+        "native.json": "ffef91df1f00aed54a7b08d048e54993ec20c9c58315babaffda3d43c24c2c1f"
+      }
+    },
+    {
+      "key": "cana",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000002",
+        "cases": {
+          "color-1": [
+            "30000002"
+          ],
+          "color-4": [
+            "30000002"
+          ],
+          "gray-1": [
+            "30000002"
+          ],
+          "gray-4": [
+            "30000002"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "7956609dc498402a592c82691cff6fd24e5b654930550861506da300f80cc0cb",
+        "reopened.png": "7d4a3a632a97ed11a1e93eaa6bd92029a7404f00f9151b7fefea821f47763d6a",
+        "native.json": "8cccaf9cb69653af10bbe1fa1ce754ba8dfecfa82afa72519f1cdcd78b715cb7"
+      }
+    },
+    {
+      "key": "scrow",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000015",
+        "cases": {
+          "color-1": [
+            "30000015"
+          ],
+          "color-4": [
+            "30000015"
+          ],
+          "gray-1": [
+            "30000015"
+          ],
+          "gray-4": [
+            "30000015"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "18b93c7541d4172657fa9e1c773052c53ef0f764f09f7dddc80e74b90e2afbec",
+        "reopened.png": "9b58635791ccb416e9488f126ce0649b105f0ad4ff40b2a9c2f0060bb19aa8fa",
+        "native.json": "d0f2c462895f56f3fe33a32bedd4a238f33c4fbee4aaf818d623e1601f9c4612"
+      }
+    },
+    {
+      "key": "soryn",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000040",
+        "cases": {
+          "color-1": [
+            "30000040"
+          ],
+          "color-4": [
+            "30000040"
+          ],
+          "gray-1": [
+            "30000040"
+          ],
+          "gray-4": [
+            "30000040"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "8756f450ff025a7d5d02d9bcf9222ab71b067f28647d0c1f77fb4c814ea3dbd4",
+        "reopened.png": "3b93443841788807862ad18029088a9b4b1e61f856762e174acd348695bdd52c",
+        "native.json": "b21ca505c90e022cf64ac471d15c02b6aac42b1590b9f03ea9eeb242d9dab44d"
+      }
+    },
+    {
+      "key": "gilmarr",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000038",
+        "cases": {
+          "color-1": [
+            "30000038"
+          ],
+          "color-4": [
+            "30000038"
+          ],
+          "gray-1": [
+            "30000038"
+          ],
+          "gray-4": [
+            "30000038"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "24b6b3825ce6d49768516439f913f97edb8a85786c363a97c22aa5b51fd15587",
+        "reopened.png": "9276bbd78508fe8b181a9d04559a57bceb83e68155373c7cdcdebd56a42c76ab",
+        "native.json": "4df4332bf86c4b3afb9cb09c43f8c2477e86a62eaab7ac6d95df160227c10fdc"
+      }
+    },
+    {
+      "key": "darnako",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000004",
+        "cases": {
+          "color-1": [
+            "30000004"
+          ],
+          "color-4": [
+            "30000004"
+          ],
+          "gray-1": [
+            "30000004"
+          ],
+          "gray-4": [
+            "30000004"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "0e6d1dec9fbc2dda968723485ead93c195eac578e9b0711a1bbf1cba4d22cab1",
+        "reopened.png": "830a7c726655c2b561df36f0a6e6a0d277071c96c84797f6f3047fe12ac1e5a7",
+        "native.json": "7a4c1e5c0ce47376c78d8d44f5de259617a52123710667c139e238382009f26f"
+      }
+    },
+    {
+      "key": "malinia",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000005",
+        "cases": {
+          "color-1": [
+            "30000005"
+          ],
+          "color-4": [
+            "30000005"
+          ],
+          "gray-1": [
+            "30000005"
+          ],
+          "gray-4": [
+            "30000005"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "1e0b21aa5946d9d29799e2923836f3965c016a2509532ff59fe02bf50b5de661",
+        "reopened.png": "b59945687a7b4fe456c2cc6dcace1977805dccb490e41829b362cca8b40bd271",
+        "native.json": "7a1149bf974788802590485cfc05b7a853976b39c85c16cff956e80c08333ba9"
+      }
+    },
+    {
+      "key": "aelis",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000006",
+        "cases": {
+          "color-1": [
+            "30000006"
+          ],
+          "color-4": [
+            "30000006"
+          ],
+          "gray-1": [
+            "30000006"
+          ],
+          "gray-4": [
+            "30000006"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "1e5ba5788342c871caecf7e782f920d6a1de848e3311220066636836f658e973",
+        "reopened.png": "611ec4b3e111d3f06b78fb160d523b9128bb7406d1f8699dd8d97b23ec032a6a",
+        "native.json": "4143d4d9a6f58270393e13aed3059e5b42675df10fc8c9c9d00b4cf483eddc01"
+      }
+    },
+    {
+      "key": "iliane",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000017",
+        "cases": {
+          "color-1": [
+            "30000017"
+          ],
+          "color-4": [
+            "30000017"
+          ],
+          "gray-1": [
+            "30000017"
+          ],
+          "gray-4": [
+            "30000017"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "6962b930b137b9900a4ae66f2f2994fc525a02b25cb7e35cfc67a59914de1ff0",
+        "reopened.png": "9a2e38982dd4e0a5d7145f321d0ce6e04453d83747e0037d2980f980df72357e",
+        "native.json": "c947b4d4c19fb0ab2884211c9d1593e5c8bb04cb0e49b9489bfc0a1ed429222b"
+      }
+    },
+    {
+      "key": "belrog",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000019",
+        "cases": {
+          "color-1": [
+            "30000019"
+          ],
+          "color-4": [
+            "30000019"
+          ],
+          "gray-1": [
+            "30000019"
+          ],
+          "gray-4": [
+            "30000019"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "ff4e3be5aaf2a9b09ec38df4d69e4bbc3a657d8e3b0cf6e1e887e62361c9d57c",
+        "reopened.png": "29f71f67cbe87f88ff76c5be5209204c35274cd4326a3945362de65c9376cf75",
+        "native.json": "70c1aa2b890fb17e88d494c54f0015ec6a1a900ad3ffafba1c3eef39f173ea92"
+      }
+    },
+    {
+      "key": "lok",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000018",
+        "cases": {
+          "color-1": [
+            "30000018"
+          ],
+          "color-4": [
+            "30000018"
+          ],
+          "gray-1": [
+            "30000018"
+          ],
+          "gray-4": [
+            "30000018"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "cf455337e6ad348bc64a3070d0f1841496fb2abfa0b7878b3b4944c82f0340fc",
+        "reopened.png": "439287a94096a25bbe306eb4d5aa96c8392f69f3c68ff7cd168f3159894feb64",
+        "native.json": "7166a1afa86173e773e19d2ab590a9eeb3d35c46d1ab4bc286c00cee5b4d99cf"
+      }
+    },
+    {
+      "key": "balmhyr",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000007",
+        "cases": {
+          "color-1": [
+            "30000007"
+          ],
+          "color-4": [
+            "30000007"
+          ],
+          "gray-1": [
+            "30000007"
+          ],
+          "gray-4": [
+            "30000007"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "3ff562095adb4fce31031c369404a3341765886971aac1c2d4694f5949a6e3d9",
+        "reopened.png": "9757a8f301e52117ba4522a4b777a5d92841062186a6a93c8d2974b5c1dc97be",
+        "native.json": "e758e19c697326cbb7b756fc1b6b98c8d90c428822451ee8014dd7fe239dd53a"
+      }
+    },
+    {
+      "key": "magnar",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000024",
+        "cases": {
+          "color-1": [
+            "30000024"
+          ],
+          "color-4": [
+            "30000024"
+          ],
+          "gray-1": [
+            "30000024"
+          ],
+          "gray-4": [
+            "30000024"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "465d8f977947a4a2af536f24d3de3aa325249e6a3db2d4e334ba6befd3c54bcd",
+        "reopened.png": "b0fb0291e9dda9724bed53ca0aaf36de07cb2ba7f72e8a0d79fd6febe2419f24",
+        "native.json": "bd6fcedeb88bf3d08292a84e243cf716fc55090e556ef52d9df762effde8f06b"
+      }
+    },
+    {
+      "key": "thalie",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000041",
+        "cases": {
+          "color-1": [
+            "30000041"
+          ],
+          "color-4": [
+            "30000041"
+          ],
+          "gray-1": [
+            "30000041"
+          ],
+          "gray-4": [
+            "30000041"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "3bc157fe65398f2d632a8829ada5feac7cccd2cb98fa12f15d8219fcc598778d",
+        "reopened.png": "ce2963f4256afdb7919db38593900eaeb96142947ba5e87c3090d0458c45360e",
+        "native.json": "667804143fd7cb9fe75f24a033a22b9a95fa2dd1105ac819741b0d11a400b532"
+      }
+    },
+    {
+      "key": "bloom",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000033",
+        "cases": {
+          "color-1": [
+            "30000033"
+          ],
+          "color-4": [
+            "30000033"
+          ],
+          "gray-1": [
+            "30000033"
+          ],
+          "gray-4": [
+            "30000033"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "24cc413bce8a3ca9f9dbd6908012ebb86ba04dd1ca8081200bab3243643d3307",
+        "reopened.png": "0a3733bcda5434fe5f3b1ba183c902daee5dc26a733d3f7bcba9a1f9fa3c86e7",
+        "native.json": "563ad4c995c487b2af839bf9bf94a1e7997bfffeea3639d0b83b4d539275eb21"
+      }
+    },
+    {
+      "key": "victorvine",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000008",
+        "cases": {
+          "color-1": [
+            "30000008"
+          ],
+          "color-4": [
+            "30000008"
+          ],
+          "gray-1": [
+            "30000008"
+          ],
+          "gray-4": [
+            "30000008"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "bd8b81a1cf2347c23550b29eecefaa8283eb6d43cb83f2d117062acee1bf5682",
+        "reopened.png": "4cbe907573432256ebe3caad4b964cc65d8488944039c60541f62e911d39884c",
+        "native.json": "9f5b03594905e6c7d5249456d3ec43c4f6e1981dd88c1eedbd3fdd1b021e00e2"
+      }
+    },
+    {
+      "key": "kaylis",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000012",
+        "cases": {
+          "color-1": [
+            "30000012"
+          ],
+          "color-4": [
+            "30000012"
+          ],
+          "gray-1": [
+            "30000012"
+          ],
+          "gray-4": [
+            "30000012"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "4ec0bfea1461cfaa291731630104cf6542f1caa4d3e669056442ba5267f1505d",
+        "reopened.png": "e9b2d5150a51bc395755d883abbaebdc36fe30a959cb14f1ab9afacdcb4abbf5",
+        "native.json": "8faed9b038ca548e4ce33d77143afe3d9a89ab2e4faab3df9205c070199ff5b2"
+      }
+    },
+    {
+      "key": "elenion",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000036",
+        "cases": {
+          "color-1": [
+            "30000036"
+          ],
+          "color-4": [
+            "30000036"
+          ],
+          "gray-1": [
+            "30000036"
+          ],
+          "gray-4": [
+            "30000036"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "bd20f2199ebb8cce184755c41ade7f0ccccb534db455efad544a57be38541ef8",
+        "reopened.png": "51b792d53fbccd268389113447ebba2a5918984a221538b4a973bd2f02d1ef19",
+        "native.json": "30f9428278f70aa2bcf78273fcf0829bf01b874b6ea8a1247c19d7715cb0a881"
+      }
+    },
+    {
+      "key": "seraphina",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000020",
+        "cases": {
+          "color-1": [
+            "30000020"
+          ],
+          "color-4": [
+            "30000020"
+          ],
+          "gray-1": [
+            "30000020"
+          ],
+          "gray-4": [
+            "30000020"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "25f1defdcec2dda15c3062c56baa941923c4a3bf1ac4dec23800022aa3f2ea65",
+        "reopened.png": "7ca993fb68af5bb6a678cb1096704da073b673e068936acf76ecda3c9c3e7654",
+        "native.json": "3e5fb66b82595971dc978c6e7139bd9ee7bb4c229f5e4df7b0b0a6e6dbdcf796"
+      }
+    },
+    {
+      "key": "valazar",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000034",
+        "cases": {
+          "color-1": [
+            "30000034"
+          ],
+          "color-4": [
+            "30000034"
+          ],
+          "gray-1": [
+            "30000034"
+          ],
+          "gray-4": [
+            "30000034"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "9b7412283b780b6b39abf3a45233784a9eb9f2bf5813e37aaef56feeb73792c6",
+        "reopened.png": "5b087eb06e80f16a7012a1b09f828234be65dfe94a0612385bd11478f7038c6c",
+        "native.json": "8f711589a3ecb2e6b856f5df9fd782f04edaf35db7c8fd57173efdba4cf95cb3"
+      }
+    },
+    {
+      "key": "malaba",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000022",
+        "cases": {
+          "color-1": [
+            "30000022"
+          ],
+          "color-4": [
+            "30000022"
+          ],
+          "gray-1": [
+            "30000022"
+          ],
+          "gray-4": [
+            "30000022"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "1472e40e8abb2e946d5c2e90d2b18b28a94cc761fb26b2e5493c0cca4689703e",
+        "reopened.png": "1f07bdc47442ce662637c378fcc6010178fd6c7bbb105aea9f71bd7d5366a0fc",
+        "native.json": "100f9e99bc7807a44bced0f9717101fa6a6a4fd018818dc96aefc95c61799509"
+      }
+    },
+    {
+      "key": "voloden",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000028",
+        "cases": {
+          "color-1": [
+            "30000028"
+          ],
+          "color-4": [
+            "30000028"
+          ],
+          "gray-1": [
+            "30000028"
+          ],
+          "gray-4": [
+            "30000028"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "3b48d2c1f5ccdaca16f67cd69994c76980803d9d091e963e51dfe3d40b9fbaf3",
+        "reopened.png": "70c488cab4b6c6ed9328952d14e1326e6fc365c08e3d5c3a5dbeeb34ecc0cfb8",
+        "native.json": "7ae3e917e323d1a4048c219ebc5b71495fd53594985d00f443265aef28a563e0"
+      }
+    },
+    {
+      "key": "zviri-tueuse",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000010",
+        "cases": {
+          "color-1": [
+            "30000010"
+          ],
+          "color-4": [
+            "30000010"
+          ],
+          "gray-1": [
+            "30000010"
+          ],
+          "gray-4": [
+            "30000010"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "cd5a5fad5d6f7855f3c4eaba174bad41fbe07fa2481aeaae69d466c66b894711",
+        "reopened.png": "659d607805e75c6ac13cf54c56db87fb23d04d86f8654d258fb9fc8d2098d068",
+        "native.json": "c48320a398e68a07c5ee8b6d9139a366063576a39e59a25e62ca4e4d9bb6865b"
+      }
+    },
+    {
+      "key": "julienne",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000003",
+        "cases": {
+          "color-1": [
+            "30000003"
+          ],
+          "color-4": [
+            "30000003"
+          ],
+          "gray-1": [
+            "30000003"
+          ],
+          "gray-4": [
+            "30000003"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "fc9ecee6f3669fda0d24c262d7b091408ca686b5aad55ea9466b3300545b1e64",
+        "reopened.png": "83fca6556ebff7c75f34f7d0bca438c9951e1a333c322d247a812b88e24e9528",
+        "native.json": "cecd087dd0975e094b7fc4b55f679aadd58bd5ab7e787a8430a8161fd857373d"
+      }
+    },
+    {
+      "key": "verminia-bureau",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000009",
+        "cases": {
+          "color-1": [
+            "30000009"
+          ],
+          "color-4": [
+            "30000009"
+          ],
+          "gray-1": [
+            "30000009"
+          ],
+          "gray-4": [
+            "30000009"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "0a9a4a49de5a4fa97023886503225fba41e981f17d5bc123a306ad31108b3790",
+        "reopened.png": "4702c90aa474f0b44da795f8e4add4a08aafe8158309947c2e9e4fc1f866b9c7",
+        "native.json": "d58e3f07319890c97ac253b82c2dd89f1b82a12b644b8f9a61de82a8e4ae6d7c"
+      }
+    },
+    {
+      "key": "polux",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000031",
+        "cases": {
+          "color-1": [
+            "30000031"
+          ],
+          "color-4": [
+            "30000031"
+          ],
+          "gray-1": [
+            "30000031"
+          ],
+          "gray-4": [
+            "30000031"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "da89f86adeececa4b815c33c4acf7afa50998ac5f80273616852c7e92514e6b2",
+        "reopened.png": "d56351fd7d260cc2899913313a713555061aebd670f6e6d9fa064367bf0878f5",
+        "native.json": "31930713b18af2f1f8bb6b6fe54769bf0a3d505ef67696e800d458f90c9b1c1d"
+      }
+    },
+    {
+      "key": "nazar",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000011",
+        "cases": {
+          "color-1": [
+            "30000011"
+          ],
+          "color-4": [
+            "30000011"
+          ],
+          "gray-1": [
+            "30000011"
+          ],
+          "gray-4": [
+            "30000011"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "9398104c33576c0e3120293150d3128d25db2722a54b1d5486a3135d1431c52c",
+        "reopened.png": "05b9e87109e0c8171ae51ac4964be214a0a7918a9d050fbdf649ec3e031a45a6",
+        "native.json": "7278b3c3ca25664a89f938aaeb8c35e867cc11ac62ae39b11ae4135bfb0f00a9"
+      }
+    },
+    {
+      "key": "capitaine-skully",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000035",
+        "cases": {
+          "color-1": [
+            "30000035"
+          ],
+          "color-4": [
+            "30000035"
+          ],
+          "gray-1": [
+            "30000035"
+          ],
+          "gray-4": [
+            "30000035"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "18ccee845d6a92b923eefd25196f739e9f23c9ec3960ab8e998d78d461a3831b",
+        "reopened.png": "d00427dc2c8935a9e0044b9355ce11229d9e786d25dd8c10ac467dd0e1cd4eb3",
+        "native.json": "444b090b06f3b8c0fb170cb4c751cd4621df93c5635268dfb1e7c15fd1b5bfe0"
+      }
+    },
+    {
+      "key": "xiaomi",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000027",
+        "cases": {
+          "color-1": [
+            "30000027"
+          ],
+          "color-4": [
+            "30000027"
+          ],
+          "gray-1": [
+            "30000027"
+          ],
+          "gray-4": [
+            "30000027"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "c85665d81c4ca25d372f745d834f363097d7e051aac946410d362002f5620a37",
+        "reopened.png": "c31e08f521cb5451b1dfd57948ea2e149b124d457a14c5620ac40225c6554de7",
+        "native.json": "02893386faae00e26a967db542444c15eb44105fb40d7bfc370f172f53fbb667"
+      }
+    },
+    {
+      "key": "gen-reparation",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000023",
+        "cases": {
+          "color-1": [
+            "30000023"
+          ],
+          "color-4": [
+            "30000023"
+          ],
+          "gray-1": [
+            "30000023"
+          ],
+          "gray-4": [
+            "30000023"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "abaa4b22a00a7b9146eb94d1677abf1cc66427ec9b5894c4ba79c78ac497d2af",
+        "reopened.png": "fb8625228aa3e203b505b61d5eda5fd20aaf435391ccbb0f008b70063c27ebd8",
+        "native.json": "90543c5c7c6b70c73b377bcb35d0b2cb4d92720620d5fdfad6cd59a293d36b61"
+      }
+    },
+    {
+      "key": "lanio-astraball",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000021",
+        "cases": {
+          "color-1": [
+            "30000021"
+          ],
+          "color-4": [
+            "30000021"
+          ],
+          "gray-1": [
+            "30000021"
+          ],
+          "gray-4": [
+            "30000021"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "9fb5f2993921fb6d512104d398a4d38bd66656cd48937d9e9667f75aefb4f654",
+        "reopened.png": "ef9abda71f6521c1b85d5b02a8a6863bddf9ecd6fc2731102bae49635143bb37",
+        "native.json": "a673f0b7c7da9a2645bfae290fb4647c0d2450eb9046efb9f1cee1ba72241464"
+      }
+    },
+    {
+      "key": "reevus",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000026",
+        "cases": {
+          "color-1": [
+            "30000026"
+          ],
+          "color-4": [
+            "30000026"
+          ],
+          "gray-1": [
+            "30000026"
+          ],
+          "gray-4": [
+            "30000026"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "d1a7a8bab0a8d2f38a3b3eea2d2692436e6eaf221001888846ea13f00d42eec7",
+        "reopened.png": "b00ddc5577157c05ca2671256cd13a5cf8a48f5175660e5dda631754aa6c7c59",
+        "native.json": "2c85c8535e653b02180a9d382ed67ba11f7a4d800fe02fa8d7593411a7a09107"
+      }
+    },
+    {
+      "key": "kognus",
+      "passed": true,
+      "comparison": {
+        "changed": 0,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000025",
+        "cases": {
+          "color-1": [
+            "30000025"
+          ],
+          "color-4": [
+            "30000025"
+          ],
+          "gray-1": [
+            "30000025"
+          ],
+          "gray-4": [
+            "30000025"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "files": {
+        "card.png": "90d083c08f3d36f94911861d7f25840c7a39ac2f62b09171d626850fc9719d4d",
+        "reopened.png": "8c54f703e141e42830d90149e06627a4b4013bd42db8fa90b82e4554a9420b0d",
+        "native.json": "63ffa08d4b366b94d3f1a4a43e9db0ce50c826ad486932ed733444935e423a2c"
+      }
+    }
+  ],
+  "referenceId": "02f0808cbd56d2b0d4103450e7943db69b95ac120a0df349f4374c82f7f712e5",
+  "previousReferenceId": "4e489e527f047e2e6def3264718abb509cddb105cbc705bcd678ba0b20dc4bec"
+}

@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "modelId": "42258087",
+  "referenceId": "02f0808cbd56d2b0d4103450e7943db69b95ac120a0df349f4374c82f7f712e5",
+  "profileHash": "58b7782bbbafd30341dfe081ed5d2ffb82ab84528be95c382b289239d525e124",
+  "hashes": {
+    "card.png": "87366a506daee1d8d0aedc8cec5d0ed7e77e99bb5e2c542d45b97a5a6f1c57c2",
+    "card.psd": "cfcf8b8152978af7d386d721b5af06e69dd26ee8228ac8dae9ae7295176ac662"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 143615
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "42258087",
+    "cases": {
+      "color-1": [
+        "42258087"
+      ],
+      "color-4": [
+        "42258087"
+      ],
+      "gray-1": [
+        "42258087"
+      ],
+      "gray-4": [
+        "42258087"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-25T14:05:09.359Z",
+  "key": "yuna",
+  "preparationHash": "464e9178979151f2dfb81156fc747a196e60efe95705b5243aa4086ef6bd2c7b"
+}

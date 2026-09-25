@@ -17,7 +17,7 @@
   }
   function matchesScope(card,scope){
     if(scope==='kalistar')return C.universe(card)==='kalistar';
-    if(scope==='final-fantasy')return C.matches(card,'ff7')||C.matches(card,'ff8');
+    if(scope==='final-fantasy')return C.matches(card,'ff7')||C.matches(card,'ff8')||C.matches(card,'ff10');
     if(scope==='nier')return C.matches(card,'nier')||C.matches(card,'replicant');
     return false;
   }

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "asset": "auron-v4",
+  "mode": "builtin-imagegen",
+  "intent": "lighting-weather-background-restoration",
+  "prompt": "Edit reference 1 ONLY to remove the accidentally introduced dark/transparent vignette around the outer canvas and restore a FULL RECTANGULAR PAINTING with opaque painted background all the way to every edge and corner. Reference 2 is the same scene BEFORE this vignette appeared, use it for the exact warm bright Luca architecture/sky/stone/light palette and edge/background treatment.\nCRITICAL INVARIANTS: keep the Auron CHARACTER FROM REFERENCE 1 exactly: the current upright sword at x25-35%, current grip and lowered forearm, body silhouette, face, small glasses, clothing details, feet, pose and proportions. Do NOT restore the sword position from reference 2. Weapon placement/shape must stay as in reference 1. No additional weapon. Same framing.\nReplace ALL dark/transparent outer corner areas and the beige smoky halo with continuous clear painted Luca city, sky, columns, sea and stone ground, naturally continuing reference 2 background, including all four corners. Restore clear warm daylight over the whole canvas, with visible brush planes. No misty border, no white border, no dark border, NO VIGNETTE, no transparency anywhere, no elliptical portrait cutout, no fade to blank. This must be one opaque rectangular 4:5 narrative fantasy illustration ready to fill an entire card illustration window. The only change is background edge/lighting cleanup; character and centered upright sword remain exactly from reference 1. No text or card frame.",
+  "referenced_image_paths": [
+    "V4/collaborations/ff10-set-01/art-a/auron-v3.png",
+    "V4/collaborations/ff10-set-01/art-a/auron-v2.png"
+  ],
+  "output": "V4/collaborations/ff10-set-01/art-a/auron.png",
+  "reason": "v3 safe centered sword but unsolicited vignette. Restore opaque full-bleed Luca painting, preserving v3 pose and weapon."
+}

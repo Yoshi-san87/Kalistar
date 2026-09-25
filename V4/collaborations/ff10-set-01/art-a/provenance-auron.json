@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-25",
+  "generator": "image_gen.imagegen (built-in)",
+  "status": "selected-awaiting-parent-native-framed-QA",
+  "scope": "Only art-a/auron* and art-a/provenance-auron.json authorized for this follow-up.",
+  "references": [
+    {
+      "path": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+      "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8",
+      "bytes": 2671393,
+      "width": 1122,
+      "height": 1402
+    },
+    {
+      "path": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+      "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee",
+      "bytes": 2334822,
+      "width": 1122,
+      "height": 1402
+    },
+    {
+      "path": "V4/collaborations/ff10-set-01/art-a/references/auron-full.jpg",
+      "sha256": "3a8a117f74cdeb5a8a6dc8573be20196051b2b52cbc8ba2a394f9f26596d159b",
+      "bytes": 159760,
+      "width": null,
+      "height": null
+    },
+    {
+      "path": "V4/collaborations/ff10-set-01/art-a/references/auron-official.jpg",
+      "sha256": "89fb9329614227294f8b79402987063bed3ad4348ffa8581fa91fe928ec0fd9a",
+      "bytes": 254990,
+      "width": null,
+      "height": null
+    }
+  ],
+  "identitySource": "https://na.finalfantasy.com/titles/finalfantasy10",
+  "originalProvidedByParent": {
+    "image": {
+      "path": "V4/collaborations/ff10-set-01/art-a/auron-v1.png",
+      "sha256": "64bc5d933c257384e83011e8ed13647eedc69eb4ee5c3ffecc874a9bf45ac23a",
+      "bytes": 2995519,
+      "width": 1122,
+      "height": 1402
+    },
+    "request": {
+      "path": "V4/collaborations/ff10-set-01/art-a/auron.request.json",
+      "sha256": "11be1b51828884b01de577bce17b17d482c327e39b80987aca5a3ff22b44985d",
+      "bytes": 3080,
+      "width": null,
+      "height": null
+    },
+    "status": "Preserved byte-identical; original generation provenance owned by parent."
+  },
+  "iterations": [
+    {
+      "version": 2,
+      "status": "rejected-framing",
+      "request": {
+        "path": "V4/collaborations/ff10-set-01/art-a/auron-v2.request.json",
+        "sha256": "1aec699156b9d550805b10fcdeecf60ea4176bd928644f4d0e73d8394ba9f994",
+        "bytes": 3806,
+        "width": null,
+        "height": null
+      },
+      "input": {
+        "path": "V4/collaborations/ff10-set-01/art-a/auron-v1.png",
+        "sha256": "64bc5d933c257384e83011e8ed13647eedc69eb4ee5c3ffecc874a9bf45ac23a",
+        "bytes": 2995519,
+        "width": 1122,
+        "height": 1402
+      },
+      "output": {
+        "path": "V4/collaborations/ff10-set-01/art-a/auron-v2.png",
+        "sha256": "03233c2c6018c226804834d842d17e2fec3f42b7f570206f69b0735065cc29bb",
+        "bytes": 2820270,
+        "width": 1122,
+        "height": 1402
+      },
+      "generatedOriginal": "C:/Users/guill/.codex/generated_images/01a0d8c5-5db1-7a01-8915-48026bec8e0a/exec-75f1185b-bddb-461c-8e03-46afb8ce583a.png",
+      "qa": "Upright canonical curved sword coherent, but widest guard at x16 percent too near native left rail."
+    },
+    {
+      "version": 3,
+      "status": "rejected-unsolicited-vignette",
+      "request": {
+        "path": "V4/collaborations/ff10-set-01/art-a/auron-v3.request.json",
+        "sha256": "e229b1d9f6d1599635e973b4d6c7c71d7dd1caa65571b6a8dcd6eeac44f92efd",
+        "bytes": 2352,
+        "width": null,
+        "height": null
+      },
+      "input": {
+        "path": "V4/collaborations/ff10-set-01/art-a/auron-v2.png",
+        "sha256": "03233c2c6018c226804834d842d17e2fec3f42b7f570206f69b0735065cc29bb",
+        "bytes": 2820270,
+        "width": 1122,
+        "height": 1402
+      },
+      "output": {
+        "path": "V4/collaborations/ff10-set-01/art-a/auron-v3.png",
+        "sha256": "c31ca77a65e3d894da2056c694326b746408e39534dde06253bbf3aa16252131",
+        "bytes": 2562164,
+        "width": 1122,
+        "height": 1402
+      },
+      "generatedOriginal": "C:/Users/guill/.codex/generated_images/01a0d8c5-5db1-7a01-8915-48026bec8e0a/exec-8df28c76-c80c-4fb5-8c4f-6b6b2bc73c43.png",
+      "qa": "Sword and grip correctly inward, but unrequested dark/transparent vignette made image unsuitable."
+    },
+    {
+      "version": 4,
+      "status": "selected",
+      "request": {
+        "path": "V4/collaborations/ff10-set-01/art-a/auron-v4.request.json",
+        "sha256": "5ba30e65218415b5342b73e30988f329e571818b537d15ea13e4388385f6f8b8",
+        "bytes": 1953,
+        "width": null,
+        "height": null
+      },
+      "inputs": [
+        {
+          "path": "V4/collaborations/ff10-set-01/art-a/auron-v3.png",
+          "sha256": "c31ca77a65e3d894da2056c694326b746408e39534dde06253bbf3aa16252131",
+          "bytes": 2562164,
+          "width": 1122,
+          "height": 1402
+        },
+        {
+          "path": "V4/collaborations/ff10-set-01/art-a/auron-v2.png",
+          "sha256": "03233c2c6018c226804834d842d17e2fec3f42b7f570206f69b0735065cc29bb",
+          "bytes": 2820270,
+          "width": 1122,
+          "height": 1402
+        }
+      ],
+      "output": {
+        "path": "V4/collaborations/ff10-set-01/art-a/auron-v4.png",
+        "sha256": "fe8ccbb79458155b55dff84dae6351eff8464fcd42ea270a05e02865689cc1f3",
+        "bytes": 2730801,
+        "width": 1122,
+        "height": 1402
+      },
+      "generatedOriginal": "C:/Users/guill/.codex/generated_images/01a0d8c5-5db1-7a01-8915-48026bec8e0a/exec-7a1f31d6-5cea-4bbe-96e6-e800c6ac13bb.png",
+      "qa": "Whole sword approximately x25-35 percent including guard/grip; restrained canonical blade curvature, continuous bevel and steel axis, eye/glasses/face unobscured, full body, clear full-bleed Luca daylight background restored."
+    }
+  ],
+  "selectedOutput": {
+    "path": "V4/collaborations/ff10-set-01/art-a/auron.png",
+    "sha256": "fe8ccbb79458155b55dff84dae6351eff8464fcd42ea270a05e02865689cc1f3",
+    "bytes": 2730801,
+    "width": 1122,
+    "height": 1402
+  },
+  "selectedVersion": 4,
+  "selectedWithoutRasterChanges": true,
+  "notes": [
+    "All files copied byte-for-byte from integrated ImageGen. No raster patching, compositing or scaling used.",
+    "No other art-A file modified. No native card, profile, PSD, registry or shared renderer touched.",
+    "Final native overlay and parent aesthetic approval remain required.",
+    "Weapon is upright rather than shoulder-rest at parent's express permission; scene, character identity and attire retained."
+  ]
+}

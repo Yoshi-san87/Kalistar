@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-25",
+  "generator": "image_gen.imagegen (built-in)",
+  "status": "art-selected-awaiting-parent-framed-QA",
+  "scope": "V4/collaborations/ff10-set-01/art-c",
+  "sourcePriority": "V4/AGENTS.md; V4/DIRECTION_ARTISTIQUE.md; V4/docs/IDENTITE_VISUELLE.md; docs/GUIDE_REPRISE.md",
+  "identitySource": {
+    "url": "https://na.finalfantasy.com/titles/finalfantasy10",
+    "logo": "https://cache-na.finalfantasy.com/assets/web/title/logo_ff10_en-540924fa631e0a47ef7b2388c092099cf4e1fea230cf80731e13f6408308e8b4.png"
+  },
+  "references": [
+    {
+      "path": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+      "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8",
+      "bytes": 2671393,
+      "width": 1122,
+      "height": 1402
+    },
+    {
+      "path": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+      "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee",
+      "bytes": 2334822,
+      "width": 1122,
+      "height": 1402
+    },
+    {
+      "path": "V4/collaborations/ff8-set-01/flag-source.png",
+      "sha256": "cd3a1a2cec59b4cc842790e0336d2fd90d9623ba529804777e1da1eee87316b7",
+      "bytes": 2040029,
+      "width": 864,
+      "height": 1821
+    },
+    {
+      "path": "V4/collaborations/ff8-set-01/flag-FF8.png",
+      "sha256": "ea1ea66adbc4518acaf96ed5de1e4c2cd166ca9d8ff6259332f81941aec14bc7",
+      "bytes": 44480,
+      "width": 109,
+      "height": 230
+    },
+    {
+      "path": "V4/collaborations/ff10-set-01/arenas/reference-logo-official-ff10.png",
+      "sha256": "540924fa631e0a47ef7b2388c092099cf4e1fea230cf80731e13f6408308e8b4",
+      "bytes": 303869,
+      "width": 706,
+      "height": 520
+    },
+    {
+      "path": "V4/collaborations/ff10-set-01/art-c/wakka-v1.png",
+      "sha256": "479b1acfe6190f06f17a71428ed31b92ae568ed845c9c720cad5c29b64582e29",
+      "bytes": 3037873,
+      "width": 1122,
+      "height": 1402,
+      "role": "Wakka v2 identity-preserving edit target"
+    }
+  ],
+  "assets": [
+    {
+      "id": "wakka",
+      "version": 2,
+      "status": "selected-awaiting-parent-framed-QA",
+      "request": {
+        "path": "V4/collaborations/ff10-set-01/art-c/wakka-v2.request.json",
+        "sha256": "b541306c689594e71fcb08bf9f1d25c19cc2078c44df65c19bbd49f779950604",
+        "bytes": 2373,
+        "width": null,
+        "height": null
+      },
+      "output": {
+        "path": "V4/collaborations/ff10-set-01/art-c/wakka.png",
+        "sha256": "2943d1b560db6566caa558ab790b64f317b3eb38ec73ce25e059fe401bf3eb66",
+        "bytes": 2856517,
+        "width": 1122,
+        "height": 1402
+      },
+      "versionedOutput": {
+        "path": "V4/collaborations/ff10-set-01/art-c/wakka-v2.png",
+        "sha256": "2943d1b560db6566caa558ab790b64f317b3eb38ec73ce25e059fe401bf3eb66",
+        "bytes": 2856517,
+        "width": 1122,
+        "height": 1402
+      },
+      "generatedOriginal": "C:/Users/guill/.codex/generated_images/01a0d8c5-5db1-7a01-8915-48026bec8e0a/exec-e86cbcec-3d58-4c79-921b-e691dc02d1f9.png",
+      "selectedWithoutRasterChanges": true,
+      "visualReview": "Coherent tucked throwing arm; full ball now approximately x21-33 percent, outside left native rail ending at x17 percent. Throwing hand mostly x18-24 percent. Original joyful expression and full-body scene preserved. Other arm remains extended, optional rightmost fingertips may sit under rail as parent explicitly allowed. Final native-frame QA remains parent responsibility."
+    },
+    {
+      "id": "wakka-v1",
+      "status": "rejected-native-framing",
+      "request": {
+        "path": "V4/collaborations/ff10-set-01/art-c/wakka.request.json",
+        "sha256": "23d6977772e14e654748f6fbb525bd93460913009473b9951a77be998bc83ab0",
+        "bytes": 2377,
+        "width": null,
+        "height": null
+      },
+      "output": {
+        "path": "V4/collaborations/ff10-set-01/art-c/wakka-v1.png",
+        "sha256": "479b1acfe6190f06f17a71428ed31b92ae568ed845c9c720cad5c29b64582e29",
+        "bytes": 3037873,
+        "width": 1122,
+        "height": 1402
+      },
+      "generatedOriginal": "C:/Users/guill/.codex/generated_images/01a0d8c5-5db1-7a01-8915-48026bec8e0a/exec-5d1b600f-8d03-4738-a28e-305d679f4f52.png",
+      "selectedWithoutRasterChanges": true,
+      "visualReview": "Parent native-frame QA found ball left edge at x13 percent hidden beneath left rail through x17 percent. Archived unchanged; replaced by coherent v2 pose."
+    },
+    {
+      "id": "kimahri-v1",
+      "status": "rejected",
+      "request": {
+        "path": "V4/collaborations/ff10-set-01/art-c/kimahri.request.json",
+        "sha256": "fd6a2c72f4b2958906e8646a12bb7e543c576b4af5d062515d15b9013ebd03ea",
+        "bytes": 2584,
+        "width": null,
+        "height": null
+      },
+      "output": {
+        "path": "V4/collaborations/ff10-set-01/art-c/kimahri-v1.png",
+        "sha256": "68586519ea3b7f7f7ea8b96fcee36e7ca4e127bb2e8f9a4a40fbcf6b46d18ea3",
+        "bytes": 2965919,
+        "width": 1122,
+        "height": 1402
+      },
+      "generatedOriginal": "C:/Users/guill/.codex/generated_images/01a0d8c5-5db1-7a01-8915-48026bec8e0a/exec-e31aab60-f769-451c-9cd0-64997c925fdd.png",
+      "selectedWithoutRasterChanges": true,
+      "visualReview": "Spear tip was clipped at top; source retained for exact correction provenance."
+    },
+    {
+      "id": "kimahri",
+      "status": "selected",
+      "request": {
+        "path": "V4/collaborations/ff10-set-01/art-c/kimahri-fix.request.json",
+        "sha256": "8853f27d366fc096b3bbae8c4323b110285ea4ede06ca186464fe26e714d6590",
+        "bytes": 1266,
+        "width": null,
+        "height": null
+      },
+      "output": {
+        "path": "V4/collaborations/ff10-set-01/art-c/kimahri.png",
+        "sha256": "5fe33601a46416fcc5ca7454c4886eccb4130964c033eca2a0e85ed207919202",
+        "bytes": 2809831,
+        "width": 1122,
+        "height": 1402
+      },
+      "generatedOriginal": "C:/Users/guill/.codex/generated_images/01a0d8c5-5db1-7a01-8915-48026bec8e0a/exec-96e141c0-1add-4b7b-a002-105fc3d5c09a.png",
+      "selectedWithoutRasterChanges": true,
+      "visualReview": "Entire spear now visible; original character retained, blue Ronso, white mane, single tail, two arms/two legs."
+    },
+    {
+      "id": "seymour",
+      "status": "selected",
+      "request": {
+        "path": "V4/collaborations/ff10-set-01/art-c/seymour.request.json",
+        "sha256": "f0a1c86aefa32e5b365c94a065f2a9f97462856c36ecc139cbcc22e633c9acb8",
+        "bytes": 2615,
+        "width": null,
+        "height": null
+      },
+      "output": {
+        "path": "V4/collaborations/ff10-set-01/art-c/seymour.png",
+        "sha256": "89374c154a047d15f76732ff44c148fe3bcc865a4626cd4f9fa650ef6e9be2c4",
+        "bytes": 2683458,
+        "width": 1122,
+        "height": 1402
+      },
+      "generatedOriginal": "C:/Users/guill/.codex/generated_images/01a0d8c5-5db1-7a01-8915-48026bec8e0a/exec-963a747d-388c-487c-8706-0d8afdf9fa16.png",
+      "selectedWithoutRasterChanges": true,
+      "visualReview": "Serene menace, recognizable blue hair, continuous sceptre and coherent gesture, full-body margin."
+    }
+  ],
+  "notes": [
+    "No shared/native files, profiles, PSDs, manifests, game code or publication changed.",
+    "All illustration assets copied byte-for-byte from built-in generator output.",
+    "Pending status inside initial request captures describes pre-generation plan; selection status here is authoritative.",
+    "Wakka v2 supersedes initial Wakka at parent's explicit native-framing request. v1 and its prompt preserved; final alias wakka.png equals wakka-v2.png byte-for-byte."
+  ]
+}

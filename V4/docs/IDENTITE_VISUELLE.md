@@ -155,7 +155,7 @@ reference pour une reprise. Une nouvelle demande peut changer un point precis.
 | Magnar | Apparence plus humaine avec peau de pierre ; conserver l'idee de la porte de pierre. |
 | Victorvine | Emotion de la scene conservee, echelle non geante, recul et foret ravagee en fond. |
 | Kaylis | Heroine debout sur ses deux jambes, surprise emue devant ses bras tatoues Rainbow incandescents qui eclairent la grotte. |
-| Kaylis, seconde version | Meme heroine, legerement plus musclee, cheveux tresses, haut noir sans manches a col roule, pantalon blanc, chaussures noires. Entrainement virevoltant au fleuret dans une enceinte de pierre construite par Balmhyr, absent de l'image ; lueurs Rainbow des bras. Arme de jeu Katana, P1/P2/P3. |
+| Kaylis, seconde version | Meme heroine souriante, legerement plus musclee, tresses plaquees avec quelques meches libres et chignon souple a l'arriere. Haut noir sans manches a col roule, pantalon noir, chaussures montantes marron en daim de type montagne, souples et proches de baskets. Personnage centre, entrainement virevoltant au fleuret dans une enceinte de pierre construite par Balmhyr, absent de l'image ; tatouages Rainbow incandescents dont la lumiere accompagne la lame. Arme de jeu Katana, P1/P2/P3. |
 | Sapphire | Princesse Sirena, soeur de Ruby : peau bleue saphir, tres musclee, sourire agressif sous l'eau, bras ouverts et lames sortant des mains. Arme de jeu Poing, P1. |
 | Valazar, Voloden | Illustrations approuvees conservees ; Valazar avec habits violets, Voloden incarne son siege vacant. |
 
@@ -169,6 +169,14 @@ filles portant des noms de pierres precieuses, avec une couleur de peau liee a
 leur nom. Ruby et Sapphire suivent cette regle. Les cinq autres personnages du
 lot `expansions/2026-09-24-royal-training/NOTES-B.md` sont des propositions
 originales, pas des personnages retrouves dans les manuscrits historiques.
+
+Revision utilisateur du 25 septembre 2026 pour Kaylis seconde version : les
+choix de pantalon blanc et chaussures noires du lot initial sont remplaces
+par ceux du tableau. L'expression complete de la premiere illustration est
+la reference, regard et sourcils compris, avec son petit sourire de plaisir.
+Illustration seule, sans
+modification du cadre, du texte ni du profil de jeu ; provenance et originaux
+dans `revisions/2026-09-25-kaylis-training/`.
 
 ## Reception artistique et technique
 

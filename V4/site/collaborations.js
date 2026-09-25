@@ -7,6 +7,7 @@
   const entries=Object.freeze([
     {id:'ff7',faction:'FF7',title:'Final Fantasy VII'},
     {id:'ff8',faction:'FF8',title:'Final Fantasy VIII'},
+    {id:'ff10',faction:'FF10',title:'Final Fantasy X'},
     {id:'nier',faction:'NieR',title:'NieR:Automata'},
     {id:'replicant',faction:'Replicant',title:'NieR Replicant'}
   ].map(Object.freeze));

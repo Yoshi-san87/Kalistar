@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "date": "2026-09-25",
+  "tool": "built-in image_gen",
+  "mode": "identity-preserve",
+  "modelId": "49055457",
+  "selected": "illustration-v6.png",
+  "selectedAlias": "illustration.png",
+  "selectedSha256": "6e58eb561d8e5ef2a08f99ecdf133b1b25a19bae61c801b8f802c92c45f8ccde",
+  "scope": "Illustration only. Native card frame, profile, typography, stats, positions, ID and barcode preserved.",
+  "userFinalChoices": [
+    "Black trousers; centered composition",
+    "Close scalp braids, relaxed rear bun, loose curls; original Kaylis face and smile",
+    "Incandescent Rainbow tattoos and restrained light along the blade",
+    "Supple ankle-high brown suede mountain footwear, Timberland-like silhouette with athletic flexibility"
+  ],
+  "source": {
+    "path": "originals/V4/creations/49055457/illustration.png",
+    "sha256": "d9804a69b3b587da1b1951934e7420a29418e4a9365843ff5591e740d3ffdccf"
+  },
+  "styleReferences": [
+    {
+      "path": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+      "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8"
+    },
+    {
+      "path": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+      "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee"
+    }
+  ],
+  "iterations": [
+    {
+      "image": "illustration-v1.png",
+      "sha256": "6dc562b872f2f177b35b1c9d76985775d282ce697c48677d4200d24380fac22b",
+      "request": "request.json",
+      "requestSha256": "78fa7bbcf3de393cec79c5fb62b37b560a7875407ce0fe48b7ee3f7099fe575a",
+      "status": "not-selected",
+      "reason": "Sword tip intersects right stat rail; torso needs centering.",
+      "builtinOutput": "exec-eeaf3942-c33f-4ce5-ba6c-b35394101f84.png"
+    },
+    {
+      "image": "illustration-v2.png",
+      "sha256": "a22db9a886d21c0b0259a8a1800c3d81f87ecbfb43df1f2b5b0eba875890aaf8",
+      "request": "framing.request.json",
+      "requestSha256": "5065c39b8a8f8af87d9cf5971f55c497cd16b3d45532cd79294619a5f7e05653",
+      "status": "rejected",
+      "reason": "Extra third boot introduced by generation.",
+      "builtinOutput": "exec-0b84596a-159c-4ace-a4c0-0eb1963b0143.png"
+    },
+    {
+      "image": "illustration-v3.png",
+      "sha256": "886961552df5218b82aebf9c223473fae8d064c442a47aa597e2697e60190cef",
+      "request": "footwear.request.json",
+      "requestSha256": "28eb454c0e63e20601c62af20adf0cab49daadd784e14c061dffe091b3cd72fe",
+      "status": "superseded",
+      "reason": "Anatomy fixed, but user requested higher soft boots and restored smile.",
+      "builtinOutput": "exec-b11ecb54-858a-49bc-b871-566f38ef6afc.png"
+    },
+    {
+      "image": "illustration-v4.png",
+      "sha256": "8803671e69bef250c8699b672e5895cbab7c6600460850b6d8c362efa865d1d6",
+      "request": "boots-smile.request.json",
+      "requestSha256": "ada64289d06062c65549190d13b8b2928e6cdaac424d64076613de0880b675d1",
+      "status": "superseded",
+      "reason": "Soft ankle boots retained; user supplied a precise reference for a quieter little smile of pleasure.",
+      "builtinOutput": "exec-20a526e1-195c-4f34-8202-d70cbe259ebf.png"
+    },
+    {
+      "image": "illustration-v5.png",
+      "sha256": "5543093713bd2fbab7cad5c0f817c456c5130c82771447f4ff02bb8b99f05757",
+      "request": "subtle-smile.request.json",
+      "requestSha256": "66c8569ff4d3ff9bcb9dbfd3c505e12a16b6c950bd53390e1b108510c889afb9",
+      "expressionReference": "smile-reference.png",
+      "expressionReferenceSha256": "d818bde1d668e34a9de5842b72ca0bf63886476860b294941c51bc0a9adb9fee",
+      "status": "superseded",
+      "reason": "Small satisfied smile based on the user crop; latest outfit and centered composition preserved.",
+      "builtinOutput": "exec-12d429c2-d2c6-4ab4-a828-7fc741f38ae3.png"
+    },
+    {
+      "image": "illustration-v6.png",
+      "sha256": "6e58eb561d8e5ef2a08f99ecdf133b1b25a19bae61c801b8f802c92c45f8ccde",
+      "request": "original-expression.request.json",
+      "requestSha256": "5fa066fc1d77c06dcaef55784d18c83d549d97ca351b411b2b43970b234ffb91",
+      "status": "composed-and-published-locally",
+      "reason": "Latest user request: whole original expression including eyes, eyebrows, gaze and smile, using original full artwork and user crop as references.",
+      "builtinOutput": "exec-765a373e-a40f-4e86-8353-c23ff0bbd047.png"
+    }
+  ],
+  "nativeResult": "../final-check.json",
+  "browserResult": "../browser-review/report.json",
+  "note": "Technical/production selection is not a claim of user artistic approval. Request files preserve exact prompts and original input paths; the original Kaylis reference is archived in originals/ after replacement. No Git commit or push in this revision."
+}
