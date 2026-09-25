@@ -365,10 +365,20 @@ library deletion are not undoable; imports and external draft replacement reset
 history. Restoring cards rechecks ownership and character/Rainbow limits. Failed
 onDraft writes roll back the edit. Saved decks still require explicit saving.
 
-Phone recruitment shows two larger candidates (three in wide phone layouts),
-with a persistent target slot and previous/next slot controls. The Recruter tab
-can expand recruitment to the whole stage. Screens at most 900px wide and 700px
-high use separate composition/recruitment views to keep controls from overlapping.
+Phone recruitment presents larger card portraits beside a persistent target
+slot and previous/next slot controls. The Recruter tab can expand recruitment to
+the whole stage. Screens at most 900px wide and 700px high use separate
+composition/recruitment views to keep controls from overlapping.
+
+On 2026-09-25, the candidate list became a continuous horizontal rail across
+desktop and phone. The full filtered catalogue stays available without page
+changes; touch swipes, horizontal trackpads, vertical mouse wheels, keyboard
+arrows and visible step buttons all move the rail. The first ten illustrations
+load eagerly for a complete initial view; later cards load as needed.
+Demo selection, load, single-deck import and export moved into the Escouade
+header. Removing the separate toolbar gives 32px back to the recruitment tray,
+which uses taller portrait previews. Deck validation, saved library imports and
+exports, and ownership rules are unchanged.
 
 Checks: `node V4/site/collection-deck-ux.browser.test.cjs`,
 `node V4/site/collection-versions.test.cjs`,

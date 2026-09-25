@@ -176,12 +176,12 @@
   }
 function showDeck(){setView('decks');}
   function builder(){
-    if(!deckBuilder)deckBuilder=KalistarDeckBuilder.create({data,engine:E,registry:db?.registry,userId:accountId,getDraft:()=>({cards:deck.slice(),name:deckName}),onDraft:next=>{deck=next.cards.filter(id=>id!==null);deckName=next.name;persist();},onPlay:newGameDialog,onDetail:showDetail,toast});
+    if(!deckBuilder)deckBuilder=KalistarDeckBuilder.create({data,engine:E,registry:db?.registry,userId:accountId,getDraft:()=>({cards:deck.slice(),name:deckName}),onDraft:next=>{deck=next.cards.filter(id=>id!==null);deckName=next.name;persist();},onPlay:newGameDialog,onDetail:showDetail,renderHeaderTools:()=>`<div class="kdb-demo-tools" role="group" aria-label="Decks de démonstration"><label for="deck-preset"><span>Démo</span><select id="deck-preset" aria-label="Deck de démonstration">${presetOptions(deckPresetId)}</select></label><button type="button" class="kdb-icon" data-action="load-preset" title="Charger le deck sélectionné" aria-label="Charger le deck sélectionné">${icon('folder-open')}</button><button type="button" class="kdb-icon" data-action="export-deck" title="Exporter le deck courant" aria-label="Exporter le deck courant">${icon('download')}</button><button type="button" class="kdb-icon" data-action="import-deck" title="Importer un deck" aria-label="Importer un deck">${icon('upload')}</button><input hidden type="file" id="deck-file" accept="application/json,.json"></div>`,toast});
     return deckBuilder;
   }
   function decksPage(){
     builder().refresh();
-    return `<div class="decks-shell"><div class="decks-preset-tools"><label>Deck de démonstration<select id="deck-preset">${presetOptions(deckPresetId)}</select></label><button data-action="load-preset">${icon('folder-open')}Charger</button>${ib('export-deck','download','Exporter le deck courant')}${ib('import-deck','upload','Importer un deck courant')}<input hidden type="file" id="deck-file" accept="application/json,.json"></div><div id="deck-builder-root">${builder().render()}</div></div>`;
+    return `<div class="decks-shell"><div id="deck-builder-root">${builder().render()}</div></div>`;
   }
   function bonusDetails(context){
     const p=game?.players[context?.side],u=p?.board.find(u=>u?.uid===context?.uid);

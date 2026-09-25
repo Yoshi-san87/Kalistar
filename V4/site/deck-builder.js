@@ -98,10 +98,10 @@
     return Object.freeze({ evaluate, groups, candidate, availability });
   }
   function create(options = {}) {
-    const { data, engine, registry, userId, getDraft, onDraft, onPlay, onDetail, toast = () => {} } = options;
+    const { data, engine, registry, userId, getDraft, onDraft, onPlay, onDetail, renderHeaderTools = () => '', toast = () => {} } = options;
     if (typeof getDraft !== 'function' || typeof onDraft !== 'function') throw new Error('getDraft et onDraft sont requis.');
     const model = createModel(options), byId = new Map(data.cards.map(c => [String(c.id), c]));
-    let library, libraryError = '', root = null, selected = '', target = 0, page = 0, pageSize = 8, previewId = null;
+    let library, libraryError = '', root = null, selected = '', target = 0, previewId = null;
     let pendingDelete = false, working = new Map(), fileEpoch = 0, resizeObserver = null, busy = false, painting = false;
     let drag = null, dragFrame = 0, reorderFrom = null, reorderTo = null, suppressClickUntil = 0, announcement = '';
     let mountedWindow = null, mountedDocument = null;
@@ -149,7 +149,7 @@
       try { emit(); }
       catch (error) { draft.cards = before.cards; target = before.target; previewId = before.previewId; working.set(selected, clone(draft)); toast(error.message); return; }
       h[direction].pop(); h[direction === 'undo' ? 'redo' : 'undo'].push(before);
-      cancelReorder(); page = 0; pendingDelete = false;
+      cancelReorder(); pendingDelete = false;
       announce(direction === 'undo' ? 'Modification annul\u00e9e.' : 'Modification r\u00e9tablie.');
       repaint({ action: direction });
     }
@@ -157,7 +157,7 @@
       cancelReorder();
       comparison = null;
       draft = normalize(next); selected = id; pendingDelete = false;
-      target = Math.max(0, draft.cards.indexOf(null)); page = 0; previewId = null; emit();
+      target = Math.max(0, draft.cards.indexOf(null)); previewId = null; emit();
     }
     function visibleCandidates() {
       const search = filters.search.toLocaleLowerCase('fr').trim();
@@ -176,8 +176,7 @@
       list.sort((a, b) => Number(b.detail.allowed) - Number(a.detail.allowed) ||
         b.detail.coverage.length - a.detail.coverage.length ||
         (b.detail.affinities.faction.delta + b.detail.affinities.race.delta) - (a.detail.affinities.faction.delta + a.detail.affinities.race.delta) || a.card.id.localeCompare(b.card.id));
-      const pages = Math.max(1, Math.ceil(list.length / pageSize)); page = Math.max(0, Math.min(page, pages - 1));
-      return { total: list.length, pages, items: list.slice(page * pageSize, (page + 1) * pageSize) };
+      return { total: list.length, items: list };
     }
     const signed = n => (n >= 0 ? '+' : '') + n;
     function selectFilter(field, label, values) {
@@ -211,6 +210,25 @@
       root.querySelectorAll('[data-deck-slot]').forEach(n => n.classList.toggle('is-affinity', !!value && byId.get(draft.cards[Number(n.dataset.deckSlot)])?.[affinityType] === value));
       root.querySelectorAll('[data-affinity]').forEach(n => n.classList.toggle('is-active', n.dataset.affinity === value));
     }
+    function updateRecruitmentRail() {
+      const rail = root?.querySelector('.kdb-candidates');
+      if (!rail) return;
+      const canScroll = rail.scrollWidth > rail.clientWidth + 2;
+      rail.classList.toggle('has-overflow', canScroll);
+      rail.classList.toggle('can-scroll-left', rail.scrollLeft > 2);
+      rail.classList.toggle('can-scroll-right', rail.scrollLeft + rail.clientWidth < rail.scrollWidth - 2);
+      const left = root.querySelector('[data-deck-action=rail-left]'), right = root.querySelector('[data-deck-action=rail-right]');
+      if (left) left.disabled = !canScroll || rail.scrollLeft <= 2;
+      if (right) right.disabled = !canScroll || rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 2;
+    }
+    function bindRecruitmentRail() {
+      root?.querySelector('.kdb-candidates')?.addEventListener('scroll', updateRecruitmentRail, { passive: true });
+    }
+    function scrollRecruitmentRail(direction) {
+      const rail = root?.querySelector('.kdb-candidates');
+      if (!rail) return;
+      rail.scrollBy({ left: direction * Math.max(rail.clientWidth * .82, 160), behavior: mountedWindow?.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+    }
     function previewHTML() {
       const c = byId.get(previewId) || byId.get(draft.cards[target]) || byId.get(visibleCandidates().items[0]?.card.id);
       if (!c) return '<div class="kdb-preview-empty">Aucune carte</div>';
@@ -226,9 +244,9 @@
         ${d.coverage.length ? `<p class="kdb-positive">Couverture + ${d.coverage.map(p => 'P' + p).join(', ')}</p>` : ''}
         ${d.lostCoverage.length ? `<p class="kdb-warning">Couverture perdue : ${d.lostCoverage.map(p => 'P' + p).join(', ')}</p>` : ''}`;
     }
-    function candidateHTML({ card: c, detail: d }) {
+    function candidateHTML({ card: c, detail: d }, index = 0) {
       const f = d.affinities.faction, r = d.affinities.race;
-      return `<article class="kdb-candidate ${d.allowed ? '' : 'is-unavailable'}" data-deck-preview="${c.id}"><button type="button" class="kdb-candidate-image" data-deck-action="preview" data-deck-recruit="${c.id}" data-id="${c.id}" title="${esc(c.name+' : '+c.title)}" aria-label="Aper\u00e7u de ${esc(c.name)}"><img src="${image(c)}" alt="${esc(c.name)}" draggable="false"></button>
+      return `<article class="kdb-candidate ${d.allowed ? '' : 'is-unavailable'}" data-deck-preview="${c.id}"><button type="button" class="kdb-candidate-image" data-deck-action="preview" data-deck-recruit="${c.id}" data-id="${c.id}" title="${esc(c.name+' : '+c.title)}" aria-label="Aper\u00e7u de ${esc(c.name)}"><img src="${image(c)}" alt="${esc(c.name)}" loading="${index<10?'eager':'lazy'}" decoding="async" draggable="false"></button>
         <div class="kdb-candidate-info"><b>${esc(c.name)}</b><span>${c.positions.map(p => 'P' + p).join('/')}</span>
         <span class="kdb-candidate-gain" title="Variation de potentiel au slot ${target+1}">${icon('sword')}${signed(f.delta)} ${icon('shield')}${signed(r.delta)}</span>
         <div class="kdb-candidate-controls"><span>${d.copies}/${d.available}</span>${button('add', draft.cards[target] ? 'replace' : 'plus', d.allowed ? (draft.cards[target] ? 'Remplacer le slot ' : 'Ajouter au slot ') + (target + 1) + ' : ' + c.name : d.reason, `data-id="${c.id}" ${d.allowed && !busy ? '' : 'disabled'}`)}</div></div></article>`;
@@ -264,6 +282,7 @@
         <header class="kdb-heading"><div class="kdb-heading-title"><span class="kdb-eyebrow">KALISTAR · ${esc(profile)}</span><h1>Escouade</h1></div>
         <div class="kdb-deck-picker">${button('deck-previous','chevron-left','Deck précédent', !saved.length || busy ? 'disabled' : '')}<select data-deck-action="select" aria-label="Deck sauvegardé" ${busy ? 'disabled' : ''}><option value="">Brouillon du profil</option>${saved.map(d => `<option value="${d.id}" ${selected === d.id ? 'selected' : ''}>${esc(d.name)}</option>`).join('')}</select>${button('deck-next','chevron-right','Deck suivant', !saved.length || busy ? 'disabled' : '')}</div>
         <label class="kdb-name-label"><span class="kdb-sr-only">Nom du deck</span><input data-deck-action="name" aria-label="Nom du deck" maxlength="50" value="${esc(draft.name)}" autocomplete="off" ${busy ? 'disabled' : ''}></label>
+        ${renderHeaderTools()}
         <div class="kdb-heading-state"><span class="kdb-badge ${state.playable ? 'is-ready' : ''}">${state.playable ? 'Prêt' : 'Brouillon'}</span><strong>${state.count}<small>/10</small></strong></div>
         ${button('save','save', selected ? 'Enregistrer les modifications' : 'Sauvegarder le deck', locked || !selected && saved.length >= 10 ? 'disabled' : '')}${button('manage','settings-2','Gestion des decks', `aria-expanded="${managing}"`)}<button type="button" class="kdb-play" data-deck-action="play" ${state.playable && onPlay && !busy ? '' : 'disabled'}>${icon('swords')}<span>Jouer</span></button></header>
         <div class="kdb-library-bar" ${managing ? '' : 'hidden'}><div class="kdb-menu-heading"><b>${saved.length}/10 decks</b><span class="kdb-save-state" data-deck-save-state>${dirty ? 'Non enregistré' : 'Enregistré'}</span>${button('manage','x','Fermer la gestion')}</div><div class="kdb-library-actions">${button('duplicate','copy','Dupliquer le deck courant',locked || saved.length >= 10 ? 'disabled' : '')}${button('new','file-plus-2','Nouveau brouillon',busy ? 'disabled' : '')}${button('delete','trash-2','Supprimer le deck sauvegardé',locked || !selected ? 'disabled' : '')}${button('export','download','Exporter la bibliothèque JSON',locked || !saved.length ? 'disabled' : '')}${button('import','upload','Importer une bibliothèque JSON',locked ? 'disabled' : '')}</div></div><input type="file" accept="application/json,.json" data-deck-file hidden>
@@ -282,7 +301,12 @@
         <div class="kdb-coverage" aria-label="Compatibilité par poste">${state.coverage.map((n,p)=>`<button type="button" data-deck-action="position-filter" data-id="${p+1}" class="${n < 2 ? 'is-missing' : ''}" title="P${p+1} ${ROLES[p]} : ${n} compatibles, 2 requis"><b>${icon(['shield','sword','compass','sparkles','heart-pulse'][p])}P${p+1}<span>${n}/2</span></b><small>${ROLES[p]}</small></button>`).join('')}</div>
         <div class="kdb-validation" role="status"><span class="${state.playable ? 'kdb-positive' : 'kdb-warning'}" title="${esc(state.errors.join(' '))}">${state.playable ? 'Formation P1–P5 possible' : state.count<10?`${10-state.count} carte${state.count<9?'s':''} à recruter` : esc(state.errors[0]||'Formation incomplète')}</span></div></section>
         <aside class="kdb-preview" id="kdb-panel-inspect" aria-label="Aperçu de carte"><div class="kdb-preview-content" data-deck-preview-panel>${previewHTML()}</div></aside>
-        <section class="kdb-browser" aria-label="Cartes candidates"><div class="kdb-band-heading"><h2>Recrutement <small>${list.total}</small></h2><div class="kdb-recruit-tools"><label class="kdb-search"><span class="kdb-sr-only">Recherche</span><input type="search" data-deck-filter="search" aria-label="Recherche de cartes" value="${esc(filters.search)}" placeholder="Rechercher" autocomplete="off"></label>${button('filters','sliders-horizontal','Filtres de recrutement',`aria-expanded="${filtering}"`)}${Object.values(filters).some(Boolean)?button('reset-filters','filter-x','Effacer les filtres'):''}<nav class="kdb-pagination" aria-label="Pages de candidates">${button('previous','chevron-left','Page précédente',page === 0 ? 'disabled' : '')}<span>${page+1} / ${list.pages}</span>${button('next','chevron-right','Page suivante',page >= list.pages-1 ? 'disabled' : '')}</nav></div></div>${filtersHTML()}${targetHTML()}<div class="kdb-candidates" style="--recruit-count:${pageSize}">${list.items.map(candidateHTML).join('') || '<p class="kdb-empty-results">Aucune carte pour ces filtres.</p>'}</div></section></div>${comparisonHTML()}</section>`;
+        <section class="kdb-browser" aria-label="Cartes candidates">
+          <div class="kdb-band-heading"><h2>Recrutement <small>${list.total}</small></h2><div class="kdb-recruit-tools">
+            <label class="kdb-search"><span class="kdb-sr-only">Recherche</span><input type="search" data-deck-filter="search" aria-label="Recherche de cartes" value="${esc(filters.search)}" placeholder="Rechercher" autocomplete="off"></label>
+            ${button('filters','sliders-horizontal','Filtres de recrutement',`aria-expanded="${filtering}"`)}${Object.values(filters).some(Boolean)?button('reset-filters','filter-x','Effacer les filtres'):''}
+            <span class="kdb-rail-controls" role="group" aria-label="Faire défiler les cartes">${button('rail-left','chevron-left','Faire défiler vers la gauche','disabled')}${button('rail-right','chevron-right','Faire défiler vers la droite','disabled')}</span>
+          </div></div>${filtersHTML()}${targetHTML()}<div class="kdb-candidates" tabindex="0" aria-label="Cartes disponibles, faites défiler horizontalement">${list.items.map(candidateHTML).join('') || '<p class="kdb-empty-results">Aucune carte pour ces filtres.</p>'}</div></section></div>${comparisonHTML()}</section>`;
     }
     function icons(node) { globalThis.lucide?.createIcons({ root: node }); }
     function repaint(focus) {
@@ -293,7 +317,7 @@
       // Removing the focused input can synchronously fire change in Chromium.
       painting = true;
       try {
-        root.innerHTML = render(); icons(root); markReorder(); highlightLinks();
+        root.innerHTML = render(); icons(root); markReorder(); highlightLinks(); bindRecruitmentRail(); updateRecruitmentRail();
         root.querySelector('.kdb-browser').id = 'kdb-panel-recruit';
         const dialog = root.querySelector('.kdb-compare'); dialog?.showModal();
         if (dialog) return;
@@ -347,7 +371,7 @@
       const before = clone(draft), oldTarget = target, oldPreview = previewId, undo = editState();
       if (before.cards[from] === before.cards[to]) return;
       const next = clone(draft); [next.cards[from], next.cards[to]] = [next.cards[to], next.cards[from]];
-      draft = next; target = to; previewId = next.cards[to]; pendingDelete = false; page = 0;
+      draft = next; target = to; previewId = next.cards[to]; pendingDelete = false;
       try { emit(); }
       catch (error) { draft = before; target = oldTarget; previewId = oldPreview; working.set(selected, clone(before)); toast(error.message); repaint(); return; }
       remember(undo);
@@ -390,6 +414,7 @@
       if (event.button !== 0 || !event.isPrimary || busy || painting || drag) return;
       const node = event.target.closest('[data-deck-action=slot],[data-deck-action=reorder],[data-deck-recruit]');
       if (!node || !root?.contains(node) || node.disabled) return;
+      if (event.pointerType === 'touch' && node.dataset.deckRecruit) return;
       suppressClickUntil = 0;
       // A captured pointer stages an exchange; the draft changes only on a valid drop.
       drag = { node, pointer: event.pointerId, recruit: node.dataset.deckRecruit || null, from: node.dataset.deckRecruit ? null : Number(node.dataset.slot), to: null, active: false,
@@ -444,6 +469,11 @@
     function suppressClick(event) {
       if (event.detail && Date.now() < suppressClickUntil) { suppressClickUntil = 0; event.preventDefault(); event.stopImmediatePropagation(); }
     }
+    function railWheel(event) {
+      const rail = event.target.closest('.kdb-candidates');
+      if (!rail || rail.scrollWidth <= rail.clientWidth + 2 || Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+      event.preventDefault(); rail.scrollBy({ left: event.deltaY, behavior: 'auto' });
+    }
     function nativeDrag(event) { if (event.target.closest('[data-deck-slot],[data-deck-recruit]')) event.preventDefault(); }
     function reorderKey(event) {
       if (busy || painting) return;
@@ -457,6 +487,12 @@
         const panels = ['board','recruit','synergy','inspect'], i = panels.indexOf(panel);
         panel = panels[event.key === 'Home' ? 0 : event.key === 'End' ? panels.length-1 : (i + (event.key === 'ArrowRight' ? 1 : panels.length-1)) % panels.length];
         event.preventDefault(); repaint({action:'panel',id:panel}); return;
+      }
+      if (event.target.matches('.kdb-candidates') && ['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) {
+        const rail = event.target, end = rail.scrollWidth - rail.clientWidth;
+        event.preventDefault();
+        rail.scrollTo({ left: event.key === 'Home' ? 0 : event.key === 'End' ? end : rail.scrollLeft + (event.key === 'ArrowRight' ? 1 : -1) * Math.max(rail.clientWidth * .25, 90), behavior: mountedWindow?.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+        return;
       }
       if (reorderFrom === null) return;
       if (event.key === 'Tab') { cancelReorder(); return; }
@@ -528,12 +564,13 @@
         if (action === 'affinity-type') { affinityType = id === 'race' ? 'race' : 'faction'; affinityPage = 0; }
         if (action === 'affinity-previous') affinityPage = Math.max(0, affinityPage - 1);
         if (action === 'affinity-next') affinityPage++;
-        if (action === 'position-filter') { filters.position = filters.position === id ? '' : id; page = 0; }
+        if (action === 'rail-left' || action === 'rail-right') { scrollRecruitmentRail(action === 'rail-left' ? -1 : 1); return; }
+        if (action === 'position-filter') { filters.position = filters.position === id ? '' : id; }
         if (action === 'deck-previous' || action === 'deck-next') {
           const ids = ['', ...savedDecks().map(d=>d.id)], at = ids.indexOf(selected), nextId = ids[(at + (action === 'deck-next' ? 1 : ids.length - 1)) % ids.length];
           working.set(selected, clone(draft)); setDraft(working.get(nextId) || library.get(nextId), nextId);
         }
-        if (action === 'slot' || action === 'target-previous' || action === 'target-next') { target = action==='slot'?Number(control.dataset.slot):Math.max(0,Math.min(9,target+(action==='target-next'?1:-1))); previewId = draft.cards[target]; page = 0; }
+        if (action === 'slot' || action === 'target-previous' || action === 'target-next') { target = action==='slot'?Number(control.dataset.slot):Math.max(0,Math.min(9,target+(action==='target-next'?1:-1))); previewId = draft.cards[target]; }
         if (action === 'slot' && mountedWindow?.matchMedia('(max-width:900px) and (max-height:700px)').matches) panel='recruit';
         if (action === 'remove') {
           const before = editState(); target = Number(control.dataset.slot); draft.cards = draft.cards.slice(); draft.cards[target] = null; pendingDelete = false; previewId = null;
@@ -550,10 +587,8 @@
         if (action === 'confirm-delete' && pendingDelete && selected) {
           library.remove(selected); histories.delete(selected); histories.delete(''); working.delete(selected); selected = ''; pendingDelete = false; emit(); toast('Deck supprim\u00e9. Composition conserv\u00e9e en brouillon.');
         }
-        if (action === 'group-filter') { filters[control.dataset.field] = filters[control.dataset.field] === control.dataset.value ? '' : control.dataset.value; page = 0; }
-        if (action === 'reset-filters') { filters = Object.fromEntries(Object.keys(filters).map(k => [k, ''])); page = 0; }
-        if (action === 'previous') page--;
-        if (action === 'next') page++;
+        if (action === 'group-filter') { filters[control.dataset.field] = filters[control.dataset.field] === control.dataset.value ? '' : control.dataset.value; }
+        if (action === 'reset-filters') { filters = Object.fromEntries(Object.keys(filters).map(k => [k, ''])); }
         if (action === 'import') { root.querySelector('[data-deck-file]').click(); return; }
         if (action === 'export') {
           const url = URL.createObjectURL(new Blob([library.exportJSON()], { type: 'application/json' }));
@@ -578,7 +613,7 @@
         try { emit(); } catch (error) { toast(error.message); }
         const status = root.querySelector('[data-deck-save-state]'); if (status) status.textContent = 'Non enregistr\u00e9';
       }
-      if (node.dataset.deckFilter === 'search') { event.stopPropagation(); filters.search = node.value; page = 0; repaint(); }
+      if (node.dataset.deckFilter === 'search') { event.stopPropagation(); filters.search = node.value; repaint(); }
     }
     async function change(event) {
       const node = event.target;
@@ -591,7 +626,7 @@
           const id = node.value, next = working.get(id) || (id ? library.get(id) : working.get(''));
           setDraft(next, id);
         }
-        if (node.dataset.deckFilter) { filters[node.dataset.deckFilter] = node.value; page = 0; }
+        if (node.dataset.deckFilter) { filters[node.dataset.deckFilter] = node.value; }
         if (node.matches('[data-deck-file]')) {
           const file = node.files?.[0]; if (!file) return;
           if (file.size > 65536) throw new Error('Fichier JSON trop volumineux.');
@@ -607,16 +642,13 @@
       const node = event.target.closest('[data-deck-preview]');
       if (node && root?.contains(node)) showPreview(node.dataset.deckPreview);
     }
-    function size() {
-      const width = root?.querySelector('.kdb-browser')?.getBoundingClientRect().width || root?.getBoundingClientRect().width || 1200;
-      const next = width < 600 ? 2 : root?.getBoundingClientRect().width<=900?3:Math.max(3, Math.min(10, Math.floor(width / 150)));
-      if (pageSize !== next) { pageSize = next; page = 0; repaint(); }
-    }
+    function size() { updateRecruitmentRail(); }
     function detach() {
       root?.querySelector('.kdb-compare')?.close(); comparison = null;
       cancelReorder(); suppressClickUntil = 0;
       fileEpoch++; resizeObserver?.disconnect(); resizeObserver = null;
       if (root) for (const [type, fn, capture] of listeners) root.removeEventListener(type, fn, capture);
+      root?.removeEventListener('wheel', railWheel);
       mountedDocument?.removeEventListener('pointerdown', secondaryPointer, true);
       mountedWindow?.removeEventListener('blur', interrupt); mountedWindow?.removeEventListener('pagehide', interrupt); mountedWindow?.removeEventListener('resize', interrupt);
       mountedWindow = null; mountedDocument = null;
@@ -648,6 +680,7 @@
         repaint();
         size();
         for (const [type, fn, capture] of listeners) root.addEventListener(type, fn, capture);
+        root.addEventListener('wheel', railWheel, { passive: false });
         mountedDocument.addEventListener('pointerdown', secondaryPointer, true);
         mountedWindow?.addEventListener('blur', interrupt); mountedWindow?.addEventListener('pagehide', interrupt); mountedWindow?.addEventListener('resize', interrupt);
         const Observer = root.ownerDocument.defaultView?.ResizeObserver;
