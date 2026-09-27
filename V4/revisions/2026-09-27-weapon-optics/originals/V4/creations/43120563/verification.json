@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "modelId": "43120563",
+  "referenceId": "02f0808cbd56d2b0d4103450e7943db69b95ac120a0df349f4374c82f7f712e5",
+  "profileHash": "e4b0eec6e583362cefd1076259b1efa67abc37e88761bf84d877bff44a0875d4",
+  "hashes": {
+    "card.png": "175509e1e939cfd3040b81dcb31daa608621a951935c706e432bc038250bb856",
+    "card.psd": "4ffce6a1c836b6aa4adb02c33c21f2b7f21503eafc3ea4bc43d0b106bd9ac5d3"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 163464
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "43120563",
+    "cases": {
+      "color-1": [
+        "43120563"
+      ],
+      "color-4": [
+        "43120563"
+      ],
+      "gray-1": [
+        "43120563"
+      ],
+      "gray-4": [
+        "43120563"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-25T14:03:07.500Z",
+  "key": "lulu",
+  "preparationHash": "59915f6a42ad953d6fdc791bd550b61ff72bcca02fe77cc5110bf30be67e38ba"
+}

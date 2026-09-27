@@ -1,0 +1,1217 @@
+{
+  "revision": "2026-09-27-weapon-optics",
+  "stage": "read-only proposal audit",
+  "referenceId": "02f0808cbd56d2b0d4103450e7943db69b95ac120a0df349f4374c82f7f712e5",
+  "catalogueHash": "b21e50735d323f7a9141522fd81470c82b713a1b74b0a53b07382ad65f4ce6e3",
+  "manifestHash": "c235ea027ad8143512e7d78a83387738ee7cb9229e8b26db14c0106499eb153f",
+  "center": [
+    137,
+    1163.5
+  ],
+  "innerRadius": 47.5,
+  "note": "Whiteness proxy measured against native dark enamel. No shared files changed. Full native alpha export required before approval.",
+  "cardCount": 100,
+  "referenceCount": 38,
+  "rows": [
+    {
+      "name": "Gun",
+      "source": "V4/atelier/designer-assets/packed/banks/weapon-Gun.png",
+      "sha256": "ce8e879274bbcf97f29453a53684b6c265d3371d77d13301d9da660ab63071e0",
+      "bounds": [
+        101,
+        1125,
+        173,
+        1201
+      ],
+      "width": 72,
+      "height": 76,
+      "area": 1449.0193236714986,
+      "centroid": [
+        140.79213494384004,
+        1161.238243756397
+      ],
+      "midpoint": [
+        137,
+        1163
+      ],
+      "optical": [
+        138.89606747192002,
+        1162.1191218781985
+      ],
+      "radius": 46.54299087940095,
+      "breathingRoom": 0.9570091205990465,
+      "cards": [
+        {
+          "id": "30000039",
+          "name": "RUBY",
+          "title": "LA CARTE DES COURANTS",
+          "kind": "approved"
+        },
+        {
+          "id": "43698921",
+          "name": "BARRET",
+          "title": "CEUX QUI RESTENT DEBOUT",
+          "kind": "created"
+        },
+        {
+          "id": "46129541",
+          "name": "VINCENT",
+          "title": "CE QUI VEILLE DANS L'OMBRE",
+          "kind": "created"
+        },
+        {
+          "id": "48704873",
+          "name": "IRVINE",
+          "title": "UN SOUVENIR DANS LA MIRE",
+          "kind": "created"
+        },
+        {
+          "id": "44143252",
+          "name": "LAGUNA",
+          "title": "UNE MELODIE POUR DEMAIN",
+          "kind": "created"
+        },
+        {
+          "id": "45243854",
+          "name": "ANEMONE",
+          "title": "Ceux qui tiennent encore",
+          "kind": "created"
+        }
+      ]
+    },
+    {
+      "name": "Fouet",
+      "source": "V4/atelier/designer-assets/packed/banks/weapon-Fouet.png",
+      "sha256": "80e062bc4ab580ff93959df06a00a09679ea4467b3d19f8e9bb43171fa3d0406",
+      "bounds": [
+        92,
+        1123,
+        183,
+        1203
+      ],
+      "width": 91,
+      "height": 80,
+      "area": 1411.9130434782605,
+      "centroid": [
+        142.11809447558045,
+        1160.1714020789282
+      ],
+      "midpoint": [
+        137.5,
+        1163
+      ],
+      "optical": [
+        139.80904723779022,
+        1161.585701039464
+      ],
+      "radius": 46.154631403576396,
+      "breathingRoom": 1.3453685964236044,
+      "cards": [
+        {
+          "id": "40000042",
+          "name": "RIKKA",
+          "title": "POUR UNE VIE DE PLUS",
+          "kind": "approved"
+        },
+        {
+          "id": "30000020",
+          "name": "SERAPHINA",
+          "title": "LE SERMENT SUSPENDU",
+          "kind": "approved"
+        },
+        {
+          "id": "30000010",
+          "name": "ZVIRI",
+          "title": "TUEUSE REDOUTABLE",
+          "kind": "approved"
+        },
+        {
+          "id": "49163588",
+          "name": "QUISTIS",
+          "title": "AU-DELA DES LECONS",
+          "kind": "created"
+        },
+        {
+          "id": "49321357",
+          "name": "ZVIRI",
+          "title": "LA PATIENCE DU PREDATEUR",
+          "kind": "created"
+        }
+      ]
+    },
+    {
+      "name": "Instrument",
+      "source": "V4/atelier/designer-assets/packed/banks/weapon-Instrument.png",
+      "sha256": "89338784391e4ece91400215b3b0674c8ea40c677c56516a08f4676f2766bdb2",
+      "bounds": [
+        99,
+        1124,
+        179,
+        1212
+      ],
+      "width": 80,
+      "height": 88,
+      "area": 1791.404963531281,
+      "centroid": [
+        140.10320563249513,
+        1168.1659727670822
+      ],
+      "midpoint": [
+        139,
+        1168
+      ],
+      "optical": [
+        139.55160281624757,
+        1168.082986383541
+      ],
+      "radius": 48.65439342957633,
+      "breathingRoom": -1.1543934295763307,
+      "cards": [
+        {
+          "id": "30000001",
+          "name": "MOMO",
+          "title": "L’ARTISTE MAGIQUE",
+          "kind": "approved"
+        },
+        {
+          "id": "30000014",
+          "name": "MOMO",
+          "title": "LE BAL DES OBJETS PERDUS",
+          "kind": "approved"
+        },
+        {
+          "id": "30000040",
+          "name": "SORYN",
+          "title": "LE VENT JUSTE",
+          "kind": "approved"
+        },
+        {
+          "id": "46695200",
+          "name": "CAIT SITH",
+          "title": "LE DERNIER COUP DE CHANCE",
+          "kind": "created"
+        },
+        {
+          "id": "45862715",
+          "name": "SIMONE",
+          "title": "La beauté jusqu'au silence",
+          "kind": "created"
+        },
+        {
+          "id": "42252625",
+          "name": "DEVOLA",
+          "title": "Le chant près de la fontaine",
+          "kind": "created"
+        },
+        {
+          "id": "42746644",
+          "name": "BAPTISTE",
+          "title": "LE DERNIER ACCORD",
+          "kind": "created"
+        }
+      ]
+    },
+    {
+      "name": "Poing",
+      "source": "V4/atelier/designer-assets/packed/banks/weapon-Poing.png",
+      "sha256": "1cf45a948e9de148d2adb3afc014dffada8c54ef18d0740f5e9d7bbb2c487072",
+      "bounds": [
+        98,
+        1125,
+        177,
+        1202
+      ],
+      "width": 79,
+      "height": 77,
+      "area": 1722.3236714975817,
+      "centroid": [
+        142.92175075241016,
+        1168.7044199359925
+      ],
+      "midpoint": [
+        137.5,
+        1163.5
+      ],
+      "optical": [
+        140.21087537620508,
+        1166.1022099679963
+      ],
+      "radius": 47.24669300596604,
+      "breathingRoom": 0.25330699403396295,
+      "cards": [
+        {
+          "id": "30000013",
+          "name": "TAULIO",
+          "title": "GARDE DU CORPS LOYAL",
+          "kind": "approved"
+        },
+        {
+          "id": "30000038",
+          "name": "GILMARR",
+          "title": "LA PLACE DANS L EQUIPE",
+          "kind": "approved"
+        },
+        {
+          "id": "30000022",
+          "name": "MALABA",
+          "title": "UNE PLACE AU COMPTOIR",
+          "kind": "approved"
+        },
+        {
+          "id": "46437046",
+          "name": "TIFA",
+          "title": "NE JAMAIS LÂCHER PRISE",
+          "kind": "created"
+        },
+        {
+          "id": "42139493",
+          "name": "RED XIII",
+          "title": "LE FEU DES ANCÊTRES",
+          "kind": "created"
+        },
+        {
+          "id": "48933308",
+          "name": "ZELL",
+          "title": "LE SOURIRE AVANT L'IMPACT",
+          "kind": "created"
+        },
+        {
+          "id": "48867563",
+          "name": "EVE",
+          "title": "Le deuil ne sait plus se taire",
+          "kind": "created"
+        },
+        {
+          "id": "46167301",
+          "name": "SAPPHIRE",
+          "title": "L'HÉRITIÈRE DES ABYSSES",
+          "kind": "created"
+        }
+      ]
+    },
+    {
+      "name": "Lance",
+      "source": "V4/atelier/designer-assets/packed/banks/weapon-Lance.png",
+      "sha256": "5660ce4c35466ebf9aa9638402f36634fa190ad76c958ded8d44d06de8453877",
+      "bounds": [
+        104,
+        1130,
+        171,
+        1197
+      ],
+      "width": 67,
+      "height": 67,
+      "area": 493.8309178743963,
+      "centroid": [
+        131.40138227209138,
+        1157.4007659724327
+      ],
+      "midpoint": [
+        137.5,
+        1163.5
+      ],
+      "optical": [
+        134.4506911360457,
+        1160.4503829862165
+      ],
+      "radius": 47.02393007820593,
+      "breathingRoom": 0.47606992179407115,
+      "cards": [
+        {
+          "id": "30000032",
+          "name": "JELLY-JOE",
+          "title": "LA MAREE DES CHOPES",
+          "kind": "approved"
+        },
+        {
+          "id": "30000011",
+          "name": "NAZAR",
+          "title": "LA RONDE DE CANYONERO",
+          "kind": "approved"
+        },
+        {
+          "id": "30000021",
+          "name": "LANIO",
+          "title": "LE BLONDINET DE ZAROK",
+          "kind": "approved"
+        },
+        {
+          "id": "41055247",
+          "name": "CID",
+          "title": "LE CIEL N'ATTEND PAS",
+          "kind": "created"
+        },
+        {
+          "id": "47264450",
+          "name": "WARD",
+          "title": "LA FORCE DE RESTER",
+          "kind": "created"
+        },
+        {
+          "id": "42138845",
+          "name": "9S",
+          "title": "Les fils du silence",
+          "kind": "created"
+        },
+        {
+          "id": "47414613",
+          "name": "LANIO",
+          "title": "LE VERTIGE POUR RIRE",
+          "kind": "created"
+        },
+        {
+          "id": "41354159",
+          "name": "KIMAHRI",
+          "title": "La parole des sommets",
+          "kind": "created"
+        }
+      ]
+    },
+    {
+      "name": "Arc",
+      "source": "V4/atelier/designer-assets/packed/banks/weapon-Arc.png",
+      "sha256": "d43fa55b529609dc176072fce187158ddff04a308d01f02a1ce2a2e8625b9913",
+      "bounds": [
+        103,
+        1130,
+        171,
+        1198
+      ],
+      "width": 68,
+      "height": 68,
+      "area": 917.0821256038648,
+      "centroid": [
+        134.86023198971745,
+        1161.3324290440169
+      ],
+      "midpoint": [
+        137,
+        1164
+      ],
+      "optical": [
+        135.93011599485874,
+        1162.6662145220084
+      ],
+      "radius": 47.02393007820593,
+      "breathingRoom": 0.47606992179407115,
+      "cards": [
+        {
+          "id": "30000002",
+          "name": "CANA",
+          "title": "LE DERNIER PASSAGE",
+          "kind": "approved"
+        },
+        {
+          "id": "30000015",
+          "name": "SCROW",
+          "title": "LA FLECHE RETENUE",
+          "kind": "approved"
+        },
+        {
+          "id": "30000036",
+          "name": "ELENION",
+          "title": "LA FLÈCHE DU SERMENT",
+          "kind": "approved"
+        }
+      ]
+    },
+    {
+      "name": "Epée longue",
+      "source": "V4/atelier/designer-assets/packed/banks/weapon-Ep_e_longue.png",
+      "sha256": "68a2e186f2ef2319d96b964a9766037dfab6ca2da6a53772d3377fc8045a13d5",
+      "bounds": [
+        103,
+        1130,
+        171,
+        1197
+      ],
+      "width": 68,
+      "height": 67,
+      "area": 1163.246376811594,
+      "centroid": [
+        136.021695072926,
+        1162.5951568158412
+      ],
+      "midpoint": [
+        137,
+        1163.5
+      ],
+      "optical": [
+        136.51084753646302,
+        1163.0475784079206
+      ],
+      "radius": 47.02393007820593,
+      "breathingRoom": 0.47606992179407115,
+      "cards": [
+        {
+          "id": "30000004",
+          "name": "DARNAKO",
+          "title": "AVANT LE PREMIER CHOC",
+          "kind": "approved"
+        },
+        {
+          "id": "47208326",
+          "name": "CLOUD",
+          "title": "AU-DELÀ DES LIMITES",
+          "kind": "created"
+        },
+        {
+          "id": "41693428",
+          "name": "SEPHIROTH",
+          "title": "L'OMBRE D'UNE PROMESSE",
+          "kind": "created"
+        },
+        {
+          "id": "45410910",
+          "name": "SQUALL",
+          "title": "LE POIDS DES PROMESSES",
+          "kind": "created"
+        },
+        {
+          "id": "46860270",
+          "name": "SEIFER",
+          "title": "LE DEFI DANS LES YEUX",
+          "kind": "created"
+        },
+        {
+          "id": "47952087",
+          "name": "A2",
+          "title": "Au seuil du dernier serment",
+          "kind": "created"
+        },
+        {
+          "id": "45951088",
+          "name": "KAINÉ",
+          "title": "Ne baisse pas les yeux",
+          "kind": "created"
+        },
+        {
+          "id": "44077247",
+          "name": "ASTERAN",
+          "title": "UNE FAILLE DANS LE JUGEMENT",
+          "kind": "created"
+        },
+        {
+          "id": "40738164",
+          "name": "TIDUS",
+          "title": "L'horizon nous attend",
+          "kind": "created"
+        },
+        {
+          "id": "41124231",
+          "name": "AURON",
+          "title": "Le serment tient encore",
+          "kind": "created"
+        },
+        {
+          "id": "46269197",
+          "name": "JECHT",
+          "title": "Sous la force, un père",
+          "kind": "created"
+        }
+      ]
+    },
+    {
+      "name": "Sceptre",
+      "source": "V4/atelier/designer-assets/packed/banks/weapon-Sceptre.png",
+      "sha256": "8f4fbd401e126da74e732a2e65c09407d1f09bd119d6087b8a1b0232f59c8b54",
+      "bounds": [
+        104,
+        1130,
+        171,
+        1197
+      ],
+      "width": 67,
+      "height": 67,
+      "area": 707.0338164251206,
+      "centroid": [
+        128.662323375878,
+        1154.5924663150126
+      ],
+      "midpoint": [
+        137.5,
+        1163.5
+      ],
+      "optical": [
+        133.08116168793902,
+        1159.0462331575063
+      ],
+      "radius": 47.02393007820593,
+      "breathingRoom": 0.47606992179407115,
+      "cards": [
+        {
+          "id": "30000005",
+          "name": "MALINIA",
+          "title": "LA MEMOIRE SOUS LE GIVRE",
+          "kind": "approved"
+        },
+        {
+          "id": "30000034",
+          "name": "VALAZAR",
+          "title": "LE NOM DANS LA CENDRE",
+          "kind": "approved"
+        },
+        {
+          "id": "43525184",
+          "name": "EMIL",
+          "title": "Les fleurs se souviennent",
+          "kind": "created"
+        },
+        {
+          "id": "45081933",
+          "name": "COMMANDER WHITE",
+          "title": "Le poids du commandement",
+          "kind": "created"
+        },
+        {
+          "id": "44230782",
+          "name": "POPOLA",
+          "title": "Entre les lignes du destin",
+          "kind": "created"
+        },
+        {
+          "id": "48874445",
+          "name": "ORNELLE",
+          "title": "LE CHEMIN QUI REPREND RACINE",
+          "kind": "created"
+        },
+        {
+          "id": "42258087",
+          "name": "YUNA",
+          "title": "Pour ceux qui s'en vont",
+          "kind": "created"
+        },
+        {
+          "id": "41536078",
+          "name": "SEYMOUR",
+          "title": "La douceur du vertige",
+          "kind": "created"
+        }
+      ]
+    },
+    {
+      "name": "Bâton",
+      "source": "V4/atelier/designer-assets/packed/banks/weapon-B_ton.png",
+      "sha256": "52201e50fd5e66b0646927a7a163ef76efab2db68b754f119f87cfd14941f4c3",
+      "bounds": [
+        104,
+        1130,
+        171,
+        1197
+      ],
+      "width": 67,
+      "height": 67,
+      "area": 597.7342995169083,
+      "centroid": [
+        131.09517824958982,
+        1155.5733850045663
+      ],
+      "midpoint": [
+        137.5,
+        1163.5
+      ],
+      "optical": [
+        134.2975891247949,
+        1159.5366925022831
+      ],
+      "radius": 47.02393007820593,
+      "breathingRoom": 0.47606992179407115,
+      "cards": [
+        {
+          "id": "30000006",
+          "name": "AELIS",
+          "title": "LA LUMIERE AUX OUBLIES",
+          "kind": "approved"
+        },
+        {
+          "id": "30000008",
+          "name": "VICTORVINE",
+          "title": "LA DERNIERE POUSSE",
+          "kind": "approved"
+        },
+        {
+          "id": "30000003",
+          "name": "JULIENNE",
+          "title": "UN SOUFFLE SOUS LA MAREE",
+          "kind": "approved"
+        },
+        {
+          "id": "30000031",
+          "name": "POLUX",
+          "title": "LA CHALEUR QUI RESTE",
+          "kind": "approved"
+        },
+        {
+          "id": "48210516",
+          "name": "AERIS",
+          "title": "UNE FLEUR DANS LES RUINES",
+          "kind": "created"
+        },
+        {
+          "id": "49134060",
+          "name": "EDEA",
+          "title": "SOUS LES ORNEMENTS",
+          "kind": "created"
+        },
+        {
+          "id": "47842924",
+          "name": "ULTIMECIA",
+          "title": "NE PLUS ETRE SEULE",
+          "kind": "created"
+        },
+        {
+          "id": "48428173",
+          "name": "AELIS",
+          "title": "LA PRIERE SANS REPONSE",
+          "kind": "created"
+        },
+        {
+          "id": "49983331",
+          "name": "KERYN",
+          "title": "PERSONNE SUR L'AUTRE RIVE",
+          "kind": "created"
+        }
+      ]
+    },
+    {
+      "name": "Tome",
+      "source": "V4/atelier/designer-assets/packed/banks/weapon-Tome.png",
+      "sha256": "d8ddacaa47bf1bfe90083a0552e03a5172c5da5290b204271e15764b26d73abc",
+      "bounds": [
+        96,
+        1119,
+        178,
+        1207
+      ],
+      "width": 82,
+      "height": 88,
+      "area": 4122.275362318838,
+      "centroid": [
+        137.34740616258316,
+        1161.8460168684103
+      ],
+      "midpoint": [
+        137,
+        1163
+      ],
+      "optical": [
+        137.1737030812916,
+        1162.4230084342053
+      ],
+      "radius": 46.57520799738848,
+      "breathingRoom": 0.9247920026115182,
+      "cards": [
+        {
+          "id": "30000017",
+          "name": "ILIANE",
+          "title": "LE NOM RETROUVE",
+          "kind": "approved"
+        },
+        {
+          "id": "30000041",
+          "name": "THALIE",
+          "title": "CE QUI REPOUSSE",
+          "kind": "approved"
+        },
+        {
+          "id": "42650442",
+          "name": "PASCAL",
+          "title": "La paix entre les pages",
+          "kind": "created"
+        },
+        {
+          "id": "47689975",
+          "name": "NIER",
+          "title": "Une promesse à Yonah",
+          "kind": "created"
+        },
+        {
+          "id": "43120563",
+          "name": "LULU",
+          "title": "Les mots restés derrière",
+          "kind": "created"
+        }
+      ]
+    },
+    {
+      "name": "Masse",
+      "source": "V4/atelier/designer-assets/packed/banks/weapon-Masse.png",
+      "sha256": "8f21603c34b544cad2768459ceab30dde3f15c1ce82011a2b1335e13e8183bec",
+      "bounds": [
+        103,
+        1129,
+        172,
+        1199
+      ],
+      "width": 69,
+      "height": 70,
+      "area": 755.462309368192,
+      "centroid": [
+        131.0039805072979,
+        1157.1533269062493
+      ],
+      "midpoint": [
+        137.5,
+        1164
+      ],
+      "optical": [
+        134.25199025364896,
+        1160.5766634531246
+      ],
+      "radius": 47.762432936357,
+      "breathingRoom": -0.26243293635700127,
+      "cards": [
+        {
+          "id": "30000019",
+          "name": "BELROG",
+          "title": "LE SILENCE DE LA MONTAGNE",
+          "kind": "approved"
+        },
+        {
+          "id": "30000024",
+          "name": "MAGNAR",
+          "title": "LA PORTE DE PIERRE",
+          "kind": "approved"
+        }
+      ]
+    },
+    {
+      "name": "Marteau",
+      "source": "V4/atelier/designer-assets/packed/banks/weapon-Marteau.png",
+      "sha256": "1b145bf833e1691729c4f5b2e85da5b7936b44add48ea2f376df76c622571afd",
+      "bounds": [
+        101,
+        1127,
+        174,
+        1200
+      ],
+      "width": 73,
+      "height": 73,
+      "area": 1345.480572132235,
+      "centroid": [
+        130.5035961238161,
+        1156.507630412624
+      ],
+      "midpoint": [
+        137.5,
+        1163.5
+      ],
+      "optical": [
+        134.00179806190806,
+        1160.003815206312
+      ],
+      "radius": 47.88788990966296,
+      "breathingRoom": -0.38788990966295955,
+      "cards": [
+        {
+          "id": "30000018",
+          "name": "LOK",
+          "title": "LE POIDS DU TRÔNE",
+          "kind": "approved"
+        },
+        {
+          "id": "43434046",
+          "name": "BRINDOR",
+          "title": "LE POIDS D'UNE GRAINE",
+          "kind": "created"
+        }
+      ]
+    },
+    {
+      "name": "Hache",
+      "source": "V4/atelier/designer-assets/packed/banks/weapon-Hache.png",
+      "sha256": "37ac745d3640269ca09ab39b7188c1aed20a02429fba5925c1ec50178daee03e",
+      "bounds": [
+        110,
+        1139,
+        173,
+        1191
+      ],
+      "width": 63,
+      "height": 52,
+      "area": 642.5893719806763,
+      "centroid": [
+        135.10850574366995,
+        1162.1609806339086
+      ],
+      "midpoint": [
+        141.5,
+        1165
+      ],
+      "optical": [
+        138.304252871835,
+        1163.5804903169542
+      ],
+      "radius": 42.85148772213165,
+      "breathingRoom": 4.648512277868349,
+      "cards": [
+        {
+          "id": "30000007",
+          "name": "BALMHYR",
+          "title": "LE ROYAUME À L'HORIZON",
+          "kind": "approved"
+        }
+      ]
+    },
+    {
+      "name": "Orbe",
+      "source": "V4/atelier/designer-assets/packed/banks/weapon-Orbe.png",
+      "sha256": "fad0110494b71db9836a9cf09718d21a85e43f99f76a496e019b305a6be223c9",
+      "bounds": [
+        104,
+        1128,
+        171,
+        1200
+      ],
+      "width": 67,
+      "height": 72,
+      "area": 1160.5169082125615,
+      "centroid": [
+        140.23257377397206,
+        1171.7372006477206
+      ],
+      "midpoint": [
+        137.5,
+        1164
+      ],
+      "optical": [
+        138.86628688698602,
+        1167.8686003238604
+      ],
+      "radius": 47.18315377335432,
+      "breathingRoom": 0.31684622664567996,
+      "cards": [
+        {
+          "id": "30000033",
+          "name": "BLOOM",
+          "title": "LA GRAINE SOUS SCELLES",
+          "kind": "approved"
+        },
+        {
+          "id": "47023549",
+          "name": "ADAM",
+          "title": "La raison dans le vide blanc",
+          "kind": "created"
+        },
+        {
+          "id": "43726101",
+          "name": "YUNALESCA",
+          "title": "Le prix de l'espérance",
+          "kind": "created"
+        }
+      ]
+    },
+    {
+      "name": "Dague",
+      "source": "V4/atelier/designer-assets/packed/banks/weapon-Dague.png",
+      "sha256": "78c4a04b02614e586992a9ec583f1e411d84ed38a83eced5f74918c70cea3adf",
+      "bounds": [
+        103,
+        1130,
+        170,
+        1198
+      ],
+      "width": 67,
+      "height": 68,
+      "area": 1106.7777777777774,
+      "centroid": [
+        137.76458841656375,
+        1163.251386930769
+      ],
+      "midpoint": [
+        136.5,
+        1164
+      ],
+      "optical": [
+        137.13229420828188,
+        1163.6256934653845
+      ],
+      "radius": 46.32763753959401,
+      "breathingRoom": 1.1723624604059921,
+      "cards": [
+        {
+          "id": "30000012",
+          "name": "KAYLIS",
+          "title": "LA PREMIÈRE BRÈCHE",
+          "kind": "approved"
+        },
+        {
+          "id": "30000009",
+          "name": "VERMINIA",
+          "title": "LES COMPTES DE LA NUIT",
+          "kind": "approved"
+        },
+        {
+          "id": "30000025",
+          "name": "KOGNUS",
+          "title": "LES CLES DU SERVICE",
+          "kind": "approved"
+        },
+        {
+          "id": "43695729",
+          "name": "KIROS",
+          "title": "TE RETROUVER ENFIN",
+          "kind": "created"
+        },
+        {
+          "id": "43683372",
+          "name": "VERMINIA",
+          "title": "LE DERNIER PASSAGE",
+          "kind": "created"
+        },
+        {
+          "id": "40032462",
+          "name": "RIKKU",
+          "title": "La joie désarme la peur",
+          "kind": "created"
+        }
+      ]
+    },
+    {
+      "name": "Faucille",
+      "source": "V4/atelier/designer-assets/packed/banks/weapon-Faucille.png",
+      "sha256": "dc3a312f21a1cf8d77c927b58e6d04649f1824052588b54104046c670e0fb467",
+      "bounds": [
+        110,
+        1142,
+        170,
+        1192
+      ],
+      "width": 60,
+      "height": 50,
+      "area": 424.8695652173914,
+      "centroid": [
+        135.48470687224267,
+        1161.9173147769136
+      ],
+      "midpoint": [
+        140,
+        1167
+      ],
+      "optical": [
+        137.74235343612133,
+        1164.4586573884567
+      ],
+      "radius": 42.89813515760329,
+      "breathingRoom": 4.601864842396708,
+      "cards": [
+        {
+          "id": "30000028",
+          "name": "VOLODEN",
+          "title": "LE SIÈGE VACANT",
+          "kind": "approved"
+        }
+      ]
+    },
+    {
+      "name": "Epée courte",
+      "source": "V4/atelier/designer-assets/packed/banks/return-weapon-16.png",
+      "sha256": "c74a770279a2b5117518eaf4404a2c7941aab2d498bbda8eea18455ac4008778",
+      "bounds": [
+        110,
+        1136,
+        164,
+        1189
+      ],
+      "width": 54,
+      "height": 53,
+      "area": 487.6763285024156,
+      "centroid": [
+        137.57121417745594,
+        1163.4025448493794
+      ],
+      "midpoint": [
+        137,
+        1162.5
+      ],
+      "optical": [
+        137.28560708872797,
+        1162.9512724246897
+      ],
+      "radius": 37.83186487605389,
+      "breathingRoom": 9.668135123946108,
+      "cards": [
+        {
+          "id": "30000035",
+          "name": "CAPITAINE SKULLY",
+          "title": "LE CAP DES REVENANTS",
+          "kind": "approved"
+        },
+        {
+          "id": "43447599",
+          "name": "DEVOLA",
+          "title": "Un passage pour demain",
+          "kind": "created"
+        },
+        {
+          "id": "42135864",
+          "name": "POPOLA",
+          "title": "La main qui reste tendue",
+          "kind": "created"
+        }
+      ]
+    },
+    {
+      "name": "Katana",
+      "source": "V4/atelier/designer-assets/packed/banks/return-weapon-18.png",
+      "sha256": "a3d7e5a8dd5cc8bf0493f9cb690825975427bcac87175159d1fb67070bec2c42",
+      "bounds": [
+        112,
+        1134,
+        164,
+        1192
+      ],
+      "width": 52,
+      "height": 58,
+      "area": 332.9420289855075,
+      "centroid": [
+        135.82969137683364,
+        1163.5630885532291
+      ],
+      "midpoint": [
+        138,
+        1163
+      ],
+      "optical": [
+        136.91484568841682,
+        1163.2815442766146
+      ],
+      "radius": 37.963798545456434,
+      "breathingRoom": 9.536201454543566,
+      "cards": [
+        {
+          "id": "30000027",
+          "name": "XIAOMI",
+          "title": "LE FIL DANS L OMBRE",
+          "kind": "approved"
+        },
+        {
+          "id": "45911726",
+          "name": "2B",
+          "title": "Lame des ruines",
+          "kind": "created"
+        },
+        {
+          "id": "49055457",
+          "name": "KAYLIS",
+          "title": "L'ÉLAN DES COULEURS",
+          "kind": "created"
+        }
+      ]
+    },
+    {
+      "name": "Projectile",
+      "source": "V4/atelier/designer-assets/packed/banks/return-weapon-9.png",
+      "sha256": "342f8b550336fb612cbd6ffd92f563b8173e731d76eb4398e281b183ed63fcd3",
+      "bounds": [
+        102,
+        1129,
+        172,
+        1199
+      ],
+      "width": 70,
+      "height": 70,
+      "area": 1787.7439613526508,
+      "centroid": [
+        137.21375414456472,
+        1164.1461980797865
+      ],
+      "midpoint": [
+        137,
+        1164
+      ],
+      "optical": [
+        137.10687707228237,
+        1164.0730990398933
+      ],
+      "radius": 36.04511062543712,
+      "breathingRoom": 11.454889374562882,
+      "cards": [
+        {
+          "id": "30000023",
+          "name": "GEN",
+          "title": "LA PANNE QUI INSISTE",
+          "kind": "approved"
+        },
+        {
+          "id": "41698138",
+          "name": "YUFFIE",
+          "title": "POUR QUE WUTAI SE RELÈVE",
+          "kind": "created"
+        },
+        {
+          "id": "45513029",
+          "name": "LINOA",
+          "title": "LES JOURS A DEFENDRE",
+          "kind": "created"
+        },
+        {
+          "id": "44703335",
+          "name": "GEN",
+          "title": "LA NUIT OU LA Z13 S ETEINT",
+          "kind": "created"
+        },
+        {
+          "id": "44263045",
+          "name": "TAZRIK",
+          "title": "LE COURANT PASSE ENCORE",
+          "kind": "created"
+        },
+        {
+          "id": "46513388",
+          "name": "TIDUS",
+          "title": "Le souffle de Luca",
+          "kind": "created"
+        },
+        {
+          "id": "49451961",
+          "name": "WAKKA",
+          "title": "Encore un lancer",
+          "kind": "created"
+        }
+      ]
+    },
+    {
+      "name": "Fléau",
+      "source": "V4/atelier/designer-assets/packed/banks/return-weapon-4.png",
+      "sha256": "1fa215ead205d67fe863a93ae6619825993d952c219f368e8dd841302d2dd77b",
+      "bounds": [
+        110,
+        1138,
+        164,
+        1189
+      ],
+      "width": 54,
+      "height": 51,
+      "area": 900.7632850241541,
+      "centroid": [
+        136.99957631209173,
+        1163.4970502740564
+      ],
+      "midpoint": [
+        137,
+        1163.5
+      ],
+      "optical": [
+        136.99978815604587,
+        1163.498525137028
+      ],
+      "radius": 35.0891721190455,
+      "breathingRoom": 12.4108278809545,
+      "cards": [
+        {
+          "id": "30000026",
+          "name": "REEVUS",
+          "title": "LE REGISTRE DES ABSENTS",
+          "kind": "approved"
+        },
+        {
+          "id": "40976482",
+          "name": "SELPHIE",
+          "title": "LA JOIE FAIT ECOLE",
+          "kind": "created"
+        }
+      ]
+    }
+  ]
+}

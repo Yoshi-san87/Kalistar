@@ -1,0 +1,80 @@
+{
+  "revision": "2026-09-27-weapon-optics",
+  "referenceId": "ef7a6767b57723d896ceecb050079bfb1abad0e79e7289a200f87b34585f9380",
+  "previousReferenceId": "02f0808cbd56d2b0d4103450e7943db69b95ac120a0df349f4374c82f7f712e5",
+  "passed": true,
+  "affectedCards": [
+    {
+      "id": "30000017",
+      "name": "ILIANE",
+      "weapon": "Tome"
+    },
+    {
+      "id": "30000041",
+      "name": "THALIE",
+      "weapon": "Tome"
+    },
+    {
+      "id": "30000028",
+      "name": "VOLODEN",
+      "weapon": "Faucille"
+    },
+    {
+      "id": "42650442",
+      "name": "PASCAL",
+      "weapon": "Tome"
+    },
+    {
+      "id": "47689975",
+      "name": "NIER",
+      "weapon": "Tome"
+    },
+    {
+      "id": "43120563",
+      "name": "LULU",
+      "weapon": "Tome"
+    }
+  ],
+  "nativeReferencesReproduced": 38,
+  "regressionJob": "7442a266-3f98-49f7-92d7-cea5c5a1c604",
+  "regressionReport": "V4/atelier/data/jobs/7442a266-3f98-49f7-92d7-cea5c5a1c604/verification.json",
+  "regressionHash": "e100050297f5fe19bb887ccf844e0df02954b89a7971396bdf69048f9b02e4a5",
+  "manifestHash": "29ae8f04bfd9c1e16814896fa1f600cea10eedb7d1731e5c9ec4edcb4dcffbec",
+  "iconLayoutsHash": "ece2de2dac69deb59e008a72a3242ffbd732785f682683d0d88d9bcdc748f247",
+  "changedFiles": [
+    "V4/atelier/data/references.json",
+    "V4/atelier/data/regression.json",
+    "V4/atelier/designer-assets/banks/weapon-Faucille.png",
+    "V4/atelier/designer-assets/banks/weapon-Tome.png",
+    "V4/atelier/designer-assets/manifest.json",
+    "V4/atelier/designer-assets/manifest.raw.json",
+    "V4/atelier/designer-assets/packed/banks/weapon-Faucille.png",
+    "V4/atelier/designer-assets/packed/banks/weapon-Tome.png",
+    "V4/cartes/ILIANE_V4_01_LUXO.png",
+    "V4/cartes/THALIE_V4_01_HERBO.png",
+    "V4/cartes/VOLODEN_V4_01_NECRO.png",
+    "V4/creations/42650442/card.png",
+    "V4/creations/42650442/card.psd",
+    "V4/creations/42650442/creation.json",
+    "V4/creations/42650442/verification.json",
+    "V4/creations/43120563/card.png",
+    "V4/creations/43120563/card.psd",
+    "V4/creations/43120563/creation.json",
+    "V4/creations/43120563/verification.json",
+    "V4/creations/47689975/card.png",
+    "V4/creations/47689975/card.psd",
+    "V4/creations/47689975/creation.json",
+    "V4/creations/47689975/verification.json",
+    "V4/donnees/catalogue.json",
+    "V4/template-stable/icon-layouts.json",
+    "V4/templates/ILIANE_V4_01_LUXO.psd",
+    "V4/templates/THALIE_V4_01_HERBO.psd",
+    "V4/templates/VOLODEN_V4_01_NECRO.psd"
+  ],
+  "allOutsideWeaponPixelsUnchanged": true,
+  "gameplayUnchanged": true,
+  "other18WeaponBanksUnchanged": true,
+  "nativeQueueReleased": true,
+  "noSiteOrGitChanges": true,
+  "completedAt": "2026-09-27T13:20:38.685Z"
+}

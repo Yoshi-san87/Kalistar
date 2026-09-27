@@ -9,7 +9,10 @@
     {id:'ff8',faction:'FF8',title:'Final Fantasy VIII'},
     {id:'ff10',faction:'FF10',title:'Final Fantasy X'},
     {id:'nier',faction:'NieR',title:'NieR:Automata'},
-    {id:'replicant',faction:'Replicant',title:'NieR Replicant'}
+    {id:'replicant',faction:'Replicant',title:'NieR Replicant'},
+    {id:'mgs1',faction:'MGS1',title:'Metal Gear Solid'},
+    {id:'mgs2',faction:'MGS2',title:'Metal Gear Solid 2'},
+    {id:'mgs4',faction:'MGS4',title:'Metal Gear Solid 4'}
   ].map(Object.freeze));
   const find=value=>entries.find(entry=>entry.faction.toLowerCase()===String(value||'').trim().toLowerCase());
   // Faction distinguishes versions from the same series and shared character ID.

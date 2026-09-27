@@ -19,6 +19,7 @@
     if(scope==='kalistar')return C.universe(card)==='kalistar';
     if(scope==='final-fantasy')return C.matches(card,'ff7')||C.matches(card,'ff8')||C.matches(card,'ff10');
     if(scope==='nier')return C.matches(card,'nier')||C.matches(card,'replicant');
+    if(scope==='metal-gear')return C.matches(card,'mgs1')||C.matches(card,'mgs2')||C.matches(card,'mgs4');
     return false;
   }
   function textPages(text,limit){
@@ -144,7 +145,8 @@
       const universes=[
         {id:'kalistar',label:'Kalistar',icon:'gem'},
         {id:'final-fantasy',label:'Final Fantasy',icon:'sparkles'},
-        {id:'nier',label:'NieR',icon:'orbit'}
+        {id:'nier',label:'NieR',icon:'orbit'},
+        {id:'metal-gear',label:'Metal Gear',icon:'crosshair'}
       ].map(entry=>({...entry,count:cards.filter(c=>matchesScope(c,entry.id)).length}));
       const active=Object.values(filters).some(Boolean),index=s.list.findIndex(c=>c.id===selected);
       const toolbar=selected?`<button type="button" class="cb-back" data-binder-action="back">${icon('arrow-left')}Classeur</button>`:`<span class="cb-count">${s.groups.length} personnage${s.groups.length>1?'s':''} · ${s.list.length} versions</span><label class="cb-search">${icon('search')}<input type="search" data-binder-field="search" aria-label="Rechercher une carte" placeholder="Retrouver une carte" value="${esc(filters.search)}"></label>${button('favorites','star','Mes favoris',`aria-pressed="${filters.favorite}"`)}${button('filters','sliders-horizontal','Filtres du classeur',`aria-expanded="${filtersOpen}"`)}${active?button('reset','filter-x','Effacer les filtres'):''}<select data-binder-field="sort" aria-label="Trier le classeur">${[['id','Ordre du classeur'],['name','Personnage'],['element','Cristal'],['faction','Faction']].map(([id,label])=>`<option value="${id}" ${sort===id?'selected':''}>${label}</option>`).join('')}</select>`;
@@ -235,7 +237,7 @@
       if(action==='open')readerPane='visual';
       if(action==='pane')readerPane=id==='notes'?'notes':'visual';
       if(action==='back'){selected=null;filtersOpen=false;motion='back';}
-      if(action==='scope'){scope=id==='catalogue'||['kalistar','final-fantasy','nier'].includes(id)?id:'owned';page=0;selected=null;filtersOpen=false;}
+      if(action==='scope'){scope=id==='catalogue'||['kalistar','final-fantasy','nier','metal-gear'].includes(id)?id:'owned';page=0;selected=null;filtersOpen=false;}
       if(action==='favorite'){onFavorite(id);}
       if(action==='favorites'){filters.favorite=!filters.favorite;page=0;}
       if(action==='filters'){filtersOpen=!filtersOpen;pagesOpen=false;}

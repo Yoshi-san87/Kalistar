@@ -1,0 +1,132 @@
+{
+  "revision": "2026-09-27-weapon-optics",
+  "phase": "pilot-awaiting-parent-visual-review",
+  "referenceId": "02f0808cbd56d2b0d4103450e7943db69b95ac120a0df349f4374c82f7f712e5",
+  "productionModified": false,
+  "photoshop": "26.11.7",
+  "results": [
+    {
+      "key": "iliane",
+      "id": "30000017",
+      "weapon": "Tome",
+      "comparison": {
+        "changed": 2111,
+        "outside": 0,
+        "maximumChangedRadius": 47.43680006071236,
+        "permittedRadius": 47.5,
+        "pixelCornersChecked": true
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "repeat": {
+        "changed": 0,
+        "outside": 0
+      },
+      "contour": {
+        "bounds": [
+          103,
+          1128,
+          170,
+          1200
+        ],
+        "visibleBounds": [
+          103,
+          1128,
+          170,
+          1200
+        ],
+        "visible": 2917,
+        "mass": 2748.6901960784335,
+        "centroid": [
+          136.27395008817015,
+          1163.1145843439149
+        ],
+        "midpoint": [
+          136.5,
+          1164
+        ],
+        "optical": [
+          136.42088253085956,
+          1163.6901045203701
+        ],
+        "fullRadius": 39.19502519453202,
+        "opticalError": 0.6095217565672225
+      },
+      "layers": {
+        "unchangedExcept": "ARME - CONTENU",
+        "editableTextsPreserved": true,
+        "embeddedWeapon": true
+      },
+      "psdHash": "c29d905c11f537f598771fe961b7dc6b7d6db2594572989d943a6773b6ca9d55",
+      "pngHash": "eb7aa31084c895d64be3a85d350fcce75240e288f8423e31ab28b7815d3b2a10",
+      "nativeHash": "e85ac1b1f64bf4337d489e564f275798cc950911c1f71ce641aeee3d904a72da"
+    },
+    {
+      "key": "voloden",
+      "id": "30000028",
+      "weapon": "Faucille",
+      "comparison": {
+        "changed": 675,
+        "outside": 0,
+        "maximumChangedRadius": 43.729280808172454,
+        "permittedRadius": 47.5,
+        "pixelCornersChecked": true
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "repeat": {
+        "changed": 0,
+        "outside": 0
+      },
+      "contour": {
+        "bounds": [
+          104,
+          1137,
+          171,
+          1191
+        ],
+        "visibleBounds": [
+          104,
+          1137,
+          171,
+          1191
+        ],
+        "visible": 629,
+        "mass": 531.5294117647059,
+        "centroid": [
+          132.28015346023318,
+          1158.8000664010633
+        ],
+        "midpoint": [
+          137.5,
+          1164
+        ],
+        "optical": [
+          137.08241227681864,
+          1163.584005312085
+        ],
+        "fullRadius": 43.729280808172454,
+        "opticalError": 0.1176803969611972
+      },
+      "layers": {
+        "unchangedExcept": "ARME - CONTENU",
+        "editableTextsPreserved": true,
+        "embeddedWeapon": true
+      },
+      "psdHash": "d3a35dcf9b88e11331a290922ce920397f090cdead41a04bcdf13ae13e5e2ad4",
+      "pngHash": "154a47184c97e391f3fa734954c785c3e392f8c12e600416a42f30db130f3aa0",
+      "nativeHash": "a9e5c9fbe12d7b06f7e34a3cc4593623cf4748b6ddaf89c68a7833d16b37ac7f"
+    }
+  ],
+  "image": "V4/revisions/2026-09-27-weapon-optics/proof/pilot-before-after.png",
+  "nativeAlphaVerifiedOnlyFor": [
+    "Faucille",
+    "Tome"
+  ],
+  "otherWeaponAuditIsProxyOnly": true,
+  "checkedAt": "2026-09-27T12:55:48.147Z"
+}

@@ -54,7 +54,8 @@ test('collection groups Kalistar, Final Fantasy and NieR while retaining faction
   assert.match(tab('final-fantasy'),/Final Fantasy <b>3<\/b>/);
   assert.match(tab('nier'),/NieR <b>4<\/b>/);
   const scopeHeader=html.match(/<div class="cb-scopes"[^>]*>([\s\S]*?)<\/div>/)?.[1]||'';
-  assert.equal((scopeHeader.match(/data-binder-action="scope"/g)||[]).length,5);
+  assert.equal((scopeHeader.match(/data-binder-action="scope"/g)||[]).length,6);
+  assert.match(tab('metal-gear'),/Metal Gear <b>0<\/b>/);
   assert.equal(Binder.matchesScope(extras[2],'kalistar'),true);
   assert.equal(scopedCards.filter(c=>Binder.matchesScope(c,'final-fantasy')).length,3);
   assert.equal(scopedCards.filter(c=>Binder.matchesScope(c,'nier')).length,4);

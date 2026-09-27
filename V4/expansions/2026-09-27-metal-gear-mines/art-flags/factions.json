@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "officialCollaboration": false,
+  "factions": [
+    {
+      "id": "MGS1",
+      "label": "Metal Gear Solid 1",
+      "flag": "flag-MGS1.png",
+      "packedFlag": "flag-MGS1-packed.png",
+      "packedGeometry": {
+        "left": 672,
+        "top": 829,
+        "width": 98,
+        "height": 223
+      },
+      "sourceHash": "3781f425265aeb029b967e95c7728fbc1ddfcc5067cb3b9683622bc97a1d1f32",
+      "flagHash": "e1722334465c10553da1361ac2666f56ef98e133af955b23c0d9283a7b50f432",
+      "bonusField": "faction",
+      "bonusStat": "ATK",
+      "membersScope": "living-board-only",
+      "isolatedFrom": [
+        "MGS2",
+        "MGS4"
+      ]
+    },
+    {
+      "id": "MGS2",
+      "label": "Metal Gear Solid 2",
+      "flag": "flag-MGS2.png",
+      "packedFlag": "flag-MGS2-packed.png",
+      "packedGeometry": {
+        "left": 672,
+        "top": 829,
+        "width": 98,
+        "height": 223
+      },
+      "sourceHash": "ca9ac6d81ba947b7fcc4951676973d9cf13494b449e85ba553f3ddf6be9a8592",
+      "flagHash": "2e33495badfdaa1c2f2f092159096aaf96bea9b49f6768b39ef333d1a390ec50",
+      "bonusField": "faction",
+      "bonusStat": "ATK",
+      "membersScope": "living-board-only",
+      "isolatedFrom": [
+        "MGS1",
+        "MGS4"
+      ]
+    },
+    {
+      "id": "MGS4",
+      "label": "Metal Gear Solid 4",
+      "flag": "flag-MGS4.png",
+      "packedFlag": "flag-MGS4-packed.png",
+      "packedGeometry": {
+        "left": 672,
+        "top": 829,
+        "width": 98,
+        "height": 223
+      },
+      "sourceHash": "7f1b9705ca63b34e2b74a0c985567853ac7cd99a2c1e58497511dd5b731c2955",
+      "flagHash": "0550a3759954064b751f2be538f81c73466d096f5e44b7b8b18f796cb4b00f57",
+      "bonusField": "faction",
+      "bonusStat": "ATK",
+      "membersScope": "living-board-only",
+      "isolatedFrom": [
+        "MGS1",
+        "MGS2"
+      ]
+    }
+  ]
+}

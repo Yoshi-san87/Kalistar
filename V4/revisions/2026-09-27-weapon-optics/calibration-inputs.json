@@ -1,0 +1,126 @@
+{
+  "Faucille": {
+    "source": {
+      "bounds": [
+        104,
+        1130,
+        178,
+        1191
+      ],
+      "visibleBounds": [
+        104,
+        1130,
+        178,
+        1191
+      ],
+      "visible": 765,
+      "mass": 663.149019607843,
+      "centroid": [
+        135.44658876542712,
+        1154.4402908286665
+      ],
+      "midpoint": [
+        141,
+        1160.5
+      ],
+      "optical": [
+        140.55572710123417,
+        1160.0152232662933
+      ],
+      "fullRadius": 49.36851223198852,
+      "opticalError": 4.97864078863242
+    },
+    "layout": {
+      "width": 66,
+      "height": 54.4054054054054,
+      "center": [
+        137,
+        1163.5
+      ],
+      "anchor": [
+        0.4939963121788401,
+        0.49205284043103825
+      ],
+      "safeRadius": 44,
+      "innerRadius": 47.5,
+      "centroidWeight": 0.08,
+      "sourceBounds": [
+        104,
+        1130,
+        178,
+        1191
+      ],
+      "opticalCentroid": [
+        135.44658876542712,
+        1154.4402908286665
+      ],
+      "method": "Individual silhouette balance: weighted visible centroid / visible-bounds midpoint; native full-alpha pixel corners checked separately",
+      "revision": "2026-09-27-weapon-optics",
+      "sourceNativeExport": "V4/revisions/2026-09-27-weapon-optics/inspection/Faucille-donor.png",
+      "sourceNativeExportHash": "beb45f076f71bd9f9a5388bf0577c74319e8fa7fc58bf8a3fd0581b6ed471192"
+    },
+    "preliminary": true
+  },
+  "Tome": {
+    "source": {
+      "bounds": [
+        100,
+        1116,
+        182,
+        1204
+      ],
+      "visibleBounds": [
+        100,
+        1116,
+        182,
+        1204
+      ],
+      "visible": 4374,
+      "mass": 4157.207843137259,
+      "centroid": [
+        141.33905581423429,
+        1158.9021920821642
+      ],
+      "midpoint": [
+        141,
+        1160
+      ],
+      "optical": [
+        141.11866953498202,
+        1159.6157672287575
+      ],
+      "fullRadius": 49.24682730897494,
+      "opticalError": 5.661334026497938
+    },
+    "layout": {
+      "width": 67,
+      "height": 71.90243902439025,
+      "center": [
+        137,
+        1163.5
+      ],
+      "anchor": [
+        0.5014471894510002,
+        0.4956337185086077
+      ],
+      "safeRadius": 44,
+      "innerRadius": 47.5,
+      "centroidWeight": 0.35,
+      "sourceBounds": [
+        100,
+        1116,
+        182,
+        1204
+      ],
+      "opticalCentroid": [
+        141.33905581423429,
+        1158.9021920821642
+      ],
+      "method": "Individual silhouette balance: weighted visible centroid / visible-bounds midpoint; native full-alpha pixel corners checked separately",
+      "revision": "2026-09-27-weapon-optics",
+      "sourceNativeExport": "V4/revisions/2026-09-27-weapon-optics/inspection/Tome-donor.png",
+      "sourceNativeExportHash": "f7e5ba24e72a37a530fdd89589e61fdc0b9aeb68aa72bf6261db736a1861d8de"
+    },
+    "preliminary": true
+  }
+}

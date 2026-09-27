@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "referenceId": "02f0808cbd56d2b0d4103450e7943db69b95ac120a0df349f4374c82f7f712e5",
+  "referenceId": "ef7a6767b57723d896ceecb050079bfb1abad0e79e7289a200f87b34585f9380",
   "cards": [
     {
       "id": "30000001",
@@ -4511,7 +4511,14 @@
       "pngUrl": "/media/created/42650442.png",
       "psdUrl": "/media/created/42650442.psd",
       "createdAt": "2026-09-23T01:42:27.131Z",
-      "publicationSource": "V4/collaborations/nier-set-02"
+      "publicationSource": "V4/collaborations/nier-set-02",
+      "nativeRevision": {
+        "id": "2026-09-27-weapon-optics",
+        "referenceId": "ef7a6767b57723d896ceecb050079bfb1abad0e79e7289a200f87b34585f9380",
+        "previousReferenceId": "02f0808cbd56d2b0d4103450e7943db69b95ac120a0df349f4374c82f7f712e5",
+        "audit": "V4/revisions/2026-09-27-weapon-optics/verification.json",
+        "scope": "weapon-optical-sizing-only"
+      }
     },
     {
       "id": "47023549",
@@ -5124,7 +5131,13 @@
       "pngUrl": "/media/created/47414613.png",
       "psdUrl": "/media/created/47414613.psd",
       "createdAt": "2026-09-23T16:18:20.519Z",
-      "publicationSource": "V4/expansions/2026-09-23-return"
+      "publicationSource": "V4/expansions/2026-09-23-return",
+      "nativeRevision": {
+        "id": "2026-09-27-artwork-refresh",
+        "proof": "V4/revisions/2026-09-27-artwork-refresh/verified.json",
+        "key": "lanio",
+        "previousCreationHash": "148808bda97f6f3cf6ae1587e566db0e7ea404344cc79a83f8ef26d387021372"
+      }
     },
     {
       "id": "45081933",
@@ -5281,7 +5294,14 @@
       "pngUrl": "/media/created/47689975.png",
       "psdUrl": "/media/created/47689975.psd",
       "createdAt": "2026-09-23T16:18:20.519Z",
-      "publicationSource": "V4/expansions/2026-09-23-return"
+      "publicationSource": "V4/expansions/2026-09-23-return",
+      "nativeRevision": {
+        "id": "2026-09-27-weapon-optics",
+        "referenceId": "ef7a6767b57723d896ceecb050079bfb1abad0e79e7289a200f87b34585f9380",
+        "previousReferenceId": "02f0808cbd56d2b0d4103450e7943db69b95ac120a0df349f4374c82f7f712e5",
+        "audit": "V4/revisions/2026-09-27-weapon-optics/verification.json",
+        "scope": "weapon-optical-sizing-only"
+      }
     },
     {
       "id": "45951088",
@@ -5748,9 +5768,10 @@
       "createdAt": "2026-09-24T16:11:42.822Z",
       "publicationSource": "V4/expansions/2026-09-24-royal-training",
       "nativeRevision": {
-        "id": "2026-09-25-kaylis-training",
-        "proof": "V4/revisions/2026-09-25-kaylis-training/verified.json",
-        "previousCreationHash": "003843f92992d6da052869ca454982ef66e0a142a9647816fd8772d7c353fc17"
+        "id": "2026-09-27-artwork-refresh",
+        "proof": "V4/revisions/2026-09-27-artwork-refresh/verified.json",
+        "key": "kaylis",
+        "previousCreationHash": "b0b67289a27c2e956fcff5bfc00cb64a7fea1a3c482525fa96074b701a79e779"
       }
     },
     {
@@ -6662,7 +6683,14 @@
       "pngUrl": "/media/created/43120563.png",
       "psdUrl": "/media/created/43120563.psd",
       "createdAt": "2026-09-25T14:14:39.646Z",
-      "publicationSource": "V4/collaborations/ff10-set-01"
+      "publicationSource": "V4/collaborations/ff10-set-01",
+      "nativeRevision": {
+        "id": "2026-09-27-weapon-optics",
+        "referenceId": "ef7a6767b57723d896ceecb050079bfb1abad0e79e7289a200f87b34585f9380",
+        "previousReferenceId": "02f0808cbd56d2b0d4103450e7943db69b95ac120a0df349f4374c82f7f712e5",
+        "audit": "V4/revisions/2026-09-27-weapon-optics/verification.json",
+        "scope": "weapon-optical-sizing-only"
+      }
     },
     {
       "id": "41124231",
@@ -6737,7 +6765,13 @@
       "pngUrl": "/media/created/41124231.png",
       "psdUrl": "/media/created/41124231.psd",
       "createdAt": "2026-09-25T14:14:39.679Z",
-      "publicationSource": "V4/collaborations/ff10-set-01"
+      "publicationSource": "V4/collaborations/ff10-set-01",
+      "nativeRevision": {
+        "id": "2026-09-27-artwork-refresh",
+        "proof": "V4/revisions/2026-09-27-artwork-refresh/verified.json",
+        "key": "auron",
+        "previousCreationHash": "eae8a060049f902ce9ccd2387ca51cfc00f3555e2e43092e94dbb086c14eba29"
+      }
     },
     {
       "id": "42258087",
@@ -7198,6 +7232,999 @@
       "psdUrl": "/media/created/43726101.psd",
       "createdAt": "2026-09-25T14:14:39.894Z",
       "publicationSource": "V4/collaborations/ff10-set-01"
+    },
+    {
+      "id": "45297565",
+      "kind": "created",
+      "creationJob": "652d43eb-600d-45ec-9a0e-64e855ba9e48",
+      "name": "SOLID SNAKE",
+      "title": "Le silence de Shadow Moses",
+      "element": "CRYO",
+      "profile": {
+        "name": "SOLID SNAKE",
+        "title": "Le silence de Shadow Moses",
+        "job": "INFILTRATEUR",
+        "description": "Dans la neige de Shadow Moses, Snake retient son souffle entre deux faisceaux. On lui a confié une mission. Ceux qu'il rencontre lui donnent une raison de continuer. Sous le bandeau, le doute reste éveillé.",
+        "element": "CRYO",
+        "race": "HUMAIN",
+        "weapon": "Gun",
+        "faction": "MGS1",
+        "positions": [
+          1,
+          2,
+          3
+        ],
+        "atk": [
+          230,
+          190,
+          150,
+          110,
+          "buff_atk",
+          32
+        ],
+        "defense": [
+          222,
+          182,
+          144,
+          106,
+          "retry",
+          30
+        ],
+        "magic": [
+          4
+        ],
+        "barriers": [
+          5
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": -0.15
+        },
+        "schemaVersion": 4,
+        "id": "45297565",
+        "characterId": "solid-snake-mgs",
+        "slug": "V4_45297565",
+        "output": "KALISTAR_V4_45297565",
+        "text": "Dans la neige de Shadow Moses, Snake retient son souffle entre deux faisceaux. On lui a confié une mission. Ceux qu'il rencontre lui donnent une raison de continuer. Sous le bandeau, le doute reste éveillé.",
+        "color": "ACDFFD",
+        "hue": 201,
+        "weapon_index": 7,
+        "role": 3,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-27-metal-gear-mines",
+        "collaboration": "MGS1",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/Solid_Snake_MGS1.png"
+      },
+      "png": "V4/creations/45297565/card.png",
+      "psd": "V4/creations/45297565/card.psd",
+      "pngUrl": "/media/created/45297565.png",
+      "psdUrl": "/media/created/45297565.psd",
+      "createdAt": "2026-09-27T13:54:07.876Z",
+      "publicationSource": "V4/expansions/2026-09-27-metal-gear-mines"
+    },
+    {
+      "id": "48683979",
+      "kind": "created",
+      "creationJob": "fb63fc26-05a2-4068-b9a6-fbadaf7a6fae",
+      "name": "SOLID SNAKE",
+      "title": "Ce que nous transmettons",
+      "element": "HYDRO",
+      "profile": {
+        "name": "SOLID SNAKE",
+        "title": "Ce que nous transmettons",
+        "job": "INFILTRATEUR",
+        "description": "La pluie fouette les passerelles de la Big Shell. Snake avance sans attendre les ordres d'une voix invisible. À Raiden, il voudrait laisser autre chose qu'une arme : le courage de choisir ce qui mérite de vivre.",
+        "element": "HYDRO",
+        "race": "HUMAIN",
+        "weapon": "Gun",
+        "faction": "MGS2",
+        "positions": [
+          1,
+          2,
+          3
+        ],
+        "atk": [
+          278,
+          230,
+          182,
+          134,
+          86,
+          36
+        ],
+        "defense": [
+          168,
+          138,
+          108,
+          "dodge",
+          50,
+          22
+        ],
+        "magic": [
+          3
+        ],
+        "barriers": [
+          6
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "48683979",
+        "characterId": "solid-snake-mgs",
+        "slug": "V4_48683979",
+        "output": "KALISTAR_V4_48683979",
+        "text": "La pluie fouette les passerelles de la Big Shell. Snake avance sans attendre les ordres d'une voix invisible. À Raiden, il voudrait laisser autre chose qu'une arme : le courage de choisir ce qui mérite de vivre.",
+        "color": "38CBED",
+        "hue": 192,
+        "weapon_index": 7,
+        "role": 2,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-27-metal-gear-mines",
+        "collaboration": "MGS2",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/Solid_Snake_MGS2.png"
+      },
+      "png": "V4/creations/48683979/card.png",
+      "psd": "V4/creations/48683979/card.psd",
+      "pngUrl": "/media/created/48683979.png",
+      "psdUrl": "/media/created/48683979.psd",
+      "createdAt": "2026-09-27T13:54:07.909Z",
+      "publicationSource": "V4/expansions/2026-09-27-metal-gear-mines"
+    },
+    {
+      "id": "46676157",
+      "kind": "created",
+      "creationJob": "e874d29d-ed18-4aa5-a403-568ec9f0c8f0",
+      "name": "SOLID SNAKE",
+      "title": "Encore quelques pas",
+      "element": "GEO",
+      "profile": {
+        "name": "SOLID SNAKE",
+        "title": "Encore quelques pas",
+        "job": "VÉTÉRAN",
+        "description": "Le corps de Snake vieillit plus vite que ses souvenirs. Dans les ruines, chaque pas lui coûte ; pourtant il relève son arme. Il ne cherche plus une victoire à célébrer, seulement un monde qui puisse lui survivre.",
+        "element": "GEO",
+        "race": "HUMAIN",
+        "weapon": "Gun",
+        "faction": "MGS4",
+        "positions": [
+          1,
+          2,
+          3
+        ],
+        "atk": [
+          200,
+          166,
+          132,
+          98,
+          "guard",
+          "buff_atk"
+        ],
+        "defense": [
+          284,
+          236,
+          188,
+          140,
+          92,
+          44
+        ],
+        "magic": [
+          4
+        ],
+        "barriers": [
+          5
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "46676157",
+        "characterId": "solid-snake-mgs",
+        "slug": "V4_46676157",
+        "output": "KALISTAR_V4_46676157",
+        "text": "Le corps de Snake vieillit plus vite que ses souvenirs. Dans les ruines, chaque pas lui coûte ; pourtant il relève son arme. Il ne cherche plus une victoire à célébrer, seulement un monde qui puisse lui survivre.",
+        "color": "C7AB6D",
+        "hue": 41,
+        "weapon_index": 7,
+        "role": 1,
+        "sentry": true,
+        "canGuard": true,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-27-metal-gear-mines",
+        "collaboration": "MGS4",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/Solid_Snake_MGS4.png"
+      },
+      "png": "V4/creations/46676157/card.png",
+      "psd": "V4/creations/46676157/card.psd",
+      "pngUrl": "/media/created/46676157.png",
+      "psdUrl": "/media/created/46676157.psd",
+      "createdAt": "2026-09-27T13:54:07.944Z",
+      "publicationSource": "V4/expansions/2026-09-27-metal-gear-mines"
+    },
+    {
+      "id": "48312725",
+      "kind": "created",
+      "creationJob": "7f75463c-42a4-4e84-84cc-09f2f584eca9",
+      "name": "REVOLVER OCELOT",
+      "title": "La dernière cartouche",
+      "element": "ELECTRO",
+      "profile": {
+        "name": "REVOLVER OCELOT",
+        "title": "La dernière cartouche",
+        "job": "TIREUR",
+        "description": "Le revolver d'Ocelot décrit un arc parfait avant de s'immobiliser. Il savoure l'instant suspendu entre deux coups de feu. Dans ce duel, chaque cartouche compte ; son sourire, lui, dissimule toujours une autre partie.",
+        "element": "ELECTRO",
+        "race": "HUMAIN",
+        "weapon": "Gun",
+        "faction": "MGS1",
+        "positions": [
+          2
+        ],
+        "atk": [
+          286,
+          236,
+          186,
+          138,
+          "retry",
+          38
+        ],
+        "defense": [
+          166,
+          138,
+          108,
+          78,
+          "retry",
+          22
+        ],
+        "magic": [
+          3
+        ],
+        "barriers": [
+          5
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "48312725",
+        "characterId": "revolver-ocelot-mgs",
+        "slug": "V4_48312725",
+        "output": "KALISTAR_V4_48312725",
+        "text": "Le revolver d'Ocelot décrit un arc parfait avant de s'immobiliser. Il savoure l'instant suspendu entre deux coups de feu. Dans ce duel, chaque cartouche compte ; son sourire, lui, dissimule toujours une autre partie.",
+        "color": "F5DC32",
+        "hue": 53,
+        "weapon_index": 7,
+        "role": 2,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-27-metal-gear-mines",
+        "collaboration": "MGS1",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/Revolver_Ocelot_MGS1.png"
+      },
+      "png": "V4/creations/48312725/card.png",
+      "psd": "V4/creations/48312725/card.psd",
+      "pngUrl": "/media/created/48312725.png",
+      "psdUrl": "/media/created/48312725.psd",
+      "createdAt": "2026-09-27T13:54:07.977Z",
+      "publicationSource": "V4/expansions/2026-09-27-metal-gear-mines"
+    },
+    {
+      "id": "47200643",
+      "kind": "created",
+      "creationJob": "8bef0b3c-63b0-4fcc-893e-0e144a61be30",
+      "name": "SNIPER WOLF",
+      "title": "La patience dans le froid",
+      "element": "CRYO",
+      "profile": {
+        "name": "SNIPER WOLF",
+        "title": "La patience dans le froid",
+        "job": "TIREUSE D'ÉLITE",
+        "description": "Le froid ne trouble pas la lunette de Wolf. À ses côtés, un loup veille tandis qu'elle attend le geste de trop. Sa douceur ne va plus aux hommes ; pourtant, derrière la visée, il reste une enfance qu'aucun tir n'efface.",
+        "element": "CRYO",
+        "race": "HUMAIN",
+        "weapon": "Gun",
+        "faction": "MGS1",
+        "positions": [
+          4,
+          5
+        ],
+        "atk": [
+          274,
+          228,
+          178,
+          130,
+          "buff_atk",
+          32
+        ],
+        "defense": [
+          160,
+          132,
+          102,
+          72,
+          "retry",
+          18
+        ],
+        "magic": [
+          4,
+          3
+        ],
+        "barriers": [
+          6
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "47200643",
+        "characterId": "sniper-wolf-mgs",
+        "slug": "V4_47200643",
+        "output": "KALISTAR_V4_47200643",
+        "text": "Le froid ne trouble pas la lunette de Wolf. À ses côtés, un loup veille tandis qu'elle attend le geste de trop. Sa douceur ne va plus aux hommes ; pourtant, derrière la visée, il reste une enfance qu'aucun tir n'efface.",
+        "color": "ACDFFD",
+        "hue": 201,
+        "weapon_index": 7,
+        "role": 4,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-27-metal-gear-mines",
+        "collaboration": "MGS1",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/Sniper_Wolf_MGS1.png"
+      },
+      "png": "V4/creations/47200643/card.png",
+      "psd": "V4/creations/47200643/card.psd",
+      "pngUrl": "/media/created/47200643.png",
+      "psdUrl": "/media/created/47200643.psd",
+      "createdAt": "2026-09-27T13:54:08.017Z",
+      "publicationSource": "V4/expansions/2026-09-27-metal-gear-mines"
+    },
+    {
+      "id": "40651224",
+      "kind": "created",
+      "creationJob": "e2dbc279-00ad-4ad2-b9d5-96b51309980d",
+      "name": "VULCAN RAVEN",
+      "title": "Le poids du présage",
+      "element": "CRYO",
+      "profile": {
+        "name": "VULCAN RAVEN",
+        "title": "Le poids du présage",
+        "job": "CHAMAN",
+        "description": "Entre les caisses gelées, Raven porte son canon comme d'autres portent une promesse. Les ailes noires traversent la lumière. Il attend Snake sans trembler, certain que la force seule ne décide jamais de la fin.",
+        "element": "CRYO",
+        "race": "HUMAIN",
+        "weapon": "Gun",
+        "faction": "MGS1",
+        "positions": [
+          1
+        ],
+        "atk": [
+          208,
+          170,
+          136,
+          102,
+          68,
+          30
+        ],
+        "defense": [
+          294,
+          244,
+          194,
+          144,
+          94,
+          44
+        ],
+        "magic": [
+          4
+        ],
+        "barriers": [
+          6,
+          4
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "40651224",
+        "characterId": "vulcan-raven-mgs",
+        "slug": "V4_40651224",
+        "output": "KALISTAR_V4_40651224",
+        "text": "Entre les caisses gelées, Raven porte son canon comme d'autres portent une promesse. Les ailes noires traversent la lumière. Il attend Snake sans trembler, certain que la force seule ne décide jamais de la fin.",
+        "color": "ACDFFD",
+        "hue": 201,
+        "weapon_index": 7,
+        "role": 1,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-27-metal-gear-mines",
+        "collaboration": "MGS1",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/Vulcan_Raven_Boss_MGS1.png"
+      },
+      "png": "V4/creations/40651224/card.png",
+      "psd": "V4/creations/40651224/card.psd",
+      "pngUrl": "/media/created/40651224.png",
+      "psdUrl": "/media/created/40651224.psd",
+      "createdAt": "2026-09-27T13:54:08.053Z",
+      "publicationSource": "V4/expansions/2026-09-27-metal-gear-mines"
+    },
+    {
+      "id": "47702575",
+      "kind": "created",
+      "creationJob": "54c7478f-d5d9-4000-990c-ff0ce37a3756",
+      "name": "NINJA",
+      "title": "Un dernier reste d'humanité",
+      "element": "ELECTRO",
+      "profile": {
+        "name": "NINJA",
+        "title": "Un dernier reste d'humanité",
+        "job": "GUERRIER",
+        "description": "Le couloir se tait après le passage de sa lame. Sous l'armure du Ninja, Gray Fox lutte contre une douleur qui lui rappelle qu'il existe encore. Il cherche Snake, non pour les ordres reçus, mais pour ce qui reste d'eux.",
+        "element": "ELECTRO",
+        "race": "CYBORG",
+        "weapon": "Katana",
+        "faction": "MGS1",
+        "positions": [
+          2,
+          3,
+          4
+        ],
+        "atk": [
+          270,
+          224,
+          176,
+          128,
+          80,
+          34
+        ],
+        "defense": [
+          160,
+          132,
+          104,
+          "dodge",
+          48,
+          20
+        ],
+        "magic": [
+          5,
+          2
+        ],
+        "barriers": [
+          6
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "47702575",
+        "characterId": "gray-fox-mgs",
+        "slug": "V4_47702575",
+        "output": "KALISTAR_V4_47702575",
+        "text": "Le couloir se tait après le passage de sa lame. Sous l'armure du Ninja, Gray Fox lutte contre une douleur qui lui rappelle qu'il existe encore. Il cherche Snake, non pour les ordres reçus, mais pour ce qui reste d'eux.",
+        "color": "F5DC32",
+        "hue": 53,
+        "weapon_index": 18,
+        "role": 2,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-27-metal-gear-mines",
+        "collaboration": "MGS1",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/Ninja_MGS1.png"
+      },
+      "png": "V4/creations/47702575/card.png",
+      "psd": "V4/creations/47702575/card.psd",
+      "pngUrl": "/media/created/47702575.png",
+      "psdUrl": "/media/created/47702575.psd",
+      "createdAt": "2026-09-27T13:54:08.093Z",
+      "publicationSource": "V4/expansions/2026-09-27-metal-gear-mines"
+    },
+    {
+      "id": "45960834",
+      "kind": "created",
+      "creationJob": "5cd38372-1760-4ec9-bafc-a2c97769e5b1",
+      "name": "MERYL",
+      "title": "Apprendre à ne pas fuir",
+      "element": "PYRO",
+      "profile": {
+        "name": "MERYL",
+        "title": "Apprendre à ne pas fuir",
+        "job": "SOLDAT",
+        "description": "Meryl serre son arme au détour d'un couloir. Elle connaît les gestes appris, pas encore le poids de chaque décision. Sa peur ne disparaît pas ; elle avance avec elle, décidée à ne laisser personne choisir sa vie.",
+        "element": "PYRO",
+        "race": "HUMAIN",
+        "weapon": "Gun",
+        "faction": "MGS1",
+        "positions": [
+          2
+        ],
+        "atk": [
+          270,
+          224,
+          178,
+          130,
+          "buff_atk",
+          34
+        ],
+        "defense": [
+          166,
+          136,
+          106,
+          76,
+          "retry",
+          20
+        ],
+        "magic": [
+          4
+        ],
+        "barriers": [
+          5
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "45960834",
+        "characterId": "meryl-mgs",
+        "slug": "V4_45960834",
+        "output": "KALISTAR_V4_45960834",
+        "text": "Meryl serre son arme au détour d'un couloir. Elle connaît les gestes appris, pas encore le poids de chaque décision. Sa peur ne disparaît pas ; elle avance avec elle, décidée à ne laisser personne choisir sa vie.",
+        "color": "FF704A",
+        "hue": 12,
+        "weapon_index": 7,
+        "role": 2,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-27-metal-gear-mines",
+        "collaboration": "MGS1",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/Meryl_MGS1.png"
+      },
+      "png": "V4/creations/45960834/card.png",
+      "psd": "V4/creations/45960834/card.psd",
+      "pngUrl": "/media/created/45960834.png",
+      "psdUrl": "/media/created/45960834.psd",
+      "createdAt": "2026-09-27T13:54:08.127Z",
+      "publicationSource": "V4/expansions/2026-09-27-metal-gear-mines"
+    },
+    {
+      "id": "41396996",
+      "kind": "created",
+      "creationJob": "5c86cac4-a6a7-4213-ac30-b5f1e7619c03",
+      "name": "LIQUID SNAKE",
+      "title": "Le frère dans l'ombre",
+      "element": "MINERO",
+      "profile": {
+        "name": "LIQUID SNAKE",
+        "title": "Le frère dans l'ombre",
+        "job": "COMMANDANT",
+        "description": "Devant REX, Liquid croise les bras comme s'il tenait déjà le monde. Mais c'est encore à son frère qu'il pense. Derrière le défi et la colère, il exige une place que ni les gènes ni les ordres ne pourront lui refuser.",
+        "element": "MINERO",
+        "race": "HUMAIN",
+        "weapon": "Poing",
+        "faction": "MGS1",
+        "positions": [
+          1,
+          3
+        ],
+        "atk": [
+          232,
+          192,
+          152,
+          112,
+          "buff_atk",
+          32
+        ],
+        "defense": [
+          224,
+          184,
+          146,
+          108,
+          "retry",
+          30
+        ],
+        "magic": [
+          4
+        ],
+        "barriers": [
+          5
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "41396996",
+        "characterId": "liquid-snake-mgs",
+        "slug": "V4_41396996",
+        "output": "KALISTAR_V4_41396996",
+        "text": "Devant REX, Liquid croise les bras comme s'il tenait déjà le monde. Mais c'est encore à son frère qu'il pense. Derrière le défi et la colère, il exige une place que ni les gènes ni les ordres ne pourront lui refuser.",
+        "color": "B3BFCA",
+        "hue": 210,
+        "role": 3,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-27-metal-gear-mines",
+        "collaboration": "MGS1",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/Liquid_Snake_MGS1.png"
+      },
+      "png": "V4/creations/41396996/card.png",
+      "psd": "V4/creations/41396996/card.psd",
+      "pngUrl": "/media/created/41396996.png",
+      "psdUrl": "/media/created/41396996.psd",
+      "createdAt": "2026-09-27T13:54:08.163Z",
+      "publicationSource": "V4/expansions/2026-09-27-metal-gear-mines"
+    },
+    {
+      "id": "44001617",
+      "kind": "created",
+      "creationJob": "669e8512-be0e-4a0e-beaa-af23d18709ea",
+      "name": "PSYCHO MANTIS",
+      "title": "Derrière vos pensées",
+      "element": "NECRO",
+      "profile": {
+        "name": "PSYCHO MANTIS",
+        "title": "Derrière vos pensées",
+        "job": "MÉDIUM",
+        "description": "Les objets quittent le sol avant que Mantis ne fasse un geste. Derrière son masque, les pensées des autres ne lui laissent aucun repos. Il les retourne contre ceux qui entrent, comme on ferme enfin une porte.",
+        "element": "NECRO",
+        "race": "HUMAIN",
+        "weapon": "Orbe",
+        "faction": "MGS1",
+        "positions": [
+          4
+        ],
+        "atk": [
+          284,
+          234,
+          184,
+          "mana",
+          84,
+          34
+        ],
+        "defense": [
+          158,
+          130,
+          100,
+          70,
+          "dodge",
+          18
+        ],
+        "magic": [
+          6,
+          5,
+          4,
+          2,
+          1
+        ],
+        "barriers": [
+          6,
+          4
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "44001617",
+        "characterId": "psycho-mantis-mgs",
+        "slug": "V4_44001617",
+        "output": "KALISTAR_V4_44001617",
+        "text": "Les objets quittent le sol avant que Mantis ne fasse un geste. Derrière son masque, les pensées des autres ne lui laissent aucun repos. Il les retourne contre ceux qui entrent, comme on ferme enfin une porte.",
+        "color": "A979F7",
+        "hue": 270,
+        "weapon_index": 14,
+        "role": 4,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-27-metal-gear-mines",
+        "collaboration": "MGS1",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/Psycho_Mantis_MGS1.png"
+      },
+      "png": "V4/creations/44001617/card.png",
+      "psd": "V4/creations/44001617/card.psd",
+      "pngUrl": "/media/created/44001617.png",
+      "psdUrl": "/media/created/44001617.psd",
+      "createdAt": "2026-09-27T13:54:08.195Z",
+      "publicationSource": "V4/expansions/2026-09-27-metal-gear-mines"
+    },
+    {
+      "id": "47884687",
+      "kind": "created",
+      "creationJob": "851b0199-4d3e-4d05-bd44-518c0ab2df36",
+      "name": "MALABA",
+      "title": "À force de tenir",
+      "element": "NONE",
+      "profile": {
+        "name": "MALABA",
+        "title": "À force de tenir",
+        "job": "MINEUR",
+        "description": "Dans les galeries de la Z13, Baba abat sa pioche et reprend son souffle. La poussière colle à ses épaules. Il connaît le poids de la roche ; celui des autres, il le porte aussi, sans jamais leur demander de merci.",
+        "element": "NONE",
+        "race": "HUMAIN",
+        "weapon": "Hache",
+        "faction": "Z13",
+        "positions": [
+          1
+        ],
+        "atk": [
+          204,
+          170,
+          134,
+          100,
+          "guard",
+          "buff_atk"
+        ],
+        "defense": [
+          292,
+          242,
+          192,
+          142,
+          92,
+          42
+        ],
+        "magic": [],
+        "barriers": [],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": -0.2
+        },
+        "schemaVersion": 4,
+        "id": "47884687",
+        "characterId": "malaba",
+        "slug": "V4_47884687",
+        "output": "KALISTAR_V4_47884687",
+        "text": "Dans les galeries de la Z13, Baba abat sa pioche et reprend son souffle. La poussière colle à ses épaules. Il connaît le poids de la roche ; celui des autres, il le porte aussi, sans jamais leur demander de merci.",
+        "color": "93AAA5",
+        "hue": 160,
+        "weapon_index": 0,
+        "role": 1,
+        "sentry": false,
+        "canGuard": true,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Variante narrative Kalistar, demande du 27 septembre 2026",
+        "visual_revision": "V4-2026-09-27-metal-gear-mines",
+        "previous_model": "30000022",
+        "artworkSource": "V4/Illustrations/Malaba.png"
+      },
+      "png": "V4/creations/47884687/card.png",
+      "psd": "V4/creations/47884687/card.psd",
+      "pngUrl": "/media/created/47884687.png",
+      "psdUrl": "/media/created/47884687.psd",
+      "createdAt": "2026-09-27T13:54:08.231Z",
+      "publicationSource": "V4/expansions/2026-09-27-metal-gear-mines"
+    },
+    {
+      "id": "43905149",
+      "kind": "created",
+      "creationJob": "85573c1f-589c-4a6b-b76b-c3071b5f7c74",
+      "name": "VOLODEN",
+      "title": "Avant que tout bascule",
+      "element": "NECRO",
+      "profile": {
+        "name": "VOLODEN",
+        "title": "Avant que tout bascule",
+        "job": "DIRIGEANT",
+        "description": "Derrière la vitre de son bureau, Voloden contemple la mine. Le fragment Electro reste introuvable, et les tatouages de Kaylis réveillent un ancien souvenir. Il réfléchit encore lorsque la lumière commence à vaciller.",
+        "element": "NECRO",
+        "race": "CARDEMORTIS",
+        "weapon": "Faucille",
+        "faction": "Z13",
+        "positions": [
+          3,
+          4
+        ],
+        "atk": [
+          280,
+          232,
+          182,
+          "mana",
+          "retry",
+          34
+        ],
+        "defense": [
+          162,
+          134,
+          104,
+          74,
+          44,
+          18
+        ],
+        "magic": [
+          6,
+          5,
+          4,
+          1
+        ],
+        "barriers": [
+          6,
+          3
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0.65
+        },
+        "schemaVersion": 4,
+        "id": "43905149",
+        "characterId": "voloden",
+        "slug": "V4_43905149",
+        "output": "KALISTAR_V4_43905149",
+        "text": "Derrière la vitre de son bureau, Voloden contemple la mine. Le fragment Electro reste introuvable, et les tatouages de Kaylis réveillent un ancien souvenir. Il réfléchit encore lorsque la lumière commence à vaciller.",
+        "color": "A979F7",
+        "hue": 270,
+        "weapon_index": 19,
+        "role": 4,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Variante narrative Kalistar, demande du 27 septembre 2026",
+        "visual_revision": "V4-2026-09-27-metal-gear-mines",
+        "previous_model": "30000028",
+        "artworkSource": "V4/Illustrations/Voloden_Thinking.png"
+      },
+      "png": "V4/creations/43905149/card.png",
+      "psd": "V4/creations/43905149/card.psd",
+      "pngUrl": "/media/created/43905149.png",
+      "psdUrl": "/media/created/43905149.psd",
+      "createdAt": "2026-09-27T13:54:08.262Z",
+      "publicationSource": "V4/expansions/2026-09-27-metal-gear-mines"
+    },
+    {
+      "id": "40243854",
+      "kind": "created",
+      "creationJob": "f71d28d8-7bd4-4d01-a957-fe41cb59711f",
+      "name": "MOMO",
+      "title": "Pour ceux qui restent",
+      "element": "ELECTRO",
+      "profile": {
+        "name": "MOMO",
+        "title": "Pour ceux qui restent",
+        "job": "MUSICIEN",
+        "description": "Debout face aux robots abandonnés de Chroma, Momo garde sa flûte baissée. Ce soir, aucune mélodie ne vient. Il regarde les visages éteints et reste près d'eux, comme si partir voulait dire les oublier une seconde fois.",
+        "element": "ELECTRO",
+        "race": "ROBOT",
+        "weapon": "Instrument",
+        "faction": "Chroma",
+        "positions": [
+          5
+        ],
+        "atk": [
+          164,
+          134,
+          "mana",
+          "revive",
+          "retry",
+          22
+        ],
+        "defense": [
+          198,
+          164,
+          130,
+          96,
+          62,
+          28
+        ],
+        "magic": [
+          6,
+          5,
+          1
+        ],
+        "barriers": [
+          6,
+          3
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": -0.15
+        },
+        "schemaVersion": 4,
+        "id": "40243854",
+        "characterId": "momo",
+        "slug": "V4_40243854",
+        "output": "KALISTAR_V4_40243854",
+        "text": "Debout face aux robots abandonnés de Chroma, Momo garde sa flûte baissée. Ce soir, aucune mélodie ne vient. Il regarde les visages éteints et reste près d'eux, comme si partir voulait dire les oublier une seconde fois.",
+        "color": "F5DC32",
+        "hue": 53,
+        "weapon_index": 11,
+        "role": 5,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": true,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Variante narrative Kalistar, demande du 27 septembre 2026",
+        "visual_revision": "V4-2026-09-27-metal-gear-mines",
+        "previous_model": "30000001",
+        "artworkSource": "V4/Illustrations/Momo.png"
+      },
+      "png": "V4/creations/40243854/card.png",
+      "psd": "V4/creations/40243854/card.psd",
+      "pngUrl": "/media/created/40243854.png",
+      "psdUrl": "/media/created/40243854.psd",
+      "createdAt": "2026-09-27T13:54:08.299Z",
+      "publicationSource": "V4/expansions/2026-09-27-metal-gear-mines"
     }
   ]
 }

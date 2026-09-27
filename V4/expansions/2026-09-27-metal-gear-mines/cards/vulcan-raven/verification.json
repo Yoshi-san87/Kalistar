@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "modelId": "40651224",
+  "referenceId": "ef7a6767b57723d896ceecb050079bfb1abad0e79e7289a200f87b34585f9380",
+  "profileHash": "f7883f44f3830398ba3519fcffa0de7b59cb9c0dd1329add64e505f551d4cb7a",
+  "hashes": {
+    "card.png": "af79a3d259a260d691783e69b76c574c01782d23a13c3a50c9d061a073dc2416",
+    "card.psd": "8b363718acae201373fb7d7cf15a3fa23de124971cf74a7eedcd574672db47e5"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 120188
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "40651224",
+    "cases": {
+      "color-1": [
+        "40651224"
+      ],
+      "color-4": [
+        "40651224"
+      ],
+      "gray-1": [
+        "40651224"
+      ],
+      "gray-4": [
+        "40651224"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-27T13:49:47.180Z",
+  "key": "vulcan-raven",
+  "preparationHash": "6a8388e11a7d0d48365cbf576a373b10bb2f45cc41f989f8a3d0d5c76037817a",
+  "typographyAudit": {
+    "passed": true,
+    "rulesHash": "c3520779bdfad875fe67798dc8605193152395d4267d8fa2e39efeb6a962af4a",
+    "orphanPunctuation": false
+  }
+}

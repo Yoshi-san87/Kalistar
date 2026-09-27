@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "revision": "balmhyr-icons-2026-09-18",
+  "weapon": {
+    "Hache": {
+      "width": 62.24768209706915,
+      "height": 52.41910071332139,
+      "center": [
+        137,
+        1163.5
+      ],
+      "anchor": [
+        0.43476280106083764,
+        0.46281605469286546
+      ],
+      "safeRadius": 44,
+      "innerRadius": 47.5,
+      "sourceBounds": [
+        99,
+        1131,
+        175,
+        1195
+      ],
+      "opticalCentroid": [
+        129.37226597019023,
+        1159.3388115389896
+      ],
+      "method": "65% visible luminance-alpha centroid / 35% visible bounds centre; full alpha contour contained"
+    },
+    "Faucille": {
+      "width": 60.559475673704455,
+      "height": 49.92064886616178,
+      "center": [
+        137,
+        1163.5
+      ],
+      "anchor": [
+        0.4512084277905208,
+        0.4354036437923957
+      ],
+      "safeRadius": 44,
+      "innerRadius": 47.5,
+      "sourceBounds": [
+        100,
+        1133,
+        174,
+        1194
+      ],
+      "opticalCentroid": [
+        131.4452671638439,
+        1157.4378804174403
+      ],
+      "method": "65% visible luminance-alpha centroid / 35% visible bounds centre; full alpha contour contained",
+      "revision": "voloden-2026-09-18"
+    }
+  },
+  "race": {
+    "NAIN": {
+      "width": 65.20848236308971,
+      "height": 72.73253802036929,
+      "center": [
+        759,
+        1163.5
+      ],
+      "anchor": [
+        0.5164851363882835,
+        0.4968601649721107
+      ],
+      "safeRadius": 44,
+      "innerRadius": 47.5,
+      "sourceBounds": [
+        720,
+        1120,
+        798,
+        1207
+      ],
+      "opticalCentroid": [
+        760.978216366594,
+        1163.0797451578055
+      ],
+      "method": "65% visible luminance-alpha centroid / 35% visible bounds centre; full alpha contour contained"
+    },
+    "CARDEMORTIS": {
+      "width": 79,
+      "height": 80.32872584703951,
+      "center": [
+        759,
+        1163.5
+      ],
+      "anchor": [
+        0.5055489598715516,
+        0.4590676577527381
+      ],
+      "safeRadius": 44,
+      "innerRadius": 47.5,
+      "sourceBounds": [
+        717,
+        1120,
+        801,
+        1207
+      ],
+      "opticalCentroid": [
+        759.7170963526314,
+        1158.0213634222896
+      ],
+      "method": "65% visible luminance-alpha centroid / 35% visible bounds centre; full alpha contour contained",
+      "revision": "voloden-2026-09-18",
+      "theoreticalWidth": 77.5587697833485,
+      "nativeEnvelopeSource": "Voloden first native render: 79 x 80 px at height-controlled scale"
+    }
+  }
+}

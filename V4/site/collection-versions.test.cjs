@@ -19,7 +19,7 @@ async function main(){
     return {versions:versions.map(c=>({id:c.id,title:c.title})),character:versions[0].characterId||versions[0].id};
   });
   const [first,second]=fixture.versions;
-  assert.equal(fixture.versions.length,2);
+  assert.ok(fixture.versions.length>=2);
   const pocket=page.locator('.cb-pocket[data-character="'+fixture.character+'"]');
   const waitCard=id=>page.waitForFunction(({character,id})=>[...document.querySelectorAll('.cb-pocket')].some(n=>n.dataset.character===character&&n.dataset.cardId===id),{character:fixture.character,id});
   const readyImages=()=>page.waitForFunction(()=>[...document.querySelectorAll('.cb-stack img,.cb-hero-image')].every(i=>i.complete&&i.naturalWidth>0&&!i.src.includes('#v4-')));
@@ -45,7 +45,7 @@ async function main(){
   await page.locator('[data-binder-action=scope][data-id=catalogue]').click();
   await readyImages();
   assert.equal(await pocket.locator('.cb-copy-count b').textContent(),'2');
-  assert.equal(await pocket.locator('.cb-version-count b').textContent(),'2');
+  assert.equal(await pocket.locator('.cb-version-count b').textContent(),String(fixture.versions.length));
   const folio=await page.locator('.cb-page-label').textContent(),before=await pocket.boundingBox();
   await pocket.locator('[data-binder-action=cycle-version]').click();await waitCard(second.id);
   assert.equal(await page.locator('.cb-page').getAttribute('data-mode'),'book');
@@ -55,7 +55,9 @@ async function main(){
   assert.match(await pocket.locator('.cb-card').getAttribute('aria-label'),new RegExp(second.title));
   assert.equal(await pocket.locator('[data-binder-action=favorite]').getAttribute('data-id'),second.id);
   assert.equal(await pocket.locator('[data-binder-action=cycle-version]').evaluate(n=>n===document.activeElement),true,'keyboard focus follows the new version');
-  await pocket.locator('[data-binder-action=cycle-version]').press('Enter');await waitCard(first.id);
+  for(const version of [...fixture.versions.slice(2),first]){
+    await pocket.locator('[data-binder-action=cycle-version]').press('Enter');await waitCard(version.id);
+  }
   for(const [width,height] of [[2041,1383],[1440,1000],[1024,768],[412,1007],[390,844],[320,568],[844,390]]){
     await page.setViewportSize({width,height});await readyImages();
     await page.screenshot({path:path.join(output,`book-${width}x${height}.png`),scale:'css'});
@@ -92,7 +94,9 @@ async function main(){
     assert.equal(await page.locator('.cb-versions [aria-pressed=true]').getAttribute('data-id'),second.id);
     assert.equal(await page.locator('.cb-card-heading p').textContent(),second.title);
     await page.locator('[data-binder-action=back]').click();await waitCard(second.id);
-    await pocket.locator('[data-binder-action=cycle-version]').click();await waitCard(first.id);
+    for(const version of [...fixture.versions.slice(2),first]){
+      await pocket.locator('[data-binder-action=cycle-version]').click();await waitCard(version.id);
+    }
   }
   await page.setViewportSize({width:1440,height:1000});await readyImages();await page.emulateMedia({reducedMotion:'no-preference'});
   await pocket.locator('[data-binder-action=cycle-version]').click();
@@ -114,7 +118,7 @@ async function main(){
   assert.equal(await pocket.locator('.cb-version-count b').textContent(),'1');
   assert.equal(await pocket.locator('[data-binder-action=cycle-version]').count(),0,'cycling never bypasses a filter');
   await page.locator('[data-binder-field=search]').fill('');
-  await page.evaluate(id=>{const registry=KALISTAR_DB.registry;KALISTAR_DB.registry={...registry,owned:(u,c)=>registry.owned(u,c).filter(i=>i.cardId!==id)};},second.id);
+  await page.evaluate(({ids,keep})=>{const registry=KALISTAR_DB.registry;KALISTAR_DB.registry={...registry,owned:(u,c)=>registry.owned(u,c).filter(i=>!ids.includes(i.cardId)||i.cardId===keep)};},{ids:fixture.versions.map(v=>v.id),keep:first.id});
   await page.locator('[data-binder-action=scope][data-id=owned]').click();
   assert.equal(await pocket.locator('.cb-version-count b').textContent(),'1');
   assert.equal(await pocket.locator('[data-binder-action=cycle-version]').count(),0,'owned scope does not reveal an unowned version');

@@ -180,6 +180,26 @@ dans `revisions/2026-09-25-kaylis-training/`.
 
 ## Reception artistique et technique
 
+### Lot utilisateur du 27 septembre 2026
+
+- Kaylis, L'elan des couleurs, et Lanio, Le vertige pour rire : remplacer
+  uniquement l'illustration par les fichiers fournis dans `V4/Illustrations/`.
+  Ces choix remplacent les essais precedents ; ne pas regenerer leur expression.
+- Auron : longue lame conforme a la silhouette originale de FFX, portee sur
+  l'epaule. La pointe peut sortir du cadrage ; ne pas raccourcir ni tordre l'arme
+  pour la faire entrer. References et provenance dans
+  `revisions/2026-09-27-artwork-refresh/`.
+- Metal Gear : trois bannieres distinctes MGS1, MGS2 et MGS4. Les trois Solid
+  Snake conservent une identite de personnage commune pour la regle de deck.
+  Images fournies prioritaires ; Naked Snake reste hors du lot.
+- Variantes Kalistar : Malaba mineur sans cristal, Voloden pensif devant la mine
+  et Momo debout, triste, face aux robots abandonnes. Profils et sources dans
+  `expansions/2026-09-27-metal-gear-mines/`.
+- Armes : controle optique de toutes les categories ; correction ciblee de
+  Faucille et Tome dans `revisions/2026-09-27-weapon-optics/`. Le cadre et le
+  correctif du petit trait blanc restent proteges. Les dimensions finales et
+  l'etat de publication doivent etre lus dans les preuves de cette revision.
+
 - Comparer au Momo/Valazar de reference et a une carte approuvee du meme element.
 - Verifier anatomie, emotion, contacts des mains, proportions, perspective et
   accessoires. Aucun motif important cache par les colonnes.

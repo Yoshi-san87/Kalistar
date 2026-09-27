@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 4,
+  "id": "30000041",
+  "name": "THALIE",
+  "title": "CE QUI REPOUSSE",
+  "job": "HERBORISTE",
+  "race": "CARNIVERT",
+  "element": "HERBO",
+  "faction": "Arborium",
+  "weapon": "Tome",
+  "positions": [
+    5
+  ],
+  "atk": [
+    172,
+    140,
+    115,
+    83,
+    "retry",
+    "revive"
+  ],
+  "defense": [
+    204,
+    167,
+    130,
+    100,
+    63,
+    26
+  ],
+  "magic": [
+    6,
+    5,
+    4,
+    3
+  ],
+  "barriers": [
+    6,
+    3
+  ],
+  "slug": "41_HERBO_THALIE",
+  "hue": 100,
+  "color": "89D355",
+  "weapon_index": 13,
+  "description": "Thalie tourne la page couverte de suie et pose une feuille neuve entre les feuillets. La forêt ne reprend pas tout d'un coup. Elle commence ici.",
+  "artwork": "THALIE",
+  "artworkSource": "V3/assets/illustrations/41_HERBO_THALIE.png",
+  "artworkUnchanged": true,
+  "sourcePSD": "V3/templates/41_HERBO_THALIE.psd",
+  "output": "THALIE_V4_01_HERBO",
+  "profile": "V4/template-stable/elements-01/thalie/card.json"
+}

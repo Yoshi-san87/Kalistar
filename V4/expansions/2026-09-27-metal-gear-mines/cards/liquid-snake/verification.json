@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "modelId": "41396996",
+  "referenceId": "ef7a6767b57723d896ceecb050079bfb1abad0e79e7289a200f87b34585f9380",
+  "profileHash": "b590b70598597cef2ed14ef0e90f3cd298cefc29a4823667bcda3033fffbeb4f",
+  "hashes": {
+    "card.png": "7cc1dc5b540b8d3d9a2b33b062d735f4d634e300dc5a564cd2c77bcd1e47d36e",
+    "card.psd": "45373938adff3db1d6d6b48eb987679d22d09c24e78119b7354782f79cde0fb8"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 107190
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "41396996",
+    "cases": {
+      "color-1": [
+        "41396996"
+      ],
+      "color-4": [
+        "41396996"
+      ],
+      "gray-1": [
+        "41396996"
+      ],
+      "gray-4": [
+        "41396996"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-27T13:49:52.705Z",
+  "key": "liquid-snake",
+  "preparationHash": "d1312630f8f684099100667ae92ab75e33b3b276682572452688017a7541932e",
+  "typographyAudit": {
+    "passed": true,
+    "rulesHash": "c3520779bdfad875fe67798dc8605193152395d4267d8fa2e39efeb6a962af4a",
+    "orphanPunctuation": false,
+    "exception": "37 px visible ink for the Q descender at unchanged Times New Roman 10 pt; exact approved [303,111,596,148] geometry.",
+    "sharedVerifierUnchanged": true
+  }
+}

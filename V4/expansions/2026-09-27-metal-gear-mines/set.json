@@ -1,0 +1,630 @@
+{
+  "id": "2026-09-27-metal-gear-mines",
+  "officialCollaboration": false,
+  "adaptation": "Fan crossover Metal Gear non officiel. Les cristaux et roles sont des adaptations Kalistar, pas des capacites canoniques des jeux. Trois factions MGS1/MGS2/MGS4 ; une seule identite Solid Snake. Faux conserve la categorie Faucille ; boule de cristal conserve Orbe. Les trois variantes Kalistar conservent leurs identites, races et factions existantes.",
+  "balanceNotes": "Plafonds stricts du role principal, sans cumul des positions. Aucune modification du moteur. Valeurs conformes ne signifie pas taux de victoire demontre.",
+  "arenas": [],
+  "presets": [],
+  "cards": [
+    {
+      "key": "solid-snake-mgs1",
+      "id": "45297565",
+      "characterId": "solid-snake-mgs",
+      "name": "SOLID SNAKE",
+      "title": "Le silence de Shadow Moses",
+      "job": "INFILTRATEUR",
+      "faction": "MGS1",
+      "collaboration": "MGS1",
+      "element": "CRYO",
+      "weapon": "Gun",
+      "race": "HUMAIN",
+      "positions": [
+        1,
+        2,
+        3
+      ],
+      "role": 3,
+      "atk": [
+        230,
+        190,
+        150,
+        110,
+        "buff_atk",
+        32
+      ],
+      "defense": [
+        222,
+        182,
+        144,
+        106,
+        "retry",
+        30
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "Solid_Snake_MGS1.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": -0.15
+      },
+      "description": "Dans la neige de Shadow Moses, Snake retient son souffle entre deux faisceaux. On lui a confié une mission. Ceux qu'il rencontre lui donnent une raison de continuer. Sous le bandeau, le doute reste éveillé."
+    },
+    {
+      "key": "solid-snake-mgs2",
+      "id": "48683979",
+      "characterId": "solid-snake-mgs",
+      "name": "SOLID SNAKE",
+      "title": "Ce que nous transmettons",
+      "job": "INFILTRATEUR",
+      "faction": "MGS2",
+      "collaboration": "MGS2",
+      "element": "HYDRO",
+      "weapon": "Gun",
+      "race": "HUMAIN",
+      "positions": [
+        1,
+        2,
+        3
+      ],
+      "role": 2,
+      "atk": [
+        278,
+        230,
+        182,
+        134,
+        86,
+        36
+      ],
+      "defense": [
+        168,
+        138,
+        108,
+        "dodge",
+        50,
+        22
+      ],
+      "magic": [
+        3
+      ],
+      "barriers": [
+        6
+      ],
+      "art": "Solid_Snake_MGS2.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      },
+      "description": "La pluie fouette les passerelles de la Big Shell. Snake avance sans attendre les ordres d'une voix invisible. À Raiden, il voudrait laisser autre chose qu'une arme : le courage de choisir ce qui mérite de vivre."
+    },
+    {
+      "key": "solid-snake-mgs4",
+      "id": "46676157",
+      "characterId": "solid-snake-mgs",
+      "name": "SOLID SNAKE",
+      "title": "Encore quelques pas",
+      "job": "VÉTÉRAN",
+      "faction": "MGS4",
+      "collaboration": "MGS4",
+      "element": "GEO",
+      "weapon": "Gun",
+      "race": "HUMAIN",
+      "positions": [
+        1,
+        2,
+        3
+      ],
+      "role": 1,
+      "atk": [
+        200,
+        166,
+        132,
+        98,
+        "guard",
+        "buff_atk"
+      ],
+      "defense": [
+        284,
+        236,
+        188,
+        140,
+        92,
+        44
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "Solid_Snake_MGS4.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      },
+      "description": "Le corps de Snake vieillit plus vite que ses souvenirs. Dans les ruines, chaque pas lui coûte ; pourtant il relève son arme. Il ne cherche plus une victoire à célébrer, seulement un monde qui puisse lui survivre."
+    },
+    {
+      "key": "revolver-ocelot",
+      "id": "48312725",
+      "characterId": "revolver-ocelot-mgs",
+      "name": "REVOLVER OCELOT",
+      "title": "La dernière cartouche",
+      "job": "TIREUR",
+      "faction": "MGS1",
+      "collaboration": "MGS1",
+      "element": "ELECTRO",
+      "weapon": "Gun",
+      "race": "HUMAIN",
+      "positions": [
+        2
+      ],
+      "role": 2,
+      "atk": [
+        286,
+        236,
+        186,
+        138,
+        "retry",
+        38
+      ],
+      "defense": [
+        166,
+        138,
+        108,
+        78,
+        "retry",
+        22
+      ],
+      "magic": [
+        3
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "Revolver_Ocelot_MGS1.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      },
+      "description": "Le revolver d'Ocelot décrit un arc parfait avant de s'immobiliser. Il savoure l'instant suspendu entre deux coups de feu. Dans ce duel, chaque cartouche compte ; son sourire, lui, dissimule toujours une autre partie."
+    },
+    {
+      "key": "sniper-wolf",
+      "id": "47200643",
+      "characterId": "sniper-wolf-mgs",
+      "name": "SNIPER WOLF",
+      "title": "La patience dans le froid",
+      "job": "TIREUSE D'ÉLITE",
+      "faction": "MGS1",
+      "collaboration": "MGS1",
+      "element": "CRYO",
+      "weapon": "Gun",
+      "race": "HUMAIN",
+      "positions": [
+        4,
+        5
+      ],
+      "role": 4,
+      "atk": [
+        274,
+        228,
+        178,
+        130,
+        "buff_atk",
+        32
+      ],
+      "defense": [
+        160,
+        132,
+        102,
+        72,
+        "retry",
+        18
+      ],
+      "magic": [
+        4,
+        3
+      ],
+      "barriers": [
+        6
+      ],
+      "art": "Sniper_Wolf_MGS1.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      },
+      "description": "Le froid ne trouble pas la lunette de Wolf. À ses côtés, un loup veille tandis qu'elle attend le geste de trop. Sa douceur ne va plus aux hommes ; pourtant, derrière la visée, il reste une enfance qu'aucun tir n'efface."
+    },
+    {
+      "key": "vulcan-raven",
+      "id": "40651224",
+      "characterId": "vulcan-raven-mgs",
+      "name": "VULCAN RAVEN",
+      "title": "Le poids du présage",
+      "job": "CHAMAN",
+      "faction": "MGS1",
+      "collaboration": "MGS1",
+      "element": "CRYO",
+      "weapon": "Gun",
+      "race": "HUMAIN",
+      "positions": [
+        1
+      ],
+      "role": 1,
+      "atk": [
+        208,
+        170,
+        136,
+        102,
+        68,
+        30
+      ],
+      "defense": [
+        294,
+        244,
+        194,
+        144,
+        94,
+        44
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "art": "Vulcan_Raven_Boss_MGS1.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      },
+      "description": "Entre les caisses gelées, Raven porte son canon comme d'autres portent une promesse. Les ailes noires traversent la lumière. Il attend Snake sans trembler, certain que la force seule ne décide jamais de la fin."
+    },
+    {
+      "key": "ninja",
+      "id": "47702575",
+      "characterId": "gray-fox-mgs",
+      "name": "NINJA",
+      "title": "Un dernier reste d'humanité",
+      "job": "GUERRIER",
+      "faction": "MGS1",
+      "collaboration": "MGS1",
+      "element": "ELECTRO",
+      "weapon": "Katana",
+      "race": "CYBORG",
+      "positions": [
+        2,
+        3,
+        4
+      ],
+      "role": 2,
+      "atk": [
+        270,
+        224,
+        176,
+        128,
+        80,
+        34
+      ],
+      "defense": [
+        160,
+        132,
+        104,
+        "dodge",
+        48,
+        20
+      ],
+      "magic": [
+        5,
+        2
+      ],
+      "barriers": [
+        6
+      ],
+      "art": "Ninja_MGS1.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      },
+      "description": "Le couloir se tait après le passage de sa lame. Sous l'armure du Ninja, Gray Fox lutte contre une douleur qui lui rappelle qu'il existe encore. Il cherche Snake, non pour les ordres reçus, mais pour ce qui reste d'eux."
+    },
+    {
+      "key": "meryl",
+      "id": "45960834",
+      "characterId": "meryl-mgs",
+      "name": "MERYL",
+      "title": "Apprendre à ne pas fuir",
+      "job": "SOLDAT",
+      "faction": "MGS1",
+      "collaboration": "MGS1",
+      "element": "PYRO",
+      "weapon": "Gun",
+      "race": "HUMAIN",
+      "positions": [
+        2
+      ],
+      "role": 2,
+      "atk": [
+        270,
+        224,
+        178,
+        130,
+        "buff_atk",
+        34
+      ],
+      "defense": [
+        166,
+        136,
+        106,
+        76,
+        "retry",
+        20
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "Meryl_MGS1.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      },
+      "description": "Meryl serre son arme au détour d'un couloir. Elle connaît les gestes appris, pas encore le poids de chaque décision. Sa peur ne disparaît pas ; elle avance avec elle, décidée à ne laisser personne choisir sa vie."
+    },
+    {
+      "key": "liquid-snake",
+      "id": "41396996",
+      "characterId": "liquid-snake-mgs",
+      "name": "LIQUID SNAKE",
+      "title": "Le frère dans l'ombre",
+      "job": "COMMANDANT",
+      "faction": "MGS1",
+      "collaboration": "MGS1",
+      "element": "MINERO",
+      "weapon": "Poing",
+      "race": "HUMAIN",
+      "positions": [
+        1,
+        3
+      ],
+      "role": 3,
+      "atk": [
+        232,
+        192,
+        152,
+        112,
+        "buff_atk",
+        32
+      ],
+      "defense": [
+        224,
+        184,
+        146,
+        108,
+        "retry",
+        30
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "Liquid_Snake_MGS1.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      },
+      "description": "Devant REX, Liquid croise les bras comme s'il tenait déjà le monde. Mais c'est encore à son frère qu'il pense. Derrière le défi et la colère, il exige une place que ni les gènes ni les ordres ne pourront lui refuser."
+    },
+    {
+      "key": "psycho-mantis",
+      "id": "44001617",
+      "characterId": "psycho-mantis-mgs",
+      "name": "PSYCHO MANTIS",
+      "title": "Derrière vos pensées",
+      "job": "MÉDIUM",
+      "faction": "MGS1",
+      "collaboration": "MGS1",
+      "element": "NECRO",
+      "weapon": "Orbe",
+      "race": "HUMAIN",
+      "positions": [
+        4
+      ],
+      "role": 4,
+      "atk": [
+        284,
+        234,
+        184,
+        "mana",
+        84,
+        34
+      ],
+      "defense": [
+        158,
+        130,
+        100,
+        70,
+        "dodge",
+        18
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        2,
+        1
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "art": "Psycho_Mantis_MGS1.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      },
+      "description": "Les objets quittent le sol avant que Mantis ne fasse un geste. Derrière son masque, les pensées des autres ne lui laissent aucun repos. Il les retourne contre ceux qui entrent, comme on ferme enfin une porte."
+    },
+    {
+      "key": "malaba-mine",
+      "id": "47884687",
+      "characterId": "malaba",
+      "name": "MALABA",
+      "title": "À force de tenir",
+      "job": "MINEUR",
+      "faction": "Z13",
+      "element": "NONE",
+      "weapon": "Hache",
+      "race": "HUMAIN",
+      "positions": [
+        1
+      ],
+      "role": 1,
+      "atk": [
+        204,
+        170,
+        134,
+        100,
+        "guard",
+        "buff_atk"
+      ],
+      "defense": [
+        292,
+        242,
+        192,
+        142,
+        92,
+        42
+      ],
+      "magic": [],
+      "barriers": [],
+      "art": "Malaba.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": -0.2
+      },
+      "lineage": "30000022",
+      "description": "Dans les galeries de la Z13, Baba abat sa pioche et reprend son souffle. La poussière colle à ses épaules. Il connaît le poids de la roche ; celui des autres, il le porte aussi, sans jamais leur demander de merci."
+    },
+    {
+      "key": "voloden-mine",
+      "id": "43905149",
+      "characterId": "voloden",
+      "name": "VOLODEN",
+      "title": "Avant que tout bascule",
+      "job": "DIRIGEANT",
+      "faction": "Z13",
+      "element": "NECRO",
+      "weapon": "Faucille",
+      "race": "CARDEMORTIS",
+      "positions": [
+        3,
+        4
+      ],
+      "role": 4,
+      "atk": [
+        280,
+        232,
+        182,
+        "mana",
+        "retry",
+        34
+      ],
+      "defense": [
+        162,
+        134,
+        104,
+        74,
+        44,
+        18
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        1
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "art": "Voloden_Thinking.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0.65
+      },
+      "lineage": "30000028",
+      "description": "Derrière la vitre de son bureau, Voloden contemple la mine. Le fragment Electro reste introuvable, et les tatouages de Kaylis réveillent un ancien souvenir. Il réfléchit encore lorsque la lumière commence à vaciller."
+    },
+    {
+      "key": "momo-silence",
+      "id": "40243854",
+      "characterId": "momo",
+      "name": "MOMO",
+      "title": "Pour ceux qui restent",
+      "job": "MUSICIEN",
+      "faction": "Chroma",
+      "element": "ELECTRO",
+      "weapon": "Instrument",
+      "race": "ROBOT",
+      "positions": [
+        5
+      ],
+      "role": 5,
+      "atk": [
+        164,
+        134,
+        "mana",
+        "revive",
+        "retry",
+        22
+      ],
+      "defense": [
+        198,
+        164,
+        130,
+        96,
+        62,
+        28
+      ],
+      "magic": [
+        6,
+        5,
+        1
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "art": "Momo.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": -0.15
+      },
+      "lineage": "30000001",
+      "description": "Debout face aux robots abandonnés de Chroma, Momo garde sa flûte baissée. Ce soir, aucune mélodie ne vient. Il regarde les visages éteints et reste près d'eux, comme si partir voulait dire les oublier une seconde fois."
+    }
+  ]
+}
