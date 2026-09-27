@@ -1,7 +1,7 @@
 (() => {
   'use strict';
   // Presentation only: no random draws or writes to the combat state.
-  const views = new Map(), images = new Map(), silhouettes = new WeakMap(), pending = new Set(), markerTimers = new Set();
+  const views = new Map(), images = new Map(), silhouettes = new WeakMap(), pending = new Set(), activeResults = new Map();
   const motion = matchMedia('(prefers-reduced-motion:reduce)');
   const rows = [774, 676, 577, 475, 371, 147], TAU = Math.PI * 2, SET_DURATION = 520;
   let generation = 0, idleFrame = 0, lastPaint = 0;
@@ -44,19 +44,65 @@
     const r = node.getBoundingClientRect();
     return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
   }
+  function resultKey(host) {
+    return `${host.dataset.player}:${host.dataset.slot}:${host.dataset.role || 'ATK'}`;
+  }
   function mark(v, face) {
     const c = card(v);
     if (!c) return;
     let n = c.querySelector('.ritual-result');
     if (!n) { n = document.createElement('span'); n.className = 'ritual-result'; n.setAttribute('aria-hidden', 'true'); c.append(n); }
+    if (n.classList.contains('settled')) {
+      n.classList.remove('settled');
+      n.querySelectorAll('.ritual-spark').forEach(spark => spark.remove());
+    }
     const p = position(v, face);
     n.style.left = p.x * 100 + '%'; n.style.top = p.y * 100 + '%';
     n.style.setProperty('--ritual-tint', v.color); n.dataset.face = face; n.dataset.role = v.host.dataset.role || 'ATK';
+    n.dataset.resultKey = resultKey(v.host);
     return n;
   }
-  function retireMarker(node, reduced) {
-    const timer = setTimeout(() => { node.remove(); markerTimers.delete(timer); }, reduced ? 850 : 1250);
-    markerTimers.add(timer);
+  function removeResult(record) {
+    if (record.timer) clearTimeout(record.timer);
+    if (activeResults.get(record.key) === record) activeResults.delete(record.key);
+    document.querySelectorAll('.ritual-result').forEach(node => {
+      if (node.dataset.resultKey === record.key) node.remove();
+    });
+  }
+  function clearResult(key) {
+    const record = activeResults.get(key);
+    if (record) removeResult(record);
+    else document.querySelectorAll(`.ritual-result[data-result-key="${key}"]`).forEach(node => node.remove());
+  }
+  function showImpact(node, record, elapsed = 0) {
+    node.classList.remove('settled');
+    node.querySelectorAll('.ritual-spark').forEach(spark => spark.remove());
+    node.dataset.face = record.face; node.dataset.role = record.role; node.dataset.resultKey = record.key;
+    node.style.setProperty('--ritual-tint', record.color);
+    node.style.setProperty('--impact-delay', `-${Math.max(0, elapsed)}ms`);
+    if (!record.reduced) {
+      const spread = Math.min(24, Math.max(7, node.getBoundingClientRect().width * .82));
+      for (let i = 0; i < 8; i++) {
+        const spark = document.createElement('i');
+        spark.className = 'ritual-spark';
+        spark.style.setProperty('--spark-angle', `${i * 45}deg`);
+        spark.style.setProperty('--spark-travel', `${-(spread * (i % 2 ? 1 : .78))}px`);
+        spark.style.setProperty('--spark-delay', `${i % 4 * 12}ms`);
+        node.append(spark);
+      }
+    }
+    void node.offsetWidth;
+    node.classList.add('settled');
+  }
+  function impactMarker(node, reduced) {
+    const record = {
+      key: node.dataset.resultKey, face: node.dataset.face, role: node.dataset.role,
+      color: getComputedStyle(node).getPropertyValue('--ritual-tint').trim(),
+      reduced, startedAt: performance.now(), duration: reduced ? 820 : 920, timer: 0
+    };
+    activeResults.set(record.key, record);
+    showImpact(node, record);
+    record.timer = setTimeout(() => removeResult(record), record.duration);
   }
   function gemPath(ctx) {
     ctx.beginPath(); ctx.moveTo(0, -57); ctx.lineTo(29, -15); ctx.lineTo(0, 50); ctx.lineTo(-29, -15); ctx.closePath();
@@ -292,17 +338,19 @@
       });
     } finally { n.remove(); }
   }
-  function cancel() {
+  function cancel(preserveResults = false) {
     generation++; stopWaiting();
     for (const stop of [...pending]) stop();
-    for (const timer of markerTimers) clearTimeout(timer);
-    markerTimers.clear();
+    if (!preserveResults) {
+      for (const record of activeResults.values()) clearTimeout(record.timer);
+      activeResults.clear();
+    }
     document.querySelectorAll('.ritual-result').forEach(node => node.remove());
     views.clear();
   }
   function mount(hosts) {
     const previous = new Map([...views].map(([side, v]) => [side, { crystal: v.host.dataset.crystal, started: v.started, setAt: v.setAt }]));
-    cancel();
+    cancel(true);
     const phase = document.querySelector('.duel-console')?.dataset.phase;
     for (const host of hosts) {
       const canvas = document.createElement('canvas'), ratio = Math.min(2, window.devicePixelRatio || 1);
@@ -326,12 +374,22 @@
       for (const image of [v.image, v.weapon]) if (image && !image.complete) image.addEventListener('load', () => {
         if (views.get(Number(host.dataset.player)) === v && !host.classList.contains('is-awakening')) drawWaiting(v);
       }, { once: true });
+      const result = activeResults.get(resultKey(host));
+      if (result) {
+        const elapsed = performance.now() - result.startedAt;
+        if (elapsed >= result.duration) removeResult(result);
+        else {
+          const marker = mark(v, result.face);
+          if (marker) showImpact(marker, result, elapsed);
+        }
+      }
     }
     syncIdle();
   }
   async function play(side, value, reduced, signal) {
     const v = views.get(side);
     if (!v || signal?.aborted) return false;
+    clearResult(resultKey(v.host));
     // Only this participant releases its energy; the other keeps waiting.
     v.revealing = true;
     v.spent = false; v.host.dataset.spent = 'false';
@@ -358,12 +416,7 @@
       if (!alive()) return false;
       v.waiting = false; v.spent = true; v.host.dataset.spent = 'true'; v.host.classList.remove('is-engaging');
       const marker = mark(v, value);
-      if (marker) {
-        marker.classList.remove('settled');
-        void marker.offsetWidth;
-        marker.classList.add('settled');
-        retireMarker(marker, reduced || motion.matches);
-      }
+      if (marker) impactMarker(marker, reduced || motion.matches);
       v.host.dataset.front = String(value);
       v.host.setAttribute('aria-label', `${v.host.dataset.role} \u00b7 r\u00e9sultat ${value}`); draw(v);
       return true;

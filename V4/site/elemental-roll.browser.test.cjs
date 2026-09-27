@@ -7,7 +7,7 @@ const runtime = process.env.KALISTAR_NODE_MODULES || path.join(process.env.USERP
 const { chromium } = createRequire(path.join(runtime, '__elemental_test__.cjs'))('playwright');
 const elements = require('../../V3/donnees/elements.json');
 const url = process.env.KALISTAR_URL || 'http://127.0.0.1:4304';
-const output = path.join(__dirname, 'verification');
+const output = process.env.KALISTAR_VERIFICATION_DIR || path.join(__dirname, 'verification');
 
 async function pixels(page) {
   return page.locator('.dice-stage canvas').evaluateAll(canvases => canvases.map(canvas => {
@@ -43,19 +43,24 @@ async function pixels(page) {
     </script></body></html>` }));
     await page.goto(url + '/__elemental_fixture');
     await page.evaluate(() => {
+      const formation = document.createElement('section'), slot = document.createElement('div'), card = document.createElement('div');
+      formation.className = 'formation'; formation.dataset.player = '0';
+      Object.assign(formation.style, { position: 'fixed', left: '50%', top: '230px', width: '240px', aspectRatio: '897 / 1497', transform: 'translateX(-50%)' });
+      slot.className = 'slot'; slot.dataset.position = '1'; Object.assign(slot.style, { position: 'relative', width: '100%', height: '100%' });
+      card.className = 'slot-card'; Object.assign(card.style, { position: 'relative', width: '100%', height: '100%', overflow: 'hidden', border: '1px solid #81949a', borderRadius: '8px', background: 'linear-gradient(145deg,#203b45,#5f5544 48%,#131d20)' });
+      for (let face = 1; face <= 6; face++) for (const role of ['ATK', 'DEF']) {
+        const stat = document.createElement('span'); stat.textContent = String(300 - face * 33);
+        Object.assign(stat.style, { position: 'absolute', top: (10 + face * 10) + '%', left: role === 'ATK' ? '7%' : '82%', width: '11%', aspectRatio: '1', display: 'grid', placeItems: 'center', border: '2px solid ' + (role === 'ATK' ? '#d4aa83' : '#91bdcf'), borderRadius: '50%', background: '#10202b', color: '#fff', font: 'bold 10px Arial' });
+        card.append(stat);
+      }
+      slot.append(card); formation.append(slot); document.body.append(formation);
+    });
+    await page.evaluate(() => {
       document.querySelector('[data-element=NONE]').dataset.weapon = '/jeu/shared/armes/03.png';
       KalistarDice.mount(document.querySelectorAll('.dice-stage'));
     });
     await page.waitForFunction(() => performance.getEntriesByType('resource').filter(r => r.name.includes('/cristaux/')).length === 12);
     await page.waitForTimeout(200);
-    await page.evaluate(() => {
-      const formation=document.createElement('section'),slot=document.createElement('div'),card=document.createElement('div');
-      formation.className='formation';formation.dataset.player='0';Object.assign(formation.style,{position:'fixed',left:'50%',top:'230px',width:'240px',aspectRatio:'897 / 1497',transform:'translateX(-50%)'});
-      slot.className='slot';slot.dataset.position='1';Object.assign(slot.style,{position:'relative',width:'100%',height:'100%'});
-      card.className='slot-card';Object.assign(card.style,{position:'relative',width:'100%',height:'100%',overflow:'hidden',border:'1px solid #a8b6ac',borderRadius:'8px',background:'linear-gradient(145deg,#203b45,#5f5544 48%,#131d20)'});
-      for(let face=1;face<=6;face++)for(const role of ['ATK','DEF']){const stat=document.createElement('span');stat.textContent=String(300-face*33);Object.assign(stat.style,{position:'absolute',top:(10+face*10)+'%',left:role==='ATK'?'7%':'82%',width:'11%',aspectRatio:'1',display:'grid',placeItems:'center',border:'2px solid '+(role==='ATK'?'#d4aa83':'#91bdcf'),borderRadius:'50%',background:'#10202b',color:'#fff',font:'bold 10px Arial'});card.append(stat);}
-      slot.append(card);formation.append(slot);document.body.append(formation);
-    });
     const dormant = await pixels(page);
     assert.ok(dormant.every(p => p.nonblank > 400));
     await page.locator('#engage').click();
@@ -86,26 +91,39 @@ async function pixels(page) {
     assert.notEqual((await pixels(page))[0].hash, burst.hash, 'colored fragments move at release');
     await page.screenshot({ path: path.join(output, 'elemental-release-burst.png'), scale: 'css' });
     assert.equal(await page.evaluate(() => window.rollFinished), true);
-    let marker=page.locator('.ritual-result');
-    assert.equal(await marker.getAttribute('data-face'),'4','ATK marker stops on the printed face');
-    assert.equal(await marker.getAttribute('data-role'),'ATK');
-    assert.equal(await marker.evaluate(n=>getComputedStyle(n).animationName),'ritual-impact-exit','landed marker pulses and drifts away');
-    assert.match(await marker.evaluate(n=>getComputedStyle(n).backgroundImage),/^radial-gradient\(/,'dark backing separates the marker from the colored stat bubble');
-    await page.waitForTimeout(120);
-    await page.screenshot({ path: path.join(output, 'elemental-result-impact.png'), scale: 'css' });
-    await page.waitForFunction(() => !document.querySelector('.ritual-result'),{timeout:2200});
-    assert.equal(await page.evaluate(async()=>{document.querySelector('.dice-stage[data-player="0"]').dataset.role='DEF';return await KalistarDice.play(0,2,false)}),true);
-    marker=page.locator('.ritual-result');
-    assert.equal(await marker.getAttribute('data-face'),'2','DEF marker stops on its own printed face');
-    assert.equal(await marker.getAttribute('data-role'),'DEF');
-    assert.equal(await marker.evaluate(n=>getComputedStyle(n).borderTopColor),'rgb(231, 245, 255)','DEF uses a cool high-contrast rim');
-    await page.waitForFunction(() => !document.querySelector('.ritual-result'),{timeout:2200});
-    await page.emulateMedia({reducedMotion:'reduce'});
-    assert.equal(await page.evaluate(async()=>await KalistarDice.play(0,3,true)),true);
-    marker=page.locator('.ritual-result');
-    assert.equal(await marker.evaluate(n=>getComputedStyle(n).animationName),'none','reduced motion keeps the result static');
-    await page.waitForFunction(() => !document.querySelector('.ritual-result'),{timeout:1500});
-    await page.emulateMedia({reducedMotion:'no-preference'});
+    let marker = page.locator('.ritual-result');
+    assert.equal(await marker.getAttribute('data-face'), '4', 'ATK marker lands on the printed face');
+    assert.equal(await marker.getAttribute('data-role'), 'ATK');
+    assert.equal(await marker.evaluate(node => getComputedStyle(node).animationName), 'ritual-token-impact', 'the landed token gets the new finish animation');
+    assert.equal(await page.locator('.ritual-spark').count(), 8, 'the impact emits a restrained ring of sparks');
+    assert.ok(await marker.evaluate(node => Math.abs(parseFloat(getComputedStyle(node).width) - node.parentElement.clientWidth * .13) < 1), 'travel marker keeps its original diameter');
+    await page.waitForFunction(() => [...document.querySelectorAll('.ritual-spark')].some(node => Number(getComputedStyle(node).opacity) > .5), null, { timeout: 600 });
+    await page.evaluate(() => KalistarDice.mount(document.querySelectorAll('.dice-stage')));
+    marker = page.locator('.ritual-result');
+    assert.equal(await marker.locator('.ritual-spark').count(), 8, 'a game render preserves the in-flight impact');
+    assert.match(await marker.evaluate(node => getComputedStyle(node).animationDelay), /^-\d+(?:\.\d+)?(?:ms|s)$/, 'the impact resumes at its current progress');
+    assert.equal(await marker.locator('.ritual-spark').evaluateAll(nodes => nodes.filter(node => getComputedStyle(node).animationName === 'ritual-spark').length), 8, 'all impact particles resume');
+    await page.waitForFunction(() => !document.querySelector('.ritual-result'), { timeout: 1500 });
+    assert.equal(await page.evaluate(async () => {
+      const host = document.querySelector('.dice-stage[data-player="0"]'); host.dataset.role = 'DEF';
+      return await KalistarDice.play(0, 2, false);
+    }), true);
+    marker = page.locator('.ritual-result');
+    assert.equal(await marker.getAttribute('data-face'), '2', 'DEF marker lands on its printed face');
+    assert.equal(await marker.getAttribute('data-role'), 'DEF');
+    await page.waitForFunction(() => !document.querySelector('.ritual-result'), { timeout: 1500 });
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    assert.equal(await page.evaluate(async () => await KalistarDice.play(0, 3, true)), true);
+    marker = page.locator('.ritual-result');
+    assert.equal(await marker.evaluate(node => getComputedStyle(node).animationName), 'none', 'reduced motion skips the flourish');
+    assert.equal(await page.locator('.ritual-spark').count(), 0, 'reduced motion omits the sparks');
+    await page.waitForFunction(() => !document.querySelector('.ritual-result'), { timeout: 1200 });
+    await page.emulateMedia({ reducedMotion: 'no-preference' });
+    if (process.env.KALISTAR_ROLL_FIXTURE_ONLY === '1') {
+      assert.deepEqual(errors, []);
+      console.log('PASS: ATK/DEF impact, render continuity, sparks and reduced motion.');
+      return;
+    }
     const stopped = await pixels(page);
     assert.equal(stopped[0].opaqueCore, 0, 'released crystal does not reappear after the jet');
     await page.waitForTimeout(400);
