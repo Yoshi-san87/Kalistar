@@ -200,6 +200,17 @@ dans `revisions/2026-09-25-kaylis-training/`.
   correctif du petit trait blanc restent proteges. Les dimensions finales et
   l'etat de publication doivent etre lus dans les preuves de cette revision.
 
+Affinage utilisateur du meme jour : les fanions MGS abandonnent les grands
+chiffres isoles pour un portrait de Snake et un petit logo correspondant.
+MGS1 blanc et rouge discret, MGS2 blanc et bleu ciel, MGS4 blanc et noir/gris.
+La silhouette du fanion et son ourlet cuivre restent identiques. Sources
+actuelles dans `revisions/2026-09-27-mgs-banner-refinement/art-flags/` et
+exports du site dans `site/assets/factions/`. Les premiers essais du lot MGS
+sont historiques et ne doivent pas remplacer ces nouveaux fanions.
+Liquid Snake est legerement recentre ; Kaylis, L'elan des couleurs, est
+legerement decalee pour montrer davantage de lame. Ces deux cadrages utilisent
+les illustrations fournies intactes, sans regeneration des personnages.
+
 - Comparer au Momo/Valazar de reference et a une carte approuvee du meme element.
 - Verifier anatomie, emotion, contacts des mains, proportions, perspective et
   accessoires. Aucun motif important cache par les colonnes.

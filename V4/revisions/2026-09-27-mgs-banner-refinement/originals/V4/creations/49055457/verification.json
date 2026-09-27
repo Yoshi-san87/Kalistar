@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "modelId": "49055457",
+  "referenceId": "ef7a6767b57723d896ceecb050079bfb1abad0e79e7289a200f87b34585f9380",
+  "profileHash": "02a9bbff10bc5ea38b1a8bda4cabec02f7d21283387ac13d04633f2b5f9735c3",
+  "hashes": {
+    "card.png": "b051c8423198b24f8e8cf6e88e031131beb2747162e913ebb803481646531a55",
+    "card.psd": "1d9479eea51a52399782a9672ac094d3c40aea7b424964c420215cba70bbf04a"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 115318
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49055457",
+    "cases": {
+      "color-1": [
+        "49055457"
+      ],
+      "color-4": [
+        "49055457"
+      ],
+      "gray-1": [
+        "49055457"
+      ],
+      "gray-4": [
+        "49055457"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-27T13:25:20.492Z",
+  "revision": "2026-09-27-artwork-refresh",
+  "scope": {
+    "originalPixels": {
+      "changed": 0,
+      "outside": 0
+    },
+    "withoutArt": {
+      "changed": 0,
+      "outside": 0
+    },
+    "outside": {
+      "changed": 445556,
+      "outside": 0
+    },
+    "nativeTextUnchanged": true,
+    "nativeStyleRunsUnchanged": true,
+    "geometryUnchanged": true,
+    "embeddedObjects": true,
+    "changedProfileFields": []
+  }
+}
