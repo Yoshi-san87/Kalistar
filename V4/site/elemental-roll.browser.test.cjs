@@ -31,6 +31,8 @@ async function pixels(page) {
     const page = await context.newPage(), errors = [];
     page.on('dialog', dialog => dialog.accept());
     page.on('pageerror', e => errors.push(e.message));
+    await page.route(url + '/jeu/elemental-roll.js', route => route.fulfill({ contentType: 'text/javascript', body: fs.readFileSync(path.join(__dirname, 'elemental-roll.js'), 'utf8') }));
+    await page.route(url + '/jeu/elemental-roll.css', route => route.fulfill({ contentType: 'text/css', body: fs.readFileSync(path.join(__dirname, 'elemental-roll.css'), 'utf8') }));
     await page.route(url + '/__elemental_fixture', route => route.fulfill({ contentType: 'text/html', body: `<!doctype html><html><head><link rel="stylesheet" href="/jeu/elemental-roll.css"><style>body{margin:24px;background:#111b19;color:#e9e3cc;font:14px Georgia}main{display:grid;grid-template-columns:repeat(7,160px);gap:20px}.dice-stage{width:160px;height:160px}h2{font:14px Georgia;text-align:center}button{font:inherit;padding:10px;margin-bottom:20px}</style></head><body><button id="engage">Engage</button><button id="roll">Roll</button><main class="duel-console" data-phase="choose">${Object.entries(elements).map(([element, info], i) => `<section><h2>${info.label}</h2><div class="dice-stage" data-player="${i}" data-selected="true" data-element="${element}" data-color="#${info.color}" data-crystal="${element === 'NONE' ? '' : '/jeu/shared/cristaux/' + element + '.png'}" data-role="ATK" data-slot="1"></div></section>`).join('')}</main><script src="/jeu/elemental-roll.js"></script><script>
       const clear = CanvasRenderingContext2D.prototype.clearRect;
       CanvasRenderingContext2D.prototype.clearRect = function(...args) { this.canvas.testPaints=(this.canvas.testPaints||0)+1;return clear.apply(this,args); };
@@ -46,6 +48,14 @@ async function pixels(page) {
     });
     await page.waitForFunction(() => performance.getEntriesByType('resource').filter(r => r.name.includes('/cristaux/')).length === 12);
     await page.waitForTimeout(200);
+    await page.evaluate(() => {
+      const formation=document.createElement('section'),slot=document.createElement('div'),card=document.createElement('div');
+      formation.className='formation';formation.dataset.player='0';Object.assign(formation.style,{position:'fixed',left:'50%',top:'230px',width:'240px',aspectRatio:'897 / 1497',transform:'translateX(-50%)'});
+      slot.className='slot';slot.dataset.position='1';Object.assign(slot.style,{position:'relative',width:'100%',height:'100%'});
+      card.className='slot-card';Object.assign(card.style,{position:'relative',width:'100%',height:'100%',overflow:'hidden',border:'1px solid #a8b6ac',borderRadius:'8px',background:'linear-gradient(145deg,#203b45,#5f5544 48%,#131d20)'});
+      for(let face=1;face<=6;face++)for(const role of ['ATK','DEF']){const stat=document.createElement('span');stat.textContent=String(300-face*33);Object.assign(stat.style,{position:'absolute',top:(10+face*10)+'%',left:role==='ATK'?'7%':'82%',width:'11%',aspectRatio:'1',display:'grid',placeItems:'center',border:'2px solid '+(role==='ATK'?'#d4aa83':'#91bdcf'),borderRadius:'50%',background:'#10202b',color:'#fff',font:'bold 10px Arial'});card.append(stat);}
+      slot.append(card);formation.append(slot);document.body.append(formation);
+    });
     const dormant = await pixels(page);
     assert.ok(dormant.every(p => p.nonblank > 400));
     await page.locator('#engage').click();
@@ -76,6 +86,26 @@ async function pixels(page) {
     assert.notEqual((await pixels(page))[0].hash, burst.hash, 'colored fragments move at release');
     await page.screenshot({ path: path.join(output, 'elemental-release-burst.png'), scale: 'css' });
     assert.equal(await page.evaluate(() => window.rollFinished), true);
+    let marker=page.locator('.ritual-result');
+    assert.equal(await marker.getAttribute('data-face'),'4','ATK marker stops on the printed face');
+    assert.equal(await marker.getAttribute('data-role'),'ATK');
+    assert.equal(await marker.evaluate(n=>getComputedStyle(n).animationName),'ritual-impact-exit','landed marker pulses and drifts away');
+    assert.match(await marker.evaluate(n=>getComputedStyle(n).backgroundImage),/^radial-gradient\(/,'dark backing separates the marker from the colored stat bubble');
+    await page.waitForTimeout(120);
+    await page.screenshot({ path: path.join(output, 'elemental-result-impact.png'), scale: 'css' });
+    await page.waitForFunction(() => !document.querySelector('.ritual-result'),{timeout:2200});
+    assert.equal(await page.evaluate(async()=>{document.querySelector('.dice-stage[data-player="0"]').dataset.role='DEF';return await KalistarDice.play(0,2,false)}),true);
+    marker=page.locator('.ritual-result');
+    assert.equal(await marker.getAttribute('data-face'),'2','DEF marker stops on its own printed face');
+    assert.equal(await marker.getAttribute('data-role'),'DEF');
+    assert.equal(await marker.evaluate(n=>getComputedStyle(n).borderTopColor),'rgb(231, 245, 255)','DEF uses a cool high-contrast rim');
+    await page.waitForFunction(() => !document.querySelector('.ritual-result'),{timeout:2200});
+    await page.emulateMedia({reducedMotion:'reduce'});
+    assert.equal(await page.evaluate(async()=>await KalistarDice.play(0,3,true)),true);
+    marker=page.locator('.ritual-result');
+    assert.equal(await marker.evaluate(n=>getComputedStyle(n).animationName),'none','reduced motion keeps the result static');
+    await page.waitForFunction(() => !document.querySelector('.ritual-result'),{timeout:1500});
+    await page.emulateMedia({reducedMotion:'no-preference'});
     const stopped = await pixels(page);
     assert.equal(stopped[0].opaqueCore, 0, 'released crystal does not reappear after the jet');
     await page.waitForTimeout(400);

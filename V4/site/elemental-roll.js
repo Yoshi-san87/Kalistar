@@ -1,7 +1,7 @@
 (() => {
   'use strict';
   // Presentation only: no random draws or writes to the combat state.
-  const views = new Map(), images = new Map(), silhouettes = new WeakMap(), pending = new Set();
+  const views = new Map(), images = new Map(), silhouettes = new WeakMap(), pending = new Set(), markerTimers = new Set();
   const motion = matchMedia('(prefers-reduced-motion:reduce)');
   const rows = [774, 676, 577, 475, 371, 147], TAU = Math.PI * 2, SET_DURATION = 520;
   let generation = 0, idleFrame = 0, lastPaint = 0;
@@ -51,8 +51,12 @@
     if (!n) { n = document.createElement('span'); n.className = 'ritual-result'; n.setAttribute('aria-hidden', 'true'); c.append(n); }
     const p = position(v, face);
     n.style.left = p.x * 100 + '%'; n.style.top = p.y * 100 + '%';
-    n.style.setProperty('--ritual-tint', v.color); n.dataset.face = face;
+    n.style.setProperty('--ritual-tint', v.color); n.dataset.face = face; n.dataset.role = v.host.dataset.role || 'ATK';
     return n;
+  }
+  function retireMarker(node, reduced) {
+    const timer = setTimeout(() => { node.remove(); markerTimers.delete(timer); }, reduced ? 850 : 1250);
+    markerTimers.add(timer);
   }
   function gemPath(ctx) {
     ctx.beginPath(); ctx.moveTo(0, -57); ctx.lineTo(29, -15); ctx.lineTo(0, 50); ctx.lineTo(-29, -15); ctx.closePath();
@@ -291,6 +295,9 @@
   function cancel() {
     generation++; stopWaiting();
     for (const stop of [...pending]) stop();
+    for (const timer of markerTimers) clearTimeout(timer);
+    markerTimers.clear();
+    document.querySelectorAll('.ritual-result').forEach(node => node.remove());
     views.clear();
   }
   function mount(hosts) {
@@ -319,7 +326,6 @@
       for (const image of [v.image, v.weapon]) if (image && !image.complete) image.addEventListener('load', () => {
         if (views.get(Number(host.dataset.player)) === v && !host.classList.contains('is-awakening')) drawWaiting(v);
       }, { once: true });
-      const value = Number(host.dataset.result); if (value) mark(v, value);
     }
     syncIdle();
   }
@@ -351,7 +357,14 @@
       }
       if (!alive()) return false;
       v.waiting = false; v.spent = true; v.host.dataset.spent = 'true'; v.host.classList.remove('is-engaging');
-      mark(v, value)?.classList.add('settled'); v.host.dataset.front = String(value);
+      const marker = mark(v, value);
+      if (marker) {
+        marker.classList.remove('settled');
+        void marker.offsetWidth;
+        marker.classList.add('settled');
+        retireMarker(marker, reduced || motion.matches);
+      }
+      v.host.dataset.front = String(value);
       v.host.setAttribute('aria-label', `${v.host.dataset.role} \u00b7 r\u00e9sultat ${value}`); draw(v);
       return true;
     } finally {
