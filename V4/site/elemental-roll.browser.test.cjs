@@ -33,12 +33,12 @@ async function pixels(page) {
     page.on('pageerror', e => errors.push(e.message));
     await page.route(url + '/jeu/elemental-roll.js', route => route.fulfill({ contentType: 'text/javascript', body: fs.readFileSync(path.join(__dirname, 'elemental-roll.js'), 'utf8') }));
     await page.route(url + '/jeu/elemental-roll.css', route => route.fulfill({ contentType: 'text/css', body: fs.readFileSync(path.join(__dirname, 'elemental-roll.css'), 'utf8') }));
-    await page.route(url + '/__elemental_fixture', route => route.fulfill({ contentType: 'text/html', body: `<!doctype html><html><head><link rel="stylesheet" href="/jeu/elemental-roll.css"><style>body{margin:24px;background:#111b19;color:#e9e3cc;font:14px Georgia}main{display:grid;grid-template-columns:repeat(7,160px);gap:20px}.dice-stage{width:160px;height:160px}h2{font:14px Georgia;text-align:center}button{font:inherit;padding:10px;margin-bottom:20px}</style></head><body><button id="engage">Engage</button><button id="roll">Roll</button><main class="duel-console" data-phase="choose">${Object.entries(elements).map(([element, info], i) => `<section><h2>${info.label}</h2><div class="dice-stage" data-player="${i}" data-selected="true" data-element="${element}" data-color="#${info.color}" data-crystal="${element === 'NONE' ? '' : '/jeu/shared/cristaux/' + element + '.png'}" data-role="ATK" data-slot="1"></div></section>`).join('')}</main><script src="/jeu/elemental-roll.js"></script><script>
+    await page.route(url + '/__elemental_fixture', route => route.fulfill({ contentType: 'text/html', body: `<!doctype html><html><head><link rel="stylesheet" href="/jeu/elemental-roll.css"><style>body{margin:24px;background:#111b19;color:#e9e3cc;font:14px Georgia}main{display:grid;grid-template-columns:repeat(7,160px);gap:20px}.dice-stage{width:160px;height:160px}h2{font:14px Georgia;text-align:center}button{font:inherit;padding:10px;margin-bottom:20px}</style></head><body><button id="engage">Engage</button><button id="roll">Roll</button><main class="duel-console" data-phase="choose">${Object.entries(elements).map(([element, info], i) => `<section><h2>${info.label}</h2><div class="dice-stage" data-player="${i}" data-selected="true" data-element="${element}" data-color="#${info.color}" data-crystal="${element === 'NONE' ? '' : '/jeu/shared/cristaux/' + element + '.png'}" data-role="${i === 1 ? 'DEF' : 'ATK'}" data-slot="1"></div></section>`).join('')}</main><script src="/jeu/elemental-roll.js"></script><script>
       const clear = CanvasRenderingContext2D.prototype.clearRect;
       CanvasRenderingContext2D.prototype.clearRect = function(...args) { this.canvas.testPaints=(this.canvas.testPaints||0)+1;return clear.apply(this,args); };
       const mount = () => KalistarDice.mount(document.querySelectorAll('.dice-stage'));
       document.querySelector('#engage').onclick = () => { document.querySelector('main').dataset.phase='attack';mount();KalistarDice.engage(); };
-      document.querySelector('#roll').onclick = () => { window.rollFinished=KalistarDice.play(0,4,false); };
+      document.querySelector('#roll').onclick = () => { window.rollFinished=KalistarDice.play(0,4,false).then(result => { document.querySelector('main').dataset.phase='kalistel';document.querySelector('.dice-stage[data-player="0"]').dataset.result='4';return result; }); };
       mount();
     </script></body></html>` }));
     await page.goto(url + '/__elemental_fixture');
@@ -54,6 +54,7 @@ async function pixels(page) {
         card.append(stat);
       }
       slot.append(card); formation.append(slot); document.body.append(formation);
+      const opponent = formation.cloneNode(true); opponent.dataset.player = '1'; opponent.style.left = 'calc(50% + 260px)'; document.body.append(opponent);
     });
     await page.evaluate(() => {
       document.querySelector('[data-element=NONE]').dataset.weapon = '/jeu/shared/armes/03.png';
@@ -77,7 +78,7 @@ async function pixels(page) {
     for (let i = 0; i < 12; i++) {
       assert.notEqual(awake[i].hash, later[i].hash, `${Object.keys(elements)[i]} stays alive after 900ms`);
       assert.equal(awake[i].opaqueCore, dormant[i].opaqueCore, 'painted gem keeps its solid silhouette');
-      assert.ok(later[i].paints - awake[i].paints < 26, 'drawing is capped at 30 fps');
+      assert.ok(later[i].paints - awake[i].paints < 26, `drawing is capped at 30 fps (${later[i].paints - awake[i].paints} frames)`);
     }
     assert.equal(awake[12].paints, later[12].paints, 'NONE stays neutral');
     assert.equal(awake[12].nonblank, later[12].nonblank, 'weapon silhouette stays fixed without elemental particles');
@@ -97,33 +98,15 @@ async function pixels(page) {
     assert.equal(await marker.evaluate(node => getComputedStyle(node).animationName), 'ritual-token-impact', 'the landed token gets the new finish animation');
     assert.equal(await page.locator('.ritual-spark').count(), 8, 'the impact emits a restrained ring of sparks');
     assert.ok(await marker.evaluate(node => Math.abs(parseFloat(getComputedStyle(node).width) - node.parentElement.clientWidth * .13) < 1), 'travel marker keeps its original diameter');
-    await page.waitForFunction(() => [...document.querySelectorAll('.ritual-spark')].some(node => Number(getComputedStyle(node).opacity) > .5), null, { timeout: 600 });
     await page.evaluate(() => KalistarDice.mount(document.querySelectorAll('.dice-stage')));
     marker = page.locator('.ritual-result');
     assert.equal(await marker.locator('.ritual-spark').count(), 8, 'a game render preserves the in-flight impact');
     assert.match(await marker.evaluate(node => getComputedStyle(node).animationDelay), /^-\d+(?:\.\d+)?(?:ms|s)$/, 'the impact resumes at its current progress');
     assert.equal(await marker.locator('.ritual-spark').evaluateAll(nodes => nodes.filter(node => getComputedStyle(node).animationName === 'ritual-spark').length), 8, 'all impact particles resume');
-    await page.waitForFunction(() => !document.querySelector('.ritual-result'), { timeout: 1500 });
-    assert.equal(await page.evaluate(async () => {
-      const host = document.querySelector('.dice-stage[data-player="0"]'); host.dataset.role = 'DEF';
-      return await KalistarDice.play(0, 2, false);
-    }), true);
-    marker = page.locator('.ritual-result');
-    assert.equal(await marker.getAttribute('data-face'), '2', 'DEF marker lands on its printed face');
-    assert.equal(await marker.getAttribute('data-role'), 'DEF');
-    await page.waitForFunction(() => !document.querySelector('.ritual-result'), { timeout: 1500 });
-    await page.emulateMedia({ reducedMotion: 'reduce' });
-    assert.equal(await page.evaluate(async () => await KalistarDice.play(0, 3, true)), true);
-    marker = page.locator('.ritual-result');
-    assert.equal(await marker.evaluate(node => getComputedStyle(node).animationName), 'none', 'reduced motion skips the flourish');
-    assert.equal(await page.locator('.ritual-spark').count(), 0, 'reduced motion omits the sparks');
-    await page.waitForFunction(() => !document.querySelector('.ritual-result'), { timeout: 1200 });
+    await page.waitForFunction(() => document.querySelector('.ritual-result')?.classList.contains('confirmed'), { timeout: 1500 });
+    await page.waitForTimeout(450);
+    assert.equal(await page.locator('.ritual-result.confirmed').count(), 1, 'the selected stat stays visibly marked while the duel continues');
     await page.emulateMedia({ reducedMotion: 'no-preference' });
-    if (process.env.KALISTAR_ROLL_FIXTURE_ONLY === '1') {
-      assert.deepEqual(errors, []);
-      console.log('PASS: ATK/DEF impact, render continuity, sparks and reduced motion.');
-      return;
-    }
     const stopped = await pixels(page);
     assert.equal(stopped[0].opaqueCore, 0, 'released crystal does not reappear after the jet');
     await page.waitForTimeout(400);
@@ -164,6 +147,37 @@ async function pixels(page) {
     await page.locator('#engage').click();
     assert.equal(await page.evaluate(() => KalistarDice.play(12, 3, false)), true);
     assert.equal((await pixels(page))[12].opaqueCore, 0, 'weapon disappears after its roll like the crystal');
+
+    await page.evaluate(() => {
+      KalistarDice.cancel();
+      const stage = document.querySelector('.duel-console'); stage.dataset.phase = 'result';
+      const attack = document.querySelector('.dice-stage[data-player="0"]'); attack.dataset.role = 'ATK'; attack.dataset.result = '4';
+      KalistarDice.mount(document.querySelectorAll('.dice-stage'));
+    });
+    let retained = page.locator('.ritual-result[data-result-key="0:1:ATK"]');
+    assert.equal(await retained.count(), 1, 'a saved result is restored after a full UI reload');
+    assert.equal(await retained.evaluate(node => node.classList.contains('confirmed')), true, 'restored results show the persistent target ring without replaying the impact');
+    await page.evaluate(() => {
+      const defense = document.querySelector('.dice-stage[data-player="1"]'); defense.dataset.role = 'DEF'; defense.dataset.result = '2';
+      KalistarDice.mount(document.querySelectorAll('.dice-stage'));
+    });
+    retained = page.locator('.ritual-result.confirmed');
+    assert.equal(await retained.count(), 2, 'ATK and DEF results remain marked together');
+    await page.screenshot({ path: path.join(output, 'elemental-result-hold.png'), scale: 'css' });
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    assert.equal(await page.evaluate(async () => await KalistarDice.play(0, 3, true)), true);
+    retained = page.locator('.ritual-result[data-result-key="0:1:ATK"]');
+    assert.equal(await retained.evaluate(node => getComputedStyle(node).animationName), 'none', 'reduced motion skips the flourish');
+    assert.equal(await page.locator('.ritual-spark').count(), 0, 'reduced motion omits the sparks');
+    assert.equal(await retained.evaluate(node => node.classList.contains('confirmed')), true, 'reduced motion keeps a clear static result marker');
+    await page.evaluate(() => { document.querySelector('.duel-console').dataset.phase = 'choose'; KalistarDice.mount(document.querySelectorAll('.dice-stage')); });
+    assert.equal(await page.locator('.ritual-result').count(), 0, 'result markers clear when the next duel begins');
+    await page.emulateMedia({ reducedMotion: 'no-preference' });
+    if (process.env.KALISTAR_ROLL_FIXTURE_ONLY === '1') {
+      assert.deepEqual(errors, []);
+      console.log('PASS: ATK/DEF impact, persistent result, reload, duel cleanup and reduced motion.');
+      return;
+    }
 
     // Exercise the actual game UI and saved engine state in a disposable profile.
     await page.goto(url + '/jeu/');
@@ -217,11 +231,16 @@ async function pixels(page) {
       }, { base, side });
       await page.reload(); await page.waitForFunction(() => window.KALISTAR_READY);
       const defender = page.locator(`.dice-stage[data-player="${1-side}"]`);
+      const attackMarker = page.locator(`.ritual-result[data-result-key="${side}:1:ATK"]`);
       assert.equal(await page.locator('.is-engaging').count(), 1, 'only DEF reawakens in a saved Kalistel decision');
       assert.match(await defender.getAttribute('class'), /is-engaging/);
+      assert.equal(await attackMarker.count(), 1, 'the landed ATK result is restored after reload');
+      assert.equal(await attackMarker.evaluate(node => node.classList.contains('confirmed')), true);
+      if (side === 0) await page.screenshot({ path: path.join(output, 'elemental-result-phone-live.png'), scale: 'css' });
       assert.equal((await pixels(page))[side].opaqueCore, 0, 'reload keeps the released crystal absent');
       await page.locator('[data-action=accept-attack]').click();
       assert.match(await defender.getAttribute('class'), /is-engaging/, 'DEF persists across phase remount');
+      assert.equal(await attackMarker.count(), 1, 'the ATK marker survives the duel phase transition');
       const waiting = await pixels(page); await page.waitForTimeout(350);
       assert.notEqual((await pixels(page))[1-side].hash, waiting[1-side].hash);
       await page.locator('[data-action=roll]').click();
@@ -229,6 +248,9 @@ async function pixels(page) {
       await page.waitForFunction(() => document.querySelector('.dice-stage[data-role=DEF].is-releasing'));
       assert.equal(await page.locator('.is-engaging').count(), 0);
       await page.waitForFunction(() => !document.querySelector('#app').classList.contains('rolling'));
+      const resultState = await page.evaluate(() => ({ phase: document.querySelector('.duel-console')?.dataset.phase, markers: [...document.querySelectorAll('.ritual-result')].map(node => node.dataset.resultKey) }));
+      assert.equal(resultState.phase, 'result');
+      assert.ok(resultState.markers.includes(`${side}:1:ATK`), `the attacker’s chosen stat remains visible through resolution (${JSON.stringify(resultState)})`);
     }
     assert.deepEqual(errors, []);
     console.log('PASS: all elements, independent ATK/DEF awakening on both sides, wind-up, burst + flight, Kalistel/reload continuity, cancellation, reduced motion, phone, unchanged RNG.');

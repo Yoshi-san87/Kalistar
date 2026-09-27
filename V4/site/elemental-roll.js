@@ -4,6 +4,7 @@
   const views = new Map(), images = new Map(), silhouettes = new WeakMap(), pending = new Set(), activeResults = new Map();
   const motion = matchMedia('(prefers-reduced-motion:reduce)');
   const rows = [774, 676, 577, 475, 371, 147], TAU = Math.PI * 2, SET_DURATION = 520;
+  const liveDuelPhases = new Set(['attack', 'kalistel', 'defense', 'clover', 'potion', 'physical', 'heart', 'guard', 'result']);
   let generation = 0, idleFrame = 0, lastPaint = 0;
 
   function art(src) {
@@ -63,7 +64,7 @@
     return n;
   }
   function removeResult(record) {
-    if (record.timer) clearTimeout(record.timer);
+    if (record.impactTimer) clearTimeout(record.impactTimer);
     if (activeResults.get(record.key) === record) activeResults.delete(record.key);
     document.querySelectorAll('.ritual-result').forEach(node => {
       if (node.dataset.resultKey === record.key) node.remove();
@@ -75,12 +76,18 @@
     else document.querySelectorAll(`.ritual-result[data-result-key="${key}"]`).forEach(node => node.remove());
   }
   function showImpact(node, record, elapsed = 0) {
-    node.classList.remove('settled');
+    if (record.impactTimer) clearTimeout(record.impactTimer);
+    record.impactTimer = 0;
+    node.classList.remove('settled', 'confirmed');
     node.querySelectorAll('.ritual-spark').forEach(spark => spark.remove());
     node.dataset.face = record.face; node.dataset.role = record.role; node.dataset.resultKey = record.key;
     node.style.setProperty('--ritual-tint', record.color);
     node.style.setProperty('--impact-delay', `-${Math.max(0, elapsed)}ms`);
-    if (!record.reduced) {
+    if (record.reduced || elapsed >= record.duration) {
+      node.classList.add('confirmed');
+      return;
+    }
+    {
       const spread = Math.min(24, Math.max(7, node.getBoundingClientRect().width * .82));
       for (let i = 0; i < 8; i++) {
         const spark = document.createElement('i');
@@ -93,16 +100,24 @@
     }
     void node.offsetWidth;
     node.classList.add('settled');
+    record.impactTimer = setTimeout(() => {
+      if (activeResults.get(record.key) !== record) return;
+      record.impactTimer = 0;
+      document.querySelectorAll(`.ritual-result[data-result-key="${record.key}"]`).forEach(result => {
+        result.classList.remove('settled');
+        result.querySelectorAll('.ritual-spark').forEach(spark => spark.remove());
+        result.classList.add('confirmed');
+      });
+    }, Math.max(0, record.duration - elapsed));
   }
   function impactMarker(node, reduced) {
     const record = {
       key: node.dataset.resultKey, face: node.dataset.face, role: node.dataset.role,
       color: getComputedStyle(node).getPropertyValue('--ritual-tint').trim(),
-      reduced, startedAt: performance.now(), duration: reduced ? 820 : 920, timer: 0
+      reduced, startedAt: performance.now(), duration: reduced ? 0 : 920, impactTimer: 0
     };
     activeResults.set(record.key, record);
     showImpact(node, record);
-    record.timer = setTimeout(() => removeResult(record), record.duration);
   }
   function gemPath(ctx) {
     ctx.beginPath(); ctx.moveTo(0, -57); ctx.lineTo(29, -15); ctx.lineTo(0, 50); ctx.lineTo(-29, -15); ctx.closePath();
@@ -342,7 +357,7 @@
     generation++; stopWaiting();
     for (const stop of [...pending]) stop();
     if (!preserveResults) {
-      for (const record of activeResults.values()) clearTimeout(record.timer);
+      for (const record of activeResults.values()) if (record.impactTimer) clearTimeout(record.impactTimer);
       activeResults.clear();
     }
     document.querySelectorAll('.ritual-result').forEach(node => node.remove());
@@ -352,6 +367,9 @@
     const previous = new Map([...views].map(([side, v]) => [side, { crystal: v.host.dataset.crystal, started: v.started, setAt: v.setAt }]));
     cancel(true);
     const phase = document.querySelector('.duel-console')?.dataset.phase;
+    if (phase && !liveDuelPhases.has(phase)) {
+      for (const record of [...activeResults.values()]) removeResult(record);
+    }
     for (const host of hosts) {
       const canvas = document.createElement('canvas'), ratio = Math.min(2, window.devicePixelRatio || 1);
       canvas.width = canvas.height = 160 * ratio; canvas.setAttribute('aria-hidden', 'true');
@@ -377,10 +395,17 @@
       const result = activeResults.get(resultKey(host));
       if (result) {
         const elapsed = performance.now() - result.startedAt;
-        if (elapsed >= result.duration) removeResult(result);
-        else {
-          const marker = mark(v, result.face);
-          if (marker) showImpact(marker, result, elapsed);
+        const marker = mark(v, result.face);
+        if (marker) showImpact(marker, result, elapsed);
+      } else if (liveDuelPhases.has(phase) && Number(host.dataset.result) >= 1 && Number(host.dataset.result) <= 6) {
+        const marker = mark(v, Number(host.dataset.result));
+        if (marker) {
+          const restored = {
+            key: marker.dataset.resultKey, face: marker.dataset.face, role: marker.dataset.role,
+            color: v.color, reduced: true, startedAt: performance.now(), duration: 0, impactTimer: 0
+          };
+          activeResults.set(restored.key, restored);
+          showImpact(marker, restored);
         }
       }
     }
