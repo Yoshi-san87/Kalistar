@@ -1,0 +1,9 @@
+{
+  "stage": "unpublished first render",
+  "cause": "109x230 source flag used with the 98x223 packed geometry; native Photoshop trims transparency whereas raster preview resizes the whole source.",
+  "fatmanSeverePixels": 15760,
+  "naomiSeverePixels": 15784,
+  "affectedRegion": "faction banner only",
+  "fix": "Use the existing approved packedFlag from factions.json. Rebuild preparation and native outputs. Do not change dependencies, thresholds or historical reference hashes.",
+  "productionChanged": false
+}

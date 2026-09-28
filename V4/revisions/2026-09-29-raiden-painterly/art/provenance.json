@@ -1,0 +1,33 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-09-29",
+  "request": "User approved Fortune's painted art direction and requested the same DA correction for Raiden.",
+  "prompt": "Use case: style-transfer. EDIT Image 1, the existing Raiden MGS2 illustration. Images 2 and 3 are the mandatory Kalistar style references Momo and Valazar; Image 4 is the Fortune painted treatment just approved by the user. Repaint Raiden's entire image as one cohesive KALISTAR NARRATIVE PAINTING, with the SAME quality of visible irregular brushstrokes, sculpted color planes and hierarchical edges as references 2, 3 and 4. The current Raiden face/hair look photographic or smooth CGI while the surroundings are painted; correct this mismatch decisively. Preserve Raiden's recognizable young-adult masculine MGS2 human face (not cyborg), pale skin, blue eyes, messy medium platinum-blonde layered hair, clean-shaven jaw, slim athletic build, dark navy/charcoal original MGS2 sneaking suit with segmented technical panels, gloves, tactical belt, boots. Preserve his tense watchful gaze toward image right, slightly parted lips, cautious forward step, both hands holding the same small black semiautomatic pistol at chest/waist level in a physically coherent two-handed grip, straight slide/barrel, one natural pair of hands and correct fingers. Keep the same scene, spatial composition and proportions: inside Big Shell's maritime industrial corridor, weathered teal-gray metal bulkheads, pipes, a watertight door with a wheel at right, metal grating underfoot, daylight and a small glimpse of ocean through the opening at left, overhead practical fixtures. Preserve exact central character placement and full-body head-to-boots framing suited for a 737x921 card window, with main face and hands away from side columns. Paint the FACE as warm/cool interlocking planes and deliberate bristle marks, selected sharp eyes and eyelids, looser shadow edges and subtle asymmetry, NOT a smooth porcelain doll, photographic actor or anime hero. Hair must be grouped painted locks with broken brush edges rather than thousands of individually rendered fine strands. Textiles, worn metal, skin and background must all share the same painterly language, without adding a uniform noise/mosaic filter. Larger quieter background color masses, purposeful light accents on face and gun. Preserve plausible human anatomy and his personal emotion; don't age him, broaden him into a bodybuilder or change costume. Motivated cool maritime daylight with restrained warm overhead accents; not magical lighting. NO changes to the scene or pose for stylistic novelty. No borrowing the other references' characters, hats, weapons, costumes or scenery. No photorealism, smooth 3D, manga/anime, cel shading, fake lens blur, watermark, logos, text, card borders or statistics. Portrait 4:5.",
+  "generated": "C:/Users/guill/.codex/generated_images/019e30c1-21b0-7e11-9f9d-2fe692f111d2/exec-6547c440-70ed-45f0-836d-237aa4c9b39b.png",
+  "output": "art/raiden-painterly.png",
+  "references": [
+    {
+      "path": "V4/Illustrations/Raiden_MGS2_Big_Shell.png",
+      "role": "edit target: identity, scene, composition"
+    },
+    {
+      "path": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+      "role": "mandatory painterly style"
+    },
+    {
+      "path": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+      "role": "painted volumes and materials"
+    },
+    {
+      "path": "V4/Illustrations/Fortune_MGS2_Big_Shell.png",
+      "role": "newly user-approved painted treatment"
+    }
+  ],
+  "preserve": [
+    "MGS2 human identity",
+    "Big Shell interior and cautious pose",
+    "card layout and native type",
+    "all gameplay attributes"
+  ],
+  "notUserApproval": true
+}
