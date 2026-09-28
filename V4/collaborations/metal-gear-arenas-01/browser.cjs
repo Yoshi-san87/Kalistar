@@ -26,8 +26,9 @@ async function main(){
         const arena=await page.evaluate(id=>KALISTAR_DATA.arenas.find(a=>a.id===id),asset.id);assert(arena);
         const expected=entries.find(a=>a.id===asset.id);
         for(const f of ['name','subtitle','element','elementBonus','homeCharacters','homeAttack','homeDefense'])assert.deepEqual(arena[f],expected[f]);
-        const imageUrl=new URL(arena.image,url).href,r=await page.request.get(imageUrl);assert.equal(r.status(),200);assert.equal(digest(await r.body()),asset.sha256);
-        await page.locator('[data-view=arena]').first().click();await ready(page);
+        const imageUrl=await page.evaluate(image=>new URL(KalistarSite.url(image),location.href).href,arena.image);
+        const r=await page.request.get(imageUrl);assert.equal(r.status(),200);assert.equal(digest(await r.body()),asset.sha256);
+        await page.locator('.game-shell').waitFor();
         await page.locator('[data-action=arena-picker]:visible').first().click();
         const option=page.locator('#arena-form label.arena-option').filter({has:page.locator('input[value="'+asset.id+'"]')});
         await option.click();assert(await option.locator('input').isChecked());
