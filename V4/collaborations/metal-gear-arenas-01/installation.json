@@ -1,0 +1,38 @@
+{
+  "tool": "image_gen built-in",
+  "prompts": "prompts.json",
+  "styleReferenceInspectedOnly": true,
+  "before": {
+    "V4/donnees/catalogue.json": "5636cca158274699ab379a871f80c8c018d7328fdbadbee034f5c46158771e10",
+    "V4/atelier/data/references.json": "a77fdb9f8efbef6bf15da9c9d97173d4dbcaf51d35b93705e797d3929cc457d6",
+    "V4/atelier/designer-assets/manifest.json": "29ae8f04bfd9c1e16814896fa1f600cea10eedb7d1731e5c9ec4edcb4dcffbec"
+  },
+  "arenaCountBefore": 9,
+  "arenasBeforeHash": "efbc0f2fa0363ee545965cd8f82c366960dba8da964f2891c8ddd8c6df8ff241",
+  "outputs": [
+    {
+      "id": "mgs1-shadow-moses",
+      "source": "C:\\Users\\guill\\.codex\\generated_images\\019e30c1-21b0-7e11-9f9d-2fe692f111d2\\exec-cd7b4aa6-918f-4cd7-b39c-bc70dc79cb18.png",
+      "target": "V4/site/assets/arenes/mgs1-shadow-moses.png",
+      "sha256": "08f7d46595282c5597dfcfaf8a5d4046a9e86143e95d786b6a57fda0afbb1ba7",
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "id": "mgs2-big-shell",
+      "source": "C:\\Users\\guill\\.codex\\generated_images\\019e30c1-21b0-7e11-9f9d-2fe692f111d2\\exec-990a4f8b-d5b2-4fcb-9bd6-6396e6d9cb82.png",
+      "target": "V4/site/assets/arenes/mgs2-big-shell.png",
+      "sha256": "39750ea078e1371c8bc7d823f798a81998be3d92f1f6072d3c7b891b868c9c98",
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "id": "mgs4-middle-east",
+      "source": "C:\\Users\\guill\\.codex\\generated_images\\019e30c1-21b0-7e11-9f9d-2fe692f111d2\\exec-79bcf48d-6d07-4896-a72c-63e1e44a38ee.png",
+      "target": "V4/site/assets/arenes/mgs4-middle-east.png",
+      "sha256": "3358c7cb4dca0efeede67a42e4339d89814e7871655adf596e63e7b3cb30eff5",
+      "width": 1672,
+      "height": 941
+    }
+  ]
+}
