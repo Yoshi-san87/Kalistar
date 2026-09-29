@@ -1,0 +1,77 @@
+{
+  "tests": {
+    "passed": 16,
+    "failed": 0,
+    "files": [
+      "V4/atelier/game-catalog.test.cjs",
+      "V4/deploy/build.test.cjs",
+      "V4/deploy/pwa.test.cjs"
+    ]
+  },
+  "visualReview": {
+    "full": true,
+    "cloverOpticallyCentered": true
+  },
+  "native": {
+    "passed": true,
+    "modelId": "43844114",
+    "referenceId": "ef7a6767b57723d896ceecb050079bfb1abad0e79e7289a200f87b34585f9380",
+    "profileHash": "b3a9675dd6bf623db1513e9a1359446e8047ad6904e1df01c52aa93b8c1ada12",
+    "hashes": {
+      "card.png": "71ed2377d940a068fb856deede8b8d3e98d24b77794bf2df9fe40ba8e5fcc4f0",
+      "card.psd": "383c2e592935c262adeef1c187bfa76e5fd0c7e5b783fb64578fdf0e0911c3c9"
+    },
+    "components": {
+      "fixedDifferences": 0,
+      "severePixels": 0,
+      "changed": 95720
+    },
+    "roundtrip": {
+      "changed": 0,
+      "outside": 0
+    },
+    "barcode": {
+      "passed": true,
+      "expected": "43844114",
+      "cases": {
+        "color-1": [
+          "43844114"
+        ],
+        "color-4": [
+          "43844114"
+        ],
+        "gray-1": [
+          "43844114"
+        ],
+        "gray-4": [
+          "43844114"
+        ]
+      },
+      "physicalPrintVerified": false
+    },
+    "checkedAt": "2026-09-29T23:19:56.871Z",
+    "scope": {
+      "changed": 2382,
+      "outside": 0
+    }
+  },
+  "browser": {
+    "passed": true,
+    "url": "http://127.0.0.1:51628/Kalistar/jeu/#collection",
+    "views": [
+      {
+        "width": 1440,
+        "id": "43844114",
+        "sha256": "71ed2377d940a068fb856deede8b8d3e98d24b77794bf2df9fe40ba8e5fcc4f0",
+        "meanAbsoluteRGBDelta": 2.026264136525419
+      },
+      {
+        "width": 390,
+        "id": "43844114",
+        "sha256": "71ed2377d940a068fb856deede8b8d3e98d24b77794bf2df9fe40ba8e5fcc4f0",
+        "meanAbsoluteRGBDelta": 2.026264136525419
+      }
+    ],
+    "errors": []
+  }
+}

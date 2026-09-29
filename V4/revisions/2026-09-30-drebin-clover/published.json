@@ -1,8 +1,5 @@
 {
-  "job": "d8e21622-daf7-4e9f-a669-e5fb04ed9c24",
-  "setId": "2026-09-29-drebin",
-  "key": "drebin",
-  "modelId": "43844114",
+  "id": "43844114",
   "hashes": {
     "profile.json": "b3a9675dd6bf623db1513e9a1359446e8047ad6904e1df01c52aa93b8c1ada12",
     "card.png": "71ed2377d940a068fb856deede8b8d3e98d24b77794bf2df9fe40ba8e5fcc4f0",
@@ -10,9 +7,12 @@
     "verification.json": "315cab6928af3bb15eb6cb532e7f4effb717e4697f115de6de427723c2598a7e",
     "illustration.png": "9a26694f00d5b32da2e551361c013bba1c6c57e489204f329eaf19551827e880"
   },
-  "createdAt": "2026-09-29T13:58:47.996Z",
-  "nativeRevision": {
-    "id": "2026-09-30-drebin-clover",
-    "proof": "V4/revisions/2026-09-30-drebin-clover/work/verification.json"
-  }
+  "changed": [
+    "V4/creations/43844114/profile.json",
+    "V4/creations/43844114/card.png",
+    "V4/creations/43844114/card.psd",
+    "V4/creations/43844114/verification.json",
+    "V4/creations/43844114/creation.json",
+    "V4/donnees/catalogue.json"
+  ]
 }
