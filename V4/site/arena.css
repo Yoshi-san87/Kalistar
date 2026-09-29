@@ -101,6 +101,7 @@
 .combat-actor,.combat-target{z-index:10}
 .arena-view .slot.combat-actor .slot-card,.arena-view .slot.combat-target .slot-card{transition:none;will-change:transform,filter,opacity}
 .combat-magic{position:absolute;inset:0;width:100%;height:100%;z-index:9;pointer-events:none}
+.arena-view .battlefield[data-combat="magic"]>.duel-console{z-index:8}
 .combat-shield,.combat-impact{position:absolute;inset:22px 0 24px;pointer-events:none;display:grid;place-items:center;border-radius:6px}
 .combat-shield{background:#9ce1e92b;border:2px solid #c0f5f7;box-shadow:inset 0 0 25px #b5f4f35e,0 0 25px #8be5dc80;color:#e7ffff}
 .combat-shield .lucide{width:55%;height:auto;filter:drop-shadow(0 2px 8px #08241d);stroke-width:1.35}

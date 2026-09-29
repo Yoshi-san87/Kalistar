@@ -3,7 +3,7 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
 const {createRequire}=require('node:module');
 const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const {chromium}=createRequire(path.join(runtime,'__combat_layout__.cjs'))('playwright');
-const url=process.env.KALISTAR_URL||'http://127.0.0.1:4304',output=path.join(__dirname,'verification/combat-effect-layout');
+const url=process.env.KALISTAR_URL||'http://127.0.0.1:4304',output=process.env.KALISTAR_VERIFICATION_DIR||path.join(__dirname,'verification/combat-effect-layout');
 let browser;
 async function main(){
   fs.mkdirSync(output,{recursive:true});browser=await chromium.launch({channel:'chrome',headless:true});
@@ -53,6 +53,14 @@ async function main(){
   }
   for(const [width,height] of [[412,1007],[390,844],[320,568],[844,390],[1440,1000],[2041,1383]]){
     await page.setViewportSize({width,height});await page.waitForTimeout(600);
+    await page.evaluate(()=>window.startFx('magic',0,true));
+    await page.waitForSelector('.combat-magic');
+    const layers=await page.evaluate(()=>{
+      const field=document.querySelector('.battlefield'),projectile=field.querySelector('.combat-magic'),board=field.querySelector('.duel-console');
+      return {board:getComputedStyle(board).zIndex,projectile:getComputedStyle(projectile).zIndex,actor:getComputedStyle(field.querySelector('.combat-actor')).zIndex,target:getComputedStyle(field.querySelector('.combat-target')).zIndex};
+    });
+    assert.deepEqual(layers,{board:'8',projectile:'9',actor:'10',target:'10'},`${width}x${height}: magic travels over the central board but under both cards`);
+    await page.evaluate(async()=>{window.fxAbort.abort();await window.fxDone;});
     for(const side of [0,1])for(const kind of ['shield','ward','defeat','death','reraise','dodge','guard','heart','potion','physical','clover','second-chance','retry','magic']){
       const samples=await page.evaluate(async({kind,side})=>{window.startFx(kind,side);await window.fxDone;return window.fxSamples;},{kind,side});
       verify(samples,`${width}x${height}, side ${side}, ${kind}`);
