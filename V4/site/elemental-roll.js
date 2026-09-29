@@ -31,15 +31,30 @@
   function card(v) {
     return document.querySelector(`.formation[data-player="${v.host.dataset.player}"] .slot[data-position="${v.host.dataset.slot}"] .slot-card:not(.empty)`);
   }
-  function position(v, face) {
+  function position(v, face, c = card(v)) {
+    const faceValue = Number(face);
     const attack = v.host.dataset.role === 'ATK';
-    return { x: ((attack ? (face === 6 ? 142 : 156) : (face === 6 ? 755 : 741)) - 50) / 797, y: (rows[face - 1] - 50) / 1388 };
+    const anchor = faceValue === 6
+      ? (attack ? { x: 146, y: 147 } : { x: 754, y: 147 })
+      : { x: attack ? 156 : 741, y: rows[faceValue - 1] };
+    const image = c?.querySelector('img');
+    const fullImage = image?.naturalWidth === 897 && image?.naturalHeight === 1497;
+    const crop = fullImage ? { left: 0, top: 0, width: 897, height: 1497 } : { left: 50, top: 50, width: 797, height: 1388 };
+    const contentWidth = image?.clientWidth || c?.clientWidth || 1, contentHeight = image?.clientHeight || c?.clientHeight || 1;
+    const aspect = image?.naturalWidth && image?.naturalHeight ? image.naturalWidth / image.naturalHeight : image?.dataset.v4Cropped === 'card' ? 797 / 1388 : (image?.width && image?.height ? image.width / image.height : 797 / 1388);
+    const imageWidth = Math.min(contentWidth, contentHeight * aspect), imageHeight = Math.min(contentHeight, contentWidth / aspect);
+    const x = (contentWidth - imageWidth) / 2 + imageWidth * (anchor.x - crop.left) / crop.width;
+    const y = (contentHeight - imageHeight) / 2 + imageHeight * (anchor.y - crop.top) / crop.height;
+    const bounds = image?.getBoundingClientRect() || c?.getBoundingClientRect();
+    const scaleX = bounds ? bounds.width / contentWidth : 1, scaleY = bounds ? bounds.height / contentHeight : 1;
+    const insetX = image ? 0 : c?.clientLeft || 0, insetY = image ? 0 : c?.clientTop || 0;
+    return { x: x / contentWidth, y: y / contentHeight, viewportX: bounds ? bounds.left + (insetX + x) * scaleX : 0, viewportY: bounds ? bounds.top + (insetY + y) * scaleY : 0 };
   }
   function point(v, face) {
-    const r = card(v)?.getBoundingClientRect();
-    if (!r) return null;
-    const p = position(v, face);
-    return { x: r.left + r.width * p.x, y: r.top + r.height * p.y };
+    const c = card(v);
+    if (!c) return null;
+    const p = position(v, face, c);
+    return { x: p.viewportX, y: p.viewportY };
   }
   function center(node) {
     const r = node.getBoundingClientRect();
@@ -52,12 +67,15 @@
     const c = card(v);
     if (!c) return;
     let n = c.querySelector('.ritual-result');
-    if (!n) { n = document.createElement('span'); n.className = 'ritual-result'; n.setAttribute('aria-hidden', 'true'); c.append(n); }
+    if (!n) {
+      n = document.createElement('span'); n.className = 'ritual-result'; n.setAttribute('aria-hidden', 'true');
+      const core = document.createElement('span'); core.className = 'ritual-result-core'; n.append(core); c.append(n);
+    }
     if (n.classList.contains('settled')) {
       n.classList.remove('settled');
       n.querySelectorAll('.ritual-spark').forEach(spark => spark.remove());
     }
-    const p = position(v, face);
+    const p = position(v, face, c);
     n.style.left = p.x * 100 + '%'; n.style.top = p.y * 100 + '%';
     n.style.setProperty('--ritual-tint', v.color); n.dataset.face = face; n.dataset.role = v.host.dataset.role || 'ATK';
     n.dataset.resultKey = resultKey(v.host);
@@ -89,16 +107,17 @@
     }
     {
       const spread = Math.min(24, Math.max(7, node.getBoundingClientRect().width * .82));
+      const core = node.querySelector('.ritual-result-core') || node;
       for (let i = 0; i < 8; i++) {
         const spark = document.createElement('i');
         spark.className = 'ritual-spark';
         spark.style.setProperty('--spark-angle', `${i * 45}deg`);
         spark.style.setProperty('--spark-travel', `${-(spread * (i % 2 ? 1 : .78))}px`);
         spark.style.setProperty('--spark-delay', `${i % 4 * 12}ms`);
-        node.append(spark);
+        core.append(spark);
       }
     }
-    void node.offsetWidth;
+    void (node.querySelector('.ritual-result-core') || node).offsetWidth;
     node.classList.add('settled');
     record.impactTimer = setTimeout(() => {
       if (activeResults.get(record.key) !== record) return;

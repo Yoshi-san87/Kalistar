@@ -4,25 +4,30 @@
 .elemental-stage canvas{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none}
 .elemental-stage.is-awakening{filter:brightness(1.12)}
 .arena-view .slot-card{position:relative}
-.ritual-result{position:absolute;pointer-events:none;z-index:3;width:13%;aspect-ratio:1;border:1px solid var(--ritual-tint);border-radius:50%;transform:translate(-50%,-50%);background:transparent;box-shadow:0 0 6px var(--ritual-tint),inset 0 0 4px var(--ritual-tint)}
-.ritual-result.settled{z-index:4;border-color:#fff0c8;box-shadow:0 0 0 1px #10201b,0 0 7px var(--ritual-tint),inset 0 0 3px #fff9;animation:ritual-token-impact .92s cubic-bezier(.2,.75,.25,1) var(--impact-delay,0ms) both}
-.ritual-result.settled::before,.ritual-result.settled::after{content:"";position:absolute;pointer-events:none;border-radius:50%}
-.ritual-result.settled::before{inset:-8%;border:1px solid #fff0c8;box-shadow:0 0 4px var(--ritual-tint);opacity:0;animation:ritual-impact-ring .58s ease-out var(--impact-delay,0ms) both}
-.ritual-result.settled::after{inset:-8%;border:1px solid transparent;border-top-color:#fff8df;border-right-color:#fff8df;filter:drop-shadow(0 0 2px var(--ritual-tint));opacity:0;animation:ritual-orbit .76s cubic-bezier(.2,.7,.3,1) var(--impact-delay,0ms) both}
-.ritual-result.confirmed{z-index:4;border-color:#fff0c8;box-shadow:0 0 0 1px #10201b,0 0 5px var(--ritual-tint),inset 0 0 3px #fff9;animation:ritual-lock-hold 1.7s ease-in-out infinite}
-.ritual-result.confirmed::before,.ritual-result.confirmed::after{content:"";position:absolute;pointer-events:none;border-radius:50%}
-.ritual-result.confirmed::before{inset:-8%;border:1px solid #fff9;box-shadow:0 0 5px var(--ritual-tint);opacity:.38;animation:ritual-lock-pulse 1.7s ease-in-out infinite}
-.ritual-result.confirmed::after{inset:-18%;border:1px solid transparent;border-top-color:#fff9;border-right-color:var(--ritual-tint);filter:drop-shadow(0 0 2px var(--ritual-tint));opacity:.72;animation:ritual-lock-orbit 3.6s linear infinite}
+.ritual-result{position:absolute;pointer-events:none;z-index:3;width:13%;aspect-ratio:1;transform:translate(-50%,-50%)}
+.ritual-result-core{position:absolute;inset:0;border:1px solid var(--ritual-tint);border-radius:50%;background:transparent;box-shadow:0 0 6px var(--ritual-tint),inset 0 0 4px var(--ritual-tint);transform-origin:50% 50%}
+.ritual-result[data-face="6"][data-role="ATK"]{width:15.5%}
+.ritual-result[data-face="6"][data-role="DEF"]{width:18%}
+.ritual-result.settled{z-index:4}
+.ritual-result.settled .ritual-result-core{border-color:#fff0c8;box-shadow:0 0 0 1px #10201b,0 0 7px var(--ritual-tint),inset 0 0 3px #fff9;animation:ritual-token-impact .92s cubic-bezier(.2,.75,.25,1) var(--impact-delay,0ms) both}
+.ritual-result.settled .ritual-result-core::before,.ritual-result.settled .ritual-result-core::after{content:"";position:absolute;pointer-events:none;border-radius:50%}
+.ritual-result.settled .ritual-result-core::before{inset:-8%;border:1px solid #fff0c8;box-shadow:0 0 4px var(--ritual-tint);opacity:0;animation:ritual-impact-ring .58s ease-out var(--impact-delay,0ms) both}
+.ritual-result.settled .ritual-result-core::after{inset:-8%;border:1px solid transparent;border-top-color:#fff8df;border-right-color:#fff8df;filter:drop-shadow(0 0 2px var(--ritual-tint));opacity:0;animation:ritual-orbit .76s cubic-bezier(.2,.7,.3,1) var(--impact-delay,0ms) both}
+.ritual-result.confirmed{z-index:4}
+.ritual-result.confirmed .ritual-result-core{border-color:#fff0c8;box-shadow:0 0 0 1px #10201b,0 0 5px var(--ritual-tint),inset 0 0 3px #fff9;animation:ritual-lock-hold 1.7s ease-in-out infinite}
+.ritual-result.confirmed .ritual-result-core::before,.ritual-result.confirmed .ritual-result-core::after{content:"";position:absolute;pointer-events:none;border-radius:50%}
+.ritual-result.confirmed .ritual-result-core::before{inset:-8%;border:1px solid #fff9;box-shadow:0 0 5px var(--ritual-tint);opacity:.38;animation:ritual-lock-pulse 1.7s ease-in-out infinite}
+.ritual-result.confirmed .ritual-result-core::after{inset:-18%;border:1px solid transparent;border-top-color:#fff9;border-right-color:var(--ritual-tint);filter:drop-shadow(0 0 2px var(--ritual-tint));opacity:.72;animation:ritual-lock-orbit 3.6s linear infinite}
 .ritual-spark{position:absolute;z-index:1;left:50%;top:50%;width:6px;height:8px;background:linear-gradient(135deg,#fff,var(--ritual-tint));mix-blend-mode:screen;filter:drop-shadow(0 0 3px #fff) drop-shadow(0 0 5px var(--ritual-tint));box-shadow:0 0 4px #fff9,0 0 8px var(--ritual-tint);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);opacity:0;transform-origin:50% 50%;pointer-events:none;animation:ritual-spark .62s cubic-bezier(.16,.72,.32,1) calc(var(--impact-delay,0ms) + var(--spark-delay,0ms)) both}
 .ritual-flight{position:fixed;z-index:85;pointer-events:none;width:6px;height:6px;border-radius:50%;background:#fff0cc;box-shadow:0 0 8px 3px var(--ritual-tint),0 0 18px var(--ritual-tint);transform:translate(-50%,-50%)}
-@keyframes ritual-token-impact{0%{opacity:1;transform:translate(-50%,-50%) scale(.94) rotate(0)}12%{transform:translate(-50%,-50%) scale(1.16) rotate(18deg)}25%{transform:translate(-50%,-50%) scale(.97) rotate(112deg)}48%,62%{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(180deg)}100%{opacity:1;filter:none;transform:translate(-50%,-50%) scale(1) rotate(198deg)}}
+@keyframes ritual-token-impact{0%{opacity:1;transform:scale(.94) rotate(0)}12%{transform:scale(1.16) rotate(18deg)}25%{transform:scale(.97) rotate(112deg)}48%,62%{opacity:1;transform:scale(1) rotate(180deg)}100%{opacity:1;filter:none;transform:scale(1) rotate(198deg)}}
 @keyframes ritual-impact-ring{0%{opacity:0;transform:scale(.82)}18%{opacity:.72}100%{opacity:0;transform:scale(1.65)}}
 @keyframes ritual-orbit{0%{opacity:0;transform:rotate(-35deg) scale(.86)}16%{opacity:1}70%{opacity:.78}100%{opacity:0;transform:rotate(325deg) scale(1.15)}}
 @keyframes ritual-spark{0%{opacity:0;transform:translate(-50%,-50%) rotate(var(--spark-angle)) translateY(-7px) scale(.3)}18%{opacity:1;transform:translate(-50%,-50%) rotate(var(--spark-angle)) translateY(-13px) scale(1.2)}100%{opacity:0;transform:translate(-50%,-50%) rotate(var(--spark-angle)) translateY(var(--spark-travel)) scale(.16)}}
 @keyframes ritual-lock-hold{0%,100%{opacity:.84;box-shadow:0 0 0 1px #10201b,0 0 4px var(--ritual-tint),inset 0 0 2px #fff8}50%{opacity:1;box-shadow:0 0 0 1px #10201b,0 0 7px var(--ritual-tint),inset 0 0 4px #fff}}
 @keyframes ritual-lock-pulse{0%,100%{opacity:.22;transform:scale(.96)}50%{opacity:.62;transform:scale(1.04)}}
 @keyframes ritual-lock-orbit{to{transform:rotate(360deg)}}
-@media(prefers-reduced-motion:reduce){.ritual-result.settled,.ritual-result.confirmed{animation:none}.ritual-result.settled::before,.ritual-result.settled::after,.ritual-spark{display:none}.ritual-result.confirmed::before,.ritual-result.confirmed::after{animation:none;opacity:.42}}
+@media(prefers-reduced-motion:reduce){.ritual-result-core,.ritual-result.settled .ritual-result-core,.ritual-result.confirmed .ritual-result-core{animation:none}.ritual-result.settled .ritual-result-core::before,.ritual-result.settled .ritual-result-core::after,.ritual-spark{display:none}.ritual-result.confirmed .ritual-result-core::before,.ritual-result.confirmed .ritual-result-core::after{animation:none;opacity:.42}}
 
 .crystal-change canvas{animation:crystal-arrive .22s ease-out}
 @keyframes crystal-arrive{from{opacity:.25;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}

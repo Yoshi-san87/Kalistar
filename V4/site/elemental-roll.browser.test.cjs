@@ -6,6 +6,7 @@ const { createRequire } = require('node:module');
 const runtime = process.env.KALISTAR_NODE_MODULES || path.join(process.env.USERPROFILE, '.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const { chromium } = createRequire(path.join(runtime, '__elemental_test__.cjs'))('playwright');
 const elements = require('../../V3/donnees/elements.json');
+const momoCard = fs.readFileSync(path.join(__dirname, '../cartes/MOMO_V4_11_POSITIONS.png')).toString('base64');
 const url = process.env.KALISTAR_URL || 'http://127.0.0.1:4304';
 const output = process.env.KALISTAR_VERIFICATION_DIR || path.join(__dirname, 'verification');
 
@@ -42,20 +43,21 @@ async function pixels(page) {
       mount();
     </script></body></html>` }));
     await page.goto(url + '/__elemental_fixture');
-    await page.evaluate(() => {
+    await page.evaluate(async imageData => {
       const formation = document.createElement('section'), slot = document.createElement('div'), card = document.createElement('div');
       formation.className = 'formation'; formation.dataset.player = '0';
       Object.assign(formation.style, { position: 'fixed', left: '50%', top: '230px', width: '240px', aspectRatio: '897 / 1497', transform: 'translateX(-50%)' });
       slot.className = 'slot'; slot.dataset.position = '1'; Object.assign(slot.style, { position: 'relative', width: '100%', height: '100%' });
       card.className = 'slot-card'; Object.assign(card.style, { position: 'relative', width: '100%', height: '100%', overflow: 'hidden', border: '1px solid #81949a', borderRadius: '8px', background: 'linear-gradient(145deg,#203b45,#5f5544 48%,#131d20)' });
-      for (let face = 1; face <= 6; face++) for (const role of ['ATK', 'DEF']) {
-        const stat = document.createElement('span'); stat.textContent = String(300 - face * 33);
-        Object.assign(stat.style, { position: 'absolute', top: (10 + face * 10) + '%', left: role === 'ATK' ? '7%' : '82%', width: '11%', aspectRatio: '1', display: 'grid', placeItems: 'center', border: '2px solid ' + (role === 'ATK' ? '#d4aa83' : '#91bdcf'), borderRadius: '50%', background: '#10202b', color: '#fff', font: 'bold 10px Arial' });
-        card.append(stat);
-      }
+      const cardArt = document.createElement('img'); cardArt.alt = ''; cardArt.width = 797; cardArt.height = 1388;
+      Object.assign(cardArt.style, { position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'contain' });
+      const source = new Image(); source.src = 'data:image/png;base64,' + imageData; await source.decode();
+      const crop = document.createElement('canvas'); crop.width = 797; crop.height = 1388;
+      crop.getContext('2d').drawImage(source, 50, 50, 797, 1388, 0, 0, 797, 1388);
+      cardArt.dataset.v4Cropped = 'card'; cardArt.src = crop.toDataURL('image/png'); card.append(cardArt);
       slot.append(card); formation.append(slot); document.body.append(formation);
       const opponent = formation.cloneNode(true); opponent.dataset.player = '1'; opponent.style.left = 'calc(50% + 260px)'; document.body.append(opponent);
-    });
+    }, momoCard);
     await page.evaluate(() => {
       document.querySelector('[data-element=NONE]').dataset.weapon = '/jeu/shared/armes/03.png';
       KalistarDice.mount(document.querySelectorAll('.dice-stage'));
@@ -65,6 +67,7 @@ async function pixels(page) {
     const dormant = await pixels(page);
     assert.ok(dormant.every(p => p.nonblank > 400));
     await page.locator('#engage').click();
+    await page.waitForFunction(() => document.querySelectorAll('.is-setting').length === 12);
     assert.equal(await page.locator('.is-setting').count(), 12, 'engagement starts one ignition per elemental crystal');
     assert.equal(await page.locator('[data-element=NONE].is-setting').count(), 0, 'no magical ignition for a weapon');
     await page.waitForTimeout(110);
@@ -95,13 +98,13 @@ async function pixels(page) {
     let marker = page.locator('.ritual-result');
     assert.equal(await marker.getAttribute('data-face'), '4', 'ATK marker lands on the printed face');
     assert.equal(await marker.getAttribute('data-role'), 'ATK');
-    assert.equal(await marker.evaluate(node => getComputedStyle(node).animationName), 'ritual-token-impact', 'the landed token gets the new finish animation');
+    assert.equal(await marker.locator('.ritual-result-core').evaluate(node => getComputedStyle(node).animationName), 'ritual-token-impact', 'the landed token gets the new finish animation');
     assert.equal(await page.locator('.ritual-spark').count(), 8, 'the impact emits a restrained ring of sparks');
     assert.ok(await marker.evaluate(node => Math.abs(parseFloat(getComputedStyle(node).width) - node.parentElement.clientWidth * .13) < 1), 'travel marker keeps its original diameter');
     await page.evaluate(() => KalistarDice.mount(document.querySelectorAll('.dice-stage')));
     marker = page.locator('.ritual-result');
     assert.equal(await marker.locator('.ritual-spark').count(), 8, 'a game render preserves the in-flight impact');
-    assert.match(await marker.evaluate(node => getComputedStyle(node).animationDelay), /^-\d+(?:\.\d+)?(?:ms|s)$/, 'the impact resumes at its current progress');
+    assert.match(await marker.locator('.ritual-result-core').evaluate(node => getComputedStyle(node).animationDelay), /^-\d+(?:\.\d+)?(?:ms|s)$/, 'the impact resumes at its current progress');
     assert.equal(await marker.locator('.ritual-spark').evaluateAll(nodes => nodes.filter(node => getComputedStyle(node).animationName === 'ritual-spark').length), 8, 'all impact particles resume');
     await page.waitForFunction(() => document.querySelector('.ritual-result')?.classList.contains('confirmed'), { timeout: 1500 });
     await page.waitForTimeout(450);
@@ -167,15 +170,62 @@ async function pixels(page) {
     await page.emulateMedia({ reducedMotion: 'reduce' });
     assert.equal(await page.evaluate(async () => await KalistarDice.play(0, 3, true)), true);
     retained = page.locator('.ritual-result[data-result-key="0:1:ATK"]');
-    assert.equal(await retained.evaluate(node => getComputedStyle(node).animationName), 'none', 'reduced motion skips the flourish');
+    assert.equal(await retained.locator('.ritual-result-core').evaluate(node => getComputedStyle(node).animationName), 'none', 'reduced motion skips the flourish');
     assert.equal(await page.locator('.ritual-spark').count(), 0, 'reduced motion omits the sparks');
     assert.equal(await retained.evaluate(node => node.classList.contains('confirmed')), true, 'reduced motion keeps a clear static result marker');
     await page.evaluate(() => { document.querySelector('.duel-console').dataset.phase = 'choose'; KalistarDice.mount(document.querySelectorAll('.dice-stage')); });
     assert.equal(await page.locator('.ritual-result').count(), 0, 'result markers clear when the next duel begins');
+    await page.evaluate(() => {
+      document.querySelector('.duel-console').dataset.phase = 'result';
+      const attack = document.querySelector('.dice-stage[data-player="0"]'), defense = document.querySelector('.dice-stage[data-player="1"]');
+      attack.dataset.role = 'ATK'; attack.dataset.result = '6'; defense.dataset.role = 'DEF'; defense.dataset.result = '6';
+      KalistarDice.mount(document.querySelectorAll('.dice-stage'));
+    });
+    await page.waitForFunction(() => [...document.querySelectorAll('.slot-card img')].every(image => image.complete && image.naturalWidth === 797));
+    for (const cardWidth of [240, 106]) {
+      await page.evaluate(width => {
+        document.querySelectorAll('.formation').forEach(formation => { formation.style.width = width + 'px'; formation.style.aspectRatio = '797 / 1388'; });
+        KalistarDice.mount(document.querySelectorAll('.dice-stage'));
+      }, cardWidth);
+      const geometry = await page.locator('.ritual-result[data-face="6"]').evaluateAll(markers => markers.map(marker => {
+        const card = marker.parentElement, image = card.querySelector('img'), role = marker.dataset.role;
+        const ratio = image.naturalWidth / image.naturalHeight, imageWidth = Math.min(card.clientWidth, card.clientHeight * ratio), imageHeight = Math.min(card.clientHeight, card.clientWidth / ratio);
+        const anchorX = role === 'ATK' ? 146 : 754, anchorY = 147;
+        const expectedLeft = (card.clientWidth - imageWidth) / 2 + imageWidth * (anchorX - 50) / 797;
+        const expectedTop = (card.clientHeight - imageHeight) / 2 + imageHeight * (anchorY - 50) / 1388;
+        const rect = marker.getBoundingClientRect();
+        return { role, left: parseFloat(getComputedStyle(marker).left), top: parseFloat(getComputedStyle(marker).top), expectedLeft, expectedTop, imageSize: [image.clientWidth, image.clientHeight], cardSize: [card.clientWidth, card.clientHeight], errorX: Math.abs(parseFloat(getComputedStyle(marker).left) - expectedLeft), errorY: Math.abs(parseFloat(getComputedStyle(marker).top) - expectedTop), center: [rect.left + rect.width / 2, rect.top + rect.height / 2], ratio: parseFloat(getComputedStyle(marker).width) / card.clientWidth };
+      }));
+      assert.deepEqual(geometry.map(item => item.role).sort(), ['ATK', 'DEF'], `${cardWidth}px card keeps both D6 markers`);
+      for (const item of geometry) {
+        assert.ok(item.errorX < .6 && item.errorY < .6, `${cardWidth}px ${item.role} D6 is centered on the cropped card artwork: ${JSON.stringify(item)}`);
+        assert.ok(Math.abs(item.ratio - (item.role === 'ATK' ? .155 : .18)) < .005, `${cardWidth}px ${item.role} D6 has its larger medallion-sized ring`);
+      }
+      const centerDrift = await page.locator('.ritual-result[data-face="6"]').evaluateAll(async markers => {
+        const pause = ms => new Promise(resolve => setTimeout(resolve, ms));
+        const center = node => { const r = node.getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]; };
+        const results = [];
+        for (const marker of markers) {
+          const before = center(marker);
+          marker.classList.remove('confirmed'); marker.classList.add('settled');
+          await pause(420);
+          const during = center(marker);
+          marker.classList.remove('settled'); marker.classList.add('confirmed');
+          await pause(40);
+          const after = center(marker);
+          results.push({ role: marker.dataset.role, movement: Math.max(...before.map((v, i) => Math.abs(v - after[i]))), animationMovement: Math.max(...before.map((v, i) => Math.abs(v - during[i]))) });
+        }
+        return results;
+      });
+      for (const item of centerDrift) {
+        assert.ok(item.movement < .5 && item.animationMovement < .5, `${cardWidth}px ${item.role} D6 anchor never drifts between impact and confirmed phases`);
+      }
+      await page.screenshot({ path: path.join(output, `elemental-d6-alignment-${cardWidth}.png`), scale: 'css' });
+    }
     await page.emulateMedia({ reducedMotion: 'no-preference' });
     if (process.env.KALISTAR_ROLL_FIXTURE_ONLY === '1') {
       assert.deepEqual(errors, []);
-      console.log('PASS: ATK/DEF impact, persistent result, reload, duel cleanup and reduced motion.');
+    console.log('PASS: real-card ATK/DEF D6 anchors, stable impact transition, persistent result, reload, duel cleanup and reduced motion.');
       return;
     }
 
