@@ -102,11 +102,10 @@
     return operation;
   }
   function exitFullscreen(){if(document.fullscreenElement)document.exitFullscreen().catch(()=>{});}
-  async function setView(view,{immersive=false}={}){
+  async function setView(view){
     if(view==='atelier'&&window.KalistarSite?.online)return;
     if(rolling)return toast('Le duel se termine…');
     if(view!=='arena')exitFullscreen();
-    if(immersive)enterFullscreen();
     clearTimeout(aiTimer);
     if(ui.view!==view)epoch++;
     if(view==='arena'&&!game){try{await createGame('ai','KALI-'+Math.floor(Math.random()*999999));}catch(e){toast(e.message);showDeck();return;}}
@@ -609,7 +608,7 @@ function showDeck(){setView('decks');}
     }).join('')||'<p class="muted">Aucune carte.</p>'}</div>`);
   }
   document.addEventListener('click',event=>{
-    const view=event.target.closest('[data-view]');if(view){view.closest('dialog')?.close();setView(view.dataset.view,{immersive:view.dataset.view==='arena'});return;}
+    const view=event.target.closest('[data-view]');if(view){view.closest('dialog')?.close();setView(view.dataset.view);return;}
     const b=event.target.closest('[data-action]');if(!b||b.disabled)return;const action=b.dataset.action,id=b.dataset.id;
     try{
       if(action==='close'){b.closest('dialog').close();return;}
@@ -776,8 +775,7 @@ function showDeck(){setView('decks');}
     e.preventDefault();if(rolling)return;
     if(game?.collection&&game.phase!=='over'&&!confirm('Remplacer cette partie ? La partie actuelle sera abandonnee et ne pourra plus etre reprise. Ses archives seront conservees.'))return;
     const submit=e.target.querySelector('[type="submit"]');submit.disabled=true;
-    const requestedFullscreen=!document.fullscreenElement;if(requestedFullscreen)enterFullscreen(false);
-    try{const selectedDeck=matchDeckByChoice($('#player-match-deck').value);if(!selectedDeck)throw new Error('Deck de départ introuvable.');await createGame($('#game-mode').value,$('#game-seed').value.trim()||'KALISTAR',new FormData(e.target).get('arena'),$('#enemy-deck-preset').value,selectedDeck.cards);$('#new-game-dialog').close();await setView('arena');}catch(err){if(requestedFullscreen)exitFullscreen();toast(err.message);submit.disabled=false;}
+    try{const selectedDeck=matchDeckByChoice($('#player-match-deck').value);if(!selectedDeck)throw new Error('Deck de départ introuvable.');await createGame($('#game-mode').value,$('#game-seed').value.trim()||'KALISTAR',new FormData(e.target).get('arena'),$('#enemy-deck-preset').value,selectedDeck.cards);$('#new-game-dialog').close();await setView('arena');}catch(err){toast(err.message);submit.disabled=false;}
   });
   document.addEventListener('error',event=>{
     const img=event.target;

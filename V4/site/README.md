@@ -388,7 +388,7 @@ failure fixture, checks six viewport sizes, profile isolation, saved/working
 draft navigation, undo branches, drag confirmation and ownership revalidation.
 Screenshots: `verification/collection-deck-ux/`. No personal browser is modified.
 
-## Installable App and Immersive Arena (2026-09-24)
+## Installable App and Version 4.1 (2026-09-30)
 
 `manifest.webmanifest` is scoped relative to `/jeu/`, so the installed app opens
 correctly both on the local server and under the `/Kalistar/` GitHub Pages path.
@@ -397,11 +397,12 @@ deployment cannot leave stale game files in an app cache. Chromium browsers show
 an install action when their install prompt is available. From the browser menu,
 the user can also install the page as an app.
 
-Selecting Arena requests browser fullscreen immediately within that user click,
-before game setup can await storage. The setup confirmation also requests it
-before creating a new match. Fullscreen hides the site masthead and gives the
-board the remaining viewport; a dedicated exit action returns to Collection.
-Leaving Arena through another view exits fullscreen. Browser-embedded contexts
-may deny fullscreen; the in-game fullscreen control remains available as a
-manual fallback. The deploy browser test checks app scope, desktop and phone
-fullscreen entry, masthead hiding, exit and the regular phone layout.
+The site masthead displays the application version `4.1`; the V4 edition and
+saved-data schema remain unchanged. The release commit is tagged `v4.1`.
+
+Opening Arena or confirming a new match does not request browser fullscreen.
+The installed app already opens without browser chrome. The explicit in-game
+fullscreen control remains available when playing in a regular browser; leaving
+Arena through another view exits that manually requested mode. The deploy
+browser test checks the visible version, both non-immersive entry paths, manual
+fullscreen entry and exit, app scope and the regular phone layout.
