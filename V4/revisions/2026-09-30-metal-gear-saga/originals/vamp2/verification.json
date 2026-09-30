@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "modelId": "49173082",
+  "referenceId": "ef7a6767b57723d896ceecb050079bfb1abad0e79e7289a200f87b34585f9380",
+  "profileHash": "f013d98246584d661f9b255cf259a981f717c5df0871424fb865ad1954e2b507",
+  "hashes": {
+    "card.png": "058213d27c76add2119e9421f915b1b5d995f113e750a588d67fff9919bdfcd1",
+    "card.psd": "89f9e3a323070689e34ac2459fad643c150c8d8c9f282eef33dcee409af427b5"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 102426
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49173082",
+    "cases": {
+      "color-1": [
+        "49173082"
+      ],
+      "color-4": [
+        "49173082"
+      ],
+      "gray-1": [
+        "49173082"
+      ],
+      "gray-4": [
+        "49173082"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-28T14:45:39.053Z",
+  "revision": "2026-09-28-vamp-athletic",
+  "scope": {
+    "originalPixels": {
+      "changed": 0,
+      "outside": 0
+    },
+    "withoutArt": {
+      "changed": 0,
+      "outside": 0
+    },
+    "outside": {
+      "changed": 441208,
+      "outside": 0
+    },
+    "nativeTextUnchanged": true,
+    "nativeStyleRunsUnchanged": true,
+    "geometryUnchanged": true,
+    "embeddedObjects": true,
+    "changedProfileFields": []
+  }
+}

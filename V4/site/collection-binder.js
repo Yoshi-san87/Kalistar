@@ -19,7 +19,7 @@
     if(scope==='kalistar')return C.universe(card)==='kalistar';
     if(scope==='final-fantasy')return C.matches(card,'ff7')||C.matches(card,'ff8')||C.matches(card,'ff10');
     if(scope==='nier')return C.matches(card,'nier')||C.matches(card,'replicant');
-    if(scope==='metal-gear')return C.matches(card,'mgs1')||C.matches(card,'mgs2')||C.matches(card,'mgs4');
+    if(scope==='metal-gear')return ['mgs1','mgs2','mgs3','mgs4','mgs5'].some(id=>C.matches(card,id));
     return false;
   }
   function textPages(text,limit){

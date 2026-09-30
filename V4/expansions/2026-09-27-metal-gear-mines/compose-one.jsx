@@ -11,7 +11,7 @@ function composeMines(home,root){
         for(var i=0;i<plan.layers.length;i++){
             var spec=plan.layers[i],layer,b;
             if(!/^[a-z0-9-]+\.png$/.test(spec.file))throw Error('Invalid component.');
-            if(/^FACTION - MGS[124]$/.test(spec.name)){
+            if(/^FACTION - MGS[12345]$/.test(spec.name)){
                 var flag=life.open(folder+spec.file);layer=K.transplant(flag,flag.activeLayer,doc,doc.layers[0],spec.name);layer=K.smart(doc,layer);b=K.bounds(layer);
                 if(b[2]-b[0]!==spec.width||b[3]-b[1]!==spec.height)throw Error('Flag pixel bounds changed.');
             }else{

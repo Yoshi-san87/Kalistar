@@ -7403,11 +7403,11 @@
       "id": "46676157",
       "kind": "created",
       "creationJob": "e874d29d-ed18-4aa5-a403-568ec9f0c8f0",
-      "name": "SOLID SNAKE",
+      "name": "OLD SNAKE",
       "title": "Encore quelques pas",
       "element": "GEO",
       "profile": {
-        "name": "SOLID SNAKE",
+        "name": "OLD SNAKE",
         "title": "Encore quelques pas",
         "job": "VÉTÉRAN",
         "description": "Le corps de Snake vieillit plus vite que ses souvenirs. Dans les ruines, chaque pas lui coûte ; pourtant il relève son arme. Il ne cherche plus une victoire à célébrer, seulement un monde qui puisse lui survivre.",
@@ -7476,10 +7476,9 @@
       "createdAt": "2026-09-27T13:54:07.944Z",
       "publicationSource": "V4/expansions/2026-09-27-metal-gear-mines",
       "nativeRevision": {
-        "id": "2026-09-27-mgs-banner-refinement",
-        "proof": "V4/revisions/2026-09-27-mgs-banner-refinement/verified.json",
-        "key": "solid-snake-mgs4",
-        "previousCreationHash": "a4ae8f42f7e44238cfda8bb0733a9d45ff7d32768b07ba7885e0a092850328e7"
+        "id": "2026-09-30-metal-gear-saga",
+        "key": "old-snake",
+        "proof": "V4/revisions/2026-09-30-metal-gear-saga/work/old-snake/verification.json"
       }
     },
     {
@@ -7753,7 +7752,7 @@
           270,
           224,
           176,
-          128,
+          "death",
           80,
           34
         ],
@@ -7806,10 +7805,9 @@
       "createdAt": "2026-09-27T13:54:08.093Z",
       "publicationSource": "V4/expansions/2026-09-27-metal-gear-mines",
       "nativeRevision": {
-        "id": "2026-09-27-mgs-banner-refinement",
-        "proof": "V4/revisions/2026-09-27-mgs-banner-refinement/verified.json",
+        "id": "2026-09-30-metal-gear-saga",
         "key": "ninja",
-        "previousCreationHash": "326d725b53b0bb52cc4350a9d4d54e08baa32dc9c6a5d0888ad8951620eaefd6"
+        "proof": "V4/revisions/2026-09-30-metal-gear-saga/work/ninja/verification.json"
       }
     },
     {
@@ -8442,10 +8440,10 @@
       "createdAt": "2026-09-28T14:35:43.614Z",
       "publicationSource": "V4/expansions/2026-09-28-vamp",
       "nativeRevision": {
-        "id": "2026-09-28-vamp-athletic",
-        "proof": "V4/revisions/2026-09-28-vamp-athletic/verified.json",
-        "key": "vamp",
-        "previousCreationHash": "b5e059500b31fac7aed8497cff42790d5b6cce1ca48327fe0d902e24a2e1ce65"
+        "id": "2026-09-30-metal-gear-saga",
+        "key": "vamp2",
+        "proof": "V4/revisions/2026-09-30-metal-gear-saga/work/vamp2/verification.json",
+        "artworkSource": "V4/Illustrations/Vamp_MGS2_Bassin_Peinture_20260930.png"
       }
     },
     {
@@ -8753,6 +8751,1463 @@
         "id": "2026-09-30-drebin-clover",
         "proof": "V4/revisions/2026-09-30-drebin-clover/work/verification.json"
       }
+    },
+    {
+      "id": "49600101",
+      "kind": "created",
+      "creationJob": "2c3d9747-0f49-48e8-8828-11bf372d2c05",
+      "name": "MERYL",
+      "title": "Rat Patrol au front",
+      "element": "AERO",
+      "profile": {
+        "name": "MERYL",
+        "title": "Rat Patrol au front",
+        "job": "CHEFFE D'ESCOUADE",
+        "description": "Dans les rues ravagées, Meryl ouvre la voie à Rat Patrol avec une assurance durement gagnée. La recrue de Shadow Moses est devenue une meneuse : sous les tirs, elle refuse de laisser les siens derrière elle.",
+        "element": "AERO",
+        "race": "HUMAIN",
+        "weapon": "Gun",
+        "faction": "MGS4",
+        "positions": [
+          2,
+          3
+        ],
+        "atk": [
+          280,
+          230,
+          180,
+          130,
+          80,
+          "retry"
+        ],
+        "defense": [
+          165,
+          135,
+          100,
+          65,
+          "dodge",
+          15
+        ],
+        "magic": [
+          4
+        ],
+        "barriers": [
+          5
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49600101",
+        "characterId": "meryl-mgs",
+        "slug": "V4_49600101",
+        "output": "KALISTAR_V4_49600101",
+        "text": "Dans les rues ravagées, Meryl ouvre la voie à Rat Patrol avec une assurance durement gagnée. La recrue de Shadow Moses est devenue une meneuse : sous les tirs, elle refuse de laisser les siens derrière elle.",
+        "color": "89EDC2",
+        "hue": 155,
+        "weapon_index": 7,
+        "role": 2,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-30-metal-gear-saga",
+        "collaboration": "MGS4",
+        "officialCollaboration": false,
+        "previous_model": "45960834",
+        "artworkSource": "V4/Illustrations/Meryl_MGS4_Rat_Patrol.png"
+      },
+      "png": "V4/creations/49600101/card.png",
+      "psd": "V4/creations/49600101/card.psd",
+      "pngUrl": "/media/created/49600101.png",
+      "psdUrl": "/media/created/49600101.psd",
+      "createdAt": "2026-09-30T14:07:03.156Z",
+      "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga"
+    },
+    {
+      "id": "49600102",
+      "kind": "created",
+      "creationJob": "905ae8ce-6006-4412-9f33-4f54abb8b374",
+      "name": "RAIDEN",
+      "title": "Le corps fait rempart",
+      "element": "ELECTRO",
+      "profile": {
+        "name": "RAIDEN",
+        "title": "Le corps fait rempart",
+        "job": "CYBORG NINJA",
+        "description": "Son corps n'a plus rien d'humain, mais sa volonté lui appartient encore. Dans la poussière d'une rue, Raiden se dresse entre Snake et la menace, prêt à payer de sa propre chair d'acier pour lui ouvrir un passage.",
+        "element": "ELECTRO",
+        "race": "CYBORG",
+        "weapon": "Katana",
+        "faction": "MGS4",
+        "positions": [
+          2
+        ],
+        "atk": [
+          285,
+          240,
+          195,
+          145,
+          95,
+          "retry"
+        ],
+        "defense": [
+          160,
+          130,
+          100,
+          "dodge",
+          45,
+          15
+        ],
+        "magic": [
+          5
+        ],
+        "barriers": [
+          4
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49600102",
+        "characterId": "raiden-mgs",
+        "slug": "V4_49600102",
+        "output": "KALISTAR_V4_49600102",
+        "text": "Son corps n'a plus rien d'humain, mais sa volonté lui appartient encore. Dans la poussière d'une rue, Raiden se dresse entre Snake et la menace, prêt à payer de sa propre chair d'acier pour lui ouvrir un passage.",
+        "color": "F5DC32",
+        "hue": 53,
+        "weapon_index": 18,
+        "role": 2,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-30-metal-gear-saga",
+        "collaboration": "MGS4",
+        "officialCollaboration": false,
+        "previous_model": "49382016",
+        "artworkSource": "V4/Illustrations/Raiden_MGS4_Protecteur.png"
+      },
+      "png": "V4/creations/49600102/card.png",
+      "psd": "V4/creations/49600102/card.psd",
+      "pngUrl": "/media/created/49600102.png",
+      "psdUrl": "/media/created/49600102.psd",
+      "createdAt": "2026-09-30T14:07:03.252Z",
+      "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga"
+    },
+    {
+      "id": "49600103",
+      "kind": "created",
+      "creationJob": "1a63ede5-7df6-45ff-942d-ad69229df13f",
+      "name": "OTACON",
+      "title": "La voix qui reste",
+      "element": "GEO",
+      "profile": {
+        "name": "OTACON",
+        "title": "La voix qui reste",
+        "job": "INGÉNIEUR",
+        "description": "À bord du Nomad, Otacon répare le petit robot qui veille sur Snake. Sous sa blouse froissée, l'ingénieur cache mal son inquiétude : même loin du combat, il reste la voix fidèle qui refuse d'abandonner son ami.",
+        "element": "GEO",
+        "race": "HUMAIN",
+        "weapon": "Tome",
+        "faction": "MGS4",
+        "positions": [
+          5
+        ],
+        "atk": [
+          160,
+          130,
+          100,
+          "guard",
+          "buff_atk",
+          15
+        ],
+        "defense": [
+          190,
+          155,
+          120,
+          85,
+          45,
+          "retry"
+        ],
+        "magic": [],
+        "barriers": [
+          6,
+          4
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49600103",
+        "characterId": "otacon-mgs",
+        "slug": "V4_49600103",
+        "output": "KALISTAR_V4_49600103",
+        "text": "À bord du Nomad, Otacon répare le petit robot qui veille sur Snake. Sous sa blouse froissée, l'ingénieur cache mal son inquiétude : même loin du combat, il reste la voix fidèle qui refuse d'abandonner son ami.",
+        "color": "C7AB6D",
+        "hue": 41,
+        "weapon_index": 13,
+        "role": 5,
+        "sentry": true,
+        "canGuard": true,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-30-metal-gear-saga",
+        "collaboration": "MGS4",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/Otacon_MGS4_Nomad.png"
+      },
+      "png": "V4/creations/49600103/card.png",
+      "psd": "V4/creations/49600103/card.psd",
+      "pngUrl": "/media/created/49600103.png",
+      "psdUrl": "/media/created/49600103.psd",
+      "createdAt": "2026-09-30T14:07:03.333Z",
+      "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga"
+    },
+    {
+      "id": "49600104",
+      "kind": "created",
+      "creationJob": "18ad860f-8cde-4505-886d-e16c4d074a09",
+      "name": "LIQUID OCELOT",
+      "title": "Le dernier duel",
+      "element": "PYRO",
+      "profile": {
+        "name": "LIQUID OCELOT",
+        "title": "Le dernier duel",
+        "job": "MAÎTRE DU CQC",
+        "description": "Sur le pont d'Outer Haven, les armes se taisent et les poings parlent. Derrière le regard de Liquid Ocelot, des décennies de mensonges s'entrechoquent : il ne reste que deux soldats et le poids de leur histoire.",
+        "element": "PYRO",
+        "race": "CYBORG",
+        "weapon": "Poing",
+        "faction": "MGS4",
+        "positions": [
+          2,
+          1
+        ],
+        "atk": [
+          280,
+          235,
+          185,
+          135,
+          85,
+          "retry"
+        ],
+        "defense": [
+          170,
+          140,
+          110,
+          80,
+          50,
+          20
+        ],
+        "magic": [
+          3
+        ],
+        "barriers": [
+          5
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49600104",
+        "characterId": "revolver-ocelot-mgs",
+        "slug": "V4_49600104",
+        "output": "KALISTAR_V4_49600104",
+        "text": "Sur le pont d'Outer Haven, les armes se taisent et les poings parlent. Derrière le regard de Liquid Ocelot, des décennies de mensonges s'entrechoquent : il ne reste que deux soldats et le poids de leur histoire.",
+        "color": "FF704A",
+        "hue": 12,
+        "role": 2,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-30-metal-gear-saga",
+        "collaboration": "MGS4",
+        "officialCollaboration": false,
+        "previous_model": "48312725",
+        "artworkSource": "V4/Illustrations/Liquid_Ocelot_MGS4_Dernier_Duel.png"
+      },
+      "png": "V4/creations/49600104/card.png",
+      "psd": "V4/creations/49600104/card.psd",
+      "pngUrl": "/media/created/49600104.png",
+      "psdUrl": "/media/created/49600104.psd",
+      "createdAt": "2026-09-30T14:07:03.428Z",
+      "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga"
+    },
+    {
+      "id": "49600105",
+      "kind": "created",
+      "creationJob": "b6e26071-0890-41c4-a4d1-78b2879f8e62",
+      "name": "VAMP",
+      "title": "L'immortel attend",
+      "element": "HEMATO",
+      "profile": {
+        "name": "VAMP",
+        "title": "L'immortel attend",
+        "job": "LAME IMMORTELLE",
+        "description": "Dans le hangar glacé de Shadow Moses, Vamp attend son rival au bord d'une passerelle. Son sourire défie encore la mort, mais sous les cicatrices et l'assurance, ce duel pourrait enfin rompre le cycle de ses retours.",
+        "element": "HEMATO",
+        "race": "VAMP",
+        "weapon": "Dague",
+        "faction": "MGS4",
+        "positions": [
+          3
+        ],
+        "atk": [
+          220,
+          185,
+          150,
+          115,
+          75,
+          "retry"
+        ],
+        "defense": [
+          215,
+          180,
+          145,
+          "dodge",
+          65,
+          30
+        ],
+        "magic": [
+          5,
+          3
+        ],
+        "barriers": [
+          4
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49600105",
+        "characterId": "vamp-mgs",
+        "slug": "V4_49600105",
+        "output": "KALISTAR_V4_49600105",
+        "text": "Dans le hangar glacé de Shadow Moses, Vamp attend son rival au bord d'une passerelle. Son sourire défie encore la mort, mais sous les cicatrices et l'assurance, ce duel pourrait enfin rompre le cycle de ses retours.",
+        "color": "E84976",
+        "hue": 343,
+        "weapon_index": 15,
+        "role": 3,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-30-metal-gear-saga",
+        "collaboration": "MGS4",
+        "officialCollaboration": false,
+        "previous_model": "49173082",
+        "artworkSource": "V4/Illustrations/Vamp_MGS4_Duel_Immortel.png"
+      },
+      "png": "V4/creations/49600105/card.png",
+      "psd": "V4/creations/49600105/card.psd",
+      "pngUrl": "/media/created/49600105.png",
+      "psdUrl": "/media/created/49600105.psd",
+      "createdAt": "2026-09-30T14:07:03.532Z",
+      "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga"
+    },
+    {
+      "id": "49600106",
+      "kind": "created",
+      "creationJob": "e7f65fe4-f34c-4fc4-b949-4c3b61ed6ecc",
+      "name": "NAKED SNAKE",
+      "title": "Avant la légende",
+      "element": "HERBO",
+      "profile": {
+        "name": "NAKED SNAKE",
+        "title": "Avant la légende",
+        "job": "AGENT FOX",
+        "description": "Sous la peinture de camouflage, Jack retient son souffle et écoute la jungle. Avant le nom de Big Boss, il n'est qu'un soldat envoyé sauver un homme, puis affronter la seule personne qui lui a appris à survivre.",
+        "element": "HERBO",
+        "race": "HUMAIN",
+        "weapon": "Gun",
+        "faction": "MGS3",
+        "positions": [
+          2,
+          3
+        ],
+        "atk": [
+          275,
+          230,
+          185,
+          140,
+          90,
+          "retry"
+        ],
+        "defense": [
+          160,
+          135,
+          105,
+          75,
+          45,
+          20
+        ],
+        "magic": [
+          4
+        ],
+        "barriers": [
+          5
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49600106",
+        "characterId": "naked-snake-mgs",
+        "slug": "V4_49600106",
+        "output": "KALISTAR_V4_49600106",
+        "text": "Sous la peinture de camouflage, Jack retient son souffle et écoute la jungle. Avant le nom de Big Boss, il n'est qu'un soldat envoyé sauver un homme, puis affronter la seule personne qui lui a appris à survivre.",
+        "color": "89D355",
+        "hue": 100,
+        "weapon_index": 7,
+        "role": 2,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-30-metal-gear-saga",
+        "collaboration": "MGS3",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/Naked_Snake_MGS3_Infiltration.png"
+      },
+      "png": "V4/creations/49600106/card.png",
+      "psd": "V4/creations/49600106/card.psd",
+      "pngUrl": "/media/created/49600106.png",
+      "psdUrl": "/media/created/49600106.psd",
+      "createdAt": "2026-09-30T14:07:03.628Z",
+      "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga"
+    },
+    {
+      "id": "49600107",
+      "kind": "created",
+      "creationJob": "1a56b6e7-39f9-4a11-8a46-a09204e529fe",
+      "name": "THE BOSS",
+      "title": "La dernière leçon",
+      "element": "LUXO",
+      "profile": {
+        "name": "THE BOSS",
+        "title": "La dernière leçon",
+        "job": "SOLDAT LÉGENDAIRE",
+        "description": "Au milieu des fleurs blanches, The Boss attend celui qu'elle a formé. Ses mains connaissent chaque geste du combat ; son regard porte ce qu'elle ne peut révéler. Pour accomplir sa mission, elle accepte même l'oubli.",
+        "element": "LUXO",
+        "race": "HUMAIN",
+        "weapon": "Poing",
+        "faction": "MGS3",
+        "positions": [
+          1,
+          3
+        ],
+        "atk": [
+          195,
+          165,
+          130,
+          95,
+          60,
+          "guard"
+        ],
+        "defense": [
+          280,
+          235,
+          190,
+          145,
+          "dodge",
+          35
+        ],
+        "magic": [
+          4
+        ],
+        "barriers": [
+          6
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49600107",
+        "characterId": "the-boss-mgs",
+        "slug": "V4_49600107",
+        "output": "KALISTAR_V4_49600107",
+        "text": "Au milieu des fleurs blanches, The Boss attend celui qu'elle a formé. Ses mains connaissent chaque geste du combat ; son regard porte ce qu'elle ne peut révéler. Pour accomplir sa mission, elle accepte même l'oubli.",
+        "color": "F4E9AF",
+        "hue": 47,
+        "role": 1,
+        "sentry": true,
+        "canGuard": true,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-30-metal-gear-saga",
+        "collaboration": "MGS3",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/The_Boss_MGS3_Derniere_Lecon.png"
+      },
+      "png": "V4/creations/49600107/card.png",
+      "psd": "V4/creations/49600107/card.psd",
+      "pngUrl": "/media/created/49600107.png",
+      "psdUrl": "/media/created/49600107.psd",
+      "createdAt": "2026-09-30T14:07:03.722Z",
+      "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga"
+    },
+    {
+      "id": "49600108",
+      "kind": "created",
+      "creationJob": "f5142a07-0446-4792-a161-d6bd8b63c82c",
+      "name": "THE PAIN",
+      "title": "Le chant de l'essaim",
+      "element": "AERO",
+      "profile": {
+        "name": "THE PAIN",
+        "title": "Le chant de l'essaim",
+        "job": "MAÎTRE DES NUÉES",
+        "description": "Au-dessus de l'eau froide de la grotte, The Pain lève une main et l'essaim lui répond. Chaque bourdonnement devient une menace précise : derrière son masque, le Cobra impose sa volonté à cette armée minuscule.",
+        "element": "AERO",
+        "race": "BUZZY",
+        "weapon": "Projectile",
+        "faction": "MGS3",
+        "positions": [
+          4
+        ],
+        "atk": [
+          270,
+          225,
+          180,
+          135,
+          85,
+          "retry"
+        ],
+        "defense": [
+          155,
+          130,
+          100,
+          70,
+          40,
+          "dodge"
+        ],
+        "magic": [
+          6,
+          5,
+          4,
+          3
+        ],
+        "barriers": [
+          5
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49600108",
+        "characterId": "the-pain-mgs",
+        "slug": "V4_49600108",
+        "output": "KALISTAR_V4_49600108",
+        "text": "Au-dessus de l'eau froide de la grotte, The Pain lève une main et l'essaim lui répond. Chaque bourdonnement devient une menace précise : derrière son masque, le Cobra impose sa volonté à cette armée minuscule.",
+        "color": "89EDC2",
+        "hue": 155,
+        "weapon_index": 9,
+        "role": 4,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-30-metal-gear-saga",
+        "collaboration": "MGS3",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/The_Pain_MGS3_Essaim.png"
+      },
+      "png": "V4/creations/49600108/card.png",
+      "psd": "V4/creations/49600108/card.psd",
+      "pngUrl": "/media/created/49600108.png",
+      "psdUrl": "/media/created/49600108.psd",
+      "createdAt": "2026-09-30T14:07:03.803Z",
+      "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga"
+    },
+    {
+      "id": "49600109",
+      "kind": "created",
+      "creationJob": "d213d6cd-2ad2-4668-a5ef-b65ca431e0fc",
+      "name": "THE FEAR",
+      "title": "La branche qui guette",
+      "element": "HERBO",
+      "profile": {
+        "name": "THE FEAR",
+        "title": "La branche qui guette",
+        "job": "CHASSEUR COBRA",
+        "description": "Une branche craque, puis le silence revient. Accroupi au-dessus du sentier, The Fear suit sa proie d'un regard affamé. L'arbalète est prête ; dans cette forêt piégée, la peur frappe toujours d'un angle oublié.",
+        "element": "HERBO",
+        "race": "SERPES",
+        "weapon": "Arc",
+        "faction": "MGS3",
+        "positions": [
+          3,
+          2
+        ],
+        "atk": [
+          225,
+          185,
+          150,
+          115,
+          75,
+          "retry"
+        ],
+        "defense": [
+          210,
+          175,
+          140,
+          105,
+          "dodge",
+          25
+        ],
+        "magic": [
+          5,
+          3
+        ],
+        "barriers": [
+          4
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49600109",
+        "characterId": "the-fear-mgs",
+        "slug": "V4_49600109",
+        "output": "KALISTAR_V4_49600109",
+        "text": "Une branche craque, puis le silence revient. Accroupi au-dessus du sentier, The Fear suit sa proie d'un regard affamé. L'arbalète est prête ; dans cette forêt piégée, la peur frappe toujours d'un angle oublié.",
+        "color": "89D355",
+        "hue": 100,
+        "weapon_index": 5,
+        "role": 3,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-30-metal-gear-saga",
+        "collaboration": "MGS3",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/The_Fear_MGS3_Affut.png"
+      },
+      "png": "V4/creations/49600109/card.png",
+      "psd": "V4/creations/49600109/card.psd",
+      "pngUrl": "/media/created/49600109.png",
+      "psdUrl": "/media/created/49600109.psd",
+      "createdAt": "2026-09-30T14:07:03.916Z",
+      "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga"
+    },
+    {
+      "id": "49600110",
+      "kind": "created",
+      "creationJob": "c703ed2d-c537-4a61-be6c-cbb2b9abb123",
+      "name": "THE END",
+      "title": "Le temps pour allié",
+      "element": "MINERO",
+      "profile": {
+        "name": "THE END",
+        "title": "Le temps pour allié",
+        "job": "TIREUR CENTENAIRE",
+        "description": "À Sokrovenno, le vieux tireur écoute son perroquet et laisse la forêt respirer. The End n'a jamais eu besoin de se presser : une ombre qui bouge, un souffle de trop, et sa longue patience trouve enfin sa cible.",
+        "element": "MINERO",
+        "race": "HUMAIN",
+        "weapon": "Gun",
+        "faction": "MGS3",
+        "positions": [
+          4,
+          5
+        ],
+        "atk": [
+          275,
+          230,
+          185,
+          140,
+          90,
+          "retry"
+        ],
+        "defense": [
+          165,
+          135,
+          105,
+          70,
+          45,
+          "dodge"
+        ],
+        "magic": [
+          6,
+          4,
+          3
+        ],
+        "barriers": [
+          5
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49600110",
+        "characterId": "the-end-mgs",
+        "slug": "V4_49600110",
+        "output": "KALISTAR_V4_49600110",
+        "text": "À Sokrovenno, le vieux tireur écoute son perroquet et laisse la forêt respirer. The End n'a jamais eu besoin de se presser : une ombre qui bouge, un souffle de trop, et sa longue patience trouve enfin sa cible.",
+        "color": "B3BFCA",
+        "hue": 210,
+        "weapon_index": 7,
+        "role": 4,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-30-metal-gear-saga",
+        "collaboration": "MGS3",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/The_End_MGS3_Patience.png"
+      },
+      "png": "V4/creations/49600110/card.png",
+      "psd": "V4/creations/49600110/card.psd",
+      "pngUrl": "/media/created/49600110.png",
+      "psdUrl": "/media/created/49600110.psd",
+      "createdAt": "2026-09-30T14:07:04.031Z",
+      "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga"
+    },
+    {
+      "id": "49600111",
+      "kind": "created",
+      "creationJob": "479a31fc-6c81-47ef-8924-a01fef29394e",
+      "name": "THE FURY",
+      "title": "Le ciel en cendres",
+      "element": "PYRO",
+      "profile": {
+        "name": "THE FURY",
+        "title": "Le ciel en cendres",
+        "job": "COSMONAUTE COBRA",
+        "description": "Sous la voûte du tunnel, The Fury avance dans le reflet de ses flammes. De son voyage parmi les étoiles, il a ramené une colère sans repos : le monde lui paraît trop froid pour échapper encore à son brasier.",
+        "element": "PYRO",
+        "race": "HUMAIN",
+        "weapon": "Projectile",
+        "faction": "MGS3",
+        "positions": [
+          4,
+          3,
+          2
+        ],
+        "atk": [
+          285,
+          240,
+          195,
+          145,
+          95,
+          "retry"
+        ],
+        "defense": [
+          155,
+          125,
+          95,
+          65,
+          35,
+          15
+        ],
+        "magic": [
+          6,
+          5,
+          4,
+          3,
+          2
+        ],
+        "barriers": [
+          6
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49600111",
+        "characterId": "the-fury-mgs",
+        "slug": "V4_49600111",
+        "output": "KALISTAR_V4_49600111",
+        "text": "Sous la voûte du tunnel, The Fury avance dans le reflet de ses flammes. De son voyage parmi les étoiles, il a ramené une colère sans repos : le monde lui paraît trop froid pour échapper encore à son brasier.",
+        "color": "FF704A",
+        "hue": 12,
+        "weapon_index": 9,
+        "role": 4,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-30-metal-gear-saga",
+        "collaboration": "MGS3",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/The_Fury_MGS3_Brasier.png"
+      },
+      "png": "V4/creations/49600111/card.png",
+      "psd": "V4/creations/49600111/card.psd",
+      "pngUrl": "/media/created/49600111.png",
+      "psdUrl": "/media/created/49600111.psd",
+      "createdAt": "2026-09-30T14:07:04.127Z",
+      "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga"
+    },
+    {
+      "id": "49600112",
+      "kind": "created",
+      "creationJob": "a50693d7-e0d5-4a1a-9ac6-eb99f79d3176",
+      "name": "THE SORROW",
+      "title": "La rivière des absents",
+      "element": "NECRO",
+      "profile": {
+        "name": "THE SORROW",
+        "title": "La rivière des absents",
+        "job": "PASSEUR DES OMBRES",
+        "description": "Au-dessus de la rivière, The Sorrow ne crie ni ne menace. Il accompagne les pas de Snake parmi ceux que la guerre a emportés. Son regard endeuillé rappelle une vérité simple : aucun soldat ne traverse seul son passé.",
+        "element": "NECRO",
+        "race": "HUMAIN",
+        "weapon": "Orbe",
+        "faction": "MGS3",
+        "positions": [
+          5
+        ],
+        "atk": [
+          "death",
+          125,
+          95,
+          "mana",
+          "buff_atk",
+          10
+        ],
+        "defense": [
+          185,
+          150,
+          115,
+          80,
+          45,
+          "dodge"
+        ],
+        "magic": [
+          5,
+          4
+        ],
+        "barriers": [
+          6
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49600112",
+        "characterId": "the-sorrow-mgs",
+        "slug": "V4_49600112",
+        "output": "KALISTAR_V4_49600112",
+        "text": "Au-dessus de la rivière, The Sorrow ne crie ni ne menace. Il accompagne les pas de Snake parmi ceux que la guerre a emportés. Son regard endeuillé rappelle une vérité simple : aucun soldat ne traverse seul son passé.",
+        "color": "A979F7",
+        "hue": 270,
+        "weapon_index": 14,
+        "role": 5,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-30-metal-gear-saga",
+        "collaboration": "MGS3",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/The_Sorrow_MGS3_Riviere.png"
+      },
+      "png": "V4/creations/49600112/card.png",
+      "psd": "V4/creations/49600112/card.psd",
+      "pngUrl": "/media/created/49600112.png",
+      "psdUrl": "/media/created/49600112.psd",
+      "createdAt": "2026-09-30T14:07:04.206Z",
+      "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga"
+    },
+    {
+      "id": "49600113",
+      "kind": "created",
+      "creationJob": "7d0408cb-acce-43f8-a6cf-e63ff1fd5e8b",
+      "name": "VOLGIN",
+      "title": "Le poing du tonnerre",
+      "element": "ELECTRO",
+      "profile": {
+        "name": "VOLGIN",
+        "title": "Le poing du tonnerre",
+        "job": "COLONEL DU GRU",
+        "description": "Dans l'acier de Groznyj Grad, Volgin serre les poings et l'air se charge d'électricité. Sa force écrase autant que sa cruauté : il savoure l'instant où l'adversaire comprend que la colère du colonel n'a pas de frein.",
+        "element": "ELECTRO",
+        "race": "HUMAIN",
+        "weapon": "Poing",
+        "faction": "MGS3",
+        "positions": [
+          1
+        ],
+        "atk": [
+          205,
+          170,
+          135,
+          100,
+          65,
+          "guard"
+        ],
+        "defense": [
+          290,
+          240,
+          195,
+          145,
+          95,
+          40
+        ],
+        "magic": [
+          6,
+          4
+        ],
+        "barriers": [
+          5,
+          3
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49600113",
+        "characterId": "volgin-mgs",
+        "slug": "V4_49600113",
+        "output": "KALISTAR_V4_49600113",
+        "text": "Dans l'acier de Groznyj Grad, Volgin serre les poings et l'air se charge d'électricité. Sa force écrase autant que sa cruauté : il savoure l'instant où l'adversaire comprend que la colère du colonel n'a pas de frein.",
+        "color": "F5DC32",
+        "hue": 53,
+        "role": 1,
+        "sentry": true,
+        "canGuard": true,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-30-metal-gear-saga",
+        "collaboration": "MGS3",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/Volgin_MGS3_Tonnerre.png"
+      },
+      "png": "V4/creations/49600113/card.png",
+      "psd": "V4/creations/49600113/card.psd",
+      "pngUrl": "/media/created/49600113.png",
+      "psdUrl": "/media/created/49600113.psd",
+      "createdAt": "2026-09-30T14:07:04.321Z",
+      "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga"
+    },
+    {
+      "id": "49600114",
+      "kind": "created",
+      "creationJob": "434d0da6-f48b-4ff4-9600-01f8b51f7bb6",
+      "name": "MAJOR OCELOT",
+      "title": "L'orgueil du jeune félin",
+      "element": "PYRO",
+      "profile": {
+        "name": "MAJOR OCELOT",
+        "title": "L'orgueil du jeune félin",
+        "job": "AS DU REVOLVER",
+        "description": "Le béret rouge de travers, le jeune major défie Snake avec un sourire trop sûr de lui. Chaque duel devient une leçon qu'il prétend ignorer ; sous l'arrogance, une fascination durable commence déjà à prendre racine.",
+        "element": "PYRO",
+        "race": "HUMAIN",
+        "weapon": "Gun",
+        "faction": "MGS3",
+        "positions": [
+          2
+        ],
+        "atk": [
+          275,
+          230,
+          185,
+          135,
+          85,
+          "retry"
+        ],
+        "defense": [
+          160,
+          130,
+          100,
+          70,
+          40,
+          15
+        ],
+        "magic": [
+          4
+        ],
+        "barriers": [
+          5
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49600114",
+        "characterId": "revolver-ocelot-mgs",
+        "slug": "V4_49600114",
+        "output": "KALISTAR_V4_49600114",
+        "text": "Le béret rouge de travers, le jeune major défie Snake avec un sourire trop sûr de lui. Chaque duel devient une leçon qu'il prétend ignorer ; sous l'arrogance, une fascination durable commence déjà à prendre racine.",
+        "color": "FF704A",
+        "hue": 12,
+        "weapon_index": 7,
+        "role": 2,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-30-metal-gear-saga",
+        "collaboration": "MGS3",
+        "officialCollaboration": false,
+        "previous_model": "48312725",
+        "artworkSource": "V4/Illustrations/Major_Ocelot_MGS3_Defi.png"
+      },
+      "png": "V4/creations/49600114/card.png",
+      "psd": "V4/creations/49600114/card.psd",
+      "pngUrl": "/media/created/49600114.png",
+      "psdUrl": "/media/created/49600114.psd",
+      "createdAt": "2026-09-30T14:07:04.436Z",
+      "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga"
+    },
+    {
+      "id": "49600115",
+      "kind": "created",
+      "creationJob": "b829b33c-d04e-43fe-913a-c49844a8f712",
+      "name": "VENOM SNAKE",
+      "title": "L'homme derrière le mythe",
+      "element": "GEO",
+      "profile": {
+        "name": "VENOM SNAKE",
+        "title": "L'homme derrière le mythe",
+        "job": "CHEF MERCENAIRE",
+        "description": "Dans la poussière afghane, Venom avance avec les blessures d'une guerre qu'il n'a pas choisie. Sa main rouge serre son arme. Derrière la légende, un homme cherche encore son propre nom.",
+        "element": "GEO",
+        "race": "CYBORG",
+        "weapon": "Gun",
+        "faction": "MGS5",
+        "positions": [
+          2
+        ],
+        "atk": [
+          280,
+          235,
+          185,
+          135,
+          85,
+          "retry"
+        ],
+        "defense": [
+          165,
+          135,
+          105,
+          75,
+          45,
+          15
+        ],
+        "magic": [
+          4
+        ],
+        "barriers": [
+          5
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49600115",
+        "characterId": "venom-snake-mgs",
+        "slug": "V4_49600115",
+        "output": "KALISTAR_V4_49600115",
+        "text": "Dans la poussière afghane, Venom avance avec les blessures d'une guerre qu'il n'a pas choisie. Sa main rouge serre son arme. Derrière la légende, un homme cherche encore son propre nom.",
+        "color": "C7AB6D",
+        "hue": 41,
+        "weapon_index": 7,
+        "role": 2,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-30-metal-gear-saga",
+        "collaboration": "MGS5",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/Venom_Snake_MGS5_Poussiere.png"
+      },
+      "png": "V4/creations/49600115/card.png",
+      "psd": "V4/creations/49600115/card.psd",
+      "pngUrl": "/media/created/49600115.png",
+      "psdUrl": "/media/created/49600115.psd",
+      "createdAt": "2026-09-30T14:07:04.530Z",
+      "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga"
+    },
+    {
+      "id": "49600116",
+      "kind": "created",
+      "creationJob": "0c0c05e9-0098-47ab-8c72-830d542dc5eb",
+      "name": "REVOLVER OCELOT",
+      "title": "Les ficelles du désert",
+      "element": "MINERO",
+      "profile": {
+        "name": "REVOLVER OCELOT",
+        "title": "Les ficelles du désert",
+        "job": "INSTRUCTEUR",
+        "description": "À Mother Base, Ocelot surveille chaque geste avec le calme de celui qui sait plus qu'il ne dit. Le revolver n'est jamais loin, mais son arme la plus sûre reste cette patience qui transforme les hommes en légendes.",
+        "element": "MINERO",
+        "race": "HUMAIN",
+        "weapon": "Gun",
+        "faction": "MGS5",
+        "positions": [
+          3,
+          2
+        ],
+        "atk": [
+          225,
+          185,
+          145,
+          110,
+          70,
+          "retry"
+        ],
+        "defense": [
+          215,
+          180,
+          145,
+          110,
+          70,
+          30
+        ],
+        "magic": [
+          5,
+          3
+        ],
+        "barriers": [
+          4
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49600116",
+        "characterId": "revolver-ocelot-mgs",
+        "slug": "V4_49600116",
+        "output": "KALISTAR_V4_49600116",
+        "text": "À Mother Base, Ocelot surveille chaque geste avec le calme de celui qui sait plus qu'il ne dit. Le revolver n'est jamais loin, mais son arme la plus sûre reste cette patience qui transforme les hommes en légendes.",
+        "color": "B3BFCA",
+        "hue": 210,
+        "weapon_index": 7,
+        "role": 3,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-30-metal-gear-saga",
+        "collaboration": "MGS5",
+        "officialCollaboration": false,
+        "previous_model": "48312725",
+        "artworkSource": "V4/Illustrations/Revolver_Ocelot_MGS5_Instructeur.png"
+      },
+      "png": "V4/creations/49600116/card.png",
+      "psd": "V4/creations/49600116/card.psd",
+      "pngUrl": "/media/created/49600116.png",
+      "psdUrl": "/media/created/49600116.psd",
+      "createdAt": "2026-09-30T14:07:04.614Z",
+      "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga"
+    },
+    {
+      "id": "49600117",
+      "kind": "created",
+      "creationJob": "25c9b0a4-92b9-4a47-9681-ea18fcb75975",
+      "name": "KAZUHIRA MILLER",
+      "title": "Ce qui reste des nôtres",
+      "element": "LUXO",
+      "profile": {
+        "name": "KAZUHIRA MILLER",
+        "title": "Ce qui reste des nôtres",
+        "job": "STRATÈGE",
+        "description": "Sur les passerelles de Mother Base, Miller s'appuie sur sa béquille et recompte les absents. Sa voix organise les vivants, dure et précise ; derrière les lunettes sombres, la douleur nourrit une volonté intacte.",
+        "element": "LUXO",
+        "race": "HUMAIN",
+        "weapon": "Tome",
+        "faction": "MGS5",
+        "positions": [
+          5,
+          3
+        ],
+        "atk": [
+          155,
+          125,
+          95,
+          "guard",
+          "buff_atk",
+          "mana"
+        ],
+        "defense": [
+          185,
+          150,
+          115,
+          80,
+          45,
+          "retry"
+        ],
+        "magic": [],
+        "barriers": [
+          6,
+          4
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49600117",
+        "characterId": "kazuhira-miller-mgs",
+        "slug": "V4_49600117",
+        "output": "KALISTAR_V4_49600117",
+        "text": "Sur les passerelles de Mother Base, Miller s'appuie sur sa béquille et recompte les absents. Sa voix organise les vivants, dure et précise ; derrière les lunettes sombres, la douleur nourrit une volonté intacte.",
+        "color": "F4E9AF",
+        "hue": 47,
+        "weapon_index": 13,
+        "role": 5,
+        "sentry": true,
+        "canGuard": true,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-30-metal-gear-saga",
+        "collaboration": "MGS5",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/Kazuhira_Miller_MGS5_Mother_Base.png"
+      },
+      "png": "V4/creations/49600117/card.png",
+      "psd": "V4/creations/49600117/card.psd",
+      "pngUrl": "/media/created/49600117.png",
+      "psdUrl": "/media/created/49600117.psd",
+      "createdAt": "2026-09-30T14:07:04.709Z",
+      "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga"
+    },
+    {
+      "id": "49600118",
+      "kind": "created",
+      "creationJob": "d83d9676-b749-4d37-ad66-29d019811328",
+      "name": "SKULL FACE",
+      "title": "La parole empoisonnée",
+      "element": "NECRO",
+      "profile": {
+        "name": "SKULL FACE",
+        "title": "La parole empoisonnée",
+        "job": "MAÎTRE DE XOF",
+        "description": "Dans l'ombre des installations, Skull Face parle d'une voix calme et laisse peser chaque silence. Son visage brûlé ne cache plus rien ; pourtant, c'est dans les mots qu'il prépare la plus cruelle de ses armes.",
+        "element": "NECRO",
+        "race": "HUMAIN",
+        "weapon": "Gun",
+        "faction": "MGS5",
+        "positions": [
+          4,
+          2
+        ],
+        "atk": [
+          "death",
+          225,
+          180,
+          130,
+          80,
+          "retry"
+        ],
+        "defense": [
+          155,
+          125,
+          95,
+          65,
+          35,
+          10
+        ],
+        "magic": [
+          5,
+          4,
+          3
+        ],
+        "barriers": [
+          5
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49600118",
+        "characterId": "skull-face-mgs",
+        "slug": "V4_49600118",
+        "output": "KALISTAR_V4_49600118",
+        "text": "Dans l'ombre des installations, Skull Face parle d'une voix calme et laisse peser chaque silence. Son visage brûlé ne cache plus rien ; pourtant, c'est dans les mots qu'il prépare la plus cruelle de ses armes.",
+        "color": "A979F7",
+        "hue": 270,
+        "weapon_index": 7,
+        "role": 4,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-30-metal-gear-saga",
+        "collaboration": "MGS5",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/Skull_Face_MGS5_Silence.png"
+      },
+      "png": "V4/creations/49600118/card.png",
+      "psd": "V4/creations/49600118/card.psd",
+      "pngUrl": "/media/created/49600118.png",
+      "psdUrl": "/media/created/49600118.psd",
+      "createdAt": "2026-09-30T14:07:04.804Z",
+      "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga"
+    },
+    {
+      "id": "49600119",
+      "kind": "created",
+      "creationJob": "31c2730e-fe4b-4c4c-b57f-c884a4f0b36c",
+      "name": "QUIET",
+      "title": "Le souffle du silence",
+      "element": "AERO",
+      "profile": {
+        "name": "QUIET",
+        "title": "Le souffle du silence",
+        "job": "TIREUSE D'ÉLITE",
+        "description": "Sur la pierre chaude des ruines, Quiet écoute un souffle que personne d'autre ne perçoit. Le fusil reste immobile, le regard suit la cible ; entre deux battements de cœur, son silence devient une promesse précise.",
+        "element": "AERO",
+        "race": "HUMAIN",
+        "weapon": "Gun",
+        "faction": "MGS5",
+        "positions": [
+          4
+        ],
+        "atk": [
+          285,
+          235,
+          185,
+          135,
+          85,
+          "retry"
+        ],
+        "defense": [
+          155,
+          125,
+          95,
+          "dodge",
+          40,
+          15
+        ],
+        "magic": [
+          6,
+          5,
+          4,
+          3
+        ],
+        "barriers": [
+          5
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49600119",
+        "characterId": "quiet-mgs",
+        "slug": "V4_49600119",
+        "output": "KALISTAR_V4_49600119",
+        "text": "Sur la pierre chaude des ruines, Quiet écoute un souffle que personne d'autre ne perçoit. Le fusil reste immobile, le regard suit la cible ; entre deux battements de cœur, son silence devient une promesse précise.",
+        "color": "89EDC2",
+        "hue": 155,
+        "weapon_index": 7,
+        "role": 4,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Metal Gear - fan crossover non officiel",
+        "visual_revision": "V4-2026-09-30-metal-gear-saga",
+        "collaboration": "MGS5",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/Quiet_MGS5_Silence.png"
+      },
+      "png": "V4/creations/49600119/card.png",
+      "psd": "V4/creations/49600119/card.psd",
+      "pngUrl": "/media/created/49600119.png",
+      "psdUrl": "/media/created/49600119.psd",
+      "createdAt": "2026-09-30T14:07:04.923Z",
+      "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga"
     }
   ]
 }

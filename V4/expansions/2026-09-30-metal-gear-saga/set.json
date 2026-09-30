@@ -1,0 +1,917 @@
+{
+  "id": "2026-09-30-metal-gear-saga",
+  "officialCollaboration": false,
+  "arenas": [],
+  "presets": [],
+  "cards": [
+    {
+      "key": "meryl4",
+      "characterId": "meryl-mgs",
+      "name": "MERYL",
+      "title": "Rat Patrol au front",
+      "job": "CHEFFE D'ESCOUADE",
+      "description": "Dans les rues ravagées, Meryl ouvre la voie à Rat Patrol avec une assurance durement gagnée. La recrue de Shadow Moses est devenue une meneuse : sous les tirs, elle refuse de laisser les siens derrière elle.",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "element": "AERO",
+      "faction": "MGS4",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        280,
+        230,
+        180,
+        130,
+        80,
+        "retry"
+      ],
+      "defense": [
+        165,
+        135,
+        100,
+        65,
+        "dodge",
+        15
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "Meryl_MGS4_Rat_Patrol.png",
+      "lineage": "45960834",
+      "id": "49600101",
+      "collaboration": "MGS4",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "raiden4",
+      "characterId": "raiden-mgs",
+      "name": "RAIDEN",
+      "title": "Le corps fait rempart",
+      "job": "CYBORG NINJA",
+      "description": "Son corps n'a plus rien d'humain, mais sa volonté lui appartient encore. Dans la poussière d'une rue, Raiden se dresse entre Snake et la menace, prêt à payer de sa propre chair d'acier pour lui ouvrir un passage.",
+      "race": "CYBORG",
+      "weapon": "Katana",
+      "element": "ELECTRO",
+      "faction": "MGS4",
+      "role": 2,
+      "positions": [
+        2
+      ],
+      "atk": [
+        285,
+        240,
+        195,
+        145,
+        95,
+        "retry"
+      ],
+      "defense": [
+        160,
+        130,
+        100,
+        "dodge",
+        45,
+        15
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        4
+      ],
+      "art": "Raiden_MGS4_Protecteur.png",
+      "lineage": "49382016",
+      "id": "49600102",
+      "collaboration": "MGS4",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "otacon4",
+      "characterId": "otacon-mgs",
+      "name": "OTACON",
+      "title": "La voix qui reste",
+      "job": "INGÉNIEUR",
+      "description": "À bord du Nomad, Otacon répare le petit robot qui veille sur Snake. Sous sa blouse froissée, l'ingénieur cache mal son inquiétude : même loin du combat, il reste la voix fidèle qui refuse d'abandonner son ami.",
+      "race": "HUMAIN",
+      "weapon": "Tome",
+      "element": "GEO",
+      "faction": "MGS4",
+      "role": 5,
+      "positions": [
+        5
+      ],
+      "atk": [
+        160,
+        130,
+        100,
+        "guard",
+        "buff_atk",
+        15
+      ],
+      "defense": [
+        190,
+        155,
+        120,
+        85,
+        45,
+        "retry"
+      ],
+      "magic": [],
+      "barriers": [
+        6,
+        4
+      ],
+      "art": "Otacon_MGS4_Nomad.png",
+      "id": "49600103",
+      "collaboration": "MGS4",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "liquid-ocelot",
+      "characterId": "revolver-ocelot-mgs",
+      "name": "LIQUID OCELOT",
+      "title": "Le dernier duel",
+      "job": "MAÎTRE DU CQC",
+      "description": "Sur le pont d'Outer Haven, les armes se taisent et les poings parlent. Derrière le regard de Liquid Ocelot, des décennies de mensonges s'entrechoquent : il ne reste que deux soldats et le poids de leur histoire.",
+      "race": "CYBORG",
+      "weapon": "Poing",
+      "element": "PYRO",
+      "faction": "MGS4",
+      "role": 2,
+      "positions": [
+        2,
+        1
+      ],
+      "atk": [
+        280,
+        235,
+        185,
+        135,
+        85,
+        "retry"
+      ],
+      "defense": [
+        170,
+        140,
+        110,
+        80,
+        50,
+        20
+      ],
+      "magic": [
+        3
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "Liquid_Ocelot_MGS4_Dernier_Duel.png",
+      "lineage": "48312725",
+      "id": "49600104",
+      "collaboration": "MGS4",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "vamp4",
+      "characterId": "vamp-mgs",
+      "name": "VAMP",
+      "title": "L'immortel attend",
+      "job": "LAME IMMORTELLE",
+      "description": "Dans le hangar glacé de Shadow Moses, Vamp attend son rival au bord d'une passerelle. Son sourire défie encore la mort, mais sous les cicatrices et l'assurance, ce duel pourrait enfin rompre le cycle de ses retours.",
+      "race": "VAMP",
+      "weapon": "Dague",
+      "element": "HEMATO",
+      "faction": "MGS4",
+      "role": 3,
+      "positions": [
+        3
+      ],
+      "atk": [
+        220,
+        185,
+        150,
+        115,
+        75,
+        "retry"
+      ],
+      "defense": [
+        215,
+        180,
+        145,
+        "dodge",
+        65,
+        30
+      ],
+      "magic": [
+        5,
+        3
+      ],
+      "barriers": [
+        4
+      ],
+      "art": "Vamp_MGS4_Duel_Immortel.png",
+      "lineage": "49173082",
+      "id": "49600105",
+      "collaboration": "MGS4",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "naked-snake",
+      "characterId": "naked-snake-mgs",
+      "name": "NAKED SNAKE",
+      "title": "Avant la légende",
+      "job": "AGENT FOX",
+      "description": "Sous la peinture de camouflage, Jack retient son souffle et écoute la jungle. Avant le nom de Big Boss, il n'est qu'un soldat envoyé sauver un homme, puis affronter la seule personne qui lui a appris à survivre.",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "element": "HERBO",
+      "faction": "MGS3",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        275,
+        230,
+        185,
+        140,
+        90,
+        "retry"
+      ],
+      "defense": [
+        160,
+        135,
+        105,
+        75,
+        45,
+        20
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "Naked_Snake_MGS3_Infiltration.png",
+      "id": "49600106",
+      "collaboration": "MGS3",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "the-boss",
+      "characterId": "the-boss-mgs",
+      "name": "THE BOSS",
+      "title": "La dernière leçon",
+      "job": "SOLDAT LÉGENDAIRE",
+      "description": "Au milieu des fleurs blanches, The Boss attend celui qu'elle a formé. Ses mains connaissent chaque geste du combat ; son regard porte ce qu'elle ne peut révéler. Pour accomplir sa mission, elle accepte même l'oubli.",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "element": "LUXO",
+      "faction": "MGS3",
+      "role": 1,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        195,
+        165,
+        130,
+        95,
+        60,
+        "guard"
+      ],
+      "defense": [
+        280,
+        235,
+        190,
+        145,
+        "dodge",
+        35
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        6
+      ],
+      "art": "The_Boss_MGS3_Derniere_Lecon.png",
+      "id": "49600107",
+      "collaboration": "MGS3",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "the-pain",
+      "characterId": "the-pain-mgs",
+      "name": "THE PAIN",
+      "title": "Le chant de l'essaim",
+      "job": "MAÎTRE DES NUÉES",
+      "description": "Au-dessus de l'eau froide de la grotte, The Pain lève une main et l'essaim lui répond. Chaque bourdonnement devient une menace précise : derrière son masque, le Cobra impose sa volonté à cette armée minuscule.",
+      "race": "BUZZY",
+      "weapon": "Projectile",
+      "element": "AERO",
+      "faction": "MGS3",
+      "role": 4,
+      "positions": [
+        4
+      ],
+      "atk": [
+        270,
+        225,
+        180,
+        135,
+        85,
+        "retry"
+      ],
+      "defense": [
+        155,
+        130,
+        100,
+        70,
+        40,
+        "dodge"
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "The_Pain_MGS3_Essaim.png",
+      "id": "49600108",
+      "collaboration": "MGS3",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "the-fear",
+      "characterId": "the-fear-mgs",
+      "name": "THE FEAR",
+      "title": "La branche qui guette",
+      "job": "CHASSEUR COBRA",
+      "description": "Une branche craque, puis le silence revient. Accroupi au-dessus du sentier, The Fear suit sa proie d'un regard affamé. L'arbalète est prête ; dans cette forêt piégée, la peur frappe toujours d'un angle oublié.",
+      "race": "SERPES",
+      "weapon": "Arc",
+      "element": "HERBO",
+      "faction": "MGS3",
+      "role": 3,
+      "positions": [
+        3,
+        2
+      ],
+      "atk": [
+        225,
+        185,
+        150,
+        115,
+        75,
+        "retry"
+      ],
+      "defense": [
+        210,
+        175,
+        140,
+        105,
+        "dodge",
+        25
+      ],
+      "magic": [
+        5,
+        3
+      ],
+      "barriers": [
+        4
+      ],
+      "art": "The_Fear_MGS3_Affut.png",
+      "id": "49600109",
+      "collaboration": "MGS3",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "the-end",
+      "characterId": "the-end-mgs",
+      "name": "THE END",
+      "title": "Le temps pour allié",
+      "job": "TIREUR CENTENAIRE",
+      "description": "À Sokrovenno, le vieux tireur écoute son perroquet et laisse la forêt respirer. The End n'a jamais eu besoin de se presser : une ombre qui bouge, un souffle de trop, et sa longue patience trouve enfin sa cible.",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "element": "MINERO",
+      "faction": "MGS3",
+      "role": 4,
+      "positions": [
+        4,
+        5
+      ],
+      "atk": [
+        275,
+        230,
+        185,
+        140,
+        90,
+        "retry"
+      ],
+      "defense": [
+        165,
+        135,
+        105,
+        70,
+        45,
+        "dodge"
+      ],
+      "magic": [
+        6,
+        4,
+        3
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "The_End_MGS3_Patience.png",
+      "id": "49600110",
+      "collaboration": "MGS3",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "the-fury",
+      "characterId": "the-fury-mgs",
+      "name": "THE FURY",
+      "title": "Le ciel en cendres",
+      "job": "COSMONAUTE COBRA",
+      "description": "Sous la voûte du tunnel, The Fury avance dans le reflet de ses flammes. De son voyage parmi les étoiles, il a ramené une colère sans repos : le monde lui paraît trop froid pour échapper encore à son brasier.",
+      "race": "HUMAIN",
+      "weapon": "Projectile",
+      "element": "PYRO",
+      "faction": "MGS3",
+      "role": 4,
+      "positions": [
+        4,
+        3,
+        2
+      ],
+      "atk": [
+        285,
+        240,
+        195,
+        145,
+        95,
+        "retry"
+      ],
+      "defense": [
+        155,
+        125,
+        95,
+        65,
+        35,
+        15
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3,
+        2
+      ],
+      "barriers": [
+        6
+      ],
+      "art": "The_Fury_MGS3_Brasier.png",
+      "id": "49600111",
+      "collaboration": "MGS3",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "the-sorrow",
+      "characterId": "the-sorrow-mgs",
+      "name": "THE SORROW",
+      "title": "La rivière des absents",
+      "job": "PASSEUR DES OMBRES",
+      "description": "Au-dessus de la rivière, The Sorrow ne crie ni ne menace. Il accompagne les pas de Snake parmi ceux que la guerre a emportés. Son regard endeuillé rappelle une vérité simple : aucun soldat ne traverse seul son passé.",
+      "race": "HUMAIN",
+      "weapon": "Orbe",
+      "element": "NECRO",
+      "faction": "MGS3",
+      "role": 5,
+      "positions": [
+        5
+      ],
+      "atk": [
+        "death",
+        125,
+        95,
+        "mana",
+        "buff_atk",
+        10
+      ],
+      "defense": [
+        185,
+        150,
+        115,
+        80,
+        45,
+        "dodge"
+      ],
+      "magic": [
+        5,
+        4
+      ],
+      "barriers": [
+        6
+      ],
+      "art": "The_Sorrow_MGS3_Riviere.png",
+      "id": "49600112",
+      "collaboration": "MGS3",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "volgin",
+      "characterId": "volgin-mgs",
+      "name": "VOLGIN",
+      "title": "Le poing du tonnerre",
+      "job": "COLONEL DU GRU",
+      "description": "Dans l'acier de Groznyj Grad, Volgin serre les poings et l'air se charge d'électricité. Sa force écrase autant que sa cruauté : il savoure l'instant où l'adversaire comprend que la colère du colonel n'a pas de frein.",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "element": "ELECTRO",
+      "faction": "MGS3",
+      "role": 1,
+      "positions": [
+        1
+      ],
+      "atk": [
+        205,
+        170,
+        135,
+        100,
+        65,
+        "guard"
+      ],
+      "defense": [
+        290,
+        240,
+        195,
+        145,
+        95,
+        40
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        5,
+        3
+      ],
+      "art": "Volgin_MGS3_Tonnerre.png",
+      "id": "49600113",
+      "collaboration": "MGS3",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "major-ocelot",
+      "characterId": "revolver-ocelot-mgs",
+      "name": "MAJOR OCELOT",
+      "title": "L'orgueil du jeune félin",
+      "job": "AS DU REVOLVER",
+      "description": "Le béret rouge de travers, le jeune major défie Snake avec un sourire trop sûr de lui. Chaque duel devient une leçon qu'il prétend ignorer ; sous l'arrogance, une fascination durable commence déjà à prendre racine.",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "element": "PYRO",
+      "faction": "MGS3",
+      "role": 2,
+      "positions": [
+        2
+      ],
+      "atk": [
+        275,
+        230,
+        185,
+        135,
+        85,
+        "retry"
+      ],
+      "defense": [
+        160,
+        130,
+        100,
+        70,
+        40,
+        15
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "Major_Ocelot_MGS3_Defi.png",
+      "lineage": "48312725",
+      "id": "49600114",
+      "collaboration": "MGS3",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "venom-snake",
+      "characterId": "venom-snake-mgs",
+      "name": "VENOM SNAKE",
+      "title": "L'homme derrière le mythe",
+      "job": "CHEF MERCENAIRE",
+      "description": "Dans la poussière afghane, Venom avance avec les blessures d'une guerre qu'il n'a pas choisie. Sa main rouge serre son arme. Derrière la légende, un homme cherche encore son propre nom.",
+      "race": "CYBORG",
+      "weapon": "Gun",
+      "element": "GEO",
+      "faction": "MGS5",
+      "role": 2,
+      "positions": [
+        2
+      ],
+      "atk": [
+        280,
+        235,
+        185,
+        135,
+        85,
+        "retry"
+      ],
+      "defense": [
+        165,
+        135,
+        105,
+        75,
+        45,
+        15
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "Venom_Snake_MGS5_Poussiere.png",
+      "id": "49600115",
+      "collaboration": "MGS5",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "ocelot5",
+      "characterId": "revolver-ocelot-mgs",
+      "name": "REVOLVER OCELOT",
+      "title": "Les ficelles du désert",
+      "job": "INSTRUCTEUR",
+      "description": "À Mother Base, Ocelot surveille chaque geste avec le calme de celui qui sait plus qu'il ne dit. Le revolver n'est jamais loin, mais son arme la plus sûre reste cette patience qui transforme les hommes en légendes.",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "element": "MINERO",
+      "faction": "MGS5",
+      "role": 3,
+      "positions": [
+        3,
+        2
+      ],
+      "atk": [
+        225,
+        185,
+        145,
+        110,
+        70,
+        "retry"
+      ],
+      "defense": [
+        215,
+        180,
+        145,
+        110,
+        70,
+        30
+      ],
+      "magic": [
+        5,
+        3
+      ],
+      "barriers": [
+        4
+      ],
+      "art": "Revolver_Ocelot_MGS5_Instructeur.png",
+      "lineage": "48312725",
+      "id": "49600116",
+      "collaboration": "MGS5",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "miller5",
+      "characterId": "kazuhira-miller-mgs",
+      "name": "KAZUHIRA MILLER",
+      "title": "Ce qui reste des nôtres",
+      "job": "STRATÈGE",
+      "description": "Sur les passerelles de Mother Base, Miller s'appuie sur sa béquille et recompte les absents. Sa voix organise les vivants, dure et précise ; derrière les lunettes sombres, la douleur nourrit une volonté intacte.",
+      "race": "HUMAIN",
+      "weapon": "Tome",
+      "element": "LUXO",
+      "faction": "MGS5",
+      "role": 5,
+      "positions": [
+        5,
+        3
+      ],
+      "atk": [
+        155,
+        125,
+        95,
+        "guard",
+        "buff_atk",
+        "mana"
+      ],
+      "defense": [
+        185,
+        150,
+        115,
+        80,
+        45,
+        "retry"
+      ],
+      "magic": [],
+      "barriers": [
+        6,
+        4
+      ],
+      "art": "Kazuhira_Miller_MGS5_Mother_Base.png",
+      "id": "49600117",
+      "collaboration": "MGS5",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "skull-face",
+      "characterId": "skull-face-mgs",
+      "name": "SKULL FACE",
+      "title": "La parole empoisonnée",
+      "job": "MAÎTRE DE XOF",
+      "description": "Dans l'ombre des installations, Skull Face parle d'une voix calme et laisse peser chaque silence. Son visage brûlé ne cache plus rien ; pourtant, c'est dans les mots qu'il prépare la plus cruelle de ses armes.",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "element": "NECRO",
+      "faction": "MGS5",
+      "role": 4,
+      "positions": [
+        4,
+        2
+      ],
+      "atk": [
+        "death",
+        225,
+        180,
+        130,
+        80,
+        "retry"
+      ],
+      "defense": [
+        155,
+        125,
+        95,
+        65,
+        35,
+        10
+      ],
+      "magic": [
+        5,
+        4,
+        3
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "Skull_Face_MGS5_Silence.png",
+      "id": "49600118",
+      "collaboration": "MGS5",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "quiet",
+      "characterId": "quiet-mgs",
+      "name": "QUIET",
+      "title": "Le souffle du silence",
+      "job": "TIREUSE D'ÉLITE",
+      "description": "Sur la pierre chaude des ruines, Quiet écoute un souffle que personne d'autre ne perçoit. Le fusil reste immobile, le regard suit la cible ; entre deux battements de cœur, son silence devient une promesse précise.",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "element": "AERO",
+      "faction": "MGS5",
+      "role": 4,
+      "positions": [
+        4
+      ],
+      "atk": [
+        285,
+        235,
+        185,
+        135,
+        85,
+        "retry"
+      ],
+      "defense": [
+        155,
+        125,
+        95,
+        "dodge",
+        40,
+        15
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "Quiet_MGS5_Silence.png",
+      "id": "49600119",
+      "collaboration": "MGS5",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    }
+  ]
+}

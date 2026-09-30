@@ -12,7 +12,9 @@
     {id:'replicant',faction:'Replicant',title:'NieR Replicant'},
     {id:'mgs1',faction:'MGS1',title:'Metal Gear Solid'},
     {id:'mgs2',faction:'MGS2',title:'Metal Gear Solid 2'},
-    {id:'mgs4',faction:'MGS4',title:'Metal Gear Solid 4'}
+    {id:'mgs3',faction:'MGS3',title:'Metal Gear Solid 3'},
+    {id:'mgs4',faction:'MGS4',title:'Metal Gear Solid 4'},
+    {id:'mgs5',faction:'MGS5',title:'Metal Gear Solid V'}
   ].map(Object.freeze));
   const find=value=>entries.find(entry=>entry.faction.toLowerCase()===String(value||'').trim().toLowerCase());
   // Faction distinguishes versions from the same series and shared character ID.
@@ -20,6 +22,6 @@
   const universe=card=>of(card)?.faction||'kalistar';
   const matches=(card,id)=>of(card)?.id===id;
   const choices=cards=>entries.filter(entry=>entry.id==='ff7'||entry.id==='ff8'||cards.some(card=>matches(card,entry.id))).map(entry=>[entry.faction,entry.faction]);
-  const asset=(folder,name)=>(folder==='factions'&&(find(name)||name==='Solaria')||folder==='races'&&name==='ANDROID'?'assets/':'shared/')+folder+'/'+encodeURIComponent(name)+'.png';
+  const asset=(folder,name)=>(folder==='factions'&&(find(name)||name==='Solaria')||folder==='races'&&['ANDROID','BUZZY','SERPES'].includes(name)?'assets/':'shared/')+folder+'/'+encodeURIComponent(name)+'.png';
   return {entries,of,universe,matches,choices,asset};
 });

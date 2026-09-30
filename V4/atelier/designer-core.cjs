@@ -21,7 +21,7 @@ function raceComponents() {
   const extension = read(file);
   if (extension.schemaVersion !== 1) throw Error('Extension de races invalide.');
   for (const [race, spec] of Object.entries(extension.races)) {
-    if (!['ANDROID', 'CYBORG'].includes(race) || spec.file !== 'extensions/race-' + race + '.png' ||
+    if (!['ANDROID', 'CYBORG', 'BUZZY', 'SERPES'].includes(race) || spec.file !== 'extensions/race-' + race + '.png' ||
         spec.left !== 711 || spec.top !== 1116 || spec.width !== 96 || spec.height !== 95 ||
         crypto.createHash('sha256').update(fs.readFileSync(path.join(bank, spec.file))).digest('hex') !== spec.sha256) {
       throw Error('Composant de race non calibre : ' + race);

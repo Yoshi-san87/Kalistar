@@ -49,6 +49,19 @@ temporaires du presse-papiers ou les preferences non encore documentees.
 
 ## Reperes techniques
 
+### Ajout Metal Gear du 30 septembre 2026
+
+Le lot [Metal Gear saga](../V4/expansions/2026-09-30-metal-gear-saga/README.md)
+ajoute 19 cartes MGS3/MGS4/MGS5, les bannieres MGS3/MGS5 et les races BUZZY/SERPES.
+Le constat apres integration est de 138 cartes et 28 arenes, sans changer les
+regles de combat. Les profils, prompts, preuves PSD et tests du lot sont conserves.
+Les trois retouches natives sont dans V4/revisions/2026-09-30-metal-gear-saga/ :
+46676157 devient OLD SNAKE sans changer d'identite; 47702575 gagne Mort en ATK D3;
+49173082 conserve son profil et recoit seulement la nouvelle illustration de Vamp.
+Pour une reprise, lire les sorties actives dans creations/ et leur nativeRevision,
+pas un ancien PNG de preparation. Les trois familles Snake restent distinctes,
+tandis que les variantes Ocelot, Vamp, Meryl et Raiden partagent leur identite.
+
 | Besoin | Source actuelle |
 | --- | --- |
 | Demarrer le projet | [Lancer-Atelier.cmd](../V4/atelier/Lancer-Atelier.cmd) |
