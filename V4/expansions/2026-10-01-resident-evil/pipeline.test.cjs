@@ -1,0 +1,4 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+test('publication refuses missing parent coordination gate',async()=>{const old=process.env.KALISTAR_RE_PARENT_COORDINATED;delete process.env.KALISTAR_RE_PARENT_COORDINATED;try{await assert.rejects(require('./build.cjs').publish(),/Publication reserved/);}finally{if(old!==undefined)process.env.KALISTAR_RE_PARENT_COORDINATED=old;}});
+test('RE native flag uses unchanged pixel transplantation and strict bounds',()=>{const s=fs.readFileSync(path.join(__dirname,'compose-one.jsx'),'utf8');assert(s.includes('/^FACTION - RE[1-9]$/'));assert(s.includes("throw Error('Flag pixel bounds changed.')"));assert(fs.readFileSync(path.join(__dirname,'compose.jsx'),'utf8').includes('#include "compose-one.jsx"'));});

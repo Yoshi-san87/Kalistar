@@ -1,0 +1,36 @@
+{
+  "id": "RE2",
+  "label": "Resident Evil 2",
+  "prompt": "Create ONE narrow vertical Kalistar faction banner TEXTURE SOURCE, portrait about 1:2.3. Match supplied MGS reference textile, shallow folds and fine metallic double edge style, NOT its text/symbol/palette. Cover-like recognizable Resident Evil game typography embroidered/painted into textile, distinct game-specific identity below. Logo centered across upper-middle, numeral centered lower-middle, all readable when reduced to 98x223 pixels. Entire texture fills canvas, straight rectangular cloth panel with slight pointed bottom matching reference; no rod, tassels or hardware, no scene, characters, Umbrella substitute, frame/card/UI/watermark. Keep decoration within side edges. Premium hand-painted material, matte woven fabric, worn metallic narrow edge. Do not include MGS words. Remake cover identity: distressed white condensed RESIDENT EVIL wordmark with blood-red EVIL and a large red 2, black storm-grey cloth.",
+  "generatedPath": "C:\\Users\\guill\\.codex\\generated_images\\01a0f2da-7687-71f1-9c85-73548a8b4e66\\exec-0282c109-ae77-4819-ae3b-63c09fee823e.png",
+  "status": "codex-visual-qa-human-approval-pending",
+  "visualReview": {
+    "date": "2026-10-01",
+    "reviewer": "Codex/parent visual QA",
+    "finding": "Recognizable per-game covers and numerals",
+    "humanApproval": false
+  },
+  "tool": "built-in imagegen",
+  "reference": "V4/expansions/2026-09-27-metal-gear-mines/art-flags/source-MGS1.png",
+  "officialReferences": [
+    "https://game.capcom.com/residentevil/en/lineup.html",
+    "https://game.capcom.com/residentevil/en/news-1834.html",
+    "https://www.playstation.com/en-us/games/resident-evil-requiem/"
+  ],
+  "referenceAccess": "Capcom search-index content available; direct news request returned 403. Requiem PlayStation page read successfully. Generated adaptations, not official logo extractions.",
+  "source": "source-RE2.png",
+  "flag": "flag-RE2.png",
+  "packedFlag": "flag-RE2-packed.png",
+  "packedGeometry": {
+    "left": 672,
+    "top": 829,
+    "width": 98,
+    "height": 223
+  },
+  "sourceHash": "ff500c79d0ba9d4a005e1ac976d49e6326b13e6e14687021e39b1d2776d81146",
+  "flagHash": "416737b917200539bbd00ce6fcd31172e5103c6af252a0189cdf468ac4ab94fc",
+  "packedHash": "c214a206c835df7b39d094927fc4949ea1a2c3dfefb23843ad00529be6631491",
+  "bonusField": "faction",
+  "bonusStat": "ATK",
+  "membersScope": "living-board-only"
+}

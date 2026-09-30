@@ -1,0 +1,1166 @@
+{
+  "id": "2026-10-01-resident-evil",
+  "officialCollaboration": false,
+  "arenas": [],
+  "presets": [],
+  "cards": [
+    {
+      "key": "jill1",
+      "id": "49700101",
+      "characterId": "jill-valentine-re",
+      "name": "JILL VALENTINE",
+      "title": "La porte du manoir",
+      "job": "MEMBRE DES S.T.A.R.S.",
+      "description": "Jill retient son souffle devant une porte du manoir Spencer. Son experience du terrain ne suffit pas a expliquer ces lieux, mais sa determination lui interdit de laisser ses partenaires sans secours.",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "element": "AERO",
+      "faction": "RE1",
+      "collaboration": "RE1",
+      "role": 2,
+      "positions": [
+        2
+      ],
+      "atk": [
+        285,
+        235,
+        185,
+        135,
+        85,
+        "retry"
+      ],
+      "defense": [
+        165,
+        135,
+        105,
+        "dodge",
+        45,
+        20
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "RE_jill1_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "jill3",
+      "id": "49700102",
+      "characterId": "jill-valentine-re",
+      "name": "JILL VALENTINE",
+      "title": "Une ville a traverser",
+      "job": "SURVIVANTE",
+      "description": "Dans une rue de Raccoon City, Jill cherche encore une issue entre les carcasses de voitures. La fatigue marque son visage, sans eteindre sa volonte de survivre et de faire payer Umbrella pour ce desastre.",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "element": "HYDRO",
+      "faction": "RE3",
+      "collaboration": "RE3",
+      "role": 3,
+      "positions": [
+        3
+      ],
+      "atk": [
+        225,
+        185,
+        145,
+        105,
+        65,
+        "retry"
+      ],
+      "defense": [
+        225,
+        185,
+        145,
+        "dodge",
+        65,
+        30
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "RE_jill3_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "jill5",
+      "id": "49700103",
+      "characterId": "jill-valentine-re",
+      "name": "JILL VALENTINE",
+      "title": "Un regard prisonnier",
+      "job": "AGENTE SOUS EMPRISE",
+      "description": "Le regard de Jill semble lointain sous ses cheveux devenus blonds. Une volonte etrangere dirige ses gestes, mais sous cette discipline glaciale demeure la survivante que Chris refuse de croire perdue.",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "element": "CRYO",
+      "faction": "RE5",
+      "collaboration": "RE5",
+      "role": 3,
+      "positions": [
+        3
+      ],
+      "atk": [
+        225,
+        185,
+        145,
+        105,
+        65,
+        "retry"
+      ],
+      "defense": [
+        225,
+        185,
+        145,
+        "dodge",
+        65,
+        30
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "RE_jill5_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "leon2",
+      "id": "49700104",
+      "characterId": "leon-kennedy-re",
+      "name": "LEON S. KENNEDY",
+      "title": "Premier jour de cauchemar",
+      "job": "POLICIER",
+      "description": "Leon avance dans le commissariat avec la prudence maladroite de son premier jour. Il aurait du trouver des collegues et des consignes ; il ne rencontre que le silence, et la responsabilite de proteger les vivants.",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "element": "HYDRO",
+      "faction": "RE2",
+      "collaboration": "RE2",
+      "role": 3,
+      "positions": [
+        3
+      ],
+      "atk": [
+        225,
+        185,
+        145,
+        105,
+        65,
+        "retry"
+      ],
+      "defense": [
+        225,
+        185,
+        145,
+        "dodge",
+        65,
+        30
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "RE_leon2_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "leon4",
+      "id": "49700105",
+      "characterId": "leon-kennedy-re",
+      "name": "LEON S. KENNEDY",
+      "title": "Au seuil du village",
+      "job": "AGENT SPECIAL",
+      "description": "Au seuil du village, Leon comprend que cette mission ne ressemble a aucune autre. Il observe les gestes des habitants et garde son arme prete, avec pour seule priorite de retrouver Ashley et de la ramener vivante.",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "element": "PYRO",
+      "faction": "RE4",
+      "collaboration": "RE4",
+      "role": 3,
+      "positions": [
+        3
+      ],
+      "atk": [
+        225,
+        185,
+        145,
+        105,
+        65,
+        "retry"
+      ],
+      "defense": [
+        225,
+        185,
+        145,
+        "dodge",
+        65,
+        30
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "RE_leon4_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "leon6",
+      "id": "49700106",
+      "characterId": "leon-kennedy-re",
+      "name": "LEON S. KENNEDY",
+      "title": "Le poids du devoir",
+      "job": "AGENT DU DSO",
+      "description": "La nuit de Tall Oaks laisse Leon face a une catastrophe qu'il n'a pas pu empecher. Au milieu des sirenes et des ombres, il poursuit les responsables, portant chaque survivant rencontre comme une raison de tenir.",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "element": "NECRO",
+      "faction": "RE6",
+      "collaboration": "RE6",
+      "role": 3,
+      "positions": [
+        3
+      ],
+      "atk": [
+        225,
+        185,
+        145,
+        105,
+        65,
+        "retry"
+      ],
+      "defense": [
+        225,
+        185,
+        145,
+        "dodge",
+        65,
+        30
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "RE_leon6_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "leon9",
+      "id": "49700107",
+      "characterId": "leon-kennedy-re",
+      "name": "LEON S. KENNEDY",
+      "title": "Le veteran tient bon",
+      "job": "AGENT DU DSO",
+      "description": "Les annees ont creuse le visage de Leon sans diminuer son instinct. Dans les vestiges d'une nouvelle enquete, il ferme le poing et reprend appui : la peur lui est familiere, mais abandonner ne l'est toujours pas.",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "element": "MINERO",
+      "faction": "RE9",
+      "collaboration": "RE9",
+      "role": 3,
+      "positions": [
+        3
+      ],
+      "atk": [
+        225,
+        185,
+        145,
+        105,
+        65,
+        "retry"
+      ],
+      "defense": [
+        225,
+        185,
+        145,
+        "dodge",
+        65,
+        30
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "RE_leon9_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "ada2",
+      "id": "49700108",
+      "characterId": "ada-wong-re",
+      "name": "ADA WONG",
+      "title": "Derriere les lunettes",
+      "job": "ESPIONNE",
+      "description": "Ada traverse le commissariat en gardant ses veritables objectifs pour elle. Derriere ses lunettes, son regard mesure chaque risque ; un geste vers Leon trahit pourtant une attention que sa mission ne reclamait pas.",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "element": "NECRO",
+      "faction": "RE2",
+      "collaboration": "RE2",
+      "role": 3,
+      "positions": [
+        3
+      ],
+      "atk": [
+        225,
+        185,
+        145,
+        105,
+        65,
+        "retry"
+      ],
+      "defense": [
+        225,
+        185,
+        145,
+        "dodge",
+        65,
+        30
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "RE_ada2_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "ada4",
+      "id": "49700109",
+      "characterId": "ada-wong-re",
+      "name": "ADA WONG",
+      "title": "Une autre voie",
+      "job": "ESPIONNE",
+      "description": "Dans les hauteurs du chateau, Ada choisit sa propre route entre les ordres et les dettes. Sa lame ouvre un passage discret ; elle garde Leon dans son champ de vision sans lui reveler ce qu'elle est venue chercher.",
+      "race": "HUMAIN",
+      "weapon": "Dague",
+      "element": "HEMATO",
+      "faction": "RE4",
+      "collaboration": "RE4",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        285,
+        235,
+        185,
+        135,
+        85,
+        "retry"
+      ],
+      "defense": [
+        165,
+        135,
+        105,
+        "dodge",
+        45,
+        20
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "RE_ada4_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "ada6",
+      "id": "49700110",
+      "characterId": "ada-wong-re",
+      "name": "ADA WONG",
+      "title": "La verite dans les flammes",
+      "job": "ESPIONNE",
+      "description": "Une autre femme a porte son visage et laisse le monde accuser Ada. Dans les coursives, elle remonte la piste de cette usurpation, arme en main, decidee a rendre aux mensonges leur auteur et a reprendre son nom.",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "element": "AERO",
+      "faction": "RE6",
+      "collaboration": "RE6",
+      "role": 3,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        225,
+        185,
+        145,
+        105,
+        65,
+        "retry"
+      ],
+      "defense": [
+        225,
+        185,
+        145,
+        "dodge",
+        65,
+        30
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "RE_ada6_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "chris1",
+      "id": "49700111",
+      "characterId": "chris-redfield-re",
+      "name": "CHRIS REDFIELD",
+      "title": "Tenir le passage",
+      "job": "MEMBRE DES S.T.A.R.S.",
+      "description": "Chris se place devant ses compagnons dans les couloirs du manoir. Son arme reste ferme malgre l'incomprehension : il cherche les disparus de Bravo et refuse que les survivants deviennent les prochaines victimes.",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "element": "HERBO",
+      "faction": "RE1",
+      "collaboration": "RE1",
+      "role": 1,
+      "positions": [
+        1
+      ],
+      "atk": [
+        195,
+        160,
+        125,
+        90,
+        55,
+        "guard"
+      ],
+      "defense": [
+        285,
+        235,
+        185,
+        135,
+        85,
+        "retry"
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "RE_chris1_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "chris5",
+      "id": "49700112",
+      "characterId": "chris-redfield-re",
+      "name": "CHRIS REDFIELD",
+      "title": "Ne jamais la laisser",
+      "job": "AGENT DU BSAA",
+      "description": "La chaleur de Kijuju pese sur les epaules de Chris, mais sa recherche de Jill ne faiblit pas. Avec Sheva a ses cotes, il affronte les armes biologiques et les traces d'un passe qui refuse de rester enterre.",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "element": "PYRO",
+      "faction": "RE5",
+      "collaboration": "RE5",
+      "role": 1,
+      "positions": [
+        1
+      ],
+      "atk": [
+        195,
+        160,
+        125,
+        90,
+        55,
+        "guard"
+      ],
+      "defense": [
+        285,
+        235,
+        185,
+        135,
+        85,
+        "retry"
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "RE_chris5_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "chris6",
+      "id": "49700113",
+      "characterId": "chris-redfield-re",
+      "name": "CHRIS REDFIELD",
+      "title": "Le capitaine revient",
+      "job": "CAPITAINE DU BSAA",
+      "description": "Chris reprend la tete de son escouade dans une ville dechiree par les combats. Les pertes ne cessent de lui revenir, mais la confiance de ses hommes lui impose de regarder devant lui et de tenir encore la ligne.",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "element": "GEO",
+      "faction": "RE6",
+      "collaboration": "RE6",
+      "role": 1,
+      "positions": [
+        1
+      ],
+      "atk": [
+        195,
+        160,
+        125,
+        90,
+        55,
+        "guard"
+      ],
+      "defense": [
+        285,
+        235,
+        185,
+        135,
+        85,
+        "retry"
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "RE_chris6_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "chris7",
+      "id": "49700114",
+      "characterId": "chris-redfield-re",
+      "name": "CHRIS REDFIELD",
+      "title": "Sous un nouvel insigne",
+      "job": "OPERATEUR",
+      "description": "Chris descend dans les installations de Dulvey sous un insigne qu'il n'a pas choisi d'aimer. Il reste attentif aux soldats qui l'accompagnent : derriere chaque porte, la mission peut encore reclamer une vie.",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "element": "LUXO",
+      "faction": "RE7",
+      "collaboration": "RE7",
+      "role": 1,
+      "positions": [
+        1
+      ],
+      "atk": [
+        195,
+        160,
+        125,
+        90,
+        55,
+        "guard"
+      ],
+      "defense": [
+        285,
+        235,
+        185,
+        135,
+        85,
+        "retry"
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "RE_chris7_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "chris8",
+      "id": "49700115",
+      "characterId": "chris-redfield-re",
+      "name": "CHRIS REDFIELD",
+      "title": "Dans la neige du village",
+      "job": "CHEF D'UNITE",
+      "description": "Sous son manteau, Chris porte le poids de decisions qu'il ne peut pas encore expliquer. Dans la neige du village, il avance vers la source du desastre et garde ses hommes unis face a ce qu'ils vont decouvrir.",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "element": "CRYO",
+      "faction": "RE8",
+      "collaboration": "RE8",
+      "role": 1,
+      "positions": [
+        1
+      ],
+      "atk": [
+        195,
+        160,
+        125,
+        90,
+        55,
+        "guard"
+      ],
+      "defense": [
+        285,
+        235,
+        185,
+        135,
+        85,
+        "retry"
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "RE_chris8_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "claire2",
+      "id": "49700116",
+      "characterId": "claire-redfield-re",
+      "name": "CLAIRE REDFIELD",
+      "title": "Une promesse a Sherry",
+      "job": "SURVIVANTE",
+      "description": "Claire etait venue a Raccoon City chercher son frere. Dans les ruines du commissariat, sa priorite change : proteger Sherry, lui ouvrir une issue et lui prouver qu'au milieu du cauchemar, quelqu'un restera pres d'elle.",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "element": "PYRO",
+      "faction": "RE2",
+      "collaboration": "RE2",
+      "role": 2,
+      "positions": [
+        2
+      ],
+      "atk": [
+        285,
+        235,
+        185,
+        135,
+        85,
+        "retry"
+      ],
+      "defense": [
+        165,
+        135,
+        105,
+        "dodge",
+        45,
+        20
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "RE_claire2_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "nemesis3",
+      "id": "49700117",
+      "characterId": "nemesis-re",
+      "name": "NEMESIS",
+      "title": "La poursuite sans fin",
+      "job": "ARME BIOLOGIQUE",
+      "description": "Les pas de Nemesis couvrent les sirenes de Raccoon City. Sa silhouette barre la rue comme un ordre d'Umbrella devenu chair ; aucun obstacle ne detourne longtemps cette arme de la survivante qu'elle doit eliminer.",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "element": "NECRO",
+      "faction": "RE3",
+      "collaboration": "RE3",
+      "role": 1,
+      "positions": [
+        1
+      ],
+      "atk": [
+        195,
+        160,
+        125,
+        90,
+        55,
+        "guard"
+      ],
+      "defense": [
+        285,
+        235,
+        185,
+        135,
+        85,
+        "retry"
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "RE_nemesis3_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "mrx2",
+      "id": "49700118",
+      "characterId": "tyrant-t103-re",
+      "name": "MR X",
+      "title": "Des pas dans le couloir",
+      "job": "TYRANT T-103",
+      "description": "Un bruit de pas revient derriere les portes du commissariat. Le Tyrant ne se presse pas : sous son manteau, sa force attend le prochain obstacle, tandis que les survivants comprennent que le silence ne les protege plus.",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "element": "MINERO",
+      "faction": "RE2",
+      "collaboration": "RE2",
+      "role": 1,
+      "positions": [
+        1
+      ],
+      "atk": [
+        195,
+        160,
+        125,
+        90,
+        55,
+        "guard"
+      ],
+      "defense": [
+        285,
+        235,
+        185,
+        135,
+        85,
+        "retry"
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "RE_mrx2_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "dimitrescu8",
+      "id": "49700119",
+      "characterId": "alcina-dimitrescu-re",
+      "name": "DIMITRESCU",
+      "title": "La maitresse du chateau",
+      "job": "DAME DU CHATEAU",
+      "description": "Dimitrescu accueille l'intrusion avec une politesse devenue menace. Sous les lustres de son chateau, elle laisse paraitre ses longues griffes, certaine que nul visiteur ne quittera ses salles sans son consentement.",
+      "race": "VAMP",
+      "weapon": "Dague",
+      "element": "HEMATO",
+      "faction": "RE8",
+      "collaboration": "RE8",
+      "role": 3,
+      "positions": [
+        3,
+        1
+      ],
+      "atk": [
+        225,
+        185,
+        145,
+        105,
+        65,
+        "retry"
+      ],
+      "defense": [
+        225,
+        185,
+        145,
+        "dodge",
+        65,
+        30
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "RE_dimitrescu8_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "heisenberg8",
+      "id": "49700120",
+      "characterId": "karl-heisenberg-re",
+      "name": "HEISENBERG",
+      "title": "Le fer lui repond",
+      "job": "INGENIEUR",
+      "description": "Dans sa fabrique, Heisenberg laisse le metal repondre a son humeur. Son marteau pese contre son epaule ; derriere le rictus et les lunettes, il calcule deja comment retourner la puissance de Miranda contre elle.",
+      "race": "HUMAIN",
+      "weapon": "Marteau",
+      "element": "ELECTRO",
+      "faction": "RE8",
+      "collaboration": "RE8",
+      "role": 2,
+      "positions": [
+        2
+      ],
+      "atk": [
+        285,
+        235,
+        185,
+        135,
+        85,
+        "retry"
+      ],
+      "defense": [
+        165,
+        135,
+        105,
+        "dodge",
+        45,
+        20
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "RE_heisenberg8_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "beneviento8",
+      "id": "49700121",
+      "characterId": "donna-beneviento-re",
+      "name": "BENEVIENTO",
+      "title": "Le silence et la poupee",
+      "job": "MARIONNETTISTE",
+      "description": "Donna demeure immobile sous son voile tandis qu'Angie semble guetter le visiteur. Dans cette maison coupee du monde, une piece familiere peut devenir un piege, et la peur prete sa voix a ce qui devrait rester inerte.",
+      "race": "HUMAIN",
+      "weapon": "Orbe",
+      "element": "NECRO",
+      "faction": "RE8",
+      "collaboration": "RE8",
+      "role": 3,
+      "positions": [
+        3
+      ],
+      "atk": [
+        225,
+        185,
+        145,
+        105,
+        65,
+        "retry"
+      ],
+      "defense": [
+        225,
+        185,
+        145,
+        "dodge",
+        65,
+        30
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "RE_beneviento8_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "moreau8",
+      "id": "49700122",
+      "characterId": "salvatore-moreau-re",
+      "name": "MOREAU",
+      "title": "Au bord du reservoir",
+      "job": "SEIGNEUR DU LAC",
+      "description": "Moreau dissimule son corps sous des tissus detrempes et cherche encore l'approbation de Miranda. Au bord du reservoir, sa solitude devient une menace : l'eau trouble cache une violence que sa voix plaintive annonce mal.",
+      "race": "HUMAIN",
+      "weapon": "Lance",
+      "element": "HYDRO",
+      "faction": "RE8",
+      "collaboration": "RE8",
+      "role": 4,
+      "positions": [
+        4
+      ],
+      "atk": [
+        285,
+        235,
+        185,
+        135,
+        85,
+        "retry"
+      ],
+      "defense": [
+        165,
+        135,
+        105,
+        "dodge",
+        45,
+        20
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "RE_moreau8_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "salazar4",
+      "id": "49700123",
+      "characterId": "ramon-salazar-re",
+      "name": "RAMON SALAZAR",
+      "title": "L'orgueil du dernier heritier",
+      "job": "CHATELAIN",
+      "description": "Ramon Salazar contemple son domaine comme un theatre dont il possede chaque issue. Sa petitesse ne tempere pas son orgueil : il offre ses salles et ses serviteurs au culte, certain que Leon finira par s'y briser.",
+      "race": "HUMAIN",
+      "weapon": "Orbe",
+      "element": "NECRO",
+      "faction": "RE4",
+      "collaboration": "RE4",
+      "role": 5,
+      "positions": [
+        5,
+        4
+      ],
+      "atk": [
+        160,
+        130,
+        100,
+        "mana",
+        "buff_atk",
+        15
+      ],
+      "defense": [
+        190,
+        155,
+        120,
+        85,
+        45,
+        "retry"
+      ],
+      "magic": [
+        6,
+        5
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "art": "RE_salazar4_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "eveline7",
+      "id": "49700124",
+      "characterId": "eveline-re",
+      "name": "EVELINE",
+      "title": "La famille imposee",
+      "job": "ARME BIOLOGIQUE",
+      "description": "Eveline attend dans la maison des Baker avec une idee terrible de la famille. Sa voix parait fragile, mais son desir de retenir chacun pres d'elle transforme les pieces et les souvenirs en une prison de moisissure.",
+      "race": "HUMAIN",
+      "weapon": "Orbe",
+      "element": "NECRO",
+      "faction": "RE7",
+      "collaboration": "RE7",
+      "role": 5,
+      "positions": [
+        5,
+        3
+      ],
+      "atk": [
+        165,
+        135,
+        105,
+        75,
+        45,
+        "mana"
+      ],
+      "defense": [
+        195,
+        160,
+        125,
+        "dodge",
+        55,
+        25
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "art": "RE_eveline7_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "saddler4",
+      "id": "49700125",
+      "characterId": "osmund-saddler-re",
+      "name": "OSMUND SADDLER",
+      "title": "La voix du culte",
+      "job": "CHEF DES ILLUMINADOS",
+      "description": "Saddler leve sa canne dans le sanctuaire et parle comme si le monde lui appartenait deja. Ses fideles l'ecoutent sans discuter ; derriere la ceremonie, Las Plagas prepare une soumission qui ne demande aucun consentement.",
+      "race": "HUMAIN",
+      "weapon": "Bâton",
+      "element": "NECRO",
+      "faction": "RE4",
+      "collaboration": "RE4",
+      "role": 4,
+      "positions": [
+        4
+      ],
+      "atk": [
+        285,
+        235,
+        185,
+        135,
+        85,
+        "retry"
+      ],
+      "defense": [
+        165,
+        135,
+        105,
+        "dodge",
+        45,
+        20
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "RE_saddler4_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    }
+  ]
+}
