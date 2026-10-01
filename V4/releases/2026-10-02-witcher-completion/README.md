@@ -45,3 +45,12 @@ Les helpers de build et de regression les remplacent uniquement en lecture par
 leurs fichiers Git publies, sans toucher au contenu local. La CI teste le commit
 reel, sans cet overlay. Les images jouables, le catalogue et les mentions 4.3.1
 testes restent les nouvelles sorties locales.
+
+Publication contenu : commit `45eab479cfa179c832f6fc57194de5ad91124f68`,
+workflow GitHub `36940855192` reussi. Les 477 fichiers du manifeste public
+correspondent au build local ; les deux PNG ont aussi ete compares apres
+telechargement. Quatre vues locales et quatre vues publiques, sans erreur ni
+debordement, ainsi que 67 tests de regression et quatre tests de ce lot passent.
+902 fichiers des autres creations et toutes les references protegees restent
+identiques. Les preuves publiques archivees attestent ce commit de contenu ;
+un commit subsequent ajoute uniquement leur archivage.
