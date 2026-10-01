@@ -39,7 +39,9 @@ simule d'une carte sans doublon ni effacement.
 `site/site-config.js` deduit le prefixe depuis son URL : le site fonctionne a la
 racine comme sous `/Kalistar/`. Les anciennes URL de medias conservees dans les
 sauvegardes restent resolues sous le bon prefixe. Le build change uniquement le
-marqueur HTML `data-hosting` ; en local l'API et l'Atelier restent disponibles.
+marqueur HTML `data-hosting` et ajoute un identifiant aux URLs CSS et JavaScript,
+y compris aux modules charges par `boot.js`, pour eviter de melanger des versions
+en cache ; en local l'API et l'Atelier restent disponibles.
 Le build publie aussi `V4/site/story-content.json`, unique contenu de lecture
 autorise dans le lot de fichiers JSON ; les autres JSON du depot restent exclus.
 

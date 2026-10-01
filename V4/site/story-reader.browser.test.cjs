@@ -29,9 +29,25 @@ async function main(){
     });
     assert.ok(Math.abs(desktop.ratio-1692/940)<.02,'grimoire spread keeps its native aspect ratio');
     assert.ok(desktop.tocRight<=desktop.center+1&&desktop.readingLeft>=desktop.center-1,'contents and text occupy their respective book pages');
-    await page.screenshot({path:path.join(output,'desktop.png')});
     await page.locator('[data-story-section="1"]').click();
     assert.equal(await page.locator('.story-current-heading h2').textContent(),'La Z13');
+    assert.equal(await page.locator('.story-illustration').count(),2,'only the precisely anchored Kaylis and Baba scenes appear in chapter I');
+    const firstScene=page.locator('.story-illustration').first();
+    await firstScene.scrollIntoViewIfNeeded();
+    await page.waitForFunction(()=>{const image=document.querySelector('.story-illustration img');return image?.dataset.v4Cropped==='art'&&image.naturalWidth===460&&image.naturalHeight===880;});
+    await page.locator('.story-illustration-trigger').first().click();
+    const cardDialog=page.locator('[data-story-dialog]');
+    await cardDialog.waitFor({state:'visible'});
+    await page.waitForFunction(()=>document.querySelector('[data-story-full-image]')?.naturalWidth===897);
+    assert.match(await page.locator('[data-story-full-image]').getAttribute('alt'),/MALABA/,'the scene opens its matching full card');
+    await page.keyboard.press('Escape');
+    assert.equal(await cardDialog.evaluate(node=>node.open),false,'Escape closes the full-card view');
+    await page.screenshot({path:path.join(output,'desktop.png')});
+    await page.locator('[data-story-section="4"]').click();
+    assert.equal(await page.locator('.story-illustration-trigger').getAttribute('data-story-full').then(value=>value.endsWith('/balmhyr.png')),true,'Balmhyr appears with the bear scene');
+    await page.locator('[data-story-section="5"]').click();
+    assert.equal(await page.locator('.story-illustration-trigger').getAttribute('data-story-full').then(value=>value.endsWith('/lanio-astraball.png')),true,'Lanio appears during the Astraball scene');
+    await page.locator('[data-story-section="1"]').click();
     const text=page.locator('.story-text');
     assert.ok(await text.evaluate(node=>node.scrollHeight>node.clientHeight),'long chapters scroll inside the page, not the window');
     await page.locator('[data-story-action=larger]').click();
@@ -68,6 +84,11 @@ async function main(){
       }
     }
     await page.setViewportSize({width:412,height:1007});
+    await page.locator('[data-story-select]').selectOption('1');
+    assert.equal(await page.locator('.story-illustration').count(),2,'both anchored illustrations are available on phone');
+    const phoneScene=await page.locator('.story-illustration').first().evaluate(node=>({frame:node.getBoundingClientRect().toJSON(),page:document.querySelector('.story-text').getBoundingClientRect().toJSON(),scrollWidth:document.querySelector('.story-text').scrollWidth,clientWidth:document.querySelector('.story-text').clientWidth}));
+    assert.ok(phoneScene.frame.left>=phoneScene.page.left-1&&phoneScene.frame.right<=phoneScene.page.right+1,'phone illustration stays within the manuscript leaf');
+    assert.ok(phoneScene.scrollWidth<=phoneScene.clientWidth+1,'phone illustration causes no horizontal reading overflow');
     await page.locator('[data-story-select]').selectOption('2');
     assert.equal(await page.locator('.story-current-heading h2').textContent(),'La lumière sous la peau');
     const controls=await page.locator('.story-reading-tools button').evaluateAll(nodes=>nodes.map(node=>node.getBoundingClientRect().height));

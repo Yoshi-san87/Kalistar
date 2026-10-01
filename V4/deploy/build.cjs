@@ -14,8 +14,33 @@ function inside(root, relative) {
   if (!result.startsWith(root + path.sep)) throw Error('Build path escapes root');
   return result;
 }
+function versionStaticAssets(html, version) {
+  const value = encodeURIComponent(version);
+  return html.replace(/((?:href|src)="[^"]+\.(?:css|js|webmanifest))(?=")/g, `$1?v=${value}`);
+}
+async function releaseVersion(files) {
+  if (process.env.GITHUB_SHA) return process.env.GITHUB_SHA.slice(0, 12);
+  const hash = crypto.createHash('sha256');
+  for (const file of files) {
+    if (!file.target.startsWith('jeu/') || !/\.(?:css|js|html|webmanifest)$/.test(file.target)) continue;
+    hash.update(file.target);
+    hash.update(await fs.readFile(inside(ROOT, file.source)));
+  }
+  return hash.digest('hex').slice(0, 12);
+}
 async function plan() {
   const references = await json('V4/atelier/data/references.json');
+  const story = await json('V4/site/story-content.json');
+  const approvedCardIds = new Set(references.cards.map(card => String(card.card.id)));
+  for (const section of story.sections) {
+    const anchors = new Set();
+    for (const scene of section.illustrations || []) {
+      if (!Number.isInteger(scene.afterParagraph) || scene.afterParagraph < 0 || scene.afterParagraph >= section.paragraphs.length || anchors.has(scene.afterParagraph) || !approvedCardIds.has(String(scene.cardId)) || !scene.alt?.trim() || !scene.caption?.trim()) {
+        throw Error('Invalid approved story illustration anchor: ' + section.id);
+      }
+      anchors.add(scene.afterParagraph);
+    }
+  }
   const published = (await json('V4/donnees/catalogue.json')).cards.filter(c => c.kind === 'created');
   if (published.some(c => c.testOnly || c.profile?.testOnly || c.profile?.published === false)) throw Error('Test or unpublished card in publication registry');
   const catalogue = await buildCatalog({published});
@@ -59,6 +84,7 @@ async function plan() {
 }
 async function build() {
   const {files, catalogue} = await plan();
+  const version = await releaseVersion(files);
   // Only this fixed, marked output directory may be replaced. Sources stay read-only.
   if (path.dirname(DIST) !== __dirname) throw Error('Unsafe output directory');
   let stat;
@@ -78,7 +104,7 @@ async function build() {
     if (file.target === 'jeu/index.html') {
       const html = bytes.toString('utf8');
       if (html.split('data-hosting="local"').length !== 2) throw Error('Missing hosting marker');
-      bytes = Buffer.from(html.replace('data-hosting="local"', 'data-hosting="static"'));
+      bytes = Buffer.from(versionStaticAssets(html.replace('data-hosting="local"', 'data-hosting="static"'), version));
     }
     const target = inside(DIST, file.target);
     await fs.mkdir(path.dirname(target), {recursive: true});
@@ -88,13 +114,13 @@ async function build() {
   await fs.writeFile(path.join(DIST, 'jeu/catalogue.json'), JSON.stringify(catalogue));
   await fs.writeFile(path.join(DIST, 'index.html'), '<!doctype html><html lang="fr"><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=jeu/"><title>Kalistar</title><a href="jeu/">Jouer a Kalistar</a></html>');
   await fs.writeFile(path.join(DIST, '.nojekyll'), '');
-  const manifest = {edition: 'V4', cards: catalogue.cards.length, assets, bytes: assets.reduce((n,a) => n+a.bytes, 0)};
+  const manifest = {edition: 'V4', version, cards: catalogue.cards.length, assets, bytes: assets.reduce((n,a) => n+a.bytes, 0)};
   if (manifest.bytes > 900 * 1024 ** 2) throw Error('Static publication exceeds 900 MiB budget');
   await fs.writeFile(path.join(DIST, 'release.json'), JSON.stringify(manifest, null, 2));
   console.log(JSON.stringify({cards: manifest.cards, files: assets.length, megabytes: +(manifest.bytes / 1024 ** 2).toFixed(1), output: DIST}));
   return manifest;
 }
-module.exports = {plan, build, ROOT, DIST, inside};
+module.exports = {plan, build, ROOT, DIST, inside, versionStaticAssets, releaseVersion};
 if (require.main === module) {
   (process.argv.includes('--lfs-paths') ? plan().then(p => console.log(p.files.map(f=>f.source).join(','))) : build())
     .catch(error => {console.error(error.message); process.exitCode = 1;});

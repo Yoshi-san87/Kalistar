@@ -19,6 +19,19 @@
     const sectionMinutes = section => Math.max(1, Math.ceil(sectionWords(section) / 220));
     const totalWords = () => wordTotal;
     const sectionProgress = ratio => Math.round(ratio * 100);
+    function sceneMarkup(scene) {
+      const card = window.KALISTAR_DATA?.cards?.find(item => String(item.id) === scene.cardId);
+      if (!card?.pngUrl) return '';
+      const fullImage = window.KalistarSite?.url(card.pngUrl) || card.pngUrl;
+      const illustration = window.KalistarCardMedia?.image(card, 'art') || fullImage;
+      return `<figure class="story-illustration">
+        <button type="button" class="story-illustration-trigger" data-story-preview data-story-full="${escape(fullImage)}" data-story-alt="Carte complète de ${escape(card.name)} · ${escape(card.title)}" data-story-caption="${escape(scene.caption)}" aria-label="Agrandir la carte de ${escape(card.name)}">
+          <img src="${escape(illustration)}" alt="${escape(scene.alt)}" width="460" height="880" loading="lazy" decoding="async">
+          <span class="story-illustration-zoom" aria-hidden="true"><i data-lucide="expand"></i></span>
+        </button>
+        <figcaption>${escape(scene.caption)}</figcaption>
+      </figure>`;
+    }
     function bookProgress(ratio = state.ratio) {
       const sections = manuscript.sections;
       const before = sections.slice(0, state.section).reduce((sum, section) => sum + sectionWords(section), 0);
@@ -55,6 +68,7 @@
       </button>`).join('');
       const options = manuscript.sections.map((item, index) => `<option value="${index}" ${index === state.section ? 'selected' : ''}>${escape(item.label)} · ${escape(item.title)}</option>`).join('');
       const themeLabel = state.paper === 'day' ? 'Passer en mode nuit' : 'Passer en mode papier';
+      const scenes = new Map((section.illustrations || []).map(scene => [scene.afterParagraph, scene]));
       root.innerHTML = `<section class="story-reader" data-paper="${state.paper}" data-text-size="${state.size}" aria-label="Liseuse Kalistar">
         <div class="story-reader-book">
           <aside class="story-toc" aria-label="Sommaire du livre">
@@ -76,7 +90,7 @@
               </div>
             </header>
             <article class="story-text" tabindex="0" aria-label="${escape(section.label)} : ${escape(section.title)}">
-              ${section.paragraphs.map(paragraph => `<p>${escape(paragraph)}</p>`).join('')}
+              ${section.paragraphs.map((paragraph, index) => `<p>${escape(paragraph)}</p>${scenes.has(index) ? sceneMarkup(scenes.get(index)) : ''}`).join('')}
             </article>
             <footer class="story-reading-footer">
               <button type="button" data-story-action="previous" ${previous ? '' : 'disabled'}><i data-lucide="chevron-left"></i><span>${previous ? escape(previous.label) : 'Début'}</span></button>
@@ -85,9 +99,16 @@
             </footer>
           </main>
         </div>
+        <dialog class="story-card-dialog" data-story-dialog aria-label="Carte illustrant le récit">
+          <header><span class="story-kicker">Carte du récit</span><button type="button" data-story-action="close-card" aria-label="Fermer la carte"><i data-lucide="x"></i></button></header>
+          <figure><img data-story-full-image alt=""><figcaption data-story-dialog-caption></figcaption></figure>
+        </dialog>
       </section>`;
       fitBook();
       window.lucide?.createIcons();
+      root.querySelector('[data-story-dialog]')?.addEventListener('close', event => {
+        event.currentTarget.querySelector('[data-story-full-image]')?.removeAttribute('src');
+      });
       if (restore) requestAnimationFrame(() => {
         const text = root?.querySelector('.story-text');
         if (text) text.scrollTop = state.ratio * Math.max(0, text.scrollHeight - text.clientHeight);
@@ -121,12 +142,24 @@
       requestAnimationFrame(() => root?.querySelector(focusSelector)?.focus({preventScroll: true}));
     }
     function click(event) {
+      if (event.target.matches('[data-story-dialog]')) return event.target.close();
+      const preview = event.target.closest('[data-story-preview]');
+      if (preview && root.contains(preview)) {
+        const dialog = root.querySelector('[data-story-dialog]'), image = dialog?.querySelector('[data-story-full-image]');
+        if (!dialog || !image) return;
+        image.src = preview.dataset.storyFull;
+        image.alt = preview.dataset.storyAlt;
+        dialog.querySelector('[data-story-dialog-caption]').textContent = preview.dataset.storyCaption;
+        dialog.showModal();
+        return;
+      }
       const chapter = event.target.closest('[data-story-section]');
       if (chapter) return selectSection(Number(chapter.dataset.storySection), `[data-story-section="${Number(chapter.dataset.storySection)}"]`);
       const button = event.target.closest('[data-story-action]');
       if (!button || !root.contains(button)) return;
       const action = button.dataset.storyAction;
       if (action === 'retry') return retry();
+      if (action === 'close-card') return root.querySelector('[data-story-dialog]')?.close();
       if (action === 'previous') return selectSection(state.section - 1);
       if (action === 'next') return selectSection(state.section + 1);
       if (action === 'theme') state.paper = state.paper === 'day' ? 'night' : 'day';
@@ -148,6 +181,14 @@
         return response.json();
       }).then(value => {
         if (!Array.isArray(value.sections) || value.sections.length !== 10 || value.sections.some(section => !Array.isArray(section.paragraphs))) throw Error('Structure du manuscrit invalide.');
+        const cards = new Set((window.KALISTAR_DATA?.cards || []).map(card => String(card.id)));
+        for (const section of value.sections) {
+          const anchors = new Set();
+          for (const scene of section.illustrations || []) {
+            if (!Number.isInteger(scene.afterParagraph) || scene.afterParagraph < 0 || scene.afterParagraph >= section.paragraphs.length || anchors.has(scene.afterParagraph) || !cards.has(String(scene.cardId)) || !scene.caption || !scene.alt) throw Error(`Repère d’illustration invalide dans ${section.label}.`);
+            anchors.add(scene.afterParagraph);
+          }
+        }
         manuscript = value;
         wordCounts = value.sections.map(section => section.paragraphs.reduce((count, paragraph) => count + wordCount(paragraph), 0));
         wordTotal = wordCounts.reduce((sum, count) => sum + count, 0);

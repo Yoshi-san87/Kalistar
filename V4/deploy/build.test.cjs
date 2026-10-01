@@ -4,7 +4,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
-const {plan, inside, DIST} = require('./build.cjs');
+const {plan, inside, DIST, versionStaticAssets} = require('./build.cjs');
 
 test('release contains all published cards and only playable files', async () => {
   const {files, catalogue} = await plan();
@@ -17,6 +17,20 @@ test('release contains all published cards and only playable files', async () =>
   assert.equal(story.sections[0].label, 'Prologue');
   assert.equal(story.sections[9].title, 'La route de Mennuyir');
   assert.ok(story.sections.reduce((sum, section) => sum + section.paragraphs.join(' ').split(/\s+/).length, 0) > 7000);
+  const references = JSON.parse(fs.readFileSync(path.join(__dirname, '../atelier/data/references.json'), 'utf8'));
+  const approvedCardIds = new Set(references.cards.map(card => String(card.card.id)));
+  const scenes = Object.fromEntries(story.sections.map(section => [section.id, section.illustrations || []]));
+  assert.deepEqual(scenes['chapter-1'].map(scene => [scene.afterParagraph, scene.cardId]), [[8, '30000022'], [15, '30000012']]);
+  assert.deepEqual(scenes['chapter-4'].map(scene => [scene.afterParagraph, scene.cardId]), [[7, '30000007']]);
+  assert.deepEqual(scenes['chapter-5'].map(scene => [scene.afterParagraph, scene.cardId]), [[1, '30000021']]);
+  const sectionById = Object.fromEntries(story.sections.map(section => [section.id, section]));
+  for (const [sectionId, paragraphIndex, phrase] of [
+    ['chapter-1', 8, 'Baba rit dans sa chope'],
+    ['chapter-1', 15, 'Au moment où elle le prit'],
+    ['chapter-4', 7, 'Il se nomma Balmhyr'],
+    ['chapter-5', 1, 'Lanio se joignit aux joueurs'],
+  ]) assert.ok(sectionById[sectionId].paragraphs[paragraphIndex].includes(phrase), `scene anchor matches its story moment: ${phrase}`);
+  for (const section of story.sections) for (const scene of section.illustrations || []) assert.ok(approvedCardIds.has(String(scene.cardId)), 'story art uses an approved V4 card: ' + scene.cardId);
   assert.ok(files.every(f => !/\/(drafts|jobs|uploads|verification|templates|revisions)\//.test(f.target)));
   assert.ok(catalogue.cards.every(c => !c.psdUrl && files.some(f => '/' + f.target === c.pngUrl)));
   assert.ok(files.filter(f => f.target.startsWith('media/reference/')).every(f => f.expectedHash));
@@ -27,6 +41,23 @@ test('release contains all published cards and only playable files', async () =>
 });
 test('build paths cannot escape the generated directory', () => {
   for (const value of ['../README.md', '..\\README.md', '/outside', '']) assert.throws(() => inside(DIST, value));
+});
+test('static release versions stylesheet and script URLs together', () => {
+  const html = '<link rel="stylesheet" href="story-reader.css"><script defer src="boot.js"></script><img src="logo.webp">';
+  const versioned = versionStaticAssets(html, 'f862a26');
+  assert.match(versioned, /href="story-reader\.css\?v=f862a26"/);
+  assert.match(versioned, /src="boot\.js\?v=f862a26"/);
+  assert.match(versioned, /src="logo\.webp"/);
+  const boot = fs.readFileSync(path.join(__dirname, '../site/boot.js'), 'utf8');
+  assert.ok(boot.includes("new URL(document.currentScript?.src || location.href).searchParams.get('v')"));
+  assert.ok(boot.includes('`${src}?v=${encodeURIComponent(release)}`'));
+});
+test('application version matches in desktop and phone headers', () => {
+  const html = fs.readFileSync(path.join(__dirname, '../site/index.html'), 'utf8');
+  const css = fs.readFileSync(path.join(__dirname, '../site/v4.css'), 'utf8');
+  assert.match(html, /<title>Kalistar V4\.2/);
+  assert.match(html, /<span class="edition">VERSION 4\.2<\/span>/);
+  assert.ok(css.includes("content:'V4.2'"));
 });
 test('hosting adapter supports local, project Pages and saved canonical image paths', () => {
   const script = fs.readFileSync(path.join(__dirname, '../site/site-config.js'), 'utf8');

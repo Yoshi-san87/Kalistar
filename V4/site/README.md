@@ -402,7 +402,11 @@ failure fixture, checks six viewport sizes, profile isolation, saved/working
 draft navigation, undo branches, drag confirmation and ownership revalidation.
 Screenshots: `verification/collection-deck-ux/`. No personal browser is modified.
 
-## Installable App and Version 4.1 (2026-09-30)
+## Installable App and Version 4.2 (2026-10-01)
+
+Story pages now place approved card illustrations at explicit narrative anchors.
+Each image is captioned in the grimoire layout and opens its matching full card;
+the layout remains responsive on desktop and phone.
 
 `manifest.webmanifest` is scoped relative to `/jeu/`, so the installed app opens
 correctly both on the local server and under the `/Kalistar/` GitHub Pages path.
@@ -411,8 +415,8 @@ deployment cannot leave stale game files in an app cache. Chromium browsers show
 an install action when their install prompt is available. From the browser menu,
 the user can also install the page as an app.
 
-The site masthead displays the application version `4.1`; the V4 edition and
-saved-data schema remain unchanged. The release commit is tagged `v4.1`.
+The site masthead displays the application version `4.2`; the V4 edition and
+saved-data schema remain unchanged. The release commit is tagged `v4.2`.
 
 Opening Arena or confirming a new match does not request browser fullscreen.
 The installed app already opens without browser chrome. The explicit in-game

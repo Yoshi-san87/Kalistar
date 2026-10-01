@@ -46,6 +46,23 @@ body.story-view #app { flex: 1 1 0; width: 100%; min-width: 0; min-height: 0; ma
 .story-text { flex: 1 1 0; width: 100%; max-width: 78ch; min-width: 0; min-height: 0; margin: 0 auto; padding: 15px 7px 24px 2px; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #795b3b65 transparent; color: #2c1e14; font-family: 'Segoe Print','Bradley Hand',cursive; font-weight: 600; animation: story-text-arrive .22s ease-out both; }
 .story-text p { margin: 0 0 1.05em; font-size: 18px; line-height: 1.78; overflow-wrap: anywhere; }
 .story-text p:first-child::first-letter { float: left; margin: 5px 8px 0 0; color: #704b2c; font: 600 3em/.82 var(--serif); }
+.story-illustration { position: relative; clear: both; display: grid; width: min(54%,240px); margin: 18px auto 20px; padding: 7px; border: 1px solid #8766439c; background: linear-gradient(145deg,#f4e4c582,#c7a77a66); box-shadow: 0 8px 18px #3b291d35,inset 0 0 0 2px #fff5d329; }
+.story-illustration::before { position: absolute; z-index: 1; top: 3px; left: 14px; width: 34px; height: 1px; background: #d2b37b; content: ''; }
+.story-illustration-trigger { position: relative; display: block; width: 100%; padding: 0; overflow: hidden; border: 1px solid #74533770; border-radius: 1px; background: #171d19; cursor: zoom-in; }
+.story-illustration-trigger img { display: block; width: 100%; height: auto; aspect-ratio: 23 / 44; object-fit: cover; transition: filter .2s ease,transform .3s ease; }
+.story-illustration-trigger:hover img { filter: brightness(1.08); transform: scale(1.025); }
+.story-illustration-zoom { position: absolute; right: 7px; bottom: 7px; display: grid; place-items: center; width: 27px; height: 27px; border: 1px solid #e4c98d; border-radius: 50%; color: #f0d9a7; background: #101a16dc; box-shadow: 0 2px 7px #0008; }
+.story-illustration-zoom .lucide { width: 14px; height: 14px; }
+.story-illustration figcaption { padding: 8px 3px 2px; color: #553a25; text-align: center; font: italic 11px/1.5 'Segoe Print','Bradley Hand',cursive; }
+.story-card-dialog { flex-direction: column; width: fit-content; max-width: min(92vw,470px); max-height: calc(100dvh - 28px); margin: auto; padding: 10px 12px 12px; overflow: hidden; border: 1px solid #b18c53; color: #eadfc5; background: #121a16; box-shadow: 0 20px 70px #000b,inset 0 0 0 3px #c2a06828; }
+.story-card-dialog[open] { display: flex; }
+.story-card-dialog::backdrop { background: #070b09d9; backdrop-filter: blur(4px); }
+.story-card-dialog > header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 8px; border-bottom: 1px solid #ad8a584e; }
+.story-card-dialog > header button { display: grid; place-items: center; width: 36px; height: 36px; min-height: 36px; padding: 0; border: 1px solid #b18c5380; color: #eadfc5; background: #202923; }
+.story-card-dialog > header .lucide { width: 17px; height: 17px; }
+.story-card-dialog figure { display: grid; justify-items: center; gap: 8px; min-height: 0; margin: 10px 0 0; }
+.story-card-dialog figure img { display: block; width: auto; max-width: min(72vw,420px); height: auto; max-height: calc(100dvh - 170px); object-fit: contain; filter: drop-shadow(0 8px 18px #000b); }
+.story-card-dialog figcaption { max-width: 42ch; color: #d7c39f; text-align: center; font: italic 12px/1.45 'Segoe Print','Bradley Hand',cursive; }
 .story-reading-footer { display: grid; flex: none; grid-template-columns: minmax(0,1fr) minmax(100px,.8fr) minmax(0,1fr); align-items: center; gap: 8px; min-height: 43px; padding-top: 6px; border-top: 1px solid #71543b58; }
 .story-reading-footer button { display: flex; min-width: 0; min-height: 36px; align-items: center; gap: 5px; padding: 4px 6px; border: 0; border-radius: 2px; color: #60432a; background: transparent; font: 600 11px/1.25 'Segoe Print','Bradley Hand',cursive; }
 .story-reading-footer button:first-child { justify-self: start; }
@@ -67,6 +84,8 @@ body.story-view #app { flex: 1 1 0; width: 100%; min-width: 0; min-height: 0; ma
 .story-reader[data-paper=night] .story-text p:first-child::first-letter { color: #d6b77c; }
 .story-reader[data-paper=night] .story-progress-track { background: #e4ceaa30; }
 .story-reader[data-paper=night] .story-chapter[aria-current=page] { background: #ddc39414; }
+.story-reader[data-paper=night] .story-illustration { border-color: #b49361a0; background: linear-gradient(145deg,#4a40307a,#181b16b5); box-shadow: 0 8px 18px #0005,inset 0 0 0 2px #eadbb41c; }
+.story-reader[data-paper=night] .story-illustration figcaption { color: #d4c09d; }
 
 @media (min-width: 700px) and (max-width: 1200px) {
   .masthead { gap: 8px; padding-inline: 12px; }
@@ -104,6 +123,12 @@ body.story-view #app { flex: 1 1 0; width: 100%; min-width: 0; min-height: 0; ma
   .story-text { padding: 15px 3px 28px 1px; scrollbar-width: none; }
   .story-text::-webkit-scrollbar { display: none; }
   .story-text p { font-size: 17px; line-height: 1.78; }
+  .story-illustration { float: none; clear: both; display: grid; grid-template-columns: minmax(76px,112px) minmax(0,1fr); align-items: center; gap: 12px; width: min(100%,390px); margin: 16px auto 20px; padding: 8px; }
+  .story-illustration-trigger { grid-column: 1; }
+  .story-illustration-zoom { right: 5px; bottom: 5px; width: 25px; height: 25px; }
+  .story-illustration figcaption { grid-column: 2; padding: 0 5px; text-align: left; font-size: 12px; line-height: 1.65; }
+  .story-card-dialog { max-width: calc(100vw - 24px); padding: 8px; }
+  .story-card-dialog figure img { max-width: calc(100vw - 54px); max-height: calc(100dvh - 145px); }
   .story-reader[data-text-size=small] .story-text p { font-size: 16px; }
   .story-reader[data-text-size=large] .story-text p { font-size: 19px; line-height: 1.82; }
   .story-reading-footer { grid-template-columns: minmax(0,1fr) minmax(74px,.65fr) minmax(0,1fr); gap: 2px; min-height: 49px; padding-top: 3px; }
@@ -127,6 +152,6 @@ body.story-view #app { flex: 1 1 0; width: 100%; min-width: 0; min-height: 0; ma
 }
 @media (prefers-reduced-motion: reduce) {
   .story-progress-track > span { transition: none; }
-  .story-text { animation: none; }
+  .story-text,.story-illustration-trigger img { animation: none; transition: none; }
 }
 @keyframes story-text-arrive { from { opacity: .55; } to { opacity: 1; } }

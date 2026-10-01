@@ -1,5 +1,6 @@
 (() => {
   'use strict';
+  const release = new URL(document.currentScript?.src || location.href).searchParams.get('v') || '';
   const scripts = ['assets/lucide.min.js', 'engine.js', 'collaborations.js', 'card-media.js', 'elemental-roll.js',
     'combat-effects.js', 'duel-focus.js', 'formation-drag.js', 'match-metrics.js', 'trophies.js', 'match-report.js',
     'ownership.js', 'local-db.js', 'catalogue.js', 'collection-binder.js', 'accounts-ui.js',
@@ -32,7 +33,7 @@
     if (data.version !== 4 || data.edition !== 'V4' || !data.cards?.length || data.cards.some(c => c.edition !== 'V4' || !c.pngUrl)) throw Error('Catalogue V4 attendu. Aucun catalogue historique ne sera charge.');
     window.KALISTAR_DATA = data;
     for (const src of scripts) await new Promise((resolve, reject) => {
-      const script = document.createElement('script'); script.src = src;
+      const script = document.createElement('script'); script.src = release ? `${src}?v=${encodeURIComponent(release)}` : src;
       script.onload = resolve; script.onerror = () => reject(Error('Module introuvable : ' + src));
       document.head.append(script);
     });
