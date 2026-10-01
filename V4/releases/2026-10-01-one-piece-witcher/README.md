@@ -83,3 +83,9 @@ proteges sont inchanges. Aucune empreinte du verrou de reference n'est renouvele
 La publication est realisee uniquement sur `Yoshi-san87/Kalistar`, `origin/main`.
 Le workflow Pages teste les sources commitees puis ne deploie que les medias
 jouables, sans PSD. Les controles publics et leur SHA sont en `publication/`.
+
+Le commit de contenu `0c8f95239d15f15622b460795ec18717b002b851` est deploye
+avec succes : 476 fichiers de release correspondent, quinze images actives
+telechargees correspondent exactement aux hashes locaux. Le controle public
+du navigateur est conserve dans `qa/public/` ; l'archivage de ces preuves
+n'apporte aucun changement supplementaire aux cartes ou aux regles.

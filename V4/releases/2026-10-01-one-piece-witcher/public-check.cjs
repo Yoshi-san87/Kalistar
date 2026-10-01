@@ -11,6 +11,6 @@ async function main(){
  for(const f of samples){const bytes=Buffer.from(await(await get(f)).arrayBuffer());assert.equal(L.crypto.createHash('sha256').update(bytes).digest('hex'),index.get(f).sha256,f);}
  const html=await(await get('jeu/index.html')).text();assert.match(html,/VERSION 4\.3/);assert.match(html,/<title>Kalistar V4\.3/);
  const result={passed:true,totalCards:189,arenas:cat.arenas.length,matchingAssets:remote.assets.length,downloadedSamples:samples.length,url:base+'jeu/'};
- write(path.join(__dirname,'publication/public-check.json'),result);return result;
+ if(process.env.KALISTAR_RECORD_PUBLIC!=='0')write(path.join(__dirname,'publication/public-check.json'),result);return result;
 }
 if(require.main===module)main().then(r=>console.log(JSON.stringify(r,null,2))).catch(e=>{console.error(e);process.exitCode=1;});module.exports={main};
