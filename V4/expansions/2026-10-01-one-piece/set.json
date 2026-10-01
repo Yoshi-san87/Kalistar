@@ -1,0 +1,518 @@
+{
+  "id": "2026-10-01-one-piece",
+  "officialCollaboration": false,
+  "arenas": [],
+  "presets": [],
+  "cards": [
+    {
+      "key": "luffy",
+      "id": "49800101",
+      "characterId": "monkey-d-luffy-op",
+      "name": "MONKEY D. LUFFY",
+      "title": "Enfin tous r\u00e9unis",
+      "job": "CAPITAINE",
+      "description": "Deux ans apr\u00e8s la s\u00e9paration, Luffy retrouve les siens. Sur le Sunny, son sourire cache l'\u00e9motion des retrouvailles : il peut reprendre la mer, certain de ne plus avancer seul.",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "element": "NONE",
+      "faction": "ONEPIECE",
+      "collaboration": "ONEPIECE",
+      "role": 2,
+      "positions": [
+        1,
+        2,
+        3
+      ],
+      "atk": [
+        280,
+        230,
+        180,
+        130,
+        80,
+        "retry"
+      ],
+      "defense": [
+        160,
+        130,
+        100,
+        "dodge",
+        40,
+        20
+      ],
+      "magic": [],
+      "barriers": [],
+      "art": "OP_luffy_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "zoro",
+      "id": "49800102",
+      "characterId": "roronoa-zoro-op",
+      "name": "RORONOA ZORO",
+      "title": "La peur change de camp",
+      "job": "SABREUR",
+      "description": "Dans le froid de Punk Hazard, Zoro retient Monet pour laisser passer les siens. Sa lame se l\u00e8ve sans h\u00e2te ; derri\u00e8re son calme, la promesse faite \u00e0 son capitaine reste intacte.",
+      "race": "HUMAIN",
+      "weapon": "Katana",
+      "element": "HERBO",
+      "faction": "ONEPIECE",
+      "collaboration": "ONEPIECE",
+      "role": 2,
+      "positions": [
+        2
+      ],
+      "atk": [
+        280,
+        230,
+        180,
+        "death",
+        80,
+        40
+      ],
+      "defense": [
+        160,
+        130,
+        100,
+        "dodge",
+        40,
+        20
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "OP_zoro_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "sanji",
+      "id": "49800103",
+      "characterId": "sanji-op",
+      "name": "SANJI",
+      "title": "Revenir sur le Sunny",
+      "job": "CUISINIER",
+      "description": "Sous la pluie, Sanji ne retient plus ses larmes. Le repas ab\u00eem\u00e9 porte ce qu'il taisait : il veut retrouver le Sunny, mais refuse aussi de laisser mourir ceux qui l'ont bless\u00e9.",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "element": "PYRO",
+      "faction": "ONEPIECE",
+      "collaboration": "ONEPIECE",
+      "role": 4,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        280,
+        230,
+        180,
+        130,
+        80,
+        "buff_atk"
+      ],
+      "defense": [
+        160,
+        130,
+        100,
+        "dodge",
+        40,
+        20
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "OP_sanji_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "nami",
+      "id": "49800104",
+      "characterId": "nami-op",
+      "name": "NAMI",
+      "title": "Le cap des retrouvailles",
+      "job": "NAVIGATRICE",
+      "description": "Le Sunny repart enfin avec tout son \u00e9quipage. Nami serre son b\u00e2ton et observe les courants : apr\u00e8s deux ans loin des siens, lire la mer redevient une promesse de voyages partag\u00e9s.",
+      "race": "HUMAIN",
+      "weapon": "Lance",
+      "element": "HYDRO",
+      "faction": "ONEPIECE",
+      "collaboration": "ONEPIECE",
+      "role": 3,
+      "positions": [
+        3
+      ],
+      "atk": [
+        220,
+        180,
+        140,
+        100,
+        60,
+        "mana"
+      ],
+      "defense": [
+        220,
+        180,
+        140,
+        100,
+        60,
+        "retry"
+      ],
+      "magic": [
+        5,
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "OP_nami_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "usopp",
+      "id": "49800105",
+      "characterId": "usopp-op",
+      "name": "USOPP",
+      "title": "Un tir pour les sauver",
+      "job": "TIREUR D'\u00c9LITE",
+      "description": "\u00c0 Dressrosa, Usopp tremble devant la distance qui le s\u00e9pare de sa cible. Mais il tend son lance-pierre : s'il manque ce tir, Luffy dispara\u00eetra jusque dans la m\u00e9moire des siens.",
+      "race": "HUMAIN",
+      "weapon": "Projectile",
+      "element": "GEO",
+      "faction": "ONEPIECE",
+      "collaboration": "ONEPIECE",
+      "role": 4,
+      "positions": [
+        4
+      ],
+      "atk": [
+        280,
+        230,
+        180,
+        130,
+        80,
+        "retry"
+      ],
+      "defense": [
+        160,
+        130,
+        100,
+        "dodge",
+        40,
+        20
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "OP_usopp_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "chopper-small",
+      "id": "49800106",
+      "characterId": "tony-tony-chopper-op",
+      "name": "CHOPPER",
+      "title": "Aucun enfant abandonn\u00e9",
+      "job": "M\u00c9DECIN",
+      "description": "Face aux enfants de Punk Hazard, Chopper refuse de c\u00e9der au d\u00e9sespoir. Ses petites mains cherchent un rem\u00e8de ; la peur ne vaut jamais davantage que la vie de ceux qui l'attendent.",
+      "race": "CERELF",
+      "weapon": "Tome",
+      "element": "HERBO",
+      "faction": "ONEPIECE",
+      "collaboration": "ONEPIECE",
+      "role": 5,
+      "positions": [
+        5
+      ],
+      "atk": [
+        160,
+        130,
+        100,
+        "revive",
+        "mana",
+        20
+      ],
+      "defense": [
+        190,
+        155,
+        120,
+        85,
+        50,
+        "retry"
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "art": "OP_chopper-small_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "chopper-heavy",
+      "id": "49800107",
+      "characterId": "tony-tony-chopper-op",
+      "name": "CHOPPER",
+      "title": "Fort pour les prot\u00e9ger",
+      "job": "M\u00c9DECIN COMBATTANT",
+      "description": "Sur l'\u00eele des Hommes-Poissons, Chopper assume sa forme massive avec fiert\u00e9. \u00catre trait\u00e9 de monstre ne lui fait plus peur : cette force existe pour prot\u00e9ger ceux qui l'ont accept\u00e9.",
+      "race": "CERELF",
+      "weapon": "Poing",
+      "element": "MINERO",
+      "faction": "ONEPIECE",
+      "collaboration": "ONEPIECE",
+      "role": 1,
+      "positions": [
+        1
+      ],
+      "atk": [
+        190,
+        155,
+        120,
+        85,
+        50,
+        "guard"
+      ],
+      "defense": [
+        280,
+        230,
+        180,
+        130,
+        80,
+        "retry"
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "OP_chopper-heavy_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "robin",
+      "id": "49800108",
+      "characterId": "nico-robin-op",
+      "name": "NICO ROBIN",
+      "title": "La confiance retrouv\u00e9e",
+      "job": "ARCH\u00c9OLOGUE",
+      "description": "Sur le pont du Sunny, Robin croise les bras et scrute la mer. Une d\u00e9couverte trouble son regard, mais la confiance des siens lui donne la force de poursuivre les traces du pass\u00e9.",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "element": "HERBO",
+      "faction": "ONEPIECE",
+      "collaboration": "ONEPIECE",
+      "role": 3,
+      "positions": [
+        3
+      ],
+      "atk": [
+        220,
+        180,
+        140,
+        100,
+        60,
+        "retry"
+      ],
+      "defense": [
+        220,
+        180,
+        140,
+        "dodge",
+        60,
+        30
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "OP_robin_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "franky",
+      "id": "49800109",
+      "characterId": "franky-op",
+      "name": "FRANKY",
+      "title": "Le r\u00eave tient debout",
+      "job": "CHARPENTIER",
+      "description": "Sur le Sunny, Franky pose une main sur la poutre r\u00e9par\u00e9e. Son sourire d\u00e9borde de fiert\u00e9 : chaque pi\u00e8ce renforce le navire qui porte ses amis et leur r\u00eave au bout de ces mers.",
+      "race": "CYBORG",
+      "weapon": "Gun",
+      "element": "ELECTRO",
+      "faction": "ONEPIECE",
+      "collaboration": "ONEPIECE",
+      "role": 1,
+      "positions": [
+        1
+      ],
+      "atk": [
+        190,
+        155,
+        120,
+        85,
+        50,
+        "guard"
+      ],
+      "defense": [
+        280,
+        230,
+        180,
+        130,
+        80,
+        "retry"
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "OP_franky_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "brook",
+      "id": "49800110",
+      "characterId": "brook-op",
+      "name": "BROOK",
+      "title": "La promesse en musique",
+      "job": "MUSICIEN",
+      "description": "Sur le Sunny, Brook laisse monter une m\u00e9lodie pour Laboon. Son corps n'a plus de larmes, mais chaque note porte la promesse des disparus et la joie de retrouver enfin un \u00e9quipage.",
+      "race": "SKULLZ",
+      "weapon": "Instrument",
+      "element": "CRYO",
+      "faction": "ONEPIECE",
+      "collaboration": "ONEPIECE",
+      "role": 5,
+      "positions": [
+        5
+      ],
+      "atk": [
+        160,
+        130,
+        100,
+        "mana",
+        "buff_atk",
+        20
+      ],
+      "defense": [
+        190,
+        155,
+        120,
+        85,
+        50,
+        "retry"
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "art": "OP_brook_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "jinbe",
+      "id": "49800111",
+      "characterId": "jinbe-op",
+      "name": "JINBE",
+      "title": "Le choix de la libert\u00e9",
+      "job": "TIMONIER",
+      "description": "Dans la temp\u00eate, Jinbe prend appui sur le pont du Sunny. Ses paumes guident une force calme au milieu des vagues : prot\u00e9ger cet \u00e9quipage donne tout son sens au cap qu'il a choisi.",
+      "race": "SHARKAN",
+      "weapon": "Poing",
+      "element": "HYDRO",
+      "faction": "ONEPIECE",
+      "collaboration": "ONEPIECE",
+      "role": 1,
+      "positions": [
+        1,
+        2
+      ],
+      "atk": [
+        190,
+        155,
+        120,
+        85,
+        50,
+        "guard"
+      ],
+      "defense": [
+        280,
+        230,
+        180,
+        130,
+        80,
+        "retry"
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "OP_jinbe_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    }
+  ]
+}

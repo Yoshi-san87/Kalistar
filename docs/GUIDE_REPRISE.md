@@ -49,6 +49,19 @@ temporaires du presse-papiers ou les preferences non encore documentees.
 
 ## Reperes techniques
 
+### Ajout One Piece du 1 octobre 2026
+
+Le lot [One Piece et Skull Face](../V4/releases/2026-10-01-one-piece/README.md)
+documente onze nouvelles cartes pour dix personnages, la banniere ONEPIECE
+et la race SHARKAN. Les deux formes de Chopper partagent leur characterId :
+ce ne sont pas deux personnages cumulables dans un deck. Les profils, prompts,
+references et preuves Photoshop sont conserves dans le lot de production.
+La revision de Skull Face (49600118) change seulement l'illustration et sa race
+en SKULLZ, pas ses statistiques. Lire les sorties publiees de creations/ et
+nativeRevision avant tout ancien export. Aucun changement des arenes ni des
+mecaniques de combat ne fait partie de ce lot. Les verifications de publication
+et les controles navigateur sont centralises dans son dossier releases/.
+
 ### Ajout Metal Gear du 30 septembre 2026
 
 Le lot [Metal Gear saga](../V4/expansions/2026-09-30-metal-gear-saga/README.md)

@@ -15,6 +15,7 @@
     {id:'mgs3',faction:'MGS3',title:'Metal Gear Solid 3'},
     {id:'mgs4',faction:'MGS4',title:'Metal Gear Solid 4'},
     {id:'mgs5',faction:'MGS5',title:'Metal Gear Solid V'},
+    {id:'one-piece',faction:'ONEPIECE',title:'One Piece'},
     ...Array.from({length:9},(_,i)=>({id:'re'+(i+1),faction:'RE'+(i+1),title:i===0?'Resident Evil':i===6?'Resident Evil 7 biohazard':i===7?'Resident Evil Village':i===8?'Resident Evil Requiem':'Resident Evil '+(i+1)}))
   ].map(Object.freeze));
   const find=value=>entries.find(entry=>entry.faction.toLowerCase()===String(value||'').trim().toLowerCase());
@@ -23,6 +24,6 @@
   const universe=card=>of(card)?.faction||'kalistar';
   const matches=(card,id)=>of(card)?.id===id;
   const choices=cards=>entries.filter(entry=>entry.id==='ff7'||entry.id==='ff8'||cards.some(card=>matches(card,entry.id))).map(entry=>[entry.faction,entry.faction]);
-  const asset=(folder,name)=>(folder==='factions'&&(find(name)||name==='Solaria')||folder==='races'&&['ANDROID','BUZZY','SERPES'].includes(name)?'assets/':'shared/')+folder+'/'+encodeURIComponent(name)+'.png';
+  const asset=(folder,name)=>(folder==='factions'&&(find(name)||name==='Solaria')||folder==='races'&&['ANDROID','BUZZY','SERPES','SHARKAN'].includes(name)?'assets/':'shared/')+folder+'/'+encodeURIComponent(name)+'.png';
   return {entries,of,universe,matches,choices,asset};
 });

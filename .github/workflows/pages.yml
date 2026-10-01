@@ -24,7 +24,8 @@ jobs:
         run: git lfs pull --include="$(node V4/deploy/build.cjs --lfs-paths)" --exclude=""
       - name: Check catalogue and mechanics
         run: |
-          node --test V4/atelier/game-catalog.test.cjs V4/atelier/collaboration-arenas.test.cjs V4/deploy/build.test.cjs V4/deploy/pwa.test.cjs V4/site/statistics.test.cjs V4/site/collaborations.test.cjs V4/site/metal-gear.test.cjs V4/site/resident-evil.test.cjs
+          node --test V4/atelier/game-catalog.test.cjs V4/atelier/collaboration-arenas.test.cjs V4/deploy/build.test.cjs V4/deploy/pwa.test.cjs V4/site/statistics.test.cjs V4/site/collaborations.test.cjs V4/site/metal-gear.test.cjs V4/site/resident-evil.test.cjs V4/site/one-piece.test.cjs
+          node --test V4/expansions/2026-10-01-one-piece/model.test.cjs
           node V4/site/kalistel.test.cjs
       - name: Build playable release
         run: node V4/deploy/build.cjs

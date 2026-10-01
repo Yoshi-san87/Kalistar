@@ -1,0 +1,32 @@
+{
+  "key": "luffy",
+  "revision": "face-revision",
+  "reason": "Explicit parent QA request: anatomically natural young adult painted face, preserve scene and clothing",
+  "prompt": "Edit image 1 (Luffy) only as requested: PRESERVE the whole approved reunion painting, straw hat and its held hand, other clenched hand, red open cardigan, X chest scar, yellow sash, blue shorts, wooden ship deck, mangrove sea background, framing, brush planes, lighting and same joyful emotionally overwhelmed smile with tears. REPAINT THE FACE ONLY into naturally proportioned human young adult age 19 in Kalistar narrative painting. Image 2 RE Leon4 is a guide only for natural human facial anatomy and painterly volumes, NOT identity/expression/costume. Image 3 Momo and image 4 Valazar are painterly brush-language references. Luffy must have normal sized human eyes and small irises with natural eyelids and no heavy black contour, proper human nose bridge, nostrils, dimensional cheeks, lips and realistically proportioned smiling teeth separated by subtle painted planes; remove the enormous white graphic tooth band. Preserve Luffy's short black hair and small scar below left eye. Keep wet eyes, youthful exuberance and the same lifted gaze, but NEVER anime/manga/cel shading proportions. Detailed oil/gouache fantasy painting with visible broad brush marks, NOT photography or smooth skin. Do not change anything else. No text, logo or frame.",
+  "references": [
+    "V4/expansions/2026-10-01-one-piece/luffy-before-face-revision.png",
+    "V4/Illustrations/RE_leon4_01.png",
+    "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+    "V3/assets/illustrations/34_NECRO_VALAZAR.png"
+  ],
+  "status": "selected-awaiting-native-QA",
+  "generationMethod": "built-in image_gen.imagegen",
+  "selectedOutput": {
+    "path": "V4/Illustrations/OP_luffy_01.png",
+    "sha256": "2b5af6a48a9233f0a7dac5d3c41ff68a4b2d6075e8fa823710269212bc9941d3",
+    "generatedSource": "C:/Users/guill/.codex/generated_images/01a0f748-d64f-7421-9210-8db82f2998f1/exec-11271050-b105-4c66-88ba-f90ceb3b518a.png",
+    "retainedOriginal": "V4/expansions/2026-10-01-one-piece/generated/luffy-face-revision.png",
+    "originalByteIdentity": true
+  },
+  "referenceHashes": {
+    "V4/expansions/2026-10-01-one-piece/luffy-before-face-revision.png": "f2fa504e1b63ad9b785c3101ef609a94247cd54fa91593b15dcb4031244db877",
+    "V4/Illustrations/RE_leon4_01.png": "dad9a0f45067bd30bbbaa88668a75ad4136ed3b9957e485a286075dfea822e4e",
+    "V3/assets/illustrations/01_ELECTRO_MOMO.png": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8",
+    "V3/assets/illustrations/34_NECRO_VALAZAR.png": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee"
+  },
+  "dimensions": {
+    "width": 1122,
+    "height": 1402
+  },
+  "nativeQA": "pending"
+}

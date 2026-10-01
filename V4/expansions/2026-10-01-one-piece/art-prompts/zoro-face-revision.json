@@ -1,0 +1,32 @@
+{
+  "key": "zoro",
+  "revision": "face-revision",
+  "reason": "Explicit parent QA: natural adult painted facial anatomy, preserve costume and scene",
+  "prompt": "Edit image 1 Zoro with one TARGETED FACE CORRECTION ONLY. Preserve his green hair, three earrings, left closed eye and vertical scar, chest scar, costume, body anatomy, sword hand and long blade, two sheathed swords, snow industrial scene, pose, framing and painterly brushwork. Image 2 RE Leon4 is ONLY the human facial anatomy and painted-volume anchor, not identity, age, hair or expression; images 3/4 Momo/Valazar anchor Kalistar brush language. Replace the distinctly anime face with a natural stern 21-year-old man's face made of volumetric painted planes. Right eye normally sized human eye seated in real socket with natural eyelids, not sharp black eyeliner. Eyebrow composed of muted painted hair planes, no heavy ink outline. Closed scarred left eye remains closed, naturally shaped. Give a dimensional human nose with bridge, nostrils and rounded tip instead of flat triangle, clearly modeled cheekbones, real lips with painted edges not black outline. Keep Zoro's controlled angry determination and recognizability through green hair and scars. No anime/manga facial proportions or cel-shading. No photographic pores or smooth photorealism: all details belong to a narrative fantasy oil painting. Do not alter sword/body/scene. No text.",
+  "references": [
+    "V4/expansions/2026-10-01-one-piece/zoro-before-face-revision.png",
+    "V4/Illustrations/RE_leon4_01.png",
+    "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+    "V3/assets/illustrations/34_NECRO_VALAZAR.png"
+  ],
+  "status": "selected-awaiting-native-QA",
+  "generationMethod": "built-in image_gen.imagegen",
+  "selectedOutput": {
+    "path": "V4/Illustrations/OP_zoro_01.png",
+    "sha256": "66b43e763c7ee083d67af4509cbddb00984b929a34cbd52d0bd0b3dd609755f8",
+    "generatedSource": "C:/Users/guill/.codex/generated_images/01a0f748-d64f-7421-9210-8db82f2998f1/exec-50dc8c58-1a85-4ea6-9ad3-8377f53efe67.png",
+    "retainedOriginal": "V4/expansions/2026-10-01-one-piece/generated/zoro-face-revision.png",
+    "originalByteIdentity": true
+  },
+  "referenceHashes": {
+    "V4/expansions/2026-10-01-one-piece/zoro-before-face-revision.png": "4ffbbb2d07878ef55c5eeff1b65c49b23768b84e74e450a5537555315358588b",
+    "V4/Illustrations/RE_leon4_01.png": "dad9a0f45067bd30bbbaa88668a75ad4136ed3b9957e485a286075dfea822e4e",
+    "V3/assets/illustrations/01_ELECTRO_MOMO.png": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8",
+    "V3/assets/illustrations/34_NECRO_VALAZAR.png": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee"
+  },
+  "dimensions": {
+    "width": 1122,
+    "height": 1402
+  },
+  "nativeQA": "pending"
+}
