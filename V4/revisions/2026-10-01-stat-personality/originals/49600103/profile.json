@@ -1,0 +1,60 @@
+{
+  "name": "OTACON",
+  "title": "La voix qui reste",
+  "job": "INGÉNIEUR",
+  "description": "À bord du Nomad, Otacon répare le petit robot qui veille sur Snake. Sous sa blouse froissée, l'ingénieur cache mal son inquiétude : même loin du combat, il reste la voix fidèle qui refuse d'abandonner son ami.",
+  "element": "GEO",
+  "race": "HUMAIN",
+  "weapon": "Tome",
+  "faction": "MGS4",
+  "positions": [
+    5
+  ],
+  "atk": [
+    160,
+    130,
+    100,
+    "guard",
+    "buff_atk",
+    15
+  ],
+  "defense": [
+    190,
+    155,
+    120,
+    85,
+    45,
+    "retry"
+  ],
+  "magic": [],
+  "barriers": [
+    6,
+    4
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49600103",
+  "characterId": "otacon-mgs",
+  "slug": "V4_49600103",
+  "output": "KALISTAR_V4_49600103",
+  "text": "À bord du Nomad, Otacon répare le petit robot qui veille sur Snake. Sous sa blouse froissée, l'ingénieur cache mal son inquiétude : même loin du combat, il reste la voix fidèle qui refuse d'abandonner son ami.",
+  "color": "C7AB6D",
+  "hue": 41,
+  "weapon_index": 13,
+  "role": 5,
+  "sentry": true,
+  "canGuard": true,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Kalistar x Metal Gear - fan crossover non officiel",
+  "visual_revision": "V4-2026-09-30-metal-gear-saga",
+  "collaboration": "MGS4",
+  "officialCollaboration": false,
+  "artworkSource": "V4/Illustrations/Otacon_MGS4_Nomad.png"
+}

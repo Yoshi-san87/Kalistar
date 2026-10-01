@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "baseline": "V4/releases/2026-10-01-character-profiles/baseline.json",
+  "authorization": "Parent: statsplan IDs plus Kaine 45951088; Rikka original stays protected",
+  "statsPlan": "V4/revisions/2026-10-01-stat-personality/plan.cjs",
+  "statsIds": [
+    "49800101", "49800102", "49800103", "49800104", "49800105", "49800106",
+    "49800107", "49800108", "49800109", "49800110", "49800111",
+    "49700101", "49700102", "49700103", "49700104", "49700105", "49700106",
+    "49700107", "49700108", "49700109", "49700110", "49700111", "49700112",
+    "49700113", "49700114", "49700115", "49700116", "49700117", "49700118",
+    "49700119", "49700120", "49700121", "49700122", "49700123", "49700124", "49700125",
+    "49600101", "49600102", "49600103", "49600104", "49600106", "49600108",
+    "49600110", "49600111", "49600114", "49600115", "49600117", "49600119"
+  ],
+  "framingIds": ["45951088"],
+  "mutableFiles": ["card.png", "card.psd", "verification.json", "creation.json", "profile.json"],
+  "mutableProfileFields": ["atk", "defense"],
+  "mutableEntryFields": ["nativeRevision"]
+}

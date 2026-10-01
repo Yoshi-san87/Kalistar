@@ -82,6 +82,16 @@ avec deux jets ATK lorsqu'un eclat a ete utilise.
 
 ## Scores numeriques
 
+Clarification utilisateur du 1 octobre 2026 : les valeurs par role principal
+dans `V3/donnees/regles_demo.json.roleBounds` sont des limites et reperes,
+pas des chiffres obligatoires a recopier sur chaque carte. Les profils peuvent
+privilegier un pic, la regularite ou la survie, avec des compromis entre faces.
+La [revision de personnalite numerique](../revisions/2026-10-01-stat-personality/README.md)
+concerne onze One Piece, vingt-cinq Resident Evil et douze MGS selectionnes.
+Elle conserve les bornes, roles, positions, modes et effets speciaux ; seul le
+chiffre d'une face deja numerique change. Elle ne modifie pas le moteur et ne
+constitue pas une preuve de taux de victoire equilibres.
+
 ```text
 ATK = face + arme + cristal + faction + jeton ATK + arene ATK - barriere
 DEF = face + race + arene DEF + garde physique

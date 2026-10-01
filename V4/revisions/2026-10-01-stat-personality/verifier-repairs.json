@@ -1,0 +1,16 @@
+[
+  {
+    "file": "V4/revisions/2026-10-01-stat-personality/revise.cjs",
+    "renderedHash": "930fd592e64a4f0e91357af26a3b99b4f7c784ad2c1be73b0e3d83c199c17ecb",
+    "renderedSource": "V4/revisions/2026-10-01-stat-personality/attempts/02-pilot-verifier-api/revise.cjs",
+    "verifierHash": "2cc022dd5308717eb11758de9f4339509f9e14ac839cb09c43b2881287f5d67b",
+    "reason": "Verifier API repair uses sharp raw pixels, unchanged rendering and actual source retained."
+  },
+  {
+    "file": "V4/revisions/2026-10-01-stat-personality/numeric-only.cjs",
+    "renderedHash": "5d3fb603d6f5e1b883a913f92fd6b03f818f48206539fd2ff7c5fab21a62b177",
+    "renderedSource": "V4/revisions/2026-10-01-stat-personality/attempts/03-pilot-circle-calibration/numeric-only.cjs",
+    "verifierHash": "893781e35931ce78b56bc156556a90f9ce34f57e2aa6eb5d12d73f6e77e4b2ea",
+    "reason": "Circle calibration uses actual painted medallions (128/88 px), not smaller physical inserts (104/71 px). Exact hidden-number frame proof remains mandatory; actual original source and hashes retained."
+  }
+]

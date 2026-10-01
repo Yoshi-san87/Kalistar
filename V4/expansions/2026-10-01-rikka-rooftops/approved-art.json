@@ -1,0 +1,17 @@
+{
+  "revision": 4,
+  "path": "V4/Illustrations/Rikka_La_Ville_Sous_Ses_Pas_04.png",
+  "sha256": "68b6dd33f95d1fc481dafc05e01338b57d87bdf678ce591e536982a821a331a4",
+  "promptFile": "prompt-final.json",
+  "promptSha256": "ce598ad477d141403e1759283887448ce16d5092ff782476ac2bf65c25fbe80b",
+  "method": "built-in image_gen; generated and selected by parent",
+  "parentReview": "passed",
+  "userApprovalClaimed": false,
+  "selectionReason": "Final parent-reviewed response to profile, calmer futuristic Chroma and modern rooftop corrections",
+  "references": [
+    {"path": "V4/Illustrations/Rikka_La_Ville_Sous_Ses_Pas_03_Cyberpunk.png", "sha256": "c2b2a03ee64a3eee87dbcf5184108135b396f38f8b38a50cf102493ccf938d2a", "role": "Direct final edit input; superseded output, not selected for native card"},
+    {"path": "V3/assets/illustrations/01_ELECTRO_MOMO.png", "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8", "role": "Direct painterly style input"},
+    {"path": "V4/assets/illustrations/42_ELECTRO_RIKKA_V4_02_VITRINE_FRONTALE.png", "sha256": "5b844793a91a292e6a495a2b60fdb76ad169b3f13eed10befd8c047da95af733", "role": "Canonical identity ancestry from original prompt; not a direct final edit input"}
+  ],
+  "promptChain": ["prompt.json", "prompt-profile.json", "prompt-cyberpunk.json", "prompt-final.json"]
+}

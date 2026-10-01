@@ -211,6 +211,23 @@ Liquid Snake est legerement recentre ; Kaylis, L'elan des couleurs, est
 legerement decalee pour montrer davantage de lame. Ces deux cadrages utilisent
 les illustrations fournies intactes, sans regeneration des personnages.
 
+### Chroma et Rikka, precision du 1 octobre 2026
+
+Chroma est une metropole du futur, tres cyberpunk, pas un village medieval ni
+une cite de chateaux. Employer une architecture urbaine moderne coherente,
+des gratte-ciel, transports et infrastructures electriques. Les neons restent
+selectifs et les details hierarchises : perspective credible et respiration
+du decor, sans surcharge. Cette technologie reste peinte dans la DA Kalistar,
+sans photographie, manga ou rendu 3D lisse.
+
+Rikka, La Ville sous ses pas, observe un quartier depuis les toits, de profil
+en posture de guetteuse. Le support est une vraie toiture industrielle avec
+acrotère stable, ventilation et fixations plausibles ; pas un rocher ajoute
+dans un decor futuriste. Son identite, sa blessure et son fouet restent ceux
+de la Felineus canonique. La variante est additive, pas un remplacement de
+Pour une vie de plus. Prompt final et provenance :
+`expansions/2026-10-01-rikka-rooftops/`.
+
 - Comparer au Momo/Valazar de reference et a une carte approuvee du meme element.
 - Verifier anatomie, emotion, contacts des mains, proportions, perspective et
   accessoires. Aucun motif important cache par les colonnes.

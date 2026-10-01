@@ -1,0 +1,5859 @@
+{
+  "revision": "2026-10-01-stat-personality",
+  "ordering": "D6 to D1",
+  "cards": [
+    {
+      "id": "49800101",
+      "key": "luffy",
+      "name": "MONKEY D. LUFFY",
+      "faction": "ONEPIECE",
+      "role": 2,
+      "before": {
+        "atk": [
+          280,
+          230,
+          180,
+          130,
+          80,
+          "retry"
+        ],
+        "defense": [
+          160,
+          130,
+          100,
+          "dodge",
+          40,
+          20
+        ]
+      },
+      "after": {
+        "atk": [
+          294,
+          236,
+          171,
+          111,
+          73,
+          "retry"
+        ],
+        "defense": [
+          173,
+          139,
+          94,
+          "dodge",
+          32,
+          12
+        ]
+      },
+      "reason": "Explosive peak, less reliable middle rolls; resilient high defense.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-one-piece/cards/luffy",
+      "catalogueEntry": {
+        "id": "49800101",
+        "kind": "created",
+        "creationJob": "83e1f830-5019-4a9e-945b-a504d3f21d8c",
+        "name": "MONKEY D. LUFFY",
+        "title": "Enfin tous réunis",
+        "element": "NONE",
+        "profile": {
+          "name": "MONKEY D. LUFFY",
+          "title": "Enfin tous réunis",
+          "job": "CAPITAINE",
+          "description": "Deux ans après la séparation, Luffy retrouve les siens. Sur le Sunny, son sourire cache l'émotion des retrouvailles : il peut reprendre la mer, certain de ne plus avancer seul.",
+          "element": "NONE",
+          "race": "HUMAIN",
+          "weapon": "Poing",
+          "faction": "ONEPIECE",
+          "positions": [
+            1,
+            2,
+            3
+          ],
+          "atk": [
+            280,
+            230,
+            180,
+            130,
+            80,
+            "retry"
+          ],
+          "defense": [
+            160,
+            130,
+            100,
+            "dodge",
+            40,
+            20
+          ],
+          "magic": [],
+          "barriers": [],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49800101",
+          "characterId": "monkey-d-luffy-op",
+          "slug": "V4_49800101",
+          "output": "KALISTAR_V4_49800101",
+          "text": "Deux ans après la séparation, Luffy retrouve les siens. Sur le Sunny, son sourire cache l'émotion des retrouvailles : il peut reprendre la mer, certain de ne plus avancer seul.",
+          "color": "93AAA5",
+          "hue": 160,
+          "role": 2,
+          "sentry": false,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x One Piece - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-one-piece",
+          "collaboration": "ONEPIECE",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/OP_luffy_01.png"
+        },
+        "png": "V4/creations/49800101/card.png",
+        "psd": "V4/creations/49800101/card.psd",
+        "pngUrl": "/media/created/49800101.png",
+        "psdUrl": "/media/created/49800101.psd",
+        "createdAt": "2026-10-01T12:22:13.673Z",
+        "publicationSource": "V4/expansions/2026-10-01-one-piece"
+      }
+    },
+    {
+      "id": "49800102",
+      "key": "zoro",
+      "name": "RORONOA ZORO",
+      "faction": "ONEPIECE",
+      "role": 2,
+      "before": {
+        "atk": [
+          280,
+          230,
+          180,
+          "death",
+          80,
+          40
+        ],
+        "defense": [
+          160,
+          130,
+          100,
+          "dodge",
+          40,
+          20
+        ]
+      },
+      "after": {
+        "atk": [
+          298,
+          244,
+          184,
+          "death",
+          68,
+          18
+        ],
+        "defense": [
+          158,
+          127,
+          91,
+          "dodge",
+          33,
+          8
+        ]
+      },
+      "reason": "Decisive high rolls and preserved Mort, exposed low rolls.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-one-piece/cards/zoro",
+      "catalogueEntry": {
+        "id": "49800102",
+        "kind": "created",
+        "creationJob": "ffeb9bf0-5b6a-4960-96de-9e78eb84a396",
+        "name": "RORONOA ZORO",
+        "title": "La peur change de camp",
+        "element": "HERBO",
+        "profile": {
+          "name": "RORONOA ZORO",
+          "title": "La peur change de camp",
+          "job": "SABREUR",
+          "description": "Dans le froid de Punk Hazard, Zoro retient Monet pour laisser passer les siens. Sa lame se lève sans hâte ; derrière son calme, la promesse faite à son capitaine reste intacte.",
+          "element": "HERBO",
+          "race": "HUMAIN",
+          "weapon": "Katana",
+          "faction": "ONEPIECE",
+          "positions": [
+            2
+          ],
+          "atk": [
+            280,
+            230,
+            180,
+            "death",
+            80,
+            40
+          ],
+          "defense": [
+            160,
+            130,
+            100,
+            "dodge",
+            40,
+            20
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49800102",
+          "characterId": "roronoa-zoro-op",
+          "slug": "V4_49800102",
+          "output": "KALISTAR_V4_49800102",
+          "text": "Dans le froid de Punk Hazard, Zoro retient Monet pour laisser passer les siens. Sa lame se lève sans hâte ; derrière son calme, la promesse faite à son capitaine reste intacte.",
+          "color": "89D355",
+          "hue": 100,
+          "weapon_index": 18,
+          "role": 2,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x One Piece - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-one-piece",
+          "collaboration": "ONEPIECE",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/OP_zoro_01.png"
+        },
+        "png": "V4/creations/49800102/card.png",
+        "psd": "V4/creations/49800102/card.psd",
+        "pngUrl": "/media/created/49800102.png",
+        "psdUrl": "/media/created/49800102.psd",
+        "createdAt": "2026-10-01T12:22:13.710Z",
+        "publicationSource": "V4/expansions/2026-10-01-one-piece"
+      }
+    },
+    {
+      "id": "49800103",
+      "key": "sanji",
+      "name": "SANJI",
+      "faction": "ONEPIECE",
+      "role": 4,
+      "before": {
+        "atk": [
+          280,
+          230,
+          180,
+          130,
+          80,
+          "buff_atk"
+        ],
+        "defense": [
+          160,
+          130,
+          100,
+          "dodge",
+          40,
+          20
+        ]
+      },
+      "after": {
+        "atk": [
+          272,
+          242,
+          193,
+          124,
+          61,
+          "buff_atk"
+        ],
+        "defense": [
+          168,
+          142,
+          107,
+          "dodge",
+          35,
+          11
+        ]
+      },
+      "reason": "Strong technical middle rolls, lower finishing peak and stamina floor.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-one-piece/cards/sanji",
+      "catalogueEntry": {
+        "id": "49800103",
+        "kind": "created",
+        "creationJob": "c15c145e-085e-4b80-8490-44a6e12a4930",
+        "name": "SANJI",
+        "title": "Revenir sur le Sunny",
+        "element": "PYRO",
+        "profile": {
+          "name": "SANJI",
+          "title": "Revenir sur le Sunny",
+          "job": "CUISINIER",
+          "description": "Sous la pluie, Sanji ne retient plus ses larmes. Le repas abîmé porte ce qu'il taisait : il veut retrouver le Sunny, mais refuse aussi de laisser mourir ceux qui l'ont blessé.",
+          "element": "PYRO",
+          "race": "HUMAIN",
+          "weapon": "Poing",
+          "faction": "ONEPIECE",
+          "positions": [
+            3,
+            4
+          ],
+          "atk": [
+            280,
+            230,
+            180,
+            130,
+            80,
+            "buff_atk"
+          ],
+          "defense": [
+            160,
+            130,
+            100,
+            "dodge",
+            40,
+            20
+          ],
+          "magic": [
+            6,
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49800103",
+          "characterId": "sanji-op",
+          "slug": "V4_49800103",
+          "output": "KALISTAR_V4_49800103",
+          "text": "Sous la pluie, Sanji ne retient plus ses larmes. Le repas abîmé porte ce qu'il taisait : il veut retrouver le Sunny, mais refuse aussi de laisser mourir ceux qui l'ont blessé.",
+          "color": "FF704A",
+          "hue": 12,
+          "role": 4,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x One Piece - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-one-piece",
+          "collaboration": "ONEPIECE",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/OP_sanji_01.png"
+        },
+        "png": "V4/creations/49800103/card.png",
+        "psd": "V4/creations/49800103/card.psd",
+        "pngUrl": "/media/created/49800103.png",
+        "psdUrl": "/media/created/49800103.psd",
+        "createdAt": "2026-10-01T12:22:13.739Z",
+        "publicationSource": "V4/expansions/2026-10-01-one-piece"
+      }
+    },
+    {
+      "id": "49800104",
+      "key": "nami",
+      "name": "NAMI",
+      "faction": "ONEPIECE",
+      "role": 3,
+      "before": {
+        "atk": [
+          220,
+          180,
+          140,
+          100,
+          60,
+          "mana"
+        ],
+        "defense": [
+          220,
+          180,
+          140,
+          100,
+          60,
+          "retry"
+        ]
+      },
+      "after": {
+        "atk": [
+          207,
+          194,
+          153,
+          93,
+          48,
+          "mana"
+        ],
+        "defense": [
+          204,
+          176,
+          134,
+          114,
+          73,
+          "retry"
+        ]
+      },
+      "reason": "Tactical middle attack and reliable lower defenses rather than brute power.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-one-piece/cards/nami",
+      "catalogueEntry": {
+        "id": "49800104",
+        "kind": "created",
+        "creationJob": "67682956-d370-4fa4-b164-88f6b1dd2128",
+        "name": "NAMI",
+        "title": "Le cap des retrouvailles",
+        "element": "HYDRO",
+        "profile": {
+          "name": "NAMI",
+          "title": "Le cap des retrouvailles",
+          "job": "NAVIGATRICE",
+          "description": "Le Sunny repart enfin avec tout son équipage. Nami serre son bâton et observe les courants : après deux ans loin des siens, lire la mer redevient une promesse de voyages partagés.",
+          "element": "HYDRO",
+          "race": "HUMAIN",
+          "weapon": "Lance",
+          "faction": "ONEPIECE",
+          "positions": [
+            3
+          ],
+          "atk": [
+            220,
+            180,
+            140,
+            100,
+            60,
+            "mana"
+          ],
+          "defense": [
+            220,
+            180,
+            140,
+            100,
+            60,
+            "retry"
+          ],
+          "magic": [
+            5,
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49800104",
+          "characterId": "nami-op",
+          "slug": "V4_49800104",
+          "output": "KALISTAR_V4_49800104",
+          "text": "Le Sunny repart enfin avec tout son équipage. Nami serre son bâton et observe les courants : après deux ans loin des siens, lire la mer redevient une promesse de voyages partagés.",
+          "color": "38CBED",
+          "hue": 192,
+          "role": 3,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x One Piece - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-one-piece",
+          "collaboration": "ONEPIECE",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/OP_nami_01.png"
+        },
+        "png": "V4/creations/49800104/card.png",
+        "psd": "V4/creations/49800104/card.psd",
+        "pngUrl": "/media/created/49800104.png",
+        "psdUrl": "/media/created/49800104.psd",
+        "createdAt": "2026-10-01T12:22:13.769Z",
+        "publicationSource": "V4/expansions/2026-10-01-one-piece"
+      }
+    },
+    {
+      "id": "49800105",
+      "key": "usopp",
+      "name": "USOPP",
+      "faction": "ONEPIECE",
+      "role": 4,
+      "before": {
+        "atk": [
+          280,
+          230,
+          180,
+          130,
+          80,
+          "retry"
+        ],
+        "defense": [
+          160,
+          130,
+          100,
+          "dodge",
+          40,
+          20
+        ]
+      },
+      "after": {
+        "atk": [
+          299,
+          212,
+          164,
+          106,
+          58,
+          "retry"
+        ],
+        "defense": [
+          153,
+          123,
+          94,
+          "dodge",
+          34,
+          9
+        ]
+      },
+      "reason": "Exceptional aimed shot, inconsistent follow-through and fragile defense.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-one-piece/cards/usopp",
+      "catalogueEntry": {
+        "id": "49800105",
+        "kind": "created",
+        "creationJob": "fbd878f3-4c40-4fed-a865-bdb72452abb6",
+        "name": "USOPP",
+        "title": "Un tir pour les sauver",
+        "element": "GEO",
+        "profile": {
+          "name": "USOPP",
+          "title": "Un tir pour les sauver",
+          "job": "TIREUR D'ÉLITE",
+          "description": "À Dressrosa, Usopp tremble devant la distance qui le sépare de sa cible. Mais il tend son lance-pierre : s'il manque ce tir, Luffy disparaîtra jusque dans la mémoire des siens.",
+          "element": "GEO",
+          "race": "HUMAIN",
+          "weapon": "Projectile",
+          "faction": "ONEPIECE",
+          "positions": [
+            4
+          ],
+          "atk": [
+            280,
+            230,
+            180,
+            130,
+            80,
+            "retry"
+          ],
+          "defense": [
+            160,
+            130,
+            100,
+            "dodge",
+            40,
+            20
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49800105",
+          "characterId": "usopp-op",
+          "slug": "V4_49800105",
+          "output": "KALISTAR_V4_49800105",
+          "text": "À Dressrosa, Usopp tremble devant la distance qui le sépare de sa cible. Mais il tend son lance-pierre : s'il manque ce tir, Luffy disparaîtra jusque dans la mémoire des siens.",
+          "color": "C7AB6D",
+          "hue": 41,
+          "weapon_index": 9,
+          "role": 4,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x One Piece - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-one-piece",
+          "collaboration": "ONEPIECE",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/OP_usopp_01.png"
+        },
+        "png": "V4/creations/49800105/card.png",
+        "psd": "V4/creations/49800105/card.psd",
+        "pngUrl": "/media/created/49800105.png",
+        "psdUrl": "/media/created/49800105.psd",
+        "createdAt": "2026-10-01T12:22:13.802Z",
+        "publicationSource": "V4/expansions/2026-10-01-one-piece"
+      }
+    },
+    {
+      "id": "49800106",
+      "key": "chopper-small",
+      "name": "CHOPPER",
+      "faction": "ONEPIECE",
+      "role": 5,
+      "before": {
+        "atk": [
+          160,
+          130,
+          100,
+          "revive",
+          "mana",
+          20
+        ],
+        "defense": [
+          190,
+          155,
+          120,
+          85,
+          50,
+          "retry"
+        ]
+      },
+      "after": {
+        "atk": [
+          151,
+          121,
+          103,
+          "revive",
+          "mana",
+          12
+        ],
+        "defense": [
+          182,
+          166,
+          132,
+          77,
+          43,
+          "retry"
+        ]
+      },
+      "reason": "Medical support with sturdy middle defenses, weak direct offense.",
+      "numericChanges": 9,
+      "nativeSource": "V4/expansions/2026-10-01-one-piece/cards/chopper-small",
+      "catalogueEntry": {
+        "id": "49800106",
+        "kind": "created",
+        "creationJob": "a284550b-2dc6-4e74-a774-efda6ae703f2",
+        "name": "CHOPPER",
+        "title": "Aucun enfant abandonné",
+        "element": "HERBO",
+        "profile": {
+          "name": "CHOPPER",
+          "title": "Aucun enfant abandonné",
+          "job": "MÉDECIN",
+          "description": "Face aux enfants de Punk Hazard, Chopper refuse de céder au désespoir. Ses petites mains cherchent un remède ; la peur ne vaut jamais davantage que la vie de ceux qui l'attendent.",
+          "element": "HERBO",
+          "race": "CERELF",
+          "weapon": "Tome",
+          "faction": "ONEPIECE",
+          "positions": [
+            5
+          ],
+          "atk": [
+            160,
+            130,
+            100,
+            "revive",
+            "mana",
+            20
+          ],
+          "defense": [
+            190,
+            155,
+            120,
+            85,
+            50,
+            "retry"
+          ],
+          "magic": [
+            5
+          ],
+          "barriers": [
+            6,
+            4
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49800106",
+          "characterId": "tony-tony-chopper-op",
+          "slug": "V4_49800106",
+          "output": "KALISTAR_V4_49800106",
+          "text": "Face aux enfants de Punk Hazard, Chopper refuse de céder au désespoir. Ses petites mains cherchent un remède ; la peur ne vaut jamais davantage que la vie de ceux qui l'attendent.",
+          "color": "89D355",
+          "hue": 100,
+          "weapon_index": 13,
+          "role": 5,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": true,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x One Piece - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-one-piece",
+          "collaboration": "ONEPIECE",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/OP_chopper-small_01.png"
+        },
+        "png": "V4/creations/49800106/card.png",
+        "psd": "V4/creations/49800106/card.psd",
+        "pngUrl": "/media/created/49800106.png",
+        "psdUrl": "/media/created/49800106.psd",
+        "createdAt": "2026-10-01T12:22:13.835Z",
+        "publicationSource": "V4/expansions/2026-10-01-one-piece"
+      }
+    },
+    {
+      "id": "49800107",
+      "key": "chopper-heavy",
+      "name": "CHOPPER",
+      "faction": "ONEPIECE",
+      "role": 1,
+      "before": {
+        "atk": [
+          190,
+          155,
+          120,
+          85,
+          50,
+          "guard"
+        ],
+        "defense": [
+          280,
+          230,
+          180,
+          130,
+          80,
+          "retry"
+        ]
+      },
+      "after": {
+        "atk": [
+          206,
+          167,
+          112,
+          78,
+          38,
+          "guard"
+        ],
+        "defense": [
+          294,
+          242,
+          191,
+          119,
+          59,
+          "retry"
+        ]
+      },
+      "reason": "Heavy-form burst and upper defense, poor endurance on lower rolls.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-one-piece/cards/chopper-heavy",
+      "catalogueEntry": {
+        "id": "49800107",
+        "kind": "created",
+        "creationJob": "fbf78698-6622-4274-afb1-9e42fb227164",
+        "name": "CHOPPER",
+        "title": "Fort pour les protéger",
+        "element": "MINERO",
+        "profile": {
+          "name": "CHOPPER",
+          "title": "Fort pour les protéger",
+          "job": "MÉDECIN COMBATTANT",
+          "description": "Sur l'île des Hommes-Poissons, Chopper assume sa forme massive avec fierté. Être traité de monstre ne lui fait plus peur : cette force existe pour protéger ceux qui l'ont accepté.",
+          "element": "MINERO",
+          "race": "CERELF",
+          "weapon": "Poing",
+          "faction": "ONEPIECE",
+          "positions": [
+            1
+          ],
+          "atk": [
+            190,
+            155,
+            120,
+            85,
+            50,
+            "guard"
+          ],
+          "defense": [
+            280,
+            230,
+            180,
+            130,
+            80,
+            "retry"
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49800107",
+          "characterId": "tony-tony-chopper-op",
+          "slug": "V4_49800107",
+          "output": "KALISTAR_V4_49800107",
+          "text": "Sur l'île des Hommes-Poissons, Chopper assume sa forme massive avec fierté. Être traité de monstre ne lui fait plus peur : cette force existe pour protéger ceux qui l'ont accepté.",
+          "color": "B3BFCA",
+          "hue": 210,
+          "role": 1,
+          "sentry": true,
+          "canGuard": true,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x One Piece - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-one-piece",
+          "collaboration": "ONEPIECE",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/OP_chopper-heavy_01.png"
+        },
+        "png": "V4/creations/49800107/card.png",
+        "psd": "V4/creations/49800107/card.psd",
+        "pngUrl": "/media/created/49800107.png",
+        "psdUrl": "/media/created/49800107.psd",
+        "createdAt": "2026-10-01T12:22:13.863Z",
+        "publicationSource": "V4/expansions/2026-10-01-one-piece"
+      }
+    },
+    {
+      "id": "49800108",
+      "key": "robin",
+      "name": "NICO ROBIN",
+      "faction": "ONEPIECE",
+      "role": 3,
+      "before": {
+        "atk": [
+          220,
+          180,
+          140,
+          100,
+          60,
+          "retry"
+        ],
+        "defense": [
+          220,
+          180,
+          140,
+          "dodge",
+          60,
+          30
+        ]
+      },
+      "after": {
+        "atk": [
+          238,
+          196,
+          147,
+          86,
+          51,
+          "retry"
+        ],
+        "defense": [
+          214,
+          191,
+          156,
+          "dodge",
+          74,
+          33
+        ]
+      },
+      "reason": "Precise restraint and control at high rolls, less reliable low offense.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-one-piece/cards/robin",
+      "catalogueEntry": {
+        "id": "49800108",
+        "kind": "created",
+        "creationJob": "2c941d25-9fc6-4c98-b176-b8bd56f1c776",
+        "name": "NICO ROBIN",
+        "title": "La confiance retrouvée",
+        "element": "HERBO",
+        "profile": {
+          "name": "NICO ROBIN",
+          "title": "La confiance retrouvée",
+          "job": "ARCHÉOLOGUE",
+          "description": "Sur le pont du Sunny, Robin croise les bras et scrute la mer. Une découverte trouble son regard, mais la confiance des siens lui donne la force de poursuivre les traces du passé.",
+          "element": "HERBO",
+          "race": "HUMAIN",
+          "weapon": "Poing",
+          "faction": "ONEPIECE",
+          "positions": [
+            3
+          ],
+          "atk": [
+            220,
+            180,
+            140,
+            100,
+            60,
+            "retry"
+          ],
+          "defense": [
+            220,
+            180,
+            140,
+            "dodge",
+            60,
+            30
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49800108",
+          "characterId": "nico-robin-op",
+          "slug": "V4_49800108",
+          "output": "KALISTAR_V4_49800108",
+          "text": "Sur le pont du Sunny, Robin croise les bras et scrute la mer. Une découverte trouble son regard, mais la confiance des siens lui donne la force de poursuivre les traces du passé.",
+          "color": "89D355",
+          "hue": 100,
+          "role": 3,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x One Piece - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-one-piece",
+          "collaboration": "ONEPIECE",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/OP_robin_01.png"
+        },
+        "png": "V4/creations/49800108/card.png",
+        "psd": "V4/creations/49800108/card.psd",
+        "pngUrl": "/media/created/49800108.png",
+        "psdUrl": "/media/created/49800108.psd",
+        "createdAt": "2026-10-01T12:22:13.893Z",
+        "publicationSource": "V4/expansions/2026-10-01-one-piece"
+      }
+    },
+    {
+      "id": "49800109",
+      "key": "franky",
+      "name": "FRANKY",
+      "faction": "ONEPIECE",
+      "role": 1,
+      "before": {
+        "atk": [
+          190,
+          155,
+          120,
+          85,
+          50,
+          "guard"
+        ],
+        "defense": [
+          280,
+          230,
+          180,
+          130,
+          80,
+          "retry"
+        ]
+      },
+      "after": {
+        "atk": [
+          197,
+          172,
+          134,
+          99,
+          62,
+          "guard"
+        ],
+        "defense": [
+          277,
+          248,
+          198,
+          143,
+          72,
+          "retry"
+        ]
+      },
+      "reason": "Mechanical reliability through middle rolls, less extreme defense peak.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-one-piece/cards/franky",
+      "catalogueEntry": {
+        "id": "49800109",
+        "kind": "created",
+        "creationJob": "1c6ce557-7db8-467a-9378-8bb131b38222",
+        "name": "FRANKY",
+        "title": "Le rêve tient debout",
+        "element": "ELECTRO",
+        "profile": {
+          "name": "FRANKY",
+          "title": "Le rêve tient debout",
+          "job": "CHARPENTIER",
+          "description": "Sur le Sunny, Franky pose une main sur la poutre réparée. Son sourire déborde de fierté : chaque pièce renforce le navire qui porte ses amis et leur rêve au bout de ces mers.",
+          "element": "ELECTRO",
+          "race": "CYBORG",
+          "weapon": "Gun",
+          "faction": "ONEPIECE",
+          "positions": [
+            1
+          ],
+          "atk": [
+            190,
+            155,
+            120,
+            85,
+            50,
+            "guard"
+          ],
+          "defense": [
+            280,
+            230,
+            180,
+            130,
+            80,
+            "retry"
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49800109",
+          "characterId": "franky-op",
+          "slug": "V4_49800109",
+          "output": "KALISTAR_V4_49800109",
+          "text": "Sur le Sunny, Franky pose une main sur la poutre réparée. Son sourire déborde de fierté : chaque pièce renforce le navire qui porte ses amis et leur rêve au bout de ces mers.",
+          "color": "F5DC32",
+          "hue": 53,
+          "weapon_index": 7,
+          "role": 1,
+          "sentry": true,
+          "canGuard": true,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x One Piece - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-one-piece",
+          "collaboration": "ONEPIECE",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/OP_franky_01.png"
+        },
+        "png": "V4/creations/49800109/card.png",
+        "psd": "V4/creations/49800109/card.psd",
+        "pngUrl": "/media/created/49800109.png",
+        "psdUrl": "/media/created/49800109.psd",
+        "createdAt": "2026-10-01T12:22:13.923Z",
+        "publicationSource": "V4/expansions/2026-10-01-one-piece"
+      }
+    },
+    {
+      "id": "49800110",
+      "key": "brook",
+      "name": "BROOK",
+      "faction": "ONEPIECE",
+      "role": 5,
+      "before": {
+        "atk": [
+          160,
+          130,
+          100,
+          "mana",
+          "buff_atk",
+          20
+        ],
+        "defense": [
+          190,
+          155,
+          120,
+          85,
+          50,
+          "retry"
+        ]
+      },
+      "after": {
+        "atk": [
+          171,
+          139,
+          92,
+          "mana",
+          "buff_atk",
+          26
+        ],
+        "defense": [
+          178,
+          147,
+          111,
+          93,
+          64,
+          "retry"
+        ]
+      },
+      "reason": "Quick musical attack and strong survival floor, lighter upper defense.",
+      "numericChanges": 9,
+      "nativeSource": "V4/expansions/2026-10-01-one-piece/cards/brook",
+      "catalogueEntry": {
+        "id": "49800110",
+        "kind": "created",
+        "creationJob": "3dd1c6bc-212e-435c-b8e3-6a601233814d",
+        "name": "BROOK",
+        "title": "La promesse en musique",
+        "element": "CRYO",
+        "profile": {
+          "name": "BROOK",
+          "title": "La promesse en musique",
+          "job": "MUSICIEN",
+          "description": "Sur le Sunny, Brook laisse monter une mélodie pour Laboon. Son corps n'a plus de larmes, mais chaque note porte la promesse des disparus et la joie de retrouver enfin un équipage.",
+          "element": "CRYO",
+          "race": "SKULLZ",
+          "weapon": "Instrument",
+          "faction": "ONEPIECE",
+          "positions": [
+            5
+          ],
+          "atk": [
+            160,
+            130,
+            100,
+            "mana",
+            "buff_atk",
+            20
+          ],
+          "defense": [
+            190,
+            155,
+            120,
+            85,
+            50,
+            "retry"
+          ],
+          "magic": [
+            5
+          ],
+          "barriers": [
+            6,
+            4
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49800110",
+          "characterId": "brook-op",
+          "slug": "V4_49800110",
+          "output": "KALISTAR_V4_49800110",
+          "text": "Sur le Sunny, Brook laisse monter une mélodie pour Laboon. Son corps n'a plus de larmes, mais chaque note porte la promesse des disparus et la joie de retrouver enfin un équipage.",
+          "color": "ACDFFD",
+          "hue": 201,
+          "weapon_index": 11,
+          "role": 5,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x One Piece - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-one-piece",
+          "collaboration": "ONEPIECE",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/OP_brook_01.png"
+        },
+        "png": "V4/creations/49800110/card.png",
+        "psd": "V4/creations/49800110/card.psd",
+        "pngUrl": "/media/created/49800110.png",
+        "psdUrl": "/media/created/49800110.psd",
+        "createdAt": "2026-10-01T12:22:13.952Z",
+        "publicationSource": "V4/expansions/2026-10-01-one-piece"
+      }
+    },
+    {
+      "id": "49800111",
+      "key": "jinbe",
+      "name": "JINBE",
+      "faction": "ONEPIECE",
+      "role": 1,
+      "before": {
+        "atk": [
+          190,
+          155,
+          120,
+          85,
+          50,
+          "guard"
+        ],
+        "defense": [
+          280,
+          230,
+          180,
+          130,
+          80,
+          "retry"
+        ]
+      },
+      "after": {
+        "atk": [
+          179,
+          158,
+          136,
+          102,
+          64,
+          "guard"
+        ],
+        "defense": [
+          288,
+          237,
+          183,
+          148,
+          96,
+          "retry"
+        ]
+      },
+      "reason": "Disciplined low-roll steadiness, restrained attack peak.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-one-piece/cards/jinbe",
+      "catalogueEntry": {
+        "id": "49800111",
+        "kind": "created",
+        "creationJob": "caacff4d-3c7b-41a5-959b-42720cbc36da",
+        "name": "JINBE",
+        "title": "Le choix de la liberté",
+        "element": "HYDRO",
+        "profile": {
+          "name": "JINBE",
+          "title": "Le choix de la liberté",
+          "job": "TIMONIER",
+          "description": "Dans la tempête, Jinbe prend appui sur le pont du Sunny. Ses paumes guident une force calme au milieu des vagues : protéger cet équipage donne tout son sens au cap qu'il a choisi.",
+          "element": "HYDRO",
+          "race": "SHARKAN",
+          "weapon": "Poing",
+          "faction": "ONEPIECE",
+          "positions": [
+            1,
+            2
+          ],
+          "atk": [
+            190,
+            155,
+            120,
+            85,
+            50,
+            "guard"
+          ],
+          "defense": [
+            280,
+            230,
+            180,
+            130,
+            80,
+            "retry"
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49800111",
+          "characterId": "jinbe-op",
+          "slug": "V4_49800111",
+          "output": "KALISTAR_V4_49800111",
+          "text": "Dans la tempête, Jinbe prend appui sur le pont du Sunny. Ses paumes guident une force calme au milieu des vagues : protéger cet équipage donne tout son sens au cap qu'il a choisi.",
+          "color": "38CBED",
+          "hue": 192,
+          "role": 1,
+          "sentry": true,
+          "canGuard": true,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x One Piece - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-one-piece",
+          "collaboration": "ONEPIECE",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/OP_jinbe_01.png"
+        },
+        "png": "V4/creations/49800111/card.png",
+        "psd": "V4/creations/49800111/card.psd",
+        "pngUrl": "/media/created/49800111.png",
+        "psdUrl": "/media/created/49800111.psd",
+        "createdAt": "2026-10-01T12:22:13.983Z",
+        "publicationSource": "V4/expansions/2026-10-01-one-piece"
+      }
+    },
+    {
+      "id": "49700101",
+      "key": "jill-re1",
+      "name": "JILL VALENTINE",
+      "faction": "RE1",
+      "role": 2,
+      "before": {
+        "atk": [
+          285,
+          235,
+          185,
+          135,
+          85,
+          "retry"
+        ],
+        "defense": [
+          165,
+          135,
+          105,
+          "dodge",
+          45,
+          20
+        ]
+      },
+      "after": {
+        "atk": [
+          272,
+          228,
+          191,
+          143,
+          91,
+          "retry"
+        ],
+        "defense": [
+          157,
+          132,
+          114,
+          "dodge",
+          54,
+          24
+        ]
+      },
+      "reason": "Careful specialist: modest peaks, dependable survival floor.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-resident-evil/cards/jill1",
+      "catalogueEntry": {
+        "id": "49700101",
+        "kind": "created",
+        "creationJob": "1463693e-7bba-483f-a316-ee7e1846e02b",
+        "name": "JILL VALENTINE",
+        "title": "La porte du manoir",
+        "element": "AERO",
+        "profile": {
+          "name": "JILL VALENTINE",
+          "title": "La porte du manoir",
+          "job": "MEMBRE DES S.T.A.R.S.",
+          "description": "Jill retient son souffle devant une porte du manoir Spencer. Son experience du terrain ne suffit pas a expliquer ces lieux, mais sa determination lui interdit de laisser ses partenaires sans secours.",
+          "element": "AERO",
+          "race": "HUMAIN",
+          "weapon": "Gun",
+          "faction": "RE1",
+          "positions": [
+            2
+          ],
+          "atk": [
+            285,
+            235,
+            185,
+            135,
+            85,
+            "retry"
+          ],
+          "defense": [
+            165,
+            135,
+            105,
+            "dodge",
+            45,
+            20
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49700101",
+          "characterId": "jill-valentine-re",
+          "slug": "V4_49700101",
+          "output": "KALISTAR_V4_49700101",
+          "text": "Jill retient son souffle devant une porte du manoir Spencer. Son experience du terrain ne suffit pas a expliquer ces lieux, mais sa determination lui interdit de laisser ses partenaires sans secours.",
+          "color": "89EDC2",
+          "hue": 155,
+          "weapon_index": 7,
+          "role": 2,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Resident Evil - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-resident-evil",
+          "collaboration": "RE1",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/RE_jill1_01.png"
+        },
+        "png": "V4/creations/49700101/card.png",
+        "psd": "V4/creations/49700101/card.psd",
+        "pngUrl": "/media/created/49700101.png",
+        "psdUrl": "/media/created/49700101.psd",
+        "createdAt": "2026-09-30T23:31:55.457Z",
+        "publicationSource": "V4/expansions/2026-10-01-resident-evil"
+      }
+    },
+    {
+      "id": "49700102",
+      "key": "jill-re3",
+      "name": "JILL VALENTINE",
+      "faction": "RE3",
+      "role": 3,
+      "before": {
+        "atk": [
+          225,
+          185,
+          145,
+          105,
+          65,
+          "retry"
+        ],
+        "defense": [
+          225,
+          185,
+          145,
+          "dodge",
+          65,
+          30
+        ]
+      },
+      "after": {
+        "atk": [
+          238,
+          194,
+          151,
+          94,
+          51,
+          "retry"
+        ],
+        "defense": [
+          217,
+          191,
+          157,
+          "dodge",
+          74,
+          36
+        ]
+      },
+      "reason": "Fighting escape: high attack and middle defense, weaker low attacks.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-resident-evil/cards/jill3",
+      "catalogueEntry": {
+        "id": "49700102",
+        "kind": "created",
+        "creationJob": "f1e56ff5-517c-499e-a07c-e31d1cd899f7",
+        "name": "JILL VALENTINE",
+        "title": "Une ville a traverser",
+        "element": "HYDRO",
+        "profile": {
+          "name": "JILL VALENTINE",
+          "title": "Une ville a traverser",
+          "job": "SURVIVANTE",
+          "description": "Dans une rue de Raccoon City, Jill cherche encore une issue entre les carcasses de voitures. La fatigue marque son visage, sans eteindre sa volonte de survivre et de faire payer Umbrella pour ce desastre.",
+          "element": "HYDRO",
+          "race": "HUMAIN",
+          "weapon": "Gun",
+          "faction": "RE3",
+          "positions": [
+            3
+          ],
+          "atk": [
+            225,
+            185,
+            145,
+            105,
+            65,
+            "retry"
+          ],
+          "defense": [
+            225,
+            185,
+            145,
+            "dodge",
+            65,
+            30
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49700102",
+          "characterId": "jill-valentine-re",
+          "slug": "V4_49700102",
+          "output": "KALISTAR_V4_49700102",
+          "text": "Dans une rue de Raccoon City, Jill cherche encore une issue entre les carcasses de voitures. La fatigue marque son visage, sans eteindre sa volonte de survivre et de faire payer Umbrella pour ce desastre.",
+          "color": "38CBED",
+          "hue": 192,
+          "weapon_index": 7,
+          "role": 3,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Resident Evil - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-resident-evil",
+          "collaboration": "RE3",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/RE_jill3_01.png"
+        },
+        "png": "V4/creations/49700102/card.png",
+        "psd": "V4/creations/49700102/card.psd",
+        "pngUrl": "/media/created/49700102.png",
+        "psdUrl": "/media/created/49700102.psd",
+        "createdAt": "2026-09-30T23:31:55.484Z",
+        "publicationSource": "V4/expansions/2026-10-01-resident-evil"
+      }
+    },
+    {
+      "id": "49700103",
+      "key": "jill-re5",
+      "name": "JILL VALENTINE",
+      "faction": "RE5",
+      "role": 3,
+      "before": {
+        "atk": [
+          225,
+          185,
+          145,
+          105,
+          65,
+          "retry"
+        ],
+        "defense": [
+          225,
+          185,
+          145,
+          "dodge",
+          65,
+          30
+        ]
+      },
+      "after": {
+        "atk": [
+          232,
+          198,
+          158,
+          112,
+          72,
+          "retry"
+        ],
+        "defense": [
+          204,
+          169,
+          127,
+          "dodge",
+          47,
+          19
+        ]
+      },
+      "reason": "Conditioned aggression: strong offensive curve traded for defense.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-resident-evil/cards/jill5",
+      "catalogueEntry": {
+        "id": "49700103",
+        "kind": "created",
+        "creationJob": "e0db302f-5d5c-4fca-aa92-a6a15be871b3",
+        "name": "JILL VALENTINE",
+        "title": "Un regard prisonnier",
+        "element": "CRYO",
+        "profile": {
+          "name": "JILL VALENTINE",
+          "title": "Un regard prisonnier",
+          "job": "AGENTE SOUS EMPRISE",
+          "description": "Le regard de Jill semble lointain sous ses cheveux devenus blonds. Une volonte etrangere dirige ses gestes, mais sous cette discipline glaciale demeure la survivante que Chris refuse de croire perdue.",
+          "element": "CRYO",
+          "race": "HUMAIN",
+          "weapon": "Gun",
+          "faction": "RE5",
+          "positions": [
+            3
+          ],
+          "atk": [
+            225,
+            185,
+            145,
+            105,
+            65,
+            "retry"
+          ],
+          "defense": [
+            225,
+            185,
+            145,
+            "dodge",
+            65,
+            30
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49700103",
+          "characterId": "jill-valentine-re",
+          "slug": "V4_49700103",
+          "output": "KALISTAR_V4_49700103",
+          "text": "Le regard de Jill semble lointain sous ses cheveux devenus blonds. Une volonte etrangere dirige ses gestes, mais sous cette discipline glaciale demeure la survivante que Chris refuse de croire perdue.",
+          "color": "ACDFFD",
+          "hue": 201,
+          "weapon_index": 7,
+          "role": 3,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Resident Evil - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-resident-evil",
+          "collaboration": "RE5",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/RE_jill5_01.png"
+        },
+        "png": "V4/creations/49700103/card.png",
+        "psd": "V4/creations/49700103/card.psd",
+        "pngUrl": "/media/created/49700103.png",
+        "psdUrl": "/media/created/49700103.psd",
+        "createdAt": "2026-09-30T23:31:55.515Z",
+        "publicationSource": "V4/expansions/2026-10-01-resident-evil"
+      }
+    },
+    {
+      "id": "49700104",
+      "key": "leon-re2",
+      "name": "LEON S. KENNEDY",
+      "faction": "RE2",
+      "role": 3,
+      "before": {
+        "atk": [
+          225,
+          185,
+          145,
+          105,
+          65,
+          "retry"
+        ],
+        "defense": [
+          225,
+          185,
+          145,
+          "dodge",
+          65,
+          30
+        ]
+      },
+      "after": {
+        "atk": [
+          213,
+          172,
+          132,
+          114,
+          74,
+          "retry"
+        ],
+        "defense": [
+          239,
+          198,
+          153,
+          "dodge",
+          69,
+          31
+        ]
+      },
+      "reason": "Rookie survives and adapts; defense before high-roll offense.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-resident-evil/cards/leon2",
+      "catalogueEntry": {
+        "id": "49700104",
+        "kind": "created",
+        "creationJob": "c4908470-18b2-4905-b658-e408525f1ff6",
+        "name": "LEON S. KENNEDY",
+        "title": "Premier jour de cauchemar",
+        "element": "HYDRO",
+        "profile": {
+          "name": "LEON S. KENNEDY",
+          "title": "Premier jour de cauchemar",
+          "job": "POLICIER",
+          "description": "Leon avance dans le commissariat avec la prudence maladroite de son premier jour. Il aurait du trouver des collegues et des consignes ; il ne rencontre que le silence, et la responsabilite de proteger les vivants.",
+          "element": "HYDRO",
+          "race": "HUMAIN",
+          "weapon": "Gun",
+          "faction": "RE2",
+          "positions": [
+            3
+          ],
+          "atk": [
+            225,
+            185,
+            145,
+            105,
+            65,
+            "retry"
+          ],
+          "defense": [
+            225,
+            185,
+            145,
+            "dodge",
+            65,
+            30
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49700104",
+          "characterId": "leon-kennedy-re",
+          "slug": "V4_49700104",
+          "output": "KALISTAR_V4_49700104",
+          "text": "Leon avance dans le commissariat avec la prudence maladroite de son premier jour. Il aurait du trouver des collegues et des consignes ; il ne rencontre que le silence, et la responsabilite de proteger les vivants.",
+          "color": "38CBED",
+          "hue": 192,
+          "weapon_index": 7,
+          "role": 3,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Resident Evil - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-resident-evil",
+          "collaboration": "RE2",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/RE_leon2_01.png"
+        },
+        "png": "V4/creations/49700104/card.png",
+        "psd": "V4/creations/49700104/card.psd",
+        "pngUrl": "/media/created/49700104.png",
+        "psdUrl": "/media/created/49700104.psd",
+        "createdAt": "2026-09-30T23:31:55.542Z",
+        "publicationSource": "V4/expansions/2026-10-01-resident-evil"
+      }
+    },
+    {
+      "id": "49700105",
+      "key": "leon-re4",
+      "name": "LEON S. KENNEDY",
+      "faction": "RE4",
+      "role": 3,
+      "before": {
+        "atk": [
+          225,
+          185,
+          145,
+          105,
+          65,
+          "retry"
+        ],
+        "defense": [
+          225,
+          185,
+          145,
+          "dodge",
+          65,
+          30
+        ]
+      },
+      "after": {
+        "atk": [
+          237,
+          196,
+          156,
+          108,
+          63,
+          "retry"
+        ],
+        "defense": [
+          216,
+          179,
+          136,
+          "dodge",
+          72,
+          35
+        ]
+      },
+      "reason": "Experienced counterattacker: offensive peak with weaker middle defenses.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-resident-evil/cards/leon4",
+      "catalogueEntry": {
+        "id": "49700105",
+        "kind": "created",
+        "creationJob": "05fb018f-a388-4185-ae2e-dd831182da24",
+        "name": "LEON S. KENNEDY",
+        "title": "Au seuil du village",
+        "element": "PYRO",
+        "profile": {
+          "name": "LEON S. KENNEDY",
+          "title": "Au seuil du village",
+          "job": "AGENT SPECIAL",
+          "description": "Au seuil du village, Leon comprend que cette mission ne ressemble a aucune autre. Il observe les gestes des habitants et garde son arme prete, avec pour seule priorite de retrouver Ashley et de la ramener vivante.",
+          "element": "PYRO",
+          "race": "HUMAIN",
+          "weapon": "Gun",
+          "faction": "RE4",
+          "positions": [
+            3
+          ],
+          "atk": [
+            225,
+            185,
+            145,
+            105,
+            65,
+            "retry"
+          ],
+          "defense": [
+            225,
+            185,
+            145,
+            "dodge",
+            65,
+            30
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49700105",
+          "characterId": "leon-kennedy-re",
+          "slug": "V4_49700105",
+          "output": "KALISTAR_V4_49700105",
+          "text": "Au seuil du village, Leon comprend que cette mission ne ressemble a aucune autre. Il observe les gestes des habitants et garde son arme prete, avec pour seule priorite de retrouver Ashley et de la ramener vivante.",
+          "color": "FF704A",
+          "hue": 12,
+          "weapon_index": 7,
+          "role": 3,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Resident Evil - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-resident-evil",
+          "collaboration": "RE4",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/RE_leon4_01.png"
+        },
+        "png": "V4/creations/49700105/card.png",
+        "psd": "V4/creations/49700105/card.psd",
+        "pngUrl": "/media/created/49700105.png",
+        "psdUrl": "/media/created/49700105.psd",
+        "createdAt": "2026-09-30T23:31:55.573Z",
+        "publicationSource": "V4/expansions/2026-10-01-resident-evil"
+      }
+    },
+    {
+      "id": "49700106",
+      "key": "leon-re6",
+      "name": "LEON S. KENNEDY",
+      "faction": "RE6",
+      "role": 3,
+      "before": {
+        "atk": [
+          225,
+          185,
+          145,
+          105,
+          65,
+          "retry"
+        ],
+        "defense": [
+          225,
+          185,
+          145,
+          "dodge",
+          65,
+          30
+        ]
+      },
+      "after": {
+        "atk": [
+          228,
+          188,
+          151,
+          116,
+          77,
+          "retry"
+        ],
+        "defense": [
+          209,
+          174,
+          139,
+          "dodge",
+          59,
+          23
+        ]
+      },
+      "reason": "Consistent professional offense, reduced defensive margin.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-resident-evil/cards/leon6",
+      "catalogueEntry": {
+        "id": "49700106",
+        "kind": "created",
+        "creationJob": "ea6f4fe5-fef6-40b9-81f5-3b90102272ba",
+        "name": "LEON S. KENNEDY",
+        "title": "Le poids du devoir",
+        "element": "NECRO",
+        "profile": {
+          "name": "LEON S. KENNEDY",
+          "title": "Le poids du devoir",
+          "job": "AGENT DU DSO",
+          "description": "La nuit de Tall Oaks laisse Leon face a une catastrophe qu'il n'a pas pu empecher. Au milieu des sirenes et des ombres, il poursuit les responsables, portant chaque survivant rencontre comme une raison de tenir.",
+          "element": "NECRO",
+          "race": "HUMAIN",
+          "weapon": "Gun",
+          "faction": "RE6",
+          "positions": [
+            3
+          ],
+          "atk": [
+            225,
+            185,
+            145,
+            105,
+            65,
+            "retry"
+          ],
+          "defense": [
+            225,
+            185,
+            145,
+            "dodge",
+            65,
+            30
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49700106",
+          "characterId": "leon-kennedy-re",
+          "slug": "V4_49700106",
+          "output": "KALISTAR_V4_49700106",
+          "text": "La nuit de Tall Oaks laisse Leon face a une catastrophe qu'il n'a pas pu empecher. Au milieu des sirenes et des ombres, il poursuit les responsables, portant chaque survivant rencontre comme une raison de tenir.",
+          "color": "A979F7",
+          "hue": 270,
+          "weapon_index": 7,
+          "role": 3,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Resident Evil - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-resident-evil",
+          "collaboration": "RE6",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/RE_leon6_01.png"
+        },
+        "png": "V4/creations/49700106/card.png",
+        "psd": "V4/creations/49700106/card.psd",
+        "pngUrl": "/media/created/49700106.png",
+        "psdUrl": "/media/created/49700106.psd",
+        "createdAt": "2026-09-30T23:31:55.598Z",
+        "publicationSource": "V4/expansions/2026-10-01-resident-evil"
+      }
+    },
+    {
+      "id": "49700107",
+      "key": "leon-re9",
+      "name": "LEON S. KENNEDY",
+      "faction": "RE9",
+      "role": 3,
+      "before": {
+        "atk": [
+          225,
+          185,
+          145,
+          105,
+          65,
+          "retry"
+        ],
+        "defense": [
+          225,
+          185,
+          145,
+          "dodge",
+          65,
+          30
+        ]
+      },
+      "after": {
+        "atk": [
+          218,
+          181,
+          143,
+          103,
+          59,
+          "retry"
+        ],
+        "defense": [
+          233,
+          194,
+          157,
+          "dodge",
+          77,
+          38
+        ]
+      },
+      "reason": "Veteran caution and dependable defense, restrained attack.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-resident-evil/cards/leon9",
+      "catalogueEntry": {
+        "id": "49700107",
+        "kind": "created",
+        "creationJob": "354ab896-0be8-447a-a4b4-b63bcc3dfc87",
+        "name": "LEON S. KENNEDY",
+        "title": "Le veteran tient bon",
+        "element": "MINERO",
+        "profile": {
+          "name": "LEON S. KENNEDY",
+          "title": "Le veteran tient bon",
+          "job": "AGENT DU DSO",
+          "description": "Les annees ont creuse le visage de Leon sans diminuer son instinct. Dans les vestiges d'une nouvelle enquete, il ferme le poing et reprend appui : la peur lui est familiere, mais abandonner ne l'est toujours pas.",
+          "element": "MINERO",
+          "race": "HUMAIN",
+          "weapon": "Poing",
+          "faction": "RE9",
+          "positions": [
+            3
+          ],
+          "atk": [
+            225,
+            185,
+            145,
+            105,
+            65,
+            "retry"
+          ],
+          "defense": [
+            225,
+            185,
+            145,
+            "dodge",
+            65,
+            30
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49700107",
+          "characterId": "leon-kennedy-re",
+          "slug": "V4_49700107",
+          "output": "KALISTAR_V4_49700107",
+          "text": "Les annees ont creuse le visage de Leon sans diminuer son instinct. Dans les vestiges d'une nouvelle enquete, il ferme le poing et reprend appui : la peur lui est familiere, mais abandonner ne l'est toujours pas.",
+          "color": "B3BFCA",
+          "hue": 210,
+          "role": 3,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Resident Evil - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-resident-evil",
+          "collaboration": "RE9",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/RE_leon9_01.png"
+        },
+        "png": "V4/creations/49700107/card.png",
+        "psd": "V4/creations/49700107/card.psd",
+        "pngUrl": "/media/created/49700107.png",
+        "psdUrl": "/media/created/49700107.psd",
+        "createdAt": "2026-09-30T23:31:55.629Z",
+        "publicationSource": "V4/expansions/2026-10-01-resident-evil"
+      }
+    },
+    {
+      "id": "49700108",
+      "key": "ada-re2",
+      "name": "ADA WONG",
+      "faction": "RE2",
+      "role": 3,
+      "before": {
+        "atk": [
+          225,
+          185,
+          145,
+          105,
+          65,
+          "retry"
+        ],
+        "defense": [
+          225,
+          185,
+          145,
+          "dodge",
+          65,
+          30
+        ]
+      },
+      "after": {
+        "atk": [
+          238,
+          188,
+          138,
+          92,
+          49,
+          "retry"
+        ],
+        "defense": [
+          218,
+          182,
+          143,
+          "dodge",
+          73,
+          37
+        ]
+      },
+      "reason": "Ambush specialist: high opportunity, weak sustained attacks.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-resident-evil/cards/ada2",
+      "catalogueEntry": {
+        "id": "49700108",
+        "kind": "created",
+        "creationJob": "845a6bdf-af5b-4731-adf6-d4496ba770d8",
+        "name": "ADA WONG",
+        "title": "Derriere les lunettes",
+        "element": "NECRO",
+        "profile": {
+          "name": "ADA WONG",
+          "title": "Derriere les lunettes",
+          "job": "ESPIONNE",
+          "description": "Ada traverse le commissariat en gardant ses veritables objectifs pour elle. Derriere ses lunettes, son regard mesure chaque risque ; un geste vers Leon trahit pourtant une attention que sa mission ne reclamait pas.",
+          "element": "NECRO",
+          "race": "HUMAIN",
+          "weapon": "Gun",
+          "faction": "RE2",
+          "positions": [
+            3
+          ],
+          "atk": [
+            225,
+            185,
+            145,
+            105,
+            65,
+            "retry"
+          ],
+          "defense": [
+            225,
+            185,
+            145,
+            "dodge",
+            65,
+            30
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49700108",
+          "characterId": "ada-wong-re",
+          "slug": "V4_49700108",
+          "output": "KALISTAR_V4_49700108",
+          "text": "Ada traverse le commissariat en gardant ses veritables objectifs pour elle. Derriere ses lunettes, son regard mesure chaque risque ; un geste vers Leon trahit pourtant une attention que sa mission ne reclamait pas.",
+          "color": "A979F7",
+          "hue": 270,
+          "weapon_index": 7,
+          "role": 3,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Resident Evil - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-resident-evil",
+          "collaboration": "RE2",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/RE_ada2_01.png"
+        },
+        "png": "V4/creations/49700108/card.png",
+        "psd": "V4/creations/49700108/card.psd",
+        "pngUrl": "/media/created/49700108.png",
+        "psdUrl": "/media/created/49700108.psd",
+        "createdAt": "2026-09-30T23:31:55.654Z",
+        "publicationSource": "V4/expansions/2026-10-01-resident-evil"
+      }
+    },
+    {
+      "id": "49700109",
+      "key": "ada-re4",
+      "name": "ADA WONG",
+      "faction": "RE4",
+      "role": 2,
+      "before": {
+        "atk": [
+          285,
+          235,
+          185,
+          135,
+          85,
+          "retry"
+        ],
+        "defense": [
+          165,
+          135,
+          105,
+          "dodge",
+          45,
+          20
+        ]
+      },
+      "after": {
+        "atk": [
+          296,
+          242,
+          186,
+          122,
+          67,
+          "retry"
+        ],
+        "defense": [
+          154,
+          126,
+          96,
+          "dodge",
+          38,
+          13
+        ]
+      },
+      "reason": "Lethal opening and blade precision, fragile when caught.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-resident-evil/cards/ada4",
+      "catalogueEntry": {
+        "id": "49700109",
+        "kind": "created",
+        "creationJob": "dd467f6c-5313-4063-818d-c07100a10ee9",
+        "name": "ADA WONG",
+        "title": "Une autre voie",
+        "element": "HEMATO",
+        "profile": {
+          "name": "ADA WONG",
+          "title": "Une autre voie",
+          "job": "ESPIONNE",
+          "description": "Dans les hauteurs du chateau, Ada choisit sa propre route entre les ordres et les dettes. Sa lame ouvre un passage discret ; elle garde Leon dans son champ de vision sans lui reveler ce qu'elle est venue chercher.",
+          "element": "HEMATO",
+          "race": "HUMAIN",
+          "weapon": "Dague",
+          "faction": "RE4",
+          "positions": [
+            2,
+            3
+          ],
+          "atk": [
+            285,
+            235,
+            185,
+            135,
+            85,
+            "retry"
+          ],
+          "defense": [
+            165,
+            135,
+            105,
+            "dodge",
+            45,
+            20
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49700109",
+          "characterId": "ada-wong-re",
+          "slug": "V4_49700109",
+          "output": "KALISTAR_V4_49700109",
+          "text": "Dans les hauteurs du chateau, Ada choisit sa propre route entre les ordres et les dettes. Sa lame ouvre un passage discret ; elle garde Leon dans son champ de vision sans lui reveler ce qu'elle est venue chercher.",
+          "color": "E84976",
+          "hue": 343,
+          "weapon_index": 15,
+          "role": 2,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Resident Evil - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-resident-evil",
+          "collaboration": "RE4",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/RE_ada4_01.png"
+        },
+        "png": "V4/creations/49700109/card.png",
+        "psd": "V4/creations/49700109/card.psd",
+        "pngUrl": "/media/created/49700109.png",
+        "psdUrl": "/media/created/49700109.psd",
+        "createdAt": "2026-09-30T23:31:55.685Z",
+        "publicationSource": "V4/expansions/2026-10-01-resident-evil"
+      }
+    },
+    {
+      "id": "49700110",
+      "key": "ada-re6",
+      "name": "ADA WONG",
+      "faction": "RE6",
+      "role": 3,
+      "before": {
+        "atk": [
+          225,
+          185,
+          145,
+          105,
+          65,
+          "retry"
+        ],
+        "defense": [
+          225,
+          185,
+          145,
+          "dodge",
+          65,
+          30
+        ]
+      },
+      "after": {
+        "atk": [
+          218,
+          193,
+          157,
+          117,
+          76,
+          "retry"
+        ],
+        "defense": [
+          207,
+          171,
+          132,
+          "dodge",
+          57,
+          22
+        ]
+      },
+      "reason": "Technical sustained offense instead of a single huge opening.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-resident-evil/cards/ada6",
+      "catalogueEntry": {
+        "id": "49700110",
+        "kind": "created",
+        "creationJob": "9a22ddac-7c9a-41f0-95c3-c18f1f728327",
+        "name": "ADA WONG",
+        "title": "La verite dans les flammes",
+        "element": "AERO",
+        "profile": {
+          "name": "ADA WONG",
+          "title": "La verite dans les flammes",
+          "job": "ESPIONNE",
+          "description": "Une autre femme a porte son visage et laisse le monde accuser Ada. Dans les coursives, elle remonte la piste de cette usurpation, arme en main, decidee a rendre aux mensonges leur auteur et a reprendre son nom.",
+          "element": "AERO",
+          "race": "HUMAIN",
+          "weapon": "Gun",
+          "faction": "RE6",
+          "positions": [
+            3,
+            4
+          ],
+          "atk": [
+            225,
+            185,
+            145,
+            105,
+            65,
+            "retry"
+          ],
+          "defense": [
+            225,
+            185,
+            145,
+            "dodge",
+            65,
+            30
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49700110",
+          "characterId": "ada-wong-re",
+          "slug": "V4_49700110",
+          "output": "KALISTAR_V4_49700110",
+          "text": "Une autre femme a porte son visage et laisse le monde accuser Ada. Dans les coursives, elle remonte la piste de cette usurpation, arme en main, decidee a rendre aux mensonges leur auteur et a reprendre son nom.",
+          "color": "89EDC2",
+          "hue": 155,
+          "weapon_index": 7,
+          "role": 3,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Resident Evil - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-resident-evil",
+          "collaboration": "RE6",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/RE_ada6_01.png"
+        },
+        "png": "V4/creations/49700110/card.png",
+        "psd": "V4/creations/49700110/card.psd",
+        "pngUrl": "/media/created/49700110.png",
+        "psdUrl": "/media/created/49700110.psd",
+        "createdAt": "2026-09-30T23:31:55.711Z",
+        "publicationSource": "V4/expansions/2026-10-01-resident-evil"
+      }
+    },
+    {
+      "id": "49700111",
+      "key": "chris-re1",
+      "name": "CHRIS REDFIELD",
+      "faction": "RE1",
+      "role": 1,
+      "before": {
+        "atk": [
+          195,
+          160,
+          125,
+          90,
+          55,
+          "guard"
+        ],
+        "defense": [
+          285,
+          235,
+          185,
+          135,
+          85,
+          "retry"
+        ]
+      },
+      "after": {
+        "atk": [
+          183,
+          149,
+          117,
+          98,
+          64,
+          "guard"
+        ],
+        "defense": [
+          273,
+          226,
+          182,
+          141,
+          96,
+          "retry"
+        ]
+      },
+      "reason": "Young protector: modest peaks, steadier lower rolls.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-resident-evil/cards/chris1",
+      "catalogueEntry": {
+        "id": "49700111",
+        "kind": "created",
+        "creationJob": "7c20fc97-624b-49e7-b5b5-1ff47e0fda51",
+        "name": "CHRIS REDFIELD",
+        "title": "Tenir le passage",
+        "element": "HERBO",
+        "profile": {
+          "name": "CHRIS REDFIELD",
+          "title": "Tenir le passage",
+          "job": "MEMBRE DES S.T.A.R.S.",
+          "description": "Chris garde le passage dans les couloirs du manoir. Il cherche les disparus de Bravo, arme en main, et refuse de laisser ses compagnons unis devenir les prochaines victimes.",
+          "element": "HERBO",
+          "race": "HUMAIN",
+          "weapon": "Gun",
+          "faction": "RE1",
+          "positions": [
+            1
+          ],
+          "atk": [
+            195,
+            160,
+            125,
+            90,
+            55,
+            "guard"
+          ],
+          "defense": [
+            285,
+            235,
+            185,
+            135,
+            85,
+            "retry"
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49700111",
+          "characterId": "chris-redfield-re",
+          "slug": "V4_49700111",
+          "output": "KALISTAR_V4_49700111",
+          "text": "Chris garde le passage dans les couloirs du manoir. Il cherche les disparus de Bravo, arme en main, et refuse de laisser ses compagnons unis devenir les prochaines victimes.",
+          "color": "89D355",
+          "hue": 100,
+          "weapon_index": 7,
+          "role": 1,
+          "sentry": true,
+          "canGuard": true,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Resident Evil - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-resident-evil",
+          "collaboration": "RE1",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/RE_chris1_01.png"
+        },
+        "png": "V4/creations/49700111/card.png",
+        "psd": "V4/creations/49700111/card.psd",
+        "pngUrl": "/media/created/49700111.png",
+        "psdUrl": "/media/created/49700111.psd",
+        "createdAt": "2026-09-30T23:31:55.743Z",
+        "publicationSource": "V4/expansions/2026-10-01-resident-evil"
+      }
+    },
+    {
+      "id": "49700112",
+      "key": "chris-re5",
+      "name": "CHRIS REDFIELD",
+      "faction": "RE5",
+      "role": 1,
+      "before": {
+        "atk": [
+          195,
+          160,
+          125,
+          90,
+          55,
+          "guard"
+        ],
+        "defense": [
+          285,
+          235,
+          185,
+          135,
+          85,
+          "retry"
+        ]
+      },
+      "after": {
+        "atk": [
+          209,
+          173,
+          138,
+          102,
+          67,
+          "guard"
+        ],
+        "defense": [
+          269,
+          219,
+          174,
+          126,
+          78,
+          "retry"
+        ]
+      },
+      "reason": "Physical force costs defensive reliability.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-resident-evil/cards/chris5",
+      "catalogueEntry": {
+        "id": "49700112",
+        "kind": "created",
+        "creationJob": "c9ed181b-2d20-4cb8-8518-c247705a7be8",
+        "name": "CHRIS REDFIELD",
+        "title": "Ne jamais la laisser",
+        "element": "PYRO",
+        "profile": {
+          "name": "CHRIS REDFIELD",
+          "title": "Ne jamais la laisser",
+          "job": "AGENT DU BSAA",
+          "description": "La chaleur de Kijuju pese sur les epaules de Chris, mais sa recherche de Jill ne faiblit pas. Avec Sheva a ses cotes, il affronte les armes biologiques et les traces d'un passe qui refuse de rester enterre.",
+          "element": "PYRO",
+          "race": "HUMAIN",
+          "weapon": "Poing",
+          "faction": "RE5",
+          "positions": [
+            1
+          ],
+          "atk": [
+            195,
+            160,
+            125,
+            90,
+            55,
+            "guard"
+          ],
+          "defense": [
+            285,
+            235,
+            185,
+            135,
+            85,
+            "retry"
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49700112",
+          "characterId": "chris-redfield-re",
+          "slug": "V4_49700112",
+          "output": "KALISTAR_V4_49700112",
+          "text": "La chaleur de Kijuju pese sur les epaules de Chris, mais sa recherche de Jill ne faiblit pas. Avec Sheva a ses cotes, il affronte les armes biologiques et les traces d'un passe qui refuse de rester enterre.",
+          "color": "FF704A",
+          "hue": 12,
+          "role": 1,
+          "sentry": true,
+          "canGuard": true,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Resident Evil - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-resident-evil",
+          "collaboration": "RE5",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/RE_chris5_01.png"
+        },
+        "png": "V4/creations/49700112/card.png",
+        "psd": "V4/creations/49700112/card.psd",
+        "pngUrl": "/media/created/49700112.png",
+        "psdUrl": "/media/created/49700112.psd",
+        "createdAt": "2026-09-30T23:31:55.768Z",
+        "publicationSource": "V4/expansions/2026-10-01-resident-evil"
+      }
+    },
+    {
+      "id": "49700113",
+      "key": "chris-re6",
+      "name": "CHRIS REDFIELD",
+      "faction": "RE6",
+      "role": 1,
+      "before": {
+        "atk": [
+          195,
+          160,
+          125,
+          90,
+          55,
+          "guard"
+        ],
+        "defense": [
+          285,
+          235,
+          185,
+          135,
+          85,
+          "retry"
+        ]
+      },
+      "after": {
+        "atk": [
+          191,
+          158,
+          129,
+          96,
+          61,
+          "guard"
+        ],
+        "defense": [
+          292,
+          244,
+          193,
+          118,
+          63,
+          "retry"
+        ]
+      },
+      "reason": "Resolute frontline burst with a pronounced defensive collapse on low rolls.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-resident-evil/cards/chris6",
+      "catalogueEntry": {
+        "id": "49700113",
+        "kind": "created",
+        "creationJob": "b4910a53-b1f2-4f09-963a-3ebdf62e7885",
+        "name": "CHRIS REDFIELD",
+        "title": "Le capitaine revient",
+        "element": "GEO",
+        "profile": {
+          "name": "CHRIS REDFIELD",
+          "title": "Le capitaine revient",
+          "job": "CAPITAINE DU BSAA",
+          "description": "Chris reprend la tete de son escouade dans une ville dechiree par les combats. Les pertes ne cessent de lui revenir, mais la confiance de ses hommes lui impose de regarder devant lui et de tenir encore la ligne.",
+          "element": "GEO",
+          "race": "HUMAIN",
+          "weapon": "Gun",
+          "faction": "RE6",
+          "positions": [
+            1
+          ],
+          "atk": [
+            195,
+            160,
+            125,
+            90,
+            55,
+            "guard"
+          ],
+          "defense": [
+            285,
+            235,
+            185,
+            135,
+            85,
+            "retry"
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49700113",
+          "characterId": "chris-redfield-re",
+          "slug": "V4_49700113",
+          "output": "KALISTAR_V4_49700113",
+          "text": "Chris reprend la tete de son escouade dans une ville dechiree par les combats. Les pertes ne cessent de lui revenir, mais la confiance de ses hommes lui impose de regarder devant lui et de tenir encore la ligne.",
+          "color": "C7AB6D",
+          "hue": 41,
+          "weapon_index": 7,
+          "role": 1,
+          "sentry": true,
+          "canGuard": true,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Resident Evil - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-resident-evil",
+          "collaboration": "RE6",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/RE_chris6_01.png"
+        },
+        "png": "V4/creations/49700113/card.png",
+        "psd": "V4/creations/49700113/card.psd",
+        "pngUrl": "/media/created/49700113.png",
+        "psdUrl": "/media/created/49700113.psd",
+        "createdAt": "2026-09-30T23:31:55.802Z",
+        "publicationSource": "V4/expansions/2026-10-01-resident-evil"
+      }
+    },
+    {
+      "id": "49700114",
+      "key": "chris-re7",
+      "name": "CHRIS REDFIELD",
+      "faction": "RE7",
+      "role": 1,
+      "before": {
+        "atk": [
+          195,
+          160,
+          125,
+          90,
+          55,
+          "guard"
+        ],
+        "defense": [
+          285,
+          235,
+          185,
+          135,
+          85,
+          "retry"
+        ]
+      },
+      "after": {
+        "atk": [
+          187,
+          154,
+          121,
+          87,
+          51,
+          "guard"
+        ],
+        "defense": [
+          282,
+          238,
+          196,
+          148,
+          97,
+          "retry"
+        ]
+      },
+      "reason": "Methodical containment: defense regularity over offense.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-resident-evil/cards/chris7",
+      "catalogueEntry": {
+        "id": "49700114",
+        "kind": "created",
+        "creationJob": "8585987e-b3d6-487d-b0bb-f2e55f371802",
+        "name": "CHRIS REDFIELD",
+        "title": "Sous un nouvel insigne",
+        "element": "LUXO",
+        "profile": {
+          "name": "CHRIS REDFIELD",
+          "title": "Sous un nouvel insigne",
+          "job": "OPERATEUR",
+          "description": "Chris descend dans les installations de Dulvey sous un insigne qu'il n'a pas choisi d'aimer. Il reste attentif aux soldats qui l'accompagnent : derriere chaque porte, la mission peut encore reclamer une vie.",
+          "element": "LUXO",
+          "race": "HUMAIN",
+          "weapon": "Gun",
+          "faction": "RE7",
+          "positions": [
+            1
+          ],
+          "atk": [
+            195,
+            160,
+            125,
+            90,
+            55,
+            "guard"
+          ],
+          "defense": [
+            285,
+            235,
+            185,
+            135,
+            85,
+            "retry"
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49700114",
+          "characterId": "chris-redfield-re",
+          "slug": "V4_49700114",
+          "output": "KALISTAR_V4_49700114",
+          "text": "Chris descend dans les installations de Dulvey sous un insigne qu'il n'a pas choisi d'aimer. Il reste attentif aux soldats qui l'accompagnent : derriere chaque porte, la mission peut encore reclamer une vie.",
+          "color": "F4E9AF",
+          "hue": 47,
+          "weapon_index": 7,
+          "role": 1,
+          "sentry": true,
+          "canGuard": true,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Resident Evil - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-resident-evil",
+          "collaboration": "RE7",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/RE_chris7_01.png"
+        },
+        "png": "V4/creations/49700114/card.png",
+        "psd": "V4/creations/49700114/card.psd",
+        "pngUrl": "/media/created/49700114.png",
+        "psdUrl": "/media/created/49700114.psd",
+        "createdAt": "2026-09-30T23:31:55.828Z",
+        "publicationSource": "V4/expansions/2026-10-01-resident-evil"
+      }
+    },
+    {
+      "id": "49700115",
+      "key": "chris-re8",
+      "name": "CHRIS REDFIELD",
+      "faction": "RE8",
+      "role": 1,
+      "before": {
+        "atk": [
+          195,
+          160,
+          125,
+          90,
+          55,
+          "guard"
+        ],
+        "defense": [
+          285,
+          235,
+          185,
+          135,
+          85,
+          "retry"
+        ]
+      },
+      "after": {
+        "atk": [
+          201,
+          163,
+          122,
+          81,
+          43,
+          "guard"
+        ],
+        "defense": [
+          296,
+          241,
+          184,
+          129,
+          74,
+          "retry"
+        ]
+      },
+      "reason": "Commanding high-roll assault, exposed low-roll endurance.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-resident-evil/cards/chris8",
+      "catalogueEntry": {
+        "id": "49700115",
+        "kind": "created",
+        "creationJob": "a810b0a3-f4fd-45c4-8172-f16ca57f00b5",
+        "name": "CHRIS REDFIELD",
+        "title": "Dans la neige du village",
+        "element": "CRYO",
+        "profile": {
+          "name": "CHRIS REDFIELD",
+          "title": "Dans la neige du village",
+          "job": "CHEF D'UNITE",
+          "description": "Sous son manteau, Chris porte le poids de decisions qu'il ne peut pas encore expliquer. Dans la neige du village, il avance vers la source du desastre et garde ses hommes unis face a ce qu'ils vont decouvrir.",
+          "element": "CRYO",
+          "race": "HUMAIN",
+          "weapon": "Gun",
+          "faction": "RE8",
+          "positions": [
+            1
+          ],
+          "atk": [
+            195,
+            160,
+            125,
+            90,
+            55,
+            "guard"
+          ],
+          "defense": [
+            285,
+            235,
+            185,
+            135,
+            85,
+            "retry"
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49700115",
+          "characterId": "chris-redfield-re",
+          "slug": "V4_49700115",
+          "output": "KALISTAR_V4_49700115",
+          "text": "Sous son manteau, Chris porte le poids de decisions qu'il ne peut pas encore expliquer. Dans la neige du village, il avance vers la source du desastre et garde ses hommes unis face a ce qu'ils vont decouvrir.",
+          "color": "ACDFFD",
+          "hue": 201,
+          "weapon_index": 7,
+          "role": 1,
+          "sentry": true,
+          "canGuard": true,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Resident Evil - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-resident-evil",
+          "collaboration": "RE8",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/RE_chris8_01.png"
+        },
+        "png": "V4/creations/49700115/card.png",
+        "psd": "V4/creations/49700115/card.psd",
+        "pngUrl": "/media/created/49700115.png",
+        "psdUrl": "/media/created/49700115.psd",
+        "createdAt": "2026-09-30T23:31:55.860Z",
+        "publicationSource": "V4/expansions/2026-10-01-resident-evil"
+      }
+    },
+    {
+      "id": "49700116",
+      "key": "claire-re2",
+      "name": "CLAIRE REDFIELD",
+      "faction": "RE2",
+      "role": 2,
+      "before": {
+        "atk": [
+          285,
+          235,
+          185,
+          135,
+          85,
+          "retry"
+        ],
+        "defense": [
+          165,
+          135,
+          105,
+          "dodge",
+          45,
+          20
+        ]
+      },
+      "after": {
+        "atk": [
+          264,
+          216,
+          174,
+          138,
+          94,
+          "retry"
+        ],
+        "defense": [
+          176,
+          147,
+          117,
+          "dodge",
+          57,
+          28
+        ]
+      },
+      "reason": "Protective survivor: reduced attack ceiling for dependable defense.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-resident-evil/cards/claire2",
+      "catalogueEntry": {
+        "id": "49700116",
+        "kind": "created",
+        "creationJob": "3860ce9a-721c-4ed0-8d1d-257d6e0ebab6",
+        "name": "CLAIRE REDFIELD",
+        "title": "Une promesse a Sherry",
+        "element": "PYRO",
+        "profile": {
+          "name": "CLAIRE REDFIELD",
+          "title": "Une promesse a Sherry",
+          "job": "SURVIVANTE",
+          "description": "Claire etait venue a Raccoon City chercher son frere. Dans les ruines du commissariat, sa priorite change : proteger Sherry, lui ouvrir une issue et lui prouver qu'au milieu du cauchemar, quelqu'un restera pres d'elle.",
+          "element": "PYRO",
+          "race": "HUMAIN",
+          "weapon": "Gun",
+          "faction": "RE2",
+          "positions": [
+            2
+          ],
+          "atk": [
+            285,
+            235,
+            185,
+            135,
+            85,
+            "retry"
+          ],
+          "defense": [
+            165,
+            135,
+            105,
+            "dodge",
+            45,
+            20
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49700116",
+          "characterId": "claire-redfield-re",
+          "slug": "V4_49700116",
+          "output": "KALISTAR_V4_49700116",
+          "text": "Claire etait venue a Raccoon City chercher son frere. Dans les ruines du commissariat, sa priorite change : proteger Sherry, lui ouvrir une issue et lui prouver qu'au milieu du cauchemar, quelqu'un restera pres d'elle.",
+          "color": "FF704A",
+          "hue": 12,
+          "weapon_index": 7,
+          "role": 2,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Resident Evil - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-resident-evil",
+          "collaboration": "RE2",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/RE_claire2_01.png"
+        },
+        "png": "V4/creations/49700116/card.png",
+        "psd": "V4/creations/49700116/card.psd",
+        "pngUrl": "/media/created/49700116.png",
+        "psdUrl": "/media/created/49700116.psd",
+        "createdAt": "2026-09-30T23:31:55.885Z",
+        "publicationSource": "V4/expansions/2026-10-01-resident-evil"
+      }
+    },
+    {
+      "id": "49700117",
+      "key": "nemesis",
+      "name": "NEMESIS",
+      "faction": "RE3",
+      "role": 1,
+      "before": {
+        "atk": [
+          195,
+          160,
+          125,
+          90,
+          55,
+          "guard"
+        ],
+        "defense": [
+          285,
+          235,
+          185,
+          135,
+          85,
+          "retry"
+        ]
+      },
+      "after": {
+        "atk": [
+          210,
+          175,
+          139,
+          103,
+          68,
+          "guard"
+        ],
+        "defense": [
+          297,
+          242,
+          181,
+          112,
+          53,
+          "retry"
+        ]
+      },
+      "reason": "Terrifying attack and peak defense, costly low-roll openings.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-resident-evil/cards/nemesis3",
+      "catalogueEntry": {
+        "id": "49700117",
+        "kind": "created",
+        "creationJob": "8ed4c1ca-2fd9-47e4-8e42-f245287d4039",
+        "name": "NEMESIS",
+        "title": "La poursuite sans fin",
+        "element": "NECRO",
+        "profile": {
+          "name": "NEMESIS",
+          "title": "La poursuite sans fin",
+          "job": "ARME BIOLOGIQUE",
+          "description": "Les pas de Nemesis couvrent les sirenes de Raccoon City. Sa silhouette barre la rue comme un ordre d'Umbrella devenu chair ; aucun obstacle ne detourne longtemps cette arme de la survivante qu'elle doit eliminer.",
+          "element": "NECRO",
+          "race": "HUMAIN",
+          "weapon": "Poing",
+          "faction": "RE3",
+          "positions": [
+            1
+          ],
+          "atk": [
+            195,
+            160,
+            125,
+            90,
+            55,
+            "guard"
+          ],
+          "defense": [
+            285,
+            235,
+            185,
+            135,
+            85,
+            "retry"
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49700117",
+          "characterId": "nemesis-re",
+          "slug": "V4_49700117",
+          "output": "KALISTAR_V4_49700117",
+          "text": "Les pas de Nemesis couvrent les sirenes de Raccoon City. Sa silhouette barre la rue comme un ordre d'Umbrella devenu chair ; aucun obstacle ne detourne longtemps cette arme de la survivante qu'elle doit eliminer.",
+          "color": "A979F7",
+          "hue": 270,
+          "role": 1,
+          "sentry": true,
+          "canGuard": true,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Resident Evil - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-resident-evil",
+          "collaboration": "RE3",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/RE_nemesis3_01.png"
+        },
+        "png": "V4/creations/49700117/card.png",
+        "psd": "V4/creations/49700117/card.psd",
+        "pngUrl": "/media/created/49700117.png",
+        "psdUrl": "/media/created/49700117.psd",
+        "createdAt": "2026-09-30T23:31:55.911Z",
+        "publicationSource": "V4/expansions/2026-10-01-resident-evil"
+      }
+    },
+    {
+      "id": "49700118",
+      "key": "mr-x",
+      "name": "MR X",
+      "faction": "RE2",
+      "role": 1,
+      "before": {
+        "atk": [
+          195,
+          160,
+          125,
+          90,
+          55,
+          "guard"
+        ],
+        "defense": [
+          285,
+          235,
+          185,
+          135,
+          85,
+          "retry"
+        ]
+      },
+      "after": {
+        "atk": [
+          179,
+          143,
+          111,
+          79,
+          41,
+          "guard"
+        ],
+        "defense": [
+          284,
+          249,
+          199,
+          149,
+          99,
+          "retry"
+        ]
+      },
+      "reason": "Slow relentless wall: strongest sustained defense, restrained offense.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-resident-evil/cards/mrx2",
+      "catalogueEntry": {
+        "id": "49700118",
+        "kind": "created",
+        "creationJob": "bb8fdbc0-9634-4de3-9e2c-49e839ad73ba",
+        "name": "MR X",
+        "title": "Des pas dans le couloir",
+        "element": "MINERO",
+        "profile": {
+          "name": "MR X",
+          "title": "Des pas dans le couloir",
+          "job": "TYRANT T-103",
+          "description": "Ses pas reviennent derriere les portes du commissariat. Le Tyrant ne se presse pas : sous son manteau, sa force attend le prochain obstacle. Le silence ne protege plus les survivants.",
+          "element": "MINERO",
+          "race": "HUMAIN",
+          "weapon": "Poing",
+          "faction": "RE2",
+          "positions": [
+            1
+          ],
+          "atk": [
+            195,
+            160,
+            125,
+            90,
+            55,
+            "guard"
+          ],
+          "defense": [
+            285,
+            235,
+            185,
+            135,
+            85,
+            "retry"
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49700118",
+          "characterId": "tyrant-t103-re",
+          "slug": "V4_49700118",
+          "output": "KALISTAR_V4_49700118",
+          "text": "Ses pas reviennent derriere les portes du commissariat. Le Tyrant ne se presse pas : sous son manteau, sa force attend le prochain obstacle. Le silence ne protege plus les survivants.",
+          "color": "B3BFCA",
+          "hue": 210,
+          "role": 1,
+          "sentry": true,
+          "canGuard": true,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Resident Evil - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-resident-evil",
+          "collaboration": "RE2",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/RE_mrx2_01.png"
+        },
+        "png": "V4/creations/49700118/card.png",
+        "psd": "V4/creations/49700118/card.psd",
+        "pngUrl": "/media/created/49700118.png",
+        "psdUrl": "/media/created/49700118.psd",
+        "createdAt": "2026-09-30T23:31:55.940Z",
+        "publicationSource": "V4/expansions/2026-10-01-resident-evil"
+      }
+    },
+    {
+      "id": "49700119",
+      "key": "dimitrescu",
+      "name": "DIMITRESCU",
+      "faction": "RE8",
+      "role": 3,
+      "before": {
+        "atk": [
+          225,
+          185,
+          145,
+          105,
+          65,
+          "retry"
+        ],
+        "defense": [
+          225,
+          185,
+          145,
+          "dodge",
+          65,
+          30
+        ]
+      },
+      "after": {
+        "atk": [
+          239,
+          198,
+          157,
+          113,
+          73,
+          "retry"
+        ],
+        "defense": [
+          211,
+          171,
+          131,
+          "dodge",
+          52,
+          22
+        ]
+      },
+      "reason": "Predatory force and reach, vulnerable defensive middle rolls.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-resident-evil/cards/dimitrescu8",
+      "catalogueEntry": {
+        "id": "49700119",
+        "kind": "created",
+        "creationJob": "97d4d274-3869-4ce3-9bf8-29be3d84420a",
+        "name": "DIMITRESCU",
+        "title": "La maitresse du chateau",
+        "element": "HEMATO",
+        "profile": {
+          "name": "DIMITRESCU",
+          "title": "La maitresse du chateau",
+          "job": "DAME DU CHATEAU",
+          "description": "Dimitrescu accueille l'intrus avec une politesse devenue menace. Sous les lustres, elle devoile ses longues griffes, certaine que nul visiteur ne quittera son chateau sans son accord.",
+          "element": "HEMATO",
+          "race": "VAMP",
+          "weapon": "Dague",
+          "faction": "RE8",
+          "positions": [
+            3,
+            1
+          ],
+          "atk": [
+            225,
+            185,
+            145,
+            105,
+            65,
+            "retry"
+          ],
+          "defense": [
+            225,
+            185,
+            145,
+            "dodge",
+            65,
+            30
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49700119",
+          "characterId": "alcina-dimitrescu-re",
+          "slug": "V4_49700119",
+          "output": "KALISTAR_V4_49700119",
+          "text": "Dimitrescu accueille l'intrus avec une politesse devenue menace. Sous les lustres, elle devoile ses longues griffes, certaine que nul visiteur ne quittera son chateau sans son accord.",
+          "color": "E84976",
+          "hue": 343,
+          "weapon_index": 15,
+          "role": 3,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Resident Evil - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-resident-evil",
+          "collaboration": "RE8",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/RE_dimitrescu8_01.png"
+        },
+        "png": "V4/creations/49700119/card.png",
+        "psd": "V4/creations/49700119/card.psd",
+        "pngUrl": "/media/created/49700119.png",
+        "psdUrl": "/media/created/49700119.psd",
+        "createdAt": "2026-09-30T23:31:55.968Z",
+        "publicationSource": "V4/expansions/2026-10-01-resident-evil"
+      }
+    },
+    {
+      "id": "49700120",
+      "key": "heisenberg",
+      "name": "HEISENBERG",
+      "faction": "RE8",
+      "role": 2,
+      "before": {
+        "atk": [
+          285,
+          235,
+          185,
+          135,
+          85,
+          "retry"
+        ],
+        "defense": [
+          165,
+          135,
+          105,
+          "dodge",
+          45,
+          20
+        ]
+      },
+      "after": {
+        "atk": [
+          300,
+          248,
+          193,
+          113,
+          57,
+          "retry"
+        ],
+        "defense": [
+          166,
+          137,
+          109,
+          "dodge",
+          41,
+          16
+        ]
+      },
+      "reason": "Metal-fueled burst; very uneven lower attack rolls.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-resident-evil/cards/heisenberg8",
+      "catalogueEntry": {
+        "id": "49700120",
+        "kind": "created",
+        "creationJob": "2f616b48-f0a3-4904-892c-cae02dd51053",
+        "name": "HEISENBERG",
+        "title": "Le fer lui repond",
+        "element": "ELECTRO",
+        "profile": {
+          "name": "HEISENBERG",
+          "title": "Le fer lui repond",
+          "job": "INGENIEUR",
+          "description": "Dans sa fabrique, Heisenberg laisse le metal repondre a son humeur. Son marteau pese sur son epaule ; derriere son rictus, il cherche comment retourner la force de Miranda contre elle.",
+          "element": "ELECTRO",
+          "race": "HUMAIN",
+          "weapon": "Marteau",
+          "faction": "RE8",
+          "positions": [
+            2
+          ],
+          "atk": [
+            285,
+            235,
+            185,
+            135,
+            85,
+            "retry"
+          ],
+          "defense": [
+            165,
+            135,
+            105,
+            "dodge",
+            45,
+            20
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49700120",
+          "characterId": "karl-heisenberg-re",
+          "slug": "V4_49700120",
+          "output": "KALISTAR_V4_49700120",
+          "text": "Dans sa fabrique, Heisenberg laisse le metal repondre a son humeur. Son marteau pese sur son epaule ; derriere son rictus, il cherche comment retourner la force de Miranda contre elle.",
+          "color": "F5DC32",
+          "hue": 53,
+          "weapon_index": 1,
+          "role": 2,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Resident Evil - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-resident-evil",
+          "collaboration": "RE8",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/RE_heisenberg8_01.png"
+        },
+        "png": "V4/creations/49700120/card.png",
+        "psd": "V4/creations/49700120/card.psd",
+        "pngUrl": "/media/created/49700120.png",
+        "psdUrl": "/media/created/49700120.psd",
+        "createdAt": "2026-09-30T23:31:55.999Z",
+        "publicationSource": "V4/expansions/2026-10-01-resident-evil"
+      }
+    },
+    {
+      "id": "49700121",
+      "key": "beneviento",
+      "name": "BENEVIENTO",
+      "faction": "RE8",
+      "role": 3,
+      "before": {
+        "atk": [
+          225,
+          185,
+          145,
+          105,
+          65,
+          "retry"
+        ],
+        "defense": [
+          225,
+          185,
+          145,
+          "dodge",
+          65,
+          30
+        ]
+      },
+      "after": {
+        "atk": [
+          205,
+          167,
+          124,
+          84,
+          43,
+          "retry"
+        ],
+        "defense": [
+          237,
+          196,
+          156,
+          "dodge",
+          78,
+          39
+        ]
+      },
+      "reason": "Indirect manipulator: little direct damage, superior survivability.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-resident-evil/cards/beneviento8",
+      "catalogueEntry": {
+        "id": "49700121",
+        "kind": "created",
+        "creationJob": "619d9520-4f51-4e1e-9907-3bd8122f66c0",
+        "name": "BENEVIENTO",
+        "title": "Le silence et la poupee",
+        "element": "NECRO",
+        "profile": {
+          "name": "BENEVIENTO",
+          "title": "Le silence et la poupee",
+          "job": "MARIONNETTISTE",
+          "description": "Donna reste immobile sous son voile tandis qu'Angie guette le visiteur. Dans cette maison, une piece familiere devient un piege, et la peur donne une voix a ce qui devrait rester inerte.",
+          "element": "NECRO",
+          "race": "HUMAIN",
+          "weapon": "Orbe",
+          "faction": "RE8",
+          "positions": [
+            3
+          ],
+          "atk": [
+            225,
+            185,
+            145,
+            105,
+            65,
+            "retry"
+          ],
+          "defense": [
+            225,
+            185,
+            145,
+            "dodge",
+            65,
+            30
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49700121",
+          "characterId": "donna-beneviento-re",
+          "slug": "V4_49700121",
+          "output": "KALISTAR_V4_49700121",
+          "text": "Donna reste immobile sous son voile tandis qu'Angie guette le visiteur. Dans cette maison, une piece familiere devient un piege, et la peur donne une voix a ce qui devrait rester inerte.",
+          "color": "A979F7",
+          "hue": 270,
+          "weapon_index": 14,
+          "role": 3,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Resident Evil - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-resident-evil",
+          "collaboration": "RE8",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/RE_beneviento8_01.png"
+        },
+        "png": "V4/creations/49700121/card.png",
+        "psd": "V4/creations/49700121/card.psd",
+        "pngUrl": "/media/created/49700121.png",
+        "psdUrl": "/media/created/49700121.psd",
+        "createdAt": "2026-09-30T23:31:56.026Z",
+        "publicationSource": "V4/expansions/2026-10-01-resident-evil"
+      }
+    },
+    {
+      "id": "49700122",
+      "key": "moreau",
+      "name": "MOREAU",
+      "faction": "RE8",
+      "role": 4,
+      "before": {
+        "atk": [
+          285,
+          235,
+          185,
+          135,
+          85,
+          "retry"
+        ],
+        "defense": [
+          165,
+          135,
+          105,
+          "dodge",
+          45,
+          20
+        ]
+      },
+      "after": {
+        "atk": [
+          292,
+          219,
+          157,
+          104,
+          53,
+          "retry"
+        ],
+        "defense": [
+          177,
+          148,
+          116,
+          "dodge",
+          58,
+          27
+        ]
+      },
+      "reason": "One violent surge, low sustained attack but bulky defense.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-resident-evil/cards/moreau8",
+      "catalogueEntry": {
+        "id": "49700122",
+        "kind": "created",
+        "creationJob": "eb4acfba-a6b6-456b-93b9-de62965924db",
+        "name": "MOREAU",
+        "title": "Au bord du reservoir",
+        "element": "HYDRO",
+        "profile": {
+          "name": "MOREAU",
+          "title": "Au bord du reservoir",
+          "job": "SEIGNEUR DU LAC",
+          "description": "Moreau cache son corps sous des tissus detrempes et cherche encore l'accord de Miranda. Au bord du reservoir, sa solitude devient une menace : l'eau trouble dissimule sa violence.",
+          "element": "HYDRO",
+          "race": "HUMAIN",
+          "weapon": "Lance",
+          "faction": "RE8",
+          "positions": [
+            4
+          ],
+          "atk": [
+            285,
+            235,
+            185,
+            135,
+            85,
+            "retry"
+          ],
+          "defense": [
+            165,
+            135,
+            105,
+            "dodge",
+            45,
+            20
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49700122",
+          "characterId": "salvatore-moreau-re",
+          "slug": "V4_49700122",
+          "output": "KALISTAR_V4_49700122",
+          "text": "Moreau cache son corps sous des tissus detrempes et cherche encore l'accord de Miranda. Au bord du reservoir, sa solitude devient une menace : l'eau trouble dissimule sa violence.",
+          "color": "38CBED",
+          "hue": 192,
+          "role": 4,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Resident Evil - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-resident-evil",
+          "collaboration": "RE8",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/RE_moreau8_01.png"
+        },
+        "png": "V4/creations/49700122/card.png",
+        "psd": "V4/creations/49700122/card.psd",
+        "pngUrl": "/media/created/49700122.png",
+        "psdUrl": "/media/created/49700122.psd",
+        "createdAt": "2026-09-30T23:31:56.057Z",
+        "publicationSource": "V4/expansions/2026-10-01-resident-evil"
+      }
+    },
+    {
+      "id": "49700123",
+      "key": "salazar",
+      "name": "RAMON SALAZAR",
+      "faction": "RE4",
+      "role": 5,
+      "before": {
+        "atk": [
+          160,
+          130,
+          100,
+          "mana",
+          "buff_atk",
+          15
+        ],
+        "defense": [
+          190,
+          155,
+          120,
+          85,
+          45,
+          "retry"
+        ]
+      },
+      "after": {
+        "atk": [
+          177,
+          146,
+          112,
+          "mana",
+          "buff_atk",
+          7
+        ],
+        "defense": [
+          179,
+          143,
+          108,
+          78,
+          41,
+          "retry"
+        ]
+      },
+      "reason": "Arrogant high support-offense peak, fragile body and poor floor.",
+      "numericChanges": 9,
+      "nativeSource": "V4/expansions/2026-10-01-resident-evil/cards/salazar4",
+      "catalogueEntry": {
+        "id": "49700123",
+        "kind": "created",
+        "creationJob": "14205518-b28e-4c99-89e5-7c373dcda4a6",
+        "name": "RAMON SALAZAR",
+        "title": "L'orgueil du dernier heritier",
+        "element": "NECRO",
+        "profile": {
+          "name": "RAMON SALAZAR",
+          "title": "L'orgueil du dernier heritier",
+          "job": "CHATELAIN",
+          "description": "Ramon Salazar voit son domaine comme un theatre dont il possede chaque issue. Son orgueil ne connait pas de mesure : il offre ses salles au culte, certain que Leon finira par s'y briser.",
+          "element": "NECRO",
+          "race": "HUMAIN",
+          "weapon": "Orbe",
+          "faction": "RE4",
+          "positions": [
+            5,
+            4
+          ],
+          "atk": [
+            160,
+            130,
+            100,
+            "mana",
+            "buff_atk",
+            15
+          ],
+          "defense": [
+            190,
+            155,
+            120,
+            85,
+            45,
+            "retry"
+          ],
+          "magic": [
+            6,
+            5
+          ],
+          "barriers": [
+            6,
+            4
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49700123",
+          "characterId": "ramon-salazar-re",
+          "slug": "V4_49700123",
+          "output": "KALISTAR_V4_49700123",
+          "text": "Ramon Salazar voit son domaine comme un theatre dont il possede chaque issue. Son orgueil ne connait pas de mesure : il offre ses salles au culte, certain que Leon finira par s'y briser.",
+          "color": "A979F7",
+          "hue": 270,
+          "weapon_index": 14,
+          "role": 5,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Resident Evil - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-resident-evil",
+          "collaboration": "RE4",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/RE_salazar4_01.png"
+        },
+        "png": "V4/creations/49700123/card.png",
+        "psd": "V4/creations/49700123/card.psd",
+        "pngUrl": "/media/created/49700123.png",
+        "psdUrl": "/media/created/49700123.psd",
+        "createdAt": "2026-09-30T23:31:56.085Z",
+        "publicationSource": "V4/expansions/2026-10-01-resident-evil"
+      }
+    },
+    {
+      "id": "49700124",
+      "key": "eveline",
+      "name": "EVELINE",
+      "faction": "RE7",
+      "role": 5,
+      "before": {
+        "atk": [
+          165,
+          135,
+          105,
+          75,
+          45,
+          "mana"
+        ],
+        "defense": [
+          195,
+          160,
+          125,
+          "dodge",
+          55,
+          25
+        ]
+      },
+      "after": {
+        "atk": [
+          151,
+          123,
+          101,
+          86,
+          57,
+          "mana"
+        ],
+        "defense": [
+          207,
+          171,
+          136,
+          "dodge",
+          66,
+          32
+        ]
+      },
+      "reason": "Persistent influence and defense, not overwhelming direct attack.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-resident-evil/cards/eveline7",
+      "catalogueEntry": {
+        "id": "49700124",
+        "kind": "created",
+        "creationJob": "95f15e57-93da-4c94-a06b-9096a8b7cd61",
+        "name": "EVELINE",
+        "title": "La famille imposee",
+        "element": "NECRO",
+        "profile": {
+          "name": "EVELINE",
+          "title": "La famille imposee",
+          "job": "ARME BIOLOGIQUE",
+          "description": "Eveline attend chez les Baker avec une idee terrible de la famille. Sa voix est fragile, mais son desir de garder chacun pres d'elle transforme la maison en une prison de moisissure.",
+          "element": "NECRO",
+          "race": "HUMAIN",
+          "weapon": "Orbe",
+          "faction": "RE7",
+          "positions": [
+            5,
+            3
+          ],
+          "atk": [
+            165,
+            135,
+            105,
+            75,
+            45,
+            "mana"
+          ],
+          "defense": [
+            195,
+            160,
+            125,
+            "dodge",
+            55,
+            25
+          ],
+          "magic": [
+            5
+          ],
+          "barriers": [
+            6,
+            4
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49700124",
+          "characterId": "eveline-re",
+          "slug": "V4_49700124",
+          "output": "KALISTAR_V4_49700124",
+          "text": "Eveline attend chez les Baker avec une idee terrible de la famille. Sa voix est fragile, mais son desir de garder chacun pres d'elle transforme la maison en une prison de moisissure.",
+          "color": "A979F7",
+          "hue": 270,
+          "weapon_index": 14,
+          "role": 5,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Resident Evil - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-resident-evil",
+          "collaboration": "RE7",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/RE_eveline7_01.png"
+        },
+        "png": "V4/creations/49700124/card.png",
+        "psd": "V4/creations/49700124/card.psd",
+        "pngUrl": "/media/created/49700124.png",
+        "psdUrl": "/media/created/49700124.psd",
+        "createdAt": "2026-09-30T23:31:56.116Z",
+        "publicationSource": "V4/expansions/2026-10-01-resident-evil"
+      }
+    },
+    {
+      "id": "49700125",
+      "key": "saddler",
+      "name": "OSMUND SADDLER",
+      "faction": "RE4",
+      "role": 4,
+      "before": {
+        "atk": [
+          285,
+          235,
+          185,
+          135,
+          85,
+          "retry"
+        ],
+        "defense": [
+          165,
+          135,
+          105,
+          "dodge",
+          45,
+          20
+        ]
+      },
+      "after": {
+        "atk": [
+          269,
+          234,
+          197,
+          147,
+          98,
+          "retry"
+        ],
+        "defense": [
+          151,
+          122,
+          92,
+          "dodge",
+          36,
+          11
+        ]
+      },
+      "reason": "Sustained control through middle and low attacks, frail defense.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-10-01-resident-evil/cards/saddler4",
+      "catalogueEntry": {
+        "id": "49700125",
+        "kind": "created",
+        "creationJob": "518ba103-9dbe-4e3c-830b-e44097d1d8f6",
+        "name": "OSMUND SADDLER",
+        "title": "La voix du culte",
+        "element": "NECRO",
+        "profile": {
+          "name": "OSMUND SADDLER",
+          "title": "La voix du culte",
+          "job": "CHEF DES ILLUMINADOS",
+          "description": "Saddler leve sa canne au sanctuaire comme si le monde lui appartenait deja. Ses fideles l'ecoutent ; derriere le rite, Las Plagas prepare une soumission qui ne demande aucun accord.",
+          "element": "NECRO",
+          "race": "HUMAIN",
+          "weapon": "Bâton",
+          "faction": "RE4",
+          "positions": [
+            4
+          ],
+          "atk": [
+            285,
+            235,
+            185,
+            135,
+            85,
+            "retry"
+          ],
+          "defense": [
+            165,
+            135,
+            105,
+            "dodge",
+            45,
+            20
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49700125",
+          "characterId": "osmund-saddler-re",
+          "slug": "V4_49700125",
+          "output": "KALISTAR_V4_49700125",
+          "text": "Saddler leve sa canne au sanctuaire comme si le monde lui appartenait deja. Ses fideles l'ecoutent ; derriere le rite, Las Plagas prepare une soumission qui ne demande aucun accord.",
+          "color": "A979F7",
+          "hue": 270,
+          "weapon_index": 10,
+          "role": 4,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Resident Evil - fan crossover non officiel",
+          "visual_revision": "V4-2026-10-01-resident-evil",
+          "collaboration": "RE4",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/RE_saddler4_01.png"
+        },
+        "png": "V4/creations/49700125/card.png",
+        "psd": "V4/creations/49700125/card.psd",
+        "pngUrl": "/media/created/49700125.png",
+        "psdUrl": "/media/created/49700125.psd",
+        "createdAt": "2026-09-30T23:31:56.142Z",
+        "publicationSource": "V4/expansions/2026-10-01-resident-evil"
+      }
+    },
+    {
+      "id": "49600101",
+      "key": "meryl4",
+      "name": "MERYL",
+      "faction": "MGS4",
+      "role": 2,
+      "before": {
+        "atk": [
+          280,
+          230,
+          180,
+          130,
+          80,
+          "retry"
+        ],
+        "defense": [
+          165,
+          135,
+          100,
+          65,
+          "dodge",
+          15
+        ]
+      },
+      "after": {
+        "atk": [
+          267,
+          226,
+          188,
+          143,
+          93,
+          "retry"
+        ],
+        "defense": [
+          174,
+          145,
+          114,
+          77,
+          "dodge",
+          24
+        ]
+      },
+      "reason": "Squad-trained regularity and defense at the expense of raw peak.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-09-30-metal-gear-saga/cards/meryl4",
+      "catalogueEntry": {
+        "id": "49600101",
+        "kind": "created",
+        "creationJob": "2c3d9747-0f49-48e8-8828-11bf372d2c05",
+        "name": "MERYL",
+        "title": "Rat Patrol au front",
+        "element": "AERO",
+        "profile": {
+          "name": "MERYL",
+          "title": "Rat Patrol au front",
+          "job": "CHEFFE D'ESCOUADE",
+          "description": "Dans les rues ravagées, Meryl ouvre la voie à Rat Patrol avec une assurance durement gagnée. La recrue de Shadow Moses est devenue une meneuse : sous les tirs, elle refuse de laisser les siens derrière elle.",
+          "element": "AERO",
+          "race": "HUMAIN",
+          "weapon": "Gun",
+          "faction": "MGS4",
+          "positions": [
+            2,
+            3
+          ],
+          "atk": [
+            280,
+            230,
+            180,
+            130,
+            80,
+            "retry"
+          ],
+          "defense": [
+            165,
+            135,
+            100,
+            65,
+            "dodge",
+            15
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49600101",
+          "characterId": "meryl-mgs",
+          "slug": "V4_49600101",
+          "output": "KALISTAR_V4_49600101",
+          "text": "Dans les rues ravagées, Meryl ouvre la voie à Rat Patrol avec une assurance durement gagnée. La recrue de Shadow Moses est devenue une meneuse : sous les tirs, elle refuse de laisser les siens derrière elle.",
+          "color": "89EDC2",
+          "hue": 155,
+          "weapon_index": 7,
+          "role": 2,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Metal Gear - fan crossover non officiel",
+          "visual_revision": "V4-2026-09-30-metal-gear-saga",
+          "collaboration": "MGS4",
+          "officialCollaboration": false,
+          "previous_model": "45960834",
+          "artworkSource": "V4/Illustrations/Meryl_MGS4_Rat_Patrol.png"
+        },
+        "png": "V4/creations/49600101/card.png",
+        "psd": "V4/creations/49600101/card.psd",
+        "pngUrl": "/media/created/49600101.png",
+        "psdUrl": "/media/created/49600101.psd",
+        "createdAt": "2026-09-30T14:07:03.156Z",
+        "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga"
+      }
+    },
+    {
+      "id": "49600102",
+      "key": "raiden4",
+      "name": "RAIDEN",
+      "faction": "MGS4",
+      "role": 2,
+      "before": {
+        "atk": [
+          285,
+          240,
+          195,
+          145,
+          95,
+          "retry"
+        ],
+        "defense": [
+          160,
+          130,
+          100,
+          "dodge",
+          45,
+          15
+        ]
+      },
+      "after": {
+        "atk": [
+          298,
+          248,
+          198,
+          122,
+          67,
+          "retry"
+        ],
+        "defense": [
+          171,
+          144,
+          111,
+          "dodge",
+          34,
+          8
+        ]
+      },
+      "reason": "Cyborg burst and high defense, sharp lower-roll exhaustion.",
+      "numericChanges": 10,
+      "nativeSource": "V4/revisions/2026-10-01-metal-gear-fidelity/work/raiden4",
+      "catalogueEntry": {
+        "id": "49600102",
+        "kind": "created",
+        "creationJob": "905ae8ce-6006-4412-9f33-4f54abb8b374",
+        "name": "RAIDEN",
+        "title": "Le corps fait rempart",
+        "element": "ELECTRO",
+        "profile": {
+          "name": "RAIDEN",
+          "title": "Le corps fait rempart",
+          "job": "CYBORG NINJA",
+          "description": "Son corps n'a plus rien d'humain, mais sa volonté lui appartient encore. Dans la poussière d'une rue, Raiden se dresse entre Snake et la menace, prêt à payer de sa propre chair d'acier pour lui ouvrir un passage.",
+          "element": "ELECTRO",
+          "race": "CYBORG",
+          "weapon": "Katana",
+          "faction": "MGS4",
+          "positions": [
+            2
+          ],
+          "atk": [
+            285,
+            240,
+            195,
+            145,
+            95,
+            "retry"
+          ],
+          "defense": [
+            160,
+            130,
+            100,
+            "dodge",
+            45,
+            15
+          ],
+          "magic": [
+            5
+          ],
+          "barriers": [
+            4
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49600102",
+          "characterId": "raiden-mgs",
+          "slug": "V4_49600102",
+          "output": "KALISTAR_V4_49600102",
+          "text": "Son corps n'a plus rien d'humain, mais sa volonté lui appartient encore. Dans la poussière d'une rue, Raiden se dresse entre Snake et la menace, prêt à payer de sa propre chair d'acier pour lui ouvrir un passage.",
+          "color": "F5DC32",
+          "hue": 53,
+          "weapon_index": 18,
+          "role": 2,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Metal Gear - fan crossover non officiel",
+          "visual_revision": "V4-2026-09-30-metal-gear-saga",
+          "collaboration": "MGS4",
+          "officialCollaboration": false,
+          "previous_model": "49382016",
+          "artworkSource": "V4/Illustrations/Raiden_MGS4_Protecteur.png"
+        },
+        "png": "V4/creations/49600102/card.png",
+        "psd": "V4/creations/49600102/card.psd",
+        "pngUrl": "/media/created/49600102.png",
+        "psdUrl": "/media/created/49600102.psd",
+        "createdAt": "2026-09-30T14:07:03.252Z",
+        "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga",
+        "nativeRevision": {
+          "id": "2026-10-01-metal-gear-fidelity",
+          "key": "raiden4",
+          "proof": "V4/revisions/2026-10-01-metal-gear-fidelity/work/raiden4/verification.json",
+          "artworkSource": "V4/Illustrations/MGS_raiden4_Fidelity_20261001.png"
+        }
+      }
+    },
+    {
+      "id": "49600103",
+      "key": "otacon4",
+      "name": "OTACON",
+      "faction": "MGS4",
+      "role": 5,
+      "before": {
+        "atk": [
+          160,
+          130,
+          100,
+          "guard",
+          "buff_atk",
+          15
+        ],
+        "defense": [
+          190,
+          155,
+          120,
+          85,
+          45,
+          "retry"
+        ]
+      },
+      "after": {
+        "atk": [
+          153,
+          121,
+          93,
+          "guard",
+          "buff_atk",
+          9
+        ],
+        "defense": [
+          181,
+          166,
+          132,
+          99,
+          63,
+          "retry"
+        ]
+      },
+      "reason": "Technical support: weak offense, dependable defensive middle rolls.",
+      "numericChanges": 9,
+      "nativeSource": "V4/revisions/2026-10-01-metal-gear-fidelity/work/otacon4",
+      "catalogueEntry": {
+        "id": "49600103",
+        "kind": "created",
+        "creationJob": "1a63ede5-7df6-45ff-942d-ad69229df13f",
+        "name": "OTACON",
+        "title": "La voix qui reste",
+        "element": "GEO",
+        "profile": {
+          "name": "OTACON",
+          "title": "La voix qui reste",
+          "job": "INGÉNIEUR",
+          "description": "À bord du Nomad, Otacon répare le petit robot qui veille sur Snake. Sous sa blouse froissée, l'ingénieur cache mal son inquiétude : même loin du combat, il reste la voix fidèle qui refuse d'abandonner son ami.",
+          "element": "GEO",
+          "race": "HUMAIN",
+          "weapon": "Tome",
+          "faction": "MGS4",
+          "positions": [
+            5
+          ],
+          "atk": [
+            160,
+            130,
+            100,
+            "guard",
+            "buff_atk",
+            15
+          ],
+          "defense": [
+            190,
+            155,
+            120,
+            85,
+            45,
+            "retry"
+          ],
+          "magic": [],
+          "barriers": [
+            6,
+            4
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49600103",
+          "characterId": "otacon-mgs",
+          "slug": "V4_49600103",
+          "output": "KALISTAR_V4_49600103",
+          "text": "À bord du Nomad, Otacon répare le petit robot qui veille sur Snake. Sous sa blouse froissée, l'ingénieur cache mal son inquiétude : même loin du combat, il reste la voix fidèle qui refuse d'abandonner son ami.",
+          "color": "C7AB6D",
+          "hue": 41,
+          "weapon_index": 13,
+          "role": 5,
+          "sentry": true,
+          "canGuard": true,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Metal Gear - fan crossover non officiel",
+          "visual_revision": "V4-2026-09-30-metal-gear-saga",
+          "collaboration": "MGS4",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/Otacon_MGS4_Nomad.png"
+        },
+        "png": "V4/creations/49600103/card.png",
+        "psd": "V4/creations/49600103/card.psd",
+        "pngUrl": "/media/created/49600103.png",
+        "psdUrl": "/media/created/49600103.psd",
+        "createdAt": "2026-09-30T14:07:03.333Z",
+        "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga",
+        "nativeRevision": {
+          "id": "2026-10-01-metal-gear-fidelity",
+          "key": "otacon4",
+          "proof": "V4/revisions/2026-10-01-metal-gear-fidelity/work/otacon4/verification.json",
+          "artworkSource": "V4/Illustrations/MGS_otacon4_Fidelity_20261001.png"
+        }
+      }
+    },
+    {
+      "id": "49600104",
+      "key": "liquid-ocelot",
+      "name": "LIQUID OCELOT",
+      "faction": "MGS4",
+      "role": 2,
+      "before": {
+        "atk": [
+          280,
+          235,
+          185,
+          135,
+          85,
+          "retry"
+        ],
+        "defense": [
+          170,
+          140,
+          110,
+          80,
+          50,
+          20
+        ]
+      },
+      "after": {
+        "atk": [
+          295,
+          244,
+          193,
+          126,
+          69,
+          "retry"
+        ],
+        "defense": [
+          156,
+          123,
+          92,
+          63,
+          37,
+          9
+        ]
+      },
+      "reason": "Aggressive duelist, high offensive burst bought with defensive fragility.",
+      "numericChanges": 11,
+      "nativeSource": "V4/expansions/2026-09-30-metal-gear-saga/cards/liquid-ocelot",
+      "catalogueEntry": {
+        "id": "49600104",
+        "kind": "created",
+        "creationJob": "18ad860f-8cde-4505-886d-e16c4d074a09",
+        "name": "LIQUID OCELOT",
+        "title": "Le dernier duel",
+        "element": "PYRO",
+        "profile": {
+          "name": "LIQUID OCELOT",
+          "title": "Le dernier duel",
+          "job": "MAÎTRE DU CQC",
+          "description": "Sur le pont d'Outer Haven, les armes se taisent et les poings parlent. Derrière le regard de Liquid Ocelot, des décennies de mensonges s'entrechoquent : il ne reste que deux soldats et le poids de leur histoire.",
+          "element": "PYRO",
+          "race": "CYBORG",
+          "weapon": "Poing",
+          "faction": "MGS4",
+          "positions": [
+            2,
+            1
+          ],
+          "atk": [
+            280,
+            235,
+            185,
+            135,
+            85,
+            "retry"
+          ],
+          "defense": [
+            170,
+            140,
+            110,
+            80,
+            50,
+            20
+          ],
+          "magic": [
+            3
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49600104",
+          "characterId": "revolver-ocelot-mgs",
+          "slug": "V4_49600104",
+          "output": "KALISTAR_V4_49600104",
+          "text": "Sur le pont d'Outer Haven, les armes se taisent et les poings parlent. Derrière le regard de Liquid Ocelot, des décennies de mensonges s'entrechoquent : il ne reste que deux soldats et le poids de leur histoire.",
+          "color": "FF704A",
+          "hue": 12,
+          "role": 2,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Metal Gear - fan crossover non officiel",
+          "visual_revision": "V4-2026-09-30-metal-gear-saga",
+          "collaboration": "MGS4",
+          "officialCollaboration": false,
+          "previous_model": "48312725",
+          "artworkSource": "V4/Illustrations/Liquid_Ocelot_MGS4_Dernier_Duel.png"
+        },
+        "png": "V4/creations/49600104/card.png",
+        "psd": "V4/creations/49600104/card.psd",
+        "pngUrl": "/media/created/49600104.png",
+        "psdUrl": "/media/created/49600104.psd",
+        "createdAt": "2026-09-30T14:07:03.428Z",
+        "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga"
+      }
+    },
+    {
+      "id": "49600106",
+      "key": "naked-snake",
+      "name": "NAKED SNAKE",
+      "faction": "MGS3",
+      "role": 2,
+      "before": {
+        "atk": [
+          275,
+          230,
+          185,
+          140,
+          90,
+          "retry"
+        ],
+        "defense": [
+          160,
+          135,
+          105,
+          75,
+          45,
+          20
+        ]
+      },
+      "after": {
+        "atk": [
+          263,
+          219,
+          181,
+          146,
+          97,
+          "retry"
+        ],
+        "defense": [
+          179,
+          149,
+          119,
+          87,
+          58,
+          28
+        ]
+      },
+      "reason": "Survival-trained consistency and defense, not the biggest attack peak.",
+      "numericChanges": 11,
+      "nativeSource": "V4/expansions/2026-09-30-metal-gear-saga/cards/naked-snake",
+      "catalogueEntry": {
+        "id": "49600106",
+        "kind": "created",
+        "creationJob": "e7f65fe4-f34c-4fc4-b949-4c3b61ed6ecc",
+        "name": "NAKED SNAKE",
+        "title": "Avant la légende",
+        "element": "HERBO",
+        "profile": {
+          "name": "NAKED SNAKE",
+          "title": "Avant la légende",
+          "job": "AGENT FOX",
+          "description": "Sous la peinture de camouflage, Jack retient son souffle et écoute la jungle. Avant le nom de Big Boss, il n'est qu'un soldat envoyé sauver un homme, puis affronter la seule personne qui lui a appris à survivre.",
+          "element": "HERBO",
+          "race": "HUMAIN",
+          "weapon": "Gun",
+          "faction": "MGS3",
+          "positions": [
+            2,
+            3
+          ],
+          "atk": [
+            275,
+            230,
+            185,
+            140,
+            90,
+            "retry"
+          ],
+          "defense": [
+            160,
+            135,
+            105,
+            75,
+            45,
+            20
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49600106",
+          "characterId": "naked-snake-mgs",
+          "slug": "V4_49600106",
+          "output": "KALISTAR_V4_49600106",
+          "text": "Sous la peinture de camouflage, Jack retient son souffle et écoute la jungle. Avant le nom de Big Boss, il n'est qu'un soldat envoyé sauver un homme, puis affronter la seule personne qui lui a appris à survivre.",
+          "color": "89D355",
+          "hue": 100,
+          "weapon_index": 7,
+          "role": 2,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Metal Gear - fan crossover non officiel",
+          "visual_revision": "V4-2026-09-30-metal-gear-saga",
+          "collaboration": "MGS3",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/Naked_Snake_MGS3_Infiltration.png"
+        },
+        "png": "V4/creations/49600106/card.png",
+        "psd": "V4/creations/49600106/card.psd",
+        "pngUrl": "/media/created/49600106.png",
+        "psdUrl": "/media/created/49600106.psd",
+        "createdAt": "2026-09-30T14:07:03.628Z",
+        "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga"
+      }
+    },
+    {
+      "id": "49600108",
+      "key": "the-pain",
+      "name": "THE PAIN",
+      "faction": "MGS3",
+      "role": 4,
+      "before": {
+        "atk": [
+          270,
+          225,
+          180,
+          135,
+          85,
+          "retry"
+        ],
+        "defense": [
+          155,
+          130,
+          100,
+          70,
+          40,
+          "dodge"
+        ]
+      },
+      "after": {
+        "atk": [
+          282,
+          242,
+          193,
+          118,
+          63,
+          "retry"
+        ],
+        "defense": [
+          168,
+          142,
+          113,
+          77,
+          48,
+          "dodge"
+        ]
+      },
+      "reason": "Concentrated swarm attack and protective middle defense, fading offense.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-09-30-metal-gear-saga/cards/the-pain",
+      "catalogueEntry": {
+        "id": "49600108",
+        "kind": "created",
+        "creationJob": "f5142a07-0446-4792-a161-d6bd8b63c82c",
+        "name": "THE PAIN",
+        "title": "Le chant de l'essaim",
+        "element": "AERO",
+        "profile": {
+          "name": "THE PAIN",
+          "title": "Le chant de l'essaim",
+          "job": "MAÎTRE DES NUÉES",
+          "description": "Au-dessus de l'eau froide de la grotte, The Pain lève une main et l'essaim lui répond. Chaque bourdonnement devient une menace précise : derrière son masque, le Cobra impose sa volonté à cette armée minuscule.",
+          "element": "AERO",
+          "race": "BUZZY",
+          "weapon": "Projectile",
+          "faction": "MGS3",
+          "positions": [
+            4
+          ],
+          "atk": [
+            270,
+            225,
+            180,
+            135,
+            85,
+            "retry"
+          ],
+          "defense": [
+            155,
+            130,
+            100,
+            70,
+            40,
+            "dodge"
+          ],
+          "magic": [
+            6,
+            5,
+            4,
+            3
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49600108",
+          "characterId": "the-pain-mgs",
+          "slug": "V4_49600108",
+          "output": "KALISTAR_V4_49600108",
+          "text": "Au-dessus de l'eau froide de la grotte, The Pain lève une main et l'essaim lui répond. Chaque bourdonnement devient une menace précise : derrière son masque, le Cobra impose sa volonté à cette armée minuscule.",
+          "color": "89EDC2",
+          "hue": 155,
+          "weapon_index": 9,
+          "role": 4,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Metal Gear - fan crossover non officiel",
+          "visual_revision": "V4-2026-09-30-metal-gear-saga",
+          "collaboration": "MGS3",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/The_Pain_MGS3_Essaim.png"
+        },
+        "png": "V4/creations/49600108/card.png",
+        "psd": "V4/creations/49600108/card.psd",
+        "pngUrl": "/media/created/49600108.png",
+        "psdUrl": "/media/created/49600108.psd",
+        "createdAt": "2026-09-30T14:07:03.803Z",
+        "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga"
+      }
+    },
+    {
+      "id": "49600110",
+      "key": "the-end",
+      "name": "THE END",
+      "faction": "MGS3",
+      "role": 4,
+      "before": {
+        "atk": [
+          275,
+          230,
+          185,
+          140,
+          90,
+          "retry"
+        ],
+        "defense": [
+          165,
+          135,
+          105,
+          70,
+          45,
+          "dodge"
+        ]
+      },
+      "after": {
+        "atk": [
+          300,
+          216,
+          162,
+          106,
+          54,
+          "retry"
+        ],
+        "defense": [
+          174,
+          146,
+          112,
+          63,
+          34,
+          "dodge"
+        ]
+      },
+      "reason": "A perfect sniper shot with a severe sustained-fire tradeoff.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-09-30-metal-gear-saga/cards/the-end",
+      "catalogueEntry": {
+        "id": "49600110",
+        "kind": "created",
+        "creationJob": "c703ed2d-c537-4a61-be6c-cbb2b9abb123",
+        "name": "THE END",
+        "title": "Le temps pour allié",
+        "element": "MINERO",
+        "profile": {
+          "name": "THE END",
+          "title": "Le temps pour allié",
+          "job": "TIREUR CENTENAIRE",
+          "description": "À Sokrovenno, le vieux tireur écoute son perroquet et laisse la forêt respirer. The End n'a jamais eu besoin de se presser : une ombre qui bouge, un souffle de trop, et sa longue patience trouve enfin sa cible.",
+          "element": "MINERO",
+          "race": "HUMAIN",
+          "weapon": "Gun",
+          "faction": "MGS3",
+          "positions": [
+            4,
+            5
+          ],
+          "atk": [
+            275,
+            230,
+            185,
+            140,
+            90,
+            "retry"
+          ],
+          "defense": [
+            165,
+            135,
+            105,
+            70,
+            45,
+            "dodge"
+          ],
+          "magic": [
+            6,
+            4,
+            3
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49600110",
+          "characterId": "the-end-mgs",
+          "slug": "V4_49600110",
+          "output": "KALISTAR_V4_49600110",
+          "text": "À Sokrovenno, le vieux tireur écoute son perroquet et laisse la forêt respirer. The End n'a jamais eu besoin de se presser : une ombre qui bouge, un souffle de trop, et sa longue patience trouve enfin sa cible.",
+          "color": "B3BFCA",
+          "hue": 210,
+          "weapon_index": 7,
+          "role": 4,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Metal Gear - fan crossover non officiel",
+          "visual_revision": "V4-2026-09-30-metal-gear-saga",
+          "collaboration": "MGS3",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/The_End_MGS3_Patience.png"
+        },
+        "png": "V4/creations/49600110/card.png",
+        "psd": "V4/creations/49600110/card.psd",
+        "pngUrl": "/media/created/49600110.png",
+        "psdUrl": "/media/created/49600110.psd",
+        "createdAt": "2026-09-30T14:07:04.031Z",
+        "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga"
+      }
+    },
+    {
+      "id": "49600111",
+      "key": "the-fury",
+      "name": "THE FURY",
+      "faction": "MGS3",
+      "role": 4,
+      "before": {
+        "atk": [
+          285,
+          240,
+          195,
+          145,
+          95,
+          "retry"
+        ],
+        "defense": [
+          155,
+          125,
+          95,
+          65,
+          35,
+          15
+        ]
+      },
+      "after": {
+        "atk": [
+          273,
+          229,
+          199,
+          149,
+          99,
+          "retry"
+        ],
+        "defense": [
+          151,
+          123,
+          92,
+          64,
+          33,
+          9
+        ]
+      },
+      "reason": "Persistent burning pressure, frail defensive suit.",
+      "numericChanges": 11,
+      "nativeSource": "V4/expansions/2026-09-30-metal-gear-saga/cards/the-fury",
+      "catalogueEntry": {
+        "id": "49600111",
+        "kind": "created",
+        "creationJob": "479a31fc-6c81-47ef-8924-a01fef29394e",
+        "name": "THE FURY",
+        "title": "Le ciel en cendres",
+        "element": "PYRO",
+        "profile": {
+          "name": "THE FURY",
+          "title": "Le ciel en cendres",
+          "job": "COSMONAUTE COBRA",
+          "description": "Sous la voûte du tunnel, The Fury avance dans le reflet de ses flammes. De son voyage parmi les étoiles, il a ramené une colère sans repos : le monde lui paraît trop froid pour échapper encore à son brasier.",
+          "element": "PYRO",
+          "race": "HUMAIN",
+          "weapon": "Projectile",
+          "faction": "MGS3",
+          "positions": [
+            4,
+            3,
+            2
+          ],
+          "atk": [
+            285,
+            240,
+            195,
+            145,
+            95,
+            "retry"
+          ],
+          "defense": [
+            155,
+            125,
+            95,
+            65,
+            35,
+            15
+          ],
+          "magic": [
+            6,
+            5,
+            4,
+            3,
+            2
+          ],
+          "barriers": [
+            6
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49600111",
+          "characterId": "the-fury-mgs",
+          "slug": "V4_49600111",
+          "output": "KALISTAR_V4_49600111",
+          "text": "Sous la voûte du tunnel, The Fury avance dans le reflet de ses flammes. De son voyage parmi les étoiles, il a ramené une colère sans repos : le monde lui paraît trop froid pour échapper encore à son brasier.",
+          "color": "FF704A",
+          "hue": 12,
+          "weapon_index": 9,
+          "role": 4,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Metal Gear - fan crossover non officiel",
+          "visual_revision": "V4-2026-09-30-metal-gear-saga",
+          "collaboration": "MGS3",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/The_Fury_MGS3_Brasier.png"
+        },
+        "png": "V4/creations/49600111/card.png",
+        "psd": "V4/creations/49600111/card.psd",
+        "pngUrl": "/media/created/49600111.png",
+        "psdUrl": "/media/created/49600111.psd",
+        "createdAt": "2026-09-30T14:07:04.127Z",
+        "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga"
+      }
+    },
+    {
+      "id": "49600114",
+      "key": "major-ocelot",
+      "name": "MAJOR OCELOT",
+      "faction": "MGS3",
+      "role": 2,
+      "before": {
+        "atk": [
+          275,
+          230,
+          185,
+          135,
+          85,
+          "retry"
+        ],
+        "defense": [
+          160,
+          130,
+          100,
+          70,
+          40,
+          15
+        ]
+      },
+      "after": {
+        "atk": [
+          296,
+          221,
+          163,
+          106,
+          53,
+          "retry"
+        ],
+        "defense": [
+          159,
+          126,
+          94,
+          63,
+          33,
+          8
+        ]
+      },
+      "reason": "Brilliant youthful shot, inconsistent technique and defense.",
+      "numericChanges": 11,
+      "nativeSource": "V4/revisions/2026-10-01-metal-gear-fidelity/work/major-ocelot",
+      "catalogueEntry": {
+        "id": "49600114",
+        "kind": "created",
+        "creationJob": "434d0da6-f48b-4ff4-9600-01f8b51f7bb6",
+        "name": "MAJOR OCELOT",
+        "title": "L'orgueil du jeune félin",
+        "element": "PYRO",
+        "profile": {
+          "name": "MAJOR OCELOT",
+          "title": "L'orgueil du jeune félin",
+          "job": "AS DU REVOLVER",
+          "description": "Le béret rouge de travers, le jeune major défie Snake avec un sourire trop sûr de lui. Chaque duel devient une leçon qu'il prétend ignorer ; sous l'arrogance, une fascination durable commence déjà à prendre racine.",
+          "element": "PYRO",
+          "race": "HUMAIN",
+          "weapon": "Gun",
+          "faction": "MGS3",
+          "positions": [
+            2
+          ],
+          "atk": [
+            275,
+            230,
+            185,
+            135,
+            85,
+            "retry"
+          ],
+          "defense": [
+            160,
+            130,
+            100,
+            70,
+            40,
+            15
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49600114",
+          "characterId": "revolver-ocelot-mgs",
+          "slug": "V4_49600114",
+          "output": "KALISTAR_V4_49600114",
+          "text": "Le béret rouge de travers, le jeune major défie Snake avec un sourire trop sûr de lui. Chaque duel devient une leçon qu'il prétend ignorer ; sous l'arrogance, une fascination durable commence déjà à prendre racine.",
+          "color": "FF704A",
+          "hue": 12,
+          "weapon_index": 7,
+          "role": 2,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Metal Gear - fan crossover non officiel",
+          "visual_revision": "V4-2026-09-30-metal-gear-saga",
+          "collaboration": "MGS3",
+          "officialCollaboration": false,
+          "previous_model": "48312725",
+          "artworkSource": "V4/Illustrations/Major_Ocelot_MGS3_Defi.png"
+        },
+        "png": "V4/creations/49600114/card.png",
+        "psd": "V4/creations/49600114/card.psd",
+        "pngUrl": "/media/created/49600114.png",
+        "psdUrl": "/media/created/49600114.psd",
+        "createdAt": "2026-09-30T14:07:04.436Z",
+        "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga",
+        "nativeRevision": {
+          "id": "2026-10-01-metal-gear-fidelity",
+          "key": "major-ocelot",
+          "proof": "V4/revisions/2026-10-01-metal-gear-fidelity/work/major-ocelot/verification.json",
+          "artworkSource": "V4/Illustrations/MGS_major-ocelot_Fidelity_20261001.png"
+        }
+      }
+    },
+    {
+      "id": "49600115",
+      "key": "venom-snake",
+      "name": "VENOM SNAKE",
+      "faction": "MGS5",
+      "role": 2,
+      "before": {
+        "atk": [
+          280,
+          235,
+          185,
+          135,
+          85,
+          "retry"
+        ],
+        "defense": [
+          165,
+          135,
+          105,
+          75,
+          45,
+          15
+        ]
+      },
+      "after": {
+        "atk": [
+          281,
+          233,
+          183,
+          131,
+          74,
+          "retry"
+        ],
+        "defense": [
+          177,
+          146,
+          116,
+          84,
+          54,
+          23
+        ]
+      },
+      "reason": "Hardened frontline survival and defense, sacrificed lower attack rolls.",
+      "numericChanges": 11,
+      "nativeSource": "V4/revisions/2026-10-01-metal-gear-fidelity/work/venom-snake",
+      "catalogueEntry": {
+        "id": "49600115",
+        "kind": "created",
+        "creationJob": "b829b33c-d04e-43fe-913a-c49844a8f712",
+        "name": "VENOM SNAKE",
+        "title": "L'homme derrière le mythe",
+        "element": "GEO",
+        "profile": {
+          "name": "VENOM SNAKE",
+          "title": "L'homme derrière le mythe",
+          "job": "CHEF MERCENAIRE",
+          "description": "Dans la poussière afghane, Venom avance avec les blessures d'une guerre qu'il n'a pas choisie. Sa main rouge serre son arme. Derrière la légende, un homme cherche encore son propre nom.",
+          "element": "GEO",
+          "race": "CYBORG",
+          "weapon": "Gun",
+          "faction": "MGS5",
+          "positions": [
+            2
+          ],
+          "atk": [
+            280,
+            235,
+            185,
+            135,
+            85,
+            "retry"
+          ],
+          "defense": [
+            165,
+            135,
+            105,
+            75,
+            45,
+            15
+          ],
+          "magic": [
+            4
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49600115",
+          "characterId": "venom-snake-mgs",
+          "slug": "V4_49600115",
+          "output": "KALISTAR_V4_49600115",
+          "text": "Dans la poussière afghane, Venom avance avec les blessures d'une guerre qu'il n'a pas choisie. Sa main rouge serre son arme. Derrière la légende, un homme cherche encore son propre nom.",
+          "color": "C7AB6D",
+          "hue": 41,
+          "weapon_index": 7,
+          "role": 2,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Metal Gear - fan crossover non officiel",
+          "visual_revision": "V4-2026-09-30-metal-gear-saga",
+          "collaboration": "MGS5",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/Venom_Snake_MGS5_Poussiere.png"
+        },
+        "png": "V4/creations/49600115/card.png",
+        "psd": "V4/creations/49600115/card.psd",
+        "pngUrl": "/media/created/49600115.png",
+        "psdUrl": "/media/created/49600115.psd",
+        "createdAt": "2026-09-30T14:07:04.530Z",
+        "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga",
+        "nativeRevision": {
+          "id": "2026-10-01-metal-gear-fidelity",
+          "key": "venom-snake",
+          "proof": "V4/revisions/2026-10-01-metal-gear-fidelity/work/venom-snake/verification.json",
+          "artworkSource": "V4/Illustrations/MGS_venom-snake_Fidelity_20261001.png"
+        }
+      }
+    },
+    {
+      "id": "49600117",
+      "key": "kaz-miller",
+      "name": "KAZUHIRA MILLER",
+      "faction": "MGS5",
+      "role": 5,
+      "before": {
+        "atk": [
+          155,
+          125,
+          95,
+          "guard",
+          "buff_atk",
+          "mana"
+        ],
+        "defense": [
+          185,
+          150,
+          115,
+          80,
+          45,
+          "retry"
+        ]
+      },
+      "after": {
+        "atk": [
+          173,
+          142,
+          111,
+          "guard",
+          "buff_atk",
+          "mana"
+        ],
+        "defense": [
+          178,
+          146,
+          109,
+          77,
+          41,
+          "retry"
+        ]
+      },
+      "reason": "Forceful command support, reduced personal defensive reserve.",
+      "numericChanges": 8,
+      "nativeSource": "V4/expansions/2026-09-30-metal-gear-saga/cards/miller5",
+      "catalogueEntry": {
+        "id": "49600117",
+        "kind": "created",
+        "creationJob": "25c9b0a4-92b9-4a47-9681-ea18fcb75975",
+        "name": "KAZUHIRA MILLER",
+        "title": "Ce qui reste des nôtres",
+        "element": "LUXO",
+        "profile": {
+          "name": "KAZUHIRA MILLER",
+          "title": "Ce qui reste des nôtres",
+          "job": "STRATÈGE",
+          "description": "Sur les passerelles de Mother Base, Miller s'appuie sur sa béquille et recompte les absents. Sa voix organise les vivants, dure et précise ; derrière les lunettes sombres, la douleur nourrit une volonté intacte.",
+          "element": "LUXO",
+          "race": "HUMAIN",
+          "weapon": "Tome",
+          "faction": "MGS5",
+          "positions": [
+            5,
+            3
+          ],
+          "atk": [
+            155,
+            125,
+            95,
+            "guard",
+            "buff_atk",
+            "mana"
+          ],
+          "defense": [
+            185,
+            150,
+            115,
+            80,
+            45,
+            "retry"
+          ],
+          "magic": [],
+          "barriers": [
+            6,
+            4
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49600117",
+          "characterId": "kazuhira-miller-mgs",
+          "slug": "V4_49600117",
+          "output": "KALISTAR_V4_49600117",
+          "text": "Sur les passerelles de Mother Base, Miller s'appuie sur sa béquille et recompte les absents. Sa voix organise les vivants, dure et précise ; derrière les lunettes sombres, la douleur nourrit une volonté intacte.",
+          "color": "F4E9AF",
+          "hue": 47,
+          "weapon_index": 13,
+          "role": 5,
+          "sentry": true,
+          "canGuard": true,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Metal Gear - fan crossover non officiel",
+          "visual_revision": "V4-2026-09-30-metal-gear-saga",
+          "collaboration": "MGS5",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/Kazuhira_Miller_MGS5_Mother_Base.png"
+        },
+        "png": "V4/creations/49600117/card.png",
+        "psd": "V4/creations/49600117/card.psd",
+        "pngUrl": "/media/created/49600117.png",
+        "psdUrl": "/media/created/49600117.psd",
+        "createdAt": "2026-09-30T14:07:04.709Z",
+        "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga"
+      }
+    },
+    {
+      "id": "49600119",
+      "key": "quiet",
+      "name": "QUIET",
+      "faction": "MGS5",
+      "role": 4,
+      "before": {
+        "atk": [
+          285,
+          235,
+          185,
+          135,
+          85,
+          "retry"
+        ],
+        "defense": [
+          155,
+          125,
+          95,
+          "dodge",
+          40,
+          15
+        ]
+      },
+      "after": {
+        "atk": [
+          294,
+          243,
+          184,
+          117,
+          61,
+          "retry"
+        ],
+        "defense": [
+          176,
+          147,
+          113,
+          "dodge",
+          34,
+          8
+        ]
+      },
+      "reason": "Lethal accurate high rolls and upper defense, weak low-roll endurance.",
+      "numericChanges": 10,
+      "nativeSource": "V4/expansions/2026-09-30-metal-gear-saga/cards/quiet",
+      "catalogueEntry": {
+        "id": "49600119",
+        "kind": "created",
+        "creationJob": "31c2730e-fe4b-4c4c-b57f-c884a4f0b36c",
+        "name": "QUIET",
+        "title": "Le souffle du silence",
+        "element": "AERO",
+        "profile": {
+          "name": "QUIET",
+          "title": "Le souffle du silence",
+          "job": "TIREUSE D'ÉLITE",
+          "description": "Sur la pierre chaude des ruines, Quiet écoute un souffle que personne d'autre ne perçoit. Le fusil reste immobile, le regard suit la cible ; entre deux battements de cœur, son silence devient une promesse précise.",
+          "element": "AERO",
+          "race": "HUMAIN",
+          "weapon": "Gun",
+          "faction": "MGS5",
+          "positions": [
+            4
+          ],
+          "atk": [
+            285,
+            235,
+            185,
+            135,
+            85,
+            "retry"
+          ],
+          "defense": [
+            155,
+            125,
+            95,
+            "dodge",
+            40,
+            15
+          ],
+          "magic": [
+            6,
+            5,
+            4,
+            3
+          ],
+          "barriers": [
+            5
+          ],
+          "upload": null,
+          "crop": {
+            "zoom": 1,
+            "x": 0,
+            "y": 0
+          },
+          "schemaVersion": 4,
+          "id": "49600119",
+          "characterId": "quiet-mgs",
+          "slug": "V4_49600119",
+          "output": "KALISTAR_V4_49600119",
+          "text": "Sur la pierre chaude des ruines, Quiet écoute un souffle que personne d'autre ne perçoit. Le fusil reste immobile, le regard suit la cible ; entre deux battements de cœur, son silence devient une promesse précise.",
+          "color": "89EDC2",
+          "hue": 155,
+          "weapon_index": 7,
+          "role": 4,
+          "sentry": true,
+          "canGuard": false,
+          "canHeal": false,
+          "advantage": 30,
+          "disadvantage": 30,
+          "source": "Kalistar x Metal Gear - fan crossover non officiel",
+          "visual_revision": "V4-2026-09-30-metal-gear-saga",
+          "collaboration": "MGS5",
+          "officialCollaboration": false,
+          "artworkSource": "V4/Illustrations/Quiet_MGS5_Silence.png"
+        },
+        "png": "V4/creations/49600119/card.png",
+        "psd": "V4/creations/49600119/card.psd",
+        "pngUrl": "/media/created/49600119.png",
+        "psdUrl": "/media/created/49600119.psd",
+        "createdAt": "2026-09-30T14:07:04.923Z",
+        "publicationSource": "V4/expansions/2026-09-30-metal-gear-saga"
+      }
+    }
+  ]
+}

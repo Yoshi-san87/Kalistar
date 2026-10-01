@@ -49,6 +49,21 @@ temporaires du presse-papiers ou les preferences non encore documentees.
 
 ## Reperes techniques
 
+### Personnalite numerique des cartes du 1 octobre 2026
+
+La demande utilisateur confirme que les valeurs par role sont des limites et
+reperes, pas un gabarit numerique identique impose a chaque personnage. La
+[revision des statistiques](../V4/revisions/2026-10-01-stat-personality/README.md)
+conserve son tableau avant/apres, les originaux actifs, les compromis choisis
+et les preuves natives pour onze One Piece, vingt-cinq Resident Evil et douze
+MGS. Skull Face et les profils deja distinctifs non selectionnes restent intacts.
+Seules les valeurs ATK/DEF numeriques changent ; ni illustrations, ni identites,
+ni effets, ni positions, ni regles. Les anciens `expansions/*/set.json` restent
+des preuves historiques immuables. Pour un profil revise et publie, lire le
+catalogue courant, `creations/<id>/profile.json` et sa `nativeRevision`, jamais
+les anciens chiffres du lot initial. Le dossier de revision indique le statut
+de verification et de publication ; une preparation seule ne fait pas autorite.
+
 ### Ajout One Piece du 1 octobre 2026
 
 Le lot [One Piece et Skull Face](../V4/releases/2026-10-01-one-piece/README.md)

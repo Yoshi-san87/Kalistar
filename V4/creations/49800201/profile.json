@@ -1,0 +1,66 @@
+{
+  "name": "RIKKA",
+  "title": "LA VILLE SOUS SES PAS",
+  "job": "VOLEUSE",
+  "description": "Sur les toits de Chroma, Rikka scrute le quartier en silence. Son fouet grésille tandis qu'elle cherche un chemin vers son ami. Sous son assurance, la mélancolie veille ; pourtant, elle avancera encore.",
+  "element": "ELECTRO",
+  "race": "FELINEUS",
+  "weapon": "Fouet",
+  "faction": "Chroma",
+  "positions": [
+    2
+  ],
+  "atk": [
+    294,
+    230,
+    184,
+    126,
+    86,
+    36
+  ],
+  "defense": [
+    "dodge",
+    142,
+    104,
+    74,
+    52,
+    "retry"
+  ],
+  "magic": [
+    5
+  ],
+  "barriers": [],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49800201",
+  "characterId": "rikka",
+  "slug": "V4_49800201",
+  "output": "KALISTAR_V4_49800201",
+  "text": "Sur les toits de Chroma, Rikka scrute le quartier en silence. Son fouet grésille tandis qu'elle cherche un chemin vers son ami. Sous son assurance, la mélancolie veille ; pourtant, elle avancera encore.",
+  "color": "F5DC32",
+  "hue": 53,
+  "weapon_index": 6,
+  "role": 2,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Variante narrative Rikka, demande du 1 octobre 2026",
+  "visual_revision": "V4-2026-10-01-rikka-rooftops",
+  "previous_model": "40000042",
+  "artworkSource": "V4/Illustrations/Rikka_La_Ville_Sous_Ses_Pas_04.png",
+  "artworkFraming": {
+    "translation": [
+      30,
+      0
+    ],
+    "fit": "cover",
+    "zoom": 1
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "revision": "2026-10-01-kaine-framing",
+  "id": "45951088",
+  "passed": true,
+  "publication": {
+    "revision": "2026-10-01-kaine-framing",
+    "id": "45951088",
+    "changed": [
+      "V4/creations/45951088/card.psd",
+      "V4/creations/45951088/card.png",
+      "V4/creations/45951088/verification.json",
+      "V4/creations/45951088/creation.json",
+      "V4/donnees/catalogue.json"
+    ],
+    "ownCatalogueEntryOnly": true,
+    "catalogueCount": 174,
+    "unrelatedEntriesPreserved": 173,
+    "profileAndIllustrationBytesUnchanged": true,
+    "protectedHashesUnchanged": true,
+    "visualReviewHash": "5c844bd9695a72ccb2548577bd38be58af00ee44e2e4ff5cef21c295866b77c0",
+    "publishedAt": "2026-10-01T12:52:46.115Z"
+  },
+  "creationHashes": {
+    "card.psd": "19c7ba380fb6b28b5addb5591f531cd3aed016ca0a16937507218ba87269d81e",
+    "card.png": "46cb2c273b633342d5ce5dc6840a06a3cb3e3b6c192f082f096a26b46d02807e",
+    "profile.json": "19b899147ca8626295c61cdbe52a1fe808decb1459d1ff35ab2bb9e9e06826e1",
+    "illustration.png": "61615a12c884053fb27ae580350f812ba3e1697f545e4ede300d782ea3f4b2b2",
+    "verification.json": "937cdaa537948a100647533fc56337e1e910c0c064eea16189d8bfe5efd07074"
+  },
+  "profileBytesUnchanged": true,
+  "originalArtworkBytesUnchanged": true,
+  "sourceNativeMatchesPublishedBefore": true,
+  "actualNativeCropVerified": true,
+  "unchangedOutsideArt": {
+    "changed": 456064,
+    "outside": 0
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "nativeTypographyAndBarcodePassed": true,
+  "fourBarcodeReads": {
+    "color-1": [
+      "45951088"
+    ],
+    "color-4": [
+      "45951088"
+    ],
+    "gray-1": [
+      "45951088"
+    ],
+    "gray-4": [
+      "45951088"
+    ]
+  },
+  "protectedFilesVerified": 941,
+  "referenceLockHashUnchanged": true,
+  "componentsUnchanged": true,
+  "userApproved": true,
+  "photoshopMutexReleasedAfterRender": true,
+  "tests": {
+    "passed": 18,
+    "failed": 0,
+    "files": [
+      "revision.test.cjs",
+      "V4/atelier/game-catalog.test.cjs",
+      "V4/atelier/designer-publication.test.cjs"
+    ]
+  },
+  "currentOtherCatalogueChanges": [],
+  "codeHashes": {
+    "V4/revisions/2026-10-01-kaine-framing/revise.cjs": "a0b60670709c50cb5337bd9daf30142fa31682cda0772aacea2ff57fbaa3a81a",
+    "V4/revisions/2026-10-01-kaine-framing/reframe.jsx": "f80fde5fcb611f028ad875ecce60867ec73b8b916f73e2ceb29855490418f2f2",
+    "V4/revisions/2026-10-01-kaine-framing/render.ps1": "82cbe75547a4634535381011d5a0443cc7843ecc071075d675d36aa441ab5a04",
+    "V4/revisions/2026-10-01-kaine-framing/revision.test.cjs": "bbb1aa06a7f243421581da328d068209f528e32c014b43242197e47512dcbb10",
+    "V4/revisions/2026-10-01-kaine-framing/README.md": "a675ea40847a796b71e5ea41eb696a592b8dc5e1f05e1169e20473f7cf5af817"
+  },
+  "checkedAt": "2026-10-01T12:53:35.586Z"
+}
