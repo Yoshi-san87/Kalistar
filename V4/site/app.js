@@ -52,10 +52,11 @@
   const restored=load('game',null);let restoreError='';
   if(restored){try{game=E.restoreGame(KalistarLocalDB.validateGame(restored));db.registry.validateGame(game,accountId);}catch(error){game=null;restoreError=error.message;}}
   let boardScale=Math.max(85,Math.min(140,Number(load('boardScale',100))||100));
-  const views=window.KalistarSite?.online?['arena','decks','statistics']:['arena','decks','statistics','atelier'];
+  const views=window.KalistarSite?.online?['arena','decks','statistics','story']:['arena','decks','statistics','story','atelier'];
   const hashView=()=>views.includes(location.hash.slice(1))?location.hash.slice(1):'collection';
   const ui={view:hashView(),attacker:null,target:null,reserve:null,replacementSlot:null,detail:null,art:false};
   let deckBuilder=null,collectionBinder=null,statisticsSheet=null;
+  const storyReader=KalistarStoryReader.create({storageKey:preferencePrefix+'story-progress'});
   const overlayOpen=()=>!!document.querySelector('dialog[open]')||!!window.KalistarReservePreview?.isOpen();
   function icons(){if(window.lucide)lucide.createIcons();}
   function toast(message){clearTimeout(toastTimer);$('#toast').textContent=message;$('#toast').classList.add('visible');toastTimer=setTimeout(()=>$('#toast').classList.remove('visible'),3500);}
@@ -119,11 +120,12 @@
     const scroll=$('.battlefield-viewport')?.scrollLeft||0;
     document.body.classList.toggle('arena-view',ui.view==='arena');
     document.querySelectorAll('[data-view]').forEach(b=>{const on=b.dataset.view===ui.view;b.classList.toggle('active',on);b.setAttribute('aria-current',on?'page':'false');});
-    deckBuilder?.destroy();collectionBinder?.destroy();statisticsSheet?.destroy();
+    deckBuilder?.destroy();collectionBinder?.destroy();statisticsSheet?.destroy();storyReader.destroy();
     document.body.classList.toggle('statistics-view',ui.view==='statistics');
     document.body.classList.toggle('decks-view',ui.view==='decks');
     document.body.classList.toggle('collection-view',ui.view==='collection');
     document.body.classList.toggle('atelier-view',ui.view==='atelier');
+    document.body.classList.toggle('story-view',ui.view==='story');
     $('#app').hidden=ui.view==='atelier';$('#atelier-panel').hidden=ui.view!=='atelier';
     if(ui.view==='atelier'){
       window.KalistarDice?.cancel();
@@ -134,13 +136,14 @@
       $('#account-name').textContent=accountId===KalistarOwnership.PARIS?'Paris':'Tokyo';
       icons();persist();return;
     }
-    $('#app').innerHTML=ui.view==='collection'?collection():ui.view==='decks'?decksPage():ui.view==='statistics'?'<div id="statistics-root"></div>':arena();
+    $('#app').innerHTML=ui.view==='collection'?collection():ui.view==='story'?'<div id="story-reader-root"></div>':ui.view==='decks'?decksPage():ui.view==='statistics'?'<div id="statistics-root"></div>':arena();
     if(ui.view==='statistics'){
       statisticsSheet??=KalistarStatistics.create({data,getDB:collectionDB,onDetail:id=>showDetail(id)});
       statisticsSheet.mount($('#statistics-root'));
     }
     if(ui.view==='decks')builder().mount($('#deck-builder-root'));
     if(ui.view==='collection')collectionView().mount($('#collection-binder-root'));
+    if(ui.view==='story')storyReader.mount($('#story-reader-root'));
     syncConsole();icons();
     $('#account-name').textContent=accountId===KalistarOwnership.PARIS?'Paris':'Tokyo';
     $('[data-action="account"]').title='Profil local : '+(db?.registry?.user(accountId)?.email||'indisponible');

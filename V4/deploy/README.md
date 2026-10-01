@@ -40,6 +40,8 @@ simule d'une carte sans doublon ni effacement.
 racine comme sous `/Kalistar/`. Les anciennes URL de medias conservees dans les
 sauvegardes restent resolues sous le bon prefixe. Le build change uniquement le
 marqueur HTML `data-hosting` ; en local l'API et l'Atelier restent disponibles.
+Le build publie aussi `V4/site/story-content.json`, unique contenu de lecture
+autorise dans le lot de fichiers JSON ; les autres JSON du depot restent exclus.
 
 ## Sauvegardes et acces
 

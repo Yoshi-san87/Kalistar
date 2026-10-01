@@ -36,6 +36,7 @@ async function plan() {
   for (const entry of await fs.readdir(path.join(ROOT, 'V4/site'), {withFileTypes: true})) {
     if (entry.isFile() && /\.(js|css|html|webmanifest)$/.test(entry.name)) add('V4/site/' + entry.name, 'jeu/' + entry.name);
   }
+  add('V4/site/story-content.json', 'jeu/story-content.json');
   await tree('V3/site/assets', 'jeu/assets', name => name !== 'cards' && !['arena.png','logo.png','back.png'].includes(name));
   await tree('V4/site/assets', 'jeu/assets');
   for (const folder of ['cristaux','effets','factions','races','armes','armes_transparentes']) {

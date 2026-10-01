@@ -10,7 +10,13 @@ test('release contains all published cards and only playable files', async () =>
   const {files, catalogue} = await plan();
   assert.equal(files.filter(f => f.card).length, catalogue.cards.length);
   assert.equal(new Set(files.map(f => f.target)).size, files.length);
-  assert.ok(files.every(f => !/\.(psd|psb|cjs|ps1|cmd|zip|lnk|json|md)$/i.test(f.target)));
+  assert.ok(files.every(f => !/\.(psd|psb|cjs|ps1|cmd|zip|lnk|json|md)$/i.test(f.target) || f.target === 'jeu/story-content.json'));
+  assert.ok(files.some(f => f.target === 'jeu/story-content.json'));
+  const story = JSON.parse(fs.readFileSync(path.join(__dirname, '../site/story-content.json'), 'utf8'));
+  assert.equal(story.sections.length, 10);
+  assert.equal(story.sections[0].label, 'Prologue');
+  assert.equal(story.sections[9].title, 'La route de Mennuyir');
+  assert.ok(story.sections.reduce((sum, section) => sum + section.paragraphs.join(' ').split(/\s+/).length, 0) > 7000);
   assert.ok(files.every(f => !/\/(drafts|jobs|uploads|verification|templates|revisions)\//.test(f.target)));
   assert.ok(catalogue.cards.every(c => !c.psdUrl && files.some(f => '/' + f.target === c.pngUrl)));
   assert.ok(files.filter(f => f.target.startsWith('media/reference/')).every(f => f.expectedHash));

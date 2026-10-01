@@ -132,6 +132,20 @@ not force a wide desktop battlefield. Rules, registry data and approved assets d
 change. The local server remains loopback-only; mobile layout does not expose the
 atelier or its write endpoints to the network.
 
+## Story Reader
+
+The main navigation opens `Story`, a long-form reader for the revised
+`Kalistar - Le Réveil` manuscript. `story-content.json` is the static, UTF-8
+reading copy (prologue plus nine chapters), loaded independently of the game
+catalogue and local Atelier API. The desktop reader fits the approved open-book
+grimoire image to the available viewport, with the contents on the left page and
+the manuscript on the right. Tablet and phone layouts use one readable leaf and
+a chapter picker. Text size, paper/night mode, chapter and scroll position are
+saved per local profile. Only this explicitly curated JSON file is added to the
+static publication; other JSON files remain excluded. `story-reader.browser.test.cjs`
+covers reading controls, saved progress, desktop book geometry, phone layouts
+and horizontal overflow.
+
 ## Kalistel Shards
 
 Added at the user's request on 2026-09-21. New matches have two shards per side,

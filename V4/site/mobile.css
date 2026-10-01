@@ -6,36 +6,37 @@
 @media (max-width: 699px), (max-width: 950px) and (max-height: 500px) {
   :root { --phone-header: 48px; --phone-nav: calc(60px + env(safe-area-inset-bottom,0px)); --phone-action: 68px; }
   html { width: 100%; overflow-x: hidden; }
-  body, body.collection-view, body.decks-view, body.arena-view, body.atelier-view {
+  body, body.collection-view, body.story-view, body.decks-view, body.arena-view, body.atelier-view {
     box-sizing: border-box; display: flex; flex-direction: column; width: 100%; height: 100dvh;
     min-height: 0; margin: 0; padding: env(safe-area-inset-top,0px) 0 var(--phone-nav); overflow: hidden;
   }
-  body > .masthead, body.collection-view > .masthead {
+  body > .masthead, body.collection-view > .masthead, body.story-view > .masthead {
     flex: 0 0 var(--phone-header); height: var(--phone-header); min-height: 0; width: 100%;
     padding: 0 max(12px,env(safe-area-inset-right,0px)) 0 max(12px,env(safe-area-inset-left,0px));
     gap: 8px; flex-wrap: nowrap; position: relative; z-index: 60;
   }
-  body .brand, body.collection-view .brand { width: 118px; min-width: 0; }
-  body .brand img, body.collection-view .brand img { width: 118px; height: 40px; max-height: 40px; object-fit: contain; }
+  body .brand, body.collection-view .brand, body.story-view .brand { width: 118px; min-width: 0; }
+  body .brand img, body.collection-view .brand img, body.story-view .brand img { width: 118px; height: 40px; max-height: 40px; object-fit: contain; }
   body .header-actions { margin-left: auto; gap: 4px; }
   body .header-actions .edition, body .header-actions .deck-button { display: none; }
   body .header-actions button { min-height: 44px; min-width: 44px; }
   body .account-button span { display: none; }
-  body .main-nav, body.collection-view .main-nav, body.arena-view .main-nav, body.decks-view .main-nav {
+  body .main-nav, body.collection-view .main-nav, body.story-view .main-nav, body.arena-view .main-nav, body.decks-view .main-nav {
     position: fixed; z-index: 90; inset: auto 0 0; width: 100%; height: var(--phone-nav); min-height: 0;
     display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0,1fr); grid-template-columns: none; margin: 0;
     padding: 0 env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px);
     background: #0b1412f5; border-top: 1px solid #b69c7066; box-shadow: 0 -5px 24px #0004; backdrop-filter: blur(16px);
   }
-  body .main-nav button, body.collection-view .main-nav button, body.arena-view .main-nav button, body.decks-view .main-nav button {
-    display: flex; flex-direction: column; justify-content: center; gap: 4px; height: 60px;
-    padding: 7px 0; font-size: 11px; border: 0; border-radius: 0; min-width: 0;
+  body .main-nav button, body.collection-view .main-nav button, body.story-view .main-nav button, body.arena-view .main-nav button, body.decks-view .main-nav button {
+    display: flex; flex-direction: column; justify-content: center; gap: 3px; width: 100%; height: 60px;
+    padding: 6px 1px; font-size: 9px; border: 0; border-radius: 0; min-width: 0; white-space: nowrap;
   }
   body .main-nav button svg { width: 21px; height: 21px; }
   body .main-nav button.active { color: #f0d3a1; background: #c6a46c14; box-shadow: inset 0 2px #d9b476; }
   body #app, body.collection-view #app, body.decks-view #app {
     flex: 1 1 0; width: 100%; height: auto; min-height: 0; min-width: 0; max-width: none; margin: 0; padding: 0;
   }
+  body.story-view #app { flex: 1 1 0; width: 100%; height: auto; min-height: 0; min-width: 0; max-width: none; margin: 0; padding: 0; overflow: hidden; }
   body.arena-view #app { overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; }
   body.atelier-view #atelier-panel { flex: 1 1 0; min-height: 0; }
   body #atelier-frame { height: 100%; min-height: 0; }
