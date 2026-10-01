@@ -1,0 +1,76 @@
+{
+  "id": "2026-10-02-witcher-completion",
+  "officialCollaboration": false,
+  "cards": [
+    {
+      "key": "vesemir",
+      "characterId": "vesemir-witcher",
+      "name": "VESEMIR",
+      "title": "Ce qu'il reste à transmettre",
+      "job": "MENTOR",
+      "description": "Dans la cour de Kaer Morhen, Vesemir corrige un geste puis se tait. Sa lame est sûre, son visage fatigué : derrière chaque leçon, il protège l'avenir de ceux qu'il appelle ses enfants.",
+      "race": "HUMAIN",
+      "weapon": "Epée longue",
+      "element": "MINERO",
+      "role": 1,
+      "positions": [
+        1
+      ],
+      "atk": [
+        187,
+        172,
+        111,
+        88,
+        44,
+        "guard"
+      ],
+      "defense": [
+        292,
+        216,
+        182,
+        121,
+        65,
+        23
+      ],
+      "magic": [
+        3
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "art": "TW_vesemir_01.png",
+      "id": "49900106",
+      "faction": "WITCHER",
+      "collaboration": "WITCHER",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "arenas": [],
+  "presets": [],
+  "revisions": [
+    {
+      "id": "49800101",
+      "element": "LUXO",
+      "magic": [
+        4
+      ],
+      "barriers": [],
+      "defense": [
+        173,
+        139,
+        94,
+        "dodge",
+        32,
+        "retry"
+      ],
+      "preserveNumeric": true,
+      "preserveArtwork": true
+    }
+  ],
+  "releaseLabel": "V4.3"
+}

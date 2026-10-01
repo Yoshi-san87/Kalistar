@@ -51,6 +51,13 @@ temporaires du presse-papiers ou les preferences non encore documentees.
 
 ### One Piece Et The Witcher - V4.3
 
+La [suite V4.3.1](../V4/releases/2026-10-02-witcher-completion/README.md)
+ajoute Vesemir depuis son profil P1 prepare et corrige uniquement l'illustration
+du Sanji en costume noir. Lire sa `nativeRevision.artworkSource` pour la source
+actuelle ; son profil imprime et ses statistiques restent strictement identiques.
+Les deux Geralt restent en attente apres de nouveaux refus du service image.
+Le catalogue de cette suite compte 190 cartes et 28 arenes.
+
 Le [lot V4.3](../V4/releases/2026-10-01-one-piece-witcher/README.md) ajoute
 dix cartes One Piece et quatre The Witcher, avec une banniere et un filtre
 WITCHER. Luffy est revise en Lumiere avec un trefle DEF, sans nouvelle image

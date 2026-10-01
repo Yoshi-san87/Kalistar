@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-02",
+  "method": "built-in image_gen",
+  "publication": "Public GitHub and Pages explicitly authorized by the user.",
+  "references": [
+    "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+    "V3/assets/illustrations/34_NECRO_VALAZAR.png"
+  ],
+  "attempts": [
+    {
+      "key": "geralt-witcher",
+      "prompt": "Create a standalone vertical 4:5 fantasy painting of Geralt of Rivia from The Witcher 3 video game for private fan-art card use. Geralt has tied-back white hair, a short white beard, amber cat-like eyes, his recognisable facial scar, worn dark leather and chainmail Witcher armour, and two sheathed swords on his back. He studies a contract on an old notice board in Velen, with a thoughtful weary expression and one hand resting on the board. Frame him prominently from mid-thigh upwards; the face and gesture must remain central and readable. Restrained misty rural background. Match the painting language of the two attached Kalistar style references: visible brushstrokes, painted volumes, tactile worn materials, narrative emotion, natural human anatomy. Not a photograph, not a smooth 3D render, not anime or manga. No writing, logos, border, statistics or watermark.",
+      "status": "blocked",
+      "requestId": "96ee8085-c861-4c37-b54e-b079afea1cb7",
+      "moderationStage": "output",
+      "category": "violence"
+    },
+    {
+      "key": "geralt-white",
+      "prompt": "A vertical 4:5 narrative fantasy painting of Geralt of Rivia from The Witcher 3: Blood and Wine. He relaxes at Corvo Bianco in his plain white linen shirt with sleeves rolled up, dark trousers, white hair tied back and short white beard. Recognisable video-game character, amber eyes, thoughtful faint smile. He sits at a rustic outdoor table in the vineyard with a ceramic cup in hand, a short sword resting safely in its sheath at his belt. Three-quarter figure, face and gesture prominent in the central frame. Warm late afternoon light, a calm modest vineyard and stone house behind him. Use the two attached images only as Kalistar painterly style references: visible brushstrokes, painted colour planes, natural anatomy, expressive human face, tactile worn materials. Not photorealistic, 3D, anime or manga. Standalone illustration for private fan art, no text, logo, card frame or watermark.",
+      "status": "blocked",
+      "requestId": "e041afac-9f3c-4fc8-b417-6aaad3ba2d1e",
+      "moderationStage": "output",
+      "category": "other"
+    },
+    {
+      "key": "vesemir",
+      "prompt": "Standalone vertical 4:5 narrative fantasy painting of Vesemir from The Witcher 3 video game. An elderly white-haired mentor with a tied-back ponytail, thick white moustache, weathered expressive face, worn ochre and dark brown leather armour. In the courtyard of Kaer Morhen he sits on a stone bench beside a wooden practice dummy, repairing a leather glove and looking up with a warm, quietly stern paternal smile. Frame him prominently with natural anatomy and readable hands; a few simple stone walls and distant mountains behind him. Match the attached Kalistar references in visible painterly brushwork, dimensional painted faces, worn tactile materials and motivated light. No photograph, anime, manga or smooth 3D. Illustration only, no writing, logos, card border or watermark. Private fan art of the fictional video game character, not a real actor.",
+      "status": "selected",
+      "source": "C:\\Users\\guill\\.codex\\generated_images\\01a0f2d5-a296-7ae3-96f7-01bd1274cf81\\exec-e4c48195-6a2f-4feb-86e1-1489132c44a9.png",
+      "selected": "V4/Illustrations/TW_vesemir_01.png",
+      "review": "Painterly Kalistar; readable mentor expression, coherent sitting anatomy and glove repair."
+    },
+    {
+      "key": "sanji",
+      "prompt": "Edit the first image, Sanji in his black suit: correct the anatomy and balance of his legs while retaining his face, blond fringe, expression, black double-breasted suit with gold buttons, blue shirt, hand adjusting his cuff, sunset quay, sea and ship. Fully redraw his lower body into an anatomically convincing raised-knee preparation stance: one leg firmly planted under the pelvis with a straight weight-bearing alignment; the other thigh lifted naturally from its hip, knee bent roughly 90 degrees and calf descending into a clearly connected flaming shoe. Both thighs must connect correctly to the pelvis, both knees and ankles must have coherent alignment, normal hip-to-knee and knee-to-ankle lengths, and exactly two legs and two feet. Avoid the current oddly shortened thigh and distorted crotch. Keep a slender athletic Sanji, natural balance, tailored trousers with folds following the joints, and restrained orange fire only around the raised shoe. Preserve the narrative scene and upper-body character; no pasted patches. Maintain the Kalistar brush-painted style of reference images 2 and 3, not a photograph, anime or smooth 3D. Standalone vertical 4:5 illustration, full figure and grounded supporting foot, no text, logos or card frame.",
+      "status": "selected",
+      "source": "C:\\Users\\guill\\.codex\\generated_images\\01a0f2d5-a296-7ae3-96f7-01bd1274cf81\\exec-25265526-03fd-48fb-9743-7d2657fd2b0b.png",
+      "selected": "V4/Illustrations/OP_sanji_black_02.png",
+      "editTarget": "V4/Illustrations/OP_sanji_black_01.png",
+      "review": "Raised thigh clearly connects to pelvis; knee, calf and flaming shoe align naturally; grounded supporting leg. Face, costume and quay remain consistent."
+    }
+  ]
+}
