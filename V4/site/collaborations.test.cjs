@@ -55,7 +55,7 @@ test('collection groups Kalistar, Final Fantasy and NieR while retaining faction
   assert.match(tab('final-fantasy'),/Final Fantasy <b>3<\/b>/);
   assert.match(tab('nier'),/NieR <b>4<\/b>/);
   const scopeHeader=html.match(/<div class="cb-scopes"[^>]*>([\s\S]*?)<\/div>/)?.[1]||'';
-  assert.equal((scopeHeader.match(/data-binder-action="scope"/g)||[]).length,8);
+  assert.equal((scopeHeader.match(/data-binder-action="scope"/g)||[]).length,9);
   assert.match(tab('resident-evil'),/Resident Evil <b>3<\/b>/);
   assert.equal((scopeHeader.match(/data-id="resident-evil"/g)||[]).length,1);
   assert.equal(scopedCards.filter(c=>Binder.matchesScope(c,'resident-evil')).length,3);

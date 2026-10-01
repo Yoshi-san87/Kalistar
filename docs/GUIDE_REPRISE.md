@@ -49,6 +49,20 @@ temporaires du presse-papiers ou les preferences non encore documentees.
 
 ## Reperes techniques
 
+### One Piece Et The Witcher - V4.3
+
+Le [lot V4.3](../V4/releases/2026-10-01-one-piece-witcher/README.md) ajoute
+dix cartes One Piece et quatre The Witcher, avec une banniere et un filtre
+WITCHER. Luffy est revise en Lumiere avec un trefle DEF, sans nouvelle image
+ni modification des autres chiffres. Le catalogue compte 189 cartes et 28
+arenes a cette publication du 2 octobre 2026. Les deux Geralt et Vesemir
+restent en attente d'illustration : ne pas les presenter comme publies.
+Les prompts, refus du service image, profils, PSD, preuves natives et controles
+navigateur sont conserves dans le lot. Pour reprendre les trois demandes,
+partir de l'etat courant et creer un nouveau lot additif ; ne pas refiger
+l'ancien snapshot pour effacer les revisions intervenues entre-temps.
+La version visible est 4.3, mais l'edition/schema de sauvegarde reste V4.
+
 ### Personnalite numerique des cartes du 1 octobre 2026
 
 La demande utilisateur confirme que les valeurs par role sont des limites et

@@ -1,0 +1,824 @@
+{
+  "id": "2026-10-01-one-piece-witcher",
+  "officialCollaboration": false,
+  "cards": [
+    {
+      "key": "sanji-black",
+      "characterId": "sanji-op",
+      "name": "SANJI",
+      "title": "Le feu sous le costume",
+      "job": "CUISINIER",
+      "description": "Sur le quai, Sanji ajuste sa manche et se place devant les siens. Sous le costume noir, sa jambe s'embrase : il sourit encore, mais personne ne passera avant son équipage.",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "element": "PYRO",
+      "role": 4,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        283,
+        216,
+        196,
+        131,
+        56,
+        "buff_atk"
+      ],
+      "defense": [
+        165,
+        146,
+        102,
+        "dodge",
+        38,
+        17
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "OP_sanji_black_01.png",
+      "lineage": "49800103",
+      "id": "49800301",
+      "faction": "ONEPIECE",
+      "collaboration": "ONEPIECE",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "shanks",
+      "characterId": "shanks-op",
+      "name": "SHANKS LE ROUX",
+      "title": "Cette guerre s'arrête ici",
+      "job": "EMPEREUR",
+      "description": "Dans le silence de Marineford, Shanks lève son sabre. Il ne réclame aucune victoire : il protège les vies encore debout. Sa voix calme pèse plus lourd que tous les canons.",
+      "race": "HUMAIN",
+      "weapon": "Epée longue",
+      "element": "LUXO",
+      "role": 1,
+      "positions": [
+        1,
+        2
+      ],
+      "atk": [
+        205,
+        152,
+        128,
+        81,
+        41,
+        "guard"
+      ],
+      "defense": [
+        291,
+        213,
+        188,
+        112,
+        68,
+        "retry"
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        6
+      ],
+      "art": "OP_shanks_01.png",
+      "id": "49800302",
+      "faction": "ONEPIECE",
+      "collaboration": "ONEPIECE",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "ace",
+      "characterId": "portgas-d-ace-op",
+      "name": "PORTGAS D. ACE",
+      "title": "Une flamme pour mon frère",
+      "job": "COMMANDANT",
+      "description": "Sous le soleil d'Alabasta, Ace retrouve enfin la piste de Luffy. Une flamme danse dans sa paume et son sourire revient : même loin de son navire, il n'a jamais cessé d'être son frère.",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "element": "PYRO",
+      "role": 4,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        292,
+        223,
+        178,
+        139,
+        58,
+        23
+      ],
+      "defense": [
+        158,
+        132,
+        112,
+        66,
+        44,
+        "retry"
+      ],
+      "magic": [
+        6,
+        5,
+        3
+      ],
+      "barriers": [
+        4
+      ],
+      "art": "OP_ace_01.png",
+      "id": "49800303",
+      "faction": "ONEPIECE",
+      "collaboration": "ONEPIECE",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "law",
+      "characterId": "trafalgar-law-op",
+      "name": "TRAFALGAR LAW",
+      "title": "Le prix d'une vie",
+      "job": "CHIRURGIEN",
+      "description": "Sur le pont du Polar Tang, Law mesure le chemin qui reste à parcourir. Sa main dessine une sphère silencieuse : sauver une vie exige parfois de défier le monde qui l'a condamnée.",
+      "race": "HUMAIN",
+      "weapon": "Katana",
+      "element": "HEMATO",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        161,
+        139,
+        "revive",
+        63,
+        "mana",
+        22
+      ],
+      "defense": [
+        202,
+        149,
+        123,
+        "dodge",
+        41,
+        "retry"
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        6
+      ],
+      "art": "OP_law_01.png",
+      "id": "49800304",
+      "faction": "ONEPIECE",
+      "collaboration": "ONEPIECE",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "boa",
+      "characterId": "boa-hancock-op",
+      "name": "BOA HANCOCK",
+      "title": "La volonté de l'impératrice",
+      "job": "IMPERATRICE",
+      "description": "Sur la terrasse d'Amazon Lily, Hancock lève la main et impose le silence. Derrière son orgueil veille une peur ancienne : elle ne laissera plus personne reprendre la liberté de son peuple.",
+      "race": "HUMAIN",
+      "weapon": "Orbe",
+      "element": "LUXO",
+      "role": 4,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        276,
+        245,
+        166,
+        129,
+        67,
+        "death"
+      ],
+      "defense": [
+        166,
+        137,
+        103,
+        "dodge",
+        35,
+        16
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "OP_boa_01.png",
+      "id": "49800305",
+      "faction": "ONEPIECE",
+      "collaboration": "ONEPIECE",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "koby",
+      "characterId": "koby-op",
+      "name": "KOBY",
+      "title": "Le courage de dire stop",
+      "job": "MARINE",
+      "description": "Koby s'agenouille auprès des blessés et ose demander l'arrêt des combats. Sa voix tremble, pas sa décision : sauver ceux qui restent compte davantage que gagner une minute de guerre.",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "element": "NONE",
+      "role": 5,
+      "positions": [
+        5
+      ],
+      "atk": [
+        153,
+        127,
+        "guard",
+        "buff_atk",
+        "retry",
+        14
+      ],
+      "defense": [
+        194,
+        156,
+        115,
+        82,
+        44,
+        "retry"
+      ],
+      "magic": [],
+      "barriers": [],
+      "art": "OP_koby_01.png",
+      "id": "49800306",
+      "faction": "ONEPIECE",
+      "collaboration": "ONEPIECE",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "buggy",
+      "characterId": "buggy-op",
+      "name": "BAGGY",
+      "title": "Le panache de la panique",
+      "job": "PIRATE",
+      "description": "Au bord du quai, Baggy brandit ses lames et promet une sortie triomphale. Son sourire tremble un peu : derrière le spectacle, il cherche surtout le prochain miracle qui le gardera vivant.",
+      "race": "HUMAIN",
+      "weapon": "Dague",
+      "element": "PYRO",
+      "role": 4,
+      "positions": [
+        2,
+        4
+      ],
+      "atk": [
+        255,
+        240,
+        184,
+        107,
+        89,
+        "retry"
+      ],
+      "defense": [
+        176,
+        124,
+        112,
+        "dodge",
+        44,
+        "retry"
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [],
+      "art": "OP_buggy_01.png",
+      "id": "49800307",
+      "faction": "ONEPIECE",
+      "collaboration": "ONEPIECE",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "alvida",
+      "characterId": "alvida-op",
+      "name": "ALVIDA",
+      "title": "La dame à la masse",
+      "job": "CAPITAINE",
+      "description": "Dans les rues humides de Loguetown, Alvida reconnaît sa proie. Sa masse repose sur l'épaule, son sourire ne bouge pas : elle n'a pas traversé les mers pour accepter un nouvel affront.",
+      "race": "HUMAIN",
+      "weapon": "Masse",
+      "element": "MINERO",
+      "role": 1,
+      "positions": [
+        1
+      ],
+      "atk": [
+        203,
+        157,
+        123,
+        94,
+        46,
+        18
+      ],
+      "defense": [
+        288,
+        223,
+        183,
+        113,
+        71,
+        "dodge"
+      ],
+      "magic": [
+        3
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "OP_alvida_01.png",
+      "id": "49800308",
+      "faction": "ONEPIECE",
+      "collaboration": "ONEPIECE",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "mihawk",
+      "characterId": "dracule-mihawk-op",
+      "name": "DRACULE MIHAWK",
+      "title": "Le poids de la lame noire",
+      "job": "BRETTEUR",
+      "description": "Sur les planches du Baratie, Mihawk observe son adversaire sans mépris. La lame noire demeure immobile : il reconnaît une volonté rare et attend le geste qui révélera sa véritable valeur.",
+      "race": "HUMAIN",
+      "weapon": "Epée longue",
+      "element": "NECRO",
+      "role": 1,
+      "positions": [
+        1
+      ],
+      "atk": [
+        207,
+        146,
+        136,
+        89,
+        37,
+        "death"
+      ],
+      "defense": [
+        281,
+        242,
+        168,
+        116,
+        61,
+        21
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "OP_mihawk_01.png",
+      "id": "49800309",
+      "faction": "ONEPIECE",
+      "collaboration": "ONEPIECE",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "arlong",
+      "characterId": "arlong-op",
+      "name": "ARLONG",
+      "title": "La loi des crocs",
+      "job": "TYRAN",
+      "description": "Au bord du bassin d'Arlong Park, le capitaine serre les poings. Son rictus masque une rancœur qu'il transforme en loi : devant lui, la peur doit remplacer toute idée de résistance.",
+      "race": "SHARKAN",
+      "weapon": "Poing",
+      "element": "HYDRO",
+      "role": 1,
+      "positions": [
+        1,
+        2
+      ],
+      "atk": [
+        198,
+        168,
+        113,
+        98,
+        56,
+        11
+      ],
+      "defense": [
+        297,
+        205,
+        179,
+        132,
+        57,
+        29
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        6
+      ],
+      "art": "OP_arlong_01.png",
+      "id": "49800310",
+      "faction": "ONEPIECE",
+      "collaboration": "ONEPIECE",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "geralt-witcher",
+      "characterId": "geralt-witcher",
+      "name": "GERALT DE RIV",
+      "title": "Le contrat et la conscience",
+      "job": "SORCELEUR",
+      "description": "Geralt avance dans le marais, l'épée prête et le regard lucide. Un contrat parle de monstres ; les traces racontent autre chose. Il connaît trop bien le prix d'un jugement précipité.",
+      "race": "HUMAIN",
+      "weapon": "Epée longue",
+      "element": "GEO",
+      "role": 2,
+      "positions": [
+        2
+      ],
+      "atk": [
+        288,
+        218,
+        182,
+        136,
+        72,
+        31
+      ],
+      "defense": [
+        169,
+        141,
+        101,
+        69,
+        43,
+        18
+      ],
+      "magic": [
+        3
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "TW_geralt_witcher_01.png",
+      "id": "49900101",
+      "faction": "WITCHER",
+      "collaboration": "WITCHER",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "geralt-white",
+      "characterId": "geralt-witcher",
+      "name": "GERALT DE RIV",
+      "title": "Le Loup blanc",
+      "job": "SORCELEUR",
+      "description": "Sans son armure, Geralt reste un sorceleur. La chemise froissée et la lame courte disent une pause interrompue : son regard s'est durci, mais il protégera encore ceux qu'on menace.",
+      "race": "HUMAIN",
+      "weapon": "Epée courte",
+      "element": "CRYO",
+      "role": 2,
+      "positions": [
+        2
+      ],
+      "atk": [
+        279,
+        239,
+        167,
+        119,
+        84,
+        "death"
+      ],
+      "defense": [
+        162,
+        129,
+        107,
+        74,
+        33,
+        21
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        6
+      ],
+      "art": "TW_geralt_white_01.png",
+      "id": "49900102",
+      "faction": "WITCHER",
+      "collaboration": "WITCHER",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "ciri",
+      "characterId": "ciri-witcher",
+      "name": "CIRI",
+      "title": "Une seconde d'avance",
+      "job": "HERITIERE",
+      "description": "Ciri pivote dans la cour de Kaer Morhen, sa lame suivant un pas léger. Elle ne fuit plus ce qu'on attend d'elle : entre deux éclats de lumière, elle choisit enfin sa propre route.",
+      "race": "HUMAIN",
+      "weapon": "Epée courte",
+      "element": "ELECTRO",
+      "role": 3,
+      "positions": [
+        3
+      ],
+      "atk": [
+        228,
+        178,
+        151,
+        96,
+        53,
+        25
+      ],
+      "defense": [
+        "dodge",
+        189,
+        142,
+        101,
+        65,
+        22
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "TW_ciri_01.png",
+      "id": "49900103",
+      "faction": "WITCHER",
+      "collaboration": "WITCHER",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "yennefer",
+      "characterId": "yennefer-witcher",
+      "name": "YENNEFER",
+      "title": "Rien ne m'arrêtera",
+      "job": "MAGICIENNE",
+      "description": "Dans le vent de Skellige, Yennefer rassemble une magie sombre. Le noir de sa tenue ne cache pas son inquiétude : pour retrouver Ciri, elle accepte ce que les autres n'osent pas tenter.",
+      "race": "HUMAIN",
+      "weapon": "Tome",
+      "element": "NECRO",
+      "role": 4,
+      "positions": [
+        4
+      ],
+      "atk": [
+        296,
+        220,
+        187,
+        137,
+        "mana",
+        23
+      ],
+      "defense": [
+        159,
+        148,
+        103,
+        71,
+        42,
+        14
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3
+      ],
+      "barriers": [
+        5,
+        3
+      ],
+      "art": "TW_yennefer_01.png",
+      "id": "49900104",
+      "faction": "WITCHER",
+      "collaboration": "WITCHER",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "triss",
+      "characterId": "triss-witcher",
+      "name": "TRISS MERIGOLD",
+      "title": "La chaleur d'un refuge",
+      "job": "MAGICIENNE",
+      "description": "Au détour d'une rue de Novigrad, Triss éclaire le passage des fugitifs. Ses flammes tiennent la menace à distance : chaque visage qui rejoint l'ombre lui rend un peu d'espoir.",
+      "race": "HUMAIN",
+      "weapon": "Tome",
+      "element": "PYRO",
+      "role": 4,
+      "positions": [
+        4
+      ],
+      "atk": [
+        286,
+        232,
+        173,
+        127,
+        73,
+        "mana"
+      ],
+      "defense": [
+        168,
+        128,
+        114,
+        64,
+        48,
+        9
+      ],
+      "magic": [
+        6,
+        5,
+        3
+      ],
+      "barriers": [
+        4
+      ],
+      "art": "TW_triss_01.png",
+      "id": "49900105",
+      "faction": "WITCHER",
+      "collaboration": "WITCHER",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "vesemir",
+      "characterId": "vesemir-witcher",
+      "name": "VESEMIR",
+      "title": "Ce qu'il reste à transmettre",
+      "job": "MENTOR",
+      "description": "Dans la cour de Kaer Morhen, Vesemir corrige un geste puis se tait. Sa lame est sûre, son visage fatigué : derrière chaque leçon, il protège l'avenir de ceux qu'il appelle ses enfants.",
+      "race": "HUMAIN",
+      "weapon": "Epée longue",
+      "element": "MINERO",
+      "role": 1,
+      "positions": [
+        1
+      ],
+      "atk": [
+        187,
+        172,
+        111,
+        88,
+        44,
+        "guard"
+      ],
+      "defense": [
+        292,
+        216,
+        182,
+        121,
+        65,
+        23
+      ],
+      "magic": [
+        3
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "art": "TW_vesemir_01.png",
+      "id": "49900106",
+      "faction": "WITCHER",
+      "collaboration": "WITCHER",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "dandelion",
+      "characterId": "dandelion-witcher",
+      "name": "DANDELION",
+      "title": "Une ballade pour les vivants",
+      "job": "BARDE",
+      "description": "À Novigrad, Dandelion pince les cordes de son luth et retrouve le sourire de la salle. Une chanson ne change pas le passé ; elle donne parfois à un ami la force de poursuivre la route.",
+      "race": "HUMAIN",
+      "weapon": "Instrument",
+      "element": "LUXO",
+      "role": 5,
+      "positions": [
+        5
+      ],
+      "atk": [
+        157,
+        123,
+        "revive",
+        "retry",
+        "buff_atk",
+        16
+      ],
+      "defense": [
+        197,
+        158,
+        114,
+        86,
+        42,
+        "retry"
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        4
+      ],
+      "art": "TW_dandelion_01.png",
+      "id": "49900107",
+      "faction": "WITCHER",
+      "collaboration": "WITCHER",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "arenas": [],
+  "presets": [],
+  "revisions": [
+    {
+      "id": "49800101",
+      "element": "LUXO",
+      "magic": [
+        4
+      ],
+      "barriers": [],
+      "defense": [
+        173,
+        139,
+        94,
+        "dodge",
+        32,
+        "retry"
+      ],
+      "preserveNumeric": true,
+      "preserveArtwork": true
+    }
+  ],
+  "releaseLabel": "V4.3"
+}

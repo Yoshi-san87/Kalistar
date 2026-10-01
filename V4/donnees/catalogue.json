@@ -12550,13 +12550,13 @@
       "creationJob": "83e1f830-5019-4a9e-945b-a504d3f21d8c",
       "name": "MONKEY D. LUFFY",
       "title": "Enfin tous réunis",
-      "element": "NONE",
+      "element": "LUXO",
       "profile": {
         "name": "MONKEY D. LUFFY",
         "title": "Enfin tous réunis",
         "job": "CAPITAINE",
         "description": "Deux ans après la séparation, Luffy retrouve les siens. Sur le Sunny, son sourire cache l'émotion des retrouvailles : il peut reprendre la mer, certain de ne plus avancer seul.",
-        "element": "NONE",
+        "element": "LUXO",
         "race": "HUMAIN",
         "weapon": "Poing",
         "faction": "ONEPIECE",
@@ -12579,9 +12579,11 @@
           94,
           "dodge",
           32,
-          12
+          "retry"
         ],
-        "magic": [],
+        "magic": [
+          4
+        ],
         "barriers": [],
         "upload": null,
         "crop": {
@@ -12595,10 +12597,9 @@
         "slug": "V4_49800101",
         "output": "KALISTAR_V4_49800101",
         "text": "Deux ans après la séparation, Luffy retrouve les siens. Sur le Sunny, son sourire cache l'émotion des retrouvailles : il peut reprendre la mer, certain de ne plus avancer seul.",
-        "color": "93AAA5",
-        "hue": 160,
+        "color": "F4E9AF",
         "role": 2,
-        "sentry": false,
+        "sentry": true,
         "canGuard": false,
         "canHeal": false,
         "advantage": 30,
@@ -12616,14 +12617,23 @@
       "createdAt": "2026-10-01T12:22:13.673Z",
       "publicationSource": "V4/expansions/2026-10-01-one-piece",
       "nativeRevision": {
-        "id": "2026-10-01-stat-personality",
-        "key": "luffy",
-        "proof": "V4/revisions/2026-10-01-stat-personality/work/49800101/verification.json",
-        "changedFields": [
-          "atk",
-          "defense"
-        ],
-        "previous": null
+        "id": "2026-10-01-luffy-light",
+        "proof": "V4/revisions/2026-10-01-luffy-light/work/verification.json",
+        "originalHashes": {
+          "profile.json": "696f288dc4b38921794d4534d9a7d25c235b0eb95fcb792b07b944f15c30619d",
+          "card.png": "4bf8db59165ee19c832a9b729e74b6847b9af4b7e100441c7c7941f6ebee5c9b",
+          "card.psd": "8c0237a0d9ac3b88388778f2cb803a6a61d70621c7cda936a006ce54d21c280d",
+          "verification.json": "4a3df7d081c623119262541273923c41a11d37f5a5b9204f10deb6d0c63648e0",
+          "illustration.png": "2b5af6a48a9233f0a7dac5d3c41ff68a4b2d6075e8fa823710269212bc9941d3",
+          "creation.json": "214226ed743d5bdb1290b4b69469515500295154c2e0d5acea1e72883e6e4c70"
+        },
+        "hashes": {
+          "profile.json": "76fdd75de743d619742bc1a91d45416ba608c3d0686868ab115c110a37b7a855",
+          "card.png": "36db1577a3cdb2cb17b167be34ea154746405eba8e5ae3de460a2ae48b6bccbd",
+          "card.psd": "56bb8f2f635d61f1de0ae4c926f2d0aae0db732eec14572b4bee0cbeb91c26cd",
+          "verification.json": "5c48dbdd6b8dc37cb744148b116390c0c7c55f1a261c5718d249ce763307a6bd"
+        },
+        "publishedAt": "2026-10-01T14:59:45.380Z"
       }
     },
     {
@@ -13556,6 +13566,1064 @@
       "psdUrl": "/media/created/49800201.psd",
       "createdAt": "2026-10-01T13:10:41.083Z",
       "publicationSource": "V4/expansions/2026-10-01-rikka-rooftops"
+    },
+    {
+      "id": "49800301",
+      "kind": "created",
+      "creationJob": "2fd86dc9-99d7-4007-b318-4a89dfafc788",
+      "name": "SANJI",
+      "title": "Le feu sous le costume",
+      "element": "PYRO",
+      "profile": {
+        "name": "SANJI",
+        "title": "Le feu sous le costume",
+        "job": "CUISINIER",
+        "description": "Sur le quai, Sanji ajuste sa manche et se place devant les siens. Sous le costume noir, sa jambe s'embrase : il sourit encore, mais personne ne passera avant son équipage.",
+        "element": "PYRO",
+        "race": "HUMAIN",
+        "weapon": "Poing",
+        "faction": "ONEPIECE",
+        "positions": [
+          3,
+          4
+        ],
+        "atk": [
+          283,
+          216,
+          196,
+          131,
+          56,
+          "buff_atk"
+        ],
+        "defense": [
+          165,
+          146,
+          102,
+          "dodge",
+          38,
+          17
+        ],
+        "magic": [
+          6,
+          4
+        ],
+        "barriers": [
+          5
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49800301",
+        "characterId": "sanji-op",
+        "slug": "V4_49800301",
+        "output": "KALISTAR_V4_49800301",
+        "text": "Sur le quai, Sanji ajuste sa manche et se place devant les siens. Sous le costume noir, sa jambe s'embrase : il sourit encore, mais personne ne passera avant son équipage.",
+        "color": "FF704A",
+        "hue": 12,
+        "role": 4,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x One Piece - fan crossover non officiel",
+        "visual_revision": "V4-2026-10-01-one-piece-witcher",
+        "collaboration": "ONEPIECE",
+        "officialCollaboration": false,
+        "previous_model": "49800103",
+        "artworkSource": "V4/Illustrations/OP_sanji_black_01.png"
+      },
+      "png": "V4/creations/49800301/card.png",
+      "psd": "V4/creations/49800301/card.psd",
+      "pngUrl": "/media/created/49800301.png",
+      "psdUrl": "/media/created/49800301.psd",
+      "createdAt": "2026-10-01T14:56:43.841Z",
+      "publicationSource": "V4/expansions/2026-10-01-one-piece-witcher"
+    },
+    {
+      "id": "49800302",
+      "kind": "created",
+      "creationJob": "bb75d512-5ca5-4489-8f67-77e8a7cc28d9",
+      "name": "SHANKS LE ROUX",
+      "title": "Cette guerre s'arrête ici",
+      "element": "LUXO",
+      "profile": {
+        "name": "SHANKS LE ROUX",
+        "title": "Cette guerre s'arrête ici",
+        "job": "EMPEREUR",
+        "description": "Dans le silence de Marineford, Shanks lève son sabre. Il ne réclame aucune victoire : il protège les vies encore debout. Sa voix calme pèse plus lourd que tous les canons.",
+        "element": "LUXO",
+        "race": "HUMAIN",
+        "weapon": "Epée longue",
+        "faction": "ONEPIECE",
+        "positions": [
+          1,
+          2
+        ],
+        "atk": [
+          205,
+          152,
+          128,
+          81,
+          41,
+          "guard"
+        ],
+        "defense": [
+          291,
+          213,
+          188,
+          112,
+          68,
+          "retry"
+        ],
+        "magic": [
+          4
+        ],
+        "barriers": [
+          6
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49800302",
+        "characterId": "shanks-op",
+        "slug": "V4_49800302",
+        "output": "KALISTAR_V4_49800302",
+        "text": "Dans le silence de Marineford, Shanks lève son sabre. Il ne réclame aucune victoire : il protège les vies encore debout. Sa voix calme pèse plus lourd que tous les canons.",
+        "color": "F4E9AF",
+        "hue": 47,
+        "weapon_index": 17,
+        "role": 1,
+        "sentry": true,
+        "canGuard": true,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x One Piece - fan crossover non officiel",
+        "visual_revision": "V4-2026-10-01-one-piece-witcher",
+        "collaboration": "ONEPIECE",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/OP_shanks_01.png"
+      },
+      "png": "V4/creations/49800302/card.png",
+      "psd": "V4/creations/49800302/card.psd",
+      "pngUrl": "/media/created/49800302.png",
+      "psdUrl": "/media/created/49800302.psd",
+      "createdAt": "2026-10-01T14:56:43.883Z",
+      "publicationSource": "V4/expansions/2026-10-01-one-piece-witcher"
+    },
+    {
+      "id": "49800303",
+      "kind": "created",
+      "creationJob": "2b43d063-5ab4-44e4-89cd-f5c08bdf951a",
+      "name": "PORTGAS D. ACE",
+      "title": "Une flamme pour mon frère",
+      "element": "PYRO",
+      "profile": {
+        "name": "PORTGAS D. ACE",
+        "title": "Une flamme pour mon frère",
+        "job": "COMMANDANT",
+        "description": "Sous le soleil d'Alabasta, Ace retrouve enfin la piste de Luffy. Une flamme danse dans sa paume et son sourire revient : même loin de son navire, il n'a jamais cessé d'être son frère.",
+        "element": "PYRO",
+        "race": "HUMAIN",
+        "weapon": "Poing",
+        "faction": "ONEPIECE",
+        "positions": [
+          3,
+          4
+        ],
+        "atk": [
+          292,
+          223,
+          178,
+          139,
+          58,
+          23
+        ],
+        "defense": [
+          158,
+          132,
+          112,
+          66,
+          44,
+          "retry"
+        ],
+        "magic": [
+          6,
+          5,
+          3
+        ],
+        "barriers": [
+          4
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49800303",
+        "characterId": "portgas-d-ace-op",
+        "slug": "V4_49800303",
+        "output": "KALISTAR_V4_49800303",
+        "text": "Sous le soleil d'Alabasta, Ace retrouve enfin la piste de Luffy. Une flamme danse dans sa paume et son sourire revient : même loin de son navire, il n'a jamais cessé d'être son frère.",
+        "color": "FF704A",
+        "hue": 12,
+        "role": 4,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x One Piece - fan crossover non officiel",
+        "visual_revision": "V4-2026-10-01-one-piece-witcher",
+        "collaboration": "ONEPIECE",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/OP_ace_01.png"
+      },
+      "png": "V4/creations/49800303/card.png",
+      "psd": "V4/creations/49800303/card.psd",
+      "pngUrl": "/media/created/49800303.png",
+      "psdUrl": "/media/created/49800303.psd",
+      "createdAt": "2026-10-01T14:56:43.916Z",
+      "publicationSource": "V4/expansions/2026-10-01-one-piece-witcher"
+    },
+    {
+      "id": "49800304",
+      "kind": "created",
+      "creationJob": "80302889-4599-4977-a8ee-ae67e297a0b0",
+      "name": "TRAFALGAR LAW",
+      "title": "Le prix d'une vie",
+      "element": "HEMATO",
+      "profile": {
+        "name": "TRAFALGAR LAW",
+        "title": "Le prix d'une vie",
+        "job": "CHIRURGIEN",
+        "description": "Sur le pont du Polar Tang, Law mesure le chemin qui reste à parcourir. Sa main dessine une sphère silencieuse : sauver une vie exige parfois de défier le monde qui l'a condamnée.",
+        "element": "HEMATO",
+        "race": "HUMAIN",
+        "weapon": "Katana",
+        "faction": "ONEPIECE",
+        "positions": [
+          3,
+          5
+        ],
+        "atk": [
+          161,
+          139,
+          "revive",
+          63,
+          "mana",
+          22
+        ],
+        "defense": [
+          202,
+          149,
+          123,
+          "dodge",
+          41,
+          "retry"
+        ],
+        "magic": [
+          5
+        ],
+        "barriers": [
+          6
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49800304",
+        "characterId": "trafalgar-law-op",
+        "slug": "V4_49800304",
+        "output": "KALISTAR_V4_49800304",
+        "text": "Sur le pont du Polar Tang, Law mesure le chemin qui reste à parcourir. Sa main dessine une sphère silencieuse : sauver une vie exige parfois de défier le monde qui l'a condamnée.",
+        "color": "E84976",
+        "hue": 343,
+        "weapon_index": 18,
+        "role": 5,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": true,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x One Piece - fan crossover non officiel",
+        "visual_revision": "V4-2026-10-01-one-piece-witcher",
+        "collaboration": "ONEPIECE",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/OP_law_01.png"
+      },
+      "png": "V4/creations/49800304/card.png",
+      "psd": "V4/creations/49800304/card.psd",
+      "pngUrl": "/media/created/49800304.png",
+      "psdUrl": "/media/created/49800304.psd",
+      "createdAt": "2026-10-01T14:56:43.951Z",
+      "publicationSource": "V4/expansions/2026-10-01-one-piece-witcher"
+    },
+    {
+      "id": "49800305",
+      "kind": "created",
+      "creationJob": "7d73ebec-fef1-4ec2-81af-4c499d1a9fc2",
+      "name": "BOA HANCOCK",
+      "title": "La volonté de l'impératrice",
+      "element": "LUXO",
+      "profile": {
+        "name": "BOA HANCOCK",
+        "title": "La volonté de l'impératrice",
+        "job": "IMPERATRICE",
+        "description": "Sur la terrasse d'Amazon Lily, Hancock lève la main et impose le silence. Derrière son orgueil veille une peur ancienne : elle ne laissera plus personne reprendre la liberté de son peuple.",
+        "element": "LUXO",
+        "race": "HUMAIN",
+        "weapon": "Orbe",
+        "faction": "ONEPIECE",
+        "positions": [
+          3,
+          4
+        ],
+        "atk": [
+          276,
+          245,
+          166,
+          129,
+          67,
+          "death"
+        ],
+        "defense": [
+          166,
+          137,
+          103,
+          "dodge",
+          35,
+          16
+        ],
+        "magic": [
+          6,
+          4
+        ],
+        "barriers": [
+          5
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49800305",
+        "characterId": "boa-hancock-op",
+        "slug": "V4_49800305",
+        "output": "KALISTAR_V4_49800305",
+        "text": "Sur la terrasse d'Amazon Lily, Hancock lève la main et impose le silence. Derrière son orgueil veille une peur ancienne : elle ne laissera plus personne reprendre la liberté de son peuple.",
+        "color": "F4E9AF",
+        "hue": 47,
+        "weapon_index": 14,
+        "role": 4,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x One Piece - fan crossover non officiel",
+        "visual_revision": "V4-2026-10-01-one-piece-witcher",
+        "collaboration": "ONEPIECE",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/OP_boa_01.png"
+      },
+      "png": "V4/creations/49800305/card.png",
+      "psd": "V4/creations/49800305/card.psd",
+      "pngUrl": "/media/created/49800305.png",
+      "psdUrl": "/media/created/49800305.psd",
+      "createdAt": "2026-10-01T14:56:43.986Z",
+      "publicationSource": "V4/expansions/2026-10-01-one-piece-witcher"
+    },
+    {
+      "id": "49800306",
+      "kind": "created",
+      "creationJob": "1ffbfc50-d726-4f04-bcaa-69ebc87aa1c7",
+      "name": "KOBY",
+      "title": "Le courage de dire stop",
+      "element": "NONE",
+      "profile": {
+        "name": "KOBY",
+        "title": "Le courage de dire stop",
+        "job": "MARINE",
+        "description": "Koby s'agenouille auprès des blessés et ose demander l'arrêt des combats. Sa voix tremble, pas sa décision : sauver ceux qui restent compte davantage que gagner une minute de guerre.",
+        "element": "NONE",
+        "race": "HUMAIN",
+        "weapon": "Poing",
+        "faction": "ONEPIECE",
+        "positions": [
+          5
+        ],
+        "atk": [
+          153,
+          127,
+          "guard",
+          "buff_atk",
+          "retry",
+          14
+        ],
+        "defense": [
+          194,
+          156,
+          115,
+          82,
+          44,
+          "retry"
+        ],
+        "magic": [],
+        "barriers": [],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49800306",
+        "characterId": "koby-op",
+        "slug": "V4_49800306",
+        "output": "KALISTAR_V4_49800306",
+        "text": "Koby s'agenouille auprès des blessés et ose demander l'arrêt des combats. Sa voix tremble, pas sa décision : sauver ceux qui restent compte davantage que gagner une minute de guerre.",
+        "color": "93AAA5",
+        "hue": 160,
+        "role": 5,
+        "sentry": false,
+        "canGuard": true,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x One Piece - fan crossover non officiel",
+        "visual_revision": "V4-2026-10-01-one-piece-witcher",
+        "collaboration": "ONEPIECE",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/OP_koby_01.png"
+      },
+      "png": "V4/creations/49800306/card.png",
+      "psd": "V4/creations/49800306/card.psd",
+      "pngUrl": "/media/created/49800306.png",
+      "psdUrl": "/media/created/49800306.psd",
+      "createdAt": "2026-10-01T14:56:44.024Z",
+      "publicationSource": "V4/expansions/2026-10-01-one-piece-witcher"
+    },
+    {
+      "id": "49800307",
+      "kind": "created",
+      "creationJob": "b30fb07b-ebbc-49ca-9b98-2af098f0cdef",
+      "name": "BAGGY",
+      "title": "Le panache de la panique",
+      "element": "PYRO",
+      "profile": {
+        "name": "BAGGY",
+        "title": "Le panache de la panique",
+        "job": "PIRATE",
+        "description": "Au bord du quai, Baggy brandit ses lames et promet une sortie triomphale. Son sourire tremble un peu : derrière le spectacle, il cherche surtout le prochain miracle qui le gardera vivant.",
+        "element": "PYRO",
+        "race": "HUMAIN",
+        "weapon": "Dague",
+        "faction": "ONEPIECE",
+        "positions": [
+          2,
+          4
+        ],
+        "atk": [
+          255,
+          240,
+          184,
+          107,
+          89,
+          "retry"
+        ],
+        "defense": [
+          176,
+          124,
+          112,
+          "dodge",
+          44,
+          "retry"
+        ],
+        "magic": [
+          5
+        ],
+        "barriers": [],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49800307",
+        "characterId": "buggy-op",
+        "slug": "V4_49800307",
+        "output": "KALISTAR_V4_49800307",
+        "text": "Au bord du quai, Baggy brandit ses lames et promet une sortie triomphale. Son sourire tremble un peu : derrière le spectacle, il cherche surtout le prochain miracle qui le gardera vivant.",
+        "color": "FF704A",
+        "hue": 12,
+        "weapon_index": 15,
+        "role": 4,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x One Piece - fan crossover non officiel",
+        "visual_revision": "V4-2026-10-01-one-piece-witcher",
+        "collaboration": "ONEPIECE",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/OP_buggy_01.png"
+      },
+      "png": "V4/creations/49800307/card.png",
+      "psd": "V4/creations/49800307/card.psd",
+      "pngUrl": "/media/created/49800307.png",
+      "psdUrl": "/media/created/49800307.psd",
+      "createdAt": "2026-10-01T14:56:44.063Z",
+      "publicationSource": "V4/expansions/2026-10-01-one-piece-witcher"
+    },
+    {
+      "id": "49800308",
+      "kind": "created",
+      "creationJob": "fa51fd77-d7b0-4b7e-9a4b-0e37626b6e2b",
+      "name": "ALVIDA",
+      "title": "La dame à la masse",
+      "element": "MINERO",
+      "profile": {
+        "name": "ALVIDA",
+        "title": "La dame à la masse",
+        "job": "CAPITAINE",
+        "description": "Dans les rues humides de Loguetown, Alvida reconnaît sa proie. Sa masse repose sur l'épaule, son sourire ne bouge pas : elle n'a pas traversé les mers pour accepter un nouvel affront.",
+        "element": "MINERO",
+        "race": "HUMAIN",
+        "weapon": "Masse",
+        "faction": "ONEPIECE",
+        "positions": [
+          1
+        ],
+        "atk": [
+          203,
+          157,
+          123,
+          94,
+          46,
+          18
+        ],
+        "defense": [
+          288,
+          223,
+          183,
+          113,
+          71,
+          "dodge"
+        ],
+        "magic": [
+          3
+        ],
+        "barriers": [
+          5
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49800308",
+        "characterId": "alvida-op",
+        "slug": "V4_49800308",
+        "output": "KALISTAR_V4_49800308",
+        "text": "Dans les rues humides de Loguetown, Alvida reconnaît sa proie. Sa masse repose sur l'épaule, son sourire ne bouge pas : elle n'a pas traversé les mers pour accepter un nouvel affront.",
+        "color": "B3BFCA",
+        "hue": 210,
+        "weapon_index": 2,
+        "role": 1,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x One Piece - fan crossover non officiel",
+        "visual_revision": "V4-2026-10-01-one-piece-witcher",
+        "collaboration": "ONEPIECE",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/OP_alvida_01.png"
+      },
+      "png": "V4/creations/49800308/card.png",
+      "psd": "V4/creations/49800308/card.psd",
+      "pngUrl": "/media/created/49800308.png",
+      "psdUrl": "/media/created/49800308.psd",
+      "createdAt": "2026-10-01T14:56:44.103Z",
+      "publicationSource": "V4/expansions/2026-10-01-one-piece-witcher"
+    },
+    {
+      "id": "49800309",
+      "kind": "created",
+      "creationJob": "b617a9fd-161f-4efc-a571-2fea54dad28a",
+      "name": "DRACULE MIHAWK",
+      "title": "Le poids de la lame noire",
+      "element": "NECRO",
+      "profile": {
+        "name": "DRACULE MIHAWK",
+        "title": "Le poids de la lame noire",
+        "job": "BRETTEUR",
+        "description": "Sur les planches du Baratie, Mihawk observe son adversaire sans mépris. La lame noire demeure immobile : il reconnaît une volonté rare et attend le geste qui révélera sa véritable valeur.",
+        "element": "NECRO",
+        "race": "HUMAIN",
+        "weapon": "Epée longue",
+        "faction": "ONEPIECE",
+        "positions": [
+          1
+        ],
+        "atk": [
+          207,
+          146,
+          136,
+          89,
+          37,
+          "death"
+        ],
+        "defense": [
+          281,
+          242,
+          168,
+          116,
+          61,
+          21
+        ],
+        "magic": [
+          4
+        ],
+        "barriers": [
+          5
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49800309",
+        "characterId": "dracule-mihawk-op",
+        "slug": "V4_49800309",
+        "output": "KALISTAR_V4_49800309",
+        "text": "Sur les planches du Baratie, Mihawk observe son adversaire sans mépris. La lame noire demeure immobile : il reconnaît une volonté rare et attend le geste qui révélera sa véritable valeur.",
+        "color": "A979F7",
+        "hue": 270,
+        "weapon_index": 17,
+        "role": 1,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x One Piece - fan crossover non officiel",
+        "visual_revision": "V4-2026-10-01-one-piece-witcher",
+        "collaboration": "ONEPIECE",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/OP_mihawk_01.png"
+      },
+      "png": "V4/creations/49800309/card.png",
+      "psd": "V4/creations/49800309/card.psd",
+      "pngUrl": "/media/created/49800309.png",
+      "psdUrl": "/media/created/49800309.psd",
+      "createdAt": "2026-10-01T14:56:44.138Z",
+      "publicationSource": "V4/expansions/2026-10-01-one-piece-witcher"
+    },
+    {
+      "id": "49800310",
+      "kind": "created",
+      "creationJob": "90784976-385f-4a9a-8947-a96715fe5a00",
+      "name": "ARLONG",
+      "title": "La loi des crocs",
+      "element": "HYDRO",
+      "profile": {
+        "name": "ARLONG",
+        "title": "La loi des crocs",
+        "job": "TYRAN",
+        "description": "Au bord du bassin d'Arlong Park, le capitaine serre les poings. Son rictus masque une rancœur qu'il transforme en loi : devant lui, la peur doit remplacer toute idée de résistance.",
+        "element": "HYDRO",
+        "race": "SHARKAN",
+        "weapon": "Poing",
+        "faction": "ONEPIECE",
+        "positions": [
+          1,
+          2
+        ],
+        "atk": [
+          198,
+          168,
+          113,
+          98,
+          56,
+          11
+        ],
+        "defense": [
+          297,
+          205,
+          179,
+          132,
+          57,
+          29
+        ],
+        "magic": [
+          4
+        ],
+        "barriers": [
+          6
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49800310",
+        "characterId": "arlong-op",
+        "slug": "V4_49800310",
+        "output": "KALISTAR_V4_49800310",
+        "text": "Au bord du bassin d'Arlong Park, le capitaine serre les poings. Son rictus masque une rancœur qu'il transforme en loi : devant lui, la peur doit remplacer toute idée de résistance.",
+        "color": "38CBED",
+        "hue": 192,
+        "role": 1,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x One Piece - fan crossover non officiel",
+        "visual_revision": "V4-2026-10-01-one-piece-witcher",
+        "collaboration": "ONEPIECE",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/OP_arlong_01.png"
+      },
+      "png": "V4/creations/49800310/card.png",
+      "psd": "V4/creations/49800310/card.psd",
+      "pngUrl": "/media/created/49800310.png",
+      "psdUrl": "/media/created/49800310.psd",
+      "createdAt": "2026-10-01T14:56:44.169Z",
+      "publicationSource": "V4/expansions/2026-10-01-one-piece-witcher"
+    },
+    {
+      "id": "49900103",
+      "kind": "created",
+      "creationJob": "eceb8dc4-c249-456a-af8c-845aaf6a3ff5",
+      "name": "CIRI",
+      "title": "Une seconde d'avance",
+      "element": "ELECTRO",
+      "profile": {
+        "name": "CIRI",
+        "title": "Une seconde d'avance",
+        "job": "HERITIERE",
+        "description": "Ciri pivote dans la cour de Kaer Morhen, sa lame suivant un pas léger. Elle ne fuit plus ce qu'on attend d'elle : entre deux éclats de lumière, elle choisit enfin sa propre route.",
+        "element": "ELECTRO",
+        "race": "HUMAIN",
+        "weapon": "Epée courte",
+        "faction": "WITCHER",
+        "positions": [
+          3
+        ],
+        "atk": [
+          228,
+          178,
+          151,
+          96,
+          53,
+          25
+        ],
+        "defense": [
+          "dodge",
+          189,
+          142,
+          101,
+          65,
+          22
+        ],
+        "magic": [
+          4
+        ],
+        "barriers": [
+          5
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49900103",
+        "characterId": "ciri-witcher",
+        "slug": "V4_49900103",
+        "output": "KALISTAR_V4_49900103",
+        "text": "Ciri pivote dans la cour de Kaer Morhen, sa lame suivant un pas léger. Elle ne fuit plus ce qu'on attend d'elle : entre deux éclats de lumière, elle choisit enfin sa propre route.",
+        "color": "F5DC32",
+        "hue": 53,
+        "weapon_index": 16,
+        "role": 3,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x The Witcher - fan crossover non officiel",
+        "visual_revision": "V4-2026-10-01-one-piece-witcher",
+        "collaboration": "WITCHER",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/TW_ciri_01.png"
+      },
+      "png": "V4/creations/49900103/card.png",
+      "psd": "V4/creations/49900103/card.psd",
+      "pngUrl": "/media/created/49900103.png",
+      "psdUrl": "/media/created/49900103.psd",
+      "createdAt": "2026-10-01T14:56:44.203Z",
+      "publicationSource": "V4/expansions/2026-10-01-one-piece-witcher"
+    },
+    {
+      "id": "49900104",
+      "kind": "created",
+      "creationJob": "e32fa300-3ab7-44c3-9dfe-67d3a99e5585",
+      "name": "YENNEFER",
+      "title": "Rien ne m'arrêtera",
+      "element": "NECRO",
+      "profile": {
+        "name": "YENNEFER",
+        "title": "Rien ne m'arrêtera",
+        "job": "MAGICIENNE",
+        "description": "Dans le vent de Skellige, Yennefer rassemble une magie sombre. Le noir de sa tenue ne cache pas son inquiétude : pour retrouver Ciri, elle accepte ce que les autres n'osent pas tenter.",
+        "element": "NECRO",
+        "race": "HUMAIN",
+        "weapon": "Tome",
+        "faction": "WITCHER",
+        "positions": [
+          4
+        ],
+        "atk": [
+          296,
+          220,
+          187,
+          137,
+          "mana",
+          23
+        ],
+        "defense": [
+          159,
+          148,
+          103,
+          71,
+          42,
+          14
+        ],
+        "magic": [
+          6,
+          5,
+          4,
+          3
+        ],
+        "barriers": [
+          5,
+          3
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49900104",
+        "characterId": "yennefer-witcher",
+        "slug": "V4_49900104",
+        "output": "KALISTAR_V4_49900104",
+        "text": "Dans le vent de Skellige, Yennefer rassemble une magie sombre. Le noir de sa tenue ne cache pas son inquiétude : pour retrouver Ciri, elle accepte ce que les autres n'osent pas tenter.",
+        "color": "A979F7",
+        "hue": 270,
+        "weapon_index": 13,
+        "role": 4,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x The Witcher - fan crossover non officiel",
+        "visual_revision": "V4-2026-10-01-one-piece-witcher",
+        "collaboration": "WITCHER",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/TW_yennefer_01.png"
+      },
+      "png": "V4/creations/49900104/card.png",
+      "psd": "V4/creations/49900104/card.psd",
+      "pngUrl": "/media/created/49900104.png",
+      "psdUrl": "/media/created/49900104.psd",
+      "createdAt": "2026-10-01T14:56:44.235Z",
+      "publicationSource": "V4/expansions/2026-10-01-one-piece-witcher"
+    },
+    {
+      "id": "49900105",
+      "kind": "created",
+      "creationJob": "77d131aa-41b2-4230-831f-8bf1709781c5",
+      "name": "TRISS MERIGOLD",
+      "title": "La chaleur d'un refuge",
+      "element": "PYRO",
+      "profile": {
+        "name": "TRISS MERIGOLD",
+        "title": "La chaleur d'un refuge",
+        "job": "MAGICIENNE",
+        "description": "Au détour d'une rue de Novigrad, Triss éclaire le passage des fugitifs. Ses flammes tiennent la menace à distance : chaque visage qui rejoint l'ombre lui rend un peu d'espoir.",
+        "element": "PYRO",
+        "race": "HUMAIN",
+        "weapon": "Tome",
+        "faction": "WITCHER",
+        "positions": [
+          4
+        ],
+        "atk": [
+          286,
+          232,
+          173,
+          127,
+          73,
+          "mana"
+        ],
+        "defense": [
+          168,
+          128,
+          114,
+          64,
+          48,
+          9
+        ],
+        "magic": [
+          6,
+          5,
+          3
+        ],
+        "barriers": [
+          4
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49900105",
+        "characterId": "triss-witcher",
+        "slug": "V4_49900105",
+        "output": "KALISTAR_V4_49900105",
+        "text": "Au détour d'une rue de Novigrad, Triss éclaire le passage des fugitifs. Ses flammes tiennent la menace à distance : chaque visage qui rejoint l'ombre lui rend un peu d'espoir.",
+        "color": "FF704A",
+        "hue": 12,
+        "weapon_index": 13,
+        "role": 4,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x The Witcher - fan crossover non officiel",
+        "visual_revision": "V4-2026-10-01-one-piece-witcher",
+        "collaboration": "WITCHER",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/TW_triss_01.png"
+      },
+      "png": "V4/creations/49900105/card.png",
+      "psd": "V4/creations/49900105/card.psd",
+      "pngUrl": "/media/created/49900105.png",
+      "psdUrl": "/media/created/49900105.psd",
+      "createdAt": "2026-10-01T14:56:44.270Z",
+      "publicationSource": "V4/expansions/2026-10-01-one-piece-witcher"
+    },
+    {
+      "id": "49900107",
+      "kind": "created",
+      "creationJob": "924000fb-6e41-4520-8e3d-bffd9cdce48d",
+      "name": "DANDELION",
+      "title": "Une ballade pour les vivants",
+      "element": "LUXO",
+      "profile": {
+        "name": "DANDELION",
+        "title": "Une ballade pour les vivants",
+        "job": "BARDE",
+        "description": "À Novigrad, Dandelion pince les cordes de son luth et retrouve le sourire de la salle. Une chanson ne change pas le passé ; elle donne parfois à un ami la force de poursuivre la route.",
+        "element": "LUXO",
+        "race": "HUMAIN",
+        "weapon": "Instrument",
+        "faction": "WITCHER",
+        "positions": [
+          5
+        ],
+        "atk": [
+          157,
+          123,
+          "revive",
+          "retry",
+          "buff_atk",
+          16
+        ],
+        "defense": [
+          197,
+          158,
+          114,
+          86,
+          42,
+          "retry"
+        ],
+        "magic": [
+          5
+        ],
+        "barriers": [
+          4
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49900107",
+        "characterId": "dandelion-witcher",
+        "slug": "V4_49900107",
+        "output": "KALISTAR_V4_49900107",
+        "text": "À Novigrad, Dandelion pince les cordes de son luth et retrouve le sourire de la salle. Une chanson ne change pas le passé ; elle donne parfois à un ami la force de poursuivre la route.",
+        "color": "F4E9AF",
+        "hue": 47,
+        "weapon_index": 11,
+        "role": 5,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": true,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x The Witcher - fan crossover non officiel",
+        "visual_revision": "V4-2026-10-01-one-piece-witcher",
+        "collaboration": "WITCHER",
+        "officialCollaboration": false,
+        "artworkSource": "V4/Illustrations/TW_dandelion_01.png"
+      },
+      "png": "V4/creations/49900107/card.png",
+      "psd": "V4/creations/49900107/card.psd",
+      "pngUrl": "/media/created/49900107.png",
+      "psdUrl": "/media/created/49900107.psd",
+      "createdAt": "2026-10-01T14:56:44.298Z",
+      "publicationSource": "V4/expansions/2026-10-01-one-piece-witcher"
     }
   ]
 }
