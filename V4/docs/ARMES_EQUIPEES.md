@@ -93,7 +93,12 @@ Les changements sont atomiques, avec verification du profil ayant servi a
 la confirmation. Une confirmation ancienne ne peut pas ecraser un changement
 effectue dans un autre onglet. Paris et Tokyo ont des profils distincts.
 
-Nouvelle partie :
+Nouvelle composition (V4.3.7) : le loadout propre a chaque deck fait autorite.
+Le profil global n'est qu'une preference initiale de migration. Voir
+[Composition d'equipe](COMPOSITION_EQUIPE.md). Un match conserve les definitions
+et loadouts copies au lancement, meme si le joueur modifie son equipe ensuite.
+
+Appel historique / technique :
 
 ```js
 engine.newGame(deck0, deck1, {
@@ -101,8 +106,9 @@ engine.newGame(deck0, deck1, {
 });
 ```
 
-L'interface prend le profil actif pour le joueur ; l'adversaire automatique
-n'a pas d'arme equipee par defaut. Le moteur supporte les deux camps de facon
+Les anciens appels techniques peuvent prendre le profil actif. Un adversaire
+tableau n'a pas d'arme equipee par defaut; une equipe adverse sauvegardee fournit
+son propre loadout. Le moteur supporte les deux camps de facon
 symetrique. Le match conserve une copie des definitions ET des deux loadouts :
 une modification du profil ne change jamais un match commence.
 
@@ -146,6 +152,12 @@ Animations WAAPI, ResizeObserver et listeners sont nettoyes lors du rendu,
 de la navigation et de la fermeture. Pas de Canvas permanent par arme.
 
 ## Ajouter Une Troisieme Arme
+
+Visuels uniques : voir `../revisions/2026-10-02-unique-weapon-art/README.md`.
+Le champ facultatif `art` choisit un WebP versionne du meme medaillon natif ;
+`visual` conserve la famille d'animation. Sans `art`, les anciens snapshots
+utilisent toujours leurs fichiers historiques. `build-weapon-art.cjs` calibre
+les PNG transparents sur le contour interieur sans modifier cadre ou regles.
 
 1. Relever le `characterId`, `job` ou `weapon` exact dans le catalogue V4.
 2. Ajouter une definition a `site/weapons.js` avec un ID nouveau et une

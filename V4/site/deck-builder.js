@@ -1,12 +1,12 @@
 (function (root, factory) {
-  const api = factory(typeof module === 'object' && module.exports ? require('./deck-library.js') : root.KalistarDeckLibrary);
+  const api = factory(typeof module === 'object' && module.exports ? require('./deck-library.js') : root.KalistarDeckLibrary,typeof module==='object'&&module.exports?require('./team-composition.js'):root.KalistarTeamComposition);
   if (typeof module === 'object' && module.exports) module.exports = api;
   else root.KalistarDeckBuilder = api;
-})(typeof globalThis !== 'undefined' ? globalThis : this, function (Library) {
+})(typeof globalThis !== 'undefined' ? globalThis : this, function (Library,Composition) {
   'use strict';
   const ROLES = ['Tank', 'DPS physique', 'Middle', 'DPS magique', 'Support'];
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const clone = d => ({ name: d.name, cards: d.cards.slice() });
+  const clone = d => ({ name: d.name, cards: d.cards.slice(),...(d.formation?{formation:d.formation.slice(),captain:d.captain,equipment:{...d.equipment}}:{}) });
   const icon = name => `<i data-lucide="${name}" aria-hidden="true"></i>`;
   const button = (action, symbol, label, extra = '') => `<button type="button" class="kdb-icon" data-deck-action="${action}" title="${esc(label)}" aria-label="${esc(label)}" ${extra}>${icon(symbol)}</button>`;
   const image = c => globalThis.KalistarCardMedia.image(c);
@@ -38,7 +38,8 @@
         return { owned: owned.length, available };
       } catch { return { owned: 0, available: 0 }; }
     }
-    function evaluate(slots) {
+    function evaluate(value) {
+      const team=Array.isArray(value)?null:value,slots=team?team.cards:value;
       const ids = slots.filter(id => id !== null), coverage = count(ids);
       const strict = typeof engine.validatePlayableDeck === 'function';
       const errors = errorsFrom(() => strict ? engine.validatePlayableDeck(ids.slice()) : engine.validateDeck(ids.slice()));
@@ -49,11 +50,12 @@
       const missing = coverage.flatMap((n, p) => n < 2 ? [p + 1] : []);
       if (missing.length && !strict) errors.push('Deux compatibles requis : ' + missing.map(p => 'P' + p).join(', ') + '.');
       let formation = null;
-      try { formation = engine.lineup(ids.slice()); } catch { /* Fail closed below. */ }
+      try { formation = team?team.formation.map(id=>ids.indexOf(id)):engine.lineup(ids.slice()); } catch { /* Fail closed below. */ }
       if (!Array.isArray(formation) || formation.length !== 5 || new Set(formation).size !== 5 || formation.some((index, p) => !Number.isInteger(index) || !byId.get(ids[index])?.positions.includes(p + 1))) {
         formation = null; errors.push('Formation P1\u2013P5 impossible.');
       }
       errors.push(...ownership(ids));
+      if(team)errors.push(...engine.validateComposition(team));
       if (validateDeck !== undefined) errors.push(...errorsFrom(() => validateDeck(ids.slice())));
       return { count: ids.length, coverage, missing, formation: formation?.map(index => ids[index]) || null, errors: [...new Set(errors)], playable: errors.length === 0 && !missing.length };
     }
@@ -73,15 +75,16 @@
       return [...values].map(([value, members]) => ({ value, members, count: members.length, bonus: bonus(members.map(m => m.id), field) }))
         .sort((a, b) => b.count - a.count || a.value.localeCompare(b.value, 'fr'));
     }
-    function candidate(slots, index, id) {
+    function candidate(slots, index, id, {formation=false}={}) {
       const c = byId.get(id); if (!c || !Number.isInteger(index) || index < 0 || index > 9) return null;
       const base = slots.filter((_, i) => i !== index), next = slots.slice(); next[index] = id;
       const available = availability(id), copies = base.filter(other => other === id).length;
       const characterConflict = base.some(other => byId.get(other)?.characterId === c.characterId);
       const rainbow = c.element === 'RAINBOW' && base.some(other => byId.get(other)?.element === 'RAINBOW');
       const same = slots[index] === id;
-      const allowed = !same && !characterConflict && copies < available.available && !rainbow;
-      const reason = same ? 'D\u00e9j\u00e0 dans ce slot' : characterConflict ? 'Une seule carte par personnage' : rainbow ? 'Une seule Rainbow' : copies >= available.available ? 'Aucun exemplaire disponible' : '';
+      const misplaced=formation&&index<5&&!c.positions.includes(index+1);
+      const allowed = !misplaced&&!same && !characterConflict && copies < available.available && !rainbow;
+      const reason = misplaced?c.name+' ne peut pas occuper P'+(index+1)+'.':same ? 'D\u00e9j\u00e0 dans ce slot' : characterConflict ? 'Une seule carte par personnage' : rainbow ? 'Une seule Rainbow' : copies >= available.available ? 'Aucun exemplaire disponible' : '';
       const affinities = {};
       for (const field of ['faction', 'race']) {
         const members = base.flatMap(other => byId.get(other)?.[field] === c[field] ? [{ id: other, name: byId.get(other).name }] : []);
@@ -101,6 +104,9 @@
     const { data, engine, registry, userId, getDraft, onDraft, onPlay, onDetail, renderHeaderTools = () => '', getEquipment = () => null, toast = () => {} } = options;
     if (typeof getDraft !== 'function' || typeof onDraft !== 'function') throw new Error('getDraft et onDraft sont requis.');
     const model = createModel(options), byId = new Map(data.cards.map(c => [String(c.id), c]));
+    const Team=Composition.create(engine,options.getEquipmentDefaults);
+    const candidate=(slots,index,id)=>model.candidate(slots,index,id,{formation:true});
+    let recruitMode='characters';
     let library, libraryError = '', root = null, selected = '', target = 0, previewId = null;
     let pendingDelete = false, working = new Map(), fileEpoch = 0, resizeObserver = null, busy = false, painting = false;
     let drag = null, dragFrame = 0, reorderFrom = null, reorderTo = null, suppressClickUntil = 0, announcement = '';
@@ -114,21 +120,21 @@
         throw new Error('Brouillon de profil invalide.');
       const cards = Array.from(value.cards);
       if (cards.some(id => id !== null && (typeof id !== 'string' || !byId.has(id)))) throw new Error('Brouillon incompatible avec les cartes V4 connues.');
-      return { name: value.name, cards: cards.concat(Array(10 - cards.length).fill(null)) };
+      const team=Team.normalize(value);team.cards=Team.slots(team);return team;
     }
     let draft = normalize(getDraft());
     working.set('', clone(draft)); target = Math.max(0, draft.cards.indexOf(null));
     try {
       library = Library.create({ storage: options.storage || globalThis.localStorage, userId,
-        knownIds: data.cards.map(c => String(c.id)), crypto: options.crypto || globalThis.crypto });
+        knownIds: data.cards.map(c => String(c.id)), normalizeDeck:Team.normalize,crypto: options.crypto || globalThis.crypto });
     } catch (error) { libraryError = error.message; }
     function savedDecks() {
       if (!library) return [];
       try { const list = library.list(); libraryError = ''; return list; }
       catch (error) { libraryError = error.message; return []; }
     }
-    function emit() { working.set(selected, clone(draft)); onDraft(clone(draft)); }
-    const editState = () => ({ cards: draft.cards.slice(), target, previewId });
+    function emit() { draft=Team.edit(draft,draft.cards);working.set(selected, clone(draft)); onDraft(clone(draft)); }
+    const editState = () => ({ ...clone(draft), target, previewId });
     function history() {
       if (!histories.has(selected)) histories.set(selected, { undo: [], redo: [] });
       return histories.get(selected);
@@ -145,9 +151,9 @@
         toast(errors[0] || 'Cette composition n\u2019est plus disponible.'); return;
       }
       const before = editState();
-      draft.cards = next.cards.slice(); target = next.target; previewId = next.previewId;
+      draft=clone(next); target = next.target; previewId = next.previewId;
       try { emit(); }
-      catch (error) { draft.cards = before.cards; target = before.target; previewId = before.previewId; working.set(selected, clone(draft)); toast(error.message); return; }
+      catch (error) { draft=clone(before); target = before.target; previewId = before.previewId; working.set(selected, clone(draft)); toast(error.message); return; }
       h[direction].pop(); h[direction === 'undo' ? 'redo' : 'undo'].push(before);
       cancelReorder(); pendingDelete = false;
       announce(direction === 'undo' ? 'Modification annul\u00e9e.' : 'Modification r\u00e9tablie.');
@@ -156,12 +162,14 @@
     function setDraft(next, id = selected) {
       cancelReorder();
       comparison = null;
+      managing=false;filtering=false;
       draft = normalize(next); selected = id; pendingDelete = false;
       target = Math.max(0, draft.cards.indexOf(null)); previewId = null; emit();
     }
     function visibleCandidates() {
       const search = filters.search.toLocaleLowerCase('fr').trim();
-      const list = data.cards.map(c => ({ card: c, detail: model.candidate(draft.cards, target, c.id) })).filter(({ card: c, detail: d }) => {
+      const list = data.cards.map(c => ({ card: c, detail: candidate(draft.cards, target, c.id) })).filter(({ card: c, detail: d }) => {
+        if(!d.owned)return false;
         if (search && ![c.name, c.title, c.faction, c.race, c.id].join(' ').toLocaleLowerCase('fr').includes(search)) return false;
         if (filters.position && !c.positions.includes(Number(filters.position))) return false;
         if (['faction', 'race', 'element', 'weapon'].some(field => filters[field] && c[field] !== filters[field])) return false;
@@ -232,7 +240,7 @@
     function previewHTML() {
       const c = byId.get(previewId) || byId.get(draft.cards[target]) || byId.get(visibleCandidates().items[0]?.card.id);
       if (!c) return '<div class="kdb-preview-empty">Aucune carte</div>';
-      const d = model.candidate(draft.cards, target, c.id);
+      const d = candidate(draft.cards, target, c.id);
       return `<div class="kdb-preview-heading"><h2>${esc(c.name)}</h2>${button('detail', 'scan-eye', 'D\u00e9tails de ' + c.name, `data-id="${c.id}" ${onDetail ? '' : 'disabled'}`)}</div>
         <img class="kdb-preview-image" src="${image(c)}" alt="Carte compl\u00e8te ${esc(c.name)} : ${esc(c.title)}">
         <p class="kdb-preview-title">${esc(c.title)}</p><p class="kdb-muted">${c.positions.map(p => 'P' + p).join(' / ')} \u00b7 ${esc(c.weapon)}</p>
@@ -246,14 +254,14 @@
     }
     function candidateHTML({ card: c, detail: d }, index = 0) {
       const f = d.affinities.faction, r = d.affinities.race;
-      return `<article class="kdb-candidate ${d.allowed ? '' : 'is-unavailable'}" data-deck-preview="${c.id}"><button type="button" class="kdb-candidate-image" data-deck-action="preview" data-deck-recruit="${c.id}" data-id="${c.id}" title="${esc(c.name+' : '+c.title)}" aria-label="Aper\u00e7u de ${esc(c.name)}"><img src="${image(c)}" alt="${esc(c.name)}" loading="${index<10?'eager':'lazy'}" decoding="async" draggable="false"></button>
+      return `<article class="kdb-candidate ${d.allowed ? '' : 'is-unavailable'}" data-deck-preview="${c.id}"><button type="button" class="kdb-candidate-image" data-deck-action="add" data-deck-recruit="${c.id}" data-id="${c.id}" title="${esc(d.allowed?c.name+' : '+c.title:d.reason)}" aria-label="Recruter ${esc(c.name)}"><img src="${image(c)}" alt="${esc(c.name)}" loading="${index<10?'eager':'lazy'}" decoding="async" draggable="false"></button>
         <div class="kdb-candidate-info"><b>${esc(c.name)}</b><span>${c.positions.map(p => 'P' + p).join('/')}</span>
         <span class="kdb-candidate-gain" title="Variation de potentiel au slot ${target+1}">${icon('sword')}${signed(f.delta)} ${icon('shield')}${signed(r.delta)}</span>
-        <div class="kdb-candidate-controls"><span>${d.copies}/${d.available}</span>${button('add', draft.cards[target] ? 'replace' : 'plus', d.allowed ? (draft.cards[target] ? 'Remplacer le slot ' : 'Ajouter au slot ') + (target + 1) + ' : ' + c.name : d.reason, `data-id="${c.id}" ${d.allowed && !busy ? '' : 'disabled'}`)}</div></div></article>`;
+        <div class="kdb-candidate-controls"><span>${d.copies}/${d.available}</span>${button('detail','scan-eye','Inspecter '+c.name,`data-id="${c.id}"`)}${button('add', draft.cards[target] ? 'replace' : 'plus', d.allowed ? (draft.cards[target] ? 'Remplacer le slot ' : 'Ajouter au slot ') + (target + 1) + ' : ' + c.name : d.reason, `data-id="${c.id}" ${d.allowed && !busy ? '' : 'disabled'}`)}</div></div></article>`;
     }
     function comparisonHTML() {
       if (!comparison) return '';
-      const old = byId.get(comparison.outgoing), next = byId.get(comparison.id), detail = model.candidate(draft.cards, comparison.index, next.id);
+      const old = byId.get(comparison.outgoing), next = byId.get(comparison.id), detail = candidate(draft.cards, comparison.index, next.id);
       const face = (c, field, i) => {
         const value = c[field][i], magical = (field === 'atk' ? c.magic : c.barriers).includes(6-i);
         const label = ({guard:'Garde',retry:'Tr\u00e8fle',mana:'Potion',revive:'Reraise',death:'Mort',dodge:'Esquive',buff_atk:'Puissance physique'})[value] || value;
@@ -271,15 +279,49 @@
     }
     function targetHTML() {
       const c = byId.get(draft.cards[target]);
-      return `<div class="kdb-target" aria-label="Emplacement ciblé">${c?`<img src="${image(c)}" alt="">`:icon('plus')}<span><small>Slot ${target+1} · ${c?'Remplacement':'Libre'}</small><b>${c?esc(c.name):'Nouvelle carte'}</b></span>${button('target-previous','chevron-left','Emplacement précédent',target===0?'disabled':'')}${button('target-next','chevron-right','Emplacement suivant',target===9?'disabled':'')}</div>`;
+      return `<div class="kdb-target" aria-label="Emplacement ciblé">${c?`<img src="${image(c)}" alt="">`:icon('plus')}<span><small>${target<5?'P'+(target+1):'Reserve '+(target-4)} · ${c?'Remplacement':'Libre'}</small><b>${c?esc(c.name):'Nouvelle carte'}</b></span>${button('target-previous','chevron-left','Emplacement précédent',target===0?'disabled':'')}${button('target-next','chevron-right','Emplacement suivant',target===9?'disabled':'')}</div>`;
+    }
+    function swapError(from,to){
+      if(from===null||to===null)return 'Choisissez une destination.';
+      for(const [source,destination] of [[from,to],[to,from]]){
+        const c=byId.get(draft.cards[source]);
+        if(c&&destination<5&&!c.positions.includes(destination+1))return c.name+' ne peut pas occuper P'+(destination+1)+'.';
+      }
+      return '';
+    }
+    function slotHTML(id,i){
+      const c=byId.get(id),w=c&&globalThis.KalistarWeapons.weapons.find(w=>w.id===draft.equipment[c.characterId]);
+      const leader=!!c&&draft.captain===id,unavailable=c&&!model.availability(id).available;
+      return `<div class="kdb-slot ${i===target?'is-selected':''} ${leader?'is-captain':''} ${unavailable?'is-unavailable':''}" data-deck-slot="${i}" ${c?`data-deck-preview="${id}"`:''}>
+        <div class="kdb-slot-top"><span>${i<5?'P'+(i+1):'R'+(i-4)}</span>${button('reorder','grip-vertical','Echanger '+(c?c.name:'la place'),`data-slot="${i}" aria-pressed="${reorderFrom===i}"`)}${c?button('remove','x','Retirer '+c.name,`data-slot="${i}"`):'<span></span>'}</div>
+        <button type="button" class="kdb-slot-image" data-deck-action="slot" data-slot="${i}" aria-pressed="${i===target}" aria-label="${i<5?'P'+(i+1):'Reserve'}${c?' : '+esc(c.name):' libre'}">${c?`<img src="${image(c)}" alt="${esc(c.name)}" draggable="false">${w?`<span class="team-equipped" role="img" aria-label="Arme equipee : ${esc(w.name)}">${globalThis.KalistarEquipmentFX.markup(w,{bonus:false})}</span>`:''}`:icon('plus')}</button>
+        <div class="team-card-caption"><span class="kdb-slot-label" title="${c?esc(c.name):'Libre'}">${c?esc(c.name):'Libre'}</span>${c?button('detail','scan-eye','Inspecter '+c.name,`data-id="${id}"`):''}</div>
+        ${i<5?button('captain','crown',leader?'Capitaine : '+c.name:'Definir le capitaine',`data-slot="${i}" aria-pressed="${leader}" ${c?'':'disabled'}`):''}
+      </div>`;
+    }
+    function dnaHTML(){
+      const leader=byId.get(draft.captain),active=draft.formation.filter(Boolean);
+      const group=(field,stat)=>model.groups(active,field).map(g=>`<button type="button" data-deck-action="group-filter" data-field="${field}" data-value="${esc(g.value)}"><img src="${globalThis.KalistarCollaborations.asset(field==='faction'?'factions':'races',g.value)}" alt=""><b>${esc(g.value)}</b><span class="kdb-link-pips" aria-label="${g.count} titulaires">${Array.from({length:5},(_,i)=>`<i class="${i<g.count?'lit':''}"></i>`).join('')}</span><strong>${signed(g.bonus)} ${stat}</strong>${leader?.[field]===g.value&&g.count>1?`<em title="Commandement du capitaine">${icon('crown')}+10</em>`:''}</button>`).join('');
+      const crystals=model.groups(active,'element');
+      return `<section class="team-dna" id="kdb-panel-synergy" aria-label="ADN de l'equipe"><div class="kdb-band-heading"><h2>ADN de l'equipe</h2><small>Formation de depart</small></div>
+        <div class="team-dna-grid"><div><h3>${icon('swords')}Factions</h3>${group('faction','ATK')}</div><div><h3>${icon('shield')}Races</h3>${group('race','DEF')}</div>
+        <div class="team-command"><h3>${icon('crown')}Capitaine</h3><b>${leader?esc(leader.name):'A choisir'}</b>${leader?`<span>${esc(leader.faction)} ${active.filter(id=>byId.get(id).faction===leader.faction).length>1?'+10 ATK':'sans lien'}</span><span>${esc(leader.race)} ${active.filter(id=>byId.get(id).race===leader.race).length>1?'+10 DEF':'sans lien'}</span>`:''}</div>
+        <div class="team-crystals"><h3>${icon('gem')}Cristaux</h3>${crystals.map(g=>`<span title="${esc(g.value)}">${g.value==='NONE'?icon('minus'):`<img src="${globalThis.KalistarCollaborations.asset('cristaux',g.value)}" alt="${esc(g.value)}">`}<b>\u00d7${g.count}</b></span>`).join('')}</div></div>
+        <details class="team-potential"><summary>Potentiel de l'equipe \u00b7 ${draft.cards.filter(Boolean).length} personnages</summary><div>${['faction','race'].map(field=>`<span>${icon(field==='faction'?'flag':'users')}${model.groups(draft.cards,field).map(g=>esc(g.value)+' \u00d7'+g.count).join(' \u00b7 ')}</span>`).join('')}</div></details></section>`;
+    }
+    function weaponHTML(){
+      const c=byId.get(draft.cards[target]),equipped=c&&draft.equipment[c.characterId];
+      if(!c)return '<p class="kdb-empty-results">Choisissez un personnage de votre equipe.</p>';
+      const weapons=globalThis.KalistarWeapons.weapons.filter(w=>globalThis.KalistarEquipment.compatible(w,c));
+      return `<div class="team-weapon-list">${weapons.map(w=>`<article class="team-weapon"><div class="team-weapon-art">${globalThis.KalistarEquipmentFX.markup(w,{bonus:false})}</div><div><h3>${esc(w.name)}</h3><strong>+${w.effect.value} ${w.effect.stat}</strong><p>${esc(w.condition)}</p><button type="button" data-deck-action="${equipped===w.id?'unequip':'equip'}" data-id="${w.id}" aria-pressed="${equipped===w.id}">${icon(equipped===w.id?'check':'sword')}${equipped===w.id?'Desequiper':'Equiper'}</button></div></article>`).join('')||'<p class="kdb-empty-results">Aucune arme compatible.</p>'}</div>`;
     }
     function render() {
-      const saved = savedDecks(), state = model.evaluate(draft.cards), list = visibleCandidates();
-      const entry = saved.find(d => d.id === selected), dirty = !entry || JSON.stringify(clone(entry)) !== JSON.stringify(draft);
-      const locked = libraryError || !library || busy;
-      const profile = userId === 'user-paris' ? 'Paris' : userId === 'user-tokyo' ? 'Tokyo' : userId;
-      return `<section class="kdb-page ${managing ? 'is-managing' : ''} ${filtering ? 'is-filtering' : ''}" data-panel="${panel}" aria-label="Composition du deck" ${busy ? 'aria-busy="true"' : ''}>
-        <header class="kdb-heading"><div class="kdb-heading-title"><span class="kdb-eyebrow">KALISTAR · ${esc(profile)}</span><h1>Escouade</h1></div>
+      const saved=savedDecks(),state=model.evaluate(draft),list=visibleCandidates();
+      const entry=saved.find(d=>d.id===selected),dirty=!entry||JSON.stringify(clone(entry))!==JSON.stringify(draft);
+      const locked=libraryError||!library||busy;
+      const profile=userId==='user-paris'?'Paris':userId==='user-tokyo'?'Tokyo':userId;
+      return `<section class="kdb-page team-page ${managing ? 'is-managing' : ''} ${filtering ? 'is-filtering' : ''}" data-panel="${panel}" aria-label="Composition du deck" ${busy ? 'aria-busy="true"' : ''}>
+        <header class="kdb-heading"><div class="kdb-heading-title"><span class="kdb-eyebrow">KALISTAR · ${esc(profile)}</span><h1>Composition</h1></div>
         <div class="kdb-deck-picker">${button('deck-previous','chevron-left','Deck précédent', !saved.length || busy ? 'disabled' : '')}<select data-deck-action="select" aria-label="Deck sauvegardé" ${busy ? 'disabled' : ''}><option value="">Brouillon du profil</option>${saved.map(d => `<option value="${d.id}" ${selected === d.id ? 'selected' : ''}>${esc(d.name)}</option>`).join('')}</select>${button('deck-next','chevron-right','Deck suivant', !saved.length || busy ? 'disabled' : '')}</div>
         <label class="kdb-name-label"><span class="kdb-sr-only">Nom du deck</span><input data-deck-action="name" aria-label="Nom du deck" maxlength="50" value="${esc(draft.name)}" autocomplete="off" ${busy ? 'disabled' : ''}></label>
         ${renderHeaderTools()}
@@ -288,25 +330,25 @@
         <div class="kdb-library-bar" ${managing ? '' : 'hidden'}><div class="kdb-menu-heading"><b>${saved.length}/10 decks</b><span class="kdb-save-state" data-deck-save-state>${dirty ? 'Non enregistré' : 'Enregistré'}</span>${button('manage','x','Fermer la gestion')}</div><div class="kdb-library-actions">${button('duplicate','copy','Dupliquer le deck courant',locked || saved.length >= 10 ? 'disabled' : '')}${button('new','file-plus-2','Nouveau brouillon',busy ? 'disabled' : '')}${button('delete','trash-2','Supprimer le deck sauvegardé',locked || !selected ? 'disabled' : '')}${button('export','download','Exporter la bibliothèque JSON',locked || !saved.length ? 'disabled' : '')}${button('import','upload','Importer une bibliothèque JSON',locked ? 'disabled' : '')}</div></div><input type="file" accept="application/json,.json" data-deck-file hidden>
         ${libraryError ? `<p class="kdb-storage-error" role="alert">Bibliothèque : ${esc(libraryError)}</p>` : ''}
         ${pendingDelete ? `<div class="kdb-delete-confirm" role="group" aria-label="Confirmer la suppression"><span>Supprimer ${esc(entry?.name)} ?</span>${button('confirm-delete','check','Confirmer la suppression')}${button('cancel-delete','x','Annuler la suppression')}</div>` : ''}
-        <nav class="kdb-mobile-nav" role="tablist" aria-label="Vues de composition">${[['board','Composition','layout-grid'],['recruit','Recruter','user-plus'],['synergy','Synergies','git-branch'],['inspect','Carte','scan-eye']].map(([id,label,symbol]) => `<button data-deck-action="panel" data-id="${id}" role="tab" aria-selected="${panel === id}" aria-controls="kdb-panel-${id}" tabindex="${panel === id ? 0 : -1}">${icon(symbol)}${label}</button>`).join('')}</nav>
-        <div class="kdb-workbench"><aside class="kdb-affinities" id="kdb-panel-synergy" aria-label="Synergies du deck"><div class="kdb-band-heading"><h2>Synergies</h2>${icon('git-branch')}</div><div class="kdb-affinity-tabs" role="group" aria-label="Type de synergie">${[['faction','Factions','flag'],['race','Races','users-round']].map(([id,label,symbol])=>`<button data-deck-action="affinity-type" data-id="${id}" aria-pressed="${affinityType === id}">${icon(symbol)}${label}</button>`).join('')}</div>${groupHTML(affinityType)}<p class="kdb-synergy-note">Potentiel · 5 cartes sur le plateau</p></aside>
-        <section class="kdb-composition" id="kdb-panel-board" aria-label="Dix emplacements du deck"><div class="kdb-band-heading"><h2>Composition</h2><div class="kdb-edit-tools">${button('undo','undo-2','Annuler la modification',history().undo.length&&!busy?'':'disabled')}${button('redo','redo-2','Rétablir la modification',history().redo.length&&!busy?'':'disabled')}<small>Slot ${target + 1}</small></div></div>
-        <div class="kdb-slots"><svg class="kdb-links" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">${linksHTML()}</svg>${draft.cards.map((id, i) => {
-          const c = byId.get(id), equipped = c && getEquipment(c), unavailable = c && draft.cards.filter(other => other === id).length > model.availability(id).available;
-          return `<div class="kdb-slot ${i === target ? 'is-selected' : ''} ${unavailable ? 'is-unavailable' : ''}" data-deck-slot="${i}" ${c ? `data-deck-preview="${id}"` : ''}><div class="kdb-slot-top"><span>${String(i + 1).padStart(2, '0')}</span>${button('reorder', 'grip-vertical', '\u00c9changer le slot ' + (i + 1) + (c ? ' : ' + c.name : ' vide'), `data-slot="${i}" aria-pressed="${reorderFrom === i}" ${busy ? 'disabled' : ''}`)}${c ? button('remove', 'x', 'Retirer ' + c.name + ' du slot ' + (i + 1), `data-slot="${i}" ${busy ? 'disabled' : ''}`) : '<span class="kdb-empty-tool"></span>'}</div>
-          <button type="button" class="kdb-slot-image" data-deck-action="slot" data-slot="${i}" aria-pressed="${i === target}" aria-label="Slot ${i + 1}${c ? ' : ' + esc(c.name) : ' vide'}" ${busy ? 'disabled' : ''}>${c ? `<img src="${image(c)}" alt="${esc(c.name)}" draggable="false">` : `${icon('plus')}<span>Vide</span>`}</button><span class="kdb-slot-label" title="${c ? esc(c.name) : 'Slot libre'}">${unavailable ? 'Indisponible' : c ? esc(c.name) : 'Libre'}</span>${equipped?`<button type="button" class="kdb-equipped" data-action="equipment-detail" data-id="${equipped.id}" title="${esc(equipped.name)}" aria-label="Arme \u00e9quip\u00e9e : ${esc(equipped.name)}">${icon('sword')}</button>`:''}</div>`;
-        }).join('')}</div>
 
-        <p class="kdb-reorder-status" data-deck-reorder-status role="status" aria-live="polite" aria-atomic="true">${esc(announcement)}</p>
-        <div class="kdb-coverage" aria-label="Compatibilité par poste">${state.coverage.map((n,p)=>`<button type="button" data-deck-action="position-filter" data-id="${p+1}" class="${n < 2 ? 'is-missing' : ''}" title="P${p+1} ${ROLES[p]} : ${n} compatibles, 2 requis"><b>${icon(['shield','sword','compass','sparkles','heart-pulse'][p])}P${p+1}<span>${n}/2</span></b><small>${ROLES[p]}</small></button>`).join('')}</div>
-        <div class="kdb-validation" role="status"><span class="${state.playable ? 'kdb-positive' : 'kdb-warning'}" title="${esc(state.errors.join(' '))}">${state.playable ? 'Formation P1–P5 possible' : state.count<10?`${10-state.count} carte${state.count<9?'s':''} à recruter` : esc(state.errors[0]||'Formation incomplète')}</span></div></section>
-        <aside class="kdb-preview" id="kdb-panel-inspect" aria-label="Aperçu de carte"><div class="kdb-preview-content" data-deck-preview-panel>${previewHTML()}</div></aside>
-        <section class="kdb-browser" aria-label="Cartes candidates">
-          <div class="kdb-band-heading"><h2>Recrutement <small>${list.total}</small></h2><div class="kdb-recruit-tools">
-            <label class="kdb-search"><span class="kdb-sr-only">Recherche</span><input type="search" data-deck-filter="search" aria-label="Recherche de cartes" value="${esc(filters.search)}" placeholder="Rechercher" autocomplete="off"></label>
-            ${button('filters','sliders-horizontal','Filtres de recrutement',`aria-expanded="${filtering}"`)}${Object.values(filters).some(Boolean)?button('reset-filters','filter-x','Effacer les filtres'):''}
-            <span class="kdb-rail-controls" role="group" aria-label="Faire défiler les cartes">${button('rail-left','chevron-left','Faire défiler vers la gauche','disabled')}${button('rail-right','chevron-right','Faire défiler vers la droite','disabled')}</span>
-          </div></div>${filtersHTML()}${targetHTML()}<div class="kdb-candidates" tabindex="0" aria-label="Cartes disponibles, faites défiler horizontalement">${list.items.map(candidateHTML).join('') || '<p class="kdb-empty-results">Aucune carte pour ces filtres.</p>'}</div></section></div>${comparisonHTML()}</section>`;
+        <nav class="kdb-mobile-nav" role="tablist" aria-label="Vues de composition">${[['board','Equipe','layout-grid'],['recruit','Recruter','user-plus'],['synergy','ADN','git-branch']].map(([id,label,symbol])=>`<button data-deck-action="panel" data-id="${id}" role="tab" aria-selected="${panel===id}" aria-controls="kdb-panel-${id}" tabindex="${panel===id?0:-1}">${icon(symbol)}${label}</button>`).join('')}</nav>
+        <div class="kdb-workbench">
+          <section class="kdb-composition" id="kdb-panel-board" aria-label="Composition de l'equipe">
+            <div class="kdb-band-heading"><h2>Titulaires</h2><div class="kdb-edit-tools">${button('undo','undo-2','Annuler',history().undo.length&&!busy?'':'disabled')}${button('redo','redo-2','Retablir',history().redo.length&&!busy?'':'disabled')}</div></div>
+            <div class="kdb-coverage" aria-label="Compatibilite sur les dix cartes">${state.coverage.map((n,p)=>`<button type="button" data-deck-action="position-filter" data-id="${p+1}" class="${n===0?'is-empty':n===1?'is-missing':''}" title="P${p+1} ${ROLES[p]} : ${n} compatibles, 2 requis"><b>${icon(['shield','sword','compass','sparkles','heart-pulse'][p])}P${p+1}<span>${n}/2</span></b><small>${ROLES[p]}</small></button>`).join('')}</div>
+            <div class="kdb-slots team-starters">${draft.cards.slice(0,5).map(slotHTML).join('')}</div>
+            <div class="team-reserve-heading"><h2>Reserve</h2><small>${draft.cards.slice(5).filter(Boolean).length}/5</small></div>
+            <div class="kdb-slots team-reserves">${draft.cards.slice(5).map((id,i)=>slotHTML(id,i+5)).join('')}</div>
+            <p class="kdb-reorder-status" data-deck-reorder-status role="status" aria-live="polite" aria-atomic="true">${esc(announcement)}</p>
+            <div class="kdb-validation" role="status"><span class="${state.playable?'kdb-positive':'kdb-warning'}" title="${esc(state.errors.join(' '))}">${state.playable?'Equipe prete':esc(state.errors.find(e=>e.includes('capitaine'))||state.errors[0]||'Formation incomplete')}</span></div>
+          </section>
+          <section class="kdb-browser" id="kdb-panel-recruit" aria-label="Bibliotheque de recrutement">
+            <div class="team-library-tabs" role="tablist" aria-label="Bibliotheque"><button type="button" role="tab" data-deck-action="recruit-mode" data-id="characters" aria-selected="${recruitMode==='characters'}">${icon('users')}Personnages</button><button type="button" role="tab" data-deck-action="recruit-mode" data-id="weapons" aria-selected="${recruitMode==='weapons'}">${icon('sword')}Armes</button></div>
+            ${targetHTML()}
+            ${recruitMode==='weapons'?weaponHTML():`<div class="kdb-band-heading"><h2>Recrutement <small>${list.total}</small></h2><div class="kdb-recruit-tools"><label class="kdb-search"><span class="kdb-sr-only">Recherche</span><input type="search" data-deck-filter="search" aria-label="Recherche de cartes" value="${esc(filters.search)}" placeholder="Rechercher" autocomplete="off"></label>${button('filters','sliders-horizontal','Filtres',`aria-expanded="${filtering}"`)}${Object.values(filters).some(Boolean)?button('reset-filters','filter-x','Effacer les filtres'):''}</div></div>${filtersHTML()}<div class="kdb-candidates" tabindex="0" aria-label="Personnages disponibles">${list.items.map(candidateHTML).join('')||'<p class="kdb-empty-results">Aucun personnage pour ces filtres.</p>'}</div>`}
+          </section>
+          ${dnaHTML()}
+        </div>${comparisonHTML()}</section>`;
     }
     function icons(node) { globalThis.lucide?.createIcons({ root: node }); }
     function repaint(focus) {
@@ -346,9 +388,9 @@
         node.classList.toggle('is-reorder-source', source === index);
         node.classList.toggle('is-pointer-source', !!drag?.active && source === index);
         node.classList.toggle('is-drop-target', destination === index && destination !== source);
-        const eligible = !!drag?.active && !!drag.recruit && model.candidate(draft.cards, index, drag.recruit)?.allowed;
+        const eligible = !!drag?.active && (drag.recruit?candidate(draft.cards,index,drag.recruit)?.allowed:!swapError(source,index));
         node.classList.toggle('is-drop-eligible', eligible);
-        node.classList.toggle('is-drop-blocked', !!drag?.active && !!drag.recruit && !eligible);
+        node.classList.toggle('is-drop-blocked', !!drag?.active&&!eligible);
         node.querySelector('[data-deck-action=reorder]')?.setAttribute('aria-pressed', String(source === index));
       });
     }
@@ -370,6 +412,7 @@
       if (busy || painting || !Number.isInteger(from) || !Number.isInteger(to) || from < 0 || from > 9 || to < 0 || to > 9 || from === to) return;
       const before = clone(draft), oldTarget = target, oldPreview = previewId, undo = editState();
       if (before.cards[from] === before.cards[to]) return;
+      const problem=swapError(from,to);if(problem){toast(problem);announce(problem);return;}
       const next = clone(draft); [next.cards[from], next.cards[to]] = [next.cards[to], next.cards[from]];
       draft = next; target = to; previewId = next.cards[to]; pendingDelete = false;
       try { emit(); }
@@ -379,8 +422,8 @@
       repaint({ action: 'slot', slot: String(to) });
     }
     function recruitTo(id, index, advance = false, confirmed = false) {
-      const candidate = model.candidate(draft.cards, index, id);
-      if (busy || !candidate?.allowed) { toast(candidate?.reason || 'Carte indisponible.'); return; }
+      const choice = candidate(draft.cards, index, id);
+      if (busy || !choice?.allowed) { toast(choice?.reason || 'Carte indisponible.'); return; }
       if (draft.cards[index] && !confirmed) {
         comparison = { id, index, advance, outgoing: draft.cards[index], deck: selected }; repaint(); return;
       }
@@ -484,7 +527,7 @@
       if (event.key === 'Escape' && (drag || reorderFrom !== null)) { event.preventDefault(); event.stopPropagation(); interrupt(); return; }
       if (event.key === 'Escape' && (managing || filtering)) { event.preventDefault(); managing = filtering = pendingDelete = false; repaint(); return; }
       if (event.target.matches('[data-deck-action=panel]') && ['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) {
-        const panels = ['board','recruit','synergy','inspect'], i = panels.indexOf(panel);
+        const panels = ['board','recruit','synergy'], i = panels.indexOf(panel);
         panel = panels[event.key === 'Home' ? 0 : event.key === 'End' ? panels.length-1 : (i + (event.key === 'ArrowRight' ? 1 : panels.length-1)) % panels.length];
         event.preventDefault(); repaint({action:'panel',id:panel}); return;
       }
@@ -553,11 +596,25 @@
         if (action === 'slot' && reorderFrom !== null) { const from = reorderFrom; cancelReorder(); swapSlots(from, Number(control.dataset.slot)); return; }
         cancelReorder();
         if (action === 'preview') {
-          showPreview(id);
-          if (root.getBoundingClientRect().width <= 900) { panel = 'inspect'; repaint({action:'panel',id:panel}); }
+          onDetail?.(id);
           return;
         }
         if (action === 'detail') { onDetail?.(id); return; }
+        if(action==='recruit-mode'){recruitMode=id==='weapons'?'weapons':'characters';repaint();return;}
+        if(action==='captain'){
+          const index=Number(control.dataset.slot);if(index>=5||!draft.cards[index])return;
+          const before=editState();draft.captain=draft.cards[index];
+          try{emit();}catch(error){draft=clone(before);working.set(selected,clone(draft));throw error;}
+          remember(before);announce(byId.get(draft.captain).name+' est capitaine.');repaint();return;
+        }
+        if(action==='equip'||action==='unequip'){
+          const c=byId.get(draft.cards[target]);if(!c)return;
+          const old=draft.equipment[c.characterId],carrier=Object.entries(draft.equipment).find(([key,value])=>value===id&&key!==c.characterId);
+          if(action==='equip'&&(old||carrier)&&!mountedWindow.confirm('Remplacer ou deplacer cette arme dans cette equipe ?'))return;
+          const before=editState();draft=Team.equip(draft,c.id,action==='unequip'?null:id);
+          try{emit();}catch(error){draft=clone(before);working.set(selected,clone(draft));throw error;}
+          remember(before);repaint();return;
+        }
         if (action === 'manage') { managing = !managing; filtering = false; }
         if (action === 'filters') { filtering = !filtering; managing = false; }
         if (action === 'panel') { panel = id; filtering = managing = false; }
@@ -565,17 +622,17 @@
         if (action === 'affinity-previous') affinityPage = Math.max(0, affinityPage - 1);
         if (action === 'affinity-next') affinityPage++;
         if (action === 'rail-left' || action === 'rail-right') { scrollRecruitmentRail(action === 'rail-left' ? -1 : 1); return; }
-        if (action === 'position-filter') { filters.position = filters.position === id ? '' : id; }
+        if (action === 'position-filter') { filters.position = filters.position === id ? '' : id; recruitMode='characters';if(mountedWindow?.matchMedia('(max-width:900px)').matches)panel='recruit'; }
         if (action === 'deck-previous' || action === 'deck-next') {
           const ids = ['', ...savedDecks().map(d=>d.id)], at = ids.indexOf(selected), nextId = ids[(at + (action === 'deck-next' ? 1 : ids.length - 1)) % ids.length];
           working.set(selected, clone(draft)); setDraft(working.get(nextId) || library.get(nextId), nextId);
         }
         if (action === 'slot' || action === 'target-previous' || action === 'target-next') { target = action==='slot'?Number(control.dataset.slot):Math.max(0,Math.min(9,target+(action==='target-next'?1:-1))); previewId = draft.cards[target]; }
-        if (action === 'slot' && mountedWindow?.matchMedia('(max-width:900px) and (max-height:700px)').matches) panel='recruit';
+        if (action === 'slot' && mountedWindow?.matchMedia('(max-width:900px)').matches) panel='recruit';
         if (action === 'remove') {
           const before = editState(); target = Number(control.dataset.slot); draft.cards = draft.cards.slice(); draft.cards[target] = null; pendingDelete = false; previewId = null;
           try { emit(); remember(before); }
-          catch (error) { draft.cards = before.cards; target = before.target; previewId = before.previewId; working.set(selected, clone(draft)); throw error; }
+          catch (error) { draft=clone(before); target = before.target; previewId = before.previewId; working.set(selected, clone(draft)); throw error; }
         }
         if (action === 'add') {
           recruitTo(id, target, true); return;
@@ -587,7 +644,7 @@
         if (action === 'confirm-delete' && pendingDelete && selected) {
           library.remove(selected); histories.delete(selected); histories.delete(''); working.delete(selected); selected = ''; pendingDelete = false; emit(); toast('Deck supprim\u00e9. Composition conserv\u00e9e en brouillon.');
         }
-        if (action === 'group-filter') { filters[control.dataset.field] = filters[control.dataset.field] === control.dataset.value ? '' : control.dataset.value; }
+        if (action === 'group-filter') { filters[control.dataset.field] = filters[control.dataset.field] === control.dataset.value ? '' : control.dataset.value; recruitMode='characters';if(mountedWindow?.matchMedia('(max-width:900px)').matches)panel='recruit'; }
         if (action === 'reset-filters') { filters = Object.fromEntries(Object.keys(filters).map(k => [k, ''])); }
         if (action === 'import') { root.querySelector('[data-deck-file]').click(); return; }
         if (action === 'export') {
@@ -596,7 +653,7 @@
           setTimeout(() => URL.revokeObjectURL(url), 1000); return;
         }
         if (action === 'play') {
-          const state = model.evaluate(draft.cards);
+          const state = model.evaluate(draft);
           if (!state.playable) throw new Error(state.errors.join(' '));
           if (!onPlay) return;
           emit(); busy = true; repaint();
@@ -694,7 +751,7 @@
         const index = draft.cards.findIndex(value=>value===cardId); if(index>=0){target=index;previewId=cardId;}
         panel='board'; filtering=managing=false;
       },
-      inspect: () => ({ draft: clone(draft), selectedId: selected || null, targetSlot: target, ...model.evaluate(draft.cards) })
+      inspect: () => ({ draft: clone(draft), selectedId: selected || null, targetSlot: target, ...model.evaluate(draft) })
     });
   }
   return Object.freeze({ create, createModel });

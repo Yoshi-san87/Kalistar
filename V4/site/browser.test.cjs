@@ -49,7 +49,7 @@ async function main() {
   await page.addInitScript(() => { if (!localStorage.getItem('kalistar.v3.sentinel')) localStorage.setItem('kalistar.v3.sentinel', 'preserved'); });
   await page.goto(url + '/jeu/');
   await page.waitForFunction(() => window.KALISTAR_READY === true);
-  assert.equal(await page.title(), 'Kalistar V4.3.6 · Collection, Decks et Arène');
+  assert.equal(await page.title(), 'Kalistar V4.3.7 · Collection, Decks et Arène');
   assert.deepEqual(await page.evaluate(() => [KALISTAR_DATA.cards.length, KALISTAR_DB.name, KALISTAR_DB.registry.owned('user-paris').length, KALISTAR_DB.registry.owned('user-tokyo').length]), [initialCount, 'kalistar-v4-cards', initialCount, 0]);
   assert.deepEqual(await page.evaluate(() => KALISTAR_DATA.cards.map(c => c.id).sort()), catalog.cards.map(c => c.id).sort());
   checks.push(`HTTP boot: ${approvedCount} approved + ${persistedPublications.length} published V4 cards, Paris${initialCount}/Tokyo0, independent IndexedDB`);
@@ -162,10 +162,10 @@ async function main() {
   await page.locator('[data-view=decks]').click();
   await page.waitForSelector('#deck-builder-root');
   await page.screenshot({ path: path.join(output, 'desktop-decks.png') });
+  await page.locator('[data-deck-action=captain][data-slot="0"]').click();
   await page.locator('[data-view=arena]').click();
-  await page.waitForSelector('[data-action=start]');
-  await page.locator('[data-action=start]').click();
   await page.waitForFunction(() => JSON.parse(localStorage.getItem('kalistar.v4.game'))?.phase === 'choose');
+  assert.equal(await page.locator('[data-action=start]').count(),0,'composed teams start without a setup screen');
   const savedGame = await page.evaluate(() => localStorage.getItem('kalistar.v4.game'));
   await page.screenshot({ path: path.join(output, 'desktop-arena.png') });
   const canvas = await page.locator('.dice-stage canvas').count();

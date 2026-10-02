@@ -1,7 +1,7 @@
 # Kalistar V4 - Regles et conventions
 
-Etat verifie le 20 septembre 2026. Synthese des decisions utilisateur et du
-comportement actuel, sans changement de gameplay. Retour au
+Etat actualise le 3 octobre 2026. Synthese des decisions utilisateur et du
+comportement actuel, avec composition et commandement demandes explicitement. Retour au
 [guide de reprise](../../docs/GUIDE_REPRISE.md).
 
 ## Sources et perimetre
@@ -27,6 +27,11 @@ comportement actuel, sans changement de gameplay. Retour au
 - Pour un deck jouable nouveau, au moins deux cartes compatibles avec CHAQUE
   position et une formation simultanee complete P1-P5 possible. Une carte
   polyvalente compte dans chaque position compatible, sans occuper deux places.
+- Cinq titulaires P1-P5 et un capitaine sont prepares et sauvegardes dans le
+  deck, avec son propre equipement. La nouvelle Arene demarre directement
+  avec cette formation, sans rappel ni placement initial. Les cinq autres
+  cartes forment une reserve commune, sans poste de remplacement dedie.
+  Les anciens matchs en setup gardent leur comportement historique.
 - Cinq cartes sont deployees au depart ; les autres sont en reserve. Apres le
   debut, une carte vivante ne change plus de position. Une elimination ouvre un
   remplacement uniquement par une carte de reserve compatible avec la place.
@@ -35,8 +40,24 @@ comportement actuel, sans changement de gameplay. Retour au
 
 Technique : `validatePlayableDeck()` impose la couverture 2. Le moteur conserve
 `validateDeck()`/`newGame()` avec couverture 1 par defaut pour les etats historiques.
-L'interface cree les nouvelles parties avec `deckCoverage: 2`. Ne pas utiliser
+L'interface cree les nouvelles parties avec une composition explicite qui impose
+`deckCoverage: 2`. Ne pas utiliser
 l'ancien defaut pour assouplir la construction des decks actuels.
+
+## Capitaine (3 octobre 2026)
+
+Un deck jouable possede exactement un capitaine parmi ses cinq titulaires.
+Tant qu'il est vivant sur le plateau ET qu'un autre allie partage sa faction,
+tous les combattants actifs de cette faction recoivent +10 ATK numerique.
+Meme regle pour sa race : +10 DEF numerique. Un seul +10 par lien, pas par
+allie. Chaque composante de synergie peut donc atteindre +40 normal +10
+commandement = +50. Le capitaine beneficie aussi de ses liens.
+
+Reserve et morts exclus. Un Reraise conserve la presence du capitaine;
+sa mort definitive retire le commandement immediatement. Aucun remplacant
+n'herite de la couronne. Les liens sont recalcules depuis le plateau reel.
+Les scores, l'IA et les journaux distinguent le commandement de la synergie.
+Voir [composition et migration](COMPOSITION_EQUIPE.md) pour le contrat technique.
 
 ## Duel et fin de rencontre
 
@@ -93,8 +114,8 @@ chiffre d'une face deja numerique change. Elle ne modifie pas le moteur et ne
 constitue pas une preuve de taux de victoire equilibres.
 
 ```text
-ATK = face + arme + cristal + faction + jeton ATK + arene ATK - barriere
-DEF = face + race + arene DEF + garde physique
+ATK = face + arme + cristal + faction + capitaine faction + jeton ATK + arene ATK - barriere
+DEF = face + race + capitaine race + arene DEF + garde physique
 Puis ajouter le bonus d'equipement applicable au total ATK ou DEF.
 Chaque total est borne a zero au minimum.
 ```

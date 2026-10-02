@@ -1,0 +1,198 @@
+.team-page { --kdb-header:64px; grid-template-rows:auto minmax(0,1fr); background:linear-gradient(135deg,#142720dc,#0a1517ef),url('assets/ui/collection-grimoire-v1.png') center/cover; }
+.team-page .kdb-heading { min-height:64px; flex-wrap:wrap; gap:6px; padding:8px 16px; }
+.team-page .kdb-heading h1 { font-size:22px; }
+.team-page .kdb-heading-title { margin-right:8px; }
+.team-page .kdb-heading-state { gap:8px; }
+.team-page .kdb-workbench { display:grid; grid-template-columns:minmax(0,3fr) minmax(320px,2fr); grid-template-rows:minmax(0,1fr) auto; grid-template-areas:'stage browser' 'dna dna'; gap:0; padding:0; overflow:hidden; }
+.team-page .kdb-composition { grid-area:stage; display:grid; grid-template-rows:32px 44px minmax(0,1fr) 26px minmax(0,1fr) 0 auto; gap:6px; padding:10px 18px 6px; min-width:0; min-height:0; background:none; border:0; }
+.team-page .kdb-band-heading { min-height:30px; gap:8px; }
+.team-page .kdb-band-heading h2 { font-size:17px; }
+.team-page .kdb-edit-tools { display:flex; gap:4px; }
+.team-page .kdb-edit-tools .kdb-icon { width:30px; height:30px; flex-basis:30px; }
+.team-page .kdb-coverage { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); margin:0; order:0; gap:8px; padding:0; }
+.team-page .kdb-coverage button { flex-direction:column; border:0; border-bottom:1px solid #ae947251; background:none; gap:2px; padding:2px; min-height:40px; }
+.team-page .kdb-coverage b { display:flex; align-items:center; justify-content:center; gap:5px; font-size:12px; }
+.team-page .kdb-coverage b span { font-size:12px; margin-left:4px; }
+.team-page .kdb-coverage .is-empty { color:#ffb1af; border-color:#ca5d54; }
+.team-page .kdb-coverage .is-missing { color:#efbe87; border-color:#d7a45e; }
+.team-page .kdb-coverage small { font-size:10px; white-space:normal; text-align:center; }
+.team-page .kdb-slots { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); grid-template-rows:minmax(0,1fr); position:relative; height:auto; min-height:0; gap:12px; padding:0; background:none; overflow:visible; }
+.team-page .kdb-slot { display:grid; grid-template-columns:minmax(0,1fr); grid-template-rows:22px minmax(0,1fr) 22px 28px; align-items:center; justify-items:center; min-width:0; min-height:0; padding:0; border:0; background:none; box-shadow:none; container-type:size; }
+.team-page .kdb-slot::after { display:none; }
+.team-page .kdb-slot-top { grid-column:1; grid-row:1; }
+.team-page .kdb-slot-image { grid-column:1; grid-row:2; }
+.team-page .team-card-caption { grid-column:1; grid-row:3; }
+.team-page [data-deck-action=captain] { grid-column:1; grid-row:4; }
+.team-page .team-reserves .kdb-slot { grid-template-rows:22px minmax(0,1fr) 22px; }
+.team-page .kdb-slot-top { width:100%; height:22px; display:flex; justify-content:space-between; align-items:center; gap:0; padding:0; }
+.team-page .kdb-slot-top > span:first-child { font:11px Georgia,serif; color:#dbc899; }
+.team-page .kdb-slot-top > span:first-child { display:block; }
+.team-page .kdb-slot-top .kdb-icon { width:24px; height:22px; flex-basis:24px; padding:2px; border:0; background:none; }
+.team-page .kdb-slot-image { position:relative; width:min(100%,calc((100cqh - 72px)*.57420749)); height:auto; aspect-ratio:797/1388; min-height:0; max-height:none; padding:0; border:1px solid transparent; border-radius:3px; box-shadow:2px 4px 6px #0009; overflow:visible; justify-self:center; transition:filter .18s,box-shadow .18s; background:#11231d7a; }
+.team-page .team-reserves .kdb-slot-image { width:min(100%,calc((100cqh - 44px)*.57420749)); }
+.team-page .kdb-slot-image > img { display:block; width:100%; height:100%; object-fit:fill; }
+.team-page .kdb-slot.is-selected .kdb-slot-image { box-shadow:0 0 0 1px #e7c993,2px 5px 9px #0009; }
+.team-page .kdb-slot.is-captain .kdb-slot-image { border-color:#e6bc72; }
+.team-page .team-card-caption { display:flex; width:100%; align-items:center; justify-content:center; gap:3px; min-width:0; }
+.team-page .kdb-slot-label { display:block; flex:0 1 auto; width:auto; min-width:0; padding:0; max-width:100%; line-height:18px; font:10px/18px Georgia,serif; color:#eadbbc; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.team-page .team-card-caption .kdb-icon { width:24px; height:22px; flex-basis:24px; padding:2px; border:0; background:none; }
+.team-page [data-deck-action=captain] { width:32px; height:26px; min-height:0; padding:3px; border:0; background:none; color:#aab8ad; }
+.team-page [data-deck-action=captain][aria-pressed=true] { color:#ffe5a0; filter:drop-shadow(0 0 4px #e5b35370); }
+.team-page .team-reserve-heading { display:flex; align-items:center; gap:10px; border-top:1px solid #a98b6040; padding-top:6px; }
+.team-page .team-reserve-heading h2 { font-size:15px; }
+.team-page .kdb-validation { font-size:11px; text-align:center; padding:0; line-height:18px; }
+.team-page .kdb-slot-image > .team-equipped { display:block; position:absolute; left:3.26223%; top:75.86455%; width:15.3074%; height:8.78963%; z-index:3; pointer-events:none; }
+.team-page .team-equipped :is(.eq-body,.eq-rim) { width:100%; height:100%; }
+.team-page .kdb-browser { grid-area:browser; display:flex; flex-direction:column; min-height:0; padding:10px 16px; gap:8px; border:0; border-left:1px solid #baa06b40; background:#06171475; }
+.team-page .team-library-tabs { display:flex; min-height:36px; border-bottom:1px solid #c5a57960; }
+.team-page .team-library-tabs button { flex:1; border:0; border-bottom:2px solid transparent; border-radius:0; background:none; font-size:13px; }
+.team-page .team-library-tabs button[aria-selected=true] { border-color:#dfc794; color:#ffebc3; background:#cfa7690d; }
+.team-page .kdb-target { display:flex; gap:8px; padding:4px 0; align-items:center; min-height:40px; border-bottom:1px solid #a98b6038; background:none; }
+.team-page .kdb-target > img { width:20px; height:34px; object-fit:contain; }
+.team-page .kdb-target > span { flex:1; min-width:0; display:grid; gap:2px; }
+.team-page .kdb-target b { font-size:12px; }
+.team-page .kdb-candidates { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); grid-template-rows:none; grid-auto-flow:row; grid-auto-rows:max-content; align-content:start; align-items:start; min-height:0; flex:1; gap:14px 12px; overflow-y:auto; overflow-x:hidden; touch-action:pan-y; padding:6px 2px 14px; scroll-snap-type:none; }
+.team-page .kdb-candidate { display:block; container-type:normal; min-width:0; width:100%; padding:0; border:0; border-radius:0; background:none; box-shadow:none; animation:none; }
+.team-page .kdb-candidate-image { width:100%; height:auto; aspect-ratio:797/1388; max-height:none; padding:0; border:0; min-height:0; box-shadow:2px 3px 5px #0008; touch-action:pan-y; }
+.team-page .kdb-candidate-image img { width:100%; height:100%; object-fit:fill; }
+.team-page .kdb-candidate.is-unavailable { opacity:.52; }
+.team-page .kdb-candidate-info { display:grid; grid-template-columns:minmax(0,1fr) auto; grid-template-rows:auto auto; gap:2px; width:100%; padding:5px 0 0; }
+.team-page .kdb-candidate-info > b { font:11px/14px Georgia,serif; color:#eadbbc; }
+.team-page .kdb-candidate-gain { display:none; }
+.team-page .kdb-candidate-controls { grid-row:2; display:flex; justify-content:end; gap:0; }
+.team-page .kdb-candidate-controls > span { display:none; }
+.team-page .kdb-candidate-controls .kdb-icon { width:24px; height:22px; flex-basis:24px; padding:2px; border:0; background:none; }
+.team-page .kdb-filters { position:absolute; top:92px; bottom:auto; left:auto; right:12px; max-width:calc(100% - 24px); z-index:12; }
+.team-page .team-dna { grid-area:dna; min-width:0; padding:10px 20px; background:#081611d9; border-top:1px solid #b58c5661; }
+.team-page .team-dna-grid { display:grid; grid-template-columns:1.15fr 1.15fr 1fr 1fr; gap:24px; padding:6px 0; }
+.team-page .team-dna h3 { display:flex; gap:7px; align-items:center; color:#cfb992; margin-bottom:7px; }
+.team-page .team-dna-grid > div > button { display:flex; gap:6px; min-height:26px; width:100%; padding:2px 0; background:none; border:0; font-size:10px; justify-content:start; }
+.team-page .team-dna img { width:25px; height:25px; object-fit:contain; flex:none; }
+.team-page .team-dna b { font-weight:500; min-width:0; overflow-wrap:anywhere; }
+.team-page .team-dna strong { font-size:11px; font-variant-numeric:tabular-nums; margin-left:auto; white-space:nowrap; }
+.team-page .kdb-link-pips { display:flex; gap:3px; padding:0 3px; }
+.team-page .kdb-link-pips i { display:block; width:5px; height:5px; border-radius:50%; background:#59685c; }
+.team-page .kdb-link-pips i.lit { background:#badebf; }
+.team-page .team-dna em { display:flex; align-items:center; color:#e9c67d; font:10px Georgia,serif; gap:2px; }
+.team-page .team-dna em .lucide { width:12px; }
+.team-page .team-command > :is(b,span) { display:block; line-height:23px; font-size:11px; }
+.team-page .team-crystals > span { display:inline-flex; align-items:center; gap:2px; margin:4px 7px 4px 0; }
+.team-page .team-potential { border-top:1px solid #b09b6730; font-size:10px; color:#b5c4b7; padding-top:4px; }
+.team-page .team-potential summary { cursor:pointer; }
+.team-page .team-potential div { display:flex; gap:20px; flex-wrap:wrap; padding-top:6px; }
+.team-page .team-potential span { display:flex; align-items:center; gap:8px; }
+.team-page .team-weapon-list { overflow-y:auto; scrollbar-width:none; }
+.team-page .team-weapon { display:grid; grid-template-columns:100px minmax(0,1fr); align-items:center; gap:18px; padding:20px 4px; border-bottom:1px solid #ba96634d; }
+.team-page .team-weapon-art { width:100px; height:100px; }
+.team-page .team-weapon h3 { font-size:17px; margin-bottom:8px; }
+.team-page .team-weapon strong { color:#a7e0cc; font:17px Georgia,serif; }
+.team-page .team-weapon p { font-size:12px; color:#e3d8bd; margin:8px 0 12px; line-height:1.5; }
+.team-page .kdb-slot.is-drop-eligible .kdb-slot-image { outline:1px solid #a4d9ba; }
+.team-page .kdb-slot.is-drop-blocked { opacity:.4; }
+.team-page .kdb-slot.is-drop-target .kdb-slot-image { outline:2px solid #e9d5a4; outline-offset:3px; }
+.arena-captain { position:absolute; z-index:5; top:-12px; left:calc(50% - 12px); width:24px; height:24px; color:#d8c395; background:#172b24; border:1px solid #8f7756; border-radius:50%; display:grid; place-items:center; pointer-events:none; }
+.arena-captain .lucide { width:16px; height:16px; }
+.arena-captain.is-commanding { color:#ffe1a0; filter:drop-shadow(0 0 3px #dfae5260); }
+@media(max-width:1100px) and (min-width:901px){
+  .team-page .kdb-workbench { grid-template-columns:minmax(0,1.7fr) minmax(300px,1fr); }
+  .team-page .kdb-heading-title { display:none; }
+  .team-page .team-dna-grid { gap:12px; }
+  .team-page .kdb-slots { gap:6px; }
+}
+@media(max-width:900px){
+  .team-page { --kdb-header:154px; grid-template-rows:auto 44px minmax(0,1fr); }
+  .team-page .kdb-heading { display:grid; grid-template-columns:minmax(0,1fr) 44px 44px 60px; gap:4px; min-height:0; padding:6px 8px; }
+  .team-page .kdb-heading-title { grid-column:1; grid-row:1; width:auto; }
+  .team-page .kdb-heading h1 { font-size:19px; }
+  .team-page .kdb-heading .kdb-heading-state { grid-column:2/4; grid-row:1; }
+  .team-page .kdb-heading > [data-deck-action=play] { grid-column:4; grid-row:1/3; min-height:44px; font-size:12px; }
+  .team-page .kdb-deck-picker { grid-column:1; grid-row:2; grid-template-columns:minmax(0,1fr); height:44px; }
+  .team-page .kdb-deck-picker .kdb-icon { display:none; }
+  .team-page .kdb-name-label { grid-column:1/5; grid-row:3; width:100%; max-width:none; height:44px; }
+  .team-page .kdb-heading > [data-deck-action=save] { grid-column:2; grid-row:2; }
+  .team-page .kdb-heading > [data-deck-action=manage] { grid-column:3; grid-row:2; }
+  .team-page .kdb-demo-tools { grid-column:1/5; grid-row:4; min-width:0; }
+  .team-page .kdb-demo-tools label { flex:1; }
+  .team-page .kdb-demo-tools select { width:100%; min-width:0; }
+  .team-page :is(button,.kdb-icon,input,select) { min-height:44px; }
+  .team-page .kdb-icon { width:44px; height:44px; flex-basis:44px; padding:10px; }
+  .team-page .kdb-demo-tools .kdb-icon { width:44px; flex-basis:44px; padding:10px; }
+  .team-page .kdb-mobile-nav { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); grid-row:2; min-height:44px; }
+  .team-page .kdb-mobile-nav button { min-height:44px; font-size:12px; }
+  .team-page .kdb-workbench,.team-page[data-panel=recruit] .kdb-workbench,.team-page:not([data-panel=recruit]) .kdb-workbench { grid-row:3; display:block; overflow-y:auto; scrollbar-width:none; padding:0; }
+  .team-page .kdb-workbench::-webkit-scrollbar { display:none; }
+  .team-page[data-panel=board] :is(.kdb-browser,.team-dna),.team-page[data-panel=recruit] :is(.kdb-composition,.team-dna),.team-page[data-panel=synergy] :is(.kdb-composition,.kdb-browser) { display:none; }
+  .team-page[data-panel=board] .kdb-composition { display:grid; grid-template-rows:44px 44px 235px 32px 292px 0 auto; padding:8px; gap:6px; overflow:visible; }
+  .team-page .kdb-coverage { gap:3px; }
+  .team-page .kdb-coverage b { font-size:11px; gap:2px; flex-wrap:wrap; }
+  .team-page .kdb-coverage b .lucide,.team-page .kdb-coverage small { display:none; }
+  .team-page .kdb-coverage b span { margin:0; }
+  .team-page .team-starters { gap:3px; }
+  .team-page .kdb-slot { grid-template-rows:44px minmax(0,1fr) 44px 44px; }
+  .team-page .kdb-slot-top { height:44px; }
+  .team-page .kdb-slot-top > [data-deck-action=reorder] { display:none; }
+  .team-page .kdb-slot-top .kdb-icon { height:44px; width:44px; flex-basis:44px; padding:10px; }
+  .team-page .kdb-slot-image { width:min(100%,calc((100cqh - 136px)*.57420749)); min-height:0; }
+  .team-page [data-deck-action=captain] { width:44px; height:44px; padding:10px; }
+  .team-page .team-card-caption { height:44px; position:relative; flex-direction:column; gap:0; }
+  .team-page .team-card-caption .kdb-icon { position:absolute; inset:0; width:100%; height:44px; padding:20px 0 1px; }
+  .team-page .team-card-caption .kdb-slot-label { font-size:8px; line-height:12px; align-self:stretch; text-align:center; padding-bottom:22px; }
+  .team-page .team-reserves { display:grid; grid-template-columns:repeat(5,112px); overflow-x:auto; overflow-y:hidden; gap:10px; scrollbar-width:none; scroll-snap-type:x proximity; touch-action:pan-x; }
+  .team-page .team-reserves .kdb-slot { grid-template-rows:44px minmax(0,1fr) 44px; scroll-snap-align:start; }
+  .team-page .team-reserves .kdb-slot-image { width:min(100%,calc((100cqh - 88px)*.57420749)); }
+  .team-page .kdb-edit-tools .kdb-icon { width:44px; height:44px; }
+  .team-page[data-panel=recruit] .kdb-browser { display:flex; min-height:100%; height:100%; padding:8px 12px; border:0; }
+  .team-page .kdb-candidates { grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+  .team-page .kdb-candidate-image { min-height:0; width:100%; height:auto; max-height:none; }
+  .team-page .kdb-candidate-info > b { font-size:12px; line-height:16px; }
+  .team-page .kdb-candidate-controls { min-height:44px; }
+  .team-page .kdb-candidate-controls .kdb-icon { width:44px; height:44px; flex-basis:44px; padding:10px; }
+  .team-page .kdb-target { min-height:44px; }
+  .team-page .kdb-browser .kdb-band-heading { flex-wrap:wrap; }
+  .team-page .kdb-recruit-tools { flex:1; min-width:0; }
+  .team-page .team-dna { padding:16px 12px; }
+  .team-page .team-dna-grid { grid-template-columns:1fr; gap:20px; }
+  .team-page .team-dna-grid > div > button { font-size:12px; min-height:44px; }
+  .team-page .team-dna strong { font-size:12px; }
+  .team-page .team-dna b { font-size:12px; }
+  .team-page .team-dna img { width:32px; height:32px; }
+  .team-page .team-potential { padding-block:16px; font-size:12px; }
+  .team-page .kdb-filters,.team-page[data-panel=recruit] .kdb-filters { top:150px; bottom:auto; right:8px; }
+  .team-page .team-weapon { grid-template-columns:82px minmax(0,1fr); gap:12px; }
+  .team-page .team-weapon-art { width:82px; height:82px; }
+  .team-page .team-weapon h3 { font-size:16px; }
+  .team-page .kdb-library-bar { top:64px; right:8px; }
+  .arena-captain { width:18px; height:18px; left:calc(50% - 9px); top:-7px; }
+  .arena-captain .lucide { width:12px; height:12px; }
+}
+@media(max-width:900px) and (max-height:500px){
+  .team-page .kdb-heading-title,.team-page .kdb-demo-tools,.team-page .kdb-heading-state { display:none; }
+  .team-page .kdb-heading { grid-template-columns:minmax(140px,1fr) minmax(100px,1fr) 44px 44px 80px; }
+  .team-page .kdb-deck-picker { grid-column:1; grid-row:1; }
+  .team-page .kdb-name-label { grid-column:2; grid-row:1; }
+  .team-page .kdb-heading > [data-deck-action=save] { grid-column:3; grid-row:1; }
+  .team-page .kdb-heading > [data-deck-action=manage] { grid-column:4; grid-row:1; }
+  .team-page .kdb-heading > [data-deck-action=play] { grid-column:5; grid-row:1; }
+  .team-page .kdb-candidates { grid-template-columns:repeat(4,minmax(0,1fr)); }
+  .team-page[data-panel=board] .kdb-composition { grid-template-rows:44px 140px 32px 140px 0 auto; gap:4px; }
+  .team-page .kdb-composition > .kdb-band-heading { grid-row:1; grid-column:1; pointer-events:none; }
+  .team-page .kdb-composition > .kdb-band-heading h2 { display:none; }
+  .team-page .kdb-edit-tools { margin-left:auto; pointer-events:auto; }
+  .team-page .kdb-coverage { grid-row:1; grid-column:1; width:calc(100% - 100px); }
+  .team-page .team-starters { grid-row:2; }
+  .team-page .team-reserve-heading { grid-row:3; }
+  .team-page .team-reserves { grid-row:4; }
+  .team-page .kdb-reorder-status { grid-row:5; }
+  .team-page .kdb-validation { grid-row:6; }
+  .team-page .kdb-slot,.team-page .team-reserves .kdb-slot { grid-template-columns:minmax(0,1fr) 44px; grid-template-rows:repeat(3,44px); align-content:center; gap:0; }
+  .team-page .kdb-slot-top { display:contents; }
+  .team-page .kdb-slot-top > span:first-child { position:absolute; top:0; left:2px; }
+  .team-page .kdb-slot-top > span:empty { display:none; }
+  .team-page .kdb-slot-top > [data-deck-action=remove] { grid-column:2; grid-row:1; }
+  .team-page .team-starters .kdb-slot-image,.team-page .team-reserves .kdb-slot-image { grid-column:1; grid-row:1/4; width:min(100%,calc((100cqh - 8px)*.57420749)); }
+  .team-page .team-card-caption { grid-column:2; grid-row:2; }
+  .team-page .team-card-caption .kdb-slot-label { display:none; }
+  .team-page .team-card-caption .kdb-icon { position:static; width:44px; padding:10px; }
+  .team-page [data-deck-action=captain] { grid-column:2; grid-row:3; }
+}
+@media(prefers-reduced-motion:reduce){ .team-page *, .arena-captain { animation:none!important; transition:none!important; } }

@@ -13,6 +13,7 @@
   function validateDefinition(w){
     if(!object(w)||!/^[-a-z0-9]{1,80}$/.test(w.id)||w.slot!=='weapon'||!['axe','flute'].includes(w.visual)||
       ['name','family','condition','lore'].some(k=>typeof w[k]!=='string'||!w[k].length||w[k].length>2000)||w.changesFamily)fail();
+    if(w.art!==undefined&&!['fallen-king-axe-v2','little-joys-flute-v2'].includes(w.art))fail();
     if(!object(w.restrictions)||!Object.keys(w.restrictions).length||Object.entries(w.restrictions).some(([k,v])=>!['characterIds','jobs','families'].includes(k)||!Array.isArray(v)||!v.length||v.length>100||v.some(x=>typeof x!=='string'||!x.length||x.length>80)))fail();
     const e=w.effect;
     if(!object(e)||!['ATK','DEF'].includes(e.stat)||!Number.isInteger(e.value)||e.value<1||e.value>40)fail();

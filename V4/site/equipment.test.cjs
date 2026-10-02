@@ -20,6 +20,32 @@ test('Pages includes the complete equipment chain and excludes its authoring pro
   for(const file of ['weapons.js','equipment.js','equipment-presentation.js','weapons-ui.js','weapons.css','assets/equipment/axe.webp','assets/equipment/flute.webp','assets/equipment/rim.webp'])assert.ok(targets.has('jeu/'+file),file);
   assert.ok(![...targets].some(t=>t.includes('media-provenance')||t.includes('weapons.browser.test')||t.includes('build-weapon-media')));
 });
+
+test('unique weapon art fits the native interior and is included without its source PNGs',async()=>{
+  const proof=JSON.parse(fs.readFileSync(path.join(__dirname,'../revisions/2026-10-02-unique-weapon-art/media-provenance.json'),'utf8'));
+  const native=JSON.parse(fs.readFileSync(path.join(__dirname,'verification/weapons/media-provenance.json'),'utf8'));
+  assert.deepEqual(proof.native.box,native.box);assert.deepEqual(proof.native.center,native.center);
+  assert.equal(proof.native.frameHash,native.sourceHashes['frame/default.png']);
+  assert.equal(proof.render.scale,4);
+  const {files}=await require('../deploy/build.cjs').plan(),targets=new Set(files.map(f=>f.target));
+  for(const w of Q.catalogue.weapons){
+    Q.validateDefinition(w);const art=proof.assets.find(a=>a.visual===w.art);assert.ok(art,w.id);
+    assert.ok(art.maxRadius<proof.render.safeRadius);assert.ok(art.bytes<160000);
+    assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname,art.file))).digest('hex'),art.derivedHash);
+    assert.ok(targets.has('jeu/'+art.file));
+  }
+  assert.ok(![...targets].some(t=>/unique-weapon-art|build-weapon-art/.test(t)));
+});
+
+test('legacy equipment snapshots keep their original art and reject unknown replacement assets',async()=>{
+  const data=await dataPromise,E=createEngine(data),s=E.newGame(data.decks.player,data.decks.player,{seed:'LEGACY-WEAPON-ART',equipment:[loadout,{}]});
+  for(const w of s.equipment.definitions)delete w.art;
+  assert.deepEqual(E.restoreGame(s),s);
+  for(const w of Q.catalogue.weapons){
+    assert.ok(fs.existsSync(path.join(__dirname,'assets/equipment',w.visual+'.webp')));
+    assert.throws(()=>Q.validateDefinition({...w,art:'../../untrusted'}));
+  }
+});
 async function fixture({equipped=true,side=0,mutate=()=>{}}={}){
   const data=structuredClone(await dataPromise);mutate(data);
   const E=createEngine(data),loadouts=side===0?[loadout,{}]:[{},loadout];

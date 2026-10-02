@@ -20,9 +20,10 @@
       fail('INVALID_NAME', 'Nom requis, de 1 a 50 caracteres sans caracteres de controle.');
     return value.trim();
   }
-  const copy = deck => ({ id: deck.id, name: deck.name, cards: deck.cards.slice() });
-  const envelope = decks => ({ schema: 1, edition: 'V4', decks });
-  function create({ storage, userId, knownIds, crypto: random = globalThis.crypto } = {}) {
+  const copy = deck => JSON.parse(JSON.stringify(deck));
+  function create({ storage, userId, knownIds, normalizeDeck, crypto: random = globalThis.crypto } = {}) {
+    const envelope=decks=>({schema:normalizeDeck?2:1,edition:'V4',decks});
+    const fields=['name','cards',...(normalizeDeck?['formation','captain','equipment']:[])];
     if (!storage || typeof storage.getItem !== 'function' || typeof storage.setItem !== 'function')
       fail('NO_STORAGE', 'Stockage local indisponible.');
     if (typeof userId !== 'string' || !userId.trim() || userId.length > 120 || /[\x00-\x1f\x7f]/.test(userId))
@@ -39,14 +40,18 @@
       return value.slice();
     }
     function entry(value) {
-      if (!exact(value, ['id', 'name', 'cards']) || typeof value.id !== 'string' || !DECK_ID.test(value.id))
+      const legacy=exact(value,['id','name','cards']);
+      if ((!legacy&&!exact(value, ['id', ...fields])) || typeof value.id !== 'string' || !DECK_ID.test(value.id))
         fail('INVALID_DECK', 'Deck sauvegarde invalide.');
-      return { id: value.id, name: name(value.name), cards: slots(value.cards) };
+      const next={...value,name:name(value.name),cards:slots(value.cards)};
+      return normalizeDeck?{id:value.id,...normalizeDeck(next)}:next;
     }
     function validate(value) {
-      if (!exact(value, ['schema', 'edition', 'decks']) || value.schema !== 1 || value.edition !== 'V4' || !Array.isArray(value.decks))
+      if (!exact(value, ['schema', 'edition', 'decks']) || ![1,...(normalizeDeck?[2]:[])].includes(value.schema) || value.edition !== 'V4' || !Array.isArray(value.decks))
         fail('INVALID_LIBRARY', 'Bibliotheque JSON V4 invalide.');
       if (value.decks.length > LIMIT) fail('LIBRARY_FULL', 'Dix decks maximum par profil.');
+      if(normalizeDeck&&value.decks.some(d=>!exact(d,value.schema===2?['id',...fields]:['id','name','cards'])))
+        fail('INVALID_DECK','Le schema de composition ne correspond pas au contenu du deck.');
       const decks = Array.from(value.decks, entry);
       if (new Set(decks.map(d => d.id)).size !== decks.length) fail('DUPLICATE_ID', 'Identifiants de decks dupliques.');
       return decks;
@@ -58,8 +63,13 @@
       return validate(value);
     }
     function read() {
-      const raw = storage.getItem(key);
-      return { raw, decks: raw === null ? [] : parse(raw) };
+      let raw = storage.getItem(key);
+      const decks=raw===null?[]:parse(raw);
+      if(normalizeDeck&&raw!==null&&JSON.parse(raw).schema===1){
+        if(storage.getItem(key)!==raw)fail('CONFLICT','Bibliotheque modifiee ailleurs.');
+        raw=JSON.stringify(envelope(decks));storage.setItem(key,raw);
+      }
+      return {raw,decks};
     }
     function mutate(fn) {
       const { raw, decks } = read();
@@ -86,12 +96,14 @@
       list: () => read().decks.map(copy),
       get: id => { const decks = read().decks; return copy(decks[lookup(decks, id)]); },
       validateDraft: value => {
-        if (!exact(value, ['name', 'cards'])) fail('INVALID_DRAFT', 'Brouillon invalide.');
-        return { name: name(value.name), cards: slots(value.cards) };
+        if (!exact(value, fields)&&!exact(value,['name','cards'])) fail('INVALID_DRAFT', 'Brouillon invalide.');
+        const next={...value,name:name(value.name),cards:slots(value.cards)};
+        return normalizeDeck?normalizeDeck(next):next;
       },
       save(value) {
-        if (!value || !exact(value, own(value, 'id') ? ['id', 'name', 'cards'] : ['name', 'cards'])) fail('INVALID_DRAFT', 'Brouillon invalide.');
-        const clean = { name: name(value.name), cards: slots(value.cards) };
+        if (!value || !exact(value, own(value, 'id') ? ['id', ...fields] : fields)&&!exact(value,own(value,'id')?['id','name','cards']:['name','cards'])) fail('INVALID_DRAFT', 'Brouillon invalide.');
+        const input={...value,name:name(value.name),cards:slots(value.cards)};delete input.id;
+        const clean=normalizeDeck?normalizeDeck(input):input;
         return mutate(decks => {
           const index = own(value, 'id') ? lookup(decks, value.id) : decks.length;
           if (index === LIMIT) fail('LIBRARY_FULL', 'Dix decks maximum par profil.');

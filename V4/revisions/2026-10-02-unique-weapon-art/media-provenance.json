@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "method": "built-in image generation; alpha-contour fit on unchanged native frame",
+  "native": {
+    "box": {
+      "left": 76,
+      "top": 1103,
+      "width": 122,
+      "height": 122
+    },
+    "center": {
+      "x": 137,
+      "y": 1163.5
+    },
+    "frameHash": "37d01c485e59e9cfe69e91dcd6659d102edd20988545ed490f8b2a6fbaee700a"
+  },
+  "render": {
+    "width": 488,
+    "height": 488,
+    "scale": 4,
+    "safeRadius": 178
+  },
+  "assets": [
+    {
+      "visual": "fallen-king-axe-v2",
+      "source": "sources/fallen-king-axe-v1.png",
+      "sourceHash": "8aad520fe68ab6deccf80faf164ed86c37f9929ced9da6b220fa5d554f776720",
+      "file": "assets/equipment/fallen-king-axe-v2.webp",
+      "derivedHash": "19929eda912a09a29bcafeacef2354fc2ea60c018a99c046736fc16e30e8f3eb",
+      "bytes": 107840,
+      "sourceDimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "placement": {
+        "left": 118,
+        "top": 106,
+        "width": 253,
+        "height": 272
+      },
+      "maxRadius": 171.1914133360666,
+      "maxAllowedRadius": 178
+    },
+    {
+      "visual": "little-joys-flute-v2",
+      "source": "sources/little-joys-flute-v2-electric.png",
+      "sourceHash": "20adeb83e2738dc7abd9f9c665f217836bab06aaeef304a5c2f8b1311f50f287",
+      "file": "assets/equipment/little-joys-flute-v2.webp",
+      "derivedHash": "b89cc2aaf054687aa5f72e139112ad65cea97b4b5c09e48ba324f6b7ed2be8c7",
+      "bytes": 99582,
+      "sourceDimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "placement": {
+        "left": 115,
+        "top": 114,
+        "width": 258,
+        "height": 257
+      },
+      "maxRadius": 175.47791883881004,
+      "maxAllowedRadius": 178
+    }
+  ]
+}

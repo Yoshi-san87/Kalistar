@@ -5,8 +5,8 @@
   let previous=new Map(),observer=null,gameId=null,loads=null;
   const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const url=file=>window.KalistarSite?.url('assets/equipment/'+file)||'assets/equipment/'+file;
-  function markup(w){
-    return `<span class="eq-mechanism" data-visual="${w.visual}" aria-hidden="true"><img class="eq-body" src="${url(w.visual+'.webp')}" alt="" draggable="false"><img class="eq-rim" src="${url('rim.webp')}" alt="" draggable="false"><span class="eq-tab"><b>+${w.effect.value}</b><small>${w.effect.stat}</small></span><span class="eq-reflection"></span></span>`;
+  function markup(w,{bonus=true}={}){
+    return `<span class="eq-mechanism" data-visual="${w.visual}" aria-hidden="true"><img class="eq-body" src="${url((w.art||w.visual)+'.webp')}" alt="" draggable="false"><img class="eq-rim" src="${url('rim.webp')}" alt="" draggable="false">${bonus?`<span class="eq-tab"><b>+${w.effect.value}</b><small>${w.effect.stat}</small></span>`:''}<span class="eq-reflection"></span></span>`;
   }
   function animate(node,frames,options,signal){
     if(!node||signal?.aborted)return Promise.resolve();

@@ -126,9 +126,12 @@ async function main(){
       }));
     }
     await ready(page);assert.equal(await page.locator('.weapon-card').count(),2);
-    assert.match(await page.title(),/^Kalistar V4\.3\.6/);
-    if(name==='desktop')assert.equal(await page.locator('.edition').innerText(),'VERSION 4.3.6');
-    else assert.equal(await page.locator('.brand').evaluate(n=>getComputedStyle(n,'::after').content),'"V4.3.6"');
+    await page.waitForFunction(()=>[...document.querySelectorAll('.weapon-card .eq-body')].every(i=>i.complete&&i.naturalWidth===488));
+    const art=await page.locator('.weapon-card .eq-body').evaluateAll(images=>images.map(i=>new URL(i.src).pathname.split('/').pop()));
+    assert.deepEqual(art,['fallen-king-axe-v2.webp','little-joys-flute-v2.webp']);
+    assert.match(await page.title(),/^Kalistar V4\.3\.7/);
+    if(name==='desktop')assert.equal(await page.locator('.edition').innerText(),'VERSION 4.3.7');
+    else assert.equal(await page.locator('.brand').evaluate(n=>getComputedStyle(n,'::after').content),'"V4.3.7"');
     if(name==='desktop'){
       const migrated=await page.evaluate(()=>new Promise((resolve,reject)=>{
         const request=indexedDB.open('kalistar-v4-cards');request.onerror=()=>reject(request.error);
@@ -162,19 +165,20 @@ async function main(){
     });assert.deepEqual(profileTests,{incompatible:true,stale:true,invalidImport:true,unchanged:true,isolated:true,retained:true});
     await equipment(page,'fallen-king-axe','unequip');await equipment(page,'fallen-king-axe');
     await page.locator('[data-view=decks]').first().click();
-    const drafted=await page.evaluate(()=>JSON.parse(localStorage.getItem('kalistar.v4.deck')).map(id=>KALISTAR_DATA.cards.find(c=>c.id===id)));
-    const equippedDraft=drafted.filter(c=>['balmhyr','momo'].includes(c.characterId)).length;
-    assert.equal(await page.locator('.kdb-equipped').count(),equippedDraft);
-    await page.locator('[data-view=arena]').first().click();
-    await page.waitForSelector('body.arena-view');
-    if(!await page.locator('#new-game-dialog').isVisible()){
-      if(!await page.locator('[data-action=new-game]:visible').count())await page.locator('[data-action=arena-menu]').click();
-      await page.locator('[data-action=new-game]:visible').first().click();
-    }
+    const momoSlot=await page.evaluate(()=>KalistarTeamComposition.create(KalistarEngine.createEngine(KALISTAR_DATA)).slots(JSON.parse(localStorage.getItem('kalistar.v4.teamDraft'))).findIndex(id=>KALISTAR_DATA.cards.find(c=>c.id===id)?.characterId==='momo'));
+    assert(momoSlot>=0);await page.locator(`[data-deck-action=slot][data-slot="${momoSlot}"]`).click();
+    await page.locator('[data-deck-action=recruit-mode][data-id=weapons]').click();
+    const flute=page.locator('[data-deck-action=equip][data-id=little-joys-flute]');
+    if(await flute.count())await flute.click();else assert(await page.locator('[data-deck-action=unequip][data-id=little-joys-flute]').isVisible());
+    if(viewport.width<=900)await page.locator('[data-deck-action=panel][data-id=board]').click();
+    await page.locator('[data-deck-action=captain][data-slot="0"]').click();
+    const loadout=await page.evaluate(()=>JSON.parse(localStorage.getItem('kalistar.v4.teamDraft')).equipment);
+    assert.equal(await page.locator('.team-equipped').count(),Object.keys(loadout).length);
+    await page.locator('[data-deck-action=play]').click();
     await page.locator('#game-mode').selectOption('local');await page.locator('.match-advanced summary').click();await page.locator('#game-seed').fill('WEAPONS-BROWSER');
     await page.locator('#new-game-form [type=submit]').click();await page.waitForFunction(()=>JSON.parse(localStorage.getItem('kalistar.v4.game')||'null')?.seed==='WEAPONS-BROWSER');
     const launched=await page.evaluate(()=>JSON.parse(localStorage.getItem('kalistar.v4.game')).equipment.loadouts);
-    assert.deepEqual(launched,[{balmhyr:'fallen-king-axe',momo:'little-joys-flute'},{}]);results.push({label:name+' pre-match UI captures profile',passed:true});
+    assert.deepEqual(launched,[loadout,{}]);results.push({label:name+' pre-match UI captures deck loadout, not global preferences',passed:true});
     await prepare(page,'normal');assert.equal(await page.locator('.eq-overlay').count(),0,'inactive cards stay exactly normal');await page.screenshot({path:path.join(out,name+'-normal-cards.png')});
     await prepare(page,'axe',name==='reduced'?1:0);
     const side=name==='reduced'?1:0,slot=page.locator(`.formation[data-player="${side}"] .slot-card:not(.empty)`);await slot.click();

@@ -34,7 +34,7 @@ async function main() {
     page.on('response', r => {if(r.status() >= 400) failures.push(r.status() + ' ' + r.url());});
     await page.goto(base);
     await page.waitForFunction(() => window.KALISTAR_READY);
-    assert.equal(await page.locator('.masthead .edition').innerText(), 'VERSION 4.3.6');
+    assert.equal(await page.locator('.masthead .edition').innerText(), 'VERSION 4.3.7');
     const {appManifest, manifestUrl} = await page.evaluate(async () => {
       const manifestUrl = new URL('manifest.webmanifest', location.href);
       return {appManifest: await (await fetch(manifestUrl)).json(), manifestUrl: manifestUrl.href};
@@ -55,6 +55,7 @@ async function main() {
     await page.locator('[data-binder-action=back]').click();
     await page.locator('[data-view=decks]').first().click();
     await page.locator('#deck-builder-root').waitFor();
+    await page.locator('[data-deck-action=captain][data-slot="0"]').click();
     await page.locator('#deck-builder-root .kdb-play').click();
     await page.locator('#new-game-form').waitFor();
     assert.equal(await page.locator('#new-game-dialog').evaluate(el=>el.classList.contains('pre-match-dialog')),true);
@@ -78,7 +79,7 @@ async function main() {
     assert.equal(await page.locator('#match-arena-summary h3').innerText(),lastArenaName);
     await page.setViewportSize({width:390,height:844});
     await page.waitForTimeout(250);
-    assert.equal(await page.locator('.brand').evaluate(el => getComputedStyle(el, '::after').content), '"V4.3.6"');
+    assert.equal(await page.locator('.brand').evaluate(el => getComputedStyle(el, '::after').content), '"V4.3.7"');
     const preMatchWidth=await page.locator('#new-game-dialog .pre-match-form').evaluate(el=>({scroll:el.scrollWidth,client:el.clientWidth}));
     assert.ok(preMatchWidth.scroll<=preMatchWidth.client+1,'Pre-match lobby overflows on phone: '+JSON.stringify(preMatchWidth));
     await page.screenshot({path:path.join(output,'pre-match-phone.png')});
@@ -106,8 +107,9 @@ async function main() {
     await page.locator('[data-view=arena]').first().click();
     await page.waitForFunction(() => document.body.classList.contains('arena-view'));
     assert.equal(await page.evaluate(() => document.fullscreenElement === null), true, 'returning to Arena must not request browser fullscreen');
-    await page.locator('[data-action=auto-formation]').first().click();
-    await page.locator('[data-action=start]').first().click();
+    assert.equal(await page.locator('[data-action=auto-formation]').count(),0);
+    assert.equal(await page.locator('[data-action=start]').count(),0);
+    assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('kalistar.v4.game')).phase),'choose');
     const before = await page.evaluate(() => JSON.parse(localStorage.getItem('kalistar.v4.game')).matchId);
     await page.reload();
     await page.waitForFunction(() => window.KALISTAR_READY);

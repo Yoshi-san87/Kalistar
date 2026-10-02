@@ -98,11 +98,50 @@
       return errors;
     }
     function validatePlayableDeck(ids) { return validateDeck(ids,{coverage:2}); }
+    function validateComposition(team,{draft=false,definitions}={}) {
+      const errors=[];
+      if(!team||!Array.isArray(team.cards)||team.cards.length>10||team.cards.some(id=>id!==null&&!byId[id]))return ['Composition V4 inconnue.'];
+      const ids=team.cards.filter(Boolean),f=team.formation;
+      if(!draft)errors.push(...validatePlayableDeck(ids));
+      if(!Array.isArray(f)||f.length!==5||f.some(id=>id!==null&&(!ids.includes(id)||!byId[id])))errors.push('Cinq emplacements de titulaires appartenant au deck sont requis.');
+      else {
+        const remaining=ids.slice();
+        for(const id of f.filter(Boolean)){const i=remaining.indexOf(id);if(i<0)errors.push('Titulaire absent du deck.');else remaining.splice(i,1);}
+        if(remaining.length>5)errors.push('La reserve ne peut pas contenir plus de cinq cartes.');
+        if(!draft){
+          if(new Set(f.filter(Boolean)).size!==f.filter(Boolean).length)errors.push('Les cinq titulaires doivent etre distincts.');
+          f.forEach((id,i)=>{if(id&&!byId[id].positions.includes(i+1))errors.push(`${byId[id].name} ne peut pas occuper P${i+1}.`);});
+        }
+        if(!draft&&f.some(id=>!id))errors.push('Completez la formation P1 a P5.');
+        if(team.captain!==null&&(!team.captain||!f.includes(team.captain)))errors.push('Le capitaine doit etre un titulaire.');
+        if(!draft&&team.captain===null)errors.push('Choisissez un capitaine avant de jouer.');
+      }
+      try{Equipment.validateLoadout(team.equipment,ids.map(id=>byId[id]),definitions);}catch{errors.push('Arme inconnue, dupliquee ou incompatible avec son porteur dans cette equipe.');}
+      return errors;
+    }
+    function captainUnit(s,side){
+      const id=s.composition?.teams[side]?.captain;
+      return id?s.players[side].board.find(u=>u?.cardId===id)||null:null;
+    }
+    function captainBonus(s,u,stat){
+      const side=Number(u?.uid?.[0]),p=s.players[side];
+      if(!p||!p.board.includes(u))return 0;
+      const leader=captainUnit(s,side),field=stat==='attack'?'faction':stat==='defense'?'race':null;
+      if(!leader||!field||card(leader)[field]!==card(u)[field])return 0;
+      return p.board.some(other=>other&&other!==leader&&card(other)[field]===card(leader)[field])?10:0;
+    }
     function addLog(s,type,text,details) {
       s.log.push({n:s.log.length+1,turn:s.round,type,text,...(details?{details}: {})});
     }
     function newGame(deckA,deckB,options={}) {
-      const coverage=options.deckCoverage===undefined?1:options.deckCoverage;
+      const composed=!Array.isArray(deckA)||!Array.isArray(deckB);
+      const teams=composed?[deckA,deckB].map(deck=>{
+        if(!Array.isArray(deck)){const errors=validateComposition(deck);if(errors.length)throw new Error(errors.join(' '));return clone(deck);}
+        const errors=validatePlayableDeck(deck);if(errors.length)throw new Error(errors.join(' '));
+        return {name:'Adversaire',cards:deck.slice(),formation:lineup(deck).map(i=>deck[i]),captain:null,equipment:{},technical:true};
+      }):null;
+      if(composed){deckA=teams[0].cards.filter(Boolean);deckB=teams[1].cards.filter(Boolean);}
+      const coverage=composed?2:options.deckCoverage===undefined?1:options.deckCoverage;
       for(const deck of [deckA,deckB]){const e=validateDeck(deck,{coverage});if(e.length)throw new Error(e.join(' '));}
       const seed=String(options.seed || 'KALISTAR');let random=2166136261;
       for(const char of seed)random=Math.imul(random^char.charCodeAt(0),16777619)>>>0;
@@ -115,8 +154,13 @@
       s.match={version:1,fromRound:1,partial:false,events:[]};
       [deckA,deckB].forEach((deck,side)=>s.players.push({board:Array(5).fill(null),reserve:deck.map((id,i)=>({uid:side+'-'+i,cardId:id,revived:false,reraise:0,luck:0,mana:0,physical:0,ward:0})),dead:[]}));
       identifyUnits(s);
-      if(options.equipment!==undefined)s.equipment=Equipment.snapshot(options.equipment,data.cards);
+      if(composed)s.equipment=Equipment.snapshot(teams.map(t=>t.equipment),data.cards);
+      else if(options.equipment!==undefined)s.equipment=Equipment.snapshot(options.equipment,data.cards);
       addLog(s,'start','Deux decks de 10 cartes. Formation en cours.');
+      if(composed){
+        for(let side=0;side<2;side++)for(let slot=0;slot<5;slot++)deploy(s,side,s.players[side].reserve.find(u=>u.cardId===teams[side].formation[slot]).uid,slot);
+        start(s);s.composition={version:1,teams};
+      }
       assertState(s);return s;
     }
     function setArena(s,id){
@@ -133,6 +177,7 @@
       return {attack:element+homeAttack,defense:homeDefense,element,homeAttack,homeDefense};
     }
     function deploy(s,side,uid,slot) {
+      if(s.composition&&s.phase==='setup')throw new Error('Formation sauvegardee verrouillee.');
       if(s.phase!=='setup' && !(s.phase==='replace'&&s.replacing===side))throw new Error('Déploiement indisponible.');
       if(!Number.isInteger(slot)||slot<0||slot>4)throw new Error('Position invalide.');
       const p=s.players[side],index=p.reserve.findIndex(u=>u.uid===uid);
@@ -146,12 +191,13 @@
       return s;
     }
     function recall(s,side,slot) {
-      if(s.phase!=='setup')throw new Error('Formation verrouillée.');
+      if(s.phase!=='setup'||s.composition)throw new Error('Formation verrouillée.');
       const p=s.players[side],u=p.board[slot];if(u){p.reserve.push(u);p.board[slot]=null;}
       return s;
     }
     function autoDeploy(s,side) {
       const p=s.players[side];
+      if(s.composition&&s.phase==='setup')throw new Error('Formation sauvegardee verrouillee.');
       if(s.phase==='setup'){
         p.reserve.push(...p.board.filter(Boolean));p.board=Array(5).fill(null);
         const picked=lineup(p.reserve.map(u=>u.cardId));if(!picked)throw new Error('Formation impossible.');
@@ -422,6 +468,14 @@
       if(!d.magic&&!d.ward&&b.ward){d.ward=b.ward;b.ward=0;}
       const f={baseAttack:d.attackValue,weapon:data.weapons[ac.weapon]?.[bc.weapon]||0,element:elementModifier(ac,bc),faction:synergy(s.players[d.side],a,'faction'),buff:d.buff,barrier:d.magic&&bc.element!=='NONE'&&bc.barriers.includes(die)?-rules.barrier:0,baseDefense:value,race:synergy(s.players[1-d.side],b,'race'),magic:d.magic,
         arenaAttack:arenaBonuses(s,a).attack,arenaDefense:arenaBonuses(s,b).defense,ward:d.magic?0:d.ward};
+      if(s.composition){
+        f.captainAttack=captainBonus(s,a,'attack');f.captainDefense=captainBonus(s,b,'defense');
+        if(!d.captainLogged){
+          if(f.captainAttack)addLog(s,'effect','Capitaine Faction : +10 ATK.');
+          if(f.captainDefense)addLog(s,'effect','Capitaine Race : +10 DEF.');
+          d.captainLogged=true;
+        }
+      }
       if(s.equipment){
         f.equipmentAttack=d.equipment.attack?.value||0;f.equipmentDefense=d.equipment.defense?.value||0;
         if(!d.equipmentLogged){
@@ -429,7 +483,7 @@
           d.equipmentLogged=true;
         }
       }
-      f.attack=Math.max(0,f.baseAttack+f.weapon+f.element+f.faction+f.buff+f.barrier+f.arenaAttack+(f.equipmentAttack||0));f.defense=Math.max(0,f.baseDefense+f.race+f.arenaDefense+f.ward+(f.equipmentDefense||0));
+      f.attack=Math.max(0,f.baseAttack+f.weapon+f.element+f.faction+f.buff+f.barrier+f.arenaAttack+(f.equipmentAttack||0)+(f.captainAttack||0));f.defense=Math.max(0,f.baseDefense+f.race+f.arenaDefense+f.ward+(f.equipmentDefense||0)+(f.captainDefense||0));
       const lethal=f.attack>f.defense;
       if(lethal&&b.luck){
         b.luck=0;d.luckUsed=b.uid;d.autoDefense=true;d.failedDefense=clone(f);d.formula=clone(f);
@@ -464,7 +518,7 @@
       for(const [i,j] of legalTargets(s)){
         const a=s.players[s.turn].board[i],b=s.players[1-s.turn].board[j],ac=card(a),bc=card(b);
         const v=mean(ac.atk)-mean(bc.defense)+(data.weapons[ac.weapon]?.[bc.weapon]||0)+elementModifier(ac,bc)+synergy(s.players[s.turn],a,'faction')-synergy(s.players[1-s.turn],b,'race')-rules.barrier*ac.magic.length/6*(bc.element==='NONE'?0:bc.barriers.length)/6+(ac.atk.includes('death')?35:0)+(ac.atk.includes('revive')&&!a.reraise?20:0)-(b.reraise?25:0)+arenaBonuses(s,a).attack-arenaBonuses(s,b).defense-(b.ward||0)*ac.atk.filter((v,i)=>typeof v==='number'&&!ac.magic.includes(6-i)).length/6;
-        const equipped=v+(equipmentModifier(s,a,'ATK')?.value||0)-(equipmentModifier(s,b,'DEF')?.value||0);
+        const equipped=v+(equipmentModifier(s,a,'ATK')?.value||0)-(equipmentModifier(s,b,'DEF')?.value||0)+captainBonus(s,a,'attack')-captainBonus(s,b,'defense');
         if(equipped>score){score=equipped;best=[i,j];}
       }
       return best;
@@ -504,6 +558,16 @@
       const effects=['retry','mana','buff_atk','revive','guard','death','dodge','shield_physical','shield_magic'];
       const units=s.players.flatMap(p=>[...p.board.filter(Boolean),...p.reserve,...p.dead]);
       Equipment.validate(s,data.cards);
+      if(s.composition!==undefined){
+        const c=s.composition;
+        if(!c||c.version!==1||!Array.isArray(c.teams)||c.teams.length!==2||s.phase==='setup'||s.deckCoverage!==2)throw new Error('Instantane de composition invalide.');
+        c.teams.forEach((team,side)=>{
+          const errors=validateComposition(team,{definitions:s.equipment?.definitions});
+          if(team.captain===null&&team.technical===true){const i=errors.indexOf('Choisissez un capitaine avant de jouer.');if(i>=0)errors.splice(i,1);}
+          const ids=s.players[side].board.filter(Boolean).concat(s.players[side].reserve,s.players[side].dead).map(u=>u.cardId).sort();
+          if(errors.length||JSON.stringify(ids)!==JSON.stringify(team.cards.filter(Boolean).slice().sort())||JSON.stringify(team.equipment)!==JSON.stringify(s.equipment?.loadouts[side]))throw new Error('Instantane dequipe incoherent.');
+        });
+      }
       for(const d of [s.duel,s.lastDuel])if(d!==null){
         if(!d||![0,1].includes(d.side)||![d.attackerSlot,d.targetSlot].every(v=>Number.isInteger(v)&&v>=0&&v<5)||!validText(d.attackerName,80)||!validText(d.targetName,80)||!new RegExp('^'+d.side+'-[0-9]$').test(d.attacker)||!new RegExp('^'+(1-d.side)+'-[0-9]$').test(d.target))throw new Error('Duel invalide.');
         for(const rolls of [d.attackRolls,d.defenseRolls])if(!Array.isArray(rolls)||rolls.length>1000||rolls.some(v=>!Number.isInteger(v)||v<1||v>6))throw new Error('Jets invalides.');
@@ -518,12 +582,13 @@
         if(d.attackValue==='guard'&&!canGuard(author)||d.attackValue==='revive'&&!canHeal(author))throw new Error('Soutien incompatible avec le profil V4.');
         for(const f of [d.formula,d.failedDefense])if(f!==undefined){
           Equipment.validateFormula(s,d,f);
+          if(s.composition?(![0,10].includes(f.captainAttack)||![0,10].includes(f.captainDefense)):(f.captainAttack!==undefined||f.captainDefense!==undefined))throw new Error('Commandement invalide.');
           const fields=['baseAttack','weapon','element','faction','buff','barrier','baseDefense','race','attack','defense','arenaAttack','arenaDefense','ward'];
           if(!f||fields.some(k=>!Number.isInteger(f[k])||Math.abs(f[k])>2000)||typeof f.magic!=='boolean'||f.magic!==d.magic||
             f.arenaAttack<0||f.arenaAttack>25||f.arenaDefense<0||f.arenaDefense>10||![0,60].includes(f.ward)||f.ward!==d.ward||f.magic&&f.ward||
             f.baseAttack!==d.attackValue||f.buff!==d.buff||
-            f.attack!==Math.max(0,f.baseAttack+f.weapon+f.element+f.faction+f.buff+f.barrier+f.arenaAttack+(f.equipmentAttack||0))||
-            f.defense!==Math.max(0,f.baseDefense+f.race+f.arenaDefense+f.ward+(f.equipmentDefense||0)))throw new Error('Calcul V4 invalide.');
+            f.attack!==Math.max(0,f.baseAttack+f.weapon+f.element+f.faction+f.buff+f.barrier+f.arenaAttack+(f.equipmentAttack||0)+(f.captainAttack||0))||
+            f.defense!==Math.max(0,f.baseDefense+f.race+f.arenaDefense+f.ward+(f.equipmentDefense||0)+(f.captainDefense||0)))throw new Error('Calcul V4 invalide.');
         }
         if(d.autoDefense!==undefined&&typeof d.autoDefense!=='boolean')throw new Error('Relance automatique invalide.');
         if(d.cloverGranted!==undefined&&(!new RegExp('^'+d.side+'-[0-9]$').test(d.cloverGranted)||d.attackValue!=='retry'))throw new Error('Bénéficiaire invalide.');
@@ -577,7 +642,7 @@
       const a=s.players[s.duel.side].board[s.duel.attackerSlot],bonus=Equipment.support(s,a,u,card,kind,refreshed);
       if(bonus)addLog(s,'effect',`${bonus.name} : ${card(u).name} re\u00e7oit +${bonus.value} ${bonus.stat} pour son prochain duel.`,bonus);
     }
-    return {data,rules,byId,card,trait,traits,clone,dieValue,mean,lineup,deckCoverage,validateDeck,validatePlayableDeck,newGame,deploy,recall,autoDeploy,start,synergy,elementModifier,lock,rollAttack,acceptAttack,useKalistel,kalistelRemaining,aiUseKalistel,rollDefense,grantClover,grantPotion,grantPhysical,grantReraise,grantGuard,aiCloverChoice,aiPotionChoice,aiPhysicalChoice,aiReraiseChoice,aiGuardChoice,arenaBonuses,setArena,next,aiChoice,assertState,restoreGame,matchStats,instanceId,equipmentView,equipmentModifier};
+    return {data,rules,byId,card,trait,traits,clone,dieValue,mean,lineup,deckCoverage,validateDeck,validatePlayableDeck,validateComposition,captainUnit,captainBonus,newGame,deploy,recall,autoDeploy,start,synergy,elementModifier,lock,rollAttack,acceptAttack,useKalistel,kalistelRemaining,aiUseKalistel,rollDefense,grantClover,grantPotion,grantPhysical,grantReraise,grantGuard,aiCloverChoice,aiPotionChoice,aiPhysicalChoice,aiReraiseChoice,aiGuardChoice,arenaBonuses,setArena,next,aiChoice,assertState,restoreGame,matchStats,instanceId,equipmentView,equipmentModifier};
   }
   return {createEngine,clone,dieValue,mean};
 });
