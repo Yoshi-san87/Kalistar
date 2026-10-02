@@ -51,6 +51,27 @@ temporaires du presse-papiers ou les preferences non encore documentees.
 
 ### One Piece Et The Witcher - V4.3
 
+La [publication V4.3.2](../V4/releases/2026-10-02-serpes-publication/README.md)
+autorisee le 2 octobre 2026 regroupe Geralt 49900101, Ssilas 49900201 et
+Mirelle 49900202 : 193 cartes, 28 arenes, sauvegardes toujours V4. Les
+changements independants d'histoire et de classeur restent locaux. Consulter
+le workflow du commit et les controles publics avant de conclure a la fin
+du deploiement. Geralt en chemise blanche reste absent du catalogue.
+
+Le [lot Mirelle](../V4/expansions/2026-10-02-serpes-mirelle/README.md)
+du 2 octobre 2026 ajoute ensuite localement la Serpes 49900202 d'Arborium,
+Support P3/P5 Plante au Sceptre, distincte de Ssilas. PSD natif, profil,
+prompts et controles sont preserves. Le catalogue local atteint 193 cartes
+et 28 arenes. Aucun push Git de ce lot ; ne pas confondre integration locale
+et mise a jour publique.
+
+Le [lot Geralt et Ssilas](../V4/expansions/2026-10-02-serpes-geralt/README.md)
+du 2 octobre 2026 ajoute localement Geralt 49900101 et Ssilas 49900201,
+nouvel eclaireur Serpes d'Arborium. Les controles natifs et navigateur passent.
+Le catalogue local compte 192 cartes et 28 arenes ; ce lot n'est pas encore
+pousse sur GitHub. Geralt en chemise 49900102 reste en attente. Consulter
+le statut de livraison du lot avant de conclure a une publication publique.
+
 La [suite V4.3.1](../V4/releases/2026-10-02-witcher-completion/README.md)
 ajoute Vesemir depuis son profil P1 prepare et corrige uniquement l'illustration
 du Sanji en costume noir. Lire sa `nativeRevision.artworkSource` pour la source

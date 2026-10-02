@@ -1,0 +1,100 @@
+{
+  "id": "2026-10-02-serpes-geralt",
+  "officialCollaboration": false,
+  "cards": [
+    {
+      "key": "geralt-witcher",
+      "characterId": "geralt-witcher",
+      "name": "GERALT DE RIV",
+      "title": "Le contrat et la conscience",
+      "job": "SORCELEUR",
+      "description": "Avant le prochain contrat, Geralt répare un gant dans le calme d'une auberge. Ses épées attendent ; son regard reste lucide. Chaque départ lui rappelle ce qu'il veut encore protéger.",
+      "race": "HUMAIN",
+      "weapon": "Epée longue",
+      "element": "GEO",
+      "role": 2,
+      "positions": [
+        2
+      ],
+      "atk": [
+        288,
+        218,
+        182,
+        136,
+        72,
+        31
+      ],
+      "defense": [
+        169,
+        141,
+        101,
+        69,
+        43,
+        18
+      ],
+      "magic": [
+        3
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "TW_geralt_witcher_01.png",
+      "id": "49900101",
+      "faction": "WITCHER",
+      "collaboration": "WITCHER",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "ssilas",
+      "characterId": "ssilas",
+      "name": "SSILAS",
+      "title": "Le Passeur des sentes",
+      "job": "ECLAIREUR",
+      "description": "Une fougère pliée suffit à Ssilas pour retrouver un chemin perdu. Sur les racines d'Arborium, son arc veille et sa patience guide : nul voyageur ne doit rester seul dans la forêt.",
+      "race": "SERPES",
+      "weapon": "Arc",
+      "element": "HERBO",
+      "role": 3,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        225,
+        187,
+        148,
+        108,
+        67,
+        "buff_atk"
+      ],
+      "defense": [
+        218,
+        177,
+        137,
+        94,
+        "dodge",
+        27
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        4
+      ],
+      "art": "Ssilas_Le_Passeur_Des_Sentes_01.png",
+      "id": "49900201",
+      "faction": "Arborium",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "arenas": [],
+  "presets": []
+}

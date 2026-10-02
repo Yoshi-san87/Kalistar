@@ -1,0 +1,60 @@
+{
+  "name": "SSILAS",
+  "title": "Le Passeur des sentes",
+  "job": "ECLAIREUR",
+  "description": "Une fougère pliée suffit à Ssilas pour retrouver un chemin perdu. Sur les racines d'Arborium, son arc veille et sa patience guide : nul voyageur ne doit rester seul dans la forêt.",
+  "element": "HERBO",
+  "race": "SERPES",
+  "weapon": "Arc",
+  "faction": "Arborium",
+  "positions": [
+    2,
+    3
+  ],
+  "atk": [
+    225,
+    187,
+    148,
+    108,
+    67,
+    "buff_atk"
+  ],
+  "defense": [
+    218,
+    177,
+    137,
+    94,
+    "dodge",
+    27
+  ],
+  "magic": [
+    4
+  ],
+  "barriers": [
+    4
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49900201",
+  "characterId": "ssilas",
+  "slug": "V4_49900201",
+  "output": "KALISTAR_V4_49900201",
+  "text": "Une fougère pliée suffit à Ssilas pour retrouver un chemin perdu. Sur les racines d'Arborium, son arc veille et sa patience guide : nul voyageur ne doit rester seul dans la forêt.",
+  "color": "89D355",
+  "hue": 100,
+  "weapon_index": 5,
+  "role": 3,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Personnage original propose pour Kalistar, demande du 2 octobre 2026",
+  "visual_revision": "V4-2026-10-02-serpes-geralt",
+  "artworkSource": "V4/Illustrations/Ssilas_Le_Passeur_Des_Sentes_01.png"
+}

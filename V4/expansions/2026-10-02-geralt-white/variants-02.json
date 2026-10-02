@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-02",
+  "request": "Au moins deux autres illustrations, puis continuer",
+  "interpretedScope": "Deux scenes Geralt en chemise blanche; integration si un resultat exploitable est fourni",
+  "mode": "built-in image_gen",
+  "references": [
+    "V4/Illustrations/TW_geralt_witcher_01.png",
+    "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+    "V3/assets/illustrations/34_NECRO_VALAZAR.png"
+  ],
+  "status": "moderation_blocked",
+  "attempts": [
+    {
+      "variant": "A",
+      "scene": "Lettre pres de la fenetre d'une auberge",
+      "prompt": "Create one vertical 4:5 Kalistar narrative fantasy painting of Geralt of Rivia, the original game character. Image 1 supplies his approved painted identity: keep the same mature face, swept-back white hair, short white beard, amber eyes, healed facial scar and small wolf necklace. Images 2 and 3 supply the painterly Kalistar style only.\nNew illustration A, a quiet moment at an inn: Geralt in a fully clothed white linen shirt with modest laced collar, rolled sleeves, dark trousers and a simple leather belt. He sits sideways beside a large wooden window, holding a folded personal letter in his right hand and resting his left forearm on his knee. An almost imperceptible affectionate smile softens his otherwise thoughtful expression. The letter contains no legible writing. His shirt is the clear visual signal: white linen folds shaped by natural light, no armor, no chainmail. He is comfortably seated, one head, two arms, two legs, coherent hands and posture. Show him large from head to knees, central face and hands unobstructed. Sparse aged wood interior, soft afternoon sunlight and a simple view of trees beyond the window; no other people.\nMatch the references' visibly hand-painted broken color planes, deliberate brushstrokes, patinated materials, natural facial anatomy and narrative emotion, detailed face and cloth with softer background edges. NOT photographic, NOT glossy 3D, NOT anime/manga. No violence or threatening action. No card frame, text, logo, statistics, UI or watermark. Illustration only.",
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID f0706aaf-a3af-4707-87b0-5f9f3b9864dc.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+      "requestId": "f0706aaf-a3af-4707-87b0-5f9f3b9864dc",
+      "moderationStage": "output",
+      "categories": [
+        "other"
+      ],
+      "generatedImage": null
+    },
+    {
+      "variant": "B",
+      "scene": "Debout au bord du lac, manche retroussee",
+      "prompt": "Paint Geralt of Rivia, the original video-game character, in the Kalistar narrative fantasy art direction. Vertical 4:5 standalone illustration. The first reference provides the approved face and identity; the other two provide the painted style.\nHe wears a white linen shirt with rolled sleeves, a modest laced collar, dark trousers, a leather belt and boots. No armor. He stands naturally on a low wooden lakeside landing at sunrise, left hand resting on the weathered railing while his right hand finishes rolling a sleeve. A subtle contented smile, attentive amber eyes, white swept-back hair, short white beard, healed facial scar and wolf necklace. Show his face, shoulders and both hands prominently, framed from head to knees, two coherent arms and natural human anatomy.\nQuiet lake, a few reeds, simple wooded shore and pale morning mist. Believable soft daylight. Deliberate visible brushwork, broken painted color planes, tactile linen and worn wood, detailed expressive painted face, restrained background. Match the references, not photography, anime or a 3D render. No additional people, exposed weapons, combat, text, logo, card frame, UI or watermark.",
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID ce6cd468-d4c4-4d03-9b4d-ac4da4d11651.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+      "requestId": "ce6cd468-d4c4-4d03-9b4d-ac4da4d11651",
+      "moderationStage": "output",
+      "categories": [
+        "other"
+      ],
+      "generatedImage": null
+    }
+  ],
+  "cardIntegration": "not-started-no-image",
+  "gameplayPreserved": true,
+  "catalogueChanged": false,
+  "publicPush": false
+}
