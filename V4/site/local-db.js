@@ -17,7 +17,7 @@
   async function open(data,{name=NAME}={}) {
     if(!name.startsWith(NAME))throw new Error('La base V4 doit rester isolée de V2.');
     if(data.version!==4||data.edition!=='V4'||!data.cards?.length||data.cards.some(c=>c.edition!=='V4'||!c.characterId))throw new Error('Profils V4 indisponibles : aucune donnée historique copiée dans la base V4.');
-    const E=KalistarEngine.createEngine(data),O=window.KalistarOwnership,T=window.KalistarTrophies;
+    const E=KalistarEngine.createEngine(data),O=window.KalistarOwnership,T=window.KalistarTrophies,Q=window.KalistarEquipment;
     async function connect(version){
       const req=version===undefined?indexedDB.open(name):indexedDB.open(name,version);
       req.onupgradeneeded=()=>{
@@ -33,6 +33,7 @@
           results.createIndex('cardId','cardId');results.createIndex('instanceId','instanceId');results.createIndex('matchId','matchId');
         }
         if(O)for(const table of registryStores)if(!db.objectStoreNames.contains(table))db.createObjectStore(table,{keyPath:'id'});
+        if(!db.objectStoreNames.contains('equipment'))db.createObjectStore('equipment',{keyPath:'id'});
       };
       return new Promise((resolve,reject)=>{
         let blocked=false;
@@ -42,14 +43,15 @@
       });
     }
     let db=await connect();
-    while(O&&registryStores.some(s=>!db.objectStoreNames.contains(s))){
+    while(!db.objectStoreNames.contains('equipment')||O&&registryStores.some(s=>!db.objectStoreNames.contains(s))){
       const version=db.version+1;db.close();
       try{db=await connect(version);}catch(e){if(e.name!=='VersionError')throw e;db=await connect();}
     }
     const hasRegistry=registryStores.every(s=>db.objectStoreNames.contains(s));
-    const allStores=[...stores,...(hasRegistry?registryStores:[])];
+    const allStores=[...stores,...(hasRegistry?registryStores:[]),'equipment'];
     let cache=Object.fromEntries(allStores.map(s=>[s,[]])),queue=Promise.resolve(),opened=true,channel=null;
     const catalogueListeners=new Set();
+    const equipmentListeners=new Set();
     const catalogueChanges=()=>[...new Set([...cache.versions.map(c=>c.id),...(cache.collectibles||[]).map(c=>c.cardId)].filter(id=>!E.byId[id]))];
     const serial=(id,n)=>`K4-${id}-${String(n).padStart(3,'0')}`;
     const instance=(id,n,date)=>({id:serial(id,n),cardId:id,characterId:E.byId[id].characterId,copy:n,serial:serial(id,n),createdAt:date});
@@ -59,9 +61,10 @@
       const tx=db.transaction(allStores,'readonly'),done=completed(tx),reads=allStores.map(s=>request(tx.objectStore(s).getAll())),next={};
       for(let i=0;i<allStores.length;i++)next[allStores[i]]=await reads[i];
       await done;
-      const previous=catalogueChanges().join(',');cache=next;
+      const previous=catalogueChanges().join(','),equipmentBefore=stable(cache.equipment);cache=next;
       const changed=catalogueChanges();
       if(changed.join(',')!==previous)for(const listener of catalogueListeners)try{listener(changed.slice());}catch{}
+      if(stable(cache.equipment)!==equipmentBefore)for(const listener of equipmentListeners)try{listener();}catch{}
     }
     async function publish(){
       await refresh();
@@ -113,7 +116,7 @@
       channel=new BroadcastChannel(name+'-ownership');
       channel.onmessage=()=>{enqueue(refresh).catch(()=>{});};
     }
-    const close=()=>{opened=false;catalogueListeners.clear();channel?.close();connections.get(name)?.delete(refresh);db.close();};
+    const close=()=>{opened=false;catalogueListeners.clear();equipmentListeners.clear();channel?.close();connections.get(name)?.delete(refresh);db.close();};
     db.onversionchange=close;
     function makeMatch(value,at=new Date().toISOString()){
       const state=E.restoreGame(validateGame(value)),summary=E.matchStats(state);
@@ -249,6 +252,11 @@
         // Schema 2 has no ownership proofs to validate an older approved roster.
         if(value.schema===2&&data.cards.some(c=>c.origin==='approved'&&!snapshotIds.has(c.id)))throw legacyError();
         const registry=value.schema===3?O.validateBackup(value,{...data,cards:value.versions}):null;
+        const equipment=value.equipment===undefined?null:value.equipment;
+        if(equipment!==null){
+          if(!Array.isArray(equipment)||equipment.length>100||new Set(equipment.map(r=>r?.id)).size!==equipment.length)throw new Error('\u00c9quipements de sauvegarde invalides.');
+          for(const row of equipment){Q.validateProfile(row,data.cards);if(registry&&!registry.users.some(u=>u.id===row.id))throw new Error('Profil de porteur absent.');}
+        }
         const instances=value.instances.map(i=>{
           if(!snapshotIds.has(i.cardId)||!Number.isInteger(i.copy)||i.copy<1||i.copy>4||i.id!==serial(i.cardId,i.copy)||i.serial!==serial(i.cardId,i.copy)||!Number.isFinite(Date.parse(i.createdAt)))throw new Error('Identifiant d’exemplaire invalide.');
           return instance(i.cardId,i.copy,i.createdAt);
@@ -273,9 +281,16 @@
           const replace=registry&&(replaceRegistry||pristine);
           if(registry&&!replace&&!O.sameRegistry(s,expanded.registry))O.fail('REGISTRY_CONFLICT','Le registre differe de cette sauvegarde. Une restauration complete confirmee est requise.');
           if(replace){
+            const retainedEquipment=equipment===null?copy(s.equipment):equipment;
             for(const store of allStores)clear(store);
+            for(const row of retainedEquipment)write('equipment',row);
             for(const store of registryStores)for(const item of expanded.registry[store])write(store,item);
             for(const card of data.cards)write('versions',copy(value.versions.find(p=>p.id===card.id)||{...card,updatedAt:new Date().toISOString()}));
+          }
+          if(!replace&&equipment)for(const row of equipment){
+            const old=s.equipment.find(r=>r.id===row.id);
+            if(old&&stable(old)!==stable(row))throw new Error('\u00c9quipement diff\u00e9rent : restauration compl\u00e8te confirm\u00e9e requise.');
+            write('equipment',row);
           }
           // Results are reconstructed from games, never trusted as imported counters.
           mergeMatches(expanded.matches,expanded.instances,s,write,{restoring:!!registry,restoreLegacy:!!replace});
@@ -285,6 +300,21 @@
       idle:()=>queue,close
     };
     if(O)api.registry=O.create({data,engine:E,getCache:()=>cache,enqueue,transaction:atomic,refresh,isOpen:()=>opened});
+    api.equipment={
+      profile:userId=>copy(cache.equipment.find(r=>r.id===userId)||Q.profile(userId)),
+      weapon:(userId,characterId)=>{const id=cache.equipment.find(r=>r.id===userId)?.slots.weapon[characterId];return Q.catalogue.weapons.find(w=>w.id===id)||null;},
+      subscribe:listener=>{equipmentListeners.add(listener);return()=>equipmentListeners.delete(listener);},
+      equip:(userId,characterId,weaponId,{expected=null,expectedProfile=null}={})=>enqueue(()=>atomic((s,write)=>{
+        if(hasRegistry&&!s.users.some(u=>u.id===userId))throw new Error('Profil inconnu.');
+        const current=s.equipment.find(r=>r.id===userId)||Q.profile(userId);
+        const row=Q.equipProfile(current,characterId,weaponId,data.cards,{expected,expectedProfile});write('equipment',row);return copy(row);
+      })),
+      unequip:(userId,characterId,weaponId)=>enqueue(()=>atomic((s,write)=>{
+        const row=copy(s.equipment.find(r=>r.id===userId)||Q.profile(userId));
+        if(row.slots.weapon[characterId]!==weaponId)throw new Error('L\u2019\u00e9quipement a chang\u00e9.');
+        delete row.slots.weapon[characterId];write('equipment',row);return copy(row);
+      }))
+    };
     return api;
   }
   window.KalistarLocalDB={open,validateGame};

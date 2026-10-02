@@ -22,6 +22,8 @@ jobs:
           node-version: '24'
       - name: Fetch only playable media
         run: git lfs pull --include="$(node V4/deploy/build.cjs --lfs-paths)" --exclude=""
+      - name: Fetch native medallion verification sources
+        run: git lfs pull --include="V4/atelier/designer-assets/frame/default.png,V4/atelier/designer-assets/packed/banks/weapon-Hache.png,V4/atelier/designer-assets/packed/banks/weapon-Instrument.png" --exclude=""
       - name: Check catalogue and mechanics
         run: |
           node --test V4/atelier/game-catalog.test.cjs V4/atelier/collaboration-arenas.test.cjs V4/deploy/build.test.cjs V4/deploy/pwa.test.cjs V4/site/statistics.test.cjs V4/site/collaborations.test.cjs V4/site/metal-gear.test.cjs V4/site/resident-evil.test.cjs V4/site/one-piece.test.cjs
@@ -34,6 +36,7 @@ jobs:
           node --test V4/releases/2026-10-02-pages-portability/portable.test.cjs
           node V4/site/kalistel.test.cjs
           node V4/site/arena-ambience.test.cjs
+          node --test V4/site/equipment.test.cjs
       - name: Build playable release
         run: node V4/deploy/build.cjs
       - uses: actions/configure-pages@v5

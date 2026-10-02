@@ -53,7 +53,7 @@ async function main() {
   const page = await context.newPage();
   page.on('pageerror', error => errors.push(error.message));
   await page.goto(origin + '/db-tests');
-  for (const file of ['engine.js', 'ownership.js', 'local-db.js']) await page.addScriptTag({ url: origin + '/jeu/' + file });
+  for (const file of ['weapons.js', 'equipment.js', 'engine.js', 'ownership.js', 'local-db.js']) await page.addScriptTag({ url: origin + '/jeu/' + file });
   for (const fixture of [{ old, next, addedId: publication.id }, await approvedAdditionFixtures()]) {
     const results = await page.evaluate(runDatabaseScenarios, fixture);
     for (const result of results) { checks.push(result); console.log('PASS ' + result); }

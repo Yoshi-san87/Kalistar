@@ -1,8 +1,8 @@
 (function (root, factory) {
-  const api = factory();
+  const api = factory(typeof module === 'object' && module.exports ? require('./equipment.js') : root.KalistarEquipment);
   if (typeof module === 'object' && module.exports) module.exports = api;
   else root.KalistarEngine = api;
-})(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+})(typeof globalThis !== 'undefined' ? globalThis : this, function (Equipment) {
   'use strict';
   const clone = value => JSON.parse(JSON.stringify(value));
   const dieValue = (card, side, die) => card[side === 'atk' ? 'atk' : 'defense'][6 - die];
@@ -115,6 +115,7 @@
       s.match={version:1,fromRound:1,partial:false,events:[]};
       [deckA,deckB].forEach((deck,side)=>s.players.push({board:Array(5).fill(null),reserve:deck.map((id,i)=>({uid:side+'-'+i,cardId:id,revived:false,reraise:0,luck:0,mana:0,physical:0,ward:0})),dead:[]}));
       identifyUnits(s);
+      if(options.equipment!==undefined)s.equipment=Equipment.snapshot(options.equipment,data.cards);
       addLog(s,'start','Deux decks de 10 cartes. Formation en cours.');
       assertState(s);return s;
     }
@@ -141,6 +142,7 @@
       if(s.phase==='replace')u.entered=true;
       addLog(s,'deploy',`${side===0?'Joueur':'Adversaire'} : ${card(u).name} entre en P${slot+1}.`);
       if(s.phase==='replace')findReplacement(s);
+      if(s.phase==='over'&&s.equipment)s.equipment.pending={};
       return s;
     }
     function recall(s,side,slot) {
@@ -196,6 +198,7 @@
       const a=s.players[s.turn].board[attackerSlot],b=s.players[1-s.turn].board[targetSlot];
       if(!a||!b)throw new Error('Attaquant et cible requis.');
       s.duel={side:s.turn,attackerSlot,targetSlot,attacker:a.uid,target:b.uid,attackerName:card(a).name,targetName:card(b).name,attackRolls:[],defenseRolls:[],buff:0,ward:0};
+      Equipment.lock(s,a,b,card);
       s.phase='attack';addLog(s,'target',`${card(a).name} vise ${card(b).name}.`);return s;
     }
     function roll(s,forced) {
@@ -204,8 +207,10 @@
       return Math.floor(s.rng/4294967296*6)+1;
     }
     function finish(s,outcome,formula) {
+      if(s.duel.equipmentTransfer){const e=s.duel.equipmentTransfer;outcome+=` ${e.name} : +${e.value} ${e.stat} au prochain duel.`;}
       s.duel.autoDefense=false;
       s.duel.outcome=outcome;if(formula)s.duel.formula=formula;
+      Equipment.finish(s);
       recordPerformance(s);
       s.lastDuel=clone(s.duel);s.phase='result';addLog(s,'result',outcome,formula);return s;
     }
@@ -298,6 +303,7 @@
       if(!u)throw new Error('Choisissez une carte de votre plateau.');
       const already=setTrait(s,u,'luck');s.duel.cloverGranted=uid;
       s.duel.traitRefreshed=already;
+      grantEquipmentSupport(s,u,'luck',already);
       return finish(s,already?`${card(u).name} conserve son trèfle actif. Aucun trèfle supplémentaire.`:`${card(u).name} reçoit un trèfle : seconde chance en défense.`);
     }
     function grantPotion(s,uid) {
@@ -305,6 +311,7 @@
       const u=s.players[s.duel.side].board.find(u=>u?.uid===uid);
       if(!u)throw new Error('Choisissez une carte de votre plateau.');
       s.duel.traitRefreshed=setTrait(s,u,'mana');s.duel.manaGranted=uid;
+      grantEquipmentSupport(s,u,'mana',s.duel.traitRefreshed);
       return finish(s,`${card(u).name} reçoit la potion : +${rules.token_bonus} à sa prochaine attaque numérique magique.`);
     }
     function aiCloverChoice(s) {
@@ -415,7 +422,14 @@
       if(!d.magic&&!d.ward&&b.ward){d.ward=b.ward;b.ward=0;}
       const f={baseAttack:d.attackValue,weapon:data.weapons[ac.weapon]?.[bc.weapon]||0,element:elementModifier(ac,bc),faction:synergy(s.players[d.side],a,'faction'),buff:d.buff,barrier:d.magic&&bc.element!=='NONE'&&bc.barriers.includes(die)?-rules.barrier:0,baseDefense:value,race:synergy(s.players[1-d.side],b,'race'),magic:d.magic,
         arenaAttack:arenaBonuses(s,a).attack,arenaDefense:arenaBonuses(s,b).defense,ward:d.magic?0:d.ward};
-      f.attack=Math.max(0,f.baseAttack+f.weapon+f.element+f.faction+f.buff+f.barrier+f.arenaAttack);f.defense=Math.max(0,f.baseDefense+f.race+f.arenaDefense+f.ward);
+      if(s.equipment){
+        f.equipmentAttack=d.equipment.attack?.value||0;f.equipmentDefense=d.equipment.defense?.value||0;
+        if(!d.equipmentLogged){
+          for(const [part,value] of [['attack',f.equipmentAttack],['defense',f.equipmentDefense]])if(value)addLog(s,'effect',`${d.equipment[part].name} : +${value} ${d.equipment[part].stat}.`,d.equipment[part]);
+          d.equipmentLogged=true;
+        }
+      }
+      f.attack=Math.max(0,f.baseAttack+f.weapon+f.element+f.faction+f.buff+f.barrier+f.arenaAttack+(f.equipmentAttack||0));f.defense=Math.max(0,f.baseDefense+f.race+f.arenaDefense+f.ward+(f.equipmentDefense||0));
       const lethal=f.attack>f.defense;
       if(lethal&&b.luck){
         b.luck=0;d.luckUsed=b.uid;d.autoDefense=true;d.failedDefense=clone(f);d.formula=clone(f);
@@ -440,7 +454,7 @@
     }
     function next(s) {
       if(s.phase!=='result')throw new Error('Le duel doit être résolu.');
-      s.turn=1-s.turn;s.round++;findReplacement(s);return s;
+      s.turn=1-s.turn;s.round++;findReplacement(s);if(s.phase==='over'&&s.equipment)s.equipment.pending={};return s;
     }
     function legalTargets(s){
       return s.players[s.turn].board.flatMap((a,i)=>a?s.players[1-s.turn].board.flatMap((b,j)=>b?[[i,j]]:[]):[]);
@@ -450,7 +464,8 @@
       for(const [i,j] of legalTargets(s)){
         const a=s.players[s.turn].board[i],b=s.players[1-s.turn].board[j],ac=card(a),bc=card(b);
         const v=mean(ac.atk)-mean(bc.defense)+(data.weapons[ac.weapon]?.[bc.weapon]||0)+elementModifier(ac,bc)+synergy(s.players[s.turn],a,'faction')-synergy(s.players[1-s.turn],b,'race')-rules.barrier*ac.magic.length/6*(bc.element==='NONE'?0:bc.barriers.length)/6+(ac.atk.includes('death')?35:0)+(ac.atk.includes('revive')&&!a.reraise?20:0)-(b.reraise?25:0)+arenaBonuses(s,a).attack-arenaBonuses(s,b).defense-(b.ward||0)*ac.atk.filter((v,i)=>typeof v==='number'&&!ac.magic.includes(6-i)).length/6;
-        if(v>score){score=v;best=[i,j];}
+        const equipped=v+(equipmentModifier(s,a,'ATK')?.value||0)-(equipmentModifier(s,b,'DEF')?.value||0);
+        if(equipped>score){score=equipped;best=[i,j];}
       }
       return best;
     }
@@ -488,6 +503,7 @@
       if(!Array.isArray(s.log)||s.log.length>10000||s.log.some(l=>!l||!logTypes.includes(l.type)||!validText(l.text)||!Number.isInteger(l.n)||!Number.isInteger(l.turn)))throw new Error('Journal invalide.');
       const effects=['retry','mana','buff_atk','revive','guard','death','dodge','shield_physical','shield_magic'];
       const units=s.players.flatMap(p=>[...p.board.filter(Boolean),...p.reserve,...p.dead]);
+      Equipment.validate(s,data.cards);
       for(const d of [s.duel,s.lastDuel])if(d!==null){
         if(!d||![0,1].includes(d.side)||![d.attackerSlot,d.targetSlot].every(v=>Number.isInteger(v)&&v>=0&&v<5)||!validText(d.attackerName,80)||!validText(d.targetName,80)||!new RegExp('^'+d.side+'-[0-9]$').test(d.attacker)||!new RegExp('^'+(1-d.side)+'-[0-9]$').test(d.target))throw new Error('Duel invalide.');
         for(const rolls of [d.attackRolls,d.defenseRolls])if(!Array.isArray(rolls)||rolls.length>1000||rolls.some(v=>!Number.isInteger(v)||v<1||v>6))throw new Error('Jets invalides.');
@@ -501,12 +517,13 @@
         }
         if(d.attackValue==='guard'&&!canGuard(author)||d.attackValue==='revive'&&!canHeal(author))throw new Error('Soutien incompatible avec le profil V4.');
         for(const f of [d.formula,d.failedDefense])if(f!==undefined){
+          Equipment.validateFormula(s,d,f);
           const fields=['baseAttack','weapon','element','faction','buff','barrier','baseDefense','race','attack','defense','arenaAttack','arenaDefense','ward'];
           if(!f||fields.some(k=>!Number.isInteger(f[k])||Math.abs(f[k])>2000)||typeof f.magic!=='boolean'||f.magic!==d.magic||
             f.arenaAttack<0||f.arenaAttack>25||f.arenaDefense<0||f.arenaDefense>10||![0,60].includes(f.ward)||f.ward!==d.ward||f.magic&&f.ward||
             f.baseAttack!==d.attackValue||f.buff!==d.buff||
-            f.attack!==Math.max(0,f.baseAttack+f.weapon+f.element+f.faction+f.buff+f.barrier+f.arenaAttack)||
-            f.defense!==Math.max(0,f.baseDefense+f.race+f.arenaDefense+f.ward))throw new Error('Calcul V4 invalide.');
+            f.attack!==Math.max(0,f.baseAttack+f.weapon+f.element+f.faction+f.buff+f.barrier+f.arenaAttack+(f.equipmentAttack||0))||
+            f.defense!==Math.max(0,f.baseDefense+f.race+f.arenaDefense+f.ward+(f.equipmentDefense||0)))throw new Error('Calcul V4 invalide.');
         }
         if(d.autoDefense!==undefined&&typeof d.autoDefense!=='boolean')throw new Error('Relance automatique invalide.');
         if(d.cloverGranted!==undefined&&(!new RegExp('^'+d.side+'-[0-9]$').test(d.cloverGranted)||d.attackValue!=='retry'))throw new Error('Bénéficiaire invalide.');
@@ -554,7 +571,13 @@
       assertState(value);
       return clone(value);
     }
-    return {data,rules,byId,card,trait,traits,clone,dieValue,mean,lineup,deckCoverage,validateDeck,validatePlayableDeck,newGame,deploy,recall,autoDeploy,start,synergy,elementModifier,lock,rollAttack,acceptAttack,useKalistel,kalistelRemaining,aiUseKalistel,rollDefense,grantClover,grantPotion,grantPhysical,grantReraise,grantGuard,aiCloverChoice,aiPotionChoice,aiPhysicalChoice,aiReraiseChoice,aiGuardChoice,arenaBonuses,setArena,next,aiChoice,assertState,restoreGame,matchStats,instanceId};
+    function equipmentView(s,u){return Equipment.view(s,u,card(u));}
+    function equipmentModifier(s,u,stat){return Equipment.modifier(s,u,card(u),stat);}
+    function grantEquipmentSupport(s,u,kind,refreshed){
+      const a=s.players[s.duel.side].board[s.duel.attackerSlot],bonus=Equipment.support(s,a,u,card,kind,refreshed);
+      if(bonus)addLog(s,'effect',`${bonus.name} : ${card(u).name} re\u00e7oit +${bonus.value} ${bonus.stat} pour son prochain duel.`,bonus);
+    }
+    return {data,rules,byId,card,trait,traits,clone,dieValue,mean,lineup,deckCoverage,validateDeck,validatePlayableDeck,newGame,deploy,recall,autoDeploy,start,synergy,elementModifier,lock,rollAttack,acceptAttack,useKalistel,kalistelRemaining,aiUseKalistel,rollDefense,grantClover,grantPotion,grantPhysical,grantReraise,grantGuard,aiCloverChoice,aiPotionChoice,aiPhysicalChoice,aiReraiseChoice,aiGuardChoice,arenaBonuses,setArena,next,aiChoice,assertState,restoreGame,matchStats,instanceId,equipmentView,equipmentModifier};
   }
   return {createEngine,clone,dieValue,mean};
 });

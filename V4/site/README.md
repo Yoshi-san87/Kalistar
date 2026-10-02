@@ -93,6 +93,26 @@ scrollbar; landscape book pages retain a minimum readable card height.
 selection, copy counts, keyboard focus, filtering, ownership, rapid clicks and
 animation cancellation using a disposable browser profile and the local server.
 
+## Equipped Weapons (2 October 2026)
+
+`/jeu/#weapons` adds a native Armes view: two real conditional weapons,
+profile-local equipment, compatible carriers and atomic replacement/move
+confirmation. The five phone navigation targets are Collection, Decks, Armes,
+Arene and Plus; Story, Statistics and the local Atelier remain in Plus.
+
+The same extracted copper medallion is used in the weapon detail and on active
+arena cards. Position follows the native optical anchor, the card-media crop
+and the actual image dimensions; inactive cards are untouched. Deck and notebook
+indicators link to the weapon detail. Match equipment is snapshotted, not read
+live from the profile. Numeric bonuses are engine modifiers, with named recap
+rows and journal entries. Existing base-family matchups remain unchanged.
+
+See [equipment rules, schemas and adding a third weapon](../docs/ARMES_EQUIPEES.md).
+`equipment.test.cjs` covers pure rules, full matches and native/build assets;
+`weapons.browser.test.cjs` covers desktop, Razr 50, reduced motion, persistence,
+legacy upgrades, real duels and exact geometry in an isolated QA database.
+Proofs and screenshots are under `verification/weapons/`.
+
 ## Embedded Atelier
 
 The top navigation includes `/jeu/#atelier`. Its full-width iframe `#atelier-frame` loads `/?embedded=1` once and remains mounted across tab switches. Active matches pause while outside the arena. The designer can send:

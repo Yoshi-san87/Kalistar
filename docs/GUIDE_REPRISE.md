@@ -49,6 +49,17 @@ temporaires du presse-papiers ou les preferences non encore documentees.
 
 ## Reperes techniques
 
+### Armes equipees V4.3.6
+
+La [publication V4.3.6](../V4/releases/2026-10-02-equipped-weapons/README.md)
+ajoute l'onglet Armes, l'equipement par profil et les bonus moteur conditionnels
+de Balmhyr et Momo. Les medaillons natifs s'animent seulement lorsque leur
+condition est active. Le match conserve son snapshot ; la famille d'arme
+imprimee et sa matrice restent inchangees. Lire les
+[schemas et regles](../V4/docs/ARMES_EQUIPEES.md) avant d'ajouter un objet.
+La Story longue locale reste hors de cette release. Verifier le workflow Pages
+du commit avant d'annoncer la publication en ligne.
+
 ### Immersion de combat V4.3.5
 
 La [publication V4.3.5](../V4/releases/2026-10-02-arena-immersion/README.md)

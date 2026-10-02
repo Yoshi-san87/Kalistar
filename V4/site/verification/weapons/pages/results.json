@@ -1,0 +1,297 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "label": "old database upgraded in place",
+      "version": 2,
+      "equipment": true,
+      "marker": "preserved"
+    },
+    {
+      "label": "desktop pre-match UI captures profile",
+      "passed": true
+    },
+    {
+      "label": "desktop challenger",
+      "samples": [
+        {
+          "uid": "0-0",
+          "dx": 0.026393493116302125,
+          "dy": 0.014525039513614502,
+          "width": 0.0172109185078817
+        }
+      ]
+    },
+    {
+      "label": "desktop after attack",
+      "samples": [
+        {
+          "uid": "0-0",
+          "dx": 0.026393493116302125,
+          "dy": 0.014525039513614502,
+          "width": 0.0172109185078817
+        }
+      ]
+    },
+    {
+      "label": "desktop resizing during activation",
+      "samples": [
+        {
+          "uid": "0-0",
+          "dx": 0.026393493116302125,
+          "dy": 0.014525039513614502,
+          "width": 0.0172109185078817
+        }
+      ]
+    },
+    {
+      "label": "desktop board zoom 125%",
+      "samples": [
+        {
+          "uid": "0-0",
+          "dx": 0.016018167493314195,
+          "dy": 0.0252445945608315,
+          "width": 0.02554348092456138
+        }
+      ]
+    },
+    {
+      "label": "desktop flute support",
+      "samples": [
+        {
+          "uid": "0-4",
+          "dx": 0.015340730865773367,
+          "dy": 0.008449085693541747,
+          "width": 0.010018036386451712
+        }
+      ]
+    },
+    {
+      "label": "UI replacement / cancel / move / unequip, QA-only definition and in-memory profile",
+      "passed": true
+    },
+    {
+      "label": "desktop",
+      "passed": true,
+      "profileTests": {
+        "incompatible": true,
+        "stale": true,
+        "invalidImport": true,
+        "unchanged": true,
+        "isolated": true,
+        "retained": true
+      }
+    },
+    {
+      "label": "phone navigation",
+      "nav": [
+        {
+          "label": "Collection",
+          "height": 60,
+          "width": 82.390625
+        },
+        {
+          "label": "Decks",
+          "height": 60,
+          "width": 82.40625
+        },
+        {
+          "label": "Armes",
+          "height": 60,
+          "width": 82.390625
+        },
+        {
+          "label": "Arène",
+          "height": 60,
+          "width": 82.40625
+        },
+        {
+          "label": "Plus",
+          "height": 60,
+          "width": 82.40625
+        }
+      ]
+    },
+    {
+      "label": "razr50 pre-match UI captures profile",
+      "passed": true
+    },
+    {
+      "label": "razr50 challenger",
+      "samples": [
+        {
+          "uid": "0-0",
+          "dx": 0.007550918023888187,
+          "dy": 0.027946089382567152,
+          "width": 0.011429981724681681
+        }
+      ]
+    },
+    {
+      "label": "razr50 after attack",
+      "samples": [
+        {
+          "uid": "0-0",
+          "dx": 0.007550918023888187,
+          "dy": 0.027946089382567152,
+          "width": 0.011429981724681681
+        }
+      ]
+    },
+    {
+      "label": "razr50 resizing during activation",
+      "samples": [
+        {
+          "uid": "0-0",
+          "dx": 0.01697642949773126,
+          "dy": 0.013200088121038789,
+          "width": 0.02971253819866604
+        }
+      ]
+    },
+    {
+      "label": "razr50 flute support",
+      "samples": [
+        {
+          "uid": "0-4",
+          "dx": 0.00322498431617646,
+          "dy": 0.011939926388890854,
+          "width": 0.00488158720200893
+        }
+      ]
+    },
+    {
+      "label": "razr50",
+      "passed": true,
+      "profileTests": {
+        "incompatible": true,
+        "stale": true,
+        "invalidImport": true,
+        "unchanged": true,
+        "isolated": true,
+        "retained": true
+      }
+    },
+    {
+      "label": "reduced pre-match UI captures profile",
+      "passed": true
+    },
+    {
+      "label": "reduced challenger",
+      "samples": [
+        {
+          "uid": "1-0",
+          "dx": 0.029360121436212694,
+          "dy": 0.05199352644132205,
+          "width": 0.020906589560706124
+        }
+      ]
+    },
+    {
+      "label": "reduced after attack",
+      "samples": [
+        {
+          "uid": "1-0",
+          "dx": 0.029360121436212694,
+          "dy": 0.05199352644132205,
+          "width": 0.020906589560706124
+        }
+      ]
+    },
+    {
+      "label": "reduced resizing during activation",
+      "samples": [
+        {
+          "uid": "1-0",
+          "dx": 0.019784790958027543,
+          "dy": 0.03613915594127093,
+          "width": 0.001575541765507893
+        }
+      ]
+    },
+    {
+      "label": "reduced flute support",
+      "samples": [
+        {
+          "uid": "0-4",
+          "dx": 0.029363936133485424,
+          "dy": 0.051978392724322475,
+          "width": 0.020891330771643624
+        }
+      ]
+    },
+    {
+      "label": "reduced",
+      "passed": true,
+      "profileTests": {
+        "incompatible": true,
+        "stale": true,
+        "invalidImport": true,
+        "unchanged": true,
+        "isolated": true,
+        "retained": true
+      }
+    },
+    {
+      "label": "compact pre-match UI captures profile",
+      "passed": true
+    },
+    {
+      "label": "compact challenger",
+      "samples": [
+        {
+          "uid": "0-0",
+          "dx": 0.037437618451853893,
+          "dy": 0.025699749741647793,
+          "width": 0.00948043210593319
+        }
+      ]
+    },
+    {
+      "label": "compact after attack",
+      "samples": [
+        {
+          "uid": "0-0",
+          "dx": 0.037437618451853893,
+          "dy": 0.025684365880579207,
+          "width": 0.00948043210593319
+        }
+      ]
+    },
+    {
+      "label": "compact resizing during activation",
+      "samples": [
+        {
+          "uid": "0-0",
+          "dx": 0.03743737674268033,
+          "dy": 0.025668982019510622,
+          "width": 0.009478953132965984
+        }
+      ]
+    },
+    {
+      "label": "compact flute support",
+      "samples": [
+        {
+          "uid": "0-4",
+          "dx": 0.016879705144305035,
+          "dy": 0.011583479000250918,
+          "width": 0.004273839397741952
+        }
+      ]
+    },
+    {
+      "label": "compact",
+      "passed": true,
+      "profileTests": {
+        "incompatible": true,
+        "stale": true,
+        "invalidImport": true,
+        "unchanged": true,
+        "isolated": true,
+        "retained": true
+      }
+    }
+  ],
+  "errors": []
+}

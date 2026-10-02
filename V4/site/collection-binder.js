@@ -33,7 +33,7 @@
     }
     if(page)pages.push(page.trim());return pages.length?pages:[''];
   }
-  function create({data,getOwned=()=>[],getCatalogueChanges=()=>[],getFavorites=()=>new Set(),getCareer=()=>null,getDecks=()=>[],onOpenDeck=()=>{},onFavorite=()=>{},onRegistry=()=>{},onArchives=()=>{},onHistory=()=>{},artImage=c=>globalThis.KalistarCardMedia.image(c,'art'),profile=''}={}){
+  function create({data,getOwned=()=>[],getCatalogueChanges=()=>[],getFavorites=()=>new Set(),getCareer=()=>null,getDecks=()=>[],onOpenDeck=()=>{},onFavorite=()=>{},onRegistry=()=>{},onArchives=()=>{},onHistory=()=>{},artImage=c=>globalThis.KalistarCardMedia.image(c,'art'),profile='',getEquipment=()=>null,onEquipment=()=>{}}={}){
     if(!Array.isArray(data?.cards)||!data.cards.length)throw new Error('Catalogue V4 requis.');
     const cards=data.cards,byId=new Map(cards.map(c=>[c.id,c])),covers=new Map();
     const elements={...data.elements,NONE:data.elements.NONE||{id:'NONE',label:'Sans cristal',color:'93AAA5'}};
@@ -146,7 +146,7 @@
       return `<div class="cb-reader" data-motion="${motion}" style="--card-color:#${element(c).color}"><figure class="cb-visual"><div class="cb-media-tools" role="group" aria-label="Visuel de la carte"><button type="button" data-binder-action="media" data-id="card" aria-pressed="${!art}">${icon('credit-card')}Carte</button><button type="button" data-binder-action="media" data-id="art" aria-pressed="${art}">${icon('image')}Illustration</button></div><img class="cb-hero-image ${art?'is-art':''}" src="${art?artImage(c):image(c)}" alt="${esc((art?'Illustration de ':'Carte de ')+c.name+' : '+c.title)}"><figcaption>#${c.id}<a href="${esc(globalThis.KalistarSite?.url(c.pngUrl)||c.pngUrl)}" download title="PNG d’impression" aria-label="Télécharger le PNG d’impression">${icon('download')}</a></figcaption></figure>
         <section class="cb-reading"><header class="cb-card-heading"><div><span class="cb-eyebrow">${esc(element(c).label)} · ${owns(c.id).length?'Dans ton classeur':'Non possédée'}</span><h2>${esc(c.name)}</h2><p>${esc(c.title)}</p></div>${button('favorite','star','Favori : '+c.name,`data-id="${c.id}" aria-pressed="${getFavorites().has(c.id)}"`)}</header>
         <div class="cb-versions" role="group" aria-label="Versions de ${esc(c.name)}">${versions.map(v=>`<button type="button" data-binder-action="version" data-id="${v.id}" aria-pressed="${v.id===selected}" title="${esc(v.title)}">${crystal(v)}<span>${esc(v.title)}</span>${icon('check')}</button>`).join('')}</div>
-        <div class="cb-reading-tabs" role="tablist" aria-label="Détails de la carte">${[['story','book-open','Récit'],['profile','scan-line','Fiche'],['career','medal','Carrière'],['copies','fingerprint','Exemplaires']].map(([id,symbol,label])=>`<button type="button" role="tab" id="cb-tab-${id}" aria-controls="cb-read-content" aria-selected="${tab===id}" tabindex="${tab===id?0:-1}" data-binder-action="tab" data-id="${id}">${icon(symbol)}${label}</button>`).join('')}</div>
+        ${getEquipment(c)?`<button type="button" class="cb-equipped" data-binder-action="equipment" data-id="${getEquipment(c).id}">${icon('sword')}${esc(getEquipment(c).name)}</button>`:''}<div class="cb-reading-tabs" role="tablist" aria-label="Détails de la carte">${[['story','book-open','Récit'],['profile','scan-line','Fiche'],['career','medal','Carrière'],['copies','fingerprint','Exemplaires']].map(([id,symbol,label])=>`<button type="button" role="tab" id="cb-tab-${id}" aria-controls="cb-read-content" aria-selected="${tab===id}" tabindex="${tab===id?0:-1}" data-binder-action="tab" data-id="${id}">${icon(symbol)}${label}</button>`).join('')}</div>
         <div id="cb-read-content" class="cb-read-content" role="tabpanel" aria-labelledby="cb-tab-${tab}">${content}</div></section></div>`;
     }
     function render(){
@@ -242,6 +242,7 @@
       if(action==='pane')readerPane=id==='notes'?'notes':'visual';
       if(action==='back'){selected=null;filtersOpen=false;motion='back';}
       if(action==='scope'){scope=id==='catalogue'?'catalogue':'owned';page=0;selected=null;filtersOpen=false;}
+      if(action==='equipment'){onEquipment(id);return;}
       if(action==='favorite'){onFavorite(id);}
       if(action==='favorites'){filters.favorite=!filters.favorite;page=0;}
       if(action==='filters'){filtersOpen=!filtersOpen;pagesOpen=false;}

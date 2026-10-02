@@ -95,6 +95,7 @@ constitue pas une preuve de taux de victoire equilibres.
 ```text
 ATK = face + arme + cristal + faction + jeton ATK + arene ATK - barriere
 DEF = face + race + arene DEF + garde physique
+Puis ajouter le bonus d'equipement applicable au total ATK ou DEF.
 Chaque total est borne a zero au minimum.
 ```
 
@@ -118,6 +119,26 @@ NONE n'a ni face magique ni barriere elementaire.
 Une barriere sur la face DEF numerique obtenue retire 30 ATK seulement a une
 attaque magique. C'est distinct de la garde physique `ward` et de l'icone
 bouclier utilisee pour afficher la somme des scores DEF.
+
+## Armes equipees (2 octobre 2026)
+
+Un personnage peut porter une arme equipee choisie avant le match dans Armes.
+Elle ajoute un bonus conditionnel numerique, sans remplacer l'arme imprimee
+ni modifier la matrice des vingt familles. Le match conserve son equipement
+initial, meme si le profil change ensuite.
+
+- Hache du Roi Dechu, `balmhyr` : +30 ATK tant qu'il est le seul combattant
+  vivant sur son plateau. La reserve ne compte pas ; un remplacant desactive
+  cet etat.
+- La Flute des Petits Bonheurs, `momo` : apres un nouveau trefle ou une nouvelle
+  potion reussie, +30 DEF au beneficiaire pour son prochain duel. Une charge,
+  aucun cumul ni rafraichissement ; expire a la fin de ce duel, meme si le
+  beneficiaire attaque ou si une face speciale annule le calcul. Les relances
+  DEF du meme duel conservent le +30.
+
+Les bonus ne numerisent jamais Mort, Esquive ou un soutien. Leur origine est
+nommee dans le journal et le calcul. Details et schemas :
+[Armes equipees](ARMES_EQUIPEES.md).
 
 ## Synergies et arenes
 
