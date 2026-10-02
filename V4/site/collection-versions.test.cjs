@@ -9,6 +9,7 @@ async function main(){
   fs.mkdirSync(output,{recursive:true});
   browser=await chromium.launch({channel:'chrome',headless:true});
   const context=await browser.newContext({viewport:{width:1440,height:1000},reducedMotion:'reduce'}),page=await context.newPage(),errors=[];
+  page.setDefaultTimeout(90000);
   page.on('pageerror',e=>errors.push(e.message));
   await page.goto(url+'/jeu/');await page.waitForFunction(()=>window.KALISTAR_READY);
   const fixture=await page.evaluate(()=>{
@@ -30,10 +31,10 @@ async function main(){
     return {kalistar:cards.filter(c=>collab.universe(c)==='kalistar').length,'final-fantasy':cards.filter(c=>collab.matches(c,'ff7')||collab.matches(c,'ff8')||collab.matches(c,'ff10')).length,nier:cards.filter(c=>collab.matches(c,'nier')||collab.matches(c,'replicant')).length};
   });
   for(const [scope,count] of Object.entries(universeCounts)){
-    await page.locator('[data-binder-action=scope][data-id="'+scope+'"]').click();
+    await page.locator('.cb-scopes [data-binder-filter=collection]').selectOption(scope);
     await page.waitForFunction(expected=>document.querySelector('.cb-count')?.textContent.includes(expected+' versions'),count);
   }
-  await page.locator('[data-binder-action=scope][data-id=nier]').click();
+  await page.locator('.cb-scopes [data-binder-filter=collection]').selectOption('nier');
   await page.locator('[data-binder-action=filters]').click();
   const factionChoices=await page.locator('[data-binder-filter=faction] option').evaluateAll(options=>options.map(option=>option.value));
   for(const faction of ['FF7','FF8','FF10','NieR','Replicant'])assert(factionChoices.includes(faction),'Faction filter remains available: '+faction);

@@ -17,3 +17,17 @@
   `.gitattributes` intentionally disables text normalization.
 - The cleanup record is `maintenance/cleanup-2026-09-19/`. Archived root scripts
   are in `maintenance/scripts-historiques/`; they are not current entry points.
+
+## Versioning Every Push (2 October 2026)
+
+- Each user-authorized push to `Yoshi-san87/Kalistar` must advance the game
+  version from the latest published release. Use a patch increment by default.
+- Update the desktop title and version badge, mobile version badge and release
+  assertions together. Do not change the V4 card edition or save schema merely
+  to increment the application version.
+- Tag the release commit as `vX.Y.Z` and push the branch and tag together.
+  Include release documentation in that push, not in a later same-version push.
+- Check for concurrent releases before choosing the next number. Preserve other
+  work in the shared checkout and stage only the authorized release scope.
+- This versioning rule does not authorize a push without a user request, nor
+  does it authorize choosing a different repository or account.

@@ -10,6 +10,7 @@
   const number=v=>Number(v||0).toLocaleString('fr-FR');
   const key=c=>c.characterId||c.id;
   const normalize=s=>String(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('fr');
+  const collections=[['kalistar','Kalistar'],['final-fantasy','Final Fantasy'],['nier','NieR'],['metal-gear','Metal Gear'],['resident-evil','Resident Evil'],['one-piece','One Piece'],['witcher','The Witcher']];
   function groupCards(cards){
     const groups=new Map();
     for(const card of cards){if(!groups.has(key(card)))groups.set(key(card),[]);groups.get(key(card)).push(card);}
@@ -39,7 +40,7 @@
     let root=null,observer=null,painting=false,scope='owned',page=0,pageSize=8,columns=2,rows=2,selected=null,tab='story',art=false,filtersOpen=false,sort='id';
     let storyPage=0,historyPage=0,copyPage=0,instance='all',textLimit=600,motion='',swipe=null,suppressClick=false,transitionTimer=null,transitioning=false;
     let singlePage=false,readerPane='visual',versionTransition=null,pagesOpen=false;
-    const filters={search:'',element:'',faction:'',race:'',position:'',weapon:'',favorite:false};
+    const filters={search:'',collection:'',element:'',faction:'',race:'',position:'',weapon:'',favorite:false};
     const owns=id=>getOwned(id)||[];
     const asset=C.asset;
     const image=c=>globalThis.KalistarCardMedia.image(c);
@@ -49,7 +50,7 @@
     const crystal=c=>`<img src="${asset('cristaux',c.element)}" alt="${esc(element(c).label)}">`;
     function filtered(){
       const favorites=getFavorites(),search=normalize(filters.search.trim());
-      return cards.filter(c=>(scope==='catalogue'||scope==='owned'&&owns(c.id).length||matchesScope(c,scope))&&(!filters.favorite||favorites.has(c.id))&&
+      return cards.filter(c=>(scope==='catalogue'||owns(c.id).length)&&(!filters.collection||matchesScope(c,filters.collection))&&(!filters.favorite||favorites.has(c.id))&&
         (!search||normalize([c.name,c.title,c.faction,c.race,c.id].join(' ')).includes(search))&&
         ['element','faction','race','weapon'].every(field=>!filters[field]||filters[field]===c[field])&&
         (!filters.position||c.positions.includes(Number(filters.position))))
@@ -76,13 +77,19 @@
         <div class="cb-caption"><span class="cb-copy-count" role="img" aria-label="${owned} exemplaire${owned>1?'s':''}" title="${owned} exemplaire${owned>1?'s':''} de ${esc(c.title)}">${icon('copy')}<b>${owned}</b></span><div class="cb-caption-title">${next?`<button type="button" class="cb-version-count" data-binder-action="cycle-version" data-id="${c.id}" aria-label="${esc(group.length+' versions de '+c.name+' · Afficher '+next.title)}" title="${esc(c.title+' · '+(current+1)+' / '+group.length+' · Suivante : '+next.title)}">${versionCount}</button>`:`<span class="cb-version-count" role="img" aria-label="1 version" title="${esc(c.title)}">${versionCount}</span>`}<h2 class="${c.name.length>8?'is-long-name':''}">${esc(c.name)}</h2></div>${button('favorite','star','Favori : '+c.name,`data-id="${c.id}" aria-pressed="${favorite}"`)}</div>
       </article>`;
     }
+    function collectionChoices(){
+      return collections.flatMap(([id,label])=>{
+        const group=cards.filter(c=>matchesScope(c,id));
+        return group.length?[[id,`${label} · ${scope==='catalogue'?group.length:group.filter(c=>owns(c.id).length).length}`]]:[];
+      });
+    }
+    const choose=(field,label,options,all='Tous',className='')=>`<label class="${className}">${label}<select data-binder-filter="${field}"><option value="">${all}</option>${options.map(([value,text])=>`<option value="${esc(value)}" ${filters[field]===String(value)?'selected':''}>${esc(text)}</option>`).join('')}</select></label>`;
     function filtersHTML(){
-      const choose=(field,label,options)=>`<label>${label}<select data-binder-filter="${field}"><option value="">Tous</option>${options.map(([value,text])=>`<option value="${esc(value)}" ${filters[field]===String(value)?'selected':''}>${esc(text)}</option>`).join('')}</select></label>`;
       const values=field=>[...new Set(cards.map(c=>c[field]))].sort((a,b)=>a.localeCompare(b,'fr')).map(value=>[value,value]);
       return `<dialog class="cb-overlay" data-active="${filtersOpen}" aria-labelledby="cb-filter-title"><div class="cb-overlay-body cb-filters"><div class="cb-filter-heading"><h2 id="cb-filter-title">Retrouver une carte</h2>${button('close-overlay','x','Fermer les filtres','autofocus')}</div>
         <fieldset class="cb-filter-crystals"><legend>Cristal</legend><div>${Object.values(elements).map(e=>`<button type="button" data-binder-action="filter-choice" data-field="element" data-id="${esc(e.id)}" aria-pressed="${filters.element===e.id}" title="${esc(e.label)}"><img src="${asset('cristaux',e.id)}" alt=""><span>${esc(e.label)}</span></button>`).join('')}</div></fieldset>
         <fieldset class="cb-filter-positions"><legend>Position</legend><div>${['Tank','DPS physique','Middle','DPS magique','Support'].map((label,i)=>`<button type="button" data-binder-action="filter-choice" data-field="position" data-id="${i+1}" aria-pressed="${filters.position===String(i+1)}" title="${label}">P${i+1}</button>`).join('')}</div></fieldset>
-        ${choose('faction','Faction',values('faction'))}${choose('race','Race',values('race'))}${choose('weapon','Arme',values('weapon'))}
+        ${choose('collection','Collection',collectionChoices(),'Toutes les collections')}${choose('faction','Faction',values('faction'))}${choose('race','Race',values('race'))}${choose('weapon','Arme',values('weapon'))}
         <label>Ordre<select data-binder-field="sort" aria-label="Trier les cartes">${[['id','Ordre du classeur'],['name','Personnage'],['element','Cristal'],['faction','Faction']].map(([id,label])=>`<option value="${id}" ${sort===id?'selected':''}>${label}</option>`).join('')}</select></label><footer class="cb-filter-actions"><button type="button" data-binder-action="reset">${icon('filter-x')}Effacer</button><button type="button" data-binder-action="close-overlay">${icon('check')}Voir ${groupCards(filtered()).length} personnages</button></footer></div></dialog>`;
     }
     function pagesHTML(s){
@@ -145,20 +152,11 @@
     function render(){
       const s=snapshot(),allOwned=owns(),ownedVersions=new Set(allOwned.map(i=>i.cardId)).size;
       const catalogueSize=new Set([...cards.map(c=>c.id),...getCatalogueChanges(),...allOwned.map(i=>i.cardId)]).size;
-      const universes=[
-        {id:'kalistar',label:'Kalistar',icon:'gem'},
-        {id:'final-fantasy',label:'Final Fantasy',icon:'sparkles'},
-        {id:'nier',label:'NieR',icon:'orbit'},
-        {id:'metal-gear',label:'Metal Gear',icon:'crosshair'},
-        {id:'resident-evil',label:'Resident Evil',icon:'biohazard'},
-        {id:'one-piece',label:'One Piece',icon:'flag'},
-        {id:'witcher',label:'The Witcher',icon:'swords'}
-      ].map(entry=>({...entry,count:cards.filter(c=>matchesScope(c,entry.id)).length}));
       const active=Object.values(filters).some(Boolean),index=s.list.findIndex(c=>c.id===selected);
       const toolbar=selected?`<button type="button" class="cb-back" data-binder-action="back">${icon('arrow-left')}Classeur</button>`:`<span class="cb-count">${s.groups.length} personnage${s.groups.length>1?'s':''} · ${s.list.length} versions</span><label class="cb-search">${icon('search')}<input type="search" data-binder-field="search" aria-label="Rechercher une carte" placeholder="Retrouver une carte" value="${esc(filters.search)}"></label>${button('favorites','star','Mes favoris',`aria-pressed="${filters.favorite}"`)}${button('filters','sliders-horizontal','Filtres du classeur',`aria-expanded="${filtersOpen}"`)}${active?button('reset','filter-x','Effacer les filtres'):''}<select data-binder-field="sort" aria-label="Trier le classeur">${[['id','Ordre du classeur'],['name','Personnage'],['element','Cristal'],['faction','Faction']].map(([id,label])=>`<option value="${id}" ${sort===id?'selected':''}>${label}</option>`).join('')}</select>`;
       const panes=selected?`<div class="cb-mobile-panes" role="group" aria-label="Page du carnet"><button data-binder-action="pane" data-id="visual" aria-pressed="${readerPane==='visual'}">${icon('image')}Carte</button><button data-binder-action="pane" data-id="notes" aria-pressed="${readerPane==='notes'}">${icon('book-open')}Carnet</button></div>`:'';
       return `<section class="cb-page" data-reader-pane="${readerPane}" data-mode="${selected?'reader':'book'}" tabindex="-1" aria-label="Classeur de collection">
-        <header class="cb-heading"><div class="cb-title"><span class="cb-eyebrow">Kalistar · ${esc(profile)}</span><h1>${selected?'Au fil des cartes':'Mon classeur'}</h1></div><div class="cb-scopes" role="group" aria-label="Contenu du classeur"><button type="button" data-binder-action="scope" data-id="owned" aria-pressed="${scope==='owned'}">${icon('book-heart')}Mes cartes <b>${allOwned.length}</b></button><button type="button" data-binder-action="scope" data-id="catalogue" aria-pressed="${scope==='catalogue'}">${icon('library')}Catalogue</button>${universes.map(entry=>`<button type="button" data-binder-action="scope" data-universe="${entry.id}" data-id="${entry.id}" aria-pressed="${scope===entry.id}" title="Cartes ${esc(entry.label)}">${icon(entry.icon)}${esc(entry.label)} <b>${entry.count}</b></button>`).join('')}</div><div class="cb-completion"><span><b>${ownedVersions}</b> / ${catalogueSize} versions</span><meter min="0" max="${catalogueSize}" value="${ownedVersions}" aria-label="Versions possédées">${ownedVersions}/${catalogueSize}</meter></div>${button('archives','archive','Archives et sauvegardes')}</header>
+        <header class="cb-heading"><div class="cb-title"><span class="cb-eyebrow">Kalistar · ${esc(profile)}</span><h1>${selected?'Au fil des cartes':'Mon classeur'}</h1></div><div class="cb-scopes" role="group" aria-label="Contenu du classeur"><button type="button" data-binder-action="scope" data-id="owned" aria-pressed="${scope==='owned'}">${icon('book-heart')}Mes cartes <b>${allOwned.length}</b></button><button type="button" data-binder-action="scope" data-id="catalogue" aria-pressed="${scope==='catalogue'}">${icon('library')}Catalogue</button>${choose('collection','Collection',collectionChoices(),'Toutes les collections','cb-collection-select')}</div><div class="cb-completion"><span><b>${ownedVersions}</b> / ${catalogueSize} versions</span><meter min="0" max="${catalogueSize}" value="${ownedVersions}" aria-label="Versions possédées">${ownedVersions}/${catalogueSize}</meter></div>${button('archives','archive','Archives et sauvegardes')}</header>
         <div class="cb-toolbar">${toolbar}${panes}</div>
         <div class="cb-workbench">${selected?reader(s):book(s)}</div>
         <footer class="cb-footer">${button(selected?'previous-card':'previous-page','chevron-left',selected?'Carte précédente':'Page précédente',(selected?index<=0:page===0)?'disabled':'')}<${selected?'div':'button type="button" data-binder-action="pages" title="Sommaire du classeur" aria-haspopup="dialog"'} class="cb-page-label"><b>${selected?esc(byId.get(selected).name):'Édition V4'}</b><span aria-live="polite">${selected?`${index+1} / ${s.list.length} cartes`:`${singlePage?'Page':'Double page'} ${page+1} / ${s.pages} ${icon('grid-2x2')}`}</span></${selected?'div':'button'}>${button(selected?'next-card':'next-page','chevron-right',selected?'Carte suivante':'Page suivante',(selected?index>=s.list.length-1:page>=s.pages-1)?'disabled':'')}</footer>${selected?'':filtersHTML()+pagesHTML(s)}</section>`;
@@ -243,7 +241,7 @@
       if(action==='open')readerPane='visual';
       if(action==='pane')readerPane=id==='notes'?'notes':'visual';
       if(action==='back'){selected=null;filtersOpen=false;motion='back';}
-      if(action==='scope'){scope=id==='catalogue'||['kalistar','final-fantasy','nier','metal-gear','resident-evil','one-piece','witcher'].includes(id)?id:'owned';page=0;selected=null;filtersOpen=false;}
+      if(action==='scope'){scope=id==='catalogue'?'catalogue':'owned';page=0;selected=null;filtersOpen=false;}
       if(action==='favorite'){onFavorite(id);}
       if(action==='favorites'){filters.favorite=!filters.favorite;page=0;}
       if(action==='filters'){filtersOpen=!filtersOpen;pagesOpen=false;}
@@ -266,6 +264,7 @@
       if(n.dataset.binderField==='sort'){sort=n.value;page=0;}
       if(n.dataset.binderField==='instance'){instance=n.value;historyPage=0;}
       if(n.dataset.binderField!=='search')paint();
+      if(n.dataset.binderFilter==='collection')size();
     }
     function keyboard(event){
       if(filtersOpen||pagesOpen){if(event.key==='Escape'){event.preventDefault();event.stopPropagation();closeOverlay();}return;}

@@ -52,10 +52,10 @@ async function main() {
   await touch.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
   await page.waitForFunction(() => document.querySelector('.cb-page-label').textContent.includes('Page 2'));
   await page.waitForTimeout(400);
-  const collab = await page.locator('[data-binder-action=scope][data-id=ff7]').boundingBox();
-  await touch.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{x:collab.x+collab.width/2,y:collab.y+collab.height/2}] });
-  await touch.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
-  await page.waitForFunction(()=>document.querySelector('[data-binder-action=scope][data-id=ff7]').getAttribute('aria-pressed')==='true');
+  await page.locator('.cb-scopes [data-binder-filter=collection]').selectOption('final-fantasy');
+  await page.locator('[data-binder-action=filters]').tap();
+  await page.locator('[data-binder-filter=faction]').selectOption('FF7');
+  await page.locator('.cb-filter-actions [data-binder-action=close-overlay]').tap();
   await capture('ff7-after-swipe');
   await touch.detach();
   assert.ok(await page.locator('.cb-pocket').evaluateAll(nodes => nodes.every(n => KALISTAR_DATA.cards.find(c => c.id === n.dataset.cardId).faction === 'FF7')));

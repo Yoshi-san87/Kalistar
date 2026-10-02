@@ -37,6 +37,6 @@ test('Metal Gear is visible in the collection without changing shared character 
   if(typeof Binder.matchesScope==='function'){
     assert(cards.every(c=>Binder.matchesScope(c,'metal-gear')));
     assert(!Binder.matchesScope({...cards[0],faction:'FF10',collaboration:'FF10'},'metal-gear'));
-    assert.match(html,/data-universe="metal-gear"[^>]*>[\s\S]*?Metal Gear <b>4<\/b>/);
+    assert.match(html,/<option value="metal-gear" >Metal Gear · 0<\/option>/);
   }else for(const id of ['mgs1','mgs2','mgs4'])assert(html.includes('data-collaboration="'+id+'"'));
 });

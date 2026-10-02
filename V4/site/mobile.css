@@ -46,11 +46,14 @@
   .mobile-only { display: inline-flex; }
 
   /* One parchment leaf, two columns, with rows chosen from its measured height. */
-  .cb-page { --cb-header: 48px; --cb-toolbar: 48px; --cb-pager: 48px; --cb-caption-height: 44px; }
-  .cb-heading { display: flex; padding: 0 8px; gap: 4px; flex-wrap: nowrap; }
+  .cb-page { --cb-header: 100px; --cb-toolbar: 48px; --cb-pager: 48px; --cb-caption-height: 44px; }
+  .cb-heading { display: block; padding: 4px 8px; }
   .cb-title, .cb-completion, .cb-count { display: none; }
-  .cb-scopes { flex: 1; justify-content: space-between; }
+  .cb-scopes { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)) 44px; grid-template-rows: 44px 44px; gap: 4px; }
   .cb-scopes button { min-height: 44px; gap: 5px; padding: 4px 6px; font-size: 12px; }
+  .cb-heading > .cb-icon { position: absolute; top: 4px; right: 8px; }
+  .cb-scopes .cb-collection-select { grid-column: 1/-1; min-width: 0; margin: 0; font-size: 12px; }
+  .cb-collection-select select { flex: 1; width: 0; min-height: 44px; height: 44px; font-size: 16px; }
   .cb-page .cb-icon, .cb-footer .cb-icon, .cb-toolbar > .cb-icon { flex: 0 0 44px; width: 44px; height: 44px; padding: 11px; }
   .cb-toolbar { gap: 2px; padding: 2px 8px; flex-wrap: nowrap; }
   .cb-page .cb-search { order: 0; flex: 1 1 0; margin: 0; }
@@ -112,8 +115,11 @@
   .cb-page[data-mode=reader] .cb-copy b { overflow-wrap: anywhere; font-size: 12px; }
   .cb-page[data-mode=reader] .cb-reading :is(button,select) { min-height: 44px; }
   @media (min-width:700px) and (max-height:500px) {
-    .cb-page:has(.cb-scopes [data-id=replicant]) { --cb-header: 44px; }
-    .cb-heading:has(.cb-scopes [data-id=replicant]) { display: flex; gap: 4px; }
+    .cb-page { --cb-header: 48px; }
+    .cb-heading { display: flex; padding-block: 2px; gap: 4px; }
+    .cb-scopes { display: flex; flex: 1; min-width: 0; }
+    .cb-scopes .cb-collection-select { flex: 1; margin-left: 8px; }
+    .cb-heading > .cb-icon { position: static; }
     .cb-page[data-mode=reader] .cb-workbench { padding: 18px 10% 24px 8%; }
   }
 
@@ -293,7 +299,8 @@
 }
 
 @media (max-width: 950px) and (max-height: 500px) {
-  .cb-page { --cb-header: 44px; --cb-toolbar: 44px; --cb-pager: 44px; }
+  .cb-page { --cb-header: 100px; --cb-toolbar: 44px; --cb-pager: 44px; }
+  @media (min-width:700px) { .cb-page { --cb-header: 48px; } }
   .cb-page[data-mode=book] .cb-workbench { overflow-y: auto; scrollbar-width: none; }
   .cb-spread { min-height: 360px; }
 }

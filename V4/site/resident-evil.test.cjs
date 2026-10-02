@@ -16,14 +16,15 @@ test('all nine RE factions retain their identities and local asset routes',()=>{
   for(const faction of ['RE0','RE10','Replicant','MGS1','FF7','Chroma'])assert(!Binder.matchesScope({faction},'resident-evil'));
   assert.equal(C.universe({faction:'RE2',collaboration:'RE4'}),'RE2');
 });
-test('one Resident Evil collection scope counts 25 fixture versions dynamically',t=>{
+test('one Resident Evil collection choice counts fixture versions dynamically',t=>{
   const previous=globalThis.KalistarCardMedia;
   globalThis.KalistarCardMedia={image:c=>'/fixture/'+c.id+'.png'};
   t.after(()=>{globalThis.KalistarCardMedia=previous;});
   for(const subset of [cards,cards.slice(0,3)]){
-    const html=Binder.create({data:{cards:subset,elements:{}}}).render();
-    assert.equal((html.match(/data-universe="resident-evil"/g)||[]).length,1);
-    assert(html.includes('Resident Evil <b>'+subset.length+'</b>'));
-    assert(!html.includes('data-universe="re1"'));
+    const html=Binder.create({data:{cards:subset,elements:{}},getOwned:id=>subset.filter(c=>!id||c.id===id).map(c=>({id:'copy-'+c.id,cardId:c.id}))}).render();
+    const header=html.match(/<div class="cb-scopes"[^>]*>([\s\S]*?)<\/div>/)[1];
+    assert.equal((header.match(/value="resident-evil"/g)||[]).length,1);
+    assert(header.includes('Resident Evil · '+subset.length));
+    assert(!header.includes('value="re1"'));
   }
 });

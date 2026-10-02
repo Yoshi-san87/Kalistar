@@ -23,15 +23,15 @@ test('One Piece has one collaboration, eleven versions and ten characters',()=>{
   assert.equal(C.universe({faction:' onepiece '}),'ONEPIECE');
 });
 
-test('binder renders exactly one One Piece scope and retains one faction option',t=>{
+test('binder renders one One Piece collection choice and retains one faction option',t=>{
   const previous=globalThis.KalistarCardMedia;
   globalThis.KalistarCardMedia={image:card=>'/fixture/'+card.id+'.png'};
   t.after(()=>{globalThis.KalistarCardMedia=previous;});
-  const binder=Binder.create({data:{cards,elements:{ELECTRO:{id:'ELECTRO',label:'Electricite',color:'FFDD00'}}}});
+  const binder=Binder.create({data:{cards,elements:{ELECTRO:{id:'ELECTRO',label:'Electricite',color:'FFDD00'}}},getOwned:id=>cards.filter(c=>!id||c.id===id).map(c=>({id:'copy-'+c.id,cardId:c.id}))});
   const html=binder.render();
   const scopes=html.match(/<div class="cb-scopes"[^>]*>([\s\S]*?)<\/div>/)[1];
-  assert.equal((scopes.match(/data-id="one-piece"/g)||[]).length,1);
-  assert.match(scopes,/data-id="one-piece"[^>]*>[\s\S]*?One Piece <b>11<\/b>/);
+  assert.equal((scopes.match(/value="one-piece"/g)||[]).length,1);
+  assert.match(scopes,/<option value="one-piece" >One Piece · 11<\/option>/);
   assert.equal((html.match(/<option value="ONEPIECE"/g)||[]).length,1);
   assert.equal(/data-binder-action="scope"[^>]*data-id="(?:onepiece|ONEPIECE)"/.test(html),false);
   assert.equal(binder.inspect().scope,'owned');
