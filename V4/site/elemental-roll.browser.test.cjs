@@ -235,6 +235,7 @@ async function pixels(page) {
     await page.locator('[data-view=arena]').click();
     await page.locator('[data-action=new-game]').first().click();
     await page.locator('#game-mode').selectOption('local');
+    await page.locator('.match-advanced summary').click();
     await page.locator('#game-seed').fill('AWAKENING-QA');
     await page.locator('#new-game-form button[type=submit]').click();
     await page.locator('[data-action=auto-formation]').first().click();

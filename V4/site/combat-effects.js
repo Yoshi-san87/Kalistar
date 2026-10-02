@@ -91,6 +91,7 @@
     const slot=(side,index)=>field?.querySelector(`.formation[data-player="${side}"] .slot[data-position="${index+1}"]`);
     const source=slot(d.side,d.attackerSlot),target=slot(1-d.side,d.targetSlot);
     if(!source||!target)return;
+    window.KalistarAmbience?.action();
     const sourceCard=source.querySelector('.slot-card'),targetCard=target.querySelector('.slot-card');
     const animations=new Set(),nodes=new Set(),surfaces=new Map();
     const resizeObserver=new ResizeObserver(()=>{for(const sync of surfaces.values())sync();});
@@ -101,6 +102,7 @@
       releaseWait?.();releaseFlight?.();
       for(const animation of animations)animation.cancel();
       for(const node of nodes)node.remove();
+      window.KalistarAmbience?.clearReaction();
       source.classList.remove('combat-actor');target.classList.remove('combat-target');
       field.querySelectorAll('.effect-recipient').forEach(node=>node.classList.remove('effect-recipient'));
       delete field.dataset.combat;delete field.dataset.reaction;delete field.dataset.element;
@@ -224,6 +226,7 @@
         await wait(290);
       }
       if(signal.aborted)return;
+      window.KalistarAmbience?.react({magic:!!elementalMagic,color,defeat:reaction==='defeat',major:reaction!=='dodge'&&(reaction==='defeat'||d.formula?.attack>=250)});
       if(d.formula?.ward>0&&!before.duel?.formula?.ward)await shield(target,true);
       if(signal.aborted)return;
       if(reaction==='dodge'){

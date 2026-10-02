@@ -33,6 +33,7 @@ jobs:
           node --test V4/expansions/2026-10-02-witcher-completion/model.test.cjs V4/revisions/2026-10-02-sanji-legs/revision.test.cjs
           node --test V4/releases/2026-10-02-pages-portability/portable.test.cjs
           node V4/site/kalistel.test.cjs
+          node V4/site/arena-ambience.test.cjs
       - name: Build playable release
         run: node V4/deploy/build.cjs
       - uses: actions/configure-pages@v5

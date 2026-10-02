@@ -424,3 +424,49 @@ fullscreen control remains available when playing in a regular browser; leaving
 Arena through another view exits that manually requested mode. The deploy
 browser test checks the visible version, both non-immersive entry paths, manual
 fullscreen entry and exit, app scope and the regular phone layout.
+
+## Combat immersion (2026-10-02)
+
+`arena-ambience.js` owns the terrain-only presentation layer and the shared
+30-fps clock used by both ambience and `duel-focus.js` auras. The existing dice
+renderer retains its own lifecycle. Background art is unchanged. Two or three
+motions are selected from arena element metadata, with a small centralized
+override table for named non-elemental/crossover places. Ambient particles are
+masked out of the actual card, reserve and console bounds. The canvas, vignette
+and arrival tint are noninteractive and sit behind gameplay at z-index -1.
+
+The printed-crystal anchor is shared by every V4 card: native centre (448,1195)
+in the 897x1497 template, minus the (50,50) media crop, normalized to 797x1388.
+`KalistarFocus.engage()` starts a single 800-ms local halo and elemental motifs,
+followed by two short border sweeps. NONE has no elemental activation. This is
+only triggered by a successful user/AI lock, never by restore or repaint. An
+immediately clicked roll waits for the remaining activation time; dice values
+and engine transitions are still computed by the original commands.
+
+`combat-effects.js` reuses its existing outcome detection. Magic arrival adds a
+220-ms low-opacity terrain tint; significant numeric impacts (ATK >=250) and
+eliminations add a 140-ms, maximum 1.5-px terrain shake. These thresholds control
+presentation only. Existing projectile, card hit, shield, dodge, Reraise and
+death fade remain intact. Resolution returns the terrain to its calm mood.
+
+One active fighter gets a slightly stronger aura and vignette. Imminent victory
+is checked by removing that lone fighter on a disposable engine clone and
+asking the existing `next()` replacement/end resolver. No elimination objective
+or end condition is duplicated, and neither live state nor RNG is modified.
+
+Mobile ambient counts are halved (maximum seven); DPR is capped at 1.25 for
+mobile ambience, 1.5 for desktop ambience, and 2 for mobile auras. Hidden pages
+stop the shared RAF. Reduced motion renders static auras/vignette with no
+ambient particles, shake or ignition delay. Resize cancels terrain reactions
+and activation, while the existing card-effect surfaces continue to fit after
+rotation. Capture/unmount, view/profile changes, new matches, match end and
+pagehide clean up subscriptions, observers, finite waits and owned nodes.
+
+Checks: `node V4/site/arena-ambience.test.cjs`,
+`node V4/site/arena-immersion.browser.test.cjs` plus the existing
+`ai-presentation.browser.test.cjs`, `combat-effect-layout.browser.test.cjs`,
+`elemental-roll.browser.test.cjs`, `phone-preview.test.cjs`, catalogue parity
+and Kalistel suites. The elemental-roll UI test now opens the existing advanced
+options before editing its deterministic seed. All browser contexts are
+disposable; no personal browser storage is touched. Evidence and protected-file
+hashes: `verification/arena-immersion/`.

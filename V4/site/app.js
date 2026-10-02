@@ -117,6 +117,7 @@
     window.KalistarCombat?.cancelKillCelebration();
     window.KalistarFormationDrag?.cancel();
     window.KalistarFocus?.capture();
+    window.KalistarAmbience?.destroy();
     const scroll=$('.battlefield-viewport')?.scrollLeft||0;
     document.body.classList.toggle('arena-view',ui.view==='arena');
     document.querySelectorAll('[data-view]').forEach(b=>{const on=b.dataset.view===ui.view;b.classList.toggle('active',on);b.setAttribute('aria-current',on?'page':'false');});
@@ -148,14 +149,16 @@
     $('#account-name').textContent=accountId===KalistarOwnership.PARIS?'Paris':'Tokyo';
     $('[data-action="account"]').title='Profil local : '+(db?.registry?.user(accountId)?.email||'indisponible');
     if($('.battlefield-viewport'))$('.battlefield-viewport').scrollLeft=scroll;
-    window.KalistarFocus?.mount(document.querySelectorAll('.formation'));
     window.KalistarDice?.mount(document.querySelectorAll('.dice-stage'));
     if($('#journal-dialog').open){$('#journal-dialog').innerHTML=head('Journal du duel')+journal();icons();}
     if($('#detail-dialog').open&&ui.detailContext&&$('#detail-dialog .live-bonuses')){
       $('#detail-dialog .live-bonuses').outerHTML=bonusDetails(ui.detailContext)||'<div class="live-bonuses"><p class="muted">Cette carte n’est plus sur le plateau.</p></div>';
     }
     window.KalistarReservePreview?.mount({getGame:()=>ui.view==='arena'?game:null,data,engine:E,canPlace:canDeployReserve,onSelect:(side,uid)=>{if(['setup','replace'].includes(game?.phase)){ui.reserve=uid;render();}},onPlace:(side,uid,slot)=>act(()=>{placeReserve(side,uid,slot);ui.replacementSlot=null;}),onDetail:showDetail});
-    decorateArena();persist();scheduleAI();
+    decorateArena();
+    window.KalistarAmbience?.mount($('.battlefield'),{arena:arenaById(game?.arenaId),game,engine:E});
+    window.KalistarFocus?.mount(game?.phase==='over'?[]:document.querySelectorAll('.formation'));
+    persist();scheduleAI();
     if(ui.view==='arena'&&game?.phase==='over'&&!ui.endShown){ui.endShown=true;showMatchStats(game);}
   }
   function collectionView(){
@@ -503,7 +506,9 @@ function showDeck(){setView('decks');}
   function engageDuel(){
     if(rolling||game?.phase!=='choose')return;
     act(()=>{E.lock(game,ui.attacker,ui.target);ui.attacker=ui.target=null;});
-    if(game?.phase==='attack')window.KalistarDice?.engage();
+    if(game?.phase==='attack'){
+      window.KalistarDice?.engage();window.KalistarAmbience?.engage();window.KalistarFocus?.engage();
+    }
   }
   function slotClick(side,slot){
     if(game.phase==='setup'||game.phase==='replace'){
@@ -532,6 +537,8 @@ function showDeck(){setView('decks');}
       $('.duel-console').dataset.casting=phase;
       const reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
       combatController=new AbortController();
+      await window.KalistarFocus?.ready(combatController.signal);
+      window.KalistarAmbience?.action();
       if(kalistel)await window.KalistarCombat?.shatterKalistel($(`.kalistel-control[data-side="${actor}"]`),{reduced,signal:combatController.signal});
       if(token!==epoch||combatController.signal.aborted)return;
       const landed=window.KalistarDice?await KalistarDice.play(actor,value,reduced,combatController.signal):await new Promise(r=>setTimeout(()=>r(true),reduced?30:700));

@@ -12,6 +12,16 @@
 .board-navigation{display:none;gap:6px}
 .arena-view .arena-layout{display:block;min-height:0}
 .battlefield-viewport{width:100%;overflow-x:auto;scrollbar-width:thin;scrollbar-color:#88958b #101b15;overscroll-behavior-x:contain;background:#141d17}
+.arena-view .battlefield{position:relative}
+.arena-ambience,.arena-tension,.arena-arrival{position:absolute;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
+.arena-tension{background:radial-gradient(ellipse at 50% 48%,transparent 38%,#050b0a 100%);opacity:.06;transition:opacity .24s ease-out}
+.battlefield[data-presentation="selection"]>.arena-tension{opacity:.12}
+.battlefield[data-presentation="duel"]>.arena-tension,.battlefield[data-presentation="action"]>.arena-tension{opacity:.20}
+.battlefield[data-last-standing="true"]>.arena-tension{opacity:.27}
+.battlefield[data-tension="true"]>.arena-tension{opacity:.34}
+.battlefield[data-awakening="true"]>.arena-tension{opacity:.26}
+.arena-arrival{background:radial-gradient(ellipse at center,var(--arrival-color,#e8dccb),transparent 78%);opacity:0}
+@media(prefers-reduced-motion:reduce){.arena-tension{transition:none}.arena-arrival{display:none}}
 .arena-view .battlefield{padding:18px 22px 16px;display:grid;grid-template-columns:minmax(calc(var(--card-width)*3 + var(--formation-gap)*2 + var(--reserve-width) + 18px),1fr) var(--console-width) minmax(calc(var(--card-width)*3 + var(--formation-gap)*2 + var(--reserve-width) + 18px),1fr);gap:20px;width:100%;min-width:max-content;align-items:start;min-height:calc(100dvh - 130px);background:linear-gradient(#0b17104d,#08110d8c),url('assets/arena.webp') center/cover;isolation:isolate}
 .team{min-width:0;display:grid;grid-template-columns:var(--reserve-width) minmax(0,1fr);grid-template-areas:'heading heading' 'reserve board';column-gap:18px;align-items:center}
 .team-right{grid-template-columns:minmax(0,1fr) var(--reserve-width);grid-template-areas:'heading heading' 'board reserve'}

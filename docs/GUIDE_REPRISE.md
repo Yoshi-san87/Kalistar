@@ -49,6 +49,15 @@ temporaires du presse-papiers ou les preferences non encore documentees.
 
 ## Reperes techniques
 
+### Immersion de combat V4.3.5
+
+La [publication V4.3.5](../V4/releases/2026-10-02-arena-immersion/README.md)
+regroupe l'eveil des cristaux imprimes, les ambiances d'arene et les reactions
+de terrain sur ordinateur et smartphone. Le moteur, le RNG, les profils,
+les cartes approuvees et les sauvegardes restent inchanges. Le roman long
+encore local reste hors de ce lot. Verifier le workflow Pages et la version
+publique avant d'annoncer la fin du deploiement.
+
 ### One Piece Et The Witcher - V4.3
 
 La [suite V4.3.4](../V4/releases/2026-10-02-pages-portability/README.md)
