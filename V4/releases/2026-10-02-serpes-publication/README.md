@@ -39,3 +39,12 @@ avec une compilation du meme commit. Ce controle compare les 480 empreintes,
 le catalogue, la version visible et les trois PNG ajoutes. Le controle
 navigateur peut egalement viser le site public via KALISTAR_REVIEW_URL.
 Une integration locale ou un push seul ne prouve pas la fin du deploiement.
+
+Le premier workflow 36997789496 a detecte que deux tests natifs chargeaient
+sharp depuis le chemin Windows du poste. La verification Linux utilise
+maintenant portable.test.cjs : profils publies, limites, preuves natives et
+projection dans le vrai moteur, sans dependance Photoshop ou graphique.
+Les tests natifs locaux et leurs snapshots sont preserves sans modification.
+La livraison est reprise en V4.3.4 dans ../2026-10-02-pages-portability/.
+Elle preserve la publication concurrente des filtres en 4.3.3 et termine
+la livraison des cartes, sans changement de leurs fichiers natifs.

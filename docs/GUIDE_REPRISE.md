@@ -51,6 +51,13 @@ temporaires du presse-papiers ou les preferences non encore documentees.
 
 ### One Piece Et The Witcher - V4.3
 
+La [suite V4.3.4](../V4/releases/2026-10-02-pages-portability/README.md)
+remplace dans Pages deux tests natifs dependants du poste Windows par des
+controles portables des memes profils publies. Elle termine la livraison
+des trois cartes apres l'echec initial du workflow V4.3.2, preserve les
+filtres de collection publies concurremment en V4.3.3, et conserve le roman
+long local hors du push. Catalogue : 193 cartes, 28 arenes, edition V4.
+
 La [publication V4.3.2](../V4/releases/2026-10-02-serpes-publication/README.md)
 autorisee le 2 octobre 2026 regroupe Geralt 49900101, Ssilas 49900201 et
 Mirelle 49900202 : 193 cartes, 28 arenes, sauvegardes toujours V4. Les

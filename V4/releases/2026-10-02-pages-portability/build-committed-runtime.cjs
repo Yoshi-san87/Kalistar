@@ -7,7 +7,7 @@ const {compileFunction} = require('node:vm');
 const ROOT = path.resolve(__dirname, '../../..');
 const relative = 'V4/deploy/build.cjs';
 const filename = path.join(ROOT, relative);
-const unfinished=['V4/site/index.html','V4/site/v4.css','V4/site/boot.js','V4/site/story-content.json','V4/site/story-reader.js','V4/site/story-reader.css',
+const unfinished=['V4/site/boot.js','V4/site/story-content.json','V4/site/story-reader.js','V4/site/story-reader.css',
  'V4/site/collection-binder.js','V4/site/collection-binder.css','V4/site/mobile.css'];
 const git = (...args) => execFileSync('git', args, {cwd: ROOT});
 
