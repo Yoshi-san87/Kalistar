@@ -49,7 +49,7 @@ test('unique weapon art fits the native interior and is included without its sou
   assert.equal(proof.native.frameHash,native.sourceHashes['frame/default.png']);
   assert.equal(proof.render.scale,4);
   const {files}=await require('../deploy/build.cjs').plan(),targets=new Set(files.map(f=>f.target));
-  for(const w of Q.catalogue.weapons){
+  for(const w of Q.catalogue.weapons.filter(w=>!w.collectible)){
     Q.validateDefinition(w);const art=proof.assets.find(a=>a.visual===w.art);assert.ok(art,w.id);
     assert.ok(art.maxRadius<proof.render.safeRadius);assert.ok(art.bytes<160000);
     assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname,art.file))).digest('hex'),art.derivedHash);

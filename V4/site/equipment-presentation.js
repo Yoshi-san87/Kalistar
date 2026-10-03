@@ -11,8 +11,9 @@
     flute:Object.freeze({body:'little-joys-flute-v3.webp',rim:'electro-copper-ring-v1.webp'})
   });
   function markup(w,{bonus=true}={}){
-    const skin=skins[w.visual];
-    return `<span class="eq-mechanism" data-visual="${w.visual}" aria-hidden="true"><span class="eq-backplate"></span><img class="eq-body" src="${url(skin.body)}" alt="" draggable="false"><span class="eq-orbit"><img class="eq-rim" src="${url(skin.rim)}" alt="" draggable="false"></span><span class="eq-radar"></span>${bonus?`<span class="eq-tab"><b>+${w.effect.value}</b><small>${w.effect.stat}</small></span>`:''}<span class="eq-reflection"></span></span>`;
+    const base=skins[w.visual],custom=window.KalistarWeapons.weapons.find(item=>item.id===w.id&&item.collectible?.cutout&&item.art===w.art);
+    const skin=custom?{body:custom.art+'.webp',rim:base.rim}:base;
+    return `<span class="eq-mechanism" data-visual="${w.visual}" data-music="${w.family==='Instrument'}" aria-hidden="true"><span class="eq-backplate"></span><img class="eq-body" src="${url(skin.body)}" alt="" draggable="false"><span class="eq-orbit"><img class="eq-rim" src="${url(skin.rim)}" alt="" draggable="false"></span><span class="eq-radar"></span>${bonus?`<span class="eq-tab"><b>+${w.effect.value}</b><small>${w.effect.stat}</small></span>`:''}<span class="eq-reflection"></span></span>`;
   }
   function animate(node,frames,options,signal){
     if(!node||signal?.aborted)return Promise.resolve();
@@ -31,7 +32,7 @@
     animate(node.querySelector('.eq-rim'),[{transform:'rotate(-110deg)'},{transform:'rotate(0)'}],{duration,easing:'cubic-bezier(.18,.8,.25,1)'});
     animate(node.querySelector('.eq-body'),[{filter:'brightness(.75)'},{filter:'brightness(1.2)',offset:.6},{filter:'brightness(1)'}],{duration});
     animate(node.querySelector('.eq-reflection'),[{opacity:0,transform:'rotate(-60deg)'},{opacity:.6,offset:.5},{opacity:0,transform:'rotate(100deg)'}],{duration});
-    if(node.querySelector('[data-visual=flute]'))for(let i=0;i<3;i++){
+    if(node.querySelector('[data-music=true]'))for(let i=0;i<3;i++){
       const note=document.createElement('span');note.className='eq-soft-note';note.textContent=i===1?'\u266a':'\u00b7';note.style.left=(18+i*27)+'%';node.append(note);
       animate(note,[{opacity:0,transform:'translateY(0)'},{opacity:.65,offset:.4},{opacity:0,transform:'translateY(-12px)'}],{duration:600,delay:i*65}).then(()=>note.remove());
     }

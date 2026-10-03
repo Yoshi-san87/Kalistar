@@ -32,7 +32,7 @@ resultats joues avant d'ajuster les valeurs.
 
 ## Responsabilites
 
-- `site/weapons.js` : catalogue declaratif des deux objets reels.
+- `site/weapons.js` : catalogue declaratif des objets reels.
 - `site/equipment.js` : compatibilite, profils, snapshots, conditions,
   modificateurs, consommation et validation, sans DOM.
 - `site/local-db.js` : transactions, sauvegardes et profils locaux.
@@ -176,7 +176,62 @@ Tests : `site/equipment-presentation.test.cjs` et les parcours d'inspection de
 `site/weapons.browser.test.cjs`. Captures de cette revision :
 `revisions/2026-10-03-equipped-card-inspection/qa/`.
 
-## Ajouter Une Troisieme Arme
+## Cartes Collectionnables (Prototype Local)
+
+L'arsenal utilise maintenant des cartes poker horizontales assemblees depuis
+le cadre bleu/cuivre fourni, une illustration distincte et des textes vivants.
+Le medaillon anime reste independant ; les regles et snapshots ne changent pas.
+Le master commun, les sources conservees, les exports et la procedure pour
+ajouter une carte sont documentes dans
+[le workflow cartes d'armes](../weapon-cards/README.md).
+Ce prototype du 3 octobre 2026 reste local, sans publication.
+
+## Extension De L'Arsenal (3 Octobre 2026, Locale)
+
+Le catalogue compte maintenant 25 armes : les deux originales, vingt armes
+personnelles et trois armes de Job. Le detail, les choix d'equilibrage et les
+preuves sont dans [la revision de l'arsenal](../revisions/2026-10-03-weapons-arsenal/README.md).
+Il s'agit de restrictions sur les Jobs existants, pas de cartes Job nouvelles.
+
+Les nouvelles definitions utilisent un seul trigger declaratif supplementaire :
+
+```js
+effect: {
+  trigger: 'TEAM_STATE', stat: 'DEF', value: 15, duration: 'WHILE_TRUE',
+  when: { activeAtMost: 2 }
+}
+```
+
+Predicats acceptes dans `when` (tous doivent etre vrais s'ils sont combines) :
+
+- `outnumbered: true` : moins de combattants presents sur le plateau allie
+  que sur le plateau adverse ; les reserves ne comptent pas.
+- `activeAtMost: n` : au plus n combattants sur le plateau allie (entier 1-4).
+- `reserveAtMost: n` : au plus n cartes en reserve alliee (entier 0-4).
+
+Une arme sur une carte en reserve, morte, en preparation ou en fin de match
+reste inactive. L'etat suit les remplacements et les retours d'allies.
+Le modificateur est capture au verrouillage du duel, comme les armes V1.
+Il s'applique seulement a un jet numerique de sa statistique. Aucun nouveau
+jet, aucune face speciale convertie en nombre, aucun changement de matchup.
+
+Les armes personnelles ajoutent +20 ou +25 ; celles de Job +15. Le dernier
+survivant est la condition des +25. Pour une meme statistique, le moteur prend
+le maximum entre l'arme personnelle et le cadeau temporaire de Momo, jamais
+leur somme. Le cadeau expire normalement apres le duel, meme si un autre
+bonus plus fort a ete retenu. Les bonus ordinaires du jeu restent inchanges.
+
+2B et Geralt ont chacun deux armes alternatives ; Balmhyr choisit entre la
+Hache et le Gant. Aucun de ces personnages ne gagne un deuxieme slot.
+La Promesse Blanche exige `characterId: kaylis` ET `families: ['Epée courte']`.
+Elle n'est donc pas compatible avec la version Dague. La revision native de
+Kaylis est documentee separement, sans changer les autres cartes.
+
+Les tableaux imbriques des definitions sont geles ; les matchs les copient
+dans leur snapshot. Pas de migration de base ou de changement de schema.
+Les anciennes definitions `LAST_STANDING` / `AFTER_SUPPORT` restent valides.
+
+## Ajouter Une Arme
 
 Visuels uniques : voir `../revisions/2026-10-02-unique-weapon-art/README.md`.
 Le champ facultatif `art` choisit un WebP versionne du meme medaillon natif ;
@@ -187,9 +242,12 @@ les PNG transparents sur le contour interieur sans modifier cadre ou regles.
 1. Relever le `characterId`, `job` ou `weapon` exact dans le catalogue V4.
 2. Ajouter une definition a `site/weapons.js` avec un ID nouveau et une
    restriction explicite. Reutiliser un effet declaratif existant si possible.
-3. Reutiliser `visual: 'axe'` ou `'flute'` pour ces familles. Pour une autre
-   famille, ajouter sa banque validee au generateur, son nouveau visual a la
-   validation et son WebP derive. Conserver les visuels des anciens snapshots.
+3. Ajouter `art: '<id>-v1'` et les metadonnees `collectible` dans la definition
+   pour un objet detoure. Suivre le workflow `weapon-cards/README.md`. `visual`
+   est un nom historique de STYLE D'ANNEAU : `axe` pour pierre/cuivre,
+   `flute` pour energie/cuivre. Il ne decide ni de l'objet dessine ni de sa
+   famille mecanique. Les notes musicales sont reservees a `Instrument`.
+   Conserver les anciens assets : ils peuvent etre utilises par un snapshot.
 4. Pour un nouveau trigger, ajouter son evaluation/consommation dans
    `equipment.js` et son point de declenchement moteur. Ne jamais disperser
    des `if (weapon.id === ...)` dans les vues ou calculs.
@@ -204,6 +262,9 @@ pas l'ajout silencieux d'un objet au catalogue.
 
 ```powershell
 node --test --test-isolation=none V4/site/equipment.test.cjs
+node --test V4/site/weapons-arsenal.test.cjs V4/site/equipment-presentation.test.cjs
+node V4/site/weapons-arsenal.browser.test.cjs
+node V4/site/weapon-cards.browser.test.cjs
 node V4/site/weapons.browser.test.cjs
 node V4/deploy/build.cjs
 ```

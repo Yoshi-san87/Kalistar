@@ -13,22 +13,24 @@ test('release contains all published cards and only playable files', async () =>
   assert.ok(files.every(f => !/\.(psd|psb|cjs|ps1|cmd|zip|lnk|json|md)$/i.test(f.target) || f.target === 'jeu/story-content.json'));
   assert.ok(files.some(f => f.target === 'jeu/story-content.json'));
   const story = JSON.parse(fs.readFileSync(path.join(__dirname, '../site/story-content.json'), 'utf8'));
-  assert.equal(story.sections.length, 10);
+  assert.equal(story.sections.length, 18);
   assert.equal(story.sections[0].label, 'Prologue');
-  assert.equal(story.sections[9].title, 'La route de Mennuyir');
-  assert.ok(story.sections.reduce((sum, section) => sum + section.paragraphs.join(' ').split(/\s+/).length, 0) > 7000);
+  assert.equal(story.sections[17].title, 'La promesse de Mennuyir');
+  const words = story.sections.reduce((sum, section) => sum + section.paragraphs.join(' ').split(/\s+/).length, 0);
+  assert.ok(words >= 80000 && words <= 84000);
   const references = JSON.parse(fs.readFileSync(path.join(__dirname, '../atelier/data/references.json'), 'utf8'));
   const approvedCardIds = new Set(references.cards.map(card => String(card.card.id)));
   const scenes = Object.fromEntries(story.sections.map(section => [section.id, section.illustrations || []]));
-  assert.deepEqual(scenes['chapter-1'].map(scene => [scene.afterParagraph, scene.cardId]), [[8, '30000022'], [15, '30000012']]);
-  assert.deepEqual(scenes['chapter-4'].map(scene => [scene.afterParagraph, scene.cardId]), [[7, '30000007']]);
-  assert.deepEqual(scenes['chapter-5'].map(scene => [scene.afterParagraph, scene.cardId]), [[1, '30000021']]);
+  assert.deepEqual(scenes['chapter-1'].map(scene => [scene.afterParagraph, scene.cardId]), [[11, '30000022']]);
+  assert.deepEqual(scenes['chapter-4'].map(scene => [scene.afterParagraph, scene.cardId]), [[40, '30000012']]);
+  assert.deepEqual(scenes['chapter-5'].map(scene => [scene.afterParagraph, scene.cardId]), [[30, '30000007']]);
+  assert.deepEqual(scenes['chapter-8'].map(scene => [scene.afterParagraph, scene.cardId]), [[30, '30000021']]);
   const sectionById = Object.fromEntries(story.sections.map(section => [section.id, section]));
   for (const [sectionId, paragraphIndex, phrase] of [
-    ['chapter-1', 8, 'Baba rit dans sa chope'],
-    ['chapter-1', 15, 'Au moment où elle le prit'],
-    ['chapter-4', 7, 'Il se nomma Balmhyr'],
-    ['chapter-5', 1, 'Lanio se joignit aux joueurs'],
+    ['chapter-1', 11, 'Au comptoir, Baba leva sa chope'],
+    ['chapter-4', 40, 'Kaylis s’arrêta tout à fait'],
+    ['chapter-5', 30, 'Il s’appelait Balmhyr'],
+    ['chapter-8', 30, 'Un joueur lui lança le ballon'],
   ]) assert.ok(sectionById[sectionId].paragraphs[paragraphIndex].includes(phrase), `scene anchor matches its story moment: ${phrase}`);
   for (const section of story.sections) for (const scene of section.illustrations || []) assert.ok(approvedCardIds.has(String(scene.cardId)), 'story art uses an approved V4 card: ' + scene.cardId);
   assert.ok(files.every(f => !/\/(drafts|jobs|uploads|verification|templates|revisions)\//.test(f.target)));
@@ -55,9 +57,9 @@ test('static release versions stylesheet and script URLs together', () => {
 test('application version matches in desktop and phone headers', () => {
   const html = fs.readFileSync(path.join(__dirname, '../site/index.html'), 'utf8');
   const css = fs.readFileSync(path.join(__dirname, '../site/v4.css'), 'utf8');
-  assert.match(html, /<title>Kalistar V4\.5\.1/);
-  assert.match(html, /<span class="edition">VERSION 4\.5\.1<\/span>/);
-  assert.ok(css.includes("content:'V4.5.1'"));
+  assert.match(html, /<title>Kalistar V4\.5\.2/);
+  assert.match(html, /<span class="edition">VERSION 4\.5\.2<\/span>/);
+  assert.ok(css.includes("content:'V4.5.2'"));
 });
 test('hosting adapter supports local, project Pages and saved canonical image paths', () => {
   const script = fs.readFileSync(path.join(__dirname, '../site/site-config.js'), 'utf8');

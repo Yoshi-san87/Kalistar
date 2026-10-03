@@ -2,6 +2,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{createRequire}=require('node:module');
 const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE||'','.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const {chromium}=createRequire(path.join(runtime,'__weapons_browser__.cjs'))('playwright');
+const definitions=require('./weapons.js').weapons;
 const built=process.env.KALISTAR_BUILT_SITE==='1',dist=path.resolve(__dirname,'../deploy/dist');
 const base=process.env.KALISTAR_URL||(built?'https://kalistar-qa.invalid/Kalistar':'http://127.0.0.1:4304'),out=process.env.KALISTAR_VERIFICATION_DIR||path.join(__dirname,'verification/weapons',...(built?['pages']:[]));
 const results=[],errors=[];let browser;
@@ -162,12 +163,12 @@ async function main(){
         request.onerror=()=>reject(request.error);request.onsuccess=()=>{request.result.close();resolve();};
       }));
     }
-    await ready(page);assert.equal(await page.locator('.weapon-card').count(),2);
+    await ready(page);assert.equal(await page.locator('.weapon-card').count(),definitions.length);
     await page.waitForFunction(()=>[...document.querySelectorAll('.weapon-card .eq-body')].every(i=>i.complete&&i.naturalWidth===488));
     const art=await page.locator('.weapon-card .eq-body').evaluateAll(images=>images.map(i=>new URL(i.src).pathname.split('/').pop()));
-    assert.deepEqual(art,['fallen-king-axe-v3.webp','little-joys-flute-v3.webp']);
+    assert.deepEqual(art,definitions.map(w=>w.collectible?w.art+'.webp':w.visual==='axe'?'fallen-king-axe-v3.webp':'little-joys-flute-v3.webp'));
     await page.waitForFunction(()=>[...document.querySelectorAll('.weapon-card .eq-rim')].every(i=>i.complete&&i.naturalWidth===488));
-    assert.deepEqual(await page.locator('.weapon-card .eq-rim').evaluateAll(images=>images.map(i=>new URL(i.src).pathname.split('/').pop())),['stone-copper-ring-v1.webp','electro-copper-ring-v1.webp']);
+    assert.deepEqual(await page.locator('.weapon-card .eq-rim').evaluateAll(images=>images.map(i=>new URL(i.src).pathname.split('/').pop())),definitions.map(w=>w.visual==='axe'?'stone-copper-ring-v1.webp':'electro-copper-ring-v1.webp'));
     if(name==='desktop'){
       const orbit=page.locator('.weapon-card').first().locator('.eq-orbit');
       await page.mouse.move(1,1);assert.equal(await orbit.evaluate(n=>getComputedStyle(n).animationName),'none');
@@ -176,13 +177,13 @@ async function main(){
       const before=await orbit.evaluate(n=>getComputedStyle(n).transform);await page.waitForTimeout(250);
       assert.notEqual(await orbit.evaluate(n=>getComputedStyle(n).transform),before,'hover rotation continues');
       await page.mouse.move(1,1);assert.equal(await orbit.evaluate(n=>getComputedStyle(n).animationName),'none');
-      await page.locator('.weapon-card').first().focus();await page.keyboard.press('Tab');await page.keyboard.press('Shift+Tab');
+      await page.locator('.weapon-open').first().focus();await page.keyboard.press('Tab');await page.keyboard.press('Shift+Tab');
       assert.equal(await orbit.evaluate(n=>getComputedStyle(n).animationIterationCount),'infinite','keyboard focus animates');
       await page.mouse.click(1,1);
     }
-    assert.match(await page.title(),/^Kalistar V4\.5\.1/);
-    if(name==='desktop')assert.equal(await page.locator('.edition').innerText(),'VERSION 4.5.1');
-    else assert.equal(await page.locator('.brand').evaluate(n=>getComputedStyle(n,'::after').content),'"V4.5.1"');
+    assert.match(await page.title(),/^Kalistar V4\.5\.2/);
+    if(name==='desktop')assert.equal(await page.locator('.edition').innerText(),'VERSION 4.5.2');
+    else assert.equal(await page.locator('.brand').evaluate(n=>getComputedStyle(n,'::after').content),'"V4.5.2"');
     if(name==='desktop'){
       const migrated=await page.evaluate(()=>new Promise((resolve,reject)=>{
         const request=indexedDB.open('kalistar-v4-cards');request.onerror=()=>reject(request.error);
@@ -199,7 +200,8 @@ async function main(){
     await equipment(page,'fallen-king-axe');await equipment(page,'little-joys-flute');
     await page.screenshot({path:path.join(out,name+'-arsenal.png')});
     await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);
-    assert.match(await page.locator('.weapons-page').innerText(),/\u00c9quip\u00e9e par BALMHYR/);
+    assert.match(await page.locator('.weapons-page [data-weapon-holder=fallen-king-axe]').getAttribute('aria-label'),/\u00c9quip\u00e9e par BALMHYR/);
+    assert.equal(await page.locator('.weapons-page [data-weapon=fallen-king-axe] .wc-holder img').getAttribute('alt'),'BALMHYR');
     await page.locator('[data-weapon=fallen-king-axe]').click();assert.equal(await page.locator('.weapon-carriers article').count(),1);await page.screenshot({path:path.join(out,name+'-weapon-detail.png')});
     await inspect(page,'[data-weapon-action=card]',null,motion,{label:name+' arsenal card has no combat overlay'});await closeDetail(page);
     await page.locator('[data-weapon-action=close]').click();

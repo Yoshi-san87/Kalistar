@@ -5,7 +5,7 @@ function fixture({width=500,height=600,objectFit='contain',cropped=true}={}){
   const listeners=[],observers=[],children=[];
   const image={offsetLeft:12,offsetTop:8,naturalWidth:cropped?797:897,naturalHeight:cropped?1388:1497,css:{width:String(width),height:String(height),objectFit},addEventListener:(...args)=>listeners.push(args)};
   const dialog={addEventListener:(...args)=>listeners.push(args)},container={querySelector:()=>image,closest:()=>dialog,append:node=>children.push(node)};
-  const window={addEventListener(){}};
+  const window={KalistarWeapons:{weapons},addEventListener(){}};
   const context={window,KalistarCardMedia:{crop},matchMedia:()=>({matches:false,addEventListener(){}}),performance:{now:()=>1000},AbortController,getComputedStyle:img=>img.css,
     ResizeObserver:class{constructor(fn){this.fn=fn;this.targets=[];observers.push(this);}observe(node){this.targets.push(node);}disconnect(){this.disconnected=true;}},
     document:{createElement:()=>({style:{setProperty(key,value){this[key]=value;}},dataset:{},setAttribute(key,value){this[key]=value;},remove(){this.removed=true;}})}};

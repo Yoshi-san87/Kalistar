@@ -1,0 +1,763 @@
+{
+  "schema": 1,
+  "layoutVersion": 2,
+  "method": "Original raster preserved; WebP encoding only. Crop, frame, artwork and live medallion are separate HTML layers.",
+  "assets": [
+    {
+      "source": "sources/blue-copper-template-v1.png",
+      "sourceHash": "d17ed44688c59bb68a8568e2dbe4ced97ff79aac7628729164e1f2aba73af12c",
+      "width": 1482,
+      "height": 1061,
+      "file": "V4/site/assets/weapon-cards/blue-copper-template-v1.webp",
+      "sha256": "93e80775003702d5a40e20d9aed77975b058667976d75df8f1b787aafa78c3ee",
+      "bytes": 1348204
+    },
+    {
+      "source": "sources/fallen-king-axe-scene-v1.png",
+      "sourceHash": "61fc7db051cb8463ee46fc26b8f0e4acb1ac1f893bc48f5b34fdd60fe2651ef5",
+      "width": 1122,
+      "height": 1402,
+      "file": "V4/site/assets/weapon-cards/fallen-king-axe-scene-v1.webp",
+      "sha256": "0029b744a98c5474069e1c84b530d14b0541ca449fb3199cfc739c5d29b791f8",
+      "bytes": 561262
+    },
+    {
+      "source": "sources/little-joys-flute-scene-v1.png",
+      "sourceHash": "8426d664f8a3946b7f3f154c70e29553636cf2e1d10e108dddbd172550bdc750",
+      "width": 1122,
+      "height": 1402,
+      "file": "V4/site/assets/weapon-cards/little-joys-flute-scene-v1.webp",
+      "sha256": "fa3f44376980ea7d3c67c57578ec13ebed05d49e13566939766bc6a939359124",
+      "bytes": 507302
+    },
+    {
+      "source": "sources/white-oath-rapier-v1.png",
+      "sourceHash": "d6c7d434ac9303bfc0a040fc5fec5791f92782462079b2a062e750ae4178a937",
+      "width": 1199,
+      "height": 1312,
+      "file": "V4/site/assets/weapon-cards/white-oath-rapier-v1.webp",
+      "sha256": "7bde7e1a21f94a6f9c4c61984b84e4c8cbda5cff37ab373aac9e2bee0ad2abf6",
+      "bytes": 119676
+    },
+    {
+      "source": "sources/white-oath-rapier-v1.png",
+      "sourceHash": "d6c7d434ac9303bfc0a040fc5fec5791f92782462079b2a062e750ae4178a937",
+      "file": "V4/site/assets/equipment/white-oath-rapier-v1.webp",
+      "sha256": "c57f941b595bb5ea10dfd0f376b2c591127e41a3db4d9939225b60e36c02aaee",
+      "bytes": 10818,
+      "placement": {
+        "canvas": 488,
+        "maximumMotifBox": 240,
+        "maximumRadius": 171,
+        "center": [
+          244,
+          242
+        ]
+      }
+    },
+    {
+      "source": "sources/brotherhood-v1.png",
+      "sourceHash": "9387c089117bb5c8f94b3a52cfd224d0e87672eac388ac243c688453fbb1103f",
+      "width": 1536,
+      "height": 1024,
+      "file": "V4/site/assets/weapon-cards/brotherhood-v1.webp",
+      "sha256": "596e5ea98608fed256fbc3ddbe5097ece686c04c462c9a687f70b50174a2d196",
+      "bytes": 111638
+    },
+    {
+      "source": "sources/brotherhood-v1.png",
+      "sourceHash": "9387c089117bb5c8f94b3a52cfd224d0e87672eac388ac243c688453fbb1103f",
+      "file": "V4/site/assets/equipment/brotherhood-v1.webp",
+      "sha256": "d1bad54523c3fe11dd65a137db719b74d78b905342b2c4ba9c5c1b79239b4db4",
+      "bytes": 12050,
+      "placement": {
+        "canvas": 488,
+        "maximumMotifBox": 240,
+        "maximumRadius": 171,
+        "center": [
+          244,
+          242
+        ]
+      }
+    },
+    {
+      "source": "sources/virtuous-contract-v1.png",
+      "sourceHash": "87cd78da7a37e169974372f14769c4a11b2de3915367faa3a458c2e0e985053a",
+      "width": 1222,
+      "height": 1287,
+      "file": "V4/site/assets/weapon-cards/virtuous-contract-v1.webp",
+      "sha256": "6259fd0efe6d5c15bd7f8e893e27eabbd9517d5547e2ba108bde0fc3dc2ab06f",
+      "bytes": 96080
+    },
+    {
+      "source": "sources/virtuous-contract-v1.png",
+      "sourceHash": "87cd78da7a37e169974372f14769c4a11b2de3915367faa3a458c2e0e985053a",
+      "file": "V4/site/assets/equipment/virtuous-contract-v1.webp",
+      "sha256": "9ae1c49ecc38eeed0749ba2d7e7d71ecfb99d36d878a0ff44e3ca9a1a5541a9d",
+      "bytes": 9662,
+      "placement": {
+        "canvas": 488,
+        "maximumMotifBox": 240,
+        "maximumRadius": 171,
+        "center": [
+          244,
+          242
+        ]
+      }
+    },
+    {
+      "source": "sources/virtuous-treaty-v1.png",
+      "sourceHash": "00bfc99740cfe015b95e6d57f34231a7e3aac3814d33a19c803648be12603360",
+      "width": 1024,
+      "height": 1536,
+      "file": "V4/site/assets/weapon-cards/virtuous-treaty-v1.webp",
+      "sha256": "504fc2cca410a5e4eca254d126bd91be94da47e9a7b3c243973c58fe83560ab3",
+      "bytes": 127132
+    },
+    {
+      "source": "sources/virtuous-treaty-v1.png",
+      "sourceHash": "00bfc99740cfe015b95e6d57f34231a7e3aac3814d33a19c803648be12603360",
+      "file": "V4/site/assets/equipment/virtuous-treaty-v1.webp",
+      "sha256": "bf5e87801da2590e8fa43da3be5e334d885d68999e458c7fd366b8b1d733abdc",
+      "bytes": 10378,
+      "placement": {
+        "canvas": 488,
+        "maximumMotifBox": 240,
+        "maximumRadius": 171,
+        "center": [
+          244,
+          242
+        ]
+      }
+    },
+    {
+      "source": "sources/socom-v1.png",
+      "sourceHash": "7e20cac1dd633092ba090b46539f19ea4c7a0662216867f0e626d4e55a02d963",
+      "width": 1536,
+      "height": 1024,
+      "file": "V4/site/assets/weapon-cards/socom-v1.webp",
+      "sha256": "c89f89ad922ed0e09c24ebc851d206c98df80290334d3c870eb856df6000a090",
+      "bytes": 107002
+    },
+    {
+      "source": "sources/socom-v1.png",
+      "sourceHash": "7e20cac1dd633092ba090b46539f19ea4c7a0662216867f0e626d4e55a02d963",
+      "file": "V4/site/assets/equipment/socom-v1.webp",
+      "sha256": "0b6756a58ef544836c10007234e16066d1d8b4f4d84b719b198b8e6d575c44d1",
+      "bytes": 10486,
+      "placement": {
+        "canvas": 488,
+        "maximumMotifBox": 240,
+        "maximumRadius": 171,
+        "center": [
+          244,
+          242
+        ]
+      }
+    },
+    {
+      "source": "sources/lulu-mog-v1.png",
+      "sourceHash": "eda577ad9c6b7547271e7f2df99a8b1e3424dee0462786e84ad9422520f6b0b0",
+      "width": 1145,
+      "height": 1374,
+      "file": "V4/site/assets/weapon-cards/lulu-mog-v1.webp",
+      "sha256": "e94ad80dcc4d9e5ea63231858e623a701014f96a347bf43b3565976da32d1781",
+      "bytes": 372056
+    },
+    {
+      "source": "sources/lulu-mog-v1.png",
+      "sourceHash": "eda577ad9c6b7547271e7f2df99a8b1e3424dee0462786e84ad9422520f6b0b0",
+      "file": "V4/site/assets/equipment/lulu-mog-v1.webp",
+      "sha256": "527c44b425efc121787f3d9a7458c672a0ba7c982783187c1bd442328b885f2e",
+      "bytes": 20114,
+      "placement": {
+        "canvas": 488,
+        "maximumMotifBox": 240,
+        "maximumRadius": 171,
+        "center": [
+          244,
+          242
+        ]
+      }
+    },
+    {
+      "source": "sources/leopard-lightning-v1.png",
+      "sourceHash": "3a576ae37744c3d1d3a4864d0a593c50acd0f2bda8fd156a09132bc2776750c7",
+      "width": 1536,
+      "height": 1024,
+      "file": "V4/site/assets/weapon-cards/leopard-lightning-v1.webp",
+      "sha256": "ebf05468474427d32da9fe47aa0c8dbf0c744f90c5d18dda00aa6591604ad0e7",
+      "bytes": 190254
+    },
+    {
+      "source": "sources/leopard-lightning-v1.png",
+      "sourceHash": "3a576ae37744c3d1d3a4864d0a593c50acd0f2bda8fd156a09132bc2776750c7",
+      "file": "V4/site/assets/equipment/leopard-lightning-v1.webp",
+      "sha256": "18effa045b44c6aea029d9fdd9aed1855cbd96124d2f861efda7d2a7ee489c61",
+      "bytes": 18492,
+      "placement": {
+        "canvas": 488,
+        "maximumMotifBox": 240,
+        "maximumRadius": 171,
+        "center": [
+          244,
+          242
+        ]
+      }
+    },
+    {
+      "source": "sources/mythic-iron-gauntlet-v1.png",
+      "sourceHash": "b0599de4616577e3481e7240ea89cf819df1ac268ec6076e73f87503ed4d53d4",
+      "width": 1145,
+      "height": 1374,
+      "file": "V4/site/assets/weapon-cards/mythic-iron-gauntlet-v1.webp",
+      "sha256": "4ca53ee388910477a9d92df0a74a59a804fb8144fbe18f492af8c6be4b94ce4a",
+      "bytes": 380428
+    },
+    {
+      "source": "sources/mythic-iron-gauntlet-v1.png",
+      "sourceHash": "b0599de4616577e3481e7240ea89cf819df1ac268ec6076e73f87503ed4d53d4",
+      "file": "V4/site/assets/equipment/mythic-iron-gauntlet-v1.webp",
+      "sha256": "d066b0f30190314a30b7f50cdd42e1227c2b80b0efc5c8788b273c6ff942d735",
+      "bytes": 22092,
+      "placement": {
+        "canvas": 488,
+        "maximumMotifBox": 240,
+        "maximumRadius": 171,
+        "center": [
+          244,
+          242
+        ]
+      }
+    },
+    {
+      "source": "sources/post-bow-v1.png",
+      "sourceHash": "324dddf438845643791ff4f2f1809da7ba7e426b96c72a97882ceba1eba0ec6d",
+      "width": 1024,
+      "height": 1536,
+      "file": "V4/site/assets/weapon-cards/post-bow-v1.webp",
+      "sha256": "67f26fabdefd83893f8971b4f5d683066e7430fcc72dfc5470ae10aed697ff9e",
+      "bytes": 89782
+    },
+    {
+      "source": "sources/post-bow-v1.png",
+      "sourceHash": "324dddf438845643791ff4f2f1809da7ba7e426b96c72a97882ceba1eba0ec6d",
+      "file": "V4/site/assets/equipment/post-bow-v1.webp",
+      "sha256": "e377e79cf2b5eaa8ea4b24b69f0ad684d4a88e050dab1b856f5deec932076905",
+      "bytes": 8322,
+      "placement": {
+        "canvas": 488,
+        "maximumMotifBox": 240,
+        "maximumRadius": 171,
+        "center": [
+          244,
+          242
+        ]
+      }
+    },
+    {
+      "source": "sources/grimoire-weiss-v1.png",
+      "sourceHash": "173cdef9e0ba2652657d9748aa200622dbd7d41a6f726e5eeddf8724245c7d8f",
+      "width": 1214,
+      "height": 1295,
+      "file": "V4/site/assets/weapon-cards/grimoire-weiss-v1.webp",
+      "sha256": "ede175e934f94e5380c9dd8e6aa71b515d5decc63216cbb6f09659fc718eb063",
+      "bytes": 489442
+    },
+    {
+      "source": "sources/grimoire-weiss-v1.png",
+      "sourceHash": "173cdef9e0ba2652657d9748aa200622dbd7d41a6f726e5eeddf8724245c7d8f",
+      "file": "V4/site/assets/equipment/grimoire-weiss-v1.webp",
+      "sha256": "62906d777e7a48987ee11e88d121f6f5874675fbbbbc0aaf936a9f9654933667",
+      "bytes": 30792,
+      "placement": {
+        "canvas": 488,
+        "maximumMotifBox": 240,
+        "maximumRadius": 171,
+        "center": [
+          244,
+          242
+        ]
+      }
+    },
+    {
+      "source": "sources/gen-mechanical-arm-v1.png",
+      "sourceHash": "b89d885e47e5fb8e827fa0164a1e8bf6f473532c3bc84ba656d91d645f994c01",
+      "width": 1224,
+      "height": 1285,
+      "file": "V4/site/assets/weapon-cards/gen-mechanical-arm-v1.webp",
+      "sha256": "b1cef7cb285ac9c41206a2f665dfa99295905635c211639e3b7a7861934d0e72",
+      "bytes": 231090
+    },
+    {
+      "source": "sources/gen-mechanical-arm-v1.png",
+      "sourceHash": "b89d885e47e5fb8e827fa0164a1e8bf6f473532c3bc84ba656d91d645f994c01",
+      "file": "V4/site/assets/equipment/gen-mechanical-arm-v1.webp",
+      "sha256": "1d0c857016400bd4728fbf1588863ffe79a553f44b260ec77017d1e8b771fe31",
+      "bytes": 19300,
+      "placement": {
+        "canvas": 488,
+        "maximumMotifBox": 240,
+        "maximumRadius": 171,
+        "center": [
+          244,
+          242
+        ]
+      }
+    },
+    {
+      "source": "sources/violet-reaping-v1.png",
+      "sourceHash": "3deaa3b3b482f73ec236b1835de19bc3f14ab15e34e6d1bcc763eaac9d4ff48b",
+      "width": 1024,
+      "height": 1536,
+      "file": "V4/site/assets/weapon-cards/violet-reaping-v1.webp",
+      "sha256": "0b14f343b425131d31df4aebfb8846437f2c6ec9d64a24cbbe2f8b740b5a5c5d",
+      "bytes": 105946
+    },
+    {
+      "source": "sources/violet-reaping-v1.png",
+      "sourceHash": "3deaa3b3b482f73ec236b1835de19bc3f14ab15e34e6d1bcc763eaac9d4ff48b",
+      "file": "V4/site/assets/equipment/violet-reaping-v1.webp",
+      "sha256": "42d182a02f140aca84c866c1277b8d54b8e68245deadbdfc75957b47a3f2c774",
+      "bytes": 8406,
+      "placement": {
+        "canvas": 488,
+        "maximumMotifBox": 240,
+        "maximumRadius": 171,
+        "center": [
+          244,
+          242
+        ]
+      }
+    },
+    {
+      "source": "sources/mantis-mask-v1.png",
+      "sourceHash": "01b7c44fea34fbf80988b1c6870ba9709892749cb7775b8f67d53a5aefe0a27d",
+      "width": 1305,
+      "height": 1205,
+      "file": "V4/site/assets/weapon-cards/mantis-mask-v1.webp",
+      "sha256": "d5e3ee0c364e237e3fb49898a13e720126087ce91d8bff0a3b412244c3bd808a",
+      "bytes": 154668
+    },
+    {
+      "source": "sources/mantis-mask-v1.png",
+      "sourceHash": "01b7c44fea34fbf80988b1c6870ba9709892749cb7775b8f67d53a5aefe0a27d",
+      "file": "V4/site/assets/equipment/mantis-mask-v1.webp",
+      "sha256": "f0b7825e9e98b1b2f2170c0720fa46d742ed8792b89500d60273233c00eb4a2f",
+      "bytes": 13378,
+      "placement": {
+        "canvas": 488,
+        "maximumMotifBox": 240,
+        "maximumRadius": 171,
+        "center": [
+          244,
+          242
+        ]
+      }
+    },
+    {
+      "source": "sources/revolver-gunblade-v1.png",
+      "sourceHash": "e1b89351b16c9d40dde2f4992c56fb717a6fd9d5768b5b2a8313da3ecf8e94eb",
+      "width": 1536,
+      "height": 1024,
+      "file": "V4/site/assets/weapon-cards/revolver-gunblade-v1.webp",
+      "sha256": "2e9b841738336fd503daeaa224ad6ee34c480ba32b8c4bd51f78adac29eb7c7c",
+      "bytes": 74244
+    },
+    {
+      "source": "sources/revolver-gunblade-v1.png",
+      "sourceHash": "e1b89351b16c9d40dde2f4992c56fb717a6fd9d5768b5b2a8313da3ecf8e94eb",
+      "file": "V4/site/assets/equipment/revolver-gunblade-v1.webp",
+      "sha256": "896c11b97d88fe5e45c339e1320949e9805b0cf9413f48b62030ba8f9a7a5b95",
+      "bytes": 8502,
+      "placement": {
+        "canvas": 488,
+        "maximumMotifBox": 240,
+        "maximumRadius": 171,
+        "center": [
+          244,
+          242
+        ]
+      }
+    },
+    {
+      "source": "sources/wolf-steel-v1.png",
+      "sourceHash": "7b8a08f7772d73bac84dbf68991ff095f75dda78950a8b6a43abf25b0361eab6",
+      "width": 1226,
+      "height": 1283,
+      "file": "V4/site/assets/weapon-cards/wolf-steel-v1.webp",
+      "sha256": "43c5164aad4cae049d006b4fcc9d8a08758d2953dc86b5ee6cdf82923b5839d6",
+      "bytes": 88888
+    },
+    {
+      "source": "sources/wolf-steel-v1.png",
+      "sourceHash": "7b8a08f7772d73bac84dbf68991ff095f75dda78950a8b6a43abf25b0361eab6",
+      "file": "V4/site/assets/equipment/wolf-steel-v1.webp",
+      "sha256": "6db2bf197e24d00d3d48681735f7069924a50a4449d8c2a37657196e1186e057",
+      "bytes": 9436,
+      "placement": {
+        "canvas": 488,
+        "maximumMotifBox": 240,
+        "maximumRadius": 171,
+        "center": [
+          244,
+          242
+        ]
+      }
+    },
+    {
+      "source": "sources/wolf-silver-v1.png",
+      "sourceHash": "45433166c3fe3183b4ad2fb068063c08ddd74997371a1813725b7cbdf564b709",
+      "width": 1226,
+      "height": 1283,
+      "file": "V4/site/assets/weapon-cards/wolf-silver-v1.webp",
+      "sha256": "86ce28b947a075502ec3b6ece97593f01df3ea388a2e77635bead345e7c47526",
+      "bytes": 91942
+    },
+    {
+      "source": "sources/wolf-silver-v1.png",
+      "sourceHash": "45433166c3fe3183b4ad2fb068063c08ddd74997371a1813725b7cbdf564b709",
+      "file": "V4/site/assets/equipment/wolf-silver-v1.webp",
+      "sha256": "cb0ebb41660c0cdc7001be0e2cccc7f36b7da4ca277c89cf75067a25f3f3058d",
+      "bytes": 9478,
+      "placement": {
+        "canvas": 488,
+        "maximumMotifBox": 240,
+        "maximumRadius": 171,
+        "center": [
+          244,
+          242
+        ]
+      }
+    },
+    {
+      "source": "sources/kaine-saw-v1.png",
+      "sourceHash": "0ca6a10dab1e75ea985abdf96ee2919948eef7bdd0d4af0d7abdad31e4e107e9",
+      "width": 1536,
+      "height": 1024,
+      "file": "V4/site/assets/weapon-cards/kaine-saw-v1.webp",
+      "sha256": "392745730dcea64636752b6f7a37ecb4f2ffec3af22e1e50d322552b4b90b83c",
+      "bytes": 66292
+    },
+    {
+      "source": "sources/kaine-saw-v1.png",
+      "sourceHash": "0ca6a10dab1e75ea985abdf96ee2919948eef7bdd0d4af0d7abdad31e4e107e9",
+      "file": "V4/site/assets/equipment/kaine-saw-v1.webp",
+      "sha256": "ebec9e63646eb5b9eabde91c24976a30e8f2b08fd89f96ea59cd643298934ec4",
+      "bytes": 8610,
+      "placement": {
+        "canvas": 488,
+        "maximumMotifBox": 240,
+        "maximumRadius": 171,
+        "center": [
+          244,
+          242
+        ]
+      }
+    },
+    {
+      "source": "sources/buster-sword-v1.png",
+      "sourceHash": "54939f540258bb7583d36cb5fac402a9c85601abe7c10ffdc90f8df2179090ed",
+      "width": 1236,
+      "height": 1272,
+      "file": "V4/site/assets/weapon-cards/buster-sword-v1.webp",
+      "sha256": "65a0d9e0eeacb90b0ffa57b547c80219dd229a1ca7300f9314d06fb7bbf2be51",
+      "bytes": 162438
+    },
+    {
+      "source": "sources/buster-sword-v1.png",
+      "sourceHash": "54939f540258bb7583d36cb5fac402a9c85601abe7c10ffdc90f8df2179090ed",
+      "file": "V4/site/assets/equipment/buster-sword-v1.webp",
+      "sha256": "5accb41b084350bd35242951dbee86efbd2a4cf8ad174fb87286d0ce9d8ec97d",
+      "bytes": 13070,
+      "placement": {
+        "canvas": 488,
+        "maximumMotifBox": 240,
+        "maximumRadius": 171,
+        "center": [
+          244,
+          242
+        ]
+      }
+    },
+    {
+      "source": "sources/psg1-v1.png",
+      "sourceHash": "97c977787eb55f991e3fed811788c2684aa798726fb5dde79512a4efed277111",
+      "width": 1774,
+      "height": 887,
+      "file": "V4/site/assets/weapon-cards/psg1-v1.webp",
+      "sha256": "685e4df1f2503060e4e9450049130c16e32bc1f192ebc1a4487f12140768c92d",
+      "bytes": 82196
+    },
+    {
+      "source": "sources/psg1-v1.png",
+      "sourceHash": "97c977787eb55f991e3fed811788c2684aa798726fb5dde79512a4efed277111",
+      "file": "V4/site/assets/equipment/psg1-v1.webp",
+      "sha256": "1ffbc4b82e48dace98b9b1eceb0787b0c36776c229a7ba5876841d946f7462e1",
+      "bytes": 10842,
+      "placement": {
+        "canvas": 488,
+        "maximumMotifBox": 240,
+        "maximumRadius": 171,
+        "center": [
+          244,
+          242
+        ]
+      }
+    },
+    {
+      "source": "sources/single-action-army-v1.png",
+      "sourceHash": "df90333b999aa526570d9657ff50d775b9acd0dfe7d8630b492613588c72a3cd",
+      "width": 1536,
+      "height": 1024,
+      "file": "V4/site/assets/weapon-cards/single-action-army-v1.webp",
+      "sha256": "67121ad1814d9e1972e4b66e1e01ebfd1c432611e5a96bc334280f249db5bd9c",
+      "bytes": 131596
+    },
+    {
+      "source": "sources/single-action-army-v1.png",
+      "sourceHash": "df90333b999aa526570d9657ff50d775b9acd0dfe7d8630b492613588c72a3cd",
+      "file": "V4/site/assets/equipment/single-action-army-v1.webp",
+      "sha256": "69510f6ee4bc40d0c6ad430b0acd14ac4a9722fae9acd87c2e00ad0b44fd7fe3",
+      "bytes": 13348,
+      "placement": {
+        "canvas": 488,
+        "maximumMotifBox": 240,
+        "maximumRadius": 171,
+        "center": [
+          244,
+          242
+        ]
+      }
+    },
+    {
+      "source": "sources/wardens-spear-v1.png",
+      "sourceHash": "40f1a95a6af966a406413171b821d9970d0d3cea30a432ec3a9308fb8709ccb0",
+      "width": 1024,
+      "height": 1536,
+      "file": "V4/site/assets/weapon-cards/wardens-spear-v1.webp",
+      "sha256": "418368b51c216672688d9869f44f34960ecef2985a231bbea12ef253935bf625",
+      "bytes": 64244
+    },
+    {
+      "source": "sources/wardens-spear-v1.png",
+      "sourceHash": "40f1a95a6af966a406413171b821d9970d0d3cea30a432ec3a9308fb8709ccb0",
+      "file": "V4/site/assets/equipment/wardens-spear-v1.webp",
+      "sha256": "5a09280f10ebbc46506200a3f6a305d4a179951c931740c631579d99be0f20cb",
+      "bytes": 6594,
+      "placement": {
+        "canvas": 488,
+        "maximumMotifBox": 240,
+        "maximumRadius": 171,
+        "center": [
+          244,
+          242
+        ]
+      }
+    },
+    {
+      "source": "sources/soldiers-blade-v1.png",
+      "sourceHash": "ab8ebefa93ebd993bc521e7343590814b6c24649da9419fe37df901123fc0254",
+      "width": 1024,
+      "height": 1536,
+      "file": "V4/site/assets/weapon-cards/soldiers-blade-v1.webp",
+      "sha256": "459d8152d98059273d5ea47dfdfe97dae0484f2f23b3cc9de7735119dd722281",
+      "bytes": 106432
+    },
+    {
+      "source": "sources/soldiers-blade-v1.png",
+      "sourceHash": "ab8ebefa93ebd993bc521e7343590814b6c24649da9419fe37df901123fc0254",
+      "file": "V4/site/assets/equipment/soldiers-blade-v1.webp",
+      "sha256": "75b12cccce8424d0ccb595d4641e863e3d85990142d64212bbd4ba798d1f4791",
+      "bytes": 8456,
+      "placement": {
+        "canvas": 488,
+        "maximumMotifBox": 240,
+        "maximumRadius": 171,
+        "center": [
+          244,
+          242
+        ]
+      }
+    },
+    {
+      "source": "sources/commanders-sabre-v1.png",
+      "sourceHash": "a9fc416715068218ba845584d0595224b7ee525a7e2695e5b4f5af3e6e3fbfbb",
+      "width": 1024,
+      "height": 1536,
+      "file": "V4/site/assets/weapon-cards/commanders-sabre-v1.webp",
+      "sha256": "1f0c048b9d98a27081d21e3c43dd57baf6b3c67418c749d4c1c41239eb1e4243",
+      "bytes": 92404
+    },
+    {
+      "source": "sources/commanders-sabre-v1.png",
+      "sourceHash": "a9fc416715068218ba845584d0595224b7ee525a7e2695e5b4f5af3e6e3fbfbb",
+      "file": "V4/site/assets/equipment/commanders-sabre-v1.webp",
+      "sha256": "9601c7da7101bb6f2fb4309f50a923eca6abc2d9e48d222e53a72d94035bbf70",
+      "bytes": 8844,
+      "placement": {
+        "canvas": 488,
+        "maximumMotifBox": 240,
+        "maximumRadius": 171,
+        "center": [
+          244,
+          242
+        ]
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/backgrounds/white-courtyard-v1.png",
+      "kind": "generated",
+      "role": "background",
+      "sourceHash": "47f66ade81628fceb71bf142d1514174b0bfb6cac1996c114261f10afcb953ad",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/weapon-cards/backgrounds/white-courtyard-v1.webp",
+      "sha256": "8bb83cdf986bddffadd23629f7133b65ec9fc3bd2d5bec15264eb80e3497fe3d",
+      "bytes": 332570
+    },
+    {
+      "source": "V4/weapon-cards/sources/backgrounds/besaid-shore-v1.png",
+      "kind": "generated",
+      "role": "background",
+      "sourceHash": "11043adfc470cfd6bb241d3e7c9a39b5da889c3b89b5f05e55690fe511d655c7",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/weapon-cards/backgrounds/besaid-shore-v1.webp",
+      "sha256": "36ff27302179267e83343d3010df148a70b68f9362339a6771d7b365eed3670f",
+      "bytes": 341332
+    },
+    {
+      "source": "V4/weapon-cards/sources/backgrounds/postal-relay-v1.png",
+      "kind": "generated",
+      "role": "background",
+      "sourceHash": "4a96fc1ba9b3baab881ac818700f0ebbf2f31a5177f1fc78b62d2feffe2bb77c",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/weapon-cards/backgrounds/postal-relay-v1.webp",
+      "sha256": "0b0f57ea230d432e9236548e7fe395b8e7d0b9204ba858281b508b843d5967a8",
+      "bytes": 254978
+    },
+    {
+      "source": "V4/weapon-cards/sources/backgrounds/wolf-keep-v1.png",
+      "kind": "generated",
+      "role": "background",
+      "sourceHash": "a1883488399408b80fb8e6c8ce381b1d1ed97f2515a52b3eb5b0bfada2005694",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/weapon-cards/backgrounds/wolf-keep-v1.webp",
+      "sha256": "2b478765f4056112c17045578a59157c15f6a7f919c3388827d9550a6f220a8d",
+      "bytes": 414490
+    },
+    {
+      "source": "V4/weapon-cards/sources/backgrounds/violet-sanctum-v1.png",
+      "kind": "generated",
+      "role": "background",
+      "sourceHash": "0b651dd6a50c44cb4186c7396386f53ea4ab68e966a6c7f42bc884c3c9be807c",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/weapon-cards/backgrounds/violet-sanctum-v1.webp",
+      "sha256": "25b77e4178f0a5f33a43001234d858a455a8948b1440d3cd06d46080b6da33de",
+      "bytes": 274998
+    },
+    {
+      "source": "V4/weapon-cards/sources/backgrounds/psychic-study-v1.png",
+      "kind": "generated",
+      "role": "background",
+      "sourceHash": "88d0b10905e3460671a20fade31c240cbef332f340bca96433690cfefbf6f454",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/weapon-cards/backgrounds/psychic-study-v1.webp",
+      "sha256": "c2455d97107d30b247ebf8cbc2fa1aef6dbccd991e451690d9c7ad7b5ad3ffa2",
+      "bytes": 217468
+    },
+    {
+      "source": "V4/weapon-cards/sources/backgrounds/mechanic-workshop-v1.png",
+      "kind": "generated",
+      "role": "background",
+      "sourceHash": "ac56d03d3fb7a37489de28621f731234da6222d5bd6f045dd44a08d13a7235d4",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/weapon-cards/backgrounds/mechanic-workshop-v1.webp",
+      "sha256": "17fef92eaaae93b58c80dd248901668e2e4642db4af6bdb5892b90f536ac9570",
+      "bytes": 291028
+    },
+    {
+      "source": "V4/site/assets/arenes/nier-city-ruins.png",
+      "kind": "existing-arena",
+      "role": "background",
+      "sourceHash": "86f33625652101e7afa643b0114ba64e51f7f18b1f93f2850b3dd265c6ccc5b0",
+      "width": 1672,
+      "height": 941,
+      "file": "V4/site/assets/weapon-cards/backgrounds/city-ruins-v1.webp",
+      "sha256": "5cfb325bc72bdf012f31a0ae24064db3825068ea77335c93b60593706e743d5e",
+      "bytes": 249398
+    },
+    {
+      "source": "V4/site/assets/arenes/mgs1-shadow-moses.png",
+      "kind": "existing-arena",
+      "role": "background",
+      "sourceHash": "08f7d46595282c5597dfcfaf8a5d4046a9e86143e95d786b6a57fda0afbb1ba7",
+      "width": 1672,
+      "height": 941,
+      "file": "V4/site/assets/weapon-cards/backgrounds/shadow-moses-v1.webp",
+      "sha256": "613bc2e6aec94e9a264f502880a51a59f2f734acebf43839bd1dfdfc81fe0729",
+      "bytes": 185536
+    },
+    {
+      "source": "V3/site/assets/arenas/electro.webp",
+      "kind": "existing-arena",
+      "role": "background",
+      "sourceHash": "376ed738ee596a66b582a7c3212043a7a944a94dd441a69a02e5e2ae629a96bd",
+      "width": 1672,
+      "height": 941,
+      "file": "V4/site/assets/weapon-cards/backgrounds/chroma-v1.webp",
+      "sha256": "a4db3abd70edb0db98e8f1abbac13bd4b1f5f2c36b394fb0b030ed25830f4267",
+      "bytes": 196610
+    },
+    {
+      "source": "V3/site/assets/arenas/minero.webp",
+      "kind": "existing-arena",
+      "role": "background",
+      "sourceHash": "ef88c89ba6d06c32c7509cd9c545e13605d15b3f014d9548de22621c33de9f97",
+      "width": 1672,
+      "height": 941,
+      "file": "V4/site/assets/weapon-cards/backgrounds/durane-v1.webp",
+      "sha256": "b239bd8d30eb251f313c38f9d085d76d21cf5d5cad83552e677b608ea5bcbb0b",
+      "bytes": 227716
+    },
+    {
+      "source": "V4/site/assets/arenes/replicant-village.png",
+      "kind": "existing-arena",
+      "role": "background",
+      "sourceHash": "a49dc033b3e570e20fd117fad964b44a34b729712fbc30a0c40d91aae8601ff3",
+      "width": 1672,
+      "height": 941,
+      "file": "V4/site/assets/weapon-cards/backgrounds/replicant-village-v1.webp",
+      "sha256": "28e61a91562752e0ae672f2e1f8597bd1f14dbe80af732b60f34a477ba6c8e24",
+      "bytes": 246388
+    },
+    {
+      "source": "V4/site/assets/arenes/ff8-balamb-garden.png",
+      "kind": "existing-arena",
+      "role": "background",
+      "sourceHash": "92bb613e135f9ac5ba3953ff187fc4e99f3dd661dadc727d8494c16145bcb83d",
+      "width": 1672,
+      "height": 941,
+      "file": "V4/site/assets/weapon-cards/backgrounds/balamb-v1.webp",
+      "sha256": "02f03b87112da5f66959972b19b1155990662b55b10c096d4fb5d069ca2a50c9",
+      "bytes": 200256
+    },
+    {
+      "source": "V4/site/assets/arenes/ff7-midgar.png",
+      "kind": "existing-arena",
+      "role": "background",
+      "sourceHash": "efc09d339ba023476a2f70b870cc3aac2a92427a1f30b023eae746f2d34ccf6a",
+      "width": 1672,
+      "height": 941,
+      "file": "V4/site/assets/weapon-cards/backgrounds/midgar-v1.webp",
+      "sha256": "3028868399382494fb1108cbdc5de41adde5c0d5414493dc8f66477981b1d45e",
+      "bytes": 230804
+    }
+  ]
+}

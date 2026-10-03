@@ -93,6 +93,20 @@ scrollbar; landscape book pages retain a minimum readable card height.
 selection, copy counts, keyboard focus, filtering, ownership, rapid clicks and
 animation cancellation using a disposable browser profile and the local server.
 
+## Collection Filters (2 October 2026)
+
+Only `Mes cartes` and `Catalogue` remain as scope tabs. A native `Collection`
+dropdown groups Kalistar, Final Fantasy, NieR, Metal Gear, Resident Evil,
+One Piece and The Witcher; it is available in the header and filter dialog.
+The two controls share one filter value. Choices come from collections present
+in the loaded catalogue, with version counts for the selected ownership scope.
+The collection filter intersects faction, crystal, race, position, weapon,
+search and favorite filters. Switching ownership scopes preserves it; reset
+clears it, and choosing a collection restarts pagination. No registry is edited.
+Phone controls retain 44px targets and native select behavior. The isolated
+`collaborations.browser.test.cjs` checks combined filters, scope changes, reset,
+pagination, empty states and ten viewport sizes without personal browser data.
+
 ## Equipped Weapons (2 October 2026)
 
 `/jeu/#weapons` adds a native Armes view: two real conditional weapons,
@@ -156,7 +170,7 @@ atelier or its write endpoints to the network.
 
 The main navigation opens `Story`, a long-form reader for the revised
 `Kalistar - Le Réveil` manuscript. `story-content.json` is the static, UTF-8
-reading copy (prologue plus nine chapters), loaded independently of the game
+reading copy (prologue plus seventeen chapters), loaded independently of the game
 catalogue and local Atelier API. The desktop reader fits the approved open-book
 grimoire image to the available viewport, with the contents on the left page and
 the manuscript on the right. Tablet and phone layouts use one readable leaf and
@@ -165,6 +179,19 @@ saved per local profile. Only this explicitly curated JSON file is added to the
 static publication; other JSON files remain excluded. `story-reader.browser.test.cjs`
 covers reading controls, saved progress, desktop book geometry, phone layouts
 and horizontal overflow.
+
+The completed novelization contains 80,144 words in 744 paragraphs, with a
+prologue and seventeen chapters. Source priorities, chapter counts and final
+verification are recorded in `../docs/HISTOIRE_80K_PLAN.md`. Chapter I illustrates
+Baba at the tavern, chapter IV Kaylis during the escape, chapter V Balmhyr with
+Belzebuth, and chapter VIII Lanio playing Astraball. `story-content.test.cjs`
+checks the 80,000-word target, section order, duplicate paragraphs and these semantic anchors so edits
+cannot silently move an illustration to a different scene.
+
+The desktop spread uses the background's native 1672 x 941 ratio and fits the
+stage's actual inner dimensions. Both pages keep text clear of the ornaments;
+the background is decoded before first paint. The browser test checks these
+safe areas at seven sizes, alongside reading progress, controls and scene links.
 
 ## Kalistel Shards
 

@@ -7,7 +7,7 @@ const {createRequire}=require('node:module');
 const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const {chromium}=createRequire(path.join(runtime,'__story_reader__.cjs'))('playwright');
 const url=process.env.KALISTAR_URL||'http://127.0.0.1:4304';
-const output=path.join(os.tmpdir(),'kalistar-story-reader-qa');
+const output=process.env.KALISTAR_VERIFICATION_DIR||path.join(os.tmpdir(),'kalistar-story-reader-qa');
 
 async function main(){
   fs.mkdirSync(output,{recursive:true});
@@ -15,23 +15,29 @@ async function main(){
   try{
     const context=await browser.newContext({viewport:{width:1440,height:1000},reducedMotion:'reduce'});
     const page=await context.newPage(),errors=[];
+    page.setDefaultTimeout(90000);
     page.on('pageerror',error=>errors.push(error.message));
     page.on('requestfailed',request=>{if(request.url().includes('story-content.json'))errors.push(request.url()+' '+request.failure()?.errorText);});
     await page.goto(url+'/jeu/#story');
     await page.waitForFunction(()=>window.KALISTAR_READY);
     await page.locator('.story-reader-book').waitFor();
+    await page.evaluate(async()=>{
+      const background=new Image();
+      background.src=new URL('assets/ui/collection-reader-grimoire-v1.png',location.href).href;
+      await background.decode();
+    });
     assert.equal(await page.locator('.story-current-heading h2').textContent(),'Les éclats du ciel');
-    assert.equal(await page.locator('.story-chapter').count(),10);
+    assert.equal(await page.locator('.story-chapter').count(),18);
     assert.ok(await page.locator('.story-text p').count()>=5);
     const desktop=await page.locator('.story-reader-book').evaluate(node=>{
       const book=node.getBoundingClientRect(),toc=node.querySelector('.story-toc').getBoundingClientRect(),reading=node.querySelector('.story-reading-page').getBoundingClientRect();
       return {ratio:book.width/book.height,center:book.left+book.width/2,tocRight:toc.right,readingLeft:reading.left,width:book.width};
     });
-    assert.ok(Math.abs(desktop.ratio-1692/940)<.02,'grimoire spread keeps its native aspect ratio');
+    assert.ok(Math.abs(desktop.ratio-1672/941)<.02,'grimoire spread keeps its native aspect ratio');
     assert.ok(desktop.tocRight<=desktop.center+1&&desktop.readingLeft>=desktop.center-1,'contents and text occupy their respective book pages');
     await page.locator('[data-story-section="1"]').click();
     assert.equal(await page.locator('.story-current-heading h2').textContent(),'La Z13');
-    assert.equal(await page.locator('.story-illustration').count(),2,'only the precisely anchored Kaylis and Baba scenes appear in chapter I');
+    assert.equal(await page.locator('.story-illustration').count(),1,'Baba appears at the tavern scene in chapter I');
     const firstScene=page.locator('.story-illustration').first();
     await firstScene.scrollIntoViewIfNeeded();
     await page.waitForFunction(()=>{const image=document.querySelector('.story-illustration img');return image?.dataset.v4Cropped==='art'&&image.naturalWidth===460&&image.naturalHeight===880;});
@@ -44,9 +50,17 @@ async function main(){
     assert.equal(await cardDialog.evaluate(node=>node.open),false,'Escape closes the full-card view');
     await page.screenshot({path:path.join(output,'desktop.png')});
     await page.locator('[data-story-section="4"]').click();
-    assert.equal(await page.locator('.story-illustration-trigger').getAttribute('data-story-full').then(value=>value.endsWith('/balmhyr.png')),true,'Balmhyr appears with the bear scene');
+    assert.equal(await page.locator('.story-illustration').count(),1,'Kaylis appears during the escape, not the Electro discovery');
+    assert.match(await page.locator('.story-illustration').evaluate(node=>node.previousElementSibling.textContent),/Kaylis s’arrêta tout à fait/,'the artwork follows its exact manuscript scene');
+    await page.locator('.story-illustration-trigger').click();
+    await cardDialog.waitFor({state:'visible'});
+    assert.match(await page.locator('[data-story-full-image]').getAttribute('alt'),/KAYLIS/);
+    await page.keyboard.press('Escape');
     await page.locator('[data-story-section="5"]').click();
+    assert.equal(await page.locator('.story-illustration-trigger').getAttribute('data-story-full').then(value=>value.endsWith('/balmhyr.png')),true,'Balmhyr appears with the bear scene');
+    await page.locator('[data-story-section="8"]').click();
     assert.equal(await page.locator('.story-illustration-trigger').getAttribute('data-story-full').then(value=>value.endsWith('/lanio-astraball.png')),true,'Lanio appears during the Astraball scene');
+    assert.match(await page.locator('.story-illustration').evaluate(node=>node.previousElementSibling.textContent),/Un joueur lui lança le ballon.*Lanio.*course/,'Lanio artwork follows the actual running scene after the chapter rewrite');
     await page.locator('[data-story-section="1"]').click();
     const text=page.locator('.story-text');
     assert.ok(await text.evaluate(node=>node.scrollHeight>node.clientHeight),'long chapters scroll inside the page, not the window');
@@ -76,26 +90,43 @@ async function main(){
       const bounds=await page.evaluate(()=>({viewport:innerWidth,document:document.documentElement.scrollWidth,app:document.querySelector('#app').getBoundingClientRect().toJSON(),reader:document.querySelector('.story-reader').getBoundingClientRect().toJSON()}));
       assert.ok(bounds.document<=bounds.viewport+1,'no horizontal page overflow at '+width+'x'+height);
       assert.ok(bounds.reader.width>0&&bounds.reader.height>0,'reader fills its host at '+width+'x'+height);
+      if(!isSingle){
+        await page.waitForFunction(()=>{
+          const stage=document.querySelector('.story-reader').getBoundingClientRect(),book=document.querySelector('.story-reader-book').getBoundingClientRect();
+          return book.left>=stage.left+9&&book.right<=stage.right-9&&book.top>=stage.top+9&&book.bottom<=stage.bottom-9;
+        });
+        const safe=await page.locator('.story-reader-book').evaluate(node=>{
+          const book=node.getBoundingClientRect();
+          return [...node.querySelectorAll('.story-book-heading,.story-progress,.story-chapters,.story-toc-quote,.story-reading-header,.story-text,.story-reading-footer')].map(element=>{
+            const box=element.getBoundingClientRect();
+            return {left:(box.left-book.left)/book.width,right:(box.right-book.left)/book.width,bottom:(box.bottom-book.top)/book.height,leftPage:element.closest('.story-toc')!==null};
+          });
+        });
+        assert.ok(safe.every(box=>box.left>=(box.leftPage?.089:.55)&&box.right<=(box.leftPage?.46:.911)&&box.bottom<.85),'writing and controls stay clear of the ornamental margins at '+width+'x'+height);
+      }
       if(width===412)await page.screenshot({path:path.join(output,'phone.png')});
       if(width===320){
         const nav=await page.locator('.main-nav button:visible').evaluateAll(nodes=>nodes.map(node=>{const box=node.getBoundingClientRect(),label=node.querySelector('span').getBoundingClientRect();return {button:box.toJSON(),label:label.toJSON()};}));
-        assert.equal(nav.length,6,'Story is available in the six-item phone navigation');
+        assert.equal(nav.length,5,'phone navigation retains five comfortable destinations');
         assert.ok(nav.every(item=>item.label.left>=item.button.left-1&&item.label.right<=item.button.right+1),'phone navigation labels fit without clipping');
+        await page.locator('.nav-more').click();
+        assert.equal(await page.locator('#mobile-dialog [data-view=story]').isVisible(),true,'Story remains available in Plus');
+        await page.keyboard.press('Escape');
       }
     }
     await page.setViewportSize({width:412,height:1007});
     await page.locator('[data-story-select]').selectOption('1');
-    assert.equal(await page.locator('.story-illustration').count(),2,'both anchored illustrations are available on phone');
+    assert.equal(await page.locator('.story-illustration').count(),1,'Baba’s anchored illustration is available on phone');
     const phoneScene=await page.locator('.story-illustration').first().evaluate(node=>({frame:node.getBoundingClientRect().toJSON(),page:document.querySelector('.story-text').getBoundingClientRect().toJSON(),scrollWidth:document.querySelector('.story-text').scrollWidth,clientWidth:document.querySelector('.story-text').clientWidth}));
     assert.ok(phoneScene.frame.left>=phoneScene.page.left-1&&phoneScene.frame.right<=phoneScene.page.right+1,'phone illustration stays within the manuscript leaf');
     assert.ok(phoneScene.scrollWidth<=phoneScene.clientWidth+1,'phone illustration causes no horizontal reading overflow');
     await page.locator('[data-story-select]').selectOption('2');
-    assert.equal(await page.locator('.story-current-heading h2').textContent(),'La lumière sous la peau');
+    assert.equal(await page.locator('.story-current-heading h2').textContent(),'Les révélations');
     const controls=await page.locator('.story-reading-tools button').evaluateAll(nodes=>nodes.map(node=>node.getBoundingClientRect().height));
     assert.ok(controls.every(height=>height>=44),'reading controls retain touch-sized targets');
     assert.deepEqual(errors,[],'no browser errors or failed manuscript request');
     await context.close();
-    console.log(JSON.stringify({chapters:10,desktopRatio:desktop.ratio,phoneSizes:4,screenshots:output}));
+    console.log(JSON.stringify({chapters:18,desktopRatio:desktop.ratio,phoneSizes:4,screenshots:output}));
   }finally{await browser.close();}
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});

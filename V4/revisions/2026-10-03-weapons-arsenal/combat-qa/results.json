@@ -1,0 +1,681 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "label": "old database upgraded in place",
+      "version": 2,
+      "equipment": true,
+      "marker": "preserved"
+    },
+    {
+      "label": "desktop deck inspection",
+      "sample": {
+        "dx": 0.007429755043233399,
+        "dy": 0.0001801152737925804,
+        "width": 0.012247838616715967,
+        "height": 0.012247838616715967,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "eq-continuous-orbit"
+      }
+    },
+    {
+      "label": "desktop back to deck card",
+      "sample": {
+        "dx": 0.007429755043233399,
+        "dy": 0.0001801152737925804,
+        "width": 0.012247838616715967,
+        "height": 0.012247838616715967,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "eq-continuous-orbit"
+      }
+    },
+    {
+      "label": "desktop deck character version",
+      "sample": {
+        "dx": 0.007429755043233399,
+        "dy": 0.0001801152737925804,
+        "width": 0.012247838616715967,
+        "height": 0.012247838616715967,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "eq-continuous-orbit"
+      }
+    },
+    {
+      "label": "desktop pre-match UI captures deck loadout, not global preferences",
+      "passed": true
+    },
+    {
+      "label": "desktop challenger",
+      "samples": [
+        {
+          "uid": "0-0",
+          "dx": 0.026393493116302125,
+          "dy": 0.7930322096435702,
+          "width": 0.0172109185078817
+        }
+      ]
+    },
+    {
+      "label": "desktop active arena inspection",
+      "sample": {
+        "dx": 0.007429755043233399,
+        "dy": 0.0001801152737925804,
+        "width": 0.012247838616715967,
+        "height": 0.012247838616715967,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "eq-continuous-orbit"
+      }
+    },
+    {
+      "label": "desktop resize while inspecting",
+      "sample": {
+        "dx": 0.0001125720461061519,
+        "dy": 0.013733789625348436,
+        "width": 0.012022694524503663,
+        "height": 0.012022694524503663,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "eq-continuous-orbit"
+      }
+    },
+    {
+      "label": "desktop restore inspector viewport",
+      "sample": {
+        "dx": 0.007429755043233399,
+        "dy": 0.0001801152737925804,
+        "width": 0.012247838616715967,
+        "height": 0.012247838616715967,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "eq-continuous-orbit"
+      }
+    },
+    {
+      "label": "desktop after attack",
+      "samples": [
+        {
+          "uid": "0-0",
+          "dx": 0.026393493116302125,
+          "dy": 0.7930322096435702,
+          "width": 0.0172109185078817
+        }
+      ]
+    },
+    {
+      "label": "desktop resizing during activation",
+      "samples": [
+        {
+          "uid": "0-0",
+          "dx": 0.026393493116302125,
+          "dy": 0.7930322096435702,
+          "width": 0.0172109185078817
+        }
+      ]
+    },
+    {
+      "label": "desktop board zoom 125%",
+      "samples": [
+        {
+          "uid": "0-0",
+          "dx": 0.015999577425361622,
+          "dy": 0.7901347350426704,
+          "width": 0.025508291897843094
+        }
+      ]
+    },
+    {
+      "label": "desktop inspection preserves original match equipment",
+      "sample": {
+        "dx": 0.007429755043233399,
+        "dy": 0.0001801152737925804,
+        "width": 0.012247838616715967,
+        "height": 0.012247838616715967,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "eq-continuous-orbit"
+      }
+    },
+    {
+      "label": "desktop flute support",
+      "samples": [
+        {
+          "uid": "0-4",
+          "dx": 0.015340730865773367,
+          "dy": 0.46106179061155217,
+          "width": 0.010018036386451712
+        }
+      ]
+    },
+    {
+      "label": "desktop active flute inspection",
+      "sample": {
+        "dx": 0.007429755043233399,
+        "dy": 0.0001801152737925804,
+        "width": 0.012247838616715967,
+        "height": 0.012247838616715967,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "eq-continuous-orbit"
+      }
+    },
+    {
+      "label": "UI replacement / cancel / move / unequip, QA-only definition and in-memory profile",
+      "passed": true
+    },
+    {
+      "label": "desktop",
+      "passed": true,
+      "profileTests": {
+        "incompatible": true,
+        "stale": true,
+        "invalidImport": true,
+        "unchanged": true,
+        "isolated": true,
+        "retained": true
+      }
+    },
+    {
+      "label": "phone navigation",
+      "nav": [
+        {
+          "label": "Collection",
+          "height": 60,
+          "width": 82.390625
+        },
+        {
+          "label": "Decks",
+          "height": 60,
+          "width": 82.40625
+        },
+        {
+          "label": "Armes",
+          "height": 60,
+          "width": 82.390625
+        },
+        {
+          "label": "Arène",
+          "height": 60,
+          "width": 82.40625
+        },
+        {
+          "label": "Plus",
+          "height": 60,
+          "width": 82.40625
+        }
+      ]
+    },
+    {
+      "label": "razr50 deck inspection",
+      "sample": {
+        "dx": 0.008904448847275148,
+        "dy": 0.46134275936594804,
+        "width": 0.011932636887607373,
+        "height": 0.011932636887607373,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "eq-continuous-orbit"
+      }
+    },
+    {
+      "label": "razr50 back to deck card",
+      "sample": {
+        "dx": 0.008904448847275148,
+        "dy": 0.46134275936594804,
+        "width": 0.011932636887607373,
+        "height": 0.011932636887607373,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "eq-continuous-orbit"
+      }
+    },
+    {
+      "label": "razr50 deck character version",
+      "sample": {
+        "dx": 0.008904448847275148,
+        "dy": 0.46134275936594804,
+        "width": 0.011932636887607373,
+        "height": 0.011932636887607373,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "eq-continuous-orbit"
+      }
+    },
+    {
+      "label": "razr50 pre-match UI captures deck loadout, not global preferences",
+      "passed": true
+    },
+    {
+      "label": "razr50 challenger",
+      "samples": [
+        {
+          "uid": "0-0",
+          "dx": 0.007550918023888187,
+          "dy": 1.051008123114002,
+          "width": 0.011429981724681681
+        }
+      ]
+    },
+    {
+      "label": "razr50 active arena inspection",
+      "sample": {
+        "dx": 0.008904448847275148,
+        "dy": 0.46134275936594804,
+        "width": 0.011932636887607373,
+        "height": 0.011932636887607373,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "eq-continuous-orbit"
+      }
+    },
+    {
+      "label": "razr50 resize while inspecting",
+      "sample": {
+        "dx": 0.007086410302591162,
+        "dy": 0.3463954430835656,
+        "width": 0.015422370317004663,
+        "height": 0.015422370317004663,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "eq-continuous-orbit"
+      }
+    },
+    {
+      "label": "razr50 restore inspector viewport",
+      "sample": {
+        "dx": 0.008904448847275148,
+        "dy": 0.46134275936594804,
+        "width": 0.011932636887607373,
+        "height": 0.011932636887607373,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "eq-continuous-orbit"
+      }
+    },
+    {
+      "label": "razr50 after attack",
+      "samples": [
+        {
+          "uid": "0-0",
+          "dx": 0.007550918023888187,
+          "dy": 1.051008123114002,
+          "width": 0.011429981724681681
+        }
+      ]
+    },
+    {
+      "label": "razr50 resizing during activation",
+      "samples": [
+        {
+          "uid": "0-0",
+          "dx": 0.01697990197310162,
+          "dy": 1.0952891145559533,
+          "width": 0.029722756992470067
+        }
+      ]
+    },
+    {
+      "label": "razr50 inspection preserves original match equipment",
+      "sample": {
+        "dx": 0.008904448847275148,
+        "dy": 0.46134275936594804,
+        "width": 0.011932636887607373,
+        "height": 0.011932636887607373,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "eq-continuous-orbit"
+      }
+    },
+    {
+      "label": "razr50 flute support",
+      "samples": [
+        {
+          "uid": "0-4",
+          "dx": 0.00322498431617646,
+          "dy": 0.44892763130701496,
+          "width": 0.00488158720200893
+        }
+      ]
+    },
+    {
+      "label": "razr50 active flute inspection",
+      "sample": {
+        "dx": 0.008904448847275148,
+        "dy": 0.46134275936594804,
+        "width": 0.011932636887607373,
+        "height": 0.011932636887607373,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "eq-continuous-orbit"
+      }
+    },
+    {
+      "label": "razr50",
+      "passed": true,
+      "profileTests": {
+        "incompatible": true,
+        "stale": true,
+        "invalidImport": true,
+        "unchanged": true,
+        "isolated": true,
+        "retained": true
+      }
+    },
+    {
+      "label": "reduced deck inspection",
+      "sample": {
+        "dx": 0.004829340778094604,
+        "dy": 0.3483204250719609,
+        "width": 0.001711095100866089,
+        "height": 0.001711095100866089,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "none"
+      }
+    },
+    {
+      "label": "reduced back to deck card",
+      "sample": {
+        "dx": 0.004829340778094604,
+        "dy": 0.3483204250719609,
+        "width": 0.001711095100866089,
+        "height": 0.001711095100866089,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "none"
+      }
+    },
+    {
+      "label": "reduced deck character version",
+      "sample": {
+        "dx": 0.004829340778094604,
+        "dy": 0.34832042507201777,
+        "width": 0.001711095100866089,
+        "height": 0.001711095100866089,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "none"
+      }
+    },
+    {
+      "label": "reduced pre-match UI captures deck loadout, not global preferences",
+      "passed": true
+    },
+    {
+      "label": "reduced challenger",
+      "samples": [
+        {
+          "uid": "1-0",
+          "dx": 0.029360121436212694,
+          "dy": 1.1249696857090612,
+          "width": 0.020906589560706124
+        }
+      ]
+    },
+    {
+      "label": "reduced active arena inspection",
+      "sample": {
+        "dx": 0.004829340778094604,
+        "dy": 0.3483204250719609,
+        "width": 0.001711095100866089,
+        "height": 0.001711095100866089,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "none"
+      }
+    },
+    {
+      "label": "reduced resize while inspecting",
+      "sample": {
+        "dx": 0.003011302233431934,
+        "dy": 0.17168362752158828,
+        "width": 0.0052008285302633794,
+        "height": 0.0052008285302633794,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "none"
+      }
+    },
+    {
+      "label": "reduced restore inspector viewport",
+      "sample": {
+        "dx": 0.004829340778094604,
+        "dy": 0.3483204250719609,
+        "width": 0.001711095100866089,
+        "height": 0.001711095100866089,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "none"
+      }
+    },
+    {
+      "label": "reduced after attack",
+      "samples": [
+        {
+          "uid": "1-0",
+          "dx": 0.029360121436212694,
+          "dy": 1.1249696857090612,
+          "width": 0.020906589560706124
+        }
+      ]
+    },
+    {
+      "label": "reduced resizing during activation",
+      "samples": [
+        {
+          "uid": "1-0",
+          "dx": 0.019784790958027543,
+          "dy": 1.0973949392724762,
+          "width": 0.001575541765507893
+        }
+      ]
+    },
+    {
+      "label": "reduced inspection preserves original match equipment",
+      "sample": {
+        "dx": 0.004829340778094604,
+        "dy": 0.3483204250719609,
+        "width": 0.001711095100866089,
+        "height": 0.001711095100866089,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "none"
+      }
+    },
+    {
+      "label": "reduced flute support",
+      "samples": [
+        {
+          "uid": "0-4",
+          "dx": 0.029363936133485424,
+          "dy": 1.1249696857090612,
+          "width": 0.020891330771643624
+        }
+      ]
+    },
+    {
+      "label": "reduced active flute inspection",
+      "sample": {
+        "dx": 0.004829340778094604,
+        "dy": 0.3483204250719609,
+        "width": 0.001711095100866089,
+        "height": 0.001711095100866089,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "none"
+      }
+    },
+    {
+      "label": "reduced",
+      "passed": true,
+      "profileTests": {
+        "incompatible": true,
+        "stale": true,
+        "invalidImport": true,
+        "unchanged": true,
+        "isolated": true,
+        "retained": true
+      }
+    },
+    {
+      "label": "compact deck inspection",
+      "sample": {
+        "dx": 0.0002870587175749506,
+        "dy": 0.347791336455316,
+        "width": 0.014251621037466577,
+        "height": 0.014251621037466577,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "eq-continuous-orbit"
+      }
+    },
+    {
+      "label": "compact back to deck card",
+      "sample": {
+        "dx": 0.0002870587175749506,
+        "dy": 0.3477913364554297,
+        "width": 0.014251621037466577,
+        "height": 0.014251621037466577,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "eq-continuous-orbit"
+      }
+    },
+    {
+      "label": "compact deck character version",
+      "sample": {
+        "dx": 0.0002870587175749506,
+        "dy": 0.347791336455316,
+        "width": 0.014251621037466577,
+        "height": 0.014251621037466577,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "eq-continuous-orbit"
+      }
+    },
+    {
+      "label": "compact pre-match UI captures deck loadout, not global preferences",
+      "passed": true
+    },
+    {
+      "label": "compact challenger",
+      "samples": [
+        {
+          "uid": "0-0",
+          "dx": 0.037437618451853893,
+          "dy": 0.9948697416569985,
+          "width": 0.00948043210593319
+        }
+      ]
+    },
+    {
+      "label": "compact active arena inspection",
+      "sample": {
+        "dx": 0.0002870587175749506,
+        "dy": 0.347791336455316,
+        "width": 0.014251621037466577,
+        "height": 0.014251621037466577,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "eq-continuous-orbit"
+      }
+    },
+    {
+      "label": "compact resize while inspecting",
+      "sample": {
+        "dx": 0.014094020172905175,
+        "dy": 0.18677953890488652,
+        "width": 0.002116354466860315,
+        "height": 0.002116354466860315,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "eq-continuous-orbit"
+      }
+    },
+    {
+      "label": "compact restore inspector viewport",
+      "sample": {
+        "dx": 0.0002870587175749506,
+        "dy": 0.347791336455316,
+        "width": 0.014251621037466577,
+        "height": 0.014251621037466577,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "eq-continuous-orbit"
+      }
+    },
+    {
+      "label": "compact after attack",
+      "samples": [
+        {
+          "uid": "0-0",
+          "dx": 0.037437618451853893,
+          "dy": 0.9948851255181808,
+          "width": 0.00948043210593319
+        }
+      ]
+    },
+    {
+      "label": "compact resizing during activation",
+      "samples": [
+        {
+          "uid": "0-0",
+          "dx": 0.03743737674268033,
+          "dy": 0.9948851255181808,
+          "width": 0.009478953132965984
+        }
+      ]
+    },
+    {
+      "label": "compact inspection preserves original match equipment",
+      "sample": {
+        "dx": 0.0002870587175749506,
+        "dy": 0.347791336455316,
+        "width": 0.014251621037466577,
+        "height": 0.014251621037466577,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "eq-continuous-orbit"
+      }
+    },
+    {
+      "label": "compact flute support",
+      "samples": [
+        {
+          "uid": "0-4",
+          "dx": 0.016879705144305035,
+          "dy": 0.448571183918375,
+          "width": 0.004273839397741952
+        }
+      ]
+    },
+    {
+      "label": "compact active flute inspection",
+      "sample": {
+        "dx": 0.0002870587175749506,
+        "dy": 0.347791336455316,
+        "width": 0.014251621037466577,
+        "height": 0.014251621037466577,
+        "bodyWidth": 0,
+        "bodyHeight": 0,
+        "animation": "eq-continuous-orbit"
+      }
+    },
+    {
+      "label": "compact",
+      "passed": true,
+      "profileTests": {
+        "incompatible": true,
+        "stale": true,
+        "invalidImport": true,
+        "unchanged": true,
+        "isolated": true,
+        "retained": true
+      }
+    }
+  ],
+  "errors": []
+}

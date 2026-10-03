@@ -13,11 +13,20 @@
   function validateDefinition(w){
     if(!object(w)||!/^[-a-z0-9]{1,80}$/.test(w.id)||w.slot!=='weapon'||!['axe','flute'].includes(w.visual)||
       ['name','family','condition','lore'].some(k=>typeof w[k]!=='string'||!w[k].length||w[k].length>2000)||w.changesFamily)fail();
-    if(w.art!==undefined&&!['fallen-king-axe-v2','little-joys-flute-v2'].includes(w.art))fail();
+    if(w.art!==undefined&&!catalogue.weapons.some(item=>item.art===w.art))fail();
     if(!object(w.restrictions)||!Object.keys(w.restrictions).length||Object.entries(w.restrictions).some(([k,v])=>!['characterIds','jobs','families'].includes(k)||!Array.isArray(v)||!v.length||v.length>100||v.some(x=>typeof x!=='string'||!x.length||x.length>80)))fail();
     const e=w.effect;
     if(!object(e)||!['ATK','DEF'].includes(e.stat)||!Number.isInteger(e.value)||e.value<1||e.value>40)fail();
     if(e.trigger==='LAST_STANDING'){if(e.duration!=='WHILE_TRUE')fail();}
+    else if(e.trigger==='TEAM_STATE'){
+      if(e.duration!=='WHILE_TRUE'||!object(e.when)||!Object.keys(e.when).length)fail();
+      for(const [key,value] of Object.entries(e.when)){
+        if(key==='outnumbered'){if(value!==true)fail();}
+        else if(key==='activeAtMost'){if(!Number.isInteger(value)||value<1||value>4)fail();}
+        else if(key==='reserveAtMost'){if(!Number.isInteger(value)||value<0||value>4)fail();}
+        else fail();
+      }
+    }
     else if(e.trigger==='AFTER_SUPPORT'){if(e.duration!=='NEXT_DUEL'||!Array.isArray(e.supports)||!e.supports.length||e.supports.some(x=>!['luck','mana'].includes(x)))fail();}
     else fail();
     return w;
@@ -56,15 +65,24 @@
   function view(s,u,card){
     const w=equipped(s,u,card);if(!w||s.phase==='setup'||s.phase==='over')return {weapon:w,active:false};
     const p=s.players[Number(u.uid[0])];
-    const active=p.board.includes(u)&&(w.effect.trigger==='LAST_STANDING'?p.board.filter(Boolean).length===1:Object.values(s.equipment.pending).some(b=>b.sourceUid===u.uid&&b.weaponId===w.id));
+    const active=p.board.includes(u)&&(w.effect.trigger==='LAST_STANDING'?p.board.filter(Boolean).length===1:
+      w.effect.trigger==='TEAM_STATE'?teamCondition(s,Number(u.uid[0]),w.effect.when):
+      Object.values(s.equipment.pending).some(b=>b.sourceUid===u.uid&&b.weaponId===w.id));
     return {weapon:w,active};
+  }
+  function teamCondition(s,side,when){
+    const team=s.players[side],active=team.board.filter(Boolean).length;
+    return Object.entries(when).every(([key,value])=>key==='outnumbered'?active<s.players[1-side].board.filter(Boolean).length:
+      key==='activeAtMost'?active<=value:key==='reserveAtMost'?team.reserve.length<=value:false);
   }
   function modifier(s,u,card,stat){
     if(!u)return null;
     const {weapon:w,active}=view(s,u,card);
-    if(active&&w.effect.trigger==='LAST_STANDING'&&w.effect.stat===stat)return entry(w,u.uid);
+    const own=active&&['LAST_STANDING','TEAM_STATE'].includes(w.effect.trigger)&&w.effect.stat===stat?entry(w,u.uid):null;
     const pending=s.equipment?.pending[u.uid],source=pending&&s.equipment.definitions.find(w=>w.id===pending.weaponId);
-    return source?.effect.stat===stat?entry(source,pending.sourceUid):null;
+    const gift=source?.effect.stat===stat?entry(source,pending.sourceUid):null;
+    // Do not stack equipment bonuses, or let a smaller personal bonus erase Momo's gift.
+    return gift&&(!own||gift.value>own.value)?gift:own;
   }
   function entry(w,sourceUid){return {weaponId:w.id,name:w.name,stat:w.effect.stat,value:w.effect.value,sourceUid};}
   function lock(s,a,b,card){
@@ -100,7 +118,7 @@
       if(!object(d.equipment)||!Array.isArray(d.equipment.expires)||d.equipment.expires.length>2||new Set(d.equipment.expires).size!==d.equipment.expires.length||d.equipment.expires.some(uid=>![d.attacker,d.target].includes(uid)))fail();
       for(const [key,stat] of [['attack','ATK'],['defense','DEF']])if(d.equipment[key]!==null){
         const e=d.equipment[key],w=validateEntry(e),uid=key==='attack'?d.attacker:d.target;
-        if(e.stat!==stat||uid[0]!==e.sourceUid[0]||w.effect.trigger==='LAST_STANDING'&&uid!==e.sourceUid||w.effect.trigger==='AFTER_SUPPORT'&&!d.equipment.expires.includes(uid))fail();
+        if(e.stat!==stat||uid[0]!==e.sourceUid[0]||['LAST_STANDING','TEAM_STATE'].includes(w.effect.trigger)&&uid!==e.sourceUid||w.effect.trigger==='AFTER_SUPPORT'&&!d.equipment.expires.includes(uid))fail();
       }
       if(d.equipmentTransfer){const w=validateEntry(d.equipmentTransfer);if(w.effect.trigger!=='AFTER_SUPPORT'||d.equipmentTransfer.sourceUid!==d.attacker||d.equipmentTransfer.recipient!==(d.cloverGranted||d.manaGranted)||d.traitRefreshed||!w.effect.supports.includes(d.cloverGranted?'luck':'mana'))fail();}
     }

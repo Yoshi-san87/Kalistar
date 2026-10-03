@@ -45,7 +45,10 @@
       if (!root || matchMedia('(max-width: 850px), (max-width: 950px) and (max-height: 500px)').matches) return;
       const stage = root.querySelector('.story-reader'), book = root.querySelector('.story-reader-book');
       if (!stage || !book) return;
-      const ratio = 1692 / 940, width = Math.min(stage.clientWidth, stage.clientHeight * ratio);
+      const style = getComputedStyle(stage);
+      const availableWidth = stage.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+      const availableHeight = stage.clientHeight - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom);
+      const ratio = 1672 / 941, width = Math.min(availableWidth, availableHeight * ratio);
       book.style.width = `${Math.max(0, width)}px`;
       book.style.height = `${Math.max(0, width / ratio)}px`;
     }
@@ -180,7 +183,7 @@
         if (!response.ok) throw Error(`Manuscrit indisponible (HTTP ${response.status}).`);
         return response.json();
       }).then(value => {
-        if (!Array.isArray(value.sections) || value.sections.length !== 10 || value.sections.some(section => !Array.isArray(section.paragraphs))) throw Error('Structure du manuscrit invalide.');
+        if (!Array.isArray(value.sections) || value.sections.length !== 18 || value.sections.some(section => !Array.isArray(section.paragraphs))) throw Error('Structure du manuscrit invalide.');
         const cards = new Set((window.KALISTAR_DATA?.cards || []).map(card => String(card.id)));
         for (const section of value.sections) {
           const anchors = new Set();
@@ -204,7 +207,14 @@
       root.addEventListener('scroll', scroll, true);
       if (!observer) observer = new ResizeObserver(fitBook);
       observer.observe(root);
-      try { await load(); if (root !== target) return; render({restore: true}); }
+      try {
+        await load();
+        const background = new Image();
+        background.src = window.KalistarSite?.url('assets/ui/collection-reader-grimoire-v1.png') || 'assets/ui/collection-reader-grimoire-v1.png';
+        await background.decode().catch(() => {});
+        if (root !== target) return;
+        render({restore: true});
+      }
       catch (error) {
         if (root !== target) return;
         root.innerHTML = `<section class="story-load-error"><i data-lucide="book-x"></i><h1>Le manuscrit ne s’est pas ouvert</h1><p>${escape(error.message)}</p><button type="button" data-story-action="retry">Réessayer</button></section>`;
