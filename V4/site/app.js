@@ -97,7 +97,7 @@
   }
   function suspendGame(){clearTimeout(aiTimer);epoch++;game=null;lastStored='';save('game',null);ui.view='collection';history.replaceState(null,'','#collection');render();}
   function checkGame(value=game){try{db.registry.validateGame(value,accountId);}catch(error){suspendGame();throw error;}}
-  function modal(id,html){const d=$('#'+id);d.innerHTML=html;if(!d.open)d.showModal();icons();}
+  function modal(id,html){const d=$('#'+id);if(id==='detail-dialog')window.KalistarEquipmentFX.clearDetail();d.innerHTML=html;if(!d.open)d.showModal();icons();}
   function head(title){return `<div class="dialog-head"><h2>${esc(title)}</h2>${ib('close','x','Fermer')}</div>`;}
   function enterFullscreen(reportFailure=true){
     const root=document.documentElement;
@@ -169,6 +169,7 @@
     window.KalistarAmbience?.mount($('.battlefield'),{arena:arenaById(game?.arenaId),game,engine:E});
     window.KalistarFocus?.mount(game?.phase==='over'?[]:document.querySelectorAll('.formation'));
     if(ui.view==='arena')window.KalistarEquipmentFX.mount(game,E);
+    syncDetailEquipment();
     persist();scheduleAI();
     if(ui.view==='arena'&&game?.phase==='over'&&!ui.endShown){ui.endShown=true;showMatchStats(game);}
   }
@@ -203,7 +204,7 @@
   }
 function showDeck(){setView('decks');}
   function builder(){
-    if(!deckBuilder)deckBuilder=KalistarDeckBuilder.create({data,engine:E,registry:db?.registry,userId:accountId,getDraft:()=>Team.clone(teamDraft),onDraft:next=>{teamDraft=Team.clone(next);deck=next.cards.filter(Boolean);deckName=next.name;persist();},onPlay:newGameDialog,onDetail:showDetail,getEquipmentDefaults:()=>db?.equipment.profile(accountId).slots.weapon||{},renderHeaderTools:()=>`<div class="kdb-demo-tools" role="group" aria-label="Decks de démonstration"><label for="deck-preset"><span>Démo</span><select id="deck-preset" aria-label="Deck de démonstration">${presetOptions(deckPresetId)}</select></label><button type="button" class="kdb-icon" data-action="load-preset" title="Charger le deck sélectionné" aria-label="Charger le deck sélectionné">${icon('folder-open')}</button><button type="button" class="kdb-icon" data-action="export-deck" title="Exporter le deck courant" aria-label="Exporter le deck courant">${icon('download')}</button><button type="button" class="kdb-icon" data-action="import-deck" title="Importer un deck" aria-label="Importer un deck">${icon('upload')}</button><input hidden type="file" id="deck-file" accept="application/json,.json"></div>`,toast});
+    if(!deckBuilder)deckBuilder=KalistarDeckBuilder.create({data,engine:E,registry:db?.registry,userId:accountId,getDraft:()=>Team.clone(teamDraft),onDraft:next=>{teamDraft=Team.clone(next);deck=next.cards.filter(Boolean);deckName=next.name;persist();},onPlay:newGameDialog,onDetail:id=>showDetail(id,false,{source:'deck'}),getEquipmentDefaults:()=>db?.equipment.profile(accountId).slots.weapon||{},renderHeaderTools:()=>`<div class="kdb-demo-tools" role="group" aria-label="Decks de démonstration"><label for="deck-preset"><span>Démo</span><select id="deck-preset" aria-label="Deck de démonstration">${presetOptions(deckPresetId)}</select></label><button type="button" class="kdb-icon" data-action="load-preset" title="Charger le deck sélectionné" aria-label="Charger le deck sélectionné">${icon('folder-open')}</button><button type="button" class="kdb-icon" data-action="export-deck" title="Exporter le deck courant" aria-label="Exporter le deck courant">${icon('download')}</button><button type="button" class="kdb-icon" data-action="import-deck" title="Importer un deck" aria-label="Importer un deck">${icon('upload')}</button><input hidden type="file" id="deck-file" accept="application/json,.json"></div>`,toast});
     return deckBuilder;
   }
   function decksPage(){
@@ -231,6 +232,7 @@ function showDeck(){setView('decks');}
     $('#detail-dialog').classList.add('card-detail');
     modal('detail-dialog',head(c.name)+`<div class="dialog-body detail-body"><div class="detail-visual" style="--element-color:#${el.color}"><img src="${art?artImage(c):duelImage(c)}" alt="${art?'Illustration':'Carte'} de ${esc(c.name)}"></div><div class="detail-info"><div><span class="eyebrow">${esc(c.element)} · #${c.id}</span><h2>${esc(c.title)}</h2>${profile?'<p class="muted">Profil du match archivé · visuel actuel</p>':''}</div>${profile?'':Catalogue.versionStrip(id)}${bonusDetails(context)}${equippedCard(c,context)}<div class="identity-strip"><img src="${asset('factions',c.faction)}" alt="Drapeau ${esc(c.faction)}"><span><b>${esc(c.faction)}</b><br>${esc(c.job)}</span><img class="race-icon" src="${asset('races',c.race)}" alt=""><span>${esc(c.race)}<br>${c.positions.map(p=>'P'+p).join(' / ')}</span></div><div class="muted">${esc(c.weapon)}</div><table class="stats-table"><thead><tr><th>Dé</th>${[6,5,4,3,2,1].map(d=>`<th>${d}</th>`).join('')}</tr></thead><tbody><tr><th>ATK</th>${c.atk.map((x,i)=>`<td class="${c.magic.includes(6-i)?'magic':''}" title="${c.magic.includes(6-i)?'Magique':'Physique'}">${v(x,true)}</td>`).join('')}</tr><tr><th>DEF</th>${c.defense.map((x,i)=>`<td class="${hasCrystal(c)&&c.barriers.includes(6-i)?'barrier':''}" title="${hasCrystal(c)&&c.barriers.includes(6-i)?'Barrière : -30 contre magie':'Défense sans barrière'}">${v(x)}</td>`).join('')}</tr></tbody></table><div class="affinities">${!hasCrystal(c)?'Sans cristal · aucun bonus élémentaire ni barrière':c.element==='RAINBOW'?'+40 contre les cristaux classiques · +30 contre sans cristal':`+${esc(c.advantage)} ${esc(data.elements[el.strong_against]?.label||'')}<span>-${esc(c.disadvantage)} ${esc(data.elements[el.weak_against]?.label||'')}</span> · +20 contre sans cristal`}</div><p class="story">${esc(c.text)}</p>${Catalogue.career(id,db,ui.careerInstance)}<div class="detail-actions"><button data-action="toggle-art">${icon(art?'credit-card':'image')}${art?'Carte':'Illustration'}</button><a href="${esc(globalThis.KalistarSite?.url(c.pngUrl)||c.pngUrl)}" download>${icon('download')} PNG d’impression${profile?' actuel':''}</a>${ib('favorite','star','Favori',`data-id="${id}" aria-pressed="${favorites.has(id)}"`)}</div></div></div>`);
     if(!profile){$('#detail-dialog .career-panel').outerHTML=Catalogue.career(id,collectionDB(),ui.careerInstance);$('#detail-dialog .detail-info>div').insertAdjacentHTML('afterend',ownershipBanner(id));icons();}
+    syncDetailEquipment();
     if(context?.bonus)requestAnimationFrame(()=>$('#detail-dialog .highlighted')?.scrollIntoView({block:'nearest'}));
   }
   function showRules(){
@@ -409,10 +411,27 @@ function showDeck(){setView('decks');}
     const bonus=['choose','setup'].includes(s.phase)?E.equipmentModifier(s,stat==='ATK'?a:b,stat):d?.equipment?.[stat==='ATK'?'attack':'defense'];
     return bonus?recapRow(stat==='ATK'?'equipmentAttack':'equipmentDefense',esc(bonus.name),bonus.value,true,'Arme \u00e9quip\u00e9e : '+bonus.stat):'';
   }
+  function detailEquipment(c,context){
+    if(!c||context?.profile)return null;
+    if(context?.source==='deck'&&ui.view==='decks'){
+      const w=KalistarWeapons.weapons.find(w=>w.id===teamDraft.equipment[c.characterId]);
+      return {weapon:w&&KalistarEquipment.compatible(w,c)?w:null,active:null};
+    }
+    if(context?.uid&&ui.view==='arena'){
+      const u=game?.players[context.side]?.board.find(u=>u?.uid===context.uid&&u.cardId===c.id);
+      return u?E.equipmentView(game,u):{weapon:null,active:false};
+    }
+    return null;
+  }
+  function syncDetailEquipment(){
+    const dialog=$('#detail-dialog'),state=detailEquipment(E.byId[ui.detail],ui.detailContext);
+    const w=dialog.open&&!ui.art&&state&&(state.active===null||state.active)?state.weapon:null;
+    window.KalistarEquipmentFX.mountDetail(dialog.querySelector('.detail-visual'),w,{bonus:state?.active===true});
+  }
   function equippedCard(c,context){
-    const u=context&&game?.players[context.side]?.board.find(u=>u?.uid===context.uid),state=u?E.equipmentView(game,u):null;
-    const w=state?.weapon||(!context?.profile?db?.equipment.weapon(accountId,c.characterId):null);
-    return w?`<button class="card-equipped" data-action="equipment-detail" data-id="${w.id}" title="${esc(w.condition)}">${icon('sword')}${esc(w.name)}${state?' \u00b7 '+(state.active?'Active':'Inactive'):''}</button>`:'';
+    const state=detailEquipment(c,context);
+    const w=state?state.weapon:(!context?.profile?db?.equipment.weapon(accountId,c.characterId):null);
+    return w?`<button class="card-equipped" data-action="equipment-detail" data-id="${w.id}" title="${esc(w.condition)}">${icon('sword')}${esc(w.name)}${state&&state.active!==null?' \u00b7 '+(state.active?'Active':'Inactive'):''}</button>`:'';
   }
   function scoreTotals(side,attackLabel,attackValue,defenseLabel,defenseValue,preview=false){
     const scores=[{role:'attack',label:attackLabel,value:attackValue},{role:'defense',label:defenseLabel,value:defenseValue}];
@@ -702,7 +721,7 @@ function showDeck(){setView('decks');}
         if(b.closest('#match-dialog')&&reportArchive)context.profile=reportArchive.profiles.find(c=>c.id===id);
         return showDetail(id,false,context);
       }
-      if(action==='detail-version')return showDetail(id);
+      if(action==='detail-version')return showDetail(id,false,ui.detailContext);
       if(action==='database')return showDatabase();
       if(action==='export-library'){if(accountId!==KalistarOwnership.PARIS)return toast('Sauvegarde complete reservee au profil administrateur local.');db?.exportBackup().then(value=>download('Kalistar-collection-'+new Date().toISOString().slice(0,10)+'.json',value)).catch(e=>toast(e.message));return;}
       if(action==='import-library')return $('#library-file').click();

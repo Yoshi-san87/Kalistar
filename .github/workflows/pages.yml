@@ -36,7 +36,7 @@ jobs:
           node --test V4/releases/2026-10-02-pages-portability/portable.test.cjs
           node V4/site/kalistel.test.cjs
           node V4/site/arena-ambience.test.cjs
-          node --test V4/site/equipment.test.cjs
+          node --test V4/site/equipment.test.cjs V4/site/equipment-presentation.test.cjs
           node --test V4/site/team-composition.test.cjs
           node --test V4/site/match-metrics.test.cjs V4/site/kill-medals.test.cjs
       - name: Build playable release

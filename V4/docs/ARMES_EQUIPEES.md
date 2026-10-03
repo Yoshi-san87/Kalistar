@@ -151,6 +151,31 @@ et transfert 650 ms. Reduced Motion : fades courts, sans rotation ni trajet.
 Animations WAAPI, ResizeObserver et listeners sont nettoyes lors du rendu,
 de la navigation et de la fermeture. Pas de Canvas permanent par arme.
 
+## Inspection Des Cartes (V4.4.2)
+
+Dans Composition, l'oeil ouvre la carte avec l'arme choisie pour CE deck,
+pas avec un equipement repris automatiquement du profil. Le medaillon tourne
+sur la carte de composition et dans sa popup ; la languette de bonus n'apparait
+pas hors combat. Les autres versions du meme personnage conservent ce contexte.
+
+Dans l'Arene, l'inspection lit `engine.equipmentView` sur l'instance presente
+sur le plateau et le snapshot du match. Seule une arme actuellement active
+remplace le medaillon imprime ; elle garde sa languette et la rotation radar.
+Une arme inactive, consommee, en reserve ou une carte d'un match termine reste
+native. Une modification du profil n'affecte pas la carte inspectee du match.
+
+`equipment-presentation.js` gere `mountDetail` / `clearDetail` independamment
+des observers du plateau. L'ancrage tient compte de la zone effectivement
+dessinee par `object-fit: contain`, du crop natif et du chargement asynchrone.
+Les listeners et ResizeObservers sont liberes a la fermeture, au remplacement
+de la popup et lors d'un rendu/navigation. La vue Illustration n'a pas d'overlay.
+Collection, statistiques et fiches de l'Arsenal n'adoptent pas cet overlay de
+combat. Reduced Motion supprime les rotations dans tous les contextes.
+
+Tests : `site/equipment-presentation.test.cjs` et les parcours d'inspection de
+`site/weapons.browser.test.cjs`. Captures de cette revision :
+`revisions/2026-10-03-equipped-card-inspection/qa/`.
+
 ## Ajouter Une Troisieme Arme
 
 Visuels uniques : voir `../revisions/2026-10-02-unique-weapon-art/README.md`.

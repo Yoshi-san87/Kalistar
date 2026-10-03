@@ -66,6 +66,43 @@ async function alignment(page,label){
   assert.ok(samples.length,label+' has an active medallion');for(const s of samples)for(const k of ['dx','dy','width'])assert.ok(s[k]<1.3,label+' '+JSON.stringify(s));
   results.push({label,samples});
 }
+async function detailAlignment(page,label,motion){
+  await page.waitForFunction(()=>{
+    const img=document.querySelector('#detail-dialog .detail-visual > img'),overlay=document.querySelector('.eq-detail-overlay');
+    return img?.naturalWidth===797&&img?.naturalHeight===1388&&overlay&&getComputedStyle(overlay).visibility==='visible'&&[...overlay.querySelectorAll('img')].every(i=>i.complete&&i.naturalWidth===488);
+  });
+  // Allow resize observers to place the overlay after the viewport's next layout.
+  await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+  const sample=await page.evaluate(()=>{
+    const node=document.querySelector('.eq-detail-overlay'),img=document.querySelector('#detail-dialog .detail-visual > img');
+    const i=img.getBoundingClientRect(),r=node.getBoundingClientRect(),n=KalistarEquipmentFX.native,c=KalistarCardMedia.crop;
+    const scale=Math.min(i.width/c.width,i.height/c.height),left=i.left+(i.width-c.width*scale)/2,top=i.top+(i.height-c.height*scale)/2;
+    const body=node.querySelector('.eq-body').getBoundingClientRect(),orbit=node.querySelector('.eq-orbit');
+    return {dx:Math.abs(r.left-(left+(n.left-c.left)*scale)),dy:Math.abs(r.top-(top+(n.top-c.top)*scale)),width:Math.abs(r.width-n.width*scale),height:Math.abs(r.height-n.height*scale),bodyWidth:Math.abs(body.width-r.width),bodyHeight:Math.abs(body.height-r.height),animation:getComputedStyle(orbit).animationName};
+  });
+  for(const k of ['dx','dy','width','height','bodyWidth','bodyHeight'])assert(sample[k]<1,label+' '+JSON.stringify(sample));
+  assert.equal(sample.animation,motion==='reduce'?'none':'eq-continuous-orbit');
+  results.push({label,sample});
+}
+async function inspect(page,selector,weapon,motion,{bonus=true,label='inspection'}={}){
+  const before=await page.evaluate(()=>localStorage.getItem('kalistar.v4.game'));
+  await page.locator(selector).click();await page.waitForFunction(()=>document.querySelector('#detail-dialog').open);
+  if(!weapon)assert.equal(await page.locator('.eq-detail-overlay').count(),0,label+' stays native');
+  else{
+    assert.equal(await page.locator('.eq-detail-overlay').getAttribute('data-weapon-id'),weapon);
+    assert.equal(await page.locator('.eq-detail-overlay .eq-tab').count(),bonus?1:0);
+    await detailAlignment(page,label,motion);
+    if(motion!=='reduce'){
+      const orbit=page.locator('.eq-detail-overlay .eq-orbit'),before=await orbit.evaluate(n=>getComputedStyle(n).transform);
+      await page.waitForTimeout(160);assert.notEqual(await orbit.evaluate(n=>getComputedStyle(n).transform),before,'inspected weapon keeps rotating');
+    }
+  }
+  assert.equal(await page.evaluate(()=>localStorage.getItem('kalistar.v4.game')),before,'inspection never changes the match');
+}
+async function closeDetail(page){
+  await page.locator('#detail-dialog [data-action=close]').click();
+  await page.waitForFunction(()=>!document.querySelector('#detail-dialog').open&&!document.querySelector('.eq-detail-overlay'));
+}
 async function replacementUI(page){
   await page.evaluate(()=>{
     const Q=KalistarEquipment,original=Q.catalogue,definitions=[...original.weapons,{...original.weapons[0],id:'qa-move-only',name:'Arme QA non publiee',restrictions:{characterIds:['balmhyr','momo']}}];
@@ -143,9 +180,9 @@ async function main(){
       assert.equal(await orbit.evaluate(n=>getComputedStyle(n).animationIterationCount),'infinite','keyboard focus animates');
       await page.mouse.click(1,1);
     }
-    assert.match(await page.title(),/^Kalistar V4\.4\.1/);
-    if(name==='desktop')assert.equal(await page.locator('.edition').innerText(),'VERSION 4.4.1');
-    else assert.equal(await page.locator('.brand').evaluate(n=>getComputedStyle(n,'::after').content),'"V4.4.1"');
+    assert.match(await page.title(),/^Kalistar V4\.4\.2/);
+    if(name==='desktop')assert.equal(await page.locator('.edition').innerText(),'VERSION 4.4.2');
+    else assert.equal(await page.locator('.brand').evaluate(n=>getComputedStyle(n,'::after').content),'"V4.4.2"');
     if(name==='desktop'){
       const migrated=await page.evaluate(()=>new Promise((resolve,reject)=>{
         const request=indexedDB.open('kalistar-v4-cards');request.onerror=()=>reject(request.error);
@@ -163,7 +200,9 @@ async function main(){
     await page.screenshot({path:path.join(out,name+'-arsenal.png')});
     await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);
     assert.match(await page.locator('.weapons-page').innerText(),/\u00c9quip\u00e9e par BALMHYR/);
-    await page.locator('[data-weapon=fallen-king-axe]').click();assert.equal(await page.locator('.weapon-carriers article').count(),1);await page.screenshot({path:path.join(out,name+'-weapon-detail.png')});await page.locator('[data-weapon-action=close]').click();
+    await page.locator('[data-weapon=fallen-king-axe]').click();assert.equal(await page.locator('.weapon-carriers article').count(),1);await page.screenshot({path:path.join(out,name+'-weapon-detail.png')});
+    await inspect(page,'[data-weapon-action=card]',null,motion,{label:name+' arsenal card has no combat overlay'});await closeDetail(page);
+    await page.locator('[data-weapon-action=close]').click();
     const profileTests=await page.evaluate(async()=>{
       const db=KALISTAR_DB,p=KALISTAR_ACTIVE_USER,row=db.equipment.profile(p);let incompatible=false,stale=false,invalidImport=false;
       try{await db.equipment.equip(p,'momo','fallen-king-axe');}catch{incompatible=true;}
@@ -188,16 +227,41 @@ async function main(){
     await page.locator('[data-deck-action=captain][data-slot="0"]').click();
     const loadout=await page.evaluate(()=>JSON.parse(localStorage.getItem('kalistar.v4.teamDraft')).equipment);
     assert.equal(await page.locator('.team-equipped').count(),Object.keys(loadout).length);
+    const momoEye=`[data-deck-slot="${momoSlot}"] [data-deck-action=detail]`;
+    await inspect(page,momoEye,'little-joys-flute',motion,{bonus:false,label:name+' deck inspection'});
+    await page.screenshot({path:path.join(out,name+'-deck-inspection.png')});
+    await page.locator('#detail-dialog [data-action=toggle-art]').click();assert.equal(await page.locator('.eq-detail-overlay').count(),0,'illustration has no medallion');
+    await page.locator('#detail-dialog [data-action=toggle-art]').click();await detailAlignment(page,name+' back to deck card',motion);
+    const momoVersions=await page.locator('#detail-dialog [data-action=detail-version]').count();
+    if(momoVersions>1){await page.locator('#detail-dialog [data-action=detail-version]').last().click();await detailAlignment(page,name+' deck character version',motion);}
+    await closeDetail(page);
+    const deckOrbit=page.locator('.team-equipped .eq-orbit').first();
+    assert.equal(await deckOrbit.evaluate(n=>getComputedStyle(n).animationName),motion==='reduce'?'none':'eq-continuous-orbit');
+    await page.locator(`[data-deck-action=slot][data-slot="${momoSlot}"]`).click();
+    await page.locator('[data-deck-action=recruit-mode][data-id=weapons]').click();
+    await page.locator('[data-deck-action=unequip][data-id=little-joys-flute]').click();
+    if(viewport.width<=900)await page.locator('[data-deck-action=panel][data-id=board]').click();
+    await inspect(page,momoEye,null,motion,{label:name+' deck unequipped despite global preference'});await closeDetail(page);
+    if(viewport.width<=900)await page.locator('[data-deck-action=panel][data-id=recruit]').click();
+    await page.locator('[data-deck-action=recruit-mode][data-id=weapons]').click();
+    await page.locator('[data-deck-action=equip][data-id=little-joys-flute]').click();
+    if(viewport.width<=900)await page.locator('[data-deck-action=panel][data-id=board]').click();
     await page.locator('[data-deck-action=play]').click();
     await page.locator('#game-mode').selectOption('local');await page.locator('.match-advanced summary').click();await page.locator('#game-seed').fill('WEAPONS-BROWSER');
     await page.locator('#new-game-form [type=submit]').click();await page.waitForFunction(()=>JSON.parse(localStorage.getItem('kalistar.v4.game')||'null')?.seed==='WEAPONS-BROWSER');
     const launched=await page.evaluate(()=>JSON.parse(localStorage.getItem('kalistar.v4.game')).equipment.loadouts);
     assert.deepEqual(launched,[loadout,{}]);results.push({label:name+' pre-match UI captures deck loadout, not global preferences',passed:true});
     await prepare(page,'normal');assert.equal(await page.locator('.eq-overlay').count(),0,'inactive cards stay exactly normal');await page.screenshot({path:path.join(out,name+'-normal-cards.png')});
+    const inactive=await page.evaluate(()=>JSON.parse(localStorage.getItem('kalistar.v4.game')).players[0].board.find(u=>KALISTAR_DATA.cards.find(c=>c.id===u?.cardId)?.characterId==='balmhyr').uid);
+    await inspect(page,`.slot[data-unit="${inactive}"] [data-action=detail]`,null,motion,{label:name+' inactive arena inspection'});await closeDetail(page);
     await prepare(page,'axe',name==='reduced'?1:0);
     const side=name==='reduced'?1:0,slot=page.locator(`.formation[data-player="${side}"] .slot-card:not(.empty)`);await slot.click();
     await page.locator(`.formation[data-player="${1-side}"] .slot-card:not(.empty)`).first().click();await page.waitForTimeout(600);
     await alignment(page,name+' challenger');await page.screenshot({path:path.join(out,name+'-axe-challenger.png')});
+    await inspect(page,`.formation[data-player="${side}"] .slot[data-unit]:has(.eq-overlay) [data-action=detail]`,'fallen-king-axe',motion,{label:name+' active arena inspection'});
+    await page.screenshot({path:path.join(out,name+'-arena-inspection.png')});
+    await page.setViewportSize({width:viewport.width-20,height:viewport.height-40});await detailAlignment(page,name+' resize while inspecting',motion);
+    await page.setViewportSize(viewport);await detailAlignment(page,name+' restore inspector viewport',motion);await closeDetail(page);
     const loop=await page.locator('.eq-overlay.is-active').evaluate(n=>[...n.querySelectorAll('.eq-orbit,.eq-radar')].map(e=>({name:getComputedStyle(e).animationName,iterations:getComputedStyle(e).animationIterationCount,opacity:getComputedStyle(e).opacity})));
     assert.equal(loop.length,2);
     if(motion==='reduce')assert(loop.every(e=>e.name==='none'));
@@ -236,10 +300,12 @@ async function main(){
     if(name==='reduced')assert.equal(await page.locator('.eq-overlay').evaluate(n=>n.getAnimations({subtree:true}).length),0);
     const snapshot=await page.evaluate(async()=>{const s=JSON.parse(localStorage.getItem('kalistar.v4.game'));await KALISTAR_DB.equipment.unequip(KALISTAR_ACTIVE_USER,'balmhyr','fallen-king-axe');return s.equipment.loadouts[0].balmhyr||s.equipment.loadouts[1].balmhyr;});assert.equal(snapshot,'fallen-king-axe');
     await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);assert.equal(await page.locator('.eq-overlay').count(),1,'match keeps its original loadout');
+    await inspect(page,`.slot:has(.eq-overlay) [data-action=detail]`,'fallen-king-axe',motion,{label:name+' inspection preserves original match equipment'});await closeDetail(page);
     await prepare(page,'flute');
     const beneficiary=await page.evaluate(()=>JSON.parse(localStorage.getItem('kalistar.v4.game')).players[0].board.find(u=>KALISTAR_DATA.cards.find(c=>c.id===u?.cardId)?.characterId==='balmhyr').uid);
     await page.locator(`.slot[data-unit="${beneficiary}"] .slot-card`).click();await page.waitForFunction(()=>JSON.parse(localStorage.getItem('kalistar.v4.game')).phase==='result');
     await alignment(page,name+' flute support');assert.equal(await page.locator('.eq-pending').count(),1);await page.screenshot({path:path.join(out,name+'-flute-support.png')});
+    await inspect(page,'.slot:has(.eq-overlay) [data-action=detail]','little-joys-flute',motion,{label:name+' active flute inspection'});await closeDetail(page);
     await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);assert.equal(await page.locator('.eq-pending').count(),1);
     await page.evaluate(()=>{
       const s=JSON.parse(localStorage.getItem('kalistar.v4.game')),E=KalistarEngine.createEngine(KALISTAR_DATA);E.next(s);
@@ -249,6 +315,8 @@ async function main(){
       localStorage.setItem('kalistar.v4.game',JSON.stringify(s));
     });await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);
     assert.equal(await page.locator('.eq-pending').count(),0);assert.equal(await page.locator('.eq-overlay').count(),0);assert.match(await page.locator('[data-bonus=equipmentDefense]').innerText(),/30/);
+    const spent=await page.evaluate(()=>JSON.parse(localStorage.getItem('kalistar.v4.game')).players[0].board.find(u=>KALISTAR_DATA.cards.find(c=>c.id===u?.cardId)?.characterId==='momo').uid);
+    await inspect(page,`.slot[data-unit="${spent}"] [data-action=detail]`,null,motion,{label:name+' consumed flute inspection'});await closeDetail(page);
     await page.locator('[data-view=collection]').first().evaluate(n=>n.click());assert.equal(await page.locator('.eq-overlay').count(),0);assert.equal(await page.locator('.eq-transfer,.eq-gift').count(),0);
     if(name==='desktop')await replacementUI(page);
     await context.close();results.push({label:name,passed:true,profileTests});

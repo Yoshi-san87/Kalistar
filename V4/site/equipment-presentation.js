@@ -3,6 +3,7 @@
   const animations=new Set(),nodes=new Set(),motion=matchMedia('(prefers-reduced-motion:reduce)');
   const native={left:76,top:1103,width:122,height:122,center:{x:137,y:1163.5}};
   let previous=new Map(),observer=null,gameId=null,loads=null;
+  let detailOverlay=null,detailObserver=null,detailLoads=null;
   const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const url=file=>window.KalistarSite?.url('assets/equipment/'+file)||'assets/equipment/'+file;
   const skins=Object.freeze({
@@ -37,6 +38,7 @@
     return animate(node.querySelector('.eq-tab'),[{transform:'scaleY(0)',opacity:0},{transform:'scaleY(1)',opacity:1}],{duration:260,delay:310,easing:'ease-out',fill:'backwards'});
   }
   function capture({reset=false}={}){
+    clearDetail();
     observer?.disconnect();observer=null;
     loads?.abort();loads=null;
     for(const animation of animations)animation.cancel();animations.clear();
@@ -44,15 +46,39 @@
     if(reset){previous.clear();gameId=null;}
   }
   function position(overlay,img,container){
-    // CSS image box is the cropped card; offsets account for actual button borders.
+    // Contained popup images can be letterboxed: anchor to the drawn card, not its CSS box.
     const crop=KalistarCardMedia.crop;
-    const css=getComputedStyle(img),width=parseFloat(css.width),height=parseFloat(css.height);
+    const css=getComputedStyle(img),boxWidth=parseFloat(css.width),boxHeight=parseFloat(css.height);
+    const scale=css.objectFit==='contain'?Math.min(boxWidth/crop.width,boxHeight/crop.height):null;
+    const width=scale===null?boxWidth:crop.width*scale,height=scale===null?boxHeight:crop.height*scale;
+    const left=img.offsetLeft+(boxWidth-width)/2,top=img.offsetTop+(boxHeight-height)/2;
     overlay.style.visibility=img.naturalWidth===crop.width&&img.naturalHeight===crop.height?'visible':'hidden';
-    overlay.style.left=(img.offsetLeft+(native.left-crop.left)/crop.width*width)+'px';
-    overlay.style.top=(img.offsetTop+(native.top-crop.top)/crop.height*height)+'px';
+    overlay.style.left=(left+(native.left-crop.left)/crop.width*width)+'px';
+    overlay.style.top=(top+(native.top-crop.top)/crop.height*height)+'px';
     overlay.style.width=(native.width/crop.width*width)+'px';
     overlay.style.height=(native.height/crop.height*height)+'px';
     overlay.style.setProperty('--eq-font',(width/crop.width*28)+'px');
+  }
+  function clearDetail(){
+    detailObserver?.disconnect();detailObserver=null;
+    detailLoads?.abort();detailLoads=null;
+    detailOverlay?.remove();detailOverlay=null;
+  }
+  function mountDetail(container,w,{bonus=true}={}){
+    clearDetail();
+    const img=container?.querySelector(':scope > img');if(!img||!w)return;
+    const overlay=document.createElement('span');detailOverlay=overlay;
+    overlay.className='eq-overlay eq-detail-overlay is-active';overlay.dataset.weaponId=w.id;
+    overlay.innerHTML=markup(w,{bonus});
+    overlay.style.setProperty('--eq-loop-delay',-(performance.now()%3600)+'ms');
+    overlay.setAttribute('role','img');
+    overlay.setAttribute('aria-label',w.name+' : '+(bonus?'active, +'+w.effect.value+' '+w.effect.stat:'arme equipee'));
+    container.append(overlay);
+    const update=()=>position(overlay,img,container);update();
+    detailLoads=new AbortController();
+    img.addEventListener('load',update,{signal:detailLoads.signal});
+    container.closest('dialog')?.addEventListener('close',clearDetail,{signal:detailLoads.signal});
+    detailObserver=new ResizeObserver(update);detailObserver.observe(img);detailObserver.observe(container);
   }
   function mount(s,engine){
     if(!s||s.phase==='over'){capture({reset:true});return;}
@@ -107,5 +133,5 @@
   }
   window.addEventListener('pagehide',()=>capture({reset:true}));
   motion.addEventListener('change',()=>{for(const animation of animations)animation.cancel();animations.clear();});
-  window.KalistarEquipmentFX={markup,capture,mount,play,native,skins};
+  window.KalistarEquipmentFX={markup,capture,mount,mountDetail,clearDetail,play,native,skins};
 })();

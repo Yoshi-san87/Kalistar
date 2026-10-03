@@ -26,8 +26,8 @@
 .eq-orbit{position:absolute;inset:0;z-index:2;transform-origin:50% 49.590164%;}
 .eq-radar{position:absolute;inset:-5%;border-radius:50%;border:1px solid transparent;border-top-color:#fff0cf;border-right-color:#cfa878;opacity:0;z-index:3;filter:drop-shadow(0 0 2px #e5c990);pointer-events:none;transition:opacity .25s;}
 .eq-mechanism[data-visual=flute] .eq-radar{border-right-color:#b3e8ea;filter:drop-shadow(0 0 2px #ace0da);}
-.eq-overlay.is-active .eq-orbit{animation:eq-continuous-orbit 3.6s linear var(--eq-loop-delay,0ms) infinite;}
-.eq-overlay.is-active .eq-radar{opacity:.72;animation:eq-continuous-orbit 3.6s linear var(--eq-loop-delay,0ms) infinite reverse;}
+.eq-overlay.is-active .eq-orbit,.team-page .team-equipped .eq-orbit{animation:eq-continuous-orbit 3.6s linear var(--eq-loop-delay,0ms) infinite;}
+.eq-overlay.is-active .eq-radar,.team-page .team-equipped .eq-radar{opacity:.72;animation:eq-continuous-orbit 3.6s linear var(--eq-loop-delay,0ms) infinite reverse;}
 @keyframes eq-continuous-orbit{to{transform:rotate(360deg);}}
 .eq-tab{position:absolute;left:29%;top:88%;width:42%;min-height:38%;padding:11% 0 3%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0;background:linear-gradient(110deg,#745647,#c6a288 17%,#49362e 22%,#1c292b 45%,#314045 75%,#755746 83%,#c5a789 89%,#5e463c);border:1px solid #96725c;clip-path:polygon(0 0,100% 0,100% 82%,88% 100%,12% 100%,0 82%);box-shadow:inset 0 -2px #ddbc9b50;transform-origin:top center;z-index:1;color:#fce4b2;text-shadow:0 1px 2px #000;font:bold var(--eq-font,12px)/1 var(--serif);}
 .eq-tab small{font:600 calc(var(--eq-font,12px)*.46)/1.5 var(--sans);color:#d5e2da;}
@@ -40,6 +40,7 @@
 }
 .slot-card{position:relative;}
 .eq-overlay{position:absolute;display:block;z-index:4;pointer-events:none;}
+.card-detail .detail-body .detail-visual .eq-detail-overlay :is(.eq-body,.eq-rim){width:100%;height:100%;max-height:none;}
 .slot-buffs .eq-pending{color:#f0d7a3;border-color:#b28a67;background:#172727;}
 .eq-transfer{position:fixed;z-index:250;color:#ddedcd;font:22px var(--serif);text-shadow:0 0 6px #b8e8e8;pointer-events:none;}
 .weapon-icon-credit{font-size:11px;color:#bfc3b6;margin:16px 0 0;}
