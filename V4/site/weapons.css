@@ -24,8 +24,8 @@
 .eq-body{z-index:1;}
 .eq-rim{z-index:2;}
 .eq-orbit{position:absolute;inset:0;z-index:2;transform-origin:50% 49.590164%;}
-.eq-radar{position:absolute;inset:-5%;border-radius:50%;border:1px solid transparent;border-top-color:#fff0cf;border-right-color:#cfa878;opacity:0;z-index:3;filter:drop-shadow(0 0 2px #e5c990);pointer-events:none;transition:opacity .25s;}
-.eq-mechanism[data-visual=flute] .eq-radar{border-right-color:#b3e8ea;filter:drop-shadow(0 0 2px #ace0da);}
+.eq-radar{position:absolute;inset:-5%;border-radius:50%;border:1px solid transparent;border-top-color:#fff0cf;border-right-color:var(--eq-accent,#cfa878);opacity:0;z-index:3;filter:drop-shadow(0 0 2px var(--eq-accent,#e5c990));pointer-events:none;transition:opacity .25s;}
+.eq-mechanism[data-visual=flute] .eq-radar{border-right-color:var(--eq-accent,#b3e8ea);filter:drop-shadow(0 0 2px var(--eq-accent,#ace0da));}
 .eq-overlay.is-active .eq-orbit,.team-page .team-equipped .eq-orbit{animation:eq-continuous-orbit 3.6s linear var(--eq-loop-delay,0ms) infinite;}
 .eq-overlay.is-active .eq-radar,.team-page .team-equipped .eq-radar{opacity:.72;animation:eq-continuous-orbit 3.6s linear var(--eq-loop-delay,0ms) infinite reverse;}
 @keyframes eq-continuous-orbit{to{transform:rotate(360deg);}}

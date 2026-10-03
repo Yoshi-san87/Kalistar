@@ -3,23 +3,20 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
 const {weapons}=require('./weapons.js'),C=require('./weapon-cards.js');
 const sources=require('../weapon-cards/background-sources.json'),proof=require('../weapon-cards/media-provenance.json');
 const root=path.resolve(__dirname,'../..'),hash=b=>crypto.createHash('sha256').update(b).digest('hex');
-test('every cutout has scenery; original painted weapon scenes remain intact',()=>{
-  const cutouts=weapons.filter(w=>C.faces[w.id].cutout);
-  assert.deepEqual(Object.keys(C.backgrounds).sort(),cutouts.map(w=>w.id).sort());
+test('every collectible is one painted scene; original scenes remain intact',()=>{
+  assert(weapons.every(w=>!C.faces[w.id].cutout));
   assert.deepEqual([...new Set(Object.values(C.backgrounds))].sort(),sources.assets.map(a=>a.file).sort());
   assert.equal(C.backgrounds['fallen-king-axe'],undefined);assert.equal(C.backgrounds['little-joys-flute'],undefined);
   assert.equal(C.faces['fallen-king-axe'].illustration,'fallen-king-axe-scene-v1.webp');
   assert.equal(C.faces['little-joys-flute'].illustration,'little-joys-flute-scene-v1.webp');
 });
-test('background is decorative and separate, retains object and medallion, works under a Pages prefix',()=>{
+test('painted scene replaces composite scenery, keeps separate medallion and Pages prefix',()=>{
   for(const w of weapons){
     const before=JSON.stringify(w),html=C.markup(w,{url:p=>'/Kalistar/jeu/'+p,medallion:()=>'<span class="test-medallion"></span>'});
     assert.equal(JSON.stringify(w),before);assert(html.includes('class="test-medallion"'));
     assert(html.includes('src="/Kalistar/jeu/assets/weapon-cards/'+C.faces[w.id].illustration+'"'));
-    if(!C.backgrounds[w.id]){assert(!html.includes('class="wc-art-background"'));continue;}
-    assert.match(html,/class="wc-art-background"[^>]+alt="" aria-hidden="true"/);
-    assert(html.indexOf('class="wc-art-background"')<html.indexOf('class="wc-art-main"'));
-    assert(html.includes('/Kalistar/jeu/assets/weapon-cards/backgrounds/'+C.backgrounds[w.id]));
+    assert(!html.includes('class="wc-art-background"'));
+    assert(!html.includes('wc-art-cutout'));
   }
 });
 test('background sources and lightweight distributed files match the recorded hashes',()=>{

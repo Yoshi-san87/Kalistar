@@ -1,7 +1,7 @@
 (() => {
   'use strict';
   const release = new URL(document.currentScript?.src || location.href).searchParams.get('v') || '';
-  const scripts = ['assets/lucide.min.js', 'ui-system.js', 'weapons.js', 'equipment.js', 'engine.js', 'collaborations.js', 'card-media.js', 'equipment-presentation.js', 'elemental-roll.js',
+  const scripts = ['assets/lucide.min.js', 'ui-system.js', 'weapons.js', 'weapon-art.js', 'equipment.js', 'engine.js', 'collaborations.js', 'card-media.js', 'equipment-presentation.js', 'elemental-roll.js',
     'arena-ambience.js', 'combat-effects.js', 'duel-focus.js', 'lineup-intro.js', 'formation-drag.js', 'match-metrics.js', 'trophies.js', 'match-report.js',
     'ownership.js', 'local-db.js', 'weapon-cards.js', 'weapons-ui.js', 'catalogue.js', 'collection-binder.js', 'accounts-ui.js',
     'reserve-preview.js', 'deck-library.js', 'team-composition.js', 'deck-builder.js', 'statistics.js', 'story-reader.js', 'app.js'];

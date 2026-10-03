@@ -33,8 +33,7 @@ async function layout(page,label){
     assert(Math.abs(card.medallionOffset[0]-.00315789)<.001&&Math.abs(card.medallionOffset[1]+.00117904)<.001,label+' medallion at requested top-left anchor');
     assert.equal(card.rules.length,2);assert.match(card.rules[0].label,/^Condition :/);
     const weapon=weapons.find(w=>w.id===card.id);assert(card.rules[1].label.startsWith('Effet : +'+weapon.effect.value+' '+weapon.effect.stat));
-    if(weapon.collectible?.cutout){const b=card.background;assert(b?.loaded&&b.boundsMatch&&b.above,label+' background stays behind and inside art');assert.equal(b.hidden,'true');assert.equal(b.alt,'');assert.equal(b.fit,'contain');assert(!b.filter.includes('brightness'),label+' weapon colors preserved');}
-    else assert.equal(card.background,null,label+' original painted scene unchanged');
+    assert.equal(card.background,null,label+' single painted scene, no separate backdrop');
     assert(card.rules.every(r=>r.align==='left'&&r.icon),label+' left-aligned condition and effect with loaded icons');
     assert.notEqual(card.rules[0].color,card.rules[1].color,label+' distinct condition and effect colors');
     for(const f of card.fields){assert(f.insideCard,label+' '+f.field+' in frame');assert(f.overflow<=1&&f.textFits,label+' '+card.id+' '+JSON.stringify(f));}

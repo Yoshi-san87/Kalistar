@@ -3,6 +3,7 @@ const fs=require('node:fs/promises'),path=require('node:path'),crypto=require('n
 const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE||'','.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const sharp=createRequire(path.join(runtime,'__weapon_cards__.cjs'))('sharp');
 const {layout,faces,backgrounds}=require('../site/weapon-cards.js'),{weapons}=require('../site/weapons.js');
+const artwork=require('../site/weapon-art.js');
 const backdropSources=require('./background-sources.json');
 const output=path.resolve(__dirname,'../site/assets/weapon-cards'),digest=b=>crypto.createHash('sha256').update(b).digest('hex');
 async function main(){
@@ -16,8 +17,8 @@ async function main(){
   }
   const files=[{name:layout.frame,frame:true},...weapons.map(w=>{
     if(!faces[w.id])throw Error('Missing collectible face: '+w.id);
-    return {name:faces[w.id].illustration,frame:false,weapon:w};
-  })];
+    return {name:w.collectible?.illustration||faces[w.id].illustration,frame:false,weapon:w};
+  }),...Object.values(artwork.entries).map(a=>({name:a.scene,frame:false}))];
   for(const {name,frame,weapon} of files){
     const source=path.join(__dirname,'sources',name.replace(/\.webp$/,'.png'));
     const bytes=await fs.readFile(source),meta=await sharp(bytes).metadata();
@@ -37,6 +38,24 @@ async function main(){
       assets.push({source:'sources/'+path.basename(source),sourceHash:digest(bytes),
         file:'V4/site/assets/equipment/'+weapon.art+'.webp',sha256:digest(emblem),bytes:emblem.length,
         placement:{canvas:488,maximumMotifBox:240,maximumRadius:171,center:[244,242]}});
+    }
+  }
+  // UI skins are versioned independently from saved equipment definitions.
+  const equipmentOutput=path.resolve(__dirname,'../site/assets/equipment');
+  for(const [id,art] of Object.entries(artwork.entries)){
+    const names=[{name:art.rim,role:'ring'}];
+    if(art.body!==art.key+'.webp')names.push({name:art.body,role:'body'});
+    for(const {name,role} of names){
+      const source=path.join(__dirname,'sources',name.replace(/\.webp$/,'.png'));
+      const bytes=await fs.readFile(source),meta=await sharp(bytes).metadata();
+      if(!meta.hasAlpha)throw Error('Transparent equipment asset required: '+id+' '+role);
+      const size=role==='ring'?484:240;
+      const motif=await sharp(bytes).resize({width:size,height:size,fit:'inside'}).png().toBuffer(),m=await sharp(motif).metadata();
+      const webp=await sharp({create:{width:488,height:488,channels:4,background:'#00000000'}})
+        .composite([{input:motif,left:Math.round((488-m.width)/2),top:Math.round((484-m.height)/2)}]).webp({quality:94}).toBuffer();
+      await fs.writeFile(path.join(equipmentOutput,name),webp);
+      assets.push({source:'sources/'+path.basename(source),sourceHash:digest(bytes),role,width:meta.width,height:meta.height,
+        file:'V4/site/assets/equipment/'+name,sha256:digest(webp),bytes:webp.length,placement:{canvas:488,center:[244,242],maximumMotifBox:size}});
     }
   }
   const expected=new Set(Object.values(backgrounds));

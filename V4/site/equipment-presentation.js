@@ -12,8 +12,8 @@
   });
   function markup(w,{bonus=true}={}){
     const base=skins[w.visual],custom=window.KalistarWeapons.weapons.find(item=>item.id===w.id&&item.collectible?.cutout&&item.art===w.art);
-    const skin=custom?{body:custom.art+'.webp',rim:base.rim}:base;
-    return `<span class="eq-mechanism" data-visual="${w.visual}" data-music="${w.family==='Instrument'}" aria-hidden="true"><span class="eq-backplate"></span><img class="eq-body" src="${url(skin.body)}" alt="" draggable="false"><span class="eq-orbit"><img class="eq-rim" src="${url(skin.rim)}" alt="" draggable="false"></span><span class="eq-radar"></span>${bonus?`<span class="eq-tab"><b>+${w.effect.value}</b><small>${w.effect.stat}</small></span>`:''}<span class="eq-reflection"></span></span>`;
+    const skin=window.KalistarWeaponArt?.get(w)||(custom?{body:custom.art+'.webp',rim:base.rim}:base);
+    return `<span class="eq-mechanism" data-visual="${w.visual}" data-music="${w.family==='Instrument'}"${skin.color?` style="--eq-accent:${skin.color}"`:''} aria-hidden="true"><span class="eq-backplate"></span><img class="eq-body" src="${url(skin.body)}" alt="" draggable="false"><span class="eq-orbit"><img class="eq-rim" src="${url(skin.rim)}" alt="" draggable="false"></span><span class="eq-radar"></span>${bonus?`<span class="eq-tab"><b>+${w.effect.value}</b><small>${w.effect.stat}</small></span>`:''}<span class="eq-reflection"></span></span>`;
   }
   function animate(node,frames,options,signal){
     if(!node||signal?.aborted)return Promise.resolve();

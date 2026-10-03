@@ -5,7 +5,7 @@ function fixture({width=500,height=600,objectFit='contain',cropped=true}={}){
   const listeners=[],observers=[],children=[];
   const image={offsetLeft:12,offsetTop:8,naturalWidth:cropped?797:897,naturalHeight:cropped?1388:1497,css:{width:String(width),height:String(height),objectFit},addEventListener:(...args)=>listeners.push(args)};
   const dialog={addEventListener:(...args)=>listeners.push(args)},container={querySelector:()=>image,closest:()=>dialog,append:node=>children.push(node)};
-  const window={KalistarWeapons:{weapons},addEventListener(){}};
+  const window={KalistarWeapons:{weapons},KalistarWeaponArt:require('./weapon-art.js'),addEventListener(){}};
   const context={window,KalistarCardMedia:{crop},matchMedia:()=>({matches:false,addEventListener(){}}),performance:{now:()=>1000},AbortController,getComputedStyle:img=>img.css,
     ResizeObserver:class{constructor(fn){this.fn=fn;this.targets=[];observers.push(this);}observe(node){this.targets.push(node);}disconnect(){this.disconnected=true;}},
     document:{createElement:()=>({style:{setProperty(key,value){this[key]=value;}},dataset:{},setAttribute(key,value){this[key]=value;},remove(){this.removed=true;}})}};
@@ -40,4 +40,15 @@ test('closing, replacing, clearing and navigation disconnect inspection observer
   f.fx.mount({phase:'over'},null);assert(f.children[2].removed);assert(f.observers[2].disconnected);
   assert(f.listeners.every(([, ,options])=>options.signal.aborted));
   f.fx.mountDetail(f.container,null);assert.equal(f.children.length,3,'inactive or absent weapons create no DOM overlay');
+});
+
+test('each weapon uses its own painted ring and keeps that skin in enlarged inspection',()=>{
+  const art=require('./weapon-art.js'),f=fixture();
+  for(const w of weapons.filter(w=>art.get(w))){
+    const skin=art.get(w);f.fx.mountDetail(f.container,w);
+    const html=f.children.at(-1).innerHTML;
+    assert(html.includes(skin.rim));assert(html.includes(skin.body));assert(html.includes('--eq-accent:'+skin.color));
+    assertGeometry(f,500,600);
+  }
+  f.fx.clearDetail();
 });

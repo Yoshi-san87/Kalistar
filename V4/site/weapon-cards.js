@@ -1,7 +1,8 @@
 (function(root,factory){
-  const api=factory(typeof module==='object'&&module.exports?require('./weapons.js'):root.KalistarWeapons);
+  const node=typeof module==='object'&&module.exports;
+  const api=factory(node?require('./weapons.js'):root.KalistarWeapons,node?require('./weapon-art.js'):root.KalistarWeaponArt);
   if(typeof module==='object'&&module.exports)module.exports=api;else root.KalistarWeaponCards=api;
-})(typeof globalThis!=='undefined'?globalThis:this,function(catalogue){
+})(typeof globalThis!=='undefined'?globalThis:this,function(catalogue,artwork){
   'use strict';
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   // All anchors refer to the supplied raster, before its outer margin is cropped.
@@ -19,7 +20,10 @@
       flavour:'M\u00eame les choses cass\u00e9es sourient.',
       alt:'La fl\u00fbte traversi\u00e8re de Momo, illumin\u00e9e de filaments \u00e9lectriques, sur un \u00e9tabli de Chroma.'}
   };
-  for(const weapon of catalogue.weapons)if(weapon.collectible)faces[weapon.id]=weapon.collectible;
+  for(const weapon of catalogue.weapons)if(weapon.collectible){
+    const art=artwork?.get(weapon);
+    faces[weapon.id]={...weapon.collectible,...(art?{illustration:art.scene,cutout:false,alt:weapon.name+", peinture de l'arme en situation."}: {})};
+  }
   const backgrounds={
     'white-oath-rapier':'white-courtyard-v1.webp',brotherhood:'besaid-shore-v1.webp',
     'virtuous-contract':'city-ruins-v1.webp','virtuous-treaty':'city-ruins-v1.webp',

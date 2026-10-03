@@ -1,4 +1,38 @@
-# Cartes d'armes collectionnables - prototype local
+# Cartes d'armes collectionnables
+
+## Production actuelle : scenes peintes et anneaux individuels
+
+Le lot initial a ete publie en 4.5.2. La revision 4.5.3 remplace les montages
+de fond par une peinture en situation propre a chaque arme et des anneaux
+personnalises. Les sections historiques plus bas documentent la progression
+du prototype ; elles ne priment pas sur cette revision.
+
+Source de presentation : `site/weapon-art.js`. Chaque entree declare la cle
+stable `key` de l'equipement, une `scene` opaque, un `body` transparent,
+un `rim` transparent et une `color` d'accent. Les anciens champs `cutout`
+restent dans les definitions pour preserver les snapshots existants ; le
+renderer les remplace uniquement visuellement par la scene du manifeste.
+
+Pour ajouter une arme avec cette presentation :
+
+1. Declarer son effet et ses restrictions dans `weapons.js`, puis ses tests
+   moteur, sans modifier la famille imprimee sur le personnage.
+2. Generer separement son objet detoure, sa peinture en situation et son
+   anneau creux. Referencer seulement CET objet dans la peinture, jamais
+   une autre arme pour la DA. Decor proche et sobre, lame/manche bien droits.
+3. Ajouter son entree versionnee dans `weapon-art.js`. Conserver sa cle de
+   snapshot lors de revisions ulterieures ; changer les noms des images.
+4. Placer les PNG dans `sources/`. L'anneau doit avoir un centre transparent
+   et rester circulaire. Le build conserve le canevas natif 488 x 488 et
+   l'ancrage (244,242) ; l'objet central reste independant de sa rotation.
+5. Executer build-assets, tests weapon-art/equipment, parcours navigateur
+   puis export. Verifier les cartes au format normal et en duel sur PC/phone.
+
+Prompts actifs : `scene-prompts-2026-10-04.json`. Preuves :
+`../revisions/2026-10-04-weapon-scenes/`. Aucune regle de bonus n'est dans le
+manifeste graphique. Les sources HD et essais rejetes ne sont pas servis par Pages.
+
+## Historique du prototype
 
 La demande du 3 octobre 2026 remplace les panneaux d'armes par de vraies cartes
 poker horizontales. Les deux premieres sont la Hache du Roi Dechu et la Flute
