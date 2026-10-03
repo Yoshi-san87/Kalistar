@@ -1,0 +1,83 @@
+{
+  "sizes": [
+    [
+      320,
+      800
+    ],
+    [
+      360,
+      800
+    ],
+    [
+      390,
+      844
+    ],
+    [
+      412,
+      1007
+    ],
+    [
+      430,
+      932
+    ],
+    [
+      844,
+      390
+    ],
+    [
+      1440,
+      900
+    ],
+    [
+      1920,
+      1080
+    ]
+  ],
+  "team": {
+    "name": "Equipe QA",
+    "cards": [
+      "30000007",
+      "30000018",
+      "30000001",
+      "44230782",
+      "30000012",
+      "46695200",
+      "30000013",
+      "30000005",
+      "30000002",
+      "30000021"
+    ],
+    "formation": [
+      "30000007",
+      "30000018",
+      "30000001",
+      "44230782",
+      "30000012"
+    ],
+    "captain": "30000007",
+    "equipment": {
+      "balmhyr": "fallen-king-axe",
+      "momo": "little-joys-flute"
+    }
+  },
+  "scenario": {
+    "phase": "over",
+    "replacement": true,
+    "capDeath": true
+  },
+  "checks": [
+    "UI recruitment",
+    "captain changes",
+    "drag",
+    "undo/redo",
+    "equipment",
+    "reload",
+    "duplicate",
+    "JSON roundtrip",
+    "mobile sheets",
+    "real duel",
+    "captain formula",
+    "replacement",
+    "completed match"
+  ]
+}

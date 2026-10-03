@@ -1,0 +1,146 @@
+{
+  "version": 1,
+  "method": "Built-in image generation; atlas extraction, alpha-bound fitting and lossless WebP export only. Native cards and original logo unchanged.",
+  "source": {
+    "file": "sources/navigation-atlas.png",
+    "sha256": "501d2713c98ac0345b81f673f50d2a4b3e525019e906244baf98c8e8db4ea056",
+    "width": 1774,
+    "height": 887
+  },
+  "assets": [
+    {
+      "name": "collection",
+      "file": "V4/site/assets/navigation/collection-v1.webp",
+      "sha256": "44aa89d143d7955826dcfcf44080b29745e6db25b4223396be992465616d786d",
+      "bytes": 28040,
+      "crop": {
+        "left": 56,
+        "top": 49,
+        "width": 357,
+        "height": 354
+      },
+      "width": 128,
+      "height": 128
+    },
+    {
+      "name": "story",
+      "file": "V4/site/assets/navigation/story-v1.webp",
+      "sha256": "17a944e8e387c31611d2bb37798da37203eb917501d0a4058fe4cf00e633585c",
+      "bytes": 22904,
+      "crop": {
+        "left": 31,
+        "top": 67,
+        "width": 391,
+        "height": 338
+      },
+      "width": 128,
+      "height": 128
+    },
+    {
+      "name": "decks",
+      "file": "V4/site/assets/navigation/decks-v1.webp",
+      "sha256": "2642903d9bd5a62e3e6987d64200c09b0b8440ed556b419055e9f246e3e6e15d",
+      "bytes": 21410,
+      "crop": {
+        "left": 29,
+        "top": 81,
+        "width": 391,
+        "height": 316
+      },
+      "width": 128,
+      "height": 128
+    },
+    {
+      "name": "weapons",
+      "file": "V4/site/assets/navigation/weapons-v1.webp",
+      "sha256": "0ba989e1ddaeb443f02a26a4f69bc3105c3fb48042b567c3f4d4f0ea09ac41e4",
+      "bytes": 11946,
+      "crop": {
+        "left": 49,
+        "top": 36,
+        "width": 343,
+        "height": 377
+      },
+      "width": 128,
+      "height": 128
+    },
+    {
+      "name": "arena",
+      "file": "V4/site/assets/navigation/arena-v1.webp",
+      "sha256": "0ecdbcc3462d5c7a965ffd74e4e66ecb14ab7bc097299cb78fe2385f3ffc2eff",
+      "bytes": 21860,
+      "crop": {
+        "left": 51,
+        "top": 38,
+        "width": 340,
+        "height": 331
+      },
+      "width": 128,
+      "height": 128
+    },
+    {
+      "name": "statistics",
+      "file": "V4/site/assets/navigation/statistics-v1.webp",
+      "sha256": "18733159b1cf45223cca3ca6db4e87ea868dc4acb860d79d795f94bd279e130d",
+      "bytes": 14822,
+      "crop": {
+        "left": 31,
+        "top": 38,
+        "width": 382,
+        "height": 331
+      },
+      "width": 128,
+      "height": 128
+    },
+    {
+      "name": "more",
+      "file": "V4/site/assets/navigation/more-v1.webp",
+      "sha256": "c662471d8f3b63a4883512585879ee782be9113f6d7bd96ee3e254ee7ca2e215",
+      "bytes": 8632,
+      "crop": {
+        "left": 41,
+        "top": 150,
+        "width": 362,
+        "height": 121
+      },
+      "width": 128,
+      "height": 128
+    },
+    {
+      "name": "kalistel",
+      "file": "V4/site/assets/navigation/kalistel-rainbow-v1.webp",
+      "sha256": "2bc6cd1c8b366586ebdafd82803175d778b7d7597814bedee270f606df7aaa4c",
+      "bytes": 14126,
+      "crop": {
+        "left": 263,
+        "top": 23,
+        "width": 726,
+        "height": 1151
+      },
+      "width": 128,
+      "height": 128,
+      "source": "sources/kalistel-rainbow.png",
+      "sourceSha256": "149736aa9c3053b6e4d531e56539c436c44ff29d808f8a357486887edb3f1cbd"
+    }
+  ],
+  "fonts": [
+    {
+      "file": "V4/site/assets/fonts/cinzel-v26-latin.woff2",
+      "url": "https://fonts.gstatic.com/s/cinzel/v26/8vIJ7ww63mVu7gt79mT7.woff2",
+      "sha256": "09941fb1c169c38fd414536b37690057fc01b3117a5c63dd6571186540c8f370",
+      "bytes": 25904
+    },
+    {
+      "file": "V4/site/assets/fonts/cinzel-v26-latin-ext.woff2",
+      "url": "https://fonts.gstatic.com/s/cinzel/v26/8vIJ7ww63mVu7gt7-GT7LEc.woff2",
+      "sha256": "8fc2606f8ae6c569f444e138dba052d9a6e3f0657f9031796503bbb94eced600",
+      "bytes": 14540
+    },
+    {
+      "file": "V4/site/assets/fonts/Cinzel-OFL.txt",
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/cinzel/OFL.txt",
+      "sha256": "f2b3029aba64c378bf0963b62945eee15e564fe4330b934c8f2eb058282b5e83",
+      "bytes": 4383
+    }
+  ]
+}

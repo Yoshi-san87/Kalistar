@@ -211,6 +211,21 @@ Liquid Snake est legerement recentre ; Kaylis, L'elan des couleurs, est
 legerement decalee pour montrer davantage de lame. Ces deux cadrages utilisent
 les illustrations fournies intactes, sans regeneration des personnages.
 
+### Menus cyberfantasy, validation du 3 octobre 2026
+
+La proposition de menu argent/cuivre est approuvee par l'utilisateur, avec
+un leger accent futuriste cyberpunk heroic fantasy : gravures energisees cyan,
+matieres sombres et mecanismes fins. Ne pas transformer le jeu en HUD neon.
+Le Kalistel de selection est prismatique rainbow. Les couleurs elementaires
+du combat et le logo original restent intacts.
+
+Les nouveaux emblemes bitmap sont dans `site/assets/navigation/`.
+La police de signature est un traitement de Cinzel auto-hebergee (SIL OFL),
+pas une nouvelle fonte exclusive. L'appliquer aux menus/titres, jamais aux
+chiffres du combat ou au manuscrit. Telephone : cinq acces confortables et
+les autres destinations dans Plus. Sources, prompts et captures dans
+`revisions/2026-10-03-menu-identity/`.
+
 ### Chroma et Rikka, precision du 1 octobre 2026
 
 Chroma est une metropole du futur, tres cyberpunk, pas un village medieval ni

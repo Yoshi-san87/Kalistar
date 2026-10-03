@@ -1,0 +1,155 @@
+@font-face {
+  font-family: 'Cinzel'; font-style: normal; font-weight: 400 900; font-display: swap;
+  src: url('assets/fonts/cinzel-v26-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Cinzel'; font-style: normal; font-weight: 400 900; font-display: swap;
+  src: url('assets/fonts/cinzel-v26-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+:root { --kalistar-display:'Cinzel',Georgia,serif; --masthead-height:76px; --nav-copper:#ad8164; --nav-energy:#7cdbd7; }
+body > .masthead {
+  display:flex; flex:0 0 var(--masthead-height); height:var(--masthead-height); min-height:var(--masthead-height);
+  width:100%; gap:20px; padding:0 22px; flex-wrap:nowrap;
+  background:linear-gradient(100deg,#080f0fed,#0b1917ef 45%,#090f10f5),url('assets/ui/collection-reader-grimoire-v1.png') center 45%/cover;
+  border-bottom:1px solid #956e535c; box-shadow:inset 0 1px #e9c8a617,0 3px 12px #0003;
+}
+body.collection-view > .masthead { flex-basis:var(--masthead-height); height:var(--masthead-height); min-height:var(--masthead-height); padding:0 22px; gap:20px; }
+body .masthead .brand { width:184px; min-width:0; display:block; }
+body .masthead .brand img { width:100%; height:62px; max-height:62px; object-fit:contain; }
+body .masthead .brand::after { display:none; }
+body .masthead .main-nav {
+  position:relative; display:flex; flex:1 1 auto; align-self:center; align-items:stretch; gap:0;
+  order:0; width:auto; height:54px; min-width:0; margin:0; padding:0 5px; justify-content:center;
+  background:linear-gradient(180deg,#12252350,#08100e70);
+  border-top:1px solid #a9826060; border-bottom:1px solid #a9826060;
+  box-shadow:inset 0 1px #e5ba8b0a;
+}
+body .masthead .main-nav::before,body .masthead .main-nav::after {
+  content:''; position:absolute; top:calc(50% - 3px); width:6px; height:6px;
+  background:#111e1b; border:1px solid #c89a77; transform:rotate(45deg); pointer-events:none;
+}
+body .masthead .main-nav::before { left:-3px; }
+body .masthead .main-nav::after { right:-3px; }
+body .masthead .main-nav button {
+  position:relative; display:flex; flex:1 1 auto; width:auto; min-width:0; min-height:44px; height:100%;
+  align-items:center; justify-content:center; gap:8px; padding:0 12px;
+  border:0; border-radius:0; border-right:1px solid #a9826017;
+  color:#c7d0c8; background:transparent; box-shadow:none; white-space:nowrap;
+  font:500 13px/1.2 var(--kalistar-display); text-shadow:0 1px 2px #000;
+  transition:color .18s,background-color .18s;
+}
+body .masthead .main-nav button:last-of-type { border-right:0; }
+.kalistar-nav-icon { display:block; flex:none; width:32px; height:32px; object-fit:contain; pointer-events:none; transition:filter .18s,transform .18s; }
+body .masthead .main-nav button:hover { color:#f3e9d6; background:#cda47a08; }
+body .masthead .main-nav button.active {
+  color:#f0f7e9; background:linear-gradient(180deg,#21454208,#245b5145); box-shadow:inset 0 -2px #ceac81;
+}
+body .masthead .main-nav button::after {
+  content:''; position:absolute; bottom:-8px; left:calc(50% - 7px); width:14px; height:20px;
+  background:url('assets/navigation/kalistel-rainbow-v1.webp') center/contain no-repeat;
+  opacity:0; transform:translateY(2px); transition:opacity .18s,transform .18s; pointer-events:none;
+}
+body .masthead .main-nav button.active::after { opacity:1; transform:none; filter:drop-shadow(0 0 3px #84e5dc70); }
+body .masthead .main-nav button.active .kalistar-nav-icon { filter:drop-shadow(0 0 3px #8ee1d84a); }
+body .masthead .main-nav button:focus-visible { outline:2px solid var(--nav-energy); outline-offset:-4px; z-index:1; }
+body .masthead .main-nav .nav-more { display:none; }
+body .masthead .header-actions { flex:none; margin-left:auto; gap:6px; }
+body .masthead .header-actions button {
+  min-height:40px; height:40px; border-color:#95836b65; border-radius:3px;
+  background:linear-gradient(135deg,#263a3652,#131d1bcc); box-shadow:inset 0 1px #e7c49b12;
+}
+body .masthead .header-actions button:hover { background:#263d38; border-color:#c9a481; }
+body .masthead .header-actions .edition { display:inline; font-size:9px; color:#d3b585; }
+body .masthead .header-actions .deck-button { padding:5px 8px; }
+body .masthead .header-actions .deck-button > span { display:none; }
+body .masthead .header-actions .deck-button b { background:#3a4e48; color:#e5dac2; border:1px solid #b69a6d55; }
+body .masthead .header-actions .account-button { padding:8px; }
+body .masthead .header-actions .account-button span { display:none; }
+/* Display type is scoped to navigation and section titles, never card math or book prose. */
+.weapons-heading h1,.team-page .kdb-heading-title h1,.sheet-heading h1,.section-heading h1,.dialog-head h2 {
+  font-family:var(--kalistar-display); font-weight:600; color:#e8dec9;
+}
+#mobile-dialog .mobile-menu { display:grid; grid-template-columns:minmax(0,1fr); gap:0; width:100%; }
+#mobile-dialog .mobile-menu > button[data-view] {
+  display:flex; justify-content:flex-start; width:100%;
+  min-height:66px; background:transparent; border:0; border-bottom:1px solid #ab856635;
+  border-radius:0; font:500 15px/1.3 var(--kalistar-display); color:#e6ddc7; gap:16px;
+}
+#mobile-dialog .mobile-menu > button[data-view]:hover { background:#5c948718; }
+#mobile-dialog .mobile-menu > button[data-view] .kalistar-nav-icon { width:40px; height:40px; }
+#mobile-dialog .mobile-menu > button[data-view] > svg:last-child { margin-left:auto; width:16px; color:#b6c6ba; }
+#mobile-dialog.navigation-sheet {
+  background:linear-gradient(120deg,#0f2322ef,#0b1715f5),url('assets/ui/collection-reader-grimoire-v1.png') center/cover;
+  border:1px solid #a08260; border-radius:5px; box-shadow:inset 0 1px #f2d1a62b,0 20px 80px #0009;
+}
+#mobile-dialog.navigation-sheet .dialog-head { border-bottom-color:#a0826066; }
+@media (hover:hover) {
+  body .masthead .main-nav button:hover .kalistar-nav-icon { transform:translateY(-1px); filter:drop-shadow(0 0 2px #b9e7e83b); }
+}
+@media (min-width:1201px) and (max-width:1500px) {
+  body > .masthead,body.collection-view > .masthead { padding:0 16px; gap:14px; }
+  body .masthead .brand { width:174px; }
+  body .masthead .main-nav button { padding:0 9px; gap:6px; }
+}
+@media (min-width:700px) and (max-width:1200px) and (min-height:501px) {
+  :root { --masthead-height:110px; }
+  body > .masthead,body.collection-view > .masthead { flex-wrap:wrap; align-content:center; padding:5px 16px 9px; gap:2px 16px; }
+  body .masthead .brand { width:174px; }
+  body .masthead .brand img { height:40px; max-height:40px; }
+  body .masthead .main-nav { order:3; flex:0 0 100%; height:50px; }
+  body .masthead .main-nav button { flex:1 1 0; font-size:12px; padding:0 5px; gap:6px; }
+  body .masthead .main-nav .kalistar-nav-icon { width:28px; height:28px; }
+}
+@media (min-width:1201px) and (max-width:1400px) {
+  html[data-hosting=local] { --masthead-height:110px; }
+  html[data-hosting=local] body > .masthead { flex-wrap:wrap; align-content:center; padding:5px 16px 9px; gap:2px 16px; }
+  html[data-hosting=local] .masthead .brand img { height:40px; max-height:40px; }
+  html[data-hosting=local] .masthead .main-nav { order:3; flex:0 0 100%; height:50px; }
+  html[data-hosting=local] .masthead .main-nav button { flex:1 1 0; padding:0 5px; gap:6px; font-size:12px; }
+}
+@media (min-width:700px) and (max-width:950px) and (min-height:501px) {
+  html[data-hosting=local] { --masthead-height:122px; }
+  html[data-hosting=local] .masthead .main-nav { height:62px; }
+  html[data-hosting=local] .masthead .main-nav button { flex-direction:column; gap:3px; padding:3px 1px 8px; }
+}
+@media (max-width:699px), (max-width:950px) and (max-height:500px) {
+  :root { --masthead-height:48px; }
+  body:not(.arena-view) > .masthead {
+    flex:0 0 48px; height:48px; min-height:48px; padding:0 max(10px,env(safe-area-inset-right,0px)) 0 max(10px,env(safe-area-inset-left,0px)); gap:8px; flex-wrap:nowrap;
+  }
+  body .masthead .brand { width:164px; display:flex; align-items:center; gap:5px; }
+  body .masthead .brand img { width:118px; height:40px; max-height:40px; flex:none; }
+  body .masthead .brand::after { display:block; font:9px/1 var(--sans); color:#d9bd89; }
+  body .masthead .header-actions { gap:4px; }
+  body .masthead .header-actions button { width:44px; min-width:44px; height:44px; min-height:44px; }
+  body .masthead .header-actions :is(.edition,.deck-button,.phone-preview-entry) { display:none; }
+  body:not(.arena-view) .masthead .main-nav {
+    position:fixed; inset:auto 0 0; z-index:90; width:100%; height:var(--phone-nav); min-height:60px;
+    display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); order:0; margin:0;
+    padding:0 env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px);
+    background:linear-gradient(180deg,#102522f5,#081211fc),url('assets/ui/collection-reader-grimoire-v1.png') center/cover;
+    border-top:1px solid #b58b675e; border-bottom:0; box-shadow:0 -3px 18px #0005,inset 0 1px #a8dfd012;
+  }
+  body .masthead .main-nav::before,body .masthead .main-nav::after { display:none; }
+  body .masthead .main-nav button {
+    flex-direction:column; width:100%; height:60px; min-height:60px; gap:3px; padding:4px 1px 7px;
+    font-size:10px; font-weight:500; border-right:1px solid #9d7e5c12;
+  }
+  body .masthead .main-nav button span { font-size:10px; }
+  body .masthead .main-nav button .kalistar-nav-icon { width:30px; height:30px; }
+  body .masthead .main-nav :is([data-view=story],[data-view=statistics],[data-view=atelier]) { display:none; }
+  body .masthead .main-nav .nav-more { display:flex; }
+  body .masthead .main-nav button.active { box-shadow:inset 0 -2px #ceac81; }
+  body .masthead .main-nav button::after { bottom:-3px; width:10px; height:14px; left:calc(50% - 5px); }
+  body.arena-view > .masthead { flex-basis:0; height:0; min-height:0; padding:0; }
+  body.arena-view .masthead > * { display:none; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .kalistar-nav-icon,body .masthead .main-nav button,body .masthead .main-nav button::after { transition:none; }
+  body .masthead .main-nav button:hover .kalistar-nav-icon { transform:none; }
+}
+@media (min-width:641px) and (max-width:950px) and (max-height:500px) {
+  body .masthead .header-actions .edition { display:inline; }
+}
