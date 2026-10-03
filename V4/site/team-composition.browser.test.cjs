@@ -5,7 +5,7 @@ const {createRequire}=require('node:module');
 const modules=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE||'','.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const runtime=createRequire(path.join(modules,'__team_qa__.cjs'));
 const built=process.env.KALISTAR_BUILT_SITE==='1',dist=path.resolve(__dirname,'../deploy/dist');
-const output=path.join(__dirname,'verification/team-composition',...(built?['pages']:[]));
+const output=process.env.KALISTAR_VERIFICATION_DIR||path.join(__dirname,'verification/team-composition',...(built?['pages']:[]));
 async function main(){
   fs.mkdirSync(output,{recursive:true});
   const browser=await runtime('playwright').chromium.launch({channel:'chrome',headless:true});
@@ -126,6 +126,30 @@ async function verify(page,output){
     }));
     assert.equal(alignment.length,2);for(const sample of alignment)for(const v of Object.values(sample))assert(v<1.3,'deck medallion drift '+width+' '+JSON.stringify(sample));
     await page.waitForTimeout(150);
+    if(width<=900&&height>500){
+      const layout=await page.evaluate(()=>{
+        const reserve=document.querySelector('.team-reserves'),last=reserve.querySelector('[data-deck-slot="9"]').getBoundingClientRect(),root=document.querySelector('.kdb-page').getBoundingClientRect(),header=document.querySelector('.kdb-heading').getBoundingClientRect();
+        return {header:header.height,rail:reserve.scrollWidth-reserve.clientWidth,last:{left:last.left,right:last.right,bottom:last.bottom},root:{left:root.left,right:root.right},crown:document.querySelector('.captain-crown').naturalWidth};
+      });
+      assert.equal(layout.header,56);assert(layout.rail<=1);assert(layout.last.left>=layout.root.left);assert(layout.last.right<=layout.root.right+1);assert.equal(layout.crown,336);
+      if(width===412){
+        assert(layout.last.bottom<1007-56,'R5 visible above navigation on Razr');
+        await page.locator('.team-heading-summary').click();assert(await page.locator('.team-management:modal').isVisible());
+        const fields=await page.locator('.team-management-controls > *').evaluateAll(nodes=>nodes.map(n=>{const r=n.getBoundingClientRect();return {top:r.top,bottom:r.bottom};}));
+        for(let i=1;i<fields.length;i++)assert(fields[i].top>=fields[i-1].bottom+9,'management controls must not overlap');
+        const name=page.locator('.team-management [data-deck-action=name]'),original=await name.inputValue();
+        await name.fill(original+' mobile');assert.equal(await page.locator('.team-current-name').textContent(),original+' mobile');
+        await name.fill(original);await page.keyboard.press('Tab');
+        assert(await page.evaluate(()=>!!document.activeElement.closest('.team-management')),'native modal traps keyboard focus');
+        await page.screenshot({path:path.join(output,'management-412.png')});
+        await page.keyboard.press('Escape');assert.equal(await page.locator('.team-management:modal').count(),0);
+        assert(await page.locator('.team-heading-summary').evaluate(n=>n===document.activeElement),'Escape returns focus to team summary');
+        await page.locator('.team-heading-summary').click();await page.setViewportSize({width:1440,height:900});await page.waitForTimeout(200);
+        assert(await page.locator('.kdb-heading [data-deck-action=name]').isVisible());
+        await page.setViewportSize({width,height});await page.waitForTimeout(200);assert(await page.locator('.team-management:modal').isVisible());
+        await page.locator('.team-management [data-deck-action=manage]').click();
+      }
+    }
     await page.screenshot({path:path.join(output,'after-'+width+'.png')});
     if(width<=900){
       await page.locator('[data-deck-action=slot][data-slot="2"]').tap();assert(await page.locator('.kdb-browser').isVisible());
@@ -146,6 +170,10 @@ async function verify(page,output){
   const game=()=>page.evaluate(()=>JSON.parse(localStorage.getItem('kalistar.v4.game')));
   const started=await game();assert.equal(started.phase,'choose');assert.deepEqual(started.players[0].board.map(u=>u.cardId),saved.formation);assert.equal(await page.locator('[data-action=start]').count(),0);
   assert.equal(await page.locator('.arena-captain').count(),2);
+  for(const crown of await page.locator('.arena-captain').all()){
+    const p=await crown.evaluate(n=>{const r=n.getBoundingClientRect(),card=n.closest('.slot-card').getBoundingClientRect(),img=n.querySelector('img');return {left:Math.abs(r.left-card.left),bottom:Math.abs(r.bottom-card.bottom),width:r.width,native:img.naturalWidth,border:getComputedStyle(n).borderTopWidth,background:getComputedStyle(n).backgroundColor};});
+    assert(p.left<p.width*.2&&p.bottom<p.width*.2,'crown follows card bottom-left');assert.equal(p.native,336);assert.equal(p.border,'0px');assert.equal(p.background,'rgba(0, 0, 0, 0)');
+  }
   assert.equal(await page.locator('.eq-overlay').count(),0,'inactive weapons must not mask the original medallion');
   await page.locator('.slot-card[data-side="0"][data-slot="0"]').click();await page.locator('.slot-card[data-side="1"][data-slot="1"]').click();
   assert.match(await page.locator('[data-bonus=captainAttack]').textContent(),/10/);assert.match(await page.locator('[data-bonus=captainDefense]').textContent(),/10/);

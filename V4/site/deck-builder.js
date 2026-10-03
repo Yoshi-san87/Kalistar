@@ -10,6 +10,7 @@
   const icon = name => `<i data-lucide="${name}" aria-hidden="true"></i>`;
   const button = (action, symbol, label, extra = '') => `<button type="button" class="kdb-icon" data-deck-action="${action}" title="${esc(label)}" aria-label="${esc(label)}" ${extra}>${icon(symbol)}</button>`;
   const image = c => globalThis.KalistarCardMedia.image(c);
+  const crown = () => `<img class="captain-crown" src="${globalThis.KalistarSite?.url('assets/ui/captain-crown-v1.webp')||'assets/ui/captain-crown-v1.webp'}" alt="" aria-hidden="true" draggable="false">`;
   function errorsFrom(fn) {
     try {
       const result = fn();
@@ -106,7 +107,7 @@
     const model = createModel(options), byId = new Map(data.cards.map(c => [String(c.id), c]));
     const Team=Composition.create(engine,options.getEquipmentDefaults);
     const candidate=(slots,index,id)=>model.candidate(slots,index,id,{formation:true});
-    let recruitMode='characters';
+    let recruitMode='characters',phoneLayout=false;
     let library, libraryError = '', root = null, selected = '', target = 0, previewId = null;
     let pendingDelete = false, working = new Map(), fileEpoch = 0, resizeObserver = null, busy = false, painting = false;
     let drag = null, dragFrame = 0, reorderFrom = null, reorderTo = null, suppressClickUntil = 0, announcement = '';
@@ -296,7 +297,7 @@
         <div class="kdb-slot-top"><span>${i<5?'P'+(i+1):'R'+(i-4)}</span>${button('reorder','grip-vertical','Echanger '+(c?c.name:'la place'),`data-slot="${i}" aria-pressed="${reorderFrom===i}"`)}${c?button('remove','x','Retirer '+c.name,`data-slot="${i}"`):'<span></span>'}</div>
         <button type="button" class="kdb-slot-image" data-deck-action="slot" data-slot="${i}" aria-pressed="${i===target}" aria-label="${i<5?'P'+(i+1):'Reserve'}${c?' : '+esc(c.name):' libre'}">${c?`<img src="${image(c)}" alt="${esc(c.name)}" draggable="false">${w?`<span class="team-equipped" role="img" aria-label="Arme equipee : ${esc(w.name)}">${globalThis.KalistarEquipmentFX.markup(w,{bonus:false})}</span>`:''}`:icon('plus')}</button>
         <div class="team-card-caption"><span class="kdb-slot-label" title="${c?esc(c.name):'Libre'}">${c?esc(c.name):'Libre'}</span>${c?button('detail','scan-eye','Inspecter '+c.name,`data-id="${id}"`):''}</div>
-        ${i<5?button('captain','crown',leader?'Capitaine : '+c.name:'Definir le capitaine',`data-slot="${i}" aria-pressed="${leader}" ${c?'':'disabled'}`):''}
+        ${i<5?`<button type="button" class="kdb-icon" data-deck-action="captain" data-slot="${i}" aria-pressed="${leader}" aria-label="${esc(leader?'Capitaine : '+c.name:'Definir le capitaine')}" title="${esc(leader?'Capitaine : '+c.name:'Definir le capitaine')}" ${c?'':'disabled'}>${crown()}</button>`:''}
       </div>`;
     }
     function dnaHTML(){
@@ -319,17 +320,18 @@
       const saved=savedDecks(),state=model.evaluate(draft),list=visibleCandidates();
       const entry=saved.find(d=>d.id===selected),dirty=!entry||JSON.stringify(clone(entry))!==JSON.stringify(draft);
       const locked=libraryError||!library||busy;
+      phoneLayout=!!mountedWindow?.matchMedia('(max-width:900px)').matches;
+      const controls=`<div class="kdb-deck-picker">${button('deck-previous','chevron-left','Deck précédent', !saved.length || busy ? 'disabled' : '')}<select data-deck-action="select" aria-label="Deck sauvegardé" ${busy ? 'disabled' : ''}><option value="">Brouillon du profil</option>${saved.map(d => `<option value="${d.id}" ${selected === d.id ? 'selected' : ''}>${esc(d.name)}</option>`).join('')}</select>${button('deck-next','chevron-right','Deck suivant', !saved.length || busy ? 'disabled' : '')}</div>
+        <label class="kdb-name-label"><span class="${phoneLayout?'':'kdb-sr-only'}">Nom de l'equipe</span><input data-deck-action="name" aria-label="Nom du deck" maxlength="50" value="${esc(draft.name)}" autocomplete="off" ${busy ? 'disabled' : ''}></label>${renderHeaderTools()}`;
+      const deletion=pendingDelete?`<div class="kdb-delete-confirm" role="group" aria-label="Confirmer la suppression"><span>Supprimer ${esc(entry?.name)} ?</span>${button('confirm-delete','check','Confirmer la suppression')}${button('cancel-delete','x','Annuler la suppression')}</div>`:'';
       const profile=userId==='user-paris'?'Paris':userId==='user-tokyo'?'Tokyo':userId;
       return `<section class="kdb-page team-page ${managing ? 'is-managing' : ''} ${filtering ? 'is-filtering' : ''}" data-panel="${panel}" aria-label="Composition du deck" ${busy ? 'aria-busy="true"' : ''}>
-        <header class="kdb-heading"><div class="kdb-heading-title"><span class="kdb-eyebrow">KALISTAR · ${esc(profile)}</span><h1>Composition</h1></div>
-        <div class="kdb-deck-picker">${button('deck-previous','chevron-left','Deck précédent', !saved.length || busy ? 'disabled' : '')}<select data-deck-action="select" aria-label="Deck sauvegardé" ${busy ? 'disabled' : ''}><option value="">Brouillon du profil</option>${saved.map(d => `<option value="${d.id}" ${selected === d.id ? 'selected' : ''}>${esc(d.name)}</option>`).join('')}</select>${button('deck-next','chevron-right','Deck suivant', !saved.length || busy ? 'disabled' : '')}</div>
-        <label class="kdb-name-label"><span class="kdb-sr-only">Nom du deck</span><input data-deck-action="name" aria-label="Nom du deck" maxlength="50" value="${esc(draft.name)}" autocomplete="off" ${busy ? 'disabled' : ''}></label>
-        ${renderHeaderTools()}
+        <header class="kdb-heading">${phoneLayout?`<button class="team-heading-summary" type="button" data-deck-action="manage" aria-label="Gerer l'equipe ${esc(draft.name)}" aria-haspopup="dialog" aria-expanded="${managing}"><span><small>Composition</small><b class="team-current-name">${esc(draft.name)}</b></span>${icon('chevron-down')}</button>`:`<div class="kdb-heading-title"><span class="kdb-eyebrow">KALISTAR · ${esc(profile)}</span><h1>Composition</h1></div>${controls}`}
         <div class="kdb-heading-state"><span class="kdb-badge ${state.playable ? 'is-ready' : ''}">${state.playable ? 'Prêt' : 'Brouillon'}</span><strong>${state.count}<small>/10</small></strong></div>
-        ${button('save','save', selected ? 'Enregistrer les modifications' : 'Sauvegarder le deck', locked || !selected && saved.length >= 10 ? 'disabled' : '')}${button('manage','settings-2','Gestion des decks', `aria-expanded="${managing}"`)}<button type="button" class="kdb-play" data-deck-action="play" ${state.playable && onPlay && !busy ? '' : 'disabled'}>${icon('swords')}<span>Jouer</span></button></header>
-        <div class="kdb-library-bar" ${managing ? '' : 'hidden'}><div class="kdb-menu-heading"><b>${saved.length}/10 decks</b><span class="kdb-save-state" data-deck-save-state>${dirty ? 'Non enregistré' : 'Enregistré'}</span>${button('manage','x','Fermer la gestion')}</div><div class="kdb-library-actions">${button('duplicate','copy','Dupliquer le deck courant',locked || saved.length >= 10 ? 'disabled' : '')}${button('new','file-plus-2','Nouveau brouillon',busy ? 'disabled' : '')}${button('delete','trash-2','Supprimer le deck sauvegardé',locked || !selected ? 'disabled' : '')}${button('export','download','Exporter la bibliothèque JSON',locked || !saved.length ? 'disabled' : '')}${button('import','upload','Importer une bibliothèque JSON',locked ? 'disabled' : '')}</div></div><input type="file" accept="application/json,.json" data-deck-file hidden>
+        ${button('save','save', selected ? 'Enregistrer les modifications' : 'Sauvegarder le deck', locked || !selected && saved.length >= 10 ? 'disabled' : '')}${phoneLayout?'':button('manage','settings-2','Gestion des decks', `aria-expanded="${managing}"`)}<button type="button" class="kdb-play" data-deck-action="play" ${state.playable && onPlay && !busy ? '' : 'disabled'}>${icon('swords')}<span>Jouer</span></button></header>
+        <${phoneLayout?'dialog':'div'} class="kdb-library-bar ${phoneLayout?'team-management':''}" ${phoneLayout?'aria-label="Gerer l\u0027equipe"':managing?'':'hidden'}><div class="kdb-menu-heading"><b>${phoneLayout?'Gerer l\u0027equipe':saved.length+'/10 decks'}</b><span class="kdb-save-state" data-deck-save-state>${dirty ? 'Non enregistré' : 'Enregistré'}</span>${button('manage','x','Fermer la gestion')}</div>${phoneLayout?`<div class="team-management-controls"><label class="team-management-field"><span>Equipes sauvegardees · ${saved.length}/10</span></label>${controls}</div>`:''}<div class="kdb-library-actions">${button('duplicate','copy','Dupliquer le deck courant',locked || saved.length >= 10 ? 'disabled' : '')}${button('new','file-plus-2','Nouveau brouillon',busy ? 'disabled' : '')}${button('delete','trash-2','Supprimer le deck sauvegardé',locked || !selected ? 'disabled' : '')}${button('export','download','Exporter la bibliothèque JSON',locked || !saved.length ? 'disabled' : '')}${button('import','upload','Importer une bibliothèque JSON',locked ? 'disabled' : '')}</div>${phoneLayout?deletion:''}</${phoneLayout?'dialog':'div'}><input type="file" accept="application/json,.json" data-deck-file hidden>
         ${libraryError ? `<p class="kdb-storage-error" role="alert">Bibliothèque : ${esc(libraryError)}</p>` : ''}
-        ${pendingDelete ? `<div class="kdb-delete-confirm" role="group" aria-label="Confirmer la suppression"><span>Supprimer ${esc(entry?.name)} ?</span>${button('confirm-delete','check','Confirmer la suppression')}${button('cancel-delete','x','Annuler la suppression')}</div>` : ''}
+        ${phoneLayout?'':deletion}
 
         <nav class="kdb-mobile-nav" role="tablist" aria-label="Vues de composition">${[['board','Equipe','layout-grid'],['recruit','Recruter','user-plus'],['synergy','ADN','git-branch']].map(([id,label,symbol])=>`<button data-deck-action="panel" data-id="${id}" role="tab" aria-selected="${panel===id}" aria-controls="kdb-panel-${id}" tabindex="${panel===id?0:-1}">${icon(symbol)}${label}</button>`).join('')}</nav>
         <div class="kdb-workbench">
@@ -363,9 +365,11 @@
         root.querySelector('.kdb-browser').id = 'kdb-panel-recruit';
         const dialog = root.querySelector('.kdb-compare'); dialog?.showModal();
         if (dialog) return;
+        const management=root.querySelector('.team-management');
+        if(management&&managing){management.showModal();if(!descriptor||descriptor.action==='manage')return;}
         if (!descriptor) return;
         const next = [...root.querySelectorAll('button,input,select')].find(n => descriptor.filter ? n.dataset.deckFilter === descriptor.filter : descriptor.action && n.dataset.deckAction === descriptor.action && (descriptor.id === undefined || n.dataset.id === descriptor.id) && (descriptor.slot === undefined || n.dataset.slot === descriptor.slot));
-        if (next && !next.disabled) { next.focus({ preventScroll: true }); if (descriptor.start !== null && descriptor.start !== undefined && next.type === 'search') next.setSelectionRange(descriptor.start, descriptor.end); }
+        if (next && !next.disabled && (!management?.open||management.contains(next))) { next.focus({ preventScroll: true }); if (descriptor.start !== null && descriptor.start !== undefined && ['search','text'].includes(next.type)) next.setSelectionRange(descriptor.start, descriptor.end); }
         else { const stage = root.querySelector('.kdb-page'); stage.tabIndex = -1; stage.focus({ preventScroll: true }); }
       } finally { painting = false; }
     }
@@ -525,7 +529,7 @@
         event.preventDefault(); event.stopPropagation(); travel(event.key.toLowerCase()==='y'||event.shiftKey?'redo':'undo'); return;
       }
       if (event.key === 'Escape' && (drag || reorderFrom !== null)) { event.preventDefault(); event.stopPropagation(); interrupt(); return; }
-      if (event.key === 'Escape' && (managing || filtering)) { event.preventDefault(); managing = filtering = pendingDelete = false; repaint(); return; }
+      if (event.key === 'Escape' && (managing || filtering)) { event.preventDefault(); const action=managing?'manage':'filters';managing = filtering = pendingDelete = false; repaint({action}); return; }
       if (event.target.matches('[data-deck-action=panel]') && ['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) {
         const panels = ['board','recruit','synergy'], i = panels.indexOf(panel);
         panel = panels[event.key === 'Home' ? 0 : event.key === 'End' ? panels.length-1 : (i + (event.key === 'ArrowRight' ? 1 : panels.length-1)) % panels.length];
@@ -572,6 +576,7 @@
       repaint(pending ? { action: 'add', id: pending.id } : undefined);
     }
     async function click(event) {
+      if(event.target.matches('.team-management')){event.stopPropagation();managing=pendingDelete=false;repaint({action:'manage'});return;}
       if (event.target.matches('.kdb-compare')) { event.stopPropagation(); closeComparison(); return; }
       const control = event.target.closest('[data-deck-action]');
       if (!control || !root?.contains(control) || control.tagName !== 'BUTTON') return;
@@ -669,6 +674,7 @@
         event.stopPropagation(); draft.name = node.value; pendingDelete = false;
         try { emit(); } catch (error) { toast(error.message); }
         const status = root.querySelector('[data-deck-save-state]'); if (status) status.textContent = 'Non enregistr\u00e9';
+        const name=root.querySelector('.team-current-name');if(name)name.textContent=draft.name;
       }
       if (node.dataset.deckFilter === 'search') { event.stopPropagation(); filters.search = node.value; repaint(); }
     }
@@ -699,9 +705,11 @@
       const node = event.target.closest('[data-deck-preview]');
       if (node && root?.contains(node)) showPreview(node.dataset.deckPreview);
     }
-    function size() { updateRecruitmentRail(); }
+    function size() { if(root&&phoneLayout!==!!mountedWindow?.matchMedia('(max-width:900px)').matches)repaint();updateRecruitmentRail(); }
+    function cancelManagement(event){if(event.target.matches('.team-management')){event.preventDefault();managing=pendingDelete=false;repaint({action:'manage'});}}
     function detach() {
       root?.querySelector('.kdb-compare')?.close(); comparison = null;
+      root?.querySelector('.team-management')?.close();
       cancelReorder(); suppressClickUntil = 0;
       fileEpoch++; resizeObserver?.disconnect(); resizeObserver = null;
       if (root) for (const [type, fn, capture] of listeners) root.removeEventListener(type, fn, capture);
@@ -725,7 +733,7 @@
       if (selected && !saved.some(d => d.id === selected) && !libraryError) { selected = ''; working.set('', clone(draft)); }
       repaint();
     }
-    const listeners = [['click', suppressClick, true], ['click', click], ['input', input], ['change', change], ['pointerover', preview], ['focusin', preview],
+    const listeners = [['click', suppressClick, true], ['click', click], ['cancel',cancelManagement,true], ['input', input], ['change', change], ['pointerover', preview], ['focusin', preview],
       ['pointerdown', pointerDown], ['pointermove', pointerMove], ['pointerup', pointerUp], ['pointercancel', pointerCancel], ['lostpointercapture', pointerCancel],
       ['keydown', reorderKey], ['focusout', focusOut], ['dragstart', nativeDrag]];
     return Object.freeze({

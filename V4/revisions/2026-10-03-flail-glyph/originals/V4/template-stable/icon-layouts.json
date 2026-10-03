@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "revision": "2026-09-27-weapon-optics",
+  "weapon": {
+    "Hache": {
+      "width": 62.24768209706915,
+      "height": 52.41910071332139,
+      "center": [
+        137,
+        1163.5
+      ],
+      "anchor": [
+        0.43476280106083764,
+        0.46281605469286546
+      ],
+      "safeRadius": 44,
+      "innerRadius": 47.5,
+      "sourceBounds": [
+        99,
+        1131,
+        175,
+        1195
+      ],
+      "opticalCentroid": [
+        129.37226597019023,
+        1159.3388115389896
+      ],
+      "method": "65% visible luminance-alpha centroid / 35% visible bounds centre; full alpha contour contained"
+    },
+    "Faucille": {
+      "width": 66,
+      "height": 54.4054054054054,
+      "center": [
+        137,
+        1163.5
+      ],
+      "anchor": [
+        0.4939963121788401,
+        0.49205284043103825
+      ],
+      "safeRadius": 44,
+      "innerRadius": 47.5,
+      "centroidWeight": 0.08,
+      "sourceBounds": [
+        104,
+        1130,
+        178,
+        1191
+      ],
+      "opticalCentroid": [
+        135.44658876542712,
+        1154.4402908286665
+      ],
+      "method": "Individual silhouette balance: weighted visible centroid / visible-bounds midpoint; native full-alpha pixel corners checked separately",
+      "revision": "2026-09-27-weapon-optics",
+      "sourceNativeExport": "V4/revisions/2026-09-27-weapon-optics/inspection/Faucille-donor.png",
+      "sourceNativeExportHash": "beb45f076f71bd9f9a5388bf0577c74319e8fa7fc58bf8a3fd0581b6ed471192"
+    },
+    "Tome": {
+      "width": 67,
+      "height": 71.90243902439025,
+      "center": [
+        137,
+        1163.5
+      ],
+      "anchor": [
+        0.5014471894510002,
+        0.4956337185086077
+      ],
+      "safeRadius": 44,
+      "innerRadius": 47.5,
+      "centroidWeight": 0.35,
+      "sourceBounds": [
+        100,
+        1116,
+        182,
+        1204
+      ],
+      "opticalCentroid": [
+        141.33905581423429,
+        1158.9021920821642
+      ],
+      "method": "Individual silhouette balance: weighted visible centroid / visible-bounds midpoint; native full-alpha pixel corners checked separately",
+      "revision": "2026-09-27-weapon-optics",
+      "sourceNativeExport": "V4/revisions/2026-09-27-weapon-optics/inspection/Tome-donor.png",
+      "sourceNativeExportHash": "f7e5ba24e72a37a530fdd89589e61fdc0b9aeb68aa72bf6261db736a1861d8de"
+    }
+  },
+  "race": {
+    "NAIN": {
+      "width": 65.20848236308971,
+      "height": 72.73253802036929,
+      "center": [
+        759,
+        1163.5
+      ],
+      "anchor": [
+        0.5164851363882835,
+        0.4968601649721107
+      ],
+      "safeRadius": 44,
+      "innerRadius": 47.5,
+      "sourceBounds": [
+        720,
+        1120,
+        798,
+        1207
+      ],
+      "opticalCentroid": [
+        760.978216366594,
+        1163.0797451578055
+      ],
+      "method": "65% visible luminance-alpha centroid / 35% visible bounds centre; full alpha contour contained"
+    },
+    "CARDEMORTIS": {
+      "width": 79,
+      "height": 80.32872584703951,
+      "center": [
+        759,
+        1163.5
+      ],
+      "anchor": [
+        0.5055489598715516,
+        0.4590676577527381
+      ],
+      "safeRadius": 44,
+      "innerRadius": 47.5,
+      "sourceBounds": [
+        717,
+        1120,
+        801,
+        1207
+      ],
+      "opticalCentroid": [
+        759.7170963526314,
+        1158.0213634222896
+      ],
+      "method": "65% visible luminance-alpha centroid / 35% visible bounds centre; full alpha contour contained",
+      "revision": "voloden-2026-09-18",
+      "theoreticalWidth": 77.5587697833485,
+      "nativeEnvelopeSource": "Voloden first native render: 79 x 80 px at height-controlled scale"
+    }
+  }
+}

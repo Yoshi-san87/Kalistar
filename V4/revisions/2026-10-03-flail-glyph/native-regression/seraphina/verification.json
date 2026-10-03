@@ -1,0 +1,33 @@
+{
+  "key": "seraphina",
+  "passed": true,
+  "comparison": {
+    "changed": 0,
+    "outside": 0
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "fixed": null,
+  "barcode": {
+    "passed": true,
+    "expected": "30000020",
+    "cases": {
+      "color-1": [
+        "30000020"
+      ],
+      "color-4": [
+        "30000020"
+      ],
+      "gray-1": [
+        "30000020"
+      ],
+      "gray-4": [
+        "30000020"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "photoshop": "26.11.7"
+}

@@ -1,0 +1,122 @@
+{
+  "revision": "2026-10-03-flail-glyph",
+  "referenceId": "ef7a6767b57723d896ceecb050079bfb1abad0e79e7289a200f87b34585f9380",
+  "passed": true,
+  "results": [
+    {
+      "id": "30000026",
+      "comparison": {
+        "changed": 1788,
+        "outside": 0,
+        "maximumChangedRadius": 40.30198506277327,
+        "permittedRadius": 47.5,
+        "pixelCornersChecked": true
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "layers": {
+        "unchangedExcept": "ARME - Fléau",
+        "editableTextsPreserved": true,
+        "embeddedWeapon": true
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000026",
+        "cases": {
+          "color-1": [
+            "30000026"
+          ],
+          "color-4": [
+            "30000026"
+          ],
+          "gray-1": [
+            "30000026"
+          ],
+          "gray-4": [
+            "30000026"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "contour": {
+        "bounds": [
+          109,
+          1132,
+          169,
+          1193
+        ],
+        "visibleBounds": [
+          109,
+          1132,
+          169,
+          1193
+        ],
+        "visible": 1244,
+        "mass": 973.6927673971562,
+        "centroid": [
+          133.75520477560676,
+          1165.0073742316908
+        ],
+        "midpoint": [
+          139,
+          1162.5
+        ],
+        "optical": [
+          137.16432167146237,
+          1163.3775809810918
+        ],
+        "fullRadius": 40.30198506277327,
+        "opticalError": 0.2049098043106668
+      },
+      "pngHash": "b3d3042de017e9c629aafd930e0ec41fb2c4fc813e1c6cbfba4495b67b231ba3",
+      "psdHash": "ee9e6234af6f7501ec8fb3da623ee21e23876b1725060ff03a062bb267d3e42a",
+      "nativeHash": "fe717b72f98e0e308480f5845d0cb8fbe7574e529bc978873e6e8f01ca358971"
+    },
+    {
+      "id": "40976482",
+      "comparison": {
+        "changed": 1788,
+        "outside": 0,
+        "maximumChangedRadius": 40.30198506277327,
+        "permittedRadius": 47.5,
+        "pixelCornersChecked": true
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "layers": {
+        "unchangedExcept": "ARME - Fléau",
+        "editableTextsPreserved": true,
+        "embeddedWeapon": true
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "40976482",
+        "cases": {
+          "color-1": [
+            "40976482"
+          ],
+          "color-4": [
+            "40976482"
+          ],
+          "gray-1": [
+            "40976482"
+          ],
+          "gray-4": [
+            "40976482"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "contour": null,
+      "pngHash": "b6cee26aa2d628299d8e90c0b2e1cc1fed63954307c690a11c628df8c64b62a4",
+      "psdHash": "d469f347ee4f2e0c4026d12913981977946c907b773b7d03ffd809112bfad358",
+      "nativeHash": "ca363f237941e914f4a122e9b12765396a8d16353a0259c189ec7dd2dbe44691"
+    }
+  ],
+  "bankHash": "4414580c6d0caccdb6bbc7f4ffda78305ae05ae9eba6d4c1671b8c0a397db036",
+  "checkedAt": "2026-10-03T02:50:18.764Z"
+}

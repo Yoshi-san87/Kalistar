@@ -7,7 +7,28 @@ test('native weapon assets retain approved sources, optical anchor and extracted
   const proof=JSON.parse(fs.readFileSync(path.join(__dirname,'verification/weapons/media-provenance.json'),'utf8'));
   const bank=path.join(__dirname,'../atelier/designer-assets');
   const hash=file=>crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
-  for(const [file,expected] of Object.entries(proof.sourceHashes))assert.equal(hash(path.join(bank,file)),expected,'approved source: '+file);
+  for(const [file,expected] of Object.entries(proof.sourceHashes)){
+    const actual=hash(path.join(bank,file));
+    if(actual===expected)continue;
+    // The flail migration changes the manifest, not the copper/axe/flute sources.
+    assert.equal(file,'manifest.json','a concrete source cannot drift');
+    const revision=path.join(__dirname,'../revisions/2026-10-03-flail-glyph');
+    const load=name=>JSON.parse(fs.readFileSync(path.join(revision,name),'utf8'));
+    const publication=load('published.json'),audit=load('verification.json'),regression=load('native-regression.json');
+    const relative='V4/atelier/designer-assets/manifest.json',change=publication.changes.find(c=>c.file===relative);
+    assert.equal(change.beforeHash,expected);assert.equal(change.afterHash,actual);
+    assert.equal(audit.passed,true);assert.equal(audit.results.length,2);assert(audit.results.every(r=>r.comparison.outside===0&&r.roundtrip.changed===0));
+    assert.equal(regression.passed,true);assert.equal(regression.referenceCount,38);assert.equal(regression.referenceId,publication.referenceId);
+    const original=load('originals/'+relative),current=JSON.parse(fs.readFileSync(path.join(bank,file),'utf8'));
+    assert.equal(hash(path.join(revision,'originals',relative)),expected);
+    assert.equal(current.referenceId,publication.referenceId);
+    const references=JSON.parse(fs.readFileSync(path.join(__dirname,'../atelier/data/references.json'),'utf8'));
+    assert.equal(references.protectedFiles['V4/revisions/2026-10-03-flail-glyph/originals/'+relative],expected);
+    const glyph=current.weapons['Fléau'],bankChange=publication.changes.find(c=>c.file==='V4/atelier/designer-assets/'+glyph.file);
+    assert.equal(hash(path.join(bank,glyph.file)),bankChange.afterHash);
+    current.referenceId=original.referenceId;current.weapons['Fléau']=original.weapons['Fléau'];current.hashes[glyph.file]=original.hashes[glyph.file];
+    assert.deepEqual(current,original,'every field outside the explicitly audited Fléau bank remains identical');
+  }
   for(const [file,expected] of Object.entries(proof.derivedHashes))assert.equal(hash(path.join(__dirname,'assets/equipment',file)),expected,'derived asset: '+file);
   const layout=JSON.parse(fs.readFileSync(path.join(__dirname,'../template-stable/icon-layouts.json'),'utf8'));
   assert.deepEqual([proof.center.x,proof.center.y],layout.weapon.Hache.center);

@@ -6,7 +6,7 @@
   const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const url=file=>window.KalistarSite?.url('assets/equipment/'+file)||'assets/equipment/'+file;
   function markup(w,{bonus=true}={}){
-    return `<span class="eq-mechanism" data-visual="${w.visual}" aria-hidden="true"><img class="eq-body" src="${url((w.art||w.visual)+'.webp')}" alt="" draggable="false"><img class="eq-rim" src="${url('rim.webp')}" alt="" draggable="false">${bonus?`<span class="eq-tab"><b>+${w.effect.value}</b><small>${w.effect.stat}</small></span>`:''}<span class="eq-reflection"></span></span>`;
+    return `<span class="eq-mechanism" data-visual="${w.visual}" aria-hidden="true"><img class="eq-body" src="${url((w.art||w.visual)+'.webp')}" alt="" draggable="false"><span class="eq-orbit"><img class="eq-rim" src="${url('rim.webp')}" alt="" draggable="false"></span><span class="eq-radar"></span>${bonus?`<span class="eq-tab"><b>+${w.effect.value}</b><small>${w.effect.stat}</small></span>`:''}<span class="eq-reflection"></span></span>`;
   }
   function animate(node,frames,options,signal){
     if(!node||signal?.aborted)return Promise.resolve();
@@ -59,7 +59,8 @@
       next.set(uid,{active,weapon:w});
       const button=slot.querySelector('.slot-card'),img=button.querySelector('img');if(!img)continue;
       if(active||!fresh&&old?.active){
-        const overlay=document.createElement('span');overlay.className='eq-overlay';overlay.innerHTML=markup(active?w:old.weapon);
+        const overlay=document.createElement('span');overlay.className='eq-overlay'+(active?' is-active':'');overlay.innerHTML=markup(active?w:old.weapon);
+        overlay.style.setProperty('--eq-loop-delay',-(performance.now()%3600)+'ms');
         overlay.setAttribute('role','img');overlay.setAttribute('aria-label',`${(active?w:old.weapon).name} : ${active?'active':'se replie'}, +${(active?w:old.weapon).effect.value} ${(active?w:old.weapon).effect.stat}`);
         button.append(overlay);nodes.add(overlay);placements.push([overlay,img,button]);position(overlay,img,button);
         img.addEventListener('load',()=>position(overlay,img,button),{signal:loads.signal});
@@ -86,7 +87,7 @@
       if(!source||!target)return;
       previous.set(transfer.sourceUid,{active:true,weapon:w});
       let overlay=source.querySelector('.eq-overlay');
-      if(!overlay){overlay=document.createElement('span');overlay.className='eq-overlay';overlay.innerHTML=markup(w);source.querySelector('.slot-card').append(overlay);nodes.add(overlay);position(overlay,source.querySelector('.slot-card img'),source.querySelector('.slot-card'));transition(overlay,true);}
+      if(!overlay){overlay=document.createElement('span');overlay.className='eq-overlay is-active';overlay.style.setProperty('--eq-loop-delay',-(performance.now()%3600)+'ms');overlay.innerHTML=markup(w);source.querySelector('.slot-card').append(overlay);nodes.add(overlay);position(overlay,source.querySelector('.slot-card img'),source.querySelector('.slot-card'));transition(overlay,true);}
       const start=overlay.getBoundingClientRect(),end=target.querySelector('.slot-card').getBoundingClientRect();
       const note=document.createElement('span');note.className='eq-transfer';note.textContent='\u266a';note.setAttribute('aria-hidden','true');document.body.append(note);nodes.add(note);
       note.style.left=(start.left+start.width/2)+'px';note.style.top=(start.top+start.height/2)+'px';

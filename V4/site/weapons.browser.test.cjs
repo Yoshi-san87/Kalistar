@@ -129,9 +129,21 @@ async function main(){
     await page.waitForFunction(()=>[...document.querySelectorAll('.weapon-card .eq-body')].every(i=>i.complete&&i.naturalWidth===488));
     const art=await page.locator('.weapon-card .eq-body').evaluateAll(images=>images.map(i=>new URL(i.src).pathname.split('/').pop()));
     assert.deepEqual(art,['fallen-king-axe-v2.webp','little-joys-flute-v2.webp']);
-    assert.match(await page.title(),/^Kalistar V4\.3\.7/);
-    if(name==='desktop')assert.equal(await page.locator('.edition').innerText(),'VERSION 4.3.7');
-    else assert.equal(await page.locator('.brand').evaluate(n=>getComputedStyle(n,'::after').content),'"V4.3.7"');
+    if(name==='desktop'){
+      const orbit=page.locator('.weapon-card').first().locator('.eq-orbit');
+      await page.mouse.move(1,1);assert.equal(await orbit.evaluate(n=>getComputedStyle(n).animationName),'none');
+      await page.locator('.weapon-card').first().hover();
+      assert.equal(await orbit.evaluate(n=>getComputedStyle(n).animationIterationCount),'infinite');
+      const before=await orbit.evaluate(n=>getComputedStyle(n).transform);await page.waitForTimeout(250);
+      assert.notEqual(await orbit.evaluate(n=>getComputedStyle(n).transform),before,'hover rotation continues');
+      await page.mouse.move(1,1);assert.equal(await orbit.evaluate(n=>getComputedStyle(n).animationName),'none');
+      await page.locator('.weapon-card').first().focus();await page.keyboard.press('Tab');await page.keyboard.press('Shift+Tab');
+      assert.equal(await orbit.evaluate(n=>getComputedStyle(n).animationIterationCount),'infinite','keyboard focus animates');
+      await page.mouse.click(1,1);
+    }
+    assert.match(await page.title(),/^Kalistar V4\.4\.0/);
+    if(name==='desktop')assert.equal(await page.locator('.edition').innerText(),'VERSION 4.4.0');
+    else assert.equal(await page.locator('.brand').evaluate(n=>getComputedStyle(n,'::after').content),'"V4.4.0"');
     if(name==='desktop'){
       const migrated=await page.evaluate(()=>new Promise((resolve,reject)=>{
         const request=indexedDB.open('kalistar-v4-cards');request.onerror=()=>reject(request.error);
@@ -184,6 +196,14 @@ async function main(){
     const side=name==='reduced'?1:0,slot=page.locator(`.formation[data-player="${side}"] .slot-card:not(.empty)`);await slot.click();
     await page.locator(`.formation[data-player="${1-side}"] .slot-card:not(.empty)`).first().click();await page.waitForTimeout(600);
     await alignment(page,name+' challenger');await page.screenshot({path:path.join(out,name+'-axe-challenger.png')});
+    const loop=await page.locator('.eq-overlay.is-active').evaluate(n=>[...n.querySelectorAll('.eq-orbit,.eq-radar')].map(e=>({name:getComputedStyle(e).animationName,iterations:getComputedStyle(e).animationIterationCount,opacity:getComputedStyle(e).opacity})));
+    assert.equal(loop.length,2);
+    if(motion==='reduce')assert(loop.every(e=>e.name==='none'));
+    else{
+      assert(loop.every(e=>e.iterations==='infinite'));assert(Number(loop[1].opacity)>.5);
+      const orbit=page.locator('.eq-overlay .eq-orbit'),before=await orbit.evaluate(n=>getComputedStyle(n).transform);await page.waitForTimeout(180);
+      assert.notEqual(await orbit.evaluate(n=>getComputedStyle(n).transform),before,'active weapon continuously rotates');
+    }
     await page.locator('[data-action=lock]').click();await page.locator('[data-action=roll]').click();await page.waitForFunction(()=>JSON.parse(localStorage.getItem('kalistar.v4.game')).phase==='defense');
     assert.match(await page.locator('[data-bonus=equipmentAttack]').innerText(),/30/);
     await page.locator('[data-action=roll]').click();await page.waitForFunction(()=>JSON.parse(localStorage.getItem('kalistar.v4.game')).phase==='result');
@@ -204,6 +224,12 @@ async function main(){
     if(name==='desktop'){
       await page.locator('#board-scale').fill('125');await page.locator('#board-scale').dispatchEvent('input');await page.waitForTimeout(350);await alignment(page,'desktop board zoom 125%');
       await page.locator('#board-scale').fill('100');await page.locator('#board-scale').dispatchEvent('input');await page.waitForTimeout(350);
+      await page.locator('.arena-toolbar [data-action=combat-reference][data-reference=weapons]').click();
+      const glyph=page.locator('#combat-reference-dialog [data-defender="Fléau"] img');
+      await glyph.evaluate(n=>n.complete?Promise.resolve():new Promise(resolve=>n.addEventListener('load',resolve,{once:true})));
+      assert.match(await glyph.getAttribute('src'),/flail-white-v1\.png$/);assert.equal(await glyph.evaluate(n=>n.naturalWidth),60);
+      assert(await page.locator('.weapon-icon-credit').isVisible());await page.screenshot({path:path.join(out,'white-flail-codex.png')});
+      await page.locator('#combat-reference-dialog [data-action=close]').click();
     }
     if(name==='reduced')assert.equal(await page.locator('.eq-overlay').evaluate(n=>n.getAnimations({subtree:true}).length),0);
     const snapshot=await page.evaluate(async()=>{const s=JSON.parse(localStorage.getItem('kalistar.v4.game'));await KALISTAR_DB.equipment.unequip(KALISTAR_ACTIVE_USER,'balmhyr','fallen-king-axe');return s.equipment.loadouts[0].balmhyr||s.equipment.loadouts[1].balmhyr;});assert.equal(snapshot,'fallen-king-axe');

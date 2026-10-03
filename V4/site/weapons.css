@@ -21,15 +21,27 @@
 .eq-mechanism{position:relative;display:block;width:100%;height:100%;pointer-events:none;}
 .eq-mechanism .eq-body,.eq-mechanism .eq-rim{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;}
 .eq-rim{z-index:2;}
+.eq-orbit{position:absolute;inset:0;z-index:2;transform-origin:50% 50%;}
+.eq-radar{position:absolute;inset:-5%;border-radius:50%;border:1px solid transparent;border-top-color:#fff0cf;border-right-color:#cfa878;opacity:0;z-index:3;filter:drop-shadow(0 0 2px #e5c990);pointer-events:none;transition:opacity .25s;}
+.eq-mechanism[data-visual=flute] .eq-radar{border-right-color:#b3e8ea;filter:drop-shadow(0 0 2px #ace0da);}
+.eq-overlay.is-active .eq-orbit{animation:eq-continuous-orbit 3.6s linear var(--eq-loop-delay,0ms) infinite;}
+.eq-overlay.is-active .eq-radar{opacity:.72;animation:eq-continuous-orbit 3.6s linear var(--eq-loop-delay,0ms) infinite reverse;}
+@keyframes eq-continuous-orbit{to{transform:rotate(360deg);}}
 .eq-tab{position:absolute;left:29%;top:88%;width:42%;min-height:38%;padding:11% 0 3%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0;background:linear-gradient(110deg,#745647,#c6a288 17%,#49362e 22%,#1c292b 45%,#314045 75%,#755746 83%,#c5a789 89%,#5e463c);border:1px solid #96725c;clip-path:polygon(0 0,100% 0,100% 82%,88% 100%,12% 100%,0 82%);box-shadow:inset 0 -2px #ddbc9b50;transform-origin:top center;z-index:1;color:#fce4b2;text-shadow:0 1px 2px #000;font:bold var(--eq-font,12px)/1 var(--serif);}
 .eq-tab small{font:600 calc(var(--eq-font,12px)*.46)/1.5 var(--sans);color:#d5e2da;}
 .eq-reflection{position:absolute;inset:0;opacity:0;z-index:3;border-radius:50%;background:conic-gradient(transparent 0 45%,#fff1cf9c 47%,transparent 50%);mask:radial-gradient(transparent 58%,black 60% 68%,transparent 70%);}
-.weapon-card:hover .eq-rim,.weapon-card:focus-visible .eq-rim{transform:rotate(14deg);transition:transform .4s ease;}
-.weapon-card .eq-rim{transition:transform .4s ease;}
+.weapon-card:focus-visible .eq-orbit,.team-weapon:focus-within .eq-orbit{animation:eq-continuous-orbit 3.6s linear infinite;}
+.weapon-card:focus-visible .eq-radar,.team-weapon:focus-within .eq-radar{opacity:.72;animation:eq-continuous-orbit 3.6s linear infinite reverse;}
+@media(hover:hover){
+  .weapon-card:hover .eq-orbit,.team-weapon:hover .eq-orbit,.weapon-detail-top .weapon-object:hover .eq-orbit{animation:eq-continuous-orbit 3.6s linear infinite;}
+  .weapon-card:hover .eq-radar,.team-weapon:hover .eq-radar,.weapon-detail-top .weapon-object:hover .eq-radar{opacity:.72;animation:eq-continuous-orbit 3.6s linear infinite reverse;}
+}
 .slot-card{position:relative;}
 .eq-overlay{position:absolute;display:block;z-index:4;pointer-events:none;}
 .slot-buffs .eq-pending{color:#f0d7a3;border-color:#b28a67;background:#172727;}
 .eq-transfer{position:fixed;z-index:250;color:#ddedcd;font:22px var(--serif);text-shadow:0 0 6px #b8e8e8;pointer-events:none;}
+.weapon-icon-credit{font-size:11px;color:#bfc3b6;margin:16px 0 0;}
+.weapon-icon-credit a{color:#d9c49b;text-decoration:underline;text-underline-offset:2px;}
 .eq-soft-note{position:absolute;top:-8%;font:var(--eq-font) var(--serif);color:#e4e8c2;pointer-events:none;}
 .eq-gift{position:absolute;left:30%;top:54%;width:65%;background:#152823dd;border:1px solid #b58c68;color:#f4debd;font:bold 13px var(--serif);text-align:center;padding:4px;pointer-events:none;z-index:4;}
 #weapons-dialog{width:min(780px,calc(100vw - 32px));background:linear-gradient(115deg,#172423f5,#131c18f9),url('assets/ui/collection-reader-grimoire-v1.png') center/cover;}
@@ -83,4 +95,4 @@
   .main-nav .nav-more{display:flex;align-items:center;justify-content:center;flex-direction:column;min-height:56px;}
   .main-nav button{font-size:10px;min-width:0;}
 }
-@media(prefers-reduced-motion:reduce){.weapon-card,.weapon-card .eq-rim{transition:none!important;}.weapon-card:hover .eq-rim{transform:none;}}
+@media(prefers-reduced-motion:reduce){.weapon-card,.eq-radar{transition:none!important;}.eq-mechanism :is(.eq-orbit,.eq-radar){animation:none!important;transform:none;}}
