@@ -1,0 +1,180 @@
+/* Kalistar interface materials. Card geometry and combat effects are not UI chrome. */
+:root {
+  --kui-ink:#0b1213; --kui-surface:#132322; --kui-raised:#20332f;
+  --kui-text:#f1eadc; --kui-muted:#b6c3bd; --kui-edge:#99745b;
+  --kui-copper:#ddb18b; --kui-energy:#95e0db; --kui-gold:#edcf8f; --kui-danger:#ed9ea6;
+  --kui-border:#a581625e; --kui-inset:#eac6a318;
+  --kui-ease:cubic-bezier(.2,.7,.2,1); --kui-fast:140ms; --kui-reveal:200ms;
+}
+body.kalistar-ui button[data-kui=command] {
+  color:var(--kui-text); border:1px solid var(--kui-edge); border-radius:3px;
+  background:
+    linear-gradient(var(--kui-copper),var(--kui-copper)) left top/7px 1px no-repeat,
+    linear-gradient(var(--kui-copper),var(--kui-copper)) right bottom/7px 1px no-repeat,
+    linear-gradient(145deg,#b6997420,transparent 40%),var(--kui-surface);
+  box-shadow:inset 0 0 0 2px var(--kui-ink),inset 0 0 0 3px var(--kui-inset),0 2px 3px #0003;
+  transition:color var(--kui-fast),background-color var(--kui-fast),border-color var(--kui-fast),box-shadow var(--kui-fast),filter var(--kui-fast);
+}
+body.kalistar-ui button[data-kui=command] > .lucide { color:var(--kui-copper); stroke-width:1.7; }
+body.kalistar-ui button[data-kui=command][data-kui-tone=primary],
+body.kalistar-ui #match-dialog .match-report-actions button[data-kui-tone=primary],
+body.kalistar-ui .cb-page .cb-filter-actions>button[data-kui-tone=primary] {
+  --kui-edge:#dcb681; color:#fff0d0;
+  background:linear-gradient(130deg,#604d2e,#293d36 70%);
+  box-shadow:inset 0 0 0 2px #111c19,inset 0 0 0 3px #e9c59045,0 2px 5px #0004;
+  font-weight:600;
+}
+body.kalistar-ui button[data-kui=command]:is(.danger,[data-deck-action=delete]) { --kui-copper:var(--kui-danger); --kui-edge:#ba7880; }
+body.kalistar-ui button[data-kui=command]:is(.text-link,.cb-back,.ghost) {
+  background:transparent; border-color:transparent; box-shadow:none; color:var(--kui-copper);
+}
+body.kalistar-ui button[data-kui=quiet] {
+  border-color:transparent; background:transparent; box-shadow:none; color:var(--kui-copper);
+  transition:color var(--kui-fast),filter var(--kui-fast);
+}
+body.kalistar-ui button[data-kui]:disabled { opacity:.38; cursor:default; filter:saturate(.35); box-shadow:none; }
+body.kalistar-ui button[data-kui]:not(:disabled):active {
+  filter:brightness(1.16); box-shadow:inset 0 2px 6px #0006,inset 0 -2px var(--kui-energy);
+}
+body.kalistar-ui button[data-kui]:focus-visible,
+body.kalistar-ui :is(input,select,textarea)[data-kui]:focus-visible {
+  outline:2px solid var(--kui-energy); outline-offset:2px;
+}
+body.kalistar-ui button[data-kui=command]:is([aria-pressed=true],[aria-expanded=true]) {
+  border-color:var(--kui-energy); color:var(--kui-text);
+  box-shadow:inset 0 0 0 2px var(--kui-ink),inset 0 -3px var(--kui-energy);
+}
+body.kalistar-ui button[data-kui=tab] {
+  border-radius:0; color:var(--kui-muted); background:transparent; box-shadow:none;
+  border-color:transparent; border-bottom:2px solid transparent;
+  transition:color var(--kui-fast),background-color var(--kui-fast),border-color var(--kui-fast);
+}
+body.kalistar-ui button[data-kui=tab]:is([aria-selected=true],[aria-pressed=true],.active) {
+  color:var(--kui-gold); border-bottom-color:var(--kui-copper);
+  background:linear-gradient(0deg,#9cbaaa16,transparent);
+  box-shadow:inset 0 -1px #f2d8ad;
+}
+body.kalistar-ui button[data-kui=tab] .lucide { color:var(--kui-copper); }
+body.kalistar-ui :is(input,select,textarea)[data-kui=field] {
+  color:var(--kui-text); background-color:var(--kui-ink); border:1px solid var(--kui-border);
+  border-bottom-color:var(--kui-edge); border-radius:3px;
+  box-shadow:inset 0 2px 5px #0004,inset 3px 0 #be987422;
+  transition:border-color var(--kui-fast),box-shadow var(--kui-fast),background-color var(--kui-fast);
+  caret-color:var(--kui-energy);
+}
+body.kalistar-ui :is(input,select,textarea)[data-kui=field]:focus {
+  border-color:var(--kui-energy); box-shadow:inset 0 -2px var(--kui-energy),0 0 0 1px #91dfd518;
+}
+body.kalistar-ui [data-kui=field]::placeholder { color:var(--kui-muted); opacity:.75; }
+body.kalistar-ui [data-kui=field]:disabled { opacity:.5; cursor:not-allowed; }
+body.kalistar-ui [data-kui=field][aria-invalid=true],
+body.kalistar-ui [data-kui=field]:user-invalid { border-color:var(--kui-danger); box-shadow:inset 3px 0 var(--kui-danger); }
+body.kalistar-ui select[data-kui=field] { cursor:pointer; padding-right:26px; text-overflow:ellipsis; }
+body.kalistar-ui select[data-kui=field] option { color:#f1eadc; background:#142422; }
+body.kalistar-ui [data-kui=check],body.kalistar-ui [data-kui=range] { accent-color:var(--kui-energy); }
+/* Native select semantics and OS pickers remain available on touch devices. */
+@supports (appearance:base-select) {
+  @media (hover:hover) and (pointer:fine) {
+    body.kalistar-ui select[data-kui=field],
+    body.kalistar-ui select[data-kui=field]::picker(select) { appearance:base-select; }
+    body.kalistar-ui select[data-kui=field] { align-items:center; padding-right:10px; }
+    body.kalistar-ui select[data-kui=field]::picker-icon {
+      color:var(--kui-copper); margin-left:auto; transition:rotate var(--kui-fast);
+    }
+    body.kalistar-ui select[data-kui=field]:open::picker-icon { rotate:180deg; }
+    body.kalistar-ui select[data-kui=field]::picker(select) {
+      margin-top:5px; padding:5px; color:#f1eadc; background:#101e1e;
+      border:1px solid #b48d6c; border-radius:3px; max-height:min(360px,65dvh);
+      box-shadow:inset 0 0 0 2px #08100e,0 12px 28px #0008;
+      font:13px/1.4 var(--sans); scrollbar-width:thin; scrollbar-color:#92745b #101e1e;
+    }
+    body.kalistar-ui select[data-kui=field] option { min-height:34px; padding:7px 9px; border-bottom:1px solid #bda07918; background:transparent; }
+    body.kalistar-ui select[data-kui=field] option:checked { color:#f6dfb0; background:#b59e7021; }
+    body.kalistar-ui select[data-kui=field] option:hover,
+    body.kalistar-ui select[data-kui=field] option:focus { background:#24443e; color:#fff4db; }
+    body.kalistar-ui select[data-kui=field] option::checkmark { color:#9ee1d8; }
+  }
+}
+body.kalistar-ui dialog[data-kui=dialog] {
+  color:var(--kui-text); border:1px solid #bb9270; border-radius:4px;
+  background:linear-gradient(120deg,#132624f7,#0c1818fa),url('assets/ui/collection-reader-grimoire-v1.png') center/cover;
+  box-shadow:inset 0 0 0 3px #070e0d,inset 0 0 0 4px #d4af7930,0 24px 80px #000b;
+}
+body.kalistar-ui dialog[data-kui=dialog]::backdrop { background:#040b0bd6; backdrop-filter:blur(6px); }
+body.kalistar-ui :is(.dialog-head,.cb-filter-heading,.kdb-menu-heading) {
+  color:var(--kui-text); border-bottom-color:var(--kui-border);
+}
+body.kalistar-ui dialog[data-kui]>.dialog-head,
+body.kalistar-ui #match-dialog>.dialog-head {
+  background:linear-gradient(110deg,#273933,#132321 75%); box-shadow:inset 0 1px #edc39528;
+}
+body.kalistar-ui :is(.dialog-head h2,.cb-filter-heading h2,.kdb-menu-heading>b),
+body.kalistar-ui #match-dialog .dialog-head h2 {
+  font-family:var(--kalistar-display); font-weight:600; color:var(--kui-text);
+}
+.kui-heading { display:flex; align-items:center; gap:10px; min-width:0; }
+.kui-emblem { width:28px; height:28px; flex:none; object-fit:contain; filter:drop-shadow(0 2px 2px #0008); }
+body.kalistar-ui :is(.kdb-heading,.weapons-heading,.sheet-heading,.cb-heading,.cb-toolbar) {
+  border-bottom-color:var(--kui-border);
+}
+body.kalistar-ui :is(.kdb-library-bar,.kdb-filters,.sheet-filters) { border-color:var(--kui-border); background-color:#142321; }
+body.kalistar-ui :is(.team-library-tabs,.sheet-tabs,.match-tabs,.registry-tabs) { border-bottom-color:var(--kui-border); }
+body.kalistar-ui :is(.match-section-heading,.match-side-heading,.team-page .kdb-band-heading h2) { color:var(--kui-copper); }
+/* Paper controls are ink and brass, not dark panels pasted over the manuscript. */
+body.kalistar-ui :is(.cb-reading,.story-reader-book) {
+  --kui-ink:#ddd0b8; --kui-surface:#d5c3a17a; --kui-raised:#e5d4b5;
+  --kui-text:#24160f; --kui-muted:#5c4836; --kui-edge:#795638;
+  --kui-copper:#674424; --kui-energy:#275e5b; --kui-gold:#513216;
+  --kui-border:#79563870; --kui-inset:#fff0d145;
+}
+body.kalistar-ui .cb-reading [data-kui=tab] { font-family:inherit; }
+body.kalistar-ui .cb-versions button[data-kui=tab][aria-pressed=true] { color:#fff0cc; background:#503925; border-color:#7f5a30; box-shadow:inset 0 0 0 1px #e2b97980; }
+body.kalistar-ui .cb-page[data-mode=reader] .cb-reading [data-kui=field] { color:var(--kui-text); background-color:#eee1c577; }
+/* Awards retain the approved illustration crops, 25% trophies and mobile flow. */
+body.kalistar-ui #match-dialog .golden-palmares .golden-award {
+  border-color:#a7835c91; border-radius:3px; background:#111f1d;
+  box-shadow:inset 0 0 0 2px #070d0c,inset 0 0 0 3px #d6b58220;
+}
+body.kalistar-ui #match-dialog .golden-title {
+  background:linear-gradient(100deg,#3c3928,#18332e 85%); border-bottom-color:#c397655e;
+  box-shadow:inset 0 2px #d5b07b70;
+}
+body.kalistar-ui #match-dialog .golden-title>span { font-family:var(--kalistar-display); font-weight:600; font-size:14px; }
+body.kalistar-ui #match-dialog .golden-palmares .match-mvp .golden-title>span { font-size:18px; }
+body.kalistar-ui #match-dialog .golden-result { background:linear-gradient(110deg,#26362e,#111f1d); border-top-color:#c397655e; }
+body.kalistar-ui #match-dialog .golden-object .trophy-image { transition:filter 240ms var(--kui-ease); }
+body.kalistar-ui .trophy-keepsake[data-earned=true] img { filter:drop-shadow(0 2px 2px #42271060); }
+body.kalistar-ui #toast {
+  padding:12px 18px 12px 38px; border:1px solid #cba171; border-radius:3px; color:#f4e8cf;
+  background:url('assets/navigation/kalistel-rainbow-v1.webp') 12px center/15px 24px no-repeat,#152d28;
+  box-shadow:inset 0 0 0 2px #071511,0 10px 24px #0007; z-index:60;
+}
+.kui-tooltip {
+  position:fixed; inset:auto; margin:0; max-width:min(280px,calc(100vw - 16px));
+  padding:8px 11px; border:1px solid #b28d6b; border-radius:3px;
+  color:#f1e8d5; background:#0c1b1bf5; box-shadow:inset 0 1px #dfb88724,0 4px 16px #0007;
+  font:12px/1.4 var(--sans); pointer-events:none; overflow-wrap:anywhere;
+}
+@media (hover:hover) {
+  body.kalistar-ui button[data-kui=command]:not(:disabled):hover {
+    border-color:var(--kui-copper); background-color:var(--kui-raised); color:var(--kui-text);
+    box-shadow:inset 0 0 0 2px var(--kui-ink),inset 0 0 0 3px var(--kui-inset),inset 0 -2px var(--kui-energy),0 3px 7px #0004;
+  }
+  body.kalistar-ui button[data-kui=tab]:not(:disabled):hover { color:var(--kui-gold); border-bottom-color:var(--kui-edge); background-color:#85b5a90c; }
+  body.kalistar-ui #match-dialog .golden-award[data-empty=false]:hover .trophy-image { filter:drop-shadow(0 2px 3px #0008) drop-shadow(0 0 4px #e7c38255); }
+}
+@media (max-width:700px) {
+  body.kalistar-ui :is(input,textarea)[data-kui=field] { font-size:16px; }
+  body.kalistar-ui .kui-heading { gap:7px; }
+  .kui-emblem { width:24px; height:24px; }
+  body.kalistar-ui #match-dialog .golden-title>span,
+  body.kalistar-ui #match-dialog .golden-palmares .match-mvp .golden-title>span { font-size:13px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  body.kalistar-ui [data-kui],body.kalistar-ui select[data-kui]::picker-icon,
+  body.kalistar-ui #match-dialog .trophy-image { transition:none; }
+}
+@media (forced-colors:active) {
+  body.kalistar-ui [data-kui] { border-color:ButtonText; box-shadow:none; }
+  body.kalistar-ui button[data-kui]:is([aria-pressed=true],[aria-selected=true]) { outline:2px solid Highlight; }
+}

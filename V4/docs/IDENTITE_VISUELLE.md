@@ -226,6 +226,14 @@ chiffres du combat ou au manuscrit. Telephone : cinq acces confortables et
 les autres destinations dans Plus. Sources, prompts et captures dans
 `revisions/2026-10-03-menu-identity/`.
 
+### Socle d'interface, 4 octobre 2026
+
+Cette identite s'etend aux commandes, champs, listes, dialogues et palmares.
+Les tokens et comportements partages sont dans `site/ui-system.css` et
+`site/ui-system.js`, documentes dans `docs/UI_SYSTEM.md`. Cuivre grave et
+energie contenue sur metal sombre ; encre/laiton sur les pages manuscrites.
+Preserver la geometrie des cartes et les controles natifs au clavier/toucher.
+
 ### Chroma et Rikka, precision du 1 octobre 2026
 
 Chroma est une metropole du futur, tres cyberpunk, pas un village medieval ni
