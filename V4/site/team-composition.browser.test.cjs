@@ -167,6 +167,7 @@ async function verify(page,output){
   assert(enemyOptions.length);await page.locator('#enemy-deck-preset').selectOption(enemyOptions[0]);
   await page.locator('.match-advanced summary').click();await page.locator('#game-seed').fill('TEAM-MANUAL');
   await page.locator('#new-game-form [type=submit]').click();await page.waitForSelector('.battlefield');
+  await page.locator('.li-skip').click();
   const game=()=>page.evaluate(()=>JSON.parse(localStorage.getItem('kalistar.v4.game')));
   const started=await game();assert.equal(started.phase,'choose');assert.deepEqual(started.players[0].board.map(u=>u.cardId),saved.formation);assert.equal(await page.locator('[data-action=start]').count(),0);
   assert.equal(await page.locator('.arena-captain').count(),2);

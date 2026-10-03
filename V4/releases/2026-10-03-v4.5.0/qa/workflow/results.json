@@ -1,0 +1,82 @@
+[
+  {
+    "command": "node --test V4/atelier/game-catalog.test.cjs V4/atelier/collaboration-arenas.test.cjs V4/deploy/build.test.cjs V4/deploy/pwa.test.cjs V4/site/statistics.test.cjs V4/site/collaborations.test.cjs V4/site/metal-gear.test.cjs V4/site/resident-evil.test.cjs V4/site/one-piece.test.cjs",
+    "passed": true,
+    "tests": 43
+  },
+  {
+    "command": "node --test V4/expansions/2026-10-01-one-piece/model.test.cjs",
+    "passed": true,
+    "tests": 4
+  },
+  {
+    "command": "node --test V4/revisions/2026-10-01-stat-personality/revision.test.cjs",
+    "passed": true,
+    "tests": 11
+  },
+  {
+    "command": "node --test V4/expansions/2026-10-01-rikka-rooftops/model.test.cjs",
+    "passed": true,
+    "tests": 4
+  },
+  {
+    "command": "node --test V4/expansions/2026-10-01-one-piece-witcher/model.test.cjs",
+    "passed": true,
+    "tests": 4
+  },
+  {
+    "command": "node --test V4/revisions/2026-10-01-luffy-light/revision.test.cjs",
+    "passed": true,
+    "tests": 2
+  },
+  {
+    "command": "node --test V4/expansions/2026-10-02-witcher-completion/model.test.cjs V4/revisions/2026-10-02-sanji-legs/revision.test.cjs",
+    "passed": true,
+    "tests": 4
+  },
+  {
+    "command": "node --test V4/releases/2026-10-02-pages-portability/portable.test.cjs",
+    "passed": true,
+    "tests": 3
+  },
+  {
+    "command": "node V4/site/kalistel.test.cjs",
+    "passed": true,
+    "tests": 0
+  },
+  {
+    "command": "node V4/site/arena-ambience.test.cjs",
+    "passed": true,
+    "tests": 0
+  },
+  {
+    "command": "node --test V4/site/equipment.test.cjs V4/site/equipment-presentation.test.cjs",
+    "passed": true,
+    "tests": 18
+  },
+  {
+    "command": "node --test V4/site/team-composition.test.cjs",
+    "passed": true,
+    "tests": 14
+  },
+  {
+    "command": "node --test V4/site/lineup-intro.test.cjs",
+    "passed": true,
+    "tests": 4
+  },
+  {
+    "command": "node --test V4/site/match-metrics.test.cjs V4/site/kill-medals.test.cjs",
+    "passed": true,
+    "tests": 2
+  },
+  {
+    "command": "node --test V4/site/navigation.test.cjs",
+    "passed": true,
+    "tests": 4
+  },
+  {
+    "command": "node V4/deploy/build.cjs",
+    "passed": true,
+    "tests": 0
+  }
+]

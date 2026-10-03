@@ -60,6 +60,19 @@
   const views=window.KalistarSite?.online?['arena','decks','weapons','statistics','story']:['arena','decks','weapons','statistics','story','atelier'];
   const hashView=()=>views.includes(location.hash.slice(1))?location.hash.slice(1):'collection';
   const ui={view:hashView(),attacker:null,target:null,reserve:null,replacementSlot:null,detail:null,art:false};
+  let pendingLineup=null,lineupIntro=null,presentationOpening=false;
+  function cancelLineup(){lineupIntro?.destroy();lineupIntro=null;presentationOpening=false;}
+  function presentLineup(){
+    if(!pendingLineup||ui.view!=='arena')return;
+    const opening=pendingLineup;pendingLineup=null;
+    if(opening!==game||game.phase!=='choose'||!game.composition)return;
+    const formations=KalistarLineupIntro.describe(game,cards,{elements:data.elements,asset,url:KalistarSite.url});
+    formations.forEach((team,side)=>team.forEach((entry,slot)=>{if(entry)entry.node=$(`.formation[data-player="${side}"] .slot[data-position="${slot+1}"] .slot-card`);}));
+    const complete=()=>{lineupIntro=null;presentationOpening=false;if(game===opening&&ui.view==='arena')scheduleAI();};
+    presentationOpening=true;clearTimeout(aiTimer);
+    try{lineupIntro=KalistarLineupIntro.play({shell:$('.game-shell'),formations,cardBack:KalistarSite.url('assets/back.webp'),onComplete:complete,onSkip:complete,onExit:()=>{lineupIntro=null;presentationOpening=false;setView('collection');}});}
+    catch(error){console.error('Lineup presentation:',error);complete();}
+  }
   let deckBuilder=null,collectionBinder=null,statisticsSheet=null;
   const weaponsUI=KalistarWeaponsUI.create({data,db,userId:accountId,toast,onCard:id=>showDetail(id)});
   const storyReader=KalistarStoryReader.create({storageKey:preferencePrefix+'story-progress'});
@@ -113,6 +126,7 @@
   async function setView(view){
     if(view==='atelier'&&window.KalistarSite?.online)return;
     if(rolling)return toast('Le duel se termine…');
+    if(view!=='arena'){pendingLineup=null;cancelLineup();}
     if(view!=='arena')exitFullscreen();
     clearTimeout(aiTimer);
     if(ui.view!==view)epoch++;
@@ -120,6 +134,8 @@
     ui.view=view;history.replaceState(null,'','#'+view);render();
   }
   function render(){
+    cancelLineup();
+    if(ui.view!=='arena')pendingLineup=null;
     combatController?.abort();
     window.KalistarCombat?.cancelKillCelebration();
     window.KalistarFormationDrag?.cancel();
@@ -171,7 +187,7 @@
     window.KalistarFocus?.mount(game?.phase==='over'?[]:document.querySelectorAll('.formation'));
     if(ui.view==='arena')window.KalistarEquipmentFX.mount(game,E);
     syncDetailEquipment();
-    persist();scheduleAI();
+    presentLineup();persist();scheduleAI();
     if(ui.view==='arena'&&game?.phase==='over'&&!ui.endShown){ui.endShown=true;showMatchStats(game);}
   }
   function collectionView(){
@@ -252,7 +268,7 @@ function showDeck(){setView('decks');}
     await db.idle();
     await db.saveGame(bound);
     if(game?.collection&&game.phase!=='over')await db.registry.releaseGame(accountId,game.matchId);
-    clearTimeout(aiTimer);epoch++;game=bound;enemyPresetId=opponent.id;ui.attacker=ui.target=ui.reserve=null;ui.endShown=false;statsSort='kills';statsSide='all';save('arena',game.arenaId);persist();
+    cancelLineup();clearTimeout(aiTimer);epoch++;game=bound;pendingLineup=bound;enemyPresetId=opponent.id;ui.attacker=ui.target=ui.reserve=null;ui.endShown=false;statsSort='kills';statsSide='all';save('arena',game.arenaId);persist();
   }
   function arenaRule(a){
     const crystal=a.element&&a.element!=='NONE'?(data.elements[a.element]?.label||a.element)+' : +'+(a.elementBonus||0)+' ATK':'Terrain neutre';
@@ -560,9 +576,9 @@ function showDeck(){setView('decks');}
     if(!game)return '<div class="resume-strip"><h2>Arène de Kalistar</h2><button class="primary" data-action="new-game">Préparer une partie</button></div>';
     return `${!storageAvailable?'<div class="storage-note">Sauvegarde navigateur indisponible. Exportez la partie pour la conserver.</div>':''}<div class="game-shell" style="--board-scale:${boardScale/100};--arena-image:url('${arenaById(game.arenaId).image}')"><div class="arena-toolbar"><div><h1>${arenaById(game.arenaId).name} <span class="round">Échange ${game.round} / 200</span></h1><span class="muted game-seed">${esc(game.seed)} · ${game.mode==='ai'?'Adversaire automatique':'Deux joueurs locaux'}</span><span class="arena-rules">${arenaRule(arenaById(game.arenaId))}</span></div><div class="tools"><label class="board-zoom" title="Taille des cartes">${icon('scan')}<input id="board-scale" type="range" min="85" max="140" step="5" value="${boardScale}" aria-label="Taille des cartes"><output>${boardScale}%</output></label>${ib('arena-picker','map',game.phase==='setup'?'Choisir une arène':'Arène verrouillée',game.phase==='setup'?'':'disabled')}${ib('combat-reference','gem','Avantages des cristaux','data-reference="elements"')}${ib('combat-reference','swords','Avantages des armes','data-reference="weapons"')}${ib('match-stats','trophy','Bilan et statistiques du match')}${ib('journal','scroll-text','Ouvrir le journal du duel')}${ib('fullscreen','maximize','Plein écran')}${ib('exit-arena','log-out','Quitter l’arène')}${ib('save-game','save','Exporter la sauvegarde')}${ib('load-game','upload','Importer une sauvegarde')}${ib('new-game','rotate-ccw','Nouvelle partie')}<input hidden type="file" id="game-file" accept="application/json,.json"></div><div class="board-navigation">${ib('focus-left','panel-left','Centrer le joueur 1')}${ib('focus-duel','dice-6','Centrer les dés')}${ib('focus-right','panel-right','Centrer le joueur 2')}</div></div><div class="arena-reference-dock" aria-label="Codex de combat">${ib('combat-reference','gem','Avantages des cristaux','data-reference="elements"')}${ib('combat-reference','swords','Avantages des armes','data-reference="weapons"')}</div><div class="arena-layout"><div class="battlefield-viewport"><section class="battlefield" aria-label="Plateau de jeu"><section class="team team-left" data-team="0">${sideHeading(0)}${board(0)}${reserveZone(0)}</section><div class="duel-console" aria-live="polite">${dice(0)}<div class="duel-centre">${consoleBody()}</div>${dice(1)}</div><section class="team team-right" data-team="1">${sideHeading(1)}${board(1)}${reserveZone(1)}</section></section></div></div></div>`;
   }
-  function act(fn){if(rolling)return;try{checkGame();fn();E.assertState(game);epoch++;render();}catch(e){toast(e.message);}}
+  function act(fn){if(rolling||presentationOpening)return;try{checkGame();fn();E.assertState(game);epoch++;render();}catch(e){toast(e.message);}}
   function engageDuel(){
-    if(rolling||game?.phase!=='choose')return;
+    if(rolling||presentationOpening||game?.phase!=='choose')return;
     act(()=>{E.lock(game,ui.attacker,ui.target);ui.attacker=ui.target=null;});
     if(game?.phase==='attack'){
       window.KalistarDice?.engage();window.KalistarAmbience?.engage();window.KalistarFocus?.engage();
@@ -582,7 +598,7 @@ function showDeck(){setView('decks');}
     if(side===game.turn)ui.attacker=slot;else ui.target=slot;
   }
   async function animatedRoll(kalistel=false){
-    if(rolling||!(kalistel?game.phase==='kalistel':['attack','defense'].includes(game.phase)))return;
+    if(rolling||presentationOpening||!(kalistel?game.phase==='kalistel':['attack','defense'].includes(game.phase)))return;
     const token=epoch,phase=kalistel?'attack':game.phase,actor=phase==='attack'?game.turn:1-game.turn,next=E.clone(game);
     let celebration=null;
     try{
@@ -618,7 +634,7 @@ function showDeck(){setView('decks');}
     finally{combatController?.abort();combatController=null;rolling=false;$('#app').classList.remove('rolling');render();if(celebration&&ui.view==='arena')window.KalistarCombat?.celebrateKill(celebration);}
   }
   async function animatedTrait(uid){
-    if(rolling||!['clover','potion','physical','heart','guard'].includes(game.phase))return;
+    if(rolling||presentationOpening||!['clover','potion','physical','heart','guard'].includes(game.phase))return;
     const token=epoch,next=E.clone(game);
     try{
       checkGame();
@@ -632,14 +648,14 @@ function showDeck(){setView('decks');}
     finally{combatController?.abort();combatController=null;rolling=false;render();}
   }
   function scheduleAI(){
-    clearTimeout(aiTimer);if(!game||ui.view!=='arena'||rolling||document.hidden||overlayOpen())return;
+    clearTimeout(aiTimer);if(!game||ui.view!=='arena'||rolling||presentationOpening||pendingLineup||document.hidden||overlayOpen())return;
     const p=game.phase,token=epoch;
     const second=p==='defense'&&game.duel.autoDefense;
     const active=second||game.mode==='ai'&&((p==='choose'&&game.turn===1)||(['kalistel','clover','potion','physical','heart','guard'].includes(p)&&game.turn===1)||(p==='attack'&&game.turn===1)||(p==='defense'&&game.turn===0)||(p==='replace'&&game.replacing===1));
     if(!active)return;
     // Card focus needs 520ms to settle; the crystal ignition then gets its own beat.
     const delay=second?1000:p==='choose'?(ui.attacker===null?450:650):p==='attack'||p==='defense'?850:650;
-    aiTimer=setTimeout(()=>{if(token!==epoch||ui.view!=='arena'||document.hidden||overlayOpen())return;
+    aiTimer=setTimeout(()=>{if(token!==epoch||ui.view!=='arena'||presentationOpening||pendingLineup||document.hidden||overlayOpen())return;
       if(p==='choose'){
         if(ui.attacker!==null&&ui.target!==null)return engageDuel();
         return act(()=>{const pair=E.aiChoice(game);if(ui.attacker===null)ui.attacker=pair[0];else ui.target=pair[1];});
@@ -656,7 +672,7 @@ function showDeck(){setView('decks');}
     if(u)showDetail(u.cardId,false,{side,uid,bonus});
   }
   window.KalistarFormationDrag?.init({
-    source:button=>!rolling&&ui.view==='arena'?{side:Number(button.dataset.side),uid:button.dataset.uid,epoch}:null,
+    source:button=>!rolling&&!presentationOpening&&ui.view==='arena'?{side:Number(button.dataset.side),uid:button.dataset.uid,epoch}:null,
     valid:(source,side,slot)=>source.epoch===epoch&&source.side===side&&canDeployReserve(side,source.uid,slot),
     drop:(source,side,slot)=>{if(source.epoch===epoch&&source.side===side)act(()=>placeReserve(side,source.uid,slot));}
   });
@@ -913,6 +929,6 @@ function showDeck(){setView('decks');}
     if(ui.view==='collection')collectionBinder?.refresh();
     if(ui.view==='decks')deckBuilder?.refresh();
   });
-  window.addEventListener('pagehide',()=>{stopEquipmentRefresh?.();weaponsUI.destroy();});
+  window.addEventListener('pagehide',()=>{pendingLineup=null;cancelLineup();stopEquipmentRefresh?.();weaponsUI.destroy();});
   render();if(restoreError)toast(restoreError);window.KALISTAR_READY=true;
 })();
