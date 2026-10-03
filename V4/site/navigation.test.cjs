@@ -24,3 +24,10 @@ test('menu entry points and reduced motion remain available without tiny phone b
   assert(css.includes('prefers-reduced-motion:reduce'));assert(css.includes('repeat(5,minmax(0,1fr))'));
   assert(css.includes('height:60px'));assert(css.includes('body.arena-view .masthead > * { display:none; }'));
 });
+test('navigation target height does not feed back from the measured masthead height',()=>{
+  const css=read('V4/site/navigation.css').toString();
+  assert(css.includes('--masthead-height:var(--navigation-header-height)'));
+  assert(!/\b(?:height|min-height|flex-basis):var\(--masthead-height\)/.test(css));
+  assert(css.includes('margin:8px 0 -1px; border-bottom:0'));
+  assert(css.includes('position:relative; z-index:30; overflow:visible'));
+});

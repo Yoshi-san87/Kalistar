@@ -3,7 +3,7 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
 const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE||'','.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const {chromium}=createRequire(path.join(runtime,'__navigation_browser__.cjs'))('playwright');
 const dist=path.resolve(__dirname,'../deploy/dist'),local=process.env.KALISTAR_NAV_LOCAL==='1',base=local?'http://127.0.0.1:4304':'https://kalistar-nav-qa.invalid/Kalistar';
-const out=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'../revisions/2026-10-03-menu-identity/qa/navigation');
+const out=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'verification/navigation');
 const results=[],errors=[];let browser;
 async function capture(page,name){
   await page.waitForFunction(()=>[...document.images].filter(n=>{
@@ -19,9 +19,11 @@ async function checks(page,label,phone){
     const nav=document.querySelector('.main-nav'),header=document.querySelector('.masthead'),actions=document.querySelector('.header-actions');
     const box=n=>{const r=n.getBoundingClientRect();return {x:r.x,y:r.y,width:r.width,height:r.height,right:r.right,bottom:r.bottom};};
     const buttons=[...nav.querySelectorAll('button')].filter(n=>getComputedStyle(n).display!=='none');
-    return {font:document.fonts.check('600 14px Cinzel'),family:getComputedStyle(buttons[0]).fontFamily,header:box(header),nav:box(nav),actions:box(actions),viewport:innerWidth,
+    const selected=buttons.find(n=>n.classList.contains('active')),gem=selected&&getComputedStyle(selected,'::after');
+    return {font:document.fonts.check('600 14px Cinzel'),family:getComputedStyle(buttons[0]).fontFamily,header:box(header),nav:box(nav),actions:box(actions),brand:box(document.querySelector('.brand img')),viewport:innerWidth,
       buttons:buttons.map(n=>({view:n.dataset.view||'more',...box(n),label:box(n.querySelector('span')),icon:box(n.querySelector('.kalistar-nav-icon,.lucide')),current:n.getAttribute('aria-current')})),
       overflow:document.documentElement.scrollWidth>innerWidth,
+      layers:{header:getComputedStyle(header).zIndex,headerPosition:getComputedStyle(header).position,headerOverflow:getComputedStyle(header).overflow,nav:getComputedStyle(nav).zIndex,gem:gem?.zIndex},
       bodyFont:getComputedStyle(document.body).fontFamily};
   });
   assert(sample.font&&sample.family.includes('Cinzel'),label+' loads the real display font');
@@ -36,6 +38,14 @@ async function checks(page,label,phone){
     assert(b.right<=sample.viewport+.5,label+' item within viewport '+b.view);
   }
   if(!phone&&sample.nav.y<sample.actions.bottom)assert(sample.nav.right<=sample.actions.x+.5,label+' header controls do not overlap navigation');
+  if(!phone){
+    assert(sample.brand.y>=sample.header.y-.5&&sample.actions.y>=sample.header.y-.5,label+' logo and controls remain inside the header');
+    assert(Math.abs(sample.nav.bottom-sample.header.bottom)<.5,label+' navigation touches the masthead border');
+    assert(sample.buttons.every(b=>Math.abs(b.bottom-sample.header.bottom)<.5),label+' every tab ends on the same border');
+    assert(Number(sample.layers.header)>=30&&Number(sample.layers.nav)>0&&Number(sample.layers.gem)>0,label+' menu and Kalistel have explicit foreground layers');
+    assert.equal(sample.layers.headerOverflow,'visible',label+' projecting Kalistel is not clipped');
+    assert.notEqual(sample.layers.headerPosition,'static');
+  }
   if(phone)assert(sample.nav.y>sample.header.bottom,label+' bottom navigation');
   results.push({label,sample});
 }

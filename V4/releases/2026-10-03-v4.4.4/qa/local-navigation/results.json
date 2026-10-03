@@ -1,0 +1,3318 @@
+{
+  "passed": true,
+  "errors": [],
+  "results": [
+    {
+      "label": "desktop weapons",
+      "sample": {
+        "font": true,
+        "family": "Cinzel, Georgia, serif",
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 76,
+          "right": 1920,
+          "bottom": 76
+        },
+        "nav": {
+          "x": 226,
+          "y": 8,
+          "width": 1386.484375,
+          "height": 68,
+          "right": 1612.484375,
+          "bottom": 76
+        },
+        "actions": {
+          "x": 1632.484375,
+          "y": 17.5,
+          "width": 265.515625,
+          "height": 40,
+          "right": 1898,
+          "bottom": 57.5
+        },
+        "brand": {
+          "x": 22,
+          "y": 6.5,
+          "width": 184,
+          "height": 62,
+          "right": 206,
+          "bottom": 68.5
+        },
+        "viewport": 1920,
+        "buttons": [
+          {
+            "view": "collection",
+            "x": 231,
+            "y": 9,
+            "width": 225.984375,
+            "height": 67,
+            "right": 456.984375,
+            "bottom": 76,
+            "label": {
+              "x": 322.625,
+              "y": 34.703125,
+              "width": 81.734375,
+              "height": 15.59375,
+              "right": 404.359375,
+              "bottom": 50.296875
+            },
+            "icon": {
+              "x": 282.625,
+              "y": 26.5,
+              "width": 32,
+              "height": 32,
+              "right": 314.625,
+              "bottom": 58.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "story",
+            "x": 456.984375,
+            "y": 9,
+            "width": 184.15625,
+            "height": 67,
+            "right": 641.140625,
+            "bottom": 76,
+            "label": {
+              "x": 548.609375,
+              "y": 34.703125,
+              "width": 39.890625,
+              "height": 15.59375,
+              "right": 588.5,
+              "bottom": 50.296875
+            },
+            "icon": {
+              "x": 508.609375,
+              "y": 26.5,
+              "width": 32,
+              "height": 32,
+              "right": 540.609375,
+              "bottom": 58.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "decks",
+            "x": 641.140625,
+            "y": 9,
+            "width": 185.453125,
+            "height": 67,
+            "right": 826.59375,
+            "bottom": 76,
+            "label": {
+              "x": 732.765625,
+              "y": 34.703125,
+              "width": 41.203125,
+              "height": 15.59375,
+              "right": 773.96875,
+              "bottom": 50.296875
+            },
+            "icon": {
+              "x": 692.765625,
+              "y": 26.5,
+              "width": 32,
+              "height": 32,
+              "right": 724.765625,
+              "bottom": 58.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "weapons",
+            "x": 826.59375,
+            "y": 9,
+            "width": 186.5,
+            "height": 67,
+            "right": 1013.09375,
+            "bottom": 76,
+            "label": {
+              "x": 918.21875,
+              "y": 34.703125,
+              "width": 42.234375,
+              "height": 15.59375,
+              "right": 960.453125,
+              "bottom": 50.296875
+            },
+            "icon": {
+              "x": 878.21875,
+              "y": 26.5,
+              "width": 32,
+              "height": 32,
+              "right": 910.21875,
+              "bottom": 58.5
+            },
+            "current": "page"
+          },
+          {
+            "view": "arena",
+            "x": 1013.09375,
+            "y": 9,
+            "width": 186.296875,
+            "height": 67,
+            "right": 1199.390625,
+            "bottom": 76,
+            "label": {
+              "x": 1104.71875,
+              "y": 34.703125,
+              "width": 42.046875,
+              "height": 15.59375,
+              "right": 1146.765625,
+              "bottom": 50.296875
+            },
+            "icon": {
+              "x": 1064.71875,
+              "y": 26.5,
+              "width": 32,
+              "height": 32,
+              "right": 1096.71875,
+              "bottom": 58.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "statistics",
+            "x": 1199.390625,
+            "y": 9,
+            "width": 227.984375,
+            "height": 67,
+            "right": 1427.375,
+            "bottom": 76,
+            "label": {
+              "x": 1291.015625,
+              "y": 34.703125,
+              "width": 83.71875,
+              "height": 15.59375,
+              "right": 1374.734375,
+              "bottom": 50.296875
+            },
+            "icon": {
+              "x": 1251.015625,
+              "y": 26.5,
+              "width": 32,
+              "height": 32,
+              "right": 1283.015625,
+              "bottom": 58.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "atelier",
+            "x": 1427.375,
+            "y": 9,
+            "width": 180.109375,
+            "height": 67,
+            "right": 1607.484375,
+            "bottom": 76,
+            "label": {
+              "x": 1505,
+              "y": 34.703125,
+              "width": 49.84375,
+              "height": 15.59375,
+              "right": 1554.84375,
+              "bottom": 50.296875
+            },
+            "icon": {
+              "x": 1479,
+              "y": 33.5,
+              "width": 18,
+              "height": 18,
+              "right": 1497,
+              "bottom": 51.5
+            },
+            "current": "false"
+          }
+        ],
+        "overflow": false,
+        "layers": {
+          "header": "30",
+          "headerPosition": "relative",
+          "headerOverflow": "visible",
+          "nav": "1",
+          "gem": "3"
+        },
+        "bodyFont": "\"Segoe UI\", Arial, sans-serif"
+      }
+    },
+    {
+      "label": "desktop decks",
+      "sample": {
+        "font": true,
+        "family": "Cinzel, Georgia, serif",
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 76,
+          "right": 1920,
+          "bottom": 76
+        },
+        "nav": {
+          "x": 226,
+          "y": 8,
+          "width": 1386.484375,
+          "height": 68,
+          "right": 1612.484375,
+          "bottom": 76
+        },
+        "actions": {
+          "x": 1632.484375,
+          "y": 17.5,
+          "width": 265.515625,
+          "height": 40,
+          "right": 1898,
+          "bottom": 57.5
+        },
+        "brand": {
+          "x": 22,
+          "y": 6.5,
+          "width": 184,
+          "height": 62,
+          "right": 206,
+          "bottom": 68.5
+        },
+        "viewport": 1920,
+        "buttons": [
+          {
+            "view": "collection",
+            "x": 231,
+            "y": 9,
+            "width": 225.984375,
+            "height": 67,
+            "right": 456.984375,
+            "bottom": 76,
+            "label": {
+              "x": 322.625,
+              "y": 34.703125,
+              "width": 81.734375,
+              "height": 15.59375,
+              "right": 404.359375,
+              "bottom": 50.296875
+            },
+            "icon": {
+              "x": 282.625,
+              "y": 26.5,
+              "width": 32,
+              "height": 32,
+              "right": 314.625,
+              "bottom": 58.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "story",
+            "x": 456.984375,
+            "y": 9,
+            "width": 184.15625,
+            "height": 67,
+            "right": 641.140625,
+            "bottom": 76,
+            "label": {
+              "x": 548.609375,
+              "y": 34.703125,
+              "width": 39.890625,
+              "height": 15.59375,
+              "right": 588.5,
+              "bottom": 50.296875
+            },
+            "icon": {
+              "x": 508.609375,
+              "y": 26.5,
+              "width": 32,
+              "height": 32,
+              "right": 540.609375,
+              "bottom": 58.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "decks",
+            "x": 641.140625,
+            "y": 9,
+            "width": 185.453125,
+            "height": 67,
+            "right": 826.59375,
+            "bottom": 76,
+            "label": {
+              "x": 732.765625,
+              "y": 34.703125,
+              "width": 41.203125,
+              "height": 15.59375,
+              "right": 773.96875,
+              "bottom": 50.296875
+            },
+            "icon": {
+              "x": 692.765625,
+              "y": 25.5,
+              "width": 32,
+              "height": 32,
+              "right": 724.765625,
+              "bottom": 57.5
+            },
+            "current": "page"
+          },
+          {
+            "view": "weapons",
+            "x": 826.59375,
+            "y": 9,
+            "width": 186.5,
+            "height": 67,
+            "right": 1013.09375,
+            "bottom": 76,
+            "label": {
+              "x": 918.21875,
+              "y": 34.703125,
+              "width": 42.234375,
+              "height": 15.59375,
+              "right": 960.453125,
+              "bottom": 50.296875
+            },
+            "icon": {
+              "x": 878.21875,
+              "y": 26.5,
+              "width": 32,
+              "height": 32,
+              "right": 910.21875,
+              "bottom": 58.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "arena",
+            "x": 1013.09375,
+            "y": 9,
+            "width": 186.296875,
+            "height": 67,
+            "right": 1199.390625,
+            "bottom": 76,
+            "label": {
+              "x": 1104.71875,
+              "y": 34.703125,
+              "width": 42.046875,
+              "height": 15.59375,
+              "right": 1146.765625,
+              "bottom": 50.296875
+            },
+            "icon": {
+              "x": 1064.71875,
+              "y": 26.5,
+              "width": 32,
+              "height": 32,
+              "right": 1096.71875,
+              "bottom": 58.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "statistics",
+            "x": 1199.390625,
+            "y": 9,
+            "width": 227.984375,
+            "height": 67,
+            "right": 1427.375,
+            "bottom": 76,
+            "label": {
+              "x": 1291.015625,
+              "y": 34.703125,
+              "width": 83.71875,
+              "height": 15.59375,
+              "right": 1374.734375,
+              "bottom": 50.296875
+            },
+            "icon": {
+              "x": 1251.015625,
+              "y": 26.5,
+              "width": 32,
+              "height": 32,
+              "right": 1283.015625,
+              "bottom": 58.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "atelier",
+            "x": 1427.375,
+            "y": 9,
+            "width": 180.109375,
+            "height": 67,
+            "right": 1607.484375,
+            "bottom": 76,
+            "label": {
+              "x": 1505,
+              "y": 34.703125,
+              "width": 49.84375,
+              "height": 15.59375,
+              "right": 1554.84375,
+              "bottom": 50.296875
+            },
+            "icon": {
+              "x": 1479,
+              "y": 33.5,
+              "width": 18,
+              "height": 18,
+              "right": 1497,
+              "bottom": 51.5
+            },
+            "current": "false"
+          }
+        ],
+        "overflow": false,
+        "layers": {
+          "header": "30",
+          "headerPosition": "relative",
+          "headerOverflow": "visible",
+          "nav": "1",
+          "gem": "3"
+        },
+        "bodyFont": "\"Segoe UI\", Arial, sans-serif"
+      }
+    },
+    {
+      "label": "laptop weapons",
+      "sample": {
+        "font": true,
+        "family": "Cinzel, Georgia, serif",
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 76,
+          "right": 1440,
+          "bottom": 76
+        },
+        "nav": {
+          "x": 204,
+          "y": 8,
+          "width": 940.484375,
+          "height": 68,
+          "right": 1144.484375,
+          "bottom": 76
+        },
+        "actions": {
+          "x": 1158.484375,
+          "y": 17.5,
+          "width": 265.515625,
+          "height": 40,
+          "right": 1424,
+          "bottom": 57.5
+        },
+        "brand": {
+          "x": 16,
+          "y": 6.5,
+          "width": 174,
+          "height": 62,
+          "right": 190,
+          "bottom": 68.5
+        },
+        "viewport": 1440,
+        "buttons": [
+          {
+            "view": "collection",
+            "x": 209,
+            "y": 9,
+            "width": 162.265625,
+            "height": 67,
+            "right": 371.265625,
+            "bottom": 76,
+            "label": {
+              "x": 267.765625,
+              "y": 34.703125,
+              "width": 81.734375,
+              "height": 15.59375,
+              "right": 349.5,
+              "bottom": 50.296875
+            },
+            "icon": {
+              "x": 229.765625,
+              "y": 26.5,
+              "width": 32,
+              "height": 32,
+              "right": 261.765625,
+              "bottom": 58.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "story",
+            "x": 371.265625,
+            "y": 9,
+            "width": 120.4375,
+            "height": 67,
+            "right": 491.703125,
+            "bottom": 76,
+            "label": {
+              "x": 430.03125,
+              "y": 34.703125,
+              "width": 39.890625,
+              "height": 15.59375,
+              "right": 469.921875,
+              "bottom": 50.296875
+            },
+            "icon": {
+              "x": 392.03125,
+              "y": 26.5,
+              "width": 32,
+              "height": 32,
+              "right": 424.03125,
+              "bottom": 58.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "decks",
+            "x": 491.703125,
+            "y": 9,
+            "width": 121.75,
+            "height": 67,
+            "right": 613.453125,
+            "bottom": 76,
+            "label": {
+              "x": 550.46875,
+              "y": 34.703125,
+              "width": 41.203125,
+              "height": 15.59375,
+              "right": 591.671875,
+              "bottom": 50.296875
+            },
+            "icon": {
+              "x": 512.46875,
+              "y": 26.5,
+              "width": 32,
+              "height": 32,
+              "right": 544.46875,
+              "bottom": 58.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "weapons",
+            "x": 613.453125,
+            "y": 9,
+            "width": 122.78125,
+            "height": 67,
+            "right": 736.234375,
+            "bottom": 76,
+            "label": {
+              "x": 672.21875,
+              "y": 34.703125,
+              "width": 42.234375,
+              "height": 15.59375,
+              "right": 714.453125,
+              "bottom": 50.296875
+            },
+            "icon": {
+              "x": 634.21875,
+              "y": 26.5,
+              "width": 32,
+              "height": 32,
+              "right": 666.21875,
+              "bottom": 58.5
+            },
+            "current": "page"
+          },
+          {
+            "view": "arena",
+            "x": 736.234375,
+            "y": 9,
+            "width": 122.59375,
+            "height": 67,
+            "right": 858.828125,
+            "bottom": 76,
+            "label": {
+              "x": 795,
+              "y": 34.703125,
+              "width": 42.046875,
+              "height": 15.59375,
+              "right": 837.046875,
+              "bottom": 50.296875
+            },
+            "icon": {
+              "x": 757,
+              "y": 26.5,
+              "width": 32,
+              "height": 32,
+              "right": 789,
+              "bottom": 58.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "statistics",
+            "x": 858.828125,
+            "y": 9,
+            "width": 164.265625,
+            "height": 67,
+            "right": 1023.09375,
+            "bottom": 76,
+            "label": {
+              "x": 917.59375,
+              "y": 34.703125,
+              "width": 83.71875,
+              "height": 15.59375,
+              "right": 1001.3125,
+              "bottom": 50.296875
+            },
+            "icon": {
+              "x": 879.59375,
+              "y": 26.5,
+              "width": 32,
+              "height": 32,
+              "right": 911.59375,
+              "bottom": 58.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "atelier",
+            "x": 1023.09375,
+            "y": 9,
+            "width": 116.390625,
+            "height": 67,
+            "right": 1139.484375,
+            "bottom": 76,
+            "label": {
+              "x": 1067.859375,
+              "y": 34.703125,
+              "width": 49.84375,
+              "height": 15.59375,
+              "right": 1117.703125,
+              "bottom": 50.296875
+            },
+            "icon": {
+              "x": 1043.859375,
+              "y": 33.5,
+              "width": 18,
+              "height": 18,
+              "right": 1061.859375,
+              "bottom": 51.5
+            },
+            "current": "false"
+          }
+        ],
+        "overflow": false,
+        "layers": {
+          "header": "30",
+          "headerPosition": "relative",
+          "headerOverflow": "visible",
+          "nav": "1",
+          "gem": "3"
+        },
+        "bodyFont": "\"Segoe UI\", Arial, sans-serif"
+      }
+    },
+    {
+      "label": "laptop decks",
+      "sample": {
+        "font": true,
+        "family": "Cinzel, Georgia, serif",
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 76,
+          "right": 1440,
+          "bottom": 76
+        },
+        "nav": {
+          "x": 204,
+          "y": 8,
+          "width": 940.484375,
+          "height": 68,
+          "right": 1144.484375,
+          "bottom": 76
+        },
+        "actions": {
+          "x": 1158.484375,
+          "y": 17.5,
+          "width": 265.515625,
+          "height": 40,
+          "right": 1424,
+          "bottom": 57.5
+        },
+        "brand": {
+          "x": 16,
+          "y": 6.5,
+          "width": 174,
+          "height": 62,
+          "right": 190,
+          "bottom": 68.5
+        },
+        "viewport": 1440,
+        "buttons": [
+          {
+            "view": "collection",
+            "x": 209,
+            "y": 9,
+            "width": 162.265625,
+            "height": 67,
+            "right": 371.265625,
+            "bottom": 76,
+            "label": {
+              "x": 267.765625,
+              "y": 34.703125,
+              "width": 81.734375,
+              "height": 15.59375,
+              "right": 349.5,
+              "bottom": 50.296875
+            },
+            "icon": {
+              "x": 229.765625,
+              "y": 26.5,
+              "width": 32,
+              "height": 32,
+              "right": 261.765625,
+              "bottom": 58.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "story",
+            "x": 371.265625,
+            "y": 9,
+            "width": 120.4375,
+            "height": 67,
+            "right": 491.703125,
+            "bottom": 76,
+            "label": {
+              "x": 430.03125,
+              "y": 34.703125,
+              "width": 39.890625,
+              "height": 15.59375,
+              "right": 469.921875,
+              "bottom": 50.296875
+            },
+            "icon": {
+              "x": 392.03125,
+              "y": 26.5,
+              "width": 32,
+              "height": 32,
+              "right": 424.03125,
+              "bottom": 58.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "decks",
+            "x": 491.703125,
+            "y": 9,
+            "width": 121.75,
+            "height": 67,
+            "right": 613.453125,
+            "bottom": 76,
+            "label": {
+              "x": 550.46875,
+              "y": 34.703125,
+              "width": 41.203125,
+              "height": 15.59375,
+              "right": 591.671875,
+              "bottom": 50.296875
+            },
+            "icon": {
+              "x": 512.46875,
+              "y": 25.5,
+              "width": 32,
+              "height": 32,
+              "right": 544.46875,
+              "bottom": 57.5
+            },
+            "current": "page"
+          },
+          {
+            "view": "weapons",
+            "x": 613.453125,
+            "y": 9,
+            "width": 122.78125,
+            "height": 67,
+            "right": 736.234375,
+            "bottom": 76,
+            "label": {
+              "x": 672.21875,
+              "y": 34.703125,
+              "width": 42.234375,
+              "height": 15.59375,
+              "right": 714.453125,
+              "bottom": 50.296875
+            },
+            "icon": {
+              "x": 634.21875,
+              "y": 26.5,
+              "width": 32,
+              "height": 32,
+              "right": 666.21875,
+              "bottom": 58.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "arena",
+            "x": 736.234375,
+            "y": 9,
+            "width": 122.59375,
+            "height": 67,
+            "right": 858.828125,
+            "bottom": 76,
+            "label": {
+              "x": 795,
+              "y": 34.703125,
+              "width": 42.046875,
+              "height": 15.59375,
+              "right": 837.046875,
+              "bottom": 50.296875
+            },
+            "icon": {
+              "x": 757,
+              "y": 26.5,
+              "width": 32,
+              "height": 32,
+              "right": 789,
+              "bottom": 58.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "statistics",
+            "x": 858.828125,
+            "y": 9,
+            "width": 164.265625,
+            "height": 67,
+            "right": 1023.09375,
+            "bottom": 76,
+            "label": {
+              "x": 917.59375,
+              "y": 34.703125,
+              "width": 83.71875,
+              "height": 15.59375,
+              "right": 1001.3125,
+              "bottom": 50.296875
+            },
+            "icon": {
+              "x": 879.59375,
+              "y": 26.5,
+              "width": 32,
+              "height": 32,
+              "right": 911.59375,
+              "bottom": 58.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "atelier",
+            "x": 1023.09375,
+            "y": 9,
+            "width": 116.390625,
+            "height": 67,
+            "right": 1139.484375,
+            "bottom": 76,
+            "label": {
+              "x": 1067.859375,
+              "y": 34.703125,
+              "width": 49.84375,
+              "height": 15.59375,
+              "right": 1117.703125,
+              "bottom": 50.296875
+            },
+            "icon": {
+              "x": 1043.859375,
+              "y": 33.5,
+              "width": 18,
+              "height": 18,
+              "right": 1061.859375,
+              "bottom": 51.5
+            },
+            "current": "false"
+          }
+        ],
+        "overflow": false,
+        "layers": {
+          "header": "30",
+          "headerPosition": "relative",
+          "headerOverflow": "visible",
+          "nav": "1",
+          "gem": "3"
+        },
+        "bodyFont": "\"Segoe UI\", Arial, sans-serif"
+      }
+    },
+    {
+      "label": "small-laptop weapons",
+      "sample": {
+        "font": true,
+        "family": "Cinzel, Georgia, serif",
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 110,
+          "right": 1280,
+          "bottom": 110
+        },
+        "nav": {
+          "x": 16,
+          "y": 48,
+          "width": 1248,
+          "height": 62,
+          "right": 1264,
+          "bottom": 110
+        },
+        "actions": {
+          "x": 1006.484375,
+          "y": 6,
+          "width": 257.515625,
+          "height": 40,
+          "right": 1264,
+          "bottom": 46
+        },
+        "brand": {
+          "x": 16,
+          "y": 6,
+          "width": 174,
+          "height": 40,
+          "right": 190,
+          "bottom": 46
+        },
+        "viewport": 1280,
+        "buttons": [
+          {
+            "view": "collection",
+            "x": 21,
+            "y": 49,
+            "width": 176.84375,
+            "height": 61,
+            "right": 197.84375,
+            "bottom": 110,
+            "label": {
+              "x": 90.1875,
+              "y": 72.296875,
+              "width": 75.453125,
+              "height": 14.390625,
+              "right": 165.640625,
+              "bottom": 86.6875
+            },
+            "icon": {
+              "x": 52.1875,
+              "y": 63.5,
+              "width": 32,
+              "height": 32,
+              "right": 84.1875,
+              "bottom": 95.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "story",
+            "x": 197.84375,
+            "y": 49,
+            "width": 176.859375,
+            "height": 61,
+            "right": 374.703125,
+            "bottom": 110,
+            "label": {
+              "x": 286.359375,
+              "y": 72.296875,
+              "width": 36.828125,
+              "height": 14.390625,
+              "right": 323.1875,
+              "bottom": 86.6875
+            },
+            "icon": {
+              "x": 248.359375,
+              "y": 63.5,
+              "width": 32,
+              "height": 32,
+              "right": 280.359375,
+              "bottom": 95.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "decks",
+            "x": 374.703125,
+            "y": 49,
+            "width": 176.859375,
+            "height": 61,
+            "right": 551.5625,
+            "bottom": 110,
+            "label": {
+              "x": 462.609375,
+              "y": 72.296875,
+              "width": 38.03125,
+              "height": 14.390625,
+              "right": 500.640625,
+              "bottom": 86.6875
+            },
+            "icon": {
+              "x": 424.609375,
+              "y": 63.5,
+              "width": 32,
+              "height": 32,
+              "right": 456.609375,
+              "bottom": 95.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "weapons",
+            "x": 551.5625,
+            "y": 49,
+            "width": 176.859375,
+            "height": 61,
+            "right": 728.421875,
+            "bottom": 110,
+            "label": {
+              "x": 639,
+              "y": 72.296875,
+              "width": 38.984375,
+              "height": 14.390625,
+              "right": 677.984375,
+              "bottom": 86.6875
+            },
+            "icon": {
+              "x": 601,
+              "y": 63.5,
+              "width": 32,
+              "height": 32,
+              "right": 633,
+              "bottom": 95.5
+            },
+            "current": "page"
+          },
+          {
+            "view": "arena",
+            "x": 728.421875,
+            "y": 49,
+            "width": 176.859375,
+            "height": 61,
+            "right": 905.28125,
+            "bottom": 110,
+            "label": {
+              "x": 815.9375,
+              "y": 72.296875,
+              "width": 38.8125,
+              "height": 14.390625,
+              "right": 854.75,
+              "bottom": 86.6875
+            },
+            "icon": {
+              "x": 777.9375,
+              "y": 63.5,
+              "width": 32,
+              "height": 32,
+              "right": 809.9375,
+              "bottom": 95.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "statistics",
+            "x": 905.28125,
+            "y": 49,
+            "width": 176.859375,
+            "height": 61,
+            "right": 1082.140625,
+            "bottom": 110,
+            "label": {
+              "x": 973.5625,
+              "y": 72.296875,
+              "width": 77.28125,
+              "height": 14.390625,
+              "right": 1050.84375,
+              "bottom": 86.6875
+            },
+            "icon": {
+              "x": 935.5625,
+              "y": 63.5,
+              "width": 32,
+              "height": 32,
+              "right": 967.5625,
+              "bottom": 95.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "atelier",
+            "x": 1082.140625,
+            "y": 49,
+            "width": 176.859375,
+            "height": 61,
+            "right": 1259,
+            "bottom": 110,
+            "label": {
+              "x": 1159.0625,
+              "y": 72.296875,
+              "width": 46.015625,
+              "height": 14.390625,
+              "right": 1205.078125,
+              "bottom": 86.6875
+            },
+            "icon": {
+              "x": 1135.0625,
+              "y": 70.5,
+              "width": 18,
+              "height": 18,
+              "right": 1153.0625,
+              "bottom": 88.5
+            },
+            "current": "false"
+          }
+        ],
+        "overflow": false,
+        "layers": {
+          "header": "30",
+          "headerPosition": "relative",
+          "headerOverflow": "visible",
+          "nav": "1",
+          "gem": "3"
+        },
+        "bodyFont": "\"Segoe UI\", Arial, sans-serif"
+      }
+    },
+    {
+      "label": "small-laptop decks",
+      "sample": {
+        "font": true,
+        "family": "Cinzel, Georgia, serif",
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 110,
+          "right": 1280,
+          "bottom": 110
+        },
+        "nav": {
+          "x": 16,
+          "y": 48,
+          "width": 1248,
+          "height": 62,
+          "right": 1264,
+          "bottom": 110
+        },
+        "actions": {
+          "x": 1006.484375,
+          "y": 6,
+          "width": 257.515625,
+          "height": 40,
+          "right": 1264,
+          "bottom": 46
+        },
+        "brand": {
+          "x": 16,
+          "y": 6,
+          "width": 174,
+          "height": 40,
+          "right": 190,
+          "bottom": 46
+        },
+        "viewport": 1280,
+        "buttons": [
+          {
+            "view": "collection",
+            "x": 21,
+            "y": 49,
+            "width": 176.84375,
+            "height": 61,
+            "right": 197.84375,
+            "bottom": 110,
+            "label": {
+              "x": 90.1875,
+              "y": 72.296875,
+              "width": 75.453125,
+              "height": 14.390625,
+              "right": 165.640625,
+              "bottom": 86.6875
+            },
+            "icon": {
+              "x": 52.1875,
+              "y": 63.5,
+              "width": 32,
+              "height": 32,
+              "right": 84.1875,
+              "bottom": 95.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "story",
+            "x": 197.84375,
+            "y": 49,
+            "width": 176.859375,
+            "height": 61,
+            "right": 374.703125,
+            "bottom": 110,
+            "label": {
+              "x": 286.359375,
+              "y": 72.296875,
+              "width": 36.828125,
+              "height": 14.390625,
+              "right": 323.1875,
+              "bottom": 86.6875
+            },
+            "icon": {
+              "x": 248.359375,
+              "y": 63.5,
+              "width": 32,
+              "height": 32,
+              "right": 280.359375,
+              "bottom": 95.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "decks",
+            "x": 374.703125,
+            "y": 49,
+            "width": 176.859375,
+            "height": 61,
+            "right": 551.5625,
+            "bottom": 110,
+            "label": {
+              "x": 462.609375,
+              "y": 72.296875,
+              "width": 38.03125,
+              "height": 14.390625,
+              "right": 500.640625,
+              "bottom": 86.6875
+            },
+            "icon": {
+              "x": 424.609375,
+              "y": 62.5,
+              "width": 32,
+              "height": 32,
+              "right": 456.609375,
+              "bottom": 94.5
+            },
+            "current": "page"
+          },
+          {
+            "view": "weapons",
+            "x": 551.5625,
+            "y": 49,
+            "width": 176.859375,
+            "height": 61,
+            "right": 728.421875,
+            "bottom": 110,
+            "label": {
+              "x": 639,
+              "y": 72.296875,
+              "width": 38.984375,
+              "height": 14.390625,
+              "right": 677.984375,
+              "bottom": 86.6875
+            },
+            "icon": {
+              "x": 601,
+              "y": 63.5,
+              "width": 32,
+              "height": 32,
+              "right": 633,
+              "bottom": 95.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "arena",
+            "x": 728.421875,
+            "y": 49,
+            "width": 176.859375,
+            "height": 61,
+            "right": 905.28125,
+            "bottom": 110,
+            "label": {
+              "x": 815.9375,
+              "y": 72.296875,
+              "width": 38.8125,
+              "height": 14.390625,
+              "right": 854.75,
+              "bottom": 86.6875
+            },
+            "icon": {
+              "x": 777.9375,
+              "y": 63.5,
+              "width": 32,
+              "height": 32,
+              "right": 809.9375,
+              "bottom": 95.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "statistics",
+            "x": 905.28125,
+            "y": 49,
+            "width": 176.859375,
+            "height": 61,
+            "right": 1082.140625,
+            "bottom": 110,
+            "label": {
+              "x": 973.5625,
+              "y": 72.296875,
+              "width": 77.28125,
+              "height": 14.390625,
+              "right": 1050.84375,
+              "bottom": 86.6875
+            },
+            "icon": {
+              "x": 935.5625,
+              "y": 63.5,
+              "width": 32,
+              "height": 32,
+              "right": 967.5625,
+              "bottom": 95.5
+            },
+            "current": "false"
+          },
+          {
+            "view": "atelier",
+            "x": 1082.140625,
+            "y": 49,
+            "width": 176.859375,
+            "height": 61,
+            "right": 1259,
+            "bottom": 110,
+            "label": {
+              "x": 1159.0625,
+              "y": 72.296875,
+              "width": 46.015625,
+              "height": 14.390625,
+              "right": 1205.078125,
+              "bottom": 86.6875
+            },
+            "icon": {
+              "x": 1135.0625,
+              "y": 70.5,
+              "width": 18,
+              "height": 18,
+              "right": 1153.0625,
+              "bottom": 88.5
+            },
+            "current": "false"
+          }
+        ],
+        "overflow": false,
+        "layers": {
+          "header": "30",
+          "headerPosition": "relative",
+          "headerOverflow": "visible",
+          "nav": "1",
+          "gem": "3"
+        },
+        "bodyFont": "\"Segoe UI\", Arial, sans-serif"
+      }
+    },
+    {
+      "label": "tablet weapons",
+      "sample": {
+        "font": true,
+        "family": "Cinzel, Georgia, serif",
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 800,
+          "height": 122,
+          "right": 800,
+          "bottom": 122
+        },
+        "nav": {
+          "x": 16,
+          "y": 48,
+          "width": 768,
+          "height": 74,
+          "right": 784,
+          "bottom": 122
+        },
+        "actions": {
+          "x": 526.484375,
+          "y": 6,
+          "width": 257.515625,
+          "height": 40,
+          "right": 784,
+          "bottom": 46
+        },
+        "brand": {
+          "x": 16,
+          "y": 6,
+          "width": 174,
+          "height": 40,
+          "right": 190,
+          "bottom": 46
+        },
+        "viewport": 800,
+        "buttons": [
+          {
+            "view": "collection",
+            "x": 21,
+            "y": 49,
+            "width": 108.28125,
+            "height": 73,
+            "right": 129.28125,
+            "bottom": 122,
+            "label": {
+              "x": 36.90625,
+              "y": 91.296875,
+              "width": 75.453125,
+              "height": 14.390625,
+              "right": 112.359375,
+              "bottom": 105.6875
+            },
+            "icon": {
+              "x": 60.640625,
+              "y": 60.296875,
+              "width": 28,
+              "height": 28,
+              "right": 88.640625,
+              "bottom": 88.296875
+            },
+            "current": "false"
+          },
+          {
+            "view": "story",
+            "x": 129.28125,
+            "y": 49,
+            "width": 108.296875,
+            "height": 73,
+            "right": 237.578125,
+            "bottom": 122,
+            "label": {
+              "x": 164.515625,
+              "y": 91.296875,
+              "width": 36.828125,
+              "height": 14.390625,
+              "right": 201.34375,
+              "bottom": 105.6875
+            },
+            "icon": {
+              "x": 168.921875,
+              "y": 60.296875,
+              "width": 28,
+              "height": 28,
+              "right": 196.921875,
+              "bottom": 88.296875
+            },
+            "current": "false"
+          },
+          {
+            "view": "decks",
+            "x": 237.578125,
+            "y": 49,
+            "width": 108.28125,
+            "height": 73,
+            "right": 345.859375,
+            "bottom": 122,
+            "label": {
+              "x": 272.203125,
+              "y": 91.296875,
+              "width": 38.03125,
+              "height": 14.390625,
+              "right": 310.234375,
+              "bottom": 105.6875
+            },
+            "icon": {
+              "x": 277.21875,
+              "y": 60.296875,
+              "width": 28,
+              "height": 28,
+              "right": 305.21875,
+              "bottom": 88.296875
+            },
+            "current": "false"
+          },
+          {
+            "view": "weapons",
+            "x": 345.859375,
+            "y": 49,
+            "width": 108.296875,
+            "height": 73,
+            "right": 454.15625,
+            "bottom": 122,
+            "label": {
+              "x": 380.015625,
+              "y": 91.296875,
+              "width": 38.984375,
+              "height": 14.390625,
+              "right": 419,
+              "bottom": 105.6875
+            },
+            "icon": {
+              "x": 385.5,
+              "y": 60.296875,
+              "width": 28,
+              "height": 28,
+              "right": 413.5,
+              "bottom": 88.296875
+            },
+            "current": "page"
+          },
+          {
+            "view": "arena",
+            "x": 454.15625,
+            "y": 49,
+            "width": 108.28125,
+            "height": 73,
+            "right": 562.4375,
+            "bottom": 122,
+            "label": {
+              "x": 488.390625,
+              "y": 91.296875,
+              "width": 38.8125,
+              "height": 14.390625,
+              "right": 527.203125,
+              "bottom": 105.6875
+            },
+            "icon": {
+              "x": 493.796875,
+              "y": 60.296875,
+              "width": 28,
+              "height": 28,
+              "right": 521.796875,
+              "bottom": 88.296875
+            },
+            "current": "false"
+          },
+          {
+            "view": "statistics",
+            "x": 562.4375,
+            "y": 49,
+            "width": 108.28125,
+            "height": 73,
+            "right": 670.71875,
+            "bottom": 122,
+            "label": {
+              "x": 577.4375,
+              "y": 91.296875,
+              "width": 77.28125,
+              "height": 14.390625,
+              "right": 654.71875,
+              "bottom": 105.6875
+            },
+            "icon": {
+              "x": 602.078125,
+              "y": 60.296875,
+              "width": 28,
+              "height": 28,
+              "right": 630.078125,
+              "bottom": 88.296875
+            },
+            "current": "false"
+          },
+          {
+            "view": "atelier",
+            "x": 670.71875,
+            "y": 49,
+            "width": 108.28125,
+            "height": 73,
+            "right": 779,
+            "bottom": 122,
+            "label": {
+              "x": 701.34375,
+              "y": 86.296875,
+              "width": 46.015625,
+              "height": 14.390625,
+              "right": 747.359375,
+              "bottom": 100.6875
+            },
+            "icon": {
+              "x": 715.359375,
+              "y": 65.296875,
+              "width": 18,
+              "height": 18,
+              "right": 733.359375,
+              "bottom": 83.296875
+            },
+            "current": "false"
+          }
+        ],
+        "overflow": false,
+        "layers": {
+          "header": "30",
+          "headerPosition": "relative",
+          "headerOverflow": "visible",
+          "nav": "1",
+          "gem": "3"
+        },
+        "bodyFont": "\"Segoe UI\", Arial, sans-serif"
+      }
+    },
+    {
+      "label": "tablet decks",
+      "sample": {
+        "font": true,
+        "family": "Cinzel, Georgia, serif",
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 800,
+          "height": 122,
+          "right": 800,
+          "bottom": 122
+        },
+        "nav": {
+          "x": 16,
+          "y": 48,
+          "width": 768,
+          "height": 74,
+          "right": 784,
+          "bottom": 122
+        },
+        "actions": {
+          "x": 526.484375,
+          "y": 6,
+          "width": 257.515625,
+          "height": 40,
+          "right": 784,
+          "bottom": 46
+        },
+        "brand": {
+          "x": 16,
+          "y": 6,
+          "width": 174,
+          "height": 40,
+          "right": 190,
+          "bottom": 46
+        },
+        "viewport": 800,
+        "buttons": [
+          {
+            "view": "collection",
+            "x": 21,
+            "y": 49,
+            "width": 108.28125,
+            "height": 73,
+            "right": 129.28125,
+            "bottom": 122,
+            "label": {
+              "x": 36.90625,
+              "y": 91.296875,
+              "width": 75.453125,
+              "height": 14.390625,
+              "right": 112.359375,
+              "bottom": 105.6875
+            },
+            "icon": {
+              "x": 60.640625,
+              "y": 60.296875,
+              "width": 28,
+              "height": 28,
+              "right": 88.640625,
+              "bottom": 88.296875
+            },
+            "current": "false"
+          },
+          {
+            "view": "story",
+            "x": 129.28125,
+            "y": 49,
+            "width": 108.296875,
+            "height": 73,
+            "right": 237.578125,
+            "bottom": 122,
+            "label": {
+              "x": 164.515625,
+              "y": 91.296875,
+              "width": 36.828125,
+              "height": 14.390625,
+              "right": 201.34375,
+              "bottom": 105.6875
+            },
+            "icon": {
+              "x": 168.921875,
+              "y": 60.296875,
+              "width": 28,
+              "height": 28,
+              "right": 196.921875,
+              "bottom": 88.296875
+            },
+            "current": "false"
+          },
+          {
+            "view": "decks",
+            "x": 237.578125,
+            "y": 49,
+            "width": 108.28125,
+            "height": 73,
+            "right": 345.859375,
+            "bottom": 122,
+            "label": {
+              "x": 272.203125,
+              "y": 91.296875,
+              "width": 38.03125,
+              "height": 14.390625,
+              "right": 310.234375,
+              "bottom": 105.6875
+            },
+            "icon": {
+              "x": 277.21875,
+              "y": 59.296875,
+              "width": 28,
+              "height": 28,
+              "right": 305.21875,
+              "bottom": 87.296875
+            },
+            "current": "page"
+          },
+          {
+            "view": "weapons",
+            "x": 345.859375,
+            "y": 49,
+            "width": 108.296875,
+            "height": 73,
+            "right": 454.15625,
+            "bottom": 122,
+            "label": {
+              "x": 380.015625,
+              "y": 91.296875,
+              "width": 38.984375,
+              "height": 14.390625,
+              "right": 419,
+              "bottom": 105.6875
+            },
+            "icon": {
+              "x": 385.5,
+              "y": 60.296875,
+              "width": 28,
+              "height": 28,
+              "right": 413.5,
+              "bottom": 88.296875
+            },
+            "current": "false"
+          },
+          {
+            "view": "arena",
+            "x": 454.15625,
+            "y": 49,
+            "width": 108.28125,
+            "height": 73,
+            "right": 562.4375,
+            "bottom": 122,
+            "label": {
+              "x": 488.390625,
+              "y": 91.296875,
+              "width": 38.8125,
+              "height": 14.390625,
+              "right": 527.203125,
+              "bottom": 105.6875
+            },
+            "icon": {
+              "x": 493.796875,
+              "y": 60.296875,
+              "width": 28,
+              "height": 28,
+              "right": 521.796875,
+              "bottom": 88.296875
+            },
+            "current": "false"
+          },
+          {
+            "view": "statistics",
+            "x": 562.4375,
+            "y": 49,
+            "width": 108.28125,
+            "height": 73,
+            "right": 670.71875,
+            "bottom": 122,
+            "label": {
+              "x": 577.4375,
+              "y": 91.296875,
+              "width": 77.28125,
+              "height": 14.390625,
+              "right": 654.71875,
+              "bottom": 105.6875
+            },
+            "icon": {
+              "x": 602.078125,
+              "y": 60.296875,
+              "width": 28,
+              "height": 28,
+              "right": 630.078125,
+              "bottom": 88.296875
+            },
+            "current": "false"
+          },
+          {
+            "view": "atelier",
+            "x": 670.71875,
+            "y": 49,
+            "width": 108.28125,
+            "height": 73,
+            "right": 779,
+            "bottom": 122,
+            "label": {
+              "x": 701.34375,
+              "y": 86.296875,
+              "width": 46.015625,
+              "height": 14.390625,
+              "right": 747.359375,
+              "bottom": 100.6875
+            },
+            "icon": {
+              "x": 715.359375,
+              "y": 65.296875,
+              "width": 18,
+              "height": 18,
+              "right": 733.359375,
+              "bottom": 83.296875
+            },
+            "current": "false"
+          }
+        ],
+        "overflow": false,
+        "layers": {
+          "header": "30",
+          "headerPosition": "relative",
+          "headerOverflow": "visible",
+          "nav": "1",
+          "gem": "3"
+        },
+        "bodyFont": "\"Segoe UI\", Arial, sans-serif"
+      }
+    },
+    {
+      "label": "razr50 weapons",
+      "sample": {
+        "font": true,
+        "family": "Cinzel, Georgia, serif",
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 412,
+          "height": 48,
+          "right": 412,
+          "bottom": 48
+        },
+        "nav": {
+          "x": 0,
+          "y": 947,
+          "width": 412,
+          "height": 60,
+          "right": 412,
+          "bottom": 1007
+        },
+        "actions": {
+          "x": 310,
+          "y": 1.5,
+          "width": 92,
+          "height": 44,
+          "right": 402,
+          "bottom": 45.5
+        },
+        "brand": {
+          "x": 10,
+          "y": 3.5,
+          "width": 118,
+          "height": 40,
+          "right": 128,
+          "bottom": 43.5
+        },
+        "viewport": 412,
+        "buttons": [
+          {
+            "view": "collection",
+            "x": 0,
+            "y": 948,
+            "width": 82.390625,
+            "height": 60,
+            "right": 82.390625,
+            "bottom": 1008,
+            "label": {
+              "x": 9.25,
+              "y": 987,
+              "width": 62.875,
+              "height": 12,
+              "right": 72.125,
+              "bottom": 999
+            },
+            "icon": {
+              "x": 25.6875,
+              "y": 954,
+              "width": 30,
+              "height": 30,
+              "right": 55.6875,
+              "bottom": 984
+            },
+            "current": "false"
+          },
+          {
+            "view": "decks",
+            "x": 82.390625,
+            "y": 948,
+            "width": 82.40625,
+            "height": 60,
+            "right": 164.796875,
+            "bottom": 1008,
+            "label": {
+              "x": 107.234375,
+              "y": 987,
+              "width": 31.703125,
+              "height": 12,
+              "right": 138.9375,
+              "bottom": 999
+            },
+            "icon": {
+              "x": 108.09375,
+              "y": 954,
+              "width": 30,
+              "height": 30,
+              "right": 138.09375,
+              "bottom": 984
+            },
+            "current": "false"
+          },
+          {
+            "view": "weapons",
+            "x": 164.796875,
+            "y": 948,
+            "width": 82.390625,
+            "height": 60,
+            "right": 247.1875,
+            "bottom": 1008,
+            "label": {
+              "x": 189.25,
+              "y": 987,
+              "width": 32.484375,
+              "height": 12,
+              "right": 221.734375,
+              "bottom": 999
+            },
+            "icon": {
+              "x": 190.484375,
+              "y": 954,
+              "width": 30,
+              "height": 30,
+              "right": 220.484375,
+              "bottom": 984
+            },
+            "current": "page"
+          },
+          {
+            "view": "arena",
+            "x": 247.1875,
+            "y": 948,
+            "width": 82.40625,
+            "height": 60,
+            "right": 329.59375,
+            "bottom": 1008,
+            "label": {
+              "x": 271.71875,
+              "y": 987,
+              "width": 32.34375,
+              "height": 12,
+              "right": 304.0625,
+              "bottom": 999
+            },
+            "icon": {
+              "x": 272.890625,
+              "y": 954,
+              "width": 30,
+              "height": 30,
+              "right": 302.890625,
+              "bottom": 984
+            },
+            "current": "false"
+          },
+          {
+            "view": "more",
+            "x": 329.59375,
+            "y": 948,
+            "width": 82.40625,
+            "height": 60,
+            "right": 412,
+            "bottom": 1008,
+            "label": {
+              "x": 359.3125,
+              "y": 987,
+              "width": 22.96875,
+              "height": 12,
+              "right": 382.28125,
+              "bottom": 999
+            },
+            "icon": {
+              "x": 355.796875,
+              "y": 954,
+              "width": 30,
+              "height": 30,
+              "right": 385.796875,
+              "bottom": 984
+            },
+            "current": "false"
+          }
+        ],
+        "overflow": false,
+        "layers": {
+          "header": "60",
+          "headerPosition": "relative",
+          "headerOverflow": "visible",
+          "nav": "90",
+          "gem": "auto"
+        },
+        "bodyFont": "\"Segoe UI\", Arial, sans-serif"
+      }
+    },
+    {
+      "label": "razr50 decks",
+      "sample": {
+        "font": true,
+        "family": "Cinzel, Georgia, serif",
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 412,
+          "height": 48,
+          "right": 412,
+          "bottom": 48
+        },
+        "nav": {
+          "x": 0,
+          "y": 947,
+          "width": 412,
+          "height": 60,
+          "right": 412,
+          "bottom": 1007
+        },
+        "actions": {
+          "x": 310,
+          "y": 1.5,
+          "width": 92,
+          "height": 44,
+          "right": 402,
+          "bottom": 45.5
+        },
+        "brand": {
+          "x": 10,
+          "y": 3.5,
+          "width": 118,
+          "height": 40,
+          "right": 128,
+          "bottom": 43.5
+        },
+        "viewport": 412,
+        "buttons": [
+          {
+            "view": "collection",
+            "x": 0,
+            "y": 948,
+            "width": 82.390625,
+            "height": 60,
+            "right": 82.390625,
+            "bottom": 1008,
+            "label": {
+              "x": 9.25,
+              "y": 987,
+              "width": 62.875,
+              "height": 12,
+              "right": 72.125,
+              "bottom": 999
+            },
+            "icon": {
+              "x": 25.6875,
+              "y": 954,
+              "width": 30,
+              "height": 30,
+              "right": 55.6875,
+              "bottom": 984
+            },
+            "current": "false"
+          },
+          {
+            "view": "decks",
+            "x": 82.390625,
+            "y": 948,
+            "width": 82.40625,
+            "height": 60,
+            "right": 164.796875,
+            "bottom": 1008,
+            "label": {
+              "x": 107.234375,
+              "y": 987,
+              "width": 31.703125,
+              "height": 12,
+              "right": 138.9375,
+              "bottom": 999
+            },
+            "icon": {
+              "x": 108.09375,
+              "y": 953,
+              "width": 30,
+              "height": 30,
+              "right": 138.09375,
+              "bottom": 983
+            },
+            "current": "page"
+          },
+          {
+            "view": "weapons",
+            "x": 164.796875,
+            "y": 948,
+            "width": 82.390625,
+            "height": 60,
+            "right": 247.1875,
+            "bottom": 1008,
+            "label": {
+              "x": 189.25,
+              "y": 987,
+              "width": 32.484375,
+              "height": 12,
+              "right": 221.734375,
+              "bottom": 999
+            },
+            "icon": {
+              "x": 190.484375,
+              "y": 954,
+              "width": 30,
+              "height": 30,
+              "right": 220.484375,
+              "bottom": 984
+            },
+            "current": "false"
+          },
+          {
+            "view": "arena",
+            "x": 247.1875,
+            "y": 948,
+            "width": 82.40625,
+            "height": 60,
+            "right": 329.59375,
+            "bottom": 1008,
+            "label": {
+              "x": 271.71875,
+              "y": 987,
+              "width": 32.34375,
+              "height": 12,
+              "right": 304.0625,
+              "bottom": 999
+            },
+            "icon": {
+              "x": 272.890625,
+              "y": 954,
+              "width": 30,
+              "height": 30,
+              "right": 302.890625,
+              "bottom": 984
+            },
+            "current": "false"
+          },
+          {
+            "view": "more",
+            "x": 329.59375,
+            "y": 948,
+            "width": 82.40625,
+            "height": 60,
+            "right": 412,
+            "bottom": 1008,
+            "label": {
+              "x": 359.3125,
+              "y": 987,
+              "width": 22.96875,
+              "height": 12,
+              "right": 382.28125,
+              "bottom": 999
+            },
+            "icon": {
+              "x": 355.796875,
+              "y": 954,
+              "width": 30,
+              "height": 30,
+              "right": 385.796875,
+              "bottom": 984
+            },
+            "current": "false"
+          }
+        ],
+        "overflow": false,
+        "layers": {
+          "header": "60",
+          "headerPosition": "relative",
+          "headerOverflow": "visible",
+          "nav": "90",
+          "gem": "auto"
+        },
+        "bodyFont": "\"Segoe UI\", Arial, sans-serif"
+      }
+    },
+    {
+      "label": "compact weapons",
+      "sample": {
+        "font": true,
+        "family": "Cinzel, Georgia, serif",
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 48,
+          "right": 320,
+          "bottom": 48
+        },
+        "nav": {
+          "x": 0,
+          "y": 508,
+          "width": 320,
+          "height": 60,
+          "right": 320,
+          "bottom": 568
+        },
+        "actions": {
+          "x": 218,
+          "y": 1.5,
+          "width": 92,
+          "height": 44,
+          "right": 310,
+          "bottom": 45.5
+        },
+        "brand": {
+          "x": 10,
+          "y": 3.5,
+          "width": 118,
+          "height": 40,
+          "right": 128,
+          "bottom": 43.5
+        },
+        "viewport": 320,
+        "buttons": [
+          {
+            "view": "collection",
+            "x": 0,
+            "y": 509,
+            "width": 64,
+            "height": 60,
+            "right": 64,
+            "bottom": 569,
+            "label": {
+              "x": 0.0625,
+              "y": 548,
+              "width": 62.875,
+              "height": 12,
+              "right": 62.9375,
+              "bottom": 560
+            },
+            "icon": {
+              "x": 16.5,
+              "y": 515,
+              "width": 30,
+              "height": 30,
+              "right": 46.5,
+              "bottom": 545
+            },
+            "current": "false"
+          },
+          {
+            "view": "decks",
+            "x": 64,
+            "y": 509,
+            "width": 64,
+            "height": 60,
+            "right": 128,
+            "bottom": 569,
+            "label": {
+              "x": 79.640625,
+              "y": 548,
+              "width": 31.703125,
+              "height": 12,
+              "right": 111.34375,
+              "bottom": 560
+            },
+            "icon": {
+              "x": 80.5,
+              "y": 515,
+              "width": 30,
+              "height": 30,
+              "right": 110.5,
+              "bottom": 545
+            },
+            "current": "false"
+          },
+          {
+            "view": "weapons",
+            "x": 128,
+            "y": 509,
+            "width": 64,
+            "height": 60,
+            "right": 192,
+            "bottom": 569,
+            "label": {
+              "x": 143.25,
+              "y": 548,
+              "width": 32.484375,
+              "height": 12,
+              "right": 175.734375,
+              "bottom": 560
+            },
+            "icon": {
+              "x": 144.5,
+              "y": 515,
+              "width": 30,
+              "height": 30,
+              "right": 174.5,
+              "bottom": 545
+            },
+            "current": "page"
+          },
+          {
+            "view": "arena",
+            "x": 192,
+            "y": 509,
+            "width": 64,
+            "height": 60,
+            "right": 256,
+            "bottom": 569,
+            "label": {
+              "x": 207.328125,
+              "y": 548,
+              "width": 32.34375,
+              "height": 12,
+              "right": 239.671875,
+              "bottom": 560
+            },
+            "icon": {
+              "x": 208.5,
+              "y": 515,
+              "width": 30,
+              "height": 30,
+              "right": 238.5,
+              "bottom": 545
+            },
+            "current": "false"
+          },
+          {
+            "view": "more",
+            "x": 256,
+            "y": 509,
+            "width": 64,
+            "height": 60,
+            "right": 320,
+            "bottom": 569,
+            "label": {
+              "x": 276.515625,
+              "y": 548,
+              "width": 22.96875,
+              "height": 12,
+              "right": 299.484375,
+              "bottom": 560
+            },
+            "icon": {
+              "x": 273,
+              "y": 515,
+              "width": 30,
+              "height": 30,
+              "right": 303,
+              "bottom": 545
+            },
+            "current": "false"
+          }
+        ],
+        "overflow": false,
+        "layers": {
+          "header": "60",
+          "headerPosition": "relative",
+          "headerOverflow": "visible",
+          "nav": "90",
+          "gem": "auto"
+        },
+        "bodyFont": "\"Segoe UI\", Arial, sans-serif"
+      }
+    },
+    {
+      "label": "compact decks",
+      "sample": {
+        "font": true,
+        "family": "Cinzel, Georgia, serif",
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 48,
+          "right": 320,
+          "bottom": 48
+        },
+        "nav": {
+          "x": 0,
+          "y": 508,
+          "width": 320,
+          "height": 60,
+          "right": 320,
+          "bottom": 568
+        },
+        "actions": {
+          "x": 218,
+          "y": 1.5,
+          "width": 92,
+          "height": 44,
+          "right": 310,
+          "bottom": 45.5
+        },
+        "brand": {
+          "x": 10,
+          "y": 3.5,
+          "width": 118,
+          "height": 40,
+          "right": 128,
+          "bottom": 43.5
+        },
+        "viewport": 320,
+        "buttons": [
+          {
+            "view": "collection",
+            "x": 0,
+            "y": 509,
+            "width": 64,
+            "height": 60,
+            "right": 64,
+            "bottom": 569,
+            "label": {
+              "x": 0.0625,
+              "y": 548,
+              "width": 62.875,
+              "height": 12,
+              "right": 62.9375,
+              "bottom": 560
+            },
+            "icon": {
+              "x": 16.5,
+              "y": 515,
+              "width": 30,
+              "height": 30,
+              "right": 46.5,
+              "bottom": 545
+            },
+            "current": "false"
+          },
+          {
+            "view": "decks",
+            "x": 64,
+            "y": 509,
+            "width": 64,
+            "height": 60,
+            "right": 128,
+            "bottom": 569,
+            "label": {
+              "x": 79.640625,
+              "y": 548,
+              "width": 31.703125,
+              "height": 12,
+              "right": 111.34375,
+              "bottom": 560
+            },
+            "icon": {
+              "x": 80.5,
+              "y": 514,
+              "width": 30,
+              "height": 30,
+              "right": 110.5,
+              "bottom": 544
+            },
+            "current": "page"
+          },
+          {
+            "view": "weapons",
+            "x": 128,
+            "y": 509,
+            "width": 64,
+            "height": 60,
+            "right": 192,
+            "bottom": 569,
+            "label": {
+              "x": 143.25,
+              "y": 548,
+              "width": 32.484375,
+              "height": 12,
+              "right": 175.734375,
+              "bottom": 560
+            },
+            "icon": {
+              "x": 144.5,
+              "y": 515,
+              "width": 30,
+              "height": 30,
+              "right": 174.5,
+              "bottom": 545
+            },
+            "current": "false"
+          },
+          {
+            "view": "arena",
+            "x": 192,
+            "y": 509,
+            "width": 64,
+            "height": 60,
+            "right": 256,
+            "bottom": 569,
+            "label": {
+              "x": 207.328125,
+              "y": 548,
+              "width": 32.34375,
+              "height": 12,
+              "right": 239.671875,
+              "bottom": 560
+            },
+            "icon": {
+              "x": 208.5,
+              "y": 515,
+              "width": 30,
+              "height": 30,
+              "right": 238.5,
+              "bottom": 545
+            },
+            "current": "false"
+          },
+          {
+            "view": "more",
+            "x": 256,
+            "y": 509,
+            "width": 64,
+            "height": 60,
+            "right": 320,
+            "bottom": 569,
+            "label": {
+              "x": 276.515625,
+              "y": 548,
+              "width": 22.96875,
+              "height": 12,
+              "right": 299.484375,
+              "bottom": 560
+            },
+            "icon": {
+              "x": 273,
+              "y": 515,
+              "width": 30,
+              "height": 30,
+              "right": 303,
+              "bottom": 545
+            },
+            "current": "false"
+          }
+        ],
+        "overflow": false,
+        "layers": {
+          "header": "60",
+          "headerPosition": "relative",
+          "headerOverflow": "visible",
+          "nav": "90",
+          "gem": "auto"
+        },
+        "bodyFont": "\"Segoe UI\", Arial, sans-serif"
+      }
+    },
+    {
+      "label": "reduced weapons",
+      "sample": {
+        "font": true,
+        "family": "Cinzel, Georgia, serif",
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 48,
+          "right": 390,
+          "bottom": 48
+        },
+        "nav": {
+          "x": 0,
+          "y": 784,
+          "width": 390,
+          "height": 60,
+          "right": 390,
+          "bottom": 844
+        },
+        "actions": {
+          "x": 288,
+          "y": 1.5,
+          "width": 92,
+          "height": 44,
+          "right": 380,
+          "bottom": 45.5
+        },
+        "brand": {
+          "x": 10,
+          "y": 3.5,
+          "width": 118,
+          "height": 40,
+          "right": 128,
+          "bottom": 43.5
+        },
+        "viewport": 390,
+        "buttons": [
+          {
+            "view": "collection",
+            "x": 0,
+            "y": 785,
+            "width": 78,
+            "height": 60,
+            "right": 78,
+            "bottom": 845,
+            "label": {
+              "x": 7.0625,
+              "y": 824,
+              "width": 62.875,
+              "height": 12,
+              "right": 69.9375,
+              "bottom": 836
+            },
+            "icon": {
+              "x": 23.5,
+              "y": 791,
+              "width": 30,
+              "height": 30,
+              "right": 53.5,
+              "bottom": 821
+            },
+            "current": "false"
+          },
+          {
+            "view": "decks",
+            "x": 78,
+            "y": 785,
+            "width": 78,
+            "height": 60,
+            "right": 156,
+            "bottom": 845,
+            "label": {
+              "x": 100.640625,
+              "y": 824,
+              "width": 31.703125,
+              "height": 12,
+              "right": 132.34375,
+              "bottom": 836
+            },
+            "icon": {
+              "x": 101.5,
+              "y": 791,
+              "width": 30,
+              "height": 30,
+              "right": 131.5,
+              "bottom": 821
+            },
+            "current": "false"
+          },
+          {
+            "view": "weapons",
+            "x": 156,
+            "y": 785,
+            "width": 78,
+            "height": 60,
+            "right": 234,
+            "bottom": 845,
+            "label": {
+              "x": 178.25,
+              "y": 824,
+              "width": 32.484375,
+              "height": 12,
+              "right": 210.734375,
+              "bottom": 836
+            },
+            "icon": {
+              "x": 179.5,
+              "y": 791,
+              "width": 30,
+              "height": 30,
+              "right": 209.5,
+              "bottom": 821
+            },
+            "current": "page"
+          },
+          {
+            "view": "arena",
+            "x": 234,
+            "y": 785,
+            "width": 78,
+            "height": 60,
+            "right": 312,
+            "bottom": 845,
+            "label": {
+              "x": 256.328125,
+              "y": 824,
+              "width": 32.34375,
+              "height": 12,
+              "right": 288.671875,
+              "bottom": 836
+            },
+            "icon": {
+              "x": 257.5,
+              "y": 791,
+              "width": 30,
+              "height": 30,
+              "right": 287.5,
+              "bottom": 821
+            },
+            "current": "false"
+          },
+          {
+            "view": "more",
+            "x": 312,
+            "y": 785,
+            "width": 78,
+            "height": 60,
+            "right": 390,
+            "bottom": 845,
+            "label": {
+              "x": 339.515625,
+              "y": 824,
+              "width": 22.96875,
+              "height": 12,
+              "right": 362.484375,
+              "bottom": 836
+            },
+            "icon": {
+              "x": 336,
+              "y": 791,
+              "width": 30,
+              "height": 30,
+              "right": 366,
+              "bottom": 821
+            },
+            "current": "false"
+          }
+        ],
+        "overflow": false,
+        "layers": {
+          "header": "60",
+          "headerPosition": "relative",
+          "headerOverflow": "visible",
+          "nav": "90",
+          "gem": "auto"
+        },
+        "bodyFont": "\"Segoe UI\", Arial, sans-serif"
+      }
+    },
+    {
+      "label": "reduced decks",
+      "sample": {
+        "font": true,
+        "family": "Cinzel, Georgia, serif",
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 48,
+          "right": 390,
+          "bottom": 48
+        },
+        "nav": {
+          "x": 0,
+          "y": 784,
+          "width": 390,
+          "height": 60,
+          "right": 390,
+          "bottom": 844
+        },
+        "actions": {
+          "x": 288,
+          "y": 1.5,
+          "width": 92,
+          "height": 44,
+          "right": 380,
+          "bottom": 45.5
+        },
+        "brand": {
+          "x": 10,
+          "y": 3.5,
+          "width": 118,
+          "height": 40,
+          "right": 128,
+          "bottom": 43.5
+        },
+        "viewport": 390,
+        "buttons": [
+          {
+            "view": "collection",
+            "x": 0,
+            "y": 785,
+            "width": 78,
+            "height": 60,
+            "right": 78,
+            "bottom": 845,
+            "label": {
+              "x": 7.0625,
+              "y": 824,
+              "width": 62.875,
+              "height": 12,
+              "right": 69.9375,
+              "bottom": 836
+            },
+            "icon": {
+              "x": 23.5,
+              "y": 791,
+              "width": 30,
+              "height": 30,
+              "right": 53.5,
+              "bottom": 821
+            },
+            "current": "false"
+          },
+          {
+            "view": "decks",
+            "x": 78,
+            "y": 785,
+            "width": 78,
+            "height": 60,
+            "right": 156,
+            "bottom": 845,
+            "label": {
+              "x": 100.640625,
+              "y": 824,
+              "width": 31.703125,
+              "height": 12,
+              "right": 132.34375,
+              "bottom": 836
+            },
+            "icon": {
+              "x": 101.5,
+              "y": 791,
+              "width": 30,
+              "height": 30,
+              "right": 131.5,
+              "bottom": 821
+            },
+            "current": "page"
+          },
+          {
+            "view": "weapons",
+            "x": 156,
+            "y": 785,
+            "width": 78,
+            "height": 60,
+            "right": 234,
+            "bottom": 845,
+            "label": {
+              "x": 178.25,
+              "y": 824,
+              "width": 32.484375,
+              "height": 12,
+              "right": 210.734375,
+              "bottom": 836
+            },
+            "icon": {
+              "x": 179.5,
+              "y": 791,
+              "width": 30,
+              "height": 30,
+              "right": 209.5,
+              "bottom": 821
+            },
+            "current": "false"
+          },
+          {
+            "view": "arena",
+            "x": 234,
+            "y": 785,
+            "width": 78,
+            "height": 60,
+            "right": 312,
+            "bottom": 845,
+            "label": {
+              "x": 256.328125,
+              "y": 824,
+              "width": 32.34375,
+              "height": 12,
+              "right": 288.671875,
+              "bottom": 836
+            },
+            "icon": {
+              "x": 257.5,
+              "y": 791,
+              "width": 30,
+              "height": 30,
+              "right": 287.5,
+              "bottom": 821
+            },
+            "current": "false"
+          },
+          {
+            "view": "more",
+            "x": 312,
+            "y": 785,
+            "width": 78,
+            "height": 60,
+            "right": 390,
+            "bottom": 845,
+            "label": {
+              "x": 339.515625,
+              "y": 824,
+              "width": 22.96875,
+              "height": 12,
+              "right": 362.484375,
+              "bottom": 836
+            },
+            "icon": {
+              "x": 336,
+              "y": 791,
+              "width": 30,
+              "height": 30,
+              "right": 366,
+              "bottom": 821
+            },
+            "current": "false"
+          }
+        ],
+        "overflow": false,
+        "layers": {
+          "header": "60",
+          "headerPosition": "relative",
+          "headerOverflow": "visible",
+          "nav": "90",
+          "gem": "auto"
+        },
+        "bodyFont": "\"Segoe UI\", Arial, sans-serif"
+      }
+    },
+    {
+      "label": "landscape weapons",
+      "sample": {
+        "font": true,
+        "family": "Cinzel, Georgia, serif",
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 844,
+          "height": 48,
+          "right": 844,
+          "bottom": 48
+        },
+        "nav": {
+          "x": 0,
+          "y": 330,
+          "width": 844,
+          "height": 60,
+          "right": 844,
+          "bottom": 390
+        },
+        "actions": {
+          "x": 676.59375,
+          "y": 1.5,
+          "width": 157.40625,
+          "height": 44,
+          "right": 834,
+          "bottom": 45.5
+        },
+        "brand": {
+          "x": 10,
+          "y": 3.5,
+          "width": 118,
+          "height": 40,
+          "right": 128,
+          "bottom": 43.5
+        },
+        "viewport": 844,
+        "buttons": [
+          {
+            "view": "collection",
+            "x": 0,
+            "y": 331,
+            "width": 168.796875,
+            "height": 60,
+            "right": 168.796875,
+            "bottom": 391,
+            "label": {
+              "x": 52.453125,
+              "y": 370,
+              "width": 62.875,
+              "height": 12,
+              "right": 115.328125,
+              "bottom": 382
+            },
+            "icon": {
+              "x": 68.890625,
+              "y": 337,
+              "width": 30,
+              "height": 30,
+              "right": 98.890625,
+              "bottom": 367
+            },
+            "current": "false"
+          },
+          {
+            "view": "decks",
+            "x": 168.796875,
+            "y": 331,
+            "width": 168.796875,
+            "height": 60,
+            "right": 337.59375,
+            "bottom": 391,
+            "label": {
+              "x": 236.84375,
+              "y": 370,
+              "width": 31.703125,
+              "height": 12,
+              "right": 268.546875,
+              "bottom": 382
+            },
+            "icon": {
+              "x": 237.6875,
+              "y": 337,
+              "width": 30,
+              "height": 30,
+              "right": 267.6875,
+              "bottom": 367
+            },
+            "current": "false"
+          },
+          {
+            "view": "weapons",
+            "x": 337.59375,
+            "y": 331,
+            "width": 168.796875,
+            "height": 60,
+            "right": 506.390625,
+            "bottom": 391,
+            "label": {
+              "x": 405.25,
+              "y": 370,
+              "width": 32.484375,
+              "height": 12,
+              "right": 437.734375,
+              "bottom": 382
+            },
+            "icon": {
+              "x": 406.484375,
+              "y": 337,
+              "width": 30,
+              "height": 30,
+              "right": 436.484375,
+              "bottom": 367
+            },
+            "current": "page"
+          },
+          {
+            "view": "arena",
+            "x": 506.390625,
+            "y": 331,
+            "width": 168.796875,
+            "height": 60,
+            "right": 675.1875,
+            "bottom": 391,
+            "label": {
+              "x": 574.109375,
+              "y": 370,
+              "width": 32.34375,
+              "height": 12,
+              "right": 606.453125,
+              "bottom": 382
+            },
+            "icon": {
+              "x": 575.28125,
+              "y": 337,
+              "width": 30,
+              "height": 30,
+              "right": 605.28125,
+              "bottom": 367
+            },
+            "current": "false"
+          },
+          {
+            "view": "more",
+            "x": 675.1875,
+            "y": 331,
+            "width": 168.8125,
+            "height": 60,
+            "right": 844,
+            "bottom": 391,
+            "label": {
+              "x": 748.109375,
+              "y": 370,
+              "width": 22.96875,
+              "height": 12,
+              "right": 771.078125,
+              "bottom": 382
+            },
+            "icon": {
+              "x": 744.59375,
+              "y": 337,
+              "width": 30,
+              "height": 30,
+              "right": 774.59375,
+              "bottom": 367
+            },
+            "current": "false"
+          }
+        ],
+        "overflow": false,
+        "layers": {
+          "header": "60",
+          "headerPosition": "relative",
+          "headerOverflow": "visible",
+          "nav": "90",
+          "gem": "auto"
+        },
+        "bodyFont": "\"Segoe UI\", Arial, sans-serif"
+      }
+    },
+    {
+      "label": "landscape decks",
+      "sample": {
+        "font": true,
+        "family": "Cinzel, Georgia, serif",
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 844,
+          "height": 48,
+          "right": 844,
+          "bottom": 48
+        },
+        "nav": {
+          "x": 0,
+          "y": 330,
+          "width": 844,
+          "height": 60,
+          "right": 844,
+          "bottom": 390
+        },
+        "actions": {
+          "x": 676.59375,
+          "y": 1.5,
+          "width": 157.40625,
+          "height": 44,
+          "right": 834,
+          "bottom": 45.5
+        },
+        "brand": {
+          "x": 10,
+          "y": 3.5,
+          "width": 118,
+          "height": 40,
+          "right": 128,
+          "bottom": 43.5
+        },
+        "viewport": 844,
+        "buttons": [
+          {
+            "view": "collection",
+            "x": 0,
+            "y": 331,
+            "width": 168.796875,
+            "height": 60,
+            "right": 168.796875,
+            "bottom": 391,
+            "label": {
+              "x": 52.453125,
+              "y": 370,
+              "width": 62.875,
+              "height": 12,
+              "right": 115.328125,
+              "bottom": 382
+            },
+            "icon": {
+              "x": 68.890625,
+              "y": 337,
+              "width": 30,
+              "height": 30,
+              "right": 98.890625,
+              "bottom": 367
+            },
+            "current": "false"
+          },
+          {
+            "view": "decks",
+            "x": 168.796875,
+            "y": 331,
+            "width": 168.796875,
+            "height": 60,
+            "right": 337.59375,
+            "bottom": 391,
+            "label": {
+              "x": 236.84375,
+              "y": 370,
+              "width": 31.703125,
+              "height": 12,
+              "right": 268.546875,
+              "bottom": 382
+            },
+            "icon": {
+              "x": 237.6875,
+              "y": 336,
+              "width": 30,
+              "height": 30,
+              "right": 267.6875,
+              "bottom": 366
+            },
+            "current": "page"
+          },
+          {
+            "view": "weapons",
+            "x": 337.59375,
+            "y": 331,
+            "width": 168.796875,
+            "height": 60,
+            "right": 506.390625,
+            "bottom": 391,
+            "label": {
+              "x": 405.25,
+              "y": 370,
+              "width": 32.484375,
+              "height": 12,
+              "right": 437.734375,
+              "bottom": 382
+            },
+            "icon": {
+              "x": 406.484375,
+              "y": 337,
+              "width": 30,
+              "height": 30,
+              "right": 436.484375,
+              "bottom": 367
+            },
+            "current": "false"
+          },
+          {
+            "view": "arena",
+            "x": 506.390625,
+            "y": 331,
+            "width": 168.796875,
+            "height": 60,
+            "right": 675.1875,
+            "bottom": 391,
+            "label": {
+              "x": 574.109375,
+              "y": 370,
+              "width": 32.34375,
+              "height": 12,
+              "right": 606.453125,
+              "bottom": 382
+            },
+            "icon": {
+              "x": 575.28125,
+              "y": 337,
+              "width": 30,
+              "height": 30,
+              "right": 605.28125,
+              "bottom": 367
+            },
+            "current": "false"
+          },
+          {
+            "view": "more",
+            "x": 675.1875,
+            "y": 331,
+            "width": 168.8125,
+            "height": 60,
+            "right": 844,
+            "bottom": 391,
+            "label": {
+              "x": 748.109375,
+              "y": 370,
+              "width": 22.96875,
+              "height": 12,
+              "right": 771.078125,
+              "bottom": 382
+            },
+            "icon": {
+              "x": 744.59375,
+              "y": 337,
+              "width": 30,
+              "height": 30,
+              "right": 774.59375,
+              "bottom": 367
+            },
+            "current": "false"
+          }
+        ],
+        "overflow": false,
+        "layers": {
+          "header": "60",
+          "headerPosition": "relative",
+          "headerOverflow": "visible",
+          "nav": "90",
+          "gem": "auto"
+        },
+        "bodyFont": "\"Segoe UI\", Arial, sans-serif"
+      }
+    }
+  ]
+}
