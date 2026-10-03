@@ -171,8 +171,8 @@ async function verify(page,output){
   const started=await game();assert.equal(started.phase,'choose');assert.deepEqual(started.players[0].board.map(u=>u.cardId),saved.formation);assert.equal(await page.locator('[data-action=start]').count(),0);
   assert.equal(await page.locator('.arena-captain').count(),2);
   for(const crown of await page.locator('.arena-captain').all()){
-    const p=await crown.evaluate(n=>{const r=n.getBoundingClientRect(),card=n.closest('.slot-card').getBoundingClientRect(),img=n.querySelector('img');return {left:Math.abs(r.left-card.left),bottom:Math.abs(r.bottom-card.bottom),width:r.width,native:img.naturalWidth,border:getComputedStyle(n).borderTopWidth,background:getComputedStyle(n).backgroundColor};});
-    assert(p.left<p.width*.2&&p.bottom<p.width*.2,'crown follows card bottom-left');assert.equal(p.native,336);assert.equal(p.border,'0px');assert.equal(p.background,'rgba(0, 0, 0, 0)');
+    const p=await crown.evaluate(n=>{const r=n.getBoundingClientRect(),card=n.closest('.slot-card').getBoundingClientRect(),img=n.querySelector('img');return {left:r.left-card.left,top:r.top-card.top,right:card.right-r.right,bottom:card.bottom-r.bottom,width:r.width,ratio:r.width/card.width,native:img.naturalWidth,border:getComputedStyle(n).borderTopWidth,background:getComputedStyle(n).backgroundColor};});
+    assert(p.left>=1&&p.bottom>=1&&p.top>0&&p.right>0,'the complete crown is inside the card');assert(p.ratio>=.15&&p.ratio<=.3,'crown remains readable');assert.equal(p.native,336);assert.equal(p.border,'0px');assert.equal(p.background,'rgba(0, 0, 0, 0)');
   }
   assert.equal(await page.locator('.eq-overlay').count(),0,'inactive weapons must not mask the original medallion');
   await page.locator('.slot-card[data-side="0"][data-slot="0"]').click();await page.locator('.slot-card[data-side="1"][data-slot="1"]').click();
@@ -182,8 +182,17 @@ async function verify(page,output){
   if((await game()).phase==='kalistel')await page.locator('[data-action=accept-attack]').click();
   for(let i=0;i<10&&(await game()).phase==='defense';i++){await page.locator('[data-action=roll]').click();await page.waitForTimeout(700);}
   const result=await game();assert.equal(result.phase,'result');assert.equal(result.duel.formula.captainAttack,10);assert.equal(result.duel.formula.captainDefense,10);
-  await page.screenshot({path:path.join(output,'arena-captain-desktop.png')});
-  await page.setViewportSize({width:412,height:1007});await page.screenshot({path:path.join(output,'arena-captain-phone.png')});
+  for(const [width,height,label] of [[1920,1080,'desktop'],[412,1007,'phone'],[320,800,'compact']]){
+    await page.setViewportSize({width,height});await page.waitForTimeout(200);
+    const crowns=page.locator('.arena-captain:visible');assert.ok(await crowns.count()>0);
+    const geometry=await crowns.evaluateAll(nodes=>nodes.map(n=>{
+      const r=n.getBoundingClientRect(),parent=n.closest('.slot-card'),card=parent.getBoundingClientRect();
+      return {left:r.left-card.left,top:r.top-card.top,right:card.right-r.right,bottom:card.bottom-r.bottom,width:r.width,cssWidth:parseFloat(getComputedStyle(n).width)};
+    }));
+    assert.ok(geometry.every(r=>r.left>=0&&r.top>=0&&r.right>=0&&r.bottom>=0&&r.cssWidth>=13.99),'normal and focused crowns are fully inside their card at '+width+' '+JSON.stringify(geometry));
+    await page.screenshot({path:path.join(output,'arena-captain-'+label+'.png')});
+  }
+  await page.setViewportSize({width:412,height:1007});
   await page.reload();await page.waitForSelector('.battlefield');assert.deepEqual(await game(),result);
   // Continue through real engine commands and ownership-backed saves, with periodic restoration.
   const final=await page.evaluate(async()=>{

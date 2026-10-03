@@ -92,7 +92,7 @@
 .team-page .kdb-slot.is-drop-eligible .kdb-slot-image { outline:1px solid #a4d9ba; }
 .team-page .kdb-slot.is-drop-blocked { opacity:.4; }
 .team-page .kdb-slot.is-drop-target .kdb-slot-image { outline:2px solid #e9d5a4; outline-offset:3px; }
-.slot-card .arena-captain { position:absolute; z-index:5; left:0; bottom:0; width:clamp(20px,11%,40px); aspect-ratio:1; transform:translate(-16%,15%); background:none; border:0; pointer-events:none; filter:drop-shadow(0 0 3px #dfae5260); }
+.slot-card .arena-captain { position:absolute; z-index:5; left:2%; bottom:1.5%; width:clamp(14px,16%,64px); aspect-ratio:336/272; background:none; border:0; pointer-events:none; filter:drop-shadow(0 0 3px #dfae5260); }
 .slot-card .arena-captain img { display:block; width:100%; height:100%; object-fit:contain; border:0; }
 .slot-card .arena-captain.is-commanding { filter:drop-shadow(0 0 4px #e9bd7470) drop-shadow(0 0 7px #d9a54130); }
 @media(max-width:1100px) and (min-width:901px){

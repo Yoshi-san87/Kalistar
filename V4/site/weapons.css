@@ -19,9 +19,11 @@
 .weapon-state{display:flex;align-items:center;gap:7px;font-size:12px;color:#d9ba92;}
 .weapon-state .lucide{width:15px;height:15px;}
 .eq-mechanism{position:relative;display:block;width:100%;height:100%;pointer-events:none;}
+.eq-backplate{position:absolute;left:5%;top:4.590164%;width:90%;height:90%;border-radius:50%;background:radial-gradient(circle at 45% 35%,#0a2630,#03131c 75%);z-index:0;}
 .eq-mechanism .eq-body,.eq-mechanism .eq-rim{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;}
+.eq-body{z-index:1;}
 .eq-rim{z-index:2;}
-.eq-orbit{position:absolute;inset:0;z-index:2;transform-origin:50% 50%;}
+.eq-orbit{position:absolute;inset:0;z-index:2;transform-origin:50% 49.590164%;}
 .eq-radar{position:absolute;inset:-5%;border-radius:50%;border:1px solid transparent;border-top-color:#fff0cf;border-right-color:#cfa878;opacity:0;z-index:3;filter:drop-shadow(0 0 2px #e5c990);pointer-events:none;transition:opacity .25s;}
 .eq-mechanism[data-visual=flute] .eq-radar{border-right-color:#b3e8ea;filter:drop-shadow(0 0 2px #ace0da);}
 .eq-overlay.is-active .eq-orbit{animation:eq-continuous-orbit 3.6s linear var(--eq-loop-delay,0ms) infinite;}

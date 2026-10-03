@@ -1,0 +1,109 @@
+{
+  "version": 1,
+  "method": "Built-in image generation; alpha-bound fitting and size export only. No native card edits.",
+  "canvas": {
+    "width": 488,
+    "height": 488,
+    "center": {
+      "x": 244,
+      "y": 242
+    },
+    "outerRadius": 240
+  },
+  "assets": [
+    {
+      "visual": "axe",
+      "kind": "ring",
+      "file": "V4/site/assets/equipment/stone-copper-ring-v1.webp",
+      "sha256": "2694cb9a67cdcc0e0fab34a6ef762943ad13b53be45533ce75d311e2243c80e6",
+      "bytes": 165690,
+      "placement": {
+        "left": 5,
+        "top": 6,
+        "width": 478,
+        "height": 476
+      }
+    },
+    {
+      "visual": "axe",
+      "kind": "body",
+      "file": "V4/site/assets/equipment/fallen-king-axe-v3.webp",
+      "sha256": "55fce855bb04ca17c7523337c10cefdeeddf729fc991a2bafcf3fde619a01494",
+      "bytes": 33902,
+      "placement": {
+        "left": 132,
+        "top": 122,
+        "width": 224,
+        "height": 240
+      }
+    },
+    {
+      "visual": "axe",
+      "kind": "sources",
+      "ringSource": "sources/stone-ring-source.png",
+      "ringHash": "e9b554044a0b3566f8cfaf68d8fc9ee564c2f1e918131646066843a8d810ebd3",
+      "weaponSource": "V4/revisions/2026-10-02-unique-weapon-art/sources/fallen-king-axe-v1.png",
+      "weaponHash": "8aad520fe68ab6deccf80faf164ed86c37f9929ced9da6b220fa5d554f776720",
+      "opening": {
+        "center": {
+          "x": 627,
+          "y": 613.5
+        },
+        "innerRadius": 417.3790243891036,
+        "outerRadius": 612.000204248332,
+        "transparentPixels": 567661
+      },
+      "scale": 0.39215673186706146,
+      "safeRadius": 155.6779941542934,
+      "exportAlphaThreshold": 4,
+      "alphaSpecks": 18845
+    },
+    {
+      "visual": "flute",
+      "kind": "ring",
+      "file": "V4/site/assets/equipment/electro-copper-ring-v1.webp",
+      "sha256": "157e5d9f1ed2bf0a1afd9c30feed54a925bdb7e3d0111d95e9fad9bcb5c65c99",
+      "bytes": 172930,
+      "placement": {
+        "left": 5,
+        "top": 5,
+        "width": 479,
+        "height": 474
+      }
+    },
+    {
+      "visual": "flute",
+      "kind": "body",
+      "file": "V4/site/assets/equipment/little-joys-flute-v3.webp",
+      "sha256": "93260dad9ebd240226c113670c95980865a8c407ce453a27896ae4739880b9cd",
+      "bytes": 33158,
+      "placement": {
+        "left": 127,
+        "top": 125,
+        "width": 234,
+        "height": 234
+      }
+    },
+    {
+      "visual": "flute",
+      "kind": "sources",
+      "ringSource": "sources/electric-ring-source.png",
+      "ringHash": "c3c8a7ce0e1d66f78a35df5a4b6fee09a59d2f565fcc176829bd462e052126ea",
+      "weaponSource": "V4/revisions/2026-10-02-unique-weapon-art/sources/little-joys-flute-v2-electric.png",
+      "weaponHash": "20adeb83e2738dc7abd9f9c665f217836bab06aaeef304a5c2f8b1311f50f287",
+      "opening": {
+        "center": {
+          "x": 627,
+          "y": 625.5
+        },
+        "innerRadius": 414.000301932257,
+        "outerRadius": 591.5076077279142,
+        "transparentPixels": 593344
+      },
+      "scale": 0.4057428794903968,
+      "safeRadius": 159.97767461588762,
+      "exportAlphaThreshold": 4,
+      "alphaSpecks": 18249
+    }
+  ]
+}

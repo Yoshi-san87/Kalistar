@@ -3,7 +3,7 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
 const {createRequire}=require('node:module');
 const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const {chromium}=createRequire(path.join(runtime,'__kill_medals__.cjs'))('playwright');
-const url=process.env.KALISTAR_URL||'http://127.0.0.1:4304',output=path.join(__dirname,'verification/kill-medals');
+const url=process.env.KALISTAR_URL||'http://127.0.0.1:4304',output=process.env.KALISTAR_VERIFICATION_DIR||path.join(__dirname,'verification/kill-medals');
 let browser;
 async function main(){
   fs.mkdirSync(output,{recursive:true});browser=await chromium.launch({channel:'chrome',headless:true});
@@ -27,7 +27,8 @@ async function main(){
       for(let n=0;n<3000&&s.phase!=='over';n++){
         const before=e.clone(s);step(s);
         const medal=T.killMilestone(e.matchStats(before),e.matchStats(s),s.duel?.attacker);
-        if(before.phase==='defense'&&medal?.tier===2){
+        // Automatic second chances may already resolve while the page is restoring.
+        if(before.phase==='defense'&&!before.duel.autoDefense&&medal?.tier===2){
           e.assertState(before);await KALISTAR_DB.saveGame(before);localStorage.setItem('kalistar.v4.game',JSON.stringify(before));
           return {uid:s.duel.attacker,side:s.duel.side,name:s.duel.attackerName,matchId:s.matchId};
         }
@@ -43,13 +44,34 @@ async function main(){
   assert.equal(await page.locator('.kill-celebration').getAttribute('data-side'),String(fixture.side));
   const strip=page.locator('.slot .duel-match-stats[data-match-unit="'+fixture.uid+'"]');
   assert.equal(await strip.locator('[data-metric=kills] dd').textContent(),'2');
-  assert.equal(await strip.locator('[data-kill-tier="2"]').count(),1);
+  assert.equal(await strip.locator('[data-metric=kills] dd [data-kill-tier="2"]').count(),1);
+  assert.equal(await strip.locator('[data-metric=kills] dt .kill-medal').count(),0);
+  assert.equal(await strip.locator('[data-metric=kills] dd').getAttribute('aria-label'),'Kills : 2');
   assert.equal(await page.locator('.kill-celebration').evaluate(n=>getComputedStyle(n).pointerEvents),'none');
   assert.ok(await page.locator('[data-action=next]').isEnabled(),'the celebration never blocks Tour suivant');
   await page.screenshot({path:path.join(output,'live-double-kill.png'),scale:'css'});
   await page.waitForFunction(()=>!document.querySelector('.kill-celebration'));
   await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);
   assert.equal(await page.locator('.kill-celebration').count(),0,'restoring a result does not replay the announcement');
+  // Check the real combat strip, then preview all medal tiers without changing the game.
+  for(const [width,height] of [[1440,1000],[412,1007],[320,568]]){
+    await page.setViewportSize({width,height});await page.waitForTimeout(200);
+    const live=page.locator('.duel-match-stats[data-match-unit="'+fixture.uid+'"]:visible');
+    assert.ok(await live.count()>0,'the selected combatant stats remain visible at '+width);
+    for(let tier=2;tier<=10;tier++){
+      await live.evaluateAll((nodes,tier)=>nodes.forEach(n=>{
+        const dd=n.querySelector('[data-metric=kills] dd');dd.innerHTML=KalistarTrophies.medal(tier);dd.setAttribute('aria-label','Kills : '+tier);
+      }),tier);
+      const geometry=await live.locator('[data-metric=kills]').evaluateAll(nodes=>nodes.map(n=>{
+        const r=n.getBoundingClientRect(),skull=n.querySelector('dt svg').getBoundingClientRect(),medal=n.querySelector('dd .kill-medal').getBoundingClientRect();
+        return {count:n.querySelectorAll('.kill-medal').length,gap:medal.left-skull.right,right:r.right-medal.right,top:medal.top-r.top,bottom:r.bottom-medal.bottom};
+      }));
+      assert.ok(geometry.every(r=>r.count===1&&r.gap>=-1&&r.right>=-1&&r.top>=-1&&r.bottom>=-1),'tier '+tier+' replaces the number to the right of the skull without overflow at '+width+' '+JSON.stringify(geometry));
+      if(tier===2||tier===10)await page.screenshot({path:path.join(output,`combat-medal-${tier}-${width}.png`),scale:'css'});
+    }
+  }
+  await page.setViewportSize({width:1440,height:1000});await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);
+  assert.equal(await strip.locator('[data-metric=kills] dd').getAttribute('aria-label'),'Kills : 2','visual previews do not change saved kills');
   const persisted=await page.evaluate(async()=>{
     const e=KalistarEngine.createEngine(KALISTAR_DATA),T=KalistarTrophies,db=KALISTAR_DB;
     const s=e.restoreGame(JSON.parse(localStorage.getItem('kalistar.v4.game')));

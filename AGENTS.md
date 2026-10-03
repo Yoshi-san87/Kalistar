@@ -31,3 +31,14 @@
   work in the shared checkout and stage only the authorized release scope.
 - This versioning rule does not authorize a push without a user request, nor
   does it authorize choosing a different repository or account.
+
+## Standing Publication Request (3 October 2026)
+
+- The user explicitly requests a push after each completed, validated change.
+  This is standing authorization for the personal `Yoshi-san87/Kalistar`
+  repository only, not for another account or project.
+- Keep the versioning rule above: increment the patch version by default,
+  commit the release documentation and push `main` with its annotated tag.
+- Preserve unrelated or unfinished local work. Do not use a bulk stage or
+  force push. Check the actual remote before each publication.
+- Verify the Pages workflow and public version before reporting the site live.

@@ -20,11 +20,15 @@
 .kill-medal-keepsake .kill-medal { --medal-size: 42px; --medal-type: 19px; }
 .trophy-keepsake > span { max-width: 100%; overflow-wrap: anywhere; }
 
-/* The existing kill number stays in place; only roomy stat strips add a medal. */
 .duel-match-stats { container-type: inline-size; }
-.duel-match-stats dt .kill-medal { display: none; --medal-size: 16px; --medal-type: 10px; margin-right: 3px; }
+.duel-match-stats dd .kill-medal { --medal-size: 16px; --medal-type: 10px; }
+.duel-match-stats dd:has(.kill-medal) { display: inline-flex; align-items: center; line-height: 0; }
 .duel-match-stats .kill-medal::after { inset: 2px; }
-@container (min-width: 184px) { .duel-match-stats dt .kill-medal { display: inline-grid; } }
+@container (max-width: 128px) {
+  .slot .duel-match-stats [data-metric=kills]:has(.kill-medal) { gap: 2px; }
+  .slot .duel-match-stats [data-metric=kills]:has(.kill-medal) .lucide { width: 8px; height: 8px; }
+  .slot .duel-match-stats dd .kill-medal { --medal-size: clamp(8px,calc(25cqw - 13px),16px); --medal-type: clamp(6px,calc(var(--medal-size) * .65),10px); }
+}
 
 .kill-celebration {
   position: absolute; z-index: 60; left: 50%; top: 50%; transform: translate(-50%,-50%);
@@ -52,7 +56,7 @@
   .kill-celebration strong { font-size: 23px; }
   .kill-celebration-name { font-size: 11px; margin-bottom: 4px; }
   .kill-medal-cabinet { gap: 10px 15px; }
-  @container (min-width: 100px) { .mobile-duel-stats .duel-match-stats dt .kill-medal { display: inline-grid; --medal-size: 14px; --medal-type: 9px; margin-right: 2px; } }
+  .mobile-duel-stats .duel-match-stats dd .kill-medal { --medal-size: 14px; --medal-type: 9px; }
 }
 @media (prefers-reduced-motion:reduce) {
   .kill-medal[data-kill-tier="10"]::before { animation: none; }

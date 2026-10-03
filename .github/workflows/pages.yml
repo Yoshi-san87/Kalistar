@@ -38,6 +38,7 @@ jobs:
           node V4/site/arena-ambience.test.cjs
           node --test V4/site/equipment.test.cjs
           node --test V4/site/team-composition.test.cjs
+          node --test V4/site/match-metrics.test.cjs V4/site/kill-medals.test.cjs
       - name: Build playable release
         run: node V4/deploy/build.cjs
       - uses: actions/configure-pages@v5

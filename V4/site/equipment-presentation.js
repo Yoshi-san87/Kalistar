@@ -5,8 +5,13 @@
   let previous=new Map(),observer=null,gameId=null,loads=null;
   const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const url=file=>window.KalistarSite?.url('assets/equipment/'+file)||'assets/equipment/'+file;
+  const skins=Object.freeze({
+    axe:Object.freeze({body:'fallen-king-axe-v3.webp',rim:'stone-copper-ring-v1.webp'}),
+    flute:Object.freeze({body:'little-joys-flute-v3.webp',rim:'electro-copper-ring-v1.webp'})
+  });
   function markup(w,{bonus=true}={}){
-    return `<span class="eq-mechanism" data-visual="${w.visual}" aria-hidden="true"><img class="eq-body" src="${url((w.art||w.visual)+'.webp')}" alt="" draggable="false"><span class="eq-orbit"><img class="eq-rim" src="${url('rim.webp')}" alt="" draggable="false"></span><span class="eq-radar"></span>${bonus?`<span class="eq-tab"><b>+${w.effect.value}</b><small>${w.effect.stat}</small></span>`:''}<span class="eq-reflection"></span></span>`;
+    const skin=skins[w.visual];
+    return `<span class="eq-mechanism" data-visual="${w.visual}" aria-hidden="true"><span class="eq-backplate"></span><img class="eq-body" src="${url(skin.body)}" alt="" draggable="false"><span class="eq-orbit"><img class="eq-rim" src="${url(skin.rim)}" alt="" draggable="false"></span><span class="eq-radar"></span>${bonus?`<span class="eq-tab"><b>+${w.effect.value}</b><small>${w.effect.stat}</small></span>`:''}<span class="eq-reflection"></span></span>`;
   }
   function animate(node,frames,options,signal){
     if(!node||signal?.aborted)return Promise.resolve();
@@ -102,5 +107,5 @@
   }
   window.addEventListener('pagehide',()=>capture({reset:true}));
   motion.addEventListener('change',()=>{for(const animation of animations)animation.cancel();animations.clear();});
-  window.KalistarEquipmentFX={markup,capture,mount,play,native};
+  window.KalistarEquipmentFX={markup,capture,mount,play,native,skins};
 })();

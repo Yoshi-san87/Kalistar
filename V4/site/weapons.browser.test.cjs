@@ -128,7 +128,9 @@ async function main(){
     await ready(page);assert.equal(await page.locator('.weapon-card').count(),2);
     await page.waitForFunction(()=>[...document.querySelectorAll('.weapon-card .eq-body')].every(i=>i.complete&&i.naturalWidth===488));
     const art=await page.locator('.weapon-card .eq-body').evaluateAll(images=>images.map(i=>new URL(i.src).pathname.split('/').pop()));
-    assert.deepEqual(art,['fallen-king-axe-v2.webp','little-joys-flute-v2.webp']);
+    assert.deepEqual(art,['fallen-king-axe-v3.webp','little-joys-flute-v3.webp']);
+    await page.waitForFunction(()=>[...document.querySelectorAll('.weapon-card .eq-rim')].every(i=>i.complete&&i.naturalWidth===488));
+    assert.deepEqual(await page.locator('.weapon-card .eq-rim').evaluateAll(images=>images.map(i=>new URL(i.src).pathname.split('/').pop())),['stone-copper-ring-v1.webp','electro-copper-ring-v1.webp']);
     if(name==='desktop'){
       const orbit=page.locator('.weapon-card').first().locator('.eq-orbit');
       await page.mouse.move(1,1);assert.equal(await orbit.evaluate(n=>getComputedStyle(n).animationName),'none');
@@ -141,9 +143,9 @@ async function main(){
       assert.equal(await orbit.evaluate(n=>getComputedStyle(n).animationIterationCount),'infinite','keyboard focus animates');
       await page.mouse.click(1,1);
     }
-    assert.match(await page.title(),/^Kalistar V4\.4\.0/);
-    if(name==='desktop')assert.equal(await page.locator('.edition').innerText(),'VERSION 4.4.0');
-    else assert.equal(await page.locator('.brand').evaluate(n=>getComputedStyle(n,'::after').content),'"V4.4.0"');
+    assert.match(await page.title(),/^Kalistar V4\.4\.1/);
+    if(name==='desktop')assert.equal(await page.locator('.edition').innerText(),'VERSION 4.4.1');
+    else assert.equal(await page.locator('.brand').evaluate(n=>getComputedStyle(n,'::after').content),'"V4.4.1"');
     if(name==='desktop'){
       const migrated=await page.evaluate(()=>new Promise((resolve,reject)=>{
         const request=indexedDB.open('kalistar-v4-cards');request.onerror=()=>reject(request.error);
