@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "modelId": "49900404",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "ed5950bb6af285fa7439c6062d2da59ae42a02cce6ec8f7203d05782f3b1e995",
+  "hashes": {
+    "card.png": "477e14aad459794787291726ad4ce1f2783851491baf69fe3ff6aa21f57d0d3b",
+    "card.psd": "6f4bc2cf0344534f0b0dcd46ddf523dcf72fc030aff32176da0afe071c357b3d"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 88448
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49900404",
+    "cases": {
+      "color-1": [
+        "49900404"
+      ],
+      "color-4": [
+        "49900404"
+      ],
+      "gray-1": [
+        "49900404"
+      ],
+      "gray-4": [
+        "49900404"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-04T14:23:49.148Z",
+  "typography": true,
+  "revision": "2026-10-04-kalistel-armor",
+  "artOnly": {
+    "changed": 445374,
+    "outside": 0
+  }
+}

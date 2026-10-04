@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "modelId": "49900301",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "eaff341dea8fd804369e95c04c52163dc588043bc56c059ad254d174be292f84",
+  "hashes": {
+    "card.png": "ce7e9a2899dd8ddee84a077ca4954e8f5ad9323482ad4bd4edab7ecf7b8ad9c2",
+    "card.psd": "74e488b3b7fe693927c36f437ce40afa1eb5336a794de6f7374c82b6674c4c8f"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 85656
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49900301",
+    "cases": {
+      "color-1": [
+        "49900301"
+      ],
+      "color-4": [
+        "49900301"
+      ],
+      "gray-1": [
+        "49900301"
+      ],
+      "gray-4": [
+        "49900301"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-04T14:23:45.107Z",
+  "none": {
+    "unlit": true,
+    "crystalHash": "fd16efbb06ac645589885aed82cadacab4461f08dcc4f4dd1d58d7d42b11f8bf",
+    "branchHash": "c8bf5bb6de74db43356255c19c6747ffd0daa03ae6476c0ef1b66c628d77a7cb"
+  },
+  "typography": true,
+  "revision": "2026-10-04-kalistel-armor",
+  "artOnly": {
+    "changed": 443838,
+    "outside": 0
+  }
+}
