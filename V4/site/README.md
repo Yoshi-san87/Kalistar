@@ -69,6 +69,15 @@ Schema-3 registry backups validate against their own `versions` snapshot, which 
 
 `db.catalogueChanges()` returns IDs present in the shared registry but absent from the loaded engine. `db.onCatalogueChange(listener)` subscribes to these changes (including the initial state) and returns an unsubscribe function. Old tabs keep the existing engine and active match, show the manual refresh action, and render all owned rows from the stored version profiles in the account dialog. Counts include pending versions. Import from a stale tab fails with `CATALOGUE_STALE` until it refreshes; this prevents a partial catalogue from overwriting newer records.
 
+## White Weapon Pictograms (4 October 2026)
+
+`base-weapons.js` adds crisp, optically centred white vector silhouettes to
+screen cards through the existing `card-media.js` crop. These cached images
+embed the raster card and a vector motif, keeping its outline sharp at zoom.
+Illustration-only views and PNG print downloads remain original. Native PSDs,
+reference locks, gameplay and equipped-weapon overlays are unchanged.
+See [sources, geometry and checks](../revisions/2026-10-04-white-weapons/README.md).
+
 ## Collection Editions (23 September 2026)
 
 The notebook uses each card's printed title for edition buttons. The current

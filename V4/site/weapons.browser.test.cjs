@@ -181,9 +181,9 @@ async function main(){
       assert.equal(await orbit.evaluate(n=>getComputedStyle(n).animationIterationCount),'infinite','keyboard focus animates');
       await page.mouse.click(1,1);
     }
-    assert.match(await page.title(),/^Kalistar V4\.5\.3/);
-    if(name==='desktop')assert.equal(await page.locator('.edition').innerText(),'VERSION 4.5.3');
-    else assert.equal(await page.locator('.brand').evaluate(n=>getComputedStyle(n,'::after').content),'"V4.5.3"');
+    assert.match(await page.title(),/^Kalistar V4\.5\.4/);
+    if(name==='desktop')assert.equal(await page.locator('.edition').innerText(),'VERSION 4.5.4');
+    else assert.equal(await page.locator('.brand').evaluate(n=>getComputedStyle(n,'::after').content),'"V4.5.4"');
     if(name==='desktop'){
       const migrated=await page.evaluate(()=>new Promise((resolve,reject)=>{
         const request=indexedDB.open('kalistar-v4-cards');request.onerror=()=>reject(request.error);
@@ -295,7 +295,7 @@ async function main(){
       await page.locator('.arena-toolbar [data-action=combat-reference][data-reference=weapons]').click();
       const glyph=page.locator('#combat-reference-dialog [data-defender="Fléau"] img');
       await glyph.evaluate(n=>n.complete?Promise.resolve():new Promise(resolve=>n.addEventListener('load',resolve,{once:true})));
-      assert.match(await glyph.getAttribute('src'),/flail-white-v1\.png$/);assert.equal(await glyph.evaluate(n=>n.naturalWidth),60);
+      assert((await glyph.getAttribute('src')).endsWith('base-weapons/04.svg'));assert.equal(await glyph.evaluate(n=>n.naturalWidth),96);
       assert(await page.locator('.weapon-icon-credit').isVisible());await page.screenshot({path:path.join(out,'white-flail-codex.png')});
       await page.locator('#combat-reference-dialog [data-action=close]').click();
     }

@@ -1,8 +1,8 @@
 (function(root,factory){
-  const api=factory();
+  const api=factory(typeof module==='object'&&module.exports?require('./base-weapons.js'):root.KalistarBaseWeapons);
   if(typeof module==='object'&&module.exports)module.exports=api;
   else root.KalistarCollaborations=api;
-})(typeof globalThis==='undefined'?this:globalThis,()=>{
+})(typeof globalThis==='undefined'?this:globalThis,W=>{
   'use strict';
   const entries=Object.freeze([
     {id:'ff7',faction:'FF7',title:'Final Fantasy VII'},
@@ -25,6 +25,6 @@
   const universe=card=>of(card)?.faction||'kalistar';
   const matches=(card,id)=>of(card)?.id===id;
   const choices=cards=>entries.filter(entry=>entry.id==='ff7'||entry.id==='ff8'||cards.some(card=>matches(card,entry.id))).map(entry=>[entry.faction,entry.faction]);
-  const asset=(folder,name)=>folder==='armes'&&String(name)==='04'?'assets/ui/flail-white-v1.png':(folder==='factions'&&(find(name)||name==='Solaria')||folder==='races'&&['ANDROID','BUZZY','SERPES','SHARKAN'].includes(name)?'assets/':'shared/')+folder+'/'+encodeURIComponent(name)+'.png';
+  const asset=(folder,name)=>folder==='armes'&&W?.asset(name)?W.asset(name):(folder==='factions'&&(find(name)||name==='Solaria')||folder==='races'&&['ANDROID','BUZZY','SERPES','SHARKAN'].includes(name)?'assets/':'shared/')+folder+'/'+encodeURIComponent(name)+'.png';
   return {entries,of,universe,matches,choices,asset};
 });

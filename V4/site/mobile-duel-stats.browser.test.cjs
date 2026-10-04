@@ -36,7 +36,7 @@ const output = path.join(__dirname, 'verification/mobile-duel-stats');
     await page.reload(); await page.waitForFunction(() => window.KALISTAR_READY);
     assert.equal(await page.locator('.mobile-duel-stats').count(), 0, 'no stale selection on reload');
     for (const side of [0, 1]) await page.locator(`.formation[data-player="${side}"] .slot-card`).first().tap();
-    await page.waitForFunction(() => performance.getEntriesByType('resource').some(r => r.name.endsWith('/armes/03.png')));
+    await page.waitForFunction(() => performance.getEntriesByType('resource').some(r => r.name.endsWith('/base-weapons/03.svg')));
     await page.waitForTimeout(150);
     assert.equal(await page.locator('.mobile-duel-stats').count(), 2);
     const values = async selector => page.locator(selector).evaluateAll(nodes => nodes.map(n => [...n.querySelectorAll('dd')].map(d => d.textContent)));
@@ -44,7 +44,7 @@ const output = path.join(__dirname, 'verification/mobile-duel-stats');
     assert.ok((await values('.mobile-duel-stats .duel-match-stats')).every(v => Number(v[2]) > 0 && Number(v[3]) > 0 && Number(v[1]) === 1));
     for (const stage of await page.locator('.dice-stage').all()) {
       assert.equal(await stage.getAttribute('data-crystal'), '');
-      assert.match(await stage.getAttribute('data-weapon'), /armes\/03\.png$/);
+      assert((await stage.getAttribute('data-weapon')).endsWith('/base-weapons/03.svg'));
       assert.match(await stage.getAttribute('aria-label'), /Poing/);
       assert.ok(await stage.locator('canvas').evaluate(c => {
         const pixels = c.getContext('2d').getImageData(0, 0, c.width, c.height * .75).data;
