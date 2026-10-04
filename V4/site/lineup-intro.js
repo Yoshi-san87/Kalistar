@@ -4,8 +4,8 @@
 })(typeof globalThis!=='undefined'?globalThis:this,function(){
   'use strict';
   const roles=Object.freeze(['TANK','DPS PHYSIQUE','MIDDLE','DPS MAGIQUE / DISTANCE','SUPPORT']);
-  const timing=Object.freeze({title:60,depart:330,weapon:600,crystal:600,faction:600,suspense:80,flip:400,hold:400,arrive:330});
-  const reducedTiming=Object.freeze({title:0,depart:0,weapon:280,crystal:280,faction:280,suspense:0,flip:120,hold:180,arrive:0});
+  const timing=Object.freeze({title:60,depart:330,weapon:600,crystal:600,faction:600,suspense:380,flip:400,hold:400,arrive:330});
+  const reducedTiming=Object.freeze({title:0,depart:0,weapon:280,crystal:280,faction:280,suspense:300,flip:120,hold:180,arrive:0});
   const clueKinds=Object.freeze(['weapon','crystal','faction']);
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   // Read-only presentation data: native identity clues never inspect equipped weapons.
@@ -22,14 +22,14 @@
         }};
     }));
   }
-  function play({shell,formations,cardBack,onComplete=()=>{},onSkip=()=>{},onExit=()=>{}}){
+  function play({shell,formations,cardBack,initiative=null,captainsOnly=false,onComplete=()=>{},onSkip=()=>{},onExit=()=>{}}){
     if(!shell||formations.length!==2||formations.some(team=>team.length!==5||team.some(c=>!c?.node||!c.cardId)))throw Error('Formation de presentation incomplete.');
     const reduced=matchMedia('(prefers-reduced-motion:reduce)').matches,t=reduced?reducedTiming:timing;
     const abort=new AbortController(),animations=new Set(),clueFlights=new Set(),waiters=new Set(),movers=new Map(),actors=[],stacks=[];
     const dockDuration=reduced?0:160;
     const hidden=formations.flatMap(team=>team.map(c=>c.node.closest('.slot')||c.node));
     const inertNodes=[shell,document.querySelector('.masthead')].filter(Boolean).map(node=>({node,inert:node.inert}));
-    const previousFocus=document.activeElement;let active=true,step='loading',position=0;
+    const previousFocus=document.activeElement;let active=true,step='loading',position=0,drawMode=false;
     const root=document.createElement('section');root.className='lineup-intro'+(reduced?' is-reduced':'');root.setAttribute('role','dialog');root.setAttribute('aria-modal','true');root.setAttribute('aria-label','Presentation des titulaires');
     root.innerHTML=`<div class="li-shade"></div><header class="li-header"><button class="li-exit icon-button" aria-label="Retour au menu" title="Retour au menu"><i data-lucide="arrow-left"></i></button><h2 class="li-title" aria-live="polite"></h2><button class="li-skip"><i data-lucide="skip-forward"></i>Passer</button></header><div class="li-stage"></div>`;
     const stage=root.querySelector('.li-stage'),title=root.querySelector('.li-title'),skip=root.querySelector('.li-skip');
@@ -50,9 +50,10 @@
       const header=landscape?skip.getBoundingClientRect().bottom+8:root.querySelector('.li-header').getBoundingClientRect().bottom;
       const dock=parseFloat(getComputedStyle(root).getPropertyValue('--li-dock-height'));
       const start=header+dock+12,gap=landscape?Math.max(230,w*.32):w<700?14:Math.min(100,w*.055);
-      const height=Math.max(80,Math.min(650,h-start-44,(w-gap-32)/2*1388/797)),width=height*797/1388;
+      const bottom=drawMode?156:44;
+      const height=Math.max(80,Math.min(650,h-start-bottom,(w-gap-32)/2*1388/797)),width=height*797/1388;
       const left=w/2+(side?gap/2:-gap/2-width);
-      return {left,top:start+Math.max(0,(h-start-44-height)/2),width,height};
+      return {left,top:start+Math.max(0,(h-start-bottom-height)/2),width,height};
     }
     // Retarget a travelling clone from its current visual bounds on resize, retaining its deadline.
     function move(node,target,duration){
@@ -132,6 +133,54 @@
         });
       });
     }
+    async function captainDraw(){
+      if(!initiative||!active)return true;
+      drawMode=true;root.classList.add('li-captains');
+      hidden.forEach(node=>node.classList.remove('lineup-unrevealed'));
+      root.setAttribute('aria-label','Tirage des capitaines');
+      title.textContent='Tirage des capitaines';
+      for(const pile of stacks)pile.remove();stacks.length=0;
+      resize();
+      const captains=formations.map(team=>team.find(card=>card.captain)||team[0]);
+      actors.splice(0,actors.length,...captains.map((card,side)=>{
+        const node=actor(card,side);node.classList.add('li-draw-card','is-revealed');
+        node.querySelector('.li-clues').remove();node.querySelector('.li-back').remove();
+        node.setAttribute('aria-label',initiative.labels[side]+' : '+card.name+', capitaine');
+        node.querySelector('.li-side').textContent=initiative.labels[side];
+        setRect(node,cardRect(card));(card.node.closest('.slot')||card.node).classList.add('lineup-unrevealed');return node;
+      }));
+      const panel=document.createElement('div');panel.className='li-initiative-panel';
+      panel.innerHTML='<div class="li-draw-dice" aria-label="Jets des capitaines">'+[0,1].map(side=>'<div class="li-draw-die" data-side="'+side+'"><span class="li-die-symbol" aria-hidden="true"></span><b class="li-roll-value">\u2026</b></div>').join('')+'</div><p class="li-draw-result" role="status" aria-live="polite">Initiative</p>';
+      stage.append(panel);globalThis.lucide?.createIcons();mark('captains');
+      if(!(await Promise.all(actors.map((n,side)=>move(n,()=>centre(side),t.depart)))).every(Boolean))return false;
+      function dice(values){
+        panel.querySelectorAll('.li-draw-die').forEach((host,side)=>{
+          const value=values[side];host.querySelector('.li-die-symbol').innerHTML='<i data-lucide="dice-'+value+'"></i>';
+          host.querySelector('.li-roll-value').textContent=String(value);host.setAttribute('aria-label',initiative.labels[side]+' : '+value);
+        });globalThis.lucide?.createIcons();
+      }
+      const resultText=panel.querySelector('.li-draw-result');
+      if(!await wait(reduced?160:500))return false;
+      let result;
+      do{
+        resultText.textContent='Initiative';panel.classList.add('is-rolling');mark('initiative-roll');
+        if(!reduced){
+          for(let frame=0;frame<8;frame++){dice([frame%6+1,(frame+3)%6+1]);if(!await wait(80))return false;}
+        }else if(!await wait(180))return false;
+        if(!active)return false;
+        result=initiative.roll();dice(result.dice);panel.classList.remove('is-rolling');
+        if(result.first===null){resultText.textContent='\u00c9galit\u00e9 \u00b7 Nouveau jet';mark('initiative-tie');if(!await wait(reduced?300:750))return false;}
+      }while(active&&result.first===null);
+      if(!active)return false;
+      actors[result.first].classList.add('li-initiative-winner');
+      resultText.textContent=initiative.labels[result.first]+' ouvre le combat';mark('initiative-result');
+      if(!await wait(reduced?600:1300))return false;
+      panel.classList.add('is-leaving');mark('captains-arrive');
+      actors.forEach(n=>n.classList.add('is-placing'));
+      if(!(await Promise.all(actors.map((n,side)=>move(n,()=>cardRect(captains[side]),t.arrive)))).every(Boolean))return false;
+      captains.forEach(card=>(card.node.closest('.slot')||card.node).classList.remove('lineup-unrevealed'));
+      actors.forEach(n=>n.remove());actors.length=0;panel.remove();return true;
+    }
     async function run(){
       try{
         title.textContent='P1 \u00b7 '+roles[0];mark('loading');
@@ -141,7 +190,7 @@
         }resize();
         // Bounded preparation: images continue loading during the identity suspense.
         await Promise.race([Promise.all([...shell.querySelectorAll('.slot-card>img')].map(img=>img.decode().catch(()=>{}))),wait(300)]);
-        for(position=0;position<5&&active;position++){
+        for(position=0;!captainsOnly&&position<5&&active;position++){
           title.textContent='P'+(position+1)+' \u00b7 '+roles[position];mark('title');if(!await wait(t.title))return;
           actors.splice(0,actors.length,...formations.map((team,side)=>actor(team[position],side)));
           mark('depart');if(!(await Promise.all(actors.map((n,side)=>move(n,()=>centre(side),t.depart)))).every(Boolean))return;
@@ -162,7 +211,8 @@
           for(const a of [...animations])if(actors.some(n=>n.contains(a.effect?.target))){a.cancel();animations.delete(a);}
           actors.forEach(n=>n.remove());actors.length=0;
         }
-        if(active)finish('complete');
+        if(captainsOnly)position=5;
+        if(active&&await captainDraw())finish('complete');
       }catch(error){if(active){console.error('Lineup presentation:',error);finish('skip');}}
     }
     run();return {skip:()=>finish('skip'),destroy:()=>finish('destroy'),get active(){return active;},get step(){return step;}};

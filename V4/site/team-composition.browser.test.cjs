@@ -176,7 +176,7 @@ async function verify(page,output){
     assert(p.left>=1&&p.bottom>=1&&p.top>0&&p.right>0,'the complete crown is inside the card');assert(p.ratio>=.15&&p.ratio<=.3,'crown remains readable');assert.equal(p.native,336);assert.equal(p.border,'0px');assert.equal(p.background,'rgba(0, 0, 0, 0)');
   }
   assert.equal(await page.locator('.eq-overlay').count(),0,'inactive weapons must not mask the original medallion');
-  await page.locator('.slot-card[data-side="0"][data-slot="0"]').click();await page.locator('.slot-card[data-side="1"][data-slot="1"]').click();
+  await page.locator('.slot-card[data-side="'+started.turn+'"][data-slot="0"]').click();await page.locator('.slot-card[data-side="'+(1-started.turn)+'"][data-slot="1"]').click();
   assert.match(await page.locator('[data-bonus=captainAttack]').textContent(),/10/);assert.match(await page.locator('[data-bonus=captainDefense]').textContent(),/10/);
   await page.locator('[data-action=lock]').click();await page.locator('[data-action=roll]').click();
   await page.waitForFunction(()=>['kalistel','defense'].includes(JSON.parse(localStorage.getItem('kalistar.v4.game')).phase));

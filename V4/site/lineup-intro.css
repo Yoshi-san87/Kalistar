@@ -51,6 +51,21 @@
 .is-revealed .li-captain-label{opacity:1;}
 .is-placing .li-side,.is-placing .li-captain-label{visibility:hidden;}
 @keyframes li-crown{from{transform:translateY(-9px);opacity:0;filter:brightness(1.4);}to{transform:none;opacity:1;filter:brightness(1);}}
+.lineup-intro.li-captains{--li-dock-height:18px;}
+.li-draw-card .li-rotor,.li-draw-card .li-front{transform:none!important;}
+.li-draw-card .li-captain-label{bottom:8%;background:#0b1e21ef;border-block:1px solid #b98d5a6e;}
+.li-initiative-winner{filter:drop-shadow(0 0 14px #ecc07666);}
+.li-initiative-panel{position:absolute;bottom:calc(24px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);width:min(430px,calc(100% - 32px));text-align:center;z-index:4;transition:opacity .15s;}
+.li-draw-dice{display:flex;justify-content:center;gap:70px;}
+.li-draw-die{display:grid;grid-template-columns:40px 24px;align-items:center;gap:9px;min-height:52px;color:#b2e3d4;}
+.li-draw-die[data-side="1"]{color:#ecb8ab;}
+.li-die-symbol{display:grid;place-items:center;width:40px;height:40px;filter:drop-shadow(0 2px 5px #000);}
+.li-die-symbol svg{width:36px;height:36px;stroke-width:1.4;}
+.li-roll-value{font:600 28px var(--serif);color:#fff0d5;}
+.li-draw-result{margin:12px 0 0;min-height:25px;font:600 18px/1.4 var(--serif);color:#ffdc9c;text-shadow:0 2px 5px #000;}
+.li-initiative-panel.is-rolling .li-die-symbol{animation:li-die-shiver .16s ease-in-out infinite alternate;}
+.li-initiative-panel.is-leaving{opacity:0;}
+@keyframes li-die-shiver{from{transform:translateY(-2px) rotate(-5deg);}to{transform:translateY(1px) rotate(5deg);}}
 .is-reduced .li-stack{display:none;}
 .is-reduced .li-rotor,.is-reduced .li-front{transform:none!important;}
 .is-reduced .li-front{opacity:0;}
@@ -65,6 +80,14 @@
   .li-side{font-size:10px;}.li-captain-label{font-size:9px;padding:3px;}
 }
 @media(max-height:420px){.li-clue{gap:3px;padding:4px;}.li-clue b{font-size:11px;}.li-clue small{font-size:8px;}}
+@media(max-width:699px){
+  .li-draw-dice{gap:50px;}.li-draw-result{font-size:15px;}
+  .li-initiative-panel{bottom:calc(20px + env(safe-area-inset-bottom,0px));}
+}
+@media(max-height:500px){
+  .li-initiative-panel{bottom:10px;}.li-draw-dice{gap:38px;}.li-draw-die{min-height:36px;grid-template-columns:30px 22px;}
+  .li-die-symbol{width:30px;height:30px;}.li-die-symbol svg{width:28px;height:28px;}.li-roll-value{font-size:23px;}.li-draw-result{font-size:14px;margin-top:4px;}
+}
 @media(orientation:landscape) and (max-width:950px) and (max-height:500px){
   .li-header .li-title{max-width:220px;justify-self:center;}
   .li-clue.is-pinned{left:calc(var(--clue-index)*(100% + 24px)/3 - 12px);width:calc((100% + 24px)/3);}

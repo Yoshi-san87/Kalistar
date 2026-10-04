@@ -83,18 +83,43 @@ latest geometry proof; the other sixteen vectors are byte-identical.
 
 ## Opening Lineup: Persistent Clues (4 October 2026)
 
-`lineup-intro.js` presents each starting pair without changing the saved match.
+`lineup-intro.js` presents each starting pair without changing combat statistics.
 Each native weapon, crystal and faction is shown for a 600 ms beat, including
 a 160 ms movement into its persistent top-left, top-centre or top-right dock.
 The same image and label remain visible through subsequent clues and the card
 flip. They fade when the card returns to its board slot. Clues are siblings of
 the rotating card, never children of its back face. Total normal duration is
-17 seconds; reduced motion uses 280 ms clue beats with no movement (5.7 seconds).
+18.5 seconds after the 5 October addition of a 380 ms pre-flip beat (+300 ms
+per pair). Reduced motion keeps 280 ms clue beats with no movement and a
+300 ms pre-flip beat (7.2 seconds). These durations exclude image loading and
+the captain draw which follows the fifth pair.
 
 The responsive dock reserves space above each card. Resize settles clue motion
 at the CSS anchor, and skip/exit cancels all animations and pending waits.
-This is presentation only: captain, equipment, native identity, formation order,
-gameplay and storage are unchanged. See [validation and captures](../revisions/2026-10-04-persistent-lineup-clues/README.md).
+Captain identity, equipment, native identity and formation order are unchanged.
+The persistent-clue presentation is documented in the
+[original validation and captures](../revisions/2026-10-04-persistent-lineup-clues/README.md).
+
+## Captain Dice and ABBA (5 October 2026)
+
+New UI matches opt into `turnOrder: 'ABBA'`. After all ten starters arrive,
+the real two captains move to the centre for an independent D6 draw. Highest
+opens, ties reroll, then both return to their measured board slots. Skipping
+the ceremony still resolves the engine draw. Reload or reentry while pending
+resumes only the captain sequence; saved dice are never rerolled.
+Saved compositions retain their selected captain. UI presets now explicitly
+nominate their P1 starter through `Team.fromPreset`, with ordinary captain
+links and no automatic equipment. Legacy list callers remain unchanged.
+
+`turn-order.js` owns the pure declarative order and separate seeded random
+stream. `engine.js` owns the `initiative` phase, validates persisted records
+and advances only on `next()`. The compact `turn-timeline.css` rail displays
+the current side and four forthcoming actions; phone score/menu offsets reserve
+34 px for it. Legacy games without the marker remain ABAB. Combat RNG, captain
+bonuses, equipment, deck legality and AI selection policies are unchanged.
+
+See [save contract and rules](../docs/INITIATIVE_ABBA.md) and
+[release verification](../releases/2026-10-05-captains-abba/README.md).
 
 ## Collection Editions (23 September 2026)
 

@@ -24,7 +24,10 @@ async function clean(page,snapshot){
   assert.equal(await page.locator('.lineup-intro,.lineup-unrevealed,.lineup-underlay').count(),0);
   assert.equal(await page.locator('.game-shell[inert],.masthead[inert]').count(),0);
   assert.equal(await page.locator('.formation .slot-card:visible').count(),10);
-  assert.deepEqual(await game(page),snapshot,'presentation must not mutate any game field');
+  const after=await game(page);assert.equal(after.phase,'choose');assert.equal(after.round,1);
+  for(const key of ['players','equipment','composition','collection','rng','kalistel','matchId'])assert.deepEqual(after[key],snapshot[key],'presentation preserves '+key);
+  assert.equal(after.turn,after.initiative.first);assert.equal(after.match.events.length,0);
+  assert(after.initiative.rolls.length>0,'skipping still resolves the real captain draw');
 }
 async function main(){
   fs.mkdirSync(output,{recursive:true});
@@ -63,7 +66,7 @@ async function main(){
     });
     await page.reload();await page.waitForSelector('.team-page');
     await page.locator('[data-deck-action=save]').click();
-    const initial=await start(page);assert.equal(initial.phase,'choose');assert.deepEqual(initial.players[0].board.map(c=>c.cardId),fixture.formation);
+    const initial=await start(page);assert.equal(initial.phase,'initiative');assert.deepEqual(initial.players[0].board.map(c=>c.cardId),fixture.formation);
     // Capture the first reveal, including each native identity clue.
     for(const step of ['weapon','crystal','faction']){await stage(page,1,step);
       if(step==='weapon'){await page.evaluate(()=>document.querySelector('.formation .slot-card').click());assert.equal(await page.locator('.slot.selected').count(),0);assert.deepEqual(await game(page),initial);}
@@ -71,7 +74,7 @@ async function main(){
     }
     await stage(page,1,'reveal');await shot(page,'desktop-p1');
     for(const position of [3,5]){await stage(page,position,'reveal');if(position===3)await page.waitForTimeout(150);await shot(page,'desktop-p'+position);}
-    await page.waitForSelector('.lineup-intro',{state:'detached',timeout:5000});await clean(page,initial);
+    await page.waitForSelector('.lineup-intro',{state:'detached',timeout:15000});await clean(page,initial);
     const steps=await page.evaluate(()=>lineupSteps);
     for(let p=1;p<=5;p++)assert.deepEqual(steps.filter(s=>s.position===p).map(s=>s.step).filter(s=>s!=='loading'),['title','depart','weapon','crystal','faction','suspense','flip','reveal','arrive']);
     await shot(page,'desktop-final');
@@ -96,15 +99,15 @@ async function main(){
       }
     }
     if(process.argv.includes('--probe')){assert.deepEqual(errors,[]);fs.writeFileSync(path.join(output,'results.json'),JSON.stringify({built,steps,samples,errors},null,2));console.log('Desktop intro and shared-element geometry passed, including all asset requests.');return;}
-    // Skipping at every sensitive boundary restores exactly the same saved match.
+    // Skipping preserves combat state while resolving the required captain draw.
     for(const [p,step] of [[1,'weapon'],[2,'faction'],[3,'flip'],[5,'weapon']]){
       const snapshot=await start(page);await stage(page,p,step);await page.locator('.li-skip').click();await clean(page,snapshot);
       await page.waitForTimeout(250);assert.equal(await page.locator('.lineup-intro').count(),0);
     }
-    // Leaving and resuming, including a reload during the presentation, never replay it.
+    // Reentry resumes only the pending captain draw, not the five lineup pairs.
     const exited=await start(page);await stage(page,1,'weapon');await page.locator('.li-exit').click();
-    await page.locator('.masthead [data-view=arena]').click();await clean(page,exited);
-    const reloaded=await start(page);await page.reload();await page.waitForSelector('.battlefield');await clean(page,reloaded);
+    await page.locator('.masthead [data-view=arena]').click();await stage(page,6,'captains');await page.locator('.li-skip').click();await clean(page,exited);
+    const reloaded=await start(page);await page.reload();await stage(page,6,'captains');await page.locator('.li-skip').click();await clean(page,reloaded);
     // Real phone layouts and resizing while a pair is already in motion.
     for(const [width,height] of [[320,800],[360,800],[390,844],[412,1007],[430,932],[844,390]]){
       await page.setViewportSize({width,height});const snapshot=await start(page);await stage(page,1,'faction');
@@ -140,7 +143,7 @@ async function main(){
     }
     await page.setViewportSize({width:412,height:1007});
     const phone=await start(page);for(const p of [3,5]){await stage(page,p,'reveal');await shot(page,'mobile-412-p'+p);}
-    await page.waitForSelector('.lineup-intro',{state:'detached',timeout:5000});await clean(page,phone);
+    await page.waitForSelector('.lineup-intro',{state:'detached',timeout:15000});await clean(page,phone);
     // Resize and skip while the same clue travels from the centre to its dock.
     const docking=await start(page);await stage(page,1,'weapon');await page.waitForSelector('.li-clue-weapon.is-pinned');
     await page.setViewportSize({width:844,height:390});
@@ -150,7 +153,7 @@ async function main(){
     const reduced=await start(page);await stage(page,3,'reveal');await shot(page,'reduced-motion');
     assert(await page.locator('.lineup-intro').evaluate(root=>[...root.querySelectorAll('.li-rotor,.li-front,.li-clue-symbol,.li-clue b')].every(n=>getComputedStyle(n).transform==='none')));
     assert.equal(await page.locator('.li-clue.is-pinned').count(),6);
-    await page.waitForSelector('.lineup-intro',{state:'detached',timeout:6000});await clean(page,reduced);
+    await page.waitForSelector('.lineup-intro',{state:'detached',timeout:15000});await clean(page,reduced);
     assert.deepEqual(errors,[]);fs.writeFileSync(path.join(output,'results.json'),JSON.stringify({initial,steps,sizes:[320,360,390,412,430,844],checks:['real new composition','pair order','persistent native clues','clues outside flipping rotor','docked labels and images fit','captains','skip x4','menu/resume','reload during intro','portrait/landscape','resize during docking','skip during docking','reduced motion','engine state identity'],errors},null,2));
     console.log('Lineup browser checks passed. Captures: '+output);
   }finally{await browser.close();}

@@ -46,6 +46,11 @@
       for(const id of team.formation.filter(Boolean))reserve.splice(reserve.indexOf(id),1);
       return team.formation.concat(reserve,Array(Math.max(0,5-reserve.length)).fill(null));
     }
+    function fromPreset(value){
+      const errors=engine.validatePlayableDeck(value?.cards);if(errors.length)throw new Error(errors.join(' '));
+      const formation=engine.lineup(value.cards).map(i=>value.cards[i]);
+      return normalize({name:value.name,cards:value.cards.slice(),formation,captain:formation[0],equipment:{}});
+    }
     function edit(team,values){
       const next=clone(team);next.cards=values.slice();next.formation=values.slice(0,5);
       if(!next.formation.includes(next.captain))next.captain=null;
@@ -60,7 +65,7 @@
       else next.equipment=Q.equipProfile(profile,c.characterId,weaponId,team.cards.filter(Boolean).map(id=>byId[id]),{expected:next.equipment[c.characterId]||null}).slots.weapon;
       return normalize(next);
     }
-    return Object.freeze({normalize,slots,edit,equip,clone});
+    return Object.freeze({normalize,fromPreset,slots,edit,equip,clone});
   }
   return Object.freeze({create,clone});
 });

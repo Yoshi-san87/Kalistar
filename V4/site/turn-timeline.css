@@ -1,0 +1,25 @@
+.turn-timeline{display:flex;align-items:center;justify-content:center;gap:14px;min-height:36px;padding:3px 16px;border-block:1px solid #9f725748;background:#0b1513;color:#dcd1b8;font:500 11px var(--sans);isolation:isolate;}
+.tt-mode{font:600 11px var(--serif);color:#b7ab90;min-width:38px;}
+.tt-now{display:flex;align-items:center;gap:7px;min-width:94px;}
+.tt-now b{color:#ffe0a1;font-size:12px;}
+.turn-timeline ol{display:flex;align-items:center;gap:4px;list-style:none;margin:0;padding:0;}
+.turn-timeline li{display:flex;align-items:center;justify-content:center;gap:4px;width:42px;height:25px;border-bottom:2px solid transparent;position:relative;color:#a2cbbd;transition:background .18s,color .18s;}
+.turn-timeline li.is-enemy{color:#e2b0a7;}
+.turn-timeline li.is-current{background:#334238;border-bottom-color:#ddb77a;color:#fff0cd;font-weight:700;}
+.turn-timeline li.is-current::before{content:"";position:absolute;inset:3px auto 3px 0;width:2px;background:#ddb77a;}
+.turn-timeline li svg{width:10px;height:10px;fill:currentColor;}
+.turn-timeline .tt-mode svg{width:16px;height:16px;}
+.turn-timeline.is-pending{color:#efd4a5;}.tt-wait{font-family:var(--serif);}
+.arena-view .has-turn-timeline .battlefield{min-height:calc(100dvh - 166px);}
+.lineup-underlay .turn-timeline{opacity:0;}
+@media(max-width:699px),(max-width:950px) and (max-height:500px){
+  .arena-view .game-shell.has-turn-timeline{padding-top:34px;}
+  .arena-view .turn-timeline{position:absolute;top:0;left:0;right:0;height:34px;min-height:34px;padding:3px 10px;gap:9px;z-index:36;background:#081411f5;}
+  .arena-view .turn-timeline .tt-mode{font-size:9px;min-width:28px;}
+  .arena-view .turn-timeline .tt-now{font-size:10px;min-width:83px;gap:4px;}
+  .arena-view .turn-timeline li{width:27px;height:24px;font-size:10px;gap:3px;}
+  .arena-view .turn-timeline li svg{width:8px;height:8px;}
+  .arena-view .has-turn-timeline .arena-toolbar .match-scoreboard,.arena-view .has-turn-timeline .arena-toolbar .tools [data-action=arena-menu]{top:46px;}
+  .arena-view .has-turn-timeline .battlefield{height:100%;min-height:0;}
+}
+@media(prefers-reduced-motion:reduce){.turn-timeline li{transition:none;}}

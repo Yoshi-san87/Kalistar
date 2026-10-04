@@ -61,7 +61,20 @@ Voir [composition et migration](COMPOSITION_EQUIPE.md) pour le contrat technique
 
 ## Duel et fin de rencontre
 
-Le joueur ouvre, puis les camps alternent apres un duel ou une action de soutien.
+Les nouvelles rencontres commencent par un tirage des deux capitaines : un D6
+par camp, le plus grand ouvre, une egalite relance les deux des. Ce tirage ne
+modifie ni les statistiques des capitaines ni le hasard des jets de combat.
+Les decks predefinis choisissent leur titulaire P1 comme capitaine ; les
+compositions enregistrees conservent celui choisi par le joueur.
+
+L'ordre est **ABBA** : A est le gagnant du tirage, B son adversaire. Les actions
+suivent A, B, B, A, A, B, B, A, etc. Une action de soutien compte comme un
+echange, exactement comme un duel. Les jets DEF, les relances de Kalistel et
+les remplacements ne font pas avancer cet ordre. Le bouton **Tour suivant**
+termine l'echange et avance d'une case dans la frise visible sur PC et telephone.
+Les anciennes rencontres sans marqueur d'initiative conservent leur alternance
+ABAB ; leur sauvegarde n'est pas convertie. Voir [contrat technique](INITIATIVE_ABBA.md).
+
 Une carte ATK et une cible DEF sont choisies sur le plateau. Chaque carte a six
 faces de chaque cote ; les tableaux sont ranges D6 vers D1 (`6 - de`). Les listes
 `magic` et `barriers` contiennent des NUMEROS DE DE, pas des indices de tableau.

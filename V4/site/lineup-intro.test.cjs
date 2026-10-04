@@ -38,9 +38,10 @@ test('missing identities have neutral clues and missing cards fail before mounti
   assert.equal(result[0].clues.crystal.label,'Sans cristal');assert.equal(result[1],null);
   assert.throws(()=>Intro.play({shell:null,formations:[]}),/incomplete/);
 });
-test('each clue has 100 ms more; docking is included in the 17-second sequence',()=>{
+test('persistent clues retain their beat and suspense gains 300 ms before every flip',()=>{
   assert.equal(Intro.roles.length,5);
   for(const kind of ['weapon','crystal','faction']){assert.equal(Intro.timing[kind],600);assert.equal(Intro.reducedTiming[kind],280);}
-  assert.equal(Object.values(Intro.timing).reduce((a,b)=>a+b,0)*5,17000);
-  assert.equal(Object.values(Intro.reducedTiming).reduce((a,b)=>a+b,0)*5,5700);
+  assert.equal(Intro.timing.suspense,380);assert.equal(Intro.reducedTiming.suspense,300);
+  assert.equal(Object.values(Intro.timing).reduce((a,b)=>a+b,0)*5,18500);
+  assert.equal(Object.values(Intro.reducedTiming).reduce((a,b)=>a+b,0)*5,7200);
 });

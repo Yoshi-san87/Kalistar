@@ -1,8 +1,10 @@
 (function (root, factory) {
-  const api = factory(typeof module === 'object' && module.exports ? require('./equipment.js') : root.KalistarEquipment);
+  const api = factory(
+    typeof module === 'object' && module.exports ? require('./equipment.js') : root.KalistarEquipment,
+    typeof module === 'object' && module.exports ? require('./turn-order.js') : root.KalistarTurnOrder);
   if (typeof module === 'object' && module.exports) module.exports = api;
   else root.KalistarEngine = api;
-})(typeof globalThis !== 'undefined' ? globalThis : this, function (Equipment) {
+})(typeof globalThis !== 'undefined' ? globalThis : this, function (Equipment, TurnOrder) {
   'use strict';
   const clone = value => JSON.parse(JSON.stringify(value));
   const dieValue = (card, side, die) => card[side === 'atk' ? 'atk' : 'defense'][6 - die];
@@ -146,6 +148,10 @@
       const seed=String(options.seed || 'KALISTAR');let random=2166136261;
       for(const char of seed)random=Math.imul(random^char.charCodeAt(0),16777619)>>>0;
       const s={schema:6,edition:'V4',phase:'setup',turn:0,round:1,rng:random||1,seed,mode:options.mode||'ai',players:[],log:[],duel:null,lastDuel:null,winner:null,replacing:null};
+      if(options.turnOrder!==undefined){
+        if(options.turnOrder!=='ABBA')throw new Error('Ordre de tour inconnu.');
+        s.initiative=TurnOrder.create(seed);
+      }
       if(options.kalistel!==false)s.kalistel={version:1,spent:[]};
       // Unmarked schema-6 archives retain their original deck validation.
       if(coverage===2)s.deckCoverage=2;
@@ -223,7 +229,15 @@
       if(s.phase!=='setup'||s.players.some(p=>p.board.some(u=>!u)))throw new Error('Les dix positions doivent être occupées.');
       if(Object.hasOwn(s,'deckCoverage'))assertState(s);
       for(const p of s.players)for(const u of p.board)u.entered=true;
-      s.phase='choose';addLog(s,'start','Le joueur ouvre le combat.');return s;
+      s.phase=s.initiative?'initiative':'choose';
+      addLog(s,'start',s.initiative?'Les capitaines vont tirer leur initiative.':'Le joueur ouvre le combat.');return s;
+    }
+    function rollInitiative(s,forced){
+      if(s.phase!=='initiative')throw new Error('Tirage des capitaines indisponible.');
+      const result=TurnOrder.roll(s.initiative,forced);
+      addLog(s,'start',`Capitaines : ${result.dice[0]} / ${result.dice[1]}. ${result.first===null?'Egalite : nouveau jet.':(result.first===0?'Joueur 1':'Joueur 2')+' ouvre le combat. Ordre ABBA.'}`,result);
+      if(result.first!==null){s.turn=result.first;s.phase='choose';}
+      return result;
     }
     function synergy(p,u,field) {
       const n=p.board.filter(other=>other&&card(other)[field]===card(u)[field]).length;
@@ -508,7 +522,8 @@
     }
     function next(s) {
       if(s.phase!=='result')throw new Error('Le duel doit être résolu.');
-      s.turn=1-s.turn;s.round++;findReplacement(s);if(s.phase==='over'&&s.equipment)s.equipment.pending={};return s;
+      s.round++;s.turn=s.initiative?TurnOrder.sideAt(s.initiative,s.round):1-s.turn;
+      findReplacement(s);if(s.phase==='over'&&s.equipment)s.equipment.pending={};return s;
     }
     function legalTargets(s){
       return s.players[s.turn].board.flatMap((a,i)=>a?s.players[1-s.turn].board.flatMap((b,j)=>b?[[i,j]]:[]):[]);
@@ -528,9 +543,10 @@
       if(Object.hasOwn(s,'deckCoverage')&&![1,2].includes(s.deckCoverage))throw new Error('Couverture de deck invalide : 1 ou 2 requis.');
       if(!Array.isArray(s.players)||s.players.length!==2)throw new Error('Sauvegarde incompatible.');
       validatePerformance(s);
-      const phases=['setup','choose','attack','kalistel','defense','clover','potion','physical','heart','guard','result','replace','over'];
+      const phases=['setup','initiative','choose','attack','kalistel','defense','clover','potion','physical','heart','guard','result','replace','over'];
       const validText=(v,n=1000)=>typeof v==='string'&&v.length<=n;
       if(!phases.includes(s.phase)||![0,1].includes(s.turn)||!['ai','local'].includes(s.mode)||!Number.isInteger(s.round)||s.round<1||s.round>201||!Number.isInteger(s.rng)||s.rng<1||s.rng>4294967295||!validText(s.seed,60))throw new Error('Phase invalide.');
+      TurnOrder.validate(s);
       if(s.kalistel!==undefined){
         const k=s.kalistel;
         if(!k||k.version!==1||!Array.isArray(k.spent)||k.spent.length>4||k.spent.some(u=>!u||![0,1].includes(u.side)||!Number.isInteger(u.round)||u.round<1||u.round>s.round||u.round>200)||new Set(k.spent.map(u=>u.round)).size!==k.spent.length||[0,1].some(side=>kalistelRemaining(s,side)<0))throw new Error('Éclats de Kalistel invalides.');
@@ -642,7 +658,7 @@
       const a=s.players[s.duel.side].board[s.duel.attackerSlot],bonus=Equipment.support(s,a,u,card,kind,refreshed);
       if(bonus)addLog(s,'effect',`${bonus.name} : ${card(u).name} re\u00e7oit +${bonus.value} ${bonus.stat} pour son prochain duel.`,bonus);
     }
-    return {data,rules,byId,card,trait,traits,clone,dieValue,mean,lineup,deckCoverage,validateDeck,validatePlayableDeck,validateComposition,captainUnit,captainBonus,newGame,deploy,recall,autoDeploy,start,synergy,elementModifier,lock,rollAttack,acceptAttack,useKalistel,kalistelRemaining,aiUseKalistel,rollDefense,grantClover,grantPotion,grantPhysical,grantReraise,grantGuard,aiCloverChoice,aiPotionChoice,aiPhysicalChoice,aiReraiseChoice,aiGuardChoice,arenaBonuses,setArena,next,aiChoice,assertState,restoreGame,matchStats,instanceId,equipmentView,equipmentModifier};
+    return {data,rules,byId,card,trait,traits,clone,dieValue,mean,lineup,deckCoverage,validateDeck,validatePlayableDeck,validateComposition,captainUnit,captainBonus,newGame,deploy,recall,autoDeploy,start,rollInitiative,turnPreview:TurnOrder.preview,synergy,elementModifier,lock,rollAttack,acceptAttack,useKalistel,kalistelRemaining,aiUseKalistel,rollDefense,grantClover,grantPotion,grantPhysical,grantReraise,grantGuard,aiCloverChoice,aiPotionChoice,aiPhysicalChoice,aiReraiseChoice,aiGuardChoice,arenaBonuses,setArena,next,aiChoice,assertState,restoreGame,matchStats,instanceId,equipmentView,equipmentModifier};
   }
   return {createEngine,clone,dieValue,mean};
 });

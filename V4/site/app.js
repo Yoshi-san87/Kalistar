@@ -63,14 +63,22 @@
   let pendingLineup=null,lineupIntro=null,presentationOpening=false;
   function cancelLineup(){lineupIntro?.destroy();lineupIntro=null;presentationOpening=false;}
   function presentLineup(){
-    if(!pendingLineup||ui.view!=='arena')return;
-    const opening=pendingLineup;pendingLineup=null;
-    if(opening!==game||game.phase!=='choose'||!game.composition)return;
+    if(ui.view!=='arena'||!pendingLineup&&game?.phase!=='initiative')return;
+    const captainsOnly=!pendingLineup,opening=pendingLineup||game;pendingLineup=null;
+    if(opening!==game||!['choose','initiative'].includes(game.phase)||!game.composition)return;
     const formations=KalistarLineupIntro.describe(game,cards,{elements:data.elements,asset,url:KalistarSite.url});
     formations.forEach((team,side)=>team.forEach((entry,slot)=>{if(entry)entry.node=$(`.formation[data-player="${side}"] .slot[data-position="${slot+1}"] .slot-card`);}));
-    const complete=()=>{lineupIntro=null;presentationOpening=false;if(game===opening&&ui.view==='arena')scheduleAI();};
+    const complete=()=>{
+      lineupIntro=null;presentationOpening=false;
+      if(game!==opening)return;
+      try{while(game.phase==='initiative')E.rollInitiative(game);E.assertState(game);}
+      catch(error){toast(error.message);setView('collection');return;}
+      render();
+    };
     presentationOpening=true;clearTimeout(aiTimer);
-    try{lineupIntro=KalistarLineupIntro.play({shell:$('.game-shell'),formations,cardBack:KalistarSite.url('assets/back.webp'),onComplete:complete,onSkip:complete,onExit:()=>{lineupIntro=null;presentationOpening=false;setView('collection');}});}
+    try{lineupIntro=KalistarLineupIntro.play({shell:$('.game-shell'),formations,cardBack:KalistarSite.url('assets/back.webp'),captainsOnly,
+      initiative:game.phase==='initiative'?{roll:()=>{const result=E.rollInitiative(opening);E.assertState(opening);persist();return result;},labels:['Joueur 1',game.mode==='ai'?'Le Veilleur':'Joueur 2']}:null,
+      onComplete:complete,onSkip:complete,onExit:()=>{lineupIntro=null;presentationOpening=false;setView('collection');}});}
     catch(error){console.error('Lineup presentation:',error);complete();}
   }
   let deckBuilder=null,collectionBinder=null,statisticsSheet=null;
@@ -254,15 +262,16 @@ function showDeck(){setView('decks');}
   }
   function showRules(){
     modal('rules-dialog',head('Règles · V4')+`<div class="dialog-body rules-body"><h3>Formation et victoire</h3><p>10 cartes, 5 positions : Tank, DPS physique, Middle, DPS magique et Support. Les cinq titulaires et leur capitaine sont sauvegardés dans Composition avant la rencontre ; les cinq autres cartes forment une réserve commune. Chaque deck doit couvrir au moins deux fois chaque position P1 à P5. Une carte polyvalente compte dans chacun de ses postes. Une seule carte par personnage, toutes versions confondues, et une seule Rainbow. Une carte vivante reste à sa position après le début du match. ATK strictement supérieure à DEF élimine la cible ; une égalité la conserve. Le premier à dix éliminations définitives gagne ; un Reraise sauve la carte et ne compte pas comme kill. Limite de démo : match nul après 200 échanges.</p><div class="formula">ATK = jet + arme + cristal + faction + capitaine faction + jeton + arène − barrière<br>DEF = jet + race + capitaine race + arène + ward<br>Totaux négatifs ramenés à zéro. Faces spéciales résolues séparément.</div><h3>Arènes</h3><p>Lieu verrouillé au début du match, identique pour les deux camps. Cristal correspondant : +15 ATK. Affinité de personnage : +10 ATK et +10 DEF, toutes ses versions comprises. Maximum +25 ATK et +10 DEF, uniquement sur les scores numériques.</p><h3>Cristaux et barrières</h3><p>Classique contre sans cristal : +20 ATK. Rainbow contre sans cristal : +30. Sans cristal contre un cristal : 0. Sans cristal n’a ni halo ni barrière élémentaire. Rainbow contre classique : +40 ; classique contre Rainbow : −40.</p><p>Air &gt; Eau &gt; Feu &gt; Glace &gt; Plante &gt; Terre &gt; Roche &gt; Électricité &gt; Air. Sang &gt; Ténèbres &gt; Lumière &gt; Sang. Les avantages imprimés et la matrice d’armes s’appliquent une seule fois à l’ATK. Une barrière retire 30 ATK uniquement contre une attaque magique.</p><h3>Buffs complémentaires</h3><p>Garde, trèfle, Reraise, potion magique et puissance physique peuvent coexister. Une seule charge par catégorie : attribuer à nouveau le même buff ne le double pas. Résolution automatique : bouclier dans le score DEF, trèfle si ce score ne suffit pas, puis Reraise si la seconde chance échoue. Faction, race et arène restent cumulables.</p><table><tr><th>Garde / ward 60</th><td>La face bouclier ATK permet de choisir un allié vivant du plateau, auteur compris. Il reçoit +60 DEF sur sa prochaine défense numérique contre une ATK physique. Le bonus est consommé une seule fois et conservé dans le même duel en cas de relance. Magie, esquive et Mort ne le consomment pas. Mort le contourne.</td></tr><tr><th>Trèfle</th><td>En ATK : choix d’un allié, auteur compris. Sa prochaine défense insuffisante déclenche une relance automatique. Égalité et Mort ne le consomment pas. En DEF : relance immédiate.</td></tr><tr><th>Potion / puissance</th><td>+60 sur la prochaine attaque numérique du type correspondant : magique pour la potion, physique pour la puissance. La potion magique et la puissance physique sont toutes deux attribuables à un allié vivant du plateau, auteur compris.</td></tr><tr><th>Reraise</th><td>Face réservée aux soigneurs P5. Choix d’un allié vivant, auteur compris. À sa prochaine élimination, même par Mort, le cœur est consommé et la carte reste à sa place.</td></tr><tr><th>Esquive / Mort</th><td>Esquive annule l’attaque, y compris Mort. Mort ignore les scores, la barrière et ward ; Reraise peut sauver la cible.</td></tr></table><h3>Synergies</h3><p>Pour 1 à 5 cartes de même faction ou race sur le plateau : +0, +10, +20, +30, +40. Faction en ATK, race en DEF. Réserve et cartes éliminées exclues. Capitaine vivant sur le plateau : +10 ATK à sa faction et +10 DEF à sa race si au moins un autre allié actif partage le lien. Un seul +10 par lien ; mort définitive annule ce commandement, Reraise le conserve.</p><h3>Archives V4</h3><p>Les parties et statistiques V4 sont séparées de V2. Une sauvegarde V2 est refusée sans modifier les données V2.</p></div>`);
+    $('#rules-dialog .formula').insertAdjacentHTML('beforebegin','<h3>Initiative des capitaines</h3><p>Un D6 par capitaine : le plus grand ouvre, une égalité relance les deux dés. A désigne le gagnant, B son adversaire. Ordre des actions : A, B, B, A, A, B, B, A… Un soutien compte comme une action ; la défense et les remplacements ne changent pas cet ordre. Le capitaine des decks prédéfinis est leur titulaire P1. Les anciennes rencontres conservent leur alternance.</p>');
     $('#rules-dialog .formula').insertAdjacentHTML('beforebegin','<h3>Éclats de Kalistel</h3><p>Deux éclats par joueur dans les nouvelles rencontres, partagés par toute l’équipe, même sans cristal. Après le premier jet ATK et avant la défense, gardez le jet ou utilisez le diamant. Une seule relance par attaque, avec les mêmes participants ; le nouveau résultat est obligatoire, même moins favorable. Les effets et jetons ne sont appliqués qu’au résultat conservé. Aucun objet de collection n’est consommé. Les sauvegardes antérieures conservent leurs règles sans éclats.</p>');
   }
   async function createGame(mode,seed,arenaId=load('arena',arenas[0].id),opponentId=enemyPresetId,playerDeck=teamDraft){
     if(!['grantGuard','aiGuardChoice','arenaBonuses','setArena'].every(key=>typeof E[key]==='function')||cards.some(c=>!/^[34]\d{7}$/.test(c.id)||!c.characterId))throw new Error('Moteur ou profils V4 en attente. Aucune partie V2 ne sera créée dans V4.');
     const errors=deckErrors(playerDeck);if(errors.length)throw new Error(errors.join(' '));
     await db.idle();
-    const opponent=opponentId.startsWith('saved:')?matchDeckByChoice(opponentId):validatedPreset(opponentId);
+    const opponent=matchOpponentByChoice(opponentId);
     if(!opponent)throw new Error('Equipe adverse introuvable.');
-    const next=E.newGame(playerDeck,opponent.formation?opponent:opponent.cards.slice(),{mode,seed,arenaId:arenaById(arenaId).id,deckCoverage:2});
+    const next=E.newGame(playerDeck,opponent.formation?opponent:opponent.cards.slice(),{mode,seed,arenaId:arenaById(arenaId).id,deckCoverage:2,turnOrder:'ABBA'});
     KalistarLocalDB.validateGame(next);E.assertState(next);
     const bound=db.registry.bindGame(accountId,next);
     await db.idle();
@@ -282,6 +291,7 @@ function showDeck(){setView('decks');}
   }
   function matchDeckOptions(selected){return matchDeckSources().map(value=>`<option value="${esc(value.id)}" ${value.id===selected?'selected':''}>${esc(value.name)}</option>`).join('');}
   function matchDeckByChoice(choice){return matchDeckSources().find(value=>value.id===choice)||null;}
+  function matchOpponentByChoice(choice){return choice.startsWith('saved:')?matchDeckByChoice(choice):{...Team.fromPreset(validatedPreset(choice)),id:choice};}
   function matchDeckSummary(value,errors){
     const ids=Array.isArray(value)?value:value.cards;
     const valid=ids.filter(id=>E.byId[id]),coverage=E.deckCoverage?.(valid)||{};
@@ -302,7 +312,7 @@ function showDeck(){setView('decks');}
     const form=$('#new-game-form');if(!form)return;
     const playerChoice=$('#player-match-deck').value,player=matchDeckByChoice(playerChoice),playerErrors=player?deckErrors(player):['Deck introuvable.'];
     const enemyChoice=$('#enemy-deck-preset').value;let enemy=null,enemyErrors=[];
-    try{enemy=enemyChoice.startsWith('saved:')?matchDeckByChoice(enemyChoice):validatedPreset(enemyChoice);if(!enemy)throw new Error('Equipe introuvable.');if(enemy.formation)enemyErrors=E.validateComposition(enemy);}catch(error){enemyErrors=[error.message];}
+    try{enemy=matchOpponentByChoice(enemyChoice);if(!enemy)throw new Error('Equipe introuvable.');enemyErrors=E.validateComposition(enemy);}catch(error){enemyErrors=[error.message];}
     $('#match-player-preview').innerHTML=matchDeckSummary(player||[],playerErrors);
     $('#match-enemy-preview').innerHTML=matchDeckSummary(enemy?.formation?enemy:enemy?.cards||[],enemyErrors);
     const arenaId=new FormData(form).get('arena');$('#match-arena-summary').innerHTML=matchArenaSummary(arenaId);
@@ -493,6 +503,8 @@ function showDeck(){setView('decks');}
     let label,title,actions='';
     if(s.phase==='setup'){
       label='AVANT LE COMBAT';title='Formation initiale';actions=`<div class="setup-actions"><button class="formation-auto" data-action="auto-formation">${icon('shuffle')}Formation auto</button>${duelAction('start','swords','Commencer',{disabled:s.players.some(p=>p.board.some(u=>!u))})}</div>`;
+    }else if(s.phase==='initiative'){
+      label='INITIATIVE';title='Tirage des capitaines';
     }else if(s.phase==='choose'){
       const a=ui.attacker!==null?s.players[s.turn].board[ui.attacker]:null,b=ui.target!==null?s.players[1-s.turn].board[ui.target]:null;
       label=`JOUEUR ${s.turn+1} · CHOIX DU DUEL`;title=`${a?E.card(a).name:'Attaquant'} ${a&&b?'contre':' / '} ${b?E.card(b).name:'Cible'}`;
@@ -539,12 +551,22 @@ function showDeck(){setView('decks');}
     console.insertAdjacentHTML('beforeend',`<div class="arena-crown" title="${esc(arena.name)}" aria-label="${esc(arena.name)}">${icon(symbol)}</div>`);
     const score=[game.players[1].dead.length,game.players[0].dead.length];
     const toolbar=$('.arena-toolbar');toolbar.querySelector('.tools').insertAdjacentHTML('beforebegin',`<div class="match-scoreboard" aria-label="Score du match : joueur 1 ${score[0]}, joueur 2 ${score[1]}"><div><small>Joueur 1</small><strong data-kills="0">${score[0]}</strong></div><span>${icon('crosshair')}<small>10 KILLS</small></span><div><small>${game.mode==='ai'?'Le Veilleur':'Joueur 2'}</small><strong data-kills="1">${score[1]}</strong></div></div>`);
+    const timeline=turnTimeline();shell.classList.toggle('has-turn-timeline',!!timeline);
+    if(timeline)toolbar.insertAdjacentHTML('afterend',timeline);
     if(game.phase==='replace'){
       const slot=replacementSlot(),target=$(`.formation[data-player="${game.replacing}"] .slot[data-position="${slot+1}"]`);
       target?.classList.add('replacement-target');
       if(target&&phoneLayout()&&!(game.mode==='ai'&&game.replacing===1))target.querySelector('.slot-card').setAttribute('aria-label','Ouvrir la réserve pour la position P'+(slot+1));
     }
     icons();
+  }
+  function turnTimeline(){
+    if(['setup','over'].includes(game.phase))return '';
+    if(game.phase==='initiative')return `<section class="turn-timeline is-pending" aria-label="Initiative en attente"><span class="tt-mode">${icon('dice-6')}</span><span class="tt-wait">Capitaines</span></section>`;
+    const steps=E.turnPreview(game),mode=game.initiative?'ABBA':'1 / 1';
+    const now=game.phase==='replace'?'Renforts':game.phase==='result'?'Résolu':'Maintenant';
+    const current=`Joueur ${game.turn+1} attaque, échange ${game.round}`;
+    return `<section class="turn-timeline" aria-label="Ordre des actions : ${mode}"><span class="tt-mode">${mode}</span><span class="tt-now" role="status">${now} <b>J${game.turn+1}</b></span><ol>${steps.map((step,i)=>`<li class="${step.side?'is-enemy':'is-ally'} ${i?'':'is-current'} ${step.resolved?'is-resolved':''}" data-turn-side="${step.side}" data-turn-round="${step.round}" ${i?'':'aria-current="step"'} aria-label="${i?'Ensuite, joueur '+(step.side+1)+' attaque, échange '+step.round:current}"><span aria-hidden="true">J${step.side+1}</span>${!i?icon(step.resolved?'check':'play'):''}</li>`).join('')}</ol></section>`;
   }
   function weaponMatchupGrid(attacker){
     const weapons=Object.keys(data.weapons);
