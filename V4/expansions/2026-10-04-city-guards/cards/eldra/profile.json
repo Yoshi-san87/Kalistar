@@ -1,0 +1,60 @@
+{
+  "name": "ELDRA",
+  "title": "La fissure vivante",
+  "job": "GARDIENNE",
+  "description": "Eldra connaît les canaux que l'Ordre de Fer surveille. Au retour, une pousse l'arrête entre deux pierres. Sa lame peut ouvrir un passage ; cette fois, elle protège ce qui y grandit.",
+  "element": "MINERO",
+  "race": "HUMAIN",
+  "weapon": "Epée longue",
+  "faction": "Durane",
+  "positions": [
+    2,
+    3
+  ],
+  "atk": [
+    218,
+    177,
+    134,
+    96,
+    "buff_atk",
+    26
+  ],
+  "defense": [
+    225,
+    184,
+    143,
+    102,
+    59,
+    27
+  ],
+  "magic": [
+    4
+  ],
+  "barriers": [
+    5
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49900307",
+  "characterId": "eldra-kalistar",
+  "slug": "V4_49900307",
+  "output": "KALISTAR_V4_49900307",
+  "text": "Eldra connaît les canaux que l'Ordre de Fer surveille. Au retour, une pousse l'arrête entre deux pierres. Sa lame peut ouvrir un passage ; cette fois, elle protège ce qui y grandit.",
+  "color": "B3BFCA",
+  "hue": 210,
+  "weapon_index": 17,
+  "role": 3,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Personnage original Kalistar, demande du 4 octobre 2026",
+  "visual_revision": "V4-2026-10-04-city-guards",
+  "artworkSource": "V4/Illustrations/City_Guards_Eldra_01.png"
+}

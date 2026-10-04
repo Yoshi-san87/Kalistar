@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "modelId": "49900301",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "5f86f0f97a9948476ff174ec7f9b0a10a0872e25ee5c636133cecfed62a3f114",
+  "hashes": {
+    "card.png": "99a8cb57662698dbb122a4646b9b283216216e027a8bcfd8912d93d86f0226cd",
+    "card.psd": "7f6c2cc05caa87c592f37f61af8b0af5b4e68214e5e5c669950d940da2d020de"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 85010
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49900301",
+    "cases": {
+      "color-1": [
+        "49900301"
+      ],
+      "color-4": [
+        "49900301"
+      ],
+      "gray-1": [
+        "49900301"
+      ],
+      "gray-4": [
+        "49900301"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-04T09:44:31.816Z",
+  "none": {
+    "unlit": true,
+    "crystalHash": "fd16efbb06ac645589885aed82cadacab4461f08dcc4f4dd1d58d7d42b11f8bf",
+    "branchHash": "c8bf5bb6de74db43356255c19c6747ffd0daa03ae6476c0ef1b66c628d77a7cb"
+  },
+  "preparationHash": "25fa0a68582c1d25e72604c24ba32440d5e8067ca82b19032bd99203f88f15f7",
+  "typography": true
+}

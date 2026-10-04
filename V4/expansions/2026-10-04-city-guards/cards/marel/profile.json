@@ -1,0 +1,56 @@
+{
+  "name": "MAREL",
+  "title": "Personne ne reste cassé",
+  "job": "SOLDAT",
+  "description": "Marel soigne même les petites machines que la ville abandonne. Son bâton de secours ouvre les serrures et ramène les blessés. Ses collègues rient de lui, puis viennent chercher ses mains.",
+  "element": "NONE",
+  "race": "HUMAIN",
+  "weapon": "Bâton",
+  "faction": "Draevenheim",
+  "positions": [
+    3,
+    5
+  ],
+  "atk": [
+    163,
+    121,
+    99,
+    63,
+    "guard",
+    "revive"
+  ],
+  "defense": [
+    191,
+    153,
+    119,
+    91,
+    56,
+    22
+  ],
+  "magic": [],
+  "barriers": [],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49900303",
+  "characterId": "marel-kalistar",
+  "slug": "V4_49900303",
+  "output": "KALISTAR_V4_49900303",
+  "text": "Marel soigne même les petites machines que la ville abandonne. Son bâton de secours ouvre les serrures et ramène les blessés. Ses collègues rient de lui, puis viennent chercher ses mains.",
+  "color": "93AAA5",
+  "hue": 160,
+  "weapon_index": 10,
+  "role": 5,
+  "sentry": false,
+  "canGuard": true,
+  "canHeal": true,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Personnage original Kalistar, demande du 4 octobre 2026",
+  "visual_revision": "V4-2026-10-04-city-guards",
+  "artworkSource": "V4/Illustrations/City_Guards_Marel_01.png"
+}
