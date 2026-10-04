@@ -6,10 +6,11 @@
   'use strict';
   const families=Object.freeze(['Hache','Marteau','Masse','Poing','Fléau','Arc','Fouet','Gun','Lance','Projectile','Bâton','Instrument','Sceptre','Tome','Orbe','Dague','Epée courte','Epée longue','Katana','Faucille']);
   const native=Object.freeze({left:89,top:1116,width:96,height:95,cx:137,cy:1163.5});
+  const revisions=Object.freeze({'00':2,'07':2,'15':2,'19':2});
   const pending=new Map();
   let enamelPromise;
   const code=family=>{const index=families.indexOf(family);return index<0?null:String(index).padStart(2,'0');};
-  const asset=id=>/^\d{2}$/.test(String(id))&&+id<families.length?'assets/base-weapons/'+id+'.svg':null;
+  const asset=id=>/^\d{2}$/.test(String(id))&&+id<families.length?'assets/base-weapons/'+id+'.svg'+(revisions[id]?'?v='+revisions[id]:''):null;
   const url=file=>globalThis.KalistarSite?.url(file)||file;
   function enamel(){
     if(!enamelPromise)enamelPromise=new Promise((resolve,reject)=>{

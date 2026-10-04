@@ -58,7 +58,7 @@ async function main(){
   }
   // Optional source failure must leave the original, usable card in place.
   const context=await browser.newContext({serviceWorkers:'block'}),page=await context.newPage();
-  await page.route('**/base-weapons/*.svg',route=>route.abort());
+  await page.route('**/base-weapons/*.svg*',route=>route.abort());
   await page.goto(base+'/jeu/#collection');await page.waitForFunction(()=>window.KALISTAR_READY);
   await page.waitForFunction(()=>[...document.querySelectorAll('.cb-card img')].some(i=>i.src.startsWith('blob:')&&i.complete));
   assert.equal(await page.locator('[data-v4-media-error]').count(),0);await context.close();

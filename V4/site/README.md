@@ -77,6 +77,9 @@ embed the raster card and a vector motif, keeping its outline sharp at zoom.
 Illustration-only views and PNG print downloads remain original. Native PSDs,
 reference locks, gameplay and equipped-weapon overlays are unchanged.
 See [sources, geometry and checks](../revisions/2026-10-04-white-weapons/README.md).
+The [4.5.5 refinement](../revisions/2026-10-04-white-weapons-refinement/README.md)
+supplies the current four requested dagger/gun/scythe/axe silhouettes and the
+latest geometry proof; the other sixteen vectors are byte-identical.
 
 ## Collection Editions (23 September 2026)
 
