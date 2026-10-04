@@ -1,7 +1,7 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{createRequire}=require('node:module');
 const runtime=createRequire(path.join(process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules'),'__lineup_qa__.cjs'));
-const output=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'../revisions/2026-10-03-lineup-intro/qa');
+const output=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'../revisions/2026-10-04-persistent-lineup-clues/qa');
 const built=process.env.KALISTAR_BUILT_SITE==='1',dist=path.resolve(__dirname,'../deploy/dist');
 const url=built?'https://kalistar-qa.invalid/Kalistar/jeu/':process.env.KALISTAR_URL||'http://127.0.0.1:4304/jeu/';
 const game=page=>page.evaluate(()=>JSON.parse(localStorage.getItem('kalistar.v4.game')));
@@ -44,7 +44,8 @@ async function main(){
         window.lineupSteps.push({...e.detail,time:performance.now()});
         if(['weapon','crystal','faction','reveal','arrive'].includes(e.detail.step))setTimeout(()=>{
           const root=document.querySelector('.lineup-intro');if(!root||root.dataset.step!==e.detail.step)return;
-          window.lineupChecks.push({...e.detail,hidden:document.querySelectorAll('.lineup-unrevealed').length,actors:[...root.querySelectorAll('.li-flight')].map(n=>({id:n.dataset.cardId,label:n.querySelector('.li-clue b').textContent,
+          window.lineupChecks.push({...e.detail,hidden:document.querySelectorAll('.lineup-unrevealed').length,actors:[...root.querySelectorAll('.li-flight')].map(n=>({id:n.dataset.cardId,label:n.querySelector(`.li-clue[data-kind="${e.detail.step}"] b`)?.textContent,
+            clues:[...n.querySelectorAll('.li-clue:not([hidden])')].map(c=>({kind:c.dataset.kind,label:c.querySelector('b').textContent,pinned:c.classList.contains('is-pinned'),outsideRotor:!c.closest('.li-rotor'),visible:getComputedStyle(c).visibility==='visible'&&getComputedStyle(c).opacity==='1'})),
             front:n.querySelector('.li-front .slot-card>img').alt,backface:getComputedStyle(n.querySelector('.li-back')).backfaceVisibility,
             rotation:getComputedStyle(n.querySelector('.li-rotor')).transform,
             placement:e.detail.step==='arrive'?(()=>{const target=document.querySelector(`.formation[data-player="${n.dataset.side}"] .slot[data-position="${e.detail.position}"] .slot-card`).getBoundingClientRect();return ['left','top','width','height'].map(k=>Math.abs(parseFloat(n.style[k])-target[k]));})():null,
@@ -80,6 +81,12 @@ async function main(){
       assert.equal(sample.actors.length,2);assert.equal(sample.hidden,(6-sample.position)*2);
       for(const [side,a] of sample.actors.entries()){
         const c=identities[initial.players[side].board[sample.position-1].cardId];assert.equal(a.id,c.id);assert.equal(a.front,c.name);assert.equal(a.backface,'hidden');
+        const kinds=['weapon','crystal','faction'],index=kinds.indexOf(sample.step),count=index<0?3:index+1;
+        assert.deepEqual(a.clues.map(c=>c.kind),kinds.slice(0,count),'earlier clues stay mounted and visible');
+        assert.equal(a.clues.filter(c=>c.pinned).length,index<0?3:index);
+        assert(a.clues.every(c=>c.visible&&c.outsideRotor),'clues must not flip away with the card back');
+        const labels=[c.weapon,c.element==='NONE'?'Sans cristal':elements[c.element].label,c.faction];
+        assert.deepEqual(a.clues.map(c=>c.label),labels.slice(0,count));
         if(sample.step==='weapon')assert.equal(a.label,c.weapon);
         if(sample.step==='crystal')assert.equal(a.label,c.element==='NONE'?'Sans cristal':elements[c.element].label);
         if(sample.step==='faction')assert.equal(a.label,c.faction);
@@ -106,18 +113,45 @@ async function main(){
       const title=await page.locator('.li-title').boundingBox(),piles=await page.locator('.li-stack').evaluateAll(nodes=>nodes.map(n=>{const r=n.getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom};}));
       assert(piles.every(r=>r.right<title.x||r.left>title.x+title.width||r.bottom<=title.y||r.top>=title.y+title.height),'title and P5 piles must not overlap');
       assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
-      await shot(page,'mobile-'+width+'-clues');await stage(page,1,'reveal');await shot(page,'mobile-'+width+'-reveal');
+      await shot(page,'mobile-'+width+'-clues');await stage(page,1,'reveal');
+      const docks=await page.locator('.li-flight').evaluateAll(nodes=>nodes.map(n=>({card:n.getBoundingClientRect().toJSON(),clues:[...n.querySelectorAll('.li-clue.is-pinned')].map(c=>({box:c.getBoundingClientRect().toJSON(),label:c.querySelector('b').getBoundingClientRect().toJSON(),symbol:c.querySelector('.li-clue-symbol').getBoundingClientRect().toJSON()}))})));
+      for(const dock of docks){
+        assert.equal(dock.clues.length,3);
+        for(const [i,clue] of dock.clues.entries()){
+          assert(clue.box.left>=0&&clue.box.right<=width+.1&&clue.box.top>=50&&clue.box.bottom<dock.card.top,'clues fit above the card');
+          assert(clue.label.bottom<=clue.box.bottom+1&&clue.label.width<=clue.box.width,'all labels fit their dock');
+          assert(clue.symbol.bottom<clue.label.top,'image and label do not overlap');
+          if(i)assert(dock.clues[i-1].box.right<=clue.box.left+.1,'weapon / crystal / faction remain side by side');
+        }
+      }
+      const overflow=await page.evaluate(()=>{
+        const labels={weapon:[...new Set(KALISTAR_DATA.cards.map(c=>c.weapon))],crystal:['Sans cristal',...Object.values(KALISTAR_DATA.elements).map(e=>e.label)],faction:[...new Set(KALISTAR_DATA.cards.map(c=>c.faction))]},failures=[];
+        for(const node of document.querySelectorAll('.li-flight[data-side="0"] .li-clue.is-pinned')){
+          const b=node.querySelector('b'),original=b.textContent;
+          for(const label of labels[node.dataset.kind]){b.textContent=label;const r=b.getBoundingClientRect(),box=node.getBoundingClientRect();if(r.bottom>box.bottom+1||r.width>box.width)failures.push({label,kind:node.dataset.kind});}
+          b.textContent=original;
+        }
+        return failures;
+      });
+      assert.deepEqual(overflow,[],'every catalogue clue fits the persistent row');
+      await shot(page,'mobile-'+width+'-reveal');
       await stage(page,1,'arrive');await page.setViewportSize({width:height,height:width});await page.waitForTimeout(60);
       assert.equal(await page.locator('.lineup-intro').count(),1);await page.locator('.li-skip').click();await clean(page,snapshot);
     }
     await page.setViewportSize({width:412,height:1007});
     const phone=await start(page);for(const p of [3,5]){await stage(page,p,'reveal');await shot(page,'mobile-412-p'+p);}
     await page.waitForSelector('.lineup-intro',{state:'detached',timeout:5000});await clean(page,phone);
+    // Resize and skip while the same clue travels from the centre to its dock.
+    const docking=await start(page);await stage(page,1,'weapon');await page.waitForSelector('.li-clue-weapon.is-pinned');
+    await page.setViewportSize({width:844,height:390});
+    assert(await page.locator('.li-clue-weapon.is-pinned').evaluateAll(nodes=>nodes.every(n=>n.querySelector('.li-clue-symbol').getAnimations().length===0)),'resize settles dock animation at its responsive anchor');
+    await page.locator('.li-skip').click();await clean(page,docking);
     await page.setViewportSize({width:412,height:1007});await page.emulateMedia({reducedMotion:'reduce'});
     const reduced=await start(page);await stage(page,3,'reveal');await shot(page,'reduced-motion');
-    assert(await page.locator('.lineup-intro').evaluate(root=>[...root.querySelectorAll('.li-rotor,.li-front')].every(n=>getComputedStyle(n).transform==='none')));
+    assert(await page.locator('.lineup-intro').evaluate(root=>[...root.querySelectorAll('.li-rotor,.li-front,.li-clue-symbol,.li-clue b')].every(n=>getComputedStyle(n).transform==='none')));
+    assert.equal(await page.locator('.li-clue.is-pinned').count(),6);
     await page.waitForSelector('.lineup-intro',{state:'detached',timeout:6000});await clean(page,reduced);
-    assert.deepEqual(errors,[]);fs.writeFileSync(path.join(output,'results.json'),JSON.stringify({initial,steps,sizes:[320,360,390,412,430,844],checks:['real new composition','pair order','native clues','captains','skip x4','menu/resume','reload during intro','portrait/landscape','reduced motion','engine state identity'],errors},null,2));
+    assert.deepEqual(errors,[]);fs.writeFileSync(path.join(output,'results.json'),JSON.stringify({initial,steps,sizes:[320,360,390,412,430,844],checks:['real new composition','pair order','persistent native clues','clues outside flipping rotor','docked labels and images fit','captains','skip x4','menu/resume','reload during intro','portrait/landscape','resize during docking','skip during docking','reduced motion','engine state identity'],errors},null,2));
     console.log('Lineup browser checks passed. Captures: '+output);
   }finally{await browser.close();}
 }

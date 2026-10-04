@@ -6,7 +6,7 @@
 .arena-view .arena-ambience{transition:opacity .3s linear;}
 .battlefield[data-lineup-opening] .arena-ambience{opacity:.45;}
 .lineup-underlay .slot-card,.lineup-underlay .arena-captain{animation-play-state:paused!important;}
-.lineup-intro{position:fixed;inset:0;z-index:1500;isolation:isolate;overflow:hidden;touch-action:none;overscroll-behavior:none;color:#ebdcc0;}
+.lineup-intro{--li-dock-height:88px;position:fixed;inset:0;z-index:1500;isolation:isolate;overflow:hidden;touch-action:none;overscroll-behavior:none;color:#ebdcc0;}
 .li-shade{position:absolute;inset:0;background:#030908;opacity:.58;transition:opacity .15s;pointer-events:none;}
 .li-dim .li-shade{opacity:.7;}
 .li-header{position:absolute;top:env(safe-area-inset-top,0px);left:0;right:0;display:grid;grid-template-columns:48px minmax(0,1fr) auto;align-items:center;gap:16px;padding:16px 24px;z-index:5;}
@@ -28,14 +28,21 @@
 .li-front .slot-card{position:relative!important;display:block!important;width:100%!important;height:100%!important;min-height:0!important;max-height:none!important;aspect-ratio:797/1388;padding:0!important;margin:0!important;transform:none!important;animation:none!important;pointer-events:none;border:0;background:none;}
 .li-front .slot-card>img{display:block;width:100%;height:100%;object-fit:fill;}
 .li-clue{position:absolute;inset:24% 9% 22%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;color:var(--clue-color,#e4d2b1);background:#05131beb;border-block:1px solid #ab855a9c;padding:12px 8px;box-shadow:0 8px 16px #0006;}
-.li-clue:empty{display:none;}
+.li-clues{position:absolute;inset:0;z-index:2;}
+.li-clue[hidden]{display:none;}
 .li-clue small{font:500 11px var(--sans);text-transform:uppercase;color:#d8c3a1;}
-.li-clue b{font:600 20px/1.25 var(--serif);overflow-wrap:anywhere;max-width:100%;text-shadow:0 1px 3px #000;}
-.li-clue-symbol{position:relative;display:flex;align-items:center;justify-content:center;flex:1;min-height:0;width:100%;max-height:48%;}
+.li-clue b{font:600 20px/1.25 var(--serif);overflow-wrap:anywhere;max-width:100%;text-shadow:0 1px 3px #000;transform-origin:0 0;}
+.li-clue-symbol{position:relative;display:flex;align-items:center;justify-content:center;flex:1;min-height:0;width:100%;max-height:48%;transform-origin:0 0;}
 .li-clue-symbol img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 7px #000);}
 .li-clue-symbol .li-fallback{width:45%;height:100%;stroke-width:1;}
 .li-clue-symbol:has(img:not([hidden])) .li-fallback{display:none;}
 .li-clue-faction .li-clue-symbol{max-height:58%;}
+.li-clue.is-pinned{inset:auto;left:calc(var(--clue-index)*100%/3);top:calc(-1*var(--li-dock-height) - 8px);width:calc(100%/3);height:var(--li-dock-height);padding:0 3px;gap:4px;justify-content:flex-start;background:none;border:0;box-shadow:none;}
+.li-clue.is-pinned small{display:none;}
+.li-clue.is-pinned .li-clue-symbol{flex:0 0 48px;max-height:none;}
+.li-clue.is-pinned b{font-size:12px;line-height:1.2;}
+.li-clue.is-pinned .li-clue-symbol img{filter:drop-shadow(0 2px 3px #000) drop-shadow(0 0 5px #000);}
+.is-placing .li-clues{opacity:0;transition:opacity .12s linear;}
 .li-side{position:absolute;top:calc(100% + 10px);left:0;right:0;text-align:center;font:600 11px var(--sans);color:#b6d7cb;text-shadow:0 2px 4px #000;}
 .li-flight[data-side="1"] .li-side{color:#e4bbb0;}
 .li-captain-label{position:absolute;bottom:8%;left:0;right:0;font:600 12px var(--sans);text-align:center;color:#ffdfa4;text-shadow:0 1px 4px #000;background:#08201ce0;padding:5px;opacity:0;}
@@ -50,11 +57,16 @@
 .is-reduced .is-revealed .li-back{opacity:0;}
 .is-reduced .is-revealed .li-front{opacity:1;transition:opacity .12s linear;}
 @media(max-width:699px),(max-width:950px) and (max-height:500px){
+  .lineup-intro{--li-dock-height:76px;}
   .li-header{padding:10px 10px;grid-template-columns:40px minmax(0,1fr) 78px;gap:6px;}
   .li-header .li-title{font-size:14px;grid-column:1/-1;grid-row:2;}.li-header .li-exit{width:40px;grid-column:1;grid-row:1;}.li-header .li-skip{grid-column:3;grid-row:1;padding:6px;font-size:12px;gap:4px;}
   .li-clue{inset:23% 7% 21%;padding:8px 5px;gap:6px;}.li-clue b{font-size:13px;line-height:1.2;}.li-clue small{font-size:9px;}
+  .li-clue.is-pinned{padding:0 2px;gap:3px;}.li-clue.is-pinned .li-clue-symbol{flex-basis:36px;}.li-clue.is-pinned b{font-size:10px;}
   .li-side{font-size:10px;}.li-captain-label{font-size:9px;padding:3px;}
 }
 @media(max-height:420px){.li-clue{gap:3px;padding:4px;}.li-clue b{font-size:11px;}.li-clue small{font-size:8px;}}
-@media(orientation:landscape) and (max-width:950px) and (max-height:500px){.li-header .li-title{max-width:220px;justify-self:center;}}
+@media(orientation:landscape) and (max-width:950px) and (max-height:500px){
+  .li-header .li-title{max-width:220px;justify-self:center;}
+  .li-clue.is-pinned{left:calc(var(--clue-index)*(100% + 24px)/3 - 12px);width:calc((100% + 24px)/3);}
+}
 @media(prefers-reduced-motion:reduce){.lineup-intro *{animation:none!important;}.li-shade,.arena-view .arena-ambience{transition:none;}}

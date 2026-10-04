@@ -81,6 +81,21 @@ The [4.5.5 refinement](../revisions/2026-10-04-white-weapons-refinement/README.m
 supplies the current four requested dagger/gun/scythe/axe silhouettes and the
 latest geometry proof; the other sixteen vectors are byte-identical.
 
+## Opening Lineup: Persistent Clues (4 October 2026)
+
+`lineup-intro.js` presents each starting pair without changing the saved match.
+Each native weapon, crystal and faction is shown for a 600 ms beat, including
+a 160 ms movement into its persistent top-left, top-centre or top-right dock.
+The same image and label remain visible through subsequent clues and the card
+flip. They fade when the card returns to its board slot. Clues are siblings of
+the rotating card, never children of its back face. Total normal duration is
+17 seconds; reduced motion uses 280 ms clue beats with no movement (5.7 seconds).
+
+The responsive dock reserves space above each card. Resize settles clue motion
+at the CSS anchor, and skip/exit cancels all animations and pending waits.
+This is presentation only: captain, equipment, native identity, formation order,
+gameplay and storage are unchanged. See [validation and captures](../revisions/2026-10-04-persistent-lineup-clues/README.md).
+
 ## Collection Editions (23 September 2026)
 
 The notebook uses each card's printed title for edition buttons. The current

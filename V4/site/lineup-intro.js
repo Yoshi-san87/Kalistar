@@ -4,8 +4,9 @@
 })(typeof globalThis!=='undefined'?globalThis:this,function(){
   'use strict';
   const roles=Object.freeze(['TANK','DPS PHYSIQUE','MIDDLE','DPS MAGIQUE / DISTANCE','SUPPORT']);
-  const timing=Object.freeze({title:60,depart:330,weapon:500,crystal:500,faction:500,suspense:80,flip:400,hold:400,arrive:330});
-  const reducedTiming=Object.freeze({title:0,depart:0,weapon:180,crystal:180,faction:180,suspense:0,flip:120,hold:180,arrive:0});
+  const timing=Object.freeze({title:60,depart:330,weapon:600,crystal:600,faction:600,suspense:80,flip:400,hold:400,arrive:330});
+  const reducedTiming=Object.freeze({title:0,depart:0,weapon:280,crystal:280,faction:280,suspense:0,flip:120,hold:180,arrive:0});
+  const clueKinds=Object.freeze(['weapon','crystal','faction']);
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   // Read-only presentation data: native identity clues never inspect equipped weapons.
   function describe(state,cards,{elements={},asset=()=>null,url=p=>p}={}){
@@ -24,7 +25,8 @@
   function play({shell,formations,cardBack,onComplete=()=>{},onSkip=()=>{},onExit=()=>{}}){
     if(!shell||formations.length!==2||formations.some(team=>team.length!==5||team.some(c=>!c?.node||!c.cardId)))throw Error('Formation de presentation incomplete.');
     const reduced=matchMedia('(prefers-reduced-motion:reduce)').matches,t=reduced?reducedTiming:timing;
-    const abort=new AbortController(),animations=new Set(),waiters=new Set(),movers=new Map(),actors=[],stacks=[];
+    const abort=new AbortController(),animations=new Set(),clueFlights=new Set(),waiters=new Set(),movers=new Map(),actors=[],stacks=[];
+    const dockDuration=reduced?0:160;
     const hidden=formations.flatMap(team=>team.map(c=>c.node.closest('.slot')||c.node));
     const inertNodes=[shell,document.querySelector('.masthead')].filter(Boolean).map(node=>({node,inert:node.inert}));
     const previousFocus=document.activeElement;let active=true,step='loading',position=0;
@@ -46,9 +48,11 @@
     function centre(side){
       const w=root.clientWidth,h=root.clientHeight,landscape=w>h&&w<=950&&h<=500;
       const header=landscape?skip.getBoundingClientRect().bottom+8:root.querySelector('.li-header').getBoundingClientRect().bottom;
-      const height=Math.max(80,Math.min(650,h-header-76,(w-52)/2*1388/797)),width=height*797/1388;
-      const gap=landscape?Math.max(230,w*.32):w<700?14:Math.min(100,w*.055),left=w/2+(side?gap/2:-gap/2-width);
-      return {left,top:header+Math.max(14,(h-header-height-26)/2),width,height};
+      const dock=parseFloat(getComputedStyle(root).getPropertyValue('--li-dock-height'));
+      const start=header+dock+12,gap=landscape?Math.max(230,w*.32):w<700?14:Math.min(100,w*.055);
+      const height=Math.max(80,Math.min(650,h-start-44,(w-gap-32)/2*1388/797)),width=height*797/1388;
+      const left=w/2+(side?gap/2:-gap/2-width);
+      return {left,top:start+Math.max(0,(h-start-44-height)/2),width,height};
     }
     // Retarget a travelling clone from its current visual bounds on resize, retaining its deadline.
     function move(node,target,duration){
@@ -67,6 +71,8 @@
     }
     function resize(){
       if(!active)return;
+      // A docked clue follows the card's CSS geometry even when a phone rotates mid-flight.
+      for(const a of clueFlights)a.cancel();clueFlights.clear();
       stacks.forEach((node,side)=>setRect(node,cardRect(formations[side][4])));
       title.style.marginTop='0px';
       if(matchMedia('(max-width:699px), (max-width:950px) and (max-height:500px)').matches){
@@ -79,7 +85,7 @@
     function finish(reason){
       if(!active)return;active=false;abort.abort();observer.disconnect();
       for(const item of [...waiters])item.finish();for(const job of [...movers.values()])job.cancel();
-      for(const a of animations)a.cancel();animations.clear();
+      for(const a of animations)a.cancel();animations.clear();clueFlights.clear();
       hidden.forEach(n=>n.classList.remove('lineup-unrevealed'));shell.classList.remove('lineup-underlay');document.body.classList.remove('lineup-opening');field?.removeAttribute('data-lineup-opening');
       inertNodes.forEach(({node,inert})=>node.inert=inert);root.remove();
       if(reason==='complete'||reason==='skip'){
@@ -102,17 +108,29 @@
     function mark(next){step=next;root.dataset.step=next;root.dataset.position=String(position+1);root.dispatchEvent(new CustomEvent('kalistar:lineup-step',{bubbles:true,detail:{position:position+1,step:next}}));}
     function actor(card,side){
       const node=document.createElement('article');node.className='li-flight';node.dataset.side=String(side);node.dataset.cardId=card.cardId;node.setAttribute('aria-label',side?'Adversaire, carte cachee':'Joueur, carte cachee');
-      node.innerHTML=`<div class="li-rotor"><div class="li-back"><img class="li-card-back" src="${esc(cardBack)}" alt="Dos de carte Kalistar"><div class="li-clue"></div></div><div class="li-front"></div></div><span class="li-side">${side?'ADVERSAIRE':'JOUEUR'}</span>${card.captain?'<span class="li-captain-label" aria-hidden="true">CAPITAINE</span>':''}`;
+      node.innerHTML=`<div class="li-rotor"><div class="li-back"><img class="li-card-back" src="${esc(cardBack)}" alt="Dos de carte Kalistar"></div><div class="li-front"></div></div><div class="li-clues">${clueKinds.map((kind,index)=>{
+        const value=card.clues[kind];
+        return `<div class="li-clue li-clue-${kind}" data-kind="${kind}" style="--clue-index:${index};--clue-color:${esc(value.color)}" hidden aria-label="${esc(value.title+': '+value.label)}"><small>${esc(value.title)}</small><span class="li-clue-symbol">${value.image?`<img src="${esc(value.image)}" alt="">`:''}<i class="li-fallback" data-lucide="${esc(value.icon)}" aria-hidden="true"></i></span><b>${esc(value.label)}</b></div>`;
+      }).join('')}</div><span class="li-side">${side?'ADVERSAIRE':'JOUEUR'}</span>${card.captain?'<span class="li-captain-label" aria-hidden="true">CAPITAINE</span>':''}`;
       const face=card.node.cloneNode(true);face.inert=true;face.tabIndex=-1;
       for(const n of [face,...face.querySelectorAll('*')])for(const name of n.getAttributeNames())if(name==='id'||name.startsWith('data-action')||name==='aria-pressed')n.removeAttribute(name);
       node.querySelector('.li-front').append(face);stage.append(node);setRect(node,reduced?centre(side):cardRect(formations[side][4]));return node;
     }
     function clue(kind){
-      actors.forEach((node,side)=>{
-        const value=formations[side][position].clues[kind],host=node.querySelector('.li-clue');
-        host.className='li-clue li-clue-'+kind;host.style.setProperty('--clue-color',value.color);
-        host.innerHTML=`<small>${esc(value.title)}</small><span class="li-clue-symbol">${value.image?`<img src="${esc(value.image)}" alt="">`:''}<i class="li-fallback" data-lucide="${esc(value.icon)}" aria-hidden="true"></i></span><b>${esc(value.label)}</b>`;
-      });globalThis.lucide?.createIcons();mark(kind);
+      actors.forEach(node=>{const host=node.querySelector(`[data-kind="${kind}"]`);host.hidden=false;host.classList.add('is-presenting');});
+      globalThis.lucide?.createIcons();mark(kind);
+    }
+    function dockClue(kind){
+      actors.forEach(node=>{
+        const host=node.querySelector(`[data-kind="${kind}"]`),parts=[host.querySelector('.li-clue-symbol'),host.querySelector('b')];
+        const before=parts.map(n=>n.getBoundingClientRect());host.classList.replace('is-presenting','is-pinned');
+        if(!dockDuration)return;
+        parts.forEach((part,i)=>{
+          const from=before[i],to=part.getBoundingClientRect();
+          const a=animate(part,[{transform:`translate(${from.left-to.left}px,${from.top-to.top}px) scale(${from.width/to.width},${from.height/to.height})`},{transform:'none'}],{duration:dockDuration,easing:'cubic-bezier(.22,.7,.2,1)'});
+          clueFlights.add(a);a.finished.then(()=>{a.cancel();animations.delete(a);clueFlights.delete(a);},()=>{animations.delete(a);clueFlights.delete(a);});
+        });
+      });
     }
     async function run(){
       try{
@@ -121,13 +139,14 @@
           const pile=document.createElement('div');pile.className='li-stack';pile.setAttribute('aria-hidden','true');
           pile.innerHTML=Array.from({length:3},(_,i)=>`<img src="${esc(cardBack)}" alt="" style="--pile:${i}">`).join('');stage.append(pile);stacks.push(pile);
         }resize();
-        // Bounded preparation: images continue loading during the 1.9-second identity suspense.
+        // Bounded preparation: images continue loading during the identity suspense.
         await Promise.race([Promise.all([...shell.querySelectorAll('.slot-card>img')].map(img=>img.decode().catch(()=>{}))),wait(300)]);
         for(position=0;position<5&&active;position++){
           title.textContent='P'+(position+1)+' \u00b7 '+roles[position];mark('title');if(!await wait(t.title))return;
           actors.splice(0,actors.length,...formations.map((team,side)=>actor(team[position],side)));
           mark('depart');if(!(await Promise.all(actors.map((n,side)=>move(n,()=>centre(side),t.depart)))).every(Boolean))return;
-          for(const kind of ['weapon','crystal','faction']){clue(kind);if(!await wait(t[kind]))return;}
+          // Docking is included in each 600 ms clue beat, not added to the total duration.
+          for(const kind of clueKinds){clue(kind);if(!await wait(t[kind]-dockDuration))return;dockClue(kind);if(!await wait(dockDuration))return;}
           mark('suspense');root.classList.add('li-dim');if(!await wait(t.suspense))return;
           mark('flip');
           actors.forEach(n=>{n.classList.add('is-flipping');if(!reduced)animate(n.querySelector('.li-rotor'),[{transform:'rotateY(0deg)'},{transform:'rotateY(180deg)'}],{duration:t.flip,easing:'ease-in-out',fill:'forwards'});else n.classList.add('is-revealed');});
