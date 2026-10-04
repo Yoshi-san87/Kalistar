@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "modelId": "49900402",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "634006fb07199f8de285a70ae01032c38a7a189ba348b192d991183e9ad60fe9",
+  "hashes": {
+    "card.png": "9d776e6eb24a725d228d308a9b11094ca4cf8b3bdd4b220db11d70cb1b191180",
+    "card.psd": "60934b1c2d28aa297aa7f8404e080979e15ac2b64946a3c8e1060031afa0179d"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 85790
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49900402",
+    "cases": {
+      "color-1": [
+        "49900402"
+      ],
+      "color-4": [
+        "49900402"
+      ],
+      "gray-1": [
+        "49900402"
+      ],
+      "gray-4": [
+        "49900402"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-04T13:33:26.972Z",
+  "none": {
+    "unlit": true,
+    "crystalHash": "fd16efbb06ac645589885aed82cadacab4461f08dcc4f4dd1d58d7d42b11f8bf",
+    "branchHash": "c8bf5bb6de74db43356255c19c6747ffd0daa03ae6476c0ef1b66c628d77a7cb"
+  },
+  "typography": true,
+  "revision": "2026-10-04-guards-arborium"
+}

@@ -49,7 +49,7 @@ async function main() {
   await page.addInitScript(() => { if (!localStorage.getItem('kalistar.v3.sentinel')) localStorage.setItem('kalistar.v3.sentinel', 'preserved'); });
   await page.goto(url + '/jeu/');
   await page.waitForFunction(() => window.KALISTAR_READY === true);
-  assert.equal(await page.title(), 'Kalistar V4.5.9 · Collection, Decks et Arène');
+  assert.equal(await page.title(), 'Kalistar V4.5.10 · Collection, Decks et Arène');
   assert.deepEqual(await page.evaluate(() => [KALISTAR_DATA.cards.length, KALISTAR_DB.name, KALISTAR_DB.registry.owned('user-paris').length, KALISTAR_DB.registry.owned('user-tokyo').length]), [initialCount, 'kalistar-v4-cards', initialCount, 0]);
   assert.deepEqual(await page.evaluate(() => KALISTAR_DATA.cards.map(c => c.id).sort()), catalog.cards.map(c => c.id).sort());
   checks.push(`HTTP boot: ${approvedCount} approved + ${persistedPublications.length} published V4 cards, Paris${initialCount}/Tokyo0, independent IndexedDB`);

@@ -1,0 +1,125 @@
+[
+  {
+    "key": "orven",
+    "tool": "builtin image_gen",
+    "prompt": "Use case: precise-object-edit. Image 1 is the ONLY edit target: Orven, broad bearded HUMAN soldier holding his large shield upright with a visible hand grip and a straight polearm. Image 2 is Isvel, HELMET DESIGN REFERENCE ONLY. Replace ONLY Orven's helmet with exactly Isvel's low black riveted plate helmet: same overlapping plate shape, front brow, cheek side mounts, and the two tapered crimson vampire-canine crystal prongs at the front. Remove Orven's old silver tusks at the cheeks. Match the TWO RED FRONT FANGS in image2. Difference: Orven's visor is ACTIVE. A thin translucent ruby-red visor of armor-generated light connects the two front fangs across his eyes, just above his nose; small controlled red reflections on brow/cheek, his eyes faintly visible behind it and his bearded face unmistakably the same. Not a VR headset, not sunglasses, not a opaque face mask. This is Kalistel-powered helmet equipment, not Orven's personal magic: NO chest crystal, no shield barrier, no other magical effects. Preserve image1 identity, beard, stern expression, shield grip, arms, polearm alignment, classic worn red-black coat and armor, posture and exact rainy background and rough visible painterly brush grain. No text, frame, logo, extra objects or sci-fi suit.",
+    "references": [
+      "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/Illustrations/City_Guards_Orven_02.png",
+      "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-4472fc29-5730-4d32-a245-88b37d5fd2e8.png"
+    ],
+    "selectedSource": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-5e343f20-8e72-4ecc-a64a-c34eed4f2b23.png"
+  },
+  {
+    "key": "isvel",
+    "tool": "builtin image_gen",
+    "prompt": "Use case: precise-object-edit. Edit ONLY the helmet of Isvel in this approved Kalistar painting. Preserve its original low black riveted metal shell, plate seams, modest brow band and cheek fixtures exactly. Add the iconic Dravenheim signature at the FRONT brow: two short tapered vampire-canine-shaped crimson crystal-metal prongs, symmetrically rooted above the outer eyebrows and curving downward alongside her eyes like upper fangs. Deep glossy red material, fine red incandescence inside the two prongs, elegant hard-surface workmanship, not huge horns. Her helmet visor is INACTIVE: NO red pane or screen between the two prongs, her eyes and expressive face remain entirely unobscured and naturally lit. These two prongs could generate a visor when activated but do not do so here. Do not alter Isvel's humanlike vamp face, braid, pose, worn red-black coat, sword, shield, scenery. Especially preserve the already glowing diamond on her chest and its existing thin blood filaments leading along her arm to the red shield barrier. Same thick chipped painterly brush grain and warm/cold lighting, no smooth 3D, no cyberpunk outfit. No text, no card frame.",
+    "references": [
+      "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/Illustrations/City_Guards_Isvel_02.png"
+    ],
+    "selectedSource": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-4472fc29-5730-4d32-a245-88b37d5fd2e8.png"
+  },
+  {
+    "key": "aeren",
+    "tool": "builtin image_gen",
+    "prompt": "Use case: precise-object-edit. Edit target: the supplied approved Kalistar painting of Aeren, the falcon soldier. Change ONLY his helmet; preserve the entire illustration, expressive falcon face and beak, pose studying a feather, hands, bow, clothes, background, framing, and especially the visible thick painterly grain and brushwork. The helmet must become a revered signature military relic of Nestown. Keep its low blue-steel shell, copper trim and optical eye lenses. Make the two swept-back feather-shaped blue metal fins substantially larger, about twice their current length, strong elegant aerodynamic silhouettes, visibly mounted to the helmet, not feathers growing from his head. At each fin's attachment replace the small round mechanical hub with a small faceted turquoise Aero Kalistel gemstone in an antique copper socket. Soft pale cyan-white Aero incandescence travels from that gem through fine engraved veins along the fins, ending in a few light windlike glints. The large eye lenses have more bright blue-white sparkle and luminous reflections, but remain physical transparent optical glass. Refined, nearly sacred craftsmanship, never a space helmet or neon HUD. Worn metal remains visible; localized light must not overpower the face. Exactly the same Kalistar painted aesthetic. No extra scenery, no text, no card frame, no logos. Preserve portrait 4:5 composition.",
+    "references": [
+      "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/Illustrations/City_Guards_Aeren_02.png"
+    ],
+    "selectedSource": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-5a688dd0-8d5f-4508-b312-0e166105fa4d.png",
+    "firstSource": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-52b474ea-19ef-438e-94fa-58d59fbff1b1.png",
+    "refinement": {
+      "prompt": "Use case: precise-object-edit. Edit this Kalistar painting very locally: both beautiful enlarged blue luminous metal helmet fins must be ENTIRELY visible inside the canvas, with clear sky margin above their tips (at least 3% of image height). Keep the same enlarged fins but tilt them more horizontally swept back to the left rather than pointing upward. Keep the Aero gem at the copper attachment and the fine cyan-white luminous veins. Do not move or scale the character, and do not alter the face, goggles, body, bow, feather in hands, clothes, background, painterly grain, lighting or composition. No text or frame. The only change is the angle and tip shape of the fins so they are not cropped.",
+      "references": [
+        "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-52b474ea-19ef-438e-94fa-58d59fbff1b1.png"
+      ]
+    }
+  },
+  {
+    "key": "vessa",
+    "tool": "builtin image_gen",
+    "prompt": "Use case: precise-object-edit. Image 1 is the ONLY edit target: Vessa, white falcon Nestown guardian standing with rope and rescue staff. Image 2 is a helmet design reference ONLY, Aeren's final helmet. Apply the same Nestown sacred soldier helmet craftsmanship to Vessa: blue-steel low shell, aged copper edging, two large swept-back feather-shaped metal fins, small faceted turquoise Aero Kalistel gemstone in each fin's copper hinge, bright fine pale cyan-white luminous veins radiating from the gem along the fin. Eye glass sparkles blue-white and remains physical glass, not a HUD. Fins about twice their previous length, swept toward the left horizontally, fully within canvas with sky margin; no tip clipping. Preserve EVERYTHING ELSE from image 1: Vessa's white falcon head and beak, clothes, posture, hands and rope, staff, anatomy, scenery and the exact broad painted brush grain. No background changes or additions, no sci-fi clothing, no text, no card frame. Localized controlled light, never a green/blue wash across the character. Same 4:5 portrait.",
+    "references": [
+      "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/Illustrations/City_Guards_Vessa_02.png",
+      "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-5a688dd0-8d5f-4508-b312-0e166105fa4d.png"
+    ],
+    "selectedSource": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-69dd82dc-5f72-473b-8471-bb400e231174.png"
+  },
+  {
+    "key": "neryk",
+    "tool": "builtin image_gen",
+    "prompt": "Use case: precise-object-edit. Image 1 is the ONLY edit target: Neryk, the black raven guardian, bareheaded, holding a helmet in his hand on the right side of the painting. Image 2 is ONLY a reference for the same Nestown military helmet model. Modify ONLY the helmet held in Neryk's hand: enlarge its swept-back blue metal feather fins to twice their old size, embed a small faceted turquoise Aero Kalistel in each fin attachment within an aged copper socket, fine pale cyan-white Aero luminous veins spreading through the metal fins from that gem, brighter blue-white sparkle/reflections in the optical glass eye lenses. Match the revered relic craftsmanship of image2. Keep his gloved grip around the underside of the helmet perfectly clear and credible; fins must not overlap his face or hand or leave the image. The helmet REMAINS IN HIS HAND, never on his head. Preserve all other image1 details including the bare raven head, body, exact straight aligned sword and hilt in his other hand, ribbon, worn turquoise white uniform, pose, sunset background, painterly brush grain. No extra objects, no text, no card frame, no photo/3D finish.",
+    "references": [
+      "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/Illustrations/City_Guards_Neryk_02.png",
+      "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-5a688dd0-8d5f-4508-b312-0e166105fa4d.png"
+    ],
+    "selectedSource": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-f4652620-5c92-4a6b-9841-beeed255e7af.png"
+  },
+  {
+    "key": "brask",
+    "tool": "builtin image_gen",
+    "prompt": "Use case: precise-object-edit. Edit ONLY the two BOOTS in the supplied approved Kalistar painting of Brask, the orange Crustos marine. Add one small faceted luminous blue Hydro Kalistel to the FRONT of each boot's upper instep/lower shin, in a sturdy antique brass bezel attached to the leather armor. Make both boots shimmer blue: thin bright cyan-blue light runs from each gem along the existing segmented metal boot reinforcement edges toward toes and ankle sides, with a few sharp blue highlights and tiny restrained waterlike glints. Rich worn dark leather and metal remain visible; functional marine equipment, NOT futuristic sneakers, not glowing solid blue feet. Soft local blue reflections on wet stone directly beneath the boots. Preserve the boots' size, stance, grounding and perspective. Keep all other details EXACTLY: crab head and orange claw on rope, humanlike hand and spear, blue-yellow bicorne and naval coat, blue harpoon rifle on back, pose, harbor and sunset. Same chunky Kalistar painterly brushwork, no smooth 3D, no added background elements, no energy elsewhere, no text or frame.",
+    "references": [
+      "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/Illustrations/City_Guards_Brask_02.png"
+    ],
+    "selectedSource": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-73157daf-a04b-4a53-a473-e759664e9381.png"
+  },
+  {
+    "key": "maelka",
+    "tool": "builtin image_gen",
+    "prompt": "Use case: precise-object-edit. Image1 ONLY edit target: Maelka kneeling, blue Crustos naval soldier holding a little toy boat in her claw. Image2 ONLY reference for Brask's new blue Kalistel boot equipment. Modify ONLY Maelka's BOOTS. Put a small faceted blue Hydro Kalistel inside a brass bezel on the FRONT of the prominent boot's lower shin/instep. Thin vivid blue-cyan luminescent seams run from this gem along the existing boot's metal reinforcement bands, ankle and toes, a few small sparkling highlights and subtle blue reflections on the wet ground. Exactly the same equipment family as image2. Apply matching details to any VISIBLE part of her other boot only; do not invent an extra foot or expose a leg hidden by the kneeling pose. Keep brown worn leather and original boot shapes, NOT blue glowing shoes. Preserve her blue crab face, emotion, bicorne, blue-yellow coat, claw and toy boat, humanlike hand on straight sword, blue harpoon rifle on back, kneeling pose, background and original rough painterly Kalistar grain. No other light effects, no extra elements, no text/frame or 3D.",
+    "references": [
+      "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/Illustrations/City_Guards_Maelka_02.png",
+      "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-73157daf-a04b-4a53-a473-e759664e9381.png"
+    ],
+    "selectedSource": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-4e51d41d-9728-4be8-b0b2-6a6f0520ef3b.png"
+  },
+  {
+    "key": "tilko",
+    "tool": "builtin image_gen",
+    "prompt": "Use case: precise-object-edit. Image1 is the ONLY edit target: Tilko, orange crab-headed soldier seated smoking a CIGAR, holding a lantern in his claw. Image2 is ONLY reference for Brask's new Kalistel boots. Change ONLY Tilko's TWO BOOTS. At the FRONT of each boot lower shin/upper instep, add a small faceted bright blue Hydro Kalistel in an aged brass bezel. The boot reinforcement edges and seams now shimmer with thin luminous cyan-blue lines fed by each gem, faint glints on leather and tiny blue reflections on adjacent damp stones. Match reference2 construction, keeping Tilko's existing boots, straps, foot placement and worn leather. Equipment light, not innate magic; no barrier, no blue energy around his hands or torso. Preserve EVERY OTHER DETAIL: unmistakable orange crab face, bicorne, cigar held in humanlike hand at mouth, warm lantern held in claw, dark-blue and yellow naval coat, seated pose and both legs, sunset harbor, painted texture and chipped brushwork. No extra foot, no other accessories, no sci-fi boots or clothing, no photoreal 3D, no text/frame.",
+    "references": [
+      "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/Illustrations/City_Guards_Tilko_02.png",
+      "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-73157daf-a04b-4a53-a473-e759664e9381.png"
+    ],
+    "selectedSource": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-fadf87e8-2552-4a1d-905f-bd7cfb4f29f6.png"
+  },
+  {
+    "key": "eryss",
+    "tool": "builtin image_gen",
+    "prompt": "Use case: precise-object-edit. Edit the supplied approved Kalistar painting of Eryss. Change ONLY two armor details: (1) Embed a small faceted vivid green Herbo Kalistel gemstone in the center of each existing round copper chest fastener, one on either upper side of the chest at the epaulette attachment. Keep the fastener location and copper frame. (2) These two gems power her beautiful branching wooden shoulder epaulettes: delicate continuous bright green LED-like luminous sap veins travel from the fasteners into the branching shoulder pieces, emphasizing their sculpted silhouette. A brighter green core line, very small green glow/reflection on nearby wood, no cloud or floating energy. Shoulder lighting must be visibly active even at card size while preserving the pale natural wood grain and sophisticated branch-lattice geometry. This is armor equipment, not a new spell. Keep EVERYTHING ELSE unchanged: Eryss's green skin, expressive face, burgundy leaf hair, seedpod held to heart, gloved anatomy, wooden staff, coat and existing scenery. Preserve exact Kalistar chunky painterly brushwork and materials; no photorealism/3D, no sci-fi armor replacement, no extra vegetation or background details. No text, no card frame.",
+    "references": [
+      "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/Illustrations/Arborium_Guards_Eryss_01.png"
+    ],
+    "selectedSource": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-c9f43f0d-7eb1-45a9-9594-c632d00f9da0.png"
+  },
+  {
+    "key": "velran",
+    "tool": "builtin image_gen",
+    "prompt": "Use case: precise-object-edit. Image1 is the ONLY edit target: Velran kneeling beside a little sapling, spear in image-left hand and large fanlike wood shield at image-right. Image2 is ONLY the shared Arborium armor lighting reference. TWO precise edits. First: embed small faceted green Herbo Kalistels into the two existing copper chest fasteners; illuminate the branching wooden epaulettes with the same bright thin green luminous sap/LED lines as image2, mechanically connected from gems to shoulder branches. Keep original wood and coat. He personally has no crystal powers; the light comes ONLY from his ARMOR. Second: correct his shield holding: reposition the beautiful existing seven-bladed folding wooden shield slightly farther outward to the right and a little lower, angle it three-quarter instead of flat against his torso. Show his right-side bent forearm connecting naturally from shoulder to wrist and his gloved hand FIRMLY grasping the shield's inner grip near its central hinge. The shield lower rim rests credibly on the stone just behind the sapling, sheltering it, not impaling it or floating. Maintain shield fan design, size and wood blades, but make the grip/anatomy unambiguous. Preserve Velran's face, hair, thoughtful expression, kneeling legs, straight spear, little sapling unobscured, sunlight, background, composition and exact rough painterly Kalistar texture. No spell barrier, no glow on shield, no new objects, no text or frame.",
+    "references": [
+      "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/Illustrations/Arborium_Guards_Velran_01.png",
+      "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-c9f43f0d-7eb1-45a9-9594-c632d00f9da0.png"
+    ],
+    "selectedSource": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-3b00538f-814c-4320-aed7-84d4e6c9f9a4.png"
+  },
+  {
+    "key": "saelor",
+    "tool": "builtin image_gen",
+    "prompt": "Use case: precise-object-edit. Image1 is the ONLY edit target: Saelor, deer-headed soldier seated contemplating a ring with his bow on his lap. Image2 is ONLY reference for the shared Arborium armor illumination. Edit ONLY the chest fasteners and epaulettes: set small faceted brilliant green Herbo Kalistels within the two existing round copper chest fasteners at the shoulder straps. From these gems, fine continuous green LED-like sap veins illuminate the branching wooden shoulder epaulettes, especially the upper branch edges, matching image2. Small local luminous reflection on natural pale wood, obvious at card size, no floating magic. Keep the SAME wooden epaulettes shape and wood grain, not glass shoulders. Absolutely preserve Saelor's deer face, antlers including broken tip, melancholy expression, ring and hand, bow and other hand, exact anatomy, uniform, seated pose and unchanged architectural background. Match exact Kalistar rough painterly grain; no smooth 3D, no added decorations or clutter, no text/frame.",
+    "references": [
+      "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/Illustrations/Arborium_Guards_Saelor_01.png",
+      "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-c9f43f0d-7eb1-45a9-9594-c632d00f9da0.png"
+    ],
+    "selectedSource": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-f50623bc-4f7e-41aa-a7b1-b158dd5c9fbe.png"
+  },
+  {
+    "key": "liorne",
+    "tool": "builtin image_gen",
+    "prompt": "Use case: precise-object-edit. Image1 is the ONLY edit target: Liorne, doe-headed female Arborium soldier turning at the gate, letter held to chest, short sword lowered. Image2 is the reference ONLY for Arborium armor lighting. Edit ONLY the armor chest fasteners and branching epaulettes. Place a small faceted green Herbo Kalistel in each existing copper shoulder-strap fastener at upper chest level; use the actual visible fasteners in perspective, do not add one over the letter or belt. From each gem, continuous bright fine green LED-like luminous sap veins run into the branch-shaped wooden epaulettes, matching image2. Green light follows the wood branches and lightly reflects on pale grain; the shoulder lattice silhouette, wood carving and worn natural material remain intact. Preserve Liorne's face, doe ears, expression, red scarf, hand holding sealed letter, other hand gripping straight short sword, stance, classic forest-green military coat, whole background and the original painterly Kalistar brush grain. No glow in eyes or letter, no new objects, no background clutter, no sci-fi outfit, no text/frame.",
+    "references": [
+      "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/Illustrations/Arborium_Guards_Liorne_01.png",
+      "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-c9f43f0d-7eb1-45a9-9594-c632d00f9da0.png"
+    ],
+    "selectedSource": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-ed1ad775-fc3b-43b2-a3a9-9e667d18e87b.png"
+  }
+]

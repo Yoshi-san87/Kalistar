@@ -1,0 +1,58 @@
+{
+  "name": "LIORNE",
+  "title": "La lettre sous le bois",
+  "job": "SOLDAT",
+  "description": "Liorne glisse la lettre sous son armure avant la relève. Sa lame fend les ronces, jamais le sceau. À la porte, elle sourit encore : le courage tient parfois dans quelques mots non lus.",
+  "element": "HERBO",
+  "race": "CERELF",
+  "weapon": "Epée courte",
+  "faction": "Arborium",
+  "positions": [
+    2,
+    4
+  ],
+  "atk": [
+    284,
+    228,
+    174,
+    126,
+    "buff_atk",
+    29
+  ],
+  "defense": [
+    166,
+    128,
+    98,
+    71,
+    44,
+    17
+  ],
+  "magic": [
+    4
+  ],
+  "barriers": [],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49900404",
+  "characterId": "liorne-kalistar",
+  "slug": "V4_49900404",
+  "output": "KALISTAR_V4_49900404",
+  "text": "Liorne glisse la lettre sous son armure avant la relève. Sa lame fend les ronces, jamais le sceau. À la porte, elle sourit encore : le courage tient parfois dans quelques mots non lus.",
+  "color": "89D355",
+  "hue": 100,
+  "weapon_index": 16,
+  "role": 2,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Personnage original Kalistar, demande du 4 octobre 2026",
+  "visual_revision": "V4-2026-10-04-guards-arborium",
+  "artworkSource": "V4/Illustrations/Arborium_Guards_Liorne_01.png"
+}
