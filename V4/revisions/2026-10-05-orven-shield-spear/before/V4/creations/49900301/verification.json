@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "modelId": "49900301",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "5b61078cf3f681bbe2a213d4cd4d90e5ab3074a878ea5fd6b922b143497afd9b",
+  "hashes": {
+    "card.png": "4276c44582b0016dfb10e4b5fc92569aa9cd3358a3dd70a4a33fb8e75b0d5f36",
+    "card.psd": "485894d2b08083c7f1d924f92c4b5163252b508b27266c0e0bbc125d7fb128a2"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 85751
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49900301",
+    "cases": {
+      "color-1": [
+        "49900301"
+      ],
+      "color-4": [
+        "49900301"
+      ],
+      "gray-1": [
+        "49900301"
+      ],
+      "gray-4": [
+        "49900301"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-04T15:15:25.562Z",
+  "none": {
+    "unlit": true,
+    "crystalHash": "fd16efbb06ac645589885aed82cadacab4461f08dcc4f4dd1d58d7d42b11f8bf",
+    "branchHash": "c8bf5bb6de74db43356255c19c6747ffd0daa03ae6476c0ef1b66c628d77a7cb"
+  },
+  "typography": true,
+  "revision": "2026-10-05-orven-visor",
+  "artOnly": {
+    "changed": 442366,
+    "outside": 0
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "name": "ORVEN",
+  "title": "La porte reste ouverte",
+  "job": "SOLDAT",
+  "description": "Orven connaît les deux faces de son uniforme. Au barrage, il soulève son bouclier pour libérer le passage. Cette nuit, il choisit ceux qu'il laisse entrer avant ceux auxquels il obéit.",
+  "element": "NONE",
+  "race": "HUMAIN",
+  "weapon": "Lance",
+  "faction": "Draevenheim",
+  "positions": [
+    1,
+    3
+  ],
+  "atk": [
+    201,
+    158,
+    124,
+    87,
+    "guard",
+    24
+  ],
+  "defense": [
+    282,
+    226,
+    177,
+    137,
+    88,
+    38
+  ],
+  "magic": [],
+  "barriers": [],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49900301",
+  "characterId": "orven-kalistar",
+  "slug": "V4_49900301",
+  "output": "KALISTAR_V4_49900301",
+  "text": "Orven connaît les deux faces de son uniforme. Au barrage, il soulève son bouclier pour libérer le passage. Cette nuit, il choisit ceux qu'il laisse entrer avant ceux auxquels il obéit.",
+  "color": "93AAA5",
+  "hue": 160,
+  "role": 1,
+  "sentry": false,
+  "canGuard": true,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Personnage original Kalistar, demande du 4 octobre 2026",
+  "visual_revision": "V4-2026-10-05-orven-visor",
+  "artworkSource": "V4/Illustrations/City_Guards_Orven_05.png"
+}
