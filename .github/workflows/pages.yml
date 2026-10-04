@@ -28,7 +28,7 @@ jobs:
         run: |
           node --test V4/atelier/game-catalog.test.cjs V4/atelier/collaboration-arenas.test.cjs V4/deploy/build.test.cjs V4/deploy/pwa.test.cjs V4/site/statistics.test.cjs V4/site/collaborations.test.cjs V4/site/metal-gear.test.cjs V4/site/resident-evil.test.cjs V4/site/one-piece.test.cjs
           node --test V4/expansions/2026-10-01-one-piece/model.test.cjs
-          node --test V4/expansions/2026-10-04-city-guards/integration.test.cjs
+          node --test V4/revisions/2026-10-04-guards-arborium/integration.test.cjs
           node --test V4/revisions/2026-10-01-stat-personality/revision.test.cjs
           node --test V4/expansions/2026-10-01-rikka-rooftops/model.test.cjs
           node --test V4/expansions/2026-10-01-one-piece-witcher/model.test.cjs

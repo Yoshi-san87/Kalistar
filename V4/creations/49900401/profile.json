@@ -1,0 +1,61 @@
+{
+  "name": "ERYSS",
+  "title": "Ce qui attend de grandir",
+  "job": "SOLDAT",
+  "description": "Eryss transporte les graines des jardins disparus. Son sceptre les garde au chaud pendant les rondes. Dans sa paume, la dernière coque se fend : cette fois, ce n'est pas une blessure.",
+  "element": "HERBO",
+  "race": "TOXINAR",
+  "weapon": "Sceptre",
+  "faction": "Arborium",
+  "positions": [
+    3,
+    5
+  ],
+  "atk": [
+    167,
+    128,
+    96,
+    "guard",
+    "mana",
+    "revive"
+  ],
+  "defense": [
+    193,
+    152,
+    116,
+    84,
+    53,
+    22
+  ],
+  "magic": [
+    6,
+    4
+  ],
+  "barriers": [
+    4
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49900401",
+  "characterId": "eryss-kalistar",
+  "slug": "V4_49900401",
+  "output": "KALISTAR_V4_49900401",
+  "text": "Eryss transporte les graines des jardins disparus. Son sceptre les garde au chaud pendant les rondes. Dans sa paume, la dernière coque se fend : cette fois, ce n'est pas une blessure.",
+  "color": "89D355",
+  "hue": 100,
+  "weapon_index": 12,
+  "role": 5,
+  "sentry": true,
+  "canGuard": true,
+  "canHeal": true,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Personnage original Kalistar, demande du 4 octobre 2026",
+  "visual_revision": "V4-2026-10-04-guards-arborium",
+  "artworkSource": "V4/Illustrations/Arborium_Guards_Eryss_01.png"
+}
