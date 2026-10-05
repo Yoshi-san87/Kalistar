@@ -8,13 +8,13 @@
   const allUnits=s=>s.players.flatMap(p=>[...p.board.filter(Boolean),...p.reserve,...p.dead]);
   function compatible(w,c){
     if(!w||!c)return false;
-    return Object.entries(w.restrictions).every(([key,values])=>values.includes(c[{characterIds:'characterId',jobs:'job',families:'weapon'}[key]]));
+    return Object.entries(w.restrictions).every(([key,values])=>values.includes(c[{characterIds:'characterId',jobs:'job',families:'weapon',factions:'faction'}[key]]));
   }
   function validateDefinition(w){
     if(!object(w)||!/^[-a-z0-9]{1,80}$/.test(w.id)||w.slot!=='weapon'||!['axe','flute'].includes(w.visual)||
       ['name','family','condition','lore'].some(k=>typeof w[k]!=='string'||!w[k].length||w[k].length>2000)||w.changesFamily)fail();
     if(w.art!==undefined&&!catalogue.weapons.some(item=>item.art===w.art))fail();
-    if(!object(w.restrictions)||!Object.keys(w.restrictions).length||Object.entries(w.restrictions).some(([k,v])=>!['characterIds','jobs','families'].includes(k)||!Array.isArray(v)||!v.length||v.length>100||v.some(x=>typeof x!=='string'||!x.length||x.length>80)))fail();
+    if(!object(w.restrictions)||!Object.keys(w.restrictions).length||Object.entries(w.restrictions).some(([k,v])=>!['characterIds','jobs','families','factions'].includes(k)||!Array.isArray(v)||!v.length||v.length>100||v.some(x=>typeof x!=='string'||!x.length||x.length>80)))fail();
     const e=w.effect;
     if(!object(e)||!['ATK','DEF'].includes(e.stat)||!Number.isInteger(e.value)||e.value<1||e.value>40)fail();
     if(e.trigger==='LAST_STANDING'){if(e.duration!=='WHILE_TRUE')fail();}

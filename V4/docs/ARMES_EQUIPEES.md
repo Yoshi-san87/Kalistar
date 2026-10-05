@@ -67,11 +67,17 @@ Exemple du catalogue :
 }
 ```
 
-Les restrictions peuvent etre `characterIds`, `jobs` et `families`. Plusieurs
+Les restrictions peuvent etre `characterIds`, `jobs`, `families` et `factions`. Plusieurs
 valeurs d'une liste sont alternatives ; plusieurs categories se cumulent
 avec un ET. `families` cible `card.weapon`, la famille imprimee. Les noms
 affiches ne sont jamais des cles. Les jobs sont les valeurs exactes du
 catalogue, par exemple `MENTOR`, pas une traduction UI.
+
+`factions` cible la valeur exacte de `card.faction`, sans normaliser un nom
+affiche. Exemple : `{ jobs: ['SOLDAT'], factions: ['Arborium'] }` exige les
+deux proprietes sur la meme edition. Un Gardien d'Arborium ou un Soldat
+d'une autre faction est refuse. Les anciennes definitions sans `factions`
+gardent leur compatibilite et leur snapshot, sans migration.
 
 Le second effet est declare par :
 
@@ -232,6 +238,33 @@ dans leur snapshot. Pas de migration de base ou de changement de schema.
 Les anciennes definitions `LAST_STANDING` / `AFTER_SUPPORT` restent valides.
 
 ## Ajouter Une Arme
+
+### Equipements Arborium (5 Octobre 2026)
+
+Deux ajouts portent le catalogue a 27 armes :
+
+| Arme | Restriction cumulee | Activation | Effet |
+| --- | --- | --- | --- |
+| L'Accord Sylvestre, ARM-026 | SOLDAT ET Arborium | Moins de combattants actifs allies qu'adverses | +20 ATK numerique |
+| Le Cran de Ronce, ARM-027 | SOLDAT ET Arborium | Reserve alliee vide | +20 ATK numerique |
+
+Les deux reutilisent `TEAM_STATE` / `WHILE_TRUE`. L'arme de base imprimee
+continue de definir le matchup. Le poison du Cran est un element narratif,
+pas un statut : aucun degat automatique ou sur plusieurs tours n'est ajoute.
+Le bonus disparait si la condition cesse ; il ne convertit pas une face
+speciale en score et ne cree pas de charge temporaire. Une seule arme equipee.
+
+Eligibles a cette date : Eryss (`eryss-kalistar`), Velran (`velran-kalistar`),
+Saelor (`saelor-kalistar`) et Liorne (`liorne-kalistar`). La compatibilite reste
+declarative : de futurs SOLDAT Arborium seront eligibles sans liste de noms.
+Le +20, contre +15 pour les armes de Job generiques, est reserve a cette double
+restriction et a une situation defavorable. Il ne garantit pas l'equilibrage
+competitif ; les parties reelles pourront motiver un ajustement ulterieur.
+
+Tests : `arborium-weapons.test.cjs` (restriction, profil, deck, snapshots,
+16 duels couvrant quatre porteurs, deux armes et les deux camps) et
+`arborium-weapons.browser.test.cjs` (UI, sauvegarde, remplacement, inspection,
+alignement, formules reelles, mobile et Reduced Motion).
 
 Visuels uniques : voir `../revisions/2026-10-02-unique-weapon-art/README.md`.
 Le champ facultatif `art` choisit un WebP versionne du meme medaillon natif ;

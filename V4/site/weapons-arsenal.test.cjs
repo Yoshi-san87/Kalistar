@@ -28,10 +28,10 @@ function activate(f,w){
   }
   if(when.reserveAtMost===0){for(const u of p.reserve)u.entered=true;p.dead.push(...p.reserve);p.reserve=[];}
 }
-test('23 unique additions: stable identities, real jobs and conservative declarative effects',async()=>{
-  const data=await dataPromise;assert.equal(additions.length,23);assert.equal(Q.catalogue.weapons.length,25);
-  assert.equal(new Set(Q.catalogue.weapons.map(w=>w.id)).size,25);
-  assert.equal(additions.filter(w=>w.restrictions.jobs).length,3);
+test('25 unique additions: stable identities, real jobs and conservative declarative effects',async()=>{
+  const data=await dataPromise;assert.equal(additions.length,25);assert.equal(Q.catalogue.weapons.length,27);
+  assert.equal(new Set(Q.catalogue.weapons.map(w=>w.id)).size,27);
+  assert.equal(additions.filter(w=>w.restrictions.jobs).length,5);
   for(const w of additions){Q.validateDefinition(w);assert(w.effect.value>=15&&w.effect.value<=25);assert(data.cards.some(c=>Q.compatible(w,c)));assert.equal(w.changesFamily,undefined);}
   const rapier=additions.find(w=>w.id==='white-oath-rapier');
   assert(Q.compatible(rapier,data.cards.find(c=>c.id==='49055457')));

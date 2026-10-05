@@ -1,0 +1,3085 @@
+{
+  "label": "compact detail",
+  "samples": [
+    {
+      "id": "fallen-king-axe",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "background": null,
+      "rules": [
+        {
+          "label": "Condition : Dernier combattant actif de son équipe.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +30 ATK. Tant qu’il reste seul.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            45.703125,
+            4.984375,
+            45.71875,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            8.359375,
+            7.640625,
+            8.359375,
+            7.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            9.8125,
+            2,
+            10.828125
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            3.90625,
+            0.21875,
+            3.921875,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            13.328125,
+            5.25,
+            13.34375,
+            6.265625
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "little-joys-flute",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "background": null,
+      "rules": [
+        {
+          "label": "Condition : Nouveau trèfle ou nouvelle potion.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +30 DEF au bénéficiaire. Prochain duel · 1 charge.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            15.890625,
+            4.984375,
+            15.890625,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            6.21875,
+            7.640625,
+            6.21875,
+            7.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            4.875,
+            2,
+            5.875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            4.328125,
+            0.21875,
+            4.34375,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            21.328125,
+            5.25,
+            21.34375,
+            6.265625
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "white-oath-rapier",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "background": null,
+      "rules": [
+        {
+          "label": "Condition : En infériorité numérique.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +20 ATK. Condition maintenue.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            40.65625,
+            4.984375,
+            40.65625,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            6.15625,
+            7.640625,
+            6.171875,
+            7.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            9.8125,
+            2,
+            10.828125
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            3.90625,
+            0.21875,
+            3.921875,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            19.984375,
+            5.25,
+            20,
+            6.265625
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "brotherhood",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "background": null,
+      "rules": [
+        {
+          "label": "Condition : Deux combattants actifs ou moins.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +20 DEF. Condition maintenue.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            72.546875,
+            4.984375,
+            72.546875,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            12.96875,
+            7.640625,
+            12.96875,
+            7.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            9.8125,
+            2,
+            10.828125
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            4.328125,
+            0.21875,
+            4.34375,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            23.078125,
+            5.25,
+            23.078125,
+            6.265625
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "virtuous-contract",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "background": null,
+      "rules": [
+        {
+          "label": "Condition : En infériorité numérique.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +20 ATK. Condition maintenue.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            46.5,
+            4.984375,
+            46.515625,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            2.671875,
+            7.640625,
+            2.6875,
+            7.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            9.8125,
+            2,
+            10.828125
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            3.90625,
+            0.21875,
+            3.921875,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            31.578125,
+            5.25,
+            31.578125,
+            6.265625
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "virtuous-treaty",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "background": null,
+      "rules": [
+        {
+          "label": "Condition : Deux combattants actifs ou moins.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +20 DEF. Condition maintenue.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            55.5625,
+            4.984375,
+            55.578125,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            6.15625,
+            7.640625,
+            6.15625,
+            7.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            9.8125,
+            2,
+            10.828125
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            4.328125,
+            0.21875,
+            4.34375,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            31.578125,
+            5.25,
+            31.578125,
+            6.265625
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "socom",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "background": null,
+      "rules": [
+        {
+          "label": "Condition : Réserve vide.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +20 ATK. Condition maintenue.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            87.421875,
+            4.984375,
+            87.421875,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            16.9375,
+            7.640625,
+            16.953125,
+            7.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            14.625,
+            2,
+            15.640625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            3.90625,
+            0.21875,
+            3.921875,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            6.1875,
+            5.25,
+            6.203125,
+            6.265625
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "lulu-mog",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "background": null,
+      "rules": [
+        {
+          "label": "Condition : Deux combattants actifs ou moins.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +20 DEF. Condition maintenue.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            70.765625,
+            4.984375,
+            70.78125,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            9.1875,
+            7.640625,
+            9.1875,
+            7.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            9.8125,
+            2,
+            10.828125
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            4.328125,
+            0.21875,
+            4.34375,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            24.328125,
+            5.25,
+            24.328125,
+            6.265625
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "leopard-lightning",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "background": null,
+      "rules": [
+        {
+          "label": "Condition : En infériorité numérique.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +20 ATK. Condition maintenue.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            51.65625,
+            4.984375,
+            51.671875,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            6.109375,
+            12.640625,
+            6.109375,
+            12.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            9.8125,
+            2,
+            10.828125
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            3.90625,
+            0.21875,
+            3.921875,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            21.578125,
+            5.25,
+            21.578125,
+            6.265625
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "mythic-iron-gauntlet",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "background": null,
+      "rules": [
+        {
+          "label": "Condition : Seul combattant actif.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +25 DEF. Condition maintenue.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            51,
+            4.984375,
+            51,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            13.171875,
+            7.640625,
+            13.1875,
+            7.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            14.625,
+            2,
+            15.640625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            4.328125,
+            0.21875,
+            4.34375,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            13.328125,
+            5.25,
+            13.34375,
+            6.265625
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "post-bow",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "background": null,
+      "rules": [
+        {
+          "label": "Condition : Réserve vide.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +20 DEF. Condition maintenue.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            18.796875,
+            4.984375,
+            18.796875,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            11.609375,
+            7.640625,
+            11.625,
+            7.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            14.625,
+            2,
+            15.640625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            4.328125,
+            0.21875,
+            4.34375,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            23.828125,
+            5.25,
+            23.84375,
+            6.265625
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "grimoire-weiss",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "background": null,
+      "rules": [
+        {
+          "label": "Condition : Deux combattants actifs ou moins.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +20 DEF. Condition maintenue.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            59.859375,
+            4.984375,
+            59.859375,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            7.75,
+            7.640625,
+            7.765625,
+            7.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            9.8125,
+            2,
+            10.828125
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            4.328125,
+            0.21875,
+            4.34375,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            25.578125,
+            5.25,
+            25.578125,
+            6.265625
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "gen-mechanical-arm",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "background": null,
+      "rules": [
+        {
+          "label": "Condition : Réserve vide.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +20 ATK. Condition maintenue.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            49.96875,
+            4.984375,
+            49.96875,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            10.34375,
+            7.640625,
+            10.359375,
+            7.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            14.625,
+            2,
+            15.640625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            3.90625,
+            0.21875,
+            3.921875,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            27.078125,
+            5.25,
+            27.078125,
+            6.265625
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "violet-reaping",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "background": null,
+      "rules": [
+        {
+          "label": "Condition : Seul combattant actif.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +25 ATK. Condition maintenue.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            33.015625,
+            4.984375,
+            33.015625,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            5.6875,
+            7.640625,
+            5.6875,
+            7.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            14.625,
+            2,
+            15.640625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            3.90625,
+            0.21875,
+            3.921875,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            14.171875,
+            5.25,
+            14.171875,
+            6.265625
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "mantis-mask",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "background": null,
+      "rules": [
+        {
+          "label": "Condition : En infériorité numérique.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +20 DEF. Condition maintenue.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            40.5,
+            4.984375,
+            40.515625,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            8.890625,
+            7.640625,
+            8.90625,
+            7.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            9.8125,
+            2,
+            10.828125
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            4.328125,
+            0.21875,
+            4.34375,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            0,
+            0.75,
+            0,
+            1.765625
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "revolver-gunblade",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "background": null,
+      "rules": [
+        {
+          "label": "Condition : Deux combattants actifs ou moins.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +20 ATK. Condition maintenue.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            77.640625,
+            4.984375,
+            77.640625,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            9.484375,
+            7.640625,
+            9.484375,
+            7.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            9.8125,
+            2,
+            10.828125
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            3.90625,
+            0.21875,
+            3.921875,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            18.328125,
+            5.25,
+            18.328125,
+            6.265625
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "wolf-steel",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "background": null,
+      "rules": [
+        {
+          "label": "Condition : En infériorité numérique.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +20 DEF. Condition maintenue.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            59.296875,
+            4.984375,
+            59.3125,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            8.46875,
+            7.640625,
+            8.46875,
+            7.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            9.8125,
+            2,
+            10.828125
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            4.328125,
+            0.21875,
+            4.34375,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            1.5625,
+            5.25,
+            1.578125,
+            6.265625
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "wolf-silver",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "background": null,
+      "rules": [
+        {
+          "label": "Condition : Réserve vide.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +20 ATK. Condition maintenue.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            53.59375,
+            4.984375,
+            53.609375,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            11.984375,
+            7.640625,
+            12,
+            7.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            14.625,
+            2,
+            15.640625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            3.90625,
+            0.21875,
+            3.921875,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            1.5625,
+            5.25,
+            1.578125,
+            6.265625
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "kaine-saw",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "background": null,
+      "rules": [
+        {
+          "label": "Condition : En infériorité numérique.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +20 ATK. Condition maintenue.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            54.5625,
+            4.984375,
+            54.5625,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            7.859375,
+            7.640625,
+            7.875,
+            7.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            9.8125,
+            2,
+            10.828125
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            3.90625,
+            0.21875,
+            3.921875,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            22.078125,
+            5.25,
+            22.078125,
+            6.265625
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "buster-sword",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "background": null,
+      "rules": [
+        {
+          "label": "Condition : Seul combattant actif.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +25 ATK. Condition maintenue.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            64.03125,
+            4.984375,
+            64.046875,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            15.609375,
+            7.640625,
+            15.625,
+            7.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            14.625,
+            2,
+            15.640625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            3.90625,
+            0.21875,
+            3.921875,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            20.578125,
+            5.25,
+            20.578125,
+            6.265625
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "psg1",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "background": null,
+      "rules": [
+        {
+          "label": "Condition : Réserve vide.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +20 ATK. Condition maintenue.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            94.75,
+            4.984375,
+            94.75,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            9.1875,
+            7.640625,
+            9.1875,
+            7.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            14.625,
+            2,
+            15.640625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            3.90625,
+            0.21875,
+            3.921875,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            5.53125,
+            5.25,
+            5.53125,
+            6.265625
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "single-action-army",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "background": null,
+      "rules": [
+        {
+          "label": "Condition : En infériorité numérique.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +20 ATK. Condition maintenue.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            46.15625,
+            4.984375,
+            46.171875,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            9.28125,
+            7.640625,
+            9.296875,
+            7.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            9.8125,
+            2,
+            10.828125
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            3.90625,
+            0.21875,
+            3.921875,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            0,
+            0.75,
+            0,
+            1.765625
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "wardens-spear",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "background": null,
+      "rules": [
+        {
+          "label": "Condition : Deux combattants actifs ou moins.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +15 DEF. Condition maintenue.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            35.09375,
+            4.984375,
+            35.09375,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            4.25,
+            7.640625,
+            4.265625,
+            7.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            9.8125,
+            2,
+            10.828125
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            4.328125,
+            0.21875,
+            4.34375,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            6.328125,
+            5.25,
+            6.328125,
+            6.265625
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "soldiers-blade",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "background": null,
+      "rules": [
+        {
+          "label": "Condition : Réserve vide.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +15 ATK. Condition maintenue.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            49.96875,
+            4.984375,
+            49.984375,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            6.875,
+            7.640625,
+            6.875,
+            7.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            14.625,
+            2,
+            15.640625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            3.90625,
+            0.21875,
+            3.921875,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            18.65625,
+            5.25,
+            18.671875,
+            6.265625
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "commanders-sabre",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "background": null,
+      "rules": [
+        {
+          "label": "Condition : En infériorité numérique.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +15 DEF. Condition maintenue.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            42.328125,
+            4.984375,
+            42.34375,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            10.53125,
+            7.640625,
+            10.53125,
+            7.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            9.8125,
+            2,
+            10.828125
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            4.328125,
+            0.21875,
+            4.34375,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            2.90625,
+            5.25,
+            2.921875,
+            6.265625
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "arborium-twinstring-bow",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "background": null,
+      "rules": [
+        {
+          "label": "Condition : En infériorité numérique.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +20 ATK. Condition maintenue.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            45.484375,
+            4.984375,
+            45.5,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            12.671875,
+            7.640625,
+            12.671875,
+            7.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            9.8125,
+            2,
+            10.828125
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            3.90625,
+            0.21875,
+            3.921875,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            0,
+            0.75,
+            0,
+            1.765625
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "arborium-thorn-dagger",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "background": null,
+      "rules": [
+        {
+          "label": "Condition : Réserve vide.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +20 ATK. Condition maintenue.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            53.34375,
+            4.984375,
+            53.34375,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            3.015625,
+            7.640625,
+            3.015625,
+            7.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            14.625,
+            2,
+            15.640625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            3.90625,
+            0.21875,
+            3.921875,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            0,
+            0.75,
+            0,
+            1.765625
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "little-joys-flute",
+      "ratio": 1.4,
+      "medallionRatio": 1,
+      "background": null,
+      "rules": [
+        {
+          "label": "Condition : Nouveau trèfle ou nouvelle potion.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +30 DEF au bénéficiaire. Prochain duel · 1 charge.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.0031356292517006803,
+        -0.0011160714285714285
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 212.078125,
+          "height": 23.375,
+          "overflow": 0,
+          "textInset": [
+            13.71875,
+            4.75,
+            13.734375,
+            5.75
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 105.625,
+          "height": 38.5,
+          "overflow": 0,
+          "textInset": [
+            5.140625,
+            7.25,
+            5.140625,
+            7.25
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 70.140625,
+          "height": 10.53125,
+          "overflow": 0,
+          "textInset": [
+            9.875,
+            0.265625,
+            9.875,
+            1.265625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 102.734375,
+          "height": 60.75,
+          "overflow": 0,
+          "textInset": [
+            2,
+            4.25,
+            2,
+            5.265625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 49.09375,
+          "height": 15.125,
+          "overflow": 0,
+          "textInset": [
+            3.828125,
+            0.0625,
+            3.84375,
+            0.0625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 72.203125,
+          "height": 21.078125,
+          "overflow": 0,
+          "textInset": [
+            20.59375,
+            5.03125,
+            20.609375,
+            6.046875
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    }
+  ]
+}

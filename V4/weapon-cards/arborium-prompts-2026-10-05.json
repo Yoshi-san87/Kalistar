@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-05",
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "id": "arborium-twinstring-bow-v1",
+      "prompt": "Use case: stylized-concept. Asset type: Kalistar collectible fantasy weapon, separate transparent object for the existing copper medallion, NOT a complete card. References: image 1 Momo and image 2 Valazar are PAINTING STYLE ONLY, not subjects or props. Create one unique Arborium soldier's bow named L'Accord Sylvestre, with NO written text. Magnificent polished living hardwood, visible warm wood grain, elegant unusual open forked limbs with restrained angular leaf-like contours, carefully crafted patinated copper fittings and emerald fluorescent sap inlays. Exactly TWO distinct taut straight bowstrings visibly separated by a small gap, anchored at the forked limb tips; no extra strings, no cables, no arrow. A legible asymmetrical organic silhouette, not a conventional plain crescent and not a tangle. Full object, front three-quarter product view, upright with a slight diagonal, 12 percent clear padding around every extremity. Keep limbs structurally coherent and strings straight. Visible painterly brushwork, crafted wood and worn metal, detailed narrative heroic-fantasy painting with a restrained magical-tech touch, consistent with Momo/Valazar. Bright green light only in fine sap channels, no excessive bloom. No scenery, no stand, no ground plane, no cast shadow outside the object, no people, no writing, no title, no card border, no UI. Genuinely transparent background, preserve alpha.",
+      "refs": [
+        "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "V3/assets/illustrations/34_NECRO_VALAZAR.png"
+      ],
+      "transparent": true,
+      "generated": "C:/Users/guill/.codex/generated_images/01a101d7-d348-7f93-aa10-a7bc601dc655/exec-3ae7324b-f5bf-4a1f-bd28-91fecb315036.png",
+      "selected": true,
+      "source": "sources/arborium-twinstring-bow-v1.png"
+    },
+    {
+      "id": "arborium-thorn-dagger-v1",
+      "prompt": "Use case: stylized-concept. Asset type: unique Kalistar collectible weapon cutout for a card and copper medallion, NOT a card itself. Reference images 1 and 2 are painting style only (Momo and Valazar), not props, figures or composition. Create Le Cran de Ronce, a distinctive short poisoned dagger belonging to Arborium's soldiers. One compact straight, broad leaf-point silver-steel blade with a clear central ridge, sharp clean silhouette, a VERY small single notch at the outer cutting edge near the base of the blade, and a discreet tiny round thumb button just above the wooden grip. Beautiful dark green-veined hardwood handle, patinated warm copper guard shaped like a restrained thorn, small translucent emerald detail in the pommel; a faint magical fluorescent green sheen along one blade groove suggests enchanted poison, NOT dripping liquid. These are fantasy visual details, not a technical cutaway. The blade must be clearly short (not a long sword), perfectly straight, aligned with the handle. Display the complete dagger diagonally from lower left grip to upper right tip, centered with generous empty margin; no crop. Detailed painterly heroic-fantasy texture, brush strokes, planes of color and worn materials consistent with Kalistar; premium handcrafted artefact, subtle magical technology, not photorealistic, not glossy 3D or anime. No hands, no figures, no stand, no scenery, no ground plane, no additional weapons, no text, no border, no interface. Genuinely transparent background, preserve alpha.",
+      "refs": [
+        "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "V3/assets/illustrations/34_NECRO_VALAZAR.png"
+      ],
+      "transparent": true,
+      "generated": "C:/Users/guill/.codex/generated_images/01a101d7-d348-7f93-aa10-a7bc601dc655/exec-c4b47f33-795e-4509-865c-ef69bf6b25ad.png",
+      "selected": true,
+      "source": "sources/arborium-thorn-dagger-v1.png"
+    },
+    {
+      "id": "arborium-twinstring-bow-scene-draft",
+      "prompt": "Use case: illustration-story. Asset: standalone painted illustration for the LEFT artwork window of a Kalistar weapon card. Reference image is the EXACT weapon identity to preserve: this forked Arborium bow, wood grain, copper binding, fluorescent green sap veins, and TWO separate straight taut bowstrings. Create one coherent painting of this very bow standing slightly diagonally with its lower wooden tip resting on a broad mossy root in an Arborium forest sentry alcove. The weapon dominates the composition, complete tip-to-tip, with all ends comfortably inside the picture. Near-square vertical illustration, approximately 1:1.1. Natural restrained green reflection from the bow on the nearby wood, warm shafts of daylight from above, aged roots and ONE simple distant forest plane. The BACKGROUND is quiet, nearby and sparse: no epic landscape, buildings, army, scattered props or detailed foliage filling the frame. Same detailed painterly Kalistar language as the reference: visible brushwork, hierarchical edges, patinated copper, tactile magnificent hardwood, painted volumes, not photographic and not smooth 3D. Show exactly one bow, no other weapon, no arrow, no person, no words, no border, no UI. Preserve the structural silhouette, two string count and straight strings; do not bend the object to fit the composition, zoom out instead.",
+      "refs": [
+        "V4/weapon-cards/sources/arborium-twinstring-bow-v1.png"
+      ],
+      "transparent": false,
+      "generated": "C:/Users/guill/.codex/generated_images/01a101d7-d348-7f93-aa10-a7bc601dc655/exec-a9ca6d89-e75e-4bdd-9d4a-2234a6242030.png",
+      "selected": false,
+      "source": null
+    },
+    {
+      "id": "arborium-twinstring-bow-scene-v1",
+      "prompt": "Use case: illustration-story. Create a SQUARE 1024 x 1024 Kalistar weapon illustration. Reference is the exact Arborium bow identity, preserve its beautiful forked hardwood limbs, copper details and TWO distinct straight taut strings. The WHOLE bow rests against a broad mossy root at a forest sentry post. Zoom OUT: bow occupies only the central 72 percent of image height, tips no closer than 14 percent to top and bottom, all edges and both strings visible. Slight diagonal, not bent to fit. This artwork will be cropped to a slightly landscape card window, so this upper/lower safety margin is essential. Close, quiet backdrop of aged root and a softly painted forest plane, restrained daylight, just enough grounded contact shadow and reflected fluorescent green sap light to place the object in the scene. No added objects to fill space. Detailed Kalistar heroic-fantasy PAINTING with clearly visible broad brushwork in the background and finer crafted wood and patinated copper on the weapon. Not a photo, not realistic lens blur, not smooth 3D. ONE bow, no arrow, no other weapons, no figures, no text, frame, UI or border. Keep the design identical to reference.",
+      "refs": [
+        "V4/weapon-cards/sources/arborium-twinstring-bow-v1.png"
+      ],
+      "transparent": false,
+      "generated": "C:/Users/guill/.codex/generated_images/01a101d7-d348-7f93-aa10-a7bc601dc655/exec-8e826461-0d5a-4322-87e6-a26df094bf4d.png",
+      "selected": true,
+      "source": "sources/arborium-twinstring-bow-scene-v1.png"
+    },
+    {
+      "id": "arborium-thorn-dagger-scene-v1",
+      "prompt": "Use case: illustration-story. Asset: SQUARE painting for the artwork window of a Kalistar weapon card, no card frame. The reference is the EXACT single dagger to preserve: short straight steel leaf blade, small round thumb button above the grip, little notch in the blade edge, emerald poison groove, dark green-veined hardwood and patinated copper thorn guard. Create a close narrative still life: this dagger laid diagonally on one worn wooden ledge in an Arborium sentry post, grip lower left, tip upper right. Whole dagger entirely visible, blade straight, 15 percent margin around the ends. One nearby mossy root, quiet dark green woodland suggested by only a few painted shapes in the distance, restrained dappled daylight. Very subtle green reflection from the poison groove onto the wood, no pools or dripping poison. No bottles, skulls, other weapons, arrows, hands or characters. The weapon feels used and cared for. Detailed Kalistar narrative fantasy PAINTING, visible brushwork, tactile worn wood and copper, cool painted steel highlights, not a photographic tabletop, not smooth 3D. Background sparse and subdued, not packed with details. Preserve the reference silhouette and recognizable miniature button and small notch. No text, numbers, logos, border or UI.",
+      "refs": [
+        "V4/weapon-cards/sources/arborium-thorn-dagger-v1.png"
+      ],
+      "transparent": false,
+      "generated": "C:/Users/guill/.codex/generated_images/01a101d7-d348-7f93-aa10-a7bc601dc655/exec-5661891e-4bd1-4b09-83d4-5771c46964f0.png",
+      "selected": true,
+      "source": "sources/arborium-thorn-dagger-scene-v1.png"
+    },
+    {
+      "id": "arborium-twinstring-bow-ring-v1",
+      "prompt": "Use case: stylized-concept. Asset: one transparent rotating circular RIM for a Kalistar equipment medallion. Image 1 is a geometry and Kalistar material reference ONLY: preserve circular front-facing shape, hollow center, comparable ring thickness, copper metallic relief and painterly finish; remove ALL postal envelopes, seals, compass symbols and leather straps. Image 2 is MATERIAL inspiration only for an Arborium double-string bow: magnificent carved hardwood, patinated copper binding, fine fluorescent emerald sap channels. Generate an original narrow circular rim of beautifully grained wood, paired thin copper filaments around its circumference recalling two bowstrings, four restrained leaf-shaped copper fittings and softly luminous green sap inlays. Perfectly front-on circular ring, centered on square canvas, no perspective, symmetrical outer contour, no protruding spikes. The central hole must be completely transparent, approximately 68 percent of outer diameter; the outside is completely transparent too. Ring occupies 94 percent of canvas diameter. Crisp edges, painted high-quality materials consistent with Kalistar. No object, bow, strings crossing the hole, gem floating in center, letters, symbols, text, scenery or background. No glow extending far beyond the outer edge. True alpha transparency inside and outside.",
+      "refs": [
+        "V4/weapon-cards/sources/post-bow-ring-v2.png",
+        "V4/weapon-cards/sources/arborium-twinstring-bow-v1.png"
+      ],
+      "transparent": true,
+      "generated": "C:/Users/guill/.codex/generated_images/01a101d7-d348-7f93-aa10-a7bc601dc655/exec-dc7af568-807c-419b-b2f0-7f2b4682104d.png",
+      "selected": true,
+      "source": "sources/arborium-twinstring-bow-ring-v1.png"
+    },
+    {
+      "id": "arborium-thorn-dagger-ring-v1",
+      "prompt": "Use case: stylized-concept. Asset: one transparent rotating circular RIM for a Kalistar weapon medallion. Reference 1 supplies the front-facing circular geometry, hollow center and copper fantasy craft style ONLY: REMOVE postal symbols, envelopes, seals, compass points and leather. Reference 2 supplies the material identity of the Arborium dagger Le Cran de Ronce: cool worn steel, copper thornwork, emerald enchanted poison detail. Create a unique narrow circular rim made of patinated copper with a slim silver-steel outer lip, delicate low-relief thorn shapes following the circumference, six small round copper fasteners reminiscent of the dagger's miniature button, and fine restrained emerald luminous inlays. No botanical clutter. Silhouette clean and round, no protruding spikes, front view, centered on SQUARE canvas. Hollow circular center 68 percent of the outer diameter, completely TRANSPARENT; everything outside the ring also transparent. Ring diameter 94 percent of canvas. Painted tactile metal and detailed handcrafted relief in Kalistar's heroic fantasy style, not vector, not plastic 3D, not a modern HUD. No dagger or object in the hole, no text, letters, logo, numbers, border beyond the ring, background or vignette. Modest fluorescence only inside narrow grooves, no fog or smoke.",
+      "refs": [
+        "V4/weapon-cards/sources/post-bow-ring-v2.png",
+        "V4/weapon-cards/sources/arborium-thorn-dagger-v1.png"
+      ],
+      "transparent": true,
+      "generated": "C:/Users/guill/.codex/generated_images/01a101d7-d348-7f93-aa10-a7bc601dc655/exec-0a9f87eb-3b3d-44be-8011-ec009b695423.png",
+      "selected": true,
+      "source": "sources/arborium-thorn-dagger-ring-v1.png"
+    }
+  ]
+}

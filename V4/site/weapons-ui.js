@@ -9,7 +9,7 @@
     const carrier=w=>Object.entries(profile().slots.weapon).find(([,id])=>id===w.id)?.[0]||null;
     const versions=w=>data.cards.filter(c=>Q.compatible(w,c));
     const name=id=>data.cards.find(c=>c.characterId===id)?.name||id;
-    const bearers=w=>Object.entries(w.restrictions).map(([key,values])=>({characterIds:'Personnages',jobs:'Jobs',families:'Armes de base'}[key])+ ' : '+values.map(v=>key==='characterIds'?name(v):v).join(', ')).join(' \u00b7 ');
+    const bearers=w=>Object.entries(w.restrictions).map(([key,values])=>({characterIds:'Personnages',jobs:'Jobs',families:'Armes de base',factions:'Factions'}[key])+ ' : '+values.map(v=>key==='characterIds'?name(v):v).join(', ')).join(' \u00b7 ');
     const equippedText=w=>carrier(w)?'\u00c9quip\u00e9e par '+name(carrier(w)):'Non \u00e9quip\u00e9e';
     const card=w=>KalistarWeaponCards.markup(w,{cards:data.cards,medallion:KalistarEquipmentFX.markup,url:p=>window.KalistarSite?.url(p)||p,
       carrier:versions(w).find(c=>c.characterId===carrier(w)),cardImage:KalistarCardMedia.image});

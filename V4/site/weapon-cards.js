@@ -58,13 +58,14 @@
     return `left:${(x-c.x)/c.width*100}%;top:${(y-c.y)/c.height*100}%;width:${w/c.width*100}%;height:${h/c.height*100}%;`;
   }
   function bearers(w,cards){
-    return Object.entries(w.restrictions).map(([key,values])=>({label:{characterIds:'Porteur',jobs:'Job',families:'Arme de base'}[key]||key,
+    return Object.entries(w.restrictions).map(([key,values])=>({label:{characterIds:'Porteur',jobs:'Job',families:'Arme de base',factions:'Faction'}[key]||key,
       names:values.map(id=>key==='characterIds'?cards.find(c=>c.characterId===id)?.name||id:id).join(' / ')}));
   }
   function compactBearers(w,cards){
     const groups=bearers(w,cards),names=groups.find(g=>g.label==='Porteur')?.names;
     if(names)return names;
     const jobs=w.restrictions.jobs||[];
+    if(w.restrictions.factions)return groups.map(g=>g.names).join(' \u00b7 ');
     if(jobs.length===2&&jobs.includes('GARDIEN')&&jobs.includes('GARDIENNE'))return 'GARDIEN(NE)';
     if(jobs.length===2&&jobs.includes('COMMANDANT')&&jobs.includes('COMMANDANTE'))return 'CMDT / CMDTE';
     return groups.map(g=>g.names).join(' / ');

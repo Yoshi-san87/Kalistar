@@ -3,9 +3,9 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
 const A=require('./weapon-art.js'),C=require('./weapon-cards.js'),{weapons}=require('./weapons.js');
 const proof=require('../weapon-cards/media-provenance.json'),root=path.resolve(__dirname,'../..');
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
-test('25 unique medallions, immutable definitions and stable saved art identities',()=>{
+test('every weapon has a unique medallion, immutable definition and stable saved art identity',()=>{
   const rims=new Set(['stone-copper-ring-v1.webp','electro-copper-ring-v1.webp']);
-  assert.equal(Object.keys(A.entries).length,23);
+  assert.equal(Object.keys(A.entries).length,weapons.filter(w=>w.collectible).length);
   for(const w of weapons.filter(w=>w.collectible)){
     const before=JSON.stringify(w),a=A.get(w);
     assert(a);assert.equal(a.key,w.art);assert.equal(w.collectible.cutout,true);
@@ -15,7 +15,7 @@ test('25 unique medallions, immutable definitions and stable saved art identitie
     assert.equal(A.get({...w,art:'unknown-revision'}),null);
     assert(!rims.has(a.rim));rims.add(a.rim);
   }
-  assert.equal(rims.size,25);
+  assert.equal(rims.size,weapons.length);
   assert.equal(A.get(weapons[0]),null);
 });
 test('every current scene, ring and corrected body is distributed with its recorded hash',()=>{

@@ -34,6 +34,26 @@ manifeste graphique. Les sources HD et essais rejetes ne sont pas servis par Pag
 
 ## Historique du prototype
 
+### Ajout Arborium Du 5 Octobre 2026
+
+ARM-026 L'Accord Sylvestre et ARM-027 Le Cran de Ronce partagent exactement
+le master bleu/cuivre, les textes vivants et l'ancrage natif existants.
+Leur restriction combine SOLDAT et Arborium ; le cartouche les separe par
+un point median, pas une barre pouvant suggerer une alternative.
+
+Chaque objet possede trois sources independantes : detourage, scene peinte
+sobre et anneau creux. L'arc en bois precieux a deux cordes et des nervures
+vert fluorescent. La dague droite montre un petit bouton et un cran au fil.
+Les cercles personnalises reprennent bois/cuivre ou acier/cuivre avec une
+energie verte discrete. Seul l'anneau tourne ; l'objet reste droit et lisible.
+Les scenes sont reculees pour conserver les extremites des armes sans les
+courber ni remplir le decor de details inutiles.
+
+Sources : `sources/arborium-*.png`. Prompts exacts, references et essai rejete :
+`arborium-prompts-2026-10-05.json`. Le build existant produit les huit WebP,
+enregistre leurs empreintes et ne change aucun cadre ni aucune carte native.
+Preuves et cartes assemblees : `../revisions/2026-10-05-arborium-weapons/`.
+
 La demande du 3 octobre 2026 remplace les panneaux d'armes par de vraies cartes
 poker horizontales. Les deux premieres sont la Hache du Roi Dechu et la Flute
 des Petits Bonheurs. Ce lot reste local : pas de commit, tag ou push demande.
