@@ -555,7 +555,8 @@ function showDeck(){setView('decks');}
     shell.querySelectorAll('.resources [data-action]').forEach(button=>button.setAttribute('aria-label',(button.dataset.action==='reserves'?'Réserve':'Cimetière')+' du joueur '+(Number(button.dataset.side)+1)));
     console.insertAdjacentHTML('beforeend',`<div class="arena-crown" title="${esc(arena.name)}" aria-label="${esc(arena.name)}">${icon(symbol)}</div>`);
     const score=[game.players[1].dead.length,game.players[0].dead.length];
-    const toolbar=$('.arena-toolbar');toolbar.querySelector('.tools').insertAdjacentHTML('beforebegin',`<div class="match-scoreboard" aria-label="Score du match : joueur 1 ${score[0]}, joueur 2 ${score[1]}"><div><small>Joueur 1</small><strong data-kills="0">${score[0]}</strong></div><span>${icon('crosshair')}<small>10 KILLS</small></span><div><small>${game.mode==='ai'?'Le Veilleur':'Joueur 2'}</small><strong data-kills="1">${score[1]}</strong></div></div>`);
+    const opponent=game.mode==='ai'?'Le Veilleur':'Joueur 2';
+    const toolbar=$('.arena-toolbar');toolbar.querySelector('.tools').insertAdjacentHTML('beforebegin',`<div class="match-scoreboard" role="group" aria-label="Score du match : Joueur 1 ${score[0]}, ${opponent} ${score[1]}"><div class="score-plate" data-score-side="0"><small>Joueur 1</small><strong data-kills="0">${score[0]}</strong></div><span class="score-seal" aria-hidden="true"><img src="assets/navigation/kalistel-rainbow-v1.webp" alt="" width="24" height="34"><small>10 KILLS</small></span><div class="score-plate" data-score-side="1"><small>${opponent}</small><strong data-kills="1">${score[1]}</strong></div></div>`);
     const timeline=turnTimeline();shell.classList.toggle('has-turn-timeline',!!timeline);
     if(timeline)toolbar.insertAdjacentHTML('afterend',timeline);
     if(game.phase==='replace'){
@@ -569,9 +570,9 @@ function showDeck(){setView('decks');}
     if(['setup','over'].includes(game.phase))return '';
     if(game.phase==='initiative')return `<section class="turn-timeline is-pending" aria-label="Initiative en attente"><span class="tt-mode">${icon('dice-6')}</span><span class="tt-wait">Capitaines</span></section>`;
     const steps=E.turnPreview(game),mode=game.initiative?'ABBA':'1 / 1';
-    const now=game.phase==='replace'?'Renforts':game.phase==='result'?'Résolu':'Maintenant';
+    const now=game.phase==='replace'?'Renforts':game.phase==='result'?'Résolu':'';
     const current=`Joueur ${game.turn+1} attaque, échange ${game.round}`;
-    return `<section class="turn-timeline" aria-label="Ordre des actions : ${mode}"><span class="tt-mode">${mode}</span><span class="tt-now" role="status">${now} <b>J${game.turn+1}</b></span><ol>${steps.map((step,i)=>`<li class="${step.side?'is-enemy':'is-ally'} ${i?'':'is-current'} ${step.resolved?'is-resolved':''}" data-turn-side="${step.side}" data-turn-round="${step.round}" ${i?'':'aria-current="step"'} aria-label="${i?'Ensuite, joueur '+(step.side+1)+' attaque, échange '+step.round:current}"><span aria-hidden="true">J${step.side+1}</span>${!i?icon(step.resolved?'check':'play'):''}</li>`).join('')}</ol></section>`;
+    return `<section class="turn-timeline" aria-label="Ordre des actions : ${mode}"><span class="tt-mode">${mode}</span><span class="tt-now" role="status" aria-label="${current}">${now} <b>J${game.turn+1}</b></span><ol>${steps.map((step,i)=>`<li class="${step.side?'is-enemy':'is-ally'} ${i?'':'is-current'} ${step.resolved?'is-resolved':''}" data-turn-side="${step.side}" data-turn-round="${step.round}" ${i?'':'aria-current="step"'} aria-label="${i?'Ensuite, joueur '+(step.side+1)+' attaque, échange '+step.round:current}"><span aria-hidden="true">J${step.side+1}</span>${!i?icon(step.resolved?'check':'play'):''}</li>`).join('')}</ol></section>`;
   }
   function weaponMatchupGrid(attacker){
     const weapons=Object.keys(data.weapons);

@@ -1,0 +1,44 @@
+body.arena-view .arena-toolbar .match-scoreboard{
+  position:relative;isolation:isolate;display:grid;grid-template-columns:76px 50px 76px;align-items:center;gap:5px;flex:none;
+  width:232px;min-width:0;height:60px;min-height:60px;padding:5px 8px;margin:0;border:1px solid var(--kui-edge);border-radius:0;
+  clip-path:polygon(7px 0,calc(100% - 7px) 0,100% 7px,100% calc(100% - 7px),calc(100% - 7px) 100%,7px 100%,0 calc(100% - 7px),0 7px);
+  background:linear-gradient(110deg,#0b1718f2,#21312cec 50%,#0b1718f2),url('assets/ui/collection-reader-grimoire-v1.png') center/cover;
+  box-shadow:inset 0 1px #edcf8f99,inset 0 -1px #ddb18b80,inset 0 0 0 3px #040d0d;font-variant-numeric:tabular-nums;
+}
+body.arena-view .match-scoreboard::before{content:'';position:absolute;inset:3px;border:1px solid #ddb18b50;clip-path:inherit;pointer-events:none;z-index:-1;}
+body.arena-view .match-scoreboard .score-plate{
+  --score-color:var(--kui-energy);position:relative;display:grid;justify-items:center;align-content:center;gap:4px;min-width:0;height:48px;
+  background:linear-gradient(180deg,#95e0db0a,transparent 80%);border-bottom:1px solid #95e0db55;
+}
+body.arena-view .match-scoreboard .score-plate[data-score-side="1"]{--score-color:var(--kui-danger);background:linear-gradient(180deg,#ed9ea60a,transparent 80%);border-bottom-color:#ed9ea655;}
+body.arena-view .match-scoreboard .score-plate::before{content:'';position:absolute;top:4px;bottom:4px;width:1px;background:linear-gradient(transparent,var(--kui-copper),transparent);opacity:.6;}
+body.arena-view .match-scoreboard .score-plate[data-score-side="0"]::before{right:-3px;}
+body.arena-view .match-scoreboard .score-plate[data-score-side="1"]::before{left:-3px;}
+body.arena-view .match-scoreboard small{display:block;max-width:100%;color:var(--kui-text);font:500 9px/1.2 var(--sans);white-space:nowrap;}
+body.arena-view .match-scoreboard strong{color:var(--score-color);font:600 29px/1 var(--kalistar-display);text-shadow:0 2px 1px #000,0 0 9px #95e0db1a;}
+body.arena-view .match-scoreboard .score-seal{display:grid;justify-items:center;align-content:center;gap:1px;min-width:0;height:48px;}
+body.arena-view .match-scoreboard .score-seal img{display:block;width:24px;height:34px;object-fit:contain;filter:drop-shadow(0 0 3px #95e0db40);}
+body.arena-view .match-scoreboard .score-seal small{font:600 8px/1.2 var(--kalistar-display);color:var(--kui-copper);}
+@media(min-width:951px) and (max-width:1250px),(min-width:700px) and (max-width:950px) and (min-height:501px){
+  html:not(:fullscreen) body.arena-view .arena-toolbar{display:grid;grid-template-columns:minmax(220px,1fr) auto;}
+  html:not(:fullscreen) body.arena-view .arena-toolbar>div:first-child{min-width:220px;}
+  html:not(:fullscreen) body.arena-view .arena-toolbar .tools{grid-column:1;grid-row:2;min-width:0;justify-content:flex-start;}
+  html:not(:fullscreen) body.arena-view .arena-toolbar .board-navigation{grid-column:2;grid-row:2;justify-self:end;}
+}
+@media(min-width:700px) and (max-width:1100px) and (min-height:501px){
+  body.arena-view .arena-toolbar .match-scoreboard{grid-template-columns:62px 38px 62px;width:192px;padding-inline:8px;gap:5px;}
+  body.arena-view .match-scoreboard small{font-size:8px;}
+}
+@media(max-width:699px),(max-width:950px) and (max-height:500px){
+  body.arena-view .arena-toolbar .match-scoreboard{position:absolute;top:12px;left:12px;z-index:35;grid-template-columns:38px 14px 38px;width:110px;height:48px;min-height:48px;padding:4px 5px;gap:3px;}
+  body.arena-view .match-scoreboard .score-plate{height:38px;gap:3px;}
+  body.arena-view .match-scoreboard .score-plate::before{top:3px;bottom:3px;}
+  body.arena-view .match-scoreboard .score-plate[data-score-side="0"]::before{right:-2px;}
+  body.arena-view .match-scoreboard .score-plate[data-score-side="1"]::before{left:-2px;}
+  body.arena-view .match-scoreboard small{font-size:8px;line-height:1.2;}
+  body.arena-view .match-scoreboard strong{font-size:22px;}
+  body.arena-view .match-scoreboard .score-seal{height:38px;}
+  body.arena-view .match-scoreboard .score-seal img{width:14px;height:26px;}
+  body.arena-view .match-scoreboard .score-seal small{display:none;}
+  body.arena-view .has-turn-timeline .arena-toolbar .match-scoreboard{top:46px;}
+}

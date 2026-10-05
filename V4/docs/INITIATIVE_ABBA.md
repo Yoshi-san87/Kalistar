@@ -94,6 +94,12 @@ La frise reserve 34 px sur telephone ; score et menu sont decales ensemble.
 Reduced motion remplace les voyages et rotations par les etats fixes lisibles.
 Les libelles accessibles distinguent le camp courant et chaque prochain camp.
 
+Le compteur de match reutilise le cadre cuivre, Cinzel et le Kalistel rainbow
+dans `site/scoreboard.css`. Sur telephone, il reste a 110 x 48 px sous la frise.
+Les chiffres sont toujours les pertes adverses reelles, pas un nouveau calcul
+de points. Le libelle visible "Maintenant" est retire ; l'annonce accessible
+du joueur courant reste dans le statut de la frise.
+
 ## Limites preservees
 
 Aucune modification de statistiques natives, regles de commandement, synergies, armes,
@@ -117,3 +123,8 @@ la collection personnelle. Il couvre presentation complete, egalite, passage,
 reprise, sortie, quatre transitions reelles, IA, resize, reduced motion,
 320 x 568, 412 x 1007, 844 x 390 et preview Razr 50.
 Les tests moteur jouent aussi 250 matchs complets avec restaurations periodiques.
+
+`site/scoreboard.test.cjs` et `site/scoreboard.browser.test.cjs` couvrent le
+compteur, les vrais scores 0 / kill / 10, la reprise, le nom de l'IA, huit
+formats, les chevauchements, Reduced Motion et le preview Razr 50. Le test
+navigateur accepte aussi `KALISTAR_BUILT_SITE=1` pour le build Pages.
