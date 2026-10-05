@@ -44,6 +44,7 @@ jobs:
           node --test V4/site/base-weapons.test.cjs
           node --test V4/site/team-composition.test.cjs
           node --test V4/site/lineup-intro.test.cjs V4/site/turn-order.test.cjs
+          node --test V4/site/catalogue-updates.test.cjs
           node --test V4/site/match-metrics.test.cjs V4/site/kill-medals.test.cjs
           node --test V4/site/navigation.test.cjs
           node --test V4/site/ui-system.test.cjs

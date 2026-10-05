@@ -573,3 +573,29 @@ and Kalistel suites. The elemental-roll UI test now opens the existing advanced
 options before editing its deterministic seed. All browser contexts are
 disposable; no personal browser storage is touched. Evidence and protected-file
 hashes: `verification/arena-immersion/`.
+
+## Catalogue update notices (2026-10-05)
+
+`catalogue-updates.js` compares the loaded V4 catalogue with the currently
+available catalogue fetched from the same site with `cache: 'no-store'`.
+Only available IDs missing from the running engine are announced as new cards.
+The floating refresh button, Collection and account notice share that list.
+The engine is not replaced until the existing explicit refresh action saves
+the match/preferences, waits for pending database writes and reloads.
+
+The persistent registry deliberately keeps historical versions and owned
+copies. `db.catalogueChanges()` still reports IDs absent from the engine, but
+that raw historical difference is not a list of downloadable new cards.
+No versions, ownership, matches or personal data are deleted. Save schemas and
+the existing `CATALOGUE_STALE` backup-import guard are unchanged.
+
+Checks happen at startup, on registry catalogue changes and on local publication
+events. There is no polling timer. Offline or invalid responses cannot invent
+new cards; the last verified notice is retained. Superseded requests are aborted
+and late callbacks are suppressed on pagehide.
+
+Validation: `node --test V4/site/catalogue-updates.test.cjs` and, after building
+Pages, `node V4/site/catalogue-updates.browser.test.cjs`. The browser suite uses
+disposable profiles and synthetic archived/new IDs. It checks desktop/phone,
+both notices, another tab adding a real version, explicit refresh, second reload,
+ownership preservation and an active match. Evidence: `verification/catalogue-notice/`.

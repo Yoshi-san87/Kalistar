@@ -4,9 +4,9 @@
   const icon=n=>`<i data-lucide="${n}"></i>`;
   const date=s=>s?new Date(s).toLocaleString('fr-FR'):'-';
   const labels={pending:'En attente',accepted:'Accepte',cancelled:'Annule',rejected:'Refuse',completed:'Accepte'};
-  function create({db,getUserId,onSwitch,onChanged,modal,toast,download}){
+  function create({db,getCatalogueChanges=()=>db.catalogueChanges?.()||[],getUserId,onSwitch,onChanged,modal,toast,download}){
     const registry=db.registry,cards=window.KALISTAR_DATA.cards;
-    const loadedIds=new Set(cards.map(c=>c.id));let byId=Object.fromEntries(cards.map(c=>[c.id,c]));
+    let byId=Object.fromEntries(cards.map(c=>[c.id,c]));
     const card=id=>byId[id]||{id,name:'Carte #'+id,title:'Profil a actualiser'};
     const image=c=>c.pngUrl?KalistarCardMedia.image(c):'assets/back.webp';
     let tab='transfers',mode='hub',selected=null,recipient=null,review=null,issued=null,busy=false,storage=null;
@@ -45,7 +45,7 @@
     function bytes(n){return new Intl.NumberFormat('fr-FR',{maximumFractionDigits:1}).format(n/1024/1024)+' Mio';}
     function render(){
       byId=Object.fromEntries([...cards,...db.inspect('versions')].map(c=>[c.id,c]));
-      const pending=db.catalogueChanges?.()||registry.owned(getUserId()).filter(i=>!loadedIds.has(i.cardId)).map(i=>i.cardId);
+      const pending=getCatalogueChanges();
       const notice=pending.length?`<div class="registry-catalogue-notice" role="status"><span>${new Set(pending).size} nouvelle(s) version(s) disponible(s)</span><button type="button" data-action="catalogue-refresh">${icon('refresh-cw')}Actualiser le catalogue</button></div>`:'';
       modal('account-dialog',head(mode==='hub'?'Registre de Kalistar':'Transfert de carte')+`<div class="registry-shell">${notice}${mode==='hub'?hub():transfer()}<p class="registry-feedback" role="status"></p></div>`);dialog().classList.add('registry-dialog');
       const active=registry.activeGames(getUserId());

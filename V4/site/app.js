@@ -2,6 +2,11 @@
   'use strict';
   const data=window.KALISTAR_DATA,E=KalistarEngine.createEngine(data),cards=data.cards,Catalogue=window.KalistarCatalogue;
   let db=null,dbError='',lastStored='',reportGame=null,reportArchive=null,accountsUI=null;
+  const catalogueUpdates=KalistarCatalogueUpdates.create({loaded:data,readLatest:async signal=>{
+    const response=await fetch(window.KalistarSite?.catalogue||'/api/game/catalogue',{cache:'no-store',signal});
+    if(!response.ok)throw Error('Catalogue indisponible.');
+    return response.json();
+  },onChange:updateCatalogueNotice});
   const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const icon=n=>`<i data-lucide="${n}"></i>`,ib=(action,n,title,extra='')=>`<button class="icon-button" data-action="${action}" title="${esc(title)}" aria-label="${esc(title)}" ${extra}>${icon(n)}</button>`;
   const navigationItem=(view,label)=>`<button data-view="${view}" aria-current="${ui.view===view?'page':'false'}"><img class="kalistar-nav-icon" src="assets/navigation/${view}-v1.webp" alt="" aria-hidden="true" width="128" height="128"><span>${esc(label)}</span>${icon('chevron-right')}</button>`;
@@ -200,7 +205,7 @@
   }
   function collectionView(){
     if(!collectionBinder)collectionBinder=KalistarCollection.create({
-      data,getOwned:owned,getCatalogueChanges:()=>db?.catalogueChanges()||[],getFavorites:()=>favorites,getCareer:(id,instance)=>collectionDB()?.career(id,instance),artImage,getEquipment:c=>db?.equipment.weapon(accountId,c.characterId),onEquipment:id=>weaponsUI.open(id),
+      data,getOwned:owned,getCatalogueChanges:()=>catalogueUpdates.ids(),getFavorites:()=>favorites,getCareer:(id,instance)=>collectionDB()?.career(id,instance),artImage,getEquipment:c=>db?.equipment.weapon(accountId,c.characterId),onEquipment:id=>weaponsUI.open(id),
       profile:accountId===KalistarOwnership.PARIS?'Paris':'Tokyo',
       getDecks:()=>builder().listDecks(),
       onOpenDeck:async(id,cardId)=>{try{builder().openDeck(id,cardId);await setView('decks');}catch(error){toast(error.message);}},
@@ -907,10 +912,12 @@ function showDeck(){setView('decks');}
     markCatalogueOutdated();
     toast('Carte publiee. Le catalogue peut etre actualise sans effacer la partie.');
   });
-  function markCatalogueOutdated(ids=[]){
-    if(!ids.length&&db?.catalogueChanges().length)ids=db.catalogueChanges();
-    $('#catalogue-refresh').hidden=false;
+  function markCatalogueOutdated(){void catalogueUpdates.check();}
+  function updateCatalogueNotice(ids){
+    $('#catalogue-refresh').hidden=!ids.length;
     $('#catalogue-refresh span').textContent='Nouvelles cartes'+(ids.length?' ('+ids.length+')':'');icons();
+    if(ui.view==='collection')collectionBinder?.refresh();
+    accountsUI?.refresh();
   }
   async function refreshCatalogue(){
     if(rolling)return toast('Le duel se termine…');
@@ -939,11 +946,10 @@ function showDeck(){setView('decks');}
   document.addEventListener('fullscreenchange',()=>{const b=$('[data-action="fullscreen"]');if(b){const label=document.fullscreenElement?'Quitter le plein écran':'Plein écran';b.title=label;b.setAttribute('aria-label',label);b.innerHTML=icon(document.fullscreenElement?'minimize':'maximize');icons();}});
   document.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}}));
   if(ui.view==='arena'&&!game){try{await createGame('ai','KALI-2026');}catch{ui.view='collection';}}
-  if(db?.registry)accountsUI=KalistarAccountsUI.create({db,getUserId:()=>accountId,onChanged:ownershipChanged,modal,toast,download,onSwitch:async id=>{if(!db.registry.user(id))throw new Error('Profil inconnu.');persist();await db.idle();localStorage.setItem('kalistar.v4.activeUser',id);location.reload();}});
+  if(db?.registry)accountsUI=KalistarAccountsUI.create({db,getCatalogueChanges:()=>catalogueUpdates.ids(),getUserId:()=>accountId,onChanged:ownershipChanged,modal,toast,download,onSwitch:async id=>{if(!db.registry.user(id))throw new Error('Profil inconnu.');persist();await db.idle();localStorage.setItem('kalistar.v4.activeUser',id);location.reload();}});
   else toast('Registre local indisponible : '+dbError);
-  db?.onCatalogueChange(ids=>{
-    if(!ids.length)return;
-    markCatalogueOutdated(ids);
+  const stopCatalogueRefresh=db?.onCatalogueChange(()=>{
+    markCatalogueOutdated();
     if(ui.view==='collection')collectionBinder?.refresh();
     accountsUI?.refresh();
   });
@@ -951,6 +957,6 @@ function showDeck(){setView('decks');}
     if(ui.view==='collection')collectionBinder?.refresh();
     if(ui.view==='decks')deckBuilder?.refresh();
   });
-  window.addEventListener('pagehide',()=>{pendingLineup=null;cancelLineup();stopEquipmentRefresh?.();weaponsUI.destroy();});
+  window.addEventListener('pagehide',()=>{pendingLineup=null;cancelLineup();stopCatalogueRefresh?.();catalogueUpdates.destroy();stopEquipmentRefresh?.();weaponsUI.destroy();});
   render();if(restoreError)toast(restoreError);window.KALISTAR_READY=true;
 })();
