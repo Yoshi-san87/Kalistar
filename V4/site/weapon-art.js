@@ -5,6 +5,8 @@
   'use strict';
   // Presentation revisions never alter equipment snapshots or their stable art keys.
   const entries={
+    'draevenheim-wing-spear':Object.freeze({key:'draevenheim-wing-spear-v1',scene:'draevenheim-wing-spear-scene-v2.webp',rim:'draevenheim-wing-spear-ring-v1.webp',body:'draevenheim-wing-spear-v1.webp',color:'#f49191'}),
+    'draevenheim-crimson-crossbow':Object.freeze({key:'draevenheim-crimson-crossbow-v1',scene:'draevenheim-crimson-crossbow-scene-v1.webp',rim:'draevenheim-crimson-crossbow-ring-v1.webp',body:'draevenheim-crimson-crossbow-v1.webp',color:'#ef879c'}),
     'arborium-twinstring-bow':Object.freeze({key:'arborium-twinstring-bow-v1',scene:'arborium-twinstring-bow-scene-v1.webp',rim:'arborium-twinstring-bow-ring-v1.webp',body:'arborium-twinstring-bow-v1.webp',color:'#99f6aa'}),
     'arborium-thorn-dagger':Object.freeze({key:'arborium-thorn-dagger-v1',scene:'arborium-thorn-dagger-scene-v1.webp',rim:'arborium-thorn-dagger-ring-v1.webp',body:'arborium-thorn-dagger-v1.webp',color:'#c2ef89'}),
     'white-oath-rapier':Object.freeze({key:'white-oath-rapier-v1',scene:'white-oath-rapier-scene-v3.webp',rim:'white-oath-rapier-ring-v2.webp',body:'white-oath-rapier-v1.webp',color:'#e5c8ff'}),

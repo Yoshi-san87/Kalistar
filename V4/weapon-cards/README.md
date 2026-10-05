@@ -38,8 +38,8 @@ manifeste graphique. Les sources HD et essais rejetes ne sont pas servis par Pag
 
 ARM-026 L'Accord Sylvestre et ARM-027 Le Cran de Ronce partagent exactement
 le master bleu/cuivre, les textes vivants et l'ancrage natif existants.
-Leur restriction combine SOLDAT et Arborium ; le cartouche les separe par
-un point median, pas une barre pouvant suggerer une alternative.
+Leur premiere restriction SOLDAT + Arborium est ensuite remplacee, sur demande
+utilisateur, par Arborium seule. Les anciens rapports restent des constats dates.
 
 Chaque objet possede trois sources independantes : detourage, scene peinte
 sobre et anneau creux. L'arc en bois precieux a deux cordes et des nervures
@@ -53,6 +53,27 @@ Sources : `sources/arborium-*.png`. Prompts exacts, references et essai rejete :
 `arborium-prompts-2026-10-05.json`. Le build existant produit les huit WebP,
 enregistre leurs empreintes et ne change aucun cadre ni aucune carte native.
 Preuves et cartes assemblees : `../revisions/2026-10-05-arborium-weapons/`.
+
+### Ajout Draevenheim Du 5 Octobre 2026
+
+ARM-028 Les Ailes du Rempart est une longue lance noire, cuivre et rouge,
+inspiree de `Illustrations/City_Guards_Orven_07.png`. Deux lames articulees
+en forme d'ailes de chauve-souris sont representees deployees sous sa pointe.
+ARM-029 L'Arbalete Ecarlate est une grande arbalete de metal noir avec finitions
+rouges et un carreau rouge. Toutes deux sont exclusives a la faction Draevenheim,
+sans restriction de Job ; aucune carte native de personnage n'est retouchee.
+
+Six nouvelles sources : deux objets detoures, deux scenes peintes et deux
+anneaux creux. L'anneau de lance reprend les segments ailes/charniere ; celui
+de l'arbalete les poulies et fleches gravees. Leur centre est transparent,
+l'objet ne tourne pas avec la couronne. Meme canevas 488, meme ancrage valide.
+La premiere scene de lance cadrait trop serre ; la version v2 recule le sujet
+pour conserver hampe, pointe et ailes dans le master sans deformer l'arme.
+
+Prompts integres et references : `draevenheim-prompts-2026-10-05.json`.
+Sources selectionnees : `sources/draevenheim-*.png`. Le build existant ajoute
+huit derives WebP et leurs hashes sans changer les anciens assets. Preuves
+de cartes et de combat : `../revisions/2026-10-05-faction-weapons/`.
 
 La demande du 3 octobre 2026 remplace les panneaux d'armes par de vraies cartes
 poker horizontales. Les deux premieres sont la Hache du Roi Dechu et la Flute

@@ -435,7 +435,7 @@ function showDeck(){setView('decks');}
     node.dataset.phase=s.phase;node.dataset.element=ac?.element||'NONE';
   }
   function recapRow(key,label,value,bonus=true,help=''){
-    const symbols={baseAttack:'swords',weapon:'axe',element:'gem',faction:'flag',buff:'sparkles',barrier:'shield-half',baseDefense:'shield',race:'users',arenaAttack:'map',arenaDefense:'map',ward:'shield-check',captainAttack:'crown',captainDefense:'crown',equipmentAttack:'sword',equipmentDefense:'music'};
+    const symbols={baseAttack:'swords',weapon:'axe',element:'gem',faction:'flag',buff:'sparkles',barrier:'shield-half',baseDefense:'shield',race:'users',arenaAttack:'map',arenaDefense:'map',ward:'shield-check',captainAttack:'crown',captainDefense:'crown',equipmentAttack:'sword',equipmentDefense:'shield'};
     return `<div class="recap-row" data-bonus="${key}" ${help?`title="${esc(help)}"`:''}><span>${icon(symbols[key])}${label}</span><b class="${value==null?'unknown':typeof value!=='number'?'conditional':bonus&&value>0?'positive':value<0?'negative':''}">${value==null?'…':bonus&&value>0?'+'+value:esc(value)}</b></div>`;
   }
   function equipmentRows(s,stat){

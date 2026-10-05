@@ -6,19 +6,20 @@ const published=require('../donnees/catalogue.json').cards.filter(c=>c.kind==='c
 const dataPromise=buildCatalog({published});
 const ids=['arborium-twinstring-bow','arborium-thorn-dagger'];
 const weapons=ids.map(id=>Q.catalogue.weapons.find(w=>w.id===id));
-const allowed=['eryss-kalistar','liorne-kalistar','saelor-kalistar','velran-kalistar'];
+const allowed=['bloom','brindor','eryss-kalistar','liorne-kalistar','mirelle','saelor-kalistar','ssilas','thalie','velran-kalistar','victorvine'];
 
-test('Arborium equipment requires the exact soldier job AND faction, never a displayed name',async()=>{
+test('Arborium equipment requires only its exact faction, regardless of job or displayed name',async()=>{
   const data=await dataPromise;
   for(const w of weapons){
     Q.validateDefinition(w);
-    assert.deepEqual(w.restrictions,{jobs:['SOLDAT'],factions:['Arborium']});
+    assert.deepEqual(w.restrictions,{factions:['Arborium']});
     assert.deepEqual([...new Set(data.cards.filter(c=>Q.compatible(w,c)).map(c=>c.characterId))].sort(),allowed);
     const c=data.cards.find(c=>c.characterId==='saelor-kalistar');
     assert(Q.compatible(w,{...c,name:'Another display name'}));
-    for(const overrides of [{job:'ECLAIREUR'},{faction:'Durane'},{faction:undefined},{job:undefined},{job:'soldat'},{faction:'ARBORIUM'}])assert(!Q.compatible(w,{...c,...overrides}),JSON.stringify(overrides));
-    for(const c of data.cards)assert.equal(Q.compatible(w,c),c.job==='SOLDAT'&&c.faction==='Arborium');
-    const rendered=C.markup(w,{cards:data.cards});assert(rendered.includes('SOLDAT'));assert(rendered.includes('Arborium'));
+    for(const job of ['ECLAIREUR','GARDIENNE','BOTANISTE',undefined])assert(Q.compatible(w,{...c,job}));
+    for(const overrides of [{faction:'Durane'},{faction:undefined},{faction:'ARBORIUM'}])assert(!Q.compatible(w,{...c,...overrides}),JSON.stringify(overrides));
+    for(const c of data.cards)assert.equal(Q.compatible(w,c),c.faction==='Arborium');
+    const rendered=C.markup(w,{cards:data.cards});assert(!rendered.includes('SOLDAT'));assert(rendered.includes('Arborium'));
     assert(!rendered.includes('undefined'));assert(C.bearers(w,data.cards).some(g=>g.label==='Faction'&&g.names==='Arborium'));
   }
 });
@@ -30,7 +31,7 @@ test('faction restriction validation rejects missing, empty, oversized and unkno
   assert.throws(()=>Q.validateDefinition({...w,changesFamily:true}));
 });
 
-test('equipment profile persists one weapon per soldier and rejects incompatible assignments',async()=>{
+test('equipment profile persists one weapon per faction member and rejects incompatible assignments',async()=>{
   const {cards}=await dataPromise;let row=Q.profile('arborium-only-test');
   row=Q.equipProfile(row,'saelor-kalistar',ids[0],cards);
   const before=structuredClone(row);
@@ -41,7 +42,7 @@ test('equipment profile persists one weapon per soldier and rejects incompatible
   row=Q.equipProfile(row,'liorne-kalistar',ids[1],cards);
   assert.deepEqual(row.slots.weapon,{'liorne-kalistar':ids[1]});
   assert.deepEqual(Q.validateProfile(JSON.parse(JSON.stringify(row)),cards),row);
-  for(const w of weapons)for(const c of cards.filter(c=>c.job!=='SOLDAT'||c.faction!=='Arborium')){
+  for(const w of weapons)for(const c of cards.filter(c=>c.faction!=='Arborium')){
     // A character can have multiple editions; profile equipment is allowed if ANY is compatible.
     if(cards.some(v=>v.characterId===c.characterId&&Q.compatible(w,v)))continue;
     assert.throws(()=>Q.equipProfile(row,c.characterId,w.id,cards),/incompatible/);
@@ -65,7 +66,7 @@ test('team compositions validate the selected edition; old equipment snapshots s
   assert.deepEqual(E.restoreGame(legacy),legacy,'a saved match without the two new definitions is not upgraded');
 });
 
-test('both bonuses work for all four soldiers on either side in real formulas, logs and reloads',async()=>{
+test('both bonuses work for all ten Arborium characters on either side in formulas, logs and reloads',async()=>{
   const data=await dataPromise,E=createEngine(data);
   for(const w of weapons)for(const characterId of allowed)for(const side of [0,1]){
     const c=data.cards.find(c=>c.characterId===characterId),base=data.decks.player;
@@ -92,6 +93,17 @@ test('both bonuses work for all four soldiers on either side in real formulas, l
     assert(s.log.some(l=>l.text.includes(w.name)&&l.text.includes('+20 ATK')));
     E.assertState(s);assert.deepEqual(E.restoreGame(s),s);assert.deepEqual(s.equipment.pending,{});
   }
+});
+
+test('previous soldier-only match definitions are preserved, without retroactive broadening',async()=>{
+  const data=await dataPromise,E=createEngine(data),c=data.cards.find(c=>c.characterId==='saelor-kalistar'),base=data.decks.player;
+  const deck=base.map((_,i)=>base.map((id,j)=>i===j?c.id:id)).find(ids=>!E.validatePlayableDeck(ids).length);
+  const s=E.newGame(deck,deck,{mode:'local',equipment:[{[c.characterId]:ids[0]},{}]});
+  for(const w of s.equipment.definitions.filter(w=>ids.includes(w.id)))w.restrictions={jobs:['SOLDAT'],factions:['Arborium']};
+  const copy=structuredClone(s),mirelle=data.cards.find(c=>c.characterId==='mirelle');
+  assert.deepEqual(E.restoreGame(s),copy);
+  assert(!Q.compatible(s.equipment.definitions.find(w=>w.id===ids[0]),mirelle));
+  assert(Q.compatible(weapons[0],mirelle));
 });
 
 test('new objects reuse bounded non-stacking numeric effects, not poison over time or a new matchup',()=>{

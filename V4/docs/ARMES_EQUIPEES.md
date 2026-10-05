@@ -239,32 +239,48 @@ Les anciennes definitions `LAST_STANDING` / `AFTER_SUPPORT` restent valides.
 
 ## Ajouter Une Arme
 
-### Equipements Arborium (5 Octobre 2026)
+### Equipements De Faction (5 Octobre 2026)
 
-Deux ajouts portent le catalogue a 27 armes :
+Le catalogue contient 29 armes. Apres la premiere publication Arborium,
+l'utilisateur ouvre explicitement ses deux armes a TOUS les membres de cette
+faction, sans restriction de metier, et ajoute deux armes Draevenheim.
 
-| Arme | Restriction cumulee | Activation | Effet |
+| Arme | Faction exclusive | Activation | Effet |
 | --- | --- | --- | --- |
-| L'Accord Sylvestre, ARM-026 | SOLDAT ET Arborium | Moins de combattants actifs allies qu'adverses | +20 ATK numerique |
-| Le Cran de Ronce, ARM-027 | SOLDAT ET Arborium | Reserve alliee vide | +20 ATK numerique |
+| L'Accord Sylvestre, ARM-026 | Arborium | Moins de combattants actifs allies qu'adverses | +20 ATK numerique |
+| Le Cran de Ronce, ARM-027 | Arborium | Reserve alliee vide | +20 ATK numerique |
+| Les Ailes du Rempart, ARM-028 | Draevenheim | Moins de combattants actifs allies qu'adverses | +20 DEF numerique |
+| L'Arbalete Ecarlate, ARM-029 | Draevenheim | Au plus deux combattants actifs allies | +20 ATK numerique |
 
-Les deux reutilisent `TEAM_STATE` / `WHILE_TRUE`. L'arme de base imprimee
+Les quatre reutilisent `TEAM_STATE` / `WHILE_TRUE`. L'arme de base imprimee
 continue de definir le matchup. Le poison du Cran est un element narratif,
 pas un statut : aucun degat automatique ou sur plusieurs tours n'est ajoute.
 Le bonus disparait si la condition cesse ; il ne convertit pas une face
 speciale en score et ne cree pas de charge temporaire. Une seule arme equipee.
 
-Eligibles a cette date : Eryss (`eryss-kalistar`), Velran (`velran-kalistar`),
-Saelor (`saelor-kalistar`) et Liorne (`liorne-kalistar`). La compatibilite reste
-declarative : de futurs SOLDAT Arborium seront eligibles sans liste de noms.
-Le +20, contre +15 pour les armes de Job generiques, est reserve a cette double
-restriction et a une situation defavorable. Il ne garantit pas l'equilibrage
-competitif ; les parties reelles pourront motiver un ajustement ulterieur.
+Arborium : Thalie, Bloom, Victorvine, Brindor, Ssilas, Mirelle, Eryss, Velran,
+Saelor et Liorne. Draevenheim : Seraphina, Verminia (ses deux editions),
+Baptiste, Orven, Serya, Marel, Veyr et Isvel. `Draevenheim` est la valeur exacte
+du catalogue, distincte de l'orthographe libre "Dravenheim" de la demande.
+La compatibilite reste declarative, sans liste de noms ou de characterId.
+Les futurs membres de ces factions seront automatiquement compatibles.
+
+Les familles des nouveaux objets sont `Lance` et `Arc` (arbalete), reutilisant
+les vingt familles existantes ; elles ne remplacent pas le matchup imprime.
+La restriction generale de faction ne requiert ni SOLDAT ni arme de base precise.
+Le +20 reste conditionnel et sans cumul de deux equipements. Il ne garantit pas
+l'equilibrage competitif ; les parties reelles pourront motiver un ajustement.
+
+Les anciennes parties conservent leurs definitions SOLDAT + Arborium originales
+et leurs equipements. Seuls les nouveaux choix de profil/composition et les
+nouveaux matchs utilisent la restriction elargie. Aucun schema n'est migre.
 
 Tests : `arborium-weapons.test.cjs` (restriction, profil, deck, snapshots,
-16 duels couvrant quatre porteurs, deux armes et les deux camps) et
-`arborium-weapons.browser.test.cjs` (UI, sauvegarde, remplacement, inspection,
-alignement, formules reelles, mobile et Reduced Motion).
+40 duels sur dix porteurs) et `draevenheim-weapons.test.cjs` (36 duels sur neuf
+editions). `arborium-weapons.browser.test.cjs` couvre maintenant les QUATRE
+armes de faction : UI, sauvegarde, remplacement, inspection, alignement,
+formules reelles, adversaire, PC/mobile et Reduced Motion. Les preuves sont
+dans `revisions/2026-10-05-faction-weapons/`, pas dans l'ancien rapport Arborium.
 
 Visuels uniques : voir `../revisions/2026-10-02-unique-weapon-art/README.md`.
 Le champ facultatif `art` choisit un WebP versionne du meme medaillon natif ;
