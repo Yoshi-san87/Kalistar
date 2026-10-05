@@ -10,7 +10,15 @@ const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json
 const state=page=>page.evaluate(()=>JSON.parse(localStorage.getItem('kalistar.v4.game')));
 async function stage(page,step){await page.waitForFunction(step=>document.querySelector('.lineup-intro')?.dataset.step===step,step,{timeout:35000});}
 async function done(page){await page.waitForSelector('.lineup-intro',{state:'detached',timeout:12000});await page.waitForSelector('.turn-timeline li');}
-async function shot(page,name){await page.screenshot({path:path.join(output,name+'.png')});console.log('capture',name);}
+async function shot(page,name){
+  await page.screenshot({path:path.join(output,name+'.png')});
+  if(name==='desktop-timeline'){
+    const r=await page.locator('.turn-timeline').boundingBox(),width=Math.min(r.width,640);
+    await page.screenshot({path:path.join(output,'desktop-timeline-detail.png'),clip:{x:r.x+(r.width-width)/2,y:r.y-8,width,height:r.height+16}});
+  }
+  if(name==='timeline-duel-412')await page.screenshot({path:path.join(output,'phone-timeline-detail.png'),clip:{x:0,y:0,width:412,height:150}});
+  console.log('capture',name);
+}
 async function tipoff(page,name){
   await stage(page,'tipoff');
   assert.equal(await page.locator('.li-tipoff strong').textContent(),'Tip Off');
@@ -60,10 +68,16 @@ async function geometry(page,width,height){
     const rail=document.querySelector('.turn-timeline'),steps=[...rail.querySelectorAll('li')];
     const field=document.querySelector('.battlefield'),score=document.querySelector('.match-scoreboard');
     const now=rail.querySelector('.tt-now'),mode=rail.querySelector('.tt-mode');
-    return {rail:rect(rail),list:rect(rail.querySelector('ol')),steps:steps.map(rect),now:now?rect(now):null,nowClip:now?getComputedStyle(now).clipPath:null,modeDisplay:getComputedStyle(mode).display,field:rect(field),score:rect(score),overflow:document.documentElement.scrollWidth>innerWidth+1};
+    const active=rail.querySelector('[aria-current=step]'),gem=getComputedStyle(active,'::after'),activeRect=rect(active);
+    return {rail:rect(rail),list:rect(rail.querySelector('ol')),steps:steps.map(rect),now:now?rect(now):null,nowClip:now?getComputedStyle(now).clipPath:null,modeDisplay:getComputedStyle(mode).display,field:rect(field),score:rect(score),overflow:document.documentElement.scrollWidth>innerWidth+1,
+      material:getComputedStyle(rail).backgroundImage,font:getComputedStyle(active).fontFamily,gem:gem.backgroundImage,motion:gem.animationName,reduced:matchMedia('(prefers-reduced-motion:reduce)').matches,
+      gemClear:activeRect.left+1+parseFloat(gem.left)+parseFloat(gem.width)<rect(active.querySelector('span')).left,
+      labelsFit:steps.every(n=>[...n.children].every(c=>{const r=c.getBoundingClientRect(),p=n.getBoundingClientRect();return r.left>=p.left&&r.right<=p.right&&r.top>=p.top&&r.bottom<=p.bottom;}))};
   });
   assert(!result.overflow);assert(result.rail.left>=0&&result.rail.right<=width+1);
   assert(result.steps.every(r=>r.left>=result.rail.left&&r.right<=result.rail.right&&r.height>=20));
+  assert(result.material.includes('collection-reader-grimoire-v1.png'));assert(result.font.includes('Cinzel'));assert(result.gem.includes('kalistel-rainbow-v1.webp'));assert(result.gemClear,'rainbow crystal does not overlap the player label');assert(result.labelsFit,'labels and turn icons fit their metal plates');
+  if(result.reduced)assert.equal(result.motion,'none');
   if(width<700||width<=950&&height<=500){
     assert(result.rail.height<=36);assert(result.field.top>=result.rail.bottom-1);assert(result.score.top>=result.rail.bottom);
     assert.equal(result.modeDisplay,'none');assert(result.now.width<=1&&result.now.height<=1);assert.equal(result.nowClip,'inset(50%)');
@@ -138,6 +152,7 @@ async function main(){
     assert(steps.find(s=>s.step==='captains').time-steps.find(s=>s.step==='tipoff').time>=1790,'Tip Off remains readable before captains depart');
     checks.push({kind:'normal full intro, tie, captions and placement',steps});
     await shot(page,'desktop-timeline');
+    checks.push({kind:'Kalistar timeline materials and desktop geometry',geometry:await geometry(page,1440,1000)});
     for(let round=1;round<=4;round++){
       await prepareResult(page);const result=await state(page);
       assert.equal(await page.locator('.turn-timeline li.is-resolved').count(),1);

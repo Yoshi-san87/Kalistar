@@ -24,6 +24,15 @@ La frise affiche l'action actuelle et les quatre suivantes. Sur smartphone,
 ces cinq etapes seules occupent toute sa largeur, sans phrase visible.
 L'annonce du camp courant reste accessible aux lecteurs d'ecran.
 
+La frise V4.5.18 reprend le framework visuel Kalistar : texture de grimoire,
+plaques biseautees, traits cuivre et typographie Cinzel. Un cristal rainbow
+indique l'action courante ; play/check distinguent action en cours et resolue.
+Le cristal respire doucement uniquement avant resolution, et reste fixe en
+Reduced Motion. Les deux camps conservent leurs accents cyan et rose.
+La hauteur reste de 36 px sur PC et 34 px sur telephone ; aucun espace
+supplementaire n'est pris aux cartes. Le style ne change ni `turnPreview()`
+ni le moteur, les sauvegardes ou le nombre d'etapes.
+
 L'introduction conserve 380 ms de suspense avant chaque retournement.
 Chaque indice dure 850 ms et chaque carte revelee reste 1,2 seconde au centre.
 Les cinq paires durent 27,65 secondes hors chargement et tirage. Le mode

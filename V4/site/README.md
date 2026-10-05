@@ -599,3 +599,19 @@ Pages, `node V4/site/catalogue-updates.browser.test.cjs`. The browser suite uses
 disposable profiles and synthetic archived/new IDs. It checks desktop/phone,
 both notices, another tab adding a real version, explicit refresh, second reload,
 ownership preservation and an active match. Evidence: `verification/catalogue-notice/`.
+
+## Kalistar turn timeline (2026-10-05, 4.5.18)
+
+`turn-timeline.css` now uses the shared `--kui-*` materials and Cinzel face,
+with the existing grimoire texture and rainbow Kalistel asset. Five bevelled
+plates retain the engine's current/next action labels and accessible current
+step. A quiet crystal opacity animation stops on resolved actions or Reduced
+Motion; no listeners, timers or game-state changes are introduced.
+
+The phone rail remains 34px tall, full width, without visible phrases.
+Desktop remains 36px tall. Match score/menu offsets and card space are intact.
+Checks: `node --test V4/site/turn-timeline.test.cjs` and the extended
+`turn-order.browser.test.cjs` against local sources and built Pages.
+Geometry checks cover plate contents, font, assets, desktop, 412px, 320px,
+landscape, actual Razr preview, initiative, resolved actions and reload.
+Screenshots/results: `verification/turn-timeline-kalistar/`.

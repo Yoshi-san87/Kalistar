@@ -1,26 +1,51 @@
-.turn-timeline{display:flex;align-items:center;justify-content:center;gap:14px;min-height:36px;padding:3px 16px;border-block:1px solid #9f725748;background:#0b1513;color:#dcd1b8;font:500 11px var(--sans);isolation:isolate;}
-.tt-mode{font:600 11px var(--serif);color:#b7ab90;min-width:38px;}
+.turn-timeline{
+  position:relative;display:flex;align-items:center;justify-content:center;gap:14px;min-height:36px;padding:3px 16px;isolation:isolate;
+  border-block:1px solid var(--kui-border);color:var(--kui-text);font:500 11px var(--sans);
+  background:linear-gradient(100deg,#0b1414f5,#152724eb 50%,#0b1414f5),url('assets/ui/collection-reader-grimoire-v1.png') center 45%/cover;
+  box-shadow:inset 0 1px #eac6a312,inset 0 -1px #040c0b,0 2px 6px #0004;
+}
+.turn-timeline::before,.turn-timeline::after{content:'';position:absolute;top:calc(50% - 3px);width:6px;height:6px;border:1px solid var(--kui-copper);background:var(--kui-ink);transform:rotate(45deg);pointer-events:none;}
+.turn-timeline::before{left:3px;}.turn-timeline::after{right:3px;}
+.tt-mode{font:600 10px var(--kalistar-display);color:var(--kui-copper);min-width:38px;}
 .tt-now{display:flex;align-items:center;gap:7px;min-width:94px;}
-.tt-now b{color:#ffe0a1;font-size:12px;}
-.turn-timeline ol{display:flex;align-items:center;gap:4px;list-style:none;margin:0;padding:0;}
-.turn-timeline li{display:flex;align-items:center;justify-content:center;gap:4px;width:42px;height:25px;border-bottom:2px solid transparent;position:relative;color:#a2cbbd;transition:background .18s,color .18s;}
-.turn-timeline li.is-enemy{color:#e2b0a7;}
-.turn-timeline li.is-current{background:#334238;border-bottom-color:#ddb77a;color:#fff0cd;font-weight:700;}
-.turn-timeline li.is-current::before{content:"";position:absolute;inset:3px auto 3px 0;width:2px;background:#ddb77a;}
+.tt-now b{color:var(--kui-gold);font:600 12px var(--kalistar-display);}
+.turn-timeline ol{position:relative;isolation:isolate;display:flex;align-items:center;gap:4px;list-style:none;margin:0;padding:0;}
+.turn-timeline ol::before{content:'';position:absolute;top:50%;left:0;right:0;height:1px;background:var(--kui-edge);opacity:.55;z-index:-1;pointer-events:none;}
+.turn-timeline li{
+  --tt-side:var(--kui-energy);position:relative;display:flex;align-items:center;justify-content:center;gap:4px;flex:none;width:58px;height:26px;padding:0 6px;
+  clip-path:polygon(4px 0,calc(100% - 4px) 0,100% 4px,100% calc(100% - 4px),calc(100% - 4px) 100%,4px 100%,0 calc(100% - 4px),0 4px);
+  border:1px solid var(--kui-border);color:var(--tt-side);font:600 12px/1 var(--kalistar-display);text-shadow:0 1px 2px #000;
+  background:linear-gradient(150deg,#ddb18b17,transparent 55%),var(--kui-surface);
+  box-shadow:inset 0 0 0 1px var(--kui-ink),inset 0 -2px #0005;transition:border-color var(--kui-fast),color var(--kui-fast);
+}
+.turn-timeline li.is-enemy{--tt-side:var(--kui-danger);}
+.turn-timeline li.is-current{
+  padding-left:14px;padding-right:6px;border-color:var(--kui-copper);color:#fff0d0;
+  background:linear-gradient(130deg,#604d2e,#293d36 75%);box-shadow:inset 0 0 0 1px var(--kui-ink),inset 0 -2px var(--kui-gold);
+}
+.turn-timeline li.is-current::before{content:'';position:absolute;inset:2px;border:1px solid #edcf8f55;clip-path:inherit;pointer-events:none;}
+.turn-timeline li.is-current::after{
+  content:'';position:absolute;left:4px;top:calc(50% - 7px);width:8px;height:14px;
+  background:url('assets/navigation/kalistel-rainbow-v1.webp') center/contain no-repeat;filter:drop-shadow(0 0 2px #95e0db80);pointer-events:none;
+  animation:tt-crystal-breath 3s ease-in-out infinite;
+}
+.turn-timeline li.is-resolved::after{animation:none;}
 .turn-timeline li svg{width:10px;height:10px;fill:currentColor;}
+.turn-timeline li.is-resolved svg{fill:none;stroke-width:2.5;}
 .turn-timeline .tt-mode svg{width:16px;height:16px;}
-.turn-timeline.is-pending{color:#efd4a5;}.tt-wait{font-family:var(--serif);}
+.turn-timeline.is-pending{color:var(--kui-gold);}.tt-wait{font-family:var(--kalistar-display);}
 .arena-view .has-turn-timeline .battlefield{min-height:calc(100dvh - 166px);}
 .lineup-underlay .turn-timeline{opacity:0;}
 @media(max-width:699px),(max-width:950px) and (max-height:500px){
   .arena-view .game-shell.has-turn-timeline{padding-top:34px;}
-  .arena-view .turn-timeline{position:absolute;top:0;left:0;right:0;height:34px;min-height:34px;padding:3px 8px;gap:0;z-index:36;background:#081411f5;}
+  .arena-view .turn-timeline{position:absolute;top:0;left:0;right:0;height:34px;min-height:34px;padding:3px 8px;gap:0;z-index:36;}
   .arena-view .turn-timeline .tt-mode{display:none;}
   .arena-view .turn-timeline .tt-now,.arena-view .turn-timeline .tt-wait{position:absolute;width:1px;height:1px;min-width:0;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;}
   .arena-view .turn-timeline ol{flex:1;min-width:0;width:100%;gap:4px;}
-  .arena-view .turn-timeline li{flex:1 1 0;min-width:0;width:auto;height:24px;font-size:12px;gap:5px;}
+  .arena-view .turn-timeline li{flex:1 1 0;min-width:0;width:auto;height:24px;padding:0 6px 0 14px;font-size:12px;gap:5px;}
   .arena-view .turn-timeline li svg{width:10px;height:10px;}
   .arena-view .has-turn-timeline .arena-toolbar .match-scoreboard,.arena-view .has-turn-timeline .arena-toolbar .tools [data-action=arena-menu]{top:46px;}
   .arena-view .has-turn-timeline .battlefield{height:100%;min-height:0;}
 }
-@media(prefers-reduced-motion:reduce){.turn-timeline li{transition:none;}}
+@keyframes tt-crystal-breath{0%,100%{opacity:.8;}50%{opacity:1;}}
+@media(prefers-reduced-motion:reduce){.turn-timeline li{transition:none;}.turn-timeline li.is-current::after{animation:none;}}
