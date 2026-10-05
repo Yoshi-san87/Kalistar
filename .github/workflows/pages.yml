@@ -30,6 +30,7 @@ jobs:
           node --test V4/expansions/2026-10-01-one-piece/model.test.cjs
           node --test V4/revisions/2026-10-04-armor-refinement/integration.test.cjs
           node --test V4/revisions/2026-10-05-orven-long-spear/revision.test.cjs
+          node --test V4/expansions/2026-10-05-cryptown-sentinel/integration.test.cjs
           node --test V4/revisions/2026-10-01-stat-personality/revision.test.cjs
           node --test V4/expansions/2026-10-01-rikka-rooftops/model.test.cjs
           node --test V4/expansions/2026-10-01-one-piece-witcher/model.test.cjs
