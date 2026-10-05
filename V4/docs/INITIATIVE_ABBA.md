@@ -1,10 +1,13 @@
 # Initiative des capitaines et ordre ABBA
 
 Decision utilisateur du 5 octobre 2026, publication V4.5.14.
+Rythme de presentation et affichage mobile ajustes en V4.5.15.
 
 ## Regles
 
-Apres la presentation des cinq paires de titulaires, les deux capitaines
+Apres la presentation des cinq paires de titulaires, une popup Tip Off
+annonce le tirage pendant 1,8 seconde, avec les dix cartes sur le plateau.
+Puis les deux capitaines
 rejoignent le centre du plateau. Chaque camp lance un D6. Le plus grand ouvre
 la rencontre ; une egalite relance les deux des, sans bonus de carte.
 Les capitaines retournent ensuite a leurs positions initiales.
@@ -17,11 +20,17 @@ A designe le gagnant, B son adversaire. Les actions suivent
 **A, B, B, A, A, B, B, A...**. Une action consomme un echange, duel ou soutien.
 Un jet DEF, une decision de Kalistel ou un remplacement ne consomme pas
 une nouvelle action. `next()` avance l'ordre apres la consultation du resultat.
-La frise affiche l'action actuelle et les quatre suivantes.
+La frise affiche l'action actuelle et les quatre suivantes. Sur smartphone,
+ces cinq etapes seules occupent toute sa largeur, sans phrase visible.
+L'annonce du camp courant reste accessible aux lecteurs d'ecran.
 
-L'introduction ajoute 300 ms de suspense avant chaque retournement :
-380 ms en animation normale, 300 ms en reduced motion. Les animations
-d'identite conservent leurs indices persistants et leurs sources natives.
+L'introduction conserve 380 ms de suspense avant chaque retournement.
+Chaque indice dure 850 ms et chaque carte revelee reste 1,2 seconde au centre.
+Les cinq paires durent 27,65 secondes hors chargement et tirage. Le mode
+reduced motion conserve les temps de lecture sans les mouvements (21,25 s).
+Les animations d'identite conservent leurs indices persistants et leurs sources
+natives. Le resultat du tirage reste visible 1,8 seconde avant le retour
+des capitaines. Passer reste disponible pendant toute la sequence, popup comprise.
 
 ## Moteur et sauvegarde
 

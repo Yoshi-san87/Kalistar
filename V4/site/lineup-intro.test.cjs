@@ -38,10 +38,14 @@ test('missing identities have neutral clues and missing cards fail before mounti
   assert.equal(result[0].clues.crystal.label,'Sans cristal');assert.equal(result[1],null);
   assert.throws(()=>Intro.play({shell:null,formations:[]}),/incomplete/);
 });
-test('persistent clues retain their beat and suspense gains 300 ms before every flip',()=>{
+test('slower clues and revealed cards share the same reading time with reduced motion',()=>{
   assert.equal(Intro.roles.length,5);
-  for(const kind of ['weapon','crystal','faction']){assert.equal(Intro.timing[kind],600);assert.equal(Intro.reducedTiming[kind],280);}
-  assert.equal(Intro.timing.suspense,380);assert.equal(Intro.reducedTiming.suspense,300);
-  assert.equal(Object.values(Intro.timing).reduce((a,b)=>a+b,0)*5,18500);
-  assert.equal(Object.values(Intro.reducedTiming).reduce((a,b)=>a+b,0)*5,7200);
+  for(const kind of ['weapon','crystal','faction']){assert.equal(Intro.timing[kind],850);assert.equal(Intro.reducedTiming[kind],850);}
+  assert.equal(Intro.timing.suspense,380);assert.equal(Intro.reducedTiming.suspense,380);
+  assert.equal(Intro.timing.hold,1200);assert.equal(Intro.reducedTiming.hold,1200);
+  assert.equal(Object.values(Intro.timing).reduce((a,b)=>a+b,0)*5,27650);
+  assert.equal(Object.values(Intro.reducedTiming).reduce((a,b)=>a+b,0)*5,21250);
+});
+test('Tip Off and the winning captain have explicit readable pauses',()=>{
+  assert.deepEqual(Intro.ceremonyTiming,{tipoff:1800,settle:650,tie:1000,result:1800});
 });

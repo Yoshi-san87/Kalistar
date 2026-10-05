@@ -84,14 +84,14 @@ latest geometry proof; the other sixteen vectors are byte-identical.
 ## Opening Lineup: Persistent Clues (4 October 2026)
 
 `lineup-intro.js` presents each starting pair without changing combat statistics.
-Each native weapon, crystal and faction is shown for a 600 ms beat, including
+Each native weapon, crystal and faction is shown for an 850 ms beat, including
 a 160 ms movement into its persistent top-left, top-centre or top-right dock.
 The same image and label remain visible through subsequent clues and the card
 flip. They fade when the card returns to its board slot. Clues are siblings of
 the rotating card, never children of its back face. Total normal duration is
-18.5 seconds after the 5 October addition of a 380 ms pre-flip beat (+300 ms
-per pair). Reduced motion keeps 280 ms clue beats with no movement and a
-300 ms pre-flip beat (7.2 seconds). These durations exclude image loading and
+27.65 seconds: each pair includes a 380 ms pre-flip beat and a 1.2 second hold
+after revealing the card. Reduced motion preserves the same reading times,
+without travel or rotation (21.25 seconds). These durations exclude image loading and
 the captain draw which follows the fifth pair.
 
 The responsive dock reserves space above each card. Resize settles clue motion
@@ -103,7 +103,8 @@ The persistent-clue presentation is documented in the
 ## Captain Dice and ABBA (5 October 2026)
 
 New UI matches opt into `turnOrder: 'ABBA'`. After all ten starters arrive,
-the real two captains move to the centre for an independent D6 draw. Highest
+a 1.8 second Tip Off popup announces the draw over the complete formation.
+Then the real two captains move to the centre for an independent D6 draw. Highest
 opens, ties reroll, then both return to their measured board slots. Skipping
 the ceremony still resolves the engine draw. Reload or reentry while pending
 resumes only the captain sequence; saved dice are never rerolled.
@@ -114,12 +115,15 @@ links and no automatic equipment. Legacy list callers remain unchanged.
 `turn-order.js` owns the pure declarative order and separate seeded random
 stream. `engine.js` owns the `initiative` phase, validates persisted records
 and advances only on `next()`. The compact `turn-timeline.css` rail displays
-the current side and four forthcoming actions; phone score/menu offsets reserve
-34 px for it. Legacy games without the marker remain ABAB. Combat RNG, captain
+the current side and four forthcoming actions. On phones, only these five
+equal-width steps are visible, filling the 34 px rail; the current-side phrase
+is retained for screen readers only. Phone score/menu offsets reserve its space.
+Legacy games without the marker remain ABAB. Combat RNG, captain
 bonuses, equipment, deck legality and AI selection policies are unchanged.
 
 See [save contract and rules](../docs/INITIATIVE_ABBA.md) and
 [release verification](../releases/2026-10-05-captains-abba/README.md).
+See also the [slower pacing and Tip Off validation](../releases/2026-10-05-tipoff-pace/README.md).
 
 ## Collection Editions (23 September 2026)
 

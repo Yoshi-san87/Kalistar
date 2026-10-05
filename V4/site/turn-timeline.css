@@ -14,11 +14,12 @@
 .lineup-underlay .turn-timeline{opacity:0;}
 @media(max-width:699px),(max-width:950px) and (max-height:500px){
   .arena-view .game-shell.has-turn-timeline{padding-top:34px;}
-  .arena-view .turn-timeline{position:absolute;top:0;left:0;right:0;height:34px;min-height:34px;padding:3px 10px;gap:9px;z-index:36;background:#081411f5;}
-  .arena-view .turn-timeline .tt-mode{font-size:9px;min-width:28px;}
-  .arena-view .turn-timeline .tt-now{font-size:10px;min-width:83px;gap:4px;}
-  .arena-view .turn-timeline li{width:27px;height:24px;font-size:10px;gap:3px;}
-  .arena-view .turn-timeline li svg{width:8px;height:8px;}
+  .arena-view .turn-timeline{position:absolute;top:0;left:0;right:0;height:34px;min-height:34px;padding:3px 8px;gap:0;z-index:36;background:#081411f5;}
+  .arena-view .turn-timeline .tt-mode{display:none;}
+  .arena-view .turn-timeline .tt-now,.arena-view .turn-timeline .tt-wait{position:absolute;width:1px;height:1px;min-width:0;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;}
+  .arena-view .turn-timeline ol{flex:1;min-width:0;width:100%;gap:4px;}
+  .arena-view .turn-timeline li{flex:1 1 0;min-width:0;width:auto;height:24px;font-size:12px;gap:5px;}
+  .arena-view .turn-timeline li svg{width:10px;height:10px;}
   .arena-view .has-turn-timeline .arena-toolbar .match-scoreboard,.arena-view .has-turn-timeline .arena-toolbar .tools [data-action=arena-menu]{top:46px;}
   .arena-view .has-turn-timeline .battlefield{height:100%;min-height:0;}
 }

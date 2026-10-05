@@ -4,8 +4,9 @@
 })(typeof globalThis!=='undefined'?globalThis:this,function(){
   'use strict';
   const roles=Object.freeze(['TANK','DPS PHYSIQUE','MIDDLE','DPS MAGIQUE / DISTANCE','SUPPORT']);
-  const timing=Object.freeze({title:60,depart:330,weapon:600,crystal:600,faction:600,suspense:380,flip:400,hold:400,arrive:330});
-  const reducedTiming=Object.freeze({title:0,depart:0,weapon:280,crystal:280,faction:280,suspense:300,flip:120,hold:180,arrive:0});
+  const timing=Object.freeze({title:100,depart:400,weapon:850,crystal:850,faction:850,suspense:380,flip:500,hold:1200,arrive:400});
+  const reducedTiming=Object.freeze({title:0,depart:0,weapon:850,crystal:850,faction:850,suspense:380,flip:120,hold:1200,arrive:0});
+  const ceremonyTiming=Object.freeze({tipoff:1800,settle:650,tie:1000,result:1800});
   const clueKinds=Object.freeze(['weapon','crystal','faction']);
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   // Read-only presentation data: native identity clues never inspect equipped weapons.
@@ -138,9 +139,15 @@
       drawMode=true;root.classList.add('li-captains');
       hidden.forEach(node=>node.classList.remove('lineup-unrevealed'));
       root.setAttribute('aria-label','Tirage des capitaines');
-      title.textContent='Tirage des capitaines';
+      title.textContent='';
       for(const pile of stacks)pile.remove();stacks.length=0;
       resize();
+      const crown=formations.flat().find(card=>card.captain)?.node.querySelector('.arena-captain img');
+      const announcement=document.createElement('div');announcement.className='li-tipoff';
+      announcement.innerHTML=`<div class="li-tipoff-plaque" role="status" aria-live="polite"><span class="li-tipoff-mark" aria-hidden="true">${crown?`<img src="${esc(crown.currentSrc||crown.src)}" alt="">`:'<i data-lucide="dice-6"></i>'}</span><strong>Tip Off</strong><span class="li-tipoff-caption">Tirage des capitaines</span></div>`;
+      stage.append(announcement);root.classList.add('li-tipoff-active');globalThis.lucide?.createIcons();mark('tipoff');
+      if(!await wait(ceremonyTiming.tipoff))return false;
+      announcement.remove();root.classList.remove('li-tipoff-active');title.textContent='Tirage des capitaines';
       const captains=formations.map(team=>team.find(card=>card.captain)||team[0]);
       actors.splice(0,actors.length,...captains.map((card,side)=>{
         const node=actor(card,side);node.classList.add('li-draw-card','is-revealed');
@@ -160,7 +167,7 @@
         });globalThis.lucide?.createIcons();
       }
       const resultText=panel.querySelector('.li-draw-result');
-      if(!await wait(reduced?160:500))return false;
+      if(!await wait(ceremonyTiming.settle))return false;
       let result;
       do{
         resultText.textContent='Initiative';panel.classList.add('is-rolling');mark('initiative-roll');
@@ -169,12 +176,12 @@
         }else if(!await wait(180))return false;
         if(!active)return false;
         result=initiative.roll();dice(result.dice);panel.classList.remove('is-rolling');
-        if(result.first===null){resultText.textContent='\u00c9galit\u00e9 \u00b7 Nouveau jet';mark('initiative-tie');if(!await wait(reduced?300:750))return false;}
+        if(result.first===null){resultText.textContent='\u00c9galit\u00e9 \u00b7 Nouveau jet';mark('initiative-tie');if(!await wait(ceremonyTiming.tie))return false;}
       }while(active&&result.first===null);
       if(!active)return false;
       actors[result.first].classList.add('li-initiative-winner');
       resultText.textContent=initiative.labels[result.first]+' ouvre le combat';mark('initiative-result');
-      if(!await wait(reduced?600:1300))return false;
+      if(!await wait(ceremonyTiming.result))return false;
       panel.classList.add('is-leaving');mark('captains-arrive');
       actors.forEach(n=>n.classList.add('is-placing'));
       if(!(await Promise.all(actors.map((n,side)=>move(n,()=>cardRect(captains[side]),t.arrive)))).every(Boolean))return false;
@@ -194,7 +201,7 @@
           title.textContent='P'+(position+1)+' \u00b7 '+roles[position];mark('title');if(!await wait(t.title))return;
           actors.splice(0,actors.length,...formations.map((team,side)=>actor(team[position],side)));
           mark('depart');if(!(await Promise.all(actors.map((n,side)=>move(n,()=>centre(side),t.depart)))).every(Boolean))return;
-          // Docking is included in each 600 ms clue beat, not added to the total duration.
+          // Docking is included in each clue beat, not added to the total duration.
           for(const kind of clueKinds){clue(kind);if(!await wait(t[kind]-dockDuration))return;dockClue(kind);if(!await wait(dockDuration))return;}
           mark('suspense');root.classList.add('li-dim');if(!await wait(t.suspense))return;
           mark('flip');
@@ -217,5 +224,5 @@
     }
     run();return {skip:()=>finish('skip'),destroy:()=>finish('destroy'),get active(){return active;},get step(){return step;}};
   }
-  return Object.freeze({roles,timing,reducedTiming,describe,play});
+  return Object.freeze({roles,timing,reducedTiming,ceremonyTiming,describe,play});
 });

@@ -11,6 +11,15 @@ const state=page=>page.evaluate(()=>JSON.parse(localStorage.getItem('kalistar.v4
 async function stage(page,step){await page.waitForFunction(step=>document.querySelector('.lineup-intro')?.dataset.step===step,step,{timeout:35000});}
 async function done(page){await page.waitForSelector('.lineup-intro',{state:'detached',timeout:12000});await page.waitForSelector('.turn-timeline li');}
 async function shot(page,name){await page.screenshot({path:path.join(output,name+'.png')});console.log('capture',name);}
+async function tipoff(page,name){
+  await stage(page,'tipoff');
+  assert.equal(await page.locator('.li-tipoff strong').textContent(),'Tip Off');
+  assert.equal(await page.locator('.formation .slot-card:visible').count(),10);
+  assert.equal((await state(page)).phase,'initiative');
+  assert(await page.locator('.li-tipoff-plaque').evaluate(n=>{const r=n.getBoundingClientRect(),header=document.querySelector('.li-header').getBoundingClientRect();return r.left>=0&&r.right<=innerWidth&&r.top>=header.bottom&&r.bottom<=innerHeight;}));
+  if(await page.evaluate(()=>matchMedia('(prefers-reduced-motion:reduce)').matches))assert.equal(await page.locator('.li-tipoff-plaque').evaluate(n=>getComputedStyle(n).animationName),'none');
+  await shot(page,name);
+}
 async function start(page,seed,mode='local',preset=null){
   if(await page.locator('.li-skip').count())await page.locator('.li-skip').click();
   await page.goto(url+'#decks');await page.waitForSelector('.team-page');
@@ -50,11 +59,18 @@ async function geometry(page,width,height){
     const rect=n=>{const r=n.getBoundingClientRect();return {left:r.left,top:r.top,right:r.right,bottom:r.bottom,width:r.width,height:r.height};};
     const rail=document.querySelector('.turn-timeline'),steps=[...rail.querySelectorAll('li')];
     const field=document.querySelector('.battlefield'),score=document.querySelector('.match-scoreboard');
-    return {rail:rect(rail),steps:steps.map(rect),field:rect(field),score:rect(score),overflow:document.documentElement.scrollWidth>innerWidth+1};
+    const now=rail.querySelector('.tt-now'),mode=rail.querySelector('.tt-mode');
+    return {rail:rect(rail),list:rect(rail.querySelector('ol')),steps:steps.map(rect),now:now?rect(now):null,nowClip:now?getComputedStyle(now).clipPath:null,modeDisplay:getComputedStyle(mode).display,field:rect(field),score:rect(score),overflow:document.documentElement.scrollWidth>innerWidth+1};
   });
   assert(!result.overflow);assert(result.rail.left>=0&&result.rail.right<=width+1);
   assert(result.steps.every(r=>r.left>=result.rail.left&&r.right<=result.rail.right&&r.height>=20));
-  if(width<700||width<=950&&height<=500){assert(result.rail.height<=36);assert(result.field.top>=result.rail.bottom-1);assert(result.score.top>=result.rail.bottom);}
+  if(width<700||width<=950&&height<=500){
+    assert(result.rail.height<=36);assert(result.field.top>=result.rail.bottom-1);assert(result.score.top>=result.rail.bottom);
+    assert.equal(result.modeDisplay,'none');assert(result.now.width<=1&&result.now.height<=1);assert.equal(result.nowClip,'inset(50%)');
+    assert(result.list.width>=result.rail.width-20,'timeline fills the mobile rail');
+    assert(result.steps.at(-1).right-result.steps[0].left>=result.list.width-1);
+    assert(Math.max(...result.steps.map(r=>r.width))-Math.min(...result.steps.map(r=>r.width))<1,'five equal-width turns');
+  }
   return result;
 }
 async function main(){
@@ -103,6 +119,7 @@ async function main(){
     const before=await start(page,tieSeed);
     await page.waitForFunction(()=>document.querySelector('.lineup-intro')?.dataset.position==='1'&&document.querySelector('.lineup-intro')?.dataset.step==='suspense');
     await shot(page,'desktop-suspense');
+    await tipoff(page,'desktop-tipoff');
     await stage(page,'captains');await page.waitForTimeout(400);await shot(page,'desktop-captains');
     assert.equal(await page.locator('.formation .slot-card:visible').count(),8);
     assert.deepEqual(await page.locator('.li-flight').evaluateAll(nodes=>nodes.map(n=>n.dataset.cardId)),before.composition.teams.map(t=>t.captain));
@@ -114,7 +131,11 @@ async function main(){
     for(let p=1;p<=5;p++){
       const suspense=steps.find(s=>s.position===p&&s.step==='suspense'),flip=steps.find(s=>s.position===p&&s.step==='flip');
       assert(flip.time-suspense.time>=370,'380 ms beat before flip');
+      for(const [from,to]of [['weapon','crystal'],['crystal','faction'],['faction','suspense']])assert(steps.find(s=>s.position===p&&s.step===to).time-steps.find(s=>s.position===p&&s.step===from).time>=840,'850 ms per clue');
+      assert(steps.find(s=>s.position===p&&s.step==='arrive').time-steps.find(s=>s.position===p&&s.step==='reveal').time>=1190,'1200 ms to read the revealed card');
     }
+    assert(steps.find(s=>s.step==='tipoff').time-steps.find(s=>s.step==='title').time>=27600,'slower complete presentation');
+    assert(steps.find(s=>s.step==='captains').time-steps.find(s=>s.step==='tipoff').time>=1790,'Tip Off remains readable before captains depart');
     checks.push({kind:'normal full intro, tie, captions and placement',steps});
     await shot(page,'desktop-timeline');
     for(let round=1;round<=4;round++){
@@ -136,11 +157,15 @@ async function main(){
     await page.reload();await page.waitForSelector('.turn-timeline li');await clean(page,reload);
     assert.deepEqual((await state(page)).initiative,decided.initiative,'reload after a decided draw cannot reroll');
     checks.push({kind:'skip cannot bypass random draw; reload resumes captain-only'});
-    const exited=await start(page,'EXIT-CAPTAIN');await stage(page,'captains');await page.locator('.li-exit').click();
+    const skippedTipoff=await start(page,'SKIP-TIPOFF');await stage(page,'weapon');await page.reload();await stage(page,'tipoff');await page.locator('.li-skip').click();await clean(page,skippedTipoff);
+    checks.push({kind:'skip during Tip Off cleans popup and resolves initiative'});
+    const exited=await start(page,'EXIT-CAPTAIN');await stage(page,'weapon');await page.reload();await stage(page,'tipoff');await page.locator('.li-exit').click();
+    assert.equal(await page.locator('.li-tipoff,.lineup-intro,[inert]').count(),0);
     assert.equal((await state(page)).phase,'initiative');await page.locator('.masthead [data-view=arena]').click();await stage(page,'captains');await done(page);await clean(page,exited);
     await page.emulateMedia({reducedMotion:'reduce'});
     for(const [width,height]of [[412,1007],[320,568],[844,390]]){
       await page.setViewportSize({width,height});const s=await start(page,'PHONE-CAPTAIN');
+      await tipoff(page,'tipoff-'+width);
       await stage(page,'initiative-result');await shot(page,'captains-'+width);
       assert(await page.locator('.li-draw-card').evaluateAll(nodes=>nodes.every(n=>{const r=n.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth&&r.top>=40&&r.bottom<innerHeight-110;})));
       await done(page);await clean(page,s);checks.push({kind:'phone geometry',width,height,geometry:await geometry(page,width,height)});

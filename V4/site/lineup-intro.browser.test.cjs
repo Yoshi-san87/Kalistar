@@ -74,7 +74,7 @@ async function main(){
     }
     await stage(page,1,'reveal');await shot(page,'desktop-p1');
     for(const position of [3,5]){await stage(page,position,'reveal');if(position===3)await page.waitForTimeout(150);await shot(page,'desktop-p'+position);}
-    await page.waitForSelector('.lineup-intro',{state:'detached',timeout:15000});await clean(page,initial);
+    await page.waitForSelector('.lineup-intro',{state:'detached',timeout:20000});await clean(page,initial);
     const steps=await page.evaluate(()=>lineupSteps);
     for(let p=1;p<=5;p++)assert.deepEqual(steps.filter(s=>s.position===p).map(s=>s.step).filter(s=>s!=='loading'),['title','depart','weapon','crystal','faction','suspense','flip','reveal','arrive']);
     await shot(page,'desktop-final');
@@ -143,7 +143,7 @@ async function main(){
     }
     await page.setViewportSize({width:412,height:1007});
     const phone=await start(page);for(const p of [3,5]){await stage(page,p,'reveal');await shot(page,'mobile-412-p'+p);}
-    await page.waitForSelector('.lineup-intro',{state:'detached',timeout:15000});await clean(page,phone);
+    await page.waitForSelector('.lineup-intro',{state:'detached',timeout:20000});await clean(page,phone);
     // Resize and skip while the same clue travels from the centre to its dock.
     const docking=await start(page);await stage(page,1,'weapon');await page.waitForSelector('.li-clue-weapon.is-pinned');
     await page.setViewportSize({width:844,height:390});
@@ -153,7 +153,7 @@ async function main(){
     const reduced=await start(page);await stage(page,3,'reveal');await shot(page,'reduced-motion');
     assert(await page.locator('.lineup-intro').evaluate(root=>[...root.querySelectorAll('.li-rotor,.li-front,.li-clue-symbol,.li-clue b')].every(n=>getComputedStyle(n).transform==='none')));
     assert.equal(await page.locator('.li-clue.is-pinned').count(),6);
-    await page.waitForSelector('.lineup-intro',{state:'detached',timeout:15000});await clean(page,reduced);
+    await page.waitForSelector('.lineup-intro',{state:'detached',timeout:20000});await clean(page,reduced);
     assert.deepEqual(errors,[]);fs.writeFileSync(path.join(output,'results.json'),JSON.stringify({initial,steps,sizes:[320,360,390,412,430,844],checks:['real new composition','pair order','persistent native clues','clues outside flipping rotor','docked labels and images fit','captains','skip x4','menu/resume','reload during intro','portrait/landscape','resize during docking','skip during docking','reduced motion','engine state identity'],errors},null,2));
     console.log('Lineup browser checks passed. Captures: '+output);
   }finally{await browser.close();}
