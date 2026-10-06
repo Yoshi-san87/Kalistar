@@ -1,0 +1,95 @@
+{
+  "id": "2026-10-06-second-edition-scenes",
+  "officialCollaboration": false,
+  "arenas": [],
+  "presets": [],
+  "cards": [
+    {
+      "key": "2b-long-sword",
+      "id": "49900801",
+      "characterId": "2b-nier",
+      "name": "2B",
+      "title": "CE QUI MÉRITE DE VIVRE",
+      "job": "GARDIENNE",
+      "description": "2B pose une fleur dans la main de la petite machine. Son épée attend contre la pierre. On lui a appris à reconnaître un ennemi ; personne ne lui a dit quoi faire de ce geste fragile.",
+      "element": "LUXO",
+      "race": "ANDROID",
+      "weapon": "Epée longue",
+      "faction": "NieR",
+      "collaboration": "NieR",
+      "role": 1,
+      "positions": [
+        1,
+        2
+      ],
+      "atk": [
+        202,
+        165,
+        130,
+        96,
+        "guard",
+        24
+      ],
+      "defense": [
+        282,
+        234,
+        187,
+        139,
+        89,
+        37
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "lineage": "45911726",
+      "art": "Variants_2B_LongSword_02.png"
+    },
+    {
+      "key": "balmhyr-fist",
+      "id": "49900802",
+      "characterId": "balmhyr",
+      "name": "BALMHYR",
+      "title": "LA LEÇON DANS LA PIERRE",
+      "job": "MENTOR",
+      "description": "Dans la cour, Balmhyr frappe sans colère. La pierre cède sous son poing. Il dit à ses élèves : la force ne commence pas dans le bras, mais dans ce que l'on choisit de ne pas écraser.",
+      "element": "MINERO",
+      "race": "NAIN",
+      "weapon": "Poing",
+      "faction": "Durane",
+      "role": 3,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        228,
+        184,
+        147,
+        108,
+        "buff_atk",
+        28
+      ],
+      "defense": [
+        215,
+        184,
+        146,
+        108,
+        72,
+        32
+      ],
+      "magic": [
+        5,
+        3
+      ],
+      "barriers": [
+        5
+      ],
+      "lineage": "30000007",
+      "art": "Variants_Balmhyr_Fist_02.png"
+    }
+  ]
+}

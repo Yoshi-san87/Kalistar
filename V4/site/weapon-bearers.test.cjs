@@ -56,7 +56,9 @@ test('profile reconciliation removes only retired family mismatches and is pure/
   const {cards}=await dataPromise;
   const old=Q.profile('qa',{weapon:{belrog:'rhinoz-ancestral-horn',nazar:'wardens-spear',momo:'little-joys-flute','2b-nier':'virtuous-treaty',balmhyr:'mythic-iron-gauntlet','valazar':'cryptown-oath-sword'}}),copy=structuredClone(old);
   const next=Q.reconcileProfile(old,cards);
-  assert.deepEqual(next.slots.weapon,{nazar:'wardens-spear',momo:'little-joys-flute'});
+  assert.deepEqual(next.slots.weapon,{nazar:'wardens-spear',momo:'little-joys-flute','2b-nier':'virtuous-treaty',balmhyr:'mythic-iron-gauntlet'});
+  const originalEditions=cards.filter(c=>!['49900801','49900802'].includes(c.id));
+  assert.deepEqual(Q.reconcileProfile(old,originalEditions).slots.weapon,{nazar:'wardens-spear',momo:'little-joys-flute'});
   assert.deepEqual(old,copy);assert.deepEqual(Q.reconcileProfile(next,cards),next);
   for(const weapon of [{unknown:'wardens-spear'},{momo:'unknown'},{momo:'rhinoz-ancestral-horn'},{momo:'fallen-king-axe'},{nazar:'wardens-spear','ward-ff8':'wardens-spear'}])
     assert.throws(()=>Q.reconcileProfile(Q.profile('qa',{weapon}),cards));
@@ -80,9 +82,11 @@ test('every formerly allowed collective or personal loadout keeps its snapshot a
       const deck=deckFor(E,data,c),s=legacyGame(E,deck,deck,{seed:'OLD-BEARER',kalistel:false,equipment:[{[c.characterId]:id},{}]});
       E.autoDeploy(s,0);E.autoDeploy(s,1);const p=s.players[0],u=[...p.board.filter(Boolean),...p.reserve].find(u=>u.cardId===c.id);
       if(!p.board.includes(u)){const slot=c.positions[0]-1;E.recall(s,0,slot);E.deploy(s,0,u.uid,slot);}E.start(s);
-      let count=1;const keep=w.effect.when.activeAtMost||4;
-      if(w.effect.when.outnumbered||w.effect.when.activeAtMost)p.board=p.board.map(v=>{if(!v||v===u||count++<keep)return v;p.reserve.push(v);return null;});
-      if(w.effect.when.reserveAtMost===0){for(const v of p.reserve)v.entered=true;p.dead.push(...p.reserve);p.reserve=[];}
+      assert(['TEAM_STATE','LAST_STANDING'].includes(w.effect.trigger));
+      const when=w.effect.trigger==='LAST_STANDING'?{activeAtMost:1}:w.effect.when;
+      let count=1;const keep=when.activeAtMost||4;
+      if(when.outnumbered||when.activeAtMost)p.board=p.board.map(v=>{if(!v||v===u||count++<keep)return v;p.reserve.push(v);return null;});
+      if(when.reserveAtMost===0){for(const v of p.reserve)v.entered=true;p.dead.push(...p.reserve);p.reserve=[];}
       assert.equal(E.equipmentModifier(s,u,w.effect.stat).value,w.effect.value);E.assertState(s);
       const before=structuredClone(s);assert.deepEqual(E.restoreGame(JSON.parse(JSON.stringify(s))),before);
       Q.reconcileLoadout(s.equipment.loadouts[0],data.cards);assert.deepEqual(s,before);
@@ -108,7 +112,9 @@ test('personal restrictions follow the chosen edition, accept future matching ed
     assert(!Q.compatible(w,{...future,characterId:'different-character'}));
   }
   for(const id of ['brotherhood','single-action-army'])assert(data.cards.some(c=>Q.compatible(byId(id),c)),id+' keeps its matching editions');
-  for(const id of ['virtuous-treaty','mythic-iron-gauntlet'])assert(!data.cards.some(c=>Q.compatible(byId(id),c)),id+' awaits a new edition');
+  for(const [id,model]of [['virtuous-treaty','49900801'],['mythic-iron-gauntlet','49900802']]){
+    assert.deepEqual(data.cards.filter(c=>Q.compatible(byId(id),c)).map(c=>c.id),[model],id+' now has exactly its second edition');
+  }
 });
 
 test('weapon faces put the accessible native family glyph in the title and only the origin in the footer',()=>{
