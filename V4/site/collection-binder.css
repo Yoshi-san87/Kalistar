@@ -87,8 +87,8 @@ body.collection-view #app { flex: 1 1 0; width: 100%; height: 100%; min-height: 
 .cb-page .cb-page-thumbnails > button { display: flex; flex-direction: column; padding: 6px; border-color: transparent; background: transparent; gap: 7px; }
 .cb-page-thumbnails > button > span:last-child { display: flex; align-items: center; gap: 8px; }
 .cb-page .cb-page-thumbnails > button[aria-current=page] { border-color: #ead19e; color: #f8ddac; background: #caae6520; }
-.cb-mini-book { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; width: 100%; aspect-ratio: 2/1; padding: 8% 9%; background: url('assets/ui/collection-grimoire-v1.webp') center / 100% 100%; }
-.cb-mini-book[data-single=true] { grid-template-columns: 1fr; aspect-ratio: .85; background: url('assets/ui/collection-reader-grimoire-v1.webp') right / 200% 100%; }
+.cb-mini-book { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; width: 100%; aspect-ratio: 2/1; padding: 8% 9%; background: #b89b71 url('assets/ui/collection-astralia-planisphere-v1.webp') center / cover; }
+.cb-mini-book[data-single=true] { grid-template-columns: 1fr; aspect-ratio: .85; }
 .cb-mini-leaf { display: grid; grid-template-columns: repeat(var(--mini-columns),minmax(0,1fr)); grid-auto-rows: minmax(0,1fr); align-items: center; justify-items: center; gap: 5px; min-height: 0; }
 .cb-mini-leaf img { display: block; width: 100%; height: 100%; min-height: 0; max-height: 110px; object-fit: contain; }
 .cb-deck-usage { grid-column: 1/-1; margin-top: 16px; padding-top: 12px; border-top: 1px solid #68432655; }
@@ -138,12 +138,13 @@ body.collection-view #app { flex: 1 1 0; width: 100%; height: 100%; min-height: 
 .cb-toolbar > .cb-icon { width: 30px; height: 30px; flex-basis: 30px; padding: 5px; }
 .cb-page .cb-back { flex: none; min-height: 30px; font-size: 11px; padding: 4px 7px; border-color: transparent; background: none; }
 .cb-workbench { container-type: size; grid-row: 3; position: relative; min-width: 0; min-height: 0; padding: 0; overflow: hidden; touch-action: pan-y pinch-zoom; user-select: none; background: repeating-linear-gradient(0deg,#bfb39a02 0 1px,transparent 1px 4px),#0f1513; }
+.cb-page[data-mode=book] .cb-workbench { background: #b89b71 url('assets/ui/collection-astralia-planisphere-v1.webp') center / cover no-repeat; }
 
 /* Page tracks come from the JS pagination size, not viewport-specific CSS guesses. */
-.cb-spread { --cb-book-inset-x: clamp(38px,5.4cqw,116px); --cb-book-inset-top: clamp(26px,5.5cqh,62px); --cb-book-inset-bottom: clamp(42px,9.5cqh,96px); --cb-card-gutter: 8px; --cb-slot-width: clamp(220px,18cqw,280px); --cb-column-gap: clamp(24px,2cqw,42px); position: relative; isolation: isolate; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: var(--cb-spread-gap); width: 100%; height: 100%; min-width: 0; min-height: 0; padding: var(--cb-book-inset-top) var(--cb-book-inset-x) var(--cb-book-inset-bottom); background: url("assets/ui/collection-grimoire-v1.webp") center 50%/100% 108% no-repeat; filter: drop-shadow(0 14px 20px #0008); }
+.cb-spread { --cb-book-inset-x: clamp(38px,5.4cqw,116px); --cb-book-inset-top: clamp(26px,5.5cqh,62px); --cb-book-inset-bottom: clamp(42px,9.5cqh,96px); --cb-card-gutter: 8px; --cb-slot-width: clamp(220px,18cqw,280px); --cb-column-gap: clamp(24px,2cqw,42px); position: relative; isolation: isolate; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: var(--cb-spread-gap); width: 100%; height: 100%; min-width: 0; min-height: 0; padding: var(--cb-book-inset-top) var(--cb-book-inset-x) var(--cb-book-inset-bottom); background: transparent; }
 .cb-spread[data-columns="3"] { --cb-slot-width: clamp(205px,10cqw,248px); --cb-column-gap: clamp(18px,1.45cqw,30px); }
 .cb-spread[data-columns="1"] { --cb-slot-width: clamp(220px,28cqw,320px); --cb-column-gap: 0px; }
-.cb-spread::before { content: ""; position: absolute; z-index: 4; top: calc(var(--cb-book-inset-top) - 2px); bottom: calc(var(--cb-book-inset-bottom) - 4px); left: calc(50% - 9px); width: 18px; background: linear-gradient(90deg,#050908b3,#806f543d 27%,#d8bf8b57 47%,#f0d5a34a 51%,#080b09c4 72%,#252c2340); border-block: 1px solid #bda77b3d; box-shadow: -6px 0 16px #0008,6px 0 16px #0006; pointer-events: none; }
+.cb-spread::before { content: none; }
 .cb-spread::after { content: none; }
 .cb-sheet { position: relative; z-index: 1; display: grid; grid-template-rows: repeat(var(--cb-sheet-rows,1),minmax(0,1fr)); row-gap: 14px; min-width: 0; min-height: 0; padding: 12px 14px 18px; border: 0; border-radius: 0; background: transparent; transition: opacity .24s ease,transform .24s ease,filter .24s ease; }
 .cb-shelf-row { display: grid; grid-template-columns: repeat(var(--cb-row-count,1),minmax(0,var(--cb-slot-width))); justify-content: center; column-gap: var(--cb-column-gap); min-width: 0; min-height: 0; }
@@ -157,7 +158,7 @@ body.collection-view #app { flex: 1 1 0; width: 100%; height: 100%; min-height: 
 .cb-spread[data-dragging=next] > .cb-sheet,.cb-spread[data-dragging=previous] > .cb-sheet { opacity: calc(1 - var(--cb-drag-progress,0) * .42); filter: blur(calc(var(--cb-drag-progress,0) * 1.5px)); transition: none; }
 .cb-spread[data-dragging=next] > .cb-sheet { transform: translateX(calc(var(--cb-drag-progress,0) * -5px)); }
 .cb-spread[data-dragging=previous] > .cb-sheet { transform: translateX(calc(var(--cb-drag-progress,0) * 5px)); }
-.cb-folio { position: absolute; bottom: 3px; left: 0; right: 0; text-align: center; color: #8b6248; text-shadow: 0 1px #d7c2a540; font: 10px/12px Georgia,serif; }
+.cb-folio { display: none; }
 .cb-pocket { --cb-card-width: min(calc(100cqw - var(--cb-card-gutter)),calc((100cqh - var(--cb-caption-height) - 14px) * .57420749)); container-type: size; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; min-width: 0; min-height: 0; }
 .cb-spread[data-rows="2"] .cb-pocket { --cb-card-width: min(calc(100cqw - var(--cb-card-gutter)),calc((100cqh - var(--cb-caption-height) - 12px) * .57420749)); }
 .cb-stack { position: relative; isolation: isolate; flex: none; width: var(--cb-card-width); max-width: 100%; aspect-ratio: 797/1388; min-height: 0; margin: 7px 0 0; }
@@ -171,6 +172,11 @@ body.collection-view #app { flex: 1 1 0; width: 100%; height: 100%; min-height: 
 .cb-card:hover,.cb-card:focus-visible { filter: brightness(1.035); box-shadow: 0 8px 18px #0009,0 0 14px color-mix(in srgb,var(--card-color) 34%,transparent); }
 .cb-card:hover::after,.cb-card:focus-visible::after { opacity: .36; transform: translateX(34%); }
 .cb-caption { flex: 0 0 var(--cb-caption-height); display: grid; grid-template-columns: 38px minmax(0,1fr) 24px; align-items: center; gap: 5px; width: min(calc(var(--cb-card-width) + 68px),100%); max-width: 100%; margin-right: 0; min-width: 0; min-height: 0; color: #a87554; }
+/* A quiet parchment label keeps the fine map ink out of card captions. */
+.cb-spread .cb-caption { --kui-copper: #382719; padding-inline: 6px; border-radius: 2px; background: #ead9b9f2; }
+.cb-spread .cb-caption :is(h2,.cb-copy-count,.cb-copy-count b,.cb-icon,.cb-version-count) { color: #382719; text-shadow: none; }
+.cb-page[data-mode=book] .cb-spread .cb-caption .cb-icon { color: #382719; background: transparent; border-color: transparent; }
+.cb-page[data-mode=book] .cb-spread .cb-caption .cb-icon[aria-pressed=true] .lucide { fill: #713a2559; }
 .cb-caption-title { display: flex; align-items: center; gap: 4px; min-width: 0; }
 .cb-caption h2 { overflow: hidden; color: #72452f; text-shadow: 0 1px #f1d5b28f; font: 600 13px/15px Georgia,'Times New Roman',serif; white-space: nowrap; text-overflow: ellipsis; }
 .cb-caption h2.is-long-name { font-size: 11px; }
@@ -401,7 +407,6 @@ body.collection-view #app { flex: 1 1 0; width: 100%; height: 100%; min-height: 
   .cb-toolbar > select { order: 3; flex: 1 1 35%; font-size: 10px; }
   .cb-workbench { padding: 0; }
   .cb-spread { --cb-book-inset-x: clamp(22px,6cqw,30px); --cb-book-inset-top: clamp(26px,6cqh,42px); --cb-book-inset-bottom: clamp(40px,10cqh,66px); padding: var(--cb-book-inset-top) var(--cb-book-inset-x) var(--cb-book-inset-bottom); }
-  .cb-spread::before { left: calc(50% - 4px); width: 8px; }
   .cb-page-edge { width: 28px; height: 50px; }
   .cb-page-edge .lucide { width: 17px; height: 17px; }
   .cb-page-edge-previous { left: -2px; }

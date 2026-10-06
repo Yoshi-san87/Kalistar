@@ -134,6 +134,17 @@ See also the [slower pacing and Tip Off validation](../releases/2026-10-05-tipof
 
 ## Collection Editions (23 September 2026)
 
+The Collection grid and its page index now use one continuous antique Astralia
+planisphere, Atlantic-centred with a newly emerged central landmass. The atlas
+is a generated ambience illustration, not a canonical political map. Its source,
+exact prompt, WebP conversion and hashes are kept in
+`../propositions/2026-10-06-astralia-atlas-v1/`. The runtime background belongs to
+the workbench, so paging never repeats the book or its spine. Proportional cover
+cropping preserves the map geometry on desktop and phone. Quiet parchment
+caption strips keep names and counters legible. Story and character notebooks
+retain their original reading surfaces. `collection-map.browser.test.cjs`
+checks seven viewports, caption contrast, paging, filters, versions and reload.
+
 The notebook uses each card's printed title for edition buttons. The current
 edition has a dark ink background, a check mark and `aria-pressed`. Story text
 keeps its existing font sizes, with stronger ink and a small left inset.
@@ -232,7 +243,7 @@ The game accepts messages only from this same-origin iframe. It displays the `No
 
 `mobile.css` is loaded after the desktop styles. Below 700 CSS pixels (and for
 short landscape windows up to 950 pixels), navigation moves to the bottom with
-safe-area insets. Collection uses one existing parchment leaf, with two columns
+safe-area insets. Collection uses a continuous parchment atlas, with two columns
 and one or two rows calculated from the actual available height. Swipe and arrow
 pagination, exact faction filtering and character grouping are preserved. The
 reader has separate Card and Notebook views; its existing story, profile,
