@@ -23,7 +23,18 @@ async function main(){
     await page.locator('.story-library').waitFor();
     assert.equal(await page.locator('.story-reader-book').count(),0,'Story starts with a closed volume, not the manuscript');
     assert.equal(await page.locator('.story-volume-title').textContent(),'Le Réveil');
+    assert.match(await page.locator('.story-volume-object img').getAttribute('src'),/story-closed-grimoire-v2\.webp$/,'the library uses the revised grey Minero cover');
     await page.waitForFunction(()=>document.querySelector('.story-volume-object img')?.naturalWidth===1024);
+    await page.emulateMedia({reducedMotion:'no-preference'});
+    await page.locator('.story-volume-object').hover();
+    await page.waitForTimeout(450);
+    const coverMatrix=await page.locator('.story-volume-object').evaluate(node=>{
+      const matrix=new DOMMatrixReadOnly(getComputedStyle(node).transform);
+      return [matrix.m11,matrix.m12,matrix.m13,matrix.m21,matrix.m22,matrix.m23,matrix.m31,matrix.m32,matrix.m33];
+    });
+    assert.deepEqual(coverMatrix,[1,0,0,0,1,0,0,0,1],'hover preserves an upright cover without rotation or perspective');
+    await page.mouse.move(0,0);
+    await page.emulateMedia({reducedMotion:'reduce'});
     await page.screenshot({path:path.join(output,'library-desktop.png')});
     for(const [width,height] of [[1440,1000],[1024,768],[850,760],[412,1007],[390,844],[320,568],[844,390]]){
       await page.setViewportSize({width,height});

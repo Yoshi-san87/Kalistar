@@ -26,7 +26,7 @@
       const started = state.section > 0 || state.ratio > 0, section = manuscript.sections[state.section];
       root.innerHTML = `<section class="story-library" aria-label="Bibliothèque Kalistar">
         <button type="button" class="story-volume" data-story-action="open-book" aria-label="${started ? 'Reprendre' : 'Ouvrir'} ${escape(manuscript.title)}, ${escape(manuscript.volume)}">
-          <span class="story-volume-object"><img src="${escape(asset('assets/ui/story-closed-grimoire-v1.webp'))}" alt="" width="1024" height="1536" decoding="async">
+          <span class="story-volume-object"><img src="${escape(asset('assets/ui/story-closed-grimoire-v2.webp'))}" alt="" width="1024" height="1536" decoding="async">
             <span class="story-volume-inscription"><span class="story-volume-series">${escape(manuscript.series)}</span><span class="story-volume-title">${escape(manuscript.title)}</span><span class="story-volume-number">${escape(manuscript.volume)}</span></span>
           </span>
           <span class="story-volume-command"><i data-lucide="book-open"></i>${started ? 'Reprendre la lecture' : 'Ouvrir le livre'}<i data-lucide="chevron-right"></i></span>
@@ -248,7 +248,7 @@
       try {
         await load();
         const background = new Image();
-        background.src = asset('assets/ui/story-closed-grimoire-v1.webp');
+        background.src = asset('assets/ui/story-closed-grimoire-v2.webp');
         await background.decode().catch(() => {});
         if (root !== target || generation !== revision) return;
         renderLibrary();

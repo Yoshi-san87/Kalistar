@@ -118,11 +118,13 @@ test('compatible alternatives replace atomically; retired personal alternatives 
   assert.equal(Object.keys(p.slots.weapon).length,3);
 });
 test('all generated assets are versioned, hashed, have alpha and remain inside medallion',async()=>{
-  const L=require('../atelier/lib.cjs'),proof=require('../weapon-cards/media-provenance.json');
+  const {createRequire}=require('node:module'),proof=require('../weapon-cards/media-provenance.json');
+  const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE||'','.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
+  const sharp=createRequire(path.resolve(runtime,'_arsenal_media_qa.cjs'))('sharp');
   for(const w of additions){
     const file='V4/site/assets/equipment/'+w.art+'.webp',record=proof.assets.find(a=>a.file===file);assert(record);
     const full=path.join(__dirname,'../..',file),bytes=fs.readFileSync(full);assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),record.sha256);
-    const {data,info}=await L.sharp(bytes).ensureAlpha().raw().toBuffer({resolveWithObject:true});assert.equal(info.width,488);let count=0;
+    const {data,info}=await sharp(bytes).ensureAlpha().raw().toBuffer({resolveWithObject:true});assert.equal(info.width,488);let count=0;
     for(let y=0;y<info.height;y++)for(let x=0;x<info.width;x++)if(data[(y*info.width+x)*4+3]){count++;assert(Math.hypot(x-244,y-242)<=171,w.id+' remains inside native rim');}
     assert(count>100,w.id+' nonblank');
   }

@@ -147,6 +147,9 @@ body .masthead .header-actions .account-button span { display:none; }
   body.arena-view > .masthead { flex-basis:0; height:0; min-height:0; padding:0; }
   body.arena-view .masthead > * { display:none; }
 }
+@media (max-width:359px) {
+  body:not(.arena-view) .masthead .main-nav { grid-template-columns:minmax(66px,1fr) minmax(44px,1fr) minmax(72px,1fr) repeat(2,minmax(44px,1fr)); }
+}
 @media (prefers-reduced-motion:reduce) {
   .kalistar-nav-icon,body .masthead .main-nav button,body .masthead .main-nav button::after { transition:none; }
   body .masthead .main-nav button:hover .kalistar-nav-icon { transform:none; }

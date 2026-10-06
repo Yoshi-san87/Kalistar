@@ -245,6 +245,9 @@ atelier or its write endpoints to the network.
 
 The main navigation opens `Story` as a library with a closed Tome I grimoire.
 The cover is a separate painted WebP; its title remains accessible HTML.
+The current v2 cover is upright grey leather with the approved Minero crystal;
+hover lifts it slightly without tilting. Its original image and exact edit prompt
+are preserved under `../revisions/2026-10-06-story-minero/`.
 Clicking or pressing Enter opens the reader at the saved chapter and scroll
 position. The library button closes the book, saves progress and returns focus
 to its cover. Reload and navigation show the closed book again without resetting

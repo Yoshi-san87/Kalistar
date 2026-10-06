@@ -13,7 +13,7 @@ body.story-view #app { flex: 1 1 0; width: 100%; min-width: 0; min-height: 0; ma
 .story-volume-number { color: #ddc592; font-size: 13px; }
 .story-volume-command { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 44px; color: #dfc796; font: 600 13px/1.5 var(--kalistar-display,var(--serif)); }
 .story-volume-command .lucide { width: 18px; height: 18px; }
-.story-volume:hover:not(:disabled) .story-volume-object { transform: perspective(1100px) rotateY(-6deg) translateY(-3px); filter: drop-shadow(0 20px 24px #000a) brightness(1.07); }
+.story-volume:hover:not(:disabled) .story-volume-object { transform: translateY(-3px); filter: drop-shadow(0 20px 24px #000a) brightness(1.07); }
 .story-volume:focus-visible { outline: 2px solid #7cd7d0; outline-offset: 8px; }
 .story-volume:disabled { cursor: progress; }
 .story-library-progress { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 4px 12px; flex: none; width: min(340px,100%); color: #b6c4b8; font: 12px/1.5 var(--sans); }
