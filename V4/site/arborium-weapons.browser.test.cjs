@@ -2,9 +2,9 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{createRequire}=require('node:module');
 const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const {chromium}=createRequire(path.join(runtime,'__arborium__.cjs'))('playwright');
-const base=process.env.KALISTAR_URL||'http://127.0.0.1:4304',out=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'../revisions/2026-10-05-faction-weapons/browser');
+const base=process.env.KALISTAR_URL||'http://127.0.0.1:4304',out=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'../revisions/2026-10-06-weapon-bearers/factions');
 const ids=['arborium-twinstring-bow','arborium-thorn-dagger','draevenheim-wing-spear','draevenheim-crimson-crossbow'];
-const allowed={Arborium:['bloom','brindor','eryss-kalistar','liorne-kalistar','mirelle','saelor-kalistar','ssilas','thalie','velran-kalistar','victorvine'],Draevenheim:['baptiste','isvel-kalistar','marel-kalistar','orven-kalistar','seraphina','serya-kalistar','verminia','veyr-kalistar']},results=[],errors=[];
+const allowed={'arborium-twinstring-bow':['saelor-kalistar','ssilas'],'arborium-thorn-dagger':[],'draevenheim-wing-spear':['orven-kalistar'],'draevenheim-crimson-crossbow':[]},results=[],errors=[];
 const faction=id=>id.startsWith('arborium-')?'Arborium':'Draevenheim',carrier=id=>id.startsWith('arborium-')?'ssilas':'orven-kalistar';
 let browser,navigation=0;
 async function ready(page,view){await page.goto(base+'/jeu/?arborium-qa='+(++navigation)+'#'+view);await page.waitForFunction(()=>window.KALISTAR_READY);}
@@ -41,17 +41,18 @@ async function main(){
     const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await ready(page,'weapons');
     for(const id of ids){
       await page.locator('.weapons-page [data-weapon="'+id+'"]').click();await images(page);
-      const actual=await page.locator('#weapons-dialog [data-weapon-action=equip]').evaluateAll(nodes=>nodes.map(n=>n.dataset.character).sort());assert.deepEqual(actual,allowed[faction(id)]);
+      const actual=await page.locator('#weapons-dialog [data-weapon-action=equip]').evaluateAll(nodes=>nodes.map(n=>n.dataset.character).sort());assert.deepEqual(actual,allowed[id]);
+      if(!allowed[id].length){assert.match(await page.locator('#weapons-dialog .weapon-carriers').innerText(),/Aucun porteur compatible/);await page.locator('[data-weapon-action=close]').click();results.push({name,id,compatible:[],unavailable:true});continue;}
       const characterId=carrier(id);await page.locator('#weapons-dialog [data-weapon-action=equip][data-character="'+characterId+'"]').click();
-      if(ids.indexOf(id)%2===1){await page.locator('[data-weapon-action=confirm]').waitFor();await page.locator('[data-weapon-action=confirm]').click();}
+      if(await page.locator('[data-weapon-action=confirm]').count()){await page.locator('[data-weapon-action=confirm]').waitFor();await page.locator('[data-weapon-action=confirm]').click();}
       await page.waitForFunction(({id,characterId})=>KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon[characterId]===id,{id,characterId});
       await page.locator('#weapons-dialog').evaluate(n=>n.scrollTop=0);await page.waitForTimeout(400);
       await page.screenshot({path:path.join(out,name+'-'+id+'-detail.png')});await page.locator('[data-weapon-action=close]').click();
       await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);assert.equal(await page.evaluate(characterId=>KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon[characterId],characterId),id);
     }
-    await page.locator('.weapons-page [data-weapon="'+ids[1]+'"]').click();await page.locator('#weapons-dialog [data-weapon-action=unequip]').click();
+    await page.locator('.weapons-page [data-weapon="'+ids[0]+'"]').click();await page.locator('#weapons-dialog [data-weapon-action=unequip]').click();
     await page.waitForFunction(()=>!KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon.ssilas);await page.locator('[data-weapon-action=close]').click();
-    await page.locator('.weapons-page [data-weapon="'+ids[3]+'"]').click();await page.locator('#weapons-dialog [data-weapon-action=unequip]').click();
+    await page.locator('.weapons-page [data-weapon="'+ids[2]+'"]').click();await page.locator('#weapons-dialog [data-weapon-action=unequip]').click();
     await page.waitForFunction(()=>!KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon['orven-kalistar']);await page.locator('[data-weapon-action=close]').click();
     const slot=await page.evaluate(id=>{
       const E=KalistarEngine.createEngine(KALISTAR_DATA),T=KalistarTeamComposition.create(E),c=KALISTAR_DATA.cards.find(c=>c.characterId==='ssilas'),base=KALISTAR_DATA.decks.player;
@@ -60,7 +61,7 @@ async function main(){
     },ids[0]);
     await ready(page,'decks');await page.locator('[data-deck-slot="'+slot+'"] [data-deck-action=detail]').click();await images(page);
     assert.equal(await page.locator('.eq-detail-overlay').getAttribute('data-weapon-id'),ids[0]);await page.waitForTimeout(800);await page.screenshot({path:path.join(out,name+'-deck-inspection.png')});await page.locator('#detail-dialog [data-action=close]').click();
-    for(const [index,id]of ids.entries()){
+    for(const [index,id]of ids.filter(id=>allowed[id].length).entries()){
       const side=index%2,stat=id==='draevenheim-wing-spear'?'DEF':'ATK',uid=await prepare(page,id,side,false);await ready(page,'arena');
       assert.equal(await page.locator('.slot[data-unit="'+uid+'"] .eq-overlay').count(),0);
       const activeUid=await prepare(page,id,side,true);await ready(page,'arena');
@@ -80,7 +81,7 @@ async function main(){
       });
       assert.equal(formula.formula[stat==='DEF'?'equipmentDefense':'equipmentAttack'],20);assert(formula.log.some(l=>l.text.includes('+20 '+stat)));
       await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);await page.locator('.slot[data-unit="'+activeUid+'"] .eq-overlay').waitFor();
-      results.push({name,id,side,geometry,formula:formula.formula,compatible:allowed[faction(id)],equipReloadReplaceUnequip:true});
+      results.push({name,id,side,geometry,formula:formula.formula,compatible:allowed[id],equipReloadReplaceUnequip:true});
     }
     await context.close();
   }

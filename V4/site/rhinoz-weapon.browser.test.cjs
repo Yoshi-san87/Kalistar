@@ -2,9 +2,9 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{createRequire}=require('node:module');
 const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const {chromium}=createRequire(path.join(runtime,'__rhinoz__.cjs'))('playwright');
-const base=process.env.KALISTAR_URL||'http://127.0.0.1:4304',out=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'../revisions/2026-10-06-rhinoz-weapons/browser');
+const base=process.env.KALISTAR_URL||'http://127.0.0.1:4304',out=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'../revisions/2026-10-06-weapon-bearers/rhinoz');
 const ids=['rhinoz-ancestral-horn'];
-const allowed=['belrog','gilmarr','nazar'],results=[],errors=[];
+const previousDefinitions=require('./fixtures/weapons-v4.5.28.json').weapons,results=[],errors=[];
 const carriers={'rhinoz-ancestral-horn':'belrog'};
 let browser,navigation=0;
 async function ready(page,view){await page.goto(base+'/jeu/?rhinoz-qa='+(++navigation)+'#'+view);await page.waitForFunction(()=>window.KALISTAR_READY);}
@@ -17,13 +17,14 @@ async function alignment(page){
   assert(samples.length);for(const s of samples)for(const v of Object.values(s))assert(v<1.3,JSON.stringify(s));return samples;
 }
 async function prepare(page,id,side,active){
-  return page.evaluate(async({id,side,active,carrierId})=>{
+  return page.evaluate(async({id,side,active,carrierId,previousDefinitions})=>{
     const previous=JSON.parse(localStorage.getItem('kalistar.v4.game')||'null');
     if(previous&&previous.seed!=='RHINOZ-BROWSER-ONLY')throw Error('Refusing to overwrite a non-QA game');
     if(previous?.collection&&previous.phase!=='over')await KALISTAR_DB.registry.releaseGame(KALISTAR_ACTIVE_USER,previous.matchId);
     const E=KalistarEngine.createEngine(KALISTAR_DATA),w=KalistarWeapons.weapons.find(w=>w.id===id),characterId=carrierId,c=KALISTAR_DATA.cards.find(c=>c.characterId===characterId),base=KALISTAR_DATA.decks.player;
     const deck=base.map((_,i)=>base.map((v,j)=>i===j?c.id:v)).find(ids=>!E.validatePlayableDeck(ids).length);
-    const loadout={[characterId]:id},s=E.newGame(deck,deck,{mode:'local',seed:'RHINOZ-BROWSER-ONLY',kalistel:false,equipment:side?[{},loadout]:[loadout,{}]});
+    const loadout={[characterId]:id},s=E.newGame(deck,deck,{mode:'local',seed:'RHINOZ-BROWSER-ONLY',kalistel:false,equipment:[{},{}]});
+    s.equipment.definitions=previousDefinitions;s.equipment.loadouts=side?[{},loadout]:[loadout,{}];E.assertState(s);
     E.autoDeploy(s,0);E.autoDeploy(s,1);const p=s.players[side],u=[...p.board.filter(Boolean),...p.reserve].find(u=>u.cardId===c.id);
     if(!p.board.includes(u)){const slot=c.positions[0]-1;E.recall(s,side,slot);E.deploy(s,side,u.uid,slot);}E.start(s);
     // Synthetic board condition; rolls and calculations use the real engine below.
@@ -31,7 +32,7 @@ async function prepare(page,id,side,active){
     if(active&&w.effect.when.reserveAtMost===0){for(const v of p.reserve)v.entered=true;p.dead.push(...p.reserve);p.reserve=[];}
     const defense=w.effect.stat==='DEF';s.turn=defense?1-side:side;E.lock(s,defense?0:p.board.indexOf(u),defense?p.board.indexOf(u):0);E.assertState(s);
     const bound=KALISTAR_DB.registry.bindGame(KALISTAR_ACTIVE_USER,s);await KALISTAR_DB.idle();await KALISTAR_DB.saveGame(bound);localStorage.setItem('kalistar.v4.game',JSON.stringify(bound));return u.uid;
-  },{id,side,active,carrierId:carriers[id]});
+  },{id,side,active,carrierId:carriers[id],previousDefinitions});
 }
 async function main(){
   fs.mkdirSync(out,{recursive:true});browser=await chromium.launch({channel:'chrome',headless:true});
@@ -43,26 +44,17 @@ async function main(){
     await page.locator('#weapons-dialog [data-weapon-action=equip][data-character="nazar"]').click();
     await page.waitForFunction(()=>KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon.nazar==='wardens-spear');
     await page.locator('[data-weapon-action=close]').click();
-    for(const id of ids){
-      await page.locator('.weapons-page [data-weapon="'+id+'"]').click();await images(page);
-      const actual=await page.locator('#weapons-dialog [data-weapon-action=equip]').evaluateAll(nodes=>nodes.map(n=>n.dataset.character).sort());assert.deepEqual(actual,allowed);
-      assert.match(await page.locator('#weapons-dialog .weapon-card-caption').innerText(),/Races : RHINOZ/);
-      const characterId='nazar';await page.locator('#weapons-dialog [data-weapon-action=equip][data-character="'+characterId+'"]').click();
-      if(id===ids[0]){await page.locator('[data-weapon-action=confirm]').waitFor();await page.locator('[data-weapon-action=confirm]').click();}
-      await page.waitForFunction(({id,characterId})=>KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon[characterId]===id,{id,characterId});
-      await page.locator('#weapons-dialog').evaluate(n=>n.scrollTop=0);await page.waitForTimeout(400);
-      await page.screenshot({path:path.join(out,name+'-'+id+'-detail.png')});await page.locator('[data-weapon-action=close]').click();
-      await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);assert.equal(await page.evaluate(characterId=>KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon[characterId],characterId),id);
-    }
-    await page.locator('.weapons-page [data-weapon="'+ids[0]+'"]').click();await page.locator('#weapons-dialog [data-weapon-action=unequip]').click();
-    await page.waitForFunction(()=>!KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon['nazar']);await page.locator('[data-weapon-action=close]').click();
+    await page.locator('.weapons-page [data-weapon="'+ids[0]+'"]').click();await images(page);
+    assert.equal(await page.locator('#weapons-dialog [data-weapon-action=equip]').count(),0);
+    assert.match(await page.locator('#weapons-dialog .weapon-carriers').innerText(),/Aucun porteur compatible/);
+    await page.screenshot({path:path.join(out,name+'-no-current-carrier.png')});await page.locator('[data-weapon-action=close]').click();
     const slot=await page.evaluate(id=>{
       const E=KalistarEngine.createEngine(KALISTAR_DATA),T=KalistarTeamComposition.create(E),c=KALISTAR_DATA.cards.find(c=>c.characterId==='belrog'),base=KALISTAR_DATA.decks.player;
-      const deck=base.map((_,i)=>base.map((v,j)=>i===j?c.id:v)).find(ids=>!E.validatePlayableDeck(ids).length),team=T.equip(T.fromPreset({name:'Rhinoz QA',cards:deck}),c.id,id);
+      const deck=base.map((_,i)=>base.map((v,j)=>i===j?c.id:v)).find(ids=>!E.validatePlayableDeck(ids).length),team=T.normalize({...T.fromPreset({name:'Rhinoz QA',cards:deck}),equipment:{belrog:id}});
       localStorage.setItem('kalistar.v4.teamDraft',JSON.stringify(team));return T.slots(team).indexOf(c.id);
     },ids[0]);
     await ready(page,'decks');await page.locator('[data-deck-slot="'+slot+'"] [data-deck-action=detail]').click();await images(page);
-    assert.equal(await page.locator('.eq-detail-overlay').getAttribute('data-weapon-id'),ids[0]);await page.waitForTimeout(800);await page.screenshot({path:path.join(out,name+'-deck-inspection.png')});await page.locator('#detail-dialog [data-action=close]').click();
+    assert.equal(await page.locator('.eq-detail-overlay').count(),0);await page.waitForTimeout(800);await page.screenshot({path:path.join(out,name+'-deck-inspection.png')});await page.locator('#detail-dialog [data-action=close]').click();
     for(const [index,id]of ids.entries()){
       const side=name==='razr50'?1:0,stat=id==='rhinoz-watch-flail'?'DEF':'ATK',uid=await prepare(page,id,side,false);await ready(page,'arena');
       assert.equal(await page.locator('.slot[data-unit="'+uid+'"] .eq-overlay').count(),0);
@@ -83,7 +75,7 @@ async function main(){
       });
       assert.equal(formula.formula[stat==='DEF'?'equipmentDefense':'equipmentAttack'],20);assert(formula.log.some(l=>l.text.includes('+20 '+stat)));
       await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);await page.locator('.slot[data-unit="'+activeUid+'"] .eq-overlay').waitFor();
-      results.push({name,id,side,geometry,formula:formula.formula,compatible:allowed,equipReloadReplaceUnequip:true});
+      results.push({name,id,side,geometry,formula:formula.formula,compatible:[],historicalArenaPreserved:true});
     }
     await context.close();
   }

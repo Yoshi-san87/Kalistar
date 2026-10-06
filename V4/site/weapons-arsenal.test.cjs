@@ -3,6 +3,8 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
 const Q=require('./equipment.js'),{createEngine}=require('./engine.js'),{buildCatalog}=require('../atelier/game-catalog.cjs');
 const rows=require('../donnees/catalogue.json').cards.filter(c=>c.kind==='created');
 const dataPromise=buildCatalog({published:rows}),additions=Q.catalogue.weapons.filter(w=>w.collectible);
+const {legacyGame,weapons:previous}=require('./fixtures/legacy-equipment.cjs');
+const unmatched=['commanders-sabre','arborium-thorn-dagger','draevenheim-crimson-crossbow','rhinoz-ancestral-horn'];
 function deckFor(E,data,carrier){
   const base=data.decks.player;
   for(let i=0;i<base.length;i++){
@@ -12,8 +14,8 @@ function deckFor(E,data,carrier){
   throw Error('No valid fixture deck for '+carrier.id);
 }
 async function fixture(w,side=0){
-  const data=await dataPromise,E=createEngine(data),c=data.cards.find(c=>Q.compatible(w,c));assert(c,w.id+' has a real compatible character');
-  const deck=deckFor(E,data,c),loadout={[c.characterId]:w.id},s=E.newGame(deck,deck,{seed:w.id,mode:'local',kalistel:false,equipment:side?[{},loadout]:[loadout,{}]});
+  const data=await dataPromise,E=createEngine(data),current=data.cards.find(c=>Q.compatible(w,c)),c=current||data.cards.find(c=>Q.compatible(previous.find(p=>p.id===w.id),c));assert(c,w.id+' has a current or historical carrier');
+  const deck=deckFor(E,data,c),loadout={[c.characterId]:w.id},s=(current?E.newGame.bind(E):legacyGame.bind(null,E))(deck,deck,{seed:w.id,mode:'local',kalistel:false,equipment:side?[{},loadout]:[loadout,{}]});
   const unit=s.players[side].reserve.find(u=>u.cardId===c.id);
   E.autoDeploy(s,0);E.autoDeploy(s,1);
   if(!s.players[side].board.includes(unit)){const slot=c.positions[0]-1;E.recall(s,side,slot);E.deploy(s,side,unit.uid,slot);}
@@ -34,17 +36,18 @@ test('31 unique additions: stable identities, real jobs/factions/races and conse
   assert.equal(additions.filter(w=>w.restrictions.jobs).length,3);
   assert.equal(additions.filter(w=>w.restrictions.factions).length,7);
   assert.equal(additions.filter(w=>w.restrictions.races).length,1);
-  for(const w of additions){Q.validateDefinition(w);assert(w.effect.value>=15&&w.effect.value<=25);assert(data.cards.some(c=>Q.compatible(w,c)));assert.equal(w.changesFamily,undefined);}
+  for(const w of additions){Q.validateDefinition(w);assert(w.effect.value>=15&&w.effect.value<=25);assert.equal(data.cards.some(c=>Q.compatible(w,c)),!unmatched.includes(w.id),w.id);assert.equal(w.changesFamily,undefined);}
   const rapier=additions.find(w=>w.id==='white-oath-rapier');
   assert(Q.compatible(rapier,data.cards.find(c=>c.id==='49055457')));
   assert(!Q.compatible(rapier,data.cards.find(c=>c.id==='30000012')));
   assert(!Q.compatible(rapier,{...data.cards.find(c=>c.id==='49055457'),characterId:'someone-else',name:'KAYLIS'}));
   for(const [key,value]of [['activeAtMost',0],['reserveAtMost',-1],['outnumbered',false],['freeWin',true]])assert.throws(()=>Q.validateDefinition({...rapier,effect:{...rapier.effect,when:{[key]:value}}}));
   const guardian=additions.find(w=>w.id==='wardens-spear');
-  for(const job of ['GARDIEN','GARDIENNE'])assert(data.cards.some(c=>c.job===job&&Q.compatible(guardian,c)));
+  const guard=data.cards.find(c=>Q.compatible(guardian,c));
+  for(const job of ['GARDIEN','GARDIENNE'])assert(Q.compatible(guardian,{...guard,job}));
   assert(!Q.compatible(guardian,{job:'SOLDAT'}));
 });
-for(const w of additions)test(w.id+': inactive, active, real formula, log and reload on either side',async()=>{
+for(const w of additions)test(w.id+(unmatched.includes(w.id)?': historical snapshot':': current bearer')+': inactive, active, real formula, log and reload on either side',async()=>{
   for(const side of [0,1]){
     const f=await fixture(w,side),{E,s,unit,c}=f;
     assert.equal(E.equipmentView(s,unit).active,false);assert.equal(E.equipmentModifier(s,unit,w.effect.stat),null);

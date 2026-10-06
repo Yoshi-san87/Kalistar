@@ -2,9 +2,9 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{createRequire}=require('node:module');
 const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const {chromium}=createRequire(path.join(runtime,'__cryptown__.cjs'))('playwright');
-const base=process.env.KALISTAR_URL||'http://127.0.0.1:4304',out=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'../revisions/2026-10-06-cryptown-weapons/browser');
+const base=process.env.KALISTAR_URL||'http://127.0.0.1:4304',out=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'../revisions/2026-10-06-weapon-bearers/cryptown');
 const ids=['cryptown-oath-sword','cryptown-vigil-rifle','cryptown-watch-flail'];
-const allowed=['capitaine-skully','draust-kalistar','nereth-kalistar','valazar','varkhen-kalistar','zviri'],results=[],errors=[];
+const results=[],errors=[];
 const carriers={'cryptown-oath-sword':'varkhen-kalistar','cryptown-vigil-rifle':'nereth-kalistar','cryptown-watch-flail':'draust-kalistar'};
 let browser,navigation=0;
 async function ready(page,view){await page.goto(base+'/jeu/?cryptown-qa='+(++navigation)+'#'+view);await page.waitForFunction(()=>window.KALISTAR_READY);}
@@ -41,16 +41,16 @@ async function main(){
     const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await ready(page,'weapons');
     for(const id of ids){
       await page.locator('.weapons-page [data-weapon="'+id+'"]').click();await images(page);
-      const actual=await page.locator('#weapons-dialog [data-weapon-action=equip]').evaluateAll(nodes=>nodes.map(n=>n.dataset.character).sort());assert.deepEqual(actual,allowed);
-      const characterId='varkhen-kalistar';await page.locator('#weapons-dialog [data-weapon-action=equip][data-character="'+characterId+'"]').click();
-      if(ids.indexOf(id)>0){await page.locator('[data-weapon-action=confirm]').waitFor();await page.locator('[data-weapon-action=confirm]').click();}
+      const actual=await page.locator('#weapons-dialog [data-weapon-action=equip]').evaluateAll(nodes=>nodes.map(n=>n.dataset.character).sort());assert.deepEqual(actual,[carriers[id]]);
+      const characterId=carriers[id];await page.locator('#weapons-dialog [data-weapon-action=equip][data-character="'+characterId+'"]').click();
+      if(await page.locator('[data-weapon-action=confirm]').count()){await page.locator('[data-weapon-action=confirm]').waitFor();await page.locator('[data-weapon-action=confirm]').click();}
       await page.waitForFunction(({id,characterId})=>KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon[characterId]===id,{id,characterId});
       await page.locator('#weapons-dialog').evaluate(n=>n.scrollTop=0);await page.waitForTimeout(400);
       await page.screenshot({path:path.join(out,name+'-'+id+'-detail.png')});await page.locator('[data-weapon-action=close]').click();
       await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);assert.equal(await page.evaluate(characterId=>KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon[characterId],characterId),id);
     }
     await page.locator('.weapons-page [data-weapon="'+ids[2]+'"]').click();await page.locator('#weapons-dialog [data-weapon-action=unequip]').click();
-    await page.waitForFunction(()=>!KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon['varkhen-kalistar']);await page.locator('[data-weapon-action=close]').click();
+    await page.waitForFunction(()=>!KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon['draust-kalistar']);await page.locator('[data-weapon-action=close]').click();
     const slot=await page.evaluate(id=>{
       const E=KalistarEngine.createEngine(KALISTAR_DATA),T=KalistarTeamComposition.create(E),c=KALISTAR_DATA.cards.find(c=>c.characterId==='varkhen-kalistar'),base=KALISTAR_DATA.decks.player;
       const deck=base.map((_,i)=>base.map((v,j)=>i===j?c.id:v)).find(ids=>!E.validatePlayableDeck(ids).length),team=T.equip(T.fromPreset({name:'Cryptown QA',cards:deck}),c.id,id);
@@ -78,7 +78,7 @@ async function main(){
       });
       assert.equal(formula.formula[stat==='DEF'?'equipmentDefense':'equipmentAttack'],20);assert(formula.log.some(l=>l.text.includes('+20 '+stat)));
       await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);await page.locator('.slot[data-unit="'+activeUid+'"] .eq-overlay').waitFor();
-      results.push({name,id,side,geometry,formula:formula.formula,compatible:allowed,equipReloadReplaceUnequip:true});
+      results.push({name,id,side,geometry,formula:formula.formula,compatible:[carriers[id]],equipReloadReplaceUnequip:true});
     }
     await context.close();
   }

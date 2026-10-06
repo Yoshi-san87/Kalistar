@@ -61,6 +61,7 @@
       const tx=db.transaction(allStores,'readonly'),done=completed(tx),reads=allStores.map(s=>request(tx.objectStore(s).getAll())),next={};
       for(let i=0;i<allStores.length;i++)next[allStores[i]]=await reads[i];
       await done;
+      if(!next.versions.some(c=>!E.byId[c.id]))next.equipment=next.equipment.map(row=>Q.reconcileProfile(row,data.cards));
       const previous=catalogueChanges().join(','),equipmentBefore=stable(cache.equipment);cache=next;
       const changed=catalogueChanges();
       if(changed.join(',')!==previous)for(const listener of catalogueListeners)try{listener(changed.slice());}catch{}
@@ -88,7 +89,13 @@
         const get=tx.objectStore(store).getAll();
         get.onsuccess=()=>{
           snapshot[store]=get.result;
-          if(--remaining===0)try{result=fn(snapshot,write,clear);}catch(e){failure=e;tx.abort();}
+          if(--remaining===0)try{
+            if(!snapshot.versions.some(c=>!E.byId[c.id]))for(const row of snapshot.equipment){
+              const next=Q.reconcileProfile(row,data.cards);
+              if(stable(row)!==stable(next))write('equipment',next);
+            }
+            result=fn(snapshot,write,clear);
+          }catch(e){failure=e;tx.abort();}
         };
       }
       try{await done;}catch(e){throw failure||e;}
@@ -252,9 +259,10 @@
         // Schema 2 has no ownership proofs to validate an older approved roster.
         if(value.schema===2&&data.cards.some(c=>c.origin==='approved'&&!snapshotIds.has(c.id)))throw legacyError();
         const registry=value.schema===3?O.validateBackup(value,{...data,cards:value.versions}):null;
-        const equipment=value.equipment===undefined?null:value.equipment;
+        let equipment=value.equipment===undefined?null:value.equipment;
         if(equipment!==null){
           if(!Array.isArray(equipment)||equipment.length>100||new Set(equipment.map(r=>r?.id)).size!==equipment.length)throw new Error('\u00c9quipements de sauvegarde invalides.');
+          equipment=equipment.map(row=>Q.reconcileProfile(row,data.cards));
           for(const row of equipment){Q.validateProfile(row,data.cards);if(registry&&!registry.users.some(u=>u.id===row.id))throw new Error('Profil de porteur absent.');}
         }
         const instances=value.instances.map(i=>{

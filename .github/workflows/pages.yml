@@ -47,6 +47,7 @@ jobs:
           node --test V4/site/draevenheim-weapons.test.cjs
           node --test V4/site/cryptown-weapons.test.cjs
           node --test V4/site/rhinoz-weapon.test.cjs
+          node --test V4/site/weapon-bearers.test.cjs
           node --test V4/site/weapon-art.test.cjs
           node --test V4/site/base-weapons.test.cjs
           node --test V4/site/team-composition.test.cjs

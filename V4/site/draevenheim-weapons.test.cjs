@@ -4,15 +4,15 @@ const Q=require('./equipment.js'),C=require('./weapon-cards.js'),T=require('./te
 const {createEngine}=require('./engine.js'),{buildCatalog}=require('../atelier/game-catalog.cjs');
 const dataPromise=buildCatalog({published:require('../donnees/catalogue.json').cards.filter(c=>c.kind==='created')});
 const ids=['draevenheim-wing-spear','draevenheim-crimson-crossbow'],weapons=ids.map(id=>Q.catalogue.weapons.find(w=>w.id===id));
-const allowed=['baptiste','isvel-kalistar','marel-kalistar','orven-kalistar','seraphina','serya-kalistar','verminia','veyr-kalistar'];
+const allowed={'draevenheim-wing-spear':['orven-kalistar'],'draevenheim-crimson-crossbow':[]};
 function deckFor(E,data,c){const base=data.decks.player;const deck=base.map((_,i)=>base.map((id,j)=>i===j?c.id:id)).find(ids=>!E.validatePlayableDeck(ids).length);assert(deck,c.id);return deck;}
-test('Draevenheim-only weapons support every job and edition, never names or a similar faction',async()=>{
+test('Draevenheim weapons require faction and base family, never names or a similar faction',async()=>{
   const data=await dataPromise;
   for(const w of weapons){
-    Q.validateDefinition(w);assert.deepEqual(w.restrictions,{factions:['Draevenheim']});
-    assert.deepEqual([...new Set(data.cards.filter(c=>Q.compatible(w,c)).map(c=>c.characterId))].sort(),allowed);
-    for(const c of data.cards)assert.equal(Q.compatible(w,c),c.faction==='Draevenheim');
-    const c=data.cards.find(c=>c.characterId==='orven-kalistar');
+    Q.validateDefinition(w);assert.deepEqual(w.restrictions,{factions:['Draevenheim'],families:[w.family]});
+    assert.deepEqual([...new Set(data.cards.filter(c=>Q.compatible(w,c)).map(c=>c.characterId))].sort(),allowed[w.id]);
+    for(const c of data.cards)assert.equal(Q.compatible(w,c),c.faction==='Draevenheim'&&c.weapon===w.family);
+    const c={...data.cards.find(c=>c.characterId==='orven-kalistar'),weapon:w.family};
     assert(Q.compatible(w,{...c,name:'Renamed',job:'Different job'}));
     for(const faction of [undefined,'Arborium','Dravenheim','DRAEVENHEIM'])assert(!Q.compatible(w,{...c,faction}));
     const html=C.markup(w,{cards:data.cards});assert(html.includes('Draevenheim'));assert(!html.includes('SOLDAT'));assert(!html.includes('undefined'));
@@ -20,14 +20,14 @@ test('Draevenheim-only weapons support every job and edition, never names or a s
 });
 test('one weapon slot, replacement, faction enforcement, profile and composition persistence',async()=>{
   const data=await dataPromise,E=createEngine(data),T0=T.create(E);let p=Q.profile('DRAEVENHEIM-TEST');
-  for(const w of weapons)for(const characterId of allowed){p=Q.equipProfile(p,characterId,w.id,data.cards,{expected:p.slots.weapon[characterId]||null});assert.deepEqual(Q.validateProfile(JSON.parse(JSON.stringify(p)),data.cards),p);}
+  for(const w of weapons)for(const characterId of allowed[w.id]){p=Q.equipProfile(p,characterId,w.id,data.cards,{expected:p.slots.weapon[characterId]||null});assert.deepEqual(Q.validateProfile(JSON.parse(JSON.stringify(p)),data.cards),p);}
   assert.throws(()=>Q.equipProfile(p,'ssilas',ids[0],data.cards),/incompatible/);
   const c=data.cards.find(c=>c.characterId==='orven-kalistar'),deck=deckFor(E,data,c),team=T0.equip(T0.fromPreset({name:'Draevenheim',cards:deck}),c.id,ids[0]);
   assert.deepEqual(E.validateComposition(team),[]);const s=E.newGame(team,team,{mode:'local'}),snapshot=structuredClone(s.equipment);
   team.equipment[c.characterId]=ids[1];assert.deepEqual(s.equipment,snapshot);assert.deepEqual(E.restoreGame(s),s);
   const old=E.newGame(deck,deck,{equipment:[{},{}]});old.equipment.definitions=old.equipment.definitions.filter(w=>!ids.includes(w.id));assert.deepEqual(E.restoreGame(old),old);
 });
-test('all nine printed editions receive the exact real bonus on either side, then lose it when inactive',async()=>{
+test('compatible printed editions receive the exact real bonus on either side, then lose it when inactive',async()=>{
   const data=await dataPromise,E=createEngine(data);
   for(const w of weapons)for(const c of data.cards.filter(c=>Q.compatible(w,c)))for(const side of [0,1]){
     const deck=deckFor(E,data,c),loadout={[c.characterId]:w.id};

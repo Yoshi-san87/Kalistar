@@ -45,6 +45,21 @@
     if(!object(row)||typeof row.id!=='string'||!row.id.length||row.id.length>100||row.version!==1||!object(row.slots)||Object.keys(row.slots).some(k=>k!=='weapon'))fail();
     validateLoadout(row.slots.weapon,cards,definitions);return row;
   }
+  function reconcileLoadout(loadout,cards){
+    // Only relax the newly added family constraint to read old collective loadouts.
+    const previous=catalogue.weapons.map(w=>{
+      if(w.restrictions.characterIds||w.restrictions.families?.length!==1||w.restrictions.families[0]!==w.family)return w;
+      const {families,...restrictions}=w.restrictions;return {...w,restrictions};
+    });
+    validateLoadout(loadout,cards,previous);
+    return Object.fromEntries(Object.entries(loadout).filter(([characterId,id])=>
+      cards.some(c=>c.characterId===characterId&&compatible(catalogue.weapons.find(w=>w.id===id),c))));
+  }
+  function reconcileProfile(row,cards){
+    if(!object(row)||!object(row.slots))fail();
+    const next=clone(row);next.slots.weapon=reconcileLoadout(row.slots.weapon,cards);
+    return validateProfile(next,cards);
+  }
   function equipProfile(row,characterId,weaponId,cards,{expected=null,expectedProfile=null}={},definitions=catalogue.weapons){
     const next=clone(row),w=definitions.find(w=>w.id===weaponId);
     if(!cards.some(c=>c.characterId===characterId&&compatible(w,c)))throw new Error('Porteur incompatible.');
@@ -129,5 +144,5 @@
       if(!Number.isInteger(value)||value!==expected||!s.equipment&&Object.hasOwn(f,key))fail();
     }
   }
-  return {catalogue,compatible,validateDefinition,validateLoadout,profile,validateProfile,equipProfile,snapshot,equipped,view,modifier,lock,support,finish,validate,validateFormula};
+  return {catalogue,compatible,validateDefinition,validateLoadout,profile,validateProfile,reconcileLoadout,reconcileProfile,equipProfile,snapshot,equipped,view,modifier,lock,support,finish,validate,validateFormula};
 });

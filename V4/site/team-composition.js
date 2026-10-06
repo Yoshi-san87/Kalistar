@@ -36,6 +36,7 @@
       }else{
         formation=clone(value.formation);equipment=clone(value.equipment);captain=value.captain;
       }
+      equipment=Q.reconcileLoadout(equipment,cards.filter(Boolean).map(id=>byId[id]));
       const result={name:value.name,cards,formation,captain,equipment};
       const errors=engine.validateComposition(result,{draft:true});
       if(errors.length)throw new Error(errors.join(' '));

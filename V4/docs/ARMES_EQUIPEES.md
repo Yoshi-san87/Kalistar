@@ -312,6 +312,52 @@ Le champ futur `changesFamily` est refuse aujourd'hui. Une mecanique modifiant
 la matrice exigerait une decision d'equilibrage et une version explicite,
 pas l'ajout silencieux d'un objet au catalogue.
 
+## Porteurs Collectifs - 6 Octobre 2026
+
+Decision utilisateur : adapter uniquement les armes non nominatives aux
+familles imprimees des porteurs. Les onze armes collectives exigent desormais
+leur famille exacte (`restrictions.families`) EN PLUS du job, de la faction
+ou de la race deja prevus. Aucun elargissement a une origine voisine.
+Les vingt-deux armes nominatives, leurs effets et leurs porteurs sont inchanges.
+Cette decision remplace les listes de compatibilite generales historiques
+Arborium / Draevenheim / Cryptown / Rhinoz ci-dessous, pas leurs sauvegardes.
+
+| Arme collective | Porteurs actuels |
+| --- | --- |
+| La Veille des Remparts | Nazar, Ward, Kimahri, Karrok, Brask |
+| La Lame de Releve | Isvel, Liorne |
+| L'Accord Sylvestre | Ssilas, Saelor |
+| Les Ailes du Rempart | Orven |
+| Le Serment sans Visage | Varkhen |
+| La Releve Muette | Nereth |
+| Le Glas des Veilleurs | Draust |
+
+Restent visibles mais sans porteur actuel : Le Fil du Ralliement (aucun
+COMMANDANT/COMMANDANTE a Epee longue), Le Cran de Ronce (aucune Dague
+d'Arborium), L'Arbalete Ecarlate (aucun Arc de Draevenheim) et La Corne des
+Anciens (aucune Hache RHINOZ). Les futures cartes correspondant exactement
+aux restrictions deviendront compatibles automatiquement.
+
+La famille utilisee dans le matchup reste celle imprimee. Aucun profil de
+personnage, illustration, jet, bonus ou mecanisme de combat n'est modifie.
+Les exceptions personnelles voulues sont conservees : Gant de Balmhyr,
+Virtuous Treaty de 2B, Fraternite sur la version Projectile de Tidus et
+Single Action Army sur la version Poing de Liquid Ocelot.
+
+`equipment.reconcileLoadout/reconcileProfile` retirent seulement les anciennes
+attributions collectives devenues incompatibles a cause du nouveau filtre
+de famille. Une origine incorrecte, une arme inconnue, un doublon ou une
+restriction nominative invalide restent rejetes. La normalisation est pure,
+idempotente, appliquee aux profils IndexedDB, imports et compositions lues.
+Les ecritures sont transactionnelles ; aucune carte, possession, formation
+ou capitaine n'est supprime. Les profils d'un catalogue plus recent ne sont
+pas migres par un onglet obsolete. Les matchs gardent leur propre snapshot
+de definitions et leurs bonus historiques, sans recablage retroactif.
+
+Audit detaille et controles : `revisions/2026-10-06-weapon-bearers/`.
+Fixture historique immuable : `site/fixtures/weapons-v4.5.28.json`, extraite
+du tag publie. Les tests distinguent porteurs actuels et matchs historiques.
+
 ## Validation
 
 ### Hache Rhinoz - 6 octobre 2026

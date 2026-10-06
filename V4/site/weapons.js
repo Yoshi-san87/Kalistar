@@ -647,7 +647,8 @@
           "jobs": [
             "GARDIEN",
             "GARDIENNE"
-          ]
+          ],
+          "families": ["Lance"]
         },
         "effect": {
           "trigger": "TEAM_STATE",
@@ -678,7 +679,8 @@
         "restrictions": {
           "jobs": [
             "SOLDAT"
-          ]
+          ],
+          "families": ["Epée courte"]
         },
         "effect": {
           "trigger": "TEAM_STATE",
@@ -710,7 +712,8 @@
           "jobs": [
             "COMMANDANT",
             "COMMANDANTE"
-          ]
+          ],
+          "families": ["Epée longue"]
         },
         "effect": {
           "trigger": "TEAM_STATE",
@@ -733,56 +736,56 @@
       }
     ],
     {id:'arborium-twinstring-bow',slot:'weapon',name:'L’Accord Sylvestre',family:'Arc',visual:'flute',art:'arborium-twinstring-bow-v1',
-      restrictions:{factions:['Arborium']},
+      restrictions:{factions:['Arborium'],families:['Arc']},
       effect:{trigger:'TEAM_STATE',stat:'ATK',value:20,duration:'WHILE_TRUE',when:{outnumbered:true}},
       condition:'Moins de combattants actifs dans son équipe que chez l’adversaire : +20 ATK numérique tant que cette condition dure.',
       lore:'Les armuriers d’Arborium façonnent cet arc dans un bois dont la sève garde la lumière. Ses deux cordes sont accordées ensemble avant chaque relève. Quand la ligne s’amenuise, leur vibration rappelle à son porteur qu’il tient encore sa place parmi les siens.',
       collectible:{number:'ARM-026',illustration:'arborium-twinstring-bow-v1.webp',flavour:'Deux cordes, un seul serment.',
         alt:'Arc Arborium en bois ouvragé, deux cordes et veines vert fluorescent.',cutout:true}},
     {id:'arborium-thorn-dagger',slot:'weapon',name:'Le Cran de Ronce',family:'Dague',visual:'flute',art:'arborium-thorn-dagger-v1',
-      restrictions:{factions:['Arborium']},
+      restrictions:{factions:['Arborium'],families:['Dague']},
       effect:{trigger:'TEAM_STATE',stat:'ATK',value:20,duration:'WHILE_TRUE',when:{reserveAtMost:0}},
       condition:'Aucun combattant dans sa réserve : +20 ATK numérique tant que cette condition dure. Le venin ne crée pas de dégâts persistants.',
       lore:'Sous le petit bouton de cuivre dort une sève amère, confiée aux seuls habitants d’Arborium. Le cran discret du tranchant est leur signe de reconnaissance. Quand aucune relève ne viendra, cette lame rappelle les clairières et les foyers qu’il leur reste à défendre.',
       collectible:{number:'ARM-027',illustration:'arborium-thorn-dagger-v1.webp',flavour:'La forêt veille au fil de la lame.',
         alt:'Dague empoisonnée d’Arborium, lame droite à petit cran et bouton de cuivre.',cutout:true}},
     {id:'draevenheim-wing-spear',slot:'weapon',name:'Les Ailes du Rempart',family:'Lance',visual:'flute',art:'draevenheim-wing-spear-v1',
-      restrictions:{factions:['Draevenheim']},
+      restrictions:{factions:['Draevenheim'],families:['Lance']},
       effect:{trigger:'TEAM_STATE',stat:'DEF',value:20,duration:'WHILE_TRUE',when:{outnumbered:true}},
       condition:'Moins de combattants actifs dans son équipe que chez l’adversaire : +20 DEF numérique tant que cette condition dure.',
       lore:'Née dans les mêmes forges que la lance d’Orven, sa longue hampe noire abrite un fil de lumière rouge. Deux lames articulées s’ouvrent sous la pointe comme des ailes de chauve-souris. À Draevenheim, ceux qui la portent savent qu’un rempart vaut surtout par les vies qu’il laisse derrière lui.',
       collectible:{number:'ARM-028',illustration:'draevenheim-wing-spear-v1.webp',flavour:'Deux ailes pour tenir la nuit.',
         alt:'Longue lance noire et rouge, deux lames métalliques déployées en ailes de chauve-souris.',cutout:true}},
     {id:'draevenheim-crimson-crossbow',slot:'weapon',name:'L’Arbalète Écarlate',family:'Arc',visual:'flute',art:'draevenheim-crimson-crossbow-v1',
-      restrictions:{factions:['Draevenheim']},
+      restrictions:{factions:['Draevenheim'],families:['Arc']},
       effect:{trigger:'TEAM_STATE',stat:'ATK',value:20,duration:'WHILE_TRUE',when:{activeAtMost:2}},
       condition:'Au plus deux combattants actifs dans son équipe : +20 ATK numérique tant que cette condition dure.',
       lore:'Ses branches de métal noir et ses finitions écarlates portent les marques des veilles sur les murs de Draevenheim. Le carreau rouge repose dans sa rainure comme une promesse retenue. Quand les voix se font rares sur le rempart, son porteur sait qu’un dernier trait peut encore offrir aux autres le temps de rentrer.',
       collectible:{number:'ARM-029',illustration:'draevenheim-crimson-crossbow-v1.webp',flavour:'Un trait rouge, une relève espérée.',
         alt:'Grande arbalète de métal noir, finitions rouges, cuivre patiné et carreau rouge droit.',cutout:true}},
     {id:'cryptown-oath-sword',slot:'weapon',name:'Le Serment sans Visage',family:'Epée longue',visual:'flute',art:'cryptown-oath-sword-v1',
-      restrictions:{factions:['Cryptown']},
+      restrictions:{factions:['Cryptown'],families:['Epée longue']},
       effect:{trigger:'TEAM_STATE',stat:'ATK',value:20,duration:'WHILE_TRUE',when:{outnumbered:true}},
       condition:'Moins de combattants actifs dans son équipe que chez l’adversaire : +20 ATK numérique tant que cette condition dure.',
       lore:'Varkhen a oublié les visages, pas le poids de cette lame. Sa garde de cuivre serre un éclat violet, et son fil droit garde le passage des portes de Cryptown. Quand les rangs se vident, celui qui la porte retrouve un geste plus ancien que sa mémoire : se tenir entre les siens et la nuit.',
       collectible:{number:'ARM-030',illustration:'cryptown-oath-sword-v1.webp',flavour:'Les visages passent. Le serment demeure.',
         alt:'Épée de Varkhen, longue lame droite argentée, sillon violet et garde anguleuse en cuivre sombre.',cutout:true}},
     {id:'cryptown-vigil-rifle',slot:'weapon',name:'La Relève Muette',family:'Gun',visual:'flute',art:'cryptown-vigil-rifle-v1',
-      restrictions:{factions:['Cryptown']},
+      restrictions:{factions:['Cryptown'],families:['Gun']},
       effect:{trigger:'TEAM_STATE',stat:'ATK',value:20,duration:'WHILE_TRUE',when:{reserveAtMost:0}},
       condition:'Aucun combattant dans sa réserve : +20 ATK numérique tant que cette condition dure. Aucun bonus sur Mort.',
       lore:'Nereth entretenait déjà ce fusil quand les tours de garde avaient encore une fin. Dans la lunette violette, il guette le signal d’une relève qui ne vient plus. Le long canon reste immobile au-dessus des murs de Cryptown : tant que quelqu’un veille, les portes ne sont pas seules.',
       collectible:{number:'ARM-031',illustration:'cryptown-vigil-rifle-v1.webp',flavour:'Le signal ne vient pas. La veille continue.',
         alt:'Fusil de Nereth à long canon droit, crosse ajourée, lunette violette et mécanisme de crâne en métal noir et cuivre.',cutout:true}},
     {id:'cryptown-watch-flail',slot:'weapon',name:'Le Glas des Veilleurs',family:'Fléau',visual:'flute',art:'cryptown-watch-flail-v1',
-      restrictions:{factions:['Cryptown']},
+      restrictions:{factions:['Cryptown'],families:['Fléau']},
       effect:{trigger:'TEAM_STATE',stat:'DEF',value:20,duration:'WHILE_TRUE',when:{activeAtMost:2}},
       condition:'Au plus deux combattants actifs dans son équipe : +20 DEF numérique tant que cette condition dure.',
       lore:'Les maillons de Draust donnent leur cadence aux pas de la garde. Dans la cage de fer, le cristal violet éclaire un crâne qui ne baisse jamais les yeux. Lorsque les compagnons ne sont plus qu’une poignée, le fléau cesse de sonner : son porteur a pris sa place devant eux.',
       collectible:{number:'ARM-032',illustration:'cryptown-watch-flail-v1.webp',flavour:'Les chaînes se taisent. La garde tient.',
         alt:'Fléau de Draust, manche noir, chaîne de cuivre sombre et tête en cage ornée d’un crâne et d’un cristal violet.',cutout:true}},
     {id:'rhinoz-ancestral-horn',slot:'weapon',name:'La Corne des Anciens',family:'Hache',visual:'axe',art:'rhinoz-ancestral-horn-v2',
-      restrictions:{races:['RHINOZ']},
+      restrictions:{races:['RHINOZ'],families:['Hache']},
       effect:{trigger:'TEAM_STATE',stat:'ATK',value:20,duration:'WHILE_TRUE',when:{outnumbered:true}},
       condition:'Moins de combattants actifs dans son équipe que chez l’adversaire : +20 ATK numérique tant que cette condition dure.',
       lore:'Sa lame reprend la courbe d’une corne, mais c’est dans le métal que les anciens l’ont forgée. Le cuivre porte les traces de plusieurs mains ; le manche a été réparé, jamais abandonné. Elle se transmet avec une consigne simple : quand les rangs s’éclaircissent, garder le passage pour ceux qui rentrent encore.',

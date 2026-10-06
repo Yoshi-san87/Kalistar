@@ -2,7 +2,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{createRequire}=require('node:module');
 const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const {chromium}=createRequire(path.join(runtime,'__arsenal__.cjs'))('playwright');
-const base=process.env.KALISTAR_URL||'http://127.0.0.1:4304',out=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'../revisions/2026-10-03-weapons-arsenal/new-weapons-qa');
+const base=process.env.KALISTAR_URL||'http://127.0.0.1:4304',out=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'../revisions/2026-10-06-weapon-bearers/arsenal');
 const weapons=require('./weapons.js').weapons.filter(w=>w.collectible),errors=[],results=[];let browser;
 async function images(page){await page.waitForFunction(()=>[...document.querySelectorAll('.weapon-card img')].every(i=>i.complete&&i.naturalWidth>0));}
 async function main(){
@@ -18,6 +18,7 @@ async function main(){
       const actual=await page.locator('#weapons-dialog [data-weapon-action=equip],#weapons-dialog [data-weapon-action=unequip]').evaluateAll(nodes=>nodes.map(n=>n.dataset.character).sort());assert.deepEqual(actual,eligible);
       const skin=require('./weapon-art.js').get(w),body=page.locator('#weapons-dialog .eq-body');assert((await body.getAttribute('src')).endsWith(skin.body));
       assert((await page.locator('#weapons-dialog .eq-rim').getAttribute('src')).endsWith(skin.rim));
+      if(!eligible.length){assert.match(await page.locator('#weapons-dialog .weapon-carriers').innerText(),/Aucun porteur compatible/);await page.locator('[data-weapon-action=close]').click();results.push({name,id:w.id,compatible:0,equipped:false});continue;}
       const equip=page.locator('#weapons-dialog [data-weapon-action=equip]').first();await equip.click();
       if(await page.locator('[data-weapon-action=confirm]').count())await page.locator('[data-weapon-action=confirm]').click();
       await page.waitForFunction(id=>Object.values(KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon).includes(id),w.id);
