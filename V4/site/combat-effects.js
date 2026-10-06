@@ -145,7 +145,7 @@
     function shield(recipient=target,ward=false){
       const node=cardEffect(recipient,'combat-shield'+(ward?' combat-ward':''));
       node.innerHTML='<i data-lucide="shield-check"></i>'+(ward?'<strong>DEF +60</strong>':'');
-      window.lucide?.createIcons();
+      window.KalistarUI?.icons(node)??window.lucide?.createIcons({root:node});
       return animate(node,[{opacity:0,transform:'scale(.86)'},{opacity:1,transform:'scale(1)',offset:.2},{opacity:.9,offset:.7},{opacity:0,transform:'scale(1.08)'}],640);
     }
     function impact(){

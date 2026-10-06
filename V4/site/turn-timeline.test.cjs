@@ -3,7 +3,7 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
 const css=fs.readFileSync(path.join(__dirname,'turn-timeline.css'),'utf8'),app=fs.readFileSync(path.join(__dirname,'app.js'),'utf8');
 test('timeline reuses Kalistar materials, display font and the existing rainbow crystal',()=>{
   for(const token of ['var(--kui-border)','var(--kui-copper)','var(--kui-energy)','var(--kui-danger)','var(--kalistar-display)'])assert(css.includes(token),token);
-  for(const file of ['assets/ui/collection-reader-grimoire-v1.png','assets/navigation/kalistel-rainbow-v1.webp']){
+  for(const file of ['assets/ui/collection-reader-grimoire-v1.webp','assets/navigation/kalistel-rainbow-v1.webp']){
     assert(css.includes(file));assert(fs.existsSync(path.join(__dirname,file)));
   }
   assert(css.includes('.tt-dot'));assert(css.includes('fill:none;stroke:var(--kui-gold)'));

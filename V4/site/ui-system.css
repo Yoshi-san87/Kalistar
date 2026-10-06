@@ -97,7 +97,7 @@ body.kalistar-ui [data-kui=check],body.kalistar-ui [data-kui=range] { accent-col
 }
 body.kalistar-ui dialog[data-kui=dialog] {
   color:var(--kui-text); border:1px solid #bb9270; border-radius:4px;
-  background:linear-gradient(120deg,#132624f7,#0c1818fa),url('assets/ui/collection-reader-grimoire-v1.png') center/cover;
+  background:linear-gradient(120deg,#132624f7,#0c1818fa),url('assets/ui/collection-reader-grimoire-v1.webp') center/cover;
   box-shadow:inset 0 0 0 3px #070e0d,inset 0 0 0 4px #d4af7930,0 24px 80px #000b;
 }
 body.kalistar-ui dialog[data-kui=dialog]::backdrop { background:#040b0bd6; backdrop-filter:blur(6px); }

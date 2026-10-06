@@ -111,7 +111,7 @@
       root.querySelector('.sheet-filter-count').textContent=Object.keys(defaults).filter(k=>['scope','element','collab','grouping','period','minimum'].includes(k)&&String(state[k])!==String(defaults[k])).length||'';
       root.querySelectorAll('[data-sheet-action=mode],[data-sheet-action=group]').forEach(b=>b.setAttribute('aria-pressed',state[b.dataset.sheetAction]===b.dataset.id));
       root.querySelector('[data-sheet-action=export]').disabled=!items.length;
-      globalThis.lucide?.createIcons();
+      globalThis.KalistarUI?.icons(root)??globalThis.lucide?.createIcons({root});
     }
     function change(event){
       const key=event.target.dataset.sheetField;if(!Object.hasOwn(defaults,key))return;

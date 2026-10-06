@@ -23,7 +23,7 @@ async function main(){
     await page.locator('.story-reader-book').waitFor();
     await page.evaluate(async()=>{
       const background=new Image();
-      background.src=new URL('assets/ui/collection-reader-grimoire-v1.png',location.href).href;
+      background.src=new URL('assets/ui/collection-reader-grimoire-v1.webp',location.href).href;
       await background.decode();
     });
     assert.equal(await page.locator('.story-current-heading h2').textContent(),'Les éclats du ciel');

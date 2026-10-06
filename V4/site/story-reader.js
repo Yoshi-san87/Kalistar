@@ -39,7 +39,7 @@
     }
     function save(ratio = state.ratio) {
       state.ratio = Math.max(0, Math.min(1, ratio));
-      try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch { /* Reading remains available without progress storage. */ }
+      try { const raw=JSON.stringify(state);if(localStorage.getItem(storageKey)!==raw)localStorage.setItem(storageKey,raw); } catch { /* Reading remains available without progress storage. */ }
     }
     function fitBook() {
       if (!root || matchMedia('(max-width: 850px), (max-width: 950px) and (max-height: 500px)').matches) return;
@@ -108,7 +108,7 @@
         </dialog>
       </section>`;
       fitBook();
-      window.lucide?.createIcons();
+      window.KalistarUI?.icons(root)??window.lucide?.createIcons({root});
       root.querySelector('[data-story-dialog]')?.addEventListener('close', event => {
         event.currentTarget.querySelector('[data-story-full-image]')?.removeAttribute('src');
       });
@@ -210,7 +210,7 @@
       try {
         await load();
         const background = new Image();
-        background.src = window.KalistarSite?.url('assets/ui/collection-reader-grimoire-v1.png') || 'assets/ui/collection-reader-grimoire-v1.png';
+        background.src = window.KalistarSite?.url('assets/ui/collection-reader-grimoire-v1.webp') || 'assets/ui/collection-reader-grimoire-v1.webp';
         await background.decode().catch(() => {});
         if (root !== target) return;
         render({restore: true});
@@ -218,12 +218,12 @@
       catch (error) {
         if (root !== target) return;
         root.innerHTML = `<section class="story-load-error"><i data-lucide="book-x"></i><h1>Le manuscrit ne s’est pas ouvert</h1><p>${escape(error.message)}</p><button type="button" data-story-action="retry">Réessayer</button></section>`;
-        window.lucide?.createIcons();
+        window.KalistarUI?.icons(root)??window.lucide?.createIcons({root});
       }
     }
     function retry() { const target = root; destroy(); loading = null; manuscript = null; if (target) mount(target); }
     function destroy() {
-      save(state.ratio);
+      if(root)save(state.ratio);
       clearTimeout(saveTimer);
       if (root) { root.removeEventListener('click', click); root.removeEventListener('change', change); root.removeEventListener('scroll', scroll, true); observer?.unobserve(root); }
       root = null;

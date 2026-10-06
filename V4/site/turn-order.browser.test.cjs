@@ -75,7 +75,7 @@ async function geometry(page,width,height){
   });
   assert(!result.overflow);assert(result.rail.left>=0&&result.rail.right<=width+1);
   assert(result.steps.every(r=>r.left>=result.rail.left&&r.right<=result.rail.right&&r.height>=20));
-  assert(result.material.includes('collection-reader-grimoire-v1.png'));assert(result.font.includes('Cinzel'));assert(result.gem.includes('kalistel-rainbow-v1.webp'));assert(result.gemClear,'rainbow crystal does not overlap the turn');assert(result.labelsFit,'stations fit their track');
+  assert(result.material.includes('collection-reader-grimoire-v1.webp'));assert(result.font.includes('Cinzel'));assert(result.gem.includes('kalistel-rainbow-v1.webp'));assert(result.gemClear,'rainbow crystal does not overlap the turn');assert(result.labelsFit,'stations fit their track');
   if(result.reduced)assert.equal(result.motion,'none');
   const phone=width<700||width<=950&&height<=500;
   assert.equal(result.steps.length,phone?5:11);

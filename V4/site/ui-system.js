@@ -10,6 +10,13 @@
   let observer, controller, tooltip, target, timer, frame;
   const pending = new Set(), animations = new Map(), hints = new Map();
   const reduced = () => global.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function icons(root = document) {
+    const placeholders = [...root.querySelectorAll('[data-lucide]:not(svg)')];
+    if (!placeholders.length || !global.lucide) return 0;
+    // Lucide retains data-lucide on SVGs; never replace an already rendered icon.
+    global.lucide.createIcons({root:{querySelectorAll:selector=>selector==='[data-lucide]'?placeholders:[]}});
+    return placeholders.length;
+  }
   function controls(root) {
     if (root.nodeType !== 1 && root.nodeType !== 9) return [];
     return [...(root.matches?.('button,input,select,textarea,dialog,.dialog-head h2,.cb-filter-heading h2') ? [root] : []),
@@ -126,7 +133,7 @@
     for (const [node,title] of hints) if (node.isConnected) node.title=title;
     hints.clear(); tooltip?.remove(); tooltip=null;
   }
-  global.KalistarUI={init,enhance,destroy};
+  global.KalistarUI={init,enhance,destroy,icons};
   global.addEventListener('pageshow',init);
   init();
 })(window);

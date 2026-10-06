@@ -102,17 +102,18 @@
     return Object.freeze({ evaluate, groups, candidate, availability });
   }
   function create(options = {}) {
-    const { data, engine, registry, userId, getDraft, onDraft, onPlay, onDetail, renderHeaderTools = () => '', getEquipment = () => null, toast = () => {} } = options;
+    const { data, engine, registry, userId, getDraft, onDraft, onPlay, onDetail, renderHeaderTools = () => '', toast = () => {} } = options;
     if (typeof getDraft !== 'function' || typeof onDraft !== 'function') throw new Error('getDraft et onDraft sont requis.');
     const model = createModel(options), byId = new Map(data.cards.map(c => [String(c.id), c]));
+    const searchText=new Map(data.cards.map(c=>[c.id,[c.name,c.title,c.faction,c.race,c.id].join(' ').toLocaleLowerCase('fr')]));
     const Team=Composition.create(engine,options.getEquipmentDefaults);
     const candidate=(slots,index,id)=>model.candidate(slots,index,id,{formation:true});
     let recruitMode='characters',phoneLayout=false;
     let library, libraryError = '', root = null, selected = '', target = 0, previewId = null;
     let pendingDelete = false, working = new Map(), fileEpoch = 0, resizeObserver = null, busy = false, painting = false;
-    let drag = null, dragFrame = 0, reorderFrom = null, reorderTo = null, suppressClickUntil = 0, announcement = '';
+    let drag = null, dragFrame = 0, recruitFrame = 0, reorderFrom = null, reorderTo = null, suppressClickUntil = 0, announcement = '';
     let mountedWindow = null, mountedDocument = null;
-    let affinityType = 'faction', affinityPage = 0, panel = 'board', managing = false, filtering = false;
+    let panel = 'board', managing = false, filtering = false;
     const histories = new Map();
     let comparison = null;
     let filters = { search: '', position: '', faction: '', race: '', element: '', weapon: '', synergy: '' };
@@ -169,11 +170,13 @@
     }
     function visibleCandidates() {
       const search = filters.search.toLocaleLowerCase('fr').trim();
-      const list = data.cards.map(c => ({ card: c, detail: candidate(draft.cards, target, c.id) })).filter(({ card: c, detail: d }) => {
-        if(!d.owned)return false;
-        if (search && ![c.name, c.title, c.faction, c.race, c.id].join(' ').toLocaleLowerCase('fr').includes(search)) return false;
+      const list = data.cards.filter(c => {
+        if (search && !searchText.get(c.id).includes(search)) return false;
         if (filters.position && !c.positions.includes(Number(filters.position))) return false;
         if (['faction', 'race', 'element', 'weapon'].some(field => filters[field] && c[field] !== filters[field])) return false;
+        return true;
+      }).map(c => ({ card: c, detail: candidate(draft.cards, target, c.id) })).filter(({ detail: d }) => {
+        if(!d.owned)return false;
         const f = d.affinities.faction, r = d.affinities.race;
         if (filters.synergy === 'shared' && !f.members.length && !r.members.length) return false;
         if (filters.synergy === 'faction' && f.delta <= 0) return false;
@@ -200,24 +203,10 @@
         ${selectFilter('synergy', 'Synergie', [['shared', 'Affinit\u00e9 partag\u00e9e'], ['faction', 'Gain de bonus faction'], ['race', 'Gain de bonus race'], ['coverage', 'Couverture manquante'], ['available', 'Disponible']])}
         ${button('reset-filters', 'filter-x', 'Effacer les filtres')}${button('filters', 'x', 'Fermer les filtres')}</div>`;
     }
-    function groupHTML(field) {
-      const groups = model.groups(draft.cards, field), attack = field === 'faction';
-      const pages = Math.max(1, Math.ceil(groups.length / 4)); affinityPage = Math.min(affinityPage, pages - 1);
-      return `<section class="kdb-affinity"><h3>${attack ? 'Liens offensifs' : 'Liens d\u00e9fensifs'}</h3><ul>${groups.slice(affinityPage * 4, affinityPage * 4 + 4).map(g => `<li data-affinity="${esc(g.value)}"><button type="button" data-deck-action="group-filter" data-field="${field}" data-value="${esc(g.value)}" title="Filtrer ${esc(g.value)}" aria-pressed="${filters[field] === g.value}">${icon(attack ? 'flag' : 'users-round')}<span><b>${esc(g.value)}</b><small>${g.count} carte${g.count > 1 ? 's' : ''}</small><span class="kdb-link-pips" aria-hidden="true">${Array.from({length:5}, (_, i) => `<i class="${i < g.count ? 'lit' : ''}"></i>`).join('')}</span></span><strong>${signed(g.bonus)}<small>${attack ? 'ATK' : 'DEF'}</small></strong></button></li>`).join('') || '<li class="kdb-muted">Aucune affinit\u00e9</li>'}</ul><nav class="kdb-affinity-pagination" aria-label="Pages de synergies">${button('affinity-previous', 'chevron-left', 'Synergies pr\u00e9c\u00e9dentes', affinityPage === 0 ? 'disabled' : '')}<span>${affinityPage + 1} / ${pages}</span>${button('affinity-next', 'chevron-right', 'Synergies suivantes', affinityPage === pages - 1 ? 'disabled' : '')}</nav></section>`;
-    }
-    function linksHTML() {
-      const active = byId.get(previewId || draft.cards[target])?.[affinityType];
-      return model.groups(draft.cards, affinityType).flatMap(g => g.members.slice(1).map((m, i) => {
-        const a = g.members[i].index, b = m.index;
-        return `<line x1="${a % 5 * 20 + 10}" y1="${a < 5 ? 25 : 75}" x2="${b % 5 * 20 + 10}" y2="${b < 5 ? 25 : 75}" class="${g.value === active ? 'active' : ''}" vector-effect="non-scaling-stroke"/>`;
-      })).join('');
-    }
     function highlightLinks() {
       if (!root) return;
-      const value = byId.get(previewId || draft.cards[target])?.[affinityType], svg = root.querySelector('.kdb-links');
-      if (svg) svg.innerHTML = linksHTML();
-      root.querySelectorAll('[data-deck-slot]').forEach(n => n.classList.toggle('is-affinity', !!value && byId.get(draft.cards[Number(n.dataset.deckSlot)])?.[affinityType] === value));
-      root.querySelectorAll('[data-affinity]').forEach(n => n.classList.toggle('is-active', n.dataset.affinity === value));
+      const value = byId.get(previewId || draft.cards[target])?.faction;
+      root.querySelectorAll('[data-deck-slot]').forEach(n => n.classList.toggle('is-affinity', !!value && byId.get(draft.cards[Number(n.dataset.deckSlot)])?.faction === value));
     }
     function updateRecruitmentRail() {
       const rail = root?.querySelector('.kdb-candidates');
@@ -238,24 +227,9 @@
       if (!rail) return;
       rail.scrollBy({ left: direction * Math.max(rail.clientWidth * .82, 160), behavior: mountedWindow?.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
     }
-    function previewHTML() {
-      const c = byId.get(previewId) || byId.get(draft.cards[target]) || byId.get(visibleCandidates().items[0]?.card.id);
-      if (!c) return '<div class="kdb-preview-empty">Aucune carte</div>';
-      const d = candidate(draft.cards, target, c.id);
-      return `<div class="kdb-preview-heading"><h2>${esc(c.name)}</h2>${button('detail', 'scan-eye', 'D\u00e9tails de ' + c.name, `data-id="${c.id}" ${onDetail ? '' : 'disabled'}`)}</div>
-        <img class="kdb-preview-image" src="${image(c)}" alt="Carte compl\u00e8te ${esc(c.name)} : ${esc(c.title)}">
-        <p class="kdb-preview-title">${esc(c.title)}</p><p class="kdb-muted">${c.positions.map(p => 'P' + p).join(' / ')} \u00b7 ${esc(c.weapon)}</p>
-        <p class="kdb-owned">${d.available} disponible${d.available === 1 ? '' : 's'} / ${d.owned} poss\u00e9d\u00e9${d.owned === 1 ? '' : 's'}</p>
-        <div class="kdb-preview-affinities">${['faction', 'race'].map(field => {
-          const a = d.affinities[field], stat = field === 'faction' ? 'ATK' : 'DEF';
-          return `<div title="${esc(a.members.map(m => m.name).join(', '))}"><strong>${esc(a.value)} <em>${signed(a.delta)} ${stat}</em></strong><small>Potentiel ${signed(a.bonus)} \u00b7 ${a.count} carte${a.count === 1 ? '' : 's'}</small></div>`;
-        }).join('')}</div><p class="kdb-muted">${d.allowed ? 'Si remplacement du slot ' : 'Slot '}${target + 1} \u00b7 potentiel plateau 5</p>
-        ${d.coverage.length ? `<p class="kdb-positive">Couverture + ${d.coverage.map(p => 'P' + p).join(', ')}</p>` : ''}
-        ${d.lostCoverage.length ? `<p class="kdb-warning">Couverture perdue : ${d.lostCoverage.map(p => 'P' + p).join(', ')}</p>` : ''}`;
-    }
     function candidateHTML({ card: c, detail: d }, index = 0) {
       const f = d.affinities.faction, r = d.affinities.race;
-      return `<article class="kdb-candidate ${d.allowed ? '' : 'is-unavailable'}" data-deck-preview="${c.id}"><button type="button" class="kdb-candidate-image" data-deck-action="add" data-deck-recruit="${c.id}" data-id="${c.id}" title="${esc(d.allowed?c.name+' : '+c.title:d.reason)}" aria-label="Recruter ${esc(c.name)}"><img src="${image(c)}" alt="${esc(c.name)}" loading="${index<10?'eager':'lazy'}" decoding="async" draggable="false"></button>
+      return `<article class="kdb-candidate ${d.allowed ? '' : 'is-unavailable'}" data-deck-preview="${c.id}"><button type="button" class="kdb-candidate-image" data-deck-action="add" data-deck-recruit="${c.id}" data-id="${c.id}" title="${esc(d.allowed?c.name+' : '+c.title:d.reason)}" aria-label="Recruter ${esc(c.name)}"><img src="${image(c)}" alt="${esc(c.name)}" loading="${index<10&&(!phoneLayout||panel==='recruit')?'eager':'lazy'}" decoding="async" draggable="false"></button>
         <div class="kdb-candidate-info"><b>${esc(c.name)}</b><span>${c.positions.map(p => 'P' + p).join('/')}</span>
         <span class="kdb-candidate-gain" title="Variation de potentiel au slot ${target+1}">${icon('sword')}${signed(f.delta)} ${icon('shield')}${signed(r.delta)}</span>
         <div class="kdb-candidate-controls"><span>${d.copies}/${d.available}</span>${button('detail','scan-eye','Inspecter '+c.name,`data-id="${c.id}"`)}${button('add', draft.cards[target] ? 'replace' : 'plus', d.allowed ? (draft.cards[target] ? 'Remplacer le slot ' : 'Ajouter au slot ') + (target + 1) + ' : ' + c.name : d.reason, `data-id="${c.id}" ${d.allowed && !busy ? '' : 'disabled'}`)}</div></div></article>`;
@@ -352,9 +326,23 @@
           ${dnaHTML()}
         </div>${comparisonHTML()}</section>`;
     }
-    function icons(node) { globalThis.lucide?.createIcons({ root: node }); }
+    function icons(node) { globalThis.KalistarUI?.icons(node)??globalThis.lucide?.createIcons({ root: node }); }
+    function repaintCandidates() {
+      if(!root||painting)return;
+      const rail=root.querySelector('.kdb-candidates');if(!rail)return repaint();
+      cancelPointer();
+      const list=visibleCandidates();
+      rail.innerHTML=list.items.map(candidateHTML).join('')||'<p class="kdb-empty-results">Aucun personnage pour ces filtres.</p>';
+      icons(rail);
+      root.querySelector('.kdb-browser .kdb-band-heading h2 small').textContent=list.total;
+      const tools=root.querySelector('.kdb-recruit-tools'),reset=tools.querySelector('[data-deck-action=reset-filters]');
+      if(Object.values(filters).some(Boolean)){if(!reset){tools.insertAdjacentHTML('beforeend',button('reset-filters','filter-x','Effacer les filtres'));icons(tools);}}
+      else reset?.remove();
+      if(!recruitFrame)recruitFrame=mountedWindow.requestAnimationFrame(()=>{recruitFrame=0;updateRecruitmentRail();});
+    }
     function repaint(focus) {
       if (!root || painting) return;
+      mountedWindow?.cancelAnimationFrame(recruitFrame);recruitFrame=0;
       cancelPointer();
       const active = root.ownerDocument.activeElement;
       const descriptor = focus || (active && root.contains(active) ? { action: active.dataset.deckAction, filter: active.dataset.deckFilter, id: active.dataset.id, slot: active.dataset.slot, start: active.selectionStart, end: active.selectionEnd } : null);
@@ -376,8 +364,7 @@
     function showPreview(id) {
       if (!byId.has(id) || previewId === id) return;
       previewId = id;
-      const panel = root?.querySelector('[data-deck-preview-panel]');
-      if (panel) { panel.innerHTML = previewHTML(); icons(panel); } highlightLinks();
+      highlightLinks();
     }
     function announce(message) {
       announcement = message;
@@ -623,9 +610,6 @@
         if (action === 'manage') { managing = !managing; filtering = false; }
         if (action === 'filters') { filtering = !filtering; managing = false; }
         if (action === 'panel') { panel = id; filtering = managing = false; }
-        if (action === 'affinity-type') { affinityType = id === 'race' ? 'race' : 'faction'; affinityPage = 0; }
-        if (action === 'affinity-previous') affinityPage = Math.max(0, affinityPage - 1);
-        if (action === 'affinity-next') affinityPage++;
         if (action === 'rail-left' || action === 'rail-right') { scrollRecruitmentRail(action === 'rail-left' ? -1 : 1); return; }
         if (action === 'position-filter') { filters.position = filters.position === id ? '' : id; recruitMode='characters';if(mountedWindow?.matchMedia('(max-width:900px)').matches)panel='recruit'; }
         if (action === 'deck-previous' || action === 'deck-next') {
@@ -676,13 +660,14 @@
         const status = root.querySelector('[data-deck-save-state]'); if (status) status.textContent = 'Non enregistr\u00e9';
         const name=root.querySelector('.team-current-name');if(name)name.textContent=draft.name;
       }
-      if (node.dataset.deckFilter === 'search') { event.stopPropagation(); filters.search = node.value; repaint(); }
+      if (node.dataset.deckFilter === 'search') { event.stopPropagation(); filters.search = node.value; repaintCandidates(); }
     }
     async function change(event) {
       const node = event.target;
       if (!root?.contains(node) || busy || painting) return;
       if (!node.matches('[data-deck-action],[data-deck-filter],[data-deck-file]')) return;
       event.stopPropagation();
+      if(node.dataset.deckFilter==='search'){if(filters.search!==node.value){filters.search=node.value;repaintCandidates();}return;}
       try {
         if (node.dataset.deckAction === 'select') {
           working.set(selected, clone(draft));
@@ -716,6 +701,7 @@
       root?.removeEventListener('wheel', railWheel);
       mountedDocument?.removeEventListener('pointerdown', secondaryPointer, true);
       mountedWindow?.removeEventListener('blur', interrupt); mountedWindow?.removeEventListener('pagehide', interrupt); mountedWindow?.removeEventListener('resize', interrupt);
+      mountedWindow?.cancelAnimationFrame(recruitFrame);recruitFrame=0;
       mountedWindow = null; mountedDocument = null;
       root = null;
     }

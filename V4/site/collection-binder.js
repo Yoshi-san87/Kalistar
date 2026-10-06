@@ -36,6 +36,7 @@
   function create({data,getOwned=()=>[],getCatalogueChanges=()=>[],getFavorites=()=>new Set(),getCareer=()=>null,getDecks=()=>[],onOpenDeck=()=>{},onFavorite=()=>{},onRegistry=()=>{},onArchives=()=>{},onHistory=()=>{},artImage=c=>globalThis.KalistarCardMedia.image(c,'art'),profile='',getEquipment=()=>null,onEquipment=()=>{}}={}){
     if(!Array.isArray(data?.cards)||!data.cards.length)throw new Error('Catalogue V4 requis.');
     const cards=data.cards,byId=new Map(cards.map(c=>[c.id,c])),covers=new Map();
+    const searchText=new Map(cards.map(c=>[c.id,normalize([c.name,c.title,c.faction,c.race,c.id].join(' '))]));
     const elements={...data.elements,NONE:data.elements.NONE||{id:'NONE',label:'Sans cristal',color:'93AAA5'}};
     let root=null,observer=null,painting=false,scope='owned',page=0,pageSize=8,columns=2,rows=2,selected=null,tab='story',art=false,filtersOpen=false,sort='id';
     let storyPage=0,historyPage=0,copyPage=0,instance='all',textLimit=600,motion='',swipe=null,suppressClick=false,transitionTimer=null,transitioning=false;
@@ -51,7 +52,7 @@
     function filtered(){
       const favorites=getFavorites(),search=normalize(filters.search.trim());
       return cards.filter(c=>(scope==='catalogue'||owns(c.id).length)&&(!filters.collection||matchesScope(c,filters.collection))&&(!filters.favorite||favorites.has(c.id))&&
-        (!search||normalize([c.name,c.title,c.faction,c.race,c.id].join(' ')).includes(search))&&
+        (!search||searchText.get(c.id).includes(search))&&
         ['element','faction','race','weapon'].every(field=>!filters[field]||filters[field]===c[field])&&
         (!filters.position||c.positions.includes(Number(filters.position))))
         .sort((a,b)=>sort==='name'?a.name.localeCompare(b.name,'fr'):sort==='element'?a.element.localeCompare(b.element):sort==='faction'?a.faction.localeCompare(b.faction,'fr'):a.id.localeCompare(b.id));
@@ -167,7 +168,7 @@
       const previousDialog=root.querySelector('.cb-overlay[open]'),scroll=previousDialog?.querySelector('.cb-overlay-body')?.scrollTop||0;
       const active=root.ownerDocument.activeElement,descriptor=focus||(root.contains(active)?{action:active.dataset.binderAction,id:active.dataset.id,field:active.dataset.binderField,filter:active.dataset.binderFilter,start:active.selectionStart,end:active.selectionEnd}:null);
       try{
-        root.innerHTML=render();globalThis.lucide?.createIcons({root});motion='';
+        root.innerHTML=render();globalThis.KalistarUI?.icons(root)??globalThis.lucide?.createIcons({root});motion='';
         const dialog=root.querySelector('.cb-overlay[data-active=true]');dialog?.showModal();
         if(dialog){if(previousDialog)dialog.querySelector('.cb-overlay-body').scrollTop=scroll;else dialog.classList.add('is-entering');}
         if(descriptor){const n=[...(dialog||root).querySelectorAll('button,input,select')].find(n=>n.getClientRects().length&&(descriptor.field?n.dataset.binderField===descriptor.field:descriptor.filter?n.dataset.binderFilter===descriptor.filter:descriptor.action&&n.dataset.binderAction===descriptor.action&&(!descriptor.id||n.dataset.id===descriptor.id)));if(n&&!n.disabled){n.focus({preventScroll:true});if(n.type==='search'&&descriptor.start!=null)n.setSelectionRange(descriptor.start,descriptor.end);}else if(!dialog)root.querySelector('.cb-page').focus({preventScroll:true});}

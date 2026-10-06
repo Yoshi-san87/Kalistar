@@ -27,16 +27,25 @@
       });
       window.KalistarPhonePreview.mountHost();return;
     }
-    const response = await fetch(window.KalistarSite?.catalogue || '/api/game/catalogue', { cache: 'no-store' });
-    if (!response.ok) throw Error('Catalogue V4 indisponible (HTTP ' + response.status + ').');
-    const data = await response.json();
-    if (data.version !== 4 || data.edition !== 'V4' || !data.cards?.length || data.cards.some(c => c.edition !== 'V4' || !c.pngUrl)) throw Error('Catalogue V4 attendu. Aucun catalogue historique ne sera charge.');
-    window.KALISTAR_DATA = data;
-    for (const src of scripts) await new Promise((resolve, reject) => {
-      const script = document.createElement('script'); script.src = release ? `${src}?v=${encodeURIComponent(release)}` : src;
-      script.onload = resolve; script.onerror = () => reject(Error('Module introuvable : ' + src));
-      document.head.append(script);
+    const catalogue = fetch(window.KalistarSite?.catalogue || '/api/game/catalogue', { cache: 'no-store' });
+    // Fetch concurrently, but execute only after validation and in dependency order.
+    const preloads = scripts.map(src => {
+      const link = document.createElement('link'); link.rel = 'preload'; link.as = 'script';
+      link.href = release ? `${src}?v=${encodeURIComponent(release)}` : src;
+      document.head.append(link); return link;
     });
+    try {
+      const response = await catalogue;
+      if (!response.ok) throw Error('Catalogue V4 indisponible (HTTP ' + response.status + ').');
+      const data = await response.json();
+      if (data.version !== 4 || data.edition !== 'V4' || !data.cards?.length || data.cards.some(c => c.edition !== 'V4' || !c.pngUrl)) throw Error('Catalogue V4 attendu. Aucun catalogue historique ne sera charge.');
+      window.KALISTAR_DATA = data;
+      for (const src of scripts) await new Promise((resolve, reject) => {
+        const script = document.createElement('script'); script.src = release ? `${src}?v=${encodeURIComponent(release)}` : src;
+        script.onload = resolve; script.onerror = () => reject(Error('Module introuvable : ' + src));
+        document.head.append(script);
+      });
+    } finally { preloads.forEach(link => link.remove()); }
   }
   start().catch(fail);
 })();

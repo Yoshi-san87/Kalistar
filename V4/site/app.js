@@ -31,8 +31,10 @@
   try{const saved=localStorage.getItem('kalistar.v4.activeUser');if(db?.registry?.user(saved))accountId=saved;}catch{storageAvailable=false;}
   window.KALISTAR_ACTIVE_USER=accountId;
   const preferencePrefix=accountId===KalistarOwnership.PARIS?'kalistar.v4.':'kalistar.v4.'+accountId+'.';
-  function load(key,fallback){try{const raw=localStorage.getItem(preferencePrefix+key);return raw?JSON.parse(raw):fallback;}catch{return fallback;}}
-  function save(key,value){try{localStorage.setItem(preferencePrefix+key,JSON.stringify(value));}catch{storageAvailable=false;}}
+  const storedPreferences=new Map();
+  window.addEventListener('storage',event=>{if(event.storageArea===localStorage){if(event.key===null)storedPreferences.clear();else storedPreferences.delete(event.key);}});
+  function load(key,fallback){try{const fullKey=preferencePrefix+key,raw=localStorage.getItem(fullKey);if(raw===null)return fallback;const value=JSON.parse(raw);storedPreferences.set(fullKey,raw);return value;}catch{return fallback;}}
+  function save(key,value){let raw;try{const fullKey=preferencePrefix+key;raw=JSON.stringify(value);if(storedPreferences.get(fullKey)!==raw){localStorage.setItem(fullKey,raw);storedPreferences.set(fullKey,raw);}}catch{storageAvailable=false;}return raw;}
   const owned=(id)=>db?.registry?.owned(accountId,id)||[];
   const ownershipErrors=ids=>db?.registry?db.registry.deckErrors(accountId,ids):['Registre local indisponible.'];
   const deckErrors=value=>[...(Array.isArray(value)?E.validatePlayableDeck(value):E.validateComposition(value)),...ownershipErrors((Array.isArray(value)?value:value.cards).filter(Boolean))];
@@ -90,13 +92,13 @@
   const weaponsUI=KalistarWeaponsUI.create({data,db,userId:accountId,toast,onCard:id=>showDetail(id)});
   const storyReader=KalistarStoryReader.create({storageKey:preferencePrefix+'story-progress'});
   const overlayOpen=()=>!!document.querySelector('dialog[open]')||!!window.KalistarReservePreview?.isOpen();
-  function icons(){if(window.lucide)lucide.createIcons();}
+  function icons(root=document){window.KalistarUI?.icons(root)??window.lucide?.createIcons({root});}
   function toast(message){clearTimeout(toastTimer);$('#toast').textContent=message;$('#toast').classList.add('visible');toastTimer=setTimeout(()=>$('#toast').classList.remove('visible'),3500);}
   function persist(){
     save('deckPreset',deckPresetId);save('enemyDeckPreset',enemyPresetId);
-    save('deck',deck);save('deckName',deckName);save('teamDraft',teamDraft);save('favorites',[...favorites]);if(game)save('game',game);$('#deck-count').textContent=deck.length;
+    save('deck',deck);save('deckName',deckName);save('teamDraft',teamDraft);save('favorites',[...favorites]);const fingerprint=game?save('game',game):null;$('#deck-count').textContent=deck.length;
     if(db&&game){
-      const fingerprint=JSON.stringify(game);
+      if(!fingerprint)return;
       if(fingerprint!==lastStored){
         lastStored=fingerprint;
         db.saveGame(game).then(()=>{
@@ -239,7 +241,7 @@ function showDeck(){setView('decks');}
   }
   function decksPage(){
     builder().refresh();
-    return `<div class="decks-shell"><div id="deck-builder-root">${builder().render()}</div></div>`;
+    return '<div class="decks-shell"><div id="deck-builder-root"></div></div>';
   }
   function bonusDetails(context){
     const p=game?.players[context?.side],u=p?.board.find(u=>u?.uid===context?.uid);
@@ -312,7 +314,7 @@ function showDeck(){setView('decks');}
     const a=arenaById(id);
     return `<img src="${a.image}" alt=""><div class="match-arena-copy"><span class="eyebrow">Champ de bataille</span><h3>${esc(a.name)}</h3><p>${esc(a.subtitle)}</p><div class="match-arena-rule">${icon(a.element&&a.element!=='NONE'?'gem':'compass')}<span>${arenaRule(a)}</span></div></div>`;
   }
-  function matchArenaOptions(id){return `<div class="match-arena-rail"><button type="button" class="match-arena-arrow" data-action="match-arena-scroll" data-direction="-1" title="Arènes précédentes" aria-label="Arènes précédentes">${icon('chevron-left')}</button><fieldset class="match-arena-options" aria-label="Choisir une arène">${arenas.map(a=>`<label class="match-arena-choice" title="${esc(a.name)}"><input type="radio" name="arena" value="${esc(a.id)}" ${arenaById(id).id===a.id?'checked':''}><img src="${a.image}" alt=""><span>${esc(a.name)}</span></label>`).join('')}</fieldset><button type="button" class="match-arena-arrow" data-action="match-arena-scroll" data-direction="1" title="Arènes suivantes" aria-label="Arènes suivantes">${icon('chevron-right')}</button></div>`;}
+  function matchArenaOptions(id){return `<div class="match-arena-rail"><button type="button" class="match-arena-arrow" data-action="match-arena-scroll" data-direction="-1" title="Arènes précédentes" aria-label="Arènes précédentes">${icon('chevron-left')}</button><fieldset class="match-arena-options" aria-label="Choisir une arène">${arenas.map(a=>`<label class="match-arena-choice" title="${esc(a.name)}"><input type="radio" name="arena" value="${esc(a.id)}" ${arenaById(id).id===a.id?'checked':''}><img loading="lazy" decoding="async" src="${a.image}" alt=""><span>${esc(a.name)}</span></label>`).join('')}</fieldset><button type="button" class="match-arena-arrow" data-action="match-arena-scroll" data-direction="1" title="Arènes suivantes" aria-label="Arènes suivantes">${icon('chevron-right')}</button></div>`;}
   function refreshMatchLobby(){
     const form=$('#new-game-form');if(!form)return;
     const playerChoice=$('#player-match-deck').value,player=matchDeckByChoice(playerChoice),playerErrors=player?deckErrors(player):['Deck introuvable.'];

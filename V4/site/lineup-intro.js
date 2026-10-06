@@ -35,7 +35,7 @@
     root.innerHTML=`<div class="li-shade"></div><header class="li-header"><button class="li-exit icon-button" aria-label="Retour au menu" title="Retour au menu"><i data-lucide="arrow-left"></i></button><h2 class="li-title" aria-live="polite"></h2><button class="li-skip"><i data-lucide="skip-forward"></i>Passer</button></header><div class="li-stage"></div>`;
     const stage=root.querySelector('.li-stage'),title=root.querySelector('.li-title'),skip=root.querySelector('.li-skip');
     shell.classList.add('lineup-underlay');document.body.classList.add('lineup-opening');hidden.forEach(n=>n.classList.add('lineup-unrevealed'));inertNodes.forEach(({node})=>node.inert=true);
-    document.body.append(root);globalThis.lucide?.createIcons();skip.focus({preventScroll:true});
+    document.body.append(root);globalThis.KalistarUI?.icons(root)??globalThis.lucide?.createIcons({root});skip.focus({preventScroll:true});
     const field=shell.querySelector('.battlefield');field?.setAttribute('data-lineup-opening','true');
     function wait(ms){
       if(!active)return Promise.resolve(false);
@@ -120,7 +120,7 @@
     }
     function clue(kind){
       actors.forEach(node=>{const host=node.querySelector(`[data-kind="${kind}"]`);host.hidden=false;host.classList.add('is-presenting');});
-      globalThis.lucide?.createIcons();mark(kind);
+      globalThis.KalistarUI?.icons(root)??globalThis.lucide?.createIcons({root});mark(kind);
     }
     function dockClue(kind){
       actors.forEach(node=>{
@@ -145,7 +145,7 @@
       const crown=formations.flat().find(card=>card.captain)?.node.querySelector('.arena-captain img');
       const announcement=document.createElement('div');announcement.className='li-tipoff';
       announcement.innerHTML=`<div class="li-tipoff-plaque" role="status" aria-live="polite"><span class="li-tipoff-mark" aria-hidden="true">${crown?`<img src="${esc(crown.currentSrc||crown.src)}" alt="">`:'<i data-lucide="dice-6"></i>'}</span><strong>Tip Off</strong><span class="li-tipoff-caption">Tirage des capitaines</span></div>`;
-      stage.append(announcement);root.classList.add('li-tipoff-active');globalThis.lucide?.createIcons();mark('tipoff');
+      stage.append(announcement);root.classList.add('li-tipoff-active');globalThis.KalistarUI?.icons(announcement)??globalThis.lucide?.createIcons({root:announcement});mark('tipoff');
       if(!await wait(ceremonyTiming.tipoff))return false;
       announcement.remove();root.classList.remove('li-tipoff-active');title.textContent='Tirage des capitaines';
       const captains=formations.map(team=>team.find(card=>card.captain)||team[0]);
@@ -158,13 +158,13 @@
       }));
       const panel=document.createElement('div');panel.className='li-initiative-panel';
       panel.innerHTML='<div class="li-draw-dice" aria-label="Jets des capitaines">'+[0,1].map(side=>'<div class="li-draw-die" data-side="'+side+'"><span class="li-die-symbol" aria-hidden="true"></span><b class="li-roll-value">\u2026</b></div>').join('')+'</div><p class="li-draw-result" role="status" aria-live="polite">Initiative</p>';
-      stage.append(panel);globalThis.lucide?.createIcons();mark('captains');
+      stage.append(panel);globalThis.KalistarUI?.icons(panel)??globalThis.lucide?.createIcons({root:panel});mark('captains');
       if(!(await Promise.all(actors.map((n,side)=>move(n,()=>centre(side),t.depart)))).every(Boolean))return false;
       function dice(values){
         panel.querySelectorAll('.li-draw-die').forEach((host,side)=>{
           const value=values[side];host.querySelector('.li-die-symbol').innerHTML='<i data-lucide="dice-'+value+'"></i>';
           host.querySelector('.li-roll-value').textContent=String(value);host.setAttribute('aria-label',initiative.labels[side]+' : '+value);
-        });globalThis.lucide?.createIcons();
+        });globalThis.KalistarUI?.icons(panel)??globalThis.lucide?.createIcons({root:panel});
       }
       const resultText=panel.querySelector('.li-draw-result');
       if(!await wait(ceremonyTiming.settle))return false;

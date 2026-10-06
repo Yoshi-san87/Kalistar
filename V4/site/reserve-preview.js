@@ -22,7 +22,7 @@
     current={side,uid};const c=options.engine.card(u),legal=c.positions.filter(p=>options.canPlace(side,uid,p-1));
     panel.innerHTML=`<div class="reserve-preview-head"><b>${esc(c.name)}</b><button data-preview-close aria-label="Fermer l’aperçu" title="Fermer"><i data-lucide="x"></i></button></div><img src="${KalistarCardMedia.image(c)}" width="797" height="1388" alt="${esc(c.name+' - '+c.title)}"><div class="reserve-preview-meta"><span>${esc(c.title)}</span><small>${c.positions.map(p=>'P'+p).join(' · ')} · ${esc(c.element)}</small></div><div class="reserve-preview-actions">${legal.map(p=>`<button data-preview-place="${p-1}"><i data-lucide="plus"></i>P${p}</button>`).join('')}<button data-preview-detail title="Fiche de ${esc(c.name)}" aria-label="Fiche de ${esc(c.name)}"><i data-lucide="scan-eye"></i></button></div>`;
     panel.dataset.cardId=c.id;panel.style.setProperty('--preview-color','#'+(options.data.elements[c.element]?.color||'9eaaa4'));
-    if(!visible())panel.showPopover();window.lucide?.createIcons();position(anchor);window.dispatchEvent(new Event('kalistar-overlay'));
+    if(!visible())panel.showPopover();window.KalistarUI?.icons(panel)??window.lucide?.createIcons({root:panel});position(anchor);window.dispatchEvent(new Event('kalistar-overlay'));
   }
   function deferHide(){clearTimeout(closeTimer);closeTimer=setTimeout(()=>{if(!panel.matches(':hover')&&!panel.contains(document.activeElement))hide();},160);}
   document.addEventListener('pointerover',e=>{const anchor=e.target.closest('[data-reserve-card]');if(!anchor||e.pointerType==='touch')return;clearTimeout(closeTimer);clearTimeout(openTimer);openTimer=setTimeout(()=>{if(anchor.isConnected)show(anchor);},180);});

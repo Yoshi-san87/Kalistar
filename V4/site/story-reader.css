@@ -7,7 +7,7 @@ body.story-view #app { flex: 1 1 0; width: 100%; min-width: 0; min-height: 0; ma
 .story-load-error .lucide { width: 38px; height: 38px; color: #d6b67e; }
 .story-load-error p { color: #c2c8bc; }
 .story-reader { --story-ink: #322218; --story-soft-ink: #684c36; position: relative; display: grid; place-items: center; width: 100%; height: 100%; min-width: 0; min-height: 0; padding: 10px; overflow: hidden; background: radial-gradient(ellipse at center,#202923 0%,#101613 68%,#090d0b 100%); }
-.story-reader-book { position: relative; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); flex: none; aspect-ratio: 1672 / 941; min-width: 0; min-height: 0; overflow: hidden; container-type: inline-size; color: var(--story-ink); background: #e8d8bb url('assets/ui/collection-reader-grimoire-v1.png') center / 100% 100% no-repeat; filter: drop-shadow(0 18px 28px #0008); }
+.story-reader-book { position: relative; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); flex: none; aspect-ratio: 1672 / 941; min-width: 0; min-height: 0; overflow: hidden; container-type: inline-size; color: var(--story-ink); background: #e8d8bb url('assets/ui/collection-reader-grimoire-v1.webp') center / 100% 100% no-repeat; filter: drop-shadow(0 18px 28px #0008); }
 .story-toc,.story-reading-page { position: relative; display: flex; flex-direction: column; min-width: 0; min-height: 0; }
 .story-toc { grid-column: 1; padding: 4.8cqw 5.2cqw 9cqw 9cqw; }
 .story-book-heading { position: relative; flex: none; padding-left: 52px; min-height: 83px; }
@@ -76,7 +76,7 @@ body.story-view #app { flex: 1 1 0; width: 100%; min-width: 0; min-height: 0; ma
 .story-reader[data-text-size=small] .story-text p { font-size: 16px; }
 .story-reader[data-text-size=large] .story-text p { font-size: 20px; line-height: 1.82; }
 .story-reader[data-paper=night] { --story-ink: #eadfc5; --story-soft-ink: #c2a77f; }
-.story-reader[data-paper=night] .story-reader-book { background-image: linear-gradient(#181b16e8,#181b16e8),url('assets/ui/collection-reader-grimoire-v1.png'); }
+.story-reader[data-paper=night] .story-reader-book { background-image: linear-gradient(#181b16e8,#181b16e8),url('assets/ui/collection-reader-grimoire-v1.webp'); }
 .story-reader[data-paper=night] :is(.story-book-heading h1,.story-current-heading h2,.story-chapter[aria-current=page],.story-text) { color: #ecdfc4; }
 .story-reader[data-paper=night] :is(.story-kicker,.story-book-subtitle,.story-progress,.story-progress-foot,.story-toc-label,.story-chapter,.story-chapter-number,.story-toc-quote,.story-toc-quote span,.story-reading-footer button,.story-page-progress) { color: #c5ae8b; }
 .story-reader[data-paper=night] :is(.story-progress,.story-reading-header,.story-reading-footer,.story-toc-quote) { border-color: #d1b98a42; }
@@ -112,7 +112,7 @@ body.story-view #app { flex: 1 1 0; width: 100%; min-width: 0; min-height: 0; ma
 
 @media (max-width: 850px), (max-width: 950px) and (max-height: 500px) {
   .story-reader { padding: 0; background: #141814; }
-  .story-reader-book { display: block; width: 100% !important; height: 100% !important; aspect-ratio: auto; background-color: #e8d8bb; background-image: linear-gradient(180deg,#f1e5d0e8,#e9d9bbe8),url('assets/ui/collection-reader-grimoire-v1.png'); background-size: auto,auto 100%; background-position: center,78% center; filter: none; box-shadow: inset 0 0 0 1px #664a2d75,inset 0 0 22px #39261640; }
+  .story-reader-book { display: block; width: 100% !important; height: 100% !important; aspect-ratio: auto; background-color: #e8d8bb; background-image: linear-gradient(180deg,#f1e5d0e8,#e9d9bbe8),url('assets/ui/collection-reader-grimoire-v1.webp'); background-size: auto,auto 100%; background-position: center,78% center; filter: none; box-shadow: inset 0 0 0 1px #664a2d75,inset 0 0 22px #39261640; }
   .story-toc { display: none; }
   .story-reading-page { height: 100%; padding: 14px 5.5% 8px; }
   .story-reading-header { display: grid; grid-template-columns: minmax(0,1fr); gap: 9px; min-height: 0; padding-bottom: 9px; }
@@ -135,7 +135,7 @@ body.story-view #app { flex: 1 1 0; width: 100%; min-width: 0; min-height: 0; ma
   .story-reading-footer button { min-height: 44px; max-width: 100%; gap: 2px; padding-inline: 3px; font-size: 10px; }
   .story-reading-footer button span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .story-page-progress { font-size: 9px; }
-  .story-reader[data-paper=night] .story-reader-book { background-image: linear-gradient(180deg,#171913e8,#171913e8),url('assets/ui/collection-reader-grimoire-v1.png'); }
+  .story-reader[data-paper=night] .story-reader-book { background-image: linear-gradient(180deg,#171913e8,#171913e8),url('assets/ui/collection-reader-grimoire-v1.webp'); }
   .story-reader[data-paper=night] .story-chapter-picker { color: #eadfc5; background-color: #20231d; }
 }
 @media (max-width: 699px) {

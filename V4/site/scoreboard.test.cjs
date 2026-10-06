@@ -4,7 +4,7 @@ const read=name=>fs.readFileSync(path.join(__dirname,name),'utf8');
 const css=read('scoreboard.css'),app=read('app.js');
 test('scoreboard uses the shared Kalistar frame, font and approved materials',()=>{
   for(const token of ['var(--kui-edge)','var(--kui-energy)','var(--kui-danger)','var(--kalistar-display)','clip-path:polygon('])assert(css.includes(token));
-  for(const file of ['assets/ui/collection-reader-grimoire-v1.png','assets/navigation/kalistel-rainbow-v1.webp']){
+  for(const file of ['assets/ui/collection-reader-grimoire-v1.webp','assets/navigation/kalistel-rainbow-v1.webp']){
     assert((css+app).includes(file));assert(fs.existsSync(path.join(__dirname,file)));
   }
   const html=read('index.html');assert(html.indexOf('scoreboard.css')>html.indexOf('ui-system.css'));

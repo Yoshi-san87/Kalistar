@@ -8,11 +8,18 @@ let browser;
 async function main(){
   fs.mkdirSync(output,{recursive:true});browser=await chromium.launch({channel:'chrome',headless:true});
   const context=await browser.newContext({viewport:{width:412,height:1007},reducedMotion:'no-preference'}),page=await context.newPage(),errors=[];
+  await context.addInitScript(()=>{const open=IDBFactory.prototype.open;IDBFactory.prototype.open=function(name,version){return open.call(this,name+'-combat-layout-qa',version);};});
   page.on('pageerror',e=>errors.push(e.message));
-  await page.goto(url+'/jeu/#arena');await page.waitForFunction(()=>window.KALISTAR_READY);
-  await page.locator('[data-action=start]').click();
-  await page.locator('.formation[data-player="0"] .slot-card').first().click();
-  await page.locator('.formation[data-player="1"] .slot-card').first().click();
+  await page.goto(url+'/jeu/#collection');await page.waitForFunction(()=>window.KALISTAR_READY);
+  // Current Composition starts with its lineup already deployed, not legacy setup.
+  await page.evaluate(async()=>{
+    const e=KalistarEngine.createEngine(KALISTAR_DATA),team=KalistarTeamComposition.create(e).fromPreset({name:'Effects QA',cards:KALISTAR_DATA.decks.player});
+    const game=e.newGame(team,team,{mode:'local',seed:'EFFECTS-QA',turnOrder:'ABBA'});e.rollInitiative(game,[6,1]);
+    await KALISTAR_DB.saveGame(game);localStorage.setItem('kalistar.v4.game',JSON.stringify(game));
+  });await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);
+  await page.evaluate(()=>document.querySelector('.main-nav [data-view=arena]').click());
+  await page.locator('.slot-card[data-side="0"][data-slot="0"]').click();
+  await page.locator('.slot-card[data-side="1"][data-slot="0"]').click();
   await page.waitForTimeout(600);
   const saved=await page.evaluate(()=>localStorage.getItem('kalistar.v4.game'));
   await page.evaluate(()=>{

@@ -72,7 +72,7 @@ async function main(){
       await page.screenshot({path:path.join(output,'arena-'+width+'.png')});
       if(!result.inside)console.log(JSON.stringify(result,null,2));
       assert(result.inside,'score labels, numerals and crystal fit at '+width);assert(!result.overflow,'page width at '+width);
-      assert(result.gem);assert(result.material.includes('collection-reader-grimoire-v1.png'));assert(result.font.includes('Cinzel'));
+      assert(result.gem);assert(result.material.includes('collection-reader-grimoire-v1.webp'));assert(result.font.includes('Cinzel'));
       assert(!result.clashes,'score avoids duel stats and options at '+width);assert.equal(result.animations,0);
       assert(result.box.left>=0&&result.box.right<=width+1,'score fits viewport at '+width);
       if(width===1024){assert(result.title.width>=220,'arena title keeps its space');assert(result.toolbar.height<=180,'no tall toolbar from compressed title');}

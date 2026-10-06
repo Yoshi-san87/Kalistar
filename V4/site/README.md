@@ -574,6 +574,31 @@ options before editing its deterministic seed. All browser contexts are
 disposable; no personal browser storage is touched. Evidence and protected-file
 hashes: `verification/arena-immersion/`.
 
+## Site performance (2026-10-06, 4.5.28)
+
+Boot preloads dependencies in parallel but validates the catalogue and executes
+modules in their original order. `KalistarUI.icons(root)` renders only new
+Lucide placeholders, preserving existing SVG nodes. Composition searches update
+the recruitment rail without rebuilding the formation or input; rail layout
+measurements share one cancellable animation frame.
+
+Preference writes are deduplicated, with cross-tab cache invalidation. The same
+serialized game snapshot feeds the existing IndexedDB fingerprint. A failed
+localStorage write never suppresses a valid IndexedDB save. Story saves only
+mounted, changed progress. Register images and offscreen arena previews are lazy.
+
+The two grimoire CSS backgrounds use lossless WebP derivatives; original PNGs
+remain preserved. `node V4/deploy/optimize-ui-media.cjs` verifies decoded RGBA
+identity before generating assets and `V4/deploy/lossless-grimoire.json`.
+Set `KALISTAR_MEDIA_OUTPUT` to a test directory for independent regeneration.
+No runtime image dependency was added.
+
+Audit, caveated measurements, regression commands and fresh evidence locations:
+`V4/releases/2026-10-06-site-performance/README.md`. Unit contracts:
+`node --test --test-isolation=none V4/site/performance.test.cjs`.
+Browser contracts: `node V4/site/performance-contracts.browser.test.cjs`.
+No game/save schema or approved card/template asset was changed.
+
 ## Catalogue update notices (2026-10-05)
 
 `catalogue-updates.js` compares the loaded V4 catalogue with the currently

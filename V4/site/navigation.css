@@ -13,7 +13,7 @@
 body > .masthead,body[class] > .masthead {
   display:flex; flex:0 0 var(--navigation-header-height); height:var(--navigation-header-height); min-height:var(--navigation-header-height);
   width:100%; gap:20px; padding:0 22px; flex-wrap:nowrap;
-  background:linear-gradient(100deg,#080f0fed,#0b1917ef 45%,#090f10f5),url('assets/ui/collection-reader-grimoire-v1.png') center 45%/cover;
+  background:linear-gradient(100deg,#080f0fed,#0b1917ef 45%,#090f10f5),url('assets/ui/collection-reader-grimoire-v1.webp') center 45%/cover;
   border-bottom:1px solid #956e535c; box-shadow:inset 0 1px #e9c8a617,0 3px 12px #0003;
 }
 body.collection-view > .masthead { flex-basis:var(--navigation-header-height); height:var(--navigation-header-height); min-height:var(--navigation-header-height); padding:0 22px; gap:20px; }
@@ -82,7 +82,7 @@ body .masthead .header-actions .account-button span { display:none; }
 #mobile-dialog .mobile-menu > button[data-view] .kalistar-nav-icon { width:40px; height:40px; }
 #mobile-dialog .mobile-menu > button[data-view] > svg:last-child { margin-left:auto; width:16px; color:#b6c6ba; }
 #mobile-dialog.navigation-sheet {
-  background:linear-gradient(120deg,#0f2322ef,#0b1715f5),url('assets/ui/collection-reader-grimoire-v1.png') center/cover;
+  background:linear-gradient(120deg,#0f2322ef,#0b1715f5),url('assets/ui/collection-reader-grimoire-v1.webp') center/cover;
   border:1px solid #a08260; border-radius:5px; box-shadow:inset 0 1px #f2d1a62b,0 20px 80px #0009;
 }
 #mobile-dialog.navigation-sheet .dialog-head { border-bottom-color:#a0826066; }
@@ -130,7 +130,7 @@ body .masthead .header-actions .account-button span { display:none; }
     position:fixed; inset:auto 0 0; z-index:90; width:100%; height:var(--phone-nav); min-height:60px;
     display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); order:0; margin:0;
     padding:0 env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px);
-    background:linear-gradient(180deg,#102522f5,#081211fc),url('assets/ui/collection-reader-grimoire-v1.png') center/cover;
+    background:linear-gradient(180deg,#102522f5,#081211fc),url('assets/ui/collection-reader-grimoire-v1.webp') center/cover;
     border-top:1px solid #b58b675e; border-bottom:0; box-shadow:0 -3px 18px #0005,inset 0 1px #a8dfd012;
   }
   body .masthead .main-nav::before,body .masthead .main-nav::after { display:none; }
