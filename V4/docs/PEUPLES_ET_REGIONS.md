@@ -52,10 +52,12 @@ inventer implicitement en produisant les prochaines cartes.
 ## Propositions, pas encore des cartes
 
 [Sources et prompts initiaux](../propositions/2026-10-06-grivka-okami/provenance.json).
-[Retouche de palette et sources actuelles 02](../propositions/2026-10-06-grivka-okami/provenance-02.json).
+[Retouche de palette 02](../propositions/2026-10-06-grivka-okami/provenance-02.json).
+[Correction de la lance de Rhovan et selection actuelle](../propositions/2026-10-06-grivka-okami/provenance-03.json).
 
 - **Rhovan**, gardien des cols de Grivka : Okami gris, manteau de laine sombre,
-  lance de montagne et mousqueton de secours. Un instant de memoire silencieuse
+  lance de montagne fixee dans son dos par un harnais et mousqueton de secours.
+  La version 03 corrige le port de la lance. Un instant de memoire silencieuse
   devant un refuge. Titre propose : *Ceux que la neige rend*.
 - **Eyska**, eclaireuse de Grivka : Okami au pelage roux cendre, arc technique
   discret et geste de pisteuse. Elle retrouve une balise ensevelie qui confirme
