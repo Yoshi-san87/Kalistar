@@ -1,0 +1,61 @@
+{
+  "name": "BALMHYR",
+  "title": "LA LEÇON DANS LA PIERRE",
+  "job": "MENTOR",
+  "description": "Dans la cour, Balmhyr frappe sans colère. La pierre cède sous son poing. Il dit à ses élèves : la force ne commence pas dans le bras, mais dans ce que l'on choisit de ne pas écraser.",
+  "element": "MINERO",
+  "race": "NAIN",
+  "weapon": "Poing",
+  "faction": "Durane",
+  "positions": [
+    2,
+    3
+  ],
+  "atk": [
+    228,
+    184,
+    147,
+    108,
+    "buff_atk",
+    28
+  ],
+  "defense": [
+    215,
+    184,
+    146,
+    108,
+    72,
+    32
+  ],
+  "magic": [
+    5,
+    3
+  ],
+  "barriers": [
+    5
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49900802",
+  "characterId": "balmhyr",
+  "slug": "V4_49900802",
+  "output": "KALISTAR_V4_49900802",
+  "text": "Dans la cour, Balmhyr frappe sans colère. La pierre cède sous son poing. Il dit à ses élèves : la force ne commence pas dans le bras, mais dans ce que l'on choisit de ne pas écraser.",
+  "color": "B3BFCA",
+  "hue": 210,
+  "role": 3,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Variante narrative Kalistar, demande du 6 octobre 2026",
+  "visual_revision": "V4-2026-10-06-second-edition-scenes",
+  "previous_model": "30000007",
+  "artworkSource": "V4/Illustrations/Variants_Balmhyr_Fist_02.png"
+}

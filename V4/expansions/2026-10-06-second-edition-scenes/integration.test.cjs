@@ -2,6 +2,9 @@
 const {test}=require('node:test'),assert=require('node:assert/strict');
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const M=require('./model.cjs'),set=require('./set.json'),catalogue=require('../../donnees/catalogue.json');
+const revision=require('../../revisions/2026-10-06-balmhyr-durane/specs.cjs').cards[0];
+// Keep the original set immutable; validate the later, separately audited narrative revision.
+const currentSet={...set,cards:set.cards.map(c=>c.id===revision.id?{...revision,key:c.key}:c)};
 const {buildCatalog}=require('../../atelier/game-catalog.cjs'),{createEngine}=require('../../site/engine.js');
 const Q=require('../../site/equipment.js');
 const dataPromise=buildCatalog({published:catalogue.cards.filter(c=>c.kind==='created')});
@@ -17,7 +20,7 @@ async function fixture(spec,side=0,equipped=false){
 }
 const restored=(E,s)=>assert.deepEqual(E.restoreGame(JSON.parse(JSON.stringify(s))),s);
 test('Two distinct narrative/gameplay editions preserve identity and deck exclusions',async()=>{
- const data=await dataPromise;M.validateGame(data,set,createEngine);
+ const data=await dataPromise;M.validateGame(data,currentSet,createEngine);
  for(const spec of set.cards){
   const versions=data.cards.filter(c=>c.characterId===spec.characterId);assert.equal(versions.length,2);
   assert(versions.some(c=>c.id===spec.lineage));assert(versions.some(c=>c.id===spec.id));
@@ -96,7 +99,7 @@ test('12 full matches with both editions, equipment, replacement and save/reload
 });
 test('Published PNGs match native pixel proof; PSD roundtrip and template are unchanged',()=>{
  const sha=f=>crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex');
- for(const c of set.cards){
+ for(const c of currentSet.cards){
   const dir=path.resolve(__dirname,'../../creations',c.id),entry=catalogue.cards.filter(p=>p.id===c.id);assert.equal(entry.length,1);
   M.validateProfile(entry[0].profile,c);
   const proof=JSON.parse(fs.readFileSync(path.join(dir,'verification.json'),'utf8'));
