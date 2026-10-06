@@ -33,7 +33,15 @@ async function main(){
     assert.equal(await page.locator('.story-reader-book').count(),0,'disabled covers cannot open a reader');
     assert.match(await page.locator('[data-story-action=open-book] img').getAttribute('src'),/story-closed-grimoire-v2\.webp$/,'the library uses the revised grey Minero cover');
     await page.waitForFunction(()=>document.querySelector('.story-volume-object img')?.naturalWidth===1024);
+    const inactiveStyle=await forthcoming.first().locator('.story-volume-object').evaluate(node=>({filter:getComputedStyle(node).filter,opacity:getComputedStyle(node).opacity,transform:getComputedStyle(node).transform}));
+    assert.match(inactiveStyle.filter,/grayscale\(0\.8\).*brightness\(0\.55\)/,'forthcoming books are desaturated and unlit');
+    assert.equal(inactiveStyle.opacity,'0.8','forthcoming covers have a subdued presence');
+    assert.doesNotMatch(await page.locator('.story-volume-object').first().evaluate(node=>getComputedStyle(node).filter),/grayscale/,'Tome I keeps its original light and finish');
     await page.emulateMedia({reducedMotion:'no-preference'});
+    await forthcoming.first().hover();
+    await page.waitForTimeout(450);
+    const inactiveHover=await forthcoming.first().locator('.story-volume-object').evaluate(node=>({filter:getComputedStyle(node).filter,opacity:getComputedStyle(node).opacity,transform:getComputedStyle(node).transform}));
+    assert.deepEqual(inactiveHover,inactiveStyle,'hover cannot wake or lift a disabled book');
     await page.locator('.story-volume-object').first().hover();
     await page.waitForTimeout(450);
     const coverMatrix=await page.locator('.story-volume-object').first().evaluate(node=>{
@@ -58,9 +66,9 @@ async function main(){
       assert.ok(layout.overflow<=1,'library has no horizontal overflow at '+width+'x'+height);
       assert.ok(layout.button.top>=layout.host.top-1&&layout.button.bottom<=layout.host.bottom+1,'closed volume and open action fit the available screen at '+width+'x'+height);
       assert.ok(layout.title.left>=layout.book.left&&layout.title.right<=layout.book.right&&layout.title.bottom<layout.book.top+layout.book.height*.5,'cover inscription stays above the crystal at '+width+'x'+height);
-      const coverAxis=layout.book.left+layout.book.width*540/1024;
-      assert.ok(Math.abs(layout.title.left+layout.title.width/2-coverAxis)<.5,'inscription is centered on the painted crystal axis at '+width+'x'+height);
-      assert.ok(layout.lines.every(line=>Math.abs(line.left+line.width/2-coverAxis)<.5),'series, title and volume share the same cover axis at '+width+'x'+height);
+      const titleAxis=layout.book.left+layout.book.width*540/1024-2;
+      assert.ok(Math.abs(layout.title.left+layout.title.width/2-titleAxis)<.5,'inscription retains its subtle 2px left optical adjustment at '+width+'x'+height);
+      assert.ok(layout.lines.every(line=>Math.abs(line.left+line.width/2-titleAxis)<.5),'series, title and volume share the same optical alignment at '+width+'x'+height);
       if(width===412){
         assert.equal(await page.locator('.story-library-shelf').evaluate(node=>getComputedStyle(node).gridTemplateColumns.split(' ').length),2,'phone has two readable books per row');
         await page.screenshot({path:path.join(output,'library-phone.png')});
