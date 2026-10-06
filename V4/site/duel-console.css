@@ -7,6 +7,17 @@
 }
 .duel-console::before,.duel-console::after{content:'';pointer-events:none;position:absolute;left:25%;right:25%;height:7px;border:1px solid #e3c8ae;background:linear-gradient(90deg,#574d48,#c8bca7 24%,var(--ritual-color) 50%,#c8bca7 76%,#574d48);clip-path:polygon(0 50%,10% 0,90% 0,100% 50%,90% 100%,10% 100%);box-shadow:0 0 12px var(--ritual-color)}
 .duel-console::before{top:-4px}.duel-console::after{bottom:-4px}
+.duel-console .console-turn-light{
+  position:absolute;inset:5px auto 5px -1px;width:31%;z-index:-1;pointer-events:none;opacity:0;
+  border-left:1px solid var(--turn-cue-color,var(--kui-energy));
+  background:linear-gradient(90deg,color-mix(in srgb,var(--turn-cue-color,var(--kui-energy)) 12%,transparent),transparent);
+  box-shadow:-6px 0 15px -5px color-mix(in srgb,var(--turn-cue-color,var(--kui-energy)) 42%,transparent),inset 8px 0 17px -12px var(--turn-cue-color,var(--kui-energy));
+  transition:opacity .18s ease;
+}
+.duel-console[data-acting-side="0"]{--turn-cue-color:var(--kui-energy);}
+.duel-console[data-acting-side="1"]{--turn-cue-color:var(--kui-danger);}
+.duel-console[data-acting-side="0"] .console-turn-light,.duel-console[data-acting-side="1"] .console-turn-light{opacity:.85;}
+.duel-console[data-acting-side="1"] .console-turn-light{left:auto;right:-1px;transform:scaleX(-1);}
 .arena-view .duel-die{border:0;padding:5px 5px 8px}
 .arena-view .duel-die:last-child{border:0;padding:8px 5px 5px}
 .arena-view .dice-owner{font-size:10px;color:#b5cebf}

@@ -625,6 +625,24 @@ disposable profiles and synthetic archived/new IDs. It checks desktop/phone,
 both notices, another tab adding a real version, explicit refresh, second reload,
 ownership preservation and an active match. Evidence: `verification/catalogue-notice/`.
 
+## Centered scoreboard and decision light (2026-10-06, 4.5.29)
+
+Desktop `scoreboard.css` uses equal outer grid tracks so the scoreboard remains
+at the toolbar's true centre, independent of title or control width. Existing
+board navigation lives inside the right-hand tools group. The phone layout
+and its compact score remain unchanged.
+
+`syncConsole()` derives `data-acting-side` from the current decision: attacker
+for selection/attack/support, defender for defense, and `replacing` for a
+reinforcement. Setup, initiative, result and finished matches are neutral.
+The decorative `console-turn-light` adds a soft cyan left edge or rose right
+edge below panel content. It has no timer, recurring animation or interaction;
+Reduced Motion removes its short fade. Existing textual/accessible action
+labels remain the primary explanation. Combat and save state are unchanged.
+
+Coverage: `console-turn.test.cjs`, `console-turn.browser.test.cjs` and
+`scoreboard.browser.test.cjs`. See the [release checks and screenshots](../releases/2026-10-06-scoreboard-center/README.md).
+
 ## Kalistar turn timeline (2026-10-05, 4.5.18)
 
 `turn-timeline.css` now uses the shared `--kui-*` materials and Cinzel face,

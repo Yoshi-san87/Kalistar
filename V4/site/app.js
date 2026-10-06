@@ -435,6 +435,8 @@ function showDeck(){setView('decks');}
     node.style.setProperty('--ward-color',color(bc)||'#9acdd5');
     node.style.setProperty('--action-color',s.phase==='guard'?'#a6d8eb':s.phase==='heart'?'#ff96b7':s.phase==='potion'?'#8adbf5':s.phase==='physical'?'#f4b08a':s.phase==='clover'||s.duel?.autoDefense?'#9bebac':s.phase==='defense'?color(bc)||'#9acdd5':color(ac)||'#d3b7ab');
     node.dataset.phase=s.phase;node.dataset.element=ac?.element||'NONE';
+    const actor=['choose','attack','kalistel','clover','potion','physical','heart','guard'].includes(s.phase)?s.turn:s.phase==='defense'?1-s.turn:s.phase==='replace'?s.replacing:null;
+    node.dataset.actingSide=actor===0||actor===1?String(actor):'';
   }
   function recapRow(key,label,value,bonus=true,help=''){
     const symbols={baseAttack:'swords',weapon:'axe',element:'gem',faction:'flag',buff:'sparkles',barrier:'shield-half',baseDefense:'shield',race:'users',arenaAttack:'map',arenaDefense:'map',ward:'shield-check',captainAttack:'crown',captainDefense:'crown',equipmentAttack:'sword',equipmentDefense:'shield'};
@@ -550,6 +552,7 @@ function showDeck(){setView('decks');}
   }
   function decorateArena(){
     const shell=$('.game-shell'),console=$('.duel-console');if(!shell||!console||!game)return;
+    console.insertAdjacentHTML('beforeend','<span class="console-turn-light" aria-hidden="true"></span>');
     const arena=arenaById(game.arenaId),styles={aero:['wind','#acdccc','#152322','bridge'],hydro:['waves','#82dce3','#112429','water'],electro:['zap','#f2d668','#20232c','circuit'],pyro:['flame','#ee9b72','#2b1c1e','forge'],cryo:['snowflake','#b8eaf0','#1b2830','ice'],luxo:['sun','#e8d590','#262521','sun'],minero:['mountain','#b5cbae','#232922','stone'],herbo:['leaf','#a6d88d','#1b2a23','leaves'],hemato:['droplets','#ee879a','#291d28','gates'],necro:['moon','#b2aedf','#211f2e','gates'],geo:['brick-wall','#cfb87f','#282620','stone'],rainbow:['gem','#e4c5e2','#242231','prism'],z13:['pickaxe','#7fded6','#162a2c','circuit'],'trone-fer':['crown','#ddc799','#24282a','gates'],astraball:['goal','#e5b184','#242924','street'],ruins:['landmark','#b7c7ae','#232723','stone']};
     const [symbol,accent,surface,material]=styles[arena.id]||styles.ruins;
     shell.dataset.arena=arena.id;console.dataset.material=material;console.style.setProperty('--arena-accent',accent);console.style.setProperty('--arena-surface',surface);
@@ -559,6 +562,7 @@ function showDeck(){setView('decks');}
     const score=[game.players[1].dead.length,game.players[0].dead.length];
     const opponent=game.mode==='ai'?'Le Veilleur':'Joueur 2';
     const toolbar=$('.arena-toolbar');toolbar.querySelector('.tools').insertAdjacentHTML('beforebegin',`<div class="match-scoreboard" role="group" aria-label="Score du match : Joueur 1 ${score[0]}, ${opponent} ${score[1]}"><div class="score-plate" data-score-side="0"><small>Joueur 1</small><strong data-kills="0">${score[0]}</strong></div><span class="score-seal" aria-hidden="true"><img src="assets/navigation/kalistel-rainbow-v1.webp" alt="" width="24" height="34"><small>10 KILLS</small></span><div class="score-plate" data-score-side="1"><small>${opponent}</small><strong data-kills="1">${score[1]}</strong></div></div>`);
+    toolbar.querySelector('.tools').append(toolbar.querySelector('.board-navigation'));
     const timeline=turnTimeline();shell.classList.toggle('has-turn-timeline',!!timeline);
     if(timeline)toolbar.insertAdjacentHTML('afterend',timeline);
     if(game.phase==='replace'){

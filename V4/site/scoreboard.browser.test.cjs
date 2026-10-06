@@ -14,7 +14,7 @@ async function geometry(page){
       gem:score.querySelector('img').complete&&score.querySelector('img').naturalWidth>0,overflow:document.documentElement.scrollWidth>innerWidth+1,
       now:rail?.querySelector('.tt-now')?.textContent,announcement:rail?.querySelector('.tt-now')?.getAttribute('aria-label'),
       clashes:[...document.querySelectorAll('.mobile-duel-stats,[data-action=arena-menu]')].filter(n=>n.getBoundingClientRect().width).some(n=>overlap(box,rect(n))),
-      animations:score.getAnimations({subtree:true}).length,title:rect(document.querySelector('.arena-toolbar>div:first-child')),toolbar:rect(document.querySelector('.arena-toolbar')),
+      animations:score.getAnimations({subtree:true}).length,title:rect(document.querySelector('.arena-toolbar>div:first-child')),tools:rect(document.querySelector('.arena-toolbar .tools')),toolbar:rect(document.querySelector('.arena-toolbar')),
       nodes:[...score.querySelectorAll('small,strong,img')].map(n=>({text:n.textContent,rect:rect(n),parent:rect(n.parentElement),font:getComputedStyle(n).font}))};
   });
 }
@@ -67,7 +67,7 @@ async function main(){
     assert(fixtures.over.players.some(p=>p.dead.length===10),'real double-digit final score');
     const ai=structuredClone(fixtures.kill);ai.mode='ai';await restore(page,ai);
     assert.match(await page.locator('.match-scoreboard').getAttribute('aria-label'),/Le Veilleur/);
-    for(const [width,height]of [[1920,1080],[1440,1000],[1024,768],[412,1007],[390,844],[320,568],[699,900],[844,390]]){
+    for(const [width,height]of [[2048,1169],[1920,1080],[1440,1000],[1250,900],[1100,800],[1024,768],[700,900],[951,480],[412,1007],[390,844],[320,568],[699,900],[844,390]]){
       await page.setViewportSize({width,height});await page.waitForTimeout(250);const result=await geometry(page);
       await page.screenshot({path:path.join(output,'arena-'+width+'.png')});
       if(!result.inside)console.log(JSON.stringify(result,null,2));
@@ -77,6 +77,10 @@ async function main(){
       assert(result.box.left>=0&&result.box.right<=width+1,'score fits viewport at '+width);
       if(width===1024){assert(result.title.width>=220,'arena title keeps its space');assert(result.toolbar.height<=180,'no tall toolbar from compressed title');}
       if(width<700||width<=950&&height<=500){assert(result.box.top>=result.rail.bottom);assert.equal(result.box.width,110);}
+      else{
+        assert(Math.abs((result.box.left+result.box.right)/2-(result.toolbar.left+result.toolbar.right)/2)<1,'scoreboard centered at '+width);
+        assert(result.title.right<=result.box.left&&result.tools.left>=result.box.right,'title and tools stay on their own sides at '+width);
+      }
       checks.push({width,height,...result});
       if(width===1440)await page.locator('.match-scoreboard').screenshot({path:path.join(output,'desktop-scoreboard.png')});
       if(width===412)await page.screenshot({path:path.join(output,'phone-header.png'),clip:{x:0,y:0,width:412,height:150}});
@@ -89,7 +93,7 @@ async function main(){
     await page.emulateMedia({reducedMotion:'reduce'});await restore(page,ai);assert.equal((await geometry(page)).animations,0);
     await page.setViewportSize({width:1024,height:768});await page.locator('[data-action=fullscreen]').click();
     await page.waitForFunction(()=>document.fullscreenElement===document.documentElement);await page.waitForTimeout(200);
-    const immersive=await geometry(page);assert(immersive.inside&&!immersive.clashes);checks.push({name:'fullscreen',...immersive});
+    const immersive=await geometry(page);assert(immersive.inside&&!immersive.clashes);assert(Math.abs((immersive.box.left+immersive.box.right)/2-(immersive.toolbar.left+immersive.toolbar.right)/2)<1);checks.push({name:'fullscreen',...immersive});
     await page.screenshot({path:path.join(output,'fullscreen-scoreboard.png')});
     await page.evaluate(()=>document.exitFullscreen());await page.waitForFunction(()=>!document.fullscreenElement);
     await page.setViewportSize({width:1440,height:1000});await page.goto(url+'?phone=razr50#arena');
@@ -98,7 +102,7 @@ async function main(){
     assert.deepEqual(await frame.locator('[data-kills]').allTextContents(),[String(ai.players[1].dead.length),String(ai.players[0].dead.length)]);
     await page.screenshot({path:path.join(output,'razr50-preview.png')});
     assert.deepEqual(errors,[]);fs.writeFileSync(path.join(output,'results.json'),JSON.stringify({checks,errors},null,2)+'\n');
-    console.log('PASS: real 0/kill/10 scores, reload, AI opponent, eight layouts, no overlaps, accessible timeline, Reduced Motion and Razr 50.');
+    console.log('PASS: centered desktop/fullscreen scoreboard, real 0/kill/10 scores, reload, AI opponent, 13 layouts, no overlaps, accessible timeline, Reduced Motion and Razr 50.');
   }finally{await browser.close();}
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});
