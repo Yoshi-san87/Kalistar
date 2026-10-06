@@ -6,7 +6,7 @@
   'use strict';
   const families=Object.freeze(['Hache','Marteau','Masse','Poing','Fléau','Arc','Fouet','Gun','Lance','Projectile','Bâton','Instrument','Sceptre','Tome','Orbe','Dague','Epée courte','Epée longue','Katana','Faucille']);
   const native=Object.freeze({left:89,top:1116,width:96,height:95,cx:137,cy:1163.5});
-  const revisions=Object.freeze({'00':2,'07':2,'09':2,'15':2,'19':2});
+  const revisions=Object.freeze({'00':2,'07':2,'09':3,'15':2,'19':2});
   const pending=new Map();
   let enamelPromise;
   const code=family=>{const index=families.indexOf(family);return index<0?null:String(index).padStart(2,'0');};

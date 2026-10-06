@@ -5,7 +5,7 @@ test('all 20 actual base families keep their existing matrix IDs',()=>{
   assert.deepEqual(W.families,Object.keys(matrix));
   for(const [i,family]of W.families.entries()){
     const code=String(i).padStart(2,'0');assert.equal(W.code(family),code);
-    assert.equal(W.asset(code),'assets/base-weapons/'+code+'.svg'+([0,7,9,15,19].includes(i)?'?v=2':''));
+    assert.equal(W.asset(code),'assets/base-weapons/'+code+'.svg'+(i===9?'?v=3':[0,7,15,19].includes(i)?'?v=2':''));
   }
   for(const invalid of [null,'','99','../00','0','Katana'])assert.equal(W.asset(invalid),null);
   assert.equal(W.code('unknown'),null);
@@ -15,7 +15,7 @@ test('native anchor and all calibrated white contours respect the original circl
   const proof=require('../revisions/2026-10-04-white-weapons-refinement/geometry.json');
   assert.equal(proof.icons.length,20);
   for(const original of proof.icons){
-    const item=original.code==='09'?require('../revisions/2026-10-06-weapon-families/projectile-geometry.json'):original;
+    const item=original.code==='09'?require('../revisions/2026-10-06-projectile-straight/projectile-geometry.json'):original;
     const source=fs.readFileSync(path.join(__dirname,'assets/base-weapons',item.code+'.svg'));
     assert.equal(crypto.createHash('sha256').update(source).digest('hex'),item.sha256);
     assert(item.fullRadius<=44);assert(item.opticalError<.8);
@@ -27,8 +27,14 @@ test('Projectile alone adopts a throwing-star silhouette; native geometry stays 
   const previous=require('../revisions/2026-10-04-white-weapons-refinement/geometry.json').icons;
   const changed=previous.filter(item=>crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname,'assets/base-weapons',item.code+'.svg'))).digest('hex')!==item.sha256);
   assert.deepEqual(changed.map(i=>i.family),['Projectile']);
-  const source=fs.readFileSync(path.join(__dirname,'../revisions/2026-10-06-weapon-families/projectile.cjs'),'utf8');
+  const source=fs.readFileSync(path.join(__dirname,'../revisions/2026-10-06-projectile-straight/projectile.cjs'),'utf8');
   assert.match(source,/fill-rule="evenodd"/);assert.match(source,/stroke="white"/);
+});
+test('Projectile has four equal, axis-aligned points and quarter-turn symmetry',()=>{
+  const {outline,center:[cx,cy],body}=require('../revisions/2026-10-06-projectile-straight/projectile.cjs');
+  assert.equal(outline.length,8);assert.doesNotMatch(body,/rotate/);
+  assert.deepEqual(outline.filter((_,i)=>i%2===0),[[cx,cy-88],[cx+88,cy],[cx,cy+88],[cx-88,cy]]);
+  for(let i=0;i<outline.length;i++){const [x,y]=outline[i];assert.deepEqual([cx-(y-cy),cy+(x-cx)],outline[(i+2)%8]);}
 });
 test('four requested silhouettes change; the other sixteen stay byte-identical',()=>{
   const before=require('../revisions/2026-10-04-white-weapons/geometry.json').icons;
