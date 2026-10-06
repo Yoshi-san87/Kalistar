@@ -243,12 +243,15 @@ static publication; other JSON files remain excluded. `story-reader.browser.test
 covers reading controls, saved progress, desktop book geometry, phone layouts
 and horizontal overflow.
 
-The completed novelization contains 80,144 words in 744 paragraphs, with a
-prologue and seventeen chapters. Source priorities, chapter counts and final
-verification are recorded in `../docs/HISTOIRE_80K_PLAN.md`. Chapter I illustrates
+The current novelization targets 100,000 to 120,000 words, with a prologue and
+seventeen chapters. The new author DOCX takes priority over the earlier 80,000-word
+draft; editorial decisions and chapter counts are recorded in
+`../docs/HISTOIRE_100K_REPRISE.md`. Gen's costly Electro transfusion is restored
+in the novel without altering his playable card or the game rules. Chapter I illustrates
 Baba at the tavern, chapter IV Kaylis during the escape, chapter V Balmhyr with
 Belzebuth, and chapter VIII Lanio playing Astraball. `story-content.test.cjs`
-checks the 80,000-word target, section order, duplicate paragraphs and these semantic anchors so edits
+checks the requested word range, section order, duplicate paragraphs, narrative
+milestones and these semantic anchors so edits
 cannot silently move an illustration to a different scene.
 
 The desktop spread uses the background's native 1672 x 941 ratio and fits the

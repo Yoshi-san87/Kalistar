@@ -49,6 +49,16 @@ temporaires du presse-papiers ou les preferences non encore documentees.
 
 ## Reperes techniques
 
+### Story : source narrative du 6 octobre 2026
+
+Lire [la reprise longue du Reveil](../V4/docs/HISTOIRE_100K_REPRISE.md) avant
+toute modification du roman. Le DOCX fourni localement par l'auteur remplace
+les choix narratifs anterieurs, notamment concernant la transfusion Electro
+de Gen au IV. Ne pas reutiliser l'ancien rapport 80K comme une instruction
+pour annuler cette correction. Les notes de suite restent reservees ; aucun
+acces au Drive n'est autorise pour ce travail. Les cartes jouables, leurs
+profils et les regles ne changent pas avec le roman.
+
 ### Armes equipees V4.3.6
 
 La [publication V4.3.6](../V4/releases/2026-10-02-equipped-weapons/README.md)
