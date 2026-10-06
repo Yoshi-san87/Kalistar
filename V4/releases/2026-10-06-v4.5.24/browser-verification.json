@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "testedTree": "8f18ba11d93f34acd81530de97a27f7cb2a036b7",
+  "command": "node V4/deploy/browser.test.cjs",
+  "environment": "Isolated staged snapshot; headless Chrome; fresh browser context",
+  "cards": 214,
+  "checks": [
+    "desktop and mobile versions",
+    "reader and PNG download",
+    "deck builder and prematch",
+    "arena and rules dialogs",
+    "saved match restoration",
+    "additive catalogue publication",
+    "no JavaScript or HTTP errors"
+  ]
+}
