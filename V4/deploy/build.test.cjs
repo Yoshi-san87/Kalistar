@@ -13,6 +13,7 @@ test('release contains all published cards and only playable files', async () =>
   assert.ok(files.every(f => !/\.(psd|psb|cjs|ps1|cmd|zip|lnk|json|md)$/i.test(f.target) || f.target === 'jeu/story-content.json'));
   assert.ok(files.some(f => f.target === 'jeu/story-content.json'));
   assert.ok(files.some(f => f.target === 'jeu/assets/ui/story-closed-grimoire-v2.webp'));
+  assert.equal(files.filter(f => f.target.startsWith('jeu/assets/ui/story-books/')).length, 11, 'all forthcoming Kalistel covers are published');
   assert.ok(files.every(f => !/story-closed-grimoire-v\d+\.original\.png$/.test(f.target)), 'cover authoring sources stay out of the runtime');
   const story = JSON.parse(fs.readFileSync(path.join(__dirname, '../site/story-content.json'), 'utf8'));
   assert.equal(story.sections.length, 18);
@@ -63,9 +64,9 @@ test('static release versions stylesheet and script URLs together', () => {
 test('application version matches in desktop and phone headers', () => {
   const html = fs.readFileSync(path.join(__dirname, '../site/index.html'), 'utf8');
   const css = fs.readFileSync(path.join(__dirname, '../site/v4.css'), 'utf8');
-  assert.match(html, /<title>Kalistar V4\.5\.40/);
-  assert.match(html, /<span class="edition">VERSION 4\.5\.40<\/span>/);
-  assert.ok(css.includes("content:'V4.5.40'"));
+  assert.match(html, /<title>Kalistar V4\.5\.41/);
+  assert.match(html, /<span class="edition">VERSION 4\.5\.41<\/span>/);
+  assert.ok(css.includes("content:'V4.5.41'"));
 });
 test('hosting adapter supports local, project Pages and saved canonical image paths', () => {
   const script = fs.readFileSync(path.join(__dirname, '../site/site-config.js'), 'utf8');

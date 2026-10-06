@@ -23,29 +23,48 @@ async function main(){
     await page.locator('.story-library').waitFor();
     assert.equal(await page.locator('.story-reader-book').count(),0,'Story starts with a closed volume, not the manuscript');
     assert.equal(await page.locator('.story-volume-title').textContent(),'Le Réveil');
-    assert.match(await page.locator('.story-volume-object img').getAttribute('src'),/story-closed-grimoire-v2\.webp$/,'the library uses the revised grey Minero cover');
+    assert.equal(await page.locator('.story-volume').count(),12,'one book per Kalistel');
+    assert.equal(await page.locator('.story-volume:enabled').count(),1,'only Tome I can open');
+    assert.equal(await page.locator('.story-volume-unavailable:disabled').count(),11);
+    const forthcoming=page.locator('.story-volume-unavailable');
+    assert.equal(await forthcoming.locator('.story-volume-inscription,.story-volume-command').count(),0,'future books have no title or action');
+    assert.equal(await forthcoming.evaluateAll(nodes=>nodes.every(node=>!node.textContent.trim()&&!node.hasAttribute('data-story-action'))),true,'disabled books have no visible text or reader action');
+    await forthcoming.evaluateAll(nodes=>nodes.forEach(node=>node.click()));
+    assert.equal(await page.locator('.story-reader-book').count(),0,'disabled covers cannot open a reader');
+    assert.match(await page.locator('[data-story-action=open-book] img').getAttribute('src'),/story-closed-grimoire-v2\.webp$/,'the library uses the revised grey Minero cover');
     await page.waitForFunction(()=>document.querySelector('.story-volume-object img')?.naturalWidth===1024);
     await page.emulateMedia({reducedMotion:'no-preference'});
-    await page.locator('.story-volume-object').hover();
+    await page.locator('.story-volume-object').first().hover();
     await page.waitForTimeout(450);
-    const coverMatrix=await page.locator('.story-volume-object').evaluate(node=>{
+    const coverMatrix=await page.locator('.story-volume-object').first().evaluate(node=>{
       const matrix=new DOMMatrixReadOnly(getComputedStyle(node).transform);
       return [matrix.m11,matrix.m12,matrix.m13,matrix.m21,matrix.m22,matrix.m23,matrix.m31,matrix.m32,matrix.m33];
     });
     assert.deepEqual(coverMatrix,[1,0,0,0,1,0,0,0,1],'hover preserves an upright cover without rotation or perspective');
     await page.mouse.move(0,0);
     await page.emulateMedia({reducedMotion:'reduce'});
+    await page.evaluate(async()=>{
+      await Promise.all([...document.querySelectorAll('.story-volume img')].map(img=>{img.loading='eager';return img.decode();}));
+    });
+    assert.equal(await page.locator('.story-library-shelf').evaluate(node=>getComputedStyle(node).gridTemplateColumns.split(' ').length),6,'desktop shows six books per row');
     await page.screenshot({path:path.join(output,'library-desktop.png')});
     for(const [width,height] of [[1440,1000],[1024,768],[850,760],[412,1007],[390,844],[320,568],[844,390]]){
       await page.setViewportSize({width,height});
-      const layout=await page.locator('.story-volume').evaluate(node=>{
+      const layout=await page.locator('[data-story-action=open-book]').evaluate(node=>{
         const button=node.getBoundingClientRect(),book=node.querySelector('.story-volume-object').getBoundingClientRect(),title=node.querySelector('.story-volume-inscription').getBoundingClientRect(),host=document.querySelector('#story-reader-root').getBoundingClientRect();
         return {button:button.toJSON(),book:book.toJSON(),title:title.toJSON(),host:host.toJSON(),overflow:document.documentElement.scrollWidth-innerWidth};
       });
       assert.ok(layout.overflow<=1,'library has no horizontal overflow at '+width+'x'+height);
       assert.ok(layout.button.top>=layout.host.top-1&&layout.button.bottom<=layout.host.bottom+1,'closed volume and open action fit the available screen at '+width+'x'+height);
       assert.ok(layout.title.left>=layout.book.left&&layout.title.right<=layout.book.right&&layout.title.bottom<layout.book.top+layout.book.height*.5,'cover inscription stays above the crystal at '+width+'x'+height);
-      if(width===412)await page.screenshot({path:path.join(output,'library-phone.png')});
+      if(width===412){
+        assert.equal(await page.locator('.story-library-shelf').evaluate(node=>getComputedStyle(node).gridTemplateColumns.split(' ').length),2,'phone has two readable books per row');
+        await page.screenshot({path:path.join(output,'library-phone.png')});
+        await page.locator('[data-story-kalistel=RAINBOW]').scrollIntoViewIfNeeded();
+        assert.equal(await page.locator('[data-story-kalistel=RAINBOW] img').evaluate(node=>node.naturalWidth),1024,'phone can reach the final book');
+        await page.screenshot({path:path.join(output,'library-phone-last-row.png')});
+        await page.locator('.story-library').evaluate(node=>{node.scrollTop=0;});
+      }
     }
     await page.setViewportSize({width:1440,height:1000});
     await page.locator('[data-story-action=open-book]').focus();
@@ -114,8 +133,8 @@ async function main(){
     for(const [width,height] of [[320,568],[844,390]]){
       await page.setViewportSize({width,height});
       const fits=await page.locator('.story-library').evaluate(node=>{
-        const host=node.getBoundingClientRect(),children=[...node.children].map(child=>child.getBoundingClientRect());
-        return children.every(box=>box.top>=host.top&&box.bottom<=host.bottom);
+        const host=node.getBoundingClientRect(),first=node.querySelector('.story-library-volume').getBoundingClientRect();
+        return first.top>=host.top&&first.bottom<=host.bottom;
       });
       assert.ok(fits,'book and saved reading marker fit the short screen together at '+width+'x'+height);
     }

@@ -2,24 +2,44 @@ body.story-view { display: flex; flex-direction: column; width: 100%; height: 10
 body.story-view > .masthead { flex: none; }
 body.story-view #app { flex: 1 1 0; width: 100%; min-width: 0; min-height: 0; margin: 0; padding: 0; overflow: hidden; }
 #story-reader-root { width: 100%; height: 100%; min-width: 0; min-height: 0; }
-.story-library { --story-cover-space: 60px; container-type: size; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; width: 100%; height: 100%; min-height: 0; padding: 22px; overflow-y: auto; background: #101813; }
-.story-library:has(.story-library-progress) { --story-cover-space: 118px; }
-.story-volume { display: grid; justify-items: center; gap: 16px; flex: none; width: min(430px,100cqw); padding: 0; border: 0; border-radius: 0; color: #e8d5ac; background: none; font-family: var(--kalistar-display,var(--serif)); cursor: pointer; }
+.story-library { --story-cover-space: 64px; container-type: size; width: 100%; height: 100%; min-height: 0; padding: 24px; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; background: #101813; }
+.story-library::-webkit-scrollbar { display: none; }
+.story-library:has(.story-library-progress) { --story-cover-space: 120px; }
+.story-library-shelf { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); align-items: start; gap: 30px 22px; width: min(100%,1800px); margin: 0 auto; }
+.story-library-volume { display: grid; justify-items: center; gap: 10px; min-width: 0; }
+.story-volume { display: grid; justify-items: center; gap: 8px; container-type: inline-size; width: 100%; padding: 0; border: 0; border-radius: 0; color: #e8d5ac; background: none; font-family: var(--kalistar-display,var(--serif)); cursor: pointer; }
 .story-volume-object { position: relative; display: block; width: min(100%,calc((100cqh - var(--story-cover-space)) * .6667)); aspect-ratio: 2 / 3; filter: drop-shadow(0 16px 20px #0008); transform-origin: 10% 50%; transition: transform .4s ease,filter .4s ease; }
 .story-volume-object > img { display: block; width: 100%; height: 100%; object-fit: contain; }
-.story-volume-inscription { position: absolute; top: 19%; left: 19%; right: 9%; display: grid; justify-items: center; gap: 17px; text-align: center; text-shadow: 0 2px 3px #000; }
+.story-volume-inscription { position: absolute; top: 19%; left: 19%; right: 9%; display: grid; justify-items: center; gap: 9px; text-align: center; text-shadow: 0 2px 3px #000; }
 .story-volume-series { color: #cdb183; font-size: 14px; font-weight: 600; }
-.story-volume-title { color: #f4e4c3; font-size: 32px; font-weight: 600; line-height: 1.3; overflow-wrap: anywhere; }
+.story-volume-title { color: #f4e4c3; font-size: 24px; font-weight: 600; line-height: 1.3; overflow-wrap: anywhere; }
 .story-volume-number { color: #ddc592; font-size: 13px; }
-.story-volume-command { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 44px; color: #dfc796; font: 600 13px/1.5 var(--kalistar-display,var(--serif)); }
+.story-volume-command { display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; color: #dfc796; font: 600 12px/1.5 var(--kalistar-display,var(--serif)); }
 .story-volume-command .lucide { width: 18px; height: 18px; }
 .story-volume:hover:not(:disabled) .story-volume-object { transform: translateY(-3px); filter: drop-shadow(0 20px 24px #000a) brightness(1.07); }
 .story-volume:focus-visible { outline: 2px solid #7cd7d0; outline-offset: 8px; }
 .story-volume:disabled { cursor: progress; }
-.story-library-progress { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 4px 12px; flex: none; width: min(340px,100%); color: #b6c4b8; font: 12px/1.5 var(--sans); }
+.story-volume-unavailable:disabled { opacity: 1; cursor: default; }
+.story-library-progress { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 4px 8px; width: 100%; min-width: 0; color: #b6c4b8; font: 11px/1.5 var(--sans); }
 .story-library-progress > span:first-child { grid-column: 1 / -1; text-align: center; overflow-wrap: anywhere; }
 .story-library-progress .story-progress-track { align-self: center; background: #d7c99f26; }
 .story-library-progress .story-progress-track > span { background: #b9a575; }
+@container (max-width: 250px) {
+  .story-volume-inscription { gap: 6px; }
+  .story-volume-title { font-size: 20px; }
+  .story-volume-series,.story-volume-number { font-size: 11px; }
+}
+@container (max-width: 170px) {
+  .story-volume-title { font-size: 16px; }
+  .story-volume-series,.story-volume-number { font-size: 9px; }
+  .story-volume-inscription { gap: 4px; }
+}
+@media (max-width: 1299px) { .story-library-shelf { grid-template-columns: repeat(4,minmax(0,1fr)); } }
+@media (max-width: 899px) { .story-library-shelf { grid-template-columns: repeat(3,minmax(0,1fr)); } }
+@media (max-width: 699px) {
+  .story-library { padding: 16px 12px; }
+  .story-library-shelf { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px 12px; }
+}
 .story-book-opening { animation: story-book-open .38s ease-out both; }
 .story-loading,.story-load-error { display: grid; place-content: center; justify-items: center; gap: 14px; width: 100%; height: 100%; padding: 24px; color: #e3d3b2; text-align: center; }
 .story-loading { font: 600 18px/1.6 'Segoe Print','Bradley Hand',cursive; }
@@ -160,17 +180,12 @@ body.story-view #app { flex: 1 1 0; width: 100%; min-width: 0; min-height: 0; ma
 }
 @media (max-width: 699px) {
   body.story-view { padding-bottom: var(--phone-nav); }
-  .story-library { padding: 16px; gap: 10px; }
-  .story-volume { width: min(340px,100cqw); gap: 12px; }
-  .story-volume-inscription { gap: 12px; }
-  .story-volume-title { font-size: 26px; }
 }
 @media (max-height: 650px) {
-  .story-library { --story-cover-space: 50px; gap: 5px; padding-block: 12px; }
-  .story-library:has(.story-library-progress) { --story-cover-space: 100px; }
-  .story-volume { width: min(280px,100cqw); gap: 6px; }
+  .story-library { padding-block: 12px; }
+  .story-volume { gap: 6px; }
   .story-volume-inscription { top: 17%; gap: 5px; }
-  .story-volume-title { font-size: 20px; }
+  .story-volume-title { font-size: 16px; }
   .story-volume-series,.story-volume-number { font-size: 10px; }
   .story-library-progress { font-size: 11px; }
 }

@@ -1,6 +1,7 @@
 (() => {
   'use strict';
   const escape = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  const forthcomingKalistels = Object.freeze(['ELECTRO','PYRO','HYDRO','CRYO','AERO','HERBO','GEO','HEMATO','NECRO','LUXO','RAINBOW']);
 
   function create({storageKey = 'kalistar.v4.story-progress'} = {}) {
     let root = null, manuscript = null, loading = null, saveTimer = 0, observer = null, wordCounts = [], wordTotal = 0, opening = false, generation = 0;
@@ -25,13 +26,22 @@
       state.section = Math.min(state.section, manuscript.sections.length - 1);
       const started = state.section > 0 || state.ratio > 0, section = manuscript.sections[state.section];
       root.innerHTML = `<section class="story-library" aria-label="Bibliothèque Kalistar">
+        <div class="story-library-shelf">
+        <div class="story-library-volume">
         <button type="button" class="story-volume" data-story-action="open-book" aria-label="${started ? 'Reprendre' : 'Ouvrir'} ${escape(manuscript.title)}, ${escape(manuscript.volume)}">
           <span class="story-volume-object"><img src="${escape(asset('assets/ui/story-closed-grimoire-v2.webp'))}" alt="" width="1024" height="1536" decoding="async">
             <span class="story-volume-inscription"><span class="story-volume-series">${escape(manuscript.series)}</span><span class="story-volume-title">${escape(manuscript.title)}</span><span class="story-volume-number">${escape(manuscript.volume)}</span></span>
           </span>
-          <span class="story-volume-command"><i data-lucide="book-open"></i>${started ? 'Reprendre la lecture' : 'Ouvrir le livre'}<i data-lucide="chevron-right"></i></span>
+          <span class="story-volume-command"><i data-lucide="book-open" aria-hidden="true"></i>${started ? 'Reprendre' : 'Ouvrir'}<i data-lucide="chevron-right" aria-hidden="true"></i></span>
         </button>
         ${started ? `<div class="story-library-progress"><span>${escape(section.label)} · ${escape(section.title)}</span><div class="story-progress-track" role="progressbar" aria-label="Progression dans ${escape(manuscript.title)}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${bookProgress()}"><span style="width:${bookProgress()}%"></span></div><span>${bookProgress()}%</span></div>` : ''}
+        </div>
+        ${forthcomingKalistels.map(code => `<div class="story-library-volume">
+          <button type="button" class="story-volume story-volume-unavailable" data-story-kalistel="${code}" disabled aria-label="Livre ${code}, indisponible">
+            <span class="story-volume-object"><img src="${escape(asset('assets/ui/story-books/' + code.toLowerCase() + '-book-v1.webp'))}" alt="" width="1024" height="1536" loading="lazy" decoding="async"></span>
+          </button>
+        </div>`).join('')}
+        </div>
       </section>`;
       window.KalistarUI?.icons(root)??window.lucide?.createIcons({root});
       if (focus) root.querySelector('[data-story-action=open-book]')?.focus({preventScroll: true});

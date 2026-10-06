@@ -1,0 +1,491 @@
+{
+  "schemaVersion": 1,
+  "createdOn": "2026-10-06",
+  "method": "Built-in image_gen, precise-object-edit; approved MINERO reused unchanged",
+  "count": 12,
+  "purpose": "Twelve Kalistel covers in Story; only Tome I opens, no new story content",
+  "runtimeFormat": "1024 x 1536 alpha WebP, quality 92, effort 4",
+  "sourceOfTruth": "V3/donnees/elements.json",
+  "items": [
+    {
+      "code": "ELECTRO",
+      "label": "Électricité",
+      "color": "#F5DC32",
+      "method": "built-in-image_gen",
+      "original": "originals/ELECTRO.png",
+      "image": "images/electro-book-v1.webp",
+      "prompt": "prompts/ELECTRO.txt",
+      "width": 1024,
+      "height": 1536,
+      "hasAlpha": true,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "originalFile": {
+        "bytes": 3457316,
+        "sha256": "322b63577093484b461e567c06255c4fd11be22523865c5cbd9741bd2bf06d0b"
+      },
+      "runtimeFile": {
+        "bytes": 666148,
+        "sha256": "d00f7047c707e76aee4060b994cd7fd314553cc087a4d1bb77f3f5b95066755f"
+      },
+      "promptFile": {
+        "bytes": 1935,
+        "sha256": "f09a09e2d9700510f3607f0316a1fdcc1f7bc3d02125997363bc817a48b183a8"
+      },
+      "references": [
+        {
+          "path": "V4/site/assets/ui/story-closed-grimoire-v2.webp",
+          "bytes": 671166,
+          "sha256": "3e50c2fb8fe605a08c706a251a68fa379a934baed0fb68cc2c2bd464a82a4a24"
+        },
+        {
+          "path": "V3/assets/cristaux/ELECTRO.png",
+          "bytes": 191721,
+          "sha256": "0bad717a715183c3aa43445c0db8604c3c8a86564ba64b8f5a5664f7e5802659"
+        }
+      ]
+    },
+    {
+      "code": "PYRO",
+      "label": "Feu",
+      "color": "#FF704A",
+      "method": "built-in-image_gen",
+      "original": "originals/PYRO.png",
+      "image": "images/pyro-book-v1.webp",
+      "prompt": "prompts/PYRO.txt",
+      "width": 1024,
+      "height": 1536,
+      "hasAlpha": true,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "originalFile": {
+        "bytes": 3313098,
+        "sha256": "5e2dd5c739f708105ff82f1a8aa9693ed5ceef1f8e340498469725a046591b2f"
+      },
+      "runtimeFile": {
+        "bytes": 627946,
+        "sha256": "7562aa5c13f1baef9ed134e34c07bf0f8be72826f56c311750439c2bf9c0bab1"
+      },
+      "promptFile": {
+        "bytes": 1890,
+        "sha256": "8673cae5142a7dd57c9d45321dba6f25101fba5c2039bbf8f9e07ee71db5c287"
+      },
+      "references": [
+        {
+          "path": "V4/site/assets/ui/story-closed-grimoire-v2.webp",
+          "bytes": 671166,
+          "sha256": "3e50c2fb8fe605a08c706a251a68fa379a934baed0fb68cc2c2bd464a82a4a24"
+        },
+        {
+          "path": "V3/assets/cristaux/PYRO.png",
+          "bytes": 192035,
+          "sha256": "2b3b90472b0c796164ae36fd42a77d3edbd91273955c9c814034e9b755b19e4c"
+        }
+      ]
+    },
+    {
+      "code": "HYDRO",
+      "label": "Eau",
+      "color": "#38CBED",
+      "method": "built-in-image_gen",
+      "original": "originals/HYDRO.png",
+      "image": "images/hydro-book-v1.webp",
+      "prompt": "prompts/HYDRO.txt",
+      "width": 1024,
+      "height": 1536,
+      "hasAlpha": true,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "originalFile": {
+        "bytes": 3416677,
+        "sha256": "a22d9430b007dbe981a97968d41af22ce14ff0bb2319c4cb687a68f51997a0a4"
+      },
+      "runtimeFile": {
+        "bytes": 621466,
+        "sha256": "bc4884b7fbaa663569bb42916013f3724211346f44f5571bd8bc49931ba73c24"
+      },
+      "promptFile": {
+        "bytes": 1888,
+        "sha256": "896186461ee023ec10492539b168edd8537906a0bc80cfc882dc135d6158783b"
+      },
+      "references": [
+        {
+          "path": "V4/site/assets/ui/story-closed-grimoire-v2.webp",
+          "bytes": 671166,
+          "sha256": "3e50c2fb8fe605a08c706a251a68fa379a934baed0fb68cc2c2bd464a82a4a24"
+        },
+        {
+          "path": "V3/assets/cristaux/HYDRO.png",
+          "bytes": 200234,
+          "sha256": "9fbac0d2911f1efce3dcf681fa0bd73434c667f300df447e60ae0f1bbd6351f2"
+        }
+      ]
+    },
+    {
+      "code": "CRYO",
+      "label": "Glace",
+      "color": "#ACDFFD",
+      "method": "built-in-image_gen",
+      "original": "originals/CRYO.png",
+      "image": "images/cryo-book-v1.webp",
+      "prompt": "prompts/CRYO.txt",
+      "width": 1024,
+      "height": 1536,
+      "hasAlpha": true,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "originalFile": {
+        "bytes": 3524988,
+        "sha256": "c0821a8b253dc3c9b05210e2274b8e84ffc81f8dd131e63f26b29c6135dcc622"
+      },
+      "runtimeFile": {
+        "bytes": 612628,
+        "sha256": "e2924b46db80459aeeb06cd6ec14d1d53835d149f759b5b24685f56c96b981b7"
+      },
+      "promptFile": {
+        "bytes": 1898,
+        "sha256": "840dce8d4b1032d30321d78754b91e9810bfdb6beb664954eea3cc8faa9f3699"
+      },
+      "references": [
+        {
+          "path": "V4/site/assets/ui/story-closed-grimoire-v2.webp",
+          "bytes": 671166,
+          "sha256": "3e50c2fb8fe605a08c706a251a68fa379a934baed0fb68cc2c2bd464a82a4a24"
+        },
+        {
+          "path": "V3/assets/cristaux/CRYO.png",
+          "bytes": 206258,
+          "sha256": "99f06d3a9001b1948e68dc32236659119970568188a398b96eef6d04af6b9efe"
+        }
+      ]
+    },
+    {
+      "code": "AERO",
+      "label": "Air",
+      "color": "#89EDC2",
+      "method": "built-in-image_gen",
+      "original": "originals/AERO.png",
+      "image": "images/aero-book-v1.webp",
+      "prompt": "prompts/AERO.txt",
+      "width": 1024,
+      "height": 1536,
+      "hasAlpha": true,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "originalFile": {
+        "bytes": 3554258,
+        "sha256": "082a262cd0d8644a85ff7c2e5470864f5714698e697561aa4ebabd7dea27dd39"
+      },
+      "runtimeFile": {
+        "bytes": 646172,
+        "sha256": "80f201713f3d2496a1c4d99049feb275004ff8038421b09d0ca3769395f5b3ae"
+      },
+      "promptFile": {
+        "bytes": 1893,
+        "sha256": "5408c630031285a10ec2ed46303dfb7c0a7af1f42021b71ee3c380cde67f3ddf"
+      },
+      "references": [
+        {
+          "path": "V4/site/assets/ui/story-closed-grimoire-v2.webp",
+          "bytes": 671166,
+          "sha256": "3e50c2fb8fe605a08c706a251a68fa379a934baed0fb68cc2c2bd464a82a4a24"
+        },
+        {
+          "path": "V3/assets/cristaux/AERO.png",
+          "bytes": 206411,
+          "sha256": "f0702e627a34dcdf87bec7b135703624f79522f67d172335d7c40927d5dd2517"
+        }
+      ]
+    },
+    {
+      "code": "HERBO",
+      "label": "Plante",
+      "color": "#89D355",
+      "method": "built-in-image_gen",
+      "original": "originals/HERBO.png",
+      "image": "images/herbo-book-v1.webp",
+      "prompt": "prompts/HERBO.txt",
+      "width": 1024,
+      "height": 1536,
+      "hasAlpha": true,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "originalFile": {
+        "bytes": 3433505,
+        "sha256": "5100c1f05fccfa23ece504cee10b64becaecab0c26d50d41f0de9b35ca725640"
+      },
+      "runtimeFile": {
+        "bytes": 618618,
+        "sha256": "14503fee242b580ddd05b0cda2b02fdf94473c8e9c7dcb7408126031ae842f9a"
+      },
+      "promptFile": {
+        "bytes": 1886,
+        "sha256": "ab2a8db676f5f12edbbbdeab16de14765e342f18a49090aecd88aa84703bfc22"
+      },
+      "references": [
+        {
+          "path": "V4/site/assets/ui/story-closed-grimoire-v2.webp",
+          "bytes": 671166,
+          "sha256": "3e50c2fb8fe605a08c706a251a68fa379a934baed0fb68cc2c2bd464a82a4a24"
+        },
+        {
+          "path": "V3/assets/cristaux/HERBO.png",
+          "bytes": 199248,
+          "sha256": "2be9a5dd5908db6b1ab4f5af1847ae166caf45942d4f9faada2ecd38b65ec483"
+        }
+      ]
+    },
+    {
+      "code": "GEO",
+      "label": "Terre",
+      "color": "#C7AB6D",
+      "method": "built-in-image_gen",
+      "original": "originals/GEO.png",
+      "image": "images/geo-book-v1.webp",
+      "prompt": "prompts/GEO.txt",
+      "width": 1024,
+      "height": 1536,
+      "hasAlpha": true,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "originalFile": {
+        "bytes": 3343903,
+        "sha256": "34ccf37ea9fb5ba172c23863a96789254b475e413ca59cc5009197b4e9a5f9f7"
+      },
+      "runtimeFile": {
+        "bytes": 624370,
+        "sha256": "a456c0c8364533940255213ed7c1f9c63b085754755d27fff0df032c34cb6844"
+      },
+      "promptFile": {
+        "bytes": 1905,
+        "sha256": "f6d1cf5ffc76e2d6007d61c9170a650b62c9e26121ab917af1bc0d5f5ec1bf4d"
+      },
+      "references": [
+        {
+          "path": "V4/site/assets/ui/story-closed-grimoire-v2.webp",
+          "bytes": 671166,
+          "sha256": "3e50c2fb8fe605a08c706a251a68fa379a934baed0fb68cc2c2bd464a82a4a24"
+        },
+        {
+          "path": "V3/assets/cristaux/GEO.png",
+          "bytes": 200038,
+          "sha256": "ecf88131bce228d5acced56947880c8a2434a5f4d1ca7aa090c2e1cbc3513d1e"
+        }
+      ]
+    },
+    {
+      "code": "MINERO",
+      "label": "Roche",
+      "color": "#B3BFCA",
+      "method": "approved-original-reuse",
+      "original": "originals/MINERO.png",
+      "image": "images/minero-book-v1.webp",
+      "prompt": "prompts/MINERO.txt",
+      "width": 1024,
+      "height": 1536,
+      "hasAlpha": true,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "originalFile": {
+        "bytes": 3585154,
+        "sha256": "ab3538af44c3ee19ad87a24be8e29a598d69f807b3bbb93d30ccf51d036a2fb4"
+      },
+      "runtimeFile": {
+        "bytes": 671166,
+        "sha256": "3e50c2fb8fe605a08c706a251a68fa379a934baed0fb68cc2c2bd464a82a4a24"
+      },
+      "promptFile": {
+        "bytes": 2220,
+        "sha256": "b9687dce57e23e512b554a63d4002d441da4a868ca0215e4503e5cadf2819cbe"
+      },
+      "references": [
+        {
+          "path": "V4/site/assets/ui/story-closed-grimoire-v2.webp",
+          "bytes": 671166,
+          "sha256": "3e50c2fb8fe605a08c706a251a68fa379a934baed0fb68cc2c2bd464a82a4a24"
+        },
+        {
+          "path": "V3/assets/cristaux/MINERO.png",
+          "bytes": 198212,
+          "sha256": "abc43bc4435e1d0f064c2f4072195494b62b0e2755843786128fb3c36ffa56c8"
+        }
+      ]
+    },
+    {
+      "code": "HEMATO",
+      "label": "Sang",
+      "color": "#E84976",
+      "method": "built-in-image_gen",
+      "original": "originals/HEMATO.png",
+      "image": "images/hemato-book-v1.webp",
+      "prompt": "prompts/HEMATO.txt",
+      "width": 1024,
+      "height": 1536,
+      "hasAlpha": true,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "originalFile": {
+        "bytes": 3249487,
+        "sha256": "6969db9fe15615128797a2632ecbfd0f4ccaceb968eba9ae456a24324c8c4638"
+      },
+      "runtimeFile": {
+        "bytes": 589168,
+        "sha256": "bb031a44e93d18dfa22fb6558e5043530065e27b599b611dce12076be14701b8"
+      },
+      "promptFile": {
+        "bytes": 1949,
+        "sha256": "2b7da26ff139da7630aa08098c6fe571b5bc492c2fa581636634e66ed5cdd6af"
+      },
+      "references": [
+        {
+          "path": "V4/site/assets/ui/story-closed-grimoire-v2.webp",
+          "bytes": 671166,
+          "sha256": "3e50c2fb8fe605a08c706a251a68fa379a934baed0fb68cc2c2bd464a82a4a24"
+        },
+        {
+          "path": "V3/assets/cristaux/HEMATO.png",
+          "bytes": 182546,
+          "sha256": "1051347697332682646d421e095c13be39296c37dd24ba02d224eeb984e3dc14"
+        }
+      ]
+    },
+    {
+      "code": "NECRO",
+      "label": "Ténèbres",
+      "color": "#A979F7",
+      "method": "built-in-image_gen",
+      "original": "originals/NECRO.png",
+      "image": "images/necro-book-v1.webp",
+      "prompt": "prompts/NECRO.txt",
+      "width": 1024,
+      "height": 1536,
+      "hasAlpha": true,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "originalFile": {
+        "bytes": 3370181,
+        "sha256": "38b45a9e197135e882e862dd1026bc76c0312c18ca0662ea8f433718c17f076c"
+      },
+      "runtimeFile": {
+        "bytes": 595558,
+        "sha256": "9becd6cf0d0d1390fc8c7dfc8d9ca35ea050007b120c3ff049a1ea95fbb6e4e9"
+      },
+      "promptFile": {
+        "bytes": 1891,
+        "sha256": "ed11fcf3d5b3ca81c2054f526a6f0fb083a8865b5b2262fdbe72d39ac0c9bd14"
+      },
+      "references": [
+        {
+          "path": "V4/site/assets/ui/story-closed-grimoire-v2.webp",
+          "bytes": 671166,
+          "sha256": "3e50c2fb8fe605a08c706a251a68fa379a934baed0fb68cc2c2bd464a82a4a24"
+        },
+        {
+          "path": "V3/assets/cristaux/NECRO.png",
+          "bytes": 200333,
+          "sha256": "efffa338807407b0dc52ec001b6cf05596d05e02e9f7dc0a33cb178b6e509964"
+        }
+      ]
+    },
+    {
+      "code": "LUXO",
+      "label": "Lumière",
+      "color": "#F4E9AF",
+      "method": "built-in-image_gen",
+      "original": "originals/LUXO.png",
+      "image": "images/luxo-book-v1.webp",
+      "prompt": "prompts/LUXO.txt",
+      "width": 1024,
+      "height": 1536,
+      "hasAlpha": true,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "originalFile": {
+        "bytes": 3295604,
+        "sha256": "c93d20d86dbcd202d1e0418cb1e60fe4605f42367fcb0d328a209c3ebf2d8192"
+      },
+      "runtimeFile": {
+        "bytes": 560584,
+        "sha256": "d88c5c42fd4c3c79a327079b87118f28c89a682aa3860f631bde4f371692c914"
+      },
+      "promptFile": {
+        "bytes": 1912,
+        "sha256": "1ab4fb085d3c81bcb11de3d405111d6a285f0a3eeb49244630d11d0c4f19c10f"
+      },
+      "references": [
+        {
+          "path": "V4/site/assets/ui/story-closed-grimoire-v2.webp",
+          "bytes": 671166,
+          "sha256": "3e50c2fb8fe605a08c706a251a68fa379a934baed0fb68cc2c2bd464a82a4a24"
+        },
+        {
+          "path": "V3/assets/cristaux/LUXO.png",
+          "bytes": 208178,
+          "sha256": "4026d31e9ff2dd101e0c98581b97130b2d73964128e6a566067d1bb3a7f42eca"
+        }
+      ]
+    },
+    {
+      "code": "RAINBOW",
+      "label": "Rainbow",
+      "color": "#E4D5FB",
+      "method": "built-in-image_gen",
+      "original": "originals/RAINBOW.png",
+      "image": "images/rainbow-book-v1.webp",
+      "prompt": "prompts/RAINBOW.txt",
+      "width": 1024,
+      "height": 1536,
+      "hasAlpha": true,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "originalFile": {
+        "bytes": 3505014,
+        "sha256": "80525f0e91416b68e25f581d79a2876e9d5347516c98419b3afdade5679ddb94"
+      },
+      "runtimeFile": {
+        "bytes": 647198,
+        "sha256": "a2ecc299b52a428d77b7fe20e92bef0f8323e2b547c28e5261b0c439ff071b54"
+      },
+      "promptFile": {
+        "bytes": 2009,
+        "sha256": "ab84a03786f0f0b5553fcb14bafdf296e0bb5933b4d8f3d8456ee2f13224d6b0"
+      },
+      "references": [
+        {
+          "path": "V4/site/assets/ui/story-closed-grimoire-v2.webp",
+          "bytes": 671166,
+          "sha256": "3e50c2fb8fe605a08c706a251a68fa379a934baed0fb68cc2c2bd464a82a4a24"
+        },
+        {
+          "path": "V3/assets/cristaux/RAINBOW.png",
+          "bytes": 209474,
+          "sha256": "e4606cc3a2224b30cfb48154577580913bc062fdf99406fb3761a6df955009eb"
+        }
+      ]
+    }
+  ]
+}

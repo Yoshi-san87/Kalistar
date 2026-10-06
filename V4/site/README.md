@@ -245,6 +245,16 @@ atelier or its write endpoints to the network.
 
 The main navigation opens `Story` as a library with a closed Tome I grimoire.
 The cover is a separate painted WebP; its title remains accessible HTML.
+The library now displays twelve closed books, one per Kalistel. Tome I Minero
+comes first and is the only enabled book. The eleven forthcoming covers have
+no visible title or action, retain their full painted color and use real disabled
+buttons with accessible labels. Six columns on wide desktop, four/three on
+smaller screens and two on phone form a scrollable shelf without horizontal
+overflow. Lazy decoding limits work to visible covers; the reading marker stays
+under Tome I and its saved chapter, theme and scroll position are unchanged.
+The new alpha WebP assets live in assets/ui/story-books/. Original PNGs, exact
+prompts and the hash manifest are preserved in
+../propositions/2026-10-06-kalistel-books-v1/. No new narratives are introduced.
 The current v2 cover is upright grey leather with the approved Minero crystal;
 hover lifts it slightly without tilting. Its original image and exact edit prompt
 are preserved under `../revisions/2026-10-06-story-minero/`.
