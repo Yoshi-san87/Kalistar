@@ -28,11 +28,11 @@ function activate(f,w){
   }
   if(when.reserveAtMost===0){for(const u of p.reserve)u.entered=true;p.dead.push(...p.reserve);p.reserve=[];}
 }
-test('27 unique additions: stable identities, real jobs/factions and conservative declarative effects',async()=>{
-  const data=await dataPromise;assert.equal(additions.length,27);assert.equal(Q.catalogue.weapons.length,29);
-  assert.equal(new Set(Q.catalogue.weapons.map(w=>w.id)).size,29);
+test('30 unique additions: stable identities, real jobs/factions and conservative declarative effects',async()=>{
+  const data=await dataPromise;assert.equal(additions.length,30);assert.equal(Q.catalogue.weapons.length,32);
+  assert.equal(new Set(Q.catalogue.weapons.map(w=>w.id)).size,32);
   assert.equal(additions.filter(w=>w.restrictions.jobs).length,3);
-  assert.equal(additions.filter(w=>w.restrictions.factions).length,4);
+  assert.equal(additions.filter(w=>w.restrictions.factions).length,7);
   for(const w of additions){Q.validateDefinition(w);assert(w.effect.value>=15&&w.effect.value<=25);assert(data.cards.some(c=>Q.compatible(w,c)));assert.equal(w.changesFamily,undefined);}
   const rapier=additions.find(w=>w.id==='white-oath-rapier');
   assert(Q.compatible(rapier,data.cards.find(c=>c.id==='49055457')));

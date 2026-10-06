@@ -5,6 +5,9 @@
   'use strict';
   // Presentation revisions never alter equipment snapshots or their stable art keys.
   const entries={
+    'cryptown-oath-sword':Object.freeze({key:'cryptown-oath-sword-v1',scene:'cryptown-oath-sword-scene-v2.webp',rim:'cryptown-oath-sword-ring-v1.webp',body:'cryptown-oath-sword-v1.webp',color:'#c5a0f8'}),
+    'cryptown-vigil-rifle':Object.freeze({key:'cryptown-vigil-rifle-v1',scene:'cryptown-vigil-rifle-scene-v1.webp',rim:'cryptown-vigil-rifle-ring-v1.webp',body:'cryptown-vigil-rifle-v1.webp',color:'#ba92f0'}),
+    'cryptown-watch-flail':Object.freeze({key:'cryptown-watch-flail-v1',scene:'cryptown-watch-flail-scene-v1.webp',rim:'cryptown-watch-flail-ring-v1.webp',body:'cryptown-watch-flail-v1.webp',color:'#d1a4ff'}),
     'draevenheim-wing-spear':Object.freeze({key:'draevenheim-wing-spear-v1',scene:'draevenheim-wing-spear-scene-v2.webp',rim:'draevenheim-wing-spear-ring-v1.webp',body:'draevenheim-wing-spear-v1.webp',color:'#f49191'}),
     'draevenheim-crimson-crossbow':Object.freeze({key:'draevenheim-crimson-crossbow-v1',scene:'draevenheim-crimson-crossbow-scene-v1.webp',rim:'draevenheim-crimson-crossbow-ring-v1.webp',body:'draevenheim-crimson-crossbow-v1.webp',color:'#ef879c'}),
     'arborium-twinstring-bow':Object.freeze({key:'arborium-twinstring-bow-v1',scene:'arborium-twinstring-bow-scene-v1.webp',rim:'arborium-twinstring-bow-ring-v1.webp',body:'arborium-twinstring-bow-v1.webp',color:'#99f6aa'}),

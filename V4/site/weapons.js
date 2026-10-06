@@ -759,7 +759,28 @@
       condition:'Au plus deux combattants actifs dans son équipe : +20 ATK numérique tant que cette condition dure.',
       lore:'Ses branches de métal noir et ses finitions écarlates portent les marques des veilles sur les murs de Draevenheim. Le carreau rouge repose dans sa rainure comme une promesse retenue. Quand les voix se font rares sur le rempart, son porteur sait qu’un dernier trait peut encore offrir aux autres le temps de rentrer.',
       collectible:{number:'ARM-029',illustration:'draevenheim-crimson-crossbow-v1.webp',flavour:'Un trait rouge, une relève espérée.',
-        alt:'Grande arbalète de métal noir, finitions rouges, cuivre patiné et carreau rouge droit.',cutout:true}}
+        alt:'Grande arbalète de métal noir, finitions rouges, cuivre patiné et carreau rouge droit.',cutout:true}},
+    {id:'cryptown-oath-sword',slot:'weapon',name:'Le Serment sans Visage',family:'Epée longue',visual:'flute',art:'cryptown-oath-sword-v1',
+      restrictions:{factions:['Cryptown']},
+      effect:{trigger:'TEAM_STATE',stat:'ATK',value:20,duration:'WHILE_TRUE',when:{outnumbered:true}},
+      condition:'Moins de combattants actifs dans son équipe que chez l’adversaire : +20 ATK numérique tant que cette condition dure.',
+      lore:'Varkhen a oublié les visages, pas le poids de cette lame. Sa garde de cuivre serre un éclat violet, et son fil droit garde le passage des portes de Cryptown. Quand les rangs se vident, celui qui la porte retrouve un geste plus ancien que sa mémoire : se tenir entre les siens et la nuit.',
+      collectible:{number:'ARM-030',illustration:'cryptown-oath-sword-v1.webp',flavour:'Les visages passent. Le serment demeure.',
+        alt:'Épée de Varkhen, longue lame droite argentée, sillon violet et garde anguleuse en cuivre sombre.',cutout:true}},
+    {id:'cryptown-vigil-rifle',slot:'weapon',name:'La Relève Muette',family:'Gun',visual:'flute',art:'cryptown-vigil-rifle-v1',
+      restrictions:{factions:['Cryptown']},
+      effect:{trigger:'TEAM_STATE',stat:'ATK',value:20,duration:'WHILE_TRUE',when:{reserveAtMost:0}},
+      condition:'Aucun combattant dans sa réserve : +20 ATK numérique tant que cette condition dure. Aucun bonus sur Mort.',
+      lore:'Nereth entretenait déjà ce fusil quand les tours de garde avaient encore une fin. Dans la lunette violette, il guette le signal d’une relève qui ne vient plus. Le long canon reste immobile au-dessus des murs de Cryptown : tant que quelqu’un veille, les portes ne sont pas seules.',
+      collectible:{number:'ARM-031',illustration:'cryptown-vigil-rifle-v1.webp',flavour:'Le signal ne vient pas. La veille continue.',
+        alt:'Fusil de Nereth à long canon droit, crosse ajourée, lunette violette et mécanisme de crâne en métal noir et cuivre.',cutout:true}},
+    {id:'cryptown-watch-flail',slot:'weapon',name:'Le Glas des Veilleurs',family:'Fléau',visual:'flute',art:'cryptown-watch-flail-v1',
+      restrictions:{factions:['Cryptown']},
+      effect:{trigger:'TEAM_STATE',stat:'DEF',value:20,duration:'WHILE_TRUE',when:{activeAtMost:2}},
+      condition:'Au plus deux combattants actifs dans son équipe : +20 DEF numérique tant que cette condition dure.',
+      lore:'Les maillons de Draust donnent leur cadence aux pas de la garde. Dans la cage de fer, le cristal violet éclaire un crâne qui ne baisse jamais les yeux. Lorsque les compagnons ne sont plus qu’une poignée, le fléau cesse de sonner : son porteur a pris sa place devant eux.',
+      collectible:{number:'ARM-032',illustration:'cryptown-watch-flail-v1.webp',flavour:'Les chaînes se taisent. La garde tient.',
+        alt:'Fléau de Draust, manche noir, chaîne de cuivre sombre et tête en cage ornée d’un crâne et d’un cristal violet.',cutout:true}}
   ];
   function freeze(value){Object.values(value).forEach(v=>{if(v&&typeof v==='object')freeze(v);});return Object.freeze(value);}
   weapons.forEach(freeze);

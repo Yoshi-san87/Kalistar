@@ -309,6 +309,32 @@ pas l'ajout silencieux d'un objet au catalogue.
 
 ## Validation
 
+### Cryptown - 6 octobre 2026
+
+Le catalogue contient 32 armes, dont trois nouvelles armes de faction :
+
+| ID | Nom | Famille | Effet |
+| --- | --- | --- | --- |
+| cryptown-oath-sword | Le Serment sans Visage | Epée longue | +20 ATK en infériorité numérique sur le plateau |
+| cryptown-vigil-rifle | La Relève Muette | Gun | +20 ATK quand la réserve est vide |
+| cryptown-watch-flail | Le Glas des Veilleurs | Fléau | +20 DEF avec deux combattants actifs ou moins |
+
+La restriction est exclusivement `{factions:['Cryptown']}`, sans contrainte
+de job. Elle couvre actuellement six personnages et sept éditions : Varkhen,
+Nereth, Draust, Capitaine Skully, Valazar et les deux Zviri. Les noms affichés
+ne participent pas à la compatibilité.
+
+Les effets réutilisent TEAM_STATE / WHILE_TRUE, sans modifier le moteur,
+la matrice des armes imprimées ou les anciennes sauvegardes. Les +20 restent
+numériques : aucune augmentation d'une Mort, aucune double attaque de fléau,
+aucun nouveau poison ou soutien. Une seule arme peut être portée.
+
+`site/cryptown-weapons.test.cjs` couvre les restrictions, remplacements,
+snapshots, 42 duels numériques, la désactivation, Mort/Esquive/Reraise de
+Nereth et Garde de Varkhen/Draust. Le test navigateur du même nom couvre
+PC, Razr 50 et écran compact en Reduced Motion, avec stockage QA isolé.
+Voir `revisions/2026-10-06-cryptown-weapons/` pour les preuves.
+
 ```powershell
 node --test --test-isolation=none V4/site/equipment.test.cjs
 node --test V4/site/weapons-arsenal.test.cjs V4/site/equipment-presentation.test.cjs

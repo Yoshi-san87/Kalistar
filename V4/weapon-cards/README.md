@@ -261,3 +261,29 @@ partager un lieu ; les decors ne doivent pas contenir une deuxieme arme.
 Tests specifiques : `site/weapon-backgrounds.test.cjs` et
 `site/weapon-backgrounds.browser.test.cjs`. Bilan et captures dans
 `../revisions/2026-10-03-weapon-backgrounds/`. Toujours local.
+
+## Lot Cryptown - 6 octobre 2026
+
+ARM-030 a ARM-032 reprennent les armes des illustrations approuvees
+`V4/Illustrations/Cryptown_Varkhen_01.png`, `Cryptown_Nereth_01.png` et
+`Cryptown_Draust_01.png`. Epee longue droite a garde cuivree et coeur violet,
+fusil gothique a longue lunette et crosse ajouree, fleau-lanterne a crane
+contenant un cristal violet. Le fleau represente un des deux objets portes
+par Draust, sans ajouter de mecanique de double attaque.
+
+Chaque arme possede un detourage, une scene peinte et un anneau independant.
+Les dix appels de generation integree, leurs references et leurs sorties
+sont traces dans `cryptown-prompts-2026-10-06.json`. Neuf sources sont
+retenues : l'epee utilise la scene v2, car sa pointe et son pommeau etaient
+tronques par la fenetre du cadre avec la v1. La v1 rejetee n'est pas servie.
+Les tableaux de presentation restent dans `site/weapon-art.js`.
+
+Les scenes comportent peu d'accessoires : marches du rempart, poste de
+veille, seuil de pierre. La priorite est la silhouette entiere de l'objet,
+pas le remplissage du decor. Chaque anneau reprend sa matiere propre :
+garde angulaire, monture de lunette, chaines et cristal du fleau.
+
+Le build existant encode les 12 WebP et conserve leurs empreintes dans
+`media-provenance.json`. Aucun cadre, PNG/PSD de personnage, verrou,
+crop natif ou ancrage du medaillon n'a ete modifie. Voir les captures et
+tests dans `../revisions/2026-10-06-cryptown-weapons/`.
