@@ -1,0 +1,60 @@
+{
+  "name": "NELL",
+  "title": "LE DERNIER DÉPART",
+  "job": "RECEVEUR",
+  "description": "Nell connaît le bruit de chaque pas sur le quai. Son dernier billet attend toujours quelques secondes de plus. Il prétend régler sa lampe ; en vérité, il espère voir quelqu'un revenir.",
+  "element": "ELECTRO",
+  "race": "ROBOT",
+  "weapon": "Bâton",
+  "faction": "Chroma",
+  "positions": [
+    3,
+    5
+  ],
+  "atk": [
+    162,
+    129,
+    97,
+    "guard",
+    "retry",
+    "buff_atk"
+  ],
+  "defense": [
+    195,
+    157,
+    118,
+    86,
+    49,
+    19
+  ],
+  "magic": [
+    6
+  ],
+  "barriers": [
+    5
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49900702",
+  "characterId": "nell-kalistar",
+  "slug": "V4_49900702",
+  "output": "KALISTAR_V4_49900702",
+  "text": "Nell connaît le bruit de chaque pas sur le quai. Son dernier billet attend toujours quelques secondes de plus. Il prétend régler sa lampe ; en vérité, il espère voir quelqu'un revenir.",
+  "color": "F5DC32",
+  "hue": 53,
+  "weapon_index": 10,
+  "role": 5,
+  "sentry": true,
+  "canGuard": true,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Personnage original Kalistar, selection utilisateur du 6 octobre 2026",
+  "visual_revision": "V4-2026-10-06-fifteen-faces",
+  "artworkSource": "V4/Illustrations/Faces_Nell_01.png"
+}

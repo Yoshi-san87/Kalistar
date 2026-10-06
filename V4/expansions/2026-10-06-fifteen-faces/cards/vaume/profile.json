@@ -1,0 +1,61 @@
+{
+  "name": "VAUME",
+  "title": "LE REMÈDE ATTEND SON PRIX",
+  "job": "APOTHICAIRE",
+  "description": "Vaume pèse chaque goutte avant de parler de guérison. Dans sa fiole, Arborium tient autant de remèdes que de venins. Il demande ce qu'on veut sauver, jamais ce qu'on accepte de perdre.",
+  "element": "HERBO",
+  "race": "TOXINAR",
+  "weapon": "Sceptre",
+  "faction": "Arborium",
+  "positions": [
+    4,
+    5
+  ],
+  "atk": [
+    174,
+    133,
+    104,
+    "mana",
+    "retry",
+    "revive"
+  ],
+  "defense": [
+    190,
+    168,
+    123,
+    83,
+    53,
+    21
+  ],
+  "magic": [
+    6,
+    5
+  ],
+  "barriers": [
+    4
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49900715",
+  "characterId": "vaume-kalistar",
+  "slug": "V4_49900715",
+  "output": "KALISTAR_V4_49900715",
+  "text": "Vaume pèse chaque goutte avant de parler de guérison. Dans sa fiole, Arborium tient autant de remèdes que de venins. Il demande ce qu'on veut sauver, jamais ce qu'on accepte de perdre.",
+  "color": "89D355",
+  "hue": 100,
+  "weapon_index": 12,
+  "role": 5,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": true,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Personnage original Kalistar, selection utilisateur du 6 octobre 2026",
+  "visual_revision": "V4-2026-10-06-fifteen-faces",
+  "artworkSource": "V4/Illustrations/Faces_Vaume_02.png"
+}

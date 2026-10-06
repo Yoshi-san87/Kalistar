@@ -5,6 +5,12 @@ const {createEngine}=require('./engine.js'),{buildCatalog}=require('../atelier/g
 const dataPromise=buildCatalog({published:require('../donnees/catalogue.json').cards.filter(c=>c.kind==='created')});
 const id='rhinoz-ancestral-horn',w=Q.catalogue.weapons.find(w=>w.id===id);
 const {legacyGame,weapons:previous}=require('./fixtures/legacy-equipment.cjs');
+function legacyRhinoz(data){
+  return ['belrog','nazar','gilmarr'].map(characterId=>{
+    const cards=data.cards.filter(c=>c.characterId===characterId);
+    assert.equal(cards.length,1);assert.equal(cards[0].race,'RHINOZ');return cards[0];
+  });
+}
 function deckFor(E,data,c){
   const base=data.decks.player,deck=base.map((_,i)=>base.map((id,j)=>i===j?c.id:id)).find(ids=>!E.validatePlayableDeck(ids).length);
   assert(deck,c.id);return deck;
@@ -56,7 +62,7 @@ test('legacy Rhinoz profile/composition is repaired, while saved match snapshots
 
 test('saved matches: all three Rhinoz gain exactly +20 on numeric physical and magical attacks in both camps',async()=>{
   const data=await dataPromise;
-  for(const c of data.cards.filter(c=>c.race==='RHINOZ'))for(const side of [0,1])for(const magic of [false,true]){
+  for(const c of legacyRhinoz(data))for(const side of [0,1])for(const magic of [false,true]){
     const f=fixture(data,c,side),{E,s,p,a}=f;assert(!E.equipmentView(s,a).active);
     const before=structuredClone(s.players);activate(f);assert(E.equipmentView(s,a).active);
     const recovered=E.clone(s);recovered.players=before;assert(!E.equipmentView(recovered,recovered.players[side].board.find(u=>u?.uid===a.uid)).active);
@@ -74,7 +80,7 @@ test('saved matches: all three Rhinoz gain exactly +20 on numeric physical and m
 
 test('saved matches: Guard D2 remains a support for Belrog, Nazar and Gilmarr even while the axe is active',async()=>{
   const data=await dataPromise;
-  for(const c of data.cards.filter(c=>c.race==='RHINOZ')){
+  for(const c of legacyRhinoz(data)){
     const f=fixture(data,c),{E,s,p,a}=f;activate(f);E.lock(s,p.board.indexOf(a),s.players[1].board.findIndex(Boolean));
     E.rollAttack(s,2);assert.equal(s.phase,'guard');E.grantGuard(s,E.aiGuardChoice(s));E.assertState(s);
     assert.equal(s.duel.formula,undefined);assert.deepEqual(s.equipment.pending,{});

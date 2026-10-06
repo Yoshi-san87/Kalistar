@@ -1,0 +1,634 @@
+{
+  "id": "2026-10-06-fifteen-faces",
+  "officialCollaboration": false,
+  "arenas": [],
+  "presets": [],
+  "cards": [
+    {
+      "key": "oskara",
+      "id": "49900701",
+      "characterId": "oskara-kalistar",
+      "name": "OSKARA",
+      "title": "LA GLACE QUI CÈDE",
+      "job": "SAUVETEUSE",
+      "description": "Oskara plante son ancre avant de tendre la main. Sous la glace, quelqu'un frappe encore. Elle ne promet jamais que le câble tiendra ; seulement qu'elle ne sera pas la première à lâcher.",
+      "element": "CRYO",
+      "race": "HUMAIN",
+      "weapon": "Lance",
+      "faction": "Niveria",
+      "role": 1,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        201,
+        166,
+        126,
+        91,
+        "guard",
+        23
+      ],
+      "defense": [
+        291,
+        236,
+        182,
+        139,
+        86,
+        32
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "art": "Faces_Oskara_01.png"
+    },
+    {
+      "key": "nell",
+      "id": "49900702",
+      "characterId": "nell-kalistar",
+      "name": "NELL",
+      "title": "LE DERNIER DÉPART",
+      "job": "RECEVEUR",
+      "description": "Nell connaît le bruit de chaque pas sur le quai. Son dernier billet attend toujours quelques secondes de plus. Il prétend régler sa lampe ; en vérité, il espère voir quelqu'un revenir.",
+      "element": "ELECTRO",
+      "race": "ROBOT",
+      "weapon": "Bâton",
+      "faction": "Chroma",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        162,
+        129,
+        97,
+        "guard",
+        "retry",
+        "buff_atk"
+      ],
+      "defense": [
+        195,
+        157,
+        118,
+        86,
+        49,
+        19
+      ],
+      "magic": [
+        6
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "Faces_Nell_01.png"
+    },
+    {
+      "key": "sareth",
+      "id": "49900703",
+      "characterId": "sareth-kalistar",
+      "name": "SARETH",
+      "title": "LA LUMIÈRE NE PARDONNE PAS",
+      "job": "MAGISTRATE",
+      "description": "Sareth tient ses sentences dans un coffret sans serrure. À Solaria, sa lumière ne laisse rien dans l'ombre. Elle baisse pourtant les yeux avant chaque jugement, juste le temps d'hésiter.",
+      "element": "LUXO",
+      "race": "AURELION",
+      "weapon": "Sceptre",
+      "faction": "Solaria",
+      "role": 4,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        274,
+        231,
+        188,
+        123,
+        72,
+        22
+      ],
+      "defense": [
+        165,
+        136,
+        98,
+        63,
+        38,
+        "retry"
+      ],
+      "magic": [
+        6,
+        4,
+        2
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "Faces_Sareth_01.png"
+    },
+    {
+      "key": "daska",
+      "id": "49900704",
+      "characterId": "daska-kalistar",
+      "name": "DASKA",
+      "title": "LE MOTEUR ÉCOUTE",
+      "job": "MÉCANICIENNE",
+      "description": "Daska reconnaît un Rokar au souffle de son moteur. Ses grandes mains trouvent les pièces que personne ne sent bouger. Avant chaque départ, elle frappe deux fois la coque pour le rassurer.",
+      "element": "MINERO",
+      "race": "RHINOZ",
+      "weapon": "Marteau",
+      "faction": "Zarok",
+      "role": 3,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        228,
+        179,
+        139,
+        96,
+        "buff_atk",
+        22
+      ],
+      "defense": [
+        223,
+        181,
+        143,
+        103,
+        61,
+        24
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        6
+      ],
+      "art": "Faces_Daska_01.png"
+    },
+    {
+      "key": "orel",
+      "id": "49900705",
+      "characterId": "orel-kalistar",
+      "name": "OREL",
+      "title": "LA SERRURE A CHOISI",
+      "job": "SERRURIER",
+      "description": "Orel forge des clefs assez solides pour devenir des lames. Il sait ouvrir les portes de Durane, mais refuse certains contrats. Une serrure ne choisit pas son maître ; lui tient à le faire.",
+      "element": "MINERO",
+      "race": "NAIN",
+      "weapon": "Epée courte",
+      "faction": "Durane",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        280,
+        239,
+        171,
+        127,
+        79,
+        31
+      ],
+      "defense": [
+        174,
+        134,
+        106,
+        76,
+        46,
+        "dodge"
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        4
+      ],
+      "art": "Faces_Orel_01.png"
+    },
+    {
+      "key": "ysane",
+      "id": "49900706",
+      "characterId": "ysane-kalistar",
+      "name": "DAME YSANE",
+      "title": "LE FIL DES MAISONS",
+      "job": "COUTURIÈRE",
+      "description": "Dame Ysane connaît les secrets qu'on confie aux doublures. Ses fils de sang suivent les coutures sans les tacher. Quand une maison lui ferme sa porte, elle sait déjà ce qui se dit dedans.",
+      "element": "HEMATO",
+      "race": "VAMP",
+      "weapon": "Dague",
+      "faction": "Draevenheim",
+      "role": 2,
+      "positions": [
+        2,
+        4
+      ],
+      "atk": [
+        286,
+        223,
+        189,
+        119,
+        78,
+        29
+      ],
+      "defense": [
+        163,
+        141,
+        99,
+        72,
+        41,
+        "dodge"
+      ],
+      "magic": [
+        6,
+        3
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "Faces_Ysane_01.png"
+    },
+    {
+      "key": "sivel",
+      "id": "49900707",
+      "characterId": "sivel-kalistar",
+      "name": "SIVEL",
+      "title": "CE QUE LE DÉGEL REND",
+      "job": "CONSERVATEUR",
+      "description": "Sivel garde les souvenirs que le gel a épargnés. Ce ruban n'a ni nom ni valeur ; il attend pourtant depuis des années. Aujourd'hui, la glace cède, et ses mains tremblent avant de l'ouvrir.",
+      "element": "CRYO",
+      "race": "HUMAIN",
+      "weapon": "Bâton",
+      "faction": "Niveria",
+      "role": 5,
+      "positions": [
+        4,
+        5
+      ],
+      "atk": [
+        168,
+        132,
+        101,
+        "mana",
+        "retry",
+        "revive"
+      ],
+      "defense": [
+        196,
+        159,
+        121,
+        79,
+        47,
+        18
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "Faces_Sivel_01.png"
+    },
+    {
+      "key": "maudre",
+      "id": "49900708",
+      "characterId": "maudre-kalistar",
+      "name": "MAUDRE",
+      "title": "LE CŒUR DU FOUR",
+      "job": "MAÎTRESSE DE FEU",
+      "description": "Maudre règle le feu comme d'autres règlent leur souffle. Son bouclier enferme la chaleur qui sauverait un atelier ou le détruirait. Elle écoute le métal avant de décider qui peut approcher.",
+      "element": "PYRO",
+      "race": "HUMAIN",
+      "weapon": "Marteau",
+      "faction": "Vulkar",
+      "role": 1,
+      "positions": [
+        1,
+        2
+      ],
+      "atk": [
+        204,
+        159,
+        131,
+        85,
+        "guard",
+        24
+      ],
+      "defense": [
+        289,
+        241,
+        179,
+        136,
+        88,
+        33
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "art": "Faces_Maudre_01.png"
+    },
+    {
+      "key": "nacre",
+      "id": "49900709",
+      "characterId": "nacre-kalistar",
+      "name": "NACRE",
+      "title": "SOUS LA DERNIÈRE CLOCHE",
+      "job": "SENTINELLE",
+      "description": "Nacre veille sur les cloches où les plongeurs reprennent leur souffle. Il en connaît chaque fissure. Quand l'eau les fait gémir, il pose sa main sur le métal, comme autrefois sur un front.",
+      "element": "HYDRO",
+      "race": "SIRENA",
+      "weapon": "Lance",
+      "faction": "Thalassea",
+      "role": 1,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        192,
+        171,
+        124,
+        94,
+        "guard",
+        19
+      ],
+      "defense": [
+        295,
+        228,
+        191,
+        131,
+        84,
+        36
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "art": "Faces_Nacre_01.png"
+    },
+    {
+      "key": "bex",
+      "id": "49900710",
+      "characterId": "bex-kalistar",
+      "name": "BEX",
+      "title": "UNE ENSEIGNE S'ÉVEILLE",
+      "job": "RÉPARATRICE",
+      "description": "Bex répare les lampes qu'on a cessé de regarder. Son bras grésille, puis la rue retrouve une couleur. Elle rit avant même que la lumière revienne : elle reconnaît déjà le bruit du courant.",
+      "element": "ELECTRO",
+      "race": "CYBORG",
+      "weapon": "Gun",
+      "faction": "Chroma",
+      "role": 3,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        221,
+        189,
+        141,
+        92,
+        "mana",
+        26
+      ],
+      "defense": [
+        217,
+        187,
+        132,
+        105,
+        58,
+        21
+      ],
+      "magic": [
+        6,
+        3
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "Faces_Bex_02.png"
+    },
+    {
+      "key": "hadruk",
+      "id": "49900711",
+      "characterId": "hadruk-kalistar",
+      "name": "HADRUK",
+      "title": "LE MATCH D'APRÈS",
+      "job": "ENTRAÎNEUR",
+      "description": "Hadruk recoud le ballon après chaque match d'Astraball. Ses anciens élèves parlent encore de sa force ; lui se souvient de leurs premières passes. Il garde toujours une place sur le terrain.",
+      "element": "MINERO",
+      "race": "RHINOZ",
+      "weapon": "Bâton",
+      "faction": "Zarok",
+      "role": 5,
+      "positions": [
+        1,
+        5
+      ],
+      "atk": [
+        166,
+        128,
+        98,
+        "buff_atk",
+        "guard",
+        "retry"
+      ],
+      "defense": [
+        204,
+        166,
+        127,
+        88,
+        57,
+        23
+      ],
+      "magic": [],
+      "barriers": [
+        6
+      ],
+      "art": "Faces_Hadruk_01.png"
+    },
+    {
+      "key": "sovan",
+      "id": "49900712",
+      "characterId": "sovan-kalistar",
+      "name": "SOVAN",
+      "title": "LES PIERRES SOUS LES RACINES",
+      "job": "EXPLORATEUR",
+      "description": "Sovan dégage les pierres que Woodland a recouvertes. Sous les racines, une lentille regarde le ciel. Il ne sait pas à quoi elle servait ; il revient chaque matin lui retirer les feuilles.",
+      "element": "GEO",
+      "race": "CERELF",
+      "weapon": "Lance",
+      "faction": "Woodland",
+      "role": 3,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        233,
+        181,
+        146,
+        99,
+        61,
+        27
+      ],
+      "defense": [
+        226,
+        189,
+        134,
+        104,
+        56,
+        "retry"
+      ],
+      "magic": [
+        5,
+        2
+      ],
+      "barriers": [
+        4
+      ],
+      "art": "Faces_Sovan_01.png"
+    },
+    {
+      "key": "ombrine",
+      "id": "49900713",
+      "characterId": "ombrine-kalistar",
+      "name": "OMBRINE",
+      "title": "LE SON DES NOMS PERDUS",
+      "job": "SONNEUSE",
+      "description": "Ombrine sonne pour ceux dont Cryptown a oublié le nom. Sa cloche ne réveille personne, mais les rues se taisent pour l'écouter. Elle attend que la dernière vibration cesse avant de repartir.",
+      "element": "NECRO",
+      "race": "SKULLZ",
+      "weapon": "Instrument",
+      "faction": "Cryptown",
+      "role": 4,
+      "positions": [
+        4,
+        5
+      ],
+      "atk": [
+        279,
+        226,
+        181,
+        116,
+        71,
+        "mana"
+      ],
+      "defense": [
+        171,
+        132,
+        103,
+        66,
+        37,
+        18
+      ],
+      "magic": [
+        6,
+        5,
+        3
+      ],
+      "barriers": [
+        6
+      ],
+      "art": "Faces_Ombrine_01.png"
+    },
+    {
+      "key": "pelag",
+      "id": "49900714",
+      "characterId": "pelag-kalistar",
+      "name": "PÉLAG",
+      "title": "CE QUI REMONTE AVEC NOUS",
+      "job": "PLONGEUR",
+      "description": "Pélag rapporte des épaves ce que la mer n'a pas su garder. Sa pince tient la boussole avec une douceur étonnante. Elle indique encore le nord ; il voudrait surtout retrouver à qui la rendre.",
+      "element": "HYDRO",
+      "race": "CRUSTOS",
+      "weapon": "Gun",
+      "faction": "Crabazar",
+      "role": 4,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        291,
+        221,
+        174,
+        133,
+        62,
+        32
+      ],
+      "defense": [
+        166,
+        138,
+        99,
+        78,
+        44,
+        17
+      ],
+      "magic": [
+        5,
+        3
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "Faces_Pelag_02.png"
+    },
+    {
+      "key": "vaume",
+      "id": "49900715",
+      "characterId": "vaume-kalistar",
+      "name": "VAUME",
+      "title": "LE REMÈDE ATTEND SON PRIX",
+      "job": "APOTHICAIRE",
+      "description": "Vaume pèse chaque goutte avant de parler de guérison. Dans sa fiole, Arborium tient autant de remèdes que de venins. Il demande ce qu'on veut sauver, jamais ce qu'on accepte de perdre.",
+      "element": "HERBO",
+      "race": "TOXINAR",
+      "weapon": "Sceptre",
+      "faction": "Arborium",
+      "role": 5,
+      "positions": [
+        4,
+        5
+      ],
+      "atk": [
+        174,
+        133,
+        104,
+        "mana",
+        "retry",
+        "revive"
+      ],
+      "defense": [
+        190,
+        168,
+        123,
+        83,
+        53,
+        21
+      ],
+      "magic": [
+        6,
+        5
+      ],
+      "barriers": [
+        4
+      ],
+      "art": "Faces_Vaume_02.png"
+    }
+  ]
+}
