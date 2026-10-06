@@ -793,6 +793,43 @@
         alt:'Hache Rhinoz à large lame en forme de corne, acier gris ivoire, embase cuirassée, cuivre patiné et manche droit.',cutout:true}}
   ];
   function freeze(value){Object.values(value).forEach(v=>{if(v&&typeof v==='object')freeze(v);});return Object.freeze(value);}
-  weapons.forEach(freeze);
-  return Object.freeze({version:1,weapons:Object.freeze(weapons)});
+  // Historical restrictions only for reading profiles saved before family matching.
+  const legacyRestrictions={
+    "fallen-king-axe": {"characterIds":["balmhyr"]},
+    "little-joys-flute": {"characterIds":["momo"]},
+    "white-oath-rapier": {"characterIds":["kaylis"],"families":["Epée courte"]},
+    "brotherhood": {"characterIds":["tidus-ff10"]},
+    "virtuous-contract": {"characterIds":["2b-nier"]},
+    "virtuous-treaty": {"characterIds":["2b-nier"]},
+    "socom": {"characterIds":["solid-snake-mgs"]},
+    "lulu-mog": {"characterIds":["lulu-ff10"]},
+    "leopard-lightning": {"characterIds":["rikka"]},
+    "mythic-iron-gauntlet": {"characterIds":["balmhyr"]},
+    "post-bow": {"characterIds":["cana"]},
+    "grimoire-weiss": {"characterIds":["nier-replicant"]},
+    "gen-mechanical-arm": {"characterIds":["gen"]},
+    "violet-reaping": {"characterIds":["voloden"]},
+    "mantis-mask": {"characterIds":["psycho-mantis-mgs"]},
+    "revolver-gunblade": {"characterIds":["squall-ff8"]},
+    "wolf-steel": {"characterIds":["geralt-witcher"]},
+    "wolf-silver": {"characterIds":["geralt-witcher"]},
+    "kaine-saw": {"characterIds":["kaine-replicant"]},
+    "buster-sword": {"characterIds":["cloud-ff7"]},
+    "psg1": {"characterIds":["sniper-wolf-mgs"]},
+    "single-action-army": {"characterIds":["revolver-ocelot-mgs"]},
+    "wardens-spear": {"jobs":["GARDIEN","GARDIENNE"]},
+    "soldiers-blade": {"jobs":["SOLDAT"]},
+    "commanders-sabre": {"jobs":["COMMANDANT","COMMANDANTE"]},
+    "arborium-twinstring-bow": {"factions":["Arborium"]},
+    "arborium-thorn-dagger": {"factions":["Arborium"]},
+    "draevenheim-wing-spear": {"factions":["Draevenheim"]},
+    "draevenheim-crimson-crossbow": {"factions":["Draevenheim"]},
+    "cryptown-oath-sword": {"factions":["Cryptown"]},
+    "cryptown-vigil-rifle": {"factions":["Cryptown"]},
+    "cryptown-watch-flail": {"factions":["Cryptown"]},
+    "rhinoz-ancestral-horn": {"races":["RHINOZ"]}
+  };
+  for(const weapon of weapons)weapon.restrictions.families=[weapon.family];
+  weapons.forEach(freeze);freeze(legacyRestrictions);
+  return Object.freeze({version:1,weapons:Object.freeze(weapons),legacyRestrictions});
 });

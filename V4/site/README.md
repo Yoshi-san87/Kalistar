@@ -81,6 +81,13 @@ The [4.5.5 refinement](../revisions/2026-10-04-white-weapons-refinement/README.m
 supplies the current four requested dagger/gun/scythe/axe silhouettes and the
 latest geometry proof; the other sixteen vectors are byte-identical.
 
+The 6 October follow-up changes only Projectile (09): a white throwing star
+with short trajectory strokes, using the same 96 x 95 viewBox and optical
+anchor. Its geometry is under `revisions/2026-10-06-weapon-families/`.
+Weapon collectibles now show these same family glyphs at the right of their
+title band. All equipment requires a matching printed family, including
+personal weapons; see `docs/ARMES_EQUIPEES.md` for edition-aware migration.
+
 ## Opening Lineup: Persistent Clues (4 October 2026)
 
 `lineup-intro.js` presents each starting pair without changing combat statistics.

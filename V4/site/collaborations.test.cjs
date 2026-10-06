@@ -35,7 +35,7 @@ test('faction media is V4-local while legacy assets retain their routes',()=>{
   assert.equal(C.asset('races','ANDROID'),'assets/races/ANDROID.png');
   assert.equal(C.asset('races','ROBOT'),'shared/races/ROBOT.png');
   assert.equal(C.asset('armes','Epée longue'),'shared/armes/Ep%C3%A9e%20longue.png');
-  for(let i=0;i<20;i++){const id=String(i).padStart(2,'0');assert.equal(C.asset('armes',id),'assets/base-weapons/'+id+'.svg'+([0,7,15,19].includes(i)?'?v=2':''));}
+  for(let i=0;i<20;i++){const id=String(i).padStart(2,'0');assert.equal(C.asset('armes',id),'assets/base-weapons/'+id+'.svg'+([0,7,9,15,19].includes(i)?'?v=2':''));}
 });
 
 test('universe choices expose Replicant only when its versions exist',()=>{

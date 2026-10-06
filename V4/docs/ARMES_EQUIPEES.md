@@ -358,6 +358,37 @@ Audit detaille et controles : `revisions/2026-10-06-weapon-bearers/`.
 Fixture historique immuable : `site/fixtures/weapons-v4.5.28.json`, extraite
 du tag publie. Les tests distinguent porteurs actuels et matchs historiques.
 
+## Famille Obligatoire Pour Toutes Les Armes - 6 Octobre 2026
+
+Nouvelle decision, qui remplace les exceptions nominatives ci-dessus : une
+arme exige toujours sa famille imprimee, y compris lorsqu'elle est reservee
+a un characterId. Le catalogue ajoute `restrictions.families: [weapon.family]`
+a chaque definition. Les autres restrictions se cumulent toujours par ET.
+
+Fraternite reste disponible sur les Tidus a Epee longue, pas sur l'edition
+Projectile "Le souffle de Luca". Single Action Army reste disponible sur
+les Ocelot Gun, pas sur Liquid Ocelot Poing. Virtuous Treaty et Le Serment
+de Fer restent visibles, sans porteur actuel, en attente de nouvelles
+editions de 2B a Epee longue et de Balmhyr au Poing. Aucun personnage n'est
+cree ou modifie pour contourner cette decision.
+
+Les choix se font sur l'edition presente dans la composition, pas seulement
+sur l'identite du personnage. Le profil global peut conserver une preference
+si une autre edition compatible existe ; elle ne s'applique jamais a une
+edition incompatible. Les decks historiques perdent seulement l'equipement
+devenu incompatible. Les parties deja commencees gardent leur snapshot.
+
+`weapons.legacyRestrictions` contient les anciennes restrictions exactes des
+33 objets existants. Cette table sert uniquement a lire les profils/decks
+historiques avant de retirer les attributions retirees ; elle ne doit pas
+etre etendue aux nouvelles armes. Les anciennes restrictions de Kaylis sont
+preservees. Les nouveaux equipements utilisent uniquement les regles actuelles.
+
+La famille est representee par son pictogramme blanc dans le bandeau du nom
+des cartes d'armes, avec un texte alternatif et une infobulle. Le bas ne
+contient que l'origine/le porteur. Aucun changement des valeurs de bonus,
+matrices ou schemas de sauvegarde.
+
 ## Validation
 
 ### Hache Rhinoz - 6 octobre 2026

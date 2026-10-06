@@ -46,11 +46,8 @@
     validateLoadout(row.slots.weapon,cards,definitions);return row;
   }
   function reconcileLoadout(loadout,cards){
-    // Only relax the newly added family constraint to read old collective loadouts.
-    const previous=catalogue.weapons.map(w=>{
-      if(w.restrictions.characterIds||w.restrictions.families?.length!==1||w.restrictions.families[0]!==w.family)return w;
-      const {families,...restrictions}=w.restrictions;return {...w,restrictions};
-    });
+    // Keep the exact former restrictions; future weapons are never relaxed.
+    const previous=catalogue.weapons.map(w=>({...w,restrictions:catalogue.legacyRestrictions[w.id]||w.restrictions}));
     validateLoadout(loadout,cards,previous);
     return Object.fromEntries(Object.entries(loadout).filter(([characterId,id])=>
       cards.some(c=>c.characterId===characterId&&compatible(catalogue.weapons.find(w=>w.id===id),c))));

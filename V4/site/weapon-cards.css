@@ -28,9 +28,11 @@
 .wc-art-background{z-index:0;object-fit:cover;object-position:center;filter:saturate(.72) contrast(.65) brightness(.7);pointer-events:none;}
 .wc-art-scenic .wc-art-main{z-index:1;filter:drop-shadow(0 1px 1px #000d) drop-shadow(0 5px 7px #000a);}
 .wc-surface[data-weapon-card=socom] .wc-art-background,.wc-surface[data-weapon-card=psg1] .wc-art-background,.wc-surface[data-weapon-card=mantis-mask] .wc-art-background{filter:saturate(.6) contrast(.65) brightness(.95);}
-.wc-title,.wc-flavour,.wc-activation-title,.wc-activation,.wc-power,.wc-bearers,.wc-medallion,.wc-holder{position:absolute;z-index:2;min-width:0;}
+.wc-title,.wc-family,.wc-flavour,.wc-activation-title,.wc-activation,.wc-power,.wc-bearers,.wc-medallion,.wc-holder{position:absolute;z-index:2;min-width:0;}
+.wc-family{display:flex;align-items:center;justify-content:center;filter:drop-shadow(0 1px 2px #000);}
+.wc-family img{width:100%;height:100%;object-fit:contain;}
 .wc-title{display:flex;align-items:center;justify-content:center;text-align:center;padding:0 6px;color:#fffdf5;text-shadow:0 2px 3px #000;}
-.wc-title strong{font:700 27px/1.08 'Times New Roman',Times,serif;text-transform:uppercase;overflow-wrap:anywhere;}
+.wc-title strong{font:700 27px/1 'Times New Roman',Times,serif;text-transform:uppercase;overflow-wrap:anywhere;}
 .wc-flavour{display:flex;align-items:center;justify-content:center;padding:0 5px;color:#e9e4dc;font:400 17px/1.55 'Segoe Print','Bradley Hand',cursive;text-align:center;text-shadow:0 1px 2px #000;}
 .wc-activation-title{display:flex;align-items:center;justify-content:center;background:#091726;border-block:1px solid #da9a67;box-shadow:0 2px 3px #0009,inset 0 1px #f1c88d45;color:#f8ddaa;font:700 13px/1 'Times New Roman',Times,serif;text-transform:uppercase;text-shadow:0 1px 2px #000;}
 .wc-activation{display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:6px;padding:2px 5px;color:#ffe6a0;font:500 17px/1.3 'Times New Roman',Times,serif;text-align:left;text-shadow:0 1px 2px #000;}
@@ -94,7 +96,7 @@
   .wc-power{font-size:13px;}.wc-power>span{font-size:9px;}.wc-bearers b{font-size:9px;}.wc-bearers small{display:none;}
 }
 @container (max-width:260px){
-  .wc-title{padding:0 2px;}.wc-title strong{font-size:9px;}.wc-flavour{font-size:7px;line-height:1.25;}
+  .wc-title{padding:0 2px;}.wc-title strong{font-size:8px;}.wc-flavour{font-size:7px;line-height:1.25;}
   .wc-activation{font-size:7px;line-height:1.15;gap:2px;}.wc-activation-title{font-size:6px;}
   .wc-power{font-size:10px;gap:2px;}.wc-power>span{font-size:7px;}.wc-bearers b{font-size:7px;}
   .wc-holder{padding:1px;border-radius:2px;}

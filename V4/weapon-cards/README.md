@@ -32,6 +32,19 @@ Prompts actifs : `scene-prompts-2026-10-04.json`. Preuves :
 `../revisions/2026-10-04-weapon-scenes/`. Aucune regle de bonus n'est dans le
 manifeste graphique. Les sources HD et essais rejetes ne sont pas servis par Pages.
 
+## Famille Dans Le Bandeau (6 Octobre 2026)
+
+La zone `family` du master HTML affiche le pictogramme blanc de la famille
+a droite du titre, sans badge ni cercle supplementaire. Le titre et le motif
+ont deux zones non superposees, calibrees sur le meme cadre natif. Le motif
+provient de `base-weapons.js`, identique a celui des personnages et du Codex.
+Son texte alternatif et son infobulle nomment la famille. Le pied de carte
+garde seulement les porteurs/origines, sans repeter la famille en toutes lettres.
+
+Projectile utilise une etoile de lancer blanche ajouree avec deux courtes
+trainees. Source et preuve optique : `../revisions/2026-10-06-weapon-families/`.
+Les PNG/PSD et cadres natifs restent inchanges, ainsi que les 19 autres icones.
+
 ## Historique du prototype
 
 ### Ajout Arborium Du 5 Octobre 2026

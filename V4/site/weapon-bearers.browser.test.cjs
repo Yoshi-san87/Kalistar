@@ -4,14 +4,15 @@ const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFI
 const {chromium}=createRequire(path.join(runtime,'__bearers__.cjs'))('playwright');
 const previous=require('./fixtures/weapons-v4.5.28.json').weapons;
 const base=process.env.KALISTAR_URL||'http://127.0.0.1:4304';
-const out=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'../revisions/2026-10-06-weapon-bearers/browser');
+const out=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'../revisions/2026-10-06-weapon-families/browser');
 const expected={
   'wardens-spear':['brask-kalistar','karrok-kalistar','kimahri-ff10','nazar','ward-ff8'],
   'soldiers-blade':['isvel-kalistar','liorne-kalistar'],'commanders-sabre':[],
   'arborium-twinstring-bow':['saelor-kalistar','ssilas'],'arborium-thorn-dagger':[],
   'draevenheim-wing-spear':['orven-kalistar'],'draevenheim-crimson-crossbow':[],
   'cryptown-oath-sword':['varkhen-kalistar'],'cryptown-vigil-rifle':['nereth-kalistar'],
-  'cryptown-watch-flail':['draust-kalistar'],'rhinoz-ancestral-horn':[]
+  'cryptown-watch-flail':['draust-kalistar'],'rhinoz-ancestral-horn':[],
+  brotherhood:['tidus-ff10'],'single-action-army':['revolver-ocelot-mgs'],'virtuous-treaty':[],'mythic-iron-gauntlet':[]
 };
 let browser,navigation=0;const results=[],errors=[];
 async function ready(page,view='weapons'){await page.goto(base+'/jeu/?bearer-qa='+(++navigation)+'#'+view);await page.waitForFunction(()=>window.KALISTAR_READY);}
@@ -25,14 +26,19 @@ async function main(){
     for(const [id,allowed] of Object.entries(expected)){
       await page.locator('.weapons-page [data-weapon="'+id+'"]').click();await images(page);
       const actual=await page.locator('#weapons-dialog [data-weapon-action=equip],#weapons-dialog [data-weapon-action=unequip]').evaluateAll(nodes=>nodes.map(n=>n.dataset.character).sort());assert.deepEqual(actual,allowed,id);
-      assert.match(await page.locator('#weapons-dialog .weapon-card-caption').innerText(),/Armes de base : /);
+      const family=await page.evaluate(id=>KalistarWeapons.weapons.find(w=>w.id===id).family,id);
+      assert.equal(await page.locator('#weapons-dialog .wc-family img').getAttribute('alt'),'Famille : '+family);
+      assert(!((await page.locator('#weapons-dialog .wc-bearers').innerText()).includes(family)),'footer is reserved for the bearer/origin');
+      const versions=await page.locator('#weapons-dialog [data-weapon-action=card]').evaluateAll(nodes=>nodes.map(n=>n.dataset.id));
+      if(id==='brotherhood')assert(!versions.includes('46513388'));
+      if(id==='single-action-army')assert(!versions.includes('49600104'));
       if(!allowed.length)assert.match(await page.locator('#weapons-dialog .weapon-carriers').innerText(),/Aucun porteur compatible/);
       else{
         await page.locator('#weapons-dialog [data-weapon-action=equip]').first().click();
         if(await page.locator('[data-weapon-action=confirm]').count())await page.locator('[data-weapon-action=confirm]').click();
         await page.waitForFunction(id=>Object.values(KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon).includes(id),id);
       }
-      if(['rhinoz-ancestral-horn','cryptown-oath-sword','wardens-spear'].includes(id))await page.screenshot({path:path.join(out,name+'-'+id+'.png')});
+      if(['gen-mechanical-arm','brotherhood','virtuous-treaty','cryptown-oath-sword','wardens-spear'].includes(id))await page.screenshot({path:path.join(out,name+'-'+id+'.png')});
       assert(await page.locator('#weapons-dialog').evaluate(n=>n.scrollWidth<=n.clientWidth+1),'dialog horizontal overflow');
       await page.locator('[data-weapon-action=close]').click();results.push({name,id,allowed});
     }
@@ -52,7 +58,7 @@ async function main(){
         const lib=KalistarDeckLibrary.create({storage:localStorage,userId:KALISTAR_ACTIVE_USER,knownIds:KALISTAR_DATA.cards.map(c=>c.id),normalizeDeck:T.normalize});
         localStorage.setItem(lib.key,JSON.stringify({schema:2,edition:'V4',decks:[{id:'kd-12345678-1234-4234-8234-123456789abc',...team}]}));
         localStorage.setItem('kalistar.v4.teamDraft',JSON.stringify(team));
-        const row=KalistarEquipment.profile(KALISTAR_ACTIVE_USER,{weapon:{belrog:'rhinoz-ancestral-horn',nazar:'wardens-spear',momo:'little-joys-flute'}}),dbName=KALISTAR_DB.name;
+        const row=KalistarEquipment.profile(KALISTAR_ACTIVE_USER,{weapon:{belrog:'rhinoz-ancestral-horn',nazar:'wardens-spear',momo:'little-joys-flute','2b-nier':'virtuous-treaty',balmhyr:'mythic-iron-gauntlet'}}),dbName=KALISTAR_DB.name;
         KALISTAR_DB.close();
         await new Promise((resolve,reject)=>{const r=indexedDB.open(dbName);r.onerror=()=>reject(r.error);r.onsuccess=()=>{const db=r.result,tx=db.transaction('equipment','readwrite');tx.objectStore('equipment').put(row);tx.oncomplete=()=>{db.close();resolve();};tx.onabort=()=>reject(tx.error);};});
         return {match:s,team,profile:row,libKey:lib.key,dbName};

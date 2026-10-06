@@ -1,14 +1,14 @@
 (function(root,factory){
   const node=typeof module==='object'&&module.exports;
-  const api=factory(node?require('./weapons.js'):root.KalistarWeapons,node?require('./weapon-art.js'):root.KalistarWeaponArt);
+  const api=factory(node?require('./weapons.js'):root.KalistarWeapons,node?require('./weapon-art.js'):root.KalistarWeaponArt,node?require('./base-weapons.js'):root.KalistarBaseWeapons);
   if(typeof module==='object'&&module.exports)module.exports=api;else root.KalistarWeaponCards=api;
-})(typeof globalThis!=='undefined'?globalThis:this,function(catalogue,artwork){
+})(typeof globalThis!=='undefined'?globalThis:this,function(catalogue,artwork,baseWeapons){
   'use strict';
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   // All anchors refer to the supplied raster, before its outer margin is cropped.
   const layout={version:2,width:1482,height:1061,crop:{x:28,y:64,width:1425,height:916},ratio:[7,5],
     frame:'blue-copper-template-v1.webp',
-    zones:{title:[330,123,1028,102],art:[67,244,738,670],lore:[858,259,512,168],
+    zones:{title:[330,123,915,102],family:[1255,128,88,88],art:[67,244,738,670],lore:[858,259,512,168],
       activationTitle:[949,422,340,46],activation:[863,477,498,265],bearers:[858,846,350,92],
       bonus:[390,884,238,66],medallion:[32.5,62.92,275,275],holder:[1248,746,131,204]},
     artPolygon:[[0,0],[97.5,0],[100,4],[100,86],[90,99],[81,99],[76,94],[37,94],[31,99],[10,99],[0,89]]};
@@ -62,7 +62,7 @@
       names:values.map(id=>key==='characterIds'?cards.find(c=>c.characterId===id)?.name||id:id).join(' / ')}));
   }
   function compactBearers(w,cards){
-    const groups=bearers(w,cards),names=groups.find(g=>g.label==='Porteur')?.names;
+    const groups=bearers(w,cards).filter(g=>g.label!=='Arme de base'),names=groups.find(g=>g.label==='Porteur')?.names;
     if(names)return names;
     const jobs=w.restrictions.jobs||[];
     if(w.restrictions.factions)return groups.map(g=>g.names).join(' \u00b7 ');
@@ -79,6 +79,7 @@
       <span class="wc-frame-clip" aria-hidden="true"><img class="wc-frame" src="${esc(frame)}" alt="" draggable="false" style="left:${-c.x/c.width*100}%;top:${-c.y/c.height*100}%;width:${layout.width/c.width*100}%;height:${layout.height/c.height*100}%"></span>
       ${src?`<span class="wc-art${face.cutout?' wc-art-cutout':''}${background?' wc-art-scenic':''}" style="${zone('art')}clip-path:polygon(${polygon})">${background?`<img class="wc-art-background" src="${esc(background)}" alt="" aria-hidden="true" draggable="false">`:''}<img class="wc-art-main" src="${esc(src)}" alt="${esc(face.alt)}" draggable="false"></span>`:''}
       <span class="wc-title" style="${zone('title')}"><strong>${esc(w.name)}</strong></span>
+      <span class="wc-family" style="${zone('family')}" title="${esc(w.family)}"><img src="${esc(url(baseWeapons.asset(baseWeapons.code(w.family))))}" alt="Famille : ${esc(w.family)}" draggable="false"></span>
       <span class="wc-medallion" style="${zone('medallion')}">${medallion(w,{bonus:false})}</span>
       <span class="wc-flavour" style="${zone('lore')}">${esc(face.flavour)}</span>
       <span class="wc-activation-title" style="${zone('activationTitle')}">Activation</span>

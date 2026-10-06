@@ -4,7 +4,7 @@ const Q=require('./equipment.js'),{createEngine}=require('./engine.js'),{buildCa
 const rows=require('../donnees/catalogue.json').cards.filter(c=>c.kind==='created');
 const dataPromise=buildCatalog({published:rows}),additions=Q.catalogue.weapons.filter(w=>w.collectible);
 const {legacyGame,weapons:previous}=require('./fixtures/legacy-equipment.cjs');
-const unmatched=['commanders-sabre','arborium-thorn-dagger','draevenheim-crimson-crossbow','rhinoz-ancestral-horn'];
+const unmatched=['commanders-sabre','arborium-thorn-dagger','draevenheim-crimson-crossbow','rhinoz-ancestral-horn','virtuous-treaty','mythic-iron-gauntlet'];
 function deckFor(E,data,carrier){
   const base=data.decks.player;
   for(let i=0;i<base.length;i++){
@@ -107,10 +107,11 @@ test('new equipment participates in complete real matches and restores every exc
     assert.equal(s.phase,'over',w.id);assert.deepEqual(s.equipment.pending,{});
   }
 });
-test('alternative swords and personal/job loadouts replace atomically, never stack',async()=>{
+test('compatible alternatives replace atomically; retired personal alternatives cannot be equipped',async()=>{
   const data=await dataPromise;let p=Q.profile('arsenal-qa');
   for(const [characterId,first,next]of [['2b-nier','virtuous-contract','virtuous-treaty'],['geralt-witcher','wolf-steel','wolf-silver'],['balmhyr','fallen-king-axe','mythic-iron-gauntlet']]){
     p=Q.equipProfile(p,characterId,first,data.cards);assert.throws(()=>Q.equipProfile(p,characterId,next,data.cards));
+    if(unmatched.includes(next)){assert.throws(()=>Q.equipProfile(p,characterId,next,data.cards,{expected:first,expectedProfile:p}));assert.equal(p.slots.weapon[characterId],first);continue;}
     p=Q.equipProfile(p,characterId,next,data.cards,{expected:first,expectedProfile:p});assert.equal(p.slots.weapon[characterId],next);
   }
   assert.equal(Object.keys(p.slots.weapon).length,3);
