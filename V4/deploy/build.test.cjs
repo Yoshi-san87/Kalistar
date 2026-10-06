@@ -55,8 +55,8 @@ test('build paths cannot escape the generated directory', () => {
 
 test('Astralia atlas is published as lightweight media, not an authoring source', async () => {
   const {files} = await plan();
-  const manifest = JSON.parse(fs.readFileSync(path.join(__dirname, '../propositions/2026-10-06-astralia-atlas-v1/manifest.json'), 'utf8'));
-  const atlas = files.find(file => file.target === 'jeu/assets/ui/collection-astralia-planisphere-v1.webp');
+  const manifest = JSON.parse(fs.readFileSync(path.join(__dirname, '../propositions/2026-10-06-astralia-atlas-v2/manifest.json'), 'utf8'));
+  const atlas = files.find(file => file.target === 'jeu/assets/ui/collection-astralia-planisphere-v2.webp');
   assert.equal(atlas?.source, manifest.runtime.file);
   assert.ok(!files.some(file => file.source.includes('astralia-planisphere-original')));
   const image = fs.readFileSync(path.resolve(__dirname, '../..', atlas.source));
@@ -64,6 +64,10 @@ test('Astralia atlas is published as lightweight media, not an authoring source'
   assert.equal(image.subarray(8, 12).toString(), 'WEBP');
   assert.equal(crypto.createHash('sha256').update(image).digest('hex'), manifest.runtime.sha256);
   assert.equal(image.length, manifest.runtime.bytes);
+  assert.equal(manifest.source.file, 'astralia-planisphere-selected-v2.png');
+  assert.equal(manifest.display.sourceIsSharp, true);
+  const conversion = fs.readFileSync(path.join(__dirname, '../propositions/2026-10-06-astralia-atlas-v2/prepare.cjs'), 'utf8');
+  assert.doesNotMatch(conversion, /\.blur\(/, 'the reusable source and runtime media remain unblurred');
   assert.ok(image.length < 650 * 1024, 'atlas stays below the 650 KiB background budget');
   assert.equal(manifest.runtime.width / manifest.runtime.height, 2);
 });
@@ -72,10 +76,11 @@ test('Collection atlas is continuous and does not replace reading surfaces', () 
   const binder = fs.readFileSync(path.join(__dirname, '../site/collection-binder.css'), 'utf8');
   const mobile = fs.readFileSync(path.join(__dirname, '../site/mobile.css'), 'utf8');
   const story = fs.readFileSync(path.join(__dirname, '../site/story-reader.css'), 'utf8');
-  assert.match(binder, /\.cb-page\[data-mode=book\] \.cb-workbench \{[^}]*collection-astralia-planisphere-v1\.webp/);
+  assert.match(binder, /\.cb-page\[data-mode=book\] \.cb-workbench \{[^}]*isolation: isolate;[^}]*background: #b89b71;/);
+  assert.match(binder, /\.cb-page\[data-mode=book\] \.cb-workbench::before, \.cb-mini-book::before \{[^}]*pointer-events: none;[^}]*collection-astralia-planisphere-v2\.webp[^}]*filter: blur\(1\.6px\)/);
   assert.match(binder, /\.cb-spread::before \{ content: none; \}/);
   assert.match(binder, /\.cb-spread \{[^}]*background: transparent;/);
-  assert.match(binder, /\.cb-mini-book \{[^}]*collection-astralia-planisphere-v1\.webp/);
+  assert.match(binder, /\.cb-mini-book \{[^}]*isolation: isolate;[^}]*overflow: hidden;/);
   assert.match(binder, /\.cb-page\[data-mode=reader\] \.cb-workbench \{[^}]*collection-reader-grimoire-v1\.webp/);
   assert.doesNotMatch(mobile, /background-size: 200% 112%/);
   assert.doesNotMatch(story, /collection-astralia-planisphere/);
@@ -93,9 +98,9 @@ test('static release versions stylesheet and script URLs together', () => {
 test('application version matches in desktop and phone headers', () => {
   const html = fs.readFileSync(path.join(__dirname, '../site/index.html'), 'utf8');
   const css = fs.readFileSync(path.join(__dirname, '../site/v4.css'), 'utf8');
-  assert.match(html, /<title>Kalistar V4\.5\.49/);
-  assert.match(html, /<span class="edition">VERSION 4\.5\.49<\/span>/);
-  assert.ok(css.includes("content:'V4.5.49'"));
+  assert.match(html, /<title>Kalistar V4\.5\.50/);
+  assert.match(html, /<span class="edition">VERSION 4\.5\.50<\/span>/);
+  assert.ok(css.includes("content:'V4.5.50'"));
 });
 test('hosting adapter supports local, project Pages and saved canonical image paths', () => {
   const script = fs.readFileSync(path.join(__dirname, '../site/site-config.js'), 'utf8');

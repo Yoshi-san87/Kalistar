@@ -1,0 +1,30 @@
+{
+  "generator": "built-in image_gen",
+  "prompt": "prompt-geography.txt",
+  "reference": "../2026-10-06-astralia-atlas-v1/astralia-planisphere-original-v1.png",
+  "source": {
+    "file": "astralia-planisphere-selected-v2.png",
+    "width": 1774,
+    "height": 887,
+    "bytes": 3303321,
+    "sha256": "ed35a624086c2a965bf3a19fa148d76be8f5dff54c7e3e60d2f18b0a1b756604"
+  },
+  "runtime": {
+    "file": "V4/site/assets/ui/collection-astralia-planisphere-v2.webp",
+    "width": 1774,
+    "height": 887,
+    "bytes": 473020,
+    "sha256": "3f8f076e2ad7479bcebc2560173b36ec0baaeb567e2d67a596b78a1668fc4191"
+  },
+  "conversion": {
+    "maxWidth": 2048,
+    "withoutEnlargement": true,
+    "format": "webp",
+    "quality": 86,
+    "effort": 6
+  },
+  "display": {
+    "blur": "CSS only, 1.6px on the background pseudo-element",
+    "sourceIsSharp": true
+  }
+}

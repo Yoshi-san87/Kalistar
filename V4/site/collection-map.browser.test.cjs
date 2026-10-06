@@ -18,25 +18,29 @@ async function main(){
     const action=(name,id)=>page.locator(`[data-binder-action="${name}"]${id===undefined?'':`[data-id="${id}"]`}:visible`);
     await action('scope','catalogue').click();
     const asset=await page.locator('.cb-workbench').evaluate(async node=>{
-      const source=getComputedStyle(node).backgroundImage.match(/url\("?(.*?)"?\)/)?.[1];
+      const source=getComputedStyle(node,'::before').backgroundImage.match(/url\("?(.*?)"?\)/)?.[1];
       const image=new Image();image.src=source;await image.decode();
       return {source,width:image.naturalWidth,height:image.naturalHeight};
     });
-    assert.match(asset.source,/collection-astralia-planisphere-v1\.webp$/);
+    assert.match(asset.source,/collection-astralia-planisphere-v2\.webp$/);
     assert.equal(asset.width/asset.height,2,'the full atlas has its original aspect ratio');
     for(const [width,height]of [[2041,1383],[1440,1000],[1024,768],[412,1007],[390,844],[320,568],[844,390]]){
       await page.setViewportSize({width,height});
       await page.waitForFunction(()=>[...document.querySelectorAll('.cb-card img')].every(n=>n.complete&&n.naturalWidth>0));
       await page.waitForTimeout(150);
       const geometry=await page.locator('.cb-spread').evaluate(node=>{
-        const work=node.parentElement,style=getComputedStyle(work),rect=work.getBoundingClientRect();
+        const work=node.parentElement,style=getComputedStyle(work,'::before'),rect=work.getBoundingClientRect();
         const captions=[...node.querySelectorAll('.cb-caption')].map(n=>{
           const box=n.getBoundingClientRect(),name=n.querySelector('h2');
           return {ink:getComputedStyle(name).color,paper:getComputedStyle(n).backgroundColor,fits:[...n.querySelectorAll('.cb-copy-count,.cb-version-count,h2,.cb-icon')].every(c=>{const r=c.getBoundingClientRect();return r.left>=box.left-1&&r.right<=box.right+1&&r.top>=box.top-1&&r.bottom<=box.bottom+1;})};
         });
-        return {background:style.backgroundImage,size:style.backgroundSize,spine:getComputedStyle(node,'::before').content,spreadBackground:getComputedStyle(node).backgroundImage,overflow:document.documentElement.scrollWidth-innerWidth,captions,cards:[...node.querySelectorAll('.cb-card')].map(n=>{const r=n.getBoundingClientRect();return {width:r.width,height:r.height,inside:r.left>=rect.left&&r.right<=rect.right&&r.height>0};})};
+        return {background:style.backgroundImage,size:style.backgroundSize,blur:style.filter,interactive:style.pointerEvents,workFilter:getComputedStyle(work).filter,spreadFilter:getComputedStyle(node).filter,spine:getComputedStyle(node,'::before').content,spreadBackground:getComputedStyle(node).backgroundImage,overflow:document.documentElement.scrollWidth-innerWidth,captions,cards:[...node.querySelectorAll('.cb-card')].map(n=>{const r=n.getBoundingClientRect();return {width:r.width,height:r.height,filter:getComputedStyle(n).filter,inside:r.left>=rect.left&&r.right<=rect.right&&r.height>0};})};
       });
-      assert.match(geometry.background,/collection-astralia-planisphere-v1\.webp/);
+      assert.match(geometry.background,/collection-astralia-planisphere-v2\.webp/);
+      assert.equal(geometry.blur,'blur(1.6px)','only the map has a restrained blur');
+      assert.equal(geometry.interactive,'none','map layer never blocks controls');
+      assert.equal(geometry.workFilter,'none');assert.equal(geometry.spreadFilter,'none');
+      assert.ok(geometry.cards.every(c=>!c.filter.includes('blur')),'cards stay sharp');
       assert.equal(geometry.size,'cover','atlas is cropped proportionally, never stretched');
       assert.equal(geometry.spine,'none','the collection has no book seam');
       assert.equal(geometry.spreadBackground,'none','pagination does not repaint a second book texture');
@@ -54,7 +58,7 @@ async function main(){
     const initial=await page.locator('.cb-page-label').textContent();
     await action('next-page').last().click();assert.notEqual(await page.locator('.cb-page-label').textContent(),initial);
     await action('pages').click();await page.locator('.cb-overlay:modal').waitFor();
-    assert.match(await page.locator('.cb-mini-book').first().evaluate(n=>getComputedStyle(n).backgroundImage),/collection-astralia-planisphere-v1\.webp/);
+    assert.match(await page.locator('.cb-mini-book').first().evaluate(n=>getComputedStyle(n,'::before').backgroundImage),/collection-astralia-planisphere-v2\.webp/);
     await action('jump-page','0').click();
     await action('filters').click();
     await page.locator('[data-binder-filter=collection]').last().selectOption('kalistar');
@@ -65,6 +69,7 @@ async function main(){
     await cycle.click();assert.notEqual(await page.locator('.cb-pocket').first().getAttribute('data-card-id'),before);
     await action('open').first().click();
     assert.match(await page.locator('.cb-workbench').evaluate(n=>getComputedStyle(n).backgroundImage),/collection-reader-grimoire-v1\.webp/,'character notebooks retain their reading surface');
+    assert.equal(await page.locator('.cb-workbench').evaluate(n=>getComputedStyle(n,'::before').content),'none','map disappears in character notebooks');
     const notes=action('pane','notes');if(await notes.isVisible())await notes.click();
     for(const tab of ['profile','career','copies']){await action('tab',tab).click();await page.locator('#cb-read-content').waitFor();}
     await action('back').click();
@@ -72,7 +77,7 @@ async function main(){
     assert.match(await page.locator('.story-volume-object img').first().getAttribute('src'),/story-closed-grimoire-v2\.webp/,'Story is unchanged');
     await page.locator('[data-view=collection]').click();await page.locator('.cb-spread').waitFor();
     await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);
-    assert.match(await page.locator('.cb-workbench').evaluate(n=>getComputedStyle(n).backgroundImage),/collection-astralia-planisphere-v1\.webp/);
+    assert.match(await page.locator('.cb-workbench').evaluate(n=>getComputedStyle(n,'::before').backgroundImage),/collection-astralia-planisphere-v2\.webp/);
     const phone=await browser.newContext({viewport:{width:412,height:1007},isMobile:true,hasTouch:true,reducedMotion:'no-preference'}),touch=await phone.newPage();
     touch.on('pageerror',e=>errors.push(e.message));
     await touch.goto(url+'/jeu/#collection');await touch.waitForFunction(()=>window.KALISTAR_READY);

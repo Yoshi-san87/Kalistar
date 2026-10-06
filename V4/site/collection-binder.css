@@ -87,7 +87,7 @@ body.collection-view #app { flex: 1 1 0; width: 100%; height: 100%; min-height: 
 .cb-page .cb-page-thumbnails > button { display: flex; flex-direction: column; padding: 6px; border-color: transparent; background: transparent; gap: 7px; }
 .cb-page-thumbnails > button > span:last-child { display: flex; align-items: center; gap: 8px; }
 .cb-page .cb-page-thumbnails > button[aria-current=page] { border-color: #ead19e; color: #f8ddac; background: #caae6520; }
-.cb-mini-book { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; width: 100%; aspect-ratio: 2/1; padding: 8% 9%; background: #b89b71 url('assets/ui/collection-astralia-planisphere-v1.webp') center / cover; }
+.cb-mini-book { position: relative; isolation: isolate; overflow: hidden; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; width: 100%; aspect-ratio: 2/1; padding: 8% 9%; background: #b89b71; }
 .cb-mini-book[data-single=true] { grid-template-columns: 1fr; aspect-ratio: .85; }
 .cb-mini-leaf { display: grid; grid-template-columns: repeat(var(--mini-columns),minmax(0,1fr)); grid-auto-rows: minmax(0,1fr); align-items: center; justify-items: center; gap: 5px; min-height: 0; }
 .cb-mini-leaf img { display: block; width: 100%; height: 100%; min-height: 0; max-height: 110px; object-fit: contain; }
@@ -138,7 +138,9 @@ body.collection-view #app { flex: 1 1 0; width: 100%; height: 100%; min-height: 
 .cb-toolbar > .cb-icon { width: 30px; height: 30px; flex-basis: 30px; padding: 5px; }
 .cb-page .cb-back { flex: none; min-height: 30px; font-size: 11px; padding: 4px 7px; border-color: transparent; background: none; }
 .cb-workbench { container-type: size; grid-row: 3; position: relative; min-width: 0; min-height: 0; padding: 0; overflow: hidden; touch-action: pan-y pinch-zoom; user-select: none; background: repeating-linear-gradient(0deg,#bfb39a02 0 1px,transparent 1px 4px),#0f1513; }
-.cb-page[data-mode=book] .cb-workbench { background: #b89b71 url('assets/ui/collection-astralia-planisphere-v1.webp') center / cover no-repeat; }
+.cb-page[data-mode=book] .cb-workbench { isolation: isolate; background: #b89b71; }
+/* Blur only the map layer, never the collectible cards or their controls. */
+.cb-page[data-mode=book] .cb-workbench::before, .cb-mini-book::before { content: ''; position: absolute; inset: -4px; z-index: -1; pointer-events: none; background: #b89b71 url('assets/ui/collection-astralia-planisphere-v2.webp') center / cover no-repeat; filter: blur(1.6px); }
 
 /* Page tracks come from the JS pagination size, not viewport-specific CSS guesses. */
 .cb-spread { --cb-book-inset-x: clamp(38px,5.4cqw,116px); --cb-book-inset-top: clamp(26px,5.5cqh,62px); --cb-book-inset-bottom: clamp(42px,9.5cqh,96px); --cb-card-gutter: 8px; --cb-slot-width: clamp(220px,18cqw,280px); --cb-column-gap: clamp(24px,2cqw,42px); position: relative; isolation: isolate; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: var(--cb-spread-gap); width: 100%; height: 100%; min-width: 0; min-height: 0; padding: var(--cb-book-inset-top) var(--cb-book-inset-x) var(--cb-book-inset-bottom); background: transparent; }

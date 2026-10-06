@@ -134,12 +134,15 @@ See also the [slower pacing and Tip Off validation](../releases/2026-10-05-tipof
 
 ## Collection Editions (23 September 2026)
 
-The Collection grid and its page index now use one continuous antique Astralia
-planisphere, Atlantic-centred with a newly emerged central landmass. The atlas
-is a generated ambience illustration, not a canonical political map. Its source,
-exact prompt, WebP conversion and hashes are kept in
-`../propositions/2026-10-06-astralia-atlas-v1/`. The runtime background belongs to
-the workbench, so paging never repeats the book or its spine. Proportional cover
+The Collection grid and its page index use one continuous antique Astralia map:
+two side continents, an isolated central island, a southern archipelago and a
+northern ice continent joining both sides. The author-selected V2 source stays
+sharp; a 1.6px CSS blur applies only to the background pseudo-element, never
+to cards, labels or controls. The atlas is ambience, not a political reference.
+Its exact prompt, unblurred source, WebP conversion and hashes are kept in
+`../propositions/2026-10-06-astralia-atlas-v2/`; V1 remains preserved.
+The background belongs to the workbench, so paging never repeats a book spine.
+Proportional cover
 cropping preserves the map geometry on desktop and phone. Quiet parchment
 caption strips keep names and counters legible. Story and character notebooks
 retain their original reading surfaces. `collection-map.browser.test.cjs`
