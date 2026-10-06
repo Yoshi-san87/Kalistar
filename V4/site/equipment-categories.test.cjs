@@ -109,7 +109,9 @@ test('complete matches use unmodified card faces and reload each step, with both
 });
 
 test('equipment media is independently hashed, transparent and natively anchored',async()=>{
-  const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),{sharp}=require('../atelier/lib.cjs');
+  const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),{createRequire}=require('node:module');
+  const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE||'','.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
+  const sharp=createRequire(path.resolve(runtime,'_equipment_media_qa.cjs'))('sharp');
   const proof=require('../revisions/2026-10-06-equipment-categories/media-provenance.json');
   assert.equal(proof.assets.length,8);
   for(const asset of proof.assets){

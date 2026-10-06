@@ -24,7 +24,11 @@ jobs:
         run: git lfs pull --include="$(node V4/deploy/build.cjs --lfs-paths)" --exclude=""
       - name: Fetch native medallion verification sources
         run: git lfs pull --include="V4/atelier/designer-assets/frame/default.png,V4/atelier/designer-assets/packed/banks/weapon-Hache.png,V4/atelier/designer-assets/packed/banks/weapon-Instrument.png,V4/atelier/designer-assets/packed/banks/return-weapon-4.png" --exclude=""
+      - name: Install equipment media verifier
+        run: npm install --prefix "$RUNNER_TEMP/kalistar-media-qa" --no-package-lock --ignore-scripts --no-audit --no-fund sharp@0.35.4
       - name: Check catalogue and mechanics
+        env:
+          KALISTAR_NODE_MODULES: ${{ runner.temp }}/kalistar-media-qa/node_modules
         run: |
           node --test V4/atelier/game-catalog.test.cjs V4/atelier/collaboration-arenas.test.cjs V4/deploy/build.test.cjs V4/deploy/pwa.test.cjs V4/site/statistics.test.cjs V4/site/collaborations.test.cjs V4/site/metal-gear.test.cjs V4/site/resident-evil.test.cjs V4/site/one-piece.test.cjs
           node --test V4/expansions/2026-10-01-one-piece/model.test.cjs
