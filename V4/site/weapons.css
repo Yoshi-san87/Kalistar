@@ -20,6 +20,8 @@
 .weapon-state .lucide{width:15px;height:15px;}
 .eq-mechanism{position:relative;display:block;width:100%;height:100%;pointer-events:none;}
 .eq-backplate{position:absolute;left:5%;top:4.590164%;width:90%;height:90%;border-radius:50%;background:radial-gradient(circle at 45% 35%,#0a2630,#03131c 75%);z-index:0;}
+.eq-mechanism[data-kind=shield] .eq-backplate{background:radial-gradient(circle at 45% 35%,#18352e,#081c17 75%);}
+.eq-mechanism[data-kind=relic] .eq-backplate{background:radial-gradient(circle at 45% 35%,#29203e,#100d1d 75%);}
 .eq-mechanism .eq-body,.eq-mechanism .eq-rim{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;}
 .eq-body{z-index:1;}
 .eq-rim{z-index:2;}

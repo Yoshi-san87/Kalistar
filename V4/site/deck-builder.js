@@ -269,7 +269,7 @@
       const leader=!!c&&draft.captain===id,unavailable=c&&!model.availability(id).available;
       return `<div class="kdb-slot ${i===target?'is-selected':''} ${leader?'is-captain':''} ${unavailable?'is-unavailable':''}" data-deck-slot="${i}" ${c?`data-deck-preview="${id}"`:''}>
         <div class="kdb-slot-top"><span>${i<5?'P'+(i+1):'R'+(i-4)}</span>${button('reorder','grip-vertical','Echanger '+(c?c.name:'la place'),`data-slot="${i}" aria-pressed="${reorderFrom===i}"`)}${c?button('remove','x','Retirer '+c.name,`data-slot="${i}"`):'<span></span>'}</div>
-        <button type="button" class="kdb-slot-image" data-deck-action="slot" data-slot="${i}" aria-pressed="${i===target}" aria-label="${i<5?'P'+(i+1):'Reserve'}${c?' : '+esc(c.name):' libre'}">${c?`<img src="${image(c)}" alt="${esc(c.name)}" draggable="false">${w?`<span class="team-equipped" role="img" aria-label="Arme equipee : ${esc(w.name)}">${globalThis.KalistarEquipmentFX.markup(w,{bonus:false})}</span>`:''}`:icon('plus')}</button>
+        <button type="button" class="kdb-slot-image" data-deck-action="slot" data-slot="${i}" aria-pressed="${i===target}" aria-label="${i<5?'P'+(i+1):'Reserve'}${c?' : '+esc(c.name):' libre'}">${c?`<img src="${image(c)}" alt="${esc(c.name)}" draggable="false">${w?`<span class="team-equipped" role="img" aria-label="Equipement : ${esc(w.name)}">${globalThis.KalistarEquipmentFX.markup(w,{bonus:false})}</span>`:''}`:icon('plus')}</button>
         <div class="team-card-caption"><span class="kdb-slot-label" title="${c?esc(c.name):'Libre'}">${c?esc(c.name):'Libre'}</span>${c?button('detail','scan-eye','Inspecter '+c.name,`data-id="${id}"`):''}</div>
         ${i<5?`<button type="button" class="kdb-icon" data-deck-action="captain" data-slot="${i}" aria-pressed="${leader}" aria-label="${esc(leader?'Capitaine : '+c.name:'Definir le capitaine')}" title="${esc(leader?'Capitaine : '+c.name:'Definir le capitaine')}" ${c?'':'disabled'}>${crown()}</button>`:''}
       </div>`;
@@ -288,7 +288,7 @@
       const c=byId.get(draft.cards[target]),equipped=c&&draft.equipment[c.characterId];
       if(!c)return '<p class="kdb-empty-results">Choisissez un personnage de votre equipe.</p>';
       const weapons=globalThis.KalistarWeapons.weapons.filter(w=>globalThis.KalistarEquipment.compatible(w,c));
-      return `<div class="team-weapon-list">${weapons.map(w=>`<article class="team-weapon"><div class="team-weapon-art">${globalThis.KalistarEquipmentFX.markup(w,{bonus:false})}</div><div><h3>${esc(w.name)}</h3><strong>+${w.effect.value} ${w.effect.stat}</strong><p>${esc(w.condition)}</p><button type="button" data-deck-action="${equipped===w.id?'unequip':'equip'}" data-id="${w.id}" aria-pressed="${equipped===w.id}">${icon(equipped===w.id?'check':'sword')}${equipped===w.id?'Desequiper':'Equiper'}</button></div></article>`).join('')||'<p class="kdb-empty-results">Aucune arme compatible.</p>'}</div>`;
+      return `<div class="team-weapon-list">${weapons.map(w=>`<article class="team-weapon"><div class="team-weapon-art">${globalThis.KalistarEquipmentFX.markup(w,{bonus:false})}</div><div><h3>${esc(w.name)}</h3><strong>+${w.effect.value} ${w.effect.stat}</strong><p>${esc(w.condition)}</p><button type="button" data-deck-action="${equipped===w.id?'unequip':'equip'}" data-id="${w.id}" aria-pressed="${equipped===w.id}">${icon(equipped===w.id?'check':globalThis.KalistarWeapons.categories[globalThis.KalistarWeapons.kind(w)].icon)}${equipped===w.id?'Desequiper':'Equiper'}</button></div></article>`).join('')||'<p class="kdb-empty-results">Aucun équipement compatible.</p>'}</div>`;
     }
     function render() {
       const saved=savedDecks(),state=model.evaluate(draft),list=visibleCandidates();
@@ -319,7 +319,7 @@
             <div class="kdb-validation" role="status"><span class="${state.playable?'kdb-positive':'kdb-warning'}" title="${esc(state.errors.join(' '))}">${state.playable?'Equipe prete':esc(state.errors.find(e=>e.includes('capitaine'))||state.errors[0]||'Formation incomplete')}</span></div>
           </section>
           <section class="kdb-browser" id="kdb-panel-recruit" aria-label="Bibliotheque de recrutement">
-            <div class="team-library-tabs" role="tablist" aria-label="Bibliotheque"><button type="button" role="tab" data-deck-action="recruit-mode" data-id="characters" aria-selected="${recruitMode==='characters'}">${icon('users')}Personnages</button><button type="button" role="tab" data-deck-action="recruit-mode" data-id="weapons" aria-selected="${recruitMode==='weapons'}">${icon('sword')}Armes</button></div>
+            <div class="team-library-tabs" role="tablist" aria-label="Bibliotheque"><button type="button" role="tab" data-deck-action="recruit-mode" data-id="characters" aria-selected="${recruitMode==='characters'}">${icon('users')}Personnages</button><button type="button" role="tab" data-deck-action="recruit-mode" data-id="weapons" aria-selected="${recruitMode==='weapons'}">${icon('sword')}Équipements</button></div>
             ${targetHTML()}
             ${recruitMode==='weapons'?weaponHTML():`<div class="kdb-band-heading"><h2>Recrutement <small>${list.total}</small></h2><div class="kdb-recruit-tools"><label class="kdb-search"><span class="kdb-sr-only">Recherche</span><input type="search" data-deck-filter="search" aria-label="Recherche de cartes" value="${esc(filters.search)}" placeholder="Rechercher" autocomplete="off"></label>${button('filters','sliders-horizontal','Filtres',`aria-expanded="${filtering}"`)}${Object.values(filters).some(Boolean)?button('reset-filters','filter-x','Effacer les filtres'):''}</div></div>${filtersHTML()}<div class="kdb-candidates" tabindex="0" aria-label="Personnages disponibles">${list.items.map(candidateHTML).join('')||'<p class="kdb-empty-results">Aucun personnage pour ces filtres.</p>'}</div>`}
           </section>
@@ -602,7 +602,7 @@
         if(action==='equip'||action==='unequip'){
           const c=byId.get(draft.cards[target]);if(!c)return;
           const old=draft.equipment[c.characterId],carrier=Object.entries(draft.equipment).find(([key,value])=>value===id&&key!==c.characterId);
-          if(action==='equip'&&(old||carrier)&&!mountedWindow.confirm('Remplacer ou deplacer cette arme dans cette equipe ?'))return;
+          if(action==='equip'&&(old||carrier)&&!mountedWindow.confirm('Remplacer ou deplacer cet equipement dans cette equipe ?'))return;
           const before=editState();draft=Team.equip(draft,c.id,action==='unequip'?null:id);
           try{emit();}catch(error){draft=clone(before);working.set(selected,clone(draft));throw error;}
           remember(before);repaint();return;

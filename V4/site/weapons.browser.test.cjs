@@ -181,9 +181,9 @@ async function main(){
       assert.equal(await orbit.evaluate(n=>getComputedStyle(n).animationIterationCount),'infinite','keyboard focus animates');
       await page.mouse.click(1,1);
     }
-    assert.match(await page.title(),/^Kalistar V4\.5\.36/);
-    if(name==='desktop')assert.equal(await page.locator('.edition').innerText(),'VERSION 4.5.36');
-    else assert.equal(await page.locator('.brand').evaluate(n=>getComputedStyle(n,'::after').content),'"V4.5.36"');
+    assert.match(await page.title(),/^Kalistar V4\.5\.37/);
+    if(name==='desktop')assert.equal(await page.locator('.edition').innerText(),'VERSION 4.5.37');
+    else assert.equal(await page.locator('.brand').evaluate(n=>getComputedStyle(n,'::after').content),'"V4.5.37"');
     if(name==='desktop'){
       const migrated=await page.evaluate(()=>new Promise((resolve,reject)=>{
         const request=indexedDB.open('kalistar-v4-cards');request.onerror=()=>reject(request.error);
@@ -200,7 +200,7 @@ async function main(){
     await equipment(page,'fallen-king-axe');await equipment(page,'little-joys-flute');
     await page.screenshot({path:path.join(out,name+'-arsenal.png')});
     await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);
-    assert.match(await page.locator('.weapons-page [data-weapon-holder=fallen-king-axe]').getAttribute('aria-label'),/\u00c9quip\u00e9e par BALMHYR/);
+    assert.match(await page.locator('.weapons-page [data-weapon-holder=fallen-king-axe]').getAttribute('aria-label'),/Porteur : BALMHYR/);
     assert.equal(await page.locator('.weapons-page [data-weapon=fallen-king-axe] .wc-holder img').getAttribute('alt'),'BALMHYR');
     await page.locator('[data-weapon=fallen-king-axe]').click();assert.equal(await page.locator('.weapon-carriers article').count(),1);await page.screenshot({path:path.join(out,name+'-weapon-detail.png')});
     await inspect(page,'[data-weapon-action=card]',null,motion,{label:name+' arsenal card has no combat overlay'});await closeDetail(page);

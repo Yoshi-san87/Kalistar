@@ -1,5 +1,64 @@
 # Armes equipees - V1
 
+## Evolution du 6 octobre 2026 : Equipements
+
+La vue `#weapons` est maintenant nommee **Equipements** et filtre trois
+categories : Armes, Boucliers et Reliques. Un personnage choisit UN objet,
+pas un objet de chaque categorie. Les 33 armes conservent leurs restrictions
+de famille imprimee. Les boucliers/reliques n'ajoutent pas cette restriction.
+Les regles de compatibilite introduites ci-dessous priment sur les descriptions
+historiques plus bas dans ce document.
+
+| Objet | Compatibilite | Effet numerique |
+| --- | --- | --- |
+| Le Rempart de Durane (`durane-rampart`) | Faction `Durane`, toute arme imprimee | +30 DEF pendant sa premiere defense, une fois par match |
+| Pod 042 (`pod-042`) | `characterId: 2b-nier`, toutes ses editions | Apres un Block reussi, +20 DEF a sa prochaine defense, une fois par match |
+
+Le Block du Pod est exactement le `hold` du bilan existant : une defense
+survecue, dont l'esquive, mais ni soutien, ni mort, ni Reraise. Le bonus
+ne s'applique pas au Block qui l'a prepare. Une attaque ou un soutien ne
+consomme pas la charge ; une defense la consomme a sa resolution, y compris
+Mort/Esquive. Les relances du MEME duel conservent le bonus capture. Les faces
+speciales ne deviennent jamais numeriques. Le Pod ne peut pas se recharger.
+Un cadeau de Momo et un bonus personnel ne se cumulent pas : le plus grand
+est retenu, comme avant. La premiere defense est depensee meme si Momo fournit
+le bonus retenu. Aucun objet ne change les vingt matchups d'armes de base.
+
+### Schema compatible
+
+- `kind` vaut `weapon` (defaut historique), `shield` ou `relic`.
+- La cle historique `slot: 'weapon'` et `profile.slots.weapon` est conservee
+  comme emplacement PARTAGE, pour ne pas dupliquer ni perdre les sauvegardes.
+- Les compositions enregistrent toujours leur propre `equipment` et le match
+  prend son snapshot. Modifier le profil ne modifie ni une composition deja
+  enregistree ni une rencontre commencee.
+- Nouveaux effets declaratifs : `FIRST_DEFENSE` et `AFTER_BLOCK`, avec
+  `stat: 'DEF'`, `duration: 'NEXT_DEFENSE'`, valeurs bornees de 1 a 40.
+- `state.equipment.charges` est optionnel pour les anciennes sauvegardes.
+  Sa cle est l'UID de l'unite, sa valeur
+  `{weaponId, status: 'ready'|'spent', round}`. Le premier bouclier n'a pas
+  besoin d'une entree avant consommation. Le Pod en a une des son Block.
+  Les entrees sont validees contre le porteur et le journal d'evenements.
+- Aucun nouveau store IndexedDB, aucune migration destructive, aucun slot Job.
+
+### Ajouter un autre objet
+
+Ajouter une definition dans `site/weapons.js`, avec un ID stable, `kind`,
+restrictions explicites, un effet deja connu et un numero collectible unique.
+Ne pas ajouter `families` aux boucliers/reliques sauf choix de design explicite.
+Fournir separement le detourage, la scene et l'anneau transparent dans
+`weapon-cards/sources/`, puis une entree `site/weapon-art.js`. Le renderer
+commun utilise le meme template, les categories colorent uniquement les
+panneaux par CSS et la geometrie native du medaillon reste inchangee.
+Le pipeline `weapon-cards/build-assets.cjs` sait reconstruire ces objets.
+La revision possede aussi un builder limite aux huit nouveaux WebP.
+
+Validation : `site/equipment-categories.test.cjs` (moteur, parties completes,
+reprise, assets) et `site/equipment-categories.browser.test.cjs` (profils QA
+isoles, desktop, Razr 50, compact/Reduced Motion, combat et inspection).
+Sources, prompts image_gen, empreintes et captures :
+`revisions/2026-10-06-equipment-categories/`.
+
 Feature additive du 2 octobre 2026. Les PNG/PSD, les vingt familles d'armes et
 leur matrice d'avantages restent inchanges. Aucun systeme Job n'est ajoute.
 

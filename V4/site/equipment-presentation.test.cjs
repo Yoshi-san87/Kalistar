@@ -28,7 +28,7 @@ test('inspection anchors to drawn card through letterboxing, late crop and live 
 test('normal proportional card geometry is unchanged and deck inspection has no active bonus plate',()=>{
   const f=fixture({width:159.4,height:277.6,objectFit:'fill'});f.fx.mountDetail(f.container,weapons[1],{bonus:false});
   assertGeometry(f,159.4,277.6);assert(!f.children[0].innerHTML.includes('eq-tab'));
-  assert.equal(f.children[0].dataset.weaponId,weapons[1].id);assert.match(f.children[0]['aria-label'],/arme equipee/);
+  assert.equal(f.children[0].dataset.weaponId,weapons[1].id);assert.match(f.children[0]['aria-label'],/equipement porte/);
   assert.match(f.children[0].className,/is-active/,'CSS revolving ring is shared, with no extra JS timer');
 });
 test('closing, replacing, clearing and navigation disconnect inspection observers and listeners',()=>{

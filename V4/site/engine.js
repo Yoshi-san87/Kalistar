@@ -118,7 +118,7 @@
         if(team.captain!==null&&(!team.captain||!f.includes(team.captain)))errors.push('Le capitaine doit etre un titulaire.');
         if(!draft&&team.captain===null)errors.push('Choisissez un capitaine avant de jouer.');
       }
-      try{Equipment.validateLoadout(team.equipment,ids.map(id=>byId[id]),definitions);}catch{errors.push('Arme inconnue, dupliquee ou incompatible avec son porteur dans cette equipe.');}
+      try{Equipment.validateLoadout(team.equipment,ids.map(id=>byId[id]),definitions);}catch{errors.push('Equipement inconnu, duplique ou incompatible avec son porteur dans cette equipe.');}
       return errors;
     }
     function captainUnit(s,side){
@@ -270,8 +270,8 @@
       if(s.duel.equipmentTransfer){const e=s.duel.equipmentTransfer;outcome+=` ${e.name} : +${e.value} ${e.stat} au prochain duel.`;}
       s.duel.autoDefense=false;
       s.duel.outcome=outcome;if(formula)s.duel.formula=formula;
-      Equipment.finish(s);
       recordPerformance(s);
+      const preparation=Equipment.finish(s,card);if(preparation)addLog(s,'effect',preparation);
       s.lastDuel=clone(s.duel);s.phase='result';addLog(s,'result',outcome,formula);return s;
     }
     function recordPerformance(s){

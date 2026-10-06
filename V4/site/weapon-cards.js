@@ -42,6 +42,8 @@
   deepFreeze(layout);deepFreeze(faces);deepFreeze(backgrounds);
   function activation(w){
     const e=w.effect,bonus=`+${e.value} ${e.stat}`;
+    if(e.trigger==='FIRST_DEFENSE')return {condition:'Premi\u00e8re d\u00e9fense.',effect:bonus+' pour ce duel.',duration:'Une fois par partie.'};
+    if(e.trigger==='AFTER_BLOCK')return {condition:'Apr\u00e8s un Block r\u00e9ussi.',effect:bonus+' \u00e0 sa prochaine d\u00e9fense.',duration:'Une fois par partie.'};
     if(e.trigger==='LAST_STANDING')return {condition:'Dernier combattant actif de son \u00e9quipe.',effect:bonus+'.',duration:'Tant qu\u2019il reste seul.'};
     if(e.trigger==='TEAM_STATE'){
       const q=e.when,condition=q.outnumbered?'En inf\u00e9riorit\u00e9 num\u00e9rique.':q.activeAtMost===1?'Seul combattant actif.':q.activeAtMost===2?'Deux combattants actifs ou moins.':'R\u00e9serve vide.';
@@ -75,11 +77,12 @@
     const src=face.illustration?url('assets/weapon-cards/'+face.illustration):null;
     const background=face.cutout&&backgrounds[w.id]?url('assets/weapon-cards/backgrounds/'+backgrounds[w.id]):null;
     const frame=url('assets/weapon-cards/'+layout.frame),polygon=layout.artPolygon.map(p=>p.join('% ')+'%').join(',');
-    return `<span class="wc-surface" data-weapon-card="${esc(w.id)}" style="aspect-ratio:${layout.ratio.join('/')}">
+    const kind=catalogue.kind(w),category=catalogue.categories[kind];
+    return `<span class="wc-surface" data-kind="${kind}" data-weapon-card="${esc(w.id)}" style="aspect-ratio:${layout.ratio.join('/')}">
       <span class="wc-frame-clip" aria-hidden="true"><img class="wc-frame" src="${esc(frame)}" alt="" draggable="false" style="left:${-c.x/c.width*100}%;top:${-c.y/c.height*100}%;width:${layout.width/c.width*100}%;height:${layout.height/c.height*100}%"></span>
       ${src?`<span class="wc-art${face.cutout?' wc-art-cutout':''}${background?' wc-art-scenic':''}" style="${zone('art')}clip-path:polygon(${polygon})">${background?`<img class="wc-art-background" src="${esc(background)}" alt="" aria-hidden="true" draggable="false">`:''}<img class="wc-art-main" src="${esc(src)}" alt="${esc(face.alt)}" draggable="false"></span>`:''}
       <span class="wc-title" style="${zone('title')}"><strong>${esc(w.name)}</strong></span>
-      <span class="wc-family" style="${zone('family')}" title="${esc(w.family)}"><img src="${esc(url(baseWeapons.asset(baseWeapons.code(w.family))))}" alt="Famille : ${esc(w.family)}" draggable="false"></span>
+      <span class="wc-family" style="${zone('family')}" title="${esc(w.family)}" ${kind!=='weapon'?`role="img" aria-label="${esc(category.singular)}"`:''}>${kind==='weapon'?`<img src="${esc(url(baseWeapons.asset(baseWeapons.code(w.family))))}" alt="Famille : ${esc(w.family)}" draggable="false">`:`<i data-lucide="${category.icon}" aria-hidden="true"></i>`}</span>
       <span class="wc-medallion" style="${zone('medallion')}">${medallion(w,{bonus:false})}</span>
       <span class="wc-flavour" style="${zone('lore')}">${esc(face.flavour)}</span>
       <span class="wc-activation-title" style="${zone('activationTitle')}">Activation</span>

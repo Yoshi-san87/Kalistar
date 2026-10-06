@@ -2,9 +2,10 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const Q=require('./equipment.js'),{createEngine}=require('./engine.js'),{buildCatalog}=require('../atelier/game-catalog.cjs');
 const rows=require('../donnees/catalogue.json').cards.filter(c=>c.kind==='created');
-const dataPromise=buildCatalog({published:rows}),additions=Q.catalogue.weapons.filter(w=>w.collectible);
+const weapons=Q.catalogue.weapons.filter(w=>Q.catalogue.kind(w)==='weapon');
+const dataPromise=buildCatalog({published:rows}),additions=weapons.filter(w=>w.collectible);
 const {legacyGame,weapons:previous}=require('./fixtures/legacy-equipment.cjs');
-const unmatched=['commanders-sabre','arborium-thorn-dagger','draevenheim-crimson-crossbow','rhinoz-ancestral-horn','virtuous-treaty','mythic-iron-gauntlet'];
+const unmatched=['commanders-sabre','arborium-thorn-dagger','draevenheim-crimson-crossbow','rhinoz-ancestral-horn'];
 function deckFor(E,data,carrier){
   const base=data.decks.player;
   for(let i=0;i<base.length;i++){
@@ -31,8 +32,8 @@ function activate(f,w){
   if(when.reserveAtMost===0){for(const u of p.reserve)u.entered=true;p.dead.push(...p.reserve);p.reserve=[];}
 }
 test('31 unique additions: stable identities, real jobs/factions/races and conservative declarative effects',async()=>{
-  const data=await dataPromise;assert.equal(additions.length,31);assert.equal(Q.catalogue.weapons.length,33);
-  assert.equal(new Set(Q.catalogue.weapons.map(w=>w.id)).size,33);
+  const data=await dataPromise;assert.equal(additions.length,31);assert.equal(weapons.length,33);
+  assert.equal(new Set(weapons.map(w=>w.id)).size,33);
   assert.equal(additions.filter(w=>w.restrictions.jobs).length,3);
   assert.equal(additions.filter(w=>w.restrictions.factions).length,7);
   assert.equal(additions.filter(w=>w.restrictions.races).length,1);

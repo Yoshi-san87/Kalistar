@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "method": "Separate generated object, scene and annulus; native 488px medallion coordinates unchanged.",
+  "assets": [
+    {
+      "source": "V4/weapon-cards/sources/durane-rampart-v1.png",
+      "sourceHash": "b06d01cd97b3b152184125a2bd91a05011a5bd2045a93f512979669b85bd62fe",
+      "width": 1145,
+      "height": 1374,
+      "file": "V4/site/assets/equipment/durane-rampart-v1.webp",
+      "sha256": "95781e41469628d4f818797d99a4c33ba0a931fffc5ba69fb40bfb1c14909186",
+      "bytes": 21224,
+      "role": "body",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 240
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/durane-rampart-v1.png",
+      "sourceHash": "b06d01cd97b3b152184125a2bd91a05011a5bd2045a93f512979669b85bd62fe",
+      "file": "V4/site/assets/weapon-cards/durane-rampart-v1.webp",
+      "sha256": "0ce147ff79752885807265352e0708139140fc4f447e6be43f3503726d0c80f8",
+      "bytes": 344128,
+      "role": "collectible-source"
+    },
+    {
+      "source": "V4/weapon-cards/sources/durane-rampart-scene-v1.png",
+      "sourceHash": "4e476e5cc809f9e36cbed0fbaf602ee43aeb0bcee36029f2161dad4178f31eff",
+      "width": 1122,
+      "height": 1402,
+      "file": "V4/site/assets/weapon-cards/durane-rampart-scene-v1.webp",
+      "sha256": "6ef0f79c8a70755b7dfdf1f2e43c22d5e9cf9f3420d523a294eeafe1c135eeca",
+      "bytes": 363626,
+      "role": "scene",
+      "placement": null
+    },
+    {
+      "source": "V4/weapon-cards/sources/durane-rampart-ring-v1.png",
+      "sourceHash": "9481a94128383d3f17bfffe2b5e7f9e925daf49bf4f334d7bb6897566c495723",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/durane-rampart-ring-v1.webp",
+      "sha256": "33dad5f9120aef9a9a72d839bf52d07be8b3423b0d13563a3fd67488fd8272d2",
+      "bytes": 67270,
+      "role": "ring",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 484
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/pod-042-v1.png",
+      "sourceHash": "a42b680bb56e2a7bd8b1cec0eb906db7a3bb22831080870eaf4ad374f712a8ee",
+      "width": 1024,
+      "height": 1536,
+      "file": "V4/site/assets/equipment/pod-042-v1.webp",
+      "sha256": "49e5290168b5ec8374624e136708b909b65b384557d1c1cf9a054ae993a2bfdc",
+      "bytes": 17684,
+      "role": "body",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 240
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/pod-042-v1.png",
+      "sourceHash": "a42b680bb56e2a7bd8b1cec0eb906db7a3bb22831080870eaf4ad374f712a8ee",
+      "file": "V4/site/assets/weapon-cards/pod-042-v1.webp",
+      "sha256": "0dd86f9392e5f125b448caa4ef1d05d97782e0ce50a66c2b8aa04c01b27414e8",
+      "bytes": 267716,
+      "role": "collectible-source"
+    },
+    {
+      "source": "V4/weapon-cards/sources/pod-042-scene-v1.png",
+      "sourceHash": "662d094f3f9b5a00d5955bec898be0ad2a2b9fd1e186eab26086c66d5708523c",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/weapon-cards/pod-042-scene-v1.webp",
+      "sha256": "e0e91652f4435761b973061851372b0d65c45c2296e33574fb5e061e699f3733",
+      "bytes": 328394,
+      "role": "scene",
+      "placement": null
+    },
+    {
+      "source": "V4/weapon-cards/sources/pod-042-ring-v1.png",
+      "sourceHash": "c95380d0887921a3d4e110e0c29a9e85cddd00bbb8bcf54e52aae98befa2c0fd",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/pod-042-ring-v1.webp",
+      "sha256": "cf4222ab93de6185f4b6a620ebbbaaf6f6efdd67a3582704398b0313f1c83812",
+      "bytes": 68794,
+      "role": "ring",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 484
+      }
+    }
+  ]
+}

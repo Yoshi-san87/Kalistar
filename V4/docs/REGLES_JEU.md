@@ -154,12 +154,22 @@ Une barriere sur la face DEF numerique obtenue retire 30 ATK seulement a une
 attaque magique. C'est distinct de la garde physique `ward` et de l'icone
 bouclier utilisee pour afficher la somme des scores DEF.
 
-## Armes equipees (2 octobre 2026)
+## Equipements (6 octobre 2026)
 
-Un personnage peut porter une arme equipee choisie avant le match dans Armes.
-Elle ajoute un bonus conditionnel numerique, sans remplacer l'arme imprimee
+Un personnage peut porter UN equipement choisi avant le match : arme,
+bouclier OU relique, dans la vue Equipements ou sa composition.
+Il ajoute un bonus conditionnel numerique, sans remplacer l'arme imprimee
 ni modifier la matrice des vingt familles. Le match conserve son equipement
 initial, meme si le profil change ensuite.
+
+- Rempart de Durane : faction Durane, +30 DEF pendant la premiere defense,
+  une fois par match.
+- Pod 042 : 2B (toutes editions), apres un Block reussi, +20 DEF a sa prochaine
+  defense, une fois par match. Pas de recharge. Attaquer ne consomme pas le Pod.
+- Ces deux charges sont depensees a la fin d'une vraie defense, meme speciale ;
+  les relances du meme duel conservent le bonus. Un soutien cible ne compte pas.
+- Les armes gardent leur restriction de famille imprimee ; boucliers et reliques
+  ciblent leur faction/personnage sans modifier les matchups.
 
 - Hache du Roi Dechu, `balmhyr` : +30 ATK tant qu'il est le seul combattant
   vivant sur son plateau. La reserve ne compte pas ; un remplacant desactive

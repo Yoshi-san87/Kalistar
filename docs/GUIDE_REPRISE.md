@@ -64,6 +64,14 @@ il est depose au village Rhinoz de Zarok, pres de ses amis d'Astraball. Reprendr
 les scenes d'adieu revisees, pas les anciens brouillons. Story s'ouvre desormais
 sur le tome ferme ; son ouverture reprend le repere local du lecteur.
 
+### Equipements : armes, boucliers et reliques (6 octobre 2026)
+
+La vue `#weapons` s'appelle maintenant Equipements. Un seul objet par personnage
+et composition, toutes categories confondues. Rempart de Durane et Pod 042
+introduisent des bonus DEF a usage unique ; aucun matchup imprime n'est modifie.
+Lire [le schema actuel](../V4/docs/ARMES_EQUIPEES.md) et
+[la revision](../V4/revisions/2026-10-06-equipment-categories/README.md).
+
 ### Armes equipees V4.3.6
 
 La [publication V4.3.6](../V4/releases/2026-10-02-equipped-weapons/README.md)

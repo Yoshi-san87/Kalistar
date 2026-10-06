@@ -829,7 +829,21 @@
     "cryptown-watch-flail": {"factions":["Cryptown"]},
     "rhinoz-ancestral-horn": {"races":["RHINOZ"]}
   };
-  for(const weapon of weapons)weapon.restrictions.families=[weapon.family];
+  weapons.push(
+    {id:'durane-rampart',slot:'weapon',kind:'shield',name:'Le Rempart de Durane',family:'Bouclier',visual:'axe',art:'durane-rampart-v1',
+      restrictions:{factions:['Durane']},effect:{trigger:'FIRST_DEFENSE',stat:'DEF',value:30,duration:'NEXT_DEFENSE'},
+      condition:'Lors de sa premi\u00e8re d\u00e9fense : +30 DEF num\u00e9rique pour ce duel. Une fois par partie, m\u00eame si une face sp\u00e9ciale est obtenue.',
+      lore:'On raconte que les portes de Durane furent taill\u00e9es dans la m\u00eame pierre. Sous les marteaux crois\u00e9s, un Kalistel gris \u00e9claire la rainure int\u00e9rieure. Le premier choc lui prend sa lumi\u00e8re, jamais sa promesse : laisser aux autres le temps de se relever.',
+      collectible:{number:'BOU-001',illustration:'durane-rampart-v1.webp',cutout:true,flavour:'La pierre c\u00e8de. Durane tient.',alt:'Bouclier de pierre grise aux marteaux de Durane, \u00e9clair\u00e9 sur son contour int\u00e9rieur.'}},
+    {id:'pod-042',slot:'weapon',kind:'relic',name:'Pod 042',family:'Relique',visual:'flute',art:'pod-042-v1',
+      restrictions:{characterIds:['2b-nier']},effect:{trigger:'AFTER_BLOCK',stat:'DEF',value:20,duration:'NEXT_DEFENSE'},
+      condition:'Apr\u00e8s un Block r\u00e9ussi de 2B : +20 DEF num\u00e9rique \u00e0 sa prochaine d\u00e9fense. Une seule charge par partie, consomm\u00e9e m\u00eame sur une face sp\u00e9ciale.',
+      lore:'Le Pod enregistre le choc, calcule une trajectoire et se rapproche de quelques centim\u00e8tres. Aucune instruction ne lui demande de rester aussi pr\u00e8s. Au milieu des ruines, cette petite marge devient parfois la diff\u00e9rence entre une mission et un retour.',
+      collectible:{number:'REL-001',illustration:'pod-042-v1.webp',cutout:true,flavour:'Une pr\u00e9sence, m\u00eame apr\u00e8s le silence.',alt:'Pod 042, drone ivoire aux bras m\u00e9caniques noirs, dans les ruines.'}}
+  );
+  const kind=w=>w?.kind||'weapon';
+  const categories=freeze({weapon:{label:'Armes',singular:'Arme',icon:'sword'},shield:{label:'Boucliers',singular:'Bouclier',icon:'shield'},relic:{label:'Reliques',singular:'Relique',icon:'gem'}});
+  for(const weapon of weapons)if(kind(weapon)==='weapon')weapon.restrictions.families=[weapon.family];
   weapons.forEach(freeze);freeze(legacyRestrictions);
-  return Object.freeze({version:1,weapons:Object.freeze(weapons),legacyRestrictions});
+  return Object.freeze({version:1,weapons:Object.freeze(weapons),legacyRestrictions,kind,categories});
 });

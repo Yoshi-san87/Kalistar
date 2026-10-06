@@ -170,7 +170,19 @@ Phone controls retain 44px targets and native select behavior. The isolated
 `collaborations.browser.test.cjs` checks combined filters, scope changes, reset,
 pagination, empty states and ten viewport sizes without personal browser data.
 
-## Equipped Weapons (2 October 2026)
+## Equipment Categories (6 October 2026)
+
+The existing `#weapons` route is now labelled Equipements. Weapon, shield and
+relic filters share one profile/deck slot, never three stackable objects.
+The 33 existing weapons retain their printed-family restriction. New shields
+and relics use explicit faction/character restrictions without a family gate.
+Rempart de Durane (+30 DEF, first defense) and Pod 042 (+20 DEF, next defense
+after a Block) are once-per-match, declarative engine effects. Snapshots and
+old saves stay compatible. See `docs/ARMES_EQUIPEES.md` for consumption rules.
+Run `node --test V4/site/equipment-categories.test.cjs` and
+`node V4/site/equipment-categories.browser.test.cjs` for the focused validation.
+
+## Equipped Weapons (Historical Introduction, 2 October 2026)
 
 `/jeu/#weapons` adds a native Armes view: two real conditional weapons,
 profile-local equipment, compatible carriers and atomic replacement/move

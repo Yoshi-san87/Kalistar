@@ -2,6 +2,7 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const A=require('./weapon-art.js'),C=require('./weapon-cards.js'),{weapons}=require('./weapons.js');
 const proof=require('../weapon-cards/media-provenance.json'),root=path.resolve(__dirname,'../..');
+const equipmentProof=require('../revisions/2026-10-06-equipment-categories/media-provenance.json');
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
 test('every weapon has a unique medallion, immutable definition and stable saved art identity',()=>{
   const rims=new Set(['stone-copper-ring-v1.webp','electro-copper-ring-v1.webp']);
@@ -20,7 +21,7 @@ test('every weapon has a unique medallion, immutable definition and stable saved
 });
 test('every current scene, ring and corrected body is distributed with its recorded hash',()=>{
   for(const a of Object.values(A.entries))for(const [folder,file]of [['weapon-cards',a.scene],['equipment',a.rim],['equipment',a.body]]){
-    const target='V4/site/assets/'+folder+'/'+file,p=proof.assets.find(p=>p.file===target);assert(p,target);
+    const target='V4/site/assets/'+folder+'/'+file,p=[...proof.assets,...equipmentProof.assets].find(p=>p.file===target);assert(p,target);
     const bytes=fs.readFileSync(path.join(root,target));assert.equal(hash(bytes),p.sha256,target);
     assert(bytes.length>1000);assert(bytes.length<1500000,target+' bounded download');
     if(folder==='equipment')assert.deepEqual(p.placement.center,[244,242]);

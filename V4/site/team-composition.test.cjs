@@ -40,8 +40,8 @@ test('P1/P2 incompatibilities, missing and reserve captain, unknown and incompat
   }
   assert.throws(()=>E.newGame({...team,captain:null},team),/capitaine/);
   assert.throws(()=>E.newGame({...team,captain:team.cards.find(id=>!team.formation.includes(id))},team),/capitaine/);
-  assert.throws(()=>E.newGame({...team,equipment:{[data.cards.find(c=>c.characterId==='momo').characterId]:'fallen-king-axe'}},team),/Arme/);
-  assert.throws(()=>E.newGame({...team,equipment:{unknown:'unknown'}},team),/Arme/);
+  assert.throws(()=>E.newGame({...team,equipment:{[data.cards.find(c=>c.characterId==='momo').characterId]:'fallen-king-axe'}},team),/Equipement/);
+  assert.throws(()=>E.newGame({...team,equipment:{unknown:'unknown'}},team),/Equipement/);
 });
 test('migration is deterministic, retains all inventory and copies equipment defaults once',async()=>{
   const data=await dataPromise,E=createEngine(data),defaults={momo:'little-joys-flute'},T=Composition.create(E,()=>defaults);

@@ -14,7 +14,7 @@ async function layout(page,label){
     const box=c.getBoundingClientRect(),med=c.querySelector('.wc-medallion').getBoundingClientRect();
     const family=c.querySelector('.wc-family'),glyph=family.querySelector('img'),f=family.getBoundingClientRect(),title=c.querySelector('.wc-title').getBoundingClientRect();
     return {id:c.dataset.weaponCard,ratio:box.width/box.height,medallionRatio:med.width/med.height,
-      family:{label:glyph.alt,loaded:glyph.complete&&glyph.naturalWidth===96,titleSeparated:title.right<f.left,inside:f.right<box.right&&f.top>box.top&&f.bottom<box.bottom},
+      family:{label:glyph?glyph.alt:family.getAttribute('aria-label'),loaded:glyph?glyph.complete&&glyph.naturalWidth===96:!!family.querySelector('svg.lucide'),titleSeparated:title.right<f.left,inside:f.right<box.right&&f.top>box.top&&f.bottom<box.bottom},
       background:(()=>{const bg=c.querySelector('.wc-art-background'),main=c.querySelector('.wc-art-main');if(!bg)return null;
         const b=bg.getBoundingClientRect(),m=main.getBoundingClientRect();return {loaded:bg.complete&&bg.naturalWidth>0,hidden:bg.getAttribute('aria-hidden'),alt:bg.alt,
           fit:getComputedStyle(main).objectFit,filter:getComputedStyle(main).filter,above:Number(getComputedStyle(main).zIndex)>Number(getComputedStyle(bg).zIndex||0),
@@ -35,7 +35,7 @@ async function layout(page,label){
     assert(Math.abs(card.medallionOffset[0]-.00315789)<.001&&Math.abs(card.medallionOffset[1]+.00117904)<.001,label+' medallion at requested top-left anchor');
     assert.equal(card.rules.length,2);assert.match(card.rules[0].label,/^Condition :/);
     const weapon=weapons.find(w=>w.id===card.id);assert(card.rules[1].label.startsWith('Effet : +'+weapon.effect.value+' '+weapon.effect.stat));
-    assert.deepEqual(card.family,{label:'Famille : '+weapon.family,loaded:true,titleSeparated:true,inside:true},label+' calibrated white family icon in header');
+    assert.deepEqual(card.family,{label:weapon.kind?weapon.family:'Famille : '+weapon.family,loaded:true,titleSeparated:true,inside:true},label+' calibrated family or category icon in header');
     assert.equal(card.background,null,label+' single painted scene, no separate backdrop');
     assert(card.rules.every(r=>r.align==='left'&&r.icon),label+' left-aligned condition and effect with loaded icons');
     assert.notEqual(card.rules[0].color,card.rules[1].color,label+' distinct condition and effect colors');

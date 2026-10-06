@@ -18,12 +18,13 @@ const expected={
   'rhinoz-ancestral-horn':[]
 };
 const byId=id=>Q.catalogue.weapons.find(w=>w.id===id);
+const weapons=Q.catalogue.weapons.filter(w=>Q.catalogue.kind(w)==='weapon');
 function deckFor(E,data,c){const base=data.decks.player;return base.map((_,i)=>base.map((id,j)=>i===j?c.id:id)).find(ids=>!E.validatePlayableDeck(ids).length);}
 
 test('all weapons keep their origins and effects AND require their printed family',async()=>{
-  const {cards}=await dataPromise;assert.equal(Q.catalogue.weapons.length,33);
-  assert.deepEqual(Q.catalogue.weapons.filter(w=>!w.restrictions.characterIds).map(w=>w.id).sort(),Object.keys(expected).sort());
-  for(const w of Q.catalogue.weapons){
+  const {cards}=await dataPromise;assert.equal(weapons.length,33);
+  assert.deepEqual(weapons.filter(w=>!w.restrictions.characterIds).map(w=>w.id).sort(),Object.keys(expected).sort());
+  for(const w of weapons){
     const old=previous.find(p=>p.id===w.id);Q.validateDefinition(w);
     assert.deepEqual(w,{...old,restrictions:{...old.restrictions,families:[old.family]}});
     if(w.restrictions.characterIds){
@@ -119,7 +120,7 @@ test('personal restrictions follow the chosen edition, accept future matching ed
 
 test('weapon faces put the accessible native family glyph in the title and only the origin in the footer',()=>{
   const C=require('./weapon-cards.js'),B=require('./base-weapons.js');
-  for(const w of Q.catalogue.weapons){
+  for(const w of weapons){
     const html=C.markup(w);assert(html.includes('class="wc-family"'));assert(html.includes(B.asset(B.code(w.family))));
     assert(html.includes('alt="Famille : '+w.family+'"'));
     assert(!/<span class="wc-bearers"[^>]*><span><b>[^<]*(?:Gun|Hache|Lance|Epée|Dague|Arc|Fléau)/.test(html));

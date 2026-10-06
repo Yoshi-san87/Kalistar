@@ -3,25 +3,28 @@
   const Q=KalistarEquipment,esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const icon=name=>`<i data-lucide="${name}"></i>`;
   function create({data,db,userId,toast=()=>{},onCard=()=>{}}){
-    let root=null,controller=null,unsubscribe=null,selected=null,confirmation=null,busy=false,filter='all';
+    let root=null,controller=null,unsubscribe=null,selected=null,confirmation=null,busy=false,filter='all',category='all';
     const dialog=document.getElementById('weapons-dialog');
     const definitions=Q.catalogue.weapons,profile=()=>db?.equipment?.profile(userId)||Q.profile(userId);
     const carrier=w=>Object.entries(profile().slots.weapon).find(([,id])=>id===w.id)?.[0]||null;
     const versions=w=>data.cards.filter(c=>Q.compatible(w,c));
     const name=id=>data.cards.find(c=>c.characterId===id)?.name||id;
     const bearers=w=>Object.entries(w.restrictions).filter(([key])=>key!=='families').map(([key,values])=>({characterIds:'Personnages',jobs:'Jobs',families:'Armes de base',factions:'Factions',races:'Races'}[key])+ ' : '+values.map(v=>key==='characterIds'?name(v):v).join(', ')).join(' \u00b7 ');
-    const equippedText=w=>carrier(w)?'\u00c9quip\u00e9e par '+name(carrier(w)):'Non \u00e9quip\u00e9e';
+    const equippedText=w=>carrier(w)?'Porteur : '+name(carrier(w)):'Non attribu\u00e9';
     const card=w=>KalistarWeaponCards.markup(w,{cards:data.cards,medallion:KalistarEquipmentFX.markup,url:p=>window.KalistarSite?.url(p)||p,
       carrier:versions(w).find(c=>c.characterId===carrier(w)),cardImage:KalistarCardMedia.image});
     const holder=w=>`<button class="weapon-holder-action" data-weapon-holder="${esc(w.id)}" style="${KalistarWeaponCards.zone('holder')}" title="${esc(carrier(w)?equippedText(w)+' : changer le porteur':'Attribuer '+w.name)}" aria-label="${esc(carrier(w)?equippedText(w)+' : changer le porteur':'Attribuer '+w.name)}"></button>`;
-    const matches=w=>filter==='all'||filter==='equipped'&&carrier(w)||filter==='free'&&!carrier(w)||filter==='stat:'+w.effect.stat||filter==='family:'+w.family;
+    const matches=w=>(category==='all'||Q.catalogue.kind(w)===category)&&(filter==='all'||filter==='equipped'&&carrier(w)||filter==='free'&&!carrier(w)||filter==='stat:'+w.effect.stat||filter==='family:'+w.family);
+    function categories(){
+      return `<div class="equipment-categories" role="group" aria-label="Cat\u00e9gorie d\u2019\u00e9quipement">${[['all',{label:'Tous',icon:'layers'}],...Object.entries(Q.catalogue.categories)].map(([id,c])=>`<button data-equipment-category="${id}" aria-pressed="${category===id}">${icon(c.icon)}${c.label}</button>`).join('')}</div>`;
+    }
     function filters(){
       const options=items=>items.map(([value,label])=>`<option value="${esc(value)}" ${filter===value?'selected':''}>${esc(label)}</option>`).join('');
-      return `<select class="weapon-filter" aria-label="Filtrer les armes">${options([['all','Toutes les armes']])}<optgroup label="\u00c9quipement">${options([['equipped','\u00c9quip\u00e9es'],['free','Libres']])}</optgroup><optgroup label="Bonus">${options([['stat:ATK','ATK'],['stat:DEF','DEF']])}</optgroup><optgroup label="Famille">${options([...new Set(definitions.map(w=>w.family))].map(f=>['family:'+f,f]))}</optgroup></select>`;
+      return `<select class="weapon-filter" aria-label="Filtrer les équipements">${options([['all','Tous']])}<optgroup label="\u00c9quipement">${options([['equipped','\u00c9quip\u00e9es'],['free','Libres']])}</optgroup><optgroup label="Bonus">${options([['stat:ATK','ATK'],['stat:DEF','DEF']])}</optgroup><optgroup label="Famille">${options([...new Set(definitions.map(w=>w.family))].map(f=>['family:'+f,f]))}</optgroup></select>`;
     }
     function list(){
       const visible=definitions.filter(matches);
-      return `<section class="weapons-page"><header class="weapons-heading"><div class="weapons-title"><span class="eyebrow">KALISTAR \u00b7 ${esc(db?.registry?.user(userId)?.name||'Arsenal')}</span><h1>Armes</h1></div>${filters()}<span class="weapons-count" role="status">${visible.length} / ${definitions.length}</span></header><div class="weapons-list">${visible.map(w=>`<article class="weapon-entry"><div class="weapon-card ${carrier(w)?'is-equipped':''}"><button class="weapon-open" data-weapon="${w.id}" aria-label="${esc(w.name+', '+w.family+', +'+w.effect.value+' '+w.effect.stat+', '+equippedText(w)+'. Voir la fiche.')}">${card(w)}</button>${holder(w)}</div><div class="weapon-card-caption"><small>${esc(KalistarWeaponCards.faces[w.id]?.number||w.id)}</small></div></article>`).join('')}</div>${visible.length?'':`<div class="weapons-empty" role="status"><p>Aucune arme</p><button class="icon-button" data-weapon-action="reset-filter" aria-label="R\u00e9initialiser le filtre" title="R\u00e9initialiser le filtre">${icon('rotate-ccw')}</button></div>`}</section>`;
+      return `<section class="weapons-page"><header class="weapons-heading"><div class="weapons-title"><span class="eyebrow">KALISTAR \u00b7 ${esc(db?.registry?.user(userId)?.name||'Arsenal')}</span><h1>Équipements</h1></div>${filters()}<span class="weapons-count" role="status">${visible.length} / ${definitions.length}</span></header>${categories()}<div class="weapons-list">${visible.map(w=>`<article class="weapon-entry"><div class="weapon-card ${carrier(w)?'is-equipped':''}"><button class="weapon-open" data-weapon="${w.id}" aria-label="${esc(w.name+', '+w.family+', +'+w.effect.value+' '+w.effect.stat+', '+equippedText(w)+'. Voir la fiche.')}">${card(w)}</button>${holder(w)}</div><div class="weapon-card-caption"><small>${esc(KalistarWeaponCards.faces[w.id]?.number||w.id)}</small></div></article>`).join('')}</div>${visible.length?'':`<div class="weapons-empty" role="status"><p>Aucun équipement</p><button class="icon-button" data-weapon-action="reset-filter" aria-label="R\u00e9initialiser le filtre" title="R\u00e9initialiser le filtre">${icon('rotate-ccw')}</button></div>`}</section>`;
     }
     function detail(){
       const w=definitions.find(w=>w.id===selected);if(!w)return;
@@ -41,6 +44,8 @@
       unsubscribe=db?.equipment.subscribe(refresh);
     }
     async function click(event){
+      const categoryButton=event.target.closest('[data-equipment-category]');
+      if(categoryButton){category=categoryButton.dataset.equipmentCategory;filter='all';refresh();root?.querySelector(`[data-equipment-category="${category}"]`)?.focus({preventScroll:true});return;}
       const slot=event.target.closest('[data-weapon-holder]');
       if(slot){if(busy)return;open(slot.dataset.weaponHolder);const target=dialog.querySelector('[data-weapon-action=equip],[data-weapon-action=unequip]');target?.focus({preventScroll:true});target?.scrollIntoView({block:'nearest'});return;}
       const tile=event.target.closest('[data-weapon]');if(tile){open(tile.dataset.weapon);return;}
@@ -59,7 +64,7 @@
         busy=true;
         if(action==='unequip')await db.equipment.unequip(userId,character,w.id);
         else if(action==='equip'||action==='confirm')await db.equipment.equip(userId,confirmation.character,w.id,confirmation);
-        confirmation=null;toast(action==='unequip'?'Arme d\u00e9s\u00e9quip\u00e9e.':'Arme \u00e9quip\u00e9e.');
+        confirmation=null;toast(action==='unequip'?'Équipement retiré.':'Équipement attribué.');
       }catch(e){confirmation=null;toast(e.message);}finally{busy=false;refresh();}
     }
     function open(id){selected=id;confirmation=null;bind();detail();if(!dialog.open)dialog.showModal();}

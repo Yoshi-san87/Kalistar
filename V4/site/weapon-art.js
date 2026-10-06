@@ -5,6 +5,8 @@
   'use strict';
   // Presentation revisions never alter equipment snapshots or their stable art keys.
   const entries={
+    'durane-rampart':Object.freeze({key:'durane-rampart-v1',scene:'durane-rampart-scene-v1.webp',rim:'durane-rampart-ring-v1.webp',body:'durane-rampart-v1.webp',color:'#e5eded'}),
+    'pod-042':Object.freeze({key:'pod-042-v1',scene:'pod-042-scene-v1.webp',rim:'pod-042-ring-v1.webp',body:'pod-042-v1.webp',color:'#dbc4ff'}),
     'rhinoz-ancestral-horn':Object.freeze({key:'rhinoz-ancestral-horn-v2',scene:'rhinoz-ancestral-horn-scene-v1.webp',rim:'rhinoz-ancestral-horn-ring-v1.webp',body:'rhinoz-ancestral-horn-v2.webp',color:'#e9d9b6'}),
     'cryptown-oath-sword':Object.freeze({key:'cryptown-oath-sword-v1',scene:'cryptown-oath-sword-scene-v2.webp',rim:'cryptown-oath-sword-ring-v1.webp',body:'cryptown-oath-sword-v1.webp',color:'#c5a0f8'}),
     'cryptown-vigil-rifle':Object.freeze({key:'cryptown-vigil-rifle-v1',scene:'cryptown-vigil-rifle-scene-v1.webp',rim:'cryptown-vigil-rifle-ring-v1.webp',body:'cryptown-vigil-rifle-v1.webp',color:'#ba92f0'}),

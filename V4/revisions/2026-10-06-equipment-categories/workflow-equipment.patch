@@ -1,0 +1,11 @@
+diff --git a/.github/workflows/pages.yml b/.github/workflows/pages.yml
+--- a/.github/workflows/pages.yml
++++ b/.github/workflows/pages.yml
+@@ -45,6 +45,7 @@ jobs:
+           node V4/site/kalistel.test.cjs
+           node V4/site/arena-ambience.test.cjs
+           node --test V4/site/equipment.test.cjs V4/site/equipment-presentation.test.cjs
++          node --test V4/site/equipment-categories.test.cjs V4/site/weapons-arsenal.test.cjs
+           node --test V4/site/arborium-weapons.test.cjs
+           node --test V4/site/draevenheim-weapons.test.cjs
+           node --test V4/site/cryptown-weapons.test.cjs
