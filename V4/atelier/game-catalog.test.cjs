@@ -53,7 +53,8 @@ test('printed V4 fields override V3 metadata and support faces remain valid', as
   const data = await buildCatalog();
   for (const ref of references.cards) {
     const c = data.cards.find(c => c.id === ref.card.id);
-    for (const field of ['name', 'title', 'job', 'race', 'faction', 'element', 'weapon', 'positions', 'atk', 'defense', 'magic', 'barriers']) assert.deepEqual(c[field], ref.card[field], ref.key + '.' + field);
+    for (const field of ['name', 'title', 'job', 'race', 'element', 'weapon', 'positions', 'atk', 'defense', 'magic', 'barriers']) assert.deepEqual(c[field], ref.card[field], ref.key + '.' + field);
+    assert.equal(c.faction, ref.card.faction === 'Niveria' ? 'Ysilis' : ref.card.faction, ref.key + '.faction');
     assert.equal(c.text, ref.card.description); assert.equal(c.edition, 'V4');
     assert.equal(c.pngUrl, '/media/reference/' + ref.key + '.png');
     assert.ok(Number.isInteger(c.role)); assert.equal(typeof c.sentry, 'boolean');

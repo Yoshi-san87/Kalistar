@@ -1,8 +1,8 @@
 (function(root,factory){
   const node=typeof module==='object'&&module.exports;
-  const api=factory(node?require('./weapons.js'):root.KalistarWeapons,node?require('./defensive-equipment.js'):root.KalistarDefensiveEquipment);
+  const api=factory(node?require('./weapons.js'):root.KalistarWeapons,node?require('./defensive-equipment.js'):root.KalistarDefensiveEquipment,node?require('./factions.js'):root.KalistarFactions);
   if(typeof module==='object'&&module.exports)module.exports=api;else root.KalistarEquipment=api;
-})(typeof globalThis!=='undefined'?globalThis:this,function(catalogue,defensive){
+})(typeof globalThis!=='undefined'?globalThis:this,function(catalogue,defensive,factions){
   'use strict';
   const clone=v=>JSON.parse(JSON.stringify(v)),object=v=>!!v&&typeof v==='object'&&!Array.isArray(v);
   const fail=()=>{throw new Error('\u00c9quipement invalide.');};
@@ -11,7 +11,9 @@
   const ready=(s,u,w)=>w.effect.trigger==='FIRST_DEFENSE'?s.equipment?.charges?.[u.uid]?.status!=='spent':s.equipment?.charges?.[u.uid]?.status==='ready';
   function compatible(w,c){
     if(!w||!c)return false;
-    return Object.entries(w.restrictions).every(([key,values])=>values.includes(c[{characterIds:'characterId',jobs:'job',families:'weapon',factions:'faction',races:'race'}[key]]));
+    return Object.entries(w.restrictions).every(([key,values])=>key==='factions'
+      ?values.some(value=>factions.same(value,c.faction))
+      :values.includes(c[{characterIds:'characterId',jobs:'job',families:'weapon',races:'race'}[key]]));
   }
   function validateDefinition(w){
     if(!object(w)||!/^[-a-z0-9]{1,80}$/.test(w.id)||w.slot!=='weapon'||!['axe','flute'].includes(w.visual)||

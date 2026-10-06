@@ -3,6 +3,7 @@ const fs = require('node:fs/promises');
 const path = require('node:path');
 const { createEngine } = require('../site/engine.js');
 const collaborations = require('../site/collaborations.js');
+const factions = require('../site/factions.js');
 const ROOT = path.resolve(__dirname, '../..');
 const CROP = Object.freeze({ left: 50, top: 50, width: 797, height: 1388 });
 const read = async file => JSON.parse((await fs.readFile(path.join(ROOT, file), 'utf8')).replace(/^\uFEFF/, ''));
@@ -29,7 +30,7 @@ function profileCard(profile, base, { id, key, pngUrl, psdUrl, origin }, element
   return {
     id, edition: 'V4', referenceKey: key || null, origin,
     slug: 'v4-' + id, characterId, name: p.name, title: p.title, job: p.job,
-    race: p.race, faction: p.faction, weapon: p.weapon,
+    race: p.race, faction: factions.canonical(p.faction), weapon: p.weapon,
     ...(p.collaboration != null ? { collaboration: p.collaboration } : {}),
     weapon_index: Object.keys(weapons).indexOf(p.weapon), element: p.element,
     positions, role, sentry: p.sentry ?? true,

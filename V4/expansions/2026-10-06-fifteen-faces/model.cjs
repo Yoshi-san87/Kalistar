@@ -52,7 +52,7 @@ function validateGame(data,set,createEngine) {
   validateSet(set);
   for(const c of set.cards){
     const p=data.cards.find(p=>p.id===c.id);assert(p);
-    for(const f of base.PRINTED)assert.deepEqual(p[f],c[f],c.key+'.'+f);
+    for(const f of base.PRINTED)assert.deepEqual(p[f],f==='faction'?require('../../site/factions.js').canonical(c[f]):c[f],c.key+'.'+f);
     assert.equal(p.characterId,c.characterId);assert.equal(p.role,c.role);
     assert.equal(p.canGuard,c.atk.includes('guard'));assert.equal(p.canHeal,c.atk.includes('revive'));
   }
@@ -62,4 +62,3 @@ function validateGame(data,set,createEngine) {
   return {cards:data.cards.length,added:15,qaDecks:decks,noPresetInstalled:true};
 }
 module.exports={...base,SET,KEYS,validateSet,profile,qaDecks,validateGame};
-

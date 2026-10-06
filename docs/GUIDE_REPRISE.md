@@ -49,6 +49,16 @@ temporaires du presse-papiers ou les preferences non encore documentees.
 
 ## Reperes techniques
 
+### Niveria, Ysilis et les peuples lupins (6 octobre 2026)
+
+Lire [Peuples et regions](../V4/docs/PEUPLES_ET_REGIONS.md) : Niveria est la
+region ; Ysilis est le royaume humain qui conserve l'ancien drapeau de neige.
+Grivka est la faction des Okami. Okami, Lycanos et Garou se distinguent par
+la stabilite de leur transfusion homme-loup. Les deux illustrations de Grivka
+restent des propositions, sans nouvelles cartes ni nouvelles mecaniques.
+Les profils natifs historiques restent preserves ; `site/factions.js` fournit
+le nom actuel et la compatibilite des anciennes sauvegardes.
+
 ### Story : source narrative du 6 octobre 2026
 
 Lire [la reprise longue du Reveil](../V4/docs/HISTOIRE_100K_REPRISE.md) avant
