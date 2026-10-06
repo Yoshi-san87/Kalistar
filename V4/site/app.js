@@ -568,11 +568,11 @@ function showDeck(){setView('decks');}
   }
   function turnTimeline(){
     if(['setup','over'].includes(game.phase))return '';
-    if(game.phase==='initiative')return `<section class="turn-timeline is-pending" aria-label="Initiative en attente"><span class="tt-mode">${icon('dice-6')}</span><span class="tt-wait">Capitaines</span></section>`;
-    const steps=E.turnPreview(game),mode=game.initiative?'ABBA':'1 / 1';
-    const now=game.phase==='replace'?'Renforts':game.phase==='result'?'Résolu':'';
-    const current=`Joueur ${game.turn+1} attaque, échange ${game.round}`;
-    return `<section class="turn-timeline" aria-label="Ordre des actions : ${mode}"><span class="tt-mode">${mode}</span><span class="tt-now" role="status" aria-label="${current}">${now} <b>J${game.turn+1}</b></span><ol>${steps.map((step,i)=>`<li class="${step.side?'is-enemy':'is-ally'} ${i?'':'is-current'} ${step.resolved?'is-resolved':''}" data-turn-side="${step.side}" data-turn-round="${step.round}" ${i?'':'aria-current="step"'} aria-label="${i?'Ensuite, joueur '+(step.side+1)+' attaque, échange '+step.round:current}"><span aria-hidden="true">J${step.side+1}</span>${!i?icon(step.resolved?'check':'play'):''}</li>`).join('')}</ol></section>`;
+    if(game.phase==='initiative')return `<section class="turn-timeline is-pending" aria-label="Initiative en attente">${icon('dice-6')}</section>`;
+    const steps=KalistarCombatTimeline.view(game),position=KalistarCombatTimeline.position(game);
+    const current=`Round ${position.round}, tour ${position.turn}, joueur ${position.side+1}${game.phase==='result'?', résolu':game.phase==='replace'?', renforts':', attaque'}`;
+    const roundLabel=(step,scope)=>step[scope+'Lead']?`<span class="tt-round tt-round-${scope}" style="--tt-span:${step[scope+'Span']}" aria-hidden="true">R${step.round}<b>J${step.side+1}</b></span>`:'';
+    return `<section class="turn-timeline" aria-label="Progression du combat"><span class="tt-now" role="status" aria-label="${current}"></span><ol>${steps.map(step=>`<li class="${step.side?'is-enemy':'is-ally'} ${step.past?'is-past':''} ${step.current?'is-current':''} ${step.resolved?'is-resolved':''} ${step.desktopLead?'round-start':''} ${step.phoneLead?'phone-round-start':''}" data-turn-side="${step.side}" data-turn-round="${step.turn}" data-combat-round="${step.round}" data-phone="${step.phone}" ${step.current?'aria-current="step"':''} aria-label="Round ${step.round}, tour ${step.turn}, joueur ${step.side+1}${step.past?', passé':step.resolved?', résolu':step.current?', en cours':', à venir'}" title="Round ${step.round} · Tour ${step.turn} · Joueur ${step.side+1}">${roundLabel(step,'desktop')}${roundLabel(step,'phone')}<span class="tt-stop" aria-hidden="true"><span class="tt-dot">${step.resolved?icon('check'):''}</span><span class="tt-turn">T${step.turn}</span></span></li>`).join('')}</ol></section>`;
   }
   function weaponMatchupGrid(attacker){
     const weapons=Object.keys(data.weapons);

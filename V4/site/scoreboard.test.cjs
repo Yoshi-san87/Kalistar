@@ -23,5 +23,5 @@ test('the phone retains a compact 110px scoreboard below the timeline',()=>{
 test('Maintenant is removed without losing the current-turn status announcement',()=>{
   const render=app.slice(app.indexOf('function turnTimeline()'),app.indexOf('function weaponMatchupGrid('));
   assert(!render.includes('Maintenant'));assert(render.includes('role="status" aria-label="${current}"'));
-  assert(render.includes('aria-current="step"'));assert(render.includes("?'Renforts':game.phase==='result'?'Résolu':''"));
+  assert(render.includes('aria-current="step"'));assert(render.includes('KalistarCombatTimeline.position(game)'));
 });

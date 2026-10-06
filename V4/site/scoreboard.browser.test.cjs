@@ -61,7 +61,7 @@ async function main(){
       await restore(page,s);const result=await geometry(page);
       assert.deepEqual(result.score,[String(s.players[1].dead.length),String(s.players[0].dead.length)]);
       assert.match(result.label,/Joueur 1/);assert(!result.now?.includes('Maintenant'));
-      if(name==='zero')assert.match(result.announcement,/Joueur 1 attaque/);
+      if(name==='zero')assert.match(result.announcement,/Round 1, tour 1, joueur 1, attaque/);
       checks.push({name,...result});
     }
     assert(fixtures.over.players.some(p=>p.dead.length===10),'real double-digit final score');

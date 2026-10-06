@@ -1,0 +1,2384 @@
+{
+  "checks": [
+    {
+      "name": "zero",
+      "box": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "rail": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "inside": true,
+      "score": [
+        "0",
+        "0"
+      ],
+      "label": "Score du match : Joueur 1 0, Joueur 2 0",
+      "material": "linear-gradient(110deg, rgba(11, 23, 24, 0.95), rgba(33, 49, 44, 0.925) 50%, rgba(11, 23, 24, 0.95)), url(\"https://kalistar-score.invalid/Kalistar/jeu/assets/ui/collection-reader-grimoire-v1.png\")",
+      "font": "Cinzel, Georgia, serif",
+      "gem": true,
+      "overflow": false,
+      "now": "",
+      "announcement": "Round 1, tour 1, joueur 1, attaque",
+      "clashes": false,
+      "animations": 0,
+      "title": {
+        "left": 22,
+        "right": 385,
+        "top": 86,
+        "bottom": 146.375,
+        "width": 363,
+        "height": 60.375
+      },
+      "toolbar": {
+        "left": 0,
+        "right": 1440,
+        "top": 76,
+        "bottom": 157.375,
+        "width": 1440,
+        "height": 81.375
+      },
+      "nodes": [
+        {
+          "text": "Joueur 1",
+          "rect": {
+            "left": 427.171875,
+            "right": 460.828125,
+            "top": 93.78125,
+            "bottom": 104.578125,
+            "width": 33.65625,
+            "height": 10.796875
+          },
+          "parent": {
+            "left": 406,
+            "right": 482,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 76,
+            "height": 48
+          },
+          "font": "500 9px / 10.8px \"Segoe UI\", Arial, sans-serif"
+        },
+        {
+          "text": "0",
+          "rect": {
+            "left": 434.796875,
+            "right": 453.1875,
+            "top": 108.578125,
+            "bottom": 137.578125,
+            "width": 18.390625,
+            "height": 29
+          },
+          "parent": {
+            "left": 406,
+            "right": 482,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 76,
+            "height": 48
+          },
+          "font": "600 29px / 29px Cinzel, Georgia, serif"
+        },
+        {
+          "text": "",
+          "rect": {
+            "left": 500,
+            "right": 524,
+            "top": 93.890625,
+            "bottom": 127.890625,
+            "width": 24,
+            "height": 34
+          },
+          "parent": {
+            "left": 487,
+            "right": 537,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 50,
+            "height": 48
+          },
+          "font": ""
+        },
+        {
+          "text": "10 KILLS",
+          "rect": {
+            "left": 495.65625,
+            "right": 528.34375,
+            "top": 128.890625,
+            "bottom": 138.484375,
+            "width": 32.6875,
+            "height": 9.59375
+          },
+          "parent": {
+            "left": 487,
+            "right": 537,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 50,
+            "height": 48
+          },
+          "font": "600 8px / 9.6px Cinzel, Georgia, serif"
+        },
+        {
+          "text": "Joueur 2",
+          "rect": {
+            "left": 562.484375,
+            "right": 597.515625,
+            "top": 93.78125,
+            "bottom": 104.578125,
+            "width": 35.03125,
+            "height": 10.796875
+          },
+          "parent": {
+            "left": 542,
+            "right": 618,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 76,
+            "height": 48
+          },
+          "font": "500 9px / 10.8px \"Segoe UI\", Arial, sans-serif"
+        },
+        {
+          "text": "0",
+          "rect": {
+            "left": 570.796875,
+            "right": 589.1875,
+            "top": 108.578125,
+            "bottom": 137.578125,
+            "width": 18.390625,
+            "height": 29
+          },
+          "parent": {
+            "left": 542,
+            "right": 618,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 76,
+            "height": 48
+          },
+          "font": "600 29px / 29px Cinzel, Georgia, serif"
+        }
+      ]
+    },
+    {
+      "name": "kill",
+      "box": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "rail": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "inside": true,
+      "score": [
+        "1",
+        "0"
+      ],
+      "label": "Score du match : Joueur 1 1, Joueur 2 0",
+      "material": "linear-gradient(110deg, rgba(11, 23, 24, 0.95), rgba(33, 49, 44, 0.925) 50%, rgba(11, 23, 24, 0.95)), url(\"https://kalistar-score.invalid/Kalistar/jeu/assets/ui/collection-reader-grimoire-v1.png\")",
+      "font": "Cinzel, Georgia, serif",
+      "gem": true,
+      "overflow": false,
+      "now": "",
+      "announcement": "Round 1, tour 1, joueur 1, résolu",
+      "clashes": false,
+      "animations": 0,
+      "title": {
+        "left": 22,
+        "right": 385,
+        "top": 86,
+        "bottom": 146.375,
+        "width": 363,
+        "height": 60.375
+      },
+      "toolbar": {
+        "left": 0,
+        "right": 1440,
+        "top": 76,
+        "bottom": 157.375,
+        "width": 1440,
+        "height": 81.375
+      },
+      "nodes": [
+        {
+          "text": "Joueur 1",
+          "rect": {
+            "left": 427.171875,
+            "right": 460.828125,
+            "top": 93.78125,
+            "bottom": 104.578125,
+            "width": 33.65625,
+            "height": 10.796875
+          },
+          "parent": {
+            "left": 406,
+            "right": 482,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 76,
+            "height": 48
+          },
+          "font": "500 9px / 10.8px \"Segoe UI\", Arial, sans-serif"
+        },
+        {
+          "text": "1",
+          "rect": {
+            "left": 438.546875,
+            "right": 449.453125,
+            "top": 108.578125,
+            "bottom": 137.578125,
+            "width": 10.90625,
+            "height": 29
+          },
+          "parent": {
+            "left": 406,
+            "right": 482,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 76,
+            "height": 48
+          },
+          "font": "600 29px / 29px Cinzel, Georgia, serif"
+        },
+        {
+          "text": "",
+          "rect": {
+            "left": 500,
+            "right": 524,
+            "top": 93.890625,
+            "bottom": 127.890625,
+            "width": 24,
+            "height": 34
+          },
+          "parent": {
+            "left": 487,
+            "right": 537,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 50,
+            "height": 48
+          },
+          "font": ""
+        },
+        {
+          "text": "10 KILLS",
+          "rect": {
+            "left": 495.65625,
+            "right": 528.34375,
+            "top": 128.890625,
+            "bottom": 138.484375,
+            "width": 32.6875,
+            "height": 9.59375
+          },
+          "parent": {
+            "left": 487,
+            "right": 537,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 50,
+            "height": 48
+          },
+          "font": "600 8px / 9.6px Cinzel, Georgia, serif"
+        },
+        {
+          "text": "Joueur 2",
+          "rect": {
+            "left": 562.484375,
+            "right": 597.515625,
+            "top": 93.78125,
+            "bottom": 104.578125,
+            "width": 35.03125,
+            "height": 10.796875
+          },
+          "parent": {
+            "left": 542,
+            "right": 618,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 76,
+            "height": 48
+          },
+          "font": "500 9px / 10.8px \"Segoe UI\", Arial, sans-serif"
+        },
+        {
+          "text": "0",
+          "rect": {
+            "left": 570.796875,
+            "right": 589.1875,
+            "top": 108.578125,
+            "bottom": 137.578125,
+            "width": 18.390625,
+            "height": 29
+          },
+          "parent": {
+            "left": 542,
+            "right": 618,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 76,
+            "height": 48
+          },
+          "font": "600 29px / 29px Cinzel, Georgia, serif"
+        }
+      ]
+    },
+    {
+      "name": "over",
+      "box": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "rail": null,
+      "inside": true,
+      "score": [
+        "6",
+        "10"
+      ],
+      "label": "Score du match : Joueur 1 6, Joueur 2 10",
+      "material": "linear-gradient(110deg, rgba(11, 23, 24, 0.95), rgba(33, 49, 44, 0.925) 50%, rgba(11, 23, 24, 0.95)), url(\"https://kalistar-score.invalid/Kalistar/jeu/assets/ui/collection-reader-grimoire-v1.png\")",
+      "font": "Cinzel, Georgia, serif",
+      "gem": true,
+      "overflow": false,
+      "clashes": false,
+      "animations": 0,
+      "title": {
+        "left": 22,
+        "right": 385,
+        "top": 86,
+        "bottom": 146.375,
+        "width": 363,
+        "height": 60.375
+      },
+      "toolbar": {
+        "left": 0,
+        "right": 1440,
+        "top": 76,
+        "bottom": 157.375,
+        "width": 1440,
+        "height": 81.375
+      },
+      "nodes": [
+        {
+          "text": "Joueur 1",
+          "rect": {
+            "left": 427.171875,
+            "right": 460.828125,
+            "top": 93.78125,
+            "bottom": 104.578125,
+            "width": 33.65625,
+            "height": 10.796875
+          },
+          "parent": {
+            "left": 406,
+            "right": 482,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 76,
+            "height": 48
+          },
+          "font": "500 9px / 10.8px \"Segoe UI\", Arial, sans-serif"
+        },
+        {
+          "text": "6",
+          "rect": {
+            "left": 435.1875,
+            "right": 452.796875,
+            "top": 108.578125,
+            "bottom": 137.578125,
+            "width": 17.609375,
+            "height": 29
+          },
+          "parent": {
+            "left": 406,
+            "right": 482,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 76,
+            "height": 48
+          },
+          "font": "600 29px / 29px Cinzel, Georgia, serif"
+        },
+        {
+          "text": "",
+          "rect": {
+            "left": 500,
+            "right": 524,
+            "top": 93.890625,
+            "bottom": 127.890625,
+            "width": 24,
+            "height": 34
+          },
+          "parent": {
+            "left": 487,
+            "right": 537,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 50,
+            "height": 48
+          },
+          "font": ""
+        },
+        {
+          "text": "10 KILLS",
+          "rect": {
+            "left": 495.65625,
+            "right": 528.34375,
+            "top": 128.890625,
+            "bottom": 138.484375,
+            "width": 32.6875,
+            "height": 9.59375
+          },
+          "parent": {
+            "left": 487,
+            "right": 537,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 50,
+            "height": 48
+          },
+          "font": "600 8px / 9.6px Cinzel, Georgia, serif"
+        },
+        {
+          "text": "Joueur 2",
+          "rect": {
+            "left": 562.484375,
+            "right": 597.515625,
+            "top": 93.78125,
+            "bottom": 104.578125,
+            "width": 35.03125,
+            "height": 10.796875
+          },
+          "parent": {
+            "left": 542,
+            "right": 618,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 76,
+            "height": 48
+          },
+          "font": "500 9px / 10.8px \"Segoe UI\", Arial, sans-serif"
+        },
+        {
+          "text": "10",
+          "rect": {
+            "left": 565.34375,
+            "right": 594.640625,
+            "top": 108.578125,
+            "bottom": 137.578125,
+            "width": 29.296875,
+            "height": 29
+          },
+          "parent": {
+            "left": 542,
+            "right": 618,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 76,
+            "height": 48
+          },
+          "font": "600 29px / 29px Cinzel, Georgia, serif"
+        }
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "box": {
+        "left": 877,
+        "right": 1109,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "rail": {
+        "left": 0,
+        "right": 1920,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1920,
+        "height": 36
+      },
+      "inside": true,
+      "score": [
+        "1",
+        "0"
+      ],
+      "label": "Score du match : Joueur 1 1, Le Veilleur 0",
+      "material": "linear-gradient(110deg, rgba(11, 23, 24, 0.95), rgba(33, 49, 44, 0.925) 50%, rgba(11, 23, 24, 0.95)), url(\"https://kalistar-score.invalid/Kalistar/jeu/assets/ui/collection-reader-grimoire-v1.png\")",
+      "font": "Cinzel, Georgia, serif",
+      "gem": true,
+      "overflow": false,
+      "now": "",
+      "announcement": "Round 1, tour 1, joueur 1, résolu",
+      "clashes": false,
+      "animations": 0,
+      "title": {
+        "left": 22,
+        "right": 865,
+        "top": 86,
+        "bottom": 146.375,
+        "width": 843,
+        "height": 60.375
+      },
+      "toolbar": {
+        "left": 0,
+        "right": 1920,
+        "top": 76,
+        "bottom": 157.375,
+        "width": 1920,
+        "height": 81.375
+      },
+      "nodes": [
+        {
+          "text": "Joueur 1",
+          "rect": {
+            "left": 907.171875,
+            "right": 940.828125,
+            "top": 93.78125,
+            "bottom": 104.578125,
+            "width": 33.65625,
+            "height": 10.796875
+          },
+          "parent": {
+            "left": 886,
+            "right": 962,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 76,
+            "height": 48
+          },
+          "font": "500 9px / 10.8px \"Segoe UI\", Arial, sans-serif"
+        },
+        {
+          "text": "1",
+          "rect": {
+            "left": 918.546875,
+            "right": 929.453125,
+            "top": 108.578125,
+            "bottom": 137.578125,
+            "width": 10.90625,
+            "height": 29
+          },
+          "parent": {
+            "left": 886,
+            "right": 962,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 76,
+            "height": 48
+          },
+          "font": "600 29px / 29px Cinzel, Georgia, serif"
+        },
+        {
+          "text": "",
+          "rect": {
+            "left": 980,
+            "right": 1004,
+            "top": 93.890625,
+            "bottom": 127.890625,
+            "width": 24,
+            "height": 34
+          },
+          "parent": {
+            "left": 967,
+            "right": 1017,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 50,
+            "height": 48
+          },
+          "font": ""
+        },
+        {
+          "text": "10 KILLS",
+          "rect": {
+            "left": 975.65625,
+            "right": 1008.34375,
+            "top": 128.890625,
+            "bottom": 138.484375,
+            "width": 32.6875,
+            "height": 9.59375
+          },
+          "parent": {
+            "left": 967,
+            "right": 1017,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 50,
+            "height": 48
+          },
+          "font": "600 8px / 9.6px Cinzel, Georgia, serif"
+        },
+        {
+          "text": "Le Veilleur",
+          "rect": {
+            "left": 1038.96875,
+            "right": 1081.03125,
+            "top": 93.78125,
+            "bottom": 104.578125,
+            "width": 42.0625,
+            "height": 10.796875
+          },
+          "parent": {
+            "left": 1022,
+            "right": 1098,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 76,
+            "height": 48
+          },
+          "font": "500 9px / 10.8px \"Segoe UI\", Arial, sans-serif"
+        },
+        {
+          "text": "0",
+          "rect": {
+            "left": 1050.796875,
+            "right": 1069.1875,
+            "top": 108.578125,
+            "bottom": 137.578125,
+            "width": 18.390625,
+            "height": 29
+          },
+          "parent": {
+            "left": 1022,
+            "right": 1098,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 76,
+            "height": 48
+          },
+          "font": "600 29px / 29px Cinzel, Georgia, serif"
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 1000,
+      "box": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "rail": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "inside": true,
+      "score": [
+        "1",
+        "0"
+      ],
+      "label": "Score du match : Joueur 1 1, Le Veilleur 0",
+      "material": "linear-gradient(110deg, rgba(11, 23, 24, 0.95), rgba(33, 49, 44, 0.925) 50%, rgba(11, 23, 24, 0.95)), url(\"https://kalistar-score.invalid/Kalistar/jeu/assets/ui/collection-reader-grimoire-v1.png\")",
+      "font": "Cinzel, Georgia, serif",
+      "gem": true,
+      "overflow": false,
+      "now": "",
+      "announcement": "Round 1, tour 1, joueur 1, résolu",
+      "clashes": false,
+      "animations": 0,
+      "title": {
+        "left": 22,
+        "right": 385,
+        "top": 86,
+        "bottom": 146.375,
+        "width": 363,
+        "height": 60.375
+      },
+      "toolbar": {
+        "left": 0,
+        "right": 1440,
+        "top": 76,
+        "bottom": 157.375,
+        "width": 1440,
+        "height": 81.375
+      },
+      "nodes": [
+        {
+          "text": "Joueur 1",
+          "rect": {
+            "left": 427.171875,
+            "right": 460.828125,
+            "top": 93.78125,
+            "bottom": 104.578125,
+            "width": 33.65625,
+            "height": 10.796875
+          },
+          "parent": {
+            "left": 406,
+            "right": 482,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 76,
+            "height": 48
+          },
+          "font": "500 9px / 10.8px \"Segoe UI\", Arial, sans-serif"
+        },
+        {
+          "text": "1",
+          "rect": {
+            "left": 438.546875,
+            "right": 449.453125,
+            "top": 108.578125,
+            "bottom": 137.578125,
+            "width": 10.90625,
+            "height": 29
+          },
+          "parent": {
+            "left": 406,
+            "right": 482,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 76,
+            "height": 48
+          },
+          "font": "600 29px / 29px Cinzel, Georgia, serif"
+        },
+        {
+          "text": "",
+          "rect": {
+            "left": 500,
+            "right": 524,
+            "top": 93.890625,
+            "bottom": 127.890625,
+            "width": 24,
+            "height": 34
+          },
+          "parent": {
+            "left": 487,
+            "right": 537,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 50,
+            "height": 48
+          },
+          "font": ""
+        },
+        {
+          "text": "10 KILLS",
+          "rect": {
+            "left": 495.65625,
+            "right": 528.34375,
+            "top": 128.890625,
+            "bottom": 138.484375,
+            "width": 32.6875,
+            "height": 9.59375
+          },
+          "parent": {
+            "left": 487,
+            "right": 537,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 50,
+            "height": 48
+          },
+          "font": "600 8px / 9.6px Cinzel, Georgia, serif"
+        },
+        {
+          "text": "Le Veilleur",
+          "rect": {
+            "left": 558.96875,
+            "right": 601.03125,
+            "top": 93.78125,
+            "bottom": 104.578125,
+            "width": 42.0625,
+            "height": 10.796875
+          },
+          "parent": {
+            "left": 542,
+            "right": 618,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 76,
+            "height": 48
+          },
+          "font": "500 9px / 10.8px \"Segoe UI\", Arial, sans-serif"
+        },
+        {
+          "text": "0",
+          "rect": {
+            "left": 570.796875,
+            "right": 589.1875,
+            "top": 108.578125,
+            "bottom": 137.578125,
+            "width": 18.390625,
+            "height": 29
+          },
+          "parent": {
+            "left": 542,
+            "right": 618,
+            "top": 92.1875,
+            "bottom": 140.1875,
+            "width": 76,
+            "height": 48
+          },
+          "font": "600 29px / 29px Cinzel, Georgia, serif"
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "box": {
+        "left": 818,
+        "right": 1010,
+        "top": 120.1875,
+        "bottom": 180.1875,
+        "width": 192,
+        "height": 60
+      },
+      "rail": {
+        "left": 0,
+        "right": 1024,
+        "top": 241.375,
+        "bottom": 277.375,
+        "width": 1024,
+        "height": 36
+      },
+      "inside": true,
+      "score": [
+        "1",
+        "0"
+      ],
+      "label": "Score du match : Joueur 1 1, Le Veilleur 0",
+      "material": "linear-gradient(110deg, rgba(11, 23, 24, 0.95), rgba(33, 49, 44, 0.925) 50%, rgba(11, 23, 24, 0.95)), url(\"https://kalistar-score.invalid/Kalistar/jeu/assets/ui/collection-reader-grimoire-v1.png\")",
+      "font": "Cinzel, Georgia, serif",
+      "gem": true,
+      "overflow": false,
+      "now": "",
+      "announcement": "Round 1, tour 1, joueur 1, résolu",
+      "clashes": false,
+      "animations": 0,
+      "title": {
+        "left": 14,
+        "right": 806,
+        "top": 120,
+        "bottom": 180.375,
+        "width": 792,
+        "height": 60.375
+      },
+      "toolbar": {
+        "left": 0,
+        "right": 1024,
+        "top": 110,
+        "bottom": 241.375,
+        "width": 1024,
+        "height": 131.375
+      },
+      "nodes": [
+        {
+          "text": "Joueur 1",
+          "rect": {
+            "left": 843.03125,
+            "right": 872.953125,
+            "top": 128.390625,
+            "bottom": 137.984375,
+            "width": 29.921875,
+            "height": 9.59375
+          },
+          "parent": {
+            "left": 827,
+            "right": 889,
+            "top": 126.1875,
+            "bottom": 174.1875,
+            "width": 62,
+            "height": 48
+          },
+          "font": "500 8px / 9.6px \"Segoe UI\", Arial, sans-serif"
+        },
+        {
+          "text": "1",
+          "rect": {
+            "left": 852.546875,
+            "right": 863.453125,
+            "top": 141.984375,
+            "bottom": 170.984375,
+            "width": 10.90625,
+            "height": 29
+          },
+          "parent": {
+            "left": 827,
+            "right": 889,
+            "top": 126.1875,
+            "bottom": 174.1875,
+            "width": 62,
+            "height": 48
+          },
+          "font": "600 29px / 29px Cinzel, Georgia, serif"
+        },
+        {
+          "text": "",
+          "rect": {
+            "left": 901,
+            "right": 925,
+            "top": 127.890625,
+            "bottom": 161.890625,
+            "width": 24,
+            "height": 34
+          },
+          "parent": {
+            "left": 894,
+            "right": 932,
+            "top": 126.1875,
+            "bottom": 174.1875,
+            "width": 38,
+            "height": 48
+          },
+          "font": ""
+        },
+        {
+          "text": "10 KILLS",
+          "rect": {
+            "left": 896.65625,
+            "right": 929.34375,
+            "top": 162.890625,
+            "bottom": 172.484375,
+            "width": 32.6875,
+            "height": 9.59375
+          },
+          "parent": {
+            "left": 894,
+            "right": 932,
+            "top": 126.1875,
+            "bottom": 174.1875,
+            "width": 38,
+            "height": 48
+          },
+          "font": "600 8px / 9.6px Cinzel, Georgia, serif"
+        },
+        {
+          "text": "Le Veilleur",
+          "rect": {
+            "left": 949.296875,
+            "right": 986.6875,
+            "top": 128.390625,
+            "bottom": 137.984375,
+            "width": 37.390625,
+            "height": 9.59375
+          },
+          "parent": {
+            "left": 937,
+            "right": 999,
+            "top": 126.1875,
+            "bottom": 174.1875,
+            "width": 62,
+            "height": 48
+          },
+          "font": "500 8px / 9.6px \"Segoe UI\", Arial, sans-serif"
+        },
+        {
+          "text": "0",
+          "rect": {
+            "left": 958.796875,
+            "right": 977.1875,
+            "top": 141.984375,
+            "bottom": 170.984375,
+            "width": 18.390625,
+            "height": 29
+          },
+          "parent": {
+            "left": 937,
+            "right": 999,
+            "top": 126.1875,
+            "bottom": 174.1875,
+            "width": 62,
+            "height": 48
+          },
+          "font": "600 29px / 29px Cinzel, Georgia, serif"
+        }
+      ]
+    },
+    {
+      "width": 412,
+      "height": 1007,
+      "box": {
+        "left": 12,
+        "right": 122,
+        "top": 47,
+        "bottom": 95,
+        "width": 110,
+        "height": 48
+      },
+      "rail": {
+        "left": 0,
+        "right": 412,
+        "top": 1,
+        "bottom": 35,
+        "width": 412,
+        "height": 34
+      },
+      "inside": true,
+      "score": [
+        "1",
+        "0"
+      ],
+      "label": "Score du match : Joueur 1 1, Le Veilleur 0",
+      "material": "linear-gradient(110deg, rgba(11, 23, 24, 0.95), rgba(33, 49, 44, 0.925) 50%, rgba(11, 23, 24, 0.95)), url(\"https://kalistar-score.invalid/Kalistar/jeu/assets/ui/collection-reader-grimoire-v1.png\")",
+      "font": "Cinzel, Georgia, serif",
+      "gem": true,
+      "overflow": false,
+      "now": "",
+      "announcement": "Round 1, tour 1, joueur 1, résolu",
+      "clashes": false,
+      "animations": 0,
+      "title": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0,
+        "width": 0,
+        "height": 0
+      },
+      "toolbar": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0,
+        "width": 0,
+        "height": 0
+      },
+      "nodes": [
+        {
+          "text": "Joueur 1",
+          "rect": {
+            "left": 22.03125,
+            "right": 51.953125,
+            "top": 53.203125,
+            "bottom": 62.796875,
+            "width": 29.921875,
+            "height": 9.59375
+          },
+          "parent": {
+            "left": 18,
+            "right": 56,
+            "top": 52,
+            "bottom": 90,
+            "width": 38,
+            "height": 38
+          },
+          "font": "500 8px / 9.6px \"Segoe UI\", Arial, sans-serif"
+        },
+        {
+          "text": "1",
+          "rect": {
+            "left": 32.859375,
+            "right": 41.140625,
+            "top": 65.796875,
+            "bottom": 87.796875,
+            "width": 8.28125,
+            "height": 22
+          },
+          "parent": {
+            "left": 18,
+            "right": 56,
+            "top": 52,
+            "bottom": 90,
+            "width": 38,
+            "height": 38
+          },
+          "font": "600 22px / 22px Cinzel, Georgia, serif"
+        },
+        {
+          "text": "",
+          "rect": {
+            "left": 59,
+            "right": 73,
+            "top": 58,
+            "bottom": 84,
+            "width": 14,
+            "height": 26
+          },
+          "parent": {
+            "left": 59,
+            "right": 73,
+            "top": 52,
+            "bottom": 90,
+            "width": 14,
+            "height": 38
+          },
+          "font": ""
+        },
+        {
+          "text": "10 KILLS",
+          "rect": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0,
+            "width": 0,
+            "height": 0
+          },
+          "parent": {
+            "left": 59,
+            "right": 73,
+            "top": 52,
+            "bottom": 90,
+            "width": 14,
+            "height": 38
+          },
+          "font": "600 8px / 9.6px Cinzel, Georgia, serif"
+        },
+        {
+          "text": "Le Veilleur",
+          "rect": {
+            "left": 76.296875,
+            "right": 113.6875,
+            "top": 53.203125,
+            "bottom": 62.796875,
+            "width": 37.390625,
+            "height": 9.59375
+          },
+          "parent": {
+            "left": 76,
+            "right": 114,
+            "top": 52,
+            "bottom": 90,
+            "width": 38,
+            "height": 38
+          },
+          "font": "500 8px / 9.6px \"Segoe UI\", Arial, sans-serif"
+        },
+        {
+          "text": "0",
+          "rect": {
+            "left": 88.015625,
+            "right": 101.96875,
+            "top": 65.796875,
+            "bottom": 87.796875,
+            "width": 13.953125,
+            "height": 22
+          },
+          "parent": {
+            "left": 76,
+            "right": 114,
+            "top": 52,
+            "bottom": 90,
+            "width": 38,
+            "height": 38
+          },
+          "font": "600 22px / 22px Cinzel, Georgia, serif"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "box": {
+        "left": 12,
+        "right": 122,
+        "top": 47,
+        "bottom": 95,
+        "width": 110,
+        "height": 48
+      },
+      "rail": {
+        "left": 0,
+        "right": 390,
+        "top": 1,
+        "bottom": 35,
+        "width": 390,
+        "height": 34
+      },
+      "inside": true,
+      "score": [
+        "1",
+        "0"
+      ],
+      "label": "Score du match : Joueur 1 1, Le Veilleur 0",
+      "material": "linear-gradient(110deg, rgba(11, 23, 24, 0.95), rgba(33, 49, 44, 0.925) 50%, rgba(11, 23, 24, 0.95)), url(\"https://kalistar-score.invalid/Kalistar/jeu/assets/ui/collection-reader-grimoire-v1.png\")",
+      "font": "Cinzel, Georgia, serif",
+      "gem": true,
+      "overflow": false,
+      "now": "",
+      "announcement": "Round 1, tour 1, joueur 1, résolu",
+      "clashes": false,
+      "animations": 0,
+      "title": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0,
+        "width": 0,
+        "height": 0
+      },
+      "toolbar": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0,
+        "width": 0,
+        "height": 0
+      },
+      "nodes": [
+        {
+          "text": "Joueur 1",
+          "rect": {
+            "left": 22.03125,
+            "right": 51.953125,
+            "top": 53.203125,
+            "bottom": 62.796875,
+            "width": 29.921875,
+            "height": 9.59375
+          },
+          "parent": {
+            "left": 18,
+            "right": 56,
+            "top": 52,
+            "bottom": 90,
+            "width": 38,
+            "height": 38
+          },
+          "font": "500 8px / 9.6px \"Segoe UI\", Arial, sans-serif"
+        },
+        {
+          "text": "1",
+          "rect": {
+            "left": 32.859375,
+            "right": 41.140625,
+            "top": 65.796875,
+            "bottom": 87.796875,
+            "width": 8.28125,
+            "height": 22
+          },
+          "parent": {
+            "left": 18,
+            "right": 56,
+            "top": 52,
+            "bottom": 90,
+            "width": 38,
+            "height": 38
+          },
+          "font": "600 22px / 22px Cinzel, Georgia, serif"
+        },
+        {
+          "text": "",
+          "rect": {
+            "left": 59,
+            "right": 73,
+            "top": 58,
+            "bottom": 84,
+            "width": 14,
+            "height": 26
+          },
+          "parent": {
+            "left": 59,
+            "right": 73,
+            "top": 52,
+            "bottom": 90,
+            "width": 14,
+            "height": 38
+          },
+          "font": ""
+        },
+        {
+          "text": "10 KILLS",
+          "rect": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0,
+            "width": 0,
+            "height": 0
+          },
+          "parent": {
+            "left": 59,
+            "right": 73,
+            "top": 52,
+            "bottom": 90,
+            "width": 14,
+            "height": 38
+          },
+          "font": "600 8px / 9.6px Cinzel, Georgia, serif"
+        },
+        {
+          "text": "Le Veilleur",
+          "rect": {
+            "left": 76.296875,
+            "right": 113.6875,
+            "top": 53.203125,
+            "bottom": 62.796875,
+            "width": 37.390625,
+            "height": 9.59375
+          },
+          "parent": {
+            "left": 76,
+            "right": 114,
+            "top": 52,
+            "bottom": 90,
+            "width": 38,
+            "height": 38
+          },
+          "font": "500 8px / 9.6px \"Segoe UI\", Arial, sans-serif"
+        },
+        {
+          "text": "0",
+          "rect": {
+            "left": 88.015625,
+            "right": 101.96875,
+            "top": 65.796875,
+            "bottom": 87.796875,
+            "width": 13.953125,
+            "height": 22
+          },
+          "parent": {
+            "left": 76,
+            "right": 114,
+            "top": 52,
+            "bottom": 90,
+            "width": 38,
+            "height": 38
+          },
+          "font": "600 22px / 22px Cinzel, Georgia, serif"
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "box": {
+        "left": 12,
+        "right": 122,
+        "top": 47,
+        "bottom": 95,
+        "width": 110,
+        "height": 48
+      },
+      "rail": {
+        "left": 0,
+        "right": 320,
+        "top": 1,
+        "bottom": 35,
+        "width": 320,
+        "height": 34
+      },
+      "inside": true,
+      "score": [
+        "1",
+        "0"
+      ],
+      "label": "Score du match : Joueur 1 1, Le Veilleur 0",
+      "material": "linear-gradient(110deg, rgba(11, 23, 24, 0.95), rgba(33, 49, 44, 0.925) 50%, rgba(11, 23, 24, 0.95)), url(\"https://kalistar-score.invalid/Kalistar/jeu/assets/ui/collection-reader-grimoire-v1.png\")",
+      "font": "Cinzel, Georgia, serif",
+      "gem": true,
+      "overflow": false,
+      "now": "",
+      "announcement": "Round 1, tour 1, joueur 1, résolu",
+      "clashes": false,
+      "animations": 0,
+      "title": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0,
+        "width": 0,
+        "height": 0
+      },
+      "toolbar": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0,
+        "width": 0,
+        "height": 0
+      },
+      "nodes": [
+        {
+          "text": "Joueur 1",
+          "rect": {
+            "left": 22.03125,
+            "right": 51.953125,
+            "top": 53.203125,
+            "bottom": 62.796875,
+            "width": 29.921875,
+            "height": 9.59375
+          },
+          "parent": {
+            "left": 18,
+            "right": 56,
+            "top": 52,
+            "bottom": 90,
+            "width": 38,
+            "height": 38
+          },
+          "font": "500 8px / 9.6px \"Segoe UI\", Arial, sans-serif"
+        },
+        {
+          "text": "1",
+          "rect": {
+            "left": 32.859375,
+            "right": 41.140625,
+            "top": 65.796875,
+            "bottom": 87.796875,
+            "width": 8.28125,
+            "height": 22
+          },
+          "parent": {
+            "left": 18,
+            "right": 56,
+            "top": 52,
+            "bottom": 90,
+            "width": 38,
+            "height": 38
+          },
+          "font": "600 22px / 22px Cinzel, Georgia, serif"
+        },
+        {
+          "text": "",
+          "rect": {
+            "left": 59,
+            "right": 73,
+            "top": 58,
+            "bottom": 84,
+            "width": 14,
+            "height": 26
+          },
+          "parent": {
+            "left": 59,
+            "right": 73,
+            "top": 52,
+            "bottom": 90,
+            "width": 14,
+            "height": 38
+          },
+          "font": ""
+        },
+        {
+          "text": "10 KILLS",
+          "rect": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0,
+            "width": 0,
+            "height": 0
+          },
+          "parent": {
+            "left": 59,
+            "right": 73,
+            "top": 52,
+            "bottom": 90,
+            "width": 14,
+            "height": 38
+          },
+          "font": "600 8px / 9.6px Cinzel, Georgia, serif"
+        },
+        {
+          "text": "Le Veilleur",
+          "rect": {
+            "left": 76.296875,
+            "right": 113.6875,
+            "top": 53.203125,
+            "bottom": 62.796875,
+            "width": 37.390625,
+            "height": 9.59375
+          },
+          "parent": {
+            "left": 76,
+            "right": 114,
+            "top": 52,
+            "bottom": 90,
+            "width": 38,
+            "height": 38
+          },
+          "font": "500 8px / 9.6px \"Segoe UI\", Arial, sans-serif"
+        },
+        {
+          "text": "0",
+          "rect": {
+            "left": 88.015625,
+            "right": 101.96875,
+            "top": 65.796875,
+            "bottom": 87.796875,
+            "width": 13.953125,
+            "height": 22
+          },
+          "parent": {
+            "left": 76,
+            "right": 114,
+            "top": 52,
+            "bottom": 90,
+            "width": 38,
+            "height": 38
+          },
+          "font": "600 22px / 22px Cinzel, Georgia, serif"
+        }
+      ]
+    },
+    {
+      "width": 699,
+      "height": 900,
+      "box": {
+        "left": 12,
+        "right": 122,
+        "top": 47,
+        "bottom": 95,
+        "width": 110,
+        "height": 48
+      },
+      "rail": {
+        "left": 0,
+        "right": 699,
+        "top": 1,
+        "bottom": 35,
+        "width": 699,
+        "height": 34
+      },
+      "inside": true,
+      "score": [
+        "1",
+        "0"
+      ],
+      "label": "Score du match : Joueur 1 1, Le Veilleur 0",
+      "material": "linear-gradient(110deg, rgba(11, 23, 24, 0.95), rgba(33, 49, 44, 0.925) 50%, rgba(11, 23, 24, 0.95)), url(\"https://kalistar-score.invalid/Kalistar/jeu/assets/ui/collection-reader-grimoire-v1.png\")",
+      "font": "Cinzel, Georgia, serif",
+      "gem": true,
+      "overflow": false,
+      "now": "",
+      "announcement": "Round 1, tour 1, joueur 1, résolu",
+      "clashes": false,
+      "animations": 0,
+      "title": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0,
+        "width": 0,
+        "height": 0
+      },
+      "toolbar": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0,
+        "width": 0,
+        "height": 0
+      },
+      "nodes": [
+        {
+          "text": "Joueur 1",
+          "rect": {
+            "left": 22.03125,
+            "right": 51.953125,
+            "top": 53.203125,
+            "bottom": 62.796875,
+            "width": 29.921875,
+            "height": 9.59375
+          },
+          "parent": {
+            "left": 18,
+            "right": 56,
+            "top": 52,
+            "bottom": 90,
+            "width": 38,
+            "height": 38
+          },
+          "font": "500 8px / 9.6px \"Segoe UI\", Arial, sans-serif"
+        },
+        {
+          "text": "1",
+          "rect": {
+            "left": 32.859375,
+            "right": 41.140625,
+            "top": 65.796875,
+            "bottom": 87.796875,
+            "width": 8.28125,
+            "height": 22
+          },
+          "parent": {
+            "left": 18,
+            "right": 56,
+            "top": 52,
+            "bottom": 90,
+            "width": 38,
+            "height": 38
+          },
+          "font": "600 22px / 22px Cinzel, Georgia, serif"
+        },
+        {
+          "text": "",
+          "rect": {
+            "left": 59,
+            "right": 73,
+            "top": 58,
+            "bottom": 84,
+            "width": 14,
+            "height": 26
+          },
+          "parent": {
+            "left": 59,
+            "right": 73,
+            "top": 52,
+            "bottom": 90,
+            "width": 14,
+            "height": 38
+          },
+          "font": ""
+        },
+        {
+          "text": "10 KILLS",
+          "rect": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0,
+            "width": 0,
+            "height": 0
+          },
+          "parent": {
+            "left": 59,
+            "right": 73,
+            "top": 52,
+            "bottom": 90,
+            "width": 14,
+            "height": 38
+          },
+          "font": "600 8px / 9.6px Cinzel, Georgia, serif"
+        },
+        {
+          "text": "Le Veilleur",
+          "rect": {
+            "left": 76.296875,
+            "right": 113.6875,
+            "top": 53.203125,
+            "bottom": 62.796875,
+            "width": 37.390625,
+            "height": 9.59375
+          },
+          "parent": {
+            "left": 76,
+            "right": 114,
+            "top": 52,
+            "bottom": 90,
+            "width": 38,
+            "height": 38
+          },
+          "font": "500 8px / 9.6px \"Segoe UI\", Arial, sans-serif"
+        },
+        {
+          "text": "0",
+          "rect": {
+            "left": 88.015625,
+            "right": 101.96875,
+            "top": 65.796875,
+            "bottom": 87.796875,
+            "width": 13.953125,
+            "height": 22
+          },
+          "parent": {
+            "left": 76,
+            "right": 114,
+            "top": 52,
+            "bottom": 90,
+            "width": 38,
+            "height": 38
+          },
+          "font": "600 22px / 22px Cinzel, Georgia, serif"
+        }
+      ]
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "box": {
+        "left": 12,
+        "right": 122,
+        "top": 47,
+        "bottom": 95,
+        "width": 110,
+        "height": 48
+      },
+      "rail": {
+        "left": 0,
+        "right": 844,
+        "top": 1,
+        "bottom": 35,
+        "width": 844,
+        "height": 34
+      },
+      "inside": true,
+      "score": [
+        "1",
+        "0"
+      ],
+      "label": "Score du match : Joueur 1 1, Le Veilleur 0",
+      "material": "linear-gradient(110deg, rgba(11, 23, 24, 0.95), rgba(33, 49, 44, 0.925) 50%, rgba(11, 23, 24, 0.95)), url(\"https://kalistar-score.invalid/Kalistar/jeu/assets/ui/collection-reader-grimoire-v1.png\")",
+      "font": "Cinzel, Georgia, serif",
+      "gem": true,
+      "overflow": false,
+      "now": "",
+      "announcement": "Round 1, tour 1, joueur 1, résolu",
+      "clashes": false,
+      "animations": 0,
+      "title": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0,
+        "width": 0,
+        "height": 0
+      },
+      "toolbar": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0,
+        "width": 0,
+        "height": 0
+      },
+      "nodes": [
+        {
+          "text": "Joueur 1",
+          "rect": {
+            "left": 22.03125,
+            "right": 51.953125,
+            "top": 53.203125,
+            "bottom": 62.796875,
+            "width": 29.921875,
+            "height": 9.59375
+          },
+          "parent": {
+            "left": 18,
+            "right": 56,
+            "top": 52,
+            "bottom": 90,
+            "width": 38,
+            "height": 38
+          },
+          "font": "500 8px / 9.6px \"Segoe UI\", Arial, sans-serif"
+        },
+        {
+          "text": "1",
+          "rect": {
+            "left": 32.859375,
+            "right": 41.140625,
+            "top": 65.796875,
+            "bottom": 87.796875,
+            "width": 8.28125,
+            "height": 22
+          },
+          "parent": {
+            "left": 18,
+            "right": 56,
+            "top": 52,
+            "bottom": 90,
+            "width": 38,
+            "height": 38
+          },
+          "font": "600 22px / 22px Cinzel, Georgia, serif"
+        },
+        {
+          "text": "",
+          "rect": {
+            "left": 59,
+            "right": 73,
+            "top": 58,
+            "bottom": 84,
+            "width": 14,
+            "height": 26
+          },
+          "parent": {
+            "left": 59,
+            "right": 73,
+            "top": 52,
+            "bottom": 90,
+            "width": 14,
+            "height": 38
+          },
+          "font": ""
+        },
+        {
+          "text": "10 KILLS",
+          "rect": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0,
+            "width": 0,
+            "height": 0
+          },
+          "parent": {
+            "left": 59,
+            "right": 73,
+            "top": 52,
+            "bottom": 90,
+            "width": 14,
+            "height": 38
+          },
+          "font": "600 8px / 9.6px Cinzel, Georgia, serif"
+        },
+        {
+          "text": "Le Veilleur",
+          "rect": {
+            "left": 76.296875,
+            "right": 113.6875,
+            "top": 53.203125,
+            "bottom": 62.796875,
+            "width": 37.390625,
+            "height": 9.59375
+          },
+          "parent": {
+            "left": 76,
+            "right": 114,
+            "top": 52,
+            "bottom": 90,
+            "width": 38,
+            "height": 38
+          },
+          "font": "500 8px / 9.6px \"Segoe UI\", Arial, sans-serif"
+        },
+        {
+          "text": "0",
+          "rect": {
+            "left": 88.015625,
+            "right": 101.96875,
+            "top": 65.796875,
+            "bottom": 87.796875,
+            "width": 13.953125,
+            "height": 22
+          },
+          "parent": {
+            "left": 76,
+            "right": 114,
+            "top": 52,
+            "bottom": 90,
+            "width": 38,
+            "height": 38
+          },
+          "font": "600 22px / 22px Cinzel, Georgia, serif"
+        }
+      ]
+    },
+    {
+      "name": "final-phone",
+      "width": 412,
+      "height": 1007,
+      "box": {
+        "left": 12,
+        "right": 122,
+        "top": 13,
+        "bottom": 61,
+        "width": 110,
+        "height": 48
+      },
+      "rail": null,
+      "inside": true,
+      "score": [
+        "6",
+        "10"
+      ],
+      "label": "Score du match : Joueur 1 6, Joueur 2 10",
+      "material": "linear-gradient(110deg, rgba(11, 23, 24, 0.95), rgba(33, 49, 44, 0.925) 50%, rgba(11, 23, 24, 0.95)), url(\"https://kalistar-score.invalid/Kalistar/jeu/assets/ui/collection-reader-grimoire-v1.png\")",
+      "font": "Cinzel, Georgia, serif",
+      "gem": true,
+      "overflow": false,
+      "clashes": false,
+      "animations": 0,
+      "title": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0,
+        "width": 0,
+        "height": 0
+      },
+      "toolbar": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0,
+        "width": 0,
+        "height": 0
+      },
+      "nodes": [
+        {
+          "text": "Joueur 1",
+          "rect": {
+            "left": 22.03125,
+            "right": 51.953125,
+            "top": 19.203125,
+            "bottom": 28.796875,
+            "width": 29.921875,
+            "height": 9.59375
+          },
+          "parent": {
+            "left": 18,
+            "right": 56,
+            "top": 18,
+            "bottom": 56,
+            "width": 38,
+            "height": 38
+          },
+          "font": "500 8px / 9.6px \"Segoe UI\", Arial, sans-serif"
+        },
+        {
+          "text": "6",
+          "rect": {
+            "left": 30.3125,
+            "right": 43.671875,
+            "top": 31.796875,
+            "bottom": 53.796875,
+            "width": 13.359375,
+            "height": 22
+          },
+          "parent": {
+            "left": 18,
+            "right": 56,
+            "top": 18,
+            "bottom": 56,
+            "width": 38,
+            "height": 38
+          },
+          "font": "600 22px / 22px Cinzel, Georgia, serif"
+        },
+        {
+          "text": "",
+          "rect": {
+            "left": 59,
+            "right": 73,
+            "top": 24,
+            "bottom": 50,
+            "width": 14,
+            "height": 26
+          },
+          "parent": {
+            "left": 59,
+            "right": 73,
+            "top": 18,
+            "bottom": 56,
+            "width": 14,
+            "height": 38
+          },
+          "font": ""
+        },
+        {
+          "text": "10 KILLS",
+          "rect": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0,
+            "width": 0,
+            "height": 0
+          },
+          "parent": {
+            "left": 59,
+            "right": 73,
+            "top": 18,
+            "bottom": 56,
+            "width": 14,
+            "height": 38
+          },
+          "font": "600 8px / 9.6px Cinzel, Georgia, serif"
+        },
+        {
+          "text": "Joueur 2",
+          "rect": {
+            "left": 79.421875,
+            "right": 110.5625,
+            "top": 19.203125,
+            "bottom": 28.796875,
+            "width": 31.140625,
+            "height": 9.59375
+          },
+          "parent": {
+            "left": 76,
+            "right": 114,
+            "top": 18,
+            "bottom": 56,
+            "width": 38,
+            "height": 38
+          },
+          "font": "500 8px / 9.6px \"Segoe UI\", Arial, sans-serif"
+        },
+        {
+          "text": "10",
+          "rect": {
+            "left": 83.875,
+            "right": 106.109375,
+            "top": 31.796875,
+            "bottom": 53.796875,
+            "width": 22.234375,
+            "height": 22
+          },
+          "parent": {
+            "left": 76,
+            "right": 114,
+            "top": 18,
+            "bottom": 56,
+            "width": 38,
+            "height": 38
+          },
+          "font": "600 22px / 22px Cinzel, Georgia, serif"
+        }
+      ]
+    },
+    {
+      "name": "final-phone",
+      "width": 320,
+      "height": 568,
+      "box": {
+        "left": 12,
+        "right": 122,
+        "top": 13,
+        "bottom": 61,
+        "width": 110,
+        "height": 48
+      },
+      "rail": null,
+      "inside": true,
+      "score": [
+        "6",
+        "10"
+      ],
+      "label": "Score du match : Joueur 1 6, Joueur 2 10",
+      "material": "linear-gradient(110deg, rgba(11, 23, 24, 0.95), rgba(33, 49, 44, 0.925) 50%, rgba(11, 23, 24, 0.95)), url(\"https://kalistar-score.invalid/Kalistar/jeu/assets/ui/collection-reader-grimoire-v1.png\")",
+      "font": "Cinzel, Georgia, serif",
+      "gem": true,
+      "overflow": false,
+      "clashes": false,
+      "animations": 0,
+      "title": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0,
+        "width": 0,
+        "height": 0
+      },
+      "toolbar": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0,
+        "width": 0,
+        "height": 0
+      },
+      "nodes": [
+        {
+          "text": "Joueur 1",
+          "rect": {
+            "left": 22.03125,
+            "right": 51.953125,
+            "top": 19.203125,
+            "bottom": 28.796875,
+            "width": 29.921875,
+            "height": 9.59375
+          },
+          "parent": {
+            "left": 18,
+            "right": 56,
+            "top": 18,
+            "bottom": 56,
+            "width": 38,
+            "height": 38
+          },
+          "font": "500 8px / 9.6px \"Segoe UI\", Arial, sans-serif"
+        },
+        {
+          "text": "6",
+          "rect": {
+            "left": 30.3125,
+            "right": 43.671875,
+            "top": 31.796875,
+            "bottom": 53.796875,
+            "width": 13.359375,
+            "height": 22
+          },
+          "parent": {
+            "left": 18,
+            "right": 56,
+            "top": 18,
+            "bottom": 56,
+            "width": 38,
+            "height": 38
+          },
+          "font": "600 22px / 22px Cinzel, Georgia, serif"
+        },
+        {
+          "text": "",
+          "rect": {
+            "left": 59,
+            "right": 73,
+            "top": 24,
+            "bottom": 50,
+            "width": 14,
+            "height": 26
+          },
+          "parent": {
+            "left": 59,
+            "right": 73,
+            "top": 18,
+            "bottom": 56,
+            "width": 14,
+            "height": 38
+          },
+          "font": ""
+        },
+        {
+          "text": "10 KILLS",
+          "rect": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0,
+            "width": 0,
+            "height": 0
+          },
+          "parent": {
+            "left": 59,
+            "right": 73,
+            "top": 18,
+            "bottom": 56,
+            "width": 14,
+            "height": 38
+          },
+          "font": "600 8px / 9.6px Cinzel, Georgia, serif"
+        },
+        {
+          "text": "Joueur 2",
+          "rect": {
+            "left": 79.421875,
+            "right": 110.5625,
+            "top": 19.203125,
+            "bottom": 28.796875,
+            "width": 31.140625,
+            "height": 9.59375
+          },
+          "parent": {
+            "left": 76,
+            "right": 114,
+            "top": 18,
+            "bottom": 56,
+            "width": 38,
+            "height": 38
+          },
+          "font": "500 8px / 9.6px \"Segoe UI\", Arial, sans-serif"
+        },
+        {
+          "text": "10",
+          "rect": {
+            "left": 83.875,
+            "right": 106.109375,
+            "top": 31.796875,
+            "bottom": 53.796875,
+            "width": 22.234375,
+            "height": 22
+          },
+          "parent": {
+            "left": 76,
+            "right": 114,
+            "top": 18,
+            "bottom": 56,
+            "width": 38,
+            "height": 38
+          },
+          "font": "600 22px / 22px Cinzel, Georgia, serif"
+        }
+      ]
+    },
+    {
+      "name": "fullscreen",
+      "box": {
+        "left": 478,
+        "right": 670,
+        "top": 4,
+        "bottom": 64,
+        "width": 192,
+        "height": 60
+      },
+      "rail": {
+        "left": 0,
+        "right": 1024,
+        "top": 69,
+        "bottom": 105,
+        "width": 1024,
+        "height": 36
+      },
+      "inside": true,
+      "score": [
+        "1",
+        "0"
+      ],
+      "label": "Score du match : Joueur 1 1, Le Veilleur 0",
+      "material": "linear-gradient(110deg, rgba(11, 23, 24, 0.95), rgba(33, 49, 44, 0.925) 50%, rgba(11, 23, 24, 0.95)), url(\"https://kalistar-score.invalid/Kalistar/jeu/assets/ui/collection-reader-grimoire-v1.png\")",
+      "font": "Cinzel, Georgia, serif",
+      "gem": true,
+      "overflow": false,
+      "now": "",
+      "announcement": "Round 1, tour 1, joueur 1, résolu",
+      "clashes": false,
+      "animations": 0,
+      "title": {
+        "left": 12,
+        "right": 470,
+        "top": 23.65625,
+        "bottom": 44.34375,
+        "width": 458,
+        "height": 20.6875
+      },
+      "toolbar": {
+        "left": 0,
+        "right": 1024,
+        "top": 0,
+        "bottom": 69,
+        "width": 1024,
+        "height": 69
+      },
+      "nodes": [
+        {
+          "text": "Joueur 1",
+          "rect": {
+            "left": 503.03125,
+            "right": 532.953125,
+            "top": 12.203125,
+            "bottom": 21.796875,
+            "width": 29.921875,
+            "height": 9.59375
+          },
+          "parent": {
+            "left": 487,
+            "right": 549,
+            "top": 10,
+            "bottom": 58,
+            "width": 62,
+            "height": 48
+          },
+          "font": "500 8px / 9.6px \"Segoe UI\", Arial, sans-serif"
+        },
+        {
+          "text": "1",
+          "rect": {
+            "left": 512.546875,
+            "right": 523.453125,
+            "top": 25.796875,
+            "bottom": 54.796875,
+            "width": 10.90625,
+            "height": 29
+          },
+          "parent": {
+            "left": 487,
+            "right": 549,
+            "top": 10,
+            "bottom": 58,
+            "width": 62,
+            "height": 48
+          },
+          "font": "600 29px / 29px Cinzel, Georgia, serif"
+        },
+        {
+          "text": "",
+          "rect": {
+            "left": 561,
+            "right": 585,
+            "top": 11.703125,
+            "bottom": 45.703125,
+            "width": 24,
+            "height": 34
+          },
+          "parent": {
+            "left": 554,
+            "right": 592,
+            "top": 10,
+            "bottom": 58,
+            "width": 38,
+            "height": 48
+          },
+          "font": ""
+        },
+        {
+          "text": "10 KILLS",
+          "rect": {
+            "left": 556.65625,
+            "right": 589.34375,
+            "top": 46.703125,
+            "bottom": 56.296875,
+            "width": 32.6875,
+            "height": 9.59375
+          },
+          "parent": {
+            "left": 554,
+            "right": 592,
+            "top": 10,
+            "bottom": 58,
+            "width": 38,
+            "height": 48
+          },
+          "font": "600 8px / 9.6px Cinzel, Georgia, serif"
+        },
+        {
+          "text": "Le Veilleur",
+          "rect": {
+            "left": 609.296875,
+            "right": 646.6875,
+            "top": 12.203125,
+            "bottom": 21.796875,
+            "width": 37.390625,
+            "height": 9.59375
+          },
+          "parent": {
+            "left": 597,
+            "right": 659,
+            "top": 10,
+            "bottom": 58,
+            "width": 62,
+            "height": 48
+          },
+          "font": "500 8px / 9.6px \"Segoe UI\", Arial, sans-serif"
+        },
+        {
+          "text": "0",
+          "rect": {
+            "left": 618.796875,
+            "right": 637.1875,
+            "top": 25.796875,
+            "bottom": 54.796875,
+            "width": 18.390625,
+            "height": 29
+          },
+          "parent": {
+            "left": 597,
+            "right": 659,
+            "top": 10,
+            "bottom": 58,
+            "width": 62,
+            "height": 48
+          },
+          "font": "600 29px / 29px Cinzel, Georgia, serif"
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

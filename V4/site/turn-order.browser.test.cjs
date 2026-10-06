@@ -65,22 +65,23 @@ async function clean(page,before){
 async function geometry(page,width,height){
   const result=await page.evaluate(()=>{
     const rect=n=>{const r=n.getBoundingClientRect();return {left:r.left,top:r.top,right:r.right,bottom:r.bottom,width:r.width,height:r.height};};
-    const rail=document.querySelector('.turn-timeline'),steps=[...rail.querySelectorAll('li')];
-    const field=document.querySelector('.battlefield'),score=document.querySelector('.match-scoreboard');
-    const now=rail.querySelector('.tt-now'),mode=rail.querySelector('.tt-mode');
-    const active=rail.querySelector('[aria-current=step]'),gem=getComputedStyle(active,'::after'),activeRect=rect(active);
-    return {rail:rect(rail),list:rect(rail.querySelector('ol')),steps:steps.map(rect),now:now?rect(now):null,nowClip:now?getComputedStyle(now).clipPath:null,modeDisplay:getComputedStyle(mode).display,field:rect(field),score:rect(score),overflow:document.documentElement.scrollWidth>innerWidth+1,
+    const rail=document.querySelector('.turn-timeline'),steps=[...rail.querySelectorAll('li')].filter(n=>n.getClientRects().length);
+    const field=document.querySelector('.battlefield'),score=document.querySelector('.match-scoreboard'),now=rail.querySelector('.tt-now');
+    const active=rail.querySelector('[aria-current=step]'),dot=active.querySelector('.tt-dot'),gem=getComputedStyle(dot,'::after');
+    return {rail:rect(rail),list:rect(rail.querySelector('ol')),steps:steps.map(rect),now:rect(now),nowClip:getComputedStyle(now).clipPath,field:rect(field),score:rect(score),overflow:document.documentElement.scrollWidth>innerWidth+1,
       material:getComputedStyle(rail).backgroundImage,font:getComputedStyle(active).fontFamily,gem:gem.backgroundImage,motion:gem.animationName,reduced:matchMedia('(prefers-reduced-motion:reduce)').matches,
-      gemClear:activeRect.left+1+parseFloat(gem.left)+parseFloat(gem.width)<rect(active.querySelector('span')).left,
-      labelsFit:steps.every(n=>[...n.children].every(c=>{const r=c.getBoundingClientRect(),p=n.getBoundingClientRect();return r.left>=p.left&&r.right<=p.right&&r.top>=p.top&&r.bottom<=p.bottom;}))};
+      gemClear:rect(dot).left+2+parseFloat(gem.left)+parseFloat(gem.width)<rect(active.querySelector('.tt-turn')).left,
+      labelsFit:steps.every(n=>{const r=rect(n.querySelector('.tt-stop')),p=rect(n);return r.left>=p.left&&r.right<=p.right&&r.top>=p.top&&r.bottom<=p.bottom;})};
   });
   assert(!result.overflow);assert(result.rail.left>=0&&result.rail.right<=width+1);
   assert(result.steps.every(r=>r.left>=result.rail.left&&r.right<=result.rail.right&&r.height>=20));
-  assert(result.material.includes('collection-reader-grimoire-v1.png'));assert(result.font.includes('Cinzel'));assert(result.gem.includes('kalistel-rainbow-v1.webp'));assert(result.gemClear,'rainbow crystal does not overlap the player label');assert(result.labelsFit,'labels and turn icons fit their metal plates');
+  assert(result.material.includes('collection-reader-grimoire-v1.png'));assert(result.font.includes('Cinzel'));assert(result.gem.includes('kalistel-rainbow-v1.webp'));assert(result.gemClear,'rainbow crystal does not overlap the turn');assert(result.labelsFit,'stations fit their track');
   if(result.reduced)assert.equal(result.motion,'none');
-  if(width<700||width<=950&&height<=500){
-    assert(result.rail.height<=36);assert(result.field.top>=result.rail.bottom-1);assert(result.score.top>=result.rail.bottom);
-    assert.equal(result.modeDisplay,'none');assert(result.now.width<=1&&result.now.height<=1);assert.equal(result.nowClip,'inset(50%)');
+  const phone=width<700||width<=950&&height<=500;
+  assert.equal(result.steps.length,phone?5:11);
+  assert(result.rail.height<=36);assert(result.now.width<=1&&result.now.height<=1);assert.equal(result.nowClip,'inset(50%)');
+  if(phone){
+    assert(result.field.top>=result.rail.bottom-1);assert(result.score.top>=result.rail.bottom);
     assert(result.list.width>=result.rail.width-20,'timeline fills the mobile rail');
     assert(result.steps.at(-1).right-result.steps[0].left>=result.list.width-1);
     assert(Math.max(...result.steps.map(r=>r.width))-Math.min(...result.steps.map(r=>r.width))<1,'five equal-width turns');

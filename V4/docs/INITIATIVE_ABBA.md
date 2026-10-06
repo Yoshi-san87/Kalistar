@@ -20,18 +20,23 @@ A designe le gagnant, B son adversaire. Les actions suivent
 **A, B, B, A, A, B, B, A...**. Une action consomme un echange, duel ou soutien.
 Un jet DEF, une decision de Kalistel ou un remplacement ne consomme pas
 une nouvelle action. `next()` avance l'ordre apres la consultation du resultat.
-La frise affiche l'action actuelle et les quatre suivantes. Sur smartphone,
-ces cinq etapes seules occupent toute sa largeur, sans phrase visible.
-L'annonce du camp courant reste accessible aux lecteurs d'ecran.
+La frise suit le combat comme une ligne de metro : une station `T` par tour,
+avec stations passees, courante et suivantes. Un `R` regroupe les tours du
+meme camp ; chaque transition de camp ouvre le round suivant. Le premier
+tour constitue R1, les deux tours adverses R2, les deux suivants R3, etc.
+Une defense, relance ou phase de remplacement ne change pas de round.
+Sur PC, onze stations glissent autour du tour courant ; sur telephone, cinq
+stations occupent toute la largeur. Les limites 1 et 200 restent respectees.
+Chaque groupe porte uniquement son numero de round et `J1` ou `J2`, sans
+phrase explicative ni libelle ABBA. L'annonce complete reste accessible aux
+lecteurs d'ecran. Le resultat courant porte une coche avant le tour suivant.
 
-La frise V4.5.18 reprend le framework visuel Kalistar : texture de grimoire,
-plaques biseautees, traits cuivre et typographie Cinzel. Un cristal rainbow
-indique l'action courante ; play/check distinguent action en cours et resolue.
-Le cristal respire doucement uniquement avant resolution, et reste fixe en
-Reduced Motion. Les deux camps conservent leurs accents cyan et rose.
-La hauteur reste de 36 px sur PC et 34 px sur telephone ; aucun espace
-supplementaire n'est pris aux cartes. Le style ne change ni `turnPreview()`
-ni le moteur, les sauvegardes ou le nombre d'etapes.
+La frise reprend le framework visuel Kalistar : texture de grimoire, cuivre,
+typographie Cinzel et cristal rainbow indiquant la station courante. Le cristal
+respire doucement uniquement avant resolution, et reste fixe en Reduced Motion.
+Les deux camps conservent leurs accents cyan et rose. La hauteur reste de 36 px
+sur PC et 34 px sur telephone ; aucun espace supplementaire n'est pris aux cartes.
+Les separateurs sont peints sans modifier la largeur des stations.
 
 L'introduction conserve 380 ms de suspense avant chaque retournement.
 Chaque indice dure 850 ms et chaque carte revelee reste 1,2 seconde au centre.
@@ -72,6 +77,15 @@ une paire de jets ; une victoire fixe `turn` et passe en `choose`.
 Le calcul de camp pour l'echange `r` est
 `first XOR [0, 1, 1, 0][(r - 1) % 4]`.
 
+`combat-timeline.js` derive les rounds visibles a partir de `sideAt()` ; il
+ne reimplemente pas la sequence d'initiative. `position(state, tour)` renvoie
+`{turn, round, side}` et `view(state)` les fenetres PC/telephone avec leurs
+groupes et etats. Cette couche est pure et ne modifie ni le RNG ni le match.
+Le champ historique `state.round` (et `event.round`) reste le numero d'echange,
+donc de tour, pour conserver les sauvegardes et statistiques existantes.
+Une future statistique par round peut utiliser `position(state, event.round)`
+sans changer les evenements enregistres. Les archives ABAB gardent leur ordre.
+
 `assertState()` verifie les faces D6, les egalites, le gagnant, la phase,
 l'ordre du tour courant et les camps attaquants dans les evenements du match.
 Le tirage n'ajoute aucun evenement de combat, aucune statistique et aucune
@@ -111,6 +125,8 @@ L'analyse d'equilibrage precedente n'est pas une certification de cette release.
 
 ```powershell
 node --test --test-isolation=none V4/site/turn-order.test.cjs V4/site/lineup-intro.test.cjs
+node --test --test-isolation=none V4/site/combat-timeline.test.cjs V4/site/turn-timeline.test.cjs
+node V4/site/combat-timeline.browser.test.cjs
 node V4/site/turn-order.browser.test.cjs
 node V4/deploy/build.cjs
 $env:KALISTAR_BUILT_SITE='1'
