@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "revision": 2,
+  "tool": "image_gen.imagegen",
+  "status": "approved-scenes-palette-revision",
+  "nativeCardsCreated": false,
+  "change": "User-requested black and dark forest green faction palette; retain silver heraldry, character scenes, poses, props, fur and painterly finish.",
+  "palette": {
+    "primary": "black",
+    "accent": "dark forest green",
+    "accentTarget": "#173C2B",
+    "heraldry": "silver"
+  },
+  "originalProvenance": "provenance.json",
+  "items": [
+    {
+      "id": "grivka-banner",
+      "file": "Grivka-drapeau-02.png",
+      "sha256": "1013f614aea7281d0efecf33d0a18395d1f911b214ddd79b8b32b6ea702d669e",
+      "prompt": "Use case: precise-object-edit. Edit the supplied approved Grivka banner image ONLY by changing faction colors. Replace every garnet, oxblood, burgundy or red textile panel, narrow fabric strip, and the red center gemstone with a rich DARK FOREST GREEN (deep pine green, approximately #173C2B, subtle lighter woven highlights). Keep the existing charcoal/black cloth BLACK, so the faction palette is distinctly BLACK + DARK FOREST GREEN, with silver trim and heraldry. The central wolf-head emblem, mountain motif, entire metallic silver framework, shape, hanging bar, folds, stitches, texture, lighting, proportions, composition, camera, background, all edges and framing must remain as close as possible to the original. Preserve the tactile painted Kalistar look exactly. Do not redesign, add objects, add text, redraw the emblem or turn the green into cyan, teal, lime, neon or turquoise. This is a localized palette correction, NOT a new banner. Preserve source canvas framing and background.",
+      "references": [
+        "V4/propositions/2026-10-06-grivka-okami/Grivka-drapeau-01.png"
+      ],
+      "generatedSource": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-4936928c-1db2-4e03-990a-dca8cfd71cec.png",
+      "transparent_background": false,
+      "note": "Heraldic design proposal, not a calibrated transparent native banner."
+    },
+    {
+      "id": "rhovan",
+      "file": "Rhovan-02.png",
+      "sha256": "d733c0326746bf7be9cbe0d3e531700825f5312730fcca9c0be4f5771b0dfeb8",
+      "prompt": "Use case: precise-object-edit. Image 1 is the ONLY EDIT TARGET, an already approved Kalistar illustration. Image 2 is ONLY a color/heraldry reference: new Grivka BLACK and DARK FOREST GREEN palette with SILVER wolf/mountain emblem. Do not insert the second image or add a banner. Make a very localized color correction to image 1, NOT a redesign or a new scene. Change ALL burgundy, garnet, oxblood and red CLOTHING textiles (scarf, sash/waist wrap, coat lining and hanging panels) to DARK FOREST GREEN approximately #173C2B, rich deep pine-green with realistic painted light/shadow, like the second reference. Change the red backing of faction badges to the same forest green, retain the existing SILVER emblem and metal. Preserve all existing BLACK/charcoal coat and armor areas, allowing the green accent fabric to remain visibly distinct from black, never bright emerald/neon/cyan/teal. IMPORTANT: preserve character face, gaze, fur colors, expression, body pose, exact anatomy, hands, props, weapon geometry and weapon light, scale, cropping, lighting and entire snow/mountain background. Do not tint the entire image green. Natural fur, sky, snow, stone, warm sunlight, leather and aged metal keep their original colors. Preserve the same visible angular painterly brush strokes and worn Kalistar textures. No extra ornaments, no text, no frame, no extra characters. RHOVAN specifics: preserve the grey wolf face looking at his raised rescue carabiner, hand positions, planted long straight spear, boots on the refuge steps, warm doorway light and broad snowy valley. Recolor the red scarf, sash, long red cloth panels and red shield-shaped breast badge backing. All other elements remain unchanged.",
+      "references": [
+        "V4/propositions/2026-10-06-grivka-okami/Rhovan-01.png",
+        "V4/propositions/2026-10-06-grivka-okami/Grivka-drapeau-02.png"
+      ],
+      "generatedSource": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-f102faee-0c90-4dea-acbc-6f59204ed30c.png",
+      "transparent_background": false,
+      "note": "Localized garment and insignia backing recolor. No native card production."
+    },
+    {
+      "id": "eyska",
+      "file": "Eyska-02.png",
+      "sha256": "faeaa057a5f292157755a314c0a5eba7dd71f80aa7e78e29bbd280364e06d19c",
+      "prompt": "Use case: precise-object-edit. Image 1 is the ONLY EDIT TARGET, an already approved Kalistar illustration. Image 2 is ONLY a color/heraldry reference: new Grivka BLACK and DARK FOREST GREEN palette with SILVER wolf/mountain emblem. Do not insert the second image or add a banner. Make a very localized color correction to image 1, NOT a redesign or a new scene. Change ALL burgundy, garnet, oxblood and red CLOTHING textiles (scarf, sash/waist wrap, coat lining and hanging panels) to DARK FOREST GREEN approximately #173C2B, rich deep pine-green with realistic painted light/shadow, like the second reference. Change the red backing of faction badges to the same forest green, retain the existing SILVER emblem and metal. Preserve all existing BLACK/charcoal coat and armor areas, allowing the green accent fabric to remain visibly distinct from black, never bright emerald/neon/cyan/teal. IMPORTANT: preserve character face, gaze, fur colors, expression, body pose, exact anatomy, hands, props, weapon geometry and weapon light, scale, cropping, lighting and entire snow/mountain background. Do not tint the entire image green. Natural fur, sky, snow, stone, warm sunlight, leather and aged metal keep their original colors. Preserve the same visible angular painterly brush strokes and worn Kalistar textures. No extra ornaments, no text, no frame, no extra characters. EYSKA specifics: preserve her russet-grey wolf face looking back, crouching pose and exact hands, arrow case, bow and bowstring geometry, the restrained cyan weapon core, boots, snow, mountain and warm sunlight. Recolor red scarf, sash and hanging cloth panels, small round breast/shoulder badge backing, AND the red faction-painted panel on the trail marker under her hand to the same DARK FOREST GREEN. Keep all silver emblems unchanged. Do not alter her natural russet fur or leather to green.",
+      "references": [
+        "V4/propositions/2026-10-06-grivka-okami/Eyska-01.png",
+        "V4/propositions/2026-10-06-grivka-okami/Grivka-drapeau-02.png"
+      ],
+      "generatedSource": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-0428dbca-adc2-4a7e-9cdf-b1c3ca91d33f.png",
+      "transparent_background": false,
+      "note": "Localized garment and insignia backing recolor. No native card production."
+    }
+  ],
+  "visualReview": {
+    "completed": true,
+    "checks": [
+      "Dark forest green replaces garnet textile and insignia backing; black and silver retained.",
+      "Rhovan: grey fur, face, rescue carabiner, long spear, snow valley and warm doorway preserved.",
+      "Eyska: natural russet-grey fur, crouch, bow and snowy landscape preserved; trail marker faction paint also green.",
+      "Original 01 assets and historical provenance remain unchanged."
+    ]
+  }
+}

@@ -25,9 +25,12 @@ Grivka est une autre faction de la region de Niveria. Son identite et son
 drapeau sont distincts de ceux du royaume d'Ysilis. Ne pas assimiler toute
 la region a un seul peuple ou a un seul Etat.
 
-Le nom et l'appartenance sont demandes par l'auteur. La proposition de
-drapeau charbon/grenat/argent, tete de loup et signe de montagne, attend
-encore sa validation visuelle : voir le dossier des illustrations ci-dessous.
+Le nom, l'appartenance et la palette noir / vert foret sombre sont demandes
+par l'auteur. Apres validation des propositions, il a demande de remplacer
+le grenat par ce vert sur le drapeau et les vetements. Les versions 02
+appliquent ce choix et conservent la tete de loup, le signe de montagne
+et les emblemes argentes. Le drapeau reste une proposition d'illustration,
+pas encore un composant natif calibre.
 
 ## Trois issues de la transfusion homme-loup
 
@@ -48,7 +51,8 @@ inventer implicitement en produisant les prochaines cartes.
 
 ## Propositions, pas encore des cartes
 
-[Sources et prompts](../propositions/2026-10-06-grivka-okami/provenance.json).
+[Sources et prompts initiaux](../propositions/2026-10-06-grivka-okami/provenance.json).
+[Retouche de palette et sources actuelles 02](../propositions/2026-10-06-grivka-okami/provenance-02.json).
 
 - **Rhovan**, gardien des cols de Grivka : Okami gris, manteau de laine sombre,
   lance de montagne et mousqueton de secours. Un instant de memoire silencieuse
@@ -57,9 +61,10 @@ inventer implicitement en produisant les prochaines cartes.
   discret et geste de pisteuse. Elle retrouve une balise ensevelie qui confirme
   qu'une ancienne route est encore praticable. Titre propose : *La piste demeure*.
 
-Noms, metiers, scenes, palette et titres sont des propositions nouvelles,
-pas des personnages retrouves dans un manuscrit. Cristaux personnels, postes,
-statistiques et competences restent a definir apres validation des images.
+Noms, metiers, scenes et titres ont ete proposes pour ces illustrations,
+pas retrouves dans un manuscrit. L'auteur a valide les propositions puis
+demande la correction de palette ci-dessus. Cristaux personnels, postes,
+statistiques et competences restent a definir avant toute production de carte.
 
 ## Compatibilite technique
 
