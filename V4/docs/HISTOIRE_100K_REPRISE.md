@@ -24,6 +24,12 @@ Cette reprise remplace les choix narratifs de `HISTOIRE_80K_PLAN.md`, qui reste
 un compte rendu historique de la version du 2 octobre, pas une instruction
 pour rétablir ses anciennes phrases.
 
+La décision explicite de l'auteur du 6 octobre concernant Lanio remplace aussi
+le choix d'enterrement de la première reprise longue : Lanio n'est pas enterré.
+Son corps est déposé au village des Rhinoz, à Zarok, près du terrain d'Astraball
+et de ses compagnons de jeu. Ne pas rétablir la fosse ou la sortie de Z13 à
+partir d'un ancien manuscrit ou du DOCX d'essai.
+
 Correction importante issue de la nouvelle source : Gen réalise bien une
 transfusion Electro au chapitre IV. Elle se fait au contact de sa chair et
 de sa prothèse, manque de le tuer et ne lui donne pas une maîtrise immédiate.
@@ -51,7 +57,8 @@ modifiée pour suivre cette étape du roman.
   Lok tue Vorn avant l'entrée de Balmhyr. Ses remords n'effacent pas les crimes.
 - Lanio protège Nazar pendant l'attaque de la projection. Sa chute est
   mortelle et définitive. Le deuil concerne aussi Gen, qui reste isolé.
-- L'enterrement près de la sortie de Z13 précède la confrontation finale.
+- Le dépôt de Lanio à Zarok, près de ses compagnons d'Astraball, précède
+  la confrontation finale. Nazar reste auprès de lui au village.
   Voloden exige le Minero Primaire ; Balmhyr refuse ; Kaylis et Baba partent.
   Le violet est constaté, pas expliqué. Mennuyir reste une ouverture de suite.
 
@@ -59,6 +66,37 @@ Les informations révélées par un personnage intéressé ne deviennent pas
 automatiquement des certitudes du narrateur. Les retours en arrière doivent
 être balisés ; ne pas rejouer une capture ou une rencontre pour développer
 deux versions contradictoires du DOCX.
+
+## Révision Des Adieux
+
+Les chapitres XVI et XVII sont repris comme des scènes, pas corrigés par un
+simple changement de lieu. Au XVI, le billet d'entraînement laissé par Gilmarr
+au XI, et que Lanio avait lu deux fois, motive le choix de Zarok.
+Kaylis et Baba décident avec Belrog ; Yvar
+prévient les joueurs et organise l'accès. L'absence de Gen reste présente
+sans bloquer les soins donnés à Lanio.
+
+Au XVII, les joueurs déjà rencontrés au VIII accueillent la civière. Gilmarr,
+le défenseur et le partenaire qui avait marqué sur la passe de Lanio apportent
+leurs propres souvenirs. Le lacet, le ballon rendu avant le départ et le billet
+d'invitation relient les gestes du deuil aux scènes vécues, sans ajouter de
+nouvelle intrigue. Le feuillet des commandes repart avec Kaylis pour Gen ;
+le billet de Gilmarr reste à Zarok.
+
+Lanio repose sur une couche de pierre dans une petite pièce abritée, ouverte
+sur le passage du terrain, proche des joueurs. Seul un linge le recouvre :
+aucun enfouissement, aucune terre versée, aucun pouvoir de conservation ou
+rite mortuaire nouveau. Sa mort reste définitive. Nazar choisit de demeurer
+auprès de lui ; Belrog et Yvar raccompagnent Kaylis et Baba à la Tour.
+La mémoire de Gilmarr reste liée à la partie racontée au VIII, sans ajouter
+de rencontres intermédiaires hors récit pour allonger leur amitié.
+
+Les raccords du retour et de l'entretien avec Balmhyr sont réécrits. Le délai
+reste : appel de Voloden la nuit J0, adieux et retour J1, rendez-vous à Mennuyir
+à l'aube J2, donc l'aube du lendemain lors du refus de Balmhyr. Gen demeure
+captif, le Minero n'est pas remis et le violet reste inexpliqué. Les sections
+I à XV restent identiques à la reprise longue précédente. Les titres, les
+identifiants, les quatre illustrations et leurs ancrages ne changent pas.
 
 ## Compteur
 
@@ -83,9 +121,9 @@ uniquement, sans titres, légendes, épigraphe ni interface du lecteur.
 | XIII | 6 266 |
 | XIV | 6 853 |
 | XV | 7 129 |
-| XVI | 6 454 |
-| XVII | 6 266 |
-| **Total** | **111 013** |
+| XVI | 6 986 |
+| XVII | 8 193 |
+| **Total** | **113 472** |
 
 ## Validation
 

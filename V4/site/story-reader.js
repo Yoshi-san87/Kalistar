@@ -3,7 +3,7 @@
   const escape = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 
   function create({storageKey = 'kalistar.v4.story-progress'} = {}) {
-    let root = null, manuscript = null, loading = null, saveTimer = 0, observer = null, wordCounts = [], wordTotal = 0;
+    let root = null, manuscript = null, loading = null, saveTimer = 0, observer = null, wordCounts = [], wordTotal = 0, opening = false, generation = 0;
     let state = {section: 0, ratio: 0, size: 'regular', paper: 'day'};
     try {
       const saved = JSON.parse(localStorage.getItem(storageKey) || '{}');
@@ -19,6 +19,39 @@
     const sectionMinutes = section => Math.max(1, Math.ceil(sectionWords(section) / 220));
     const totalWords = () => wordTotal;
     const sectionProgress = ratio => Math.round(ratio * 100);
+    const asset = path => window.KalistarSite?.url(path) || path;
+    function renderLibrary({focus = false} = {}) {
+      if (!root || !manuscript) return;
+      state.section = Math.min(state.section, manuscript.sections.length - 1);
+      const started = state.section > 0 || state.ratio > 0, section = manuscript.sections[state.section];
+      root.innerHTML = `<section class="story-library" aria-label="Bibliothèque Kalistar">
+        <button type="button" class="story-volume" data-story-action="open-book" aria-label="${started ? 'Reprendre' : 'Ouvrir'} ${escape(manuscript.title)}, ${escape(manuscript.volume)}">
+          <span class="story-volume-object"><img src="${escape(asset('assets/ui/story-closed-grimoire-v1.webp'))}" alt="" width="1024" height="1536" decoding="async">
+            <span class="story-volume-inscription"><span class="story-volume-series">${escape(manuscript.series)}</span><span class="story-volume-title">${escape(manuscript.title)}</span><span class="story-volume-number">${escape(manuscript.volume)}</span></span>
+          </span>
+          <span class="story-volume-command"><i data-lucide="book-open"></i>${started ? 'Reprendre la lecture' : 'Ouvrir le livre'}<i data-lucide="chevron-right"></i></span>
+        </button>
+        ${started ? `<div class="story-library-progress"><span>${escape(section.label)} · ${escape(section.title)}</span><div class="story-progress-track" role="progressbar" aria-label="Progression dans ${escape(manuscript.title)}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${bookProgress()}"><span style="width:${bookProgress()}%"></span></div><span>${bookProgress()}%</span></div>` : ''}
+      </section>`;
+      window.KalistarUI?.icons(root)??window.lucide?.createIcons({root});
+      if (focus) root.querySelector('[data-story-action=open-book]')?.focus({preventScroll: true});
+    }
+    async function openBook() {
+      if (!root || opening) return;
+      const target = root, revision = generation;
+      opening = true;
+      const button = root.querySelector('[data-story-action=open-book]');
+      button.disabled = true;
+      button.setAttribute('aria-busy', 'true');
+      const background = new Image();
+      background.src = asset('assets/ui/collection-reader-grimoire-v1.webp');
+      await background.decode().catch(() => {});
+      if (root !== target || generation !== revision) return;
+      opening = false;
+      render({restore: true});
+      root.querySelector('.story-reader-book')?.classList.add('story-book-opening');
+      root.querySelector('.story-current-heading h2')?.focus({preventScroll: true});
+    }
     function sceneMarkup(scene) {
       const card = window.KALISTAR_DATA?.cards?.find(item => String(item.id) === scene.cardId);
       if (!card?.pngUrl) return '';
@@ -87,6 +120,7 @@
               <div class="story-current-heading"><span class="story-kicker">${escape(section.label)} · ${sectionMinutes(section)} min de lecture</span><h2 tabindex="-1" aria-live="polite">${escape(section.title)}</h2></div>
               <div class="story-reading-tools" role="group" aria-label="Réglages de lecture">
                 <select class="story-chapter-picker" data-story-select aria-label="Choisir un chapitre">${options}</select>
+                <button type="button" data-story-action="library" title="Fermer le livre" aria-label="Fermer le livre et revenir à la bibliothèque"><i data-lucide="library"></i></button>
                 <button type="button" data-story-action="smaller" title="Réduire la taille du texte" aria-label="Réduire la taille du texte" ${state.size === 'small' ? 'disabled' : ''}>A−</button>
                 <button type="button" data-story-action="larger" title="Agrandir la taille du texte" aria-label="Agrandir la taille du texte" ${state.size === 'large' ? 'disabled' : ''}>A+</button>
                 <button type="button" class="story-theme-toggle" data-story-action="theme" title="${themeLabel}" aria-label="${themeLabel}"><i data-lucide="${state.paper === 'day' ? 'moon' : 'sun'}"></i></button>
@@ -162,6 +196,8 @@
       if (!button || !root.contains(button)) return;
       const action = button.dataset.storyAction;
       if (action === 'retry') return retry();
+      if (action === 'open-book') return openBook();
+      if (action === 'library') { updateProgress(); clearTimeout(saveTimer); saveTimer = 0; save(); return renderLibrary({focus: true}); }
       if (action === 'close-card') return root.querySelector('[data-story-dialog]')?.close();
       if (action === 'previous') return selectSection(state.section - 1);
       if (action === 'next') return selectSection(state.section + 1);
@@ -201,7 +237,9 @@
     }
     async function mount(target) {
       root = target;
-      root.innerHTML = '<div class="story-loading" role="status">Ouverture du grimoire…</div>';
+      const revision = ++generation;
+      opening = false;
+      root.innerHTML = '<div class="story-loading" role="status">Chargement de la bibliothèque…</div>';
       root.addEventListener('click', click);
       root.addEventListener('change', change);
       root.addEventListener('scroll', scroll, true);
@@ -210,19 +248,21 @@
       try {
         await load();
         const background = new Image();
-        background.src = window.KalistarSite?.url('assets/ui/collection-reader-grimoire-v1.webp') || 'assets/ui/collection-reader-grimoire-v1.webp';
+        background.src = asset('assets/ui/story-closed-grimoire-v1.webp');
         await background.decode().catch(() => {});
-        if (root !== target) return;
-        render({restore: true});
+        if (root !== target || generation !== revision) return;
+        renderLibrary();
       }
       catch (error) {
-        if (root !== target) return;
+        if (root !== target || generation !== revision) return;
         root.innerHTML = `<section class="story-load-error"><i data-lucide="book-x"></i><h1>Le manuscrit ne s’est pas ouvert</h1><p>${escape(error.message)}</p><button type="button" data-story-action="retry">Réessayer</button></section>`;
         window.KalistarUI?.icons(root)??window.lucide?.createIcons({root});
       }
     }
     function retry() { const target = root; destroy(); loading = null; manuscript = null; if (target) mount(target); }
     function destroy() {
+      generation++;
+      opening = false;
       if(root)save(state.ratio);
       clearTimeout(saveTimer);
       if (root) { root.removeEventListener('click', click); root.removeEventListener('change', change); root.removeEventListener('scroll', scroll, true); observer?.unobserve(root); }

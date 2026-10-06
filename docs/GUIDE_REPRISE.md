@@ -59,6 +59,11 @@ pour annuler cette correction. Les notes de suite restent reservees ; aucun
 acces au Drive n'est autorise pour ce travail. Les cartes jouables, leurs
 profils et les regles ne changent pas avec le roman.
 
+La decision ulterieure de l'auteur du 6 octobre remplace l'enterrement de Lanio :
+il est depose au village Rhinoz de Zarok, pres de ses amis d'Astraball. Reprendre
+les scenes d'adieu revisees, pas les anciens brouillons. Story s'ouvre desormais
+sur le tome ferme ; son ouverture reprend le repere local du lecteur.
+
 ### Armes equipees V4.3.6
 
 La [publication V4.3.6](../V4/releases/2026-10-02-equipped-weapons/README.md)

@@ -98,3 +98,17 @@ test('the Council and open ending retain the author sequence', () => {
   assert.match(ending, /Gen.*Mennuyir|Mennuyir.*Gen/s);
   assert.match(manuscript.sections.at(-1).paragraphs.at(-1), /Kaylis.*Mennuyir.*captif/s);
 });
+
+test('Lanio is laid in Zarok near his Astraball companions, not buried', () => {
+  const farewell = manuscript.sections.slice(16).map(section => section.paragraphs.join('\n')).join('\n');
+  assert.doesNotMatch(farewell, /\b(?:enterrement|enterr(?:é|ée|és|ées|er)|enseveli(?:e|s|es)?|fosse|pelletée|sépulture)\b/i, 'the superseded burial must not survive in the farewell');
+  assert.match(farewell, /Zarok/);
+  assert.match(farewell, /Gilmarr/);
+  assert.match(farewell, /Ils déposèrent Lanio sur cette couche/);
+  assert.match(farewell, /Lanio reposait au-dessus du sol/);
+  assert.match(farewell, /pièce ouverte près du terrain, avec ses compagnons autour de lui/);
+  const ending = manuscript.sections.at(-1).paragraphs.join('\n');
+  assert.ok(ending.indexOf('Ils déposèrent Lanio') < ending.indexOf('Bonjour, Souverain de Durane'), 'farewell at the village precedes the confrontation at the Tour');
+  assert.match(ending, /Lanio était mort, et Gen n’avait pas pu partager cet adieu/);
+  assert.match(ending, /Avant demain à l’aube/);
+});

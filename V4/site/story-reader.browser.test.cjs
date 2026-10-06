@@ -20,7 +20,27 @@ async function main(){
     page.on('requestfailed',request=>{if(request.url().includes('story-content.json'))errors.push(request.url()+' '+request.failure()?.errorText);});
     await page.goto(url+'/jeu/#story');
     await page.waitForFunction(()=>window.KALISTAR_READY);
+    await page.locator('.story-library').waitFor();
+    assert.equal(await page.locator('.story-reader-book').count(),0,'Story starts with a closed volume, not the manuscript');
+    assert.equal(await page.locator('.story-volume-title').textContent(),'Le Réveil');
+    await page.waitForFunction(()=>document.querySelector('.story-volume-object img')?.naturalWidth===1024);
+    await page.screenshot({path:path.join(output,'library-desktop.png')});
+    for(const [width,height] of [[1440,1000],[1024,768],[850,760],[412,1007],[390,844],[320,568],[844,390]]){
+      await page.setViewportSize({width,height});
+      const layout=await page.locator('.story-volume').evaluate(node=>{
+        const button=node.getBoundingClientRect(),book=node.querySelector('.story-volume-object').getBoundingClientRect(),title=node.querySelector('.story-volume-inscription').getBoundingClientRect(),host=document.querySelector('#story-reader-root').getBoundingClientRect();
+        return {button:button.toJSON(),book:book.toJSON(),title:title.toJSON(),host:host.toJSON(),overflow:document.documentElement.scrollWidth-innerWidth};
+      });
+      assert.ok(layout.overflow<=1,'library has no horizontal overflow at '+width+'x'+height);
+      assert.ok(layout.button.top>=layout.host.top-1&&layout.button.bottom<=layout.host.bottom+1,'closed volume and open action fit the available screen at '+width+'x'+height);
+      assert.ok(layout.title.left>=layout.book.left&&layout.title.right<=layout.book.right&&layout.title.bottom<layout.book.top+layout.book.height*.5,'cover inscription stays above the crystal at '+width+'x'+height);
+      if(width===412)await page.screenshot({path:path.join(output,'library-phone.png')});
+    }
+    await page.setViewportSize({width:1440,height:1000});
+    await page.locator('[data-story-action=open-book]').focus();
+    await page.keyboard.press('Enter');
     await page.locator('.story-reader-book').waitFor();
+    assert.equal(await page.locator('.story-book-opening').evaluate(node=>getComputedStyle(node).animationName),'none','reduced motion skips the book opening animation');
     await page.evaluate(async()=>{
       const background=new Image();
       background.src=new URL('assets/ui/collection-reader-grimoire-v1.webp',location.href).href;
@@ -75,7 +95,23 @@ async function main(){
       return key?JSON.parse(localStorage.getItem(key)):null;
     });
     assert.equal(saved.section,1);assert.equal(saved.size,'large');assert.equal(saved.paper,'night');assert.ok(saved.ratio>.95);
-    await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);await page.locator('.story-reader-book').waitFor();
+    const overallProgress=await page.locator('.story-progress-track[role=progressbar]').getAttribute('aria-valuenow');
+    await page.locator('[data-story-action=library]').click();
+    assert.equal(await page.locator('[data-story-action=open-book]').evaluate(node=>node===document.activeElement),true,'closing returns keyboard focus to the volume');
+    assert.match(await page.locator('.story-volume-command').textContent(),/Reprendre/);
+    assert.equal(await page.locator('.story-library-progress [role=progressbar]').getAttribute('aria-valuenow'),overallProgress,'closed volume keeps the same manuscript progress');
+    for(const [width,height] of [[320,568],[844,390]]){
+      await page.setViewportSize({width,height});
+      const fits=await page.locator('.story-library').evaluate(node=>{
+        const host=node.getBoundingClientRect(),children=[...node.children].map(child=>child.getBoundingClientRect());
+        return children.every(box=>box.top>=host.top&&box.bottom<=host.bottom);
+      });
+      assert.ok(fits,'book and saved reading marker fit the short screen together at '+width+'x'+height);
+    }
+    await page.setViewportSize({width:1440,height:1000});
+    await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);await page.locator('.story-library').waitFor();
+    assert.match(await page.locator('.story-library-progress').textContent(),/Chapitre I.*La Z13/);
+    await page.locator('[data-story-action=open-book]').click();await page.locator('.story-reader-book').waitFor();
     await page.waitForTimeout(100);
     assert.equal(await page.locator('.story-current-heading h2').textContent(),'La Z13');
     assert.ok(await text.evaluate(node=>node.scrollTop/Math.max(1,node.scrollHeight-node.clientHeight)>.9),'chapter position resumes after reload');
@@ -124,8 +160,40 @@ async function main(){
     assert.equal(await page.locator('.story-current-heading h2').textContent(),'Les révélations');
     const controls=await page.locator('.story-reading-tools button').evaluateAll(nodes=>nodes.map(node=>node.getBoundingClientRect().height));
     assert.ok(controls.every(height=>height>=44),'reading controls retain touch-sized targets');
+    await page.locator('[data-story-action=library]').click();
+    await page.emulateMedia({reducedMotion:'no-preference'});
+    await page.locator('[data-story-action=open-book]').click();
+    await page.locator('.story-reader-book').waitFor();
+    assert.equal(await page.locator('.story-book-opening').evaluate(node=>getComputedStyle(node).animationName),'story-book-open','normal motion includes a short opening transition');
+    await page.locator('[data-story-action=library]').click();
+    await page.locator('[data-story-action=open-book]').evaluate(node=>{for(let i=0;i<6;i++)node.click();});
+    await page.locator('.story-reader-book').waitFor();
+    assert.equal(await page.locator('.story-reader-book').count(),1,'rapid clicks open a single reader');
     assert.deepEqual(errors,[],'no browser errors or failed manuscript request');
     await context.close();
+
+    const raceContext=await browser.newContext({viewport:{width:390,height:844},reducedMotion:'reduce'});
+    try{
+      const racePage=await raceContext.newPage();
+      let releaseTexture;
+      const release=new Promise(resolve=>{releaseTexture=resolve;});
+      await racePage.goto(url+'/jeu/#story');
+      await racePage.locator('.story-library').waitFor();
+      await racePage.route('**/collection-reader-grimoire-v1.webp',async route=>{await release;await route.continue();});
+      const requested=racePage.waitForRequest('**/collection-reader-grimoire-v1.webp');
+      await racePage.locator('[data-story-action=open-book]').click();
+      await requested;
+      await racePage.locator('.main-nav [data-view=collection]').click();
+      await racePage.locator('#collection-binder-root').waitFor();
+      releaseTexture();
+      await racePage.waitForTimeout(450);
+      assert.equal(await racePage.locator('#story-reader-root').count(),0,'late book decoding cannot repaint Collection');
+      await racePage.unroute('**/collection-reader-grimoire-v1.webp');
+      await racePage.evaluate(()=>{location.hash='story';});
+      await racePage.locator('.story-library').waitFor();
+      await racePage.locator('[data-story-action=open-book]').click();
+      await racePage.locator('.story-reader-book').waitFor();
+    }finally{await raceContext.close();}
     console.log(JSON.stringify({chapters:18,desktopRatio:desktop.ratio,phoneSizes:4,screenshots:output}));
   }finally{await browser.close();}
 }

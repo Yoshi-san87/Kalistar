@@ -231,7 +231,17 @@ atelier or its write endpoints to the network.
 
 ## Story Reader
 
-The main navigation opens `Story`, a long-form reader for the revised
+The main navigation opens `Story` as a library with a closed Tome I grimoire.
+The cover is a separate painted WebP; its title remains accessible HTML.
+Clicking or pressing Enter opens the reader at the saved chapter and scroll
+position. The library button closes the book, saves progress and returns focus
+to its cover. Reload and navigation show the closed book again without resetting
+reading preferences. The open-book texture is decoded only when opening it;
+an interrupted mount/open cannot repaint a later view. Reduced motion skips the
+short opening transition. Desktop, phone and short landscape layouts retain
+the whole book and its opening action within the available screen.
+
+The long-form reader presents the revised
 `Kalistar - Le Réveil` manuscript. `story-content.json` is the static, UTF-8
 reading copy (prologue plus seventeen chapters), loaded independently of the game
 catalogue and local Atelier API. The desktop reader fits the approved open-book
