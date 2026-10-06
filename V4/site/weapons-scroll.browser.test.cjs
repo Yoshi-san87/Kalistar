@@ -117,7 +117,10 @@ async function main() {
   assert.equal(await page.locator('.weapons-list').evaluate(n => getComputedStyle(n).gridTemplateColumns.split(' ').length), 6);
   await page.mouse.move(700,700);
   await page.mouse.wheel(0,650);
-  await page.waitForFunction(() => window.scrollY>100);
+  await page.waitForTimeout(300);
+  assert.equal(await page.evaluate(() => window.scrollY),0,'desktop arsenal stays inside the viewport');
+  await page.locator('[data-weapon-action=page][data-list=collection][data-page="1"]').click();
+  assert.equal(await page.locator('[data-weapon-page=collection]').inputValue(),'1');
   await page.screenshot({path:path.join(out,'desktop.png')});
   results.push({name:'desktop',pageScroll:await page.evaluate(() => window.scrollY)});
 

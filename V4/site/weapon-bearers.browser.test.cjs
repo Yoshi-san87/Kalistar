@@ -1,4 +1,5 @@
 'use strict';
+const {openEquipment}=require('./equipment-browser-test-helpers.cjs');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{createRequire}=require('node:module');
 const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const {chromium}=createRequire(path.join(runtime,'__bearers__.cjs'))('playwright');
@@ -24,7 +25,7 @@ async function main(){
     await context.addInitScript(()=>{const open=IDBFactory.prototype.open;IDBFactory.prototype.open=function(name,version){return open.call(this,name+'-bearers-qa-only',version);};});
     const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await ready(page);
     for(const [id,allowed] of Object.entries(expected)){
-      await page.locator('.weapons-page [data-weapon="'+id+'"]').click();await images(page);
+      await openEquipment(page,id);await images(page);
       const actual=await page.locator('#weapons-dialog [data-weapon-action=equip],#weapons-dialog [data-weapon-action=unequip]').evaluateAll(nodes=>nodes.map(n=>n.dataset.character).sort());assert.deepEqual(actual,allowed,id);
       const family=await page.evaluate(id=>KalistarWeapons.weapons.find(w=>w.id===id).family,id);
       assert.equal(await page.locator('#weapons-dialog .wc-family img').getAttribute('alt'),'Famille : '+family);
@@ -44,7 +45,7 @@ async function main(){
     }
     const profile=await page.evaluate(()=>KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER));await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);
     assert.deepEqual(await page.evaluate(()=>KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER)),profile);
-    await page.locator('.weapons-page [data-weapon="cryptown-oath-sword"]').click();await page.locator('[data-weapon-action=unequip]').click();
+    await openEquipment(page,'cryptown-oath-sword');await page.locator('[data-weapon-action=unequip]').click();
     await page.waitForFunction(()=>!KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon['varkhen-kalistar']);await page.locator('[data-weapon-action=close]').click();
     if(name==='desktop'){
       const saved=await page.evaluate(async previous=>{

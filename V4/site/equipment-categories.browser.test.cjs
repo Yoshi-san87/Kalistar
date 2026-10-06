@@ -1,4 +1,5 @@
 'use strict';
+const {openEquipment}=require('./equipment-browser-test-helpers.cjs');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{createRequire}=require('node:module');
 const modules=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE||'','.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const {chromium}=createRequire(path.join(modules,'__equipment_qa__.cjs'))('playwright');
@@ -63,7 +64,7 @@ async function main(){
     await ready(page);assert.equal(await page.locator('.weapon-entry').count(),75);
     for(const [kind,id,character] of [['shield','durane-rampart','balmhyr'],['relic','pod-042','2b-nier']]){
       await page.locator(`[data-equipment-category=${kind}]`).click();assert.equal(await page.locator('.weapon-entry').count(),21);
-      await page.locator(`[data-weapon="${id}"]`).click();await page.waitForFunction(()=>[...document.querySelectorAll('#weapons-dialog img')].every(i=>i.complete&&i.naturalWidth));
+      await openEquipment(page,id);await page.waitForFunction(()=>[...document.querySelectorAll('#weapons-dialog img')].every(i=>i.complete&&i.naturalWidth));
       await capture(page,name+'-'+kind+'-detail');
       const button=page.locator(`[data-weapon-action=equip][data-character="${character}"]`);assert(await button.isVisible());await button.click();
       await page.waitForFunction(({character,id})=>KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon[character]===id,{character,id});
@@ -73,10 +74,10 @@ async function main(){
       assert.equal(await page.evaluate(c=>KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon[c],character),id);
     }
     // Cross-category replacement uses the same confirmation and single persisted slot.
-    await page.locator('[data-weapon=fallen-king-axe]').click();await page.locator('[data-weapon-action=equip][data-character=balmhyr]').click();
+    await openEquipment(page,'fallen-king-axe');await page.locator('[data-weapon-action=equip][data-character=balmhyr]').click();
     assert(await page.locator('.weapon-confirm').isVisible());await page.locator('[data-weapon-action=confirm]').click();
     await page.waitForFunction(()=>KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon.balmhyr==='fallen-king-axe');await page.locator('[data-weapon-action=close]').click();
-    await page.locator('[data-weapon=fallen-king-axe]').click();await page.locator('[data-weapon-action=unequip]').click();await page.waitForFunction(()=>!KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon.balmhyr);await page.locator('[data-weapon-action=close]').click();
+    await openEquipment(page,'fallen-king-axe');await page.locator('[data-weapon-action=unequip]').click();await page.waitForFunction(()=>!KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon.balmhyr);await page.locator('[data-weapon-action=close]').click();
     for(const id of ['durane-rampart','pod-042']){
       const cardId=await page.evaluate(id=>{
         const E=KalistarEngine.createEngine(KALISTAR_DATA),T=KalistarTeamComposition.create(E),w=KalistarWeapons.weapons.find(w=>w.id===id),c=KALISTAR_DATA.cards.find(c=>KalistarEquipment.compatible(w,c));

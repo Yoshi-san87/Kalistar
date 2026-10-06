@@ -1,4 +1,5 @@
 'use strict';
+const {openEquipment}=require('./equipment-browser-test-helpers.cjs');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{createRequire}=require('node:module');
 const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const {chromium}=createRequire(path.join(runtime,'__weapon_backgrounds__.cjs'))('playwright');
@@ -13,7 +14,7 @@ async function main(){
     const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
     await page.goto(base+'/jeu/#weapons');await page.waitForFunction(()=>window.KALISTAR_READY);await ready(page);
     for(const id of ['white-oath-rapier','brotherhood','post-bow','socom','violet-reaping','lulu-mog','kaine-saw']){
-      await page.locator('.weapons-page [data-weapon="'+id+'"]').click();await ready(page);
+      await openEquipment(page,id);await ready(page);
       const card=page.locator('#weapons-dialog .wc-surface');
       assert.equal(await card.locator('.wc-art-background').count(),0);
       const samples=await card.locator('.wc-art-main,.wc-art-background').evaluateAll(nodes=>nodes.map(n=>({src:n.src,filter:getComputedStyle(n).filter,fit:getComputedStyle(n).objectFit})));

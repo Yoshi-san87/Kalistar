@@ -1,4 +1,5 @@
 'use strict';
+const {openEquipment}=require('./equipment-browser-test-helpers.cjs');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{createRequire}=require('node:module');
 const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE||'','.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const {chromium}=createRequire(path.join(runtime,'__weapons_browser__.cjs'))('playwright');
@@ -9,7 +10,7 @@ const results=[],errors=[];let browser;
 let navigation=0;
 async function ready(page,hash='weapons'){await page.goto(base+'/jeu/?weapons-qa='+ ++navigation+'#'+hash);await page.waitForFunction(()=>window.KALISTAR_READY);}
 async function equipment(page,id,action='equip'){
-  await page.locator(`[data-weapon="${id}"]`).click();await page.locator(`[data-weapon-action="${action}"]`).click();
+  await openEquipment(page,id);await page.locator(`[data-weapon-action="${action}"]`).click();
   await page.waitForFunction(({id,action})=>Object.values(KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon).includes(id)===(action==='equip'),{id,action});
   await page.locator('[data-weapon-action=close]').click();
 }
@@ -114,11 +115,11 @@ async function replacementUI(page){
       equip:async(_,c,id,options)=>{row=Q.equipProfile(row,c,id,KALISTAR_DATA.cards,options,definitions);},
       unequip:async(_,c,id)=>{if(row.slots.weapon[c]!==id)throw Error('Stale QA selection');delete row.slots.weapon[c];}
     }};
-    const root=document.createElement('section');document.querySelector('#app').replaceChildren(root);
+    const root=document.createElement('section');root.id='weapons-root';document.querySelector('#app').replaceChildren(root);
     const ui=KalistarWeaponsUI.create({data:KALISTAR_DATA,db,userId:'qa-profile'});ui.mount(root);
     window.WEAPON_UI_FIXTURE={profile:()=>structuredClone(row),destroy:()=>{ui.destroy();Q.catalogue=original;delete window.WEAPON_UI_FIXTURE;}};
   });
-  await page.locator('[data-weapon=qa-move-only]').click();
+  await openEquipment(page,'qa-move-only');
   const equip=c=>page.locator(`[data-weapon-action=equip][data-character="${c}"]`);
   await equip('balmhyr').click();assert.ok(await page.locator('.weapon-confirm').isVisible());
   await page.locator('[data-weapon-action=cancel]').click();assert.equal(await page.evaluate(()=>WEAPON_UI_FIXTURE.profile().slots.weapon.balmhyr),'fallen-king-axe');
@@ -182,8 +183,8 @@ async function main(){
       await page.mouse.click(1,1);
     }
     assert.match(await page.title(),/^Kalistar V4\.5\.47/);
-    if(name==='desktop')assert.equal(await page.locator('.edition').innerText(),'VERSION 4.5.47');
-    else assert.equal(await page.locator('.brand').evaluate(n=>getComputedStyle(n,'::after').content),'"V4.5.47"');
+    if(name==='desktop')assert.equal(await page.locator('.edition').innerText(),'VERSION 4.5.48');
+    else assert.equal(await page.locator('.brand').evaluate(n=>getComputedStyle(n,'::after').content),'"V4.5.48"');
     if(name==='desktop'){
       const migrated=await page.evaluate(()=>new Promise((resolve,reject)=>{
         const request=indexedDB.open('kalistar-v4-cards');request.onerror=()=>reject(request.error);

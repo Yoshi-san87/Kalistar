@@ -1,4 +1,5 @@
 'use strict';
+const {openEquipment}=require('./equipment-browser-test-helpers.cjs');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{createRequire}=require('node:module');
 const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const {chromium}=createRequire(path.join(runtime,'__arborium__.cjs'))('playwright');
@@ -40,7 +41,7 @@ async function main(){
     await context.addInitScript(()=>{const open=IDBFactory.prototype.open;IDBFactory.prototype.open=function(name,version){return open.call(this,name+'-arborium-qa-only',version);};});
     const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await ready(page,'weapons');
     for(const id of ids){
-      await page.locator('.weapons-page [data-weapon="'+id+'"]').click();await images(page);
+      await openEquipment(page,id);await images(page);
       const actual=await page.locator('#weapons-dialog [data-weapon-action=equip]').evaluateAll(nodes=>nodes.map(n=>n.dataset.character).sort());assert.deepEqual(actual,allowed[id]);
       if(!allowed[id].length){assert.match(await page.locator('#weapons-dialog .weapon-carriers').innerText(),/Aucun porteur compatible/);await page.locator('[data-weapon-action=close]').click();results.push({name,id,compatible:[],unavailable:true});continue;}
       const characterId=carrier(id);await page.locator('#weapons-dialog [data-weapon-action=equip][data-character="'+characterId+'"]').click();
@@ -50,9 +51,9 @@ async function main(){
       await page.screenshot({path:path.join(out,name+'-'+id+'-detail.png')});await page.locator('[data-weapon-action=close]').click();
       await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);assert.equal(await page.evaluate(characterId=>KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon[characterId],characterId),id);
     }
-    await page.locator('.weapons-page [data-weapon="'+ids[0]+'"]').click();await page.locator('#weapons-dialog [data-weapon-action=unequip]').click();
+    await openEquipment(page,ids[0]);await page.locator('#weapons-dialog [data-weapon-action=unequip]').click();
     await page.waitForFunction(()=>!KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon.ssilas);await page.locator('[data-weapon-action=close]').click();
-    await page.locator('.weapons-page [data-weapon="'+ids[2]+'"]').click();await page.locator('#weapons-dialog [data-weapon-action=unequip]').click();
+    await openEquipment(page,ids[2]);await page.locator('#weapons-dialog [data-weapon-action=unequip]').click();
     await page.waitForFunction(()=>!KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon['orven-kalistar']);await page.locator('[data-weapon-action=close]').click();
     const slot=await page.evaluate(id=>{
       const E=KalistarEngine.createEngine(KALISTAR_DATA),T=KalistarTeamComposition.create(E),c=KALISTAR_DATA.cards.find(c=>c.characterId==='ssilas'),base=KALISTAR_DATA.decks.player;

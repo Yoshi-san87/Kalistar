@@ -1,4 +1,5 @@
 'use strict';
+const {openEquipment}=require('./equipment-browser-test-helpers.cjs');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{createRequire}=require('node:module');
 const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const {chromium}=createRequire(path.join(runtime,'__arsenal__.cjs'))('playwright');
@@ -13,7 +14,7 @@ async function main(){
     const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
     await page.goto(base+'/jeu/#weapons');await page.waitForFunction(()=>window.KALISTAR_READY);await images(page);
     for(const w of weapons){
-      await page.locator('.weapons-page [data-weapon="'+w.id+'"]').click();await images(page);
+      await openEquipment(page,w.id);await images(page);
       const eligible=await page.evaluate(id=>{const w=KalistarWeapons.weapons.find(w=>w.id===id);return [...new Set(KALISTAR_DATA.cards.filter(c=>KalistarEquipment.compatible(w,c)).map(c=>c.characterId))].sort();},w.id);
       const actual=await page.locator('#weapons-dialog [data-weapon-action=equip],#weapons-dialog [data-weapon-action=unequip]').evaluateAll(nodes=>nodes.map(n=>n.dataset.character).sort());assert.deepEqual(actual,eligible);
       const skin=require('./weapon-art.js').get(w),body=page.locator('#weapons-dialog .eq-body');assert((await body.getAttribute('src')).endsWith(skin.body));

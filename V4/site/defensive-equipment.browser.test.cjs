@@ -1,4 +1,5 @@
 'use strict';
+const {openEquipment}=require('./equipment-browser-test-helpers.cjs');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{createRequire}=require('node:module');
 const modules=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE||'','.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const {chromium}=createRequire(path.join(modules,'__defensive_qa__.cjs'))('playwright');
@@ -56,7 +57,7 @@ async function main(){
       await page.locator(`[data-equipment-category=${kind}]`).click();assert.equal(await page.locator('.weapon-entry').count(),21);
       await capture(page,name+'-'+kind+'-collection');
       for(const w of additions.filter(w=>w.kind===kind)){
-        await page.locator(`[data-weapon="${w.id}"]`).click();
+        await openEquipment(page,w.id);
         await page.waitForFunction(()=>[...document.querySelectorAll('#weapons-dialog img')].every(i=>i.complete&&i.naturalWidth));
         assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false,w.id);
         const broken=await page.locator('#weapons-dialog :is(.wc-title,.wc-rule-condition,.wc-rule-effect,.wc-flavour,.wc-activation,.wc-bearers)').evaluateAll(ns=>ns.filter(n=>n.scrollWidth>n.clientWidth+2||n.scrollHeight>n.clientHeight+2).map(n=>n.className));assert.deepEqual(broken,[],w.id);

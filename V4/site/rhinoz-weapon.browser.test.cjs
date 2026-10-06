@@ -1,4 +1,5 @@
 'use strict';
+const {openEquipment}=require('./equipment-browser-test-helpers.cjs');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{createRequire}=require('node:module');
 const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const {chromium}=createRequire(path.join(runtime,'__rhinoz__.cjs'))('playwright');
@@ -40,11 +41,11 @@ async function main(){
     const context=await browser.newContext({viewport:{width,height},reducedMotion:motion,serviceWorkers:'block'});
     await context.addInitScript(()=>{const open=IDBFactory.prototype.open;IDBFactory.prototype.open=function(name,version){return open.call(this,name+'-rhinoz-qa-only',version);};});
     const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await ready(page,'weapons');
-    await page.locator('.weapons-page [data-weapon="wardens-spear"]').click();
+    await openEquipment(page,'wardens-spear');
     await page.locator('#weapons-dialog [data-weapon-action=equip][data-character="nazar"]').click();
     await page.waitForFunction(()=>KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon.nazar==='wardens-spear');
     await page.locator('[data-weapon-action=close]').click();
-    await page.locator('.weapons-page [data-weapon="'+ids[0]+'"]').click();await images(page);
+    await openEquipment(page,ids[0]);await images(page);
     assert.equal(await page.locator('#weapons-dialog [data-weapon-action=equip]').count(),0);
     assert.match(await page.locator('#weapons-dialog .weapon-carriers').innerText(),/Aucun porteur compatible/);
     await page.screenshot({path:path.join(out,name+'-no-current-carrier.png')});await page.locator('[data-weapon-action=close]').click();
