@@ -255,8 +255,11 @@ under Tome I and its saved chapter, theme and scroll position are unchanged.
 The new alpha WebP assets live in assets/ui/story-books/. Original PNGs, exact
 prompts and the hash manifest are preserved in
 ../propositions/2026-10-06-kalistel-books-v1/. No new narratives are introduced.
-The current v2 cover is upright grey leather with the approved Minero crystal;
-hover lifts it slightly without tilting. Its original image and exact edit prompt
+The current v2 cover is upright grey leather with the approved Minero crystal.
+The inscription is centered on the native face/crystal axis (x=540 of 1024),
+not the full image bounds including the left spine. This anchor scales with
+the book on desktop, phone and short landscape screens.
+Hover lifts it slightly without tilting. Its original image and exact edit prompt
 are preserved under `../revisions/2026-10-06-story-minero/`.
 Clicking or pressing Enter opens the reader at the saved chapter and scroll
 position. The library button closes the book, saves progress and returns focus

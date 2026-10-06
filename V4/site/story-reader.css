@@ -8,9 +8,10 @@ body.story-view #app { flex: 1 1 0; width: 100%; min-width: 0; min-height: 0; ma
 .story-library-shelf { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); align-items: start; gap: 30px 22px; width: min(100%,1800px); margin: 0 auto; }
 .story-library-volume { display: grid; justify-items: center; gap: 10px; min-width: 0; }
 .story-volume { display: grid; justify-items: center; gap: 8px; container-type: inline-size; width: 100%; padding: 0; border: 0; border-radius: 0; color: #e8d5ac; background: none; font-family: var(--kalistar-display,var(--serif)); cursor: pointer; }
-.story-volume-object { position: relative; display: block; width: min(100%,calc((100cqh - var(--story-cover-space)) * .6667)); aspect-ratio: 2 / 3; filter: drop-shadow(0 16px 20px #0008); transform-origin: 10% 50%; transition: transform .4s ease,filter .4s ease; }
+/* Native Minero face/crystal axis: x=540 on the 1024px image, excluding the spine. */
+.story-volume-object { --story-cover-axis-x: 52.734375%; position: relative; display: block; width: min(100%,calc((100cqh - var(--story-cover-space)) * .6667)); aspect-ratio: 2 / 3; filter: drop-shadow(0 16px 20px #0008); transform-origin: 10% 50%; transition: transform .4s ease,filter .4s ease; }
 .story-volume-object > img { display: block; width: 100%; height: 100%; object-fit: contain; }
-.story-volume-inscription { position: absolute; top: 19%; left: 19%; right: 9%; display: grid; justify-items: center; gap: 9px; text-align: center; text-shadow: 0 2px 3px #000; }
+.story-volume-inscription { position: absolute; top: 19%; left: var(--story-cover-axis-x); width: 72%; transform: translateX(-50%); display: grid; justify-items: center; gap: 9px; text-align: center; text-shadow: 0 2px 3px #000; }
 .story-volume-series { color: #cdb183; font-size: 14px; font-weight: 600; }
 .story-volume-title { color: #f4e4c3; font-size: 24px; font-weight: 600; line-height: 1.3; overflow-wrap: anywhere; }
 .story-volume-number { color: #ddc592; font-size: 13px; }

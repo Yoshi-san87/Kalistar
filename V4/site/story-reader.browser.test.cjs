@@ -52,11 +52,15 @@ async function main(){
       await page.setViewportSize({width,height});
       const layout=await page.locator('[data-story-action=open-book]').evaluate(node=>{
         const button=node.getBoundingClientRect(),book=node.querySelector('.story-volume-object').getBoundingClientRect(),title=node.querySelector('.story-volume-inscription').getBoundingClientRect(),host=document.querySelector('#story-reader-root').getBoundingClientRect();
-        return {button:button.toJSON(),book:book.toJSON(),title:title.toJSON(),host:host.toJSON(),overflow:document.documentElement.scrollWidth-innerWidth};
+        const lines=[...node.querySelector('.story-volume-inscription').children].map(line=>line.getBoundingClientRect().toJSON());
+        return {button:button.toJSON(),book:book.toJSON(),title:title.toJSON(),lines,host:host.toJSON(),overflow:document.documentElement.scrollWidth-innerWidth};
       });
       assert.ok(layout.overflow<=1,'library has no horizontal overflow at '+width+'x'+height);
       assert.ok(layout.button.top>=layout.host.top-1&&layout.button.bottom<=layout.host.bottom+1,'closed volume and open action fit the available screen at '+width+'x'+height);
       assert.ok(layout.title.left>=layout.book.left&&layout.title.right<=layout.book.right&&layout.title.bottom<layout.book.top+layout.book.height*.5,'cover inscription stays above the crystal at '+width+'x'+height);
+      const coverAxis=layout.book.left+layout.book.width*540/1024;
+      assert.ok(Math.abs(layout.title.left+layout.title.width/2-coverAxis)<.5,'inscription is centered on the painted crystal axis at '+width+'x'+height);
+      assert.ok(layout.lines.every(line=>Math.abs(line.left+line.width/2-coverAxis)<.5),'series, title and volume share the same cover axis at '+width+'x'+height);
       if(width===412){
         assert.equal(await page.locator('.story-library-shelf').evaluate(node=>getComputedStyle(node).gridTemplateColumns.split(' ').length),2,'phone has two readable books per row');
         await page.screenshot({path:path.join(output,'library-phone.png')});
