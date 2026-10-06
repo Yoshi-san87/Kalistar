@@ -42,6 +42,7 @@
   deepFreeze(layout);deepFreeze(faces);deepFreeze(backgrounds);
   function activation(w){
     const e=w.effect,bonus=`+${e.value} ${e.stat}`;
+    if(e.trigger==='ONCE_DEFENSE')return {condition:w.condition,effect:bonus+(e.recipient==='self'?' à sa prochaine défense.':e.recipient==='ally'?' à un allié au choix.':e.recipient==='deployed'?' au renfort.':' au bénéficiaire.'),duration:'1 défense · 1 fois par partie.'};
     if(e.trigger==='FIRST_DEFENSE')return {condition:'Premi\u00e8re d\u00e9fense.',effect:bonus+' pour ce duel.',duration:'Une fois par partie.'};
     if(e.trigger==='AFTER_BLOCK')return {condition:'Apr\u00e8s un Block r\u00e9ussi.',effect:bonus+' \u00e0 sa prochaine d\u00e9fense.',duration:'Une fois par partie.'};
     if(e.trigger==='LAST_STANDING')return {condition:'Dernier combattant actif de son \u00e9quipe.',effect:bonus+'.',duration:'Tant qu\u2019il reste seul.'};

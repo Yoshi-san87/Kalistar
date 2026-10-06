@@ -3,9 +3,9 @@
 ## Evolution du 6 octobre 2026 : Equipements
 
 La vue `#weapons` est maintenant nommee **Equipements** et filtre trois
-categories : Armes, Boucliers et Reliques. Un personnage choisit UN objet,
+categories : Armes, Protections et Reliques. Un personnage choisit UN objet,
 pas un objet de chaque categorie. Les 33 armes conservent leurs restrictions
-de famille imprimee. Les boucliers/reliques n'ajoutent pas cette restriction.
+de famille imprimee. Les protections/reliques n'ajoutent pas cette restriction.
 Les regles de compatibilite introduites ci-dessous priment sur les descriptions
 historiques plus bas dans ce document.
 
@@ -24,7 +24,50 @@ Un cadeau de Momo et un bonus personnel ne se cumulent pas : le plus grand
 est retenu, comme avant. La premiere defense est depensee meme si Momo fournit
 le bonus retenu. Aucun objet ne change les vingt matchups d'armes de base.
 
-### Schema compatible
+### Quarante nouveaux objets (6 octobre 2026)
+
+Vingt protections (armures, manteaux, bottes, gantelets et boucliers) et vingt
+reliques s'ajoutent aux deux objets ci-dessus. Le total est 75 equipements :
+33 armes, 21 protections et 21 reliques. La categorie interne `shield` reste
+stable, seul son libelle visible devient Protections.
+
+Ils utilisent `ONCE_DEFENSE` avec `duration: 'NEXT_DEFENSE'` et une valeur DEF
+de 20 a 30. Une attribution par source et par match. Les evenements sont
+`DEFENSE`, `BLOCK`, `DODGE`, `ALLY_FALL`, `SUPPORT`, `DEPLOY` et
+`ALLY_DEPLOY`. Le module pur `site/defensive-equipment.js` en gere les regles.
+Il n'utilise ni DOM, ni noms affiches, ni branchement par identifiant d'objet.
+
+Le bonus attend une vraie defense. Une attaque ou un soutien ne le depense
+pas ; une defense speciale le depense sans recevoir de valeur numerique.
+La preparation se fait apres acceptation du jet ATK/Kalistel, jamais sur un
+jet abandonne. Le bonus capture survit aux relances DEF du meme duel.
+Un Block ou un soutien ne beneficie pas retroactivement de sa propre charge.
+Un soutien deja present ne cree pas de nouvelle charge. Une elimination
+annulee par Reraise ne declenche pas `ALLY_FALL`. Les entrees initiales sur
+le plateau ne declenchent pas les conditions de remplacement.
+
+Les cadeaux `recipient: 'ally'` demandent de choisir directement une carte
+alliee mise en evidence, sans pouvoir choisir le donneur. Tour suivant attend
+ce choix, sauvegarde et repris apres reload. L'IA choisit un allie selon sa
+DEF moyenne. Les cadeaux attaches au soutien ou au renfort visent directement
+le beneficiaire existant. Plusieurs sources DEF ne s'additionnent pas :
+seule la valeur maximale est appliquee, toutes les charges de cette defense
+sont consommees. Les regles historiques de la flute de Momo restent intactes.
+
+L'etat optionnel `equipment.defensive` contient `grants` et `deployments`.
+Une attribution est
+`{sourceUid, weaponId, recipient, round, event, status, spentRound?}`.
+`status` vaut `choice`, `ready` ou `spent`, et `recipient` reste null
+pendant le choix. Les identites, destinataires, declencheurs et consommations
+sont confrontes aux evenements du match a la restauration. Cette validation
+locale n'est pas un dispositif anti-triche serveur. Les anciennes parties
+sans ce champ restent lisibles, sans nouvelle base de donnees.
+
+Pour ajouter un objet : voir le schema, les references visuelles, les prompts,
+le pipeline reproductible et les controles dans
+[`revisions/2026-10-06-protections-relics/`](../revisions/2026-10-06-protections-relics/README.md).
+
+### Schema des deux premiers objets
 
 - `kind` vaut `weapon` (defaut historique), `shield` ou `relic`.
 - La cle historique `slot: 'weapon'` et `profile.slots.weapon` est conservee

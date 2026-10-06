@@ -60,9 +60,9 @@ async function main(){
     });
     await context.addInitScript(()=>{const open=IDBFactory.prototype.open;IDBFactory.prototype.open=function(n,v){return v===undefined?open.call(this,n+'-equipment-categories-qa'):open.call(this,n+'-equipment-categories-qa',v);};});
     const page=await context.newPage();page.on('pageerror',e=>errors.push(name+': '+e.message));page.on('dialog',d=>d.accept());
-    await ready(page);assert.equal(await page.locator('.weapon-entry').count(),35);
+    await ready(page);assert.equal(await page.locator('.weapon-entry').count(),75);
     for(const [kind,id,character] of [['shield','durane-rampart','balmhyr'],['relic','pod-042','2b-nier']]){
-      await page.locator(`[data-equipment-category=${kind}]`).click();assert.equal(await page.locator('.weapon-entry').count(),1);
+      await page.locator(`[data-equipment-category=${kind}]`).click();assert.equal(await page.locator('.weapon-entry').count(),21);
       await page.locator(`[data-weapon="${id}"]`).click();await page.waitForFunction(()=>[...document.querySelectorAll('#weapons-dialog img')].every(i=>i.complete&&i.naturalWidth));
       await capture(page,name+'-'+kind+'-detail');
       const button=page.locator(`[data-weapon-action=equip][data-character="${character}"]`);assert(await button.isVisible());await button.click();

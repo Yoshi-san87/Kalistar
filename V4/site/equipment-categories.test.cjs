@@ -23,7 +23,7 @@ function next(f){f.E.next(f.s);while(f.s.phase==='replace')f.E.autoDeploy(f.s,f.
 
 test('three explicit categories share one historical slot, without changing base families',async()=>{
   const {cards}=await dataPromise,shield=item('durane-rampart'),pod=item('pod-042');
-  assert.equal(Q.catalogue.weapons.length,35);
+  assert.equal(Q.catalogue.weapons.length,75);
   assert.equal(Q.catalogue.weapons.filter(w=>Q.catalogue.kind(w)==='weapon').length,33);
   for(const w of [shield,pod]){Q.validateDefinition(w);assert.equal(w.restrictions.families,undefined);assert.equal(w.changesFamily,undefined);}
   for(const c of cards){assert.equal(Q.compatible(shield,c),c.faction==='Durane');assert.equal(Q.compatible(pod,c),c.characterId==='2b-nier');}
@@ -33,7 +33,7 @@ test('three explicit categories share one historical slot, without changing base
   p=Q.equipProfile(p,'balmhyr',shield.id,cards,{expected:'fallen-king-axe'});assert.equal(Object.keys(p.slots.weapon).length,1);
   assert.throws(()=>Q.equipProfile(p,'momo',shield.id,cards));
   assert.throws(()=>Q.validateDefinition({...shield,kind:'unknown'}));
-  for(const [w,label] of [[shield,'Bouclier'],[pod,'Relique']]){const html=C.markup(w,{cards});assert(html.includes('aria-label="'+label+'"'));assert(!html.includes('undefined'));}
+  for(const [w,label] of [[shield,'Protection'],[pod,'Relique']]){const html=C.markup(w,{cards});assert(html.includes('aria-label="'+label+'"'));assert(!html.includes('undefined'));}
 });
 for(const side of [0,1])test('shield: first defense only, numeric total and matrix preserved, side '+side,async()=>{
   const f=await fixture('durane-rampart',side),{E,s,u}=f;

@@ -1,7 +1,8 @@
 (function(root,factory){
-  const api=factory(typeof module==='object'&&module.exports?require('./weapons.js'):root.KalistarWeapons);
+  const node=typeof module==='object'&&module.exports;
+  const api=factory(node?require('./weapons.js'):root.KalistarWeapons,node?require('./defensive-equipment.js'):root.KalistarDefensiveEquipment);
   if(typeof module==='object'&&module.exports)module.exports=api;else root.KalistarEquipment=api;
-})(typeof globalThis!=='undefined'?globalThis:this,function(catalogue){
+})(typeof globalThis!=='undefined'?globalThis:this,function(catalogue,defensive){
   'use strict';
   const clone=v=>JSON.parse(JSON.stringify(v)),object=v=>!!v&&typeof v==='object'&&!Array.isArray(v);
   const fail=()=>{throw new Error('\u00c9quipement invalide.');};
@@ -20,7 +21,8 @@
     if(!object(w.restrictions)||!Object.keys(w.restrictions).length||Object.entries(w.restrictions).some(([k,v])=>!['characterIds','jobs','families','factions','races'].includes(k)||!Array.isArray(v)||!v.length||v.length>100||v.some(x=>typeof x!=='string'||!x.length||x.length>80)))fail();
     const e=w.effect;
     if(!object(e)||!['ATK','DEF'].includes(e.stat)||!Number.isInteger(e.value)||e.value<1||e.value>40)fail();
-    if(e.trigger==='LAST_STANDING'){if(e.duration!=='WHILE_TRUE')fail();}
+    if(defensive.is(w))defensive.validateEffect(e);
+    else if(e.trigger==='LAST_STANDING'){if(e.duration!=='WHILE_TRUE')fail();}
     else if(e.trigger==='TEAM_STATE'){
       if(e.duration!=='WHILE_TRUE'||!object(e.when)||!Object.keys(e.when).length)fail();
       for(const [key,value] of Object.entries(e.when)){
@@ -81,7 +83,8 @@
   function view(s,u,card){
     const w=equipped(s,u,card);if(!w||s.phase==='setup'||s.phase==='over')return {weapon:w,active:false};
     const p=s.players[Number(u.uid[0])];
-    const active=p.board.includes(u)&&(w.effect.trigger==='LAST_STANDING'?p.board.filter(Boolean).length===1:
+    const active=p.board.includes(u)&&(defensive.is(w)?defensive.ownReady(s,u,w):
+      w.effect.trigger==='LAST_STANDING'?p.board.filter(Boolean).length===1:
       w.effect.trigger==='TEAM_STATE'?teamCondition(s,Number(u.uid[0]),w.effect.when):
       once(w)?ready(s,u,w)&&(w.effect.trigger!=='FIRST_DEFENSE'||s.duel?.target===u.uid&&s.phase==='defense'):
       Object.values(s.equipment.pending).some(b=>b.sourceUid===u.uid&&b.weaponId===w.id));
@@ -96,16 +99,19 @@
     if(!u)return null;
     const {weapon:w,active}=view(s,u,card);
     const available=w&&(once(w)?s.phase!=='setup'&&s.phase!=='over'&&s.players[Number(u.uid[0])].board.includes(u)&&ready(s,u,w):active);
-    const own=available&&w.effect.trigger!=='AFTER_SUPPORT'&&w.effect.stat===stat?entry(w,u.uid):null;
+    const own=available&&!defensive.is(w)&&w.effect.trigger!=='AFTER_SUPPORT'&&w.effect.stat===stat?entry(w,u.uid):null;
     const pending=s.equipment?.pending[u.uid],source=pending&&s.equipment.definitions.find(w=>w.id===pending.weaponId);
     const gift=source?.effect.stat===stat?entry(source,pending.sourceUid):null;
     // Do not stack equipment bonuses, or let a smaller personal bonus erase Momo's gift.
-    return gift&&(!own||gift.value>own.value)?gift:own;
+    const best=gift&&(!own||gift.value>own.value)?gift:own;
+    const protection=stat==='DEF'?defensive.bonus(s,u,equipped,card):null;
+    return protection&&(!best||protection.value>best.value)?protection:best;
   }
   function entry(w,sourceUid){return {weaponId:w.id,name:w.name,stat:w.effect.stat,value:w.effect.value,sourceUid};}
   function lock(s,a,b,card){
     if(!s.equipment)return;
     s.duel.equipment={attack:modifier(s,a,card(a),'ATK'),defense:modifier(s,b,card(b),'DEF'),expires:[a,b].filter(u=>s.equipment.pending[u.uid]).map(u=>u.uid)};
+    if(s.equipment.defensive)s.duel.equipment.defensiveSources=defensive.sources(s,b.uid);
   }
   function support(s,a,u,card,kind,refreshed){
     const w=equipped(s,a,card(a));
@@ -119,13 +125,15 @@
     for(const p of s.players)for(const u of p.dead)delete s.equipment.pending[u.uid];
     // Charge lifetime follows a real defense, not merely a targeted support action.
     const d=s.duel,u=allUnits(s).find(u=>u.uid===d.target),w=u&&equipped(s,u,card(u));
-    if(!once(w)||!d.defenseRolls.length)return;
+    const messages=defensive.after(s,equipped,card);
+    if(!once(w)||!d.defenseRolls.length)return messages.join(' ');
     const charges=s.equipment.charges||(s.equipment.charges={});
     if(ready(s,u,w))charges[u.uid]={weaponId:w.id,status:'spent',round:s.round};
     else if(w.effect.trigger==='AFTER_BLOCK'&&!charges[u.uid]&&s.match?.events.find(e=>e.round===s.round)?.hold){
       charges[u.uid]={weaponId:w.id,status:'ready',round:s.round};
-      return `${w.name} : +${w.effect.value} DEF pr\u00e9par\u00e9s pour la prochaine d\u00e9fense.`;
+      messages.push(`${w.name} : +${w.effect.value} DEF pr\u00e9par\u00e9s pour la prochaine d\u00e9fense.`);
     }
+    return messages.join(' ');
   }
   function validate(s,cards){
     const x=s.equipment;
@@ -133,6 +141,7 @@
     if(!object(x)||x.version!==1||!Array.isArray(x.definitions)||x.definitions.length>100||!x.definitions.length||new Set(x.definitions.map(w=>w?.id)).size!==x.definitions.length||!Array.isArray(x.loadouts)||x.loadouts.length!==2||!object(x.pending))fail();
     x.definitions.forEach(validateDefinition);x.loadouts.forEach(l=>validateLoadout(l,cards,x.definitions));
     const units=allUnits(s),byUid=new Map(units.map(u=>[u.uid,u])),card=u=>cards.find(c=>c.id===u?.cardId);
+    defensive.validate(s,equipped,card);
     if(x.charges!==undefined){
       if(!object(x.charges)||s.phase==='setup'&&Object.keys(x.charges).length)fail();
       for(const [uid,b] of Object.entries(x.charges)){
@@ -155,6 +164,7 @@
       for(const [key,stat] of [['attack','ATK'],['defense','DEF']])if(d.equipment[key]!==null){
         const e=d.equipment[key],w=validateEntry(e),uid=key==='attack'?d.attacker:d.target;
         if(e.stat!==stat||uid[0]!==e.sourceUid[0]||(once(w)||['LAST_STANDING','TEAM_STATE'].includes(w.effect.trigger))&&uid!==e.sourceUid||w.effect.trigger==='AFTER_SUPPORT'&&!d.equipment.expires.includes(uid))fail();
+        if(defensive.is(w)&&(!d.equipment.defensiveSources?.includes(e.sourceUid)||!x.defensive?.grants.some(r=>r.sourceUid===e.sourceUid&&r.recipient===uid&&r.weaponId===w.id)))fail();
       }
       if(d.equipmentTransfer){const w=validateEntry(d.equipmentTransfer);if(w.effect.trigger!=='AFTER_SUPPORT'||d.equipmentTransfer.sourceUid!==d.attacker||d.equipmentTransfer.recipient!==(d.cloverGranted||d.manaGranted)||d.traitRefreshed||!w.effect.supports.includes(d.cloverGranted?'luck':'mana'))fail();}
     }
@@ -165,5 +175,12 @@
       if(!Number.isInteger(value)||value!==expected||!s.equipment&&Object.hasOwn(f,key))fail();
     }
   }
-  return {catalogue,compatible,validateDefinition,validateLoadout,profile,validateProfile,reconcileLoadout,reconcileProfile,equipProfile,snapshot,equipped,view,modifier,lock,support,finish,validate,validateFormula};
+  function prepareDefense(s,card){
+    if(!s.equipment)return;
+    defensive.prepare(s,equipped,card);
+    const u=allUnits(s).find(u=>u.uid===s.duel.target);
+    s.duel.equipment.defense=modifier(s,u,card(u),'DEF');
+  }
+  const deployed=(s,u,card)=>defensive.deployed(s,u,equipped,card);
+  return {catalogue,compatible,validateDefinition,validateLoadout,profile,validateProfile,reconcileLoadout,reconcileProfile,equipProfile,snapshot,equipped,view,modifier,lock,support,finish,validate,validateFormula,prepareDefense,deployed,defensive};
 });

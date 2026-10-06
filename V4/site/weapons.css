@@ -103,3 +103,10 @@
   .main-nav button{font-size:10px;min-width:0;}
 }
 @media(prefers-reduced-motion:reduce){.weapon-card,.eq-radar{transition:none!important;}.eq-mechanism :is(.eq-orbit,.eq-radar){animation:none!important;transform:none;}}
+@media(max-width:699px) and (max-height:700px){
+  .arena-view .battlefield:has([data-action=equipment-recipient]){grid-template-rows:68px 110px minmax(0,1fr)}
+  .arena-view .battlefield:has([data-action=equipment-recipient]) .duel-console{grid-row:2}
+  .arena-view .battlefield .team:has([data-action=equipment-recipient]){grid-row:3}
+  .arena-view .battlefield:has([data-action=equipment-recipient]) .team:not(:has([data-action=equipment-recipient])){display:none}
+  .arena-view .battlefield .slot:has([data-action=equipment-recipient]) .inspect{display:none}
+}

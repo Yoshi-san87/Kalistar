@@ -172,7 +172,7 @@ pagination, empty states and ten viewport sizes without personal browser data.
 
 ## Equipment Categories (6 October 2026)
 
-The existing `#weapons` route is now labelled Equipements. Weapon, shield and
+The existing `#weapons` route is now labelled Equipements. Weapon, protection and
 relic filters share one profile/deck slot, never three stackable objects.
 The 33 existing weapons retain their printed-family restriction. New shields
 and relics use explicit faction/character restrictions without a family gate.
@@ -181,6 +181,22 @@ after a Block) are once-per-match, declarative engine effects. Snapshots and
 old saves stay compatible. See `docs/ARMES_EQUIPEES.md` for consumption rules.
 Run `node --test V4/site/equipment-categories.test.cjs` and
 `node V4/site/equipment-categories.browser.test.cjs` for the focused validation.
+
+The expanded catalogue contains 75 entries: 33 weapons, 21 protections and
+21 relics. The 40 additions use the pure `defensive-equipment.js` rules module,
+loaded before equipment.js. It supplies declarative, once-per-match charges
+for the next defense, including support/Block/ally-death/reinforcement events.
+The internal category `shield` and shared `weapon` slot are unchanged.
+Ally gifts use highlighted board cards as the recipient picker on both desktop
+and phone. Profile edits cannot mutate an active match's definitions/loadout.
+
+Run `node --test V4/site/defensive-equipment.test.cjs` (126 tests, including
+120 complete games using unmodified catalogue cards) and
+`node V4/site/defensive-equipment.browser.test.cjs` (40 cards on three viewports,
+equipment persistence, real combat, recipient choices, native anchors,
+inspection and Reduced Motion). QA uses a disposable isolated database.
+Artwork, exact generation prompts, hashes and screenshots are kept in
+`revisions/2026-10-06-protections-relics/`.
 
 ## Equipped Weapons (Historical Introduction, 2 October 2026)
 

@@ -18,6 +18,7 @@
   function layout(){
     for(const board of boards){
       const selected=board.querySelector('.challenger'),slots=[...board.querySelectorAll('.slot')],side=Number(board.dataset.player),w=board.clientWidth,h=board.clientHeight;
+      if(!w||!h)continue;
       board.classList.toggle('has-challenger',!!selected);
       let index=0;
       for(const node of slots){
@@ -34,7 +35,7 @@
           if(!chosen)index++;
         }else if(selected){
           const chosen=node===selected;
-          scale=chosen?1.72:.60;opacity=chosen?1:.67;
+          scale=chosen?1.72:.60;opacity=chosen||node.querySelector('[data-action="equipment-recipient"]')?1:.67;
           const column=index%2,row=Math.floor(index/2);
           const x=chosen?w-cw*scale/2-10:cw*.30+column*(cw*.60+10)+4;
           const y=chosen?h/2:h/2+(row-.5)*(ch*.60+24);

@@ -157,7 +157,7 @@ bouclier utilisee pour afficher la somme des scores DEF.
 ## Equipements (6 octobre 2026)
 
 Un personnage peut porter UN equipement choisi avant le match : arme,
-bouclier OU relique, dans la vue Equipements ou sa composition.
+protection OU relique, dans la vue Equipements ou sa composition.
 Il ajoute un bonus conditionnel numerique, sans remplacer l'arme imprimee
 ni modifier la matrice des vingt familles. Le match conserve son equipement
 initial, meme si le profil change ensuite.
@@ -168,8 +168,18 @@ initial, meme si le profil change ensuite.
   defense, une fois par match. Pas de recharge. Attaquer ne consomme pas le Pod.
 - Ces deux charges sont depensees a la fin d'une vraie defense, meme speciale ;
   les relances du meme duel conservent le bonus. Un soutien cible ne compte pas.
-- Les armes gardent leur restriction de famille imprimee ; boucliers et reliques
+- Les armes gardent leur restriction de famille imprimee ; protections et reliques
   ciblent leur faction/personnage sans modifier les matchups.
+
+Vingt protections et vingt reliques supplementaires donnent +20 a +30 DEF
+pour UNE defense, UNE fois par partie, apres la condition indiquee sur leur
+carte. Les protections comprennent aussi armures, manteaux, bottes et gantelets.
+Un soutien renouvele ou une vie sauvee par Reraise ne compte pas comme nouveau
+soutien ou elimination. Un effet lie au deploiement vise les renforts, pas
+l'installation initiale. Un cadeau a choisir attend la selection d'un autre
+allie actif. Ces charges survivent aux attaques de leur beneficiaire ; seule
+sa prochaine defense les consomme, meme sur une face speciale. Aucun cumul
+de bonus d'equipement DEF : valeur maximale retenue et charges consommees.
 
 - Hache du Roi Dechu, `balmhyr` : +30 ATK tant qu'il est le seul combattant
   vivant sur son plateau. La reserve ne compte pas ; un remplacant desactive

@@ -192,6 +192,7 @@
       p.reserve.splice(index,1);p.board[slot]=u;
       if(s.phase==='replace')u.entered=true;
       addLog(s,'deploy',`${side===0?'Joueur':'Adversaire'} : ${card(u).name} entre en P${slot+1}.`);
+      if(s.phase==='replace')for(const text of Equipment.deployed(s,u,card))addLog(s,'effect',text);
       if(s.phase==='replace')findReplacement(s);
       if(s.phase==='over'&&s.equipment)s.equipment.pending={};
       return s;
@@ -457,7 +458,7 @@
       if(typeof value==='number'){
         const key=d.magic?'mana':'physical';d.buff=u[key]||0;u[key]=0;
       }
-      s.phase='defense';return s;
+      s.phase='defense';Equipment.prepareDefense(s,card);return s;
     }
     function rollDefense(s,forced) {
       if(s.phase!=='defense')throw new Error('Jet DEF indisponible.');
@@ -522,6 +523,7 @@
     }
     function next(s) {
       if(s.phase!=='result')throw new Error('Le duel doit être résolu.');
+      if(Equipment.defensive.choice(s))throw new Error('Attribuez d’abord le bonus de relique.');
       s.round++;s.turn=s.initiative?TurnOrder.sideAt(s.initiative,s.round):1-s.turn;
       findReplacement(s);if(s.phase==='over'&&s.equipment)s.equipment.pending={};return s;
     }
@@ -654,11 +656,25 @@
     }
     function equipmentView(s,u){return Equipment.view(s,u,card(u));}
     function equipmentModifier(s,u,stat){return Equipment.modifier(s,u,card(u),stat);}
+    function equipmentChoice(s){
+      const pending=Equipment.defensive.choice(s);if(!pending)return null;
+      const weapon=s.equipment.definitions.find(w=>w.id===pending.weaponId);
+      return {...pending,weapon,targets:Equipment.defensive.targets(s).map(u=>u.uid)};
+    }
+    function grantEquipment(s,uid){
+      const transfer=Equipment.defensive.choose(s,uid),w=s.equipment.definitions.find(w=>w.id===transfer.weaponId);
+      const u=s.players[Number(uid[0])].board.find(u=>u?.uid===uid);
+      addLog(s,'effect',`${w.name} : ${card(u).name} reçoit +${w.effect.value} DEF pour sa prochaine défense.`,transfer);
+      return s;
+    }
+    function aiEquipmentChoice(s){
+      return Equipment.defensive.targets(s).sort((a,b)=>mean(card(a).defense)-mean(card(b).defense)||a.uid.localeCompare(b.uid))[0]?.uid;
+    }
     function grantEquipmentSupport(s,u,kind,refreshed){
       const a=s.players[s.duel.side].board[s.duel.attackerSlot],bonus=Equipment.support(s,a,u,card,kind,refreshed);
       if(bonus)addLog(s,'effect',`${bonus.name} : ${card(u).name} re\u00e7oit +${bonus.value} ${bonus.stat} pour son prochain duel.`,bonus);
     }
-    return {data,rules,byId,card,trait,traits,clone,dieValue,mean,lineup,deckCoverage,validateDeck,validatePlayableDeck,validateComposition,captainUnit,captainBonus,newGame,deploy,recall,autoDeploy,start,rollInitiative,turnPreview:TurnOrder.preview,synergy,elementModifier,lock,rollAttack,acceptAttack,useKalistel,kalistelRemaining,aiUseKalistel,rollDefense,grantClover,grantPotion,grantPhysical,grantReraise,grantGuard,aiCloverChoice,aiPotionChoice,aiPhysicalChoice,aiReraiseChoice,aiGuardChoice,arenaBonuses,setArena,next,aiChoice,assertState,restoreGame,matchStats,instanceId,equipmentView,equipmentModifier};
+    return {data,rules,byId,card,trait,traits,clone,dieValue,mean,lineup,deckCoverage,validateDeck,validatePlayableDeck,validateComposition,captainUnit,captainBonus,newGame,deploy,recall,autoDeploy,start,rollInitiative,turnPreview:TurnOrder.preview,synergy,elementModifier,lock,rollAttack,acceptAttack,useKalistel,kalistelRemaining,aiUseKalistel,rollDefense,grantClover,grantPotion,grantPhysical,grantReraise,grantGuard,aiCloverChoice,aiPotionChoice,aiPhysicalChoice,aiReraiseChoice,aiGuardChoice,arenaBonuses,setArena,next,aiChoice,assertState,restoreGame,matchStats,instanceId,equipmentView,equipmentModifier,equipmentChoice,grantEquipment,aiEquipmentChoice};
   }
   return {createEngine,clone,dieValue,mean};
 });

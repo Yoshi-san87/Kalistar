@@ -99,9 +99,9 @@
         if(active&&!fresh&&!old?.active)transition(overlay,true);
         if(!active)transition(overlay,false).then(()=>{overlay.remove();nodes.delete(overlay);});
       }
-      if(s.equipment?.pending[uid]){
+      if(s.equipment?.pending[uid]||s.equipment?.defensive?.grants.some(r=>r.recipient===uid&&r.status==='ready')){
         const bonus=engine.equipmentModifier(s,u,'DEF');
-        if(bonus){const note=document.createElement('span');note.className='eq-pending';note.textContent='+'+bonus.value+' DEF';note.title=bonus.name+' · prochain duel';slot.querySelector('.slot-buffs').append(note);nodes.add(note);}
+        if(bonus){const note=document.createElement('span');note.className='eq-pending';note.textContent='+'+bonus.value+' DEF';note.title=bonus.name+(s.equipment.pending[uid]?' · prochain duel':' · prochaine défense');slot.querySelector('.slot-buffs').append(note);nodes.add(note);}
       }
     }
     previous=next;
@@ -113,15 +113,19 @@
   }
   async function play({before,after,signal}){
     const d=after.duel;if(!d||signal?.aborted)return;
-    const transfer=d.equipmentTransfer&&!before.duel?.equipmentTransfer?d.equipmentTransfer:null;
-    if(transfer){
+    const transfers=d.equipmentTransfer&&!before.duel?.equipmentTransfer?[d.equipmentTransfer]:[];
+    for(const row of after.equipment?.defensive?.grants||[])if(row.status==='ready'&&row.recipient!==row.sourceUid&&!(before.equipment?.defensive?.grants||[]).some(r=>r.sourceUid===row.sourceUid&&r.recipient===row.recipient)){
+      const w=after.equipment.definitions.find(w=>w.id===row.weaponId);
+      transfers.push({...row,value:w.effect.value,stat:w.effect.stat});
+    }
+    for(const transfer of transfers){
       const source=document.querySelector(`.slot[data-unit="${transfer.sourceUid}"]`),target=document.querySelector(`.slot[data-unit="${transfer.recipient}"]`),w=after.equipment.definitions.find(w=>w.id===transfer.weaponId);
-      if(!source||!target)return;
+      if(!source||!target)continue;
       previous.set(transfer.sourceUid,{active:true,weapon:w});
       let overlay=source.querySelector('.eq-overlay');
       if(!overlay){overlay=document.createElement('span');overlay.className='eq-overlay is-active';overlay.style.setProperty('--eq-loop-delay',-(performance.now()%3600)+'ms');overlay.innerHTML=markup(w);source.querySelector('.slot-card').append(overlay);nodes.add(overlay);position(overlay,source.querySelector('.slot-card img'),source.querySelector('.slot-card'));transition(overlay,true);}
       const start=overlay.getBoundingClientRect(),end=target.querySelector('.slot-card').getBoundingClientRect();
-      const note=document.createElement('span');note.className='eq-transfer';note.textContent='\u266a';note.setAttribute('aria-hidden','true');document.body.append(note);nodes.add(note);
+      const note=document.createElement('span');note.className='eq-transfer';note.textContent=w.family==='Instrument'?'\u266a':'+';note.setAttribute('aria-hidden','true');document.body.append(note);nodes.add(note);
       note.style.left=(start.left+start.width/2)+'px';note.style.top=(start.top+start.height/2)+'px';
       await animate(note,motion.matches?[{opacity:0},{opacity:1},{opacity:0}]:[{opacity:0,transform:'translate(0,0)'},{opacity:.9,offset:.2},{opacity:0,transform:`translate(${end.left+end.width*.5-start.left-start.width*.5}px,${end.top+end.height*.6-start.top-start.height*.5}px)`}],{duration:motion.matches?180:650,easing:'ease-in-out'},signal);
       note.remove();nodes.delete(note);await pulse(source,signal);
