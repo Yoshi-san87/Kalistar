@@ -62,7 +62,7 @@ async function main(){
     }
     await page.locator('.weapon-filter').selectOption('equipped');assert.equal(await page.locator('.weapon-entry').count(),0);
     await page.locator('[data-weapon-action=reset-filter]').click();assert.equal(await page.locator('.weapon-entry').count(),weapons.length);
-    await page.locator('.weapon-filter').selectOption('family:Hache');assert.equal(await page.locator('.weapon-entry').count(),1);
+    await page.locator('.weapon-filter').selectOption('family:Hache');assert.equal(await page.locator('.weapon-entry').count(),weapons.filter(w=>w.family==='Hache').length);
     await page.locator('.weapon-filter').selectOption('stat:DEF');assert.equal(await page.locator('.weapon-entry').count(),weapons.filter(w=>w.effect.stat==='DEF').length);
     await page.locator('.weapon-filter').selectOption('all');
     await page.locator('.weapons-page [data-weapon-holder=little-joys-flute]').click();await loaded(page);

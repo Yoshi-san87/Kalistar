@@ -5,6 +5,7 @@
   'use strict';
   // Presentation revisions never alter equipment snapshots or their stable art keys.
   const entries={
+    'rhinoz-ancestral-horn':Object.freeze({key:'rhinoz-ancestral-horn-v2',scene:'rhinoz-ancestral-horn-scene-v1.webp',rim:'rhinoz-ancestral-horn-ring-v1.webp',body:'rhinoz-ancestral-horn-v2.webp',color:'#e9d9b6'}),
     'cryptown-oath-sword':Object.freeze({key:'cryptown-oath-sword-v1',scene:'cryptown-oath-sword-scene-v2.webp',rim:'cryptown-oath-sword-ring-v1.webp',body:'cryptown-oath-sword-v1.webp',color:'#c5a0f8'}),
     'cryptown-vigil-rifle':Object.freeze({key:'cryptown-vigil-rifle-v1',scene:'cryptown-vigil-rifle-scene-v1.webp',rim:'cryptown-vigil-rifle-ring-v1.webp',body:'cryptown-vigil-rifle-v1.webp',color:'#ba92f0'}),
     'cryptown-watch-flail':Object.freeze({key:'cryptown-watch-flail-v1',scene:'cryptown-watch-flail-scene-v1.webp',rim:'cryptown-watch-flail-ring-v1.webp',body:'cryptown-watch-flail-v1.webp',color:'#d1a4ff'}),

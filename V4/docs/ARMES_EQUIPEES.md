@@ -67,7 +67,7 @@ Exemple du catalogue :
 }
 ```
 
-Les restrictions peuvent etre `characterIds`, `jobs`, `families` et `factions`. Plusieurs
+Les restrictions peuvent etre `characterIds`, `jobs`, `families`, `factions` et `races`. Plusieurs
 valeurs d'une liste sont alternatives ; plusieurs categories se cumulent
 avec un ET. `families` cible `card.weapon`, la famille imprimee. Les noms
 affiches ne sont jamais des cles. Les jobs sont les valeurs exactes du
@@ -78,6 +78,11 @@ affiche. Exemple : `{ jobs: ['SOLDAT'], factions: ['Arborium'] }` exige les
 deux proprietes sur la meme edition. Un Gardien d'Arborium ou un Soldat
 d'une autre faction est refuse. Les anciennes definitions sans `factions`
 gardent leur compatibilite et leur snapshot, sans migration.
+
+`races` cible exactement `card.race`, par exemple `{races:['RHINOZ']}`.
+La liste peut contenir plusieurs races (OU) et se combine aux autres categories
+par ET. Aucun nom affiche, job ou faction n'est utilise comme substitut.
+Les definitions historiques sans ce champ conservent leur comportement.
 
 Le second effet est declare par :
 
@@ -308,6 +313,23 @@ la matrice exigerait une decision d'equilibrage et une version explicite,
 pas l'ajout silencieux d'un objet au catalogue.
 
 ## Validation
+
+### Hache Rhinoz - 6 octobre 2026
+
+ARM-033, **La Corne des Anciens**, est une Hache reservee a la race RHINOZ,
+independamment de la faction, du job ou de l'arme de base. Porteurs actuels :
+Belrog, Gilmarr et Nazar. Le catalogue atteint 33 armes.
+
+Effet existant TEAM_STATE / WHILE_TRUE : +20 ATK numerique en inferiorite
+numerique sur le plateau. Les reserves ne comptent pas ; le bonus se retire
+lorsque la condition cesse. Leurs armes imprimees Masse, Poing et Lance
+continuent de determiner les matchups. La Garde D2 n'est pas convertie en ATK.
+
+Seule la restriction declarative `races` est nouvelle. Aucun nouveau trigger,
+statut, schema de sauvegarde, multiplicateur ou emplacement d'equipement.
+Les anciennes parties gardent leurs snapshots. Tests specifiques :
+`site/rhinoz-weapon.test.cjs` et `site/rhinoz-weapon.browser.test.cjs`.
+Sources et preuves : `revisions/2026-10-06-rhinoz-weapons/`.
 
 ### Cryptown - 6 octobre 2026
 

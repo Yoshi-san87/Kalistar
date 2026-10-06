@@ -287,3 +287,17 @@ Le build existant encode les 12 WebP et conserve leurs empreintes dans
 `media-provenance.json`. Aucun cadre, PNG/PSD de personnage, verrou,
 crop natif ou ancrage du medaillon n'a ete modifie. Voir les captures et
 tests dans `../revisions/2026-10-06-cryptown-weapons/`.
+
+## Hache Rhinoz - 6 octobre 2026
+
+ARM-033, La Corne des Anciens : la forme de corne definit le tranchant,
+avec acier gris ivoire, embase cuirassee, manche droit et cuivre use.
+La scene evoque un passage montagneux, dans la famille picturale de Belrog
+et de Momo. L'anneau independant reprend les plaques et les reliefs de corne.
+
+Detourage retenu : `sources/rhinoz-ancestral-horn-v2.png` ; scene et anneau :
+`rhinoz-ancestral-horn-scene-v1.png` et `rhinoz-ancestral-horn-ring-v1.png`.
+La premiere silhouette en croissant a ete ecartee pour rendre la corne
+plus caracteristique. Prompts reels et chemins des quatre appels integres :
+`rhinoz-prompts-2026-10-06.json`. Quatre WebP distribues par le build existant.
+Le cadre, les cartes des trois personnages et les ancres restent inchanges.

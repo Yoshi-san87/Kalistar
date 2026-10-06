@@ -58,7 +58,7 @@
     return `left:${(x-c.x)/c.width*100}%;top:${(y-c.y)/c.height*100}%;width:${w/c.width*100}%;height:${h/c.height*100}%;`;
   }
   function bearers(w,cards){
-    return Object.entries(w.restrictions).map(([key,values])=>({label:{characterIds:'Porteur',jobs:'Job',families:'Arme de base',factions:'Faction'}[key]||key,
+    return Object.entries(w.restrictions).map(([key,values])=>({label:{characterIds:'Porteur',jobs:'Job',families:'Arme de base',factions:'Faction',races:'Race'}[key]||key,
       names:values.map(id=>key==='characterIds'?cards.find(c=>c.characterId===id)?.name||id:id).join(' / ')}));
   }
   function compactBearers(w,cards){
