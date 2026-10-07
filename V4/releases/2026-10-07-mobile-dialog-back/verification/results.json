@@ -1,0 +1,32 @@
+{
+  "checks": [
+    "Back closes the popup without reload, hash change or losing unrelated history state",
+    "Repeated X/Escape closures clean up the history guard",
+    "Two nested popups close in visual order, one per Back",
+    "Changing views underneath nested popups never rolls the route back",
+    "DOM replacement/resize reuses the logical popup, with no duplicate history steps",
+    "Cancelable dismissal respects a busy operation, then allows Back after completion",
+    "Older browsers without requestClose use the same cancel/close contract",
+    "Closing and immediately opening another popup during history traversal remains safe",
+    "Menu navigation keeps the new view; Forward never resurrects a stale popup",
+    "With no popup, real Back still leaves the game normally",
+    "desktop: filters, repaint, resize and page index close cleanly and keep the selected filters",
+    "desktop: equipment + character detail keep the underlying popup after the first Back",
+    "desktop: deck preview, match preparation and arena popups retain the same document and saved match",
+    "desktop: reload consumes the stale popup history entry without losing the match",
+    "desktop: Story card preview closes without closing the book or changing the chapter",
+    "razr50: filters, repaint, resize and page index close cleanly and keep the selected filters",
+    "razr50: equipment + character detail keep the underlying popup after the first Back",
+    "razr50: team management closes with Back without losing an unsaved team name",
+    "razr50: deck preview, match preparation and arena popups retain the same document and saved match",
+    "razr50: reload consumes the stale popup history entry without losing the match",
+    "razr50: Story card preview closes without closing the book or changing the chapter",
+    "compact: filters, repaint, resize and page index close cleanly and keep the selected filters",
+    "compact: equipment + character detail keep the underlying popup after the first Back",
+    "compact: team management closes with Back without losing an unsaved team name",
+    "compact: deck preview, match preparation and arena popups retain the same document and saved match",
+    "compact: reload consumes the stale popup history entry without losing the match",
+    "compact: Story card preview closes without closing the book or changing the chapter"
+  ],
+  "errors": []
+}

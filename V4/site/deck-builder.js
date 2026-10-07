@@ -351,10 +351,10 @@
       try {
         root.innerHTML = render(); icons(root); markReorder(); highlightLinks(); bindRecruitmentRail(); updateRecruitmentRail();
         root.querySelector('.kdb-browser').id = 'kdb-panel-recruit';
-        const dialog = root.querySelector('.kdb-compare'); dialog?.showModal();
+        const dialog = root.querySelector('.kdb-compare'); if(dialog){if(globalThis.KalistarDialogHistory)KalistarDialogHistory.open(dialog);else dialog.showModal();}
         if (dialog) return;
         const management=root.querySelector('.team-management');
-        if(management&&managing){management.showModal();if(!descriptor||descriptor.action==='manage')return;}
+        if(management&&managing){if(globalThis.KalistarDialogHistory)KalistarDialogHistory.open(management);else management.showModal();if(!descriptor||descriptor.action==='manage')return;}
         if (!descriptor) return;
         const next = [...root.querySelectorAll('button,input,select')].find(n => descriptor.filter ? n.dataset.deckFilter === descriptor.filter : descriptor.action && n.dataset.deckAction === descriptor.action && (descriptor.id === undefined || n.dataset.id === descriptor.id) && (descriptor.slot === undefined || n.dataset.slot === descriptor.slot));
         if (next && !next.disabled && (!management?.open||management.contains(next))) { next.focus({ preventScroll: true }); if (descriptor.start !== null && descriptor.start !== undefined && ['search','text'].includes(next.type)) next.setSelectionRange(descriptor.start, descriptor.end); }
@@ -691,7 +691,7 @@
       if (node && root?.contains(node)) showPreview(node.dataset.deckPreview);
     }
     function size() { if(root&&phoneLayout!==!!mountedWindow?.matchMedia('(max-width:900px)').matches)repaint();updateRecruitmentRail(); }
-    function cancelManagement(event){if(event.target.matches('.team-management')){event.preventDefault();managing=pendingDelete=false;repaint({action:'manage'});}}
+    function cancelManagement(event){if(event.target.matches('.team-management')){event.preventDefault();managing=pendingDelete=false;repaint({action:'manage'});}else if(event.target.matches('.kdb-compare')){event.preventDefault();closeComparison();}}
     function detach() {
       root?.querySelector('.kdb-compare')?.close(); comparison = null;
       root?.querySelector('.team-management')?.close();

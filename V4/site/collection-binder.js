@@ -169,7 +169,7 @@
       const active=root.ownerDocument.activeElement,descriptor=focus||(root.contains(active)?{action:active.dataset.binderAction,id:active.dataset.id,field:active.dataset.binderField,filter:active.dataset.binderFilter,start:active.selectionStart,end:active.selectionEnd}:null);
       try{
         root.innerHTML=render();globalThis.KalistarUI?.icons(root)??globalThis.lucide?.createIcons({root});motion='';
-        const dialog=root.querySelector('.cb-overlay[data-active=true]');dialog?.showModal();
+        const dialog=root.querySelector('.cb-overlay[data-active=true]');if(dialog){if(globalThis.KalistarDialogHistory)KalistarDialogHistory.open(dialog);else dialog.showModal();}
         if(dialog){if(previousDialog)dialog.querySelector('.cb-overlay-body').scrollTop=scroll;else dialog.classList.add('is-entering');}
         if(descriptor){const n=[...(dialog||root).querySelectorAll('button,input,select')].find(n=>n.getClientRects().length&&(descriptor.field?n.dataset.binderField===descriptor.field:descriptor.filter?n.dataset.binderFilter===descriptor.filter:descriptor.action&&n.dataset.binderAction===descriptor.action&&(!descriptor.id||n.dataset.id===descriptor.id)));if(n&&!n.disabled){n.focus({preventScroll:true});if(n.type==='search'&&descriptor.start!=null)n.setSelectionRange(descriptor.start,descriptor.end);}else if(!dialog)root.querySelector('.cb-page').focus({preventScroll:true});}
       }finally{painting=false;}
@@ -222,6 +222,7 @@
     function closeOverlay(){
       const action=pagesOpen?'pages':'filters';pagesOpen=filtersOpen=false;paint({action});
     }
+    function cancelOverlay(event){if(event.target.matches('.cb-overlay')){event.preventDefault();closeOverlay();}}
     function click(event){
       if(event.target.matches('.cb-overlay')){event.stopPropagation();closeOverlay();return;}
       if(suppressClick){suppressClick=false;if(event.target.closest('.cb-workbench')){event.preventDefault();event.stopPropagation();return;}}
@@ -336,9 +337,9 @@
       const limit=height<450?210:width<700?270:620;
       if(next!==pageSize||nextColumns!==columns||nextRows!==rows||limit!==textLimit||phone!==singlePage){const first=page*pageSize;singlePage=phone;columns=nextColumns;rows=nextRows;pageSize=next;page=Math.floor(first/pageSize);textLimit=limit;storyPage=0;paint();}
     }
-    const listeners=[['click',click],['input',input],['change',change],['keydown',keyboard],['pointerdown',pointerDown],['pointermove',pointerMove],['pointerup',pointerUp],['pointercancel',cancelSwipe]];
-    function destroy(){observer?.disconnect();observer=null;cancelVersionTransition();if(transitionTimer)globalThis.clearTimeout(transitionTimer);transitionTimer=null;transitioning=false;root?.querySelector('.cb-overlay')?.close();pagesOpen=filtersOpen=false;if(root)for(const [event,fn]of listeners)root.removeEventListener(event,fn);root=null;swipe=null;}
-    return {render,mount(element){destroy();root=element;paint();size();for(const [event,fn]of listeners)root.addEventListener(event,fn);const Resize=root.ownerDocument.defaultView.ResizeObserver;if(Resize){observer=new Resize(size);observer.observe(root);}},refresh(){paint();},destroy,inspect:()=>({scope,page,pageSize,columns,rows,selected,tab,art,filters:{...filters},sort})};
+    const listeners=[['click',click],['cancel',cancelOverlay,true],['input',input],['change',change],['keydown',keyboard],['pointerdown',pointerDown],['pointermove',pointerMove],['pointerup',pointerUp],['pointercancel',cancelSwipe]];
+    function destroy(){observer?.disconnect();observer=null;cancelVersionTransition();if(transitionTimer)globalThis.clearTimeout(transitionTimer);transitionTimer=null;transitioning=false;root?.querySelector('.cb-overlay')?.close();pagesOpen=filtersOpen=false;if(root)for(const [event,fn,capture]of listeners)root.removeEventListener(event,fn,capture);root=null;swipe=null;}
+    return {render,mount(element){destroy();root=element;paint();size();for(const [event,fn,capture]of listeners)root.addEventListener(event,fn,capture);const Resize=root.ownerDocument.defaultView.ResizeObserver;if(Resize){observer=new Resize(size);observer.observe(root);}},refresh(){paint();},destroy,inspect:()=>({scope,page,pageSize,columns,rows,selected,tab,art,filters:{...filters},sort})};
   }
   return {create,groupCards,textPages,matchesScope};
 });

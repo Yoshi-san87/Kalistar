@@ -6,6 +6,31 @@ Read the [handoff guide](../../docs/GUIDE_REPRISE.md) and the
 [current gameplay summary](../docs/REGLES_JEU.md), including the documented
 difference between the ten-kill objective and the engine's empty-board ending.
 
+## Back Closes Popups (7 October 2026)
+
+`dialog-history.js` gives browser/Android Back priority to the topmost game
+popup, without reloading or changing the active view. A single same-URL history
+guard covers the visible popup stack. After dismissing one nested popup it is
+renewed only if another remains. X, backdrop, Escape and view destruction consume
+the guard; ordinary Back remains free to leave the game when no popup is open.
+Forward never restores a dismissed popup, and reload consumes a stale guard.
+
+Use `KalistarDialogHistory.open(dialog)` and `replace(url)` for game dialogs and
+view changes. Existing `close()` calls remain valid. Dynamic views must handle
+`cancel` in capture phase and reset their own open flags; their stable dialog ID
+or `aria-labelledby` keeps filter/resize repaints in the same history layer.
+Back uses the native cancelable `requestClose()` contract with an older-browser
+fallback, retaining busy-operation safeguards and native focus restoration.
+Touch/click reserve previews use `track()`; transient hover previews do not
+create history entries. Observers/listeners stop on pagehide and resume on
+pageshow. No edge swipe handler, prototype override or exit trap is installed.
+
+Validation: `node --test V4/site/navigation.test.cjs` and
+`node V4/site/dialog-history.browser.test.cjs`. The browser suite checks real
+same-document Back, nested popups, repeated closures, filter repaints, resize,
+busy cancellation, route changes, old-browser fallback, reload, Story, and
+preserved team/match state on desktop, Razr 50 and compact phone viewports.
+
 ## Parent Server Contract
 
 ```js

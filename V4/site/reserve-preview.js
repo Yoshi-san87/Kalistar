@@ -1,10 +1,10 @@
 (() => {
   'use strict';
   const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  let options=null,current=null,openTimer=0,closeTimer=0;
+  let options=null,current=null,openTimer=0,closeTimer=0,touchPreview=false;
   const panel=document.createElement('aside');panel.className='reserve-preview';panel.id='reserve-preview';panel.setAttribute('popover','manual');panel.setAttribute('aria-label','Carte en reserve');
   const visible=()=>panel.matches(':popover-open');
-  function hide(){clearTimeout(openTimer);clearTimeout(closeTimer);if(visible())panel.hidePopover();current=null;window.dispatchEvent(new Event('kalistar-overlay'));}
+  function hide(){clearTimeout(openTimer);clearTimeout(closeTimer);touchPreview=false;if(visible())panel.hidePopover();current=null;window.dispatchEvent(new Event('kalistar-overlay'));}
   function locate(){
     if(!current)return null;
     return document.querySelector(`[data-reserve-card][data-side="${current.side}"][data-uid="${current.uid}"]`);
@@ -29,7 +29,7 @@
   document.addEventListener('pointerout',e=>{if(e.target.closest('[data-reserve-card]')&&!e.relatedTarget?.closest?.('[data-reserve-card]')){clearTimeout(openTimer);deferHide();}});
   document.addEventListener('focusin',e=>{const anchor=e.target.closest('[data-reserve-card]');if(anchor)show(anchor);else if(!panel.contains(e.target))hide();});
   document.addEventListener('click',e=>{
-    const anchor=e.target.closest('[data-reserve-card]');if(anchor){options.onSelect(Number(anchor.dataset.side),anchor.dataset.uid);const next=document.querySelector(`[data-reserve-card][data-side="${anchor.dataset.side}"][data-uid="${anchor.dataset.uid}"]`);if(next)show(next);return;}
+    const anchor=e.target.closest('[data-reserve-card]');if(anchor){options.onSelect(Number(anchor.dataset.side),anchor.dataset.uid);const next=document.querySelector(`[data-reserve-card][data-side="${anchor.dataset.side}"][data-uid="${anchor.dataset.uid}"]`);if(next){touchPreview=true;show(next);}return;}
     if(e.target.closest('[data-preview-close]'))return hide();
     const place=e.target.closest('[data-preview-place]');if(place&&current){const {side,uid}=current;hide();options.onPlace(side,uid,Number(place.dataset.previewPlace));return;}
     if(e.target.closest('[data-preview-detail]')){const id=panel.dataset.cardId;hide();options.onDetail(id);return;}
@@ -42,5 +42,6 @@
   window.addEventListener('resize',()=>{const anchor=locate();if(anchor&&visible())position(anchor);else hide();});
   window.addEventListener('scroll',hide,true);window.addEventListener('pagehide',hide);
   function mount(config){options=config;if(!panel.isConnected)document.body.append(panel);if(current){const anchor=locate();if(anchor&&options.getGame())show(anchor);else hide();}}
+  window.KalistarDialogHistory?.track('reserve-preview',{visible:()=>touchPreview&&visible(),dismiss:hide});
   window.KalistarReservePreview={mount,hide,isOpen:visible};
 })();

@@ -124,9 +124,9 @@
     teamDraft=Team.edit(teamDraft,slots);deck=teamDraft.cards.filter(Boolean);persist();
     render();
   }
-  function suspendGame(){clearTimeout(aiTimer);epoch++;game=null;lastStored='';save('game',null);ui.view='collection';history.replaceState(null,'','#collection');render();}
+  function suspendGame(){clearTimeout(aiTimer);epoch++;game=null;lastStored='';save('game',null);ui.view='collection';KalistarDialogHistory.replace('#collection');render();}
   function checkGame(value=game){try{db.registry.validateGame(value,accountId);}catch(error){suspendGame();throw error;}}
-  function modal(id,html){const d=$('#'+id);if(id==='detail-dialog')window.KalistarEquipmentFX.clearDetail();if(id==='mobile-dialog'){d.classList.remove('navigation-sheet');$('.nav-more')?.setAttribute('aria-expanded','false');}d.innerHTML=html;if(!d.open)d.showModal();icons();}
+  function modal(id,html){const d=$('#'+id);if(id==='detail-dialog')window.KalistarEquipmentFX.clearDetail();if(id==='mobile-dialog'){d.classList.remove('navigation-sheet');$('.nav-more')?.setAttribute('aria-expanded','false');}d.innerHTML=html;KalistarDialogHistory.open(d);icons();}
   function head(title){return `<div class="dialog-head"><h2>${esc(title)}</h2>${ib('close','x','Fermer')}</div>`;}
   function enterFullscreen(reportFailure=true){
     const root=document.documentElement;
@@ -146,7 +146,7 @@
     clearTimeout(aiTimer);
     if(ui.view!==view)epoch++;
     if(view==='arena'&&!game){try{await createGame('ai','KALI-'+Math.floor(Math.random()*999999));}catch(e){toast(e.message);showDeck();return;}}
-    ui.view=view;history.replaceState(null,'','#'+view);render();
+    ui.view=view;KalistarDialogHistory.replace('#'+view);render();
   }
   function render(){
     cancelLineup();
@@ -940,7 +940,7 @@ function showDeck(){setView('decks');}
     const img=event.target;
     if(img instanceof HTMLImageElement&&img.getAttribute('src')===asset('effets','guard'))img.src=asset('effets','shield_physical');
   },true);
-  window.addEventListener('hashchange',()=>setView(hashView()));
+  window.addEventListener('hashchange',()=>{const view=hashView();if(view!==ui.view)setView(view);});
   window.addEventListener('message',event=>{
     if(event.origin!==location.origin||event.source!==$('#atelier-frame')?.contentWindow||event.data?.type!=='kalistar:card-published')return;
     markCatalogueOutdated();

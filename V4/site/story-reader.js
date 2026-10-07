@@ -197,7 +197,7 @@
         image.src = preview.dataset.storyFull;
         image.alt = preview.dataset.storyAlt;
         dialog.querySelector('[data-story-dialog-caption]').textContent = preview.dataset.storyCaption;
-        dialog.showModal();
+        if(window.KalistarDialogHistory)KalistarDialogHistory.open(dialog);else dialog.showModal();
         return;
       }
       const chapter = event.target.closest('[data-story-section]');

@@ -112,7 +112,7 @@
         confirmation=null;rosterPage=0;toast(action==='unequip'?'Équipement retiré.':'Équipement attribué.');
       }catch(e){confirmation=null;toast(e.message);}finally{busy=false;refresh();dialog.querySelector('.is-current [data-weapon-action=unequip],article:not([hidden]) [data-weapon-action=equip]')?.focus({preventScroll:true});}
     }
-    function open(id){selected=id;confirmation=null;query='';rosterPage=0;bind();detail();if(!dialog.open)dialog.showModal();}
+    function open(id){selected=id;confirmation=null;query='';rosterPage=0;bind();detail();if(window.KalistarDialogHistory)KalistarDialogHistory.open(dialog);else if(!dialog.open)dialog.showModal();}
     function destroy(){root=null;observer?.disconnect();observer=null;cancelAnimationFrame(frame);animation?.cancel();animation=null;controller?.abort();controller=null;unsubscribe?.();unsubscribe=null;if(dialog.open)dialog.close();confirmation=null;}
     function mount(node){destroy();root=node;bind();refresh();resize();observer=new ResizeObserver(()=>{cancelAnimationFrame(frame);frame=requestAnimationFrame(resize);});observer.observe(root);}
     return {mount,destroy,open,refresh};

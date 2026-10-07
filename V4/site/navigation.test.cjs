@@ -31,3 +31,20 @@ test('navigation target height does not feed back from the measured masthead hei
   assert(css.includes('margin:8px 0 -1px; border-bottom:0'));
   assert(css.includes('position:relative; z-index:30; overflow:visible'));
 });
+
+test('popup Back integrates before views without overriding browser gestures or dialog prototypes',()=>{
+  const boot=read('V4/site/boot.js').toString(),back=read('V4/site/dialog-history.js').toString(),app=read('V4/site/app.js').toString();
+  assert(boot.indexOf("'dialog-history.js'")<boot.indexOf("'app.js'"));
+  assert(back.includes("addEventListener('popstate'"));assert(back.includes('history.pushState'));
+  assert(back.includes('node.requestClose()'));assert(back.includes("new Event('cancel', {cancelable:true})"));
+  assert(back.includes("addEventListener('pageshow', init)"));assert(back.includes('observer?.disconnect()'));
+  assert(!/prototype\s*\.|touchmove|pointermove/.test(back));
+  assert(!app.includes('history.replaceState(null'));assert(app.includes('if(view!==ui.view)setView(view)'));
+});
+
+test('dynamic popup cancellation resets the owning view instead of reopening on repaint',()=>{
+  const binder=read('V4/site/collection-binder.js').toString(),deck=read('V4/site/deck-builder.js').toString(),reserve=read('V4/site/reserve-preview.js').toString();
+  assert(binder.includes("['cancel',cancelOverlay,true]"));assert(binder.includes('event.preventDefault();closeOverlay()'));
+  assert(deck.includes("else if(event.target.matches('.kdb-compare'))"));assert(deck.includes('event.preventDefault();closeComparison()'));
+  assert(reserve.includes("track('reserve-preview'"));assert(reserve.includes('visible:()=>touchPreview&&visible()'));
+});
