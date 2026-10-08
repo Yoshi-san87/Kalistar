@@ -1,0 +1,942 @@
+{
+  "id": "2026-10-08-final-fantasy-ix",
+  "officialCollaboration": false,
+  "arenas": [],
+  "presets": [],
+  "selectionDate": "2026-10-08",
+  "sourceSet": "V4/propositions/2026-10-08-ff9",
+  "cards": [
+    {
+      "key": "djidane",
+      "name": "DJIDANE",
+      "title": "UN PAS AVANT LA PEUR",
+      "job": "VOLEUR",
+      "description": "Djidane tend la main avant de connaître le nom de celui qui hésite. Sous ses pieds, la ville paraît immense. Il sourit : on peut avoir peur du vide et refuser de laisser quelqu'un seul.",
+      "element": "NONE",
+      "race": "MACAKO",
+      "weapon": "Dague",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        284,
+        234,
+        181,
+        128,
+        "retry",
+        32
+      ],
+      "defense": [
+        168,
+        136,
+        101,
+        73,
+        "dodge",
+        18
+      ],
+      "magic": [],
+      "barriers": [],
+      "art": "01-djidane-01.png",
+      "characterId": "djidane-ff9",
+      "id": "49901001",
+      "faction": "FF9",
+      "collaboration": "FF9"
+    },
+    {
+      "key": "vivi-feu",
+      "name": "VIVI",
+      "title": "UNE TOUTE PETITE FLAMME",
+      "job": "MAGE NOIR",
+      "description": "Vivi abrite une flamme au creux de sa main. Elle tremble comme lui, mais ne s'éteint pas. Dans le village, une fenêtre reste allumée. Il espère qu'un jour quelqu'un l'attendra derrière.",
+      "element": "PYRO",
+      "race": "ROBOT",
+      "weapon": "Bâton",
+      "role": 4,
+      "positions": [
+        4,
+        5
+      ],
+      "atk": [
+        292,
+        238,
+        177,
+        127,
+        74,
+        "mana"
+      ],
+      "defense": [
+        159,
+        133,
+        102,
+        69,
+        38,
+        14
+      ],
+      "magic": [
+        6,
+        5,
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "02-vivi-01.png",
+      "characterId": "vivi-ff9",
+      "id": "49901002",
+      "faction": "FF9",
+      "collaboration": "FF9"
+    },
+    {
+      "key": "grenat",
+      "name": "GRENAT",
+      "title": "LA COURONNE NE CHOISIT PAS",
+      "job": "INVOKATRICE",
+      "description": "Grenat écoute la ville au-delà des fenêtres du palais. On lui a appris à porter une couronne, pas à choisir sa vie. Pour la première fois, elle imagine une porte qu'elle ouvrirait seule.",
+      "element": "LUXO",
+      "race": "HUMAIN",
+      "weapon": "Sceptre",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        169,
+        136,
+        104,
+        "revive",
+        48,
+        "guard"
+      ],
+      "defense": [
+        207,
+        168,
+        132,
+        97,
+        63,
+        24
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "art": "03-grenat-01.png",
+      "characterId": "grenat-ff9",
+      "id": "49901003",
+      "faction": "FF9",
+      "collaboration": "FF9"
+    },
+    {
+      "key": "dagga",
+      "name": "DAGGA",
+      "title": "CHOISIR SA ROUTE",
+      "job": "INVOKATRICE",
+      "description": "Dagga resserre la sangle de son sac. Le vent trouve sa nuque et ce nom qu'elle a choisi. Le palais est loin ; pour la première fois, chaque pas lui appartient, même lorsqu'elle hésite.",
+      "element": "HYDRO",
+      "race": "HUMAIN",
+      "weapon": "Sceptre",
+      "role": 5,
+      "positions": [
+        4,
+        5
+      ],
+      "atk": [
+        174,
+        142,
+        108,
+        79,
+        "mana",
+        "revive"
+      ],
+      "defense": [
+        194,
+        161,
+        128,
+        93,
+        "retry",
+        21
+      ],
+      "magic": [
+        5,
+        4
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "art": "04-dagga-02.png",
+      "characterId": "grenat-ff9",
+      "id": "49901004",
+      "faction": "FF9",
+      "collaboration": "FF9"
+    },
+    {
+      "key": "steiner",
+      "name": "STEINER",
+      "title": "LA GARDE NE DORT PAS",
+      "job": "CHEVALIER",
+      "description": "Steiner veille sur une porte que personne ne menace encore. Ses genoux souffrent et son armure pèse, mais il reste. Un serment ne vaut pas seulement quand une foule regarde celui qui le tient.",
+      "element": "MINERO",
+      "race": "HUMAIN",
+      "weapon": "Epée longue",
+      "role": 1,
+      "positions": [
+        1
+      ],
+      "atk": [
+        193,
+        164,
+        127,
+        "guard",
+        53,
+        22
+      ],
+      "defense": [
+        294,
+        244,
+        195,
+        142,
+        91,
+        46
+      ],
+      "magic": [],
+      "barriers": [
+        6,
+        5
+      ],
+      "art": "05-steiner-01.png",
+      "characterId": "steiner-ff9",
+      "id": "49901005",
+      "faction": "FF9",
+      "collaboration": "FF9"
+    },
+    {
+      "key": "eiko",
+      "name": "EIKO",
+      "title": "QUELQU'UN REVIENDRA",
+      "job": "INVOKATRICE",
+      "description": "Eiko garde une place libre sur les marches. Elle prétend que ce n'est pour personne ; le petit Mog ne la contredit pas. Lorsque le soleil baisse, elle attend encore quelques minutes.",
+      "element": "HERBO",
+      "race": "HUMAIN",
+      "weapon": "Bâton",
+      "role": 5,
+      "positions": [
+        5
+      ],
+      "atk": [
+        162,
+        131,
+        102,
+        "mana",
+        "revive",
+        17
+      ],
+      "defense": [
+        198,
+        172,
+        137,
+        96,
+        "retry",
+        29
+      ],
+      "magic": [
+        6,
+        5
+      ],
+      "barriers": [
+        5,
+        4
+      ],
+      "art": "06-eiko-01.png",
+      "characterId": "eiko-ff9",
+      "id": "49901006",
+      "faction": "FF9",
+      "collaboration": "FF9"
+    },
+    {
+      "key": "freyja",
+      "name": "FREYJA",
+      "title": "LA PLUIE CONNAÎT SON NOM",
+      "job": "CHEVALIÈRE DRAGON",
+      "description": "La pluie traverse les rues où Freyja cherche encore un visage. Elle connaît chaque pierre, mais les portes ne répondent plus. Sa lance tient droite ; c'est sa façon de ne pas céder.",
+      "element": "AERO",
+      "race": "MICE",
+      "weapon": "Lance",
+      "role": 2,
+      "positions": [
+        2,
+        4
+      ],
+      "atk": [
+        281,
+        229,
+        188,
+        134,
+        78,
+        29
+      ],
+      "defense": [
+        172,
+        144,
+        "dodge",
+        78,
+        51,
+        22
+      ],
+      "magic": [
+        5,
+        3
+      ],
+      "barriers": [
+        6
+      ],
+      "art": "07-freyja-01.png",
+      "characterId": "freyja-ff9",
+      "id": "49901007",
+      "faction": "FF9",
+      "collaboration": "FF9"
+    },
+    {
+      "key": "tarask",
+      "name": "TARASK",
+      "title": "RESTER, CETTE FOIS",
+      "job": "MOINE",
+      "description": "Tarask pourrait partir avant le réveil des autres. Il a toujours su le faire. Assis à l'écart, il resserre pourtant ses gants et attend le jour. Cette fois, personne ne marchera sans lui.",
+      "element": "HEMATO",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        298,
+        243,
+        189,
+        129,
+        "buff_atk",
+        19
+      ],
+      "defense": [
+        158,
+        124,
+        98,
+        "retry",
+        39,
+        12
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "08-tarask-01.png",
+      "characterId": "tarask-ff9",
+      "id": "49901008",
+      "faction": "FF9",
+      "collaboration": "FF9"
+    },
+    {
+      "key": "kuja",
+      "name": "KUJA",
+      "title": "APRÈS LES APPLAUDISSEMENTS",
+      "job": "ENCHANTEUR",
+      "description": "Kuja écoute les derniers échos derrière les rideaux. Il a obtenu le silence qu'il voulait, et le trouve soudain immense. Ses doigts restent près de son cœur, comme pour vérifier sa présence.",
+      "element": "NECRO",
+      "race": "HUMAIN",
+      "weapon": "Orbe",
+      "role": 4,
+      "positions": [
+        4
+      ],
+      "atk": [
+        293,
+        246,
+        191,
+        118,
+        "death",
+        13
+      ],
+      "defense": [
+        154,
+        127,
+        94,
+        64,
+        35,
+        9
+      ],
+      "magic": [
+        6,
+        5
+      ],
+      "barriers": [
+        4
+      ],
+      "art": "09-kuja-01.png",
+      "characterId": "kuja-ff9",
+      "id": "49901009",
+      "faction": "FF9",
+      "collaboration": "FF9"
+    },
+    {
+      "key": "beate",
+      "name": "BEATE",
+      "title": "LE SERMENT DEVIENT UN CHOIX",
+      "job": "GÉNÉRALE",
+      "description": "Beate s'arrête sur le seuil, la lame basse. Obéir lui a longtemps paru plus simple que regarder. Ce soir, elle a vu les visages derrière les ordres. Son prochain serment sera le sien.",
+      "element": "LUXO",
+      "race": "HUMAIN",
+      "weapon": "Epée longue",
+      "role": 1,
+      "positions": [
+        1,
+        2
+      ],
+      "atk": [
+        207,
+        168,
+        129,
+        88,
+        "guard",
+        19
+      ],
+      "defense": [
+        279,
+        232,
+        188,
+        137,
+        79,
+        31
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "art": "10-beate-01.png",
+      "characterId": "beate-ff9",
+      "id": "49901010",
+      "faction": "FF9",
+      "collaboration": "FF9"
+    },
+    {
+      "key": "pile",
+      "name": "PILE",
+      "title": "LE SECRET SOUS LE RIRE",
+      "job": "BOUFFON",
+      "description": "Pile garde un doigt sur ses lèvres, même lorsque la salle se vide. Les murs du palais ont appris ses secrets. Il lui reste à découvrir s'ils savent aussi les répéter à son frère.",
+      "element": "CRYO",
+      "race": "RATZ",
+      "weapon": "Tome",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        163,
+        134,
+        108,
+        "mana",
+        45,
+        "retry"
+      ],
+      "defense": [
+        196,
+        158,
+        123,
+        "dodge",
+        52,
+        23
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "11-pile-01.png",
+      "characterId": "pile-ff9",
+      "id": "49901011",
+      "faction": "FF9",
+      "collaboration": "FF9"
+    },
+    {
+      "key": "face",
+      "name": "FACE",
+      "title": "LA RÉPLIQUE DANS L'OMBRE",
+      "job": "BOUFFON",
+      "description": "Face répète son rire dans l'escalier désert. La réplique doit tomber juste, avant que le silence devienne une question. Dans sa paume, la magie rouge s'agite plus sincèrement que lui.",
+      "element": "PYRO",
+      "race": "RATZ",
+      "weapon": "Orbe",
+      "role": 4,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        279,
+        231,
+        184,
+        "mana",
+        67,
+        21
+      ],
+      "defense": [
+        167,
+        139,
+        103,
+        72,
+        "retry",
+        18
+      ],
+      "magic": [
+        6,
+        5
+      ],
+      "barriers": [
+        4
+      ],
+      "art": "12-face-01.png",
+      "characterId": "face-ff9",
+      "id": "49901012",
+      "faction": "FF9",
+      "collaboration": "FF9"
+    },
+    {
+      "key": "branet",
+      "name": "REINE BRANET",
+      "title": "UN ROYAUME DANS LA PAUME",
+      "job": "SOUVERAINE",
+      "description": "Branet referme les doigts sur son bijou. Autour du trône, chacun attend un ordre ; aucun ne demande ce qui lui manque. Elle regarde au loin, là où sa fille trouvait autrefois sa place.",
+      "element": "GEO",
+      "race": "HUMAIN",
+      "weapon": "Sceptre",
+      "role": 5,
+      "positions": [
+        1,
+        5
+      ],
+      "atk": [
+        175,
+        145,
+        116,
+        "buff_atk",
+        "guard",
+        12
+      ],
+      "defense": [
+        203,
+        169,
+        133,
+        94,
+        56,
+        "retry"
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        6,
+        5
+      ],
+      "art": "13-branet-01.png",
+      "characterId": "branet-ff9",
+      "id": "49901013",
+      "faction": "FF9",
+      "collaboration": "FF9"
+    },
+    {
+      "key": "garland",
+      "name": "GARLAND",
+      "title": "LE POIDS DES SIÈCLES",
+      "job": "VEILLEUR",
+      "description": "Garland pose la main sur une pierre plus ancienne que les royaumes. Il parle de devoir comme on ferme une porte. Sous sa voix demeure une fatigue que même les siècles n'ont pas apaisée.",
+      "element": "NECRO",
+      "race": "HUMAIN",
+      "weapon": "Orbe",
+      "role": 4,
+      "positions": [
+        1,
+        4
+      ],
+      "atk": [
+        289,
+        236,
+        181,
+        126,
+        73,
+        24
+      ],
+      "defense": [
+        176,
+        148,
+        118,
+        85,
+        56,
+        25
+      ],
+      "magic": [
+        6,
+        4,
+        3
+      ],
+      "barriers": [
+        6,
+        5
+      ],
+      "art": "14-garland-01.png",
+      "characterId": "garland-ff9",
+      "id": "49901014",
+      "faction": "FF9",
+      "collaboration": "FF9"
+    },
+    {
+      "key": "bach",
+      "name": "BACH",
+      "title": "LA TROUPE AVANT TOUT",
+      "job": "CHEF DE TROUPE",
+      "description": "Bach soulève le masque et compte les voix derrière le rideau. Le public attend son entrée, mais il manque encore quelqu'un. Tant que la troupe n'est pas réunie, le spectacle peut patienter.",
+      "element": "PYRO",
+      "race": "HUMAIN",
+      "weapon": "Epée courte",
+      "role": 1,
+      "positions": [
+        1,
+        2
+      ],
+      "atk": [
+        197,
+        161,
+        125,
+        91,
+        57,
+        "buff_atk"
+      ],
+      "defense": [
+        276,
+        231,
+        179,
+        131,
+        84,
+        "retry"
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "15-bach-01.png",
+      "characterId": "bach-ff9",
+      "id": "49901015",
+      "faction": "FF9",
+      "collaboration": "FF9"
+    },
+    {
+      "key": "markus",
+      "name": "MARKUS",
+      "title": "ON NE LAISSE PERSONNE",
+      "job": "TANTALAS",
+      "description": "Markus regarde ce qui reste entre ses doigts et serre la garde de son épée. Les autres parlent du départ. Lui mesure le chemin du retour : il a laissé un ami derrière, pas un souvenir.",
+      "element": "GEO",
+      "race": "SHARKAN",
+      "weapon": "Epée longue",
+      "role": 1,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        189,
+        156,
+        121,
+        "guard",
+        48,
+        16
+      ],
+      "defense": [
+        289,
+        239,
+        186,
+        136,
+        87,
+        38
+      ],
+      "magic": [],
+      "barriers": [
+        6
+      ],
+      "art": "16-markus-01.png",
+      "characterId": "markus-ff9",
+      "id": "49901016",
+      "faction": "FF9",
+      "collaboration": "FF9"
+    },
+    {
+      "key": "franck",
+      "name": "FRANCK",
+      "title": "LA CARTE, AVANT LA PIERRE",
+      "job": "TANTALAS",
+      "description": "Franck tend la carte sans regarder ce qui gagne déjà ses jambes. Il n'a plus le temps d'expliquer le chemin. Son ami comprendra. Il lui suffit de voir une main se tendre vers la sienne.",
+      "element": "HERBO",
+      "race": "HUMAIN",
+      "weapon": "Epée courte",
+      "role": 3,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        229,
+        188,
+        146,
+        "buff_atk",
+        63,
+        27
+      ],
+      "defense": [
+        224,
+        182,
+        142,
+        108,
+        "dodge",
+        26
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "17-franck-01.png",
+      "characterId": "franck-ff9",
+      "id": "49901017",
+      "faction": "FF9",
+      "collaboration": "FF9"
+    },
+    {
+      "key": "cina",
+      "name": "CINA",
+      "title": "LE CAFÉ PEUT ATTENDRE",
+      "job": "MACHINISTE",
+      "description": "Cina souffle sur son café puis écoute une planche craquer derrière le rideau. Il soupire, repose la tasse et reprend son marteau. Les autres auront une scène solide ; sa pause attendra.",
+      "element": "NONE",
+      "race": "MACAKO",
+      "weapon": "Marteau",
+      "role": 1,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        182,
+        153,
+        119,
+        86,
+        "guard",
+        14
+      ],
+      "defense": [
+        281,
+        234,
+        183,
+        138,
+        88,
+        39
+      ],
+      "magic": [],
+      "barriers": [],
+      "art": "18-cina-02.png",
+      "characterId": "cina-ff9",
+      "id": "49901018",
+      "faction": "FF9",
+      "collaboration": "FF9"
+    },
+    {
+      "key": "ruby",
+      "name": "RUBY",
+      "title": "LE RIDEAU SE LÈVE ENCORE",
+      "job": "COMÉDIENNE",
+      "description": "Ruby entrouvre le rideau et cherche un visage dans les premiers rangs. La salle est petite, mais elle sourit comme au soir d'une première. Tant que quelqu'un écoute, l'histoire continue.",
+      "element": "AERO",
+      "race": "HUMAIN",
+      "weapon": "Instrument",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        157,
+        128,
+        101,
+        77,
+        "retry",
+        "buff_atk"
+      ],
+      "defense": [
+        201,
+        164,
+        129,
+        "retry",
+        59,
+        24
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        6
+      ],
+      "art": "19-ruby-01.png",
+      "characterId": "ruby-ff9",
+      "id": "49901019",
+      "faction": "FF9",
+      "collaboration": "FF9"
+    },
+    {
+      "key": "kweena",
+      "name": "KWEENA",
+      "title": "LE BONHEUR MIJOTE",
+      "job": "GASTRONOME",
+      "description": "Kweena goûte, réfléchit, puis ajoute encore quelque chose. Autour du feu, personne n'ose demander quoi. La soupe fume et les bols se tendent : ce soir, le monde tient dans une marmite.",
+      "element": "HYDRO",
+      "race": "BATRA",
+      "weapon": "Lance",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        173,
+        143,
+        113,
+        "mana",
+        "guard",
+        21
+      ],
+      "defense": [
+        205,
+        166,
+        131,
+        98,
+        61,
+        "retry"
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        5,
+        3
+      ],
+      "art": "20-kweena-01.png",
+      "characterId": "kweena-ff9",
+      "id": "49901020",
+      "faction": "FF9",
+      "collaboration": "FF9"
+    },
+    {
+      "key": "vivi-glace",
+      "name": "VIVI",
+      "title": "LE FLOCON RESTE UN INSTANT",
+      "job": "MAGE NOIR",
+      "description": "Vivi regarde un flocon flotter au-dessus de son gant. Il sait qu'il finira par fondre. Cela ne l'empêche pas de le trouver beau, ni de retenir son souffle pour lui laisser encore un instant.",
+      "element": "CRYO",
+      "race": "ROBOT",
+      "weapon": "Bâton",
+      "role": 4,
+      "positions": [
+        4,
+        5
+      ],
+      "atk": [
+        273,
+        226,
+        183,
+        137,
+        89,
+        31
+      ],
+      "defense": [
+        177,
+        146,
+        112,
+        86,
+        "retry",
+        20
+      ],
+      "magic": [
+        5,
+        3
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "art": "02-vivi-cryo-01.png",
+      "characterId": "vivi-ff9",
+      "id": "49901021",
+      "faction": "FF9",
+      "collaboration": "FF9"
+    },
+    {
+      "key": "vivi-foudre",
+      "name": "VIVI",
+      "title": "UNE ÉTINCELLE ET PUIS LE JOUR",
+      "job": "MAGE NOIR",
+      "description": "Une étincelle saute entre les doigts de Vivi. Il sursaute, puis recommence avec précaution. Dans le soir qui descend, il découvre qu'une petite lumière peut aussi naître de sa propre peur.",
+      "element": "ELECTRO",
+      "race": "ROBOT",
+      "weapon": "Bâton",
+      "role": 4,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        286,
+        243,
+        192,
+        118,
+        "mana",
+        27
+      ],
+      "defense": [
+        153,
+        129,
+        "dodge",
+        72,
+        43,
+        16
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "02-vivi-electro-01.png",
+      "characterId": "vivi-ff9",
+      "id": "49901022",
+      "faction": "FF9",
+      "collaboration": "FF9"
+    }
+  ]
+}

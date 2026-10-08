@@ -41,6 +41,7 @@ jobs:
           node --test V4/expansions/2026-10-06-fifteen-faces/integration.test.cjs V4/expansions/2026-10-06-fifteen-faces/accent-typography.test.cjs
           node --test V4/expansions/2026-10-06-second-edition-scenes/integration.test.cjs
           node --test V4/expansions/2026-10-08-eleven-lives/integration.test.cjs
+          node --test V4/expansions/2026-10-08-final-fantasy-ix/integration.test.cjs V4/revisions/2026-10-08-resident-evil-faces/integration.test.cjs
           node --test V4/revisions/2026-10-06-balmhyr-durane/revision.test.cjs
           node --test V4/revisions/2026-10-01-stat-personality/revision.test.cjs
           node --test V4/expansions/2026-10-01-rikka-rooftops/model.test.cjs

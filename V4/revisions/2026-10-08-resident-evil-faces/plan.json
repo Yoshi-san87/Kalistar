@@ -1,0 +1,507 @@
+{
+  "revision": "2026-10-08-resident-evil-faces",
+  "ordering": "D6 to D1",
+  "cards": [
+    {
+      "id": "49700101",
+      "atk": [
+        272,
+        228,
+        191,
+        143,
+        91,
+        38
+      ],
+      "defense": [
+        157,
+        132,
+        114,
+        78,
+        "dodge",
+        24
+      ],
+      "reason": "Jill RE1 : tir fiable, esquive basse et aucune relance offensive gratuite."
+    },
+    {
+      "id": "49700102",
+      "atk": [
+        238,
+        194,
+        151,
+        94,
+        "retry",
+        24
+      ],
+      "defense": [
+        217,
+        191,
+        157,
+        116,
+        74,
+        "dodge"
+      ],
+      "reason": "Jill RE3 : survie sous pression, chance sur D2 et fuite sur D1."
+    },
+    {
+      "id": "49700103",
+      "atk": [
+        232,
+        198,
+        158,
+        112,
+        72,
+        "buff_atk"
+      ],
+      "defense": [
+        204,
+        169,
+        "dodge",
+        92,
+        47,
+        19
+      ],
+      "reason": "Jill RE5 : soutien tactique offensif et mobilite, faibles petites defenses."
+    },
+    {
+      "id": "49700104",
+      "atk": [
+        213,
+        172,
+        132,
+        "retry",
+        74,
+        28
+      ],
+      "defense": [
+        239,
+        198,
+        153,
+        117,
+        69,
+        "retry"
+      ],
+      "reason": "Leon RE2 : improvisation du debutant, relances plutot qu'esquive automatique."
+    },
+    {
+      "id": "49700105",
+      "atk": [
+        237,
+        196,
+        156,
+        108,
+        63,
+        38
+      ],
+      "defense": [
+        216,
+        179,
+        136,
+        107,
+        "dodge",
+        35
+      ],
+      "reason": "Leon RE4 : attaques precises et esquive ponctuelle en D2."
+    },
+    {
+      "id": "49700106",
+      "atk": [
+        228,
+        188,
+        151,
+        116,
+        "buff_atk",
+        26
+      ],
+      "defense": [
+        209,
+        174,
+        139,
+        "dodge",
+        59,
+        23
+      ],
+      "reason": "Leon RE6 : coordination d'equipe, seul Leon gardant l'esquive en D3."
+    },
+    {
+      "id": "49700107",
+      "atk": [
+        218,
+        181,
+        143,
+        103,
+        59,
+        32
+      ],
+      "defense": [
+        233,
+        194,
+        157,
+        117,
+        "retry",
+        38
+      ],
+      "reason": "Leon RE9 : corps-a-corps regulier, endurance et seconde chance defensive."
+    },
+    {
+      "id": "49700108",
+      "atk": [
+        238,
+        188,
+        138,
+        92,
+        "retry",
+        27
+      ],
+      "defense": [
+        218,
+        182,
+        143,
+        113,
+        73,
+        "dodge"
+      ],
+      "reason": "Ada RE2 : opportunisme et echappatoire sur la derniere face."
+    },
+    {
+      "id": "49700109",
+      "atk": [
+        296,
+        242,
+        186,
+        122,
+        67,
+        "death"
+      ],
+      "defense": [
+        154,
+        126,
+        "dodge",
+        71,
+        38,
+        13
+      ],
+      "reason": "Ada RE4 : une face Mort pour la dague, defenses basses fragiles et une seule esquive."
+    },
+    {
+      "id": "49700110",
+      "atk": [
+        218,
+        193,
+        157,
+        "retry",
+        76,
+        26
+      ],
+      "defense": [
+        207,
+        171,
+        132,
+        111,
+        "dodge",
+        22
+      ],
+      "reason": "Ada RE6 : occasion saisie en D3, evasive en D2."
+    },
+    {
+      "id": "49700111",
+      "atk": [
+        183,
+        149,
+        117,
+        98,
+        "guard",
+        28
+      ],
+      "defense": [
+        273,
+        226,
+        182,
+        141,
+        96,
+        39
+      ],
+      "reason": "Chris RE1 : protection du partenaire sur D2, defense numerique robuste."
+    },
+    {
+      "id": "49700112",
+      "atk": [
+        209,
+        173,
+        138,
+        102,
+        67,
+        "buff_atk"
+      ],
+      "defense": [
+        269,
+        219,
+        174,
+        126,
+        78,
+        31
+      ],
+      "reason": "Chris RE5 : force physique et impulsion offensive, sans garde ni relance automatiques."
+    },
+    {
+      "id": "49700113",
+      "atk": [
+        191,
+        158,
+        129,
+        "guard",
+        61,
+        22
+      ],
+      "defense": [
+        292,
+        244,
+        193,
+        118,
+        "retry",
+        33
+      ],
+      "reason": "Chris RE6 : couverture d'equipe sur D3 et resilience en D2."
+    },
+    {
+      "id": "49700114",
+      "atk": [
+        187,
+        154,
+        "guard",
+        87,
+        51,
+        18
+      ],
+      "defense": [
+        282,
+        238,
+        196,
+        148,
+        97,
+        42
+      ],
+      "reason": "Chris RE7 : protection prioritaire, sacrifice d'une face ATK elevee et aucune esquive. La face magique passe de D4 a D5 car D4 devient une garde.",
+      "magic": [5]
+    },
+    {
+      "id": "49700115",
+      "atk": [
+        201,
+        163,
+        122,
+        81,
+        "guard",
+        17
+      ],
+      "defense": [
+        296,
+        241,
+        184,
+        "retry",
+        74,
+        34
+      ],
+      "reason": "Chris RE8 : extraction protectrice et relance defensive intermediaire."
+    },
+    {
+      "id": "49700116",
+      "atk": [
+        264,
+        216,
+        174,
+        138,
+        "buff_atk",
+        34
+      ],
+      "defense": [
+        176,
+        147,
+        117,
+        84,
+        "dodge",
+        28
+      ],
+      "reason": "Claire : entraide offensive et esquive basse, sans meme trefle que Jill."
+    },
+    {
+      "id": "49700117",
+      "atk": [
+        210,
+        175,
+        139,
+        103,
+        "death",
+        26
+      ],
+      "defense": [
+        297,
+        242,
+        181,
+        112,
+        53,
+        20
+      ],
+      "reason": "Nemesis : menace Mort ponctuelle, plus de garde de soutien ni de relance."
+    },
+    {
+      "id": "49700118",
+      "atk": [
+        179,
+        143,
+        111,
+        79,
+        41,
+        15
+      ],
+      "defense": [
+        284,
+        249,
+        199,
+        149,
+        99,
+        46
+      ],
+      "reason": "Mr X : avance implacable, douze faces numeriques et aucune acrobatie."
+    },
+    {
+      "id": "49700119",
+      "atk": [
+        239,
+        198,
+        157,
+        113,
+        73,
+        35
+      ],
+      "defense": [
+        211,
+        171,
+        131,
+        93,
+        "retry",
+        22
+      ],
+      "reason": "Dimitrescu : pression reguliere et endurance, pas d'esquive acrobatique."
+    },
+    {
+      "id": "49700120",
+      "atk": [
+        300,
+        248,
+        193,
+        "buff_atk",
+        57,
+        24
+      ],
+      "defense": [
+        166,
+        137,
+        109,
+        72,
+        41,
+        "retry"
+      ],
+      "reason": "Heisenberg : donne de l'elan physique, defense moins sure sans esquive."
+    },
+    {
+      "id": "49700121",
+      "atk": [
+        205,
+        167,
+        124,
+        84,
+        "mana",
+        18
+      ],
+      "defense": [
+        237,
+        196,
+        156,
+        113,
+        78,
+        "dodge"
+      ],
+      "reason": "Beneviento : soutien occulte et disparition sur D1, faibles degats directs."
+    },
+    {
+      "id": "49700122",
+      "atk": [
+        292,
+        219,
+        157,
+        104,
+        53,
+        22
+      ],
+      "defense": [
+        177,
+        148,
+        116,
+        88,
+        58,
+        27
+      ],
+      "reason": "Moreau : masse lourde et continue, pas d'esquive ni de trefle systematiques."
+    },
+    {
+      "id": "49700123",
+      "atk": [
+        177,
+        146,
+        "mana",
+        82,
+        52,
+        "guard"
+      ],
+      "defense": [
+        179,
+        143,
+        108,
+        "retry",
+        41,
+        23
+      ],
+      "reason": "Salazar : nourrit et protege sa troupe, cout reel en face offensive D4."
+    },
+    {
+      "id": "49700124",
+      "atk": [
+        151,
+        123,
+        101,
+        "mana",
+        "guard",
+        18
+      ],
+      "defense": [
+        207,
+        171,
+        136,
+        103,
+        "dodge",
+        32
+      ],
+      "reason": "Eveline : influence de soutien, mana et protection plutot qu'offensive brute."
+    },
+    {
+      "id": "49700125",
+      "atk": [
+        269,
+        234,
+        197,
+        147,
+        98,
+        "mana"
+      ],
+      "defense": [
+        151,
+        122,
+        "retry",
+        69,
+        36,
+        11
+      ],
+      "reason": "Saddler : alimente la magie de ses allies, relance defensive et non esquive."
+    }
+  ]
+}

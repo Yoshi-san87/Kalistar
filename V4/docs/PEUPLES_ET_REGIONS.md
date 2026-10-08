@@ -95,3 +95,23 @@ noir et vert foret avec le loup et la montagne argentes. Les anciens composants
 restent inchanges. Okami utilise la synergie de race ordinaire ; aucun pouvoir
 de transformation ni bonus specifique n'est cree. Lycanos et Garou restent
 documentes narrativement, sans carte ni composant jouable ajoute ici.
+
+## Races du crossover FFIX : 8 octobre 2026
+
+Classification demandee par l'auteur pour Kalistar, sans pretendre remplacer
+les especes canoniques de Final Fantasy IX :
+
+| Cle | Nature | Cartes |
+| --- | --- | --- |
+| MICE | Hybride homme-souris | Freyja |
+| BATRA | Hybride homme-batracien | Kweena |
+| RATZ | Hybride homme-rat | Pile, Face |
+| MACAKO | Hybride homme-singe | Djidane, Cina |
+
+Vivi est classe ROBOT dans ses trois versions ; Markus est SHARKAN.
+Ces races utilisent seulement la synergie ordinaire, sans pouvoir ajoute.
+Les portraits de medaillon varient comme les composants historiques : Mice
+ivoire en trois-quarts, Batra vert de face, Ratz sombre de profil, Macako roux
+en buste. Dimensions et centrage optique restent ceux du template.
+Voir [le lot FFIX](../expansions/2026-10-08-final-fantasy-ix/README.md) et
+[la revision artistique](../revisions/2026-10-08-ff9-art-direction/README.md).

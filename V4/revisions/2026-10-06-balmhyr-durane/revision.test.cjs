@@ -5,7 +5,8 @@ const before=require('./before.json'),spec=require('./specs.cjs').cards[0],curre
 const {buildCatalog}=require('../../atelier/game-catalog.cjs');
 const root=path.resolve(__dirname,'../../..'),old=before.catalogue.cards.find(c=>c.id===spec.id);
 const cohorts=new Set(before.catalogue.cards.map(c=>c.id));
-const cohort=c=>c.cards.filter(c=>cohorts.has(c.id));
+const {entryBeforeRevision}=require('../2026-10-08-resident-evil-faces/historical-cohort.cjs');
+const cohort=c=>c.cards.filter(c=>cohorts.has(c.id)).map(entryBeforeRevision);
 function digest(file){
  const b=fs.readFileSync(file),pointer=b.length<1024&&b.toString().match(/^version https:\/\/git-lfs.github.com\/spec\/v1\r?\noid sha256:([a-f0-9]{64})/);
  return pointer?pointer[1]:crypto.createHash('sha256').update(b).digest('hex');

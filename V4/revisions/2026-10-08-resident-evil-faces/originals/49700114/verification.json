@@ -1,0 +1,117 @@
+{
+  "passed": true,
+  "modelId": "49700114",
+  "referenceId": "ef7a6767b57723d896ceecb050079bfb1abad0e79e7289a200f87b34585f9380",
+  "profileHash": "e45e02841062ce6c711be1c7711cbfb453d300162f6fde9c3dcee13a16c47096",
+  "hashes": {
+    "card.png": "49f6af079521c8369633b25e4cdc45e957c514b974061876c1f049eae310fa00",
+    "card.psd": "125e81e899d608e1404976bebd08a3dd72302e5fe62468fc3f23eab0a8543909"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 106262
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49700114",
+    "cases": {
+      "color-1": [
+        "49700114"
+      ],
+      "color-4": [
+        "49700114"
+      ],
+      "gray-1": [
+        "49700114"
+      ],
+      "gray-4": [
+        "49700114"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-01T13:18:12.502Z",
+  "revision": "2026-10-01-stat-personality",
+  "numericOnly": true,
+  "scope": {
+    "changed": 14102,
+    "outside": 0
+  },
+  "allowedCircles": [
+    {
+      "name": "ATK D6 - valeur",
+      "x": 142,
+      "y": 147,
+      "radius": 64
+    },
+    {
+      "name": "ATK D5 - valeur",
+      "x": 157.5,
+      "y": 372.5,
+      "radius": 44
+    },
+    {
+      "name": "ATK D4 - valeur",
+      "x": 157.5,
+      "y": 476.5,
+      "radius": 44
+    },
+    {
+      "name": "ATK D3 - valeur",
+      "x": 157.5,
+      "y": 577.5,
+      "radius": 44
+    },
+    {
+      "name": "ATK D2 - valeur",
+      "x": 157.5,
+      "y": 677.5,
+      "radius": 44
+    },
+    {
+      "name": "DEF D6 - valeur",
+      "x": 756,
+      "y": 147,
+      "radius": 64
+    },
+    {
+      "name": "DEF D5 - valeur",
+      "x": 736.5,
+      "y": 372.5,
+      "radius": 44
+    },
+    {
+      "name": "DEF D4 - valeur",
+      "x": 736.5,
+      "y": 476.5,
+      "radius": 44
+    },
+    {
+      "name": "DEF D3 - valeur",
+      "x": 736.5,
+      "y": 577.5,
+      "radius": 44
+    },
+    {
+      "name": "DEF D2 - valeur",
+      "x": 736.5,
+      "y": 677.5,
+      "radius": 44
+    }
+  ],
+  "preservedNativeStyles": true,
+  "nativeStyleAudit": {
+    "linearTransformDrift": 2.55351295663786e-15,
+    "transformTolerance": 1e-12,
+    "exactNativeStyleRuns": true
+  },
+  "unchangedArtworkAndComponents": true,
+  "originalHash": "29f9e4f40efc8d13ef3801c068dc6fbc99cf4c9c8f230cc802168fba6ccc0a26",
+  "renderInputManifestHash": "9c3a010d56211fc2e8c78c8a9de03d623c8793ccf31f94acea814c324832aa97",
+  "verifierHash": "2cc022dd5308717eb11758de9f4339509f9e14ac839cb09c43b2881287f5d67b"
+}

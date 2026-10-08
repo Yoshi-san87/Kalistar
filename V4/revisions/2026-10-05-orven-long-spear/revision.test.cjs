@@ -5,7 +5,8 @@ const S=require('./specs.cjs'),before=require('./before.json'),current=require('
 const {buildCatalog}=require('../../atelier/game-catalog.cjs');
 // Compare the original cohort without rejecting later, independently tested additions.
 const baselineIds=new Set(before.catalogue.cards.map(c=>c.id));
-const originalCohort=cat=>({...cat,cards:cat.cards.filter(c=>baselineIds.has(c.id))});
+const {entryBeforeRevision}=require('../2026-10-08-resident-evil-faces/historical-cohort.cjs');
+const originalCohort=cat=>({...cat,cards:cat.cards.filter(c=>baselineIds.has(c.id)).map(entryBeforeRevision)});
 test('Orven shield and spear artwork preserves every playable rule and identity',async()=>{
   const build=cat=>buildCatalog({published:cat.cards.filter(c=>c.kind==='created')});
   assert.deepEqual(await build(originalCohort(current)),await build(before.catalogue));

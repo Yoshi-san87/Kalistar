@@ -18,7 +18,7 @@
   }
   function matchesScope(card,scope){
     if(scope==='kalistar')return C.universe(card)==='kalistar';
-    if(scope==='final-fantasy')return C.matches(card,'ff7')||C.matches(card,'ff8')||C.matches(card,'ff10');
+    if(scope==='final-fantasy')return C.matches(card,'ff7')||C.matches(card,'ff8')||C.matches(card,'ff9')||C.matches(card,'ff10');
     if(scope==='nier')return C.matches(card,'nier')||C.matches(card,'replicant');
     if(scope==='metal-gear')return ['mgs1','mgs2','mgs3','mgs4','mgs5'].some(id=>C.matches(card,id));
     if(scope==='resident-evil')return C.of(card)?.id.match(/^re[1-9]$/)!=null;

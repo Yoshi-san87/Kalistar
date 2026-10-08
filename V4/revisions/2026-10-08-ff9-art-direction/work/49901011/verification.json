@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "modelId": "49901011",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "4b82071e52cd3b749138be05a9bfe204e44e99a371d18f600f0bd8ca4a9beeb3",
+  "hashes": {
+    "card.png": "c83cb5a1acdda3d8f51bef1c970e8e0036cb8a17183662926017452eaa8bd04b",
+    "card.psd": "7b7ea095098afc3dd1c7eab5d4e99b051efc7c51ee57c2d4fe55237d240819c5"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 125418
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49901011",
+    "cases": {
+      "color-1": [
+        "49901011"
+      ],
+      "color-4": [
+        "49901011"
+      ],
+      "gray-1": [
+        "49901011"
+      ],
+      "gray-4": [
+        "49901011"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-08T14:16:52.174Z",
+  "revision": "2026-10-08-ff9-art-direction",
+  "scope": {
+    "changed": 2897,
+    "outside": 0,
+    "rectangles": [
+      [
+        711,
+        1116,
+        807,
+        1211
+      ]
+    ]
+  },
+  "gameplayUnchanged": true,
+  "previousProofHash": "7e479c5efa814a230174c3f8d9e2e4d09b9c6dddba5234a00407a8046cf5fb86",
+  "inputManifestHash": "0274430d1c6eac6a8fa928a5ae1d8f0b44c35045381b975346e1d68cefaa1c9d"
+}

@@ -49,6 +49,22 @@ temporaires du presse-papiers ou les preferences non encore documentees.
 
 ## Reperes techniques
 
+### FFIX et personnalite Resident Evil : 8 octobre 2026
+
+Le [lot FFIX](../V4/expansions/2026-10-08-final-fantasy-ix/README.md) ajoute
+22 cartes pour 19 identites : Grenat/Dagga partagent leur personnage, Branet
+reste separee, Vivi possede trois versions Feu/Glace/Foudre classees Robot.
+La [revision artistique](../V4/revisions/2026-10-08-ff9-art-direction/README.md)
+remplace les deux premieres variantes Vivi par de nouvelles scenes completes
+et differencie les portraits Mice, Batra, Ratz et Macako. Lire les sorties
+actives et nativeRevision, pas les images du premier lot devenu historique.
+
+Les [25 Resident Evil](../V4/revisions/2026-10-08-resident-evil-faces/README.md)
+recoivent des faces speciales variees selon leur personnalite. Cette demande
+explicite est posterieure a la revision uniquement numerique du 1 octobre.
+Illustrations, identites, roles et positions restent inchanges ; les valeurs
+respectent les bornes et les effets existants. Aucun moteur n'est modifie.
+
 ### Onze nouvelles vies : selection du 8 octobre 2026
 
 Le [lot de production](../V4/expansions/2026-10-08-eleven-lives/README.md)
