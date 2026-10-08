@@ -24,6 +24,8 @@ test('collection sleeves attach readable metal labels without blocking card cont
   const css=read('collection-binder.css'),mobile=read('mobile.css');
   const rim=css.match(/\.cb-stack::before\s*\{([^}]+)\}/)[1];
   assert(rim.includes('var(--cb-caption-height)'));
+  assert(css.includes('--cb-sleeve-gap: 4px'));
+  assert(rim.includes('bottom: calc(-1 * var(--cb-caption-height) - var(--cb-sleeve-gap));'));
   assert(rim.includes('pointer-events: none'));
   assert(rim.includes('border-radius: 6px'));
   assert(!rim.includes('backdrop-filter'));

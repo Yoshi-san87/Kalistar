@@ -169,7 +169,10 @@ Its exact prompt, unblurred source, WebP conversion and hashes are kept in
 The background belongs to the workbench, so paging never repeats a book spine.
 Proportional cover
 cropping preserves the map geometry on desktop and phone. Thin clear sleeves
-surround the cards and their attached dark identification strips. Ivory names
+surround the cards and their attached dark identification strips. The strip
+seals the bottom edge; a 4px clear lip sits between the card and strip rather
+than hanging below the label. The overall sleeve height stays unchanged.
+Ivory names
 and copper counters stay legible; the edges catch a restrained reflection on
 hover or keyboard focus. The sleeve is CSS-only, pointer-transparent, and
 keeps the original card artwork intact. Reduced Motion stops transitions.

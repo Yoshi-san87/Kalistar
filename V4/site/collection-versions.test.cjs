@@ -28,7 +28,7 @@ async function main(){
   await readyImages();
   const universeCounts=await page.evaluate(()=>{
     const cards=KALISTAR_DATA.cards,collab=KalistarCollaborations;
-    return {kalistar:cards.filter(c=>collab.universe(c)==='kalistar').length,'final-fantasy':cards.filter(c=>collab.matches(c,'ff7')||collab.matches(c,'ff8')||collab.matches(c,'ff10')).length,nier:cards.filter(c=>collab.matches(c,'nier')||collab.matches(c,'replicant')).length};
+    return {kalistar:cards.filter(c=>collab.universe(c)==='kalistar').length,'final-fantasy':cards.filter(c=>/^FF\d+$/.test(collab.of(c)?.faction||'')).length,nier:cards.filter(c=>collab.matches(c,'nier')||collab.matches(c,'replicant')).length};
   });
   for(const [scope,count] of Object.entries(universeCounts)){
     await page.locator('.cb-scopes [data-binder-filter=collection]').selectOption(scope);
@@ -37,7 +37,8 @@ async function main(){
   await page.locator('.cb-scopes [data-binder-filter=collection]').selectOption('nier');
   await page.locator('[data-binder-action=filters]').click();
   const factionChoices=await page.locator('[data-binder-filter=faction] option').evaluateAll(options=>options.map(option=>option.value));
-  for(const faction of ['FF7','FF8','FF10','NieR','Replicant'])assert(factionChoices.includes(faction),'Faction filter remains available: '+faction);
+  const fantasyFactions=await page.evaluate(()=>KalistarCollaborations.entries.filter(e=>/^FF\d+$/.test(e.faction)).map(e=>e.faction));
+  for(const faction of [...fantasyFactions,'NieR','Replicant'])assert(factionChoices.includes(faction),'Faction filter remains available: '+faction);
   const replicantCount=await page.evaluate(()=>KALISTAR_DATA.cards.filter(c=>KalistarCollaborations.matches(c,'replicant')).length);
   await page.locator('[data-binder-filter=faction]').selectOption('Replicant');
   await page.waitForFunction(expected=>document.querySelector('.cb-count')?.textContent.includes(expected+' versions'),replicantCount);

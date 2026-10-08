@@ -44,7 +44,8 @@ async function main(){
         const work=node.parentElement,style=getComputedStyle(work,'::before'),rect=work.getBoundingClientRect();
         const captions=[...node.querySelectorAll('.cb-caption')].map(n=>{
           const box=n.getBoundingClientRect(),name=n.querySelector('h2'),stack=n.previousElementSibling,card=stack.getBoundingClientRect(),sleeve=getComputedStyle(stack,'::before');
-          return {ink:getComputedStyle(name).color,paper:getComputedStyle(n).backgroundColor,material:getComputedStyle(n).backgroundImage,sleeve:{content:sleeve.content,pointer:sleeve.pointerEvents,transition:sleeve.transitionDuration,left:card.left+parseFloat(sleeve.left),right:card.left+parseFloat(sleeve.left)+parseFloat(sleeve.width),bottom:card.top+parseFloat(sleeve.top)+parseFloat(sleeve.height)},label:{left:box.left,right:box.right,bottom:box.bottom},fits:[...n.querySelectorAll('.cb-copy-count,.cb-version-count,h2,.cb-icon')].every(c=>{const r=c.getBoundingClientRect();return r.left>=box.left-1&&r.right<=box.right+1&&r.top>=box.top-1&&r.bottom<=box.bottom+1;})};
+          const pocket=n.parentElement.getBoundingClientRect();
+          return {ink:getComputedStyle(name).color,paper:getComputedStyle(n).backgroundColor,material:getComputedStyle(n).backgroundImage,cardBottom:card.bottom,pocketBottom:pocket.bottom,sleeve:{content:sleeve.content,pointer:sleeve.pointerEvents,transition:sleeve.transitionDuration,left:card.left+parseFloat(sleeve.left),right:card.left+parseFloat(sleeve.left)+parseFloat(sleeve.width),bottom:card.top+parseFloat(sleeve.top)+parseFloat(sleeve.height)},label:{left:box.left,right:box.right,top:box.top,bottom:box.bottom},fits:[...n.querySelectorAll('.cb-copy-count,.cb-version-count,h2,.cb-icon')].every(c=>{const r=c.getBoundingClientRect();return r.left>=box.left-1&&r.right<=box.right+1&&r.top>=box.top-1&&r.bottom<=box.bottom+1;})};
         });
         return {background:style.backgroundImage,size:style.backgroundSize,blur:style.filter,interactive:style.pointerEvents,workFilter:getComputedStyle(work).filter,spreadFilter:getComputedStyle(node).filter,spine:getComputedStyle(node,'::before').content,spreadBackground:getComputedStyle(node).backgroundImage,overflow:document.documentElement.scrollWidth-innerWidth,captions,cards:[...node.querySelectorAll('.cb-card')].map(n=>{const r=n.getBoundingClientRect();return {width:r.width,height:r.height,filter:getComputedStyle(n).filter,inside:r.left>=rect.left&&r.right<=rect.right&&r.height>0};})};
       });
@@ -68,7 +69,9 @@ async function main(){
         assert.match(caption.material,/linear-gradient/,'restrained material reflection');
         assert.notEqual(caption.sleeve.content,'none');assert.equal(caption.sleeve.pointer,'none');
         assert.ok(Math.abs(caption.sleeve.left-caption.label.left)<1&&Math.abs(caption.sleeve.right-caption.label.right)<1,'label follows sleeve edges at '+width+'x'+height+': '+JSON.stringify(caption));
-        assert.ok(Math.abs(caption.sleeve.bottom-caption.label.bottom-4)<1,'sleeve surrounds the attached label');
+        assert.ok(Math.abs(caption.sleeve.bottom-caption.label.bottom)<1,'label seals the sleeve bottom without a dangling rim');
+        assert.ok(Math.abs(caption.label.top-caption.cardBottom-4)<1,'clear sleeve lip is between the card and its label');
+        assert.ok(caption.sleeve.bottom<=caption.pocketBottom+1,'bottom seal fits its pocket');
         assert.equal(caption.sleeve.transition,'0s','Reduced Motion settles the sleeve');
       }
       checks.push({width,height,geometry});
