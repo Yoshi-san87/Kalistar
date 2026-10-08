@@ -3,7 +3,7 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
 const {createRequire}=require('node:module');
 const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const {chromium}=createRequire(path.join(runtime,'__collection_versions__.cjs'))('playwright');
-const url=process.env.KALISTAR_URL||'http://127.0.0.1:4304',output=path.join(__dirname,'verification/collection-versions');
+const url=process.env.KALISTAR_URL||'http://127.0.0.1:4304',output=process.env.KALISTAR_VERIFICATION_DIR||path.join(__dirname,'verification/collection-versions');
 let browser;
 async function main(){
   fs.mkdirSync(output,{recursive:true});
@@ -67,11 +67,12 @@ async function main(){
     });
     assert.ok(fits,'caption counters fit at '+width+'x'+height);
     const inline=await pocket.locator('.cb-caption').evaluate(n=>{
-      const [copies,versions,name]=['.cb-copy-count','.cb-version-count','h2'].map(s=>n.querySelector(s).getBoundingClientRect());
+      const [copies,versions,name,favorite]=['.cb-copy-count','.cb-version-count','h2','.cb-icon'].map(s=>n.querySelector(s).getBoundingClientRect());
       const center=r=>r.top+r.height/2;
+      if(getComputedStyle(n.querySelector('.cb-caption-title')).display==='contents')return name.width>20&&name.bottom<=copies.top&&copies.right<=versions.left&&versions.right<=favorite.left;
       return copies.right<=versions.left&&versions.right<=name.left&&Math.abs(center(copies)-center(versions))<1&&Math.abs(center(versions)-center(name))<1;
     });
-    assert.ok(inline,'copies, versions and character name share one line in that order at '+width+'x'+height);
+    assert.ok(inline,'caption keeps ordered counters and a readable name, using its compact row when necessary, at '+width+'x'+height);
     assert.ok((await pocket.locator('.cb-card').boundingBox()).height>=120,'cards retain a readable height at '+width+'x'+height);
     await pocket.locator('.cb-card').click();
     const notes=page.locator('[data-binder-action=pane][data-id=notes]');if(await notes.isVisible())await notes.click();

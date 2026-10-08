@@ -168,8 +168,12 @@ Its exact prompt, unblurred source, WebP conversion and hashes are kept in
 `../propositions/2026-10-06-astralia-atlas-v2/`; V1 remains preserved.
 The background belongs to the workbench, so paging never repeats a book spine.
 Proportional cover
-cropping preserves the map geometry on desktop and phone. Quiet parchment
-caption strips keep names and counters legible. Story and character notebooks
+cropping preserves the map geometry on desktop and phone. Thin clear sleeves
+surround the cards and their attached dark identification strips. Ivory names
+and copper counters stay legible; the edges catch a restrained reflection on
+hover or keyboard focus. The sleeve is CSS-only, pointer-transparent, and
+keeps the original card artwork intact. Reduced Motion stops transitions.
+Story and character notebooks
 retain their original reading surfaces. `collection-map.browser.test.cjs`
 checks seven viewports, caption contrast, paging, filters, versions and reload.
 

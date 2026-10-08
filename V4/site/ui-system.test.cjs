@@ -19,3 +19,19 @@ test('progressive selects, keyboard state, Reduced Motion and high contrast stay
   for(const text of ['AbortController','observer?.disconnect()','animation.cancel()','aria-describedby','pageshow','pagehide'])assert(js.includes(text),text);
   assert(!/localStorage|indexedDB|KalistarEngine|setInterval|innerHTML/.test(js));
 });
+
+test('collection sleeves attach readable metal labels without blocking card controls',()=>{
+  const css=read('collection-binder.css'),mobile=read('mobile.css');
+  const rim=css.match(/\.cb-stack::before\s*\{([^}]+)\}/)[1];
+  assert(rim.includes('var(--cb-caption-height)'));
+  assert(rim.includes('pointer-events: none'));
+  assert(rim.includes('border-radius: 6px'));
+  assert(!rim.includes('backdrop-filter'));
+  assert(css.includes('.cb-pocket:is(:hover,:focus-within)'));
+  assert(css.includes('width: min(calc(var(--cb-card-width) + 8px),100%)'));
+  assert(mobile.includes('width: min(calc(var(--cb-card-width) + 8px),100%)'));
+  assert(css.includes('background-color: #101c1ff5'));
+  assert(!css.includes('background: #ead9b9f2'));
+  assert(css.includes('.cb-caption h2 { color: #f1eadc; text-shadow: none; }'));
+  assert(css.includes('.cb-page *, .cb-page *::before, .cb-page *::after { animation: none !important; transition: none !important;'));
+});

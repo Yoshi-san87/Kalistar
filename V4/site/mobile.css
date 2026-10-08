@@ -69,10 +69,10 @@
   .cb-sheet { padding: 0; row-gap: 16px; }
   .cb-shelf-row { grid-template-columns: repeat(var(--cb-row-count),minmax(0,1fr)); gap: 12px; }
   .cb-pocket, .cb-spread[data-rows="2"] .cb-pocket {
-    --cb-card-width: min(calc(100cqw - 4px),calc((100cqh - 56px) * .57420749)); gap: 3px;
+    --cb-card-width: min(calc(100cqw - 8px),calc((100cqh - 56px) * .57420749)); gap: var(--cb-sleeve-gap);
   }
   .cb-stack { margin: 0; }
-  .cb-caption { grid-template-columns: 22px minmax(0,1fr) 22px; width: 100%; max-width: 100%; height: 44px; min-height: 44px; gap: 3px; padding: 0; color: #442d1c; }
+  .cb-caption { grid-template-columns: 22px minmax(0,1fr) 22px; width: min(calc(var(--cb-card-width) + 8px),100%); max-width: 100%; height: 44px; min-height: 44px; gap: 3px; padding: 0; }
   .cb-caption .cb-caption-title { min-width: 0; }
   .cb-caption h2, .cb-caption h2.is-long-name { font-size: 11px; line-height: 1.2; overflow-wrap: anywhere; }
   .cb-caption-title > span { font-size: 9px; }
