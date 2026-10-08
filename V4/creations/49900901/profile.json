@@ -1,0 +1,56 @@
+{
+  "name": "VAELRIK",
+  "title": "LE COL RÉPOND ENCORE",
+  "job": "CARILLONNEUR",
+  "description": "Vaelrik frappe le fer puis retient son souffle. Tant que la montagne lui répond, un voyageur peut encore trouver le col. Il sonne une fois de plus, pour celui qui marche trop lentement.",
+  "element": "NONE",
+  "race": "OKAMI",
+  "weapon": "Instrument",
+  "faction": "Grivka",
+  "positions": [
+    3,
+    5
+  ],
+  "atk": [
+    168,
+    132,
+    102,
+    "guard",
+    "retry",
+    "buff_atk"
+  ],
+  "defense": [
+    203,
+    163,
+    126,
+    92,
+    57,
+    27
+  ],
+  "magic": [],
+  "barriers": [],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49900901",
+  "characterId": "vaelrik-kalistar",
+  "slug": "V4_49900901",
+  "output": "KALISTAR_V4_49900901",
+  "text": "Vaelrik frappe le fer puis retient son souffle. Tant que la montagne lui répond, un voyageur peut encore trouver le col. Il sonne une fois de plus, pour celui qui marche trop lentement.",
+  "color": "93AAA5",
+  "hue": 160,
+  "weapon_index": 11,
+  "role": 5,
+  "sentry": false,
+  "canGuard": true,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Personnage original Kalistar, selection utilisateur du 8 octobre 2026",
+  "visual_revision": "V4-2026-10-08-eleven-lives",
+  "artworkSource": "V4/propositions/2026-10-07-twenty-lives/01-vaelrik-01.png"
+}

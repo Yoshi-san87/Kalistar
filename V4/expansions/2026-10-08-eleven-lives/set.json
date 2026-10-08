@@ -1,0 +1,474 @@
+{
+  "id": "2026-10-08-eleven-lives",
+  "officialCollaboration": false,
+  "arenas": [],
+  "presets": [],
+  "selectionDate": "2026-10-08",
+  "sourceSet": "V4/propositions/2026-10-07-twenty-lives",
+  "cards": [
+    {
+      "key": "vaelrik",
+      "number": 1,
+      "name": "VAELRIK",
+      "title": "LE COL RÉPOND ENCORE",
+      "job": "CARILLONNEUR",
+      "description": "Vaelrik frappe le fer puis retient son souffle. Tant que la montagne lui répond, un voyageur peut encore trouver le col. Il sonne une fois de plus, pour celui qui marche trop lentement.",
+      "element": "NONE",
+      "race": "OKAMI",
+      "weapon": "Instrument",
+      "faction": "Grivka",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        168,
+        132,
+        102,
+        "guard",
+        "retry",
+        "buff_atk"
+      ],
+      "defense": [
+        203,
+        163,
+        126,
+        92,
+        57,
+        27
+      ],
+      "magic": [],
+      "barriers": [],
+      "id": "49900901",
+      "characterId": "vaelrik-kalistar",
+      "art": "01-vaelrik-01.png"
+    },
+    {
+      "key": "neriska",
+      "number": 2,
+      "name": "NERISKA",
+      "title": "LA LETTRE PASSERA",
+      "job": "MESSAGÈRE",
+      "description": "Neriska serre la lettre contre elle avant de descendre. Le nom du destinataire a presque disparu sous la neige. Elle le connaît par cœur : c'est celui d'un homme qui n'attend plus rien.",
+      "element": "CRYO",
+      "race": "OKAMI",
+      "weapon": "Arc",
+      "faction": "Grivka",
+      "role": 2,
+      "positions": [
+        2,
+        4
+      ],
+      "atk": [
+        281,
+        239,
+        183,
+        137,
+        83,
+        34
+      ],
+      "defense": [
+        171,
+        136,
+        106,
+        74,
+        "dodge",
+        21
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [],
+      "id": "49900902",
+      "characterId": "neriska-kalistar",
+      "art": "02-neriska-01.png"
+    },
+    {
+      "key": "ssahel",
+      "number": 3,
+      "name": "SSAHEL",
+      "title": "LA DERNIÈRE VANNE",
+      "job": "ÉCLUSIER",
+      "description": "Ssahel sent la vanne céder sous ses paumes. Un filet d'eau rejoint enfin les racines desséchées. Il garde pourtant le levier serré : les plus petites pousses sont encore loin, en aval.",
+      "element": "HERBO",
+      "race": "SERPES",
+      "weapon": "Bâton",
+      "faction": "Arborium",
+      "role": 3,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        227,
+        183,
+        144,
+        108,
+        61,
+        "buff_atk"
+      ],
+      "defense": [
+        231,
+        187,
+        148,
+        109,
+        68,
+        24
+      ],
+      "magic": [
+        4,
+        2
+      ],
+      "barriers": [
+        5
+      ],
+      "id": "49900903",
+      "characterId": "ssahel-kalistar",
+      "art": "03-ssahel-01.png"
+    },
+    {
+      "key": "odran",
+      "number": 6,
+      "name": "ODRAN",
+      "title": "LE SILENCE A UNE FRÉQUENCE",
+      "job": "ACCORDEUR",
+      "description": "Odran approche l'oreille du cristal fendu. Sous le vent, il retrouve une note presque éteinte. Il règle la balise comme on rassure un ami, jusqu'à ce que sa lumière traverse de nouveau la neige.",
+      "element": "CRYO",
+      "race": "FELINEUS",
+      "weapon": "Sceptre",
+      "faction": "Ysilis",
+      "role": 5,
+      "positions": [
+        4,
+        5
+      ],
+      "atk": [
+        172,
+        137,
+        "mana",
+        77,
+        "retry",
+        22
+      ],
+      "defense": [
+        194,
+        167,
+        128,
+        91,
+        58,
+        "retry"
+      ],
+      "magic": [
+        6,
+        3
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "id": "49900904",
+      "characterId": "odran-kalistar",
+      "art": "06-odran-01.png"
+    },
+    {
+      "key": "tivrek",
+      "number": 7,
+      "name": "TIVREK",
+      "title": "CE QUI TIENT DANS UNE PINCE",
+      "job": "CÉRAMISTE",
+      "description": "Tivrek soutient le vase de sa pince et affine le bord de sa main libre. Autrefois, il cassait ce qu'il voulait garder. Aujourd'hui, il sait qu'une force juste commence par retenir son geste.",
+      "element": "GEO",
+      "race": "CRUSTOS",
+      "weapon": "Poing",
+      "faction": "Arborium",
+      "role": 1,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        194,
+        161,
+        126,
+        89,
+        "guard",
+        21
+      ],
+      "defense": [
+        296,
+        239,
+        184,
+        142,
+        91,
+        38
+      ],
+      "magic": [
+        3
+      ],
+      "barriers": [
+        6,
+        5
+      ],
+      "id": "49900905",
+      "characterId": "tivrek-kalistar",
+      "art": "07-tivrek-01.png"
+    },
+    {
+      "key": "calven",
+      "number": 12,
+      "name": "CALVEN",
+      "title": "LE POIDS JUSTE",
+      "job": "POSEUR DE PONTS",
+      "description": "Calven ajuste la dernière clavette. De l'autre côté, une famille attend de pouvoir rentrer. Il pourrait compter les coups de marteau ; il préfère compter les pas qui reviendront sur ce pont.",
+      "element": "MINERO",
+      "race": "HUMAIN",
+      "weapon": "Marteau",
+      "faction": "Durane",
+      "role": 2,
+      "positions": [
+        1,
+        2,
+        3
+      ],
+      "atk": [
+        293,
+        234,
+        191,
+        128,
+        "buff_atk",
+        31
+      ],
+      "defense": [
+        166,
+        137,
+        108,
+        76,
+        43,
+        18
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        4
+      ],
+      "id": "49900906",
+      "characterId": "calven-kalistar",
+      "art": "12-calven-01.png"
+    },
+    {
+      "key": "rovel",
+      "number": 14,
+      "name": "ROVEL",
+      "title": "LE PASSAGE DES ABSENTS",
+      "job": "CHASSEUR DE PISTES",
+      "description": "Rovel retrouve une trace dans la neige neuve. Il reconnaît cette façon de traîner le pied et sourit malgré le froid. Son fusil reste dans son dos. Pour une fois, il n'est pas venu chasser.",
+      "element": "CRYO",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "faction": "Ysilis",
+      "role": 4,
+      "positions": [
+        2,
+        4
+      ],
+      "atk": [
+        289,
+        237,
+        184,
+        141,
+        84,
+        29
+      ],
+      "defense": [
+        164,
+        139,
+        102,
+        71,
+        43,
+        "dodge"
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "id": "49900907",
+      "characterId": "rovel-kalistar",
+      "art": "14-rovel-01.png"
+    },
+    {
+      "key": "maelor",
+      "number": 16,
+      "name": "MAELOR",
+      "title": "LA GREFFE TIENDRA",
+      "job": "GREFFEUR",
+      "description": "Maelor noue le lien sans serrer l'écorce. La jeune branche tremble contre le vieux rempart. Il lui parle tout bas, non pour la faire grandir plus vite, mais pour qu'elle ne pousse pas seule.",
+      "element": "HERBO",
+      "race": "HUMAIN",
+      "weapon": "Dague",
+      "faction": "Arborium",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        165,
+        126,
+        "mana",
+        74,
+        "guard",
+        "revive"
+      ],
+      "defense": [
+        196,
+        158,
+        121,
+        88,
+        53,
+        24
+      ],
+      "magic": [
+        6
+      ],
+      "barriers": [
+        5,
+        3
+      ],
+      "id": "49900908",
+      "characterId": "maelor-kalistar",
+      "art": "16-maelor-01.png"
+    },
+    {
+      "key": "djarell",
+      "number": 17,
+      "name": "DJARELL",
+      "title": "LE SOLEIL DE POCHE",
+      "job": "GARDIENNE DU SOIR",
+      "description": "Djarell incline son miroir vers la porte. Le soleil a déjà quitté la rue, mais sa dernière lumière entre encore dans la maison. Elle attend qu'une petite main cesse de trembler sur le seuil.",
+      "element": "LUXO",
+      "race": "HUMAIN",
+      "weapon": "Lance",
+      "faction": "Solaria",
+      "role": 1,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        206,
+        166,
+        132,
+        94,
+        "guard",
+        26
+      ],
+      "defense": [
+        288,
+        243,
+        188,
+        141,
+        92,
+        41
+      ],
+      "magic": [
+        5,
+        3
+      ],
+      "barriers": [
+        6,
+        4,
+        2
+      ],
+      "id": "49900909",
+      "characterId": "djarell-kalistar",
+      "art": "17-djarell-01.png"
+    },
+    {
+      "key": "veyrac",
+      "number": 18,
+      "name": "VEYRAC",
+      "title": "LE FEU VOYAGE AVEC NOUS",
+      "job": "CONVOYEUR DE BRAISES",
+      "description": "Veyrac pousse son four par-dessus le seuil, puis rit de son propre juron. Dans la cuve, les braises ont tenu toute la route. Ce soir, personne n'aura besoin de manger en gardant ses gants.",
+      "element": "PYRO",
+      "race": "HUMAIN",
+      "weapon": "Epée courte",
+      "faction": "Vulkar",
+      "role": 3,
+      "positions": [
+        2,
+        3,
+        4
+      ],
+      "atk": [
+        236,
+        184,
+        151,
+        106,
+        68,
+        "buff_atk"
+      ],
+      "defense": [
+        221,
+        184,
+        147,
+        101,
+        64,
+        23
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        3
+      ],
+      "id": "49900910",
+      "characterId": "veyrac-kalistar",
+      "art": "18-veyrac-01.png"
+    },
+    {
+      "key": "helior",
+      "number": 20,
+      "name": "HELIOR",
+      "title": "ENCORE UNE MANCHE",
+      "job": "ARBITRE",
+      "description": "Helior lève la main avant que les voix ne montent. Il a vu assez de disputes pour savoir quand sourire. Le ballon attend près de sa botte : ici, même les mauvais perdants ont droit au retour.",
+      "element": "NONE",
+      "race": "HUMAIN",
+      "weapon": "Bâton",
+      "faction": "Zarok",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        176,
+        143,
+        108,
+        "guard",
+        "retry",
+        "buff_atk"
+      ],
+      "defense": [
+        207,
+        161,
+        129,
+        91,
+        54,
+        25
+      ],
+      "magic": [],
+      "barriers": [],
+      "id": "49900911",
+      "characterId": "helior-kalistar",
+      "art": "20-helior-01.png"
+    }
+  ]
+}

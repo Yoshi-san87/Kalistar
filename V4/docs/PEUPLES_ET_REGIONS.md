@@ -82,3 +82,16 @@ affichent Ysilis. Ni la compatibilite effective ni les bonus ne changent.
 Les trois nouvelles races sont enregistrees narrativement ici. Elles ne sont
 pas ajoutees artificiellement aux matchups, aux cartes jouables ou aux menus
 du designer tant que leurs cartes et leurs medaillons ne sont pas approuves.
+
+## Passage aux cartes : 8 octobre 2026
+
+L'auteur retient Vaelrik et Neriska, les deux Okami de la serie du 7 octobre,
+avec neuf autres personnages. Voir [le lot de production](../expansions/2026-10-08-eleven-lives/README.md)
+pour son statut et ses preuves. Ils appartiennent a Grivka ; Rhovan et Eyska
+restent des propositions distinctes, sans cartes ajoutees par cette selection.
+
+Le lot introduit le medaillon OKAMI argent/cuivre et le fanion Grivka natif,
+noir et vert foret avec le loup et la montagne argentes. Les anciens composants
+restent inchanges. Okami utilise la synergie de race ordinaire ; aucun pouvoir
+de transformation ni bonus specifique n'est cree. Lycanos et Garou restent
+documentes narrativement, sans carte ni composant jouable ajoute ici.

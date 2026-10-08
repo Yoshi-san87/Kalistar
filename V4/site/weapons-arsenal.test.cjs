@@ -5,7 +5,7 @@ const rows=require('../donnees/catalogue.json').cards.filter(c=>c.kind==='create
 const weapons=Q.catalogue.weapons.filter(w=>Q.catalogue.kind(w)==='weapon');
 const dataPromise=buildCatalog({published:rows}),additions=weapons.filter(w=>w.collectible);
 const {legacyGame,weapons:previous}=require('./fixtures/legacy-equipment.cjs');
-const unmatched=['commanders-sabre','arborium-thorn-dagger','draevenheim-crimson-crossbow','rhinoz-ancestral-horn'];
+const unmatched=['commanders-sabre','draevenheim-crimson-crossbow','rhinoz-ancestral-horn'];
 function deckFor(E,data,carrier){
   const base=data.decks.player;
   for(let i=0;i<base.length;i++){
@@ -38,6 +38,10 @@ test('31 unique additions: stable identities, real jobs/factions/races and conse
   assert.equal(additions.filter(w=>w.restrictions.factions).length,7);
   assert.equal(additions.filter(w=>w.restrictions.races).length,1);
   for(const w of additions){Q.validateDefinition(w);assert(w.effect.value>=15&&w.effect.value<=25);assert.equal(data.cards.some(c=>Q.compatible(w,c)),!unmatched.includes(w.id),w.id);assert.equal(w.changesFamily,undefined);}
+  const thorn=additions.find(w=>w.id==='arborium-thorn-dagger'),maelor=data.cards.find(c=>c.id==='49900908');
+  assert(maelor);assert.equal(maelor.characterId,'maelor-kalistar');assert(Q.compatible(thorn,maelor));
+  assert(!Q.compatible(thorn,{...maelor,faction:'Durane'}));
+  assert(!Q.compatible(thorn,{...maelor,weapon:'Arc'}));
   const rapier=additions.find(w=>w.id==='white-oath-rapier');
   assert(Q.compatible(rapier,data.cards.find(c=>c.id==='49055457')));
   assert(!Q.compatible(rapier,data.cards.find(c=>c.id==='30000012')));

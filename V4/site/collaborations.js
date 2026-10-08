@@ -26,6 +26,6 @@
   const universe=card=>of(card)?.faction||'kalistar';
   const matches=(card,id)=>of(card)?.id===id;
   const choices=cards=>entries.filter(entry=>entry.id==='ff7'||entry.id==='ff8'||cards.some(card=>matches(card,entry.id))).map(entry=>[entry.faction,entry.faction]);
-  const asset=(folder,name)=>folder==='armes'&&W?.asset(name)?W.asset(name):(folder==='factions'&&(find(name)||name==='Solaria')||folder==='races'&&['ANDROID','BUZZY','SERPES','SHARKAN','CRUSTOS'].includes(name)?'assets/':'shared/')+folder+'/'+encodeURIComponent(folder==='factions'?F.assetName(name):name)+'.png';
+  const asset=(folder,name)=>folder==='armes'&&W?.asset(name)?W.asset(name):(folder==='factions'&&(find(name)||['Solaria','Grivka'].includes(name))||folder==='races'&&['ANDROID','BUZZY','SERPES','SHARKAN','CRUSTOS','OKAMI'].includes(name)?'assets/':'shared/')+folder+'/'+encodeURIComponent(folder==='factions'?F.assetName(name):name)+'.png';
   return {entries,of,universe,matches,choices,asset};
 });

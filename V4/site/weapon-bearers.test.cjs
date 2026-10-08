@@ -9,7 +9,7 @@ const expected={
   'soldiers-blade':['isvel-kalistar','liorne-kalistar'],
   'commanders-sabre':[],
   'arborium-twinstring-bow':['saelor-kalistar','ssilas'],
-  'arborium-thorn-dagger':[],
+  'arborium-thorn-dagger':['maelor-kalistar'],
   'draevenheim-wing-spear':['orven-kalistar'],
   'draevenheim-crimson-crossbow':[],
   'cryptown-oath-sword':['varkhen-kalistar'],

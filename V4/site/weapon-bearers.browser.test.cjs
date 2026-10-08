@@ -9,7 +9,7 @@ const out=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'../revi
 const expected={
   'wardens-spear':['brask-kalistar','karrok-kalistar','kimahri-ff10','nazar','ward-ff8'],
   'soldiers-blade':['isvel-kalistar','liorne-kalistar'],'commanders-sabre':[],
-  'arborium-twinstring-bow':['saelor-kalistar','ssilas'],'arborium-thorn-dagger':[],
+  'arborium-twinstring-bow':['saelor-kalistar','ssilas'],'arborium-thorn-dagger':['maelor-kalistar'],
   'draevenheim-wing-spear':['orven-kalistar'],'draevenheim-crimson-crossbow':[],
   'cryptown-oath-sword':['varkhen-kalistar'],'cryptown-vigil-rifle':['nereth-kalistar'],
   'cryptown-watch-flail':['draust-kalistar'],'rhinoz-ancestral-horn':[],

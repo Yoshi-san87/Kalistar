@@ -49,6 +49,16 @@ temporaires du presse-papiers ou les preferences non encore documentees.
 
 ## Reperes techniques
 
+### Onze nouvelles vies : selection du 8 octobre 2026
+
+Le [lot de production](../V4/expansions/2026-10-08-eleven-lives/README.md)
+concerne Vaelrik, Neriska, Ssahel, Odran, Tivrek, Calven, Rovel, Maelor,
+Djarell, Veyrac et Helior, choisis parmi les vingt illustrations du 7 octobre.
+Les deux Okami sont ceux de cette nouvelle serie, pas Rhovan et Eyska.
+Illustrations preservees, nouveaux medaillon OKAMI et fanion Grivka,
+profils differencies sans nouvelle mecanique. Lire les preuves natives et
+le statut de publication du lot avant d'annoncer son integration en ligne.
+
 ### Niveria, Ysilis et les peuples lupins (6 octobre 2026)
 
 Lire [Peuples et regions](../V4/docs/PEUPLES_ET_REGIONS.md) : Niveria est la

@@ -14,10 +14,11 @@ test('Ysilis is a faction alias, never a replacement of geographical text',()=>{
   assert.equal(C.asset('factions','Ysilis'),'shared/factions/Niveria.png');
 });
 
-test('only three current faction labels change, all native fields and geography preserved',async()=>{
+test('three legacy labels migrate while new Ysilis and Okami cards retain their native identities',async()=>{
   const data=await dataPromise;
-  assert.deepEqual(data.cards.filter(c=>c.faction==='Ysilis').map(c=>c.id).sort(),ids);
-  assert(!data.cards.some(c=>c.faction==='Niveria'||['OKAMI','LYCANOS','GAROU'].includes(c.race)));
+  assert.deepEqual(data.cards.filter(c=>c.faction==='Ysilis').map(c=>c.id).sort(),[...ids,'49900904','49900907']);
+  assert.deepEqual(data.cards.filter(c=>c.race==='OKAMI').map(c=>[c.id,c.faction]),[['49900901','Grivka'],['49900902','Grivka']]);
+  assert(!data.cards.some(c=>c.faction==='Niveria'||['LYCANOS','GAROU'].includes(c.race)));
   const originals=[...refs.cards.map(r=>({...r.card,id:r.card.id})),...rows.map(r=>({...r.profile,id:r.id}))];
   for(const c of data.cards){
     const p=originals.find(p=>p.id===c.id);assert(p);
@@ -33,7 +34,7 @@ test('equipment compatibility is unchanged in both old and new faction namespace
   assert.deepEqual(w.restrictions.factions,['Ysilis']);
   const old={...w,restrictions:{factions:['Niveria']}};
   for(const c of data.cards){
-    const expected=ids.includes(c.id),legacy={...c,faction:c.faction==='Ysilis'?'Niveria':c.faction};
+    const expected=c.faction==='Ysilis',legacy={...c,faction:c.faction==='Ysilis'?'Niveria':c.faction};
     for(const definition of [w,old])for(const card of [c,legacy])assert.equal(Q.compatible(definition,card),expected,c.id);
   }
   assert(!Q.compatible(w,{...data.cards.find(c=>ids.includes(c.id)),faction:'Grivka'}));

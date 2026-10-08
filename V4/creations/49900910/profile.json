@@ -1,0 +1,62 @@
+{
+  "name": "VEYRAC",
+  "title": "LE FEU VOYAGE AVEC NOUS",
+  "job": "CONVOYEUR DE BRAISES",
+  "description": "Veyrac pousse son four par-dessus le seuil, puis rit de son propre juron. Dans la cuve, les braises ont tenu toute la route. Ce soir, personne n'aura besoin de manger en gardant ses gants.",
+  "element": "PYRO",
+  "race": "HUMAIN",
+  "weapon": "Epée courte",
+  "faction": "Vulkar",
+  "positions": [
+    2,
+    3,
+    4
+  ],
+  "atk": [
+    236,
+    184,
+    151,
+    106,
+    68,
+    "buff_atk"
+  ],
+  "defense": [
+    221,
+    184,
+    147,
+    101,
+    64,
+    23
+  ],
+  "magic": [
+    6,
+    4
+  ],
+  "barriers": [
+    3
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49900910",
+  "characterId": "veyrac-kalistar",
+  "slug": "V4_49900910",
+  "output": "KALISTAR_V4_49900910",
+  "text": "Veyrac pousse son four par-dessus le seuil, puis rit de son propre juron. Dans la cuve, les braises ont tenu toute la route. Ce soir, personne n'aura besoin de manger en gardant ses gants.",
+  "color": "FF704A",
+  "hue": 12,
+  "weapon_index": 16,
+  "role": 3,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Personnage original Kalistar, selection utilisateur du 8 octobre 2026",
+  "visual_revision": "V4-2026-10-08-eleven-lives",
+  "artworkSource": "V4/propositions/2026-10-07-twenty-lives/18-veyrac-01.png"
+}

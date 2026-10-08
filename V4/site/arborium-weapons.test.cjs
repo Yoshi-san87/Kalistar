@@ -6,7 +6,7 @@ const published=require('../donnees/catalogue.json').cards.filter(c=>c.kind==='c
 const dataPromise=buildCatalog({published});
 const ids=['arborium-twinstring-bow','arborium-thorn-dagger'];
 const weapons=ids.map(id=>Q.catalogue.weapons.find(w=>w.id===id));
-const allowed={'arborium-twinstring-bow':['saelor-kalistar','ssilas'],'arborium-thorn-dagger':[]};
+const allowed={'arborium-twinstring-bow':['saelor-kalistar','ssilas'],'arborium-thorn-dagger':['maelor-kalistar']};
 
 test('Arborium equipment requires its exact faction AND base family, regardless of job or displayed name',async()=>{
   const data=await dataPromise;
@@ -65,7 +65,7 @@ test('team compositions validate the selected edition; old equipment snapshots s
   assert.deepEqual(E.restoreGame(legacy),legacy,'a saved match without the two new definitions is not upgraded');
 });
 
-test('compatible Arborium bow wielders receive the real bonus on either side in formulas, logs and reloads',async()=>{
+test('compatible Arborium bow and dagger wielders receive the real bonus on either side in formulas, logs and reloads',async()=>{
   const data=await dataPromise,E=createEngine(data);
   for(const w of weapons)for(const characterId of allowed[w.id])for(const side of [0,1]){
     const c=data.cards.find(c=>c.characterId===characterId),base=data.decks.player;

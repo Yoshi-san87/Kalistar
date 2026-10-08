@@ -1,0 +1,98 @@
+{
+  "race": {
+    "left": 711,
+    "top": 1116,
+    "width": 96,
+    "height": 95,
+    "source": "V4\\expansions\\2026-10-08-eleven-lives\\components\\source-OKAMI.png",
+    "sourceHash": "d6f0b13e9c09417c1ccc32e622278586c771d9cafd7dc538b26dbec3cfa92eba",
+    "sha256": "65de12bccbe7cf8de5faed3e3b792d97e85aed61250367d1c3f29a25a394ae96",
+    "nativeEmail": "V4\\collaborations\\ff7-set-01\\weapon-email-native.png",
+    "nativeEmailHash": "c6ef219cbe72e7addf544d52fac5e047e4eda5552bda1d2f985c84e250ce3bd6",
+    "crop": {
+      "left": 29,
+      "top": 71,
+      "width": 1205,
+      "height": 1183
+    },
+    "placement": {
+      "left": 8,
+      "top": 12
+    },
+    "sourceMetrics": {
+      "fullBounds": [
+        29,
+        71,
+        1234,
+        1254
+      ],
+      "visibleBounds": [
+        217,
+        95,
+        1037,
+        1143
+      ],
+      "centroid": [
+        651.8827617184005,
+        602.3417149918774
+      ],
+      "optical": [
+        643.1737951169603,
+        608.1721147447204
+      ],
+      "fullAlphaRadius": 1571.5935384188879,
+      "opticalError": 817.6705122763339,
+      "visibleAlphaThreshold": 16
+    },
+    "metrics": {
+      "fullBounds": [
+        18,
+        12,
+        77,
+        85
+      ],
+      "visibleBounds": [
+        20,
+        14,
+        75,
+        83
+      ],
+      "centroid": [
+        48.830987953534596,
+        47.04854101629847
+      ],
+      "optical": [
+        48.36514216979749,
+        47.55655166059401
+      ],
+      "fullAlphaRadius": 38.029593739612835,
+      "opticalError": 0.36949545935012085,
+      "visibleAlphaThreshold": 16
+    },
+    "motif": "V4\\expansions\\2026-10-08-eleven-lives\\components\\race-OKAMI.motif.png",
+    "motifHash": "a74170fa2509d3fad938bb6ae8c68900a3e19d54baabf397031afee989cf3401",
+    "opticalTarget": [
+      759,
+      1163.5
+    ],
+    "measuredOpticalCenter": [
+      759.3651421697975,
+      1163.556551660594
+    ],
+    "radiusLimit": 39,
+    "opticalTolerance": 0.75,
+    "method": "65% visible luminance-alpha centroid / 35% visible bounds centre; full nonzero alpha contour contained; visible alpha >=16"
+  },
+  "faction": {
+    "id": "Grivka",
+    "geometry": {
+      "left": 672,
+      "top": 829,
+      "width": 98,
+      "height": 223
+    },
+    "sourceHash": "7721799f5a87ceba64de98ffcf5d5180c2b9c4f2e5ce71091e18a2eb86370bad",
+    "packedHash": "44acf41d0d9d31ea2a29cbcc525f66f68a1c82471a7496319025bb53d62cebb2",
+    "fullHash": "66a2b5dada79188b3eb39e2582e28c54766794a2d460eb48a7cffd70eeee5873"
+  }
+}

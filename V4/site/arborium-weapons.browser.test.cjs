@@ -5,7 +5,7 @@ const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFI
 const {chromium}=createRequire(path.join(runtime,'__arborium__.cjs'))('playwright');
 const base=process.env.KALISTAR_URL||'http://127.0.0.1:4304',out=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'../revisions/2026-10-06-weapon-bearers/factions');
 const ids=['arborium-twinstring-bow','arborium-thorn-dagger','draevenheim-wing-spear','draevenheim-crimson-crossbow'];
-const allowed={'arborium-twinstring-bow':['saelor-kalistar','ssilas'],'arborium-thorn-dagger':[],'draevenheim-wing-spear':['orven-kalistar'],'draevenheim-crimson-crossbow':[]},results=[],errors=[];
+const allowed={'arborium-twinstring-bow':['saelor-kalistar','ssilas'],'arborium-thorn-dagger':['maelor-kalistar'],'draevenheim-wing-spear':['orven-kalistar'],'draevenheim-crimson-crossbow':[]},results=[],errors=[];
 const faction=id=>id.startsWith('arborium-')?'Arborium':'Draevenheim',carrier=id=>id.startsWith('arborium-')?'ssilas':'orven-kalistar';
 let browser,navigation=0;
 async function ready(page,view){await page.goto(base+'/jeu/?arborium-qa='+(++navigation)+'#'+view);await page.waitForFunction(()=>window.KALISTAR_READY);}
