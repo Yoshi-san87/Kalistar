@@ -22,10 +22,10 @@
 .tt-dot{position:relative;display:block;flex:none;width:12px;height:12px;border:2px solid var(--tt-side);border-radius:50%;background:var(--kui-ink);box-shadow:0 0 0 2px #071211;}
 .tt-turn{font-size:10px;color:#d6dfd9;}
 .is-past .tt-dot{background:var(--tt-side);opacity:.6;}.is-past .tt-turn{color:#a7b6af;}
-.is-current .tt-dot{width:14px;height:14px;border-color:var(--kui-gold);box-shadow:0 0 0 2px #071211,0 0 5px #edcf8f45;}
+.is-current .tt-dot{width:14px;height:14px;border-color:var(--tt-side);box-shadow:0 0 0 2px #071211,0 0 5px color-mix(in srgb,var(--tt-side) 27%,transparent);}
 .is-current .tt-turn{color:#fff0d0;}
 .is-current .tt-dot::after{content:'';position:absolute;left:0;top:-4px;width:10px;height:18px;background:url('assets/navigation/kalistel-rainbow-v1.webp') center/contain no-repeat;pointer-events:none;animation:tt-crystal-breath 3s ease-in-out infinite;}
-.is-resolved .tt-dot::after{display:none;}.tt-dot svg{display:block;width:10px;height:10px;fill:none;stroke:var(--kui-gold);stroke-width:2.5;}
+.is-resolved .tt-dot::after{display:none;}.tt-dot svg{display:block;width:10px;height:10px;fill:none;stroke:var(--tt-side);stroke-width:2.5;}
 .turn-timeline .round-start:not(:first-child){box-shadow:inset 1px 0 #a5816233;}
 .turn-timeline.is-pending{color:var(--kui-gold);}.turn-timeline.is-pending>svg{width:18px;height:18px;}
 .arena-view .has-turn-timeline .battlefield{min-height:calc(100dvh - 166px);}

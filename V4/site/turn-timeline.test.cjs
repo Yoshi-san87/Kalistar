@@ -6,7 +6,17 @@ test('timeline reuses Kalistar materials, display font and the existing rainbow 
   for(const file of ['assets/ui/collection-reader-grimoire-v1.webp','assets/navigation/kalistel-rainbow-v1.webp']){
     assert(css.includes(file));assert(fs.existsSync(path.join(__dirname,file)));
   }
-  assert(css.includes('.tt-dot'));assert(css.includes('fill:none;stroke:var(--kui-gold)'));
+  assert(css.includes('.tt-dot'));assert(css.includes('fill:none;stroke:var(--tt-side)'));
+});
+test('current and resolved stations keep their player color, glow and check',()=>{
+  const current=css.match(/\.is-current \.tt-dot\{([^}]+)\}/)[1];
+  assert(current.includes('width:14px;height:14px'));
+  assert(current.includes('border-color:var(--tt-side)'));
+  assert(current.includes('color-mix(in srgb,var(--tt-side) 27%,transparent)'));
+  assert(!current.includes('--kui-gold'));
+  assert(css.includes('li.is-enemy{--tt-side:var(--kui-danger);}'));
+  const render=app.slice(app.indexOf('function turnTimeline()'),app.indexOf('function weaponMatchupGrid('));
+  assert(render.includes("step.resolved?icon('check'):''"));
 });
 test('phone keeps five full-width steps and its existing 34px reserved rail',()=>{
   assert(css.includes('padding-top:34px'));assert(css.includes('height:34px;min-height:34px'));
