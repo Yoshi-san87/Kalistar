@@ -118,12 +118,15 @@ test('Published native cards, exact selected artwork, no rejected character inst
   assert.deepEqual(entry[0].profile,JSON.parse(fs.readFileSync(path.join(dir,'profile.json'),'utf8')));
   M.validateProfile(entry[0].profile,c);
   const changed=revision.cards.some(r=>r.id===c.id);
-  if(changed)assert.equal(entry[0].nativeRevision.id,revision.revision);
+  assert.equal(entry[0].nativeRevision.id,'2026-10-09-ff-logo-banners');
+  if(changed)assert.equal(entry[0].nativeRevision.previous.id,revision.revision);
+  else assert.equal(entry[0].nativeRevision.previous,null);
   const proof=JSON.parse(fs.readFileSync(path.join(dir,'verification.json'),'utf8'));
   assert(proof.passed&&proof.barcode.passed);assert.equal(proof.roundtrip.changed,0);assert.equal(proof.components.fixedDifferences,0);
   assert.equal(hash(path.join(dir,'card.png')),proof.hashes['card.png']);
   assert.equal(hash(path.join(dir,'illustration.png')),hash(path.resolve(__dirname,'../../..',M.artPath(c))));
-  if(changed){assert.equal(proof.scope.outside,0);assert.equal(proof.gameplayUnchanged,true);}
+  assert.equal(proof.scope.outside,0);assert.equal(proof.gameplayUnchanged,true);
+  assert.deepEqual(proof.scope.rectangles,[[672,829,770,1052]]);
  }
  assert.equal(set.cards.find(c=>c.key==='cina').art,'18-cina-02.png');
  assert.equal(set.cards.find(c=>c.key==='dagga').art,'04-dagga-02.png');

@@ -1,0 +1,14 @@
+✔ Cryptown weapons respect their matching base family and faction, not names (44.8487ms)
+✔ one weapon slot, replacement, faction enforcement, profile and composition persistence (19.2911ms)
+✔ all compatible printed editions receive the exact real bonus on either side, then lose it when inactive (18.8312ms)
+✔ bounded state-based effects reuse existing families and do not create a second attack (0.1676ms)
+✔ saved Cryptown equipment never turns Nereth or Morveth Death into numeric damage; Dodge and Reraise still work (14.4687ms)
+✔ active Cryptown equipment preserves Guard support without adding a second gift (5.0664ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 188.4737

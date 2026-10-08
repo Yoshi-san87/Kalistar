@@ -1,0 +1,1257 @@
+{
+  "id": "2026-10-09-final-fantasy-trilogy",
+  "officialCollaboration": false,
+  "arenas": [],
+  "presets": [],
+  "selectionDate": "2026-10-09",
+  "sourceSet": "V4/propositions/2026-10-09-ff6-ff15-ff13",
+  "cards": [
+    {
+      "key": "terra",
+      "id": "49901101",
+      "characterId": "terra-ff6",
+      "name": "TERRA",
+      "title": "LA PREMIÈRE VOLONTÉ",
+      "job": "MAGITEK",
+      "description": "Terra abrite une flamme dans ses mains. Pour la première fois, personne ne lui ordonne de la lancer. Devant la mine, elle découvre que sa puissance peut aussi éclairer le chemin d'un autre.",
+      "element": "PYRO",
+      "race": "HUMAIN",
+      "weapon": "Epée courte",
+      "role": 3,
+      "positions": [
+        3,
+        4,
+        5
+      ],
+      "atk": [
+        228,
+        185,
+        143,
+        103,
+        "mana",
+        24
+      ],
+      "defense": [
+        219,
+        181,
+        143,
+        100,
+        65,
+        27
+      ],
+      "magic": [
+        6,
+        5,
+        3
+      ],
+      "barriers": [
+        4
+      ],
+      "art": "01-terra-01.png",
+      "faction": "FF6",
+      "collaboration": "FF6",
+      "rationale": "Magie hybride et potion ; resilience moyenne, puissance moindre que la transe."
+    },
+    {
+      "key": "terra-transe",
+      "id": "49901102",
+      "characterId": "terra-ff6",
+      "name": "TERRA",
+      "title": "CE QU’ELLE N’A PLUS À CRAINDRE",
+      "job": "ESPER",
+      "description": "La lumière ne lui demande plus de se cacher. Terra tend la main vers l'aube, encore surprise de ne pas tomber. Ce corps qu'elle craignait devient un passage entre sa peur et le monde.",
+      "element": "RAINBOW",
+      "race": "HUMAIN",
+      "weapon": "Orbe",
+      "role": 4,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        297,
+        244,
+        187,
+        138,
+        87,
+        42
+      ],
+      "defense": [
+        154,
+        128,
+        94,
+        62,
+        33,
+        12
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3
+      ],
+      "barriers": [
+        6,
+        2
+      ],
+      "art": "02-terra-transe-01.png",
+      "faction": "FF6",
+      "collaboration": "FF6",
+      "rationale": "Quatre faces magiques et pic offensif ; DEF basse, contrainte Rainbow et identite commune."
+    },
+    {
+      "key": "locke",
+      "id": "49901103",
+      "characterId": "locke-ff6",
+      "name": "LOCKE",
+      "title": "LE TRÉSOR QU’ON NE VOLE PAS",
+      "job": "VOLEUR",
+      "description": "Locke examine un souvenir que personne ne voudrait acheter. Les trésors qu'il poursuit ont souvent un visage. Il referme doucement le coffre : cette fois, quelque chose lui sera rendu.",
+      "element": "NONE",
+      "race": "HUMAIN",
+      "weapon": "Dague",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        278,
+        229,
+        178,
+        124,
+        "retry",
+        29
+      ],
+      "defense": [
+        164,
+        134,
+        95,
+        71,
+        "dodge",
+        16
+      ],
+      "magic": [],
+      "barriers": [],
+      "art": "03-locke-01.png",
+      "faction": "FF6",
+      "collaboration": "FF6",
+      "rationale": "Chance et esquive basses faces, attaque physique sans magie."
+    },
+    {
+      "key": "celes",
+      "id": "49901104",
+      "characterId": "celes-ff6",
+      "name": "CELES",
+      "title": "LA LAME ÉCOUTE LE SILENCE",
+      "job": "CHEVALIÈRE RUNIQUE",
+      "description": "Celes laisse le vent traverser sa cape. Sa lame recueille une clarté froide, sans ordre ni témoin. Le silence lui pèse encore, mais elle y entend enfin une voix qui pourrait être la sienne.",
+      "element": "CRYO",
+      "race": "HUMAIN",
+      "weapon": "Epée longue",
+      "role": 1,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        202,
+        166,
+        130,
+        92,
+        58,
+        27
+      ],
+      "defense": [
+        286,
+        233,
+        181,
+        131,
+        85,
+        40
+      ],
+      "magic": [
+        6,
+        3
+      ],
+      "barriers": [
+        6,
+        5,
+        4
+      ],
+      "art": "04-celes-01.png",
+      "faction": "FF6",
+      "collaboration": "FF6",
+      "rationale": "Runique traduit par trois barrieres, pas par absorption ou nouvelle mecanique."
+    },
+    {
+      "key": "edgar",
+      "id": "49901105",
+      "characterId": "edgar-ff6",
+      "name": "EDGAR",
+      "title": "LE ROI SOUS LA COURONNE",
+      "job": "ROI INGÉNIEUR",
+      "description": "Edgar règle le mécanisme avec des mains tachées d'huile. La couronne attendra. Un ressort qui tient, une arme qui répond : protéger Figaro commence parfois par une pièce que nul ne voit.",
+      "element": "NONE",
+      "race": "HUMAIN",
+      "weapon": "Arc",
+      "role": 3,
+      "positions": [
+        1,
+        3,
+        4
+      ],
+      "atk": [
+        232,
+        192,
+        150,
+        107,
+        69,
+        "buff_atk"
+      ],
+      "defense": [
+        220,
+        179,
+        139,
+        102,
+        62,
+        27
+      ],
+      "magic": [],
+      "barriers": [],
+      "art": "05-edgar-01.png",
+      "faction": "FF6",
+      "collaboration": "FF6",
+      "rationale": "Outil a distance et puissance physique ; polyvalence avec chiffres P3."
+    },
+    {
+      "key": "sabin",
+      "id": "49901106",
+      "characterId": "sabin-ff6",
+      "name": "SABIN",
+      "title": "LA FORCE DE RETENIR",
+      "job": "MOINE",
+      "description": "Sabin retient la poutre et tend son autre main. Il a passé des années à devenir plus fort ; ce soir, cette force a un sens très simple. Quelqu'un doit pouvoir franchir le passage vivant.",
+      "element": "GEO",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "role": 2,
+      "positions": [
+        1,
+        2
+      ],
+      "atk": [
+        296,
+        242,
+        190,
+        137,
+        "buff_atk",
+        40
+      ],
+      "defense": [
+        159,
+        126,
+        95,
+        64,
+        39,
+        16
+      ],
+      "magic": [],
+      "barriers": [
+        3
+      ],
+      "art": "06-sabin-01.png",
+      "faction": "FF6",
+      "collaboration": "FF6",
+      "rationale": "Gros degats physiques, buff physique, faible DEF ; pas de magie malgre le cristal."
+    },
+    {
+      "key": "shadow",
+      "id": "49901107",
+      "characterId": "shadow-ff6",
+      "name": "SHADOW",
+      "title": "CELUI QUI RESTE",
+      "job": "ASSASSIN",
+      "description": "Sous l'abri, Shadow garde une main sur la nuque d'Interceptor. La pluie efface les traces, pas les promesses. Il pourrait repartir seul. Pourtant, cette nuit encore, il attend avec lui.",
+      "element": "NONE",
+      "race": "HUMAIN",
+      "weapon": "Projectile",
+      "role": 2,
+      "positions": [
+        2,
+        4
+      ],
+      "atk": [
+        269,
+        222,
+        171,
+        "death",
+        72,
+        30
+      ],
+      "defense": [
+        154,
+        129,
+        97,
+        70,
+        "dodge",
+        15
+      ],
+      "magic": [],
+      "barriers": [],
+      "art": "07-shadow-01.png",
+      "faction": "FF6",
+      "collaboration": "FF6",
+      "rationale": "Mort unique en D3 remplace une face forte ; esquive D2, resistance faible."
+    },
+    {
+      "key": "gau",
+      "id": "49901108",
+      "characterId": "gau-ff6",
+      "name": "GAU",
+      "title": "LE VENT CONNAÎT SON NOM",
+      "job": "ENFANT SAUVAGE",
+      "description": "Gau s'arrête au frémissement des herbes. Le vent connaît des chemins que les hommes ont oubliés. Il écoute, puis relève les yeux : quelque part, des voix l'appellent sans lui faire peur.",
+      "element": "HERBO",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "role": 3,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        234,
+        190,
+        147,
+        103,
+        65,
+        28
+      ],
+      "defense": [
+        224,
+        184,
+        145,
+        103,
+        64,
+        29
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        3
+      ],
+      "art": "08-gau-01.png",
+      "faction": "FF6",
+      "collaboration": "FF6",
+      "rationale": "Rage instinctive : regularite P3 et magie ponctuelle, aucun soutien artificiel."
+    },
+    {
+      "key": "cyan",
+      "id": "49901109",
+      "characterId": "cyan-ff6",
+      "name": "CYAN",
+      "title": "LE SERMENT DEMEURE",
+      "job": "SAMOURAÏ",
+      "description": "Cyan noue lentement le tissu autour du fourreau. Chaque geste porte un nom qu'il ne prononce plus. Quand il se relève, sa douleur demeure ; elle ne décidera pas seule de ce qu'il fera.",
+      "element": "NONE",
+      "race": "HUMAIN",
+      "weapon": "Katana",
+      "role": 1,
+      "positions": [
+        1,
+        2
+      ],
+      "atk": [
+        209,
+        169,
+        131,
+        95,
+        58,
+        "guard"
+      ],
+      "defense": [
+        277,
+        228,
+        184,
+        134,
+        86,
+        41
+      ],
+      "magic": [],
+      "barriers": [],
+      "art": "09-cyan-01.png",
+      "faction": "FF6",
+      "collaboration": "FF6",
+      "rationale": "Garde P1 et defense reguliere, sans esquive ni magie."
+    },
+    {
+      "key": "setzer",
+      "id": "49901110",
+      "characterId": "setzer-ff6",
+      "name": "SETZER",
+      "title": "UNE CHANCE DE REVENIR",
+      "job": "JOUEUR",
+      "description": "Setzer fait danser une pièce au-dessus du vide. Il sourit comme si rien ne pouvait l'atteindre. Pourtant, avant de reprendre les commandes, il regarde une place où personne ne se tient.",
+      "element": "AERO",
+      "race": "HUMAIN",
+      "weapon": "Projectile",
+      "role": 4,
+      "positions": [
+        3,
+        4,
+        5
+      ],
+      "atk": [
+        276,
+        223,
+        170,
+        114,
+        "retry",
+        25
+      ],
+      "defense": [
+        156,
+        121,
+        "retry",
+        66,
+        30,
+        19
+      ],
+      "magic": [
+        6
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "10-setzer-01.png",
+      "faction": "FF6",
+      "collaboration": "FF6",
+      "rationale": "Trefle ATK D2 et relance DEF D4, valeurs defensives modestes."
+    },
+    {
+      "key": "strago",
+      "id": "49901111",
+      "characterId": "strago-ff6",
+      "name": "STRAGO",
+      "title": "LA MÉMOIRE DE L’EAU",
+      "job": "MAGE BLEU",
+      "description": "Strago trace un cercle dans l'eau. Les rides s'écartent, puis reviennent à sa main. Il n'a pas appris tous ces sortilèges pour être admiré : il veut encore avoir quelque chose à transmettre.",
+      "element": "HYDRO",
+      "race": "HUMAIN",
+      "weapon": "Bâton",
+      "role": 4,
+      "positions": [
+        4,
+        5
+      ],
+      "atk": [
+        282,
+        230,
+        179,
+        122,
+        "mana",
+        29
+      ],
+      "defense": [
+        166,
+        134,
+        102,
+        71,
+        38,
+        17
+      ],
+      "magic": [
+        6,
+        4,
+        3
+      ],
+      "barriers": [
+        5,
+        3
+      ],
+      "art": "11-strago-01.png",
+      "faction": "FF6",
+      "collaboration": "FF6",
+      "rationale": "Trois faces magiques, potion et deux barrieres ; DEF dans les bornes P4."
+    },
+    {
+      "key": "relm",
+      "id": "49901112",
+      "characterId": "relm-ff6",
+      "name": "RELM",
+      "title": "LE MONDE TIENT DANS UNE COULEUR",
+      "job": "PICTOMANCIENNE",
+      "description": "Relm ajoute une couleur, et l'oiseau quitte presque la page. Elle rit avant de retenir son souffle. Si un dessin peut apprendre à voler, peut-être peut-il aussi ramener un peu de joie.",
+      "element": "LUXO",
+      "race": "HUMAIN",
+      "weapon": "Bâton",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        170,
+        138,
+        "mana",
+        78,
+        39,
+        "retry"
+      ],
+      "defense": [
+        194,
+        158,
+        121,
+        85,
+        48,
+        25
+      ],
+      "magic": [
+        6,
+        5
+      ],
+      "barriers": [
+        4,
+        2
+      ],
+      "art": "12-relm-01.png",
+      "faction": "FF6",
+      "collaboration": "FF6",
+      "rationale": "Pinceau assimile au Baton ; potion et chance, pas de soin invente."
+    },
+    {
+      "key": "gogo",
+      "id": "49901113",
+      "characterId": "gogo-ff6",
+      "name": "GOGO",
+      "title": "LE GESTE EMPRUNTÉ",
+      "job": "MIME",
+      "description": "Gogo lève la main en face du petit mannequin. Même inclinaison, même silence. Sous les tissus, un être reste impossible à saisir. Pour un instant pourtant, son geste semble répondre au nôtre.",
+      "element": "NONE",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        162,
+        "buff_atk",
+        101,
+        "guard",
+        "retry",
+        18
+      ],
+      "defense": [
+        202,
+        166,
+        131,
+        "dodge",
+        58,
+        26
+      ],
+      "magic": [],
+      "barriers": [],
+      "art": "13-gogo-01.png",
+      "faction": "FF6",
+      "collaboration": "FF6",
+      "rationale": "Mime traduit en trois soutiens existants, seulement trois faces offensives."
+    },
+    {
+      "key": "umaro",
+      "id": "49901114",
+      "characterId": "umaro-ff6",
+      "name": "UMARO",
+      "title": "SOUS LA NEIGE, LA DOUCEUR",
+      "job": "BERSERKER",
+      "description": "Umaro protège une fleur entre ses doigts immenses. Dehors, la neige dévore les traces. Lui qui traverse la pierre sans hésiter attend maintenant, très doucement, que les pétales se redressent.",
+      "element": "CRYO",
+      "race": "YETI",
+      "weapon": "Poing",
+      "role": 1,
+      "positions": [
+        1,
+        2
+      ],
+      "atk": [
+        208,
+        172,
+        136,
+        98,
+        64,
+        31
+      ],
+      "defense": [
+        294,
+        244,
+        192,
+        137,
+        85,
+        38
+      ],
+      "magic": [],
+      "barriers": [
+        3
+      ],
+      "art": "14-umaro-01.png",
+      "faction": "FF6",
+      "collaboration": "FF6",
+      "rationale": "Tank numerique sans soutien ni esquive ; force brute, une barriere froide."
+    },
+    {
+      "key": "noctis",
+      "id": "49901115",
+      "characterId": "noctis-ff15",
+      "name": "NOCTIS",
+      "title": "AVANT LA PROCHAINE ROUTE",
+      "job": "PRINCE",
+      "description": "Noctis contemple la lame suspendue au-dessus de sa paume. Sur le lac, le jour s'efface lentement. Les voix de ses amis arrivent derrière lui ; il referme la main et revient vers le feu.",
+      "element": "NECRO",
+      "race": "HUMAIN",
+      "weapon": "Epée longue",
+      "role": 3,
+      "positions": [
+        2,
+        3,
+        4
+      ],
+      "atk": [
+        236,
+        191,
+        151,
+        108,
+        69,
+        26
+      ],
+      "defense": [
+        216,
+        174,
+        136,
+        "dodge",
+        57,
+        24
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "15-noctis-01.png",
+      "faction": "FF15",
+      "collaboration": "FF15",
+      "rationale": "Eclipse representee par esquive et deux faces magiques ; hybride P3."
+    },
+    {
+      "key": "ignis",
+      "id": "49901116",
+      "characterId": "ignis-ff15",
+      "name": "IGNIS",
+      "title": "VEILLER SANS BRUIT",
+      "job": "STRATÈGE",
+      "description": "Ignis goûte le bouillon avant d'appeler les autres. Il reste des comptes à faire, une route à choisir, tant de choses à prévoir. Pour quelques minutes, il leur offre seulement un repas chaud.",
+      "element": "PYRO",
+      "race": "HUMAIN",
+      "weapon": "Dague",
+      "role": 5,
+      "positions": [
+        2,
+        5
+      ],
+      "atk": [
+        174,
+        "buff_atk",
+        112,
+        85,
+        49,
+        "mana"
+      ],
+      "defense": [
+        193,
+        158,
+        121,
+        87,
+        48,
+        25
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        3
+      ],
+      "art": "16-ignis-01.png",
+      "faction": "FF15",
+      "collaboration": "FF15",
+      "rationale": "Soutien physique et magique ; faibles scores P5, pas de Reraise."
+    },
+    {
+      "key": "gladiolus",
+      "id": "49901117",
+      "characterId": "gladiolus-ff15",
+      "name": "GLADIOLUS",
+      "title": "LE PASSAGE SERA SÛR",
+      "job": "GARDE ROYAL",
+      "description": "Gladiolus se retourne au milieu du passage. Il connaît la fatigue des autres sans avoir besoin de les voir. Son épée touche le sol, son regard cherche le danger. Ils pourront avancer.",
+      "element": "NONE",
+      "race": "HUMAIN",
+      "weapon": "Epée longue",
+      "role": 1,
+      "positions": [
+        1,
+        2
+      ],
+      "atk": [
+        205,
+        169,
+        132,
+        94,
+        60,
+        "guard"
+      ],
+      "defense": [
+        296,
+        243,
+        191,
+        143,
+        91,
+        45
+      ],
+      "magic": [],
+      "barriers": [],
+      "art": "17-gladiolus-01.png",
+      "faction": "FF15",
+      "collaboration": "FF15",
+      "rationale": "Tank physique tres solide, garde basse face, aucune barriere magique."
+    },
+    {
+      "key": "prompto",
+      "id": "49901118",
+      "characterId": "prompto-ff15",
+      "name": "PROMPTO",
+      "title": "POUR NE RIEN OUBLIER",
+      "job": "TIREUR",
+      "description": "Prompto vérifie la photo et sourit tout seul. Il a peur de ne pas être à sa place, parfois. Mais dans ce petit rectangle de lumière, ils sont tous ensemble, et personne ne semble en douter.",
+      "element": "NONE",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "role": 4,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        283,
+        231,
+        181,
+        126,
+        "retry",
+        34
+      ],
+      "defense": [
+        162,
+        131,
+        99,
+        70,
+        "dodge",
+        19
+      ],
+      "magic": [],
+      "barriers": [],
+      "art": "18-prompto-01.png",
+      "faction": "FF15",
+      "collaboration": "FF15",
+      "rationale": "Tir physique, chance partagee et esquive D2 ; aucune magie."
+    },
+    {
+      "key": "lunafreya",
+      "id": "49901119",
+      "characterId": "lunafreya-ff15",
+      "name": "LUNAFREYA",
+      "title": "LA LUMIÈRE QU’ELLE PARTAGE",
+      "job": "ORACLE",
+      "description": "Lunafreya s'agenouille dans l'eau froide. Sa main ouverte ne promet ni victoire ni oubli. Elle porte seulement une lumière assez proche pour que ceux qui tremblent puissent encore la rejoindre.",
+      "element": "LUXO",
+      "race": "HUMAIN",
+      "weapon": "Lance",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        158,
+        129,
+        94,
+        "revive",
+        "guard",
+        18
+      ],
+      "defense": [
+        208,
+        172,
+        137,
+        101,
+        67,
+        31
+      ],
+      "magic": [
+        6,
+        5
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "art": "19-lunafreya-01.png",
+      "faction": "FF15",
+      "collaboration": "FF15",
+      "rationale": "Oracle P5 : Reraise, garde et barrieres, degats restreints."
+    },
+    {
+      "key": "cindy",
+      "id": "49901120",
+      "characterId": "cindy-ff15",
+      "name": "CINDY",
+      "title": "ENCORE QUELQUES KILOMÈTRES",
+      "job": "MÉCANICIENNE",
+      "description": "Cindy resserre la pièce, écoute le moteur, recommence. La poussière colle à ses gants, pas à son sourire. La route est longue ; elle aime savoir que son travail aidera quelqu'un à la poursuivre.",
+      "element": "NONE",
+      "race": "HUMAIN",
+      "weapon": "Marteau",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        167,
+        136,
+        "buff_atk",
+        79,
+        45,
+        "guard"
+      ],
+      "defense": [
+        196,
+        161,
+        124,
+        86,
+        47,
+        24
+      ],
+      "magic": [],
+      "barriers": [],
+      "art": "20-cindy-01.png",
+      "faction": "FF15",
+      "collaboration": "FF15",
+      "rationale": "Cle de mecanique classee Marteau ; reparation = garde, reglage = buff physique."
+    },
+    {
+      "key": "aranea",
+      "id": "49901121",
+      "characterId": "aranea-ff15",
+      "name": "ARANEA",
+      "title": "UN INSTANT AVANT LE SAUT",
+      "job": "CHEVALIÈRE DRAGON",
+      "description": "Aranea prend appui au bord de la rampe. Le vent soulève ses cheveux et chasse les dernières hésitations. Elle n'a plus besoin d'un ordre pour choisir la direction dans laquelle elle va tomber.",
+      "element": "AERO",
+      "race": "HUMAIN",
+      "weapon": "Lance",
+      "role": 2,
+      "positions": [
+        2,
+        4
+      ],
+      "atk": [
+        294,
+        241,
+        185,
+        132,
+        81,
+        38
+      ],
+      "defense": [
+        165,
+        133,
+        99,
+        "dodge",
+        38,
+        16
+      ],
+      "magic": [
+        6,
+        3
+      ],
+      "barriers": [
+        4
+      ],
+      "art": "21-aranea-01.png",
+      "faction": "FF15",
+      "collaboration": "FF15",
+      "rationale": "Saut = esquive D3, impact aerien D6/D3, faible defense soutenue."
+    },
+    {
+      "key": "lightning",
+      "id": "49901122",
+      "characterId": "lightning-ff13",
+      "name": "LIGHTNING",
+      "title": "LA ROUTE N’ATTENDRA PAS",
+      "job": "RAVAGEUSE",
+      "description": "Lightning ralentit un instant sur le quai désert. La ville gronde encore, mais elle entend autre chose sous le bruit : une promesse. Elle ajuste sa prise et repart avant que le doute ne gagne.",
+      "element": "ELECTRO",
+      "race": "HUMAIN",
+      "weapon": "Epée courte",
+      "role": 2,
+      "positions": [
+        2,
+        3,
+        4
+      ],
+      "atk": [
+        291,
+        238,
+        184,
+        132,
+        82,
+        40
+      ],
+      "defense": [
+        171,
+        140,
+        106,
+        76,
+        47,
+        20
+      ],
+      "magic": [
+        6,
+        5
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "22-lightning-01.png",
+      "faction": "FF13",
+      "collaboration": "FF13",
+      "rationale": "Attaquante reguliere sans effet gratuit, foudre sur les deux hauts jets."
+    },
+    {
+      "key": "snow",
+      "id": "49901123",
+      "characterId": "snow-ff13",
+      "name": "SNOW",
+      "title": "TENIR POUR LES AUTRES",
+      "job": "SENTINELLE",
+      "description": "Snow serre la bande autour de ses doigts. Il n'a pas trouvé toutes les réponses, loin de là. Face à la mer, il retrouve pourtant cette idée têtue : tant qu'il tient debout, il peut aider.",
+      "element": "CRYO",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "role": 1,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        203,
+        167,
+        132,
+        "guard",
+        58,
+        25
+      ],
+      "defense": [
+        298,
+        247,
+        196,
+        144,
+        93,
+        46
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "art": "23-snow-01.png",
+      "faction": "FF13",
+      "collaboration": "FF13",
+      "rationale": "Sentinelle : garde D3 couteuse, tres forte DEF, glace ponctuelle."
+    },
+    {
+      "key": "vanille",
+      "id": "49901124",
+      "characterId": "vanille-ff13",
+      "name": "VANILLE",
+      "title": "LE SOURIRE GARDE UN SECRET",
+      "job": "SOIGNEUSE",
+      "description": "Vanille effleure une fleur sans la cueillir. Son sourire vient vite, puis vacille. Elle voudrait croire que les choses fragiles peuvent survivre à ce qu'elle a fait. Alors elle les laisse grandir.",
+      "element": "HERBO",
+      "race": "HUMAIN",
+      "weapon": "Sceptre",
+      "role": 5,
+      "positions": [
+        4,
+        5
+      ],
+      "atk": [
+        169,
+        137,
+        101,
+        "revive",
+        46,
+        "mana"
+      ],
+      "defense": [
+        197,
+        161,
+        124,
+        87,
+        "dodge",
+        22
+      ],
+      "magic": [
+        6,
+        5
+      ],
+      "barriers": [
+        4
+      ],
+      "art": "24-vanille-01.png",
+      "faction": "FF13",
+      "collaboration": "FF13",
+      "rationale": "Soin et potion, attaque limitee ; esquive basse face, pas de Mort ajoutee."
+    },
+    {
+      "key": "hope",
+      "id": "49901125",
+      "characterId": "hope-ff13",
+      "name": "HOPE",
+      "title": "LE COURAGE APPREND À TENIR",
+      "job": "SOUTIEN",
+      "description": "Hope vérifie son arme avec une attention presque douloureuse. Ses mains tremblent moins qu'hier. Il ignore encore comment devenir courageux ; il apprend seulement à ne plus avancer tout seul.",
+      "element": "LUXO",
+      "race": "HUMAIN",
+      "weapon": "Projectile",
+      "role": 5,
+      "positions": [
+        4,
+        5
+      ],
+      "atk": [
+        162,
+        132,
+        "mana",
+        77,
+        "revive",
+        21
+      ],
+      "defense": [
+        185,
+        154,
+        118,
+        82,
+        46,
+        24
+      ],
+      "magic": [
+        6,
+        5,
+        3
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "25-hope-01.png",
+      "faction": "FF13",
+      "collaboration": "FF13",
+      "rationale": "Soin et magie de soutien, DEF fragile ; pas de garde hors personnalite."
+    },
+    {
+      "key": "fang",
+      "id": "49901126",
+      "characterId": "fang-ff13",
+      "name": "FANG",
+      "title": "JAMAIS JE NE TE LAISSERAI",
+      "job": "LANCÈRE",
+      "description": "Fang jette un regard derrière elle avant de franchir la crête. Sa lance reste ferme, même quand le sol cède. Elle connaît le prix des promesses ; celle qu'elle porte ne sera pas abandonnée.",
+      "element": "NECRO",
+      "race": "HUMAIN",
+      "weapon": "Lance",
+      "role": 2,
+      "positions": [
+        1,
+        2,
+        3
+      ],
+      "atk": [
+        298,
+        243,
+        189,
+        135,
+        86,
+        39
+      ],
+      "defense": [
+        158,
+        128,
+        92,
+        64,
+        39,
+        15
+      ],
+      "magic": [
+        6
+      ],
+      "barriers": [
+        6
+      ],
+      "art": "26-fang-01.png",
+      "faction": "FF13",
+      "collaboration": "FF13",
+      "rationale": "Gros pic de lance, une face magique, DEF faible sans esquive de confort."
+    },
+    {
+      "key": "sazh",
+      "id": "49901127",
+      "characterId": "sazh-ff13",
+      "name": "SAZH",
+      "title": "UN PEU DE CHALEUR",
+      "job": "PILOTE",
+      "description": "Sazh réchauffe le petit chocobo au creux de ses mains. Il lui parle bas, comme à quelqu'un qui comprendrait. Le voyage l'épuise ; ce poids minuscule lui rappelle pourquoi il continue.",
+      "element": "PYRO",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "role": 3,
+      "positions": [
+        3,
+        4,
+        5
+      ],
+      "atk": [
+        225,
+        183,
+        140,
+        "buff_atk",
+        62,
+        27
+      ],
+      "defense": [
+        214,
+        174,
+        136,
+        97,
+        59,
+        27
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "27-sazh-01.png",
+      "faction": "FF13",
+      "collaboration": "FF13",
+      "rationale": "Synergiste via buff physique D3, tir et feu alternes, role P3."
+    },
+    {
+      "key": "jihl-nabaat",
+      "id": "49901128",
+      "characterId": "jihl-nabaat-ff13",
+      "name": "JIHL NABAAT",
+      "title": "LE CALME EST UN ORDRE",
+      "job": "COMMANDANTE",
+      "description": "Jihl abaisse légèrement ses lunettes. Dans le poste de commandement, chacun attend qu'elle parle. Elle laisse durer ce silence : il suffit parfois de quelques secondes pour rappeler qui décide.",
+      "element": "NECRO",
+      "race": "HUMAIN",
+      "weapon": "Bâton",
+      "role": 4,
+      "positions": [
+        3,
+        4,
+        5
+      ],
+      "atk": [
+        287,
+        234,
+        178,
+        "mana",
+        75,
+        28
+      ],
+      "defense": [
+        153,
+        125,
+        "retry",
+        65,
+        36,
+        17
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        2
+      ],
+      "barriers": [
+        6
+      ],
+      "art": "28-jihl-nabaat-01.png",
+      "faction": "FF13",
+      "collaboration": "FF13",
+      "rationale": "Commandement magique : potion D3 et relance DEF D4, faible endurance."
+    },
+    {
+      "key": "serah",
+      "id": "49901129",
+      "characterId": "serah-ff13",
+      "name": "SERAH FARRON",
+      "title": "LA PROMESSE AU BORD DE L’EAU",
+      "job": "MESSAGÈRE",
+      "description": "Serah referme les doigts sur son pendentif. La mer emporte le soleil, pas ce qu'elle a promis. Elle attend encore un peu sur la jetée, comme si rester là pouvait déjà ouvrir un chemin.",
+      "element": "CRYO",
+      "race": "HUMAIN",
+      "weapon": "Orbe",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        157,
+        128,
+        94,
+        "retry",
+        42,
+        "revive"
+      ],
+      "defense": [
+        201,
+        164,
+        128,
+        90,
+        53,
+        26
+      ],
+      "magic": [
+        6,
+        5
+      ],
+      "barriers": [
+        3
+      ],
+      "art": "29-serah-01.png",
+      "faction": "FF13",
+      "collaboration": "FF13",
+      "rationale": "Pendentif symbolique classe Orbe : espoir et Reraise, pas d'arc de XIII-2 impose."
+    }
+  ]
+}

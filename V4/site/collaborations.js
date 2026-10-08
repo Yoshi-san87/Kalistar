@@ -6,10 +6,13 @@
 })(typeof globalThis==='undefined'?this:globalThis,(W,F)=>{
   'use strict';
   const entries=Object.freeze([
+    {id:'ff6',faction:'FF6',title:'Final Fantasy VI'},
     {id:'ff7',faction:'FF7',title:'Final Fantasy VII'},
     {id:'ff8',faction:'FF8',title:'Final Fantasy VIII'},
     {id:'ff9',faction:'FF9',title:'Final Fantasy IX'},
     {id:'ff10',faction:'FF10',title:'Final Fantasy X'},
+    {id:'ff13',faction:'FF13',title:'Final Fantasy XIII'},
+    {id:'ff15',faction:'FF15',title:'Final Fantasy XV'},
     {id:'nier',faction:'NieR',title:'NieR:Automata'},
     {id:'replicant',faction:'Replicant',title:'NieR Replicant'},
     {id:'mgs1',faction:'MGS1',title:'Metal Gear Solid'},
@@ -27,6 +30,6 @@
   const universe=card=>of(card)?.faction||'kalistar';
   const matches=(card,id)=>of(card)?.id===id;
   const choices=cards=>entries.filter(entry=>entry.id==='ff7'||entry.id==='ff8'||cards.some(card=>matches(card,entry.id))).map(entry=>[entry.faction,entry.faction]);
-  const asset=(folder,name)=>folder==='armes'&&W?.asset(name)?W.asset(name):(folder==='factions'&&(find(name)||['Solaria','Grivka'].includes(name))||folder==='races'&&['ANDROID','BUZZY','SERPES','SHARKAN','CRUSTOS','OKAMI','MICE','BATRA','RATZ','MACAKO'].includes(name)?'assets/':'shared/')+folder+'/'+encodeURIComponent(folder==='factions'?F.assetName(name):name)+'.png';
+  const asset=(folder,name)=>folder==='armes'&&W?.asset(name)?W.asset(name):(folder==='factions'&&(find(name)||['Solaria','Grivka'].includes(name))||folder==='races'&&['ANDROID','BUZZY','SERPES','SHARKAN','CRUSTOS','OKAMI','MICE','BATRA','RATZ','MACAKO','YETI'].includes(name)?'assets/':'shared/')+folder+'/'+encodeURIComponent(folder==='factions'?F.assetName(name):name)+'.png';
   return {entries,of,universe,matches,choices,asset};
 });
