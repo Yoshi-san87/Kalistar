@@ -148,6 +148,23 @@ prototype avait deux objets ; l'extension locale suivante en a 25 et les tests
 de six colonnes emploient maintenant les vraies definitions, sans clones DOM.
 Captures et parcours d'attribution/reload : `../revisions/2026-10-03-collectible-weapons/qa-refinement/`.
 
+### Layout v3 : porteur en bas a gauche (8 octobre 2026)
+
+Le logement du porteur quitte le coin droit pour le bas gauche de
+l'illustration : `holder: [90,746,131,204]`. Ses dimensions et son altitude
+restent identiques. Le bouton d'attribution reutilise la meme zone, y compris
+le minimum tactile sur telephone. La plaque du bonus reste degagee.
+
+Le cartouche des noms utilise toute la largeur du panneau droit :
+`bearers: [858,846,512,92]`. Personnages, jobs, factions et races gardent le
+meme centrage horizontal, aligne sur le panneau de description.
+Le raster du cadre, les illustrations et les medaillons ne changent pas ;
+aucun PNG natif ne doit etre regenere pour cette revision HTML.
+
+Validation : `site/equipment-presentation.test.cjs` et
+`site/equipment-holder.browser.test.cjs`. Preuves sous
+`revisions/2026-10-08-equipment-holder/qa/`.
+
 ## Sources de verite
 
 - `site/weapons.js` : ID stable, nom, famille, restrictions et effet moteur.

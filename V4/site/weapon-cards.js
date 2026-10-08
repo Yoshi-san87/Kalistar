@@ -6,11 +6,11 @@
   'use strict';
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   // All anchors refer to the supplied raster, before its outer margin is cropped.
-  const layout={version:2,width:1482,height:1061,crop:{x:28,y:64,width:1425,height:916},ratio:[7,5],
+  const layout={version:3,width:1482,height:1061,crop:{x:28,y:64,width:1425,height:916},ratio:[7,5],
     frame:'blue-copper-template-v1.webp',
     zones:{title:[330,123,915,102],family:[1255,128,88,88],art:[67,244,738,670],lore:[858,259,512,168],
-      activationTitle:[949,422,340,46],activation:[863,477,498,265],bearers:[858,846,350,92],
-      bonus:[390,884,238,66],medallion:[32.5,62.92,275,275],holder:[1248,746,131,204]},
+      activationTitle:[949,422,340,46],activation:[863,477,498,265],bearers:[858,846,512,92],
+      bonus:[390,884,238,66],medallion:[32.5,62.92,275,275],holder:[90,746,131,204]},
     artPolygon:[[0,0],[97.5,0],[100,4],[100,86],[90,99],[81,99],[76,94],[37,94],[31,99],[10,99],[0,89]]};
   const faces={
     'fallen-king-axe':{number:'ARM-001',illustration:'fallen-king-axe-scene-v1.webp',

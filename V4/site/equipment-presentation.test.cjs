@@ -1,6 +1,31 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict'),vm=require('node:vm'),fs=require('node:fs'),path=require('node:path');
 const weapons=require('./weapons.js').weapons,crop={left:50,top:50,width:797,height:1388};
+const collectible=require('./weapon-cards.js');
+
+test('bearer thumbnail occupies the lower-left illustration corner without covering the bonus',()=>{
+  const {layout}=collectible,{holder,art,bonus,medallion}=layout.zones;
+  assert.equal(layout.version,3);
+  assert.deepEqual(holder,[90,746,131,204]);
+  assert(holder[0]>=art[0]&&holder[0]+holder[2]<bonus[0]);
+  assert(holder[1]>art[1]+art[3]/2);
+  assert(holder[1]+holder[3]<layout.crop.y+layout.crop.height);
+  assert.deepEqual(medallion,[32.5,62.92,275,275],'weapon medallion is untouched');
+});
+
+test('bearer names use the full right-hand band centered under its text panels',()=>{
+  const {bearers,lore,holder}=collectible.layout.zones;
+  assert.equal(bearers[0],lore[0]);
+  assert.equal(bearers[2],lore[2]);
+  assert(bearers[2]>350);
+  assert(holder[0]+holder[2]<bearers[0]);
+  for(const weapon of weapons){
+    const html=collectible.markup(weapon);
+    assert(html.includes('class="wc-bearers" style="'+collectible.zone('bearers')+'"'));
+    assert(html.includes('class="wc-holder is-empty" style="'+collectible.zone('holder')+'"'));
+    assert(!html.includes('undefined'));
+  }
+});
 function fixture({width=500,height=600,objectFit='contain',cropped=true}={}){
   const listeners=[],observers=[],children=[];
   const image={offsetLeft:12,offsetTop:8,naturalWidth:cropped?797:897,naturalHeight:cropped?1388:1497,css:{width:String(width),height:String(height),objectFit},addEventListener:(...args)=>listeners.push(args)};
