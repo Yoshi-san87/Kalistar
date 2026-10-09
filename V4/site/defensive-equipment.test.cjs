@@ -63,9 +63,9 @@ function trigger(f){
   const recipient=s.players[side].board.find(v=>v?.uid===r.recipient);next(f);return recipient;
 }
 
-test('40 additive entries, 20 protections and 20 relics; real edition restrictions and one slot',async()=>{
-  const {cards}=await dataPromise;assert.equal(additions.length,40);
-  for(const kind of ['shield','relic'])assert.equal(additions.filter(w=>w.kind===kind).length,20);
+test('50 additive entries, 25 protections and 25 relics; real edition restrictions and one slot',async()=>{
+  const {cards}=await dataPromise;assert.equal(additions.length,50);
+  for(const kind of ['shield','relic'])assert.equal(additions.filter(w=>w.kind===kind).length,25);
   for(const w of additions){
     Q.validateDefinition(w);assert.equal(w.slot,'weapon');assert.equal(w.changesFamily,undefined);assert(w.effect.value<=30);assert(cards.some(c=>Q.compatible(w,c)),w.id);
     if(w.restrictions.characterIds)assert(!Q.compatible(w,{...cards.find(c=>Q.compatible(w,c)),characterId:'wrong',name:w.name}));

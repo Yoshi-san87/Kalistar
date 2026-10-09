@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: all weapons keep their origins and effects AND require their printed family
+ok 1 - all weapons keep their origins and effects AND require their printed family
+  ---
+  duration_ms: 113.9086
+  type: 'test'
+  ...
+# Subtest: empty rosters are intentional, and new equips/new games reject every formerly incompatible edition
+ok 2 - empty rosters are intentional, and new equips/new games reject every formerly incompatible edition
+  ---
+  duration_ms: 36.9995
+  type: 'test'
+  ...
+# Subtest: profile reconciliation removes only retired family mismatches and is pure/idempotent
+ok 3 - profile reconciliation removes only retired family mismatches and is pure/idempotent
+  ---
+  duration_ms: 1.7004
+  type: 'test'
+  ...
+# Subtest: old compositions preserve every card, formation and captain while removing retired loadouts
+ok 4 - old compositions preserve every card, formation and captain while removing retired loadouts
+  ---
+  duration_ms: 2.8437
+  type: 'test'
+  ...
+# Subtest: every formerly allowed collective or personal loadout keeps its snapshot and combat bonus in a saved match
+ok 5 - every formerly allowed collective or personal loadout keeps its snapshot and combat bonus in a saved match
+  ---
+  duration_ms: 452.8581
+  type: 'test'
+  ...
+# Subtest: personal restrictions follow the chosen edition, accept future matching editions and retire invalid decks
+ok 6 - personal restrictions follow the chosen edition, accept future matching editions and retire invalid decks
+  ---
+  duration_ms: 11.6731
+  type: 'test'
+  ...
+# Subtest: weapon faces put the accessible native family glyph in the title and only the origin in the footer
+ok 7 - weapon faces put the accessible native family glyph in the title and only the origin in the footer
+  ---
+  duration_ms: 5.9531
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 810.9964

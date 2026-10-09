@@ -1,0 +1,34 @@
+TAP version 13
+# Subtest: 17 exact models, distinct numeric personalities and requested abilities
+ok 1 - 17 exact models, distinct numeric personalities and requested abilities
+  ---
+  duration_ms: 1.3564
+  type: 'test'
+  ...
+# Subtest: reject illegal support, NONE magic and duplicate IDs
+ok 2 - reject illegal support, NONE magic and duplicate IDs
+  ---
+  duration_ms: 4.9551
+  type: 'test'
+  ...
+# Subtest: the new collaboration maps to its own playable filter and media
+ok 3 - the new collaboration maps to its own playable filter and media
+  ---
+  duration_ms: 2.9982
+  type: 'test'
+  ...
+# Subtest: validate the actual game projection, which omits production metadata
+ok 4 - validate the actual game projection, which omits production metadata
+  ---
+  duration_ms: 55.7323
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 127.8514

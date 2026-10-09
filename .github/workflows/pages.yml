@@ -57,6 +57,7 @@ jobs:
           node --test V4/site/equipment.test.cjs V4/site/equipment-presentation.test.cjs
           node --test V4/site/equipment-categories.test.cjs V4/site/weapons-arsenal.test.cjs
           node --test V4/site/defensive-equipment.test.cjs
+          node --test V4/site/ff9-equipment.test.cjs
           node --test V4/site/arborium-weapons.test.cjs
           node --test V4/site/draevenheim-weapons.test.cjs
           node --test V4/site/cryptown-weapons.test.cjs

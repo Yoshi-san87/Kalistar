@@ -9,7 +9,7 @@
   const layout={version:3,width:1482,height:1061,crop:{x:28,y:64,width:1425,height:916},ratio:[7,5],
     frame:'blue-copper-template-v1.webp',
     zones:{title:[330,123,915,102],family:[1255,128,88,88],art:[67,244,738,670],lore:[858,259,512,168],
-      activationTitle:[949,422,340,46],activation:[863,477,498,265],bearers:[858,846,512,92],
+      activationTitle:[949,422,340,46],activation:[863,477,498,340],bearers:[858,846,512,92],
       bonus:[390,884,238,66],medallion:[32.5,62.92,275,275],holder:[90,746,131,204]},
     artPolygon:[[0,0],[97.5,0],[100,4],[100,86],[90,99],[81,99],[76,94],[37,94],[31,99],[10,99],[0,89]]};
   const faces={
@@ -42,7 +42,7 @@
   deepFreeze(layout);deepFreeze(faces);deepFreeze(backgrounds);
   function activation(w){
     const e=w.effect,bonus=`+${e.value} ${e.stat}`;
-    if(e.trigger==='ONCE_DEFENSE')return {condition:w.condition,effect:bonus+(e.recipient==='self'?' à sa prochaine défense.':e.recipient==='ally'?' à un allié au choix.':e.recipient==='deployed'?' au renfort.':' au bénéficiaire.'),duration:'1 défense · 1 fois par partie.'};
+    if(e.trigger==='ONCE_DEFENSE')return {condition:w.condition,effect:bonus+(e.recipient==='self'?(e.event==='DEFENSE'?' pour cette défense.':' à sa prochaine défense.'):e.recipient==='ally'?' à un allié au choix.':e.recipient==='deployed'?' au renfort.':' au bénéficiaire.'),duration:'1 défense · 1 fois par partie.'};
     if(e.trigger==='FIRST_DEFENSE')return {condition:'Premi\u00e8re d\u00e9fense.',effect:bonus+' pour ce duel.',duration:'Une fois par partie.'};
     if(e.trigger==='AFTER_BLOCK')return {condition:'Apr\u00e8s un Block r\u00e9ussi.',effect:bonus+' \u00e0 sa prochaine d\u00e9fense.',duration:'Une fois par partie.'};
     if(e.trigger==='LAST_STANDING')return {condition:'Dernier combattant actif de son \u00e9quipe.',effect:bonus+'.',duration:'Tant qu\u2019il reste seul.'};

@@ -23,8 +23,8 @@ function next(f){f.E.next(f.s);while(f.s.phase==='replace')f.E.autoDeploy(f.s,f.
 
 test('three explicit categories share one historical slot, without changing base families',async()=>{
   const {cards}=await dataPromise,shield=item('durane-rampart'),pod=item('pod-042');
-  assert.equal(Q.catalogue.weapons.length,75);
-  assert.equal(Q.catalogue.weapons.filter(w=>Q.catalogue.kind(w)==='weapon').length,33);
+  assert.equal(Q.catalogue.weapons.length,93);
+  assert.equal(Q.catalogue.weapons.filter(w=>Q.catalogue.kind(w)==='weapon').length,41);
   for(const w of [shield,pod]){Q.validateDefinition(w);assert.equal(w.restrictions.families,undefined);assert.equal(w.changesFamily,undefined);}
   for(const c of cards){assert.equal(Q.compatible(shield,c),c.faction==='Durane');assert.equal(Q.compatible(pod,c),c.characterId==='2b-nier');}
   assert(cards.filter(c=>c.characterId==='2b-nier').length>=2);

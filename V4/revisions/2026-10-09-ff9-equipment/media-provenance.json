@@ -1,0 +1,996 @@
+{
+  "version": 1,
+  "method": "18 individually generated objects, scenes and hollow rings. Native 488px medallion anchor preserved.",
+  "assets": [
+    {
+      "source": "V4/weapon-cards/sources/ff9-orichalque-v1.png",
+      "sourceHash": "4189eb07596d3bb900e6a5b20098b74fe955c473a1b4d95b91cb5f9896e9a9b5",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-orichalque-v1.webp",
+      "sha256": "9e888630bab37b5379b54c81a119b415a724dfd97ba3e857732f6aa9b517506c",
+      "bytes": 15084,
+      "role": "body",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 240
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-orichalque-v1.png",
+      "sourceHash": "4189eb07596d3bb900e6a5b20098b74fe955c473a1b4d95b91cb5f9896e9a9b5",
+      "file": "V4/site/assets/weapon-cards/ff9-orichalque-v1.webp",
+      "sha256": "50e441d97fc9681ea94b5c83fbe65ff72e78bc37ca49daf1485537adff5895ca",
+      "bytes": 170324,
+      "role": "collectible-source"
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-orichalque-scene-v1.png",
+      "sourceHash": "acef3d9d6f0b0cdcddd12c429caae382b0d8062243cb6c1ac3345c4dacad0972",
+      "width": 1122,
+      "height": 1402,
+      "file": "V4/site/assets/weapon-cards/ff9-orichalque-scene-v1.webp",
+      "sha256": "1b18a995fc75ab0fd262a41ae1b731a5735e668153e1cda1ecd68225f26e7333",
+      "bytes": 432252,
+      "role": "scene",
+      "placement": null
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-orichalque-ring-v1.png",
+      "sourceHash": "1e185c27b41c95b4d6d21351775cfb25f37b0ffa8389784cb58f964d2130c29d",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-orichalque-ring-v1.webp",
+      "sha256": "f08a609c0eb20a753210f9e11c54a216e04b0e08db3e6c1ec83219bf366c847b",
+      "bytes": 78784,
+      "role": "ring",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 484
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-magekane-v1.png",
+      "sourceHash": "6195612f66cdf3bfa25ec6bd0014819655cb66fea398df2be7446f3a39f3117f",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-magekane-v1.webp",
+      "sha256": "7b30e7ea7811ef236c99ee5c77e377ecf824093adb5c8791b3baa255b1ea5799",
+      "bytes": 13404,
+      "role": "body",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 240
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-magekane-v1.png",
+      "sourceHash": "6195612f66cdf3bfa25ec6bd0014819655cb66fea398df2be7446f3a39f3117f",
+      "file": "V4/site/assets/weapon-cards/ff9-magekane-v1.webp",
+      "sha256": "ab81e244828df25f828d69d740bae835dde5b8fb9cb20f3dec24cc535aaf1d7b",
+      "bytes": 139736,
+      "role": "collectible-source"
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-magekane-scene-v1.png",
+      "sourceHash": "d7716893488cd5571affb203f5bfdab2df897963f15cbf23fb12373e08815000",
+      "width": 1122,
+      "height": 1402,
+      "file": "V4/site/assets/weapon-cards/ff9-magekane-scene-v1.webp",
+      "sha256": "47c0d0847509fa939d07dc1f45e5eea0e1f4f34611f9deada1b9df3fa746cdf4",
+      "bytes": 388116,
+      "role": "scene",
+      "placement": null
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-magekane-ring-v1.png",
+      "sourceHash": "426bb03cbdc8bb00ea82c930ed55444dafc4708934a63be25dd2033c8286fd5b",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-magekane-ring-v1.webp",
+      "sha256": "b08658c75ccb9540fe6496070c61aae9c7f0b0e7dbb1b70701a734f391968d00",
+      "bytes": 75142,
+      "role": "ring",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 484
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-excalibur-v1.png",
+      "sourceHash": "3a809dcaf8c33c54e93ce4a1d37f410daff0238017ec4aa2b4ae77e684531fde",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-excalibur-v1.webp",
+      "sha256": "68bc9cc5e9f55d3513541def2de285955db259606ac255ea35b37bcc82c0e7c5",
+      "bytes": 13656,
+      "role": "body",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 240
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-excalibur-v1.png",
+      "sourceHash": "3a809dcaf8c33c54e93ce4a1d37f410daff0238017ec4aa2b4ae77e684531fde",
+      "file": "V4/site/assets/weapon-cards/ff9-excalibur-v1.webp",
+      "sha256": "cd48fe45a10ffe7e4c15b6aa4a7bce24cf50c27965029c44fd0353ff6deca477",
+      "bytes": 145134,
+      "role": "collectible-source"
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-excalibur-scene-v1.png",
+      "sourceHash": "2a5bec59d40540f545f517a99bce370cbd145c704ebc8cd43d468523f0cb2fb7",
+      "width": 1122,
+      "height": 1402,
+      "file": "V4/site/assets/weapon-cards/ff9-excalibur-scene-v1.webp",
+      "sha256": "d0ce2ea4dee3a449d0aae7e85cae8d48c399b9f54cb8238fab70c059b0e65740",
+      "bytes": 435184,
+      "role": "scene",
+      "placement": null
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-excalibur-ring-v1.png",
+      "sourceHash": "171eb6590191fbf6f3bf26d6a891c6879ac9bf928cf2953cbb2f122daaec4a69",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-excalibur-ring-v1.webp",
+      "sha256": "f3b84dd3ad0a831484ce3e072f0669e46be535d9d35d146edd411eacefb29ad2",
+      "bytes": 77542,
+      "role": "ring",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 484
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-save-the-queen-v1.png",
+      "sourceHash": "4151675d41ad3a6562e29a860eaa5f4aa43dac27d1262cbae504ae48a796f22c",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-save-the-queen-v1.webp",
+      "sha256": "8b1a0f765588ce668dd4259937013130fb6fac2794a39f3b5d92eb324df8954c",
+      "bytes": 11850,
+      "role": "body",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 240
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-save-the-queen-v1.png",
+      "sourceHash": "4151675d41ad3a6562e29a860eaa5f4aa43dac27d1262cbae504ae48a796f22c",
+      "file": "V4/site/assets/weapon-cards/ff9-save-the-queen-v1.webp",
+      "sha256": "68e093e2ec09e314e46490cd219058e13b2ffcd596cfa7dd248e9f9313239d26",
+      "bytes": 116728,
+      "role": "collectible-source"
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-save-the-queen-scene-v1.png",
+      "sourceHash": "51f4380087f6beb69c7352078145d5cc7fe0e7cbfda94d18d89620961a45db0a",
+      "width": 1122,
+      "height": 1402,
+      "file": "V4/site/assets/weapon-cards/ff9-save-the-queen-scene-v1.webp",
+      "sha256": "d1b64f563c047e59159101ded31a366a798dec8deb48f37f3dca188bdbe58a3c",
+      "bytes": 431702,
+      "role": "scene",
+      "placement": null
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-save-the-queen-ring-v1.png",
+      "sourceHash": "00974ba95b9a3e2c54a914a22449c0d0b26f0481786b50c8223ef6ac1e4d3ce5",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-save-the-queen-ring-v1.webp",
+      "sha256": "0951680d4042d6672f919f1f5099ce81544754e31023b52eb01b15cd0dfe12df",
+      "bytes": 74672,
+      "role": "ring",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 484
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-dragonade-v1.png",
+      "sourceHash": "58a4a613411654fe1ef16a2def82ee3508a8cff07157f01e039602d0e0378d2c",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-dragonade-v1.webp",
+      "sha256": "0dc2dc72b350c94041f5d237efd23541645d76461d9a6e0c9b8328487d96c40c",
+      "bytes": 9862,
+      "role": "body",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 240
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-dragonade-v1.png",
+      "sourceHash": "58a4a613411654fe1ef16a2def82ee3508a8cff07157f01e039602d0e0378d2c",
+      "file": "V4/site/assets/weapon-cards/ff9-dragonade-v1.webp",
+      "sha256": "3de7888d7559ee992f2236a095eaaa00f2e69df0040983d011def44fa7811127",
+      "bytes": 89710,
+      "role": "collectible-source"
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-dragonade-scene-v1.png",
+      "sourceHash": "22f68fae9fcf9a88cb506f960d0b7b3c43709cca7b7a57ad9a1715cab4c446b2",
+      "width": 1122,
+      "height": 1402,
+      "file": "V4/site/assets/weapon-cards/ff9-dragonade-scene-v1.webp",
+      "sha256": "98aefdbb8df37fec0f0e57421519dbd72b6b4ec0d2f54e1b65311a6e5f19fc1c",
+      "bytes": 417540,
+      "role": "scene",
+      "placement": null
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-dragonade-ring-v1.png",
+      "sourceHash": "30a53f6ebd5b21d456d9a97c4070bcd588616cf0ea6b7abff27145dff4537e5f",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-dragonade-ring-v1.webp",
+      "sha256": "6564947b19f858d61f032cb772d4593b74860bdde7c0b1bb4a078530145b07ed",
+      "bytes": 79036,
+      "role": "ring",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 484
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-runigriffe-v1.png",
+      "sourceHash": "2d2f9f31f7b56acc8872aa2bba97f71a0e1004222becbfcfbb275d67c3576444",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-runigriffe-v1.webp",
+      "sha256": "3e06801db9f4b56aa5a6698ddf2c2b9fe904f50de9e6034559049ff778ba8894",
+      "bytes": 30452,
+      "role": "body",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 240
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-runigriffe-v1.png",
+      "sourceHash": "2d2f9f31f7b56acc8872aa2bba97f71a0e1004222becbfcfbb275d67c3576444",
+      "file": "V4/site/assets/weapon-cards/ff9-runigriffe-v1.webp",
+      "sha256": "883a0f7dd4116d87433c0bfc9e26925de0ad74301166c16d791edd2a7ebdba24",
+      "bytes": 373428,
+      "role": "collectible-source"
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-runigriffe-scene-v1.png",
+      "sourceHash": "1c92ee1aa6f3bede038439659a06f3fa0e7bc2e6e3b281294f91c8c956fa76ab",
+      "width": 1122,
+      "height": 1402,
+      "file": "V4/site/assets/weapon-cards/ff9-runigriffe-scene-v1.webp",
+      "sha256": "dcd3787f21da92a3a3547f7228e267755de3d5c19965b58234d0d882135eb1dd",
+      "bytes": 555572,
+      "role": "scene",
+      "placement": null
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-runigriffe-ring-v1.png",
+      "sourceHash": "04605e3f1a485554582883824e60a31456a8cca61fcc30077c4679233203c2ab",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-runigriffe-ring-v1.webp",
+      "sha256": "d58cab945243066f93917f2ec80753f5a2f358dc3166c895cb7f7edd500fb442",
+      "bytes": 84104,
+      "role": "ring",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 484
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-gastrette-v1.png",
+      "sourceHash": "d70331bfc83fcea77c92e3a7870a1f6482575f182e30d1be27ef6ac8a6a95a8c",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-gastrette-v1.webp",
+      "sha256": "1a035fd8c8de5359115a1cc5d2616b03008957baf15c7c9561ab61ac70ad6499",
+      "bytes": 15850,
+      "role": "body",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 240
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-gastrette-v1.png",
+      "sourceHash": "d70331bfc83fcea77c92e3a7870a1f6482575f182e30d1be27ef6ac8a6a95a8c",
+      "file": "V4/site/assets/weapon-cards/ff9-gastrette-v1.webp",
+      "sha256": "29b2b9b5bf6f25b153d461a18ab3db043f554fc351b3e9d26ca161d78b2d22bf",
+      "bytes": 165268,
+      "role": "collectible-source"
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-gastrette-scene-v1.png",
+      "sourceHash": "05b096a64089b551159cffe1da6eb7e0ea5bf2d4c1ae577167b4b67740f9dc17",
+      "width": 1122,
+      "height": 1402,
+      "file": "V4/site/assets/weapon-cards/ff9-gastrette-scene-v1.webp",
+      "sha256": "271a0222d5a2b9159fcf11ef77699a3fcc1055f8f5dd17a1df2cc0b394abfd62",
+      "bytes": 467118,
+      "role": "scene",
+      "placement": null
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-gastrette-ring-v1.png",
+      "sourceHash": "0f273e251902fd5e67b87850a6579d8a4e7c1be3b2ab05994595c2496568d76c",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-gastrette-ring-v1.webp",
+      "sha256": "44053c3779151c80b7eb664424a519b4a3c64219a0dd90d6093e919a97ee3feb",
+      "bytes": 81440,
+      "role": "ring",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 484
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-backstage-hammer-v1.png",
+      "sourceHash": "a8db0e36e074ed02bec1ea893975493b3ed2dc1a3401e6cde69d054d0adc822a",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-backstage-hammer-v1.webp",
+      "sha256": "52cff663ea63ac852a896c01ca6b31107396384f1f59dcfb1a59177504031f11",
+      "bytes": 15412,
+      "role": "body",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 240
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-backstage-hammer-v1.png",
+      "sourceHash": "a8db0e36e074ed02bec1ea893975493b3ed2dc1a3401e6cde69d054d0adc822a",
+      "file": "V4/site/assets/weapon-cards/ff9-backstage-hammer-v1.webp",
+      "sha256": "a3f51a6d796f866d29e69c1f61ff3d87583928ae6a3189efea92fa5a58a38d23",
+      "bytes": 180430,
+      "role": "collectible-source"
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-backstage-hammer-scene-v1.png",
+      "sourceHash": "704d650a4f54873277980af6cb6c7ddaaf547eabec9873a83c9bd52989f6d3b1",
+      "width": 1122,
+      "height": 1402,
+      "file": "V4/site/assets/weapon-cards/ff9-backstage-hammer-scene-v1.webp",
+      "sha256": "e4c4cc4cd22a0016b3e252db09a1df497ef963d05a51165314a4b212d6caa6ee",
+      "bytes": 466020,
+      "role": "scene",
+      "placement": null
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-backstage-hammer-ring-v1.png",
+      "sourceHash": "f4b9a9d406e8450bafcfc92d8301eeb1c313610fe5266e9d3dedf127b0b3ecb2",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-backstage-hammer-ring-v1.webp",
+      "sha256": "0b7d32f00092928d6d6f44b93e4aaacdeab74267a89ebdf59df455cfcdd259ee",
+      "bytes": 74798,
+      "role": "ring",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 484
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-oath-helm-v1.png",
+      "sourceHash": "4a225d4d6d4df69829d129ce3dc19a01e1f6d42e66713594ab119cec7b8ab2fe",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-oath-helm-v1.webp",
+      "sha256": "cdd3403aed2e59e39390912908d5961af8b5da0944dc2d31b109ff61499b661d",
+      "bytes": 19658,
+      "role": "body",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 240
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-oath-helm-v1.png",
+      "sourceHash": "4a225d4d6d4df69829d129ce3dc19a01e1f6d42e66713594ab119cec7b8ab2fe",
+      "file": "V4/site/assets/weapon-cards/ff9-oath-helm-v1.webp",
+      "sha256": "0971d1d2a01986bb4912a5e26fd64e3af581e3ee750cbcc2425e0583c9f989d1",
+      "bytes": 297146,
+      "role": "collectible-source"
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-oath-helm-scene-v1.png",
+      "sourceHash": "228f027fd5a9e3e720c699b468cb82aecff3f3c1bd18e1dc0932ecd854e391dc",
+      "width": 1122,
+      "height": 1402,
+      "file": "V4/site/assets/weapon-cards/ff9-oath-helm-scene-v1.webp",
+      "sha256": "5732bddf50b3669836b2cd99fb982af7427f152f9356c30a1405b845af583f90",
+      "bytes": 497546,
+      "role": "scene",
+      "placement": null
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-oath-helm-ring-v1.png",
+      "sourceHash": "f2dd81d47216759ac87300b165b45bd7bbbd35c30d045b67d45f6ea38bf7486c",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-oath-helm-ring-v1.webp",
+      "sha256": "26f1836d2a07b12198404156b53d0bb093b1458a8ce03e037b58e11420ab03fe",
+      "bytes": 79196,
+      "role": "ring",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 484
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-vivi-hat-v1.png",
+      "sourceHash": "cd134737aa872fe5b5e0448f5292ae970a725bfc5566a7fa4435c8dea21bcba8",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-vivi-hat-v1.webp",
+      "sha256": "28e2ab94f0cc63128a8a89e5795d7f8c3dff419048377687945ab211ae8d2bb2",
+      "bytes": 22864,
+      "role": "body",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 240
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-vivi-hat-v1.png",
+      "sourceHash": "cd134737aa872fe5b5e0448f5292ae970a725bfc5566a7fa4435c8dea21bcba8",
+      "file": "V4/site/assets/weapon-cards/ff9-vivi-hat-v1.webp",
+      "sha256": "2b6330fa854299dfdcc4d3ee58c8ee7bbaf8438791be03f37476da1f20b192aa",
+      "bytes": 300122,
+      "role": "collectible-source"
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-vivi-hat-scene-v1.png",
+      "sourceHash": "5142b01301de3f27febc073adc6ada971c914df75db50c16bad838b4d01d801d",
+      "width": 1122,
+      "height": 1402,
+      "file": "V4/site/assets/weapon-cards/ff9-vivi-hat-scene-v1.webp",
+      "sha256": "894ae77673951feec69fb9ed3390a3422f54fe4db4f8e0c59c359be96a848d34",
+      "bytes": 431642,
+      "role": "scene",
+      "placement": null
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-vivi-hat-ring-v1.png",
+      "sourceHash": "05e2f0f35be54bd57fd6abaa6db4b1de0d5c73b2f22712034261cb245c3839fe",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-vivi-hat-ring-v1.webp",
+      "sha256": "496ec3c500891db58f571697e96961a518ea7b9ccc10d7331a3844cf741442e8",
+      "bytes": 75628,
+      "role": "ring",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 484
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-burmecia-coat-v1.png",
+      "sourceHash": "50e0368132f8cfcbac470b988022732283b79a03319215bfd3c3feabe678af8e",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-burmecia-coat-v1.webp",
+      "sha256": "42ed8b694c610cd2471eddabc5eddac11cf530c2319ea438f7668f61dfd3fa4a",
+      "bytes": 23274,
+      "role": "body",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 240
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-burmecia-coat-v1.png",
+      "sourceHash": "50e0368132f8cfcbac470b988022732283b79a03319215bfd3c3feabe678af8e",
+      "file": "V4/site/assets/weapon-cards/ff9-burmecia-coat-v1.webp",
+      "sha256": "1392ceb6958ca5ebac25db39994a17016abbcb19db878ce19a60175a33da56c6",
+      "bytes": 256082,
+      "role": "collectible-source"
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-burmecia-coat-scene-v1.png",
+      "sourceHash": "ff269a2d4947fe7918fb122ee3c02e45c65ea123fa2a63140154a74f85717b8e",
+      "width": 1122,
+      "height": 1402,
+      "file": "V4/site/assets/weapon-cards/ff9-burmecia-coat-scene-v1.webp",
+      "sha256": "a5f609b0ac24a4d3e83c3a9d90ccb272be69eac5eaf96d9bf84ebfe4ddff6f1b",
+      "bytes": 523640,
+      "role": "scene",
+      "placement": null
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-burmecia-coat-ring-v1.png",
+      "sourceHash": "9c92bf9691d31418c5619a68126f2f8132bb800113c8b0bbac92e9519b79239c",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-burmecia-coat-ring-v1.webp",
+      "sha256": "3a7414b189475801749633f352b4d5b54cc5db082562c78f58169ab180c754ab",
+      "bytes": 73282,
+      "role": "ring",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 484
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-solitary-wraps-v1.png",
+      "sourceHash": "7586ce71036184798eb67353204bd86d8626b3872cffe41a19a2719e2a1f5844",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-solitary-wraps-v1.webp",
+      "sha256": "ce21ba21836656859ef3e1d5a78cd3ace4371a72414ec1218203caa57c80ee16",
+      "bytes": 22954,
+      "role": "body",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 240
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-solitary-wraps-v1.png",
+      "sourceHash": "7586ce71036184798eb67353204bd86d8626b3872cffe41a19a2719e2a1f5844",
+      "file": "V4/site/assets/weapon-cards/ff9-solitary-wraps-v1.webp",
+      "sha256": "c3b4a7b13e31917a5f79aed7c25e369ed972c5ab3a959bc2a44b9af48405c9ac",
+      "bytes": 346576,
+      "role": "collectible-source"
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-solitary-wraps-scene-v1.png",
+      "sourceHash": "342e53ad118d95c75cc1e9da0cef00dc2d8fd111140a22e73ebdd421929fc28d",
+      "width": 1122,
+      "height": 1402,
+      "file": "V4/site/assets/weapon-cards/ff9-solitary-wraps-scene-v1.webp",
+      "sha256": "da8adfe10fd1b59be0226a9bbecbb76ce6316210b7322304771a00dd2d1114e6",
+      "bytes": 562046,
+      "role": "scene",
+      "placement": null
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-solitary-wraps-ring-v1.png",
+      "sourceHash": "4a260f22cc30dee55f17f0b92dc392ff46cd0f7e672e415263942471343115db",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-solitary-wraps-ring-v1.webp",
+      "sha256": "dbf8752621fe2fd39ed4b596922fdc6f3b4bc1b4b5a92a9aa2c5420109ecce21",
+      "bytes": 85560,
+      "role": "ring",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 484
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-reunion-bandana-v1.png",
+      "sourceHash": "86a50dfc852718ed4af3db99d03561cb750a98b7fd68ff9ee62da1e700668876",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-reunion-bandana-v1.webp",
+      "sha256": "846ea86c677e98b84a23c92971564db2771b926583579c4800ebf97b8bad4fe1",
+      "bytes": 17622,
+      "role": "body",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 240
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-reunion-bandana-v1.png",
+      "sourceHash": "86a50dfc852718ed4af3db99d03561cb750a98b7fd68ff9ee62da1e700668876",
+      "file": "V4/site/assets/weapon-cards/ff9-reunion-bandana-v1.webp",
+      "sha256": "76012532e6eec972c223bb0ccc7db6bf7b1b2804231a05bef7042af43dc7803d",
+      "bytes": 216074,
+      "role": "collectible-source"
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-reunion-bandana-scene-v1.png",
+      "sourceHash": "2f07005ff3bd2fe014521727b949cb9967acb09543cae1fba6ffbe7b7dd71ca9",
+      "width": 1122,
+      "height": 1402,
+      "file": "V4/site/assets/weapon-cards/ff9-reunion-bandana-scene-v1.webp",
+      "sha256": "2b2f52e5aafd92973cc0a06ecb5a4f1e086405f2048e6b7937f270e406fecdb8",
+      "bytes": 370720,
+      "role": "scene",
+      "placement": null
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-reunion-bandana-ring-v1.png",
+      "sourceHash": "9069f0b684e8d97e896e61dceb2728d6c77d4ce666c7b44a3ab261a14c5eb2ad",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-reunion-bandana-ring-v1.webp",
+      "sha256": "032df4516ad51d4c8dc4058a59871ee322ad400e509020876961f5f544af0d0e",
+      "bytes": 75302,
+      "role": "ring",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 484
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-garnet-pendant-v1.png",
+      "sourceHash": "3cd3d76384b6a4b5df4efeba415ce15a18512df4dc5e00f7c6f0c0b9ef470acb",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-garnet-pendant-v1.webp",
+      "sha256": "09fdc04cb7a12391a9262975b40612da61ec4d6973517037e0e12267ccbd926f",
+      "bytes": 16258,
+      "role": "body",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 240
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-garnet-pendant-v1.png",
+      "sourceHash": "3cd3d76384b6a4b5df4efeba415ce15a18512df4dc5e00f7c6f0c0b9ef470acb",
+      "file": "V4/site/assets/weapon-cards/ff9-garnet-pendant-v1.webp",
+      "sha256": "d9c928a159b578ffd715a2c7c544fe01aa6cbf648a92bd413b5bdd69b1e19215",
+      "bytes": 160434,
+      "role": "collectible-source"
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-garnet-pendant-scene-v1.png",
+      "sourceHash": "3faca61b882d4d91bbf17d73d3823aa675bcf32a502236b8df38a203a17f6393",
+      "width": 1122,
+      "height": 1402,
+      "file": "V4/site/assets/weapon-cards/ff9-garnet-pendant-scene-v1.webp",
+      "sha256": "2ac506b5c2ca77bee804e28182445e540d2831703f31807aaa9ca91268b65375",
+      "bytes": 343954,
+      "role": "scene",
+      "placement": null
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-garnet-pendant-ring-v1.png",
+      "sourceHash": "504afd045374481cad54162661bd83f4a42c36a0680b49253a892277894dff92",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-garnet-pendant-ring-v1.webp",
+      "sha256": "ecdc8c97c683aeda26daad517764439751d344873170e70e22d2f7a3084c92ab",
+      "bytes": 72896,
+      "role": "ring",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 484
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-mog-ribbon-v1.png",
+      "sourceHash": "cd4ac4c74154c0a41f62b00188dc9b55ed661247661242a6fab101c0530e5585",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-mog-ribbon-v1.webp",
+      "sha256": "0aaf88478e656639d3e6573cf3dfa5f108f3577bd75dca9ff6a5ebc07cb3128f",
+      "bytes": 23746,
+      "role": "body",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 240
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-mog-ribbon-v1.png",
+      "sourceHash": "cd4ac4c74154c0a41f62b00188dc9b55ed661247661242a6fab101c0530e5585",
+      "file": "V4/site/assets/weapon-cards/ff9-mog-ribbon-v1.webp",
+      "sha256": "1bccd2de45dfcb9ac44fe2adab5d0b78cd3607a0006d289077d901d2b6aa4b33",
+      "bytes": 328728,
+      "role": "collectible-source"
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-mog-ribbon-scene-v1.png",
+      "sourceHash": "a42fc36aaa80bb167cf8a75ef074012f5b97cf3a608a187eef1ed853987a2e36",
+      "width": 1122,
+      "height": 1402,
+      "file": "V4/site/assets/weapon-cards/ff9-mog-ribbon-scene-v1.webp",
+      "sha256": "ae8e33c574b9da64852d2e5f6cd3473a4ebc889e41b3e04d3baeca393022f316",
+      "bytes": 473956,
+      "role": "scene",
+      "placement": null
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-mog-ribbon-ring-v1.png",
+      "sourceHash": "229a6615377b1a7b6ab377a05d7f62c2deb847891993d10296a2d16c8235abc5",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-mog-ribbon-ring-v1.webp",
+      "sha256": "97d9c55a9f6373001a280aebd6202b8928a6d6628afa64bd1fff6b519d741c0e",
+      "bytes": 72032,
+      "role": "ring",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 484
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-final-act-feather-v1.png",
+      "sourceHash": "417a08c2605c70bccd77901c3e19eae0792a17f78fcdeee0605158f26ead4c0e",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-final-act-feather-v1.webp",
+      "sha256": "b786b96dfb4c3b9118f70f511d2de019f4252277d1aca0100f4c7f20243e278d",
+      "bytes": 15474,
+      "role": "body",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 240
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-final-act-feather-v1.png",
+      "sourceHash": "417a08c2605c70bccd77901c3e19eae0792a17f78fcdeee0605158f26ead4c0e",
+      "file": "V4/site/assets/weapon-cards/ff9-final-act-feather-v1.webp",
+      "sha256": "8a9ecfb620b4be28d9026db0ba7951455b47c88bd3a7256f6f39fdeab5c2b0bc",
+      "bytes": 176120,
+      "role": "collectible-source"
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-final-act-feather-scene-v1.png",
+      "sourceHash": "89dcf317627094c401dc87f874af21caa5e6726f5146d80dad5e94f5be01347c",
+      "width": 1122,
+      "height": 1402,
+      "file": "V4/site/assets/weapon-cards/ff9-final-act-feather-scene-v1.webp",
+      "sha256": "ab7ec3c09d2801d05f8fe88ba0b26072dfb55c9f703b186f9bab2c93662757da",
+      "bytes": 285946,
+      "role": "scene",
+      "placement": null
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-final-act-feather-ring-v1.png",
+      "sourceHash": "eecf0fb2c6ff2dcfd79aaa279731b25ecf58d7795cbb26549a546b0b391238f1",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-final-act-feather-ring-v1.webp",
+      "sha256": "bf3f9cc0b548f05f8d2b0661e11a5843b97b33d0f18cd13483f208b9b50d438d",
+      "bytes": 72656,
+      "role": "ring",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 484
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-terra-fragment-v1.png",
+      "sourceHash": "f9438398bb1929e346883e6cb71025ed6f4dfe1065ce83377ebe1bb15da3146d",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-terra-fragment-v1.webp",
+      "sha256": "608581cced67a3e355071e3a9dc19a99db8f316ebf943af306e33bb9149350cc",
+      "bytes": 15686,
+      "role": "body",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 240
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-terra-fragment-v1.png",
+      "sourceHash": "f9438398bb1929e346883e6cb71025ed6f4dfe1065ce83377ebe1bb15da3146d",
+      "file": "V4/site/assets/weapon-cards/ff9-terra-fragment-v1.webp",
+      "sha256": "d7f359714ddee2cfa2fa9494000132b112322e587c74a424d14e5bd5a0fa618d",
+      "bytes": 187244,
+      "role": "collectible-source"
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-terra-fragment-scene-v1.png",
+      "sourceHash": "2906b01b5aab698ec0c90e52f20be1e1452dadcdb7eb1c6470a520b1e4924a5e",
+      "width": 1122,
+      "height": 1402,
+      "file": "V4/site/assets/weapon-cards/ff9-terra-fragment-scene-v1.webp",
+      "sha256": "85d2ae0b0ffe71e9cb9e66240d65ed8f183fbe81a2650f9999b610be1cc23226",
+      "bytes": 366764,
+      "role": "scene",
+      "placement": null
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-terra-fragment-ring-v1.png",
+      "sourceHash": "6d4b0141da2131c4647944f061c302cfe09aea34f91c52eb52b810bcd8647037",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-terra-fragment-ring-v1.webp",
+      "sha256": "6e8d7e17ab906389434f5e29b13bac5590ec4143bdde21c7384b4b5dd1b1c281",
+      "bytes": 75850,
+      "role": "ring",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 484
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-tantalus-script-v1.png",
+      "sourceHash": "c2f726538524b3a1e8d2559bb0054e07f4ff57e1aa3439fc18db25f1aaae6015",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-tantalus-script-v1.webp",
+      "sha256": "49bf7988586c940e52ab6e0282f40450c3e721d5b69e662ffa656426f619ca96",
+      "bytes": 25440,
+      "role": "body",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 240
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-tantalus-script-v1.png",
+      "sourceHash": "c2f726538524b3a1e8d2559bb0054e07f4ff57e1aa3439fc18db25f1aaae6015",
+      "file": "V4/site/assets/weapon-cards/ff9-tantalus-script-v1.webp",
+      "sha256": "6eae578a60c303cf453ca50e423d78bd4afe76510212077743081ed94057260e",
+      "bytes": 352678,
+      "role": "collectible-source"
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-tantalus-script-scene-v1.png",
+      "sourceHash": "b1fea0d22833c34f8529ea7a6bd8c434aea8fd4055fb7fddfea699f77761948f",
+      "width": 1122,
+      "height": 1402,
+      "file": "V4/site/assets/weapon-cards/ff9-tantalus-script-scene-v1.webp",
+      "sha256": "9d18ca6863aa12f1054507d2d33bdd30813c5e7c5dfc6f0760994ca3a3253f80",
+      "bytes": 475110,
+      "role": "scene",
+      "placement": null
+    },
+    {
+      "source": "V4/weapon-cards/sources/ff9-tantalus-script-ring-v1.png",
+      "sourceHash": "6a53d7f7927b5b29aa169e2806e64fb5190f29c1f372d0cf45c4a87e707238fb",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/ff9-tantalus-script-ring-v1.webp",
+      "sha256": "dc07e85be573512cb6c23fb6518cfe4e091d16300a41c3f0e3e36450f551e516",
+      "bytes": 71172,
+      "role": "ring",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 484
+      }
+    }
+  ]
+}

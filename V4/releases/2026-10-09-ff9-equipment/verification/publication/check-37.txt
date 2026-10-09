@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: a combat round advances only when the attacking side changes, opener 0
+ok 1 - a combat round advances only when the attacking side changes, opener 0
+  ---
+  duration_ms: 1.8661
+  type: 'test'
+  ...
+# Subtest: a combat round advances only when the attacking side changes, opener 1
+ok 2 - a combat round advances only when the attacking side changes, opener 1
+  ---
+  duration_ms: 0.2682
+  type: 'test'
+  ...
+# Subtest: legacy alternating matches retain one action per combat round and their real opener
+ok 3 - legacy alternating matches retain one action per combat round and their real opener
+  ---
+  duration_ms: 6.3649
+  type: 'test'
+  ...
+# Subtest: the sliding track contains history, the current station and future, with no gaps or duplicates
+ok 4 - the sliding track contains history, the current station and future, with no gaps or duplicates
+  ---
+  duration_ms: 14.3235
+  type: 'test'
+  ...
+# Subtest: dice, support, pending reinforcements and reload do not advance the round by themselves
+ok 5 - dice, support, pending reinforcements and reload do not advance the round by themselves
+  ---
+  duration_ms: 1.5698
+  type: 'test'
+  ...
+# Subtest: no track before the captains or after the match, and turn 200 stays bounded
+ok 6 - no track before the captains or after the match, and turn 200 stays bounded
+  ---
+  duration_ms: 0.291
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 104.1395

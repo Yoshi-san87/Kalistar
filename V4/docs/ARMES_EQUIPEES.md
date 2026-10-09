@@ -493,6 +493,19 @@ matrices ou schemas de sauvegarde.
 
 ## Validation
 
+### FFIX - 9 octobre 2026
+
+18 objets additifs : huit armes (ARM-034 a 041), cinq protections (PRO-022
+a 026), cinq reliques (REL-022 a 026). Catalogue : 93 equipements, dont
+41 armes, 26 protections et 26 reliques. Un seul emplacement reste partage.
+Les armes exigent le characterId et la famille imprimee ; les protections
+et reliques suivent le personnage, toutes editions compatibles.
+
+Aucun trigger, schema ou calcul nouveau. Les conditions TEAM_STATE,
+LAST_STANDING, AFTER_SUPPORT et ONCE_DEFENSE existantes pilotent le lot.
+Details, effets, sources graphiques, ajout d'un objet et commandes de test :
+[lot FFIX](../revisions/2026-10-09-ff9-equipment/README.md).
+
 ### Hache Rhinoz - 6 octobre 2026
 
 ARM-033, **La Corne des Anciens**, est une Hache reservee a la race RHINOZ,

@@ -1,0 +1,112 @@
+TAP version 13
+# Subtest: 18 unique FFIX items, printed families AND stable identity, conservative effects
+ok 1 - 18 unique FFIX items, printed families AND stable identity, conservative effects
+  ---
+  duration_ms: 75.2075
+  type: 'test'
+  ...
+# Subtest: profile and composition: one cross-category slot, confirmation, snapshot, old saves
+ok 2 - profile and composition: one cross-category slot, confirmation, snapshot, old saves
+  ---
+  duration_ms: 25.0407
+  type: 'test'
+  ...
+# Subtest: ff9-orichalque: every printed edition, both sides, numeric formula, log, activation and deactivation
+ok 3 - ff9-orichalque: every printed edition, both sides, numeric formula, log, activation and deactivation
+  ---
+  duration_ms: 23.2137
+  type: 'test'
+  ...
+# Subtest: ff9-magekane: every printed edition, both sides, numeric formula, log, activation and deactivation
+ok 4 - ff9-magekane: every printed edition, both sides, numeric formula, log, activation and deactivation
+  ---
+  duration_ms: 47.4855
+  type: 'test'
+  ...
+# Subtest: ff9-excalibur: every printed edition, both sides, numeric formula, log, activation and deactivation
+ok 5 - ff9-excalibur: every printed edition, both sides, numeric formula, log, activation and deactivation
+  ---
+  duration_ms: 17.5418
+  type: 'test'
+  ...
+# Subtest: ff9-save-the-queen: every printed edition, both sides, numeric formula, log, activation and deactivation
+ok 6 - ff9-save-the-queen: every printed edition, both sides, numeric formula, log, activation and deactivation
+  ---
+  duration_ms: 15.377
+  type: 'test'
+  ...
+# Subtest: ff9-dragonade: every printed edition, both sides, numeric formula, log, activation and deactivation
+ok 7 - ff9-dragonade: every printed edition, both sides, numeric formula, log, activation and deactivation
+  ---
+  duration_ms: 13.2091
+  type: 'test'
+  ...
+# Subtest: ff9-runigriffe: every printed edition, both sides, numeric formula, log, activation and deactivation
+ok 8 - ff9-runigriffe: every printed edition, both sides, numeric formula, log, activation and deactivation
+  ---
+  duration_ms: 14.6833
+  type: 'test'
+  ...
+# Subtest: ff9-backstage-hammer: every printed edition, both sides, numeric formula, log, activation and deactivation
+ok 9 - ff9-backstage-hammer: every printed edition, both sides, numeric formula, log, activation and deactivation
+  ---
+  duration_ms: 14.263
+  type: 'test'
+  ...
+# Subtest: Gastrette: defend, side 0
+ok 10 - Gastrette: defend, side 0
+  ---
+  duration_ms: 12.4803
+  type: 'test'
+  ...
+# Subtest: Gastrette: attack, side 0
+ok 11 - Gastrette: attack, side 0
+  ---
+  duration_ms: 8.778
+  type: 'test'
+  ...
+# Subtest: Gastrette: refresh, side 0
+ok 12 - Gastrette: refresh, side 0
+  ---
+  duration_ms: 5.013
+  type: 'test'
+  ...
+# Subtest: Gastrette: defend, side 1
+ok 13 - Gastrette: defend, side 1
+  ---
+  duration_ms: 7.7075
+  type: 'test'
+  ...
+# Subtest: Gastrette: attack, side 1
+ok 14 - Gastrette: attack, side 1
+  ---
+  duration_ms: 8.1108
+  type: 'test'
+  ...
+# Subtest: Gastrette: refresh, side 1
+ok 15 - Gastrette: refresh, side 1
+  ---
+  duration_ms: 4.3468
+  type: 'test'
+  ...
+# Subtest: all eight FFIX weapons finish natural matches with original faces and reload each step
+ok 16 - all eight FFIX weapons finish natural matches with original faces and reload each step
+  ---
+  duration_ms: 9884.4368
+  type: 'test'
+  ...
+# Subtest: defense-triggered descriptions identify the current defense rather than a later charge
+ok 17 - defense-triggered descriptions identify the current defense rather than a later charge
+  ---
+  duration_ms: 5.5191
+  type: 'test'
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 10359.866

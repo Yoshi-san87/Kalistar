@@ -1,0 +1,310 @@
+TAP version 13
+# Subtest: three explicit categories share one historical slot, without changing base families
+ok 1 - three explicit categories share one historical slot, without changing base families
+  ---
+  duration_ms: 50.6715
+  type: 'test'
+  ...
+# Subtest: shield: first defense only, numeric total and matrix preserved, side 0
+ok 2 - shield: first defense only, numeric total and matrix preserved, side 0
+  ---
+  duration_ms: 22.8107
+  type: 'test'
+  ...
+# Subtest: shield: first defense only, numeric total and matrix preserved, side 1
+ok 3 - shield: first defense only, numeric total and matrix preserved, side 1
+  ---
+  duration_ms: 10.2812
+  type: 'test'
+  ...
+# Subtest: a targeted support and attacking do not spend the first defense
+ok 4 - a targeted support and attacking do not spend the first defense
+  ---
+  duration_ms: 4.5899
+  type: 'test'
+  ...
+# Subtest: shield special face dodge has no invented numeric bonus
+ok 5 - shield special face dodge has no invented numeric bonus
+  ---
+  duration_ms: 6.2172
+  type: 'test'
+  ...
+# Subtest: shield special face retry has no invented numeric bonus
+ok 6 - shield special face retry has no invented numeric bonus
+  ---
+  duration_ms: 6.927
+  type: 'test'
+  ...
+# Subtest: Pod: successful Block, charge survives attack/reload, next defense consumes it once, side 0
+ok 7 - Pod: successful Block, charge survives attack/reload, next defense consumes it once, side 0
+  ---
+  duration_ms: 8.5551
+  type: 'test'
+  ...
+# Subtest: Pod: successful Block, charge survives attack/reload, next defense consumes it once, side 1
+ok 8 - Pod: successful Block, charge survives attack/reload, next defense consumes it once, side 1
+  ---
+  duration_ms: 7.9397
+  type: 'test'
+  ...
+# Subtest: Pod never activates from a support, death or Reraise
+ok 9 - Pod never activates from a support, death or Reraise
+  ---
+  duration_ms: 14.866
+  type: 'test'
+  ...
+# Subtest: snapshot, new states and old saves roundtrip; malformed charge history rejected
+ok 10 - snapshot, new states and old saves roundtrip; malformed charge history rejected
+  ---
+  duration_ms: 10.4238
+  type: 'test'
+  ...
+# Subtest: complete matches use unmodified card faces and reload each step, with both equipment categories
+ok 11 - complete matches use unmodified card faces and reload each step, with both equipment categories
+  ---
+  duration_ms: 1587.6665
+  type: 'test'
+  ...
+# Subtest: equipment media is independently hashed, transparent and natively anchored
+ok 12 - equipment media is independently hashed, transparent and natively anchored
+  ---
+  duration_ms: 126.4383
+  type: 'test'
+  ...
+# Subtest: 31 unique additions: stable identities, real jobs/factions/races and conservative declarative effects
+ok 13 - 31 unique additions: stable identities, real jobs/factions/races and conservative declarative effects
+  ---
+  duration_ms: 52.739
+  type: 'test'
+  ...
+# Subtest: white-oath-rapier: current bearer: inactive, active, real formula, log and reload on either side
+ok 14 - white-oath-rapier: current bearer: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 21.9401
+  type: 'test'
+  ...
+# Subtest: brotherhood: current bearer: inactive, active, real formula, log and reload on either side
+ok 15 - brotherhood: current bearer: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 8.708
+  type: 'test'
+  ...
+# Subtest: virtuous-contract: current bearer: inactive, active, real formula, log and reload on either side
+ok 16 - virtuous-contract: current bearer: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 7.8826
+  type: 'test'
+  ...
+# Subtest: virtuous-treaty: current bearer: inactive, active, real formula, log and reload on either side
+ok 17 - virtuous-treaty: current bearer: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 7.9178
+  type: 'test'
+  ...
+# Subtest: socom: current bearer: inactive, active, real formula, log and reload on either side
+ok 18 - socom: current bearer: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 7.0265
+  type: 'test'
+  ...
+# Subtest: lulu-mog: current bearer: inactive, active, real formula, log and reload on either side
+ok 19 - lulu-mog: current bearer: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 8.1028
+  type: 'test'
+  ...
+# Subtest: leopard-lightning: current bearer: inactive, active, real formula, log and reload on either side
+ok 20 - leopard-lightning: current bearer: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 7.6332
+  type: 'test'
+  ...
+# Subtest: mythic-iron-gauntlet: current bearer: inactive, active, real formula, log and reload on either side
+ok 21 - mythic-iron-gauntlet: current bearer: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 7.485
+  type: 'test'
+  ...
+# Subtest: post-bow: current bearer: inactive, active, real formula, log and reload on either side
+ok 22 - post-bow: current bearer: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 6.7683
+  type: 'test'
+  ...
+# Subtest: grimoire-weiss: current bearer: inactive, active, real formula, log and reload on either side
+ok 23 - grimoire-weiss: current bearer: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 7.1486
+  type: 'test'
+  ...
+# Subtest: gen-mechanical-arm: current bearer: inactive, active, real formula, log and reload on either side
+ok 24 - gen-mechanical-arm: current bearer: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 7.2304
+  type: 'test'
+  ...
+# Subtest: violet-reaping: current bearer: inactive, active, real formula, log and reload on either side
+ok 25 - violet-reaping: current bearer: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 6.5017
+  type: 'test'
+  ...
+# Subtest: mantis-mask: current bearer: inactive, active, real formula, log and reload on either side
+ok 26 - mantis-mask: current bearer: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 7.0405
+  type: 'test'
+  ...
+# Subtest: revolver-gunblade: current bearer: inactive, active, real formula, log and reload on either side
+ok 27 - revolver-gunblade: current bearer: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 6.506
+  type: 'test'
+  ...
+# Subtest: wolf-steel: current bearer: inactive, active, real formula, log and reload on either side
+ok 28 - wolf-steel: current bearer: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 6.9293
+  type: 'test'
+  ...
+# Subtest: wolf-silver: current bearer: inactive, active, real formula, log and reload on either side
+ok 29 - wolf-silver: current bearer: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 5.7631
+  type: 'test'
+  ...
+# Subtest: kaine-saw: current bearer: inactive, active, real formula, log and reload on either side
+ok 30 - kaine-saw: current bearer: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 6.3869
+  type: 'test'
+  ...
+# Subtest: buster-sword: current bearer: inactive, active, real formula, log and reload on either side
+ok 31 - buster-sword: current bearer: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 6.3413
+  type: 'test'
+  ...
+# Subtest: psg1: current bearer: inactive, active, real formula, log and reload on either side
+ok 32 - psg1: current bearer: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 7.577
+  type: 'test'
+  ...
+# Subtest: single-action-army: current bearer: inactive, active, real formula, log and reload on either side
+ok 33 - single-action-army: current bearer: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 6.2414
+  type: 'test'
+  ...
+# Subtest: wardens-spear: current bearer: inactive, active, real formula, log and reload on either side
+ok 34 - wardens-spear: current bearer: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 5.9296
+  type: 'test'
+  ...
+# Subtest: soldiers-blade: current bearer: inactive, active, real formula, log and reload on either side
+ok 35 - soldiers-blade: current bearer: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 6.8373
+  type: 'test'
+  ...
+# Subtest: commanders-sabre: historical snapshot: inactive, active, real formula, log and reload on either side
+ok 36 - commanders-sabre: historical snapshot: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 5.5372
+  type: 'test'
+  ...
+# Subtest: arborium-twinstring-bow: current bearer: inactive, active, real formula, log and reload on either side
+ok 37 - arborium-twinstring-bow: current bearer: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 6.7285
+  type: 'test'
+  ...
+# Subtest: arborium-thorn-dagger: current bearer: inactive, active, real formula, log and reload on either side
+ok 38 - arborium-thorn-dagger: current bearer: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 6.428
+  type: 'test'
+  ...
+# Subtest: draevenheim-wing-spear: current bearer: inactive, active, real formula, log and reload on either side
+ok 39 - draevenheim-wing-spear: current bearer: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 5.8264
+  type: 'test'
+  ...
+# Subtest: draevenheim-crimson-crossbow: historical snapshot: inactive, active, real formula, log and reload on either side
+ok 40 - draevenheim-crimson-crossbow: historical snapshot: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 5.7884
+  type: 'test'
+  ...
+# Subtest: cryptown-oath-sword: current bearer: inactive, active, real formula, log and reload on either side
+ok 41 - cryptown-oath-sword: current bearer: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 6.5888
+  type: 'test'
+  ...
+# Subtest: cryptown-vigil-rifle: current bearer: inactive, active, real formula, log and reload on either side
+ok 42 - cryptown-vigil-rifle: current bearer: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 6.4168
+  type: 'test'
+  ...
+# Subtest: cryptown-watch-flail: current bearer: inactive, active, real formula, log and reload on either side
+ok 43 - cryptown-watch-flail: current bearer: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 6.556
+  type: 'test'
+  ...
+# Subtest: rhinoz-ancestral-horn: historical snapshot: inactive, active, real formula, log and reload on either side
+ok 44 - rhinoz-ancestral-horn: historical snapshot: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 4.9561
+  type: 'test'
+  ...
+# Subtest: team conditions deactivate when formation or reserve recovers; no carried charge
+ok 45 - team conditions deactivate when formation or reserve recovers; no carried charge
+  ---
+  duration_ms: 44.3854
+  type: 'test'
+  ...
+# Subtest: Momo gift beats a smaller active DEF weapon without stacking, then expires
+ok 46 - Momo gift beats a smaller active DEF weapon without stacking, then expires
+  ---
+  duration_ms: 3.7243
+  type: 'test'
+  ...
+# Subtest: a scythe bonus never converts Voloden printed Mort into numeric damage
+ok 47 - a scythe bonus never converts Voloden printed Mort into numeric damage
+  ---
+  duration_ms: 2.8717
+  type: 'test'
+  ...
+# Subtest: new equipment participates in complete real matches and restores every exchange
+ok 48 - new equipment participates in complete real matches and restores every exchange
+  ---
+  duration_ms: 7569.9936
+  type: 'test'
+  ...
+# Subtest: compatible alternatives replace atomically; retired personal alternatives cannot be equipped
+ok 49 - compatible alternatives replace atomically; retired personal alternatives cannot be equipped
+  ---
+  duration_ms: 0.6466
+  type: 'test'
+  ...
+# Subtest: all generated assets are versioned, hashed, have alpha and remain inside medallion
+ok 50 - all generated assets are versioned, hashed, have alpha and remain inside medallion
+  ---
+  duration_ms: 306.5085
+  type: 'test'
+  ...
+1..50
+# tests 50
+# suites 0
+# pass 50
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 8304.337

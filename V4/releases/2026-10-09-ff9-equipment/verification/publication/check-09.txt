@@ -1,0 +1,58 @@
+TAP version 13
+# Subtest: Native accent occupies ink space without increasing the fixed font size
+ok 1 - Native accent occupies ink space without increasing the fixed font size
+  ---
+  duration_ms: 23.7846
+  type: 'test'
+  ...
+# Subtest: 15 approved identities, balanced per-face limits and existing effects only
+ok 2 - 15 approved identities, balanced per-face limits and existing effects only
+  ---
+  duration_ms: 7.1726
+  type: 'test'
+  ...
+# Subtest: Both complete playable decks cover all 15 characters and all five roles twice
+ok 3 - Both complete playable decks cover all 15 characters and all five roles twice
+  ---
+  duration_ms: 49.1054
+  type: 'test'
+  ...
+# Subtest: New Rhinoz retain their own weapon families and do not inherit the historical axe
+ok 4 - New Rhinoz retain their own weapon families and do not inherit the historical axe
+  ---
+  duration_ms: 0.6399
+  type: 'test'
+  ...
+# Subtest: Every printed ATK face drives actual combat or its existing support category
+ok 5 - Every printed ATK face drives actual combat or its existing support category
+  ---
+  duration_ms: 93.805
+  type: 'test'
+  ...
+# Subtest: Every printed DEF face, barrier and dodge survives save/restore
+ok 6 - Every printed DEF face, barrier and dodge survives save/restore
+  ---
+  duration_ms: 69.8919
+  type: 'test'
+  ...
+# Subtest: 24 full ABBA matches, both camps, supports, replacement and repeated restoration
+ok 7 - 24 full ABBA matches, both camps, supports, replacement and repeated restoration
+  ---
+  duration_ms: 298.0429
+  type: 'test'
+  ...
+# Subtest: Published native cards, exact selected artwork, no rejected character installed
+ok 8 - Published native cards, exact selected artwork, no rejected character installed
+  ---
+  duration_ms: 161.1387
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 779.3503

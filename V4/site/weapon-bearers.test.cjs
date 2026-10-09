@@ -18,7 +18,7 @@ const expected={
   'rhinoz-ancestral-horn':[]
 };
 const byId=id=>Q.catalogue.weapons.find(w=>w.id===id);
-const weapons=Q.catalogue.weapons.filter(w=>Q.catalogue.kind(w)==='weapon');
+const weapons=Q.catalogue.weapons.filter(w=>Q.catalogue.kind(w)==='weapon'&&previous.some(p=>p.id===w.id));
 function deckFor(E,data,c){const base=data.decks.player;return base.map((_,i)=>base.map((id,j)=>i===j?c.id:id)).find(ids=>!E.validatePlayableDeck(ids).length);}
 
 test('all weapons keep their origins and effects AND require their printed family',async()=>{

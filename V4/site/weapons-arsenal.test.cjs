@@ -2,7 +2,8 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const Q=require('./equipment.js'),{createEngine}=require('./engine.js'),{buildCatalog}=require('../atelier/game-catalog.cjs');
 const rows=require('../donnees/catalogue.json').cards.filter(c=>c.kind==='created');
-const weapons=Q.catalogue.weapons.filter(w=>Q.catalogue.kind(w)==='weapon');
+// The original arsenal remains covered here; the additive FFIX lot has its own suite.
+const weapons=Q.catalogue.weapons.filter(w=>Q.catalogue.kind(w)==='weapon'&&!w.id.startsWith('ff9-'));
 const dataPromise=buildCatalog({published:rows}),additions=weapons.filter(w=>w.collectible);
 const {legacyGame,weapons:previous}=require('./fixtures/legacy-equipment.cjs');
 const unmatched=['commanders-sabre','draevenheim-crimson-crossbow','rhinoz-ancestral-horn'];

@@ -1,0 +1,28 @@
+TAP version 13
+# Subtest: 14 city guards and four Arborium soldiers are published with exact printed rules
+ok 1 - 14 city guards and four Arborium soldiers are published with exact printed rules
+  ---
+  duration_ms: 46.3652
+  type: 'test'
+  ...
+# Subtest: Retouched cards preserve all gameplay fields and race synergies remain ordinary
+ok 2 - Retouched cards preserve all gameplay fields and race synergies remain ordinary
+  ---
+  duration_ms: 2.5443
+  type: 'test'
+  ...
+# Subtest: All 18 soldiers complete 24 matches with support and repeated save restoration
+ok 3 - All 18 soldiers complete 24 matches with support and repeated save restoration
+  ---
+  duration_ms: 307.3569
+  type: 'test'
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 457.6402

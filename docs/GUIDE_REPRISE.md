@@ -49,6 +49,15 @@ temporaires du presse-papiers ou les preferences non encore documentees.
 
 ## Reperes techniques
 
+### Equipements FFIX : 9 octobre 2026
+
+Le [lot FFIX](../V4/revisions/2026-10-09-ff9-equipment/README.md) ajoute
+8 armes, 5 protections et 5 reliques avec des visuels propres et des effets
+declaratifs existants. Armes : characterId et famille imprimee obligatoires.
+Protections/reliques : characterId, une attribution par partie. Un seul
+emplacement partage ; aucun changement de faces natives ni de matrice.
+Prompts, sources, exports et tests sont documentes dans le lot.
+
 ### FFIX et personnalite Resident Evil : 8 octobre 2026
 
 Le [lot FFIX](../V4/expansions/2026-10-08-final-fantasy-ix/README.md) ajoute

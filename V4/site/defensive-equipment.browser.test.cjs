@@ -52,9 +52,9 @@ async function main(){
     });
     await context.addInitScript(()=>{const open=IDBFactory.prototype.open;IDBFactory.prototype.open=function(n,v){return v===undefined?open.call(this,n+'-defensive-qa'):open.call(this,n+'-defensive-qa',v);};});
     const page=await context.newPage();page.on('pageerror',e=>errors.push(name+': '+e.message));page.on('response',r=>{if(r.status()>=400)errors.push(name+': '+r.status()+' '+r.url());});page.on('dialog',d=>d.accept());
-    await ready(page);assert.equal(await page.locator('.weapon-entry').count(),75);
+    await ready(page);assert.equal(await page.locator('.weapon-entry').count(),93);
     for(const kind of combatOnly?[]:['shield','relic']){
-      await page.locator(`[data-equipment-category=${kind}]`).click();assert.equal(await page.locator('.weapon-entry').count(),21);
+      await page.locator(`[data-equipment-category=${kind}]`).click();assert.equal(await page.locator('.weapon-entry').count(),26);
       await capture(page,name+'-'+kind+'-collection');
       for(const w of additions.filter(w=>w.kind===kind)){
         await openEquipment(page,w.id);
