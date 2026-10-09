@@ -308,9 +308,15 @@
       idle:()=>queue,close
     };
     if(O)api.registry=O.create({data,engine:E,getCache:()=>cache,enqueue,transaction:atomic,refresh,isOpen:()=>opened});
+    const equippedItems=(userId,characterId)=>{
+      const row=cache.equipment.find(r=>r.id===userId)||Q.profile(userId);
+      return Q.items(row.version===1?row.slots.weapon:row.slots).filter(item=>item.characterId===characterId)
+        .map(item=>Q.catalogue.weapons.find(w=>w.id===item.id)).filter(Boolean);
+    };
     api.equipment={
       profile:userId=>copy(cache.equipment.find(r=>r.id===userId)||Q.profile(userId)),
-      weapon:(userId,characterId)=>{const id=cache.equipment.find(r=>r.id===userId)?.slots.weapon[characterId];return Q.catalogue.weapons.find(w=>w.id===id)||null;},
+      weapon:(userId,characterId)=>copy(equippedItems(userId,characterId)[0]||null),
+      items:(userId,characterId)=>copy(equippedItems(userId,characterId)),
       subscribe:listener=>{equipmentListeners.add(listener);return()=>equipmentListeners.delete(listener);},
       equip:(userId,characterId,weaponId,{expected=null,expectedProfile=null}={})=>enqueue(()=>atomic((s,write)=>{
         if(hasRegistry&&!s.users.some(u=>u.id===userId))throw new Error('Profil inconnu.');
@@ -318,9 +324,9 @@
         const row=Q.equipProfile(current,characterId,weaponId,data.cards,{expected,expectedProfile});write('equipment',row);return copy(row);
       })),
       unequip:(userId,characterId,weaponId)=>enqueue(()=>atomic((s,write)=>{
-        const row=copy(s.equipment.find(r=>r.id===userId)||Q.profile(userId));
-        if(row.slots.weapon[characterId]!==weaponId)throw new Error('L\u2019\u00e9quipement a chang\u00e9.');
-        delete row.slots.weapon[characterId];write('equipment',row);return copy(row);
+        const row=copy(s.equipment.find(r=>r.id===userId)||Q.profile(userId)),slot=Q.catalogue.weapons.find(w=>w.id===weaponId)?.slot;
+        if(!slot||row.slots[slot][characterId]!==weaponId)throw new Error('L\u2019\u00e9quipement a chang\u00e9.');
+        delete row.slots[slot][characterId];Q.validateProfile(row,data.cards);write('equipment',row);return copy(row);
       }))
     };
     return api;

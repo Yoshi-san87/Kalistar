@@ -927,6 +927,17 @@
   const kind=w=>w?.kind||'weapon';
   const categories=freeze({weapon:{label:'Armes',singular:'Arme',icon:'sword'},shield:{label:'Protections',singular:'Protection',icon:'shield'},relic:{label:'Reliques',singular:'Relique',icon:'gem'}});
   for(const weapon of weapons)if(kind(weapon)==='weapon')weapon.restrictions.families=[weapon.family];
+  // Started matches retain these definitions; only new loadouts use the 4.6 rules.
+  const legacyWeapons=JSON.parse(JSON.stringify(weapons));legacyWeapons.forEach(freeze);
+  for(const item of weapons){
+    if(item.id==='little-joys-flute')item.kind='relic';
+    item.slot=kind(item);item.rulesVersion=2;
+    if(item.slot!=='relic'){
+      const stat=item.slot==='weapon'?'ATK':'DEF';
+      item.effect={trigger:'RETAINED_SIX',stat,value:item.effect.value,duration:'DUEL'};
+      item.condition='Jet '+stat+' 6 num\u00e9rique conserv\u00e9 : +'+item.effect.value+' '+stat+' pour ce duel.';
+    }
+  }
   weapons.forEach(freeze);freeze(legacyRestrictions);
-  return Object.freeze({version:1,weapons:Object.freeze(weapons),legacyRestrictions,kind,categories});
+  return Object.freeze({version:2,weapons:Object.freeze(weapons),legacyWeapons:Object.freeze(legacyWeapons),legacyRestrictions,kind,categories});
 });

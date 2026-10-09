@@ -129,7 +129,8 @@ constitue pas une preuve de taux de victoire equilibres.
 ```text
 ATK = face + arme + cristal + faction + capitaine faction + jeton ATK + arene ATK - barriere
 DEF = face + race + capitaine race + arene DEF + garde physique
-Puis ajouter le bonus d'equipement applicable au total ATK ou DEF.
+Puis ajouter les contributions d'equipement : arme ATK sur un 6 conserve,
+protection DEF sur un 6 conserve, et le bonus de relique applicable.
 Chaque total est borne a zero au minimum.
 ```
 
@@ -154,45 +155,60 @@ Une barriere sur la face DEF numerique obtenue retire 30 ATK seulement a une
 attaque magique. C'est distinct de la garde physique `ward` et de l'icone
 bouclier utilisee pour afficher la somme des scores DEF.
 
-## Equipements (6 octobre 2026)
+## Equipements - 4.6.0 (9 octobre 2026)
 
-Un personnage peut porter UN equipement choisi avant le match : arme,
-protection OU relique, dans la vue Equipements ou sa composition.
-Il ajoute un bonus conditionnel numerique, sans remplacer l'arme imprimee
-ni modifier la matrice des vingt familles. Le match conserve son equipement
-initial, meme si le profil change ensuite.
+Un personnage peut porter simultanement UNE arme, UNE protection et UNE
+relique, choisies avant le match. Chaque objet reste attribue a un seul
+porteur dans ce loadout. Le deck et le match conservent leurs propres copies :
+changer un profil ou un autre deck ne modifie jamais une rencontre commencee.
 
-- Rempart de Durane : faction Durane, +30 DEF pendant la premiere defense,
-  une fois par match.
-- Pod 042 : 2B (toutes editions), apres un Block reussi, +20 DEF a sa prochaine
-  defense, une fois par match. Pas de recharge. Attaquer ne consomme pas le Pod.
-- Ces deux charges sont depensees a la fin d'une vraie defense, meme speciale ;
-  les relances du meme duel conservent le bonus. Un soutien cible ne compte pas.
-- Les armes gardent leur restriction de famille imprimee ; protections et reliques
-  ciblent leur faction/personnage sans modifier les matchups.
+- Arme : bonus ATK sur le D6 NUMERIQUE conserve. Elle apparait entre ATK 6
+  et ATK 5, sur l'emplacement cible. Hache du Roi Dechu : +30 ATK sur ce 6,
+  sans ancienne condition de dernier survivant.
+- Protection : bonus DEF sur le D6 NUMERIQUE courant contre une ATK numerique.
+  Elle apparait entre DEF 6 et DEF 5. Rempart de Durane : +30 DEF sur ce 6,
+  sans ancienne limite de premiere defense. Chaque duel peut la reutiliser.
+- Relique : garde son effet conditionnel et sa duree propres. Son mecanisme
+  reste sur le medaillon d'arme imprime. Aucun nouvel ulti manuel ni jauge.
+  Pod 042 conserve son +20 DEF a la prochaine defense apres un Block, une
+  fois par partie. La Flute des Petits Bonheurs est une relique de soutien :
+  nouveau trefle/potion de Momo, +30 DEF au beneficiaire pour son prochain duel.
 
-Vingt protections et vingt reliques supplementaires donnent +20 a +30 DEF
-pour UNE defense, UNE fois par partie, apres la condition indiquee sur leur
-carte. Les protections comprennent aussi armures, manteaux, bottes et gantelets.
-Un soutien renouvele ou une vie sauvee par Reraise ne compte pas comme nouveau
-soutien ou elimination. Un effet lie au deploiement vise les renforts, pas
-l'installation initiale. Un cadeau a choisir attend la selection d'un autre
-allie actif. Ces charges survivent aux attaques de leur beneficiaire ; seule
-sa prochaine defense les consomme, meme sur une face speciale. Aucun cumul
-de bonus d'equipement DEF : valeur maximale retenue et charges consommees.
+Un 6 ATK en attente de decision Kalistel ne donne pas encore le bonus.
+Un 6 abandonne ne l'active pas ; un second 6 impose ou un 6 accepte l'active.
+En DEF, le bonus est recalcule a CHAQUE relance : passer de 6 a 5 le retire,
+passer de 5 a 6 l'ajoute. Le calcul du premier essai reste dans le journal.
+Les bonus de reliques captures pour le duel conservent leur duree initiale.
 
-- Hache du Roi Dechu, `balmhyr` : +30 ATK tant qu'il est le seul combattant
-  vivant sur son plateau. La reserve ne compte pas ; un remplacant desactive
-  cet etat.
-- La Flute des Petits Bonheurs, `momo` : apres un nouveau trefle ou une nouvelle
-  potion reussie, +30 DEF au beneficiaire pour son prochain duel. Une charge,
-  aucun cumul ni rafraichissement ; expire a la fin de ce duel, meme si le
-  beneficiaire attaque ou si une face speciale annule le calcul. Les relances
-  DEF du meme duel conservent le +30.
+Mort, Reraise, Esquive et autres faces speciales ne deviennent jamais des
+scores. Une ATK Mort ne beneficie ni de l'arme ni de la protection. L'arme
+imprimee, ses vingt matchups, la magie, les barrieres, les jetons +60, les
+synergies, le capitaine, l'initiative et ABBA sont inchanges.
 
-Les bonus ne numerisent jamais Mort, Esquive ou un soutien. Leur origine est
-nommee dans le journal et le calcul. Details et schemas :
-[Armes equipees](ARMES_EQUIPEES.md).
+Le bonus direct arme/protection S'AJOUTE au meilleur bonus de relique de la
+meme statistique. Plusieurs cadeaux de reliques ne se cumulent toujours pas :
+leur maximum est retenu, avec les consommations historiques. Ainsi une
+protection +30 sur DEF 6 et une relique +20 applicable donnent +50 DEF ; sur
+DEF 5 seule la relique donne +20. Toutes les origines sont nommees separement.
+
+La protection est montree lorsqu'elle contribue, meme si la defense echoue.
+Un Block utilisant cette protection emploie son illustration ; un Block sans
+activation conserve le bouclier habituel. Les medaillons actifs et le 6
+conserve tournent ensemble jusqu'a la fin du duel, sans prolonger les bonus
+sur le prochain duel. Reduced Motion remplace le mouvement par un etat fixe.
+
+Les reliques a usage unique gardent leurs evenements (`DEFENSE`, `BLOCK`,
+`DODGE`, `ALLY_FALL`, `SUPPORT`, `DEPLOY`, `ALLY_DEPLOY`), destinataires et
+expiration. Un soutien deja charge ou une perte annulee par Reraise ne les
+recharge pas. Un cadeau a choisir attend un autre allie actif. Une vraie
+defense consomme sa charge, meme speciale ; attaquer ne consomme pas une
+charge `NEXT_DEFENSE`. Le cadeau de la Flute expire, lui, apres le prochain
+duel du beneficiaire, y compris s'il attaque.
+
+Les parties historiques `equipment.version: 1` gardent leurs anciennes
+definitions et regles a un emplacement partage. Les profils/compositions
+migrent vers trois emplacements sans perdre leurs membres ou possessions.
+Schemas et ajout d'un objet : [Equipements 4.6.0](EQUIPEMENTS_460.md).
 
 ## Synergies et arenes
 

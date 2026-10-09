@@ -6,6 +6,22 @@ Read the [handoff guide](../../docs/GUIDE_REPRISE.md) and the
 [current gameplay summary](../docs/REGLES_JEU.md), including the documented
 difference between the ten-kill objective and the engine's empty-board ending.
 
+## Three Equipment Slots (V4.6.0)
+
+See [EQUIPEMENTS_460.md](../docs/EQUIPEMENTS_460.md) for the current data contract,
+migration and extension recipe. New compositions/profile preferences carry three
+`characterId` maps: `weapon`, `shield`, `relic`. New matches snapshot definitions
+with `rulesVersion: 2`; old version-1 matches keep their published rules intact.
+Weapon/protection bonuses apply only to retained numeric ATK6/DEF6 respectively.
+Relics retain their conditional triggers and charge lifecycle. Momo's flute is
+a support relic, not an offensive weapon. Base matchup families never change.
+
+`equipment.js` owns compatibility, migration and declarative rules;
+`engine.js` computes and validates actual totals; `equipment-presentation.js`
+projects the three native anchors through the shared crop. Deck/arena inspection
+uses the same rendering, with arena overlays restricted to active items.
+No extra database, native card edits, permanent canvas or manual ultimate.
+
 ## Back Closes Popups (7 October 2026)
 
 `dialog-history.js` gives browser/Android Back priority to the topmost game

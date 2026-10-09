@@ -71,9 +71,17 @@ async function verify(page,output){
   await page.locator('[data-deck-action=cancel-replace]').first().click();assert.equal((await draft()).formation[0],plan.team.captain);
   const recruit=await page.locator('[data-deck-recruit="'+replacement.id+'"]').boundingBox(),slot=await page.locator('[data-deck-slot="0"]').boundingBox();
   await page.mouse.move(recruit.x+recruit.width/2,recruit.y+recruit.height/2);await page.mouse.down();
-  await page.mouse.move(slot.x+slot.width/2,slot.y+slot.height/2,{steps:15});await page.mouse.up();
-  assert(await page.locator('.kdb-compare:modal').isVisible());await page.locator('[data-deck-action=confirm-replace]').click();
+  await page.mouse.move(slot.x+slot.width/2,slot.y+slot.height/2,{steps:15});
+  assert.equal((await draft()).formation[0],plan.team.captain,'drag must not replace before release');await page.mouse.up();
+  assert(await page.locator('.kdb-compare:modal').isVisible());
+  assert.equal(await page.locator('.kdb-compare-cards figure').nth(1).locator('figcaption b').textContent(),replacement.name,'confirmation must target the recruited card');
+  await page.locator('[data-deck-action=confirm-replace]').click();
+  await page.waitForFunction(id=>JSON.parse(localStorage.getItem('kalistar.v4.teamDraft')).formation[0]===id,replacement.id);
   assert.equal((await draft()).formation[0],replacement.id);assert.equal((await draft()).captain,null);
+  assert.equal(await page.locator('.kdb-compare:modal').count(),0);
+  await page.locator('[data-deck-action=remove][data-slot="0"]').click();
+  assert.equal((await draft()).formation[0],null);assert.equal((await draft()).cards[0],null);
+  await page.locator('[data-deck-action=undo]').click();assert.equal((await draft()).formation[0],replacement.id);
   await page.locator('[data-deck-action=undo]').click();assert.equal((await draft()).captain,plan.team.captain);
   await page.locator('[data-deck-filter=search]').fill('');
   await page.locator('[data-deck-action=reorder][data-slot="2"]').click();
@@ -96,9 +104,9 @@ async function verify(page,output){
     await page.locator('[data-deck-action=equip][data-id="'+id+'"]').click();
     assert.equal(await page.locator('.team-equipped .eq-tab').count(),0);
   }
-  assert.deepEqual((await draft()).equipment,{balmhyr:'fallen-king-axe',momo:'little-joys-flute'});
-  await page.locator('[data-deck-action=unequip]').click();assert.equal((await draft()).equipment.momo,undefined);
-  await page.locator('[data-deck-action=undo]').click();assert.equal((await draft()).equipment.momo,'little-joys-flute');
+  assert.deepEqual((await draft()).equipment,{weapon:{balmhyr:'fallen-king-axe'},shield:{},relic:{momo:'little-joys-flute'}});
+  await page.locator('[data-deck-action=unequip][data-id=little-joys-flute]').click();assert.equal((await draft()).equipment.relic.momo,undefined);
+  await page.locator('[data-deck-action=undo]').click();assert.equal((await draft()).equipment.relic.momo,'little-joys-flute');
   await page.locator('[data-deck-action=save]').click();
   const saved=await draft();
   await page.reload();await page.waitForSelector('.team-page');assert.deepEqual(await draft(),saved);
@@ -121,8 +129,8 @@ async function verify(page,output){
     if(width<=900)await page.locator('[data-deck-action=panel][data-id=board]').click();
     assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'overflow '+width);
     const alignment=await page.evaluate(()=>[...document.querySelectorAll('.team-equipped')].map(node=>{
-      const image=node.parentElement.querySelector('img').getBoundingClientRect(),r=node.getBoundingClientRect(),n=KalistarEquipmentFX.native,c=KalistarCardMedia.crop;
-      return {dx:Math.abs(r.left+r.width/2-(image.left+(n.center.x-c.left)/c.width*image.width)),dy:Math.abs(r.top+r.height*60.5/122-(image.top+(n.center.y-c.top)/c.height*image.height)),width:Math.abs(r.width-n.width/c.width*image.width)};
+      const image=node.parentElement.querySelector('img').getBoundingClientRect(),r=node.getBoundingClientRect(),n=KalistarEquipmentFX.layouts[node.dataset.equipmentSlot],c=KalistarCardMedia.crop;
+      return {dx:Math.abs(r.left-(image.left+(n.left-c.left)/c.width*image.width)),dy:Math.abs(r.top-(image.top+(n.top-c.top)/c.height*image.height)),width:Math.abs(r.width-n.width/c.width*image.width)};
     }));
     assert.equal(alignment.length,2);for(const sample of alignment)for(const v of Object.values(sample))assert(v<1.3,'deck medallion drift '+width+' '+JSON.stringify(sample));
     await page.waitForTimeout(150);

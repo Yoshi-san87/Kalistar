@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "isolated": true,
+  "checks": [
+    "IndexedDB: three-slot save/reopen, legacy migration and backup/import without losing matches",
+    "IndexedDB: cross-connection stale confirms, replacements, transfers, per-slot removal and incompatible rejection",
+    "Match snapshot isolation from later profile changes and rejected corrupt imports",
+    "Deck UI: three-category picker, three compact equipped items, scoped unequip and independent undo/redo",
+    "Deck UI: schema 2 save/reload, desktop and smartphone screenshots without horizontal overflow",
+    "Deck UI: shared native anchors within one CSS pixel on PC/phone; continuous rotation and Reduced Motion both verified",
+    "Arsenal UI: current holder per category, scoped removal, coexistence without false replacement, PC/phone screenshots",
+    "Arsenal UI: same-slot replacement requires confirmation; stale whole-profile confirmation is rejected without replacing Momo relic"
+  ],
+  "errors": []
+}

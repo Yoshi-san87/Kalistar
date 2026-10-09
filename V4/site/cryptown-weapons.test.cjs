@@ -4,6 +4,8 @@ const Q=require('./equipment.js'),C=require('./weapon-cards.js'),T=require('./te
 const {createEngine}=require('./engine.js'),{buildCatalog}=require('../atelier/game-catalog.cjs');
 const dataPromise=buildCatalog({published:require('../donnees/catalogue.json').cards.filter(c=>c.kind==='created')});
 const ids=['cryptown-oath-sword','cryptown-vigil-rifle','cryptown-watch-flail'],weapons=ids.map(id=>Q.catalogue.weapons.find(w=>w.id===id));
+const archive=require('./fixtures/equipment-v4.5.64.json');
+const historical=ids.map(id=>archive.weapons.find(w=>w.id===id));
 const allowed={'cryptown-oath-sword':['varkhen-kalistar'],'cryptown-vigil-rifle':['nereth-kalistar'],'cryptown-watch-flail':['draust-kalistar']};
 const {legacyGame}=require('./fixtures/legacy-equipment.cjs');
 function deckFor(E,data,c){const base=data.decks.player;const deck=base.map((_,i)=>base.map((id,j)=>i===j?c.id:id)).find(ids=>!E.validatePlayableDeck(ids).length);assert(deck,c.id);return deck;}
@@ -25,12 +27,13 @@ test('one weapon slot, replacement, faction enforcement, profile and composition
   assert.throws(()=>Q.equipProfile(p,'ssilas',ids[0],data.cards),/incompatible/);
   const c=data.cards.find(c=>c.characterId==='varkhen-kalistar'),deck=deckFor(E,data,c),team=T0.equip(T0.fromPreset({name:'Cryptown',cards:deck}),c.id,ids[0]);
   assert.deepEqual(E.validateComposition(team),[]);const s=E.newGame(team,team,{mode:'local'}),snapshot=structuredClone(s.equipment);
-  team.equipment[c.characterId]=ids[1];assert.deepEqual(s.equipment,snapshot);assert.deepEqual(E.restoreGame(s),s);
+  team.equipment.weapon[c.characterId]=ids[1];assert.deepEqual(s.equipment,snapshot);assert.deepEqual(E.restoreGame(s),s);
   const old=E.newGame(deck,deck,{equipment:[{},{}]});old.equipment.definitions=old.equipment.definitions.filter(w=>!ids.includes(w.id));assert.deepEqual(E.restoreGame(old),old);
 });
-test('all compatible printed editions receive the exact real bonus on either side, then lose it when inactive',async()=>{
+test('archived 4.5.64: all compatible Cryptown editions retain state bonuses and deactivation on both sides',async()=>{
   const data=await dataPromise,E=createEngine(data);
-  for(const w of weapons)for(const c of data.cards.filter(c=>Q.compatible(w,c)))for(const side of [0,1]){
+  assert.deepEqual(Q.catalogue.legacyWeapons,archive.weapons);
+  for(const w of historical)for(const c of data.cards.filter(c=>Q.compatible(w,c)))for(const side of [0,1]){
     const deck=deckFor(E,data,c),loadout={[c.characterId]:w.id};
     const s=E.newGame(deck,deck,{seed:'CRYPTOWN-TEST',mode:'local',kalistel:false,equipment:side?[{},loadout]:[loadout,{}]});
     E.autoDeploy(s,0);E.autoDeploy(s,1);const p=s.players[side],u=[...p.board.filter(Boolean),...p.reserve].find(v=>v.cardId===c.id);
@@ -51,9 +54,10 @@ test('all compatible printed editions receive the exact real bonus on either sid
     s.phase='over';assert(!E.equipmentView(s,u).active);
   }
 });
-test('bounded state-based effects reuse existing families and do not create a second attack',()=>{
-  assert.deepEqual(weapons.map(w=>[w.family,w.effect.stat,w.effect.value,w.effect.trigger,w.effect.duration]),[['Ep\u00e9e longue','ATK',20,'TEAM_STATE','WHILE_TRUE'],['Gun','ATK',20,'TEAM_STATE','WHILE_TRUE'],['Fl\u00e9au','DEF',20,'TEAM_STATE','WHILE_TRUE']]);
-  assert.deepEqual(weapons[0].effect.when,{outnumbered:true});assert.deepEqual(weapons[1].effect.when,{reserveAtMost:0});assert.deepEqual(weapons[2].effect.when,{activeAtMost:2});
+test('4.6 Cryptown weapons use ATK six; archived Flail DEF and state effects remain frozen',()=>{
+  assert.deepEqual(weapons.map(w=>[w.family,w.slot,w.rulesVersion,w.effect]),['Ep\u00e9e longue','Gun','Fl\u00e9au'].map(family=>[family,'weapon',2,{trigger:'RETAINED_SIX',stat:'ATK',value:20,duration:'DUEL'}]));
+  assert.deepEqual(historical.map(w=>[w.family,w.effect.stat,w.effect.value,w.effect.trigger,w.effect.duration]),[['Ep\u00e9e longue','ATK',20,'TEAM_STATE','WHILE_TRUE'],['Gun','ATK',20,'TEAM_STATE','WHILE_TRUE'],['Fl\u00e9au','DEF',20,'TEAM_STATE','WHILE_TRUE']]);
+  assert.deepEqual(historical[0].effect.when,{outnumbered:true});assert.deepEqual(historical[1].effect.when,{reserveAtMost:0});assert.deepEqual(historical[2].effect.when,{activeAtMost:2});
   assert(weapons.every(w=>!w.changesFamily));assert.deepEqual(weapons.map(w=>w.collectible.number),['ARM-030','ARM-031','ARM-032']);
 });
 
@@ -77,7 +81,7 @@ test('saved Cryptown equipment never turns Nereth or Morveth Death into numeric 
   }
 });
 
-test('active Cryptown equipment preserves Guard support without adding a second gift',async()=>{
+test('archived 4.5.64: active Cryptown equipment preserves Guard support without a second gift',async()=>{
   const data=await dataPromise,E=createEngine(data);
   for(const [characterId,weaponId] of [['varkhen-kalistar',ids[0]],['draust-kalistar',ids[2]]]){
     const c=data.cards.find(c=>c.characterId===characterId),deck=deckFor(E,data,c);

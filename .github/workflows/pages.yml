@@ -59,6 +59,7 @@ jobs:
           node V4/site/kalistel.test.cjs
           node V4/site/arena-ambience.test.cjs
           node --test V4/site/equipment.test.cjs V4/site/equipment-presentation.test.cjs
+          node --test V4/site/equipment-v2.test.cjs V4/site/equipment-slots-persistence.test.cjs V4/site/equipment-slots-presentation.test.cjs
           node --test V4/site/equipment-categories.test.cjs V4/site/weapons-arsenal.test.cjs
           node --test V4/site/defensive-equipment.test.cjs
           node --test V4/site/ff9-equipment.test.cjs

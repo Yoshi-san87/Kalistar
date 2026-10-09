@@ -1,4 +1,17 @@
-# Armes equipees - V1
+# Equipements - reference et historique
+
+## Regles actuelles : V4.6.0
+
+La reference active est [EQUIPEMENTS_460.md](EQUIPEMENTS_460.md) et la section
+Equipements de [REGLES_JEU.md](REGLES_JEU.md). Un personnage peut maintenant
+porter une arme, une protection et une relique simultanement. Les armes et
+protections donnent leur bonus sur un D6 numerique conserve; les reliques
+gardent leurs conditions et consommations. La flute de Momo reste un soutien
+et devient une relique. Les anciens matchs conservent leur propre snapshot.
+
+Les sections ci-dessous documentent les implementations anterieures et les
+sources du pipeline graphique. Leurs regles de slot unique et leurs anciennes
+conditions d'arme/protection ne sont plus celles des nouvelles rencontres.
 
 ## Evolution du 6 octobre 2026 : Equipements
 

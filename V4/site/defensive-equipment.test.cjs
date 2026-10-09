@@ -2,7 +2,9 @@
 const test=require('node:test'),assert=require('node:assert/strict');
 const Q=require('./equipment.js'),{createEngine}=require('./engine.js'),{buildCatalog}=require('../atelier/game-catalog.cjs');
 const dataPromise=buildCatalog({published:require('../donnees/catalogue.json').cards.filter(c=>c.kind==='created')});
-const additions=Q.catalogue.weapons.filter(w=>w.effect.trigger==='ONCE_DEFENSE');
+// These charge/relay scenarios freeze the pre-4.6 defensive rules, including protections.
+const archive=require('./fixtures/equipment-v4.5.64.json');
+const additions=archive.weapons.filter(w=>w.effect.trigger==='ONCE_DEFENSE');
 const item=id=>additions.find(w=>w.id===id);
 const supportFaces={luck:'retry',mana:'mana',reraise:'revive',ward:'guard',physical:'buff_atk'};
 async function fixture(w,side=0,extra=null){
@@ -63,11 +65,16 @@ function trigger(f){
   const recipient=s.players[side].board.find(v=>v?.uid===r.recipient);next(f);return recipient;
 }
 
-test('50 additive entries, 25 protections and 25 relics; real edition restrictions and one slot',async()=>{
+test('archived 4.5.64: 50 entries retain restrictions; 4.6 separates protection and relic slots',async()=>{
   const {cards}=await dataPromise;assert.equal(additions.length,50);
+  assert.deepEqual(Q.catalogue.legacyWeapons,archive.weapons);
   for(const kind of ['shield','relic'])assert.equal(additions.filter(w=>w.kind===kind).length,25);
   for(const w of additions){
     Q.validateDefinition(w);assert.equal(w.slot,'weapon');assert.equal(w.changesFamily,undefined);assert(w.effect.value<=30);assert(cards.some(c=>Q.compatible(w,c)),w.id);
+    const current=Q.catalogue.weapons.find(item=>item.id===w.id);Q.validateDefinition(current);
+    assert.equal(current.slot,w.kind);assert.equal(current.rulesVersion,2);assert.deepEqual(current.restrictions,w.restrictions);
+    assert.deepEqual(current.collectible,w.collectible);assert.equal(current.art,w.art);
+    assert.deepEqual(current.effect,w.kind==='relic'?w.effect:{trigger:'RETAINED_SIX',stat:'DEF',value:w.effect.value,duration:'DUEL'});
     if(w.restrictions.characterIds)assert(!Q.compatible(w,{...cards.find(c=>Q.compatible(w,c)),characterId:'wrong',name:w.name}));
   }
   for(const [id,faction] of [['octocamo','MGS4'],['cyborg-ninja-armor','MGS4'],['leon-body-armor','RE4'],['stars-vest','RE1']]){
@@ -75,9 +82,11 @@ test('50 additive entries, 25 protections and 25 relics; real edition restrictio
     assert(!Q.compatible(w,{...cards.find(c=>Q.compatible(w,c)),faction:'wrong'}));
   }
   let p=Q.profile('qa');p=Q.equipProfile(p,'balmhyr','fallen-king-axe',cards);
-  p=Q.equipProfile(p,'balmhyr','exiled-king-seal',cards,{expected:'fallen-king-axe'});assert.deepEqual(p.slots.weapon,{balmhyr:'exiled-king-seal'});
+  p=Q.equipProfile(p,'balmhyr','exiled-king-seal',cards);
+  assert.deepEqual(p.slots,{weapon:{balmhyr:'fallen-king-axe'},shield:{},relic:{balmhyr:'exiled-king-seal'}});
+  assert.deepEqual(Q.validateProfile(JSON.parse(JSON.stringify(p)),cards),p);
 });
-for(const w of additions)for(const side of [0,1])test(`${w.id}: real bonus once, side ${side}, reload every phase`,async()=>{
+for(const w of additions)for(const side of [0,1])test(`archived 4.5.64: ${w.id}: real bonus once, side ${side}, reload every phase`,async()=>{
   const f=await fixture(w,side),{s,E,u}=f;assert(!E.equipmentView(s,u).active);restore(f);
   const recipient=trigger(f);assert(recipient,w.id);
   // A ready gift survives its recipient attacking.
@@ -90,13 +99,13 @@ for(const w of additions)for(const side of [0,1])test(`${w.id}: real bonus once,
   next(f);defend(f,recipient);assert.equal(s.duel.formula.equipmentDefense,0);assert(!E.equipmentView(s,u).active);
 });
 
-test('magic and physical qualification wait for the accepted attack',async()=>{
+test('archived 4.5.64: magic and physical qualification wait for the accepted attack',async()=>{
   const f=await fixture(item('tide-pavise')),{E,s,u}=f;const enemy=s.players[1].board[1];
   E.card(enemy).magic=[5];E.card(enemy).element='ELECTRO';
   lock(f);E.rollAttack(s,5);assert(!s.equipment.defensive);E.rollDefense(s,6);restore(f);assert.equal(s.duel.formula.equipmentDefense,0);next(f);
   defend(f);assert.equal(s.duel.formula.equipmentDefense,25);assert.equal(s.equipment.defensive.grants[0].recipient,u.uid);
 });
-test('support refresh does not grant a charge; special defense consumes once; failed saves rejected',async()=>{
+test('archived 4.5.64: support refresh, special defense consumption and forged save rejection',async()=>{
   const f=await fixture(item('pod-153')),{E,s,u,ally}=f;ally.mana=60;
   lock(f,u,true);E.rollAttack(s,1);E.grantPotion(s,ally.uid);restore(f);assert(!s.equipment.defensive);next(f);
   ally.mana=0;lock(f,u,true);E.rollAttack(s,1);E.grantPotion(s,ally.uid);restore(f);next(f);
@@ -111,7 +120,7 @@ test('invalid declarative rules are rejected without new saves or implicit slots
   for(const change of [{event:'HEAL'},{duration:'FOREVER'},{recipient:'opponent'},{when:{attack:'any'}},{when:{damage:100}}])assert.throws(()=>Q.validateDefinition({...w,effect:{...w.effect,...change}}));
 });
 
-test('a relay and a personal protection use only the strongest bonus and consume both charges',async()=>{
+test('archived 4.5.64: relay and personal protection use the strongest bonus and consume both charges',async()=>{
   const f=await fixture(item('exiled-king-seal'),0,item('tide-pavise')),{E,s,ally}=f;
   defend(f);assert(E.equipmentChoice(s));E.grantEquipment(s,ally.uid);restore(f);next(f);
   lock(f,ally);E.rollAttack(s,6);restore(f);
@@ -122,7 +131,7 @@ test('a relay and a personal protection use only the strongest bonus and consume
   next(f);defend(f,ally);assert.equal(s.duel.formula.equipmentDefense,0);restore(f);
 });
 
-test('discarded Kalistel attack cannot activate or consume a protection',async()=>{
+test('archived 4.5.64: discarded Kalistel attack cannot activate or consume a protection',async()=>{
   const f=await fixture(item('tide-pavise')),{E,s}=f;
   s.kalistel={version:1,spent:[]};
   E.card(s.players[1].board[1]).element='ELECTRO';E.card(s.players[1].board[1]).magic=[5];
@@ -134,7 +143,7 @@ test('discarded Kalistel attack cannot activate or consume a protection',async()
   assert.equal(s.duel.formula.equipmentDefense,25);assert.equal(s.equipment.defensive.grants[0].status,'spent');
 });
 
-for(const w of additions)test(`${w.id}: three complete matches with untouched catalogue cards`,async()=>{
+for(const w of additions)test(`archived 4.5.64: ${w.id}: three complete matches with untouched catalogue cards`,async()=>{
   const data=await dataPromise,E=createEngine(data),c=data.cards.find(c=>Q.compatible(w,c)),base=data.decks.player;
   const deck=base.map((_,i)=>base.map((v,j)=>i===j?c.id:v)).find(ids=>!E.validatePlayableDeck(ids).length);assert(deck,w.id);
   for(const seed of [1,2,3]){

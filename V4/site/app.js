@@ -55,7 +55,7 @@
   let deck=load('deck',initialDeck);if(!Array.isArray(deck)||deck.some(id=>!E.byId[id])||deck.length>10)deck=initialDeck;
   {const counts={};deck=deck.filter(id=>(counts[id]=(counts[id]||0)+1)<=owned(id).length);}
   let deckName=String(load('deckName','Les premiers Sentry')).slice(0,50);
-  const Team=KalistarTeamComposition.create(E,()=>db?.equipment.profile(accountId).slots.weapon||{});
+  const Team=KalistarTeamComposition.create(E,()=>db?.equipment.profile(accountId).slots||KalistarEquipment.emptyLoadout());
   let teamDraft;
   try{teamDraft=Team.normalize(load('teamDraft',null)||{name:deckName,cards:deck});}
   catch{teamDraft=Team.normalize({name:deckName,cards:deck});}
@@ -236,7 +236,7 @@
   }
 function showDeck(){setView('decks');}
   function builder(){
-    if(!deckBuilder)deckBuilder=KalistarDeckBuilder.create({data,engine:E,registry:db?.registry,userId:accountId,getDraft:()=>Team.clone(teamDraft),onDraft:next=>{teamDraft=Team.clone(next);deck=next.cards.filter(Boolean);deckName=next.name;persist();},onPlay:newGameDialog,onDetail:id=>showDetail(id,false,{source:'deck'}),getEquipmentDefaults:()=>db?.equipment.profile(accountId).slots.weapon||{},renderHeaderTools:()=>`<div class="kdb-demo-tools" role="group" aria-label="Decks de démonstration"><label for="deck-preset"><span>Démo</span><select id="deck-preset" aria-label="Deck de démonstration">${presetOptions(deckPresetId)}</select></label><button type="button" class="kdb-icon" data-action="load-preset" title="Charger le deck sélectionné" aria-label="Charger le deck sélectionné">${icon('folder-open')}</button><button type="button" class="kdb-icon" data-action="export-deck" title="Exporter le deck courant" aria-label="Exporter le deck courant">${icon('download')}</button><button type="button" class="kdb-icon" data-action="import-deck" title="Importer un deck" aria-label="Importer un deck">${icon('upload')}</button><input hidden type="file" id="deck-file" accept="application/json,.json"></div>`,toast});
+    if(!deckBuilder)deckBuilder=KalistarDeckBuilder.create({data,engine:E,registry:db?.registry,userId:accountId,getDraft:()=>Team.clone(teamDraft),onDraft:next=>{teamDraft=Team.clone(next);deck=next.cards.filter(Boolean);deckName=next.name;persist();},onPlay:newGameDialog,onDetail:id=>showDetail(id,false,{source:'deck'}),getEquipmentDefaults:()=>db?.equipment.profile(accountId).slots||KalistarEquipment.emptyLoadout(),renderHeaderTools:()=>`<div class="kdb-demo-tools" role="group" aria-label="Decks de démonstration"><label for="deck-preset"><span>Démo</span><select id="deck-preset" aria-label="Deck de démonstration">${presetOptions(deckPresetId)}</select></label><button type="button" class="kdb-icon" data-action="load-preset" title="Charger le deck sélectionné" aria-label="Charger le deck sélectionné">${icon('folder-open')}</button><button type="button" class="kdb-icon" data-action="export-deck" title="Exporter le deck courant" aria-label="Exporter le deck courant">${icon('download')}</button><button type="button" class="kdb-icon" data-action="import-deck" title="Importer un deck" aria-label="Importer un deck">${icon('upload')}</button><input hidden type="file" id="deck-file" accept="application/json,.json"></div>`,toast});
     return deckBuilder;
   }
   function decksPage(){
@@ -271,6 +271,7 @@ function showDeck(){setView('decks');}
     modal('rules-dialog',head('Règles · V4')+`<div class="dialog-body rules-body"><h3>Formation et victoire</h3><p>10 cartes, 5 positions : Tank, DPS physique, Middle, DPS magique et Support. Les cinq titulaires et leur capitaine sont sauvegardés dans Composition avant la rencontre ; les cinq autres cartes forment une réserve commune. Chaque deck doit couvrir au moins deux fois chaque position P1 à P5. Une carte polyvalente compte dans chacun de ses postes. Une seule carte par personnage, toutes versions confondues, et une seule Rainbow. Une carte vivante reste à sa position après le début du match. ATK strictement supérieure à DEF élimine la cible ; une égalité la conserve. Le premier à dix éliminations définitives gagne ; un Reraise sauve la carte et ne compte pas comme kill. Limite de démo : match nul après 200 échanges.</p><div class="formula">ATK = jet + arme + cristal + faction + capitaine faction + jeton + arène − barrière + équipement<br>DEF = jet + race + capitaine race + arène + ward + équipement<br>Totaux négatifs ramenés à zéro. Faces spéciales résolues séparément.</div><h3>Arènes</h3><p>Lieu verrouillé au début du match, identique pour les deux camps. Cristal correspondant : +15 ATK. Affinité de personnage : +10 ATK et +10 DEF, toutes ses versions comprises. Maximum +25 ATK et +10 DEF, uniquement sur les scores numériques.</p><h3>Cristaux et barrières</h3><p>Classique contre sans cristal : +20 ATK. Rainbow contre sans cristal : +30. Sans cristal contre un cristal : 0. Sans cristal n’a ni halo ni barrière élémentaire. Rainbow contre classique : +40 ; classique contre Rainbow : −40.</p><p>Air &gt; Eau &gt; Feu &gt; Glace &gt; Plante &gt; Terre &gt; Roche &gt; Électricité &gt; Air. Sang &gt; Ténèbres &gt; Lumière &gt; Sang. Les avantages imprimés et la matrice d’armes s’appliquent une seule fois à l’ATK. Une barrière retire 30 ATK uniquement contre une attaque magique.</p><h3>Buffs complémentaires</h3><p>Garde, trèfle, Reraise, potion magique et puissance physique peuvent coexister. Une seule charge par catégorie : attribuer à nouveau le même buff ne le double pas. Résolution automatique : bouclier dans le score DEF, trèfle si ce score ne suffit pas, puis Reraise si la seconde chance échoue. Faction, race et arène restent cumulables.</p><table><tr><th>Garde / ward 60</th><td>La face bouclier ATK permet de choisir un allié vivant du plateau, auteur compris. Il reçoit +60 DEF sur sa prochaine défense numérique contre une ATK physique. Le bonus est consommé une seule fois et conservé dans le même duel en cas de relance. Magie, esquive et Mort ne le consomment pas. Mort le contourne.</td></tr><tr><th>Trèfle</th><td>En ATK : choix d’un allié, auteur compris. Sa prochaine défense insuffisante déclenche une relance automatique. Égalité et Mort ne le consomment pas. En DEF : relance immédiate.</td></tr><tr><th>Potion / puissance</th><td>+60 sur la prochaine attaque numérique du type correspondant : magique pour la potion, physique pour la puissance. La potion magique et la puissance physique sont toutes deux attribuables à un allié vivant du plateau, auteur compris.</td></tr><tr><th>Reraise</th><td>Face réservée aux soigneurs P5. Choix d’un allié vivant, auteur compris. À sa prochaine élimination, même par Mort, le cœur est consommé et la carte reste à sa place.</td></tr><tr><th>Esquive / Mort</th><td>Esquive annule l’attaque, y compris Mort. Mort ignore les scores, la barrière et ward ; Reraise peut sauver la cible.</td></tr></table><h3>Synergies</h3><p>Pour 1 à 5 cartes de même faction ou race sur le plateau : +0, +10, +20, +30, +40. Faction en ATK, race en DEF. Réserve et cartes éliminées exclues. Capitaine vivant sur le plateau : +10 ATK à sa faction et +10 DEF à sa race si au moins un autre allié actif partage le lien. Un seul +10 par lien ; mort définitive annule ce commandement, Reraise le conserve.</p><h3>Archives V4</h3><p>Les parties et statistiques V4 sont séparées de V2. Une sauvegarde V2 est refusée sans modifier les données V2.</p></div>`);
     $('#rules-dialog .formula').insertAdjacentHTML('beforebegin','<h3>Initiative des capitaines</h3><p>Un D6 par capitaine : le plus grand ouvre, une égalité relance les deux dés. A désigne le gagnant, B son adversaire. Ordre des actions : A, B, B, A, A, B, B, A… Un soutien compte comme une action ; la défense et les remplacements ne changent pas cet ordre. Le capitaine des decks prédéfinis est leur titulaire P1. Les anciennes rencontres conservent leur alternance.</p>');
     $('#rules-dialog .formula').insertAdjacentHTML('beforebegin','<h3>Éclats de Kalistel</h3><p>Deux éclats par joueur dans les nouvelles rencontres, partagés par toute l’équipe, même sans cristal. Après le premier jet ATK et avant la défense, gardez le jet ou utilisez le diamant. Une seule relance par attaque, avec les mêmes participants ; le nouveau résultat est obligatoire, même moins favorable. Les effets et jetons ne sont appliqués qu’au résultat conservé. Aucun objet de collection n’est consommé. Les sauvegardes antérieures conservent leurs règles sans éclats.</p>');
+    $('#rules-dialog .formula').insertAdjacentHTML('beforebegin','<h3>Arme, protection et relique</h3><p>Un objet par emplacement, soit trois équipements simultanés. L’arme, entre ATK 6 et 5, ajoute son bonus seulement sur un 6 numérique conservé. La protection, entre DEF 6 et 5, ajoute le sien seulement sur un 6 numérique en défense. Une face spéciale ne devient jamais numérique. Le type d’arme imprimé reste celui de la matrice d’avantages.</p><p>La relique reste sur le médaillon inférieur : ses conditions, effets et charges sont propres à chaque objet. Le bonus de l’arme ou de la protection s’ajoute au meilleur bonus de relique applicable ; plusieurs cadeaux de reliques ne s’additionnent pas. La Flûte des Petits Bonheurs de Momo est une relique de soutien, pour un seul duel.</p><p>Avant de garder le jet ATK, aucun bonus direct n’est engagé. Un 6 abandonné ne compte pas ; le second jet Kalistel est obligatoire. Chaque relance DEF recalcule le bonus de protection, sans consommer plusieurs fois une charge de relique valable pour le duel. Une protection utilisée s’anime même si la défense échoue ; un Block sans son bonus garde le bouclier habituel.</p><p>Les équipements sont figés au lancement : les modifier ensuite ne change pas une rencontre en cours. Les anciennes sauvegardes conservent leurs effets historiques ; les nouvelles rencontres utilisent les trois emplacements.</p>');
   }
   async function createGame(mode,seed,arenaId=load('arena',arenas[0].id),opponentId=enemyPresetId,playerDeck=teamDraft){
     if(!['grantGuard','aiGuardChoice','arenaBonuses','setArena'].every(key=>typeof E[key]==='function')||cards.some(c=>!/^[34]\d{7}$/.test(c.id)||!c.characterId))throw new Error('Moteur ou profils V4 en attente. Aucune partie V2 ne sera créée dans V4.');
@@ -439,36 +440,45 @@ function showDeck(){setView('decks');}
     const actor=['choose','attack','kalistel','clover','potion','physical','heart','guard'].includes(s.phase)?s.turn:s.phase==='defense'?1-s.turn:s.phase==='replace'?s.replacing:null;
     node.dataset.actingSide=actor===0||actor===1?String(actor):'';
   }
-  function recapRow(key,label,value,bonus=true,help=''){
+  function recapRow(key,label,value,bonus=true,help='',equipment=null){
     const symbols={baseAttack:'swords',weapon:'axe',element:'gem',faction:'flag',buff:'sparkles',barrier:'shield-half',baseDefense:'shield',race:'users',arenaAttack:'map',arenaDefense:'map',ward:'shield-check',captainAttack:'crown',captainDefense:'crown',equipmentAttack:'sword',equipmentDefense:'shield'};
-    return `<div class="recap-row" data-bonus="${key}" ${help?`title="${esc(help)}"`:''}><span>${icon(symbols[key])}${label}</span><b class="${value==null?'unknown':typeof value!=='number'?'conditional':bonus&&value>0?'positive':value<0?'negative':''}">${value==null?'…':bonus&&value>0?'+'+value:esc(value)}</b></div>`;
+    return `<div class="recap-row${equipment?' recap-equipment':''}" data-bonus="${key}" ${help?`title="${esc(help)}"`:''}><span>${equipment?`<img class="recap-equipment-art" src="${esc(KalistarEquipmentFX.art(equipment))}" alt="${esc(KalistarWeapons.categories[KalistarWeapons.kind(equipment)].singular)}" draggable="false">`:icon(symbols[key])}${label}</span><b class="${value==null?'unknown':typeof value!=='number'?'conditional':bonus&&value>0?'positive':value<0?'negative':''}">${value==null?'…':bonus&&value>0?'+'+value:esc(value)}</b></div>`;
   }
   function equipmentRows(s,stat){
     const {a,b}=consoleParticipants(s),d=s.duel;
     const bonus=['choose','setup'].includes(s.phase)?E.equipmentModifier(s,stat==='ATK'?a:b,stat):d?.equipment?.[stat==='ATK'?'attack':'defense'];
-    return bonus?recapRow(stat==='ATK'?'equipmentAttack':'equipmentDefense',esc(bonus.name),bonus.value,true,'\u00c9quipement : '+bonus.stat):'';
+    const direct=d?.equipment?.[stat==='ATK'?'weapon':'protection'];
+    return [bonus,direct].filter(Boolean).map(entry=>{
+      const w=s.equipment.definitions.find(w=>w.id===entry.weaponId);
+      return recapRow(stat==='ATK'?'equipmentAttack':'equipmentDefense',esc(entry.name),entry.value,true,(w?.effect.trigger==='RETAINED_SIX'?'D6 conserv\u00e9 : ':'Relique : ')+entry.stat,w);
+    }).join('');
   }
   function detailEquipment(c,context){
     if(!c||context?.profile)return null;
     if(context?.source==='deck'&&ui.view==='decks'){
-      const w=KalistarWeapons.weapons.find(w=>w.id===teamDraft.equipment[c.characterId]);
-      return {weapon:w&&KalistarEquipment.compatible(w,c)?w:null,active:null};
+      return KalistarEquipment.items(teamDraft.equipment).filter(item=>item.characterId===c.characterId).map(item=>{
+        const w=KalistarWeapons.weapons.find(w=>w.id===item.id);
+        return {weapon:w&&KalistarEquipment.compatible(w,c)?w:null,slot:item.slot,active:null};
+      });
     }
     if(context?.uid&&ui.view==='arena'){
       const u=game?.players[context.side]?.board.find(u=>u?.uid===context.uid&&u.cardId===c.id);
-      return u?E.equipmentView(game,u):{weapon:null,active:false};
+      return u?E.equipmentViews(game,u):[];
     }
     return null;
   }
   function syncDetailEquipment(){
-    const dialog=$('#detail-dialog'),state=detailEquipment(E.byId[ui.detail],ui.detailContext);
-    const w=dialog.open&&!ui.art&&state&&(state.active===null||state.active)?state.weapon:null;
-    window.KalistarEquipmentFX.mountDetail(dialog.querySelector('.detail-visual'),w,{bonus:state?.active===true});
+    const dialog=$('#detail-dialog'),states=detailEquipment(E.byId[ui.detail],ui.detailContext)||[];
+    const visible=dialog.open&&!ui.art?states.filter(state=>state.weapon&&state.active!==false):[];
+    window.KalistarEquipmentFX.mountDetail(dialog.querySelector('.detail-visual'),visible,{bonus:ui.detailContext?.source!=='deck'});
   }
   function equippedCard(c,context){
-    const state=detailEquipment(c,context);
-    const w=state?state.weapon:(!context?.profile?db?.equipment.weapon(accountId,c.characterId):null);
-    return w?`<button class="card-equipped" data-action="equipment-detail" data-id="${w.id}" title="${esc(w.condition)}">${icon(KalistarWeapons.categories[KalistarWeapons.kind(w)].icon)}${esc(w.name)}${state&&state.active!==null?' \u00b7 '+(state.active?'Actif':'Inactif'):''}</button>`:'';
+    const states=detailEquipment(c,context);
+    const entries=states||(!context?.profile?(db?.equipment.items(accountId,c.characterId)||[]).map(weapon=>({weapon,active:null})):[]);
+    return entries.filter(state=>state.weapon).map(state=>{
+      const w=state.weapon;
+      return `<button class="card-equipped" data-action="equipment-detail" data-id="${w.id}" title="${esc(w.condition)}">${icon(KalistarWeapons.categories[KalistarWeapons.kind(w)].icon)}${esc(w.name)}${state.active!==null?' \u00b7 '+(state.active?'Actif':'Inactif'):''}</button>`;
+    }).join('');
   }
   function scoreTotals(side,attackLabel,attackValue,defenseLabel,defenseValue,preview=false){
     const scores=[{role:'attack',label:attackLabel,value:attackValue},{role:'defense',label:defenseLabel,value:defenseValue}];
@@ -501,7 +511,7 @@ function showDeck(){setView('decks');}
     const a=s.players[d.side].board[d.attackerSlot],b=s.players[1-d.side].board[d.targetSlot];
     if(!final&&(!a||!b))return '';
     // Resolved duels retain their original synergies, including an eliminated target.
-    const f=final||{baseAttack:d.attackValue,weapon:data.weapons[E.card(a).weapon]?.[E.card(b).weapon]||0,element:E.elementModifier(E.card(a),E.card(b)),captainAttack:E.captainBonus(s,a,'attack'),captainDefense:E.captainBonus(s,b,'defense'),faction:E.synergy(s.players[d.side],a,'faction'),buff:s.phase==='kalistel'?a[d.magic?'mana':'physical']||0:d.buff||0,race:E.synergy(s.players[1-d.side],b,'race'),arenaAttack:E.arenaBonuses(s,a).attack,arenaDefense:E.arenaBonuses(s,b).defense,ward:d.magic?0:d.ward||b.ward||0,equipmentAttack:d.equipment?.attack?.value||0};
+    const f=final||{baseAttack:d.attackValue,weapon:data.weapons[E.card(a).weapon]?.[E.card(b).weapon]||0,element:E.elementModifier(E.card(a),E.card(b)),captainAttack:E.captainBonus(s,a,'attack'),captainDefense:E.captainBonus(s,b,'defense'),faction:E.synergy(s.players[d.side],a,'faction'),buff:s.phase==='kalistel'?a[d.magic?'mana':'physical']||0:d.buff||0,race:E.synergy(s.players[1-d.side],b,'race'),arenaAttack:E.arenaBonuses(s,a).attack,arenaDefense:E.arenaBonuses(s,b).defense,ward:d.magic?0:d.ward||b.ward||0,equipmentAttack:(d.equipment?.attack?.value||0)+(d.equipment?.weapon?.value||0)};
     const row=recapRow;
     const subtotal=Math.max(0,f.baseAttack+f.weapon+f.element+f.faction+f.buff+(f.arenaAttack||0)+(f.equipmentAttack||0)+(f.captainAttack||0));
     return `<section class="duel-recap" aria-label="Détail des bonus du duel"><div class="recap-type">${icon(d.magic?'sparkles':'swords')}<span>${d.magic?'Attaque magique':'Attaque physique'}</span></div>${row('baseAttack','Jet ATK · D'+d.attackDie,f.baseAttack,false)}${row('weapon','Arme',f.weapon)}${equipmentRows(s,'ATK')}${row('element','Cristal',f.element)}${row('faction','Faction',f.faction)}${s.composition?row('captainAttack','Capitaine Faction',f.captainAttack||0):''}${row('arenaAttack','Arène ATK',f.arenaAttack||0)}${row('buff','Jeton',f.buff)}${row('barrier','Barrière',final?f.barrier:null)}<div class="recap-defense">${row('baseDefense','Jet DEF'+(d.defenseDie?' · D'+d.defenseDie:''),final?f.baseDefense:null,false)}${row('race','Race',f.race)}${s.composition?row('captainDefense','Capitaine Race',f.captainDefense||0):''}${row('arenaDefense','Arène DEF',f.arenaDefense||0)}${equipmentRows(s,'DEF')}${row('ward','Garde',final?f.ward||0:f.ward?'+60 si numérique':0)}</div>${!final&&d.defenseRolls.length?`<p class="recap-event">${esc(format(d.defenseValue))}${s.phase==='defense'?' · nouveau jet':''}</p>`:''}${scoreTotals(d.side,final?'ATK finale':'ATK avant DEF',final?f.attack:subtotal,final?'DEF finale':'DEF',final?f.defense:'…')}</section>`;
@@ -612,7 +622,7 @@ function showDeck(){setView('decks');}
   function journal(){
     const d=game.duel||game.lastDuel,f=d?.formula;
     const row=(label,v,cls='')=>`<div class="formula-row ${cls}"><span>${label}</span><b class="${v>0?'positive':v<0?'negative':''}">${v>0&&cls!=='total'?'+':''}${v}</b></div>`;
-    const equipment=part=>d?.equipment?.[part]?row(esc(d.equipment[part].name),d.equipment[part].value):'';
+    const equipment=part=>[d?.equipment?.[part],d?.equipment?.[part==='attack'?'weapon':'protection']].filter(Boolean).map(entry=>row(esc(entry.name),entry.value)).join('');
     return `<aside class="journal"><div class="journal-top"><h2>Journal du duel</h2>${ib('export-log','download','Exporter le journal')}</div><div class="combat-summary">${f?row('Jet ATK',f.baseAttack)+row('Arme',f.weapon)+row('Cristal',f.element)+row('Faction',f.faction)+row('Capitaine Faction',f.captainAttack||0)+row('Arène ATK',f.arenaAttack||0)+row('Jeton',f.buff)+row('Barrière',f.barrier)+equipment('attack')+row('ATK finale',f.attack,'total')+row('Jet DEF',f.baseDefense)+row('Race',f.race)+row('Capitaine Race',f.captainDefense||0)+row('Arène DEF',f.arenaDefense||0)+row('Garde',f.ward||0)+equipment('defense')+row('DEF finale',f.defense,'total'):'<span class="muted">Aucun calcul numérique résolu.</span>'}</div><ol class="log-list" aria-label="Historique">${game.log.slice(-80).reverse().map(l=>`<li class="${esc(l.type)}"><small>Échange ${l.turn} · #${l.n}</small>${esc(l.text).replace(/ = (retry|mana|buff_atk|revive|guard|death|dodge)\./g,(_,n)=>' = '+dieLabel(n,l.text.includes(' : ATK '))+'.')}</li>`).join('')}</ol></aside>`;
   }
   function arena(){

@@ -2,8 +2,11 @@
 const test=require('node:test'),assert=require('node:assert/strict');
 const Q=require('./equipment.js'),T=require('./team-composition.js'),{createEngine}=require('./engine.js'),{buildCatalog}=require('../atelier/game-catalog.cjs');
 const dataPromise=buildCatalog({published:require('../donnees/catalogue.json').cards.filter(c=>c.kind==='created')});
-const items=Q.catalogue.weapons.filter(w=>w.id.startsWith('ff9-')),weapons=items.filter(w=>Q.catalogue.kind(w)==='weapon');
-const item=id=>items.find(w=>w.id===id);
+const items=Q.catalogue.weapons.filter(w=>w.id.startsWith('ff9-'));
+// Archived matches keep Gastrette support and the original state/defense conditions.
+const archive=require('./fixtures/equipment-v4.5.64.json');
+const historical=archive.weapons.filter(w=>w.id.startsWith('ff9-')),weapons=historical.filter(w=>Q.catalogue.kind(w)==='weapon');
+const item=id=>historical.find(w=>w.id===id);
 function deckFor(E,data,c){const base=data.decks.player,deck=base.map((_,i)=>base.map((id,j)=>i===j?c.id:id)).find(ids=>!E.validatePlayableDeck(ids).length);assert(deck,c.id);return deck;}
 async function fixture(w,side=0,cardId=null,mutate=()=>{}){
   const data=structuredClone(await dataPromise);mutate(data);
@@ -20,12 +23,15 @@ function activate(f){
 }
 function lock(f,a,b,side){f.s.turn=side;f.E.lock(f.s,f.s.players[side].board.indexOf(a),f.s.players[1-side].board.indexOf(b));}
 function next(f){f.E.next(f.s);while(f.s.phase==='replace')f.E.autoDeploy(f.s,f.s.replacing);}
-test('18 unique FFIX items, printed families AND stable identity, conservative effects',async()=>{
+test('4.6: 18 FFIX items keep families, stable identities and art while migrating to three slots',async()=>{
   const {cards}=await dataPromise;assert.equal(items.length,18);assert.equal(weapons.length,8);
+  assert.deepEqual(Q.catalogue.legacyWeapons,archive.weapons);
   assert.equal(items.filter(w=>w.kind==='shield').length,5);assert.equal(items.filter(w=>w.kind==='relic').length,5);
   assert.equal(new Set(items.map(w=>w.collectible.number)).size,18);
   for(const w of items){
-    Q.validateDefinition(w);assert(w.effect.value>=20&&w.effect.value<=30);assert.equal(w.slot,'weapon');assert.equal(w.changesFamily,undefined);
+    Q.validateDefinition(w);assert(w.effect.value>=20&&w.effect.value<=30);assert.equal(w.slot,Q.catalogue.kind(w));assert.equal(w.rulesVersion,2);assert.equal(w.changesFamily,undefined);
+    const old=item(w.id);assert.deepEqual(w.restrictions,old.restrictions);assert.deepEqual(w.collectible,old.collectible);assert.equal(w.art,old.art);
+    assert.deepEqual(w.effect,w.slot==='relic'?old.effect:{trigger:'RETAINED_SIX',stat:w.slot==='weapon'?'ATK':'DEF',value:old.effect.value,duration:'DUEL'});
     assert(w.collectible.flavour.length<=50);assert(cards.some(c=>Q.compatible(w,c)),w.id);
     for(const c of cards)assert.equal(Q.compatible(w,c),w.restrictions.characterIds.includes(c.characterId)&&(w.kind?true:c.weapon===w.family),w.id+' '+c.id);
     const c=cards.find(c=>Q.compatible(w,c));assert(Q.compatible(w,{...c,name:'Renamed'}));assert(!Q.compatible(w,{...c,characterId:'wrong',name:c.name}));
@@ -34,19 +40,20 @@ test('18 unique FFIX items, printed families AND stable identity, conservative e
   assert.equal(cards.filter(c=>Q.compatible(item('ff9-vivi-hat'),c)).length,3);
   assert.equal(cards.filter(c=>Q.compatible(item('ff9-garnet-pendant'),c)).length,2);
 });
-test('profile and composition: one cross-category slot, confirmation, snapshot, old saves',async()=>{
+test('4.6 profile/composition preserve weapon while adding protection, with confirmation scoped per slot',async()=>{
   const data=await dataPromise,E=createEngine(data),c=data.cards.find(c=>c.characterId==='steiner-ff9');let p=Q.profile('FF9');
   p=Q.equipProfile(p,c.characterId,'ff9-excalibur',data.cards);
-  assert.throws(()=>Q.equipProfile(p,c.characterId,'ff9-oath-helm',data.cards));
-  p=Q.equipProfile(p,c.characterId,'ff9-oath-helm',data.cards,{expected:'ff9-excalibur'});
-  assert.deepEqual(p.slots.weapon,{[c.characterId]:'ff9-oath-helm'});assert.deepEqual(Q.validateProfile(JSON.parse(JSON.stringify(p)),data.cards),p);
+  assert.throws(()=>Q.equipProfile(p,c.characterId,'ff9-oath-helm',data.cards,{expected:'ff9-excalibur'}));
+  p=Q.equipProfile(p,c.characterId,'ff9-oath-helm',data.cards);
+  assert.deepEqual(p.slots,{weapon:{[c.characterId]:'ff9-excalibur'},shield:{[c.characterId]:'ff9-oath-helm'},relic:{}});
+  assert.deepEqual(Q.validateProfile(JSON.parse(JSON.stringify(p)),data.cards),p);
   assert.throws(()=>Q.equipProfile(p,'vivi-ff9','ff9-excalibur',data.cards));
   const manager=T.create(E),deck=deckFor(E,data,c),team=manager.equip(manager.fromPreset({name:'FFIX',cards:deck}),c.id,'ff9-oath-helm');
   assert.deepEqual(E.validateComposition(team),[]);const s=E.newGame(team,team,{mode:'local'}),snapshot=structuredClone(s.equipment);
-  team.equipment[c.characterId]='ff9-excalibur';assert.deepEqual(s.equipment,snapshot);assert.deepEqual(E.restoreGame(s),s);
+  team.equipment.weapon[c.characterId]='ff9-excalibur';assert.deepEqual(s.equipment,snapshot);assert.deepEqual(E.restoreGame(s),s);
   const old=E.newGame(deck,deck,{equipment:[{},{}]});old.equipment.definitions=old.equipment.definitions.filter(w=>!w.id.startsWith('ff9-'));assert.deepEqual(E.restoreGame(old),old);
 });
-for(const w of weapons.filter(w=>w.effect.trigger!=='AFTER_SUPPORT'))test(w.id+': every printed edition, both sides, numeric formula, log, activation and deactivation',async()=>{
+for(const w of weapons.filter(w=>w.effect.trigger!=='AFTER_SUPPORT'))test('archived 4.5.64: '+w.id+': every edition, both sides, formula, log and deactivation',async()=>{
   const data=await dataPromise;
   for(const c of data.cards.filter(c=>Q.compatible(w,c)))for(const side of [0,1]){
     const f=await fixture(w,side,c.id),{E,s,u}=f;assert(!E.equipmentView(s,u).active);const before=structuredClone(s.players);
@@ -61,7 +68,7 @@ for(const w of weapons.filter(w=>w.effect.trigger!=='AFTER_SUPPORT'))test(w.id+'
     s.phase='over';assert(!E.equipmentView(s,u).active);
   }
 });
-for(const side of [0,1])for(const scenario of ['defend','attack','refresh'])test('Gastrette: '+scenario+', side '+side,async()=>{
+for(const side of [0,1])for(const scenario of ['defend','attack','refresh'])test('archived 4.5.64 Gastrette: '+scenario+', side '+side,async()=>{
   const f=await fixture(item('ff9-gastrette'),side,null,data=>{for(const c of data.cards){c.atk=c.atk.map(v=>typeof v==='number'?10:v);c.defense=[150,150,150,150,150,150];}}),{E,s,u,p,c}=f;
   const ally=p.board.find(v=>v&&v!==u),enemy=s.players[1-side].board.find(Boolean);assert(!E.equipmentView(s,u).active);
   if(scenario==='refresh')ally.mana=60;
@@ -73,7 +80,7 @@ for(const side of [0,1])for(const scenario of ['defend','attack','refresh'])test
   assert.equal(s.duel.formula.equipmentDefense,attack?0:20);assert.deepEqual(s.equipment.pending,{});assert(!E.equipmentView(s,u).active);
   assert(s.log.some(l=>l.text.includes('Gastrette')&&l.text.includes('+20 DEF')));E.assertState(s);assert.deepEqual(E.restoreGame(s),s);
 });
-test('all eight FFIX weapons finish natural matches with original faces and reload each step',async()=>{
+test('archived 4.5.64: all eight FFIX weapons finish natural matches and reload each step',async()=>{
   for(const w of weapons)for(let seed=0;seed<3;seed++){
     const {E,data,c,deck}=await fixture(w);let s=E.newGame(deck,deck,{mode:'local',seed:'FF9-NATIVE-'+seed,equipment:[{[c.characterId]:w.id},{[c.characterId]:w.id}]});
     E.autoDeploy(s,0);E.autoDeploy(s,1);E.start(s);
@@ -92,8 +99,13 @@ test('all eight FFIX weapons finish natural matches with original faces and relo
   }
 });
 
-test('defense-triggered descriptions identify the current defense rather than a later charge',()=>{
+test('current D6 and archived charge descriptions distinguish this duel from a later defense',()=>{
   const C=require('./weapon-cards.js');
   assert(C.activation(item('ff9-oath-helm')).effect.includes('cette défense'));
   assert(C.activation(item('ff9-solitary-wraps')).effect.includes('prochaine défense'));
+  for(const id of ['ff9-oath-helm','ff9-solitary-wraps']){
+    const current=items.find(w=>w.id===id),rule=C.activation(current);
+    assert.equal(rule.condition,'D6 DEF num\u00e9rique conserv\u00e9.');assert.equal(rule.effect,'+'+current.effect.value+' DEF pour ce duel.');
+    assert(!rule.duration.includes('1 fois'));
+  }
 });

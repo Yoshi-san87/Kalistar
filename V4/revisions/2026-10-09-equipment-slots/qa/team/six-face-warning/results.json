@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "isolated": true,
+  "checks": [
+    "Native Rikka remains compatible and equippable in memory; DEF6 dodge grants no numeric equipment bonus",
+    "Arsenal: visible accessible warning on PC/phone, disabled equip without persistence writes, existing item still removable",
+    "Arsenal: numeric compatible edition preferred regardless of catalogue ordering",
+    "Deck: per-edition ATK/DEF6 checks, disabled equip and removable existing item; numeric items and conditional relics remain enabled"
+  ],
+  "errors": []
+}

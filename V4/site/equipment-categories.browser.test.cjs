@@ -17,6 +17,7 @@ async function align(page,label){
   for(const s of samples)for(const k of ['dx','dy','dw'])assert(s[k]<1.5,label+JSON.stringify(s));results.push({label,samples});return samples;
 }
 async function prepare(page,id,side,armed){
+  // Flat loadouts deliberately reproduce pre-4.6 matches and their consumption.
   return page.evaluate(async({id,side,armed})=>{
     const previous=JSON.parse(localStorage.getItem('kalistar.v4.game')||'null');
     if(previous?.seed&&previous.seed!=='EQUIPMENT-CATEGORIES-QA')throw Error('Refusing to replace a non-QA game.');
@@ -63,20 +64,21 @@ async function main(){
     const page=await context.newPage();page.on('pageerror',e=>errors.push(name+': '+e.message));page.on('dialog',d=>d.accept());
     await ready(page);assert.equal(await page.locator('.weapon-entry').count(),93);
     for(const [kind,id,character] of [['shield','durane-rampart','balmhyr'],['relic','pod-042','2b-nier']]){
-      await page.locator(`[data-equipment-category=${kind}]`).click();assert.equal(await page.locator('.weapon-entry').count(),26);
+      await page.locator(`[data-equipment-category=${kind}]`).click();assert.equal(await page.locator('.weapon-entry').count(),require('./weapons.js').weapons.filter(w=>w.slot===kind).length);
       await openEquipment(page,id);await page.waitForFunction(()=>[...document.querySelectorAll('#weapons-dialog img')].every(i=>i.complete&&i.naturalWidth));
       await capture(page,name+'-'+kind+'-detail');
       const button=page.locator(`[data-weapon-action=equip][data-character="${character}"]`);assert(await button.isVisible());await button.click();
-      await page.waitForFunction(({character,id})=>KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon[character]===id,{character,id});
+      await page.waitForFunction(({character,id,kind})=>KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots[kind][character]===id,{character,id,kind});
       await page.locator('[data-weapon-action=close]').click();
       assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);await capture(page,name+'-'+kind+'-catalogue');
       await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);
-      assert.equal(await page.evaluate(c=>KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon[c],character),id);
+      assert.equal(await page.evaluate(({c,kind})=>KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots[kind][c],{c:character,kind}),id);
     }
-    // Cross-category replacement uses the same confirmation and single persisted slot.
+    // Different categories coexist without asking to replace one another.
     await openEquipment(page,'fallen-king-axe');await page.locator('[data-weapon-action=equip][data-character=balmhyr]').click();
-    assert(await page.locator('.weapon-confirm').isVisible());await page.locator('[data-weapon-action=confirm]').click();
+    assert.equal(await page.locator('.weapon-confirm').count(),0);
     await page.waitForFunction(()=>KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon.balmhyr==='fallen-king-axe');await page.locator('[data-weapon-action=close]').click();
+    assert.equal(await page.evaluate(()=>KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.shield.balmhyr),'durane-rampart');
     await openEquipment(page,'fallen-king-axe');await page.locator('[data-weapon-action=unequip]').click();await page.waitForFunction(()=>!KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon.balmhyr);await page.locator('[data-weapon-action=close]').click();
     for(const id of ['durane-rampart','pod-042']){
       const cardId=await page.evaluate(id=>{
@@ -88,7 +90,7 @@ async function main(){
       if(await page.locator('[data-deck-action=panel][data-id=recruit]').isVisible())await page.locator('[data-deck-action=panel][data-id=recruit]').click();
       await page.locator('[data-deck-action=recruit-mode][data-id=weapons]').click();
       await page.locator(`[data-deck-action=equip][data-id="${id}"]`).click();
-      await page.waitForFunction(id=>Object.values(JSON.parse(localStorage.getItem('kalistar.v4.teamDraft')).equipment).includes(id),id);
+      await page.waitForFunction(id=>KalistarEquipment.items(JSON.parse(localStorage.getItem('kalistar.v4.teamDraft')).equipment).some(item=>item.id===id),id);
       if(await page.locator('[data-deck-action=panel][data-id=board]').isVisible())await page.locator('[data-deck-action=panel][data-id=board]').click();
       await page.locator(`[data-deck-action=detail][data-id="${cardId}"]`).click();await page.waitForFunction(()=>document.querySelector('.eq-detail-overlay'));
       assert.equal(await page.locator('.eq-detail-overlay .eq-tab').count(),0);await capture(page,name+'-'+id+'-deck-inspection');

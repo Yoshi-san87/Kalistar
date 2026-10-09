@@ -42,6 +42,17 @@
 }
 .slot-card{position:relative;}
 .eq-overlay{position:absolute;display:block;z-index:4;pointer-events:none;}
+.eq-overlay:is([data-slot=weapon],[data-slot=shield]) .eq-tab{left:22%;width:56%;top:88%;min-height:24%;padding:5% 0 3%;}
+.eq-overlay:is([data-slot=weapon],[data-slot=shield]) .eq-tab small{display:none;}
+.eq-overlay.is-active:is([data-slot=weapon],[data-slot=shield]) .eq-radar{animation-direction:normal;}
+.eq-use{position:absolute;left:22%;top:24%;width:56%;height:43%;display:grid;place-items:center;z-index:6;pointer-events:none;filter:drop-shadow(0 2px 5px #071516) drop-shadow(0 0 7px #dcebec55);}
+.eq-use>img{width:100%;height:100%;object-fit:contain;filter:brightness(1.16);}
+.eq-use[data-slot=shield]{left:21%;width:58%;filter:drop-shadow(0 2px 5px #071516) drop-shadow(0 0 9px #b5e9edb0);}
+.combat-shield.combat-equipped-protection{background:radial-gradient(ellipse at center,#b6e6e51a,transparent 65%);border-color:#b4d8dc8c;border-width:calc(1px / max(1,var(--focus-scale,1)));box-shadow:inset 0 0 18px #b5f4f326,0 0 13px #8be5dc40;}
+.combat-equipped-protection>img{position:absolute;left:26%;top:24%;width:48%;height:45%;object-fit:contain;filter:drop-shadow(0 2px 5px #071516) drop-shadow(0 0 8px #b5e9ed70);}
+.combat-equipped-protection>strong{align-self:end;justify-self:center;margin-bottom:25%;font:600 calc(13px / max(1,var(--focus-scale,1)))/1.2 var(--serif);white-space:nowrap;color:#d5f4ef;text-shadow:0 1px 4px #000;}
+.recap-row.recap-equipment>span{display:flex;align-items:center;gap:6px;min-width:0;overflow:hidden;overflow-wrap:anywhere;}
+.recap-equipment-art{flex:0 0 20px;width:20px;height:22px;object-fit:contain;filter:drop-shadow(0 1px 2px #0007);}
 .card-detail .detail-body .detail-visual .eq-detail-overlay :is(.eq-body,.eq-rim){width:100%;height:100%;max-height:none;}
 .slot-buffs .eq-pending{color:#f0d7a3;border-color:#b28a67;background:#172727;}
 .eq-transfer{position:fixed;z-index:250;color:#ddedcd;font:22px var(--serif);text-shadow:0 0 6px #b8e8e8;pointer-events:none;}

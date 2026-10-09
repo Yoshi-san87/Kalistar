@@ -100,7 +100,7 @@ test('UI presets nominate their P1 captain explicitly without changing legacy mi
   const {E,data}=await fixture(),T=Team.create(E,()=>({momo:'little-joys-flute'}));
   for(const value of [{name:'Adversaire',cards:data.decks.enemy},...(data.decks.presets||[])]){
     const before=structuredClone(value),team=T.fromPreset(value);
-    assert.equal(team.captain,team.formation[0]);assert.deepEqual(team.equipment,{});
+    assert.equal(team.captain,team.formation[0]);assert.deepEqual(team.equipment,{weapon:{},shield:{},relic:{}});
     assert.deepEqual(E.validateComposition(team),[]);assert.deepEqual(value,before);
     const s=E.newGame(team,team,{turnOrder:'ABBA'});E.assertState(s);
     assert.equal(E.captainUnit(s,1).cardId,team.captain);

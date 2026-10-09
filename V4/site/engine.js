@@ -138,9 +138,12 @@
     function newGame(deckA,deckB,options={}) {
       const composed=!Array.isArray(deckA)||!Array.isArray(deckB);
       const teams=composed?[deckA,deckB].map(deck=>{
-        if(!Array.isArray(deck)){const errors=validateComposition(deck);if(errors.length)throw new Error(errors.join(' '));return clone(deck);}
+        if(!Array.isArray(deck)){
+          const errors=validateComposition(deck);if(errors.length)throw new Error(errors.join(' '));
+          const team=clone(deck);team.equipment=Equipment.reconcileLoadout(team.equipment,team.cards.filter(Boolean).map(id=>byId[id]));return team;
+        }
         const errors=validatePlayableDeck(deck);if(errors.length)throw new Error(errors.join(' '));
-        return {name:'Adversaire',cards:deck.slice(),formation:lineup(deck).map(i=>deck[i]),captain:null,equipment:{},technical:true};
+        return {name:'Adversaire',cards:deck.slice(),formation:lineup(deck).map(i=>deck[i]),captain:null,equipment:Equipment.emptyLoadout(),technical:true};
       }):null;
       if(composed){deckA=teams[0].cards.filter(Boolean);deckB=teams[1].cards.filter(Boolean);}
       const coverage=composed?2:options.deckCoverage===undefined?1:options.deckCoverage;
@@ -458,7 +461,7 @@
       if(typeof value==='number'){
         const key=d.magic?'mana':'physical';d.buff=u[key]||0;u[key]=0;
       }
-      s.phase='defense';Equipment.prepareDefense(s,card);return s;
+      s.phase='defense';Equipment.commitAttack(s,card);Equipment.prepareDefense(s,card);return s;
     }
     function rollDefense(s,forced) {
       if(s.phase!=='defense')throw new Error('Jet DEF indisponible.');
@@ -467,6 +470,7 @@
       // A saved failed attempt remains visible until the automatic die actually rolls.
       delete d.formula;
       d.defenseRolls.push(die);d.defenseDie=die;d.defenseValue=value;
+      Equipment.commitDefense(s,card);
       addLog(s,'roll',`${bc.name} : DEF D${die} = ${value}.`);
       if(value==='retry')return s;
       if(value==='dodge')return finish(s,`${bc.name} esquive. L'attaque est annulée.`);
@@ -493,7 +497,14 @@
       }
       if(s.equipment){
         f.equipmentAttack=d.equipment.attack?.value||0;f.equipmentDefense=d.equipment.defense?.value||0;
-        if(!d.equipmentLogged){
+        if(s.equipment.version===2){
+          f.equipmentWeapon=d.equipment.weapon?.value||0;f.equipmentProtection=d.equipment.protection?.value||0;f.equipmentDefenseDie=die;
+          f.equipmentAttack+=f.equipmentWeapon;f.equipmentDefense+=f.equipmentProtection;
+          for(const part of ['attack','weapon','defense','protection']){
+            const bonus=d.equipment[part];
+            if(bonus)addLog(s,'effect',`${bonus.name} : +${bonus.value} ${bonus.stat}${['weapon','protection'].includes(part)?' (D6 conserv\u00e9)':''}.`,{...bonus,defenseDie:die});
+          }
+        }else if(!d.equipmentLogged){
           for(const [part,value] of [['attack',f.equipmentAttack],['defense',f.equipmentDefense]])if(value)addLog(s,'effect',`${d.equipment[part].name} : +${value} ${d.equipment[part].stat}.`,d.equipment[part]);
           d.equipmentLogged=true;
         }
@@ -535,7 +546,11 @@
       for(const [i,j] of legalTargets(s)){
         const a=s.players[s.turn].board[i],b=s.players[1-s.turn].board[j],ac=card(a),bc=card(b);
         const v=mean(ac.atk)-mean(bc.defense)+(data.weapons[ac.weapon]?.[bc.weapon]||0)+elementModifier(ac,bc)+synergy(s.players[s.turn],a,'faction')-synergy(s.players[1-s.turn],b,'race')-rules.barrier*ac.magic.length/6*(bc.element==='NONE'?0:bc.barriers.length)/6+(ac.atk.includes('death')?35:0)+(ac.atk.includes('revive')&&!a.reraise?20:0)-(b.reraise?25:0)+arenaBonuses(s,a).attack-arenaBonuses(s,b).defense-(b.ward||0)*ac.atk.filter((v,i)=>typeof v==='number'&&!ac.magic.includes(6-i)).length/6;
-        const equipped=v+(equipmentModifier(s,a,'ATK')?.value||0)-(equipmentModifier(s,b,'DEF')?.value||0)+captainBonus(s,a,'attack')-captainBonus(s,b,'defense');
+        const sixBonus=(u,c,slot)=>{
+          const item=Equipment.equipped(s,u,c,slot),face=slot==='weapon'?c.atk[0]:c.defense[0];
+          return s.equipment?.version===2&&typeof face==='number'?(item?.effect.value||0)/6:0;
+        };
+        const equipped=v+(equipmentModifier(s,a,'ATK')?.value||0)-(equipmentModifier(s,b,'DEF')?.value||0)+sixBonus(a,ac,'weapon')-sixBonus(b,bc,'shield')+captainBonus(s,a,'attack')-captainBonus(s,b,'defense');
         if(equipped>score){score=equipped;best=[i,j];}
       }
       return best;
@@ -599,7 +614,7 @@
         }
         if(d.attackValue==='guard'&&!canGuard(author)||d.attackValue==='revive'&&!canHeal(author))throw new Error('Soutien incompatible avec le profil V4.');
         for(const f of [d.formula,d.failedDefense])if(f!==undefined){
-          Equipment.validateFormula(s,d,f);
+          Equipment.validateFormula(s,d,f,card);
           if(s.composition?(![0,10].includes(f.captainAttack)||![0,10].includes(f.captainDefense)):(f.captainAttack!==undefined||f.captainDefense!==undefined))throw new Error('Commandement invalide.');
           const fields=['baseAttack','weapon','element','faction','buff','barrier','baseDefense','race','attack','defense','arenaAttack','arenaDefense','ward'];
           if(!f||fields.some(k=>!Number.isInteger(f[k])||Math.abs(f[k])>2000)||typeof f.magic!=='boolean'||f.magic!==d.magic||
@@ -655,6 +670,7 @@
       return clone(value);
     }
     function equipmentView(s,u){return Equipment.view(s,u,card(u));}
+    function equipmentViews(s,u){return Equipment.views(s,u,card(u));}
     function equipmentModifier(s,u,stat){return Equipment.modifier(s,u,card(u),stat);}
     function equipmentChoice(s){
       const pending=Equipment.defensive.choice(s);if(!pending)return null;
@@ -674,7 +690,7 @@
       const a=s.players[s.duel.side].board[s.duel.attackerSlot],bonus=Equipment.support(s,a,u,card,kind,refreshed);
       if(bonus)addLog(s,'effect',`${bonus.name} : ${card(u).name} re\u00e7oit +${bonus.value} ${bonus.stat} pour son prochain duel.`,bonus);
     }
-    return {data,rules,byId,card,trait,traits,clone,dieValue,mean,lineup,deckCoverage,validateDeck,validatePlayableDeck,validateComposition,captainUnit,captainBonus,newGame,deploy,recall,autoDeploy,start,rollInitiative,turnPreview:TurnOrder.preview,synergy,elementModifier,lock,rollAttack,acceptAttack,useKalistel,kalistelRemaining,aiUseKalistel,rollDefense,grantClover,grantPotion,grantPhysical,grantReraise,grantGuard,aiCloverChoice,aiPotionChoice,aiPhysicalChoice,aiReraiseChoice,aiGuardChoice,arenaBonuses,setArena,next,aiChoice,assertState,restoreGame,matchStats,instanceId,equipmentView,equipmentModifier,equipmentChoice,grantEquipment,aiEquipmentChoice};
+    return {data,rules,byId,card,trait,traits,clone,dieValue,mean,lineup,deckCoverage,validateDeck,validatePlayableDeck,validateComposition,captainUnit,captainBonus,newGame,deploy,recall,autoDeploy,start,rollInitiative,turnPreview:TurnOrder.preview,synergy,elementModifier,lock,rollAttack,acceptAttack,useKalistel,kalistelRemaining,aiUseKalistel,rollDefense,grantClover,grantPotion,grantPhysical,grantReraise,grantGuard,aiCloverChoice,aiPotionChoice,aiPhysicalChoice,aiReraiseChoice,aiGuardChoice,arenaBonuses,setArena,next,aiChoice,assertState,restoreGame,matchStats,instanceId,equipmentView,equipmentViews,equipmentModifier,equipmentChoice,grantEquipment,aiEquipmentChoice};
   }
   return {createEngine,clone,dieValue,mean};
 });

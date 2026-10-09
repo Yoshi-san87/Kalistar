@@ -1,4 +1,4 @@
-# Composition d'equipe - V4.3.7
+# Composition d'equipe - V4.6.0
 
 Decision utilisateur du 3 octobre 2026 : preparer les titulaires, la reserve,
 le capitaine et les armes dans Decks. Les nouvelles rencontres commencent
@@ -31,7 +31,11 @@ directement avec cette formation. Aucun profil natif ni matrice n'est modifie.
     "cards": ["30000007", "... neuf autres cardIds ..."],
     "formation": ["P1 cardId", "P2 cardId", "P3 cardId", "P4 cardId", "P5 cardId"],
     "captain": "30000007",
-    "equipment": {"balmhyr": "fallen-king-axe", "momo": "little-joys-flute"}
+    "equipment": {
+      "weapon": {"balmhyr": "fallen-king-axe"},
+      "shield": {"balmhyr": "durane-rampart"},
+      "relic": {"momo": "little-joys-flute"}
+    }
   }]
 }
 ```
@@ -45,7 +49,9 @@ Les brouillons peuvent contenir `null`. Leur capitaine peut etre `null`.
 Les armes restent indexees par `characterId` stable pour reutiliser exactement
 le contrat Armes. `formation` et `captain` utilisent les cardIds de la version
 choisie. Une seule version par personnage rend cette association non ambigue.
-Une arme par personnage et un seul porteur par arme dans un meme loadout.
+Une arme, une protection et une relique par personnage. Chaque objet n'a qu'un
+porteur dans un meme loadout. Le picker classe les objets par emplacement;
+remplacer une arme ne retire jamais une protection ou une relique.
 
 Cle existante : `kalistar.v4.deckLibrary.<userId>`. Le brouillon complet utilise
 la preference de profil `kalistar.v4.[<userId>.]teamDraft`; les anciennes
@@ -60,6 +66,12 @@ La lecture d'une enveloppe schema 1 conserve tous les membres et utilise
 Les preferences d'armes du profil servent uniquement de valeurs initiales.
 La nouvelle enveloppe est persistee avec verification de conflit avant ecriture.
 Une formation explicite n'est jamais recalculee a chaque affichage.
+
+Les anciens loadouts plats sont distribues dans les trois maps selon la
+categorie actuelle de chaque objet, sans perdre leurs porteurs. Les equipes
+deja explicites ne recopient pas les preferences du profil. Un ancien match
+version 1 n'est pas converti en cours de combat : il garde ses definitions,
+ses conditions et son emplacement historique. Voir `EQUIPEMENTS_460.md`.
 
 Un ancien brouillon sans formation complete utilise un appariement partiel.
 Si plus de cinq cartes resteraient sans place, elles restent visibles dans les
@@ -115,11 +127,14 @@ L'oeil ouvre la fiche existante. La comparaison precede un remplacement recrute.
 Le paysage court reduit les outils du bandeau; le format portrait garde les
 outils de demonstration, imports et exports. Le mouvement reduit est respecte.
 
-Le medaillon d'arme equipee est visible dans Decks, sans languette ni etat de
-combat. Il utilise les pixels et le layout natifs : extraction (76,1103,122,122),
-crop (50,50,797,1388), centre optique (137,1163.5). Ses proportions suivent
-l'image de carte; aucune coordonnee d'ecran fixe. En combat les conditions,
-transitions et consommations restent celles de la feature Armes existante.
+Dans Decks et sa fiche agrandie, les trois objets sont visibles sans languette
+ni etat de combat. L'arme s'ancre entre ATK6 et ATK5, la protection entre DEF6
+et DEF5, la relique sur le medaillon d'arme imprime. Le crop reste
+(50,50,797,1388); tous les ancrages sont projetes depuis le template natif et
+le rectangle reel de l'image. Aucun PNG/PSD de personnage n'est modifie.
+En arene et dans sa fiche, seuls les objets actifs apparaissent. Les rotations
+respectent le mouvement reduit. Les regles actuelles sont dans
+`EQUIPEMENTS_460.md`, et non les conditions historiques de la V1.
 
 Les designs propres de Hache et Flute electrique sont documentes dans
 `../revisions/2026-10-02-unique-weapon-art/README.md`. Ils n'ecrasent aucun PNG

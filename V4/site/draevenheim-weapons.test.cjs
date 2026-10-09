@@ -4,6 +4,8 @@ const Q=require('./equipment.js'),C=require('./weapon-cards.js'),T=require('./te
 const {createEngine}=require('./engine.js'),{buildCatalog}=require('../atelier/game-catalog.cjs');
 const dataPromise=buildCatalog({published:require('../donnees/catalogue.json').cards.filter(c=>c.kind==='created')});
 const ids=['draevenheim-wing-spear','draevenheim-crimson-crossbow'],weapons=ids.map(id=>Q.catalogue.weapons.find(w=>w.id===id));
+const archive=require('./fixtures/equipment-v4.5.64.json');
+const historical=ids.map(id=>archive.weapons.find(w=>w.id===id));
 const allowed={'draevenheim-wing-spear':['orven-kalistar'],'draevenheim-crimson-crossbow':[]};
 function deckFor(E,data,c){const base=data.decks.player;const deck=base.map((_,i)=>base.map((id,j)=>i===j?c.id:id)).find(ids=>!E.validatePlayableDeck(ids).length);assert(deck,c.id);return deck;}
 test('Draevenheim weapons require faction and base family, never names or a similar faction',async()=>{
@@ -24,12 +26,13 @@ test('one weapon slot, replacement, faction enforcement, profile and composition
   assert.throws(()=>Q.equipProfile(p,'ssilas',ids[0],data.cards),/incompatible/);
   const c=data.cards.find(c=>c.characterId==='orven-kalistar'),deck=deckFor(E,data,c),team=T0.equip(T0.fromPreset({name:'Draevenheim',cards:deck}),c.id,ids[0]);
   assert.deepEqual(E.validateComposition(team),[]);const s=E.newGame(team,team,{mode:'local'}),snapshot=structuredClone(s.equipment);
-  team.equipment[c.characterId]=ids[1];assert.deepEqual(s.equipment,snapshot);assert.deepEqual(E.restoreGame(s),s);
+  team.equipment.weapon[c.characterId]=ids[1];assert.deepEqual(s.equipment,snapshot);assert.deepEqual(E.restoreGame(s),s);
   const old=E.newGame(deck,deck,{equipment:[{},{}]});old.equipment.definitions=old.equipment.definitions.filter(w=>!ids.includes(w.id));assert.deepEqual(E.restoreGame(old),old);
 });
-test('compatible printed editions receive the exact real bonus on either side, then lose it when inactive',async()=>{
+test('archived 4.5.64: compatible editions retain conditional bonuses on both sides, with deactivation',async()=>{
   const data=await dataPromise,E=createEngine(data);
-  for(const w of weapons)for(const c of data.cards.filter(c=>Q.compatible(w,c)))for(const side of [0,1]){
+  assert.deepEqual(Q.catalogue.legacyWeapons,archive.weapons);
+  for(const w of historical)for(const c of data.cards.filter(c=>Q.compatible(w,c)))for(const side of [0,1]){
     const deck=deckFor(E,data,c),loadout={[c.characterId]:w.id};
     const s=E.newGame(deck,deck,{seed:'DRAEVENHEIM-TEST',mode:'local',kalistel:false,equipment:side?[{},loadout]:[loadout,{}]});
     E.autoDeploy(s,0);E.autoDeploy(s,1);const p=s.players[side],u=[...p.board.filter(Boolean),...p.reserve].find(v=>v.cardId===c.id);
@@ -49,8 +52,9 @@ test('compatible printed editions receive the exact real bonus on either side, t
     s.phase='over';assert(!E.equipmentView(s,u).active);
   }
 });
-test('bounded state-based effects reuse existing families and do not create a second attack',()=>{
-  assert.deepEqual(weapons.map(w=>[w.family,w.effect.stat,w.effect.value,w.effect.trigger,w.effect.duration]),[['Lance','DEF',20,'TEAM_STATE','WHILE_TRUE'],['Arc','ATK',20,'TEAM_STATE','WHILE_TRUE']]);
-  assert.deepEqual(weapons[0].effect.when,{outnumbered:true});assert.deepEqual(weapons[1].effect.when,{activeAtMost:2});
+test('4.6 spear and bow are ATK-six weapons; archived spear DEF and state rules do not change',()=>{
+  assert.deepEqual(weapons.map(w=>[w.family,w.slot,w.rulesVersion,w.effect]),[['Lance','weapon',2,{trigger:'RETAINED_SIX',stat:'ATK',value:20,duration:'DUEL'}],['Arc','weapon',2,{trigger:'RETAINED_SIX',stat:'ATK',value:20,duration:'DUEL'}]]);
+  assert.deepEqual(historical.map(w=>[w.family,w.effect.stat,w.effect.value,w.effect.trigger,w.effect.duration]),[['Lance','DEF',20,'TEAM_STATE','WHILE_TRUE'],['Arc','ATK',20,'TEAM_STATE','WHILE_TRUE']]);
+  assert.deepEqual(historical[0].effect.when,{outnumbered:true});assert.deepEqual(historical[1].effect.when,{activeAtMost:2});
   assert(weapons.every(w=>!w.changesFamily));assert.deepEqual(weapons.map(w=>w.collectible.number),['ARM-028','ARM-029']);
 });

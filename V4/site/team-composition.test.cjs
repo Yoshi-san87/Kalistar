@@ -44,11 +44,16 @@ test('P1/P2 incompatibilities, missing and reserve captain, unknown and incompat
   assert.throws(()=>E.newGame({...team,equipment:{unknown:'unknown'}},team),/Equipement/);
 });
 test('migration is deterministic, retains all inventory and copies equipment defaults once',async()=>{
-  const data=await dataPromise,E=createEngine(data),defaults={momo:'little-joys-flute'},T=Composition.create(E,()=>defaults);
+  const data=await dataPromise,E=createEngine(data),defaults=Q.emptyLoadout(),T=Composition.create(E,()=>defaults);
+  defaults.relic.momo='little-joys-flute';defaults.weapon.balmhyr='fallen-king-axe';defaults.shield.balmhyr='durane-rampart';
   const old={name:'Ancien',cards:data.decks.player.slice()},team=T.normalize(old);
   assert.deepEqual(team.cards,old.cards);assert.deepEqual(team.formation,E.lineup(old.cards).map(i=>old.cards[i]));assert.equal(team.captain,null);
-  assert.equal(team.equipment.momo,'little-joys-flute');delete defaults.momo;
-  assert.equal(T.normalize(team).equipment.momo,'little-joys-flute');assert.deepEqual(T.normalize(team).formation,team.formation);
+  assert.equal(team.equipment.relic.momo,'little-joys-flute');assert.equal(team.equipment.weapon.balmhyr,'fallen-king-axe');
+  assert.equal(team.equipment.shield.balmhyr,'durane-rampart');delete defaults.relic.momo;delete defaults.weapon.balmhyr;
+  assert.equal(T.normalize(team).equipment.relic.momo,'little-joys-flute');assert.equal(T.normalize(team).equipment.weapon.balmhyr,'fallen-king-axe');
+  assert.deepEqual(T.normalize(team).formation,team.formation);
+  const historical=Composition.create(E,()=>({momo:'little-joys-flute'})).normalize(old);
+  assert.equal(historical.equipment.relic.momo,'little-joys-flute');assert.deepEqual(historical.cards,old.cards);
   const explicit={...team,formation:team.formation.slice().reverse()};assert.ok(E.validateComposition(T.normalize(explicit)).some(e=>e.includes('occuper')));
 });
 
@@ -70,7 +75,7 @@ test('schema-2 library migration, clone, export/import and partial drafts preser
   assert.equal(lib.list()[0].captain,null);assert.equal(JSON.parse(storage.getItem(lib.key)).schema,2);
   const saved=lib.save({...team,id}),duplicate=lib.duplicate(saved.id);
   assert.deepEqual(duplicate.formation,saved.formation);assert.deepEqual(duplicate.equipment,saved.equipment);assert.equal(duplicate.captain,saved.captain);
-  const copy=create().get(id);copy.equipment.momo='unknown';assert.notDeepEqual(copy.equipment,lib.get(id).equipment);
+  const copy=create().get(id);copy.equipment.relic.momo='unknown';assert.notDeepEqual(copy.equipment,lib.get(id).equipment);
   const json=lib.exportJSON();lib.importJSON(json,{mode:'replace'});assert.equal(lib.get(id).captain,team.captain);
   const malformed=JSON.parse(json);delete malformed.decks[0].formation;
   assert.throws(()=>lib.importJSON(JSON.stringify(malformed),{mode:'replace'}),/schema/);assert.equal(lib.exportJSON(),json);
@@ -130,15 +135,24 @@ test('AI scores include the same commandment terms without reading future rolls'
 });
 test('equipment is isolated per deck, supports removal, and match snapshots cannot be changed by later edits',async()=>{
   const {E,T,team}=await fixture(),momo=team.cards.find(id=>E.byId[id].characterId==='momo');
-  const armed=T.equip(team,momo,'little-joys-flute');assert.deepEqual(team.equipment,{});assert.equal(armed.equipment.momo,'little-joys-flute');
-  assert.deepEqual(T.equip(armed,momo,null).equipment,{});assert.throws(()=>T.equip(team,momo,'fallen-king-axe'),/incompatible/);
-  const s=E.newGame(armed,team);armed.equipment.momo='unknown';armed.captain=null;armed.formation.reverse();
-  assert.equal(s.equipment.loadouts[0].momo,'little-joys-flute');assert.equal(s.equipment.loadouts[1].momo,undefined);assert.deepEqual(E.restoreGame(s),s);
+  const armed=T.equip(team,momo,'little-joys-flute');assert.deepEqual(team.equipment,Q.emptyLoadout());assert.equal(armed.equipment.relic.momo,'little-joys-flute');
+  assert.deepEqual(T.equip(armed,momo,null,{slot:'relic',expected:'little-joys-flute'}).equipment,Q.emptyLoadout());assert.throws(()=>T.equip(team,momo,'fallen-king-axe'),/incompatible/);
+  const balm=team.cards.find(id=>E.byId[id].characterId==='balmhyr');
+  const triple=T.equip(T.equip(T.equip(armed,balm,'fallen-king-axe'),balm,'durane-rampart'),balm,'exiled-king-seal');
+  const s=E.newGame(triple,team);triple.equipment.relic.momo='unknown';triple.equipment.weapon.balmhyr='unknown';triple.captain=null;triple.formation.reverse();
+  assert.equal(s.equipment.version,2);assert.equal(s.equipment.loadouts[0].relic.momo,'little-joys-flute');
+  assert.equal(s.equipment.loadouts[0].weapon.balmhyr,'fallen-king-axe');assert.equal(s.equipment.loadouts[0].shield.balmhyr,'durane-rampart');
+  assert.equal(s.equipment.loadouts[0].relic.balmhyr,'exiled-king-seal');assert.equal(s.equipment.loadouts[1].relic.momo,undefined);assert.deepEqual(E.restoreGame(s),s);
 });
 test('old setup matches and technical array callers retain historical behavior',async()=>{
   const {E,data,team}=await fixture();const old=E.newGame(data.decks.player,data.decks.player);
   assert.equal(old.phase,'setup');assert.equal(old.composition,undefined);E.autoDeploy(old,0);E.recall(old,0,0);E.autoDeploy(old,0);E.autoDeploy(old,1);E.start(old);assert.deepEqual(E.restoreGame(old),old);
   const mixed=E.newGame(team,data.decks.player);assert.equal(mixed.phase,'choose');assert.equal(mixed.composition.teams[1].captain,null);assert.deepEqual(E.restoreGame(mixed),mixed);
+  const historical=E.newGame(data.decks.player,data.decks.player,{equipment:[{balmhyr:'fallen-king-axe',momo:'little-joys-flute'},{}]});
+  historical.equipment.definitions=structuredClone(require('./fixtures/equipment-v4.5.64.json').weapons);
+  assert.equal(historical.equipment.version,1);assert.deepEqual(E.restoreGame(historical),historical);
+  assert.equal(historical.equipment.definitions.find(w=>w.id==='fallen-king-axe').effect.trigger,'LAST_STANDING');
+  assert.equal(historical.equipment.definitions.find(w=>w.id==='little-joys-flute').effect.trigger,'AFTER_SUPPORT');
 });
 test('complete composed matches, captain deaths, equipment states and reloads validate through match end',async()=>{
   const {E,T,team}=await fixture(),momo=team.cards.find(id=>E.byId[id].characterId==='momo'),armed=T.equip(team,momo,'little-joys-flute');

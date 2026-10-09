@@ -2,8 +2,10 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const Q=require('./equipment.js'),{createEngine}=require('./engine.js'),{buildCatalog}=require('../atelier/game-catalog.cjs');
 const rows=require('../donnees/catalogue.json').cards.filter(c=>c.kind==='created');
-// The original arsenal remains covered here; the additive FFIX lot has its own suite.
-const weapons=Q.catalogue.weapons.filter(w=>Q.catalogue.kind(w)==='weapon'&&!w.id.startsWith('ff9-'));
+// State conditions and non-stacking below belong to archived 4.5.64 matches.
+// Current D6 mechanics have separate coverage; never evaluate old rules from today's definitions.
+const archive=require('./fixtures/equipment-v4.5.64.json');
+const weapons=archive.weapons.filter(w=>Q.catalogue.kind(w)==='weapon'&&!w.id.startsWith('ff9-'));
 const dataPromise=buildCatalog({published:rows}),additions=weapons.filter(w=>w.collectible);
 const {legacyGame,weapons:previous}=require('./fixtures/legacy-equipment.cjs');
 const unmatched=['commanders-sabre','draevenheim-crimson-crossbow','rhinoz-ancestral-horn'];
@@ -32,8 +34,10 @@ function activate(f,w){
   }
   if(when.reserveAtMost===0){for(const u of p.reserve)u.entered=true;p.dead.push(...p.reserve);p.reserve=[];}
 }
-test('31 unique additions: stable identities, real jobs/factions/races and conservative declarative effects',async()=>{
+test('archived 4.5.64: 31 additions keep identities, restrictions and bounded state effects',async()=>{
   const data=await dataPromise;assert.equal(additions.length,31);assert.equal(weapons.length,33);
+  assert.equal(archive.release,'v4.5.64');assert.equal(archive.sourceHash,'4ae84b53545d6221492000d90b58ae94513a60d39baf0ae271844a5b97938f84');
+  assert.deepEqual(Q.catalogue.legacyWeapons,archive.weapons);
   assert.equal(new Set(weapons.map(w=>w.id)).size,33);
   assert.equal(additions.filter(w=>w.restrictions.jobs).length,3);
   assert.equal(additions.filter(w=>w.restrictions.factions).length,7);
@@ -53,7 +57,7 @@ test('31 unique additions: stable identities, real jobs/factions/races and conse
   for(const job of ['GARDIEN','GARDIENNE'])assert(Q.compatible(guardian,{...guard,job}));
   assert(!Q.compatible(guardian,{job:'SOLDAT'}));
 });
-for(const w of additions)test(w.id+(unmatched.includes(w.id)?': historical snapshot':': current bearer')+': inactive, active, real formula, log and reload on either side',async()=>{
+for(const w of additions)test('archived 4.5.64: '+w.id+(unmatched.includes(w.id)?' (earlier bearer snapshot)':'')+': inactive, active, real formula, log and reload on either side',async()=>{
   for(const side of [0,1]){
     const f=await fixture(w,side),{E,s,unit,c}=f;
     assert.equal(E.equipmentView(s,unit).active,false);assert.equal(E.equipmentModifier(s,unit,w.effect.stat),null);
@@ -73,14 +77,14 @@ for(const w of additions)test(w.id+(unmatched.includes(w.id)?': historical snaps
     const captured=structuredClone(s.duel.equipment);s.phase='over';assert.equal(E.equipmentView(s,unit).active,false);assert.deepEqual(s.duel.equipment,captured);
   }
 });
-test('team conditions deactivate when formation or reserve recovers; no carried charge',async()=>{
+test('archived 4.5.64: team conditions deactivate when formation or reserve recovers',async()=>{
   for(const w of additions){
     const f=await fixture(w),before=structuredClone(f.s.players);activate(f,w);assert(f.E.equipmentView(f.s,f.unit).active);
     f.s.players=before;const restored=before[0].board.find(u=>u.uid===f.unit.uid);
     assert.equal(f.E.equipmentView(f.s,restored).active,false);assert.deepEqual(f.s.equipment.pending,{});
   }
 });
-test('Momo gift beats a smaller active DEF weapon without stacking, then expires',async()=>{
+test('archived 4.5.64: Momo gift beats a smaller active DEF weapon without stacking, then expires',async()=>{
   const w=additions.find(w=>w.id==='mythic-iron-gauntlet'),f=await fixture(w),{E,s,unit}=f;
   activate(f,w);
   const source=[...s.players[0].board.filter(Boolean),...s.players[0].reserve].find(u=>E.card(u).characterId==='momo');assert(source);
@@ -91,13 +95,13 @@ test('Momo gift beats a smaller active DEF weapon without stacking, then expires
   E.rollAttack(s,6);E.rollDefense(s,6);assert.equal(s.duel.formula.equipmentDefense,30);assert.equal(s.duel.equipment.defense.weaponId,'little-joys-flute');
   assert(!s.equipment.pending[unit.uid]);assert.deepEqual(E.restoreGame(s),s);
 });
-test('a scythe bonus never converts Voloden printed Mort into numeric damage',async()=>{
+test('archived 4.5.64: scythe bonus never converts Voloden printed Mort into numeric damage',async()=>{
   const w=additions.find(w=>w.id==='violet-reaping'),f=await fixture(w),{E,s,unit}=f;activate(f,w);s.turn=0;
   const die=6-E.card(unit).atk.indexOf('death');assert(die>=1&&die<=6);
   E.lock(s,s.players[0].board.indexOf(unit),0);E.rollAttack(s,die);E.rollDefense(s,6);
   assert.equal(s.duel.formula,undefined);assert.deepEqual(E.restoreGame(s),s);
 });
-test('new equipment participates in complete real matches and restores every exchange',async()=>{
+test('archived 4.5.64: original arsenal completes real matches and restores every exchange',async()=>{
   for(const w of additions){
     const f=await fixture(w),E=f.E;let s=f.s;
     for(let n=0;s.phase!=='over'&&n<2000;n++){
@@ -113,7 +117,7 @@ test('new equipment participates in complete real matches and restores every exc
     assert.equal(s.phase,'over',w.id);assert.deepEqual(s.equipment.pending,{});
   }
 });
-test('compatible alternatives replace atomically; retired personal alternatives cannot be equipped',async()=>{
+test('4.6 compatible weapon alternatives replace atomically without altering the other slots',async()=>{
   const data=await dataPromise;let p=Q.profile('arsenal-qa');
   for(const [characterId,first,next]of [['2b-nier','virtuous-contract','virtuous-treaty'],['geralt-witcher','wolf-steel','wolf-silver'],['balmhyr','fallen-king-axe','mythic-iron-gauntlet']]){
     p=Q.equipProfile(p,characterId,first,data.cards);assert.throws(()=>Q.equipProfile(p,characterId,next,data.cards));
@@ -121,6 +125,20 @@ test('compatible alternatives replace atomically; retired personal alternatives 
     p=Q.equipProfile(p,characterId,next,data.cards,{expected:first,expectedProfile:p});assert.equal(p.slots.weapon[characterId],next);
   }
   assert.equal(Object.keys(p.slots.weapon).length,3);
+  assert.deepEqual(p.slots.shield,{});assert.deepEqual(p.slots.relic,{});
+});
+
+test('4.6 original arsenal keeps metadata and values, with ATK-six weapons and Momo support relic',()=>{
+  for(const old of weapons){
+    const current=Q.catalogue.weapons.find(w=>w.id===old.id);Q.validateDefinition(current);
+    for(const key of ['id','name','family','art','visual','restrictions','collectible','lore'])assert.deepEqual(current[key],old[key],old.id+' '+key);
+    assert.equal(current.rulesVersion,2);
+    if(old.id==='little-joys-flute'){
+      assert.equal(current.slot,'relic');assert.equal(current.kind,'relic');assert.deepEqual(current.effect,old.effect);
+    }else{
+      assert.equal(current.slot,'weapon');assert.deepEqual(current.effect,{trigger:'RETAINED_SIX',stat:'ATK',value:old.effect.value,duration:'DUEL'});
+    }
+  }
 });
 test('all generated assets are versioned, hashed, have alpha and remain inside medallion',async()=>{
   const {createRequire}=require('node:module'),proof=require('../weapon-cards/media-provenance.json');

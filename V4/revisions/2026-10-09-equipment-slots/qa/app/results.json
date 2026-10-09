@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "built": false,
+  "results": [
+    {
+      "name": "desktop",
+      "passed": true,
+      "checks": [
+        "full app deck popup: three items",
+        "real ATK6/DEF6 totals and actual recap art",
+        "inactive relic omitted",
+        "popup Back preserves match",
+        "profile isolation/reload",
+        "motion/cleanup"
+      ]
+    },
+    {
+      "name": "razr",
+      "passed": true,
+      "checks": [
+        "full app deck popup: three items",
+        "real ATK6/DEF6 totals and actual recap art",
+        "inactive relic omitted",
+        "popup Back preserves match",
+        "profile isolation/reload",
+        "motion/cleanup"
+      ]
+    },
+    {
+      "name": "compact",
+      "passed": true,
+      "checks": [
+        "full app deck popup: three items",
+        "real ATK6/DEF6 totals and actual recap art",
+        "inactive relic omitted",
+        "popup Back preserves match",
+        "profile isolation/reload",
+        "motion/cleanup"
+      ]
+    }
+  ],
+  "errors": []
+}

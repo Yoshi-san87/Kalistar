@@ -2,6 +2,8 @@
   'use strict';
   const Q=KalistarEquipment,esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const icon=name=>`<i data-lucide="${name}"></i>`;
+  const equipmentWarning=(w,c)=>w.rulesVersion===2&&['weapon','shield'].includes(w.slot)&&typeof c?.[w.effect.stat==='ATK'?'atk':'defense']?.[0]!=='number'
+    ?'Pas de 6 '+w.effect.stat+' num\u00e9rique sur cette \u00e9dition : bonus indisponible.':'';
   function create({data,db,userId,toast=()=>{},onCard=()=>{}}){
     let root=null,controller=null,unsubscribe=null,selected=null,confirmation=null,busy=false,filter='all',category='all';
     let page=0,pageSize=18,columns=6,rows=3,cardWidthLimit=400,rosterPage=0,query='',observer=null,frame=0,animation=null;
@@ -10,8 +12,13 @@
     const rosterSize=()=>phone.matches?(innerHeight<800?2:4):innerHeight<620?2:innerHeight<800?4:6;
     const dialog=document.getElementById('weapons-dialog');
     const definitions=Q.catalogue.weapons,profile=()=>db?.equipment?.profile(userId)||Q.profile(userId);
-    const carrier=w=>Object.entries(profile().slots.weapon).find(([,id])=>id===w.id)?.[0]||null;
+    const carrier=w=>Object.entries(profile().slots[w.slot]).find(([,id])=>id===w.id)?.[0]||null;
     const versions=w=>data.cards.filter(c=>Q.compatible(w,c));
+    function rosterVersions(w){
+      const choices=new Map();
+      for(const c of versions(w))if(!choices.has(c.characterId)||equipmentWarning(w,choices.get(c.characterId))&&!equipmentWarning(w,c))choices.set(c.characterId,c);
+      return [...choices.values()];
+    }
     const name=id=>data.cards.find(c=>c.characterId===id)?.name||id;
     const bearers=w=>Object.entries(w.restrictions).filter(([key])=>key!=='families').map(([key,values])=>({characterIds:'Personnages',jobs:'Jobs',families:'Armes de base',factions:'Factions',races:'Races'}[key])+ ' : '+values.map(v=>key==='characterIds'?name(v):v).join(', ')).join(' \u00b7 ');
     const equippedText=w=>carrier(w)?'Porteur : '+name(carrier(w)):'Non attribu\u00e9';
@@ -37,9 +44,13 @@
     }
     function detail(){
       const w=definitions.find(w=>w.id===selected);if(!w)return;
-      const current=carrier(w),all=[...new Map(versions(w).map(c=>[c.characterId,c])).values()].sort((a,b)=>Number(b.characterId===current)-Number(a.characterId===current)||a.name.localeCompare(b.name,'fr'));
+      const current=carrier(w),all=rosterVersions(w).sort((a,b)=>Number(b.characterId===current)-Number(a.characterId===current)||a.name.localeCompare(b.name,'fr'));
       const roster=all.filter(c=>normalize(c.name+' '+c.job+' '+c.faction).includes(normalize(query))),size=rosterSize(),pages=Math.max(1,Math.ceil(roster.length/size));rosterPage=Math.min(rosterPage,pages-1);
-      dialog.innerHTML=`<header class="dialog-head"><h2>${esc(w.name)}</h2><button class="icon-button" data-weapon-action="close" aria-label="Fermer" title="Fermer">${icon('x')}</button></header><div class="weapon-detail"><div class="weapon-detail-top"><div class="weapon-card wc-static">${card(w)}${holder(w)}</div><div class="weapon-card-caption"><small>${esc(bearers(w))}</small></div><details class="weapon-reading"><summary>R\u00e9cit de l\u2019\u00e9quipement</summary><p class="weapon-lore">${esc(w.lore)}</p></details></div><div class="weapon-detail-info"><section class="weapon-carriers"><header class="weapon-roster-heading"><h3>Porteurs compatibles</h3><span role="status">${roster.length}${query?' / '+all.length:''}</span></header>${all.length>4?`<label class="weapon-roster-search">${icon('search')}<input type="search" data-weapon-search value="${esc(query)}" aria-label="Rechercher un porteur" placeholder="Personnage, faction, job" autocomplete="off"></label>`:''}<div class="weapon-carrier-grid">${roster.map((c,i)=>{const equipped=profile().slots.weapon[c.characterId],owned=definitions.find(x=>x.id===equipped);return `<article class="${current===c.characterId?'is-current':''}" ${Math.floor(i/size)!==rosterPage?'hidden':''}><button class="weapon-carrier-art" data-weapon-action="card" data-id="${c.id}" aria-label="Voir ${esc(c.name)}"><img src="${KalistarCardMedia.image(c,'art')}" alt="${esc(c.name)}"></button><div class="weapon-carrier-info"><b>${esc(c.name)}</b><small>${esc(c.job)} \u00b7 ${esc(c.faction)}</small><span class="weapon-carrier-state" title="${esc(owned?.name||'Aucun équipement')}">${current===c.characterId?icon('check')+'\u00c9quip\u00e9':owned?esc(owned.name):'Libre'}</span><button data-weapon-action="${current===c.characterId?'unequip':'equip'}" data-character="${c.characterId}" ${busy||!db?'disabled':''}>${icon(current===c.characterId?'unlink':'plus')}${current===c.characterId?'Retirer':'\u00c9quiper'}</button></div></article>`;}).join('')||`<p class="weapon-roster-empty" role="status">${all.length?'Aucun personnage trouv\u00e9.':'Aucun porteur compatible dans le catalogue actuel.'}</p>`}</div>${pager('carriers',rosterPage,pages)}</section></div>${confirmation?`<div class="weapon-confirm" role="group" aria-label="Confirmer l\u2019\u00e9quipement"><p>${esc(confirmation.text)}</p><div><button data-weapon-action="cancel" ${busy?'disabled':''}>Annuler</button><button class="primary" data-weapon-action="confirm" ${busy?'disabled':''}>${icon('check')}Confirmer</button></div></div>`:''}</div>`;
+      const carrierCards=roster.map((c,i)=>{
+        const equipped=profile().slots[w.slot][c.characterId],owned=definitions.find(x=>x.id===equipped),warning=equipmentWarning(w,c),notice='weapon-edition-warning-'+c.id;
+        return `<article class="${current===c.characterId?'is-current':''}" ${Math.floor(i/size)!==rosterPage?'hidden':''}><button class="weapon-carrier-art" data-weapon-action="card" data-id="${c.id}" aria-label="Voir ${esc(c.name)}"><img src="${KalistarCardMedia.image(c,'art')}" alt="${esc(c.name)}"></button><div class="weapon-carrier-info"><b>${esc(c.name)}</b><small>${esc(c.job)} \u00b7 ${esc(c.faction)}</small><span class="weapon-carrier-state" title="${esc(owned?.name||'Aucun équipement')}">${current===c.characterId?icon('check')+'\u00c9quip\u00e9':owned?esc(owned.name):'Libre'}</span>${warning?`<small id="${notice}" data-equipment-unavailable="${w.id}">${icon('triangle-alert')}${esc(warning)}</small>`:''}<button data-weapon-action="${current===c.characterId?'unequip':'equip'}" data-character="${c.characterId}" ${warning?`aria-describedby="${notice}"`:''} ${busy||!db||warning&&current!==c.characterId?'disabled':''}>${icon(current===c.characterId?'unlink':'plus')}${current===c.characterId?'Retirer':'\u00c9quiper'}</button></div></article>`;
+      }).join('');
+      dialog.innerHTML=`<header class="dialog-head"><h2>${esc(w.name)}</h2><button class="icon-button" data-weapon-action="close" aria-label="Fermer" title="Fermer">${icon('x')}</button></header><div class="weapon-detail"><div class="weapon-detail-top"><div class="weapon-card wc-static">${card(w)}${holder(w)}</div><div class="weapon-card-caption"><small>${esc(bearers(w))}</small></div><details class="weapon-reading"><summary>R\u00e9cit de l\u2019\u00e9quipement</summary><p class="weapon-lore">${esc(w.lore)}</p></details></div><div class="weapon-detail-info"><section class="weapon-carriers"><header class="weapon-roster-heading"><h3>Porteurs compatibles</h3><span role="status">${roster.length}${query?' / '+all.length:''}</span></header>${all.length>4?`<label class="weapon-roster-search">${icon('search')}<input type="search" data-weapon-search value="${esc(query)}" aria-label="Rechercher un porteur" placeholder="Personnage, faction, job" autocomplete="off"></label>`:''}<div class="weapon-carrier-grid">${carrierCards||`<p class="weapon-roster-empty" role="status">${all.length?'Aucun personnage trouv\u00e9.':'Aucun porteur compatible dans le catalogue actuel.'}</p>`}</div>${pager('carriers',rosterPage,pages)}</section></div>${confirmation?`<div class="weapon-confirm" role="group" aria-label="Confirmer l\u2019\u00e9quipement"><p>${esc(confirmation.text)}</p><div><button data-weapon-action="cancel" ${busy?'disabled':''}>Annuler</button><button class="primary" data-weapon-action="confirm" ${busy?'disabled':''}>${icon('check')}Confirmer</button></div></div>`:''}</div>`;
       window.KalistarUI?.icons(dialog)??lucide.createIcons({root:dialog});
     }
     function resize(){
@@ -93,15 +104,19 @@
       const slot=event.target.closest('[data-weapon-holder]');
       if(slot){if(busy)return;if(selected!==slot.dataset.weaponHolder||!dialog.open)open(slot.dataset.weaponHolder);const target=dialog.querySelector('[data-weapon-search],[data-weapon-action=equip],[data-weapon-action=unequip]');target?.focus({preventScroll:true});target?.scrollIntoView({block:'nearest'});return;}
       const tile=event.target.closest('[data-weapon]');if(tile){open(tile.dataset.weapon);return;}
-      const button=event.target.closest('[data-weapon-action]');if(!button||busy)return;
+      const button=event.target.closest('[data-weapon-action]');if(!button||button.disabled||busy)return;
       const action=button.dataset.weaponAction,w=definitions.find(w=>w.id===selected),character=button.dataset.character;
       if(action==='page'){turn(button.dataset.list,Number(button.dataset.page));return;}
       if(action==='reset-filter'){filter='all';page=0;refresh();root?.querySelector('.weapon-filter')?.focus();return;}
       if(action==='close'){dialog.close();confirmation=null;return;}
       if(action==='card'){onCard(button.dataset.id);return;}
       if(action==='cancel'){const character=confirmation?.character;confirmation=null;detail();dialog.querySelector(`[data-character="${character}"]`)?.focus({preventScroll:true});return;}
+      if(action==='equip'||action==='confirm'){
+        const warning=equipmentWarning(w,rosterVersions(w).find(c=>c.characterId===(action==='confirm'?confirmation?.character:character)));
+        if(warning){confirmation=null;toast(warning);detail();return;}
+      }
       if(action==='equip'){
-        const row=profile(),old=row.slots.weapon[character]||null,other=carrier(w);
+        const row=profile(),old=row.slots[w.slot][character]||null,other=carrier(w);
         confirmation={character,expected:old,expectedProfile:row,text:old?'Remplacer '+definitions.find(x=>x.id===old).name+' sur '+name(character)+' ?':'D\u00e9placer '+w.name+' de '+name(other)+' vers '+name(character)+' ?'};
         if(old||other){detail();dialog.querySelector('[data-weapon-action=confirm]')?.focus();return;}
       }

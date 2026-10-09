@@ -6,6 +6,9 @@ const published=require('../donnees/catalogue.json').cards.filter(c=>c.kind==='c
 const dataPromise=buildCatalog({published});
 const ids=['arborium-twinstring-bow','arborium-thorn-dagger'];
 const weapons=ids.map(id=>Q.catalogue.weapons.find(w=>w.id===id));
+// State-triggered combat below is an archived 4.5.64 regression, not a new-game rule.
+const archive=require('./fixtures/equipment-v4.5.64.json');
+const historical=ids.map(id=>archive.weapons.find(w=>w.id===id));
 const allowed={'arborium-twinstring-bow':['saelor-kalistar','ssilas'],'arborium-thorn-dagger':['maelor-kalistar']};
 
 test('Arborium equipment requires its exact faction AND base family, regardless of job or displayed name',async()=>{
@@ -54,9 +57,9 @@ test('team compositions validate the selected edition; old equipment snapshots s
   const base=data.decks.player,deck=base.map((_,i)=>base.map((id,j)=>i===j?carrier.id:id)).find(ids=>!E.validatePlayableDeck(ids).length);
   assert(deck);
   const team=teams.equip(teams.fromPreset({name:'Arborium test',cards:deck}),carrier.id,ids[0]);
-  assert.equal(team.equipment[carrier.characterId],ids[0]);assert.deepEqual(E.validateComposition(team),[]);
+  assert.equal(team.equipment.weapon[carrier.characterId],ids[0]);assert.deepEqual(E.validateComposition(team),[]);
   const state=E.newGame(team,team,{seed:'ARBORIUM-TEST',mode:'local'}),copy=structuredClone(state.equipment);
-  team.equipment[carrier.characterId]=ids[1];
+  team.equipment.weapon[carrier.characterId]=ids[1];
   assert.deepEqual(state.equipment,copy);assert.deepEqual(E.restoreGame(state),state);
   const unequipped=E.newGame(data.decks.player,data.decks.player,{seed:'UNEQUIPPED-ARBORIUM',mode:'local'});
   assert.equal(unequipped.equipment,undefined);assert.deepEqual(E.restoreGame(unequipped),unequipped);
@@ -65,9 +68,10 @@ test('team compositions validate the selected edition; old equipment snapshots s
   assert.deepEqual(E.restoreGame(legacy),legacy,'a saved match without the two new definitions is not upgraded');
 });
 
-test('compatible Arborium bow and dagger wielders receive the real bonus on either side in formulas, logs and reloads',async()=>{
+test('archived 4.5.64: Arborium state bonuses on either side survive formulas, logs and reloads',async()=>{
   const data=await dataPromise,E=createEngine(data);
-  for(const w of weapons)for(const characterId of allowed[w.id])for(const side of [0,1]){
+  assert.deepEqual(Q.catalogue.legacyWeapons,archive.weapons);
+  for(const w of historical)for(const characterId of allowed[w.id])for(const side of [0,1]){
     const c=data.cards.find(c=>c.characterId===characterId),base=data.decks.player;
     const deck=base.map((_,i)=>base.map((id,j)=>i===j?c.id:id)).find(ids=>!E.validatePlayableDeck(ids).length);assert(deck);
     const loadout={[characterId]:w.id},s=E.newGame(deck,deck,{mode:'local',seed:'ARBORIUM-'+w.id+side,kalistel:false,equipment:side?[{},loadout]:[loadout,{}]});
@@ -105,9 +109,11 @@ test('previous soldier-only match definitions are preserved, without retroactive
   assert(!Q.compatible(weapons[0],mirelle));
 });
 
-test('new objects reuse bounded non-stacking numeric effects, not poison over time or a new matchup',()=>{
-  assert.deepEqual(weapons.map(w=>[w.family,w.effect.stat,w.effect.value,w.effect.duration]),[['Arc','ATK',20,'WHILE_TRUE'],['Dague','ATK',20,'WHILE_TRUE']]);
-  assert.deepEqual(weapons[0].effect.when,{outnumbered:true});assert.deepEqual(weapons[1].effect.when,{reserveAtMost:0});
-  assert(weapons.every(w=>w.effect.trigger==='TEAM_STATE'&&!w.changesFamily));
+test('4.6 weapons use retained ATK six; archived state conditions remain explicit and unchanged',()=>{
+  assert.deepEqual(weapons.map(w=>[w.family,w.slot,w.rulesVersion,w.effect]),[['Arc','weapon',2,{trigger:'RETAINED_SIX',stat:'ATK',value:20,duration:'DUEL'}],['Dague','weapon',2,{trigger:'RETAINED_SIX',stat:'ATK',value:20,duration:'DUEL'}]]);
+  assert.deepEqual(historical.map(w=>[w.family,w.effect.stat,w.effect.value,w.effect.duration]),[['Arc','ATK',20,'WHILE_TRUE'],['Dague','ATK',20,'WHILE_TRUE']]);
+  assert.deepEqual(historical[0].effect.when,{outnumbered:true});assert.deepEqual(historical[1].effect.when,{reserveAtMost:0});
+  assert(historical.every(w=>w.effect.trigger==='TEAM_STATE'&&!w.changesFamily));
+  assert(weapons.every(w=>!w.changesFamily));
   assert.equal(new Set(weapons.map(w=>w.collectible.number)).size,2);
 });

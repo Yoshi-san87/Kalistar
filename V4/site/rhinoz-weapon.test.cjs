@@ -4,6 +4,7 @@ const Q=require('./equipment.js'),C=require('./weapon-cards.js'),T=require('./te
 const {createEngine}=require('./engine.js'),{buildCatalog}=require('../atelier/game-catalog.cjs');
 const dataPromise=buildCatalog({published:require('../donnees/catalogue.json').cards.filter(c=>c.kind==='created')});
 const id='rhinoz-ancestral-horn',w=Q.catalogue.weapons.find(w=>w.id===id);
+const archive=require('./fixtures/equipment-v4.5.64.json');
 const {legacyGame,weapons:previous}=require('./fixtures/legacy-equipment.cjs');
 function legacyRhinoz(data){
   return ['belrog','nazar','gilmarr'].map(characterId=>{
@@ -46,13 +47,15 @@ test('race arrays combine with other restrictions using AND, validate strictly a
 });
 
 test('legacy Rhinoz profile/composition is repaired, while saved match snapshots stay unchanged',async()=>{
-  const data=await dataPromise,E=createEngine(data),team=T.create(E);let p=Q.profile('RHINOZ-TEST');
-  p=Q.equipProfile(p,'belrog',id,data.cards,{},previous);
-  assert.deepEqual(Q.reconcileProfile(p,data.cards).slots.weapon,{});
+  const data=await dataPromise,E=createEngine(data),team=T.create(E);
+  // A legacy profile is decoded as version 1, not constructed with today's three-slot API.
+  const p={id:'RHINOZ-TEST',version:1,slots:{weapon:{belrog:id}}};
+  assert.deepEqual(Q.validateProfile(p,data.cards,previous),p);
+  assert.deepEqual(Q.reconcileProfile(p,data.cards),Q.profile('RHINOZ-TEST'));
   assert.throws(()=>Q.equipProfile(Q.profile('new'),'belrog',id,data.cards),/incompatible/);
   const c=data.cards.find(c=>c.characterId==='belrog'),deck=deckFor(E,data,c);
-  const comp=team.fromPreset({name:'Rhinoz',cards:deck});comp.equipment.belrog=id;
-  assert.deepEqual(team.normalize(comp).equipment,{});
+  const comp={...team.fromPreset({name:'Rhinoz',cards:deck}),equipment:{belrog:id}};
+  assert.deepEqual(team.normalize(comp).equipment,Q.emptyLoadout());
   const s=legacyGame(E,deck,deck,{equipment:[p.slots.weapon,{}]});
   assert.deepEqual(E.restoreGame(JSON.parse(JSON.stringify(s))),s);
   const old=E.newGame(deck,deck,{equipment:[{},{}]});old.equipment.definitions=old.equipment.definitions.filter(x=>x.id!==id);
@@ -89,7 +92,9 @@ test('saved matches: Guard D2 remains a support for Belrog, Nazar and Gilmarr ev
   }
 });
 
-test('the new axe stays a bounded existing effect without replacing the printed weapon family',()=>{
+test('4.6 axe uses retained ATK six; the archived team-state effect stays frozen',()=>{
   assert.equal(w.family,'Hache');assert.equal(w.changesFamily,undefined);assert.equal(w.collectible.number,'ARM-033');
-  assert.deepEqual(w.effect,{trigger:'TEAM_STATE',stat:'ATK',value:20,duration:'WHILE_TRUE',when:{outnumbered:true}});
+  assert.equal(w.slot,'weapon');assert.equal(w.rulesVersion,2);
+  assert.deepEqual(w.effect,{trigger:'RETAINED_SIX',stat:'ATK',value:20,duration:'DUEL'});
+  assert.deepEqual(archive.weapons.find(w=>w.id===id).effect,{trigger:'TEAM_STATE',stat:'ATK',value:20,duration:'WHILE_TRUE',when:{outnumbered:true}});
 });

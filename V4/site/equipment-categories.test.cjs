@@ -3,6 +3,7 @@ const test=require('node:test'),assert=require('node:assert/strict');
 const Q=require('./equipment.js'),C=require('./weapon-cards.js'),{createEngine}=require('./engine.js'),{buildCatalog}=require('../atelier/game-catalog.cjs');
 const dataPromise=buildCatalog({published:require('../donnees/catalogue.json').cards.filter(c=>c.kind==='created')});
 const item=id=>Q.catalogue.weapons.find(w=>w.id===id);
+const archive=require('./fixtures/equipment-v4.5.64.json');
 async function fixture(id,side=0,mutate=()=>{}){
   const data=structuredClone(await dataPromise);
   for(const c of data.cards){c.atk=[10,10,10,10,10,10];c.defense=[150,150,150,150,150,150];}mutate(data);
@@ -21,21 +22,31 @@ function lock(f,{attack=false}={}){
 function numeric(f){f.E.rollAttack(f.s,6);f.E.rollDefense(f.s,6);f.E.assertState(f.s);}
 function next(f){f.E.next(f.s);while(f.s.phase==='replace')f.E.autoDeploy(f.s,f.s.replacing);}
 
-test('three explicit categories share one historical slot, without changing base families',async()=>{
+test('4.6 has three independent slots, with compatible bearers and unchanged base families',async()=>{
   const {cards}=await dataPromise,shield=item('durane-rampart'),pod=item('pod-042');
   assert.equal(Q.catalogue.weapons.length,93);
-  assert.equal(Q.catalogue.weapons.filter(w=>Q.catalogue.kind(w)==='weapon').length,41);
+  assert.deepEqual(['weapon','shield','relic'].map(kind=>Q.catalogue.weapons.filter(w=>Q.catalogue.kind(w)===kind).length),[40,26,27]);
+  assert.deepEqual(Q.catalogue.legacyWeapons,archive.weapons);
   for(const w of [shield,pod]){Q.validateDefinition(w);assert.equal(w.restrictions.families,undefined);assert.equal(w.changesFamily,undefined);}
   for(const c of cards){assert.equal(Q.compatible(shield,c),c.faction==='Durane');assert.equal(Q.compatible(pod,c),c.characterId==='2b-nier');}
   assert(cards.filter(c=>c.characterId==='2b-nier').length>=2);
   assert(!Q.compatible(pod,{...cards.find(c=>c.characterId==='2b-nier'),characterId:'not-2b',name:'2B'}));
   let p=Q.profile('qa');p=Q.equipProfile(p,'balmhyr','fallen-king-axe',cards);
-  p=Q.equipProfile(p,'balmhyr',shield.id,cards,{expected:'fallen-king-axe'});assert.equal(Object.keys(p.slots.weapon).length,1);
+  p=Q.equipProfile(p,'balmhyr',shield.id,cards);
+  p=Q.equipProfile(p,'balmhyr','exiled-king-seal',cards);
+  assert.deepEqual(p.slots,{weapon:{balmhyr:'fallen-king-axe'},shield:{balmhyr:shield.id},relic:{balmhyr:'exiled-king-seal'}});
+  assert.deepEqual(Q.validateProfile(JSON.parse(JSON.stringify(p)),cards),p);
+  assert.throws(()=>Q.validateProfile({...p,slots:{...p.slots,weapon:{balmhyr:shield.id}}},cards));
+  const original=structuredClone(p);
+  assert.throws(()=>Q.equipProfile(p,'balmhyr','mythic-iron-gauntlet',cards));
+  const replaced=Q.equipProfile(p,'balmhyr','mythic-iron-gauntlet',cards,{expected:'fallen-king-axe',expectedProfile:p});
+  assert.deepEqual(replaced.slots,{weapon:{balmhyr:'mythic-iron-gauntlet'},shield:{balmhyr:shield.id},relic:{balmhyr:'exiled-king-seal'}});
+  assert.deepEqual(p,original,'replacement must not mutate the old profile');
   assert.throws(()=>Q.equipProfile(p,'momo',shield.id,cards));
   assert.throws(()=>Q.validateDefinition({...shield,kind:'unknown'}));
   for(const [w,label] of [[shield,'Protection'],[pod,'Relique']]){const html=C.markup(w,{cards});assert(html.includes('aria-label="'+label+'"'));assert(!html.includes('undefined'));}
 });
-for(const side of [0,1])test('shield: first defense only, numeric total and matrix preserved, side '+side,async()=>{
+for(const side of [0,1])test('archived 4.5.64 shield: first defense only, numeric total and matrix preserved, side '+side,async()=>{
   const f=await fixture('durane-rampart',side),{E,s,u}=f;
   assert.equal(E.equipmentView(s,u).active,false);lock(f);E.rollAttack(s,6);assert(E.equipmentView(s,u).active);
   const before=E.restoreGame(s);assert.deepEqual(before,s);E.rollDefense(s,6);E.assertState(s);
@@ -46,19 +57,19 @@ for(const side of [0,1])test('shield: first defense only, numeric total and matr
   assert.equal(s.equipment.charges[u.uid].status,'spent');assert(!E.equipmentView(s,u).active);assert.deepEqual(E.restoreGame(s),s);
   next(f);lock(f);numeric(f);assert.equal(s.duel.formula.equipmentDefense,0);assert.deepEqual(E.restoreGame(s),s);
 });
-test('a targeted support and attacking do not spend the first defense',async()=>{
+test('archived 4.5.64: targeted support and attacking do not spend the first defense',async()=>{
   const f=await fixture('durane-rampart',0,data=>{for(const c of data.cards)c.atk[5]='mana';}),{E,s,u}=f;
   lock(f);E.rollAttack(s,1);E.grantPotion(s,s.players[1].board[0].uid);E.assertState(s);assert(!s.equipment.charges);
   next(f);lock(f,{attack:true});numeric(f);assert(!s.equipment.charges);assert.equal(E.equipmentModifier(s,u,'DEF').value,30);
 });
-for(const face of ['dodge','retry'])test('shield special face '+face+' has no invented numeric bonus',async()=>{
+for(const face of ['dodge','retry'])test('archived 4.5.64: shield special face '+face+' has no invented numeric bonus',async()=>{
   const f=await fixture('durane-rampart',0,data=>{for(const c of data.cards)c.defense[0]=face;}),{E,s,u}=f;
   lock(f);E.rollAttack(s,6);E.rollDefense(s,6);
   if(face==='retry'){assert.equal(s.phase,'defense');assert(!s.equipment.charges);assert.deepEqual(E.restoreGame(s),s);E.rollDefense(s,5);assert.equal(s.duel.formula.equipmentDefense,30);}
   else assert.equal(s.duel.formula,undefined);
   assert.equal(s.equipment.charges[u.uid].status,'spent');assert.deepEqual(E.restoreGame(s),s);
 });
-for(const side of [0,1])test('Pod: successful Block, charge survives attack/reload, next defense consumes it once, side '+side,async()=>{
+for(const side of [0,1])test('archived 4.5.64 Pod: successful Block, charge survives attack/reload, next defense consumes it once, side '+side,async()=>{
   const f=await fixture('pod-042',side),{E,s,u}=f;
   assert(!E.equipmentView(s,u).active);lock(f);numeric(f);assert.equal(s.duel.formula.equipmentDefense,0);
   assert.equal(s.equipment.charges[u.uid].status,'ready');assert(E.equipmentView(s,u).active);
@@ -68,7 +79,7 @@ for(const side of [0,1])test('Pod: successful Block, charge survives attack/relo
   assert.equal(s.equipment.charges[u.uid].status,'spent');assert(!E.equipmentView(s,u).active);assert.deepEqual(E.restoreGame(s),s);
   next(f);lock(f);numeric(f);assert.equal(s.duel.formula.equipmentDefense,0);assert.equal(s.equipment.charges[u.uid].status,'spent');
 });
-test('Pod never activates from a support, death or Reraise',async()=>{
+test('archived 4.5.64: Pod never activates from a support, death or Reraise',async()=>{
   for(const scenario of ['support','death','reraise']){
     const f=await fixture('pod-042',0,data=>{for(const c of data.cards)c.atk[0]=scenario==='support'?'mana':'death';}),{E,s,u}=f;
     if(scenario==='reraise')u.reraise=1;
@@ -76,7 +87,7 @@ test('Pod never activates from a support, death or Reraise',async()=>{
     assert(!s.equipment.charges?.[u.uid]);if(scenario==='reraise')assert.equal(s.duel.reraised,u.uid);assert.deepEqual(E.restoreGame(s),s);
   }
 });
-test('snapshot, new states and old saves roundtrip; malformed charge history rejected',async()=>{
+test('archived 4.5.64: snapshot and charge roundtrip; malformed charge history rejected',async()=>{
   const f=await fixture('pod-042'),{E,s,u}=f;lock(f);numeric(f);
   const saved=JSON.stringify(s),profile=Q.profile('qa');profile.slots.weapon[f.c.characterId]='virtuous-contract';assert.equal(JSON.stringify(s),saved);
   for(const change of [b=>b.weaponId='durane-rampart',b=>b.status='infinite',b=>b.round=0,b=>b.round=9]){
@@ -86,7 +97,7 @@ test('snapshot, new states and old saves roundtrip; malformed charge history rej
   const legacy=E.newGame(f.data.decks.player,f.data.decks.player);assert.deepEqual(E.restoreGame(legacy),legacy);
 });
 
-test('complete matches use unmodified card faces and reload each step, with both equipment categories',async()=>{
+test('archived 4.5.64: complete matches preserve native faces and reload each step in both categories',async()=>{
   const data=await dataPromise,E=createEngine(data);
   for(const id of ['durane-rampart','pod-042'])for(const seed of [1,2,3]){
     const c=data.cards.find(c=>Q.compatible(item(id),c)),base=data.decks.player;

@@ -1,0 +1,3315 @@
+{
+  "release": "v4.5.64",
+  "source": "V4/site/weapons.js",
+  "sourceHash": "4ae84b53545d6221492000d90b58ae94513a60d39baf0ae271844a5b97938f84",
+  "weapons": [
+    {
+      "id": "fallen-king-axe",
+      "slot": "weapon",
+      "name": "Hache du Roi Déchu",
+      "family": "Hache",
+      "visual": "axe",
+      "art": "fallen-king-axe-v2",
+      "restrictions": {
+        "characterIds": [
+          "balmhyr"
+        ],
+        "families": [
+          "Hache"
+        ]
+      },
+      "effect": {
+        "trigger": "LAST_STANDING",
+        "stat": "ATK",
+        "value": 30,
+        "duration": "WHILE_TRUE"
+      },
+      "condition": "Dernier combattant actif de son équipe.",
+      "lore": "Quand il ne reste plus personne derrière lui, Balmhyr retrouve le poids du roi qu’il fut."
+    },
+    {
+      "id": "little-joys-flute",
+      "slot": "weapon",
+      "name": "La Flûte des Petits Bonheurs",
+      "family": "Instrument",
+      "visual": "flute",
+      "art": "little-joys-flute-v2",
+      "restrictions": {
+        "characterIds": [
+          "momo"
+        ],
+        "families": [
+          "Instrument"
+        ]
+      },
+      "effect": {
+        "trigger": "AFTER_SUPPORT",
+        "supports": [
+          "luck",
+          "mana"
+        ],
+        "stat": "DEF",
+        "value": 30,
+        "duration": "NEXT_DUEL"
+      },
+      "condition": "Après un nouveau trèfle ou une nouvelle potion, le bénéficiaire gagne +30 DEF pour son prochain duel. Une seule charge.",
+      "lore": "Pour Momo, cette flûte n’est pas une arme. Quand il joue, les machines grincent moins fort, les visages semblent moins lourds et, pendant quelques instants, même les choses cassées paraissent heureuses."
+    },
+    {
+      "id": "white-oath-rapier",
+      "slot": "weapon",
+      "name": "La Promesse Blanche",
+      "family": "Epée courte",
+      "visual": "axe",
+      "art": "white-oath-rapier-v1",
+      "restrictions": {
+        "characterIds": [
+          "kaylis"
+        ],
+        "families": [
+          "Epée courte"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "ATK",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "outnumbered": true
+        }
+      },
+      "condition": "Moins de combattants actifs que l’adversaire.",
+      "lore": "Quand les leurs sont moins nombreux, Kaylis tient la ligne que Balmhyr lui a apprise. Il lui a offert cette rapière blanche non pour gagner un royaume, mais pour choisir elle-même où poser le prochain pas.",
+      "collectible": {
+        "number": "ARM-003",
+        "illustration": "white-oath-rapier-v1.webp",
+        "flavour": "Un présent pour choisir son propre chemin.",
+        "alt": "La Promesse Blanche : illustration de l’arme, entière et isolée.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "brotherhood",
+      "slot": "weapon",
+      "name": "Fraternité",
+      "family": "Epée longue",
+      "visual": "flute",
+      "art": "brotherhood-v1",
+      "restrictions": {
+        "characterIds": [
+          "tidus-ff10"
+        ],
+        "families": [
+          "Epée longue"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "DEF",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "activeAtMost": 2
+        }
+      },
+      "condition": "Au plus deux combattants actifs dans l’équipe.",
+      "lore": "La lame bleue garde quelque chose de Besaid : la mer, une confiance reçue et des mains que l'on refuse de lâcher. Quand les gardiens se font rares, Tidus reste auprès des siens.",
+      "collectible": {
+        "number": "ARM-004",
+        "illustration": "brotherhood-v1.webp",
+        "flavour": "La mer veille encore entre ses mains.",
+        "alt": "Fraternité : illustration de l’arme, entière et isolée.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "virtuous-contract",
+      "slot": "weapon",
+      "name": "Virtuous Contract",
+      "family": "Katana",
+      "visual": "axe",
+      "art": "virtuous-contract-v1",
+      "restrictions": {
+        "characterIds": [
+          "2b-nier"
+        ],
+        "families": [
+          "Katana"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "ATK",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "outnumbered": true
+        }
+      },
+      "condition": "Moins de combattants actifs que l’adversaire.",
+      "lore": "Une lame blanche, presque silencieuse. Lorsque le front se vide, 2B resserre sa prise : son prochain geste doit encore ouvrir une issue à ceux qui restent.",
+      "collectible": {
+        "number": "ARM-005",
+        "illustration": "virtuous-contract-v1.webp",
+        "flavour": "Une ligne blanche dans le silence.",
+        "alt": "Virtuous Contract : illustration de l’arme, entière et isolée.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "virtuous-treaty",
+      "slot": "weapon",
+      "name": "Virtuous Treaty",
+      "family": "Epée longue",
+      "visual": "axe",
+      "art": "virtuous-treaty-v1",
+      "restrictions": {
+        "characterIds": [
+          "2b-nier"
+        ],
+        "families": [
+          "Epée longue"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "DEF",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "activeAtMost": 2
+        }
+      },
+      "condition": "Au plus deux combattants actifs dans l’équipe.",
+      "lore": "La grande lame n'est pas seulement un poids à porter. Entre le danger et un dernier compagnon, 2B en fait un rempart, le temps d'un souffle que personne ne lui a ordonné de protéger.",
+      "collectible": {
+        "number": "ARM-006",
+        "illustration": "virtuous-treaty-v1.webp",
+        "flavour": "Porter une lame. Préserver une présence.",
+        "alt": "Virtuous Treaty : illustration de l’arme, entière et isolée.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "socom",
+      "slot": "weapon",
+      "name": "SOCOM",
+      "family": "Gun",
+      "visual": "axe",
+      "art": "socom-v1",
+      "restrictions": {
+        "characterIds": [
+          "solid-snake-mgs"
+        ],
+        "families": [
+          "Gun"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "ATK",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "reserveAtMost": 0
+        }
+      },
+      "condition": "Aucun combattant en réserve.",
+      "lore": "Quand le renfort ne viendra plus, Snake vérifie une dernière fois sa prise. Ce pistolet ne promet ni gloire ni fracas : seulement le geste précis qui permet encore de rentrer.",
+      "collectible": {
+        "number": "ARM-007",
+        "illustration": "socom-v1.webp",
+        "flavour": "Le silence avant le dernier passage.",
+        "alt": "SOCOM : illustration de l’arme, entière et isolée.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "lulu-mog",
+      "slot": "weapon",
+      "name": "Poupée Mog",
+      "family": "Tome",
+      "visual": "flute",
+      "art": "lulu-mog-v1",
+      "restrictions": {
+        "characterIds": [
+          "lulu-ff10"
+        ],
+        "families": [
+          "Tome"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "DEF",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "activeAtMost": 2
+        }
+      },
+      "condition": "Au plus deux combattants actifs dans l’équipe.",
+      "lore": "Des coutures fatiguées retiennent bien plus que du coton. Lulu garde son Mog près d'elle lorsque les voix s'éteignent autour du groupe, comme une petite présence qui refuse de céder.",
+      "collectible": {
+        "number": "ARM-008",
+        "illustration": "lulu-mog-v1.webp",
+        "flavour": "Un peu de douceur au bord de l'ombre.",
+        "alt": "Poupée Mog : illustration de l’arme, entière et isolée.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "leopard-lightning",
+      "slot": "weapon",
+      "name": "La Griffe d'Orage",
+      "family": "Fouet",
+      "visual": "flute",
+      "art": "leopard-lightning-v1",
+      "restrictions": {
+        "characterIds": [
+          "rikka"
+        ],
+        "families": [
+          "Fouet"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "ATK",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "outnumbered": true
+        }
+      },
+      "condition": "Moins de combattants actifs que l’adversaire.",
+      "lore": "Rikka a tressé des conducteurs sous le cuir tacheté de son fouet. Ses éclats ne cherchent pas à remplir la rue de lumière : ils dessinent la brèche étroite par laquelle elle fera passer les siens.",
+      "collectible": {
+        "number": "ARM-009",
+        "illustration": "leopard-lightning-v1.webp",
+        "flavour": "Une étincelle. Une issue.",
+        "alt": "La Griffe d'Orage : illustration de l’arme, entière et isolée.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "mythic-iron-gauntlet",
+      "slot": "weapon",
+      "name": "Le Serment de Fer",
+      "family": "Poing",
+      "visual": "axe",
+      "art": "mythic-iron-gauntlet-v1",
+      "restrictions": {
+        "characterIds": [
+          "balmhyr"
+        ],
+        "families": [
+          "Poing"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "activeAtMost": 1
+        }
+      },
+      "condition": "Dernier combattant actif de son équipe.",
+      "lore": "Le gant a survécu aux portes de Durane et aux années sans trône. Quand Balmhyr se retrouve seul debout, il referme cette main de fer : ce qu'il protège vaut davantage que ce qu'il a perdu.",
+      "collectible": {
+        "number": "ARM-010",
+        "illustration": "mythic-iron-gauntlet-v1.webp",
+        "flavour": "Le roi est tombé. Sa main tient encore.",
+        "alt": "Le Serment de Fer : illustration de l’arme, entière et isolée.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "post-bow",
+      "slot": "weapon",
+      "name": "L'Arc des Dernières Lettres",
+      "family": "Arc",
+      "visual": "axe",
+      "art": "post-bow-v1",
+      "restrictions": {
+        "characterIds": [
+          "cana"
+        ],
+        "families": [
+          "Arc"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "DEF",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "reserveAtMost": 0
+        }
+      },
+      "condition": "Aucun combattant en réserve.",
+      "lore": "Cana a fixé au bois de son arc un petit étui étanche pour le courrier. Quand toutes les routes de renfort se ferment, elle poursuit la sienne : quelque part, quelqu'un attend encore une lettre.",
+      "collectible": {
+        "number": "ARM-011",
+        "illustration": "post-bow-v1.webp",
+        "flavour": "Il reste toujours quelqu'un qui attend.",
+        "alt": "L'Arc des Dernières Lettres : illustration de l’arme, entière et isolée.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "grimoire-weiss",
+      "slot": "weapon",
+      "name": "Grimoire Weiss",
+      "family": "Tome",
+      "visual": "flute",
+      "art": "grimoire-weiss-v1",
+      "restrictions": {
+        "characterIds": [
+          "nier-replicant"
+        ],
+        "families": [
+          "Tome"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "DEF",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "activeAtMost": 2
+        }
+      },
+      "condition": "Au plus deux combattants actifs dans l’équipe.",
+      "lore": "Le livre proteste contre la poussière, le danger et l'entêtement de Nier. Pourtant, lorsque leurs compagnons se font rares, ses pages demeurent ouvertes. Certaines promesses méritent bien une dernière objection.",
+      "collectible": {
+        "number": "ARM-012",
+        "illustration": "grimoire-weiss-v1.webp",
+        "flavour": "Il proteste. Puis tourne encore une page.",
+        "alt": "Grimoire Weiss : illustration de l’arme, entière et isolée.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "gen-mechanical-arm",
+      "slot": "weapon",
+      "name": "Le Bras qui Insiste",
+      "family": "Projectile",
+      "visual": "flute",
+      "art": "gen-mechanical-arm-v1",
+      "restrictions": {
+        "characterIds": [
+          "gen"
+        ],
+        "families": [
+          "Projectile"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "ATK",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "reserveAtMost": 0
+        }
+      },
+      "condition": "Aucun combattant en réserve.",
+      "lore": "Gen a réparé ce bras avec des pièces qui n'étaient pas faites pour vivre ensemble. Quand la réserve est vide, un relais tient encore. Il connaît ce bruit-là : ce n'est pas la fin, seulement une autre panne.",
+      "collectible": {
+        "number": "ARM-013",
+        "illustration": "gen-mechanical-arm-v1.webp",
+        "flavour": "Une autre panne. Pas encore la dernière.",
+        "alt": "Le Bras qui Insiste : illustration de l’arme, entière et isolée.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "violet-reaping",
+      "slot": "weapon",
+      "name": "La Faux du Siège Vacant",
+      "family": "Faucille",
+      "visual": "flute",
+      "art": "violet-reaping-v1",
+      "restrictions": {
+        "characterIds": [
+          "voloden"
+        ],
+        "families": [
+          "Faucille"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "ATK",
+        "value": 25,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "activeAtMost": 1
+        }
+      },
+      "condition": "Dernier combattant actif de son équipe.",
+      "lore": "Repliée, elle ressemble à une canne de cérémonie. Déployée, sa longue lame violette rappelle à Voloden ce qu'un siège vide exige de celui qui demeure : porter seul une décision trop lourde.",
+      "collectible": {
+        "number": "ARM-014",
+        "illustration": "violet-reaping-v1.webp",
+        "flavour": "Le silence a gardé toute sa longueur.",
+        "alt": "La Faux du Siège Vacant : illustration de l’arme, entière et isolée.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "mantis-mask",
+      "slot": "weapon",
+      "name": "Le Masque du Silence",
+      "family": "Orbe",
+      "visual": "flute",
+      "art": "mantis-mask-v1",
+      "restrictions": {
+        "characterIds": [
+          "psycho-mantis-mgs"
+        ],
+        "families": [
+          "Orbe"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "DEF",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "outnumbered": true
+        }
+      },
+      "condition": "Moins de combattants actifs que l’adversaire.",
+      "lore": "Derrière le masque, les pensées étrangères deviennent un bourdonnement lointain. Quand le cercle se resserre autour de lui, Mantis y cherche moins une menace qu'un instant de silence.",
+      "collectible": {
+        "number": "ARM-015",
+        "illustration": "mantis-mask-v1.webp",
+        "flavour": "Pour ne plus entendre tout le monde.",
+        "alt": "Le Masque du Silence : illustration de l’arme, entière et isolée.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "revolver-gunblade",
+      "slot": "weapon",
+      "name": "Revolver",
+      "family": "Epée longue",
+      "visual": "axe",
+      "art": "revolver-gunblade-v1",
+      "restrictions": {
+        "characterIds": [
+          "squall-ff8"
+        ],
+        "families": [
+          "Epée longue"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "ATK",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "activeAtMost": 2
+        }
+      },
+      "condition": "Au plus deux combattants actifs dans l’équipe.",
+      "lore": "Squall connaît le poids exact de sa gunblade. Quand les rangs s'éclaircissent, il avance sans discours : il faut parfois une lame tenue fermement pour que les autres trouvent encore leur place.",
+      "collectible": {
+        "number": "ARM-016",
+        "illustration": "revolver-gunblade-v1.webp",
+        "flavour": "Rester, sans avoir à le promettre.",
+        "alt": "Revolver : illustration de l’arme, entière et isolée.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "wolf-steel",
+      "slot": "weapon",
+      "name": "L'Acier du Loup",
+      "family": "Epée longue",
+      "visual": "axe",
+      "art": "wolf-steel-v1",
+      "restrictions": {
+        "characterIds": [
+          "geralt-witcher"
+        ],
+        "families": [
+          "Epée longue"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "DEF",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "outnumbered": true
+        }
+      },
+      "condition": "Moins de combattants actifs que l’adversaire.",
+      "lore": "L'acier accompagne les routes où les contrats ne disent jamais toute la vérité. Geralt lève cette lame lorsque le nombre devient une menace, sans demander à ceux qu'il protège ce qu'ils pourront payer.",
+      "collectible": {
+        "number": "ARM-017",
+        "illustration": "wolf-steel-v1.webp",
+        "flavour": "Tous les contrats ne se paient pas.",
+        "alt": "L'Acier du Loup : illustration de l’arme, entière et isolée.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "wolf-silver",
+      "slot": "weapon",
+      "name": "L'Argent du Loup",
+      "family": "Epée longue",
+      "visual": "axe",
+      "art": "wolf-silver-v1",
+      "restrictions": {
+        "characterIds": [
+          "geralt-witcher"
+        ],
+        "families": [
+          "Epée longue"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "ATK",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "reserveAtMost": 0
+        }
+      },
+      "condition": "Aucun combattant en réserve.",
+      "lore": "L'argent porte les marques de nuits trop longues. Quand nul ne peut plus prendre le relais, Geralt garde le fil propre : il lui reste un travail à finir avant que le jour revienne.",
+      "collectible": {
+        "number": "ARM-018",
+        "illustration": "wolf-silver-v1.webp",
+        "flavour": "Finir le travail avant l'aube.",
+        "alt": "L'Argent du Loup : illustration de l’arme, entière et isolée.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "kaine-saw",
+      "slot": "weapon",
+      "name": "La Lame de Kainé",
+      "family": "Epée longue",
+      "visual": "axe",
+      "art": "kaine-saw-v1",
+      "restrictions": {
+        "characterIds": [
+          "kaine-replicant"
+        ],
+        "families": [
+          "Epée longue"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "ATK",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "outnumbered": true
+        }
+      },
+      "condition": "Moins de combattants actifs que l’adversaire.",
+      "lore": "Le tranchant dentelé accroche la lumière comme sa voix accroche les silences. Kainé ne demande pas qu'on la comprenne. Elle se place simplement là où le nombre commence à faire peur.",
+      "collectible": {
+        "number": "ARM-019",
+        "illustration": "kaine-saw-v1.webp",
+        "flavour": "Elle ne recule pas pour faire plaisir.",
+        "alt": "La Lame de Kainé : illustration de l’arme, entière et isolée.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "buster-sword",
+      "slot": "weapon",
+      "name": "Buster Sword",
+      "family": "Epée longue",
+      "visual": "axe",
+      "art": "buster-sword-v1",
+      "restrictions": {
+        "characterIds": [
+          "cloud-ff7"
+        ],
+        "families": [
+          "Epée longue"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "ATK",
+        "value": 25,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "activeAtMost": 1
+        }
+      },
+      "condition": "Dernier combattant actif de son équipe.",
+      "lore": "Cette épée est plus lourde que l'acier dont elle est faite. Lorsque Cloud reste seul en première ligne, les promesses reçues ne deviennent pas des mots : elles l'aident à faire encore un pas.",
+      "collectible": {
+        "number": "ARM-020",
+        "illustration": "buster-sword-v1.webp",
+        "flavour": "Des promesses plus lourdes que l'acier.",
+        "alt": "Buster Sword : illustration de l’arme, entière et isolée.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "psg1",
+      "slot": "weapon",
+      "name": "PSG1",
+      "family": "Gun",
+      "visual": "axe",
+      "art": "psg1-v1",
+      "restrictions": {
+        "characterIds": [
+          "sniper-wolf-mgs"
+        ],
+        "families": [
+          "Gun"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "ATK",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "reserveAtMost": 0
+        }
+      },
+      "condition": "Aucun combattant en réserve.",
+      "lore": "Wolf attend que les mouvements cessent de mentir. Même lorsque plus personne n'est en réserve, sa respiration ne se presse pas. Le long canon demeure droit, et le froid devient une mesure.",
+      "collectible": {
+        "number": "ARM-021",
+        "illustration": "psg1-v1.webp",
+        "flavour": "Le froid apprend à ne pas se presser.",
+        "alt": "PSG1 : illustration de l’arme, entière et isolée.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "single-action-army",
+      "slot": "weapon",
+      "name": "Single Action Army",
+      "family": "Gun",
+      "visual": "axe",
+      "art": "single-action-army-v1",
+      "restrictions": {
+        "characterIds": [
+          "revolver-ocelot-mgs"
+        ],
+        "families": [
+          "Gun"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "ATK",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "outnumbered": true
+        }
+      },
+      "condition": "Moins de combattants actifs que l’adversaire.",
+      "lore": "Ocelot fait rouler le poids du revolver dans sa paume avant de le stabiliser. Être moins nombreux n'a jamais suffi à le faire taire : il aime les situations dont chaque geste semble déjà un défi.",
+      "collectible": {
+        "number": "ARM-022",
+        "illustration": "single-action-army-v1.webp",
+        "flavour": "Le défi tient dans une seule main.",
+        "alt": "Single Action Army : illustration de l’arme, entière et isolée.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "wardens-spear",
+      "slot": "weapon",
+      "name": "La Veille des Remparts",
+      "family": "Lance",
+      "visual": "axe",
+      "art": "wardens-spear-v1",
+      "restrictions": {
+        "jobs": [
+          "GARDIEN",
+          "GARDIENNE"
+        ],
+        "families": [
+          "Lance"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "DEF",
+        "value": 15,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "activeAtMost": 2
+        }
+      },
+      "condition": "Au plus deux combattants actifs dans l’équipe.",
+      "lore": "Une lance entretenue de garde en garde. Lorsque le rempart humain se réduit, son porteur resserre les rangs et laisse aux derniers compagnons l'espace de respirer.",
+      "collectible": {
+        "number": "ARM-023",
+        "illustration": "wardens-spear-v1.webp",
+        "flavour": "Tenir la place laissée par les autres.",
+        "alt": "La Veille des Remparts : illustration de l’arme, entière et isolée.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "soldiers-blade",
+      "slot": "weapon",
+      "name": "La Lame de Relève",
+      "family": "Epée courte",
+      "visual": "axe",
+      "art": "soldiers-blade-v1",
+      "restrictions": {
+        "jobs": [
+          "SOLDAT"
+        ],
+        "families": [
+          "Epée courte"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "ATK",
+        "value": 15,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "reserveAtMost": 0
+        }
+      },
+      "condition": "Aucun combattant en réserve.",
+      "lore": "Une lame réglementaire, sans nom gravé. Ceux qui la portent savent ce que signifie une relève qui n'arrive pas : achever proprement le geste appris, puis rester ensemble.",
+      "collectible": {
+        "number": "ARM-024",
+        "illustration": "soldiers-blade-v1.webp",
+        "flavour": "La relève attendra. Pas les compagnons.",
+        "alt": "La Lame de Relève : illustration de l’arme, entière et isolée.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "commanders-sabre",
+      "slot": "weapon",
+      "name": "Le Fil du Ralliement",
+      "family": "Epée longue",
+      "visual": "axe",
+      "art": "commanders-sabre-v1",
+      "restrictions": {
+        "jobs": [
+          "COMMANDANT",
+          "COMMANDANTE"
+        ],
+        "families": [
+          "Epée longue"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "DEF",
+        "value": 15,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "outnumbered": true
+        }
+      },
+      "condition": "Moins de combattants actifs que l’adversaire.",
+      "lore": "Le sabre sert moins à désigner l'ennemi qu'à rendre un point de ralliement visible. Quand l'équipe est en infériorité, son porteur donne aux siens une ligne à retrouver.",
+      "collectible": {
+        "number": "ARM-025",
+        "illustration": "commanders-sabre-v1.webp",
+        "flavour": "Une ligne à retrouver dans la mêlée.",
+        "alt": "Le Fil du Ralliement : illustration de l’arme, entière et isolée.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "arborium-twinstring-bow",
+      "slot": "weapon",
+      "name": "L’Accord Sylvestre",
+      "family": "Arc",
+      "visual": "flute",
+      "art": "arborium-twinstring-bow-v1",
+      "restrictions": {
+        "factions": [
+          "Arborium"
+        ],
+        "families": [
+          "Arc"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "ATK",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "outnumbered": true
+        }
+      },
+      "condition": "Moins de combattants actifs dans son équipe que chez l’adversaire : +20 ATK numérique tant que cette condition dure.",
+      "lore": "Les armuriers d’Arborium façonnent cet arc dans un bois dont la sève garde la lumière. Ses deux cordes sont accordées ensemble avant chaque relève. Quand la ligne s’amenuise, leur vibration rappelle à son porteur qu’il tient encore sa place parmi les siens.",
+      "collectible": {
+        "number": "ARM-026",
+        "illustration": "arborium-twinstring-bow-v1.webp",
+        "flavour": "Deux cordes, un seul serment.",
+        "alt": "Arc Arborium en bois ouvragé, deux cordes et veines vert fluorescent.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "arborium-thorn-dagger",
+      "slot": "weapon",
+      "name": "Le Cran de Ronce",
+      "family": "Dague",
+      "visual": "flute",
+      "art": "arborium-thorn-dagger-v1",
+      "restrictions": {
+        "factions": [
+          "Arborium"
+        ],
+        "families": [
+          "Dague"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "ATK",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "reserveAtMost": 0
+        }
+      },
+      "condition": "Aucun combattant dans sa réserve : +20 ATK numérique tant que cette condition dure. Le venin ne crée pas de dégâts persistants.",
+      "lore": "Sous le petit bouton de cuivre dort une sève amère, confiée aux seuls habitants d’Arborium. Le cran discret du tranchant est leur signe de reconnaissance. Quand aucune relève ne viendra, cette lame rappelle les clairières et les foyers qu’il leur reste à défendre.",
+      "collectible": {
+        "number": "ARM-027",
+        "illustration": "arborium-thorn-dagger-v1.webp",
+        "flavour": "La forêt veille au fil de la lame.",
+        "alt": "Dague empoisonnée d’Arborium, lame droite à petit cran et bouton de cuivre.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "draevenheim-wing-spear",
+      "slot": "weapon",
+      "name": "Les Ailes du Rempart",
+      "family": "Lance",
+      "visual": "flute",
+      "art": "draevenheim-wing-spear-v1",
+      "restrictions": {
+        "factions": [
+          "Draevenheim"
+        ],
+        "families": [
+          "Lance"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "DEF",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "outnumbered": true
+        }
+      },
+      "condition": "Moins de combattants actifs dans son équipe que chez l’adversaire : +20 DEF numérique tant que cette condition dure.",
+      "lore": "Née dans les mêmes forges que la lance d’Orven, sa longue hampe noire abrite un fil de lumière rouge. Deux lames articulées s’ouvrent sous la pointe comme des ailes de chauve-souris. À Draevenheim, ceux qui la portent savent qu’un rempart vaut surtout par les vies qu’il laisse derrière lui.",
+      "collectible": {
+        "number": "ARM-028",
+        "illustration": "draevenheim-wing-spear-v1.webp",
+        "flavour": "Deux ailes pour tenir la nuit.",
+        "alt": "Longue lance noire et rouge, deux lames métalliques déployées en ailes de chauve-souris.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "draevenheim-crimson-crossbow",
+      "slot": "weapon",
+      "name": "L’Arbalète Écarlate",
+      "family": "Arc",
+      "visual": "flute",
+      "art": "draevenheim-crimson-crossbow-v1",
+      "restrictions": {
+        "factions": [
+          "Draevenheim"
+        ],
+        "families": [
+          "Arc"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "ATK",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "activeAtMost": 2
+        }
+      },
+      "condition": "Au plus deux combattants actifs dans son équipe : +20 ATK numérique tant que cette condition dure.",
+      "lore": "Ses branches de métal noir et ses finitions écarlates portent les marques des veilles sur les murs de Draevenheim. Le carreau rouge repose dans sa rainure comme une promesse retenue. Quand les voix se font rares sur le rempart, son porteur sait qu’un dernier trait peut encore offrir aux autres le temps de rentrer.",
+      "collectible": {
+        "number": "ARM-029",
+        "illustration": "draevenheim-crimson-crossbow-v1.webp",
+        "flavour": "Un trait rouge, une relève espérée.",
+        "alt": "Grande arbalète de métal noir, finitions rouges, cuivre patiné et carreau rouge droit.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "cryptown-oath-sword",
+      "slot": "weapon",
+      "name": "Le Serment sans Visage",
+      "family": "Epée longue",
+      "visual": "flute",
+      "art": "cryptown-oath-sword-v1",
+      "restrictions": {
+        "factions": [
+          "Cryptown"
+        ],
+        "families": [
+          "Epée longue"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "ATK",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "outnumbered": true
+        }
+      },
+      "condition": "Moins de combattants actifs dans son équipe que chez l’adversaire : +20 ATK numérique tant que cette condition dure.",
+      "lore": "Varkhen a oublié les visages, pas le poids de cette lame. Sa garde de cuivre serre un éclat violet, et son fil droit garde le passage des portes de Cryptown. Quand les rangs se vident, celui qui la porte retrouve un geste plus ancien que sa mémoire : se tenir entre les siens et la nuit.",
+      "collectible": {
+        "number": "ARM-030",
+        "illustration": "cryptown-oath-sword-v1.webp",
+        "flavour": "Les visages passent. Le serment demeure.",
+        "alt": "Épée de Varkhen, longue lame droite argentée, sillon violet et garde anguleuse en cuivre sombre.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "cryptown-vigil-rifle",
+      "slot": "weapon",
+      "name": "La Relève Muette",
+      "family": "Gun",
+      "visual": "flute",
+      "art": "cryptown-vigil-rifle-v1",
+      "restrictions": {
+        "factions": [
+          "Cryptown"
+        ],
+        "families": [
+          "Gun"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "ATK",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "reserveAtMost": 0
+        }
+      },
+      "condition": "Aucun combattant dans sa réserve : +20 ATK numérique tant que cette condition dure. Aucun bonus sur Mort.",
+      "lore": "Nereth entretenait déjà ce fusil quand les tours de garde avaient encore une fin. Dans la lunette violette, il guette le signal d’une relève qui ne vient plus. Le long canon reste immobile au-dessus des murs de Cryptown : tant que quelqu’un veille, les portes ne sont pas seules.",
+      "collectible": {
+        "number": "ARM-031",
+        "illustration": "cryptown-vigil-rifle-v1.webp",
+        "flavour": "Le signal ne vient pas. La veille continue.",
+        "alt": "Fusil de Nereth à long canon droit, crosse ajourée, lunette violette et mécanisme de crâne en métal noir et cuivre.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "cryptown-watch-flail",
+      "slot": "weapon",
+      "name": "Le Glas des Veilleurs",
+      "family": "Fléau",
+      "visual": "flute",
+      "art": "cryptown-watch-flail-v1",
+      "restrictions": {
+        "factions": [
+          "Cryptown"
+        ],
+        "families": [
+          "Fléau"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "DEF",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "activeAtMost": 2
+        }
+      },
+      "condition": "Au plus deux combattants actifs dans son équipe : +20 DEF numérique tant que cette condition dure.",
+      "lore": "Les maillons de Draust donnent leur cadence aux pas de la garde. Dans la cage de fer, le cristal violet éclaire un crâne qui ne baisse jamais les yeux. Lorsque les compagnons ne sont plus qu’une poignée, le fléau cesse de sonner : son porteur a pris sa place devant eux.",
+      "collectible": {
+        "number": "ARM-032",
+        "illustration": "cryptown-watch-flail-v1.webp",
+        "flavour": "Les chaînes se taisent. La garde tient.",
+        "alt": "Fléau de Draust, manche noir, chaîne de cuivre sombre et tête en cage ornée d’un crâne et d’un cristal violet.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "rhinoz-ancestral-horn",
+      "slot": "weapon",
+      "name": "La Corne des Anciens",
+      "family": "Hache",
+      "visual": "axe",
+      "art": "rhinoz-ancestral-horn-v2",
+      "restrictions": {
+        "races": [
+          "RHINOZ"
+        ],
+        "families": [
+          "Hache"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "ATK",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "outnumbered": true
+        }
+      },
+      "condition": "Moins de combattants actifs dans son équipe que chez l’adversaire : +20 ATK numérique tant que cette condition dure.",
+      "lore": "Sa lame reprend la courbe d’une corne, mais c’est dans le métal que les anciens l’ont forgée. Le cuivre porte les traces de plusieurs mains ; le manche a été réparé, jamais abandonné. Elle se transmet avec une consigne simple : quand les rangs s’éclaircissent, garder le passage pour ceux qui rentrent encore.",
+      "collectible": {
+        "number": "ARM-033",
+        "illustration": "rhinoz-ancestral-horn-v2.webp",
+        "flavour": "La force passe. Le passage demeure.",
+        "alt": "Hache Rhinoz à large lame en forme de corne, acier gris ivoire, embase cuirassée, cuivre patiné et manche droit.",
+        "cutout": true
+      }
+    },
+    {
+      "id": "durane-rampart",
+      "slot": "weapon",
+      "kind": "shield",
+      "name": "Le Rempart de Durane",
+      "family": "Bouclier",
+      "visual": "axe",
+      "art": "durane-rampart-v1",
+      "restrictions": {
+        "factions": [
+          "Durane"
+        ]
+      },
+      "effect": {
+        "trigger": "FIRST_DEFENSE",
+        "stat": "DEF",
+        "value": 30,
+        "duration": "NEXT_DEFENSE"
+      },
+      "condition": "Lors de sa première défense : +30 DEF numérique pour ce duel. Une fois par partie, même si une face spéciale est obtenue.",
+      "lore": "On raconte que les portes de Durane furent taillées dans la même pierre. Sous les marteaux croisés, un Kalistel gris éclaire la rainure intérieure. Le premier choc lui prend sa lumière, jamais sa promesse : laisser aux autres le temps de se relever.",
+      "collectible": {
+        "number": "BOU-001",
+        "illustration": "durane-rampart-v1.webp",
+        "cutout": true,
+        "flavour": "La pierre cède. Durane tient.",
+        "alt": "Bouclier de pierre grise aux marteaux de Durane, éclairé sur son contour intérieur."
+      }
+    },
+    {
+      "id": "pod-042",
+      "slot": "weapon",
+      "kind": "relic",
+      "name": "Pod 042",
+      "family": "Relique",
+      "visual": "flute",
+      "art": "pod-042-v1",
+      "restrictions": {
+        "characterIds": [
+          "2b-nier"
+        ]
+      },
+      "effect": {
+        "trigger": "AFTER_BLOCK",
+        "stat": "DEF",
+        "value": 20,
+        "duration": "NEXT_DEFENSE"
+      },
+      "condition": "Après un Block réussi de 2B : +20 DEF numérique à sa prochaine défense. Une seule charge par partie, consommée même sur une face spéciale.",
+      "lore": "Le Pod enregistre le choc, calcule une trajectoire et se rapproche de quelques centimètres. Aucune instruction ne lui demande de rester aussi près. Au milieu des ruines, cette petite marge devient parfois la différence entre une mission et un retour.",
+      "collectible": {
+        "number": "REL-001",
+        "illustration": "pod-042-v1.webp",
+        "cutout": true,
+        "flavour": "Une présence, même après le silence.",
+        "alt": "Pod 042, drone ivoire aux bras mécaniques noirs, dans les ruines."
+      }
+    },
+    {
+      "id": "tide-pavise",
+      "slot": "weapon",
+      "kind": "shield",
+      "name": "Pavois des Marées",
+      "family": "Pavois",
+      "visual": "axe",
+      "art": "tide-pavise-v1",
+      "restrictions": {
+        "factions": [
+          "Crabazar"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "DEFENSE",
+        "when": {
+          "attack": "physical"
+        },
+        "recipient": "self"
+      },
+      "condition": "Première défense physique.",
+      "lore": "Une carapace marine cerclée de cuivre veille sur les quais de Crabazar. Quand la marée emporte les cris, son porteur tient encore le pont.",
+      "collectible": {
+        "number": "PRO-002",
+        "illustration": "tide-pavise-v1.webp",
+        "cutout": true,
+        "flavour": "Le sel a rongé les rivets, jamais le passage derrière eux.",
+        "alt": "Pavois des Marées, équipement Kalistar."
+      }
+    },
+    {
+      "id": "sentinel-carapace",
+      "slot": "weapon",
+      "kind": "shield",
+      "name": "Carapace de la Sentinelle",
+      "family": "Plastron",
+      "visual": "axe",
+      "art": "sentinel-carapace-v1",
+      "restrictions": {
+        "characterIds": [
+          "taulio"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 20,
+        "duration": "NEXT_DEFENSE",
+        "event": "BLOCK",
+        "when": {},
+        "recipient": "self"
+      },
+      "condition": "Après un Block.",
+      "lore": "Taulio ne compte pas les coups reçus. Sous ses plaques, un relais retient leur cadence et prépare le prochain geste de protection.",
+      "collectible": {
+        "number": "PRO-003",
+        "illustration": "sentinel-carapace-v1.webp",
+        "cutout": true,
+        "flavour": "Chaque choc apprend à ses plaques à tenir.",
+        "alt": "Carapace de la Sentinelle, équipement Kalistar."
+      }
+    },
+    {
+      "id": "sap-cuirass",
+      "slot": "weapon",
+      "kind": "shield",
+      "name": "Cuirasse de Sève",
+      "family": "Cuirasse",
+      "visual": "axe",
+      "art": "sap-cuirass-v1",
+      "restrictions": {
+        "factions": [
+          "Arborium"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "DEFENSE",
+        "when": {
+          "alliedFaction": "Arborium"
+        },
+        "recipient": "self"
+      },
+      "condition": "Un autre Arborium actif.",
+      "lore": "La sève relie les lamelles de bois sans les figer. Auprès d’un autre enfant de la forêt, le porteur retrouve la souplesse des branches qui plient ensemble.",
+      "collectible": {
+        "number": "PRO-004",
+        "illustration": "sap-cuirass-v1.webp",
+        "cutout": true,
+        "flavour": "Deux racines résistent mieux qu’une.",
+        "alt": "Cuirasse de Sève, équipement Kalistar."
+      }
+    },
+    {
+      "id": "gate-gauntlets",
+      "slot": "weapon",
+      "kind": "shield",
+      "name": "Gantelets de la Porte",
+      "family": "Gantelets",
+      "visual": "axe",
+      "art": "gate-gauntlets-v1",
+      "restrictions": {
+        "characterIds": [
+          "magnar"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 30,
+        "duration": "NEXT_DEFENSE",
+        "event": "DEFENSE",
+        "when": {
+          "activeAtMost": 1
+        },
+        "recipient": "self"
+      },
+      "condition": "Dernier combattant actif.",
+      "lore": "Magnar referme ses gantelets de pierre comme les verrous d’une porte ancienne. Même seul, il se souvient de ceux qui attendent de l’autre côté.",
+      "collectible": {
+        "number": "PRO-005",
+        "illustration": "gate-gauntlets-v1.webp",
+        "cutout": true,
+        "flavour": "La porte reste fermée derrière ses poings.",
+        "alt": "Gantelets de la Porte, équipement Kalistar."
+      }
+    },
+    {
+      "id": "rhinoz-hauberk",
+      "slot": "weapon",
+      "kind": "shield",
+      "name": "Haubert des Rhinoz",
+      "family": "Haubert",
+      "visual": "axe",
+      "art": "rhinoz-hauberk-v1",
+      "restrictions": {
+        "races": [
+          "RHINOZ"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "DEFENSE",
+        "when": {
+          "outnumbered": true
+        },
+        "recipient": "self"
+      },
+      "condition": "En infériorité numérique.",
+      "lore": "Des mailles épaisses portent des pièces de corne sculptée. Les Rhinoz y reconnaissent des mains disparues et la patience de ceux qui protégeaient déjà leurs foyers.",
+      "collectible": {
+        "number": "PRO-006",
+        "illustration": "rhinoz-hauberk-v1.webp",
+        "cutout": true,
+        "flavour": "La force des anciens tient maille après maille.",
+        "alt": "Haubert des Rhinoz, équipement Kalistar."
+      }
+    },
+    {
+      "id": "first-thaw-cloak",
+      "slot": "weapon",
+      "kind": "shield",
+      "name": "Manteau du Premier Dégel",
+      "family": "Manteau",
+      "visual": "axe",
+      "art": "first-thaw-cloak-v1",
+      "restrictions": {
+        "factions": [
+          "Ysilis"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "DEFENSE",
+        "when": {
+          "attack": "magic"
+        },
+        "recipient": "self"
+      },
+      "condition": "Première défense magique.",
+      "lore": "Les agrafes de glace retiennent une fourrure grise patinée par les voyages. À Niveria, on prête ce manteau comme on promet un retour au printemps.",
+      "collectible": {
+        "number": "PRO-007",
+        "illustration": "first-thaw-cloak-v1.webp",
+        "cutout": true,
+        "flavour": "Sous le givre, une chaleur demeure.",
+        "alt": "Manteau du Premier Dégel, équipement Kalistar."
+      }
+    },
+    {
+      "id": "abyss-plastron",
+      "slot": "weapon",
+      "kind": "shield",
+      "name": "Plastron des Abysses",
+      "family": "Plastron",
+      "visual": "axe",
+      "art": "abyss-plastron-v1",
+      "restrictions": {
+        "factions": [
+          "Thalassea"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "DEFENSE",
+        "when": {},
+        "recipient": "self"
+      },
+      "condition": "Première défense.",
+      "lore": "Des courbes de coquillage répartissent le premier choc. Entre leurs strates sombres demeure le souvenir d’une eau que la tempête n’atteint jamais.",
+      "collectible": {
+        "number": "PRO-008",
+        "illustration": "abyss-plastron-v1.webp",
+        "cutout": true,
+        "flavour": "La nacre garde le calme des profondeurs.",
+        "alt": "Plastron des Abysses, équipement Kalistar."
+      }
+    },
+    {
+      "id": "cold-blood-mantle",
+      "slot": "weapon",
+      "kind": "shield",
+      "name": "Mantelet du Sang-Froid",
+      "family": "Mantelet",
+      "visual": "axe",
+      "art": "cold-blood-mantle-v1",
+      "restrictions": {
+        "factions": [
+          "Draevenheim"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "ALLY_FALL",
+        "when": {},
+        "recipient": "self"
+      },
+      "condition": "Après une élimination alliée.",
+      "lore": "Sous le fermoir ailé, la doublure rouge reste chaude. Chaque place vide sur le rempart rappelle au porteur pourquoi il ne peut pas encore céder.",
+      "collectible": {
+        "number": "PRO-009",
+        "illustration": "cold-blood-mantle-v1.webp",
+        "cutout": true,
+        "flavour": "Le velours retient la nuit, pas le souvenir.",
+        "alt": "Mantelet du Sang-Froid, équipement Kalistar."
+      }
+    },
+    {
+      "id": "last-vigil-cuirass",
+      "slot": "weapon",
+      "kind": "shield",
+      "name": "Cuirasse du Dernier Vigile",
+      "family": "Cuirasse",
+      "visual": "axe",
+      "art": "last-vigil-cuirass-v1",
+      "restrictions": {
+        "factions": [
+          "Cryptown"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "DEFENSE",
+        "when": {
+          "alliedFaction": "Cryptown"
+        },
+        "recipient": "self"
+      },
+      "condition": "Un autre Cryptown actif.",
+      "lore": "Les inscriptions violettes ont perdu leurs noms, pas leur sens. Près d’un autre gardien de Cryptown, les plaques retrouvent l’accord silencieux de la relève.",
+      "collectible": {
+        "number": "PRO-010",
+        "illustration": "last-vigil-cuirass-v1.webp",
+        "cutout": true,
+        "flavour": "Deux veilleurs se souviennent du même serment.",
+        "alt": "Cuirasse du Dernier Vigile, équipement Kalistar."
+      }
+    },
+    {
+      "id": "dawn-gorget",
+      "slot": "weapon",
+      "kind": "shield",
+      "name": "Gorgerin de l’Aube",
+      "family": "Gorgerin",
+      "visual": "axe",
+      "art": "dawn-gorget-v1",
+      "restrictions": {
+        "factions": [
+          "Solaria"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "DEFENSE",
+        "when": {
+          "opponentElement": "NECRO"
+        },
+        "recipient": "self"
+      },
+      "condition": "Contre un cristal Ténèbres.",
+      "lore": "Sur le métal ivoire, de fines rainures dorées recueillent la première lumière. Solaria les confie à ceux qui devront parler encore quand la nuit se rapprochera.",
+      "collectible": {
+        "number": "PRO-011",
+        "illustration": "dawn-gorget-v1.webp",
+        "cutout": true,
+        "flavour": "Un rayon suffit pour retrouver le chemin.",
+        "alt": "Gorgerin de l’Aube, équipement Kalistar."
+      }
+    },
+    {
+      "id": "last-forge-apron",
+      "slot": "weapon",
+      "kind": "shield",
+      "name": "Tablier de la Dernière Forge",
+      "family": "Tablier",
+      "visual": "axe",
+      "art": "last-forge-apron-v1",
+      "restrictions": {
+        "characterIds": [
+          "darnako"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 30,
+        "duration": "NEXT_DEFENSE",
+        "event": "DEFENSE",
+        "when": {
+          "opponentElement": "PYRO"
+        },
+        "recipient": "self"
+      },
+      "condition": "Contre un cristal Feu.",
+      "lore": "Le cuir brûlé porte des bandes de métal martelé. Darnako y a laissé des heures de forge, assez pour reconnaître le souffle du feu avant qu’il frappe.",
+      "collectible": {
+        "number": "PRO-012",
+        "illustration": "last-forge-apron-v1.webp",
+        "cutout": true,
+        "flavour": "La braise connaît déjà ses coutures.",
+        "alt": "Tablier de la Dernière Forge, équipement Kalistar."
+      }
+    },
+    {
+      "id": "ninth-life-boots",
+      "slot": "weapon",
+      "kind": "shield",
+      "name": "Bottes de la Neuvième Vie",
+      "family": "Bottes",
+      "visual": "axe",
+      "art": "ninth-life-boots-v1",
+      "restrictions": {
+        "characterIds": [
+          "rikka"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 20,
+        "duration": "NEXT_DEFENSE",
+        "event": "DODGE",
+        "when": {},
+        "recipient": "self"
+      },
+      "condition": "Après une esquive.",
+      "lore": "Sous le cuir tacheté courent des attaches électriques fines. Rikka les ajuste sans ralentir : ce qui compte n’est pas de fuir plus loin, mais de pouvoir revenir.",
+      "collectible": {
+        "number": "PRO-013",
+        "illustration": "ninth-life-boots-v1.webp",
+        "cutout": true,
+        "flavour": "Un pas évité. Une vie à rejoindre.",
+        "alt": "Bottes de la Neuvième Vie, équipement Kalistar."
+      }
+    },
+    {
+      "id": "octocamo",
+      "slot": "weapon",
+      "kind": "shield",
+      "name": "OctoCamo",
+      "family": "Combinaison",
+      "visual": "axe",
+      "art": "octocamo-v1",
+      "restrictions": {
+        "characterIds": [
+          "solid-snake-mgs"
+        ],
+        "factions": [
+          "MGS4"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "DEFENSE",
+        "when": {},
+        "recipient": "self"
+      },
+      "condition": "Première défense.",
+      "lore": "La combinaison d’Old Snake emprunte la couleur du sol. Sous le camouflage, le poids des années demeure, et avec lui la volonté d’achever la mission.",
+      "collectible": {
+        "number": "PRO-014",
+        "illustration": "octocamo-v1.webp",
+        "cutout": true,
+        "flavour": "La surface change. L’homme tient encore.",
+        "alt": "OctoCamo, équipement Kalistar."
+      }
+    },
+    {
+      "id": "cyborg-ninja-armor",
+      "slot": "weapon",
+      "kind": "shield",
+      "name": "Blindage du Cyborg Ninja",
+      "family": "Blindage",
+      "visual": "axe",
+      "art": "cyborg-ninja-armor-v1",
+      "restrictions": {
+        "characterIds": [
+          "raiden-mgs"
+        ],
+        "factions": [
+          "MGS4"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "DEFENSE",
+        "when": {
+          "outnumbered": true
+        },
+        "recipient": "self"
+      },
+      "condition": "En infériorité numérique.",
+      "lore": "Les plaques blanches et noires protègent les fibres artificielles de Raiden. Quand le front se vide, elles lui laissent encore le temps de choisir qui protéger.",
+      "collectible": {
+        "number": "PRO-015",
+        "illustration": "cyborg-ninja-armor-v1.webp",
+        "cutout": true,
+        "flavour": "Sous le blindage, un choix reste humain.",
+        "alt": "Blindage du Cyborg Ninja, équipement Kalistar."
+      }
+    },
+    {
+      "id": "zanarkand-pauldron",
+      "slot": "weapon",
+      "kind": "shield",
+      "name": "Épaulière de Zanarkand",
+      "family": "Épaulière",
+      "visual": "axe",
+      "art": "zanarkand-pauldron-v1",
+      "restrictions": {
+        "characterIds": [
+          "tidus-ff10"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 20,
+        "duration": "NEXT_DEFENSE",
+        "event": "BLOCK",
+        "when": {},
+        "recipient": "self"
+      },
+      "condition": "Après un Block.",
+      "lore": "Le bleu porte les marques du voyage. Tidus reprend son souffle, secoue son bras et se replace : le prochain pas appartient encore aux vivants.",
+      "collectible": {
+        "number": "PRO-016",
+        "illustration": "zanarkand-pauldron-v1.webp",
+        "cutout": true,
+        "flavour": "L’épaule se relève avec le sourire.",
+        "alt": "Épaulière de Zanarkand, équipement Kalistar."
+      }
+    },
+    {
+      "id": "leon-body-armor",
+      "slot": "weapon",
+      "kind": "shield",
+      "name": "Gilet pare-balles",
+      "family": "Gilet",
+      "visual": "axe",
+      "art": "leon-body-armor-v1",
+      "restrictions": {
+        "characterIds": [
+          "leon-kennedy-re"
+        ],
+        "factions": [
+          "RE4"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 30,
+        "duration": "NEXT_DEFENSE",
+        "event": "DEFENSE",
+        "when": {
+          "attack": "physical"
+        },
+        "recipient": "self"
+      },
+      "condition": "Première défense physique.",
+      "lore": "Sur le tissu noir de Leon, les sangles usées gardent leur tension. Rien d’héroïque dans cet équipement : seulement une chance de plus à ne pas gaspiller.",
+      "collectible": {
+        "number": "PRO-017",
+        "illustration": "leon-body-armor-v1.webp",
+        "cutout": true,
+        "flavour": "Une couche de plus pour rentrer vivant.",
+        "alt": "Gilet pare-balles, équipement Kalistar."
+      }
+    },
+    {
+      "id": "stars-vest",
+      "slot": "weapon",
+      "kind": "shield",
+      "name": "Gilet S.T.A.R.S.",
+      "family": "Gilet",
+      "visual": "axe",
+      "art": "stars-vest-v1",
+      "restrictions": {
+        "characterIds": [
+          "chris-redfield-re"
+        ],
+        "factions": [
+          "RE1"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "DEFENSE",
+        "when": {
+          "alliedCharacter": "jill-valentine-re"
+        },
+        "recipient": "self"
+      },
+      "condition": "Jill active à ses côtés.",
+      "lore": "Le gilet vert de Chris porte l’emblème de son unité. Apercevoir Jill dans la ligne suffit à lui rappeler qu’un équipier se protège avant de se compter.",
+      "collectible": {
+        "number": "PRO-018",
+        "illustration": "stars-vest-v1.webp",
+        "cutout": true,
+        "flavour": "L’écusson rappelle qu’il n’est pas seul.",
+        "alt": "Gilet S.T.A.R.S., équipement Kalistar."
+      }
+    },
+    {
+      "id": "guardian-red-coat",
+      "slot": "weapon",
+      "kind": "shield",
+      "name": "Manteau rouge du Gardien",
+      "family": "Manteau",
+      "visual": "axe",
+      "art": "guardian-red-coat-v1",
+      "restrictions": {
+        "characterIds": [
+          "auron-ff10"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 30,
+        "duration": "NEXT_DEFENSE",
+        "event": "DEFENSE",
+        "when": {
+          "activeAtMost": 1
+        },
+        "recipient": "self"
+      },
+      "condition": "Dernier combattant actif.",
+      "lore": "Le grand manteau rouge glisse sur une épaule. Auron n’a pas besoin de le relever pour tenir sa place : il connaît déjà le poids des adieux.",
+      "collectible": {
+        "number": "PRO-019",
+        "illustration": "guardian-red-coat-v1.webp",
+        "cutout": true,
+        "flavour": "Le voyage continue par celui qui reste.",
+        "alt": "Manteau rouge du Gardien, équipement Kalistar."
+      }
+    },
+    {
+      "id": "scarlet-cape",
+      "slot": "weapon",
+      "kind": "shield",
+      "name": "Cape écarlate",
+      "family": "Cape",
+      "visual": "axe",
+      "art": "scarlet-cape-v1",
+      "restrictions": {
+        "characterIds": [
+          "vincent-ff7"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "ALLY_FALL",
+        "when": {},
+        "recipient": "self"
+      },
+      "condition": "Après une élimination alliée.",
+      "lore": "Les boucles métalliques retiennent un tissu abîmé par les années. Vincent ramène sa cape contre lui lorsque manque une voix, comme pour en garder la trace.",
+      "collectible": {
+        "number": "PRO-020",
+        "illustration": "scarlet-cape-v1.webp",
+        "cutout": true,
+        "flavour": "Les déchirures n’emportent pas les promesses.",
+        "alt": "Cape écarlate, équipement Kalistar."
+      }
+    },
+    {
+      "id": "wolf-school-armor",
+      "slot": "weapon",
+      "kind": "shield",
+      "name": "Cuirasse de l’École du Loup",
+      "family": "Cuirasse",
+      "visual": "axe",
+      "art": "wolf-school-armor-v1",
+      "restrictions": {
+        "characterIds": [
+          "geralt-witcher"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "DEFENSE",
+        "when": {
+          "attack": "physical"
+        },
+        "recipient": "self"
+      },
+      "condition": "Première défense physique.",
+      "lore": "Le cuir sombre et la maille de Geralt ont été réparés plus souvent que remplacés. Chaque couture témoigne d’un chemin dont il est revenu.",
+      "collectible": {
+        "number": "PRO-021",
+        "illustration": "wolf-school-armor-v1.webp",
+        "cutout": true,
+        "flavour": "Des sangles refaites. Encore un contrat.",
+        "alt": "Cuirasse de l’École du Loup, équipement Kalistar."
+      }
+    },
+    {
+      "id": "white-materia",
+      "slot": "weapon",
+      "kind": "relic",
+      "name": "Matéria blanche",
+      "family": "Relique",
+      "visual": "flute",
+      "art": "white-materia-v1",
+      "restrictions": {
+        "characterIds": [
+          "aeris-ff7"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 20,
+        "duration": "NEXT_DEFENSE",
+        "event": "SUPPORT",
+        "when": {
+          "supports": [
+            "reraise"
+          ]
+        },
+        "recipient": "support"
+      },
+      "condition": "Après un nouveau Reraise.",
+      "lore": "La petite sphère repose au creux du ruban rose d’Aeris. Sa lumière n’efface aucune perte : elle accompagne le souffle qu’une autre présence parvient à préserver.",
+      "collectible": {
+        "number": "REL-002",
+        "illustration": "white-materia-v1.webp",
+        "cutout": true,
+        "flavour": "Dans le ruban, une prière reste discrète.",
+        "alt": "Matéria blanche, équipement Kalistar."
+      }
+    },
+    {
+      "id": "griever-pendant",
+      "slot": "weapon",
+      "kind": "relic",
+      "name": "Pendentif Griever",
+      "family": "Relique",
+      "visual": "flute",
+      "art": "griever-pendant-v1",
+      "restrictions": {
+        "characterIds": [
+          "squall-ff8"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "DEFENSE",
+        "when": {
+          "activeAtMost": 1
+        },
+        "recipient": "self"
+      },
+      "condition": "Dernier combattant actif.",
+      "lore": "Squall referme les doigts sur l’emblème argenté. Quand il ne reste plus personne près de lui, le métal lui rappelle moins la force que la nécessité de tenir.",
+      "collectible": {
+        "number": "REL-003",
+        "illustration": "griever-pendant-v1.webp",
+        "cutout": true,
+        "flavour": "Un lion contre le silence.",
+        "alt": "Pendentif Griever, équipement Kalistar."
+      }
+    },
+    {
+      "id": "zanarkand-abes-pendant",
+      "slot": "weapon",
+      "kind": "relic",
+      "name": "Pendentif des Zanarkand Abes",
+      "family": "Relique",
+      "visual": "flute",
+      "art": "zanarkand-abes-pendant-v1",
+      "restrictions": {
+        "characterIds": [
+          "tidus-ff10"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 20,
+        "duration": "NEXT_DEFENSE",
+        "event": "BLOCK",
+        "when": {},
+        "recipient": "self"
+      },
+      "condition": "Après un Block.",
+      "lore": "Le symbole des Abes balance contre Tidus. Il y retrouve le rythme d’un jeu et, l’espace d’un instant, un monde où se relever allait de soi.",
+      "collectible": {
+        "number": "REL-004",
+        "illustration": "zanarkand-abes-pendant-v1.webp",
+        "cutout": true,
+        "flavour": "Un ancien terrain. Un prochain départ.",
+        "alt": "Pendentif des Zanarkand Abes, équipement Kalistar."
+      }
+    },
+    {
+      "id": "guardian-jug",
+      "slot": "weapon",
+      "kind": "relic",
+      "name": "Gourde du Gardien",
+      "family": "Relique",
+      "visual": "flute",
+      "art": "guardian-jug-v1",
+      "restrictions": {
+        "characterIds": [
+          "auron-ff10"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "DEFENSE",
+        "when": {
+          "activeAtMost": 2
+        },
+        "recipient": "self"
+      },
+      "condition": "Deux combattants actifs ou moins.",
+      "lore": "La corde usée retient la gourde d’Auron. Il la repose sans hâte : parfois, un geste familier suffit à rendre le silence moins lourd aux derniers compagnons.",
+      "collectible": {
+        "number": "REL-005",
+        "illustration": "guardian-jug-v1.webp",
+        "cutout": true,
+        "flavour": "Une pause que personne n’ose demander.",
+        "alt": "Gourde du Gardien, équipement Kalistar."
+      }
+    },
+    {
+      "id": "jill-lockpicks",
+      "slot": "weapon",
+      "kind": "relic",
+      "name": "Crochets de déverrouillage",
+      "family": "Relique",
+      "visual": "flute",
+      "art": "jill-lockpicks-v1",
+      "restrictions": {
+        "characterIds": [
+          "jill-valentine-re"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 20,
+        "duration": "NEXT_DEFENSE",
+        "event": "DEPLOY",
+        "when": {},
+        "recipient": "self"
+      },
+      "condition": "À son entrée depuis la réserve.",
+      "lore": "Jill connaît chaque pièce de son étui. Avant de rejoindre les autres, elle vérifie les crochets : une porte fermée n’est pas encore la fin d’un chemin.",
+      "collectible": {
+        "number": "REL-006",
+        "illustration": "jill-lockpicks-v1.webp",
+        "cutout": true,
+        "flavour": "Une issue tient parfois entre deux doigts.",
+        "alt": "Crochets de déverrouillage, équipement Kalistar."
+      }
+    },
+    {
+      "id": "pod-153",
+      "slot": "weapon",
+      "kind": "relic",
+      "name": "Pod 153",
+      "family": "Relique",
+      "visual": "flute",
+      "art": "pod-153-v1",
+      "restrictions": {
+        "characterIds": [
+          "9s-nier"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 20,
+        "duration": "NEXT_DEFENSE",
+        "event": "SUPPORT",
+        "when": {
+          "supports": [
+            "mana"
+          ]
+        },
+        "recipient": "support"
+      },
+      "condition": "Après une nouvelle potion.",
+      "lore": "Le Pod noir accompagne les gestes de 9S. Il transmet les données, puis corrige sa position pour demeurer auprès de celui qui vient de recevoir de l’aide.",
+      "collectible": {
+        "number": "REL-007",
+        "illustration": "pod-153-v1.webp",
+        "cutout": true,
+        "flavour": "Une petite silhouette suit le signal.",
+        "alt": "Pod 153, équipement Kalistar."
+      }
+    },
+    {
+      "id": "lunar-tear",
+      "slot": "weapon",
+      "kind": "relic",
+      "name": "Larme lunaire",
+      "family": "Relique",
+      "visual": "flute",
+      "art": "lunar-tear-v1",
+      "restrictions": {
+        "characterIds": [
+          "kaine-replicant"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "ALLY_FALL",
+        "when": {},
+        "recipient": "self"
+      },
+      "condition": "Après une élimination alliée.",
+      "lore": "Les pétales blancs sont presque trop fins pour survivre au voyage. Kainé les garde pourtant près d’elle, avec cette colère tendre qui refuse de tout laisser partir.",
+      "collectible": {
+        "number": "REL-008",
+        "illustration": "lunar-tear-v1.webp",
+        "cutout": true,
+        "flavour": "Une fleur pour ce qui ne doit pas disparaître.",
+        "alt": "Larme lunaire, équipement Kalistar."
+      }
+    },
+    {
+      "id": "infiltration-box",
+      "slot": "weapon",
+      "kind": "relic",
+      "name": "Carton d’infiltration",
+      "family": "Relique",
+      "visual": "flute",
+      "art": "infiltration-box-v1",
+      "restrictions": {
+        "characterIds": [
+          "solid-snake-mgs"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 20,
+        "duration": "NEXT_DEFENSE",
+        "event": "DEPLOY",
+        "when": {},
+        "recipient": "self"
+      },
+      "condition": "À son entrée depuis la réserve.",
+      "lore": "Le carton a pris la pluie et connu trop de couloirs. Snake en teste encore un coin : les solutions les plus simples gardent parfois une longueur d’avance.",
+      "collectible": {
+        "number": "REL-009",
+        "illustration": "infiltration-box-v1.webp",
+        "cutout": true,
+        "flavour": "Ordinaire, tant que personne ne regarde dessous.",
+        "alt": "Carton d’infiltration, équipement Kalistar."
+      }
+    },
+    {
+      "id": "metal-gear-mkii",
+      "slot": "weapon",
+      "kind": "relic",
+      "name": "Metal Gear Mk.II",
+      "family": "Relique",
+      "visual": "flute",
+      "art": "metal-gear-mkii-v1",
+      "restrictions": {
+        "characterIds": [
+          "otacon-mgs"
+        ],
+        "factions": [
+          "MGS4"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 20,
+        "duration": "NEXT_DEFENSE",
+        "event": "SUPPORT",
+        "when": {
+          "supports": [
+            "ward"
+          ]
+        },
+        "recipient": "support"
+      },
+      "condition": "Après une nouvelle garde.",
+      "lore": "Otacon guide le petit robot entre les débris. Sur son écran, une présence répond encore ; le mécanisme se rapproche pour prolonger le geste de protection.",
+      "collectible": {
+        "number": "REL-010",
+        "illustration": "metal-gear-mkii-v1.webp",
+        "cutout": true,
+        "flavour": "Une liaison reste ouverte dans les ruines.",
+        "alt": "Metal Gear Mk.II, équipement Kalistar."
+      }
+    },
+    {
+      "id": "wolf-medallion",
+      "slot": "weapon",
+      "kind": "relic",
+      "name": "Médaillon du Loup",
+      "family": "Relique",
+      "visual": "flute",
+      "art": "wolf-medallion-v1",
+      "restrictions": {
+        "characterIds": [
+          "geralt-witcher",
+          "vesemir-witcher"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "DEFENSE",
+        "when": {
+          "attack": "magic"
+        },
+        "recipient": "self"
+      },
+      "condition": "Première défense magique.",
+      "lore": "La tête du loup repose contre le cuir. Geralt et Vesemir connaissent ce frémissement : juste assez d’avertissement pour ne pas subir l’inconnu immobile.",
+      "collectible": {
+        "number": "REL-011",
+        "illustration": "wolf-medallion-v1.webp",
+        "cutout": true,
+        "flavour": "Le métal frissonne avant les ombres.",
+        "alt": "Médaillon du Loup, équipement Kalistar."
+      }
+    },
+    {
+      "id": "obsidian-star",
+      "slot": "weapon",
+      "kind": "relic",
+      "name": "Étoile d’obsidienne",
+      "family": "Relique",
+      "visual": "flute",
+      "art": "obsidian-star-v1",
+      "restrictions": {
+        "characterIds": [
+          "yennefer-witcher"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 20,
+        "duration": "NEXT_DEFENSE",
+        "event": "SUPPORT",
+        "when": {
+          "supports": [
+            "mana"
+          ]
+        },
+        "recipient": "support"
+      },
+      "condition": "Après une nouvelle potion.",
+      "lore": "L’obsidienne demeure sombre au cou de Yennefer. Quand elle accorde son aide, la lumière se pose ailleurs, sur quelqu’un qui en a davantage besoin.",
+      "collectible": {
+        "number": "REL-012",
+        "illustration": "obsidian-star-v1.webp",
+        "cutout": true,
+        "flavour": "Une étoile noire, un geste précis.",
+        "alt": "Étoile d’obsidienne, équipement Kalistar."
+      }
+    },
+    {
+      "id": "straw-hat",
+      "slot": "weapon",
+      "kind": "relic",
+      "name": "Chapeau de paille",
+      "family": "Relique",
+      "visual": "flute",
+      "art": "straw-hat-v1",
+      "restrictions": {
+        "characterIds": [
+          "monkey-d-luffy-op"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "ALLY_FALL",
+        "when": {},
+        "recipient": "self"
+      },
+      "condition": "Après une élimination alliée.",
+      "lore": "Le ruban rouge a vu la mer et la poussière. Luffy rabat son chapeau lorsqu’un compagnon tombe : il n’y a rien d’autre à dire avant d’avancer.",
+      "collectible": {
+        "number": "REL-013",
+        "illustration": "straw-hat-v1.webp",
+        "cutout": true,
+        "flavour": "La paille porte une promesse plus grande qu’elle.",
+        "alt": "Chapeau de paille, équipement Kalistar."
+      }
+    },
+    {
+      "id": "log-pose",
+      "slot": "weapon",
+      "kind": "relic",
+      "name": "Log Pose",
+      "family": "Relique",
+      "visual": "flute",
+      "art": "log-pose-v1",
+      "restrictions": {
+        "characterIds": [
+          "nami-op"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 20,
+        "duration": "NEXT_DEFENSE",
+        "event": "ALLY_DEPLOY",
+        "when": {},
+        "recipient": "deployed"
+      },
+      "condition": "Premier allié entrant de réserve.",
+      "lore": "Sous le verre du bracelet, l’aiguille poursuit sa route. Nami la consulte puis indique un passage : arriver au bon endroit est déjà une manière de protéger.",
+      "collectible": {
+        "number": "REL-014",
+        "illustration": "log-pose-v1.webp",
+        "cutout": true,
+        "flavour": "L’aiguille trouve encore un lendemain.",
+        "alt": "Log Pose, équipement Kalistar."
+      }
+    },
+    {
+      "id": "rumble-ball",
+      "slot": "weapon",
+      "kind": "relic",
+      "name": "Rumble Ball",
+      "family": "Relique",
+      "visual": "flute",
+      "art": "rumble-ball-v1",
+      "restrictions": {
+        "characterIds": [
+          "tony-tony-chopper-op"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "SUPPORT",
+        "when": {
+          "supports": [
+            "luck",
+            "mana",
+            "reraise",
+            "ward",
+            "physical"
+          ]
+        },
+        "recipient": "self"
+      },
+      "condition": "Après son premier soutien réussi.",
+      "lore": "Une bille jaune attend dans le flacon de Chopper. Après avoir aidé un compagnon, il se souvient que celui qui soigne doit aussi trouver la force de rester.",
+      "collectible": {
+        "number": "REL-015",
+        "illustration": "rumble-ball-v1.webp",
+        "cutout": true,
+        "flavour": "Soigner les autres. Tenir un peu plus.",
+        "alt": "Rumble Ball, équipement Kalistar."
+      }
+    },
+    {
+      "id": "cola-reserve",
+      "slot": "weapon",
+      "kind": "relic",
+      "name": "Réserve de cola",
+      "family": "Relique",
+      "visual": "flute",
+      "art": "cola-reserve-v1",
+      "restrictions": {
+        "characterIds": [
+          "franky-op"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "BLOCK",
+        "when": {},
+        "recipient": "self"
+      },
+      "condition": "Après un Block.",
+      "lore": "La bouteille tinte dans son compartiment. Franky s’accorde un instant après le choc : pas de miracle, seulement de quoi remettre les épaules en place.",
+      "collectible": {
+        "number": "REL-016",
+        "illustration": "cola-reserve-v1.webp",
+        "cutout": true,
+        "flavour": "Une gorgée, et le métal reprend courage.",
+        "alt": "Réserve de cola, équipement Kalistar."
+      }
+    },
+    {
+      "id": "little-joys-box",
+      "slot": "weapon",
+      "kind": "relic",
+      "name": "Boîte des Petits Bonheurs",
+      "family": "Relique",
+      "visual": "flute",
+      "art": "little-joys-box-v1",
+      "restrictions": {
+        "characterIds": [
+          "momo"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 20,
+        "duration": "NEXT_DEFENSE",
+        "event": "ALLY_FALL",
+        "when": {},
+        "recipient": "ally"
+      },
+      "condition": "Après une élimination alliée.",
+      "lore": "Momo a rassemblé des pièces qui ne jouaient plus ensemble. Quand une voix s’éteint, il ouvre la boîte et offre le petit air de travers à quelqu’un qui écoute encore.",
+      "collectible": {
+        "number": "REL-017",
+        "illustration": "little-joys-box-v1.webp",
+        "cutout": true,
+        "flavour": "Une mélodie réparée pour ceux qui restent.",
+        "alt": "Boîte des Petits Bonheurs, équipement Kalistar."
+      }
+    },
+    {
+      "id": "current-compass",
+      "slot": "weapon",
+      "kind": "relic",
+      "name": "Boussole des Courants",
+      "family": "Relique",
+      "visual": "flute",
+      "art": "current-compass-v1",
+      "restrictions": {
+        "characterIds": [
+          "ruby"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "DEFENSE",
+        "when": {
+          "opponentElement": "HYDRO"
+        },
+        "recipient": "self"
+      },
+      "condition": "Contre un cristal Eau.",
+      "lore": "Ruby suit le mouvement d’une goutte suspendue dans son instrument. Les courants qu’elle aime peuvent aussi la bousculer ; elle a appris à en reconnaître l’élan.",
+      "collectible": {
+        "number": "REL-018",
+        "illustration": "current-compass-v1.webp",
+        "cutout": true,
+        "flavour": "L’eau écrit des chemins sous le verre.",
+        "alt": "Boussole des Courants, équipement Kalistar."
+      }
+    },
+    {
+      "id": "last-garden-seed",
+      "slot": "weapon",
+      "kind": "relic",
+      "name": "Graine du Dernier Jardin",
+      "family": "Relique",
+      "visual": "flute",
+      "art": "last-garden-seed-v1",
+      "restrictions": {
+        "characterIds": [
+          "thalie"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 20,
+        "duration": "NEXT_DEFENSE",
+        "event": "SUPPORT",
+        "when": {
+          "supports": [
+            "reraise"
+          ]
+        },
+        "recipient": "support"
+      },
+      "condition": "Après un nouveau Reraise.",
+      "lore": "La capsule mêle verre et racines autour d’une graine. Thalie la porte sans promettre un printemps : elle garde seulement une place pour ce qui pourrait revenir.",
+      "collectible": {
+        "number": "REL-019",
+        "illustration": "last-garden-seed-v1.webp",
+        "cutout": true,
+        "flavour": "Quelque chose peut encore recommencer.",
+        "alt": "Graine du Dernier Jardin, équipement Kalistar."
+      }
+    },
+    {
+      "id": "exiled-king-seal",
+      "slot": "weapon",
+      "kind": "relic",
+      "name": "Sceau du Roi sans Trône",
+      "family": "Relique",
+      "visual": "flute",
+      "art": "exiled-king-seal-v1",
+      "restrictions": {
+        "characterIds": [
+          "balmhyr"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 20,
+        "duration": "NEXT_DEFENSE",
+        "event": "BLOCK",
+        "when": {},
+        "recipient": "ally"
+      },
+      "condition": "Après son premier Block.",
+      "lore": "Balmhyr n’a plus de décret à sceller. Après avoir tenu un choc, il confie un instant la lourde empreinte à un compagnon : régner n’a jamais valu autant que veiller.",
+      "collectible": {
+        "number": "REL-020",
+        "illustration": "exiled-king-seal-v1.webp",
+        "cutout": true,
+        "flavour": "Le sceau est ébréché, pas la parole.",
+        "alt": "Sceau du Roi sans Trône, équipement Kalistar."
+      }
+    },
+    {
+      "id": "lost-names-bell",
+      "slot": "weapon",
+      "kind": "relic",
+      "name": "Clochette des Noms Perdus",
+      "family": "Relique",
+      "visual": "flute",
+      "art": "lost-names-bell-v1",
+      "restrictions": {
+        "characterIds": [
+          "ombrine-kalistar"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 20,
+        "duration": "NEXT_DEFENSE",
+        "event": "SUPPORT",
+        "when": {
+          "supports": [
+            "mana"
+          ]
+        },
+        "recipient": "support"
+      },
+      "condition": "Après une nouvelle potion.",
+      "lore": "Ombrine connaît les gravures cachées dans la clochette. Son tintement accompagne l’aide qu’elle transmet, assez bas pour laisser aux vivants leur propre voix.",
+      "collectible": {
+        "number": "REL-021",
+        "illustration": "lost-names-bell-v1.webp",
+        "cutout": true,
+        "flavour": "Un nom retrouve un souffle dans le cuivre.",
+        "alt": "Clochette des Noms Perdus, équipement Kalistar."
+      }
+    },
+    {
+      "id": "ff9-orichalque",
+      "slot": "weapon",
+      "name": "Orichalque",
+      "family": "Dague",
+      "visual": "axe",
+      "art": "ff9-orichalque-v1",
+      "restrictions": {
+        "characterIds": [
+          "djidane-ff9"
+        ],
+        "families": [
+          "Dague"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "ATK",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "outnumbered": true
+        }
+      },
+      "condition": "En infériorité numérique.",
+      "lore": "Djidane connaît le poids de cette dague mieux que celui des trésors qu’il emporte. Quand les autres sont moins nombreux, sa place est auprès d’eux, pas déjà de l’autre côté du mur.",
+      "collectible": {
+        "number": "ARM-034",
+        "illustration": "ff9-orichalque-v1.webp",
+        "cutout": true,
+        "flavour": "Tendre la main. Garder la lame prête.",
+        "alt": "Orichalque, équipement de Final Fantasy IX."
+      }
+    },
+    {
+      "id": "ff9-magekane",
+      "slot": "weapon",
+      "name": "Magekane",
+      "family": "Bâton",
+      "visual": "axe",
+      "art": "ff9-magekane-v1",
+      "restrictions": {
+        "characterIds": [
+          "vivi-ff9"
+        ],
+        "families": [
+          "Bâton"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "ATK",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "activeAtMost": 2
+        }
+      },
+      "condition": "Deux combattants actifs ou moins.",
+      "lore": "Le bois porte les marques de doigts qui ont longtemps tremblé. Vivi serre son bâton lorsque les voix s’éloignent : il ne sait pas combien de temps lui reste, mais il sait avec qui il veut le partager.",
+      "collectible": {
+        "number": "ARM-035",
+        "illustration": "ff9-magekane-v1.webp",
+        "cutout": true,
+        "flavour": "Un petit mage. Une lumière qui demeure.",
+        "alt": "Magekane, équipement de Final Fantasy IX."
+      }
+    },
+    {
+      "id": "ff9-excalibur",
+      "slot": "weapon",
+      "name": "Excalibur",
+      "family": "Epée longue",
+      "visual": "axe",
+      "art": "ff9-excalibur-v1",
+      "restrictions": {
+        "characterIds": [
+          "steiner-ff9"
+        ],
+        "families": [
+          "Epée longue"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "ATK",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "reserveAtMost": 0
+        }
+      },
+      "condition": "Aucun combattant en réserve.",
+      "lore": "Steiner inspecte encore le fil avant de reprendre sa garde. Une épée légendaire ne rend pas le devoir plus léger. Lorsque personne ne viendra le remplacer, elle lui rappelle simplement où rester.",
+      "collectible": {
+        "number": "ARM-036",
+        "illustration": "ff9-excalibur-v1.webp",
+        "cutout": true,
+        "flavour": "Le serment ne demande pas de relève.",
+        "alt": "Excalibur, équipement de Final Fantasy IX."
+      }
+    },
+    {
+      "id": "ff9-save-the-queen",
+      "slot": "weapon",
+      "name": "Save the Queen",
+      "family": "Epée longue",
+      "visual": "axe",
+      "art": "ff9-save-the-queen-v1",
+      "restrictions": {
+        "characterIds": [
+          "beate-ff9"
+        ],
+        "families": [
+          "Epée longue"
+        ]
+      },
+      "effect": {
+        "trigger": "LAST_STANDING",
+        "stat": "ATK",
+        "value": 30,
+        "duration": "WHILE_TRUE"
+      },
+      "condition": "Dernière combattante active.",
+      "lore": "Beate a longtemps cru qu’une lame droite suffisait à tracer le bon chemin. Elle porte désormais Save the Queen pour les visages qu’elle a appris à regarder, même lorsque plus personne ne se tient à ses côtés.",
+      "collectible": {
+        "number": "ARM-037",
+        "illustration": "ff9-save-the-queen-v1.webp",
+        "cutout": true,
+        "flavour": "Choisir enfin à qui va son serment.",
+        "alt": "Save the Queen, équipement de Final Fantasy IX."
+      }
+    },
+    {
+      "id": "ff9-dragonade",
+      "slot": "weapon",
+      "name": "Dragonade",
+      "family": "Lance",
+      "visual": "axe",
+      "art": "ff9-dragonade-v1",
+      "restrictions": {
+        "characterIds": [
+          "freyja-ff9"
+        ],
+        "families": [
+          "Lance"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "ATK",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "outnumbered": true
+        }
+      },
+      "condition": "En infériorité numérique.",
+      "lore": "La hampe glisse dans une main qui connaît la pluie de Bloumécia. Freyja ne peut retenir tous ceux qui partent. Elle peut encore tenir cette lance devant les compagnons qui marchent avec elle.",
+      "collectible": {
+        "number": "ARM-038",
+        "illustration": "ff9-dragonade-v1.webp",
+        "cutout": true,
+        "flavour": "La pluie passe. La garde demeure.",
+        "alt": "Dragonade, équipement de Final Fantasy IX."
+      }
+    },
+    {
+      "id": "ff9-runigriffe",
+      "slot": "weapon",
+      "name": "Runigriffe",
+      "family": "Poing",
+      "visual": "axe",
+      "art": "ff9-runigriffe-v1",
+      "restrictions": {
+        "characterIds": [
+          "tarask-ff9"
+        ],
+        "families": [
+          "Poing"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "ATK",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "activeAtMost": 2
+        }
+      },
+      "condition": "Deux combattants actifs ou moins.",
+      "lore": "Tarask resserre les attaches sans demander qu’on le regarde. Il aurait autrefois choisi la solitude. Quand les rangs se vident, le poids de ses griffes lui rappelle qu’il a choisi de rester.",
+      "collectible": {
+        "number": "ARM-039",
+        "illustration": "ff9-runigriffe-v1.webp",
+        "cutout": true,
+        "flavour": "Rester est aussi une forme de force.",
+        "alt": "Runigriffe, équipement de Final Fantasy IX."
+      }
+    },
+    {
+      "id": "ff9-gastrette",
+      "slot": "weapon",
+      "name": "Gastrette",
+      "family": "Lance",
+      "visual": "axe",
+      "art": "ff9-gastrette-v1",
+      "restrictions": {
+        "characterIds": [
+          "kweena-ff9"
+        ],
+        "families": [
+          "Lance"
+        ]
+      },
+      "effect": {
+        "trigger": "AFTER_SUPPORT",
+        "supports": [
+          "mana"
+        ],
+        "stat": "DEF",
+        "value": 20,
+        "duration": "NEXT_DUEL"
+      },
+      "condition": "Après une nouvelle potion accordée.",
+      "lore": "Kweena pose la grande fourchette près de la marmite. Personne ne sait exactement ce qui mijote, mais les bols reviennent vides. Le prochain départ paraît moins rude quand quelqu’un a pensé au repas.",
+      "collectible": {
+        "number": "ARM-040",
+        "illustration": "ff9-gastrette-v1.webp",
+        "cutout": true,
+        "flavour": "Un bol tendu vaut parfois une promesse.",
+        "alt": "Gastrette, équipement de Final Fantasy IX."
+      }
+    },
+    {
+      "id": "ff9-backstage-hammer",
+      "slot": "weapon",
+      "name": "Marteau des Coulisses",
+      "family": "Marteau",
+      "visual": "axe",
+      "art": "ff9-backstage-hammer-v1",
+      "restrictions": {
+        "characterIds": [
+          "cina-ff9"
+        ],
+        "families": [
+          "Marteau"
+        ]
+      },
+      "effect": {
+        "trigger": "TEAM_STATE",
+        "stat": "DEF",
+        "value": 20,
+        "duration": "WHILE_TRUE",
+        "when": {
+          "reserveAtMost": 0
+        }
+      },
+      "condition": "Aucun combattant en réserve.",
+      "lore": "Cina connaît les planches qui grincent et les clous qui cèdent. Quand la troupe n’a plus de remplaçant, son marteau ne prépare pas un nouvel acte : il répare ce qui permet encore aux autres de tenir.",
+      "collectible": {
+        "number": "ARM-041",
+        "illustration": "ff9-backstage-hammer-v1.webp",
+        "cutout": true,
+        "flavour": "Le décor tient. La troupe aussi.",
+        "alt": "Marteau des Coulisses, équipement de Final Fantasy IX."
+      }
+    },
+    {
+      "id": "ff9-oath-helm",
+      "slot": "weapon",
+      "kind": "shield",
+      "name": "Casque du Serment",
+      "family": "Casque",
+      "visual": "axe",
+      "art": "ff9-oath-helm-v1",
+      "restrictions": {
+        "characterIds": [
+          "steiner-ff9"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 30,
+        "duration": "NEXT_DEFENSE",
+        "event": "DEFENSE",
+        "when": {
+          "attack": "physical"
+        },
+        "recipient": "self"
+      },
+      "condition": "Première défense physique.",
+      "lore": "Le casque a reçu plus de chocs que de compliments. Steiner en redresse le bord sur le banc de garde. La princesse peut dormir : il lui reste assez de métal, et davantage encore de fidélité.",
+      "collectible": {
+        "number": "PRO-022",
+        "illustration": "ff9-oath-helm-v1.webp",
+        "cutout": true,
+        "flavour": "Sous les bosses, le devoir tient bon.",
+        "alt": "Casque du Serment, équipement de Final Fantasy IX."
+      }
+    },
+    {
+      "id": "ff9-vivi-hat",
+      "slot": "weapon",
+      "kind": "shield",
+      "name": "Chapeau de Vivi",
+      "family": "Chapeau",
+      "visual": "axe",
+      "art": "ff9-vivi-hat-v1",
+      "restrictions": {
+        "characterIds": [
+          "vivi-ff9"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "DEFENSE",
+        "when": {
+          "attack": "magic"
+        },
+        "recipient": "self"
+      },
+      "condition": "Première défense magique.",
+      "lore": "Sous le large bord, le monde paraît moins immense. Vivi reprend une couture et repose son chapeau avec soin. Il ne cache pas sa peur : il se donne seulement un endroit d’où lui faire face.",
+      "collectible": {
+        "number": "PRO-023",
+        "illustration": "ff9-vivi-hat-v1.webp",
+        "cutout": true,
+        "flavour": "Un peu d’ombre pour garder sa lumière.",
+        "alt": "Chapeau de Vivi, équipement de Final Fantasy IX."
+      }
+    },
+    {
+      "id": "ff9-burmecia-coat",
+      "slot": "weapon",
+      "kind": "shield",
+      "name": "Manteau de Bloumécia",
+      "family": "Manteau",
+      "visual": "axe",
+      "art": "ff9-burmecia-coat-v1",
+      "restrictions": {
+        "characterIds": [
+          "freyja-ff9"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "ALLY_FALL",
+        "when": {},
+        "recipient": "self"
+      },
+      "condition": "Après une élimination alliée.",
+      "lore": "Le rouge garde la pluie des rues désertées. Freyja ramène son manteau contre elle quand une voix manque à l’appel. Il ne remplace personne, mais il porte encore la chaleur des chemins partagés.",
+      "collectible": {
+        "number": "PRO-024",
+        "illustration": "ff9-burmecia-coat-v1.webp",
+        "cutout": true,
+        "flavour": "La pluie n’efface pas les compagnons.",
+        "alt": "Manteau de Bloumécia, équipement de Final Fantasy IX."
+      }
+    },
+    {
+      "id": "ff9-solitary-wraps",
+      "slot": "weapon",
+      "kind": "shield",
+      "name": "Bandages du Solitaire",
+      "family": "Bandages",
+      "visual": "axe",
+      "art": "ff9-solitary-wraps-v1",
+      "restrictions": {
+        "characterIds": [
+          "tarask-ff9"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "BLOCK",
+        "when": {},
+        "recipient": "self"
+      },
+      "condition": "Après son premier Block.",
+      "lore": "Tarask enroule le tissu sur les traces du dernier choc. Ses mains pourraient encore se fermer sur la colère. Il les prépare plutôt à tenir une place que les autres n’auront pas à reprendre.",
+      "collectible": {
+        "number": "PRO-025",
+        "illustration": "ff9-solitary-wraps-v1.webp",
+        "cutout": true,
+        "flavour": "Les mains serrées apprennent à rester.",
+        "alt": "Bandages du Solitaire, équipement de Final Fantasy IX."
+      }
+    },
+    {
+      "id": "ff9-reunion-bandana",
+      "slot": "weapon",
+      "kind": "shield",
+      "name": "Bandana des Retrouvailles",
+      "family": "Bandana",
+      "visual": "axe",
+      "art": "ff9-reunion-bandana-v1",
+      "restrictions": {
+        "characterIds": [
+          "franck-ff9"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "DEPLOY",
+        "when": {},
+        "recipient": "self"
+      },
+      "condition": "À son entrée depuis la réserve.",
+      "lore": "Le bandeau a gardé l’odeur des arbres et les plis d’un long silence. Franck le renoue avant de rejoindre la troupe. Aucun grand discours : on lui a gardé une place et il vient la reprendre.",
+      "collectible": {
+        "number": "PRO-026",
+        "illustration": "ff9-reunion-bandana-v1.webp",
+        "cutout": true,
+        "flavour": "Revenir vers ceux qui ont attendu.",
+        "alt": "Bandana des Retrouvailles, équipement de Final Fantasy IX."
+      }
+    },
+    {
+      "id": "ff9-garnet-pendant",
+      "slot": "weapon",
+      "kind": "relic",
+      "name": "Pendentif de Grenat",
+      "family": "Relique",
+      "visual": "flute",
+      "art": "ff9-garnet-pendant-v1",
+      "restrictions": {
+        "characterIds": [
+          "grenat-ff9"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "SUPPORT",
+        "when": {
+          "supports": [
+            "mana",
+            "reraise"
+          ]
+        },
+        "recipient": "support"
+      },
+      "condition": "Après une nouvelle potion ou un Reraise.",
+      "lore": "Le bijou balance près de son cœur, plus ancien que le nom de Dagga. Grenat ne peut choisir tout ce qu’elle a reçu. Elle peut choisir à qui offrir la lumière qu’elle en garde.",
+      "collectible": {
+        "number": "REL-022",
+        "illustration": "ff9-garnet-pendant-v1.webp",
+        "cutout": true,
+        "flavour": "Un héritage à porter, pas à subir.",
+        "alt": "Pendentif de Grenat, équipement de Final Fantasy IX."
+      }
+    },
+    {
+      "id": "ff9-mog-ribbon",
+      "slot": "weapon",
+      "kind": "relic",
+      "name": "Ruban de Mog",
+      "family": "Relique",
+      "visual": "flute",
+      "art": "ff9-mog-ribbon-v1",
+      "restrictions": {
+        "characterIds": [
+          "eiko-ff9"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 30,
+        "duration": "NEXT_DEFENSE",
+        "event": "SUPPORT",
+        "when": {
+          "supports": [
+            "reraise"
+          ]
+        },
+        "recipient": "support"
+      },
+      "condition": "Après un nouveau Reraise accordé.",
+      "lore": "Eiko déplie le ruban avec une douceur qu’elle cache aux autres. Elle y retrouve moins une puissance qu’une présence. Lorsqu’elle aide quelqu’un à tenir, un peu de cette présence l’accompagne.",
+      "collectible": {
+        "number": "REL-023",
+        "illustration": "ff9-mog-ribbon-v1.webp",
+        "cutout": true,
+        "flavour": "Une petite présence qui ne s’éloigne pas.",
+        "alt": "Ruban de Mog, équipement de Final Fantasy IX."
+      }
+    },
+    {
+      "id": "ff9-final-act-feather",
+      "slot": "weapon",
+      "kind": "relic",
+      "name": "Plume du Dernier Acte",
+      "family": "Relique",
+      "visual": "flute",
+      "art": "ff9-final-act-feather-v1",
+      "restrictions": {
+        "characterIds": [
+          "kuja-ff9"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "DEFENSE",
+        "when": {
+          "activeAtMost": 2
+        },
+        "recipient": "self"
+      },
+      "condition": "Deux combattants actifs ou moins.",
+      "lore": "La plume blanche repose sur le velours, loin des regards. Kuja la fait tourner entre ses doigts lorsque le silence gagne la scène. Pour un instant, survivre compte davantage que paraître éternel.",
+      "collectible": {
+        "number": "REL-024",
+        "illustration": "ff9-final-act-feather-v1.webp",
+        "cutout": true,
+        "flavour": "Après les applaudissements, un souffle.",
+        "alt": "Plume du Dernier Acte, équipement de Final Fantasy IX."
+      }
+    },
+    {
+      "id": "ff9-terra-fragment",
+      "slot": "weapon",
+      "kind": "relic",
+      "name": "Fragment de Terra",
+      "family": "Relique",
+      "visual": "flute",
+      "art": "ff9-terra-fragment-v1",
+      "restrictions": {
+        "characterIds": [
+          "garland-ff9"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "ALLY_DEPLOY",
+        "when": {},
+        "recipient": "deployed"
+      },
+      "condition": "Premier allié entrant de réserve.",
+      "lore": "Dans le cristal persiste la lumière d’un monde qui refuse de s’éteindre. Garland observe l’arrivée du nouveau combattant. Le fragment s’éclaire, comme si transmettre une veille pouvait encore la justifier.",
+      "collectible": {
+        "number": "REL-025",
+        "illustration": "ff9-terra-fragment-v1.webp",
+        "cutout": true,
+        "flavour": "Un monde ancien attend encore une relève.",
+        "alt": "Fragment de Terra, équipement de Final Fantasy IX."
+      }
+    },
+    {
+      "id": "ff9-tantalus-script",
+      "slot": "weapon",
+      "kind": "relic",
+      "name": "Manuscrit des Tantalas",
+      "family": "Relique",
+      "visual": "flute",
+      "art": "ff9-tantalus-script-v1",
+      "restrictions": {
+        "characterIds": [
+          "ruby-ff9"
+        ]
+      },
+      "effect": {
+        "trigger": "ONCE_DEFENSE",
+        "stat": "DEF",
+        "value": 25,
+        "duration": "NEXT_DEFENSE",
+        "event": "SUPPORT",
+        "when": {
+          "supports": [
+            "physical"
+          ]
+        },
+        "recipient": "support"
+      },
+      "condition": "Après un nouveau buff physique accordé.",
+      "lore": "Ruby a corrigé les marges jusqu’à user le papier. Entre deux répliques, elle a noté les silences où un partenaire hésite. Un mot soufflé au bon moment suffit parfois à lui rendre la scène.",
+      "collectible": {
+        "number": "REL-026",
+        "illustration": "ff9-tantalus-script-v1.webp",
+        "cutout": true,
+        "flavour": "Une réplique pour retrouver sa place.",
+        "alt": "Manuscrit des Tantalas, équipement de Final Fantasy IX."
+      }
+    }
+  ],
+  "legacyRestrictions": {
+    "fallen-king-axe": {
+      "characterIds": [
+        "balmhyr"
+      ]
+    },
+    "little-joys-flute": {
+      "characterIds": [
+        "momo"
+      ]
+    },
+    "white-oath-rapier": {
+      "characterIds": [
+        "kaylis"
+      ],
+      "families": [
+        "Epée courte"
+      ]
+    },
+    "brotherhood": {
+      "characterIds": [
+        "tidus-ff10"
+      ]
+    },
+    "virtuous-contract": {
+      "characterIds": [
+        "2b-nier"
+      ]
+    },
+    "virtuous-treaty": {
+      "characterIds": [
+        "2b-nier"
+      ]
+    },
+    "socom": {
+      "characterIds": [
+        "solid-snake-mgs"
+      ]
+    },
+    "lulu-mog": {
+      "characterIds": [
+        "lulu-ff10"
+      ]
+    },
+    "leopard-lightning": {
+      "characterIds": [
+        "rikka"
+      ]
+    },
+    "mythic-iron-gauntlet": {
+      "characterIds": [
+        "balmhyr"
+      ]
+    },
+    "post-bow": {
+      "characterIds": [
+        "cana"
+      ]
+    },
+    "grimoire-weiss": {
+      "characterIds": [
+        "nier-replicant"
+      ]
+    },
+    "gen-mechanical-arm": {
+      "characterIds": [
+        "gen"
+      ]
+    },
+    "violet-reaping": {
+      "characterIds": [
+        "voloden"
+      ]
+    },
+    "mantis-mask": {
+      "characterIds": [
+        "psycho-mantis-mgs"
+      ]
+    },
+    "revolver-gunblade": {
+      "characterIds": [
+        "squall-ff8"
+      ]
+    },
+    "wolf-steel": {
+      "characterIds": [
+        "geralt-witcher"
+      ]
+    },
+    "wolf-silver": {
+      "characterIds": [
+        "geralt-witcher"
+      ]
+    },
+    "kaine-saw": {
+      "characterIds": [
+        "kaine-replicant"
+      ]
+    },
+    "buster-sword": {
+      "characterIds": [
+        "cloud-ff7"
+      ]
+    },
+    "psg1": {
+      "characterIds": [
+        "sniper-wolf-mgs"
+      ]
+    },
+    "single-action-army": {
+      "characterIds": [
+        "revolver-ocelot-mgs"
+      ]
+    },
+    "wardens-spear": {
+      "jobs": [
+        "GARDIEN",
+        "GARDIENNE"
+      ]
+    },
+    "soldiers-blade": {
+      "jobs": [
+        "SOLDAT"
+      ]
+    },
+    "commanders-sabre": {
+      "jobs": [
+        "COMMANDANT",
+        "COMMANDANTE"
+      ]
+    },
+    "arborium-twinstring-bow": {
+      "factions": [
+        "Arborium"
+      ]
+    },
+    "arborium-thorn-dagger": {
+      "factions": [
+        "Arborium"
+      ]
+    },
+    "draevenheim-wing-spear": {
+      "factions": [
+        "Draevenheim"
+      ]
+    },
+    "draevenheim-crimson-crossbow": {
+      "factions": [
+        "Draevenheim"
+      ]
+    },
+    "cryptown-oath-sword": {
+      "factions": [
+        "Cryptown"
+      ]
+    },
+    "cryptown-vigil-rifle": {
+      "factions": [
+        "Cryptown"
+      ]
+    },
+    "cryptown-watch-flail": {
+      "factions": [
+        "Cryptown"
+      ]
+    },
+    "rhinoz-ancestral-horn": {
+      "races": [
+        "RHINOZ"
+      ]
+    }
+  }
+}

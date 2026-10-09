@@ -49,6 +49,16 @@ temporaires du presse-papiers ou les preferences non encore documentees.
 
 ## Reperes techniques
 
+### Trois emplacements d'equipement : V4.6.0
+
+Lire [EQUIPEMENTS_460.md](../V4/docs/EQUIPEMENTS_460.md) et les regles actuelles.
+Les nouvelles compositions portent une arme ATK6, une protection DEF6 et une
+relique conditionnelle. Leurs trois maps restent indexees par `characterId`.
+La flute de Momo devient une relique pour garder son soutien; la famille
+d'arme imprimee continue de gouverner les avantages. Les parties anciennes
+gardent leurs definitions version 1 et leurs conditions historiques. Les notes
+ci-dessous sur l'emplacement unique sont des constats anterieurs a la V4.6.0.
+
 ### Nerval, le Veilleur des Passerelles : 9 octobre 2026
 
 Le [lot Nerval](../V4/expansions/2026-10-09-nerval/README.md) ajoute le modele

@@ -30,8 +30,8 @@
       if(!Object.hasOwn(value,'formation')){
         const ids=cards.filter(Boolean);
         formation=legacyFormation(ids);
-        const preferences=defaults()||{};
-        equipment=Object.fromEntries([...new Set(ids.map(id=>byId[id].characterId))].filter(id=>preferences[id]).map(id=>[id,preferences[id]]));
+        const preferences=Q.reconcileLoadout(defaults()||{},Object.values(byId)),members=new Set(ids.map(id=>byId[id].characterId));
+        equipment=Object.fromEntries(Object.entries(preferences).map(([slot,items])=>[slot,Object.fromEntries(Object.entries(items).filter(([id])=>members.has(id)))]));
         captain=null;
       }else{
         formation=clone(value.formation);equipment=clone(value.equipment);captain=value.captain;
@@ -50,20 +50,27 @@
     function fromPreset(value){
       const errors=engine.validatePlayableDeck(value?.cards);if(errors.length)throw new Error(errors.join(' '));
       const formation=engine.lineup(value.cards).map(i=>value.cards[i]);
-      return normalize({name:value.name,cards:value.cards.slice(),formation,captain:formation[0],equipment:{}});
+      return normalize({name:value.name,cards:value.cards.slice(),formation,captain:formation[0],equipment:Q.emptyLoadout()});
     }
     function edit(team,values){
-      const next=clone(team);next.cards=values.slice();next.formation=values.slice(0,5);
+      const next=normalize(team);next.cards=values.slice();next.formation=values.slice(0,5);
       if(!next.formation.includes(next.captain))next.captain=null;
       const members=new Set(values.filter(Boolean).map(id=>byId[id].characterId));
-      next.equipment=Object.fromEntries(Object.entries(next.equipment).filter(([id])=>members.has(id)));
+      next.equipment=Object.fromEntries(Object.entries(next.equipment).map(([slot,items])=>[slot,Object.fromEntries(Object.entries(items).filter(([id,itemId])=>{
+        const item=Q.catalogue.weapons.find(w=>w.id===itemId);
+        return members.has(id)&&values.some(cardId=>byId[cardId]?.characterId===id&&Q.compatible(item,byId[cardId]));
+      }))]));
       return normalize(next);
     }
-    function equip(team,cardId,weaponId){
+    function equip(team,cardId,weaponId,{slot='weapon',expected,expectedLoadout}={}){
       const c=byId[cardId];if(!c||!team.cards.includes(cardId))throw new Error('Choisissez un personnage de cette equipe.');
-      const next=clone(team),profile=Q.profile('deck-loadout',{weapon:next.equipment});
-      if(weaponId===null)delete next.equipment[c.characterId];
-      else next.equipment=Q.equipProfile(profile,c.characterId,weaponId,team.cards.filter(Boolean).map(id=>byId[id]),{expected:next.equipment[c.characterId]||null}).slots.weapon;
+      const next=normalize(team),profile=Q.profile('deck-loadout',next.equipment),item=Q.catalogue.weapons.find(w=>w.id===weaponId);
+      if(weaponId!==null)slot=item?.slot;
+      if(!Object.hasOwn(next.equipment,slot))throw new Error('Emplacement d\u2019equipement invalide.');
+      const current=next.equipment[slot][c.characterId]||null;
+      if(expected!==undefined&&expected!==current||expectedLoadout&&JSON.stringify(next.equipment)!==JSON.stringify(expectedLoadout))throw new Error('La composition a change.');
+      if(weaponId===null)delete next.equipment[slot][c.characterId];
+      else next.equipment=Q.equipProfile(profile,c.characterId,weaponId,team.cards.filter(Boolean).map(id=>byId[id]),{expected:current}).slots;
       return normalize(next);
     }
     return Object.freeze({normalize,fromPreset,slots,edit,equip,clone});

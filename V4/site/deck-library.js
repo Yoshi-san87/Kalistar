@@ -65,7 +65,7 @@
     function read() {
       let raw = storage.getItem(key);
       const decks=raw===null?[]:parse(raw);
-      if(normalizeDeck&&raw!==null&&JSON.parse(raw).schema===1){
+      if(normalizeDeck&&raw!==null&&JSON.stringify(JSON.parse(raw))!==JSON.stringify(envelope(decks))){
         if(storage.getItem(key)!==raw)fail('CONFLICT','Bibliotheque modifiee ailleurs.');
         raw=JSON.stringify(envelope(decks));storage.setItem(key,raw);
       }

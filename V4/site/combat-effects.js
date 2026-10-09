@@ -144,8 +144,16 @@
     }
     function shield(recipient=target,ward=false){
       const node=cardEffect(recipient,'combat-shield'+(ward?' combat-ward':''));
-      node.innerHTML='<i data-lucide="shield-check"></i>'+(ward?'<strong>DEF +60</strong>':'');
-      window.KalistarUI?.icons(node)??window.lucide?.createIcons({root:node});
+      const entry=!ward&&d.formula?.equipmentProtection>0?d.equipment?.protection:null;
+      const protection=entry&&after.equipment?.definitions.find(w=>w.id===entry.weaponId),art=protection&&window.KalistarEquipmentFX?.art(protection);
+      if(art){
+        node.classList.add('combat-equipped-protection');node.dataset.weaponId=protection.id;
+        const image=document.createElement('img');image.src=art;image.alt='';image.draggable=false;
+        const bonus=document.createElement('strong');bonus.textContent='+'+entry.value+' DEF';node.append(image,bonus);
+      }else{
+        node.innerHTML='<i data-lucide="shield-check"></i>'+(ward?'<strong>DEF +60</strong>':'');
+        window.KalistarUI?.icons(node)??window.lucide?.createIcons({root:node});
+      }
       return animate(node,[{opacity:0,transform:'scale(.86)'},{opacity:1,transform:'scale(1)',offset:.2},{opacity:.9,offset:.7},{opacity:0,transform:'scale(1.08)'}],640);
     }
     function impact(){

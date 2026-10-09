@@ -6,8 +6,10 @@
   'use strict';
   const ROLES = ['Tank', 'DPS physique', 'Middle', 'DPS magique', 'Support'];
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const clone = d => ({ name: d.name, cards: d.cards.slice(),...(d.formation?{formation:d.formation.slice(),captain:d.captain,equipment:{...d.equipment}}:{}) });
+  const clone = d => ({ name: d.name, cards: d.cards.slice(),...(d.formation?{formation:d.formation.slice(),captain:d.captain,equipment:JSON.parse(JSON.stringify(d.equipment))}:{}) });
   const icon = name => `<i data-lucide="${name}" aria-hidden="true"></i>`;
+  const equipmentWarning = (w,c) => w.rulesVersion===2&&['weapon','shield'].includes(w.slot)&&typeof c?.[w.effect.stat==='ATK'?'atk':'defense']?.[0]!=='number'
+    ?'Pas de 6 '+w.effect.stat+' num\u00e9rique sur cette \u00e9dition : bonus indisponible.':'';
   const button = (action, symbol, label, extra = '') => `<button type="button" class="kdb-icon" data-deck-action="${action}" title="${esc(label)}" aria-label="${esc(label)}" ${extra}>${icon(symbol)}</button>`;
   const image = c => globalThis.KalistarCardMedia.image(c);
   const crown = () => `<img class="captain-crown" src="${globalThis.KalistarSite?.url('assets/ui/captain-crown-v1.webp')||'assets/ui/captain-crown-v1.webp'}" alt="" aria-hidden="true" draggable="false">`;
@@ -264,12 +266,18 @@
       }
       return '';
     }
+    function equippedHTML(w){
+      const layout=globalThis.KalistarEquipmentFX.layouts[w.slot],crop=globalThis.KalistarCardMedia.crop;
+      const style=`left:${100*(layout.left-crop.left)/crop.width}%;top:${100*(layout.top-crop.top)/crop.height}%;width:${100*layout.width/crop.width}%;height:${100*layout.height/crop.height}%;`;
+      return `<span class="team-equipped" data-equipment-slot="${w.slot}" style="${style}" role="img" aria-label="${esc(globalThis.KalistarWeapons.categories[w.slot].singular+' : '+w.name)}">${globalThis.KalistarEquipmentFX.markup(w,{bonus:false})}</span>`;
+    }
     function slotHTML(id,i){
-      const c=byId.get(id),w=c&&globalThis.KalistarWeapons.weapons.find(w=>w.id===draft.equipment[c.characterId]);
+      const c=byId.get(id),equipped=c?globalThis.KalistarEquipment.items(draft.equipment).filter(w=>w.characterId===c.characterId)
+        .map(w=>globalThis.KalistarWeapons.weapons.find(item=>item.id===w.id)):[];
       const leader=!!c&&draft.captain===id,unavailable=c&&!model.availability(id).available;
       return `<div class="kdb-slot ${i===target?'is-selected':''} ${leader?'is-captain':''} ${unavailable?'is-unavailable':''}" data-deck-slot="${i}" ${c?`data-deck-preview="${id}"`:''}>
         <div class="kdb-slot-top"><span>${i<5?'P'+(i+1):'R'+(i-4)}</span>${button('reorder','grip-vertical','Echanger '+(c?c.name:'la place'),`data-slot="${i}" aria-pressed="${reorderFrom===i}"`)}${c?button('remove','x','Retirer '+c.name,`data-slot="${i}"`):'<span></span>'}</div>
-        <button type="button" class="kdb-slot-image" data-deck-action="slot" data-slot="${i}" aria-pressed="${i===target}" aria-label="${i<5?'P'+(i+1):'Reserve'}${c?' : '+esc(c.name):' libre'}">${c?`<img src="${image(c)}" alt="${esc(c.name)}" draggable="false">${w?`<span class="team-equipped" role="img" aria-label="Equipement : ${esc(w.name)}">${globalThis.KalistarEquipmentFX.markup(w,{bonus:false})}</span>`:''}`:icon('plus')}</button>
+        <button type="button" class="kdb-slot-image" data-deck-action="slot" data-slot="${i}" aria-pressed="${i===target}" aria-label="${i<5?'P'+(i+1):'Reserve'}${c?' : '+esc(c.name):' libre'}">${c?`<img src="${image(c)}" alt="${esc(c.name)}" draggable="false">${equipped.map(equippedHTML).join('')}`:icon('plus')}</button>
         <div class="team-card-caption"><span class="kdb-slot-label" title="${c?esc(c.name):'Libre'}">${c?esc(c.name):'Libre'}</span>${c?button('detail','scan-eye','Inspecter '+c.name,`data-id="${id}"`):''}</div>
         ${i<5?`<button type="button" class="kdb-icon" data-deck-action="captain" data-slot="${i}" aria-pressed="${leader}" aria-label="${esc(leader?'Capitaine : '+c.name:'Definir le capitaine')}" title="${esc(leader?'Capitaine : '+c.name:'Definir le capitaine')}" ${c?'':'disabled'}>${crown()}</button>`:''}
       </div>`;
@@ -285,10 +293,16 @@
         <details class="team-potential"><summary>Potentiel de l'equipe \u00b7 ${draft.cards.filter(Boolean).length} personnages</summary><div>${['faction','race'].map(field=>`<span>${icon(field==='faction'?'flag':'users')}${model.groups(draft.cards,field).map(g=>esc(g.value)+' \u00d7'+g.count).join(' \u00b7 ')}</span>`).join('')}</div></details></section>`;
     }
     function weaponHTML(){
-      const c=byId.get(draft.cards[target]),equipped=c&&draft.equipment[c.characterId];
+      const c=byId.get(draft.cards[target]);
       if(!c)return '<p class="kdb-empty-results">Choisissez un personnage de votre equipe.</p>';
       const weapons=globalThis.KalistarWeapons.weapons.filter(w=>globalThis.KalistarEquipment.compatible(w,c));
-      return `<div class="team-weapon-list">${weapons.map(w=>`<article class="team-weapon"><div class="team-weapon-art">${globalThis.KalistarEquipmentFX.markup(w,{bonus:false})}</div><div><h3>${esc(w.name)}</h3><strong>+${w.effect.value} ${w.effect.stat}</strong><p>${esc(w.condition)}</p><button type="button" data-deck-action="${equipped===w.id?'unequip':'equip'}" data-id="${w.id}" aria-pressed="${equipped===w.id}">${icon(equipped===w.id?'check':globalThis.KalistarWeapons.categories[globalThis.KalistarWeapons.kind(w)].icon)}${equipped===w.id?'Desequiper':'Equiper'}</button></div></article>`).join('')||'<p class="kdb-empty-results">Aucun équipement compatible.</p>'}</div>`;
+      return `<div class="team-weapon-list">${Object.entries(globalThis.KalistarWeapons.categories).map(([slot,category])=>{
+        const available=weapons.filter(w=>w.slot===slot),equipped=draft.equipment[slot][c.characterId];
+        return `<section class="team-equipment-group" aria-label="${esc(category.label)}"><h3>${icon(category.icon)}${esc(category.label)}</h3>${available.map(w=>{
+          const warning=equipmentWarning(w,c),notice='team-equipment-warning-'+w.id;
+          return `<article class="team-weapon"><div class="team-weapon-art">${globalThis.KalistarEquipmentFX.markup(w,{bonus:false,slot})}</div><div><h4>${esc(w.name)}</h4><strong>+${w.effect.value} ${w.effect.stat}</strong><p>${esc(w.condition)}</p>${warning?`<p id="${notice}" data-equipment-unavailable="${w.id}">${icon('triangle-alert')}${esc(warning)}</p>`:''}<button type="button" data-deck-action="${equipped===w.id?'unequip':'equip'}" data-id="${w.id}" aria-pressed="${equipped===w.id}" ${warning?`aria-describedby="${notice}" ${equipped!==w.id?'disabled':''}`:''}>${icon(equipped===w.id?'check':category.icon)}${equipped===w.id?'Desequiper':'Equiper'}</button></div></article>`;
+        }).join('')||'<p class="kdb-empty-results">Aucun équipement compatible.</p>'}</section>`;
+      }).join('')}</div>`;
     }
     function render() {
       const saved=savedDecks(),state=model.evaluate(draft),list=visibleCandidates();
@@ -419,9 +433,10 @@
         comparison = { id, index, advance, outgoing: draft.cards[index], deck: selected }; repaint(); return;
       }
       const before = clone(draft), oldTarget = target, oldPreview = previewId, undo = editState();
-      draft = clone(draft); draft.cards[index] = id; target = index; previewId = id; pendingDelete = false;
-      if (advance) { const empty = draft.cards.indexOf(null); if (empty >= 0) target = empty; }
-      try { emit(); }
+      const cards=draft.cards.slice();cards[index]=id;target = index; previewId = id; pendingDelete = false;
+      if (advance) { const empty = cards.indexOf(null); if (empty >= 0) target = empty; }
+      // Validate the intact source before updating formation and equipment bindings.
+      try { draft=Team.edit(draft,cards);emit(); }
       catch (error) { draft = before; target = oldTarget; previewId = oldPreview; working.set(selected, clone(before)); toast(error.message); repaint(); return; }
       remember(undo);
       announce(byId.get(id).name + ' rejoint le slot ' + (index + 1) + '.');
@@ -601,9 +616,12 @@
         }
         if(action==='equip'||action==='unequip'){
           const c=byId.get(draft.cards[target]);if(!c)return;
-          const old=draft.equipment[c.characterId],carrier=Object.entries(draft.equipment).find(([key,value])=>value===id&&key!==c.characterId);
+          const item=globalThis.KalistarWeapons.weapons.find(w=>w.id===id);if(!item)return;
+          const old=draft.equipment[item.slot][c.characterId],carrier=Object.entries(draft.equipment[item.slot]).find(([key,value])=>value===id&&key!==c.characterId);
+          const expectedLoadout=JSON.parse(JSON.stringify(draft.equipment));
           if(action==='equip'&&(old||carrier)&&!mountedWindow.confirm('Remplacer ou deplacer cet equipement dans cette equipe ?'))return;
-          const before=editState();draft=Team.equip(draft,c.id,action==='unequip'?null:id);
+          if(draft.cards[target]!==c.id)throw new Error('La composition a change.');
+          const before=editState();draft=Team.equip(draft,c.id,action==='unequip'?null:id,{slot:item.slot,expected:old||null,expectedLoadout});
           try{emit();}catch(error){draft=clone(before);working.set(selected,clone(draft));throw error;}
           remember(before);repaint();return;
         }
@@ -619,8 +637,8 @@
         if (action === 'slot' || action === 'target-previous' || action === 'target-next') { target = action==='slot'?Number(control.dataset.slot):Math.max(0,Math.min(9,target+(action==='target-next'?1:-1))); previewId = draft.cards[target]; }
         if (action === 'slot' && mountedWindow?.matchMedia('(max-width:900px)').matches) panel='recruit';
         if (action === 'remove') {
-          const before = editState(); target = Number(control.dataset.slot); draft.cards = draft.cards.slice(); draft.cards[target] = null; pendingDelete = false; previewId = null;
-          try { emit(); remember(before); }
+          const before = editState(),cards=draft.cards.slice(); target = Number(control.dataset.slot); cards[target] = null; pendingDelete = false; previewId = null;
+          try { draft=Team.edit(draft,cards);emit(); remember(before); }
           catch (error) { draft=clone(before); target = before.target; previewId = before.previewId; working.set(selected, clone(draft)); throw error; }
         }
         if (action === 'add') {
