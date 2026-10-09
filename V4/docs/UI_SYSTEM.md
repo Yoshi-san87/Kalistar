@@ -56,6 +56,14 @@ sur les choix persistants. Ne jamais faire d'une carte une commande encadree.
 
 ## Limites de responsabilite
 
+Depuis la V4.6.8, `site/arena-console-skin.css` applique ces memes matieres au
+panneau central d'arene, apres les anciennes feuilles de style. Le cuivre,
+la texture et les titres Cinzel sont partages. Les chiffres restent dans leur
+police de combat. Un reflet de bord suit le joueur qui doit agir; les phases
+de lancer et de resolution produisent une breve reaction lumineuse.
+Ces decorations CSS sont non interactives, suspendues sous une popup et
+retirees en Reduced Motion. Aucun changement de moteur, RNG ou sauvegarde.
+
 Le socle ne change ni tailles de cartes, ni disposition des slots, ni animation
 de combat, ni nav principale. Le palmares conserve les recadrages, le trophee MVP
 a 25 %, les ex aequo et le flux continu telephone. Les illustrations ne sont

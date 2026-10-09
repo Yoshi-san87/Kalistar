@@ -13,7 +13,7 @@ test('console cue follows the decision owner, including defense, support and rei
     assert.equal(JSON.stringify(context.state),before);
   }
 });
-test('the cue is decorative, static, reduced-motion safe and adds no phase or engine changes',()=>{
+test('the cue is decorative, reduced-motion safe and adds no phase or engine changes',()=>{
   assert(app.includes('<span class="console-turn-light" aria-hidden="true"></span>'));
   assert(css.includes('pointer-events:none;opacity:0'));
   assert(css.includes('.duel-console[data-acting-side="1"] .console-turn-light'));

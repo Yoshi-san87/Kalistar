@@ -601,12 +601,13 @@ function showDeck(){setView('decks');}
   function decorateArena(){
     const shell=$('.game-shell'),console=$('.duel-console');if(!shell||!console||!game)return;
     console.insertAdjacentHTML('beforeend','<span class="console-turn-light" aria-hidden="true"></span>');
+    console.insertAdjacentHTML('beforeend','<span class="console-inlay" aria-hidden="true"></span>');
     const arena=arenaById(game.arenaId),styles={aero:['wind','#acdccc','#152322','bridge'],hydro:['waves','#82dce3','#112429','water'],electro:['zap','#f2d668','#20232c','circuit'],pyro:['flame','#ee9b72','#2b1c1e','forge'],cryo:['snowflake','#b8eaf0','#1b2830','ice'],luxo:['sun','#e8d590','#262521','sun'],minero:['mountain','#b5cbae','#232922','stone'],herbo:['leaf','#a6d88d','#1b2a23','leaves'],hemato:['droplets','#ee879a','#291d28','gates'],necro:['moon','#b2aedf','#211f2e','gates'],geo:['brick-wall','#cfb87f','#282620','stone'],rainbow:['gem','#e4c5e2','#242231','prism'],z13:['pickaxe','#7fded6','#162a2c','circuit'],'trone-fer':['crown','#ddc799','#24282a','gates'],astraball:['goal','#e5b184','#242924','street'],ruins:['landmark','#b7c7ae','#232723','stone']};
-    const [symbol,accent,surface,material]=styles[arena.id]||styles.ruins;
+    const [,accent,surface,material]=styles[arena.id]||styles.ruins;
     shell.dataset.arena=arena.id;console.dataset.material=material;console.style.setProperty('--arena-accent',accent);console.style.setProperty('--arena-surface',surface);
     $('.arena-toolbar .tools').insertAdjacentHTML('beforeend',`<button class="icon-button mobile-only" data-action="arena-menu" aria-label="Options du match" title="Options du match">${icon('ellipsis')}</button>`);
     shell.querySelectorAll('.resources [data-action]').forEach(button=>button.setAttribute('aria-label',(button.dataset.action==='reserves'?'Réserve':'Cimetière')+' du joueur '+(Number(button.dataset.side)+1)));
-    console.insertAdjacentHTML('beforeend',`<div class="arena-crown" title="${esc(arena.name)}" aria-label="${esc(arena.name)}">${icon(symbol)}</div>`);
+    console.insertAdjacentHTML('beforeend',`<div class="arena-crown" title="${esc(arena.name)}" aria-label="${esc(arena.name)}"><img src="assets/navigation/arena-v1.webp" alt="" width="128" height="128" draggable="false"></div>`);
     const score=[game.players[1].dead.length,game.players[0].dead.length];
     const opponent=game.mode==='ai'?'Le Veilleur':'Joueur 2';
     const toolbar=$('.arena-toolbar');toolbar.querySelector('.tools').insertAdjacentHTML('beforebegin',`<div class="match-scoreboard" role="group" aria-label="Score du match : Joueur 1 ${score[0]}, ${opponent} ${score[1]}"><div class="score-plate" data-score-side="0"><small>Joueur 1</small><strong data-kills="0">${score[0]}</strong></div><span class="score-seal" aria-hidden="true"><img src="assets/navigation/kalistel-rainbow-v1.webp" alt="" width="24" height="34"><small>10 KILLS</small></span><div class="score-plate" data-score-side="1"><small>${opponent}</small><strong data-kills="1">${score[1]}</strong></div></div>`);

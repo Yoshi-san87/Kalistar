@@ -6,6 +6,25 @@ Read the [handoff guide](../../docs/GUIDE_REPRISE.md) and the
 [current gameplay summary](../docs/REGLES_JEU.md), including the documented
 difference between the ten-kill objective and the engine's empty-board ending.
 
+## Arena Console Materials (V4.6.8)
+
+`arena-console-skin.css` is the final, narrowly scoped presentation layer for
+the central duel console. It uses the shared copper/ink tokens, existing
+grimoire texture, Cinzel headings and navigation emblem. Card bounds, scores,
+combat stacking, engine and save formats stay unchanged. The phone retains
+its 110px strip and separate thumb action.
+
+A small composited highlight travels along the current decision owner's
+edge. Casting and resolution trigger a soft metal reflection. Decorations
+are pointer-transparent, stop beneath open dialogs and are disabled by
+Reduced Motion. They are CSS-only and disappear with the arena DOM: no new
+timers, render loop, canvas or event listeners.
+
+Checks: `arena-console-skin.test.cjs`, `arena-console-skin.browser.test.cjs`
+and the existing console-turn/scoreboard suites. Browser checks use isolated
+databases and real engine states, across PC, Razr, compact and landscape.
+Final built screenshots: `../revisions/2026-10-09-arena-console/qa/built/`.
+
 ## Crossover Catalogue (V4.6.6)
 
 Robin, seven X-Men and Geralt V2 join the approved native catalogue. X-Men uses
@@ -795,8 +814,8 @@ and its compact score remain unchanged.
 for selection/attack/support, defender for defense, and `replacing` for a
 reinforcement. Setup, initiative, result and finished matches are neutral.
 The decorative `console-turn-light` adds a soft cyan left edge or rose right
-edge below panel content. It has no timer, recurring animation or interaction;
-Reduced Motion removes its short fade. Existing textual/accessible action
+edge below panel content. The V4.6.8 skin adds a small CSS-only edge reflection;
+Reduced Motion removes it and the short fade. Existing textual/accessible action
 labels remain the primary explanation. Combat and save state are unchanged.
 
 Coverage: `console-turn.test.cjs`, `console-turn.browser.test.cjs` and

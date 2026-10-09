@@ -87,6 +87,7 @@ jobs:
           node --test V4/site/turn-timeline.test.cjs
           node --test V4/site/combat-timeline.test.cjs
           node --test V4/site/scoreboard.test.cjs
+          node --test V4/site/arena-console-skin.test.cjs V4/site/console-turn.test.cjs
           node --test V4/site/catalogue-updates.test.cjs
           node --test V4/site/match-metrics.test.cjs V4/site/kill-medals.test.cjs
           node --test V4/site/navigation.test.cjs

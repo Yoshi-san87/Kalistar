@@ -47,7 +47,7 @@ async function main(){
           return {side:panel.dataset.actingSide,count:panel.querySelectorAll('.console-turn-light').length,opacity:+c.opacity,pointer:c.pointerEvents,hidden:cue.getAttribute('aria-hidden'),left:r.left-p.left,right:p.right-r.right,border:parseFloat(getComputedStyle(panel).borderLeftWidth),animations:cue.getAnimations().length,color:c.borderLeftColor,transition:c.transitionDuration};
         });
         const expected=s.phase==='defense'?1-s.turn:s.phase==='replace'?s.replacing:['result','over'].includes(s.phase)?null:s.turn;
-        assert.equal(result.side,expected===null?'':String(expected));assert.equal(result.count,1);assert.equal(result.pointer,'none');assert.equal(result.hidden,'true');assert.equal(result.animations,0);
+        assert.equal(result.side,expected===null?'':String(expected));assert.equal(result.count,1);assert.equal(result.pointer,'none');assert.equal(result.hidden,'true');assert(result.animations<=1,'at most one decorative edge animation');
         if(expected===null)assert.equal(result.opacity,0);else{assert(result.opacity>0);assert(Math.abs((expected===0?result.left:result.right)-(result.border-1))<.6,key+' / '+width+' / '+JSON.stringify(result));}
         checks.push({width,key,...result});
         if(['choose-0','choose-1','defense-0'].includes(key)){
