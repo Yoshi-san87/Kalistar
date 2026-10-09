@@ -1221,7 +1221,7 @@
         "recipient": "support"
       },
       "condition": "Après un nouveau buff physique accordé.",
-      "lore": "Le Sphinx referme le petit coffret avec un sourire contrarié. Il a trouvé la solution avant tout le monde. Il lui reste à décider qui aura le droit de s'en servir.",
+      "lore": "L'Homme Mystère referme le petit coffret avec un sourire contrarié. Il a trouvé la solution avant tout le monde. Il lui reste à décider qui aura le droit de s'en servir.",
       "collectible": {
         "number": "REL-028",
         "illustration": "gotham-riddle-box-v1.webp",

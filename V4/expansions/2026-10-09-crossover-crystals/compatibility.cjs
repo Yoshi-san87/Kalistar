@@ -3,6 +3,7 @@ const assert=require('node:assert/strict'),set=require('./set.json');
 const elements=require('../../../V3/donnees/elements.json');
 // Old publications remain immutable; only this documented native revision may follow them.
 function assertPriorEntry(actual,prior){
+  actual=require('../../revisions/2026-10-09-homme-mystere/compatibility.cjs').previousEntry(actual);
   const spec=set.revisions.find(c=>c.id===prior.id);
   if(!spec||actual.nativeRevision?.id!==set.id)return assert.deepEqual(actual,prior);
   assert.equal(actual.profile.element,spec.element);assert.equal(actual.element,spec.element);

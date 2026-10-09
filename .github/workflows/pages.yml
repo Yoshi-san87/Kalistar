@@ -34,6 +34,8 @@ jobs:
         run: git lfs pull --include="V4/expansions/2026-10-09-gotham-completion/art/*.png,V4/expansions/2026-10-09-gotham-completion/cards/*/illustration.png" --exclude=""
       - name: Fetch crossover approved illustration proof sources
         run: git lfs pull --include="V4/expansions/2026-10-09-crossover-crystals/art/*.png,V4/expansions/2026-10-09-crossover-crystals/cards/*/illustration.png,V4/expansions/2026-10-09-crossover-crystals/components/flag-XMEN.png,V4/propositions/2026-10-07-xmen/*.png" --exclude=""
+      - name: Fetch renamed card illustration proof
+        run: git lfs pull --include="V4/creations/49901503/illustration.png" --exclude=""
       - name: Install equipment media verifier
         run: npm install --prefix "$RUNNER_TEMP/kalistar-media-qa" --no-package-lock --ignore-scripts --no-audit --no-fund sharp@0.35.4
       - name: Check catalogue and mechanics
@@ -58,6 +60,7 @@ jobs:
           node --test V4/expansions/2026-10-09-gotham/integration.test.cjs
           node --test V4/expansions/2026-10-09-gotham-completion/integration.test.cjs
           node --test V4/expansions/2026-10-09-crossover-crystals/integration.test.cjs
+          node --test V4/revisions/2026-10-09-homme-mystere/integration.test.cjs
           node --test V4/revisions/2026-10-06-balmhyr-durane/revision.test.cjs
           node --test V4/revisions/2026-10-01-stat-personality/revision.test.cjs
           node --test V4/expansions/2026-10-01-rikka-rooftops/model.test.cjs
