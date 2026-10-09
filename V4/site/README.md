@@ -6,6 +6,32 @@ Read the [handoff guide](../../docs/GUIDE_REPRISE.md) and the
 [current gameplay summary](../docs/REGLES_JEU.md), including the documented
 difference between the ten-kill objective and the engine's empty-board ending.
 
+## Arena Closing Ceremony (V4.6.10)
+
+The final resolved exchange remains manual. `arena-finale.js` probes `next()`
+on an engine clone to label its action **Duel termine** only when the existing
+resolver would finish the match. Pending relic attribution and replacements
+remain in their normal flow. No combat rules, RNG, scores or saves change.
+
+After that action, the arena itself stages the earned characters and their
+actual Golden trophies (including dead characters and tied laureates). The
+MVP enters first with a soft gold light; other cards and trophies follow.
+There are no confetti, canvas, timers or continuous JS render loop. A touch
+carousel handles all laureates on phones and large ties. Reduced Motion and
+the skip control settle the entrance immediately. Dialogs pause the quiet
+MVP glow; navigation/pagehide disconnect listeners and the resize observer.
+
+Palmares remains the existing detailed report, opened explicitly. **Dernier
+duel** restores the board and its calculation; **Ceremonie** returns to the
+presentation without replaying its entrance in the same session. Complete
+saved matches resume on the ceremony, while partial archives earn no trophies.
+
+Checks: `arena-finale.test.cjs` (60 real matches, terminal/nonterminal probes,
+replacements, pending gifts, 200-exchange draw, partial archives) and
+`arena-finale.browser.test.cjs` (PC, wide PC, Razr, compact, landscape,
+reload, carousel, last duel, report, resize and Reduced Motion).
+Captures: `../revisions/2026-10-09-arena-finale/qa/built/`.
+
 ## Arena Console Materials (V4.6.8)
 
 `arena-console-skin.css` is the final, narrowly scoped presentation layer for

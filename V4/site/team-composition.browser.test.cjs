@@ -218,7 +218,7 @@ async function verify(page,output){
     await db.saveGame(s);localStorage.setItem('kalistar.v4.game',JSON.stringify(s));return {phase:s.phase,replacement,capDeath};
   });
   assert.equal(final.phase,'over');assert(final.replacement);assert(final.capDeath);
-  await page.reload();await page.waitForSelector('#match-dialog[open]');
+  await page.reload();await page.waitForSelector('.arena-finale');
   assert.equal((await game()).phase,'over');await page.screenshot({path:path.join(output,'completed-phone.png')});
   fs.writeFileSync(path.join(output,'results.json'),JSON.stringify({sizes,team:saved,scenario:final,checks:['UI recruitment','captain changes','drag','undo/redo','equipment','reload','duplicate','JSON roundtrip','mobile sheets','real duel','captain formula','replacement','completed match']},null,2));
 }

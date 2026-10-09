@@ -123,7 +123,7 @@ const elements=['ELECTRO','PYRO','HYDRO','AERO','CRYO','MINERO','GEO','HERBO','H
       const p=s.players[0];p.dead.push(...p.board.filter(Boolean));p.board=p.board.map(()=>null);s.phase='result';KalistarEngine.createEngine(KALISTAR_DATA).next(s);return s;
     },imminent);
     await stage(terminal);assert.equal(await page.locator('.arena-ambience,.element-aura').count(),0);assert.equal(await page.evaluate(()=>KalistarAmbience.inspect().running),false);
-    await page.locator('#match-dialog > .dialog-head [data-action=close]').click();await stage();
+    assert.equal(await page.locator('.arena-finale').count(),1);await stage();
     // An immediately clicked roll must await activation, then keep the exact engine result.
     await choose();await page.locator('[data-action=lock]').click();const locked=await saved();
     await page.locator('[data-action=roll]').click();await page.waitForTimeout(230);assert.equal(await page.locator('.ritual-flight').count(),0);

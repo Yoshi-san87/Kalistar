@@ -263,8 +263,8 @@ async function main(){
       await page.mouse.click(1,1);
     }
     assert.match(await page.title(),/^Kalistar V4\.6\.5/);
-    if(name==='desktop')assert.equal(await page.locator('.edition').innerText(),'VERSION 4.6.9');
-    else assert.equal(await page.locator('.brand').evaluate(n=>getComputedStyle(n,'::after').content),'"V4.6.9"');
+    if(name==='desktop')assert.equal(await page.locator('.edition').innerText(),'VERSION 4.6.10');
+    else assert.equal(await page.locator('.brand').evaluate(n=>getComputedStyle(n,'::after').content),'"V4.6.10"');
     if(name==='desktop'){
       const migrated=await page.evaluate(()=>new Promise((resolve,reject)=>{
         const request=indexedDB.open('kalistar-v4-cards');request.onerror=()=>reject(request.error);

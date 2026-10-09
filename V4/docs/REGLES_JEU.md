@@ -108,6 +108,16 @@ L'action et les animations se terminent avant le bouton **Tour suivant**. La
 phase `result` conserve le detail consultable ; `next()` declenche la suite et
 les remplacements. Ne pas remettre une transition automatique de tour.
 
+Depuis la V4.6.10, le dernier bouton affiche **Duel termine** lorsque `next()`
+termine effectivement la rencontre (verification sur une copie de l'etat).
+Le dernier resultat reste lisible avant ce clic. Ensuite, une ceremonie remet
+en scene les personnages ayant reellement gagne des trophees, morts compris,
+sur le decor de l'arene. Elle ne les ressuscite pas dans le moteur et n'ajoute
+aucune recompense. Les ex aequo sont conserves ; les historiques partiels
+n'attribuent aucun trophee. Le Palmares et le Dernier duel restent accessibles.
+Cette mise en scene, sans confettis et desactivable, ne change ni les regles
+de victoire, ni les scores, ni le journal, ni les sauvegardes.
+
 **Intention utilisateur : premier a dix kills definitifs.** Un Reraise ne donne
 pas de kill. **Implementation actuelle :** `findReplacement()` termine aussi
 la partie lorsqu'un camp n'a plus de carte sur le plateau apres recherche des

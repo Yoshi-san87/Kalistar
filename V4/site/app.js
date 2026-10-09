@@ -76,6 +76,7 @@
   const hashView=()=>views.includes(location.hash.slice(1))?location.hash.slice(1):'collection';
   const ui={view:hashView(),attacker:null,target:null,reserve:null,replacementSlot:null,detail:null,art:false};
   let pendingLineup=null,lineupIntro=null,presentationOpening=false;
+  const finale=KalistarFinale.create();
   function cancelLineup(){lineupIntro?.destroy();lineupIntro=null;presentationOpening=false;}
   function presentLineup(){
     if(ui.view!=='arena'||!pendingLineup&&game?.phase!=='initiative')return;
@@ -159,6 +160,7 @@
   }
   function render(){
     cancelLineup();
+    finale.destroy();
     if(ui.view!=='arena')pendingLineup=null;
     combatController?.abort();
     window.KalistarCombat?.cancelKillCelebration();
@@ -212,7 +214,15 @@
     if(ui.view==='arena')window.KalistarEquipmentFX.mount(game,E);
     syncDetailEquipment();
     presentLineup();persist();scheduleAI();
-    if(ui.view==='arena'&&game?.phase==='over'&&!ui.endShown){ui.endShown=true;showMatchStats(game);}
+    if(ui.view==='arena'&&game?.phase==='over'){
+      const ceremony=ui.finaleBoard!==game.matchId,shell=$('.game-shell');
+      shell.dataset.finale=String(ceremony);
+      if(ceremony){
+        $('.arena-layout').insertAdjacentHTML('beforeend',KalistarFinale.render(game,E,{image:cardImage,arenaName:arenaById(game.arenaId).name}));
+        icons();finale.mount($('.arena-finale'),{focus:!ui.endShown});
+      }
+      ui.endShown=true;
+    }
   }
   function collectionView(){
     if(!collectionBinder)collectionBinder=KalistarCollection.create({
@@ -574,9 +584,10 @@ function showDeck(){setView('decks');}
     }else if(s.phase==='replace'){
       label=`RENFORTS · JOUEUR ${s.replacing+1}`;title='Position libérée';actions=duelAction('auto-replace','replace','Déployer les renforts',{disabled:s.mode==='ai'&&s.replacing===1});
     }else if(s.phase==='over'){
-      label='FIN DE PARTIE';title=s.winner==='draw'?'Match nul':s.winner===0?'Victoire du joueur 1':s.mode==='ai'?'Le Veilleur l’emporte':'Victoire du joueur 2';actions=duelAction('new-game','rotate-ccw','Nouvelle partie');
+      label='FIN DE PARTIE';title=s.winner==='draw'?'Match nul':s.winner===0?'Victoire du joueur 1':s.mode==='ai'?'Le Veilleur l’emporte':'Victoire du joueur 2';actions=duelAction('finale-show','trophy','Cérémonie');
     }else{
-      label='DUEL RÉSOLU';title=s.duel.outcome;actions=duelAction('next','arrow-right','Tour suivant',{disabled:rolling});
+      const terminal=KalistarFinale.endsAfterResult(s,E);
+      label='DUEL RÉSOLU';title=s.duel.outcome;actions=duelAction('next',terminal?'flag':'arrow-right',terminal?'Duel terminé':'Tour suivant',{disabled:rolling});
       const gift=E.equipmentChoice(s);
       if(gift){
         const auto=s.mode==='ai'&&gift.sourceUid[0]==='1';
@@ -857,6 +868,8 @@ function showDeck(){setView('decks');}
       if(action==='rules')return showRules();
       if(action==='arena-picker')return showArenaPicker();
       if(action==='match-stats')return showMatchStats(game);
+      if(action==='finale-board'){ui.finaleBoard=game.matchId;render();$('.duel-status')?.focus({preventScroll:true});return;}
+      if(action==='finale-show'){ui.finaleBoard=null;render();$('.arena-finale h2')?.focus({preventScroll:true});return;}
       if(action==='stats-sort'){statsSort=id;statsPage=0;return showMatchStats();}
       if(action==='stats-side'){statsSide=id;statsPage=0;return showMatchStats();}
       if(action==='stats-tab'){statsTab=id;statsPage=0;return showMatchStats();}
@@ -1037,6 +1050,6 @@ function showDeck(){setView('decks');}
     if(ui.view==='collection')collectionBinder?.refresh();
     if(ui.view==='decks')deckBuilder?.refresh();
   });
-  window.addEventListener('pagehide',()=>{preMatch.cancel();pendingLineup=null;cancelLineup();stopCatalogueRefresh?.();catalogueUpdates.destroy();stopEquipmentRefresh?.();weaponsUI.destroy();});
+  window.addEventListener('pagehide',()=>{preMatch.cancel();pendingLineup=null;cancelLineup();finale.destroy();stopCatalogueRefresh?.();catalogueUpdates.destroy();stopEquipmentRefresh?.();weaponsUI.destroy();});
   render();if(restoreError)toast(restoreError);window.KALISTAR_READY=true;
 })();
