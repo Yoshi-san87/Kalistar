@@ -1,0 +1,62 @@
+{
+  "name": "GUILE",
+  "title": "LE SILLAGE DU SONIC BOOM",
+  "job": "SOLDAT",
+  "description": "Guile ouvre les bras et le silence se fend. Le vent emporte la poussiere du terrain, pas les noms qu'il garde en lui. Sa precision tient a cette promesse : personne ne reste derriere.",
+  "element": "AERO",
+  "race": "HUMAIN",
+  "weapon": "Poing",
+  "faction": "STREETFIGHTER",
+  "positions": [
+    3,
+    4
+  ],
+  "atk": [
+    279,
+    238,
+    172,
+    123,
+    "buff_atk",
+    36
+  ],
+  "defense": [
+    176,
+    133,
+    111,
+    67,
+    48,
+    22
+  ],
+  "magic": [
+    6,
+    4
+  ],
+  "barriers": [
+    5
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49901704",
+  "characterId": "guile-street-fighter",
+  "slug": "V4_49901704",
+  "output": "KALISTAR_V4_49901704",
+  "text": "Guile ouvre les bras et le silence se fend. Le vent emporte la poussiere du terrain, pas les noms qu'il garde en lui. Sa precision tient a cette promesse : personne ne reste derriere.",
+  "color": "89EDC2",
+  "hue": 155,
+  "role": 4,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Kalistar x Street Fighter - fan crossover non officiel",
+  "visual_revision": "V4-2026-10-09-street-fighter",
+  "collaboration": "STREETFIGHTER",
+  "officialCollaboration": false,
+  "artworkSource": "V4/propositions/2026-10-09-street-fighter/images/guile-v4.png"
+}

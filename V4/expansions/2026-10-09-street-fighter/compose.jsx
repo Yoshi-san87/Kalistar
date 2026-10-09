@@ -1,0 +1,12 @@
+#target photoshop
+#include "../../scripts/stable/elements-common.jsx"
+#include "../2026-10-04-city-guards/compose-one.jsx"
+var home=File($.fileName).parent.fsName.replace(/\\/g,'/')+'/',root=File($.fileName).parent.parent.parent.parent.fsName.replace(/\\/g,'/')+'/';
+if(app.version!=='26.11.8')throw Error('Unexpected Photoshop version');
+var originalSmartQuotes=app.preferences.smartQuotes;
+try{
+ app.preferences.smartQuotes=false;
+ var set=K.read(home+'set.json');
+ for(var i=0;i<set.cards.length;i++)composeMines(home+'cards/'+set.cards[i].key+'/',root);
+}finally{app.preferences.smartQuotes=originalSmartQuotes;}
+'Street Fighter native cards composed';

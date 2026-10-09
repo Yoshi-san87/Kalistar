@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "modelId": "49901717",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "a39dab50aba1fb9f6fa33f36385b7d352568a963c81da6a1979c4d664ecc47c8",
+  "hashes": {
+    "card.png": "2277b1aa3362d38af7f8bff4bc5d95493fc74ab7574890e69b977a35850ae9a9",
+    "card.psd": "cc22559463c7634779ef31b6868ee0d6e8a9207e1fe92ac47a57f9e2e05dd5f6"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 112642
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49901717",
+    "cases": {
+      "color-1": [
+        "49901717"
+      ],
+      "color-4": [
+        "49901717"
+      ],
+      "gray-1": [
+        "49901717"
+      ],
+      "gray-4": [
+        "49901717"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-09T14:32:21.746Z",
+  "revision": "2026-10-09-fei-long-final",
+  "scope": {
+    "changed": 437800,
+    "outside": 0
+  },
+  "gameplayUnchanged": true,
+  "inputManifestHash": "fa03fbd065763cbc63c6153c0ac5867628b1c281c485b3cecb861260be3fda74"
+}

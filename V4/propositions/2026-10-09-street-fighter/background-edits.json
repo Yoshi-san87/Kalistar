@@ -1,0 +1,22 @@
+{
+  "method": "built-in image_gen edit",
+  "purpose": "User-requested restrained backgrounds; character and pose retained",
+  "edits": [
+    {
+      "prompt": "Use case: precise-object-edit. Edit ONLY the background of this supplied Ryu Kalistar illustration. Keep Ryu's exact face, identity, expression, anatomy, pose, hands, white gi, red headband, blue Hadouken, painted brushwork, proportions and placement unchanged. Keep the foreground immediately beneath his feet so his weight stays convincing. Simplify everything behind the character drastically into broad low-contrast painted storm-grey air and distant soft rock silhouettes. Remove the ornate arch/machinery, all city towers, multiple ruins and fine background structure. Retain only one very faint broad broken wall shape at the far edge if necessary for setting. No photographic blur: use large painterly masses and less edge definition. The character remains detailed and fully legible. Same vertical framing and image dimensions, same motivated blue/cool dawn lighting. No new objects, no text, no interface, no frame. This is background simplification, not a new pose or style.",
+      "source": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/propositions/2026-10-09-street-fighter/images/ryu.png",
+      "key": "ryu",
+      "generated": "C:\\Users\\guill\\.codex\\generated_images\\01a105ff-8f81-73d3-a496-05ee3a7f1a72\\exec-f03ac4ad-306e-4473-b913-d2651417af0b.png",
+      "final": "images/ryu-v2.png",
+      "originalRetained": "images/ryu.png"
+    },
+    {
+      "prompt": "Use case: precise-object-edit. Simplify ONLY the background of this supplied Ken Masters Kalistar painting. Preserve the exact character, recognizable face, determined expression, red gi, anatomy and rising flaming uppercut pose, gloves, hair, feet and all garment folds, image framing and painterly style. Remove all distant buildings, towers, train carriage and scaffolding/gantry. Replace their space with a quiet broad dusky charcoal sky and a low indistinct horizontal band of ground; at most one very faint low abandoned railway shape, no detailed skyline. Keep the foreground contact context and restrained sunset reflection below him. The flame following his raised fist remains unchanged. No photographic blur, use broad brushwork and low-contrast masses. A character-focused narrative fantasy painting, no new objects, lettering, logo, border, frame or interface. Same vertical dimensions.",
+      "source": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/propositions/2026-10-09-street-fighter/images/ken.png",
+      "key": "ken",
+      "generated": "C:\\Users\\guill\\.codex\\generated_images\\01a105ff-8f81-73d3-a496-05ee3a7f1a72\\exec-6e144aed-1b56-4b2a-92e0-3deaa0d1a56b.png",
+      "final": "images/ken-v2.png",
+      "originalRetained": "images/ken.png"
+    }
+  ]
+}

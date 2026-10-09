@@ -1,0 +1,795 @@
+{
+  "id": "2026-10-09-street-fighter",
+  "officialCollaboration": false,
+  "arenas": [],
+  "presets": [],
+  "excluded": [
+    "rose",
+    "dan"
+  ],
+  "cards": [
+    {
+      "key": "ryu",
+      "id": "49901701",
+      "characterId": "ryu-street-fighter",
+      "name": "RYU",
+      "title": "LE CALME AVANT L'IMPACT",
+      "job": "KARATEKA",
+      "description": "Ryu ecoute son souffle au milieu des vagues. La victoire ne lui suffit pas : il cherche le geste juste, celui qui engage toute sa force sans laisser la colere decider a sa place.",
+      "element": "CRYO",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        286,
+        229,
+        181,
+        138,
+        74,
+        34
+      ],
+      "defense": [
+        172,
+        137,
+        98,
+        78,
+        "retry",
+        18
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        6
+      ],
+      "faction": "STREETFIGHTER",
+      "collaboration": "STREETFIGHTER",
+      "artworkSource": "V4/propositions/2026-10-09-street-fighter/images/ryu-v2.png",
+      "rationale": "Puissance reguliere, Hadoken magique ponctuel et relance DEF : discipline sans soutien gratuit."
+    },
+    {
+      "key": "ken",
+      "id": "49901702",
+      "characterId": "ken-street-fighter",
+      "name": "KEN",
+      "title": "SE RELEVER DANS LES FLAMMES",
+      "job": "KARATEKA",
+      "description": "Les flammes accompagnent Ken quand il se redresse. Il pourrait combattre pour prouver son nom ; il choisit ceux qui l'attendent. Sa fougue devient une promesse qu'il refuse de rompre.",
+      "element": "PYRO",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        296,
+        213,
+        192,
+        111,
+        "buff_atk",
+        46
+      ],
+      "defense": [
+        153,
+        129,
+        107,
+        64,
+        39,
+        15
+      ],
+      "magic": [
+        6,
+        3
+      ],
+      "barriers": [
+        5
+      ],
+      "faction": "STREETFIGHTER",
+      "collaboration": "STREETFIGHTER",
+      "artworkSource": "V4/propositions/2026-10-09-street-fighter/images/ken-v2.png",
+      "rationale": "Pics offensifs, deux attaques de feu, soutien physique au prix de D2 et defense fragile."
+    },
+    {
+      "key": "chun-li",
+      "id": "49901703",
+      "characterId": "chun-li-street-fighter",
+      "name": "CHUN-LI",
+      "title": "L'EQUILIBRE AVANT LA RIPOSTE",
+      "job": "ENQUETRICE",
+      "description": "Chun-Li laisse passer le premier assaut sans reculer. Derriere sa garde demeure le souvenir de son pere. Chaque mouvement cherche moins a punir qu'a rendre leur avenir aux innocents.",
+      "element": "HYDRO",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "role": 3,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        227,
+        193,
+        141,
+        110,
+        "retry",
+        25
+      ],
+      "defense": [
+        218,
+        183,
+        "dodge",
+        104,
+        61,
+        27
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "faction": "STREETFIGHTER",
+      "collaboration": "STREETFIGHTER",
+      "artworkSource": "V4/propositions/2026-10-09-street-fighter/images/chun-li-v3.png",
+      "rationale": "Middle mobile, esquive D4 et trefle attribuable D2 ; compromis sur les scores extremes."
+    },
+    {
+      "key": "guile",
+      "id": "49901704",
+      "characterId": "guile-street-fighter",
+      "name": "GUILE",
+      "title": "LE SILLAGE DU SONIC BOOM",
+      "job": "SOLDAT",
+      "description": "Guile ouvre les bras et le silence se fend. Le vent emporte la poussiere du terrain, pas les noms qu'il garde en lui. Sa precision tient a cette promesse : personne ne reste derriere.",
+      "element": "AERO",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "role": 4,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        279,
+        238,
+        172,
+        123,
+        "buff_atk",
+        36
+      ],
+      "defense": [
+        176,
+        133,
+        111,
+        67,
+        48,
+        22
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "faction": "STREETFIGHTER",
+      "collaboration": "STREETFIGHTER",
+      "artworkSource": "V4/propositions/2026-10-09-street-fighter/images/guile-v4.png",
+      "rationale": "Deux Sonic Boom magiques et soutien physique du soldat, sans esquive ni Mort."
+    },
+    {
+      "key": "cammy",
+      "id": "49901705",
+      "characterId": "cammy-street-fighter",
+      "name": "CAMMY",
+      "title": "LA SECONDE AVANT L'ASSAUT",
+      "job": "AGENTE",
+      "description": "Cammy mesure la distance sans quitter sa cible. On lui a appris a obeir avant de penser ; elle choisit desormais ses combats. Dans ce bref silence, sa liberte precede deja son corps.",
+      "element": "CRYO",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        291,
+        244,
+        165,
+        119,
+        71,
+        "buff_atk"
+      ],
+      "defense": [
+        158,
+        126,
+        96,
+        "dodge",
+        38,
+        14
+      ],
+      "magic": [
+        2
+      ],
+      "barriers": [
+        4
+      ],
+      "faction": "STREETFIGHTER",
+      "collaboration": "STREETFIGHTER",
+      "artworkSource": "V4/propositions/2026-10-09-street-fighter/images/cammy.png",
+      "rationale": "Assaut rapide, esquive D3, buff physique D1 ; une seule frappe elementaire."
+    },
+    {
+      "key": "zangief",
+      "id": "49901706",
+      "characterId": "zangief-street-fighter",
+      "name": "ZANGIEF",
+      "title": "PERSONNE NE PASSERA",
+      "job": "LUTTEUR",
+      "description": "Zangief plante ses pieds et ouvre les bras. Il connait le poids des corps, mais surtout celui de la confiance. Tant qu'il tient debout, les plus fragiles savent ou trouver un rempart.",
+      "element": "MINERO",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "role": 1,
+      "positions": [
+        1,
+        2
+      ],
+      "atk": [
+        203,
+        151,
+        132,
+        79,
+        "guard",
+        29
+      ],
+      "defense": [
+        296,
+        229,
+        193,
+        126,
+        87,
+        41
+      ],
+      "magic": [],
+      "barriers": [
+        6,
+        4
+      ],
+      "faction": "STREETFIGHTER",
+      "collaboration": "STREETFIGHTER",
+      "artworkSource": "V4/propositions/2026-10-09-street-fighter/images/zangief.png",
+      "rationale": "Tank de corps a corps, garde D2 et deux barrieres, aucune attaque magique."
+    },
+    {
+      "key": "dhalsim",
+      "id": "49901707",
+      "characterId": "dhalsim-street-fighter",
+      "name": "DHALSIM",
+      "title": "LA VIOLENCE DU SOUFFLE",
+      "job": "MENTOR",
+      "description": "Dhalsim expire et le feu s'eloigne de ses mains. Il n'aime pas blesser, mais connait le prix de l'inaction. Sa force garde un seul but : permettre aux autres de rentrer chez eux vivants.",
+      "element": "PYRO",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "role": 5,
+      "positions": [
+        4,
+        5
+      ],
+      "atk": [
+        167,
+        129,
+        111,
+        "mana",
+        42,
+        "revive"
+      ],
+      "defense": [
+        187,
+        162,
+        "dodge",
+        89,
+        49,
+        21
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "faction": "STREETFIGHTER",
+      "collaboration": "STREETFIGHTER",
+      "artworkSource": "V4/propositions/2026-10-09-street-fighter/images/dhalsim.png",
+      "rationale": "Soutien P5 : mana D3, coeur D1, deux flammes et esquive D4 ; faibles scores offensifs."
+    },
+    {
+      "key": "blanka",
+      "id": "49901708",
+      "characterId": "blanka-street-fighter",
+      "name": "BLANKA",
+      "title": "PROTEGER CE QUI RESTE",
+      "job": "SURVIVANT",
+      "description": "Blanka sent l'orage courir sous sa peau. Il montre les dents, puis cherche du regard ceux qu'il protege. Le monde voit une menace ; lui se souvient encore de la douceur d'une main.",
+      "element": "ELECTRO",
+      "race": "MACAKO",
+      "weapon": "Poing",
+      "role": 3,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        234,
+        176,
+        153,
+        92,
+        68,
+        32
+      ],
+      "defense": [
+        209,
+        192,
+        131,
+        96,
+        "dodge",
+        24
+      ],
+      "magic": [
+        6,
+        3
+      ],
+      "barriers": [
+        4
+      ],
+      "faction": "STREETFIGHTER",
+      "collaboration": "STREETFIGHTER",
+      "artworkSource": "V4/propositions/2026-10-09-street-fighter/images/blanka.png",
+      "rationale": "Macako demande ; deux faces electriques, defense mobile sans attribuer de soutien."
+    },
+    {
+      "key": "vega",
+      "id": "49901709",
+      "characterId": "vega-street-fighter",
+      "name": "VEGA",
+      "title": "LA GARDE DE LA CAGE",
+      "job": "MATADOR",
+      "description": "Vega leve ses griffes sous la lumiere de la cage. Son masque cache moins son visage que la peur de le perdre. Il attend l'ouverture avec la patience cruelle de ceux qui refusent une trace.",
+      "element": "HEMATO",
+      "race": "HUMAIN",
+      "weapon": "Dague",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        281,
+        247,
+        168,
+        "retry",
+        89,
+        31
+      ],
+      "defense": [
+        156,
+        "dodge",
+        103,
+        71,
+        36,
+        19
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        3
+      ],
+      "faction": "STREETFIGHTER",
+      "collaboration": "STREETFIGHTER",
+      "artworkSource": "V4/propositions/2026-10-09-street-fighter/images/vega-v3.png",
+      "rationale": "Dague pour les griffes metalliques ; esquive D5 remplace une forte DEF, trefle D3."
+    },
+    {
+      "key": "m-bison",
+      "id": "49901710",
+      "characterId": "m-bison-street-fighter",
+      "name": "M. BISON",
+      "title": "LA MAIN QUI IMPOSE LE SILENCE",
+      "job": "COMMANDANT",
+      "description": "Bison ferme la main et l'air semble lui obeir. Il ne voit dans les autres ni rivaux ni temoins, seulement des volontes a plier. Le silence qui le suit a deja le poids d'un ordre.",
+      "element": "NECRO",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "role": 4,
+      "positions": [
+        1,
+        4
+      ],
+      "atk": [
+        294,
+        241,
+        163,
+        132,
+        "mana",
+        39
+      ],
+      "defense": [
+        167,
+        127,
+        94,
+        72,
+        42,
+        16
+      ],
+      "magic": [
+        6,
+        5,
+        3,
+        1
+      ],
+      "barriers": [
+        6
+      ],
+      "faction": "STREETFIGHTER",
+      "collaboration": "STREETFIGHTER",
+      "artworkSource": "V4/propositions/2026-10-09-street-fighter/images/m-bison.png",
+      "rationale": "Psycho Power sur quatre faces ; mana D2 sacrifie une attaque et DEF basse."
+    },
+    {
+      "key": "akuma",
+      "id": "49901711",
+      "characterId": "akuma-street-fighter",
+      "name": "AKUMA",
+      "title": "LE PRIX DE LA PUISSANCE",
+      "job": "COMBATTANT",
+      "description": "Akuma avance sans chercher les regards. Chaque combat retire ce qui le separe encore de la puissance. Sous ses poings demeure une question terrible : que restera-t-il quand il aura tout vaincu ?",
+      "element": "HEMATO",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "role": 2,
+      "positions": [
+        2,
+        4
+      ],
+      "atk": [
+        299,
+        226,
+        189,
+        "death",
+        83,
+        27
+      ],
+      "defense": [
+        151,
+        121,
+        92,
+        62,
+        33,
+        8
+      ],
+      "magic": [
+        6,
+        2
+      ],
+      "barriers": [
+        4
+      ],
+      "faction": "STREETFIGHTER",
+      "collaboration": "STREETFIGHTER",
+      "artworkSource": "V4/propositions/2026-10-09-street-fighter/images/akuma.png",
+      "rationale": "Mort D3 remplace une attaque moyenne ; pic ATK fort paye par une DEF tres basse."
+    },
+    {
+      "key": "juri",
+      "id": "49901712",
+      "characterId": "juri-street-fighter",
+      "name": "JURI",
+      "title": "LE DEFI DANS LE REGARD",
+      "job": "COMBATTANTE",
+      "description": "Juri se baisse et laisse venir le danger. Son sourire provoque autant qu'il dissimule. Elle transforme chaque ouverture en defi, comme si gagner pouvait enfin faire taire ce qui la poursuit.",
+      "element": "NECRO",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "role": 4,
+      "positions": [
+        2,
+        4
+      ],
+      "atk": [
+        287,
+        231,
+        186,
+        118,
+        72,
+        "retry"
+      ],
+      "defense": [
+        162,
+        146,
+        101,
+        "dodge",
+        39,
+        12
+      ],
+      "magic": [
+        6,
+        4,
+        2
+      ],
+      "barriers": [
+        5
+      ],
+      "faction": "STREETFIGHTER",
+      "collaboration": "STREETFIGHTER",
+      "artworkSource": "V4/propositions/2026-10-09-street-fighter/images/juri-v2.png",
+      "rationale": "Trois frappes energisees, esquive D3, trefle D1 ; defense numerique irreguliere."
+    },
+    {
+      "key": "balrog",
+      "id": "49901713",
+      "characterId": "balrog-street-fighter",
+      "name": "BALROG",
+      "title": "CHAQUE COUP SE PAIE",
+      "job": "BOXEUR",
+      "description": "Balrog serre les dents derriere ses gants. Il sait ce que vaut un coup et ce qu'il coute de le recevoir. Dans le ring vide, sa rage garde la memoire des jours ou personne ne pariait sur lui.",
+      "element": "MINERO",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "role": 2,
+      "positions": [
+        1,
+        2
+      ],
+      "atk": [
+        298,
+        218,
+        194,
+        108,
+        96,
+        37
+      ],
+      "defense": [
+        166,
+        123,
+        93,
+        64,
+        35,
+        10
+      ],
+      "magic": [],
+      "barriers": [
+        6
+      ],
+      "faction": "STREETFIGHTER",
+      "collaboration": "STREETFIGHTER",
+      "artworkSource": "V4/propositions/2026-10-09-street-fighter/images/balrog.png",
+      "rationale": "Boxe pure et numerique, gros D6 contre DEF faible ; aucune face Mort ou esquive."
+    },
+    {
+      "key": "sagat",
+      "id": "49901714",
+      "characterId": "sagat-street-fighter",
+      "name": "SAGAT",
+      "title": "LA DIGNITE DU TIGRE",
+      "job": "MAITRE",
+      "description": "Sagat leve le genou sans detourner son regard. Sa cicatrice ne lui parle plus seulement de defaite. Elle lui rappelle qu'un homme peut tomber, apprendre, et choisir ce qu'il devient ensuite.",
+      "element": "PYRO",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "role": 4,
+      "positions": [
+        2,
+        4
+      ],
+      "atk": [
+        292,
+        246,
+        176,
+        128,
+        76,
+        44
+      ],
+      "defense": [
+        174,
+        124,
+        106,
+        79,
+        "retry",
+        17
+      ],
+      "magic": [
+        6,
+        4,
+        1
+      ],
+      "barriers": [
+        6
+      ],
+      "faction": "STREETFIGHTER",
+      "collaboration": "STREETFIGHTER",
+      "artworkSource": "V4/propositions/2026-10-09-street-fighter/images/sagat.png",
+      "rationale": "Tiger Shot magique et six attaques numeriques ; relance DEF D2, pas de Mort."
+    },
+    {
+      "key": "e-honda",
+      "id": "49901715",
+      "characterId": "e-honda-street-fighter",
+      "name": "E. HONDA",
+      "title": "LA FORCE DU PREMIER PAS",
+      "job": "SUMOTORI",
+      "description": "Honda avance une paume au milieu de la vapeur. Son art porte le travail de tous ceux qui l'ont precede. Derriere chaque pas, il veut montrer au monde une force capable aussi de rassembler.",
+      "element": "HYDRO",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "role": 1,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        198,
+        169,
+        112,
+        "guard",
+        52,
+        "buff_atk"
+      ],
+      "defense": [
+        289,
+        246,
+        171,
+        137,
+        83,
+        46
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "faction": "STREETFIGHTER",
+      "collaboration": "STREETFIGHTER",
+      "artworkSource": "V4/propositions/2026-10-09-street-fighter/images/e-honda.png",
+      "rationale": "P1 demande ; garde D3 et soutien physique D1, defense robuste et deux barrieres."
+    },
+    {
+      "key": "dee-jay",
+      "id": "49901716",
+      "characterId": "dee-jay-street-fighter",
+      "name": "DEE JAY",
+      "title": "LE RYTHME DANS LES POINGS",
+      "job": "MUSICIEN",
+      "description": "Dee Jay trouve un rythme meme dans la fatigue. Son sourire n'efface pas l'effort : il aide a le traverser. Entre deux coups, il offre aux autres cette seconde ou le courage revient danser.",
+      "element": "LUXO",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        173,
+        136,
+        "buff_atk",
+        78,
+        "retry",
+        "mana"
+      ],
+      "defense": [
+        193,
+        156,
+        126,
+        "retry",
+        53,
+        26
+      ],
+      "magic": [
+        6
+      ],
+      "barriers": [
+        5
+      ],
+      "faction": "STREETFIGHTER",
+      "collaboration": "STREETFIGHTER",
+      "artworkSource": "V4/propositions/2026-10-09-street-fighter/images/dee-jay.png",
+      "rationale": "Soutien rythmique P5 : physique, trefle et mana coutent trois attaques ; aucun coeur."
+    },
+    {
+      "key": "fei-long",
+      "id": "49901717",
+      "characterId": "fei-long-street-fighter",
+      "name": "FEI LONG",
+      "title": "LE GESTE SANS HESITATION",
+      "job": "ARTISTE MARTIAL",
+      "description": "Fei Long repete le geste dans la salle encore vide. Devant une foule, il sait jouer un role ; ici, il ne triche plus. Chaque mouvement retire le superflu pour laisser parler le travail.",
+      "element": "PYRO",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        278,
+        249,
+        173,
+        142,
+        67,
+        "buff_atk"
+      ],
+      "defense": [
+        164,
+        142,
+        106,
+        73,
+        47,
+        "dodge"
+      ],
+      "magic": [
+        2
+      ],
+      "barriers": [
+        6
+      ],
+      "faction": "STREETFIGHTER",
+      "collaboration": "STREETFIGHTER",
+      "artworkSource": "V4/expansions/2026-10-09-street-fighter/art/fei-long-v2.png",
+      "rationale": "Regularite physique, buff D1 et esquive DEF1 ; une seule flamme D2."
+    },
+    {
+      "key": "t-hawk",
+      "id": "49901718",
+      "characterId": "t-hawk-street-fighter",
+      "name": "T. HAWK",
+      "title": "LA GARDE DES DEUX PAUMES",
+      "job": "GARDIEN",
+      "description": "T. Hawk ouvre ses mains face au vent du plateau. Il ne combat pas pour posseder davantage, mais pour retrouver ce qui fut pris aux siens. Sous ses pieds, la terre porte encore leurs voix.",
+      "element": "GEO",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "role": 1,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        207,
+        154,
+        "guard",
+        93,
+        46,
+        32
+      ],
+      "defense": [
+        293,
+        234,
+        186,
+        118,
+        95,
+        "retry"
+      ],
+      "magic": [],
+      "barriers": [
+        5,
+        3
+      ],
+      "faction": "STREETFIGHTER",
+      "collaboration": "STREETFIGHTER",
+      "artworkSource": "V4/propositions/2026-10-09-street-fighter/images/t-hawk-v2.png",
+      "rationale": "Terre demandee, garde D4 et forte DEF, relance DEF1 ; protecteur sans attaque magique."
+    }
+  ]
+}
