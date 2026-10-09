@@ -1,0 +1,22 @@
+✔ explicit formation wins over inventory order; both sides start immediately and cannot recall (31.9297ms)
+✔ P1/P2 incompatibilities, missing and reserve captain, unknown and incompatible weapons fail closed (2.6694ms)
+✔ migration is deterministic, retains all inventory and copies equipment defaults once (1.2987ms)
+✔ legacy incomplete and invalid drafts retain every card and remain repairable, never playable (1.2327ms)
+✔ schema-2 library migration, clone, export/import and partial drafts preserve formation/captain/equipment (6.0998ms)
+✔ storage conflicts remain atomic during writes (3.0708ms)
+✔ captain links are numeric, side-independent, non-stacking, +40 normal plus +10 maximum (5.683ms)
+✔ captain without a second matching active fighter gives nothing; reserve and corpses never count (2.071ms)
+✔ Reraise keeps commandment, definitive captain death removes it immediately and reserves inherit no crown (6.4092ms)
+✔ shared reserve remains position-polymorphic and replacement creates/removes captain connections (5.7844ms)
+✔ AI scores include the same commandment terms without reading future rolls (3.808ms)
+✔ equipment is isolated per deck, supports removal, and match snapshots cannot be changed by later edits (6.2341ms)
+✔ old setup matches and technical array callers retain historical behavior (12.4746ms)
+✔ complete composed matches, captain deaths, equipment states and reloads validate through match end (1014.6279ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1219.2399

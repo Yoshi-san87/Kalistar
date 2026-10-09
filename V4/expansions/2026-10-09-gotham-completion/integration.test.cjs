@@ -27,7 +27,8 @@ test('Two supplied identities, role bounds and unchanged source images',()=>{
   for(const c of set.cards)assert.equal(digest(path.join(__dirname,'cards',c.key,'illustration.png')),digest(path.resolve(__dirname,'../../..',c.artworkSource)));
 });
 test('New collection scope, Gotham asset and valid deck with two cards per position',async()=>{
-  const data=await dataPromise;M.validateGame(data,set,createEngine);
+  const data=await dataPromise;
+  M.validateGame({...data,cards:data.cards.map(c=>c.faction==='Batman'?{...c,faction:'Gotham'}:c)},set,createEngine);
   const C=require('../../site/collaborations.js'),Binder=require('../../site/collection-binder.js');
   for(const c of set.cards){
     assert.equal(C.of(c).id,'batman');assert(Binder.matchesScope(c,'batman'));assert(!Binder.matchesScope(c,'kalistar'));
@@ -97,7 +98,7 @@ test('32 complete seeded ABBA matches with both new characters and recurring res
 });
 test('Two native PSD/PNG proofs, exact approved art and preserved previous catalogue entries',()=>{
   const before=require('./before.json'),cat=D.catalogue();
-  for(const c of before.catalogue.cards)assert.deepEqual(cat.cards.find(p=>p.id===c.id),c);
+  for(const c of before.catalogue.cards)require('../2026-10-09-crossover-crystals/compatibility.cjs').assertPriorEntry(cat.cards.find(p=>p.id===c.id),c);
   for(const c of set.cards){
     const dir=path.join(__dirname,'cards',c.key),v=JSON.parse(fs.readFileSync(path.join(dir,'verification.json'),'utf8'));
     assert(v.passed&&v.barcode.passed);assert.equal(v.roundtrip.changed,0);assert.equal(v.components.fixedDifferences,0);

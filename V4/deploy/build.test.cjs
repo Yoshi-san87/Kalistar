@@ -98,9 +98,9 @@ test('static release versions stylesheet and script URLs together', () => {
 test('application version matches in desktop and phone headers', () => {
   const html = fs.readFileSync(path.join(__dirname, '../site/index.html'), 'utf8');
   const css = fs.readFileSync(path.join(__dirname, '../site/v4.css'), 'utf8');
-  assert.match(html, /<title>Kalistar V4\.6\.5/);
-  assert.match(html, /<span class="edition">VERSION 4\.6\.5<\/span>/);
-  assert.ok(css.includes("content:'V4.6.5'"));
+  assert.match(html, /<title>Kalistar V4\.6\.6/);
+  assert.match(html, /<span class="edition">VERSION 4\.6\.6<\/span>/);
+  assert.ok(css.includes("content:'V4.6.6'"));
 });
 test('hosting adapter supports local, project Pages and saved canonical image paths', () => {
   const script = fs.readFileSync(path.join(__dirname, '../site/site-config.js'), 'utf8');

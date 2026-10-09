@@ -30,11 +30,15 @@ test('new card limits and special-face overlays remain enforced without native d
     assert.throws(()=>model.validateSet(overlay));
   }
 });
-test('actual portable game catalogue contains the three bounded profiles and no pending white-shirt card',async()=>{
+test('actual portable game catalogue retains the original profiles and only the approved Geralt V2',async()=>{
   const published=json('V4/donnees/catalogue.json').cards.filter(c=>c.kind==='created');
   const data=await require('../../atelier/game-catalog.cjs').buildCatalog({published});
   const engine=require('../../site/engine.js').createEngine;
   for(const {model,set} of lots)model.validateGame(data,set,engine);
-  assert(!data.cards.some(c=>c.id==='49900102'));
+  const second=data.cards.find(c=>c.id==='49900102');
+  assert(second);assert.equal(second.characterId,data.cards.find(c=>c.id==='49900101').characterId);
+  const spec=require('../../expansions/2026-10-09-crossover-crystals/set.json').cards.find(c=>c.id===second.id);
+  for(const key of ['name','title','element','race','weapon','positions','atk','defense','magic','barriers'])assert.deepEqual(second[key],spec[key]);
+  assert.equal(published.find(c=>c.id===second.id).publicationSource,'V4/expansions/2026-10-09-crossover-crystals');
   for(const id of ['49900101','49900201','49900202'])assert(data.cards.some(c=>c.id===id));
 });

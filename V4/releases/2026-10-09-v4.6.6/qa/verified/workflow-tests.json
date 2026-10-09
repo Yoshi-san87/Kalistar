@@ -1,0 +1,270 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "command": "node --test V4/atelier/game-catalog.test.cjs V4/atelier/collaboration-arenas.test.cjs V4/deploy/build.test.cjs V4/deploy/pwa.test.cjs V4/site/statistics.test.cjs V4/site/collaborations.test.cjs V4/site/metal-gear.test.cjs V4/site/resident-evil.test.cjs V4/site/one-piece.test.cjs",
+      "status": 0,
+      "log": "01.log"
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-01-one-piece/model.test.cjs",
+      "status": 0,
+      "log": "02.log"
+    },
+    {
+      "command": "node --test V4/revisions/2026-10-04-armor-refinement/integration.test.cjs",
+      "status": 0,
+      "log": "03.log"
+    },
+    {
+      "command": "node --test V4/revisions/2026-10-05-orven-long-spear/revision.test.cjs",
+      "status": 0,
+      "log": "04.log"
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-05-cryptown-sentinel/integration.test.cjs",
+      "status": 0,
+      "log": "05.log"
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-06-cryptown-sniper/integration.test.cjs",
+      "status": 0,
+      "log": "06.log"
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-06-cryptown-dual-flails/integration.test.cjs",
+      "status": 0,
+      "log": "07.log"
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-06-cryptown-scythe/integration.test.cjs",
+      "status": 0,
+      "log": "08.log"
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-06-fifteen-faces/integration.test.cjs V4/expansions/2026-10-06-fifteen-faces/accent-typography.test.cjs",
+      "status": 0,
+      "log": "09.log"
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-06-second-edition-scenes/integration.test.cjs",
+      "status": 0,
+      "log": "10.log"
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-08-eleven-lives/integration.test.cjs",
+      "status": 0,
+      "log": "11.log"
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-08-final-fantasy-ix/integration.test.cjs V4/revisions/2026-10-08-resident-evil-faces/integration.test.cjs",
+      "status": 0,
+      "log": "12.log"
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-09-final-fantasy-trilogy/integration.test.cjs V4/revisions/2026-10-09-ff-logo-banners/integration.test.cjs",
+      "status": 0,
+      "log": "13.log"
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-09-skaern-luxo/integration.test.cjs",
+      "status": 0,
+      "log": "14.log"
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-09-nerval/integration.test.cjs",
+      "status": 0,
+      "log": "15.log"
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-09-gotham/integration.test.cjs",
+      "status": 0,
+      "log": "16.log"
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-09-gotham-completion/integration.test.cjs",
+      "status": 0,
+      "log": "17.log"
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-09-crossover-crystals/integration.test.cjs",
+      "status": 0,
+      "log": "18.log"
+    },
+    {
+      "command": "node --test V4/revisions/2026-10-06-balmhyr-durane/revision.test.cjs",
+      "status": 0,
+      "log": "19.log"
+    },
+    {
+      "command": "node --test V4/revisions/2026-10-01-stat-personality/revision.test.cjs",
+      "status": 0,
+      "log": "20.log"
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-01-rikka-rooftops/model.test.cjs",
+      "status": 0,
+      "log": "21.log"
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-01-one-piece-witcher/model.test.cjs",
+      "status": 0,
+      "log": "22.log"
+    },
+    {
+      "command": "node --test V4/revisions/2026-10-01-luffy-light/revision.test.cjs",
+      "status": 0,
+      "log": "23.log"
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-02-witcher-completion/model.test.cjs V4/revisions/2026-10-02-sanji-legs/revision.test.cjs",
+      "status": 0,
+      "log": "24.log"
+    },
+    {
+      "command": "node --test V4/releases/2026-10-02-pages-portability/portable.test.cjs",
+      "status": 0,
+      "log": "25.log"
+    },
+    {
+      "command": "node V4/site/kalistel.test.cjs",
+      "status": 0,
+      "log": "26.log"
+    },
+    {
+      "command": "node V4/site/arena-ambience.test.cjs",
+      "status": 0,
+      "log": "27.log"
+    },
+    {
+      "command": "node --test V4/site/equipment.test.cjs V4/site/equipment-presentation.test.cjs",
+      "status": 0,
+      "log": "28.log"
+    },
+    {
+      "command": "node --test V4/site/equipment-v2.test.cjs V4/site/equipment-slots-persistence.test.cjs V4/site/equipment-slots-presentation.test.cjs",
+      "status": 0,
+      "log": "29.log"
+    },
+    {
+      "command": "node --test V4/site/equipment-categories.test.cjs V4/site/weapons-arsenal.test.cjs",
+      "status": 0,
+      "log": "30.log"
+    },
+    {
+      "command": "node --test V4/site/defensive-equipment.test.cjs",
+      "status": 0,
+      "log": "31.log"
+    },
+    {
+      "command": "node --test V4/site/ff9-equipment.test.cjs",
+      "status": 0,
+      "log": "32.log"
+    },
+    {
+      "command": "node --test V4/releases/2026-10-09-public-cache-check/public-asset-check.test.cjs V4/releases/2026-10-09-v4.6.1/public-check.test.cjs",
+      "status": 0,
+      "log": "33.log"
+    },
+    {
+      "command": "node --test V4/site/arborium-weapons.test.cjs",
+      "status": 0,
+      "log": "34.log"
+    },
+    {
+      "command": "node --test V4/site/draevenheim-weapons.test.cjs",
+      "status": 0,
+      "log": "35.log"
+    },
+    {
+      "command": "node --test V4/site/cryptown-weapons.test.cjs",
+      "status": 0,
+      "log": "36.log"
+    },
+    {
+      "command": "node --test V4/site/rhinoz-weapon.test.cjs",
+      "status": 0,
+      "log": "37.log"
+    },
+    {
+      "command": "node --test V4/site/weapon-bearers.test.cjs",
+      "status": 0,
+      "log": "38.log"
+    },
+    {
+      "command": "node --test V4/site/weapon-art.test.cjs",
+      "status": 0,
+      "log": "39.log"
+    },
+    {
+      "command": "node --test V4/site/base-weapons.test.cjs",
+      "status": 0,
+      "log": "40.log"
+    },
+    {
+      "command": "node --test V4/site/team-composition.test.cjs",
+      "status": 0,
+      "log": "41.log"
+    },
+    {
+      "command": "node --test V4/site/matchmaking.test.cjs V4/site/pre-match.test.cjs",
+      "status": 0,
+      "log": "42.log"
+    },
+    {
+      "command": "node --test V4/site/lineup-intro.test.cjs V4/site/turn-order.test.cjs",
+      "status": 0,
+      "log": "43.log"
+    },
+    {
+      "command": "node --test V4/site/turn-timeline.test.cjs",
+      "status": 0,
+      "log": "44.log"
+    },
+    {
+      "command": "node --test V4/site/combat-timeline.test.cjs",
+      "status": 0,
+      "log": "45.log"
+    },
+    {
+      "command": "node --test V4/site/scoreboard.test.cjs",
+      "status": 0,
+      "log": "46.log"
+    },
+    {
+      "command": "node --test V4/site/catalogue-updates.test.cjs",
+      "status": 0,
+      "log": "47.log"
+    },
+    {
+      "command": "node --test V4/site/match-metrics.test.cjs V4/site/kill-medals.test.cjs",
+      "status": 0,
+      "log": "48.log"
+    },
+    {
+      "command": "node --test V4/site/navigation.test.cjs",
+      "status": 0,
+      "log": "49.log"
+    },
+    {
+      "command": "node --test V4/site/factions.test.cjs",
+      "status": 0,
+      "log": "50.log"
+    },
+    {
+      "command": "node --test V4/site/ui-system.test.cjs",
+      "status": 0,
+      "log": "51.log"
+    },
+    {
+      "command": "node --test V4/site/story-content.test.cjs",
+      "status": 0,
+      "log": "52.log"
+    },
+    {
+      "command": "node V4/deploy/build.cjs",
+      "status": 0,
+      "log": "53.log"
+    }
+  ]
+}

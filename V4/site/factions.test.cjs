@@ -14,6 +14,14 @@ test('Ysilis is a faction alias, never a replacement of geographical text',()=>{
   assert.equal(C.asset('factions','Ysilis'),'shared/factions/Niveria.png');
 });
 
+test('Batman display name retains Gotham archive identity and native asset',()=>{
+  assert.equal(F.canonical('Gotham'),'Batman');assert(F.same('Gotham','Batman'));
+  assert.equal(F.canonical('Les toits de Gotham'),'Les toits de Gotham');
+  for(const name of ['Gotham','Batman'])assert.equal(C.asset('factions',name),'assets/factions/Gotham.png');
+  for(const faction of ['Gotham','gotham','Batman','BATMAN'])assert.equal(C.of({faction}).id,'batman');
+  assert(!F.same('Batman','XMEN'));
+});
+
 test('three legacy labels migrate while new Ysilis and Okami cards retain their native identities',async()=>{
   const data=await dataPromise;
   assert.deepEqual(data.cards.filter(c=>c.faction==='Ysilis').map(c=>c.id).sort(),[...ids,'49900904','49900907']);
@@ -22,7 +30,7 @@ test('three legacy labels migrate while new Ysilis and Okami cards retain their 
   const originals=[...refs.cards.map(r=>({...r.card,id:r.card.id})),...rows.map(r=>({...r.profile,id:r.id}))];
   for(const c of data.cards){
     const p=originals.find(p=>p.id===c.id);assert(p);
-    assert.equal(c.faction,ids.includes(c.id)?'Ysilis':p.faction);
+    assert.equal(c.faction,F.canonical(p.faction));
     for(const field of ['name','title','job','race','element','weapon','positions','atk','defense','magic','barriers'])assert.deepEqual(c[field],p[field],c.id+'.'+field);
     assert.equal(c.description,p.description??p.text??'');
   }

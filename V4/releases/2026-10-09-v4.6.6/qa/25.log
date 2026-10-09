@@ -1,0 +1,30 @@
+✔ published Geralt and Serpes profiles match every printed and gameplay field (9.2091ms)
+✔ new card limits and special-face overlays remain enforced without native dependencies (4.7022ms)
+✖ actual portable game catalogue contains the three bounded profiles and no pending white-shirt card (73.7974ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 2
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 192.0383
+
+✖ failing tests:
+
+test at V4\releases\2026-10-02-pages-portability\portable.test.cjs:33:1
+✖ actual portable game catalogue contains the three bounded profiles and no pending white-shirt card (73.7974ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert(!data.cards.some(c=>c.id==='49900102'))
+  
+      at TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\releases\2026-10-02-pages-portability\portable.test.cjs:38:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

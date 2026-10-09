@@ -6,6 +6,15 @@ Read the [handoff guide](../../docs/GUIDE_REPRISE.md) and the
 [current gameplay summary](../docs/REGLES_JEU.md), including the documented
 difference between the ten-kill objective and the engine's empty-board ending.
 
+## Crossover Catalogue (V4.6.6)
+
+Robin, seven X-Men and Geralt V2 join the approved native catalogue. X-Men uses
+the previously approved banner. All eleven Batman cards have a Kalistel;
+six former NONE cards retain their original numeric faces and effects.
+`factions.js` aliases the historical Gotham key to Batman for display and keeps
+its existing asset path. Geralt's two versions share one character identity.
+See [native production and validation](../expansions/2026-10-09-crossover-crystals/README.md).
+
 ## Compact Pre-Match (V4.6.5)
 
 Preparation shows only each captain and the selected deck name, plus one arena

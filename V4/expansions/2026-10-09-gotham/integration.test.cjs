@@ -27,7 +27,8 @@ test('Eight approved identities, requested races, role bounds and unchanged sour
   for(const c of set.cards)assert.equal(digest(path.join(__dirname,'cards',c.key,'illustration.png')),digest(path.resolve(__dirname,'../../..',c.artworkSource)));
 });
 test('New collection scope, Gotham asset and valid deck with two cards per position',async()=>{
-  const data=await dataPromise;M.validateGame(data,set,createEngine);
+  const data=await dataPromise;
+  M.validateGame({...data,cards:data.cards.map(c=>c.faction==='Batman'?{...c,faction:'Gotham'}:c)},set,createEngine);
   const C=require('../../site/collaborations.js'),Binder=require('../../site/collection-binder.js');
   for(const c of set.cards){
     assert.equal(C.of(c).id,'batman');assert(Binder.matchesScope(c,'batman'));assert(!Binder.matchesScope(c,'kalistar'));

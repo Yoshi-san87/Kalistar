@@ -1,0 +1,96 @@
+{
+  "passed": true,
+  "base": "http://127.0.0.1:65106/Kalistar/",
+  "viewports": [
+    [
+      1440,
+      1000
+    ],
+    [
+      412,
+      915
+    ],
+    [
+      320,
+      740
+    ]
+  ],
+  "cards": [
+    "49901511",
+    "49901601",
+    "49901602",
+    "49901603",
+    "49901604",
+    "49901605",
+    "49901606",
+    "49901607",
+    "49900102"
+  ],
+  "screens": [
+    "desktop-robin.png",
+    "desktop-professeur-x.png",
+    "desktop-jean-grey.png",
+    "desktop-iceberg.png",
+    "desktop-gambit.png",
+    "desktop-wolverine.png",
+    "desktop-cyclope.png",
+    "desktop-tornade.png",
+    "desktop-geralt-v2.png",
+    "desktop-double-face.png",
+    "desktop-sphinx.png",
+    "desktop-catwoman.png",
+    "desktop-pingouin.png",
+    "desktop-batman.png",
+    "desktop-joker.png",
+    "razr50-robin.png",
+    "razr50-professeur-x.png",
+    "razr50-jean-grey.png",
+    "razr50-iceberg.png",
+    "razr50-gambit.png",
+    "razr50-wolverine.png",
+    "razr50-cyclope.png",
+    "razr50-tornade.png",
+    "razr50-geralt-v2.png",
+    "razr50-double-face.png",
+    "razr50-sphinx.png",
+    "razr50-catwoman.png",
+    "razr50-pingouin.png",
+    "razr50-batman.png",
+    "razr50-joker.png",
+    "narrow-robin.png",
+    "narrow-professeur-x.png",
+    "narrow-jean-grey.png",
+    "narrow-iceberg.png",
+    "narrow-gambit.png",
+    "narrow-wolverine.png",
+    "narrow-cyclope.png",
+    "narrow-tornade.png",
+    "narrow-geralt-v2.png",
+    "narrow-double-face.png",
+    "narrow-sphinx.png",
+    "narrow-catwoman.png",
+    "narrow-pingouin.png",
+    "narrow-batman.png",
+    "narrow-joker.png",
+    "desktop-batman-robin.png",
+    "razr50-batman-robin.png",
+    "desktop-cyclope-tornade.png",
+    "razr50-cyclope-tornade.png"
+  ],
+  "persistence": [
+    "published: old backup preserves transferred newer originals, issued copies, activation and transfer proofs",
+    "published: default merge rejects old ownership conflicts; explicit restore retains newer transfers",
+    "published: newer pending transfers survive an old snapshot and forged transfer history is rejected",
+    "published: mixed old/new matches preserve connected owners, release proofs and recomputed counters",
+    "published: tampered owners, missing origins and omitted approved profiles fail atomically",
+    "published: old backup restores into a fresh expanded registry without reminting newer originals",
+    "published: stale connection reports new IDs and cannot import until its catalogue is refreshed"
+  ],
+  "migration": {
+    "before": 306,
+    "after": 315
+  },
+  "arenaReload": true,
+  "errors": [],
+  "failures": []
+}

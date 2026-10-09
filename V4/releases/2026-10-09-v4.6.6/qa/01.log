@@ -1,0 +1,152 @@
+✔ unpublished FF7 arenas stay absent; V3 arena output is unchanged (110.4405ms)
+✔ arena availability follows version faction, not a shared NieR character suffix (33.7423ms)
+✔ arena availability accepts explicit collaboration without changing a character identity (34.2968ms)
+✔ Cloud alone unlocks both arenas with exact FF7 metadata and filtered affinities (27.4459ms)
+✔ any published FF7 character unlocks both arenas without requiring Cloud or a home affinity (26.2091ms)
+✔ home bonuses stay specific to the seven requested characters, not the whole FF7 set (12.1215ms)
+✔ both arenas are playable and restorable with bounded, version-independent bonuses (50.4065ms)
+✔ supplemental JSON rejects malformed metadata, paths, affinities and colliding IDs (129.1912ms)
+✔ supplemental bonus bounds reject overflow, negatives and non-integers without clamping (77.9304ms)
+✔ only the current approved V4 references, without legacy art or provenance paths (32.1169ms)
+✔ Voloden requires V4 approval and retains his V3 role, sentry and death face (25.9144ms)
+✔ printed V4 fields override V3 metadata and support faces remain valid (14.6879ms)
+✔ safe crop matches the approved PNG dimensions, rejects historical sizes (18.1978ms)
+✔ default and preset decks use only owned V4 cards and cover P1-P5 twice (12.4994ms)
+✔ a deck accepts only one card per character across copies and variants (12.2939ms)
+✔ publication appended with its new ID and correct URLs, no legacy fallbacks (51.788ms)
+✔ seed is additive and idempotent, Paris gets new originals, Tokyo stays empty (46.2939ms)
+✔ printed support abilities are retained or explicitly rejected by V3 role constraints (22.3851ms)
+✔ V4 storage and deck envelopes reject V3 without touching its keys (23.9209ms)
+✔ active match restores unchanged after new catalogue publication (27.6348ms)
+✔ unchanged V3 mechanics: deterministic full games agree after identity normalization (53.2688ms)
+✔ release contains all published cards and only playable files (164.1048ms)
+✔ build paths cannot escape the generated directory (0.3506ms)
+✔ Astralia atlas is published as lightweight media, not an authoring source (95.4736ms)
+✔ Collection atlas is continuous and does not replace reading surfaces (3.8963ms)
+✔ static release versions stylesheet and script URLs together (0.3935ms)
+✖ application version matches in desktop and phone headers (2.6929ms)
+✔ hosting adapter supports local, project Pages and saved canonical image paths (12.3208ms)
+✔ PWA opens the game inside its project-page scope with install icons (123.8974ms)
+✔ collaboration follows the version metadata, never the shared character suffix (1.2105ms)
+✔ faction media is V4-local while legacy assets retain their routes (0.6108ms)
+✔ universe choices expose Replicant only when its versions exist (0.3849ms)
+✔ collection groups Kalistar, Final Fantasy and NieR while retaining faction filters (31.7962ms)
+✔ statistics filter versions before aggregating a shared character and retain independent totals (1.1345ms)
+✔ deck builder keeps shared-character exclusion and separate faction synergies (32.7889ms)
+✔ browser boot loads collaboration metadata before all three consumers (1.1576ms)
+✔ Metal Gear episodes have independent factions and V4 banner routes (2.0831ms)
+✔ Snake versions exclude each other; faction bonus never crosses episodes (29.6915ms)
+✔ Metal Gear is visible in the collection without changing shared character identity (15.7141ms)
+✔ One Piece has one collaboration, eleven versions and ten characters (2.6351ms)
+✔ binder renders one One Piece collection choice and retains one faction option (12.5602ms)
+✔ new faction and race routes are local; existing SKULLZ and CERELF routes stay shared (2.1635ms)
+✔ all nine RE factions retain their identities and local asset routes (17.6656ms)
+✔ one Resident Evil collection choice counts fixture versions dynamically (14.6659ms)
+PASS: honours, ties, positive-only thresholds, completed/full history, aggregates, one-decimal averages, filters, ordering and safe Excel CSV.
+✔ V4\site\statistics.test.cjs (186.2416ms)
+ℹ tests 45
+ℹ suites 0
+ℹ pass 44
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 613.2598
+
+✖ failing tests:
+
+test at V4\deploy\build.test.cjs:98:1
+✖ application version matches in desktop and phone headers (2.6929ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /<title>Kalistar V4\.6\.5/. Input:
+  
+  '<!doctype html>\n' +
+    '<html lang="fr" data-hosting="local">\n' +
+    '<head>\n' +
+    '  <meta charset="utf-8">\n' +
+    '  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n' +
+    '  <meta name="theme-color" content="#101413">\n' +
+    '  <title>Kalistar V4.6.6 · Collection, Decks et Arène</title>\n' +
+    '  <link rel="manifest" href="manifest.webmanifest">\n' +
+    '  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">\n' +
+    '  <link rel="stylesheet" href="style.css">\n' +
+    '  <link rel="stylesheet" href="arena.css">\n' +
+    '  <link rel="stylesheet" href="duel-presentation.css">\n' +
+    '  <link rel="stylesheet" href="duel-console.css">\n' +
+    '  <link rel="stylesheet" href="match-report.css">\n' +
+    '  <link rel="stylesheet" href="catalogue.css">\n' +
+    '  <link rel="stylesheet" href="v4.css">\n' +
+    '  <link rel="stylesheet" href="accounts.css">\n' +
+    '  <link rel="stylesheet" href="battle-ui.css">\n' +
+    '  <link rel="stylesheet" href="deck-builder.css">\n' +
+    '  <link rel="stylesheet" href="team-composition.css">\n' +
+    '  <link rel="stylesheet" href="collection-binder.css">\n' +
+    '  <link rel="stylesheet" href="integration.css">\n' +
+    '  <link rel="stylesheet" href="mobile.css">\n' +
+    '  <link rel="stylesheet" href="phone-preview.css">\n' +
+    '  <link rel="stylesheet" href="elemental-roll.css">\n' +
+    '  <link rel="stylesheet" href="statistics.css">\n' +
+    '  <link rel="stylesheet" href="kill-medals.css">\n' +
+    '  <link rel="stylesheet" href="pre-match.css">\n' +
+    '  <link rel="stylesheet" href="combat-reference.css">\n' +
+    '  <link rel="stylesheet" href="story-reader.css">\n' +
+    '  <link rel="stylesheet" href="weapons.css">\n' +
+    '  <link rel="stylesheet" href="weapon-cards.css">\n' +
+    '  <link rel="preload" href="assets/fonts/cinzel-v26-latin.woff2" as="font" type="font/woff2" crossorigin>\n' +
+    '  <link rel="stylesheet" href="navigation.css">\n' +
+    '  <link rel="stylesheet" href="lineup-intro.css">\n' +
+    '  <link rel="stylesheet" href="ui-system.css">\n' +
+    '  <link rel="stylesheet" href="turn-timeline.css">\n' +
+    '  <link rel="stylesheet" href="scoreboard.css">\n' +
+    '  <script defer src="site-config.js"></script>\n' +
+    '  <script defer src="phone-preview.js"></script>\n' +
+    '  <script defer src="pwa.js"></script>\n' +
+    '  <script defer src="boot.js"></script>\n' +
+    '</head>\n' +
+    '<body data-edition="V4">\n' +
+    '  <header class="masthead">\n' +
+    '    <a class="brand" href="#collection" aria-label="Kalistar, collection"><img src="assets/logo.webp" alt="Kalistar Card Game" width="300" height="100"></a>\n' +
+    '    <nav class="main-nav" aria-label="Navigation principale">\n' +
+    '      <button data-view="collection" class="active" aria-current="page"><img class="kalistar-nav-icon" src="assets/navigation/collection-v1.webp" alt="" aria-hidden="true" width="128" height="128"><span>Collection</span></button>\n' +
+    '      <button data-view="story"><img class="kalistar-nav-icon" src="assets/navigation/story-v1.webp" alt="" aria-hidden="true" width="128" height="128"><span>Story</span></button>\n' +
+    '      <button data-view="decks"><img class="kalistar-nav-icon" src="assets/navigation/decks-v1.webp" alt="" aria-hidden="true" width="128" height="128"><span>Decks</span></button>\n' +
+    '      <button data-view="weapons"><img class="kalistar-nav-icon" src="assets/navigation/weapons-v1.webp" alt="" aria-hidden="true" width="128" height="128"><span>Équipements</span></button>\n' +
+    '      <button data-view="arena"><img class="kalistar-nav-icon" src="assets/navigation/arena-v1.webp" alt="" aria-hidden="true" width="128" height="128"><span>Arène</span></button>\n' +
+    '      <button data-view="statistics"><img class="kalistar-nav-icon" src="assets/navigation/statistics-v1.webp" alt="" aria-hidden="true" width="128" height="128"><span>Statistiques</span></button>\n' +
+    '      <button data-view="atelier"><i data-lucide="paintbrush"></i><span>Atelier</span></button>\n' +
+    '      <button class="nav-more" data-action="nav-more" aria-label="Autres sections" aria-haspopup="dialog" aria-controls="mobile-dialog" aria-expanded="false"><img class="kalistar-nav-icon" src="assets/navigation/more-v1.webp" alt="" aria-hidden="true" width="128" height="128"><span>Plus</span></button>\n' +
+    '    </nav>\n' +
+    '    <div class="header-actions"><span class="edition">VERSION 4.6.6</span><button class="icon-button pwa-install-button" data-pwa-install hidden title="Installer Kalistar comme une application" aria-label="Installer Kalistar comme une application"><i data-lucide="download"></i></button><button class="icon-button phone-preview-entry" data-action="phone-preview" title="Aperçu téléphone · Motorola Razr 50" aria-label="Mode téléphone · Motorola Razr 50" aria-pressed="false"><i data-lucide="smartphone"></i></button><button class="account-button" data-action="account" title="Profils locaux et transferts" aria-label="Profils locaux et transferts"><i data-lucide="users-round"></i><span id="account-name">Paris</span></button><button class="icon-button" data-action="rules" title="Règles de la démo" aria-label="Règles de la démo"><i data-lucide="scroll-text"></i></button><button class="deck-button" data-action="deck"><i data-lucide="layers-3"></i><span>Mon deck</span><b id="deck-count">10</b></button></div>\n' +
+    '  </header>\n' +
+    '  <main id="app"><p class="boot-status" role="status">Chargement du catalogue V4...</p></main>\n' +
+    '  <section id="atelier-panel" aria-label="Atelier de cartes" hidden></section>\n' +
+    '  <button id="catalogue-refresh" class="catalogue-refresh" hidden title="Actualiser le catalogue et reprendre la partie"><i data-lucide="refresh-cw"></i><span>Nouvelles cartes</span></button>\n' +
+    '  <div id="toast" role="status" aria-live="polite"></div>\n' +
+    '  <dialog id="detail-dialog" aria-label="Fiche de carte"></dialog>\n' +
+    '  <dialog id="deck-dialog" aria-label="Préparation du deck"></dialog>\n' +
+    '  <dialog id="rules-dialog" aria-label="Règles de Kalistar"></dialog>\n' +
+    '  <dialog id="new-game-dialog" aria-label="Nouvelle partie"></dialog>\n' +
+    '  <dialog id="journal-dialog" aria-label="Journal du duel"></dialog>\n' +
+    '  <dialog id="arena-dialog" class="arena-picker-dialog" aria-label="Choisir une arène"></dialog>\n' +
+    '  <dialog id="match-dialog" aria-label="Bilan du match"></dialog>\n' +
+    '  <dialog id="database-dialog" aria-label="Archives personnelles"></dialog>\n' +
+    '  <dialog id="account-dialog" aria-label="Profils locaux et transferts"></dialog>\n' +
+    '  <dialog id="mobile-dialog" class="mobile-sheet" aria-label="Actions de l’arène"></dialog>\n' +
+    '  <dialog id="combat-reference-dialog" aria-label="Codex des avantages en combat"></dialog>\n' +
+    '  <dialog id="weapons-dialog" aria-label="Équipement et porteurs compatibles"></dialog>\n' +
+    '</body>\n' +
+    '</html>\n'
+  
+      at TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\deploy\build.test.cjs:101:10)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '<!doctype html>\n<html lang="fr" data-hosting="local">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n  <meta name="theme-color" content="#101413">\n  <title>Kalistar V4.6.6 · Collection, Decks et Arène</title>\n  <link rel="manifest" href="manifest.webmanifest">\n  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">\n  <link rel="stylesheet" href="style.css">\n  <link rel="stylesheet" href="arena.css">\n  <link rel="stylesheet" href="duel-presentation.css">\n  <link rel="stylesheet" href="duel-console.css">\n  <link rel="stylesheet" href="match-report.css">\n  <link rel="stylesheet" href="catalogue.css">\n  <link rel="stylesheet" href="v4.css">\n  <link rel="stylesheet" href="accounts.css">\n  <link rel="stylesheet" href="battle-ui.css">\n  <link rel="stylesheet" href="deck-builder.css">\n  <link rel="stylesheet" href="team-composition.css">\n  <link rel="stylesheet" href="collection-binder.css">\n  <link rel="stylesheet" href="integration.css">\n  <link rel="stylesheet" href="mobile.css">\n  <link rel="stylesheet" href="phone-preview.css">\n  <link rel="stylesheet" href="elemental-roll.css">\n  <link rel="stylesheet" href="statistics.css">\n  <link rel="stylesheet" href="kill-medals.css">\n  <link rel="stylesheet" href="pre-match.css">\n  <link rel="stylesheet" href="combat-reference.css">\n  <link rel="stylesheet" href="story-reader.css">\n  <link rel="stylesheet" href="weapons.css">\n  <link rel="stylesheet" href="weapon-cards.css">\n  <link rel="preload" href="assets/fonts/cinzel-v26-latin.woff2" as="font" type="font/woff2" crossorigin>\n  <link rel="stylesheet" href="navigation.css">\n  <link rel="stylesheet" href="lineup-intro.css">\n  <link rel="stylesheet" href="ui-system.css">\n  <link rel="stylesheet" href="turn-timeline.css">\n  <link rel="stylesheet" href="scoreboard.css">\n  <script defer src="site-config.js"></script>\n  <script defer src="phone-preview.js"></script>\n  <script defer src="pwa.js"></script>\n  <script defer src="boot.js"></script>\n</head>\n<body data-edition="V4">\n  <header class="masthead">\n    <a class="brand" href="#collection" aria-label="Kalistar, collection"><img src="assets/logo.webp" alt="Kalistar Card Game" width="300" height="100"></a>\n    <nav class="main-nav" aria-label="Navigation principale">\n      <button data-view="collection" class="active" aria-current="page"><img class="kalistar-nav-icon" src="assets/navigation/collection-v1.webp" alt="" aria-hidden="true" width="128" height="128"><span>Collection</span></button>\n      <button data-view="story"><img class="kalistar-nav-icon" src="assets/navigation/story-v1.webp" alt="" aria-hidden="true" width="128" height="128"><span>Story</span></button>\n      <button data-view="decks"><img class="kalistar-nav-icon" src="assets/navigation/decks-v1.webp" alt="" aria-hidden="true" width="128" height="128"><span>Decks</span></button>\n      <button data-view="weapons"><img class="kalistar-nav-icon" src="assets/navigation/weapons-v1.webp" alt="" aria-hidden="true" width="128" height="128"><span>Équipements</span></button>\n      <button data-view="arena"><img class="kalistar-nav-icon" src="assets/navigation/arena-v1.webp" alt="" aria-hidden="true" width="128" height="128"><span>Arène</span></button>\n      <button data-view="statistics"><img class="kalistar-nav-icon" src="assets/navigation/statistics-v1.webp" alt="" aria-hidden="true" width="128" height="128"><span>Statistiques</span></button>\n      <button data-view="atelier"><i data-lucide="paintbrush"></i><span>Atelier</span></button>\n      <button class="nav-more" data-action="nav-more" aria-label="Autres sections" aria-haspopup="dialog" aria-controls="mobile-dialog" aria-expanded="false"><img class="kalistar-nav-icon" src="assets/navigation/more-v1.webp" alt="" aria-hidden="true" width="128" height="128"><span>Plus</span></button>\n    </nav>\n    <div class="header-actions"><span class="edition">VERSION 4.6.6</span><button class="icon-button pwa-install-button" data-pwa-install hidden title="Installer Kalistar comme une application" aria-label="Installer Kalistar comme une application"><i data-lucide="download"></i></button><button class="icon-button phone-preview-entry" data-action="phone-preview" title="Aperçu téléphone · Motorola Razr 50" aria-label="Mode téléphone · Motorola Razr 50" aria-pressed="false"><i data-lucide="smartphone"></i></button><button class="account-button" data-action="account" title="Profils locaux et transferts" aria-label="Profils locaux et transferts"><i data-lucide="users-round"></i><span id="account-name">Paris</span></button><button class="icon-button" data-action="rules" title="Règles de la démo" aria-label="Règles de la démo"><i data-lucide="scroll-text"></i></button><button class="deck-button" data-action="deck"><i data-lucide="layers-3"></i><span>Mon deck</span><b id="deck-count">10</b></button></div>\n  </header>\n  <main id="app"><p class="boot-status" role="status">Chargement du catalogue V4...</p></main>\n  <section id="atelier-panel" aria-label="Atelier de cartes" hidden></section>\n  <button id="catalogue-refresh" class="catalogue-refresh" hidden title="Actualiser le catalogue et reprendre la partie"><i data-lucide="refresh-cw"></i><span>Nouvelles cartes</span></button>\n  <div id="toast" role="status" aria-live="polite"></div>\n  <dialog id="detail-dialog" aria-label="Fiche de carte"></dialog>\n  <dialog id="deck-dialog" aria-label="Préparation du deck"></dialog>\n  <dialog id="rules-dialog" aria-label="Règles de Kalistar"></dialog>\n  <dialog id="new-game-dialog" aria-label="Nouvelle partie"></dialog>\n  <dialog id="journal-dialog" aria-label="Journal du duel"></dialog>\n  <dialog id="arena-dialog" class="arena-picker-dialog" aria-label="Choisir une arène"></dialog>\n  <dialog id="match-dialog" aria-label="Bilan du match"></dialog>\n  <dialog id="database-dialog" aria-label="Archives personnelles"></dialog>\n  <dialog id="account-dialog" aria-label="Profils locaux et transferts"></dialog>\n  <dialog id="mobile-dialog" class="mobile-sheet" aria-label="Actions de l’arène"></dialog>\n  <dialog id="combat-reference-dialog" aria-label="Codex des avantages en combat"></dialog>\n  <dialog id="weapons-dialog" aria-label="Équipement et porteurs compatibles"></dialog>\n</body>\n</html>\n',
+    expected: /<title>Kalistar V4\.6\.5/,
+    operator: 'match',
+    diff: 'simple'
+  }

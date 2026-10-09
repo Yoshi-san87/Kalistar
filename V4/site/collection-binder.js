@@ -10,7 +10,7 @@
   const number=v=>Number(v||0).toLocaleString('fr-FR');
   const key=c=>c.characterId||c.id;
   const normalize=s=>String(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('fr');
-  const collections=[['kalistar','Kalistar'],['final-fantasy','Final Fantasy'],['nier','NieR'],['metal-gear','Metal Gear'],['resident-evil','Resident Evil'],['one-piece','One Piece'],['witcher','The Witcher'],['batman','Batman']];
+  const collections=[['kalistar','Kalistar'],['final-fantasy','Final Fantasy'],['nier','NieR'],['metal-gear','Metal Gear'],['resident-evil','Resident Evil'],['one-piece','One Piece'],['witcher','The Witcher'],['batman','Batman'],['xmen','X-Men']];
   function groupCards(cards){
     const groups=new Map();
     for(const card of cards){if(!groups.has(key(card)))groups.set(key(card),[]);groups.get(key(card)).push(card);}
@@ -25,6 +25,7 @@
     if(scope==='one-piece')return C.matches(card,'one-piece');
     if(scope==='witcher')return C.matches(card,'witcher');
     if(scope==='batman')return C.matches(card,'batman');
+    if(scope==='xmen')return C.matches(card,'xmen');
     return false;
   }
   function textPages(text,limit){
