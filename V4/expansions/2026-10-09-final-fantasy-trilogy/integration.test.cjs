@@ -1,8 +1,8 @@
 'use strict';
 const {test}=require('node:test'),assert=require('node:assert/strict');
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
-const M=require('./model.cjs'),set=require('./set.json'),catalogue=require('../../donnees/catalogue.json'),D=require('../../atelier/designer-core.cjs');
-const profiles=set.cards.map(c=>M.profile(c,D));
+const M=require('./current.cjs'),{set}=M,catalogue=require('../../donnees/catalogue.json');
+const profiles=set.cards.map(c=>require('../../creations/'+c.id+'/profile.json'));
 const {buildCatalog}=require('../../atelier/game-catalog.cjs'),{createEngine}=require('../../site/engine.js');
 const published=catalogue.cards.filter(c=>c.kind==='created'&&!set.cards.some(s=>s.id===c.id));
 published.push(...profiles.map(profile=>({id:profile.id,profile,pngUrl:'/media/created/'+profile.id+'.png'})));
@@ -145,4 +145,21 @@ test('Additive Yeti portrait and three separate collection routes',()=>{
   assert.equal(assets.asset('factions',faction),'assets/factions/'+faction+'.png');
   assert.equal(assets.of(set.cards.find(c=>c.faction===faction)).id,faction.toLowerCase());
  }
+});
+
+test('Umaro uses the approved Macako portrait and ordinary race synergy without other changes',async()=>{
+ const revision=require('../../revisions/2026-10-09-umaro-macako/before.json');
+ const p=profiles.find(c=>c.id==='49901114'),old=revision.entry.profile;
+ assert.equal(p.race,'MACAKO');assert.deepEqual({...p,race:old.race},old);
+ const entry=catalogue.cards.find(c=>c.id===p.id),proof=require('../../creations/49901114/verification.json');
+ assert.equal(entry.nativeRevision.id,'2026-10-09-umaro-macako');
+ assert.deepEqual(entry.nativeRevision.changedFields,['race','raceIllustration']);
+ assert.equal(proof.scope.outside,0);assert(proof.scope.changed>0);
+ const native=require('../../revisions/2026-10-09-umaro-macako/work/49901114/render/native.json');
+ assert.equal(native.layers.find(l=>l.name==='RACE').text,'MACAKO');
+ assert(native.layers.some(l=>l.name==='RACE - MACAKO'));
+ const data=await dataPromise,E=createEngine(data),peer=data.cards.find(c=>c.id!==p.id&&c.race==='MACAKO');
+ assert(peer);const u={cardId:p.id},v={cardId:peer.id};
+ assert.equal(E.synergy({board:[u,v,null,null,null]},u,'race'),E.rules.synergy[2]);
+ assert.equal(E.synergy({board:[u,null,null,null,null]},u,'race'),E.rules.synergy[1]||0);
 });

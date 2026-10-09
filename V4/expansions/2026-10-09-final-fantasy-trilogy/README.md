@@ -26,7 +26,10 @@ Les equivalences d'arme utilisent les familles existantes : outils d'Edgar
 en Arc, cle de Cindy en Marteau, pendentif de Serah en Orbe.
 Aucune arme equipee ou regle supplementaire n'est ajoutee.
 
-Umaro introduit le portrait YETI. Terra conserve HUMAIN sur ses deux versions :
+Umaro utilise maintenant MACAKO et son portrait existant, suite a la demande
+du 9 octobre. La [revision native](../../revisions/2026-10-09-umaro-macako/README.md)
+preserve ses statistiques et son illustration. Le portrait YETI du premier lot
+reste archive avec ses preuves. Terra conserve HUMAIN sur ses deux versions :
 c'est une classification de synergie Kalistar, non une affirmation sur son
 origine canonique. La Transe utilise RAINBOW, soumis a la limite existante
 d'une seule carte Rainbow par deck.

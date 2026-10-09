@@ -3,7 +3,7 @@ const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),
 const {createRequire}=require('node:module'),{DIST,inside}=require('../../deploy/build.cjs');
 const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const {chromium}=createRequire(path.join(runtime,'_faces.cjs'))('playwright');
-const M=require('./model.cjs'),set=require('./set.json'),out=path.join(__dirname,'browser-proof');
+const M=require('./current.cjs'),{set}=M,out=process.env.KALISTAR_FF_PROOF_DIR||path.join(__dirname,'browser-proof');
 const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.webp':'image/webp','.svg':'image/svg+xml','.woff2':'font/woff2'};
 async function main(){
  const server=http.createServer((req,res)=>{

@@ -1,0 +1,143 @@
+✖ three explicit categories share one historical slot, without changing base families (47.1753ms)
+✔ shield: first defense only, numeric total and matrix preserved, side 0 (22.7089ms)
+✔ shield: first defense only, numeric total and matrix preserved, side 1 (7.8136ms)
+✔ a targeted support and attacking do not spend the first defense (3.8388ms)
+✔ shield special face dodge has no invented numeric bonus (4.6061ms)
+✔ shield special face retry has no invented numeric bonus (5.044ms)
+✔ Pod: successful Block, charge survives attack/reload, next defense consumes it once, side 0 (8.125ms)
+✔ Pod: successful Block, charge survives attack/reload, next defense consumes it once, side 1 (6.548ms)
+✔ Pod never activates from a support, death or Reraise (13.6962ms)
+✔ snapshot, new states and old saves roundtrip; malformed charge history rejected (9.1496ms)
+✔ complete matches use unmodified card faces and reload each step, with both equipment categories (1550.8388ms)
+✔ equipment media is independently hashed, transparent and natively anchored (155.4501ms)
+✖ 31 unique additions: stable identities, real jobs/factions/races and conservative declarative effects (49.7146ms)
+✔ white-oath-rapier: current bearer: inactive, active, real formula, log and reload on either side (21.39ms)
+✔ brotherhood: current bearer: inactive, active, real formula, log and reload on either side (6.6736ms)
+✔ virtuous-contract: current bearer: inactive, active, real formula, log and reload on either side (6.5192ms)
+✔ virtuous-treaty: current bearer: inactive, active, real formula, log and reload on either side (7.1706ms)
+✔ socom: current bearer: inactive, active, real formula, log and reload on either side (6.521ms)
+✔ lulu-mog: current bearer: inactive, active, real formula, log and reload on either side (6.5403ms)
+✔ leopard-lightning: current bearer: inactive, active, real formula, log and reload on either side (6.5476ms)
+✔ mythic-iron-gauntlet: current bearer: inactive, active, real formula, log and reload on either side (6.9844ms)
+✔ post-bow: current bearer: inactive, active, real formula, log and reload on either side (6.3882ms)
+✔ grimoire-weiss: current bearer: inactive, active, real formula, log and reload on either side (6.6271ms)
+✔ gen-mechanical-arm: current bearer: inactive, active, real formula, log and reload on either side (5.2153ms)
+✔ violet-reaping: current bearer: inactive, active, real formula, log and reload on either side (5.9382ms)
+✔ mantis-mask: current bearer: inactive, active, real formula, log and reload on either side (6.6759ms)
+✔ revolver-gunblade: current bearer: inactive, active, real formula, log and reload on either side (6.0319ms)
+✔ wolf-steel: current bearer: inactive, active, real formula, log and reload on either side (6.0351ms)
+✔ wolf-silver: current bearer: inactive, active, real formula, log and reload on either side (6.4472ms)
+✔ kaine-saw: current bearer: inactive, active, real formula, log and reload on either side (5.3796ms)
+✔ buster-sword: current bearer: inactive, active, real formula, log and reload on either side (5.4442ms)
+✔ psg1: current bearer: inactive, active, real formula, log and reload on either side (5.9217ms)
+✔ single-action-army: current bearer: inactive, active, real formula, log and reload on either side (5.4378ms)
+✔ wardens-spear: current bearer: inactive, active, real formula, log and reload on either side (5.8104ms)
+✔ soldiers-blade: current bearer: inactive, active, real formula, log and reload on either side (5.9835ms)
+✔ commanders-sabre: historical snapshot: inactive, active, real formula, log and reload on either side (5.381ms)
+✔ arborium-twinstring-bow: current bearer: inactive, active, real formula, log and reload on either side (6.787ms)
+✔ arborium-thorn-dagger: current bearer: inactive, active, real formula, log and reload on either side (6.2266ms)
+✔ draevenheim-wing-spear: current bearer: inactive, active, real formula, log and reload on either side (7.2235ms)
+✔ draevenheim-crimson-crossbow: historical snapshot: inactive, active, real formula, log and reload on either side (5.5319ms)
+✔ cryptown-oath-sword: current bearer: inactive, active, real formula, log and reload on either side (6.4886ms)
+✔ cryptown-vigil-rifle: current bearer: inactive, active, real formula, log and reload on either side (6.6174ms)
+✔ cryptown-watch-flail: current bearer: inactive, active, real formula, log and reload on either side (6.6961ms)
+✔ rhinoz-ancestral-horn: historical snapshot: inactive, active, real formula, log and reload on either side (5.3584ms)
+✔ ff9-orichalque: current bearer: inactive, active, real formula, log and reload on either side (7.8003ms)
+✔ ff9-magekane: current bearer: inactive, active, real formula, log and reload on either side (6.6637ms)
+✔ ff9-excalibur: current bearer: inactive, active, real formula, log and reload on either side (6.0898ms)
+✖ ff9-save-the-queen: current bearer: inactive, active, real formula, log and reload on either side (2.1251ms)
+✔ ff9-dragonade: current bearer: inactive, active, real formula, log and reload on either side (6.0058ms)
+✔ ff9-runigriffe: current bearer: inactive, active, real formula, log and reload on either side (5.896ms)
+✖ ff9-gastrette: current bearer: inactive, active, real formula, log and reload on either side (1.7199ms)
+✔ ff9-backstage-hammer: current bearer: inactive, active, real formula, log and reload on either side (6.7107ms)
+✖ team conditions deactivate when formation or reserve recovers; no carried charge (45.3409ms)
+✔ Momo gift beats a smaller active DEF weapon without stacking, then expires (3.1564ms)
+✔ a scythe bonus never converts Voloden printed Mort into numeric damage (2.663ms)
+✔ new equipment participates in complete real matches and restores every exchange (10287.0515ms)
+✔ compatible alternatives replace atomically; retired personal alternatives cannot be equipped (1.2672ms)
+✖ all generated assets are versioned, hashed, have alpha and remain inside medallion (324.8821ms)
+ℹ tests 58
+ℹ suites 0
+ℹ pass 52
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11076.754
+
+✖ failing tests:
+
+test at V4\site\equipment-categories.test.cjs:24:1
+✖ three explicit categories share one historical slot, without changing base families (47.1753ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  93 !== 75
+  
+      at TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-categories.test.cjs:26:10)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 93,
+    expected: 75,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at V4\site\weapons-arsenal.test.cjs:34:1
+✖ 31 unique additions: stable identities, real jobs/factions/races and conservative declarative effects (49.7146ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  39 !== 31
+  
+      at TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\weapons-arsenal.test.cjs:35:39)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 39,
+    expected: 31,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at V4\site\weapons-arsenal.test.cjs:55:26
+✖ ff9-save-the-queen: current bearer: inactive, active, real formula, log and reload on either side (2.1251ms)
+  TypeError: Cannot read properties of undefined (reading 'outnumbered')
+      at activate (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\weapons-arsenal.test.cjs:28:11)
+      at TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\weapons-arsenal.test.cjs:59:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at V4\site\weapons-arsenal.test.cjs:55:26
+✖ ff9-gastrette: current bearer: inactive, active, real formula, log and reload on either side (1.7199ms)
+  TypeError: Cannot read properties of undefined (reading 'outnumbered')
+      at activate (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\weapons-arsenal.test.cjs:28:11)
+      at TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\weapons-arsenal.test.cjs:59:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at V4\site\weapons-arsenal.test.cjs:75:1
+✖ team conditions deactivate when formation or reserve recovers; no carried charge (45.3409ms)
+  TypeError: Cannot read properties of undefined (reading 'outnumbered')
+      at activate (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\weapons-arsenal.test.cjs:28:11)
+      at TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\weapons-arsenal.test.cjs:77:66)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at V4\site\weapons-arsenal.test.cjs:124:1
+✖ all generated assets are versioned, hashed, have alpha and remain inside medallion (324.8821ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert(record)
+  
+      at TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\weapons-arsenal.test.cjs:129:101)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
