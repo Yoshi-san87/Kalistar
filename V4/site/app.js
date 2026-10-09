@@ -23,7 +23,7 @@
   const roles=['Tank','DPS physique','Middle','DPS magique','Support'];
   const arenas=(data.arenas?.length?data.arenas:[{id:'ruins',name:'Ruines',subtitle:'Terrain neutre',image:'assets/arena.webp',element:'NONE',elementBonus:0,homeCharacters:[],homeAttack:0,homeDefense:0}]).map(a=>({...a,image:window.KalistarSite?.url(a.image)||a.image}));
   const arenaById=id=>arenas.find(a=>a.id===id)||arenas[0];
-  let statsSort='kills',statsSide='all',statsTab='lineup',statsPage=0,statsGroup='core',statsAward=0,statsSpotlight='rating';
+  let statsSort='kills',statsSide='all',statsTab='lineup',statsPage=0,statsGroup='core',statsAward=0,statsSpotlight='rating',statsBattle=null;
   const format=v=>typeof v==='number'?String(v):names[v]||v;
   let storageAvailable=true,toastTimer,aiTimer,epoch=0,rolling=false,game=null,combatController=null;
   try{db=await KalistarLocalDB.open(data);window.KALISTAR_DB=db;}catch(error){dbError=error.message;}
@@ -374,13 +374,15 @@ function showDeck(){setView('decks');}
   function showMatchStats(state=reportGame||game,archive=state===reportGame?reportArchive:null){
     const focused=$('#match-dialog').contains(document.activeElement)?document.activeElement:null;
     const focusAction=focused?.dataset.action,focusId=focused?.dataset.id,focusLabel=focused?.getAttribute('aria-label');
-    if(state!==reportGame){statsTab=state?.phase==='over'?'awards':'lineup';statsPage=0;statsGroup='core';statsAward=0;statsSpotlight='rating';statsSide='all';}
+    const battleScroll=state===reportGame&&$('#match-dialog .match-report')?.dataset.tab==='battle'?$('#match-dialog .match-view').scrollTop:0;
+    if(state!==reportGame){statsTab=state?.phase==='over'?'awards':'lineup';statsPage=0;statsGroup='core';statsAward=0;statsSpotlight='rating';statsSide='all';statsBattle=null;}
     reportGame=state;reportArchive=archive;
-    if(state)modal('match-dialog',head(state.phase==='over'?'Palmarès de la rencontre':'Statistiques du match')+KalistarMatchReport.render(state,{sort:statsSort,side:statsSide,tab:statsTab,page:statsPage,group:statsGroup,award:statsAward,spotlight:statsSpotlight,profiles:archive?.profiles,arenas:archive?.arenas}));
+    if(state)modal('match-dialog',head(state.phase==='over'?'Palmarès de la rencontre':'Statistiques du match')+KalistarMatchReport.render(state,{sort:statsSort,side:statsSide,tab:statsTab,page:statsPage,group:statsGroup,award:statsAward,spotlight:statsSpotlight,battle:statsBattle,profiles:archive?.profiles,arenas:archive?.arenas}));
+    if(statsTab==='battle')$('#match-dialog .match-view').scrollTop=battleScroll;
     if(focusAction){
       const controls=[...$('#match-dialog').querySelectorAll('[data-action]')].filter(b=>b.dataset.action===focusAction&&!b.disabled&&b.getClientRects().length);
-      const paging=focusAction==='stats-page'||focusAction==='stats-award';
-      const control=controls.find(b=>paging?b.getAttribute('aria-label')===focusLabel:b.dataset.id===focusId)||(paging?controls[0]:null);
+      const paging=focusAction==='stats-page'||focusAction==='stats-award'||focusAction==='stats-battle';
+      const control=focused?.matches('.battle-point')?$('#match-dialog .battle-point[aria-pressed=true]'):controls.find(b=>paging?b.getAttribute('aria-label')===focusLabel:b.dataset.id===focusId)||(paging?controls[0]:null);
       (control||$('#match-dialog [role=tab][aria-selected=true]'))?.focus({preventScroll:true});
     }
   }
@@ -873,6 +875,7 @@ function showDeck(){setView('decks');}
       if(action==='stats-sort'){statsSort=id;statsPage=0;return showMatchStats();}
       if(action==='stats-side'){statsSide=id;statsPage=0;return showMatchStats();}
       if(action==='stats-tab'){statsTab=id;statsPage=0;return showMatchStats();}
+      if(action==='stats-battle'){statsBattle=Math.max(0,Number(id)||0);return showMatchStats();}
       if(action==='stats-page'){statsPage=Math.max(0,Number(id)||0);return showMatchStats();}
       if(action==='stats-group'){statsGroup=id;statsSort=id==='extras'?'debuff':'kills';statsPage=0;return showMatchStats();}
       if(action==='stats-award'){statsAward=Math.max(0,Number(id)||0);return showMatchStats();}
@@ -1026,6 +1029,13 @@ function showDeck(){setView('decks');}
   let reportResize=0;
   window.addEventListener('resize',()=>{clearTimeout(reportResize);reportResize=setTimeout(()=>{if($('#match-dialog').open&&!$('#detail-dialog').open)showMatchStats();},100);});
   $('#match-dialog').addEventListener('keydown',event=>{
+    const point=event.target.closest('.battle-point');
+    if(point&&['ArrowLeft','ArrowRight','Home','End','Enter',' '].includes(event.key)){
+      event.preventDefault();
+      const count=Number($('#match-dialog .match-battle')?.dataset.battleCount)||0,index=Number(point.dataset.id);
+      statsBattle=event.key==='Home'?0:event.key==='End'?count-1:Math.max(0,Math.min(count-1,index+(event.key==='ArrowLeft'?-1:event.key==='ArrowRight'?1:0)));
+      showMatchStats();$('#match-dialog .battle-point[aria-pressed=true]')?.focus({preventScroll:true});return;
+    }
     const current=event.target.closest('[role=tab],[data-action=stats-spotlight]');if(!current||!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;
     const selector=current.matches('[role=tab]')?'[role=tab]':'[data-action=stats-spotlight]';
     const tabs=[...current.parentElement.querySelectorAll(selector)],index=tabs.indexOf(current);

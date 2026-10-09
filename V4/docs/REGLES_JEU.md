@@ -296,6 +296,14 @@ autorisables dans le catalogue V4 actuel, meme si le moteur garde du code legacy
 
 ## Statistiques et attribution
 
+L'onglet **Bataille** du bilan trace les eliminations definitives de chaque
+equipe, de 0 a 10, en fonction des tours effectivement consignes. Chaque point
+identifie le tueur, la victime, le tour, le round de la timeline et le score
+courant. Les duels sans kill laissent la courbe plate ; un sauvetage Reraise
+n'ajoute aucun point. Il s'agit d'une lecture du journal, pas d'une nouvelle
+regle. Les historiques partiels montrent seulement les kills conserves depuis
+leur premier echange ; aucune chronologie manquante n'est reconstruite.
+
 Les statistiques sous une carte en duel portent sur CETTE instance et CE match,
 pas sur sa carriere ni sur toutes les cartes du meme personnage.
 

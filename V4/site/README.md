@@ -6,6 +6,29 @@ Read the [handoff guide](../../docs/GUIDE_REPRISE.md) and the
 [current gameplay summary](../docs/REGLES_JEU.md), including the documented
 difference between the ten-kill objective and the engine's empty-board ending.
 
+## Battle Report (V4.6.11)
+
+The match report adds **Bataille** beside Palmares. `battle-report.js` builds
+two cumulative step lines directly from `state.match.events`: definitive kills
+only, with a fixed 0-10 scale and the actual exchange number on the x axis.
+Blocks, support and Reraise leave the lines flat. Each point preserves the
+attacker/target unit UID, their model and collectible instance, final ATK/DEF,
+and its round from the existing combat timeline. No gameplay or save change.
+
+Selecting a point or using the previous/next controls shows both real cards,
+who eliminated whom, the turn/round, attack type and the score at that moment.
+Keyboard arrows/Home/End navigate points. On phones, the chart keeps legible
+HTML axis labels and 44px controls; the detail scrolls within the report,
+retaining its position during selection. No permanent animation or listeners.
+Partial archives show recorded eliminations only; missing journals cannot
+reconstruct kill times from the cemetery. Existing complete archives work as-is.
+
+Checks: `battle-report.test.cjs` (60 real matches, score agreement, immutable
+states, identities, exact turns/rounds, step geometry, partial/missing history)
+and `battle-report.browser.test.cjs` (PC, Razr, compact, landscape, touch/keyboard,
+resize, reload, details, Reduced Motion, in-progress and archived reports).
+Captures: `../revisions/2026-10-09-battle-report/qa/built/`.
+
 ## Arena Closing Ceremony (V4.6.10)
 
 The final resolved exchange remains manual. `arena-finale.js` probes `next()`

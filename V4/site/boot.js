@@ -2,7 +2,7 @@
   'use strict';
   const release = new URL(document.currentScript?.src || location.href).searchParams.get('v') || '';
   const scripts = ['assets/lucide.min.js', 'ui-system.js', 'dialog-history.js', 'factions.js', 'weapons.js', 'weapon-art.js', 'defensive-equipment.js', 'equipment.js', 'turn-order.js', 'combat-timeline.js', 'engine.js', 'base-weapons.js', 'collaborations.js', 'card-media.js', 'equipment-presentation.js', 'elemental-roll.js',
-    'arena-ambience.js', 'combat-effects.js', 'duel-focus.js', 'lineup-intro.js', 'formation-drag.js', 'match-metrics.js', 'trophies.js', 'match-report.js', 'arena-finale.js',
+    'arena-ambience.js', 'combat-effects.js', 'duel-focus.js', 'lineup-intro.js', 'formation-drag.js', 'match-metrics.js', 'trophies.js', 'battle-report.js', 'match-report.js', 'arena-finale.js',
     'ownership.js', 'local-db.js', 'weapon-cards.js', 'weapons-ui.js', 'catalogue.js', 'catalogue-updates.js', 'collection-binder.js', 'accounts-ui.js',
     'reserve-preview.js', 'deck-library.js', 'team-composition.js', 'deck-builder.js', 'statistics.js', 'story-reader.js', 'matchmaking.js', 'pre-match.js', 'app.js'];
   const fail = error => {

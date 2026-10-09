@@ -1,0 +1,499 @@
+{
+  "tree": "f0c47e5a2f25c2eb1353e93070863c7e6b55509f",
+  "parent": "c1aedfe02405eee431f2a31bfe1d510d308f5d36",
+  "snapshot": "C:\\Users\\guill\\AppData\\Local\\Temp\\kalistar-battle-4611-RegrC1",
+  "hydrated": 1160,
+  "passed": true,
+  "tests": 633,
+  "commands": [
+    {
+      "args": [
+        "--test",
+        "V4/atelier/game-catalog.test.cjs",
+        "V4/atelier/collaboration-arenas.test.cjs",
+        "V4/deploy/build.test.cjs",
+        "V4/deploy/pwa.test.cjs",
+        "V4/site/statistics.test.cjs",
+        "V4/site/collaborations.test.cjs",
+        "V4/site/metal-gear.test.cjs",
+        "V4/site/resident-evil.test.cjs",
+        "V4/site/one-piece.test.cjs"
+      ],
+      "passed": true,
+      "tests": 45
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-01-one-piece/model.test.cjs"
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "args": [
+        "--test",
+        "V4/revisions/2026-10-04-armor-refinement/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 3
+    },
+    {
+      "args": [
+        "--test",
+        "V4/revisions/2026-10-05-orven-long-spear/revision.test.cjs"
+      ],
+      "passed": true,
+      "tests": 3
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-05-cryptown-sentinel/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-06-cryptown-sniper/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 8
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-06-cryptown-dual-flails/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 8
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-06-cryptown-scythe/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 8
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-06-fifteen-faces/integration.test.cjs",
+        "V4/expansions/2026-10-06-fifteen-faces/accent-typography.test.cjs"
+      ],
+      "passed": true,
+      "tests": 8
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-06-second-edition-scenes/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 7
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-08-eleven-lives/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 7
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-08-final-fantasy-ix/integration.test.cjs",
+        "V4/revisions/2026-10-08-resident-evil-faces/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 12
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-09-final-fantasy-trilogy/integration.test.cjs",
+        "V4/revisions/2026-10-09-ff-logo-banners/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 10
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-09-skaern-luxo/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 6
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-09-nerval/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-09-gotham/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 6
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-09-gotham-completion/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 6
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-09-crossover-crystals/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 7
+    },
+    {
+      "args": [
+        "--test",
+        "V4/revisions/2026-10-09-homme-mystere/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "args": [
+        "--test",
+        "V4/revisions/2026-10-06-balmhyr-durane/revision.test.cjs"
+      ],
+      "passed": true,
+      "tests": 2
+    },
+    {
+      "args": [
+        "--test",
+        "V4/revisions/2026-10-01-stat-personality/revision.test.cjs"
+      ],
+      "passed": true,
+      "tests": 11
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-01-rikka-rooftops/model.test.cjs"
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-01-one-piece-witcher/model.test.cjs"
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "args": [
+        "--test",
+        "V4/revisions/2026-10-01-luffy-light/revision.test.cjs"
+      ],
+      "passed": true,
+      "tests": 2
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-02-witcher-completion/model.test.cjs",
+        "V4/revisions/2026-10-02-sanji-legs/revision.test.cjs"
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "args": [
+        "--test",
+        "V4/releases/2026-10-02-pages-portability/portable.test.cjs"
+      ],
+      "passed": true,
+      "tests": 3
+    },
+    {
+      "args": [
+        "V4/site/kalistel.test.cjs"
+      ],
+      "passed": true,
+      "tests": 0
+    },
+    {
+      "args": [
+        "V4/site/arena-ambience.test.cjs"
+      ],
+      "passed": true,
+      "tests": 0
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/equipment.test.cjs",
+        "V4/site/equipment-presentation.test.cjs"
+      ],
+      "passed": true,
+      "tests": 21
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/equipment-v2.test.cjs",
+        "V4/site/equipment-slots-persistence.test.cjs",
+        "V4/site/equipment-slots-presentation.test.cjs"
+      ],
+      "passed": true,
+      "tests": 41
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/equipment-categories.test.cjs",
+        "V4/site/weapons-arsenal.test.cjs"
+      ],
+      "passed": true,
+      "tests": 51
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/defensive-equipment.test.cjs"
+      ],
+      "passed": true,
+      "tests": 156
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/ff9-equipment.test.cjs"
+      ],
+      "passed": true,
+      "tests": 17
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/gotham-equipment.test.cjs"
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "args": [
+        "--test",
+        "V4/releases/2026-10-09-public-cache-check/public-asset-check.test.cjs",
+        "V4/releases/2026-10-09-v4.6.1/public-check.test.cjs"
+      ],
+      "passed": true,
+      "tests": 6
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/arborium-weapons.test.cjs"
+      ],
+      "passed": true,
+      "tests": 7
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/draevenheim-weapons.test.cjs"
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/cryptown-weapons.test.cjs"
+      ],
+      "passed": true,
+      "tests": 6
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/rhinoz-weapon.test.cjs"
+      ],
+      "passed": true,
+      "tests": 6
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/weapon-bearers.test.cjs"
+      ],
+      "passed": true,
+      "tests": 7
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/weapon-art.test.cjs"
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/base-weapons.test.cjs"
+      ],
+      "passed": true,
+      "tests": 6
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/team-composition.test.cjs"
+      ],
+      "passed": true,
+      "tests": 14
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/matchmaking.test.cjs",
+        "V4/site/pre-match.test.cjs"
+      ],
+      "passed": true,
+      "tests": 8
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/lineup-intro.test.cjs",
+        "V4/site/turn-order.test.cjs"
+      ],
+      "passed": true,
+      "tests": 15
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/turn-timeline.test.cjs"
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/combat-timeline.test.cjs"
+      ],
+      "passed": true,
+      "tests": 6
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/scoreboard.test.cjs"
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/arena-console-skin.test.cjs",
+        "V4/site/console-turn.test.cjs"
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/arena-finale.test.cjs"
+      ],
+      "passed": true,
+      "tests": 6
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/battle-report.test.cjs"
+      ],
+      "passed": true,
+      "tests": 9
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/catalogue-updates.test.cjs"
+      ],
+      "passed": true,
+      "tests": 9
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/match-metrics.test.cjs",
+        "V4/site/kill-medals.test.cjs"
+      ],
+      "passed": true,
+      "tests": 2
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/navigation.test.cjs"
+      ],
+      "passed": true,
+      "tests": 6
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/factions.test.cjs"
+      ],
+      "passed": true,
+      "tests": 6
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/ui-system.test.cjs"
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/story-content.test.cjs"
+      ],
+      "passed": true,
+      "tests": 6
+    }
+  ],
+  "validationDelta": {
+    "baselineTree": "c970a689fe495865cdda134e10c3ccc8d83a4f88",
+    "changed": [
+      "V4/site/battle-report.js",
+      "V4/site/battle-report.test.cjs"
+    ],
+    "rerun": [
+      "V4/site/battle-report.test.cjs",
+      "V4/site/performance.test.cjs",
+      "V4/deploy/build.test.cjs",
+      "V4/deploy/build.cjs"
+    ],
+    "extraTests": 4
+  }
+}

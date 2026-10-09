@@ -1,0 +1,81 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "desktop",
+      "overflow": false,
+      "plotWidth": 1268.390625,
+      "plotHeight": 369.0625,
+      "pointWidth": 44,
+      "pointHeight": 44,
+      "font": "12px",
+      "scroll": false,
+      "motion": "0.18s, 0.18s"
+    },
+    {
+      "name": "wide",
+      "overflow": false,
+      "plotWidth": 1729.1875,
+      "plotHeight": 445.859375,
+      "pointWidth": 44,
+      "pointHeight": 44,
+      "font": "12px",
+      "scroll": false,
+      "motion": "0.18s, 0.18s"
+    },
+    {
+      "name": "razr",
+      "overflow": false,
+      "plotWidth": 318.515625,
+      "plotHeight": 218,
+      "pointWidth": 44,
+      "pointHeight": 44,
+      "font": "12px",
+      "scroll": false,
+      "motion": "0.18s, 0.18s"
+    },
+    {
+      "name": "compact",
+      "overflow": false,
+      "plotWidth": 230.1875,
+      "plotHeight": 218,
+      "pointWidth": 44,
+      "pointHeight": 44,
+      "font": "12px",
+      "scroll": true,
+      "motion": "0.18s, 0.18s"
+    },
+    {
+      "name": "landscape",
+      "overflow": false,
+      "plotWidth": 717.234375,
+      "plotHeight": 180,
+      "pointWidth": 44,
+      "pointHeight": 44,
+      "font": "12px",
+      "scroll": true,
+      "motion": "0.18s, 0.18s"
+    },
+    {
+      "kind": "archived",
+      "expected": 18
+    },
+    {
+      "kind": "ongoing",
+      "expected": 8
+    },
+    {
+      "kind": "empty",
+      "expected": 0
+    },
+    {
+      "kind": "partial",
+      "expected": 9
+    },
+    {
+      "kind": "missing",
+      "expected": 0
+    }
+  ],
+  "errors": []
+}

@@ -19,7 +19,7 @@
     {key:'luckUsed',label:'Trèfles utilisés',icon:'rotate-ccw',help:'Trèfles consommés pour relancer une défense insuffisante. À distinguer des trèfles accordés.'},
     {key:'rating',label:'Indice',icon:'trophy',help:'5 par élimination + 3 par Block + 2 par soutien + 1 par vie sauvée + 1 par tranche de 30 ATK retirée.'}
   ];
-  const tabs=[['awards','Palmarès','trophy'],['teams','Équipes','swords'],['lineup','Feuille','list-ordered'],['definitions','Décompte','chart-no-axes-combined']];
+  const tabs=[['awards','Palmarès','trophy'],['battle','Bataille','chart-no-axes-combined'],['teams','Équipes','swords'],['lineup','Feuille','list-ordered'],['definitions','Décompte','calculator']];
   const trophies=window.KalistarTrophies;
   const categories=trophies.categories.map(c=>[c.key,c.name,c.id]);
   const integer=value=>Number.isFinite(Number(value))?Math.max(0,Math.floor(Number(value))):0;
@@ -31,7 +31,7 @@
       return {...metric,label:typeof custom?.label==='string'?custom.label:metric.label,help};
     });
   }
-  function render(s,{sort='rating',side='all',profiles=null,arenas=null,tab='lineup',page=0,group='core',award=0,spotlight='rating'}={}){
+  function render(s,{sort='rating',side='all',profiles=null,arenas=null,tab='lineup',page=0,group='core',award=0,spotlight='rating',battle=null}={}){
     const core=metrics(coreDefaults,window.KalistarMatchMetrics?.core),extras=metrics(extraDefaults,window.KalistarMatchMetrics?.extras),allMetrics=[...core,...extras];
     const byId={...engine.byId};
     if(Array.isArray(profiles))for(const c of profiles)if(c&&engine.byId[c.id])byId[c.id]={...c,slug:engine.byId[c.id].slug};
@@ -78,6 +78,8 @@
     if(tab==='lineup'){
       const visible=units.filter(u=>side==='all'||String(u.side)===side).slice().sort((a,b)=>b[key]-a[key]||a.uid.localeCompare(b.uid)),slice=paginate(visible);
       content=`<section class="match-lineup"><div class="match-table-heading">${groupControls()}${sideControls()}</div><div class="match-table-scroll"><table class="match-table" data-group="${group}" style="--metric-count:${columns.length}" aria-label="Feuille de match"><thead><tr><th scope="col">Carte</th>${columns.map(metric=>`<th scope="col" aria-sort="${key===metric.key?'descending':'none'}"><button type="button" data-action="stats-sort" data-id="${metric.key}" title="${esc(metric.label+' : '+metric.help)}" aria-label="${esc('Trier par '+metric.label)}">${metricIcon(metric)}${key===metric.key?icon('arrow-down'):''}</button></th>`).join('')}</tr></thead><tbody>${slice.items.map(u=>`<tr data-stat-unit="${esc(u.uid)}"><th scope="row">${identity(u)}</th>${columns.map(metric=>`<td data-stat="${metric.key}" data-value="${u[metric.key]||0}" class="${key===metric.key?'sorted':''}" title="${esc(metric.label+' : '+num(u[metric.key]))}">${num(u[metric.key])}</td>`).join('')}</tr>`).join('')}</tbody></table>${slice.items.length?'':'<p class="match-empty">Aucune carte</p>'}</div>${slice.footer}</section>`;
+    }else if(tab==='battle'){
+      content=KalistarBattleReport.render(s,{selected:battle,player,name:u=>byId[u.cardId].name,identity:(u,role)=>identity(u,'match-unit '+role)});
     }else if(tab==='teams'){
       const slice=paginate(columns);
       content=`<section class="match-team-stats"><div class="match-table-heading">${groupControls()}</div><div class="match-team-names"><b>${player(0)}</b><span>Face à face</span><b>${player(1)}</b></div><div class="match-comparisons">${slice.items.map(metric=>{
