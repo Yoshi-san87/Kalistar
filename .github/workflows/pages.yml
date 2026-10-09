@@ -30,6 +30,8 @@ jobs:
         run: git lfs pull --include="V4/expansions/2026-10-09-skaern-luxo/originals/49901001/card.png,V4/expansions/2026-10-09-skaern-luxo/originals/49901001/illustration.png" --exclude=""
       - name: Fetch Gotham approved illustration proof sources
         run: git lfs pull --include="V4/expansions/2026-10-09-gotham/cards/*/illustration.png,V4/expansions/2026-10-09-gotham/components/flag-Gotham.png,V4/propositions/2026-10-09-batman-gallery/images/*.png" --exclude=""
+      - name: Fetch Batman and Joker supplied illustration proof sources
+        run: git lfs pull --include="V4/expansions/2026-10-09-gotham-completion/art/*.png,V4/expansions/2026-10-09-gotham-completion/cards/*/illustration.png" --exclude=""
       - name: Install equipment media verifier
         run: npm install --prefix "$RUNNER_TEMP/kalistar-media-qa" --no-package-lock --ignore-scripts --no-audit --no-fund sharp@0.35.4
       - name: Check catalogue and mechanics
@@ -52,6 +54,7 @@ jobs:
           node --test V4/expansions/2026-10-09-skaern-luxo/integration.test.cjs
           node --test V4/expansions/2026-10-09-nerval/integration.test.cjs
           node --test V4/expansions/2026-10-09-gotham/integration.test.cjs
+          node --test V4/expansions/2026-10-09-gotham-completion/integration.test.cjs
           node --test V4/revisions/2026-10-06-balmhyr-durane/revision.test.cjs
           node --test V4/revisions/2026-10-01-stat-personality/revision.test.cjs
           node --test V4/expansions/2026-10-01-rikka-rooftops/model.test.cjs
