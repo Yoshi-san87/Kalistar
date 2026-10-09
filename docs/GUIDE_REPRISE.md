@@ -49,6 +49,13 @@ temporaires du presse-papiers ou les preferences non encore documentees.
 
 ## Reperes techniques
 
+### Nerval, le Veilleur des Passerelles : 9 octobre 2026
+
+Le [lot Nerval](../V4/expansions/2026-10-09-nerval/README.md) ajoute le modele
+49901402 : Humain de Chroma, Lumiere, Baton, soutien P3/P5. L'illustration
+approuvee reste intacte ; bouclier attribuable, mana et barriere utilisent
+uniquement les regles existantes. PSD natif, preuves et captures sont conserves.
+
 ### Skaern et Djidane Lumiere : 9 octobre 2026
 
 Le [lot Skaern / Luxo](../V4/expansions/2026-10-09-skaern-luxo/README.md)
