@@ -17,7 +17,7 @@ test('Ysilis is a faction alias, never a replacement of geographical text',()=>{
 test('three legacy labels migrate while new Ysilis and Okami cards retain their native identities',async()=>{
   const data=await dataPromise;
   assert.deepEqual(data.cards.filter(c=>c.faction==='Ysilis').map(c=>c.id).sort(),[...ids,'49900904','49900907']);
-  assert.deepEqual(data.cards.filter(c=>c.race==='OKAMI').map(c=>[c.id,c.faction]),[['49900901','Grivka'],['49900902','Grivka']]);
+  assert.deepEqual(data.cards.filter(c=>c.race==='OKAMI').map(c=>[c.id,c.faction]),[['49900901','Grivka'],['49900902','Grivka'],['49901401','Grivka']]);
   assert(!data.cards.some(c=>c.faction==='Niveria'||['LYCANOS','GAROU'].includes(c.race)));
   const originals=[...refs.cards.map(r=>({...r.card,id:r.card.id})),...rows.map(r=>({...r.profile,id:r.id}))];
   for(const c of data.cards){
