@@ -26,7 +26,7 @@ async function fixture(page,side,fail=false){
 }
 async function geometry(page,selector='.eq-overlay'){
   return page.locator(selector).evaluateAll(ns=>ns.map(n=>{
-    const img=n.parentElement.querySelector(':scope > img'),r=n.getBoundingClientRect(),i=img.getBoundingClientRect(),c=KalistarCardMedia.crop,a=KalistarEquipmentFX.layouts[n.dataset.slot],style=getComputedStyle(img);
+    const img=n.parentElement.querySelector(':scope > img'),r=n.getBoundingClientRect(),i=img.getBoundingClientRect(),c=KalistarCardMedia.crop,a=(n.dataset.arena==='true'?KalistarEquipmentFX.arenaLayouts:KalistarEquipmentFX.layouts)[n.dataset.slot],style=getComputedStyle(img);
     const ratio=c.width/c.height,w=style.objectFit==='contain'?Math.min(i.width,i.height*ratio):i.width,h=style.objectFit==='contain'?Math.min(i.height,i.width/ratio):i.height;
     return {slot:n.dataset.slot,dx:Math.abs(r.left-i.left-(i.width-w)/2-(a.left-c.left)/c.width*w),dy:Math.abs(r.top-i.top-(i.height-h)/2-(a.top-c.top)/c.height*h),dw:Math.abs(r.width-a.width/c.width*w),visibility:getComputedStyle(n).visibility};
   }));
@@ -51,11 +51,16 @@ async function main(){
     for(const side of [0,1]){
       const f=await fixture(page,side);await ready(page);await images(page);await installRecorder(page);
       await page.locator('.eq-overlay[data-slot=weapon]').waitFor();assertGeometry(await geometry(page),name+' side'+side+' focused');
+      assert.equal(await page.locator('.eq-overlay .eq-tab').count(),0,'direct equipment has no bonus plate');
+      const resting=page.locator('.eq-overlay[data-slot=shield] .eq-orbit'),fixed=await resting.evaluate(n=>({animation:getComputedStyle(n).animationName,transform:getComputedStyle(n).transform}));
+      assert.equal(fixed.animation,'none');await page.waitForTimeout(150);assert.equal(await resting.evaluate(n=>getComputedStyle(n).transform),fixed.transform,'inactive protection stays still');
+      await page.screenshot({path:path.join(out,name+'-side'+side+'-resting-protection.png'),scale:'css'});
       const ordinary=await page.evaluate(()=>{KalistarFocus.capture();window.eqChallengers=[...document.querySelectorAll('.slot.challenger')];eqChallengers.forEach(n=>n.classList.remove('challenger'));for(const n of document.querySelectorAll('.formation .slot')){n.style.removeProperty('transform');n.style.removeProperty('opacity');n.style.removeProperty('--focus-scale');delete n._kalistarFocusTransform;}return true;});assert(ordinary);await page.waitForTimeout(100);assertGeometry(await geometry(page),name+' normal');
       const normalScale=await page.locator('.slot:has(.eq-overlay)').first().evaluate(n=>n.getBoundingClientRect().width/n.offsetWidth);assert(Math.abs(normalScale-1)<.02,'ordinary card really has scale 1');
       await page.evaluate(()=>{eqChallengers.forEach(n=>n.classList.add('challenger'));KalistarFocus.mount(document.querySelectorAll('.formation'));});await page.waitForTimeout(600);assertGeometry(await geometry(page),name+' refocused');
-      await page.evaluate(async f=>{window.eqAbort=new AbortController();await KalistarDice.play(1-f.side,6,true,window.eqAbort.signal);window.eqAfter=f.after;window.eqBefore=f.before;window.eqPlay=KalistarEquipmentFX.play({before:f.before,after:f.after,signal:window.eqAbort.signal});},{...f});
+      await page.evaluate(async f=>{window.eqAbort=new AbortController();await KalistarDice.play(1-f.side,6,true,window.eqAbort.signal);window.eqRestingProtection=document.querySelector('.eq-overlay[data-slot=shield]');window.eqAfter=f.after;window.eqBefore=f.before;window.eqPlay=KalistarEquipmentFX.play({before:f.before,after:f.after,signal:window.eqAbort.signal});},{...f});
       await page.evaluate(()=>window.eqPlay);await images(page);assertGeometry(await geometry(page),name+' active DEF6');
+      assert(await page.evaluate(()=>eqRestingProtection===document.querySelector('.eq-overlay[data-slot=shield]')),'activation reuses the visible medallion');
       const synchronization=await page.locator('.eq-overlay:is([data-slot=weapon],[data-slot=shield])').evaluateAll(ns=>ns.map(n=>{
         const marker=n.parentElement.querySelector(`.ritual-result[data-face="6"][data-role="${n.dataset.slot==='weapon'?'ATK':'DEF'}"]`);return {slot:n.dataset.slot,delay:n.style.getPropertyValue('--eq-loop-delay'),markerDelay:marker?.style.getPropertyValue('--eq-loop-delay'),direction:getComputedStyle(n.querySelector('.eq-radar')).animationDirection,iterations:getComputedStyle(n.querySelector('.eq-radar')).animationIterationCount};
       }));
@@ -66,7 +71,7 @@ async function main(){
       await page.evaluate(()=>{
         const c=document.querySelector('#detail-dialog .detail-visual'),W=KalistarWeapons.weapons;KalistarEquipmentFX.mountDetail(c,[{weapon:W.find(w=>w.id==='fallen-king-axe'),slot:'weapon',active:null},{weapon:W.find(w=>w.id==='durane-rampart'),slot:'shield',active:null},{weapon:W.find(w=>w.id==='exiled-king-seal'),slot:'relic',active:null}],{bonus:false});
       });await images(page);assert.equal(await page.locator('.eq-detail-overlay').count(),3);assert.equal(await page.locator('.eq-detail-overlay .eq-tab').count(),0);assertGeometry(await geometry(page,'.eq-detail-overlay'),name+' three-slot deck popup');
-      await page.screenshot({path:path.join(out,name+'-side'+side+'-three-slot-popup.png'),scale:'css'});await page.locator('#detail-dialog [data-action=close]').click();assert.equal(await page.locator('.eq-detail-overlay').count(),0);
+      await page.screenshot({path:path.join(out,name+'-side'+side+'-three-slot-popup.png'),scale:'css'});await page.locator('#detail-dialog [data-action=close]').click();await page.waitForFunction(()=>!document.querySelector('.eq-detail-overlay'));assert.equal(await page.locator('.eq-detail-overlay').count(),0);
       const combat=await page.evaluate(async()=>{
         await KalistarCombat.play({before:eqBefore,after:eqAfter,element:'MINERO',color:'#c1c8cb',reduced:false,signal:eqAbort.signal});return equipmentFxSamples;
       });assert(combat.some(s=>s.className.includes('combat-equipped-protection')&&s.art&&s.id==='durane-rampart'));assert(!combat.some(s=>s.className.includes('combat-shield')&&!s.className.includes('combat-equipped-protection')&&s.shield));
@@ -78,7 +83,12 @@ async function main(){
       }
       await page.evaluate(()=>{eqAbort.abort();KalistarEquipmentFX.capture({reset:true});});assert.equal(await page.locator('.eq-use,.eq-transfer,.eq-gift,.eq-overlay,.combat-card-effect').count(),0);
       await page.evaluate(async f=>{await KALISTAR_DB.saveGame(f.after);localStorage.setItem('kalistar.v4.game',JSON.stringify(f.after));},f);await ready(page);await images(page);assert.equal(await page.locator('.eq-overlay.is-active').count(),2,'both retained D6 items survive reload');assertGeometry(await geometry(page),name+' retained result reload');await page.screenshot({path:path.join(out,name+'-side'+side+'-restored-result.png'),scale:'css'});
-      await page.evaluate(()=>{const E=KalistarEngine.createEngine(KALISTAR_DATA),s=E.restoreGame(JSON.parse(localStorage.getItem('kalistar.v4.game')));E.next(s);E.assertState(s);KalistarEquipmentFX.capture();KalistarEquipmentFX.mount(s,E);});await page.waitForTimeout(450);assert.equal(await page.locator('.eq-overlay,.ritual-result[data-equipment-six]').count(),0,'closing animation returns both original glyphs after the duel');
+      await page.evaluate(()=>{const E=KalistarEngine.createEngine(KALISTAR_DATA),s=E.restoreGame(JSON.parse(localStorage.getItem('kalistar.v4.game')));E.next(s);E.assertState(s);KalistarEquipmentFX.capture();KalistarEquipmentFX.mount(s,E);});await page.waitForTimeout(450);
+      assert.equal(await page.locator('.eq-overlay').count(),2,'both equipped circles stay visible after the duel');assert.equal(await page.locator('.eq-overlay.is-active,.ritual-result[data-equipment-six],.eq-overlay .eq-tab').count(),0,'deactivation stops motion and D6 sync, without a plate');
+      assert((await page.locator('.eq-overlay .eq-orbit').evaluateAll(ns=>ns.map(n=>getComputedStyle(n).animationName))).every(n=>n==='none'));
+      await page.screenshot({path:path.join(out,name+'-side'+side+'-resting-equipment.png'),scale:'css'});
+      await page.evaluate(()=>{const E=KalistarEngine.createEngine(KALISTAR_DATA),s=E.restoreGame(JSON.parse(localStorage.getItem('kalistar.v4.game')));KalistarEquipmentFX.mount({...s,phase:'over'},E);});
+      assert.equal(await page.locator('.eq-overlay').count(),2,'finished board keeps equipped objects visible');assert.equal(await page.locator('.eq-overlay.is-active,.eq-use,.eq-transfer,.eq-gift').count(),0,'finished board has no active equipment effects');
       results.push({name,side,scenario:'real Block, focus, resize, three-slot popup, synchronized D6, reload and deactivation',passed:true});
     }
     const failure=await fixture(page,0,true);await ready(page);await images(page);await installRecorder(page);

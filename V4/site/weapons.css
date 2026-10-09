@@ -42,8 +42,7 @@
 }
 .slot-card{position:relative;}
 .eq-overlay{position:absolute;display:block;z-index:4;pointer-events:none;}
-.eq-overlay:is([data-slot=weapon],[data-slot=shield]) .eq-tab{left:22%;width:56%;top:88%;min-height:24%;padding:5% 0 3%;}
-.eq-overlay:is([data-slot=weapon],[data-slot=shield]) .eq-tab small{display:none;}
+.eq-overlay[data-arena=true]:is([data-slot=weapon],[data-slot=shield]):not(.is-active) :is(.eq-orbit,.eq-radar){animation:none;}
 .eq-overlay.is-active:is([data-slot=weapon],[data-slot=shield]) .eq-radar{animation-direction:normal;}
 .eq-use{position:absolute;left:22%;top:24%;width:56%;height:43%;display:grid;place-items:center;z-index:6;pointer-events:none;filter:drop-shadow(0 2px 5px #071516) drop-shadow(0 0 7px #dcebec55);}
 .eq-use>img{width:100%;height:100%;object-fit:contain;filter:brightness(1.16);}

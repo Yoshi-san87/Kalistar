@@ -469,8 +469,8 @@ function showDeck(){setView('decks');}
   }
   function syncDetailEquipment(){
     const dialog=$('#detail-dialog'),states=detailEquipment(E.byId[ui.detail],ui.detailContext)||[];
-    const visible=dialog.open&&!ui.art?states.filter(state=>state.weapon&&state.active!==false):[];
-    window.KalistarEquipmentFX.mountDetail(dialog.querySelector('.detail-visual'),visible,{bonus:ui.detailContext?.source!=='deck'});
+    const visible=dialog.open&&!ui.art?states:[];
+    window.KalistarEquipmentFX.mountDetail(dialog.querySelector('.detail-visual'),visible,{bonus:ui.detailContext?.source!=='deck',arena:ui.view==='arena'});
   }
   function equippedCard(c,context){
     const states=detailEquipment(c,context);

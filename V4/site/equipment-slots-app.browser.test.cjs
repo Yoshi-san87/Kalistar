@@ -42,6 +42,19 @@ async function main(){
     assert.equal(await page.locator('.eq-detail-overlay .eq-tab').count(),0);
     assert.deepEqual((await page.locator('.eq-detail-overlay').evaluateAll(ns=>ns.map(n=>n.dataset.slot))).sort(),['relic','shield','weapon']);
     await page.screenshot({path:path.join(out,name+'-deck-popup.png'),scale:'css'});await page.locator('#detail-dialog [data-action=close]').click();
+    const idle=await page.evaluate(async team=>{
+      const E=KalistarEngine.createEngine(KALISTAR_DATA),s=E.newGame(team,team,{mode:'local',seed:'EQUIPMENT-APP-IDLE',kalistel:false,turnOrder:'ABBA'});
+      while(s.phase==='initiative')E.rollInitiative(s);E.assertState(s);await KALISTAR_DB.saveGame(s);localStorage.setItem('kalistar.v4.game',JSON.stringify(s));return s;
+    },fixture.team);
+    await ready(page,'arena');await page.waitForFunction(()=>[...document.querySelectorAll('.eq-overlay img')].every(i=>i.complete&&i.naturalWidth));
+    assert.equal(await page.locator('.eq-overlay').count(),4,'both teams keep their weapon and protection visible before any roll');
+    assert.equal(await page.locator('.eq-overlay.is-active,.eq-overlay .eq-tab').count(),0);
+    assert((await page.locator('.eq-overlay .eq-orbit').evaluateAll(ns=>ns.map(n=>getComputedStyle(n).animationName))).every(n=>n==='none'));
+    const idleUid=idle.players[0].board.find(u=>u?.cardId===fixture.id);
+    await page.locator(`.slot[data-unit="${idleUid.uid}"] [data-action=detail]`).click();
+    assert.equal(await page.locator('.eq-detail-overlay').count(),2);assert.equal(await page.locator('.eq-detail-overlay.is-active,.eq-detail-overlay .eq-tab').count(),0);
+    await page.screenshot({path:path.join(out,name+'-inactive-arena-popup.png'),scale:'css'});await page.locator('#detail-dialog [data-action=close]').click();
+    await page.screenshot({path:path.join(out,name+'-inactive-arena.png'),scale:'css'});
     const state=await page.evaluate(async team=>{
       const E=KalistarEngine.createEngine(KALISTAR_DATA);let s=E.newGame(team,team,{mode:'local',seed:'EQUIPMENT-APP-460',kalistel:false,turnOrder:'ABBA'});
       while(s.phase==='initiative')E.rollInitiative(s);
@@ -53,7 +66,9 @@ async function main(){
       localStorage.setItem('kalistar.v4.game',JSON.stringify(s));return s;
     },fixture.team);
     await ready(page,'arena');await page.waitForFunction(()=>[...document.querySelectorAll('.eq-overlay img')].every(i=>i.complete&&i.naturalWidth));
-    assert.equal(await page.locator('.eq-overlay[data-slot=weapon],.eq-overlay[data-slot=shield]').count(),2);
+    assert.equal(await page.locator('.eq-overlay[data-slot=weapon],.eq-overlay[data-slot=shield]').count(),4);
+    assert.equal(await page.locator('.eq-overlay.is-active[data-slot=weapon],.eq-overlay.is-active[data-slot=shield]').count(),2);
+    assert.equal(await page.locator('.eq-overlay:is([data-slot=weapon],[data-slot=shield]) .eq-tab').count(),0);
     const activeRelics=state.players.flatMap(p=>p.board.filter(Boolean)).filter(u=>{
       const grants=state.equipment.defensive?.grants||[];
       return grants.some(g=>g.sourceUid===u.uid&&g.status==='ready');
@@ -64,17 +79,17 @@ async function main(){
     assert.deepEqual(contributions.map(r=>r.key).sort(),['equipmentAttack','equipmentDefense']);
     const saved=await page.evaluate(()=>localStorage.getItem('kalistar.v4.game'));
     await page.locator(`.slot[data-unit="${state.duel.attacker}"] [data-action=detail]`).click();
-    assert.equal(await page.locator('.eq-detail-overlay').count(),1);assert.equal(await page.locator('.eq-detail-overlay').getAttribute('data-slot'),'weapon');
+    assert.equal(await page.locator('.eq-detail-overlay').count(),2);assert.equal(await page.locator('.eq-detail-overlay.is-active').getAttribute('data-slot'),'weapon');
     await page.goBack();await page.waitForFunction(()=>!document.querySelector('#detail-dialog').open);
     assert.equal(await page.evaluate(()=>localStorage.getItem('kalistar.v4.game')),saved,'Back closes popup, does not restart duel');
-    const animations=await page.locator('.eq-overlay .eq-orbit').evaluateAll(ns=>ns.map(n=>getComputedStyle(n).animationName));
-    assert(animations.every(n=>n===(motion==='reduce'?'none':'eq-continuous-orbit')));
+    const animations=await page.locator('.eq-overlay').evaluateAll(ns=>ns.map(n=>({active:n.classList.contains('is-active'),animation:getComputedStyle(n.querySelector('.eq-orbit')).animationName})));
+    assert(animations.every(n=>n.animation===(motion==='reduce'||!n.active?'none':'eq-continuous-orbit')));
     await page.screenshot({path:path.join(out,name+'-arena-result.png'),scale:'css'});
     await page.evaluate(()=>KALISTAR_DB.equipment.unequip(KALISTAR_ACTIVE_USER,'balmhyr','fallen-king-axe'));
-    await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);assert.equal(await page.locator('.eq-overlay[data-slot=weapon]').count(),1,'match snapshot survives profile edit and reload');
+    await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);assert.equal(await page.locator('.eq-overlay[data-slot=weapon]').count(),2,'match snapshot survives profile edit and reload');
     const resumed=await page.evaluate(()=>JSON.parse(localStorage.getItem('kalistar.v4.game')));assert.deepEqual(resumed,state);
     await page.locator('[data-view=collection]').first().evaluate(n=>n.click());assert.equal(await page.locator('.eq-overlay,.eq-use,.eq-transfer,.eq-gift').count(),0);
-    results.push({name,passed:true,checks:['full app deck popup: three items','real ATK6/DEF6 totals and actual recap art','inactive relic omitted','popup Back preserves match','profile isolation/reload','motion/cleanup']});await context.close();
+    results.push({name,passed:true,checks:['full app deck popup: three items','fixed inactive weapon/protection, no plates, enlarged arena popup','real ATK6/DEF6 totals and actual recap art','inactive relic omitted','popup Back preserves match','profile isolation/reload','active-only rotation/motion/cleanup']});await context.close();
   }}finally{await browser.close();}
   assert.deepEqual(errors,[]);fs.writeFileSync(path.join(out,'results.json'),JSON.stringify({passed:true,built,results,errors},null,2)+'\n');console.log('PASS full app three-slot equipment on desktop, Razr and compact Reduced Motion.');
 }

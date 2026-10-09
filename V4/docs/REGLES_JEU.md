@@ -196,6 +196,9 @@ Un Block utilisant cette protection emploie son illustration ; un Block sans
 activation conserve le bouclier habituel. Les medaillons actifs et le 6
 conserve tournent ensemble jusqu'a la fin du duel, sans prolonger les bonus
 sur le prochain duel. Reduced Motion remplace le mouvement par un etat fixe.
+En arene, arme et protection equipees restent visibles au repos, avec un cercle
+plus grand et sans languette. Un cercle fixe ne donne aucun bonus : seule son
+activation le fait tourner. L'inspection de la carte montre le meme etat.
 
 Les reliques a usage unique gardent leurs evenements (`DEFENSE`, `BLOCK`,
 `DODGE`, `ALLY_FALL`, `SUPPORT`, `DEPLOY`, `ALLY_DEPLOY`), destinataires et

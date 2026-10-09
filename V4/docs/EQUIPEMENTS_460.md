@@ -100,8 +100,13 @@ Arme : cible entre ATK 6 et 5. Protection : glyphe entre DEF 6 et 5.
 Relique : medaillon imprime historique en bas. Les ancres sont exprimees
 dans le template natif, puis projetees avec le crop et l'image reellement
 dessinee, y compris zoom, focus et popup contenue. Aucune position d'ecran
-fixe. La carte inactive reste native ; la composition et son inspection
-montrent les objets portes sans annoncer de bonus de combat.
+fixe. En arene, les cercles arme/protection portes restent visibles au repos,
+sans rotation ni languette de bonus. Leur diametre natif est 106 au lieu de
+86, centre sur les memes glyphes asymetriques ; l'inspection d'arene reprend
+exactement cet etat. Seule une activation reelle lance le radar et sa rotation.
+La fin du bonus arrete le mecanisme sans retirer l'objet. Les bonus chiffres
+restent dans le panneau central et le journal. La relique garde son apparition
+conditionnelle historique. La composition et son inspection ne changent pas.
 
 Activation mecanique, rotation radar synchronisee au 6, impulsion d'usage,
 retour inverse, et transfert doux des reliques. La protection contribue et

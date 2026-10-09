@@ -13,7 +13,7 @@ function fixture({width=500,height=600,fit='contain',reduced=false}={}){
 function geometry(f){
   const width=Number(f.image.css.width),height=Number(f.image.css.height),scale=Math.min(width/crop.width,height/crop.height);
   for(const n of f.children.filter(n=>!n.removed)){
-    const layout=f.fx.layouts[n.dataset.slot],expected={left:12+(width-crop.width*scale)/2+(layout.left-crop.left)*scale,top:8+(height-crop.height*scale)/2+(layout.top-crop.top)*scale,width:layout.width*scale,height:layout.height*scale};
+    const layout=(n.dataset.arena==='true'?f.fx.arenaLayouts:f.fx.layouts)[n.dataset.slot],expected={left:12+(width-crop.width*scale)/2+(layout.left-crop.left)*scale,top:8+(height-crop.height*scale)/2+(layout.top-crop.top)*scale,width:layout.width*scale,height:layout.height*scale};
     for(const [key,value]of Object.entries(expected))assert(Math.abs(parseFloat(n.style[key])-value)<1e-7,n.dataset.slot+' '+key);
   }
 }
@@ -27,10 +27,25 @@ test('three-slot detail uses native asymmetrical glyphs, letterboxing and one sh
   assert.equal(f.fx.layouts.shield.center.x,(nativeShield[0]+nativeShield[2])/2);assert.equal(f.fx.layouts.shield.center.y,(nativeShield[1]+nativeShield[3])/2);
   for(const [width,height]of [[159.4,277.6],[320,480],[412,1007],[900,530],[240,460]]){f.image.css.width=String(width);f.image.css.height=String(height);f.observers[0].fn();geometry(f);}
 });
-test('inactive arena equipment is omitted and old single-definition popup stays in its legacy position',()=>{
+test('default inspection still omits inactive equipment and preserves legacy single-definition position',()=>{
   const f=fixture();f.fx.mountDetail(f.container,[{weapon:gear[0],slot:'weapon',active:false},{weapon:gear[1],slot:'shield',active:true}],{bonus:true});
   assert.equal(f.children.length,1);assert.match(f.children[0]['aria-label'],/active, \+30 DEF/);assert(f.children[0].innerHTML.includes('eq-tab'));
   f.fx.mountDetail(f.container,catalogue.legacyWeapons[0]);assert(f.children[0].removed);assert.equal(f.children[1].dataset.slot,'relic');assert.equal(f.fx.layouts.relic,f.fx.native);geometry(f);
+});
+
+test('arena inspection keeps inactive weapon and protection, enlarges only their circles and never shows their plates',()=>{
+  const f=fixture();f.fx.mountDetail(f.container,gear.map(w=>({weapon:w,slot:w.slot,active:false})),{arena:true});
+  assert.equal(f.children.length,2);geometry(f);
+  for(const n of f.children){
+    assert(!n.className.includes('is-active'));assert(!n.innerHTML.includes('eq-tab'));
+    assert.match(n['aria-label'],/equipement porte, inactif, bonus de \+30 .* non applique/);
+    const a=f.fx.arenaLayouts[n.dataset.slot],base=f.fx.layouts[n.dataset.slot];
+    assert.equal(a.width,106);assert(a.width>base.width);assert.equal(a.left+a.width/2,base.center.x);assert.equal(a.top+a.height/2,base.center.y);
+  }
+  for(const [width,height]of [[159.4,277.6],[320,480],[412,1007],[900,530]]){f.image.css.width=String(width);f.image.css.height=String(height);f.observers[0].fn();geometry(f);}
+  f.fx.mountDetail(f.container,gear.map(w=>({weapon:w,slot:w.slot,active:true})),{arena:true});
+  for(const n of f.children.filter(n=>!n.removed)){assert(n.className.includes('is-active'));assert.equal(n.innerHTML.includes('eq-tab'),n.dataset.slot==='relic');assert.match(n['aria-label'],/actif, \+30/);}
+  assert.equal(f.fx.arenaLayouts.relic,f.fx.native);geometry(f);
 });
 test('new detail cleanup cancels all three overlays and artwork is the real medallion cutout',()=>{
   const f=fixture();f.fx.mountDetail(f.container,gear.map(w=>({weapon:w,slot:w.slot,active:true})));f.fx.clearDetail();

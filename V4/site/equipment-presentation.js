@@ -4,6 +4,7 @@
   const native=Object.freeze({left:76,top:1103,width:122,height:122,center:{x:137,y:1163.5}});
   // Native glyphs: Calque 43 ATK motif; Calque 46 DEF bounds [696,231,774,310].
   const layouts=Object.freeze({weapon:Object.freeze({left:117,top:221.5,width:86,height:86,center:{x:160,y:264.5}}),shield:Object.freeze({left:692,top:227.5,width:86,height:86,center:{x:735,y:270.5}}),relic:native});
+  const arenaLayouts=Object.freeze(Object.fromEntries(Object.entries(layouts).map(([slot,n])=>[slot,slot==='relic'?n:Object.freeze({...n,left:n.center.x-53,top:n.center.y-53,width:106,height:106})])));
   let previous=new Map(),observer=null,gameId=null,loads=null,detailOverlays=[],detailObserver=null,detailLoads=null;
   const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const url=file=>window.KalistarSite?.url('assets/equipment/'+file)||'assets/equipment/'+file;
@@ -31,15 +32,18 @@
     }
   }
   async function transition(node,opening,signal){
-    const duration=motion.matches?120:opening?640:420;
+    const duration=motion.matches?120:opening?640:420,persistent=node.dataset.arena==='true'&&node.dataset.slot!=='relic';
+    if(persistent&&!opening){await Promise.all([
+      animate(node.querySelector('.eq-rim'),motion.matches?[{opacity:.8},{opacity:1}]:[{transform:'rotate(0)'},{transform:'rotate(-25deg)',offset:.65},{transform:'rotate(0)'}],{duration,easing:'ease-in-out'},signal),
+      animate(node.querySelector('.eq-radar'),[{opacity:.72},{opacity:0}],{duration},signal)]);return;}
     if(!opening){await Promise.all([
       animate(node.querySelector('.eq-tab'),[{transform:'scaleY(1)',opacity:1},{transform:'scaleY(0)',opacity:0}],{duration:motion.matches?120:220,fill:'forwards'},signal),
       animate(node.querySelector('.eq-rim'),[{transform:'rotate(0)'},{transform:motion.matches?'rotate(0)':'rotate(-80deg)'}],{duration,easing:'ease-in-out'},signal),
       animate(node,[{opacity:1,offset:0},{opacity:1,offset:.45},{opacity:0}],{duration,fill:'forwards'},signal)]);return;}
-    if(motion.matches){await animate(node,[{opacity:0},{opacity:1}],{duration},signal);return;}
+    if(motion.matches){await animate(node,[{opacity:persistent?0.8:0},{opacity:1}],{duration},signal);return;}
     notes(node,signal);
     await Promise.all([
-      animate(node,[{opacity:0},{opacity:1}],{duration:200},signal),
+      animate(node,[{opacity:persistent?1:0},{opacity:1}],{duration:200},signal),
       animate(node.querySelector('.eq-rim'),[{transform:'rotate(-110deg)'},{transform:'rotate(0)'}],{duration,easing:'cubic-bezier(.18,.8,.25,1)'},signal),
       animate(node.querySelector('.eq-body'),[{filter:'brightness(.75)'},{filter:'brightness(1.2)',offset:.6},{filter:'brightness(1)'}],{duration},signal),
       animate(node.querySelector('.eq-reflection'),[{opacity:0,transform:'rotate(-60deg)'},{opacity:.6,offset:.5},{opacity:0,transform:'rotate(100deg)'}],{duration},signal),
@@ -57,7 +61,7 @@
   function capture({reset=false}={}){clearDetail();clearArena();if(reset){previous.clear();gameId=null;}}
   function position(overlay,img,container){
     // Drawn card coordinates stay local, inheriting the challenger's transform once.
-    const crop=KalistarCardMedia.crop,n=layouts[overlay.dataset.slot]||native;
+    const crop=KalistarCardMedia.crop,n=(overlay.dataset.arena==='true'?arenaLayouts:layouts)[overlay.dataset.slot]||native;
     const css=getComputedStyle(img),boxWidth=parseFloat(css.width),boxHeight=parseFloat(css.height),scale=css.objectFit==='contain'?Math.min(boxWidth/crop.width,boxHeight/crop.height):null;
     const width=scale===null?boxWidth:crop.width*scale,height=scale===null?boxHeight:crop.height*scale,left=img.offsetLeft+(boxWidth-width)/2,top=img.offsetTop+(boxHeight-height)/2;
     overlay.style.visibility=img.naturalWidth===crop.width&&img.naturalHeight===crop.height?'visible':'hidden';
@@ -69,14 +73,15 @@
     if(!loads)loads=new AbortController();if(!observer)observer=new ResizeObserver(()=>{for(const [node,args]of placements)position(node,...args);});
     observer.observe(img);observer.observe(button);img.addEventListener('load',()=>position(overlay,img,button),{signal:loads.signal});position(overlay,img,button);
   }
-  function createOverlay(w,slot,{bonus=true,delay=-(performance.now()%3600)+'ms',detail=false}={}){
-    const overlay=document.createElement('span');overlay.className='eq-overlay is-active'+(detail?' eq-detail-overlay':'');overlay.dataset.weaponId=w.id;overlay.dataset.slot=slot;overlay.innerHTML=markup(w,{bonus});
-    overlay.style.setProperty('--eq-loop-delay',delay);overlay.setAttribute('role','img');overlay.setAttribute('aria-label',w.name+' : '+(bonus?'active, +'+w.effect.value+' '+w.effect.stat:'equipement porte'));return overlay;
+  function label(w,active,arena,bonus){return w.name+' : '+(arena?'equipement porte, '+(active?'actif, +'+w.effect.value+' '+w.effect.stat:'inactif, bonus de +'+w.effect.value+' '+w.effect.stat+' non applique'):bonus?'active, +'+w.effect.value+' '+w.effect.stat:'equipement porte');}
+  function createOverlay(w,slot,{bonus=true,delay=-(performance.now()%3600)+'ms',detail=false,active=true,arena=false}={}){
+    const overlay=document.createElement('span');overlay.className='eq-overlay'+(active?' is-active':'')+(detail?' eq-detail-overlay':'');overlay.dataset.weaponId=w.id;overlay.dataset.slot=slot;overlay.dataset.arena=String(arena);overlay.innerHTML=markup(w,{bonus:bonus&&!(arena&&slot!=='relic')});
+    overlay.style.setProperty('--eq-loop-delay',delay);overlay.setAttribute('role','img');overlay.setAttribute('aria-label',label(w,active,arena,bonus));return overlay;
   }
-  function normalize(value){return (Array.isArray(value)?value:value?[value]:[]).map(row=>row.weapon!==undefined?row:{weapon:row,slot:'relic',active:true}).filter(row=>row.weapon&&row.active!==false);}
-  function mountDetail(container,value,{bonus=true}={}){
-    clearDetail();const img=container?.querySelector(':scope > img'),states=normalize(value);if(!img||!states.length)return;const delay=-(performance.now()%3600)+'ms';
-    for(const state of states){const overlay=createOverlay(state.weapon,state.slot||'relic',{bonus,delay,detail:true});detailOverlays.push(overlay);container.append(overlay);}
+  function normalize(value,arena){return (Array.isArray(value)?value:value?[value]:[]).map(row=>row.weapon!==undefined?row:{weapon:row,slot:'relic',active:true}).filter(row=>row.weapon&&(row.active!==false||arena&&['weapon','shield'].includes(row.slot)));}
+  function mountDetail(container,value,{bonus=true,arena=false}={}){
+    clearDetail();const img=container?.querySelector(':scope > img'),states=normalize(value,arena);if(!img||!states.length)return;const delay=-(performance.now()%3600)+'ms';
+    for(const state of states){const overlay=createOverlay(state.weapon,state.slot||'relic',{bonus,delay,detail:true,active:state.active!==false,arena});detailOverlays.push(overlay);container.append(overlay);}
     const update=()=>detailOverlays.forEach(overlay=>position(overlay,img,container));update();detailLoads=new AbortController();
     img.addEventListener('load',update,{signal:detailLoads.signal});container.closest('dialog')?.addEventListener('close',clearDetail,{signal:detailLoads.signal});detailObserver=new ResizeObserver(update);detailObserver.observe(img);detailObserver.observe(container);
   }
@@ -87,18 +92,19 @@
     if(active){marker.dataset.equipmentSix=slot;marker.style.setProperty('--eq-loop-delay',delay);}else{delete marker.dataset.equipmentSix;marker.style.removeProperty('--eq-loop-delay');}
   }
   function mount(s,engine){
-    if(!s||s.phase==='over'){capture({reset:true});return;}clearArena();const next=new Map(),fresh=gameId!==s.matchId;gameId=s.matchId;const delay=-(performance.now()%3600)+'ms';loads=new AbortController();
+    if(!s?.players||!engine){capture({reset:true});return;}clearArena();const ended=s.phase==='over',next=new Map(),fresh=ended||gameId!==s.matchId;gameId=s.matchId;const delay=-(performance.now()%3600)+'ms';loads=new AbortController();
     for(const slot of document.querySelectorAll('.formation .slot[data-unit]')){
       const uid=slot.dataset.unit,u=s.players.flatMap(p=>p.board.filter(Boolean)).find(u=>u.uid===uid);if(!u)continue;const button=slot.querySelector('.slot-card'),img=button?.querySelector('img');if(!img)continue;
       for(const state of states(s,u,engine)){
-        const slotKey=state.slot||'relic',k=key(uid,slotKey),old=previous.get(k),active=state.active,w=state.weapon;next.set(k,{active,weapon:w});
-        if(active||!fresh&&old?.active){
-          const overlay=createOverlay(active?w:old.weapon,slotKey,{delay});if(!active){overlay.classList.remove('is-active');overlay.setAttribute('aria-label',old.weapon.name+' : se replie');}button.append(overlay);nodes.add(overlay);observe(overlay,img,button);syncSix(button,slotKey,delay,active);
+        const slotKey=state.slot||'relic',k=key(uid,slotKey),old=previous.get(k),active=!ended&&state.active,w=state.weapon;next.set(k,{active,weapon:w});
+        const persistent=slotKey!=='relic'&&w;
+        if(persistent||active||!fresh&&old?.active){
+          const overlay=createOverlay(w||old.weapon,slotKey,{delay,active,arena:true});button.append(overlay);nodes.add(overlay);observe(overlay,img,button);syncSix(button,slotKey,delay,active);
           if(active&&!fresh&&(!old?.active||old.weapon?.id!==w.id))transition(overlay,true,loads.signal);
-          if(!active)transition(overlay,false,loads.signal).then(()=>{overlay.remove();nodes.delete(overlay);placements.delete(overlay);});
+          if(!active&&!fresh&&old?.active)transition(overlay,false,loads.signal).then(()=>{if(!persistent){overlay.remove();nodes.delete(overlay);placements.delete(overlay);}});
         }
       }
-      if(s.equipment?.pending?.[uid]||s.equipment?.defensive?.grants.some(r=>r.recipient===uid&&r.status==='ready')){
+      if(!ended&&(s.equipment?.pending?.[uid]||s.equipment?.defensive?.grants.some(r=>r.recipient===uid&&r.status==='ready'))){
         const bonus=engine.equipmentModifier(s,u,'DEF'),host=slot.querySelector('.slot-buffs');if(bonus&&host){const note=document.createElement('span');note.className='eq-pending';note.textContent='+'+bonus.value+' DEF';note.title=bonus.name+(s.equipment.pending?.[uid]?' · prochain duel':' · prochaine défense');host.append(note);nodes.add(note);}
       }
     }previous=next;
@@ -111,9 +117,11 @@
   const findOverlay=(slot,id)=>[...slot?.querySelectorAll('.eq-overlay')||[]].find(n=>n.dataset.weaponId===id);
   async function ensureOverlay(slot,w,slotKey,signal){
     let overlay=findOverlay(slot,w.id);if(overlay?.classList.contains('is-active'))return overlay;
-    if(overlay){for(const animation of overlay.getAnimations({subtree:true}))animation.cancel();overlay.remove();nodes.delete(overlay);placements.delete(overlay);}
     const button=slot?.querySelector('.slot-card'),img=button?.querySelector('img');if(!img)return null;
-    const delay=-(performance.now()%3600)+'ms';overlay=createOverlay(w,slotKey,{delay});button.append(overlay);nodes.add(overlay);observe(overlay,img,button);syncSix(button,slotKey,delay);previous.set(key(slot.dataset.unit,slotKey),{active:true,weapon:w});await transition(overlay,true,signal);return overlay;
+    const delay=-(performance.now()%3600)+'ms';
+    if(overlay){for(const animation of overlay.getAnimations({subtree:true}))animation.cancel();overlay.classList.add('is-active');overlay.style.setProperty('--eq-loop-delay',delay);overlay.setAttribute('aria-label',label(w,true,true,true));}
+    else{overlay=createOverlay(w,slotKey,{delay,arena:true});button.append(overlay);nodes.add(overlay);observe(overlay,img,button);}
+    syncSix(button,slotKey,delay);previous.set(key(slot.dataset.unit,slotKey),{active:true,weapon:w});await transition(overlay,true,signal);return overlay;
   }
   async function useItem(slot,w,slotKey,signal){
     const button=slot?.querySelector('.slot-card');if(!button||signal?.aborted)return;const glow=pulse(slot,signal,w.id);if(motion.matches){await glow;return;}
@@ -138,5 +146,5 @@
     await Promise.all(reactions);
   }
   window.addEventListener('pagehide',()=>capture({reset:true}));motion.addEventListener('change',()=>{for(const animation of animations)animation.cancel();animations.clear();});
-  window.KalistarEquipmentFX={markup,art,capture,mount,mountDetail,clearDetail,play,native,layouts,skins};
+  window.KalistarEquipmentFX={markup,art,capture,mount,mountDetail,clearDetail,play,native,layouts,arenaLayouts,skins};
 })();
