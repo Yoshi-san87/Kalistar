@@ -1,0 +1,56 @@
+{
+  "name": "SKAERN",
+  "title": "LE PASSEUR DU GEL",
+  "job": "PASSEUR",
+  "description": "Skaern tend la main avant de demander le prix. Il a vu trop de voyageurs hésiter au bord du fleuve. Sa barque attendra : avec les années, il a appris que personne ne devrait traverser seul.",
+  "element": "NONE",
+  "race": "OKAMI",
+  "weapon": "Bâton",
+  "faction": "Grivka",
+  "positions": [
+    1,
+    5
+  ],
+  "atk": [
+    198,
+    161,
+    126,
+    88,
+    "guard",
+    "retry"
+  ],
+  "defense": [
+    283,
+    240,
+    198,
+    143,
+    89,
+    43
+  ],
+  "magic": [],
+  "barriers": [],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49901401",
+  "characterId": "skaern-kalistar",
+  "slug": "V4_49901401",
+  "output": "KALISTAR_V4_49901401",
+  "text": "Skaern tend la main avant de demander le prix. Il a vu trop de voyageurs hésiter au bord du fleuve. Sa barque attendra : avec les années, il a appris que personne ne devrait traverser seul.",
+  "color": "93AAA5",
+  "hue": 160,
+  "weapon_index": 10,
+  "role": 1,
+  "sentry": true,
+  "canGuard": true,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Personnage original Kalistar, validation utilisateur du 9 octobre 2026",
+  "visual_revision": "V4-2026-10-09-skaern-luxo",
+  "artworkSource": "V4/propositions/2026-10-09-skaern-okami/Skaern-02.png"
+}

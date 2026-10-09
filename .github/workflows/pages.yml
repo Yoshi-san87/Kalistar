@@ -26,6 +26,8 @@ jobs:
         run: git lfs pull --include="V4/atelier/designer-assets/frame/default.png,V4/atelier/designer-assets/packed/banks/weapon-Hache.png,V4/atelier/designer-assets/packed/banks/weapon-Instrument.png,V4/atelier/designer-assets/packed/banks/return-weapon-4.png" --exclude=""
       - name: Fetch Final Fantasy native proof sources
         run: git lfs pull --include="V4/atelier/designer-assets/extensions/race-*.png,V4/creations/499010*/illustration.png,V4/creations/499011*/illustration.png,V4/propositions/2026-10-08-ff9/*.png,V4/propositions/2026-10-09-ff6-ff15-ff13/*.png" --exclude=""
+      - name: Fetch Skaern and Djidane revision proof sources
+        run: git lfs pull --include="V4/expansions/2026-10-09-skaern-luxo/originals/49901001/card.png,V4/expansions/2026-10-09-skaern-luxo/originals/49901001/illustration.png" --exclude=""
       - name: Install equipment media verifier
         run: npm install --prefix "$RUNNER_TEMP/kalistar-media-qa" --no-package-lock --ignore-scripts --no-audit --no-fund sharp@0.35.4
       - name: Check catalogue and mechanics
@@ -45,6 +47,7 @@ jobs:
           node --test V4/expansions/2026-10-08-eleven-lives/integration.test.cjs
           node --test V4/expansions/2026-10-08-final-fantasy-ix/integration.test.cjs V4/revisions/2026-10-08-resident-evil-faces/integration.test.cjs
           node --test V4/expansions/2026-10-09-final-fantasy-trilogy/integration.test.cjs V4/revisions/2026-10-09-ff-logo-banners/integration.test.cjs
+          node --test V4/expansions/2026-10-09-skaern-luxo/integration.test.cjs
           node --test V4/revisions/2026-10-06-balmhyr-durane/revision.test.cjs
           node --test V4/revisions/2026-10-01-stat-personality/revision.test.cjs
           node --test V4/expansions/2026-10-01-rikka-rooftops/model.test.cjs

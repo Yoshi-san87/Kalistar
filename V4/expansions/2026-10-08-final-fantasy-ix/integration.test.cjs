@@ -1,7 +1,7 @@
 'use strict';
 const {test}=require('node:test'),assert=require('node:assert/strict');
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
-const M=require('./model.cjs'),{set,initial,revision}=require('./current.cjs'),catalogue=require('../../donnees/catalogue.json');
+const M=require('./model.cjs'),{set,initial,revision,elementRevision}=require('./current.cjs'),catalogue=require('../../donnees/catalogue.json');
 const profiles=set.cards.map(c=>require('../../creations/'+c.id+'/profile.json'));
 const {buildCatalog}=require('../../atelier/game-catalog.cjs'),{createEngine}=require('../../site/engine.js');
 const published=catalogue.cards.filter(c=>c.kind==='created'&&!set.cards.some(s=>s.id===c.id));
@@ -118,15 +118,27 @@ test('Published native cards, exact selected artwork, no rejected character inst
   assert.deepEqual(entry[0].profile,JSON.parse(fs.readFileSync(path.join(dir,'profile.json'),'utf8')));
   M.validateProfile(entry[0].profile,c);
   const changed=revision.cards.some(r=>r.id===c.id);
-  assert.equal(entry[0].nativeRevision.id,'2026-10-09-ff-logo-banners');
-  if(changed)assert.equal(entry[0].nativeRevision.previous.id,revision.revision);
-  else assert.equal(entry[0].nativeRevision.previous,null);
+  const luxo=c.id===elementRevision.id;
+  if(luxo)assert.equal(entry[0].nativeRevision.id,'2026-10-09-skaern-luxo');
+  const bannerRevision=luxo?entry[0].nativeRevision.previous:entry[0].nativeRevision;
+  assert.equal(bannerRevision.id,'2026-10-09-ff-logo-banners');
+  if(changed)assert.equal(bannerRevision.previous.id,revision.revision);
+  else assert.equal(bannerRevision.previous,null);
   const proof=JSON.parse(fs.readFileSync(path.join(dir,'verification.json'),'utf8'));
   assert(proof.passed&&proof.barcode.passed);assert.equal(proof.roundtrip.changed,0);assert.equal(proof.components.fixedDifferences,0);
   assert.equal(hash(path.join(dir,'card.png')),proof.hashes['card.png']);
   assert.equal(hash(path.join(dir,'illustration.png')),hash(path.resolve(__dirname,'../../..',M.artPath(c))));
-  assert.equal(proof.scope.outside,0);assert.equal(proof.gameplayUnchanged,true);
-  assert.deepEqual(proof.scope.rectangles,[[672,829,770,1052]]);
+  assert.equal(proof.scope.outside,0);
+  if(luxo){
+   assert.deepEqual(proof.elementChange,{from:'NONE',to:'LUXO'});
+   assert.equal(proof.numericFacesAndEffectsUnchanged,true);
+   const bannerProof=require('../2026-10-09-skaern-luxo/originals/49901001/verification.json');
+   assert.equal(bannerProof.gameplayUnchanged,true);assert.equal(bannerProof.scope.outside,0);
+   assert.deepEqual(bannerProof.scope.rectangles,[[672,829,770,1052]]);
+  }else{
+   assert.equal(proof.gameplayUnchanged,true);
+   assert.deepEqual(proof.scope.rectangles,[[672,829,770,1052]]);
+  }
  }
  assert.equal(set.cards.find(c=>c.key==='cina').art,'18-cina-02.png');
  assert.equal(set.cards.find(c=>c.key==='dagga').art,'04-dagga-02.png');

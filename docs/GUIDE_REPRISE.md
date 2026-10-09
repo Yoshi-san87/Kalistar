@@ -49,6 +49,14 @@ temporaires du presse-papiers ou les preferences non encore documentees.
 
 ## Reperes techniques
 
+### Skaern et Djidane Lumiere : 9 octobre 2026
+
+Le [lot Skaern / Luxo](../V4/expansions/2026-10-09-skaern-luxo/README.md)
+ajoute Skaern 49901401, Okami de Grivka P1/P5 sans cristal, et passe Djidane
+49901001 de NONE a LUXO sans changer ses valeurs, effets, illustration ou
+identite. Lire les profils actifs ; le lot FFIX initial reste historique.
+Originaux, retouche d'age, PSD natifs, preuves et captures sont conserves.
+
 ### Equipements FFIX : 9 octobre 2026
 
 Le [lot FFIX](../V4/revisions/2026-10-09-ff9-equipment/README.md) ajoute

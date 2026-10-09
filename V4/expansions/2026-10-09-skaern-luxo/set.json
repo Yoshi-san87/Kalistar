@@ -1,0 +1,53 @@
+{
+  "id": "2026-10-09-skaern-luxo",
+  "cards": [
+    {
+      "key": "skaern",
+      "id": "49901401",
+      "characterId": "skaern-kalistar",
+      "name": "SKAERN",
+      "title": "LE PASSEUR DU GEL",
+      "job": "PASSEUR",
+      "description": "Skaern tend la main avant de demander le prix. Il a vu trop de voyageurs hésiter au bord du fleuve. Sa barque attendra : avec les années, il a appris que personne ne devrait traverser seul.",
+      "element": "NONE",
+      "race": "OKAMI",
+      "weapon": "Bâton",
+      "faction": "Grivka",
+      "role": 1,
+      "positions": [
+        1,
+        5
+      ],
+      "atk": [
+        198,
+        161,
+        126,
+        88,
+        "guard",
+        "retry"
+      ],
+      "defense": [
+        283,
+        240,
+        198,
+        143,
+        89,
+        43
+      ],
+      "magic": [],
+      "barriers": [],
+      "artworkSource": "V4/propositions/2026-10-09-skaern-okami/Skaern-02.png"
+    }
+  ],
+  "revision": {
+    "key": "djidane",
+    "id": "49901001",
+    "element": "LUXO",
+    "changedFields": [
+      "element",
+      "color",
+      "hue",
+      "sentry"
+    ]
+  }
+}
