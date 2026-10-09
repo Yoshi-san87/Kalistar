@@ -33,9 +33,9 @@ async function main(){
     if(width<700)await page.locator('[data-deck-action=panel][data-id=board]').click();
     if(!await page.locator('[data-deck-action=captain][aria-pressed=true]').count())await page.locator('[data-deck-action=captain]').first().click();
     await page.locator('[data-deck-action=play]').click();await page.locator('#new-game-dialog[open]').waitFor();
-    assert(await page.locator('.match-arena-choice>img').evaluateAll(images=>images.every(i=>i.loading==='lazy')));
-    await page.locator('.match-arena-choice').last().scrollIntoViewIfNeeded();await page.locator('.match-arena-choice input').last().evaluate(node=>node.click());
-    assert(await page.locator('.match-arena-choice input').last().isChecked());
+    assert.equal(await page.locator('.match-arena-choice>img').count(),0,'only the selected arena loads a preview');
+    const last=await page.locator('#match-arena option').last().getAttribute('value');
+    await page.locator('#match-arena').selectOption(last);assert.equal(await page.locator('#match-arena').inputValue(),last);
     await page.waitForFunction(()=>{const img=document.querySelector('#match-arena-summary>img');return img?.complete&&img.naturalWidth>0;});
     await page.screenshot({path:path.join(output,name+'-prematch.png')});await page.keyboard.press('Escape');
     await page.evaluate(()=>document.querySelector('.main-nav [data-view=collection]').click());

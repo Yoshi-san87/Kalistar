@@ -14,7 +14,10 @@ async function boot({invalid=false,missing='',preview=false}={}){
   return {preload,executed,errors,nodes,window};
 }
 test('boot downloads concurrently but executes validated dependencies in order',async()=>{
-  const result=await boot();assert.equal(result.preload.length,36);assert.deepEqual(result.executed,result.preload);
+  const result=await boot();assert.equal(result.preload.length,41);assert.deepEqual(result.executed,result.preload);
+  const names=result.executed.map(src=>src.split('?')[0]);assert.equal(new Set(names).size,names.length);
+  for(const name of ['team-composition.js','matchmaking.js','pre-match.js'])assert.ok(names.indexOf(name)<names.indexOf('app.js'));
+  assert.ok(names.indexOf('engine.js')<names.indexOf('matchmaking.js'));
   assert(result.preload.every(url=>url.endsWith('?v=audit')));assert(result.nodes.filter(n=>n.tag==='link').every(n=>n.removed));
 });
 test('invalid catalogue and missing modules fail closed; preview hosts stay lightweight',async()=>{

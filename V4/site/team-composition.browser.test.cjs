@@ -183,7 +183,9 @@ async function verify(page,output){
     const p=await crown.evaluate(n=>{const r=n.getBoundingClientRect(),card=n.closest('.slot-card').getBoundingClientRect(),img=n.querySelector('img');return {left:r.left-card.left,top:r.top-card.top,right:card.right-r.right,bottom:card.bottom-r.bottom,width:r.width,ratio:r.width/card.width,native:img.naturalWidth,border:getComputedStyle(n).borderTopWidth,background:getComputedStyle(n).backgroundColor};});
     assert(p.left>=1&&p.bottom>=1&&p.top>0&&p.right>0,'the complete crown is inside the card');assert(p.ratio>=.15&&p.ratio<=.3,'crown remains readable');assert.equal(p.native,336);assert.equal(p.border,'0px');assert.equal(p.background,'rgba(0, 0, 0, 0)');
   }
-  assert.equal(await page.locator('.eq-overlay').count(),0,'inactive weapons must not mask the original medallion');
+  assert.equal(await page.locator('.eq-overlay[data-slot=weapon]').count(),2,'each saved team retains its fixed weapon medallion');
+  assert.equal(await page.locator('.eq-overlay.is-active,.eq-overlay[data-slot=relic],.eq-overlay .eq-tab').count(),0,'inactive direct equipment stays fixed without bonus plates or active relics');
+  assert.ok((await page.locator('.eq-overlay .eq-orbit').evaluateAll(ns=>ns.map(n=>getComputedStyle(n).animationName))).every(name=>name==='none'));
   await page.locator('.slot-card[data-side="'+started.turn+'"][data-slot="0"]').click();await page.locator('.slot-card[data-side="'+(1-started.turn)+'"][data-slot="1"]').click();
   assert.match(await page.locator('[data-bonus=captainAttack]').textContent(),/10/);assert.match(await page.locator('[data-bonus=captainDefense]').textContent(),/10/);
   await page.locator('[data-action=lock]').click();await page.locator('[data-action=roll]').click();

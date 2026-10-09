@@ -67,6 +67,27 @@ modifie ni les statistiques des capitaines ni le hasard des jets de combat.
 Les decks predefinis choisissent leur titulaire P1 comme capitaine ; les
 compositions enregistrees conservent celui choisi par le joueur.
 
+### Adversaire et arène au hasard (4.6.5)
+
+La préparation propose une composition adverse au hasard dans le catalogue
+courant : dix personnages distincts, au moins deux cartes compatibles avec
+chaque position P1–P5, cinq titulaires simultanément compatibles et au plus un
+Rainbow. Le capitaine appartient aux titulaires ; cinq cartes restent en réserve.
+
+Les niveaux **Détente**, **Équilibré** et **Tactique** orientent la sélection vers
+une cohésion croissante : synergies de faction/race, commandement du capitaine,
+variété de cristaux et relais en réserve. Ils ne changent ni les statistiques
+imprimées, ni les dés, ni les règles ou décisions de l'IA. Ce sont des niveaux de
+construction d'équipe, pas une garantie de résultat. Les compositions tirées
+n'ont pas d'équipement ajouté automatiquement. Un deck adverse choisi à la main
+conserve sa formation et ses équipements. Le tirage est figé avant le lancement.
+
+Une arène peut également être tirée au hasard, indépendamment des équipes et de
+la graine du combat. Quand plusieurs arènes existent, elle diffère de l'arène
+courante. Ses avantages habituels s'appliquent toujours aux deux camps.
+
+### Ordre de combat
+
 L'ordre est **ABBA** : A est le gagnant du tirage, B son adversaire. Les actions
 suivent A, B, B, A, A, B, B, A, etc. Une action de soutien compte comme un
 echange, exactement comme un duel. Les jets DEF, les relances de Kalistel et

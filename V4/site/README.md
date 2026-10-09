@@ -6,6 +6,28 @@ Read the [handoff guide](../../docs/GUIDE_REPRISE.md) and the
 [current gameplay summary](../docs/REGLES_JEU.md), including the documented
 difference between the ten-kill objective and the engine's empty-board ending.
 
+## Compact Pre-Match (V4.6.5)
+
+Preparation shows only each captain and the selected deck name, plus one arena
+preview. Existing saved formations, captains and equipment stay selectable.
+`matchmaking.js` is DOM-independent: it constructs two legal position assignments
+from the current catalogue, validates with the real engine, and selects among
+48 bounded candidates. Relaxed/balanced/tactical select increasing cohesion,
+not modified card values, dice, equipment or AI policies. The score uses actual
+starting faction/race synergies and captain links, with small elemental variety
+and reserve-link weights. It is not a prediction of victory or universal balance.
+
+`pre-match.js` owns the cancellable visual shuffle, busy guard and Reduced Motion
+path. The final opponent is captured once before the async database operations;
+the game snapshots that exact composition. Arena draw excludes the current arena
+when alternatives exist. Native selects remain available for manual choices.
+Closing, Back, navigation and page teardown cancel pending visual draws.
+
+Validation: `node --test V4/site/matchmaking.test.cjs V4/site/pre-match.test.cjs`
+and `node V4/site/pre-match.browser.test.cjs` (PC, Razr 412x1007, compact Reduced
+Motion; isolated browser databases). See the release QA under
+`V4/revisions/2026-10-09-pre-match/`.
+
 ## Three Equipment Slots (V4.6.0)
 
 See [EQUIPEMENTS_460.md](../docs/EQUIPEMENTS_460.md) for the current data contract,

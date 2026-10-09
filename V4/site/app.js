@@ -56,6 +56,14 @@
   {const counts={};deck=deck.filter(id=>(counts[id]=(counts[id]||0)+1)<=owned(id).length);}
   let deckName=String(load('deckName','Les premiers Sentry')).slice(0,50);
   const Team=KalistarTeamComposition.create(E,()=>db?.equipment.profile(accountId).slots||KalistarEquipment.emptyLoadout());
+  const Matchmaking=KalistarMatchmaking.create(E,Team,cards);
+  const matchLobby={random:null,launching:false};
+  const preMatch=KalistarPreMatch.create($('#new-game-dialog'),busy=>{
+    const form=$('#new-game-form');if(!form)return;
+    form.setAttribute('aria-busy',String(busy));
+    form.querySelectorAll('select,input,[data-action^="match-random"],[type="submit"]').forEach(el=>el.disabled=busy||matchLobby.launching);
+    if(!busy&&!matchLobby.launching)refreshMatchLobby();
+  });
   let teamDraft;
   try{teamDraft=Team.normalize(load('teamDraft',null)||{name:deckName,cards:deck});}
   catch{teamDraft=Team.normalize({name:deckName,cards:deck});}
@@ -139,6 +147,7 @@
   }
   function exitFullscreen(){if(document.fullscreenElement)document.exitFullscreen().catch(()=>{});}
   async function setView(view){
+    preMatch.cancel();
     if(view==='atelier'&&window.KalistarSite?.online)return;
     if(rolling)return toast('Le duel se termine…');
     if(view!=='arena'){pendingLineup=null;cancelLineup();}
@@ -273,12 +282,14 @@ function showDeck(){setView('decks');}
     $('#rules-dialog .formula').insertAdjacentHTML('beforebegin','<h3>Éclats de Kalistel</h3><p>Deux éclats par joueur dans les nouvelles rencontres, partagés par toute l’équipe, même sans cristal. Après le premier jet ATK et avant la défense, gardez le jet ou utilisez le diamant. Une seule relance par attaque, avec les mêmes participants ; le nouveau résultat est obligatoire, même moins favorable. Les effets et jetons ne sont appliqués qu’au résultat conservé. Aucun objet de collection n’est consommé. Les sauvegardes antérieures conservent leurs règles sans éclats.</p>');
     $('#rules-dialog .formula').insertAdjacentHTML('beforebegin','<h3>Arme, protection et relique</h3><p>Un objet par emplacement, soit trois équipements simultanés. L’arme, entre ATK 6 et 5, ajoute son bonus seulement sur un 6 numérique conservé. La protection, entre DEF 6 et 5, ajoute le sien seulement sur un 6 numérique en défense. Une face spéciale ne devient jamais numérique. Le type d’arme imprimé reste celui de la matrice d’avantages.</p><p>La relique reste sur le médaillon inférieur : ses conditions, effets et charges sont propres à chaque objet. Le bonus de l’arme ou de la protection s’ajoute au meilleur bonus de relique applicable ; plusieurs cadeaux de reliques ne s’additionnent pas. La Flûte des Petits Bonheurs de Momo est une relique de soutien, pour un seul duel.</p><p>Avant de garder le jet ATK, aucun bonus direct n’est engagé. Un 6 abandonné ne compte pas ; le second jet Kalistel est obligatoire. Chaque relance DEF recalcule le bonus de protection, sans consommer plusieurs fois une charge de relique valable pour le duel. Une protection utilisée s’anime même si la défense échoue ; un Block sans son bonus garde le bouclier habituel.</p><p>Les équipements sont figés au lancement : les modifier ensuite ne change pas une rencontre en cours. Les anciennes sauvegardes conservent leurs effets historiques ; les nouvelles rencontres utilisent les trois emplacements.</p>');
   }
-  async function createGame(mode,seed,arenaId=load('arena',arenas[0].id),opponentId=enemyPresetId,playerDeck=teamDraft){
+  async function createGame(mode,seed,arenaId=load('arena',arenas[0].id),opponentId=enemyPresetId==='random'?'enemy':enemyPresetId,playerDeck=teamDraft){
     if(!['grantGuard','aiGuardChoice','arenaBonuses','setArena'].every(key=>typeof E[key]==='function')||cards.some(c=>!/^[34]\d{7}$/.test(c.id)||!c.characterId))throw new Error('Moteur ou profils V4 en attente. Aucune partie V2 ne sera créée dans V4.');
     const errors=deckErrors(playerDeck);if(errors.length)throw new Error(errors.join(' '));
-    await db.idle();
-    const opponent=matchOpponentByChoice(opponentId);
+    const selected=matchOpponentByChoice(opponentId),opponent=selected?Team.clone(selected):null;
     if(!opponent)throw new Error('Equipe adverse introuvable.');
+    opponent.id=opponentId;
+    playerDeck=Team.clone(playerDeck);
+    await db.idle();
     const next=E.newGame(playerDeck,opponent.formation?opponent:opponent.cards.slice(),{mode,seed,arenaId:arenaById(arenaId).id,deckCoverage:2,turnOrder:'ABBA'});
     KalistarLocalDB.validateGame(next);E.assertState(next);
     const bound=db.registry.bindGame(accountId,next);
@@ -299,37 +310,51 @@ function showDeck(){setView('decks');}
   }
   function matchDeckOptions(selected){return matchDeckSources().map(value=>`<option value="${esc(value.id)}" ${value.id===selected?'selected':''}>${esc(value.name)}</option>`).join('');}
   function matchDeckByChoice(choice){return matchDeckSources().find(value=>value.id===choice)||null;}
-  function matchOpponentByChoice(choice){return choice.startsWith('saved:')?matchDeckByChoice(choice):{...Team.fromPreset(validatedPreset(choice)),id:choice};}
+  function matchOpponentByChoice(choice){return choice==='random'?matchLobby.random:choice.startsWith('saved:')?matchDeckByChoice(choice):{...Team.fromPreset(validatedPreset(choice)),id:choice};}
   function matchDeckSummary(value,errors){
-    const ids=Array.isArray(value)?value:value.cards;
-    const valid=ids.filter(id=>E.byId[id]),coverage=E.deckCoverage?.(valid)||{};
-    let formation=[];try{if(valid.length===10)formation=E.lineup(valid);}catch{}
-    if(!Array.isArray(formation)||formation.length!==5)formation=valid.slice(0,5).map((_,index)=>index);
-    const cardsInFormation=(Array.isArray(value.formation)?value.formation:formation.map(index=>valid[index])).map((id,position)=>({card:E.byId[id],position})).filter(item=>item.card);
-    const positions=Array.from({length:5},(_,index)=>{const count=Number(coverage[index+1])||0;return `<span class="${count<2?'is-short':''}"><b>P${index+1}</b><small>${count}/2</small></span>`;}).join('');
-    const preview=cardsInFormation.map(({card,position})=>`<div class="match-lineup-card" title="${esc('P'+(position+1)+' · '+card.name)}"><img src="${duelImage(card)}" alt="${esc(card.name)}"><span>P${position+1}</span></div>`).join('');
-    const problem=errors.length?`<p class="match-deck-state is-invalid">${icon('triangle-alert')}<span>${esc(errors[0])}</span></p>`:`<p class="match-deck-state">${icon('circle-check')}<span>Deck valide · prêt au combat</span></p>`;
-    return `<div class="match-deck-summary"><div class="match-deck-topline"><b>${valid.length}<small> / 10 cartes</small></b>${problem}</div><div class="match-position-coverage" aria-label="Couverture des positions">${positions}</div><div class="match-lineup-preview" aria-label="Aperçu de la formation">${preview||'<span class="match-empty-lineup">Formation à compléter</span>'}</div></div>`;
+    const captain=E.byId[value?.captain];
+    return `<figure class="match-captain" data-captain="${esc(captain?.id||'')}">${captain?`<img class="match-captain-art" src="${artImage(captain)}" alt="${esc(captain.name)}"><img class="match-captain-crown" src="assets/ui/captain-crown-v1.webp" alt=""><figcaption>${esc(captain.name)}</figcaption>`:`<div class="match-captain-empty">${icon('crown')}<span>Capitaine à choisir</span></div>`}</figure>${errors.length?`<p class="match-deck-state is-invalid">${icon('triangle-alert')}<span>${esc(errors[0])}</span></p>`:''}`;
   }
   function matchArenaSummary(id){
     const a=arenaById(id);
-    return `<img src="${a.image}" alt=""><div class="match-arena-copy"><span class="eyebrow">Champ de bataille</span><h3>${esc(a.name)}</h3><p>${esc(a.subtitle)}</p><div class="match-arena-rule">${icon(a.element&&a.element!=='NONE'?'gem':'compass')}<span>${arenaRule(a)}</span></div></div>`;
+    return `<img src="${a.image}" alt=""><div class="match-arena-copy"><h3>${esc(a.name)}</h3><div class="match-arena-rule">${icon(a.element&&a.element!=='NONE'?'gem':'compass')}<span>${arenaRule(a)}</span></div></div>`;
   }
-  function matchArenaOptions(id){return `<div class="match-arena-rail"><button type="button" class="match-arena-arrow" data-action="match-arena-scroll" data-direction="-1" title="Arènes précédentes" aria-label="Arènes précédentes">${icon('chevron-left')}</button><fieldset class="match-arena-options" aria-label="Choisir une arène">${arenas.map(a=>`<label class="match-arena-choice" title="${esc(a.name)}"><input type="radio" name="arena" value="${esc(a.id)}" ${arenaById(id).id===a.id?'checked':''}><img loading="lazy" decoding="async" src="${a.image}" alt=""><span>${esc(a.name)}</span></label>`).join('')}</fieldset><button type="button" class="match-arena-arrow" data-action="match-arena-scroll" data-direction="1" title="Arènes suivantes" aria-label="Arènes suivantes">${icon('chevron-right')}</button></div>`;}
+  function matchArenaOptions(id){return `<div class="match-arena-controls"><label class="match-arena-select"><span>Arène</span><select name="arena" id="match-arena">${arenas.map(a=>`<option value="${esc(a.id)}" ${arenaById(id).id===a.id?'selected':''}>${esc(a.name)}</option>`).join('')}</select></label><button type="button" data-action="match-random-arena">${icon('shuffle')}Au hasard</button></div>`;}
   function refreshMatchLobby(){
     const form=$('#new-game-form');if(!form)return;
     const playerChoice=$('#player-match-deck').value,player=matchDeckByChoice(playerChoice),playerErrors=player?deckErrors(player):['Deck introuvable.'];
     const enemyChoice=$('#enemy-deck-preset').value;let enemy=null,enemyErrors=[];
     try{enemy=matchOpponentByChoice(enemyChoice);if(!enemy)throw new Error('Equipe introuvable.');enemyErrors=E.validateComposition(enemy);}catch(error){enemyErrors=[error.message];}
     $('#match-player-preview').innerHTML=matchDeckSummary(player||[],playerErrors);
-    $('#match-enemy-preview').innerHTML=matchDeckSummary(enemy?.formation?enemy:enemy?.cards||[],enemyErrors);
+    $('#match-enemy-preview').innerHTML=matchDeckSummary(enemy,enemyErrors);
     const arenaId=new FormData(form).get('arena');$('#match-arena-summary').innerHTML=matchArenaSummary(arenaId);
     const mode=$('#game-mode').value,enemyTitle=$('#match-enemy-title');
     enemyTitle.textContent=mode==='ai'?'ADVERSAIRE IA':'JOUEUR 2';
-    $('#match-enemy-name').textContent=mode==='ai'?'Rival':'Joueur 2';
     $('#enemy-deck-label').textContent=mode==='ai'?'Deck IA':'Deck du joueur 2';
-    $('.match-arena-note').textContent=arenas.length+' arènes disponibles';
-    const submit=form.querySelector('[type="submit"]');submit.disabled=!!(playerErrors.length||enemyErrors.length||!arenas.some(a=>a.id===arenaId));
+    const submit=form.querySelector('[type="submit"]');submit.disabled=!!(preMatch.busy||matchLobby.launching||playerErrors.length||enemyErrors.length||!arenas.some(a=>a.id===arenaId));
+    icons();
+  }
+  function shuffleMatchOpponent(){
+    if(preMatch.busy||matchLobby.launching)return;
+    const difficulty=$('#match-difficulty').value,seed=crypto.randomUUID();
+    const team=Matchmaking.generate({seed,difficulty});
+    const target=$('#match-enemy-preview');
+    preMatch.shuffle(target,step=>{
+      const caption=target.querySelector('figcaption');
+      if(caption)caption.textContent=E.byId[team.formation[step%5]].name;
+    },()=>{
+      matchLobby.random=team;$('#enemy-deck-preset').value='random';enemyPresetId='random';
+      save('matchDifficulty',difficulty);refreshMatchLobby();
+      $('#match-shuffle-status').textContent='Adversaire tiré au hasard.';
+    });
+  }
+  function shuffleMatchArena(){
+    if(preMatch.busy||matchLobby.launching)return;
+    const select=$('#match-arena'),id=KalistarMatchmaking.arena(arenas,select.value,crypto.randomUUID());
+    const target=$('#match-arena-summary'),start=arenas.findIndex(a=>a.id===select.value);
+    preMatch.shuffle(target,step=>{target.querySelector('h3').textContent=arenas[(start+step+1)%arenas.length].name;},()=>{
+      select.value=id;refreshMatchLobby();$('#match-shuffle-status').textContent='Arène tirée au hasard.';
+    });
   }
   function showArenaPicker(){
     if(rolling)return toast('Le duel se termine…');
@@ -350,19 +375,24 @@ function showDeck(){setView('decks');}
     }
   }
   function newGameDialog(){
+    preMatch.cancel();matchLobby.launching=false;
     const arenaId=game?.arenaId||load('arena','ruins'),player=matchDeckSources()[0];
+    if(enemyPresetId==='random'&&!matchLobby.random)enemyPresetId='enemy';
+    const difficulty=load('matchDifficulty','balanced');
     $('#new-game-dialog').classList.add('arena-picker-dialog','pre-match-dialog');
-    modal('new-game-dialog',head('Briefing de rencontre')+`<div class="dialog-body"><form id="new-game-form" class="pre-match-form">
-      <div class="matchup-heading"><div><span class="eyebrow">Avant-match · V4</span><h3>Préparez votre affrontement</h3></div><label class="match-mode-control"><span>Format</span><select id="game-mode"><option value="ai">Solo · contre l’IA</option><option value="local">Duel local · 2 joueurs</option></select></label></div>
+    modal('new-game-dialog',head('Préparation')+`<div class="dialog-body"><form id="new-game-form" class="pre-match-form">
+      <label class="match-mode-control"><span>Rencontre</span><select id="game-mode"><option value="ai">Solo · contre l’IA</option><option value="local">Duel local · 2 joueurs</option></select></label>
       <section class="matchup-decks" aria-label="Composition des équipes">
-        <article class="match-side-card match-side-player"><div class="match-side-heading"><span class="match-team-mark">P1</span><div><small>VOTRE ÉQUIPE</small><h3>Joueur 1</h3></div><span class="match-side-record">VOTRE CAMP</span></div><label class="match-deck-select"><span>Deck de départ</span><select id="player-match-deck">${matchDeckOptions(player.id)}</select></label><div id="match-player-preview">${matchDeckSummary(player,deckErrors(player))}</div></article>
-        <div class="match-versus" aria-hidden="true"><span>VS</span><i></i></div>
-        <article class="match-side-card match-side-enemy"><div class="match-side-heading"><span class="match-team-mark">P2</span><div><small id="match-enemy-title">ADVERSAIRE IA</small><h3 id="match-enemy-name">Rival</h3></div><span class="match-side-record">CAMP ADVERSE</span></div><label class="match-deck-select"><span id="enemy-deck-label">Deck IA</span><select id="enemy-deck-preset">${presetOptions(enemyPresetId)}${builder().listDecks().filter(d=>!E.validateComposition(d).length).map(d=>`<option value="saved:${d.id}" ${enemyPresetId==='saved:'+d.id?'selected':''}>${esc(d.name)} · Equipe</option>`).join('')}</select></label><div id="match-enemy-preview"></div></article>
+        <section class="match-side-player"><h3 class="match-side-heading">VOTRE ÉQUIPE</h3><div id="match-player-preview">${matchDeckSummary(player,deckErrors(player))}</div><label class="match-deck-select"><span>Deck de départ</span><select id="player-match-deck">${matchDeckOptions(player.id)}</select></label></section>
+        <div class="match-versus" aria-hidden="true">${icon('swords')}</div>
+        <section class="match-side-enemy"><h3 class="match-side-heading" id="match-enemy-title">ADVERSAIRE IA</h3><div id="match-enemy-preview"></div><label class="match-deck-select"><span id="enemy-deck-label">Deck IA</span><select id="enemy-deck-preset">${presetOptions(enemyPresetId)}<option value="random" ${enemyPresetId==='random'?'selected':''}>Composition au hasard</option>${builder().listDecks().filter(d=>!E.validateComposition(d).length).map(d=>`<option value="saved:${d.id}" ${enemyPresetId==='saved:'+d.id?'selected':''}>${esc(d.name)} · Equipe</option>`).join('')}</select></label></section>
       </section>
-      <section class="match-arena-section"><div class="match-section-heading"><div><span class="eyebrow">Terrain & affinités</span><h3>Choisissez l’arène</h3></div><span class="match-arena-note">Les bonus s’appliquent aux deux équipes</span></div><div class="match-arena-showcase" id="match-arena-summary">${matchArenaSummary(arenaId)}</div>${matchArenaOptions(arenaId)}</section>
-      <details class="match-advanced"><summary>${icon('settings-2')}Options avancées <span>Graine des dés</span></summary><label>Graine de la rencontre<input id="game-seed" maxlength="60" value="KALI-${Math.floor(Math.random()*999999)}" required></label></details>
+      <div class="match-opponent-controls"><label><span>Cohésion adverse</span><select id="match-difficulty">${[['relaxed','Détente'],['balanced','Équilibré'],['tactical','Tactique']].map(([id,name])=>`<option value="${id}" ${difficulty===id?'selected':''}>${name}</option>`).join('')}</select></label><button type="button" data-action="match-random-opponent">${icon('shuffle')}Adversaire au hasard</button></div>
+      <section class="match-arena-section"><div class="match-arena-showcase" id="match-arena-summary">${matchArenaSummary(arenaId)}</div>${matchArenaOptions(arenaId)}</section>
+      <details class="match-advanced"><summary>${icon('settings-2')}Options avancées</summary><label>Graine des dés<input id="game-seed" maxlength="60" value="KALI-${Math.floor(Math.random()*999999)}" required></label></details>
       ${game&&game.phase!=='over'?'<p class="validation match-replace-warning">Cette rencontre remplacera la partie actuellement en cours. Son historique restera archivé.</p>':''}
-      <footer class="match-footer"><div><span class="eyebrow">PRÊT À JOUER ?</span><small>Vérifiez vos postes et vos affinités avant le lancement.</small></div><div class="actions"><button type="button" data-action="close">Retour</button><button class="primary match-launch" type="submit">${icon('swords')}<span>Lancer la rencontre</span></button></div></footer>
+      <span id="match-shuffle-status" class="sr-only" role="status"></span>
+      <footer class="match-footer"><button type="button" data-action="close">Retour</button><button class="primary match-launch" type="submit">${icon('swords')}<span>Lancer la rencontre</span></button></footer>
     </form></div>`);
     refreshMatchLobby();
   }
@@ -779,9 +809,8 @@ function showDeck(){setView('decks');}
       if(action==='nav-more')return showNavigation();
       if(action==='equipment-detail')return weaponsUI.open(id);
       if(action==='combat-reference')return showCombatReference(b.dataset.reference);
-      if(action==='match-arena-scroll'){
-        const rail=$('.match-arena-options');if(rail)rail.scrollBy({left:Number(b.dataset.direction)*Math.max(180,rail.clientWidth*.75),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});return;
-      }
+      if(action==='match-random-opponent')return shuffleMatchOpponent();
+      if(action==='match-random-arena')return shuffleMatchArena();
       if(action==='exit-arena')return setView('collection');
       if(action==='duel-details')return modal('mobile-dialog',head('Calculs du duel')+`<div class="dialog-body mobile-recap">${duelRecap(game)}</div>`);
       if(action==='deploy-reserve'){
@@ -908,8 +937,13 @@ function showDeck(){setView('decks');}
     }
     if(e.target.id==='deck-preset'||e.target.id==='enemy-deck-preset'){
       const enemy=e.target.id==='enemy-deck-preset';
+      if(enemy&&e.target.value==='random'){shuffleMatchOpponent();return;}
       try{const preset=enemy&&e.target.value.startsWith('saved:')?matchDeckByChoice(e.target.value):validatedPreset(e.target.value);if(!preset)throw new Error('Equipe introuvable.');if(enemy)enemyPresetId=preset.id;else deckPresetId=preset.id;save(enemy?'enemyDeckPreset':'deckPreset',preset.id);}
       catch(error){e.target.value=enemy?enemyPresetId:deckPresetId;toast(error.message);}if(enemy)refreshMatchLobby();return;
+    }
+    if(e.target.id==='match-difficulty'){
+      save('matchDifficulty',e.target.value);
+      if($('#enemy-deck-preset').value==='random')shuffleMatchOpponent();return;
     }
     if(e.target.id==='player-match-deck'||e.target.id==='game-mode'||e.target.name==='arena'&&e.target.closest('#new-game-form')){refreshMatchLobby();return;}
     if(e.target.id==='career-instance'){ui.careerInstance=e.target.value;$('#detail-dialog .career-panel').outerHTML=Catalogue.career(ui.detail,ui.detailContext?.profile?db:collectionDB(),ui.careerInstance);icons();}
@@ -941,10 +975,11 @@ function showDeck(){setView('decks');}
       try{if(game){checkGame();E.setArena(game,id);}save('arena',id);$('#arena-dialog').close();render();}catch(error){toast(error.message);}return;
     }
     if(e.target.id!=='new-game-form')return;
-    e.preventDefault();if(rolling)return;
+    e.preventDefault();if(rolling||preMatch.busy||matchLobby.launching||e.target.querySelector('[type="submit"]').disabled)return;
     if(game?.collection&&game.phase!=='over'&&!confirm('Remplacer cette partie ? La partie actuelle sera abandonnee et ne pourra plus etre reprise. Ses archives seront conservees.'))return;
-    const submit=e.target.querySelector('[type="submit"]');submit.disabled=true;
-    try{const selectedDeck=matchDeckByChoice($('#player-match-deck').value);if(!selectedDeck)throw new Error('Deck de départ introuvable.');await createGame($('#game-mode').value,$('#game-seed').value.trim()||'KALISTAR',new FormData(e.target).get('arena'),$('#enemy-deck-preset').value,selectedDeck);$('#new-game-dialog').close();await setView('arena');}catch(err){toast(err.message);submit.disabled=false;}
+    const form=e.target,mode=$('#game-mode').value,seed=$('#game-seed').value.trim()||'KALISTAR',arenaId=new FormData(form).get('arena'),opponentId=$('#enemy-deck-preset').value,selectedDeck=matchDeckByChoice($('#player-match-deck').value);
+    matchLobby.launching=true;form.querySelectorAll('select,input,button:not([data-action="close"])').forEach(el=>el.disabled=true);
+    try{if(!selectedDeck)throw new Error('Deck de départ introuvable.');await createGame(mode,seed,arenaId,opponentId,selectedDeck);$('#new-game-dialog').close();await setView('arena');}catch(err){toast(err.message);}finally{matchLobby.launching=false;form.querySelectorAll('select,input,button').forEach(el=>el.disabled=false);refreshMatchLobby();}
   });
   document.addEventListener('error',event=>{
     const img=event.target;
@@ -1001,6 +1036,6 @@ function showDeck(){setView('decks');}
     if(ui.view==='collection')collectionBinder?.refresh();
     if(ui.view==='decks')deckBuilder?.refresh();
   });
-  window.addEventListener('pagehide',()=>{pendingLineup=null;cancelLineup();stopCatalogueRefresh?.();catalogueUpdates.destroy();stopEquipmentRefresh?.();weaponsUI.destroy();});
+  window.addEventListener('pagehide',()=>{preMatch.cancel();pendingLineup=null;cancelLineup();stopCatalogueRefresh?.();catalogueUpdates.destroy();stopEquipmentRefresh?.();weaponsUI.destroy();});
   render();if(restoreError)toast(restoreError);window.KALISTAR_READY=true;
 })();
