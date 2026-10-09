@@ -1,0 +1,64 @@
+TAP version 13
+# Subtest: only a currently available, unloaded version is a new card
+ok 1 - only a currently available, unloaded version is a new card
+  ---
+  duration_ms: 1.6094
+  type: 'test'
+  ...
+# Subtest: checking the authoritative catalogue never counts unknown registry history
+ok 2 - checking the authoritative catalogue never counts unknown registry history
+  ---
+  duration_ms: 0.2866
+  type: 'test'
+  ...
+# Subtest: real additions are announced once, counted exactly and returned as copies
+ok 3 - real additions are announced once, counted exactly and returned as copies
+  ---
+  duration_ms: 0.2148
+  type: 'test'
+  ...
+# Subtest: withdrawn additions clear the notice; reloading into the new catalogue has no notice
+ok 4 - withdrawn additions clear the notice; reloading into the new catalogue has no notice
+  ---
+  duration_ms: 0.1958
+  type: 'test'
+  ...
+# Subtest: offline or failed checks cannot invent updates or erase a verified notice
+ok 5 - offline or failed checks cannot invent updates or erase a verified notice
+  ---
+  duration_ms: 0.3712
+  type: 'test'
+  ...
+# Subtest: invalid, historical, empty and duplicate catalogues fail closed
+ok 6 - invalid, historical, empty and duplicate catalogues fail closed
+  ---
+  duration_ms: 0.4185
+  type: 'test'
+  ...
+# Subtest: out-of-order responses cannot overwrite the newest available catalogue
+ok 7 - out-of-order responses cannot overwrite the newest available catalogue
+  ---
+  duration_ms: 0.2175
+  type: 'test'
+  ...
+# Subtest: navigation aborts the pending request and suppresses all late callbacks
+ok 8 - navigation aborts the pending request and suppresses all late callbacks
+  ---
+  duration_ms: 0.2058
+  type: 'test'
+  ...
+# Subtest: boot and both notices use the same verified additions without changing the DB guard
+ok 9 - boot and both notices use the same verified additions without changing the DB guard
+  ---
+  duration_ms: 4.374
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 91.925

@@ -1,0 +1,30 @@
+{
+  "included": [
+    "gotham-catwoman-whip",
+    "gotham-freeze-gun",
+    "gotham-demon-sword",
+    "gotham-penguin-umbrella",
+    "gotham-cryo-suit",
+    "gotham-cat-goggles",
+    "gotham-fear-mask",
+    "gotham-harvey-coin",
+    "gotham-riddle-box",
+    "gotham-ivy-seed",
+    "gotham-utility-belt",
+    "gotham-lazarus-vial"
+  ],
+  "excluded": [
+    {
+      "id": "gotham-batarang",
+      "reason": "Image generation refused; no replacement attempt or runtime entry."
+    },
+    {
+      "id": "gotham-joker-cane",
+      "reason": "Image generation refused; draft excluded from runtime."
+    },
+    {
+      "id": "gotham-batsuit",
+      "reason": "Image generation refused; draft excluded from runtime."
+    }
+  ]
+}

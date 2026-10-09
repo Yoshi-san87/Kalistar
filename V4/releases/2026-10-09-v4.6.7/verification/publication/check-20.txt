@@ -1,0 +1,76 @@
+TAP version 13
+# Subtest: all 11 OP, all 25 RE and 12 justified MGS revisions, never Skull Face or Rikka
+ok 1 - all 11 OP, all 25 RE and 12 justified MGS revisions, never Skull Face or Rikka
+  ---
+  duration_ms: 1.2918
+  type: 'test'
+  ...
+# Subtest: every numeric face respects its original role interval and every special is preserved
+ok 2 - every numeric face respects its original role interval and every special is preserved
+  ---
+  duration_ms: 77.5639
+  type: 'test'
+  ...
+# Subtest: unique numeric signatures and tradeoffs, not a blanket power increase
+ok 3 - unique numeric signatures and tradeoffs, not a blanket power increase
+  ---
+  duration_ms: 91.053
+  type: 'test'
+  ...
+# Subtest: rejects nonnumeric drift, special relocation, missing faces and role overflow/underflow
+ok 4 - rejects nonnumeric drift, special relocation, missing faces and role overflow/underflow
+  ---
+  duration_ms: 5.0263
+  type: 'test'
+  ...
+# Subtest: publication preserves concurrent Kaine/Rikka additions and all unrelated metadata
+ok 5 - publication preserves concurrent Kaine/Rikka additions and all unrelated metadata
+  ---
+  duration_ms: 1.8024
+  type: 'test'
+  ...
+# Subtest: first numeric revision accepts absent historical nativeRevision, not other absent metadata
+ok 6 - first numeric revision accepts absent historical nativeRevision, not other absent metadata
+  ---
+  duration_ms: 1.2638
+  type: 'test'
+  ...
+# Subtest: native audit rejects hidden style, effects, artwork, font and frame changes
+ok 7 - native audit rejects hidden style, effects, artwork, font and frame changes
+  ---
+  duration_ms: 23.6371
+  type: 'test'
+  ...
+# Subtest: circular pixel scope rejects rectangle corners and any changed frame pixel
+ok 8 - circular pixel scope rejects rectangle corners and any changed frame pixel
+  ---
+  duration_ms: 0.6368
+  type: 'test'
+  ...
+# Subtest: matrix tolerance accepts only IEEE rounding on edited numeric text, never real scaling
+ok 9 - matrix tolerance accepts only IEEE rounding on edited numeric text, never real scaling
+  ---
+  duration_ms: 1.0885
+  type: 'test'
+  ...
+# Subtest: native renderer requires exact existing Photoshop, process lock, shared mutex and explicit grant
+ok 10 - native renderer requires exact existing Photoshop, process lock, shared mutex and explicit grant
+  ---
+  duration_ms: 1.3575
+  type: 'test'
+  ...
+# Subtest: frozen originals and plan JSON agree with authored choices
+ok 11 - frozen originals and plan JSON agree with authored choices
+  ---
+  duration_ms: 19.9788
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 401.2304

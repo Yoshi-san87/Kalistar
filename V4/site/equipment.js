@@ -190,7 +190,8 @@
   function validate(s,cards){
     const x=s.equipment;
     if(x===undefined){if([s.duel,s.lastDuel].some(d=>d?.equipment||d?.equipmentTransfer))fail();return;}
-    if(!object(x)||![1,2].includes(x.version)||!Array.isArray(x.definitions)||x.definitions.length>100||!x.definitions.length||new Set(x.definitions.map(w=>w?.id)).size!==x.definitions.length||!Array.isArray(x.loadouts)||x.loadouts.length!==2||!object(x.pending))fail();
+    // Snapshots include the entire catalogue, not only the equipped items.
+    if(!object(x)||![1,2].includes(x.version)||!Array.isArray(x.definitions)||x.definitions.length>512||!x.definitions.length||new Set(x.definitions.map(w=>w?.id)).size!==x.definitions.length||!Array.isArray(x.loadouts)||x.loadouts.length!==2||!object(x.pending))fail();
     if(x.version===2&&(x.definitions.some(w=>w.rulesVersion!==2)||x.loadouts.some(l=>!isSlots(l)))||x.version===1&&(x.definitions.some(w=>w.rulesVersion!==undefined)||x.loadouts.some(isSlots)))fail();
     x.definitions.forEach(validateDefinition);x.loadouts.forEach(l=>validateLoadout(l,cards,x.definitions));
     const units=allUnits(s),byUid=new Map(units.map(u=>[u.uid,u])),card=u=>cards.find(c=>c.id===u?.cardId);

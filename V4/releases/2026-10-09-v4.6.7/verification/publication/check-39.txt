@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: 4.6 original arsenal keeps origins/family restrictions; frozen 4.5.64 effects stay exact
+ok 1 - 4.6 original arsenal keeps origins/family restrictions; frozen 4.5.64 effects stay exact
+  ---
+  duration_ms: 64.9097
+  type: 'test'
+  ...
+# Subtest: empty rosters are intentional, and new equips/new games reject every formerly incompatible edition
+ok 2 - empty rosters are intentional, and new equips/new games reject every formerly incompatible edition
+  ---
+  duration_ms: 19.2251
+  type: 'test'
+  ...
+# Subtest: version-1 profile migration removes only retired bearers, routes Momo to relic and is pure/idempotent
+ok 3 - version-1 profile migration removes only retired bearers, routes Momo to relic and is pure/idempotent
+  ---
+  duration_ms: 1.4507
+  type: 'test'
+  ...
+# Subtest: old compositions preserve every card, formation and captain while removing retired loadouts
+ok 4 - old compositions preserve every card, formation and captain while removing retired loadouts
+  ---
+  duration_ms: 2.0275
+  type: 'test'
+  ...
+# Subtest: every formerly allowed collective or personal loadout keeps its snapshot and combat bonus in a saved match
+ok 5 - every formerly allowed collective or personal loadout keeps its snapshot and combat bonus in a saved match
+  ---
+  duration_ms: 257.3852
+  type: 'test'
+  ...
+# Subtest: personal restrictions follow the chosen edition, accept future matching editions and retire invalid decks
+ok 6 - personal restrictions follow the chosen edition, accept future matching editions and retire invalid decks
+  ---
+  duration_ms: 6.6068
+  type: 'test'
+  ...
+# Subtest: 4.6 weapon faces retain the native family glyph; Momo relic has an accessible relic icon
+ok 7 - 4.6 weapon faces retain the native family glyph; Momo relic has an accessible relic icon
+  ---
+  duration_ms: 5.2675
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 473.0658

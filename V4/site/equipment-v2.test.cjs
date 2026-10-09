@@ -31,7 +31,9 @@ function equip(s,c,item){s[item.slot][c.characterId]=item.id;return s;}
 function inject(f,c,slot){const w=f.s.equipment.definitions.find(w=>w.slot===slot);w.restrictions={characterIds:[c.characterId]};f.s.equipment.loadouts[slot==='weapon'?0:1][slot][c.characterId]=w.id;return w;}
 
 test('4.6 definitions, legacy definitions and three independent stable-identity slots',async()=>{
-  const d=await catalogue;assert.equal(Q.catalogue.version,2);assert.equal(Q.catalogue.weapons.length,Q.catalogue.legacyWeapons.length);
+  const d=await catalogue;assert.equal(Q.catalogue.version,2);
+  assert.deepEqual(Q.catalogue.weapons.filter(w=>!w.id.startsWith('gotham-')).map(w=>w.id),Q.catalogue.legacyWeapons.map(w=>w.id));
+  assert.equal(Q.catalogue.weapons.filter(w=>w.id.startsWith('gotham-')).length,12);
   for(const w of Q.catalogue.weapons){Q.validateDefinition(w);assert.equal(w.rulesVersion,2);assert.equal(w.slot,Q.catalogue.kind(w));if(w.slot!=='relic'){assert.equal(w.effect.trigger,'RETAINED_SIX');assert.equal(w.effect.duration,'DUEL');assert.equal(w.effect.stat,w.slot==='weapon'?'ATK':'DEF');assert(w.effect.value<=40);}}
   for(const w of Q.catalogue.legacyWeapons){Q.validateDefinition(w);assert.equal(w.slot,'weapon');assert.equal(w.rulesVersion,undefined);}
   const b=d.cards.find(c=>c.characterId==='balmhyr'&&c.weapon==='Hache'),row=Q.profile('v460');

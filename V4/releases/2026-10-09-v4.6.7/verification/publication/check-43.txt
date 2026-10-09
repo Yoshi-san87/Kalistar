@@ -1,0 +1,59 @@
+TAP version 13
+# Cohesion campaign (300 legal teams): {"means":[30.88,75.26,183.16],"separated":100}
+# Subtest: all levels produce legal, distinct, fully covered teams without altering native cards
+ok 1 - all levels produce legal, distinct, fully covered teams without altering native cards
+  ---
+  duration_ms: 167.5019
+  type: 'test'
+  ...
+# Subtest: selection is deterministic, isolated from combat dice, and survives game restore
+ok 2 - selection is deterministic, isolated from combat dice, and survives game restore
+  ---
+  duration_ms: 29.9647
+  type: 'test'
+  ...
+# Subtest: a 100-seed campaign proves increasing cohesion, not guaranteed victories
+ok 3 - a 100-seed campaign proves increasing cohesion, not guaranteed victories
+  ---
+  duration_ms: 1157.4737
+  type: 'test'
+  ...
+# Subtest: restricted pools remain legal; impossible pools and invalid levels fail closed
+ok 4 - restricted pools remain legal; impossible pools and invalid levels fail closed
+  ---
+  duration_ms: 91.6993
+  type: 'test'
+  ...
+# Subtest: arena draw always selects a real other arena; empty and single pools are explicit
+ok 5 - arena draw always selects a real other arena; empty and single pools are explicit
+  ---
+  duration_ms: 0.3921
+  type: 'test'
+  ...
+# Subtest: shuffle settles once, prevents overlapping requests and clears all timers
+ok 6 - shuffle settles once, prevents overlapping requests and clears all timers
+  ---
+  duration_ms: 8.3701
+  type: 'test'
+  ...
+# Subtest: close, cancel, disconnected targets and destruction never settle a discarded draw
+ok 7 - close, cancel, disconnected targets and destruction never settle a discarded draw
+  ---
+  duration_ms: 4.9345
+  type: 'test'
+  ...
+# Subtest: Reduced Motion skips all shuffle frames and settles quickly
+ok 8 - Reduced Motion skips all shuffle frames and settles quickly
+  ---
+  duration_ms: 1.1147
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1594.5173

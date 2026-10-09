@@ -96,6 +96,18 @@
     'ff9-final-act-feather':Object.freeze({key:'ff9-final-act-feather-v1',scene:'ff9-final-act-feather-scene-v1.webp',rim:'ff9-final-act-feather-ring-v1.webp',body:'ff9-final-act-feather-v1.webp',color:'#d8c7eb'}),
     'ff9-terra-fragment':Object.freeze({key:'ff9-terra-fragment-v1',scene:'ff9-terra-fragment-scene-v1.webp',rim:'ff9-terra-fragment-ring-v1.webp',body:'ff9-terra-fragment-v1.webp',color:'#a3d7ef'}),
     'ff9-tantalus-script':Object.freeze({key:'ff9-tantalus-script-v1',scene:'ff9-tantalus-script-scene-v1.webp',rim:'ff9-tantalus-script-ring-v1.webp',body:'ff9-tantalus-script-v1.webp',color:'#e2ccb0'}),
+    'gotham-catwoman-whip':Object.freeze({key:'gotham-catwoman-whip-v1',scene:'gotham-catwoman-whip-scene-v1.webp',rim:'gotham-catwoman-whip-ring-v1.webp',body:'gotham-catwoman-whip-v1.webp',color:'#c5b0e1'}),
+    'gotham-freeze-gun':Object.freeze({key:'gotham-freeze-gun-v1',scene:'gotham-freeze-gun-scene-v1.webp',rim:'gotham-freeze-gun-ring-v1.webp',body:'gotham-freeze-gun-v1.webp',color:'#a8e3ed'}),
+    'gotham-demon-sword':Object.freeze({key:'gotham-demon-sword-v1',scene:'gotham-demon-sword-scene-v1.webp',rim:'gotham-demon-sword-ring-v1.webp',body:'gotham-demon-sword-v1.webp',color:'#b8d09c'}),
+    'gotham-penguin-umbrella':Object.freeze({key:'gotham-penguin-umbrella-v1',scene:'gotham-penguin-umbrella-scene-v1.webp',rim:'gotham-penguin-umbrella-ring-v1.webp',body:'gotham-penguin-umbrella-v1.webp',color:'#d4d0b9'}),
+    'gotham-cryo-suit':Object.freeze({key:'gotham-cryo-suit-v1',scene:'gotham-cryo-suit-scene-v1.webp',rim:'gotham-cryo-suit-ring-v1.webp',body:'gotham-cryo-suit-v1.webp',color:'#b8d9e7'}),
+    'gotham-cat-goggles':Object.freeze({key:'gotham-cat-goggles-v1',scene:'gotham-cat-goggles-scene-v1.webp',rim:'gotham-cat-goggles-ring-v1.webp',body:'gotham-cat-goggles-v1.webp',color:'#d7b58c'}),
+    'gotham-fear-mask':Object.freeze({key:'gotham-fear-mask-v1',scene:'gotham-fear-mask-scene-v1.webp',rim:'gotham-fear-mask-ring-v1.webp',body:'gotham-fear-mask-v1.webp',color:'#c9b18c'}),
+    'gotham-harvey-coin':Object.freeze({key:'gotham-harvey-coin-v1',scene:'gotham-harvey-coin-scene-v1.webp',rim:'gotham-harvey-coin-ring-v1.webp',body:'gotham-harvey-coin-v1.webp',color:'#d0c4b0'}),
+    'gotham-riddle-box':Object.freeze({key:'gotham-riddle-box-v1',scene:'gotham-riddle-box-scene-v1.webp',rim:'gotham-riddle-box-ring-v1.webp',body:'gotham-riddle-box-v1.webp',color:'#aed5a0'}),
+    'gotham-ivy-seed':Object.freeze({key:'gotham-ivy-seed-v1',scene:'gotham-ivy-seed-scene-v1.webp',rim:'gotham-ivy-seed-ring-v1.webp',body:'gotham-ivy-seed-v1.webp',color:'#add29a'}),
+    'gotham-utility-belt':Object.freeze({key:'gotham-utility-belt-v1',scene:'gotham-utility-belt-scene-v1.webp',rim:'gotham-utility-belt-ring-v1.webp',body:'gotham-utility-belt-v1.webp',color:'#ddc18d'}),
+    'gotham-lazarus-vial':Object.freeze({key:'gotham-lazarus-vial-v1',scene:'gotham-lazarus-vial-scene-v1.webp',rim:'gotham-lazarus-vial-ring-v1.webp',body:'gotham-lazarus-vial-v1.webp',color:'#afd5a3'}),
   };
   Object.freeze(entries);
   const get=weapon=>entries[weapon.id]?.key===weapon.art?entries[weapon.id]:null;

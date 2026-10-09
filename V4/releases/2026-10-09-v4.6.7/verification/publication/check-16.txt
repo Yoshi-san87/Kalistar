@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: Eight approved identities, requested races, role bounds and unchanged source images
+ok 1 - Eight approved identities, requested races, role bounds and unchanged source images
+  ---
+  duration_ms: 336.0039
+  type: 'test'
+  ...
+# Subtest: New collection scope, Gotham asset and valid deck with two cards per position
+ok 2 - New collection scope, Gotham asset and valid deck with two cards per position
+  ---
+  duration_ms: 121.5493
+  type: 'test'
+  ...
+# Subtest: All 48 ATK faces apply numeric attacks, death or the right support category
+ok 3 - All 48 ATK faces apply numeric attacks, death or the right support category
+  ---
+  duration_ms: 58.147
+  type: 'test'
+  ...
+# Subtest: All 48 DEF faces, barriers and dodge survive save and restore
+ok 4 - All 48 DEF faces, barriers and dodge survive save and restore
+  ---
+  duration_ms: 39.0523
+  type: 'test'
+  ...
+# Subtest: 32 complete seeded ABBA matches with all eight characters and recurring restoration
+ok 5 - 32 complete seeded ABBA matches with all eight characters and recurring restoration
+  ---
+  duration_ms: 625.4907
+  type: 'test'
+  ...
+# Subtest: Eight native PSD/PNG proofs, exact approved art and preserved previous catalogue entries
+ok 6 - Eight native PSD/PNG proofs, exact approved art and preserved previous catalogue entries
+  ---
+  duration_ms: 72.5899
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1621.4585

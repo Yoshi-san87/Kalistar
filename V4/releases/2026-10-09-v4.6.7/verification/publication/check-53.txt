@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: the completed novel meets the requested 100000 to 120000 words
+ok 1 - the completed novel meets the requested 100000 to 120000 words
+  ---
+  duration_ms: 10.2073
+  type: 'test'
+  ...
+# Subtest: the manuscript has ordered, unique sections and nonempty French prose
+ok 2 - the manuscript has ordered, unique sections and nonempty French prose
+  ---
+  duration_ms: 3.9011
+  type: 'test'
+  ...
+# Subtest: the new author source restores Gen without publishing sequel lore
+ok 3 - the new author source restores Gen without publishing sequel lore
+  ---
+  duration_ms: 254.1814
+  type: 'test'
+  ...
+# Subtest: approved illustrations follow the actual depicted scenes
+ok 4 - approved illustrations follow the actual depicted scenes
+  ---
+  duration_ms: 0.2693
+  type: 'test'
+  ...
+# Subtest: the Council and open ending retain the author sequence
+ok 5 - the Council and open ending retain the author sequence
+  ---
+  duration_ms: 0.2689
+  type: 'test'
+  ...
+# Subtest: Lanio is laid in Zarok near his Astraball companions, not buried
+ok 6 - Lanio is laid in Zarok near his Astraball companions, not buried
+  ---
+  duration_ms: 0.5975
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 371.6896

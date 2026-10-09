@@ -1,0 +1,281 @@
+TAP version 13
+# Subtest: unpublished FF7 arenas stay absent; V3 arena output is unchanged
+ok 1 - unpublished FF7 arenas stay absent; V3 arena output is unchanged
+  ---
+  duration_ms: 107.4681
+  type: 'test'
+  ...
+# Subtest: arena availability follows version faction, not a shared NieR character suffix
+ok 2 - arena availability follows version faction, not a shared NieR character suffix
+  ---
+  duration_ms: 29.8133
+  type: 'test'
+  ...
+# Subtest: arena availability accepts explicit collaboration without changing a character identity
+ok 3 - arena availability accepts explicit collaboration without changing a character identity
+  ---
+  duration_ms: 33.669
+  type: 'test'
+  ...
+# Subtest: Cloud alone unlocks both arenas with exact FF7 metadata and filtered affinities
+ok 4 - Cloud alone unlocks both arenas with exact FF7 metadata and filtered affinities
+  ---
+  duration_ms: 27.0642
+  type: 'test'
+  ...
+# Subtest: any published FF7 character unlocks both arenas without requiring Cloud or a home affinity
+ok 5 - any published FF7 character unlocks both arenas without requiring Cloud or a home affinity
+  ---
+  duration_ms: 23.0246
+  type: 'test'
+  ...
+# Subtest: home bonuses stay specific to the seven requested characters, not the whole FF7 set
+ok 6 - home bonuses stay specific to the seven requested characters, not the whole FF7 set
+  ---
+  duration_ms: 13.9829
+  type: 'test'
+  ...
+# Subtest: both arenas are playable and restorable with bounded, version-independent bonuses
+ok 7 - both arenas are playable and restorable with bounded, version-independent bonuses
+  ---
+  duration_ms: 46.4494
+  type: 'test'
+  ...
+# Subtest: supplemental JSON rejects malformed metadata, paths, affinities and colliding IDs
+ok 8 - supplemental JSON rejects malformed metadata, paths, affinities and colliding IDs
+  ---
+  duration_ms: 141.3588
+  type: 'test'
+  ...
+# Subtest: supplemental bonus bounds reject overflow, negatives and non-integers without clamping
+ok 9 - supplemental bonus bounds reject overflow, negatives and non-integers without clamping
+  ---
+  duration_ms: 90.0195
+  type: 'test'
+  ...
+# Subtest: only the current approved V4 references, without legacy art or provenance paths
+ok 10 - only the current approved V4 references, without legacy art or provenance paths
+  ---
+  duration_ms: 31.1539
+  type: 'test'
+  ...
+# Subtest: Voloden requires V4 approval and retains his V3 role, sentry and death face
+ok 11 - Voloden requires V4 approval and retains his V3 role, sentry and death face
+  ---
+  duration_ms: 20.5903
+  type: 'test'
+  ...
+# Subtest: printed V4 fields override V3 metadata and support faces remain valid
+ok 12 - printed V4 fields override V3 metadata and support faces remain valid
+  ---
+  duration_ms: 18.7835
+  type: 'test'
+  ...
+# Subtest: safe crop matches the approved PNG dimensions, rejects historical sizes
+ok 13 - safe crop matches the approved PNG dimensions, rejects historical sizes
+  ---
+  duration_ms: 35.8731
+  type: 'test'
+  ...
+# Subtest: default and preset decks use only owned V4 cards and cover P1-P5 twice
+ok 14 - default and preset decks use only owned V4 cards and cover P1-P5 twice
+  ---
+  duration_ms: 13.1307
+  type: 'test'
+  ...
+# Subtest: a deck accepts only one card per character across copies and variants
+ok 15 - a deck accepts only one card per character across copies and variants
+  ---
+  duration_ms: 15.1235
+  type: 'test'
+  ...
+# Subtest: publication appended with its new ID and correct URLs, no legacy fallbacks
+ok 16 - publication appended with its new ID and correct URLs, no legacy fallbacks
+  ---
+  duration_ms: 52.5988
+  type: 'test'
+  ...
+# Subtest: seed is additive and idempotent, Paris gets new originals, Tokyo stays empty
+ok 17 - seed is additive and idempotent, Paris gets new originals, Tokyo stays empty
+  ---
+  duration_ms: 31.4383
+  type: 'test'
+  ...
+# Subtest: printed support abilities are retained or explicitly rejected by V3 role constraints
+ok 18 - printed support abilities are retained or explicitly rejected by V3 role constraints
+  ---
+  duration_ms: 22.1189
+  type: 'test'
+  ...
+# Subtest: V4 storage and deck envelopes reject V3 without touching its keys
+ok 19 - V4 storage and deck envelopes reject V3 without touching its keys
+  ---
+  duration_ms: 23.0038
+  type: 'test'
+  ...
+# Subtest: active match restores unchanged after new catalogue publication
+ok 20 - active match restores unchanged after new catalogue publication
+  ---
+  duration_ms: 27.851
+  type: 'test'
+  ...
+# Subtest: unchanged V3 mechanics: deterministic full games agree after identity normalization
+ok 21 - unchanged V3 mechanics: deterministic full games agree after identity normalization
+  ---
+  duration_ms: 64.3059
+  type: 'test'
+  ...
+# Subtest: release contains all published cards and only playable files
+ok 22 - release contains all published cards and only playable files
+  ---
+  duration_ms: 123.8798
+  type: 'test'
+  ...
+# Subtest: build paths cannot escape the generated directory
+ok 23 - build paths cannot escape the generated directory
+  ---
+  duration_ms: 0.2939
+  type: 'test'
+  ...
+# Subtest: Astralia atlas is published as lightweight media, not an authoring source
+ok 24 - Astralia atlas is published as lightweight media, not an authoring source
+  ---
+  duration_ms: 82.2614
+  type: 'test'
+  ...
+# Subtest: Collection atlas is continuous and does not replace reading surfaces
+ok 25 - Collection atlas is continuous and does not replace reading surfaces
+  ---
+  duration_ms: 2.4375
+  type: 'test'
+  ...
+# Subtest: static release versions stylesheet and script URLs together
+ok 26 - static release versions stylesheet and script URLs together
+  ---
+  duration_ms: 0.3592
+  type: 'test'
+  ...
+# Subtest: application version matches in desktop and phone headers
+ok 27 - application version matches in desktop and phone headers
+  ---
+  duration_ms: 1.1584
+  type: 'test'
+  ...
+# Subtest: hosting adapter supports local, project Pages and saved canonical image paths
+ok 28 - hosting adapter supports local, project Pages and saved canonical image paths
+  ---
+  duration_ms: 1.3626
+  type: 'test'
+  ...
+# Subtest: PWA opens the game inside its project-page scope with install icons
+ok 29 - PWA opens the game inside its project-page scope with install icons
+  ---
+  duration_ms: 121.8425
+  type: 'test'
+  ...
+# Subtest: collaboration follows the version metadata, never the shared character suffix
+ok 30 - collaboration follows the version metadata, never the shared character suffix
+  ---
+  duration_ms: 1.284
+  type: 'test'
+  ...
+# Subtest: faction media is V4-local while legacy assets retain their routes
+ok 31 - faction media is V4-local while legacy assets retain their routes
+  ---
+  duration_ms: 0.3051
+  type: 'test'
+  ...
+# Subtest: universe choices expose Replicant only when its versions exist
+ok 32 - universe choices expose Replicant only when its versions exist
+  ---
+  duration_ms: 0.2874
+  type: 'test'
+  ...
+# Subtest: collection groups Kalistar, Final Fantasy and NieR while retaining faction filters
+ok 33 - collection groups Kalistar, Final Fantasy and NieR while retaining faction filters
+  ---
+  duration_ms: 18.0652
+  type: 'test'
+  ...
+# Subtest: statistics filter versions before aggregating a shared character and retain independent totals
+ok 34 - statistics filter versions before aggregating a shared character and retain independent totals
+  ---
+  duration_ms: 0.8283
+  type: 'test'
+  ...
+# Subtest: deck builder keeps shared-character exclusion and separate faction synergies
+ok 35 - deck builder keeps shared-character exclusion and separate faction synergies
+  ---
+  duration_ms: 26.2596
+  type: 'test'
+  ...
+# Subtest: browser boot loads collaboration metadata before all three consumers
+ok 36 - browser boot loads collaboration metadata before all three consumers
+  ---
+  duration_ms: 0.5524
+  type: 'test'
+  ...
+# Subtest: Metal Gear episodes have independent factions and V4 banner routes
+ok 37 - Metal Gear episodes have independent factions and V4 banner routes
+  ---
+  duration_ms: 2.3164
+  type: 'test'
+  ...
+# Subtest: Snake versions exclude each other; faction bonus never crosses episodes
+ok 38 - Snake versions exclude each other; faction bonus never crosses episodes
+  ---
+  duration_ms: 26.3436
+  type: 'test'
+  ...
+# Subtest: Metal Gear is visible in the collection without changing shared character identity
+ok 39 - Metal Gear is visible in the collection without changing shared character identity
+  ---
+  duration_ms: 10.8252
+  type: 'test'
+  ...
+# Subtest: One Piece has one collaboration, eleven versions and ten characters
+ok 40 - One Piece has one collaboration, eleven versions and ten characters
+  ---
+  duration_ms: 2.5354
+  type: 'test'
+  ...
+# Subtest: binder renders one One Piece collection choice and retains one faction option
+ok 41 - binder renders one One Piece collection choice and retains one faction option
+  ---
+  duration_ms: 25.0242
+  type: 'test'
+  ...
+# Subtest: new faction and race routes are local; existing SKULLZ and CERELF routes stay shared
+ok 42 - new faction and race routes are local; existing SKULLZ and CERELF routes stay shared
+  ---
+  duration_ms: 1.0902
+  type: 'test'
+  ...
+# Subtest: all nine RE factions retain their identities and local asset routes
+ok 43 - all nine RE factions retain their identities and local asset routes
+  ---
+  duration_ms: 25.2902
+  type: 'test'
+  ...
+# Subtest: one Resident Evil collection choice counts fixture versions dynamically
+ok 44 - one Resident Evil collection choice counts fixture versions dynamically
+  ---
+  duration_ms: 12.0492
+  type: 'test'
+  ...
+# PASS: honours, ties, positive-only thresholds, completed/full history, aggregates, one-decimal averages, filters, ordering and safe Excel CSV.
+# Subtest: V4\\site\\statistics.test.cjs
+ok 9 - V4\\site\\statistics.test.cjs
+  ---
+  duration_ms: 144.3315
+  type: 'test'
+  ...
+1..45
+# tests 45
+# suites 0
+# pass 45
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 649.6824
