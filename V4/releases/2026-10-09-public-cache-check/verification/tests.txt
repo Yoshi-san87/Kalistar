@@ -1,0 +1,82 @@
+TAP version 13
+# Subtest: release contains all published cards and only playable files
+ok 1 - release contains all published cards and only playable files
+  ---
+  duration_ms: 119.6277
+  type: 'test'
+  ...
+# Subtest: build paths cannot escape the generated directory
+ok 2 - build paths cannot escape the generated directory
+  ---
+  duration_ms: 0.2694
+  type: 'test'
+  ...
+# Subtest: Astralia atlas is published as lightweight media, not an authoring source
+ok 3 - Astralia atlas is published as lightweight media, not an authoring source
+  ---
+  duration_ms: 60.7769
+  type: 'test'
+  ...
+# Subtest: Collection atlas is continuous and does not replace reading surfaces
+ok 4 - Collection atlas is continuous and does not replace reading surfaces
+  ---
+  duration_ms: 1.692
+  type: 'test'
+  ...
+# Subtest: static release versions stylesheet and script URLs together
+ok 5 - static release versions stylesheet and script URLs together
+  ---
+  duration_ms: 0.747
+  type: 'test'
+  ...
+# Subtest: application version matches in desktop and phone headers
+ok 6 - application version matches in desktop and phone headers
+  ---
+  duration_ms: 0.9503
+  type: 'test'
+  ...
+# Subtest: hosting adapter supports local, project Pages and saved canonical image paths
+ok 7 - hosting adapter supports local, project Pages and saved canonical image paths
+  ---
+  duration_ms: 1.5317
+  type: 'test'
+  ...
+# Subtest: PWA opens the game inside its project-page scope with install icons
+ok 8 - PWA opens the game inside its project-page scope with install icons
+  ---
+  duration_ms: 100.5644
+  type: 'test'
+  ...
+# Subtest: only the documented local hash versus GITHUB_SHA cache token differs
+ok 9 - only the documented local hash versus GITHUB_SHA cache token differs
+  ---
+  duration_ms: 2.4275
+  type: 'test'
+  ...
+# Subtest: changed content is never hidden by cache normalization
+ok 10 - changed content is never hidden by cache normalization
+  ---
+  duration_ms: 1.3742
+  type: 'test'
+  ...
+# Subtest: mixed or stale cache versions fail
+ok 11 - mixed or stale cache versions fail
+  ---
+  duration_ms: 0.2455
+  type: 'test'
+  ...
+# Subtest: assets must match both manifests byte for byte
+ok 12 - assets must match both manifests byte for byte
+  ---
+  duration_ms: 0.2337
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 12
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 274.571

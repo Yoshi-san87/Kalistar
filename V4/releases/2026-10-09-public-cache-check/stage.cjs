@@ -1,0 +1,15 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),{execFileSync}=require('node:child_process');
+const root=path.resolve(__dirname,'../../..'),git=(args,options={})=>execFileSync('git',args,{cwd:root,encoding:'utf8',maxBuffer:4*1024*1024,...options}).trim();
+const parent='ee3c49b5a981f29f649fa797d2f8e080d466896b',release='V4/releases/2026-10-09-public-cache-check';
+assert.equal(git(['remote','get-url','origin']),'https://github.com/Yoshi-san87/Kalistar.git');assert.equal(git(['branch','--show-current']),'main');
+assert.equal(git(['rev-parse','HEAD']),parent);assert.equal(git(['rev-parse','origin/main']),parent);assert.equal(git(['diff','--cached','--name-only']),'');
+const paths=[release,'V4/releases/2026-10-09-ff9-equipment/public-smoke.cjs','V4/releases/2026-10-09-ff9-equipment/verification/public',...require('../2026-10-09-ff9-equipment/release.json').versionFiles];
+assert(require('./verification/results.json').passed);assert(require('../2026-10-09-ff9-equipment/verification/public/results.json').passed);
+git(['add','--',...paths]);
+const workflow='.github/workflows/pages.yml',before=execFileSync('git',['show','HEAD:'+workflow],{cwd:root,encoding:'utf8'}),eol=before.includes('\r\n')?'\r\n':'\n';
+const anchor='          node --test V4/site/ff9-equipment.test.cjs'+eol,line='          node --test '+release+'/public-asset-check.test.cjs'+eol;
+assert(before.includes(anchor));assert(!before.includes(line));
+const blob=git(['hash-object','-w','--stdin'],{input:before.replace(anchor,anchor+line)});git(['update-index','--cacheinfo','100644',blob,workflow]);
+const files=git(['diff','--cached','--name-only','-z']).split('\0').filter(Boolean);assert(files.every(f=>f===workflow||paths.some(p=>f===p||f.startsWith(p+'/'))));
+fs.writeFileSync(path.join(__dirname,'verification/stage.json'),JSON.stringify({version:'4.5.62',parent,files,unrelatedChangesPreserved:true},null,2)+'\n');git(['add','--',release+'/verification/stage.json']);console.log({files:files.length+1,version:'4.5.62'});
