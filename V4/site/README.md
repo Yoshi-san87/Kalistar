@@ -8,6 +8,14 @@ difference between the ten-kill objective and the engine's empty-board ending.
 
 ## Performance Index 3 (10 October 2026)
 
+The career statistics ledger uses `statistics-skin.css` after the shared UI
+materials: full-width table, native artwork portraits, fixed identities and
+headers, explicit sorting and Golden trophy names. A native sort selector
+keeps the chosen metric next to the character on phones. Compact filters close
+with their action, Escape or an outside pointer; all listeners share the view's
+AbortController. Aggregates, CSV order and save data are unchanged. See
+`../revisions/2026-10-10-statistics/README.md` for checks and screenshots.
+
 `performance-index.js` centralizes the official coefficients, pure rating
 breakdown and native-charge credit rules. The existing `engine.matchStats()`
 remains the only event aggregator. New games stamp `match.ratingVersion: 3`;

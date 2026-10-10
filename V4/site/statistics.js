@@ -90,13 +90,60 @@
   function create({data,getDB,onDetail}){
     let root=null,controller=null,state={...defaults},items=[],snapshot=null;
     const button=(action,id,label,symbol,extra='')=>`<button type="button" data-sheet-action="${action}" data-id="${id}" ${extra}>${symbol?icon(symbol):''}${label}</button>`;
-    const choices=(name,options)=>`<label>${name[1]}<select data-sheet-field="${name[0]}">${options.map(([id,label])=>`<option value="${id}" ${String(state[name[0]])===String(id)?'selected':''}>${esc(label)}</option>`).join('')}</select></label>`;
+    const choices=(name,options)=>`<label>${name[1]}<select data-sheet-field="${name[0]}">${options.map(([id,label])=>`<option value="${esc(id)}" ${String(state[name[0]])===String(id)?'selected':''}>${esc(label)}</option>`).join('')}</select></label>`;
+    const compact=()=>matchMedia('(max-width:699px),(max-width:950px) and (max-height:500px)').matches;
+    function closeFilters(focus=false){
+      const filters=root?.querySelector('.sheet-filters');
+      if(!filters?.open)return;
+      filters.open=false;if(focus)filters.querySelector('summary').focus();
+    }
     function mount(node){
       destroy();root=node;controller=new AbortController();
-      root.innerHTML=`<section class="statistics-sheet" aria-label="Statistiques de carri\u00e8re"><header class="sheet-heading"><div><span class="eyebrow">REGISTRE DES RENCONTRES</span><h1>Statistiques</h1></div><div class="sheet-record" role="status"></div>${button('export','','','download','class="icon-button" title="Exporter les lignes filtr\u00e9es en CSV pour Excel" aria-label="Exporter les statistiques en CSV"')}</header><div class="sheet-toolbar"><label class="sheet-search">${icon('search')}<input data-sheet-field="query" type="search" placeholder="Personnage, version..." aria-label="Rechercher un personnage ou une version" value="${esc(state.query)}"></label><div class="sheet-segment" role="group" aria-label="Valeurs affichees">${[['average','Par match'],['total','Totaux']].map(([id,label])=>button('mode',id,label,null,`aria-pressed="${state.mode===id}"`)).join('')}</div></div><details class="sheet-filters" ${!matchMedia('(max-width:699px),(max-width:950px) and (max-height:500px)').matches?'open':''}><summary>${icon('sliders-horizontal')}Filtres<span class="sheet-filter-count"></span></summary><div>${choices(['scope','P\u00e9rim\u00e8tre'],[['owned','Ma collection'],['all','Toutes les \u00e9quipes']])}${choices(['grouping','Regrouper'],[['character','Personnages'],['version','Versions']])}${choices(['element','Cristal'],[['all','Tous les cristaux'],...Object.entries(data.elements).map(([id,e])=>[id,e.label]),...(!data.elements.NONE?[['NONE','Sans cristal']]:[])])}${choices(['collab','Univers'],[['all','Tous'],['kalistar','Kalistar'],...C.choices(data.cards)])}${choices(['period','P\u00e9riode'],[['all','Toute la carri\u00e8re'],['30','30 derniers jours'],['90','90 derniers jours']])}${choices(['minimum','Matchs minimum'],[[0,'Tous'],[1,'1 match'],[5,'5 matchs'],[10,'10 matchs']])}${button('reset','','','rotate-ccw','class="icon-button" title="R\u00e9initialiser les filtres" aria-label="R\u00e9initialiser les filtres"')}</div></details><nav class="sheet-tabs" aria-label="Colonnes de statistiques">${[['performance','Performances','chart-no-axes-combined'],['support','Soutiens','hand-heart'],['trophies','Troph\u00e9es','award']].map(([id,label,symbol])=>button('group',id,label,symbol,`aria-pressed="${state.group===id}"`)).join('')}</nav><div class="sheet-scroll" tabindex="0" role="region" aria-label="Tableau des statistiques"><table class="sheet-table" aria-label="Classement des personnages"></table></div><footer class="sheet-footer"><span class="sheet-count" role="status"></span><span>Archives locales · matchs termin\u00e9s</span></footer></section>`;
+      root.innerHTML=`<section class="statistics-sheet" aria-label="Statistiques de carri\u00e8re">
+        <header class="sheet-heading">
+          <img class="sheet-emblem" src="assets/navigation/statistics-v1.webp" alt="" width="64" height="64">
+          <div class="sheet-title"><span class="eyebrow">REGISTRE DES RENCONTRES</span><h1>Statistiques</h1></div>
+          <div class="sheet-record" role="status"></div>
+          ${button('export','','','download','class="icon-button" title="Exporter les lignes filtr\u00e9es en CSV pour Excel" aria-label="Exporter les statistiques en CSV"')}
+        </header>
+        <div class="sheet-toolbar">
+          <label class="sheet-search">${icon('search')}<input data-sheet-field="query" type="search" placeholder="Personnage, version..." aria-label="Rechercher un personnage ou une version" value="${esc(state.query)}"></label>
+          <div class="sheet-segment" role="group" aria-label="Valeurs affich\u00e9es">${[['average','Par match'],['total','Totaux']].map(([id,label])=>button('mode',id,label,null,`aria-pressed="${state.mode===id}"`)).join('')}</div>
+        </div>
+        <details class="sheet-filters" ${!compact()?'open':''}>
+          <summary title="Filtres" aria-label="Filtres">${icon('sliders-horizontal')}Filtres<span class="sheet-filter-count" aria-hidden="true"></span>${icon('chevron-down')}</summary>
+          <div class="sheet-filter-fields">
+            ${choices(['scope','P\u00e9rim\u00e8tre'],[['owned','Ma collection'],['all','Toutes les \u00e9quipes']])}
+            ${choices(['grouping','Regrouper'],[['character','Personnages'],['version','Versions']])}
+            ${choices(['element','Cristal'],[['all','Tous les cristaux'],...Object.entries(data.elements).map(([id,e])=>[id,e.label]),...(!data.elements.NONE?[['NONE','Sans cristal']]:[])])}
+            ${choices(['collab','Univers'],[['all','Tous les univers'],['kalistar','Kalistar'],...C.choices(data.cards)])}
+            ${choices(['period','P\u00e9riode'],[['all','Toute la carri\u00e8re'],['30','30 derniers jours'],['90','90 derniers jours']])}
+            ${choices(['minimum','Matchs minimum'],[[0,'Tous'],[1,'1 match'],[5,'5 matchs'],[10,'10 matchs']])}
+            <div class="sheet-filter-actions">
+              ${button('reset','','','rotate-ccw','class="icon-button" title="R\u00e9initialiser les filtres" aria-label="R\u00e9initialiser les filtres"')}
+              ${button('close-filters','','','check','class="icon-button sheet-filter-done" title="Appliquer et fermer les filtres" aria-label="Appliquer et fermer les filtres"')}
+            </div>
+          </div>
+        </details>
+        <div class="sheet-viewbar">
+          <nav class="sheet-tabs" aria-label="Colonnes de statistiques">${[['performance','Performances','chart-no-axes-combined'],['support','Soutiens','hand-heart'],['trophies','Troph\u00e9es','award']].map(([id,label,symbol])=>button('group',id,label,symbol,`aria-pressed="${state.group===id}"`)).join('')}</nav>
+          <div class="sheet-order"><label>Classer par<select data-sheet-field="sort" aria-label="Classer par"></select></label>${button('direction','','','arrow-down-wide-narrow','class="icon-button" aria-label="Ordre d\u00e9croissant" title="Changer le sens du classement"')}</div>
+        </div>
+        <div class="sheet-scroll" tabindex="0" role="region" aria-label="Tableau des statistiques"><table class="sheet-table" aria-label="Classement des personnages"></table></div>
+        <footer class="sheet-footer"><span class="sheet-count" role="status"></span><span>${icon('archive')} Archives locales <span aria-hidden="true">\u00b7</span> matchs termin\u00e9s</span></footer>
+      </section>`;
       root.addEventListener('click',click,{signal:controller.signal});
       root.addEventListener('input',change,{signal:controller.signal});
       root.addEventListener('change',change,{signal:controller.signal});
+      matchMedia('(max-width:699px),(max-width:950px) and (max-height:500px)').addEventListener('change',()=>{
+        closeFilters();refresh({reload:false});
+      },{signal:controller.signal});
+      document.addEventListener('pointerdown',event=>{
+        if(compact()&&!event.target.closest('.sheet-filters'))closeFilters();
+      },{signal:controller.signal});
+      root.addEventListener('keydown',event=>{
+        if(event.key==='Escape'&&event.target.closest('.sheet-filters')){event.preventDefault();closeFilters(true);}
+      },{signal:controller.signal});
       refresh();
     }
     function refresh({reload=true}={}){
@@ -111,14 +158,37 @@
         }
       }
       const db=snapshot;items=sorted(rows(data,db,state),state);
-      const cols=groups[state.group],sort=key=>state.sort===key?(state.direction==='asc'?'ascending':'descending'):'none';
+      const columns=groups[state.group],selected=columns.find(c=>c.key===state.sort);
+      // Put the chosen metric beside the fixed identity on phones, not off-screen.
+      const cols=compact()&&selected?[selected,...columns.filter(c=>c!==selected)]:columns;
+      const sort=key=>state.sort===key?(state.direction==='asc'?'ascending':'descending'):'none';
       const rank=(row,index)=>index>0&&state.sort!=='name'&&value(items[index-1],cols.find(c=>c.key===state.sort)||cols[0],state.mode)===value(row,cols.find(c=>c.key===state.sort)||cols[0],state.mode)?'=':index+1;
-      root.querySelector('.sheet-table').innerHTML=`<thead><tr><th scope="col" class="sheet-rank">#</th><th scope="col" class="sheet-identity" aria-sort="${sort('name')}">${button('sort','name','Personnage',state.sort==='name'?state.direction==='asc'?'arrow-up':'arrow-down':null,'aria-label="Trier par personnage"')}</th>${cols.map(c=>`<th scope="col" aria-sort="${sort(c.key)}" class="${state.sort===c.key?'sheet-sorted':''}">${button('sort',c.key,(c.trophy?T.image(c.key):'')+`<span>${esc(c.trophy?T.categories.find(t=>t.id===c.key).label:c.label)}</span>`,c.icon,`title="${esc(c.help)}" aria-label="Trier par ${esc(c.label)}"`)}${state.sort===c.key?`<span class="sheet-sort-arrow" aria-hidden="true">${icon(state.direction==='asc'?'arrow-up':'arrow-down')}</span>`:''}</th>`).join('')}</tr></thead><tbody>${items.map((r,index)=>`<tr data-sheet-row="${esc(r.id)}"><td class="sheet-rank">${rank(r,index)}</td><th scope="row" class="sheet-identity"><button type="button" data-sheet-action="detail" data-id="${esc(r.card.id)}"><img src="${esc(KalistarCardMedia.image(r.card))}" alt="" width="32" height="50" loading="lazy"><span><b>${esc(r.card.name)}</b><small>${state.grouping==='version'?esc(r.card.title):esc(data.elements[r.card.element]?.label||'Sans cristal')+(r.versions.length>1?' · '+r.versions.length+' versions':'')}</small></span></button></th>${cols.map(c=>`<td data-metric="${c.key}" class="${state.sort===c.key?'sheet-sorted':''}" title="${esc(metricTitle(r,c,state.mode))}">${formatted(r,c,state.mode)}</td>`).join('')}</tr>`).join('')}</tbody>`;
+      const activeColumn=cols.find(c=>c.key===state.sort);
+      root.querySelector('.sheet-table').innerHTML=`<thead><tr>
+        <th scope="col" class="sheet-rank">#</th>
+        <th scope="col" class="sheet-identity" aria-sort="${sort('name')}">${button('sort','name','Personnage',state.sort==='name'?state.direction==='asc'?'arrow-up':'arrow-down':null,'aria-label="Trier par personnage"')}</th>
+        ${cols.map(c=>`<th scope="col" aria-sort="${sort(c.key)}" class="${state.sort===c.key?'sheet-sorted':''}">${button('sort',c.key,(c.trophy?T.image(c.key):'')+`<span>${esc(c.label)}</span>`,c.icon,`title="${esc(c.help)}" aria-label="Trier par ${esc(c.label)}"`)}${state.sort===c.key?`<span class="sheet-sort-arrow" aria-hidden="true">${icon(state.direction==='asc'?'arrow-up':'arrow-down')}</span>`:''}</th>`).join('')}
+      </tr></thead><tbody>${items.map((r,index)=>{
+        const score=activeColumn?value(r,activeColumn,state.mode):null;
+        const ranked=state.sort!=='name'&&r.games>0&&score!==null&&score>0;
+        return `<tr data-sheet-row="${esc(r.id)}" data-played="${r.games>0}" data-leader="${ranked&&index===0&&state.direction==='desc'}">
+          <td class="sheet-rank">${ranked?rank(r,index):'\u2014'}</td>
+          <th scope="row" class="sheet-identity"><button type="button" data-sheet-action="detail" data-id="${esc(r.card.id)}" aria-label="Voir ${esc(r.card.name)}">
+            <img src="${esc(KalistarCardMedia.image(r.card,'art'))}" alt="" width="36" height="44" loading="lazy">
+            <span><b>${esc(r.card.name)}</b><small>${state.grouping==='version'?esc(r.card.title):esc(data.elements[r.card.element]?.label||'Sans cristal')+(r.versions.length>1?' \u00b7 '+r.versions.length+' versions':'')}</small></span>
+          </button></th>
+          ${cols.map(c=>`<td data-metric="${c.key}" data-empty="${value(r,c,state.mode)===null}" class="${state.sort===c.key?'sheet-sorted':''}" title="${esc(metricTitle(r,c,state.mode))}">${formatted(r,c,state.mode)}</td>`).join('')}
+        </tr>`;
+      }).join('')}</tbody>`;
+      root.querySelector('.sheet-order select').innerHTML=[['name','Personnage'],...columns.map(c=>[c.key,c.label])].map(([id,label])=>`<option value="${id}" ${state.sort===id?'selected':''}>${esc(label)}</option>`).join('');
+      const directionButton=root.querySelector('[data-sheet-action=direction]');
+      directionButton.setAttribute('aria-label',state.direction==='asc'?'Ordre croissant':'Ordre d\u00e9croissant');
+      directionButton.innerHTML=icon(state.direction==='asc'?'arrow-up-narrow-wide':'arrow-down-wide-narrow');
       let empty=root.querySelector('.sheet-empty');
-      if(!items.length&&!empty){empty=document.createElement('p');empty.className='sheet-empty';root.querySelector('.sheet-scroll').append(empty);}
-      if(empty){empty.hidden=!!items.length;empty.textContent=db?'Aucun personnage pour ces filtres.':'Base locale indisponible.';}
+      if(!items.length&&!empty){empty=document.createElement('div');empty.className='sheet-empty';empty.setAttribute('role','status');root.querySelector('.sheet-scroll').append(empty);}
+      if(empty){empty.hidden=!!items.length;empty.innerHTML=`${icon(db?'search-x':'database')}<b>${db?'Aucun personnage pour ces filtres.':'Base locale indisponible.'}</b>${db?button('reset','','R\u00e9initialiser les filtres','rotate-ccw','data-kui="command"'):''}`;}
       const matchCount=new Set(items.flatMap(r=>r.history.map(h=>h.matchId))).size;
-      root.querySelector('.sheet-record').innerHTML=`<b>${matchCount}</b> rencontres <span>·</span> <b>${data.cards.length}</b> versions V4`;
+      root.querySelector('.sheet-record').innerHTML=`<span><b>${matchCount}</b>Rencontres</span><span><b>${items.length}</b>${state.grouping==='character'?'Personnages':'Versions'}</span>`;
       root.querySelector('.sheet-count').textContent=items.length+' '+(state.grouping==='character'?'personnages':'versions')+' · '+(state.mode==='average'?'Moyennes / match':'Totaux');
       root.querySelector('.sheet-filter-count').textContent=Object.keys(defaults).filter(k=>['scope','element','collab','grouping','period','minimum'].includes(k)&&String(state[k])!==String(defaults[k])).length||'';
       root.querySelectorAll('[data-sheet-action=mode],[data-sheet-action=group]').forEach(b=>b.setAttribute('aria-pressed',state[b.dataset.sheetAction]===b.dataset.id));
@@ -128,11 +198,14 @@
     function change(event){
       const key=event.target.dataset.sheetField;if(!Object.hasOwn(defaults,key))return;
       if(event.type==='input'&&key!=='query'||event.type==='change'&&key==='query')return;
+      if(key==='sort'&&!['name',...groups[state.group].map(c=>c.key)].includes(event.target.value))return;
       state[key]=event.target.value;refresh({reload:false});
+      if(key==='sort'&&compact())root.querySelector('.sheet-scroll').scrollLeft=0;
     }
     function click(event){
-      const b=event.target.closest('[data-sheet-action]');if(!b)return;
+      const b=event.target.closest('[data-sheet-action]');if(!b||b.disabled)return;
       const {sheetAction:action,id}=b.dataset;
+      if(action==='close-filters'){closeFilters(true);return;}
       if(action==='detail'){onDetail(id);return;}
       if(action==='export'){
         const url=URL.createObjectURL(new Blob([csv(items,state)],{type:'text/csv;charset=utf-8'})),a=document.createElement('a');
@@ -140,8 +213,10 @@
       }
       if(action==='reset'){state={...defaults};mount(root);return;}
       if(action==='sort'){state.direction=state.sort===id&&state.direction==='desc'?'asc':'desc';state.sort=id;}
+      if(action==='direction')state.direction=state.direction==='desc'?'asc':'desc';
+      if(action==='sort'&&compact())root.querySelector('.sheet-scroll').scrollLeft=0;
       if(action==='mode')state.mode=id;
-      if(action==='group'){state.group=id;state.sort=id==='performance'?'rating':id==='support'?'support':'crystal';state.direction='desc';}
+      if(action==='group'){state.group=id;state.sort=id==='performance'?'rating':id==='support'?'support':'crystal';state.direction='desc';root.querySelector('.sheet-scroll').scrollTo(0,0);}
       refresh({reload:false});root.querySelector(`[data-sheet-action="${action}"][data-id="${id}"]`)?.focus({preventScroll:true});
     }
     function destroy(){controller?.abort();controller=null;root=null;}
