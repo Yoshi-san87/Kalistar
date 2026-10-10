@@ -61,13 +61,13 @@
     function setTrait(s,u,key){
       const already=u[key]>0;
       u[key]=key==='ward'?60:key==='mana'||key==='physical'?rules.token_bonus:1;
-      if(!already&&s.match?.ratingVersion===2){
+      if(!already&&PerformanceIndex.tracksSources(s.match?.ratingVersion)){
         (u.traitSources??={})[key]={donor:s.duel.attacker,recipient:u.uid,kind:key,round:s.round};
       }
       return already;
     }
     function consumeTrait(s,u,key,part){
-      if(s.match?.ratingVersion===2&&u.traitSources?.[key]){
+      if(PerformanceIndex.tracksSources(s.match?.ratingVersion)&&u.traitSources?.[key]){
         (s.duel.nativeSources??={})[part]=clone(u.traitSources[key]);
         delete u.traitSources[key];
       }
@@ -304,10 +304,10 @@
         debuff:f?Math.max(0,-f.weapon)+Math.max(0,-f.element)+Math.max(0,-f.barrier):0,
         support,recipient:support?(d.cloverGranted||d.manaGranted||d.physicalGranted||d.reraiseGranted||d.guardGranted||d.attacker):null,refresh:!!d.traitRefreshed,
         attackRolls:d.attackRolls.length,defenseRolls:d.defenseRolls.length,
-        ...(s.match.ratingVersion===2?{sources:clone(d.nativeSources||{}),wardConsumed:!!d.ward}:{})});
+        ...(PerformanceIndex.tracksSources(s.match.ratingVersion)?{sources:clone(d.nativeSources||{}),wardConsumed:!!d.ward}:{})});
       for(const credit of PerformanceIndex.credits(s.match.events.at(-1),s.match)){
         const donor=s.players.flatMap(p=>[...p.board.filter(Boolean),...p.reserve,...p.dead]).find(u=>u.uid===credit.uid);
-        const label=PerformanceIndex.labels[credit.metric];
+        const label=credit.defensive?'Assist d\u00e9fensive d\u00e9cisive':PerformanceIndex.labels[credit.metric];
         addLog(s,'effect',`${card(donor).name} : ${label}, +${credit.points} d'indice (soutien T${credit.source.round}).`);
       }
     }
@@ -315,11 +315,13 @@
       assertV4(s);
       const metrics=['attack','defense','breakthrough','kills','deaths','holds','support','alliedSupport','refreshes','hearts','clovers','potions','physical','guards','ward','arenaAttack','arenaDefense','reraises','luckUsed','dodges','shields','barrier','debuff','buff','duels','defended','attackRolls','defenseRolls','peakAttack','peakDefense','assists','cloversConsumedByRecipients','reraisesConsumedByRecipients','victory','rating'];
       const ratingVersion=s.match?.ratingVersion??1;
+      if(ratingVersion===3)metrics.push('valuedAttack','valuedDefense','defensiveAssists');
       const empty=()=>Object.fromEntries(metrics.map(k=>[k,0]));
       const units=s.players.flatMap((p,side)=>[...p.board.filter(Boolean),...p.reserve,...p.dead].map(u=>({uid:u.uid,cardId:u.cardId,instanceId:u.instanceId,participated:!!u.entered,side,...empty()})));
       const byUnit=Object.fromEntries(units.map(u=>[u.uid,u]));
       for(const e of s.match?.events||[]){
         const a=byUnit[e.attacker],b=byUnit[e.target];
+        if(ratingVersion===3){const power=PerformanceIndex.valuedPower(e);a.valuedAttack+=power.attack;b.valuedDefense+=power.defense;}
         a.duels++;a.attackRolls+=e.attackRolls;a.attack+=e.attack;a.breakthrough+=e.breakthrough;a.buff+=e.buff;
         a.arenaAttack+=e.arenaAttack||0;
         a.peakAttack=Math.max(a.peakAttack,e.attack);a.kills+=Number(e.kill);b.deaths+=Number(e.kill);
@@ -328,10 +330,13 @@
           if(e.refresh)a.refreshes++;
           else{a.support++;a.alliedSupport+=Number(e.recipient!==e.attacker);a[{reraise:'hearts',luck:'clovers',mana:'potions',physical:'physical',ward:'guards'}[e.support]]++;}
         }
-        for(const credit of PerformanceIndex.credits(e,s.match))byUnit[credit.uid][credit.metric]++;
+        for(const credit of PerformanceIndex.credits(e,s.match)){
+          byUnit[credit.uid][credit.metric]++;
+          if(credit.defensive)byUnit[credit.uid].defensiveAssists++;
+        }
       }
       for(const u of units){
-        u.victory=Number(ratingVersion===2&&s.phase==='over'&&!s.match.partial&&u.participated&&s.winner===u.side);
+        u.victory=Number(PerformanceIndex.tracksSources(ratingVersion)&&s.phase==='over'&&!s.match.partial&&u.participated&&s.winner===u.side);
         u.ratingVersion=ratingVersion;u.ratingBreakdown=PerformanceIndex.breakdown(u,ratingVersion);u.rating=PerformanceIndex.calculate(u,ratingVersion);
       }
       const teams=[0,1].map(side=>units.filter(u=>u.side===side).reduce((total,u)=>{for(const key of metrics)total[key]=key.startsWith('peak')?Math.max(total[key],u[key]):total[key]+u[key];return total;},{side,...empty()}));
@@ -342,7 +347,7 @@
       if(!arenaById.has(s.arenaId))throw new Error('Arène invalide.');
       const m=s.match;if(m===undefined)return;
       if(!m||m.version!==1||typeof m.partial!=='boolean'||!Number.isInteger(m.fromRound)||m.fromRound<1||m.fromRound>201||!Array.isArray(m.events)||m.events.length>200)throw new Error('Bilan invalide.');
-      if(m.ratingVersion!==undefined&&![1,2].includes(m.ratingVersion))throw new Error('Version d\u2019indice invalide.');
+      if(m.ratingVersion!==undefined&&![1,2,3].includes(m.ratingVersion))throw new Error('Version d\u2019indice invalide.');
       const spent=new Set();
       let previous=m.fromRound-1;
       for(const e of m.events){
@@ -355,7 +360,7 @@
         if(![null,...traitKeys].includes(e.support)||e.support&&(!/^[01]-[0-9]$/.test(e.recipient)||e.recipient[0]!==e.attacker[0])||!e.support&&e.recipient!==null)throw new Error('Soutien du bilan invalide.');
         if(e.support&&(e.attack||e.defense||e.arenaAttack||e.arenaDefense||e.ward||e.defenseRolls||e.kill||e.hold))throw new Error('Un soutien ne produit pas de combat numérique.');
         if(e.sources!==undefined){
-          if(m.ratingVersion!==2||!e.sources||typeof e.sources!=='object'||Array.isArray(e.sources)||Object.keys(e.sources).some(k=>!['buff','ward','luck','reraise'].includes(k)))throw new Error('Sources du bilan invalides.');
+          if(!PerformanceIndex.tracksSources(m.ratingVersion)||!e.sources||typeof e.sources!=='object'||Array.isArray(e.sources)||Object.keys(e.sources).some(k=>!['buff','ward','luck','reraise'].includes(k)))throw new Error('Sources du bilan invalides.');
           for(const [key,source] of Object.entries(e.sources)){
             PerformanceIndex.validateSource(m,source,key==='buff'?e.attacker:e.target,key==='buff'?[e.magic?'mana':'physical']:[key],e.round-1);
             if(!(key==='ward'?e.wardConsumed:e[key])||e.support)throw new Error('Soutien non consomme.');
@@ -624,7 +629,7 @@
       const units=s.players.flatMap(p=>[...p.board.filter(Boolean),...p.reserve,...p.dead]);
       const consumedSources=new Set((s.match?.events||[]).flatMap(e=>Object.values(e.sources||{}).map(PerformanceIndex.chargeId)));
       for(const u of units)if(u.traitSources!==undefined){
-        if(s.match?.ratingVersion!==2||!u.traitSources||typeof u.traitSources!=='object'||Array.isArray(u.traitSources)||Object.keys(u.traitSources).some(k=>!traitKeys.includes(k)))throw new Error('Provenance de traits invalide.');
+        if(!PerformanceIndex.tracksSources(s.match?.ratingVersion)||!u.traitSources||typeof u.traitSources!=='object'||Array.isArray(u.traitSources)||Object.keys(u.traitSources).some(k=>!traitKeys.includes(k)))throw new Error('Provenance de traits invalide.');
         for(const [key,source] of Object.entries(u.traitSources)){
           PerformanceIndex.validateSource(s.match,source,u.uid,[key],s.round);
           if(!u[key]||consumedSources.has(PerformanceIndex.chargeId(source)))throw new Error('Charge de soutien deja consommee.');
@@ -647,7 +652,7 @@
         for(const v of [d.attackValue,d.defenseValue])if(v!==undefined&&!(Number.isFinite(v)&&v>=0&&v<=1000)&&!effects.includes(v))throw new Error('Valeur de de invalide.');
         if(d.outcome!==undefined&&!validText(d.outcome))throw new Error('Resultat invalide.');
         if(d.nativeSources!==undefined){
-          if(s.match?.ratingVersion!==2||!d.nativeSources||typeof d.nativeSources!=='object'||Array.isArray(d.nativeSources)||Object.keys(d.nativeSources).some(k=>!['buff','ward','luck','reraise'].includes(k)))throw new Error('Sources du duel invalides.');
+          if(!PerformanceIndex.tracksSources(s.match?.ratingVersion)||!d.nativeSources||typeof d.nativeSources!=='object'||Array.isArray(d.nativeSources)||Object.keys(d.nativeSources).some(k=>!['buff','ward','luck','reraise'].includes(k)))throw new Error('Sources du duel invalides.');
           for(const [key,source] of Object.entries(d.nativeSources)){
             PerformanceIndex.validateSource(s.match,source,key==='buff'?d.attacker:d.target,key==='buff'?[d.magic?'mana':'physical']:[key],s.round);
             if(!(key==='luck'?d.luckUsed:key==='reraise'?d.reraised:d[key]))throw new Error('Source non utilisee.');

@@ -5,7 +5,7 @@ const path=require('node:path');
 const vm=require('node:vm');
 const {createRequire}=require('node:module');
 const source=fs.readFileSync(path.join(__dirname,'catalogue.js'),'utf8');
-const sandbox={window:{KALISTAR_DATA:{cards:[]}}};
+const sandbox={window:{KALISTAR_DATA:{cards:[]},KalistarPerformanceIndex:require('./performance-index.js')}};
 vm.runInNewContext(source,sandbox);
 const render=sandbox.window.KalistarCatalogue.careerStatistics;
 const value=(html,kind,key)=>html.match(new RegExp('data-career-'+kind+'="'+key+'"[^>]*>([^<]*)<'))[1].replace(/\s/g,'');

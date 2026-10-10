@@ -18,6 +18,8 @@
     trophies:[...common,...T.categories.map(c=>({...column(c.id,c.name,null,c.help,false),trophy:true}))]
   };
   groups.support.push(column('assists','Assists','waypoints','Passes decisives au donneur, hors auto-buff.'),column('cloversConsumedByRecipients','Tr\u00e8fles utilis\u00e9s','clover','Charges consommees, creditees au donneur.'),column('reraisesConsumedByRecipients','Reraise utilis\u00e9s','heart-handshake','Sauvetages credites au donneur.'));
+  groups.support.push(column('defensiveAssists','Assists DEF','shield-plus','Sous-ensemble des assists : gardes natives decisives au Block d\u2019un allie, suivi depuis l\u2019indice 3.'));
+  groups.performance.splice(-1,0,column('valuedAttack','ATK valoris\u00e9e','sword','ATK plafonnee a DEF + 1 par duel numerique definitif.'),column('valuedDefense','DEF valoris\u00e9e','shield','DEF plafonnee a ATK par duel numerique definitif.'));
   const defaults={query:'',element:'all',collab:'all',scope:'owned',grouping:'character',period:'all',minimum:0,mode:'average',group:'performance',sort:'rating',direction:'desc'};
   function rows(data,db,state,now=Date.now()){
     if(!db)return [];
@@ -52,8 +54,8 @@
     if(col.trophy)return row.trophies[col.key]||0;
     if(col.key==='winRate')return row.games?row.wins/row.games*100:null;
     const total=(row[col.key]||0)*(['physical','guards'].includes(col.key)?60:1);
-    const recent=['assists','cloversConsumedByRecipients','reraisesConsumedByRecipients'].includes(col.key),games=recent?row.ratingVersions?.[2]||0:row.games;
-    if(recent&&!games)return null;
+    const games=I.trackedGames(row,col.key);
+    if(!games&&['assists','cloversConsumedByRecipients','reraisesConsumedByRecipients','valuedAttack','valuedDefense','defensiveAssists'].includes(col.key))return null;
     return mode==='average'&&col.average?(games?total/games:null):total;
   }
   function formatted(row,col,mode){
@@ -62,9 +64,9 @@
     return n.toLocaleString('fr-FR',{minimumFractionDigits:decimals,maximumFractionDigits:decimals});
   }
   function metricTitle(row,col,mode){
-    const modern=row.ratingVersions?.[2]||0,legacy=row.ratingVersions?.[1]||0;
-    const provenance=col.key==='rating'?` (${modern} actuels, ${legacy} historiques)`:
-      ['assists','cloversConsumedByRecipients','reraisesConsumedByRecipients'].includes(col.key)?` (${modern} rencontres suivies, ${legacy} historiques non renseignes)`:'';
+    const current=row.ratingVersions?.[3]||0,previous=row.ratingVersions?.[2]||0,legacy=row.ratingVersions?.[1]||0,tracked=I.trackedGames(row,col.key);
+    const provenance=col.key==='rating'?` (${current} indice 3, ${previous} indice 2, ${legacy} indice 1)`:
+      ['assists','cloversConsumedByRecipients','reraisesConsumedByRecipients','valuedAttack','valuedDefense','defensiveAssists'].includes(col.key)?` (${tracked} rencontres suivies, ${row.games-tracked} historiques non renseignes)`+(col.key==='assists'?` ; dont ${row.defensiveAssists||0} assists DEF sur ${current} rencontres indice 3`:''):'';
     return col.label+' : '+formatted(row,col,mode)+provenance;
   }
   function sorted(items,state){
@@ -81,8 +83,8 @@
       const text=String(s),safe=/^\s*[=+@-]|^[\t\r\n]/.test(text)?"'"+text:text;
       return '"'+safe.replace(/"/g,'""')+'"';
     };
-    const header=['Personnage','Versions','Cristal',...columns.map(c=>c.label+(state.mode==='average'&&c.average?' / match':'')),'Matchs indice 2','Matchs historiques'];
-    const body=items.map(r=>[r.card.name,r.versions.map(c=>c.title).join(' | '),r.card.element,...columns.map(c=>formatted(r,c,state.mode).replace(/[\u00a0\u202f]/g,'')),r.ratingVersions?.[2]||0,r.ratingVersions?.[1]||0]);
+    const header=['Personnage','Versions','Cristal',...columns.map(c=>c.label+(state.mode==='average'&&c.average?' / match':'')),'Matchs indice 3','Matchs indice 2','Matchs historiques'];
+    const body=items.map(r=>[r.card.name,r.versions.map(c=>c.title).join(' | '),r.card.element,...columns.map(c=>formatted(r,c,state.mode).replace(/[\u00a0\u202f]/g,'')),r.ratingVersions?.[3]||0,r.ratingVersions?.[2]||0,r.ratingVersions?.[1]||0]);
     return '\ufeff'+[header,...body].map(row=>row.map(cell).join(';')).join('\r\n');
   }
   function create({data,getDB,onDetail}){

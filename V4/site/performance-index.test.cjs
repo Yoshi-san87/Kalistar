@@ -3,7 +3,7 @@ const test=require('node:test'),assert=require('node:assert/strict');
 const P=require('./performance-index.js'),T=require('./trophies.js'),{createEngine}=require('./engine.js');
 const {buildCatalog}=require('../atelier/game-catalog.cjs');
 const catalogue=buildCatalog({published:require('../donnees/catalogue.json').cards.filter(c=>c.kind==='created')});
-async function fixture({kalistel=false}={}){
+async function fixture({kalistel=false,ratingVersion=2}={}){
   const data=structuredClone(await catalogue),ids=data.decks.player;
   data.weapons={};
   for(const c of data.cards){
@@ -12,6 +12,7 @@ async function fixture({kalistel=false}={}){
   }
   const giver=data.cards.find(c=>c.id===ids[4]);giver.role=5;giver.canHeal=true;giver.canGuard=true;giver.atk=['revive','retry','mana','buff_atk','guard','death'];
   const E=createEngine(data),s=E.newGame(ids,ids,{seed:'INDEX-QA',mode:'local',kalistel});
+  s.match.ratingVersion=ratingVersion;
   E.autoDeploy(s,0);E.autoDeploy(s,1);E.start(s);
   return {E,s,data,giver:s.players[0].board[4],a:s.players[0].board[0],b:s.players[1].board[0]};
 }
@@ -32,9 +33,9 @@ function fight(f,{a=f.a,b=f.b,atk=6,def=[6]}={}){
 function terminate(f,winner=0){f.s.phase='over';f.s.winner=winner;return f.E.matchStats(f.s);}
 
 test('official coefficients, example 39 and individual contribution points',()=>{
-  assert.equal(P.calculate({kills:2,holds:3,attack:650,defense:420,support:2,assists:1,victory:1}),39);
-  for(const [key,value,score] of [['kills',1,5],['holds',1,3],['attack',400,4],['defense',420,4],['victory',1,3],['support',1,2],['assists',1,3],['cloversConsumedByRecipients',1,2],['reraisesConsumedByRecipients',1,2],['debuff',60,2],['reraises',1,0]])assert.equal(P.calculate({[key]:value}),score,key);
-  assert.equal(P.calculate({attack:190+210}),4,'floor cumulative, not each roll');
+  assert.equal(P.calculate({kills:2,holds:3,attack:650,defense:420,support:2,assists:1,victory:1},2),39);
+  for(const [key,value,score] of [['kills',1,5],['holds',1,3],['attack',400,4],['defense',420,4],['victory',1,3],['support',1,2],['assists',1,3],['cloversConsumedByRecipients',1,2],['reraisesConsumedByRecipients',1,2],['debuff',60,2],['reraises',1,0]])assert.equal(P.calculate({[key]:value},2),score,key);
+  assert.equal(P.calculate({attack:190+210},2),4,'floor cumulative, not each roll');
   assert(Object.isFrozen(P.coefficients));
 });
 test('victory only after conclusion, including dead participants but not unused reserve, loss or draw',async()=>{
@@ -164,10 +165,108 @@ test('historical card faces validate with their snapshot without changing legacy
   assert.throws(()=>require('./engine.js').createArchiveEngine(data,{...archive,profiles:[{...jill,characterId:'another-person'}]}),/Profils historiques/);
 });
 test('support MVP without kills, losing-team MVP and legacy/new deterministic tiebreaks',()=>{
-  const units=[{uid:'0-0',side:0,participated:true,kills:3,attack:400},{uid:'1-0',side:1,participated:true,support:5,assists:4,cloversConsumedByRecipients:2}].map(u=>({...u,rating:P.calculate(u)}));
+  const units=[{uid:'0-0',side:0,participated:true,kills:3,attack:400},{uid:'1-0',side:1,participated:true,support:5,assists:4,cloversConsumedByRecipients:2}].map(u=>({...u,rating:P.calculate(u,2)}));
   const summary={ratingVersion:2,complete:true,partial:false,units};assert.equal(T.leaders(summary,'rating')[0].uid,'1-0');assert.equal(T.awards(summary)['1-0'][0],'crystal');
   const tie={...summary,units:[{uid:'0-0',participated:true,rating:10,kills:1},{uid:'1-0',participated:true,rating:10,assists:1}]};
   assert.equal(T.leaders({...tie,ratingVersion:1},'rating')[0].uid,'0-0');assert.equal(T.leaders(tie,'rating')[0].uid,'1-0');
 });
 
 module.exports={fixture,grant,fight,advance,row};
+
+test('index 3 is current; capped power keeps raw stats and coefficients separate',async()=>{
+  assert.equal(P.version,3);
+  const data=await catalogue,E=createEngine(data);assert.equal(E.newGame(data.decks.player,data.decks.enemy).match.ratingVersion,3);
+  for(const [attack,defense,expected] of [[400,120,{attack:121,defense:120}],[120,400,{attack:120,defense:120}],[120,120,{attack:120,defense:120}],[0,0,{attack:0,defense:0}],[400,0,{attack:1,defense:0}],[0,400,{attack:0,defense:0}]])assert.deepEqual(P.valuedPower({attack,defense}),expected);
+  for(const flag of ['support','dodge','shield'])assert.deepEqual(P.valuedPower({attack:400,defense:120,[flag]:true}),{attack:0,defense:0});
+  assert.equal(P.calculate({attack:900,defense:900,valuedAttack:650,valuedDefense:420,kills:2,holds:3,support:2,assists:1,victory:1}),39);
+  assert.equal(P.calculate({valuedAttack:190+210}),4,'floor the cumulative valued score, not every duel');
+  assert.equal(P.calculate({attack:900,defense:900}),0,'never silently use raw power in index 3');
+  const f=await fixture({ratingVersion:3});fight(f,{atk:5,def:[5]});
+  assert.equal(row(f,f.a).attack,210);assert.equal(row(f,f.a).valuedAttack,81);
+  assert.equal(row(f,f.b).defense,80);assert.equal(row(f,f.b).valuedDefense,80);
+  advance(f);const next=f.s.players[1].board[0];fight(f,{atk:6,b:next});
+  assert.equal(row(f,next).defense,170);assert.equal(row(f,next).valuedDefense,140);
+  assert.equal(row(f,f.a).valuedAttack,221);assert.equal(row(f,f.a).ratingBreakdown.attack,2);
+});
+test('decisive allied native Garde grants one DEF assist and +3, not another +3',async()=>{
+  const f=await fixture({ratingVersion:3});grant(f,2);fight(f,{a:f.b,b:f.a,atk:5});
+  assert.equal(f.s.duel.formula.attack,210);assert.equal(f.s.duel.formula.defense,230);
+  assert.equal(row(f,f.a).holds,1);assert.equal(row(f,f.a).valuedDefense,210);
+  assert.equal(row(f,f.giver).assists,1);assert.equal(row(f,f.giver).defensiveAssists,1);assert.equal(row(f,f.giver).rating,5);
+  assert.equal(row(f,f.giver).ratingBreakdown.assists,3);
+  assert(f.s.log.some(l=>l.text.includes('Assist d\u00e9fensive')&&l.text.includes('+3')));
+  assert.deepEqual(f.E.matchStats(f.E.restoreGame(f.s)),f.E.matchStats(f.s));
+  for(let n=0;n<10;n++)assert.equal(row(f,f.giver).assists,1);
+  advance(f);fight(f,{a:f.b,b:f.a,atk:6});assert.equal(row(f,f.giver).defensiveAssists,1);
+});
+test('Garde is causal only if removing its applied bonus changes a numeric Block to a kill',async()=>{
+  for(const [attack,expected] of [[170,0],[171,1],[230,1],[231,0],[0,0]]){
+    const f=await fixture({ratingVersion:3});f.E.card(f.b).atk[0]=attack;grant(f,2);fight(f,{a:f.b,b:f.a});
+    assert.equal(row(f,f.giver).defensiveAssists,expected,'ATK '+attack);
+  }
+});
+for(const scenario of ['self','magic','dodge','shield','death','reraise','no-source'])test('no defensive assist for '+scenario,async()=>{
+  const f=await fixture({ratingVersion:3});
+  if(scenario==='self')grant(f,2,f.giver);
+  else if(scenario==='no-source')f.a.ward=60;
+  else grant(f,2);
+  if(scenario==='magic')f.E.card(f.b).magic=[5];
+  if(scenario==='shield')f.E.card(f.a).defense[0]='shield_physical';
+  if(scenario==='reraise'){f.E.card(f.b).atk[1]=300;grant(f,6);}
+  fight(f,{a:scenario==='death'?f.s.players[1].board[4]:f.b,b:scenario==='self'?f.giver:f.a,atk:scenario==='death'?1:5,def:scenario==='dodge'?[1]:[6]});
+  assert.equal(row(f,f.giver).defensiveAssists,0);assert.equal(row(f,f.giver).assists,0);
+  if(['dodge','shield','death'].includes(scenario)){
+    assert.equal(row(f,f.a).valuedDefense,0);assert.equal(row(f,scenario==='death'?f.s.players[1].board[4]:f.b).valuedAttack,0);
+  }
+});
+test('decisive Garde survives Clover retry, reload and the original donor death/refresh',async()=>{
+  const f=await fixture({ratingVersion:3});grant(f,2);grant(f,5);
+  const other=f.s.players[0].board[3];f.E.card(other).atk[4]='guard';f.E.card(other).canGuard=true;
+  grant(f,2,f.a,other);assert.equal(row(f,other).support,0);
+  fight(f,{a:f.b,b:f.giver,atk:5,def:[5]});advance(f);
+  prepare(f,1,f.b,f.a);f.E.rollAttack(f.s,5);f.E.rollDefense(f.s,5);
+  assert.equal(f.s.phase,'defense');assert.equal(f.s.duel.ward,60);assert.equal(row(f,f.giver).defensiveAssists,0);
+  f.s=f.E.restoreGame(f.s);f.E.rollDefense(f.s,6);
+  assert.equal(row(f,f.giver).defensiveAssists,1);assert.equal(row(f,other).defensiveAssists,0);
+  assert.equal(row(f,f.a).defense,230);assert.equal(row(f,f.a).valuedDefense,210);
+  assert.equal(row(f,f.giver).cloversConsumedByRecipients,1);
+  assert.deepEqual(f.E.matchStats(f.E.restoreGame(f.s)),f.E.matchStats(f.s));
+});
+test('consumed Garde finishing in dodge produces no fabricated power or assist',async()=>{
+  const f=await fixture({ratingVersion:3});grant(f,2);grant(f,5);fight(f,{a:f.b,b:f.a,atk:5,def:[5,1]});
+  assert.equal(f.s.match.events.at(-1).wardConsumed,true);assert.equal(row(f,f.giver).defensiveAssists,0);
+  assert.equal(row(f,f.a).valuedDefense,0);assert.equal(row(f,f.b).valuedAttack,0);
+});
+test('index 2 archive/reload retains raw rating, offensive-only assists and its exact summary shape',async()=>{
+  const f=await fixture();grant(f,2);fight(f,{a:f.b,b:f.a,atk:5});
+  const before=f.E.matchStats(f.s);assert.equal(row(f,f.a).rating,5);assert.equal(row(f,f.giver).assists,0);
+  assert(!Object.hasOwn(row(f,f.a),'valuedDefense'));assert(!Object.hasOwn(row(f,f.giver),'defensiveAssists'));
+  assert.deepEqual(f.E.matchStats(f.E.restoreGame(f.s)),before);
+  advance(f);grant(f,3,f.b,f.s.players[1].board[4]);
+  assert.equal(f.s.match.ratingVersion,2);assert(f.b.traitSources.physical);
+});
+test('index 3 deterministic MVP tiebreak does not reward surplus raw power; index 2 keeps it',()=>{
+  const units=[{uid:'0-0',participated:true,rating:10,attack:900,valuedAttack:100},{uid:'1-0',participated:true,rating:10,attack:200,valuedAttack:200}];
+  assert.equal(T.leaders({ratingVersion:3,units},'rating')[0].uid,'1-0');
+  assert.equal(T.leaders({ratingVersion:2,units},'rating')[0].uid,'0-0');
+});
+for(const magic of [false,true])test('index 3 retains causal '+(magic?'mana':'physical')+' assist with capped power',async()=>{
+  const f=await fixture({ratingVersion:3});if(magic)f.E.card(f.a).magic=[6];
+  grant(f,magic?4:3);fight(f);
+  assert.equal(row(f,f.giver).assists,1);assert.equal(row(f,f.giver).defensiveAssists,0);assert.equal(row(f,f.giver).rating,5);
+  assert.equal(row(f,f.a).attack,200);assert.equal(row(f,f.a).valuedAttack,171);
+});
+test('index 3 Kalistel and native retry count only retained final numeric power',async()=>{
+  const f=await fixture({ratingVersion:3,kalistel:true});
+  prepare(f,0,f.a,f.b);f.E.rollAttack(f.s,5);assert.equal(f.s.phase,'kalistel');f.E.useKalistel(f.s,6);
+  f.E.rollDefense(f.s,2);assert.equal(row(f,f.a).valuedAttack,0);f.s=f.E.restoreGame(f.s);f.E.rollDefense(f.s,6);
+  assert.equal(row(f,f.a).attack,140);assert.equal(row(f,f.a).valuedAttack,140);
+  assert.equal(row(f,f.b).defense,170);assert.equal(row(f,f.b).valuedDefense,140);
+});
+test('index 3 victory remains definitive, participant-only and absent from partial games',async()=>{
+  const f=await fixture({ratingVersion:3});assert(f.E.matchStats(f.s).units.every(u=>u.victory===0));
+  fight(f,{a:f.b,b:f.a,atk:5,def:[5]});const stats=terminate(f,0);
+  for(const u of stats.units)assert.equal(u.victory,Number(u.side===0&&u.participated));
+  assert.equal(stats.units.find(u=>u.uid===f.a.uid).victory,1,'dead winner participated');
+  f.s.match.partial=true;assert(f.E.matchStats(f.s).units.every(u=>u.victory===0));assert.deepEqual(T.awards(f.E.matchStats(f.s)),{});
+});

@@ -1,0 +1,17 @@
+✔ only a currently available, unloaded version is a new card (0.9478ms)
+✔ checking the authoritative catalogue never counts unknown registry history (0.1869ms)
+✔ real additions are announced once, counted exactly and returned as copies (0.1377ms)
+✔ withdrawn additions clear the notice; reloading into the new catalogue has no notice (0.5836ms)
+✔ offline or failed checks cannot invent updates or erase a verified notice (0.1924ms)
+✔ invalid, historical, empty and duplicate catalogues fail closed (0.4614ms)
+✔ out-of-order responses cannot overwrite the newest available catalogue (0.2187ms)
+✔ navigation aborts the pending request and suppresses all late callbacks (0.144ms)
+✔ boot and both notices use the same verified additions without changing the DB guard (1.7268ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 78.8595

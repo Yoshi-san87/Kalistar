@@ -52,11 +52,13 @@ temporaires du presse-papiers ou les preferences non encore documentees.
 ### Indice et MVP : 10 octobre 2026
 
 Lire [INDICE_PERFORMANCE.md](../V4/docs/INDICE_PERFORMANCE.md). Les nouvelles
-parties versionnent l'indice 2, avec ATK/DEF, victoire, assists causales et
-consommations natives creditees au donneur stable. Les anciennes parties
+parties versionnent l'indice 3 : ATK/DEF valorisees plafonnees par duel, victoire,
+assists ATK et DEF causales et consommations natives creditees au donneur stable.
+Les statistiques brutes restent inchangees. Les parties indice 1 ou 2
 gardent leur note et leur MVP ; aucun donneur n'est invente, aucun reset de
 collection. La formule n'altere pas les combats. Les simulations distinguent
 mesures automatiques et limites d'equilibrage, sans changer les coefficients.
+Rapport actuel : `V4/revisions/2026-10-10-performance-useful/README.md`.
 
 ### Trois emplacements d'equipement : V4.6.0
 

@@ -1,0 +1,17 @@
+✔ discrete cumulative scores retain exact turns, ABBA rounds, side and instance identity (1.7018ms)
+✔ paths stay flat through supports, blocks, dodges and Reraise; finish extends past the last kill (0.1893ms)
+✔ partial and missing history never reconstruct deaths or invent preceding kill times (0.7268ms)
+✔ render clamps selection, escapes names, provides numeric scores, endpoints and accessible controls (0.32ms)
+✔ legacy alternating turns and the second captain opening use the existing timeline semantics (0.2151ms)
+✔ a direct elimination without numeric formula is not presented as a physical 0/0 attack (0.1294ms)
+✔ a 200-turn draw without kills keeps both baselines and the full elapsed span (64.2444ms)
+✔ 60 real matches agree with engine stats, final score and restore without modifying state or RNG (3281.7173ms)
+✔ view has no persistent render loop, uses the existing shell and respects Reduced Motion (1.0385ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3425.0102

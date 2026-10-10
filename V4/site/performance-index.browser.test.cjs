@@ -16,7 +16,7 @@ async function main(){
     await context.addInitScript(()=>{const open=IDBFactory.prototype.open;IDBFactory.prototype.open=function(n,v){return v===undefined?open.call(this,n+'-index-qa'):open.call(this,n+'-index-qa',v);};});
     const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400)errors.push(r.status()+' '+r.url());});
     await page.goto(base+'/jeu/#arena');await page.waitForFunction(()=>window.KALISTAR_READY);
-    const exampleFile=path.join(__dirname,'../revisions/2026-10-10-performance-index/qa/example.json');
+    const exampleFile=process.env.KALISTAR_INDEX_EXAMPLE||path.join(__dirname,'../revisions/2026-10-10-performance-index/qa/example.json');
     const example=fs.existsSync(exampleFile)?JSON.parse(fs.readFileSync(exampleFile,'utf8')).state:null;
     const fixtures=await page.evaluate(example=>{
       const E=KalistarEngine.createEngine(KALISTAR_DATA),team=KalistarTeamComposition.create(E).fromPreset({name:'Index QA',cards:KALISTAR_DATA.decks.player});
@@ -35,21 +35,37 @@ async function main(){
       for(const e of old.match.events)delete e.sources;
       for(const p of old.players)for(const u of [...p.board.filter(Boolean),...p.reserve,...p.dead])delete u.traitSources;
       for(const d of [old.duel,old.lastDuel])if(d)delete d.nativeSources;
-      E.assertState(old);return {over,ongoing,old,summary:E.matchStats(over),legacy:E.matchStats(old),mvp:KalistarTrophies.leaders(E.matchStats(over),'rating')[0]};
+      E.assertState(old);const previous=over.match.ratingVersion===3?E.clone(over):null;
+      if(previous){previous.match.ratingVersion=2;previous.matchId='match-'+crypto.randomUUID();E.assertState(previous);}
+      return {over,ongoing,old,previous,summary:E.matchStats(over),legacy:E.matchStats(old),previousSummary:previous?E.matchStats(previous):null,mvp:KalistarTrophies.leaders(E.matchStats(over),'rating')[0]};
     },example);
-    assert.equal(fixtures.summary.ratingVersion,2);assert.equal(fixtures.legacy.ratingVersion,1);assert(fixtures.summary.units.some(u=>u.assists>0));
+    assert.equal(fixtures.summary.ratingVersion,example?.match.ratingVersion||3);assert.equal(fixtures.legacy.ratingVersion,1);assert(fixtures.summary.units.some(u=>u.assists>0));
+    if(fixtures.summary.ratingVersion===3){
+      assert(fixtures.summary.units.some(u=>u.defensiveAssists>0));
+      assert(fixtures.summary.units.some(u=>u.attack>u.valuedAttack||u.defense>u.valuedDefense));
+    }
     const persistence=await page.evaluate(async f=>{
-      const db=KALISTAR_DB;await db.saveGame(f.over);await db.saveGame(f.old);const count=db.counts();
+      const db=KALISTAR_DB;await db.saveGame(f.over);await db.saveGame(f.old);if(f.previous)await db.saveGame(f.previous);const count=db.counts();
       const backup=await db.exportBackup();await db.importBackup(backup);await db.importBackup(backup);
       const modern=db.match(f.over.matchId),old=db.match(f.old.matchId),mvp=f.mvp;
       const career=db.career(mvp.cardId,mvp.instanceId);const bad=structuredClone(backup),event=bad.matches.find(m=>m.id===f.over.matchId).state.match.events.find(e=>Object.keys(e.sources||{}).length);
       let forgedRejected=false;
       if(event){Object.values(event.sources)[0].donor='1-9';if(Object.values(event.sources)[0].recipient[0]==='1')Object.values(event.sources)[0].donor='0-9';try{await db.importBackup(bad);}catch{forgedRejected=true;}}
-      return {before:count,after:db.counts(),modern:modern.summary,old:old.summary,career,forgedRejected,legacyMvp:KalistarTrophies.awards(old.summary),modernMvp:KalistarTrophies.awards(modern.summary)};
+      return {before:count,after:db.counts(),modern:modern.summary,old:old.summary,previous:f.previous?db.match(f.previous.matchId).summary:null,career,forgedRejected,legacyMvp:KalistarTrophies.awards(old.summary),modernMvp:KalistarTrophies.awards(modern.summary)};
     },fixtures);
     assert.deepEqual(persistence.before,persistence.after);assert.deepEqual(persistence.modern,fixtures.summary);assert.deepEqual(persistence.old,fixtures.legacy);
     assert(persistence.forgedRejected);assert.equal(persistence.career.ratingVersions[1],1);assert.equal(persistence.career.ratingVersions[2],1);
+    if(fixtures.previous){assert.equal(persistence.career.ratingVersions[3],1);assert.deepEqual(persistence.previous,fixtures.previousSummary);}
     checks.push({name:'archive/import',passed:true,modernMvp:persistence.modernMvp,legacyMvp:persistence.legacyMvp,versions:persistence.career.ratingVersions});
+    if(fixtures.previous){
+      const recomputed=await page.evaluate(async f=>{
+        const db=KALISTAR_DB,backup=await db.exportBackup(),proposed=backup.matches.find(m=>m.id===f.over.matchId);
+        for(const u of proposed.summary.units){u.valuedAttack=999999;u.valuedDefense=999999;u.defensiveAssists=99;u.rating=999;}
+        for(const r of backup.results.filter(r=>r.matchId===f.over.matchId)){r.valuedAttack=999999;r.defensiveAssists=99;r.rating=999;}
+        await db.importBackup(backup);return db.match(f.over.matchId).summary;
+      },fixtures);
+      assert.deepEqual(recomputed,fixtures.summary);checks.push({name:'index3/import-derives-not-trusts-proposed-ratings',passed:true});
+    }
     const load=async s=>{
       if(await page.locator('#match-dialog[open]').count())await page.locator('#match-dialog [data-action=close]').first().click();
       await page.evaluate(s=>localStorage.setItem('kalistar.v4.game',JSON.stringify(s)),s);await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);
@@ -60,6 +76,7 @@ async function main(){
       const detail=page.locator('.match-mvp .match-index-detail');await detail.locator('summary').click();
       assert.equal(await detail.getAttribute('data-index-unit'),fixtures.mvp.uid);
       for(const [key,value] of Object.entries(fixtures.mvp.ratingBreakdown))assert.equal((await detail.locator('[data-index-part='+key+'] dd').innerText()).replace(/\s/g,''),'+'+value);
+      if(fixtures.previous)assert((await detail.locator('[data-index-part=attack] dt').innerText()).includes('valoris'));
       await page.waitForFunction(()=>[...document.querySelectorAll('.golden-portraits img')].every(i=>i.complete&&i.naturalWidth>0));
       const bounds=await detail.locator('.match-index-points').boundingBox();assert(bounds.x>=0&&bounds.x+bounds.width<=width+1);assert(bounds.y>=0);
       await page.screenshot({path:path.join(out,name+'-mvp.png'),fullPage:false});
@@ -79,7 +96,7 @@ async function main(){
     const aggregate=await page.evaluate(id=>KalistarStatistics.rows(KALISTAR_DATA,KALISTAR_DB,{...KalistarStatistics.defaults,scope:'all',grouping:'version',group:'support'}).find(r=>r.id===id),fixtures.mvp.cardId);
     const row=page.locator('[data-sheet-row="'+fixtures.mvp.cardId+'"]');
     for(const key of ['assists','cloversConsumedByRecipients','reraisesConsumedByRecipients']){
-      const expected=aggregate[key]/aggregate.ratingVersions[2];
+      const expected=aggregate[key]/(aggregate.ratingVersions[2]+aggregate.ratingVersions[3]);
       assert.equal(await row.locator('[data-metric='+key+']').innerText(),expected.toLocaleString('fr-FR',{minimumFractionDigits:1,maximumFractionDigits:1}));
       assert((await row.locator('[data-metric='+key+']').getAttribute('title')).includes('historiques non renseignes'));
     }
@@ -87,10 +104,21 @@ async function main(){
     assert(await page.locator('#detail-dialog [data-career-stat=assists]').count());
     const ownedCareer=await page.evaluate(id=>KALISTAR_DB.registry.career(KalistarOwnership.PARIS,id),fixtures.mvp.cardId);
     assert.equal(Number((await page.locator('#detail-dialog [data-career-total=assists]').innerText()).replace('-','0')),ownedCareer.assists);
-    assert.equal(await page.locator('#detail-dialog .career-index-versions').count(),ownedCareer.ratingVersions[1]>0?1:0);
+    assert.equal(await page.locator('#detail-dialog .career-index-versions').count(),ownedCareer.ratingVersions[1]>0||ownedCareer.ratingVersions[2]>0?1:0);
     await page.locator('#detail-dialog [data-action=close]').click();
     checks.push({name:'statistics/career/mixed-means',passed:true,versions:aggregate.ratingVersions});
+    if(fixtures.previous){
+      const defensive=await page.evaluate(()=>KalistarStatistics.groups.support.find(m=>m.key==='defensiveAssists'));
+      assert.equal(await row.locator('[data-metric=defensiveAssists]').innerText(),(aggregate.defensiveAssists/aggregate.ratingVersions[3]).toLocaleString('fr-FR',{minimumFractionDigits:1,maximumFractionDigits:1}));
+      assert(defensive);checks.push({name:'index3/defensive-assists/mixed-means',passed:true});
+    }
     await page.evaluate(()=>document.querySelector('[data-view=arena]').click());
+    if(fixtures.previous){
+      await load(fixtures.previous);await report();assert((await page.locator('.match-index-version').innerText()).includes('Indice 2 historique'));
+      await page.locator('#match-tab-lineup').click();await page.locator('[data-action=stats-group][data-id=extras]').click();
+      for(const key of ['valuedAttack','valuedDefense','defensiveAssists'])assert((await page.locator('[data-stat='+key+']').allTextContents()).every(t=>t==='\u2014'));
+      checks.push({name:'index2/no-fabricated-valued-power-or-defensive-assist',passed:true});
+    }
     await page.emulateMedia({reducedMotion:'reduce'});await page.setViewportSize({width:412,height:1007});await load(fixtures.old);await report();
     assert(await page.locator('.match-index-version').isVisible());await page.locator('.match-mvp .match-index-detail summary').click();assert((await page.locator('.match-mvp .match-index-points').innerText()).includes('historique'));
     await page.screenshot({path:path.join(out,'legacy-razr.png')});

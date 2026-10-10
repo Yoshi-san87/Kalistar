@@ -6,26 +6,32 @@ Read the [handoff guide](../../docs/GUIDE_REPRISE.md) and the
 [current gameplay summary](../docs/REGLES_JEU.md), including the documented
 difference between the ten-kill objective and the engine's empty-board ending.
 
-## Performance Index 2 (10 October 2026)
+## Performance Index 3 (10 October 2026)
 
 `performance-index.js` centralizes the official coefficients, pure rating
 breakdown and native-charge credit rules. The existing `engine.matchStats()`
-remains the only event aggregator. New games stamp `match.ratingVersion: 2`;
-old and already-running games retain version 1 and their original MVP tiebreak.
+remains the only event aggregator. New games stamp `match.ratingVersion: 3`;
+old and already-running games retain version 1 or 2 and their original MVP tiebreak.
 No native card, actual combat formula, RNG, AI or equipment rule is changed.
 
 Native support charges record donor/recipient match UIDs and grant exchange.
 Consumption snapshots survive intermediate reloads, dead donors and replacements.
 Only a genuinely indispensable allied physical/mana buff earns an assist on
-a definitive kill. Clover/Reraise consumption credits the original donor.
+a definitive kill. Index 3 also credits an indispensable allied native Garde
+on a numeric physical Block. `assists` includes both types; `defensiveAssists`
+is a subset, never an additional +3. Clover/Reraise credits the original donor.
+Raw ATK/DEF stats remain unchanged. New `valuedAttack`/`valuedDefense` sums cap
+each final numeric duel at DEF + 1 / ATK respectively, then floor the cumulative
+sum by 100. Only these sums affect index 3 power points and power tiebreaks.
 Repeated rendering/imports cannot re-award points. No historical attribution
 is fabricated and no player data is reset. New metric career averages exclude
 untracked historical games; mixed rating totals remain explicitly historical.
 
 The MVP/lineup expose the real contribution detail, while arena card mini-stats
 remain unchanged. Assists and donor consumption counts reach reports, careers,
-statistics and exports. See [data contract](../docs/INDICE_PERFORMANCE.md),
-[simulation report](../revisions/2026-10-10-performance-index/README.md),
+statistics and exports. Untracked valued power/DEF assists in old games display
+as unavailable; their means exclude those games. See [data contract](../docs/INDICE_PERFORMANCE.md),
+[simulation report](../revisions/2026-10-10-performance-useful/README.md),
 `performance-index.test.cjs` and `performance-index.browser.test.cjs`.
 
 ## Battle Report (V4.6.11)
@@ -647,8 +653,9 @@ The phone table keeps identity and rank pinned while its columns scroll.
 Golden Killer = kills, Golden Blocker = holds, Golden Clover = newly granted
 clovers, Golden Heart = newly granted Reraise hearts (not consumed hearts).
 Every tied positive leader across both teams receives the full award except
-MVP, which is unique. Rating ties break by kills, holds, support, reraises,
-debuff, then lexical match uid. No RNG or team preference is involved. No
+MVP, which is unique. The original index 1 tiebreak uses kills, holds, support,
+reraises, debuff, then lexical match uid. Newer matches use their versioned
+tiebreak documented in `INDICE_PERFORMANCE.md`. No RNG or team preference. No
 positive score means no winner. Provisional reports never grant awards.
 Completed full-history result rows store derived `trophies` and `trophyVersion`;
 old rows are backfilled additively on open. Imports rebuild them from validated

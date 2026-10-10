@@ -328,25 +328,36 @@ pas le nombre de buffs. Le moteur conserve des compteurs d'attributions
 `physical` et `guards` ; `match-metrics.js` les convertit pour l'affichage.
 Ne pas multiplier aussi les donnees stockees, ce qui compterait 60 deux fois.
 
-Depuis le 10 octobre 2026, les nouvelles rencontres utilisent l'indice 2 :
-5 par kill + 3 par Block + floor(ATK cumulee / 100) + floor(DEF cumulee / 100)
+Depuis le 10 octobre 2026, les nouvelles rencontres utilisent l'indice 3 :
+5 par kill + 3 par Block + floor(ATK valorisee / 100) + floor(DEF valorisee / 100)
 + 3 pour la victoire aux participants, morts compris, mais pas aux reserves
 inutilisees + 2 par nouveau soutien + 3 par passe decisive + 2 au donneur
 original par trefle consomme ou Reraise ayant sauve la vie + floor(debuff / 30).
-Le +1 historique au consommateur Reraise est retire. Les refreshes ne donnent
+Pour chaque duel numerique definitif, ATK valorisee = min(ATK finale, DEF + 1),
+DEF valorisee = min(DEF finale, ATK). Les sommes sont plafonnees AVANT de diviser
+le total du match par 100. Les statistiques ATK/DEF brutes restent inchangees.
+Les effets speciaux n'ont aucune puissance numerique fictive. Le +1 historique
+au consommateur Reraise reste retire. Les refreshes ne donnent
 aucun nouveau point et ne remplacent pas le donneur de la charge active.
 
-Une passe decisive exige un kill definitif par un AUTRE beneficiaire et un
+Une passe decisive ATK exige un kill definitif par un AUTRE beneficiaire et un
 buff ATK natif indispensable : retirer seulement son montant de la formule
 finale empeche le kill (egalite comprise). Auto-buff, esquive, Reraise, Mort,
-garde, equipement ou bonus passif ne creent aucune assist. Le donneur est un
+equipement ou bonus passif ne creent aucune assist ATK. Une assist DEF exige
+une garde native alliee indispensable a un Block numerique physique : ATK <= DEF
+mais ATK > max(0, DEF - garde effectivement appliquee). Pas d'auto-garde,
+esquive, Reraise, Mort, bouclier special, protection equipee ou assist magique.
+Les assists DEF sont comprises dans les assists totales, sans double +3.
+Le donneur est un
 UID stable du match, meme mort ou remplace ; une charge n'est creditee qu'une
 fois. Les notes sont derivees du journal final, pas de compteurs de rendu.
 
-Les matchs deja commences et les archives sans marqueur `ratingVersion: 2`
-gardent l'ancienne formule, les anciens departages et leurs Golden Crystal.
+Les matchs deja commences et les archives gardent leur version (1 si absente),
+leur formule, leurs departages et leurs Golden Crystal. L'indice 2 conserve
+ATK/DEF brutes et assists ATK uniquement. Les nouveaux matchs portent
+`ratingVersion: 3` ; seul leur indice utilise les metriques valorisees.
 Les donneurs historiques ne sont pas reconstruits. La carriere signale les
-deux generations ; les moyennes des nouvelles metriques n'incluent pas les
+trois generations ; les moyennes des nouvelles metriques n'incluent pas les
 anciens matchs non suivis. Lire [schema et attribution](INDICE_PERFORMANCE.md).
 C'est une mesure de classement, pas une preuve d'equilibrage competitif.
 
@@ -369,9 +380,10 @@ attribues) et Golden Heart (nouveaux coeurs Reraise attribues). La distinction
 recompense le donneur de coeurs, pas leur consommation par le beneficiaire.
 Classement sur les deux equipes : tous les premiers ex aequo avec un score
 strictement positif recoivent chacun le trophee entier, sauf le MVP qui reste
-unique (demande du 23 septembre). Pour l'indice 2, departage successif par
+unique (demande du 23 septembre). Pour l'indice 3, departage successif par
 assists, soutiens, trefles utilises au donneur, Reraise utilises au donneur,
-kills, Blocks, ATK, DEF, puis debuff. Les historiques gardent kills, Blocks,
+kills, Blocks, ATK valorisee, DEF valorisee, puis debuff. L'indice 2 garde
+le meme ordre mais utilise les puissances brutes. L'indice 1 garde kills, Blocks,
 soutiens, vies sauvees, puis ATK retiree. Une egalite parfaite utilise
 l'identifiant d'instance du match en ordre lexical, sans tirage aleatoire.
 A zero, aucun laureat.

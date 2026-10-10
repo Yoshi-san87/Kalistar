@@ -11,7 +11,7 @@
     {id:'clover',key:'clovers',name:'Golden Clover',label:'Tr\u00e8fles',help:'Le plus de nouveaux tr\u00e8fles attribu\u00e9s, pas consomm\u00e9s.'},
     {id:'heart',key:'hearts',name:'Golden Heart',label:'Reraise',help:'Le plus de nouveaux c\u0153urs Reraise attribu\u00e9s, pas consomm\u00e9s.'}
   ]);
-  const totals=['kills','holds','attack','defense','support','debuff','reraises','clovers','hearts','physical','guards','potions','deaths','duels','defended','assists','cloversConsumedByRecipients','reraisesConsumedByRecipients','rating'];
+  const totals=['kills','holds','attack','defense','valuedAttack','valuedDefense','support','debuff','reraises','clovers','hearts','physical','guards','potions','deaths','duels','defended','assists','defensiveAssists','cloversConsumedByRecipients','reraisesConsumedByRecipients','rating'];
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const number=n=>Number.isFinite(n)?n:0;
   const killMedals=Object.freeze(['Double','Triple','Quadra','Penta','Hexa','Hepta','Octo','Nona','Deca'].map((name,i)=>{
@@ -38,7 +38,7 @@
     if(key!=='rating')return tied;
     // A unique MVP, independent of rendering order or the current viewer's team.
     return tied.sort((a,b)=>{
-      const order=summary.ratingVersion===2?['assists','support','cloversConsumedByRecipients','reraisesConsumedByRecipients','kills','holds','attack','defense','debuff']:['kills','holds','support','reraises','debuff'];
+      const order=Index.tracksSources(summary.ratingVersion)?['assists','support','cloversConsumedByRecipients','reraisesConsumedByRecipients','kills','holds',...(summary.ratingVersion===3?['valuedAttack','valuedDefense']:['attack','defense']),'debuff']:['kills','holds','support','reraises','debuff'];
       for(const metric of order){
         const difference=number(b[metric])-number(a[metric]);if(difference)return difference;
       }
@@ -51,11 +51,12 @@
     for(const c of categories)for(const u of leaders(summary,c.key))(out[u.uid]??=[]).push(c.id);
     return out;
   }
-  function empty(){return {games:0,wins:0,losses:0,draws:0,ratingVersions:{1:0,2:0},...Object.fromEntries(totals.map(k=>[k,0])),mvp:0,trophies:Object.fromEntries(categories.map(c=>[c.id,0])),killMedals:Object.fromEntries(killMedals.map(m=>[m.tier,0])),history:[]};}
+  function empty(){return {games:0,wins:0,losses:0,draws:0,ratingVersions:{1:0,2:0,3:0},...Object.fromEntries(totals.map(k=>[k,0])),mvp:0,trophies:Object.fromEntries(categories.map(c=>[c.id,0])),killMedals:Object.fromEntries(killMedals.map(m=>[m.tier,0])),history:[]};}
   function add(result,row,trophies=[]){
     result.games++;result[row.winner==='draw'?'draws':row.winner===row.side?'wins':'losses']++;
-    (result.ratingVersions??={1:0,2:0})[row.ratingVersion??1]++;
-    for(const key of totals)result[key]+=number(row[key]);
+    const versions=result.ratingVersions??={1:0,2:0,3:0},version=row.ratingVersion??1;
+    versions[version]=number(versions[version])+1;
+    for(const key of totals)result[key]=number(result[key])+number(row[key]);
     for(const id of new Set(trophies))if(Object.hasOwn(result.trophies,id))result.trophies[id]++;
     result.mvp=result.trophies.crystal;
     const tier=killTier(row.kills);

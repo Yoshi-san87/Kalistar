@@ -1,8 +1,8 @@
 (function(root,factory){
-  const api=factory();
+  const api=factory(typeof module==='object'&&module.exports?require('./performance-index.js'):root.KalistarPerformanceIndex);
   if(typeof module==='object'&&module.exports)module.exports=api;
   else root.KalistarMatchMetrics=api;
-})(typeof window==='undefined'?globalThis:window,()=>{
+})(typeof window==='undefined'?globalThis:window,(Index)=>{
   'use strict';
   const core=[
     {key:'kills',label:'Kills',icon:'skull',help:'\u00c9liminations r\u00e9elles. Un Reraise ne compte pas comme un kill.'},
@@ -17,10 +17,13 @@
     {key:'support',label:'Soutiens',icon:'hand-heart',help:'Nouveaux traits accord\u00e9s, \u00e0 soi ou \u00e0 un alli\u00e9. Renouvellements exclus.'},
     {key:'reraises',label:'Vies sauv\u00e9es',icon:'heart-pulse',help:'Reraise consomm\u00e9s par cette carte, distincts des Reraise accord\u00e9s.'},
     {key:'luckUsed',label:'Secondes chances',icon:'rotate-ccw',help:'Tr\u00e8fles consomm\u00e9s pour relancer la d\u00e9fense, distincts des tr\u00e8fles accord\u00e9s.'},
-    {key:'assists',label:'Passes d\u00e9cisives',icon:'waypoints',help:'Kills definitifs rendus possibles par un buff ATK natif donne a un autre personnage. +3 au donneur.'},
+    {key:'assists',label:'Passes d\u00e9cisives',icon:'waypoints',help:'Buff ATK ou garde native indispensable au kill/Block d\u2019un allie. +3 au donneur, hors auto-buff.'},
+    {key:'defensiveAssists',label:'Assists DEF',icon:'shield-plus',help:'Parmi les assists : Blocks numeriques rendus possibles par une garde native alliee. Deja compris dans les +3 par assist.'},
+    {key:'valuedAttack',label:'ATK valoris\u00e9e',icon:'sword',help:'Somme de min(ATK finale, DEF finale + 1) par duel numerique definitif. Les statistiques ATK brutes restent inchangees.'},
+    {key:'valuedDefense',label:'DEF valoris\u00e9e',icon:'shield',help:'Somme de min(DEF finale, ATK finale) par duel numerique definitif. Aucun score fictif pour les effets speciaux.'},
     {key:'cloversConsumedByRecipients',label:'Tr\u00e8fles utilis\u00e9s par les b\u00e9n\u00e9ficiaires',icon:'clover',help:'Charges natives consommees : +2 au donneur original, meme elimine.'},
     {key:'reraisesConsumedByRecipients',label:'Reraise utilis\u00e9s par les b\u00e9n\u00e9ficiaires',icon:'heart-handshake',help:'Sauvetages effectifs par les coeurs natifs : +2 au donneur original, pas au consommateur.'},
-    {key:'rating',label:'Indice',icon:'trophy',help:'5 par kill + 3 par Block + 1 par 100 ATK/DEF + 3 victoire + 2 soutien + 3 assist + 2 au donneur par trefle/Reraise utilise + 1 par 30 ATK retiree.'}
+    {key:'rating',label:'Indice',icon:'trophy',help:Index.help}
   ];
   // V4 physical grants are fixed at 60 points; stored support counters stay in grants.
   const duelMetrics=core.concat([

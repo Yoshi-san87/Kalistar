@@ -1,6 +1,6 @@
 'use strict';
 const {test}=require('node:test'),assert=require('node:assert/strict'),vm=require('node:vm'),fs=require('node:fs'),path=require('node:path');
-const T=require('./trophies.js'),window={},context={window,KalistarTrophies:T};
+const T=require('./trophies.js'),window={KalistarPerformanceIndex:require('./performance-index.js')},context={window,KalistarTrophies:T};
 vm.runInNewContext(fs.readFileSync(path.join(__dirname,'match-metrics.js'),'utf8'),context);
 test('combat kill medals replace only the number to the right of the skull, with the exact count accessible',()=>{
   for(let kills=0;kills<=12;kills++){
