@@ -173,7 +173,12 @@ test('unchanged V3 mechanics: deterministic full games agree after identity norm
     else if (s.phase === 'replace') e.autoDeploy(s, s.replacing);
     else { const suffix = { guard: 'Guard', heart: 'Reraise', potion: 'Potion', physical: 'Physical', clover: 'Clover' }[s.phase]; e['grant' + suffix](s, e['ai' + suffix + 'Choice'](s)); }
   };
-  const normalize = s => { const value = JSON.parse(JSON.stringify(s).replaceAll('K4-', 'K3-')); delete value.edition; return value; };
+  const normalize = s => {
+    // New index provenance/logs are metadata; compare every actual combat field.
+    const value = JSON.parse(JSON.stringify(s, (key, value) => ['ratingVersion','sources','nativeSources','traitSources','wardConsumed'].includes(key) ? undefined : value).replaceAll('K4-', 'K3-'));
+    value.log = value.log.filter(entry => !entry.text.includes("d'indice")).map((entry, i) => ({...entry, n:i+1}));
+    delete value.edition; return value;
+  };
   for (let i = 0; i < 5; i++) {
     const options = { seed: 'V4-MECHANICS-' + i, deckCoverage: 2, kalistel: false };
     const old = v3.newGame(d.decks.player, d.decks.enemy, options), current = v4.newGame(d.decks.player, d.decks.enemy, options);

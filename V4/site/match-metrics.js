@@ -17,7 +17,10 @@
     {key:'support',label:'Soutiens',icon:'hand-heart',help:'Nouveaux traits accord\u00e9s, \u00e0 soi ou \u00e0 un alli\u00e9. Renouvellements exclus.'},
     {key:'reraises',label:'Vies sauv\u00e9es',icon:'heart-pulse',help:'Reraise consomm\u00e9s par cette carte, distincts des Reraise accord\u00e9s.'},
     {key:'luckUsed',label:'Secondes chances',icon:'rotate-ccw',help:'Tr\u00e8fles consomm\u00e9s pour relancer la d\u00e9fense, distincts des tr\u00e8fles accord\u00e9s.'},
-    {key:'rating',label:'Indice',icon:'trophy',help:'5 par kill + 3 par Block + 2 par soutien + 1 par vie sauv\u00e9e + 1 par tranche de 30 ATK retir\u00e9e.'}
+    {key:'assists',label:'Passes d\u00e9cisives',icon:'waypoints',help:'Kills definitifs rendus possibles par un buff ATK natif donne a un autre personnage. +3 au donneur.'},
+    {key:'cloversConsumedByRecipients',label:'Tr\u00e8fles utilis\u00e9s par les b\u00e9n\u00e9ficiaires',icon:'clover',help:'Charges natives consommees : +2 au donneur original, meme elimine.'},
+    {key:'reraisesConsumedByRecipients',label:'Reraise utilis\u00e9s par les b\u00e9n\u00e9ficiaires',icon:'heart-handshake',help:'Sauvetages effectifs par les coeurs natifs : +2 au donneur original, pas au consommateur.'},
+    {key:'rating',label:'Indice',icon:'trophy',help:'5 par kill + 3 par Block + 1 par 100 ATK/DEF + 3 victoire + 2 soutien + 3 assist + 2 au donneur par trefle/Reraise utilise + 1 par 30 ATK retiree.'}
   ];
   // V4 physical grants are fixed at 60 points; stored support counters stay in grants.
   const duelMetrics=core.concat([

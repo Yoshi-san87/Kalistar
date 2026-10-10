@@ -1,10 +1,11 @@
 (function(root,factory){
   const T=typeof module==='object'&&module.exports?require('./trophies.js'):root.KalistarTrophies;
   const C=typeof module==='object'&&module.exports?require('./collaborations.js'):root.KalistarCollaborations;
-  const api=factory(T,C);
+  const I=typeof module==='object'&&module.exports?require('./performance-index.js'):root.KalistarPerformanceIndex;
+  const api=factory(T,C,I);
   if(typeof module==='object'&&module.exports)module.exports=api;
   else root.KalistarStatistics=api;
-})(typeof window==='undefined'?globalThis:window,(T,C)=>{
+})(typeof window==='undefined'?globalThis:window,(T,C,I)=>{
   'use strict';
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const icon=n=>`<i data-lucide="${n}" aria-hidden="true"></i>`;
@@ -12,10 +13,11 @@
   const column=(key,label,icon,help,average=true)=>({key,label,icon,help,average});
   const common=[column('games','MJ','swords','Participations aux matchs termin\u00e9s, hors r\u00e9serve non d\u00e9ploy\u00e9e et historiques partiels.',false)];
   const groups={
-    performance:[...common,column('wins','V','crown','Victoires.',false),column('losses','D','flag','D\u00e9faites.',false),column('winRate','V %','percent','Pourcentage de victoires.',false),column('kills','Kills','skull','\u00c9liminations d\u00e9finitives.'),column('holds','Blocks','ban','Attaques bloqu\u00e9es, hors Reraise.'),column('attack','ATK','sword','Scores ATK finaux cumul\u00e9s, pas des d\u00e9g\u00e2ts nets.'),column('defense','DEF','shield','Scores DEF finaux cumul\u00e9s.'),column('rating','Indice','sparkles','5 par kill + 3 par Block + 2 par soutien + 1 par vie sauv\u00e9e + 1 par tranche de 30 ATK retir\u00e9e.')],
+    performance:[...common,column('wins','V','crown','Victoires.',false),column('losses','D','flag','D\u00e9faites.',false),column('winRate','V %','percent','Pourcentage de victoires.',false),column('kills','Kills','skull','\u00c9liminations d\u00e9finitives.'),column('holds','Blocks','ban','Attaques bloqu\u00e9es, hors Reraise.'),column('attack','ATK','sword','Scores ATK finaux cumul\u00e9s, pas des d\u00e9g\u00e2ts nets.'),column('defense','DEF','shield','Scores DEF finaux cumul\u00e9s.'),column('assists','Assists','waypoints','Passes decisives, nouvelles rencontres uniquement.'),column('rating','Indice','sparkles',I.help+' Archives : formule historique conservee.')],
     support:[...common,column('clovers','Tr\u00e8fles','clover','Nouveaux tr\u00e8fles attribu\u00e9s.'),column('hearts','Reraise','heart','Nouveaux c\u0153urs Reraise attribu\u00e9s.'),column('support','Soutiens','hand-heart','Tous les nouveaux soutiens attribu\u00e9s.'),column('physical','+ATK','sword','Points ATK physiques attribu\u00e9s : 60 par nouveau buff.'),column('guards','+DEF','shield-plus','Points DEF physiques attribu\u00e9s : 60 par nouvelle garde.'),column('potions','Potions','flask-conical','Nouvelles potions attribu\u00e9es.'),column('reraises','Sauv\u00e9s','heart-pulse','Coeurs consomm\u00e9s pour survivre.'),column('debuff','Entrave','shield-minus','Points ATK retir\u00e9s.')],
     trophies:[...common,...T.categories.map(c=>({...column(c.id,c.name,null,c.help,false),trophy:true}))]
   };
+  groups.support.push(column('assists','Assists','waypoints','Passes decisives au donneur, hors auto-buff.'),column('cloversConsumedByRecipients','Tr\u00e8fles utilis\u00e9s','clover','Charges consommees, creditees au donneur.'),column('reraisesConsumedByRecipients','Reraise utilis\u00e9s','heart-handshake','Sauvetages credites au donneur.'));
   const defaults={query:'',element:'all',collab:'all',scope:'owned',grouping:'character',period:'all',minimum:0,mode:'average',group:'performance',sort:'rating',direction:'desc'};
   function rows(data,db,state,now=Date.now()){
     if(!db)return [];
@@ -50,12 +52,20 @@
     if(col.trophy)return row.trophies[col.key]||0;
     if(col.key==='winRate')return row.games?row.wins/row.games*100:null;
     const total=(row[col.key]||0)*(['physical','guards'].includes(col.key)?60:1);
-    return mode==='average'&&col.average?(row.games?total/row.games:null):total;
+    const recent=['assists','cloversConsumedByRecipients','reraisesConsumedByRecipients'].includes(col.key),games=recent?row.ratingVersions?.[2]||0:row.games;
+    if(recent&&!games)return null;
+    return mode==='average'&&col.average?(games?total/games:null):total;
   }
   function formatted(row,col,mode){
     const n=value(row,col,mode);if(n===null)return '\u2014';
     const decimals=col.key==='winRate'||mode==='average'&&col.average?1:0;
     return n.toLocaleString('fr-FR',{minimumFractionDigits:decimals,maximumFractionDigits:decimals});
+  }
+  function metricTitle(row,col,mode){
+    const modern=row.ratingVersions?.[2]||0,legacy=row.ratingVersions?.[1]||0;
+    const provenance=col.key==='rating'?` (${modern} actuels, ${legacy} historiques)`:
+      ['assists','cloversConsumedByRecipients','reraisesConsumedByRecipients'].includes(col.key)?` (${modern} rencontres suivies, ${legacy} historiques non renseignes)`:'';
+    return col.label+' : '+formatted(row,col,mode)+provenance;
   }
   function sorted(items,state){
     const col=groups[state.group].find(c=>c.key===state.sort),direction=state.direction==='asc'?1:-1;
@@ -71,8 +81,8 @@
       const text=String(s),safe=/^\s*[=+@-]|^[\t\r\n]/.test(text)?"'"+text:text;
       return '"'+safe.replace(/"/g,'""')+'"';
     };
-    const header=['Personnage','Versions','Cristal',...columns.map(c=>c.label+(state.mode==='average'&&c.average?' / match':''))];
-    const body=items.map(r=>[r.card.name,r.versions.map(c=>c.title).join(' | '),r.card.element,...columns.map(c=>formatted(r,c,state.mode).replace(/[\u00a0\u202f]/g,''))]);
+    const header=['Personnage','Versions','Cristal',...columns.map(c=>c.label+(state.mode==='average'&&c.average?' / match':'')),'Matchs indice 2','Matchs historiques'];
+    const body=items.map(r=>[r.card.name,r.versions.map(c=>c.title).join(' | '),r.card.element,...columns.map(c=>formatted(r,c,state.mode).replace(/[\u00a0\u202f]/g,'')),r.ratingVersions?.[2]||0,r.ratingVersions?.[1]||0]);
     return '\ufeff'+[header,...body].map(row=>row.map(cell).join(';')).join('\r\n');
   }
   function create({data,getDB,onDetail}){
@@ -101,7 +111,7 @@
       const db=snapshot;items=sorted(rows(data,db,state),state);
       const cols=groups[state.group],sort=key=>state.sort===key?(state.direction==='asc'?'ascending':'descending'):'none';
       const rank=(row,index)=>index>0&&state.sort!=='name'&&value(items[index-1],cols.find(c=>c.key===state.sort)||cols[0],state.mode)===value(row,cols.find(c=>c.key===state.sort)||cols[0],state.mode)?'=':index+1;
-      root.querySelector('.sheet-table').innerHTML=`<thead><tr><th scope="col" class="sheet-rank">#</th><th scope="col" class="sheet-identity" aria-sort="${sort('name')}">${button('sort','name','Personnage',state.sort==='name'?state.direction==='asc'?'arrow-up':'arrow-down':null,'aria-label="Trier par personnage"')}</th>${cols.map(c=>`<th scope="col" aria-sort="${sort(c.key)}" class="${state.sort===c.key?'sheet-sorted':''}">${button('sort',c.key,(c.trophy?T.image(c.key):'')+`<span>${esc(c.trophy?T.categories.find(t=>t.id===c.key).label:c.label)}</span>`,c.icon,`title="${esc(c.help)}" aria-label="Trier par ${esc(c.label)}"`)}${state.sort===c.key?`<span class="sheet-sort-arrow" aria-hidden="true">${icon(state.direction==='asc'?'arrow-up':'arrow-down')}</span>`:''}</th>`).join('')}</tr></thead><tbody>${items.map((r,index)=>`<tr data-sheet-row="${esc(r.id)}"><td class="sheet-rank">${rank(r,index)}</td><th scope="row" class="sheet-identity"><button type="button" data-sheet-action="detail" data-id="${esc(r.card.id)}"><img src="${esc(KalistarCardMedia.image(r.card))}" alt="" width="32" height="50" loading="lazy"><span><b>${esc(r.card.name)}</b><small>${state.grouping==='version'?esc(r.card.title):esc(data.elements[r.card.element]?.label||'Sans cristal')+(r.versions.length>1?' · '+r.versions.length+' versions':'')}</small></span></button></th>${cols.map(c=>`<td data-metric="${c.key}" class="${state.sort===c.key?'sheet-sorted':''}" title="${esc(c.label+' : '+formatted(r,c,state.mode))}">${formatted(r,c,state.mode)}</td>`).join('')}</tr>`).join('')}</tbody>`;
+      root.querySelector('.sheet-table').innerHTML=`<thead><tr><th scope="col" class="sheet-rank">#</th><th scope="col" class="sheet-identity" aria-sort="${sort('name')}">${button('sort','name','Personnage',state.sort==='name'?state.direction==='asc'?'arrow-up':'arrow-down':null,'aria-label="Trier par personnage"')}</th>${cols.map(c=>`<th scope="col" aria-sort="${sort(c.key)}" class="${state.sort===c.key?'sheet-sorted':''}">${button('sort',c.key,(c.trophy?T.image(c.key):'')+`<span>${esc(c.trophy?T.categories.find(t=>t.id===c.key).label:c.label)}</span>`,c.icon,`title="${esc(c.help)}" aria-label="Trier par ${esc(c.label)}"`)}${state.sort===c.key?`<span class="sheet-sort-arrow" aria-hidden="true">${icon(state.direction==='asc'?'arrow-up':'arrow-down')}</span>`:''}</th>`).join('')}</tr></thead><tbody>${items.map((r,index)=>`<tr data-sheet-row="${esc(r.id)}"><td class="sheet-rank">${rank(r,index)}</td><th scope="row" class="sheet-identity"><button type="button" data-sheet-action="detail" data-id="${esc(r.card.id)}"><img src="${esc(KalistarCardMedia.image(r.card))}" alt="" width="32" height="50" loading="lazy"><span><b>${esc(r.card.name)}</b><small>${state.grouping==='version'?esc(r.card.title):esc(data.elements[r.card.element]?.label||'Sans cristal')+(r.versions.length>1?' · '+r.versions.length+' versions':'')}</small></span></button></th>${cols.map(c=>`<td data-metric="${c.key}" class="${state.sort===c.key?'sheet-sorted':''}" title="${esc(metricTitle(r,c,state.mode))}">${formatted(r,c,state.mode)}</td>`).join('')}</tr>`).join('')}</tbody>`;
       let empty=root.querySelector('.sheet-empty');
       if(!items.length&&!empty){empty=document.createElement('p');empty.className='sheet-empty';root.querySelector('.sheet-scroll').append(empty);}
       if(empty){empty.hidden=!!items.length;empty.textContent=db?'Aucun personnage pour ces filtres.':'Base locale indisponible.';}
@@ -135,5 +145,5 @@
     function destroy(){controller?.abort();controller=null;root=null;}
     return {mount,destroy,refresh};
   }
-  return {defaults,groups,rows,value,sorted,csv,create};
+  return {defaults,groups,rows,value,metricTitle,sorted,csv,create};
 });

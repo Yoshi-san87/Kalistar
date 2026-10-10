@@ -4,6 +4,12 @@
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const icon=name=>`<i data-lucide="${esc(name)}" aria-hidden="true"></i>`;
   const num=value=>(Number.isFinite(value)?value:0).toLocaleString('fr-FR');
+  const Index=window.KalistarPerformanceIndex;
+  const donorMetrics=['assists','cloversConsumedByRecipients','reraisesConsumedByRecipients'];
+  function indexDetail(unit){
+    const version=unit.ratingVersion||1,parts=unit.ratingBreakdown||Index.breakdown(unit,version);
+    return `<details class="match-index-detail" data-index-unit="${esc(unit.uid)}"><summary aria-label="Indice ${num(unit.rating)} : consulter le detail">${num(unit.rating)}${icon('chevron-down')}</summary><div class="match-index-points"><b>${version===2?'Indice':'Indice historique'}</b><dl>${Object.entries(parts).map(([key,value])=>`<div data-index-part="${key}"><dt>${esc(Index.labels[key])}</dt><dd>+${num(value)}</dd></div>`).join('')}</dl><strong>Total <span>${num(unit.rating)}</span></strong></div></details>`;
+  }
   const coreDefaults=[
     {key:'kills',label:'Éliminations',icon:'skull',help:'Cartes réellement éliminées. Une carte sauvée par Reraise ne compte pas.'},
     {key:'holds',label:'Blocks',icon:'ban',help:'Attaques bloquées par une défense suffisante, une esquive ou un bouclier. Reraise est compté séparément.'},
@@ -17,7 +23,10 @@
     {key:'support',label:'Soutiens',icon:'hand-heart',help:'Nouveaux traits accordés, à soi ou à un allié : cœurs, trèfles, potions, puissance et garde. Renouvellements exclus.'},
     {key:'reraises',label:'Vies sauvées',icon:'heart-pulse',help:'Cœurs consommés pour survivre à une élimination. À distinguer des cœurs accordés.'},
     {key:'luckUsed',label:'Trèfles utilisés',icon:'rotate-ccw',help:'Trèfles consommés pour relancer une défense insuffisante. À distinguer des trèfles accordés.'},
-    {key:'rating',label:'Indice',icon:'trophy',help:'5 par élimination + 3 par Block + 2 par soutien + 1 par vie sauvée + 1 par tranche de 30 ATK retirée.'}
+    {key:'assists',label:'Passes d\u00e9cisives',icon:'waypoints',help:'Buff ATK natif donne a un autre personnage et indispensable a un kill definitif.'},
+    {key:'cloversConsumedByRecipients',label:'Tr\u00e8fles utilis\u00e9s au donneur',icon:'clover',help:'Charges natives consommees, creditees au donneur original.'},
+    {key:'reraisesConsumedByRecipients',label:'Reraise utilis\u00e9s au donneur',icon:'heart-handshake',help:'Sauvetages effectifs, credites au donneur original.'},
+    {key:'rating',label:'Indice',icon:'trophy',help:Index.help}
   ];
   const tabs=[['awards','Palmarès','trophy'],['battle','Bataille','chart-no-axes-combined'],['teams','Équipes','swords'],['lineup','Feuille','list-ordered'],['definitions','Décompte','calculator']];
   const trophies=window.KalistarTrophies;
@@ -31,11 +40,17 @@
       return {...metric,label:typeof custom?.label==='string'?custom.label:metric.label,help};
     });
   }
-  function render(s,{sort='rating',side='all',profiles=null,arenas=null,tab='lineup',page=0,group='core',award=0,spotlight='rating',battle=null}={}){
+  function render(s,{sort='rating',side='all',profiles=null,arenas=null,rules=null,tab='lineup',page=0,group='core',award=0,spotlight='rating',battle=null}={}){
     const core=metrics(coreDefaults,window.KalistarMatchMetrics?.core),extras=metrics(extraDefaults,window.KalistarMatchMetrics?.extras),allMetrics=[...core,...extras];
     const byId={...engine.byId};
     if(Array.isArray(profiles))for(const c of profiles)if(c&&engine.byId[c.id])byId[c.id]={...c,slug:engine.byId[c.id].slug};
-    const stats=engine.matchStats(s),units=stats.units;
+    const reportEngine=profiles&&arenas&&rules?KalistarEngine.createArchiveEngine(window.KALISTAR_DATA,{profiles,arenas,rules}):engine;
+    const stats=reportEngine.matchStats(s),units=stats.units;
+    const ratingHelp=stats.ratingVersion===2?Index.help:Index.legacyHelp;
+    for(const metric of extras)if(metric.key==='rating')metric.help=ratingHelp;
+    const unknown=metric=>stats.ratingVersion===1&&donorMetrics.includes(metric.key);
+    for(const metric of extras)if(unknown(metric))metric.help+=' Non renseigne dans cet historique.';
+    const metricValue=(metric,u)=>unknown(metric)?'\u2014':metric.key==='rating'?indexDetail(u):num(u[metric.key]);
     const medal=u=>stats.partial?'':trophies.medal(u.kills);
     const currentArenas=window.KALISTAR_DATA.arenas||[],arena=(Array.isArray(arenas)?arenas:currentArenas).find(a=>a.id===s.arenaId);
     const arenaVisual=currentArenas.find(a=>a.id===s.arenaId),accent=window.KALISTAR_DATA.elements?.[arenaVisual?.element]?.color;
@@ -77,14 +92,14 @@
     let content;
     if(tab==='lineup'){
       const visible=units.filter(u=>side==='all'||String(u.side)===side).slice().sort((a,b)=>b[key]-a[key]||a.uid.localeCompare(b.uid)),slice=paginate(visible);
-      content=`<section class="match-lineup"><div class="match-table-heading">${groupControls()}${sideControls()}</div><div class="match-table-scroll"><table class="match-table" data-group="${group}" style="--metric-count:${columns.length}" aria-label="Feuille de match"><thead><tr><th scope="col">Carte</th>${columns.map(metric=>`<th scope="col" aria-sort="${key===metric.key?'descending':'none'}"><button type="button" data-action="stats-sort" data-id="${metric.key}" title="${esc(metric.label+' : '+metric.help)}" aria-label="${esc('Trier par '+metric.label)}">${metricIcon(metric)}${key===metric.key?icon('arrow-down'):''}</button></th>`).join('')}</tr></thead><tbody>${slice.items.map(u=>`<tr data-stat-unit="${esc(u.uid)}"><th scope="row">${identity(u)}</th>${columns.map(metric=>`<td data-stat="${metric.key}" data-value="${u[metric.key]||0}" class="${key===metric.key?'sorted':''}" title="${esc(metric.label+' : '+num(u[metric.key]))}">${num(u[metric.key])}</td>`).join('')}</tr>`).join('')}</tbody></table>${slice.items.length?'':'<p class="match-empty">Aucune carte</p>'}</div>${slice.footer}</section>`;
+      content=`<section class="match-lineup"><div class="match-table-heading">${groupControls()}${sideControls()}</div><div class="match-table-scroll"><table class="match-table" data-group="${group}" style="--metric-count:${columns.length}" aria-label="Feuille de match"><thead><tr><th scope="col">Carte</th>${columns.map(metric=>`<th scope="col" aria-sort="${key===metric.key?'descending':'none'}"><button type="button" data-action="stats-sort" data-id="${metric.key}" title="${esc(metric.label+' : '+metric.help)}" aria-label="${esc('Trier par '+metric.label)}">${metricIcon(metric)}${key===metric.key?icon('arrow-down'):''}</button></th>`).join('')}</tr></thead><tbody>${slice.items.map(u=>`<tr data-stat-unit="${esc(u.uid)}"><th scope="row">${identity(u)}</th>${columns.map(metric=>`<td data-stat="${metric.key}" data-value="${u[metric.key]||0}" class="${key===metric.key?'sorted':''}" title="${esc(metric.label+' : '+(unknown(metric)?'Non renseigne':num(u[metric.key])))}">${metricValue(metric,u)}</td>`).join('')}</tr>`).join('')}</tbody></table>${slice.items.length?'':'<p class="match-empty">Aucune carte</p>'}</div>${slice.footer}</section>`;
     }else if(tab==='battle'){
       content=KalistarBattleReport.render(s,{selected:battle,player,name:u=>byId[u.cardId].name,identity:(u,role)=>identity(u,'match-unit '+role)});
     }else if(tab==='teams'){
       const slice=paginate(columns);
       content=`<section class="match-team-stats"><div class="match-table-heading">${groupControls()}</div><div class="match-team-names"><b>${player(0)}</b><span>Face à face</span><b>${player(1)}</b></div><div class="match-comparisons">${slice.items.map(metric=>{
         const a=stats.teams[0][metric.key]||0,b=stats.teams[1][metric.key]||0,total=a+b;
-        return `<div class="team-comparison" data-stat="${metric.key}" title="${esc(metric.help)}"><b>${num(a)}</b><div><span>${icon(metric.icon)}${esc(metric.label)}</span><div class="comparison-track" aria-hidden="true"><i style="width:${total?a/total*100:50}%"></i></div></div><b>${num(b)}</b></div>`;
+        return `<div class="team-comparison" data-stat="${metric.key}" title="${esc(metric.help)}"><b>${unknown(metric)?'\u2014':num(a)}</b><div><span>${icon(metric.icon)}${esc(metric.label)}</span><div class="comparison-track" aria-hidden="true"><i style="width:${total?a/total*100:50}%"></i></div></div><b>${unknown(metric)?'\u2014':num(b)}</b></div>`;
       }).join('')}</div>${slice.footer}</section>`;
     }else if(tab==='definitions'){
       const slice=paginate(columns);
@@ -97,13 +112,13 @@
         return `<article class="${index===0?'match-mvp':'match-award'} golden-award" style="--winner-count:${Math.max(1,winners.length)};--portrait-columns:${Math.max(1,Math.min(winners.length,4))}" data-trophy="${t.id}" data-award-unit="${esc(first?.uid||'')}" data-empty="${!first}">
           <header class="golden-title"><span>${t.name}<small>${index===0?'MVP · Meilleur joueur':esc(t.label)}</small></span>${winners.length>1?`<b>${winners.length} ex æquo</b>`:''}</header>
           <div class="golden-scene"><div class="golden-portraits">${portraits}</div>${index===0?`<div class="golden-mvp-overlay" aria-hidden="true">${trophy}</div>`:''}</div>
-          <div class="golden-result">${trophy}<div class="golden-winners" aria-label="Lauréats du ${t.name}">${winners.map(u=>`<button type="button" data-action="detail" data-id="${esc(u.cardId)}" data-instance="${esc(u.instanceId)}"><b class="kill-decorated-name">${medal(u)}<span>${esc(byId[u.cardId].name)}</span></b><small class="team-color-${u.side}">${player(u.side)} · ${esc(byId[u.cardId].title)}</small></button>`).join('')||'<span>Aucun lauréat</span>'}</div><strong title="${esc(t.help)}">${first?num(first[t.key]):'—'}<small>${index===0?'Indice':esc(t.label)}</small></strong></div>
+          <div class="golden-result">${trophy}<div class="golden-winners" aria-label="Lauréats du ${t.name}">${winners.map(u=>`<button type="button" data-action="detail" data-id="${esc(u.cardId)}" data-instance="${esc(u.instanceId)}"><b class="kill-decorated-name">${medal(u)}<span>${esc(byId[u.cardId].name)}</span></b><small class="team-color-${u.side}">${player(u.side)} · ${esc(byId[u.cardId].title)}</small></button>`).join('')||'<span>Aucun lauréat</span>'}</div><strong title="${esc(index===0?ratingHelp:t.help)}">${first?index===0?indexDetail(first):num(first[t.key]):'—'}<small>${index===0?'Indice':esc(t.label)}</small></strong></div>
         </article>`;
       }).join('')}</section>`;
     }
     const winner=s.winner==='draw'?'Match nul':s.winner===null?'Match en cours':player(s.winner)+' remporte le match';
     const teamScore=side=>`<div class="match-score-team team-color-${side}" data-score-side="${side}" data-winner="${s.winner===side}"><b>${player(side)}</b><strong class="match-final-score" aria-label="${player(side)+' : '+stats.teams[side].kills+' éliminations'}">${num(stats.teams[side].kills)}</strong><small>${icon(s.winner===side?'crown':'skull')}${s.winner===side?'Victoire':'Éliminations'}</small></div>`;
-    return `<div class="match-report" style="${esc(arenaStyle)}" data-continuous="${continuous}" data-tab="${tab}" data-spotlight="${spotlight}" data-complete="${s.phase==='over'}" data-report-page="${reportPage}" data-report-pages="${reportPages}" data-page-size="${pageSize}" data-compact="${height<650}"><header class="match-banner">${teamScore(0)}<div class="match-outcome">${icon(s.phase==='over'?'swords':'hourglass')}<h2>${esc(winner)}</h2><p>${esc(arena?.name||'Kalistar')} · ${stats.exchanges} échanges</p><small class="match-seed" title="${esc(s.seed)}">${esc(s.seed)}</small></div>${teamScore(1)}</header>${stats.partial?`<p class="match-partial">${icon('history')}Historique partiel depuis l’échange ${stats.fromRound}.</p>`:''}<nav class="match-tabs" role="tablist" aria-label="Vues du bilan">${tabs.map(([id,label,symbol])=>`<button type="button" id="match-tab-${id}" role="tab" tabindex="${tab===id?'0':'-1'}" aria-selected="${tab===id}" aria-controls="match-panel-${id}" data-action="stats-tab" data-id="${id}">${icon(symbol)}<span>${label}</span></button>`).join('')}</nav><div class="match-view" id="match-panel-${tab}" role="tabpanel" aria-labelledby="match-tab-${tab}" tabindex="${continuous?'0':'-1'}">${content}</div><footer class="match-report-actions"><button type="button" data-action="export-stats" aria-label="Exporter le bilan" title="Exporter le bilan">${icon('download')}<span>Exporter</span></button><button type="button" data-action="close" aria-label="Revoir le plateau" title="Revoir le plateau">${icon('layout-dashboard')}<span>Revoir le plateau</span></button>${s.phase==='over'?`<button type="button" class="primary" data-action="rematch" aria-label="Nouvelle rencontre" title="Nouvelle rencontre">${icon('swords')}<span>Nouvelle rencontre</span></button>`:''}</footer></div>`;
+    return `<div class="match-report" style="${esc(arenaStyle)}" data-continuous="${continuous}" data-tab="${tab}" data-spotlight="${spotlight}" data-complete="${s.phase==='over'}" data-report-page="${reportPage}" data-report-pages="${reportPages}" data-page-size="${pageSize}" data-compact="${height<650}"><header class="match-banner">${teamScore(0)}<div class="match-outcome">${icon(s.phase==='over'?'swords':'hourglass')}<h2>${esc(winner)}</h2><p>${esc(arena?.name||'Kalistar')} · ${stats.exchanges} échanges</p><small class="match-seed" title="${esc(s.seed)}">${esc(s.seed)}</small>${stats.ratingVersion===1?'<small class="match-index-version">Indice historique</small>':''}</div>${teamScore(1)}</header>${stats.partial?`<p class="match-partial">${icon('history')}Historique partiel depuis l’échange ${stats.fromRound}.</p>`:''}<nav class="match-tabs" role="tablist" aria-label="Vues du bilan">${tabs.map(([id,label,symbol])=>`<button type="button" id="match-tab-${id}" role="tab" tabindex="${tab===id?'0':'-1'}" aria-selected="${tab===id}" aria-controls="match-panel-${id}" data-action="stats-tab" data-id="${id}">${icon(symbol)}<span>${label}</span></button>`).join('')}</nav><div class="match-view" id="match-panel-${tab}" role="tabpanel" aria-labelledby="match-tab-${tab}" tabindex="${continuous?'0':'-1'}">${content}</div><footer class="match-report-actions"><button type="button" data-action="export-stats" aria-label="Exporter le bilan" title="Exporter le bilan">${icon('download')}<span>Exporter</span></button><button type="button" data-action="close" aria-label="Revoir le plateau" title="Revoir le plateau">${icon('layout-dashboard')}<span>Revoir le plateau</span></button>${s.phase==='over'?`<button type="button" class="primary" data-action="rematch" aria-label="Nouvelle rencontre" title="Nouvelle rencontre">${icon('swords')}<span>Nouvelle rencontre</span></button>`:''}</footer></div>`;
   }
   window.KalistarMatchReport={render};
 })();

@@ -328,9 +328,27 @@ pas le nombre de buffs. Le moteur conserve des compteurs d'attributions
 `physical` et `guards` ; `match-metrics.js` les convertit pour l'affichage.
 Ne pas multiplier aussi les donnees stockees, ce qui compterait 60 deux fois.
 
-L'indice actuel vaut 5 par kill + 3 par stop + 2 par soutien + 1 par Reraise
-consomme + 1 par tranche de 30 points de debuff. C'est une formule de classement,
-pas une preuve d'equilibrage des cartes.
+Depuis le 10 octobre 2026, les nouvelles rencontres utilisent l'indice 2 :
+5 par kill + 3 par Block + floor(ATK cumulee / 100) + floor(DEF cumulee / 100)
++ 3 pour la victoire aux participants, morts compris, mais pas aux reserves
+inutilisees + 2 par nouveau soutien + 3 par passe decisive + 2 au donneur
+original par trefle consomme ou Reraise ayant sauve la vie + floor(debuff / 30).
+Le +1 historique au consommateur Reraise est retire. Les refreshes ne donnent
+aucun nouveau point et ne remplacent pas le donneur de la charge active.
+
+Une passe decisive exige un kill definitif par un AUTRE beneficiaire et un
+buff ATK natif indispensable : retirer seulement son montant de la formule
+finale empeche le kill (egalite comprise). Auto-buff, esquive, Reraise, Mort,
+garde, equipement ou bonus passif ne creent aucune assist. Le donneur est un
+UID stable du match, meme mort ou remplace ; une charge n'est creditee qu'une
+fois. Les notes sont derivees du journal final, pas de compteurs de rendu.
+
+Les matchs deja commences et les archives sans marqueur `ratingVersion: 2`
+gardent l'ancienne formule, les anciens departages et leurs Golden Crystal.
+Les donneurs historiques ne sont pas reconstruits. La carriere signale les
+deux generations ; les moyennes des nouvelles metriques n'incluent pas les
+anciens matchs non suivis. Lire [schema et attribution](INDICE_PERFORMANCE.md).
+C'est une mesure de classement, pas une preuve d'equilibrage competitif.
 
 Depuis la demande du 21 septembre 2026, la carriere affiche ensemble les totaux
 et les moyennes par match pour kills, stops, ATK, DEF, soutiens, ATK retiree,
@@ -351,8 +369,10 @@ attribues) et Golden Heart (nouveaux coeurs Reraise attribues). La distinction
 recompense le donneur de coeurs, pas leur consommation par le beneficiaire.
 Classement sur les deux equipes : tous les premiers ex aequo avec un score
 strictement positif recoivent chacun le trophee entier, sauf le MVP qui reste
-unique (demande du 23 septembre). A indice egal, departage successif par kills,
-stops, soutiens, vies sauvees, puis ATK retiree. Une egalite parfaite utilise
+unique (demande du 23 septembre). Pour l'indice 2, departage successif par
+assists, soutiens, trefles utilises au donneur, Reraise utilises au donneur,
+kills, Blocks, ATK, DEF, puis debuff. Les historiques gardent kills, Blocks,
+soutiens, vies sauvees, puis ATK retiree. Une egalite parfaite utilise
 l'identifiant d'instance du match en ordre lexical, sans tirage aleatoire.
 A zero, aucun laureat.
 Une seule attribution par categorie, instance et rencontre terminee. Les

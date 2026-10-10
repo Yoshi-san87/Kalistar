@@ -113,7 +113,7 @@
         if(T)for(const match of s.matches.filter(m=>m.finalized)){
           const rows=s.results.filter(r=>r.matchId===match.id);
           if(rows.every(r=>r.trophyVersion===T.version))continue;
-          const awarded=T.awards(E.matchStats(E.restoreGame(validateGame(match.state))));
+          const awarded=T.awards(match.summary||makeMatch(match.state,match.updatedAt,match).summary);
           for(const row of rows)write('results',{...row,trophyVersion:T.version,trophies:awarded[row.uid]||[]});
         }
       });
@@ -125,9 +125,10 @@
     }
     const close=()=>{opened=false;catalogueListeners.clear();equipmentListeners.clear();channel?.close();connections.get(name)?.delete(refresh);db.close();};
     db.onversionchange=close;
-    function makeMatch(value,at=new Date().toISOString()){
-      const state=E.restoreGame(validateGame(value)),summary=E.matchStats(state);
-      return {id:state.matchId,state,summary,createdAt:at,updatedAt:at,finalized:state.phase==='over',edition:EDITION,arenas:copy(data.arenas||[]),rules:copy(data.demo),profiles:copy(data.cards)};
+    function makeMatch(value,at=new Date().toISOString(),archive=null){
+      const engine=archive?KalistarEngine.createArchiveEngine(data,archive):E;
+      const state=engine.restoreGame(validateGame(value)),summary=engine.matchStats(state);
+      return {id:state.matchId,state,summary,createdAt:at,updatedAt:at,finalized:state.phase==='over',edition:EDITION,arenas:copy(engine.data.arenas||[]),rules:copy(engine.data.demo),profiles:copy(engine.data.cards)};
     }
     function historicalArenas(arenas,arenaId){
       if(!Array.isArray(arenas)||!arenas.length||arenas.length>1000||arenas.some(a=>!a||['name','subtitle','image','source'].some(key=>typeof a[key]!=='string'||a[key].length>10000)))throw new Error('Arènes historiques invalides.');
@@ -169,7 +170,7 @@
       const protectedMeta=s.registryMeta.filter(row=>row.id.startsWith('lease-')&&retainedMatches.has(row.matchId)||retainedIds.size&&row.id.startsWith('rate-'));
       const metaIds=new Set(protectedMeta.map(row=>row.id));
       out.registryMeta=out.registryMeta.filter(row=>!metaIds.has(row.id)&&!(row.id.startsWith('lease-')&&retainedMatches.has(row.matchId))).concat(copy(protectedMeta));
-      const keptMatches=s.matches.filter(m=>retainedMatches.has(m.id)).map(m=>({...copy(m),summary:E.matchStats(E.restoreGame(validateGame(m.state)))}));
+      const keptMatches=s.matches.filter(m=>retainedMatches.has(m.id)).map(m=>({...copy(m),summary:makeMatch(m.state,m.updatedAt,m).summary}));
       const combinedMatches=matches.filter(m=>!retainedMatches.has(m.id)).concat(keptMatches);
       const unitIds=new Set(keptMatches.flatMap(m=>m.state.players.flatMap(p=>[...p.board.filter(Boolean),...p.reserve,...p.dead].map(u=>u.instanceId))));
       const keptInstances=s.instances.filter(i=>!snapshotIds.has(i.cardId)||unitIds.has(i.id)||legacyIds.has(i.id));
@@ -271,7 +272,7 @@
         });
         if(new Set(instances.map(i=>i.id)).size!==instances.length)throw new Error('Exemplaire en double.');
         const matches=value.matches.map(m=>{
-          const validated=makeMatch(m.state);
+          const validated=makeMatch(m.state,new Date().toISOString(),m);
           if(m.state.players.some(p=>[...p.board.filter(Boolean),...p.reserve,...p.dead].some(u=>!snapshotIds.has(u.cardId))))throw legacyError();
           if(validated.id!==m.id||!Number.isFinite(Date.parse(m.createdAt))||!Number.isFinite(Date.parse(m.updatedAt)))throw new Error('Rencontre invalide.');
           validated.createdAt=m.createdAt;validated.updatedAt=m.updatedAt;

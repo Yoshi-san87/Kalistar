@@ -1,10 +1,11 @@
 (function (root, factory) {
   const api = factory(
     typeof module === 'object' && module.exports ? require('./equipment.js') : root.KalistarEquipment,
-    typeof module === 'object' && module.exports ? require('./turn-order.js') : root.KalistarTurnOrder);
+    typeof module === 'object' && module.exports ? require('./turn-order.js') : root.KalistarTurnOrder,
+    typeof module === 'object' && module.exports ? require('./performance-index.js') : root.KalistarPerformanceIndex);
   if (typeof module === 'object' && module.exports) module.exports = api;
   else root.KalistarEngine = api;
-})(typeof globalThis !== 'undefined' ? globalThis : this, function (Equipment, TurnOrder) {
+})(typeof globalThis !== 'undefined' ? globalThis : this, function (Equipment, TurnOrder, PerformanceIndex) {
   'use strict';
   const clone = value => JSON.parse(JSON.stringify(value));
   const dieValue = (card, side, die) => card[side === 'atk' ? 'atk' : 'defense'][6 - die];
@@ -60,7 +61,17 @@
     function setTrait(s,u,key){
       const already=u[key]>0;
       u[key]=key==='ward'?60:key==='mana'||key==='physical'?rules.token_bonus:1;
+      if(!already&&s.match?.ratingVersion===2){
+        (u.traitSources??={})[key]={donor:s.duel.attacker,recipient:u.uid,kind:key,round:s.round};
+      }
       return already;
+    }
+    function consumeTrait(s,u,key,part){
+      if(s.match?.ratingVersion===2&&u.traitSources?.[key]){
+        (s.duel.nativeSources??={})[part]=clone(u.traitSources[key]);
+        delete u.traitSources[key];
+      }
+      u[key]=0;
     }
     function lineup(ids) {
       const used = new Set(), result = Array(5).fill(null);
@@ -160,7 +171,7 @@
       if(coverage===2)s.deckCoverage=2;
       s.matchId='match-'+globalThis.crypto.randomUUID();
       setArena(s,options.arenaId??defaultArena);
-      s.match={version:1,fromRound:1,partial:false,events:[]};
+      s.match={version:1,ratingVersion:PerformanceIndex.version,fromRound:1,partial:false,events:[]};
       [deckA,deckB].forEach((deck,side)=>s.players.push({board:Array(5).fill(null),reserve:deck.map((id,i)=>({uid:side+'-'+i,cardId:id,revived:false,reraise:0,luck:0,mana:0,physical:0,ward:0})),dead:[]}));
       identifyUnits(s);
       if(composed)s.equipment=Equipment.snapshot(teams.map(t=>t.equipment),data.cards);
@@ -292,11 +303,18 @@
         ward:f?.ward||0,arenaAttack:f?.arenaAttack||0,arenaDefense:f?.arenaDefense||0,
         debuff:f?Math.max(0,-f.weapon)+Math.max(0,-f.element)+Math.max(0,-f.barrier):0,
         support,recipient:support?(d.cloverGranted||d.manaGranted||d.physicalGranted||d.reraiseGranted||d.guardGranted||d.attacker):null,refresh:!!d.traitRefreshed,
-        attackRolls:d.attackRolls.length,defenseRolls:d.defenseRolls.length});
+        attackRolls:d.attackRolls.length,defenseRolls:d.defenseRolls.length,
+        ...(s.match.ratingVersion===2?{sources:clone(d.nativeSources||{}),wardConsumed:!!d.ward}:{})});
+      for(const credit of PerformanceIndex.credits(s.match.events.at(-1),s.match)){
+        const donor=s.players.flatMap(p=>[...p.board.filter(Boolean),...p.reserve,...p.dead]).find(u=>u.uid===credit.uid);
+        const label=PerformanceIndex.labels[credit.metric];
+        addLog(s,'effect',`${card(donor).name} : ${label}, +${credit.points} d'indice (soutien T${credit.source.round}).`);
+      }
     }
     function matchStats(s){
       assertV4(s);
-      const metrics=['attack','defense','breakthrough','kills','deaths','holds','support','alliedSupport','refreshes','hearts','clovers','potions','physical','guards','ward','arenaAttack','arenaDefense','reraises','luckUsed','dodges','shields','barrier','debuff','buff','duels','defended','attackRolls','defenseRolls','peakAttack','peakDefense','rating'];
+      const metrics=['attack','defense','breakthrough','kills','deaths','holds','support','alliedSupport','refreshes','hearts','clovers','potions','physical','guards','ward','arenaAttack','arenaDefense','reraises','luckUsed','dodges','shields','barrier','debuff','buff','duels','defended','attackRolls','defenseRolls','peakAttack','peakDefense','assists','cloversConsumedByRecipients','reraisesConsumedByRecipients','victory','rating'];
+      const ratingVersion=s.match?.ratingVersion??1;
       const empty=()=>Object.fromEntries(metrics.map(k=>[k,0]));
       const units=s.players.flatMap((p,side)=>[...p.board.filter(Boolean),...p.reserve,...p.dead].map(u=>({uid:u.uid,cardId:u.cardId,instanceId:u.instanceId,participated:!!u.entered,side,...empty()})));
       const byUnit=Object.fromEntries(units.map(u=>[u.uid,u]));
@@ -310,16 +328,22 @@
           if(e.refresh)a.refreshes++;
           else{a.support++;a.alliedSupport+=Number(e.recipient!==e.attacker);a[{reraise:'hearts',luck:'clovers',mana:'potions',physical:'physical',ward:'guards'}[e.support]]++;}
         }
+        for(const credit of PerformanceIndex.credits(e,s.match))byUnit[credit.uid][credit.metric]++;
       }
-      for(const u of units)u.rating=u.kills*5+u.holds*3+u.support*2+u.reraises+Math.floor(u.debuff/30);
+      for(const u of units){
+        u.victory=Number(ratingVersion===2&&s.phase==='over'&&!s.match.partial&&u.participated&&s.winner===u.side);
+        u.ratingVersion=ratingVersion;u.ratingBreakdown=PerformanceIndex.breakdown(u,ratingVersion);u.rating=PerformanceIndex.calculate(u,ratingVersion);
+      }
       const teams=[0,1].map(side=>units.filter(u=>u.side===side).reduce((total,u)=>{for(const key of metrics)total[key]=key.startsWith('peak')?Math.max(total[key],u[key]):total[key]+u[key];return total;},{side,...empty()}));
-      return {version:4,matchId:s.matchId,seed:s.seed,arenaId:s.arenaId,winner:s.winner,complete:s.phase==='over',
+      return {version:4,ratingVersion,matchId:s.matchId,seed:s.seed,arenaId:s.arenaId,winner:s.winner,complete:s.phase==='over',
         partial:s.match?.partial??(s.round>1||s.log.some(l=>l.type==='result')),fromRound:s.match?.fromRound??s.round,exchanges:s.match?.events.length||0,units,teams};
     }
     function validatePerformance(s){
       if(!arenaById.has(s.arenaId))throw new Error('Arène invalide.');
       const m=s.match;if(m===undefined)return;
       if(!m||m.version!==1||typeof m.partial!=='boolean'||!Number.isInteger(m.fromRound)||m.fromRound<1||m.fromRound>201||!Array.isArray(m.events)||m.events.length>200)throw new Error('Bilan invalide.');
+      if(m.ratingVersion!==undefined&&![1,2].includes(m.ratingVersion))throw new Error('Version d\u2019indice invalide.');
+      const spent=new Set();
       let previous=m.fromRound-1;
       for(const e of m.events){
         if(!e||!Number.isInteger(e.round)||e.round<=previous||e.round>200||e.round>s.round||!/^[01]-[0-9]$/.test(e.attacker)||!/^[01]-[0-9]$/.test(e.target)||e.attacker[0]===e.target[0])throw new Error('Échange du bilan invalide.');
@@ -330,12 +354,20 @@
         for(const key of ['magic','kill','hold','dodge','shield','reraise','luck','refresh'])if(typeof e[key]!=='boolean')throw new Error('Événement du bilan invalide.');
         if(![null,...traitKeys].includes(e.support)||e.support&&(!/^[01]-[0-9]$/.test(e.recipient)||e.recipient[0]!==e.attacker[0])||!e.support&&e.recipient!==null)throw new Error('Soutien du bilan invalide.');
         if(e.support&&(e.attack||e.defense||e.arenaAttack||e.arenaDefense||e.ward||e.defenseRolls||e.kill||e.hold))throw new Error('Un soutien ne produit pas de combat numérique.');
+        if(e.sources!==undefined){
+          if(m.ratingVersion!==2||!e.sources||typeof e.sources!=='object'||Array.isArray(e.sources)||Object.keys(e.sources).some(k=>!['buff','ward','luck','reraise'].includes(k)))throw new Error('Sources du bilan invalides.');
+          for(const [key,source] of Object.entries(e.sources)){
+            PerformanceIndex.validateSource(m,source,key==='buff'?e.attacker:e.target,key==='buff'?[e.magic?'mana':'physical']:[key],e.round-1);
+            if(!(key==='ward'?e.wardConsumed:e[key])||e.support)throw new Error('Soutien non consomme.');
+            const id=PerformanceIndex.chargeId(source);if(spent.has(id))throw new Error('Soutien consomme deux fois.');spent.add(id);
+          }
+        }
       }
     }
     function eliminate(s) {
       const d=s.duel,p=s.players[1-d.side],u=p.board[d.targetSlot];
       if(u.reraise){
-        u.reraise=0;d.reraised=u.uid;
+        consumeTrait(s,u,'reraise','reraise');d.reraised=u.uid;
         addLog(s,'effect',`${card(u).name} consomme son cœur : Reraise, la carte reste en P${d.targetSlot+1}.`);
         return false;
       }
@@ -459,7 +491,7 @@
       }
       if(typeof value!=='number'&&value!=='death')throw new Error('Effet ATK inconnu : '+value);
       if(typeof value==='number'){
-        const key=d.magic?'mana':'physical';d.buff=u[key]||0;u[key]=0;
+        const key=d.magic?'mana':'physical';d.buff=u[key]||0;consumeTrait(s,u,key,'buff');
       }
       s.phase='defense';Equipment.commitAttack(s,card);Equipment.prepareDefense(s,card);return s;
     }
@@ -484,7 +516,7 @@
         return finish(s,killed?`${ac.name} déclenche Mort : ${bc.name} est éliminé.`:`${bc.name} consomme son cœur et survit à Mort grâce au Reraise.`);
       }
       // Keep a consumed ward on the duel, including across a saved defense reroll.
-      if(!d.magic&&!d.ward&&b.ward){d.ward=b.ward;b.ward=0;}
+      if(!d.magic&&!d.ward&&b.ward){d.ward=b.ward;consumeTrait(s,b,'ward','ward');}
       const f={baseAttack:d.attackValue,weapon:data.weapons[ac.weapon]?.[bc.weapon]||0,element:elementModifier(ac,bc),faction:synergy(s.players[d.side],a,'faction'),buff:d.buff,barrier:d.magic&&bc.element!=='NONE'&&bc.barriers.includes(die)?-rules.barrier:0,baseDefense:value,race:synergy(s.players[1-d.side],b,'race'),magic:d.magic,
         arenaAttack:arenaBonuses(s,a).attack,arenaDefense:arenaBonuses(s,b).defense,ward:d.magic?0:d.ward};
       if(s.composition){
@@ -512,7 +544,7 @@
       f.attack=Math.max(0,f.baseAttack+f.weapon+f.element+f.faction+f.buff+f.barrier+f.arenaAttack+(f.equipmentAttack||0)+(f.captainAttack||0));f.defense=Math.max(0,f.baseDefense+f.race+f.arenaDefense+f.ward+(f.equipmentDefense||0)+(f.captainDefense||0));
       const lethal=f.attack>f.defense;
       if(lethal&&b.luck){
-        b.luck=0;d.luckUsed=b.uid;d.autoDefense=true;d.failedDefense=clone(f);d.formula=clone(f);
+        consumeTrait(s,b,'luck','luck');d.luckUsed=b.uid;d.autoDefense=true;d.failedDefense=clone(f);d.formula=clone(f);
         addLog(s,'effect',`${bc.name} : DEF ${f.defense} < ATK ${f.attack}. Trèfle consommé : relance DEF automatique.`,f);
         return s;
       }
@@ -590,6 +622,14 @@
       if(!Array.isArray(s.log)||s.log.length>10000||s.log.some(l=>!l||!logTypes.includes(l.type)||!validText(l.text)||!Number.isInteger(l.n)||!Number.isInteger(l.turn)))throw new Error('Journal invalide.');
       const effects=['retry','mana','buff_atk','revive','guard','death','dodge','shield_physical','shield_magic'];
       const units=s.players.flatMap(p=>[...p.board.filter(Boolean),...p.reserve,...p.dead]);
+      const consumedSources=new Set((s.match?.events||[]).flatMap(e=>Object.values(e.sources||{}).map(PerformanceIndex.chargeId)));
+      for(const u of units)if(u.traitSources!==undefined){
+        if(s.match?.ratingVersion!==2||!u.traitSources||typeof u.traitSources!=='object'||Array.isArray(u.traitSources)||Object.keys(u.traitSources).some(k=>!traitKeys.includes(k)))throw new Error('Provenance de traits invalide.');
+        for(const [key,source] of Object.entries(u.traitSources)){
+          PerformanceIndex.validateSource(s.match,source,u.uid,[key],s.round);
+          if(!u[key]||consumedSources.has(PerformanceIndex.chargeId(source)))throw new Error('Charge de soutien deja consommee.');
+        }
+      }
       Equipment.validate(s,data.cards);
       if(s.composition!==undefined){
         const c=s.composition;
@@ -606,6 +646,17 @@
         for(const rolls of [d.attackRolls,d.defenseRolls])if(!Array.isArray(rolls)||rolls.length>1000||rolls.some(v=>!Number.isInteger(v)||v<1||v>6))throw new Error('Jets invalides.');
         for(const v of [d.attackValue,d.defenseValue])if(v!==undefined&&!(Number.isFinite(v)&&v>=0&&v<=1000)&&!effects.includes(v))throw new Error('Valeur de de invalide.');
         if(d.outcome!==undefined&&!validText(d.outcome))throw new Error('Resultat invalide.');
+        if(d.nativeSources!==undefined){
+          if(s.match?.ratingVersion!==2||!d.nativeSources||typeof d.nativeSources!=='object'||Array.isArray(d.nativeSources)||Object.keys(d.nativeSources).some(k=>!['buff','ward','luck','reraise'].includes(k)))throw new Error('Sources du duel invalides.');
+          for(const [key,source] of Object.entries(d.nativeSources)){
+            PerformanceIndex.validateSource(s.match,source,key==='buff'?d.attacker:d.target,key==='buff'?[d.magic?'mana':'physical']:[key],s.round);
+            if(!(key==='luck'?d.luckUsed:key==='reraise'?d.reraised:d[key]))throw new Error('Source non utilisee.');
+            if(consumedSources.has(PerformanceIndex.chargeId(source))){
+              const last=s.match.events.at(-1),recorded=last?.sources?.[key];
+              if(d===s.duel&&!['result','replace','over'].includes(s.phase)||!d.outcome||last?.attacker!==d.attacker||last?.target!==d.target||!recorded||Object.keys(source).some(k=>source[k]!==recorded[k]))throw new Error('Source de soutien deja consommee.');
+            }
+          }
+        }
         if(![0,60].includes(d.buff)||![0,60].includes(d.ward)||d.ward&&(d.magic||typeof d.attackValue!=='number'||!d.defenseRolls.length))throw new Error('Trait consommé invalide.');
         const author=card(units.find(u=>u.uid===d.attacker));
         if(d.kalistelUsed!==undefined&&(d.kalistelUsed!==true||!s.kalistel||d.attackRolls.length!==2||!s.kalistel.spent.some(use=>use.side===d.side)))throw new Error('Relance Kalistel invalide.');
@@ -692,5 +743,11 @@
     }
     return {data,rules,byId,card,trait,traits,clone,dieValue,mean,lineup,deckCoverage,validateDeck,validatePlayableDeck,validateComposition,captainUnit,captainBonus,newGame,deploy,recall,autoDeploy,start,rollInitiative,turnPreview:TurnOrder.preview,synergy,elementModifier,lock,rollAttack,acceptAttack,useKalistel,kalistelRemaining,aiUseKalistel,rollDefense,grantClover,grantPotion,grantPhysical,grantReraise,grantGuard,aiCloverChoice,aiPotionChoice,aiPhysicalChoice,aiReraiseChoice,aiGuardChoice,arenaBonuses,setArena,next,aiChoice,assertState,restoreGame,matchStats,instanceId,equipmentView,equipmentViews,equipmentModifier,equipmentChoice,grantEquipment,aiEquipmentChoice};
   }
-  return {createEngine,clone,dieValue,mean};
+  function createArchiveEngine(data,archive){
+    const {profiles,rules,arenas}=archive||{},current=new Map(data.cards.map(c=>[c.id,c]));
+    if(!Array.isArray(profiles)||!profiles.length||profiles.length>1000||profiles.some(p=>!p||!current.has(p.id)||p.characterId!==current.get(p.id).characterId)||!rules||typeof rules.version!=='string')throw new Error('Profils historiques invalides.');
+    if(!Array.isArray(arenas)||!arenas.length||arenas.length>1000||arenas.some(a=>!a||['name','subtitle','image','source'].some(k=>typeof a[k]!=='string'||a[k].length>10000)))throw new Error('Arenes historiques invalides.');
+    return createEngine({...data,cards:clone(profiles),demo:clone(rules),arenas:clone(arenas)});
+  }
+  return {createEngine,createArchiveEngine,clone,dieValue,mean};
 });

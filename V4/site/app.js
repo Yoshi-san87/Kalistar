@@ -377,7 +377,7 @@ function showDeck(){setView('decks');}
     const battleScroll=state===reportGame&&$('#match-dialog .match-report')?.dataset.tab==='battle'?$('#match-dialog .match-view').scrollTop:0;
     if(state!==reportGame){statsTab=state?.phase==='over'?'awards':'lineup';statsPage=0;statsGroup='core';statsAward=0;statsSpotlight='rating';statsSide='all';statsBattle=null;}
     reportGame=state;reportArchive=archive;
-    if(state)modal('match-dialog',head(state.phase==='over'?'Palmarès de la rencontre':'Statistiques du match')+KalistarMatchReport.render(state,{sort:statsSort,side:statsSide,tab:statsTab,page:statsPage,group:statsGroup,award:statsAward,spotlight:statsSpotlight,battle:statsBattle,profiles:archive?.profiles,arenas:archive?.arenas}));
+    if(state)modal('match-dialog',head(state.phase==='over'?'Palmarès de la rencontre':'Statistiques du match')+KalistarMatchReport.render(state,{sort:statsSort,side:statsSide,tab:statsTab,page:statsPage,group:statsGroup,award:statsAward,spotlight:statsSpotlight,battle:statsBattle,profiles:archive?.profiles,arenas:archive?.arenas,rules:archive?.rules}));
     if(statsTab==='battle')$('#match-dialog .match-view').scrollTop=battleScroll;
     if(focusAction){
       const controls=[...$('#match-dialog').querySelectorAll('[data-action]')].filter(b=>b.dataset.action===focusAction&&!b.disabled&&b.getClientRects().length);

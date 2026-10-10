@@ -101,6 +101,7 @@ jobs:
           node --test V4/site/navigation.test.cjs
           node --test V4/site/factions.test.cjs
           node --test V4/site/ui-system.test.cjs
+          node --test V4/site/performance-index.test.cjs
           node --test V4/site/story-content.test.cjs
       - name: Build playable release
         run: node V4/deploy/build.cjs

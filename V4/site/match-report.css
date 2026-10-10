@@ -396,6 +396,20 @@
 /* Keep full identities outside the value column, including five-digit totals. */
 #match-dialog :is(.match-mvp,.match-award) .award-identity { padding-right: calc(var(--award-value-width) + var(--award-value-inset) + var(--award-value-gap)); }
 #match-dialog :is(.match-mvp,.match-award) .award-value { max-width: var(--award-value-width); margin-right: var(--award-value-inset); }
+#match-dialog .match-index-detail { position: relative; display: inline-block; text-align: left; }
+#match-dialog .match-index-detail summary { display: flex; align-items: center; justify-content: end; gap: 4px; min-height: 44px; cursor: pointer; list-style: none; }
+#match-dialog .match-index-detail summary::-webkit-details-marker { display: none; }
+#match-dialog .match-index-detail summary .lucide { width: 14px; height: 14px; }
+#match-dialog .match-index-detail summary:focus-visible { outline: 2px solid var(--ui-gold,#e7c780); outline-offset: 2px; }
+#match-dialog .match-index-points { width: 225px; max-width: 100%; padding: 12px; border: 1px solid #b18766; background: #102322; color: #f1eadc; font: 12px/1.5 Arial,sans-serif; box-shadow: 0 8px 25px #0008; }
+#match-dialog .match-index-points > b { font-family: Cinzel,serif; font-size: 13px; }
+#match-dialog .match-index-points dl { margin: 8px 0; display: block; }
+#match-dialog .match-index-points dl > div { display: flex; justify-content: space-between; gap: 10px; }
+#match-dialog .match-index-points dd { margin: 0; font-weight: 700; color: #a9e5dc; }
+#match-dialog .match-index-points strong { display: flex; justify-content: space-between; border-top: 1px solid #b1876670; padding-top: 6px; }
+#match-dialog .golden-result .match-index-points { position: absolute; z-index: 12; right: 0; bottom: 100%; max-width: none; }
+#match-dialog .golden-result:has(.match-index-detail[open]) { position: relative; z-index: 12; }
+#match-dialog .match-index-version { color: #d3b88e; }
 @media (prefers-reduced-motion: reduce) {
   #match-dialog *,#match-dialog *::before,#match-dialog *::after { animation: none !important; transition: none !important; }
 }

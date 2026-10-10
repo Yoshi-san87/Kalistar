@@ -49,6 +49,15 @@ temporaires du presse-papiers ou les preferences non encore documentees.
 
 ## Reperes techniques
 
+### Indice et MVP : 10 octobre 2026
+
+Lire [INDICE_PERFORMANCE.md](../V4/docs/INDICE_PERFORMANCE.md). Les nouvelles
+parties versionnent l'indice 2, avec ATK/DEF, victoire, assists causales et
+consommations natives creditees au donneur stable. Les anciennes parties
+gardent leur note et leur MVP ; aucun donneur n'est invente, aucun reset de
+collection. La formule n'altere pas les combats. Les simulations distinguent
+mesures automatiques et limites d'equilibrage, sans changer les coefficients.
+
 ### Trois emplacements d'equipement : V4.6.0
 
 Lire [EQUIPEMENTS_460.md](../V4/docs/EQUIPEMENTS_460.md) et les regles actuelles.

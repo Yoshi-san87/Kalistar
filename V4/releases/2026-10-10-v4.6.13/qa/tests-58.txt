@@ -1,0 +1,33 @@
+✔ official coefficients, example 39 and individual contribution points (0.883ms)
+✔ victory only after conclusion, including dead participants but not unused reserve, loss or draw (64.504ms)
+✔ new reraise support and self support score once, refresh preserves donor (4.7444ms)
+✔ new luck support and self support score once, refresh preserves donor (3.9857ms)
+✔ new mana support and self support score once, refresh preserves donor (3.0008ms)
+✔ new physical support and self support score once, refresh preserves donor (3.0595ms)
+✔ new ward support and self support score once, refresh preserves donor (3.7368ms)
+✔ causal physical charge credits exactly one donor assist (4.8739ms)
+✔ causal mana charge credits exactly one donor assist (4.8173ms)
+✔ noncausal, self buff, dodge and Reraise never create an assist (9.1385ms)
+✔ Clover use credits original donor, unused and native retry do not (5.2762ms)
+✔ Clover provenance survives reload between failed and final defense (2.6903ms)
+✔ Reraise saves life and credits donor, not consumer; untriggered heart gives no use points (2.7084ms)
+✔ dead donor and replacement keep stable UIDs, with no inherited support (5.0483ms)
+✔ Kalistel abandoned roll neither consumes source nor doubles ATK; support has no numeric scores (2.7004ms)
+✔ dead original donor receives cloversConsumedByRecipients after another giver refreshes the charge (2.5457ms)
+✔ dead original donor receives reraisesConsumedByRecipients after another giver refreshes the charge (3.2522ms)
+✔ self-given Clover and Reraise receive use points without a self assist (4.7081ms)
+✔ ward consumed on a failed numeric attempt remains traceable if Clover ends with dodge (2.7266ms)
+✔ special Mort Reraise records use, never numeric ATK or fabricated assists (2.8976ms)
+✔ legacy and in-progress unversioned matches retain original rating and no fabricated sources (2.7187ms)
+✔ forged donor, charge replay, unsupported version and stale active provenance are rejected (2.5939ms)
+✔ pending duel cannot replay a consumed source; completed snapshots remain restorable (2.7131ms)
+✔ historical card faces validate with their snapshot without changing legacy rating or MVP (9.018ms)
+✔ support MVP without kills, losing-team MVP and legacy/new deterministic tiebreaks (0.1665ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 257.0306
