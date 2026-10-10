@@ -40,7 +40,9 @@ test('Collection aliases, approved banner and two full playable formations',asyn
   const twins=M.decks[1].map(id=>id==='49901401'?'49900101':id);
   assert(E.validatePlayableDeck(twins).some(s=>/version|personnage/i.test(s)));
   const batman=data.cards.filter(c=>c.faction==='Batman');assert.equal(batman.length,11);assert(batman.every(c=>c.element!=='NONE'));
-  assert.equal(data.cards.filter(c=>c.faction==='XMEN').length,7);
+  // Verify this original batch without forbidding later X-Men publications.
+  const originalXmen=set.cards.filter(c=>c.faction==='XMEN').map(c=>c.id);
+  assert.deepEqual(data.cards.filter(c=>c.faction==='XMEN'&&originalXmen.includes(c.id)).map(c=>c.id).sort(),originalXmen.slice().sort());
 });
 
 test('All 90 ATK faces apply numeric attacks, death or the right support category',async()=>{

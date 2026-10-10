@@ -40,6 +40,8 @@ jobs:
         run: git lfs pull --include="V4/creations/499017*/illustration.png,V4/propositions/2026-10-09-street-fighter/images/*.png" --exclude=""
       - name: Fetch Castlevania approved artwork proofs
         run: git lfs pull --include="V4/creations/499018*/illustration.png,V4/propositions/2026-10-09-castlevania/images/*.png" --exclude=""
+      - name: Fetch Le Fauve supplied artwork proof
+        run: git lfs pull --include="V4/creations/49901901/illustration.png,V4/expansions/2026-10-10-le-fauve/art/le-fauve.png" --exclude=""
       - name: Install equipment media verifier
         run: npm install --prefix "$RUNNER_TEMP/kalistar-media-qa" --no-package-lock --ignore-scripts --no-audit --no-fund sharp@0.35.4
       - name: Check catalogue and mechanics
@@ -67,6 +69,7 @@ jobs:
           node --test V4/revisions/2026-10-09-homme-mystere/integration.test.cjs
           node --test V4/expansions/2026-10-09-street-fighter/integration.test.cjs V4/expansions/2026-10-09-street-fighter/publication.test.cjs
           node --test V4/expansions/2026-10-10-castlevania/integration.test.cjs V4/expansions/2026-10-10-castlevania/publication.test.cjs
+          node --test V4/expansions/2026-10-10-le-fauve/integration.test.cjs
           node --test V4/revisions/2026-10-06-balmhyr-durane/revision.test.cjs
           node --test V4/revisions/2026-10-01-stat-personality/revision.test.cjs
           node --test V4/expansions/2026-10-01-rikka-rooftops/model.test.cjs
