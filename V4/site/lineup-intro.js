@@ -42,7 +42,13 @@
       return new Promise(resolve=>{const item={timer:null,finish:()=>{clearTimeout(item.timer);waiters.delete(item);resolve(active);}};waiters.add(item);item.timer=setTimeout(item.finish,ms);});
     }
     function animate(node,frames,options){
-      const a=node.animate(frames,options);animations.add(a);a.finished.catch(()=>{});return a;
+      if(!frames)return null;
+      try{const a=node.animate(frames,options);animations.add(a);a.finished.catch(()=>{});return a;}
+      catch(error){console.warn('Lineup animation:',error);return null;}
+    }
+    function travelFrames(from,to){
+      if(![from.left,from.top,from.width,from.height,to.left,to.top,to.width,to.height].every(Number.isFinite)||to.width<=0||to.height<=0)return null;
+      return [{transform:`translate(${from.left-to.left}px,${from.top-to.top}px) scale(${from.width/to.width},${from.height/to.height})`},{transform:'none'}];
     }
     function setRect(node,r){Object.assign(node.style,{left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px'});}
     function cardRect(card){return card.node.getBoundingClientRect();}
@@ -60,14 +66,21 @@
     function move(node,target,duration){
       if(!active)return Promise.resolve(false);
       return new Promise(resolve=>{
-        const deadline=performance.now()+duration;let animation=null;
+        const deadline=performance.now()+duration;let animation=null,revision=0;
+        // A mobile compositor may refuse/cancel a flight; keep the reading sequence and its deadline.
+        async function settle(token){
+          if(!await wait(Math.max(0,deadline-performance.now()))||token!==revision)return;
+          animation?.cancel();movers.delete(node);resolve(active);
+        }
         const job={retarget(){
+          const token=++revision;
           const from=node.getBoundingClientRect(),to=target(),remaining=Math.max(0,deadline-performance.now());
           animation?.cancel();setRect(node,to);
           if(!remaining||reduced){movers.delete(node);resolve(active);return;}
-          animation=animate(node,[{transform:`translate(${from.left-to.left}px,${from.top-to.top}px) scale(${from.width/to.width},${from.height/to.height})`},{transform:'none'}],{duration:remaining,easing:'cubic-bezier(.22,.7,.2,1)',fill:'both'});
-          const current=animation;current.finished.then(()=>{if(animation!==current)return;current.cancel();movers.delete(node);resolve(active);},()=>{});
-        },cancel(){animation?.cancel();movers.delete(node);resolve(false);}};
+          animation=animate(node,travelFrames(from,to),{duration:remaining,easing:'cubic-bezier(.22,.7,.2,1)',fill:'both'});
+          if(!animation){void settle(token);return;}
+          const current=animation;current.finished.then(()=>{if(token!==revision||!active)return;current.cancel();movers.delete(node);resolve(active);},()=>{if(token===revision&&active)void settle(token);});
+        },cancel(){revision++;animation?.cancel();movers.delete(node);resolve(false);}};
         movers.set(node,job);job.retarget();
       });
     }
@@ -129,7 +142,8 @@
         if(!dockDuration)return;
         parts.forEach((part,i)=>{
           const from=before[i],to=part.getBoundingClientRect();
-          const a=animate(part,[{transform:`translate(${from.left-to.left}px,${from.top-to.top}px) scale(${from.width/to.width},${from.height/to.height})`},{transform:'none'}],{duration:dockDuration,easing:'cubic-bezier(.22,.7,.2,1)'});
+          const a=animate(part,travelFrames(from,to),{duration:dockDuration,easing:'cubic-bezier(.22,.7,.2,1)'});
+          if(!a)return;
           clueFlights.add(a);a.finished.then(()=>{a.cancel();animations.delete(a);clueFlights.delete(a);},()=>{animations.delete(a);clueFlights.delete(a);});
         });
       });
@@ -205,7 +219,7 @@
           for(const kind of clueKinds){clue(kind);if(!await wait(t[kind]-dockDuration))return;dockClue(kind);if(!await wait(dockDuration))return;}
           mark('suspense');root.classList.add('li-dim');if(!await wait(t.suspense))return;
           mark('flip');
-          actors.forEach(n=>{n.classList.add('is-flipping');if(!reduced)animate(n.querySelector('.li-rotor'),[{transform:'rotateY(0deg)'},{transform:'rotateY(180deg)'}],{duration:t.flip,easing:'ease-in-out',fill:'forwards'});else n.classList.add('is-revealed');});
+          actors.forEach(n=>{n.classList.add('is-flipping');if(!reduced){const rotor=n.querySelector('.li-rotor');if(!animate(rotor,[{transform:'rotateY(0deg)'},{transform:'rotateY(180deg)'}],{duration:t.flip,easing:'ease-in-out',fill:'forwards'}))rotor.style.transform='rotateY(180deg)';}else n.classList.add('is-revealed');});
           if(!await wait(t.flip/2))return;
           root.classList.remove('li-dim');if(!reduced){root.classList.add('li-reveal-accent');animate(root.querySelector('.li-shade'),[{opacity:.7},{opacity:.38},{opacity:.58}],{duration:150});}
           if(!await wait(t.flip/2))return;
