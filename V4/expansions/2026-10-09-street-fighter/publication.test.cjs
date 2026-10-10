@@ -26,7 +26,8 @@ test('Fei Long uses the approved midpoint correction, only artwork differs',()=>
 test('The previous catalogue remains identical, including the later authorized rename',()=>{
  const old=require('./before.json').catalogue.cards,{previousEntry}=require('../../revisions/2026-10-09-homme-mystere/compatibility.cjs');
  for(const c of old)assert.deepEqual(previousEntry(cat.cards.find(n=>n.id===c.id)),c);
- assert.equal(cat.cards.length,old.length+18);
+ // Later collections may be added; every old entry and all 18 SF entries remain checked above.
+ assert(cat.cards.length>=old.length+18);
 });
 test('The Street Fighter banner has its own working asset and collection scope',()=>{
  const C=require('../../site/collaborations.js'),binder=require('../../site/collection-binder.js');

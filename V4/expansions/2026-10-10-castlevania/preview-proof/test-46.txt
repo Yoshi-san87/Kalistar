@@ -1,0 +1,17 @@
+Cohesion campaign (300 legal teams): {"means":[30.88,75.26,183.16],"separated":100}
+✔ all levels produce legal, distinct, fully covered teams without altering native cards (184.8452ms)
+✔ selection is deterministic, isolated from combat dice, and survives game restore (30.577ms)
+✔ a 100-seed campaign proves increasing cohesion, not guaranteed victories (1069.0445ms)
+✔ restricted pools remain legal; impossible pools and invalid levels fail closed (105.147ms)
+✔ arena draw always selects a real other arena; empty and single pools are explicit (0.7033ms)
+✔ shuffle settles once, prevents overlapping requests and clears all timers (4.5682ms)
+✔ close, cancel, disconnected targets and destruction never settle a discarded draw (3.3344ms)
+✔ Reduced Motion skips all shuffle frames and settles quickly (0.782ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1489.7464

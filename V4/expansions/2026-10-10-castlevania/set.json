@@ -1,0 +1,412 @@
+{
+  "id": "2026-10-10-castlevania",
+  "officialCollaboration": false,
+  "arenas": [],
+  "presets": [],
+  "cards": [
+    {
+      "key": "trevor-belmont",
+      "id": "49901801",
+      "characterId": "trevor-belmont-castlevania",
+      "name": "TREVOR BELMONT",
+      "title": "LE DERNIER PAS AVANT L'IMPACT",
+      "job": "CHASSEUR",
+      "description": "Trevor avance sur le pont, le corps use mais la main ferme. Il raille encore la nuit pour ne pas lui ceder. Derriere le fouet de sa famille, quelques vivants trouvent le temps de fuir.",
+      "element": "LUXO",
+      "race": "HUMAIN",
+      "weapon": "Fouet",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        289,
+        218,
+        181,
+        134,
+        "buff_atk",
+        28
+      ],
+      "defense": [
+        166,
+        135,
+        101,
+        "dodge",
+        42,
+        18
+      ],
+      "magic": [
+        6
+      ],
+      "barriers": [
+        5
+      ],
+      "faction": "CASTLEVANIA",
+      "collaboration": "CASTLEVANIA",
+      "artworkSource": "V4/propositions/2026-10-09-castlevania/images/trevor-belmont-v2.png",
+      "rationale": "Frappe physique, un eclat sacre sur D6, esquive et soutien physique en renoncant a D2."
+    },
+    {
+      "key": "alucard",
+      "id": "49901802",
+      "characterId": "alucard-castlevania",
+      "name": "ALUCARD",
+      "title": "CE QU'IL RESTE A PROTEGER",
+      "job": "ESCRIMEUR",
+      "description": "Alucard pare sous la lune, sans haine pour celui qui frappe. Chaque geste lui rappelle son pere, chaque vie sauvee sa mere. Entre deux heritages, il choisit encore le monde des vivants.",
+      "element": "LUXO",
+      "race": "VAMP",
+      "weapon": "Epée longue",
+      "role": 3,
+      "positions": [
+        1,
+        2,
+        3
+      ],
+      "atk": [
+        231,
+        187,
+        143,
+        99,
+        69,
+        33
+      ],
+      "defense": [
+        226,
+        191,
+        "dodge",
+        105,
+        72,
+        31
+      ],
+      "magic": [
+        5,
+        3
+      ],
+      "barriers": [
+        6
+      ],
+      "faction": "CASTLEVANIA",
+      "collaboration": "CASTLEVANIA",
+      "artworkSource": "V4/propositions/2026-10-09-castlevania/images/alucard-v2.png",
+      "rationale": "Demi-vampire classe VAMP sans nouvelle race. Escrime polyvalente, esquive D4, defense reguliere et magie selective."
+    },
+    {
+      "key": "simon-belmont",
+      "id": "49901803",
+      "characterId": "simon-belmont-castlevania",
+      "name": "SIMON BELMONT",
+      "title": "LA FORCE D'UNE PROMESSE",
+      "job": "CHASSEUR",
+      "description": "Simon tend le cuir du fouet et mesure la porte devant lui. Il ne promet ni retour ni victoire facile. Seulement de tenir assez longtemps pour que la peur cesse de choisir a la place des hommes.",
+      "element": "GEO",
+      "race": "HUMAIN",
+      "weapon": "Fouet",
+      "role": 1,
+      "positions": [
+        1,
+        2
+      ],
+      "atk": [
+        204,
+        151,
+        121,
+        91,
+        "guard",
+        22
+      ],
+      "defense": [
+        288,
+        223,
+        178,
+        124,
+        83,
+        43
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "faction": "CASTLEVANIA",
+      "collaboration": "CASTLEVANIA",
+      "artworkSource": "V4/propositions/2026-10-09-castlevania/images/simon-belmont.png",
+      "rationale": "Tank principal solide ; garde physique D2, attaque moderee. Son endurance exprime le poids de l'heritage Belmont."
+    },
+    {
+      "key": "carmilla",
+      "id": "49901804",
+      "characterId": "carmilla-castlevania",
+      "name": "CARMILLA",
+      "title": "LE PRIX DE LA COURONNE",
+      "job": "SOUVERAINE",
+      "description": "Carmilla quitte le trone avant que le silence ne ressemble a un ordre. Sa lame dessine deja le royaume qu'elle exige. Elle ne supporte pas les chaines, surtout lorsqu'elles portent un autre nom.",
+      "element": "HEMATO",
+      "race": "VAMP",
+      "weapon": "Epée longue",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        283,
+        243,
+        163,
+        "death",
+        83,
+        32
+      ],
+      "defense": [
+        153,
+        138,
+        99,
+        73,
+        "retry",
+        19
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "faction": "CASTLEVANIA",
+      "collaboration": "CASTLEVANIA",
+      "artworkSource": "V4/propositions/2026-10-09-castlevania/images/carmilla.png",
+      "rationale": "Assaut implacable, Mort D3 contre une face physique perdue ; defense basse et une relance, aucun cumul d'effets nouveaux."
+    },
+    {
+      "key": "isaac",
+      "id": "49901805",
+      "characterId": "isaac-castlevania",
+      "name": "ISAAC",
+      "title": "CHOISIR CE QUE L'ON DEVIENT",
+      "job": "MAITRE FORGERON",
+      "description": "Isaac contemple l'etincelle au creux de sa main. On lui a appris a obeir, puis a hair. Devant cette lueur fragile, il decouvre une question plus difficile : que veut-il construire apres la vengeance ?",
+      "element": "NECRO",
+      "race": "HUMAIN",
+      "weapon": "Dague",
+      "role": 4,
+      "positions": [
+        3,
+        4,
+        5
+      ],
+      "atk": [
+        276,
+        212,
+        184,
+        "mana",
+        68,
+        36
+      ],
+      "defense": [
+        169,
+        131,
+        101,
+        65,
+        "retry",
+        17
+      ],
+      "magic": [
+        6,
+        5,
+        4
+      ],
+      "barriers": [
+        6
+      ],
+      "faction": "CASTLEVANIA",
+      "collaboration": "CASTLEVANIA",
+      "artworkSource": "V4/propositions/2026-10-09-castlevania/images/isaac.png",
+      "rationale": "Forge magique offensive et potion D3 ; ni invocation autonome ni resurrection inventee."
+    },
+    {
+      "key": "hector",
+      "id": "49901806",
+      "characterId": "hector-castlevania",
+      "name": "HECTOR",
+      "title": "LA MAIN QUI PEUT ENCORE CREER",
+      "job": "MAITRE FORGERON",
+      "description": "Hector retient son marteau au-dessus de l'enclume. Le pouvoir de donner une forme ne dit pas a qui elle servira. Cette fois, il veut que ses mains fabriquent un refuge, et non une nouvelle prison.",
+      "element": "MINERO",
+      "race": "HUMAIN",
+      "weapon": "Marteau",
+      "role": 5,
+      "positions": [
+        1,
+        3,
+        5
+      ],
+      "atk": [
+        168,
+        123,
+        97,
+        "guard",
+        "revive",
+        22
+      ],
+      "defense": [
+        201,
+        161,
+        128,
+        89,
+        54,
+        29
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "faction": "CASTLEVANIA",
+      "collaboration": "CASTLEVANIA",
+      "artworkSource": "V4/propositions/2026-10-09-castlevania/images/hector.png",
+      "rationale": "Soutien P5 : garde et Reraise preventif existants ; aucune resurrection du cimetiere. Faibles scores ATK en contrepartie."
+    },
+    {
+      "key": "dracula-feu",
+      "id": "49901807",
+      "characterId": "dracula-castlevania",
+      "name": "DRACULA",
+      "title": "LE SILENCE APRES LA COLERE",
+      "job": "SEIGNEUR",
+      "description": "Dracula regarde la flamme comme on attend une reponse d'une maison vide. Sa main serre encore le dossier de la chaise. Tout son pouvoir ne sait pas rendre une voix a celle qui n'y prendra plus place.",
+      "element": "PYRO",
+      "race": "VAMP",
+      "weapon": "Orbe",
+      "role": 4,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        298,
+        222,
+        174,
+        129,
+        77,
+        "mana"
+      ],
+      "defense": [
+        161,
+        124,
+        109,
+        72,
+        41,
+        22
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "faction": "CASTLEVANIA",
+      "collaboration": "CASTLEVANIA",
+      "artworkSource": "V4/propositions/2026-10-09-castlevania/images/dracula.png",
+      "rationale": "Feu : mage P4, quatre faces magiques, potion D1 et defense vulnerable ; puissance sans Mort automatique."
+    },
+    {
+      "key": "sypha",
+      "id": "49901808",
+      "characterId": "sypha-castlevania",
+      "name": "SYPHA BELNADES",
+      "title": "UNE ETINCELLE CONTRE LA NUIT",
+      "job": "ORATRICE",
+      "description": "Sypha tient le froid dans une main et la colere dans l'autre. Elle pourrait laisser la nuit engloutir ces pierres. Mais quelqu'un respire encore derriere elle, et cela suffit pour qu'elle reste.",
+      "element": "CRYO",
+      "race": "HUMAIN",
+      "weapon": "Orbe",
+      "role": 5,
+      "positions": [
+        4,
+        5
+      ],
+      "atk": [
+        176,
+        124,
+        99,
+        "mana",
+        "retry",
+        23
+      ],
+      "defense": [
+        195,
+        152,
+        132,
+        87,
+        59,
+        "dodge"
+      ],
+      "magic": [
+        6,
+        5,
+        4
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "faction": "CASTLEVANIA",
+      "collaboration": "CASTLEVANIA",
+      "artworkSource": "V4/propositions/2026-10-09-castlevania/images/sypha.png",
+      "rationale": "Glace pour sa maitrise et sa protection ; potion et trefle de soutien, esquive D1. La flamme illustree n'ajoute pas un second cristal."
+    },
+    {
+      "key": "dracula-sang",
+      "id": "49901809",
+      "characterId": "dracula-castlevania",
+      "name": "DRACULA",
+      "title": "QUAND LE DEUIL DEVIENT FAIM",
+      "job": "SEIGNEUR",
+      "description": "La patience de Dracula se brise sur les marches. Il n'attend plus que le monde comprenne sa peine : il vient la lui imposer. Sous la fureur, la meme absence demeure, immense et impossible a rassasier.",
+      "element": "HEMATO",
+      "race": "VAMP",
+      "weapon": "Poing",
+      "role": 2,
+      "positions": [
+        2,
+        4
+      ],
+      "atk": [
+        296,
+        224,
+        "death",
+        122,
+        83,
+        29
+      ],
+      "defense": [
+        154,
+        126,
+        93,
+        66,
+        43,
+        18
+      ],
+      "magic": [
+        6,
+        3
+      ],
+      "barriers": [
+        5
+      ],
+      "faction": "CASTLEVANIA",
+      "collaboration": "CASTLEVANIA",
+      "artworkSource": "V4/propositions/2026-10-09-castlevania/images/dracula-sang.png",
+      "rationale": "Sang : assaut P2 expose, Mort D4 au prix d'une forte face numerique ; moins de magie et de defense que Feu. Meme characterId."
+    }
+  ]
+}

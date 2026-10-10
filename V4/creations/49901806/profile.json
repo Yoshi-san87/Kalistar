@@ -1,0 +1,64 @@
+{
+  "name": "HECTOR",
+  "title": "LA MAIN QUI PEUT ENCORE CREER",
+  "job": "MAITRE FORGERON",
+  "description": "Hector retient son marteau au-dessus de l'enclume. Le pouvoir de donner une forme ne dit pas a qui elle servira. Cette fois, il veut que ses mains fabriquent un refuge, et non une nouvelle prison.",
+  "element": "MINERO",
+  "race": "HUMAIN",
+  "weapon": "Marteau",
+  "faction": "CASTLEVANIA",
+  "positions": [
+    1,
+    3,
+    5
+  ],
+  "atk": [
+    168,
+    123,
+    97,
+    "guard",
+    "revive",
+    22
+  ],
+  "defense": [
+    201,
+    161,
+    128,
+    89,
+    54,
+    29
+  ],
+  "magic": [
+    5
+  ],
+  "barriers": [
+    6,
+    4
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49901806",
+  "characterId": "hector-castlevania",
+  "slug": "V4_49901806",
+  "output": "KALISTAR_V4_49901806",
+  "text": "Hector retient son marteau au-dessus de l'enclume. Le pouvoir de donner une forme ne dit pas a qui elle servira. Cette fois, il veut que ses mains fabriquent un refuge, et non une nouvelle prison.",
+  "color": "B3BFCA",
+  "hue": 210,
+  "weapon_index": 1,
+  "role": 5,
+  "sentry": true,
+  "canGuard": true,
+  "canHeal": true,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Kalistar x Castlevania - fan crossover non officiel",
+  "visual_revision": "V4-2026-10-10-castlevania",
+  "collaboration": "CASTLEVANIA",
+  "officialCollaboration": false,
+  "artworkSource": "V4/propositions/2026-10-09-castlevania/images/hector.png"
+}
