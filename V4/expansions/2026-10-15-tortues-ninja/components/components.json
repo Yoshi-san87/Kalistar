@@ -1,0 +1,184 @@
+{
+  "races": {
+    "FACOCHE": {
+      "left": 711,
+      "top": 1116,
+      "width": 96,
+      "height": 95,
+      "source": "V4\\expansions\\2026-10-15-tortues-ninja\\components\\source-FACOCHE.png",
+      "sourceHash": "ffd154c6787dd652ac95f591729cc4142852046dd523b8b2cad4e657b5c17249",
+      "sha256": "058ce8dc75922ba00624e726bdf0ced87c1ebac967ac6ccf4e7c39fbdd83dbf3",
+      "nativeEmail": "V4\\collaborations\\ff7-set-01\\weapon-email-native.png",
+      "nativeEmailHash": "c6ef219cbe72e7addf544d52fac5e047e4eda5552bda1d2f985c84e250ce3bd6",
+      "crop": {
+        "left": 0,
+        "top": 33,
+        "width": 1248,
+        "height": 1221
+      },
+      "placement": {
+        "left": 14,
+        "top": 18
+      },
+      "sourceMetrics": {
+        "fullBounds": [
+          0,
+          33,
+          1248,
+          1254
+        ],
+        "visibleBounds": [
+          79,
+          40,
+          1191,
+          1200
+        ],
+        "centroid": [
+          656.0257079356626,
+          585.7998602689265
+        ],
+        "optical": [
+          648.6667101581806,
+          597.7699091748023
+        ],
+        "fullAlphaRadius": 1634.3488764642634,
+        "opticalError": 814.6149210734461,
+        "visibleAlphaThreshold": 16
+      },
+      "metrics": {
+        "fullBounds": [
+          16,
+          18,
+          78,
+          81
+        ],
+        "visibleBounds": [
+          18,
+          18,
+          76,
+          79
+        ],
+        "centroid": [
+          48.15524562884234,
+          46.98603247293499
+        ],
+        "optical": [
+          47.75090965874752,
+          47.51592110740774
+        ],
+        "fullAlphaRadius": 38.66846260197062,
+        "opticalError": 0.24959863734877896,
+        "visibleAlphaThreshold": 16
+      },
+      "motif": "V4\\expansions\\2026-10-15-tortues-ninja\\components\\race-FACOCHE.motif.png",
+      "motifHash": "c13fb8efef6e310e0f5e77c697c7a57df2140f141acc505dbabe249c08126dd2",
+      "opticalTarget": [
+        759,
+        1163.5
+      ],
+      "measuredOpticalCenter": [
+        758.7509096587476,
+        1163.5159211074078
+      ],
+      "radiusLimit": 39,
+      "opticalTolerance": 0.75,
+      "method": "65% visible luminance-alpha centroid / 35% visible bounds centre; full nonzero alpha contour contained; visible alpha >=16"
+    },
+    "TORTUGA": {
+      "left": 711,
+      "top": 1116,
+      "width": 96,
+      "height": 95,
+      "source": "V4\\expansions\\2026-10-15-tortues-ninja\\components\\source-turtle.png",
+      "sourceHash": "e15aadecb752abed4e01364c8c1271688d69c90033a8681659ec0cc1d05991ad",
+      "sha256": "6a5ff49f73474d309802935d1ef1c1d407c804714c847a53885ecd445389ef79",
+      "nativeEmail": "V4\\collaborations\\ff7-set-01\\weapon-email-native.png",
+      "nativeEmailHash": "c6ef219cbe72e7addf544d52fac5e047e4eda5552bda1d2f985c84e250ce3bd6",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "width": 1222,
+        "height": 1236
+      },
+      "placement": {
+        "left": 7,
+        "top": 10
+      },
+      "sourceMetrics": {
+        "fullBounds": [
+          0,
+          0,
+          1222,
+          1236
+        ],
+        "visibleBounds": [
+          98,
+          106,
+          1172,
+          1154
+        ],
+        "centroid": [
+          654.8618672148317,
+          573.8115718441734
+        ],
+        "optical": [
+          647.9102136896406,
+          593.4775216987127
+        ],
+        "fullAlphaRadius": 1667.762647980821,
+        "opticalError": 811.1619558937774,
+        "visibleAlphaThreshold": 16
+      },
+      "metrics": {
+        "fullBounds": [
+          11,
+          14,
+          85,
+          86
+        ],
+        "visibleBounds": [
+          13,
+          16,
+          82,
+          84
+        ],
+        "centroid": [
+          48.81456728564113,
+          46.665001527722474
+        ],
+        "optical": [
+          48.35446873566674,
+          47.83225099301961
+        ],
+        "fullAlphaRadius": 38.82331773560833,
+        "opticalError": 0.4858382518160731,
+        "visibleAlphaThreshold": 16
+      },
+      "motif": "V4\\expansions\\2026-10-15-tortues-ninja\\components\\race-TORTUGA.motif.png",
+      "motifHash": "79feaf4cf3dc26f3f66257553c71ec5944aa71a244e35e3e5571eb8cdc574140",
+      "opticalTarget": [
+        759,
+        1163.5
+      ],
+      "measuredOpticalCenter": [
+        759.3544687356667,
+        1163.8322509930197
+      ],
+      "radiusLimit": 39,
+      "opticalTolerance": 0.75,
+      "method": "65% visible luminance-alpha centroid / 35% visible bounds centre; full nonzero alpha contour contained; visible alpha >=16"
+    }
+  },
+  "faction": {
+    "id": "TMNT",
+    "geometry": {
+      "left": 672,
+      "top": 829,
+      "width": 98,
+      "height": 223
+    },
+    "sourceHash": "77df4807f8f45fcb8b0a851f7c9a86a63afa4253e4382e0efcd04279a51f78ce",
+    "packedHash": "583315b5c2d958eb11018cae011ca3730a77249e197e2019a1e06c5dec34c1c7",
+    "fullHash": "25ee8643e3ab0f16798fd9ebdd5f5666efa9dd1890b2ba127180710aaf798265"
+  }
+}

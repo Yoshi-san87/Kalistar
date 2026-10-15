@@ -27,6 +27,7 @@
     {id:'street-fighter',faction:'STREETFIGHTER',title:'Street Fighter'},
     {id:'castlevania',faction:'CASTLEVANIA',title:'Castlevania'},
     {id:'chrono-trigger',faction:'CHRONOTRIGGER',title:'Chrono Trigger'},
+    {id:'tortues-ninja',faction:'TMNT',title:'Tortues Ninja'},
     ...Array.from({length:9},(_,i)=>({id:'re'+(i+1),faction:'RE'+(i+1),title:i===0?'Resident Evil':i===6?'Resident Evil 7 biohazard':i===7?'Resident Evil Village':i===8?'Resident Evil Requiem':'Resident Evil '+(i+1)}))
   ].map(Object.freeze));
   const factionKey=value=>{const name=String(value||'').trim().toLowerCase();return name==='gotham'?'batman':name;};
@@ -36,6 +37,6 @@
   const universe=card=>of(card)?.faction||'kalistar';
   const matches=(card,id)=>of(card)?.id===id;
   const choices=cards=>entries.filter(entry=>entry.id==='ff7'||entry.id==='ff8'||cards.some(card=>matches(card,entry.id))).map(entry=>[entry.faction,entry.faction]);
-  const asset=(folder,name)=>folder==='armes'&&W?.asset(name)?W.asset(name):(folder==='factions'&&(find(name)||['Solaria','Grivka','Froz'].includes(name))||folder==='races'&&['ANDROID','BUZZY','SERPES','SHARKAN','CRUSTOS','OKAMI','MICE','BATRA','RATZ','MACAKO','YETI'].includes(name)?'assets/':'shared/')+folder+'/'+encodeURIComponent(folder==='factions'?F.assetName(name):name)+'.png';
+  const asset=(folder,name)=>folder==='armes'&&W?.asset(name)?W.asset(name):(folder==='factions'&&(find(name)||['Solaria','Grivka','Froz'].includes(name))||folder==='races'&&['ANDROID','BUZZY','SERPES','SHARKAN','CRUSTOS','OKAMI','MICE','BATRA','RATZ','MACAKO','YETI','FACOCHE','TORTUGA'].includes(name)?'assets/':'shared/')+folder+'/'+encodeURIComponent(folder==='factions'?F.assetName(name):name)+'.png';
   return {entries,of,universe,matches,choices,asset};
 });

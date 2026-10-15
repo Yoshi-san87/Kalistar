@@ -130,3 +130,12 @@ ivoire en trois-quarts, Batra vert de face, Ratz sombre de profil, Macako roux
 en buste. Dimensions et centrage optique restent ceux du template.
 Voir [le lot FFIX](../expansions/2026-10-08-final-fantasy-ix/README.md) et
 [la revision artistique](../revisions/2026-10-08-ff9-art-direction/README.md).
+
+## Races du crossover Tortues Ninja
+
+FACOCHE designe les hybrides homme-phacochere ; Bebop inaugure cette race.
+TORTUGA designe ici les humanoides tortues des quatre freres. Ce nom de travail
+comble une famille absente du catalogue au moment de la creation du lot.
+Rocksteady reutilise RHINOZ et Splinter RATZ. Krang utilise CYBORG pour son
+pilote organique associe au corps mecanique. Aucune regle raciale nouvelle.
+Voir [le lot Tortues Ninja](../expansions/2026-10-15-tortues-ninja/README.md).

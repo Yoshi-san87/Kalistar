@@ -33263,6 +33263,774 @@
       "psdUrl": "/media/created/49902845.psd",
       "createdAt": "2026-10-15T12:21:06.476Z",
       "publicationSource": "V4/expansions/2026-10-15-collab-scenes-45"
+    },
+    {
+      "id": "49902901",
+      "kind": "created",
+      "creationJob": "af77ae2a-8db7-4a6a-a1d9-416f43920f30",
+      "name": "LEONARDO",
+      "title": "LE CALME AVANT L'ASSAUT",
+      "element": "HYDRO",
+      "profile": {
+        "name": "LEONARDO",
+        "title": "LE CALME AVANT L'ASSAUT",
+        "job": "CHEF NINJA",
+        "description": "Leonardo attend que ses frères aient franchi le toit. La pluie couvre leurs pas, pas sa vigilance. Être le premier à tirer ses lames n'a de sens que s'il est le dernier à les laisser seuls.",
+        "element": "HYDRO",
+        "race": "TORTUGA",
+        "weapon": "Katana",
+        "faction": "TMNT",
+        "positions": [
+          1,
+          2,
+          3
+        ],
+        "atk": [
+          234,
+          193,
+          148,
+          102,
+          "buff_atk",
+          29
+        ],
+        "defense": [
+          225,
+          186,
+          144,
+          109,
+          63,
+          "retry"
+        ],
+        "magic": [
+          5
+        ],
+        "barriers": [
+          6,
+          3
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49902901",
+        "characterId": "leonardo-tmnt",
+        "slug": "V4_49902901",
+        "output": "KALISTAR_V4_49902901",
+        "text": "Leonardo attend que ses frères aient franchi le toit. La pluie couvre leurs pas, pas sa vigilance. Être le premier à tirer ses lames n'a de sens que s'il est le dernier à les laisser seuls.",
+        "color": "38CBED",
+        "hue": 192,
+        "weapon_index": 18,
+        "role": 3,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Tortues Ninja - fan crossover non officiel",
+        "visual_revision": "V4-2026-10-15-tortues-ninja",
+        "collaboration": "TMNT",
+        "officialCollaboration": false,
+        "artworkSource": "V4/propositions/2026-10-15-tortues-ninja/images/01-leonardo-01.png"
+      },
+      "png": "V4/creations/49902901/card.png",
+      "psd": "V4/creations/49902901/card.psd",
+      "pngUrl": "/media/created/49902901.png",
+      "psdUrl": "/media/created/49902901.psd",
+      "createdAt": "2026-10-15T14:39:51.878Z",
+      "publicationSource": "V4/expansions/2026-10-15-tortues-ninja"
+    },
+    {
+      "id": "49902902",
+      "kind": "created",
+      "creationJob": "981328d9-426f-4563-b4d8-b62b63aee479",
+      "name": "RAPHAEL",
+      "title": "PERSONNE NE PASSE",
+      "element": "PYRO",
+      "profile": {
+        "name": "RAPHAEL",
+        "title": "PERSONNE NE PASSE",
+        "job": "NINJA",
+        "description": "Raphael serre ses saïs à l'entrée du tunnel. Il appelle cela de la colère ; ses frères savent ce qu'il protège. Tant qu'ils sont derrière lui, il trouve toujours une raison de ne pas reculer.",
+        "element": "PYRO",
+        "race": "TORTUGA",
+        "weapon": "Dague",
+        "faction": "TMNT",
+        "positions": [
+          1,
+          2
+        ],
+        "atk": [
+          294,
+          235,
+          181,
+          "buff_atk",
+          87,
+          34
+        ],
+        "defense": [
+          168,
+          130,
+          97,
+          "dodge",
+          43,
+          18
+        ],
+        "magic": [
+          4
+        ],
+        "barriers": [
+          5
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49902902",
+        "characterId": "raphael-tmnt",
+        "slug": "V4_49902902",
+        "output": "KALISTAR_V4_49902902",
+        "text": "Raphael serre ses saïs à l'entrée du tunnel. Il appelle cela de la colère ; ses frères savent ce qu'il protège. Tant qu'ils sont derrière lui, il trouve toujours une raison de ne pas reculer.",
+        "color": "FF704A",
+        "hue": 12,
+        "weapon_index": 15,
+        "role": 2,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Tortues Ninja - fan crossover non officiel",
+        "visual_revision": "V4-2026-10-15-tortues-ninja",
+        "collaboration": "TMNT",
+        "officialCollaboration": false,
+        "artworkSource": "V4/propositions/2026-10-15-tortues-ninja/images/02-raphael-01.png"
+      },
+      "png": "V4/creations/49902902/card.png",
+      "psd": "V4/creations/49902902/card.psd",
+      "pngUrl": "/media/created/49902902.png",
+      "psdUrl": "/media/created/49902902.psd",
+      "createdAt": "2026-10-15T14:39:51.917Z",
+      "publicationSource": "V4/expansions/2026-10-15-tortues-ninja"
+    },
+    {
+      "id": "49902903",
+      "kind": "created",
+      "creationJob": "e7514a49-cf43-4461-9388-a64da7a81ff5",
+      "name": "DONATELLO",
+      "title": "CHAQUE PANNE A SA REPONSE",
+      "element": "ELECTRO",
+      "profile": {
+        "name": "DONATELLO",
+        "title": "CHAQUE PANNE A SA REPONSE",
+        "job": "INVENTEUR",
+        "description": "Donatello quitte son établi au premier bruit. Un circuit attendra ; ses frères, non. Son bâton coupe la lumière de la lampe, et déjà son esprit cherche comment sortir tout le monde de ce piège.",
+        "element": "ELECTRO",
+        "race": "TORTUGA",
+        "weapon": "Bâton",
+        "faction": "TMNT",
+        "positions": [
+          3,
+          4,
+          5
+        ],
+        "atk": [
+          271,
+          221,
+          "mana",
+          127,
+          79,
+          32
+        ],
+        "defense": [
+          155,
+          128,
+          104,
+          71,
+          "retry",
+          18
+        ],
+        "magic": [
+          6,
+          5,
+          3
+        ],
+        "barriers": [
+          6
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49902903",
+        "characterId": "donatello-tmnt",
+        "slug": "V4_49902903",
+        "output": "KALISTAR_V4_49902903",
+        "text": "Donatello quitte son établi au premier bruit. Un circuit attendra ; ses frères, non. Son bâton coupe la lumière de la lampe, et déjà son esprit cherche comment sortir tout le monde de ce piège.",
+        "color": "F5DC32",
+        "hue": 53,
+        "weapon_index": 10,
+        "role": 4,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Tortues Ninja - fan crossover non officiel",
+        "visual_revision": "V4-2026-10-15-tortues-ninja",
+        "collaboration": "TMNT",
+        "officialCollaboration": false,
+        "artworkSource": "V4/propositions/2026-10-15-tortues-ninja/images/03-donatello-01.png"
+      },
+      "png": "V4/creations/49902903/card.png",
+      "psd": "V4/creations/49902903/card.psd",
+      "pngUrl": "/media/created/49902903.png",
+      "psdUrl": "/media/created/49902903.psd",
+      "createdAt": "2026-10-15T14:39:51.951Z",
+      "publicationSource": "V4/expansions/2026-10-15-tortues-ninja"
+    },
+    {
+      "id": "49902904",
+      "kind": "created",
+      "creationJob": "efdaaf1c-0735-4397-b238-7691efe97966",
+      "name": "MICHELANGELO",
+      "title": "LE COURAGE A LE SOURIRE",
+      "element": "AERO",
+      "profile": {
+        "name": "MICHELANGELO",
+        "title": "LE COURAGE A LE SOURIRE",
+        "job": "NINJA",
+        "description": "Michelangelo sourit avant de lever son nunchaku. Il connaît la peur, mais refuse de lui donner toute la place. Au-dessus de la ville, son rire rappelle aux autres pourquoi ils se battent.",
+        "element": "AERO",
+        "race": "TORTUGA",
+        "weapon": "Fléau",
+        "faction": "TMNT",
+        "positions": [
+          2,
+          3,
+          4
+        ],
+        "atk": [
+          224,
+          184,
+          149,
+          "retry",
+          68,
+          31
+        ],
+        "defense": [
+          213,
+          174,
+          "dodge",
+          102,
+          61,
+          28
+        ],
+        "magic": [
+          4
+        ],
+        "barriers": [
+          5,
+          3
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49902904",
+        "characterId": "michelangelo-tmnt",
+        "slug": "V4_49902904",
+        "output": "KALISTAR_V4_49902904",
+        "text": "Michelangelo sourit avant de lever son nunchaku. Il connaît la peur, mais refuse de lui donner toute la place. Au-dessus de la ville, son rire rappelle aux autres pourquoi ils se battent.",
+        "color": "89EDC2",
+        "hue": 155,
+        "weapon_index": 4,
+        "role": 3,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Tortues Ninja - fan crossover non officiel",
+        "visual_revision": "V4-2026-10-15-tortues-ninja",
+        "collaboration": "TMNT",
+        "officialCollaboration": false,
+        "artworkSource": "V4/propositions/2026-10-15-tortues-ninja/images/04-michelangelo-02.png"
+      },
+      "png": "V4/creations/49902904/card.png",
+      "psd": "V4/creations/49902904/card.psd",
+      "pngUrl": "/media/created/49902904.png",
+      "psdUrl": "/media/created/49902904.psd",
+      "createdAt": "2026-10-15T14:39:51.983Z",
+      "publicationSource": "V4/expansions/2026-10-15-tortues-ninja"
+    },
+    {
+      "id": "49902905",
+      "kind": "created",
+      "creationJob": "7f55bf39-9a1a-4948-8949-f46094826e12",
+      "name": "SHREDDER",
+      "title": "LA DISCIPLINE DE LA PEUR",
+      "element": "NECRO",
+      "profile": {
+        "name": "SHREDDER",
+        "title": "LA DISCIPLINE DE LA PEUR",
+        "job": "MAITRE NINJA",
+        "description": "Shredder pivote sans un mot. Le bois grince sous son pas, puis le dojo retrouve le silence. Il ne cherche pas à impressionner celui qui entre : seulement à lui montrer qu'il est déjà trop près.",
+        "element": "NECRO",
+        "race": "HUMAIN",
+        "weapon": "Poing",
+        "faction": "TMNT",
+        "positions": [
+          1,
+          2
+        ],
+        "atk": [
+          289,
+          231,
+          181,
+          "death",
+          83,
+          33
+        ],
+        "defense": [
+          170,
+          132,
+          "retry",
+          79,
+          44,
+          19
+        ],
+        "magic": [
+          6,
+          4
+        ],
+        "barriers": [
+          5
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49902905",
+        "characterId": "shredder-tmnt",
+        "slug": "V4_49902905",
+        "output": "KALISTAR_V4_49902905",
+        "text": "Shredder pivote sans un mot. Le bois grince sous son pas, puis le dojo retrouve le silence. Il ne cherche pas à impressionner celui qui entre : seulement à lui montrer qu'il est déjà trop près.",
+        "color": "A979F7",
+        "hue": 270,
+        "role": 2,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Tortues Ninja - fan crossover non officiel",
+        "visual_revision": "V4-2026-10-15-tortues-ninja",
+        "collaboration": "TMNT",
+        "officialCollaboration": false,
+        "artworkSource": "V4/propositions/2026-10-15-tortues-ninja/images/05-shredder-04.png"
+      },
+      "png": "V4/creations/49902905/card.png",
+      "psd": "V4/creations/49902905/card.psd",
+      "pngUrl": "/media/created/49902905.png",
+      "psdUrl": "/media/created/49902905.psd",
+      "createdAt": "2026-10-15T14:39:52.014Z",
+      "publicationSource": "V4/expansions/2026-10-15-tortues-ninja"
+    },
+    {
+      "id": "49902906",
+      "kind": "created",
+      "creationJob": "8e31fd5c-7078-49e6-9b66-4d8e42d5c88f",
+      "name": "KRANG",
+      "title": "LA VOLONTE DANS LA MACHINE",
+      "element": "ELECTRO",
+      "profile": {
+        "name": "KRANG",
+        "title": "LA VOLONTE DANS LA MACHINE",
+        "job": "CONQUERANT",
+        "description": "Dans la cuve, Krang suit le mouvement des poings d'acier. Tout lui paraît trop lent, même ce corps immense. Derrière la vitre, son impatience a la taille des mondes qu'il rêve encore de posséder.",
+        "element": "ELECTRO",
+        "race": "CYBORG",
+        "weapon": "Poing",
+        "faction": "TMNT",
+        "positions": [
+          1,
+          4
+        ],
+        "atk": [
+          280,
+          224,
+          179,
+          "mana",
+          81,
+          36
+        ],
+        "defense": [
+          165,
+          137,
+          102,
+          73,
+          48,
+          20
+        ],
+        "magic": [
+          6,
+          5,
+          4,
+          2
+        ],
+        "barriers": [
+          6,
+          4
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49902906",
+        "characterId": "krang-tmnt",
+        "slug": "V4_49902906",
+        "output": "KALISTAR_V4_49902906",
+        "text": "Dans la cuve, Krang suit le mouvement des poings d'acier. Tout lui paraît trop lent, même ce corps immense. Derrière la vitre, son impatience a la taille des mondes qu'il rêve encore de posséder.",
+        "color": "F5DC32",
+        "hue": 53,
+        "role": 4,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Tortues Ninja - fan crossover non officiel",
+        "visual_revision": "V4-2026-10-15-tortues-ninja",
+        "collaboration": "TMNT",
+        "officialCollaboration": false,
+        "artworkSource": "V4/propositions/2026-10-15-tortues-ninja/images/06-krang-01.png"
+      },
+      "png": "V4/creations/49902906/card.png",
+      "psd": "V4/creations/49902906/card.psd",
+      "pngUrl": "/media/created/49902906.png",
+      "psdUrl": "/media/created/49902906.psd",
+      "createdAt": "2026-10-15T14:39:52.046Z",
+      "publicationSource": "V4/expansions/2026-10-15-tortues-ninja"
+    },
+    {
+      "id": "49902907",
+      "kind": "created",
+      "creationJob": "e1b3bdf6-5db5-46bf-891b-f41e77e9c72e",
+      "name": "BEBOP",
+      "title": "LE VACARME AVANT LA CHARGE",
+      "element": "GEO",
+      "profile": {
+        "name": "BEBOP",
+        "title": "LE VACARME AVANT LA CHARGE",
+        "job": "CASSEUR",
+        "description": "Bebop rit dans l'ombre du garage, son arme basse. Il aime ce bref instant où les autres hésitent encore à courir. La ville lui a rarement fait de place ; désormais, il la prend à coups d'épaule.",
+        "element": "GEO",
+        "race": "FACOCHE",
+        "weapon": "Gun",
+        "faction": "TMNT",
+        "positions": [
+          2,
+          4
+        ],
+        "atk": [
+          287,
+          234,
+          174,
+          "buff_atk",
+          84,
+          37
+        ],
+        "defense": [
+          154,
+          124,
+          94,
+          66,
+          39,
+          16
+        ],
+        "magic": [],
+        "barriers": [
+          4
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49902907",
+        "characterId": "bebop-tmnt",
+        "slug": "V4_49902907",
+        "output": "KALISTAR_V4_49902907",
+        "text": "Bebop rit dans l'ombre du garage, son arme basse. Il aime ce bref instant où les autres hésitent encore à courir. La ville lui a rarement fait de place ; désormais, il la prend à coups d'épaule.",
+        "color": "C7AB6D",
+        "hue": 41,
+        "weapon_index": 7,
+        "role": 2,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Tortues Ninja - fan crossover non officiel",
+        "visual_revision": "V4-2026-10-15-tortues-ninja",
+        "collaboration": "TMNT",
+        "officialCollaboration": false,
+        "artworkSource": "V4/propositions/2026-10-15-tortues-ninja/images/07-bebop-01.png"
+      },
+      "png": "V4/creations/49902907/card.png",
+      "psd": "V4/creations/49902907/card.psd",
+      "pngUrl": "/media/created/49902907.png",
+      "psdUrl": "/media/created/49902907.psd",
+      "createdAt": "2026-10-15T14:39:52.076Z",
+      "publicationSource": "V4/expansions/2026-10-15-tortues-ninja"
+    },
+    {
+      "id": "49902908",
+      "kind": "created",
+      "creationJob": "ac333a86-3d63-4cf6-bf07-6be0850150ba",
+      "name": "ROCKSTEADY",
+      "title": "LE QUAI NE CEDERA PAS",
+      "element": "MINERO",
+      "profile": {
+        "name": "ROCKSTEADY",
+        "title": "LE QUAI NE CEDERA PAS",
+        "job": "MERCENAIRE",
+        "description": "Rocksteady cale sa botte contre la borne du quai. Le vent tire sur sa sangle, pas sur sa décision. Il ne sait pas toujours pourquoi on lui demande de tenir ; pour le reste, personne ne fait mieux.",
+        "element": "MINERO",
+        "race": "RHINOZ",
+        "weapon": "Gun",
+        "faction": "TMNT",
+        "positions": [
+          1,
+          4
+        ],
+        "atk": [
+          202,
+          157,
+          123,
+          "guard",
+          62,
+          27
+        ],
+        "defense": [
+          292,
+          235,
+          183,
+          135,
+          88,
+          41
+        ],
+        "magic": [],
+        "barriers": [
+          6
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49902908",
+        "characterId": "rocksteady-tmnt",
+        "slug": "V4_49902908",
+        "output": "KALISTAR_V4_49902908",
+        "text": "Rocksteady cale sa botte contre la borne du quai. Le vent tire sur sa sangle, pas sur sa décision. Il ne sait pas toujours pourquoi on lui demande de tenir ; pour le reste, personne ne fait mieux.",
+        "color": "B3BFCA",
+        "hue": 210,
+        "weapon_index": 7,
+        "role": 1,
+        "sentry": true,
+        "canGuard": true,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Tortues Ninja - fan crossover non officiel",
+        "visual_revision": "V4-2026-10-15-tortues-ninja",
+        "collaboration": "TMNT",
+        "officialCollaboration": false,
+        "artworkSource": "V4/propositions/2026-10-15-tortues-ninja/images/08-rocksteady-01.png"
+      },
+      "png": "V4/creations/49902908/card.png",
+      "psd": "V4/creations/49902908/card.psd",
+      "pngUrl": "/media/created/49902908.png",
+      "psdUrl": "/media/created/49902908.psd",
+      "createdAt": "2026-10-15T14:39:52.106Z",
+      "publicationSource": "V4/expansions/2026-10-15-tortues-ninja"
+    },
+    {
+      "id": "49902909",
+      "kind": "created",
+      "creationJob": "f38b6d49-d0a2-4021-a570-84ea7d6c908b",
+      "name": "APRIL O'NEIL",
+      "title": "LA PREUVE ENTRE SES MAINS",
+      "element": "LUXO",
+      "profile": {
+        "name": "APRIL O'NEIL",
+        "title": "LA PREUVE ENTRE SES MAINS",
+        "job": "JOURNALISTE",
+        "description": "April referme les doigts sur l'enregistrement. Cette fois, personne ne pourra dire qu'elle a tout inventé. Un bruit monte du toit voisin ; elle range sa peur, garde la preuve et cherche ses amis.",
+        "element": "LUXO",
+        "race": "HUMAIN",
+        "weapon": "Instrument",
+        "faction": "TMNT",
+        "positions": [
+          3,
+          5
+        ],
+        "atk": [
+          168,
+          133,
+          "retry",
+          76,
+          "guard",
+          22
+        ],
+        "defense": [
+          194,
+          158,
+          124,
+          91,
+          54,
+          "dodge"
+        ],
+        "magic": [
+          6
+        ],
+        "barriers": [
+          5,
+          3
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49902909",
+        "characterId": "april-oneil-tmnt",
+        "slug": "V4_49902909",
+        "output": "KALISTAR_V4_49902909",
+        "text": "April referme les doigts sur l'enregistrement. Cette fois, personne ne pourra dire qu'elle a tout inventé. Un bruit monte du toit voisin ; elle range sa peur, garde la preuve et cherche ses amis.",
+        "color": "F4E9AF",
+        "hue": 47,
+        "weapon_index": 11,
+        "role": 5,
+        "sentry": true,
+        "canGuard": true,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Tortues Ninja - fan crossover non officiel",
+        "visual_revision": "V4-2026-10-15-tortues-ninja",
+        "collaboration": "TMNT",
+        "officialCollaboration": false,
+        "artworkSource": "V4/propositions/2026-10-15-tortues-ninja/images/09-april-oneil-02.png"
+      },
+      "png": "V4/creations/49902909/card.png",
+      "psd": "V4/creations/49902909/card.psd",
+      "pngUrl": "/media/created/49902909.png",
+      "psdUrl": "/media/created/49902909.psd",
+      "createdAt": "2026-10-15T14:39:52.144Z",
+      "publicationSource": "V4/expansions/2026-10-15-tortues-ninja"
+    },
+    {
+      "id": "49902910",
+      "kind": "created",
+      "creationJob": "bd03c82a-8c97-44d4-a42a-497048231e1f",
+      "name": "MAITRE SPLINTER",
+      "title": "LA FORCE QUI RESTE CALME",
+      "element": "HERBO",
+      "profile": {
+        "name": "MAITRE SPLINTER",
+        "title": "LA FORCE QUI RESTE CALME",
+        "job": "MENTOR",
+        "description": "Splinter lève une main et le dojo s'apaise. Il apprend à ses fils à se relever sans se perdre. Son bâton reste droit ; sa voix n'a pas besoin de force pour rappeler à chacun le chemin de la maison.",
+        "element": "HERBO",
+        "race": "RATZ",
+        "weapon": "Bâton",
+        "faction": "TMNT",
+        "positions": [
+          2,
+          5
+        ],
+        "atk": [
+          171,
+          137,
+          110,
+          "revive",
+          52,
+          "buff_atk"
+        ],
+        "defense": [
+          202,
+          166,
+          131,
+          "retry",
+          57,
+          24
+        ],
+        "magic": [
+          6
+        ],
+        "barriers": [
+          5,
+          4
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "49902910",
+        "characterId": "maitre-splinter-tmnt",
+        "slug": "V4_49902910",
+        "output": "KALISTAR_V4_49902910",
+        "text": "Splinter lève une main et le dojo s'apaise. Il apprend à ses fils à se relever sans se perdre. Son bâton reste droit ; sa voix n'a pas besoin de force pour rappeler à chacun le chemin de la maison.",
+        "color": "89D355",
+        "hue": 100,
+        "weapon_index": 10,
+        "role": 5,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": true,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar x Tortues Ninja - fan crossover non officiel",
+        "visual_revision": "V4-2026-10-15-tortues-ninja",
+        "collaboration": "TMNT",
+        "officialCollaboration": false,
+        "artworkSource": "V4/propositions/2026-10-15-tortues-ninja/images/10-maitre-splinter-01.png"
+      },
+      "png": "V4/creations/49902910/card.png",
+      "psd": "V4/creations/49902910/card.psd",
+      "pngUrl": "/media/created/49902910.png",
+      "psdUrl": "/media/created/49902910.psd",
+      "createdAt": "2026-10-15T14:39:52.174Z",
+      "publicationSource": "V4/expansions/2026-10-15-tortues-ninja"
     }
   ]
 }

@@ -1,0 +1,448 @@
+{
+  "id": "2026-10-15-tortues-ninja",
+  "officialCollaboration": false,
+  "arenas": [],
+  "presets": [],
+  "cards": [
+    {
+      "key": "leonardo",
+      "name": "LEONARDO",
+      "title": "LE CALME AVANT L'ASSAUT",
+      "job": "CHEF NINJA",
+      "description": "Leonardo attend que ses frères aient franchi le toit. La pluie couvre leurs pas, pas sa vigilance. Être le premier à tirer ses lames n'a de sens que s'il est le dernier à les laisser seuls.",
+      "element": "HYDRO",
+      "race": "TORTUGA",
+      "weapon": "Katana",
+      "role": 3,
+      "positions": [
+        1,
+        2,
+        3
+      ],
+      "atk": [
+        234,
+        193,
+        148,
+        102,
+        "buff_atk",
+        29
+      ],
+      "defense": [
+        225,
+        186,
+        144,
+        109,
+        63,
+        "retry"
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "rationale": "Leader polyvalent : puissance physique D2 et relance DEF D1. Compromis de P3, pas de garde hors rôle.",
+      "id": "49902901",
+      "characterId": "leonardo-tmnt",
+      "faction": "TMNT",
+      "collaboration": "TMNT",
+      "artworkSource": "V4/propositions/2026-10-15-tortues-ninja/images/01-leonardo-01.png"
+    },
+    {
+      "key": "raphael",
+      "name": "RAPHAEL",
+      "title": "PERSONNE NE PASSE",
+      "job": "NINJA",
+      "description": "Raphael serre ses saïs à l'entrée du tunnel. Il appelle cela de la colère ; ses frères savent ce qu'il protège. Tant qu'ils sont derrière lui, il trouve toujours une raison de ne pas reculer.",
+      "element": "PYRO",
+      "race": "TORTUGA",
+      "weapon": "Dague",
+      "role": 2,
+      "positions": [
+        1,
+        2
+      ],
+      "atk": [
+        294,
+        235,
+        181,
+        "buff_atk",
+        87,
+        34
+      ],
+      "defense": [
+        168,
+        130,
+        97,
+        "dodge",
+        43,
+        18
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "rationale": "P2 de mêlée : saïs classés Dague dans la matrice. Puissance D3, esquive D3, faibles faces DEF.",
+      "id": "49902902",
+      "characterId": "raphael-tmnt",
+      "faction": "TMNT",
+      "collaboration": "TMNT",
+      "artworkSource": "V4/propositions/2026-10-15-tortues-ninja/images/02-raphael-01.png"
+    },
+    {
+      "key": "donatello",
+      "name": "DONATELLO",
+      "title": "CHAQUE PANNE A SA REPONSE",
+      "job": "INVENTEUR",
+      "description": "Donatello quitte son établi au premier bruit. Un circuit attendra ; ses frères, non. Son bâton coupe la lumière de la lampe, et déjà son esprit cherche comment sortir tout le monde de ce piège.",
+      "element": "ELECTRO",
+      "race": "TORTUGA",
+      "weapon": "Bâton",
+      "role": 4,
+      "positions": [
+        3,
+        4,
+        5
+      ],
+      "atk": [
+        271,
+        221,
+        "mana",
+        127,
+        79,
+        32
+      ],
+      "defense": [
+        155,
+        128,
+        104,
+        71,
+        "retry",
+        18
+      ],
+      "magic": [
+        6,
+        5,
+        3
+      ],
+      "barriers": [
+        6
+      ],
+      "rationale": "Technique convertie en magie Electro : potion D4, relance DEF D2. Soutien sans soin ni nouvelle mécanique.",
+      "id": "49902903",
+      "characterId": "donatello-tmnt",
+      "faction": "TMNT",
+      "collaboration": "TMNT",
+      "artworkSource": "V4/propositions/2026-10-15-tortues-ninja/images/03-donatello-01.png"
+    },
+    {
+      "key": "michelangelo",
+      "name": "MICHELANGELO",
+      "title": "LE COURAGE A LE SOURIRE",
+      "job": "NINJA",
+      "description": "Michelangelo sourit avant de lever son nunchaku. Il connaît la peur, mais refuse de lui donner toute la place. Au-dessus de la ville, son rire rappelle aux autres pourquoi ils se battent.",
+      "element": "AERO",
+      "race": "TORTUGA",
+      "weapon": "Fléau",
+      "role": 3,
+      "positions": [
+        2,
+        3,
+        4
+      ],
+      "atk": [
+        224,
+        184,
+        149,
+        "retry",
+        68,
+        31
+      ],
+      "defense": [
+        213,
+        174,
+        "dodge",
+        102,
+        61,
+        28
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5,
+        3
+      ],
+      "rationale": "Mobilité : esquive D4 remplace une forte DEF, trèfle D3. Nunchaku assimilé au Fléau articulé, sans nouvelle famille.",
+      "id": "49902904",
+      "characterId": "michelangelo-tmnt",
+      "faction": "TMNT",
+      "collaboration": "TMNT",
+      "artworkSource": "V4/propositions/2026-10-15-tortues-ninja/images/04-michelangelo-02.png"
+    },
+    {
+      "key": "shredder",
+      "name": "SHREDDER",
+      "title": "LA DISCIPLINE DE LA PEUR",
+      "job": "MAITRE NINJA",
+      "description": "Shredder pivote sans un mot. Le bois grince sous son pas, puis le dojo retrouve le silence. Il ne cherche pas à impressionner celui qui entre : seulement à lui montrer qu'il est déjà trop près.",
+      "element": "NECRO",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "role": 2,
+      "positions": [
+        1,
+        2
+      ],
+      "atk": [
+        289,
+        231,
+        181,
+        "death",
+        83,
+        33
+      ],
+      "defense": [
+        170,
+        132,
+        "retry",
+        79,
+        44,
+        19
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "rationale": "Griffes de gantelets dans Poing. Mort D3 remplace une attaque, aucune esquive ni soutien ; DEF vulnérable.",
+      "id": "49902905",
+      "characterId": "shredder-tmnt",
+      "faction": "TMNT",
+      "collaboration": "TMNT",
+      "artworkSource": "V4/propositions/2026-10-15-tortues-ninja/images/05-shredder-04.png"
+    },
+    {
+      "key": "krang",
+      "name": "KRANG",
+      "title": "LA VOLONTE DANS LA MACHINE",
+      "job": "CONQUERANT",
+      "description": "Dans la cuve, Krang suit le mouvement des poings d'acier. Tout lui paraît trop lent, même ce corps immense. Derrière la vitre, son impatience a la taille des mondes qu'il rêve encore de posséder.",
+      "element": "ELECTRO",
+      "race": "CYBORG",
+      "weapon": "Poing",
+      "role": 4,
+      "positions": [
+        1,
+        4
+      ],
+      "atk": [
+        280,
+        224,
+        179,
+        "mana",
+        81,
+        36
+      ],
+      "defense": [
+        165,
+        137,
+        102,
+        73,
+        48,
+        20
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        2
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "rationale": "Cyborg = adaptation du pilote organique et du corps mécanique. P4 magique, potion D3, aucune esquive ni Mort.",
+      "id": "49902906",
+      "characterId": "krang-tmnt",
+      "faction": "TMNT",
+      "collaboration": "TMNT",
+      "artworkSource": "V4/propositions/2026-10-15-tortues-ninja/images/06-krang-01.png"
+    },
+    {
+      "key": "bebop",
+      "name": "BEBOP",
+      "title": "LE VACARME AVANT LA CHARGE",
+      "job": "CASSEUR",
+      "description": "Bebop rit dans l'ombre du garage, son arme basse. Il aime ce bref instant où les autres hésitent encore à courir. La ville lui a rarement fait de place ; désormais, il la prend à coups d'épaule.",
+      "element": "GEO",
+      "race": "FACOCHE",
+      "weapon": "Gun",
+      "role": 2,
+      "positions": [
+        2,
+        4
+      ],
+      "atk": [
+        287,
+        234,
+        174,
+        "buff_atk",
+        84,
+        37
+      ],
+      "defense": [
+        154,
+        124,
+        94,
+        66,
+        39,
+        16
+      ],
+      "magic": [],
+      "barriers": [
+        4
+      ],
+      "rationale": "Force brute physique : puissance D3, gros pic ATK et DEF modeste sans face d'évasion. Facoche sans pouvoir racial.",
+      "id": "49902907",
+      "characterId": "bebop-tmnt",
+      "faction": "TMNT",
+      "collaboration": "TMNT",
+      "artworkSource": "V4/propositions/2026-10-15-tortues-ninja/images/07-bebop-01.png"
+    },
+    {
+      "key": "rocksteady",
+      "name": "ROCKSTEADY",
+      "title": "LE QUAI NE CEDERA PAS",
+      "job": "MERCENAIRE",
+      "description": "Rocksteady cale sa botte contre la borne du quai. Le vent tire sur sa sangle, pas sur sa décision. Il ne sait pas toujours pourquoi on lui demande de tenir ; pour le reste, personne ne fait mieux.",
+      "element": "MINERO",
+      "race": "RHINOZ",
+      "weapon": "Gun",
+      "role": 1,
+      "positions": [
+        1,
+        4
+      ],
+      "atk": [
+        202,
+        157,
+        123,
+        "guard",
+        62,
+        27
+      ],
+      "defense": [
+        292,
+        235,
+        183,
+        135,
+        88,
+        41
+      ],
+      "magic": [],
+      "barriers": [
+        6
+      ],
+      "rationale": "P1 robuste : garde D3, six DEF chiffrées, aucune esquive. Son fusil garde Gun et ses matchups.",
+      "id": "49902908",
+      "characterId": "rocksteady-tmnt",
+      "faction": "TMNT",
+      "collaboration": "TMNT",
+      "artworkSource": "V4/propositions/2026-10-15-tortues-ninja/images/08-rocksteady-01.png"
+    },
+    {
+      "key": "april-oneil",
+      "name": "APRIL O'NEIL",
+      "title": "LA PREUVE ENTRE SES MAINS",
+      "job": "JOURNALISTE",
+      "description": "April referme les doigts sur l'enregistrement. Cette fois, personne ne pourra dire qu'elle a tout inventé. Un bruit monte du toit voisin ; elle range sa peur, garde la preuve et cherche ses amis.",
+      "element": "LUXO",
+      "race": "HUMAIN",
+      "weapon": "Instrument",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        168,
+        133,
+        "retry",
+        76,
+        "guard",
+        22
+      ],
+      "defense": [
+        194,
+        158,
+        124,
+        91,
+        54,
+        "dodge"
+      ],
+      "magic": [
+        6
+      ],
+      "barriers": [
+        5,
+        3
+      ],
+      "rationale": "Communication classée Instrument : trèfle D4, garde D2, faible ATK. Kalistel Lumière comme adaptation, pas un pouvoir canonique.",
+      "id": "49902909",
+      "characterId": "april-oneil-tmnt",
+      "faction": "TMNT",
+      "collaboration": "TMNT",
+      "artworkSource": "V4/propositions/2026-10-15-tortues-ninja/images/09-april-oneil-02.png"
+    },
+    {
+      "key": "maitre-splinter",
+      "name": "MAITRE SPLINTER",
+      "title": "LA FORCE QUI RESTE CALME",
+      "job": "MENTOR",
+      "description": "Splinter lève une main et le dojo s'apaise. Il apprend à ses fils à se relever sans se perdre. Son bâton reste droit ; sa voix n'a pas besoin de force pour rappeler à chacun le chemin de la maison.",
+      "element": "HERBO",
+      "race": "RATZ",
+      "weapon": "Bâton",
+      "role": 5,
+      "positions": [
+        2,
+        5
+      ],
+      "atk": [
+        171,
+        137,
+        110,
+        "revive",
+        52,
+        "buff_atk"
+      ],
+      "defense": [
+        202,
+        166,
+        131,
+        "retry",
+        57,
+        24
+      ],
+      "magic": [
+        6
+      ],
+      "barriers": [
+        5,
+        4
+      ],
+      "rationale": "Mentor P5 : Reraise préventif D3 et puissance D1, jamais une résurrection du cimetière. DEF relance D3.",
+      "id": "49902910",
+      "characterId": "maitre-splinter-tmnt",
+      "faction": "TMNT",
+      "collaboration": "TMNT",
+      "artworkSource": "V4/propositions/2026-10-15-tortues-ninja/images/10-maitre-splinter-01.png"
+    }
+  ]
+}

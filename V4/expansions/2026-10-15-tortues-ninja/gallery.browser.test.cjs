@@ -1,0 +1,75 @@
+'use strict';
+const fs=require('node:fs');
+const path=require('node:path');
+const assert=require('node:assert/strict');
+const {pathToFileURL}=require('node:url');
+const {createRequire}=require('node:module');
+const root=path.resolve(__dirname,'../../..');
+const req=createRequire(path.join(process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules'),'_tmnt.cjs'));
+const {chromium}=req('playwright');
+const out=path.join(root,'work/qa/tmnt-gallery');
+const url=pathToFileURL(path.join(root,'V4/propositions/2026-10-15-tortues-ninja/index.html')).href;
+(async()=>{
+  fs.mkdirSync(out,{recursive:true});
+  const browser=await chromium.launch({channel:'msedge',headless:true});
+  const errors=[],checks=[];
+  try{
+    const page=await browser.newPage({viewport:{width:1440,height:1000}});
+    page.on('pageerror',e=>errors.push(e.message));
+    page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
+    await page.goto(url);
+    await page.locator('.gallery img').evaluateAll(imgs=>imgs.forEach(img=>img.loading='eager'));
+    await page.waitForFunction(()=>[...document.querySelectorAll('.gallery img')].every(i=>i.complete&&i.naturalWidth>0));
+    await page.evaluate(()=>document.fonts.ready);
+    assert.equal(await page.locator('.gallery>figure').count(),10);
+    assert((await page.locator('#shredder .art').getAttribute('href')).endsWith('05-shredder-04.png'));
+    assert.equal(await page.locator('.viewer-bar svg').count(),4);
+    await page.screenshot({path:path.join(out,'desktop.png'),fullPage:true});
+    for(const width of [1920,1440,800,412,320]){
+      await page.setViewportSize({width,height:width<500?915:1000});
+      assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'Overflow at '+width);
+      const layouts=await page.locator('.gallery>figure').evaluateAll(figs=>figs.map(f=>{
+        const r=f.getBoundingClientRect(),im=f.querySelector('img').getBoundingClientRect();
+        return {x:r.x,right:r.right,w:im.width,h:im.height};
+      }));
+      assert(layouts.every(l=>l.x>=0&&l.right<=width+1&&l.w>0&&l.h>0));
+      checks.push('layout-'+width);
+      if(width===412)await page.screenshot({path:path.join(out,'mobile.png'),fullPage:true});
+    }
+    await page.setViewportSize({width:1440,height:1000});
+    await page.locator('#group').selectOption('Tortues');
+    assert.equal(await page.locator('.gallery>figure:visible').count(),4);
+    await page.locator('#group').selectOption('');
+    await page.locator('#search').fill('krang');
+    assert.equal(await page.locator('.gallery>figure:visible').count(),1);
+    await page.locator('.art:visible').click();
+    await page.locator('#full-art').evaluate(img=>img.decode());
+    assert.equal(await page.locator('#viewer-title').textContent(),'Krang');
+    assert(await page.locator('#previous').isDisabled());
+    assert(await page.locator('#next').isDisabled());
+    await page.keyboard.press('Escape');
+    assert.equal(await page.locator('#viewer').isVisible(),false);
+    assert.equal(await page.evaluate(()=>document.activeElement.closest('figure')?.id),'krang');
+    await page.locator('#search').fill('absent-no-result');
+    assert(await page.locator('#empty').isVisible());
+    await page.locator('#search').fill('maitre splinter');
+    assert.equal(await page.locator('.gallery>figure:visible').count(),1);
+    await page.locator('#search').fill('');
+    await page.locator('.art').first().click();
+    assert(await page.locator('#previous').isDisabled());
+    await page.keyboard.press('ArrowRight');
+    assert.equal(await page.locator('#viewer-title').textContent(),'Raphael');
+    await page.keyboard.press('ArrowLeft');
+    await page.locator('#full-art').evaluate(img=>img.decode());
+    await page.screenshot({path:path.join(out,'desktop-viewer.png')});
+    await page.setViewportSize({width:412,height:915});
+    await page.emulateMedia({reducedMotion:'reduce'});
+    await page.screenshot({path:path.join(out,'mobile-viewer.png')});
+    assert.equal(await page.evaluate(()=>document.querySelector('#viewer').scrollWidth>innerWidth),false);
+    await page.locator('#close').click();
+    checks.push('group-filter','text-filter','accent-insensitive-search','empty-state','full-image','filtered-navigation','arrow-navigation','escape','focus-return','mobile-viewer','reduced-motion');
+    assert.deepEqual(errors,[]);
+    fs.writeFileSync(path.join(out,'report.json'),JSON.stringify({status:'passed',checks,errors},null,2));
+    console.log(JSON.stringify({status:'passed',checks,captures:out},null,2));
+  }finally{await browser.close();}
+})().catch(e=>{console.error(e);process.exitCode=1;});

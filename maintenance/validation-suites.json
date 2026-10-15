@@ -183,6 +183,12 @@
       ],
       [
         "--test",
+        "V4/expansions/2026-10-15-tortues-ninja/integration.test.cjs",
+        "V4/expansions/2026-10-15-tortues-ninja/native.test.cjs",
+        "V4/expansions/2026-10-15-tortues-ninja/publication.test.cjs"
+      ],
+      [
+        "--test",
         "V4/revisions/2026-10-06-balmhyr-durane/revision.test.cjs"
       ],
       [
@@ -439,6 +445,9 @@
     ]
   },
   "browserAliases": [
+    "V4/expansions/2026-10-15-tortues-ninja/cards.browser.test.cjs",
+    "V4/expansions/2026-10-15-tortues-ninja/gallery.browser.test.cjs",
+    "V4/expansions/2026-10-15-tortues-ninja/game.browser.test.cjs",
     "V4/map/layers-1.33/map.browser.test.cjs",
     "V4/map/layers-1.36/map.browser.test.cjs",
     "V4/expansions/2026-10-15-collab-scenes-45/gallery.browser.test.cjs",

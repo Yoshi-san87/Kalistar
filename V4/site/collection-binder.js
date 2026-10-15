@@ -10,7 +10,7 @@
   const number=v=>Number(v||0).toLocaleString('fr-FR');
   const key=c=>c.characterId||c.id;
   const normalize=s=>String(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('fr');
-  const collections=[['kalistar','Kalistar'],['final-fantasy','Final Fantasy'],['nier','NieR'],['metal-gear','Metal Gear'],['resident-evil','Resident Evil'],['one-piece','One Piece'],['witcher','The Witcher'],['batman','Batman'],['xmen','X-Men'],['street-fighter','Street Fighter'],['castlevania','Castlevania'],['chrono-trigger','Chrono Trigger']];
+  const collections=[['kalistar','Kalistar'],['final-fantasy','Final Fantasy'],['nier','NieR'],['metal-gear','Metal Gear'],['resident-evil','Resident Evil'],['one-piece','One Piece'],['witcher','The Witcher'],['batman','Batman'],['xmen','X-Men'],['street-fighter','Street Fighter'],['castlevania','Castlevania'],['chrono-trigger','Chrono Trigger'],['tortues-ninja','Tortues Ninja']];
   function groupCards(cards){
     const groups=new Map();
     for(const card of cards){if(!groups.has(key(card)))groups.set(key(card),[]);groups.get(key(card)).push(card);}
@@ -29,6 +29,7 @@
     if(scope==='street-fighter')return C.matches(card,'street-fighter');
     if(scope==='castlevania')return C.matches(card,'castlevania');
     if(scope==='chrono-trigger')return C.matches(card,'chrono-trigger');
+    if(scope==='tortues-ninja')return C.matches(card,'tortues-ninja');
     return false;
   }
   function textPages(text,limit){
