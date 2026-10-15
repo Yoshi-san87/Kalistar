@@ -187,7 +187,8 @@
         const box=name.parentElement,style=view.getComputedStyle(box),bounds=box.getBoundingClientRect(),ink=root.ownerDocument.createRange();ink.selectNodeContents(name);
         const plinth=name.closest('.cb-pedestal'),face=plinth.getBoundingClientRect(),rim=plinth.querySelector('.cb-plinth-art > span > span').getBoundingClientRect().height;
         const top=Math.max(bounds.top+(parseFloat(style.paddingTop)||0),face.top+rim),bottom=Math.min(bounds.bottom-(parseFloat(style.paddingBottom)||0),face.bottom-rim);
-        const fits=()=>{const r=ink.getBoundingClientRect();return r.top>=top-.5&&r.bottom<=bottom+.5&&r.left>=bounds.left-.5&&r.right<=bounds.right+.5;};
+        const left=bounds.left+(parseFloat(style.paddingLeft)||0),right=bounds.right-(parseFloat(style.paddingRight)||0);
+        const fits=()=>{const r=ink.getBoundingClientRect();return r.top>=top-.5&&r.bottom<=bottom+.5&&r.left>=left-.5&&r.right<=right+.5;};
         if(fits())continue;
         // Only overflowing names shrink; the chosen font and available face decide the fit.
         const desired=parseFloat(view.getComputedStyle(name).fontSize);

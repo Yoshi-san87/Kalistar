@@ -88,7 +88,12 @@ test('pedestal width queries are card-relative and do not alter cards or run idl
   assert(css.includes('.cb-flip-control[aria-busy=true] .cb-flip-symbol'));
   assert(css.includes('transform:none !important'));
   assert(css.includes('grid-template-rows:10px minmax(0,1fr) 10px'));
-  assert(css.includes('padding:12px 8px 8px'));
+  const pedestal=css.match(/\.cb-caption\.cb-pedestal\s*\{([^}]+)\}/)[1];
+  const padding=pedestal.match(/padding:(\d+)px (\d+)px (\d+)px/).slice(1).map(Number);
+  assert.deepEqual(padding,[4,8,12]);
+  assert.equal((padding[0]+64-padding[2])/2,(64-8)/2,'content is centered on the painted face, which rises 8px above the box');
+  assert(css.includes('grid-template-columns:var(--cb-control-rail) minmax(0,1fr) var(--cb-control-rail)'),'equal control rails keep every title on the card axis');
+  assert(!/\.has-versions\s*\{[^}]*grid-template/.test(css),'editions never change the title grid');
   assert(css.includes('inset:-8px 0 0'));
   assert(css.includes('z-index:4'));
   const title=css.match(/\.cb-caption-title\s*\{([^}]+)\}/)[1];

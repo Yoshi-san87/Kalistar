@@ -13,7 +13,8 @@
   min-height:var(--cb-caption-height);
   min-width:0;
   margin:0;
-  padding:12px 8px 8px;
+  /* The painted face rises 8px above this box: its vertical center is at 28px. */
+  padding:4px 8px 12px;
   border:0;
   border-radius:0;
   background:none;
@@ -35,19 +36,19 @@
 
 .cb-pedestal-content {
   --cb-position-width:24px;
-  --cb-switch-width:36px;
-  --cb-name-size:20px;
+  --cb-control-rail:34px;
+  --cb-name-size:18px;
   position:relative;
   z-index:1;
   display:grid;
-  grid-template-columns:var(--cb-position-width) minmax(0,1fr);
+  /* Equal rails keep the name on the card axis, even without a version dial. */
+  grid-template-columns:var(--cb-control-rail) minmax(0,1fr) var(--cb-control-rail);
   grid-template-rows:minmax(0,1fr);
   gap:4px;
   align-items:center;
   height:100%;
   min-width:0;
 }
-.cb-pedestal-content.has-versions { grid-template-columns:var(--cb-position-width) minmax(0,1fr) var(--cb-switch-width); }
 .cb-pedestal-content.has-many-positions { --cb-position-width:32px; }
 .cb-caption-title { grid-column:2; grid-row:1; display:flex; align-items:center; justify-content:center; min-width:0; height:100%; margin:0; padding:0; border:0; background:none; box-shadow:none; }
 .cb-pedestal h2 { width:100%; margin:0; color:#f1eadc; font:600 var(--cb-name-size)/1.12 var(--kalistar-display,Georgia); letter-spacing:0; text-align:center; white-space:normal; overflow-wrap:normal; text-wrap:balance; text-shadow:0 1px 2px #000; }
@@ -79,40 +80,38 @@
 .cb-pedestal button:active { filter:brightness(1.2); }
 .cb-pedestal .cb-flip-control:active .cb-flip-symbol { box-shadow:0 0 0 2px #080f10,inset 0 2px 4px #0009; }
 
-@container collection-plinth (max-width:180px) {
-  .cb-pedestal-content { --cb-name-size:18px; --cb-position-width:22px; --cb-switch-width:32px; gap:2px; }
-  .cb-plinth-art { grid-template-columns:22px minmax(0,1fr) 22px; }
-  .cb-page .cb-pedestal .cb-flip-control { width:30px; }
-  .cb-pocket-positions .position-emblem { --position-size:18px; }
-  .has-many-positions .position-emblem { --position-size:14px; }
+/* Fixed type steps follow the plinth, not the viewport; JS only fits overflow. */
+@container collection-plinth (min-width:240px) {
+  .cb-pedestal-content { --cb-name-size:20px; }
 }
-@container collection-plinth (max-width:150px) {
-  .cb-pedestal-content { --cb-name-size:16px; }
-  .cb-plinth-art > span { grid-template-rows:6px minmax(0,1fr) 6px; }
-  .cb-pedestal-content.has-versions { position:absolute; inset:0 8px; grid-template-rows:38px 26px; gap:0; }
-  .has-versions .cb-caption-title { grid-column:1 / -1; grid-row:1; padding-top:6px; }
-  .has-versions .cb-pocket-positions { grid-column:1 / 3; grid-row:2; display:flex; flex-direction:row; justify-content:flex-start; width:auto; height:24px; gap:0; }
-  .has-versions .cb-pocket-positions .position-emblem { --position-size:16px; }
-  .has-versions.has-many-positions .position-emblem { --position-size:12px; }
-  .cb-page .has-versions .cb-flip-control { display:flex; grid-row:2; height:24px; min-height:24px; gap:3px; }
+@container collection-plinth (max-width:180px) {
+  /* Small plinths share one title row; metadata never changes its center or size. */
+  .cb-pedestal-content { --cb-name-size:16px; --cb-control-rail:30px; position:absolute; inset:0 8px 2px; height:auto; grid-template-columns:minmax(0,1fr) var(--cb-control-rail); grid-template-rows:minmax(0,1fr) 24px; gap:0; }
+  .cb-caption-title { grid-column:1 / -1; grid-row:1; padding:6px 4px 0; }
+  .cb-pocket-positions,.has-many-positions .cb-pocket-positions { grid-column:1; grid-row:2; display:flex; flex-direction:row; justify-content:flex-start; width:auto; height:24px; gap:0; }
+  .cb-pocket-positions .position-emblem { --position-size:16px; }
+  .has-many-positions .position-emblem { --position-size:12px; }
+  .cb-plinth-art { grid-template-columns:22px minmax(0,1fr) 22px; }
+  .cb-page .cb-pedestal .cb-flip-control { display:flex; grid-column:2; grid-row:2; justify-content:center; width:30px; height:24px; min-height:24px; gap:3px; }
   .cb-page .cb-pedestal .cb-flip-symbol { width:20px; height:20px; }
   .cb-page .cb-flip-symbol .lucide { width:13px; height:13px; }
   .cb-flip-control::before { inset:-2px -1px 0; }
+}
+@container collection-plinth (max-width:150px) {
+  .cb-plinth-art > span { grid-template-rows:6px minmax(0,1fr) 6px; }
   .cb-faction-watermark img { right:-32px; }
 }
 @container collection-plinth (max-width:110px) {
-  .cb-pedestal-content { --cb-name-size:14px; --cb-position-width:18px; --cb-switch-width:28px; }
-  .cb-pedestal-content.has-many-positions { --cb-position-width:24px; }
+  .cb-pedestal-content { --cb-name-size:14px; --cb-control-rail:28px; }
   .cb-plinth-art { grid-template-columns:18px minmax(0,1fr) 18px; }
-  .cb-pocket-positions .position-emblem { --position-size:16px; }
-  .has-many-positions .cb-pocket-positions { grid-template-columns:repeat(2,12px); grid-auto-rows:12px; }
-  .has-many-positions .position-emblem,.has-versions.has-many-positions .position-emblem { --position-size:12px; }
+  .has-many-positions .cb-pocket-positions { display:grid; grid-template-columns:repeat(3,12px); grid-auto-rows:12px; }
   .cb-page .cb-pedestal .cb-flip-control { width:28px; }
 }
 @container collection-plinth (max-width:80px) {
   .cb-pedestal-content { --cb-name-size:12px; }
-  .has-versions .cb-pocket-positions .position-emblem { --position-size:12px; }
-  .has-versions.has-many-positions .position-emblem { --position-size:10px; }
+  .cb-pocket-positions .position-emblem { --position-size:12px; }
+  .has-many-positions .cb-pocket-positions { grid-template-columns:repeat(3,10px); grid-auto-rows:10px; }
+  .has-many-positions .position-emblem { --position-size:10px; }
 }
 @container (max-width:130px) {
   .cb-card-favorite .lucide { width:16px; height:16px; }

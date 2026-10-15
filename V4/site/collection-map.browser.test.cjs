@@ -193,7 +193,7 @@ async function main(){
       for(const pedestal of await touch.locator('.cb-pedestal').all()){
         const sample=await pedestal.evaluate(n=>{
           const r=n.getBoundingClientRect(),c=KALISTAR_DATA.cards.find(c=>c.id===n.closest('.cb-pocket').dataset.cardId),title=n.querySelector('h2'),range=document.createRange();range.selectNodeContents(title);
-          const ink=range.getBoundingClientRect(),face=title.parentElement.getBoundingClientRect(),padding=getComputedStyle(title.parentElement),nameFits=ink.top>=face.top+parseFloat(padding.paddingTop)-1&&ink.bottom<=face.bottom-parseFloat(padding.paddingBottom)+1&&ink.left>=face.left-1&&ink.right<=face.right+1;
+          const ink=range.getBoundingClientRect(),face=title.parentElement.getBoundingClientRect(),padding=getComputedStyle(title.parentElement),nameFits=ink.top>=face.top+parseFloat(padding.paddingTop)-1&&ink.bottom<=face.bottom-parseFloat(padding.paddingBottom)+1&&ink.left>=face.left+parseFloat(padding.paddingLeft)-1&&ink.right<=face.right-parseFloat(padding.paddingRight)+1;
           const tools=[...n.querySelectorAll('h2,.cb-copy-count,.cb-version-count,.position-emblem')];
           return {id:c.id,name:c.name,faction:n.dataset.faction,source:n.querySelector('.cb-faction-watermark img').getAttribute('src'),expected:KalistarCollaborations.asset('factions',c.faction),fits:tools.every(t=>{const b=t.getBoundingClientRect();return b.left>=r.left-1&&b.right<=r.right+1&&b.top>=r.top-1&&b.bottom<=r.bottom+1;}),nameFits,font:parseFloat(getComputedStyle(title).fontSize),width:r.width};
         });
@@ -265,16 +265,50 @@ async function main(){
       const names=await stressPage.locator('.cb-pedestal').evaluateAll(nodes=>nodes.map(n=>{
         const h=n.querySelector('h2'),range=document.createRange();range.selectNodeContents(h);
         const ink=range.getBoundingClientRect(),face=h.parentElement.getBoundingClientRect(),style=getComputedStyle(h.parentElement),card=n.closest('.cb-pocket'),positions=[...n.querySelectorAll('.position-emblem')],plinth=n.getBoundingClientRect();
-        return {name:h.textContent,font:parseFloat(getComputedStyle(h).fontSize),fits:ink.top>=face.top+parseFloat(style.paddingTop)-1&&ink.bottom<=face.bottom-parseFloat(style.paddingBottom)+1&&ink.left>=face.left-1&&ink.right<=face.right+1,positions:positions.length,positionsFit:positions.every(p=>{const r=p.getBoundingClientRect();return r.left>=plinth.left-1&&r.right<=plinth.right+1&&r.top>=plinth.top-1&&r.bottom<=plinth.bottom+1;}),versions:n.querySelectorAll('.cb-version-count').length,many:card.dataset.character===KALISTAR_DATA.cards.find(c=>c.name==='MOMO').characterId};
+        return {name:h.textContent,font:parseFloat(getComputedStyle(h).fontSize),fits:ink.top>=face.top+parseFloat(style.paddingTop)-1&&ink.bottom<=face.bottom-parseFloat(style.paddingBottom)+1&&ink.left>=face.left+parseFloat(style.paddingLeft)-1&&ink.right<=face.right-parseFloat(style.paddingRight)+1,positions:positions.length,positionsFit:positions.every(p=>{const r=p.getBoundingClientRect();return r.left>=plinth.left-1&&r.right<=plinth.right+1&&r.top>=plinth.top-1&&r.bottom<=plinth.bottom+1;}),versions:n.querySelectorAll('.cb-version-count').length,many:card.dataset.character===KALISTAR_DATA.cards.find(c=>c.name==='MOMO').characterId};
       }));
       assert(names.length===2&&names.every(n=>n.fits&&n.positions===5&&n.positionsFit&&n.font>=8),'future long names and five positions fit: '+JSON.stringify({width,height,names}));
       assert.equal(names.find(n=>n.name.startsWith('ARCHIVISTE')).versions,0,'a single version leaves no selector or count');
       assert.equal(names.find(n=>n.name.startsWith('VALENTIN')).versions,1,'multiple versions retain the inset dial');
       fitStress.push({width,height,names});await stressPage.screenshot({path:path.join(output,`name-fit-five-positions-${width}x${height}.png`),scale:'css'});
     }
+    // Reproduce the mixed one/many-edition FF9 row that exposed the shifted names.
+    await stressPage.evaluate(()=>{
+      window.CB_STRESS.destroy();
+      const names=['DJIDANE','VIVI','GRENAT','STEINER','EIKO','FREYJA'];
+      const cards=KALISTAR_DATA.cards.filter(c=>names.includes(c.name));
+      if(!names.every(name=>cards.some(c=>c.name===name)))throw new Error('Missing FF9 caption fixture');
+      const surface=document.querySelector('#collection-binder-root'),view=KalistarCollection.create({data:{...KALISTAR_DATA,cards},getOwned:id=>id?[{}]:cards.map(c=>({cardId:c.id}))});
+      surface.innerHTML=view.render();view.mount(surface);window.CB_STRESS=view;
+    });
+    const titleAlignment=[];
+    const measureTitles=()=>stressPage.locator('.cb-pedestal').evaluateAll(nodes=>nodes.map(n=>{
+      const plinth=n.getBoundingClientRect(),title=n.querySelector('.cb-caption-title').getBoundingClientRect(),name=n.querySelector('h2'),style=getComputedStyle(name),h=name.getBoundingClientRect();
+      const content=getComputedStyle(n.querySelector('.cb-pedestal-content'));
+      const overlaps=(a,b)=>a.left<b.right-.5&&a.right>b.left+.5&&a.top<b.bottom-.5&&a.bottom>b.top+.5;
+      return {name:name.textContent,width:plinth.width,titleX:title.x+title.width/2-plinth.x-plinth.width/2,titleY:title.y+title.height/2-plinth.y,font:parseFloat(style.fontSize),baseFont:parseFloat(content.getPropertyValue('--cb-name-size')),centered:Math.abs(h.x+h.width/2-plinth.x-plinth.width/2)<.5,clear:[...n.querySelectorAll('.position-emblem,.cb-flip-control')].every(control=>!overlaps(h,control.getBoundingClientRect())),versions:!!n.querySelector('.cb-flip-control')};
+    }));
+    for(const [width,height]of [[1920,1080],[1440,900],[412,1007],[390,844],[320,568],[844,390],[1920,1080]]){
+      await stressPage.setViewportSize({width,height});await stressPage.waitForTimeout(150);
+      await stressPage.locator('[data-binder-action=pages]:visible').click();
+      await stressPage.locator('[data-binder-action=jump-page][data-id="0"]').click();
+      for(let index=0;index<6;index++){
+        await stressPage.waitForFunction(()=>[...document.querySelectorAll('.cb-card img')].every(n=>n.complete&&n.naturalWidth));
+        const names=await measureTitles();
+        assert(names.every(n=>Math.abs(n.titleX)<.5&&n.centered&&n.clear),'titles stay on the card axis and clear of controls: '+JSON.stringify({width,height,names}));
+        assert(names.every(n=>n.font===n.baseFont),'short names share the CSS size, with or without editions: '+JSON.stringify({width,height,names}));
+        assert(names.every(n=>Math.abs(n.titleY-names[0].titleY)<.5),'all plinth titles share the same vertical center');
+        titleAlignment.push({width,height,page:index+1,names});
+        await stressPage.screenshot({path:path.join(output,`titles-ff9-${width}x${height}-${index+1}.png`),scale:'css'});
+        const next=stressPage.locator('.cb-footer [data-binder-action=next-page]');if(await next.isDisabled())break;await next.click();
+      }
+    }
+    const beforeFlip=await measureTitles(),dial=stressPage.locator('.cb-flip-control').first();
+    assert(await dial.count(),'the FF9 row includes an edition dial');await dial.click();
+    assert.deepEqual(await measureTitles(),beforeFlip,'changing edition does not move or resize the title');
     await stressPage.evaluate(()=>window.CB_STRESS.destroy());await stressContext.close();
     assert.deepEqual(errors,[]);
-    fs.writeFileSync(path.join(output,'results.json'),JSON.stringify({passed:true,built,sizes:7,asset,pedestalAsset,checks,samples,nameStress,fitStress,errors},null,2)+'\n');
+    fs.writeFileSync(path.join(output,'results.json'),JSON.stringify({passed:true,built,sizes:7,asset,pedestalAsset,checks,samples,nameStress,fitStress,titleAlignment,errors},null,2)+'\n');
     console.log(JSON.stringify({sizes:7,asset,checks:'atlas, sleeves, caption contrast, paging, filters, editions, notebook, Story, reload and real touch controls',screenshots:output}));
   }finally{await browser.close();}
 }
