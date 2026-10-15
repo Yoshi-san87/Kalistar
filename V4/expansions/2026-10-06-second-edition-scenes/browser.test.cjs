@@ -3,7 +3,7 @@ const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),
 const {createRequire}=require('node:module'),{DIST,inside}=require('../../deploy/build.cjs');
 const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const {chromium}=createRequire(path.join(runtime,'_faces.cjs'))('playwright');
-const M=require('./model.cjs'),set=require('./set.json'),out=path.join(__dirname,'browser-proof');
+const M=require('./model.cjs'),set=require('./set.json'),out=process.env.KALISTAR_VERIFICATION_DIR||path.join(__dirname,'browser-proof');
 const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.webp':'image/webp','.svg':'image/svg+xml','.woff2':'font/woff2'};
 async function main(){
  const server=http.createServer((req,res)=>{
@@ -26,7 +26,8 @@ async function main(){
   for(const spec of set.cards){
    assert.equal(data.cards.filter(c=>c.id===spec.id).length,1);
    await page.locator('[data-binder-field=search]').fill(spec.name);
-   assert.equal(data.cards.filter(c=>c.characterId===spec.characterId).length,2);
+   const editions=data.cards.filter(c=>[spec.lineage,spec.id].includes(c.id));
+   assert.equal(editions.length,2);assert(editions.every(c=>c.characterId===spec.characterId));
    await page.locator('.cb-card').first().waitFor();await images();
   }
   for(const [name,width,height]of [['desktop',1440,1000],['razr50',412,915],['narrow',320,740]]){
@@ -39,7 +40,7 @@ async function main(){
     if(await notes.isVisible())await notes.click();
     const version=page.locator('[data-binder-action=version][data-id="'+spec.id+'"]');
     await version.click();assert.equal(await version.getAttribute('aria-pressed'),'true');
-    assert.equal(await page.locator('[data-binder-action=version]').count(),2);
+    assert.equal(await page.locator('[data-binder-action=version]').count(),data.cards.filter(c=>c.characterId===spec.characterId).length);
     const pane=page.locator('[data-binder-action=pane][data-id=visual]');if(await pane.isVisible())await pane.click();
     await images();assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
     await page.screenshot({path:path.join(out,name+'-'+key+'.png')});

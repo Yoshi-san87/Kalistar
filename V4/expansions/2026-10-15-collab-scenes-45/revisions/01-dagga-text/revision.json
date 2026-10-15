@@ -1,0 +1,29 @@
+{
+  "id": "01-dagga-text",
+  "reason": "Dagga description exceeded the native cartouche before saving any PSD.",
+  "originalManifestHash": "8956c34040d988a56aa4a0236276434773d49bbbd491934ec96ea0e6cd954044",
+  "oldLength": 206,
+  "newLength": 180,
+  "files": [
+    {
+      "relative": "build.cjs",
+      "before": "98592fd93b3308ec44327993a8d9383314a0e1013533d09976b10388eb6b2e03",
+      "after": "c8edbece2122c7960f06c0f9fb16c1c7798fd99fb9ffc57544f88f9c8410152c"
+    },
+    {
+      "relative": "choices.cjs",
+      "before": "372402a687163c8382c2cde97045d3873705ebc5d192a6dcea62783a27f42ff0",
+      "after": "1bdebed5020b6ce98c3a764f14c37563b69b3cb6ea1546ffcc50ef8c9c3e6873"
+    },
+    {
+      "relative": "set.json",
+      "before": "9e0fb62e525edd5c1ae3f9d1947a650483abef08d8de7006b7e33d9618910ccc",
+      "after": "c552ce8884845efa46251db6a5099b4b3838c44fe526a8b62016db0f0d429877"
+    },
+    {
+      "relative": "cards/dagga-renouveau/profile.json",
+      "before": "a241061314d70bbd272e37428786649791f67ac4437cb1e0e3e913735394411d",
+      "after": "5c4bf0bde8a968e44e4cc638fd238dec10d66dd6f95b5e6bacd7e44ff8857452"
+    }
+  ]
+}

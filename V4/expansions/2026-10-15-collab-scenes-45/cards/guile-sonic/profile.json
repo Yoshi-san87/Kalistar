@@ -1,0 +1,63 @@
+{
+  "name": "GUILE",
+  "title": "L’ARC AU-DESSUS DU SOL",
+  "job": "SOLDAT",
+  "description": "Guile renverse l'horizon avec une précision de pilote. Son talon dessine un arc, puis le sol revient à sa place. La colère existe, mais il ne lui confie pas la trajectoire : chaque mouvement doit ramener les siens.",
+  "element": "AERO",
+  "race": "HUMAIN",
+  "weapon": "Poing",
+  "faction": "STREETFIGHTER",
+  "positions": [
+    2,
+    4
+  ],
+  "atk": [
+    287,
+    233,
+    181,
+    129,
+    75,
+    29
+  ],
+  "defense": [
+    165,
+    133,
+    101,
+    69,
+    "retry",
+    17
+  ],
+  "magic": [
+    6,
+    3
+  ],
+  "barriers": [
+    5
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49902836",
+  "characterId": "guile-street-fighter",
+  "slug": "V4_49902836",
+  "output": "KALISTAR_V4_49902836",
+  "text": "Guile renverse l'horizon avec une précision de pilote. Son talon dessine un arc, puis le sol revient à sa place. La colère existe, mais il ne lui confie pas la trajectoire : chaque mouvement doit ramener les siens.",
+  "color": "89EDC2",
+  "hue": 155,
+  "role": 2,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Kalistar x collaborations - scenes cultes, variantes non officielles",
+  "visual_revision": "V4-2026-10-15-collab-scenes-45",
+  "variantOf": "49901704",
+  "collaboration": "STREETFIGHTER",
+  "officialCollaboration": false,
+  "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/40-guile-sonic.png"
+}

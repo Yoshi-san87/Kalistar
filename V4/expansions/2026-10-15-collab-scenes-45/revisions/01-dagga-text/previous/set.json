@@ -1,0 +1,2241 @@
+{
+  "id": "2026-10-15-collab-scenes-45",
+  "approvedOn": "2026-10-15",
+  "mode": "new-character-versions",
+  "sourceSelection": "V4/propositions/2026-10-15-collab-scenes-50/selection.json",
+  "excluded": [
+    {
+      "number": 15,
+      "name": "Auron",
+      "reason": "Non retenu par utilisateur"
+    },
+    {
+      "number": 20,
+      "name": "Aranea",
+      "reason": "Non retenu par utilisateur"
+    },
+    {
+      "number": 27,
+      "name": "Jill Valentine",
+      "reason": "Non retenu par utilisateur"
+    },
+    {
+      "number": 29,
+      "name": "Claire Redfield",
+      "reason": "Non retenu par utilisateur"
+    },
+    {
+      "number": 50,
+      "name": "Shadow",
+      "reason": "Non retenu par utilisateur"
+    }
+  ],
+  "cards": [
+    {
+      "id": "49902801",
+      "key": "cloud-midgar",
+      "proposalNumber": 1,
+      "baseId": "47208326",
+      "characterId": "cloud-ff7",
+      "name": "CLOUD",
+      "job": "MERCENAIRE",
+      "race": "HUMAIN",
+      "element": "ELECTRO",
+      "weapon": "Epée longue",
+      "faction": "FF7",
+      "collaboration": "FF7",
+      "officialCollaboration": false,
+      "title": "LA FUITE DE MIDGAR",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        288,
+        231,
+        178,
+        139,
+        "buff_atk",
+        29
+      ],
+      "defense": [
+        166,
+        134,
+        103,
+        71,
+        42,
+        "retry"
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "description": "La route fuit sous les roues de Cloud. Derrière lui, Midgar voudrait refermer ses mâchoires d'acier. Il ne connaît pas encore le prix de cette liberté ; pour l'instant, ses amis ont besoin d'une issue.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/01-cloud-midgar.png",
+      "artworkSha256": "fe7592f90ba033e43797fe6366daaae23a4676fba6dff851954bce338b666e88",
+      "sceneInspiration": "FFVII, fuite sur l'autoroute",
+      "sceneReason": "Un mouvement très différent de sa pose armée actuelle."
+    },
+    {
+      "id": "49902802",
+      "key": "aeris-eglise",
+      "proposalNumber": 2,
+      "baseId": "48210516",
+      "characterId": "aeris-ff7",
+      "name": "AERIS",
+      "job": "CETRA",
+      "race": "HUMAIN",
+      "element": "LUXO",
+      "weapon": "Bâton",
+      "faction": "FF7",
+      "collaboration": "FF7",
+      "officialCollaboration": false,
+      "title": "LA PRIÈRE SANS RETOUR",
+      "role": 5,
+      "positions": [
+        4,
+        5
+      ],
+      "atk": [
+        164,
+        132,
+        "revive",
+        76,
+        44,
+        "mana"
+      ],
+      "defense": [
+        198,
+        164,
+        127,
+        91,
+        56,
+        "retry"
+      ],
+      "magic": [
+        6,
+        5,
+        3
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "description": "Aeris joint les mains dans la cité oubliée. Sa prière ne demande rien pour elle-même. Sous la pierre et l'eau, une réponse cherche encore son chemin ; elle reste là, assez calme pour pouvoir l'entendre.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/02-aeris-eglise.png",
+      "artworkSha256": "230ef184b49ac50e29b134ee335d0349222b0a83c2de02acdbf0b79c46e9aa75",
+      "sceneInspiration": "FFVII, prière dans la Cité oubliée",
+      "sceneReason": "Un moment suspendu, distinct du jardin de sa carte actuelle."
+    },
+    {
+      "id": "49902803",
+      "key": "tifa-promesse",
+      "proposalNumber": 3,
+      "baseId": "46437046",
+      "characterId": "tifa-ff7",
+      "name": "TIFA",
+      "job": "PUGILISTE",
+      "race": "HUMAIN",
+      "element": "HYDRO",
+      "weapon": "Poing",
+      "faction": "FF7",
+      "collaboration": "FF7",
+      "officialCollaboration": false,
+      "title": "LA PROMESSE DU CHÂTEAU D’EAU",
+      "role": 3,
+      "positions": [
+        2,
+        3,
+        5
+      ],
+      "atk": [
+        214,
+        176,
+        139,
+        99,
+        "buff_atk",
+        28
+      ],
+      "defense": [
+        224,
+        181,
+        146,
+        103,
+        "retry",
+        26
+      ],
+      "magic": [
+        3
+      ],
+      "barriers": [
+        5
+      ],
+      "description": "Sur le château d'eau, Tifa retrouve le silence d'une ancienne promesse. Les étoiles n'ont pas changé ; ceux qui les regardaient, si. Elle garde pourtant une place pour celui qui avait promis de revenir.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/03-tifa-promesse.png",
+      "artworkSha256": "ea5338859187664e1d8db4ff9f8d5c2a8d4abeec5e9e22cebd478ebaac4b9b2b",
+      "sceneInspiration": "FFVII, souvenir du château d'eau",
+      "sceneReason": "Une scène intime, sans reprendre une garde de combat."
+    },
+    {
+      "id": "49902804",
+      "key": "sephiroth-incendie",
+      "proposalNumber": 4,
+      "baseId": "41693428",
+      "characterId": "sephiroth-ff7",
+      "name": "SEPHIROTH",
+      "job": "SOLDAT",
+      "race": "HUMAIN",
+      "element": "PYRO",
+      "weapon": "Epée longue",
+      "faction": "FF7",
+      "collaboration": "FF7",
+      "officialCollaboration": false,
+      "title": "LE PAS DANS LES FLAMMES",
+      "role": 2,
+      "positions": [
+        2,
+        4
+      ],
+      "atk": [
+        291,
+        238,
+        184,
+        131,
+        76,
+        "death"
+      ],
+      "defense": [
+        151,
+        123,
+        94,
+        63,
+        35,
+        14
+      ],
+      "magic": [
+        6,
+        3
+      ],
+      "barriers": [
+        4
+      ],
+      "description": "Sephiroth s'éloigne sans hâter le pas. Dans les flammes de Nibelheim, les voix deviennent un bruit lointain. Sa longue lame reste basse ; le monde vient de perdre quelqu'un qui aurait pu la retenir.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/04-sephiroth-incendie-v2.png",
+      "artworkSha256": "b214ef3167aca9cb99eff113f8745900b283d2361f6f4502b70291b412d67707",
+      "sceneInspiration": "FFVII, incendie de Nibelheim",
+      "sceneReason": "Changer entièrement la silhouette : de dos, il s’éloigne dans l’incendie et tourne seulement la tête."
+    },
+    {
+      "id": "49902805",
+      "key": "squall-bal",
+      "proposalNumber": 5,
+      "baseId": "45410910",
+      "characterId": "squall-ff8",
+      "name": "SQUALL",
+      "job": "SEED",
+      "race": "HUMAIN",
+      "element": "CRYO",
+      "weapon": "Epée longue",
+      "faction": "FF8",
+      "collaboration": "FF8",
+      "officialCollaboration": false,
+      "title": "UN PAS HORS DU SILENCE",
+      "role": 3,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        217,
+        178,
+        138,
+        "retry",
+        62,
+        "buff_atk"
+      ],
+      "defense": [
+        225,
+        186,
+        142,
+        109,
+        66,
+        28
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "description": "Squall sait compter les angles d'une attaque, pas les pas d'une danse. Une main tendue suffit pourtant à déplacer ses certitudes. Pour quelques mesures, le jeune SeeD cesse de monter la garde contre le monde.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/05-squall-bal.png",
+      "artworkSha256": "674b860f378a7893627504e2b7f6d00f4afbaf9b59e1e828229dda5a185a9d5b",
+      "sceneInspiration": "FFVIII, bal des SeeD",
+      "sceneReason": "Révéler sa vulnérabilité dans une tenue différente."
+    },
+    {
+      "id": "49902806",
+      "key": "linoa-fleurs",
+      "proposalNumber": 6,
+      "baseId": "45513029",
+      "characterId": "linoa-ff8",
+      "name": "LINOA",
+      "job": "SORCIERE",
+      "race": "HUMAIN",
+      "element": "LUXO",
+      "weapon": "Projectile",
+      "faction": "FF8",
+      "collaboration": "FF8",
+      "officialCollaboration": false,
+      "title": "UNE MAIN DANS LE VIDE",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        159,
+        128,
+        98,
+        "guard",
+        43,
+        "revive"
+      ],
+      "defense": [
+        191,
+        156,
+        122,
+        88,
+        "dodge",
+        24
+      ],
+      "magic": [
+        6,
+        5
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "description": "La Terre semble proche, mais aucun cri ne peut traverser ce vide. Derrière la visière close, Linoa cherche une silhouette. Sa main reste tendue : il suffit encore que quelqu'un refuse de la laisser partir.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/06-linoa-fleurs-v2.png",
+      "artworkSha256": "d3fa940d5b24d07b9ee54491fd723f41927f181d56b1d73d232dd15cd6e777ba",
+      "sceneInspiration": "FFVIII, sauvetage dans l'espace",
+      "sceneReason": "Un décor et une tenue radicalement différents."
+    },
+    {
+      "id": "49902807",
+      "key": "celes-opera",
+      "proposalNumber": 7,
+      "baseId": "49901104",
+      "characterId": "celes-ff6",
+      "name": "CELES",
+      "job": "CANTATRICE",
+      "race": "HUMAIN",
+      "element": "CRYO",
+      "weapon": "Instrument",
+      "faction": "FF6",
+      "collaboration": "FF6",
+      "officialCollaboration": false,
+      "title": "MARIA SOUS LES LUMIÈRES",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        166,
+        136,
+        "guard",
+        74,
+        "mana",
+        19
+      ],
+      "defense": [
+        202,
+        167,
+        131,
+        94,
+        61,
+        28
+      ],
+      "magic": [
+        6,
+        5
+      ],
+      "barriers": [
+        6,
+        5
+      ],
+      "description": "Celes connaît mieux les ordres que les chansons. Pourtant, devant cette salle suspendue à sa voix, elle tient chaque note comme une promesse. Sous le costume de Maria, une autre vie devient possible.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/07-celes-opera.png",
+      "artworkSha256": "f72c2cf73878bc606d514330084ae95d0802bb509ffcaff4850a9d09404ecdba",
+      "sceneInspiration": "FFVI, opéra Maria et Draco",
+      "sceneReason": "Une vraie scène de théâtre et un costume spécifique."
+    },
+    {
+      "id": "49902808",
+      "key": "terra-neige",
+      "proposalNumber": 8,
+      "baseId": "49901101",
+      "characterId": "terra-ff6",
+      "name": "TERRA",
+      "job": "MAGITEK",
+      "race": "HUMAIN",
+      "element": "PYRO",
+      "weapon": "Epée courte",
+      "faction": "FF6",
+      "collaboration": "FF6",
+      "officialCollaboration": false,
+      "title": "LES PAS DE FER DANS LA NEIGE",
+      "role": 4,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        279,
+        224,
+        176,
+        124,
+        68,
+        "mana"
+      ],
+      "defense": [
+        156,
+        129,
+        98,
+        67,
+        38,
+        17
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3
+      ],
+      "barriers": [
+        6
+      ],
+      "description": "La neige de Narshe étouffe le pas des machines. Terra avance dans l'acier sans savoir encore quel souvenir lui appartient. Sous les ordres et le froid, une volonté fragile attend seulement de se réveiller.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/08-terra-neige.png",
+      "artworkSha256": "e85853a89b4c6128244c9f3f55252a7f4d7a8abb25442a0ffc7c8922ea0d32b4",
+      "sceneInspiration": "FFVI, marche vers Narshe",
+      "sceneReason": "Le contraste entre la fragilité de Terra et la machine."
+    },
+    {
+      "id": "49902809",
+      "key": "sabin-train",
+      "proposalNumber": 9,
+      "baseId": "49901106",
+      "characterId": "sabin-ff6",
+      "name": "SABIN",
+      "job": "MOINE",
+      "race": "HUMAIN",
+      "element": "GEO",
+      "weapon": "Poing",
+      "faction": "FF6",
+      "collaboration": "FF6",
+      "officialCollaboration": false,
+      "title": "ARRÊTER L’IMPOSSIBLE",
+      "role": 2,
+      "positions": [
+        1,
+        2
+      ],
+      "atk": [
+        297,
+        241,
+        191,
+        "buff_atk",
+        83,
+        37
+      ],
+      "defense": [
+        155,
+        124,
+        93,
+        65,
+        34,
+        12
+      ],
+      "magic": [],
+      "barriers": [
+        3
+      ],
+      "description": "Le train ne devrait jamais quitter ses rails. Sabin n'a pas le temps de discuter cette évidence : ses amis sont derrière lui. Il plante les pieds, serre les dents et prête ses épaules à l'impossible.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/09-sabin-train.png",
+      "artworkSha256": "b77cd36324dd698255abbe14621104e1c0876aec2c0340e42d56b6744f834b5f",
+      "sceneInspiration": "FFVI, Train Fantôme",
+      "sceneReason": "Un cadrage puissant qui conserve une mécanique corporelle crédible."
+    },
+    {
+      "id": "49902810",
+      "key": "vivi-village",
+      "proposalNumber": 10,
+      "baseId": "49901002",
+      "characterId": "vivi-ff9",
+      "name": "VIVI",
+      "job": "MAGE NOIR",
+      "race": "ROBOT",
+      "element": "PYRO",
+      "weapon": "Bâton",
+      "faction": "FF9",
+      "collaboration": "FF9",
+      "officialCollaboration": false,
+      "title": "UN NOM PARMI LES FLEURS",
+      "role": 5,
+      "positions": [
+        4,
+        5
+      ],
+      "atk": [
+        163,
+        134,
+        "mana",
+        77,
+        45,
+        "retry"
+      ],
+      "defense": [
+        196,
+        159,
+        125,
+        92,
+        57,
+        23
+      ],
+      "magic": [
+        6,
+        5,
+        3
+      ],
+      "barriers": [
+        4
+      ],
+      "description": "Vivi dépose une fleur devant un nom. Il ne sait pas combien de temps lui reste, ni comment on apprend à dire adieu. Mais ses petites mains peuvent encore offrir quelque chose, et cela compte aujourd'hui.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/10-vivi-village-v2.png",
+      "artworkSha256": "014d1657012eed876e8c8078de2c9319da9c4cf7eea3a222f7476d434ba81820",
+      "sceneInspiration": "FFIX, village des mages noirs",
+      "sceneReason": "Vivi dépose une fleur devant une tombe : son interrogation devient un geste concret."
+    },
+    {
+      "id": "49902811",
+      "key": "djidane-main",
+      "proposalNumber": 11,
+      "baseId": "49901001",
+      "characterId": "djidane-ff9",
+      "name": "DJIDANE",
+      "job": "VOLEUR",
+      "race": "MACAKO",
+      "element": "LUXO",
+      "weapon": "Dague",
+      "faction": "FF9",
+      "collaboration": "FF9",
+      "officialCollaboration": false,
+      "title": "TU N’ES PAS SEUL",
+      "role": 3,
+      "positions": [
+        2,
+        3,
+        5
+      ],
+      "atk": [
+        218,
+        "buff_atk",
+        141,
+        102,
+        61,
+        "retry"
+      ],
+      "defense": [
+        211,
+        173,
+        136,
+        "dodge",
+        58,
+        23
+      ],
+      "magic": [],
+      "barriers": [
+        6
+      ],
+      "description": "Djidane avait voulu porter seul ce qu'il venait d'apprendre. Une main l'attend pourtant au milieu du vertige. Il la reconnaît avant même de relever les yeux : ses amis n'ont jamais cessé de marcher vers lui.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/11-djidane-main.png",
+      "artworkSha256": "f59ef2cd779762dd6305f8a429027ab4fc83d173f09e738751e87a1142e96619",
+      "sceneInspiration": "FFIX, Pandémonium",
+      "sceneReason": "Une version éprouvée mais tournée vers les autres."
+    },
+    {
+      "id": "49902812",
+      "key": "dagga-renouveau",
+      "proposalNumber": 12,
+      "baseId": "49901004",
+      "characterId": "grenat-ff9",
+      "name": "DAGGA",
+      "job": "INVOKATRICE",
+      "race": "HUMAIN",
+      "element": "HYDRO",
+      "weapon": "Sceptre",
+      "faction": "FF9",
+      "collaboration": "FF9",
+      "officialCollaboration": false,
+      "title": "CHOISIR SON PROPRE NOM",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        168,
+        135,
+        "revive",
+        73,
+        "guard",
+        20
+      ],
+      "defense": [
+        193,
+        157,
+        123,
+        89,
+        "retry",
+        22
+      ],
+      "magic": [
+        6,
+        5
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "description": "Une mèche tombe, légère comme une permission. Dagga ne renonce ni à son peuple ni à son passé ; elle choisit seulement comment avancer. Au-dessus d'Alexandrie, le vent emporte ce qu'elle ne veut plus subir.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/12-dagga-renouveau.png",
+      "artworkSha256": "add6c6fc1f0e73f0a9c3109c71cf57d2c75b064aa32dbd5577c059444f98540b",
+      "sceneInspiration": "FFIX, cheveux coupés à Alexandrie",
+      "sceneReason": "Un changement de silhouette lié à son émancipation."
+    },
+    {
+      "id": "49902813",
+      "key": "tidus-blitzball",
+      "proposalNumber": 13,
+      "baseId": "40738164",
+      "characterId": "tidus-ff10",
+      "name": "TIDUS",
+      "job": "BLITZEUR",
+      "race": "HUMAIN",
+      "element": "HYDRO",
+      "weapon": "Projectile",
+      "faction": "FF10",
+      "collaboration": "FF10",
+      "officialCollaboration": false,
+      "title": "LE SOUFFLE DU BLITZ",
+      "role": 4,
+      "positions": [
+        2,
+        4
+      ],
+      "atk": [
+        282,
+        227,
+        176,
+        129,
+        78,
+        "retry"
+      ],
+      "defense": [
+        164,
+        132,
+        "dodge",
+        68,
+        37,
+        17
+      ],
+      "magic": [
+        5,
+        3
+      ],
+      "barriers": [
+        6
+      ],
+      "description": "Sous la surface, les cris du stade ne sont plus qu'un grondement. Tidus voit le ballon, puis l'espace où personne ne l'attend. Un seul mouvement suffit : pendant cet instant, il n'est plus le fils de personne.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/13-tidus-blitzball.png",
+      "artworkSha256": "95131c18409a8e2d1bcc466eb1276eeff666a6c5129cabaf6620b36c2f0e95a0",
+      "sceneInspiration": "FFX, blitzball à Luca",
+      "sceneReason": "Une scène aquatique et sportive."
+    },
+    {
+      "id": "49902814",
+      "key": "yuna-envoi",
+      "proposalNumber": 14,
+      "baseId": "42258087",
+      "characterId": "yuna-ff10",
+      "name": "YUNA",
+      "job": "INVOKEUSE",
+      "race": "HUMAIN",
+      "element": "LUXO",
+      "weapon": "Sceptre",
+      "faction": "FF10",
+      "collaboration": "FF10",
+      "officialCollaboration": false,
+      "title": "LA DANSE DES ADIEUX",
+      "role": 5,
+      "positions": [
+        5
+      ],
+      "atk": [
+        161,
+        130,
+        99,
+        "revive",
+        41,
+        "guard"
+      ],
+      "defense": [
+        201,
+        164,
+        127,
+        93,
+        58,
+        26
+      ],
+      "magic": [
+        6,
+        5
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "description": "Yuna avance sur l'eau pour ceux qui ne marcheront plus. Chaque geste retient une douleur sans l'emprisonner. Les lueurs montent lentement ; elle leur ouvre le chemin et garde pour elle le poids des adieux.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/14-yuna-envoi-v2.png",
+      "artworkSha256": "adf435abf8b37c922467e80fff998da7f3e23bb03b6239adcd75b85d356d8665",
+      "sceneInspiration": "FFX, danse de l’envoi à Kilika",
+      "sceneReason": "Une rotation vue de dos, portée par les manches et le mouvement du bâton."
+    },
+    {
+      "id": "49902815",
+      "key": "lightning-odin",
+      "proposalNumber": 16,
+      "baseId": "49901122",
+      "characterId": "lightning-ff13",
+      "name": "LIGHTNING",
+      "job": "RAVAGEUSE",
+      "race": "HUMAIN",
+      "element": "ELECTRO",
+      "weapon": "Epée courte",
+      "faction": "FF13",
+      "collaboration": "FF13",
+      "officialCollaboration": false,
+      "title": "LE PACTE AVEC ODIN",
+      "role": 1,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        198,
+        161,
+        124,
+        89,
+        "guard",
+        24
+      ],
+      "defense": [
+        279,
+        228,
+        177,
+        128,
+        81,
+        37
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "description": "Lightning cesse un instant de lutter contre la présence qui lui fait face. Odin attend autre chose que sa colère. Dans le silence qui suit l'épreuve, elle comprend que tenir debout ne veut pas dire tenir seule.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/16-lightning-odin.png",
+      "artworkSha256": "1123826ab387d1512898815bedbe55644b4351afee8cbb6affc09a9c3d814df6",
+      "sceneInspiration": "FFXIII, pacte avec Odin",
+      "sceneReason": "Un lien avec l'invocation, sans surcharge de bataille."
+    },
+    {
+      "id": "49902816",
+      "key": "fang-pilier",
+      "proposalNumber": 17,
+      "baseId": "49901126",
+      "characterId": "fang-ff13",
+      "name": "FANG",
+      "job": "LANCÈRE",
+      "race": "HUMAIN",
+      "element": "NECRO",
+      "weapon": "Lance",
+      "faction": "FF13",
+      "collaboration": "FF13",
+      "officialCollaboration": false,
+      "title": "LE POIDS DU CIEL",
+      "role": 1,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        201,
+        164,
+        "guard",
+        91,
+        57,
+        22
+      ],
+      "defense": [
+        288,
+        236,
+        182,
+        132,
+        83,
+        38
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "description": "Fang lève les yeux vers un ciel trop lourd. Elle a passé sa vie à reprendre ce qu'on lui arrachait ; cette fois, elle choisit ce qu'elle donnera. Le cristal grandit, et ses proches peuvent encore respirer.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/17-fang-pilier.png",
+      "artworkSha256": "d5b18a8c7c58939479590f1ea821b5c3720288d4c340298b3aaf58d5964866a4",
+      "sceneInspiration": "FFXIII, sacrifice pour Cocoon",
+      "sceneReason": "Une réinterprétation du sacrifice, plutôt qu'un portrait d'attaque."
+    },
+    {
+      "id": "49902817",
+      "key": "noctis-trone",
+      "proposalNumber": 18,
+      "baseId": "49901115",
+      "characterId": "noctis-ff15",
+      "name": "NOCTIS",
+      "job": "ROI",
+      "race": "HUMAIN",
+      "element": "NECRO",
+      "weapon": "Epée longue",
+      "faction": "FF15",
+      "collaboration": "FF15",
+      "officialCollaboration": false,
+      "title": "LE ROI AU BOUT DU VOYAGE",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        172,
+        139,
+        106,
+        "guard",
+        45,
+        "buff_atk"
+      ],
+      "defense": [
+        198,
+        161,
+        126,
+        92,
+        56,
+        24
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "description": "Le trône n'a rien d'un refuge. Noctis y retrouve le poids des absents et les voix de ceux qui l'ont accompagné. Le garçon aurait voulu repartir avec eux ; le roi reste, pour leur rendre enfin un matin.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/18-noctis-trone.png",
+      "artworkSha256": "535434204f6d93a60462b8f8ccb6e0a3f69d0760fce92c5bbcc8f00fb9f8e1dd",
+      "sceneInspiration": "FFXV, retour du roi",
+      "sceneReason": "L'âge et la responsabilité changent vraiment sa présence."
+    },
+    {
+      "id": "49902818",
+      "key": "ignis-camp",
+      "proposalNumber": 19,
+      "baseId": "49901116",
+      "characterId": "ignis-ff15",
+      "name": "IGNIS",
+      "job": "STRATÈGE",
+      "race": "HUMAIN",
+      "element": "PYRO",
+      "weapon": "Dague",
+      "faction": "FF15",
+      "collaboration": "FF15",
+      "officialCollaboration": false,
+      "title": "VOIR PAR LA CONFIANCE",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        167,
+        "retry",
+        103,
+        72,
+        "buff_atk",
+        21
+      ],
+      "defense": [
+        197,
+        160,
+        124,
+        90,
+        55,
+        23
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5,
+        3
+      ],
+      "description": "Ignis ne distingue plus le visage de ses amis, mais il reconnaît chacun de leurs silences. Il apprend le monde autrement, sans demander qu'on ralentisse pour lui. La route continue ; il y gardera sa place.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/19-ignis-camp.png",
+      "artworkSha256": "7c5787e770227d688c69357902318438ecf7daaca4064ef09334c743d477cc0b",
+      "sceneInspiration": "FFXV, épreuve d'Altissia",
+      "sceneReason": "Montrer le coût de son dévouement, loin du camp."
+    },
+    {
+      "id": "49902819",
+      "key": "snake-docks",
+      "proposalNumber": 21,
+      "baseId": "45297565",
+      "characterId": "solid-snake-mgs",
+      "name": "SOLID SNAKE",
+      "job": "INFILTRATEUR",
+      "race": "HUMAIN",
+      "element": "CRYO",
+      "weapon": "Gun",
+      "faction": "MGS1",
+      "collaboration": "MGS1",
+      "officialCollaboration": false,
+      "title": "SOUS LES LUMIÈRES DU PORT",
+      "role": 3,
+      "positions": [
+        2,
+        3,
+        4
+      ],
+      "atk": [
+        223,
+        182,
+        141,
+        104,
+        64,
+        "buff_atk"
+      ],
+      "defense": [
+        214,
+        176,
+        "dodge",
+        99,
+        60,
+        25
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "description": "Snake émerge sans bruit entre les quais de Shadow Moses. L'eau froide quitte ses gants ; les projecteurs poursuivent leur ronde. Avant les ordres et les mensonges, il reste ce premier mètre à franchir vivant.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/21-snake-docks.png",
+      "artworkSha256": "4699863f82b19c067f569ae046184d6d8d90209160b81a6ec7326001e5e3b7b5",
+      "sceneInspiration": "MGS, infiltration de Shadow Moses",
+      "sceneReason": "La tension avant le premier affrontement."
+    },
+    {
+      "id": "49902820",
+      "key": "naked-snake-fleurs",
+      "proposalNumber": 22,
+      "baseId": "49600106",
+      "characterId": "naked-snake-mgs",
+      "name": "NAKED SNAKE",
+      "job": "AGENT FOX",
+      "race": "HUMAIN",
+      "element": "HERBO",
+      "weapon": "Gun",
+      "faction": "MGS3",
+      "collaboration": "MGS3",
+      "officialCollaboration": false,
+      "title": "LE SILENCE APRÈS LA MISSION",
+      "role": 1,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        194,
+        158,
+        121,
+        "buff_atk",
+        52,
+        "guard"
+      ],
+      "defense": [
+        274,
+        226,
+        176,
+        126,
+        79,
+        35
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        6
+      ],
+      "description": "Devant la tombe, Snake se tient plus droit que devant n'importe quel officier. Le salut dure après que les mots ont cessé d'avoir un sens. Personne ne saura tout ce qu'il a perdu pour mériter ce nouveau nom.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/22-naked-snake-fleurs-v2.png",
+      "artworkSha256": "9ed14d9a8ba539824284f92c688bf3f9567f2d8e51c9406d2559d763ebbe4c79",
+      "sceneInspiration": "MGS3, salut au cimetière",
+      "sceneReason": "Le soldat se tient enfin droit : la douleur retenue remplace la posture d’infiltration."
+    },
+    {
+      "id": "49902821",
+      "key": "raiden-pluie",
+      "proposalNumber": 23,
+      "baseId": "49600102",
+      "characterId": "raiden-mgs",
+      "name": "RAIDEN",
+      "job": "CYBORG NINJA",
+      "race": "CYBORG",
+      "element": "ELECTRO",
+      "weapon": "Katana",
+      "faction": "MGS4",
+      "collaboration": "MGS4",
+      "officialCollaboration": false,
+      "title": "TENIR ENCORE SOUS LA PLUIE",
+      "role": 1,
+      "positions": [
+        1,
+        2
+      ],
+      "atk": [
+        204,
+        167,
+        132,
+        95,
+        "guard",
+        "death"
+      ],
+      "defense": [
+        263,
+        214,
+        169,
+        123,
+        74,
+        32
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        4
+      ],
+      "description": "La pluie glisse sur le métal de Raiden sans apaiser ce qui brûle encore en lui. Ses jambes cèdent, pas sa décision. Tant que quelqu'un doit passer derrière lui, son corps restera une porte difficile à ouvrir.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/23-raiden-pluie.png",
+      "artworkSha256": "f2340d76c8644e3195a9a30e9774c43745c987fe3600bebc534051dcfa9ee968",
+      "sceneInspiration": "MGS4, protection de ses alliés",
+      "sceneReason": "Le prix physique de son rôle de protecteur."
+    },
+    {
+      "id": "49902822",
+      "key": "ocelot-duel",
+      "proposalNumber": 24,
+      "baseId": "48312725",
+      "characterId": "revolver-ocelot-mgs",
+      "name": "REVOLVER OCELOT",
+      "job": "TIREUR",
+      "race": "HUMAIN",
+      "element": "ELECTRO",
+      "weapon": "Gun",
+      "faction": "MGS1",
+      "collaboration": "MGS1",
+      "officialCollaboration": false,
+      "title": "SIX COUPS, UN SOURIRE",
+      "role": 4,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        277,
+        221,
+        172,
+        122,
+        71,
+        27
+      ],
+      "defense": [
+        161,
+        131,
+        99,
+        67,
+        39,
+        "retry"
+      ],
+      "magic": [
+        3
+      ],
+      "barriers": [
+        5
+      ],
+      "description": "Ocelot recharge sans détourner toute son attention du duel. Chaque cartouche prolonge une conversation qu'il croit maîtriser. Ses doigts travaillent avec calme ; le sourire attend seulement que le barillet se ferme.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/24-ocelot-duel-v2.png",
+      "artworkSha256": "8e4c94367d61e9613753fe85c1554dc81933f66cfb652ce8880df21276d394b9",
+      "sceneInspiration": "MGS, rechargement du revolver pendant le duel souterrain (mise en scène réinterprétée)",
+      "sceneReason": "Une scène entièrement régénérée : assis, les deux bras devant lui, il recharge avec calme et précision."
+    },
+    {
+      "id": "49902823",
+      "key": "the-boss-aube",
+      "proposalNumber": 25,
+      "baseId": "49600107",
+      "characterId": "the-boss-mgs",
+      "name": "THE BOSS",
+      "job": "SOLDAT LÉGENDAIRE",
+      "race": "HUMAIN",
+      "element": "LUXO",
+      "weapon": "Poing",
+      "faction": "MGS3",
+      "collaboration": "MGS3",
+      "officialCollaboration": false,
+      "title": "CE QUE TRANSMET UN SOLDAT",
+      "role": 3,
+      "positions": [
+        1,
+        3,
+        5
+      ],
+      "atk": [
+        215,
+        177,
+        "buff_atk",
+        101,
+        60,
+        "retry"
+      ],
+      "defense": [
+        221,
+        182,
+        143,
+        105,
+        65,
+        28
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        6
+      ],
+      "description": "Sur le pont, The Boss défait une arme comme elle défait une certitude. Ses gestes ne cherchent pas l'humiliation. Elle voudrait seulement laisser à son élève quelque chose qui survivra aux ordres qu'il recevra.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/25-the-boss-aube.png",
+      "artworkSha256": "02d6b01f3551fd29f4aaf44a475b3bf7a29b50b7da916cd5f69c84275cc51912",
+      "sceneInspiration": "MGS3, pont de la Mission Vertueuse",
+      "sceneReason": "Changer le lieu et montrer sa supériorité sans grand spectacle."
+    },
+    {
+      "id": "49902824",
+      "key": "leon-cloche",
+      "proposalNumber": 26,
+      "baseId": "49700105",
+      "characterId": "leon-kennedy-re",
+      "name": "LEON S. KENNEDY",
+      "job": "AGENT SPECIAL",
+      "race": "HUMAIN",
+      "element": "PYRO",
+      "weapon": "Gun",
+      "faction": "RE4",
+      "collaboration": "RE4",
+      "officialCollaboration": false,
+      "title": "APRÈS LA CLOCHE",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        274,
+        223,
+        172,
+        121,
+        67,
+        26
+      ],
+      "defense": [
+        169,
+        137,
+        104,
+        "retry",
+        43,
+        19
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "description": "La cloche sonne, et le village cesse soudain de vouloir sa mort. Leon reste immobile, l'arme encore prête. Le silence n'explique rien ; il lui accorde seulement quelques secondes pour retrouver son souffle.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/26-leon-cloche.png",
+      "artworkSha256": "24a59672bbcaa24d5049a3a215927ebb3ee8cbfef59ba8e950a3459786264847",
+      "sceneInspiration": "RE4, cloche du village",
+      "sceneReason": "Le bref silence qui suit la panique."
+    },
+    {
+      "id": "49902825",
+      "key": "ada-grappin",
+      "proposalNumber": 28,
+      "baseId": "49700109",
+      "characterId": "ada-wong-re",
+      "name": "ADA WONG",
+      "job": "ESPIONNE",
+      "race": "HUMAIN",
+      "element": "HEMATO",
+      "weapon": "Gun",
+      "faction": "RE4",
+      "collaboration": "RE4",
+      "officialCollaboration": false,
+      "title": "LE FIL D’UNE AUTRE ISSUE",
+      "role": 4,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        272,
+        219,
+        168,
+        119,
+        69,
+        "buff_atk"
+      ],
+      "defense": [
+        153,
+        124,
+        "dodge",
+        63,
+        36,
+        15
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "description": "Ada quitte le rebord avant que la pierre ne décide pour elle. Le câble se tend, son regard a déjà trouvé la suite. Elle laisse derrière elle une question et assez de silence pour que chacun y invente sa réponse.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/28-ada-grappin.png",
+      "artworkSha256": "b41b837fb9eff08b8f9f915a2a7817f2299f13db9e72f5477a097970bab0b24e",
+      "sceneInspiration": "RE4, traversée au grappin",
+      "sceneReason": "Une diagonale légère qui change son cadrage."
+    },
+    {
+      "id": "49902826",
+      "key": "dimitrescu-seuil",
+      "proposalNumber": 30,
+      "baseId": "49700119",
+      "characterId": "alcina-dimitrescu-re",
+      "name": "DIMITRESCU",
+      "job": "DAME DU CHATEAU",
+      "race": "VAMP",
+      "element": "HEMATO",
+      "weapon": "Dague",
+      "faction": "RE8",
+      "collaboration": "RE8",
+      "officialCollaboration": false,
+      "title": "LE SEUIL LUI APPARTIENT",
+      "role": 1,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        202,
+        164,
+        127,
+        92,
+        "death",
+        21
+      ],
+      "defense": [
+        281,
+        229,
+        181,
+        132,
+        82,
+        37
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "description": "Dimitrescu se penche sous le linteau avec une lenteur presque courtoise. Dans sa maison, même les portes semblent trop petites pour sa colère. Elle n'élève pas la voix : le couloir sait déjà à qui il appartient.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/30-dimitrescu-seuil.png",
+      "artworkSha256": "3e8e5a2c65e5286d9c07bf5f6f9d946cb60571bb59afaf18b9f4c62cdf090281",
+      "sceneInspiration": "Resident Evil Village, passage de porte",
+      "sceneReason": "Jouer sur son échelle et son élégance menaçante."
+    },
+    {
+      "id": "49902827",
+      "key": "geralt-griffon",
+      "proposalNumber": 31,
+      "baseId": "49900101",
+      "characterId": "geralt-witcher",
+      "name": "GERALT DE RIV",
+      "job": "SORCELEUR",
+      "race": "HUMAIN",
+      "element": "GEO",
+      "weapon": "Epée longue",
+      "faction": "WITCHER",
+      "collaboration": "WITCHER",
+      "officialCollaboration": false,
+      "title": "SOUS L’OMBRE DU GRIFFON",
+      "role": 3,
+      "positions": [
+        1,
+        2,
+        3
+      ],
+      "atk": [
+        228,
+        187,
+        148,
+        106,
+        "retry",
+        "buff_atk"
+      ],
+      "defense": [
+        219,
+        "dodge",
+        139,
+        101,
+        63,
+        25
+      ],
+      "magic": [
+        3
+      ],
+      "barriers": [
+        6
+      ],
+      "description": "Geralt attend que l'ombre passe au bon endroit. La bête possède le ciel ; lui n'a que quelques pas de terrain et une lame bien tenue. Il ne cherche pas un geste héroïque, seulement celui qui laissera quelqu'un vivant.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/31-geralt-griffon.png",
+      "artworkSha256": "ec1c0bb1fd70389d38299623ccf8cd26e5dd9724c332e8432c3e3576ed162d5d",
+      "sceneInspiration": "The Witcher 3, contrat de Blanchefleur",
+      "sceneReason": "Un combat en pleine nature, pas encore des ruines."
+    },
+    {
+      "id": "49902828",
+      "key": "ciri-kaer-morhen",
+      "proposalNumber": 32,
+      "baseId": "49900103",
+      "characterId": "ciri-witcher",
+      "name": "CIRI",
+      "job": "HERITIERE",
+      "race": "HUMAIN",
+      "element": "ELECTRO",
+      "weapon": "Epée courte",
+      "faction": "WITCHER",
+      "collaboration": "WITCHER",
+      "officialCollaboration": false,
+      "title": "QUAND LE MONDE SE TAIT",
+      "role": 4,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        281,
+        225,
+        172,
+        124,
+        69,
+        "mana"
+      ],
+      "defense": [
+        "dodge",
+        127,
+        95,
+        64,
+        36,
+        14
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3
+      ],
+      "barriers": [
+        5
+      ],
+      "description": "Ciri tombe à genoux, mais rien ne tombe avec elle : ni les murs, ni la neige, ni ce monde capable de continuer. Alors sa douleur cherche une voix. Pendant un instant, même l'hiver semble retenir son souffle.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/32-ciri-kaer-morhen-v2.png",
+      "artworkSha256": "f67ce875f6ca8ef9f05be5d604de5540eda0613bc6d877291745b64dcf46dc92",
+      "sceneInspiration": "The Witcher 3, perte de Vesemir à Kaer Morhen",
+      "sceneReason": "La douleur et le cri de Ciri remplacent une nouvelle pose d’épée."
+    },
+    {
+      "id": "49902829",
+      "key": "yennefer-tempete",
+      "proposalNumber": 33,
+      "baseId": "49900104",
+      "characterId": "yennefer-witcher",
+      "name": "YENNEFER",
+      "job": "MAGICIENNE",
+      "race": "HUMAIN",
+      "element": "NECRO",
+      "weapon": "Tome",
+      "faction": "WITCHER",
+      "collaboration": "WITCHER",
+      "officialCollaboration": false,
+      "title": "AU-DELÀ DU VŒU",
+      "role": 5,
+      "positions": [
+        4,
+        5
+      ],
+      "atk": [
+        166,
+        "mana",
+        104,
+        74,
+        42,
+        "guard"
+      ],
+      "defense": [
+        194,
+        159,
+        122,
+        89,
+        55,
+        22
+      ],
+      "magic": [
+        6,
+        4,
+        3
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "description": "Le vent a remplacé le fracas du djinn. Yennefer demeure assise, les mains enfin tranquilles, devant une question qu'aucun sort ne peut résoudre. Ce qui restera entre eux devra désormais tenir sans enchantement.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/33-yennefer-tempete-v2.png",
+      "artworkSha256": "548b3a05952643d84e84421595c32c14c127f2b89bb8a1a5150d21819d93d163",
+      "sceneInspiration": "The Witcher 3, après Le Dernier Vœu",
+      "sceneReason": "Le calme après le djinn : Yennefer laisse place au doute et à ses propres sentiments."
+    },
+    {
+      "id": "49902830",
+      "key": "2b-parc",
+      "proposalNumber": 34,
+      "baseId": "45911726",
+      "characterId": "2b-nier",
+      "name": "2B",
+      "job": "COMBATTANTE",
+      "race": "ANDROID",
+      "element": "LUXO",
+      "weapon": "Katana",
+      "faction": "NieR",
+      "collaboration": "NieR",
+      "officialCollaboration": false,
+      "title": "LES RUBANS DU PARC",
+      "role": 3,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        229,
+        188,
+        147,
+        107,
+        "buff_atk",
+        27
+      ],
+      "defense": [
+        211,
+        174,
+        "dodge",
+        98,
+        58,
+        24
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        6
+      ],
+      "description": "Un ruban danse devant 2B, porté par une fête qui ignore ses ruines. Elle ralentit malgré elle. Sous les ordres, les armes et le bandeau, quelque chose écoute encore cette joie obstinée que personne n'a programmée.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/34-2b-parc.png",
+      "artworkSha256": "1c23a7be7617b34fda87790d8fdbb88df9ee6a2cf365615cafd54624d9f8e923",
+      "sceneInspiration": "NieR:Automata, parc d'attractions",
+      "sceneReason": "L'étrangeté poétique du parc."
+    },
+    {
+      "id": "49902831",
+      "key": "9s-cite-noyee",
+      "proposalNumber": 35,
+      "baseId": "42138845",
+      "characterId": "9s-nier",
+      "name": "9S",
+      "job": "SCANNER",
+      "race": "ANDROID",
+      "element": "ELECTRO",
+      "weapon": "Lance",
+      "faction": "NieR",
+      "collaboration": "NieR",
+      "officialCollaboration": false,
+      "title": "LA VILLE SOUS L’EAU",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        165,
+        133,
+        102,
+        "mana",
+        43,
+        "retry"
+      ],
+      "defense": [
+        197,
+        161,
+        126,
+        "retry",
+        56,
+        24
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "description": "9S laisse ses jambes au-dessus de la ville noyée. Les données racontent ce qui a disparu, jamais ce que cela faisait d'y vivre. Il regarde l'eau assez longtemps pour oublier, un instant, de chercher une réponse.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/35-9s-cite-noyee.png",
+      "artworkSha256": "758ccefb03aeb01b921399237540922f8141d3986291a2564a6b2ad77af93fd2",
+      "sceneInspiration": "NieR:Automata, cité submergée",
+      "sceneReason": "Un instant d'observation au lieu d'une attaque."
+    },
+    {
+      "id": "49902832",
+      "key": "kaine-falaise",
+      "proposalNumber": 36,
+      "baseId": "45951088",
+      "characterId": "kaine-replicant",
+      "name": "KAINÉ",
+      "job": "DUELLISTE",
+      "race": "HUMAIN",
+      "element": "HEMATO",
+      "weapon": "Epée longue",
+      "faction": "Replicant",
+      "collaboration": "Replicant",
+      "officialCollaboration": false,
+      "title": "PERSONNE NE ME CHASSERA",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        289,
+        237,
+        184,
+        133,
+        78,
+        "death"
+      ],
+      "defense": [
+        154,
+        126,
+        94,
+        65,
+        "dodge",
+        14
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        6
+      ],
+      "description": "Kainé se retourne sur la passerelle sans offrir un pas de recul. Le village peut garder ses regards et ses murmures. Elle sait ce que coûte une place parmi les autres ; aujourd'hui, elle refuse de la payer encore.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/36-kaine-falaise.png",
+      "artworkSha256": "b54b7648054d407fb94a14859ed32fddbacc509226b8b9a808058fd774c992d3",
+      "sceneInspiration": "NieR Replicant, l'Aire",
+      "sceneReason": "Faire ressortir sa fierté derrière sa colère."
+    },
+    {
+      "id": "49902833",
+      "key": "emil-fleurs",
+      "proposalNumber": 37,
+      "baseId": "43525184",
+      "characterId": "emil-nier",
+      "name": "EMIL",
+      "job": "GARDIEN",
+      "race": "CYBORG",
+      "element": "HEMATO",
+      "weapon": "Sceptre",
+      "faction": "NieR",
+      "collaboration": "NieR",
+      "officialCollaboration": false,
+      "title": "UNE FLEUR POUR SE SOUVENIR",
+      "role": 5,
+      "positions": [
+        4,
+        5
+      ],
+      "atk": [
+        162,
+        132,
+        101,
+        "revive",
+        42,
+        "mana"
+      ],
+      "defense": [
+        195,
+        158,
+        124,
+        89,
+        54,
+        "retry"
+      ],
+      "magic": [
+        6,
+        5,
+        4
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "description": "Émil approche une fleur comme on reconnaît une voix lointaine. Il a oublié tant de choses, mais ses mains savent encore la délicatesse. Au bord du chemin, ce petit souvenir pèse davantage que tout son chargement.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/37-emil-fleurs.png",
+      "artworkSha256": "8e0f5ac134c973749bcfbb0b1dbd6ac1f676279e751fcb98b706316a4b95373b",
+      "sceneInspiration": "NieR:Automata, souvenirs et larmes lunaires",
+      "sceneReason": "Un autre aspect d'Émil, tendre et mélancolique."
+    },
+    {
+      "id": "49902834",
+      "key": "ryu-cascade",
+      "proposalNumber": 38,
+      "baseId": "49901701",
+      "characterId": "ryu-street-fighter",
+      "name": "RYU",
+      "job": "KARATEKA",
+      "race": "HUMAIN",
+      "element": "CRYO",
+      "weapon": "Poing",
+      "faction": "STREETFIGHTER",
+      "collaboration": "STREETFIGHTER",
+      "officialCollaboration": false,
+      "title": "LE POING QUI FEND LE CIEL",
+      "role": 2,
+      "positions": [
+        2
+      ],
+      "atk": [
+        294,
+        231,
+        179,
+        127,
+        72,
+        28
+      ],
+      "defense": [
+        164,
+        132,
+        99,
+        68,
+        39,
+        "retry"
+      ],
+      "magic": [
+        6
+      ],
+      "barriers": [
+        5
+      ],
+      "description": "Ryu monte dans l'air sans chercher le regard de personne. Le poing, le souffle et l'élan doivent arriver ensemble. Quand ses pieds retrouveront le sol, il saura seulement quelle part du geste reste à apprendre.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/38-ryu-cascade-v2.png",
+      "artworkSha256": "f6d046d41cd1073961a75b867d1810568e30eadf8c7d8533d9adcd382d4f593a",
+      "sceneInspiration": "Street Fighter, Shoryuken",
+      "sceneReason": "Un uppercut ascendant, loin de la garde de Hadoken déjà présente."
+    },
+    {
+      "id": "49902835",
+      "key": "chunli-ruelle",
+      "proposalNumber": 39,
+      "baseId": "49901703",
+      "characterId": "chun-li-street-fighter",
+      "name": "CHUN-LI",
+      "job": "ENQUETRICE",
+      "race": "HUMAIN",
+      "element": "HYDRO",
+      "weapon": "Poing",
+      "faction": "STREETFIGHTER",
+      "collaboration": "STREETFIGHTER",
+      "officialCollaboration": false,
+      "title": "L’ÉLAN NE MENT PAS",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        279,
+        226,
+        174,
+        126,
+        "retry",
+        28
+      ],
+      "defense": [
+        169,
+        136,
+        103,
+        "dodge",
+        41,
+        18
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "description": "Chun-Li pivote dans l'espace laissé par son adversaire. La force part du sol, traverse la hanche et ne gaspille rien. Son visage reste concentré : derrière la précision du geste, il y a toujours quelqu'un à protéger.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/39-chunli-ruelle.png",
+      "artworkSha256": "bb4a806b0130de733b76b16a7743746fe3cb3dedabe987a7f2165a4fdfe3bec5",
+      "sceneInspiration": "Street Fighter, garde dans la rue",
+      "sceneReason": "Une pose nouvelle, avec les collants et une anatomie lisible."
+    },
+    {
+      "id": "49902836",
+      "key": "guile-sonic",
+      "proposalNumber": 40,
+      "baseId": "49901704",
+      "characterId": "guile-street-fighter",
+      "name": "GUILE",
+      "job": "SOLDAT",
+      "race": "HUMAIN",
+      "element": "AERO",
+      "weapon": "Poing",
+      "faction": "STREETFIGHTER",
+      "collaboration": "STREETFIGHTER",
+      "officialCollaboration": false,
+      "title": "L’ARC AU-DESSUS DU SOL",
+      "role": 2,
+      "positions": [
+        2,
+        4
+      ],
+      "atk": [
+        287,
+        233,
+        181,
+        129,
+        75,
+        29
+      ],
+      "defense": [
+        165,
+        133,
+        101,
+        69,
+        "retry",
+        17
+      ],
+      "magic": [
+        6,
+        3
+      ],
+      "barriers": [
+        5
+      ],
+      "description": "Guile renverse l'horizon avec une précision de pilote. Son talon dessine un arc, puis le sol revient à sa place. La colère existe, mais il ne lui confie pas la trajectoire : chaque mouvement doit ramener les siens.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/40-guile-sonic.png",
+      "artworkSha256": "56b8b5f7518df07ef06cab0cca7e95583d41dda590ccc531d04457c0916bc132",
+      "sceneInspiration": "Street Fighter, Flash Kick",
+      "sceneReason": "Une action différente du Sonic Boom déjà illustré."
+    },
+    {
+      "id": "49902837",
+      "key": "trevor-cloche",
+      "proposalNumber": 41,
+      "baseId": "49901801",
+      "characterId": "trevor-belmont-castlevania",
+      "name": "TREVOR BELMONT",
+      "job": "CHASSEUR",
+      "race": "HUMAIN",
+      "element": "LUXO",
+      "weapon": "Dague",
+      "faction": "CASTLEVANIA",
+      "collaboration": "CASTLEVANIA",
+      "officialCollaboration": false,
+      "title": "ENCORE UN DERNIER GESTE",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        273,
+        221,
+        169,
+        119,
+        66,
+        "death"
+      ],
+      "defense": [
+        151,
+        122,
+        93,
+        62,
+        34,
+        "dodge"
+      ],
+      "magic": [
+        6
+      ],
+      "barriers": [
+        5
+      ],
+      "description": "Trevor n'a presque plus la force de se relever. Il regarde pourtant la lame qu'il lui reste, puis ce qui avance vers lui. Le courage n'a rien de grandiose à cette distance : il faut encore trouver un dernier geste.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/41-trevor-cloche-v2.png",
+      "artworkSha256": "983bf2c3b61f53933fefe34707cb6223a7499daf9e632536a623140d1df2aa87",
+      "sceneInspiration": "Castlevania, le dernier combat contre la Mort",
+      "sceneReason": "Un cadrage rapproché sur Trevor épuisé et sa dague, sans reprendre le lancer de fouet."
+    },
+    {
+      "id": "49902838",
+      "key": "alucard-aube",
+      "proposalNumber": 42,
+      "baseId": "49901802",
+      "characterId": "alucard-castlevania",
+      "name": "ALUCARD",
+      "job": "ESCRIMEUR",
+      "race": "VAMP",
+      "element": "LUXO",
+      "weapon": "Epée longue",
+      "faction": "CASTLEVANIA",
+      "collaboration": "CASTLEVANIA",
+      "officialCollaboration": false,
+      "title": "LE CHÂTEAU SANS RÉPONSE",
+      "role": 1,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        192,
+        157,
+        "guard",
+        87,
+        51,
+        19
+      ],
+      "defense": [
+        273,
+        224,
+        176,
+        126,
+        77,
+        "retry"
+      ],
+      "magic": [
+        5,
+        3
+      ],
+      "barriers": [
+        6
+      ],
+      "description": "Alucard retrouve un silence plus vaste que les salles de son château. Rien ne vient répondre à son pas. Il garde pourtant la porte ouverte, comme si accueillir quelqu'un pouvait un jour donner un autre sens à ces murs.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/42-alucard-aube.png",
+      "artworkSha256": "6f1c0fc45abe6b124067262d56605621656ae8cde985ffdef777f7250f1f6307",
+      "sceneInspiration": "Castlevania, solitude après le combat",
+      "sceneReason": "La perte derrière la noblesse."
+    },
+    {
+      "id": "49902839",
+      "key": "dracula-souvenir",
+      "proposalNumber": 43,
+      "baseId": "49901807",
+      "characterId": "dracula-castlevania",
+      "name": "DRACULA",
+      "job": "SEIGNEUR",
+      "race": "VAMP",
+      "element": "PYRO",
+      "weapon": "Orbe",
+      "faction": "CASTLEVANIA",
+      "collaboration": "CASTLEVANIA",
+      "officialCollaboration": false,
+      "title": "LA CHAMBRE DE SON FILS",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        170,
+        137,
+        "mana",
+        76,
+        "retry",
+        21
+      ],
+      "defense": [
+        190,
+        155,
+        121,
+        86,
+        52,
+        22
+      ],
+      "magic": [
+        6,
+        5,
+        3
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "description": "Dracula s'assied près du petit lit. Ses mains, capables de défaire une armée, reposent sans force sur ses genoux. Le jouet n'a pas bougé. Ici, aucun pouvoir ne peut faire revenir le temps où son fils l'attendait.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/43-dracula-souvenir-v2.png",
+      "artworkSha256": "54e127a725f8b7d2077315b653b87ded3be930a39ca9093083c02552440f3b85",
+      "sceneInspiration": "Castlevania, souvenir d'Adrian",
+      "sceneReason": "Toute la scène a été régénérée : un père accablé, assis près du lit de son fils, les mains sur les genoux. Le mobilier reste distinct du corps, sans rebord incohérent."
+    },
+    {
+      "id": "49902840",
+      "key": "crono-proces",
+      "proposalNumber": 44,
+      "baseId": "49902001",
+      "characterId": "crono-chrono-trigger",
+      "name": "CRONO",
+      "job": "ESCRIMEUR",
+      "race": "HUMAIN",
+      "element": "ELECTRO",
+      "weapon": "Katana",
+      "faction": "CHRONOTRIGGER",
+      "collaboration": "CHRONOTRIGGER",
+      "officialCollaboration": false,
+      "title": "DEVANT LE JUGEMENT",
+      "role": 3,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        221,
+        182,
+        141,
+        "buff_atk",
+        61,
+        25
+      ],
+      "defense": [
+        216,
+        178,
+        "retry",
+        102,
+        61,
+        25
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "description": "Crono écoute des inconnus donner un sens à ses gestes. Un sourire, un retard, une main tendue deviennent des preuves. Il reste droit devant eux, avec cette certitude simple : aider quelqu'un n'aurait pas dû être un crime.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/44-crono-proces.png",
+      "artworkSha256": "645e8e2010b4d97c6dfc67e9c8a0f251f078e9ae292da4670df04322d2ba7425",
+      "sceneInspiration": "Chrono Trigger, procès de Guardia",
+      "sceneReason": "Une scène narrative sans posture de héros standard."
+    },
+    {
+      "id": "49902841",
+      "key": "frog-masamune",
+      "proposalNumber": 45,
+      "baseId": "49902004",
+      "characterId": "frog-chrono-trigger",
+      "name": "FROG",
+      "job": "CHEVALIER",
+      "race": "BATRA",
+      "element": "HYDRO",
+      "weapon": "Epée longue",
+      "faction": "CHRONOTRIGGER",
+      "collaboration": "CHRONOTRIGGER",
+      "officialCollaboration": false,
+      "title": "LE NOM RETROUVÉ DE LA LAME",
+      "role": 1,
+      "positions": [
+        1,
+        2
+      ],
+      "atk": [
+        206,
+        169,
+        132,
+        "guard",
+        57,
+        "buff_atk"
+      ],
+      "defense": [
+        271,
+        222,
+        173,
+        123,
+        77,
+        34
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "description": "Frog lève Masamune devant la montagne. Le nom de Cyrus ne lui pèse plus seulement comme une faute. Il devient un passage, et la lame répond enfin à celui qui a appris à porter son chagrin sans lui céder tout le terrain.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/45-frog-masamune.png",
+      "artworkSha256": "cde2de92c02d2148be685b2679801f1dd5c57dbcf6d46d6237609e69561bdb49",
+      "sceneInspiration": "Chrono Trigger, Masamune et la montagne",
+      "sceneReason": "Le petit chevalier face à une échelle immense."
+    },
+    {
+      "id": "49902842",
+      "key": "magus-rituel",
+      "proposalNumber": 46,
+      "baseId": "49902007",
+      "characterId": "magus-chrono-trigger",
+      "name": "MAGUS",
+      "job": "MAGE",
+      "race": "HUMAIN",
+      "element": "NECRO",
+      "weapon": "Faucille",
+      "faction": "CHRONOTRIGGER",
+      "collaboration": "CHRONOTRIGGER",
+      "officialCollaboration": false,
+      "title": "LE CERCLE ET L’ABSENCE",
+      "role": 4,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        284,
+        227,
+        177,
+        "death",
+        72,
+        26
+      ],
+      "defense": [
+        151,
+        123,
+        92,
+        61,
+        34,
+        13
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        2
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "description": "Magus trace le cercle avec la patience de ceux qui n'ont jamais cessé d'attendre. Derrière la puissance appelée, un nom demeure. Le rituel promet une réponse ; il ne promet pas que Janus saura encore la reconnaître.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/46-magus-rituel.png",
+      "artworkSha256": "50abd1d1abc1a9b70251180961e5e7785392f06610b071c7979f53691c8febac",
+      "sceneInspiration": "Chrono Trigger, rituel du château",
+      "sceneReason": "Une silhouette de dos et une tension contenue."
+    },
+    {
+      "id": "49902843",
+      "key": "luffy-enies",
+      "proposalNumber": 47,
+      "baseId": "49800101",
+      "characterId": "monkey-d-luffy-op",
+      "name": "MONKEY D. LUFFY",
+      "job": "CAPITAINE",
+      "race": "HUMAIN",
+      "element": "LUXO",
+      "weapon": "Poing",
+      "faction": "ONEPIECE",
+      "collaboration": "ONEPIECE",
+      "officialCollaboration": false,
+      "title": "QU’ILS ENTENDENT NOTRE RÉPONSE",
+      "role": 1,
+      "positions": [
+        1,
+        2,
+        3
+      ],
+      "atk": [
+        203,
+        166,
+        128,
+        92,
+        "guard",
+        "buff_atk"
+      ],
+      "defense": [
+        269,
+        219,
+        171,
+        122,
+        74,
+        "retry"
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "description": "Luffy ne négocie plus avec la peur qu'on impose à son amie. Le vent emporte sa voix jusqu'aux murs d'Enies Lobby. Il n'a pas besoin de mesurer le monde entier pour décider qu'il se tiendra de l'autre côté avec elle.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/47-luffy-enies.png",
+      "artworkSha256": "77caba8744468cba4c75a26eca4b258ed8d114d7440612f2693cecebeb090e9c",
+      "sceneInspiration": "One Piece, Enies Lobby",
+      "sceneReason": "La détermination au service d'un ami."
+    },
+    {
+      "id": "49902844",
+      "key": "zoro-silence",
+      "proposalNumber": 48,
+      "baseId": "49800102",
+      "characterId": "roronoa-zoro-op",
+      "name": "RORONOA ZORO",
+      "job": "SABREUR",
+      "race": "HUMAIN",
+      "element": "HERBO",
+      "weapon": "Katana",
+      "faction": "ONEPIECE",
+      "collaboration": "ONEPIECE",
+      "officialCollaboration": false,
+      "title": "RIEN NE S’EST PASSÉ",
+      "role": 1,
+      "positions": [
+        1,
+        2
+      ],
+      "atk": [
+        194,
+        158,
+        122,
+        87,
+        52,
+        "guard"
+      ],
+      "defense": [
+        291,
+        239,
+        187,
+        137,
+        87,
+        40
+      ],
+      "magic": [],
+      "barriers": [
+        6
+      ],
+      "description": "Zoro reste debout quand tout en lui voudrait céder. Personne ne doit porter ce qu'il a accepté à leur place. Quand on lui demande enfin une explication, il choisit quelques mots assez petits pour protéger leur repos.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/48-zoro-silence.png",
+      "artworkSha256": "ca392f15b08fa4d3c99d0cc2684e7587fe34b35da75cac471dbc457485566efd",
+      "sceneInspiration": "One Piece, Thriller Bark",
+      "sceneReason": "Le sacrifice raconté par le silence."
+    },
+    {
+      "id": "49902845",
+      "key": "sanji-barat-ie",
+      "proposalNumber": 49,
+      "baseId": "49800103",
+      "characterId": "sanji-op",
+      "name": "SANJI",
+      "job": "CUISINIER",
+      "race": "HUMAIN",
+      "element": "PYRO",
+      "weapon": "Poing",
+      "faction": "ONEPIECE",
+      "collaboration": "ONEPIECE",
+      "officialCollaboration": false,
+      "title": "MERCI POUR TOUS LES REPAS",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        168,
+        136,
+        "buff_atk",
+        74,
+        43,
+        "mana"
+      ],
+      "defense": [
+        193,
+        157,
+        122,
+        88,
+        54,
+        23
+      ],
+      "magic": [
+        6,
+        5
+      ],
+      "barriers": [
+        5
+      ],
+      "description": "Sanji s'incline jusqu'à ne plus voir la mer. Les mots arrivent mal, trop petits pour tant de repas et de jours sauvés. Il part enfin suivre son rêve ; une part de lui restera toujours à cette table du Baratie.",
+      "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/49-sanji-barat-ie.png",
+      "artworkSha256": "76be6d9e5363435727bddf5ac8c6bac3f6e869ca90e7a7c6e55cc53750eb7a7e",
+      "sceneInspiration": "One Piece, départ du Baratie",
+      "sceneReason": "Une gratitude rarement montrée sur une carte de combat."
+    }
+  ]
+}

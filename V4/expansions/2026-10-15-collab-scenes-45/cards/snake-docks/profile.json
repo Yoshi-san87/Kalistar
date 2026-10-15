@@ -1,0 +1,64 @@
+{
+  "name": "SOLID SNAKE",
+  "title": "SOUS LES LUMIÈRES DU PORT",
+  "job": "INFILTRATEUR",
+  "description": "Snake émerge sans bruit entre les quais de Shadow Moses. L'eau froide quitte ses gants ; les projecteurs poursuivent leur ronde. Avant les ordres et les mensonges, il reste ce premier mètre à franchir vivant.",
+  "element": "CRYO",
+  "race": "HUMAIN",
+  "weapon": "Gun",
+  "faction": "MGS1",
+  "positions": [
+    2,
+    3,
+    4
+  ],
+  "atk": [
+    223,
+    182,
+    141,
+    104,
+    64,
+    "buff_atk"
+  ],
+  "defense": [
+    214,
+    176,
+    "dodge",
+    99,
+    60,
+    25
+  ],
+  "magic": [
+    4
+  ],
+  "barriers": [
+    5
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49902819",
+  "characterId": "solid-snake-mgs",
+  "slug": "V4_49902819",
+  "output": "KALISTAR_V4_49902819",
+  "text": "Snake émerge sans bruit entre les quais de Shadow Moses. L'eau froide quitte ses gants ; les projecteurs poursuivent leur ronde. Avant les ordres et les mensonges, il reste ce premier mètre à franchir vivant.",
+  "color": "ACDFFD",
+  "hue": 201,
+  "weapon_index": 7,
+  "role": 3,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Kalistar x collaborations - scenes cultes, variantes non officielles",
+  "visual_revision": "V4-2026-10-15-collab-scenes-45",
+  "variantOf": "45297565",
+  "collaboration": "MGS1",
+  "officialCollaboration": false,
+  "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/21-snake-docks.png"
+}

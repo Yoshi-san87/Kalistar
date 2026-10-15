@@ -1,0 +1,63 @@
+{
+  "name": "CLOUD",
+  "title": "LA FUITE DE MIDGAR",
+  "job": "MERCENAIRE",
+  "description": "La route fuit sous les roues de Cloud. Derrière lui, Midgar voudrait refermer ses mâchoires d'acier. Il ne connaît pas encore le prix de cette liberté ; pour l'instant, ses amis ont besoin d'une issue.",
+  "element": "ELECTRO",
+  "race": "HUMAIN",
+  "weapon": "Epée longue",
+  "faction": "FF7",
+  "positions": [
+    2,
+    3
+  ],
+  "atk": [
+    288,
+    231,
+    178,
+    139,
+    "buff_atk",
+    29
+  ],
+  "defense": [
+    166,
+    134,
+    103,
+    71,
+    42,
+    "retry"
+  ],
+  "magic": [
+    4
+  ],
+  "barriers": [
+    5
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49902801",
+  "characterId": "cloud-ff7",
+  "slug": "V4_49902801",
+  "output": "KALISTAR_V4_49902801",
+  "text": "La route fuit sous les roues de Cloud. Derrière lui, Midgar voudrait refermer ses mâchoires d'acier. Il ne connaît pas encore le prix de cette liberté ; pour l'instant, ses amis ont besoin d'une issue.",
+  "color": "F5DC32",
+  "hue": 53,
+  "weapon_index": 17,
+  "role": 2,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Kalistar x collaborations - scenes cultes, variantes non officielles",
+  "visual_revision": "V4-2026-10-15-collab-scenes-45",
+  "variantOf": "47208326",
+  "collaboration": "FF7",
+  "officialCollaboration": false,
+  "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/01-cloud-midgar.png"
+}

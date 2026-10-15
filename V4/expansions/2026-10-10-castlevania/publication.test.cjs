@@ -4,7 +4,8 @@ const root=path.resolve(__dirname,'../../..'),cat=require('../../donnees/catalog
 const read=p=>JSON.parse(fs.readFileSync(path.join(root,p),'utf8'));
 const hash=p=>crypto.createHash('sha256').update(fs.readFileSync(path.join(root,p))).digest('hex');
 test('Nine Castlevania native cards are published with unchanged approved art',()=>{
- const rows=cat.cards.filter(c=>c.profile.collaboration==='CASTLEVANIA');assert.deepEqual(rows.map(c=>c.id),set.cards.map(c=>c.id));
+ const rows=cat.cards.filter(c=>set.cards.some(s=>s.id===c.id));assert.deepEqual(rows.map(c=>c.id),set.cards.map(c=>c.id));
+ assert(rows.every(c=>c.profile.collaboration==='CASTLEVANIA'));
  for(const spec of set.cards){
   const e=rows.find(c=>c.id===spec.id),folder='V4/creations/'+e.id;
   const p=read(folder+'/profile.json'),proof=read(folder+'/verification.json');

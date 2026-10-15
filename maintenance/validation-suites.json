@@ -172,6 +172,13 @@
       ],
       [
         "--test",
+        "V4/expansions/2026-10-15-collab-scenes-45/integration.test.cjs",
+        "V4/expansions/2026-10-15-collab-scenes-45/native.test.cjs",
+        "V4/expansions/2026-10-15-collab-scenes-45/typography.test.cjs",
+        "V4/expansions/2026-10-15-collab-scenes-45/publication.test.cjs"
+      ],
+      [
+        "--test",
         "V4/revisions/2026-10-13-voices-weapon-glyphs/integration.test.cjs"
       ],
       [
@@ -430,6 +437,8 @@
     ]
   },
   "browserAliases": [
+    "V4/expansions/2026-10-15-collab-scenes-45/gallery.browser.test.cjs",
+    "V4/expansions/2026-10-15-collab-scenes-45/game.browser.test.cjs",
     "V4/deploy/browser.test.cjs",
     "V4/site/browser.test.cjs",
     "V4/site/career-statistics.test.cjs",

@@ -22,7 +22,8 @@ const restored=(E,s)=>assert.deepEqual(E.restoreGame(JSON.parse(JSON.stringify(s
 test('Two distinct narrative/gameplay editions preserve identity and deck exclusions',async()=>{
  const data=await dataPromise;M.validateGame(data,currentSet,createEngine);
  for(const spec of set.cards){
-  const versions=data.cards.filter(c=>c.characterId===spec.characterId);assert.equal(versions.length,2);
+  const versions=data.cards.filter(c=>[spec.lineage,spec.id].includes(c.id));assert.equal(versions.length,2);
+  assert(versions.every(c=>c.characterId===spec.characterId));
   assert(versions.some(c=>c.id===spec.lineage));assert(versions.some(c=>c.id===spec.id));
   const p=require('./cards/'+spec.key+'/profile.json');M.validateProfile(p,spec);assert.equal(p.previous_model,spec.lineage);
  }

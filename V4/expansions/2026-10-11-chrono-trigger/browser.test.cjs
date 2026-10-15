@@ -22,14 +22,15 @@ async function main(){
   const images=()=>page.waitForFunction(()=>[...document.images].filter(i=>i.getClientRects().length).every(i=>i.complete&&i.naturalWidth>0));
   const shot=async name=>{await images();assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));await page.screenshot({path:path.join(out,name+'.png')});screens.push(name+'.png');};
   await page.goto(base+'jeu/#collection');await ready();const data=await page.evaluate(()=>KALISTAR_DATA);M.validateGame(data,set,require('../../site/engine.js').createEngine);
-  assert.equal(data.cards.filter(c=>c.faction==='CHRONOTRIGGER').length,7);
-  const migration=await page.evaluate(async data=>{
-   const old=structuredClone(data);old.cards=old.cards.filter(c=>c.faction!=='CHRONOTRIGGER');
+  const setIds=set.cards.map(c=>c.id),editions=data.cards.filter(c=>setIds.includes(c.id));
+  assert.equal(editions.length,7);assert(editions.every(c=>c.faction==='CHRONOTRIGGER'));
+  const migration=await page.evaluate(async ({data,ids})=>{
+   const old=structuredClone(data);old.cards=old.cards.filter(c=>!ids.includes(c.id));
    const name='kalistar-v4-cards-chrono-trigger-qa-'+crypto.randomUUID(),P=KalistarOwnership.PARIS;
    let db=await KalistarLocalDB.open(old,{name}),backup=await db.exportBackup();db.close();db=await KalistarLocalDB.open(data,{name});
    if(db.registry.owned(P).length!==data.cards.length)throw Error('Missing new cards');await db.importBackup(backup);db.close();
    db=await KalistarLocalDB.open(data,{name});const after=db.registry.owned(P).length;db.close();return {before:old.cards.length,after};
-  },data);assert.equal(migration.after-migration.before,7);
+  },{data,ids:setIds});assert.equal(migration.after-migration.before,7);
   for(const [label,width,height]of [['desktop',1440,1000],['razr50',412,915],['narrow',320,740]]){
    await page.setViewportSize({width,height});await page.locator('.cb-collection-select select').selectOption('chrono-trigger');
    await page.locator('[data-binder-field=search]').fill('');await shot(label+'-collection');

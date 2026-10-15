@@ -1,0 +1,63 @@
+{
+  "name": "TIFA",
+  "title": "LA PROMESSE DU CHÂTEAU D’EAU",
+  "job": "PUGILISTE",
+  "description": "Sur le château d'eau, Tifa retrouve le silence d'une ancienne promesse. Les étoiles n'ont pas changé ; ceux qui les regardaient, si. Elle garde pourtant une place pour celui qui avait promis de revenir.",
+  "element": "HYDRO",
+  "race": "HUMAIN",
+  "weapon": "Poing",
+  "faction": "FF7",
+  "positions": [
+    2,
+    3,
+    5
+  ],
+  "atk": [
+    214,
+    176,
+    139,
+    99,
+    "buff_atk",
+    28
+  ],
+  "defense": [
+    224,
+    181,
+    146,
+    103,
+    "retry",
+    26
+  ],
+  "magic": [
+    3
+  ],
+  "barriers": [
+    5
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49902803",
+  "characterId": "tifa-ff7",
+  "slug": "V4_49902803",
+  "output": "KALISTAR_V4_49902803",
+  "text": "Sur le château d'eau, Tifa retrouve le silence d'une ancienne promesse. Les étoiles n'ont pas changé ; ceux qui les regardaient, si. Elle garde pourtant une place pour celui qui avait promis de revenir.",
+  "color": "38CBED",
+  "hue": 192,
+  "role": 3,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Kalistar x collaborations - scenes cultes, variantes non officielles",
+  "visual_revision": "V4-2026-10-15-collab-scenes-45",
+  "variantOf": "46437046",
+  "collaboration": "FF7",
+  "officialCollaboration": false,
+  "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/03-tifa-promesse.png"
+}

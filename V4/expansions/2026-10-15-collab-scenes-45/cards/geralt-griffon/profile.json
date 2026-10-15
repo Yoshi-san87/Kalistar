@@ -1,0 +1,64 @@
+{
+  "name": "GERALT DE RIV",
+  "title": "SOUS L’OMBRE DU GRIFFON",
+  "job": "SORCELEUR",
+  "description": "Geralt attend que l'ombre passe au bon endroit. La bête possède le ciel ; lui n'a que quelques pas de terrain et une lame bien tenue. Il ne cherche pas un geste héroïque, seulement celui qui laissera quelqu'un vivant.",
+  "element": "GEO",
+  "race": "HUMAIN",
+  "weapon": "Epée longue",
+  "faction": "WITCHER",
+  "positions": [
+    1,
+    2,
+    3
+  ],
+  "atk": [
+    228,
+    187,
+    148,
+    106,
+    "retry",
+    "buff_atk"
+  ],
+  "defense": [
+    219,
+    "dodge",
+    139,
+    101,
+    63,
+    25
+  ],
+  "magic": [
+    3
+  ],
+  "barriers": [
+    6
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49902827",
+  "characterId": "geralt-witcher",
+  "slug": "V4_49902827",
+  "output": "KALISTAR_V4_49902827",
+  "text": "Geralt attend que l'ombre passe au bon endroit. La bête possède le ciel ; lui n'a que quelques pas de terrain et une lame bien tenue. Il ne cherche pas un geste héroïque, seulement celui qui laissera quelqu'un vivant.",
+  "color": "C7AB6D",
+  "hue": 41,
+  "weapon_index": 17,
+  "role": 3,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Kalistar x collaborations - scenes cultes, variantes non officielles",
+  "visual_revision": "V4-2026-10-15-collab-scenes-45",
+  "variantOf": "49900101",
+  "collaboration": "WITCHER",
+  "officialCollaboration": false,
+  "artworkSource": "V4/propositions/2026-10-15-collab-scenes-50/images/31-geralt-griffon.png"
+}

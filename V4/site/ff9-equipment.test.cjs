@@ -43,9 +43,10 @@ test('4.6: 18 FFIX items keep families, stable identities and art while migratin
     for(const c of cards)assert.equal(Q.compatible(w,c),w.restrictions.characterIds.includes(c.characterId)&&(w.kind?true:c.weapon===w.family),w.id+' '+c.id);
     const c=cards.find(c=>Q.compatible(w,c));assert(Q.compatible(w,{...c,name:'Renamed'}));assert(!Q.compatible(w,{...c,characterId:'wrong',name:c.name}));
   }
-  assert.equal(cards.filter(c=>Q.compatible(item('ff9-magekane'),c)).length,3);
-  assert.equal(cards.filter(c=>Q.compatible(item('ff9-vivi-hat'),c)).length,3);
-  assert.equal(cards.filter(c=>Q.compatible(item('ff9-garnet-pendant'),c)).length,2);
+  for(const [id,identity,family]of [['ff9-magekane','vivi-ff9','B\u00e2ton'],['ff9-vivi-hat','vivi-ff9',null],['ff9-garnet-pendant','grenat-ff9',null]]){
+    const expected=cards.filter(c=>c.characterId===identity&&(!family||c.weapon===family)).map(c=>c.id);
+    assert(expected.length>0);assert.deepEqual(cards.filter(c=>Q.compatible(item(id),c)).map(c=>c.id),expected);
+  }
 });
 test('4.6 profile/composition preserve weapon while adding protection, with confirmation scoped per slot',async()=>{
   const data=await dataPromise,E=createEngine(data),c=data.cards.find(c=>c.characterId==='steiner-ff9');let p=Q.profile('FF9');

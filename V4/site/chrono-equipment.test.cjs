@@ -15,8 +15,10 @@ test('Chrono Trigger: six bounded weapons, exact native bearers, unique collecti
     assert.equal(w.slot,'weapon');assert.equal(w.effect.trigger,'RETAINED_SIX');
     assert(w.effect.value>=20&&w.effect.value<=25);assert(w.collectible.flavour.length<=50);
     assert(!Q.catalogue.legacyWeapons.some(v=>v.id===w.id));
-    const compatible=d.cards.filter(c=>Q.compatible(w,c));assert.equal(compatible.length,1);
-    assert.deepEqual(compatible.map(c=>c.characterId),plan.objects[i].characters);
+    const compatible=d.cards.filter(c=>Q.compatible(w,c));assert(compatible.length>0);
+    assert.deepEqual([...new Set(compatible.map(c=>c.characterId))],plan.objects[i].characters);
+    const expected=d.cards.filter(c=>plan.objects[i].characters.includes(c.characterId)&&w.restrictions.families.includes(c.weapon));
+    assert.deepEqual(compatible.map(c=>c.id),expected.map(c=>c.id));
     const c=compatible[0];assert.deepEqual(w.restrictions.families,[c.weapon]);
     assert(!Q.compatible(w,{...c,characterId:'same-name-is-not-an-id'}));
     assert(!Q.compatible(w,{...c,weapon:'INVALID'}));
