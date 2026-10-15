@@ -1,0 +1,78 @@
+✖ 4.6 has three independent slots, with compatible bearers and unchanged base families (60.427ms)
+✔ archived 4.5.64 shield: first defense only, numeric total and matrix preserved, side 0 (24.0409ms)
+✔ archived 4.5.64 shield: first defense only, numeric total and matrix preserved, side 1 (8.5131ms)
+✔ archived 4.5.64: targeted support and attacking do not spend the first defense (5.19ms)
+✔ archived 4.5.64: shield special face dodge has no invented numeric bonus (5.2913ms)
+✔ archived 4.5.64: shield special face retry has no invented numeric bonus (6.6635ms)
+✔ archived 4.5.64 Pod: successful Block, charge survives attack/reload, next defense consumes it once, side 0 (8.6234ms)
+✔ archived 4.5.64 Pod: successful Block, charge survives attack/reload, next defense consumes it once, side 1 (8.1216ms)
+✔ archived 4.5.64: Pod never activates from a support, death or Reraise (16.9884ms)
+✔ archived 4.5.64: snapshot and charge roundtrip; malformed charge history rejected (9.1483ms)
+✔ archived 4.5.64: complete matches preserve native faces and reload each step in both categories (1685.6486ms)
+✔ equipment media is independently hashed, transparent and natively anchored (95.6185ms)
+✔ archived 4.5.64: 31 additions keep identities, restrictions and bounded state effects (62.2546ms)
+✔ archived 4.5.64: white-oath-rapier: inactive, active, real formula, log and reload on either side (21.8221ms)
+✔ archived 4.5.64: brotherhood: inactive, active, real formula, log and reload on either side (7.9328ms)
+✔ archived 4.5.64: virtuous-contract: inactive, active, real formula, log and reload on either side (7.7298ms)
+✔ archived 4.5.64: virtuous-treaty: inactive, active, real formula, log and reload on either side (7.9505ms)
+✔ archived 4.5.64: socom: inactive, active, real formula, log and reload on either side (8.9445ms)
+✔ archived 4.5.64: lulu-mog: inactive, active, real formula, log and reload on either side (7.9989ms)
+✔ archived 4.5.64: leopard-lightning: inactive, active, real formula, log and reload on either side (7.1905ms)
+✔ archived 4.5.64: mythic-iron-gauntlet: inactive, active, real formula, log and reload on either side (7.4194ms)
+✔ archived 4.5.64: post-bow: inactive, active, real formula, log and reload on either side (8.6164ms)
+✔ archived 4.5.64: grimoire-weiss: inactive, active, real formula, log and reload on either side (7.1021ms)
+✔ archived 4.5.64: gen-mechanical-arm: inactive, active, real formula, log and reload on either side (6.4284ms)
+✔ archived 4.5.64: violet-reaping: inactive, active, real formula, log and reload on either side (6.8363ms)
+✔ archived 4.5.64: mantis-mask: inactive, active, real formula, log and reload on either side (6.454ms)
+✔ archived 4.5.64: revolver-gunblade: inactive, active, real formula, log and reload on either side (6.4912ms)
+✔ archived 4.5.64: wolf-steel: inactive, active, real formula, log and reload on either side (7.5393ms)
+✔ archived 4.5.64: wolf-silver: inactive, active, real formula, log and reload on either side (6.4044ms)
+✔ archived 4.5.64: kaine-saw: inactive, active, real formula, log and reload on either side (6.2999ms)
+✔ archived 4.5.64: buster-sword: inactive, active, real formula, log and reload on either side (6.5783ms)
+✔ archived 4.5.64: psg1: inactive, active, real formula, log and reload on either side (6.3381ms)
+✔ archived 4.5.64: single-action-army: inactive, active, real formula, log and reload on either side (7.4156ms)
+✔ archived 4.5.64: wardens-spear: inactive, active, real formula, log and reload on either side (6.8526ms)
+✔ archived 4.5.64: soldiers-blade: inactive, active, real formula, log and reload on either side (7.1773ms)
+✔ archived 4.5.64: commanders-sabre (earlier bearer snapshot): inactive, active, real formula, log and reload on either side (7.1189ms)
+✔ archived 4.5.64: arborium-twinstring-bow: inactive, active, real formula, log and reload on either side (8.0593ms)
+✔ archived 4.5.64: arborium-thorn-dagger: inactive, active, real formula, log and reload on either side (7.2139ms)
+✔ archived 4.5.64: draevenheim-wing-spear: inactive, active, real formula, log and reload on either side (7.4308ms)
+✔ archived 4.5.64: draevenheim-crimson-crossbow (earlier bearer snapshot): inactive, active, real formula, log and reload on either side (5.305ms)
+✔ archived 4.5.64: cryptown-oath-sword: inactive, active, real formula, log and reload on either side (7.3168ms)
+✔ archived 4.5.64: cryptown-vigil-rifle: inactive, active, real formula, log and reload on either side (7.0719ms)
+✔ archived 4.5.64: cryptown-watch-flail: inactive, active, real formula, log and reload on either side (7.5466ms)
+✔ archived 4.5.64: rhinoz-ancestral-horn (earlier bearer snapshot): inactive, active, real formula, log and reload on either side (6.208ms)
+✔ archived 4.5.64: team conditions deactivate when formation or reserve recovers (48.6562ms)
+✔ archived 4.5.64: Momo gift beats a smaller active DEF weapon without stacking, then expires (3.3056ms)
+✔ archived 4.5.64: scythe bonus never converts Voloden printed Mort into numeric damage (2.5758ms)
+✔ archived 4.5.64: original arsenal completes real matches and restores every exchange (8544.2452ms)
+✔ 4.6 compatible weapon alternatives replace atomically without altering the other slots (1.8915ms)
+✔ 4.6 original arsenal keeps metadata and values, with ATK-six weapons and Momo support relic (1.0901ms)
+✔ all generated assets are versioned, hashed, have alpha and remain inside medallion (500.313ms)
+ℹ tests 51
+ℹ suites 0
+ℹ pass 50
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9541.9539
+
+✖ failing tests:
+
+test at V4\site\equipment-categories.test.cjs:25:1
+✖ 4.6 has three independent slots, with compatible bearers and unchanged base families (60.427ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  105 !== 93
+  
+      at TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-categories.test.cjs:27:10)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 105,
+    expected: 93,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

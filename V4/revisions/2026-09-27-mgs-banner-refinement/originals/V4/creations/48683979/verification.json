@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "modelId": "48683979",
+  "referenceId": "ef7a6767b57723d896ceecb050079bfb1abad0e79e7289a200f87b34585f9380",
+  "profileHash": "a9a17c700b7a98451b6bdf64990bc32e620f2eac730884d746155e340739756c",
+  "hashes": {
+    "card.png": "63a0e9724d2d5ac99c4bf3eb8e482ddd5d8b9edc15a2ff877e45b3d1a940e54e",
+    "card.psd": "dd7e957ecaa11bdf04ad01338b60e74a6570c191b61f395271705d892af63a80"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 117995
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "48683979",
+    "cases": {
+      "color-1": [
+        "48683979"
+      ],
+      "color-4": [
+        "48683979"
+      ],
+      "gray-1": [
+        "48683979"
+      ],
+      "gray-4": [
+        "48683979"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-27T13:49:39.932Z",
+  "key": "solid-snake-mgs2",
+  "preparationHash": "ec2fb57ac0fb54f9a94ead42ae9efa839a9568a6021890d3d67d6ef39d1f95fa",
+  "typographyAudit": {
+    "passed": true,
+    "rulesHash": "c3520779bdfad875fe67798dc8605193152395d4267d8fa2e39efeb6a962af4a",
+    "orphanPunctuation": false
+  }
+}

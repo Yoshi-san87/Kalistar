@@ -1,0 +1,4 @@
+# Drebin — trèfle ATK D1
+Révision demandée le 30 septembre 2026 : le 15 ATK D1 devient retry (trèfle). Trois attaques numériques subsistent ; toutes les autres caractéristiques restent identiques. Illustration et anciens rapports préservés. Composant optique validé du renderer, textes natifs et objets dynamiques. La comparaison exige zéro pixel modifié hors du rond ATK D1. Originaux, gel, PSD rouvert et preuves dans ce dossier.
+
+La recomposition a rencontré un disque Photoshop saturé. La version finale retouche directement le PSD original : seul le texte ATK D1 est remplacé par le trèfle incorporé. Comparaison finale : 2382 pixels changés dans D1, zéro ailleurs ; PSD rouvert identique. 16 tests réussis. Le premier contrôle navigateur conservé dans qa/local-attempt-1 utilisait un catalogue attendu incomplet ; qa/local valide les 119 cartes avec le catalogue publié.

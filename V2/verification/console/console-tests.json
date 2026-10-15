@@ -1,0 +1,71 @@
+{
+  "checks": [
+    "Both attacking sides: partial preview, all target changes, exact weapon/crystal/faction/race values, conditional tokens, no fake final score, no RNG/token/state mutation",
+    "Magic barrier remains conditional before the dice; impossible physical barrier correctly shows zero",
+    "Ready pulse, hover lift, pressed feedback and busy casting state accompany the real dice; click still resolves exactly once",
+    "Five viewport sizes, six phases each: stable dice geometry, readable contained buttons, no horizontal page overflow, exact resolved formula and reduced motion"
+  ],
+  "layouts": [
+    {
+      "viewport": {
+        "width": 2493,
+        "height": 1461
+      },
+      "button": {
+        "height": 58,
+        "labelFits": true,
+        "inside": true,
+        "width": 203.171875
+      }
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "button": {
+        "height": 58,
+        "labelFits": true,
+        "inside": true,
+        "width": 203.171875
+      }
+    },
+    {
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "button": {
+        "height": 58,
+        "labelFits": true,
+        "inside": true,
+        "width": 182.828125
+      }
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "button": {
+        "height": 58,
+        "labelFits": true,
+        "inside": true,
+        "width": 182.828125
+      }
+    },
+    {
+      "viewport": {
+        "width": 320,
+        "height": 740
+      },
+      "button": {
+        "height": 58,
+        "labelFits": true,
+        "inside": true,
+        "width": 182.828125
+      }
+    }
+  ],
+  "errors": []
+}

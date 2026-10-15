@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "key": "ward",
+  "modelId": "47264450",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "124225cfc3bd58e2cd1665ab3d9eea95b38fe24464eaa89ba2f2efd655d46441",
+  "hashes": {
+    "card.png": "392c721213d67f29a530a7bc66d037dc4eb535c8b09f1bc839691f7c8321cdba",
+    "card.psd": "c90db7416059826c52bc45485c184f6acb237bf393004524ae82853b154adf8d"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 92332
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "47264450",
+    "cases": {
+      "color-1": [
+        "47264450"
+      ],
+      "color-4": [
+        "47264450"
+      ],
+      "gray-1": [
+        "47264450"
+      ],
+      "gray-4": [
+        "47264450"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "none": {
+    "unlit": true,
+    "crystalHash": "fd16efbb06ac645589885aed82cadacab4461f08dcc4f4dd1d58d7d42b11f8bf",
+    "branchHash": "c8bf5bb6de74db43356255c19c6747ffd0daa03ae6476c0ef1b66c628d77a7cb"
+  },
+  "checkedAt": "2026-09-20T14:39:02.292Z"
+}

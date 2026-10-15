@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "desktop",
+      "x": 0,
+      "w": 1440,
+      "overflow": false,
+      "track": false,
+      "card": 220
+    },
+    {
+      "name": "wide",
+      "x": 0,
+      "w": 1920,
+      "overflow": false,
+      "track": false,
+      "card": 220
+    },
+    {
+      "name": "razr",
+      "x": 0,
+      "w": 412,
+      "overflow": false,
+      "track": true,
+      "card": 210
+    },
+    {
+      "name": "compact",
+      "x": 0,
+      "w": 320,
+      "overflow": false,
+      "track": true,
+      "card": 145
+    },
+    {
+      "name": "landscape",
+      "x": 0,
+      "w": 844,
+      "overflow": false,
+      "track": false,
+      "card": 210
+    }
+  ],
+  "errors": []
+}

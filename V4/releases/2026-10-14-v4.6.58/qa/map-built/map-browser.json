@@ -1,0 +1,80 @@
+{
+  "status": "passed",
+  "base": "http://127.0.0.1:62731/jeu/",
+  "formats": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 900,
+      "touch": false,
+      "cities": 7,
+      "selection": true,
+      "zoom": true,
+      "labels": true
+    },
+    {
+      "name": "wide",
+      "width": 1920,
+      "height": 1080,
+      "touch": false,
+      "cities": 7,
+      "selection": true,
+      "zoom": true,
+      "labels": true
+    },
+    {
+      "name": "razr",
+      "width": 412,
+      "height": 1007,
+      "touch": true,
+      "cities": 7,
+      "selection": true,
+      "zoom": true,
+      "labels": true
+    },
+    {
+      "name": "phone",
+      "width": 390,
+      "height": 844,
+      "touch": true,
+      "cities": 7,
+      "selection": true,
+      "zoom": true,
+      "labels": true
+    },
+    {
+      "name": "small-phone",
+      "width": 320,
+      "height": 568,
+      "touch": true,
+      "cities": 7,
+      "selection": true,
+      "zoom": true,
+      "labels": true
+    },
+    {
+      "name": "landscape",
+      "width": 844,
+      "height": 390,
+      "touch": true,
+      "cities": 7,
+      "selection": true,
+      "zoom": true,
+      "labels": true
+    },
+    {
+      "name": "tablet",
+      "width": 768,
+      "height": 1024,
+      "touch": true,
+      "cities": 7,
+      "selection": true,
+      "zoom": true,
+      "labels": true
+    }
+  ],
+  "assetHashes": 9,
+  "errors": [],
+  "failures": [],
+  "personalBrowserStorageUsed": false
+}

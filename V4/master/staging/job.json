@@ -1,0 +1,746 @@
+{
+  "label": "TAULIO-hybride-V4-V3",
+  "card": {
+    "id": "30000013",
+    "name": "TAULIO",
+    "title": "GARDE DU CORPS LOYAL",
+    "job": "PROTECTEUR",
+    "race": "ROBOT",
+    "faction": "Chroma",
+    "element": "ELECTRO",
+    "weapon": "Poing",
+    "weapon_index": 3,
+    "positions": [
+      1
+    ],
+    "atk": [
+      202,
+      165,
+      135,
+      98,
+      "guard",
+      "buff_atk"
+    ],
+    "defense": [
+      294,
+      242,
+      190,
+      145,
+      93,
+      41
+    ],
+    "magic": [],
+    "barriers": [
+      2
+    ],
+    "text": "Conçu pour protéger les puissants, Taulio fut jeté à la décharge lorsqu'il apprit à ressentir. Sous sa cuirasse cabossée, rien n'a éteint sa loyauté. Désormais, il garde le passage pour ceux que le monde a abandonnés.",
+    "textLines": [
+      "Conçu pour protéger les puissants, Taulio fut jeté à la",
+      "décharge lorsqu'il apprit à ressentir. Sous sa cuirasse",
+      "cabossée, rien n'a éteint sa loyauté. Désormais, il garde",
+      "le passage pour ceux que le monde a abandonnés."
+    ],
+    "masterArtwork": "assets/illustrations/13_ELECTRO_TAULIO.png",
+    "dynamicSource": "V3",
+    "attackNumberColor": "0C1822",
+    "frameColor": null
+  },
+  "layout": {
+    "version": 3,
+    "masterPsd": "templates/KALISTAR_MASTER_V4_02-chassis.psd",
+    "canvas": {
+      "width": 950,
+      "height": 1655,
+      "ppi": 300,
+      "profile": "sRGB IEC61966-2.1"
+    },
+    "reference": "cartes/MOMO_ELECTRO_V4_04-typographie.png",
+    "referenceSha256": "b2b0211565dacdcdb902866ee94dfdc41648d5ee7d51c7a652ad72ae0740ba11",
+    "artPolygon": [
+      [
+        181,
+        139
+      ],
+      [
+        745,
+        139
+      ],
+      [
+        765,
+        196
+      ],
+      [
+        765,
+        920
+      ],
+      [
+        866,
+        923
+      ],
+      [
+        866,
+        1203
+      ],
+      [
+        154,
+        1203
+      ],
+      [
+        154,
+        923
+      ],
+      [
+        181,
+        919
+      ]
+    ],
+    "flagPolygon": [
+      [
+        768,
+        933
+      ],
+      [
+        857,
+        933
+      ],
+      [
+        857,
+        1068
+      ],
+      [
+        815,
+        1181
+      ],
+      [
+        770,
+        1070
+      ]
+    ],
+    "crystalPolygon": [
+      [
+        474,
+        1267
+      ],
+      [
+        487,
+        1289
+      ],
+      [
+        551,
+        1310
+      ],
+      [
+        548,
+        1391
+      ],
+      [
+        474,
+        1440
+      ],
+      [
+        400,
+        1392
+      ],
+      [
+        398,
+        1310
+      ],
+      [
+        459,
+        1289
+      ]
+    ],
+    "branchPolygons": [
+      [
+        [
+          174,
+          1348
+        ],
+        [
+          337,
+          1348
+        ],
+        [
+          373,
+          1370
+        ],
+        [
+          399,
+          1370
+        ],
+        [
+          399,
+          1392
+        ],
+        [
+          367,
+          1392
+        ],
+        [
+          333,
+          1363
+        ],
+        [
+          174,
+          1363
+        ]
+      ],
+      [
+        [
+          551,
+          1370
+        ],
+        [
+          567,
+          1370
+        ],
+        [
+          592,
+          1349
+        ],
+        [
+          778,
+          1349
+        ],
+        [
+          778,
+          1364
+        ],
+        [
+          600,
+          1364
+        ],
+        [
+          572,
+          1392
+        ],
+        [
+          551,
+          1392
+        ]
+      ]
+    ],
+    "barcode": {
+      "box": [
+        98,
+        944,
+        126,
+        1199
+      ],
+      "well": [
+        95,
+        941,
+        129,
+        1201
+      ],
+      "kind": "Code128C",
+      "quietModules": 12
+    },
+    "positions": {
+      "x": 160,
+      "y": 1123,
+      "width": 57,
+      "height": 72,
+      "step": 73,
+      "cx": 189,
+      "cy": 1159,
+      "font": "ArialMT",
+      "sizePx": 36
+    },
+    "texts": {
+      "name": {
+        "box": [
+          390,
+          72,
+          560,
+          116
+        ],
+        "center": [
+          475,
+          94
+        ],
+        "width": 530,
+        "font": "Augustus",
+        "sizePx": 39,
+        "color": "F0EEE9",
+        "gold": false
+      },
+      "title": {
+        "box": [
+          301,
+          1225,
+          646,
+          1258
+        ],
+        "center": [
+          475,
+          1241
+        ],
+        "width": 640,
+        "font": "TimesNewRomanPSMT",
+        "sizePx": 32,
+        "color": "EDEEEB",
+        "gold": false
+      },
+      "job": {
+        "box": [
+          201,
+          1310,
+          374,
+          1343
+        ],
+        "center": [
+          288,
+          1328
+        ],
+        "width": 204,
+        "font": "TimesNewRomanPSMT",
+        "sizePx": 28,
+        "color": "E7CE6D",
+        "gold": true
+      },
+      "race": {
+        "box": [
+          608,
+          1310,
+          699,
+          1343
+        ],
+        "center": [
+          655,
+          1328
+        ],
+        "width": 207,
+        "font": "TimesNewRomanPSMT",
+        "sizePx": 28,
+        "color": "E7CE6D",
+        "gold": true
+      },
+      "text": {
+        "box": [
+          132,
+          1436,
+          816,
+          1569
+        ],
+        "center": [
+          475,
+          1502
+        ],
+        "width": 684,
+        "font": "MyriadPro-Regular",
+        "sizePx": 29,
+        "leadingPx": 34,
+        "color": "EDEEEB",
+        "gold": false
+      }
+    },
+    "slots": [
+      {
+        "side": "atk",
+        "die": 6,
+        "cx": 106,
+        "cy": 117,
+        "r": 77,
+        "extent": 111,
+        "state": "electric",
+        "value": 202,
+        "sizePx": 61
+      },
+      {
+        "side": "atk",
+        "die": 5,
+        "cx": 122,
+        "cy": 382,
+        "r": 49,
+        "extent": 79,
+        "state": "electric",
+        "value": 167,
+        "sizePx": 45
+      },
+      {
+        "side": "atk",
+        "die": 4,
+        "cx": 126,
+        "cy": 505,
+        "r": 55,
+        "extent": 56,
+        "state": "effect",
+        "value": "retry",
+        "sizePx": 45
+      },
+      {
+        "side": "atk",
+        "die": 3,
+        "cx": 123,
+        "cy": 623,
+        "r": 49,
+        "extent": 77,
+        "state": "electric",
+        "value": 84,
+        "sizePx": 45
+      },
+      {
+        "side": "atk",
+        "die": 2,
+        "cx": 125,
+        "cy": 742,
+        "r": 54,
+        "extent": 55,
+        "state": "effect",
+        "value": "mana",
+        "sizePx": 45
+      },
+      {
+        "side": "atk",
+        "die": 1,
+        "cx": 122,
+        "cy": 860,
+        "r": 49,
+        "extent": 76,
+        "state": "electric",
+        "value": 29,
+        "sizePx": 45
+      },
+      {
+        "side": "defense",
+        "die": 6,
+        "cx": 835,
+        "cy": 120,
+        "r": 79,
+        "extent": 101,
+        "state": "barrier",
+        "value": 200,
+        "sizePx": 61
+      },
+      {
+        "side": "defense",
+        "die": 5,
+        "cx": 818,
+        "cy": 381,
+        "r": 51,
+        "extent": 70,
+        "state": "barrier",
+        "value": 167,
+        "sizePx": 45
+      },
+      {
+        "side": "defense",
+        "die": 4,
+        "cx": 816,
+        "cy": 505,
+        "r": 55,
+        "extent": 56,
+        "state": "effect",
+        "value": "retry",
+        "sizePx": 45
+      },
+      {
+        "side": "defense",
+        "die": 3,
+        "cx": 817,
+        "cy": 623,
+        "r": 51,
+        "extent": 53,
+        "state": "physical",
+        "value": 100,
+        "sizePx": 45
+      },
+      {
+        "side": "defense",
+        "die": 2,
+        "cx": 817,
+        "cy": 744,
+        "r": 51,
+        "extent": 70,
+        "state": "barrier",
+        "value": 59,
+        "sizePx": 45
+      },
+      {
+        "side": "defense",
+        "die": 1,
+        "cx": 818,
+        "cy": 861,
+        "r": 51,
+        "extent": 53,
+        "state": "physical",
+        "value": 11,
+        "sizePx": 45
+      }
+    ],
+    "medallions": {
+      "weapon": {
+        "cx": 103,
+        "cy": 1316,
+        "r": 57
+      },
+      "race": {
+        "cx": 846,
+        "cy": 1316,
+        "r": 55
+      }
+    },
+    "statsFont": "Arial-BoldMT",
+    "print": {
+      "enabled": false,
+      "legacyCanvas": [
+        897,
+        1497
+      ],
+      "reason": "Le ratio du visuel valide differe du fichier historique. Aucun etirement ni BAT implicite."
+    }
+  },
+  "assets": {
+    "art": "master/staging/art.png",
+    "frame": "master/components/frame.png",
+    "tint": "master/staging/frame-tint.png",
+    "weapon": "master/staging/weapon.png",
+    "race": "master/staging/race.png",
+    "crystal": "master/staging/crystal.png",
+    "branches": "master/assets/identity/branches.png",
+    "flag": "master/staging/flag.png",
+    "barcode": "master/staging/barcode.png"
+  },
+  "slots": [
+    {
+      "side": "atk",
+      "die": 6,
+      "cx": 106,
+      "cy": 117,
+      "r": 77,
+      "extent": 111,
+      "state": "physical",
+      "value": 202,
+      "sizePx": 61,
+      "assets": {
+        "physical": "master/staging/atk-D6-physical.png",
+        "electric": "master/staging/atk-D6-electric.png",
+        "barrier": "master/staging/atk-D6-barrier.png",
+        "effect": "master/staging/atk-D6-effect.png"
+      }
+    },
+    {
+      "side": "atk",
+      "die": 5,
+      "cx": 122,
+      "cy": 382,
+      "r": 49,
+      "extent": 79,
+      "state": "physical",
+      "value": 165,
+      "sizePx": 45,
+      "assets": {
+        "physical": "master/staging/atk-D5-physical.png",
+        "electric": "master/staging/atk-D5-electric.png",
+        "barrier": "master/staging/atk-D5-barrier.png",
+        "effect": "master/staging/atk-D5-effect.png"
+      }
+    },
+    {
+      "side": "atk",
+      "die": 4,
+      "cx": 126,
+      "cy": 505,
+      "r": 55,
+      "extent": 56,
+      "state": "physical",
+      "value": 135,
+      "sizePx": 45,
+      "assets": {
+        "physical": "master/staging/atk-D4-physical.png",
+        "electric": "master/staging/atk-D4-electric.png",
+        "barrier": "master/staging/atk-D4-barrier.png",
+        "effect": "master/staging/atk-D4-effect.png"
+      }
+    },
+    {
+      "side": "atk",
+      "die": 3,
+      "cx": 123,
+      "cy": 623,
+      "r": 49,
+      "extent": 77,
+      "state": "physical",
+      "value": 98,
+      "sizePx": 45,
+      "assets": {
+        "physical": "master/staging/atk-D3-physical.png",
+        "electric": "master/staging/atk-D3-electric.png",
+        "barrier": "master/staging/atk-D3-barrier.png",
+        "effect": "master/staging/atk-D3-effect.png"
+      }
+    },
+    {
+      "side": "atk",
+      "die": 2,
+      "cx": 125,
+      "cy": 742,
+      "r": 54,
+      "extent": 55,
+      "state": "effect",
+      "value": "guard",
+      "sizePx": 45,
+      "assets": {
+        "physical": "master/staging/atk-D2-physical.png",
+        "electric": "master/staging/atk-D2-electric.png",
+        "barrier": "master/staging/atk-D2-barrier.png",
+        "effect": "master/staging/atk-D2-effect.png"
+      }
+    },
+    {
+      "side": "atk",
+      "die": 1,
+      "cx": 122,
+      "cy": 860,
+      "r": 49,
+      "extent": 76,
+      "state": "effect",
+      "value": "buff_atk",
+      "sizePx": 45,
+      "assets": {
+        "physical": "master/staging/atk-D1-physical.png",
+        "electric": "master/staging/atk-D1-electric.png",
+        "barrier": "master/staging/atk-D1-barrier.png",
+        "effect": "master/staging/atk-D1-effect.png"
+      }
+    },
+    {
+      "side": "defense",
+      "die": 6,
+      "cx": 835,
+      "cy": 120,
+      "r": 79,
+      "extent": 101,
+      "state": "physical",
+      "value": 294,
+      "sizePx": 61,
+      "assets": {
+        "physical": "master/staging/defense-D6-physical.png",
+        "electric": "master/staging/defense-D6-electric.png",
+        "barrier": "master/staging/defense-D6-barrier.png",
+        "effect": "master/staging/defense-D6-effect.png"
+      }
+    },
+    {
+      "side": "defense",
+      "die": 5,
+      "cx": 818,
+      "cy": 381,
+      "r": 51,
+      "extent": 70,
+      "state": "physical",
+      "value": 242,
+      "sizePx": 45,
+      "assets": {
+        "physical": "master/staging/defense-D5-physical.png",
+        "electric": "master/staging/defense-D5-electric.png",
+        "barrier": "master/staging/defense-D5-barrier.png",
+        "effect": "master/staging/defense-D5-effect.png"
+      }
+    },
+    {
+      "side": "defense",
+      "die": 4,
+      "cx": 816,
+      "cy": 505,
+      "r": 55,
+      "extent": 56,
+      "state": "physical",
+      "value": 190,
+      "sizePx": 45,
+      "assets": {
+        "physical": "master/staging/defense-D4-physical.png",
+        "electric": "master/staging/defense-D4-electric.png",
+        "barrier": "master/staging/defense-D4-barrier.png",
+        "effect": "master/staging/defense-D4-effect.png"
+      }
+    },
+    {
+      "side": "defense",
+      "die": 3,
+      "cx": 817,
+      "cy": 623,
+      "r": 51,
+      "extent": 53,
+      "state": "physical",
+      "value": 145,
+      "sizePx": 45,
+      "assets": {
+        "physical": "master/staging/defense-D3-physical.png",
+        "electric": "master/staging/defense-D3-electric.png",
+        "barrier": "master/staging/defense-D3-barrier.png",
+        "effect": "master/staging/defense-D3-effect.png"
+      }
+    },
+    {
+      "side": "defense",
+      "die": 2,
+      "cx": 817,
+      "cy": 744,
+      "r": 51,
+      "extent": 70,
+      "state": "barrier",
+      "value": 93,
+      "sizePx": 45,
+      "assets": {
+        "physical": "master/staging/defense-D2-physical.png",
+        "electric": "master/staging/defense-D2-electric.png",
+        "barrier": "master/staging/defense-D2-barrier.png",
+        "effect": "master/staging/defense-D2-effect.png"
+      }
+    },
+    {
+      "side": "defense",
+      "die": 1,
+      "cx": 818,
+      "cy": 861,
+      "r": 51,
+      "extent": 53,
+      "state": "physical",
+      "value": 41,
+      "sizePx": 45,
+      "assets": {
+        "physical": "master/staging/defense-D1-physical.png",
+        "electric": "master/staging/defense-D1-electric.png",
+        "barrier": "master/staging/defense-D1-barrier.png",
+        "effect": "master/staging/defense-D1-effect.png"
+      }
+    }
+  ],
+  "outputPsd": "master/exports/TAULIO-hybride-V4-V3.psd",
+  "outputPng": "master/exports/TAULIO-hybride-V4-V3.png",
+  "sourcePath": "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V4\\master\\profiles\\taulio.json",
+  "positions": [
+    {
+      "path": "master/staging/position-0.png",
+      "value": 1,
+      "x": 189,
+      "y": 1159
+    },
+    {
+      "path": "master/staging/position-1.png",
+      "value": null,
+      "x": 262,
+      "y": 1159
+    },
+    {
+      "path": "master/staging/position-2.png",
+      "value": null,
+      "x": 335,
+      "y": 1159
+    },
+    {
+      "path": "master/staging/position-3.png",
+      "value": null,
+      "x": 408,
+      "y": 1159
+    },
+    {
+      "path": "master/staging/position-4.png",
+      "value": null,
+      "x": 481,
+      "y": 1159
+    }
+  ]
+}

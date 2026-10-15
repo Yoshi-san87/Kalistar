@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "modelId": "49902601",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "610894894efbc358677f6ea21c6efd2a3bea9834c7f231efd9bfc76d1a36aee8",
+  "hashes": {
+    "card.png": "524010bf23aa2de7d617f7de83a6755fafd91787cfc4f97cd1344cf61352f449",
+    "card.psd": "059827f853eaac866d4d4d47bbbd84084769a967684283325be7d2922c4190a0"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 115130
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49902601",
+    "cases": {
+      "color-1": [
+        "49902601"
+      ],
+      "color-4": [
+        "49902601"
+      ],
+      "gray-1": [
+        "49902601"
+      ],
+      "gray-4": [
+        "49902601"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-13T13:07:47.137Z",
+  "revision": "2026-10-13-voices-weapon-glyphs",
+  "scope": {
+    "changed": 3306,
+    "outside": 0
+  },
+  "weaponOnly": true,
+  "profileUnchanged": true,
+  "source": {
+    "id": "49902601",
+    "key": "kessaro",
+    "family": "Projectile",
+    "source": "V4/site/assets/base-weapons/09.svg",
+    "sourceHash": "37ebc05b21557f8967a072c2b019729e22f58268395d3ceebeb063b526c5557b",
+    "enamelHash": "9588d3c555966d642c8cbdeaf328b34052cabc08303572b534e831f4c0c48d47"
+  },
+  "inputManifestHash": "0439066a6f7aebdc9f2eb9c69117386eb89306a3bf9a647eaf60523abd0c384c"
+}

@@ -1,0 +1,26 @@
+{
+  "generator": "built-in image_gen",
+  "transparentBackground": true,
+  "prompt": "prompt-v2.txt",
+  "source": {
+    "path": "pedestal-source-v2.png",
+    "sha256": "2632524df7a23a13bef23a6979c3cfaf962369584a46adecb0f6d31d3fc0e905",
+    "bytes": 1296843
+  },
+  "runtime": {
+    "path": "V4/site/assets/ui/collection-pedestal-v2.webp",
+    "sha256": "954b44b3005b8bfbd7580d5a7ba5e3b25e77fb8db3dcd5a851bb6122e0b70c1f",
+    "bytes": 865612,
+    "encoding": "sharp WebP lossless, effort 6, original size and alpha"
+  },
+  "width": 2172,
+  "height": 724,
+  "verification": {
+    "alphaDifferences": 0,
+    "visibleRgbDifferences": 0,
+    "transparentRgbDifferences": 51144,
+    "note": "WebP discards unused RGB under fully transparent pixels. No visible pixel or alpha changes."
+  },
+  "cssVisibleBounds": {"left": 5, "top": 147, "right": 2166, "bottom": 516},
+  "cssSliceWidth": 350
+}

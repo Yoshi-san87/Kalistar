@@ -1,0 +1,32 @@
+'use strict';
+const assert=require('node:assert/strict'),T=require('./trophies.js');
+for(const value of [undefined,null,NaN,Infinity,-1,0,1,2.5,'3'])assert.equal(T.killTier(value),0);
+assert.equal(T.killMedals.length,9);
+for(let tier=2;tier<=10;tier++){
+  assert.equal(T.killTier(tier),tier);
+  assert.match(T.medal(tier),new RegExp('data-kill-tier="'+tier+'"'));
+  const before={matchId:'test',exchanges:15,partial:false,units:[{uid:'0-0',kills:tier-1,participated:true}]};
+  const after={...before,exchanges:16,units:[{uid:'0-0',kills:tier,participated:true}]};
+  assert.equal(T.killMilestone(before,after,'0-0').tier,tier);
+  assert.equal(T.killMilestone(after,after,'0-0'),null,'repaint is not a new kill');
+  assert.equal(T.killMilestone(before,{...after,units:before.units},'0-0'),null,'Reraise, dodge, support and a stop do not add a kill');
+  assert.equal(T.killMilestone(before,{...after,partial:true},'0-0'),null);
+  assert.equal(T.killMilestone({...before,partial:true},after,'0-0'),null);
+  assert.equal(T.killMilestone(before,{...after,matchId:'other'},'0-0'),null);
+  assert.equal(T.killMilestone(before,{...after,units:[{...after.units[0],participated:false}]},'0-0'),null);
+  assert.equal(T.killMilestone(before,after,'1-0'),null,'an ally or opponent cannot borrow the kill');
+}
+assert.equal(T.medal(1),'');
+assert.equal(T.killTier(11),10);
+const result=T.empty();
+for(const kills of [3,3,2,2,2,2,5])T.add(result,{kills,side:0,winner:0,participated:true});
+assert.deepEqual(result.killMedals,{2:4,3:2,4:0,5:1,6:0,7:0,8:0,9:0,10:0},'only the highest tier of each match is credited');
+T.add(result,{kills:10,partial:true,side:0,winner:0});
+T.add(result,{kills:10,participated:false,side:0,winner:0});
+assert.equal(result.killMedals[10],0,'partial history and the unused reserve earn no medals');
+assert.equal(T.medalCabinet(T.empty()),'');
+const cabinet=T.cabinet(result);
+for(const category of T.categories)assert.ok(cabinet.includes('<span>'+category.name+'</span>'),'full trophy name');
+for(const tier of [2,3,5])assert.ok(cabinet.includes('data-kill-tier="'+tier+'"'));
+for(const tier of [4,6,7,8,9,10])assert.ok(!cabinet.includes('data-kill-tier="'+tier+'"'));
+console.log('PASS: thresholds 2-10, one best medal per match, career counts, unearned medals hidden, named trophies, no false milestones or partial-history honours.');

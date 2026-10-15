@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "modelId": "49901503",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "23ce44b5812146ef1640ed41673f5ce94bb2b3785771006ef4df39f8d97135f6",
+  "hashes": {
+    "card.png": "5af5291c348fcf571e4d66a9c17383a5670f463ed7280dd50260dd84c82f3c8e",
+    "card.psd": "2c8be65eab9033a385b7830b9713263e44f5936f4e306265fca505f289a59604"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 92805
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49901503",
+    "cases": {
+      "color-1": [
+        "49901503"
+      ],
+      "color-4": [
+        "49901503"
+      ],
+      "gray-1": [
+        "49901503"
+      ],
+      "gray-4": [
+        "49901503"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-09T13:06:30.664Z",
+  "revision": "2026-10-09-homme-mystere",
+  "scope": {
+    "changed": 5400,
+    "outside": 0
+  },
+  "nameOnly": true,
+  "inputManifestHash": "508e468c073122b84b29800053f4413cd2af654b471ef8e384d7cda74c2fc889"
+}

@@ -1,0 +1,29 @@
+✔ bearer thumbnail occupies the lower-left illustration corner without covering the bonus (1.0039ms)
+✔ bearer names use the full right-hand band centered under its text panels (3.0876ms)
+✔ inspection anchors to drawn card through letterboxing, late crop and live resize (1.8675ms)
+✔ normal proportional card geometry is unchanged and deck inspection has no active bonus plate (0.888ms)
+✔ closing, replacing, clearing and navigation disconnect inspection observers and listeners (1.5589ms)
+✔ each weapon uses its own painted ring and keeps that skin in enlarged inspection (3.083ms)
+✔ native weapon assets retain approved sources, optical anchor and extracted copper (23.4043ms)
+✔ Pages includes the complete equipment chain and excludes its authoring proofs (87.0253ms)
+✔ unique weapon art fits the native interior and is included without its source PNGs (62.4277ms)
+✔ legacy equipment snapshots keep their original art and reject unknown replacement assets (8.8373ms)
+✔ stable identity, character/job/family restrictions, one weapon and schema limits (0.3607ms)
+✔ generic slot mutation replaces and transfers atomically, with a stale-confirmation guard (0.3868ms)
+✔ axe inactive with allies, active as last board combatant despite reserves; base matrix unchanged (6.019ms)
+✔ opponent equipment works with identical side-independent rules (2.123ms)
+✔ flute luck grants +30 DEF once, survives reload/reroll, expires at duel end (5.5549ms)
+✔ flute luck refresh cannot recharge or stack (2.0205ms)
+✔ flute mana grants +30 DEF once, survives reload/reroll, expires at duel end (3.3169ms)
+✔ flute mana refresh cannot recharge or stack (1.8221ms)
+✔ one-duel flute expires on attacking, support, dodge and Mort; special faces never become numeric (9.1833ms)
+✔ snapshot decoupled from profile, rejected corrupt states and unchanged legacy games (4.9379ms)
+✔ complete equipped matches remain valid at every step, including restored turns and match end (1114.9804ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1432.5432

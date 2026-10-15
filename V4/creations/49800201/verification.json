@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "modelId": "49800201",
+  "referenceId": "ef7a6767b57723d896ceecb050079bfb1abad0e79e7289a200f87b34585f9380",
+  "profileHash": "df92884f82443d90e76d486120b1d76a40159d8c06aff134b9242c5046d4bf94",
+  "hashes": {
+    "card.png": "fdcca4753094cc146ed2b31fa0bf56a23c49d199529c93ec9dbfe93a567ea301",
+    "card.psd": "4a9c3b177c892f58677b04fd50f98cfecad6c7c68e2dd303d666d7420de90556"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 84419
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49800201",
+    "cases": {
+      "color-1": [
+        "49800201"
+      ],
+      "color-4": [
+        "49800201"
+      ],
+      "gray-1": [
+        "49800201"
+      ],
+      "gray-4": [
+        "49800201"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-01T13:06:01.383Z",
+  "preparationHash": "ef72a13941c5446a3c8a9ae3af5cc32d7f22532851bfd2b9581b7a4441e5e86f",
+  "typography": true,
+  "descriptionLines": 4
+}

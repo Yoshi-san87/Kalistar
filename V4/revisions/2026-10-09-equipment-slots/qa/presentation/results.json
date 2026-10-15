@@ -1,0 +1,69 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "name": "desktop",
+      "side": 0,
+      "scenario": "real Block, focus, resize, three-slot popup, synchronized D6, reload and deactivation",
+      "passed": true
+    },
+    {
+      "name": "desktop",
+      "side": 1,
+      "scenario": "real Block, focus, resize, three-slot popup, synchronized D6, reload and deactivation",
+      "passed": true
+    },
+    {
+      "name": "desktop",
+      "scenario": "protection artwork pixel check",
+      "changedPixels": 4511,
+      "passed": true
+    },
+    {
+      "name": "desktop",
+      "scenario": "real failed defense, original Block, reduced motion, finish cleanup",
+      "passed": true
+    },
+    {
+      "name": "razr",
+      "side": 0,
+      "scenario": "real Block, focus, resize, three-slot popup, synchronized D6, reload and deactivation",
+      "passed": true
+    },
+    {
+      "name": "razr",
+      "side": 1,
+      "scenario": "real Block, focus, resize, three-slot popup, synchronized D6, reload and deactivation",
+      "passed": true
+    },
+    {
+      "name": "razr",
+      "scenario": "protection artwork pixel check",
+      "changedPixels": 3324,
+      "passed": true
+    },
+    {
+      "name": "razr",
+      "scenario": "real failed defense, original Block, reduced motion, finish cleanup",
+      "passed": true
+    },
+    {
+      "name": "compact",
+      "side": 0,
+      "scenario": "real Block, focus, resize, three-slot popup, synchronized D6, reload and deactivation",
+      "passed": true
+    },
+    {
+      "name": "compact",
+      "side": 1,
+      "scenario": "real Block, focus, resize, three-slot popup, synchronized D6, reload and deactivation",
+      "passed": true
+    },
+    {
+      "name": "compact",
+      "scenario": "real failed defense, original Block, reduced motion, finish cleanup",
+      "passed": true
+    }
+  ],
+  "errors": []
+}

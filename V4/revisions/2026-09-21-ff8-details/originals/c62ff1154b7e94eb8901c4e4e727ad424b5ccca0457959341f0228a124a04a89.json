@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "key": "linoa",
+  "modelId": "45513029",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "929d7320b62fd3ac607c3b2e47284d177a71591db2d4bf5eef547b36d7818c21",
+  "hashes": {
+    "card.png": "32ae4c377cd2fbf1d0505a631ec99f47376ef7ed15cddb4ac86815f4d4049b40",
+    "card.psd": "e231f1bb11798350db01c78e0556bbd31c6b5f6bf4557d8ed56f7ddc11e1ceb9"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 139146
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "45513029",
+    "cases": {
+      "color-1": [
+        "45513029"
+      ],
+      "color-4": [
+        "45513029"
+      ],
+      "gray-1": [
+        "45513029"
+      ],
+      "gray-4": [
+        "45513029"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-20T14:39:00.505Z"
+}

@@ -1,0 +1,27 @@
+{
+  "checks": [
+    "Real potion die opens ally selection; caster keeps own trait; enemy rejected; ally clover replaced by an animated potion with a 60 badge and correct popup",
+    "Four trait types, four viewports: one badge per card; only magic/physical show 60; no duplicate buff chips, distorted icons or page overflow",
+    "Pending potion survives reload; duplicate clicks grant once; AI selects a magical allied beneficiary and resolves",
+    "Navigation cancels pending grant cleanly; legacy multi-trait save migrates to one Reraise; original backup is exported unchanged from the rules dialog"
+  ],
+  "viewports": [
+    {
+      "width": 2493,
+      "height": 1461
+    },
+    {
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "errors": []
+}

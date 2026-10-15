@@ -1,0 +1,15 @@
+✔ Arborium equipment requires its exact faction AND base family, regardless of job or displayed name (52.5587ms)
+✔ faction restriction validation rejects missing, empty, oversized and unknown categories (0.3349ms)
+✔ equipment profile persists one weapon per faction member and rejects incompatible assignments (16.3563ms)
+✔ team compositions validate the selected edition; old equipment snapshots stay valid (16.9958ms)
+✔ archived 4.5.64: Arborium state bonuses on either side survive formulas, logs and reloads (25.3462ms)
+✔ previous soldier-only match definitions are preserved, without retroactive broadening (2.9227ms)
+✔ 4.6 weapons use retained ATK six; archived state conditions remain explicit and unchanged (0.1586ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 215.4546

@@ -1,0 +1,924 @@
+[
+  {
+    "id": "tide-pavise",
+    "role": "scene",
+    "tool": "image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE standalone Kalistar collectible equipment illustration, NOT a card or sheet. Subject: Pavois des Marees, a large defensive pavise for Crabazar, an asymmetrical but functional armor shield made from layered teal-gray marine shell, clearly ribbed organic shell plates fastened by weathered warm copper rivets and a restrained nautical copper rim. Original memorable silhouette, no claws, no faces, no skull, no axe. It stands securely against an old salt-worn harbor bollard, on wet stone with one slack rope. Calm distant sea and a small pale sky, background with few details and real depth, not filling space with decoration. Main object fills 75 percent of height, entirely visible, centered, front three-quarter view, generous clean margins, portrait 4:5 composition. Detailed narrative fantasy PAINTING, tangible thick brushwork and faceted painted color planes, worn materials, hierarchical edges, bright clear subject. Kalistar heroic fantasy with very subtle crafted mechanical details, NOT photorealism, NOT smooth 3D, NOT anime. Daylight reflected off the sea, gentle turquoise on shell and copper warm highlights, modest muted red cloth near base as color counterpoint. No people, no hands, no text, no numbers, no interface, no border, no watermark.",
+    "source": "V4/weapon-cards/sources/tide-pavise-scene-v1.png"
+  },
+  {
+    "id": "tide-pavise",
+    "role": "body",
+    "tool": "image_gen",
+    "prompt": "Edit target: the supplied Pavois des Marees shield illustration. Create the EXACT SAME shield, its layered teal marine shell and weathered copper fastening, front three-quarter silhouette unchanged, isolated alone on a genuinely transparent background. Remove ALL harbor, ground, rope, water, red cloth, building, sky, shadows cast on surfaces; no circle or border. Preserve shield design, shape, patina, readable painterly faceted brush texture, copper rivets, and full uncropped object with 12 percent clear margin on every side. This is the matching object cutout for its Kalistar medallion, not a redesign. Center the full shield. No new ornament or text.",
+    "references": [
+      "V4/weapon-cards/sources/tide-pavise-scene-v1.png"
+    ],
+    "source": "V4/weapon-cards/sources/tide-pavise-v1.png"
+  }
+  ,{
+  "id": "tide-pavise",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Create ONE transparent-background Kalistar equipment medallion RING ONLY for the Pavois des Marees. Perfect centered front-on circular annulus, never an ellipse, square canvas with 5% clear margin. BOTH central hole and all exterior must be truly transparent. Outer diameter 88% of canvas, open hole 69%, fairly narrow solid ring. Weathered dark copper structural rails around teal-gray iridescent marine shell segments, tiny nautical rivets, four extremely discreet pale turquoise reflective joints at cardinal points. Tangible handcrafted heroic fantasy painting with visible brush facets and patina, restrained blue-teal energy inside the rail, no floating smoke. Keep outer silhouette circular with small flush fittings, easy to rotate endlessly in the game's native card. No background, no shield, no weapon, no object inside the hole, no text, no separate artifacts, no UI. Ring must remain continuously joined, symmetrical thickness, centered optical axis. Match Kalistar's sophisticated copper metal painted collectible identity, not photorealism, not cartoon, not flat vector.",
+  "source": "V4/weapon-cards/sources/tide-pavise-ring-v1.png"
+}
+  ,{
+  "id": "sentinel-carapace",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Taulio's separate massive protective robotic breastplate, broad dark steel articulated plates and brushed copper joints, fine pale blue electrical seams, no head or arms. Loyal industrial sentinel craftsmanship, rounded shoulder caps attached to the breastplate.\nScene: Resting upright on a quiet workbench in a futuristic Chroma maintenance alcove, spare fused relay beside it, distant modern city light through a high window.",
+  "source": "V4/weapon-cards/sources/sentinel-carapace-scene-v1.png"
+}
+  ,{
+  "id": "sap-cuirass",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Living wood cuirass of Arborium, graceful overlapping curved bark ribs, visible translucent green sap veins between wood, restrained antique copper ties, credible wearable chest and back shell without limbs.\nScene: Resting against a fallen mossy trunk in a sparse sunlit woodland, one fresh shoot nearby.",
+  "source": "V4/weapon-cards/sources/sap-cuirass-scene-v1.png"
+}
+  ,{
+  "id": "gate-gauntlets",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: A matched pair of monumental stone defensive gauntlets for Magnar, articulated angular gray stone fingers, ancient door bolt mechanisms across knuckles, aged copper hinge pins, compact powerful shape, not weapons or giant fists with spikes.\nScene: Placed on the threshold of a massive open stone doorway, warm light beyond the passage, quiet empty wall.",
+  "source": "V4/weapon-cards/sources/gate-gauntlets-scene-v1.png"
+}
+  ,{
+  "id": "rhinoz-hauberk",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: One huge heavy Rhinoz hauberk, dense dark chainmail and shoulder reinforcement in carved ivory-gray horn, broad barrel chest shape, worn leather straps, handmade copper repairs, no skulls, no animal or mannequin.\nScene: Draped over a low timber rack at the entrance of a sunlit grassland village, restrained ochre cloth beneath it and wide open sky beyond.",
+  "source": "V4/weapon-cards/sources/rhinoz-hauberk-scene-v1.png"
+}
+  ,{
+  "id": "first-thaw-cloak",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: A thick Niveria travel cloak of weathered charcoal-gray fur, icy translucent clasps edged in pale silver, visibly soft inner lining, naturally draped folds, no horned helmet, no person.\nScene: Hanging over a smooth stone beside a thawing lake, a few ice shards and distant clean snow slopes in soft morning light.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/first-thaw-cloak-scene-v1.png"
+}
+  ,{
+  "id": "abyss-plastron",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: A Thalassea breastplate shaped from dark iridescent nacre and curved large seashell lamellae, deep teal-purple natural sheen, subtle old copper fasteners, open armholes and clear wearable silhouette, not a shell creature.\nScene: Propped in a calm underwater coral alcove, one pale sand ripple and broad shafts of sea light, quiet background.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/abyss-plastron-scene-v1.png"
+}
+  ,{
+  "id": "cold-blood-mantle",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: A short protective Draevenheim mantle, deep black velvet with rich dark red lining, compact sculpted bat-wing clasp in dark silver and copper, substantial layered folds, no head or person.\nScene: Draped over a stone parapet at last twilight, one dim red reflection and distant empty hills, no busy castle scene.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/cold-blood-mantle-scene-v1.png"
+}
+  ,{
+  "id": "last-vigil-cuirass",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Cryptown funerary steel cuirass, dark battered metallic torso plates, understated violet luminous inset seams and old copper clasps, sparse non-readable engraved markings, guard's dignified practical armor not skeleton decoration.\nScene: Standing on a low stone bench in a quiet ruined watch post, one violet crystal reflection, pale daylight through a tall opening.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/last-vigil-cuirass-scene-v1.png"
+}
+  ,{
+  "id": "dawn-gorget",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Solaria's protective ivory-metal gorget, sculpted collar and small upper chest plate, elegant gold sunray grooves, smooth pale faceted metal with worn edges, one small warm crystal, no giant sun or face.\nScene: Placed on pale worn stone in first dawn light, soft white fabric and a single long shadow.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/dawn-gorget-scene-v1.png"
+}
+  ,{
+  "id": "last-forge-apron",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Darnako's sturdy burnt leather protective smith apron, thick worn brown-black leather, short hammered steel protective strips across chest and belly, copper rivets and practical straps, patched scorch marks.\nScene: Hanging beside a cooling forge, one resting hammer below, low amber embers and sparse dark stone workshop.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/last-forge-apron-scene-v1.png"
+}
+  ,{
+  "id": "ninth-life-boots",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Rikka's matched pair of agile high boots, supple dark leopard-spotted leather, narrow gold and copper fastenings with delicate pale blue electrical filaments, practical athletic soles, not high heels, long flexible gaiter panels.\nScene: Resting on a clean industrial rooftop ledge in futuristic Chroma, blue dawn above a sparse modern skyline, no medieval buildings.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/ninth-life-boots-scene-v1.png"
+}
+  ,{
+  "id": "octocamo",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Recognizable Old Snake MGS4 OctoCamo sneaking suit, separate empty graphite-gray tight tactical suit, segmented ribbed muscle-like panels, shoulder and leg reinforcement, integrated dark harness, muted gray camouflage texture, no helmet, no person, no fantasy decoration.\nScene: Folded with torso and sleeves visible across a military equipment bench, minimal concrete safehouse in cool daylight, simple utility light at back.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/octocamo-scene-v1.png"
+}
+  ,{
+  "id": "cyborg-ninja-armor",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Recognizable Raiden MGS4 cyborg defensive torso armor, white and black exoskeletal plates over fine dark artificial muscle fibers, sharply articulated shoulder and chest protection, narrow mechanical waist, no head or face, no red cyber eye, not Metal Gear Rising black armor.\nScene: Separate torso shell secured on a low maintenance cradle, quiet gray futuristic repair room, pale daylight across metal.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/cyborg-ninja-armor-scene-v1.png"
+}
+  ,{
+  "id": "zanarkand-pauldron",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Tidus Final Fantasy X iconic asymmetrical blue left shoulder and upper-arm protection as a separate object, compact rounded blue shoulder plate with dark straps, layered blue arm guard and worn leather fastening, recognizable sporting traveler design, no sword or person.\nScene: Resting on a pale beach rock beside a loose strap, Besaid sea and a simple bright horizon.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/zanarkand-pauldron-scene-v1.png"
+}
+  ,{
+  "id": "leon-body-armor",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Leon Resident Evil 4 black tactical body armor vest, thick black ballistic panels, practical dark straps and buckles, worn but intact, unbranded, no green uniform, no weapons, no fantasy embellishments.\nScene: Resting upright on a wooden chair beside a simple stone safehouse wall, soft side daylight, one small dustless steel canister at foot.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/leon-body-armor-scene-v1.png"
+}
+  ,{
+  "id": "stars-vest",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Chris Redfield Resident Evil 1 recognizable green tactical protective vest, olive fabric, dark reinforced shoulder straps, practical pockets and a small star-emblem patch with no legible lettering, separate empty vest, no guns or person.\nScene: Laid over a clean wooden police locker bench, subtle window daylight, quiet gray wall, one dark glove nearby.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/stars-vest-scene-v1.png"
+}
+  ,{
+  "id": "guardian-red-coat",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Auron Final Fantasy X iconic heavy red guardian coat, long wine-red outer fabric, prominent high turned collar, dark interior and shoulder fastening, naturally draped one-shoulder shape without body, weathered hem, no swords or bottle.\nScene: Draped across a low stone shrine rail on a quiet pilgrimage road, pale warm sky and distant sea haze, minimal details.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/guardian-red-coat-scene-v1.png"
+}
+  ,{
+  "id": "scarlet-cape",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Vincent Valentine Final Fantasy VII iconic scarlet torn cape, high collar, multiple metal buckle straps across its upper opening, layered ragged red cloth, deep red and black shadows, naturally draped, no person, no gun, no gilding.\nScene: Hanging over a quiet dark carved stone chair, cool daylight through a narrow window, subdued background.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/scarlet-cape-scene-v1.png"
+}
+  ,{
+  "id": "wolf-school-armor",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Geralt's recognizable Wolven School chest armor, dark brown-black leather jacket reinforced with fine chainmail across torso and shoulders, crossed practical leather straps, subtle red fabric accent beneath, silver buckles, no head, no swords, no generic plate cuirass.\nScene: Placed over a simple wooden armor stand whose support is mostly hidden, quiet Kaer Morhen stone room in cold morning daylight, no busy trophy wall.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/wolf-school-armor-scene-v1.png"
+}
+  ,{
+  "id": "white-materia",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Aeris Final Fantasy VII small pale luminous White Materia sphere cradled in her simple pink hair ribbon, translucent milky stone with soft green-white interior light, recognizably a small personal keepsake, no oversized crystal crown.\nScene: Resting on a worn wooden church bench beside one modest white flower, soft daylight and blurred structural shapes only, clear subject.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/white-materia-scene-v1.png"
+}
+  ,{
+  "id": "griever-pendant",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Squall Final Fantasy VIII recognizable Griever necklace, angular silver lion-head emblem pendant with flowing stylized mane and ring loop, on a simple silver chain, worn polished ridges, no jewels or gold.\nScene: Resting on black leather near a bright Balamb window, faint pale-blue sea beyond, focused close-up with entire chain loosely coiled.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/griever-pendant-scene-v1.png"
+}
+  ,{
+  "id": "zanarkand-abes-pendant",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Tidus Final Fantasy X recognizable Zanarkand Abes silver pendant, angular hooked tribal team emblem with three-pronged vertical silhouette and curled upper loops, simple chain, engraved worn silver, no lion motif, no sword, no gemstones.\nScene: Resting on a folded yellow-and-black sporting garment atop weathered seaside wood, clear pale blue light, restrained distant sea.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/zanarkand-abes-pendant-scene-v1.png"
+}
+  ,{
+  "id": "guardian-jug",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Auron Final Fantasy X iconic squat ceramic drinking jug, pale tan vessel with dark neck and cap, red-brown strap and looped cord, large simple traditional jug form, no potion crystal or ornate gold.\nScene: Resting beside a worn red cloth on a stone pilgrimage milestone, calm soft evening sunlight and distant road.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/guardian-jug-scene-v1.png"
+}
+  ,{
+  "id": "jill-lockpicks",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Jill Valentine's recognizable practical lockpick set, small open dark leather tool case containing two slender straight steel picks and a tension wrench, neatly arranged and clearly separated, no knife blades, no jeweled fantasy keys.\nScene: On a scarred police-desk corner near a closed wooden door, warm side lamp balanced by cool daylight, sparse quiet background.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/jill-lockpicks-scene-v1.png"
+}
+  ,{
+  "id": "pod-153",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: NieR Automata Pod 153, recognizable small BLACK rectangular support drone of 9S, compact dark cuboid body, slightly projecting rectangular camera/sensor face, slender hanging mechanical arms, articulated black fingers and tiny pale sensor markings. Must be black Pod153, NOT ivory Pod042, not a humanoid robot.\nScene: Hovering low above a broken concrete ledge amid a sparse quiet city ruin, pale grass and warm diffuse daylight, no laser or attack.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/pod-153-scene-v1.png"
+}
+  ,{
+  "id": "lunar-tear",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: NieR Replicant Lunar Tear, one delicate luminous white flower with layered narrow white petals, subtle pale yellow center and slender green stem, visibly fragile botanical keepsake, no jewelry mounting, no oversized magic aura.\nScene: Growing beside a simple cracked stone stair with a few grass blades, gentle clear morning light and very quiet empty backdrop.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/lunar-tear-scene-v1.png"
+}
+  ,{
+  "id": "infiltration-box",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Solid Snake Metal Gear recognizable ordinary cardboard infiltration box, brown corrugated cardboard, closed top flaps with tape, subtle side hand slots and genuinely worn folded corners, entirely mundane, no gold, jewels, glowing markings or fantasy decorations.\nScene: On the floor of an empty industrial corridor with a restrained cool utility light and quiet gray concrete wall, natural cardboard contact shadow.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/infiltration-box-scene-v1.png"
+}
+  ,{
+  "id": "metal-gear-mkii",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Metal Gear Mk.II from MGS4, recognizable Otacon's tiny blue-gray compact biped support robot with a small flat display panel on its torso, two thin bent mechanical legs with broad feet, top antenna and small side manipulator, non-humanoid silhouette, no tank cannon or bulky mech.\nScene: Standing on a quiet concrete floor beside a cable, small maintenance room with a pale light shaft, friendly attentive posture without facial caricature.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/metal-gear-mkii-scene-v1.png"
+}
+  ,{
+  "id": "wolf-medallion",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: The Witcher canonical School of the Wolf silver medallion, sharply angular snarling wolf head with pointed ears, projecting muzzle and faceted metal fur, on a plain chain. Entire pendant visible, no gold or glowing red eyes.\nScene: Resting on worn dark leather beside a mossy stone, cool forest daylight, minimal background.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/wolf-medallion-scene-v1.png"
+}
+  ,{
+  "id": "obsidian-star",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Yennefer's recognizable black obsidian star choker pendant from The Witcher, fine black multi-pointed star set in subtle silver, small dark central gem, on a narrow black velvet band. Refined personal jewelry, no gold crown or oversized spikes.\nScene: Resting on folded black silk at a stone windowsill, pale lilac dusk reflected in silver, sparse quiet setting.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/obsidian-star-scene-v1.png"
+}
+  ,{
+  "id": "straw-hat",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Monkey D. Luffy's canonical plain straw hat, round woven straw crown, broad flexible brim, single simple red cloth band, gentle wear and a small repaired stitch. Recognizable silhouette. NO gold trim, no gems, no magic, no pirate skull emblem.\nScene: Resting on a sunlit wooden ship railing, one slack rope and clear wide sea behind, warm natural light, no crowded ship details.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/straw-hat-scene-v1.png"
+}
+  ,{
+  "id": "log-pose",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Nami's canonical One Piece Log Pose wrist compass, round transparent glass dome enclosing a thin suspended magnetic needle on central pivot, brass rim and brown leather wrist strap, clearly nautical navigation instrument, not an ordinary flat compass or digital watch.\nScene: Resting on a simple folded sea chart on a ship's wooden navigation table, chart has faint nonreadable lines only, broad daylight and sparse ocean background.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/log-pose-scene-v1.png"
+}
+  ,{
+  "id": "rumble-ball",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Chopper's recognizable Rumble Ball, one small golden-yellow spherical medicinal candy beside a tiny clear cylindrical vial containing two more yellow balls, simple cork closure and no label. Small practical medical object, no bomb, no magical jeweled sphere.\nScene: Resting on a folded clean white medical cloth on a wooden ship infirmary shelf, soft warm daylight and sparse peaceful room.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/rumble-ball-scene-v1.png"
+}
+  ,{
+  "id": "cola-reserve",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Franky's distinctive cola reserve, a squat dark glass cola bottle with red plain band and simple metal cap, secured in an open compact steel mechanical belly-compartment cradle, bottle fully recognizable, practical bolts, no words or logo, no magic potion ornament.\nScene: On a ship repair workbench, one spanner and sparse bright wood background, warm daylight.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/cola-reserve-scene-v1.png"
+}
+  ,{
+  "id": "little-joys-box",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Momo's small repaired musical toy box, mismatched worn copper and faded teal tin panels, open lid, delicate exposed pinned musical cylinder and little turning key, lovingly repaired joints and one tiny warm-blue electrical glimmer, whimsical but not cartoon, no people or doll.\nScene: On a quiet modern Chroma salvage-workshop bench beside a single spare screw, night-blue city light beyond one narrow window balanced by warm worklight.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/little-joys-box-scene-v1.png"
+}
+  ,{
+  "id": "current-compass",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Ruby's unique water-current compass, finely crafted round copper instrument with clear glass chamber containing a suspended curved droplet of living blue water, subtle navigational needle and grip, nacre engraved ring, elegant underwater cartography tool, no map text.\nScene: On a smooth coral shelf underwater, soft rippled sea light, sparse pale sand and one quiet sea plant.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/current-compass-scene-v1.png"
+}
+  ,{
+  "id": "last-garden-seed",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Thalie's seed capsule, a single small warm brown seed suspended safely inside a clear rounded glass capsule held by naturally curved living roots and tiny aged copper ties, restrained green life glow, no enormous tree or jeweled orb.\nScene: On a patch of moss beside a broken garden wall, soft morning light and one tiny new leaf, simple peaceful background.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/last-garden-seed-scene-v1.png"
+}
+  ,{
+  "id": "exiled-king-seal",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Balmhyr's royal seal of exile, a heavy chipped old bronze seal stamp, short substantial carved stone grip above a broad circular metal stamping base, restrained Durane crossed hammer emblem engraved on the top, worn ceremonial craftsmanship, no axe and no crown-shaped shield.\nScene: Resting on worn red-gray canyon stone beside a small folded travel cloth, calm bright desert light, distant uncluttered canyon.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/exiled-king-seal-scene-v1.png"
+}
+  ,{
+  "id": "lost-names-bell",
+  "role": "scene",
+  "tool": "image_gen",
+  "prompt": "One standalone Kalistar collectible equipment illustration, never a complete card. Detailed narrative heroic fantasy painting, visible faceted brush strokes, worn cloth, leather and metal, hierarchical edges, tangible crafted materials. Neither photograph, smooth 3D nor anime. Entire object clearly readable and uncropped, centered front three-quarter view filling about 75 percent of height, portrait 4:5. Quiet setting with depth and only a few meaningful details. Motivated soft light, highest contrast on the object, no bokeh or atmospheric blobs, no overload of ornaments. No people, mannequin, hands, words, numbers, interface, borders or watermark. Preserve known collaboration object silhouettes without replacing them by generic magical armor.\nSubject: Ombrine's small funeral handbell, dark aged copper bell with modest elongated handle, fine unreadable name-like etchings inside its open mouth, a tiny violet reflected glimmer, dignified worn personal object, no skull ornament, no floating ghosts.\nScene: Resting tilted on a quiet Cryptown stone sill, pale dawn and a narrow violet cloth under it, simple background.\nAvoid ALL flags and banners, no unrelated extra equipment, no decorative filler in background. Keep brushwork distinctly painted.",
+  "source": "V4/weapon-cards/sources/lost-names-bell-scene-v1.png"
+}
+  ,{
+  "id": "sentinel-carapace",
+  "role": "scene-correction",
+  "tool": "image_gen",
+  "prompt": "Use case: precise-object-edit. Edit target: supplied Kalistar equipment illustration. Remove ONLY the blue banner and invented symbol from upper-left background; replace with the adjacent industrial wall and no markings. Keep the exact breastplate and every other object and composition unchanged. Preserve painterly brushwork. No text, new motifs or objects.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/sentinel-carapace-scene-v1.png",
+  "source": "V4/weapon-cards/sources/sentinel-carapace-scene-v2.png"
+}
+  ,{
+  "id": "rhinoz-hauberk",
+  "role": "scene-correction",
+  "tool": "image_gen",
+  "prompt": "Use case: precise-object-edit. Edit target: supplied Kalistar equipment illustration. Remove ALL hanging flag banners and flagpoles in both foreground and distance. Replace naturally with underlying wood, village and sky. Keep the exact hauberk, cloth beneath, rack and camera unchanged. Preserve painterly brushwork. No text, new motifs or objects.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/rhinoz-hauberk-scene-v1.png",
+  "source": "V4/weapon-cards/sources/rhinoz-hauberk-scene-v2.png"
+}
+  ,{
+  "id": "little-joys-box",
+  "role": "scene-correction",
+  "tool": "image_gen",
+  "prompt": "Use case: precise-object-edit. Edit target: supplied Kalistar equipment illustration. Keep the exact music box, bench, screw, lamp, framing and painted style unchanged. Change ONLY the environment architecture: Chroma is a futuristic cyberpunk metropolis, NOT a medieval city. Replace the castle spires through the window with distant clean futuristic skyscrapers and elevated modern bridges. Replace stone wall with patinated steel panels. No words or signage. Preserve painterly brushwork. No text, new motifs or objects.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/little-joys-box-scene-v1.png",
+  "source": "V4/weapon-cards/sources/little-joys-box-scene-v2.png"
+}
+  ,{
+  "id": "exiled-king-seal",
+  "role": "scene-correction",
+  "tool": "image_gen",
+  "prompt": "Use case: precise-object-edit. Edit target: supplied Kalistar equipment illustration. Keep the exact seal stamp, camera, materials, canyon setting, light and composition unchanged. Remove ONLY the invented crossed-hammer emblem engraved on its top. Make that top a simple aged plain stone surface with a thin recessed circle, no heraldry or symbols. Preserve painterly brushwork. No text, new motifs or objects.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/exiled-king-seal-scene-v1.png",
+  "source": "V4/weapon-cards/sources/exiled-king-seal-scene-v2.png"
+}
+  ,{
+  "id": "metal-gear-mkii",
+  "role": "scene-correction",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. The latest image is a DESIGN REFERENCE ONLY: use ONLY the little Metal Gear Mk.II robot beside Otacon, never the man or screenshot backdrop. Create standalone Kalistar collectible illustration, detailed painterly heroic fantasy brushwork adapted to this precise technological object, no photo/3D. Faithfully preserve reference silhouette: compact low wedge-shaped blue-gray chassis with rounded sloping snout, small rectangular flip-out black display on its LEFT side, slender bent upward stalk with tiny green sensor head, curved flexible cable/manipulator on right, two thin articulated short legs ending in little wheeled feet. Small friendly support robot NOT humanoid; NOT huge vertical cuboid torso, NOT tank, no weapons. Whole robot in three-quarter front view, entirely uncropped filling 75% of portrait4:5, standing alone on quiet concrete maintenance-room floor. Sparse pale side daylight and one coiled cable far behind, no other props, people, lettering, frame, banner or watermark. Clearly painted patinated edges and faceted highlights, highest contrast on robot.",
+  "reference": "https://www.pngkey.com/png/detail/441-4415992_otacon-mgs4-metal-gear-mk-ii.png",
+  "source": "V4/weapon-cards/sources/metal-gear-mkii-scene-v2.png"
+}
+  ,{
+  "id": "sentinel-carapace",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object (Taulio's separate massive protective robotic breastplate, broad dark steel articulated plates and brushed copper joints, fine pale blue electrical seams, no head or arms. Loyal industrial sentinel craftsmanship, rounded shoulder caps attached to the breastplate.). Preserve its painted design, colors, full silhouette, proportion, angle, texture and details EXACTLY. Remove ALL scenery, ground, racks, mannequin, supports, cloth beneath it, unrelated tools and cast shadow. For matching pair preserve BOTH objects together. Center entire uncropped object on a square GENUINELY TRANSPARENT background with 12% clear margins on all sides. No frame or ring, no text, no floor shadow, no new design. The object must remain hand-painted, not converted to 3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/sentinel-carapace-scene-v2.png",
+  "source": "V4/weapon-cards/sources/sentinel-carapace-v1.png"
+}
+  ,{
+  "id": "sap-cuirass",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object (Living wood cuirass of Arborium, graceful overlapping curved bark ribs, visible translucent green sap veins between wood, restrained antique copper ties, credible wearable chest and back shell without limbs.). Preserve its painted design, colors, full silhouette, proportion, angle, texture and details EXACTLY. Remove ALL scenery, ground, racks, mannequin, supports, cloth beneath it, unrelated tools and cast shadow. For matching pair preserve BOTH objects together. Center entire uncropped object on a square GENUINELY TRANSPARENT background with 12% clear margins on all sides. No frame or ring, no text, no floor shadow, no new design. The object must remain hand-painted, not converted to 3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/sap-cuirass-scene-v1.png",
+  "source": "V4/weapon-cards/sources/sap-cuirass-v1.png"
+}
+  ,{
+  "id": "gate-gauntlets",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object (A matched pair of monumental stone defensive gauntlets for Magnar, articulated angular gray stone fingers, ancient door bolt mechanisms across knuckles, aged copper hinge pins, compact powerful shape, not weapons or giant fists with spikes.). Preserve its painted design, colors, full silhouette, proportion, angle, texture and details EXACTLY. Remove ALL scenery, ground, racks, mannequin, supports, cloth beneath it, unrelated tools and cast shadow. For matching pair preserve BOTH objects together. Center entire uncropped object on a square GENUINELY TRANSPARENT background with 12% clear margins on all sides. No frame or ring, no text, no floor shadow, no new design. The object must remain hand-painted, not converted to 3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/gate-gauntlets-scene-v1.png",
+  "source": "V4/weapon-cards/sources/gate-gauntlets-v1.png"
+}
+  ,{
+  "id": "rhinoz-hauberk",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object (One huge heavy Rhinoz hauberk, dense dark chainmail and shoulder reinforcement in carved ivory-gray horn, broad barrel chest shape, worn leather straps, handmade copper repairs, no skulls, no animal or mannequin.). Preserve its painted design, colors, full silhouette, proportion, angle, texture and details EXACTLY. Remove ALL scenery, ground, racks, mannequin, supports, cloth beneath it, unrelated tools and cast shadow. For matching pair preserve BOTH objects together. Center entire uncropped object on a square GENUINELY TRANSPARENT background with 12% clear margins on all sides. No frame or ring, no text, no floor shadow, no new design. The object must remain hand-painted, not converted to 3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/rhinoz-hauberk-scene-v2.png",
+  "source": "V4/weapon-cards/sources/rhinoz-hauberk-v1.png"
+}
+  ,{
+  "id": "first-thaw-cloak",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object (A thick Niveria travel cloak of weathered charcoal-gray fur, icy translucent clasps edged in pale silver, visibly soft inner lining, naturally draped folds, no horned helmet, no person.). Preserve its painted design, colors, full silhouette, proportion, angle, texture and details EXACTLY. Remove ALL scenery, ground, racks, mannequin, supports, cloth beneath it, unrelated tools and cast shadow. For matching pair preserve BOTH objects together. Center entire uncropped object on a square GENUINELY TRANSPARENT background with 12% clear margins on all sides. No frame or ring, no text, no floor shadow, no new design. The object must remain hand-painted, not converted to 3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/first-thaw-cloak-scene-v1.png",
+  "source": "V4/weapon-cards/sources/first-thaw-cloak-v1.png"
+}
+  ,{
+  "id": "abyss-plastron",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object (A Thalassea breastplate shaped from dark iridescent nacre and curved large seashell lamellae, deep teal-purple natural sheen, subtle old copper fasteners, open armholes and clear wearable silhouette, not a shell creature.). Preserve painted design, colors, full silhouette, proportion, angle, texture and details EXACTLY. Remove ALL scenery, ground, rack, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background,12% clear margins. No ring,frame,text,new design. For pair keep both. Keep object hand-painted, not3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/abyss-plastron-scene-v1.png",
+  "source": "V4/weapon-cards/sources/abyss-plastron-v1.png"
+}
+  ,{
+  "id": "cold-blood-mantle",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object (A short protective Draevenheim mantle, deep black velvet with rich dark red lining, compact sculpted bat-wing clasp in dark silver and copper, substantial layered folds, no head or person.). Preserve painted design, colors, full silhouette, proportion, angle, texture and details EXACTLY. Remove ALL scenery, ground, rack, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background,12% clear margins. No ring,frame,text,new design. For pair keep both. Keep object hand-painted, not3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/cold-blood-mantle-scene-v1.png",
+  "source": "V4/weapon-cards/sources/cold-blood-mantle-v1.png"
+}
+  ,{
+  "id": "last-vigil-cuirass",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object (Cryptown funerary steel cuirass, dark battered metallic torso plates, understated violet luminous inset seams and old copper clasps, sparse non-readable engraved markings, guard's dignified practical armor not skeleton decoration.). Preserve painted design, colors, full silhouette, proportion, angle, texture and details EXACTLY. Remove ALL scenery, ground, rack, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background,12% clear margins. No ring,frame,text,new design. For pair keep both. Keep object hand-painted, not3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/last-vigil-cuirass-scene-v1.png",
+  "source": "V4/weapon-cards/sources/last-vigil-cuirass-v1.png"
+}
+  ,{
+  "id": "dawn-gorget",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object (Solaria's protective ivory-metal gorget, sculpted collar and small upper chest plate, elegant gold sunray grooves, smooth pale faceted metal with worn edges, one small warm crystal, no giant sun or face.). Preserve painted design, colors, full silhouette, proportion, angle, texture and details EXACTLY. Remove ALL scenery, ground, rack, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background,12% clear margins. No ring,frame,text,new design. For pair keep both. Keep object hand-painted, not3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/dawn-gorget-scene-v1.png",
+  "source": "V4/weapon-cards/sources/dawn-gorget-v1.png"
+}
+  ,{
+  "id": "last-forge-apron",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object (Darnako's sturdy burnt leather protective smith apron, thick worn brown-black leather, short hammered steel protective strips across chest and belly, copper rivets and practical straps, patched scorch marks.). Preserve painted design, colors, full silhouette, proportion, angle, texture and details EXACTLY. Remove ALL scenery, ground, rack, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background,12% clear margins. No ring,frame,text,new design. For pair keep both. Keep object hand-painted, not3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/last-forge-apron-scene-v1.png",
+  "source": "V4/weapon-cards/sources/last-forge-apron-v1.png"
+}
+  ,{
+  "id": "ninth-life-boots",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object (Rikka's matched pair of agile high boots, supple dark leopard-spotted leather, narrow gold and copper fastenings with delicate pale blue electrical filaments, practical athletic soles, not high heels, long flexible gaiter panels.). Preserve painted design, colors, full silhouette, proportion, angle, texture and details EXACTLY. Remove ALL scenery, ground, rack, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background,12% clear margins. No ring,frame,text,new design. For pair keep both. Keep object hand-painted, not3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/ninth-life-boots-scene-v1.png",
+  "source": "V4/weapon-cards/sources/ninth-life-boots-v1.png"
+}
+  ,{
+  "id": "octocamo",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object (Recognizable Old Snake MGS4 OctoCamo sneaking suit, separate empty graphite-gray tight tactical suit, segmented ribbed muscle-like panels, shoulder and leg reinforcement, integrated dark harness, muted gray camouflage texture, no helmet, no person, no fantasy decoration.). Preserve painted design, colors, full silhouette, proportion, angle, texture and details EXACTLY. Remove ALL scenery, ground, rack, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background,12% clear margins. No ring,frame,text,new design. For pair keep both. Keep object hand-painted, not3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/octocamo-scene-v1.png",
+  "source": "V4/weapon-cards/sources/octocamo-v1.png"
+}
+  ,{
+  "id": "cyborg-ninja-armor",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object (Recognizable Raiden MGS4 cyborg defensive torso armor, white and black exoskeletal plates over fine dark artificial muscle fibers, sharply articulated shoulder and chest protection, narrow mechanical waist, no head or face, no red cyber eye, not Metal Gear Rising black armor.). Preserve painted design, colors, full silhouette, proportion, angle, texture and details EXACTLY. Remove ALL scenery, ground, rack, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background,12% clear margins. No ring,frame,text,new design. For pair keep both. Keep object hand-painted, not3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/cyborg-ninja-armor-scene-v1.png",
+  "source": "V4/weapon-cards/sources/cyborg-ninja-armor-v1.png"
+}
+  ,{
+  "id": "zanarkand-pauldron",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object (Tidus Final Fantasy X iconic asymmetrical blue left shoulder and upper-arm protection as a separate object, compact rounded blue shoulder plate with dark straps, layered blue arm guard and worn leather fastening, recognizable sporting traveler design, no sword or person.). Preserve painted design, colors, full silhouette, proportion, angle, texture and details EXACTLY. Remove ALL scenery, ground, rack, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background,12% clear margins. No ring,frame,text,new design. For pair keep both. Keep object hand-painted, not3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/zanarkand-pauldron-scene-v1.png",
+  "source": "V4/weapon-cards/sources/zanarkand-pauldron-v1.png"
+}
+  ,{
+  "id": "leon-body-armor",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object (Leon Resident Evil 4 black tactical body armor vest, thick black ballistic panels, practical dark straps and buckles, worn but intact, unbranded, no green uniform, no weapons, no fantasy embellishments.). Preserve painted design, colors, full silhouette, proportion, angle, texture and details EXACTLY. Remove ALL scenery, ground, rack, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background,12% clear margins. No ring,frame,text,new design. For pair keep both. Keep object hand-painted, not3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/leon-body-armor-scene-v1.png",
+  "source": "V4/weapon-cards/sources/leon-body-armor-v1.png"
+}
+  ,{
+  "id": "stars-vest",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object (Chris Redfield Resident Evil 1 recognizable green tactical protective vest, olive fabric, dark reinforced shoulder straps, practical pockets and a small star-emblem patch with no legible lettering, separate empty vest, no guns or person.). Preserve painted design, colors, full silhouette, proportion, angle, texture and details EXACTLY. Remove ALL scenery, ground, rack, mannequin, chair, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background,12% clear margins. No ring,frame,text,new design. Keep attached ribbon/chain/band. Keep object hand-painted, not3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/stars-vest-scene-v1.png",
+  "source": "V4/weapon-cards/sources/stars-vest-v1.png"
+}
+  ,{
+  "id": "guardian-red-coat",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object (Auron Final Fantasy X iconic heavy red guardian coat, long wine-red outer fabric, prominent high turned collar, dark interior and shoulder fastening, naturally draped one-shoulder shape without body, weathered hem, no swords or bottle.). Preserve painted design, colors, full silhouette, proportion, angle, texture and details EXACTLY. Remove ALL scenery, ground, rack, mannequin, chair, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background,12% clear margins. No ring,frame,text,new design. Keep attached ribbon/chain/band. Keep object hand-painted, not3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/guardian-red-coat-scene-v1.png",
+  "source": "V4/weapon-cards/sources/guardian-red-coat-v1.png"
+}
+  ,{
+  "id": "scarlet-cape",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object (Vincent Valentine Final Fantasy VII iconic scarlet torn cape, high collar, multiple metal buckle straps across its upper opening, layered ragged red cloth, deep red and black shadows, naturally draped, no person, no gun, no gilding.). Preserve painted design, colors, full silhouette, proportion, angle, texture and details EXACTLY. Remove ALL scenery, ground, rack, mannequin, chair, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background,12% clear margins. No ring,frame,text,new design. Keep attached ribbon/chain/band. Keep object hand-painted, not3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/scarlet-cape-scene-v1.png",
+  "source": "V4/weapon-cards/sources/scarlet-cape-v1.png"
+}
+  ,{
+  "id": "wolf-school-armor",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object (Geralt's recognizable Wolven School chest armor, dark brown-black leather jacket reinforced with fine chainmail across torso and shoulders, crossed practical leather straps, subtle red fabric accent beneath, silver buckles, no head, no swords, no generic plate cuirass.). Preserve painted design, colors, full silhouette, proportion, angle, texture and details EXACTLY. Remove ALL scenery, ground, rack, mannequin, chair, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background,12% clear margins. No ring,frame,text,new design. Keep attached ribbon/chain/band. Keep object hand-painted, not3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/wolf-school-armor-scene-v1.png",
+  "source": "V4/weapon-cards/sources/wolf-school-armor-v1.png"
+}
+  ,{
+  "id": "white-materia",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object (Aeris Final Fantasy VII small pale luminous White Materia sphere cradled in her simple pink hair ribbon, translucent milky stone with soft green-white interior light, recognizably a small personal keepsake, no oversized crystal crown.). Preserve painted design, colors, full silhouette, proportion, angle, texture and details EXACTLY. Remove ALL scenery, ground, rack, mannequin, chair, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background,12% clear margins. No ring,frame,text,new design. Keep attached ribbon/chain/band. Keep object hand-painted, not3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/white-materia-scene-v1.png",
+  "source": "V4/weapon-cards/sources/white-materia-v1.png"
+}
+  ,{
+  "id": "griever-pendant",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object (Squall Final Fantasy VIII recognizable Griever necklace, angular silver lion-head emblem pendant with flowing stylized mane and ring loop, on a simple silver chain, worn polished ridges, no jewels or gold.). Preserve painted design, colors, full silhouette, proportion, angle, texture and details EXACTLY. Remove ALL scenery, ground, rack, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background,12% clear margins. No ring,frame,text,new design. Keep attached ribbon/chain/strap/toolcase. Keep object hand-painted, not3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/griever-pendant-scene-v1.png",
+  "source": "V4/weapon-cards/sources/griever-pendant-v1.png"
+}
+  ,{
+  "id": "zanarkand-abes-pendant",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object (Tidus Final Fantasy X recognizable Zanarkand Abes silver pendant, angular hooked tribal team emblem with three-pronged vertical silhouette and curled upper loops, simple chain, engraved worn silver, no lion motif, no sword, no gemstones.). Preserve painted design, colors, full silhouette, proportion, angle, texture and details EXACTLY. Remove ALL scenery, ground, rack, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background,12% clear margins. No ring,frame,text,new design. Keep attached ribbon/chain/strap/toolcase. Keep object hand-painted, not3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/zanarkand-abes-pendant-scene-v1.png",
+  "source": "V4/weapon-cards/sources/zanarkand-abes-pendant-v1.png"
+}
+  ,{
+  "id": "guardian-jug",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object (Auron Final Fantasy X iconic squat ceramic drinking jug, pale tan vessel with dark neck and cap, red-brown strap and looped cord, large simple traditional jug form, no potion crystal or ornate gold.). Preserve painted design, colors, full silhouette, proportion, angle, texture and details EXACTLY. Remove ALL scenery, ground, rack, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background,12% clear margins. No ring,frame,text,new design. Keep attached ribbon/chain/strap/toolcase. Keep object hand-painted, not3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/guardian-jug-scene-v1.png",
+  "source": "V4/weapon-cards/sources/guardian-jug-v1.png"
+}
+  ,{
+  "id": "jill-lockpicks",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object (Jill Valentine's recognizable practical lockpick set, small open dark leather tool case containing two slender straight steel picks and a tension wrench, neatly arranged and clearly separated, no knife blades, no jeweled fantasy keys.). Preserve painted design, colors, full silhouette, proportion, angle, texture and details EXACTLY. Remove ALL scenery, ground, rack, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background,12% clear margins. No ring,frame,text,new design. Keep attached ribbon/chain/strap/toolcase. Keep object hand-painted, not3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/jill-lockpicks-scene-v1.png",
+  "source": "V4/weapon-cards/sources/jill-lockpicks-v1.png"
+}
+  ,{
+  "id": "pod-153",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object (NieR Automata Pod 153, recognizable small BLACK rectangular support drone of 9S, compact dark cuboid body, slightly projecting rectangular camera/sensor face, slender hanging mechanical arms, articulated black fingers and tiny pale sensor markings. Must be black Pod153, NOT ivory Pod042, not a humanoid robot.). Preserve painted design, colors, full silhouette, proportion, angle, texture and details EXACTLY. Remove ALL scenery, ground, rack, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background,12% clear margins. No ring,frame,text,new design. Keep attached ribbon/chain/strap/toolcase. Keep object hand-painted, not3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/pod-153-scene-v1.png",
+  "source": "V4/weapon-cards/sources/pod-153-v1.png"
+}
+  ,{
+  "id": "lunar-tear",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object. Preserve the exact pictured design, colors, full silhouette, proportion, angle, painted texture and details. Remove ALL scenery, ground, rocks, grass, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background,12% clear margins. No ring,frame,text,new design. Keep attached ribbon/chain/band. For the flower retain flower,stem and its own leaves only. Keep object hand-painted, not3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/lunar-tear-scene-v1.png",
+  "source": "V4/weapon-cards/sources/lunar-tear-v1.png"
+}
+  ,{
+  "id": "infiltration-box",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object. Preserve the exact pictured design, colors, full silhouette, proportion, angle, painted texture and details. Remove ALL scenery, ground, rocks, grass, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background,12% clear margins. No ring,frame,text,new design. Keep attached ribbon/chain/band. For the flower retain flower,stem and its own leaves only. Keep object hand-painted, not3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/infiltration-box-scene-v1.png",
+  "source": "V4/weapon-cards/sources/infiltration-box-v1.png"
+}
+  ,{
+  "id": "metal-gear-mkii",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object. Preserve the exact pictured design, colors, full silhouette, proportion, angle, painted texture and details. Remove ALL scenery, ground, rocks, grass, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background,12% clear margins. No ring,frame,text,new design. Keep attached ribbon/chain/band. For the flower retain flower,stem and its own leaves only. Keep object hand-painted, not3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/metal-gear-mkii-scene-v2.png",
+  "source": "V4/weapon-cards/sources/metal-gear-mkii-v1.png"
+}
+  ,{
+  "id": "wolf-medallion",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object. Preserve the exact pictured design, colors, full silhouette, proportion, angle, painted texture and details. Remove ALL scenery, ground, rocks, grass, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background,12% clear margins. No ring,frame,text,new design. Keep attached ribbon/chain/band. For the flower retain flower,stem and its own leaves only. Keep object hand-painted, not3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/wolf-medallion-scene-v1.png",
+  "source": "V4/weapon-cards/sources/wolf-medallion-v1.png"
+}
+  ,{
+  "id": "obsidian-star",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object. Preserve the exact pictured design, colors, full silhouette, proportion, angle, painted texture and details. Remove ALL scenery, ground, rocks, grass, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background,12% clear margins. No ring,frame,text,new design. Keep attached ribbon/chain/band. For the flower retain flower,stem and its own leaves only. Keep object hand-painted, not3D.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/obsidian-star-scene-v1.png",
+  "source": "V4/weapon-cards/sources/obsidian-star-v1.png"
+}
+  ,{
+  "id": "straw-hat",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object. Preserve exact pictured design, colors, full silhouette, proportion, angle, painted texture and details. Remove ALL scenery, ground, rocks, grass, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background, 12% clear margins. No ring, frame, text, new design. Keep attached ribbon/chain/band. Keep object hand-painted, not 3D. For rumble-ball keep its vial and three amber balls together; for cola-reserve keep the bottle with its attached steel cradle. No scenery.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/straw-hat-scene-v1.png",
+  "source": "V4/weapon-cards/sources/straw-hat-v1.png"
+}
+  ,{
+  "id": "log-pose",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object. Preserve exact pictured design, colors, full silhouette, proportion, angle, painted texture and details. Remove ALL scenery, ground, rocks, grass, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background, 12% clear margins. No ring, frame, text, new design. Keep attached ribbon/chain/band. Keep object hand-painted, not 3D. For rumble-ball keep its vial and three amber balls together; for cola-reserve keep the bottle with its attached steel cradle. No scenery.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/log-pose-scene-v1.png",
+  "source": "V4/weapon-cards/sources/log-pose-v1.png"
+}
+  ,{
+  "id": "rumble-ball",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object. Preserve exact pictured design, colors, full silhouette, proportion, angle, painted texture and details. Remove ALL scenery, ground, rocks, grass, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background, 12% clear margins. No ring, frame, text, new design. Keep attached ribbon/chain/band. Keep object hand-painted, not 3D. For rumble-ball keep its vial and three amber balls together; for cola-reserve keep the bottle with its attached steel cradle. No scenery.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/rumble-ball-scene-v1.png",
+  "source": "V4/weapon-cards/sources/rumble-ball-v1.png"
+}
+  ,{
+  "id": "cola-reserve",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object. Preserve exact pictured design, colors, full silhouette, proportion, angle, painted texture and details. Remove ALL scenery, ground, rocks, grass, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background, 12% clear margins. No ring, frame, text, new design. Keep attached ribbon/chain/band. Keep object hand-painted, not 3D. For rumble-ball keep its vial and three amber balls together; for cola-reserve keep the bottle with its attached steel cradle. No scenery.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/cola-reserve-scene-v1.png",
+  "source": "V4/weapon-cards/sources/cola-reserve-v1.png"
+}
+  ,{
+  "id": "little-joys-box",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object. Preserve exact pictured design, colors, full silhouette, proportion, angle, painted texture and details. Remove ALL scenery, ground, rocks, grass, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background, 12% clear margins. No ring, frame, text, new design. Keep attached ribbon/chain/band. Keep object hand-painted, not 3D. For rumble-ball keep its vial and three amber balls together; for cola-reserve keep the bottle with its attached steel cradle. No scenery.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/little-joys-box-scene-v2.png",
+  "source": "V4/weapon-cards/sources/little-joys-box-v1.png"
+}
+  ,{
+  "id": "current-compass",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object. Preserve exact pictured design, colors, full silhouette, proportion, angle, painted texture and details. Remove ALL scenery, ground, rocks, grass, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background, 12% clear margins. No ring, frame, text, new design. Keep attached ribbon/chain/band. Keep object hand-painted, not 3D. For the seed keep its glass container and roots, not the scenery.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/current-compass-scene-v1.png",
+  "source": "V4/weapon-cards/sources/current-compass-v1.png"
+}
+  ,{
+  "id": "last-garden-seed",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object. Preserve exact pictured design, colors, full silhouette, proportion, angle, painted texture and details. Remove ALL scenery, ground, rocks, grass, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background, 12% clear margins. No ring, frame, text, new design. Keep attached ribbon/chain/band. Keep object hand-painted, not 3D. For the seed keep its glass container and roots, not the scenery.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/last-garden-seed-scene-v1.png",
+  "source": "V4/weapon-cards/sources/last-garden-seed-v1.png"
+}
+  ,{
+  "id": "exiled-king-seal",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object. Preserve exact pictured design, colors, full silhouette, proportion, angle, painted texture and details. Remove ALL scenery, ground, rocks, grass, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background, 12% clear margins. No ring, frame, text, new design. Keep attached ribbon/chain/band. Keep object hand-painted, not 3D. For the seed keep its glass container and roots, not the scenery.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/exiled-king-seal-scene-v2.png",
+  "source": "V4/weapon-cards/sources/exiled-king-seal-v1.png"
+}
+  ,{
+  "id": "lost-names-bell",
+  "role": "body",
+  "tool": "image_gen",
+  "prompt": "Use case: background-extraction. Edit target: supplied Kalistar illustration. Extract ONLY its exact main equipment object. Preserve exact pictured design, colors, full silhouette, proportion, angle, painted texture and details. Remove ALL scenery, ground, rocks, grass, supports, cloth beneath, unrelated tools and cast shadow. Center entire uncropped object on square GENUINELY TRANSPARENT background, 12% clear margins. No ring, frame, text, new design. Keep attached ribbon/chain/band. Keep object hand-painted, not 3D. For the seed keep its glass container and roots, not the scenery.",
+  "reference": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/lost-names-bell-scene-v1.png",
+  "source": "V4/weapon-cards/sources/lost-names-bell-v1.png"
+}
+  ,{
+  "id": "sentinel-carapace",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: articulated gunmetal plates, old copper pins and fine pale blue electrical joints.",
+  "source": "V4/weapon-cards/sources/sentinel-carapace-ring-v1.png"
+}
+  ,{
+  "id": "sap-cuirass",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: layered fine brown bark ribs secured by copper, thin green sap veins.",
+  "source": "V4/weapon-cards/sources/sap-cuirass-ring-v1.png"
+}
+  ,{
+  "id": "gate-gauntlets",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: gray stone voussoirs and tiny aged copper locking bolts.",
+  "source": "V4/weapon-cards/sources/gate-gauntlets-ring-v1.png"
+}
+  ,{
+  "id": "rhinoz-hauberk",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: thick interlocking dark chain links and carved ivory-gray horn segments with copper repair pins.",
+  "source": "V4/weapon-cards/sources/rhinoz-hauberk-ring-v1.png"
+}
+  ,{
+  "id": "first-thaw-cloak",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: brushed silver rails, gray fur-like fine engraving, translucent blue ice clasp segments.",
+  "source": "V4/weapon-cards/sources/first-thaw-cloak-ring-v1.png"
+}
+  ,{
+  "id": "abyss-plastron",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: dark iridescent nacre and pale mother-of-pearl segments, narrow tarnished copper rails.",
+  "source": "V4/weapon-cards/sources/abyss-plastron-ring-v1.png"
+}
+  ,{
+  "id": "cold-blood-mantle",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: black velvet-textured metal insets, dark silver wing engravings and restrained crimson inner rail.",
+  "source": "V4/weapon-cards/sources/cold-blood-mantle-ring-v1.png"
+}
+  ,{
+  "id": "last-vigil-cuirass",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: aged funerary steel segments and worn copper brackets with hairline violet inner glow.",
+  "source": "V4/weapon-cards/sources/last-vigil-cuirass-ring-v1.png"
+}
+  ,{
+  "id": "dawn-gorget",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: ivory enamel metal segments with restrained pale gold radial grooves and tiny copper joints.",
+  "source": "V4/weapon-cards/sources/dawn-gorget-ring-v1.png"
+}
+  ,{
+  "id": "last-forge-apron",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: hammered steel tiles, copper rivets, dark scorched leather accents and a restrained amber seam.",
+  "source": "V4/weapon-cards/sources/last-forge-apron-ring-v1.png"
+}
+  ,{
+  "id": "ninth-life-boots",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: dark leopard-spotted enamel plates, copper clasps and pale blue electrical seams.",
+  "source": "V4/weapon-cards/sources/ninth-life-boots-ring-v1.png"
+}
+  ,{
+  "id": "octocamo",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: ribbed graphite tactical composite, compact brushed steel fasteners and a muted pale gray-blue inner line.",
+  "source": "V4/weapon-cards/sources/octocamo-ring-v1.png"
+}
+  ,{
+  "id": "cyborg-ninja-armor",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: white ceramic-metal armor tiles, graphite mechanical joints and fine silver-blue wiring.",
+  "source": "V4/weapon-cards/sources/cyborg-ninja-armor-ring-v1.png"
+}
+  ,{
+  "id": "zanarkand-pauldron",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: deep ocean-blue enamel armor segments with small silver fasteners and restrained copper edge.",
+  "source": "V4/weapon-cards/sources/zanarkand-pauldron-ring-v1.png"
+}
+  ,{
+  "id": "leon-body-armor",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: black ballistic-textured metal segments and utilitarian dark steel buckles with muted silver edges.",
+  "source": "V4/weapon-cards/sources/leon-body-armor-ring-v1.png"
+}
+  ,{
+  "id": "stars-vest",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: olive protective fabric-textured inserts, dull steel fittings, a restrained pale silver star motif at four points.",
+  "source": "V4/weapon-cards/sources/stars-vest-ring-v1.png"
+}
+  ,{
+  "id": "guardian-red-coat",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: worn red lacquered metal panels, dark cloth-like grooves and restrained old silver clasps.",
+  "source": "V4/weapon-cards/sources/guardian-red-coat-ring-v1.png"
+}
+  ,{
+  "id": "scarlet-cape",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: scarlet enamel segments, dark steel buckle-like bridges and narrow silver edge.",
+  "source": "V4/weapon-cards/sources/scarlet-cape-ring-v1.png"
+}
+  ,{
+  "id": "wolf-school-armor",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: dark leather-textured inserts and fine steel chainmail with worn copper fasteners.",
+  "source": "V4/weapon-cards/sources/wolf-school-armor-ring-v1.png"
+}
+  ,{
+  "id": "white-materia",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: pale silver and blush enamel segments with a fine soft green-white inner rail, tiny ribbon-like joints.",
+  "source": "V4/weapon-cards/sources/white-materia-ring-v1.png"
+}
+  ,{
+  "id": "griever-pendant",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: sculpted worn silver with swept mane-like engravings, black recessed grooves, no lion face in center.",
+  "source": "V4/weapon-cards/sources/griever-pendant-ring-v1.png"
+}
+  ,{
+  "id": "zanarkand-abes-pendant",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: brushed silver hooked geometric engravings and ocean-blue recessed inlays.",
+  "source": "V4/weapon-cards/sources/zanarkand-abes-pendant-ring-v1.png"
+}
+  ,{
+  "id": "guardian-jug",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: weathered tan ceramic-like segments, dark cord grooves and aged copper connecting straps.",
+  "source": "V4/weapon-cards/sources/guardian-jug-ring-v1.png"
+}
+  ,{
+  "id": "jill-lockpicks",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: straight fine steel tool-like engravings around dark leather segments with restrained copper clasps.",
+  "source": "V4/weapon-cards/sources/jill-lockpicks-ring-v1.png"
+}
+  ,{
+  "id": "pod-153",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: black segmented machine casing and narrow pale silver mechanical rails, tiny subdued cyan sensor joints.",
+  "source": "V4/weapon-cards/sources/pod-153-ring-v1.png"
+}
+  ,{
+  "id": "lunar-tear",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: delicate pale silver petal engravings with soft ivory ceramic segments and tiny green joints.",
+  "source": "V4/weapon-cards/sources/lunar-tear-ring-v1.png"
+}
+  ,{
+  "id": "infiltration-box",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: dark brushed steel rail and brown kraft-like segmented inserts with subtle utilitarian copper staple joints.",
+  "source": "V4/weapon-cards/sources/infiltration-box-ring-v1.png"
+}
+  ,{
+  "id": "metal-gear-mkii",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: compact blue-gray steel segments, fine wire channels and tiny amber display-like joints.",
+  "source": "V4/weapon-cards/sources/metal-gear-mkii-ring-v1.png"
+}
+  ,{
+  "id": "wolf-medallion",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: weathered silver geometric fur-like etching, dark graphite recesses, narrow pale inner line.",
+  "source": "V4/weapon-cards/sources/wolf-medallion-ring-v1.png"
+}
+  ,{
+  "id": "obsidian-star",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: black obsidian faceted segments with fine silver star-point engravings and a subdued violet inner edge.",
+  "source": "V4/weapon-cards/sources/obsidian-star-ring-v1.png"
+}
+  ,{
+  "id": "straw-hat",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: warm straw-textured metal segments, narrow red enamel inlay and small old copper joins.",
+  "source": "V4/weapon-cards/sources/straw-hat-ring-v1.png"
+}
+  ,{
+  "id": "log-pose",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: aged brass nautical compass ticks, glass-blue insets and tiny copper pivot joints.",
+  "source": "V4/weapon-cards/sources/log-pose-ring-v1.png"
+}
+  ,{
+  "id": "rumble-ball",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: pale amber glass-like segments and clean silver rails, tiny copper closure details.",
+  "source": "V4/weapon-cards/sources/rumble-ball-ring-v1.png"
+}
+  ,{
+  "id": "cola-reserve",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: brushed steel mechanical segments with muted red enamel inserts and copper bolt heads.",
+  "source": "V4/weapon-cards/sources/cola-reserve-ring-v1.png"
+}
+  ,{
+  "id": "little-joys-box",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: mismatched teal tin and warm copper panels, tiny musical-cylinder pin engravings with one pale blue seam.",
+  "source": "V4/weapon-cards/sources/little-joys-box-ring-v1.png"
+}
+  ,{
+  "id": "current-compass",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: nacre and rose copper segments, flowing water-channel engravings and turquoise glass inner rail.",
+  "source": "V4/weapon-cards/sources/current-compass-ring-v1.png"
+}
+  ,{
+  "id": "last-garden-seed",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: fine root-shaped copper braces holding pale green glass segments, delicate living bark texture.",
+  "source": "V4/weapon-cards/sources/last-garden-seed-ring-v1.png"
+}
+  ,{
+  "id": "exiled-king-seal",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: chipped gray stone segments and heavy old bronze brackets; plain stone insets, no emblems, no crossed hammers.",
+  "source": "V4/weapon-cards/sources/exiled-king-seal-ring-v1.png"
+}
+  ,{
+  "id": "lost-names-bell",
+  "role": "ring",
+  "tool": "image_gen",
+  "prompt": "Use case: stylized-concept. Single production bitmap asset for Kalistar, a hand-painted heroic-fantasy/cyberpunk card medallion RIM ONLY. Square canvas, exact frontal orthographic view of a perfect circular annulus, center exactly at canvas center. Outer circle diameter 95% of canvas, central EMPTY transparent hole diameter 70%. Concentric smooth circular outer and inner rails, consistent thickness all around. No object or symbol in the center, no lettering, no solid background. Both outside and hole must be genuinely transparent. No smoke, halo, drop shadow, particles, spikes, banner or protruding ornaments. Materials rendered with rich painted facets and subtle patina, believable metal relief, designed as a physical rotating mechanism rather than HTML button. At tiny size the silhouette must remain clean and circular. Characterful restrained material: dark patinated copper bell-metal segments, fine shallow unreadable engraving and a restrained violet inner rail.",
+  "source": "V4/weapon-cards/sources/lost-names-bell-ring-v1.png"
+}
+]

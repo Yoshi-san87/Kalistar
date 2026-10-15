@@ -1,0 +1,60 @@
+{
+  "passed": true,
+  "modelId": "48683979",
+  "referenceId": "ef7a6767b57723d896ceecb050079bfb1abad0e79e7289a200f87b34585f9380",
+  "profileHash": "a9a17c700b7a98451b6bdf64990bc32e620f2eac730884d746155e340739756c",
+  "hashes": {
+    "card.png": "f51649f67a8ccf81be4e26a9977eab0232497cd04a3feed3d838e42963faeb29",
+    "card.psd": "cfb926422f0471f57d9ad5d874b3c92f10eda9d0ccb93fc76e93ec7492de817c"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 118792
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "48683979",
+    "cases": {
+      "color-1": [
+        "48683979"
+      ],
+      "color-4": [
+        "48683979"
+      ],
+      "gray-1": [
+        "48683979"
+      ],
+      "gray-4": [
+        "48683979"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-27T14:47:50.349Z",
+  "revision": "2026-09-27-mgs-banner-refinement",
+  "scope": {
+    "originalPixels": {
+      "changed": 0,
+      "outside": 0
+    },
+    "masked": {
+      "changed": 0,
+      "outside": 0
+    },
+    "outside": {
+      "changed": 15389,
+      "outside": 0
+    },
+    "nativeTextUnchanged": true,
+    "nativeStyleRunsUnchanged": true,
+    "geometryUnchanged": true,
+    "embeddedObjects": true,
+    "originalArtworkBytesPreserved": true,
+    "changedProfileFields": []
+  }
+}

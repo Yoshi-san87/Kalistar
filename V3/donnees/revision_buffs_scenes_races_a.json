@@ -1,0 +1,599 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-14",
+  "lot": "races_a",
+  "directionSource": "V3/sources/REVISION_BUFFS_SCENES_20260914.md",
+  "status": "9_of_9_ready_for_parent_qa",
+  "scope": "Seulement neuf PNG staged et ce manifeste; aucun canonique, source, profil, UI, BDD, script ou regle modifie.",
+  "generationMethod": "Built-in image_gen.imagegen exclusivement. Neuf generations finales neuves sans reference jointe, avec descriptions precises des anciens PNG reels inspectes; workflow explicitement autorise par le parent apres le meme probleme MINERO. Deux essais initiaux HUMAIN/NAIN avec reference jointe ont produit RGB/damier et restent traces en priorAttempts. Total11 appels, aucune extraction algorithmique ni retouche manuelle. Les neuf sorties natives finales sont copiees bit pour bit.",
+  "referencePolicy": "Les NEUF anciens PNG reels de l'archive ont ete vus via view_image avant toute generation et hashes. References ordonnees par asset, usage et transmission au generateur indiques explicitement. Ne pas confondre source inspectee et fichier reference transmis a un appel final.",
+  "validationMethod": "Inspection view_image de chaque sortie, lecture technique Sharp du PNG/alpha, bbox alpha>=128, pixels transparents, marges, hash SHA256; vignettes90px sur #f4f5f6 et #20252b composees uniquement en memoire. Residus alpha <=1/255 au bord notes sans falsifier les mesures.",
+  "assets": [
+    {
+      "race": "HUMAIN",
+      "prompt": "Use case: stylized-concept. Create one NEW richly painted, sculpted metallic fantasy race emblem for Kalistar. Genuine transparent PNG background with a real alpha channel, isolated complete object, no pictured backdrop. Rich embossed silver and copper craftsmanship, deeply modelled planes, chiseled edges, high-contrast dark metal recesses, sharp painted light on polished silver, warm copper highlights, race-specific colored materials. Detailed painted fantasy game insignia, NOT a flat ivory symbol, not a vector pictogram, not a minimal icon, not a photo or plastic 3D render. Broad readable masses and strong focal features at 90px, subordinate detail that does not dissolve into microscopic filigree. The card's own round socket supplies the frame: NO extra circle, disk, medallion, square, shield backing, plinth, scenery, cast shadow, text or watermark. Center the complete emblem on a square PNG canvas, keep approximately 10 percent transparent margins, never crop the extremities. HUMAIN: ONE complete natural adult human standing with both arms hanging relaxed beside the body, one head, two hands, two separate legs and feet, adult anatomical proportions about seven and a half heads tall. Slight natural contrapposto, three-quarter orientation looking left, short wavy brown hair and an uncovered believable calm human face, no mask or helmet. Rich painted sculpted silver-and-copper traveler emblem: fitted neutral fabric garments under modest chiseled silver shoulder and forearm armor, copper edging, dark blue waist cloth, believable adult body not exaggerated heroic muscles. Exactly one person, no cape, weapon, stick, prop or base. The source art direction is a historical silver/copper fantasy helmet emblem with luminous faceted silver planes, dark recesses, warm copper inlaid borders and a few substantial laurel details; translate that craftsmanship to the entire natural human figure while completely omitting its helmet-mask, crown and laurel frame. Painted material volume and realistic adult anatomy, not photoreal skin, not a white featureless statue or stick figure. Full figure including hair and feet must fit within 80-84 percent of canvas HEIGHT, centered with generous transparent margins, do not widen human proportions to fill the square. The EMPTY background is real alpha transparency, no checkerboard, no color fill.",
+      "references": [
+        {
+          "race": "HUMAIN",
+          "path": "V3/sources/avant-harmonisation-20260914/assets/races/HUMAIN.png",
+          "sha256": "2f654eea03e5a98967f11187ec2349abff06d8e7871581f53b73b5c159f1f1b2",
+          "inspectedViaViewImage": true,
+          "role": "Historical exact-race metallic DA reference; old helmet-mask explicitly replaced by natural full adult.",
+          "suppliedToFinalImageGen": false,
+          "usage": "Inspected historical source, translated explicitly into the new-generation prompt after reference-guided alpha failure."
+        }
+      ],
+      "generationCalls": 2,
+      "status": "ready_for_parent_qa",
+      "priorAttempts": [
+        {
+          "race": "HUMAIN",
+          "prompt": "Use case: style-transfer. Produce one standalone Kalistar race emblem on a GENUINELY TRANSPARENT PNG background, with a real alpha channel outside the complete emblem. Input image 1 is the actual historical PNG for this exact race, the required reference for the RICH SCULPTED METALLIC fantasy art direction. Restore its deeply modelled painted silver and copper surfaces, chiseled contours, contrasting inlaid color, polished edge highlights against dark recesses, visible controlled painterly handling and worn fantasy materials. This is a detailed painted heraldic object, NOT a flat pictogram, NOT an ivory paper cutout, NOT a minimal vector logo, NOT photography or a plastic 3D render. Retain the reference's material richness but compose the specified new orientation/subject. Strong broad silhouette and readable focal features at 90px; subordinate engravings, never lace-like clutter. The existing card supplies a circular socket, so NO added surrounding disk, circle, medallion, square tile, shield backing, plinth, scene, shadow or backdrop. A square canvas, centered isolated emblem occupying about 82 percent of its longest dimension with clear transparent margins and nothing clipped. No text, lettering, watermark, detached ornaments or UI. HUMAIN SUBJECT OVERRIDE: replace the old frontal helmet-mask entirely with ONE NATURAL COMPLETE ADULT HUMAN standing in relaxed slight contrapposto, full body visible, turned three-quarters toward the left. Both arms hang naturally at the sides with relaxed hands near the thighs, two separated legs and feet, one head, exactly two arms and two legs, anatomically plausible adult proportions about seven and a half heads tall. Head uncovered with short naturally sculpted hair, small but human readable face, not a blank mask, no helmet. A rich fantasy silver-and-copper sculpted traveler figure with understated fitted clothing, a few silver armor plates, muted blue fabric at the waist and copper edging, no oversized shoulders, no cape, weapon, staff or props. Natural body and calm upright posture carry the human identity. Render like a beautifully painted small silver/copper relief statue with warm natural facial planes and chiseled folds, NOT an actual photographed statue, not a mannequin, not cartoon. The historical image defines metallic craftsmanship ONLY; do NOT reuse its mask, crown, face armor or enclosing shape. Full height 82 percent canvas, natural narrow human proportions, ample transparency on either side; no pedestal or baseline.",
+          "references": [
+            {
+              "race": "HUMAIN",
+              "path": "V3/sources/avant-harmonisation-20260914/assets/races/HUMAIN.png",
+              "sha256": "2f654eea03e5a98967f11187ec2349abff06d8e7871581f53b73b5c159f1f1b2",
+              "inspectedViaViewImage": true,
+              "role": "Historical exact-race metallic DA reference; old helmet-mask explicitly replaced by natural full adult."
+            }
+          ],
+          "generationCalls": 1,
+          "status": "blocked_alpha",
+          "nativeOutput": "C:/Users/guill/.codex/generated_images/01a09f6e-3912-74c2-a5d4-c660a01fc541/exec-f8e87d62-6a56-4fcd-b476-3399432756a4.png",
+          "qa": {
+            "race": "HUMAIN",
+            "format": "png",
+            "width": 1254,
+            "height": 1254,
+            "hasAlpha": false,
+            "sha256": "ab38e8cdf1885cfe2b9952be7e2e092891e46b61a0b2ea5845cb104290fc10ea",
+            "bytes": 1642934,
+            "alphaZeroPercent": 0,
+            "alpha255Percent": 100,
+            "alphaAtLeast250Percent": 100,
+            "edgeMaxAlpha": 255,
+            "bboxAlpha128": {
+              "x": 0,
+              "y": 0,
+              "width": 1254,
+              "height": 1254
+            },
+            "longestSidePercent": 100,
+            "bboxCenterOffsetPercent": {
+              "x": 0,
+              "y": 0
+            },
+            "pass": false
+          },
+          "reason": "Reference-guided output had no alpha and painted checkerboard."
+        }
+      ],
+      "qa": {
+        "race": "HUMAIN",
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true,
+        "sha256": "a218d17e0d3aa0308ed0bffc4903c4b207ccb33f82188175692ab6a8d9094951",
+        "bytes": 750564,
+        "alphaZeroPercent": 82.39,
+        "alpha255Percent": 0.06,
+        "alphaAtLeast250Percent": 15.679,
+        "edgeMaxAlpha": 0,
+        "bboxAlpha128": {
+          "x": 419,
+          "y": 61,
+          "width": 409,
+          "height": 1128
+        },
+        "longestSidePercent": 89.95,
+        "bboxCenterOffsetPercent": {
+          "x": -0.28,
+          "y": -0.16
+        },
+        "pass": true,
+        "outputInspectedViaViewImage": true,
+        "preview90OnLightAndDark": "pass",
+        "noExtraFrameOrBackground": "pass",
+        "visual": "Une personne adulte entiere, deux bras detendus, deux jambes distinctes, visage naturel sans casque, trois-quarts gauche; riche travail argent/cuivre et tissu bleu.",
+        "framingNote": "Cadre plus rempli que les 82% vises; bbox mesuree et non tronquee, centrage conserve."
+      },
+      "nativeOutput": "C:/Users/guill/.codex/generated_images/01a09f6e-3912-74c2-a5d4-c660a01fc541/exec-fbae1955-cdc1-458e-ad29-188afa33c348.png",
+      "destination": "V3/assets/revisions-buffs-scenes-20260914/races/HUMAIN.png"
+    },
+    {
+      "race": "NAIN",
+      "prompt": "Use case: stylized-concept. Create one NEW richly painted, sculpted metallic fantasy race emblem for Kalistar. Genuine transparent PNG background with a real alpha channel, isolated complete object, no pictured backdrop. Rich embossed silver and copper craftsmanship, deeply modelled planes, chiseled edges, high-contrast dark metal recesses, sharp painted light on polished silver, warm copper highlights, race-specific colored materials. Detailed painted fantasy game insignia, NOT a flat ivory symbol, not a vector pictogram, not a minimal icon, not a photo or plastic 3D render. Broad readable masses and strong focal features at 90px, subordinate detail that does not dissolve into microscopic filigree. The card's own round socket supplies the frame: NO extra circle, disk, medallion, square, shield backing, plinth, scenery, cast shadow, text or watermark. Center the complete emblem on a square PNG canvas, keep approximately 10 percent transparent margins, never crop the extremities. NAIN: stocky adult dwarf head and short broad shoulder termination in THREE-QUARTER view facing RIGHT. Natural broad nose, heavy brow, alert stern eyes and weathered expressive face. A mighty COPPER-RED BEARD divides into TWO substantial braids with large silver/copper clasps. HISTORICAL REFERENCE DESCRIPTION: angular steel-silver dwarf helmet built from faceted triangular plates, central silver crest with strong copper ridge and a copper diamond on the brow, dark recesses, silver cheek-guards; rich orange-copper beard locks, braids bound by metallic cuffs. Preserve that recognizable craftsmanship and coloration but change the old straight-on composition to three-quarter right. Clearly sculpted layered plates, worn engraved silver, cut warm highlights and cool shadows, painted face and beard, no photo skin. Strong helmet-face-beard masses readable at 90px with subordinate broad engraving, no microscopic ornament. No horns, crown background, axe, full body, closed mask or frontal symmetry. The outer silhouette is ONLY the complete helmeted dwarf head, beard and small shoulder edge, genuinely transparent outside it. Fill about 82 percent of the square, retain at least 8 percent empty margin around beard and helmet.",
+      "references": [
+        {
+          "race": "NAIN",
+          "path": "V3/sources/avant-harmonisation-20260914/assets/races/NAIN.png",
+          "sha256": "a17e06326a91a6e31b2817f503d8f98141be06741acc41d448027e2e614c629c",
+          "inspectedViaViewImage": true,
+          "role": "Historical exact-race helmet, copper beard, sculpted silver/copper style; rotated to three-quarter right.",
+          "suppliedToFinalImageGen": false,
+          "usage": "Inspected historical source, translated explicitly into the new-generation prompt after reference-guided alpha failure."
+        }
+      ],
+      "generationCalls": 2,
+      "status": "ready_for_parent_qa",
+      "priorAttempts": [
+        {
+          "race": "NAIN",
+          "prompt": "Use case: style-transfer. Produce one standalone Kalistar race emblem on a GENUINELY TRANSPARENT PNG background, with a real alpha channel outside the complete emblem. Input image 1 is the actual historical PNG for this exact race, the required reference for the RICH SCULPTED METALLIC fantasy art direction. Restore its deeply modelled painted silver and copper surfaces, chiseled contours, contrasting inlaid color, polished edge highlights against dark recesses, visible controlled painterly handling and worn fantasy materials. This is a detailed painted heraldic object, NOT a flat pictogram, NOT an ivory paper cutout, NOT a minimal vector logo, NOT photography or a plastic 3D render. Retain the reference's material richness but compose the specified new orientation/subject. Strong broad silhouette and readable focal features at 90px; subordinate engravings, never lace-like clutter. The existing card supplies a circular socket, so NO added surrounding disk, circle, medallion, square tile, shield backing, plinth, scene, shadow or backdrop. A square canvas, centered isolated emblem occupying about 82 percent of its longest dimension with clear transparent margins and nothing clipped. No text, lettering, watermark, detached ornaments or UI. NAIN: adapt the actual old dwarf emblem into a powerful three-quarter view facing RIGHT, not a symmetrical frontal face. Preserve its unmistakable stocky dwarf identity: thick projecting brow, broad natural nose, weathered stern but intelligent adult face, immense copper-red beard divided into TWO large heavy braids with silver clasps. Keep the old deeply faceted silver dwarf helmet and its strong copper brow ridge, but reveal more of the face in three-quarter perspective; no closed mask. Compact broad head, short neck, a small angled silver/copper shoulder termination, no full torso or props. Paint rich dark recesses between layered metal plates, bright silver edge planes and warm copper accents, sculpted expressive beard locks and a few substantial engraved lines. Fine detail supports the large helmet-face-beard masses; avoid ornamental overload. No crown backdrop, shield, circular frame, coin or medallion. Transparent outside the shaped head/beard/shoulder silhouette; background must be genuinely absent via alpha, not pictured. Emblem approximately 82 percent canvas size with all beard tips and helmet clear of the margins.",
+          "references": [
+            {
+              "race": "NAIN",
+              "path": "V3/sources/avant-harmonisation-20260914/assets/races/NAIN.png",
+              "sha256": "a17e06326a91a6e31b2817f503d8f98141be06741acc41d448027e2e614c629c",
+              "inspectedViaViewImage": true,
+              "role": "Historical exact-race helmet, copper beard, sculpted silver/copper style; rotated to three-quarter right."
+            }
+          ],
+          "generationCalls": 1,
+          "status": "blocked_alpha",
+          "nativeOutput": "C:/Users/guill/.codex/generated_images/01a09f6e-3912-74c2-a5d4-c660a01fc541/exec-9d656368-6c29-4286-a858-72567ab7dc3a.png",
+          "qa": {
+            "race": "NAIN",
+            "format": "png",
+            "width": 1254,
+            "height": 1254,
+            "hasAlpha": false,
+            "sha256": "2412bed021ac1d63d760a3e89ed5f75d38d2ebfe0999333852b32f2b5d433d22",
+            "bytes": 2508557,
+            "alphaZeroPercent": 0,
+            "alpha255Percent": 100,
+            "alphaAtLeast250Percent": 100,
+            "edgeMaxAlpha": 255,
+            "bboxAlpha128": {
+              "x": 0,
+              "y": 0,
+              "width": 1254,
+              "height": 1254
+            },
+            "longestSidePercent": 100,
+            "bboxCenterOffsetPercent": {
+              "x": 0,
+              "y": 0
+            },
+            "pass": false
+          },
+          "reason": "Reference-guided output had no alpha and painted checkerboard."
+        }
+      ],
+      "qa": {
+        "race": "NAIN",
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true,
+        "sha256": "d65c072ec16c84e4392115c7966f8f3e102f0cfe987bd83ac656425b2b9505a8",
+        "bytes": 1863691,
+        "alphaZeroPercent": 54.181,
+        "alpha255Percent": 0.022,
+        "alphaAtLeast250Percent": 43.688,
+        "edgeMaxAlpha": 1,
+        "bboxAlpha128": {
+          "x": 115,
+          "y": 51,
+          "width": 1041,
+          "height": 1156
+        },
+        "longestSidePercent": 92.19,
+        "bboxCenterOffsetPercent": {
+          "x": 0.68,
+          "y": 0.16
+        },
+        "pass": true,
+        "outputInspectedViaViewImage": true,
+        "preview90OnLightAndDark": "pass",
+        "noExtraFrameOrBackground": "pass",
+        "visual": "Nain trois-quarts droit, nez et visage naturels, casque argente facette et deux grosses tresses cuivre, details metalliques lisibles.",
+        "framingNote": "Cadre plus rempli que les 82% vises; bbox mesuree et non tronquee, centrage conserve.",
+        "alphaNote": "Residue maximal 1/255 au bord, invisible; alpha natif preserve."
+      },
+      "nativeOutput": "C:/Users/guill/.codex/generated_images/01a09f6e-3912-74c2-a5d4-c660a01fc541/exec-c89607e9-cb33-479b-818c-f40896963884.png",
+      "destination": "V3/assets/revisions-buffs-scenes-20260914/races/NAIN.png"
+    },
+    {
+      "race": "CARDEMORTIS",
+      "prompt": "Generate one transparent game UI asset, PNG RGBA with REAL alpha outside the object. No colored background, no black background, no checkerboard pattern. It will be placed over existing card artwork. Create one NEW richly painted, sculpted metallic fantasy race emblem for Kalistar. Rich embossed silver and copper craftsmanship, deeply modelled planes, chiseled edges, high-contrast dark metal recesses, sharp painted light on polished silver, warm copper highlights, race-specific colored materials. Detailed painted fantasy game insignia, NOT a flat ivory symbol, not a vector pictogram, not a minimal icon, not a photo or plastic 3D render. Broad readable masses and strong focal features at 90px, subordinate detail that does not dissolve into microscopic filigree. The card's own round socket supplies the frame: NO extra circle, disk, medallion, square, shield backing, plinth, scenery, cast shadow, text or watermark. Center the complete emblem on a square PNG canvas, keep approximately 10 percent transparent margins, never crop the extremities. CARDEMORTIS SUBJECT: a DEAD BLACK HEART, NOT a face and NOT a skull. One strong recognizably heart-shaped sculpted blackened-metal object, two upper lobes and one lower point, slightly turned in three-quarter depth so the side has believable thickness but the complete heart outline remains instantly readable. Opaque cold near-black iron and obsidian-like enamel, inert, one deep nonluminous fissure and a few broad dark reflective planes, not a glowing gem. A shaped chiseled SILVER rim follows the heart's own edge, with sparse thin aged copper seams integrated into the material, no surrounding backing. Silvery highlight along the edge keeps the black heart visible on dark artwork. RICH REFERENCE MATERIAL DESCRIPTION: historical Cardemortis PNG depicts pearlescent pale Voloden, flowing bright silver hair, severe black collar with raised copper edges. Translate its silver highlights, deep black planes and copper craftsmanship into the HEART ONLY; omit ALL human features, hair, face, eyes, clothing and collar. The heart has rich painted volume, layered dark metallic texture and small signs of age, broad readable at90px, not a flat black cutout. No blood, gore, anatomical vessels, bones, wings, flames, crown, thorn frame, life glow or magical aura. Transparent outside the complete heart silhouette, opaque black inside it.",
+      "references": [
+        {
+          "race": "CARDEMORTIS",
+          "path": "V3/sources/avant-harmonisation-20260914/assets/races/CARDEMORTIS.png",
+          "sha256": "d851ecb8909cc57d9f6f8bd5b04633bd6c31c64c4d0e5a2deea2ee03430b3e15",
+          "inspectedViaViewImage": true,
+          "role": "Exact historical Cardemortis PNG; silver hair, black collar, copper edging translated to the requested dead black heart.",
+          "suppliedToFinalImageGen": false,
+          "usage": "Inspected source described in prompt; fresh RGBA workflow approved by parent."
+        }
+      ],
+      "generationCalls": 1,
+      "status": "ready_for_parent_qa",
+      "qa": {
+        "race": "CARDEMORTIS",
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true,
+        "sha256": "834aa4d6166b7a311969544ad8e0a94772113457ed0920ce7c4af643abdc0d2d",
+        "bytes": 1825317,
+        "alphaZeroPercent": 53.328,
+        "alpha255Percent": 0.019,
+        "alphaAtLeast250Percent": 45.354,
+        "edgeMaxAlpha": 1,
+        "bboxAlpha128": {
+          "x": 67,
+          "y": 99,
+          "width": 1120,
+          "height": 1056
+        },
+        "longestSidePercent": 89.31,
+        "bboxCenterOffsetPercent": {
+          "x": 0,
+          "y": 0
+        },
+        "pass": true,
+        "outputInspectedViaViewImage": true,
+        "preview90OnLightAndDark": "pass",
+        "noExtraFrameOrBackground": "pass",
+        "visual": "Coeur noir mort en fer noirci, fissure non lumineuse, contours argentes ciseles avec cuivre; pas de crane ni gore, visible sur sombre.",
+        "alphaNote": "Residue maximal 1/255 au bord, invisible; alpha natif preserve.",
+        "framingNote": "Cadrage plus serre que la consigne de generation; bbox exacte fournie. Aucun element tronque. Parent peut calibrer le placement dans le logement circulaire."
+      },
+      "nativeOutput": "C:/Users/guill/.codex/generated_images/01a09f6e-3912-74c2-a5d4-c660a01fc541/exec-014e1421-e25f-4177-baf2-3b89d64887db.png",
+      "destination": "V3/assets/revisions-buffs-scenes-20260914/races/CARDEMORTIS.png"
+    },
+    {
+      "race": "ROBOT",
+      "prompt": "Generate one transparent game UI asset, PNG RGBA with REAL alpha outside the object. No colored background, no black background, no checkerboard pattern. It will be placed over existing card artwork. Create one NEW richly painted, sculpted metallic fantasy race emblem for Kalistar. Rich embossed silver and copper craftsmanship, deeply modelled planes, chiseled edges, high-contrast dark metal recesses, sharp painted light on polished silver, warm copper highlights, race-specific colored materials. Detailed painted fantasy game insignia, NOT a flat ivory symbol, not a vector pictogram, not a minimal icon, not a photo or plastic 3D render. Broad readable masses and strong focal features at 90px, subordinate detail that does not dissolve into microscopic filigree. The card's own round socket supplies the frame: NO extra circle, disk, medallion, square, shield backing, plinth, scenery, cast shadow, text or watermark. Center the complete emblem on a square PNG canvas, keep approximately 10 percent transparent margins, never crop the extremities. ROBOT: serious ancient mechanical emblem in slightly THREE-QUARTER perspective, one broken OPEN GEAR forming a broad incomplete C, its upper-right quadrant missing, with SIX large angular teeth and strongly chiseled broken ends. At its center a SINGLE INTELLIGENT BLUE OPTICAL EYE, one deep cobalt/cyan glass lens in a substantial silver socket, connected to the gear by one lower-left reinforced strut. No face, paired eyes, mouth, antenna or toy robot. HISTORICAL ROBOT PNG MATERIAL DESCRIPTION: heavy faceted steel-silver armor plates with sharp layered cheek-like planes, dark graphite recesses, warm copper ring joints and blue luminous optics. Transfer those exact rich mechanical materials to the open gear and optic, not the old frontal helmet. Multiple dimensional silver plates with copper joints, dark gaps and a few substantial rivets, broken worn toothed steel edge, painted reflections, subtle depth behind the optical glass. The open gear IS the mechanical subject, NOT an added circular medallion. Do not add any extra ring, shield or backing around it. Dark empty gaps through the gear are genuinely alpha-transparent. Broad mechanical silhouette and one clear blue focal lens readable at90px; detailed but no tangled wires, clockwork confetti or tiny decorative gear swarm. Keep the entire gear with transparent margins, approximately82 percent canvas.",
+      "references": [
+        {
+          "race": "ROBOT",
+          "path": "V3/sources/avant-harmonisation-20260914/assets/races/ROBOT.png",
+          "sha256": "33c200845ca54e531a73146b4a65289b1d56d849229458c5b7c8590b42934686",
+          "inspectedViaViewImage": true,
+          "role": "Historical silver armor, copper joints and blue optics; transferred to the previously requested open gear subject.",
+          "suppliedToFinalImageGen": false,
+          "usage": "Inspected source described in prompt; fresh RGBA workflow approved by parent."
+        }
+      ],
+      "generationCalls": 1,
+      "status": "ready_for_parent_qa",
+      "qa": {
+        "race": "ROBOT",
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true,
+        "sha256": "758bc0cbbda8d41fc47252560c520acc8ce046fdbbf3436b02febeb248dada70",
+        "bytes": 1801266,
+        "alphaZeroPercent": 56.704,
+        "alpha255Percent": 0.019,
+        "alphaAtLeast250Percent": 40.819,
+        "edgeMaxAlpha": 1,
+        "bboxAlpha128": {
+          "x": 77,
+          "y": 32,
+          "width": 1101,
+          "height": 1175
+        },
+        "longestSidePercent": 93.7,
+        "bboxCenterOffsetPercent": {
+          "x": 0.04,
+          "y": -0.6
+        },
+        "pass": true,
+        "outputInspectedViaViewImage": true,
+        "preview90OnLightAndDark": "pass",
+        "noExtraFrameOrBackground": "pass",
+        "visual": "Engrenage ouvert sculpte en perspective, plaques d'acier et joints cuivre, unique optique bleue; pas de visage/antenne et pas de medaillon supplementaire.",
+        "alphaNote": "Residue maximal 1/255 au bord, invisible; alpha natif preserve.",
+        "framingNote": "Cadrage plus serre que la consigne de generation; bbox exacte fournie. Aucun element tronque. Parent peut calibrer le placement dans le logement circulaire."
+      },
+      "nativeOutput": "C:/Users/guill/.codex/generated_images/01a09f6e-3912-74c2-a5d4-c660a01fc541/exec-2704cb2f-d006-493f-9478-c48c739fe2fa.png",
+      "destination": "V3/assets/revisions-buffs-scenes-20260914/races/ROBOT.png"
+    },
+    {
+      "race": "CYBORG",
+      "prompt": "Generate one transparent game UI asset, PNG RGBA with REAL alpha outside the object. No colored background, no black background, no checkerboard pattern. It will be placed over existing card artwork. Create one NEW richly painted, sculpted metallic fantasy race emblem for Kalistar. Rich embossed silver and copper craftsmanship, deeply modelled planes, chiseled edges, high-contrast dark metal recesses, sharp painted light on polished silver, warm copper highlights, race-specific colored materials. Detailed painted fantasy game insignia, NOT a flat ivory symbol, not a vector pictogram, not a minimal icon, not a photo or plastic 3D render. Broad readable masses and strong focal features at 90px, subordinate detail that does not dissolve into microscopic filigree. The card's own round socket supplies the frame: NO extra circle, disk, medallion, square, shield backing, plinth, scenery, cast shadow, text or watermark. Center the complete emblem on a square PNG canvas, keep approximately 10 percent transparent margins, never crop the extremities. CYBORG: a single adult head in THREE-QUARTER orientation toward the LEFT, not frontal. The organic half is naturally human, warm sculpted facial planes, one believable human eye and short swept dark hair with ONE emerald-green lock; the other half is visibly rebuilt in layered steel-silver machinery with ONE emerald optical eye, copper socket joints and dark graphite recesses. Both the organic and mechanical halves remain clearly visible in three-quarter view; exactly one head with a single continuous jaw, nose and mouth, not two overlapping faces. Short mechanical/organic neck termination, no shoulders or full torso. HISTORICAL EXACT-RACE REFERENCE DESCRIPTION: bright swept silver-edged hair with a single green streak, warm human cheek on one side, large fitted faceted silver face plates on the other, green concentric optical lens, copper circular temple joint and dark plate seams. Preserve this distinctive half-human, green-optic, silver/copper identity but rotate it and use visibly painted chiseled planes rather than photographic pores. Rich dimensional plate edges, cast-in engravings limited to broad readable features, restrained surface wear, no neon aura or wiry clutter. Do not turn it into a generic armored robot, smooth flat profile, skull, white mask or detailed realistic passport portrait. Genuinely transparent outside the complete head silhouette and any small gaps.",
+      "references": [
+        {
+          "race": "CYBORG",
+          "path": "V3/sources/avant-harmonisation-20260914/assets/races/CYBORG.png",
+          "sha256": "544d0a584739b5194984d2d069225f0afd1366abc1f010746316bc78e699e95c",
+          "inspectedViaViewImage": true,
+          "role": "Exact historical half-human/half-mechanical face, green lock and optic, silver plates and copper temple joint; rotated three-quarter left.",
+          "suppliedToFinalImageGen": false,
+          "usage": "Inspected source described in prompt; fresh RGBA workflow approved by parent."
+        }
+      ],
+      "generationCalls": 1,
+      "status": "ready_for_parent_qa",
+      "qa": {
+        "race": "CYBORG",
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true,
+        "sha256": "958f452f44e25de564379a021e921f05c48cff9f6c8ad19522df5e21a80192d1",
+        "bytes": 1770352,
+        "alphaZeroPercent": 53.953,
+        "alpha255Percent": 0.015,
+        "alphaAtLeast250Percent": 43.159,
+        "edgeMaxAlpha": 1,
+        "bboxAlpha128": {
+          "x": 140,
+          "y": 22,
+          "width": 897,
+          "height": 1188
+        },
+        "longestSidePercent": 94.74,
+        "bboxCenterOffsetPercent": {
+          "x": -3.07,
+          "y": -0.88
+        },
+        "pass": true,
+        "outputInspectedViaViewImage": true,
+        "preview90OnLightAndDark": "pass",
+        "noExtraFrameOrBackground": "pass",
+        "visual": "Tete unique trois-quarts gauche, moitie humaine naturelle, plaques argent/cuivre, optique emeraude et meche verte; richesse proche de l'ancien PNG.",
+        "alphaNote": "Residue maximal 1/255 au bord, invisible; alpha natif preserve.",
+        "framingNote": "Cadrage plus serre que la consigne de generation; bbox exacte fournie. Aucun element tronque. Parent peut calibrer le placement dans le logement circulaire."
+      },
+      "nativeOutput": "C:/Users/guill/.codex/generated_images/01a09f6e-3912-74c2-a5d4-c660a01fc541/exec-471c01cc-9afa-4872-93c8-c07e31dd29a9.png",
+      "destination": "V3/assets/revisions-buffs-scenes-20260914/races/CYBORG.png"
+    },
+    {
+      "race": "AURELION",
+      "prompt": "Generate one transparent game UI asset, PNG RGBA with REAL alpha outside the object. No colored background, no black background, no checkerboard pattern. It will be placed over existing card artwork. Create one NEW richly painted, sculpted metallic fantasy race emblem for Kalistar. Rich embossed silver and copper craftsmanship, deeply modelled planes, chiseled edges, high-contrast dark metal recesses, sharp painted light on polished silver, warm copper highlights, race-specific colored materials. Detailed painted fantasy game insignia, NOT a flat ivory symbol, not a vector pictogram, not a minimal icon, not a photo or plastic 3D render. Broad readable masses and strong focal features at 90px, subordinate detail that does not dissolve into microscopic filigree. The card's own round socket supplies the frame: NO extra circle, disk, medallion, square, shield backing, plinth, scenery, cast shadow, text or watermark. Center the complete emblem on a square PNG canvas, keep approximately 10 percent transparent margins, never crop the extremities. AURELION: an elegant crystalline solar humanoid head in a clear RIGHT-FACING PROFILE, with rich sculpted metallic facial planes, not a frontal mask. Serene adult androgynous features rendered as warm golden-silver crystalline metal, naturally coherent forehead, nose, lips and chin. A rising angular gold/copper forehead crest with ONE small turquoise diamond inset, and silver feathered wing structures attached at the temples, swept backward to the left; one larger near wing and a smaller far wing suggested behind it, believable perspective, a handful of broad sculpted feathers. HISTORICAL AURELION PNG DESCRIPTION: gilded narrow humanoid face, central tall gold crest, small bright cyan diamond at forehead, two raised silver feather wings flanking the temples. Preserve this solar winged identity and bright precious-metal richness, but turn the head into profile and make the asymmetric feather silhouette legible. Deeply embossed feather vanes, chiseled gold/silver facial planes, warm amber reflected light, dark recesses between feathers; NOT actual human photo skin, not flat ivory inlay. No full angel body, separate sun disk, halo, circular ring, free-floating rays, lion head, extra jewels or ornaments. Finish in a compact sculpted neck point, no torso. Face, crest and wings form one standalone transparent emblem, with all feather tips in frame.",
+      "references": [
+        {
+          "race": "AURELION",
+          "path": "V3/sources/avant-harmonisation-20260914/assets/races/AURELION.png",
+          "sha256": "52a127a38decfc0b5eb91015e306cd8ca4905654c94faf15a2a3504e8bc4f927",
+          "inspectedViaViewImage": true,
+          "role": "Historical gilded solar face, cyan forehead diamond, tall crest and silver feather wings; recomposed in right profile.",
+          "suppliedToFinalImageGen": false,
+          "usage": "Inspected source described in prompt; fresh RGBA workflow approved by parent."
+        }
+      ],
+      "generationCalls": 1,
+      "status": "ready_for_parent_qa",
+      "qa": {
+        "race": "AURELION",
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true,
+        "sha256": "363e011e74fef0865b56858c8f6ad8c7367846f907107f26d472312ffbd5a6bd",
+        "bytes": 1634890,
+        "alphaZeroPercent": 61.066,
+        "alpha255Percent": 0.019,
+        "alphaAtLeast250Percent": 36.615,
+        "edgeMaxAlpha": 1,
+        "bboxAlpha128": {
+          "x": 81,
+          "y": 18,
+          "width": 1075,
+          "height": 1207
+        },
+        "longestSidePercent": 96.25,
+        "bboxCenterOffsetPercent": {
+          "x": -0.68,
+          "y": -0.44
+        },
+        "pass": true,
+        "outputInspectedViaViewImage": true,
+        "preview90OnLightAndDark": "pass",
+        "noExtraFrameOrBackground": "pass",
+        "visual": "Profil droit solaire dore, plumes argentees sculptees, crest et cristal cyan; forte richesse et contour lisible, sans halo/disque.",
+        "framingNote": "Cadrage plus serre que la consigne du prompt, aucun element tronque; bbox exacte fournie pour le placement parent.",
+        "alphaNote": "Residue maximal 1/255 au bord, invisible; alpha natif preserve."
+      },
+      "nativeOutput": "C:/Users/guill/.codex/generated_images/01a09f6e-3912-74c2-a5d4-c660a01fc541/exec-b9bdf6d9-4e9b-4315-ad29-3d340eb05f94.png",
+      "destination": "V3/assets/revisions-buffs-scenes-20260914/races/AURELION.png"
+    },
+    {
+      "race": "VAMP",
+      "prompt": "Generate one transparent game UI asset, PNG RGBA with REAL alpha outside the object. No colored background, no black background, no checkerboard pattern. It will be placed over existing card artwork. Create one NEW richly painted, sculpted metallic fantasy race emblem for Kalistar. Rich embossed silver and copper craftsmanship, deeply modelled planes, chiseled edges, high-contrast dark metal recesses, sharp painted light on polished silver, warm copper highlights, race-specific colored materials. Detailed painted fantasy game insignia, NOT a flat ivory symbol, not a vector pictogram, not a minimal icon, not a photo or plastic 3D render. Broad readable masses and strong focal features at 90px, subordinate detail that does not dissolve into microscopic filigree. The card's own round socket supplies the frame: NO extra circle, disk, medallion, square, shield backing, plinth, scenery, cast shadow, text or watermark. Center the complete emblem on a square PNG canvas, keep approximately 10 percent transparent margins, never crop the extremities. VAMP: a cold aristocratic vampire emblem, ONE adult humanoid head in THREE-QUARTER view toward the LEFT, chin slightly lowered, not a symmetric frontal face. A sculpted pale-silver face with natural mature facial anatomy, narrow ruby-red eyes under a chiseled brow and TWO unmistakable ivory canines visible at the slightly parted mouth, no blood. Crimson bat-like ear/temple membranes rise and sweep backward, integrated into the outer head silhouette, held by flowing carved silver ribs. HISTORICAL VAMP PNG DESCRIPTION: silvery angular vampire face, narrow red eyes, two fangs, dark burgundy-red bat wings curving up beside the temples with bright polished silver borders. Preserve those large red/silver vampire features and deep rich relief while varying the orientation and making the expression serious rather than monstrous. No complete bat animal or detached wings, only the stylized vamp temple structures. Rich painted silver cheekbone planes, graphite recesses, dark red enamel membranes with subtle leathery relief, sparse copper warmth in the joints, strong light/dark contrast. The outer crescent-like temple edges must remain OPEN and shaped as part of the creature, never form a circular frame. No crown, helmet, skull, heart, extra horns, dangling pendant, gore, text or portrait-photo skin. Compact head-only sculpted insignia with no bust, background or enclosing medallion. Both fangs and red membrane masses readable at90px.",
+      "references": [
+        {
+          "race": "VAMP",
+          "path": "V3/sources/avant-harmonisation-20260914/assets/races/VAMP.png",
+          "sha256": "8e2df5b7ec57d55705b39f404c0878827f2d7768289c61e276d2118f12044e09",
+          "inspectedViaViewImage": true,
+          "role": "Historical pale silver vampire, ruby eyes, twin canines and burgundy bat-temple membranes with silver ribs; rotated three-quarter left.",
+          "suppliedToFinalImageGen": false,
+          "usage": "Inspected source described in prompt; fresh RGBA workflow approved by parent."
+        }
+      ],
+      "generationCalls": 1,
+      "status": "ready_for_parent_qa",
+      "qa": {
+        "race": "VAMP",
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true,
+        "sha256": "d264199172eee8d6a0b5c47b2eae18b54199afe8ac4036b965afa8fb764dd639",
+        "bytes": 1717132,
+        "alphaZeroPercent": 58.211,
+        "alpha255Percent": 0.026,
+        "alphaAtLeast250Percent": 39.262,
+        "edgeMaxAlpha": 0,
+        "bboxAlpha128": {
+          "x": 133,
+          "y": 77,
+          "width": 1091,
+          "height": 1105
+        },
+        "longestSidePercent": 88.12,
+        "bboxCenterOffsetPercent": {
+          "x": 4.11,
+          "y": 0.2
+        },
+        "pass": true,
+        "outputInspectedViaViewImage": true,
+        "preview90OnLightAndDark": "pass",
+        "noExtraFrameOrBackground": "pass",
+        "visual": "Tete vampire trois-quarts gauche, argent et membranes rouges, yeux rubis et canine proche visible. La canine eloignee est peu visible a cet angle; deux canines non verifiables avec certitude. Pas de gore.",
+        "framingNote": "Cadrage plus serre que la consigne du prompt, aucun element tronque; bbox exacte fournie pour le placement parent."
+      },
+      "nativeOutput": "C:/Users/guill/.codex/generated_images/01a09f6e-3912-74c2-a5d4-c660a01fc541/exec-cc2503ef-e14b-4028-a1c9-809720616dc3.png",
+      "destination": "V3/assets/revisions-buffs-scenes-20260914/races/VAMP.png"
+    },
+    {
+      "race": "SKULLZ",
+      "prompt": "Generate one transparent game UI asset, PNG RGBA with REAL alpha outside the object. No colored background, no black background, no checkerboard pattern. It will be placed over existing card artwork. Create one NEW richly painted, sculpted metallic fantasy race emblem for Kalistar. Rich embossed silver and copper craftsmanship, deeply modelled planes, chiseled edges, high-contrast dark metal recesses, sharp painted light on polished silver, warm copper highlights, race-specific colored materials. Detailed painted fantasy game insignia, NOT a flat ivory symbol, not a vector pictogram, not a minimal icon, not a photo or plastic 3D render. Broad readable masses and strong focal features at 90px, subordinate detail that does not dissolve into microscopic filigree. The card's own round socket supplies the frame: NO extra circle, disk, medallion, square, shield backing, plinth, scenery, cast shadow, text or watermark. Center the complete emblem on a square PNG canvas, keep approximately 10 percent transparent margins, never crop the extremities. SKULLZ: ONE richly sculpted crowned humanoid SKULL in a clear LEFT-FACING PROFILE, no frontal face, natural plausible human skull proportions with broad cranium, one deep near eye socket, nasal opening, pronounced cheekbone and a compact readable tooth row. HISTORICAL EXACT-RACE PNG DESCRIPTION: a right-facing silver-bone skull under an antique silver/copper crown with tall points and violet gemstones, engraved silver temple armor with a sweeping curled motif, deep purple inlay behind the jaw and neck. Restore that rich crowned silver/violet skull identity, mirrored to LEFT profile for variety. The crown is physically worn on the skull, not a detached background. Keep only three broad crown spires and a few substantial violet insets, clearly visible at90px. Ivory-silver bone surfaces have dark natural recesses and painted age; layered chiseled silver temple plate with one broad scroll engraving, copper edge highlights, deep amethyst enamel in the lower rear jaw plate. Compact entire head with short angular neck termination, no full skeleton or bust. Strong skull outline, readable eye hole, tooth blocks not a microscopic picket fence. No skin, eyeballs, vampire fangs, horns, flames, blood, crossbones, black heart, extra circle, medallion or backing. Real transparency around the entire crown/skull silhouette and through open bone gaps where appropriate, not a dark painted background.",
+      "references": [
+        {
+          "race": "SKULLZ",
+          "path": "V3/sources/avant-harmonisation-20260914/assets/races/SKULLZ.png",
+          "sha256": "54e6730e7abc96bc891c5986e2f701ed93773093dc9c3366c96eddf783f0e2d9",
+          "inspectedViaViewImage": true,
+          "role": "Historical crowned right-profile silver skull, violet jewels/inlay, broad silver scroll engraving; mirrored left profile.",
+          "suppliedToFinalImageGen": false,
+          "usage": "Inspected source described in prompt; fresh RGBA workflow approved by parent."
+        }
+      ],
+      "generationCalls": 1,
+      "status": "ready_for_parent_qa",
+      "qa": {
+        "race": "SKULLZ",
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true,
+        "sha256": "3e8967f4267f4c28b4a44921244f93da5dd7b9cd41c49a93deea43e231bacd70",
+        "bytes": 1802797,
+        "alphaZeroPercent": 59.497,
+        "alpha255Percent": 0.03,
+        "alphaAtLeast250Percent": 38.674,
+        "edgeMaxAlpha": 1,
+        "bboxAlpha128": {
+          "x": 231,
+          "y": 33,
+          "width": 871,
+          "height": 1172
+        },
+        "longestSidePercent": 93.46,
+        "bboxCenterOffsetPercent": {
+          "x": 3.15,
+          "y": -0.64
+        },
+        "pass": true,
+        "outputInspectedViaViewImage": true,
+        "preview90OnLightAndDark": "pass",
+        "noExtraFrameOrBackground": "pass",
+        "visual": "Crane couronne oriente a gauche, volume osseux argente, grandes gravures metalliques et amethystes; distinct du coeur CARDEMORTIS.",
+        "framingNote": "Cadrage plus serre que la consigne du prompt, aucun element tronque; bbox exacte fournie pour le placement parent.",
+        "alphaNote": "Residue maximal 1/255 au bord, invisible; alpha natif preserve."
+      },
+      "nativeOutput": "C:/Users/guill/.codex/generated_images/01a09f6e-3912-74c2-a5d4-c660a01fc541/exec-2b4950a1-70c3-4f87-99c5-b9eca1ba947f.png",
+      "destination": "V3/assets/revisions-buffs-scenes-20260914/races/SKULLZ.png"
+    },
+    {
+      "race": "SIRENA",
+      "prompt": "Generate one transparent game UI asset, PNG RGBA with REAL alpha outside the object. No colored background, no black background, no checkerboard pattern. It will be placed over existing card artwork. Create one NEW richly painted, sculpted metallic fantasy race emblem for Kalistar. Rich embossed silver and copper craftsmanship, deeply modelled planes, chiseled edges, high-contrast dark metal recesses, sharp painted light on polished silver, warm copper highlights, race-specific colored materials. Detailed painted fantasy game insignia, NOT a flat ivory symbol, not a vector pictogram, not a minimal icon, not a photo or plastic 3D render. Broad readable masses and strong focal features at 90px, subordinate detail that does not dissolve into microscopic filigree. The card's own round socket supplies the frame: NO extra circle, disk, medallion, square, shield backing, plinth, scenery, cast shadow, text or watermark. Center the complete emblem on a square PNG canvas, keep approximately 10 percent transparent margins, never crop the extremities. SIRENA: one elegant adult amphibious humanoid woman's head in THREE-QUARTER view toward the RIGHT, chin gently lifted, not a frontal portrait. Natural coherent facial anatomy modeled in pearlescent pale silver, small visible gill details behind the cheek, no photographic skin. A large turquoise/cyan fin crest sweeps backward from the head with THREE broad membrane lobes and chiseled silver fin ribs; an integrated ear-fin and swept silver hair planes create a compact aquatic silhouette. The short sculpted neck terminates in ONE raised curling turquoise wave with silver edges, OPEN at its end, never a circle or medallion. HISTORICAL EXACT-RACE PNG DESCRIPTION: right-profile pearl-silver feminine amphibian face, pointed turquoise fins behind the head within bright silver ribs, short silver wave-like hair, discreet warm copper crest accent, deep turquoise sculpted wave beneath the neck curving upward at its free tip. Preserve the aquatic silver/turquoise identity and carved flowing detail, but angle the face into three-quarter right. Rich layered relief, silver highlights against blue-green enamel depth, strong broad fin and wave planes, restrained copper accents at joints, visibly painted fantasy craftsmanship. No full mermaid body, fish tail, trident, shell backing, bubbles, water splash scene, external circle, neck necklace, extra jewelry, crown of jewels or mask. Keep the fin tips and wave completely within the canvas. Real alpha outside the entire connected emblem and inside its open negative spaces; silver face and turquoise membranes opaque.",
+      "references": [
+        {
+          "race": "SIRENA",
+          "path": "V3/sources/avant-harmonisation-20260914/assets/races/SIRENA.png",
+          "sha256": "e57dc57873441039b4de7fe40ec0a5bffc839dbbac9786eeab3e47ae440c2d7f",
+          "inspectedViaViewImage": true,
+          "role": "Historical pearlescent aquatic profile, turquoise fin membranes and silver ribs, flowing open wave; turned three-quarter right.",
+          "suppliedToFinalImageGen": false,
+          "usage": "Inspected source described in prompt; fresh RGBA workflow approved by parent."
+        }
+      ],
+      "generationCalls": 1,
+      "status": "ready_for_parent_qa",
+      "qa": {
+        "race": "SIRENA",
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true,
+        "sha256": "34d964b5fd85d33cb86b045529756472e718595f26597509d136927add97b10e",
+        "bytes": 1746107,
+        "alphaZeroPercent": 56.025,
+        "alpha255Percent": 0.052,
+        "alphaAtLeast250Percent": 41.691,
+        "edgeMaxAlpha": 1,
+        "bboxAlpha128": {
+          "x": 78,
+          "y": 66,
+          "width": 1088,
+          "height": 1136
+        },
+        "longestSidePercent": 90.59,
+        "bboxCenterOffsetPercent": {
+          "x": -0.4,
+          "y": 0.56
+        },
+        "pass": true,
+        "outputInspectedViaViewImage": true,
+        "preview90OnLightAndDark": "pass",
+        "noExtraFrameOrBackground": "pass",
+        "visual": "Tete amphibie nacree trois-quarts droit, nageoires turquoise a nervures argent/cuivre, vague ouverte integree au cou; sans medaillon.",
+        "framingNote": "Cadrage plus serre que la consigne du prompt, aucun element tronque; bbox exacte fournie pour le placement parent.",
+        "alphaNote": "Residue maximal 1/255 au bord, invisible; alpha natif preserve."
+      },
+      "nativeOutput": "C:/Users/guill/.codex/generated_images/01a09f6e-3912-74c2-a5d4-c660a01fc541/exec-085e2779-724b-41b6-9f1a-45c2d920c37e.png",
+      "destination": "V3/assets/revisions-buffs-scenes-20260914/races/SIRENA.png"
+    }
+  ],
+  "progressReports": [
+    {
+      "ready": 2,
+      "races": [
+        "HUMAIN",
+        "NAIN"
+      ],
+      "status": "ready_for_parent_qa"
+    },
+    {
+      "ready": 5,
+      "races": [
+        "CARDEMORTIS",
+        "ROBOT",
+        "CYBORG"
+      ],
+      "status": "ready_for_parent_qa"
+    },
+    {
+      "ready": 9,
+      "races": [
+        "AURELION",
+        "VAMP",
+        "SKULLZ",
+        "SIRENA"
+      ],
+      "status": "ready_for_parent_qa"
+    }
+  ],
+  "freshGenerationAuthorization": "Parent explicitly confirms fresh generation WITHOUT references after real-reference edits failed alpha; supplies successful RGBA prompt prefix. No manual matte.",
+  "totalGenerationCalls": 11,
+  "finalPngCount": 9,
+  "integration": {
+    "status": "staged_only",
+    "parentApproval": "pending",
+    "canonicalWrites": 0
+  },
+  "qaSummary": {
+    "allNineRealAlpha": true,
+    "allNineSquare1254": true,
+    "allNinePreview90Pass": true,
+    "extraFrames": "none",
+    "style": "Reliefs metalliques riches et detailles, palettes et sujets tires des anciens PNG, profils et trois-quarts varies. HUMAIN entier naturel et CARDEMORTIS coeur noir maintenus.",
+    "limits": [
+      "Les dimensions visibles sont plus proches de 88-96% que des 82% demandes dans les prompts, sans rognage; parent responsable du calibrage dans son logement circulaire.",
+      "Des pixels alpha=1/255 existent au bord de sept fichiers, invisibles en vignette; alpha natif preserve. HUMAIN et VAMP ont un bord alpha=0.",
+      "VAMP: canine proche lisible, canine eloignee non verifiable avec certitude du fait du trois-quarts. Aucun ajout ou detourage manuel."
+    ],
+    "validation": "Technical pixel metrics and per-asset visual inspection recorded; final parent art-direction approval remains pending."
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "version": "4.5.41",
+  "books": 12,
+  "enabled": 1,
+  "disabled": 11,
+  "visibleTitles": 1,
+  "manuscriptChanged": false,
+  "approvedMineroChanged": false,
+  "unitTests": {
+    "passed": 13,
+    "failed": 0
+  },
+  "browser": {
+    "passed": true,
+    "viewports": [
+      [
+        1440,
+        1000
+      ],
+      [
+        1024,
+        768
+      ],
+      [
+        850,
+        760
+      ],
+      [
+        412,
+        1007
+      ],
+      [
+        390,
+        844
+      ],
+      [
+        320,
+        568
+      ],
+      [
+        844,
+        390
+      ]
+    ],
+    "coversDecoded": 12,
+    "phoneLastBookReachable": true,
+    "keyboard": true,
+    "reducedMotion": true,
+    "progressResume": true,
+    "mountRace": true
+  },
+  "localBuild": {
+    "cards": 232,
+    "files": 752,
+    "megabytes": 577.8
+  },
+  "isolatedRelease": {
+    "workflowTests": 300,
+    "workflowPassed": true,
+    "additionalAssetTests": 2,
+    "staticBrowserPassed": true,
+    "releaseToken": "8cd14c4ca08e",
+    "cards": 232,
+    "files": 750,
+    "megabytes": 577.4
+  }
+}

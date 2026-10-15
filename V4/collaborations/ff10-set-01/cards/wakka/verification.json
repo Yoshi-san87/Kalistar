@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "modelId": "49451961",
+  "referenceId": "02f0808cbd56d2b0d4103450e7943db69b95ac120a0df349f4374c82f7f712e5",
+  "profileHash": "a41f6b6c6f5bb030eedabffefe102bfa1878c396eae7d049b9e8284ae5e9aedd",
+  "hashes": {
+    "card.png": "721f7aa34ba5d275b8e2a665622a626d27c3a50a3e82e00382550246f2d971a0",
+    "card.psd": "57dcc93cb0876577bc04fc7f314f5579bcd4248cd8244c937c68605ef74a3f80"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 117840
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49451961",
+    "cases": {
+      "color-1": [
+        "49451961"
+      ],
+      "color-4": [
+        "49451961"
+      ],
+      "gray-1": [
+        "49451961"
+      ],
+      "gray-4": [
+        "49451961"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-25T14:02:07.694Z",
+  "key": "wakka",
+  "preparationHash": "479c575384f2170b0cdf4ea292517b3e0257599815ea6cad9d235170ac173e32"
+}

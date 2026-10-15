@@ -1,0 +1,58 @@
+TAP version 13
+# Subtest: Published Draust preserves the approved mirror and verified native card
+ok 1 - Published Draust preserves the approved mirror and verified native card
+  ---
+  duration_ms: 23.1289
+  type: 'test'
+  ...
+# Subtest: P1 only with one Guard D1, no extra powers and valid role bounds
+ok 2 - P1 only with one Guard D1, no extra powers and valid role bounds
+  ---
+  duration_ms: 5.1471
+  type: 'test'
+  ...
+# Subtest: Kalistar collection, single Flail family and Cryptown/Skullz synergies
+ok 3 - Kalistar collection, single Flail family and Cryptown/Skullz synergies
+  ---
+  duration_ms: 46.4573
+  type: 'test'
+  ...
+# Subtest: Guard replaces the attack, grants one allied charge and survives reload
+ok 4 - Guard replaces the attack, grants one allied charge and survives reload
+  ---
+  duration_ms: 9.6983
+  type: 'test'
+  ...
+# Subtest: An existing self Guard cannot stack a second +60
+ok 5 - An existing self Guard cannot stack a second +60
+  ---
+  duration_ms: 1.0209
+  type: 'test'
+  ...
+# Subtest: Two illustrated flails still calculate a single ordinary attack
+ok 6 - Two illustrated flails still calculate a single ordinary attack
+  ---
+  duration_ms: 1.3315
+  type: 'test'
+  ...
+# Subtest: Physical Guard is consumed, while magic uses the printed barrier
+ok 7 - Physical Guard is consumed, while magic uses the printed barrier
+  ---
+  duration_ms: 2.7449
+  type: 'test'
+  ...
+# Subtest: Draust completes 24 matches on both teams with repeated restoration
+ok 8 - Draust completes 24 matches on both teams with repeated restoration
+  ---
+  duration_ms: 401.2162
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 576.597

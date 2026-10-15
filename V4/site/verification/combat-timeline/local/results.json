@@ -1,0 +1,7547 @@
+{
+  "checks": [
+    {
+      "first": 0,
+      "turn": 1,
+      "box": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "track": {
+        "left": 170,
+        "right": 1270,
+        "top": 160.375,
+        "bottom": 190.375,
+        "width": 1100,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 1,
+          "round": 1,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 170,
+            "right": 269.53125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.53125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 2,
+          "round": 2,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 269.53125,
+            "right": 370.078125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 3,
+          "round": 2,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 370.078125,
+            "right": 469.625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 4,
+          "round": 3,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 469.625,
+            "right": 570.171875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 5,
+          "round": 3,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 570.171875,
+            "right": 669.71875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 6,
+          "round": 4,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 669.71875,
+            "right": 770.265625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 7,
+          "round": 4,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 770.265625,
+            "right": 869.8125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 8,
+          "round": 5,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 869.8125,
+            "right": 970.359375,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 9,
+          "round": 5,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 970.359375,
+            "right": 1069.90625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 10,
+          "round": 6,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 1069.90625,
+            "right": 1170.453125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 11,
+          "round": 6,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 1170.453125,
+            "right": 1270,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 1,
+        "round": 1,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R1\nJ1\nT1\nR2\nJ2\nT2\nT3\nR3\nJ1\nT4\nT5\nR4\nJ2\nT6\nT7\nR5\nJ1\nT8\nT9\nR6\nJ2\nT10\nT11",
+      "status": "Round 1, tour 1, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "first": 0,
+      "turn": 2,
+      "box": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "track": {
+        "left": 170,
+        "right": 1270,
+        "top": 160.375,
+        "bottom": 190.375,
+        "width": 1100,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 1,
+          "round": 1,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 170,
+            "right": 269.53125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.53125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 2,
+          "round": 2,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 269.53125,
+            "right": 370.078125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 3,
+          "round": 2,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 370.078125,
+            "right": 469.625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 4,
+          "round": 3,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 469.625,
+            "right": 570.171875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 5,
+          "round": 3,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 570.171875,
+            "right": 669.71875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 6,
+          "round": 4,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 669.71875,
+            "right": 770.265625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 7,
+          "round": 4,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 770.265625,
+            "right": 869.8125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 8,
+          "round": 5,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 869.8125,
+            "right": 970.359375,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 9,
+          "round": 5,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 970.359375,
+            "right": 1069.90625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 10,
+          "round": 6,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 1069.90625,
+            "right": 1170.453125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 11,
+          "round": 6,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 1170.453125,
+            "right": 1270,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 2,
+        "round": 2,
+        "side": 1,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R1\nJ1\nT1\nR2\nJ2\nT2\nT3\nR3\nJ1\nT4\nT5\nR4\nJ2\nT6\nT7\nR5\nJ1\nT8\nT9\nR6\nJ2\nT10\nT11",
+      "status": "Round 2, tour 2, joueur 2, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "first": 0,
+      "turn": 3,
+      "box": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "track": {
+        "left": 170,
+        "right": 1270,
+        "top": 160.375,
+        "bottom": 190.375,
+        "width": 1100,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 1,
+          "round": 1,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 170,
+            "right": 269.53125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.53125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 2,
+          "round": 2,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 269.53125,
+            "right": 370.078125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 3,
+          "round": 2,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 370.078125,
+            "right": 469.625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 4,
+          "round": 3,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 469.625,
+            "right": 570.171875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 5,
+          "round": 3,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 570.171875,
+            "right": 669.71875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 6,
+          "round": 4,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 669.71875,
+            "right": 770.265625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 7,
+          "round": 4,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 770.265625,
+            "right": 869.8125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 8,
+          "round": 5,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 869.8125,
+            "right": 970.359375,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 9,
+          "round": 5,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 970.359375,
+            "right": 1069.90625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 10,
+          "round": 6,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 1069.90625,
+            "right": 1170.453125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 11,
+          "round": 6,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 1170.453125,
+            "right": 1270,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 3,
+        "round": 2,
+        "side": 1,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R1\nJ1\nT1\nR2\nJ2\nT2\nT3\nR3\nJ1\nT4\nT5\nR4\nJ2\nT6\nT7\nR5\nJ1\nT8\nT9\nR6\nJ2\nT10\nT11",
+      "status": "Round 2, tour 3, joueur 2, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "first": 0,
+      "turn": 4,
+      "box": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "track": {
+        "left": 170,
+        "right": 1270,
+        "top": 160.375,
+        "bottom": 190.375,
+        "width": 1100,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 1,
+          "round": 1,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 170,
+            "right": 269.53125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.53125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 2,
+          "round": 2,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 269.53125,
+            "right": 370.078125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 3,
+          "round": 2,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 370.078125,
+            "right": 469.625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 4,
+          "round": 3,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 469.625,
+            "right": 570.171875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 5,
+          "round": 3,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 570.171875,
+            "right": 669.71875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 6,
+          "round": 4,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 669.71875,
+            "right": 770.265625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 7,
+          "round": 4,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 770.265625,
+            "right": 869.8125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 8,
+          "round": 5,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 869.8125,
+            "right": 970.359375,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 9,
+          "round": 5,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 970.359375,
+            "right": 1069.90625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 10,
+          "round": 6,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 1069.90625,
+            "right": 1170.453125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 11,
+          "round": 6,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 1170.453125,
+            "right": 1270,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 4,
+        "round": 3,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R1\nJ1\nT1\nR2\nJ2\nT2\nT3\nR3\nJ1\nT4\nT5\nR4\nJ2\nT6\nT7\nR5\nJ1\nT8\nT9\nR6\nJ2\nT10\nT11",
+      "status": "Round 3, tour 4, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "first": 0,
+      "turn": 5,
+      "box": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "track": {
+        "left": 170,
+        "right": 1270,
+        "top": 160.375,
+        "bottom": 190.375,
+        "width": 1100,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 1,
+          "round": 1,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 170,
+            "right": 269.53125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.53125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 2,
+          "round": 2,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 269.53125,
+            "right": 370.078125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 3,
+          "round": 2,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 370.078125,
+            "right": 469.625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 4,
+          "round": 3,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 469.625,
+            "right": 570.171875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 5,
+          "round": 3,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 570.171875,
+            "right": 669.71875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 6,
+          "round": 4,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 669.71875,
+            "right": 770.265625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 7,
+          "round": 4,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 770.265625,
+            "right": 869.8125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 8,
+          "round": 5,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 869.8125,
+            "right": 970.359375,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 9,
+          "round": 5,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 970.359375,
+            "right": 1069.90625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 10,
+          "round": 6,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 1069.90625,
+            "right": 1170.453125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 11,
+          "round": 6,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 1170.453125,
+            "right": 1270,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 5,
+        "round": 3,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R1\nJ1\nT1\nR2\nJ2\nT2\nT3\nR3\nJ1\nT4\nT5\nR4\nJ2\nT6\nT7\nR5\nJ1\nT8\nT9\nR6\nJ2\nT10\nT11",
+      "status": "Round 3, tour 5, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "first": 0,
+      "turn": 17,
+      "box": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "track": {
+        "left": 170,
+        "right": 1270,
+        "top": 160.375,
+        "bottom": 190.375,
+        "width": 1100,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 12,
+          "round": 7,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 170,
+            "right": 269.53125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.53125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 13,
+          "round": 7,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 269.53125,
+            "right": 369.078125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 14,
+          "round": 8,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 369.078125,
+            "right": 469.625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 15,
+          "round": 8,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 469.625,
+            "right": 569.171875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 16,
+          "round": 9,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 569.171875,
+            "right": 669.71875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 17,
+          "round": 9,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 669.71875,
+            "right": 769.265625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 18,
+          "round": 10,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 769.265625,
+            "right": 869.8125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 19,
+          "round": 10,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 869.8125,
+            "right": 969.359375,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 20,
+          "round": 11,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 969.359375,
+            "right": 1069.90625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 21,
+          "round": 11,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 1069.90625,
+            "right": 1169.453125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 22,
+          "round": 12,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 1169.453125,
+            "right": 1270,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 17,
+        "round": 9,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R7\nJ1\nT12\nT13\nR8\nJ2\nT14\nT15\nR9\nJ1\nT16\nT17\nR10\nJ2\nT18\nT19\nR11\nJ1\nT20\nT21\nR12\nJ2\nT22",
+      "status": "Round 9, tour 17, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "first": 0,
+      "turn": 99,
+      "box": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "track": {
+        "left": 170,
+        "right": 1270,
+        "top": 160.375,
+        "bottom": 190.375,
+        "width": 1100,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 94,
+          "round": 48,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 170,
+            "right": 269.53125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.53125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 95,
+          "round": 48,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 269.53125,
+            "right": 369.078125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 96,
+          "round": 49,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 369.078125,
+            "right": 469.625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 97,
+          "round": 49,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 469.625,
+            "right": 569.171875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 98,
+          "round": 50,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 569.171875,
+            "right": 669.71875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 99,
+          "round": 50,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 669.71875,
+            "right": 769.265625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 100,
+          "round": 51,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 769.265625,
+            "right": 869.8125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 101,
+          "round": 51,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 869.8125,
+            "right": 969.359375,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 102,
+          "round": 52,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 969.359375,
+            "right": 1069.90625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 103,
+          "round": 52,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 1069.90625,
+            "right": 1169.453125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 104,
+          "round": 53,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 1169.453125,
+            "right": 1270,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 99,
+        "round": 50,
+        "side": 1,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R48\nJ2\nT94\nT95\nR49\nJ1\nT96\nT97\nR50\nJ2\nT98\nT99\nR51\nJ1\nT100\nT101\nR52\nJ2\nT102\nT103\nR53\nJ1\nT104",
+      "status": "Round 50, tour 99, joueur 2, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "first": 0,
+      "turn": 195,
+      "box": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "track": {
+        "left": 170,
+        "right": 1270,
+        "top": 160.375,
+        "bottom": 190.375,
+        "width": 1100,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 190,
+          "round": 96,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 170,
+            "right": 269.53125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.53125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 191,
+          "round": 96,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 269.53125,
+            "right": 369.078125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 192,
+          "round": 97,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 369.078125,
+            "right": 469.625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 193,
+          "round": 97,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 469.625,
+            "right": 569.171875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 194,
+          "round": 98,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 569.171875,
+            "right": 669.71875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 195,
+          "round": 98,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 669.71875,
+            "right": 769.265625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 196,
+          "round": 99,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 769.265625,
+            "right": 869.8125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 197,
+          "round": 99,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 869.8125,
+            "right": 969.359375,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 198,
+          "round": 100,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 969.359375,
+            "right": 1069.90625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 199,
+          "round": 100,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 1069.90625,
+            "right": 1169.453125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 200,
+          "round": 101,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 1169.453125,
+            "right": 1270,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 195,
+        "round": 98,
+        "side": 1,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R96\nJ2\nT190\nT191\nR97\nJ1\nT192\nT193\nR98\nJ2\nT194\nT195\nR99\nJ1\nT196\nT197\nR100\nJ2\nT198\nT199\nR101\nJ1\nT200",
+      "status": "Round 98, tour 195, joueur 2, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "first": 0,
+      "turn": 200,
+      "box": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "track": {
+        "left": 170,
+        "right": 1270,
+        "top": 160.375,
+        "bottom": 190.375,
+        "width": 1100,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 190,
+          "round": 96,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 170,
+            "right": 269.53125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.53125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 191,
+          "round": 96,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 269.53125,
+            "right": 369.078125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 192,
+          "round": 97,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 369.078125,
+            "right": 469.625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 193,
+          "round": 97,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 469.625,
+            "right": 569.171875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 194,
+          "round": 98,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 569.171875,
+            "right": 669.71875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 195,
+          "round": 98,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 669.71875,
+            "right": 769.265625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 196,
+          "round": 99,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 769.265625,
+            "right": 869.8125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 197,
+          "round": 99,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 869.8125,
+            "right": 969.359375,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 198,
+          "round": 100,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 969.359375,
+            "right": 1069.90625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 199,
+          "round": 100,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 1069.90625,
+            "right": 1169.453125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 200,
+          "round": 101,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 1169.453125,
+            "right": 1270,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 200,
+        "round": 101,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R96\nJ2\nT190\nT191\nR97\nJ1\nT192\nT193\nR98\nJ2\nT194\nT195\nR99\nJ1\nT196\nT197\nR100\nJ2\nT198\nT199\nR101\nJ1\nT200",
+      "status": "Round 101, tour 200, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "name": "real-next",
+      "first": 0,
+      "turn": 1,
+      "box": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "track": {
+        "left": 170,
+        "right": 1270,
+        "top": 160.375,
+        "bottom": 190.375,
+        "width": 1100,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 1,
+          "round": 1,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 170,
+            "right": 269.53125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.53125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 2,
+          "round": 2,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 269.53125,
+            "right": 370.078125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 3,
+          "round": 2,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 370.078125,
+            "right": 469.625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 4,
+          "round": 3,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 469.625,
+            "right": 570.171875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 5,
+          "round": 3,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 570.171875,
+            "right": 669.71875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 6,
+          "round": 4,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 669.71875,
+            "right": 770.265625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 7,
+          "round": 4,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 770.265625,
+            "right": 869.8125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 8,
+          "round": 5,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 869.8125,
+            "right": 970.359375,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 9,
+          "round": 5,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 970.359375,
+            "right": 1069.90625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 10,
+          "round": 6,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 1069.90625,
+            "right": 1170.453125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 11,
+          "round": 6,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 1170.453125,
+            "right": 1270,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 2,
+        "round": 2,
+        "side": 1,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R1\nJ1\nT1\nR2\nJ2\nT2\nT3\nR3\nJ1\nT4\nT5\nR4\nJ2\nT6\nT7\nR5\nJ1\nT8\nT9\nR6\nJ2\nT10\nT11",
+      "status": "Round 2, tour 2, joueur 2, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "name": "real-next",
+      "first": 0,
+      "turn": 2,
+      "box": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "track": {
+        "left": 170,
+        "right": 1270,
+        "top": 160.375,
+        "bottom": 190.375,
+        "width": 1100,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 1,
+          "round": 1,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 170,
+            "right": 269.53125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.53125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 2,
+          "round": 2,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 269.53125,
+            "right": 370.078125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 3,
+          "round": 2,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 370.078125,
+            "right": 469.625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 4,
+          "round": 3,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 469.625,
+            "right": 570.171875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 5,
+          "round": 3,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 570.171875,
+            "right": 669.71875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 6,
+          "round": 4,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 669.71875,
+            "right": 770.265625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 7,
+          "round": 4,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 770.265625,
+            "right": 869.8125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 8,
+          "round": 5,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 869.8125,
+            "right": 970.359375,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 9,
+          "round": 5,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 970.359375,
+            "right": 1069.90625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 10,
+          "round": 6,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 1069.90625,
+            "right": 1170.453125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 11,
+          "round": 6,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 1170.453125,
+            "right": 1270,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 3,
+        "round": 2,
+        "side": 1,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R1\nJ1\nT1\nR2\nJ2\nT2\nT3\nR3\nJ1\nT4\nT5\nR4\nJ2\nT6\nT7\nR5\nJ1\nT8\nT9\nR6\nJ2\nT10\nT11",
+      "status": "Round 2, tour 3, joueur 2, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "name": "real-next",
+      "first": 0,
+      "turn": 3,
+      "box": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "track": {
+        "left": 170,
+        "right": 1270,
+        "top": 160.375,
+        "bottom": 190.375,
+        "width": 1100,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 1,
+          "round": 1,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 170,
+            "right": 269.53125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.53125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 2,
+          "round": 2,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 269.53125,
+            "right": 370.078125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 3,
+          "round": 2,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 370.078125,
+            "right": 469.625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 4,
+          "round": 3,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 469.625,
+            "right": 570.171875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 5,
+          "round": 3,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 570.171875,
+            "right": 669.71875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 6,
+          "round": 4,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 669.71875,
+            "right": 770.265625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 7,
+          "round": 4,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 770.265625,
+            "right": 869.8125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 8,
+          "round": 5,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 869.8125,
+            "right": 970.359375,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 9,
+          "round": 5,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 970.359375,
+            "right": 1069.90625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 10,
+          "round": 6,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 1069.90625,
+            "right": 1170.453125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 11,
+          "round": 6,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 1170.453125,
+            "right": 1270,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 4,
+        "round": 3,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R1\nJ1\nT1\nR2\nJ2\nT2\nT3\nR3\nJ1\nT4\nT5\nR4\nJ2\nT6\nT7\nR5\nJ1\nT8\nT9\nR6\nJ2\nT10\nT11",
+      "status": "Round 3, tour 4, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "first": 1,
+      "turn": 1,
+      "box": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "track": {
+        "left": 170,
+        "right": 1270,
+        "top": 160.375,
+        "bottom": 190.375,
+        "width": 1100,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 1,
+          "round": 1,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 170,
+            "right": 269.53125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.53125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 2,
+          "round": 2,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 269.53125,
+            "right": 370.078125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 3,
+          "round": 2,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 370.078125,
+            "right": 469.625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 4,
+          "round": 3,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 469.625,
+            "right": 570.171875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 5,
+          "round": 3,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 570.171875,
+            "right": 669.71875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 6,
+          "round": 4,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 669.71875,
+            "right": 770.265625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 7,
+          "round": 4,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 770.265625,
+            "right": 869.8125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 8,
+          "round": 5,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 869.8125,
+            "right": 970.359375,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 9,
+          "round": 5,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 970.359375,
+            "right": 1069.90625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 10,
+          "round": 6,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 1069.90625,
+            "right": 1170.453125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 11,
+          "round": 6,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 1170.453125,
+            "right": 1270,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 1,
+        "round": 1,
+        "side": 1,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R1\nJ2\nT1\nR2\nJ1\nT2\nT3\nR3\nJ2\nT4\nT5\nR4\nJ1\nT6\nT7\nR5\nJ2\nT8\nT9\nR6\nJ1\nT10\nT11",
+      "status": "Round 1, tour 1, joueur 2, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "first": 1,
+      "turn": 2,
+      "box": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "track": {
+        "left": 170,
+        "right": 1270,
+        "top": 160.375,
+        "bottom": 190.375,
+        "width": 1100,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 1,
+          "round": 1,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 170,
+            "right": 269.53125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.53125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 2,
+          "round": 2,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 269.53125,
+            "right": 370.078125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 3,
+          "round": 2,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 370.078125,
+            "right": 469.625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 4,
+          "round": 3,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 469.625,
+            "right": 570.171875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 5,
+          "round": 3,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 570.171875,
+            "right": 669.71875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 6,
+          "round": 4,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 669.71875,
+            "right": 770.265625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 7,
+          "round": 4,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 770.265625,
+            "right": 869.8125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 8,
+          "round": 5,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 869.8125,
+            "right": 970.359375,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 9,
+          "round": 5,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 970.359375,
+            "right": 1069.90625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 10,
+          "round": 6,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 1069.90625,
+            "right": 1170.453125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 11,
+          "round": 6,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 1170.453125,
+            "right": 1270,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 2,
+        "round": 2,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R1\nJ2\nT1\nR2\nJ1\nT2\nT3\nR3\nJ2\nT4\nT5\nR4\nJ1\nT6\nT7\nR5\nJ2\nT8\nT9\nR6\nJ1\nT10\nT11",
+      "status": "Round 2, tour 2, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "first": 1,
+      "turn": 3,
+      "box": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "track": {
+        "left": 170,
+        "right": 1270,
+        "top": 160.375,
+        "bottom": 190.375,
+        "width": 1100,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 1,
+          "round": 1,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 170,
+            "right": 269.53125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.53125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 2,
+          "round": 2,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 269.53125,
+            "right": 370.078125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 3,
+          "round": 2,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 370.078125,
+            "right": 469.625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 4,
+          "round": 3,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 469.625,
+            "right": 570.171875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 5,
+          "round": 3,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 570.171875,
+            "right": 669.71875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 6,
+          "round": 4,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 669.71875,
+            "right": 770.265625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 7,
+          "round": 4,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 770.265625,
+            "right": 869.8125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 8,
+          "round": 5,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 869.8125,
+            "right": 970.359375,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 9,
+          "round": 5,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 970.359375,
+            "right": 1069.90625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 10,
+          "round": 6,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 1069.90625,
+            "right": 1170.453125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 11,
+          "round": 6,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 1170.453125,
+            "right": 1270,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 3,
+        "round": 2,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R1\nJ2\nT1\nR2\nJ1\nT2\nT3\nR3\nJ2\nT4\nT5\nR4\nJ1\nT6\nT7\nR5\nJ2\nT8\nT9\nR6\nJ1\nT10\nT11",
+      "status": "Round 2, tour 3, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "first": 1,
+      "turn": 4,
+      "box": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "track": {
+        "left": 170,
+        "right": 1270,
+        "top": 160.375,
+        "bottom": 190.375,
+        "width": 1100,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 1,
+          "round": 1,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 170,
+            "right": 269.53125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.53125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 2,
+          "round": 2,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 269.53125,
+            "right": 370.078125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 3,
+          "round": 2,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 370.078125,
+            "right": 469.625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 4,
+          "round": 3,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 469.625,
+            "right": 570.171875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 5,
+          "round": 3,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 570.171875,
+            "right": 669.71875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 6,
+          "round": 4,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 669.71875,
+            "right": 770.265625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 7,
+          "round": 4,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 770.265625,
+            "right": 869.8125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 8,
+          "round": 5,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 869.8125,
+            "right": 970.359375,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 9,
+          "round": 5,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 970.359375,
+            "right": 1069.90625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 10,
+          "round": 6,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 1069.90625,
+            "right": 1170.453125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 11,
+          "round": 6,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 1170.453125,
+            "right": 1270,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 4,
+        "round": 3,
+        "side": 1,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R1\nJ2\nT1\nR2\nJ1\nT2\nT3\nR3\nJ2\nT4\nT5\nR4\nJ1\nT6\nT7\nR5\nJ2\nT8\nT9\nR6\nJ1\nT10\nT11",
+      "status": "Round 3, tour 4, joueur 2, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "first": 1,
+      "turn": 5,
+      "box": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "track": {
+        "left": 170,
+        "right": 1270,
+        "top": 160.375,
+        "bottom": 190.375,
+        "width": 1100,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 1,
+          "round": 1,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 170,
+            "right": 269.53125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.53125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 2,
+          "round": 2,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 269.53125,
+            "right": 370.078125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 3,
+          "round": 2,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 370.078125,
+            "right": 469.625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 4,
+          "round": 3,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 469.625,
+            "right": 570.171875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 5,
+          "round": 3,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 570.171875,
+            "right": 669.71875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 6,
+          "round": 4,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 669.71875,
+            "right": 770.265625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 7,
+          "round": 4,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 770.265625,
+            "right": 869.8125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 8,
+          "round": 5,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 869.8125,
+            "right": 970.359375,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 9,
+          "round": 5,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 970.359375,
+            "right": 1069.90625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 10,
+          "round": 6,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 1069.90625,
+            "right": 1170.453125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 11,
+          "round": 6,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 1170.453125,
+            "right": 1270,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 5,
+        "round": 3,
+        "side": 1,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R1\nJ2\nT1\nR2\nJ1\nT2\nT3\nR3\nJ2\nT4\nT5\nR4\nJ1\nT6\nT7\nR5\nJ2\nT8\nT9\nR6\nJ1\nT10\nT11",
+      "status": "Round 3, tour 5, joueur 2, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "first": 1,
+      "turn": 17,
+      "box": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "track": {
+        "left": 170,
+        "right": 1270,
+        "top": 160.375,
+        "bottom": 190.375,
+        "width": 1100,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 12,
+          "round": 7,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 170,
+            "right": 269.53125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.53125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 13,
+          "round": 7,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 269.53125,
+            "right": 369.078125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 14,
+          "round": 8,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 369.078125,
+            "right": 469.625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 15,
+          "round": 8,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 469.625,
+            "right": 569.171875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 16,
+          "round": 9,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 569.171875,
+            "right": 669.71875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 17,
+          "round": 9,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 669.71875,
+            "right": 769.265625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 18,
+          "round": 10,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 769.265625,
+            "right": 869.8125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 19,
+          "round": 10,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 869.8125,
+            "right": 969.359375,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 20,
+          "round": 11,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 969.359375,
+            "right": 1069.90625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 21,
+          "round": 11,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 1069.90625,
+            "right": 1169.453125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 22,
+          "round": 12,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 1169.453125,
+            "right": 1270,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 17,
+        "round": 9,
+        "side": 1,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R7\nJ2\nT12\nT13\nR8\nJ1\nT14\nT15\nR9\nJ2\nT16\nT17\nR10\nJ1\nT18\nT19\nR11\nJ2\nT20\nT21\nR12\nJ1\nT22",
+      "status": "Round 9, tour 17, joueur 2, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "first": 1,
+      "turn": 99,
+      "box": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "track": {
+        "left": 170,
+        "right": 1270,
+        "top": 160.375,
+        "bottom": 190.375,
+        "width": 1100,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 94,
+          "round": 48,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 170,
+            "right": 269.53125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.53125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 95,
+          "round": 48,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 269.53125,
+            "right": 369.078125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 96,
+          "round": 49,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 369.078125,
+            "right": 469.625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 97,
+          "round": 49,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 469.625,
+            "right": 569.171875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 98,
+          "round": 50,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 569.171875,
+            "right": 669.71875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 99,
+          "round": 50,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 669.71875,
+            "right": 769.265625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 100,
+          "round": 51,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 769.265625,
+            "right": 869.8125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 101,
+          "round": 51,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 869.8125,
+            "right": 969.359375,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 102,
+          "round": 52,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 969.359375,
+            "right": 1069.90625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 103,
+          "round": 52,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 1069.90625,
+            "right": 1169.453125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 104,
+          "round": 53,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 1169.453125,
+            "right": 1270,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 99,
+        "round": 50,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R48\nJ1\nT94\nT95\nR49\nJ2\nT96\nT97\nR50\nJ1\nT98\nT99\nR51\nJ2\nT100\nT101\nR52\nJ1\nT102\nT103\nR53\nJ2\nT104",
+      "status": "Round 50, tour 99, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "first": 1,
+      "turn": 195,
+      "box": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "track": {
+        "left": 170,
+        "right": 1270,
+        "top": 160.375,
+        "bottom": 190.375,
+        "width": 1100,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 190,
+          "round": 96,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 170,
+            "right": 269.53125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.53125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 191,
+          "round": 96,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 269.53125,
+            "right": 369.078125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 192,
+          "round": 97,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 369.078125,
+            "right": 469.625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 193,
+          "round": 97,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 469.625,
+            "right": 569.171875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 194,
+          "round": 98,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 569.171875,
+            "right": 669.71875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 195,
+          "round": 98,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 669.71875,
+            "right": 769.265625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 196,
+          "round": 99,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 769.265625,
+            "right": 869.8125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 197,
+          "round": 99,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 869.8125,
+            "right": 969.359375,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 198,
+          "round": 100,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 969.359375,
+            "right": 1069.90625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 199,
+          "round": 100,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 1069.90625,
+            "right": 1169.453125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 200,
+          "round": 101,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 1169.453125,
+            "right": 1270,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 195,
+        "round": 98,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R96\nJ1\nT190\nT191\nR97\nJ2\nT192\nT193\nR98\nJ1\nT194\nT195\nR99\nJ2\nT196\nT197\nR100\nJ1\nT198\nT199\nR101\nJ2\nT200",
+      "status": "Round 98, tour 195, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "first": 1,
+      "turn": 200,
+      "box": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "track": {
+        "left": 170,
+        "right": 1270,
+        "top": 160.375,
+        "bottom": 190.375,
+        "width": 1100,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 190,
+          "round": 96,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 170,
+            "right": 269.53125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.53125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 191,
+          "round": 96,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 269.53125,
+            "right": 369.078125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 192,
+          "round": 97,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 369.078125,
+            "right": 469.625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 193,
+          "round": 97,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 469.625,
+            "right": 569.171875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 194,
+          "round": 98,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 569.171875,
+            "right": 669.71875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 195,
+          "round": 98,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 669.71875,
+            "right": 769.265625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 196,
+          "round": 99,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 769.265625,
+            "right": 869.8125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 197,
+          "round": 99,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 869.8125,
+            "right": 969.359375,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 198,
+          "round": 100,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 969.359375,
+            "right": 1069.90625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 199,
+          "round": 100,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 1069.90625,
+            "right": 1169.453125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 200,
+          "round": 101,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 1169.453125,
+            "right": 1270,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 200,
+        "round": 101,
+        "side": 1,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R96\nJ1\nT190\nT191\nR97\nJ2\nT192\nT193\nR98\nJ1\nT194\nT195\nR99\nJ2\nT196\nT197\nR100\nJ1\nT198\nT199\nR101\nJ2\nT200",
+      "status": "Round 101, tour 200, joueur 2, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "name": "real-next",
+      "first": 1,
+      "turn": 1,
+      "box": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "track": {
+        "left": 170,
+        "right": 1270,
+        "top": 160.375,
+        "bottom": 190.375,
+        "width": 1100,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 1,
+          "round": 1,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 170,
+            "right": 269.53125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.53125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 2,
+          "round": 2,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 269.53125,
+            "right": 370.078125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 3,
+          "round": 2,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 370.078125,
+            "right": 469.625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 4,
+          "round": 3,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 469.625,
+            "right": 570.171875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 5,
+          "round": 3,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 570.171875,
+            "right": 669.71875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 6,
+          "round": 4,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 669.71875,
+            "right": 770.265625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 7,
+          "round": 4,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 770.265625,
+            "right": 869.8125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 8,
+          "round": 5,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 869.8125,
+            "right": 970.359375,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 9,
+          "round": 5,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 970.359375,
+            "right": 1069.90625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 10,
+          "round": 6,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 1069.90625,
+            "right": 1170.453125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 11,
+          "round": 6,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 1170.453125,
+            "right": 1270,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 2,
+        "round": 2,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R1\nJ2\nT1\nR2\nJ1\nT2\nT3\nR3\nJ2\nT4\nT5\nR4\nJ1\nT6\nT7\nR5\nJ2\nT8\nT9\nR6\nJ1\nT10\nT11",
+      "status": "Round 2, tour 2, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "name": "real-next",
+      "first": 1,
+      "turn": 2,
+      "box": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "track": {
+        "left": 170,
+        "right": 1270,
+        "top": 160.375,
+        "bottom": 190.375,
+        "width": 1100,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 1,
+          "round": 1,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 170,
+            "right": 269.53125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.53125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 2,
+          "round": 2,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 269.53125,
+            "right": 370.078125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 3,
+          "round": 2,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 370.078125,
+            "right": 469.625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 4,
+          "round": 3,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 469.625,
+            "right": 570.171875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 5,
+          "round": 3,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 570.171875,
+            "right": 669.71875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 6,
+          "round": 4,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 669.71875,
+            "right": 770.265625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 7,
+          "round": 4,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 770.265625,
+            "right": 869.8125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 8,
+          "round": 5,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 869.8125,
+            "right": 970.359375,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 9,
+          "round": 5,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 970.359375,
+            "right": 1069.90625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 10,
+          "round": 6,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 1069.90625,
+            "right": 1170.453125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 11,
+          "round": 6,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 1170.453125,
+            "right": 1270,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 3,
+        "round": 2,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R1\nJ2\nT1\nR2\nJ1\nT2\nT3\nR3\nJ2\nT4\nT5\nR4\nJ1\nT6\nT7\nR5\nJ2\nT8\nT9\nR6\nJ1\nT10\nT11",
+      "status": "Round 2, tour 3, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "name": "real-next",
+      "first": 1,
+      "turn": 3,
+      "box": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "track": {
+        "left": 170,
+        "right": 1270,
+        "top": 160.375,
+        "bottom": 190.375,
+        "width": 1100,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 1,
+          "round": 1,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 170,
+            "right": 269.53125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.53125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 2,
+          "round": 2,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 269.53125,
+            "right": 370.078125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 3,
+          "round": 2,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 370.078125,
+            "right": 469.625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 4,
+          "round": 3,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 469.625,
+            "right": 570.171875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 5,
+          "round": 3,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 570.171875,
+            "right": 669.71875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 6,
+          "round": 4,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 669.71875,
+            "right": 770.265625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 7,
+          "round": 4,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 770.265625,
+            "right": 869.8125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 8,
+          "round": 5,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 869.8125,
+            "right": 970.359375,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 9,
+          "round": 5,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 970.359375,
+            "right": 1069.90625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 10,
+          "round": 6,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 1069.90625,
+            "right": 1170.453125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 11,
+          "round": 6,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 1170.453125,
+            "right": 1270,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 4,
+        "round": 3,
+        "side": 1,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R1\nJ2\nT1\nR2\nJ1\nT2\nT3\nR3\nJ2\nT4\nT5\nR4\nJ1\nT6\nT7\nR5\nJ2\nT8\nT9\nR6\nJ1\nT10\nT11",
+      "status": "Round 3, tour 4, joueur 2, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "turn": 17,
+      "box": {
+        "left": 0,
+        "right": 1920,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1920,
+        "height": 36
+      },
+      "track": {
+        "left": 410,
+        "right": 1510,
+        "top": 160.375,
+        "bottom": 190.375,
+        "width": 1100,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 12,
+          "round": 7,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 410,
+            "right": 509.53125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.53125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 13,
+          "round": 7,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 509.53125,
+            "right": 609.078125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 14,
+          "round": 8,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 609.078125,
+            "right": 709.625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 15,
+          "round": 8,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 709.625,
+            "right": 809.171875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 16,
+          "round": 9,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 809.171875,
+            "right": 909.71875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 17,
+          "round": 9,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 909.71875,
+            "right": 1009.265625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 18,
+          "round": 10,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 1009.265625,
+            "right": 1109.8125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 19,
+          "round": 10,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 1109.8125,
+            "right": 1209.359375,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 20,
+          "round": 11,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 1209.359375,
+            "right": 1309.90625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 21,
+          "round": 11,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 1309.90625,
+            "right": 1409.453125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 22,
+          "round": 12,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 1409.453125,
+            "right": 1510,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 17,
+        "round": 9,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R7\nJ1\nT12\nT13\nR8\nJ2\nT14\nT15\nR9\nJ1\nT16\nT17\nR10\nJ2\nT18\nT19\nR11\nJ1\nT20\nT21\nR12\nJ2\nT22",
+      "status": "Round 9, tour 17, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 877,
+        "right": 1109,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "width": 1440,
+      "height": 1000,
+      "turn": 17,
+      "box": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "track": {
+        "left": 170,
+        "right": 1270,
+        "top": 160.375,
+        "bottom": 190.375,
+        "width": 1100,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 12,
+          "round": 7,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 170,
+            "right": 269.53125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.53125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 13,
+          "round": 7,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 269.53125,
+            "right": 369.078125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 14,
+          "round": 8,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 369.078125,
+            "right": 469.625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 15,
+          "round": 8,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 469.625,
+            "right": 569.171875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 16,
+          "round": 9,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 569.171875,
+            "right": 669.71875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 17,
+          "round": 9,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 669.71875,
+            "right": 769.265625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 18,
+          "round": 10,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 769.265625,
+            "right": 869.8125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 19,
+          "round": 10,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 869.8125,
+            "right": 969.359375,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 20,
+          "round": 11,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 969.359375,
+            "right": 1069.90625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 21,
+          "round": 11,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 1069.90625,
+            "right": 1169.453125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 22,
+          "round": 12,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 1169.453125,
+            "right": 1270,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 17,
+        "round": 9,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R7\nJ1\nT12\nT13\nR8\nJ2\nT14\nT15\nR9\nJ1\nT16\nT17\nR10\nJ2\nT18\nT19\nR11\nJ1\nT20\nT21\nR12\nJ2\nT22",
+      "status": "Round 9, tour 17, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "turn": 17,
+      "box": {
+        "left": 0,
+        "right": 1024,
+        "top": 241.375,
+        "bottom": 277.375,
+        "width": 1024,
+        "height": 36
+      },
+      "track": {
+        "left": 16,
+        "right": 1008,
+        "top": 244.375,
+        "bottom": 274.375,
+        "width": 992,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 12,
+          "round": 7,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 16,
+            "right": 105.71875,
+            "top": 244.375,
+            "bottom": 274.375,
+            "width": 89.71875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 13,
+          "round": 7,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 105.71875,
+            "right": 195.453125,
+            "top": 244.375,
+            "bottom": 274.375,
+            "width": 89.734375,
+            "height": 30
+          }
+        },
+        {
+          "turn": 14,
+          "round": 8,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 195.453125,
+            "right": 286.171875,
+            "top": 244.375,
+            "bottom": 274.375,
+            "width": 90.71875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 15,
+          "round": 8,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 286.171875,
+            "right": 375.90625,
+            "top": 244.375,
+            "bottom": 274.375,
+            "width": 89.734375,
+            "height": 30
+          }
+        },
+        {
+          "turn": 16,
+          "round": 9,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 375.90625,
+            "right": 466.625,
+            "top": 244.375,
+            "bottom": 274.375,
+            "width": 90.71875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 17,
+          "round": 9,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 466.625,
+            "right": 556.359375,
+            "top": 244.375,
+            "bottom": 274.375,
+            "width": 89.734375,
+            "height": 30
+          }
+        },
+        {
+          "turn": 18,
+          "round": 10,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 556.359375,
+            "right": 647.078125,
+            "top": 244.375,
+            "bottom": 274.375,
+            "width": 90.71875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 19,
+          "round": 10,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 647.078125,
+            "right": 736.8125,
+            "top": 244.375,
+            "bottom": 274.375,
+            "width": 89.734375,
+            "height": 30
+          }
+        },
+        {
+          "turn": 20,
+          "round": 11,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 736.8125,
+            "right": 827.53125,
+            "top": 244.375,
+            "bottom": 274.375,
+            "width": 90.71875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 21,
+          "round": 11,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 827.53125,
+            "right": 917.265625,
+            "top": 244.375,
+            "bottom": 274.375,
+            "width": 89.734375,
+            "height": 30
+          }
+        },
+        {
+          "turn": 22,
+          "round": 12,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 917.265625,
+            "right": 1008,
+            "top": 244.375,
+            "bottom": 274.375,
+            "width": 90.734375,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 17,
+        "round": 9,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R7\nJ1\nT12\nT13\nR8\nJ2\nT14\nT15\nR9\nJ1\nT16\nT17\nR10\nJ2\nT18\nT19\nR11\nJ1\nT20\nT21\nR12\nJ2\nT22",
+      "status": "Round 9, tour 17, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 818,
+        "right": 1010,
+        "top": 120.1875,
+        "bottom": 180.1875,
+        "width": 192,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "turn": 17,
+      "box": {
+        "left": 0,
+        "right": 820,
+        "top": 298.375,
+        "bottom": 334.375,
+        "width": 820,
+        "height": 36
+      },
+      "track": {
+        "left": 16,
+        "right": 804,
+        "top": 301.375,
+        "bottom": 331.375,
+        "width": 788,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 12,
+          "round": 7,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 16,
+            "right": 87.171875,
+            "top": 301.375,
+            "bottom": 331.375,
+            "width": 71.171875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 13,
+          "round": 7,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 87.171875,
+            "right": 158.359375,
+            "top": 301.375,
+            "bottom": 331.375,
+            "width": 71.1875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 14,
+          "round": 8,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 158.359375,
+            "right": 230.53125,
+            "top": 301.375,
+            "bottom": 331.375,
+            "width": 72.171875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 15,
+          "round": 8,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 230.53125,
+            "right": 301.71875,
+            "top": 301.375,
+            "bottom": 331.375,
+            "width": 71.1875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 16,
+          "round": 9,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 301.71875,
+            "right": 373.890625,
+            "top": 301.375,
+            "bottom": 331.375,
+            "width": 72.171875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 17,
+          "round": 9,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 373.890625,
+            "right": 445.078125,
+            "top": 301.375,
+            "bottom": 331.375,
+            "width": 71.1875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 18,
+          "round": 10,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 445.078125,
+            "right": 517.25,
+            "top": 301.375,
+            "bottom": 331.375,
+            "width": 72.171875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 19,
+          "round": 10,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 517.25,
+            "right": 588.4375,
+            "top": 301.375,
+            "bottom": 331.375,
+            "width": 71.1875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 20,
+          "round": 11,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 588.4375,
+            "right": 660.625,
+            "top": 301.375,
+            "bottom": 331.375,
+            "width": 72.1875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 21,
+          "round": 11,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 660.625,
+            "right": 731.8125,
+            "top": 301.375,
+            "bottom": 331.375,
+            "width": 71.1875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 22,
+          "round": 12,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 731.8125,
+            "right": 804,
+            "top": 301.375,
+            "bottom": 331.375,
+            "width": 72.1875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 17,
+        "round": 9,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R7\nJ1\nT12\nT13\nR8\nJ2\nT14\nT15\nR9\nJ1\nT16\nT17\nR10\nJ2\nT18\nT19\nR11\nJ1\nT20\nT21\nR12\nJ2\nT22",
+      "status": "Round 9, tour 17, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 614,
+        "right": 806,
+        "top": 132.1875,
+        "bottom": 192.1875,
+        "width": 192,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "width": 412,
+      "height": 1007,
+      "turn": 17,
+      "box": {
+        "left": 0,
+        "right": 412,
+        "top": 1,
+        "bottom": 35,
+        "width": 412,
+        "height": 34
+      },
+      "track": {
+        "left": 8,
+        "right": 404,
+        "top": 3,
+        "bottom": 33,
+        "width": 396,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 15,
+          "round": 8,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 8,
+            "right": 88,
+            "top": 3,
+            "bottom": 33,
+            "width": 80,
+            "height": 30
+          }
+        },
+        {
+          "turn": 16,
+          "round": 9,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 88,
+            "right": 167,
+            "top": 3,
+            "bottom": 33,
+            "width": 79,
+            "height": 30
+          }
+        },
+        {
+          "turn": 17,
+          "round": 9,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 167,
+            "right": 246,
+            "top": 3,
+            "bottom": 33,
+            "width": 79,
+            "height": 30
+          }
+        },
+        {
+          "turn": 18,
+          "round": 10,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 246,
+            "right": 325,
+            "top": 3,
+            "bottom": 33,
+            "width": 79,
+            "height": 30
+          }
+        },
+        {
+          "turn": 19,
+          "round": 10,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 325,
+            "right": 404,
+            "top": 3,
+            "bottom": 33,
+            "width": 79,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 17,
+        "round": 9,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R8\nJ2\nT15\nR9\nJ1\nT16\nT17\nR10\nJ2\nT18\nT19",
+      "status": "Round 9, tour 17, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 12,
+        "right": 122,
+        "top": 47,
+        "bottom": 95,
+        "width": 110,
+        "height": 48
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "turn": 17,
+      "box": {
+        "left": 0,
+        "right": 390,
+        "top": 1,
+        "bottom": 35,
+        "width": 390,
+        "height": 34
+      },
+      "track": {
+        "left": 8,
+        "right": 382,
+        "top": 3,
+        "bottom": 33,
+        "width": 374,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 15,
+          "round": 8,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 8,
+            "right": 83.59375,
+            "top": 3,
+            "bottom": 33,
+            "width": 75.59375,
+            "height": 30
+          }
+        },
+        {
+          "turn": 16,
+          "round": 9,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 83.59375,
+            "right": 158.203125,
+            "top": 3,
+            "bottom": 33,
+            "width": 74.609375,
+            "height": 30
+          }
+        },
+        {
+          "turn": 17,
+          "round": 9,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 158.203125,
+            "right": 232.796875,
+            "top": 3,
+            "bottom": 33,
+            "width": 74.59375,
+            "height": 30
+          }
+        },
+        {
+          "turn": 18,
+          "round": 10,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 232.796875,
+            "right": 307.40625,
+            "top": 3,
+            "bottom": 33,
+            "width": 74.609375,
+            "height": 30
+          }
+        },
+        {
+          "turn": 19,
+          "round": 10,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 307.40625,
+            "right": 382,
+            "top": 3,
+            "bottom": 33,
+            "width": 74.59375,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 17,
+        "round": 9,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R8\nJ2\nT15\nR9\nJ1\nT16\nT17\nR10\nJ2\nT18\nT19",
+      "status": "Round 9, tour 17, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 12,
+        "right": 122,
+        "top": 47,
+        "bottom": 95,
+        "width": 110,
+        "height": 48
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "turn": 17,
+      "box": {
+        "left": 0,
+        "right": 320,
+        "top": 1,
+        "bottom": 35,
+        "width": 320,
+        "height": 34
+      },
+      "track": {
+        "left": 8,
+        "right": 312,
+        "top": 3,
+        "bottom": 33,
+        "width": 304,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 15,
+          "round": 8,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 8,
+            "right": 69.59375,
+            "top": 3,
+            "bottom": 33,
+            "width": 61.59375,
+            "height": 30
+          }
+        },
+        {
+          "turn": 16,
+          "round": 9,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 69.59375,
+            "right": 130.203125,
+            "top": 3,
+            "bottom": 33,
+            "width": 60.609375,
+            "height": 30
+          }
+        },
+        {
+          "turn": 17,
+          "round": 9,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 130.203125,
+            "right": 190.796875,
+            "top": 3,
+            "bottom": 33,
+            "width": 60.59375,
+            "height": 30
+          }
+        },
+        {
+          "turn": 18,
+          "round": 10,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 190.796875,
+            "right": 251.40625,
+            "top": 3,
+            "bottom": 33,
+            "width": 60.609375,
+            "height": 30
+          }
+        },
+        {
+          "turn": 19,
+          "round": 10,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 251.40625,
+            "right": 312,
+            "top": 3,
+            "bottom": 33,
+            "width": 60.59375,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 17,
+        "round": 9,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R8\nJ2\nT15\nR9\nJ1\nT16\nT17\nR10\nJ2\nT18\nT19",
+      "status": "Round 9, tour 17, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 12,
+        "right": 122,
+        "top": 47,
+        "bottom": 95,
+        "width": 110,
+        "height": 48
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "width": 699,
+      "height": 900,
+      "turn": 17,
+      "box": {
+        "left": 0,
+        "right": 699,
+        "top": 1,
+        "bottom": 35,
+        "width": 699,
+        "height": 34
+      },
+      "track": {
+        "left": 8,
+        "right": 691,
+        "top": 3,
+        "bottom": 33,
+        "width": 683,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 15,
+          "round": 8,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 8,
+            "right": 145.390625,
+            "top": 3,
+            "bottom": 33,
+            "width": 137.390625,
+            "height": 30
+          }
+        },
+        {
+          "turn": 16,
+          "round": 9,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 145.390625,
+            "right": 281.796875,
+            "top": 3,
+            "bottom": 33,
+            "width": 136.40625,
+            "height": 30
+          }
+        },
+        {
+          "turn": 17,
+          "round": 9,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 281.796875,
+            "right": 418.1875,
+            "top": 3,
+            "bottom": 33,
+            "width": 136.390625,
+            "height": 30
+          }
+        },
+        {
+          "turn": 18,
+          "round": 10,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 418.1875,
+            "right": 554.59375,
+            "top": 3,
+            "bottom": 33,
+            "width": 136.40625,
+            "height": 30
+          }
+        },
+        {
+          "turn": 19,
+          "round": 10,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 554.59375,
+            "right": 691,
+            "top": 3,
+            "bottom": 33,
+            "width": 136.40625,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 17,
+        "round": 9,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R8\nJ2\nT15\nR9\nJ1\nT16\nT17\nR10\nJ2\nT18\nT19",
+      "status": "Round 9, tour 17, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 12,
+        "right": 122,
+        "top": 47,
+        "bottom": 95,
+        "width": 110,
+        "height": 48
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "turn": 17,
+      "box": {
+        "left": 0,
+        "right": 844,
+        "top": 1,
+        "bottom": 35,
+        "width": 844,
+        "height": 34
+      },
+      "track": {
+        "left": 8,
+        "right": 836,
+        "top": 3,
+        "bottom": 33,
+        "width": 828,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 15,
+          "round": 8,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 8,
+            "right": 174.390625,
+            "top": 3,
+            "bottom": 33,
+            "width": 166.390625,
+            "height": 30
+          }
+        },
+        {
+          "turn": 16,
+          "round": 9,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 174.390625,
+            "right": 339.796875,
+            "top": 3,
+            "bottom": 33,
+            "width": 165.40625,
+            "height": 30
+          }
+        },
+        {
+          "turn": 17,
+          "round": 9,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 339.796875,
+            "right": 505.1875,
+            "top": 3,
+            "bottom": 33,
+            "width": 165.390625,
+            "height": 30
+          }
+        },
+        {
+          "turn": 18,
+          "round": 10,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 505.1875,
+            "right": 670.59375,
+            "top": 3,
+            "bottom": 33,
+            "width": 165.40625,
+            "height": 30
+          }
+        },
+        {
+          "turn": 19,
+          "round": 10,
+          "side": 1,
+          "past": false,
+          "box": {
+            "left": 670.59375,
+            "right": 836,
+            "top": 3,
+            "bottom": 33,
+            "width": 165.40625,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 17,
+        "round": 9,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R8\nJ2\nT15\nR9\nJ1\nT16\nT17\nR10\nJ2\nT18\nT19",
+      "status": "Round 9, tour 17, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 12,
+        "right": 122,
+        "top": 47,
+        "bottom": 95,
+        "width": 110,
+        "height": 48
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "turn": 200,
+      "box": {
+        "left": 0,
+        "right": 1920,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1920,
+        "height": 36
+      },
+      "track": {
+        "left": 410,
+        "right": 1510,
+        "top": 160.375,
+        "bottom": 190.375,
+        "width": 1100,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 190,
+          "round": 96,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 410,
+            "right": 509.53125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.53125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 191,
+          "round": 96,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 509.53125,
+            "right": 609.078125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 192,
+          "round": 97,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 609.078125,
+            "right": 709.625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 193,
+          "round": 97,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 709.625,
+            "right": 809.171875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 194,
+          "round": 98,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 809.171875,
+            "right": 909.71875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 195,
+          "round": 98,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 909.71875,
+            "right": 1009.265625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 196,
+          "round": 99,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 1009.265625,
+            "right": 1109.8125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 197,
+          "round": 99,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 1109.8125,
+            "right": 1209.359375,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 198,
+          "round": 100,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 1209.359375,
+            "right": 1309.90625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 199,
+          "round": 100,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 1309.90625,
+            "right": 1409.453125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 200,
+          "round": 101,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 1409.453125,
+            "right": 1510,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 200,
+        "round": 101,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R96\nJ2\nT190\nT191\nR97\nJ1\nT192\nT193\nR98\nJ2\nT194\nT195\nR99\nJ1\nT196\nT197\nR100\nJ2\nT198\nT199\nR101\nJ1\nT200",
+      "status": "Round 101, tour 200, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 877,
+        "right": 1109,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "width": 1440,
+      "height": 1000,
+      "turn": 200,
+      "box": {
+        "left": 0,
+        "right": 1440,
+        "top": 157.375,
+        "bottom": 193.375,
+        "width": 1440,
+        "height": 36
+      },
+      "track": {
+        "left": 170,
+        "right": 1270,
+        "top": 160.375,
+        "bottom": 190.375,
+        "width": 1100,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 190,
+          "round": 96,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 170,
+            "right": 269.53125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.53125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 191,
+          "round": 96,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 269.53125,
+            "right": 369.078125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 192,
+          "round": 97,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 369.078125,
+            "right": 469.625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 193,
+          "round": 97,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 469.625,
+            "right": 569.171875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 194,
+          "round": 98,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 569.171875,
+            "right": 669.71875,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 195,
+          "round": 98,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 669.71875,
+            "right": 769.265625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 196,
+          "round": 99,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 769.265625,
+            "right": 869.8125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 197,
+          "round": 99,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 869.8125,
+            "right": 969.359375,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 198,
+          "round": 100,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 969.359375,
+            "right": 1069.90625,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 199,
+          "round": 100,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 1069.90625,
+            "right": 1169.453125,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 99.546875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 200,
+          "round": 101,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 1169.453125,
+            "right": 1270,
+            "top": 160.375,
+            "bottom": 190.375,
+            "width": 100.546875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 200,
+        "round": 101,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R96\nJ2\nT190\nT191\nR97\nJ1\nT192\nT193\nR98\nJ2\nT194\nT195\nR99\nJ1\nT196\nT197\nR100\nJ2\nT198\nT199\nR101\nJ1\nT200",
+      "status": "Round 101, tour 200, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 397,
+        "right": 629,
+        "top": 86.1875,
+        "bottom": 146.1875,
+        "width": 232,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "turn": 200,
+      "box": {
+        "left": 0,
+        "right": 1024,
+        "top": 241.375,
+        "bottom": 277.375,
+        "width": 1024,
+        "height": 36
+      },
+      "track": {
+        "left": 16,
+        "right": 1008,
+        "top": 244.375,
+        "bottom": 274.375,
+        "width": 992,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 190,
+          "round": 96,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 16,
+            "right": 105.71875,
+            "top": 244.375,
+            "bottom": 274.375,
+            "width": 89.71875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 191,
+          "round": 96,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 105.71875,
+            "right": 195.453125,
+            "top": 244.375,
+            "bottom": 274.375,
+            "width": 89.734375,
+            "height": 30
+          }
+        },
+        {
+          "turn": 192,
+          "round": 97,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 195.453125,
+            "right": 286.171875,
+            "top": 244.375,
+            "bottom": 274.375,
+            "width": 90.71875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 193,
+          "round": 97,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 286.171875,
+            "right": 375.90625,
+            "top": 244.375,
+            "bottom": 274.375,
+            "width": 89.734375,
+            "height": 30
+          }
+        },
+        {
+          "turn": 194,
+          "round": 98,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 375.90625,
+            "right": 466.625,
+            "top": 244.375,
+            "bottom": 274.375,
+            "width": 90.71875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 195,
+          "round": 98,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 466.625,
+            "right": 556.359375,
+            "top": 244.375,
+            "bottom": 274.375,
+            "width": 89.734375,
+            "height": 30
+          }
+        },
+        {
+          "turn": 196,
+          "round": 99,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 556.359375,
+            "right": 647.078125,
+            "top": 244.375,
+            "bottom": 274.375,
+            "width": 90.71875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 197,
+          "round": 99,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 647.078125,
+            "right": 736.8125,
+            "top": 244.375,
+            "bottom": 274.375,
+            "width": 89.734375,
+            "height": 30
+          }
+        },
+        {
+          "turn": 198,
+          "round": 100,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 736.8125,
+            "right": 827.53125,
+            "top": 244.375,
+            "bottom": 274.375,
+            "width": 90.71875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 199,
+          "round": 100,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 827.53125,
+            "right": 917.265625,
+            "top": 244.375,
+            "bottom": 274.375,
+            "width": 89.734375,
+            "height": 30
+          }
+        },
+        {
+          "turn": 200,
+          "round": 101,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 917.265625,
+            "right": 1008,
+            "top": 244.375,
+            "bottom": 274.375,
+            "width": 90.734375,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 200,
+        "round": 101,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R96\nJ2\nT190\nT191\nR97\nJ1\nT192\nT193\nR98\nJ2\nT194\nT195\nR99\nJ1\nT196\nT197\nR100\nJ2\nT198\nT199\nR101\nJ1\nT200",
+      "status": "Round 101, tour 200, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 818,
+        "right": 1010,
+        "top": 120.1875,
+        "bottom": 180.1875,
+        "width": 192,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "turn": 200,
+      "box": {
+        "left": 0,
+        "right": 820,
+        "top": 298.375,
+        "bottom": 334.375,
+        "width": 820,
+        "height": 36
+      },
+      "track": {
+        "left": 16,
+        "right": 804,
+        "top": 301.375,
+        "bottom": 331.375,
+        "width": 788,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 190,
+          "round": 96,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 16,
+            "right": 87.171875,
+            "top": 301.375,
+            "bottom": 331.375,
+            "width": 71.171875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 191,
+          "round": 96,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 87.171875,
+            "right": 158.359375,
+            "top": 301.375,
+            "bottom": 331.375,
+            "width": 71.1875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 192,
+          "round": 97,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 158.359375,
+            "right": 230.53125,
+            "top": 301.375,
+            "bottom": 331.375,
+            "width": 72.171875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 193,
+          "round": 97,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 230.53125,
+            "right": 301.71875,
+            "top": 301.375,
+            "bottom": 331.375,
+            "width": 71.1875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 194,
+          "round": 98,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 301.71875,
+            "right": 373.890625,
+            "top": 301.375,
+            "bottom": 331.375,
+            "width": 72.171875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 195,
+          "round": 98,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 373.890625,
+            "right": 445.078125,
+            "top": 301.375,
+            "bottom": 331.375,
+            "width": 71.1875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 196,
+          "round": 99,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 445.078125,
+            "right": 517.25,
+            "top": 301.375,
+            "bottom": 331.375,
+            "width": 72.171875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 197,
+          "round": 99,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 517.25,
+            "right": 588.4375,
+            "top": 301.375,
+            "bottom": 331.375,
+            "width": 71.1875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 198,
+          "round": 100,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 588.4375,
+            "right": 660.625,
+            "top": 301.375,
+            "bottom": 331.375,
+            "width": 72.1875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 199,
+          "round": 100,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 660.625,
+            "right": 731.8125,
+            "top": 301.375,
+            "bottom": 331.375,
+            "width": 71.1875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 200,
+          "round": 101,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 731.8125,
+            "right": 804,
+            "top": 301.375,
+            "bottom": 331.375,
+            "width": 72.1875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 200,
+        "round": 101,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R96\nJ2\nT190\nT191\nR97\nJ1\nT192\nT193\nR98\nJ2\nT194\nT195\nR99\nJ1\nT196\nT197\nR100\nJ2\nT198\nT199\nR101\nJ1\nT200",
+      "status": "Round 101, tour 200, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 614,
+        "right": 806,
+        "top": 132.1875,
+        "bottom": 192.1875,
+        "width": 192,
+        "height": 60
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "width": 412,
+      "height": 1007,
+      "turn": 200,
+      "box": {
+        "left": 0,
+        "right": 412,
+        "top": 1,
+        "bottom": 35,
+        "width": 412,
+        "height": 34
+      },
+      "track": {
+        "left": 8,
+        "right": 404,
+        "top": 3,
+        "bottom": 33,
+        "width": 396,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 196,
+          "round": 99,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 8,
+            "right": 87.1875,
+            "top": 3,
+            "bottom": 33,
+            "width": 79.1875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 197,
+          "round": 99,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 87.1875,
+            "right": 166.390625,
+            "top": 3,
+            "bottom": 33,
+            "width": 79.203125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 198,
+          "round": 100,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 166.390625,
+            "right": 245.59375,
+            "top": 3,
+            "bottom": 33,
+            "width": 79.203125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 199,
+          "round": 100,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 245.59375,
+            "right": 324.796875,
+            "top": 3,
+            "bottom": 33,
+            "width": 79.203125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 200,
+          "round": 101,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 324.796875,
+            "right": 404,
+            "top": 3,
+            "bottom": 33,
+            "width": 79.203125,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 200,
+        "round": 101,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R99\nJ1\nT196\nT197\nR100\nJ2\nT198\nT199\nR101\nJ1\nT200",
+      "status": "Round 101, tour 200, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 12,
+        "right": 122,
+        "top": 47,
+        "bottom": 95,
+        "width": 110,
+        "height": 48
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "turn": 200,
+      "box": {
+        "left": 0,
+        "right": 390,
+        "top": 1,
+        "bottom": 35,
+        "width": 390,
+        "height": 34
+      },
+      "track": {
+        "left": 8,
+        "right": 382,
+        "top": 3,
+        "bottom": 33,
+        "width": 374,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 196,
+          "round": 99,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 8,
+            "right": 82.796875,
+            "top": 3,
+            "bottom": 33,
+            "width": 74.796875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 197,
+          "round": 99,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 82.796875,
+            "right": 157.609375,
+            "top": 3,
+            "bottom": 33,
+            "width": 74.8125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 198,
+          "round": 100,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 157.609375,
+            "right": 232.40625,
+            "top": 3,
+            "bottom": 33,
+            "width": 74.796875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 199,
+          "round": 100,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 232.40625,
+            "right": 307.203125,
+            "top": 3,
+            "bottom": 33,
+            "width": 74.796875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 200,
+          "round": 101,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 307.203125,
+            "right": 382,
+            "top": 3,
+            "bottom": 33,
+            "width": 74.796875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 200,
+        "round": 101,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R99\nJ1\nT196\nT197\nR100\nJ2\nT198\nT199\nR101\nJ1\nT200",
+      "status": "Round 101, tour 200, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 12,
+        "right": 122,
+        "top": 47,
+        "bottom": 95,
+        "width": 110,
+        "height": 48
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "turn": 200,
+      "box": {
+        "left": 0,
+        "right": 320,
+        "top": 1,
+        "bottom": 35,
+        "width": 320,
+        "height": 34
+      },
+      "track": {
+        "left": 8,
+        "right": 312,
+        "top": 3,
+        "bottom": 33,
+        "width": 304,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 196,
+          "round": 99,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 8,
+            "right": 68.796875,
+            "top": 3,
+            "bottom": 33,
+            "width": 60.796875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 197,
+          "round": 99,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 68.796875,
+            "right": 129.609375,
+            "top": 3,
+            "bottom": 33,
+            "width": 60.8125,
+            "height": 30
+          }
+        },
+        {
+          "turn": 198,
+          "round": 100,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 129.609375,
+            "right": 190.40625,
+            "top": 3,
+            "bottom": 33,
+            "width": 60.796875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 199,
+          "round": 100,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 190.40625,
+            "right": 251.203125,
+            "top": 3,
+            "bottom": 33,
+            "width": 60.796875,
+            "height": 30
+          }
+        },
+        {
+          "turn": 200,
+          "round": 101,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 251.203125,
+            "right": 312,
+            "top": 3,
+            "bottom": 33,
+            "width": 60.796875,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 200,
+        "round": 101,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R99\nJ1\nT196\nT197\nR100\nJ2\nT198\nT199\nR101\nJ1\nT200",
+      "status": "Round 101, tour 200, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 12,
+        "right": 122,
+        "top": 47,
+        "bottom": 95,
+        "width": 110,
+        "height": 48
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "width": 699,
+      "height": 900,
+      "turn": 200,
+      "box": {
+        "left": 0,
+        "right": 699,
+        "top": 1,
+        "bottom": 35,
+        "width": 699,
+        "height": 34
+      },
+      "track": {
+        "left": 8,
+        "right": 691,
+        "top": 3,
+        "bottom": 33,
+        "width": 683,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 196,
+          "round": 99,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 8,
+            "right": 144.59375,
+            "top": 3,
+            "bottom": 33,
+            "width": 136.59375,
+            "height": 30
+          }
+        },
+        {
+          "turn": 197,
+          "round": 99,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 144.59375,
+            "right": 281.203125,
+            "top": 3,
+            "bottom": 33,
+            "width": 136.609375,
+            "height": 30
+          }
+        },
+        {
+          "turn": 198,
+          "round": 100,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 281.203125,
+            "right": 417.796875,
+            "top": 3,
+            "bottom": 33,
+            "width": 136.59375,
+            "height": 30
+          }
+        },
+        {
+          "turn": 199,
+          "round": 100,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 417.796875,
+            "right": 554.40625,
+            "top": 3,
+            "bottom": 33,
+            "width": 136.609375,
+            "height": 30
+          }
+        },
+        {
+          "turn": 200,
+          "round": 101,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 554.40625,
+            "right": 691,
+            "top": 3,
+            "bottom": 33,
+            "width": 136.59375,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 200,
+        "round": 101,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R99\nJ1\nT196\nT197\nR100\nJ2\nT198\nT199\nR101\nJ1\nT200",
+      "status": "Round 101, tour 200, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 12,
+        "right": 122,
+        "top": 47,
+        "bottom": 95,
+        "width": 110,
+        "height": 48
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "turn": 200,
+      "box": {
+        "left": 0,
+        "right": 844,
+        "top": 1,
+        "bottom": 35,
+        "width": 844,
+        "height": 34
+      },
+      "track": {
+        "left": 8,
+        "right": 836,
+        "top": 3,
+        "bottom": 33,
+        "width": 828,
+        "height": 30
+      },
+      "steps": [
+        {
+          "turn": 196,
+          "round": 99,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 8,
+            "right": 173.59375,
+            "top": 3,
+            "bottom": 33,
+            "width": 165.59375,
+            "height": 30
+          }
+        },
+        {
+          "turn": 197,
+          "round": 99,
+          "side": 0,
+          "past": true,
+          "box": {
+            "left": 173.59375,
+            "right": 339.203125,
+            "top": 3,
+            "bottom": 33,
+            "width": 165.609375,
+            "height": 30
+          }
+        },
+        {
+          "turn": 198,
+          "round": 100,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 339.203125,
+            "right": 504.796875,
+            "top": 3,
+            "bottom": 33,
+            "width": 165.59375,
+            "height": 30
+          }
+        },
+        {
+          "turn": 199,
+          "round": 100,
+          "side": 1,
+          "past": true,
+          "box": {
+            "left": 504.796875,
+            "right": 670.40625,
+            "top": 3,
+            "bottom": 33,
+            "width": 165.609375,
+            "height": 30
+          }
+        },
+        {
+          "turn": 200,
+          "round": 101,
+          "side": 0,
+          "past": false,
+          "box": {
+            "left": 670.40625,
+            "right": 836,
+            "top": 3,
+            "bottom": 33,
+            "width": 165.59375,
+            "height": 30
+          }
+        }
+      ],
+      "current": {
+        "turn": 200,
+        "round": 101,
+        "side": 0,
+        "resolved": false
+      },
+      "stationFits": true,
+      "groupsFit": true,
+      "text": "R99\nJ1\nT196\nT197\nR100\nJ2\nT198\nT199\nR101\nJ1\nT200",
+      "status": "Round 101, tour 200, joueur 1, attaque",
+      "hiddenStatus": true,
+      "overflow": false,
+      "score": {
+        "left": 12,
+        "right": 122,
+        "top": 47,
+        "bottom": 95,
+        "width": 110,
+        "height": 48
+      },
+      "motion": "tt-crystal-breath",
+      "gem": "url(\"http://127.0.0.1:4304/jeu/assets/navigation/kalistel-rainbow-v1.webp\")",
+      "reduced": false
+    }
+  ],
+  "errors": []
+}

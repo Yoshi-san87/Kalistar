@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 4,
+  "id": "30000015",
+  "name": "SCROW",
+  "title": "LA FLECHE RETENUE",
+  "job": "GUETTEUR",
+  "race": "KORBOW",
+  "element": "AERO",
+  "faction": "Nestown",
+  "weapon": "Arc",
+  "positions": [
+    4
+  ],
+  "atk": [
+    293,
+    241,
+    196,
+    144,
+    92,
+    40
+  ],
+  "defense": [
+    175,
+    143,
+    111,
+    86,
+    54,
+    22
+  ],
+  "magic": [],
+  "barriers": [
+    4
+  ],
+  "slug": "15_AERO_SCROW",
+  "hue": 155,
+  "color": "89EDC2",
+  "weapon_index": 5,
+  "description": "Scrow reconnaît le sceau avant de lâcher la corde. Il laisse le messager franchir les toits. Une flèche retenue peut peser autant qu'une flèche tirée.",
+  "artwork": "SCROW",
+  "artworkSource": "V4/assets/illustrations/elements-01/air/SCROW_V4_01.png",
+  "artworkUnchanged": false,
+  "sourcePSD": "V3/templates/15_AERO_SCROW.psd",
+  "output": "SCROW_V4_01_AERO",
+  "profile": "V4/template-stable/elements-01/scrow/card.json"
+}

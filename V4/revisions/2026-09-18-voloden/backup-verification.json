@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "method": "CUA browser interaction with the isolated backup-tests.cjs harness",
+  "referenceId": "aaee4023166e9997f865e9972caddb34022764b8d3ed5e1d53c30e68adcc1ace",
+  "namespace": "kalistar-v4-cards-test-voloden-76c2bed0-1c5a-43f5-82a8-fea9d10020f8",
+  "counts": [26, 27],
+  "scenariosPassed": 8,
+  "scenarios": [
+    "Transferred newer originals, issued copies, activation and transfer proofs preserved",
+    "Default merge rejects ownership conflicts; explicit restore retains newer transfers",
+    "Pending transfers survive and forged transfer history is rejected",
+    "Mixed old/new matches retain owners, release proofs and recomputed counters",
+    "Tampered owners, missing origins and omitted profiles fail atomically",
+    "Fresh expanded registry restores without reminting newer originals",
+    "Schema 2 cannot omit approved profiles without registry proofs",
+    "Stale connections cannot import until their catalogue is refreshed"
+  ],
+  "productionDatabaseTouched": false
+}

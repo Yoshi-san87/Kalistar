@@ -1,0 +1,64 @@
+{
+  "passed": true,
+  "modelId": "49055457",
+  "referenceId": "02f0808cbd56d2b0d4103450e7943db69b95ac120a0df349f4374c82f7f712e5",
+  "profileHash": "02a9bbff10bc5ea38b1a8bda4cabec02f7d21283387ac13d04633f2b5f9735c3",
+  "hashes": {
+    "card.png": "984532fdeef4983632a291b3d2bb3c6569e76961e5b254a48665aa95ae42ddd0",
+    "card.psd": "3280b0b6f393cd9982786e4a32c65a80ba7ffcb5f00fc6ac3c649f2bbab0c413"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 115833
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49055457",
+    "cases": {
+      "color-1": [
+        "49055457"
+      ],
+      "color-4": [
+        "49055457"
+      ],
+      "gray-1": [
+        "49055457"
+      ],
+      "gray-4": [
+        "49055457"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-25T12:23:55.196Z",
+  "revision": "2026-09-25-kaylis-training",
+  "scope": {
+    "originalPixels": {
+      "changed": 0,
+      "outside": 0
+    },
+    "withoutArt": {
+      "changed": 0,
+      "outside": 0
+    },
+    "outside": {
+      "changed": 445463,
+      "outside": 0
+    },
+    "nativeTextUnchanged": true,
+    "nativeStyleRunsUnchanged": true,
+    "geometryUnchanged": true,
+    "embeddedObjects": true,
+    "changedProfileFields": []
+  },
+  "nativeFiles": {
+    "V4/revisions/2026-09-25-kaylis-training/work/kaylis/render/native.json": "0b5d84d333a7c632ef8dfd6b150e25e1ff359b8b4c8f8fc42153346ac7482310",
+    "V4/revisions/2026-09-25-kaylis-training/work/kaylis/render/reopened.png": "637a8536c9945b4fed378448438776303f0275626896b3fb0f2dc04390258676",
+    "V4/revisions/2026-09-25-kaylis-training/work/kaylis/render/without-text.png": "d6e08c55eda1183c52366228d9b37e9a52f5a9912435fe81d9d1fcb18a8c4913"
+  }
+}

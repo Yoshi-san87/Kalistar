@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "modelId": "49700121",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "02c578e7ad891bdb37411ca44849a0e47f09651eecab3266b3aeec0fe3793016",
+  "hashes": {
+    "card.png": "fc3de0356a5d96c2a32e18a33e6a765aa151177fa445833dfd10c3a52df98d04",
+    "card.psd": "cdf44880afa1134a115da8029dfbacc3334af249512ee7dd4c936cff3d2c6070"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 107122
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49700121",
+    "cases": {
+      "color-1": [
+        "49700121"
+      ],
+      "color-4": [
+        "49700121"
+      ],
+      "gray-1": [
+        "49700121"
+      ],
+      "gray-4": [
+        "49700121"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-08T14:21:26.162Z",
+  "revision": "2026-10-08-resident-evil-faces",
+  "scope": {
+    "changed": 11829,
+    "outside": 0,
+    "method": "Exact original/revised component alpha plus 44/64 px numeric circles for changed combat faces only"
+  },
+  "preservedArtworkAndIdentity": true,
+  "originalHash": "ec066f1ef8411e9c9c0c1064e9cb1e8a480a30ff332377d61239c5a244fff0a1",
+  "inputManifestHash": "0ba836f33ef328461a08ec5544eda1cfaf49369d82ff84419f0dbcecf2dc0037",
+  "proofRepairManifestHash": "50c2856f5365d4b51fe7eb9fde3cabe2df93f4369a423f667f8e4db7449990ec"
+}

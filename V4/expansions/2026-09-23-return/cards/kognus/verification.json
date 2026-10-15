@@ -1,0 +1,64 @@
+{
+  "passed": true,
+  "modelId": "30000025",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "47d7b6db0c7da70a1f1b4c1d4a2e8f4fd2b8641bdcb27e30909cf321bb0699e5",
+  "hashes": {
+    "card.png": "8a91e855f41d3c87158a49d17ecb094365a5e871409b58e70c7c1d5b19d1b3dd",
+    "card.psd": "ee1eaef99a4a190ee892ce386dd8b64e3d449cbec2ab0b37ac0e8dbc7bc918cc"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 87596
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "30000025",
+    "cases": {
+      "color-1": [
+        "30000025"
+      ],
+      "color-4": [
+        "30000025"
+      ],
+      "gray-1": [
+        "30000025"
+      ],
+      "gray-4": [
+        "30000025"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-23T16:05:49.889Z",
+  "key": "kognus",
+  "typography": {
+    "NOM": {
+      "font": "TimesNewRomanPSMT",
+      "sizePt": 10.0000012207031,
+      "tracking": 0,
+      "capitalization": "TextCase.NORMAL",
+      "fauxBold": false,
+      "fauxItalic": false
+    },
+    "TITLE": {
+      "font": "TimesNewRomanPSMT",
+      "sizePt": 7.68,
+      "tracking": 0,
+      "capitalization": "TextCase.ALLCAPS",
+      "fauxBold": false,
+      "fauxItalic": false
+    }
+  },
+  "none": {
+    "unlit": true,
+    "crystalHash": "fd16efbb06ac645589885aed82cadacab4461f08dcc4f4dd1d58d7d42b11f8bf",
+    "branchHash": "c8bf5bb6de74db43356255c19c6747ffd0daa03ae6476c0ef1b66c628d77a7cb"
+  },
+  "preparationHash": "80cafd0de8df52714cca19008abad8a03cb87981656f9de267b212529b493380"
+}

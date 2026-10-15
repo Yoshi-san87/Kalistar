@@ -1,0 +1,17 @@
+{
+  "passed": false,
+  "startedAt": "2026-09-25T14:16:00.492Z",
+  "views": [],
+  "screens": [],
+  "errors": [],
+  "httpFailures": [],
+  "blockedRequests": [],
+  "mode": "Fresh non-persistent contexts; same-origin GET only; real browser storage untouched",
+  "url": "http://127.0.0.1:4304/jeu/#collection",
+  "failure": "browserType.launch: spawn EPERM\nCall log:\n\u001b[2m  - <launching> C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\guill\\AppData\\Local\\Temp\\playwright_chromiumdev_profile-9z6TjK --remote-debugging-pipe --no-startup-window\u001b[22m\n\n    at main (C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V4\\collaborations\\ff10-set-01\\browser-review.cjs:312:30)\n    at Object.<anonymous> (C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V4\\collaborations\\ff10-set-01\\browser-review.cjs:372:30)",
+  "preservation": {
+    "files": 81,
+    "changed": []
+  },
+  "finishedAt": "2026-09-25T14:16:01.151Z"
+}

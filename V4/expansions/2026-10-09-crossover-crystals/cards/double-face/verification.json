@@ -1,0 +1,187 @@
+{
+  "passed": true,
+  "modelId": "49901501",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "bc969d0e43a54a7e3f0b5d10ee4c5101b74c8eca0a9a12514425b8ab2cd053e0",
+  "hashes": {
+    "card.png": "1ab5aa77b1d5b6db7d94acfa7fae1ce134b99741f60492e936d42c5a07f37f4a",
+    "card.psd": "9dec2939017e4c3323b9775dec7ddc5226c51250e79c1ecbea63c90fe29d62c8"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 90200
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49901501",
+    "cases": {
+      "color-1": [
+        "49901501"
+      ],
+      "color-4": [
+        "49901501"
+      ],
+      "gray-1": [
+        "49901501"
+      ],
+      "gray-4": [
+        "49901501"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-09T09:22:00.821Z",
+  "scope": {
+    "changed": 42157,
+    "outside": 0,
+    "rectangles": [
+      [
+        122,
+        739,
+        193,
+        810
+      ],
+      [
+        122,
+        739,
+        193,
+        810
+      ],
+      [
+        122,
+        642,
+        193,
+        713
+      ],
+      [
+        122,
+        642,
+        193,
+        713
+      ],
+      [
+        122,
+        542,
+        193,
+        613
+      ],
+      [
+        122,
+        542,
+        193,
+        613
+      ],
+      [
+        122,
+        441,
+        193,
+        512
+      ],
+      [
+        122,
+        441,
+        193,
+        512
+      ],
+      [
+        122,
+        337,
+        193,
+        408
+      ],
+      [
+        122,
+        337,
+        193,
+        408
+      ],
+      [
+        90,
+        95,
+        194,
+        199
+      ],
+      [
+        90,
+        95,
+        194,
+        199
+      ],
+      [
+        182,
+        1190,
+        703,
+        1227
+      ],
+      [
+        182,
+        1190,
+        703,
+        1227
+      ],
+      [
+        390,
+        1123,
+        505,
+        1267
+      ],
+      [
+        390,
+        1123,
+        506,
+        1267
+      ],
+      [
+        207,
+        1154,
+        378,
+        1190
+      ],
+      [
+        514,
+        1154,
+        684,
+        1190
+      ]
+    ]
+  },
+  "elementChange": {
+    "from": "NONE",
+    "to": "HEMATO"
+  },
+  "numericFacesAndEffectsUnchanged": true,
+  "typographyCheck": {
+    "styles": {
+      "NOM": {
+        "font": "TimesNewRomanPSMT",
+        "sizePt": 10.0000012207031,
+        "tracking": 0,
+        "capitalization": "TextCase.NORMAL",
+        "fauxBold": false,
+        "fauxItalic": false
+      },
+      "TITLE": {
+        "font": "TimesNewRomanPSMT",
+        "sizePt": 7.68,
+        "tracking": 0,
+        "capitalization": "TextCase.ALLCAPS",
+        "fauxBold": false,
+        "fauxItalic": false
+      }
+    },
+    "accented": false,
+    "nameInk": [
+      307,
+      114,
+      592,
+      144
+    ]
+  },
+  "revision": "2026-10-09-crossover-crystals",
+  "inputManifestHash": "d460faa98476e50b5c272a8fe2d5672a026275a0fbeaf871d52f2e9fc6135885"
+}

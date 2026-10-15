@@ -1,0 +1,468 @@
+{
+  "passed": true,
+  "tests": 1117,
+  "results": [
+    {
+      "command": "node --test V4/site/guide-scenario.test.cjs V4/site/library.test.cjs",
+      "status": 0,
+      "log": "01.log",
+      "tests": 30
+    },
+    {
+      "command": "node --test V4/site/map-view.test.cjs",
+      "status": 0,
+      "log": "02.log",
+      "tests": 4
+    },
+    {
+      "command": "node --test V4/atelier/game-catalog.test.cjs V4/atelier/collaboration-arenas.test.cjs V4/deploy/build.test.cjs V4/deploy/pwa.test.cjs V4/site/statistics.test.cjs V4/site/collaborations.test.cjs V4/site/metal-gear.test.cjs V4/site/resident-evil.test.cjs V4/site/one-piece.test.cjs",
+      "status": 0,
+      "log": "03.log",
+      "tests": 45
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-01-one-piece/model.test.cjs",
+      "status": 0,
+      "log": "04.log",
+      "tests": 4
+    },
+    {
+      "command": "node --test V4/revisions/2026-10-04-armor-refinement/integration.test.cjs",
+      "status": 0,
+      "log": "05.log",
+      "tests": 3
+    },
+    {
+      "command": "node --test V4/revisions/2026-10-05-orven-long-spear/revision.test.cjs",
+      "status": 0,
+      "log": "06.log",
+      "tests": 3
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-05-cryptown-sentinel/integration.test.cjs",
+      "status": 0,
+      "log": "07.log",
+      "tests": 4
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-06-cryptown-sniper/integration.test.cjs",
+      "status": 0,
+      "log": "08.log",
+      "tests": 8
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-06-cryptown-dual-flails/integration.test.cjs",
+      "status": 0,
+      "log": "09.log",
+      "tests": 8
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-06-cryptown-scythe/integration.test.cjs",
+      "status": 0,
+      "log": "10.log",
+      "tests": 8
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-06-fifteen-faces/integration.test.cjs V4/expansions/2026-10-06-fifteen-faces/accent-typography.test.cjs",
+      "status": 0,
+      "log": "11.log",
+      "tests": 8
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-06-second-edition-scenes/integration.test.cjs",
+      "status": 0,
+      "log": "12.log",
+      "tests": 7
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-08-eleven-lives/integration.test.cjs",
+      "status": 0,
+      "log": "13.log",
+      "tests": 7
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-08-final-fantasy-ix/integration.test.cjs V4/revisions/2026-10-08-resident-evil-faces/integration.test.cjs",
+      "status": 0,
+      "log": "14.log",
+      "tests": 12
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-09-final-fantasy-trilogy/integration.test.cjs V4/revisions/2026-10-09-ff-logo-banners/integration.test.cjs",
+      "status": 0,
+      "log": "15.log",
+      "tests": 10
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-09-skaern-luxo/integration.test.cjs",
+      "status": 0,
+      "log": "16.log",
+      "tests": 6
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-09-nerval/integration.test.cjs",
+      "status": 0,
+      "log": "17.log",
+      "tests": 4
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-09-gotham/integration.test.cjs",
+      "status": 0,
+      "log": "18.log",
+      "tests": 6
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-09-gotham-completion/integration.test.cjs",
+      "status": 0,
+      "log": "19.log",
+      "tests": 6
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-09-crossover-crystals/integration.test.cjs",
+      "status": 0,
+      "log": "20.log",
+      "tests": 7
+    },
+    {
+      "command": "node --test V4/revisions/2026-10-09-homme-mystere/integration.test.cjs",
+      "status": 0,
+      "log": "21.log",
+      "tests": 4
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-09-street-fighter/integration.test.cjs V4/expansions/2026-10-09-street-fighter/publication.test.cjs",
+      "status": 0,
+      "log": "22.log",
+      "tests": 10
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-10-castlevania/integration.test.cjs V4/expansions/2026-10-10-castlevania/publication.test.cjs",
+      "status": 0,
+      "log": "23.log",
+      "tests": 10
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-10-le-fauve/integration.test.cjs",
+      "status": 0,
+      "log": "24.log",
+      "tests": 5
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-11-chrono-trigger/integration.test.cjs V4/expansions/2026-10-11-chrono-trigger/publication.test.cjs",
+      "status": 0,
+      "log": "25.log",
+      "tests": 10
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-12-elyrane/integration.test.cjs",
+      "status": 0,
+      "log": "26.log",
+      "tests": 7
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-12-grivka-white-guard/integration.test.cjs",
+      "status": 0,
+      "log": "27.log",
+      "tests": 11
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-12-froz-vaerok/integration.test.cjs",
+      "status": 0,
+      "log": "28.log",
+      "tests": 7
+    },
+    {
+      "command": "node --test V4/revisions/2026-10-12-vaerok-mercenaire/integration.test.cjs",
+      "status": 0,
+      "log": "29.log",
+      "tests": 3
+    },
+    {
+      "command": "node --test V4/revisions/2026-10-06-balmhyr-durane/revision.test.cjs",
+      "status": 0,
+      "log": "30.log",
+      "tests": 2
+    },
+    {
+      "command": "node --test V4/revisions/2026-10-01-stat-personality/revision.test.cjs",
+      "status": 0,
+      "log": "31.log",
+      "tests": 11
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-01-rikka-rooftops/model.test.cjs",
+      "status": 0,
+      "log": "32.log",
+      "tests": 4
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-01-one-piece-witcher/model.test.cjs",
+      "status": 0,
+      "log": "33.log",
+      "tests": 4
+    },
+    {
+      "command": "node --test V4/revisions/2026-10-01-luffy-light/revision.test.cjs",
+      "status": 0,
+      "log": "34.log",
+      "tests": 2
+    },
+    {
+      "command": "node --test V4/expansions/2026-10-02-witcher-completion/model.test.cjs V4/revisions/2026-10-02-sanji-legs/revision.test.cjs",
+      "status": 0,
+      "log": "35.log",
+      "tests": 4
+    },
+    {
+      "command": "node --test V4/releases/2026-10-02-pages-portability/portable.test.cjs",
+      "status": 0,
+      "log": "36.log",
+      "tests": 3
+    },
+    {
+      "command": "node V4/site/kalistel.test.cjs",
+      "status": 0,
+      "log": "37.log",
+      "tests": 0
+    },
+    {
+      "command": "node V4/site/arena-ambience.test.cjs",
+      "status": 0,
+      "log": "38.log",
+      "tests": 0
+    },
+    {
+      "command": "node --test V4/site/equipment.test.cjs V4/site/equipment-presentation.test.cjs",
+      "status": 0,
+      "log": "39.log",
+      "tests": 21
+    },
+    {
+      "command": "node --test V4/site/equipment-v2.test.cjs V4/site/equipment-slots-persistence.test.cjs V4/site/equipment-slots-presentation.test.cjs",
+      "status": 0,
+      "log": "40.log",
+      "tests": 41
+    },
+    {
+      "command": "node --test V4/site/relic-ultimates.test.cjs V4/site/relic-ultimates-integrity.test.cjs V4/site/relic-ultimates-ui.test.cjs V4/site/momo-equipment.test.cjs",
+      "status": 0,
+      "log": "41.log",
+      "tests": 114
+    },
+    {
+      "command": "node --test V4/site/ultimate-expansion.test.cjs V4/site/ultimate-expansion-integrity.test.cjs V4/site/ultimate-expansion-ui.test.cjs",
+      "status": 0,
+      "log": "42.log",
+      "tests": 185
+    },
+    {
+      "command": "node --test V4/site/equipment-categories.test.cjs V4/site/weapons-arsenal.test.cjs",
+      "status": 0,
+      "log": "43.log",
+      "tests": 51
+    },
+    {
+      "command": "node --test V4/site/defensive-equipment.test.cjs",
+      "status": 0,
+      "log": "44.log",
+      "tests": 156
+    },
+    {
+      "command": "node --test V4/site/ff9-equipment.test.cjs",
+      "status": 0,
+      "log": "45.log",
+      "tests": 17
+    },
+    {
+      "command": "node --test V4/site/gotham-equipment.test.cjs",
+      "status": 0,
+      "log": "46.log",
+      "tests": 4
+    },
+    {
+      "command": "node --test V4/site/castlevania-kalistar-equipment.test.cjs",
+      "status": 0,
+      "log": "47.log",
+      "tests": 6
+    },
+    {
+      "command": "node --test V4/site/chrono-equipment.test.cjs",
+      "status": 0,
+      "log": "48.log",
+      "tests": 5
+    },
+    {
+      "command": "node --test V4/releases/2026-10-09-public-cache-check/public-asset-check.test.cjs V4/releases/2026-10-09-v4.6.1/public-check.test.cjs",
+      "status": 0,
+      "log": "49.log",
+      "tests": 6
+    },
+    {
+      "command": "node --test V4/site/arborium-weapons.test.cjs",
+      "status": 0,
+      "log": "50.log",
+      "tests": 7
+    },
+    {
+      "command": "node --test V4/site/draevenheim-weapons.test.cjs",
+      "status": 0,
+      "log": "51.log",
+      "tests": 4
+    },
+    {
+      "command": "node --test V4/site/cryptown-weapons.test.cjs",
+      "status": 0,
+      "log": "52.log",
+      "tests": 6
+    },
+    {
+      "command": "node --test V4/site/rhinoz-weapon.test.cjs",
+      "status": 0,
+      "log": "53.log",
+      "tests": 6
+    },
+    {
+      "command": "node --test V4/site/weapon-bearers.test.cjs",
+      "status": 0,
+      "log": "54.log",
+      "tests": 7
+    },
+    {
+      "command": "node --test V4/site/weapon-art.test.cjs",
+      "status": 0,
+      "log": "55.log",
+      "tests": 4
+    },
+    {
+      "command": "node --test V4/site/base-weapons.test.cjs",
+      "status": 0,
+      "log": "56.log",
+      "tests": 6
+    },
+    {
+      "command": "node --test V4/site/team-composition.test.cjs",
+      "status": 0,
+      "log": "57.log",
+      "tests": 14
+    },
+    {
+      "command": "node --test V4/site/matchmaking.test.cjs V4/site/pre-match.test.cjs",
+      "status": 0,
+      "log": "58.log",
+      "tests": 8
+    },
+    {
+      "command": "node --test V4/site/lineup-intro.test.cjs V4/site/turn-order.test.cjs",
+      "status": 0,
+      "log": "59.log",
+      "tests": 15
+    },
+    {
+      "command": "node --test V4/site/turn-timeline.test.cjs",
+      "status": 0,
+      "log": "60.log",
+      "tests": 4
+    },
+    {
+      "command": "node --test V4/site/combat-timeline.test.cjs",
+      "status": 0,
+      "log": "61.log",
+      "tests": 6
+    },
+    {
+      "command": "node --test V4/site/scoreboard.test.cjs",
+      "status": 0,
+      "log": "62.log",
+      "tests": 4
+    },
+    {
+      "command": "node --test V4/site/arena-console-skin.test.cjs V4/site/console-turn.test.cjs",
+      "status": 0,
+      "log": "63.log",
+      "tests": 5
+    },
+    {
+      "command": "node --test V4/site/arena-finale.test.cjs",
+      "status": 0,
+      "log": "64.log",
+      "tests": 6
+    },
+    {
+      "command": "node --test V4/site/battle-report.test.cjs",
+      "status": 0,
+      "log": "65.log",
+      "tests": 9
+    },
+    {
+      "command": "node --test V4/site/catalogue-updates.test.cjs",
+      "status": 0,
+      "log": "66.log",
+      "tests": 9
+    },
+    {
+      "command": "node --test V4/site/match-metrics.test.cjs V4/site/kill-medals.test.cjs",
+      "status": 0,
+      "log": "67.log",
+      "tests": 2
+    },
+    {
+      "command": "node --test V4/site/navigation.test.cjs",
+      "status": 0,
+      "log": "68.log",
+      "tests": 9
+    },
+    {
+      "command": "node --test V4/site/positions.test.cjs V4/site/position-identities.test.cjs",
+      "status": 0,
+      "log": "69.log",
+      "tests": 13
+    },
+    {
+      "command": "node --test V4/site/home-screen.test.cjs V4/site/page-transitions.test.cjs V4/site/statistics-accordion.test.cjs V4/site/arena-prompts.test.cjs",
+      "status": 0,
+      "log": "70.log",
+      "tests": 15
+    },
+    {
+      "command": "node --test V4/site/factions.test.cjs",
+      "status": 0,
+      "log": "71.log",
+      "tests": 6
+    },
+    {
+      "command": "node --test V4/site/ui-system.test.cjs",
+      "status": 0,
+      "log": "72.log",
+      "tests": 4
+    },
+    {
+      "command": "node --test V4/site/statistics-skin.test.cjs",
+      "status": 0,
+      "log": "73.log",
+      "tests": 2
+    },
+    {
+      "command": "node --test V4/site/performance-index.test.cjs",
+      "status": 0,
+      "log": "74.log",
+      "tests": 43
+    },
+    {
+      "command": "node --test V4/site/performance.test.cjs",
+      "status": 0,
+      "log": "75.log",
+      "tests": 4
+    },
+    {
+      "command": "node --test V4/site/story-content.test.cjs",
+      "status": 0,
+      "log": "76.log",
+      "tests": 6
+    },
+    {
+      "command": "node V4/deploy/build.cjs",
+      "status": 0,
+      "log": "77.log",
+      "tests": 0
+    }
+  ]
+}

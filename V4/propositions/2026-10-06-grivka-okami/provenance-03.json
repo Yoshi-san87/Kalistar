@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "revision": 3,
+  "tool": "image_gen.imagegen",
+  "status": "user-requested-prop-correction",
+  "nativeCardsCreated": false,
+  "change": "Move Rhovan's unsupported foreground spear onto his back, attached to a leather harness. Preserve the approved black/dark-forest-green palette, pose, face, rescue carabiner, setting and painterly grain.",
+  "previousProvenance": "provenance-02.json",
+  "currentSelection": {
+    "banner": "Grivka-drapeau-02.png",
+    "rhovan": "Rhovan-03.png",
+    "eyska": "Eyska-02.png"
+  },
+  "items": [
+    {
+      "id": "rhovan",
+      "file": "Rhovan-03.png",
+      "sha256": "6fa94a29b94339b926c25444827f7bbbcc7e17cfcf9d7e838af62ec9a929e2b4",
+      "prompt": "Use case: precise-object-edit.\nEdit target: supplied Rhovan-02 illustration, an already approved Kalistar character painting.\nPrimary request: the unsupported upright spear in front of him must be MOVED onto his BACK, securely carried by a practical leather weapon harness.\nRemove the ENTIRE existing spear from the left foreground, including blade, shaft, grip and ground contact; restore the snowy mountain/sky/step background unobtrusively in that narrow area. Exactly ONE spear remains, now physically strapped along his back, slightly diagonal, its same distinctive long straight shaft and silver angular blue-inlaid spearhead emerging above and behind his shoulder on the viewer's right. Keep the spear straight, blade and shaft on one coherent axis. The shaft lies BEHIND his body/cloak, held by two snug leather retaining loops at shoulder and hip; a modest visible strap/clip near the rear shoulder makes the attachment credible. Do not let the shaft pass through his torso, fur or hand; do not have it float separately beside him. No extra weapon, no extra hands. It may partially disappear behind the cloak naturally.\nStrict invariants: preserve his exact grey wolf face, amber eyes, contemplative expression, head angle, raised hand HOLDING THE RESCUE CARABINER, relaxed other hand, body pose, boots and steps. Preserve black coat and DARK FOREST GREEN scarf, sash and cloth panels, silver Grivka insignia, ropes and all existing gear not involved in mounting the spear. Keep the same warm refuge doorway on right, snowy valley, mountains, sky, lighting, image crop and painterly Kalistar grain. Do not redesign character, spearhead or setting. No photorealism, no smooth 3D, no text, no frame, no new glow. This is a single targeted physically coherent prop relocation.\nImage 1 is the ONLY edit target Rhovan. Image 2 (Momo) and image 3 (Valazar) are ONLY painterly style anchors, not subjects, scene, outfit or color references. Do not insert anything from them; preserve image 1's existing approved style.",
+      "references": [
+        {
+          "file": "V4/propositions/2026-10-06-grivka-okami/Rhovan-02.png",
+          "role": "edit target"
+        },
+        {
+          "file": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "role": "painterly style only"
+        },
+        {
+          "file": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "role": "painterly style only"
+        }
+      ],
+      "generatedSource": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-581ee37d-bab6-44c5-8453-c9e7e161dce1.png",
+      "transparent_background": false
+    }
+  ],
+  "visualReview": {
+    "completed": true,
+    "checks": [
+      "Unsupported foreground spear removed.",
+      "Single spear emerges behind shoulder and is carried by a visible leather harness.",
+      "Face, raised rescue carabiner, relaxed other hand and standing pose retained.",
+      "Black/dark forest green clothes, silver insignia, snow valley and warm doorway preserved."
+    ]
+  }
+}

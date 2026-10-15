@@ -1,0 +1,23 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),{execFileSync}=require('node:child_process');
+const root=path.resolve(__dirname,'../../..'),file='V4/site/app.js';
+const git=(args,options={})=>execFileSync('git',args,{cwd:root,encoding:'utf8',...options});
+assert.equal(git(['remote','get-url','origin']).trim(),'https://github.com/Yoshi-san87/Kalistar.git');
+const start='  function showArchive(',end="  document.addEventListener('click',event=>{";
+const source=fs.readFileSync(path.join(root,file),'utf8');
+const a=source.indexOf(start),b=source.indexOf(end,a);assert(a>0&&b>a);
+const block=source.slice(a,b),line=block.split(/\r?\n/).find(s=>s.includes('if(target!==null)'));
+assert(line?.includes('KalistarPositions.markup'));
+const report=JSON.parse(fs.readFileSync(path.join(__dirname,'qa/publication.json'),'utf8'));let staged=fs.readFileSync(path.join(report.snapshot,file),'utf8');
+staged=staged.replace(line+'\r\n','').replace(line+'\n','');
+const c=staged.indexOf(start),d=staged.indexOf(end,c);assert(c>0&&d>c);
+staged=staged.slice(0,c)+block+staged.slice(d);
+assert(staged.indexOf(line)>c&&staged.indexOf(line)<staged.indexOf(end,c));
+assert(!staged.includes('animatedAcceptAttack'),'Do not stage the unrelated relic feature');
+const oid=git(['hash-object','-w','--stdin'],{input:staged}).trim();
+git(['update-index','--cacheinfo','100644,'+oid+','+file]);
+const deckFile='V4/site/deck-builder.js',head=git(['show','HEAD:'+deckFile]);
+const original=head.split(/\r?\n/).find(s=>s.includes('team-weapon-art'));
+let deck=git(['show',':'+deckFile]);const foreign=deck.split(/\r?\n/).find(s=>s.includes('KalistarWeaponCards.effectLabel'));
+if(foreign){assert(original&&!original.includes('KalistarPositions'));deck=deck.replace(foreign,original);const sha=git(['hash-object','-w','--stdin'],{input:deck}).trim();git(['update-index','--cacheinfo','100644,'+sha+','+deckFile]);}
+console.log('Restored the reviewed archive function in the index, preserving unrelated work.');

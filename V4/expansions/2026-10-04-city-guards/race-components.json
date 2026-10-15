@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "races": {
+    "CRUSTOS": {
+      "left": 711,
+      "top": 1116,
+      "width": 96,
+      "height": 95,
+      "source": "V4\\expansions\\2026-10-04-city-guards\\source-CRUSTOS.png",
+      "sourceHash": "c66e32593ba49cb98432b04ee3ffe82c5255d3b9dd521188a916a53cc777d40c",
+      "sha256": "900e37f459638a570f670e0d69f51426dbb4d02081a7bf05e86ad910c0a8d0d8",
+      "nativeEmail": "V4\\collaborations\\ff7-set-01\\weapon-email-native.png",
+      "nativeEmailHash": "c6ef219cbe72e7addf544d52fac5e047e4eda5552bda1d2f985c84e250ce3bd6",
+      "crop": {
+        "left": 0,
+        "top": 9,
+        "width": 1242,
+        "height": 1245
+      },
+      "placement": {
+        "left": 14,
+        "top": 12
+      },
+      "sourceMetrics": {
+        "fullBounds": [
+          0,
+          9,
+          1242,
+          1254
+        ],
+        "visibleBounds": [
+          99,
+          85,
+          1172,
+          1168
+        ],
+        "centroid": [
+          656.0370789229934,
+          739.844730862034
+        ],
+        "optical": [
+          648.8491012999457,
+          700.1740750603221
+        ],
+        "fullAlphaRadius": 1697.4328410867984,
+        "opticalError": 887.1319466622762,
+        "visibleAlphaThreshold": 16
+      },
+      "metrics": {
+        "fullBounds": [
+          17,
+          13,
+          78,
+          75
+        ],
+        "visibleBounds": [
+          19,
+          15,
+          76,
+          73
+        ],
+        "centroid": [
+          48.32761909538124,
+          50.12711456776443
+        ],
+        "optical": [
+          48.03795241199781,
+          47.98262446904688
+        ],
+        "fullAlphaRadius": 37.606515392947536,
+        "opticalError": 0.4841144117863428,
+        "visibleAlphaThreshold": 16
+      },
+      "motif": "V4\\expansions\\2026-10-04-city-guards\\race-CRUSTOS.motif.png",
+      "motifHash": "1f303f3bb25b723d8a9b8732b887494e4e9fc7919b4d01897b92fcaeae2927ae",
+      "opticalTarget": [
+        759,
+        1163.5
+      ],
+      "measuredOpticalCenter": [
+        759.0379524119978,
+        1163.9826244690469
+      ],
+      "radiusLimit": 39,
+      "opticalTolerance": 0.75,
+      "method": "65% visible luminance-alpha centroid / 35% visible bounds centre; full nonzero alpha contour contained; visible alpha >=16"
+    }
+  }
+}

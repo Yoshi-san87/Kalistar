@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "modelId": "49900401",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "47b9b3045146576d5b23e6ff024b94396de6a0d9af52a38ff7ff0ce685f743b1",
+  "hashes": {
+    "card.png": "3f61ab8e1eda38a5bc849e24c88c048a972e26df70e489663a2ce984a6d1b698",
+    "card.psd": "490cf3593a353ba2259fa27e3b3712c5296770d8e9282290da2958c5aa806e25"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 105296
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49900401",
+    "cases": {
+      "color-1": [
+        "49900401"
+      ],
+      "color-4": [
+        "49900401"
+      ],
+      "gray-1": [
+        "49900401"
+      ],
+      "gray-4": [
+        "49900401"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-04T14:54:09.622Z",
+  "typography": true,
+  "revision": "2026-10-04-armor-refinement",
+  "artOnly": {
+    "changed": 444558,
+    "outside": 0
+  }
+}

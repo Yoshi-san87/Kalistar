@@ -1,0 +1,210 @@
+{
+  "id": "2026-10-13-froz-five-soldiers",
+  "cards": [
+    {
+      "key": "kaervan",
+      "id": "49902401",
+      "name": "KAERVAN",
+      "title": "LE BRISEUR DE RANGS",
+      "job": "SOLDAT",
+      "description": "Kaervan ne hausse jamais la voix. Il attend contre la porte, sa hache sur l'épaule, et laisse le silence finir l'ordre. Au retour des patrouilles, il compte les absents avant les prisonniers.",
+      "weapon": "Hache",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        292,
+        214,
+        176,
+        128,
+        76,
+        "buff_atk"
+      ],
+      "defense": [
+        167,
+        135,
+        104,
+        71,
+        43,
+        18
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "characterId": "kaervan-kalistar",
+      "element": "CRYO",
+      "race": "OKAMI",
+      "faction": "Froz",
+      "artworkSource": "V4/propositions/2026-10-13-froz-backgrounds/images/kaervan.png"
+    },
+    {
+      "key": "nyrska",
+      "id": "49902402",
+      "name": "NYRSKA",
+      "title": "LES CROCS DE VELOURS",
+      "job": "SOLDAT",
+      "description": "Nyrska coupe une mèche de sa tresse avant chaque départ. Sa sœur en garde les rubans. Dans les bois, on reconnaît trop tard le son clair de ses lames : elle a déjà choisi par où vous laisser fuir.",
+      "weapon": "Dague",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        263,
+        237,
+        157,
+        "retry",
+        69,
+        36
+      ],
+      "defense": [
+        156,
+        121,
+        "dodge",
+        82,
+        47,
+        24
+      ],
+      "magic": [
+        2
+      ],
+      "barriers": [
+        3
+      ],
+      "characterId": "nyrska-kalistar",
+      "element": "CRYO",
+      "race": "OKAMI",
+      "faction": "Froz",
+      "artworkSource": "V4/propositions/2026-10-13-froz-backgrounds/images/nyrska.png"
+    },
+    {
+      "key": "vrold",
+      "id": "49902403",
+      "name": "VROLD",
+      "title": "LE DERNIER SILENCE",
+      "job": "SNIPER",
+      "description": "Vrold grave une encoche pour chaque matin passé sans tirer. Personne ne sait pourquoi il les efface après une mission. Sur la plaine, sa patience semble plus ancienne que la neige.",
+      "weapon": "Gun",
+      "role": 4,
+      "positions": [
+        4
+      ],
+      "atk": [
+        294,
+        "death",
+        166,
+        122,
+        77,
+        32
+      ],
+      "defense": [
+        159,
+        126,
+        96,
+        65,
+        39,
+        "retry"
+      ],
+      "magic": [
+        3
+      ],
+      "barriers": [
+        2
+      ],
+      "characterId": "vrold-kalistar",
+      "element": "CRYO",
+      "race": "OKAMI",
+      "faction": "Froz",
+      "artworkSource": "V4/propositions/2026-10-12-froz-five-soldiers/images/vrold-04.png"
+    },
+    {
+      "key": "saevra",
+      "id": "49902404",
+      "name": "SAEVRA",
+      "title": "LA VOIX DU BLIZZARD",
+      "job": "COMMANDANTE",
+      "description": "Saevra lève la main et le régiment s'immobilise. Elle connaît le nom de chacun, même de ceux dont Froz a brûlé le dossier. Ses ordres sont brefs ; les lettres qu'elle écrit aux familles ne le sont jamais.",
+      "weapon": "Epée longue",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        174,
+        "buff_atk",
+        112,
+        "retry",
+        54,
+        26
+      ],
+      "defense": [
+        205,
+        169,
+        "retry",
+        98,
+        62,
+        28
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        6
+      ],
+      "characterId": "saevra-kalistar",
+      "element": "CRYO",
+      "race": "OKAMI",
+      "faction": "Froz",
+      "artworkSource": "V4/propositions/2026-10-13-froz-backgrounds/images/saevra.png"
+    },
+    {
+      "key": "drogan",
+      "id": "49902405",
+      "name": "DROGAN",
+      "title": "LE MUR DES CROCS",
+      "job": "GARDIEN",
+      "description": "Drogan a fait river son bouclier du côté de son oreille sourde. Il sent les impacts avant les cris. Quand le pont tremble sous la retraite, il plante son marteau et promet encore une minute.",
+      "weapon": "Marteau",
+      "role": 1,
+      "positions": [
+        1,
+        5
+      ],
+      "atk": [
+        202,
+        161,
+        "guard",
+        98,
+        64,
+        28
+      ],
+      "defense": [
+        296,
+        214,
+        165,
+        117,
+        "retry",
+        23
+      ],
+      "magic": [
+        3
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "characterId": "drogan-kalistar",
+      "element": "CRYO",
+      "race": "OKAMI",
+      "faction": "Froz",
+      "artworkSource": "V4/propositions/2026-10-13-froz-backgrounds/images/drogan.png"
+    }
+  ]
+}

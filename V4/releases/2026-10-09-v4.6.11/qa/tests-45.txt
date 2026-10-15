@@ -1,0 +1,23 @@
+✔ five pairings retain saved order, captains, native clues and the entire engine snapshot (31.0716ms)
+✔ all catalogue identities, collaborations and NONE are data driven (0.4035ms)
+✔ missing identities have neutral clues and missing cards fail before mounting (0.4661ms)
+✔ slower clues and revealed cards share the same reading time with reduced motion (0.1268ms)
+✔ Tip Off and the winning captain have explicit readable pauses (0.0824ms)
+✔ D6 captains are stat-independent, ties reroll, combat RNG and match metrics stay untouched (36.7376ms)
+✔ ABBA tracks every resolved action and reload, opener 0 (25.2504ms)
+✔ ABBA tracks every resolved action and reload, opener 1 (21.8016ms)
+✔ two consecutive actions can kill twice; replacements do not advance the timeline (4.7189ms)
+✔ support can lead directly into an allied magic attack in the same double window (3.4432ms)
+✔ unmarked historical games keep strict alternation and original state identity (9.8525ms)
+✔ corrupt initiative, turn, history and premature combat fail closed (5.8043ms)
+✔ seeded initiative has reproducible results and balanced faces and openers (42.1565ms)
+✔ UI presets nominate their P1 captain explicitly without changing legacy migration or default equipment (9.628ms)
+✔ 250 complete ABBA matches validate every phase, equipment, archive and reload (76685.1408ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 77008.4987

@@ -1,0 +1,183 @@
+{
+  "checks": [
+    "Physical lunge and return, dimmed hit, Lucide shield on resistance, exact numeric recap, seeded state unchanged by animations",
+    "Defeat, Reraise, dodge, special shield, incompatible-shield/retry and reversed attacker handled without false totals",
+    "Heart, potion, physical buff and ATK retry never trigger a damaging animation",
+    "Navigation and save import during spell cancel stale commit and clean all effect nodes",
+    "Reduced motion resolves directly with identical results",
+    "Six viewport layouts; outer vertical reserves; 10-card reserve scroll and deployment; AI reserves stay hidden; complete journal preserved"
+  ],
+  "elements": [
+    {
+      "visible": 4054,
+      "element": "AERO",
+      "color": "#89EDC2",
+      "rendererOnly": false
+    },
+    {
+      "visible": 4045,
+      "element": "HYDRO",
+      "color": "#38CBED",
+      "rendererOnly": false
+    },
+    {
+      "visible": 4321,
+      "element": "ELECTRO",
+      "color": "#F5DC32",
+      "rendererOnly": false
+    },
+    {
+      "visible": 4050,
+      "element": "PYRO",
+      "color": "#FF704A",
+      "rendererOnly": false
+    },
+    {
+      "visible": 4258,
+      "element": "CRYO",
+      "color": "#ACDFFD",
+      "rendererOnly": false
+    },
+    {
+      "visible": 4053,
+      "element": "LUXO",
+      "color": "#F4E9AF",
+      "rendererOnly": false
+    },
+    {
+      "visible": 4262,
+      "element": "MINERO",
+      "color": "#B3BFCA",
+      "rendererOnly": false
+    },
+    {
+      "visible": 4065,
+      "element": "HERBO",
+      "color": "#89D355",
+      "rendererOnly": false
+    },
+    {
+      "visible": 4063,
+      "element": "HEMATO",
+      "color": "#E84976",
+      "rendererOnly": false
+    },
+    {
+      "visible": 4104,
+      "element": "NECRO",
+      "color": "#A979F7",
+      "rendererOnly": true
+    },
+    {
+      "visible": 4255,
+      "element": "GEO",
+      "color": "#C7AB6D",
+      "rendererOnly": false
+    },
+    {
+      "visible": 4488,
+      "element": "RAINBOW",
+      "color": "#E4D5FB",
+      "rendererOnly": false
+    }
+  ],
+  "screens": [
+    {
+      "width": 2493,
+      "height": 1461,
+      "geometry": [
+        {
+          "side": "0",
+          "outside": true,
+          "stacked": true
+        },
+        {
+          "side": "1",
+          "outside": true,
+          "stacked": true
+        }
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "geometry": [
+        {
+          "side": "0",
+          "outside": true,
+          "stacked": true
+        },
+        {
+          "side": "1",
+          "outside": true,
+          "stacked": true
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 1000,
+      "geometry": [
+        {
+          "side": "0",
+          "outside": true,
+          "stacked": true
+        },
+        {
+          "side": "1",
+          "outside": true,
+          "stacked": true
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "geometry": [
+        {
+          "side": "0",
+          "outside": true,
+          "stacked": true
+        },
+        {
+          "side": "1",
+          "outside": true,
+          "stacked": true
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "geometry": [
+        {
+          "side": "0",
+          "outside": true,
+          "stacked": true
+        },
+        {
+          "side": "1",
+          "outside": true,
+          "stacked": true
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "height": 740,
+      "geometry": [
+        {
+          "side": "0",
+          "outside": true,
+          "stacked": true
+        },
+        {
+          "side": "1",
+          "outside": true,
+          "stacked": true
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

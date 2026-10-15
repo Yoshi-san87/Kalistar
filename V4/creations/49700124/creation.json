@@ -1,0 +1,37 @@
+{
+  "job": "95f15e57-93da-4c94-a06b-9096a8b7cd61",
+  "setId": "2026-10-01-resident-evil",
+  "key": "eveline7",
+  "modelId": "49700124",
+  "hashes": {
+    "profile.json": "64501eab8c3d5936633259cb667651358505c3ad9547c6daeb6a3ff38c338657",
+    "card.png": "e222a802da2bed226d21cdae30aab626600d6906e96c301ecc9f1ccb874ce5f7",
+    "card.psd": "28767d35d7bc614fef69de8acc2370f76a97a1aafd0359a2a0da15289210b87d",
+    "verification.json": "951a5517ddaecd2b0fa48e6373df2d94c681a2a19acef54317a6584d7f72dbac",
+    "illustration.png": "e8402d3096bfaff5d15bc2935a3158552662e13425cb51ddfb056a8d7fa6a2e1"
+  },
+  "createdAt": "2026-09-30T23:31:56.116Z",
+  "nativeRevision": {
+    "id": "2026-10-08-resident-evil-faces",
+    "key": "eveline",
+    "proof": "V4/revisions/2026-10-08-resident-evil-faces/work/49700124/verification.json",
+    "changedFields": [
+      "atk",
+      "defense",
+      "magic",
+      "barriers",
+      "canGuard",
+      "canHeal"
+    ],
+    "previous": {
+      "id": "2026-10-01-stat-personality",
+      "key": "eveline",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700124/verification.json",
+      "changedFields": [
+        "atk",
+        "defense"
+      ],
+      "previous": null
+    }
+  }
+}

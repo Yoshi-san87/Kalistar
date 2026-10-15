@@ -1,0 +1,59 @@
+desktop-p1-weapon 219ms
+desktop-p1-crystal 202ms
+desktop-p1-faction 215ms
+desktop-p1 226ms
+desktop-p3 205ms
+desktop-p5 197ms
+desktop-final 220ms
+Missed stage 5 reveal [
+  { position: 1, step: 'loading', time: 97828.20000004768 },
+  { position: 1, step: 'title', time: 97830.5 },
+  { position: 1, step: 'depart', time: 97937.39999997616 },
+  { position: 1, step: 'weapon', time: 98344.5 },
+  { position: 1, step: 'crystal', time: 99198.70000004768 },
+  { position: 1, step: 'faction', time: 100053.70000004768 },
+  { position: 1, step: 'suspense', time: 100910.39999997616 },
+  { position: 1, step: 'flip', time: 101290.80000007153 },
+  { position: 1, step: 'reveal', time: 101804.5 },
+  { position: 1, step: 'arrive', time: 103005.70000004768 },
+  { position: 2, step: 'title', time: 103410.5 },
+  { position: 2, step: 'depart', time: 103520.10000002384 },
+  { position: 2, step: 'weapon', time: 103923.5 },
+  { position: 2, step: 'crystal', time: 104777.39999997616 },
+  { position: 2, step: 'faction', time: 105631 },
+  { position: 2, step: 'suspense', time: 106486.30000007153 },
+  { position: 2, step: 'flip', time: 106867.5 },
+  { position: 2, step: 'reveal', time: 107382.10000002384 },
+  { position: 2, step: 'arrive', time: 108583.70000004768 },
+  { position: 3, step: 'title', time: 108984.80000007153 },
+  { position: 3, step: 'depart', time: 109091.20000004768 },
+  { position: 3, step: 'weapon', time: 109509.80000007153 },
+  { position: 3, step: 'crystal', time: 110364.39999997616 },
+  { position: 3, step: 'faction', time: 111217.20000004768 },
+  { position: 3, step: 'suspense', time: 112072.20000004768 },
+  { position: 3, step: 'flip', time: 112453.70000004768 },
+  { position: 3, step: 'reveal', time: 112960.39999997616 },
+  { position: 3, step: 'arrive', time: 114160.89999997616 },
+  { position: 4, step: 'title', time: 114562.89999997616 },
+  { position: 4, step: 'depart', time: 114669.39999997616 },
+  { position: 4, step: 'weapon', time: 115071.30000007153 },
+  { position: 4, step: 'crystal', time: 115936.80000007153 },
+  { position: 4, step: 'faction', time: 116792.20000004768 },
+  { position: 4, step: 'suspense', time: 117646.20000004768 },
+  { position: 4, step: 'flip', time: 118028 },
+  { position: 4, step: 'reveal', time: 118530.30000007153 },
+  { position: 4, step: 'arrive', time: 119730.39999997616 },
+  { position: 5, step: 'title', time: 120132.89999997616 },
+  { position: 5, step: 'depart', time: 120238.89999997616 },
+  { position: 5, step: 'weapon', time: 120641.39999997616 },
+  { position: 5, step: 'crystal', time: 121495.39999997616 },
+  { position: 5, step: 'faction', time: 122350.10000002384 },
+  { position: 5, step: 'suspense', time: 123210.20000004768 }
+]
+page.waitForFunction: Timeout 25000ms exceeded.
+    at stage (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\lineup-intro.browser.test.cjs:8:57)
+    at replayPending (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\lineup-intro.browser.test.cjs:109:42)
+    at async main (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\lineup-intro.browser.test.cjs:117:63) {
+  log: [],
+  name: 'TimeoutError'
+}

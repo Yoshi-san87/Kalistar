@@ -1,0 +1,33 @@
+{
+  "key": "taulio",
+  "passed": true,
+  "comparison": {
+    "changed": 0,
+    "outside": 0
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "fixed": null,
+  "barcode": {
+    "passed": true,
+    "expected": "30000013",
+    "cases": {
+      "color-1": [
+        "30000013"
+      ],
+      "color-4": [
+        "30000013"
+      ],
+      "gray-1": [
+        "30000013"
+      ],
+      "gray-4": [
+        "30000013"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "photoshop": "26.11.7"
+}

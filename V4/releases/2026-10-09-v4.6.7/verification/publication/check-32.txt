@@ -1,0 +1,112 @@
+TAP version 13
+# Subtest: 4.6: 18 FFIX items keep families, stable identities and art while migrating to three slots
+ok 1 - 4.6: 18 FFIX items keep families, stable identities and art while migrating to three slots
+  ---
+  duration_ms: 58.376
+  type: 'test'
+  ...
+# Subtest: 4.6 profile/composition preserve weapon while adding protection, with confirmation scoped per slot
+ok 2 - 4.6 profile/composition preserve weapon while adding protection, with confirmation scoped per slot
+  ---
+  duration_ms: 17.9425
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-orichalque: every edition, both sides, formula, log and deactivation
+ok 3 - archived 4.5.64: ff9-orichalque: every edition, both sides, formula, log and deactivation
+  ---
+  duration_ms: 14.6654
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-magekane: every edition, both sides, formula, log and deactivation
+ok 4 - archived 4.5.64: ff9-magekane: every edition, both sides, formula, log and deactivation
+  ---
+  duration_ms: 34.4468
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-excalibur: every edition, both sides, formula, log and deactivation
+ok 5 - archived 4.5.64: ff9-excalibur: every edition, both sides, formula, log and deactivation
+  ---
+  duration_ms: 9.5771
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-save-the-queen: every edition, both sides, formula, log and deactivation
+ok 6 - archived 4.5.64: ff9-save-the-queen: every edition, both sides, formula, log and deactivation
+  ---
+  duration_ms: 10.1153
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-dragonade: every edition, both sides, formula, log and deactivation
+ok 7 - archived 4.5.64: ff9-dragonade: every edition, both sides, formula, log and deactivation
+  ---
+  duration_ms: 10.0243
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-runigriffe: every edition, both sides, formula, log and deactivation
+ok 8 - archived 4.5.64: ff9-runigriffe: every edition, both sides, formula, log and deactivation
+  ---
+  duration_ms: 8.9439
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-backstage-hammer: every edition, both sides, formula, log and deactivation
+ok 9 - archived 4.5.64: ff9-backstage-hammer: every edition, both sides, formula, log and deactivation
+  ---
+  duration_ms: 9.3516
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64 Gastrette: defend, side 0
+ok 10 - archived 4.5.64 Gastrette: defend, side 0
+  ---
+  duration_ms: 6.5632
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64 Gastrette: attack, side 0
+ok 11 - archived 4.5.64 Gastrette: attack, side 0
+  ---
+  duration_ms: 6.4881
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64 Gastrette: refresh, side 0
+ok 12 - archived 4.5.64 Gastrette: refresh, side 0
+  ---
+  duration_ms: 3.0578
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64 Gastrette: defend, side 1
+ok 13 - archived 4.5.64 Gastrette: defend, side 1
+  ---
+  duration_ms: 5.3111
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64 Gastrette: attack, side 1
+ok 14 - archived 4.5.64 Gastrette: attack, side 1
+  ---
+  duration_ms: 6.3058
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64 Gastrette: refresh, side 1
+ok 15 - archived 4.5.64 Gastrette: refresh, side 1
+  ---
+  duration_ms: 3.0945
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: all eight FFIX weapons finish natural matches and reload each step
+ok 16 - archived 4.5.64: all eight FFIX weapons finish natural matches and reload each step
+  ---
+  duration_ms: 10418.0774
+  type: 'test'
+  ...
+# Subtest: current D6 and archived charge descriptions distinguish this duel from a later defense
+ok 17 - current D6 and archived charge descriptions distinguish this duel from a later defense
+  ---
+  duration_ms: 6.4336
+  type: 'test'
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 10772.108

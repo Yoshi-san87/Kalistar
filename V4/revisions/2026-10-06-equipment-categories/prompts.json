@@ -1,0 +1,77 @@
+{
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "name": "durane-rampart-v1",
+      "prompt": "Production asset extraction/reconstruction from reference 1 (approved Kalistar equipment board), reference 2 painterly style only. Deliver ONLY the LEFT shield as a single centered transparent-background cutout, front three-quarter view, full object visible, generous 12% margin. No card frame, text, scene, stand or shadow outside object, no Pod. Exactly preserve approved slender flag-shaped shield: rigid grey mineral face, thin aged brass riveted edge, two crossed golden square-headed hammers above golden mountain peaks, faceted silver-grey Kalistel between them. The fluorescent grey-white line is in a recessed INNER channel between stone and brass edge, never on the external silhouette. No green stone or green glow, no large anvil shoulders or feet. Painted Kalistar surfaces, subtle material depth and wear, not photorealism or smooth 3D. This exact object must work as a small independent medallion motif.",
+      "refs": [
+        "C:\\Users\\guill\\.codex\\generated_images\\01a101d7-d348-7f93-aa10-a7bc601dc655\\exec-adfa95f0-491e-4c09-8575-bcf7f2a8d0a3.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V3/assets/illustrations/01_ELECTRO_MOMO.png"
+      ],
+      "output": "durane-rampart-v1.png",
+      "generator": "built-in image_gen",
+      "sourceImage": "exec-cf01b2ae-58ea-425d-9441-a6793525c09f.png"
+    },
+    {
+      "name": "durane-rampart-scene-v1",
+      "prompt": "Production Kalistar illustration, standalone portrait painting with no card frame or text. Image1 is the EXACT shield object to preserve. Paint it standing on a single stone step at the gate of Durane, in a sober grey-stone fortress with a glimpse of canyon daylight. Preserve its banner-shaped silhouette, two crossed gold hammers, gold mountain motif, dark GREY stone face and small silver Kalistel, thin grey-white light only on the INNER border. Do not add large reinforcements or cloth. Full shield visible with at least 14% clear margins above/below and sides for a card-window crop, no clipped tip, no perspective distortion. Restrained background with only a few large shapes, no busy architecture, crowds, other weapons or text. Match painted Kalistar brushwork of image2, not smooth 3D. The shield fills approximately 70% of the height.",
+      "refs": [
+        "C:\\Users\\guill\\.codex\\generated_images\\01a101d7-d348-7f93-aa10-a7bc601dc655\\exec-cf01b2ae-58ea-425d-9441-a6793525c09f.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V3/assets/illustrations/01_ELECTRO_MOMO.png"
+      ],
+      "output": "durane-rampart-scene-v1.png",
+      "generator": "built-in image_gen",
+      "sourceImage": "exec-56ac3c48-368d-413a-bed0-e36e3072c19b.png"
+    },
+    {
+      "name": "pod-042-v1",
+      "prompt": "Use case: stylized-concept. Production isolated game equipment asset for Kalistar, ONLY the Pod 042 robot from the RIGHT card of reference, not the card. Faithful rectangular ivory-white armored flying support drone, tiny black top aerial, small black seams and vents, twin articulated black mechanical arms below with aged copper joints, small three finger claws, no wings, no weapon firing. Three-quarter front view, upright vertical rectangular body, full object centered with 15% padding on every side. Painted heroic-fantasy/cyberpunk card-game brushwork like approved reference, not plastic 3D. Transparent background including around and between limbs. No text, frame, badge, extra scenery, pedestal or ground shadow. Keep this exact recognizable Pod silhouette, no invented limbs.",
+      "refs": [
+        "C:/Users/guill/.codex/generated_images/01a101d7-d348-7f93-aa10-a7bc601dc655/exec-adfa95f0-491e-4c09-8575-bcf7f2a8d0a3.png"
+      ],
+      "output": "pod-042-v1.png",
+      "generator": "built-in image_gen",
+      "sourceImage": "exec-c0c4c119-6514-4e54-a1b0-fbe7d88be77c.png"
+    },
+    {
+      "name": "pod-042-scene-v1",
+      "prompt": "Use case: stylized-concept, Kalistar painted equipment illustration. Reference is the exact Pod 042 object, preserve rectangular ivory body, black arms, aged copper articulations. Paint this drone calmly hovering in a quiet ruined stone passage overgrown with a few ivy leaves, distant cool daylight through an arch. No other characters or objects, no clutter, no shooting. Square composition: full drone centered and entirely visible, occupy only 63% of image height so card cropping never cuts the arms or antenna, 18% clear margin top and bottom. Painted brushwork, subtle emotional presence, muted atmospheric background but sharply readable actual equipment. No card frame, no typography, no interface, no medallion.",
+      "refs": [
+        "C:/Users/guill/.codex/generated_images/01a101d7-d348-7f93-aa10-a7bc601dc655/exec-c0c4c119-6514-4e54-a1b0-fbe7d88be77c.png"
+      ],
+      "output": "pod-042-scene-v1.png",
+      "generator": "built-in image_gen",
+      "sourceImage": "exec-3d564009-e78e-474d-833a-7f8f331514e2.png"
+    },
+    {
+      "name": "durane-rampart-ring-v1",
+      "prompt": "Use case: stylized-concept. Kalistar game medallion RING only, source reference is approved card board. Create the left shield card's circular annulus as a perfectly circular front-facing isolated transparent asset. Segmented grey granite stones in aged SILVER metal housing, slender brass fillets, four tiny deep jade-green inset crystals at cardinal points. Subtle grey-white light recessed at INSIDE circumference only. Same painterly copper/fantasy crafted quality as reference, restrained detail readable at 32px. Ring perfectly centered on square canvas, outside diameter 90% of canvas, inner hole about 74% of outside diameter. Completely TRANSPARENT center and exterior. No solid disk, shield, object, lettering, background, scene or side protrusions. Symmetric round silhouette, not ellipse. It will rotate around an upright shield object.",
+      "refs": [
+        "C:/Users/guill/.codex/generated_images/01a101d7-d348-7f93-aa10-a7bc601dc655/exec-adfa95f0-491e-4c09-8575-bcf7f2a8d0a3.png"
+      ],
+      "output": "durane-rampart-ring-v1.png",
+      "generator": "built-in image_gen",
+      "sourceImage": "exec-86585f83-7bfd-48ea-82ab-654c37cf70c9.png"
+    },
+    {
+      "name": "pod-042-ring-v1",
+      "prompt": "Kalistar medallion circular ring asset, ONLY an annulus, transparent center and exterior. Same perfectly front-facing circular geometry as reference image, but change the material to pale brushed silver metal segmented into precise mechanical panels with tiny aged copper hinges and four small amethyst crystals, a subtle purple-white inner energy track. Quiet heroic-fantasy/cyberpunk craftsmanship, hand-painted surface detail, not futuristic HUD and not cartoon. Ring centered, complete round silhouette within canvas margins, inner hole 74% of outer diameter, no black disk, object, robot, shield, text or background. It must rotate smoothly as a standalone mechanical ring. Reference is geometry and painterly quality, replace stone facets with ivory-silver plates, keep a thin elegant structure.",
+      "refs": [
+        "C:/Users/guill/.codex/generated_images/01a101d7-d348-7f93-aa10-a7bc601dc655/exec-86585f83-7bfd-48ea-82ab-654c37cf70c9.png"
+      ],
+      "output": "pod-042-ring-v1.png",
+      "generator": "built-in image_gen",
+      "sourceImage": "exec-98fff26e-5b6d-42c8-93f5-f8f496a65bee.png"
+    },
+    {
+      "name": "durane-rampart-scene-v1-final",
+      "prompt": "Precise-object-edit of the supplied Kalistar painting: remove ONLY the two blue cloth banners hanging on the fortress wall in the background and replace those small areas with the same plain grey stone wall. Preserve absolutely the shield, its design, gold hammers, mountains, inner grey-white luminous border, lighting, brushwork, proportions, camera framing and all other scene elements. No lettering or new decorations. The background should remain restrained so the shield is the focus.",
+      "refs": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/durane-rampart-scene-v1.png"
+      ],
+      "output": "durane-rampart-scene-v1.png",
+      "sourceImage": "exec-a72c9c45-1421-4589-afec-76bb8fa0f994.png",
+      "generator": "built-in image_gen"
+    }
+  ]
+}

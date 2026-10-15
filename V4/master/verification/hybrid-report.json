@@ -1,0 +1,38 @@
+{
+  "status": "epreuve-hybride-a-valider-par-utilisateur",
+  "checks": {
+    "momoUnchanged": true,
+    "v3PsdUnchanged": true,
+    "v3Mechanics": true,
+    "psdAndPngIdentical": true,
+    "geometry": true,
+    "states": true,
+    "texts": true,
+    "barcodeEntireCellClean": true,
+    "barcodeNativeAnd4x": true,
+    "nativeComponentsNonempty": true
+  },
+  "metrics": {
+    "barcode": {
+      "mismatch": 0,
+      "rows": 0,
+      "gutter": 0
+    }
+  },
+  "components": {
+    "atk-small": {
+      "sha256": "284b9b9942dd4b7ced47452880444fec526dad907d6c50b76f6b002976e58ab8",
+      "alphaMax": 255
+    },
+    "def-small": {
+      "sha256": "c8fd2620bd368ad8e75944badb2591b3a0c3f27bfb7f4b37e212b58f5ebb8be6",
+      "alphaMax": 255
+    }
+  },
+  "sourcePsd": "V3/templates/13_ELECTRO_TAULIO.psd",
+  "dynamicSource": "V3",
+  "structure": "templates/KALISTAR_MASTER_V4_02-chassis.psd",
+  "profile": "master/profiles/taulio.json",
+  "renderSha256": "257f2a0ab43ee08a65cb26e21f2b2fb1127ac00390184b8ea0f14d613b21d725",
+  "note": "Successful technical checks do not constitute aesthetic approval or a print proof."
+}

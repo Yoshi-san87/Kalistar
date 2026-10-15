@@ -1,0 +1,302 @@
+{
+  "schema_version": 1,
+  "batch": "elements-01/terre-plantes",
+  "revision": "V4_01",
+  "environment_date": "2026-09-17",
+  "status": "ready_for_parent_template_review_not_user_approved",
+  "generation": {
+    "tool": "image_gen builtin",
+    "callable": "image_gen__imagegen",
+    "calls": 4,
+    "calls_per_illustration": 1,
+    "cli_used": false,
+    "model": "not exposed by builtin tool",
+    "requested_dimensions": "1536x1920 preferred in prompt; not an API size parameter",
+    "actual_dimensions": [
+      1122,
+      1402
+    ],
+    "reference_loading": "All six source images inspected using view_image before generation. All four exported PNGs inspected using view_image after export.",
+    "postprocessing": "None on final PNGs. Byte-for-byte copy from builtin output. Only the separate QA contact sheet was resized using System.Drawing."
+  },
+  "scope": {
+    "written_roots": [
+      "V4/assets/illustrations/elements-01/terre-plantes/",
+      "V4/donnees/elements-01/terre-plantes/"
+    ],
+    "exception": "Builtin tool automatically saves original generations under CODEX_HOME/generated_images; no manual writes outside allowed roots.",
+    "existing_project_files_overwritten": false,
+    "V3_modified": false,
+    "PSD_modified": false,
+    "photoshop_launched": false
+  },
+  "sources": [
+    {
+      "path": "V4/AGENTS.md",
+      "sha256": "2e446fe9a5875134260a3139fb7506b5d947d5d941843413a00a8f82d297d1b8"
+    },
+    {
+      "path": "V4/DIRECTION_ARTISTIQUE.md",
+      "sha256": "5c1d030e09d482cc9ea5064d50ee401cb1b6196315b2f12d98a1784f0da7fbf1"
+    },
+    {
+      "path": "V3/donnees/cartes.json",
+      "sha256": "bb6de0d7b2b7eec0f1a9348dc892faa002fe542c169bbe202e11aca7e3788761"
+    },
+    {
+      "path": "V3/sources/histoire.txt",
+      "sha256": "33ddbfbff5b7032affc0d4e2df5fee01283664accde5e35967390fc3fd7aaefc"
+    },
+    {
+      "path": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+      "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8"
+    },
+    {
+      "path": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+      "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee"
+    },
+    {
+      "path": "V3/assets/illustrations/18_minero_lok.png",
+      "sha256": "440df970801cef0e7dae2dc3b670431e7564ffdbf0a209592a8c74d29fdea551"
+    },
+    {
+      "path": "V3/assets/illustrations/07_MINERO_BALMHYR.png",
+      "sha256": "d4264912a6427f7a7d598ebf89cda97c0de6110056c0119a4bac8fb999f6f83d"
+    },
+    {
+      "path": "V3/assets/illustrations/24_MINERO_MAGNAR.png",
+      "sha256": "abb80c08908de9c5a966b96005358607acf59545ac9c29a3f496af561e47f729"
+    },
+    {
+      "path": "V3/assets/illustrations/08_HERBO_VICTORVINE.png",
+      "sha256": "ef67ce6b64f7d5e1c2b056a0225a4e28c69fd4d1180ad8af20de01485b2ea556"
+    }
+  ],
+  "prompt_file": "V4/donnees/elements-01/terre-plantes/prompts_V4_01.json",
+  "export_script": "V4/donnees/elements-01/terre-plantes/export_verify_V4_01.ps1",
+  "qa_contact_sheet": {
+    "path": "V4/donnees/elements-01/terre-plantes/qa/CONTACT_V4_01_221x276.png",
+    "tile_dimensions": [
+      221,
+      276
+    ],
+    "left_to_right": [
+      "LOK",
+      "BALMHYR",
+      "MAGNAR",
+      "VICTORVINE"
+    ],
+    "inspected": true
+  },
+  "target_window": {
+    "width": 737,
+    "height": 921,
+    "ratio_relative_error": 0.00008516618050968816,
+    "recommended_placement": "Fit full image. At window height, width is approximately 737.063 pixels; required aspect adjustment is below 0.1 pixel.",
+    "final_frame_occlusion_test": "Not performed: parent owns PSD/template and complete-card QA."
+  },
+  "outputs": [
+    {
+      "name": "LOK",
+      "path": "V4/assets/illustrations/elements-01/terre-plantes/LOK_V4_01.png",
+      "source": "C:/Users/guill/.codex/generated_images/01a0af75-4e28-7b12-a5e0-f940825be69f/exec-0af98780-49c8-4b32-b857-5438a8a0fb40.png",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 2594798,
+      "sha256": "18e421e3f236d1f780bfcf8f77468e3aa889f640f1a546349725fbc33a01042a",
+      "byte_identical_to_builtin": true,
+      "window_ratio_relative_error": 0.00008516618050968816,
+      "prompt_name": "LOK",
+      "reference_images": [
+        "V3/assets/illustrations/18_minero_lok.png",
+        "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "V3/assets/illustrations/34_NECRO_VALAZAR.png"
+      ],
+      "visual_qa": {
+        "status": "accepted_for_parent_review",
+        "style": "Narrative painted Kalistar, visible brush planes and worn materials, consistent with inspected Momo/Valazar references.",
+        "no_frame_text_or_ui": true,
+        "small_size_checked": true,
+        "lore": [
+          {
+            "path": "V3/sources/histoire.txt",
+            "lines": [
+              2186,
+              2192
+            ],
+            "note": "Lok siege sur son trone de l'Obelisque de Fer, armure decorative et atmosphere pesante."
+          },
+          {
+            "path": "V3/sources/histoire.txt",
+            "lines": [
+              1406,
+              1414
+            ],
+            "note": "Lok a usurpe le trone de son frere Balmhyr."
+          },
+          {
+            "path": "V3/donnees/cartes.json",
+            "lines": [
+              1065,
+              1123
+            ],
+            "note": "Ancienne vignette de fonderie inventee V2: remplacee dans cette illustration sur instruction utilisateur, sans modifier la base."
+          }
+        ],
+        "observations": [
+          "Roi nain assis et penche en avant; couronne, trone de pierre et fer, armure royale; aucune fonderie.",
+          "Regard lateral inquiet, front contracte, machoire serree, mains crispees; emotion lisible.",
+          "Une tete, deux bras, deux jambes; visage et gestes suffisamment centraux."
+        ],
+        "parent_note": "Utiliser l'image entiere. L'ancienne description V3 de la fonderie ne correspond plus a cette illustration; les eventuels textes V4 relevent du parent."
+      }
+    },
+    {
+      "name": "BALMHYR",
+      "path": "V4/assets/illustrations/elements-01/terre-plantes/BALMHYR_V4_01.png",
+      "source": "C:/Users/guill/.codex/generated_images/01a0af75-4e28-7b12-a5e0-f940825be69f/exec-1fef5174-2f82-4ec9-bc36-02e31e8ce2e2.png",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 3119044,
+      "sha256": "ed5381bd806a18930627504933a7b691c168298e0ac8bcecb1bbd804e5606736",
+      "byte_identical_to_builtin": true,
+      "window_ratio_relative_error": 0.00008516618050968816,
+      "prompt_name": "BALMHYR",
+      "reference_images": [
+        "V3/assets/illustrations/07_MINERO_BALMHYR.png",
+        "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "V3/assets/illustrations/34_NECRO_VALAZAR.png"
+      ],
+      "visual_qa": {
+        "status": "accepted_for_parent_review",
+        "style": "Narrative painted Kalistar, visible brush planes and worn materials, consistent with inspected Momo/Valazar references.",
+        "no_frame_text_or_ui": true,
+        "small_size_checked": true,
+        "lore": [
+          {
+            "path": "V3/sources/histoire.txt",
+            "lines": [
+              2141,
+              2162
+            ],
+            "note": "Vieux nain a longue barbe blanche tressee; yeux vifs, hache gravee, voix grave et posee; compagnon ours Belzebuth."
+          },
+          {
+            "path": "V3/sources/histoire.txt",
+            "lines": [
+              1386,
+              1414
+            ],
+            "note": "Mentor, ancien roi et frere exile de Lok."
+          },
+          {
+            "path": "V3/donnees/cartes.json",
+            "lines": [
+              385,
+              445
+            ],
+            "note": "Balmhyr contemple Durane, son ours derriere lui; reference visuelle de scene preservee."
+          }
+        ],
+        "observations": [
+          "Carrure naine large et compacte; barbe blanche tressee, posture ancree et mains superposees sur la hache.",
+          "Regard grave vers Durane et autorite calme; aucun trait Star Wars ni sourire de grand-pere jovial.",
+          "Ours naturel en retrait, hache basse; une tete, deux bras et deux jambes pour le nain."
+        ],
+        "parent_note": "Interpretation de mentor par la retenue et l'autorite d'ancien roi, sans iconographie magique ajoutee. Validation artistique finale a laisser a l'utilisateur."
+      }
+    },
+    {
+      "name": "MAGNAR",
+      "path": "V4/assets/illustrations/elements-01/terre-plantes/MAGNAR_V4_01.png",
+      "source": "C:/Users/guill/.codex/generated_images/01a0af75-4e28-7b12-a5e0-f940825be69f/exec-7e4d48f0-cde1-44b8-8470-0d81357734c8.png",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 2508207,
+      "sha256": "8494e290759542eced748e1298cb0c4e7fef41e50aa3afd202d118ba5a4fdc5b",
+      "byte_identical_to_builtin": true,
+      "window_ratio_relative_error": 0.00008516618050968816,
+      "prompt_name": "MAGNAR",
+      "reference_images": [
+        "V3/assets/illustrations/24_MINERO_MAGNAR.png",
+        "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "V3/assets/illustrations/34_NECRO_VALAZAR.png"
+      ],
+      "visual_qa": {
+        "status": "accepted_for_parent_review",
+        "style": "Narrative painted Kalistar, visible brush planes and worn materials, consistent with inspected Momo/Valazar references.",
+        "no_frame_text_or_ui": true,
+        "small_size_checked": true,
+        "lore": [
+          {
+            "path": "V3/sources/histoire.txt",
+            "lines": [
+              39,
+              46
+            ],
+            "note": "Magnar est decrit comme un homme a moitie humain et a moitie roche, peau de granit sur des muscles saillants."
+          },
+          {
+            "path": "V3/donnees/cartes.json",
+            "lines": [
+              1420,
+              1478
+            ],
+            "note": "Gardien de la galerie Z13, scene La Porte de Pierre, masse tenue basse."
+          }
+        ],
+        "observations": [
+          "Anatomie humaine continue, visage expressif et articulations organiques; deux bras, deux jambes.",
+          "Peau de granit fissuree finement sur des muscles, sans assemblage de blocs, plaques ou articulations mecaniques.",
+          "Seuil de pierre, masse basse et calme menacant conserves."
+        ],
+        "parent_note": "Visage haut dans l'image (environ 4 a 14 % de sa hauteur): conserver le plein cadrage, ne pas zoomer verticalement lors de l'insertion. Verifier l'absence d'occlusion avec le template final."
+      }
+    },
+    {
+      "name": "VICTORVINE",
+      "path": "V4/assets/illustrations/elements-01/terre-plantes/VICTORVINE_V4_01.png",
+      "source": "C:/Users/guill/.codex/generated_images/01a0af75-4e28-7b12-a5e0-f940825be69f/exec-e7ca786c-17b3-45ff-a7fb-ff90283b660f.png",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 2967942,
+      "sha256": "971238aef52aa8590236f90e61adc944dece2e4c535f9a2dee8457648bf65152",
+      "byte_identical_to_builtin": true,
+      "window_ratio_relative_error": 0.00008516618050968816,
+      "prompt_name": "VICTORVINE",
+      "reference_images": [
+        "V3/assets/illustrations/08_HERBO_VICTORVINE.png",
+        "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "V3/assets/illustrations/34_NECRO_VALAZAR.png"
+      ],
+      "visual_qa": {
+        "status": "accepted_for_parent_review",
+        "style": "Narrative painted Kalistar, visible brush planes and worn materials, consistent with inspected Momo/Valazar references.",
+        "no_frame_text_or_ui": true,
+        "small_size_checked": true,
+        "lore": [
+          {
+            "path": "V3/donnees/cartes.json",
+            "lines": [
+              447,
+              507
+            ],
+            "note": "Carnivert protegeant une jeune pousse pres d'eaux polluees; geste conserve."
+          },
+          {
+            "path": "V3/sources/histoire.txt",
+            "lines": null,
+            "note": "Recherche du nom Victorvine sans occurrence; ne pas inventer de chapitre canonique. La scene et l'identite proviennent de la fiche et de l'illustration V3."
+          }
+        ],
+        "observations": [
+          "Posture accroupie entiere visible, taille humaine plausible face aux troncs et fougeres du meme plan.",
+          "Geste des deux mains autour de la motte, jeune pousse et expression attentive preserves.",
+          "Foret avec troncs brises, branches tombees et discret drain rouille; pas de ville industrielle detruite ni de spectacle apocalyptique.",
+          "Une tete, deux bras et deux jambes repliees; pas de racines jouant le role de membres supplementaires."
+        ],
+        "parent_note": "Conserver le plan plus large: un recadrage rapproche retablirait l'impression de gigantisme. L'emotion est volontairement calme et concentree."
+      }
+    }
+  ]
+}

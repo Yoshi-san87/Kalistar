@@ -1,0 +1,223 @@
+{
+  "generatedAt": "2026-09-15T06:03:06.476Z",
+  "browser": "isolated headless Chrome context",
+  "databasePrefix": "kalistar-v3-cards-ownership-",
+  "actualUserProfileAccessed": false,
+  "networkBackend": false,
+  "sources": {
+    "engine.js": "a1c3c6c3b6c4363adbcff6e00a41609513171a91a119f5ced864d68f18a49def",
+    "data.js": "55cce888a355f9bab558dd39a4e5c5d7ba75a45e487d360e310b0a42146c8faa",
+    "ownership.js": "abc4d66224d914c0d1a7c17ee7d6c43b7703e37b21b40439ef8b1c76507d2a13",
+    "local-db.js": "4fb3827624fa289261b2b88057068b7980657657e7a7131ee2db7f363c675497"
+  },
+  "passed": 41,
+  "failed": 0,
+  "cases": [
+    {
+      "name": "fresh seed: 41 unique random public IDs, Paris one/version, Tokyo zero, no activation secret",
+      "ok": true,
+      "ms": 21
+    },
+    {
+      "name": "all synchronous queries are detached clones; initialized fails closed after close",
+      "ok": true,
+      "ms": 9
+    },
+    {
+      "name": "populated actual version-1 migration preserves legacy matches, counters, instances and original IDs",
+      "ok": true,
+      "ms": 32
+    },
+    {
+      "name": "simultaneous connections and reopen never duplicate or reseed a transferred original",
+      "ok": true,
+      "ms": 78
+    },
+    {
+      "name": "simultaneous version-1 upgrades preserve data and seed only once",
+      "ok": true,
+      "ms": 36
+    },
+    {
+      "name": "legacy saves and schema-2 imports preserve APIs without granting AI or Tokyo ownership",
+      "ok": true,
+      "ms": 30
+    },
+    {
+      "name": "legacy continuation requires the exact Paris original, rejects pending/sold cards and adds no locks",
+      "ok": true,
+      "ms": 76
+    },
+    {
+      "name": "buying another public collectible of the same version does not authorize the sold legacy original",
+      "ok": true,
+      "ms": 37
+    },
+    {
+      "name": "existing final legacy archives remain readable and idempotent after original transfer",
+      "ok": true,
+      "ms": 52
+    },
+    {
+      "name": "full registry restore preserves sold-original legacy archives but does not authorize continuation",
+      "ok": true,
+      "ms": 80
+    },
+    {
+      "name": "same-registry default import cannot add sold-original legacy results or roll forward an old legacy match",
+      "ok": true,
+      "ms": 64
+    },
+    {
+      "name": "unmapped legacy 002 copies stay historical only, never become owned, including after migration",
+      "ok": true,
+      "ms": 41
+    },
+    {
+      "name": "standalone local-db on an upgraded registry cannot add sold-original legacy results",
+      "ok": true,
+      "ms": 45
+    },
+    {
+      "name": "admin issue returns independent 256-bit secret once and persists only its SHA-256 hash",
+      "ok": true,
+      "ms": 24
+    },
+    {
+      "name": "simultaneous claims across connections have exactly one winner",
+      "ok": true,
+      "ms": 22
+    },
+    {
+      "name": "bad claims are durably rate limited across connections, reopen and unknown IDs",
+      "ok": true,
+      "ms": 68
+    },
+    {
+      "name": "offer/accept/cancel/reject actor checks, clones, stable ID and history",
+      "ok": true,
+      "ms": 25
+    },
+    {
+      "name": "simultaneous offers, accept/accept and accept/cancel atomically reject stale losers",
+      "ok": true,
+      "ms": 28
+    },
+    {
+      "name": "bindGame keeps schema/rules intact, side zero owned, side one virtual, Tokyo denied",
+      "ok": true,
+      "ms": 11
+    },
+    {
+      "name": "new owned duplicate can bind separately; synthetic opponent copies never count",
+      "ok": true,
+      "ms": 13
+    },
+    {
+      "name": "save revalidates bindings and prevents owner/account spoof or removal, even finished states",
+      "ok": true,
+      "ms": 68
+    },
+    {
+      "name": "active bindings persist across reopen and prevent transfer until completion",
+      "ok": true,
+      "ms": 31
+    },
+    {
+      "name": "save versus offer races cannot create both pending transfer and active match",
+      "ok": true,
+      "ms": 68
+    },
+    {
+      "name": "unsaved stale binding cannot save after a transfer or while an offer is pending",
+      "ok": true,
+      "ms": 21
+    },
+    {
+      "name": "bound and original legacy careers travel with collectible; account match lists do not",
+      "ok": true,
+      "ms": 38
+    },
+    {
+      "name": "schema-3 full history backup safely restores into pristine target and is idempotent",
+      "ok": true,
+      "ms": 93
+    },
+    {
+      "name": "default merge rejects ownership rollback; explicit full restore replaces all tables atomically",
+      "ok": true,
+      "ms": 36
+    },
+    {
+      "name": "malformed registry restores fail atomically: owner spoof, duplicate IDs, plaintext secrets, broken history",
+      "ok": true,
+      "ms": 73
+    },
+    {
+      "name": "late conflict inside merge rolls back earlier match/instance writes",
+      "ok": true,
+      "ms": 29
+    },
+    {
+      "name": "registry-bound import cannot spoof bindings; schema-2 import cannot smuggle registry metadata",
+      "ok": true,
+      "ms": 52
+    },
+    {
+      "name": "full restore rejects forged historical match account even if bound events are also changed",
+      "ok": true,
+      "ms": 26
+    },
+    {
+      "name": "full restore with active match and pending transfer is rejected transactionally",
+      "ok": true,
+      "ms": 33
+    },
+    {
+      "name": "same registry concurrent backup import and transfer cannot roll ownership backward",
+      "ok": true,
+      "ms": 21
+    },
+    {
+      "name": "explicit release preserves archive without results, checks actor, survives reopen and restore",
+      "ok": true,
+      "ms": 57
+    },
+    {
+      "name": "release only removes its own lock; concurrent release/save cannot resurrect a lease",
+      "ok": true,
+      "ms": 53
+    },
+    {
+      "name": "activeGames returns detached bound unfinished matches for its profile, never legacy or finalized matches",
+      "ok": true,
+      "ms": 127
+    },
+    {
+      "name": "activeGames reflects release and completion across connections, reopen and full backup restore",
+      "ok": true,
+      "ms": 119
+    },
+    {
+      "name": "equal-clock rapid transfer chains remain valid and restore in causal order",
+      "ok": true,
+      "ms": 56
+    },
+    {
+      "name": "standalone local-db opens an upgraded DB without VersionError and refuses bound writes",
+      "ok": true,
+      "ms": 31
+    },
+    {
+      "name": "refresh propagates committed changes to another tab without shared JS cache",
+      "ok": true,
+      "ms": 114
+    },
+    {
+      "name": "no uncaught browser errors; original database name was never opened",
+      "ok": true,
+      "ms": 3
+    }
+  ],
+  "errors": []
+}

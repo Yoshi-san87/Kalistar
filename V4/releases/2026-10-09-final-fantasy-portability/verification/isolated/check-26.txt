@@ -1,0 +1,15 @@
+✔ Arborium equipment requires its exact faction AND base family, regardless of job or displayed name (57.327ms)
+✔ faction restriction validation rejects missing, empty, oversized and unknown categories (0.3453ms)
+✔ equipment profile persists one weapon per faction member and rejects incompatible assignments (13.9768ms)
+✔ team compositions validate the selected edition; old equipment snapshots stay valid (17.1982ms)
+✔ compatible Arborium bow and dagger wielders receive the real bonus on either side in formulas, logs and reloads (23.8697ms)
+✔ previous soldier-only match definitions are preserved, without retroactive broadening (2.4963ms)
+✔ new objects reuse bounded non-stacking numeric effects, not poison over time or a new matchup (0.1613ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 224.8118

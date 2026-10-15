@@ -1,0 +1,42 @@
+✖ 4.6 original arsenal keeps origins/family restrictions; frozen 4.5.64 effects stay exact (68.4601ms)
+✔ empty rosters are intentional, and new equips/new games reject every formerly incompatible edition (20.5408ms)
+✔ version-1 profile migration removes only retired bearers, keeps Momo weapon and is pure/idempotent (1.7604ms)
+✔ old compositions preserve every card, formation and captain while removing retired loadouts (1.6692ms)
+✔ every formerly allowed collective or personal loadout keeps its snapshot and combat bonus in a saved match (270.7986ms)
+✔ personal restrictions follow the chosen edition, accept future matching editions and retire invalid decks (5.9355ms)
+✔ 4.6 weapon faces retain the native family glyph; Momo box has an accessible relic icon (3.6532ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 496.4571
+
+✖ failing tests:
+
+test at V4\site\weapon-bearers.test.cjs:25:1
+✖ 4.6 original arsenal keeps origins/family restrictions; frozen 4.5.64 effects stay exact (68.4601ms)
+  AssertionError [ERR_ASSERTION]: wardens-spear
+  + actual - expected
+  
+    [
+      'brask-kalistar',
+      'karrok-kalistar',
+      'kimahri-ff10',
+      'nazar',
+  +   'orseon-kalistar',
+      'ward-ff8'
+    ]
+  
+      at TestContext.<anonymous> (C:\Users\guill\AppData\Local\Temp\kalistar-voices-4654-oVRPPq\V4\site\weapon-bearers.test.cjs:41:103)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'brask-kalistar', 'karrok-kalistar', 'kimahri-ff10', 'nazar', 'orseon-kalistar', 'ward-ff8' ],
+    expected: [ 'brask-kalistar', 'karrok-kalistar', 'kimahri-ff10', 'nazar', 'ward-ff8' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

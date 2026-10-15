@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "status": "preview-not-native",
+  "key": "xiaomi",
+  "id": "30000027",
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "inputs": {
+    "V4/cartes/KALISTAR_V4_30000027.png": "88855013fc576950188b66f8affec30aac5480da8e6e25ab729caf409a2c7c01",
+    "V4/expansions/2026-09-24-royal-training/retouches/xiaomi.png": "4e636a77af7fa8bfa4abca87045990edeca6c64d955c7e490c6b0082de5775b8",
+    "V4/expansions/2026-09-23-return/cards/xiaomi/render/composition.json": "d0796c68646d2d3d1632b174d1b51574aedf111ea673d28c09e06bc130fb086e"
+  },
+  "candidate": {
+    "file": "V4/expansions/2026-09-24-royal-training/audit/zoom/xiaomi-art-4e636a77af-candidate.png",
+    "sha256": "6234c6fa61e183022e852df204f4ee87c360000dfd9c37f985ae9fa8f76be5bc"
+  },
+  "comparison": {
+    "file": "V4/expansions/2026-09-24-royal-training/audit/zoom/xiaomi-art-4e636a77af-comparison.png",
+    "sha256": "b272b1e4e3b5adec89a9509de2926d71772829c2b40775b3ae64e15f4b439458"
+  },
+  "diff": {
+    "changed": 462455,
+    "outside": 0
+  },
+  "textPixelsPreserved": 16141,
+  "photoshopRun": false,
+  "limitation": "Compositor de consultation ; quelques pixels anti-aliases de texte conservent leur ancien fond. Aucun de ces fichiers ne sera publie. Le rendu final sera natif."
+}

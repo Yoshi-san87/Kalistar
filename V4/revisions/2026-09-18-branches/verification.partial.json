@@ -1,0 +1,602 @@
+{
+  "revision": "branches-2026-09-18",
+  "passed": true,
+  "checkedAt": "2026-09-18T07:17:56.379Z",
+  "originalReferenceId": "758e164e049f5379809e8e127bca426060c73944aba76e6358d12b4b19044fb6",
+  "componentHash": "482a21830100077f0789620267197d4fcd6eca545a4f5a41004451a9fcdf2380",
+  "rectangles": [
+    [
+      180,
+      1186,
+      388,
+      1230
+    ],
+    [
+      505,
+      1186,
+      706,
+      1230
+    ]
+  ],
+  "results": [
+    {
+      "key": "ruby",
+      "passed": true,
+      "comparison": {
+        "changed": 1878,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000039",
+        "cases": {
+          "color-1": [
+            "30000039"
+          ],
+          "color-4": [
+            "30000039"
+          ],
+          "gray-1": [
+            "30000039"
+          ],
+          "gray-4": [
+            "30000039"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "psdHash": "19f138df7cce37419c76bcc252ab9c5f3d9d6c5a31283c934534b8a2caf2236b",
+      "pngHash": "96d997cdad9345dcd04068837d851a4c51e83d1afbf7800831209ac4caf90e72",
+      "nativeHash": "1d675bdea2efcce469a94a24e69b79293114963c33a1c5bfd0f77aa2c27b6a69"
+    },
+    {
+      "key": "cana",
+      "passed": true,
+      "comparison": {
+        "changed": 2028,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000002",
+        "cases": {
+          "color-1": [
+            "30000002"
+          ],
+          "color-4": [
+            "30000002"
+          ],
+          "gray-1": [
+            "30000002"
+          ],
+          "gray-4": [
+            "30000002"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "psdHash": "f4af5e29fde77611a754e050dd41d4c14b01f521497aa7acecab220710b5e0ab",
+      "pngHash": "5797733c8ee9480ef2d05d8b5fdf8a3384fd7bc57e810c8b25df80e6e91993ef",
+      "nativeHash": "1e1a08326f821a962404cf91aafe159f85d88c730176eb9edd38077836c0490d"
+    },
+    {
+      "key": "scrow",
+      "passed": true,
+      "comparison": {
+        "changed": 2028,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000015",
+        "cases": {
+          "color-1": [
+            "30000015"
+          ],
+          "color-4": [
+            "30000015"
+          ],
+          "gray-1": [
+            "30000015"
+          ],
+          "gray-4": [
+            "30000015"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "psdHash": "a048ade7a9ff60a1d8fc3c1e024bcad16f6e66a06b7d6937119595ebe08e0e4c",
+      "pngHash": "e1cf3104f465e77772d77778707e911c462c08d7a7d2c87c0f16f74f5d445fe4",
+      "nativeHash": "34652158deb2cf9a0bde3fafb6a78ce4da0e31b86b130b855188781596b08e3d"
+    },
+    {
+      "key": "soryn",
+      "passed": true,
+      "comparison": {
+        "changed": 2028,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000040",
+        "cases": {
+          "color-1": [
+            "30000040"
+          ],
+          "color-4": [
+            "30000040"
+          ],
+          "gray-1": [
+            "30000040"
+          ],
+          "gray-4": [
+            "30000040"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "psdHash": "80ee36417aff2ea7a4cd6714ead40664f45bc74cb67d2f6aca09de63d8deb42b",
+      "pngHash": "06ba1ace1600d5cfe07852b090e4d4fe631f0e5a309c3d76c2d14a4c42f05ab8",
+      "nativeHash": "9bfc90cf55f49323d7ea2062fc5f1c9598501139fed0e0a1a05a2f637c1c56c0"
+    },
+    {
+      "key": "gilmarr",
+      "passed": true,
+      "comparison": {
+        "changed": 2028,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000038",
+        "cases": {
+          "color-1": [
+            "30000038"
+          ],
+          "color-4": [
+            "30000038"
+          ],
+          "gray-1": [
+            "30000038"
+          ],
+          "gray-4": [
+            "30000038"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "psdHash": "7ea7ac6469cc8982b475fdd30c1deb8de4a08a24c1d62a9ce35781b763ea2d13",
+      "pngHash": "0a962c1c097863d1faa64c25f7785ab2ee23a0dfb366e1f664986191a4f190d0",
+      "nativeHash": "45b2b9e3d9db1a9b5ba94bc48b1034be81ef764a9231ff01e607fcc6b4e63e10"
+    },
+    {
+      "key": "darnako",
+      "passed": true,
+      "comparison": {
+        "changed": 2020,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000004",
+        "cases": {
+          "color-1": [
+            "30000004"
+          ],
+          "color-4": [
+            "30000004"
+          ],
+          "gray-1": [
+            "30000004"
+          ],
+          "gray-4": [
+            "30000004"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "psdHash": "f6b9cdca2ff7d127aaee74d5d1c15e5465a901a915e72faee5cbe65b64861284",
+      "pngHash": "fc137ca1dafe840ebcfd4aafbbca5d66dd71906cb748bf29124cc74b181444e5",
+      "nativeHash": "4261f1ecadb2a7c47e70508e1743db7fc90703d3be1e15a34e4c6724ccfbeac4"
+    },
+    {
+      "key": "malinia",
+      "passed": true,
+      "comparison": {
+        "changed": 2018,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000005",
+        "cases": {
+          "color-1": [
+            "30000005"
+          ],
+          "color-4": [
+            "30000005"
+          ],
+          "gray-1": [
+            "30000005"
+          ],
+          "gray-4": [
+            "30000005"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "psdHash": "2e967c4b46681d4630d553a09c91d63f00a50fc41f27b4d011a903279c8aef44",
+      "pngHash": "8c0d3dfb1c6f48f1657d6a3220cdfdce3efc84e152fffeedbafa3489ff58ae4a",
+      "nativeHash": "214d47291fecb6a6e9c2ccc40e1dc8d0ba89b8bae2de86dc270681244d4d4bad"
+    },
+    {
+      "key": "aelis",
+      "passed": true,
+      "comparison": {
+        "changed": 2023,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000006",
+        "cases": {
+          "color-1": [
+            "30000006"
+          ],
+          "color-4": [
+            "30000006"
+          ],
+          "gray-1": [
+            "30000006"
+          ],
+          "gray-4": [
+            "30000006"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "psdHash": "195622b825c9adf11dad1b6b52e3eba0c6dc5227db23cc04e7b7e73013151fa4",
+      "pngHash": "5f5ec39d7854c6de4ae64dba32bf8d356424d946957c3a12c5c5779a9ee80188",
+      "nativeHash": "38147d285783c5c28d8de66c7f2b9c29e3561ecad9121c24cab53b3c34c27963"
+    },
+    {
+      "key": "iliane",
+      "passed": true,
+      "comparison": {
+        "changed": 2023,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000017",
+        "cases": {
+          "color-1": [
+            "30000017"
+          ],
+          "color-4": [
+            "30000017"
+          ],
+          "gray-1": [
+            "30000017"
+          ],
+          "gray-4": [
+            "30000017"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "psdHash": "71d6443869d02872f7cd1a04e30122f5a8e1a54de7ae1893cd0c3fd4b5e30e31",
+      "pngHash": "83673e4f0e0a2eb7d6fc8dab167d52a852f5596b7d7b8c47bbab3387fbde04bb",
+      "nativeHash": "ebe6f4e07ae2ccf38c2133e96d86a8236d493aca8d74ab4c99db16fb2de9c05a"
+    },
+    {
+      "key": "belrog",
+      "passed": true,
+      "comparison": {
+        "changed": 2025,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000019",
+        "cases": {
+          "color-1": [
+            "30000019"
+          ],
+          "color-4": [
+            "30000019"
+          ],
+          "gray-1": [
+            "30000019"
+          ],
+          "gray-4": [
+            "30000019"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "psdHash": "498ad060c8ae284a17f81b92ec87c0020baa817940d1c5054d454676be78617d",
+      "pngHash": "e8b4fa8944a320d88d99fa3366502c8e8f3929d90e63df6304f9c441f84940c1",
+      "nativeHash": "ac1a2ad919661c8206bbd0aee8d164e01c680ec599353ebeaaa4cc0f40091850"
+    },
+    {
+      "key": "lok",
+      "passed": true,
+      "comparison": {
+        "changed": 2025,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000018",
+        "cases": {
+          "color-1": [
+            "30000018"
+          ],
+          "color-4": [
+            "30000018"
+          ],
+          "gray-1": [
+            "30000018"
+          ],
+          "gray-4": [
+            "30000018"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "psdHash": "76f26a01085c346f3eec1cc1026ea108207b0cc4f765f39bf1b99eaae0ccc7c4",
+      "pngHash": "e03d503bcd8a916b69210e9d06d57115d4e4993e4f59a08d75e5ac94274b7f4b",
+      "nativeHash": "a1dbafa26141f2f915a606222b58dccd9ebe897c010852d793ceeb0643312b4d"
+    },
+    {
+      "key": "balmhyr",
+      "passed": true,
+      "comparison": {
+        "changed": 2025,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000007",
+        "cases": {
+          "color-1": [
+            "30000007"
+          ],
+          "color-4": [
+            "30000007"
+          ],
+          "gray-1": [
+            "30000007"
+          ],
+          "gray-4": [
+            "30000007"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "psdHash": "f910f2611597b6844e7c69e46e00ae33e89db19a21cb27f7e7c3e4817faef32d",
+      "pngHash": "4dd84a5c037d253341582363c7a4a378b13be235b522a821d0ce5462833209d5",
+      "nativeHash": "28f586442097757dd352ca18b61150ee86d950a3c70dde9835d1b108bf7aa9ed"
+    },
+    {
+      "key": "magnar",
+      "passed": true,
+      "comparison": {
+        "changed": 2025,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000024",
+        "cases": {
+          "color-1": [
+            "30000024"
+          ],
+          "color-4": [
+            "30000024"
+          ],
+          "gray-1": [
+            "30000024"
+          ],
+          "gray-4": [
+            "30000024"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "psdHash": "a372ddc89999753e87b263fb03cca65dbbc7804e546c44c7e267e0dfbf6f6bc2",
+      "pngHash": "041b8494778a22ab6c561e9b2e400b4d22343f4ceff906f09408e4e6a8c7f176",
+      "nativeHash": "3a45fb049795b3d8c248e23c1552a0ae6ffe055f7220424a79ea1efd045fe6eb"
+    },
+    {
+      "key": "thalie",
+      "passed": true,
+      "comparison": {
+        "changed": 2026,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000041",
+        "cases": {
+          "color-1": [
+            "30000041"
+          ],
+          "color-4": [
+            "30000041"
+          ],
+          "gray-1": [
+            "30000041"
+          ],
+          "gray-4": [
+            "30000041"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "psdHash": "1825a3851aadb6d6a2316728c22521df57383d14353c880a7612f9e66216b719",
+      "pngHash": "621d0aa6f8bb2c823705bf506b28300457400cd19a1702cbd76d1c1ef7e33c31",
+      "nativeHash": "aa97ad5b3ef67c99eb8e6aa16b401240fcdb417b0e72eb376bf53378a74e39e3"
+    },
+    {
+      "key": "bloom",
+      "passed": true,
+      "comparison": {
+        "changed": 2026,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000033",
+        "cases": {
+          "color-1": [
+            "30000033"
+          ],
+          "color-4": [
+            "30000033"
+          ],
+          "gray-1": [
+            "30000033"
+          ],
+          "gray-4": [
+            "30000033"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "psdHash": "d508982db2551669e15e7da7b2ea00c268c790eb96a08b17f361ce723de69bf7",
+      "pngHash": "be2e14c7fcdb1701bde8644fe34a6fe45346d8b02928fdc053f495c1e016411e",
+      "nativeHash": "fdffbc259944e0cd6bb1dc33cce1b9744145c34ded2df028173bfacae56e377a"
+    },
+    {
+      "key": "victorvine",
+      "passed": true,
+      "comparison": {
+        "changed": 2026,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000008",
+        "cases": {
+          "color-1": [
+            "30000008"
+          ],
+          "color-4": [
+            "30000008"
+          ],
+          "gray-1": [
+            "30000008"
+          ],
+          "gray-4": [
+            "30000008"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "psdHash": "37f8cd747b5a3791b18c9cb968e6fea88a484182f84e7f4d00ad3a33760da20d",
+      "pngHash": "633e8630d1a5d98d180d4354266edccf99713b459685e0d43608e794c7931a34",
+      "nativeHash": "9d3fddefb08b8182a83c7760cd4f3e206f6524921cf08b37bf1ce72a7976184a"
+    },
+    {
+      "key": "kaylis",
+      "passed": true,
+      "comparison": {
+        "changed": 2095,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000012",
+        "cases": {
+          "color-1": [
+            "30000012"
+          ],
+          "color-4": [
+            "30000012"
+          ],
+          "gray-1": [
+            "30000012"
+          ],
+          "gray-4": [
+            "30000012"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "psdHash": "3e8addb01a8e1911242d0d2cb1cce356ea668a6dc38666d250691a7cdbb9afa1",
+      "pngHash": "0e3c48b1d7cdb9e4656c71bde6aee443d22630821ba5e8e76adafabf4277415a",
+      "nativeHash": "9d1dc5f501e8c985816d7983661861d1b6d013d725db6f564d4ea5f3a118a46d"
+    }
+  ],
+  "sourcesUnchanged": true
+}

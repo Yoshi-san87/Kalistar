@@ -1,0 +1,2459 @@
+{
+  "schema": 6,
+  "phase": "physical",
+  "turn": 1,
+  "round": 42,
+  "rng": 3722276190,
+  "seed": "STACKED-BUFFS-UI",
+  "mode": "local",
+  "players": [
+    {
+      "board": [
+        {
+          "uid": "0-0",
+          "cardId": "30000013",
+          "revived": false,
+          "reraise": 1,
+          "luck": 1,
+          "mana": 60,
+          "physical": 0,
+          "ward": 60,
+          "instanceId": "K3-30000013-001",
+          "entered": true
+        },
+        {
+          "uid": "0-1",
+          "cardId": "30000002",
+          "revived": false,
+          "reraise": 1,
+          "luck": 1,
+          "mana": 60,
+          "physical": 0,
+          "ward": 60,
+          "instanceId": "K3-30000002-001",
+          "entered": true
+        },
+        {
+          "uid": "0-2",
+          "cardId": "30000001",
+          "revived": false,
+          "reraise": 1,
+          "luck": 1,
+          "mana": 60,
+          "physical": 0,
+          "ward": 60,
+          "instanceId": "K3-30000001-001",
+          "entered": true
+        },
+        {
+          "uid": "0-3",
+          "cardId": "30000023",
+          "revived": false,
+          "reraise": 1,
+          "luck": 1,
+          "mana": 60,
+          "physical": 0,
+          "ward": 60,
+          "instanceId": "K3-30000023-001",
+          "entered": true
+        },
+        {
+          "uid": "0-4",
+          "cardId": "30000003",
+          "revived": false,
+          "reraise": 1,
+          "luck": 1,
+          "mana": 60,
+          "physical": 0,
+          "ward": 60,
+          "instanceId": "K3-30000003-001",
+          "entered": true
+        }
+      ],
+      "reserve": [
+        {
+          "uid": "0-5",
+          "cardId": "30000007",
+          "revived": false,
+          "reraise": 0,
+          "luck": 0,
+          "mana": 0,
+          "physical": 0,
+          "ward": 0,
+          "instanceId": "K3-30000007-001",
+          "entered": false
+        },
+        {
+          "uid": "0-6",
+          "cardId": "30000004",
+          "revived": false,
+          "reraise": 0,
+          "luck": 0,
+          "mana": 0,
+          "physical": 0,
+          "ward": 0,
+          "instanceId": "K3-30000004-001",
+          "entered": false
+        },
+        {
+          "uid": "0-7",
+          "cardId": "30000008",
+          "revived": false,
+          "reraise": 0,
+          "luck": 0,
+          "mana": 0,
+          "physical": 0,
+          "ward": 0,
+          "instanceId": "K3-30000008-001",
+          "entered": false
+        },
+        {
+          "uid": "0-8",
+          "cardId": "30000006",
+          "revived": false,
+          "reraise": 0,
+          "luck": 0,
+          "mana": 0,
+          "physical": 0,
+          "ward": 0,
+          "instanceId": "K3-30000006-001",
+          "entered": false
+        },
+        {
+          "uid": "0-9",
+          "cardId": "30000005",
+          "revived": false,
+          "reraise": 0,
+          "luck": 0,
+          "mana": 0,
+          "physical": 0,
+          "ward": 0,
+          "instanceId": "K3-30000005-001",
+          "entered": false
+        }
+      ],
+      "dead": []
+    },
+    {
+      "board": [
+        {
+          "uid": "1-0",
+          "cardId": "30000013",
+          "revived": false,
+          "reraise": 1,
+          "luck": 1,
+          "mana": 60,
+          "physical": 0,
+          "ward": 60,
+          "instanceId": "K3-30000013-002",
+          "entered": true
+        },
+        {
+          "uid": "1-1",
+          "cardId": "30000002",
+          "revived": false,
+          "reraise": 1,
+          "luck": 1,
+          "mana": 60,
+          "physical": 0,
+          "ward": 60,
+          "instanceId": "K3-30000002-002",
+          "entered": true
+        },
+        {
+          "uid": "1-2",
+          "cardId": "30000001",
+          "revived": false,
+          "reraise": 1,
+          "luck": 1,
+          "mana": 60,
+          "physical": 0,
+          "ward": 60,
+          "instanceId": "K3-30000001-002",
+          "entered": true
+        },
+        {
+          "uid": "1-3",
+          "cardId": "30000023",
+          "revived": false,
+          "reraise": 1,
+          "luck": 1,
+          "mana": 60,
+          "physical": 0,
+          "ward": 60,
+          "instanceId": "K3-30000023-002",
+          "entered": true
+        },
+        {
+          "uid": "1-4",
+          "cardId": "30000003",
+          "revived": false,
+          "reraise": 1,
+          "luck": 1,
+          "mana": 60,
+          "physical": 0,
+          "ward": 60,
+          "instanceId": "K3-30000003-002",
+          "entered": true
+        }
+      ],
+      "reserve": [
+        {
+          "uid": "1-5",
+          "cardId": "30000007",
+          "revived": false,
+          "reraise": 0,
+          "luck": 0,
+          "mana": 0,
+          "physical": 0,
+          "ward": 0,
+          "instanceId": "K3-30000007-002",
+          "entered": false
+        },
+        {
+          "uid": "1-6",
+          "cardId": "30000004",
+          "revived": false,
+          "reraise": 0,
+          "luck": 0,
+          "mana": 0,
+          "physical": 0,
+          "ward": 0,
+          "instanceId": "K3-30000004-002",
+          "entered": false
+        },
+        {
+          "uid": "1-7",
+          "cardId": "30000008",
+          "revived": false,
+          "reraise": 0,
+          "luck": 0,
+          "mana": 0,
+          "physical": 0,
+          "ward": 0,
+          "instanceId": "K3-30000008-002",
+          "entered": false
+        },
+        {
+          "uid": "1-8",
+          "cardId": "30000006",
+          "revived": false,
+          "reraise": 0,
+          "luck": 0,
+          "mana": 0,
+          "physical": 0,
+          "ward": 0,
+          "instanceId": "K3-30000006-002",
+          "entered": false
+        },
+        {
+          "uid": "1-9",
+          "cardId": "30000005",
+          "revived": false,
+          "reraise": 0,
+          "luck": 0,
+          "mana": 0,
+          "physical": 0,
+          "ward": 0,
+          "instanceId": "K3-30000005-002",
+          "entered": false
+        }
+      ],
+      "dead": []
+    }
+  ],
+  "log": [
+    {
+      "n": 1,
+      "turn": 1,
+      "type": "start",
+      "text": "Deux decks de 10 cartes. Formation en cours."
+    },
+    {
+      "n": 2,
+      "turn": 1,
+      "type": "deploy",
+      "text": "Joueur : TAULIO entre en P1."
+    },
+    {
+      "n": 3,
+      "turn": 1,
+      "type": "deploy",
+      "text": "Joueur : CANA entre en P2."
+    },
+    {
+      "n": 4,
+      "turn": 1,
+      "type": "deploy",
+      "text": "Joueur : MOMO entre en P3."
+    },
+    {
+      "n": 5,
+      "turn": 1,
+      "type": "deploy",
+      "text": "Joueur : GEN entre en P4."
+    },
+    {
+      "n": 6,
+      "turn": 1,
+      "type": "deploy",
+      "text": "Joueur : JULIENNE entre en P5."
+    },
+    {
+      "n": 7,
+      "turn": 1,
+      "type": "deploy",
+      "text": "Adversaire : TAULIO entre en P1."
+    },
+    {
+      "n": 8,
+      "turn": 1,
+      "type": "deploy",
+      "text": "Adversaire : CANA entre en P2."
+    },
+    {
+      "n": 9,
+      "turn": 1,
+      "type": "deploy",
+      "text": "Adversaire : MOMO entre en P3."
+    },
+    {
+      "n": 10,
+      "turn": 1,
+      "type": "deploy",
+      "text": "Adversaire : GEN entre en P4."
+    },
+    {
+      "n": 11,
+      "turn": 1,
+      "type": "deploy",
+      "text": "Adversaire : JULIENNE entre en P5."
+    },
+    {
+      "n": 12,
+      "turn": 1,
+      "type": "start",
+      "text": "Le joueur ouvre le combat."
+    },
+    {
+      "n": 13,
+      "turn": 1,
+      "type": "target",
+      "text": "TAULIO vise TAULIO."
+    },
+    {
+      "n": 14,
+      "turn": 1,
+      "type": "roll",
+      "text": "TAULIO : ATK D2 = guard."
+    },
+    {
+      "n": 15,
+      "turn": 1,
+      "type": "effect",
+      "text": "TAULIO obtient une garde. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 16,
+      "turn": 1,
+      "type": "result",
+      "text": "TAULIO reçoit une garde : +60 DEF sur sa prochaine défense numérique physique. Un seul bouclier actif."
+    },
+    {
+      "n": 17,
+      "turn": 2,
+      "type": "target",
+      "text": "TAULIO vise TAULIO."
+    },
+    {
+      "n": 18,
+      "turn": 2,
+      "type": "roll",
+      "text": "TAULIO : ATK D2 = guard."
+    },
+    {
+      "n": 19,
+      "turn": 2,
+      "type": "effect",
+      "text": "TAULIO obtient une garde. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 20,
+      "turn": 2,
+      "type": "result",
+      "text": "TAULIO reçoit une garde : +60 DEF sur sa prochaine défense numérique physique. Un seul bouclier actif."
+    },
+    {
+      "n": 21,
+      "turn": 3,
+      "type": "target",
+      "text": "MOMO vise TAULIO."
+    },
+    {
+      "n": 22,
+      "turn": 3,
+      "type": "roll",
+      "text": "MOMO : ATK D4 = retry."
+    },
+    {
+      "n": 23,
+      "turn": 3,
+      "type": "effect",
+      "text": "MOMO obtient un trèfle. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 24,
+      "turn": 3,
+      "type": "result",
+      "text": "TAULIO reçoit un trèfle : seconde chance en défense."
+    },
+    {
+      "n": 25,
+      "turn": 4,
+      "type": "target",
+      "text": "MOMO vise TAULIO."
+    },
+    {
+      "n": 26,
+      "turn": 4,
+      "type": "roll",
+      "text": "MOMO : ATK D4 = retry."
+    },
+    {
+      "n": 27,
+      "turn": 4,
+      "type": "effect",
+      "text": "MOMO obtient un trèfle. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 28,
+      "turn": 4,
+      "type": "result",
+      "text": "TAULIO reçoit un trèfle : seconde chance en défense."
+    },
+    {
+      "n": 29,
+      "turn": 5,
+      "type": "target",
+      "text": "JULIENNE vise TAULIO."
+    },
+    {
+      "n": 30,
+      "turn": 5,
+      "type": "roll",
+      "text": "JULIENNE : ATK D1 = revive."
+    },
+    {
+      "n": 31,
+      "turn": 5,
+      "type": "effect",
+      "text": "JULIENNE obtient un cœur. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 32,
+      "turn": 5,
+      "type": "result",
+      "text": "TAULIO gagne un cœur. Reraise actif."
+    },
+    {
+      "n": 33,
+      "turn": 6,
+      "type": "target",
+      "text": "JULIENNE vise TAULIO."
+    },
+    {
+      "n": 34,
+      "turn": 6,
+      "type": "roll",
+      "text": "JULIENNE : ATK D1 = revive."
+    },
+    {
+      "n": 35,
+      "turn": 6,
+      "type": "effect",
+      "text": "JULIENNE obtient un cœur. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 36,
+      "turn": 6,
+      "type": "result",
+      "text": "TAULIO gagne un cœur. Reraise actif."
+    },
+    {
+      "n": 37,
+      "turn": 7,
+      "type": "target",
+      "text": "MOMO vise TAULIO."
+    },
+    {
+      "n": 38,
+      "turn": 7,
+      "type": "roll",
+      "text": "MOMO : ATK D2 = mana."
+    },
+    {
+      "n": 39,
+      "turn": 7,
+      "type": "effect",
+      "text": "MOMO obtient une potion magique. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 40,
+      "turn": 7,
+      "type": "result",
+      "text": "TAULIO reçoit la potion : +60 à sa prochaine attaque numérique magique."
+    },
+    {
+      "n": 41,
+      "turn": 8,
+      "type": "target",
+      "text": "MOMO vise TAULIO."
+    },
+    {
+      "n": 42,
+      "turn": 8,
+      "type": "roll",
+      "text": "MOMO : ATK D2 = mana."
+    },
+    {
+      "n": 43,
+      "turn": 8,
+      "type": "effect",
+      "text": "MOMO obtient une potion magique. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 44,
+      "turn": 8,
+      "type": "result",
+      "text": "TAULIO reçoit la potion : +60 à sa prochaine attaque numérique magique."
+    },
+    {
+      "n": 45,
+      "turn": 9,
+      "type": "target",
+      "text": "TAULIO vise TAULIO."
+    },
+    {
+      "n": 46,
+      "turn": 9,
+      "type": "roll",
+      "text": "TAULIO : ATK D2 = guard."
+    },
+    {
+      "n": 47,
+      "turn": 9,
+      "type": "effect",
+      "text": "TAULIO obtient une garde. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 48,
+      "turn": 9,
+      "type": "result",
+      "text": "CANA reçoit une garde : +60 DEF sur sa prochaine défense numérique physique. Un seul bouclier actif."
+    },
+    {
+      "n": 49,
+      "turn": 10,
+      "type": "target",
+      "text": "TAULIO vise TAULIO."
+    },
+    {
+      "n": 50,
+      "turn": 10,
+      "type": "roll",
+      "text": "TAULIO : ATK D2 = guard."
+    },
+    {
+      "n": 51,
+      "turn": 10,
+      "type": "effect",
+      "text": "TAULIO obtient une garde. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 52,
+      "turn": 10,
+      "type": "result",
+      "text": "CANA reçoit une garde : +60 DEF sur sa prochaine défense numérique physique. Un seul bouclier actif."
+    },
+    {
+      "n": 53,
+      "turn": 11,
+      "type": "target",
+      "text": "MOMO vise TAULIO."
+    },
+    {
+      "n": 54,
+      "turn": 11,
+      "type": "roll",
+      "text": "MOMO : ATK D4 = retry."
+    },
+    {
+      "n": 55,
+      "turn": 11,
+      "type": "effect",
+      "text": "MOMO obtient un trèfle. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 56,
+      "turn": 11,
+      "type": "result",
+      "text": "CANA reçoit un trèfle : seconde chance en défense."
+    },
+    {
+      "n": 57,
+      "turn": 12,
+      "type": "target",
+      "text": "MOMO vise TAULIO."
+    },
+    {
+      "n": 58,
+      "turn": 12,
+      "type": "roll",
+      "text": "MOMO : ATK D4 = retry."
+    },
+    {
+      "n": 59,
+      "turn": 12,
+      "type": "effect",
+      "text": "MOMO obtient un trèfle. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 60,
+      "turn": 12,
+      "type": "result",
+      "text": "CANA reçoit un trèfle : seconde chance en défense."
+    },
+    {
+      "n": 61,
+      "turn": 13,
+      "type": "target",
+      "text": "JULIENNE vise TAULIO."
+    },
+    {
+      "n": 62,
+      "turn": 13,
+      "type": "roll",
+      "text": "JULIENNE : ATK D1 = revive."
+    },
+    {
+      "n": 63,
+      "turn": 13,
+      "type": "effect",
+      "text": "JULIENNE obtient un cœur. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 64,
+      "turn": 13,
+      "type": "result",
+      "text": "CANA gagne un cœur. Reraise actif."
+    },
+    {
+      "n": 65,
+      "turn": 14,
+      "type": "target",
+      "text": "JULIENNE vise TAULIO."
+    },
+    {
+      "n": 66,
+      "turn": 14,
+      "type": "roll",
+      "text": "JULIENNE : ATK D1 = revive."
+    },
+    {
+      "n": 67,
+      "turn": 14,
+      "type": "effect",
+      "text": "JULIENNE obtient un cœur. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 68,
+      "turn": 14,
+      "type": "result",
+      "text": "CANA gagne un cœur. Reraise actif."
+    },
+    {
+      "n": 69,
+      "turn": 15,
+      "type": "target",
+      "text": "MOMO vise TAULIO."
+    },
+    {
+      "n": 70,
+      "turn": 15,
+      "type": "roll",
+      "text": "MOMO : ATK D2 = mana."
+    },
+    {
+      "n": 71,
+      "turn": 15,
+      "type": "effect",
+      "text": "MOMO obtient une potion magique. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 72,
+      "turn": 15,
+      "type": "result",
+      "text": "CANA reçoit la potion : +60 à sa prochaine attaque numérique magique."
+    },
+    {
+      "n": 73,
+      "turn": 16,
+      "type": "target",
+      "text": "MOMO vise TAULIO."
+    },
+    {
+      "n": 74,
+      "turn": 16,
+      "type": "roll",
+      "text": "MOMO : ATK D2 = mana."
+    },
+    {
+      "n": 75,
+      "turn": 16,
+      "type": "effect",
+      "text": "MOMO obtient une potion magique. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 76,
+      "turn": 16,
+      "type": "result",
+      "text": "CANA reçoit la potion : +60 à sa prochaine attaque numérique magique."
+    },
+    {
+      "n": 77,
+      "turn": 17,
+      "type": "target",
+      "text": "TAULIO vise TAULIO."
+    },
+    {
+      "n": 78,
+      "turn": 17,
+      "type": "roll",
+      "text": "TAULIO : ATK D2 = guard."
+    },
+    {
+      "n": 79,
+      "turn": 17,
+      "type": "effect",
+      "text": "TAULIO obtient une garde. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 80,
+      "turn": 17,
+      "type": "result",
+      "text": "MOMO reçoit une garde : +60 DEF sur sa prochaine défense numérique physique. Un seul bouclier actif."
+    },
+    {
+      "n": 81,
+      "turn": 18,
+      "type": "target",
+      "text": "TAULIO vise TAULIO."
+    },
+    {
+      "n": 82,
+      "turn": 18,
+      "type": "roll",
+      "text": "TAULIO : ATK D2 = guard."
+    },
+    {
+      "n": 83,
+      "turn": 18,
+      "type": "effect",
+      "text": "TAULIO obtient une garde. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 84,
+      "turn": 18,
+      "type": "result",
+      "text": "MOMO reçoit une garde : +60 DEF sur sa prochaine défense numérique physique. Un seul bouclier actif."
+    },
+    {
+      "n": 85,
+      "turn": 19,
+      "type": "target",
+      "text": "MOMO vise TAULIO."
+    },
+    {
+      "n": 86,
+      "turn": 19,
+      "type": "roll",
+      "text": "MOMO : ATK D4 = retry."
+    },
+    {
+      "n": 87,
+      "turn": 19,
+      "type": "effect",
+      "text": "MOMO obtient un trèfle. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 88,
+      "turn": 19,
+      "type": "result",
+      "text": "MOMO reçoit un trèfle : seconde chance en défense."
+    },
+    {
+      "n": 89,
+      "turn": 20,
+      "type": "target",
+      "text": "MOMO vise TAULIO."
+    },
+    {
+      "n": 90,
+      "turn": 20,
+      "type": "roll",
+      "text": "MOMO : ATK D4 = retry."
+    },
+    {
+      "n": 91,
+      "turn": 20,
+      "type": "effect",
+      "text": "MOMO obtient un trèfle. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 92,
+      "turn": 20,
+      "type": "result",
+      "text": "MOMO reçoit un trèfle : seconde chance en défense."
+    },
+    {
+      "n": 93,
+      "turn": 21,
+      "type": "target",
+      "text": "JULIENNE vise TAULIO."
+    },
+    {
+      "n": 94,
+      "turn": 21,
+      "type": "roll",
+      "text": "JULIENNE : ATK D1 = revive."
+    },
+    {
+      "n": 95,
+      "turn": 21,
+      "type": "effect",
+      "text": "JULIENNE obtient un cœur. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 96,
+      "turn": 21,
+      "type": "result",
+      "text": "MOMO gagne un cœur. Reraise actif."
+    },
+    {
+      "n": 97,
+      "turn": 22,
+      "type": "target",
+      "text": "JULIENNE vise TAULIO."
+    },
+    {
+      "n": 98,
+      "turn": 22,
+      "type": "roll",
+      "text": "JULIENNE : ATK D1 = revive."
+    },
+    {
+      "n": 99,
+      "turn": 22,
+      "type": "effect",
+      "text": "JULIENNE obtient un cœur. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 100,
+      "turn": 22,
+      "type": "result",
+      "text": "MOMO gagne un cœur. Reraise actif."
+    },
+    {
+      "n": 101,
+      "turn": 23,
+      "type": "target",
+      "text": "MOMO vise TAULIO."
+    },
+    {
+      "n": 102,
+      "turn": 23,
+      "type": "roll",
+      "text": "MOMO : ATK D2 = mana."
+    },
+    {
+      "n": 103,
+      "turn": 23,
+      "type": "effect",
+      "text": "MOMO obtient une potion magique. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 104,
+      "turn": 23,
+      "type": "result",
+      "text": "MOMO reçoit la potion : +60 à sa prochaine attaque numérique magique."
+    },
+    {
+      "n": 105,
+      "turn": 24,
+      "type": "target",
+      "text": "MOMO vise TAULIO."
+    },
+    {
+      "n": 106,
+      "turn": 24,
+      "type": "roll",
+      "text": "MOMO : ATK D2 = mana."
+    },
+    {
+      "n": 107,
+      "turn": 24,
+      "type": "effect",
+      "text": "MOMO obtient une potion magique. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 108,
+      "turn": 24,
+      "type": "result",
+      "text": "MOMO reçoit la potion : +60 à sa prochaine attaque numérique magique."
+    },
+    {
+      "n": 109,
+      "turn": 25,
+      "type": "target",
+      "text": "TAULIO vise TAULIO."
+    },
+    {
+      "n": 110,
+      "turn": 25,
+      "type": "roll",
+      "text": "TAULIO : ATK D2 = guard."
+    },
+    {
+      "n": 111,
+      "turn": 25,
+      "type": "effect",
+      "text": "TAULIO obtient une garde. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 112,
+      "turn": 25,
+      "type": "result",
+      "text": "GEN reçoit une garde : +60 DEF sur sa prochaine défense numérique physique. Un seul bouclier actif."
+    },
+    {
+      "n": 113,
+      "turn": 26,
+      "type": "target",
+      "text": "TAULIO vise TAULIO."
+    },
+    {
+      "n": 114,
+      "turn": 26,
+      "type": "roll",
+      "text": "TAULIO : ATK D2 = guard."
+    },
+    {
+      "n": 115,
+      "turn": 26,
+      "type": "effect",
+      "text": "TAULIO obtient une garde. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 116,
+      "turn": 26,
+      "type": "result",
+      "text": "GEN reçoit une garde : +60 DEF sur sa prochaine défense numérique physique. Un seul bouclier actif."
+    },
+    {
+      "n": 117,
+      "turn": 27,
+      "type": "target",
+      "text": "MOMO vise TAULIO."
+    },
+    {
+      "n": 118,
+      "turn": 27,
+      "type": "roll",
+      "text": "MOMO : ATK D4 = retry."
+    },
+    {
+      "n": 119,
+      "turn": 27,
+      "type": "effect",
+      "text": "MOMO obtient un trèfle. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 120,
+      "turn": 27,
+      "type": "result",
+      "text": "GEN reçoit un trèfle : seconde chance en défense."
+    },
+    {
+      "n": 121,
+      "turn": 28,
+      "type": "target",
+      "text": "MOMO vise TAULIO."
+    },
+    {
+      "n": 122,
+      "turn": 28,
+      "type": "roll",
+      "text": "MOMO : ATK D4 = retry."
+    },
+    {
+      "n": 123,
+      "turn": 28,
+      "type": "effect",
+      "text": "MOMO obtient un trèfle. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 124,
+      "turn": 28,
+      "type": "result",
+      "text": "GEN reçoit un trèfle : seconde chance en défense."
+    },
+    {
+      "n": 125,
+      "turn": 29,
+      "type": "target",
+      "text": "JULIENNE vise TAULIO."
+    },
+    {
+      "n": 126,
+      "turn": 29,
+      "type": "roll",
+      "text": "JULIENNE : ATK D1 = revive."
+    },
+    {
+      "n": 127,
+      "turn": 29,
+      "type": "effect",
+      "text": "JULIENNE obtient un cœur. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 128,
+      "turn": 29,
+      "type": "result",
+      "text": "GEN gagne un cœur. Reraise actif."
+    },
+    {
+      "n": 129,
+      "turn": 30,
+      "type": "target",
+      "text": "JULIENNE vise TAULIO."
+    },
+    {
+      "n": 130,
+      "turn": 30,
+      "type": "roll",
+      "text": "JULIENNE : ATK D1 = revive."
+    },
+    {
+      "n": 131,
+      "turn": 30,
+      "type": "effect",
+      "text": "JULIENNE obtient un cœur. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 132,
+      "turn": 30,
+      "type": "result",
+      "text": "GEN gagne un cœur. Reraise actif."
+    },
+    {
+      "n": 133,
+      "turn": 31,
+      "type": "target",
+      "text": "MOMO vise TAULIO."
+    },
+    {
+      "n": 134,
+      "turn": 31,
+      "type": "roll",
+      "text": "MOMO : ATK D2 = mana."
+    },
+    {
+      "n": 135,
+      "turn": 31,
+      "type": "effect",
+      "text": "MOMO obtient une potion magique. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 136,
+      "turn": 31,
+      "type": "result",
+      "text": "GEN reçoit la potion : +60 à sa prochaine attaque numérique magique."
+    },
+    {
+      "n": 137,
+      "turn": 32,
+      "type": "target",
+      "text": "MOMO vise TAULIO."
+    },
+    {
+      "n": 138,
+      "turn": 32,
+      "type": "roll",
+      "text": "MOMO : ATK D2 = mana."
+    },
+    {
+      "n": 139,
+      "turn": 32,
+      "type": "effect",
+      "text": "MOMO obtient une potion magique. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 140,
+      "turn": 32,
+      "type": "result",
+      "text": "GEN reçoit la potion : +60 à sa prochaine attaque numérique magique."
+    },
+    {
+      "n": 141,
+      "turn": 33,
+      "type": "target",
+      "text": "TAULIO vise TAULIO."
+    },
+    {
+      "n": 142,
+      "turn": 33,
+      "type": "roll",
+      "text": "TAULIO : ATK D2 = guard."
+    },
+    {
+      "n": 143,
+      "turn": 33,
+      "type": "effect",
+      "text": "TAULIO obtient une garde. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 144,
+      "turn": 33,
+      "type": "result",
+      "text": "JULIENNE reçoit une garde : +60 DEF sur sa prochaine défense numérique physique. Un seul bouclier actif."
+    },
+    {
+      "n": 145,
+      "turn": 34,
+      "type": "target",
+      "text": "TAULIO vise TAULIO."
+    },
+    {
+      "n": 146,
+      "turn": 34,
+      "type": "roll",
+      "text": "TAULIO : ATK D2 = guard."
+    },
+    {
+      "n": 147,
+      "turn": 34,
+      "type": "effect",
+      "text": "TAULIO obtient une garde. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 148,
+      "turn": 34,
+      "type": "result",
+      "text": "JULIENNE reçoit une garde : +60 DEF sur sa prochaine défense numérique physique. Un seul bouclier actif."
+    },
+    {
+      "n": 149,
+      "turn": 35,
+      "type": "target",
+      "text": "MOMO vise TAULIO."
+    },
+    {
+      "n": 150,
+      "turn": 35,
+      "type": "roll",
+      "text": "MOMO : ATK D4 = retry."
+    },
+    {
+      "n": 151,
+      "turn": 35,
+      "type": "effect",
+      "text": "MOMO obtient un trèfle. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 152,
+      "turn": 35,
+      "type": "result",
+      "text": "JULIENNE reçoit un trèfle : seconde chance en défense."
+    },
+    {
+      "n": 153,
+      "turn": 36,
+      "type": "target",
+      "text": "MOMO vise TAULIO."
+    },
+    {
+      "n": 154,
+      "turn": 36,
+      "type": "roll",
+      "text": "MOMO : ATK D4 = retry."
+    },
+    {
+      "n": 155,
+      "turn": 36,
+      "type": "effect",
+      "text": "MOMO obtient un trèfle. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 156,
+      "turn": 36,
+      "type": "result",
+      "text": "JULIENNE reçoit un trèfle : seconde chance en défense."
+    },
+    {
+      "n": 157,
+      "turn": 37,
+      "type": "target",
+      "text": "JULIENNE vise TAULIO."
+    },
+    {
+      "n": 158,
+      "turn": 37,
+      "type": "roll",
+      "text": "JULIENNE : ATK D1 = revive."
+    },
+    {
+      "n": 159,
+      "turn": 37,
+      "type": "effect",
+      "text": "JULIENNE obtient un cœur. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 160,
+      "turn": 37,
+      "type": "result",
+      "text": "JULIENNE gagne un cœur. Reraise actif."
+    },
+    {
+      "n": 161,
+      "turn": 38,
+      "type": "target",
+      "text": "JULIENNE vise TAULIO."
+    },
+    {
+      "n": 162,
+      "turn": 38,
+      "type": "roll",
+      "text": "JULIENNE : ATK D1 = revive."
+    },
+    {
+      "n": 163,
+      "turn": 38,
+      "type": "effect",
+      "text": "JULIENNE obtient un cœur. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 164,
+      "turn": 38,
+      "type": "result",
+      "text": "JULIENNE gagne un cœur. Reraise actif."
+    },
+    {
+      "n": 165,
+      "turn": 39,
+      "type": "target",
+      "text": "MOMO vise TAULIO."
+    },
+    {
+      "n": 166,
+      "turn": 39,
+      "type": "roll",
+      "text": "MOMO : ATK D2 = mana."
+    },
+    {
+      "n": 167,
+      "turn": 39,
+      "type": "effect",
+      "text": "MOMO obtient une potion magique. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 168,
+      "turn": 39,
+      "type": "result",
+      "text": "JULIENNE reçoit la potion : +60 à sa prochaine attaque numérique magique."
+    },
+    {
+      "n": 169,
+      "turn": 40,
+      "type": "target",
+      "text": "MOMO vise TAULIO."
+    },
+    {
+      "n": 170,
+      "turn": 40,
+      "type": "roll",
+      "text": "MOMO : ATK D2 = mana."
+    },
+    {
+      "n": 171,
+      "turn": 40,
+      "type": "effect",
+      "text": "MOMO obtient une potion magique. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 172,
+      "turn": 40,
+      "type": "result",
+      "text": "JULIENNE reçoit la potion : +60 à sa prochaine attaque numérique magique."
+    },
+    {
+      "n": 173,
+      "turn": 41,
+      "type": "target",
+      "text": "TAULIO vise TAULIO."
+    },
+    {
+      "n": 174,
+      "turn": 41,
+      "type": "roll",
+      "text": "TAULIO : ATK D2 = guard."
+    },
+    {
+      "n": 175,
+      "turn": 41,
+      "type": "effect",
+      "text": "TAULIO obtient une garde. Choix d'une carte alliée bénéficiaire."
+    },
+    {
+      "n": 176,
+      "turn": 41,
+      "type": "result",
+      "text": "TAULIO reçoit une garde : +60 DEF sur sa prochaine défense numérique physique. Un seul bouclier actif."
+    },
+    {
+      "n": 177,
+      "turn": 42,
+      "type": "target",
+      "text": "TAULIO vise TAULIO."
+    },
+    {
+      "n": 178,
+      "turn": 42,
+      "type": "roll",
+      "text": "TAULIO : ATK D1 = buff_atk."
+    },
+    {
+      "n": 179,
+      "turn": 42,
+      "type": "effect",
+      "text": "TAULIO obtient une puissance physique. Choix d'une carte alliée bénéficiaire."
+    }
+  ],
+  "duel": {
+    "side": 1,
+    "attackerSlot": 0,
+    "targetSlot": 0,
+    "attacker": "1-0",
+    "target": "0-0",
+    "attackerName": "TAULIO",
+    "targetName": "TAULIO",
+    "attackRolls": [
+      1
+    ],
+    "defenseRolls": [],
+    "buff": 0,
+    "ward": 0,
+    "attackDie": 1,
+    "attackValue": "buff_atk",
+    "magic": false
+  },
+  "lastDuel": {
+    "side": 0,
+    "attackerSlot": 0,
+    "targetSlot": 0,
+    "attacker": "0-0",
+    "target": "1-0",
+    "attackerName": "TAULIO",
+    "targetName": "TAULIO",
+    "attackRolls": [
+      2
+    ],
+    "defenseRolls": [],
+    "buff": 0,
+    "ward": 0,
+    "attackDie": 2,
+    "attackValue": "guard",
+    "magic": false,
+    "traitRefreshed": true,
+    "guardGranted": "0-0",
+    "autoDefense": false,
+    "outcome": "TAULIO reçoit une garde : +60 DEF sur sa prochaine défense numérique physique. Un seul bouclier actif."
+  },
+  "winner": null,
+  "replacing": null,
+  "deckCoverage": 2,
+  "matchId": "match-3f0bf0c5-ccba-42e8-9522-9ffcf1d2d8e9",
+  "arenaId": "aero",
+  "match": {
+    "version": 1,
+    "fromRound": 1,
+    "partial": false,
+    "events": [
+      {
+        "round": 1,
+        "attacker": "0-0",
+        "target": "1-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "ward",
+        "recipient": "0-0",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 2,
+        "attacker": "1-0",
+        "target": "0-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "ward",
+        "recipient": "1-0",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 3,
+        "attacker": "0-2",
+        "target": "1-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "luck",
+        "recipient": "0-0",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 4,
+        "attacker": "1-2",
+        "target": "0-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "luck",
+        "recipient": "1-0",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 5,
+        "attacker": "0-4",
+        "target": "1-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "reraise",
+        "recipient": "0-0",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 6,
+        "attacker": "1-4",
+        "target": "0-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "reraise",
+        "recipient": "1-0",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 7,
+        "attacker": "0-2",
+        "target": "1-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "mana",
+        "recipient": "0-0",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 8,
+        "attacker": "1-2",
+        "target": "0-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "mana",
+        "recipient": "1-0",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 9,
+        "attacker": "0-0",
+        "target": "1-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "ward",
+        "recipient": "0-1",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 10,
+        "attacker": "1-0",
+        "target": "0-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "ward",
+        "recipient": "1-1",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 11,
+        "attacker": "0-2",
+        "target": "1-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "luck",
+        "recipient": "0-1",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 12,
+        "attacker": "1-2",
+        "target": "0-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "luck",
+        "recipient": "1-1",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 13,
+        "attacker": "0-4",
+        "target": "1-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "reraise",
+        "recipient": "0-1",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 14,
+        "attacker": "1-4",
+        "target": "0-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "reraise",
+        "recipient": "1-1",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 15,
+        "attacker": "0-2",
+        "target": "1-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "mana",
+        "recipient": "0-1",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 16,
+        "attacker": "1-2",
+        "target": "0-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "mana",
+        "recipient": "1-1",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 17,
+        "attacker": "0-0",
+        "target": "1-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "ward",
+        "recipient": "0-2",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 18,
+        "attacker": "1-0",
+        "target": "0-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "ward",
+        "recipient": "1-2",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 19,
+        "attacker": "0-2",
+        "target": "1-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "luck",
+        "recipient": "0-2",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 20,
+        "attacker": "1-2",
+        "target": "0-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "luck",
+        "recipient": "1-2",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 21,
+        "attacker": "0-4",
+        "target": "1-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "reraise",
+        "recipient": "0-2",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 22,
+        "attacker": "1-4",
+        "target": "0-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "reraise",
+        "recipient": "1-2",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 23,
+        "attacker": "0-2",
+        "target": "1-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "mana",
+        "recipient": "0-2",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 24,
+        "attacker": "1-2",
+        "target": "0-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "mana",
+        "recipient": "1-2",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 25,
+        "attacker": "0-0",
+        "target": "1-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "ward",
+        "recipient": "0-3",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 26,
+        "attacker": "1-0",
+        "target": "0-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "ward",
+        "recipient": "1-3",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 27,
+        "attacker": "0-2",
+        "target": "1-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "luck",
+        "recipient": "0-3",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 28,
+        "attacker": "1-2",
+        "target": "0-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "luck",
+        "recipient": "1-3",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 29,
+        "attacker": "0-4",
+        "target": "1-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "reraise",
+        "recipient": "0-3",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 30,
+        "attacker": "1-4",
+        "target": "0-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "reraise",
+        "recipient": "1-3",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 31,
+        "attacker": "0-2",
+        "target": "1-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "mana",
+        "recipient": "0-3",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 32,
+        "attacker": "1-2",
+        "target": "0-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "mana",
+        "recipient": "1-3",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 33,
+        "attacker": "0-0",
+        "target": "1-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "ward",
+        "recipient": "0-4",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 34,
+        "attacker": "1-0",
+        "target": "0-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "ward",
+        "recipient": "1-4",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 35,
+        "attacker": "0-2",
+        "target": "1-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "luck",
+        "recipient": "0-4",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 36,
+        "attacker": "1-2",
+        "target": "0-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "luck",
+        "recipient": "1-4",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 37,
+        "attacker": "0-4",
+        "target": "1-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "reraise",
+        "recipient": "0-4",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 38,
+        "attacker": "1-4",
+        "target": "0-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "reraise",
+        "recipient": "1-4",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 39,
+        "attacker": "0-2",
+        "target": "1-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "mana",
+        "recipient": "0-4",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 40,
+        "attacker": "1-2",
+        "target": "0-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "mana",
+        "recipient": "1-4",
+        "refresh": false,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      },
+      {
+        "round": 41,
+        "attacker": "0-0",
+        "target": "1-0",
+        "magic": false,
+        "attack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "kill": false,
+        "hold": false,
+        "dodge": false,
+        "shield": false,
+        "reraise": false,
+        "luck": false,
+        "barrier": 0,
+        "buff": 0,
+        "ward": 0,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "debuff": 0,
+        "support": "ward",
+        "recipient": "0-0",
+        "refresh": true,
+        "attackRolls": 1,
+        "defenseRolls": 0
+      }
+    ]
+  }
+}

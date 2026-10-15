@@ -1,0 +1,859 @@
+{
+  "tree": "3dc790fcb8188153a4af751392affb4b81d61423",
+  "parent": "204020c252875127d144255dc891bb1121b13453",
+  "snapshot": "C:\\Users\\guill\\AppData\\Local\\Temp\\kalistar-froz-grivka-4651-p6IIuB",
+  "hydrated": 0,
+  "files": [
+    ".github/workflows/pages.yml",
+    "V4/deploy/browser.test.cjs",
+    "V4/deploy/build.test.cjs",
+    "V4/releases/2026-10-13-v4.6.51/README.md",
+    "V4/releases/2026-10-13-v4.6.51/verify-release.cjs",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/README.md",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/art-plan.json",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/build-assets.cjs",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/generation.json",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/media-provenance.json",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/prompts.json",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/compact-49902201-deck.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/compact-49902301-deck.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/compact-froz-blizzard-voice-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/compact-froz-blizzard-voice-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/compact-froz-crimson-coat-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/compact-froz-crimson-coat-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/compact-froz-crystal-bandolier-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/compact-froz-crystal-bandolier-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/compact-froz-crystal-bandolier-inspection.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/compact-froz-rank-breaker-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/compact-froz-rank-breaker-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/compact-froz-velvet-fangs-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/compact-froz-velvet-fangs-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/compact-grivka-pass-fang-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/compact-grivka-pass-fang-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/compact-grivka-pass-fang-inspection.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/compact-grivka-silence-bow-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/compact-grivka-silence-bow-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/compact-grivka-silent-breath-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/compact-grivka-silent-breath-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/compact-grivka-silent-breath-inspection.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/compact-grivka-silent-howl-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/compact-grivka-silent-howl-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/compact-grivka-white-watch-armor-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/compact-grivka-white-watch-armor-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/desktop-49902201-deck.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/desktop-49902301-deck.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/desktop-froz-blizzard-voice-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/desktop-froz-blizzard-voice-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/desktop-froz-crimson-coat-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/desktop-froz-crimson-coat-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/desktop-froz-crystal-bandolier-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/desktop-froz-crystal-bandolier-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/desktop-froz-crystal-bandolier-inspection.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/desktop-froz-rank-breaker-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/desktop-froz-rank-breaker-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/desktop-froz-velvet-fangs-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/desktop-froz-velvet-fangs-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/desktop-grivka-pass-fang-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/desktop-grivka-pass-fang-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/desktop-grivka-pass-fang-inspection.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/desktop-grivka-silence-bow-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/desktop-grivka-silence-bow-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/desktop-grivka-silent-breath-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/desktop-grivka-silent-breath-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/desktop-grivka-silent-breath-inspection.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/desktop-grivka-silent-howl-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/desktop-grivka-silent-howl-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/desktop-grivka-white-watch-armor-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/desktop-grivka-white-watch-armor-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/froz-references.png",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/grivka-references.png",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/razr50-49902201-deck.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/razr50-49902301-deck.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/razr50-froz-blizzard-voice-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/razr50-froz-blizzard-voice-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/razr50-froz-crimson-coat-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/razr50-froz-crimson-coat-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/razr50-froz-crystal-bandolier-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/razr50-froz-crystal-bandolier-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/razr50-froz-crystal-bandolier-inspection.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/razr50-froz-rank-breaker-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/razr50-froz-rank-breaker-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/razr50-froz-velvet-fangs-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/razr50-froz-velvet-fangs-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/razr50-grivka-pass-fang-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/razr50-grivka-pass-fang-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/razr50-grivka-pass-fang-inspection.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/razr50-grivka-silence-bow-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/razr50-grivka-silence-bow-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/razr50-grivka-silent-breath-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/razr50-grivka-silent-breath-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/razr50-grivka-silent-breath-inspection.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/razr50-grivka-silent-howl-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/razr50-grivka-silent-howl-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/razr50-grivka-white-watch-armor-arena.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/razr50-grivka-white-watch-armor-detail.jpg",
+    "V4/revisions/2026-10-13-froz-grivka-equipment/qa/results.json",
+    "V4/site/assets/equipment/froz-blizzard-voice-ring-v1.webp",
+    "V4/site/assets/equipment/froz-blizzard-voice-v1.webp",
+    "V4/site/assets/equipment/froz-crimson-coat-ring-v1.webp",
+    "V4/site/assets/equipment/froz-crimson-coat-v1.webp",
+    "V4/site/assets/equipment/froz-crystal-bandolier-ring-v1.webp",
+    "V4/site/assets/equipment/froz-crystal-bandolier-v1.webp",
+    "V4/site/assets/equipment/froz-rank-breaker-ring-v1.webp",
+    "V4/site/assets/equipment/froz-rank-breaker-v1.webp",
+    "V4/site/assets/equipment/froz-velvet-fangs-ring-v1.webp",
+    "V4/site/assets/equipment/froz-velvet-fangs-v1.webp",
+    "V4/site/assets/equipment/grivka-pass-fang-ring-v1.webp",
+    "V4/site/assets/equipment/grivka-pass-fang-v1.webp",
+    "V4/site/assets/equipment/grivka-silence-bow-ring-v1.webp",
+    "V4/site/assets/equipment/grivka-silence-bow-v1.webp",
+    "V4/site/assets/equipment/grivka-silent-breath-ring-v1.webp",
+    "V4/site/assets/equipment/grivka-silent-breath-v1.webp",
+    "V4/site/assets/equipment/grivka-silent-howl-ring-v1.webp",
+    "V4/site/assets/equipment/grivka-silent-howl-v1.webp",
+    "V4/site/assets/equipment/grivka-white-watch-armor-ring-v1.webp",
+    "V4/site/assets/equipment/grivka-white-watch-armor-v1.webp",
+    "V4/site/assets/weapon-cards/froz-blizzard-voice-scene-v1.webp",
+    "V4/site/assets/weapon-cards/froz-blizzard-voice-v1.webp",
+    "V4/site/assets/weapon-cards/froz-crimson-coat-scene-v1.webp",
+    "V4/site/assets/weapon-cards/froz-crimson-coat-v1.webp",
+    "V4/site/assets/weapon-cards/froz-crystal-bandolier-scene-v1.webp",
+    "V4/site/assets/weapon-cards/froz-crystal-bandolier-v1.webp",
+    "V4/site/assets/weapon-cards/froz-rank-breaker-scene-v1.webp",
+    "V4/site/assets/weapon-cards/froz-rank-breaker-v1.webp",
+    "V4/site/assets/weapon-cards/froz-velvet-fangs-scene-v1.webp",
+    "V4/site/assets/weapon-cards/froz-velvet-fangs-v1.webp",
+    "V4/site/assets/weapon-cards/grivka-pass-fang-scene-v1.webp",
+    "V4/site/assets/weapon-cards/grivka-pass-fang-v1.webp",
+    "V4/site/assets/weapon-cards/grivka-silence-bow-scene-v1.webp",
+    "V4/site/assets/weapon-cards/grivka-silence-bow-v1.webp",
+    "V4/site/assets/weapon-cards/grivka-silent-breath-scene-v1.webp",
+    "V4/site/assets/weapon-cards/grivka-silent-breath-v1.webp",
+    "V4/site/assets/weapon-cards/grivka-silent-howl-scene-v1.webp",
+    "V4/site/assets/weapon-cards/grivka-silent-howl-v1.webp",
+    "V4/site/assets/weapon-cards/grivka-white-watch-armor-scene-v1.webp",
+    "V4/site/assets/weapon-cards/grivka-white-watch-armor-v1.webp",
+    "V4/site/browser.test.cjs",
+    "V4/site/equipment-categories.test.cjs",
+    "V4/site/equipment-v2.test.cjs",
+    "V4/site/fixtures/froz-grivka-combat.cjs",
+    "V4/site/fixtures/ultimate-expansion.cjs",
+    "V4/site/froz-grivka-equipment.browser.test.cjs",
+    "V4/site/froz-grivka-equipment.test.cjs",
+    "V4/site/index.html",
+    "V4/site/ultimate-expansion-ui.test.cjs",
+    "V4/site/ultimate-ui.js",
+    "V4/site/v4.css",
+    "V4/site/weapon-art.js",
+    "V4/site/weapon-art.test.cjs",
+    "V4/site/weapons.browser.test.cjs",
+    "V4/site/weapons.js",
+    "V4/weapon-cards/sources/froz-blizzard-voice-ring-v1.png",
+    "V4/weapon-cards/sources/froz-blizzard-voice-scene-v1.png",
+    "V4/weapon-cards/sources/froz-blizzard-voice-v1.png",
+    "V4/weapon-cards/sources/froz-crimson-coat-ring-v1.png",
+    "V4/weapon-cards/sources/froz-crimson-coat-scene-v1.png",
+    "V4/weapon-cards/sources/froz-crimson-coat-v1.png",
+    "V4/weapon-cards/sources/froz-crystal-bandolier-ring-v1.png",
+    "V4/weapon-cards/sources/froz-crystal-bandolier-scene-v1.png",
+    "V4/weapon-cards/sources/froz-crystal-bandolier-v1.png",
+    "V4/weapon-cards/sources/froz-rank-breaker-ring-v1.png",
+    "V4/weapon-cards/sources/froz-rank-breaker-scene-v1.png",
+    "V4/weapon-cards/sources/froz-rank-breaker-v1.png",
+    "V4/weapon-cards/sources/froz-velvet-fangs-ring-v1.png",
+    "V4/weapon-cards/sources/froz-velvet-fangs-scene-v1.png",
+    "V4/weapon-cards/sources/froz-velvet-fangs-v1.png",
+    "V4/weapon-cards/sources/grivka-pass-fang-ring-v1.png",
+    "V4/weapon-cards/sources/grivka-pass-fang-scene-v1.png",
+    "V4/weapon-cards/sources/grivka-pass-fang-v1.png",
+    "V4/weapon-cards/sources/grivka-silence-bow-ring-v1.png",
+    "V4/weapon-cards/sources/grivka-silence-bow-scene-v1.png",
+    "V4/weapon-cards/sources/grivka-silence-bow-v1.png",
+    "V4/weapon-cards/sources/grivka-silent-breath-ring-v1.png",
+    "V4/weapon-cards/sources/grivka-silent-breath-scene-v1.png",
+    "V4/weapon-cards/sources/grivka-silent-breath-v1.png",
+    "V4/weapon-cards/sources/grivka-silent-howl-ring-v1.png",
+    "V4/weapon-cards/sources/grivka-silent-howl-scene-v1.png",
+    "V4/weapon-cards/sources/grivka-silent-howl-v1.png",
+    "V4/weapon-cards/sources/grivka-white-watch-armor-ring-v1.png",
+    "V4/weapon-cards/sources/grivka-white-watch-armor-scene-v1.png",
+    "V4/weapon-cards/sources/grivka-white-watch-armor-v1.png"
+  ],
+  "passed": true,
+  "tests": 1163,
+  "commands": [
+    {
+      "args": [
+        "--test",
+        "V4/deploy/cloudflare.test.cjs"
+      ],
+      "passed": true,
+      "tests": 7
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/guide-scenario.test.cjs",
+        "V4/site/library.test.cjs"
+      ],
+      "passed": true,
+      "tests": 30
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/map-view.test.cjs"
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "args": [
+        "--test",
+        "V4/atelier/game-catalog.test.cjs",
+        "V4/atelier/collaboration-arenas.test.cjs",
+        "V4/deploy/build.test.cjs",
+        "V4/deploy/pwa.test.cjs",
+        "V4/site/statistics.test.cjs",
+        "V4/site/collaborations.test.cjs",
+        "V4/site/metal-gear.test.cjs",
+        "V4/site/resident-evil.test.cjs",
+        "V4/site/one-piece.test.cjs"
+      ],
+      "passed": true,
+      "tests": 45
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-01-one-piece/model.test.cjs"
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "args": [
+        "--test",
+        "V4/revisions/2026-10-04-armor-refinement/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 3
+    },
+    {
+      "args": [
+        "--test",
+        "V4/revisions/2026-10-05-orven-long-spear/revision.test.cjs"
+      ],
+      "passed": true,
+      "tests": 3
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-05-cryptown-sentinel/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-06-cryptown-sniper/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 8
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-06-cryptown-dual-flails/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 8
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-06-cryptown-scythe/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 8
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-06-fifteen-faces/integration.test.cjs",
+        "V4/expansions/2026-10-06-fifteen-faces/accent-typography.test.cjs"
+      ],
+      "passed": true,
+      "tests": 8
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-06-second-edition-scenes/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 7
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-08-eleven-lives/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 7
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-08-final-fantasy-ix/integration.test.cjs",
+        "V4/revisions/2026-10-08-resident-evil-faces/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 12
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-09-final-fantasy-trilogy/integration.test.cjs",
+        "V4/revisions/2026-10-09-ff-logo-banners/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 10
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-09-skaern-luxo/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 6
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-09-nerval/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-09-gotham/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 6
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-09-gotham-completion/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 6
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-09-crossover-crystals/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 7
+    },
+    {
+      "args": [
+        "--test",
+        "V4/revisions/2026-10-09-homme-mystere/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-09-street-fighter/integration.test.cjs",
+        "V4/expansions/2026-10-09-street-fighter/publication.test.cjs"
+      ],
+      "passed": true,
+      "tests": 10
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-10-castlevania/integration.test.cjs",
+        "V4/expansions/2026-10-10-castlevania/publication.test.cjs"
+      ],
+      "passed": true,
+      "tests": 10
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-10-le-fauve/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 5
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-11-chrono-trigger/integration.test.cjs",
+        "V4/expansions/2026-10-11-chrono-trigger/publication.test.cjs"
+      ],
+      "passed": true,
+      "tests": 10
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-12-elyrane/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 7
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-12-grivka-white-guard/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 11
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-12-froz-vaerok/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 7
+    },
+    {
+      "args": [
+        "--test",
+        "V4/revisions/2026-10-12-vaerok-mercenaire/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 3
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-13-froz-five-soldiers/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 13
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-13-general-barok/integration.test.cjs"
+      ],
+      "passed": true,
+      "tests": 7
+    },
+    {
+      "args": [
+        "--test",
+        "V4/revisions/2026-10-06-balmhyr-durane/revision.test.cjs"
+      ],
+      "passed": true,
+      "tests": 2
+    },
+    {
+      "args": [
+        "--test",
+        "V4/revisions/2026-10-01-stat-personality/revision.test.cjs"
+      ],
+      "passed": true,
+      "tests": 11
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-01-rikka-rooftops/model.test.cjs"
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-01-one-piece-witcher/model.test.cjs"
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "args": [
+        "--test",
+        "V4/revisions/2026-10-01-luffy-light/revision.test.cjs"
+      ],
+      "passed": true,
+      "tests": 2
+    },
+    {
+      "args": [
+        "--test",
+        "V4/expansions/2026-10-02-witcher-completion/model.test.cjs",
+        "V4/revisions/2026-10-02-sanji-legs/revision.test.cjs"
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "args": [
+        "--test",
+        "V4/releases/2026-10-02-pages-portability/portable.test.cjs"
+      ],
+      "passed": true,
+      "tests": 3
+    },
+    {
+      "args": [
+        "V4/site/kalistel.test.cjs"
+      ],
+      "passed": true,
+      "tests": 0
+    },
+    {
+      "args": [
+        "V4/site/arena-ambience.test.cjs"
+      ],
+      "passed": true,
+      "tests": 0
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/equipment.test.cjs",
+        "V4/site/equipment-presentation.test.cjs"
+      ],
+      "passed": true,
+      "tests": 21
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/equipment-v2.test.cjs",
+        "V4/site/equipment-slots-persistence.test.cjs",
+        "V4/site/equipment-slots-presentation.test.cjs"
+      ],
+      "passed": true,
+      "tests": 41
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/relic-ultimates.test.cjs",
+        "V4/site/relic-ultimates-integrity.test.cjs",
+        "V4/site/relic-ultimates-ui.test.cjs",
+        "V4/site/momo-equipment.test.cjs"
+      ],
+      "passed": true,
+      "tests": 114
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/ultimate-expansion.test.cjs",
+        "V4/site/ultimate-expansion-integrity.test.cjs",
+        "V4/site/ultimate-expansion-ui.test.cjs"
+      ],
+      "passed": true,
+      "tests": 187
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/equipment-categories.test.cjs",
+        "V4/site/weapons-arsenal.test.cjs"
+      ],
+      "passed": true,
+      "tests": 51
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/defensive-equipment.test.cjs"
+      ],
+      "passed": true,
+      "tests": 156
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/ff9-equipment.test.cjs"
+      ],
+      "passed": true,
+      "tests": 17
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/gotham-equipment.test.cjs"
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/castlevania-kalistar-equipment.test.cjs"
+      ],
+      "passed": true,
+      "tests": 6
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/chrono-equipment.test.cjs"
+      ],
+      "passed": true,
+      "tests": 5
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/froz-grivka-equipment.test.cjs"
+      ],
+      "passed": true,
+      "tests": 6
+    },
+    {
+      "args": [
+        "--test",
+        "V4/releases/2026-10-09-public-cache-check/public-asset-check.test.cjs",
+        "V4/releases/2026-10-09-v4.6.1/public-check.test.cjs"
+      ],
+      "passed": true,
+      "tests": 6
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/arborium-weapons.test.cjs"
+      ],
+      "passed": true,
+      "tests": 7
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/draevenheim-weapons.test.cjs"
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/cryptown-weapons.test.cjs"
+      ],
+      "passed": true,
+      "tests": 6
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/rhinoz-weapon.test.cjs"
+      ],
+      "passed": true,
+      "tests": 6
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/weapon-bearers.test.cjs"
+      ],
+      "passed": true,
+      "tests": 7
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/weapon-art.test.cjs"
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/base-weapons.test.cjs"
+      ],
+      "passed": true,
+      "tests": 6
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/team-composition.test.cjs"
+      ],
+      "passed": true,
+      "tests": 14
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/matchmaking.test.cjs",
+        "V4/site/pre-match.test.cjs",
+        "V4/site/ai-strategies.test.cjs"
+      ],
+      "passed": true,
+      "tests": 17
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/lineup-intro.test.cjs",
+        "V4/site/turn-order.test.cjs"
+      ],
+      "passed": true,
+      "tests": 15
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/turn-timeline.test.cjs"
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/combat-timeline.test.cjs"
+      ],
+      "passed": true,
+      "tests": 6
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/scoreboard.test.cjs"
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/arena-console-skin.test.cjs",
+        "V4/site/console-turn.test.cjs"
+      ],
+      "passed": true,
+      "tests": 5
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/arena-finale.test.cjs"
+      ],
+      "passed": true,
+      "tests": 6
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/battle-report.test.cjs"
+      ],
+      "passed": true,
+      "tests": 9
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/catalogue-updates.test.cjs"
+      ],
+      "passed": true,
+      "tests": 9
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/match-metrics.test.cjs",
+        "V4/site/kill-medals.test.cjs"
+      ],
+      "passed": true,
+      "tests": 2
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/navigation.test.cjs"
+      ],
+      "passed": true,
+      "tests": 9
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/positions.test.cjs",
+        "V4/site/position-identities.test.cjs"
+      ],
+      "passed": true,
+      "tests": 13
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/home-screen.test.cjs",
+        "V4/site/page-transitions.test.cjs",
+        "V4/site/statistics-accordion.test.cjs",
+        "V4/site/arena-prompts.test.cjs"
+      ],
+      "passed": true,
+      "tests": 15
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/factions.test.cjs"
+      ],
+      "passed": true,
+      "tests": 6
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/ui-system.test.cjs"
+      ],
+      "passed": true,
+      "tests": 6
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/statistics-skin.test.cjs"
+      ],
+      "passed": true,
+      "tests": 2
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/performance-index.test.cjs"
+      ],
+      "passed": true,
+      "tests": 43
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/performance.test.cjs"
+      ],
+      "passed": true,
+      "tests": 4
+    },
+    {
+      "args": [
+        "--test",
+        "V4/site/story-content.test.cjs"
+      ],
+      "passed": true,
+      "tests": 6
+    }
+  ]
+}

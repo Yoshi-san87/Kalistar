@@ -1,0 +1,67 @@
+{
+  "name": "JULIENNE",
+  "title": "UN SOUFFLE SOUS LA MAREE",
+  "job": "GARDIENNE",
+  "description": "Sous les portes noyées de Thalasséa, Julienne retient la mer au-dessus des naufragés. Chaque souffle qu'elle leur offre lui coûte un peu de force. Elle ne relâchera l'arche qu'au dernier survivant.",
+  "element": "HYDRO",
+  "race": "SIRENA",
+  "weapon": "Bâton",
+  "faction": "Thalassea",
+  "positions": [
+    5
+  ],
+  "atk": [
+    174,
+    142,
+    110,
+    85,
+    "guard",
+    "revive"
+  ],
+  "defense": [
+    206,
+    169,
+    132,
+    95,
+    65,
+    28
+  ],
+  "magic": [
+    6,
+    5,
+    4,
+    3
+  ],
+  "barriers": [
+    6,
+    4
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "30000003",
+  "characterId": "julienne",
+  "slug": "V4_30000003",
+  "output": "KALISTAR_V4_30000003",
+  "text": "Sous les portes noyées de Thalasséa, Julienne retient la mer au-dessus des naufragés. Chaque souffle qu'elle leur offre lui coûte un peu de force. Elle ne relâchera l'arche qu'au dernier survivant.",
+  "color": "38CBED",
+  "hue": 192,
+  "weapon_index": 10,
+  "role": 5,
+  "sentry": true,
+  "canGuard": true,
+  "canHeal": true,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Kalistar V4 - expansion 2026-09-23-return",
+  "visual_revision": "V4-2026-09-23-return",
+  "edition": "canonical",
+  "artwork": "julienne",
+  "legacyId": "30000003",
+  "legacySource": "V3/donnees/cartes.json",
+  "replacesModel": false
+}

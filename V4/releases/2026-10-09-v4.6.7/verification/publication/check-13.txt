@@ -1,0 +1,70 @@
+TAP version 13
+# Subtest: 29 approved versions, 28 identities, role limits and existing effects only
+ok 1 - 29 approved versions, 28 identities, role limits and existing effects only
+  ---
+  duration_ms: 10.6101
+  type: 'test'
+  ...
+# Subtest: 29 playable decks cover all versions, correct variant identity and five roles
+ok 2 - 29 playable decks cover all versions, correct variant identity and five roles
+  ---
+  duration_ms: 67.2386
+  type: 'test'
+  ...
+# Subtest: Every printed ATK face drives actual combat or its existing support category
+ok 3 - Every printed ATK face drives actual combat or its existing support category
+  ---
+  duration_ms: 190.107
+  type: 'test'
+  ...
+# Subtest: Every printed DEF face, barrier and dodge survives save/restore
+ok 4 - Every printed DEF face, barrier and dodge survives save/restore
+  ---
+  duration_ms: 133.4003
+  type: 'test'
+  ...
+# Subtest: 58 full ABBA matches, 29 decks, both camps and repeated restoration
+ok 5 - 58 full ABBA matches, 29 decks, both camps and repeated restoration
+  ---
+  duration_ms: 747.2263
+  type: 'test'
+  ...
+# Subtest: 29 mixed legacy/new matches retain arena rules and restore both camps
+ok 6 - 29 mixed legacy/new matches retain arena rules and restore both camps
+  ---
+  duration_ms: 434.3531
+  type: 'test'
+  ...
+# Subtest: Published native cards and original selected artwork
+ok 7 - Published native cards and original selected artwork
+  ---
+  duration_ms: 375.2898
+  type: 'test'
+  ...
+# Subtest: Additive Yeti portrait and three separate collection routes
+ok 8 - Additive Yeti portrait and three separate collection routes
+  ---
+  duration_ms: 2.9151
+  type: 'test'
+  ...
+# Subtest: Umaro uses the approved Macako portrait and ordinary race synergy without other changes
+ok 9 - Umaro uses the approved Macako portrait and ordinary race synergy without other changes
+  ---
+  duration_ms: 5.1514
+  type: 'test'
+  ...
+# Subtest: 22 FFIX flags preserve the latest profiles, artworks and prior revision chains
+ok 10 - 22 FFIX flags preserve the latest profiles, artworks and prior revision chains
+  ---
+  duration_ms: 140.6249
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2143.7372

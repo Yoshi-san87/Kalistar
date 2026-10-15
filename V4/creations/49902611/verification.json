@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "modelId": "49902611",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "ce9a00a8a95e3324afc1aba81290ba82da3e2f61f59be33434b649799a107b3a",
+  "hashes": {
+    "card.png": "a4b254706f8361d60981c9f01e19316f62ee0e4628a28bf556a7ca39920ec95d",
+    "card.psd": "ec67c6fed656c65c7def4266447fb356cac296e6c6d6fbe61aca9dd2107c61ea"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 118081
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49902611",
+    "cases": {
+      "color-1": [
+        "49902611"
+      ],
+      "color-4": [
+        "49902611"
+      ],
+      "gray-1": [
+        "49902611"
+      ],
+      "gray-4": [
+        "49902611"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-13T13:07:52.520Z",
+  "revision": "2026-10-13-voices-weapon-glyphs",
+  "scope": {
+    "changed": 3165,
+    "outside": 0
+  },
+  "weaponOnly": true,
+  "profileUnchanged": true,
+  "source": {
+    "id": "49902611",
+    "key": "elneve",
+    "family": "Tome",
+    "source": "V4/site/assets/base-weapons/13.svg",
+    "sourceHash": "dbdd7e373c0f6f3e53b77daee5cada6c7135f59697f3d69da600b86376ae8806",
+    "enamelHash": "9588d3c555966d642c8cbdeaf328b34052cabc08303572b534e831f4c0c48d47"
+  },
+  "inputManifestHash": "0439066a6f7aebdc9f2eb9c69117386eb89306a3bf9a647eaf60523abd0c384c"
+}

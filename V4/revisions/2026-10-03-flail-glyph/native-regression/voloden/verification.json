@@ -1,0 +1,33 @@
+{
+  "key": "voloden",
+  "passed": true,
+  "comparison": {
+    "changed": 0,
+    "outside": 0
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "fixed": null,
+  "barcode": {
+    "passed": true,
+    "expected": "30000028",
+    "cases": {
+      "color-1": [
+        "30000028"
+      ],
+      "color-4": [
+        "30000028"
+      ],
+      "gray-1": [
+        "30000028"
+      ],
+      "gray-4": [
+        "30000028"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "photoshop": "26.11.7"
+}

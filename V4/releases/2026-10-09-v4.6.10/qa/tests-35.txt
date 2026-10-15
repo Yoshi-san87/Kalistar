@@ -1,0 +1,14 @@
+✔ only the documented local hash versus GITHUB_SHA cache token differs (1.3371ms)
+✔ changed content is never hidden by cache normalization (0.9534ms)
+✔ mixed or stale cache versions fail (0.2511ms)
+✔ assets must match both manifests byte for byte (0.2428ms)
+✔ catalogue media paths are relative to the Pages root, not the jeu document (0.5396ms)
+✔ verification rejects paths outside the native catalogue media route (0.5144ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 120.3287

@@ -1,0 +1,790 @@
+{
+  "cards": 215,
+  "weapons": [
+    {
+      "id": "fallen-king-axe",
+      "name": "Hache du Roi Déchu",
+      "family": "Hache",
+      "restrictions": {
+        "characterIds": [
+          "balmhyr"
+        ],
+        "families": [
+          "Hache"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "30000007",
+          "characterId": "balmhyr",
+          "name": "BALMHYR",
+          "title": "LE ROYAUME À L'HORIZON",
+          "weapon": "Hache"
+        }
+      ]
+    },
+    {
+      "id": "little-joys-flute",
+      "name": "La Flûte des Petits Bonheurs",
+      "family": "Instrument",
+      "restrictions": {
+        "characterIds": [
+          "momo"
+        ],
+        "families": [
+          "Instrument"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "30000001",
+          "characterId": "momo",
+          "name": "MOMO",
+          "title": "L’ARTISTE MAGIQUE",
+          "weapon": "Instrument"
+        },
+        {
+          "id": "30000014",
+          "characterId": "momo",
+          "name": "MOMO",
+          "title": "LE BAL DES OBJETS PERDUS",
+          "weapon": "Instrument"
+        },
+        {
+          "id": "40243854",
+          "characterId": "momo",
+          "name": "MOMO",
+          "title": "Pour ceux qui restent",
+          "weapon": "Instrument"
+        }
+      ]
+    },
+    {
+      "id": "white-oath-rapier",
+      "name": "La Promesse Blanche",
+      "family": "Epée courte",
+      "restrictions": {
+        "characterIds": [
+          "kaylis"
+        ],
+        "families": [
+          "Epée courte"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "49055457",
+          "characterId": "kaylis",
+          "name": "KAYLIS",
+          "title": "L'ÉLAN DES COULEURS",
+          "weapon": "Epée courte"
+        }
+      ]
+    },
+    {
+      "id": "brotherhood",
+      "name": "Fraternité",
+      "family": "Epée longue",
+      "restrictions": {
+        "characterIds": [
+          "tidus-ff10"
+        ],
+        "families": [
+          "Epée longue"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "40738164",
+          "characterId": "tidus-ff10",
+          "name": "TIDUS",
+          "title": "L'horizon nous attend",
+          "weapon": "Epée longue"
+        }
+      ]
+    },
+    {
+      "id": "virtuous-contract",
+      "name": "Virtuous Contract",
+      "family": "Katana",
+      "restrictions": {
+        "characterIds": [
+          "2b-nier"
+        ],
+        "families": [
+          "Katana"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "45911726",
+          "characterId": "2b-nier",
+          "name": "2B",
+          "title": "Lame des ruines",
+          "weapon": "Katana"
+        }
+      ]
+    },
+    {
+      "id": "virtuous-treaty",
+      "name": "Virtuous Treaty",
+      "family": "Epée longue",
+      "restrictions": {
+        "characterIds": [
+          "2b-nier"
+        ],
+        "families": [
+          "Epée longue"
+        ]
+      },
+      "eligible": []
+    },
+    {
+      "id": "socom",
+      "name": "SOCOM",
+      "family": "Gun",
+      "restrictions": {
+        "characterIds": [
+          "solid-snake-mgs"
+        ],
+        "families": [
+          "Gun"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "45297565",
+          "characterId": "solid-snake-mgs",
+          "name": "SOLID SNAKE",
+          "title": "Le silence de Shadow Moses",
+          "weapon": "Gun"
+        },
+        {
+          "id": "48683979",
+          "characterId": "solid-snake-mgs",
+          "name": "SOLID SNAKE",
+          "title": "Ce que nous transmettons",
+          "weapon": "Gun"
+        },
+        {
+          "id": "46676157",
+          "characterId": "solid-snake-mgs",
+          "name": "OLD SNAKE",
+          "title": "Encore quelques pas",
+          "weapon": "Gun"
+        }
+      ]
+    },
+    {
+      "id": "lulu-mog",
+      "name": "Poupée Mog",
+      "family": "Tome",
+      "restrictions": {
+        "characterIds": [
+          "lulu-ff10"
+        ],
+        "families": [
+          "Tome"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "43120563",
+          "characterId": "lulu-ff10",
+          "name": "LULU",
+          "title": "Les mots restés derrière",
+          "weapon": "Tome"
+        }
+      ]
+    },
+    {
+      "id": "leopard-lightning",
+      "name": "La Griffe d'Orage",
+      "family": "Fouet",
+      "restrictions": {
+        "characterIds": [
+          "rikka"
+        ],
+        "families": [
+          "Fouet"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "40000042",
+          "characterId": "rikka",
+          "name": "RIKKA",
+          "title": "POUR UNE VIE DE PLUS",
+          "weapon": "Fouet"
+        },
+        {
+          "id": "49800201",
+          "characterId": "rikka",
+          "name": "RIKKA",
+          "title": "LA VILLE SOUS SES PAS",
+          "weapon": "Fouet"
+        }
+      ]
+    },
+    {
+      "id": "mythic-iron-gauntlet",
+      "name": "Le Serment de Fer",
+      "family": "Poing",
+      "restrictions": {
+        "characterIds": [
+          "balmhyr"
+        ],
+        "families": [
+          "Poing"
+        ]
+      },
+      "eligible": []
+    },
+    {
+      "id": "post-bow",
+      "name": "L'Arc des Dernières Lettres",
+      "family": "Arc",
+      "restrictions": {
+        "characterIds": [
+          "cana"
+        ],
+        "families": [
+          "Arc"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "30000002",
+          "characterId": "cana",
+          "name": "CANA",
+          "title": "LE DERNIER PASSAGE",
+          "weapon": "Arc"
+        }
+      ]
+    },
+    {
+      "id": "grimoire-weiss",
+      "name": "Grimoire Weiss",
+      "family": "Tome",
+      "restrictions": {
+        "characterIds": [
+          "nier-replicant"
+        ],
+        "families": [
+          "Tome"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "47689975",
+          "characterId": "nier-replicant",
+          "name": "NIER",
+          "title": "Une promesse à Yonah",
+          "weapon": "Tome"
+        }
+      ]
+    },
+    {
+      "id": "gen-mechanical-arm",
+      "name": "Le Bras qui Insiste",
+      "family": "Projectile",
+      "restrictions": {
+        "characterIds": [
+          "gen"
+        ],
+        "families": [
+          "Projectile"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "30000023",
+          "characterId": "gen",
+          "name": "GEN",
+          "title": "LA PANNE QUI INSISTE",
+          "weapon": "Projectile"
+        },
+        {
+          "id": "44703335",
+          "characterId": "gen",
+          "name": "GEN",
+          "title": "LA NUIT OU LA Z13 S ETEINT",
+          "weapon": "Projectile"
+        }
+      ]
+    },
+    {
+      "id": "violet-reaping",
+      "name": "La Faux du Siège Vacant",
+      "family": "Faucille",
+      "restrictions": {
+        "characterIds": [
+          "voloden"
+        ],
+        "families": [
+          "Faucille"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "30000028",
+          "characterId": "voloden",
+          "name": "VOLODEN",
+          "title": "LE SIÈGE VACANT",
+          "weapon": "Faucille"
+        },
+        {
+          "id": "43905149",
+          "characterId": "voloden",
+          "name": "VOLODEN",
+          "title": "Avant que tout bascule",
+          "weapon": "Faucille"
+        }
+      ]
+    },
+    {
+      "id": "mantis-mask",
+      "name": "Le Masque du Silence",
+      "family": "Orbe",
+      "restrictions": {
+        "characterIds": [
+          "psycho-mantis-mgs"
+        ],
+        "families": [
+          "Orbe"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "44001617",
+          "characterId": "psycho-mantis-mgs",
+          "name": "PSYCHO MANTIS",
+          "title": "Derrière vos pensées",
+          "weapon": "Orbe"
+        }
+      ]
+    },
+    {
+      "id": "revolver-gunblade",
+      "name": "Revolver",
+      "family": "Epée longue",
+      "restrictions": {
+        "characterIds": [
+          "squall-ff8"
+        ],
+        "families": [
+          "Epée longue"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "45410910",
+          "characterId": "squall-ff8",
+          "name": "SQUALL",
+          "title": "LE POIDS DES PROMESSES",
+          "weapon": "Epée longue"
+        }
+      ]
+    },
+    {
+      "id": "wolf-steel",
+      "name": "L'Acier du Loup",
+      "family": "Epée longue",
+      "restrictions": {
+        "characterIds": [
+          "geralt-witcher"
+        ],
+        "families": [
+          "Epée longue"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "49900101",
+          "characterId": "geralt-witcher",
+          "name": "GERALT DE RIV",
+          "title": "Le contrat et la conscience",
+          "weapon": "Epée longue"
+        }
+      ]
+    },
+    {
+      "id": "wolf-silver",
+      "name": "L'Argent du Loup",
+      "family": "Epée longue",
+      "restrictions": {
+        "characterIds": [
+          "geralt-witcher"
+        ],
+        "families": [
+          "Epée longue"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "49900101",
+          "characterId": "geralt-witcher",
+          "name": "GERALT DE RIV",
+          "title": "Le contrat et la conscience",
+          "weapon": "Epée longue"
+        }
+      ]
+    },
+    {
+      "id": "kaine-saw",
+      "name": "La Lame de Kainé",
+      "family": "Epée longue",
+      "restrictions": {
+        "characterIds": [
+          "kaine-replicant"
+        ],
+        "families": [
+          "Epée longue"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "45951088",
+          "characterId": "kaine-replicant",
+          "name": "KAINÉ",
+          "title": "Ne baisse pas les yeux",
+          "weapon": "Epée longue"
+        }
+      ]
+    },
+    {
+      "id": "buster-sword",
+      "name": "Buster Sword",
+      "family": "Epée longue",
+      "restrictions": {
+        "characterIds": [
+          "cloud-ff7"
+        ],
+        "families": [
+          "Epée longue"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "47208326",
+          "characterId": "cloud-ff7",
+          "name": "CLOUD",
+          "title": "AU-DELÀ DES LIMITES",
+          "weapon": "Epée longue"
+        }
+      ]
+    },
+    {
+      "id": "psg1",
+      "name": "PSG1",
+      "family": "Gun",
+      "restrictions": {
+        "characterIds": [
+          "sniper-wolf-mgs"
+        ],
+        "families": [
+          "Gun"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "47200643",
+          "characterId": "sniper-wolf-mgs",
+          "name": "SNIPER WOLF",
+          "title": "La patience dans le froid",
+          "weapon": "Gun"
+        }
+      ]
+    },
+    {
+      "id": "single-action-army",
+      "name": "Single Action Army",
+      "family": "Gun",
+      "restrictions": {
+        "characterIds": [
+          "revolver-ocelot-mgs"
+        ],
+        "families": [
+          "Gun"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "48312725",
+          "characterId": "revolver-ocelot-mgs",
+          "name": "REVOLVER OCELOT",
+          "title": "La dernière cartouche",
+          "weapon": "Gun"
+        },
+        {
+          "id": "49600114",
+          "characterId": "revolver-ocelot-mgs",
+          "name": "MAJOR OCELOT",
+          "title": "L'orgueil du jeune félin",
+          "weapon": "Gun"
+        },
+        {
+          "id": "49600116",
+          "characterId": "revolver-ocelot-mgs",
+          "name": "REVOLVER OCELOT",
+          "title": "Les ficelles du désert",
+          "weapon": "Gun"
+        }
+      ]
+    },
+    {
+      "id": "wardens-spear",
+      "name": "La Veille des Remparts",
+      "family": "Lance",
+      "restrictions": {
+        "jobs": [
+          "GARDIEN",
+          "GARDIENNE"
+        ],
+        "families": [
+          "Lance"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "30000011",
+          "characterId": "nazar",
+          "name": "NAZAR",
+          "title": "LA RONDE DE CANYONERO",
+          "weapon": "Lance"
+        },
+        {
+          "id": "47264450",
+          "characterId": "ward-ff8",
+          "name": "WARD",
+          "title": "LA FORCE DE RESTER",
+          "weapon": "Lance"
+        },
+        {
+          "id": "41354159",
+          "characterId": "kimahri-ff10",
+          "name": "KIMAHRI",
+          "title": "La parole des sommets",
+          "weapon": "Lance"
+        },
+        {
+          "id": "49900313",
+          "characterId": "karrok-kalistar",
+          "name": "KARROK",
+          "title": "Deux rivets de courage",
+          "weapon": "Lance"
+        },
+        {
+          "id": "49900315",
+          "characterId": "brask-kalistar",
+          "name": "BRASK",
+          "title": "La clef des marées",
+          "weapon": "Lance"
+        }
+      ]
+    },
+    {
+      "id": "soldiers-blade",
+      "name": "La Lame de Relève",
+      "family": "Epée courte",
+      "restrictions": {
+        "jobs": [
+          "SOLDAT"
+        ],
+        "families": [
+          "Epée courte"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "49900305",
+          "characterId": "isvel-kalistar",
+          "name": "ISVEL",
+          "title": "La veille des petites portes",
+          "weapon": "Epée courte"
+        },
+        {
+          "id": "49900404",
+          "characterId": "liorne-kalistar",
+          "name": "LIORNE",
+          "title": "La lettre sous le bois",
+          "weapon": "Epée courte"
+        }
+      ]
+    },
+    {
+      "id": "commanders-sabre",
+      "name": "Le Fil du Ralliement",
+      "family": "Epée longue",
+      "restrictions": {
+        "jobs": [
+          "COMMANDANT",
+          "COMMANDANTE"
+        ],
+        "families": [
+          "Epée longue"
+        ]
+      },
+      "eligible": []
+    },
+    {
+      "id": "arborium-twinstring-bow",
+      "name": "L’Accord Sylvestre",
+      "family": "Arc",
+      "restrictions": {
+        "factions": [
+          "Arborium"
+        ],
+        "families": [
+          "Arc"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "49900201",
+          "characterId": "ssilas",
+          "name": "SSILAS",
+          "title": "Le Passeur des sentes",
+          "weapon": "Arc"
+        },
+        {
+          "id": "49900403",
+          "characterId": "saelor-kalistar",
+          "name": "SAELOR",
+          "title": "Le cercle qui demeure",
+          "weapon": "Arc"
+        }
+      ]
+    },
+    {
+      "id": "arborium-thorn-dagger",
+      "name": "Le Cran de Ronce",
+      "family": "Dague",
+      "restrictions": {
+        "factions": [
+          "Arborium"
+        ],
+        "families": [
+          "Dague"
+        ]
+      },
+      "eligible": []
+    },
+    {
+      "id": "draevenheim-wing-spear",
+      "name": "Les Ailes du Rempart",
+      "family": "Lance",
+      "restrictions": {
+        "factions": [
+          "Draevenheim"
+        ],
+        "families": [
+          "Lance"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "49900301",
+          "characterId": "orven-kalistar",
+          "name": "ORVEN",
+          "title": "La porte reste ouverte",
+          "weapon": "Lance"
+        }
+      ]
+    },
+    {
+      "id": "draevenheim-crimson-crossbow",
+      "name": "L’Arbalète Écarlate",
+      "family": "Arc",
+      "restrictions": {
+        "factions": [
+          "Draevenheim"
+        ],
+        "families": [
+          "Arc"
+        ]
+      },
+      "eligible": []
+    },
+    {
+      "id": "cryptown-oath-sword",
+      "name": "Le Serment sans Visage",
+      "family": "Epée longue",
+      "restrictions": {
+        "factions": [
+          "Cryptown"
+        ],
+        "families": [
+          "Epée longue"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "49900501",
+          "characterId": "varkhen-kalistar",
+          "name": "VARKHEN",
+          "title": "LE DERNIER AVERTISSEMENT",
+          "weapon": "Epée longue"
+        }
+      ]
+    },
+    {
+      "id": "cryptown-vigil-rifle",
+      "name": "La Relève Muette",
+      "family": "Gun",
+      "restrictions": {
+        "factions": [
+          "Cryptown"
+        ],
+        "families": [
+          "Gun"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "49900601",
+          "characterId": "nereth-kalistar",
+          "name": "NERETH",
+          "title": "LE SILENCE VEILLE",
+          "weapon": "Gun"
+        }
+      ]
+    },
+    {
+      "id": "cryptown-watch-flail",
+      "name": "Le Glas des Veilleurs",
+      "family": "Fléau",
+      "restrictions": {
+        "factions": [
+          "Cryptown"
+        ],
+        "families": [
+          "Fléau"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "49900602",
+          "characterId": "draust-kalistar",
+          "name": "DRAUST",
+          "title": "QUAND LES CHAÎNES SE TAISENT",
+          "weapon": "Fléau"
+        }
+      ]
+    },
+    {
+      "id": "rhinoz-ancestral-horn",
+      "name": "La Corne des Anciens",
+      "family": "Hache",
+      "restrictions": {
+        "races": [
+          "RHINOZ"
+        ],
+        "families": [
+          "Hache"
+        ]
+      },
+      "eligible": []
+    }
+  ]
+}

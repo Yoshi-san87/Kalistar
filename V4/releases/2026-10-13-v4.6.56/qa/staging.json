@@ -1,0 +1,67 @@
+{
+  "passed": true,
+  "parent": "27ccd3503c7eee6675c517bb92b707016717bb96",
+  "tests": 1184,
+  "checked": [
+    {
+      "file": "V4/deploy/browser.test.cjs",
+      "sha256": "b1e1868865153c1c397fed739b2f081ce953939a7496affd3022db68183d7e82"
+    },
+    {
+      "file": "V4/deploy/build.test.cjs",
+      "sha256": "087cd9479b37d7a46dafd5bdc87fb51f815213a7e0735a778ca6735d2b9d99da"
+    },
+    {
+      "file": "V4/revisions/2026-10-13-collection-vitrine/README.md",
+      "sha256": "e83e5d54069d3e24ae6585a4a772e6bd4c5be4f5d7958c1a1d0ed95fe6bb2177"
+    },
+    {
+      "file": "V4/site/README.md",
+      "sha256": "26a3375660d5e1589fd98d749708c61684ee2e032b3024e7350ac0c3da5077ef"
+    },
+    {
+      "file": "V4/site/browser.test.cjs",
+      "sha256": "43a0600f8a6e63b2fdc05586aa75f93442419a34742b6c1ae047b30220bc98b8"
+    },
+    {
+      "file": "V4/site/collection-binder.css",
+      "sha256": "9186c190582c21a7480bcbe71c38bd2e1a6e21079526213001c654b2ba4b8844"
+    },
+    {
+      "file": "V4/site/collection-map.browser.test.cjs",
+      "sha256": "43c8186e082d00f4b83ff0d04150c51620f38bfbb7f895650ac737a04efee482"
+    },
+    {
+      "file": "V4/site/collection-pedestal.css",
+      "sha256": "fd9e8640df768884ce5b775cc8ba026d6c07c606e63ba1ad29b5d3248129b797"
+    },
+    {
+      "file": "V4/site/index.html",
+      "sha256": "71c21301281e21fa070c7dd5a275611f7541d5710b1db77e97be8f7c78cc37a7"
+    },
+    {
+      "file": "V4/site/mobile.css",
+      "sha256": "7f901a95b78da1214c1430e06dc4b8d4ec7f1183dd8fd6815ec30e9487c872f8"
+    },
+    {
+      "file": "V4/site/ui-system.test.cjs",
+      "sha256": "1517bf9cc93400bc392f1ce6319dc1f242b1823e754a08826f0e576100170041"
+    },
+    {
+      "file": "V4/site/v4.css",
+      "sha256": "0896f9b1bd278ca9f0ce739e33550ac25e5338d95392eaf0978e73546558c3e4"
+    },
+    {
+      "file": "V4/site/weapons.browser.test.cjs",
+      "sha256": "0965ebaffd9692896791ac5ce65ec3c51404b9d0f55fdc669126f96774718296"
+    }
+  ],
+  "initialTree": "3e1049dab1685cad3b9b6c46f286487b1970438f",
+  "stagedTree": "6fb69123ae5e367b51adaa236e84699206b925cc",
+  "browserSuites": [
+    "collection",
+    "filters",
+    "navigation",
+    "pages"
+  ]
+}

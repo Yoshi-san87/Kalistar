@@ -1,0 +1,22 @@
+TAP version 13
+# Subtest: Durane revision changes only artwork and narrative; all gameplay and model identities remain identical
+ok 1 - Durane revision changes only artwork and narrative; all gameplay and model identities remain identical
+  ---
+  duration_ms: 85.3812
+  type: 'test'
+  ...
+# Subtest: Approved art, native typography, barcode, immutable backups and unchanged 2B are verifiable
+ok 2 - Approved art, native typography, barcode, immutable backups and unchanged 2B are verifiable
+  ---
+  duration_ms: 75.2215
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 251.3716

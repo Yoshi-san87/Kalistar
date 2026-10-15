@@ -1,0 +1,499 @@
+{
+  "passed": true,
+  "tests": 606,
+  "results": [
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/atelier/game-catalog.test.cjs",
+        "V4/atelier/collaboration-arenas.test.cjs",
+        "V4/deploy/build.test.cjs",
+        "V4/deploy/pwa.test.cjs",
+        "V4/site/statistics.test.cjs",
+        "V4/site/collaborations.test.cjs",
+        "V4/site/metal-gear.test.cjs",
+        "V4/site/resident-evil.test.cjs",
+        "V4/site/one-piece.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 45
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/expansions/2026-10-01-one-piece/model.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 4
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/revisions/2026-10-04-armor-refinement/integration.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 3
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/revisions/2026-10-05-orven-long-spear/revision.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 3
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/expansions/2026-10-05-cryptown-sentinel/integration.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 4
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/expansions/2026-10-06-cryptown-sniper/integration.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 8
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/expansions/2026-10-06-cryptown-dual-flails/integration.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 8
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/expansions/2026-10-06-cryptown-scythe/integration.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 8
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/expansions/2026-10-06-fifteen-faces/integration.test.cjs",
+        "V4/expansions/2026-10-06-fifteen-faces/accent-typography.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 8
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/expansions/2026-10-06-second-edition-scenes/integration.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 7
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/expansions/2026-10-08-eleven-lives/integration.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 7
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/expansions/2026-10-08-final-fantasy-ix/integration.test.cjs",
+        "V4/revisions/2026-10-08-resident-evil-faces/integration.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 12
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/expansions/2026-10-09-final-fantasy-trilogy/integration.test.cjs",
+        "V4/revisions/2026-10-09-ff-logo-banners/integration.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 10
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/expansions/2026-10-09-skaern-luxo/integration.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 6
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/expansions/2026-10-09-nerval/integration.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 4
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/expansions/2026-10-09-gotham/integration.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 6
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/expansions/2026-10-09-gotham-completion/integration.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 6
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/expansions/2026-10-09-crossover-crystals/integration.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 7
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/revisions/2026-10-06-balmhyr-durane/revision.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 2
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/revisions/2026-10-01-stat-personality/revision.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 11
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/expansions/2026-10-01-rikka-rooftops/model.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 4
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/expansions/2026-10-01-one-piece-witcher/model.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 4
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/revisions/2026-10-01-luffy-light/revision.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 2
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/expansions/2026-10-02-witcher-completion/model.test.cjs",
+        "V4/revisions/2026-10-02-sanji-legs/revision.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 4
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/releases/2026-10-02-pages-portability/portable.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 3
+    },
+    {
+      "args": [
+        "V4/site/kalistel.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 0
+    },
+    {
+      "args": [
+        "V4/site/arena-ambience.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 0
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/site/equipment.test.cjs",
+        "V4/site/equipment-presentation.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 21
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/site/equipment-v2.test.cjs",
+        "V4/site/equipment-slots-persistence.test.cjs",
+        "V4/site/equipment-slots-presentation.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 41
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/site/equipment-categories.test.cjs",
+        "V4/site/weapons-arsenal.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 51
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/site/defensive-equipment.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 156
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/site/ff9-equipment.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 17
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/site/gotham-equipment.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 4
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/releases/2026-10-09-public-cache-check/public-asset-check.test.cjs",
+        "V4/releases/2026-10-09-v4.6.1/public-check.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 6
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/site/arborium-weapons.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 7
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/site/draevenheim-weapons.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 4
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/site/cryptown-weapons.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 6
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/site/rhinoz-weapon.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 6
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/site/weapon-bearers.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 7
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/site/weapon-art.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 4
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/site/base-weapons.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 6
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/site/team-composition.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 14
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/site/matchmaking.test.cjs",
+        "V4/site/pre-match.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 8
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/site/lineup-intro.test.cjs",
+        "V4/site/turn-order.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 15
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/site/turn-timeline.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 4
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/site/combat-timeline.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 6
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/site/scoreboard.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 4
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/site/catalogue-updates.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 9
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/site/match-metrics.test.cjs",
+        "V4/site/kill-medals.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 2
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/site/navigation.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 6
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/site/factions.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 6
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/site/ui-system.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 4
+    },
+    {
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "V4/site/story-content.test.cjs"
+      ],
+      "exitCode": 0,
+      "passed": 6
+    }
+  ]
+}

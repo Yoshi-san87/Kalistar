@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 4,
+  "id": "30000034",
+  "name": "VALAZAR",
+  "title": "LE NOM DANS LA CENDRE",
+  "job": "NÉCROMANCIEN",
+  "race": "SKULLZ",
+  "element": "NECRO",
+  "faction": "Cryptown",
+  "weapon": "Sceptre",
+  "positions": [
+    4
+  ],
+  "atk": [
+    "death",
+    240,
+    195,
+    143,
+    91,
+    46
+  ],
+  "defense": [
+    174,
+    142,
+    110,
+    85,
+    53,
+    21
+  ],
+  "magic": [
+    5,
+    4,
+    3,
+    2,
+    1
+  ],
+  "barriers": [
+    4
+  ],
+  "slug": "34_NECRO_VALAZAR",
+  "hue": 270,
+  "color": "A979F7",
+  "weapon_index": 12,
+  "description": "Valazar suit du doigt une ligne de cendre. Il ne cherche pas à rappeler le mort, seulement son nom. Même Cryptown a des oublis qu'il refuse.",
+  "artwork": "VALAZAR",
+  "artworkSource": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+  "artworkUnchanged": true,
+  "sourcePSD": "V3/templates/34_NECRO_VALAZAR.psd",
+  "output": "VALAZAR_V4_01_NECRO",
+  "profile": "V4/template-stable/elements-02/valazar/card.json"
+}

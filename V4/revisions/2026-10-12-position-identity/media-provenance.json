@@ -1,0 +1,111 @@
+{
+  "method": "Built-in image generation, transparent atlas, alpha-bound extraction and lossless WebP resize only.",
+  "source": {
+    "file": "sources/position-atlas.png",
+    "sha256": "54d039953e149bbd5a4092c0c99c488fee9252e01e229728c069568e8d2eba31",
+    "width": 2172,
+    "height": 724
+  },
+  "assets": [
+    {
+      "position": 1,
+      "file": "V4/site/assets/positions/p1-v1.webp",
+      "width": 128,
+      "height": 128,
+      "bytes": 17158,
+      "sha256": "fea12e252f4067bc34442f04e33c0f825ae4be40307f325c8f54dd9b51e2ab29",
+      "cell": {
+        "left": 0,
+        "top": 0,
+        "width": 434,
+        "height": 724
+      },
+      "crop": {
+        "left": 33,
+        "top": 158,
+        "width": 377,
+        "height": 406
+      }
+    },
+    {
+      "position": 2,
+      "file": "V4/site/assets/positions/p2-v1.webp",
+      "width": 128,
+      "height": 128,
+      "bytes": 12360,
+      "sha256": "0e3865d9edb1bec50b68a87fdb2769568190316c23f6f4a212a129249ce00304",
+      "cell": {
+        "left": 434,
+        "top": 0,
+        "width": 435,
+        "height": 724
+      },
+      "crop": {
+        "left": 34,
+        "top": 158,
+        "width": 367,
+        "height": 395
+      }
+    },
+    {
+      "position": 3,
+      "file": "V4/site/assets/positions/p3-v1.webp",
+      "width": 128,
+      "height": 128,
+      "bytes": 14016,
+      "sha256": "4c5628ad56df7d581d9f3be76fbd11bb92f6fce887054dfc08649540ed665e9c",
+      "cell": {
+        "left": 869,
+        "top": 0,
+        "width": 434,
+        "height": 724
+      },
+      "crop": {
+        "left": 16,
+        "top": 160,
+        "width": 400,
+        "height": 369
+      }
+    },
+    {
+      "position": 4,
+      "file": "V4/site/assets/positions/p4-v1.webp",
+      "width": 128,
+      "height": 128,
+      "bytes": 12974,
+      "sha256": "822b6b3a247d9eb6cc51857e1ccf817074a7eb205ac2756ae3a5481bc71df21e",
+      "cell": {
+        "left": 1303,
+        "top": 0,
+        "width": 435,
+        "height": 724
+      },
+      "crop": {
+        "left": 17,
+        "top": 184,
+        "width": 416,
+        "height": 370
+      }
+    },
+    {
+      "position": 5,
+      "file": "V4/site/assets/positions/p5-v1.webp",
+      "width": 128,
+      "height": 128,
+      "bytes": 16214,
+      "sha256": "7a18f55d7f876e6e44db1d51f1a9eedf9ec83c7364ec44605c29856f93862b19",
+      "cell": {
+        "left": 1738,
+        "top": 0,
+        "width": 434,
+        "height": 724
+      },
+      "crop": {
+        "left": 43,
+        "top": 156,
+        "width": 346,
+        "height": 404
+      }
+    }
+  ]
+}

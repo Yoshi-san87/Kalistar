@@ -1,0 +1,13 @@
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+const root=path.resolve(__dirname,'..');
+const report=vm.runInNewContext(fs.readFileSync(path.join(root,'verification/assemblage.txt'),'utf8'),Object.create(null),{timeout:1000});
+const assert=(value,message)=>{if(!value)throw new Error(message);};
+assert(JSON.stringify(report.artBefore)===JSON.stringify(report.artAfter),'Illustration transform changed');
+assert(report.flag[0]>=690&&report.flag[2]<=774&&report.flag[1]>=831&&report.flag[3]<=1054,'Flag crosses inner mounting limits');
+const centres=report.positions.map(b=>[(b[0]+b[2])/2,(b[1]+b[3])/2]);
+assert(centres.every((c,i)=>Math.abs(c[1]-centres[0][1])<1&&(i===0||c[0]>centres[i-1][0])),'Positions are not a horizontal ascending row');
+const futureRow=Array.from({length:5},(_,i)=>[174+i*59,991,228+i*59,1060]);
+assert(futureRow.every((b,i)=>b[2]<690&&(i===0||b[0]>futureRow[i-1][2])),'Five-position row would overlap');
+assert(report.description[0]>=140&&report.description[2]<=760&&report.description[1]>=1265&&report.description[3]<=1385,'Description exceeds its clear field');
+fs.writeFileSync(path.join(root,'verification/disposition.json'),JSON.stringify({...report,fivePositionRow:futureRow,passed:true},null,2));
+console.log('Layout passed: inner flag envelope, unchanged art transform, horizontal positions and five-slot capacity.');

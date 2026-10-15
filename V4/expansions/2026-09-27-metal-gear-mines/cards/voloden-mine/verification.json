@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "modelId": "43905149",
+  "referenceId": "ef7a6767b57723d896ceecb050079bfb1abad0e79e7289a200f87b34585f9380",
+  "profileHash": "ad116ff23a46567c2300fc756271d5ae6eec7694c3a2b9c7125542757710efc3",
+  "hashes": {
+    "card.png": "f949a4bad4abeaa02a6e827c082327c339f2da18d0d1e5c10ed3a0b7df4d28c0",
+    "card.psd": "9d005f4c52681a325c518a2313e2f1b9ee97929e23efe08c4dcd570279b03ffa"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 146686
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "43905149",
+    "cases": {
+      "color-1": [
+        "43905149"
+      ],
+      "color-4": [
+        "43905149"
+      ],
+      "gray-1": [
+        "43905149"
+      ],
+      "gray-4": [
+        "43905149"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-27T13:49:58.664Z",
+  "key": "voloden-mine",
+  "preparationHash": "b6b6a12f2a05dae17bd129ef331c5b897d6787acedd28783dc41c898086bc1ca",
+  "typographyAudit": {
+    "passed": true,
+    "rulesHash": "c3520779bdfad875fe67798dc8605193152395d4267d8fa2e39efeb6a962af4a",
+    "orphanPunctuation": false
+  }
+}

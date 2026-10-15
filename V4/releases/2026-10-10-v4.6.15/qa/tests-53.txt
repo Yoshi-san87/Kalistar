@@ -1,0 +1,14 @@
+✔ last-result probe follows the resolver and never mutates RNG, turns, journal or equipment across 60 matches (7796.6301ms)
+✔ replacement remains a next turn, not a terminal ceremony (3.3122ms)
+✔ pending relic recipient must be resolved before probing or finishing (0.1191ms)
+✔ 200 exchange draw is detected on the final result and awards no zero-score trophies (33.7339ms)
+✔ partial archives get no fabricated trophy; ceremony preserves identities, escaping and real card media (10.2786ms)
+✔ native materials, motion preference, cleanup and manual final action are integrated (15.5785ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7955.2178

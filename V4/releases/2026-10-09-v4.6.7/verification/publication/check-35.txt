@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: Arborium equipment requires its exact faction AND base family, regardless of job or displayed name
+ok 1 - Arborium equipment requires its exact faction AND base family, regardless of job or displayed name
+  ---
+  duration_ms: 55.8141
+  type: 'test'
+  ...
+# Subtest: faction restriction validation rejects missing, empty, oversized and unknown categories
+ok 2 - faction restriction validation rejects missing, empty, oversized and unknown categories
+  ---
+  duration_ms: 0.3293
+  type: 'test'
+  ...
+# Subtest: equipment profile persists one weapon per faction member and rejects incompatible assignments
+ok 3 - equipment profile persists one weapon per faction member and rejects incompatible assignments
+  ---
+  duration_ms: 15.7873
+  type: 'test'
+  ...
+# Subtest: team compositions validate the selected edition; old equipment snapshots stay valid
+ok 4 - team compositions validate the selected edition; old equipment snapshots stay valid
+  ---
+  duration_ms: 17.5684
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: Arborium state bonuses on either side survive formulas, logs and reloads
+ok 5 - archived 4.5.64: Arborium state bonuses on either side survive formulas, logs and reloads
+  ---
+  duration_ms: 30.2879
+  type: 'test'
+  ...
+# Subtest: previous soldier-only match definitions are preserved, without retroactive broadening
+ok 6 - previous soldier-only match definitions are preserved, without retroactive broadening
+  ---
+  duration_ms: 4.1788
+  type: 'test'
+  ...
+# Subtest: 4.6 weapons use retained ATK six; archived state conditions remain explicit and unchanged
+ok 7 - 4.6 weapons use retained ATK six; archived state conditions remain explicit and unchanged
+  ---
+  duration_ms: 0.2233
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 224.6698

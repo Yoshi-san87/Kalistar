@@ -1,0 +1,777 @@
+{
+  "schemaVersion": 4,
+  "template": "V4/template-stable/KALISTAR_V4_TEMPLATE_04_ELEMENTS.psd",
+  "canvas": [
+    897,
+    1497
+  ],
+  "resolution": 300,
+  "baseRegistry": "V4/template-stable/registry-electro-03f.json",
+  "elements": {
+    "HYDRO": {
+      "hue": 192,
+      "saturation": 65,
+      "lightness": -3
+    },
+    "AERO": {
+      "hue": 155,
+      "saturation": 45,
+      "lightness": -3
+    },
+    "PYRO": {
+      "hue": 12,
+      "saturation": 65,
+      "lightness": -5
+    },
+    "CRYO": {
+      "hue": 201,
+      "saturation": 32,
+      "lightness": 8
+    },
+    "LUXO": {
+      "hue": 45,
+      "saturation": 35,
+      "lightness": 9
+    },
+    "MINERO": {
+      "hue": 210,
+      "saturation": 12,
+      "lightness": -9
+    },
+    "HERBO": {
+      "hue": 100,
+      "saturation": 50,
+      "lightness": -6
+    }
+  },
+  "bindings": [
+    {
+      "key": "ruby",
+      "element": "HYDRO",
+      "profile": "V4/template-stable/elements-01/ruby/card.json",
+      "output": "RUBY_V4_01_HYDRO"
+    },
+    {
+      "key": "cana",
+      "element": "AERO",
+      "profile": "V4/template-stable/elements-01/cana/card.json",
+      "output": "CANA_V4_01_AERO"
+    },
+    {
+      "key": "scrow",
+      "element": "AERO",
+      "profile": "V4/template-stable/elements-01/scrow/card.json",
+      "output": "SCROW_V4_01_AERO"
+    },
+    {
+      "key": "soryn",
+      "element": "AERO",
+      "profile": "V4/template-stable/elements-01/soryn/card.json",
+      "output": "SORYN_V4_01_AERO"
+    },
+    {
+      "key": "gilmarr",
+      "element": "AERO",
+      "profile": "V4/template-stable/elements-01/gilmarr/card.json",
+      "output": "GILMARR_V4_01_AERO"
+    },
+    {
+      "key": "darnako",
+      "element": "PYRO",
+      "profile": "V4/template-stable/elements-01/darnako/card.json",
+      "output": "DARNAKO_V4_01_PYRO"
+    },
+    {
+      "key": "malinia",
+      "element": "CRYO",
+      "profile": "V4/template-stable/elements-01/malinia/card.json",
+      "output": "MALINIA_V4_01_CRYO"
+    },
+    {
+      "key": "aelis",
+      "element": "LUXO",
+      "profile": "V4/template-stable/elements-01/aelis/card.json",
+      "output": "AELIS_V4_01_LUXO"
+    },
+    {
+      "key": "iliane",
+      "element": "LUXO",
+      "profile": "V4/template-stable/elements-01/iliane/card.json",
+      "output": "ILIANE_V4_01_LUXO"
+    },
+    {
+      "key": "belrog",
+      "element": "MINERO",
+      "profile": "V4/template-stable/elements-01/belrog/card.json",
+      "output": "BELROG_V4_01_MINERO"
+    },
+    {
+      "key": "lok",
+      "element": "MINERO",
+      "profile": "V4/template-stable/elements-01/lok/card.json",
+      "output": "LOK_V4_01_MINERO"
+    },
+    {
+      "key": "balmhyr",
+      "element": "MINERO",
+      "profile": "V4/template-stable/elements-01/balmhyr/card.json",
+      "output": "BALMHYR_V4_01_MINERO"
+    },
+    {
+      "key": "magnar",
+      "element": "MINERO",
+      "profile": "V4/template-stable/elements-01/magnar/card.json",
+      "output": "MAGNAR_V4_01_MINERO"
+    },
+    {
+      "key": "thalie",
+      "element": "HERBO",
+      "profile": "V4/template-stable/elements-01/thalie/card.json",
+      "output": "THALIE_V4_01_HERBO"
+    },
+    {
+      "key": "bloom",
+      "element": "HERBO",
+      "profile": "V4/template-stable/elements-01/bloom/card.json",
+      "output": "BLOOM_V4_01_HERBO"
+    },
+    {
+      "key": "victorvine",
+      "element": "HERBO",
+      "profile": "V4/template-stable/elements-01/victorvine/card.json",
+      "output": "VICTORVINE_V4_01_HERBO"
+    }
+  ],
+  "renderer": [
+    "V4/scripts/stable/common.jsx",
+    "V4/scripts/stable/registered.jsx",
+    "V4/scripts/stable/elements-common.jsx"
+  ],
+  "flags": {
+    "Thalassea": {
+      "source": "V3/assets/factions/Thalassea.png",
+      "output": "V4/template-stable/elements-01/resources/flag-Thalassea.png",
+      "crop": {
+        "left": 13,
+        "top": 48,
+        "width": 138,
+        "height": 282
+      }
+    },
+    "Nestown": {
+      "source": "V3/assets/factions/Nestown.png",
+      "output": "V4/template-stable/elements-01/resources/flag-Nestown.png",
+      "crop": {
+        "left": 13,
+        "top": 48,
+        "width": 138,
+        "height": 282
+      }
+    },
+    "Zarok": {
+      "source": "V3/assets/factions/Zarok.png",
+      "output": "V4/template-stable/elements-01/resources/flag-Zarok.png",
+      "crop": {
+        "left": 13,
+        "top": 48,
+        "width": 138,
+        "height": 282
+      }
+    },
+    "Vulkar": {
+      "source": "V3/assets/factions/Vulkar.png",
+      "output": "V4/template-stable/elements-01/resources/flag-Vulkar.png",
+      "crop": {
+        "left": 13,
+        "top": 48,
+        "width": 138,
+        "height": 282
+      }
+    },
+    "Niveria": {
+      "source": "V3/assets/factions/Niveria.png",
+      "output": "V4/template-stable/elements-01/resources/flag-Niveria.png",
+      "crop": {
+        "left": 13,
+        "top": 48,
+        "width": 138,
+        "height": 282
+      }
+    },
+    "Solaria": {
+      "source": "V3/assets/factions/Solaria.png",
+      "output": "V4/template-stable/elements-01/resources/flag-Solaria.png",
+      "crop": {
+        "left": 13,
+        "top": 48,
+        "width": 138,
+        "height": 282
+      }
+    },
+    "Durane": {
+      "source": "V3/assets/factions/Durane.png",
+      "output": "V4/template-stable/elements-01/resources/flag-Durane.png",
+      "crop": {
+        "left": 13,
+        "top": 48,
+        "width": 138,
+        "height": 282
+      }
+    },
+    "Arborium": {
+      "source": "V3/assets/factions/Arborium.png",
+      "output": "V4/template-stable/elements-01/resources/flag-Arborium.png",
+      "crop": {
+        "left": 13,
+        "top": 48,
+        "width": 138,
+        "height": 282
+      }
+    }
+  },
+  "geometry": {
+    "halos": {
+      "AERO": {
+        "cx": 0.51944751381215,
+        "cy": 0.51944751381215,
+        "r": 0.33734806629834,
+        "aspect": 1
+      },
+      "HYDRO": {
+        "cx": 0.51116022099448,
+        "cy": 0.52773480662983,
+        "r": 0.33734806629834,
+        "aspect": 1
+      },
+      "ELECTRO": {
+        "cx": 0.49458563535912,
+        "cy": 0.51944751381215,
+        "r": 0.3428729281768,
+        "aspect": 1
+      },
+      "PYRO": {
+        "cx": 0.49458563535912,
+        "cy": 0.52773480662983,
+        "r": 0.3428729281768,
+        "aspect": 1
+      },
+      "CRYO": {
+        "cx": 0.51944751381215,
+        "cy": 0.49458563535912,
+        "r": 0.32629834254144,
+        "aspect": 1
+      },
+      "LUXO": {
+        "cx": 0.5028729281768,
+        "cy": 0.48629834254144,
+        "r": 0.32629834254144,
+        "aspect": 1
+      },
+      "MINERO": {
+        "cx": 0.51058631921824,
+        "cy": 0.50325732899023,
+        "r": 0.37459283387622,
+        "aspect": 1.01384364820847
+      },
+      "HERBO": {
+        "cx": 0.49458563535912,
+        "cy": 0.46972375690608,
+        "r": 0.33734806629834,
+        "aspect": 1
+      },
+      "HEMATO": {
+        "cx": 0.51116022099448,
+        "cy": 0.43657458563536,
+        "r": 0.3539226519337,
+        "aspect": 1
+      },
+      "NECRO": {
+        "cx": 0.51116022099448,
+        "cy": 0.44486187845304,
+        "r": 0.30972375690608,
+        "aspect": 1
+      },
+      "GEO": {
+        "cx": 0.5,
+        "cy": 0.5,
+        "r": 0.375,
+        "aspect": 1
+      },
+      "RAINBOW": {
+        "cx": 0.5028729281768,
+        "cy": 0.43657458563536,
+        "r": 0.34839779005525,
+        "aspect": 1
+      }
+    },
+    "flags": {
+      "Chroma": {
+        "bar": 0.11575562700965,
+        "aspect": 1.89634146341463
+      },
+      "Nestown": {
+        "bar": 0.09146341463415,
+        "aspect": 2
+      },
+      "Thalassea": {
+        "bar": 0.10544217687075,
+        "aspect": 1.79268292682927
+      },
+      "Vulkar": {
+        "bar": 0.11036789297659,
+        "aspect": 1.82317073170732
+      },
+      "Niveria": {
+        "bar": 0.12424242424242,
+        "aspect": 2.12903225806452
+      },
+      "Solaria": {
+        "bar": 0.13636363636364,
+        "aspect": 2.03703703703704
+      },
+      "Durane": {
+        "bar": 0.09324758842444,
+        "aspect": 1.89634146341463
+      },
+      "Arborium": {
+        "bar": 0.12121212121212,
+        "aspect": 2.17105263157895
+      },
+      "Draevenheim": {
+        "bar": 0.03985507246377,
+        "aspect": 1.68292682926829
+      },
+      "Cryptown": {
+        "bar": 0.04166666666667,
+        "aspect": 1.75609756097561
+      },
+      "Zarok": {
+        "bar": 0.03846153846154,
+        "aspect": 1.74390243902439
+      },
+      "Z13": {
+        "bar": 0.03973509933775,
+        "aspect": 1.84146341463415
+      },
+      "Crabazar": {
+        "bar": 0.03976531942634,
+        "aspect": 1.6096537250787
+      },
+      "Woodland": {
+        "bar": 0.02357563850688,
+        "aspect": 1.58238341968912
+      }
+    },
+    "icons": {
+      "weapons": {
+        "10": {
+          "r": 0.69896255422054,
+          "aspect": 1.0025641025641,
+          "alphaBounds": [
+            57,
+            56,
+            447,
+            447
+          ]
+        },
+        "11": {
+          "r": 0.63852888794341,
+          "aspect": 1.03669724770642,
+          "alphaBounds": [
+            103,
+            96,
+            430,
+            435
+          ]
+        },
+        "12": {
+          "r": 0.69781266882712,
+          "aspect": 1,
+          "alphaBounds": [
+            67,
+            66,
+            447,
+            446
+          ]
+        },
+        "13": {
+          "r": 0.5709426312989,
+          "aspect": 1.06442577030812,
+          "alphaBounds": [
+            79,
+            66,
+            436,
+            446
+          ]
+        },
+        "14": {
+          "r": 0.69188565683098,
+          "aspect": 1.05988023952096,
+          "alphaBounds": [
+            69,
+            72,
+            403,
+            426
+          ]
+        },
+        "15": {
+          "r": 0.69511329655558,
+          "aspect": 1.01901140684411,
+          "alphaBounds": [
+            138,
+            144,
+            401,
+            412
+          ]
+        },
+        "16": {
+          "r": 0.69313114740524,
+          "aspect": 0.98300283286119,
+          "alphaBounds": [
+            90,
+            89,
+            443,
+            436
+          ]
+        },
+        "17": {
+          "r": 0.69516740254159,
+          "aspect": 0.98697916666667,
+          "alphaBounds": [
+            69,
+            68,
+            453,
+            447
+          ]
+        },
+        "18": {
+          "r": 0.74078636896506,
+          "aspect": 1.12266666666667,
+          "alphaBounds": [
+            89,
+            37,
+            464,
+            458
+          ]
+        },
+        "19": {
+          "r": 0.63555435008641,
+          "aspect": 0.82126696832579,
+          "alphaBounds": [
+            27,
+            59,
+            469,
+            422
+          ]
+        },
+        "00": {
+          "r": 0.61256621702655,
+          "aspect": 0.84235294117647,
+          "alphaBounds": [
+            44,
+            66,
+            469,
+            424
+          ]
+        },
+        "01": {
+          "r": 0.64628393669444,
+          "aspect": 1,
+          "alphaBounds": [
+            46,
+            46,
+            456,
+            456
+          ]
+        },
+        "02": {
+          "r": 0.67992595994553,
+          "aspect": 1.00759493670886,
+          "alphaBounds": [
+            51,
+            49,
+            446,
+            447
+          ]
+        },
+        "03": {
+          "r": 0.59924754801115,
+          "aspect": 1,
+          "alphaBounds": [
+            58,
+            59,
+            456,
+            457
+          ]
+        },
+        "04": {
+          "r": 0.65986805947297,
+          "aspect": 0.89130434782609,
+          "alphaBounds": [
+            44,
+            56,
+            458,
+            425
+          ]
+        },
+        "05": {
+          "r": 0.69429242217414,
+          "aspect": 1,
+          "alphaBounds": [
+            92,
+            91,
+            423,
+            422
+          ]
+        },
+        "06": {
+          "r": 0.5166328359002,
+          "aspect": 0.87434554973822,
+          "alphaBounds": [
+            81,
+            89,
+            463,
+            423
+          ]
+        },
+        "07": {
+          "r": 0.64788658755228,
+          "aspect": 1.04229607250755,
+          "alphaBounds": [
+            94,
+            89,
+            425,
+            434
+          ]
+        },
+        "08": {
+          "r": 0.69599351204874,
+          "aspect": 1,
+          "alphaBounds": [
+            66,
+            66,
+            447,
+            447
+          ]
+        },
+        "09": {
+          "r": 0.50889162146188,
+          "aspect": 1,
+          "alphaBounds": [
+            91,
+            91,
+            424,
+            424
+          ]
+        }
+      },
+      "races": {
+        "ROBOT": {
+          "r": 0.51135900913333,
+          "aspect": 1.00243902439024,
+          "alphaBounds": [
+            0,
+            21,
+            1230,
+            1254
+          ]
+        },
+        "FALCO": {
+          "r": 0.61859635054463,
+          "aspect": 1.00813008130081,
+          "alphaBounds": [
+            0,
+            14,
+            1230,
+            1254
+          ]
+        },
+        "SIRENA": {
+          "r": 0.53570610692786,
+          "aspect": 1.01888341543514,
+          "alphaBounds": [
+            0,
+            13,
+            1218,
+            1254
+          ]
+        },
+        "DRAX": {
+          "r": 0.65390829744904,
+          "aspect": 1.03161397670549,
+          "alphaBounds": [
+            0,
+            14,
+            1202,
+            1254
+          ]
+        },
+        "HUMAIN": {
+          "r": 0.50979164727317,
+          "aspect": 1.05130434782609,
+          "alphaBounds": [
+            49,
+            21,
+            1199,
+            1230
+          ]
+        },
+        "AURELION": {
+          "r": 0.60408016622152,
+          "aspect": 1.03666666666667,
+          "alphaBounds": [
+            0,
+            10,
+            1200,
+            1254
+          ]
+        },
+        "NAIN": {
+          "r": 0.57617518298922,
+          "aspect": 0.99918962722853,
+          "alphaBounds": [
+            0,
+            21,
+            1234,
+            1254
+          ]
+        },
+        "CARNIVERT": {
+          "r": 0.4266740420817,
+          "aspect": 1.04865334491746,
+          "alphaBounds": [
+            41,
+            21,
+            1192,
+            1228
+          ]
+        },
+        "VAMP": {
+          "r": 0.5666986517016,
+          "aspect": 0.97625106022053,
+          "alphaBounds": [
+            49,
+            57,
+            1228,
+            1208
+          ]
+        },
+        "SKULLZ": {
+          "r": 0.55664746030295,
+          "aspect": 1.10133333333333,
+          "alphaBounds": [
+            97,
+            15,
+            1222,
+            1254
+          ]
+        },
+        "RHINOZ": {
+          "r": 0.61180103208829,
+          "aspect": 1.05321888412017,
+          "alphaBounds": [
+            43,
+            13,
+            1208,
+            1240
+          ]
+        },
+        "KORBOW": {
+          "r": 0.54411047450754,
+          "aspect": 0.98663324979114,
+          "alphaBounds": [
+            33,
+            47,
+            1230,
+            1228
+          ]
+        },
+        "CYBORG": {
+          "r": 0.51140877177922,
+          "aspect": 0.98455284552846,
+          "alphaBounds": [
+            0,
+            17,
+            1230,
+            1228
+          ]
+        },
+        "GOLEM": {
+          "r": 0.46569073942411,
+          "aspect": 0.98295454545455,
+          "alphaBounds": [
+            0,
+            19,
+            1232,
+            1230
+          ]
+        },
+        "CARDEMORTIS": {
+          "r": 0.55057228927735,
+          "aspect": 1.10973451327434,
+          "alphaBounds": [
+            61,
+            0,
+            1191,
+            1254
+          ]
+        },
+        "FELINEUS": {
+          "r": 0.57149596268103,
+          "aspect": 1.07599629286376,
+          "alphaBounds": [
+            55,
+            39,
+            1134,
+            1200
+          ]
+        },
+        "TANTALAK": {
+          "r": 0.49531170040244,
+          "aspect": 1.02833333333333,
+          "alphaBounds": [
+            0,
+            20,
+            1200,
+            1254
+          ]
+        },
+        "TOXINAR": {
+          "r": 0.5238468146049,
+          "aspect": 1.0008064516129,
+          "alphaBounds": [
+            0,
+            13,
+            1240,
+            1254
+          ]
+        },
+        "CERELF": {
+          "r": 0.49551378223806,
+          "aspect": 1.00243902439024,
+          "alphaBounds": [
+            0,
+            21,
+            1230,
+            1254
+          ]
+        }
+      }
+    }
+  },
+  "positionLayout": {
+    "textX": 224,
+    "textY": 1020.5,
+    "step": 58,
+    "maxTextWidth": 34,
+    "sizePt": 7.84,
+    "supportScale": 112,
+    "supportCenterX": 226,
+    "supportCenterY": 1020.5,
+    "shadow": {
+      "opacity": 65,
+      "distance": 3,
+      "blur": 4
+    }
+  }
+}

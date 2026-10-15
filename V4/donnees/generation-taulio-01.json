@@ -1,0 +1,62 @@
+{
+  "status": "rejected-by-user-project-render-and-previews-deleted",
+  "deletionReason": "Not pixel-perfect; replaced by the layered-master workflow, not by a new Taulio generation.",
+  "method": "built-in imagegen, full-card compositing from approved Momo and original Taulio references",
+  "output": "cartes/TAULIO_ELECTRO_V4_01.png",
+  "prompt": "donnees/prompt-taulio-01.txt",
+  "profile": "donnees/taulio.json",
+  "generated": "C:/Users/guill/.codex/generated_images/019e30c1-21b0-7e11-9f9d-2fe692f111d2/exec-03d11bb2-6639-40af-8ae3-fb1215609749.png",
+  "sha256": "9551339a6e842f5feb79ce1c562a997fe2bd1e214daf85d5328cc72c65c948f5",
+  "dimensions": [
+    951,
+    1654
+  ],
+  "masterDimensions": [
+    950,
+    1655
+  ],
+  "ratioDeviation": 0.0016578629160566294,
+  "fullGeneratedOutputUnmodified": true,
+  "regionalPatching": false,
+  "protectedSourcesUnmodified": true,
+  "mechanicsEqualV3": true,
+  "visuallyChecked": {
+    "attack": [
+      202,
+      165,
+      135,
+      98,
+      "guard",
+      "buff_atk"
+    ],
+    "defense": [
+      294,
+      242,
+      190,
+      145,
+      93,
+      41
+    ],
+    "attackMagic": [],
+    "defenseBarriers": [
+      2
+    ],
+    "positions": [
+      1
+    ],
+    "weapon": "Poing",
+    "race": "ROBOT",
+    "faction": "Chroma",
+    "element": "ELECTRO",
+    "title": "GARDE DU CORPS LOYAL",
+    "descriptionLines": 4
+  },
+  "limitations": [
+    "Visual comparison asset; a deterministic reusable master renderer has not yet been built.",
+    "The source illustration is retained unchanged; generated artwork pixels are not guaranteed identical.",
+    "The barcode inside the generated card is not certified to encode 30000013.",
+    "Native generated RGB resolution; not a print-ready or CMYK master."
+  ],
+  "siteOrDatabaseChanged": false,
+  "previousFilesMovedOrDeleted": false
+}

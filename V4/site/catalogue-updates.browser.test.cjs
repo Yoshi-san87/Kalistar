@@ -1,0 +1,71 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{createRequire}=require('node:module');
+const {buildCatalog}=require('../atelier/game-catalog.cjs');
+const runtime=createRequire(path.join(process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules'),'__catalogue_notice_qa__.cjs'));
+const dist=path.resolve(__dirname,'../deploy/dist'),origin='https://kalistar-notice.invalid/Kalistar',url=origin+'/jeu/';
+const output=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'verification/catalogue-notice');
+const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.webmanifest':'application/manifest+json','.png':'image/png','.webp':'image/webp','.svg':'image/svg+xml','.woff2':'font/woff2'};
+const snapshot=page=>page.evaluate(async()=>{await KALISTAR_DB.idle();return {game:localStorage.getItem('kalistar.v4.game'),owned:KALISTAR_DB.registry.owned('user-paris').map(c=>({id:c.id,cardId:c.cardId,ownerId:c.ownerId})),matches:KALISTAR_DB.inspect('matches').map(m=>({id:m.id,state:m.state}))};});
+async function main(){
+  fs.mkdirSync(output,{recursive:true});
+  const published=require('../donnees/catalogue.json').cards.filter(c=>c.kind==='created'),current=await buildCatalog({published});
+  const extra=(id,index)=>({...structuredClone(current.cards[0]),id,characterId:'notice-qa-'+index,name:'ARCHIVE QA '+index,origin:'published'});
+  const retired=['40000090','40000091','40000092'].map(extra),addition=extra('40000093',3);
+  assert([...retired,addition].every(c=>!current.cards.some(p=>p.id===c.id)));
+  const historical={...structuredClone(current),cards:[...current.cards,...retired]},expanded={...structuredClone(current),cards:[...current.cards,addition]};
+  let catalogue=historical;
+  const browser=await runtime('playwright').chromium.launch({channel:'chrome',headless:true});
+  const errors=[],checks=[];
+  try{
+    const context=await browser.newContext({viewport:{width:1440,height:1000},serviceWorkers:'block',reducedMotion:'reduce'});
+    await context.addInitScript(()=>{const open=IDBFactory.prototype.open;IDBFactory.prototype.open=function(name,version){return open.call(this,name+'-notice-qa',version);};});
+    await context.route(origin+'/**',route=>{
+      const relative=decodeURIComponent(new URL(route.request().url()).pathname).replace(/^\/Kalistar\//,'');
+      if(relative==='jeu/catalogue.json')return route.fulfill({json:catalogue});
+      const file=path.resolve(dist,relative.endsWith('/')?relative+'index.html':relative);
+      assert(file.startsWith(dist+path.sep));
+      if(!fs.existsSync(file))return route.fulfill({status:404,body:relative});
+      return route.fulfill({body:fs.readFileSync(file),contentType:mime[path.extname(file)]||'application/octet-stream'});
+    });
+    const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400)errors.push(r.status()+' '+r.url());});
+    await page.goto(url+'#decks');await page.waitForFunction(()=>window.KALISTAR_READY);
+    await page.evaluate(()=>{
+      const E=KalistarEngine.createEngine(KALISTAR_DATA),T=KalistarTeamComposition.create(E),team=T.normalize({name:'Catalogue QA',cards:KALISTAR_DATA.decks.player});
+      team.captain=team.formation[2];team.equipment={};
+      if(E.validateComposition(team).length)throw Error(E.validateComposition(team).join(' '));
+      localStorage.setItem('kalistar.v4.teamDraft',JSON.stringify(team));
+    });
+    await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);await page.locator('[data-deck-action=save]').click();
+    await page.locator('[data-deck-action=play]').click();await page.locator('#game-mode').selectOption('local');await page.locator('#enemy-deck-preset').selectOption('enemy');await page.locator('#new-game-form [type=submit]').click();
+    await page.locator('.li-skip').click();await page.waitForFunction(()=>JSON.parse(localStorage.getItem('kalistar.v4.game')).phase==='choose');
+    const before=await snapshot(page);assert.equal(before.owned.length,current.cards.length+3);
+    catalogue=current;await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);await page.waitForTimeout(300);
+    assert.deepEqual(await page.evaluate(()=>KALISTAR_DB.catalogueChanges()),retired.map(c=>c.id));
+    assert.equal(await page.locator('#catalogue-refresh').isVisible(),false);
+    assert.deepEqual(await snapshot(page),before,'historical ownership and active match are untouched');
+    await page.locator('[data-action=account]').click();assert.equal(await page.locator('.registry-catalogue-notice').count(),0);await page.locator('#account-dialog [data-registry-action=close]').click();
+    checks.push('three archived-only versions do not show either update notice; ownership and active match are unchanged');
+    await page.locator('.masthead [data-view=decks]').click();await page.screenshot({path:path.join(output,'desktop-no-false-notice.png')});
+    await page.setViewportSize({width:412,height:1007});await page.screenshot({path:path.join(output,'phone-no-false-notice.png')});
+    await page.setViewportSize({width:1440,height:1000});
+    catalogue=expanded;const peer=await context.newPage();peer.on('pageerror',e=>errors.push(e.message));await peer.goto(url+'#collection');await peer.waitForFunction(()=>window.KALISTAR_READY);
+    await page.locator('#catalogue-refresh').waitFor({state:'visible'});
+    assert.equal(await page.locator('#catalogue-refresh span').textContent(),'Nouvelles cartes (1)');
+    assert.equal(await page.evaluate(()=>KALISTAR_DATA.cards.length),current.cards.length);
+    assert.equal((await snapshot(page)).game,before.game,'checking additions never swaps the running engine');
+    await page.screenshot({path:path.join(output,'one-real-addition.png')});
+    await page.locator('[data-action=account]').click();assert.match(await page.locator('.registry-catalogue-notice').innerText(),/^1 nouvelle/);await page.locator('#account-dialog [data-registry-action=close]').click();
+    checks.push('a fresh peer adds one actual available card; three historical IDs remain excluded from both counts');
+    await page.locator('#catalogue-refresh').click();await page.waitForFunction(count=>window.KALISTAR_READY&&KALISTAR_DATA.cards.length===count,expanded.cards.length);await page.waitForTimeout(300);
+    assert.equal(await page.locator('#catalogue-refresh').isVisible(),false);
+    assert.equal((await snapshot(page)).game,before.game);
+    const after=await snapshot(page);assert.equal(after.owned.length,before.owned.length+1);
+    assert.deepEqual(after.owned.filter(c=>c.cardId!==addition.id),before.owned);assert.deepEqual(after.matches,before.matches);
+    assert.deepEqual(await page.evaluate(()=>KALISTAR_DB.catalogueChanges()),retired.map(c=>c.id));
+    await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);await page.waitForTimeout(300);assert.equal(await page.locator('#catalogue-refresh').isVisible(),false);
+    await page.screenshot({path:path.join(output,'refreshed-no-notice.png')});checks.push('manual refresh and a second reload hide the notice without deleting historic versions, ownership or match history');
+    assert.deepEqual(errors,[]);fs.writeFileSync(path.join(output,'results.json'),JSON.stringify({passed:true,isolated:true,built:true,current:current.cards.length,archived:retired.length,checks,errors},null,2));
+    console.log(JSON.stringify({passed:true,checks,errors}));
+  }finally{await browser.close();}
+}
+main().catch(e=>{console.error(e);process.exitCode=1;});

@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "modelId": "49902613",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "71c64016ef9896275b6d0704d900c05ded2a83d5712f00af875469d72e905219",
+  "hashes": {
+    "card.png": "53141999563840e75e26d6fa30f20a57600f70b5ea48bd205fd4e59aa9b5f013",
+    "card.psd": "13137aa0e38b9c1e2f3ae572fd03db505995f57565364fa05fe3523536c132e0"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 105087
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49902613",
+    "cases": {
+      "color-1": [
+        "49902613"
+      ],
+      "color-4": [
+        "49902613"
+      ],
+      "gray-1": [
+        "49902613"
+      ],
+      "gray-4": [
+        "49902613"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-13T13:07:53.544Z",
+  "revision": "2026-10-13-voices-weapon-glyphs",
+  "scope": {
+    "changed": 3306,
+    "outside": 0
+  },
+  "weaponOnly": true,
+  "profileUnchanged": true,
+  "source": {
+    "id": "49902613",
+    "key": "ithrek",
+    "family": "Projectile",
+    "source": "V4/site/assets/base-weapons/09.svg",
+    "sourceHash": "37ebc05b21557f8967a072c2b019729e22f58268395d3ceebeb063b526c5557b",
+    "enamelHash": "9588d3c555966d642c8cbdeaf328b34052cabc08303572b534e831f4c0c48d47"
+  },
+  "inputManifestHash": "0439066a6f7aebdc9f2eb9c69117386eb89306a3bf9a647eaf60523abd0c384c"
+}

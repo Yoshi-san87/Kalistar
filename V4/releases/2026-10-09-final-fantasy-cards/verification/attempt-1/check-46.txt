@@ -1,0 +1,12 @@
+locator.click: Error: strict mode violation: locator('[data-binder-action=close-overlay]:visible') resolved to 2 elements:
+    1) <button autofocus="" type="button" class="cb-icon" data-kui="command" aria-label="Fermer les filtres" data-binder-action="close-overlay">…</button> aka getByRole('button', { name: 'Fermer les filtres' })
+    2) <button type="button" data-kui="command" data-kui-tone="primary" data-binder-action="close-overlay">…</button> aka getByRole('button', { name: 'Voir 13 personnages' })
+
+Call log:
+[2m  - waiting for locator('[data-binder-action=close-overlay]:visible')[22m
+
+    at main (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\expansions\2026-10-09-final-fantasy-trilogy\browser.test.cjs:40:69) {
+  log: [
+    "  - waiting for locator('[data-binder-action=close-overlay]:visible')"
+  ]
+}

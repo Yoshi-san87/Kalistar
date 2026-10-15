@@ -1,0 +1,338 @@
+{
+  "passed": true,
+  "built": true,
+  "dist": "C:\\Users\\guill\\AppData\\Local\\Temp\\kalistar-razr-4619-zJ7qIq\\V4\\deploy\\dist",
+  "checks": [
+    {
+      "name": "desktop",
+      "passed": true,
+      "layout": {
+        "dialog": {
+          "x": 160,
+          "y": 32.59375,
+          "width": 1120,
+          "height": 934.8125,
+          "right": 1280,
+          "bottom": 967.40625
+        },
+        "visual": {
+          "x": 181,
+          "y": 114.59375,
+          "width": 527,
+          "height": 530,
+          "right": 708,
+          "bottom": 644.59375
+        },
+        "equipment": {
+          "x": 181,
+          "y": 656.59375,
+          "width": 527,
+          "height": 230.8125,
+          "right": 708,
+          "bottom": 887.40625
+        },
+        "actions": {
+          "x": 161,
+          "y": 903.40625,
+          "width": 1118,
+          "height": 63,
+          "right": 1279,
+          "bottom": 966.40625
+        },
+        "bodyWidth": 1118,
+        "scrollWidth": 1118,
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "overflows": []
+      },
+      "checks": [
+        "native equipment cards/click/Back",
+        "desktop/phone geometry and text",
+        "faces/lore/career/instance replacement",
+        "illustration/favorite/PNG",
+        "profile/deck/match snapshot isolation",
+        "runtime active/inactive and active-only popup overlays",
+        "archive without invented equipment",
+        "no inventory or equipment mutation"
+      ]
+    },
+    {
+      "name": "wide",
+      "passed": true,
+      "layout": {
+        "dialog": {
+          "x": 400,
+          "y": 51.390625,
+          "width": 1120,
+          "height": 977.203125,
+          "right": 1520,
+          "bottom": 1028.59375
+        },
+        "visual": {
+          "x": 421,
+          "y": 133.390625,
+          "width": 527,
+          "height": 572.390625,
+          "right": 948,
+          "bottom": 705.78125
+        },
+        "equipment": {
+          "x": 421,
+          "y": 717.78125,
+          "width": 527,
+          "height": 230.8125,
+          "right": 948,
+          "bottom": 948.59375
+        },
+        "actions": {
+          "x": 401,
+          "y": 964.59375,
+          "width": 1118,
+          "height": 63,
+          "right": 1519,
+          "bottom": 1027.59375
+        },
+        "bodyWidth": 1118,
+        "scrollWidth": 1118,
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "overflows": []
+      },
+      "checks": [
+        "native equipment cards/click/Back",
+        "desktop/phone geometry and text",
+        "faces/lore/career/instance replacement",
+        "illustration/favorite/PNG",
+        "profile/deck/match snapshot isolation",
+        "runtime active/inactive and active-only popup overlays",
+        "archive without invented equipment",
+        "no inventory or equipment mutation"
+      ]
+    },
+    {
+      "name": "razr",
+      "passed": true,
+      "layout": {
+        "dialog": {
+          "x": 8,
+          "y": 8,
+          "width": 396,
+          "height": 991,
+          "right": 404,
+          "bottom": 999
+        },
+        "visual": {
+          "x": 21,
+          "y": 84,
+          "width": 370,
+          "height": 443.078125,
+          "right": 391,
+          "bottom": 527.078125
+        },
+        "equipment": {
+          "x": 21,
+          "y": 539.078125,
+          "width": 370,
+          "height": 206.5,
+          "right": 391,
+          "bottom": 745.578125
+        },
+        "actions": {
+          "x": 9,
+          "y": 937,
+          "width": 394,
+          "height": 61,
+          "right": 403,
+          "bottom": 998
+        },
+        "bodyWidth": 394,
+        "scrollWidth": 394,
+        "viewport": {
+          "width": 412,
+          "height": 1007
+        },
+        "overflows": []
+      },
+      "checks": [
+        "native equipment cards/click/Back",
+        "desktop/phone geometry and text",
+        "faces/lore/career/instance replacement",
+        "illustration/favorite/PNG",
+        "profile/deck/match snapshot isolation",
+        "runtime active/inactive and active-only popup overlays",
+        "archive without invented equipment",
+        "no inventory or equipment mutation"
+      ]
+    },
+    {
+      "name": "phone",
+      "passed": true,
+      "layout": {
+        "dialog": {
+          "x": 8,
+          "y": 8,
+          "width": 374,
+          "height": 828,
+          "right": 382,
+          "bottom": 836
+        },
+        "visual": {
+          "x": 21,
+          "y": 84,
+          "width": 348,
+          "height": 371.359375,
+          "right": 369,
+          "bottom": 455.359375
+        },
+        "equipment": {
+          "x": 21,
+          "y": 467.359375,
+          "width": 348,
+          "height": 201.265625,
+          "right": 369,
+          "bottom": 668.625
+        },
+        "actions": {
+          "x": 9,
+          "y": 774,
+          "width": 372,
+          "height": 61,
+          "right": 381,
+          "bottom": 835
+        },
+        "bodyWidth": 372,
+        "scrollWidth": 372,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "overflows": []
+      },
+      "checks": [
+        "native equipment cards/click/Back",
+        "desktop/phone geometry and text",
+        "faces/lore/career/instance replacement",
+        "illustration/favorite/PNG",
+        "profile/deck/match snapshot isolation",
+        "runtime active/inactive and active-only popup overlays",
+        "archive without invented equipment",
+        "no inventory or equipment mutation"
+      ]
+    },
+    {
+      "name": "compact",
+      "passed": true,
+      "layout": {
+        "dialog": {
+          "x": 8,
+          "y": 8,
+          "width": 304,
+          "height": 552,
+          "right": 312,
+          "bottom": 560
+        },
+        "visual": {
+          "x": 21,
+          "y": 84,
+          "width": 278,
+          "height": 249.90625,
+          "right": 299,
+          "bottom": 333.90625
+        },
+        "equipment": {
+          "x": 21,
+          "y": 345.90625,
+          "width": 278,
+          "height": 201.59375,
+          "right": 299,
+          "bottom": 547.5
+        },
+        "actions": {
+          "x": 9,
+          "y": 498,
+          "width": 302,
+          "height": 61,
+          "right": 311,
+          "bottom": 559
+        },
+        "bodyWidth": 302,
+        "scrollWidth": 302,
+        "viewport": {
+          "width": 320,
+          "height": 568
+        },
+        "overflows": []
+      },
+      "checks": [
+        "native equipment cards/click/Back",
+        "desktop/phone geometry and text",
+        "faces/lore/career/instance replacement",
+        "illustration/favorite/PNG",
+        "profile/deck/match snapshot isolation",
+        "runtime active/inactive and active-only popup overlays",
+        "archive without invented equipment",
+        "no inventory or equipment mutation"
+      ]
+    },
+    {
+      "name": "landscape",
+      "passed": true,
+      "layout": {
+        "dialog": {
+          "x": 12,
+          "y": 12,
+          "width": 820,
+          "height": 366,
+          "right": 832,
+          "bottom": 378
+        },
+        "visual": {
+          "x": 33,
+          "y": 94,
+          "width": 346.421875,
+          "height": 260,
+          "right": 379.421875,
+          "bottom": 354
+        },
+        "equipment": {
+          "x": 33,
+          "y": 366,
+          "width": 346.421875,
+          "height": 204.015625,
+          "right": 379.421875,
+          "bottom": 570.015625
+        },
+        "actions": {
+          "x": 13,
+          "y": 314,
+          "width": 818,
+          "height": 63,
+          "right": 831,
+          "bottom": 377
+        },
+        "bodyWidth": 818,
+        "scrollWidth": 818,
+        "viewport": {
+          "width": 844,
+          "height": 390
+        },
+        "overflows": []
+      },
+      "checks": [
+        "native equipment cards/click/Back",
+        "desktop/phone geometry and text",
+        "faces/lore/career/instance replacement",
+        "illustration/favorite/PNG",
+        "profile/deck/match snapshot isolation",
+        "runtime active/inactive and active-only popup overlays",
+        "archive without invented equipment",
+        "no inventory or equipment mutation"
+      ]
+    }
+  ],
+  "errors": []
+}

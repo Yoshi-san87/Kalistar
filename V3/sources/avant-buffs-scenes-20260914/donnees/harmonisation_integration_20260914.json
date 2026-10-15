@@ -1,0 +1,374 @@
+{
+  "revision": "20260914",
+  "assets": {
+    "armes/11.png": {
+      "sha256": "99fef1fda8b2bb16aa070d4f5c653ff3057ea1c3416090686c44ff29385e49d0",
+      "width": 1254,
+      "height": 1254,
+      "integratedAt": "2026-09-14T12:42:25.669Z"
+    },
+    "cristaux/NONE.png": {
+      "sha256": "35e5341e5d9539c05c96f026455fad3da492cca24c80800b3881d2b706ea244a",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:42:25.705Z"
+    },
+    "effets/MINERO.png": {
+      "sha256": "fc343d8e7c8045174d372ae4d893dc370243837b629c1bf58024683b71e9c99d",
+      "width": 1254,
+      "height": 1254,
+      "integratedAt": "2026-09-14T12:42:25.745Z"
+    },
+    "effets/GEO.png": {
+      "sha256": "fae0e2cd8e8498523ff164caafb27a06bbe638b338681d9e866f9974c1c46c98",
+      "width": 1254,
+      "height": 1254,
+      "integratedAt": "2026-09-14T12:42:25.786Z"
+    },
+    "races/HUMAIN.png": {
+      "sha256": "e68bde89ff2c7caa6aa7ec54282a9e2cf1c1ea6be5e5cb0900dbb3699971e9a7",
+      "width": 1254,
+      "height": 1254,
+      "integratedAt": "2026-09-14T12:42:25.815Z"
+    },
+    "races/NAIN.png": {
+      "sha256": "1c841630b9d741415a4a94224ab852c8b083efe006a043ff20356d11102382d6",
+      "width": 1254,
+      "height": 1254,
+      "integratedAt": "2026-09-14T12:42:25.850Z"
+    },
+    "races/AURELION.png": {
+      "sha256": "3f9e3efe6791a2620f8217d31dff600beee9bc43dbb270fd3a97c955f3a34752",
+      "width": 1254,
+      "height": 1254,
+      "integratedAt": "2026-09-14T12:42:25.886Z"
+    },
+    "illustrations/07_MINERO_BALMHYR.png": {
+      "sha256": "9c56975ce994c7778deabb2315f67016b2dd1a174745a0e90bfd577cbfdc526e",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:42:25.904Z"
+    },
+    "illustrations/22_NONE_MALABA.png": {
+      "sha256": "3ce4447d4bcc85a53108ad3d3547a759041fc2720a7c37d829832b95f0d00f05",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:42:25.916Z"
+    },
+    "illustrations/34_NECRO_VALAZAR.png": {
+      "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:42:25.929Z"
+    },
+    "illustrations/12_RAINBOW_KAYLIS.png": {
+      "sha256": "44149ed7e870b8deb0903af8b1138ed9e897e5856edf7593151db470ece93d73",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:42:25.945Z"
+    },
+    "races/CARDEMORTIS.png": {
+      "sha256": "2217f8d375d390f714d150a40e9ee446a6222c79ff8b3df2680356336b933e45",
+      "width": 1254,
+      "height": 1254,
+      "integratedAt": "2026-09-14T12:44:01.159Z"
+    },
+    "races/CYBORG.png": {
+      "sha256": "540a1535449bf797e437e7e0a347a09fc1930e3a9444081938de008bf82bfad3",
+      "width": 1254,
+      "height": 1254,
+      "integratedAt": "2026-09-14T12:44:01.196Z"
+    },
+    "races/VAMP.png": {
+      "sha256": "c5df19fb8fc57b20ceaa83173a2538643fb9c2d32620204627abf79dae5081b4",
+      "width": 1254,
+      "height": 1254,
+      "integratedAt": "2026-09-14T12:44:01.223Z"
+    },
+    "races/SKULLZ.png": {
+      "sha256": "6367d3ebafeb03aeedd95c4993001e8909177b53974ba06662790b68af109cfc",
+      "width": 1254,
+      "height": 1254,
+      "integratedAt": "2026-09-14T12:44:01.259Z"
+    },
+    "races/SIRENA.png": {
+      "sha256": "7a14b71f5fc05e3f39eb57f3964899569dcbfb0758b4121dfc117602e9af7a78",
+      "width": 1254,
+      "height": 1254,
+      "integratedAt": "2026-09-14T12:44:01.290Z"
+    },
+    "races/RHINOZ.png": {
+      "sha256": "0a228a0c16a85b3fea0731be813898b0a33831e3ce384db65c9409df56928b7a",
+      "width": 1254,
+      "height": 1254,
+      "integratedAt": "2026-09-14T12:44:01.323Z"
+    },
+    "races/FALCO.png": {
+      "sha256": "060f244175b7102e15ef8870b1b5973f922fb6c2765f894bdd7671a40d0b5984",
+      "width": 1254,
+      "height": 1254,
+      "integratedAt": "2026-09-14T12:44:01.347Z"
+    },
+    "races/KORBOW.png": {
+      "sha256": "64ff53b18a3603e617c10508c39fa6d12ffdbeaf3701506b10d9279ac25fff9d",
+      "width": 1254,
+      "height": 1254,
+      "integratedAt": "2026-09-14T12:44:01.373Z"
+    },
+    "races/DRAX.png": {
+      "sha256": "8dba3fdc9d9583e90ccc4cbfcfae25922b9387663435c57509cb666b53f7c2f0",
+      "width": 1254,
+      "height": 1254,
+      "integratedAt": "2026-09-14T12:44:01.397Z"
+    },
+    "races/FELINEUS.png": {
+      "sha256": "c3f6932ae5e32146b09ed35998eecf2f8bc9ee06508788fb390798bc837811ed",
+      "width": 1254,
+      "height": 1254,
+      "integratedAt": "2026-09-14T12:44:01.425Z"
+    },
+    "races/CARNIVERT.png": {
+      "sha256": "833e6f1c114381ac66a439e01fc8bb3f68bd4151c853eb55797a078e6e895442",
+      "width": 1254,
+      "height": 1254,
+      "integratedAt": "2026-09-14T12:44:01.456Z"
+    },
+    "races/CERELF.png": {
+      "sha256": "71d6e007194718a1729668849ac50ccc19a4582d5de5e8cfe60887bb4b1d486e",
+      "width": 1254,
+      "height": 1254,
+      "integratedAt": "2026-09-14T12:44:01.481Z"
+    },
+    "races/GOLEM.png": {
+      "sha256": "3bb09f3255543ce5bb0188c973bade33665fd2d35491cef0024920793990958f",
+      "width": 1254,
+      "height": 1254,
+      "integratedAt": "2026-09-14T12:44:01.511Z"
+    },
+    "races/TANTALAK.png": {
+      "sha256": "409fcb7d96e8c83f05040d5cd3dfe462942933b8997a95d41de4df651d488d5d",
+      "width": 1254,
+      "height": 1254,
+      "integratedAt": "2026-09-14T12:44:01.536Z"
+    },
+    "races/TOXINAR.png": {
+      "sha256": "c0e7826d18cab51a33bfabeaae66a03d32c70aaca5dac0d79e6d7fb8847f3655",
+      "width": 1254,
+      "height": 1254,
+      "integratedAt": "2026-09-14T12:44:01.557Z"
+    },
+    "races/ROBOT.png": {
+      "sha256": "423c7ab416e38d55283bf6ad7d951daedec037ad30360ceaf9b246df369710ba",
+      "width": 1254,
+      "height": 1254,
+      "integratedAt": "2026-09-14T12:45:15.508Z"
+    },
+    "illustrations/03_HYDRO_JULIENNE.png": {
+      "sha256": "e3a5880bb9fba4428059fbd8cc014f563c886898769650dbd7d5158d65d657ae",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:46:28.379Z"
+    },
+    "illustrations/04_PYRO_DARNAKO.png": {
+      "sha256": "424a366d96edfafec08d82bf634403c57855ff271840613cbd2e668cfabd7ee7",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:46:28.393Z"
+    },
+    "illustrations/05_CRYO_MALINIA.png": {
+      "sha256": "61e94b985d223cea9db8436eae5b8776961fce1c354fbe9df141aa486ebb395e",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:46:28.407Z"
+    },
+    "illustrations/08_HERBO_VICTORVINE.png": {
+      "sha256": "ef67ce6b64f7d5e1c2b056a0225a4e28c69fd4d1180ad8af20de01485b2ea556",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:46:28.419Z"
+    },
+    "illustrations/09_HEMATO_VERMINIA.png": {
+      "sha256": "9910f7b02915b52ee19825786b7170319afd0439188b603fe9acc57b03d3dca0",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:46:28.433Z"
+    },
+    "illustrations/11_GEO_NAZAR.png": {
+      "sha256": "a93f0b23190725386ace6c5f7039521c26763dc2c365db92f74872261bc127d9",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:46:28.445Z"
+    },
+    "illustrations/15_AERO_SCROW.png": {
+      "sha256": "be4d74b4c3792db4437931c03f09922e274bf5192880cc90037e99a1bf939b7a",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:46:28.460Z"
+    },
+    "illustrations/16_CRYO_NERIS.png": {
+      "sha256": "2a76e7a271a6a405dfce10ac1b1d8cd89b3d8bcd203b9c6b5b9c845d76663cfc",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:46:28.471Z"
+    },
+    "illustrations/17_LUXO_ILIANE.png": {
+      "sha256": "f94ea227561f617798f6901bd3043a3c2f2e71d5603738ace29ea7cecb27b2be",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:46:28.482Z"
+    },
+    "illustrations/18_MINERO_LOK.png": {
+      "sha256": "440df970801cef0e7dae2dc3b670431e7564ffdbf0a209592a8c74d29fdea551",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:46:28.494Z"
+    },
+    "illustrations/21_NONE_LANIO.png": {
+      "sha256": "f8a38a205079384b40dfb229c28a231b314ac7527ff76233a42439227d4f29ee",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:46:28.505Z"
+    },
+    "illustrations/25_NONE_KOGNUS.png": {
+      "sha256": "9a15ead88520fb524dbaf49d707e7e961fe5c66f8cadf8fa69ef6e1494ebc21e",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:46:28.515Z"
+    },
+    "illustrations/26_NONE_REEVUS.png": {
+      "sha256": "181ac674da9c521e9b96cf5a9399d4cc924a973d8bea23d74782959d6dd71956",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:46:28.527Z"
+    },
+    "illustrations/27_NONE_XIAOMI.png": {
+      "sha256": "37e94ef5be5548c6877eda680e39c42bad256753a486b107c5e982c462867ba5",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:46:28.538Z"
+    },
+    "illustrations/29_PYRO_THANOR.png": {
+      "sha256": "e491d4339f2692f51ad867f23a7f7b8daa9456eb088fc08858092dc81b45335c",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:46:28.550Z"
+    },
+    "illustrations/30_PYRO_DARUK.png": {
+      "sha256": "f41c099ae1f9b72f6bc59031b2eb4586b5df37ca7aedaae571aa359d56bc9bb3",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:46:28.561Z"
+    },
+    "illustrations/31_PYRO_POLUX.png": {
+      "sha256": "76f30ef0a544b60beabd940197966646c740e0df6ca99ebc55dcbd640d2c2b71",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:46:28.571Z"
+    },
+    "illustrations/32_ELECTRO_JELLY_JOE.png": {
+      "sha256": "e43d338342feb2b8b12d3d43bc049bf3dff885303e5c05996517084d95c5ffa4",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:46:28.586Z"
+    },
+    "illustrations/33_HERBO_BLOOM.png": {
+      "sha256": "69bea26eae57d48cb7d840d62a440c205cf97bcb074e29a3856677df0aaf8210",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:46:28.600Z"
+    },
+    "illustrations/35_NECRO_CAPITAINE_SKULLY.png": {
+      "sha256": "1720b15ab83268cbfe21cf12a23ec727e0c15b793360ffd6a6676460c2db0c3d",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:46:28.611Z"
+    },
+    "illustrations/19_MINERO_BELROG.png": {
+      "sha256": "e3a8c1466c95027dd8a5cc5ff7ff2d92e7e262a1304c55dfc86c432b1ad2888c",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:51:09.667Z"
+    },
+    "illustrations/36_GEO_ELENION.png": {
+      "sha256": "8167ea45407398726dca7a91b44e22821c31231b88edb4c68721ff1868d18d29",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:51:09.688Z"
+    },
+    "illustrations/37_GEO_YVAR.png": {
+      "sha256": "a979e1eb8c983602f97a3d503339d4d7f472df742fd0c0d6753ba084b3206f3d",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:51:09.701Z"
+    },
+    "illustrations/38_AERO_GILMARR.png": {
+      "sha256": "8409efcaf0cc9c80c4119e4bb11ee6ee6f3c0dba7a6148733317958c82f38a51",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:51:09.715Z"
+    },
+    "illustrations/39_HYDRO_RUBY.png": {
+      "sha256": "ef1a1d16f4152e882acad987cbe1c21b28fd127811a4e9287b71a7f9cf4426f7",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:51:09.727Z"
+    },
+    "illustrations/40_AERO_SORYN.png": {
+      "sha256": "aae106608f05a77c0a537ba1bc11fd302d87868b9c751b7bec59e01495138c9d",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:52:59.921Z"
+    },
+    "illustrations/20_HEMATO_SERAPHINA.png": {
+      "sha256": "2b1375ed4ea9e7657eaa739d68f077a9cedf179f497204490bb77c063d6a1794",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:55:48.400Z"
+    },
+    "illustrations/41_HERBO_THALIE.png": {
+      "sha256": "f26ec17de3d5fc6a06619e1a279c1545e9a4e1a4435f0055e68aec20d6e5ea83",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:55:48.424Z"
+    },
+    "illustrations/23_NONE_GEN.png": {
+      "sha256": "c9b7fce3908a5a0a9b87acaf94fda826dbd79ca302f301e05fda1622baeae26f",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T12:58:41.459Z"
+    },
+    "illustrations/24_MINERO_MAGNAR.png": {
+      "sha256": "abb80c08908de9c5a966b96005358607acf59545ac9c29a3f496af561e47f729",
+      "width": 1122,
+      "height": 1402,
+      "integratedAt": "2026-09-14T13:02:05.662Z"
+    }
+  },
+  "contracts": {
+    "donnees/cartes.json": "45af148f8d1828287116a9985f4d33f41a58a64a43852980da8d231c48707fcf",
+    "donnees/elements.json": "4eccd33d94f92aa6da4f8b28b08b1157e794147fbdeea05c35c21d2675dd4846",
+    "donnees/regles.json": "31050cb513762c411651c1fc371d23f320b4df4394d108a6856f4c9069cf3129",
+    "site/engine.js": "81efb5c965666707a722aae873fdfeacf404ece955118596ef82e6e96787baa7",
+    "donnees/armes.json": "f179c9f8e8744e388aa32588e7b8c3dec1cf783428d57baeac55997fd916ff8f",
+    "donnees/regles_demo.json": "6e5a6a8fab0c09203832f257059368ff581d8fd4d18123f7b60f7914029f3aad",
+    "donnees/decks_demo.json": "44947a8e06240e1ca4851f5d0564ee7d55e4725ec5bee3c86c726365689821b8",
+    "donnees/arenes.json": "087afa1057afb1f28ac27ab2bf77fad4cdd015002fcc0a5592127687588de79b",
+    "site/data.js": "f8381040eb2b5f02eef5f10eac8ef412f6c0c62618d466c3cfc54b9cd7d508f5",
+    "site/local-db.js": "db6234bf5478f067dc548518a4f93a328f19c0e2d498de8d97a701aebec53d68",
+    "site/app.js": "d0b192fe8141a91a84a6862d68c9b067c0035dfa1c521e5150846576421c6527",
+    "site/catalogue.js": "cc27d4337c46b392b366659a080ab38fbd7cc41634e4a4f9eab16ee13ca4cf7f",
+    "site/match-report.js": "ee8a1b6191247f08e8385cb7a609ccd62e109d36ed4cde96032c012079aaf7e4",
+    "site/combat-effects.js": "be394fb0109b343c42a2f62838c1e36d2eebae2ca8370a4197731dc1eece7590",
+    "site/duel-focus.js": "95a7314563a31e04a3efa4d57d7dbe3b0c0e7cd3f5d1822ae1f97a32ad53db34",
+    "site/dice-view.js": "d69d74eb5d13885fe64eea70261796fd16fb3a2e766b61af0410138886f0eeed"
+  },
+  "protected": {
+    "01_ELECTRO_MOMO": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8",
+    "02_AERO_CANA": "1f41383c6fd37352685c965e930234e740c2470d812e490ac086a7a77ffa6d79",
+    "06_LUXO_AELIS": "dc36531ecb2504f6de940fea3be097a01ffcecfe917f1db6ab01add2fe48ed58",
+    "10_NECRO_ZVIRI": "113f014588179ca98b58930ec70c6ae6685faace13b017cbdca7ae34a29af959",
+    "13_ELECTRO_TAULIO": "2c1039f3a9ffa67aaafdc160b34f1256383f7cd5e06d7384f01fd32c795be5c7",
+    "14_ELECTRO_MOMO_CARILLON": "8f65e72bed15052c768250622267795aa33c61a26b3409e6775eae4cd8969b03",
+    "28_NECRO_VOLODEN": "73de7d13fe5525f05ca6543f2c0bce5dcc1b015bcaa731eff4467b86e36f4c3a"
+  }
+}

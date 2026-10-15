@@ -1,0 +1,8 @@
+{
+  "passed": false,
+  "scope": "Working-tree preflight only; concurrent equipment work is excluded from this release",
+  "completedCommands": 35,
+  "failedCommand": "node --test V4/site/equipment-categories.test.cjs V4/site/weapons-arsenal.test.cjs",
+  "failure": "Momo flute definition changed in concurrent work: OUTNUMBERED_GIFT differs from archived AFTER_SUPPORT assertion",
+  "action": "Preserve concurrent work; validate the isolated staged release against its own workflow before publication"
+}

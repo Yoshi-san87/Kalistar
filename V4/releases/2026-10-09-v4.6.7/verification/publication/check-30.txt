@@ -1,0 +1,316 @@
+TAP version 13
+# Subtest: 4.6 has three independent slots, with compatible bearers and unchanged base families
+ok 1 - 4.6 has three independent slots, with compatible bearers and unchanged base families
+  ---
+  duration_ms: 62.167
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64 shield: first defense only, numeric total and matrix preserved, side 0
+ok 2 - archived 4.5.64 shield: first defense only, numeric total and matrix preserved, side 0
+  ---
+  duration_ms: 21.8344
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64 shield: first defense only, numeric total and matrix preserved, side 1
+ok 3 - archived 4.5.64 shield: first defense only, numeric total and matrix preserved, side 1
+  ---
+  duration_ms: 9.0301
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: targeted support and attacking do not spend the first defense
+ok 4 - archived 4.5.64: targeted support and attacking do not spend the first defense
+  ---
+  duration_ms: 5.6034
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: shield special face dodge has no invented numeric bonus
+ok 5 - archived 4.5.64: shield special face dodge has no invented numeric bonus
+  ---
+  duration_ms: 4.4052
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: shield special face retry has no invented numeric bonus
+ok 6 - archived 4.5.64: shield special face retry has no invented numeric bonus
+  ---
+  duration_ms: 5.655
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64 Pod: successful Block, charge survives attack/reload, next defense consumes it once, side 0
+ok 7 - archived 4.5.64 Pod: successful Block, charge survives attack/reload, next defense consumes it once, side 0
+  ---
+  duration_ms: 7.959
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64 Pod: successful Block, charge survives attack/reload, next defense consumes it once, side 1
+ok 8 - archived 4.5.64 Pod: successful Block, charge survives attack/reload, next defense consumes it once, side 1
+  ---
+  duration_ms: 7.8574
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: Pod never activates from a support, death or Reraise
+ok 9 - archived 4.5.64: Pod never activates from a support, death or Reraise
+  ---
+  duration_ms: 15.8814
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: snapshot and charge roundtrip; malformed charge history rejected
+ok 10 - archived 4.5.64: snapshot and charge roundtrip; malformed charge history rejected
+  ---
+  duration_ms: 9.7492
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: complete matches preserve native faces and reload each step in both categories
+ok 11 - archived 4.5.64: complete matches preserve native faces and reload each step in both categories
+  ---
+  duration_ms: 1490.3295
+  type: 'test'
+  ...
+# Subtest: equipment media is independently hashed, transparent and natively anchored
+ok 12 - equipment media is independently hashed, transparent and natively anchored
+  ---
+  duration_ms: 113.7724
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: 31 additions keep identities, restrictions and bounded state effects
+ok 13 - archived 4.5.64: 31 additions keep identities, restrictions and bounded state effects
+  ---
+  duration_ms: 65.5751
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: white-oath-rapier: inactive, active, real formula, log and reload on either side
+ok 14 - archived 4.5.64: white-oath-rapier: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 20.1851
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: brotherhood: inactive, active, real formula, log and reload on either side
+ok 15 - archived 4.5.64: brotherhood: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 8.9752
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: virtuous-contract: inactive, active, real formula, log and reload on either side
+ok 16 - archived 4.5.64: virtuous-contract: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 8.2635
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: virtuous-treaty: inactive, active, real formula, log and reload on either side
+ok 17 - archived 4.5.64: virtuous-treaty: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 7.6922
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: socom: inactive, active, real formula, log and reload on either side
+ok 18 - archived 4.5.64: socom: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 7.169
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: lulu-mog: inactive, active, real formula, log and reload on either side
+ok 19 - archived 4.5.64: lulu-mog: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 8.275
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: leopard-lightning: inactive, active, real formula, log and reload on either side
+ok 20 - archived 4.5.64: leopard-lightning: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 6.5103
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: mythic-iron-gauntlet: inactive, active, real formula, log and reload on either side
+ok 21 - archived 4.5.64: mythic-iron-gauntlet: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 6.2229
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: post-bow: inactive, active, real formula, log and reload on either side
+ok 22 - archived 4.5.64: post-bow: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 6.9996
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: grimoire-weiss: inactive, active, real formula, log and reload on either side
+ok 23 - archived 4.5.64: grimoire-weiss: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 6.259
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: gen-mechanical-arm: inactive, active, real formula, log and reload on either side
+ok 24 - archived 4.5.64: gen-mechanical-arm: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 5.972
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: violet-reaping: inactive, active, real formula, log and reload on either side
+ok 25 - archived 4.5.64: violet-reaping: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 7.4662
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: mantis-mask: inactive, active, real formula, log and reload on either side
+ok 26 - archived 4.5.64: mantis-mask: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 6.0499
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: revolver-gunblade: inactive, active, real formula, log and reload on either side
+ok 27 - archived 4.5.64: revolver-gunblade: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 5.4966
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: wolf-steel: inactive, active, real formula, log and reload on either side
+ok 28 - archived 4.5.64: wolf-steel: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 6.4926
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: wolf-silver: inactive, active, real formula, log and reload on either side
+ok 29 - archived 4.5.64: wolf-silver: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 6.2722
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: kaine-saw: inactive, active, real formula, log and reload on either side
+ok 30 - archived 4.5.64: kaine-saw: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 6.2334
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: buster-sword: inactive, active, real formula, log and reload on either side
+ok 31 - archived 4.5.64: buster-sword: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 6.253
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: psg1: inactive, active, real formula, log and reload on either side
+ok 32 - archived 4.5.64: psg1: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 5.9228
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: single-action-army: inactive, active, real formula, log and reload on either side
+ok 33 - archived 4.5.64: single-action-army: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 5.8772
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: wardens-spear: inactive, active, real formula, log and reload on either side
+ok 34 - archived 4.5.64: wardens-spear: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 5.4823
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: soldiers-blade: inactive, active, real formula, log and reload on either side
+ok 35 - archived 4.5.64: soldiers-blade: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 6.284
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: commanders-sabre (earlier bearer snapshot): inactive, active, real formula, log and reload on either side
+ok 36 - archived 4.5.64: commanders-sabre (earlier bearer snapshot): inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 6.9198
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: arborium-twinstring-bow: inactive, active, real formula, log and reload on either side
+ok 37 - archived 4.5.64: arborium-twinstring-bow: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 6.0925
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: arborium-thorn-dagger: inactive, active, real formula, log and reload on either side
+ok 38 - archived 4.5.64: arborium-thorn-dagger: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 5.7465
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: draevenheim-wing-spear: inactive, active, real formula, log and reload on either side
+ok 39 - archived 4.5.64: draevenheim-wing-spear: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 6.6074
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: draevenheim-crimson-crossbow (earlier bearer snapshot): inactive, active, real formula, log and reload on either side
+ok 40 - archived 4.5.64: draevenheim-crimson-crossbow (earlier bearer snapshot): inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 4.8096
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: cryptown-oath-sword: inactive, active, real formula, log and reload on either side
+ok 41 - archived 4.5.64: cryptown-oath-sword: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 6.239
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: cryptown-vigil-rifle: inactive, active, real formula, log and reload on either side
+ok 42 - archived 4.5.64: cryptown-vigil-rifle: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 5.986
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: cryptown-watch-flail: inactive, active, real formula, log and reload on either side
+ok 43 - archived 4.5.64: cryptown-watch-flail: inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 6.344
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: rhinoz-ancestral-horn (earlier bearer snapshot): inactive, active, real formula, log and reload on either side
+ok 44 - archived 4.5.64: rhinoz-ancestral-horn (earlier bearer snapshot): inactive, active, real formula, log and reload on either side
+  ---
+  duration_ms: 5.6287
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: team conditions deactivate when formation or reserve recovers
+ok 45 - archived 4.5.64: team conditions deactivate when formation or reserve recovers
+  ---
+  duration_ms: 41.9727
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: Momo gift beats a smaller active DEF weapon without stacking, then expires
+ok 46 - archived 4.5.64: Momo gift beats a smaller active DEF weapon without stacking, then expires
+  ---
+  duration_ms: 3.0525
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: scythe bonus never converts Voloden printed Mort into numeric damage
+ok 47 - archived 4.5.64: scythe bonus never converts Voloden printed Mort into numeric damage
+  ---
+  duration_ms: 2.2292
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: original arsenal completes real matches and restores every exchange
+ok 48 - archived 4.5.64: original arsenal completes real matches and restores every exchange
+  ---
+  duration_ms: 13163.2583
+  type: 'test'
+  ...
+# Subtest: 4.6 compatible weapon alternatives replace atomically without altering the other slots
+ok 49 - 4.6 compatible weapon alternatives replace atomically without altering the other slots
+  ---
+  duration_ms: 1.386
+  type: 'test'
+  ...
+# Subtest: 4.6 original arsenal keeps metadata and values, with ATK-six weapons and Momo support relic
+ok 50 - 4.6 original arsenal keeps metadata and values, with ATK-six weapons and Momo support relic
+  ---
+  duration_ms: 0.9724
+  type: 'test'
+  ...
+# Subtest: all generated assets are versioned, hashed, have alpha and remain inside medallion
+ok 51 - all generated assets are versioned, hashed, have alpha and remain inside medallion
+  ---
+  duration_ms: 610.0296
+  type: 'test'
+  ...
+1..51
+# tests 51
+# suites 0
+# pass 51
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 14284.1328

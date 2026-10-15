@@ -1,0 +1,104 @@
+{
+  "id": "2026-09-29-fatman-naomi",
+  "officialCollaboration": false,
+  "arenas": [],
+  "presets": [],
+  "cards": [
+    {
+      "key": "fatman",
+      "id": "49508137",
+      "characterId": "fatman-mgs",
+      "name": "FATMAN",
+      "title": "Le compte à rebours",
+      "job": "ARTIFICIER",
+      "description": "Sur l'héliport de Big Shell, Fatman glisse entre les charges qu'il a semées. Protégé par son lourd manteau, l'ancien élève de Stillman transforme le duel en spectacle : chaque seconde doit servir sa légende.",
+      "race": "HUMAIN",
+      "weapon": "Projectile",
+      "element": "MINERO",
+      "faction": "MGS2",
+      "collaboration": "MGS2",
+      "role": 1,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        206,
+        172,
+        136,
+        100,
+        "guard",
+        30
+      ],
+      "defense": [
+        290,
+        242,
+        192,
+        144,
+        94,
+        46
+      ],
+      "magic": [
+        4,
+        3
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "Fatman_MGS2_Heliport.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "naomi",
+      "id": "49592640",
+      "characterId": "naomi-hunter-mgs",
+      "name": "NAOMI HUNTER",
+      "title": "Le secret dans les veines",
+      "job": "GENETICIENNE",
+      "description": "Au bout du Codec, Naomi veille sur Snake tandis que l'ombre de FOXDIE pèse sur sa mission. Derrière sa précision de médecin, la loyauté, la vengeance et le souvenir de son frère se disputent encore son cœur.",
+      "race": "HUMAIN",
+      "weapon": "Tome",
+      "element": "HEMATO",
+      "faction": "MGS1",
+      "collaboration": "MGS1",
+      "role": 5,
+      "positions": [
+        5
+      ],
+      "atk": [
+        164,
+        "revive",
+        102,
+        "mana",
+        "retry",
+        20
+      ],
+      "defense": [
+        190,
+        156,
+        124,
+        92,
+        60,
+        28
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "art": "Naomi_MGS1_Medical.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    }
+  ]
+}

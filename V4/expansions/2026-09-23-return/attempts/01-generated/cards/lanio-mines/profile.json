@@ -1,0 +1,59 @@
+{
+  "name": "LANIO",
+  "title": "LE VERTIGE POUR RIRE",
+  "job": "ACROBATE",
+  "description": "Suspendu au-dessus de la galerie, Lanio trouve encore le moyen de faire rire les autres. Un appui, un crochet, puis son sourire insolent disparaît dans la poussière. Même les mines de la Z13 n’ont pas réussi à le faire taire.",
+  "element": "NONE",
+  "race": "HUMAIN",
+  "weapon": "Lance",
+  "faction": "Z13",
+  "positions": [
+    3
+  ],
+  "atk": [
+    230,
+    190,
+    150,
+    110,
+    "retry",
+    30
+  ],
+  "defense": [
+    228,
+    190,
+    150,
+    "dodge",
+    70,
+    32
+  ],
+  "magic": [],
+  "barriers": [],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "47414613",
+  "characterId": "lanio",
+  "slug": "V4_47414613",
+  "output": "KALISTAR_V4_47414613",
+  "text": "Suspendu au-dessus de la galerie, Lanio trouve encore le moyen de faire rire les autres. Un appui, un crochet, puis son sourire insolent disparaît dans la poussière. Même les mines de la Z13 n’ont pas réussi à le faire taire.",
+  "color": "93AAA5",
+  "hue": 160,
+  "weapon_index": 8,
+  "role": 3,
+  "sentry": false,
+  "canGuard": false,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Kalistar V4 - expansion 2026-09-23-return",
+  "visual_revision": "V4-2026-09-23-return",
+  "edition": "variant",
+  "artwork": "lanio-mines",
+  "legacyId": "30000021",
+  "legacySource": "V3/donnees/cartes.json",
+  "replacesModel": false
+}

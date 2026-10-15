@@ -1,0 +1,256 @@
+TAP version 13
+# Subtest: three-slot defaults are snapshotted once without borrowing other characters or objects
+ok 1 - three-slot defaults are snapshotted once without borrowing other characters or objects
+  ---
+  duration_ms: 24.0099
+  type: 'test'
+  ...
+# Subtest: legacy flat loadouts migrate by actual category while retaining formation and captain
+ok 2 - legacy flat loadouts migrate by actual category while retaining formation and captain
+  ---
+  duration_ms: 1.0931
+  type: 'test'
+  ...
+# Subtest: profile migration rejects corrupt versions and extra legacy slots without changing the source
+ok 3 - profile migration rejects corrupt versions and extra legacy slots without changing the source
+  ---
+  duration_ms: 0.8547
+  type: 'test'
+  ...
+# Subtest: weapon, protection and relic coexist; clicked removal cannot erase another slot
+ok 4 - weapon, protection and relic coexist; clicked removal cannot erase another slot
+  ---
+  duration_ms: 1.3283
+  type: 'test'
+  ...
+# Subtest: transfers and replacements are scoped to the clicked category, with one wearer per item
+ok 5 - transfers and replacements are scoped to the clicked category, with one wearer per item
+  ---
+  duration_ms: 1.2616
+  type: 'test'
+  ...
+# Subtest: stale confirmations reject both target-slot changes and unrelated composition changes
+ok 6 - stale confirmations reject both target-slot changes and unrelated composition changes
+  ---
+  duration_ms: 0.7376
+  type: 'test'
+  ...
+# Subtest: stable character and Job compatibility remain enforced rather than display-name matching
+ok 7 - stable character and Job compatibility remain enforced rather than display-name matching
+  ---
+  duration_ms: 0.4684
+  type: 'test'
+  ...
+# Subtest: card edits prune every departed character slot, but reject corrupt equipment before editing
+ok 8 - card edits prune every departed character slot, but reject corrupt equipment before editing
+  ---
+  duration_ms: 1.126
+  type: 'test'
+  ...
+# Subtest: schema 1 and schema 2 flat imports migrate durably; exports remain schema 2
+ok 9 - schema 1 and schema 2 flat imports migrate durably; exports remain schema 2
+  ---
+  duration_ms: 3.2024
+  type: 'test'
+  ...
+# Subtest: schema 2 saves, duplication and returned drafts never share equipment maps
+ok 10 - schema 2 saves, duplication and returned drafts never share equipment maps
+  ---
+  duration_ms: 1.8647
+  type: 'test'
+  ...
+# Subtest: a match retains its three-slot equipment snapshot after profile and deck edits
+ok 11 - a match retains its three-slot equipment snapshot after profile and deck edits
+  ---
+  duration_ms: 15.8135
+  type: 'test'
+  ...
+# Subtest: three-slot detail uses native asymmetrical glyphs, letterboxing and one shared radar epoch
+ok 12 - three-slot detail uses native asymmetrical glyphs, letterboxing and one shared radar epoch
+  ---
+  duration_ms: 7.3824
+  type: 'test'
+  ...
+# Subtest: default inspection still omits inactive equipment and preserves legacy single-definition position
+ok 13 - default inspection still omits inactive equipment and preserves legacy single-definition position
+  ---
+  duration_ms: 0.8844
+  type: 'test'
+  ...
+# Subtest: arena inspection keeps inactive weapon and protection, enlarges only their circles and never shows their plates
+ok 14 - arena inspection keeps inactive weapon and protection, enlarges only their circles and never shows their plates
+  ---
+  duration_ms: 1.1447
+  type: 'test'
+  ...
+# Subtest: new detail cleanup cancels all three overlays and artwork is the real medallion cutout
+ok 15 - new detail cleanup cancels all three overlays and artwork is the real medallion cutout
+  ---
+  duration_ms: 18.5654
+  type: 'test'
+  ...
+# Subtest: retained D6 radar shares delay without losing its center during impact and reduced motion remains quiet
+ok 16 - retained D6 radar shares delay without losing its center during impact and reduced motion remains quiet
+  ---
+  duration_ms: 3.0169
+  type: 'test'
+  ...
+# Subtest: 4.6 definitions, legacy definitions and three independent stable-identity slots
+ok 17 - 4.6 definitions, legacy definitions and three independent stable-identity slots
+  ---
+  duration_ms: 64.9406
+  type: 'test'
+  ...
+# Subtest: 4.6 catalogue restrictions expose unavailable arms rather than grant an incompatible bonus
+ok 18 - 4.6 catalogue restrictions expose unavailable arms rather than grant an incompatible bonus
+  ---
+  duration_ms: 2.8922
+  type: 'test'
+  ...
+# Subtest: every compatible weapon applies only on retained numeric D6, with unchanged base matchup
+ok 19 - every compatible weapon applies only on retained numeric D6, with unchanged base matchup
+  ---
+  duration_ms: 882.4141
+  type: 'test'
+  ...
+# Subtest: every compatible shield applies only on retained numeric D6, with unchanged base matchup
+ok 20 - every compatible shield applies only on retained numeric D6, with unchanged base matchup
+  ---
+  duration_ms: 539.9616
+  type: 'test'
+  ...
+# Subtest: discarded Kalistel D6 has no equipment effect; retained and mandatory second D6 do
+ok 21 - discarded Kalistel D6 has no equipment effect; retained and mandatory second D6 do
+  ---
+  duration_ms: 17.0868
+  type: 'test'
+  ...
+# Subtest: magic ATK6 and barrier DEF6 coexist with their direct equipment arithmetic
+ok 22 - magic ATK6 and barrier DEF6 coexist with their direct equipment arithmetic
+  ---
+  duration_ms: 4.6491
+  type: 'test'
+  ...
+# Subtest: protection contribution remains captured when its wearer dies; ordinary non-D6 Block has none
+ok 23 - protection contribution remains captured when its wearer dies; ordinary non-D6 Block has none
+  ---
+  duration_ms: 8.932
+  type: 'test'
+  ...
+# Subtest: luck recomputes protection 6 -> 5 and restores both attempted formulas
+ok 24 - luck recomputes protection 6 -> 5 and restores both attempted formulas
+  ---
+  duration_ms: 7.6065
+  type: 'test'
+  ...
+# Subtest: luck recomputes protection 5 -> 6 and restores both attempted formulas
+ok 25 - luck recomputes protection 5 -> 6 and restores both attempted formulas
+  ---
+  duration_ms: 8.039
+  type: 'test'
+  ...
+# Subtest: DEF retry replaces an active protection with the final result without leaving a stale bonus
+ok 26 - DEF retry replaces an active protection with the final result without leaving a stale bonus
+  ---
+  duration_ms: 5.5325
+  type: 'test'
+  ...
+# Subtest: all native special D6 faces remain special, never numeric equipment or automatic Block
+ok 27 - all native special D6 faces remain special, never numeric equipment or automatic Block
+  ---
+  duration_ms: 44.0742
+  type: 'test'
+  ...
+# Subtest: relic support + protection adds only strongest relic, expires gift, keeps separate direct bonus
+ok 28 - relic support + protection adds only strongest relic, expires gift, keeps separate direct bonus
+  ---
+  duration_ms: 5.4559
+  type: 'test'
+  ...
+# Subtest: forged direct contribution, die, source, relic contribution and failed-attempt totals are rejected
+ok 29 - forged direct contribution, die, source, relic contribution and failed-attempt totals are rejected
+  ---
+  duration_ms: 11.2747
+  type: 'test'
+  ...
+# Subtest: modern snapshot freezes all three slots; legacy match snapshot and old axe trigger stay unchanged
+ok 30 - modern snapshot freezes all three slots; legacy match snapshot and old axe trigger stay unchanged
+  ---
+  duration_ms: 9.4035
+  type: 'test'
+  ...
+# Subtest: initiative and ABBA timeline are identical before any equipment use
+ok 31 - initiative and ABBA timeline are identical before any equipment use
+  ---
+  duration_ms: 2.708
+  type: 'test'
+  ...
+# Subtest: every one-shot relic trigger still grants, survives reload and attacking, consumes once on defense
+ok 32 - every one-shot relic trigger still grants, survives reload and attacking, consumes once on defense
+  ---
+  duration_ms: 712.3662
+  type: 'test'
+  ...
+# Subtest: complete three-slot ABBA matches preserve numeric effects and state through repeated restores
+ok 33 - complete three-slot ABBA matches preserve numeric effects and state through repeated restores
+  ---
+  duration_ms: 1885.2024
+  type: 'test'
+  ...
+# Subtest: public AI values a D6 weapon at one sixth of its bonus, not as a permanent +30
+ok 34 - public AI values a D6 weapon at one sixth of its bonus, not as a permanent +30
+  ---
+  duration_ms: 14.9747
+  type: 'test'
+  ...
+# Subtest: several actual relic grants choose strongest once, add direct protection, then consume every charge
+ok 35 - several actual relic grants choose strongest once, add direct protection, then consume every charge
+  ---
+  duration_ms: 28.2053
+  type: 'test'
+  ...
+# Subtest: Death versus numeric DEF6 does not activate a protection or generate a numeric formula
+ok 36 - Death versus numeric DEF6 does not activate a protection or generate a numeric formula
+  ---
+  duration_ms: 8.322
+  type: 'test'
+  ...
+# Subtest: replacing a weapon preserves protection/relic and does not mutate the original profile
+ok 37 - replacing a weapon preserves protection/relic and does not mutate the original profile
+  ---
+  duration_ms: 1.0622
+  type: 'test'
+  ...
+# Subtest: same-valued DEF faces cannot forge a D6 protection when the recorded die was D5
+ok 38 - same-valued DEF faces cannot forge a D6 protection when the recorded die was D5
+  ---
+  duration_ms: 11.7639
+  type: 'test'
+  ...
+# Subtest: failed luck attempt cannot borrow the D6 of its later successful reroll
+ok 39 - failed luck attempt cannot borrow the D6 of its later successful reroll
+  ---
+  duration_ms: 17.487
+  type: 'test'
+  ...
+# Subtest: legacy unsuitable special shield requests a new DEF die, never zero or a D6 protection bonus
+ok 40 - legacy unsuitable special shield requests a new DEF die, never zero or a D6 protection bonus
+  ---
+  duration_ms: 31.7536
+  type: 'test'
+  ...
+# Subtest: failed numeric defense saved by Reraise still reports a used protection, not a Block
+ok 41 - failed numeric defense saved by Reraise still reports a used protection, not a Block
+  ---
+  duration_ms: 14.1068
+  type: 'test'
+  ...
+1..41
+# tests 41
+# suites 0
+# pass 41
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4543.28

@@ -1,0 +1,677 @@
+{
+  "schema_version": 1,
+  "roster": "a",
+  "date": "2026-09-14",
+  "status": "complete",
+  "tool": "integrated image_gen.imagegen",
+  "model": "inherited; no override",
+  "art_direction": "V3/sources/DIRECTION_ARTISTIQUE_KALISTAR.md",
+  "scope_ids": [
+    "30000003",
+    "30000004",
+    "30000005",
+    "30000007",
+    "30000008",
+    "30000009",
+    "30000011",
+    "30000015",
+    "30000016",
+    "30000017",
+    "30000018",
+    "30000019",
+    "30000020",
+    "30000023",
+    "30000024"
+  ],
+  "destination": "V3/assets/revisions-20260914/illustrations",
+  "canonical_assets_write_policy": "never overwrite; no changes to code, profiles, rules, BDD or Photoshop",
+  "reference_order": [
+    "edit target",
+    "01_ELECTRO_MOMO",
+    "34_NECRO_VALAZAR",
+    "28_NECRO_VOLODEN"
+  ],
+  "references": [
+    "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+    "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+    "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+  ],
+  "references_inspected_with": "view_image",
+  "shared_prompt": "Use case: style-transfer, identity-preserving edit. Edit ONLY input image 1 into a finished Kalistar narrative fantasy painting. Images 2, 3, 4 are style references ONLY, in this exact order: Momo 01 (primary brushwork reference), Valazar 34 (material wear and narrative gravity), Voloden 28 (credible anatomy and controlled detail). Do NOT copy their characters, props, architecture or blue nighttime palette. Preserve image 1's identity, face, expression, age, pose, silhouette, scene, weapon and all existing accessories, anatomy, composition, viewpoint, framing, original local palette and motivated lighting. Change the pictorial language throughout character AND environment: visible intentional gouache/oil brushstrokes, interlocking painted color planes on faces and materials, sculpted light with broken opaque strokes, colored shadows, varied lost-and-found edges, worn tactile surfaces. High-quality hand-painted storytelling with readable focal detail; not a grain filter laid over the old rendering. No photorealism, photographic pores, plastic 3D, CGI, anime, manga, airbrushed skin, uniform texture overlay or artificial depth-of-field blur. Exactly two arms and two legs, one head, readable joints and hands; preserve existing occlusions and crop, do not add limbs to make hidden limbs visible. Retain any dorsal wings as wings, not extra arms. Full-bleed portrait 4:5, target 1024 x 1280 pixels. No frame, border, text, lettering, watermark, logo or card UI. Produce exactly ONE edited image.",
+  "assets": [
+    {
+      "id": "30000003",
+      "slug": "03_HYDRO_JULIENNE",
+      "art": "V3/assets/illustrations/03_HYDRO_JULIENNE.png",
+      "scene": "Julienne maintient une arche d eau sous les portes noyees de Thalassea ; scene originale conservee, illustration redessinee.",
+      "source_sha256": "AFC93EA76D67688C3F7FAEE8E7A820569699EEB51A4517BD824BC99F346AC3CB",
+      "output": "V3/assets/revisions-20260914/illustrations/03_HYDRO_JULIENNE.png",
+      "referenced_image_paths": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/03_HYDRO_JULIENNE.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "status": "ready",
+      "source_inspected": true,
+      "generation_calls": 1,
+      "prompt": "Use case: style-transfer, identity-preserving edit. Edit ONLY input image 1 into a finished Kalistar narrative fantasy painting. Images 2, 3, 4 are style references ONLY, in this exact order: Momo 01 (primary brushwork reference), Valazar 34 (material wear and narrative gravity), Voloden 28 (credible anatomy and controlled detail). Do NOT copy their characters, props, architecture or blue nighttime palette. Preserve image 1's identity, face, expression, age, pose, silhouette, scene, weapon and all existing accessories, anatomy, composition, viewpoint, framing, original local palette and motivated lighting. Change the pictorial language throughout character AND environment: visible intentional gouache/oil brushstrokes, interlocking painted color planes on faces and materials, sculpted light with broken opaque strokes, colored shadows, varied lost-and-found edges, worn tactile surfaces. High-quality hand-painted storytelling with readable focal detail; not a grain filter laid over the old rendering. No photorealism, photographic pores, plastic 3D, CGI, anime, manga, airbrushed skin, uniform texture overlay or artificial depth-of-field blur. Exactly two arms and two legs, one head, readable joints and hands; preserve existing occlusions and crop, do not add limbs to make hidden limbs visible. Retain any dorsal wings as wings, not extra arms. Full-bleed portrait 4:5, target 1024 x 1280 pixels. No frame, border, text, lettering, watermark, logo or card UI. Produce exactly ONE edited image.\nSpecific target lock: Julienne is the same adult aquatic guardian with teal hair, sea-green scaled clothing, coral-red sash and jewelry. Keep the full-body stance in the flooded pale-stone city, staff held upright at image left, other hand reaching up beneath the arch of turquoise water, small evacuees climbing the steps behind. Preserve the sunlit pale gold masonry and turquoise/coral palette, the tension and facial likeness, both planted bare feet, water arch and staff silhouette. Render face and exposed arms as deliberate painted warm/cool planes, not smooth photographic skin; water with confident opaque strokes, not a water simulation. No additional people or props.",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09fde-5121-7573-92ed-9cda4a427bf1\\exec-7519ac22-0197-4bce-87d4-f8fe56e954b3.png",
+      "qa": {
+        "inspected_with": "view_image (source and saved result)",
+        "style": "Touches opaques visibles dans eau, pierre, tissus et peau; plans colores; pas de grain-filtre.",
+        "identity_pose_scene": "Visage, cheveux teal, tenue ecaillee, echarpe rouge, baton vertical, main levee, deux pieds et rescapes conserves.",
+        "palette": "Turquoise et pierre doree au soleil conserves; aucune conversion en nuit bleue.",
+        "anatomy": "Deux bras, deux jambes, mains et pieds coherents.",
+        "framing": "Cadrage portrait original conserve, environ 4:5; sans cadre ni texte ajoute.",
+        "verdict": "accepted"
+      },
+      "technical_qa": {
+        "format": "PNG",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 3396473,
+        "sha256": "E3A5880BB9FBA4428059FBD8CC014F563C886898769650DBD7D5158D65D657AE",
+        "original_source_changed_by_this_worker": false
+      },
+      "parent_review": {
+        "status": "approved_and_integrated",
+        "evidence": "Confirmation du parent dans cette conversation; egalite SHA256 canonique/revision verifiee.",
+        "revision_unchanged_after_approval": true
+      }
+    },
+    {
+      "id": "30000004",
+      "slug": "04_PYRO_DARNAKO",
+      "art": "V3/assets/illustrations/04_PYRO_DARNAKO.png",
+      "scene": "Darnako retient une poutre dans sa forge pour permettre une evacuation.",
+      "source_sha256": "DEE6B258B3998933422D71224B7EBB7379DBCA23600FC8D4134D4F3E6140450B",
+      "output": "V3/assets/revisions-20260914/illustrations/04_PYRO_DARNAKO.png",
+      "referenced_image_paths": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/04_PYRO_DARNAKO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "status": "ready",
+      "source_inspected": true,
+      "generation_calls": 1,
+      "prompt": "Use case: style-transfer, identity-preserving edit. Edit ONLY input image 1 into a finished Kalistar narrative fantasy painting. Images 2, 3, 4 are style references ONLY, in this exact order: Momo 01 (primary brushwork reference), Valazar 34 (material wear and narrative gravity), Voloden 28 (credible anatomy and controlled detail). Do NOT copy their characters, props, architecture or blue nighttime palette. Preserve image 1's identity, face, expression, age, pose, silhouette, scene, weapon and all existing accessories, anatomy, composition, viewpoint, framing, original local palette and motivated lighting. Change the pictorial language throughout character AND environment: visible intentional gouache/oil brushstrokes, interlocking painted color planes on faces and materials, sculpted light with broken opaque strokes, colored shadows, varied lost-and-found edges, worn tactile surfaces. High-quality hand-painted storytelling with readable focal detail; not a grain filter laid over the old rendering. No photorealism, photographic pores, plastic 3D, CGI, anime, manga, airbrushed skin, uniform texture overlay or artificial depth-of-field blur. Exactly two arms and two legs, one head, readable joints and hands; preserve existing occlusions and crop, do not add limbs to make hidden limbs visible. Retain any dorsal wings as wings, not extra arms. Full-bleed portrait 4:5, target 1024 x 1280 pixels. No frame, border, text, lettering, watermark, logo or card UI. Produce exactly ONE edited image.\nSpecific target lock: Darnako is the same massive red-scaled horned dragon-headed humanoid kneeling/bracing in the burning foundry, sword raised at image left beneath the diagonal collapsing beam, other arm sheltering the same small human child at image right. Preserve dragon face, horns, adult body proportions, patched off-white apron, heavy worn armor, child position and frightened expression, diagonal timber, furnace shapes and embers. Each character has exactly two arms and two legs, with source occlusions preserved. IMPORTANT: repaint the child's face into believable natural human proportions and small natural eyes, preserving likeness and expression; remove anime rendering without changing identity. Keep fiery orange-red forge illumination with neutral smoky gray depth, no blue night. Replace plastic sharp scale/armor sheen and photographic blur with deliberate gouache/oil masses, colored shadow planes, scumbled smoke and painted fire. Same close crop and perspective.",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09fde-5121-7573-92ed-9cda4a427bf1\\exec-3ee7a1b6-a0c7-451d-8d23-d28a4744ec3b.png",
+      "qa": {
+        "inspected_with": "view_image (source and saved result)",
+        "style": "Peinture renforcee sur forge, poutre, tablier et armure; visage de l'enfant moins anime.",
+        "identity_pose_scene": "Drax rouge cornu, epee levee, poutre diagonale et enfant abrite preserves; cadrage serre identique.",
+        "palette": "Rouges et oranges de fonderie, fumee grise conserves.",
+        "anatomy": "Deux bras et deux jambes du Drax; enfant sans membre ajoute, occlusions originales.",
+        "framing": "Portrait environ 4:5, sans cadre ni texte.",
+        "verdict": "accepted"
+      },
+      "technical_qa": {
+        "format": "PNG",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 2951718,
+        "sha256": "424A366D96EDFAFEC08D82BF634403C57855FF271840613CBD2E668CFABD7EE7",
+        "original_source_changed_by_this_worker": false
+      },
+      "parent_review": {
+        "status": "approved_and_integrated",
+        "evidence": "Confirmation du parent dans cette conversation; egalite SHA256 canonique/revision verifiee.",
+        "revision_unchanged_after_approval": true
+      }
+    },
+    {
+      "id": "30000005",
+      "slug": "05_CRYO_MALINIA",
+      "art": "V3/assets/illustrations/05_CRYO_MALINIA.png",
+      "scene": "Malinia retrouve une memoire emprisonnee dans la glace de Niveria.",
+      "source_sha256": "85C6747EE0D416E132ABC205F51F01F622DCA30205FACB40D586EA1F4F13562E",
+      "output": "V3/assets/revisions-20260914/illustrations/05_CRYO_MALINIA.png",
+      "referenced_image_paths": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/05_CRYO_MALINIA.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "status": "ready",
+      "source_inspected": true,
+      "generation_calls": 1,
+      "prompt": "Use case: style-transfer, identity-preserving edit. Edit ONLY input image 1 into a finished Kalistar narrative fantasy painting. Images 2, 3, 4 are style references ONLY, in this exact order: Momo 01 (primary brushwork reference), Valazar 34 (material wear and narrative gravity), Voloden 28 (credible anatomy and controlled detail). Do NOT copy their characters, props, architecture or blue nighttime palette. Preserve image 1's identity, face, expression, age, pose, silhouette, scene, weapon and all existing accessories, anatomy, composition, viewpoint, framing, original local palette and motivated lighting. Change the pictorial language throughout character AND environment: visible intentional gouache/oil brushstrokes, interlocking painted color planes on faces and materials, sculpted light with broken opaque strokes, colored shadows, varied lost-and-found edges, worn tactile surfaces. High-quality hand-painted storytelling with readable focal detail; not a grain filter laid over the old rendering. No photorealism, photographic pores, plastic 3D, CGI, anime, manga, airbrushed skin, uniform texture overlay or artificial depth-of-field blur. Exactly two arms and two legs, one head, readable joints and hands; preserve existing occlusions and crop, do not add limbs to make hidden limbs visible. Retain any dorsal wings as wings, not extra arms. Full-bleed portrait 4:5, target 1024 x 1280 pixels. No frame, border, text, lettering, watermark, logo or card UI. Produce exactly ONE edited image.\nSpecific target lock: Malinia remains the same silver-haired young adult woman bent low over the frozen lake, eyes closed, weary tender expression, one black-gloved hand holding a warm amber memory crystal to her cheek (tiny paired memory figures inside), the other hand spread on the cracked ice in the foreground. Preserve the exact close framing, face identity, hair shape, gray-blue frost-covered cloak with its small sun emblem, straps and gloves, distant snowy mountains, pale warm sunset reflected on the lake, and the icy blue-tipped sceptre lying at image right. Preserve the submerged remembered face/reflection beneath the foreground ice. Her lower body stays naturally outside/hidden by this crop; no added limbs. The crucial edit is convincing painted planes on face, hair, hands and ice, no anime lashes, doll face, soft airbrushed skin or photo hair strands. Keep youth and likeness while painting the face with natural adult anatomy. Cool silver/lavender-blue snow balanced by localized amber crystal and sunset, not blue night.",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09fde-5121-7573-92ed-9cda4a427bf1\\exec-86b72f22-06c7-4dc3-a032-0d3ef68e77ea.png",
+      "qa": {
+        "inspected_with": "view_image (source and saved result)",
+        "style": "Touches franches sur lac, neige, manteau; ombres colorees et lumiere peinte. Visage conserve doux et fin.",
+        "identity_pose_scene": "Cheveux argent, yeux clos, cristal-souvenir pres de la joue, seconde main a plat, reflet sous glace et sceptre conserves.",
+        "palette": "Glace bleu-lavande et or du souvenir/coucher de soleil preserves.",
+        "anatomy": "Deux bras lisibles; jambes hors champ comme la source; aucun membre ajoute.",
+        "framing": "Cadrage serre portrait environ 4:5, sans cadre ni texte.",
+        "verdict": "accepted"
+      },
+      "technical_qa": {
+        "format": "PNG",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 3384661,
+        "sha256": "61E94B985D223CEA9DB8436EAE5B8776961FCE1C354FBE9DF141AA486EBB395E",
+        "original_source_changed_by_this_worker": false
+      },
+      "parent_review": {
+        "status": "approved_and_integrated",
+        "evidence": "Confirmation du parent dans cette conversation; egalite SHA256 canonique/revision verifiee.",
+        "revision_unchanged_after_approval": true
+      }
+    },
+    {
+      "id": "30000007",
+      "slug": "07_MINERO_BALMHYR",
+      "art": "V3/assets/illustrations/07_MINERO_BALMHYR.png",
+      "scene": "Balmhyr enseigne la maitrise de la roche derriere sa maison de Canyonero, chapitre 8.",
+      "source_sha256": "FA600E59AC80490EC17B91C1BB6BCE6477A219049A8DEDDA9C7F1746F8EA6A61",
+      "output": "V3/assets/revisions-20260914/illustrations/07_MINERO_BALMHYR.png",
+      "referenced_image_paths": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/07_MINERO_BALMHYR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "status": "ready",
+      "source_inspected": true,
+      "generation_calls": 1,
+      "prompt": "Use case: style-transfer, identity-preserving edit. Edit ONLY input image 1 into a finished Kalistar narrative fantasy painting. Images 2, 3, 4 are style references ONLY, in this exact order: Momo 01 (primary brushwork reference), Valazar 34 (material wear and narrative gravity), Voloden 28 (credible anatomy and controlled detail). Do NOT copy their characters, props, architecture or blue nighttime palette. Preserve image 1's identity, face, expression, age, pose, silhouette, scene, weapon and all existing accessories, anatomy, composition, viewpoint, framing, original local palette and motivated lighting. Change the pictorial language throughout character AND environment: visible intentional gouache/oil brushstrokes, interlocking painted color planes on faces and materials, sculpted light with broken opaque strokes, colored shadows, varied lost-and-found edges, worn tactile surfaces. High-quality hand-painted storytelling with readable focal detail; not a grain filter laid over the old rendering. No photorealism, photographic pores, plastic 3D, CGI, anime, manga, airbrushed skin, uniform texture overlay or artificial depth-of-field blur. Exactly two arms and two legs, one head, readable joints and hands; preserve existing occlusions and crop, do not add limbs to make hidden limbs visible. Retain any dorsal wings as wings, not extra arms. Full-bleed portrait 4:5, target 1024 x 1280 pixels. No frame, border, text, lettering, watermark, logo or card UI. Produce exactly ONE edited image.\nSpecific target lock: Balmhyr remains the same sturdy elderly dwarf at image left with long silver-white braids and braided beard, leather work clothes, orange-brown scarf, engraved axe hanging at his left side. One hand is extended palm up beneath the levitating stone slab; his other hand rests on the shoulder of the same youthful adult brown-haired female apprentice balancing on the slab, one boot forward, arms spread as in the source. Keep their warm mutual smile, hair and facial identity, every hand in its same position, the turquoise mineral cracks ONLY in the stone, the second rock at image right, house and hanging smith banner at image left, giant bridges and canyon behind. Two arms/two legs PER person. Preserve sunny golden afternoon and green moss against pale gray canyon; no night. Repaint both faces with realistic painted human planes, no doll face or anime eyes, while preserving recognizable features and age. Make cloth, beard, skin, timber, rocks and architecture equally painterly; no camera blur. Keep exact framing.",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09fde-5121-7573-92ed-9cda4a427bf1\\exec-d6af9cad-b9b3-485b-b417-b09caa864ae9.png",
+      "qa": {
+        "inspected_with": "view_image (source and saved result)",
+        "style": "Touches gouache/huile visibles dans canyon, ciel, roche et vetements; volumes du visage du nain conserves.",
+        "identity_pose_scene": "Balmhyr, barbe tressee, hache, apprentie en equilibre, main sur epaule et dalle en levitation preserves.",
+        "palette": "Soleil dore, pierre claire, mousse verte et fissures turquoise localisees.",
+        "anatomy": "Deux bras et deux jambes par personnage, occlusions de la source respectees.",
+        "framing": "Portrait environ 4:5, positions et cadrage conserves, pas de cadre ni texte.",
+        "verdict": "accepted"
+      },
+      "technical_qa": {
+        "format": "PNG",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 2976490,
+        "sha256": "9C56975CE994C7778DEABB2315F67016B2DD1A174745A0E90BFD577CBFDC526E",
+        "original_source_changed_by_this_worker": false
+      },
+      "parent_review": {
+        "status": "approved_and_integrated",
+        "evidence": "Confirmation du parent dans cette conversation; egalite SHA256 canonique/revision verifiee.",
+        "revision_unchanged_after_approval": true
+      }
+    },
+    {
+      "id": "30000008",
+      "slug": "08_HERBO_VICTORVINE",
+      "art": "V3/assets/illustrations/08_HERBO_VICTORVINE.png",
+      "scene": "Victorvine recueille une pousse aux abords d une usine abandonnee.",
+      "source_sha256": "CEE8B3FC171B2AB18D2B3AE8B15FC80ABDB441C096A17B7B9150D4E73A70D32E",
+      "output": "V3/assets/revisions-20260914/illustrations/08_HERBO_VICTORVINE.png",
+      "referenced_image_paths": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/08_HERBO_VICTORVINE.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "status": "ready",
+      "source_inspected": true,
+      "generation_calls": 1,
+      "prompt": "Use case: style-transfer, identity-preserving edit. Edit ONLY input image 1 into a finished Kalistar narrative fantasy painting. Images 2, 3, 4 are style references ONLY, in this exact order: Momo 01 (primary brushwork reference), Valazar 34 (material wear and narrative gravity), Voloden 28 (credible anatomy and controlled detail). Do NOT copy their characters, props, architecture or blue nighttime palette. Preserve image 1's identity, face, expression, age, pose, silhouette, scene, weapon and all existing accessories, anatomy, composition, viewpoint, framing, original local palette and motivated lighting. Change the pictorial language throughout character AND environment: visible intentional gouache/oil brushstrokes, interlocking painted color planes on faces and materials, sculpted light with broken opaque strokes, colored shadows, varied lost-and-found edges, worn tactile surfaces. High-quality hand-painted storytelling with readable focal detail; not a grain filter laid over the old rendering. No photorealism, photographic pores, plastic 3D, CGI, anime, manga, airbrushed skin, uniform texture overlay or artificial depth-of-field blur. Exactly two arms and two legs, one head, readable joints and hands; preserve existing occlusions and crop, do not add limbs to make hidden limbs visible. Retain any dorsal wings as wings, not extra arms. Full-bleed portrait 4:5, target 1024 x 1280 pixels. No frame, border, text, lettering, watermark, logo or card UI. Produce exactly ONE edited image.\nSpecific target lock: Victorvine is the same humanoid plant guardian with expressive carved wooden face and green eyes, ivy and pink blossoms in its head foliage, worn pale cloth, brass chains and buckles, long vine-covered wooden staff at far image left. Crouched at polluted shallow water, both attached wooden hands gently cup the dark earth around exactly the same tiny green seedling in the center foreground. Keep bowed head, tender concentrated gaze, same face shape, hands, shoulders, crop, industrial ruins and smoking chimneys behind, low warm sun at image right, scrap iron and water reflections. Exactly two arms and two legs with lower limbs hidden as in the close crop; vines and roots are surface details not additional limbs. Preserve olive and fresh green leaves, pink blossoms, pale cloth, gray smoke and golden evening reflections. Make the wood and leaves broad considered gouache/oil planes with sharp focus only at face, hands and sprout; architecture and water should be painted masses, not photo-sharp CGI or blurred bokeh. No palette shift to blue night, no new magic halo.",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09fde-5121-7573-92ed-9cda4a427bf1\\exec-a8116d5b-0951-49d0-8f86-41d75213d921.png",
+      "qa": {
+        "inspected_with": "view_image (source and saved result)",
+        "style": "Plans de peinture dans l'ecorce, feuilles, tissu, eau et usines; flou photographique remplace par profondeur peinte.",
+        "identity_pose_scene": "Meme visage vegetal, fleurs roses, baton lateral et deux mains autour de la pousse, usine en ruine conservee.",
+        "palette": "Verts differencies, gris industriels et reflets dores de fin de journee.",
+        "anatomy": "Deux bras et deux mains distinctes; jambes masquees par la pose; racines non transformees en membres.",
+        "framing": "Cadrage et axe conserves, portrait environ 4:5, sans cadre ni texte.",
+        "verdict": "accepted"
+      },
+      "technical_qa": {
+        "format": "PNG",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 3032768,
+        "sha256": "EF67CE6B64F7D5E1C2B056A0225A4E28C69FD4D1180AD8AF20DE01485B2EA556",
+        "original_source_changed_by_this_worker": false
+      },
+      "parent_review": {
+        "status": "approved_and_integrated",
+        "evidence": "Confirmation du parent dans cette conversation; egalite SHA256 canonique/revision verifiee.",
+        "revision_unchanged_after_approval": true
+      }
+    },
+    {
+      "id": "30000009",
+      "slug": "09_HEMATO_VERMINIA",
+      "art": "V3/assets/illustrations/09_HEMATO_VERMINIA.png",
+      "scene": "Verminia ferme la grille apres le passage des serviteurs fugitifs.",
+      "source_sha256": "CFB04057A3CC7B5CC4F650D0E0E84FB1E7CA23CAFDDE67A8EF6A50EF962A50C9",
+      "output": "V3/assets/revisions-20260914/illustrations/09_HEMATO_VERMINIA.png",
+      "referenced_image_paths": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/09_HEMATO_VERMINIA.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "status": "ready",
+      "source_inspected": true,
+      "generation_calls": 1,
+      "prompt": "Use case: style-transfer, identity-preserving edit. Edit ONLY input image 1 into a finished Kalistar narrative fantasy painting. Images 2, 3, 4 are style references ONLY, in this exact order: Momo 01 (primary brushwork reference), Valazar 34 (material wear and narrative gravity), Voloden 28 (credible anatomy and controlled detail). Do NOT copy their characters, props, architecture or blue nighttime palette. Preserve image 1's identity, face, expression, age, pose, silhouette, scene, weapon and all existing accessories, anatomy, composition, viewpoint, framing, original local palette and motivated lighting. Change the pictorial language throughout character AND environment: visible intentional gouache/oil brushstrokes, interlocking painted color planes on faces and materials, sculpted light with broken opaque strokes, colored shadows, varied lost-and-found edges, worn tactile surfaces. High-quality hand-painted storytelling with readable focal detail; not a grain filter laid over the old rendering. No photorealism, photographic pores, plastic 3D, CGI, anime, manga, airbrushed skin, uniform texture overlay or artificial depth-of-field blur. Exactly two arms and two legs, one head, readable joints and hands; preserve existing occlusions and crop, do not add limbs to make hidden limbs visible. Retain any dorsal wings as wings, not extra arms. Full-bleed portrait 4:5, target 1024 x 1280 pixels. No frame, border, text, lettering, watermark, logo or card UI. Produce exactly ONE edited image.\nSpecific target lock: Verminia remains the same pale adult vampire woman with dark burgundy tied-back hair, small gold hair ornament and red earrings. She is crouched/seated against the wrought-iron gate at image right, face turned anxiously toward image left, one hand clutching the torn embroidered red cloth at her chest, other raised hand sealing the lock with thin red blood-magic threads. Keep the black brocade dress, dark red cloak, sheathed ornamental dagger at her side, ornate key on the bottom step, scattered red petals, rose vines, stone statue, red lantern above and distant rain-wet gothic street. Preserve exact pose, two arms, two legs beneath the gown with same occlusion, hand positions, delicate facial likeness and mature natural proportions. This scene is already nighttime: retain cool gray moonlit stone and LOCAL red lantern/lock illumination, do not tint everything saturated blue. Build face and hands from visible warm/cool oil-gouache planes, retain anxiety without anime eyes; use broad broken strokes on stone, worn fabric and wet reflections, varied lost edges in shadow. No airbrush skin, plastic cloth, camera blur or uniformly applied grain.",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09fde-5121-7573-92ed-9cda4a427bf1\\exec-0f688938-8e79-4e93-8d92-de1906ac4c32.png",
+      "qa": {
+        "inspected_with": "view_image (source and saved result)",
+        "style": "Visage et mains en plans peints; pierre et reflets en touches, tissus rouges uses preserves.",
+        "identity_pose_scene": "Meme regard retourne, main au verrou rouge, tissu serre sur poitrine, dague au cote et cle sur marche.",
+        "palette": "Nuit grise et rouge local de la lanterne/du verrou; pas de dominante bleue ajoutee.",
+        "anatomy": "Deux bras distincts; jambes sous la robe comme la source; doigts lisibles sans membre supplementaire.",
+        "framing": "Cadrage portrait environ 4:5, sans cadre ni texte ajoute.",
+        "verdict": "accepted"
+      },
+      "technical_qa": {
+        "format": "PNG",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 2883631,
+        "sha256": "9910F7B02915B52EE19825786B7170319AFD0439188B603FE9ACC57B03D3DCA0",
+        "original_source_changed_by_this_worker": false
+      },
+      "parent_review": {
+        "status": "approved_and_integrated",
+        "evidence": "Confirmation du parent dans cette conversation; egalite SHA256 canonique/revision verifiee.",
+        "revision_unchanged_after_approval": true
+      }
+    },
+    {
+      "id": "30000011",
+      "slug": "11_GEO_NAZAR",
+      "art": "V3/assets/illustrations/11_GEO_NAZAR.png",
+      "scene": "Nazar stabilise une berge emportee par la pluie a Zarok.",
+      "source_sha256": "2A4155FDECCA1E5CCB91A166668E5ABB84F0532175FB2679443D3ADC901BB113",
+      "output": "V3/assets/revisions-20260914/illustrations/11_GEO_NAZAR.png",
+      "referenced_image_paths": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/11_GEO_NAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "status": "ready",
+      "source_inspected": true,
+      "generation_calls": 1,
+      "prompt": "Use case: style-transfer, identity-preserving edit. Edit ONLY input image 1 into a finished Kalistar narrative fantasy painting. Images 2, 3, 4 are style references ONLY, in this exact order: Momo 01 (primary brushwork reference), Valazar 34 (material wear and narrative gravity), Voloden 28 (credible anatomy and controlled detail). Do NOT copy their characters, props, architecture or blue nighttime palette. Preserve image 1's identity, face, expression, age, pose, silhouette, scene, weapon and all existing accessories, anatomy, composition, viewpoint, framing, original local palette and motivated lighting. Change the pictorial language throughout character AND environment: visible intentional gouache/oil brushstrokes, interlocking painted color planes on faces and materials, sculpted light with broken opaque strokes, colored shadows, varied lost-and-found edges, worn tactile surfaces. High-quality hand-painted storytelling with readable focal detail; not a grain filter laid over the old rendering. No photorealism, photographic pores, plastic 3D, CGI, anime, manga, airbrushed skin, uniform texture overlay or artificial depth-of-field blur. Exactly two arms and two legs, one head, readable joints and hands; preserve existing occlusions and crop, do not add limbs to make hidden limbs visible. Retain any dorsal wings as wings, not extra arms. Full-bleed portrait 4:5, target 1024 x 1280 pixels. No frame, border, text, lettering, watermark, logo or card UI. Produce exactly ONE edited image.\nSpecific target lock: Nazar remains the same adult Rhinoz with a rhinoceros head, expressive brown eye, prominent horns and sturdy humanoid armored torso. Preserve the steep diagonal close composition: he braces the collapsing muddy bank with both armored hands at image left/center, body and legs descending to image right, wooden cart and large wheel looming directly above him, spear leaning at far image left, small bridge and rain-wet mountains/village at far right. Keep exactly two attached arms with hands against the bank and two humanoid legs, the same partial occlusion and crop. No quadruped body. Retain heavy rain, mud, rusty cloth, brown-gray worn armor, wet greens and cool storm-gray daylight with pale warm opening in the clouds, not blue night. Remove photographic hide pores and wet CGI speculars; build his wrinkled face, armor, mud and cart from rich colored gouache/oil planes and selective bristle marks, retaining recognizable head anatomy and effort in the eye. Painted streaks of rain and broken highlights in the muddy water, no uniform grain or lens blur.",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09fde-5121-7573-92ed-9cda4a427bf1\\exec-cd98d41e-8ceb-4f15-b94d-df0ae183e0f1.png",
+      "qa": {
+        "inspected_with": "view_image (source and saved result)",
+        "style": "Terre, bois, pluie et armure traites en touches opaques; profondeur atmospherique peinte.",
+        "identity_pose_scene": "Tete Rhinoz, cornes, deux mains sur berge, chariot au-dessus, lance a gauche et pont eloigne preserves.",
+        "palette": "Terre humide, gris d'orage, verts et eclaircie pale; pas de nuit bleue.",
+        "anatomy": "Silhouette humanoide; deux bras sans duplication, bas du corps partiellement masque comme source.",
+        "framing": "Grande diagonale et cadrage rapproches conserves; portrait environ 4:5, sans texte ni cadre.",
+        "verdict": "accepted"
+      },
+      "technical_qa": {
+        "format": "PNG",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 3155666,
+        "sha256": "A93F0B23190725386ACE6C5F7039521C26763DC2C365DB92F74872261BC127D9",
+        "original_source_changed_by_this_worker": false
+      },
+      "parent_review": {
+        "status": "approved_and_integrated",
+        "evidence": "Confirmation du parent dans cette conversation; egalite SHA256 canonique/revision verifiee.",
+        "revision_unchanged_after_approval": true
+      }
+    },
+    {
+      "id": "30000015",
+      "slug": "15_AERO_SCROW",
+      "art": "V3/assets/illustrations/15_AERO_SCROW.png",
+      "scene": "Scene inventee : Scrow attend sur une tour de Nestown et decide de ne pas tirer sur un messager.",
+      "source_sha256": "1AB6934BAD138D1EEB6AADE76BFEC9586A6D88DBF6F2541137181C0A75BE75E1",
+      "output": "V3/assets/revisions-20260914/illustrations/15_AERO_SCROW.png",
+      "referenced_image_paths": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/15_AERO_SCROW.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "status": "ready",
+      "source_inspected": true,
+      "generation_calls": 1,
+      "prompt": "Use case: style-transfer, identity-preserving edit. Edit ONLY input image 1 into a finished Kalistar narrative fantasy painting. Images 2, 3, 4 are style references ONLY, in this exact order: Momo 01 (primary brushwork reference), Valazar 34 (material wear and narrative gravity), Voloden 28 (credible anatomy and controlled detail). Do NOT copy their characters, props, architecture or blue nighttime palette. Preserve image 1's identity, face, expression, age, pose, silhouette, scene, weapon and all existing accessories, anatomy, composition, viewpoint, framing, original local palette and motivated lighting. Change the pictorial language throughout character AND environment: visible intentional gouache/oil brushstrokes, interlocking painted color planes on faces and materials, sculpted light with broken opaque strokes, colored shadows, varied lost-and-found edges, worn tactile surfaces. High-quality hand-painted storytelling with readable focal detail; not a grain filter laid over the old rendering. No photorealism, photographic pores, plastic 3D, CGI, anime, manga, airbrushed skin, uniform texture overlay or artificial depth-of-field blur. Exactly two arms and two legs, one head, readable joints and hands; preserve existing occlusions and crop, do not add limbs to make hidden limbs visible. Retain any dorsal wings as wings, not extra arms. Full-bleed portrait 4:5, target 1024 x 1280 pixels. No frame, border, text, lettering, watermark, logo or card UI. Produce exactly ONE edited image.\nSpecific target lock: Scrow remains the same adult raven-headed humanoid sitting/crouching on the stone parapet at image left, black beak and thoughtful amber eye in right-facing profile, pale ragged gray-white mantle over worn brown-gray leathers, folded dark dorsal wings, quiver by the hip. Keep both hands low on the exact same lowered wooden bow and relaxed string, bent legs and visible boot, same moment of choosing not to shoot. Preserve the small gliding messenger at mid-right, floating pale towers, bridge spans, small airship, blue-gray banners, voluminous pale clouds and low golden sun in the upper-right. Dorsal wings must stay folded behind the shoulders, separate from exactly two arms and two legs. Keep the daylit gold/ivory/cloud-gray palette, not night or blue monochrome. Paint feathers as grouped directional strokes, leather and stone as interlocking colored planes with worn edges, selective crisp eye and bow detail, no photographic feather microdetail, no CGI stone or blurred cloud backdrop. Preserve exact silhouette, scale and frame.",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09fde-5121-7573-92ed-9cda4a427bf1\\exec-245ec13b-f24e-4b30-ada8-3ab646c396c5.png",
+      "qa": {
+        "inspected_with": "view_image (source and saved result)",
+        "style": "Plumes en masses directionnelles, nuages et architectures par touches; matieres et mantelet harmonises.",
+        "identity_pose_scene": "Profil Korbow, arc baisse, corde relachee, carquois, parapet, messager et cite aerienne conserves.",
+        "palette": "Or et gris perle lumineux, mantelet clair et plumage sombre; jour conserve.",
+        "anatomy": "Deux bras avec mains sur arc, deux jambes selon pose initiale; ailes dorsales repliees sans bras supplementaire.",
+        "framing": "Portrait environ 4:5, composition et echelles preserves, sans cadre ni texte.",
+        "verdict": "accepted"
+      },
+      "technical_qa": {
+        "format": "PNG",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 3009351,
+        "sha256": "BE4D74B4C3792DB4437931C03F09922E274BF5192880CC90037E99A1BF939B7A",
+        "original_source_changed_by_this_worker": false
+      },
+      "parent_review": {
+        "status": "approved_and_integrated",
+        "evidence": "Confirmation du parent dans cette conversation; egalite SHA256 canonique/revision verifiee.",
+        "revision_unchanged_after_approval": true
+      }
+    },
+    {
+      "id": "30000016",
+      "slug": "16_CRYO_NERIS",
+      "art": "V3/assets/illustrations/16_CRYO_NERIS.png",
+      "scene": "Scene inventee : Neris chauffe un abri de secours en isolant la tempete par une paroi de givre.",
+      "source_sha256": "F4A19BE91BCE3AEBBAF9B85ACA9059BE26BC5DD0A094E7662DADB3CF9FF2A86C",
+      "output": "V3/assets/revisions-20260914/illustrations/16_CRYO_NERIS.png",
+      "referenced_image_paths": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/16_CRYO_NERIS.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "status": "ready",
+      "source_inspected": true,
+      "generation_calls": 1,
+      "prompt": "Use case: style-transfer, identity-preserving edit. Edit ONLY input image 1 into a finished Kalistar narrative fantasy painting. Images 2, 3, 4 are style references ONLY, in this exact order: Momo 01 (primary brushwork reference), Valazar 34 (material wear and narrative gravity), Voloden 28 (credible anatomy and controlled detail). Do NOT copy their characters, props, architecture or blue nighttime palette. Preserve image 1's identity, face, expression, age, pose, silhouette, scene, weapon and all existing accessories, anatomy, composition, viewpoint, framing, original local palette and motivated lighting. Change the pictorial language throughout character AND environment: visible intentional gouache/oil brushstrokes, interlocking painted color planes on faces and materials, sculpted light with broken opaque strokes, colored shadows, varied lost-and-found edges, worn tactile surfaces. High-quality hand-painted storytelling with readable focal detail; not a grain filter laid over the old rendering. No photorealism, photographic pores, plastic 3D, CGI, anime, manga, airbrushed skin, uniform texture overlay or artificial depth-of-field blur. Exactly two arms and two legs, one head, readable joints and hands; preserve existing occlusions and crop, do not add limbs to make hidden limbs visible. Retain any dorsal wings as wings, not extra arms. Full-bleed portrait 4:5, target 1024 x 1280 pixels. No frame, border, text, lettering, watermark, logo or card UI. Produce exactly ONE edited image.\nSpecific target lock: Neris remains the same reassuring tired middle-aged/older woman, round face, short tousled gray hair, round wire spectacles, gentle closed-mouth smile and exact facial likeness. Preserve the chest-height close portrait, both hands surrounding the translucent icy orb in front, plum-purple winter cloak with ivory fur lining, wrist straps and circular brooch. Keep the tall ice barrier and snowy mountain storm at image left and the warmly lit wooden refuge at image right with small stove, kettle, lantern and empty beds. Same ice/warm shelter separation, same orb size and position, exactly two arms, two hands with natural fingers; legs stay out of frame. Color: cold pale ice blue/white on the left, amber stove warmth on the right, plum cloak retained. CRUCIAL: fully repaint face and hands with visible oil/gouache color planes, brushed cheek highlights and colored wrinkle shadows; preserve age and expression but remove photo pores, smoothly rendered skin, camera realism. Paint the orb as transparent layered brushwork and broken edges, not 3D glass. Character and room must share the same confident hand-painted language as Momo, with lost edges in shadow, no synthetic grain.",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09fde-5121-7573-92ed-9cda4a427bf1\\exec-95e5f244-cc3a-4776-b2a8-eaf28499a6bb.png",
+      "qa": {
+        "inspected_with": "view_image (source and saved result)",
+        "style": "Transformation franche des joues, mains, orbe et manteau en plans de couleur; rides peintes sans pores photo.",
+        "identity_pose_scene": "Age, sourire fatigue, lunettes rondes, cheveux gris, deux mains autour de l'orbe, refuge et paroi de glace preserves.",
+        "palette": "Prune, ivoire, glace pale et chaleur ambree du refuge separes comme source.",
+        "anatomy": "Deux bras et deux mains coherentes avec doigts lisibles; jambes hors champ comme source.",
+        "framing": "Portrait rapproche environ 4:5, cadrage identique, sans cadre ni texte.",
+        "verdict": "accepted"
+      },
+      "technical_qa": {
+        "format": "PNG",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 3203986,
+        "sha256": "2A76E7A271A6A405DFCE10AC1B1D8CD89B3D8BCD203B9C6B5B9C845D76663CFC",
+        "original_source_changed_by_this_worker": false
+      },
+      "parent_review": {
+        "status": "approved_and_integrated",
+        "evidence": "Confirmation du parent dans cette conversation; egalite SHA256 canonique/revision verifiee.",
+        "revision_unchanged_after_approval": true
+      }
+    },
+    {
+      "id": "30000017",
+      "slug": "17_LUXO_ILIANE",
+      "art": "V3/assets/illustrations/17_LUXO_ILIANE.png",
+      "scene": "Scene inventee : Iliane revele les noms effaces d une archive de Solaria.",
+      "source_sha256": "4CB2F38365597690C3FA20A5C6217B418768C393F7BAE140E7A6105A1C88C9F5",
+      "output": "V3/assets/revisions-20260914/illustrations/17_LUXO_ILIANE.png",
+      "referenced_image_paths": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/17_LUXO_ILIANE.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "status": "ready",
+      "source_inspected": true,
+      "generation_calls": 1,
+      "prompt": "Use case: style-transfer, identity-preserving edit. Edit ONLY input image 1 into a finished Kalistar narrative fantasy painting. Images 2, 3, 4 are style references ONLY, in this exact order: Momo 01 (primary brushwork reference), Valazar 34 (material wear and narrative gravity), Voloden 28 (credible anatomy and controlled detail). Do NOT copy their characters, props, architecture or blue nighttime palette. Preserve image 1's identity, face, expression, age, pose, silhouette, scene, weapon and all existing accessories, anatomy, composition, viewpoint, framing, original local palette and motivated lighting. Change the pictorial language throughout character AND environment: visible intentional gouache/oil brushstrokes, interlocking painted color planes on faces and materials, sculpted light with broken opaque strokes, colored shadows, varied lost-and-found edges, worn tactile surfaces. High-quality hand-painted storytelling with readable focal detail; not a grain filter laid over the old rendering. No photorealism, photographic pores, plastic 3D, CGI, anime, manga, airbrushed skin, uniform texture overlay or artificial depth-of-field blur. Exactly two arms and two legs, one head, readable joints and hands; preserve existing occlusions and crop, do not add limbs to make hidden limbs visible. Retain any dorsal wings as wings, not extra arms. Full-bleed portrait 4:5, target 1024 x 1280 pixels. No frame, border, text, lettering, watermark, logo or card UI. Produce exactly ONE edited image.\nSpecific target lock: Iliane remains the same bald androgynous adult Aurelion with angular translucent crystalline skin, amber eyes, fine crystalline facets along skull and neck, quiet intent expression. Preserve three-quarter standing pose and downward gaze toward the enormous open archive tome at image right, one visible hand pointing at the same small lit area on its page, other arm naturally occluded. Keep red and ivory robes, round gold clasps and belt, shelves with books and scrolls on the left, pale stone statues, tall open arch at upper right framing the sunlit white city and its solar architectural symbol. The book retains faint erased portrait blocks but NO legible writing. Exactly two arms and two legs, concealed by robe and tome as in source, no extra arm added. Same pale warm daylight, red cloth, luminous ivory and delicate rose/lilac crystal planes. Repaint crystal skin as intentional opaque/translucent gouache-oil planes, not a glass 3D shader; credible adult face, no doll or anime stylization. Visible directional strokes through robes, pages, face, architecture, colored shadow planes and selective lost edges, not a grain overlay. Preserve exact framing and all props.",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09fde-5121-7573-92ed-9cda4a427bf1\\exec-60016b7a-5718-4f19-b52b-bfbdb3a298ba.png",
+      "qa": {
+        "inspected_with": "view_image (source and saved result)",
+        "style": "Peau cristallisee en facettes peintes; coups de brosse coherents sur robes, pages et pierre.",
+        "identity_pose_scene": "Visage androgyne rase, regard baisse, doigt sur livre, robes rouge/ivoire et archives preserves.",
+        "palette": "Contre-jour chaud, pierre blanche et rouge soutenu; reflets roses/lilas locaux sur cristal.",
+        "anatomy": "Bras visible coherent; autre bras et jambes occultes comme source, aucun ajout de membre.",
+        "framing": "Composition et tome au meme emplacement; portrait environ 4:5, aucun texte lisible ni cadre.",
+        "verdict": "accepted"
+      },
+      "technical_qa": {
+        "format": "PNG",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 2878357,
+        "sha256": "F94EA227561F617798F6901BD3043A3C2F2E71D5603738ACE29EA7CECB27B2BE",
+        "original_source_changed_by_this_worker": false
+      },
+      "parent_review": {
+        "status": "approved_and_integrated",
+        "evidence": "Confirmation du parent dans cette conversation; egalite SHA256 canonique/revision verifiee.",
+        "revision_unchanged_after_approval": true
+      }
+    },
+    {
+      "id": "30000018",
+      "slug": "18_MINERO_LOK",
+      "art": "V3/assets/illustrations/18_MINERO_LOK.png",
+      "scene": "Lok bloque un convoi dans la fonderie ; vignette V2 inventee conservee, sans en faire un episode canonique.",
+      "source_sha256": "BB88CBB5EA164F18F375E0E779DAB115F58774EB776F8B449D8B9D22C0ADA605",
+      "output": "V3/assets/revisions-20260914/illustrations/18_MINERO_LOK.png",
+      "referenced_image_paths": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/18_MINERO_LOK.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "status": "ready",
+      "source_inspected": true,
+      "generation_calls": 1,
+      "prompt": "Use case: style-transfer, identity-preserving edit. Edit ONLY input image 1 into a finished Kalistar narrative fantasy painting. Images 2, 3, 4 are style references ONLY, in this exact order: Momo 01 (primary brushwork reference), Valazar 34 (material wear and narrative gravity), Voloden 28 (credible anatomy and controlled detail). Do NOT copy their characters, props, architecture or blue nighttime palette. Preserve image 1's identity, face, expression, age, pose, silhouette, scene, weapon and all existing accessories, anatomy, composition, viewpoint, framing, original local palette and motivated lighting. Change the pictorial language throughout character AND environment: visible intentional gouache/oil brushstrokes, interlocking painted color planes on faces and materials, sculpted light with broken opaque strokes, colored shadows, varied lost-and-found edges, worn tactile surfaces. High-quality hand-painted storytelling with readable focal detail; not a grain filter laid over the old rendering. No photorealism, photographic pores, plastic 3D, CGI, anime, manga, airbrushed skin, uniform texture overlay or artificial depth-of-field blur. Exactly two arms and two legs, one head, readable joints and hands; preserve existing occlusions and crop, do not add limbs to make hidden limbs visible. Retain any dorsal wings as wings, not extra arms. Full-bleed portrait 4:5, target 1024 x 1280 pixels. No frame, border, text, lettering, watermark, logo or card UI. Produce exactly ONE edited image.\nSpecific target lock: Lok remains the same stocky adult dwarf with short dark cropped hair, shaved sides, short dense dark beard and stern right-facing profile. Keep the full-body wide braced stance on foundry rails, gloved hand gripping the tall iron lever at image right, other bare fist clenched low at image left, hammer hanging at his belt, dark worn apron over red rolled-sleeve shirt, heavy boots and belt tools. Preserve the loaded ore carts directly behind, wooden gantries and chains, cold daylight entering the cavern overhead and orange forge/lantern glow at right. Exactly two arms and two legs, both boots grounded; maintain visible muscle, scars/tattoos without inventing details. Same scale, camera angle and crop. Preserve rusty red, charcoal, steel gray and local warm forge light. CRUCIAL: change photo-real face/arm texture and CGI metal into visible gouache/oil planes, brush-built beard and skin with colored shadows; no photo pores, no sharply rendered 3D metal sheen. Rails, ore, apron and cavern equally painted, varied broken strokes and lost/found edges, no lens blur, no global grain filter.",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09fde-5121-7573-92ed-9cda4a427bf1\\exec-e57951ac-7746-499c-bbd2-947b8b8cdcbe.png",
+      "qa": {
+        "inspected_with": "view_image (source and saved result)",
+        "style": "Visage, bras, tablier, wagonnets et caverne en touches peintes; zones de metal moins lisses.",
+        "identity_pose_scene": "Profil, barbe, chemise rouge, poing baisse, prise du levier et marteau de ceinture conserves.",
+        "palette": "Rouge rouille, charbon, gris roche et lumieres orange locales conserves.",
+        "anatomy": "Deux bras et deux jambes visibles, deux bottes posees sur rails, prise coherente.",
+        "framing": "Contre-plongee legere et plein pied preserves; portrait environ 4:5, sans cadre ni texte.",
+        "verdict": "accepted"
+      },
+      "technical_qa": {
+        "format": "PNG",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 2932244,
+        "sha256": "440DF970801CEF0E7DAE2DC3B670431E7564FFDBF0A209592A8C74D29FDEA551",
+        "original_source_changed_by_this_worker": false
+      },
+      "parent_review": {
+        "status": "approved_and_integrated",
+        "evidence": "Confirmation du parent dans cette conversation; egalite SHA256 canonique/revision verifiee.",
+        "revision_unchanged_after_approval": true
+      }
+    },
+    {
+      "id": "30000019",
+      "slug": "19_MINERO_BELROG",
+      "art": "V3/assets/illustrations/19_MINERO_BELROG.png",
+      "scene": "Belrog redresse le signal du col ; scene originale V2 conservee.",
+      "source_sha256": "F9053315665A263CFBA6F952345E2311B882F92A424CDB10693AB0A1D3BDB5FA",
+      "output": "V3/assets/revisions-20260914/illustrations/19_MINERO_BELROG.png",
+      "referenced_image_paths": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/19_MINERO_BELROG.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "status": "ready",
+      "source_inspected": true,
+      "generation_calls": 1,
+      "prompt": "Use case: style-transfer, identity-preserving edit. Edit ONLY input image 1 into a finished Kalistar narrative fantasy painting. Images 2, 3, 4 are style references ONLY, in this exact order: Momo 01 (primary brushwork reference), Valazar 34 (material wear and narrative gravity), Voloden 28 (credible anatomy and controlled detail). Do NOT copy their characters, props, architecture or blue nighttime palette. Preserve image 1's identity, face, expression, age, pose, silhouette, scene, weapon and all existing accessories, anatomy, composition, viewpoint, framing, original local palette and motivated lighting. Change the pictorial language throughout character AND environment: visible intentional gouache/oil brushstrokes, interlocking painted color planes on faces and materials, sculpted light with broken opaque strokes, colored shadows, varied lost-and-found edges, worn tactile surfaces. High-quality hand-painted storytelling with readable focal detail; not a grain filter laid over the old rendering. No photorealism, photographic pores, plastic 3D, CGI, anime, manga, airbrushed skin, uniform texture overlay or artificial depth-of-field blur. Exactly two arms and two legs, one head, readable joints and hands; preserve existing occlusions and crop, do not add limbs to make hidden limbs visible. Retain any dorsal wings as wings, not extra arms. Full-bleed portrait 4:5, target 1024 x 1280 pixels. No frame, border, text, lettering, watermark, logo or card UI. Produce exactly ONE edited image.\nSpecific target lock: Belrog remains the same older rhinoceros-headed humanoid seen full body from rear three-quarter, turning his head toward image right across the snowy mountain pass. Keep weathered gray head and horns, ragged dark travel cloak with fur collar, worn armor and boots, leather belt pouch, visible hand resting on the long heavy mace whose head touches the ground at image right. Other arm remains naturally hidden by cloak as in source. Two legs planted on the slope; two arms total, no extra limb, no quadruped transformation. Preserve the tall torn signal banner on his left, distant tiny orange beacon in the mountains, sweeping layered snow-filled valley and jagged peaks. Do NOT change the pose to raise the banner: match the actual target image exactly. Color lock: purple-mauve storm clouds and blue-lilac snow balanced with pink-orange twilight at horizon, gray-brown traveling gear. No cobalt-night recolor. Apply restrained rich gouache/oil brushwork across hide, cloth, snow and rock, grouped shadow planes, broken edge highlights and lost cloak edges; preserve visual scale and readable distant silhouettes, no photo pore texture, CGI or grain filter.",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09fde-5121-7573-92ed-9cda4a427bf1\\exec-ca6836d1-608b-413b-be28-59688fcc6620.png",
+      "qa": {
+        "inspected_with": "view_image (source and saved result)",
+        "style": "Neige, ciel, manteau et relief en touches gouache/huile avec ombres colorees et bords varies.",
+        "identity_pose_scene": "Rhinoz age vu dos trois-quarts, masse au sol, manteau use, banniere et signal lointain preserves.",
+        "palette": "Mauve et lilas de col enneige, horizon rose-orange et equipement gris-brun conserves.",
+        "anatomy": "Deux jambes distinctes au sol, bras tenant la masse coherent; autre bras masque comme source.",
+        "framing": "Plein pied et profondeur de vallee conserves, portrait environ 4:5, sans cadre ni texte.",
+        "verdict": "accepted"
+      },
+      "technical_qa": {
+        "format": "PNG",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 3181841,
+        "sha256": "E3A8C1466C95027DD8A5CC5FF7FF2D92E7E262A1304C55DFC86C432B1AD2888C",
+        "original_source_changed_by_this_worker": false
+      },
+      "parent_review": {
+        "status": "approved_and_integrated",
+        "evidence": "Confirmation du parent dans cette conversation; egalite SHA256 canonique/revision verifiee.",
+        "revision_unchanged_after_approval": true
+      }
+    },
+    {
+      "id": "30000020",
+      "slug": "20_HEMATO_SERAPHINA",
+      "art": "V3/assets/illustrations/20_HEMATO_SERAPHINA.png",
+      "scene": "Scene inventee : Seraphina suspend un sceau de dette plutot que de l executer.",
+      "source_sha256": "FF2421C05F5A908B82D6D1D45B2319CE1231FC14A2ED9A9EFC52B28130CE37AF",
+      "output": "V3/assets/revisions-20260914/illustrations/20_HEMATO_SERAPHINA.png",
+      "referenced_image_paths": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/20_HEMATO_SERAPHINA.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "status": "ready",
+      "source_inspected": true,
+      "generation_calls": 1,
+      "prompt": "Use case: style-transfer, identity-preserving edit. Edit ONLY input image 1 into a finished Kalistar narrative fantasy painting. Images 2, 3, 4 are style references ONLY, in this exact order: Momo 01 (primary brushwork reference), Valazar 34 (material wear and narrative gravity), Voloden 28 (credible anatomy and controlled detail). Do NOT copy their characters, props, architecture or blue nighttime palette. Preserve image 1's identity, face, expression, age, pose, silhouette, scene, weapon and all existing accessories, anatomy, composition, viewpoint, framing, original local palette and motivated lighting. Change the pictorial language throughout character AND environment: visible intentional gouache/oil brushstrokes, interlocking painted color planes on faces and materials, sculpted light with broken opaque strokes, colored shadows, varied lost-and-found edges, worn tactile surfaces. High-quality hand-painted storytelling with readable focal detail; not a grain filter laid over the old rendering. No photorealism, photographic pores, plastic 3D, CGI, anime, manga, airbrushed skin, uniform texture overlay or artificial depth-of-field blur. Exactly two arms and two legs, one head, readable joints and hands; preserve existing occlusions and crop, do not add limbs to make hidden limbs visible. Retain any dorsal wings as wings, not extra arms. Full-bleed portrait 4:5, target 1024 x 1280 pixels. No frame, border, text, lettering, watermark, logo or card UI. Produce exactly ONE edited image.\nSpecific target lock: Seraphina remains the same mature adult vampire woman with short silver hair, subtly pointed bat-like ears, restrained compassionate expression and downcast eyes. Preserve seated three-quarter pose at the long wooden desk, open palm held above a crumbling red wax/debt seal on the parchment, other hand resting near the paper, dark forest-green cloak, ivory collar and dark fitted clothing, gold brooch, ring and coiled whip at her hip on image right. Keep candles and justice statue at left, gothic chair, windows and moonlit distant city, goblet, books, scrolls and inkwell arranged exactly as in source. Paper markings remain illegible painterly marks, no readable text. Exactly two attached arms and hands, two legs naturally beneath the table, do not change crop or add limbs. Preserve forest green, pale silver, warm candle gold, dark wood, cold gray window and LOCAL red seal only. CRUCIAL: fully paint face and hands as visible nuanced gouache/oil color planes, preserving maturity, likeness and compassion, no photo pores, smooth beauty retouching or doll eyes. Paint all cloth, wood, flame and masonry with tactile intentional strokes, colored shadow planes and lost edges, no artificial lens blur or grain overlay.",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09fde-5121-7573-92ed-9cda4a427bf1\\exec-2bf99978-475b-4550-a1e2-17be87e07ac1.png",
+      "qa": {
+        "inspected_with": "view_image (source and saved result)",
+        "style": "Plans peints tres lisibles sur visage et mains; bougies, bois, manteau et pierre harmonises.",
+        "identity_pose_scene": "Cheveux argent courts, traits matures, paume au-dessus du sceau, fouet enroule, table et accessoires conserves.",
+        "palette": "Vert foret, ivoire, or des bougies, rouge local du sceau et gris lunaire conserves.",
+        "anatomy": "Deux bras attaches, paume ouverte a cinq doigts; deuxieme main a plat, jambes sous table comme source.",
+        "framing": "Cadrage assis conserve, portrait environ 4:5; pas de texte lisible ni cadre.",
+        "verdict": "accepted"
+      },
+      "technical_qa": {
+        "format": "PNG",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 2795399,
+        "sha256": "2B1375ED4EA9E7657EAA739D68F077A9CEDF179F497204490BB77C063D6A1794",
+        "original_source_changed_by_this_worker": false
+      },
+      "parent_review": {
+        "status": "approved_and_integrated",
+        "evidence": "Confirmation du parent dans cette conversation; egalite SHA256 canonique/revision verifiee.",
+        "revision_unchanged_after_approval": true
+      }
+    },
+    {
+      "id": "30000023",
+      "slug": "23_NONE_GEN",
+      "art": "V3/assets/illustrations/23_NONE_GEN.png",
+      "scene": "Vignette de Gen reparant son bras gauche dans l atelier improvise, AVANT la transfusion Electro du chapitre 4.",
+      "source_sha256": "984621482EE9BFF319073911422C951EA58ACAD002959E0FE5E968441421702C",
+      "output": "V3/assets/revisions-20260914/illustrations/23_NONE_GEN.png",
+      "referenced_image_paths": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/23_NONE_GEN.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "status": "ready",
+      "source_inspected": true,
+      "generation_calls": 1,
+      "prompt": "Use case: style-transfer, identity-preserving edit. Edit ONLY input image 1 into a finished Kalistar narrative fantasy painting. Images 2, 3, 4 are style references ONLY, in this exact order: Momo 01 (primary brushwork reference), Valazar 34 (material wear and narrative gravity), Voloden 28 (credible anatomy and controlled detail). Do NOT copy their characters, props, architecture or blue nighttime palette. Preserve image 1's identity, face, expression, age, pose, silhouette, scene, weapon and all existing accessories, anatomy, composition, viewpoint, framing, original local palette and motivated lighting. Change the pictorial language throughout character AND environment: visible intentional gouache/oil brushstrokes, interlocking painted color planes on faces and materials, sculpted light with broken opaque strokes, colored shadows, varied lost-and-found edges, worn tactile surfaces. High-quality hand-painted storytelling with readable focal detail; not a grain filter laid over the old rendering. No photorealism, photographic pores, plastic 3D, CGI, anime, manga, airbrushed skin, uniform texture overlay or artificial depth-of-field blur. Exactly two arms and two legs, one head, readable joints and hands; preserve existing occlusions and crop, do not add limbs to make hidden limbs visible. Retain any dorsal wings as wings, not extra arms. Full-bleed portrait 4:5, target 1024 x 1280 pixels. No frame, border, text, lettering, watermark, logo or card UI. Produce exactly ONE edited image.\nSpecific target lock: Gen remains the same slender young adult man with dark eyes, swept black hair and exactly ONE emerald-green forelock, seated alone at a makeshift workbench. Preserve exact face likeness and focused slight smile, forward lean, dark work shirt and pants, heavy boots, stool and full-body crop. His anatomically RIGHT organic hand (on image left) holds the small screwdriver and repairs his own anatomically LEFT mechanical forearm (on image right), which remains visibly attached to the left shoulder, elbow bent, metal hand resting on the rag at the bench. Exactly two arms and two legs, no spare limbs, no mirrored arm swap. Preserve worn brass/steel mechanical prosthesis, all workbench tools and small parts, amber task lamp at image left, overhead pipes, rear ladder and fan aperture, the narrow dim industrial workshop. Pre-Electro state: absolutely no crystal, electric arcs, magical halo or elemental barrier, no glowing mechanical eye. Retain warm lamp light against cool gray ambient industrial depth and the single green hair accent. CRUCIAL: repaint face, bare arm and metal using visible gouache/oil color planes with colored shadows and broken highlights, preserving identity while removing photoreal pores, smooth hair rendering and CGI chrome. Same brush language on character, wood, pipes and floor, no uniform grain or lens blur.",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09fde-5121-7573-92ed-9cda4a427bf1\\exec-b29512d7-392c-4344-97ee-30a33c571e21.png",
+      "qa": {
+        "inspected_with": "view_image (source and saved result)",
+        "style": "Bras organique, visage, habits, bois et tuyaux en plans peints; metal use et highlights fragmentes.",
+        "identity_pose_scene": "Visage et meche verte unique, reparation au tournevis, atelier et assise conserves.",
+        "palette": "Lumiere de lampe ambree, acier gris et accent vert des cheveux; pas de halo ni effet Electro.",
+        "anatomy": "Bras DROIT organique au tournevis; bras GAUCHE mecanique toujours attache a epaule/coude; deux jambes, aucun bras de rechange.",
+        "framing": "Plein pied assis et cadrage original preserves, environ 4:5; sans cadre ni texte.",
+        "verdict": "accepted"
+      },
+      "technical_qa": {
+        "format": "PNG",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 2700257,
+        "sha256": "C9B7FCE3908A5A0A9B87ACAF94FDA826DBD79CA302F301E05FDA1622BAEAE26F",
+        "original_source_changed_by_this_worker": false
+      },
+      "parent_review": {
+        "status": "approved_and_integrated",
+        "evidence": "Confirmation du parent dans cette conversation; egalite SHA256 canonique/revision verifiee.",
+        "revision_unchanged_after_approval": true
+      }
+    },
+    {
+      "id": "30000024",
+      "slug": "24_MINERO_MAGNAR",
+      "art": "V3/assets/illustrations/24_MINERO_MAGNAR.png",
+      "scene": "Magnar garde seul un passage etroit de la Z13, juste avant l affrontement avec Gen.",
+      "source_sha256": "A64A20AD1C93E8173BBB338A991FCB05A91F649422F3920C8E28A054DF6B9157",
+      "output": "V3/assets/revisions-20260914/illustrations/24_MINERO_MAGNAR.png",
+      "referenced_image_paths": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/24_MINERO_MAGNAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png"
+      ],
+      "status": "ready",
+      "source_inspected": true,
+      "generation_calls": 1,
+      "prompt": "Use case: style-transfer, identity-preserving edit. Edit ONLY input image 1 into a finished Kalistar narrative fantasy painting. Images 2, 3, 4 are style references ONLY, in this exact order: Momo 01 (primary brushwork reference), Valazar 34 (material wear and narrative gravity), Voloden 28 (credible anatomy and controlled detail). Do NOT copy their characters, props, architecture or blue nighttime palette. Preserve image 1's identity, face, expression, age, pose, silhouette, scene, weapon and all existing accessories, anatomy, composition, viewpoint, framing, original local palette and motivated lighting. Change the pictorial language throughout character AND environment: visible intentional gouache/oil brushstrokes, interlocking painted color planes on faces and materials, sculpted light with broken opaque strokes, colored shadows, varied lost-and-found edges, worn tactile surfaces. High-quality hand-painted storytelling with readable focal detail; not a grain filter laid over the old rendering. No photorealism, photographic pores, plastic 3D, CGI, anime, manga, airbrushed skin, uniform texture overlay or artificial depth-of-field blur. Exactly two arms and two legs, one head, readable joints and hands; preserve existing occlusions and crop, do not add limbs to make hidden limbs visible. Retain any dorsal wings as wings, not extra arms. Full-bleed portrait 4:5, target 1024 x 1280 pixels. No frame, border, text, lettering, watermark, logo or card UI. Produce exactly ONE edited image.\nSpecific target lock: Magnar remains the same colossal humanoid granite golem filling a narrow stone passage, seen from the exact low viewpoint. Preserve his stern carved human-like face, gray angular rock anatomy, round shoulder joints, sparse moss and fine mineral cracks, ragged rust-brown waist cloth with round stone belt clasp. Same standing two-legged stance, massive stone mace held low in the hand at image left, opposite arm and empty hand hanging at image right. Exactly two attached arms and two legs, one head, coherent hands and joints; preserve both feet and existing partial foreground occlusion. Keep head and shoulders almost touching the low stone lintel, stairway receding between/behind the legs, cool pale daylight opening at rear-left, small warm wall lights at right, no other principal character. Do not redesign the mace or add glowing crystal effects. Preserve gray stone, earthy rust cloth, muted moss, localized amber lights and cool daylit depth. Replace rendered rock/3D shader detail with large sculpted gouache/oil color planes and directional impasto strokes, colored shadow masses, painterly face and knuckles, varied lost-and-found edges shared by body and passage. Not a grain filter. No night-blue recolor, CGI, glossy plastic, photorealism or lens blur. Same imposing silhouette, scale and framing.",
+      "generated_source": "C:\\Users\\guill\\.codex\\generated_images\\01a09fde-5121-7573-92ed-9cda4a427bf1\\exec-8427557b-ff55-4ad3-8d07-b5ec81e43350.png",
+      "qa": {
+        "inspected_with": "view_image (source and saved result)",
+        "style": "Corps, visage et passage en grands plans minerales peints; ombres colorees et highlights discontinus.",
+        "identity_pose_scene": "Golem colossal, visage sculpte, masse basse, linge rouille, plafond bas et escalier preserves.",
+        "palette": "Granit gris, mousse discrete, tissu terreux, lumiere froide arriere et torches ambrees locales conserves.",
+        "anatomy": "Deux bras et deux jambes distincts, prise de la masse et main libre coherentes; aucun membre supplementaire.",
+        "framing": "Contre-plongee et silhouette occupant le passage conservees; portrait 1122x1402, environ 4:5, sans cadre ni texte.",
+        "verdict": "accepted"
+      },
+      "technical_qa": {
+        "format": "PNG",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 2635139,
+        "sha256": "ABB80C08908DE9C5A966B96005358607ACF59545AC9C29A3F496AF561E47F729",
+        "original_source_changed_by_this_worker": false
+      },
+      "parent_review": {
+        "status": "ready_for_review"
+      }
+    }
+  ],
+  "completed_count": 15,
+  "total_generation_calls": 15,
+  "parent_approved_integrated_count": 14,
+  "delivery_notes": "15 editions terminees. Le parent a confirme approbation et integration des 14 premieres, y compris Gen. Aucune de ces sorties approuvees n'a ete retouchee. Magnar est pret pour inspection/integration. Toutes les ecritures de ce travail sont limitees aux 15 PNG de revisions et a ce manifeste; aucune ecriture dans les canoniques.",
+  "validation": {
+    "expected_assets": 15,
+    "actual_assets": 15,
+    "source_and_output_visual_inspections": 15,
+    "reference_images_inspected": 3,
+    "reference_paths_per_call": 4,
+    "reference_order_verified": true,
+    "one_integrated_call_per_asset": true,
+    "all_outputs_exist": true,
+    "all_output_dimensions": [
+      1122,
+      1402
+    ],
+    "aspect_ratio_note": "Format natif de l'outil conserve: 1122/1402=0.800285, environ 4:5 comme les sources, ecart relatif 0.036%; aucun redimensionnement ni recadrage destructif.",
+    "forbidden_asset_edits": 0,
+    "code_profile_database_photoshop_edits": 0
+  }
+}

@@ -1,0 +1,540 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-01",
+  "stableForHandoff": true,
+  "sourceFreezeNotPerformed": true,
+  "coreStable": true,
+  "components": {
+    "factions": [
+      "ONEPIECE"
+    ],
+    "races": [
+      "SHARKAN"
+    ],
+    "metrics": {
+      "fullBounds": [
+        16,
+        11,
+        79,
+        83
+      ],
+      "visibleBounds": [
+        18,
+        13,
+        77,
+        78
+      ],
+      "centroid": [
+        47.691944225575895,
+        48.13526491587766
+      ],
+      "optical": [
+        47.62476374662433,
+        47.21292219532048
+      ],
+      "fullAlphaRadius": 37.84507894033252,
+      "opticalError": 0.47245731213202846,
+      "visibleAlphaThreshold": 16
+    },
+    "protectedLocksUnchanged": true
+  },
+  "site": {
+    "scope": "one-piece",
+    "faction": "ONEPIECE",
+    "characters": 10,
+    "versions": 11
+  },
+  "tests": {
+    "portableSuite": "V4/site/one-piece.test.cjs",
+    "portableTestsPassed": 3,
+    "nativeSuite": "V4/collaborations/one-piece-assets-01/assets.test.cjs",
+    "nativeTestsPassed": 3,
+    "combinedWithExistingDesignerAndCollaborations": 21,
+    "portableImportGuardPassed": true,
+    "browser": {
+      "passed": true,
+      "isolated": true,
+      "productionStorageTouched": false,
+      "reports": [
+        {
+          "width": 320,
+          "height": 568,
+          "boxes": [
+            {
+              "id": "owned",
+              "left": 12,
+              "right": 110,
+              "top": 41,
+              "bottom": 69,
+              "overflow": false
+            },
+            {
+              "id": "catalogue",
+              "left": 111,
+              "right": 209,
+              "top": 41,
+              "bottom": 69,
+              "overflow": false
+            },
+            {
+              "id": "kalistar",
+              "left": 210,
+              "right": 308,
+              "top": 41,
+              "bottom": 69,
+              "overflow": false
+            },
+            {
+              "id": "final-fantasy",
+              "left": 12,
+              "right": 110,
+              "top": 70,
+              "bottom": 98,
+              "overflow": false
+            },
+            {
+              "id": "nier",
+              "left": 111,
+              "right": 209,
+              "top": 70,
+              "bottom": 98,
+              "overflow": false
+            },
+            {
+              "id": "metal-gear",
+              "left": 210,
+              "right": 308,
+              "top": 70,
+              "bottom": 98,
+              "overflow": false
+            },
+            {
+              "id": "resident-evil",
+              "left": 12,
+              "right": 110,
+              "top": 99,
+              "bottom": 127,
+              "overflow": false
+            },
+            {
+              "id": "one-piece",
+              "left": 111,
+              "right": 209,
+              "top": 99,
+              "bottom": 127,
+              "overflow": false
+            }
+          ],
+          "inside": true,
+          "overlap": false,
+          "clearOfToolbar": true,
+          "imagesLoaded": true
+        },
+        {
+          "width": 390,
+          "height": 844,
+          "boxes": [
+            {
+              "id": "owned",
+              "left": 12,
+              "right": 133.328125,
+              "top": 41,
+              "bottom": 69,
+              "overflow": false
+            },
+            {
+              "id": "catalogue",
+              "left": 134.328125,
+              "right": 255.65625,
+              "top": 41,
+              "bottom": 69,
+              "overflow": false
+            },
+            {
+              "id": "kalistar",
+              "left": 256.65625,
+              "right": 378,
+              "top": 41,
+              "bottom": 69,
+              "overflow": false
+            },
+            {
+              "id": "final-fantasy",
+              "left": 12,
+              "right": 133.328125,
+              "top": 70,
+              "bottom": 98,
+              "overflow": false
+            },
+            {
+              "id": "nier",
+              "left": 134.328125,
+              "right": 255.65625,
+              "top": 70,
+              "bottom": 98,
+              "overflow": false
+            },
+            {
+              "id": "metal-gear",
+              "left": 256.65625,
+              "right": 378,
+              "top": 70,
+              "bottom": 98,
+              "overflow": false
+            },
+            {
+              "id": "resident-evil",
+              "left": 12,
+              "right": 133.328125,
+              "top": 99,
+              "bottom": 127,
+              "overflow": false
+            },
+            {
+              "id": "one-piece",
+              "left": 134.328125,
+              "right": 255.65625,
+              "top": 99,
+              "bottom": 127,
+              "overflow": false
+            }
+          ],
+          "inside": true,
+          "overlap": false,
+          "clearOfToolbar": true,
+          "imagesLoaded": true
+        },
+        {
+          "width": 700,
+          "height": 900,
+          "boxes": [
+            {
+              "id": "owned",
+              "left": 20,
+              "right": 182.75,
+              "top": 60,
+              "bottom": 92,
+              "overflow": false
+            },
+            {
+              "id": "catalogue",
+              "left": 185.75,
+              "right": 348.5,
+              "top": 60,
+              "bottom": 92,
+              "overflow": false
+            },
+            {
+              "id": "kalistar",
+              "left": 351.5,
+              "right": 514.25,
+              "top": 60,
+              "bottom": 92,
+              "overflow": false
+            },
+            {
+              "id": "final-fantasy",
+              "left": 517.25,
+              "right": 680,
+              "top": 60,
+              "bottom": 92,
+              "overflow": false
+            },
+            {
+              "id": "nier",
+              "left": 20,
+              "right": 182.75,
+              "top": 95,
+              "bottom": 127,
+              "overflow": false
+            },
+            {
+              "id": "metal-gear",
+              "left": 185.75,
+              "right": 348.5,
+              "top": 95,
+              "bottom": 127,
+              "overflow": false
+            },
+            {
+              "id": "resident-evil",
+              "left": 351.5,
+              "right": 514.25,
+              "top": 95,
+              "bottom": 127,
+              "overflow": false
+            },
+            {
+              "id": "one-piece",
+              "left": 517.25,
+              "right": 680,
+              "top": 95,
+              "bottom": 127,
+              "overflow": false
+            }
+          ],
+          "inside": true,
+          "overlap": false,
+          "clearOfToolbar": true,
+          "imagesLoaded": true
+        },
+        {
+          "width": 1024,
+          "height": 768,
+          "boxes": [
+            {
+              "id": "owned",
+              "left": 20,
+              "right": 263.75,
+              "top": 57,
+              "bottom": 89,
+              "overflow": false
+            },
+            {
+              "id": "catalogue",
+              "left": 266.75,
+              "right": 510.5,
+              "top": 57,
+              "bottom": 89,
+              "overflow": false
+            },
+            {
+              "id": "kalistar",
+              "left": 513.5,
+              "right": 757.25,
+              "top": 57,
+              "bottom": 89,
+              "overflow": false
+            },
+            {
+              "id": "final-fantasy",
+              "left": 760.25,
+              "right": 1004,
+              "top": 57,
+              "bottom": 89,
+              "overflow": false
+            },
+            {
+              "id": "nier",
+              "left": 20,
+              "right": 263.75,
+              "top": 92,
+              "bottom": 124,
+              "overflow": false
+            },
+            {
+              "id": "metal-gear",
+              "left": 266.75,
+              "right": 510.5,
+              "top": 92,
+              "bottom": 124,
+              "overflow": false
+            },
+            {
+              "id": "resident-evil",
+              "left": 513.5,
+              "right": 757.25,
+              "top": 92,
+              "bottom": 124,
+              "overflow": false
+            },
+            {
+              "id": "one-piece",
+              "left": 760.25,
+              "right": 1004,
+              "top": 92,
+              "bottom": 124,
+              "overflow": false
+            }
+          ],
+          "inside": true,
+          "overlap": false,
+          "clearOfToolbar": true,
+          "imagesLoaded": true
+        },
+        {
+          "width": 1200,
+          "height": 900,
+          "boxes": [
+            {
+              "id": "owned",
+              "left": 28,
+              "right": 311.75,
+              "top": 60,
+              "bottom": 92,
+              "overflow": false
+            },
+            {
+              "id": "catalogue",
+              "left": 314.75,
+              "right": 598.5,
+              "top": 60,
+              "bottom": 92,
+              "overflow": false
+            },
+            {
+              "id": "kalistar",
+              "left": 601.5,
+              "right": 885.25,
+              "top": 60,
+              "bottom": 92,
+              "overflow": false
+            },
+            {
+              "id": "final-fantasy",
+              "left": 888.25,
+              "right": 1172,
+              "top": 60,
+              "bottom": 92,
+              "overflow": false
+            },
+            {
+              "id": "nier",
+              "left": 28,
+              "right": 311.75,
+              "top": 95,
+              "bottom": 127,
+              "overflow": false
+            },
+            {
+              "id": "metal-gear",
+              "left": 314.75,
+              "right": 598.5,
+              "top": 95,
+              "bottom": 127,
+              "overflow": false
+            },
+            {
+              "id": "resident-evil",
+              "left": 601.5,
+              "right": 885.25,
+              "top": 95,
+              "bottom": 127,
+              "overflow": false
+            },
+            {
+              "id": "one-piece",
+              "left": 888.25,
+              "right": 1172,
+              "top": 95,
+              "bottom": 127,
+              "overflow": false
+            }
+          ],
+          "inside": true,
+          "overlap": false,
+          "clearOfToolbar": true,
+          "imagesLoaded": true
+        },
+        {
+          "width": 1600,
+          "height": 1000,
+          "boxes": [
+            {
+              "id": "owned",
+              "left": 222.375,
+              "right": 332.625,
+              "top": 17.5,
+              "bottom": 49.5,
+              "overflow": false
+            },
+            {
+              "id": "catalogue",
+              "left": 335.625,
+              "right": 431.40625,
+              "top": 17.5,
+              "bottom": 49.5,
+              "overflow": false
+            },
+            {
+              "id": "kalistar",
+              "left": 434.40625,
+              "right": 526.296875,
+              "top": 17.5,
+              "bottom": 49.5,
+              "overflow": false
+            },
+            {
+              "id": "final-fantasy",
+              "left": 529.296875,
+              "right": 650.140625,
+              "top": 17.5,
+              "bottom": 49.5,
+              "overflow": false
+            },
+            {
+              "id": "nier",
+              "left": 653.140625,
+              "right": 732.046875,
+              "top": 17.5,
+              "bottom": 49.5,
+              "overflow": false
+            },
+            {
+              "id": "metal-gear",
+              "left": 735.046875,
+              "right": 846.8125,
+              "top": 17.5,
+              "bottom": 49.5,
+              "overflow": false
+            },
+            {
+              "id": "resident-evil",
+              "left": 849.8125,
+              "right": 968.0625,
+              "top": 17.5,
+              "bottom": 49.5,
+              "overflow": false
+            },
+            {
+              "id": "one-piece",
+              "left": 971.0625,
+              "right": 1080.234375,
+              "top": 17.5,
+              "bottom": 49.5,
+              "overflow": false
+            }
+          ],
+          "inside": true,
+          "overlap": false,
+          "clearOfToolbar": true,
+          "imagesLoaded": true
+        }
+      ],
+      "errors": []
+    }
+  },
+  "parentVisualReviewPending": [
+    "robin-face-v2"
+  ],
+  "nativeCardQaBy": "parent/profile-native agent",
+  "hashes": {
+    "V4/collaborations/one-piece-assets-01/assets.cjs": "98281f9825bf0b7957a976c4efb262093c88cc42c160a13361eaf49f2c2c64c8",
+    "V4/collaborations/one-piece-assets-01/prepare.cjs": "1a9f151fde1bc0c5c6b3840f9c1d4cb29c089e2b4d0628020cb24a96e7b88a58",
+    "V4/collaborations/one-piece-assets-01/requests.json": "a69ee6b9cacde1f60eaf6c14fe59c5d695921e2a20ea86361e1461f489e1debf",
+    "V4/collaborations/one-piece-assets-01/provenance.json": "c606c6b50edbe49781c48940714e8c9eb469736296dc66309a369b4bd78be304",
+    "V4/collaborations/one-piece-assets-01/baseline.json": "ffdfe504a7232ce445a21968754ef885ebe4ddc398044b803070d161323fb57e",
+    "V4/collaborations/one-piece-assets-01/factions.json": "15cc661925c38ce3f5693d35e36d88d0cfc8acb7ffc575e72abd7dc815b54200",
+    "V4/collaborations/one-piece-assets-01/source-ONEPIECE.png": "cb5ada556a11e9359d247af563318529a4d0ebf8a9f10c20cd800be494e9891d",
+    "V4/collaborations/one-piece-assets-01/flag-ONEPIECE.png": "0a57ba21e19e334794a498eb44c387cb3076a11f8b0f7540083f1755cc48c8ae",
+    "V4/collaborations/one-piece-assets-01/flag-ONEPIECE-packed.png": "61ec2a913882f5c6b89544ede82a0bb24ece705542c5e85f88a520116282e9d7",
+    "V4/collaborations/one-piece-assets-01/source-SHARKAN.png": "69c6feee40f9951aab49dca44854bc475de18029d5e7d6dd0ec21a32bbbb18e1",
+    "V4/collaborations/one-piece-assets-01/race-SHARKAN.png": "93a9d24656733794a1808a66e2966c2327e5d7c452a0ba8c3a6f2e36b8fb0722",
+    "V4/collaborations/one-piece-assets-01/race-SHARKAN.motif.png": "22f514dc025b0fa5708ecf9b8d4e7aa683e2894b7de529914ff6a0fb39dbc2c1",
+    "V4/collaborations/one-piece-assets-01/race-components.json": "44cac6df4eb34bb2df5df870239ce0095de69de6e4333e06b421d0623f0cf5ae",
+    "V4/Illustrations/OP_franky_01.png": "11983405d3e943f4bd98942fe37c4dba2384fdb2b027d12c3f85e213b577c273",
+    "V4/Illustrations/OP_brook_01.png": "3e437db514944ecad18632baf13f9ad4a1af44eafb4bcfe7acf7ae407c543963",
+    "V4/Illustrations/OP_jinbe_01.png": "cb2c8b6e3a8908d984e353ca0b9f968da70c1bac6159424a85d1e310ed3f4668",
+    "V4/Illustrations/OP_robin_01.png": "191201c76d95bd6d29e892f3dbe6e57dc96071e4fc0ab7c01704dd441352fab5",
+    "V4/atelier/designer-core.cjs": "35e3fd5f89e12b6db68d06a0f43fad82c2d8cfe958fc5530fdc774bf174315a3",
+    "V4/atelier/designer-assets/race-extensions.json": "84aad23b254d9726cd2cddd4facbd781d447e43ee5eb8ac39d87e7d39ae8772b",
+    "V4/atelier/designer-assets/extensions/race-SHARKAN.png": "93a9d24656733794a1808a66e2966c2327e5d7c452a0ba8c3a6f2e36b8fb0722",
+    "V4/site/assets/races/SHARKAN.png": "120d3b961bcd25b9d1386be5167debbd54d4c59223a6503af877340f8add4003",
+    "V4/site/assets/factions/ONEPIECE.png": "0a57ba21e19e334794a498eb44c387cb3076a11f8b0f7540083f1755cc48c8ae",
+    "V4/site/collaborations.js": "e3253b7b3af8658ee747f57bc34269019246cc0f83e05ba7f1aa9760e9500860",
+    "V4/site/collection-binder.js": "18eb4a743a80b07da8c90fffab1014d2f94dd99445d3fef6fc5f244a4842ba80",
+    "V4/site/collection-binder.css": "db9ae5343a734eb2f6696b04b58049a45ef6550ae999c54761ea8a9ab1ecd2c0",
+    "V4/site/one-piece.test.cjs": "b25e0349530e8b12c10c85ec5e4a1870344f80a8c7ba3643684f4d589ae59f1e",
+    "V4/site/collaborations.test.cjs": "b2424b67dbc1d3fd0aeabf150c252f1519567d35fbfb59fbba952ea28c1c72dc"
+  }
+}

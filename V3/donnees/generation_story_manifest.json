@@ -1,0 +1,380 @@
+{
+  "schema_version": 1,
+  "chantier": "5_illustrations_personnages_principaux",
+  "version": "V3",
+  "status": "complete",
+  "generator": {
+    "mode": "built-in",
+    "tool": "image_gen.imagegen",
+    "initial_calls": 5,
+    "targeted_revision_calls": 1,
+    "one_asset_per_call": true,
+    "returned_via_generatedImage": true
+  },
+  "scope": {
+    "project_root": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar",
+    "write_scope": "V3/assets/illustrations/story/*.png et V3/donnees/generation_story_manifest.json uniquement",
+    "roster_ui_weapon_templates_modified": false,
+    "parent_copy_expected": true,
+    "story_paths_preserved": true
+  },
+  "style_reference": {
+    "path": "V2/assets/illustrations/electro.png",
+    "character": "Momo",
+    "visually_inspected": true,
+    "usage": "Reference lue seule; direction picturale decrite dans chacun des cinq prompts. Ni identite du robot ni pose recopiees.",
+    "reference_image_argument_used_in_initial_generations": false
+  },
+  "format": {
+    "requested_aspect_ratio": "4:5",
+    "requested_minimum_width_px": 1024,
+    "actual_width_px": 1122,
+    "actual_height_px": 1402,
+    "actual_aspect_ratio": 0.8002853067047075,
+    "note": "Sortie PNG native du built-in: portrait proche de 4:5 (ecart relatif de 0.036 pour cent). Pas de redimensionnement, recadrage ni retouche externe.",
+    "frame": false,
+    "text": false
+  },
+  "canonical_priority": "Instructions utilisateur actuelles, puis histoire V3 ciblee et donnees V3. Julienne a deux jambes, contrairement aux anciens prompts de sirene a queue. Gen et Malaba sont NONE dans les scenes retenues.",
+  "assets": [
+    {
+      "key": "kaylis",
+      "name": "KAYLIS",
+      "slug": "12_RAINBOW_KAYLIS",
+      "element": "RAINBOW",
+      "scene": "Chapitre 5: fuite de Z13 apres le sacrifice de Gen, vers la lumiere exterieure.",
+      "sources": [
+        {
+          "path": "V3/sources/histoire.txt",
+          "lines": [
+            61,
+            64
+          ],
+          "facts": "Tatouages multicolores deja actifs avant la fuite."
+        },
+        {
+          "path": "V3/sources/histoire.txt",
+          "lines": [
+            77,
+            109
+          ],
+          "facts": "Fuite, separation de Gen, douleur et promesse a la sortie de la grotte."
+        },
+        {
+          "path": "V3/sources/histoire.txt",
+          "lines": [
+            6288,
+            6289
+          ],
+          "facts": "Heroine humaine de Z13, peau halee, traits delicats, courage."
+        },
+        {
+          "type": "user_instruction",
+          "facts": "Jeune ADULTE metisse sud-asiatique/antillaise, silhouette de sprinteuse svelte, tenue noire ajustee, tatouages Rainbow eveilles lors de l'evasion chapitre 5."
+        }
+      ],
+      "destination": "V3/assets/illustrations/story/kaylis.png",
+      "absolute_destination": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/story/kaylis.png",
+      "status": "accepted",
+      "prompt": "Use case: illustration-story. Create one finished standalone Kalistar narrative fantasy painting, portrait EXACTLY 4:5, 1024 x 1280 pixels or higher at the same exact ratio. Full bleed, no border, no card layout, absolutely no lettering, no caption, no logo, no signature, no watermark.\nArt direction: match the hand-painted visual identity of Kalistar's Momo illustration electro.png, which has been visually inspected: traditional oil/gouache-like opaque brush planes, expressive sculpted silhouettes, selective fine detail at the face and hands, rich layered color, chipped ancient stone and tactile worn fabric and metal. A lived-in fantasy world, palpable emotion, atmosphere built with confident visible brushwork. The environment tells the story. NOT photorealism, NOT CGI, NOT glossy 3D, NOT anime, NOT a comic panel, NOT generic fantasy promotional splash art. Momo is a STYLE reference only; do not depict Momo, a robot, a flute or a straw hat. Do not copy Momo's seated pose or blue night palette automatically. Keep the central subject humanoid with believable joints, weight, coherent shoulders and pelvis, exactly two attached arms, two attached legs, one head, readable natural hands. No duplicate limbs, no limb-shaped motion trails, no dislocated body, no disconnected hands.\nSubject: KAYLIS, beautiful clearly ADULT woman around 24, mixed South Asian and Afro-Caribbean heritage, warm brown skin, fine expressive facial features, dark brown eyes, dark wavy-curly hair tied back loosely. A slim sprinter's build: lean narrow athletic silhouette, strong but not bulky, not a bodybuilder. Practical close-fitting BLACK mine worker clothing, short sleeveless black work top covering the torso, black fitted work trousers, worn sturdy boots, no armor, no cape, no skirt, no cleavage or pin-up styling. Her already awakened RAINBOW tattoos are fine luminous iridescent ornamental flowing lines embedded IN the skin of her arms, seven subtle colors; these are canonical awakened tattoos, not an awakening event and not external rainbow ribbons.\nScene: escaping through the last rising cave passage from the oppressive Z13 mine into the first natural daylight after Gen sacrificed his escape to protect them. A vast rugged canyon and a little distant green vegetation appear beyond the cave mouth. She is alone in the visible frame; companions are out of view. Rough rock walls and dusty rubble tell of the mine. No written runes.\nPose and composition: full figure head to both boots visible with a little breathing room, dynamic forward running stride from dark cave toward the light, viewed from a three-quarter front-side angle. Her forward knee is lifted while the other leg pushes off a stone step. TWO arms only in a simple natural sprint position, one bent forward and the other bent back, both forearms clearly separated from the torso, two visible hands with coherent fingers and thumbs. No touching a third object, no additional reaching arm. Face turns slightly toward the bright exit, not directly at viewer.\nEmotion: freedom and fierce determination mixed with the pain of leaving Gen behind; a tear track cuts through dust, jaw set, breath caught, proud adult beauty without glamour posing. Warm dawn grazes her face and black clothing, cooler mineral shadows inside cave, tiny prismatic tattoo light reflects onto the skin without obscuring anatomy. The exit is hope, not a heavenly portal.",
+      "generated_source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-f692f2a2-e75d-49b9-b43e-036b3569cd22.png",
+      "output": {
+        "width": 1122,
+        "height": 1402,
+        "format": "PNG",
+        "bytes": 2675904,
+        "sha256": "F6BEFFFEE9085E8415321215717A3D4BE651216F48C00AA9AB776DC0A3B603F4",
+        "source_copy_sha256_verified": true
+      },
+      "visual_review": {
+        "method": "Inspection visuelle de chaque sortie generee, controle des membres, des mains, de la scene et du canon.",
+        "passed": true,
+        "checks": [
+          "Deux bras seulement; mains rattachees aux avant-bras et lisibles.",
+          "Deux jambes et deux bottes distinctes apres correction ciblee.",
+          "Visage adulte, cheveux sombres, silhouette svelte, tenue noire de mine.",
+          "Tatouages Rainbow visibles sur les deux bras; grotte et canyon lisibles.",
+          "Douleur, liberte et determination exprimees par le visage et la course."
+        ]
+      },
+      "iterations": [
+        {
+          "pass": 1,
+          "kind": "generate",
+          "source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-cf9116cf-1224-4dde-9261-f8dc246b910b.png",
+          "accepted": false,
+          "reason": "Jambe arriere trop masquee: deux jambes non lisibles."
+        },
+        {
+          "pass": 2,
+          "kind": "precise-object-edit",
+          "reference_image_path": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-cf9116cf-1224-4dde-9261-f8dc246b910b.png",
+          "prompt": "Use case: precise-object-edit. EDIT the supplied Kaylis painting. Preserve her beautiful adult mixed South Asian/Afro-Caribbean face, lean sprinter build, hair, expression of painful hope and determination, TWO current correctly drawn arms and hands, black fitted mine clothes, already awakened rainbow skin tattoos, cave and canyon setting, dawn lighting, rich hand-painted oil/gouache brushwork. Do not redesign any of these.\nSINGLE TARGETED FIX: her rear leg is hidden and her run reads as one-legged. Correct ONLY the lower-body running pose and nearby rocks to make EXACTLY TWO attached, separate legs and TWO boots clearly visible at the same time. Retain the foreground bent leg and boot. Make the other leg visibly emerge from the other side of the pelvis with a clearly traceable thigh, bent knee, shin and boot stretching back to the viewer's right, forming a natural sprinter stride in a readable three-quarter side view. The rear boot must be clearly visible to the right of the front shin, silhouetted against lighter rock, not hidden behind the front leg or buried in a rock. Keep pelvis anatomically sound, adult slim proportions and knees facing plausible directions. No additional limb or duplicate boot, no motion ghost, no third arm, no dislocated hip. Head to both boots entirely inside frame, and a little room around the feet. This remains the escape from Z13 in chapter 5 AFTER her Rainbow tattoos have awakened, not a new awakening scene. Output one full-bleed portrait PNG, EXACT 4:5 ratio, ideally 1024 x 1280 pixels or larger exact 4:5. No border, text, logo or watermark.",
+          "source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-f692f2a2-e75d-49b9-b43e-036b3569cd22.png",
+          "accepted": true,
+          "reason": "Jambe arriere et botte clairement separees; visage, tatouages et deux bras conserves."
+        }
+      ]
+    },
+    {
+      "key": "julienne",
+      "name": "JULIENNE",
+      "slug": "03_HYDRO_JULIENNE",
+      "element": "HYDRO",
+      "scene": "Sous les portes noyees de Thalassea, retient la mer pendant l'evacuation des naufrages.",
+      "sources": [
+        {
+          "path": "V3/donnees/cartes.json",
+          "selector": "name == JULIENNE",
+          "lines": [
+            106,
+            154
+          ],
+          "facts": "Gardienne Sirena de Thalassea; retient une arche de mer pour permettre aux naufrages de respirer."
+        },
+        {
+          "path": "V3/donnees/prompts_revision.json",
+          "selector": "key == hydro",
+          "facts": "Cheveux vert marin et identite Sirena; ancienne direction avec queue explicitement remplacee par la demande actuelle."
+        },
+        {
+          "type": "user_instruction",
+          "facts": "Humanoide, corps et anatomie clairs, exactement deux jambes, pas de corps disloque; scene HYDRO emotive."
+        }
+      ],
+      "destination": "V3/assets/illustrations/story/julienne.png",
+      "absolute_destination": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/story/julienne.png",
+      "status": "accepted",
+      "prompt": "Use case: illustration-story. Create one finished standalone Kalistar narrative fantasy painting, portrait EXACTLY 4:5, 1024 x 1280 pixels or higher at the same exact ratio. Full bleed, no border, no card layout, absolutely no lettering, no caption, no logo, no signature, no watermark.\nArt direction: match the hand-painted visual identity of Kalistar's Momo illustration electro.png, which has been visually inspected: traditional oil/gouache-like opaque brush planes, expressive sculpted silhouettes, selective fine detail at the face and hands, rich layered color, chipped ancient stone and tactile worn fabric and metal. A lived-in fantasy world, palpable emotion, atmosphere built with confident visible brushwork. The environment tells the story. NOT photorealism, NOT CGI, NOT glossy 3D, NOT anime, NOT a comic panel, NOT generic fantasy promotional splash art. Momo is a STYLE reference only; do not depict Momo, a robot, a flute or a straw hat. Do not copy Momo's seated pose or blue night palette automatically. Keep the central subject humanoid with believable joints, weight, coherent shoulders and pelvis, exactly two attached arms, two attached legs, one head, readable natural hands. No duplicate limbs, no limb-shaped motion trails, no dislocated body, no disconnected hands.\nSubject: JULIENNE, adult Sirena guardian of Thalassea reinterpreted as explicitly BIPEDAL HUMANOID under current art direction: beautiful strong adult humanlike face, sea-green hair wet and swept back, subtly sea-toned skin, delicate scale texture at temples and shoulders, practical woven sea armor and a muted coral-red waist sash. One continuous anatomically coherent torso, normal waist and hips, EXACTLY TWO HUMANLIKE LEGS with two knees and two feet. NO fish tail, no mermaid tail, no extra lower body, no tangled lower limbs, no dislocated waist. Legs fully readable: fitted blue-green scaled leggings and practical bare feet or simple sandals, no long dress covering their silhouette. TWO arms and two hands total.\nScene: beneath the half-drowned limestone harbor gates of Thalassea, she is holding back the crushing sea to keep an air passage open for shipwreck survivors. A huge TRANSPARENT ARCH OF WATER visibly curves ABOVE and to the side of her, a natural curved sheet of seawater, not a ring around her body. Water curls overhead under her HYDRO control; coherent translucent water with refracted light and recognizable droplets, not smoke. Far behind her, two small survivors hurry up dry stone stairs through the air pocket toward safety, no face-to-face interaction and no close child.\nPose/composition: full-length upright guardian with both feet visibly planted on the same broad wet stone step in shallow ankle-deep clear water. Stable wide grounded stance, one knee only slightly bent, hips and chest aligned. View three-quarter frontal at eye level with whole body visible. One arm raised to support the water canopy, palm open and readable, elbow gently bent; other arm lowered outward holding ONE simple weathered ceremonial staff planted on the step. Both arms attach clearly to correct shoulders, no strain pose that twists the torso, no kneeling, no swimming.\nEmotion: compassionate endurance almost at the limit, eyes wet, brow tense, lips part to draw a difficult breath, stubborn resolve to hold until the last survivor is safe. Her focus goes toward the distant evacuation, not at viewer. Turquoise and sea-green reflected light, pearl gray ancient stone, coral-red accent and warm daylight at the escape stair, rich water depth. Her face, hands, pelvis and TWO legs remain unobscured by foam, splashes or fabric. Render human anatomy more important than decorative water effects.",
+      "generated_source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-9d2f3a4c-b757-4e4e-bd01-6af685dcaf5c.png",
+      "output": {
+        "width": 1122,
+        "height": 1402,
+        "format": "PNG",
+        "bytes": 3304100,
+        "sha256": "AFC93EA76D67688C3F7FAEE8E7A820569699EEB51A4517BD824BC99F346AC3CB",
+        "source_copy_sha256_verified": true
+      },
+      "visual_review": {
+        "method": "Inspection visuelle de chaque sortie generee, controle des membres, des mains, de la scene et du canon.",
+        "passed": true,
+        "checks": [
+          "Deux bras, une main ouverte soutenant l'arche et une main tenant un baton.",
+          "Deux jambes distinctes, deux pieds visibles, bassin et torse continus.",
+          "Aucune queue de poisson; silhouette humanoide entiere.",
+          "Arche d'eau transparente au-dessus du personnage, survivants en retrait sur l'escalier.",
+          "Expression tendue et protectrice; pas de scene d'echange entre deux personnages au premier plan."
+        ]
+      },
+      "iterations": [
+        {
+          "pass": 1,
+          "kind": "generate",
+          "source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-9d2f3a4c-b757-4e4e-bd01-6af685dcaf5c.png",
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "key": "lanio",
+      "name": "LANIO",
+      "slug": "21_NONE_LANIO",
+      "element": "NONE",
+      "scene": "Interception en plein match d'Astraball sur le terrain des Rhinoz a Zarok.",
+      "sources": [
+        {
+          "path": "V3/sources/histoire.txt",
+          "lines": [
+            377,
+            416
+          ],
+          "facts": "Terrain a Zarok; balle dense legerement magnetique; panier en U inverse; regles des cinq roles."
+        },
+        {
+          "path": "V3/sources/histoire.txt",
+          "lines": [
+            655,
+            664
+          ],
+          "facts": "Lanio bondit pour intercepter la balle, feinte les defenseurs puis passe a un partenaire."
+        },
+        {
+          "path": "V3/sources/histoire.txt",
+          "lines": [
+            6300,
+            6302
+          ],
+          "facts": "Cheveux blonds dores, beau garcon charismatique, sourire et agilite."
+        },
+        {
+          "type": "user_instruction",
+          "facts": "Humain blond, en plein Astraball chez les Rhinoz, slug NONE."
+        }
+      ],
+      "destination": "V3/assets/illustrations/story/lanio.png",
+      "absolute_destination": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/story/lanio.png",
+      "status": "accepted",
+      "prompt": "Use case: illustration-story. Create one finished standalone Kalistar narrative fantasy painting, portrait EXACTLY 4:5, 1024 x 1280 pixels or higher at the same exact ratio. Full bleed, no border, no card layout, absolutely no lettering, no caption, no logo, no signature, no watermark.\nArt direction: match the hand-painted visual identity of Kalistar's Momo illustration electro.png, which has been visually inspected: traditional oil/gouache-like opaque brush planes, expressive sculpted silhouettes, selective fine detail at the face and hands, rich layered color, chipped ancient stone and tactile worn fabric and metal. A lived-in fantasy world, palpable emotion, atmosphere built with confident visible brushwork. The environment tells the story. NOT photorealism, NOT CGI, NOT glossy 3D, NOT anime, NOT a comic panel, NOT generic fantasy promotional splash art. Momo is a STYLE reference only; do not depict Momo, a robot, a flute or a straw hat. Do not copy Momo's seated pose or blue night palette automatically. Keep the central subject humanoid with believable joints, weight, coherent shoulders and pelvis, exactly two attached arms, two attached legs, one head, readable natural hands. No duplicate limbs, no limb-shaped motion trails, no dislocated body, no disconnected hands.\nSubject: LANIO, handsome charismatic blond young ADULT man, golden wind-tossed hair, bright human face, charming competitive grin, lean athletic agile build. Ordinary human, NONE elemental state: no aura, no magic, no enchanted limbs. Worn flexible miners' sporting clothes adapted for play: muted red sleeveless shirt, dark practical trousers and sturdy flexible boots, no modern branded uniform, no letters or number, no weapon.\nScene: a genuine Astraball MATCH among the Rhinoz at Zarok, a spacious rough packed-earth court near the village square, massive carved rock buildings and a few onlookers. Rhinoz are upright humanoid rhino people, two arms and two legs, broad shoulders, leathery gray skin, one forehead horn, athletic practical clothing; supporting players are smaller in the middle distance, clearly separate from Lanio and each other.\nRules to obey: Astraball mixes hand-and-foot ball play and physical defense. The ball is ONE dense, slightly magnetic worn dark metallic-leather sphere, NOT glowing. The scoring basket is visibly shaped like an INVERTED U, an arch open at its bottom, NOT a circular basketball hoop and not a soccer goal. Point guard organizes and steals but cannot score; scorer remains attacking; middle passes without dribbling or carrying; pillar guards own zone; only a Sentry may use powers under local rules. Show Lanio's interception, not a magic shot or scoring.\nComposition/pose: full-body dynamic airborne interception, Lanio leaping diagonally across foreground, BOTH hands wrapped naturally around the SINGLE ball just above shoulder height, the two elbows trace cleanly back to TWO shoulders. His torso and pelvis aligned naturally in a slight turn, two legs visibly separated in a modest athletic stride with both feet visible. One Rhinoz defender a few meters behind reaches too late, another stands near the inverted-U goal in deep background, a teammate runs open on the opposite side. No overlap with Lanio's limb silhouette, no violent collision. Low court-side viewpoint, dust lifted under him, afternoon sunlight and cooler cast shadows, mineral gray and dusty brick-red with a little green, lively painted movement without motion ghosts. Emotion: the joy of finally playing freely, brilliant instinct, mischievous confidence. Not a posed headshot, not two people talking.",
+      "generated_source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-c93f69ee-01ad-49c7-8fe8-9e9e50022a96.png",
+      "output": {
+        "width": 1122,
+        "height": 1402,
+        "format": "PNG",
+        "bytes": 2717486,
+        "sha256": "7D2300CF6CB6D137A4AB8D8FB54422A9BE30A5719335F6CE882173D31BE19EA1",
+        "source_copy_sha256_verified": true
+      },
+      "visual_review": {
+        "method": "Inspection visuelle de chaque sortie generee, controle des membres, des mains, de la scene et du canon.",
+        "passed": true,
+        "checks": [
+          "Deux bras et deux mains autour d'un seul ballon, deux jambes et deux bottes.",
+          "Lanio blond humain, expression joueuse et competitive.",
+          "Interception en suspension; joueurs Rhinoz distincts, terrain et but en U inverse visibles.",
+          "Aucun pouvoir elementaire de Lanio; action compatible avec les regles, sans lui attribuer un tir interdit au meneur."
+        ]
+      },
+      "iterations": [
+        {
+          "pass": 1,
+          "kind": "generate",
+          "source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-c93f69ee-01ad-49c7-8fe8-9e9e50022a96.png",
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "key": "malaba",
+      "name": "MALABA",
+      "alias": "BABA",
+      "slug": "22_NONE_MALABA",
+      "element": "NONE",
+      "scene": "Au bar La Gueule Fumante dans Z13, avant la prise de poste au debut de l'aventure.",
+      "sources": [
+        {
+          "path": "V3/sources/histoire.txt",
+          "lines": [
+            2166,
+            2168
+          ],
+          "facts": "Malaba confirme que Baba est son surnom."
+        },
+        {
+          "path": "V3/sources/histoire.txt",
+          "lines": [
+            6290,
+            6294
+          ],
+          "facts": "Bar de Z13, tres grand et massif, mains calleuses, yeux bruns, force et bienveillance."
+        },
+        {
+          "type": "user_instruction",
+          "facts": "Grand, fort, baraque au bar au debut de l'aventure; NONE, sans transformation minerale."
+        }
+      ],
+      "design_choices": [
+        "Cheveux sombres courts et barbe courte: choix visuel non presente comme precision du texte source."
+      ],
+      "destination": "V3/assets/illustrations/story/malaba.png",
+      "absolute_destination": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/story/malaba.png",
+      "status": "accepted",
+      "prompt": "Use case: illustration-story. Create one finished standalone Kalistar narrative fantasy painting, portrait EXACTLY 4:5, 1024 x 1280 pixels or higher at the same exact ratio. Full bleed, no border, no card layout, absolutely no lettering, no caption, no logo, no signature, no watermark.\nArt direction: match the hand-painted visual identity of Kalistar's Momo illustration electro.png, which has been visually inspected: traditional oil/gouache-like opaque brush planes, expressive sculpted silhouettes, selective fine detail at the face and hands, rich layered color, chipped ancient stone and tactile worn fabric and metal. A lived-in fantasy world, palpable emotion, atmosphere built with confident visible brushwork. The environment tells the story. NOT photorealism, NOT CGI, NOT glossy 3D, NOT anime, NOT a comic panel, NOT generic fantasy promotional splash art. Momo is a STYLE reference only; do not depict Momo, a robot, a flute or a straw hat. Do not copy Momo's seated pose or blue night palette automatically. Keep the central subject humanoid with believable joints, weight, coherent shoulders and pelvis, exactly two attached arms, two attached legs, one head, readable natural hands. No duplicate limbs, no limb-shaped motion trails, no dislocated body, no disconnected hands.\nSubject: MALABA, called BABA, an imposing very tall and powerfully muscular ADULT human man, huge broad shoulders and thick working forearms, massive barrel chest and large callused hands, warm deep brown eyes, open good-natured grin. Human skin, HUMAN anatomy and face. This is the start of the adventure, elemental status NONE: no stone skin, no rock armor, no mineral mutations, no glowing runes, no elemental effects. A physically powerful working man, not a fantasy dwarf. Short dark hair and a little rough stubble as a restrained design choice.\nScene: before the work shift at the shabby miners' bar La Gueule Fumante deep inside Z13. Name is narrative context only, DO NOT WRITE it anywhere. Smoke-blackened stone, low wooden beams, scuffed wooden counter, battered tin cups, a bread ration on a small wooden plate, dim candle lanterns, the distant mine tunnel beyond a doorway.\nPose/composition: SOLO dominant figure, seated sideways on a sturdy low bar stool with his large frame slightly hunched under a low beam. Full body from head to boots, both legs separated, both heavy boots grounded, believable seated pelvis. One enormous hand loosely holds ONE modest tin cup on the counter, the other rests open on his thigh, both arms visible and connected to their respective shoulders. Torso turned three-quarter toward an off-frame friend whom he has just made laugh; nobody else in foreground, at most indistinct distant background tavern silhouettes, no conversational face-to-face pair.\nHe wears a worn desaturated olive-gray sleeveless mine work shirt, sturdy charcoal trousers and work boots, no hero armor or weapons. Show strength through body size and callused hands, tenderness through eyes and smile; warmth in an oppressive place. Warm small candle pools against cooler gray-green mine light, smoke and atmosphere kept painterly, tactile wood, worn cloth. Lived-in candid narrative moment, not a bar fight and not a bodybuilder pose.",
+      "generated_source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-eb0470b5-e538-47e1-a14b-b05d378f636f.png",
+      "output": {
+        "width": 1122,
+        "height": 1402,
+        "format": "PNG",
+        "bytes": 2464972,
+        "sha256": "2CA0260D587127E19B4DE5A1E0F65AF1E9973E58AD81DB9F008065E5186BB92C",
+        "source_copy_sha256_verified": true
+      },
+      "visual_review": {
+        "method": "Inspection visuelle de chaque sortie generee, controle des membres, des mains, de la scene et du canon.",
+        "passed": true,
+        "checks": [
+          "Deux bras, deux mains et deux jambes rattaches de facon coherente; deux bottes au sol.",
+          "Carrure humaine tres massive et haute; regard chaleureux et sourire.",
+          "Un gobelet, bar use et contexte de mine reconnaissables.",
+          "Aucune peau rocheuse, rune lumineuse, armure minerale ou manifestation elementaire."
+        ]
+      },
+      "iterations": [
+        {
+          "pass": 1,
+          "kind": "generate",
+          "source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-eb0470b5-e538-47e1-a14b-b05d378f636f.png",
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "key": "gen",
+      "name": "GEN",
+      "slug": "23_NONE_GEN",
+      "element": "NONE",
+      "scene": "Reparation de sa propre prothese gauche dans son atelier clandestin, AVANT la fusion.",
+      "sources": [
+        {
+          "path": "V3/sources/histoire.txt",
+          "lines": [
+            6295,
+            6299
+          ],
+          "facts": "Petit jeune homme fin, cheveux noirs et meche verte, bras GAUCHE mecanique concu par lui-meme."
+        },
+        {
+          "path": "V3/sources/histoire.txt",
+          "lines": [
+            1998,
+            2002
+          ],
+          "facts": "Atelier improvise dans Z13, pieces de recuperation, cables et outils."
+        },
+        {
+          "path": "V3/sources/histoire.txt",
+          "lines": [
+            6616,
+            6625
+          ],
+          "facts": "Atelier clandestin dans un conduit; fusion ulterieure a ne pas representer ici."
+        },
+        {
+          "type": "user_instruction",
+          "facts": "Repare son bras gauche mecanique AVANT fusion; exactement deux bras au total, l'autre humain; petit jeune homme cheveux noirs meche verte."
+        }
+      ],
+      "destination": "V3/assets/illustrations/story/gen.png",
+      "absolute_destination": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/story/gen.png",
+      "status": "accepted",
+      "prompt": "Use case: illustration-story. Create one finished standalone Kalistar narrative fantasy painting, portrait EXACTLY 4:5, 1024 x 1280 pixels or higher at the same exact ratio. Full bleed, no border, no card layout, absolutely no lettering, no caption, no logo, no signature, no watermark.\nArt direction: match the hand-painted visual identity of Kalistar's Momo illustration electro.png, which has been visually inspected: traditional oil/gouache-like opaque brush planes, expressive sculpted silhouettes, selective fine detail at the face and hands, rich layered color, chipped ancient stone and tactile worn fabric and metal. A lived-in fantasy world, palpable emotion, atmosphere built with confident visible brushwork. The environment tells the story. NOT photorealism, NOT CGI, NOT glossy 3D, NOT anime, NOT a comic panel, NOT generic fantasy promotional splash art. Momo is a STYLE reference only; do not depict Momo, a robot, a flute or a straw hat. Do not copy Momo's seated pose or blue night palette automatically. Keep the central subject humanoid with believable joints, weight, coherent shoulders and pelvis, exactly two attached arms, two attached legs, one head, readable natural hands. No duplicate limbs, no limb-shaped motion trails, no dislocated body, no disconnected hands.\nSubject: GEN, slim small-statured young ADULT human male mechanical genius, intent dark eyes, neatly combed very dark brown-black hair with a clearly visible emerald-green dyed lock. Human face and body. BEFORE his fusion, elemental status NONE: no electrical arcs, no magical glowing skin, no Sentry effects, no glowing eyes, no crystal embedded in body.\nCritical anatomy: EXACTLY TWO ARMS TOTAL. His anatomical RIGHT arm is flesh with a normal right hand; his anatomical LEFT arm is his attached handmade mechanical prosthetic arm, from the left shoulder connection through ONE elbow to ONE mechanical wrist and hand. The prosthetic REPLACES the biological left arm. There is NO additional flesh left arm, NO detached spare arm, NO third hand on the table. The prosthetic remains attached throughout repair.\nScene: clandestine improvised workshop in an abandoned ventilation conduit in the depths of Z13, old cables feeding faint bulbs, a makeshift workbench of salvaged wood, precisely arranged small gears, screws and tools, rusted ducts, battered recovered machinery. No writing, no schematics with glyphs.\nPose/composition: intimate three-quarter seated figure view, head to both boots visible; table edge at waist height with visible space below, two knees and two feet clearly readable. Gen leans forward in concentration toward his own LEFT prosthetic forearm resting horizontally on a folded cloth on the bench. The metal left fingers lie relaxed on the cloth; the mechanical upper arm, elbow and shoulder connection are visible as one continuous assembly. His RIGHT human hand holds one small screwdriver to tighten an exposed plate screw in that left forearm. Keep the two hands visibly separated and use a side angle that makes the anatomy unambiguous. Right shoulder connects visibly to right elbow and right wrist. No extra helper, no robot assistant. Worn charcoal work shirt with left sleeve rolled back, practical dark trousers. Prosthesis made of worn steel, dark brass, cable tendons and coherent simple joints, painstakingly repaired not futuristic sleek.\nEmotion: patient ingenuity, fatigue and private vulnerability, a small hopeful concentration in the brow. A warm task lamp strikes the face, green forelock and knuckles; desaturated cool gray workshop recedes. Paint the quiet tactile repair, not an action lightning portrait.",
+      "generated_source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-5130b1fe-652a-443d-af16-cb330ca10945.png",
+      "output": {
+        "width": 1122,
+        "height": 1402,
+        "format": "PNG",
+        "bytes": 2431143,
+        "sha256": "984621482EE9BFF319073911422C951EA58ACAD002959E0FE5E968441421702C",
+        "source_copy_sha256_verified": true
+      },
+      "visual_review": {
+        "method": "Inspection visuelle de chaque sortie generee, controle des membres, des mains, de la scene et du canon.",
+        "passed": true,
+        "checks": [
+          "Bras gauche anatomique mecanique (a droite dans l'image), continu de l'epaule a la main.",
+          "Bras droit humain tenant le tournevis; exactement deux bras et deux mains en tout.",
+          "Prothese attachee et au repos sur l'etabli; aucune prothese supplementaire ni bras humain gauche duplique.",
+          "Deux jambes et deux bottes visibles; petite silhouette fine, visage jeune adulte.",
+          "Cheveux noirs avec meche verte visible; aucun effet Electro ni signe de fusion."
+        ]
+      },
+      "iterations": [
+        {
+          "pass": 1,
+          "kind": "generate",
+          "source": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-5130b1fe-652a-443d-af16-cb330ca10945.png",
+          "accepted": true
+        }
+      ]
+    }
+  ]
+}

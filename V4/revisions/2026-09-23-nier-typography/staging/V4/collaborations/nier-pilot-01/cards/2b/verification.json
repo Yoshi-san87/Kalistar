@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "modelId": "45911726",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "95c84ccaea365f69e6515941ffb632de2a86b174166874aebfa77418f654d440",
+  "hashes": {
+    "card.png": "4d717c8c162356c718fe60e620bf03911ae334ff6c318f8aa1a79092d291add3",
+    "card.psd": "67b693c376fb91fb3b7c4e3f666fddb42e1d5f1c4d69bc99ecaa1a809663876c"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 105862
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "45911726",
+    "cases": {
+      "color-1": [
+        "45911726"
+      ],
+      "color-4": [
+        "45911726"
+      ],
+      "gray-1": [
+        "45911726"
+      ],
+      "gray-4": [
+        "45911726"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-23T00:44:50.995Z",
+  "key": "2b",
+  "revision": "2026-09-23-nier-typography",
+  "typographyOnly": {
+    "outside": {
+      "changed": 3171,
+      "outside": 0
+    },
+    "unchangedGameplay": true,
+    "unchangedOtherLayers": true
+  }
+}

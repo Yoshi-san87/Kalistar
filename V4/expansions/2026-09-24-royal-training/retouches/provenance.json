@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-09-24T14:46:26.374Z",
+  "scope": "Illustrations only; native card proofs are separate. Artistic user approval not claimed.",
+  "assets": [
+    {
+      "key": "darnako",
+      "selected": true,
+      "method": "built-in-imagegen",
+      "request": {
+        "path": "V4/expansions/2026-09-24-royal-training/retouches/darnako.request.json",
+        "sha256": "f2f0cf8f0e22648b0c54be590dd724418ab7c7b7ac370c8eb4d1bc4eb55ce94d"
+      },
+      "inputs": [
+        {
+          "path": "V4/assets/illustrations/elements-01/eau-feu-glace/DARNAKO_V4_01.png",
+          "sha256": "61bcb2b218f2f9d6286d9b7116511aa9fe804dfb7bbc5a318152415c71f39679"
+        },
+        {
+          "path": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8"
+        },
+        {
+          "path": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee"
+        }
+      ],
+      "output": {
+        "path": "V4/expansions/2026-09-24-royal-training/retouches/darnako.png",
+        "sha256": "820ed269f823c7a59d9e88d5277876371473b41fe2f43077d39659455b04fe47"
+      },
+      "generatedOriginal": "C:\\Users\\guill\\.codex\\generated_images\\019e30c1-21b0-7e11-9f9d-2fe692f111d2\\exec-6e165685-1ab6-46fb-a650-ce661c381a9b.png"
+    },
+    {
+      "key": "ruby-red-v1",
+      "selected": false,
+      "method": "built-in-imagegen",
+      "request": {
+        "path": "V4/expansions/2026-09-24-royal-training/retouches/ruby.request.json",
+        "sha256": "957ebff4834dc18994efa713d15f9dcce99238e8fa17104165e75dc8c09aecdd"
+      },
+      "inputs": [
+        {
+          "path": "V4/assets/illustrations/elements-01/eau-feu-glace/RUBY_V4_01.png",
+          "sha256": "a711cf9e5d71ba6c1fabdb7ddc2b441cea67e720cda6b39f36e143c66686bf1b"
+        },
+        {
+          "path": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8"
+        },
+        {
+          "path": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee"
+        }
+      ],
+      "output": {
+        "path": "V4/expansions/2026-09-24-royal-training/retouches/ruby-red-v1.png",
+        "sha256": "7fb4770ab8c2f6eba56fbd8852f44213d0b73d319933ed798841bc212c244605"
+      },
+      "generatedOriginal": "C:\\Users\\guill\\.codex\\generated_images\\019e30c1-21b0-7e11-9f9d-2fe692f111d2\\exec-b169c583-59ee-40ea-bfa2-dbc025737cc4.png"
+    },
+    {
+      "key": "ruby",
+      "selected": true,
+      "method": "built-in-imagegen",
+      "request": {
+        "path": "V4/expansions/2026-09-24-royal-training/retouches/ruby-black-hair.request.json",
+        "sha256": "c30c379c981773db989b3345abf5ea50cdc1c68f63272e2df583284d36d11e3c"
+      },
+      "inputs": [
+        {
+          "path": "V4/expansions/2026-09-24-royal-training/retouches/ruby-red-v1.png",
+          "sha256": "7fb4770ab8c2f6eba56fbd8852f44213d0b73d319933ed798841bc212c244605"
+        }
+      ],
+      "output": {
+        "path": "V4/expansions/2026-09-24-royal-training/retouches/ruby.png",
+        "sha256": "4a35e940d3888a47969c68e91d2912e08487d47aeeb4320d5e7799cb386cc8cf"
+      },
+      "generatedOriginal": "C:\\Users\\guill\\.codex\\generated_images\\019e30c1-21b0-7e11-9f9d-2fe692f111d2\\exec-2318e8e3-7cc2-4a32-9b7d-6ceccda0849f.png"
+    },
+    {
+      "key": "xiaomi-v1",
+      "selected": false,
+      "method": "built-in-imagegen",
+      "request": {
+        "path": "V4/expansions/2026-09-24-royal-training/retouches/xiaomi.request.json",
+        "sha256": "20ff8438fbce4949c6bd0a6fdc43f76346606ffc2b5fc7600395b2466ed845f4"
+      },
+      "inputs": [
+        {
+          "path": "V4/expansions/2026-09-23-return/art-b/xiaomi.png",
+          "sha256": "609641c82f895bf3a12c5baf52c05152bd2bda7db33c6afc4f65e175ecaab5c5"
+        },
+        {
+          "path": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8"
+        },
+        {
+          "path": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee"
+        }
+      ],
+      "output": {
+        "path": "V4/expansions/2026-09-24-royal-training/retouches/xiaomi-v1.png",
+        "sha256": "4e636a77af7fa8bfa4abca87045990edeca6c64d955c7e490c6b0082de5775b8"
+      },
+      "generatedOriginal": "C:\\Users\\guill\\.codex\\generated_images\\019e30c1-21b0-7e11-9f9d-2fe692f111d2\\exec-cb6d922d-62a8-4580-a856-c68d39d86491.png"
+    },
+    {
+      "key": "xiaomi",
+      "selected": true,
+      "method": "built-in-imagegen",
+      "request": {
+        "path": "V4/expansions/2026-09-24-royal-training/retouches/xiaomi-framing.request.json",
+        "sha256": "8b665587b5b0315f510a831fc7a891576e187cf81a2fa65d201cb2017ab05767"
+      },
+      "inputs": [
+        {
+          "path": "V4/expansions/2026-09-24-royal-training/retouches/xiaomi-v1.png",
+          "sha256": "4e636a77af7fa8bfa4abca87045990edeca6c64d955c7e490c6b0082de5775b8"
+        }
+      ],
+      "output": {
+        "path": "V4/expansions/2026-09-24-royal-training/retouches/xiaomi.png",
+        "sha256": "db37c0cbb778e410563e3a9a4b4f404bd6d4e2f6efde1d1a6b2e0919a9f14cfc"
+      },
+      "generatedOriginal": "C:\\Users\\guill\\.codex\\generated_images\\019e30c1-21b0-7e11-9f9d-2fe692f111d2\\exec-f0f08a58-ab38-4a43-9ea4-3a5031ea9f3f.png"
+    }
+  ]
+}

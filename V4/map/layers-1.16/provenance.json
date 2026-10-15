@@ -1,0 +1,67 @@
+{
+  "version": "1.16",
+  "date": "2026-10-12",
+  "parentVersion": "1.15",
+  "generationId": "exec-a4d75b5e-c5a9-47ee-98ad-862aabbb3ad7",
+  "prompt": "layers-1.16/zone.prompt.txt",
+  "source": "layers-1.16/zone-before.png",
+  "process": "crop generation then deterministic polygon mask; unchanged parent PSD city groups",
+  "files": [
+    {
+      "file": "layers-1.16/build-zone-map.cjs",
+      "sha256": "69d08faaa3a0e2b7508c794ba644c3fbb7c283b139532e422fdb446f35b4b548"
+    },
+    {
+      "file": "layers-1.16/kalistar-map-1.16-preview.png",
+      "sha256": "2411348db44d3cf2cf892e11128cc0df15cd126a9790843a48ea9e74d9684513"
+    },
+    {
+      "file": "layers-1.16/kalistar-map-1.16.psd",
+      "sha256": "5f73b44b62257cfa7716ea2f578eed2f315a68f5f3d20a6d1b24dfd1f2f191c6"
+    },
+    {
+      "file": "layers-1.16/prepare-zone.cjs",
+      "sha256": "a6f8bbe322f3656079a4a5a3c3f74e4d1764aa6fbf3cc6f3c6e5c6d8b6c2b93f"
+    },
+    {
+      "file": "layers-1.16/README.md",
+      "sha256": "75a93f79a5ced3495452eb840d9d2e010aa5563fbe664d0d03401f4831a157ef"
+    },
+    {
+      "file": "layers-1.16/user-zone-reference.png",
+      "sha256": "0f40ff0a1e2bca27130f8527936e3c5aad9aae3fe01dfb73b8dab9d4892dd5db"
+    },
+    {
+      "file": "layers-1.16/verification.json",
+      "sha256": "83707689df11839f82b706db64807306508fcc26c0649795f5eab894d3ef5d1f"
+    },
+    {
+      "file": "layers-1.16/zone-after.png",
+      "sha256": "78455cd64e228dcd7f5295d8b3ecee2a9451ecc9ef4bc5c2f54550792d42f5cb"
+    },
+    {
+      "file": "layers-1.16/zone-before.png",
+      "sha256": "58794bd7ab55d8693600c98792dc24e06cee0f89e842def5aacfcb15f2418d81"
+    },
+    {
+      "file": "layers-1.16/zone-fitted.png",
+      "sha256": "38d3de134dc02c090117cfc5840dade77ce2d42315191b67b1744f873aea20f5"
+    },
+    {
+      "file": "layers-1.16/zone-generated.png",
+      "sha256": "d181ac08b5bcb3d864c608a65795bfcb5d262bc107da39243a57433c4178adea"
+    },
+    {
+      "file": "layers-1.16/zone-mask.png",
+      "sha256": "ab45bec89fff3afa5578cd2434660f6512f658c94ea9bc1bb1696c1c097919b3"
+    },
+    {
+      "file": "layers-1.16/zone.json",
+      "sha256": "c990325267707882644b31e52e38804242f5ee79137bac52489ef2a0eeaf2f28"
+    },
+    {
+      "file": "layers-1.16/zone.prompt.txt",
+      "sha256": "0920038871ada3bf765e387116cf82d3844aee1442ccd897e85a569a1495743c"
+    }
+  ]
+}

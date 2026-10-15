@@ -1,0 +1,7 @@
+{
+  "passed": false,
+  "label": "desktop current ATK anchor inspection",
+  "cause": "The legacy alignment check also measured a hidden inactive shield alongside an active weapon.",
+  "runtimeChanged": false,
+  "resolution": "Check hidden inactive layers explicitly; retain precise geometry and animation assertions for active layers."
+}

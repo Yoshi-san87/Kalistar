@@ -1,0 +1,137 @@
+{
+  "version": "1.30",
+  "parentVersion": "1.29",
+  "generator": "built-in image_gen; deterministic masked compositing and independent city layer",
+  "generationIds": {
+    "terrain": "exec-b6a13314-d98b-4cfc-9aef-e350b2afb5af",
+    "woodland": "exec-adc70883-5086-4857-bcdb-5d85ea1805e3",
+    "rejectedTerrain": "exec-d61ba6c0-92e7-4ace-ba71-2a4ca391f6c0"
+  },
+  "rejectedReason": "Portrait framing distorted the crop; not composited or published.",
+  "parentFiles": [
+    {
+      "file": "../kalistar-map-1.26-base.png",
+      "sha256": "ddee8bcd671b2b9a4903f4a0cd683c408c35a7fdd5c2f817a7ac816bd1040d03"
+    },
+    {
+      "file": "../layers-1.29/kalistar-map-1.29.psd",
+      "sha256": "f68f1aa57287fc364db7a08bf9c3f1cd70be5f0aecf24dd62c0c3b54db787d3e"
+    }
+  ],
+  "files": [
+    {
+      "file": "kalistar-map-1.30-base.png",
+      "sha256": "08ad4d7db43294b2e1013c751f202508da0dc6745ff1407b9d17ecd4b5bc94a4"
+    },
+    {
+      "file": "layers-1.30/kalistar-map-1.30-preview.png",
+      "sha256": "4986c0303cf16c9bcfd0188288cf882e3f9abb4cec81c3407a46112e52fbb5b2"
+    },
+    {
+      "file": "layers-1.30/kalistar-map-1.30.psd",
+      "sha256": "5d3f16344c626af742c17648b32b3caecd10d784a47919bf19b9c1020672ae89"
+    },
+    {
+      "file": "layers-1.30/kalistar-atlas-1.30.webp",
+      "sha256": "2ffc2d52c4d2858658c3f95589860a24e01d78d295c31b6753b5d3af5ebaec29"
+    },
+    {
+      "file": "layers-1.30/zone.json",
+      "sha256": "a8c1bf73c486970e4f1c5a206f403909bf648a46ab2707e7a28b50f436305ecb"
+    },
+    {
+      "file": "layers-1.30/zone.prompt.txt",
+      "sha256": "5804a08ac2266001cee2f3726bad0b4c2bad374651ce6ad406711ac5e11b8847"
+    },
+    {
+      "file": "layers-1.30/zone-final.prompt.txt",
+      "sha256": "58a2d0c6abb0a0c0e33c983406b72110a33ac9a058d7b05a490200871946f312"
+    },
+    {
+      "file": "layers-1.30/woodland.prompt.txt",
+      "sha256": "1e730f1115245fc1d5f39163c8f1d641d95983f6f7db173b52653ce79be25faf"
+    },
+    {
+      "file": "layers-1.30/prepare-zone.cjs",
+      "sha256": "f205393fb0d633c822fa6295fa63c69e29af2e98019440aa00b35aa7dbc4c50c"
+    },
+    {
+      "file": "layers-1.30/build-map.cjs",
+      "sha256": "a4767d1a045a0a730e71f9ba810931269296966013efdb25da5a18820ed4c192"
+    },
+    {
+      "file": "layers-1.30/publish.cjs",
+      "sha256": "8bc741ee133a908122296863de00e62a1a4edd8118354e8bb24ca5a7a8ff1aa8"
+    },
+    {
+      "file": "layers-1.30/published-media.json",
+      "sha256": "3d79167f6486d400014605d9ce2d5bd8172b18eee2bb0098b7949ce213d9ca88"
+    },
+    {
+      "file": "layers-1.30/map.test.cjs",
+      "sha256": "3d65e5f7b0957dbb79a476ba5dd8b9bca437b9cfdabab3f65a7bbe7edba34c59"
+    },
+    {
+      "file": "layers-1.30/README.md",
+      "sha256": "efb1f8c2fa2fec4154cd31b1f5b140fe041f0def16856f60fdf0dc7432fd417d"
+    },
+    {
+      "file": "layers-1.30/user-zone-reference.png",
+      "sha256": "fb4a6fd2528c06036482171bcc4944c8e92ad841e6a0c0d2a58228e5dce653de"
+    },
+    {
+      "file": "layers-1.30/woodland-architecture-reference.png",
+      "sha256": "2c73290934b398b5bb5b425050269cc9276b309a5008397c74233cff7118b465"
+    },
+    {
+      "file": "layers-1.30/zone-before.png",
+      "sha256": "423286cbd0ed235feb4681cc75bfcf2506178cce17182cefc7f6d7c0a065a360"
+    },
+    {
+      "file": "layers-1.30/zone-before-large.png",
+      "sha256": "8f4851616f11d10cc693d3ff5c060c69fdc4bb4600686bb5d8e9056acca13157"
+    },
+    {
+      "file": "layers-1.30/zone-generated.png",
+      "sha256": "092824b8479272a93dd499d2b9dab776063848b8d3a2d4fb3993ecad4d261891"
+    },
+    {
+      "file": "layers-1.30/zone-fitted.png",
+      "sha256": "dac3b35c016df23fcca84d05a5188f2d129b99c013e3dd73483eca3f84b54075"
+    },
+    {
+      "file": "layers-1.30/zone-mask.png",
+      "sha256": "b02d05ba572c23c53e7335f5de51891517a92f3f93153ec0769e0b2bc2ac55a8"
+    },
+    {
+      "file": "layers-1.30/zone-after.png",
+      "sha256": "a9f40ad2c559a658c1c52a4f7b7ba64b67547887ebfca2bbcbdc71e277a5b34c"
+    },
+    {
+      "file": "layers-1.30/woodland-source.png",
+      "sha256": "8e3d52f005d83d4f6e3205d7d87ab4e18862c99c80088afcb0f147ed28b85e32"
+    },
+    {
+      "file": "layers-1.30/woodland-icon.png",
+      "sha256": "937578b71e98da6dca314251977340f1ed3293d3b63430f32a9077c4d6df3efc"
+    },
+    {
+      "file": "layers-1.30/woodland-v1.webp",
+      "sha256": "2680cdaa9eb1a4ff68f9796ecb77a15c40e499680b26c0ce6b253652c6b16b81"
+    },
+    {
+      "file": "layers-1.30/woodland-v2.webp",
+      "sha256": "4b0a1254d90f2966304053402ae64ad0b70ba0006553bdc73c283a7ae97f058e"
+    },
+    {
+      "file": "layers-1.30/woodland-detail.png",
+      "sha256": "782884a29bb0ff4aad6b4ad03258c16c1969005ae8e6fbb8f2f47cfe7224a131"
+    },
+    {
+      "file": "layers-1.30/verification.json",
+      "sha256": "f95ce3b742671154434013ae562634079878cf78c94d05b1f5999e2d56d7350d"
+    }
+  ],
+  "authorApprovedOn": "2026-10-14",
+  "runtimePublished": true
+}

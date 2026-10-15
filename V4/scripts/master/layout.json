@@ -1,0 +1,40 @@
+{
+  "version": 3,
+  "masterPsd": "templates/KALISTAR_MASTER_V4_02-chassis.psd",
+  "canvas": {"width": 950, "height": 1655, "ppi": 300, "profile": "sRGB IEC61966-2.1"},
+  "reference": "cartes/MOMO_ELECTRO_V4_04-typographie.png",
+  "referenceSha256": "b2b0211565dacdcdb902866ee94dfdc41648d5ee7d51c7a652ad72ae0740ba11",
+  "artPolygon": [[181,139],[745,139],[765,196],[765,920],[866,923],[866,1203],[154,1203],[154,923],[181,919]],
+  "flagPolygon": [[768,933],[857,933],[857,1068],[815,1181],[770,1070]],
+  "crystalPolygon": [[474,1267],[487,1289],[551,1310],[548,1391],[474,1440],[400,1392],[398,1310],[459,1289]],
+  "branchPolygons": [
+    [[174,1348],[337,1348],[373,1370],[399,1370],[399,1392],[367,1392],[333,1363],[174,1363]],
+    [[551,1370],[567,1370],[592,1349],[778,1349],[778,1364],[600,1364],[572,1392],[551,1392]]
+  ],
+  "barcode": {"box":[98,944,126,1199],"well":[95,941,129,1201],"kind":"Code128C","quietModules":12},
+  "positions": {"x":160,"y":1123,"width":57,"height":72,"step":73,"cx":189,"cy":1159,"font":"ArialMT","sizePx":36},
+  "texts": {
+    "name": {"box":[390,72,560,116],"center":[475,94],"width":530,"font":"Augustus","sizePx":39,"color":"F0EEE9","gold":false},
+    "title": {"box":[301,1225,646,1258],"center":[475,1241],"width":640,"font":"TimesNewRomanPSMT","sizePx":32,"color":"EDEEEB","gold":false},
+    "job": {"box":[201,1310,374,1343],"center":[288,1328],"width":204,"font":"TimesNewRomanPSMT","sizePx":28,"color":"E7CE6D","gold":true},
+    "race": {"box":[608,1310,699,1343],"center":[655,1328],"width":207,"font":"TimesNewRomanPSMT","sizePx":28,"color":"E7CE6D","gold":true},
+    "text": {"box":[132,1436,816,1569],"center":[475,1502],"width":684,"font":"MyriadPro-Regular","sizePx":29,"leadingPx":34,"color":"EDEEEB","gold":false}
+  },
+  "slots": [
+    {"side":"atk","die":6,"cx":106,"cy":117,"r":77,"extent":111,"state":"electric","value":202,"sizePx":61},
+    {"side":"atk","die":5,"cx":122,"cy":382,"r":49,"extent":79,"state":"electric","value":167,"sizePx":45},
+    {"side":"atk","die":4,"cx":126,"cy":505,"r":55,"extent":56,"state":"effect","value":"retry","sizePx":45},
+    {"side":"atk","die":3,"cx":123,"cy":623,"r":49,"extent":77,"state":"electric","value":84,"sizePx":45},
+    {"side":"atk","die":2,"cx":125,"cy":742,"r":54,"extent":55,"state":"effect","value":"mana","sizePx":45},
+    {"side":"atk","die":1,"cx":122,"cy":860,"r":49,"extent":76,"state":"electric","value":29,"sizePx":45},
+    {"side":"defense","die":6,"cx":835,"cy":120,"r":79,"extent":101,"state":"barrier","value":200,"sizePx":61},
+    {"side":"defense","die":5,"cx":818,"cy":381,"r":51,"extent":70,"state":"barrier","value":167,"sizePx":45},
+    {"side":"defense","die":4,"cx":816,"cy":505,"r":55,"extent":56,"state":"effect","value":"retry","sizePx":45},
+    {"side":"defense","die":3,"cx":817,"cy":623,"r":51,"extent":53,"state":"physical","value":100,"sizePx":45},
+    {"side":"defense","die":2,"cx":817,"cy":744,"r":51,"extent":70,"state":"barrier","value":59,"sizePx":45},
+    {"side":"defense","die":1,"cx":818,"cy":861,"r":51,"extent":53,"state":"physical","value":11,"sizePx":45}
+  ],
+  "medallions": {"weapon":{"cx":103,"cy":1316,"r":57},"race":{"cx":846,"cy":1316,"r":55}},
+  "statsFont":"Arial-BoldMT",
+  "print": {"enabled":false,"legacyCanvas":[897,1497],"reason":"Le ratio du visuel valide differe du fichier historique. Aucun etirement ni BAT implicite."}
+}

@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "modelId": "40243854",
+  "referenceId": "ef7a6767b57723d896ceecb050079bfb1abad0e79e7289a200f87b34585f9380",
+  "profileHash": "39e4cfa32d5ca26e71d152ca628cb79705e53a10b8ba9895334c6403148b0f72",
+  "hashes": {
+    "card.png": "f2f281761c838a90cd22e3280321fe08036e36db9077d293575fd05d9b73300d",
+    "card.psd": "6b73e0bdf0e401cfca03e9f384a147c3288c323a46cd5a194de6d70c81e67bd5"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 124688
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "40243854",
+    "cases": {
+      "color-1": [
+        "40243854"
+      ],
+      "color-4": [
+        "40243854"
+      ],
+      "gray-1": [
+        "40243854"
+      ],
+      "gray-4": [
+        "40243854"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-27T13:50:00.525Z",
+  "key": "momo-silence",
+  "preparationHash": "5bf2e6421a525d3eac305307f9eb21d3458c2a3e653c0a2eeb91defc4732f2d6",
+  "typographyAudit": {
+    "passed": true,
+    "rulesHash": "c3520779bdfad875fe67798dc8605193152395d4267d8fa2e39efeb6a962af4a",
+    "orphanPunctuation": false
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "modelId": "49800301",
+  "referenceId": "ef7a6767b57723d896ceecb050079bfb1abad0e79e7289a200f87b34585f9380",
+  "profileHash": "9387dc4946d17f23aac8881ed551d4a4af26bbef0c1fe96419c38e1338a6cc6d",
+  "hashes": {
+    "card.png": "ef9d5025160db46938beaf733c4c8b931f9b75583c687058ef87a8a15e8f5a37",
+    "card.psd": "486a0b94113cf4d3353937d2194eb1dce128203e4b748f3fab082fe41c1063ce"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 116931
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49800301",
+    "cases": {
+      "color-1": [
+        "49800301"
+      ],
+      "color-4": [
+        "49800301"
+      ],
+      "gray-1": [
+        "49800301"
+      ],
+      "gray-4": [
+        "49800301"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-01T23:21:08.615Z",
+  "revision": "2026-10-02-sanji-legs",
+  "scope": {
+    "originalPixels": {
+      "changed": 0,
+      "outside": 0
+    },
+    "withoutArt": {
+      "changed": 0,
+      "outside": 0
+    },
+    "outside": {
+      "changed": 446146,
+      "outside": 0
+    },
+    "nativeTextUnchanged": true,
+    "nativeStyleRunsUnchanged": true,
+    "geometryUnchanged": true,
+    "embeddedObjects": true,
+    "changedProfileFields": []
+  }
+}

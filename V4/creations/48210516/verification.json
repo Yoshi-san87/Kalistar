@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "key": "aeris",
+  "modelId": "48210516",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "b8f33fa8bd562ffa04f719cc371dc078820247e27bc2486c1c4dc2ca899b0e81",
+  "hashes": {
+    "card.png": "6486ba73c23ec5b4d4be022f664a38c6b9647366672e7a02ea4dd816e908d53f",
+    "card.psd": "5e7267da40c0aea5db6d3b82b4543733efe0c09b2c810d4190374efad67bf878"
+  },
+  "components": {
+    "changed": 146769,
+    "maxChannelDelta": 2,
+    "severePixels": 0,
+    "fixedDifferences": 0
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "48210516",
+    "cases": {
+      "color-1": [
+        "48210516"
+      ],
+      "color-4": [
+        "48210516"
+      ],
+      "gray-1": [
+        "48210516"
+      ],
+      "gray-4": [
+        "48210516"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-20T10:16:48.869Z"
+}

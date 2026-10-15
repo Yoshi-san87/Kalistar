@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "modelId": "45243854",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "553fec61e8158449638d4c1c8e697dc9be64c1c91098c4477c6fb8a1e9fbc39f",
+  "hashes": {
+    "card.png": "027a328ecafb50146a88859cbc294c1d4c49d7448037b61938e0380d7a5b1a72",
+    "card.psd": "730c2f647473a59640e4025fe7b1a82d43bb4e60649574f5e9ed5dd3306e1e49"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 97960
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "45243854",
+    "cases": {
+      "color-1": [
+        "45243854"
+      ],
+      "color-4": [
+        "45243854"
+      ],
+      "gray-1": [
+        "45243854"
+      ],
+      "gray-4": [
+        "45243854"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-23T01:35:02.501Z",
+  "key": "anemone",
+  "preparationHash": "ed04a6f0084153c0ed2c2fc62e11031b54adb1ba65c8972f1e7134b9bd06c382"
+}

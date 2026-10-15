@@ -1,0 +1,37 @@
+{
+  "job": "eb4acfba-a6b6-456b-93b9-de62965924db",
+  "setId": "2026-10-01-resident-evil",
+  "key": "moreau8",
+  "modelId": "49700122",
+  "hashes": {
+    "profile.json": "966f30233585879d8c3c0fe45c0144546e124c484bb6ef0638fc2fdd92c58d6b",
+    "card.png": "3107fd4984d1caedbdc9cb2f0353018ed702bd4b8a58815c137e640f43e395ab",
+    "card.psd": "1d6f3c61a3c81bc7f55f2f8ea732121cde7bc932d9bf00128dbd37b564d57428",
+    "verification.json": "8ef0198337369ec5192396cd6a4854db03e9d8c8f94309087d3dee02d6917e00",
+    "illustration.png": "1e6a831e77548868fabd77507c51e371869750eb7ab3fb7c3d8c0baf9d05c2c8"
+  },
+  "createdAt": "2026-09-30T23:31:56.057Z",
+  "nativeRevision": {
+    "id": "2026-10-08-resident-evil-faces",
+    "key": "moreau",
+    "proof": "V4/revisions/2026-10-08-resident-evil-faces/work/49700122/verification.json",
+    "changedFields": [
+      "atk",
+      "defense",
+      "magic",
+      "barriers",
+      "canGuard",
+      "canHeal"
+    ],
+    "previous": {
+      "id": "2026-10-01-stat-personality",
+      "key": "moreau",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700122/verification.json",
+      "changedFields": [
+        "atk",
+        "defense"
+      ],
+      "previous": null
+    }
+  }
+}

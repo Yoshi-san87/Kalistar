@@ -1,0 +1,149 @@
+{
+  "status": "native-verified-awaiting-parent-preview",
+  "id": "49800201",
+  "gameCards": 175,
+  "game": {
+    "variant": "49800201",
+    "original": "40000042",
+    "characterId": "rikka",
+    "duplicateCharacterRejected": true,
+    "positions": [
+      2
+    ]
+  },
+  "preservation": {
+    "baselineCards": 174,
+    "baselineFiles": 818,
+    "unchangedFiles": 574,
+    "allowedFiles": 244,
+    "statsIds": [
+      "49800101",
+      "49800102",
+      "49800103",
+      "49800104",
+      "49800105",
+      "49800106",
+      "49800107",
+      "49800108",
+      "49800109",
+      "49800110",
+      "49800111",
+      "49700101",
+      "49700102",
+      "49700103",
+      "49700104",
+      "49700105",
+      "49700106",
+      "49700107",
+      "49700108",
+      "49700109",
+      "49700110",
+      "49700111",
+      "49700112",
+      "49700113",
+      "49700114",
+      "49700115",
+      "49700116",
+      "49700117",
+      "49700118",
+      "49700119",
+      "49700120",
+      "49700121",
+      "49700122",
+      "49700123",
+      "49700124",
+      "49700125",
+      "49600101",
+      "49600102",
+      "49600103",
+      "49600104",
+      "49600106",
+      "49600108",
+      "49600110",
+      "49600111",
+      "49600114",
+      "49600115",
+      "49600117",
+      "49600119"
+    ],
+    "framingIds": [
+      "45951088"
+    ]
+  },
+  "native": {
+    "passed": true,
+    "modelId": "49800201",
+    "referenceId": "ef7a6767b57723d896ceecb050079bfb1abad0e79e7289a200f87b34585f9380",
+    "profileHash": "df92884f82443d90e76d486120b1d76a40159d8c06aff134b9242c5046d4bf94",
+    "hashes": {
+      "card.png": "fdcca4753094cc146ed2b31fa0bf56a23c49d199529c93ec9dbfe93a567ea301",
+      "card.psd": "4a9c3b177c892f58677b04fd50f98cfecad6c7c68e2dd303d666d7420de90556"
+    },
+    "components": {
+      "fixedDifferences": 0,
+      "severePixels": 0,
+      "changed": 84419
+    },
+    "roundtrip": {
+      "changed": 0,
+      "outside": 0
+    },
+    "barcode": {
+      "passed": true,
+      "expected": "49800201",
+      "cases": {
+        "color-1": [
+          "49800201"
+        ],
+        "color-4": [
+          "49800201"
+        ],
+        "gray-1": [
+          "49800201"
+        ],
+        "gray-4": [
+          "49800201"
+        ]
+      },
+      "physicalPrintVerified": false
+    },
+    "checkedAt": "2026-10-01T13:06:01.383Z",
+    "preparationHash": "ef72a13941c5446a3c8a9ae3af5cc32d7f22532851bfd2b9581b7a4441e5e86f",
+    "typography": true,
+    "descriptionLines": 4
+  },
+  "art": {
+    "revision": 4,
+    "path": "V4/Illustrations/Rikka_La_Ville_Sous_Ses_Pas_04.png",
+    "sha256": "68b6dd33f95d1fc481dafc05e01338b57d87bdf678ce591e536982a821a331a4",
+    "promptFile": "prompt-final.json",
+    "promptSha256": "ce598ad477d141403e1759283887448ce16d5092ff782476ac2bf65c25fbe80b",
+    "method": "built-in image_gen; generated and selected by parent",
+    "parentReview": "passed",
+    "userApprovalClaimed": false,
+    "selectionReason": "Final parent-reviewed response to profile, calmer futuristic Chroma and modern rooftop corrections",
+    "references": [
+      {
+        "path": "V4/Illustrations/Rikka_La_Ville_Sous_Ses_Pas_03_Cyberpunk.png",
+        "sha256": "c2b2a03ee64a3eee87dbcf5184108135b396f38f8b38a50cf102493ccf938d2a",
+        "role": "Direct final edit input; superseded output, not selected for native card"
+      },
+      {
+        "path": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8",
+        "role": "Direct painterly style input"
+      },
+      {
+        "path": "V4/assets/illustrations/42_ELECTRO_RIKKA_V4_02_VITRINE_FRONTALE.png",
+        "sha256": "5b844793a91a292e6a495a2b60fdb76ad169b3f13eed10befd8c047da95af733",
+        "role": "Canonical identity ancestry from original prompt; not a direct final edit input"
+      }
+    ],
+    "promptChain": [
+      "prompt.json",
+      "prompt-profile.json",
+      "prompt-cyberpunk.json",
+      "prompt-final.json"
+    ]
+  }
+}

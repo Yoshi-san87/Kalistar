@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: Rhinoz axe requires Hache as printed family; no current Rhinoz matches
+ok 1 - Rhinoz axe requires Hache as printed family; no current Rhinoz matches
+  ---
+  duration_ms: 88.9048
+  type: 'test'
+  ...
+# Subtest: race arrays combine with other restrictions using AND, validate strictly and leave old definitions valid
+ok 2 - race arrays combine with other restrictions using AND, validate strictly and leave old definitions valid
+  ---
+  duration_ms: 1.7234
+  type: 'test'
+  ...
+# Subtest: legacy Rhinoz profile/composition is repaired, while saved match snapshots stay unchanged
+ok 3 - legacy Rhinoz profile/composition is repaired, while saved match snapshots stay unchanged
+  ---
+  duration_ms: 31.0366
+  type: 'test'
+  ...
+# Subtest: saved matches: all three Rhinoz gain exactly +20 on numeric physical and magical attacks in both camps
+ok 4 - saved matches: all three Rhinoz gain exactly +20 on numeric physical and magical attacks in both camps
+  ---
+  duration_ms: 75.8478
+  type: 'test'
+  ...
+# Subtest: saved matches: Guard D2 remains a support for Belrog, Nazar and Gilmarr even while the axe is active
+ok 5 - saved matches: Guard D2 remains a support for Belrog, Nazar and Gilmarr even while the axe is active
+  ---
+  duration_ms: 14.5386
+  type: 'test'
+  ...
+# Subtest: the new axe stays a bounded existing effect without replacing the printed weapon family
+ok 6 - the new axe stays a bounded existing effect without replacing the printed weapon family
+  ---
+  duration_ms: 0.2763
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 408.1604

@@ -1,0 +1,14 @@
+✔ a combat round advances only when the attacking side changes, opener 0 (10.8549ms)
+✔ a combat round advances only when the attacking side changes, opener 1 (0.2635ms)
+✔ legacy alternating matches retain one action per combat round and their real opener (6.0502ms)
+✔ the sliding track contains history, the current station and future, with no gaps or duplicates (14.8107ms)
+✔ dice, support, pending reinforcements and reload do not advance the round by themselves (0.8492ms)
+✔ no track before the captains or after the match, and turn 200 stays bounded (0.1631ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 124.3743

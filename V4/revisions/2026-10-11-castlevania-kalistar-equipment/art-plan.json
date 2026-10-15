@@ -1,0 +1,257 @@
+{
+  "version": 1,
+  "date": "2026-10-11",
+  "mode": "built-in image_gen",
+  "styleReferences": [
+    "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+    "V3/assets/illustrations/34_NECRO_VALAZAR.png"
+  ],
+  "objects": [
+    {
+      "id": "castlevania-vampire-killer",
+      "name": "Vampire Killer",
+      "slot": "weapon",
+      "family": "Fouet",
+      "characters": [
+        "trevor-belmont-castlevania",
+        "simon-belmont-castlevania"
+      ],
+      "value": 25,
+      "color": "#dfb778",
+      "number": "ARM-046",
+      "lore": "Les Belmont se transmettent un fouet et une tâche qu'aucun d'eux n'a choisie. Le cuir porte la marque des mains qui l'ont serré avant eux. Trevor et Simon n'y trouvent pas une promesse de victoire, seulement une raison de tenir.",
+      "flavour": "Un héritage plus lourd que son acier.",
+      "subject": "Vampire Killer, the iconic Belmont consecrated hunting whip: long weathered chestnut braided leather lash in one open relaxed loop, a straight dark leather grip with restrained engraved antique silver ferrules, small metal tip. Traditional Castlevania identity, not a sword, no giant ball.",
+      "scene": "The whip lies on a worn grey stone parapet in an abandoned Belmont courtyard at first pale dawn, one folded burgundy cloth, distant architecture understated.",
+      "ring": "aged silver interlocking whip-chain links and chestnut leather braid, eight small warm brass rivets"
+    },
+    {
+      "id": "castlevania-alucard-sword",
+      "name": "Épée d’Alucard",
+      "slot": "weapon",
+      "family": "Epée longue",
+      "characters": [
+        "alucard-castlevania"
+      ],
+      "value": 25,
+      "color": "#cedce7",
+      "number": "ARM-047",
+      "lore": "La lame glisse dans le silence avec la précision d'une pensée. Alucard aurait voulu ne rien devoir à son père ; même sa façon de protéger les vivants porte pourtant quelque chose de ce nom.",
+      "flavour": "L’héritier choisit qui sa lame protège.",
+      "subject": "Alucard's elegant Castlevania long sword, one slender perfectly straight double edged silver blade tapering evenly to a needle point, small intricate antique-gold swept crossguard, deep black grip, oval gold pommel. Refined gothic nobility, recognizable sword silhouette, not a rapier basket.",
+      "scene": "The sword rests diagonally across two low blocks in a quiet castle gallery, a pale window reflection on the blade, one folded black cloth, no busy panorama.",
+      "ring": "brushed pale silver with delicate dark gothic fluting, restrained antique-gold crossguard-like fasteners"
+    },
+    {
+      "id": "castlevania-isaac-dagger",
+      "name": "Dague du Maître-Forgeur",
+      "slot": "weapon",
+      "family": "Dague",
+      "characters": [
+        "isaac-castlevania"
+      ],
+      "value": 20,
+      "color": "#dc947f",
+      "number": "ARM-048",
+      "lore": "Isaac a longtemps cru que sa dague ne pouvait qu'obéir à la colère. Il en nettoie désormais le fil comme on prépare un outil. Pour la première fois, l'avenir qu'il imagine ne ressemble pas seulement à une vengeance.",
+      "flavour": "La main apprend un autre avenir.",
+      "subject": "Isaac's Castlevania forgemaster dagger: short broad symmetric leaf-shaped dark steel blade, straight central ridge, narrow red luminous forging line, compact silver crossguard and plain charcoal wrapped handle. Restrained red magic, compact dagger not long sword.",
+      "scene": "The dagger rests on a low blackened anvil beside a cooling ember in a deserted workshop, warm light just on the blade, quiet plaster wall behind.",
+      "ring": "blackened forged steel, hammered silver rim, thin interrupted ember-red inlay"
+    },
+    {
+      "id": "castlevania-alucard-shield",
+      "name": "Bouclier d’Alucard",
+      "slot": "shield",
+      "characters": [
+        "alucard-castlevania"
+      ],
+      "value": 25,
+      "color": "#d5bec3",
+      "number": "PRO-031",
+      "lore": "Sur le métal rouge et argent, un visage farouche veille encore. Alucard passe le bras dans les courroies usées. Recevoir le choc à la place d'un autre est parfois la réponse la plus simple à son héritage.",
+      "flavour": "Se placer entre la nuit et les vivants.",
+      "subject": "Alucard's iconic Castlevania shield, elongated heraldic heater shield in deep crimson enamel and aged silver, sculpted snarling lion face centered, small bat-wing reliefs near the shoulders, substantial silver rim, leather straps unseen, not a circular buckler.",
+      "scene": "The shield leans against a grey castle bench, cold daylight grazing its embossed lion, quiet red velvet folded at its base, no other weapon.",
+      "ring": "antique silver with small heraldic lion-claw reliefs and restrained crimson enamel recesses"
+    },
+    {
+      "id": "castlevania-styria-mantle",
+      "name": "Manteau de Styrie",
+      "slot": "shield",
+      "characters": [
+        "carmilla-castlevania"
+      ],
+      "value": 20,
+      "color": "#c989a1",
+      "number": "PRO-032",
+      "lore": "Le manteau ne garde presque aucune trace des longues nuits de conseil. Carmilla l'ajuste avant d'entrer, et la salle se tait. Elle a fait de cette étoffe une frontière que personne n'est invité à franchir.",
+      "flavour": "Une frontière cousue de velours.",
+      "subject": "Carmilla-inspired legendary defensive mantle: rich wine-red velvet long cape with high structured collar, ivory silk lining, small aged-silver fastening at throat, angular tailored silhouette, heavy realistic cloth without wearer or mannequin.",
+      "scene": "The mantle is draped over the back of an empty high-backed chair in a restrained Styria chamber, single candle reflected in silver clasp, charcoal stone and soft shadow.",
+      "ring": "wine enamel and aged silver thorn-like tracery contained within a perfectly circular rim"
+    },
+    {
+      "id": "castlevania-speaker-robe",
+      "name": "Robe des Orateurs",
+      "slot": "shield",
+      "characters": [
+        "sypha-castlevania"
+      ],
+      "value": 20,
+      "color": "#9dcddc",
+      "number": "PRO-033",
+      "lore": "La robe de Sypha a connu la poussière des routes et la chaleur des foyers étrangers. Ses reprises racontent ce qu'aucun livre ne conserve : les nuits où une communauté entière s'est serrée pour ne laisser personne dehors.",
+      "flavour": "Le savoir voyage avec ceux qu’il abrite.",
+      "subject": "Sypha Belnades Speaker robe from Castlevania, sky-blue and indigo layered travelling robe with generous cowl collar, simple cream inner fold and narrow pale trim, practical worn sleeves, waist belt. Empty garment, no body or mannequin, not wizard armour.",
+      "scene": "The blue robe hangs from a simple peg beside a modest traveller's bed, gentle dawn through a nearby window, a little frost melting on the sill, no books or extra gear.",
+      "ring": "patinated silver with sky-blue enamel and a subtle woven hem pattern, quiet frost highlights"
+    },
+    {
+      "id": "castlevania-hector-ring",
+      "name": "Anneau de Styrie",
+      "slot": "relic",
+      "characters": [
+        "hector-castlevania"
+      ],
+      "value": 25,
+      "color": "#c9a3d5",
+      "number": "REL-032",
+      "event": "SUPPORT",
+      "supports": [
+        "ward",
+        "reraise"
+      ],
+      "recipient": "support",
+      "lore": "Hector connaît maintenant la différence entre être protégé et être possédé. Il regarde l'anneau avant de tendre la main à un allié. Cette fois, le secours qu'il offre ne demande rien en retour.",
+      "flavour": "Aider sans retenir.",
+      "subject": "Hector's Castlevania Styria binding ring, one small ornate antique-silver signet ring with dark amethyst inset and tiny sculpted mask relief at shoulders, oval opening visible in three quarter view. Delicate crafted jewellery, no finger, no oversized spikes.",
+      "scene": "The ring sits alone on a worn wooden worktable near a narrow window, one restrained lavender glint on silver, soft shadow of a window bar, no weapons.",
+      "ring": "engraved aged silver and muted amethyst inlay, four restrained signet-like joints"
+    },
+    {
+      "id": "castlevania-lisa-memory",
+      "name": "Souvenir de Lisa",
+      "slot": "relic",
+      "characters": [
+        "dracula-castlevania"
+      ],
+      "value": 25,
+      "color": "#d8b98c",
+      "number": "REL-033",
+      "event": "ALLY_FALL",
+      "recipient": "self",
+      "lore": "Dans le petit cadre, Lisa ne regarde ni un monstre ni un seigneur. Dracula laisse son pouce sur le cuivre usé. Une voix qu'il n'entendra plus lui rappelle encore que les vivants ne sont pas tous ses ennemis.",
+      "flavour": "Il reste une voix dans le silence.",
+      "subject": "Original Kalistar adaptation of Dracula's memory of Lisa: a small oval antique-copper portrait locket opened once, miniature painted portrait of a kind blonde adult woman in simple white blouse, faded burgundy lining, short delicate chain. Human tender keepsake, not a magical orb.",
+      "scene": "The small open locket rests beside an extinguished candle on a dark stone writing ledge, gentle warm light on the portrait, almost empty background, no skulls.",
+      "ring": "aged copper oval engraving repeated around a circular rim, tiny warm ivory enamel accents"
+    },
+    {
+      "id": "kalistar-vulkar-hammer",
+      "name": "Cœur de Fournaise",
+      "slot": "weapon",
+      "family": "Marteau",
+      "factions": [
+        "Vulkar"
+      ],
+      "value": 25,
+      "color": "#e6a76b",
+      "number": "ARM-049",
+      "lore": "À Vulkar, on ne prête ce marteau qu'à ceux qui savent écouter le métal. Maudre le pose parfois contre le four pour en sentir les vibrations. Le bon coup ne force pas la matière : il arrive quand elle est prête.",
+      "flavour": "Frapper juste, pas seulement fort.",
+      "subject": "Kalistar Vulkar forging war hammer, straight dark ashwood haft, rectangular asymmetric blackened steel hammer head with broad square striking face and compact rear counterweight, narrow orange furnace seam inside, copper heat bands, worn craftsmanship, no giant flames.",
+      "scene": "The hammer leans at an honest diagonal against a basalt forge block, cooling ember in a shallow hearth behind, small ash on floor, intimate workshop framing.",
+      "ring": "black volcanic stone segments bound by aged copper, narrow warm ember seams"
+    },
+    {
+      "id": "kalistar-neriska-bow",
+      "name": "La Lettre Inachevée",
+      "slot": "weapon",
+      "family": "Arc",
+      "characters": [
+        "neriska-kalistar"
+      ],
+      "value": 25,
+      "color": "#b5dbe3",
+      "number": "ARM-050",
+      "lore": "Neriska a fixé un petit étui de cuivre sous la poignée de son arc. La lettre y reste sèche quand le col disparaît sous la neige. Elle vérifie la corde, puis le sceau : un nom effacé mérite encore d'arriver à destination.",
+      "flavour": "La neige n’efface pas une promesse.",
+      "subject": "Neriska's personal Grivka messenger bow, elegant pale birch recurve bow with physically symmetric limbs and one taut straight bowstring, icy blue shallow carvings, aged-copper hand grip with one small sealed letter tube securely attached below, practical rare handmade bow, no arrow.",
+      "scene": "The bow is propped against a low snow-dusted mountain waystone, a little snow in the grain, soft wintry dawn, background a close rock plane not a huge landscape.",
+      "ring": "pale carved birch and silver frost, tiny copper courier seals as fasteners"
+    },
+    {
+      "id": "kalistar-chroma-harness",
+      "name": "Harnais des Passerelles",
+      "slot": "shield",
+      "factions": [
+        "Chroma"
+      ],
+      "value": 20,
+      "color": "#90ccc5",
+      "number": "PRO-034",
+      "lore": "Les ateliers de Chroma fabriquent ces harnais avec des pièces que la ville a abandonnées. Chaque boucle a été éprouvée par une autre main. Quand une passerelle cède, on découvre combien de soin peut tenir dans une couture.",
+      "flavour": "La ville tient aussi par ses coutures.",
+      "subject": "Kalistar Chroma defensive torso harness, worn dark green leather chest straps, four overlapping compact copper protective plates, robust asymmetrical buckles, tiny pale teal insulated power cell, industrial salvage craftsmanship, empty item no person no mannequin, plausible wearable torso silhouette.",
+      "scene": "The harness hangs from a simple steel hook above a weathered workbench by a Chroma footbridge, quiet close metal wall, one modest teal lamp reflection, no crowded city.",
+      "ring": "reclaimed copper plates, dark green leather connectors and small pale teal circuit inlays"
+    },
+    {
+      "id": "kalistar-grivka-pelisse",
+      "name": "Pelisse du Dernier Col",
+      "slot": "shield",
+      "factions": [
+        "Grivka"
+      ],
+      "value": 25,
+      "color": "#b9ccd0",
+      "number": "PRO-035",
+      "lore": "Dans les refuges de Grivka, cette pelisse passe de porte-manteau en porte-manteau. On y trouve parfois un bouton qui ne vient pas du même village. Ceux qui sont rentrés l'ont réparée pour celui qui tarde encore.",
+      "flavour": "Un peu de chaleur pour le dernier.",
+      "subject": "Kalistar Grivka legendary travelling pelisse, slate grey heavy wool coat with thick off-white shearling collar and cuffs, asymmetrical weather flap, three old copper toggles and one carefully darned seam, elegant robust winter garment, no animal head, no wearer or mannequin.",
+      "scene": "The pelisse is laid over a low bench inside a stone mountain refuge, faint cold light at the door, small warm fire reflection on copper toggles, spare quiet backdrop.",
+      "ring": "frost-worn steel and pale wool-bound joins with small copper toggles, cold silver accents"
+    },
+    {
+      "id": "kalistar-nestown-beacon",
+      "name": "Balise du Retour",
+      "slot": "relic",
+      "factions": [
+        "Nestown"
+      ],
+      "value": 20,
+      "color": "#afdcd8",
+      "number": "REL-034",
+      "event": "ALLY_DEPLOY",
+      "recipient": "deployed",
+      "lore": "Les messagers de Nestown accrochent cette balise au dernier toit sûr. Son verre garde un point de lumière dans le brouillard. Quand une silhouette rejoint enfin la ligne, quelqu'un sait déjà par où la ramener.",
+      "flavour": "Une lumière pour rejoindre les siens.",
+      "subject": "Kalistar Nestown courier waypoint beacon, compact hanging brass navigation lantern, faceted sea-green glass core, three graceful wing-like copper fins folded along its sides, leather hanging loop, engraved route ticks but no lettering, no giant wings.",
+      "scene": "The beacon hangs close against the wood of a quiet rooftop post, gentle mist beyond, warm green glass light touches one taut guide-rope, minimal sky.",
+      "ring": "aged brass with folded wing-like metal segments kept on a circular perimeter and sea-green glass slits"
+    },
+    {
+      "id": "kalistar-nerval-lantern",
+      "name": "La Lampe qui Attend",
+      "slot": "relic",
+      "characters": [
+        "nerval-kalistar"
+      ],
+      "value": 20,
+      "color": "#a7dfe7",
+      "number": "REL-035",
+      "event": "SUPPORT",
+      "supports": [
+        "ward",
+        "mana"
+      ],
+      "recipient": "support",
+      "lore": "Nerval ne baisse jamais sa lanterne au premier silence. Sous le cuivre cabossé, la flamme électrique reste douce. Celui qui hésite sur la passerelle n'y voit pas un ordre d'avancer, mais quelqu'un qui l'attendra.",
+      "flavour": "Personne ne traverse tout à fait seul.",
+      "subject": "Nerval's Kalistar Chroma hand lantern, tall narrow battered copper cage, arched handle, cool pale-blue electrical flame inside frosted glass, grounded practical rivets and one repaired hinge, warm weathered copper, tender restrained magic, not a weapon.",
+      "scene": "The lantern stands at the edge of a rain-wet Chroma footbridge handrail, pale blue light traces a few droplets, close worn planks and a distant soft window, simple background.",
+      "ring": "weathered copper cage ribs following a circular path with frosted blue glass insets and tiny gentle electrical glints"
+    }
+  ]
+}

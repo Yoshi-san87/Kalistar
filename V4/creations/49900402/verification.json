@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "modelId": "49900402",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "9aa0cf18d43a76874da724f677e65d03b9d02d9343cfc206681f2735513a9ec4",
+  "hashes": {
+    "card.png": "668d2c52101739c06b30639b6f3249d31d1ff2c0edde60a1f3018508a08c7c6a",
+    "card.psd": "bc682e077a245895da8e26ccd240f75869138da66150f01c19345498b1c0a719"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 85802
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49900402",
+    "cases": {
+      "color-1": [
+        "49900402"
+      ],
+      "color-4": [
+        "49900402"
+      ],
+      "gray-1": [
+        "49900402"
+      ],
+      "gray-4": [
+        "49900402"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-04T14:54:09.979Z",
+  "none": {
+    "unlit": true,
+    "crystalHash": "fd16efbb06ac645589885aed82cadacab4461f08dcc4f4dd1d58d7d42b11f8bf",
+    "branchHash": "c8bf5bb6de74db43356255c19c6747ffd0daa03ae6476c0ef1b66c628d77a7cb"
+  },
+  "typography": true,
+  "revision": "2026-10-04-armor-refinement",
+  "artOnly": {
+    "changed": 444918,
+    "outside": 0
+  }
+}

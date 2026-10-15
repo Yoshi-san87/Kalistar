@@ -1,0 +1,37 @@
+{
+  "job": "3860ce9a-721c-4ed0-8d1d-257d6e0ebab6",
+  "setId": "2026-10-01-resident-evil",
+  "key": "claire2",
+  "modelId": "49700116",
+  "hashes": {
+    "profile.json": "1e8659281b3658028853b024a224317e3f8b9d6d8be3dd89bf77fa3cf1a0aa06",
+    "card.png": "b39630792486aff9cef1f8fe4c045c7fdec92427114217db1f8891029c7eaed7",
+    "card.psd": "744112e879eea0d0aa2bbfe4aef1aab67c4354962ec0f14260a0a44605ab70e8",
+    "verification.json": "ecec5b884ee1571fed5d8272fd77046523561ad18ee84c07279714a8515a4d4c",
+    "illustration.png": "02147c025a43237f4cc69ddfefa4c0b38270ba4483980185d9b4d83b1ca6e005"
+  },
+  "createdAt": "2026-09-30T23:31:55.885Z",
+  "nativeRevision": {
+    "id": "2026-10-08-resident-evil-faces",
+    "key": "claire-re2",
+    "proof": "V4/revisions/2026-10-08-resident-evil-faces/work/49700116/verification.json",
+    "changedFields": [
+      "atk",
+      "defense",
+      "magic",
+      "barriers",
+      "canGuard",
+      "canHeal"
+    ],
+    "previous": {
+      "id": "2026-10-01-stat-personality",
+      "key": "claire-re2",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700116/verification.json",
+      "changedFields": [
+        "atk",
+        "defense"
+      ],
+      "previous": null
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "modelId": "49902602",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "16167e32976cd0160f7de880db5d7c449506d82c7dfd724867a61d0e6eb3ae3e",
+  "hashes": {
+    "card.png": "0e006cba5a92752870a39a2f4cbe717eae47103d76c31aa03797aa7ca8dd084e",
+    "card.psd": "0e9bef28ddc696fe10e708c6ae275984b11fdfced4f4296d5b714edad7d77fd4"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 121269
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49902602",
+    "cases": {
+      "color-1": [
+        "49902602"
+      ],
+      "color-4": [
+        "49902602"
+      ],
+      "gray-1": [
+        "49902602"
+      ],
+      "gray-4": [
+        "49902602"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-13T13:07:47.680Z",
+  "revision": "2026-10-13-voices-weapon-glyphs",
+  "scope": {
+    "changed": 1142,
+    "outside": 0
+  },
+  "weaponOnly": true,
+  "profileUnchanged": true,
+  "source": {
+    "id": "49902602",
+    "key": "borelune",
+    "family": "Sceptre",
+    "source": "V4/site/assets/base-weapons/12.svg",
+    "sourceHash": "d5759ca10d57ad2311378d272eafd08c217fae880f1effc6e2e44baf9c315fc1",
+    "enamelHash": "9588d3c555966d642c8cbdeaf328b34052cabc08303572b534e831f4c0c48d47"
+  },
+  "inputManifestHash": "0439066a6f7aebdc9f2eb9c69117386eb89306a3bf9a647eaf60523abd0c384c"
+}

@@ -1,0 +1,1743 @@
+{
+  "built": false,
+  "sourceRef": "b7205d4a",
+  "collectCoverage": false,
+  "profiles": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "cpuSlowdown": 4,
+      "latencyMs": 80,
+      "start": {
+        "ready": 5028.800000011921,
+        "resources": [
+          {
+            "name": "/jeu/style.css",
+            "bytes": 21313,
+            "duration": 113.59999996423721
+          },
+          {
+            "name": "/jeu/arena.css",
+            "bytes": 15101,
+            "duration": 112.90000003576279
+          },
+          {
+            "name": "/jeu/duel-presentation.css",
+            "bytes": 9902,
+            "duration": 112.80000001192093
+          },
+          {
+            "name": "/jeu/duel-console.css",
+            "bytes": 11773,
+            "duration": 112.80000001192093
+          },
+          {
+            "name": "/jeu/match-report.css",
+            "bytes": 34386,
+            "duration": 112.90000003576279
+          },
+          {
+            "name": "/jeu/catalogue.css",
+            "bytes": 12311,
+            "duration": 113.10000002384186
+          },
+          {
+            "name": "/jeu/v4.css",
+            "bytes": 4203,
+            "duration": 113
+          },
+          {
+            "name": "/jeu/accounts.css",
+            "bytes": 11334,
+            "duration": 113.10000002384186
+          },
+          {
+            "name": "/jeu/battle-ui.css",
+            "bytes": 9593,
+            "duration": 113
+          },
+          {
+            "name": "/jeu/deck-builder.css",
+            "bytes": 50959,
+            "duration": 113.30000001192093
+          },
+          {
+            "name": "/jeu/team-composition.css",
+            "bytes": 19633,
+            "duration": 113.5
+          },
+          {
+            "name": "/jeu/collection-binder.css",
+            "bytes": 50219,
+            "duration": 113.69999998807907
+          },
+          {
+            "name": "/jeu/integration.css",
+            "bytes": 1260,
+            "duration": 113.5
+          },
+          {
+            "name": "/jeu/mobile.css",
+            "bytes": 27825,
+            "duration": 113.59999996423721
+          },
+          {
+            "name": "/jeu/phone-preview.css",
+            "bytes": 1577,
+            "duration": 113.5
+          },
+          {
+            "name": "/jeu/elemental-roll.css",
+            "bytes": 6740,
+            "duration": 113.39999997615814
+          },
+          {
+            "name": "/jeu/statistics.css",
+            "bytes": 17694,
+            "duration": 113.30000001192093
+          },
+          {
+            "name": "/jeu/kill-medals.css",
+            "bytes": 5049,
+            "duration": 113.19999998807907
+          },
+          {
+            "name": "/jeu/pre-match.css",
+            "bytes": 12637,
+            "duration": 113.19999998807907
+          },
+          {
+            "name": "/jeu/combat-reference.css",
+            "bytes": 6617,
+            "duration": 113.20000004768372
+          },
+          {
+            "name": "/jeu/story-reader.css",
+            "bytes": 16496,
+            "duration": 113.09999996423721
+          },
+          {
+            "name": "/jeu/weapons.css",
+            "bytes": 9993,
+            "duration": 113.09999996423721
+          },
+          {
+            "name": "/jeu/weapon-cards.css",
+            "bytes": 10282,
+            "duration": 113.10000002384186
+          },
+          {
+            "name": "/jeu/assets/fonts/cinzel-v26-latin.woff2",
+            "bytes": 25904,
+            "duration": 115.69999998807907
+          },
+          {
+            "name": "/jeu/navigation.css",
+            "bytes": 12064,
+            "duration": 112.69999998807907
+          },
+          {
+            "name": "/jeu/lineup-intro.css",
+            "bytes": 9769,
+            "duration": 112.69999998807907
+          },
+          {
+            "name": "/jeu/ui-system.css",
+            "bytes": 11492,
+            "duration": 112.59999996423721
+          },
+          {
+            "name": "/jeu/turn-timeline.css",
+            "bytes": 4405,
+            "duration": 112.5
+          },
+          {
+            "name": "/jeu/scoreboard.css",
+            "bytes": 4246,
+            "duration": 112.60000002384186
+          },
+          {
+            "name": "/jeu/site-config.js",
+            "bytes": 603,
+            "duration": 112.39999997615814
+          },
+          {
+            "name": "/jeu/phone-preview.js",
+            "bytes": 3110,
+            "duration": 112.09999996423721
+          },
+          {
+            "name": "/jeu/pwa.js",
+            "bytes": 817,
+            "duration": 112.19999998807907
+          },
+          {
+            "name": "/jeu/boot.js",
+            "bytes": 3101,
+            "duration": 111.89999997615814
+          },
+          {
+            "name": "/jeu/assets/logo.webp",
+            "bytes": 47450,
+            "duration": 116.40000003576279
+          },
+          {
+            "name": "/jeu/assets/navigation/collection-v1.webp",
+            "bytes": 28040,
+            "duration": 114.90000003576279
+          },
+          {
+            "name": "/jeu/assets/navigation/story-v1.webp",
+            "bytes": 22904,
+            "duration": 113.80000001192093
+          },
+          {
+            "name": "/jeu/assets/navigation/decks-v1.webp",
+            "bytes": 21410,
+            "duration": 113
+          },
+          {
+            "name": "/jeu/assets/navigation/weapons-v1.webp",
+            "bytes": 11946,
+            "duration": 108.19999998807907
+          },
+          {
+            "name": "/jeu/assets/navigation/arena-v1.webp",
+            "bytes": 21860,
+            "duration": 199.30000001192093
+          },
+          {
+            "name": "/jeu/assets/navigation/more-v1.webp",
+            "bytes": 8632,
+            "duration": 203.60000002384186
+          },
+          {
+            "name": "/jeu/assets/navigation/statistics-v1.webp",
+            "bytes": 14822,
+            "duration": 203.80000001192093
+          },
+          {
+            "name": "/api/game/catalogue",
+            "bytes": 253822,
+            "duration": 138.5999999642372
+          },
+          {
+            "name": "/jeu/assets/ui/collection-reader-grimoire-v1.png",
+            "bytes": 2735079,
+            "duration": 426.4000000357628
+          },
+          {
+            "name": "/jeu/assets/navigation/kalistel-rainbow-v1.webp",
+            "bytes": 14126,
+            "duration": 98.29999995231628
+          },
+          {
+            "name": "/jeu/assets/lucide.min.js",
+            "bytes": 397450,
+            "duration": 160.30000001192093
+          },
+          {
+            "name": "/jeu/ui-system.js",
+            "bytes": 8566,
+            "duration": 83.80000001192093
+          },
+          {
+            "name": "/jeu/weapons.js",
+            "bytes": 33436,
+            "duration": 89.10000002384186
+          },
+          {
+            "name": "/jeu/weapon-art.js",
+            "bytes": 6045,
+            "duration": 89.80000001192093
+          },
+          {
+            "name": "/jeu/equipment.js",
+            "bytes": 9578,
+            "duration": 90.30000001192093
+          },
+          {
+            "name": "/jeu/turn-order.js",
+            "bytes": 3099,
+            "duration": 90
+          },
+          {
+            "name": "/jeu/combat-timeline.js",
+            "bytes": 1879,
+            "duration": 89.80000001192093
+          },
+          {
+            "name": "/jeu/engine.js",
+            "bytes": 51081,
+            "duration": 85.80000001192093
+          },
+          {
+            "name": "/jeu/base-weapons.js",
+            "bytes": 3220,
+            "duration": 90.39999997615814
+          },
+          {
+            "name": "/jeu/collaborations.js",
+            "bytes": 2153,
+            "duration": 88.90000003576279
+          },
+          {
+            "name": "/jeu/card-media.js",
+            "bytes": 2919,
+            "duration": 90.5
+          },
+          {
+            "name": "/jeu/equipment-presentation.js",
+            "bytes": 11545,
+            "duration": 87.39999997615814
+          },
+          {
+            "name": "/jeu/elemental-roll.js",
+            "bytes": 26303,
+            "duration": 90.90000003576279
+          },
+          {
+            "name": "/jeu/arena-ambience.js",
+            "bytes": 9662,
+            "duration": 87.5
+          },
+          {
+            "name": "/jeu/combat-effects.js",
+            "bytes": 18595,
+            "duration": 90.5
+          },
+          {
+            "name": "/jeu/duel-focus.js",
+            "bytes": 13618,
+            "duration": 91.40000003576279
+          },
+          {
+            "name": "/jeu/lineup-intro.js",
+            "bytes": 20073,
+            "duration": 89.40000003576279
+          },
+          {
+            "name": "/jeu/formation-drag.js",
+            "bytes": 4373,
+            "duration": 89.80000001192093
+          },
+          {
+            "name": "/jeu/match-metrics.js",
+            "bytes": 3922,
+            "duration": 89.10000002384186
+          },
+          {
+            "name": "/jeu/trophies.js",
+            "bytes": 5957,
+            "duration": 89.5
+          },
+          {
+            "name": "/jeu/match-report.js",
+            "bytes": 14948,
+            "duration": 87.5
+          },
+          {
+            "name": "/jeu/ownership.js",
+            "bytes": 26574,
+            "duration": 83.89999997615814
+          },
+          {
+            "name": "/jeu/local-db.js",
+            "bytes": 23653,
+            "duration": 85.70000004768372
+          },
+          {
+            "name": "/jeu/weapon-cards.js",
+            "bytes": 7972,
+            "duration": 92.80000001192093
+          },
+          {
+            "name": "/jeu/weapons-ui.js",
+            "bytes": 8438,
+            "duration": 89.89999997615814
+          },
+          {
+            "name": "/jeu/catalogue.js",
+            "bytes": 8616,
+            "duration": 90.19999998807907
+          },
+          {
+            "name": "/jeu/catalogue-updates.js",
+            "bytes": 1711,
+            "duration": 90.60000002384186
+          },
+          {
+            "name": "/jeu/collection-binder.js",
+            "bytes": 39313,
+            "duration": 91.19999998807907
+          },
+          {
+            "name": "/jeu/accounts-ui.js",
+            "bytes": 18509,
+            "duration": 87.30000001192093
+          },
+          {
+            "name": "/jeu/reserve-preview.js",
+            "bytes": 4919,
+            "duration": 90.80000001192093
+          },
+          {
+            "name": "/jeu/deck-library.js",
+            "bytes": 7640,
+            "duration": 88.39999997615814
+          },
+          {
+            "name": "/jeu/team-composition.js",
+            "bytes": 4078,
+            "duration": 89.5
+          },
+          {
+            "name": "/jeu/deck-builder.js",
+            "bytes": 66628,
+            "duration": 93.5
+          },
+          {
+            "name": "/jeu/statistics.js",
+            "bytes": 14828,
+            "duration": 88.5
+          },
+          {
+            "name": "/jeu/story-reader.js",
+            "bytes": 16555,
+            "duration": 86
+          },
+          {
+            "name": "/jeu/app.js",
+            "bytes": 116425,
+            "duration": 93
+          },
+          {
+            "name": "/jeu/assets/favicon.svg",
+            "bytes": 372,
+            "duration": 106.29999995231628
+          },
+          {
+            "name": "/api/game/catalogue",
+            "bytes": 253822,
+            "duration": 517
+          }
+        ],
+        "tasks": [
+          {
+            "start": 3991.300000011921,
+            "duration": 106
+          },
+          {
+            "start": 4140.300000011921,
+            "duration": 304
+          },
+          {
+            "start": 4444.399999976158,
+            "duration": 63
+          }
+        ]
+      },
+      "navigation": [
+        {
+          "view": "decks",
+          "ms": 4775.400000035763
+        },
+        {
+          "view": "weapons",
+          "ms": 534.3000000119209
+        },
+        {
+          "view": "statistics",
+          "ms": 15578.199999988079
+        },
+        {
+          "view": "story",
+          "ms": 59.700000047683716
+        },
+        {
+          "view": "collection",
+          "ms": 727.3000000119209
+        },
+        {
+          "view": "arena",
+          "ms": 695.4000000357628
+        },
+        {
+          "view": "collection",
+          "ms": 1428.300000011921
+        },
+        {
+          "view": "decks",
+          "ms": 1845.800000011921
+        },
+        {
+          "view": "statistics",
+          "ms": 813.6999999880791
+        },
+        {
+          "view": "collection",
+          "ms": 197.5999999642372
+        }
+      ],
+      "queries": [
+        {
+          "view": "collection",
+          "fiveInputsMs": 368.39999997615814
+        },
+        {
+          "view": "decks",
+          "fiveInputsMs": 2054.099999964237
+        },
+        {
+          "view": "statistics",
+          "fiveInputsMs": 388.7000000476837
+        }
+      ],
+      "metrics": {
+        "Timestamp": 350765.370162,
+        "AudioHandlers": 0,
+        "AudioWorkletProcessors": 0,
+        "Documents": 81,
+        "Frames": 58,
+        "JSEventListeners": 204,
+        "LayoutObjects": 13134,
+        "MediaKeySessions": 0,
+        "MediaKeys": 0,
+        "Nodes": 52882,
+        "Resources": 382,
+        "ContextLifecycleStateObservers": 139,
+        "V8PerContextDatas": 2,
+        "WorkerGlobalScopes": 0,
+        "UACSSResources": 0,
+        "RTCPeerConnections": 0,
+        "ResourceFetchers": 81,
+        "AdSubframes": 0,
+        "DetachedScriptStates": 0,
+        "ArrayBufferContents": 0,
+        "LayoutCount": 165,
+        "RecalcStyleCount": 11294,
+        "LayoutDuration": 5.147482,
+        "RecalcStyleDuration": 3.632006,
+        "DevToolsCommandDuration": 0.453286,
+        "ScriptDuration": 4.394641,
+        "V8CompileDuration": 0.004406,
+        "TaskDuration": 54.169808,
+        "TaskOtherDuration": 40.537987,
+        "ThreadTime": 12.504726,
+        "ProcessTime": 84.042883,
+        "JSHeapUsedSize": 10435340,
+        "JSHeapTotalSize": 19832832,
+        "FirstMeaningfulPaint": 350704.427664,
+        "DomContentLoaded": 350704.386282,
+        "NavigationStart": 350704.037666
+      },
+      "activity": {
+        "ambience": {
+          "running": false,
+          "subscribers": 0,
+          "particles": 0,
+          "dpr": 1,
+          "profile": [
+            "dust",
+            "mist"
+          ],
+          "awakening": false,
+          "reaction": false
+        },
+        "canvases": 0,
+        "animations": 0,
+        "nodes": 514,
+        "longTasks": [
+          {
+            "start": 4076.5,
+            "duration": 202
+          },
+          {
+            "start": 4355.299999952316,
+            "duration": 806
+          },
+          {
+            "start": 5224.299999952316,
+            "duration": 379
+          },
+          {
+            "start": 5673.699999988079,
+            "duration": 224
+          },
+          {
+            "start": 6219,
+            "duration": 60
+          },
+          {
+            "start": 6380,
+            "duration": 51
+          },
+          {
+            "start": 6439,
+            "duration": 241
+          },
+          {
+            "start": 7300.5,
+            "duration": 52
+          },
+          {
+            "start": 7963,
+            "duration": 181
+          },
+          {
+            "start": 8244.799999952316,
+            "duration": 185
+          },
+          {
+            "start": 9264.799999952316,
+            "duration": 203
+          },
+          {
+            "start": 9496.899999976158,
+            "duration": 306
+          },
+          {
+            "start": 10076.099999964237,
+            "duration": 50
+          },
+          {
+            "start": 10284.299999952316,
+            "duration": 214
+          },
+          {
+            "start": 10703.099999964237,
+            "duration": 156
+          },
+          {
+            "start": 10937.199999988079,
+            "duration": 147
+          },
+          {
+            "start": 11269.699999988079,
+            "duration": 10662
+          },
+          {
+            "start": 22265.299999952316,
+            "duration": 554
+          },
+          {
+            "start": 22856.69999998808,
+            "duration": 554
+          },
+          {
+            "start": 23451.399999976158,
+            "duration": 561
+          },
+          {
+            "start": 24063.299999952316,
+            "duration": 1077
+          },
+          {
+            "start": 25176.19999998808,
+            "duration": 182
+          },
+          {
+            "start": 25612.099999964237,
+            "duration": 122
+          },
+          {
+            "start": 26431.299999952316,
+            "duration": 94
+          },
+          {
+            "start": 26526.299999952316,
+            "duration": 181
+          },
+          {
+            "start": 28581.899999976158,
+            "duration": 476
+          },
+          {
+            "start": 29101.5,
+            "duration": 73
+          },
+          {
+            "start": 29208.799999952316,
+            "duration": 53
+          },
+          {
+            "start": 29263,
+            "duration": 577
+          },
+          {
+            "start": 29962,
+            "duration": 93
+          },
+          {
+            "start": 30151.69999998808,
+            "duration": 80
+          },
+          {
+            "start": 30450.099999964237,
+            "duration": 562
+          },
+          {
+            "start": 31119.099999964237,
+            "duration": 593
+          },
+          {
+            "start": 31925.5,
+            "duration": 596
+          },
+          {
+            "start": 32715.599999964237,
+            "duration": 54
+          },
+          {
+            "start": 32886.89999997616,
+            "duration": 85
+          },
+          {
+            "start": 33057.69999998808,
+            "duration": 579
+          },
+          {
+            "start": 33663.299999952316,
+            "duration": 618
+          },
+          {
+            "start": 34314.09999996424,
+            "duration": 652
+          },
+          {
+            "start": 34992.09999996424,
+            "duration": 561
+          },
+          {
+            "start": 35576.89999997616,
+            "duration": 747
+          },
+          {
+            "start": 36353.39999997616,
+            "duration": 558
+          },
+          {
+            "start": 37184.19999998808,
+            "duration": 594
+          },
+          {
+            "start": 37820.39999997616,
+            "duration": 699
+          },
+          {
+            "start": 38562.69999998808,
+            "duration": 544
+          },
+          {
+            "start": 39227.89999997616,
+            "duration": 2256
+          },
+          {
+            "start": 41588.19999998808,
+            "duration": 2311
+          },
+          {
+            "start": 44031.89999997616,
+            "duration": 119
+          },
+          {
+            "start": 44158.09999996424,
+            "duration": 527
+          },
+          {
+            "start": 44716.59999996424,
+            "duration": 527
+          },
+          {
+            "start": 45318.299999952316,
+            "duration": 542
+          },
+          {
+            "start": 46315.19999998808,
+            "duration": 331
+          },
+          {
+            "start": 46672.89999997616,
+            "duration": 203
+          },
+          {
+            "start": 47407.799999952316,
+            "duration": 168
+          },
+          {
+            "start": 48109.09999996424,
+            "duration": 152
+          },
+          {
+            "start": 48291.799999952316,
+            "duration": 587
+          },
+          {
+            "start": 48904.69999998808,
+            "duration": 578
+          },
+          {
+            "start": 49534.89999997616,
+            "duration": 641
+          },
+          {
+            "start": 50362.299999952316,
+            "duration": 406
+          },
+          {
+            "start": 51392.299999952316,
+            "duration": 168
+          },
+          {
+            "start": 51560.799999952316,
+            "duration": 174
+          },
+          {
+            "start": 52200.69999998808,
+            "duration": 106
+          },
+          {
+            "start": 52398.39999997616,
+            "duration": 106
+          },
+          {
+            "start": 52610.69999998808,
+            "duration": 327
+          },
+          {
+            "start": 52981.69999998808,
+            "duration": 613
+          },
+          {
+            "start": 53649.39999997616,
+            "duration": 514
+          },
+          {
+            "start": 54523,
+            "duration": 1333
+          },
+          {
+            "start": 55858.5,
+            "duration": 386
+          },
+          {
+            "start": 56334.799999952316,
+            "duration": 216
+          },
+          {
+            "start": 56883.09999996424,
+            "duration": 226
+          },
+          {
+            "start": 57110.89999997616,
+            "duration": 178
+          },
+          {
+            "start": 57291.299999952316,
+            "duration": 50
+          },
+          {
+            "start": 57349.89999997616,
+            "duration": 572
+          },
+          {
+            "start": 57948.799999952316,
+            "duration": 595
+          },
+          {
+            "start": 58575.09999996424,
+            "duration": 617
+          },
+          {
+            "start": 59247.59999996424,
+            "duration": 1072
+          },
+          {
+            "start": 60431.89999997616,
+            "duration": 255
+          },
+          {
+            "start": 60687.19999998808,
+            "duration": 121
+          },
+          {
+            "start": 60828.89999997616,
+            "duration": 96
+          }
+        ]
+      },
+      "coverage": {
+        "js": [],
+        "css": []
+      },
+      "errors": []
+    },
+    {
+      "name": "razr50",
+      "width": 412,
+      "height": 1007,
+      "cpuSlowdown": 4,
+      "latencyMs": 80,
+      "start": {
+        "ready": 4952.5,
+        "resources": [
+          {
+            "name": "/jeu/style.css",
+            "bytes": 21313,
+            "duration": 100.29999995231628
+          },
+          {
+            "name": "/jeu/arena.css",
+            "bytes": 15101,
+            "duration": 100
+          },
+          {
+            "name": "/jeu/duel-presentation.css",
+            "bytes": 9902,
+            "duration": 99.69999998807907
+          },
+          {
+            "name": "/jeu/duel-console.css",
+            "bytes": 11773,
+            "duration": 99.5
+          },
+          {
+            "name": "/jeu/match-report.css",
+            "bytes": 34386,
+            "duration": 99.59999996423721
+          },
+          {
+            "name": "/jeu/catalogue.css",
+            "bytes": 12311,
+            "duration": 99.69999998807907
+          },
+          {
+            "name": "/jeu/v4.css",
+            "bytes": 4203,
+            "duration": 99.60000002384186
+          },
+          {
+            "name": "/jeu/accounts.css",
+            "bytes": 11334,
+            "duration": 99.5
+          },
+          {
+            "name": "/jeu/battle-ui.css",
+            "bytes": 9593,
+            "duration": 99.69999998807907
+          },
+          {
+            "name": "/jeu/deck-builder.css",
+            "bytes": 50959,
+            "duration": 100
+          },
+          {
+            "name": "/jeu/team-composition.css",
+            "bytes": 19633,
+            "duration": 100.29999995231628
+          },
+          {
+            "name": "/jeu/collection-binder.css",
+            "bytes": 50219,
+            "duration": 100.59999996423721
+          },
+          {
+            "name": "/jeu/integration.css",
+            "bytes": 1260,
+            "duration": 100.69999998807907
+          },
+          {
+            "name": "/jeu/mobile.css",
+            "bytes": 27825,
+            "duration": 100.90000003576279
+          },
+          {
+            "name": "/jeu/phone-preview.css",
+            "bytes": 1577,
+            "duration": 100.69999998807907
+          },
+          {
+            "name": "/jeu/elemental-roll.css",
+            "bytes": 6740,
+            "duration": 100.80000001192093
+          },
+          {
+            "name": "/jeu/statistics.css",
+            "bytes": 17694,
+            "duration": 100.80000001192093
+          },
+          {
+            "name": "/jeu/kill-medals.css",
+            "bytes": 5049,
+            "duration": 100.70000004768372
+          },
+          {
+            "name": "/jeu/pre-match.css",
+            "bytes": 12637,
+            "duration": 100.90000003576279
+          },
+          {
+            "name": "/jeu/combat-reference.css",
+            "bytes": 6617,
+            "duration": 100.79999995231628
+          },
+          {
+            "name": "/jeu/story-reader.css",
+            "bytes": 16496,
+            "duration": 100.80000001192093
+          },
+          {
+            "name": "/jeu/weapons.css",
+            "bytes": 9993,
+            "duration": 100.89999997615814
+          },
+          {
+            "name": "/jeu/weapon-cards.css",
+            "bytes": 10282,
+            "duration": 100.89999997615814
+          },
+          {
+            "name": "/jeu/assets/fonts/cinzel-v26-latin.woff2",
+            "bytes": 25904,
+            "duration": 106.89999997615814
+          },
+          {
+            "name": "/jeu/navigation.css",
+            "bytes": 12064,
+            "duration": 100.60000002384186
+          },
+          {
+            "name": "/jeu/lineup-intro.css",
+            "bytes": 9769,
+            "duration": 100.5
+          },
+          {
+            "name": "/jeu/ui-system.css",
+            "bytes": 11492,
+            "duration": 100.5
+          },
+          {
+            "name": "/jeu/turn-timeline.css",
+            "bytes": 4405,
+            "duration": 100.30000001192093
+          },
+          {
+            "name": "/jeu/scoreboard.css",
+            "bytes": 4246,
+            "duration": 100.5
+          },
+          {
+            "name": "/jeu/site-config.js",
+            "bytes": 603,
+            "duration": 100.5
+          },
+          {
+            "name": "/jeu/phone-preview.js",
+            "bytes": 3110,
+            "duration": 100.5
+          },
+          {
+            "name": "/jeu/pwa.js",
+            "bytes": 817,
+            "duration": 100.10000002384186
+          },
+          {
+            "name": "/jeu/boot.js",
+            "bytes": 3101,
+            "duration": 100.19999998807907
+          },
+          {
+            "name": "/jeu/assets/logo.webp",
+            "bytes": 47450,
+            "duration": 121.10000002384186
+          },
+          {
+            "name": "/jeu/assets/navigation/collection-v1.webp",
+            "bytes": 28040,
+            "duration": 106.39999997615814
+          },
+          {
+            "name": "/jeu/assets/navigation/story-v1.webp",
+            "bytes": 22904,
+            "duration": 120.39999997615814
+          },
+          {
+            "name": "/jeu/assets/navigation/decks-v1.webp",
+            "bytes": 21410,
+            "duration": 120.10000002384186
+          },
+          {
+            "name": "/jeu/assets/navigation/weapons-v1.webp",
+            "bytes": 11946,
+            "duration": 120
+          },
+          {
+            "name": "/jeu/assets/navigation/arena-v1.webp",
+            "bytes": 21860,
+            "duration": 201.69999998807907
+          },
+          {
+            "name": "/jeu/assets/navigation/statistics-v1.webp",
+            "bytes": 14822,
+            "duration": 201.30000001192093
+          },
+          {
+            "name": "/jeu/assets/navigation/more-v1.webp",
+            "bytes": 8632,
+            "duration": 207.19999998807907
+          },
+          {
+            "name": "/api/game/catalogue",
+            "bytes": 253822,
+            "duration": 129.69999998807907
+          },
+          {
+            "name": "/jeu/assets/ui/collection-reader-grimoire-v1.png",
+            "bytes": 2735079,
+            "duration": 412.69999998807907
+          },
+          {
+            "name": "/jeu/assets/navigation/kalistel-rainbow-v1.webp",
+            "bytes": 14126,
+            "duration": 92.19999998807907
+          },
+          {
+            "name": "/jeu/assets/lucide.min.js",
+            "bytes": 397450,
+            "duration": 162.0999999642372
+          },
+          {
+            "name": "/jeu/ui-system.js",
+            "bytes": 8566,
+            "duration": 84.60000002384186
+          },
+          {
+            "name": "/jeu/weapons.js",
+            "bytes": 33436,
+            "duration": 86.29999995231628
+          },
+          {
+            "name": "/jeu/weapon-art.js",
+            "bytes": 6045,
+            "duration": 88.19999998807907
+          },
+          {
+            "name": "/jeu/equipment.js",
+            "bytes": 9578,
+            "duration": 89.10000002384186
+          },
+          {
+            "name": "/jeu/turn-order.js",
+            "bytes": 3099,
+            "duration": 90.30000001192093
+          },
+          {
+            "name": "/jeu/combat-timeline.js",
+            "bytes": 1879,
+            "duration": 92.60000002384186
+          },
+          {
+            "name": "/jeu/engine.js",
+            "bytes": 51081,
+            "duration": 88.69999998807907
+          },
+          {
+            "name": "/jeu/base-weapons.js",
+            "bytes": 3220,
+            "duration": 87.5
+          },
+          {
+            "name": "/jeu/collaborations.js",
+            "bytes": 2153,
+            "duration": 91.30000001192093
+          },
+          {
+            "name": "/jeu/card-media.js",
+            "bytes": 2919,
+            "duration": 89.89999997615814
+          },
+          {
+            "name": "/jeu/equipment-presentation.js",
+            "bytes": 11545,
+            "duration": 88.90000003576279
+          },
+          {
+            "name": "/jeu/elemental-roll.js",
+            "bytes": 26303,
+            "duration": 90.39999997615814
+          },
+          {
+            "name": "/jeu/arena-ambience.js",
+            "bytes": 9662,
+            "duration": 91.5
+          },
+          {
+            "name": "/jeu/combat-effects.js",
+            "bytes": 18595,
+            "duration": 93.5
+          },
+          {
+            "name": "/jeu/duel-focus.js",
+            "bytes": 13618,
+            "duration": 90
+          },
+          {
+            "name": "/jeu/lineup-intro.js",
+            "bytes": 20073,
+            "duration": 89.20000004768372
+          },
+          {
+            "name": "/jeu/formation-drag.js",
+            "bytes": 4373,
+            "duration": 88.19999998807907
+          },
+          {
+            "name": "/jeu/match-metrics.js",
+            "bytes": 3922,
+            "duration": 90.69999998807907
+          },
+          {
+            "name": "/jeu/trophies.js",
+            "bytes": 5957,
+            "duration": 85.40000003576279
+          },
+          {
+            "name": "/jeu/match-report.js",
+            "bytes": 14948,
+            "duration": 96.90000003576279
+          },
+          {
+            "name": "/jeu/ownership.js",
+            "bytes": 26574,
+            "duration": 81.80000001192093
+          },
+          {
+            "name": "/jeu/local-db.js",
+            "bytes": 23653,
+            "duration": 91.09999996423721
+          },
+          {
+            "name": "/jeu/weapon-cards.js",
+            "bytes": 7972,
+            "duration": 90.39999997615814
+          },
+          {
+            "name": "/jeu/weapons-ui.js",
+            "bytes": 8438,
+            "duration": 89.60000002384186
+          },
+          {
+            "name": "/jeu/catalogue.js",
+            "bytes": 8616,
+            "duration": 91.90000003576279
+          },
+          {
+            "name": "/jeu/catalogue-updates.js",
+            "bytes": 1711,
+            "duration": 92.69999998807907
+          },
+          {
+            "name": "/jeu/collection-binder.js",
+            "bytes": 39313,
+            "duration": 89.89999997615814
+          },
+          {
+            "name": "/jeu/accounts-ui.js",
+            "bytes": 18509,
+            "duration": 83.30000001192093
+          },
+          {
+            "name": "/jeu/reserve-preview.js",
+            "bytes": 4919,
+            "duration": 88.30000001192093
+          },
+          {
+            "name": "/jeu/deck-library.js",
+            "bytes": 7640,
+            "duration": 86.09999996423721
+          },
+          {
+            "name": "/jeu/team-composition.js",
+            "bytes": 4078,
+            "duration": 87.60000002384186
+          },
+          {
+            "name": "/jeu/deck-builder.js",
+            "bytes": 66628,
+            "duration": 90.80000001192093
+          },
+          {
+            "name": "/jeu/statistics.js",
+            "bytes": 14828,
+            "duration": 90.30000001192093
+          },
+          {
+            "name": "/jeu/story-reader.js",
+            "bytes": 16555,
+            "duration": 84.20000004768372
+          },
+          {
+            "name": "/jeu/app.js",
+            "bytes": 116425,
+            "duration": 91.60000002384186
+          },
+          {
+            "name": "/jeu/assets/favicon.svg",
+            "bytes": 372,
+            "duration": 105.20000004768372
+          },
+          {
+            "name": "/api/game/catalogue",
+            "bytes": 253822,
+            "duration": 529.8999999761581
+          }
+        ],
+        "tasks": [
+          {
+            "start": 3925.900000035763,
+            "duration": 112
+          },
+          {
+            "start": 4079.7000000476837,
+            "duration": 316
+          }
+        ]
+      },
+      "navigation": [
+        {
+          "view": "decks",
+          "ms": 769.9000000357628
+        },
+        {
+          "view": "weapons",
+          "ms": 839
+        },
+        {
+          "view": "statistics",
+          "ms": 768.3000000119209
+        },
+        {
+          "view": "story",
+          "ms": 63.90000003576279
+        },
+        {
+          "view": "collection",
+          "ms": 3648.600000023842
+        },
+        {
+          "view": "arena",
+          "ms": 422.5
+        },
+        {
+          "view": "collection",
+          "ms": 167.30000001192093
+        },
+        {
+          "view": "decks",
+          "ms": 904.3000000119209
+        },
+        {
+          "view": "statistics",
+          "ms": 442.5
+        },
+        {
+          "view": "collection",
+          "ms": 276.19999998807907
+        }
+      ],
+      "queries": [
+        {
+          "view": "collection",
+          "fiveInputsMs": 399.60000002384186
+        },
+        {
+          "view": "decks",
+          "fiveInputsMs": 835.1000000238419
+        },
+        {
+          "view": "statistics",
+          "fiveInputsMs": 1013.4000000357628
+        }
+      ],
+      "metrics": {
+        "Timestamp": 350829.663482,
+        "AudioHandlers": 0,
+        "AudioWorkletProcessors": 0,
+        "Documents": 90,
+        "Frames": 65,
+        "JSEventListeners": 205,
+        "LayoutObjects": 12578,
+        "MediaKeySessions": 0,
+        "MediaKeys": 0,
+        "Nodes": 53294,
+        "Resources": 389,
+        "ContextLifecycleStateObservers": 146,
+        "V8PerContextDatas": 2,
+        "WorkerGlobalScopes": 0,
+        "UACSSResources": 0,
+        "RTCPeerConnections": 0,
+        "ResourceFetchers": 90,
+        "AdSubframes": 0,
+        "DetachedScriptStates": 0,
+        "ArrayBufferContents": 0,
+        "LayoutCount": 170,
+        "RecalcStyleCount": 501,
+        "LayoutDuration": 0.951655,
+        "RecalcStyleDuration": 1.363615,
+        "DevToolsCommandDuration": 0.415663,
+        "ScriptDuration": 5.275798,
+        "V8CompileDuration": 0.003441,
+        "TaskDuration": 50.390072,
+        "TaskOtherDuration": 42.3799,
+        "ThreadTime": 11.883053,
+        "ProcessTime": 80.576615,
+        "JSHeapUsedSize": 10598756,
+        "JSHeapTotalSize": 20094976,
+        "FirstMeaningfulPaint": 350770.85674,
+        "DomContentLoaded": 350770.81837,
+        "NavigationStart": 350770.548096
+      },
+      "activity": {
+        "ambience": {
+          "running": false,
+          "subscribers": 0,
+          "particles": 0,
+          "dpr": 1,
+          "profile": [
+            "dust",
+            "mist"
+          ],
+          "awakening": false,
+          "reaction": false
+        },
+        "canvases": 0,
+        "animations": 0,
+        "nodes": 512,
+        "longTasks": [
+          {
+            "start": 3985.199999988079,
+            "duration": 184
+          },
+          {
+            "start": 4247.599999964237,
+            "duration": 405
+          },
+          {
+            "start": 4685.299999952316,
+            "duration": 82
+          },
+          {
+            "start": 4921.199999988079,
+            "duration": 64
+          },
+          {
+            "start": 5292.099999964237,
+            "duration": 66
+          },
+          {
+            "start": 6525.299999952316,
+            "duration": 58
+          },
+          {
+            "start": 6596.099999964237,
+            "duration": 112
+          },
+          {
+            "start": 6769.299999952316,
+            "duration": 51
+          },
+          {
+            "start": 7410.5,
+            "duration": 75
+          },
+          {
+            "start": 7728.699999988079,
+            "duration": 80
+          },
+          {
+            "start": 8858.099999964237,
+            "duration": 71
+          },
+          {
+            "start": 8962.099999964237,
+            "duration": 51
+          },
+          {
+            "start": 9935.399999976158,
+            "duration": 10390
+          },
+          {
+            "start": 20699.099999964237,
+            "duration": 608
+          },
+          {
+            "start": 21531.899999976158,
+            "duration": 91
+          },
+          {
+            "start": 21625.399999976158,
+            "duration": 189
+          },
+          {
+            "start": 21893.599999964237,
+            "duration": 292
+          },
+          {
+            "start": 22542.299999952316,
+            "duration": 340
+          },
+          {
+            "start": 22913.899999976158,
+            "duration": 65
+          },
+          {
+            "start": 24315.299999952316,
+            "duration": 578
+          },
+          {
+            "start": 25005.899999976158,
+            "duration": 592
+          },
+          {
+            "start": 25714.19999998808,
+            "duration": 550
+          },
+          {
+            "start": 26384.099999964237,
+            "duration": 58
+          },
+          {
+            "start": 26559.19999998808,
+            "duration": 578
+          },
+          {
+            "start": 27306.399999976158,
+            "duration": 575
+          },
+          {
+            "start": 28006.19999998808,
+            "duration": 586
+          },
+          {
+            "start": 28715,
+            "duration": 617
+          },
+          {
+            "start": 29551,
+            "duration": 671
+          },
+          {
+            "start": 30347.599999964237,
+            "duration": 629
+          },
+          {
+            "start": 31136.5,
+            "duration": 598
+          },
+          {
+            "start": 31776.5,
+            "duration": 55
+          },
+          {
+            "start": 31832.899999976158,
+            "duration": 566
+          },
+          {
+            "start": 32466,
+            "duration": 559
+          },
+          {
+            "start": 33108.89999997616,
+            "duration": 582
+          },
+          {
+            "start": 33734.09999996424,
+            "duration": 566
+          },
+          {
+            "start": 34330.19999998808,
+            "duration": 582
+          },
+          {
+            "start": 34944.59999996424,
+            "duration": 556
+          },
+          {
+            "start": 35535,
+            "duration": 564
+          },
+          {
+            "start": 36177.19999998808,
+            "duration": 1066
+          },
+          {
+            "start": 37294.5,
+            "duration": 2078
+          },
+          {
+            "start": 39519.299999952316,
+            "duration": 1086
+          },
+          {
+            "start": 40662.89999997616,
+            "duration": 546
+          },
+          {
+            "start": 41264.799999952316,
+            "duration": 504
+          },
+          {
+            "start": 41810.299999952316,
+            "duration": 1018
+          },
+          {
+            "start": 42875.799999952316,
+            "duration": 525
+          },
+          {
+            "start": 43687.299999952316,
+            "duration": 160
+          },
+          {
+            "start": 43946.89999997616,
+            "duration": 326
+          },
+          {
+            "start": 44864.299999952316,
+            "duration": 590
+          },
+          {
+            "start": 45512.5,
+            "duration": 560
+          },
+          {
+            "start": 46095,
+            "duration": 565
+          },
+          {
+            "start": 46684.89999997616,
+            "duration": 597
+          },
+          {
+            "start": 47353.5,
+            "duration": 141
+          },
+          {
+            "start": 47776.39999997616,
+            "duration": 96
+          },
+          {
+            "start": 47939.299999952316,
+            "duration": 381
+          },
+          {
+            "start": 48499,
+            "duration": 63
+          },
+          {
+            "start": 48844.89999997616,
+            "duration": 168
+          },
+          {
+            "start": 49051.39999997616,
+            "duration": 151
+          },
+          {
+            "start": 49301.69999998808,
+            "duration": 117
+          },
+          {
+            "start": 49586.299999952316,
+            "duration": 141
+          },
+          {
+            "start": 49817.09999996424,
+            "duration": 362
+          },
+          {
+            "start": 50218.39999997616,
+            "duration": 351
+          },
+          {
+            "start": 50624.69999998808,
+            "duration": 57
+          },
+          {
+            "start": 50838.39999997616,
+            "duration": 305
+          },
+          {
+            "start": 51145.59999996424,
+            "duration": 132
+          },
+          {
+            "start": 51285.69999998808,
+            "duration": 55
+          },
+          {
+            "start": 51523.89999997616,
+            "duration": 993
+          },
+          {
+            "start": 52651.09999996424,
+            "duration": 634
+          },
+          {
+            "start": 53285.799999952316,
+            "duration": 134
+          },
+          {
+            "start": 53526.39999997616,
+            "duration": 216
+          },
+          {
+            "start": 53795.799999952316,
+            "duration": 302
+          },
+          {
+            "start": 54497.299999952316,
+            "duration": 246
+          },
+          {
+            "start": 54744.19999998808,
+            "duration": 134
+          },
+          {
+            "start": 54882.59999996424,
+            "duration": 608
+          },
+          {
+            "start": 55519.59999996424,
+            "duration": 588
+          },
+          {
+            "start": 56134.39999997616,
+            "duration": 569
+          },
+          {
+            "start": 56731,
+            "duration": 578
+          },
+          {
+            "start": 57335.5,
+            "duration": 596
+          },
+          {
+            "start": 57963.799999952316,
+            "duration": 606
+          },
+          {
+            "start": 58602.89999997616,
+            "duration": 101
+          }
+        ]
+      },
+      "coverage": {
+        "js": [],
+        "css": []
+      },
+      "errors": []
+    }
+  ]
+}

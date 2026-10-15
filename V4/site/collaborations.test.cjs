@@ -1,0 +1,107 @@
+'use strict';
+const test=require('node:test');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const C=require('./collaborations.js');
+const Binder=require('./collection-binder.js');
+const Stats=require('./statistics.js');
+const Deck=require('./deck-builder.js');
+const {buildCatalog}=require('../atelier/game-catalog.cjs');
+const {createEngine}=require('./engine.js');
+const base=require('../atelier/data/references.json').cards[0].card;
+const cards=[
+  {id:'49998100',characterId:'devola-nier',name:'DEVOLA',title:'Automata',faction:'NieR',collaboration:'NieR'},
+  {id:'49998101',characterId:'devola-nier',name:'DEVOLA',title:'Replicant',faction:'Replicant',collaboration:'Replicant'},
+  {id:'49998102',characterId:'popola-nier',name:'POPOLA',title:'Automata',faction:'NieR',collaboration:'NieR'},
+  {id:'49998103',characterId:'popola-nier',name:'POPOLA',title:'Replicant',faction:'Replicant',collaboration:'Replicant'}
+].map(c=>({...base,...c,role:5,positions:[3,5],atk:[170,140,100,80,'retry','revive'],defense:[200,160,130,90,60,25],magic:[6,5],barriers:[6]}));
+
+test('collaboration follows the version metadata, never the shared character suffix',()=>{
+  assert.deepEqual(cards.map(C.universe),['NieR','Replicant','NieR','Replicant']);
+  assert.equal(C.universe({characterId:'devola-nier',faction:'Chroma'}),'kalistar');
+  assert.equal(C.universe({faction:'Replicant',collaboration:'NieR'}),'Replicant');
+  assert.equal(C.universe({faction:'Chroma',collaboration:'replicant'}),'Replicant');
+  assert.equal(C.universe({faction:'Chroma',collaboration:'<script>'}),'kalistar');
+  assert.deepEqual(cards.filter(c=>C.matches(c,'replicant')).map(c=>c.id),['49998101','49998103']);
+  assert.deepEqual(cards.filter(c=>C.matches(c,'nier')).map(c=>c.id),['49998100','49998102']);
+});
+
+test('faction media is V4-local while legacy assets retain their routes',()=>{
+  for(const faction of ['FF7','FF8','FF10','NieR','Replicant'])assert.equal(C.asset('factions',faction),'assets/factions/'+faction+'.png');
+  assert.equal(C.asset('factions','Chroma'),'shared/factions/Chroma.png');
+  assert.equal(C.asset('factions','Solaria'),'assets/factions/Solaria.png');
+  assert.equal(C.universe({faction:'Solaria'}),'kalistar');
+  assert.equal(C.asset('races','ANDROID'),'assets/races/ANDROID.png');
+  assert.equal(C.asset('races','ROBOT'),'shared/races/ROBOT.png');
+  assert.equal(C.asset('armes','Epée longue'),'shared/armes/Ep%C3%A9e%20longue.png');
+  for(let i=0;i<20;i++){const id=String(i).padStart(2,'0');assert.equal(C.asset('armes',id),'assets/base-weapons/'+id+'.svg'+(i===9?'?v=3':[0,7,15,19].includes(i)?'?v=2':''));}
+});
+
+test('universe choices expose Replicant only when its versions exist',()=>{
+  assert.deepEqual(C.choices([]),[['FF7','FF7'],['FF8','FF8']]);
+  assert.deepEqual(C.choices(cards),[['FF7','FF7'],['FF8','FF8'],['NieR','NieR'],['Replicant','Replicant']]);
+});
+
+test('collection groups Kalistar, Final Fantasy and NieR while retaining faction filters',t=>{
+  require('./position-identities.fixture.cjs')(t);
+  const previous=globalThis.KalistarCardMedia;
+  globalThis.KalistarCardMedia={image:c=>'/fixture/'+c.id+'.png'};
+  t.after(()=>{globalThis.KalistarCardMedia=previous;});
+  const extras=['FF7','FF8','Chroma','FF10'].map((faction,index)=>({...cards[0],id:String(49998104+index),characterId:'scope-'+index,name:'SCOPE '+faction,faction,collaboration:['FF7','FF8','FF10'].includes(faction)?faction:undefined}));
+  const reCards=['RE1','RE2','RE9'].map((faction,index)=>({...cards[0],id:String(49998108+index),characterId:'re-scope-'+index,name:'RE SCOPE '+faction,faction,collaboration:faction}));
+  const scopedCards=[...cards,...extras,...reCards],binder=Binder.create({data:{cards:scopedCards,elements:{ELECTRO:{id:'ELECTRO',label:'Electricite',color:'FFDD00'}}},getOwned:id=>scopedCards.filter(c=>!id||c.id===id).map(c=>({id:'copy-'+c.id,cardId:c.id}))});
+  const html=binder.render();
+  const scopeHeader=html.match(/<div class="cb-scopes"[^>]*>([\s\S]*?)<\/div>/)?.[1]||'';
+  assert.match(scopeHeader,/<select data-binder-filter="collection">/);
+  assert.match(scopeHeader,/<option value="">Toutes les collections<\/option>/);
+  assert.match(scopeHeader,/<option value="kalistar" >Kalistar · 1<\/option>/);
+  assert.match(scopeHeader,/<option value="final-fantasy" >Final Fantasy · 3<\/option>/);
+  assert.match(scopeHeader,/<option value="nier" >NieR · 4<\/option>/);
+  assert.equal((scopeHeader.match(/data-binder-action="scope"/g)||[]).length,2);
+  assert.match(scopeHeader,/<option value="resident-evil" >Resident Evil · 3<\/option>/);
+  assert.equal((scopeHeader.match(/value="resident-evil"/g)||[]).length,1);
+  assert.equal(scopedCards.filter(c=>Binder.matchesScope(c,'resident-evil')).length,3);
+  assert(reCards.every(c=>!Binder.matchesScope(c,'kalistar')&&!Binder.matchesScope(c,'metal-gear')));
+  for(const faction of ['RE1','RE2','RE9'])assert(html.includes(`<option value="${faction}"`),'Missing RE faction filter '+faction);
+  assert.equal(/data-binder-action="scope"[^>]*data-id="re[1-9]"/.test(html),false,'RE episodes share one scope while retaining separate factions');
+  assert(!scopeHeader.includes('value="metal-gear"'),'empty collections are not offered');
+  assert.equal(Binder.matchesScope(extras[2],'kalistar'),true);
+  assert.equal(scopedCards.filter(c=>Binder.matchesScope(c,'final-fantasy')).length,3);
+  assert.equal(scopedCards.filter(c=>Binder.matchesScope(c,'nier')).length,4);
+  for(const faction of ['FF7','FF8','FF10','NieR','Replicant','Chroma'])assert(html.includes(`<option value="${faction}"`),'Missing faction filter '+faction);
+  assert.equal(/data-binder-action="scope"[^>]*data-id="(?:ff7|ff8|ff10|replicant)"/.test(html),false,'faction-specific tabs are grouped, but remain available as filters');
+  assert.match(html,/<option value="Replicant" >Replicant<\/option>/);
+  assert.deepEqual(Binder.groupCards(cards).map(g=>g.map(c=>c.id)),[['49998100','49998101'],['49998102','49998103']]);
+  assert.equal(binder.inspect().scope,'owned');
+});
+
+test('statistics filter versions before aggregating a shared character and retain independent totals',()=>{
+  const db={instances:()=>[{}],matches:()=>[],career:id=>({history:[{cardId:id,participated:true,partial:false,matchId:id,finishedAt:'2026-09-23',side:0,winner:0,kills:id.endsWith('1')?5:1}]})};
+  const all=Stats.rows({cards},db,{...Stats.defaults});
+  assert.equal(all.length,2);assert.equal(all[0].versions.length,2);assert.equal(all[0].kills,6);
+  const replicant=Stats.rows({cards},db,{...Stats.defaults,collab:'Replicant'});
+  assert.equal(replicant.length,2);assert.equal(replicant[0].versions.length,1);assert.equal(replicant[0].kills,5);
+  assert(replicant.every(row=>row.versions.every(c=>c.faction==='Replicant')));
+  const automata=Stats.rows({cards},db,{...Stats.defaults,collab:'NieR'});
+  assert.equal(automata[0].kills,1);assert(automata.every(row=>row.versions.every(c=>c.faction==='NieR')));
+  assert.equal(Stats.rows({cards},db,{...Stats.defaults,collab:'kalistar'}).length,0);
+});
+
+test('deck builder keeps shared-character exclusion and separate faction synergies',async()=>{
+  const published=cards.map(profile=>({id:profile.id,profile,pngUrl:'/media/created/'+profile.id+'.png'}));
+  const data=await buildCatalog({published}),engine=createEngine(data);
+  const model=Deck.createModel({data,engine,registry:{owned:()=>[{}],deckErrors:()=>[]},userId:'fixture'});
+  const slots=Array(10).fill(null);slots[0]=cards[0].id;
+  assert.equal(model.candidate(slots,1,cards[1].id).allowed,false);
+  assert.match(model.candidate(slots,1,cards[1].id).reason,/Une seule carte par personnage/);
+  assert.equal(model.candidate(slots,0,cards[1].id).allowed,true,'same slot can switch version');
+  assert.equal(model.candidate(slots,1,cards[3].id).affinities.faction.bonus,0);
+  assert.equal(model.candidate(slots,1,cards[2].id).affinities.faction.bonus,10);
+  assert.deepEqual(model.groups([cards[0].id,cards[3].id],'faction').map(g=>g.value).sort(),['NieR','Replicant']);
+});
+
+test('browser boot loads collaboration metadata before all three consumers',()=>{
+  const boot=fs.readFileSync(path.join(__dirname,'boot.js'),'utf8');
+  for(const script of ['collection-binder.js','statistics.js','app.js'])assert(boot.indexOf("'collaborations.js'")<boot.indexOf("'"+script+"'"));
+});

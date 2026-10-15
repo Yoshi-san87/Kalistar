@@ -1,0 +1,39 @@
+✔ 4.6: 18 FFIX items keep families, stable identities and art while migrating to three slots (79.5096ms)
+✖ 4.6 profile/composition preserve weapon while adding protection, with confirmation scoped per slot (17.3189ms)
+✔ archived 4.5.64: ff9-orichalque: every edition, both sides, formula, log and deactivation (21.8023ms)
+✔ archived 4.5.64: ff9-magekane: every edition, both sides, formula, log and deactivation (51.4882ms)
+✔ archived 4.5.64: ff9-excalibur: every edition, both sides, formula, log and deactivation (14.2622ms)
+✔ archived 4.5.64: ff9-save-the-queen: every edition, both sides, formula, log and deactivation (15.2701ms)
+✔ archived 4.5.64: ff9-dragonade: every edition, both sides, formula, log and deactivation (16.2434ms)
+✔ archived 4.5.64: ff9-runigriffe: every edition, both sides, formula, log and deactivation (16.1827ms)
+✔ archived 4.5.64: ff9-backstage-hammer: every edition, both sides, formula, log and deactivation (14.5603ms)
+✔ archived 4.5.64 Gastrette: defend, side 0 (10.0734ms)
+✔ archived 4.5.64 Gastrette: attack, side 0 (7.3487ms)
+✔ archived 4.5.64 Gastrette: refresh, side 0 (4.3505ms)
+✔ archived 4.5.64 Gastrette: defend, side 1 (9.9557ms)
+✔ archived 4.5.64 Gastrette: attack, side 1 (8.3795ms)
+✔ archived 4.5.64 Gastrette: refresh, side 1 (4.7552ms)
+✔ archived 4.5.64: all eight FFIX weapons finish natural matches and reload each step (11278.0216ms)
+✔ current D6 and archived charge descriptions distinguish this duel from a later defense (7.5576ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 16
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11729.0804
+
+✖ failing tests:
+
+test at V4\site\ff9-equipment.test.cjs:43:1
+✖ 4.6 profile/composition preserve weapon while adding protection, with confirmation scoped per slot (17.3189ms)
+  Error: Équipement invalide.
+      at fail (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:8:25)
+      at Object.validate (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:193:264)
+      at assertState (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:593:17)
+      at start (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:234:42)
+      at Object.newGame (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:171:9)
+      at TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\ff9-equipment.test.cjs:52:62)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)

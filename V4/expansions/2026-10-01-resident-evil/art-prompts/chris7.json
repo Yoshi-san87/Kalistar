@@ -1,0 +1,22 @@
+{
+  "key": "chris7",
+  "art": "RE_chris7_01.png",
+  "prompt": "CRITICAL SCENE OVERRIDE: The two input images are ONLY brushwork/material technique samples. Do not copy either reference layout, seated pose, crumbling stone steps, castle ruins, starry blue sky, orange candles, robe, skeleton or robot. Build a completely NEW scene matching the PRIMARY SUBJECT's named Resident Evil location and outfit. Character generally upright/mid-action, readable waist-to-knee portrait, no seated-on-stone pose. Medium-close face, head within upper third, face about 12% of canvas height. Painterly brush shapes not a texture overlay. Scene fidelity is mandatory. PRIMARY SUBJECT: RE7 Not a Hero Chris, distinct 2017 slimmer face, short brown hair, olive tactical combat gear, plate carrier, rifle, mining tunnel flashlight, no helmet obscuring face, wary resolve. THIS SUBJECT REPLACES ALL CHARACTERS IN STYLE REFERENCES. Standalone Kalistar narrative fantasy painting, visibly painted strokes, textured color planes, hierarchical edges and worn cloth leather metal. Match supplied Momo and Valazar style references, NOT their characters or dark palette. Not photorealistic, not 3D, not anime. Vertical 4:5 composition for 737x921 window, central face and gesture protected from side columns, visible motivated light and emotional storytelling. One individual scene, no montage, no card frame, text, logos, barcode, watermark or UI. Human characters have one head two arms two legs; canonical monster proportions allowed. Keep canonical episode outfit. References are PAINTING TECHNIQUE ONLY, never copy robot, skeleton, hat, flute, scenery. Background evocative and restrained; clear readable silhouette and hands.",
+  "references": [
+    "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+    "V3/assets/illustrations/34_NECRO_VALAZAR.png"
+  ],
+  "status": "selected-awaiting-card-QA",
+  "generationMethod": "built-in image_gen.imagegen",
+  "selectedOutput": {
+    "path": "V4/Illustrations/RE_chris7_01.png",
+    "sha256": "c25faca949087cad8ac08d741fce4fe416a44e3d8c1e045a784bdc380a59c5ee",
+    "originalByteIdentity": true,
+    "generatedSource": "C:\\Users\\guill\\.codex\\generated_images\\01a0f2da-7687-71f1-9c85-73548a8b4e66\\exec-b426c432-9a51-4abe-ab3a-f0bcd0e1fc3f.png"
+  },
+  "referenceHashes": {
+    "V3/assets/illustrations/01_ELECTRO_MOMO.png": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8",
+    "V3/assets/illustrations/34_NECRO_VALAZAR.png": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee"
+  },
+  "approval": "Assistant visual QA only; no fabricated human approval; final native card QA pending"
+}

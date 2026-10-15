@@ -1,0 +1,32 @@
+{
+  "key": "chopper-small",
+  "art": "OP_chopper-small_01.png",
+  "prompt": "Use case: illustration-story. Create one standalone Kalistar character illustration, NOT a card. Input images 1 and 2 are STYLE REFERENCES ONLY: Momo for visible brush planes, expressive narrative painting and textured edges; Valazar for painted volumes and worn materials, not its skeleton or darkness. Repaint the new One Piece subject in that same coherent painterly fantasy language. Strong visible deliberate brush strokes and broken painted edges on skin and fabric, broad color planes, painterly non-photographic face. NO anime or manga outlines, cel shading, glossy skin, photographic smoothness, 3D, uniform noise or grunge filter. Vertical 4:5 composition adapted to a 737x921 window; central face and main gesture well inside the central 70%, generous room around head and hands, subject fills most of image but not a cropped face portrait. Motivated light, layered restrained background. No frame, lettering, stats, logos, barcode, signature or UI. Subject, exact costume and moment: Tony Tony Chopper after timeskip in small Brain Point: small endearing upright reindeer-person doctor, brown fur, large humane dark eyes, BLUE nose, small antlers, unmistakable tall blue round cap with pink upper inset and white X emblem, orange-and-white striped sleeveless shirt and red shorts, medical bag. At Punk Hazard caring for the rescued children, emotional doctor scene inspired by the official Punk Hazard arc: kneeling beside a patient's blanket at foreground edge, brows pinched with concern but determined, one small hoof-hand holding a plain medicine bottle and the other steadying an open unlettered medical notebook. The patient stays out of frame except covered blanket, no visible suffering. Cold lab room, warm lamp light on his face, medical materials and few shelves. Keep Chopper small yet filling central image due to close viewpoint. Exactly one head two short arms two short legs; antlers distinct from arms. Not realistic animal photo, not anime or plush toy; paint fur as deliberate textured planes. White X is canonical hat emblem, no other text.",
+  "references": [
+    "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+    "V3/assets/illustrations/34_NECRO_VALAZAR.png"
+  ],
+  "officialReferences": [
+    "https://one-piece.com/character/chopper/index.html",
+    "https://one-piece.com/story/punk_hazard/index.html"
+  ],
+  "status": "selected-awaiting-native-QA",
+  "generationMethod": "built-in image_gen.imagegen",
+  "generationLimit": 1,
+  "selectedOutput": {
+    "path": "V4/Illustrations/OP_chopper-small_01.png",
+    "sha256": "e7aa4ebb0e389a6ab464a4cecb293286e42c0f6cb48fb8705430a364275966cb",
+    "generatedSource": "C:/Users/guill/.codex/generated_images/01a0f2d5-a296-7ae3-96f7-01bd1274cf81/exec-fcd6e23f-076c-4180-a6ea-ba7538773928.png",
+    "retainedOriginal": "V4/expansions/2026-10-01-one-piece/generated/chopper-small-initial.png",
+    "originalByteIdentity": true
+  },
+  "referenceHashes": {
+    "V3/assets/illustrations/01_ELECTRO_MOMO.png": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8",
+    "V3/assets/illustrations/34_NECRO_VALAZAR.png": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee"
+  },
+  "dimensions": {
+    "width": 1122,
+    "height": 1402
+  },
+  "nativeQA": "pending"
+}

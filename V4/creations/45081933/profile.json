@@ -1,0 +1,63 @@
+{
+  "name": "COMMANDER WHITE",
+  "title": "Le poids du commandement",
+  "job": "COMMANDANTE",
+  "description": "Face aux consoles du Bunker, White garde une voix ferme. Chaque départ vers la Terre pèse sous l'uniforme immaculé. Ses soldats ne doivent pas entendre le doute.",
+  "element": "LUXO",
+  "race": "ANDROID",
+  "weapon": "Sceptre",
+  "faction": "NieR",
+  "positions": [
+    5
+  ],
+  "atk": [
+    172,
+    "guard",
+    "revive",
+    "mana",
+    "buff_atk",
+    24
+  ],
+  "defense": [
+    202,
+    167,
+    132,
+    96,
+    "retry",
+    26
+  ],
+  "magic": [
+    6
+  ],
+  "barriers": [
+    6,
+    4
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "45081933",
+  "characterId": "commander-nier",
+  "slug": "V4_45081933",
+  "output": "KALISTAR_V4_45081933",
+  "text": "Face aux consoles du Bunker, White garde une voix ferme. Chaque départ vers la Terre pèse sous l'uniforme immaculé. Ses soldats ne doivent pas entendre le doute.",
+  "color": "F4E9AF",
+  "hue": 47,
+  "weapon_index": 12,
+  "role": 5,
+  "sentry": true,
+  "canGuard": true,
+  "canHeal": true,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Kalistar V4 - expansion 2026-09-23-return",
+  "visual_revision": "V4-2026-09-23-return",
+  "edition": "new",
+  "artwork": "commander",
+  "collaboration": "NieR",
+  "officialCollaboration": false
+}

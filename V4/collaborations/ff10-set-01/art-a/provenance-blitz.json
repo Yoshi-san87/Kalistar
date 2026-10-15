@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "date": "2026-09-25",
+  "scope": "art-a/tidus-blitz* only",
+  "tool": "image_gen.imagegen",
+  "mode": "builtin",
+  "calls": 2,
+  "status": "READY_FOR_PREPARE_PENDING_PARENT_REVIEW",
+  "readyForNative": false,
+  "request": "tidus-blitz-final-framing.request.json",
+  "requestSha256": "BA41AF8A402705F271FEC0EC19B73B9B4DBEB2892A88AE5203F8FD57B94966A3",
+  "preservedInitialRequest": {
+    "file": "tidus-blitz.request.json",
+    "sha256": "557D9858F1A092E9A5D9468B2C0C9A8A1428FEAAAF30BFB5E371C9CF01E616B0",
+    "unchanged": true
+  },
+  "references": [
+    {
+      "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/collaborations/ff10-set-01/art-a/tidus-blitz-framing-v2.png",
+      "role": "edit-target-identity-scene",
+      "sha256": "0386B722973E50E62E34A3FB94FB538C84C78C4A9644B285E45B9A5AB37554C1"
+    },
+    {
+      "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+      "role": "primary-style",
+      "sha256": "44966D49AF5D5F916C3AD3F3B62BF846FA1D6646CA609CB3BEE9ED6EEDC94AC8"
+    },
+    {
+      "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+      "role": "secondary-style",
+      "sha256": "2C443D9ADC4525953869B2DCC69433EBF00FD7243EC93E01BFFF5E11ED5DC6EE"
+    }
+  ],
+  "output": {
+    "file": "tidus-blitz.png",
+    "archive": "tidus-blitz-framing-v3.png",
+    "sha256": "EA08ADCE20DB75A15ADD89FDC127CFCA8237D16643B74C6998B89164BEE25C3C",
+    "toolOriginal": "C:/Users/guill/.codex/generated_images/01a0d8c5-5c63-7b31-9ab0-fa18a2d30e5c/exec-502f2c39-7e3b-4671-abb8-401564a65da4.png",
+    "width": 1122,
+    "height": 1402,
+    "selected": true,
+    "note": "Byte-identical original generation copied to final alias and archive, no raster patch/crop. Ready for parent visual review before PREPARE."
+  },
+  "qa": {
+    "inspectedFrame": "V4/collaborations/ff10-set-01/cards/tidus-epee/preview.png",
+    "passes": [
+      "Actual 1122x1402 portrait; ratio 0.800285, within 0.001 of 4:5.",
+      "One complete ball about x55.5-70.5%, center approximately63%; wholly inside right limit79%.",
+      "Left glove fingertips approximately x18.5%, above required17%.",
+      "Two hands, two arms, two legs, same coherent forward volley; no sword.",
+      "Face, smile, costume, hair, underwater scene and painterly DA maintained.",
+      "Source request unchanged; final alias and archive SHA256 identical."
+    ],
+    "failures": [],
+    "coordinatesAre": "Visual estimates from viewed final output, not segmentation measurements.",
+    "nativeFrameValidation": "Pending parent/native agent actual framed preview; no Photoshop/card/profile edits performed."
+  },
+  "noOtherFilesEdited": true,
+  "parentOwnershipMayResume": true,
+  "readyForPrepare": true,
+  "parentApprovalRequired": true,
+  "previousRevisions": [
+    {
+      "request": "tidus-blitz-framing.request.json",
+      "requestSha256": "398D0A1F18C2279CBE56CAA7F7069241FC6D5870302B98EB850691090987F7C6",
+      "references": [
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/collaborations/ff10-set-01/art-a/tidus-blitz-v1.png",
+          "role": "edit-target-identity-scene",
+          "sha256": "82E5A7F2BC84EE23CA12FF3C46237965679D2FF0C823D801E54E5B386C106FFE"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "role": "primary-style",
+          "sha256": "44966D49AF5D5F916C3AD3F3B62BF846FA1D6646CA609CB3BEE9ED6EEDC94AC8"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "role": "secondary-style",
+          "sha256": "2C443D9ADC4525953869B2DCC69433EBF00FD7243EC93E01BFFF5E11ED5DC6EE"
+        }
+      ],
+      "output": {
+        "file": "tidus-blitz.png",
+        "archive": "tidus-blitz-framing-v2.png",
+        "sha256": "0386B722973E50E62E34A3FB94FB538C84C78C4A9644B285E45B9A5AB37554C1",
+        "toolOriginal": "C:/Users/guill/.codex/generated_images/01a0d8c5-5c63-7b31-9ab0-fa18a2d30e5c/exec-ec85d132-2c2c-4837-80ae-d9deb4cfc70e.png",
+        "width": 1072,
+        "height": 1467,
+        "selected": false,
+        "note": "Named requested final filename for handoff, but NOT approved for native integration. Byte-identical copy of tool generation, not cropped/painted."
+      },
+      "qa": {
+        "inspectedFrame": "V4/collaborations/ff10-set-01/cards/tidus-epee/preview.png",
+        "passes": [
+          "Recognizable same Tidus face/hair/costume/DA.",
+          "Exactly two arms, two legs, one ball; no sword.",
+          "Arms less spread, dynamic underwater kick maintained."
+        ],
+        "failures": [
+          "Generated aspect ratio 1072/1467=0.731 rather than requested 4:5.",
+          "Visual ball center approximately x75%, diameter23%; right edge about87%, still behind DEF rail.",
+          "Left fingertip approximately x17.5%; rear boot outer edge about15%, borderline/behind left rail."
+        ],
+        "coordinatesAre": "Visual estimates from viewed final output, not segmentation measurements.",
+        "nextSuggestedCorrection": "Reduce and move the entire single ball left to center x66%, diameter14%; draw both hands and rear boot inside x22-77%; enforce actual 4:5 canvas."
+      },
+      "status": "needs-framing-correction"
+    }
+  ]
+}

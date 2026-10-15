@@ -1,0 +1,880 @@
+{
+  "set": {
+    "id": "ff8-set-01",
+    "label": "FINAL FANTASY VIII",
+    "faction": "FF8",
+    "status": "production",
+    "officialCollaboration": false,
+    "narrativeStatus": "Reinterpretations de fans, pas des captures exactes ni de nouvelles affirmations canoniques.",
+    "narrativeSource": "https://na.finalfantasy.com/titles/finalfantasy8",
+    "narrativeNotes": [
+      "Les biographies officielles cadrent les personnalites ; les instants et sentiments des descriptions sont des reinterpretations demandees par l'utilisateur.",
+      "Scenes revisees : Squall avec l'epee sur l'epaule ; Zell souriant en garde de combat ; Linoa parmi les fleurs avec Angelo ; Irvine vise pour le tir de Deling.",
+      "Selphie rit a l'ecole en tenue jaune, nunchakus demandes a la hanche, sans lance. Categorie existante Fleau choisie pour ces nunchakus ; pictogramme local au set, matrice d'armes inchangee.",
+      "Edea conserve son personnage, ajoute l'armature de robe derriere elle et un fond de ciel seul. Seifer : attitude de mauvais garcon. Ward reste a Centra, pas Dollet."
+    ],
+    "balanceNotes": "Base de valeurs comparable au set FF7 ; equilibrage initial, sans revendication de taux de victoire. HUMAIN commun et faction FF8 imposes. Decks de dix inchanges.",
+    "cards": [
+      {
+        "key": "squall",
+        "id": "45410910",
+        "name": "SQUALL",
+        "title": "LE POIDS DES PROMESSES",
+        "job": "SEED",
+        "element": "CRYO",
+        "weapon": "Epée longue",
+        "positions": [
+          2,
+          1
+        ],
+        "atk": [
+          275,
+          229,
+          183,
+          137,
+          "buff_atk",
+          45
+        ],
+        "defense": [
+          235,
+          195,
+          155,
+          115,
+          75,
+          35
+        ],
+        "magic": [
+          4
+        ],
+        "barriers": [
+          5
+        ],
+        "description": "Sa gunblade sur l'épaule, Squall regarde devant lui avec cette réserve qui le protège si mal. Depuis le bal des SeeD, Linoa a fissuré son silence. La lame pèse moins lourd que les promesses qu'il commence à faire.",
+        "race": "HUMAIN"
+      },
+      {
+        "key": "zell",
+        "id": "48933308",
+        "name": "ZELL",
+        "title": "LE SOURIRE AVANT L'IMPACT",
+        "job": "PUGILISTE",
+        "element": "ELECTRO",
+        "weapon": "Poing",
+        "positions": [
+          2
+        ],
+        "atk": [
+          300,
+          248,
+          196,
+          144,
+          92,
+          40
+        ],
+        "defense": [
+          174,
+          144,
+          "dodge",
+          84,
+          54,
+          24
+        ],
+        "magic": [],
+        "barriers": [
+          5
+        ],
+        "description": "Zell lève les poings et sourit déjà au prochain échange. Le pain de la cafétéria de Balamb peut attendre : ses amis ont besoin de lui. Cette joie n'efface pas le danger ; elle lui donne une raison de ne pas reculer.",
+        "race": "HUMAIN"
+      },
+      {
+        "key": "linoa",
+        "id": "45513029",
+        "name": "LINOA",
+        "title": "LES JOURS A DEFENDRE",
+        "job": "SORCIERE",
+        "element": "LUXO",
+        "weapon": "Projectile",
+        "positions": [
+          5
+        ],
+        "atk": [
+          164,
+          136,
+          108,
+          "mana",
+          "revive",
+          "retry"
+        ],
+        "defense": [
+          222,
+          184,
+          146,
+          108,
+          70,
+          32
+        ],
+        "magic": [
+          6,
+          5,
+          4
+        ],
+        "barriers": [
+          6,
+          4
+        ],
+        "description": "Parmi les fleurs, Linoa retrouve Angelo et laisse enfin retomber sa garde. À Timber, elle rêvait de liberté ; voici ce qu'elle voulait sauver aussi : un jour paisible, une présence fidèle, le droit de rire sans peur.",
+        "race": "HUMAIN"
+      },
+      {
+        "key": "irvine",
+        "id": "48704873",
+        "name": "IRVINE",
+        "title": "UN SOUVENIR DANS LA MIRE",
+        "job": "TIREUR",
+        "element": "GEO",
+        "weapon": "Gun",
+        "positions": [
+          3,
+          4
+        ],
+        "atk": [
+          274,
+          226,
+          178,
+          130,
+          82,
+          34
+        ],
+        "defense": [
+          188,
+          154,
+          120,
+          86,
+          "retry",
+          18
+        ],
+        "magic": [
+          6,
+          4
+        ],
+        "barriers": [
+          4
+        ],
+        "description": "Dans la tour de Deling, Irvine épaule son fusil et vise Edea pour le tir décisif. Matrone reste là, au fond de sa mémoire. Il retient son souffle ; pour couvrir ses amis, il lui faut traverser ce souvenir sans le renier.",
+        "race": "HUMAIN"
+      },
+      {
+        "key": "quistis",
+        "id": "49163588",
+        "name": "QUISTIS",
+        "title": "AU-DELA DES LECONS",
+        "job": "INSTRUCTRICE",
+        "element": "HYDRO",
+        "weapon": "Fouet",
+        "positions": [
+          4
+        ],
+        "atk": [
+          272,
+          224,
+          176,
+          "mana",
+          80,
+          32
+        ],
+        "defense": [
+          196,
+          162,
+          128,
+          94,
+          "retry",
+          26
+        ],
+        "magic": [
+          6,
+          5,
+          4,
+          2
+        ],
+        "barriers": [
+          5,
+          3
+        ],
+        "description": "Au centre de combat de Balamb, Quistis laisse enfin tomber le ton de l'instructrice. Le fouet reste prêt, les mots beaucoup moins. Sous la lune, elle apprend qu'on peut guider les autres sans savoir où déposer sa solitude.",
+        "race": "HUMAIN"
+      },
+      {
+        "key": "selphie",
+        "id": "40976482",
+        "name": "SELPHIE",
+        "title": "LA JOIE FAIT ECOLE",
+        "job": "SEED",
+        "element": "AERO",
+        "weapon": "Fléau",
+        "positions": [
+          3,
+          2
+        ],
+        "atk": [
+          232,
+          192,
+          152,
+          112,
+          "buff_atk",
+          "retry"
+        ],
+        "defense": [
+          216,
+          178,
+          140,
+          102,
+          64,
+          26
+        ],
+        "magic": [
+          5
+        ],
+        "barriers": [
+          4
+        ],
+        "description": "Dans la cour de l'école, Selphie éclate de rire, sa tenue jaune au soleil et ses nunchakus rangés à la hanche. Elle pense aux amis de Trabia et au prochain festival : pour elle, personne ne devrait rester à l'écart.",
+        "race": "HUMAIN"
+      },
+      {
+        "key": "edea",
+        "id": "49134060",
+        "name": "EDEA",
+        "title": "SOUS LES ORNEMENTS",
+        "job": "SORCIERE",
+        "element": "CRYO",
+        "weapon": "Bâton",
+        "positions": [
+          4,
+          5
+        ],
+        "atk": [
+          252,
+          208,
+          164,
+          "mana",
+          "retry",
+          32
+        ],
+        "defense": [
+          222,
+          184,
+          146,
+          108,
+          70,
+          32
+        ],
+        "magic": [
+          6,
+          5,
+          4,
+          1
+        ],
+        "barriers": [
+          6,
+          4
+        ],
+        "description": "Le ciel seul entoure Edea et l'armature de sa robe. Sous la possession, Matrone demeure, liée aux enfants qu'elle a aimés. La glace obéit à sa main ; ces liens résistent à la voix qui parle à sa place.",
+        "race": "HUMAIN"
+      },
+      {
+        "key": "seifer",
+        "id": "46860270",
+        "name": "SEIFER",
+        "title": "LE DEFI DANS LES YEUX",
+        "job": "CHEVALIER",
+        "element": "PYRO",
+        "weapon": "Epée longue",
+        "positions": [
+          1
+        ],
+        "atk": [
+          210,
+          174,
+          138,
+          102,
+          "guard",
+          30
+        ],
+        "defense": [
+          282,
+          234,
+          186,
+          138,
+          90,
+          42
+        ],
+        "magic": [
+          4
+        ],
+        "barriers": [
+          5
+        ],
+        "description": "Seifer relève le menton, sourire insolent et gunblade prête. Sous ses airs de mauvais garçon, le rêve du chevalier tient bon. Il veut une place dans l'histoire, quitte à ne plus voir ceux qui l'attendent.",
+        "race": "HUMAIN"
+      },
+      {
+        "key": "ward",
+        "id": "47264450",
+        "name": "WARD",
+        "title": "LA FORCE DE RESTER",
+        "job": "GARDIEN",
+        "element": "NONE",
+        "weapon": "Lance",
+        "positions": [
+          1
+        ],
+        "atk": [
+          172,
+          144,
+          116,
+          88,
+          "guard",
+          32
+        ],
+        "defense": [
+          312,
+          258,
+          204,
+          150,
+          96,
+          42
+        ],
+        "magic": [],
+        "barriers": [],
+        "description": "Sur la falaise de Centra, Ward s'appuie sur son harpon pour ménager son épaule. Avant la mer en contrebas, il cherche Laguna et Kiros du regard. Dans leur trio, sa force n'a jamais servi à partir le premier.",
+        "race": "HUMAIN"
+      },
+      {
+        "key": "kiros",
+        "id": "43695729",
+        "name": "KIROS",
+        "title": "TE RETROUVER ENFIN",
+        "job": "ECLAIREUR",
+        "element": "NONE",
+        "weapon": "Dague",
+        "positions": [
+          2
+        ],
+        "atk": [
+          292,
+          242,
+          192,
+          142,
+          92,
+          42
+        ],
+        "defense": [
+          182,
+          150,
+          118,
+          86,
+          "dodge",
+          22
+        ],
+        "magic": [],
+        "barriers": [],
+        "description": "À Winhill, Kiros retrouve Laguna vivant. Ses lames s'abaissent et son sourire revient. Il aura le temps de railler son ami ; pour l'instant, cette présence apaise les craintes de sa longue route.",
+        "race": "HUMAIN"
+      },
+      {
+        "key": "laguna",
+        "id": "44143252",
+        "name": "LAGUNA",
+        "title": "UNE MELODIE POUR DEMAIN",
+        "job": "SOLDAT",
+        "element": "ELECTRO",
+        "weapon": "Gun",
+        "positions": [
+          3
+        ],
+        "atk": [
+          238,
+          196,
+          154,
+          112,
+          "buff_atk",
+          28
+        ],
+        "defense": [
+          220,
+          182,
+          144,
+          106,
+          68,
+          30
+        ],
+        "magic": [
+          5,
+          3
+        ],
+        "barriers": [
+          4
+        ],
+        "description": "Au piano de l'hôtel de Deling, Julia joue et Laguna perd ses mots. Son fusil repose, ses jambes le trahissent. Lui qui rêve de devenir journaliste voudrait garder cet instant sans avoir à le raconter.",
+        "race": "HUMAIN"
+      },
+      {
+        "key": "ultimecia",
+        "id": "47842924",
+        "name": "ULTIMECIA",
+        "title": "NE PLUS ETRE SEULE",
+        "job": "SORCIERE",
+        "element": "NECRO",
+        "weapon": "Bâton",
+        "positions": [
+          5
+        ],
+        "atk": [
+          188,
+          156,
+          "mana",
+          "revive",
+          "death",
+          28
+        ],
+        "defense": [
+          216,
+          178,
+          140,
+          102,
+          "retry",
+          26
+        ],
+        "magic": [
+          6,
+          5,
+          1
+        ],
+        "barriers": [
+          6,
+          3
+        ],
+        "description": "Seule dans son château, Ultimecia veut comprimer le temps jusqu'à tout posséder. La colère remplit le vide entre les heures. Abolir hier et demain semble plus facile que d'affronter sa propre solitude.",
+        "race": "HUMAIN"
+      }
+    ],
+    "presets": [
+      {
+        "id": "ff8-set-01-a",
+        "name": "FF8 - Les liens retrouves",
+        "characters": [
+          "squall",
+          "zell",
+          "linoa",
+          "irvine",
+          "quistis",
+          "edea",
+          "ward",
+          "kiros",
+          "laguna",
+          "ultimecia"
+        ]
+      },
+      {
+        "id": "ff8-set-01-b",
+        "name": "FF8 - Les promesses du Garden",
+        "characters": [
+          "squall",
+          "zell",
+          "linoa",
+          "irvine",
+          "quistis",
+          "selphie",
+          "edea",
+          "seifer",
+          "laguna",
+          "ultimecia"
+        ]
+      }
+    ],
+    "arenas": [
+      "ff8-balamb-garden",
+      "ff8-deling-parade"
+    ]
+  },
+  "profile": {
+    "name": "ZELL",
+    "title": "LE SOURIRE AVANT L'IMPACT",
+    "job": "PUGILISTE",
+    "description": "Zell lève les poings et sourit déjà au prochain échange. Le pain de la cafétéria de Balamb peut attendre : ses amis ont besoin de lui. Cette joie n'efface pas le danger ; elle lui donne une raison de ne pas reculer.",
+    "element": "ELECTRO",
+    "race": "HUMAIN",
+    "weapon": "Poing",
+    "faction": "FF8",
+    "positions": [
+      2
+    ],
+    "atk": [
+      300,
+      248,
+      196,
+      144,
+      92,
+      40
+    ],
+    "defense": [
+      174,
+      144,
+      "dodge",
+      84,
+      54,
+      24
+    ],
+    "magic": [],
+    "barriers": [
+      5
+    ],
+    "upload": null,
+    "crop": {
+      "zoom": 1,
+      "x": 0,
+      "y": 0
+    },
+    "schemaVersion": 4,
+    "id": "48933308",
+    "characterId": "zell-ff8",
+    "slug": "V4_48933308",
+    "output": "KALISTAR_V4_48933308",
+    "text": "Zell lève les poings et sourit déjà au prochain échange. Le pain de la cafétéria de Balamb peut attendre : ses amis ont besoin de lui. Cette joie n'efface pas le danger ; elle lui donne une raison de ne pas reculer.",
+    "color": "F5DC32",
+    "hue": 53,
+    "weapon_index": 3,
+    "role": 2,
+    "sentry": true,
+    "canGuard": false,
+    "canHeal": false,
+    "advantage": 30,
+    "disadvantage": 30,
+    "source": "Kalistar x FF8 - reinterpretation privee non officielle",
+    "visual_revision": "V4-ff8-set-01",
+    "collaboration": "FF8",
+    "officialCollaboration": false
+  },
+  "plan": {
+    "textSource": "V4/templates/RUBY_V4_01_HYDRO.psd",
+    "layers": [
+      {
+        "file": "component-00.png",
+        "name": "ILLUSTRATION - cadrage",
+        "left": 80,
+        "top": 156,
+        "width": 737,
+        "height": 921
+      },
+      {
+        "file": "component-01.png",
+        "name": "CADRE V4 - structure validee",
+        "left": 0,
+        "top": 0,
+        "width": 897,
+        "height": 1497
+      },
+      {
+        "file": "component-02.png",
+        "name": "ATK D1 - fond physique",
+        "left": 122,
+        "top": 739,
+        "width": 71,
+        "height": 71
+      },
+      {
+        "file": "component-03.png",
+        "name": "ATK D2 - fond physique",
+        "left": 122,
+        "top": 642,
+        "width": 71,
+        "height": 71
+      },
+      {
+        "file": "component-04.png",
+        "name": "ATK D3 - fond physique",
+        "left": 122,
+        "top": 542,
+        "width": 71,
+        "height": 71
+      },
+      {
+        "file": "component-05.png",
+        "name": "ATK D4 - fond physique",
+        "left": 122,
+        "top": 441,
+        "width": 71,
+        "height": 71
+      },
+      {
+        "file": "component-06.png",
+        "name": "ATK D5 - fond physique",
+        "left": 122,
+        "top": 337,
+        "width": 71,
+        "height": 71
+      },
+      {
+        "file": "component-07.png",
+        "name": "ATK D6 - fond physique",
+        "left": 90,
+        "top": 95,
+        "width": 104,
+        "height": 104
+      },
+      {
+        "file": "component-08.png",
+        "name": "DEF D5 - BARRIERE",
+        "left": 674,
+        "top": 312,
+        "width": 118,
+        "height": 118
+      },
+      {
+        "file": "component-09.png",
+        "name": "DEF D4 - fond effet",
+        "left": 688,
+        "top": 430,
+        "width": 93,
+        "height": 91
+      },
+      {
+        "file": "component-10.png",
+        "name": "DEF D4 - effet dodge",
+        "left": 713,
+        "top": 454,
+        "width": 48,
+        "height": 48
+      },
+      {
+        "file": "component-11.png",
+        "name": "SUPPORT SLOT 1",
+        "left": 197,
+        "top": 985,
+        "width": 59,
+        "height": 77
+      },
+      {
+        "file": "component-12.png",
+        "name": "FACTION - FF8",
+        "left": 672,
+        "top": 829,
+        "width": 98,
+        "height": 223
+      },
+      {
+        "file": "component-13.png",
+        "name": "ARME - Poing",
+        "left": 89,
+        "top": 1116,
+        "width": 96,
+        "height": 95
+      },
+      {
+        "file": "component-14.png",
+        "name": "RACE - HUMAIN",
+        "left": 711,
+        "top": 1116,
+        "width": 96,
+        "height": 95
+      },
+      {
+        "file": "component-15.png",
+        "name": "BRANCHES ELECTRO - couleur du cristal",
+        "left": 196,
+        "top": 1190,
+        "width": 506,
+        "height": 37
+      },
+      {
+        "file": "component-16.png",
+        "name": "CRISTAL ELECTRO",
+        "left": 383,
+        "top": 1123,
+        "width": 129,
+        "height": 144
+      },
+      {
+        "file": "component-17.png",
+        "name": "ID CODE128 - 48933308",
+        "left": 132,
+        "top": 848,
+        "width": 22,
+        "height": 210
+      }
+    ]
+  },
+  "replacements": [
+    {
+      "old": {
+        "file": "component-01.png",
+        "name": "CADRE V4 - structure validee",
+        "left": 0,
+        "top": 0,
+        "width": 897,
+        "height": 1497
+      },
+      "next": {
+        "file": "component-01.png",
+        "name": "CADRE V4 - structure validee",
+        "left": 0,
+        "top": 0,
+        "width": 897,
+        "height": 1497
+      },
+      "asset": "frame/electro.png"
+    },
+    {
+      "old": {
+        "file": "component-02.png",
+        "name": "ATK D1 - fond physique",
+        "left": 122,
+        "top": 739,
+        "width": 71,
+        "height": 71
+      },
+      "next": {
+        "file": "component-02.png",
+        "name": "ATK D1 - fond physique",
+        "left": 122,
+        "top": 739,
+        "width": 71,
+        "height": 71
+      },
+      "asset": "packed/stats/ELECTRO-atk-1-physical.png"
+    },
+    {
+      "old": {
+        "file": "component-03.png",
+        "name": "ATK D2 - fond physique",
+        "left": 122,
+        "top": 642,
+        "width": 71,
+        "height": 71
+      },
+      "next": {
+        "file": "component-03.png",
+        "name": "ATK D2 - fond physique",
+        "left": 122,
+        "top": 642,
+        "width": 71,
+        "height": 71
+      },
+      "asset": "packed/stats/ELECTRO-atk-2-physical.png"
+    },
+    {
+      "old": {
+        "file": "component-04.png",
+        "name": "ATK D3 - fond physique",
+        "left": 122,
+        "top": 542,
+        "width": 71,
+        "height": 71
+      },
+      "next": {
+        "file": "component-04.png",
+        "name": "ATK D3 - fond physique",
+        "left": 122,
+        "top": 542,
+        "width": 71,
+        "height": 71
+      },
+      "asset": "packed/stats/ELECTRO-atk-3-physical.png"
+    },
+    {
+      "old": {
+        "file": "component-05.png",
+        "name": "ATK D4 - fond physique",
+        "left": 122,
+        "top": 441,
+        "width": 71,
+        "height": 71
+      },
+      "next": {
+        "file": "component-05.png",
+        "name": "ATK D4 - fond physique",
+        "left": 122,
+        "top": 441,
+        "width": 71,
+        "height": 71
+      },
+      "asset": "packed/stats/ELECTRO-atk-4-physical.png"
+    },
+    {
+      "old": {
+        "file": "component-06.png",
+        "name": "ATK D5 - fond physique",
+        "left": 122,
+        "top": 337,
+        "width": 71,
+        "height": 71
+      },
+      "next": {
+        "file": "component-06.png",
+        "name": "ATK D5 - fond physique",
+        "left": 122,
+        "top": 337,
+        "width": 71,
+        "height": 71
+      },
+      "asset": "packed/stats/ELECTRO-atk-5-physical.png"
+    },
+    {
+      "old": {
+        "file": "component-07.png",
+        "name": "ATK D6 - fond physique",
+        "left": 90,
+        "top": 95,
+        "width": 104,
+        "height": 104
+      },
+      "next": {
+        "file": "component-07.png",
+        "name": "ATK D6 - fond physique",
+        "left": 90,
+        "top": 95,
+        "width": 104,
+        "height": 104
+      },
+      "asset": "packed/stats/ELECTRO-atk-6-physical.png"
+    },
+    {
+      "old": {
+        "file": "component-15.png",
+        "name": "BRANCHES PYRO - couleur du cristal",
+        "left": 182,
+        "top": 1190,
+        "width": 521,
+        "height": 37
+      },
+      "next": {
+        "file": "component-15.png",
+        "name": "BRANCHES ELECTRO - couleur du cristal",
+        "left": 196,
+        "top": 1190,
+        "width": 506,
+        "height": 37
+      },
+      "asset": "packed/elements/ELECTRO-branch.png"
+    },
+    {
+      "old": {
+        "file": "component-16.png",
+        "name": "CRISTAL PYRO",
+        "left": 390,
+        "top": 1123,
+        "width": 116,
+        "height": 144
+      },
+      "next": {
+        "file": "component-16.png",
+        "name": "CRISTAL ELECTRO",
+        "left": 383,
+        "top": 1123,
+        "width": 129,
+        "height": 144
+      },
+      "asset": "packed/elements/ELECTRO-crystal.png"
+    }
+  ]
+}

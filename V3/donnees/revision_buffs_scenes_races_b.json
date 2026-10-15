@@ -1,0 +1,1433 @@
+{
+  "schema_version": 1,
+  "revision": "buffs-scenes-20260914",
+  "lot": "races_b",
+  "status": "ready_for_parent",
+  "started_at": "2026-09-14T13:51:42.817Z",
+  "direction_source": "V3/sources/REVISION_BUFFS_SCENES_20260914.md",
+  "output_folder": "V3/assets/revisions-buffs-scenes-20260914/races",
+  "shared_prompt": "Use case: stylized-concept.\nCreate ONE richly detailed painted sculpted-metal fantasy race emblem for Kalistar. It is an isolated cutout with a genuinely transparent background, real RGBA PNG alpha outside its silhouette. Square high-resolution canvas. One centered emblem filling about 84% of the longest dimension with safe margins; no clipping.\nArt direction derived from the actual old race PNG inspected by the art agent: dimensional polished and worn silver/steel planes, copper or aged-gold edges, deeply carved recesses, rich material colors and sharp painted highlights. It should feel like a beautifully sculpted fantasy relic illustrated by a painter. Broad substantial details and strong silhouette must read at 90 pixels; retain rich relief and craftsmanship. Not a flat ivory logo, vector, origami, decal, outline symbol or plastic toy. Do not reduce it to three shapes.\nOnly the intrinsic head/organic silhouette. NO backing plate, disk, diamond, shield, ring, square, medallion, frame, wreath, pedestal or floor shadow. The card supplies its own socket. No text, label, watermark or surrounding decoration. Empty space outside the silhouette is actual transparency, not a colored background or transparency-grid illustration.\n",
+  "reference_inspection": {
+    "all_ten_old_pngs_viewed_individually_with_view_image": true,
+    "completed_before_generation": true,
+    "old_source_folder": "V3/sources/avant-harmonisation-20260914/assets/races",
+    "rejected_flat_revision_not_used": true
+  },
+  "policy": {
+    "tool": "image_gen.imagegen built-in",
+    "one_initial_call_per_asset": true,
+    "targeted_corrections_if_required": true,
+    "delivery": "native PNG exact copy; no local pixel edits",
+    "qa": "native inspection and 90px previews on light/dark; alpha and SHA256",
+    "reference_strategy": "Actual old PNGs are obligatory inspected visual sources. After the first reference-attached RHINOZ call produced RGB checkerboard, use reference-derived text-only built-in generation for genuine alpha; preserve all failed-native provenance and use a targeted regeneration for RHINOZ.",
+    "alpha_prompt_tip": "User confirmed reference-attached edits can flatten to RGB. Remaining fresh generations start with the user's explicit real-alpha preamble and use no refpaths."
+  },
+  "baseline_source_files": {
+    "V3/sources/REVISION_BUFFS_SCENES_20260914.md": "8af2b35970a35cec6b1d8df491052774f75e98f57b4341210c187a41b3dcbe7f",
+    "V3/donnees/cartes.json": "45af148f8d1828287116a9985f4d33f41a58a64a43852980da8d231c48707fcf",
+    "V3/site/engine.js": "735c4e2da2daaa305ef2e1c22287fdbd767f707f494d7b58a5c07cc01752b655",
+    "V3/site/local-db.js": "db6234bf5478f067dc548518a4f93a328f19c0e2d498de8d97a701aebec53d68",
+    "V3/donnees/regles.json": "31050cb513762c411651c1fc371d23f320b4df4394d108a6856f4c9069cf3129",
+    "V3/donnees/armes.json": "f179c9f8e8744e388aa32588e7b8c3dec1cf783428d57baeac55997fd916ff8f"
+  },
+  "assets": [
+    {
+      "id": "RHINOZ",
+      "status": "ready_for_parent",
+      "destination": "V3/assets/revisions-buffs-scenes-20260914/races/RHINOZ.png",
+      "orientation": "three-quarter right",
+      "prompt": "Use case: stylized-concept.\nCreate ONE richly detailed painted sculpted-metal fantasy race emblem for Kalistar. It is an isolated cutout with a genuinely transparent background, real RGBA PNG alpha outside its silhouette. Square high-resolution canvas. One centered emblem filling about 84% of the longest dimension with safe margins; no clipping.\nArt direction derived from the actual old race PNG inspected by the art agent: dimensional polished and worn silver/steel planes, copper or aged-gold edges, deeply carved recesses, rich material colors and sharp painted highlights. It should feel like a beautifully sculpted fantasy relic illustrated by a painter. Broad substantial details and strong silhouette must read at 90 pixels; retain rich relief and craftsmanship. Not a flat ivory logo, vector, origami, decal, outline symbol or plastic toy. Do not reduce it to three shapes.\nOnly the intrinsic head/organic silhouette. NO backing plate, disk, diamond, shield, ring, square, medallion, frame, wreath, pedestal or floor shadow. The card supplies its own socket. No text, label, watermark or surrounding decoration. Empty space outside the silhouette is actual transparency, not a colored background or transparency-grid illustration.\nObserved old source: The old PNG shows a rhinoceros face in faceted silver armour, a prominent warm-gold nasal horn, amber eyes and copper edges, with a diamond-like backing to remove.\nSubject: RHINOZ, the rhinoceros race. A powerful rhinoceros HEAD, turned THREE-QUARTERS TO THE RIGHT, not dead frontal. Preserve the unmistakable broad heavy muzzle, two cupped ears, prominent single nasal horn and amber eye from the reference. Faceted worn-silver hide/armour, warm aged-gold horn, copper edge seams and dark charcoal nostril recesses; readable layered cheek and brow planes. Noble and formidable. Remove the reference's separate diamond/backing shape entirely; the outline is only head, ears and horn. No shoulder armour or neck pedestal. Do not turn it into a dragon or add antlers.",
+      "references": [
+        {
+          "order": 1,
+          "role": "actual old race PNG: identity and rich painted sculpted-metal style",
+          "path": "V3/sources/avant-harmonisation-20260914/assets/races/RHINOZ.png",
+          "sha256": "50e5675a3a73430178e5f8faff8603c5992b6fb50138631150ef03a241a01b5e",
+          "view_image_inspected": true,
+          "observed": "The old PNG shows a rhinoceros face in faceted silver armour, a prominent warm-gold nasal horn, amber eyes and copper edges, with a diamond-like backing to remove.",
+          "use": "Old PNG inspected individually with view_image; race/material details translated into this exact prompt."
+        }
+      ],
+      "canonical_sha256_before": "0a228a0c16a85b3fea0731be813898b0a33831e3ce384db65c9409df56928b7a",
+      "profile_ids": [
+        "30000011",
+        "30000019",
+        "30000037",
+        "30000038"
+      ],
+      "native_outputs": [
+        {
+          "path": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-680387a7-8ab3-44e6-950f-4d5b167398f1.png",
+          "tool": "image_gen.imagegen",
+          "generated_at": "2026-09-14T13:52:51.136Z",
+          "prompt": "Use case: stylized-concept.\nAsset type: one Kalistar fantasy race emblem, painted sculpted-metal game icon.\nInput image 1 is the actual OLD PNG of this exact race, the required visual source for identity, materials and craftsmanship. Restore and refine its RICH dimensional fantasy art direction, NOT the rejected flat ivory logo series. Create a newly painted standalone emblem using the old reference: modelled silver/steel planes, warm copper or aged-gold edges where present, deep carved recesses, hand-painted highlight strokes, broad crisp engraving and race-specific colored material. It should feel like an intricately sculpted fantasy relic illustrated by a painter, not a vector logo, flat enamel decal, photoreal animal, plastic 3D toy, or outline glyph. Strong readable contour and major forms at 90 pixels, selective substantial details instead of microscopic noise.\nBackground/output: square high-resolution PNG with GENUINE RGBA ALPHA TRANSPARENCY outside the emblem and through its open gaps. Empty transparent pixels, not an image of a transparency grid. The input may appear on black in a viewer: BLACK IS NOT A BACKGROUND TO KEEP. No solid backdrop, no checkerboard, no white matte, no floor, no rectangular shadow. No additional backing plate, diamond, shield, circle, medallion, ring, square, frame or wreath: the card already provides a circular socket. Only the intrinsic head/organic silhouette. No text, letters, numbers, watermark or label. Keep the whole emblem centered with about 8% clear margin around the longest dimension; all horns, feathers, antlers and filaments intact. Rich relief is required; do not flatten the materials or reduce it to three flat shapes.\nSubject: RHINOZ, the rhinoceros race. A powerful rhinoceros HEAD, turned THREE-QUARTERS TO THE RIGHT, not dead frontal. Preserve the unmistakable broad heavy muzzle, two cupped ears, prominent single nasal horn and amber eye from the reference. Faceted worn-silver hide/armour, warm aged-gold horn, copper edge seams and dark charcoal nostril recesses; readable layered cheek and brow planes. Noble and formidable. Remove the reference's separate diamond/backing shape entirely; the outline is only head, ears and horn. No shoulder armour or neck pedestal. Do not turn it into a dragon or add antlers.",
+          "references": [
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/sources/avant-harmonisation-20260914/assets/races/RHINOZ.png"
+          ],
+          "selected": false,
+          "sha256": "9f3e59b7e2beac18adb6b4240e52a1aa0a61b7ec509f913fa714aafd6ed8788b",
+          "rejected_reason": "No alpha channel; baked checkerboard; extra plate-like silhouette at left.",
+          "rejection_reason": "Reference-attached initial output was flattened RGB with a baked checkerboard; rejected and replaced by fresh text-only reconstruction."
+        },
+        {
+          "path": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-6c1f25fc-b91a-4db5-964f-056295c9bf17.png",
+          "tool": "image_gen.imagegen",
+          "generated_at": "2026-09-14T13:54:37.208Z",
+          "prompt": "Use case: stylized-concept.\nCreate ONE richly detailed painted sculpted-metal fantasy race emblem for Kalistar. It is an isolated cutout with a genuinely transparent background, real RGBA PNG alpha outside its silhouette. Square high-resolution canvas. One centered emblem filling about 84% of the longest dimension with safe margins; no clipping.\nArt direction derived from the actual old race PNG inspected by the art agent: dimensional polished and worn silver/steel planes, copper or aged-gold edges, deeply carved recesses, rich material colors and sharp painted highlights. It should feel like a beautifully sculpted fantasy relic illustrated by a painter. Broad substantial details and strong silhouette must read at 90 pixels; retain rich relief and craftsmanship. Not a flat ivory logo, vector, origami, decal, outline symbol or plastic toy. Do not reduce it to three shapes.\nOnly the intrinsic head/organic silhouette. NO backing plate, disk, diamond, shield, ring, square, medallion, frame, wreath, pedestal or floor shadow. The card supplies its own socket. No text, label, watermark or surrounding decoration. Empty space outside the silhouette is actual transparency, not a colored background or transparency-grid illustration.\nObserved old source: The old PNG shows a rhinoceros face in faceted silver armour, a prominent warm-gold nasal horn, amber eyes and copper edges, with a diamond-like backing to remove.\nSubject: RHINOZ, the rhinoceros race. A powerful rhinoceros HEAD, turned THREE-QUARTERS TO THE RIGHT, not dead frontal. Preserve the unmistakable broad heavy muzzle, two cupped ears, prominent single nasal horn and amber eye from the reference. Faceted worn-silver hide/armour, warm aged-gold horn, copper edge seams and dark charcoal nostril recesses; readable layered cheek and brow planes. Noble and formidable. Remove the reference's separate diamond/backing shape entirely; the outline is only head, ears and horn. No shoulder armour or neck pedestal. Do not turn it into a dragon or add antlers.",
+          "references": [],
+          "selected": true,
+          "sha256": "c90d8e5e139ecb5e252dc39983436a21716147a562b9a7ec4545db14de2b0b39"
+        }
+      ],
+      "generation_calls": 2,
+      "qa": {
+        "failed_attempts": [
+          {
+            "width": 1254,
+            "height": 1254,
+            "format": "png",
+            "has_alpha": false,
+            "transparent_pixels": 0,
+            "transparent_fraction": 0,
+            "visible_pixels": 1572516,
+            "corner_alpha": [
+              255,
+              255,
+              255,
+              255
+            ],
+            "border_max_alpha": 255,
+            "alpha_bounds_threshold": 8,
+            "alpha_bounds": [
+              0,
+              0,
+              1254,
+              1254
+            ],
+            "bounds_width_fraction": 1,
+            "bounds_height_fraction": 1,
+            "alpha_weighted_center": [
+              626.5,
+              626.5
+            ],
+            "sha256": "9f3e59b7e2beac18adb6b4240e52a1aa0a61b7ec509f913fa714aafd6ed8788b",
+            "native_sha256": "9f3e59b7e2beac18adb6b4240e52a1aa0a61b7ec509f913fa714aafd6ed8788b",
+            "byte_exact_copy": true,
+            "bytes": 2638247,
+            "technical_pass": false,
+            "preview": "C:/Users/guill/AppData/Local/Temp/kalistar-buffs-scenes-race-b-RHINOZ-90px.png",
+            "preview_size_px": 90,
+            "status": "technical_failure"
+          }
+        ],
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "has_alpha": true,
+        "transparent_pixels": 693953,
+        "transparent_fraction": 0.4413010742021067,
+        "visible_pixels": 866246,
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "border_max_alpha": 0,
+        "alpha_bounds_threshold": 8,
+        "alpha_bounds": [
+          59,
+          15,
+          1197,
+          1238
+        ],
+        "bounds_width_fraction": 0.9074960127591707,
+        "bounds_height_fraction": 0.9752791068580542,
+        "alpha_weighted_center": [
+          646.8988314604001,
+          669.5759450211343
+        ],
+        "sha256": "c90d8e5e139ecb5e252dc39983436a21716147a562b9a7ec4545db14de2b0b39",
+        "native_sha256": "c90d8e5e139ecb5e252dc39983436a21716147a562b9a7ec4545db14de2b0b39",
+        "byte_exact_copy": true,
+        "bytes": 2347377,
+        "technical_pass": true,
+        "preview": "C:/Users/guill/AppData/Local/Temp/kalistar-buffs-scenes-race-b-RHINOZ-90px.png",
+        "preview_size_px": 90,
+        "status": "passed",
+        "visual": {
+          "view_image_native_inspected": true,
+          "view_image_90px_inspected": true,
+          "readable_at_90px": true,
+          "rich_sculpted_metal_style": true,
+          "no_extra_backing_or_frame": true,
+          "no_baked_background_observed": true,
+          "notes": "Rich worn-silver rhinoceros head in clear three-quarter view, amber eye and gold horn; sculpted cheek plates are intrinsic to the head, no separate disk/backplate. Readable at 90px. Native visible height 97.5% with narrow but intact transparent top/bottom margins; no clipping. First RGB checkerboard output rejected, second native RGBA selected."
+        }
+      },
+      "input_image_paths": [],
+      "completed_at": "2026-09-14T13:54:52.047Z"
+    },
+    {
+      "id": "FALCO",
+      "status": "ready_for_parent",
+      "destination": "V3/assets/revisions-buffs-scenes-20260914/races/FALCO.png",
+      "orientation": "right profile",
+      "prompt": "Use case: stylized-concept.\nCreate ONE richly detailed painted sculpted-metal fantasy race emblem for Kalistar. It is an isolated cutout with a genuinely transparent background, real RGBA PNG alpha outside its silhouette. Square high-resolution canvas. One centered emblem filling about 84% of the longest dimension with safe margins; no clipping.\nArt direction derived from the actual old race PNG inspected by the art agent: dimensional polished and worn silver/steel planes, copper or aged-gold edges, deeply carved recesses, rich material colors and sharp painted highlights. It should feel like a beautifully sculpted fantasy relic illustrated by a painter. Broad substantial details and strong silhouette must read at 90 pixels; retain rich relief and craftsmanship. Not a flat ivory logo, vector, origami, decal, outline symbol or plastic toy. Do not reduce it to three shapes.\nOnly the intrinsic head/organic silhouette. NO backing plate, disk, diamond, shield, ring, square, medallion, frame, wreath, pedestal or floor shadow. The card supplies its own socket. No text, label, watermark or surrounding decoration. Empty space outside the silhouette is actual transparency, not a colored background or transparency-grid illustration.\nObserved old source: Old PNG has a right-facing falcon, deeply hooked gold beak, sweeping silver feather blades, turquoise recesses and a luminous blue eye.\nSubject: FALCO, the falcon race. RIGHT-FACING SIDE PROFILE, preserve the old reference's aerodynamic swept-back silver feather crest, short sharply hooked aged-gold beak, cobalt-blue eye and turquoise glass/enamel recesses between the large feather groups. Rich carved metallic neck plumage with broad polished ridges and shaded channels, carefully painted worn-silver surfaces. The crown flows backward like wind, not a raven's shaggy neck; keep the falcon's short hooked bill diagnostic. One coherent head-and-neck emblem, no detached wing, whole bird or rear disk.",
+      "references": [
+        {
+          "order": 1,
+          "role": "actual old race PNG: identity and rich painted sculpted-metal style",
+          "path": "V3/sources/avant-harmonisation-20260914/assets/races/FALCO.png",
+          "sha256": "ea8e968cbc4d68e8c481c5030d2e80f59e736e532d46bec3db4d8e33c4970833",
+          "view_image_inspected": true,
+          "observed": "Old PNG has a right-facing falcon, deeply hooked gold beak, sweeping silver feather blades, turquoise recesses and a luminous blue eye.",
+          "use": "Old PNG inspected individually with view_image; race/material details translated into this exact prompt."
+        }
+      ],
+      "canonical_sha256_before": "060f244175b7102e15ef8870b1b5973f922fb6c2765f894bdd7671a40d0b5984",
+      "profile_ids": [
+        "30000002",
+        "30000040"
+      ],
+      "native_outputs": [
+        {
+          "path": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-cc13c5b4-a270-4ad5-993a-11c5e5a72fac.png",
+          "tool": "image_gen.imagegen",
+          "generated_at": "2026-09-14T13:55:26.636Z",
+          "prompt": "Use case: stylized-concept.\nCreate ONE richly detailed painted sculpted-metal fantasy race emblem for Kalistar. It is an isolated cutout with a genuinely transparent background, real RGBA PNG alpha outside its silhouette. Square high-resolution canvas. One centered emblem filling about 84% of the longest dimension with safe margins; no clipping.\nArt direction derived from the actual old race PNG inspected by the art agent: dimensional polished and worn silver/steel planes, copper or aged-gold edges, deeply carved recesses, rich material colors and sharp painted highlights. It should feel like a beautifully sculpted fantasy relic illustrated by a painter. Broad substantial details and strong silhouette must read at 90 pixels; retain rich relief and craftsmanship. Not a flat ivory logo, vector, origami, decal, outline symbol or plastic toy. Do not reduce it to three shapes.\nOnly the intrinsic head/organic silhouette. NO backing plate, disk, diamond, shield, ring, square, medallion, frame, wreath, pedestal or floor shadow. The card supplies its own socket. No text, label, watermark or surrounding decoration. Empty space outside the silhouette is actual transparency, not a colored background or transparency-grid illustration.\nObserved old source: Old PNG has a right-facing falcon, deeply hooked gold beak, sweeping silver feather blades, turquoise recesses and a luminous blue eye.\nSubject: FALCO, the falcon race. RIGHT-FACING SIDE PROFILE, preserve the old reference's aerodynamic swept-back silver feather crest, short sharply hooked aged-gold beak, cobalt-blue eye and turquoise glass/enamel recesses between the large feather groups. Rich carved metallic neck plumage with broad polished ridges and shaded channels, carefully painted worn-silver surfaces. The crown flows backward like wind, not a raven's shaggy neck; keep the falcon's short hooked bill diagnostic. One coherent head-and-neck emblem, no detached wing, whole bird or rear disk.",
+          "references": [],
+          "selected": true,
+          "sha256": "589aeb0c29591df624c17ef7cd63f7df4b96f09e1230dcfa5d67871d70ce751e"
+        }
+      ],
+      "generation_calls": 1,
+      "qa": {
+        "failed_attempts": [],
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "has_alpha": true,
+        "transparent_pixels": 749322,
+        "transparent_fraction": 0.4765115267507612,
+        "visible_pixels": 808199,
+        "corner_alpha": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "border_max_alpha": 1,
+        "alpha_bounds_threshold": 8,
+        "alpha_bounds": [
+          40,
+          16,
+          1227,
+          1238
+        ],
+        "bounds_width_fraction": 0.9465709728867624,
+        "bounds_height_fraction": 0.9744816586921851,
+        "alpha_weighted_center": [
+          654.6612013941728,
+          605.2310956912544
+        ],
+        "sha256": "589aeb0c29591df624c17ef7cd63f7df4b96f09e1230dcfa5d67871d70ce751e",
+        "native_sha256": "589aeb0c29591df624c17ef7cd63f7df4b96f09e1230dcfa5d67871d70ce751e",
+        "byte_exact_copy": true,
+        "bytes": 2176821,
+        "technical_pass": true,
+        "preview": "C:/Users/guill/AppData/Local/Temp/kalistar-buffs-scenes-race-b-FALCO-90px.png",
+        "preview_size_px": 90,
+        "status": "passed",
+        "visual": {
+          "view_image_native_inspected": true,
+          "view_image_90px_inspected": true,
+          "readable_at_90px": true,
+          "rich_sculpted_metal_style": true,
+          "no_extra_backing_or_frame": true,
+          "no_baked_background_observed": true,
+          "notes": "Right-profile falcon with hooked gold beak, vivid blue eye, turquoise recesses and swept layered silver feather relief. Clearly non-flat and consistent with its old PNG. Readable at 90px on light and dark. Native height 97.4%, narrow intact margins; one corner alpha 1/255 is negligible, no visible background."
+        }
+      },
+      "input_image_paths": [],
+      "completed_at": "2026-09-14T13:55:41.635Z"
+    },
+    {
+      "id": "KORBOW",
+      "status": "ready_for_parent",
+      "destination": "V3/assets/revisions-buffs-scenes-20260914/races/KORBOW.png",
+      "orientation": "left profile",
+      "prompt": "Use case: stylized-concept.\nCreate ONE richly detailed painted sculpted-metal fantasy race emblem for Kalistar. It is an isolated cutout with a genuinely transparent background, real RGBA PNG alpha outside its silhouette. Square high-resolution canvas. One centered emblem filling about 84% of the longest dimension with safe margins; no clipping.\nArt direction derived from the actual old race PNG inspected by the art agent: dimensional polished and worn silver/steel planes, copper or aged-gold edges, deeply carved recesses, rich material colors and sharp painted highlights. It should feel like a beautifully sculpted fantasy relic illustrated by a painter. Broad substantial details and strong silhouette must read at 90 pixels; retain rich relief and craftsmanship. Not a flat ivory logo, vector, origami, decal, outline symbol or plastic toy. Do not reduce it to three shapes.\nOnly the intrinsic head/organic silhouette. NO backing plate, disk, diamond, shield, ring, square, medallion, frame, wreath, pedestal or floor shadow. The card supplies its own socket. No text, label, watermark or surrounding decoration. Empty space outside the silhouette is actual transparency, not a colored background or transparency-grid illustration.\nObserved old source: Old PNG has a long-beaked raven profile, layered dark silver neck feathers, copper contour accents and a brown-amber eye.\nSubject: KORBOW, the raven/crow race. LEFT-FACING SIDE PROFILE, reversing the old reference's direction but keeping its raven identity. Long thick nearly straight dark steel beak with a gently down-curved tip, low smooth brow, copper-amber eye and shaggy layered raven neck feathers. Broad overlapping silver-black feather plates, strong sculpted highlights on their upper ridges, copper edging, deep charcoal gaps. More grounded and dark than Falco: no cyan, no eagle/falcon hook, no huge wind-swept wing crest. A substantial richly modelled head-and-neck silhouette, not an origami bird.",
+      "references": [
+        {
+          "order": 1,
+          "role": "actual old race PNG: identity and rich painted sculpted-metal style",
+          "path": "V3/sources/avant-harmonisation-20260914/assets/races/KORBOW.png",
+          "sha256": "21bfbe6876cbb971e6317365b0506ee5e656af53ac0495914df4b9fd7e7b1157",
+          "view_image_inspected": true,
+          "observed": "Old PNG has a long-beaked raven profile, layered dark silver neck feathers, copper contour accents and a brown-amber eye.",
+          "use": "Old PNG inspected individually with view_image; race/material details translated into this exact prompt."
+        }
+      ],
+      "canonical_sha256_before": "64ff53b18a3603e617c10508c39fa6d12ffdbeaf3701506b10d9279ac25fff9d",
+      "profile_ids": [
+        "30000015"
+      ],
+      "native_outputs": [
+        {
+          "path": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-db6010c2-be97-4fcd-a784-94aaf2d107b9.png",
+          "tool": "image_gen.imagegen",
+          "generated_at": "2026-09-14T13:56:32.218Z",
+          "prompt": "Use case: stylized-concept.\nCreate ONE richly detailed painted sculpted-metal fantasy race emblem for Kalistar. It is an isolated cutout with a genuinely transparent background, real RGBA PNG alpha outside its silhouette. Square high-resolution canvas. One centered emblem filling about 84% of the longest dimension with safe margins; no clipping.\nArt direction derived from the actual old race PNG inspected by the art agent: dimensional polished and worn silver/steel planes, copper or aged-gold edges, deeply carved recesses, rich material colors and sharp painted highlights. It should feel like a beautifully sculpted fantasy relic illustrated by a painter. Broad substantial details and strong silhouette must read at 90 pixels; retain rich relief and craftsmanship. Not a flat ivory logo, vector, origami, decal, outline symbol or plastic toy. Do not reduce it to three shapes.\nOnly the intrinsic head/organic silhouette. NO backing plate, disk, diamond, shield, ring, square, medallion, frame, wreath, pedestal or floor shadow. The card supplies its own socket. No text, label, watermark or surrounding decoration. Empty space outside the silhouette is actual transparency, not a colored background or transparency-grid illustration.\nObserved old source: Old PNG has a long-beaked raven profile, layered dark silver neck feathers, copper contour accents and a brown-amber eye.\nSubject: KORBOW, the raven/crow race. LEFT-FACING SIDE PROFILE, reversing the old reference's direction but keeping its raven identity. Long thick nearly straight dark steel beak with a gently down-curved tip, low smooth brow, copper-amber eye and shaggy layered raven neck feathers. Broad overlapping silver-black feather plates, strong sculpted highlights on their upper ridges, copper edging, deep charcoal gaps. More grounded and dark than Falco: no cyan, no eagle/falcon hook, no huge wind-swept wing crest. A substantial richly modelled head-and-neck silhouette, not an origami bird.",
+          "references": [],
+          "selected": true,
+          "sha256": "7495ac0faf98850b3ca469f16b73f444559a53bde94840f171becc961c1ff4fa"
+        }
+      ],
+      "generation_calls": 1,
+      "qa": {
+        "failed_attempts": [],
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "has_alpha": true,
+        "transparent_pixels": 749070,
+        "transparent_fraction": 0.47635127400929467,
+        "visible_pixels": 804609,
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "border_max_alpha": 0,
+        "alpha_bounds_threshold": 8,
+        "alpha_bounds": [
+          58,
+          51,
+          1217,
+          1224
+        ],
+        "bounds_width_fraction": 0.9242424242424242,
+        "bounds_height_fraction": 0.9354066985645934,
+        "alpha_weighted_center": [
+          708.3770116698817,
+          600.2954689748104
+        ],
+        "sha256": "7495ac0faf98850b3ca469f16b73f444559a53bde94840f171becc961c1ff4fa",
+        "native_sha256": "7495ac0faf98850b3ca469f16b73f444559a53bde94840f171becc961c1ff4fa",
+        "byte_exact_copy": true,
+        "bytes": 2129997,
+        "technical_pass": true,
+        "preview": "C:/Users/guill/AppData/Local/Temp/kalistar-buffs-scenes-race-b-KORBOW-90px.png",
+        "preview_size_px": 90,
+        "status": "passed",
+        "visual": {
+          "view_image_native_inspected": true,
+          "view_image_90px_inspected": true,
+          "readable_at_90px": true,
+          "rich_sculpted_metal_style": true,
+          "no_extra_backing_or_frame": true,
+          "no_baked_background_observed": true,
+          "notes": "Left raven profile with long dark beak, amber eye and deeply modelled overlapping black-silver/copper neck feathers. Distinct from turquoise Falco; readable at 90px on both backgrounds, no backing frame or matte."
+        }
+      },
+      "input_image_paths": [],
+      "completed_at": "2026-09-14T13:56:43.513Z"
+    },
+    {
+      "id": "DRAX",
+      "status": "ready_for_parent",
+      "destination": "V3/assets/revisions-buffs-scenes-20260914/races/DRAX.png",
+      "orientation": "three-quarter left",
+      "prompt": "Use case: stylized-concept.\nCreate ONE richly detailed painted sculpted-metal fantasy race emblem for Kalistar. It is an isolated cutout with a genuinely transparent background, real RGBA PNG alpha outside its silhouette. Square high-resolution canvas. One centered emblem filling about 84% of the longest dimension with safe margins; no clipping.\nArt direction derived from the actual old race PNG inspected by the art agent: dimensional polished and worn silver/steel planes, copper or aged-gold edges, deeply carved recesses, rich material colors and sharp painted highlights. It should feel like a beautifully sculpted fantasy relic illustrated by a painter. Broad substantial details and strong silhouette must read at 90 pixels; retain rich relief and craftsmanship. Not a flat ivory logo, vector, origami, decal, outline symbol or plastic toy. Do not reduce it to three shapes.\nOnly the intrinsic head/organic silhouette. NO backing plate, disk, diamond, shield, ring, square, medallion, frame, wreath, pedestal or floor shadow. The card supplies its own socket. No text, label, watermark or surrounding decoration. Empty space outside the silhouette is actual transparency, not a colored background or transparency-grid illustration.\nObserved old source: Old PNG has an open-jawed right-facing dragon with silver armoured scales, sweeping horns, red eye and red webbing on its neck.\nSubject: DRAX, the dragon race. Fierce dragon HEAD in THREE-QUARTER VIEW TOWARD THE LEFT, jaws parted enough for a clear dark mouth gap and a few strong ivory fangs. Preserve the swept-back ridged horns, layered angular silver scales, red eye and deep crimson membrane between the neck spines of the old PNG. Richly sculpted engraved metal with warm bronze edge accents, crimson recessed areas and controlled white-silver glints. Distinct draconic snout, horn and jaw structure, no bird beak, no extra wing behind the head, no fire cloud or detached ornaments.",
+      "references": [
+        {
+          "order": 1,
+          "role": "actual old race PNG: identity and rich painted sculpted-metal style",
+          "path": "V3/sources/avant-harmonisation-20260914/assets/races/DRAX.png",
+          "sha256": "5358d2f3dce40510f3c48a9df3f1762a19f1a4c4f6e02bc0b167808c06c0943a",
+          "view_image_inspected": true,
+          "observed": "Old PNG has an open-jawed right-facing dragon with silver armoured scales, sweeping horns, red eye and red webbing on its neck.",
+          "use": "Old PNG inspected individually with view_image; race/material details translated into this exact prompt."
+        }
+      ],
+      "canonical_sha256_before": "8dba3fdc9d9583e90ccc4cbfcfae25922b9387663435c57509cb666b53f7c2f0",
+      "profile_ids": [
+        "30000004",
+        "30000029",
+        "30000030"
+      ],
+      "native_outputs": [
+        {
+          "path": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-414bfab5-75ec-4c6d-a9e1-5eafb453e572.png",
+          "tool": "image_gen.imagegen",
+          "generated_at": "2026-09-14T13:57:36.834Z",
+          "prompt": "Use case: stylized-concept.\nCreate ONE richly detailed painted sculpted-metal fantasy race emblem for Kalistar. It is an isolated cutout with a genuinely transparent background, real RGBA PNG alpha outside its silhouette. Square high-resolution canvas. One centered emblem filling about 84% of the longest dimension with safe margins; no clipping.\nArt direction derived from the actual old race PNG inspected by the art agent: dimensional polished and worn silver/steel planes, copper or aged-gold edges, deeply carved recesses, rich material colors and sharp painted highlights. It should feel like a beautifully sculpted fantasy relic illustrated by a painter. Broad substantial details and strong silhouette must read at 90 pixels; retain rich relief and craftsmanship. Not a flat ivory logo, vector, origami, decal, outline symbol or plastic toy. Do not reduce it to three shapes.\nOnly the intrinsic head/organic silhouette. NO backing plate, disk, diamond, shield, ring, square, medallion, frame, wreath, pedestal or floor shadow. The card supplies its own socket. No text, label, watermark or surrounding decoration. Empty space outside the silhouette is actual transparency, not a colored background or transparency-grid illustration.\nObserved old source: Old PNG has an open-jawed right-facing dragon with silver armoured scales, sweeping horns, red eye and red webbing on its neck.\nSubject: DRAX, the dragon race. Fierce dragon HEAD in THREE-QUARTER VIEW TOWARD THE LEFT, jaws parted enough for a clear dark mouth gap and a few strong ivory fangs. Preserve the swept-back ridged horns, layered angular silver scales, red eye and deep crimson membrane between the neck spines of the old PNG. Richly sculpted engraved metal with warm bronze edge accents, crimson recessed areas and controlled white-silver glints. Distinct draconic snout, horn and jaw structure, no bird beak, no extra wing behind the head, no fire cloud or detached ornaments.",
+          "references": [],
+          "selected": true,
+          "sha256": "e156abd20325c1b0b99606c41bd17906a2e736b9b0d875bddf6da975e53c9056"
+        }
+      ],
+      "generation_calls": 1,
+      "qa": {
+        "failed_attempts": [],
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "has_alpha": true,
+        "transparent_pixels": 782705,
+        "transparent_fraction": 0.4977405635300372,
+        "visible_pixels": 762178,
+        "corner_alpha": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "border_max_alpha": 1,
+        "alpha_bounds_threshold": 8,
+        "alpha_bounds": [
+          68,
+          16,
+          1198,
+          1244
+        ],
+        "bounds_width_fraction": 0.9011164274322169,
+        "bounds_height_fraction": 0.9792663476874003,
+        "alpha_weighted_center": [
+          651.3822020986513,
+          645.0473800712325
+        ],
+        "sha256": "e156abd20325c1b0b99606c41bd17906a2e736b9b0d875bddf6da975e53c9056",
+        "native_sha256": "e156abd20325c1b0b99606c41bd17906a2e736b9b0d875bddf6da975e53c9056",
+        "byte_exact_copy": true,
+        "bytes": 2163338,
+        "technical_pass": true,
+        "preview": "C:/Users/guill/AppData/Local/Temp/kalistar-buffs-scenes-race-b-DRAX-90px.png",
+        "preview_size_px": 90,
+        "status": "passed",
+        "visual": {
+          "view_image_native_inspected": true,
+          "view_image_90px_inspected": true,
+          "readable_at_90px": true,
+          "rich_sculpted_metal_style": true,
+          "no_extra_backing_or_frame": true,
+          "no_baked_background_observed": true,
+          "notes": "Left-facing dragon head with deep sculpted silver scale relief, clear open jaw, substantial horns and crimson neck membranes. Strong silhouette and color distinction at 90px. All tips within native canvas, no independent frame/backplate. Negligible alpha 1/255 at one corner; no visible matte."
+        }
+      },
+      "input_image_paths": [],
+      "completed_at": "2026-09-14T13:57:53.130Z"
+    },
+    {
+      "id": "FELINEUS",
+      "status": "ready_for_parent",
+      "destination": "V3/assets/revisions-buffs-scenes-20260914/races/FELINEUS.png",
+      "orientation": "three-quarter right",
+      "prompt": "Generate one transparent game UI asset, PNG RGBA with REAL alpha outside the object. No colored background, no black background, no checkerboard pattern. It will be placed over existing card artwork.\nCreate a richly painted SCULPTED SILVER LYNX HEAD race emblem, FELINEUS, based on the old Kalistar PNG visually inspected by the art agent: a FULLY METALLIC silver face, cast chiseled cheek-fur plates, copper seam accents, amber eyes, black nose and tufted ears. Three-quarter view looking right. The entire head including the muzzle and ear interiors is solid sculpted SILVER METAL, not a living cat with jewelry. Render fur as broad cast-metal ridges, layered substantial chiseled locks and recessed planes, not thousands of natural hairs. Polished silver highlights, dark oxidized metal recesses, warm copper thin seams, excellent dimensional material relief like an ornate fantasy armour sculpture, richly painted rather than a flat vector.\nCRITICAL FRAMING: compact broad cheek silhouette and SHORT lynx ear tufts. Both complete ears AND the chin must fit INSIDE the central 80% of the square. Leave a visibly generous empty transparent border of at least 100 pixels at TOP and BOTTOM in a 1254px square image. Do not crop the fur, chin or tufts. Do not elongate ears into spikes. Center the whole emblem, not only its face. Amber eyes and feline short muzzle remain clear at 90px. No neck pedestal, no shoulder or body, no additional backing, disk, square, frame or medallion. No words, symbols or environment. Output actual transparent PNG.",
+      "references": [
+        {
+          "order": 1,
+          "role": "actual old race PNG: identity and rich painted sculpted-metal style",
+          "path": "V3/sources/avant-harmonisation-20260914/assets/races/FELINEUS.png",
+          "sha256": "2be4349446e56f7050f05f79cf950e211ce43a3b722132d213a8a580cfff3a96",
+          "view_image_inspected": true,
+          "observed": "Old PNG has an ash-silver lynx face, very tall tufted ears, copper edges, warm amber eyes and layered cheek fur.",
+          "use": "Old PNG inspected individually with view_image; race/material details translated into this exact prompt."
+        }
+      ],
+      "canonical_sha256_before": "c3f6932ae5e32146b09ed35998eecf2f8bc9ee06508788fb390798bc837811ed",
+      "profile_ids": [
+        "30000031"
+      ],
+      "native_outputs": [
+        {
+          "path": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-cf5d2727-9185-4383-a4ce-55cf5be0a5f7.png",
+          "tool": "image_gen.imagegen",
+          "generated_at": "2026-09-14T13:58:32.680Z",
+          "prompt": "Generate one transparent game UI asset, PNG RGBA with REAL alpha outside the object. No colored background, no black background, no checkerboard pattern. It will be placed over existing card artwork.\nUse case: stylized-concept.\nCreate ONE richly detailed painted sculpted-metal fantasy race emblem for Kalistar. It is an isolated cutout with a genuinely transparent background, real RGBA PNG alpha outside its silhouette. Square high-resolution canvas. One centered emblem filling about 84% of the longest dimension with safe margins; no clipping.\nArt direction derived from the actual old race PNG inspected by the art agent: dimensional polished and worn silver/steel planes, copper or aged-gold edges, deeply carved recesses, rich material colors and sharp painted highlights. It should feel like a beautifully sculpted fantasy relic illustrated by a painter. Broad substantial details and strong silhouette must read at 90 pixels; retain rich relief and craftsmanship. Not a flat ivory logo, vector, origami, decal, outline symbol or plastic toy. Do not reduce it to three shapes.\nOnly the intrinsic head/organic silhouette. NO backing plate, disk, diamond, shield, ring, square, medallion, frame, wreath, pedestal or floor shadow. The card supplies its own socket. No text, label, watermark or surrounding decoration. Empty space outside the silhouette is actual transparency, not a colored background or transparency-grid illustration.\nObserved old source: Old PNG has an ash-silver lynx face, very tall tufted ears, copper edges, warm amber eyes and layered cheek fur.\nSubject: FELINEUS, the lynx/feline race. A lynx HEAD turned THREE-QUARTERS RIGHT, muzzle pointing gently right and nearer amber eye dominant, not a symmetrical front mask. Preserve the old PNG's unmistakable tall tufted ears, short feline muzzle, black nose, carved silver cheek ruff and warm copper ridges. Ash-silver sculpted fur in substantial layered locks, golden-amber eyes, complex but readable brow and cheek modelling. Ears and tufts remain compact enough to fit whole inside a square with margins; no whisker wires, lion mane, antlers or generic wolf snout.",
+          "references": [],
+          "selected": false,
+          "sha256": "a2cb60d96fd6cc381c2c79ec5b40940d5d8cdf54f5c9e1ac28d04b69d5853da5",
+          "rejected_reason": "Natural furry portrait with thin metal ornament rather than the old fully sculpted metal emblem; top/bottom hair contacts canvas (border alpha 78).",
+          "rejection_reason": "First generation drifted into a natural-fur portrait and ear tufts touched the canvas; rejected and replaced by a fully sculpted-silver compact head."
+        },
+        {
+          "path": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-73c45906-f661-4a0d-9dd0-c5045e9033ed.png",
+          "tool": "image_gen.imagegen",
+          "generated_at": "2026-09-14T14:00:01.741Z",
+          "prompt": "Generate one transparent game UI asset, PNG RGBA with REAL alpha outside the object. No colored background, no black background, no checkerboard pattern. It will be placed over existing card artwork.\nCreate a richly painted SCULPTED SILVER LYNX HEAD race emblem, FELINEUS, based on the old Kalistar PNG visually inspected by the art agent: a FULLY METALLIC silver face, cast chiseled cheek-fur plates, copper seam accents, amber eyes, black nose and tufted ears. Three-quarter view looking right. The entire head including the muzzle and ear interiors is solid sculpted SILVER METAL, not a living cat with jewelry. Render fur as broad cast-metal ridges, layered substantial chiseled locks and recessed planes, not thousands of natural hairs. Polished silver highlights, dark oxidized metal recesses, warm copper thin seams, excellent dimensional material relief like an ornate fantasy armour sculpture, richly painted rather than a flat vector.\nCRITICAL FRAMING: compact broad cheek silhouette and SHORT lynx ear tufts. Both complete ears AND the chin must fit INSIDE the central 80% of the square. Leave a visibly generous empty transparent border of at least 100 pixels at TOP and BOTTOM in a 1254px square image. Do not crop the fur, chin or tufts. Do not elongate ears into spikes. Center the whole emblem, not only its face. Amber eyes and feline short muzzle remain clear at 90px. No neck pedestal, no shoulder or body, no additional backing, disk, square, frame or medallion. No words, symbols or environment. Output actual transparent PNG.",
+          "references": [],
+          "selected": true,
+          "sha256": "3b971e468e13ee80a0f5c0405bc30cc69a4437014956e072a5e4b594f1c7cd33"
+        }
+      ],
+      "generation_calls": 2,
+      "qa": {
+        "failed_attempts": [
+          {
+            "width": 1254,
+            "height": 1254,
+            "format": "png",
+            "has_alpha": true,
+            "transparent_pixels": 863698,
+            "transparent_fraction": 0.5492459218220991,
+            "visible_pixels": 689120,
+            "corner_alpha": [
+              0,
+              0,
+              1,
+              0
+            ],
+            "border_max_alpha": 78,
+            "alpha_bounds_threshold": 8,
+            "alpha_bounds": [
+              160,
+              0,
+              1099,
+              1254
+            ],
+            "bounds_width_fraction": 0.7488038277511961,
+            "bounds_height_fraction": 1,
+            "alpha_weighted_center": [
+              657.5672348599707,
+              699.4083443785645
+            ],
+            "sha256": "a2cb60d96fd6cc381c2c79ec5b40940d5d8cdf54f5c9e1ac28d04b69d5853da5",
+            "native_sha256": "a2cb60d96fd6cc381c2c79ec5b40940d5d8cdf54f5c9e1ac28d04b69d5853da5",
+            "byte_exact_copy": true,
+            "bytes": 1777049,
+            "technical_pass": true,
+            "preview": "C:/Users/guill/AppData/Local/Temp/kalistar-buffs-scenes-race-b-FELINEUS-90px.png",
+            "preview_size_px": 90,
+            "status": "pending_visual_review"
+          }
+        ],
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "has_alpha": true,
+        "transparent_pixels": 1013100,
+        "transparent_fraction": 0.6442541761101318,
+        "visible_pixels": 547223,
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "border_max_alpha": 0,
+        "alpha_bounds_threshold": 8,
+        "alpha_bounds": [
+          209,
+          94,
+          1047,
+          1144
+        ],
+        "bounds_width_fraction": 0.6682615629984051,
+        "bounds_height_fraction": 0.8373205741626795,
+        "alpha_weighted_center": [
+          636.5309406419198,
+          666.9791296943278
+        ],
+        "sha256": "3b971e468e13ee80a0f5c0405bc30cc69a4437014956e072a5e4b594f1c7cd33",
+        "native_sha256": "3b971e468e13ee80a0f5c0405bc30cc69a4437014956e072a5e4b594f1c7cd33",
+        "byte_exact_copy": true,
+        "bytes": 1532775,
+        "technical_pass": true,
+        "preview": "C:/Users/guill/AppData/Local/Temp/kalistar-buffs-scenes-race-b-FELINEUS-90px.png",
+        "preview_size_px": 90,
+        "status": "passed",
+        "visual": {
+          "view_image_native_inspected": true,
+          "view_image_90px_inspected": true,
+          "readable_at_90px": true,
+          "rich_sculpted_metal_style": true,
+          "no_extra_backing_or_frame": true,
+          "no_baked_background_observed": true,
+          "notes": "Three-quarter right lynx head now entirely sculpted silver and copper, amber eyes and broad cheek ridges; intrinsic tufted ears intact with clear margins. Readable on both light and dark 90px previews, without natural-fur portrait drift."
+        }
+      },
+      "input_image_paths": [],
+      "completed_at": "2026-09-14T14:01:41.729Z"
+    },
+    {
+      "id": "CARNIVERT",
+      "status": "ready_for_parent",
+      "destination": "V3/assets/revisions-buffs-scenes-20260914/races/CARNIVERT.png",
+      "orientation": "slight three-quarter left",
+      "prompt": "Generate one transparent game UI asset, PNG RGBA with REAL alpha outside the object. No colored background, no black background, no checkerboard pattern. It will be placed over existing card artwork.\nUse case: stylized-concept.\nCreate ONE richly detailed painted sculpted-metal fantasy race emblem for Kalistar. It is an isolated cutout with a genuinely transparent background, real RGBA PNG alpha outside its silhouette. Square high-resolution canvas. One centered compact emblem occupying only the central 80% of the canvas. Leave an EMPTY TRANSPARENT MARGIN at least 100 pixels wide on all four sides of a 1254px square. The tallest leaf tip and lowest chin tip must remain completely inside those margins; no clipping.\nArt direction derived from the actual old race PNG inspected by the art agent: dimensional polished and worn silver/steel planes, copper or aged-gold edges, deeply carved recesses, rich material colors and sharp painted highlights. It should feel like a beautifully sculpted fantasy relic illustrated by a painter. Broad substantial details and strong silhouette must read at 90 pixels; retain rich relief and craftsmanship. Not a flat ivory logo, vector, origami, decal, outline symbol or plastic toy. Do not reduce it to three shapes.\nOnly the intrinsic head/organic silhouette. NO backing plate, disk, diamond, shield, ring, square, medallion, frame, wreath, pedestal or floor shadow. The card supplies its own socket. No text, label, watermark or surrounding decoration. Empty space outside the silhouette is actual transparency, not a colored background or transparency-grid illustration.\nObserved old source: Old PNG has a living-leaf humanoid mask, green central leaf crown, bronze twig forms and silver face ridges; not a simple leaf glyph.\nSubject: CARNIVERT, the living foliage humanoid race. Restore the old PNG's organic FACE made of carved silver leaf ribs and warm bronze twig ridges, emerald-green eyes in deep recesses, a prominent living green leaf growing from the forehead, and a few broad smaller leaves growing directly from the temples. Slight THREE-QUARTER VIEW TO THE LEFT, with naturally asymmetric leaf growth, not a rigid symmetric flat mask. Rich glossy deep-green leaves with broad readable veins and painted metal volume. All side leaves are attached parts of this single emblem, not a separate wreath. No purple petals or reptile snout: Toxinar is a different race. Not a lone leaf symbol.\nFraming priority: shorter broad forehead leaf, not a long spike. Show the entire compact sculpture from leaf tip to chin, with visible generous transparent space above and below it. Maintain the rich silver-bronze living foliage face.",
+      "references": [
+        {
+          "order": 1,
+          "role": "actual old race PNG: identity and rich painted sculpted-metal style",
+          "path": "V3/sources/avant-harmonisation-20260914/assets/races/CARNIVERT.png",
+          "sha256": "80a3ecdb8948e6d2bed1c4749222b659ed07f8e253c0966777c65a3d08a261f6",
+          "view_image_inspected": true,
+          "observed": "Old PNG has a living-leaf humanoid mask, green central leaf crown, bronze twig forms and silver face ridges; not a simple leaf glyph.",
+          "use": "Old PNG inspected individually with view_image; race/material details translated into this exact prompt."
+        }
+      ],
+      "canonical_sha256_before": "833e6f1c114381ac66a439e01fc8bb3f68bd4151c853eb55797a078e6e895442",
+      "profile_ids": [
+        "30000008",
+        "30000041"
+      ],
+      "native_outputs": [
+        {
+          "path": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-014b11b2-1a8f-43f4-9f5e-ee649f11ae21.png",
+          "tool": "image_gen.imagegen",
+          "generated_at": "2026-09-14T14:02:49.851Z",
+          "prompt": "Generate one transparent game UI asset, PNG RGBA with REAL alpha outside the object. No colored background, no black background, no checkerboard pattern. It will be placed over existing card artwork.\nUse case: stylized-concept.\nCreate ONE richly detailed painted sculpted-metal fantasy race emblem for Kalistar. It is an isolated cutout with a genuinely transparent background, real RGBA PNG alpha outside its silhouette. Square high-resolution canvas. One centered emblem filling about 84% of the longest dimension with safe margins; no clipping.\nArt direction derived from the actual old race PNG inspected by the art agent: dimensional polished and worn silver/steel planes, copper or aged-gold edges, deeply carved recesses, rich material colors and sharp painted highlights. It should feel like a beautifully sculpted fantasy relic illustrated by a painter. Broad substantial details and strong silhouette must read at 90 pixels; retain rich relief and craftsmanship. Not a flat ivory logo, vector, origami, decal, outline symbol or plastic toy. Do not reduce it to three shapes.\nOnly the intrinsic head/organic silhouette. NO backing plate, disk, diamond, shield, ring, square, medallion, frame, wreath, pedestal or floor shadow. The card supplies its own socket. No text, label, watermark or surrounding decoration. Empty space outside the silhouette is actual transparency, not a colored background or transparency-grid illustration.\nObserved old source: Old PNG has a living-leaf humanoid mask, green central leaf crown, bronze twig forms and silver face ridges; not a simple leaf glyph.\nSubject: CARNIVERT, the living foliage humanoid race. Restore the old PNG's organic FACE made of carved silver leaf ribs and warm bronze twig ridges, emerald-green eyes in deep recesses, a prominent living green leaf growing from the forehead, and a few broad smaller leaves growing directly from the temples. Slight THREE-QUARTER VIEW TO THE LEFT, with naturally asymmetric leaf growth, not a rigid symmetric flat mask. Rich glossy deep-green leaves with broad readable veins and painted metal volume. All side leaves are attached parts of this single emblem, not a separate wreath. No purple petals or reptile snout: Toxinar is a different race. Not a lone leaf symbol.",
+          "references": [],
+          "selected": false,
+          "sha256": "47c0586250e0771ac76dfdc58cbc5b99ae48b7dffcafc4d4101ae2d2dc657f8c",
+          "rejection_reason": "Upper leaf reaches the canvas border; stronger safety margins requested."
+        },
+        {
+          "path": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-05e4ce8c-abc6-41ef-8dfe-13535d0be5f4.png",
+          "tool": "image_gen.imagegen",
+          "generated_at": "2026-09-14T14:03:52.713Z",
+          "prompt": "Generate one transparent game UI asset, PNG RGBA with REAL alpha outside the object. No colored background, no black background, no checkerboard pattern. It will be placed over existing card artwork.\nUse case: stylized-concept.\nCreate ONE richly detailed painted sculpted-metal fantasy race emblem for Kalistar. It is an isolated cutout with a genuinely transparent background, real RGBA PNG alpha outside its silhouette. Square high-resolution canvas. One centered compact emblem occupying only the central 80% of the canvas. Leave an EMPTY TRANSPARENT MARGIN at least 100 pixels wide on all four sides of a 1254px square. The tallest leaf tip and lowest chin tip must remain completely inside those margins; no clipping.\nArt direction derived from the actual old race PNG inspected by the art agent: dimensional polished and worn silver/steel planes, copper or aged-gold edges, deeply carved recesses, rich material colors and sharp painted highlights. It should feel like a beautifully sculpted fantasy relic illustrated by a painter. Broad substantial details and strong silhouette must read at 90 pixels; retain rich relief and craftsmanship. Not a flat ivory logo, vector, origami, decal, outline symbol or plastic toy. Do not reduce it to three shapes.\nOnly the intrinsic head/organic silhouette. NO backing plate, disk, diamond, shield, ring, square, medallion, frame, wreath, pedestal or floor shadow. The card supplies its own socket. No text, label, watermark or surrounding decoration. Empty space outside the silhouette is actual transparency, not a colored background or transparency-grid illustration.\nObserved old source: Old PNG has a living-leaf humanoid mask, green central leaf crown, bronze twig forms and silver face ridges; not a simple leaf glyph.\nSubject: CARNIVERT, the living foliage humanoid race. Restore the old PNG's organic FACE made of carved silver leaf ribs and warm bronze twig ridges, emerald-green eyes in deep recesses, a prominent living green leaf growing from the forehead, and a few broad smaller leaves growing directly from the temples. Slight THREE-QUARTER VIEW TO THE LEFT, with naturally asymmetric leaf growth, not a rigid symmetric flat mask. Rich glossy deep-green leaves with broad readable veins and painted metal volume. All side leaves are attached parts of this single emblem, not a separate wreath. No purple petals or reptile snout: Toxinar is a different race. Not a lone leaf symbol.\nFraming priority: shorter broad forehead leaf, not a long spike. Show the entire compact sculpture from leaf tip to chin, with visible generous transparent space above and below it. Maintain the rich silver-bronze living foliage face.",
+          "references": [],
+          "selected": true,
+          "sha256": "1bb798c8bc08bfd20a27d1391f30b3054ac6e3a13adbd60d2b8f0750e5f8ebb9"
+        }
+      ],
+      "generation_calls": 2,
+      "qa": {
+        "failed_attempts": [
+          {
+            "failed_attempts": [],
+            "width": 1254,
+            "height": 1254,
+            "format": "png",
+            "has_alpha": true,
+            "transparent_pixels": 797836,
+            "transparent_fraction": 0.5073627231773794,
+            "visible_pixels": 746238,
+            "corner_alpha": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "border_max_alpha": 9,
+            "alpha_bounds_threshold": 8,
+            "alpha_bounds": [
+              60,
+              0,
+              1230,
+              1250
+            ],
+            "bounds_width_fraction": 0.9330143540669856,
+            "bounds_height_fraction": 0.9968102073365231,
+            "alpha_weighted_center": [
+              629.607096123965,
+              612.957814758101
+            ],
+            "sha256": "47c0586250e0771ac76dfdc58cbc5b99ae48b7dffcafc4d4101ae2d2dc657f8c",
+            "native_sha256": "47c0586250e0771ac76dfdc58cbc5b99ae48b7dffcafc4d4101ae2d2dc657f8c",
+            "byte_exact_copy": true,
+            "bytes": 2030032,
+            "technical_pass": false,
+            "preview": "C:/Users/guill/AppData/Local/Temp/kalistar-buffs-scenes-race-b-CARNIVERT-90px.png",
+            "preview_size_px": 90,
+            "status": "technical_failure"
+          }
+        ],
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "has_alpha": true,
+        "transparent_pixels": 1167092,
+        "transparent_fraction": 0.7421813196177336,
+        "visible_pixels": 393023,
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "border_max_alpha": 0,
+        "alpha_bounds_threshold": 8,
+        "alpha_bounds": [
+          221,
+          133,
+          1043,
+          1057
+        ],
+        "bounds_width_fraction": 0.6555023923444976,
+        "bounds_height_fraction": 0.7368421052631579,
+        "alpha_weighted_center": [
+          619.9472124887895,
+          576.1660492374203
+        ],
+        "sha256": "1bb798c8bc08bfd20a27d1391f30b3054ac6e3a13adbd60d2b8f0750e5f8ebb9",
+        "native_sha256": "1bb798c8bc08bfd20a27d1391f30b3054ac6e3a13adbd60d2b8f0750e5f8ebb9",
+        "byte_exact_copy": true,
+        "bytes": 1122457,
+        "technical_pass": true,
+        "preview": "C:/Users/guill/AppData/Local/Temp/kalistar-buffs-scenes-race-b-CARNIVERT-90px.png",
+        "preview_size_px": 90,
+        "status": "passed",
+        "visual": {
+          "view_image_native_inspected": true,
+          "view_image_90px_inspected": true,
+          "readable_at_90px": true,
+          "rich_sculpted_metal_style": true,
+          "no_extra_backing_or_frame": true,
+          "no_baked_background_observed": true,
+          "notes": "Rich silver-bronze living foliage face in slight left three-quarter view, green forehead leaf and intrinsic temple leaves, no purple flower or reptile drift. Corrective generation restored generous transparent margins; readable on light/dark 90px previews. Native silhouette occupies 73.68% height, recorded for parent scale alignment."
+        }
+      },
+      "input_image_paths": [],
+      "completed_at": "2026-09-14T14:04:09.480Z"
+    },
+    {
+      "id": "CERELF",
+      "status": "ready_for_parent",
+      "destination": "V3/assets/revisions-buffs-scenes-20260914/races/CERELF.png",
+      "orientation": "right profile with slight three-quarter",
+      "prompt": "Generate one transparent game UI asset, PNG RGBA with REAL alpha outside the object. No colored background, no black background, no checkerboard pattern. It will be placed over existing card artwork.\nUse case: stylized-concept.\nCreate ONE richly detailed painted sculpted-metal fantasy race emblem for Kalistar. It is an isolated cutout with a genuinely transparent background, real RGBA PNG alpha outside its silhouette. Square high-resolution canvas. One centered compact emblem occupying only the central 80% of the canvas. Leave an EMPTY TRANSPARENT MARGIN at least 100 pixels wide on all four sides of a 1254px square. Every antler, leaf, tentacle and chin tip must remain fully inside those margins; no clipping.\nArt direction derived from the actual old race PNG inspected by the art agent: dimensional polished and worn silver/steel planes, copper or aged-gold edges, deeply carved recesses, rich material colors and sharp painted highlights. It should feel like a beautifully sculpted fantasy relic illustrated by a painter. Broad substantial details and strong silhouette must read at 90 pixels; retain rich relief and craftsmanship. Not a flat ivory logo, vector, origami, decal, outline symbol or plastic toy. Do not reduce it to three shapes.\nOnly the intrinsic head/organic silhouette. NO backing plate, disk, diamond, shield, ring, square, medallion, frame, wreath, pedestal or floor shadow. The card supplies its own socket. No text, label, watermark or surrounding decoration. Empty space outside the silhouette is actual transparency, not a colored background or transparency-grid illustration.\nObserved old source: Old PNG has a silver deer head in three-quarter view, short asymmetric copper antlers, long ears, green eyes and sculpted copper-silver neck.\nSubject: CERELF, the deer/elf race. Elegant but imposing DEER HEAD looking RIGHT, near side profile with just enough three-quarter depth to show the far antler. Preserve long cervid muzzle, broad upright ears, forest-green eye and SHORT ASYMMETRIC copper antlers from the old PNG, two or three clear tines each. Richly modelled brushed-silver face and neck, warm copper antler surfaces and engraved cheek seams, dark black nose, strong antler/head distinction at 90px. No human elf face, no detached antler-only sign, no giant crown or woodland backdrop. Keep both antlers complete within safe margins.",
+      "references": [
+        {
+          "order": 1,
+          "role": "actual old race PNG: identity and rich painted sculpted-metal style",
+          "path": "V3/sources/avant-harmonisation-20260914/assets/races/CERELF.png",
+          "sha256": "4c758923adfd11c548fd3b2d224f46971c223c55b4e833bf74c6930d087263a1",
+          "view_image_inspected": true,
+          "observed": "Old PNG has a silver deer head in three-quarter view, short asymmetric copper antlers, long ears, green eyes and sculpted copper-silver neck.",
+          "use": "Old PNG inspected individually with view_image; race/material details translated into this exact prompt."
+        }
+      ],
+      "canonical_sha256_before": "71d6e007194718a1729668849ac50ccc19a4582d5de5e8cfe60887bb4b1d486e",
+      "profile_ids": [
+        "30000036"
+      ],
+      "native_outputs": [
+        {
+          "path": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-31fb7e34-3bc4-43f2-bc7d-bad75c535238.png",
+          "tool": "image_gen.imagegen",
+          "generated_at": "2026-09-14T14:04:44.622Z",
+          "prompt": "Generate one transparent game UI asset, PNG RGBA with REAL alpha outside the object. No colored background, no black background, no checkerboard pattern. It will be placed over existing card artwork.\nUse case: stylized-concept.\nCreate ONE richly detailed painted sculpted-metal fantasy race emblem for Kalistar. It is an isolated cutout with a genuinely transparent background, real RGBA PNG alpha outside its silhouette. Square high-resolution canvas. One centered compact emblem occupying only the central 80% of the canvas. Leave an EMPTY TRANSPARENT MARGIN at least 100 pixels wide on all four sides of a 1254px square. Every antler, leaf, tentacle and chin tip must remain fully inside those margins; no clipping.\nArt direction derived from the actual old race PNG inspected by the art agent: dimensional polished and worn silver/steel planes, copper or aged-gold edges, deeply carved recesses, rich material colors and sharp painted highlights. It should feel like a beautifully sculpted fantasy relic illustrated by a painter. Broad substantial details and strong silhouette must read at 90 pixels; retain rich relief and craftsmanship. Not a flat ivory logo, vector, origami, decal, outline symbol or plastic toy. Do not reduce it to three shapes.\nOnly the intrinsic head/organic silhouette. NO backing plate, disk, diamond, shield, ring, square, medallion, frame, wreath, pedestal or floor shadow. The card supplies its own socket. No text, label, watermark or surrounding decoration. Empty space outside the silhouette is actual transparency, not a colored background or transparency-grid illustration.\nObserved old source: Old PNG has a silver deer head in three-quarter view, short asymmetric copper antlers, long ears, green eyes and sculpted copper-silver neck.\nSubject: CERELF, the deer/elf race. Elegant but imposing DEER HEAD looking RIGHT, near side profile with just enough three-quarter depth to show the far antler. Preserve long cervid muzzle, broad upright ears, forest-green eye and SHORT ASYMMETRIC copper antlers from the old PNG, two or three clear tines each. Richly modelled brushed-silver face and neck, warm copper antler surfaces and engraved cheek seams, dark black nose, strong antler/head distinction at 90px. No human elf face, no detached antler-only sign, no giant crown or woodland backdrop. Keep both antlers complete within safe margins.",
+          "references": [],
+          "selected": true,
+          "sha256": "6861a3a07a799447a67ac81d6a286e0d1fc91ee0a94c48aa5606c300fa8593be"
+        }
+      ],
+      "generation_calls": 1,
+      "qa": {
+        "failed_attempts": [],
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "has_alpha": true,
+        "transparent_pixels": 1087484,
+        "transparent_fraction": 0.6915567154801605,
+        "visible_pixels": 469437,
+        "corner_alpha": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "border_max_alpha": 1,
+        "alpha_bounds_threshold": 8,
+        "alpha_bounds": [
+          290,
+          43,
+          1059,
+          1219
+        ],
+        "bounds_width_fraction": 0.613237639553429,
+        "bounds_height_fraction": 0.937799043062201,
+        "alpha_weighted_center": [
+          643.6526415283329,
+          649.9923260277451
+        ],
+        "sha256": "6861a3a07a799447a67ac81d6a286e0d1fc91ee0a94c48aa5606c300fa8593be",
+        "native_sha256": "6861a3a07a799447a67ac81d6a286e0d1fc91ee0a94c48aa5606c300fa8593be",
+        "byte_exact_copy": true,
+        "bytes": 1363411,
+        "technical_pass": true,
+        "preview": "C:/Users/guill/AppData/Local/Temp/kalistar-buffs-scenes-race-b-CERELF-90px.png",
+        "preview_size_px": 90,
+        "status": "passed",
+        "visual": {
+          "view_image_native_inspected": true,
+          "view_image_90px_inspected": true,
+          "readable_at_90px": true,
+          "rich_sculpted_metal_style": true,
+          "no_extra_backing_or_frame": true,
+          "no_baked_background_observed": true,
+          "notes": "Right three-quarter cervid head with complete asymmetric copper antlers, long ears/muzzle and green eye; silver face and neck with copper leaf-shaped sculpting. Clear silhouette and antler separation at 90px on light/dark backgrounds. Alpha bounds remain inside canvas; isolated alpha=1 at one corner is negligible."
+        }
+      },
+      "input_image_paths": [],
+      "completed_at": "2026-09-14T14:04:53.525Z"
+    },
+    {
+      "id": "GOLEM",
+      "status": "ready_for_parent",
+      "destination": "V3/assets/revisions-buffs-scenes-20260914/races/GOLEM.png",
+      "orientation": "three-quarter left",
+      "prompt": "Generate one transparent game UI asset, PNG RGBA with REAL alpha outside the object. No colored background, no black background, no checkerboard pattern. It will be placed over existing card artwork.\nUse case: stylized-concept.\nCreate ONE richly detailed painted sculpted-metal fantasy race emblem for Kalistar. It is an isolated cutout with a genuinely transparent background, real RGBA PNG alpha outside its silhouette. Square high-resolution canvas. One centered compact emblem occupying only the central 80% of the canvas. Leave an EMPTY TRANSPARENT MARGIN at least 100 pixels wide on all four sides of a 1254px square. Every antler, leaf, tentacle and chin tip must remain fully inside those margins; no clipping.\nArt direction derived from the actual old race PNG inspected by the art agent: dimensional polished and worn silver/steel planes, copper or aged-gold edges, deeply carved recesses, rich material colors and sharp painted highlights. It should feel like a beautifully sculpted fantasy relic illustrated by a painter. Broad substantial details and strong silhouette must read at 90 pixels; retain rich relief and craftsmanship. Not a flat ivory logo, vector, origami, decal, outline symbol or plastic toy. Do not reduce it to three shapes.\nOnly the intrinsic head/organic silhouette. NO backing plate, disk, diamond, shield, ring, square, medallion, frame, wreath, pedestal or floor shadow. The card supplies its own socket. No text, label, watermark or surrounding decoration. Empty space outside the silhouette is actual transparency, not a colored background or transparency-grid illustration.\nObserved old source: Old PNG shows a substantial granite face with block-like brow/nose/jaw, silver-grey stone facets and copper seams in the cracks.\nSubject: GOLEM, the granite construct race. A heavy carved STONE HEAD in THREE-QUARTER VIEW LEFT, not a front-facing square tile. Keep the old reference's monumental broken granite brow slabs, broad squared nose, deep dark eye slits, solid jaw and copper seams visible between the large rock plates. Rich painted silver-grey granite with broad chisel facets, restrained mineral grain, substantial cracks and warm metallic inlays. Strong bevelled volume and weight; a complete standalone head silhouette, no shoulders or pedestal and NO square backing panel. Not three loose stones, not a robot helmet, no glowing neon eyes.",
+      "references": [
+        {
+          "order": 1,
+          "role": "actual old race PNG: identity and rich painted sculpted-metal style",
+          "path": "V3/sources/avant-harmonisation-20260914/assets/races/GOLEM.png",
+          "sha256": "de2352629dbcf6f5028704b482dfcb1ba2788670cff4b80d7f73027622b1e163",
+          "view_image_inspected": true,
+          "observed": "Old PNG shows a substantial granite face with block-like brow/nose/jaw, silver-grey stone facets and copper seams in the cracks.",
+          "use": "Old PNG inspected individually with view_image; race/material details translated into this exact prompt."
+        }
+      ],
+      "canonical_sha256_before": "3bb09f3255543ce5bb0188c973bade33665fd2d35491cef0024920793990958f",
+      "profile_ids": [
+        "30000024"
+      ],
+      "native_outputs": [
+        {
+          "path": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-036a4a58-95f1-4aaf-870e-678c3fb8ae3e.png",
+          "tool": "image_gen.imagegen",
+          "generated_at": "2026-09-14T14:05:51.430Z",
+          "prompt": "Generate one transparent game UI asset, PNG RGBA with REAL alpha outside the object. No colored background, no black background, no checkerboard pattern. It will be placed over existing card artwork.\nUse case: stylized-concept.\nCreate ONE richly detailed painted sculpted-metal fantasy race emblem for Kalistar. It is an isolated cutout with a genuinely transparent background, real RGBA PNG alpha outside its silhouette. Square high-resolution canvas. One centered compact emblem occupying only the central 80% of the canvas. Leave an EMPTY TRANSPARENT MARGIN at least 100 pixels wide on all four sides of a 1254px square. Every antler, leaf, tentacle and chin tip must remain fully inside those margins; no clipping.\nArt direction derived from the actual old race PNG inspected by the art agent: dimensional polished and worn silver/steel planes, copper or aged-gold edges, deeply carved recesses, rich material colors and sharp painted highlights. It should feel like a beautifully sculpted fantasy relic illustrated by a painter. Broad substantial details and strong silhouette must read at 90 pixels; retain rich relief and craftsmanship. Not a flat ivory logo, vector, origami, decal, outline symbol or plastic toy. Do not reduce it to three shapes.\nOnly the intrinsic head/organic silhouette. NO backing plate, disk, diamond, shield, ring, square, medallion, frame, wreath, pedestal or floor shadow. The card supplies its own socket. No text, label, watermark or surrounding decoration. Empty space outside the silhouette is actual transparency, not a colored background or transparency-grid illustration.\nObserved old source: Old PNG shows a substantial granite face with block-like brow/nose/jaw, silver-grey stone facets and copper seams in the cracks.\nSubject: GOLEM, the granite construct race. A heavy carved STONE HEAD in THREE-QUARTER VIEW LEFT, not a front-facing square tile. Keep the old reference's monumental broken granite brow slabs, broad squared nose, deep dark eye slits, solid jaw and copper seams visible between the large rock plates. Rich painted silver-grey granite with broad chisel facets, restrained mineral grain, substantial cracks and warm metallic inlays. Strong bevelled volume and weight; a complete standalone head silhouette, no shoulders or pedestal and NO square backing panel. Not three loose stones, not a robot helmet, no glowing neon eyes.",
+          "references": [],
+          "selected": true,
+          "sha256": "de3dc725d6e0c8f3c591e76919df817bc3dc837002133927ecf9996100d69ff1"
+        }
+      ],
+      "generation_calls": 1,
+      "qa": {
+        "failed_attempts": [],
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "has_alpha": true,
+        "transparent_pixels": 942531,
+        "transparent_fraction": 0.5993776851873049,
+        "visible_pixels": 622459,
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "border_max_alpha": 1,
+        "alpha_bounds_threshold": 8,
+        "alpha_bounds": [
+          210,
+          123,
+          1048,
+          1135
+        ],
+        "bounds_width_fraction": 0.6682615629984051,
+        "bounds_height_fraction": 0.8070175438596491,
+        "alpha_weighted_center": [
+          621.7072093063607,
+          631.9929554486968
+        ],
+        "sha256": "de3dc725d6e0c8f3c591e76919df817bc3dc837002133927ecf9996100d69ff1",
+        "native_sha256": "de3dc725d6e0c8f3c591e76919df817bc3dc837002133927ecf9996100d69ff1",
+        "byte_exact_copy": true,
+        "bytes": 1705628,
+        "technical_pass": true,
+        "preview": "C:/Users/guill/AppData/Local/Temp/kalistar-buffs-scenes-race-b-GOLEM-90px.png",
+        "preview_size_px": 90,
+        "status": "passed",
+        "visual": {
+          "view_image_native_inspected": true,
+          "view_image_90px_inspected": true,
+          "readable_at_90px": true,
+          "rich_sculpted_metal_style": true,
+          "no_extra_backing_or_frame": true,
+          "no_baked_background_observed": true,
+          "notes": "Heavy left three-quarter stone head, broad granite brow/nose/jaw blocks with copper seams and dark slit eyes. Strong coarse relief reads well at 90px; not detached rocks or a flat icon, no backing. Intact margins and real alpha."
+        }
+      },
+      "input_image_paths": [],
+      "completed_at": "2026-09-14T14:06:01.207Z"
+    },
+    {
+      "id": "TANTALAK",
+      "status": "ready_for_parent",
+      "destination": "V3/assets/revisions-buffs-scenes-20260914/races/TANTALAK.png",
+      "orientation": "slight three-quarter right",
+      "prompt": "Generate one transparent game UI asset, PNG RGBA with REAL alpha outside the object. No colored background, no black background, no checkerboard pattern. It will be placed over existing card artwork.\nUse case: stylized-concept.\nCreate ONE richly detailed painted sculpted-metal fantasy race emblem for Kalistar. It is an isolated cutout with a genuinely transparent background, real RGBA PNG alpha outside its silhouette. Square high-resolution canvas. One centered compact emblem occupying only the central 80% of the canvas. Leave an EMPTY TRANSPARENT MARGIN at least 100 pixels wide on all four sides of a 1254px square. Every antler, leaf, tentacle and chin tip must remain fully inside those margins; no clipping.\nArt direction derived from the actual old race PNG inspected by the art agent: dimensional polished and worn silver/steel planes, copper or aged-gold edges, deeply carved recesses, rich material colors and sharp painted highlights. It should feel like a beautifully sculpted fantasy relic illustrated by a painter. Broad substantial details and strong silhouette must read at 90 pixels; retain rich relief and craftsmanship. Not a flat ivory logo, vector, origami, decal, outline symbol or plastic toy. Do not reduce it to three shapes.\nOnly the intrinsic head/organic silhouette. NO backing plate, disk, diamond, shield, ring, square, medallion, frame, wreath, pedestal or floor shadow. The card supplies its own socket. No text, label, watermark or surrounding decoration. Empty space outside the silhouette is actual transparency, not a colored background or transparency-grid illustration.\nObserved old source: Old PNG has a broad translucent aqua jellyfish-like crown, silver/copper sculpted facial ridges, turquoise eyes and four short curled lower filaments.\nSubject: TANTALAK, the jellyfish-headed amphibious humanoid race. Preserve the distinctive old PNG identity: a broad compact translucent AQUA JELLYFISH BELL as the upper head, inset teal eyes, sculpted silver/copper facial ridges and four SHORT thick curling chin filaments. Slight THREE-QUARTER VIEW RIGHT, with one side of the glassy bell foreshortened and filaments naturally offset, not a flat symmetric jellyfish symbol. Rich watery glass highlights inside the dome, deep turquoise recesses, modelled silver ridges edged in warm copper, pronounced tactile sculpted relief. A head emblem only, no body or extra limbs; not an octopus with a round forehead, human pirate portrait, mushroom or ghost. Filaments are compact features of the head, no long tentacle skirt.",
+      "references": [
+        {
+          "order": 1,
+          "role": "actual old race PNG: identity and rich painted sculpted-metal style",
+          "path": "V3/sources/avant-harmonisation-20260914/assets/races/TANTALAK.png",
+          "sha256": "aa5766f9a632815428a0a278df824929a6ce2d9d871cf32ed890518f52d45073",
+          "view_image_inspected": true,
+          "observed": "Old PNG has a broad translucent aqua jellyfish-like crown, silver/copper sculpted facial ridges, turquoise eyes and four short curled lower filaments.",
+          "use": "Old PNG inspected individually with view_image; race/material details translated into this exact prompt."
+        }
+      ],
+      "canonical_sha256_before": "409fcb7d96e8c83f05040d5cd3dfe462942933b8997a95d41de4df651d488d5d",
+      "profile_ids": [
+        "30000032"
+      ],
+      "native_outputs": [
+        {
+          "path": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-1a4420be-c1de-46aa-84d4-f79ac0d91f5f.png",
+          "tool": "image_gen.imagegen",
+          "generated_at": "2026-09-14T14:06:58.116Z",
+          "prompt": "Generate one transparent game UI asset, PNG RGBA with REAL alpha outside the object. No colored background, no black background, no checkerboard pattern. It will be placed over existing card artwork.\nUse case: stylized-concept.\nCreate ONE richly detailed painted sculpted-metal fantasy race emblem for Kalistar. It is an isolated cutout with a genuinely transparent background, real RGBA PNG alpha outside its silhouette. Square high-resolution canvas. One centered compact emblem occupying only the central 80% of the canvas. Leave an EMPTY TRANSPARENT MARGIN at least 100 pixels wide on all four sides of a 1254px square. Every antler, leaf, tentacle and chin tip must remain fully inside those margins; no clipping.\nArt direction derived from the actual old race PNG inspected by the art agent: dimensional polished and worn silver/steel planes, copper or aged-gold edges, deeply carved recesses, rich material colors and sharp painted highlights. It should feel like a beautifully sculpted fantasy relic illustrated by a painter. Broad substantial details and strong silhouette must read at 90 pixels; retain rich relief and craftsmanship. Not a flat ivory logo, vector, origami, decal, outline symbol or plastic toy. Do not reduce it to three shapes.\nOnly the intrinsic head/organic silhouette. NO backing plate, disk, diamond, shield, ring, square, medallion, frame, wreath, pedestal or floor shadow. The card supplies its own socket. No text, label, watermark or surrounding decoration. Empty space outside the silhouette is actual transparency, not a colored background or transparency-grid illustration.\nObserved old source: Old PNG has a broad translucent aqua jellyfish-like crown, silver/copper sculpted facial ridges, turquoise eyes and four short curled lower filaments.\nSubject: TANTALAK, the jellyfish-headed amphibious humanoid race. Preserve the distinctive old PNG identity: a broad compact translucent AQUA JELLYFISH BELL as the upper head, inset teal eyes, sculpted silver/copper facial ridges and four SHORT thick curling chin filaments. Slight THREE-QUARTER VIEW RIGHT, with one side of the glassy bell foreshortened and filaments naturally offset, not a flat symmetric jellyfish symbol. Rich watery glass highlights inside the dome, deep turquoise recesses, modelled silver ridges edged in warm copper, pronounced tactile sculpted relief. A head emblem only, no body or extra limbs; not an octopus with a round forehead, human pirate portrait, mushroom or ghost. Filaments are compact features of the head, no long tentacle skirt.",
+          "references": [],
+          "selected": true,
+          "sha256": "9b9606f820f2ee98aac0ddf8bb2f9931efeb22a35c40eea89e7d769c1be6db44"
+        }
+      ],
+      "generation_calls": 1,
+      "qa": {
+        "failed_attempts": [],
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "has_alpha": true,
+        "transparent_pixels": 966389,
+        "transparent_fraction": 0.614549549893292,
+        "visible_pixels": 590983,
+        "corner_alpha": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "border_max_alpha": 1,
+        "alpha_bounds_threshold": 8,
+        "alpha_bounds": [
+          136,
+          122,
+          1114,
+          1104
+        ],
+        "bounds_width_fraction": 0.7799043062200957,
+        "bounds_height_fraction": 0.7830940988835726,
+        "alpha_weighted_center": [
+          645.1528212533505,
+          572.4131152867873
+        ],
+        "sha256": "9b9606f820f2ee98aac0ddf8bb2f9931efeb22a35c40eea89e7d769c1be6db44",
+        "native_sha256": "9b9606f820f2ee98aac0ddf8bb2f9931efeb22a35c40eea89e7d769c1be6db44",
+        "byte_exact_copy": true,
+        "bytes": 1595523,
+        "technical_pass": true,
+        "preview": "C:/Users/guill/AppData/Local/Temp/kalistar-buffs-scenes-race-b-TANTALAK-90px.png",
+        "preview_size_px": 90,
+        "status": "passed",
+        "visual": {
+          "view_image_native_inspected": true,
+          "view_image_90px_inspected": true,
+          "readable_at_90px": true,
+          "rich_sculpted_metal_style": true,
+          "no_extra_backing_or_frame": true,
+          "no_baked_background_observed": true,
+          "notes": "Slight right three-quarter aquatic bell head with turquoise material, carved silver-copper facial ridges and four short attached curled filaments. Reads as the old Tantalak identity rather than a generic flat jellyfish. Transparent space inside filament gaps and around silhouette; clear at 90px."
+        }
+      },
+      "input_image_paths": [],
+      "completed_at": "2026-09-14T14:07:06.665Z"
+    },
+    {
+      "id": "TOXINAR",
+      "status": "ready_for_parent",
+      "destination": "V3/assets/revisions-buffs-scenes-20260914/races/TOXINAR.png",
+      "orientation": "three-quarter left",
+      "prompt": "Generate one transparent game UI asset, PNG RGBA with REAL alpha outside the object. No colored background, no black background, no checkerboard pattern. It will be placed over existing card artwork.\nUse case: stylized-concept.\nCreate ONE richly detailed painted sculpted-metal fantasy race emblem for Kalistar. It is an isolated cutout with a genuinely transparent background, real RGBA PNG alpha outside its silhouette. Square high-resolution canvas. One centered compact emblem occupying only the central 80% of the canvas. Leave an EMPTY TRANSPARENT MARGIN at least 100 pixels wide on all four sides of a 1254px square. Every antler, leaf, tentacle and chin tip must remain fully inside those margins; no clipping.\nArt direction derived from the actual old race PNG inspected by the art agent: dimensional polished and worn silver/steel planes, copper or aged-gold edges, deeply carved recesses, rich material colors and sharp painted highlights. It should feel like a beautifully sculpted fantasy relic illustrated by a painter. Broad substantial details and strong silhouette must read at 90 pixels; retain rich relief and craftsmanship. Not a flat ivory logo, vector, origami, decal, outline symbol or plastic toy. Do not reduce it to three shapes.\nOnly the intrinsic head/organic silhouette. NO backing plate, disk, diamond, shield, ring, square, medallion, frame, wreath, pedestal or floor shadow. The card supplies its own socket. No text, label, watermark or surrounding decoration. Empty space outside the silhouette is actual transparency, not a colored background or transparency-grid illustration.\nObserved old source: Old PNG has a green reptile-plant face, slit yellow-green eyes, silver/copper face plates and large purple petals that grow around the head.\nSubject: TOXINAR, the poisonous reptile-plant humanoid race. A compact GREEN REPTILIAN-FLORAL HEAD in THREE-QUARTER VIEW LEFT, with one yellow-green slit-pupil eye strongly visible, short broad reptile muzzle and four substantial purple petal lobes growing directly from the sides/back of the head. Preserve the old PNG's silver carved cheek/brow plates, copper edges, deep green organic recesses and luxurious purple petal surfaces with broad veins. Rich painted sculpted metal combined with living glossy plant material; clear relief, volume and deep recesses. Not a generic dragon, not a feline, not a simple three-petal graphic; no horns or separate flower wreath. Distinct from the green-leaf Carnivert.",
+      "references": [
+        {
+          "order": 1,
+          "role": "actual old race PNG: identity and rich painted sculpted-metal style",
+          "path": "V3/sources/avant-harmonisation-20260914/assets/races/TOXINAR.png",
+          "sha256": "52d37348215a438abe1734ffb159f185f5e7240c0a8ef54df2e2a560061211ed",
+          "view_image_inspected": true,
+          "observed": "Old PNG has a green reptile-plant face, slit yellow-green eyes, silver/copper face plates and large purple petals that grow around the head.",
+          "use": "Old PNG inspected individually with view_image; race/material details translated into this exact prompt."
+        }
+      ],
+      "canonical_sha256_before": "c0e7826d18cab51a33bfabeaae66a03d32c70aaca5dac0d79e6d7fb8847f3655",
+      "profile_ids": [
+        "30000033"
+      ],
+      "native_outputs": [
+        {
+          "path": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-6a088f82-a831-4af8-ba3b-865be70a0c92.png",
+          "tool": "image_gen.imagegen",
+          "generated_at": "2026-09-14T14:07:46.592Z",
+          "prompt": "Generate one transparent game UI asset, PNG RGBA with REAL alpha outside the object. No colored background, no black background, no checkerboard pattern. It will be placed over existing card artwork.\nUse case: stylized-concept.\nCreate ONE richly detailed painted sculpted-metal fantasy race emblem for Kalistar. It is an isolated cutout with a genuinely transparent background, real RGBA PNG alpha outside its silhouette. Square high-resolution canvas. One centered compact emblem occupying only the central 80% of the canvas. Leave an EMPTY TRANSPARENT MARGIN at least 100 pixels wide on all four sides of a 1254px square. Every antler, leaf, tentacle and chin tip must remain fully inside those margins; no clipping.\nArt direction derived from the actual old race PNG inspected by the art agent: dimensional polished and worn silver/steel planes, copper or aged-gold edges, deeply carved recesses, rich material colors and sharp painted highlights. It should feel like a beautifully sculpted fantasy relic illustrated by a painter. Broad substantial details and strong silhouette must read at 90 pixels; retain rich relief and craftsmanship. Not a flat ivory logo, vector, origami, decal, outline symbol or plastic toy. Do not reduce it to three shapes.\nOnly the intrinsic head/organic silhouette. NO backing plate, disk, diamond, shield, ring, square, medallion, frame, wreath, pedestal or floor shadow. The card supplies its own socket. No text, label, watermark or surrounding decoration. Empty space outside the silhouette is actual transparency, not a colored background or transparency-grid illustration.\nObserved old source: Old PNG has a green reptile-plant face, slit yellow-green eyes, silver/copper face plates and large purple petals that grow around the head.\nSubject: TOXINAR, the poisonous reptile-plant humanoid race. A compact GREEN REPTILIAN-FLORAL HEAD in THREE-QUARTER VIEW LEFT, with one yellow-green slit-pupil eye strongly visible, short broad reptile muzzle and four substantial purple petal lobes growing directly from the sides/back of the head. Preserve the old PNG's silver carved cheek/brow plates, copper edges, deep green organic recesses and luxurious purple petal surfaces with broad veins. Rich painted sculpted metal combined with living glossy plant material; clear relief, volume and deep recesses. Not a generic dragon, not a feline, not a simple three-petal graphic; no horns or separate flower wreath. Distinct from the green-leaf Carnivert.",
+          "references": [],
+          "selected": true,
+          "sha256": "88bc0ebe45211b64b10be6a4ec736653d4ab77cd925eff75c94b3ae7ddf08362"
+        }
+      ],
+      "generation_calls": 1,
+      "qa": {
+        "failed_attempts": [],
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "has_alpha": true,
+        "transparent_pixels": 901252,
+        "transparent_fraction": 0.5731273958420773,
+        "visible_pixels": 658508,
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "border_max_alpha": 1,
+        "alpha_bounds_threshold": 8,
+        "alpha_bounds": [
+          125,
+          47,
+          1195,
+          1203
+        ],
+        "bounds_width_fraction": 0.8532695374800638,
+        "bounds_height_fraction": 0.9218500797448166,
+        "alpha_weighted_center": [
+          630.9007222889077,
+          634.1498930731782
+        ],
+        "sha256": "88bc0ebe45211b64b10be6a4ec736653d4ab77cd925eff75c94b3ae7ddf08362",
+        "native_sha256": "88bc0ebe45211b64b10be6a4ec736653d4ab77cd925eff75c94b3ae7ddf08362",
+        "byte_exact_copy": true,
+        "bytes": 1690236,
+        "technical_pass": true,
+        "preview": "C:/Users/guill/AppData/Local/Temp/kalistar-buffs-scenes-race-b-TOXINAR-90px.png",
+        "preview_size_px": 90,
+        "status": "passed",
+        "visual": {
+          "view_image_native_inspected": true,
+          "view_image_90px_inspected": true,
+          "readable_at_90px": true,
+          "rich_sculpted_metal_style": true,
+          "no_extra_backing_or_frame": true,
+          "no_baked_background_observed": true,
+          "notes": "Left three-quarter green reptile-plant head with slit eye, carved silver-copper face plates and three prominently visible intrinsic purple petals. Distinct from leafy Carnivert and horned red Drax. Readable at 90px on both backgrounds, no external frame, intact margins."
+        }
+      },
+      "input_image_paths": [],
+      "completed_at": "2026-09-14T14:07:56.544Z"
+    }
+  ],
+  "progress": [
+    {
+      "ready": 2,
+      "ids": [
+        "RHINOZ",
+        "FALCO"
+      ],
+      "announced_at": "2026-09-14T13:55:41.916Z"
+    },
+    {
+      "ready": 4,
+      "ids": [
+        "RHINOZ",
+        "FALCO",
+        "KORBOW",
+        "DRAX"
+      ],
+      "announced_at": "2026-09-14T13:57:53.752Z"
+    },
+    {
+      "at": "2026-09-14T14:04:09.783Z",
+      "ready": 6,
+      "total": 10,
+      "note": "Felineus and Carnivert validated after targeted style/framing corrections; remaining four proceed."
+    },
+    {
+      "at": "2026-09-14T14:06:01.492Z",
+      "ready": 8,
+      "total": 10,
+      "note": "Cerelf and Golem validated; Tantalak and Toxinar remaining."
+    },
+    {
+      "at": "2026-09-14T14:09:35.705Z",
+      "ready": 10,
+      "total": 10,
+      "note": "All ten staged native PNGs and manifest complete; final light/dark 90px contact sheet inspected."
+    }
+  ],
+  "constraints": {
+    "production_files_read_only": true,
+    "allowed_project_writes": [
+      "V3/assets/revisions-buffs-scenes-20260914/races/<one of ten requested RACE>.png",
+      "V3/donnees/revision_buffs_scenes_races_b.json"
+    ]
+  },
+  "completed_at": "2026-09-14T14:09:35.705Z",
+  "final_qa": {
+    "status": "passed",
+    "checked_at": "2026-09-14T14:08:55.974Z",
+    "requested_assets": 10,
+    "ready_assets": 10,
+    "native_dimensions": [
+      1254,
+      1254
+    ],
+    "real_rgba_png_count": 10,
+    "exact_native_copy_count": 10,
+    "matching_sha256_count": 10,
+    "old_references_unchanged_count": 10,
+    "initial_generations": 10,
+    "targeted_corrective_generations": 3,
+    "total_builtin_calls": 13,
+    "corrections": [
+      "RHINOZ: flattened RGB/checkerboard with attached reference; fresh text-only RGBA reconstruction.",
+      "FELINEUS: natural-fur drift and canvas-edge contact; sculpted-metal reconstruction with margins.",
+      "CARNIVERT: upper leaf reached canvas border; compact framing regeneration."
+    ],
+    "all_visuals_inspected": true,
+    "actual_90px_contact_sheet_inspected": true,
+    "contact_sheet": "C:\\Users\\guill\\AppData\\Local\\Temp\\kalistar-buffs-scenes-races-b-final-90px.png",
+    "contact_sheet_is_temporary_qa_only": true,
+    "visual_summary": "Rich painted sculpted-metal fantasy material set; varied left/right three-quarter and profile views, distinct race identities, standalone cutouts without a backing disk or additional frame. Readable on light and dark 90px previews.",
+    "alpha_summary": "All final PNGs have four channels and actual transparent exterior pixels; image border alpha is at most 1/255. No baked background observed.",
+    "geometry_note": "Native pixels are preserved. Longest visible alpha bounds vary by asset (about 74%-98% of canvas); per-asset bounds and alpha-weighted centers are recorded for parent sizing. No crop/resize/recenter or alpha repair was applied to delivered PNGs.",
+    "asset_rechecks": [
+      {
+        "id": "RHINOZ",
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "channels": 4,
+        "has_alpha": true,
+        "transparent_fraction": 0.4413010742021067,
+        "opaque_pixels": 772,
+        "border_max_alpha": 0,
+        "sha256": "c90d8e5e139ecb5e252dc39983436a21716147a562b9a7ec4545db14de2b0b39",
+        "hash_matches_manifest": true,
+        "selected_native_count": 1,
+        "native_copy_exact": true,
+        "reference_checks": [
+          {
+            "path": "V3/sources/avant-harmonisation-20260914/assets/races/RHINOZ.png",
+            "unchanged": true
+          }
+        ],
+        "canonical_unchanged": false,
+        "status": "ready_for_parent"
+      },
+      {
+        "id": "FALCO",
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "channels": 4,
+        "has_alpha": true,
+        "transparent_fraction": 0.4765115267507612,
+        "opaque_pixels": 448,
+        "border_max_alpha": 1,
+        "sha256": "589aeb0c29591df624c17ef7cd63f7df4b96f09e1230dcfa5d67871d70ce751e",
+        "hash_matches_manifest": true,
+        "selected_native_count": 1,
+        "native_copy_exact": true,
+        "reference_checks": [
+          {
+            "path": "V3/sources/avant-harmonisation-20260914/assets/races/FALCO.png",
+            "unchanged": true
+          }
+        ],
+        "canonical_unchanged": false,
+        "status": "ready_for_parent"
+      },
+      {
+        "id": "KORBOW",
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "channels": 4,
+        "has_alpha": true,
+        "transparent_fraction": 0.47635127400929467,
+        "opaque_pixels": 1216,
+        "border_max_alpha": 0,
+        "sha256": "7495ac0faf98850b3ca469f16b73f444559a53bde94840f171becc961c1ff4fa",
+        "hash_matches_manifest": true,
+        "selected_native_count": 1,
+        "native_copy_exact": true,
+        "reference_checks": [
+          {
+            "path": "V3/sources/avant-harmonisation-20260914/assets/races/KORBOW.png",
+            "unchanged": true
+          }
+        ],
+        "canonical_unchanged": false,
+        "status": "ready_for_parent"
+      },
+      {
+        "id": "DRAX",
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "channels": 4,
+        "has_alpha": true,
+        "transparent_fraction": 0.4977405635300372,
+        "opaque_pixels": 769,
+        "border_max_alpha": 1,
+        "sha256": "e156abd20325c1b0b99606c41bd17906a2e736b9b0d875bddf6da975e53c9056",
+        "hash_matches_manifest": true,
+        "selected_native_count": 1,
+        "native_copy_exact": true,
+        "reference_checks": [
+          {
+            "path": "V3/sources/avant-harmonisation-20260914/assets/races/DRAX.png",
+            "unchanged": true
+          }
+        ],
+        "canonical_unchanged": false,
+        "status": "ready_for_parent"
+      },
+      {
+        "id": "FELINEUS",
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "channels": 4,
+        "has_alpha": true,
+        "transparent_fraction": 0.6442541761101318,
+        "opaque_pixels": 510,
+        "border_max_alpha": 0,
+        "sha256": "3b971e468e13ee80a0f5c0405bc30cc69a4437014956e072a5e4b594f1c7cd33",
+        "hash_matches_manifest": true,
+        "selected_native_count": 1,
+        "native_copy_exact": true,
+        "reference_checks": [
+          {
+            "path": "V3/sources/avant-harmonisation-20260914/assets/races/FELINEUS.png",
+            "unchanged": true
+          }
+        ],
+        "canonical_unchanged": false,
+        "status": "ready_for_parent"
+      },
+      {
+        "id": "CARNIVERT",
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "channels": 4,
+        "has_alpha": true,
+        "transparent_fraction": 0.7421813196177336,
+        "opaque_pixels": 179,
+        "border_max_alpha": 0,
+        "sha256": "1bb798c8bc08bfd20a27d1391f30b3054ac6e3a13adbd60d2b8f0750e5f8ebb9",
+        "hash_matches_manifest": true,
+        "selected_native_count": 1,
+        "native_copy_exact": true,
+        "reference_checks": [
+          {
+            "path": "V3/sources/avant-harmonisation-20260914/assets/races/CARNIVERT.png",
+            "unchanged": true
+          }
+        ],
+        "canonical_unchanged": false,
+        "status": "ready_for_parent"
+      },
+      {
+        "id": "CERELF",
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "channels": 4,
+        "has_alpha": true,
+        "transparent_fraction": 0.6915567154801605,
+        "opaque_pixels": 377,
+        "border_max_alpha": 1,
+        "sha256": "6861a3a07a799447a67ac81d6a286e0d1fc91ee0a94c48aa5606c300fa8593be",
+        "hash_matches_manifest": true,
+        "selected_native_count": 1,
+        "native_copy_exact": true,
+        "reference_checks": [
+          {
+            "path": "V3/sources/avant-harmonisation-20260914/assets/races/CERELF.png",
+            "unchanged": true
+          }
+        ],
+        "canonical_unchanged": false,
+        "status": "ready_for_parent"
+      },
+      {
+        "id": "GOLEM",
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "channels": 4,
+        "has_alpha": true,
+        "transparent_fraction": 0.5993776851873049,
+        "opaque_pixels": 503,
+        "border_max_alpha": 1,
+        "sha256": "de3dc725d6e0c8f3c591e76919df817bc3dc837002133927ecf9996100d69ff1",
+        "hash_matches_manifest": true,
+        "selected_native_count": 1,
+        "native_copy_exact": true,
+        "reference_checks": [
+          {
+            "path": "V3/sources/avant-harmonisation-20260914/assets/races/GOLEM.png",
+            "unchanged": true
+          }
+        ],
+        "canonical_unchanged": false,
+        "status": "ready_for_parent"
+      },
+      {
+        "id": "TANTALAK",
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "channels": 4,
+        "has_alpha": true,
+        "transparent_fraction": 0.614549549893292,
+        "opaque_pixels": 649,
+        "border_max_alpha": 1,
+        "sha256": "9b9606f820f2ee98aac0ddf8bb2f9931efeb22a35c40eea89e7d769c1be6db44",
+        "hash_matches_manifest": true,
+        "selected_native_count": 1,
+        "native_copy_exact": true,
+        "reference_checks": [
+          {
+            "path": "V3/sources/avant-harmonisation-20260914/assets/races/TANTALAK.png",
+            "unchanged": true
+          }
+        ],
+        "canonical_unchanged": false,
+        "status": "ready_for_parent"
+      },
+      {
+        "id": "TOXINAR",
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "channels": 4,
+        "has_alpha": true,
+        "transparent_fraction": 0.5731273958420773,
+        "opaque_pixels": 281,
+        "border_max_alpha": 1,
+        "sha256": "88bc0ebe45211b64b10be6a4ec736653d4ab77cd925eff75c94b3ae7ddf08362",
+        "hash_matches_manifest": true,
+        "selected_native_count": 1,
+        "native_copy_exact": true,
+        "reference_checks": [
+          {
+            "path": "V3/sources/avant-harmonisation-20260914/assets/races/TOXINAR.png",
+            "unchanged": true
+          }
+        ],
+        "canonical_unchanged": true,
+        "status": "ready_for_parent"
+      }
+    ],
+    "shared_workspace_observations": {
+      "old_references_unchanged": true,
+      "canonical_snapshots": [
+        {
+          "id": "RHINOZ",
+          "path": "V3/assets/races/RHINOZ.png",
+          "sha256_before": "0a228a0c16a85b3fea0731be813898b0a33831e3ce384db65c9409df56928b7a",
+          "sha256_after": "c90d8e5e139ecb5e252dc39983436a21716147a562b9a7ec4545db14de2b0b39"
+        },
+        {
+          "id": "FALCO",
+          "path": "V3/assets/races/FALCO.png",
+          "sha256_before": "060f244175b7102e15ef8870b1b5973f922fb6c2765f894bdd7671a40d0b5984",
+          "sha256_after": "589aeb0c29591df624c17ef7cd63f7df4b96f09e1230dcfa5d67871d70ce751e"
+        },
+        {
+          "id": "KORBOW",
+          "path": "V3/assets/races/KORBOW.png",
+          "sha256_before": "64ff53b18a3603e617c10508c39fa6d12ffdbeaf3701506b10d9279ac25fff9d",
+          "sha256_after": "7495ac0faf98850b3ca469f16b73f444559a53bde94840f171becc961c1ff4fa"
+        },
+        {
+          "id": "DRAX",
+          "path": "V3/assets/races/DRAX.png",
+          "sha256_before": "8dba3fdc9d9583e90ccc4cbfcfae25922b9387663435c57509cb666b53f7c2f0",
+          "sha256_after": "e156abd20325c1b0b99606c41bd17906a2e736b9b0d875bddf6da975e53c9056"
+        },
+        {
+          "id": "FELINEUS",
+          "path": "V3/assets/races/FELINEUS.png",
+          "sha256_before": "c3f6932ae5e32146b09ed35998eecf2f8bc9ee06508788fb390798bc837811ed",
+          "sha256_after": "3b971e468e13ee80a0f5c0405bc30cc69a4437014956e072a5e4b594f1c7cd33"
+        },
+        {
+          "id": "CARNIVERT",
+          "path": "V3/assets/races/CARNIVERT.png",
+          "sha256_before": "833e6f1c114381ac66a439e01fc8bb3f68bd4151c853eb55797a078e6e895442",
+          "sha256_after": "1bb798c8bc08bfd20a27d1391f30b3054ac6e3a13adbd60d2b8f0750e5f8ebb9"
+        },
+        {
+          "id": "CERELF",
+          "path": "V3/assets/races/CERELF.png",
+          "sha256_before": "71d6e007194718a1729668849ac50ccc19a4582d5de5e8cfe60887bb4b1d486e",
+          "sha256_after": "6861a3a07a799447a67ac81d6a286e0d1fc91ee0a94c48aa5606c300fa8593be"
+        },
+        {
+          "id": "GOLEM",
+          "path": "V3/assets/races/GOLEM.png",
+          "sha256_before": "3bb09f3255543ce5bb0188c973bade33665fd2d35491cef0024920793990958f",
+          "sha256_after": "de3dc725d6e0c8f3c591e76919df817bc3dc837002133927ecf9996100d69ff1"
+        },
+        {
+          "id": "TANTALAK",
+          "path": "V3/assets/races/TANTALAK.png",
+          "sha256_before": "409fcb7d96e8c83f05040d5cd3dfe462942933b8997a95d41de4df651d488d5d",
+          "sha256_after": "9b9606f820f2ee98aac0ddf8bb2f9931efeb22a35c40eea89e7d769c1be6db44"
+        },
+        {
+          "id": "TOXINAR",
+          "path": "V3/assets/races/TOXINAR.png",
+          "sha256_before": "c0e7826d18cab51a33bfabeaae66a03d32c70aaca5dac0d79e6d7fb8847f3655",
+          "sha256_after": "c0e7826d18cab51a33bfabeaae66a03d32c70aaca5dac0d79e6d7fb8847f3655"
+        }
+      ],
+      "source_snapshots": [
+        {
+          "path": "V3/sources/REVISION_BUFFS_SCENES_20260914.md",
+          "sha256_before": "8af2b35970a35cec6b1d8df491052774f75e98f57b4341210c187a41b3dcbe7f",
+          "sha256_after": "8af2b35970a35cec6b1d8df491052774f75e98f57b4341210c187a41b3dcbe7f",
+          "unchanged": true
+        },
+        {
+          "path": "V3/donnees/cartes.json",
+          "sha256_before": "45af148f8d1828287116a9985f4d33f41a58a64a43852980da8d231c48707fcf",
+          "sha256_after": "bb6de0d7b2b7eec0f1a9348dc892faa002fe542c169bbe202e11aca7e3788761",
+          "unchanged": false
+        },
+        {
+          "path": "V3/site/engine.js",
+          "sha256_before": "735c4e2da2daaa305ef2e1c22287fdbd767f707f494d7b58a5c07cc01752b655",
+          "sha256_after": "735c4e2da2daaa305ef2e1c22287fdbd767f707f494d7b58a5c07cc01752b655",
+          "unchanged": true
+        },
+        {
+          "path": "V3/site/local-db.js",
+          "sha256_before": "db6234bf5478f067dc548518a4f93a328f19c0e2d498de8d97a701aebec53d68",
+          "sha256_after": "db6234bf5478f067dc548518a4f93a328f19c0e2d498de8d97a701aebec53d68",
+          "unchanged": true
+        },
+        {
+          "path": "V3/donnees/regles.json",
+          "sha256_before": "31050cb513762c411651c1fc371d23f320b4df4394d108a6856f4c9069cf3129",
+          "sha256_after": "31050cb513762c411651c1fc371d23f320b4df4394d108a6856f4c9069cf3129",
+          "unchanged": true
+        },
+        {
+          "path": "V3/donnees/armes.json",
+          "sha256_before": "f179c9f8e8744e388aa32588e7b8c3dec1cf783428d57baeac55997fd916ff8f",
+          "sha256_after": "f179c9f8e8744e388aa32588e7b8c3dec1cf783428d57baeac55997fd916ff8f",
+          "unchanged": true
+        }
+      ],
+      "note": "Nine canonical race hashes and cartes.json changed concurrently relative to the start snapshot. This agent performed no writes to those paths and did not revert or reconcile them. Integration and narrative updates belong to the parent. These external observations do not invalidate the staged deliverables."
+    },
+    "write_scope": "Only the ten staged race PNG destinations and this manifest were written in the project. Native generator outputs remain under CODEX_HOME; temporary QA composites remain under OS temp. No canonical/source/UI/gameplay/BDD edits by this agent."
+  }
+}

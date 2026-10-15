@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "modelId": "30000035",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "8b48a2959d49efe3a973f3fa1285ca2718aa7316093a5512658242e7357b6ec0",
+  "hashes": {
+    "card.png": "f52ebf305c1372a056704d066fb662c96f2b99e6606ed794e421640b47d8f39e",
+    "card.psd": "7c1ba033e6ed00f7a2463322ef09744758047acb4195ca7397c2dfe85c6593cf"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 109277
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "30000035",
+    "cases": {
+      "color-1": [
+        "30000035"
+      ],
+      "color-4": [
+        "30000035"
+      ],
+      "gray-1": [
+        "30000035"
+      ],
+      "gray-4": [
+        "30000035"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-23T15:58:41.626Z",
+  "key": "capitaine-skully",
+  "typography": {
+    "NOM": {
+      "font": "TimesNewRomanPSMT",
+      "sizePt": 10.0000012207031,
+      "tracking": 0,
+      "capitalization": "TextCase.NORMAL",
+      "fauxBold": false,
+      "fauxItalic": false
+    },
+    "TITLE": {
+      "font": "TimesNewRomanPSMT",
+      "sizePt": 7.68,
+      "tracking": 0,
+      "capitalization": "TextCase.ALLCAPS",
+      "fauxBold": false,
+      "fauxItalic": false
+    }
+  },
+  "preparationHash": "11776114f0220f4239ba2c224c3e3711539abfe5c9465a77fb6947a9aead94dc"
+}

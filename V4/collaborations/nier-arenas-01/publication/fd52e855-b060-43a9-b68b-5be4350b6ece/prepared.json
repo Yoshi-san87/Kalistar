@@ -1,0 +1,68 @@
+{
+  "setId": "nier-arenas-01",
+  "mode": "prepared",
+  "added": [
+    "nier-city-ruins",
+    "nier-amusement-park"
+  ],
+  "registryBefore": "a910355bd8fae7b60f4cbe64e4b299dd101c4f2de5ffb712b77933d49d8ad5ff",
+  "registryAfter": "e904fcdc151b33fb715f45f3d0c8581cedb6d6f8d137d38b520befe99b083589",
+  "observed": {
+    "V4/collaborations/nier-arenas-01/manifest.json": "75c311f178ad41d1ce4e6c145127ca6356afc0f9ca934d092e3fc008bdb264ba",
+    "V4/donnees/arenes-collaborations.json": "a910355bd8fae7b60f4cbe64e4b299dd101c4f2de5ffb712b77933d49d8ad5ff",
+    "V4/donnees/catalogue.json": "aceb9605377293cee7d3add1b02c228b4098328838ca5c52681aeaf680c4ede3",
+    "V4/collaborations/nier-arenas-01/art/city-ruins.png": "86f33625652101e7afa643b0114ba64e51f7f18b1f93f2850b3dd265c6ccc5b0",
+    "V4/collaborations/nier-arenas-01/art/amusement-park.png": "70aaf90546f6aef56b0bdb126076ad750a492efd4f133e0041c4e1f9cd4c5968",
+    "V4/collaborations/nier-arenas-01/art-review.json": "aecc71c7ef95cabb9a2a6d041250870d300a1a59b303aff594662c08ff1114fb"
+  },
+  "assets": [
+    {
+      "key": "city-ruins",
+      "source": "V4/collaborations/nier-arenas-01/art/city-ruins.png",
+      "target": "V4/site/assets/arenes/nier-city-ruins.png",
+      "sha256": "86f33625652101e7afa643b0114ba64e51f7f18b1f93f2850b3dd265c6ccc5b0",
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "key": "amusement-park",
+      "source": "V4/collaborations/nier-arenas-01/art/amusement-park.png",
+      "target": "V4/site/assets/arenes/nier-amusement-park.png",
+      "sha256": "70aaf90546f6aef56b0bdb126076ad750a492efd4f133e0041c4e1f9cd4c5968",
+      "width": 1672,
+      "height": 941
+    }
+  ],
+  "arenas": [
+    {
+      "id": "nier-city-ruins",
+      "name": "RUINES DE LA CITE",
+      "subtitle": "La vie entre les tours brisees",
+      "image": "/jeu/assets/arenes/nier-city-ruins.png",
+      "element": "HERBO",
+      "elementBonus": 15,
+      "homeCharacters": [
+        "2b-nier",
+        "9s-nier",
+        "anemone-nier"
+      ],
+      "homeAttack": 10,
+      "homeDefense": 10,
+      "source": "NieR:Automata : collaboration privee non officielle ; lieu et affinites reinterpretes par des fans."
+    },
+    {
+      "id": "nier-amusement-park",
+      "name": "FETE FORAINE",
+      "subtitle": "Les lumieres d'une fete sans fin",
+      "image": "/jeu/assets/arenes/nier-amusement-park.png",
+      "element": "HEMATO",
+      "elementBonus": 15,
+      "homeCharacters": [
+        "simone-nier"
+      ],
+      "homeAttack": 10,
+      "homeDefense": 10,
+      "source": "NieR:Automata : collaboration privee non officielle ; lieu et affinites reinterpretes par des fans."
+    }
+  ]
+}

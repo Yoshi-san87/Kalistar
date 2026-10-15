@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 4,
+  "id": "30000022",
+  "name": "MALABA",
+  "title": "UNE PLACE AU COMPTOIR",
+  "job": "MINEUR",
+  "race": "HUMAIN",
+  "element": "NONE",
+  "faction": "Z13",
+  "weapon": "Poing",
+  "positions": [
+    1
+  ],
+  "atk": [
+    203,
+    166,
+    136,
+    99,
+    "guard",
+    "buff_atk"
+  ],
+  "defense": [
+    295,
+    243,
+    191,
+    146,
+    94,
+    42
+  ],
+  "magic": [],
+  "barriers": [],
+  "slug": "22_NONE_MALABA",
+  "hue": 160,
+  "color": "93AAA5",
+  "weapon_index": 3,
+  "description": "Baba lève sa chope et plaisante avec la salle. Ses épaules occupent presque tout le comptoir. Pourtant, à la Gueule Fumante, personne ne sait faire autant de place aux autres.",
+  "artwork": "MALABA",
+  "artworkSource": "V3/assets/illustrations/22_NONE_MALABA.png",
+  "artworkUnchanged": true,
+  "sourcePSD": "V3/templates/22_NONE_MALABA.psd",
+  "output": "MALABA_V4_01_NONE",
+  "profile": "V4/template-stable/elements-02/malaba/card.json"
+}

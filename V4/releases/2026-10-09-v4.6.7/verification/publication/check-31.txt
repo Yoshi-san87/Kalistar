@@ -1,0 +1,946 @@
+TAP version 13
+# Subtest: archived 4.5.64: 50 entries retain restrictions; 4.6 separates protection and relic slots
+ok 1 - archived 4.5.64: 50 entries retain restrictions; 4.6 separates protection and relic slots
+  ---
+  duration_ms: 61.3028
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: tide-pavise: real bonus once, side 0, reload every phase
+ok 2 - archived 4.5.64: tide-pavise: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 24.7504
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: tide-pavise: real bonus once, side 1, reload every phase
+ok 3 - archived 4.5.64: tide-pavise: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 10.8781
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: sentinel-carapace: real bonus once, side 0, reload every phase
+ok 4 - archived 4.5.64: sentinel-carapace: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 15.8615
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: sentinel-carapace: real bonus once, side 1, reload every phase
+ok 5 - archived 4.5.64: sentinel-carapace: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 15.2142
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: sap-cuirass: real bonus once, side 0, reload every phase
+ok 6 - archived 4.5.64: sap-cuirass: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 9.3745
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: sap-cuirass: real bonus once, side 1, reload every phase
+ok 7 - archived 4.5.64: sap-cuirass: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 9.5943
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: gate-gauntlets: real bonus once, side 0, reload every phase
+ok 8 - archived 4.5.64: gate-gauntlets: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 9.3351
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: gate-gauntlets: real bonus once, side 1, reload every phase
+ok 9 - archived 4.5.64: gate-gauntlets: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 10.1577
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: rhinoz-hauberk: real bonus once, side 0, reload every phase
+ok 10 - archived 4.5.64: rhinoz-hauberk: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 9.646
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: rhinoz-hauberk: real bonus once, side 1, reload every phase
+ok 11 - archived 4.5.64: rhinoz-hauberk: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 9.6246
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: first-thaw-cloak: real bonus once, side 0, reload every phase
+ok 12 - archived 4.5.64: first-thaw-cloak: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 9.6906
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: first-thaw-cloak: real bonus once, side 1, reload every phase
+ok 13 - archived 4.5.64: first-thaw-cloak: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 8.9131
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: abyss-plastron: real bonus once, side 0, reload every phase
+ok 14 - archived 4.5.64: abyss-plastron: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 8.8883
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: abyss-plastron: real bonus once, side 1, reload every phase
+ok 15 - archived 4.5.64: abyss-plastron: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 8.4976
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: cold-blood-mantle: real bonus once, side 0, reload every phase
+ok 16 - archived 4.5.64: cold-blood-mantle: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 14.9023
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: cold-blood-mantle: real bonus once, side 1, reload every phase
+ok 17 - archived 4.5.64: cold-blood-mantle: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 12.6465
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: last-vigil-cuirass: real bonus once, side 0, reload every phase
+ok 18 - archived 4.5.64: last-vigil-cuirass: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 9.9654
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: last-vigil-cuirass: real bonus once, side 1, reload every phase
+ok 19 - archived 4.5.64: last-vigil-cuirass: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 8.6519
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: dawn-gorget: real bonus once, side 0, reload every phase
+ok 20 - archived 4.5.64: dawn-gorget: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 9.163
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: dawn-gorget: real bonus once, side 1, reload every phase
+ok 21 - archived 4.5.64: dawn-gorget: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 8.7916
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: last-forge-apron: real bonus once, side 0, reload every phase
+ok 22 - archived 4.5.64: last-forge-apron: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 10.1319
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: last-forge-apron: real bonus once, side 1, reload every phase
+ok 23 - archived 4.5.64: last-forge-apron: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 8.7754
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ninth-life-boots: real bonus once, side 0, reload every phase
+ok 24 - archived 4.5.64: ninth-life-boots: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 11.865
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ninth-life-boots: real bonus once, side 1, reload every phase
+ok 25 - archived 4.5.64: ninth-life-boots: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 12.9025
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: octocamo: real bonus once, side 0, reload every phase
+ok 26 - archived 4.5.64: octocamo: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 8.7728
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: octocamo: real bonus once, side 1, reload every phase
+ok 27 - archived 4.5.64: octocamo: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 8.3252
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: cyborg-ninja-armor: real bonus once, side 0, reload every phase
+ok 28 - archived 4.5.64: cyborg-ninja-armor: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 9.1006
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: cyborg-ninja-armor: real bonus once, side 1, reload every phase
+ok 29 - archived 4.5.64: cyborg-ninja-armor: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 8.2312
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: zanarkand-pauldron: real bonus once, side 0, reload every phase
+ok 30 - archived 4.5.64: zanarkand-pauldron: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 12.6624
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: zanarkand-pauldron: real bonus once, side 1, reload every phase
+ok 31 - archived 4.5.64: zanarkand-pauldron: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 12.5848
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: leon-body-armor: real bonus once, side 0, reload every phase
+ok 32 - archived 4.5.64: leon-body-armor: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 7.8569
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: leon-body-armor: real bonus once, side 1, reload every phase
+ok 33 - archived 4.5.64: leon-body-armor: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 8.1036
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: stars-vest: real bonus once, side 0, reload every phase
+ok 34 - archived 4.5.64: stars-vest: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 8.3381
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: stars-vest: real bonus once, side 1, reload every phase
+ok 35 - archived 4.5.64: stars-vest: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 8.9232
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: guardian-red-coat: real bonus once, side 0, reload every phase
+ok 36 - archived 4.5.64: guardian-red-coat: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 8.8882
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: guardian-red-coat: real bonus once, side 1, reload every phase
+ok 37 - archived 4.5.64: guardian-red-coat: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 8.3593
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: scarlet-cape: real bonus once, side 0, reload every phase
+ok 38 - archived 4.5.64: scarlet-cape: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 13.4384
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: scarlet-cape: real bonus once, side 1, reload every phase
+ok 39 - archived 4.5.64: scarlet-cape: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 12.6869
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: wolf-school-armor: real bonus once, side 0, reload every phase
+ok 40 - archived 4.5.64: wolf-school-armor: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 8.4682
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: wolf-school-armor: real bonus once, side 1, reload every phase
+ok 41 - archived 4.5.64: wolf-school-armor: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 9.0214
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: white-materia: real bonus once, side 0, reload every phase
+ok 42 - archived 4.5.64: white-materia: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 13.9033
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: white-materia: real bonus once, side 1, reload every phase
+ok 43 - archived 4.5.64: white-materia: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 12.8198
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: griever-pendant: real bonus once, side 0, reload every phase
+ok 44 - archived 4.5.64: griever-pendant: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 8.9526
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: griever-pendant: real bonus once, side 1, reload every phase
+ok 45 - archived 4.5.64: griever-pendant: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 7.6921
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: zanarkand-abes-pendant: real bonus once, side 0, reload every phase
+ok 46 - archived 4.5.64: zanarkand-abes-pendant: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 12.5981
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: zanarkand-abes-pendant: real bonus once, side 1, reload every phase
+ok 47 - archived 4.5.64: zanarkand-abes-pendant: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 14.53
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: guardian-jug: real bonus once, side 0, reload every phase
+ok 48 - archived 4.5.64: guardian-jug: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 8.4259
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: guardian-jug: real bonus once, side 1, reload every phase
+ok 49 - archived 4.5.64: guardian-jug: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 8.5505
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: jill-lockpicks: real bonus once, side 0, reload every phase
+ok 50 - archived 4.5.64: jill-lockpicks: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 14.0546
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: jill-lockpicks: real bonus once, side 1, reload every phase
+ok 51 - archived 4.5.64: jill-lockpicks: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 12.9607
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: pod-153: real bonus once, side 0, reload every phase
+ok 52 - archived 4.5.64: pod-153: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 11.3936
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: pod-153: real bonus once, side 1, reload every phase
+ok 53 - archived 4.5.64: pod-153: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 13.0857
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: lunar-tear: real bonus once, side 0, reload every phase
+ok 54 - archived 4.5.64: lunar-tear: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 13.5999
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: lunar-tear: real bonus once, side 1, reload every phase
+ok 55 - archived 4.5.64: lunar-tear: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 12.8866
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: infiltration-box: real bonus once, side 0, reload every phase
+ok 56 - archived 4.5.64: infiltration-box: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 12.8519
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: infiltration-box: real bonus once, side 1, reload every phase
+ok 57 - archived 4.5.64: infiltration-box: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 14.3101
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: metal-gear-mkii: real bonus once, side 0, reload every phase
+ok 58 - archived 4.5.64: metal-gear-mkii: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 11.0285
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: metal-gear-mkii: real bonus once, side 1, reload every phase
+ok 59 - archived 4.5.64: metal-gear-mkii: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 12.7131
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: wolf-medallion: real bonus once, side 0, reload every phase
+ok 60 - archived 4.5.64: wolf-medallion: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 8.8976
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: wolf-medallion: real bonus once, side 1, reload every phase
+ok 61 - archived 4.5.64: wolf-medallion: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 7.8661
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: obsidian-star: real bonus once, side 0, reload every phase
+ok 62 - archived 4.5.64: obsidian-star: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 11.4535
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: obsidian-star: real bonus once, side 1, reload every phase
+ok 63 - archived 4.5.64: obsidian-star: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 13.184
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: straw-hat: real bonus once, side 0, reload every phase
+ok 64 - archived 4.5.64: straw-hat: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 11.8215
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: straw-hat: real bonus once, side 1, reload every phase
+ok 65 - archived 4.5.64: straw-hat: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 12.5097
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: log-pose: real bonus once, side 0, reload every phase
+ok 66 - archived 4.5.64: log-pose: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 14.485
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: log-pose: real bonus once, side 1, reload every phase
+ok 67 - archived 4.5.64: log-pose: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 12.787
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: rumble-ball: real bonus once, side 0, reload every phase
+ok 68 - archived 4.5.64: rumble-ball: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 13.5405
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: rumble-ball: real bonus once, side 1, reload every phase
+ok 69 - archived 4.5.64: rumble-ball: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 11.074
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: cola-reserve: real bonus once, side 0, reload every phase
+ok 70 - archived 4.5.64: cola-reserve: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 12.9403
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: cola-reserve: real bonus once, side 1, reload every phase
+ok 71 - archived 4.5.64: cola-reserve: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 16.4439
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: little-joys-box: real bonus once, side 0, reload every phase
+ok 72 - archived 4.5.64: little-joys-box: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 14.204
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: little-joys-box: real bonus once, side 1, reload every phase
+ok 73 - archived 4.5.64: little-joys-box: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 13.5507
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: current-compass: real bonus once, side 0, reload every phase
+ok 74 - archived 4.5.64: current-compass: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 8.4641
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: current-compass: real bonus once, side 1, reload every phase
+ok 75 - archived 4.5.64: current-compass: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 9.5357
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: last-garden-seed: real bonus once, side 0, reload every phase
+ok 76 - archived 4.5.64: last-garden-seed: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 14.2114
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: last-garden-seed: real bonus once, side 1, reload every phase
+ok 77 - archived 4.5.64: last-garden-seed: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 13.7734
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: exiled-king-seal: real bonus once, side 0, reload every phase
+ok 78 - archived 4.5.64: exiled-king-seal: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 14.1277
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: exiled-king-seal: real bonus once, side 1, reload every phase
+ok 79 - archived 4.5.64: exiled-king-seal: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 13.2079
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: lost-names-bell: real bonus once, side 0, reload every phase
+ok 80 - archived 4.5.64: lost-names-bell: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 13.9449
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: lost-names-bell: real bonus once, side 1, reload every phase
+ok 81 - archived 4.5.64: lost-names-bell: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 14.1755
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-oath-helm: real bonus once, side 0, reload every phase
+ok 82 - archived 4.5.64: ff9-oath-helm: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 9.9216
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-oath-helm: real bonus once, side 1, reload every phase
+ok 83 - archived 4.5.64: ff9-oath-helm: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 9.7849
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-vivi-hat: real bonus once, side 0, reload every phase
+ok 84 - archived 4.5.64: ff9-vivi-hat: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 8.5187
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-vivi-hat: real bonus once, side 1, reload every phase
+ok 85 - archived 4.5.64: ff9-vivi-hat: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 8.1318
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-burmecia-coat: real bonus once, side 0, reload every phase
+ok 86 - archived 4.5.64: ff9-burmecia-coat: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 13.2894
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-burmecia-coat: real bonus once, side 1, reload every phase
+ok 87 - archived 4.5.64: ff9-burmecia-coat: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 12.932
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-solitary-wraps: real bonus once, side 0, reload every phase
+ok 88 - archived 4.5.64: ff9-solitary-wraps: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 11.9177
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-solitary-wraps: real bonus once, side 1, reload every phase
+ok 89 - archived 4.5.64: ff9-solitary-wraps: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 13.2581
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-reunion-bandana: real bonus once, side 0, reload every phase
+ok 90 - archived 4.5.64: ff9-reunion-bandana: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 13.0889
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-reunion-bandana: real bonus once, side 1, reload every phase
+ok 91 - archived 4.5.64: ff9-reunion-bandana: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 13.5759
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-garnet-pendant: real bonus once, side 0, reload every phase
+ok 92 - archived 4.5.64: ff9-garnet-pendant: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 11.5226
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-garnet-pendant: real bonus once, side 1, reload every phase
+ok 93 - archived 4.5.64: ff9-garnet-pendant: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 12.8968
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-mog-ribbon: real bonus once, side 0, reload every phase
+ok 94 - archived 4.5.64: ff9-mog-ribbon: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 13.3178
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-mog-ribbon: real bonus once, side 1, reload every phase
+ok 95 - archived 4.5.64: ff9-mog-ribbon: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 11.6157
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-final-act-feather: real bonus once, side 0, reload every phase
+ok 96 - archived 4.5.64: ff9-final-act-feather: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 8.0832
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-final-act-feather: real bonus once, side 1, reload every phase
+ok 97 - archived 4.5.64: ff9-final-act-feather: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 8.153
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-terra-fragment: real bonus once, side 0, reload every phase
+ok 98 - archived 4.5.64: ff9-terra-fragment: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 13.2005
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-terra-fragment: real bonus once, side 1, reload every phase
+ok 99 - archived 4.5.64: ff9-terra-fragment: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 14.2914
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-tantalus-script: real bonus once, side 0, reload every phase
+ok 100 - archived 4.5.64: ff9-tantalus-script: real bonus once, side 0, reload every phase
+  ---
+  duration_ms: 12.2114
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-tantalus-script: real bonus once, side 1, reload every phase
+ok 101 - archived 4.5.64: ff9-tantalus-script: real bonus once, side 1, reload every phase
+  ---
+  duration_ms: 11.8169
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: magic and physical qualification wait for the accepted attack
+ok 102 - archived 4.5.64: magic and physical qualification wait for the accepted attack
+  ---
+  duration_ms: 6.834
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: support refresh, special defense consumption and forged save rejection
+ok 103 - archived 4.5.64: support refresh, special defense consumption and forged save rejection
+  ---
+  duration_ms: 14.1549
+  type: 'test'
+  ...
+# Subtest: invalid declarative rules are rejected without new saves or implicit slots
+ok 104 - invalid declarative rules are rejected without new saves or implicit slots
+  ---
+  duration_ms: 0.3194
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: relay and personal protection use the strongest bonus and consume both charges
+ok 105 - archived 4.5.64: relay and personal protection use the strongest bonus and consume both charges
+  ---
+  duration_ms: 11.8778
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: discarded Kalistel attack cannot activate or consume a protection
+ok 106 - archived 4.5.64: discarded Kalistel attack cannot activate or consume a protection
+  ---
+  duration_ms: 9.6601
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: tide-pavise: three complete matches with untouched catalogue cards
+ok 107 - archived 4.5.64: tide-pavise: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 612.9477
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: sentinel-carapace: three complete matches with untouched catalogue cards
+ok 108 - archived 4.5.64: sentinel-carapace: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 858.8396
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: sap-cuirass: three complete matches with untouched catalogue cards
+ok 109 - archived 4.5.64: sap-cuirass: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1170.5613
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: gate-gauntlets: three complete matches with untouched catalogue cards
+ok 110 - archived 4.5.64: gate-gauntlets: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1576.574
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: rhinoz-hauberk: three complete matches with untouched catalogue cards
+ok 111 - archived 4.5.64: rhinoz-hauberk: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1849.524
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: first-thaw-cloak: three complete matches with untouched catalogue cards
+ok 112 - archived 4.5.64: first-thaw-cloak: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1561.6304
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: abyss-plastron: three complete matches with untouched catalogue cards
+ok 113 - archived 4.5.64: abyss-plastron: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1317.9841
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: cold-blood-mantle: three complete matches with untouched catalogue cards
+ok 114 - archived 4.5.64: cold-blood-mantle: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1744.7851
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: last-vigil-cuirass: three complete matches with untouched catalogue cards
+ok 115 - archived 4.5.64: last-vigil-cuirass: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 2063.3152
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: dawn-gorget: three complete matches with untouched catalogue cards
+ok 116 - archived 4.5.64: dawn-gorget: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1172.7379
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: last-forge-apron: three complete matches with untouched catalogue cards
+ok 117 - archived 4.5.64: last-forge-apron: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1736.9524
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ninth-life-boots: three complete matches with untouched catalogue cards
+ok 118 - archived 4.5.64: ninth-life-boots: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1928.8485
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: octocamo: three complete matches with untouched catalogue cards
+ok 119 - archived 4.5.64: octocamo: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 2124.6081
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: cyborg-ninja-armor: three complete matches with untouched catalogue cards
+ok 120 - archived 4.5.64: cyborg-ninja-armor: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 3054.1917
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: zanarkand-pauldron: three complete matches with untouched catalogue cards
+ok 121 - archived 4.5.64: zanarkand-pauldron: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 2150.425
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: leon-body-armor: three complete matches with untouched catalogue cards
+ok 122 - archived 4.5.64: leon-body-armor: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 2789.478
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: stars-vest: three complete matches with untouched catalogue cards
+ok 123 - archived 4.5.64: stars-vest: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1476.4169
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: guardian-red-coat: three complete matches with untouched catalogue cards
+ok 124 - archived 4.5.64: guardian-red-coat: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 2620.4283
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: scarlet-cape: three complete matches with untouched catalogue cards
+ok 125 - archived 4.5.64: scarlet-cape: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 2080.1709
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: wolf-school-armor: three complete matches with untouched catalogue cards
+ok 126 - archived 4.5.64: wolf-school-armor: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 2067.228
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: white-materia: three complete matches with untouched catalogue cards
+ok 127 - archived 4.5.64: white-materia: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1686.8296
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: griever-pendant: three complete matches with untouched catalogue cards
+ok 128 - archived 4.5.64: griever-pendant: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 2102.7824
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: zanarkand-abes-pendant: three complete matches with untouched catalogue cards
+ok 129 - archived 4.5.64: zanarkand-abes-pendant: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1311.7565
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: guardian-jug: three complete matches with untouched catalogue cards
+ok 130 - archived 4.5.64: guardian-jug: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 2458.9754
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: jill-lockpicks: three complete matches with untouched catalogue cards
+ok 131 - archived 4.5.64: jill-lockpicks: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1298.4889
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: pod-153: three complete matches with untouched catalogue cards
+ok 132 - archived 4.5.64: pod-153: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1953.1353
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: lunar-tear: three complete matches with untouched catalogue cards
+ok 133 - archived 4.5.64: lunar-tear: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 2346.895
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: infiltration-box: three complete matches with untouched catalogue cards
+ok 134 - archived 4.5.64: infiltration-box: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1446.652
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: metal-gear-mkii: three complete matches with untouched catalogue cards
+ok 135 - archived 4.5.64: metal-gear-mkii: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 941.7363
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: wolf-medallion: three complete matches with untouched catalogue cards
+ok 136 - archived 4.5.64: wolf-medallion: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 2274.6841
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: obsidian-star: three complete matches with untouched catalogue cards
+ok 137 - archived 4.5.64: obsidian-star: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1551.3619
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: straw-hat: three complete matches with untouched catalogue cards
+ok 138 - archived 4.5.64: straw-hat: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1466.5966
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: log-pose: three complete matches with untouched catalogue cards
+ok 139 - archived 4.5.64: log-pose: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1715.356
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: rumble-ball: three complete matches with untouched catalogue cards
+ok 140 - archived 4.5.64: rumble-ball: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1145.5083
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: cola-reserve: three complete matches with untouched catalogue cards
+ok 141 - archived 4.5.64: cola-reserve: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1616.8176
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: little-joys-box: three complete matches with untouched catalogue cards
+ok 142 - archived 4.5.64: little-joys-box: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 2130.2667
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: current-compass: three complete matches with untouched catalogue cards
+ok 143 - archived 4.5.64: current-compass: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1070.2897
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: last-garden-seed: three complete matches with untouched catalogue cards
+ok 144 - archived 4.5.64: last-garden-seed: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1346.1124
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: exiled-king-seal: three complete matches with untouched catalogue cards
+ok 145 - archived 4.5.64: exiled-king-seal: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1384.1141
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: lost-names-bell: three complete matches with untouched catalogue cards
+ok 146 - archived 4.5.64: lost-names-bell: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1819.6268
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-oath-helm: three complete matches with untouched catalogue cards
+ok 147 - archived 4.5.64: ff9-oath-helm: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 2313.7786
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-vivi-hat: three complete matches with untouched catalogue cards
+ok 148 - archived 4.5.64: ff9-vivi-hat: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 963.1057
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-burmecia-coat: three complete matches with untouched catalogue cards
+ok 149 - archived 4.5.64: ff9-burmecia-coat: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 2292.5632
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-solitary-wraps: three complete matches with untouched catalogue cards
+ok 150 - archived 4.5.64: ff9-solitary-wraps: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1885.4221
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-reunion-bandana: three complete matches with untouched catalogue cards
+ok 151 - archived 4.5.64: ff9-reunion-bandana: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1611.0776
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-garnet-pendant: three complete matches with untouched catalogue cards
+ok 152 - archived 4.5.64: ff9-garnet-pendant: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1832.4022
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-mog-ribbon: three complete matches with untouched catalogue cards
+ok 153 - archived 4.5.64: ff9-mog-ribbon: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1227.4778
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-final-act-feather: three complete matches with untouched catalogue cards
+ok 154 - archived 4.5.64: ff9-final-act-feather: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1299.829
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-terra-fragment: three complete matches with untouched catalogue cards
+ok 155 - archived 4.5.64: ff9-terra-fragment: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 1523.6911
+  type: 'test'
+  ...
+# Subtest: archived 4.5.64: ff9-tantalus-script: three complete matches with untouched catalogue cards
+ok 156 - archived 4.5.64: ff9-tantalus-script: three complete matches with untouched catalogue cards
+  ---
+  duration_ms: 2003.5957
+  type: 'test'
+  ...
+1..156
+# tests 156
+# suites 0
+# pass 156
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 87454.7827

@@ -1,0 +1,104 @@
+{
+  "schema": 1,
+  "date": "2026-09-25",
+  "scope": "illustrations-only",
+  "tool": "image_gen.imagegen",
+  "mode": "builtin",
+  "sourcePage": "https://na.finalfantasy.com/titles/finalfantasy10",
+  "generatedDirectory": "C:/Users/guill/.codex/generated_images/01a0d8c5-5c63-7b31-9ab0-fa18a2d30e5c",
+  "styleReferencesIncludedEveryCall": true,
+  "referenceImages": [
+    {
+      "path": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+      "role": "primary-style",
+      "sha256": "44966D49AF5D5F916C3AD3F3B62BF846FA1D6646CA609CB3BEE9ED6EEDC94AC8"
+    },
+    {
+      "path": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+      "role": "secondary-style",
+      "sha256": "2C443D9ADC4525953869B2DCC69433EBF00FD7243EC93E01BFFF5E11ED5DC6EE"
+    },
+    {
+      "path": "V4/collaborations/ff10-set-01/art-b/references/yuna-official.jpg",
+      "role": "identity-only",
+      "sha256": "4F5B2174A7D3229F5FB99E4BBCEC5029E45516649D3155C6661135373694E133",
+      "url": "https://cache-na.finalfantasy.com/assets/web/title/finalfantasy10/character02-4f5b2174a7d3229f5fb99e4bbcec5029e45516649d3155c6661135373694e133.jpg"
+    },
+    {
+      "path": "V4/collaborations/ff10-set-01/art-b/references/lulu-official.jpg",
+      "role": "identity-only",
+      "sha256": "DB15BBE9432FE0C7CA6E6A7310E81E5448D2881E097712C69795A069AB6C30E9",
+      "url": "https://cache-na.finalfantasy.com/assets/web/title/finalfantasy10/character04-db15bbe9432fe0c7ca6e6a7310e81e5448d2881e097712c69795a069ab6c30e9.jpg"
+    },
+    {
+      "path": "V4/collaborations/ff10-set-01/art-b/references/rikku-official.jpg",
+      "role": "identity-only",
+      "sha256": "825A38C06DB86BC8EEF531D276FEE92AE281D32AE4F01697A735393C795BCD46",
+      "url": "https://cache-na.finalfantasy.com/assets/web/title/finalfantasy10/character07-825a38c06db86bc8eef531d276fee92ae281d32ae4f01697a735393c795bcd46.jpg"
+    },
+    {
+      "path": "V4/collaborations/ff10-set-01/art-b/references/yunalesca-official-via-wikibooks.jpg",
+      "role": "identity-only",
+      "sha256": "FED47506ABCAFEDEC1B8F27C0610A903E173F37A03EE6EA94DEA0B298D26BB05",
+      "url": "https://upload.wikimedia.org/wikibooks/en/1/13/Yunalesca.jpg",
+      "attribution": "Square Enix artwork, third-party archival hosting; not a direct Square Enix download."
+    }
+  ],
+  "outputs": [
+    {
+      "key": "yuna",
+      "selected": "yuna.png",
+      "request": "yuna.request.json",
+      "requestSha256": "CF3F6D1D6F91CADD50C40685B4CDFAED1526050CA3CB88D5AA2A2A3098C3F90E",
+      "sha256": "200D1D1BF47BD0542172FBB99D940F606D3096D090342CA191DF613FF7281844",
+      "toolOutput": "exec-5ec01980-9aa7-4333-9f30-56d1023f61f8.png",
+      "qa": "Visible two-hand grip on continuous staff; readable heterochromia, compassion, flowing sleeves; complete staff head near top, final native overlay review still required.",
+      "scene": "La danse de l'envoi sur les eaux de Kilika, entre le deuil et le devoir. Les ames s'elevent dans les dernieres lumieres du jour."
+    },
+    {
+      "key": "lulu",
+      "selected": "lulu.png",
+      "request": "lulu.request.json",
+      "requestSha256": "68D53A6DCC5CD8D4E0584ED721F6FC45302A20EB8DFF1644D0DCD9193441E498",
+      "sha256": "801F1ABAC86C949B957DFEE064CF94ED3AF7900FC96455951C2198A613253BAE",
+      "toolOutput": "exec-921dcbd9-fe1c-4b76-8d7e-81a90e35c284.png",
+      "qa": "Moogle plush recognizable with red pom, purple wings, stitched fabric; exactly two supporting hands; no book. Character centered and face readable.",
+      "scene": "Aux abords de l'Au-dela, Lulu serre son Mog. Sa reserve n'efface ni ceux qu'elle a perdus, ni les vivants qu'elle protege."
+    },
+    {
+      "key": "rikku-v1",
+      "selected": false,
+      "file": "rikku-v1.png",
+      "request": "rikku.request.json",
+      "requestSha256": "7A10B2E95F9A3C94CA97293BA02A2862986554172A7C3EE4574D31B0492C9E99",
+      "sha256": "973951AC4EA6AD78C64A2BCCEDDE2EF4B2966EBA5233D46324F3185A3083AC4A",
+      "toolOutput": "exec-02a6cb5a-03e9-4645-a42f-8c917adc11a6.png",
+      "qa": "Rejected for card integration: lid-support hand and repair contact too close to right stat rail. Preserved as edit input."
+    },
+    {
+      "key": "rikku",
+      "selected": "rikku.png",
+      "request": "rikku-v2.request.json",
+      "requestSha256": "FDE147EA4237DFFC32493D56961D15F4FEF918B907284C92BC5D3261399956F2",
+      "sha256": "0E86D43F86C3B4978204E9083721283E41D4085FB71B3BF91CB403C49F954172",
+      "toolOutput": "exec-787818a5-0dfc-4bf2-9d5c-13c3309f67d4.png",
+      "qa": "Both hands and wrench contact moved inward; continuous lid/hinge/housing, exactly two legs, dagger hilt readable at left hip. Pride and playfulness maintained. No X-2 outfit.",
+      "scene": "Dans le sable de Bikanel, une vieille machina reprend vie sous les doigts de Rikku. Son sourire annonce deja la prochaine trouvaille."
+    },
+    {
+      "key": "yunalesca",
+      "selected": "yunalesca.png",
+      "request": "yunalesca.request.json",
+      "requestSha256": "423F96087EA9A061FEAAFA44994FEEF9355D15A51CFB0083E5BECE6B5472A6CD",
+      "sha256": "1AEE97C75C7480980086A4C689472C5F134A38DFF59F36A75E895010C9B635DC",
+      "toolOutput": "exec-b8584b14-6ae5-4370-aacd-de355f10c207.png",
+      "qa": "Adult human form, recognizable long silver hair and angular ornaments; fully covered ceremonial interpretation, open empty hand. No orb, no weapon, no spherical magic effect. Full-body calm silhouette.",
+      "scene": "Dans le sanctuaire brise de Zanarkand, Yunalesca tend une main sans trembler. Pour elle, l'espoir demande encore un sacrifice."
+    }
+  ],
+  "limitations": [
+    "Illustrations selected by agent; final parent/user artistic review pending.",
+    "No PSD, card frame, gameplay profile, shared data or Git edited.",
+    "No claim of native frame or barcode validation; integration owner performs those checks."
+  ]
+}

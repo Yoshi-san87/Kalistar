@@ -1,0 +1,34 @@
+✖ all weapons keep their origins and effects AND require their printed family (43.9307ms)
+✔ empty rosters are intentional, and new equips/new games reject every formerly incompatible edition (17.1607ms)
+✔ profile reconciliation removes only retired family mismatches and is pure/idempotent (1.3204ms)
+✔ old compositions preserve every card, formation and captain while removing retired loadouts (1.4365ms)
+✔ every formerly allowed collective or personal loadout keeps its snapshot and combat bonus in a saved match (209.4096ms)
+✔ personal restrictions follow the chosen edition, accept future matching editions and retire invalid decks (7.326ms)
+✔ weapon faces put the accessible native family glyph in the title and only the origin in the footer (2.7674ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 355.2296
+
+✖ failing tests:
+
+test at V4\site\weapon-bearers.test.cjs:24:1
+✖ all weapons keep their origins and effects AND require their printed family (43.9307ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  41 !== 33
+  
+      at TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\weapon-bearers.test.cjs:25:42)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 41,
+    expected: 33,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

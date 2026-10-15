@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "modelId": "49900308",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "a800dba3e6453356e3e7cad55f7bd71509a223d919ac526c4a17a90512a2511a",
+  "hashes": {
+    "card.png": "51ea1de845b80e6faae3eeadf44be6035a0e15de1c1381ab8ca3e0c4db9be0fa",
+    "card.psd": "a49fbadc7d981c33d09ec57c3dd01a7221cf74d248ebdcd4203b4aaa729d618c"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 105147
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49900308",
+    "cases": {
+      "color-1": [
+        "49900308"
+      ],
+      "color-4": [
+        "49900308"
+      ],
+      "gray-1": [
+        "49900308"
+      ],
+      "gray-4": [
+        "49900308"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-04T13:33:24.381Z",
+  "typography": true,
+  "revision": "2026-10-04-guards-arborium"
+}

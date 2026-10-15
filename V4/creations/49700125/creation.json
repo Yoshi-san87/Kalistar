@@ -1,0 +1,37 @@
+{
+  "job": "518ba103-9dbe-4e3c-830b-e44097d1d8f6",
+  "setId": "2026-10-01-resident-evil",
+  "key": "saddler4",
+  "modelId": "49700125",
+  "hashes": {
+    "profile.json": "5881c0123f9a90c7e17efb4cfb4b5a556a72215452cd3a1e4104a1a6ec2b49c1",
+    "card.png": "4d973051a778f7962bde818ed508975c7b89c013b73cea84b9a55ea8426bda7a",
+    "card.psd": "7f8f4910ed878bfcc4c8ff2d0f9c3cda1aa183576628669200ef8c8a0204be82",
+    "verification.json": "a26581c4aef24588624036bb34f44dffd8d9ef4736441f0b15d72b3d2867833d",
+    "illustration.png": "b168c8b7be8117c9d38ef7f3171fbcf8d583e1be08cf8f7a120d3967f7f15f86"
+  },
+  "createdAt": "2026-09-30T23:31:56.142Z",
+  "nativeRevision": {
+    "id": "2026-10-08-resident-evil-faces",
+    "key": "saddler",
+    "proof": "V4/revisions/2026-10-08-resident-evil-faces/work/49700125/verification.json",
+    "changedFields": [
+      "atk",
+      "defense",
+      "magic",
+      "barriers",
+      "canGuard",
+      "canHeal"
+    ],
+    "previous": {
+      "id": "2026-10-01-stat-personality",
+      "key": "saddler",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700125/verification.json",
+      "changedFields": [
+        "atk",
+        "defense"
+      ],
+      "previous": null
+    }
+  }
+}

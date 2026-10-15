@@ -1,0 +1,32 @@
+{
+  "results": [
+    {
+      "scenario": "stage-failure",
+      "passed": true,
+      "reason": "An unexpected rendering fault never starts gameplay without an explicit action"
+    }
+  ],
+  "errors": [],
+  "steps": [
+    {
+      "position": 1,
+      "step": "loading",
+      "time": 2442.8000000715256
+    },
+    {
+      "position": 1,
+      "step": "title",
+      "time": 2535.100000023842
+    },
+    {
+      "position": 1,
+      "step": "depart",
+      "time": 2694.3000000715256
+    },
+    {
+      "position": 1,
+      "step": "interrupted",
+      "time": 3234.2000000476837
+    }
+  ]
+}

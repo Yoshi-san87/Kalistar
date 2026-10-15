@@ -1,0 +1,33 @@
+{
+  "date": "2026-09-23",
+  "tool": "image_gen.imagegen (built-in)",
+  "status": "Selected after assistant visual review; artistic approval remains with user",
+  "sources": [
+    {
+      "file": "art/references/simone-concept.jpg",
+      "url": "https://jolstatic.fr/www/captures/3017/9/116999.jpg",
+      "role": "Original concept design reproduced by JeuxOnline; geometry only"
+    },
+    {
+      "file": "art/references/simone-official.jpg",
+      "url": "https://gh.cdn.sewest.net/assets/ident/games/ff3bd4b4/cff9f514390d39456f5eaa2680e92bbe-0nivqnlop.jpg?quality=85",
+      "page": "https://www.square-enix-games.com/es_XL/games/nier-automata",
+      "role": "Official character screenshot"
+    }
+  ],
+  "entries": [
+    {
+      "key": "simone",
+      "prompt": "Use case: illustration-story. Create ONE original standalone Kalistar illustration of SIMONE / BEAUVOIR, the mechanical opera-singer boss of NieR:Automata. Images1 Momo and2 Valazar define PAINTING STYLE ONLY: narrative fantasy painting, visible confident brush strokes, sculpted planes of color, hierarchical edges, patinated metal, rich textured cloth; not a photo, not glossy 3D, not manga/anime, not flat concept drawing. Images3 concept sheet and4 official screenshot are IDENTITY / ENGINEERING references only, not compositions to copy. Simone must be recognizable: riveted domed machine head with angular articulated opera mask and a speaker-mouth singing, tall fan-shaped spoked metal crown behind head, narrow segmented aged-metal torso, two cylindrical shoulder assemblies, two long slender articulated mechanical arms, enormous bell-shaped layered mechanical skirt with triangular panels, tattered deep crimson cloth draped over it. Her body is a large machine, NOT a human woman in armor; no human face. A few small lifeless grey android effigies hang as her canonical theatrical ornaments, discreet, not gory, no blood. Moment: on the abandoned amusement-park opera stage, Simone opens one mechanical palm yearning toward an unseen audience, other hand lifted near her chest, head slightly raised as her desperate aria pours from her speaker. Convey an imposing but deeply lonely performer aching to be loved, not a neutral enemy catalogue pose. Her red cloak catches a little movement; several restrained ruby-red energy motes imply magic. No invented guitar, microphone or handheld weapon; her voice and speakers are the instrument. Environment: worn wood stage, faded red theatre curtains at the sides, empty shadowed balconies hinted at, warm old footlights illuminating the crimson skirt and worn brass, cool dusty shaft from high broken theatre roof on head and reaching hand. Deliberate restrained background, make silhouette immediately readable. Composition: portrait 4:5 for a 737x921 card illustration window, show crown and almost all the huge skirt, full silhouette at x18%-82%, head around x50% y24%, main hands safely x28%-72%, breathing room above crown and under skirt, low three-quarter audience viewpoint. Rich crimson, worn pale brass and smoky teal-grey, expressive brushwork matching Momo exactly. No text, labels, runes, logo, border, card UI, numbers or watermark. Single finished narrative painting, not a collage or contact sheet.",
+      "referenced_image_paths": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/collaborations/nier-simone-03/art/references/simone-concept.jpg",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/collaborations/nier-simone-03/art/references/simone-official.jpg"
+      ],
+      "generatedFile": "C:/Users/guill/.codex/generated_images/019e30c1-21b0-7e11-9f9d-2fe692f111d2/exec-f25b2222-2bf6-4f70-a1b3-d80c2d8d6044.png",
+      "selectedFile": "V4/collaborations/nier-simone-03/art/simone.png",
+      "review": "Recognizable mechanical mask/crown/skirt; theatre aria gesture; painterly worn metal/crimson cloth. Native card crop still to review."
+    }
+  ]
+}

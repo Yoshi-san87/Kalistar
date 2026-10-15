@@ -1,0 +1,132 @@
+{
+  "checks": [
+    {
+      "name": "archive/import",
+      "passed": true,
+      "modernMvp": {
+        "1-0": [
+          "crystal",
+          "blocker"
+        ],
+        "1-2": [
+          "killer"
+        ],
+        "1-1": [
+          "killer"
+        ]
+      },
+      "legacyMvp": {
+        "0-4": [
+          "crystal"
+        ],
+        "1-2": [
+          "killer"
+        ],
+        "1-1": [
+          "killer"
+        ],
+        "1-0": [
+          "blocker"
+        ]
+      },
+      "versions": {
+        "1": 1,
+        "2": 1
+      }
+    },
+    {
+      "name": "desktop",
+      "passed": true,
+      "breakdown": {
+        "x": 282.03125,
+        "y": 578,
+        "width": 225,
+        "height": 266.5
+      },
+      "assists": 1
+    },
+    {
+      "name": "wide",
+      "passed": true,
+      "breakdown": {
+        "x": 457.0625,
+        "y": 656.390625,
+        "width": 225,
+        "height": 266.5
+      },
+      "assists": 1
+    },
+    {
+      "name": "razr",
+      "passed": true,
+      "breakdown": {
+        "x": 158.75,
+        "y": 317.078125,
+        "width": 225,
+        "height": 266.5
+      },
+      "assists": 1
+    },
+    {
+      "name": "compact",
+      "passed": true,
+      "breakdown": {
+        "x": 68.59375,
+        "y": 187.296875,
+        "width": 225,
+        "height": 266.5
+      },
+      "assists": 1
+    },
+    {
+      "name": "landscape",
+      "passed": true,
+      "breakdown": {
+        "x": 582.109375,
+        "y": 15.484375,
+        "width": 225,
+        "height": 266.5
+      },
+      "assists": 1
+    },
+    {
+      "name": "statistics/career/mixed-means",
+      "passed": true,
+      "versions": {
+        "1": 1,
+        "2": 1
+      }
+    },
+    {
+      "name": "historical/reduced-motion",
+      "passed": true
+    },
+    {
+      "name": "ongoing",
+      "passed": true
+    },
+    {
+      "name": "historical-face-migration/import/report",
+      "passed": true
+    },
+    {
+      "name": "career-layout/desktop/mobile/legacy-mix",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "formula": {
+    "kills": 5,
+    "holds": 12,
+    "attack": 2,
+    "defense": 6,
+    "victory": 3,
+    "support": 4,
+    "assists": 3,
+    "cloversConsumedByRecipients": 0,
+    "reraisesConsumedByRecipients": 0,
+    "debuff": 1
+  },
+  "mvp": "1-0",
+  "passed": true
+}

@@ -1,0 +1,981 @@
+{
+  "revision": "2026-10-01-stat-personality",
+  "passed": true,
+  "verifiedCards": 48,
+  "planHash": "e97ae34b599b4d9658c5759cfac2c504f1fb1ed051e0d4ed140c2f4c0a52e84e",
+  "evidence": {
+    "V4/revisions/2026-10-01-stat-personality/work/49800101/verification.json": "4a3df7d081c623119262541273923c41a11d37f5a5b9204f10deb6d0c63648e0",
+    "V4/revisions/2026-10-01-stat-personality/work/49800102/verification.json": "1c6d77a2827975d6d257c031196e18b113fd34227515a38707b0ffbecccbc77a",
+    "V4/revisions/2026-10-01-stat-personality/work/49800103/verification.json": "cd34a877ad5dee5b8a01c6baa3f3649ae2caebc86d394b6f3a67a0923a0504c1",
+    "V4/revisions/2026-10-01-stat-personality/work/49800104/verification.json": "5d958afa36717c3b927f98e70f1a677254fb59f64a2bb1498b75a876be7ab363",
+    "V4/revisions/2026-10-01-stat-personality/work/49800105/verification.json": "193ba5e50746edf9e3efd7db19434ec1b12b41ca8805ecfe8c316aeaf67cfa0c",
+    "V4/revisions/2026-10-01-stat-personality/work/49800106/verification.json": "c9ffeee4054f20f15686b3473925c8b4cd06a9e38d97374f5a3f76f4691ec8cb",
+    "V4/revisions/2026-10-01-stat-personality/work/49800107/verification.json": "fda54848b866fd39e6c8cac15f4dafb5f740b1be06c8550020795b25c19eb2d9",
+    "V4/revisions/2026-10-01-stat-personality/work/49800108/verification.json": "3f38efb93844bfb5daa926c35a8aad9f6944254fe9787b18759c89c2399a7ca7",
+    "V4/revisions/2026-10-01-stat-personality/work/49800109/verification.json": "2245d2616ef0f230dcfe58f5e5c9801394941a78ce4a5fe49ebf07587526732a",
+    "V4/revisions/2026-10-01-stat-personality/work/49800110/verification.json": "d639352920e609d014a1e9eab8cb55148510705f4837e90ca427ff9b4cae8895",
+    "V4/revisions/2026-10-01-stat-personality/work/49800111/verification.json": "7c5ce25355bdbfb8a0f37830a34c0d8a050d4e1373a6fc583273763721ee0cd0",
+    "V4/revisions/2026-10-01-stat-personality/work/49700101/verification.json": "1586a39c60189545ccaccab003be67a0b3b212ee1eaa6fc0418d03bd40e50f74",
+    "V4/revisions/2026-10-01-stat-personality/work/49700102/verification.json": "c4bbe7196218b1c40a4e470d920929a48c4220f64f691d043cd8d639268b6977",
+    "V4/revisions/2026-10-01-stat-personality/work/49700103/verification.json": "5ef34f3491cafe102bbdb4e1d42797f7f62c8c55c3ee88a08b7c5c90f3fa0c41",
+    "V4/revisions/2026-10-01-stat-personality/work/49700104/verification.json": "052768fd30ab235031d1807f03262d7de79195bbfcab9f291a25b19be345a815",
+    "V4/revisions/2026-10-01-stat-personality/work/49700105/verification.json": "638ea54bfd4c6963ba7ac7d598d3f5d2e42c97de74d66998b26bd95f32582edc",
+    "V4/revisions/2026-10-01-stat-personality/work/49700106/verification.json": "c39d7a471610128285b5331ea517aa37c5d5763fa274ec535516126cfbd5bfb1",
+    "V4/revisions/2026-10-01-stat-personality/work/49700107/verification.json": "9a1282d419101dae91f4815cfc799c556223ca1d117d7eb6c0c29471a1b76f98",
+    "V4/revisions/2026-10-01-stat-personality/work/49700108/verification.json": "50e31b22521fa97805e77eda300926284466e723f21449b2ff8156b4955bdecb",
+    "V4/revisions/2026-10-01-stat-personality/work/49700109/verification.json": "ae3028a5d990aec7f0057317395cb7c8adabeeb040bbaa965b9f381cdddb2732",
+    "V4/revisions/2026-10-01-stat-personality/work/49700110/verification.json": "5b85d41aa007108c87eb8d4f367a8a6a3d41a591c8691f85759785b99f91bf9e",
+    "V4/revisions/2026-10-01-stat-personality/work/49700111/verification.json": "aee8e5ec2ff9132d9eb90414d81e9342c1fa502dcfada850aeb72d34b6d3c1af",
+    "V4/revisions/2026-10-01-stat-personality/work/49700112/verification.json": "fb57adda7bdcffa7bc8647d068c59bb32cd897e187cf4dfc753292c8ae054816",
+    "V4/revisions/2026-10-01-stat-personality/work/49700113/verification.json": "7c8f1ff2651a2bb58f947ed10df75c2ae6aaae33b84574ff1c184a36fa0b68a5",
+    "V4/revisions/2026-10-01-stat-personality/work/49700114/verification.json": "4bb81afcd1b6163b162866804ba644c7a4ba676484263dda84f7528192f9f9f0",
+    "V4/revisions/2026-10-01-stat-personality/work/49700115/verification.json": "6672d64424d9ab543c2799e9c452819bff00a3cb9f0b6a511795b7dbcf1dc1dd",
+    "V4/revisions/2026-10-01-stat-personality/work/49700116/verification.json": "89c2e1d9f440f0dff6c319f3e73fceaf45857154d3cb66e3e6e83f9a68b630ea",
+    "V4/revisions/2026-10-01-stat-personality/work/49700117/verification.json": "3af02a1ef38f3da6c452709c9ebe70585a5c5d72afe3024d62151536b6b476e9",
+    "V4/revisions/2026-10-01-stat-personality/work/49700118/verification.json": "084afc34cf139bd40cbe12c48b1f7fc9ddf4cafa16d8888293e7bbc767f9186a",
+    "V4/revisions/2026-10-01-stat-personality/work/49700119/verification.json": "3b4269129df8673a9ed20df22e59e758b3582a8b63ab403e84baa68330f3fdc8",
+    "V4/revisions/2026-10-01-stat-personality/work/49700120/verification.json": "aab9eb8a197d128fb50a1eab3dae934a261e924f7a584ef1b67a355f7ab3303d",
+    "V4/revisions/2026-10-01-stat-personality/work/49700121/verification.json": "bb84151bf4669b7cf2a7d00901d81d030fee99140b837ff2252cd283031fad16",
+    "V4/revisions/2026-10-01-stat-personality/work/49700122/verification.json": "b715c1ccabbf382f321ad4b2ee280346affef470f8d072f3ae018fba26e85694",
+    "V4/revisions/2026-10-01-stat-personality/work/49700123/verification.json": "542731bc061f13d644ec868481c5a5bcec46ad09db03bf97df3498ebcccdc0ec",
+    "V4/revisions/2026-10-01-stat-personality/work/49700124/verification.json": "242005c7945dcfb658e4c38f4733d713298de717d893dae0b23e864674421fc3",
+    "V4/revisions/2026-10-01-stat-personality/work/49700125/verification.json": "5cc17fb614d12a3b806a625b369680bf416f7173893e419ecda7979623ae88e5",
+    "V4/revisions/2026-10-01-stat-personality/work/49600101/verification.json": "b59b229f91430addefe144af568a74aa2455a29aee634031a890d7291d6d4755",
+    "V4/revisions/2026-10-01-stat-personality/work/49600102/verification.json": "76bd2b40af84d83bf6b7b7a7c636ce9811c9d065a3436c80a42e1c38e69deea6",
+    "V4/revisions/2026-10-01-stat-personality/work/49600103/verification.json": "39ab352cc74d02dc15df40715eb6ac9a86bdb1e31dd0e767fb00338136b444a7",
+    "V4/revisions/2026-10-01-stat-personality/work/49600104/verification.json": "ba4182fef7f7f98d6af3184e19640bc399891c85c266347655948c2d842417c7",
+    "V4/revisions/2026-10-01-stat-personality/work/49600106/verification.json": "092eac182e203b0b42bc9d9e45e7efead240ebd04669fcc9120566098ce57270",
+    "V4/revisions/2026-10-01-stat-personality/work/49600108/verification.json": "bf8077043bff7beb800917b278eb5c1eaa32fb8515c29062854f75807aa63e45",
+    "V4/revisions/2026-10-01-stat-personality/work/49600110/verification.json": "b1cbea1b5fee3c5a99d85fd510932c27dd12271a5d619b91cc1b66ad03165289",
+    "V4/revisions/2026-10-01-stat-personality/work/49600111/verification.json": "2161e4d566b04cdb40758f4b7f86c6634db92fc7dc92b907ca3e332ad43a3adb",
+    "V4/revisions/2026-10-01-stat-personality/work/49600114/verification.json": "512e03ff108cbaa40d1af18f77e9f7ea384512105f77288daee2850901559188",
+    "V4/revisions/2026-10-01-stat-personality/work/49600115/verification.json": "5bb007fb731a6c6e5071f6dca5e084d828958b1d8dfac65222439f4630968994",
+    "V4/revisions/2026-10-01-stat-personality/work/49600117/verification.json": "48f2f7fa7885bbfed00fa16504a512b0d4482691b33c833eadc31771748c3840",
+    "V4/revisions/2026-10-01-stat-personality/work/49600119/verification.json": "21a2ae3e54cdbbdc6a404c42f556c1e3aad913adc685cc4dc8cccad4b5828877"
+  },
+  "proofs": [
+    {
+      "id": "49800101",
+      "key": "luffy",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49800101/verification.json",
+      "scope": {
+        "changed": 15914,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.9976021664879227e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49800102",
+      "key": "zoro",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49800102/verification.json",
+      "scope": {
+        "changed": 15643,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 4.6629367034256575e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49800103",
+      "key": "sanji",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49800103/verification.json",
+      "scope": {
+        "changed": 15341,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.1094237467877974e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49800104",
+      "key": "nami",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49800104/verification.json",
+      "scope": {
+        "changed": 16657,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.55351295663786e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49800105",
+      "key": "usopp",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49800105/verification.json",
+      "scope": {
+        "changed": 15930,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.4424906541753444e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49800106",
+      "key": "chopper-small",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49800106/verification.json",
+      "scope": {
+        "changed": 14495,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.6645352591003757e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49800107",
+      "key": "chopper-heavy",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49800107/verification.json",
+      "scope": {
+        "changed": 17211,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 1.9984014443252818e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49800108",
+      "key": "robin",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49800108/verification.json",
+      "scope": {
+        "changed": 16954,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.4424906541753444e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49800109",
+      "key": "franky",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49800109/verification.json",
+      "scope": {
+        "changed": 15528,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.4424906541753444e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49800110",
+      "key": "brook",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49800110/verification.json",
+      "scope": {
+        "changed": 14223,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 1.9984014443252818e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49800111",
+      "key": "jinbe",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49800111/verification.json",
+      "scope": {
+        "changed": 12817,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 1.9984014443252818e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49700101",
+      "key": "jill-re1",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700101/verification.json",
+      "scope": {
+        "changed": 15727,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.4424906541753444e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49700102",
+      "key": "jill-re3",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700102/verification.json",
+      "scope": {
+        "changed": 17469,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.1094237467877974e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49700103",
+      "key": "jill-re5",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700103/verification.json",
+      "scope": {
+        "changed": 15971,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.1094237467877974e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49700104",
+      "key": "leon-re2",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700104/verification.json",
+      "scope": {
+        "changed": 15395,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.1094237467877974e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49700105",
+      "key": "leon-re4",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700105/verification.json",
+      "scope": {
+        "changed": 14353,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.55351295663786e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49700106",
+      "key": "leon-re6",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700106/verification.json",
+      "scope": {
+        "changed": 15198,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.4424906541753444e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49700107",
+      "key": "leon-re9",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700107/verification.json",
+      "scope": {
+        "changed": 14635,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.1094237467877974e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49700108",
+      "key": "ada-re2",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700108/verification.json",
+      "scope": {
+        "changed": 14436,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.55351295663786e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49700109",
+      "key": "ada-re4",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700109/verification.json",
+      "scope": {
+        "changed": 15269,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.6645352591003757e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49700110",
+      "key": "ada-re6",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700110/verification.json",
+      "scope": {
+        "changed": 16866,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.4424906541753444e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49700111",
+      "key": "chris-re1",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700111/verification.json",
+      "scope": {
+        "changed": 14721,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.1094237467877974e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49700112",
+      "key": "chris-re5",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700112/verification.json",
+      "scope": {
+        "changed": 16915,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.4424906541753444e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49700113",
+      "key": "chris-re6",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700113/verification.json",
+      "scope": {
+        "changed": 15660,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.55351295663786e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49700114",
+      "key": "chris-re7",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700114/verification.json",
+      "scope": {
+        "changed": 14102,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.55351295663786e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49700115",
+      "key": "chris-re8",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700115/verification.json",
+      "scope": {
+        "changed": 15361,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.1094237467877974e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49700116",
+      "key": "claire-re2",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700116/verification.json",
+      "scope": {
+        "changed": 14553,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 1.1102230246251565e-16,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49700117",
+      "key": "nemesis",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700117/verification.json",
+      "scope": {
+        "changed": 16408,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.1094237467877974e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49700118",
+      "key": "mr-x",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700118/verification.json",
+      "scope": {
+        "changed": 14445,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.1094237467877974e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49700119",
+      "key": "dimitrescu",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700119/verification.json",
+      "scope": {
+        "changed": 16545,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.4424906541753444e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49700120",
+      "key": "heisenberg",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700120/verification.json",
+      "scope": {
+        "changed": 14273,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.7755575615628914e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49700121",
+      "key": "beneviento",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700121/verification.json",
+      "scope": {
+        "changed": 14298,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.1094237467877974e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49700122",
+      "key": "moreau",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700122/verification.json",
+      "scope": {
+        "changed": 16391,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.4424906541753444e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49700123",
+      "key": "salazar",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700123/verification.json",
+      "scope": {
+        "changed": 13754,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.7755575615628914e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49700124",
+      "key": "eveline",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700124/verification.json",
+      "scope": {
+        "changed": 16193,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.4424906541753444e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49700125",
+      "key": "saddler",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700125/verification.json",
+      "scope": {
+        "changed": 16107,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.4424906541753444e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49600101",
+      "key": "meryl4",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49600101/verification.json",
+      "scope": {
+        "changed": 16006,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.6645352591003757e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49600102",
+      "key": "raiden4",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49600102/verification.json",
+      "scope": {
+        "changed": 15353,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 5.551115123125783e-16,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49600103",
+      "key": "otacon4",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49600103/verification.json",
+      "scope": {
+        "changed": 14581,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.4424906541753444e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49600104",
+      "key": "liquid-ocelot",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49600104/verification.json",
+      "scope": {
+        "changed": 16999,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.55351295663786e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49600106",
+      "key": "naked-snake",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49600106/verification.json",
+      "scope": {
+        "changed": 17460,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.3314683517128287e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49600108",
+      "key": "the-pain",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49600108/verification.json",
+      "scope": {
+        "changed": 15173,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.6645352591003757e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49600110",
+      "key": "the-end",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49600110/verification.json",
+      "scope": {
+        "changed": 17020,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.1094237467877974e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49600111",
+      "key": "the-fury",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49600111/verification.json",
+      "scope": {
+        "changed": 14199,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.4424906541753444e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49600114",
+      "key": "major-ocelot",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49600114/verification.json",
+      "scope": {
+        "changed": 16696,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.4424906541753444e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49600115",
+      "key": "venom-snake",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49600115/verification.json",
+      "scope": {
+        "changed": 17464,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.220446049250313e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49600117",
+      "key": "kaz-miller",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49600117/verification.json",
+      "scope": {
+        "changed": 12372,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 2.7755575615628914e-15,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    },
+    {
+      "id": "49600119",
+      "key": "quiet",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49600119/verification.json",
+      "scope": {
+        "changed": 14947,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": true,
+      "nativeStyleAudit": {
+        "linearTransformDrift": 6.661338147750939e-16,
+        "transformTolerance": 1e-12,
+        "exactNativeStyleRuns": true
+      }
+    }
+  ],
+  "contacts": [
+    "V4/revisions/2026-10-01-stat-personality/qa/one-piece.png",
+    "V4/revisions/2026-10-01-stat-personality/qa/resident-evil-01.png",
+    "V4/revisions/2026-10-01-stat-personality/qa/resident-evil-02.png",
+    "V4/revisions/2026-10-01-stat-personality/qa/metal-gear.png"
+  ],
+  "preservedNativeStyles": true,
+  "artworkUnchanged": true,
+  "zeroPixelsOutsideNumericCircles": true,
+  "publication": "awaiting-parent-proof-review",
+  "checkedAt": "2026-10-01T13:31:12.539Z"
+}

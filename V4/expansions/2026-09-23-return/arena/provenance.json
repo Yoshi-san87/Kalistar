@@ -1,0 +1,59 @@
+{
+  "date": "2026-09-23",
+  "tool": "image_gen.imagegen (built-in)",
+  "status": "Selected after visual review; user artistic approval and in-game view review remain separate.",
+  "request": "V4/expansions/2026-09-23-return/arena/request.json",
+  "generatedOriginal": "C:/Users/guill/.codex/generated_images/01a0cd3e-b962-7433-ad26-5f0bfa5d12c3/exec-5e4739d4-625f-4fb1-91ee-d2d7f642189b.png",
+  "selected": "V4/expansions/2026-09-23-return/arena/replicant-village.png",
+  "generationNotes": "Initial 6-reference request was rejected by tool validation before generation; final saved request contains 5 viewed references. One successful generation, no retouch, no frame generation.",
+  "review": "Painterly morning village scene. Recognisable library facade with fan window and arched door, tiered fountain and ivy arcade. Grass/stone foreground open, restrained distant ridges, no UI/characters. Original spatial reinterpretation, not exact game-level map.",
+  "sources": [
+    {
+      "page": "https://www.jp.square-enix.com/nierreplicantv1p2/world_sp_village_northenplains.html",
+      "role": "Official location description: home village of protagonist and Yonah, shops/tavern/library, Northern Plains to north.",
+      "usedForGeneration": false
+    },
+    {
+      "url": "https://www.jp.square-enix.com/nierreplicantv1p2/image/world_pc/ph07_1_1.jpg",
+      "file": "V4/expansions/2026-09-23-return/arena/refs/northern-plains-official.jpg",
+      "role": "Official Northern Plains screenshot, used landscape/grass/crags reference.",
+      "usedForGeneration": true
+    },
+    {
+      "url": "https://www.jp.square-enix.com/nierreplicantv1p2/image/world_pc/ph07_1_2.jpg",
+      "file": "V4/expansions/2026-09-23-return/arena/refs/village-street-official.jpg",
+      "role": "Official village street screenshot; viewed research, not submitted in final prompt because 5-reference tool limit.",
+      "usedForGeneration": false
+    },
+    {
+      "url": "https://www.jp.square-enix.com/nierreplicantv1p2/image/world_pc/ph01_1.jpg",
+      "file": "V4/expansions/2026-09-23-return/arena/refs/world-village-official.jpg",
+      "role": "Official main World village street; viewed research, not submitted.",
+      "usedForGeneration": false
+    },
+    {
+      "page": "https://e-poko.com/entry/2025/03/22/215900",
+      "url": "https://cdn-ak.f.st-hatena.com/images/fotolife/e/e-poko/20250321/20250321102848.jpg",
+      "file": "V4/expansions/2026-09-23-return/arena/refs/library-exterior-gameplay.jpg",
+      "role": "Third-party in-game screenshot: library exterior identity. Not official publisher art. Used shape only, no HUD/characters copied.",
+      "usedForGeneration": true
+    },
+    {
+      "page": "https://www.pcgamer.com/nier-replicant-pc-review/",
+      "url": "https://cdn.mos.cms.futurecdn.net/xiDrzi6Sqq6ve6tbJFsYjY.jpg",
+      "file": "V4/expansions/2026-09-23-return/arena/refs/fountain-gameplay.jpg",
+      "role": "Review in-game screenshot: fountain and stone arcade. Not official publisher art. Used place identity only, no HUD/characters copied.",
+      "usedForGeneration": true
+    },
+    {
+      "file": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+      "role": "Viewed mandatory Kalistar painterly DA reference",
+      "usedForGeneration": true
+    },
+    {
+      "file": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+      "role": "Viewed mandatory Kalistar material/brushwork reference; dark mood not binding",
+      "usedForGeneration": true
+    }
+  ]
+}

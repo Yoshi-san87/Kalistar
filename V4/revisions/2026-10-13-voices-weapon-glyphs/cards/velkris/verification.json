@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "modelId": "49902609",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "a3dc01b01bfa51e12d1415287096a5567464f0ed9a6bbe6f9eac4820f2b2ebda",
+  "hashes": {
+    "card.png": "2eb86d7961013fb98b69cada31e24699496897eedd2b20f9f708b2dce88c8568",
+    "card.psd": "b3b82844a48200ca6efde17a69f9b5e3f7f2577e7b88ce633d1aa7e1349a6643"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 107783
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49902609",
+    "cases": {
+      "color-1": [
+        "49902609"
+      ],
+      "color-4": [
+        "49902609"
+      ],
+      "gray-1": [
+        "49902609"
+      ],
+      "gray-4": [
+        "49902609"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-13T13:07:51.495Z",
+  "revision": "2026-10-13-voices-weapon-glyphs",
+  "scope": {
+    "changed": 662,
+    "outside": 0
+  },
+  "weaponOnly": true,
+  "profileUnchanged": true,
+  "source": {
+    "id": "49902609",
+    "key": "velkris",
+    "family": "Lance",
+    "source": "V4/site/assets/base-weapons/08.svg",
+    "sourceHash": "cb82c9bcc190406c6a262b117b7b601768c35bcf3a554adc79704d593aeca3d6",
+    "enamelHash": "9588d3c555966d642c8cbdeaf328b34052cabc08303572b534e831f4c0c48d47"
+  },
+  "inputManifestHash": "0439066a6f7aebdc9f2eb9c69117386eb89306a3bf9a647eaf60523abd0c384c"
+}

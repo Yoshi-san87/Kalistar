@@ -1,0 +1,726 @@
+{
+  "revision": "buffs-scenes-20260914",
+  "checkedAt": "2026-09-14T14:29:11.068Z",
+  "cards": 41,
+  "characters": 40,
+  "assets": [
+    {
+      "file": "effets/MINERO.png",
+      "sha256": "e11f94c19990b41fd3f87d359791ccffc348b978432ad45688c116bdc1e8a99b",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha": true
+    },
+    {
+      "file": "armes/00.png",
+      "sha256": "e10ebf9e959a735045602a57bc500680af995ff2398c0ada2a39ea39fc12bcb1",
+      "dimensions": [
+        512,
+        512
+      ],
+      "alpha": true
+    },
+    {
+      "file": "armes/01.png",
+      "sha256": "d8e3ef5594546e0a26b56c1bbea9e179db014203ec5040c3ebe7683da53f5490",
+      "dimensions": [
+        512,
+        512
+      ],
+      "alpha": true
+    },
+    {
+      "file": "armes/02.png",
+      "sha256": "4e83b033dbb7eefd7467923915fb45a96c4e7f62b8e673473fb4fb1504e199f4",
+      "dimensions": [
+        512,
+        512
+      ],
+      "alpha": true
+    },
+    {
+      "file": "armes/03.png",
+      "sha256": "f66049699f0f846bc5d90db3712dcfc2bed2da2493e88acafe70389c40124422",
+      "dimensions": [
+        512,
+        512
+      ],
+      "alpha": true
+    },
+    {
+      "file": "armes/04.png",
+      "sha256": "20757256d883befff149387f6aaf98e30ed26094d2548a64aa12669d0a59c23b",
+      "dimensions": [
+        512,
+        512
+      ],
+      "alpha": true
+    },
+    {
+      "file": "armes/05.png",
+      "sha256": "c9a96fd5b8f802f043a5ea15dcb82f743fe289484c8a86f46fc2764ec1110225",
+      "dimensions": [
+        512,
+        512
+      ],
+      "alpha": true
+    },
+    {
+      "file": "armes/06.png",
+      "sha256": "ee3c6b12acebc66e5bb2cbfb9b7fde054d44113fa9ff4fa3d6c2c6e13a7208ad",
+      "dimensions": [
+        512,
+        512
+      ],
+      "alpha": true
+    },
+    {
+      "file": "armes/07.png",
+      "sha256": "8e1dd2f83e026277cca0c6810bc081015297d8b9cee918ee0a3dc861ed5ed257",
+      "dimensions": [
+        512,
+        512
+      ],
+      "alpha": true
+    },
+    {
+      "file": "armes/08.png",
+      "sha256": "1cbc5edbdabbd1d40115bfa980744a897188f571d47a002799473dbe363bfd3d",
+      "dimensions": [
+        512,
+        512
+      ],
+      "alpha": true
+    },
+    {
+      "file": "armes/09.png",
+      "sha256": "c3cad629267cd585f1e4a6d15da7381c1652f77464a1a1bef98ee202daaa9efe",
+      "dimensions": [
+        512,
+        512
+      ],
+      "alpha": true
+    },
+    {
+      "file": "armes/10.png",
+      "sha256": "b8fe5fd1bcb278c788043a03fa8aaf60c0e51ec47ab4f56e7c2e711c0f86f089",
+      "dimensions": [
+        512,
+        512
+      ],
+      "alpha": true
+    },
+    {
+      "file": "armes/11.png",
+      "sha256": "1a01c981b53a1cd110fa8fe07dad1ad49329a35564bd5b6bed0946ac92cb8ddf",
+      "dimensions": [
+        512,
+        512
+      ],
+      "alpha": true
+    },
+    {
+      "file": "armes/12.png",
+      "sha256": "6211ec8526eff0a6c82f600086bc0a135991f81e5b37a516fb6a694182c57a51",
+      "dimensions": [
+        512,
+        512
+      ],
+      "alpha": true
+    },
+    {
+      "file": "armes/13.png",
+      "sha256": "eee52bf81da0bdad1c942abaa55277667796fd43ddd72d6191059756d7026cef",
+      "dimensions": [
+        512,
+        512
+      ],
+      "alpha": true
+    },
+    {
+      "file": "armes/14.png",
+      "sha256": "2a9f1f86884687b3e85b8c1117b2c1c2cc2ea0dca64ee768d2a0b6604657a48e",
+      "dimensions": [
+        512,
+        512
+      ],
+      "alpha": true
+    },
+    {
+      "file": "armes/15.png",
+      "sha256": "71b8f69a9c066296ffb4cb62ef46f51f974d71ebdba786341ad1d24b74947a33",
+      "dimensions": [
+        512,
+        512
+      ],
+      "alpha": true
+    },
+    {
+      "file": "armes/16.png",
+      "sha256": "c78fa3b2a2887d992ec02868287573c7d95c1819292c185ded298a6c379c04fe",
+      "dimensions": [
+        512,
+        512
+      ],
+      "alpha": true
+    },
+    {
+      "file": "armes/17.png",
+      "sha256": "5a72bacb59cdc60f435627859bf59abfc855ac7b66d56d7201a91e682171f481",
+      "dimensions": [
+        512,
+        512
+      ],
+      "alpha": true
+    },
+    {
+      "file": "armes/18.png",
+      "sha256": "81845068b870d2f2bee3ebb92e3b7671d0d1955b9fddfbca72b1489c91bea8be",
+      "dimensions": [
+        512,
+        512
+      ],
+      "alpha": true
+    },
+    {
+      "file": "armes/19.png",
+      "sha256": "c496303d87c09c08c94ca2cf7c34a0479c91b866ba5373044ce902d1767be6eb",
+      "dimensions": [
+        512,
+        512
+      ],
+      "alpha": true
+    },
+    {
+      "file": "races/CARDEMORTIS.png",
+      "sha256": "834aa4d6166b7a311969544ad8e0a94772113457ed0920ce7c4af643abdc0d2d",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha": true
+    },
+    {
+      "file": "races/CARNIVERT.png",
+      "sha256": "1bb798c8bc08bfd20a27d1391f30b3054ac6e3a13adbd60d2b8f0750e5f8ebb9",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha": true
+    },
+    {
+      "file": "races/CERELF.png",
+      "sha256": "6861a3a07a799447a67ac81d6a286e0d1fc91ee0a94c48aa5606c300fa8593be",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha": true
+    },
+    {
+      "file": "races/CYBORG.png",
+      "sha256": "958f452f44e25de564379a021e921f05c48cff9f6c8ad19522df5e21a80192d1",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha": true
+    },
+    {
+      "file": "races/DRAX.png",
+      "sha256": "e156abd20325c1b0b99606c41bd17906a2e736b9b0d875bddf6da975e53c9056",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha": true
+    },
+    {
+      "file": "races/FALCO.png",
+      "sha256": "589aeb0c29591df624c17ef7cd63f7df4b96f09e1230dcfa5d67871d70ce751e",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha": true
+    },
+    {
+      "file": "races/FELINEUS.png",
+      "sha256": "3b971e468e13ee80a0f5c0405bc30cc69a4437014956e072a5e4b594f1c7cd33",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha": true
+    },
+    {
+      "file": "races/GOLEM.png",
+      "sha256": "de3dc725d6e0c8f3c591e76919df817bc3dc837002133927ecf9996100d69ff1",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha": true
+    },
+    {
+      "file": "races/HUMAIN.png",
+      "sha256": "a218d17e0d3aa0308ed0bffc4903c4b207ccb33f82188175692ab6a8d9094951",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha": true
+    },
+    {
+      "file": "races/KORBOW.png",
+      "sha256": "7495ac0faf98850b3ca469f16b73f444559a53bde94840f171becc961c1ff4fa",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha": true
+    },
+    {
+      "file": "races/NAIN.png",
+      "sha256": "d65c072ec16c84e4392115c7966f8f3e102f0cfe987bd83ac656425b2b9505a8",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha": true
+    },
+    {
+      "file": "races/RHINOZ.png",
+      "sha256": "c90d8e5e139ecb5e252dc39983436a21716147a562b9a7ec4545db14de2b0b39",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha": true
+    },
+    {
+      "file": "races/ROBOT.png",
+      "sha256": "758bc0cbbda8d41fc47252560c520acc8ce046fdbbf3436b02febeb248dada70",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha": true
+    },
+    {
+      "file": "races/TANTALAK.png",
+      "sha256": "9b9606f820f2ee98aac0ddf8bb2f9931efeb22a35c40eea89e7d769c1be6db44",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha": true
+    },
+    {
+      "file": "illustrations/07_MINERO_BALMHYR.png",
+      "sha256": "d4264912a6427f7a7d598ebf89cda97c0de6110056c0119a4bac8fb999f6f83d",
+      "dimensions": [
+        1122,
+        1402
+      ],
+      "alpha": false
+    },
+    {
+      "file": "illustrations/12_RAINBOW_KAYLIS.png",
+      "sha256": "5aa38b060778cc434454f5e6a36a5ebd64e75efb7dfa3939f2b96c11d8decf75",
+      "dimensions": [
+        1122,
+        1402
+      ],
+      "alpha": false
+    },
+    {
+      "file": "illustrations/16_CRYO_NERIS.png",
+      "sha256": "4bd44f826e965b1189d49ea968d90d419fcfc3bb53a56a67af422f5933b22221",
+      "dimensions": [
+        1122,
+        1402
+      ],
+      "alpha": false
+    },
+    {
+      "file": "illustrations/23_NONE_GEN.png",
+      "sha256": "2c15755fbb67ded62b6dd614a6a25ec81129474640b1c2f648cb57dcc03a1e51",
+      "dimensions": [
+        1122,
+        1402
+      ],
+      "alpha": false
+    },
+    {
+      "file": "illustrations/25_NONE_KOGNUS.png",
+      "sha256": "1707af9e8c82254dbfc6ab621e7604a4a15dc1eb5bc71026f6497b1aba9d241e",
+      "dimensions": [
+        1122,
+        1402
+      ],
+      "alpha": false
+    },
+    {
+      "file": "illustrations/26_NONE_REEVUS.png",
+      "sha256": "61052ad941bf1aeabea8dedaa04afb563ecfb19f545200e1313486a887ddfbd8",
+      "dimensions": [
+        1122,
+        1402
+      ],
+      "alpha": false
+    },
+    {
+      "file": "illustrations/27_NONE_XIAOMI.png",
+      "sha256": "9987b795cb648add8205168df0b359a6cd44b1ea2aca88fbb38af95a7a7718d7",
+      "dimensions": [
+        1122,
+        1402
+      ],
+      "alpha": false
+    },
+    {
+      "file": "illustrations/32_ELECTRO_JELLY_JOE.png",
+      "sha256": "3a8b6c71e0aaf47bfc6b771a6fd97c4f38b99d28413391e52bd2843d97368700",
+      "dimensions": [
+        1122,
+        1402
+      ],
+      "alpha": false
+    },
+    {
+      "file": "illustrations/36_GEO_ELENION.png",
+      "sha256": "14a45dc36a9fe8582c18402721d500eb6390c330855acaf5ad22d5993b5cea7a",
+      "dimensions": [
+        1122,
+        1402
+      ],
+      "alpha": false
+    },
+    {
+      "file": "races/AURELION.png",
+      "sha256": "363e011e74fef0865b56858c8f6ad8c7367846f907107f26d472312ffbd5a6bd",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha": true
+    },
+    {
+      "file": "races/SIRENA.png",
+      "sha256": "34d964b5fd85d33cb86b045529756472e718595f26597509d136927add97b10e",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha": true
+    },
+    {
+      "file": "races/SKULLZ.png",
+      "sha256": "3e8967f4267f4c28b4a44921244f93da5dd7b9cd41c49a93deea43e231bacd70",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha": true
+    },
+    {
+      "file": "races/TOXINAR.png",
+      "sha256": "88bc0ebe45211b64b10be6a4ec736653d4ab77cd925eff75c94b3ae7ddf08362",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha": true
+    },
+    {
+      "file": "races/VAMP.png",
+      "sha256": "d264199172eee8d6a0b5c47b2eae18b54199afe8ac4036b965afa8fb764dd639",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha": true
+    },
+    {
+      "file": "illustrations/35_NECRO_CAPITAINE_SKULLY.png",
+      "sha256": "04b30244e3624cc20f71ce0bc8569252e51ffeac8f3c108526686f287a155bd9",
+      "dimensions": [
+        1122,
+        1402
+      ],
+      "alpha": false
+    },
+    {
+      "file": "illustrations/39_HYDRO_RUBY.png",
+      "sha256": "aa97188fec8b52e6161da6ca6cc592b44bd92f32043de7bc195782b2116feb89",
+      "dimensions": [
+        1122,
+        1402
+      ],
+      "alpha": false
+    }
+  ],
+  "prints": [
+    {
+      "slug": "01_ELECTRO_MOMO",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "02_AERO_CANA",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "03_HYDRO_JULIENNE",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "04_PYRO_DARNAKO",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "05_CRYO_MALINIA",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "06_LUXO_AELIS",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "07_MINERO_BALMHYR",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "08_HERBO_VICTORVINE",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "09_HEMATO_VERMINIA",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "10_NECRO_ZVIRI",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "11_GEO_NAZAR",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "12_RAINBOW_KAYLIS",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "13_ELECTRO_TAULIO",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "14_ELECTRO_MOMO_CARILLON",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "15_AERO_SCROW",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "16_CRYO_NERIS",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "17_LUXO_ILIANE",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "18_MINERO_LOK",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "19_MINERO_BELROG",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "20_HEMATO_SERAPHINA",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "21_NONE_LANIO",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "22_NONE_MALABA",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "23_NONE_GEN",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "24_MINERO_MAGNAR",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "25_NONE_KOGNUS",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "26_NONE_REEVUS",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "27_NONE_XIAOMI",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "28_NECRO_VOLODEN",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "29_PYRO_THANOR",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "30_PYRO_DARUK",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "31_PYRO_POLUX",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "32_ELECTRO_JELLY_JOE",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "33_HERBO_BLOOM",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "34_NECRO_VALAZAR",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "35_NECRO_CAPITAINE_SKULLY",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "36_GEO_ELENION",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "37_GEO_YVAR",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "38_AERO_GILMARR",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "39_HYDRO_RUBY",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "40_AERO_SORYN",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    },
+    {
+      "slug": "41_HERBO_THALIE",
+      "fresh": true,
+      "placement": true,
+      "gameCropPixelExact": true
+    }
+  ],
+  "protectedIllustrations": 30,
+  "unchangedNumericProfiles": 41,
+  "weaponCorrection": "Elenion: fleau to arc, matrix unchanged",
+  "buffCategories": 5,
+  "defenseOrder": [
+    "ward",
+    "luck",
+    "reraise"
+  ],
+  "databasePreserved": true,
+  "ok": true
+}

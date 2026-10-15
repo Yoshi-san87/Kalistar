@@ -1,0 +1,58 @@
+{
+  "name": "HADRUK",
+  "title": "LE MATCH D'APRÈS",
+  "job": "ENTRAÎNEUR",
+  "description": "Hadruk recoud le ballon après chaque match d'Astraball. Ses anciens élèves parlent encore de sa force ; lui se souvient de leurs premières passes. Il garde toujours une place sur le terrain.",
+  "element": "MINERO",
+  "race": "RHINOZ",
+  "weapon": "Bâton",
+  "faction": "Zarok",
+  "positions": [
+    1,
+    5
+  ],
+  "atk": [
+    166,
+    128,
+    98,
+    "buff_atk",
+    "guard",
+    "retry"
+  ],
+  "defense": [
+    204,
+    166,
+    127,
+    88,
+    57,
+    23
+  ],
+  "magic": [],
+  "barriers": [
+    6
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49900711",
+  "characterId": "hadruk-kalistar",
+  "slug": "V4_49900711",
+  "output": "KALISTAR_V4_49900711",
+  "text": "Hadruk recoud le ballon après chaque match d'Astraball. Ses anciens élèves parlent encore de sa force ; lui se souvient de leurs premières passes. Il garde toujours une place sur le terrain.",
+  "color": "B3BFCA",
+  "hue": 210,
+  "weapon_index": 10,
+  "role": 5,
+  "sentry": true,
+  "canGuard": true,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Personnage original Kalistar, selection utilisateur du 6 octobre 2026",
+  "visual_revision": "V4-2026-10-06-fifteen-faces",
+  "artworkSource": "V4/Illustrations/Faces_Hadruk_01.png"
+}

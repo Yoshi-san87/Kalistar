@@ -1,0 +1,34 @@
+TAP version 13
+# Subtest: every weapon has a unique medallion, immutable definition and stable saved art identity
+ok 1 - every weapon has a unique medallion, immutable definition and stable saved art identity
+  ---
+  duration_ms: 1.9499
+  type: 'test'
+  ...
+# Subtest: every current scene, ring and corrected body is distributed with its recorded hash
+ok 2 - every current scene, ring and corrected body is distributed with its recorded hash
+  ---
+  duration_ms: 222.0412
+  type: 'test'
+  ...
+# Subtest: boot and Pages contain the presentation manifest without coupling it to the engine
+ok 3 - boot and Pages contain the presentation manifest without coupling it to the engine
+  ---
+  duration_ms: 116.7115
+  type: 'test'
+  ...
+# Subtest: FFIX medallions retain a transparent center and keep each object inside its ring
+ok 4 - FFIX medallions retain a transparent center and keep each object inside its ring
+  ---
+  duration_ms: 682.8488
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1466.4953

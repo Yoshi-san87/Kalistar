@@ -1,0 +1,100 @@
+{
+  "schema": "kalistar.v4.illustration-provenance.v1",
+  "name": "SORYN",
+  "version": "V4_01",
+  "source_database": {
+    "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/donnees/cartes.json",
+    "card_id": "30000040",
+    "art": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/40_AERO_SORYN.png",
+    "lore": "Soryn attend que le vent tourne avant de toucher la corde. Une note traverse le brouillard. Sur le pont invisible, les voyageurs savent de nouveau ou poser le pied.",
+    "story_scene": "Scene inventee : Soryn accorde les cloches de brume des ponts de Nestown."
+  },
+  "source_sha256": "AAE106608F05A77C0A537BA1BC11FD302D87868B9C751B7BEC59E01495138C9D",
+  "source_file_unchanged_verified": true,
+  "instructions": [
+    "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/AGENTS.md",
+    "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/DIRECTION_ARTISTIQUE.md",
+    "C:/Users/guill/.codex/skills/.system/imagegen/SKILL.md"
+  ],
+  "generation": {
+    "tool": "image_gen builtin",
+    "callable_tool": "image_gen__imagegen",
+    "mode": "edit",
+    "use_case": "identity-preserve",
+    "calls": 1,
+    "cli_used": false,
+    "model_override": null,
+    "prompt_path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/donnees/elements-01/air/SORYN_V4_01.prompt.txt",
+    "prompt_sha256": "CDE4FAF459243C4B8E8C3B94CAE82F2D759AD6DD6861C81009043AD10CAB8F2E",
+    "reference_images_in_call_order": [
+      {
+        "role": "edit_target",
+        "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/40_AERO_SORYN.png",
+        "view_image_inspected": true
+      },
+      {
+        "role": "style_only",
+        "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "view_image_inspected": true
+      },
+      {
+        "role": "style_only",
+        "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "view_image_inspected": true
+      }
+    ],
+    "generated_path": "C:/Users/guill/.codex/generated_images/01a0af75-4daa-7b01-a046-e727c648c1e8/exec-bbf1b481-80a3-4f5d-ace2-df927217dfbe.png"
+  },
+  "output": {
+    "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/assets/illustrations/elements-01/air/SORYN_V4_01.png",
+    "format": "PNG",
+    "width": 1122,
+    "height": 1402,
+    "bytes": 2647351,
+    "sha256": "5B1B4B490FC1399C0B8066D809E177E8D9F7F0EB3B08F7B99CF11E5592A3E676",
+    "copy_method": "PowerShell Copy-Item",
+    "exact_generated_file_copy_verified": true,
+    "overwrote_existing_file": false,
+    "resized": false,
+    "cropped": false
+  },
+  "framing": {
+    "target_window": {
+      "width": 737,
+      "height": 921
+    },
+    "method": "Native high-resolution illustration supplied for parent to fit to art window.",
+    "cover_crop_total_at_target_pixels": {
+      "horizontal": 0.0628,
+      "vertical": 0
+    },
+    "character_positions": "Approved source positions retained; central faces/action remain readable. No recentering that would change approved poses.",
+    "psd_template_work": "Not performed; parent owns template and final card integration."
+  },
+  "qa": {
+    "source_inspected_with": "view_image",
+    "final_inspected_with": "view_image",
+    "status": "accepted_for_parent_integration",
+    "observations": [
+      "Tete blanche et crete rousse, yeux fermes et concentration sereine conserves, meme pose assise et memes vetements.",
+      "Deux mains sur la meme cithare, deux jambes et deux pieds griffus restent visibles ; pas d'anomalie anatomique apparente.",
+      "Traverse rouge, cordes proches et trois cloches conserves.",
+      "Plus de ciel et de brume ; disparition de la plupart des constructions et ponts repetes. Un pont lointain avec voyageurs maintient la narration.",
+      "Lisibilite centrale du visage et de l'instrument, pieds non coupes ; touche peinte visible, sans cadre ni texte."
+    ],
+    "correction_needed": false,
+    "additional_generation_calls": 0,
+    "character_preservation_assessment": "Visual comparison against approved source; not a claim of pixel-identical character regions.",
+    "card_composite_checked": false,
+    "card_composite_reason": "Explicitly out of scope; no Photoshop launched."
+  },
+  "scope": {
+    "new_project_files_only": true,
+    "allowed_project_write_directories": [
+      "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/assets/illustrations/elements-01/air/",
+      "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/donnees/elements-01/air/"
+    ],
+    "photoshop_launched": false,
+    "existing_project_files_modified": []
+  }
+}

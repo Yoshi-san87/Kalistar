@@ -1,0 +1,30 @@
+{
+  "id": "2026-10-09-gotham-completion",
+  "officialCollaboration": false,
+  "arenas": [],
+  "presets": [],
+  "cards": [
+    {
+      "key": "batman", "id": "49901509", "characterId": "batman-batman",
+      "name": "BATMAN", "title": "LA NUIT RESTE DEBOUT", "job": "JUSTICIER",
+      "description": "Sur le rebord, Bruce attend que la peur change de camp. La ville ne voit que son masque ; lui distingue chaque fenêtre encore allumée. Il ne promet pas la paix. Seulement de rester là.",
+      "element": "NONE", "race": "HUMAIN", "weapon": "Projectile",
+      "faction": "Gotham", "collaboration": "Gotham", "role": 1, "positions": [1, 2],
+      "atk": [203, 166, "guard", 89, "retry", 29],
+      "defense": [289, 237, 183, "dodge", 81, 41],
+      "magic": [], "barriers": [],
+      "artworkSource": "V4/expansions/2026-10-09-gotham-completion/art/batman.png"
+    },
+    {
+      "key": "joker", "id": "49901510", "characterId": "joker-batman",
+      "name": "JOKER", "title": "LE DERNIER RIRE", "job": "SABOTEUR",
+      "description": "Il tend la main comme on invite à danser. Derrière son sourire, chaque silence devient une menace. Le théâtre tombe en ruine, mais il attend encore ce rire qui fera céder toute la salle.",
+      "element": "NONE", "race": "HUMAIN", "weapon": "Bâton",
+      "faction": "Gotham", "collaboration": "Gotham", "role": 3, "positions": [3, 4],
+      "atk": [228, 183, "death", 112, "retry", 34],
+      "defense": [216, 172, 137, 94, "dodge", 19],
+      "magic": [], "barriers": [],
+      "artworkSource": "V4/expansions/2026-10-09-gotham-completion/art/joker.png"
+    }
+  ]
+}

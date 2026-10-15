@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "modelId": "49055457",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "2288271e38157a5edfec9175d1128eb3442ac3003e649c847edbb85569ecc707",
+  "hashes": {
+    "card.png": "94a4c241072f5eb4bfbb15433cb57d48cf26d9288b112fffd9f1b3df5c8c54e5",
+    "card.psd": "1d170d9c45223a01382f76c1adbd793c1f6323165b15626a944d70c0c2e150ea"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "changed": 817
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49055457",
+    "cases": {
+      "color-1": [
+        "49055457"
+      ],
+      "color-4": [
+        "49055457"
+      ],
+      "gray-1": [
+        "49055457"
+      ],
+      "gray-4": [
+        "49055457"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "nativeRevision": {
+    "id": "2026-10-03-kaylis-short-sword",
+    "proof": "V4/revisions/2026-10-03-kaylis-short-sword/verified.json",
+    "scope": "weapon-family-and-native-glyph-only"
+  },
+  "checkedAt": "2026-10-03T13:38:15.980Z",
+  "previousVerification": "V4/revisions/2026-10-03-kaylis-short-sword/originals/V4/creations/49055457/verification.json"
+}

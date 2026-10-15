@@ -1,0 +1,128 @@
+/* Load after the shared UI and phone styles. Only the character popup changes. */
+body #detail-dialog.card-detail {
+  width:min(1120px,calc(100% - 24px)); max-width:none;
+  max-height:calc(100dvh - 24px); overflow:hidden;
+  color:var(--kui-text); background:var(--kui-ink);
+}
+body #detail-dialog.card-detail[open] { display:flex; flex-direction:column; }
+#detail-dialog.card-detail .dialog-head { position:relative; flex:none; padding:10px 18px; min-height:56px; }
+#detail-dialog.card-detail .dialog-head h2 { font-size:22px; overflow-wrap:anywhere; }
+#detail-dialog.card-detail .dialog-head button { width:44px; height:44px; flex:none; }
+body #detail-dialog.card-detail .detail-body {
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:start;
+  gap:24px; padding:16px 20px; min-height:0; overflow:auto;
+  overscroll-behavior:contain; scrollbar-width:thin;
+}
+#detail-dialog.card-detail .detail-media { min-width:0; position:sticky; top:0; }
+#detail-dialog.card-detail .detail-visual {
+  position:relative; top:auto; width:100%; height:min(53dvh,580px);
+  aspect-ratio:auto; max-height:none; align-items:center;
+}
+#detail-dialog.card-detail .detail-visual>img { width:100%; height:100%; max-height:100%; object-fit:contain; }
+/* The arena retains its native idle circles; inspection exposes active overlays only. */
+#detail-dialog.card-detail[data-detail-source=arena] .eq-detail-overlay:not(.is-active) { display:none; }
+#detail-dialog.card-detail .detail-info { padding:0; gap:12px; }
+#detail-dialog.card-detail .detail-heading h2 { font-size:22px; line-height:1.3; margin:5px 0 0; overflow-wrap:anywhere; }
+#detail-dialog.card-detail .eyebrow { font-size:11px; letter-spacing:0; }
+#detail-dialog.card-detail .detail-source-note { margin:5px 0 10px; font:11px/1.45 var(--sans); color:var(--kui-muted); }
+#detail-dialog.card-detail .identity-strip { gap:10px; padding:8px 0; margin:0; }
+#detail-dialog.card-detail .identity-strip img { width:30px; height:44px; }
+#detail-dialog.card-detail .identity-strip .race-icon { width:30px; height:30px; }
+#detail-dialog.card-detail .identity-strip span { min-width:0; overflow-wrap:anywhere; line-height:1.5; }
+#detail-dialog.card-detail .detail-versions { gap:6px; }
+#detail-dialog.card-detail .detail-versions button { min-width:0; min-height:44px; padding:5px; }
+#detail-dialog.card-detail .detail-versions button span { overflow-wrap:anywhere; }
+#detail-dialog.card-detail .detail-equipment { margin-top:12px; border-top:1px solid var(--kui-border); padding-top:10px; }
+#detail-dialog.card-detail .detail-equipment h3 { margin:0; font:600 14px/1.4 var(--sans); }
+#detail-dialog.card-detail .detail-equipment-list { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); align-items:start; gap:10px; }
+body #detail-dialog.card-detail .detail-equipment-card {
+  display:flex; flex-direction:column; align-items:stretch; justify-content:flex-start;
+  width:100%; min-width:0; min-height:44px; height:auto; padding:0 0 5px; gap:6px;
+  border:0; border-radius:3px; background:transparent; box-shadow:none; color:var(--kui-text);
+  text-align:left; white-space:normal; letter-spacing:0;
+}
+#detail-dialog.card-detail .detail-equipment-art { display:block; width:100%; aspect-ratio:7/5; }
+/* Thumbnail typography scales with the card, not the viewport or readable caption. */
+#detail-dialog.card-detail .detail-equipment-art .wc-title { padding:0 .8cqw; }
+#detail-dialog.card-detail .detail-equipment-art .wc-title strong { font-size:3.5cqw; }
+#detail-dialog.card-detail .detail-equipment-art .wc-flavour { font-size:2.5cqw; line-height:1.25; padding:0 .6cqw; }
+#detail-dialog.card-detail .detail-equipment-art .wc-activation-title { font-size:2cqw; }
+#detail-dialog.card-detail .detail-equipment-art .wc-activation { font-size:2.5cqw; line-height:1.2; gap:.7cqw; padding:0 .5cqw; }
+#detail-dialog.card-detail .detail-equipment-art .wc-power { font-size:4cqw; gap:.8cqw; }
+#detail-dialog.card-detail .detail-equipment-art .wc-power>span { font-size:2.6cqw; }
+#detail-dialog.card-detail .detail-equipment-art .wc-bearers b { font-size:2.7cqw; }
+#detail-dialog.card-detail .detail-equipment-art .wc-holder { padding:.3cqw; }
+#detail-dialog.card-detail .detail-equipment-name { font:600 12px/1.35 var(--sans); overflow-wrap:anywhere; }
+#detail-dialog.card-detail .detail-equipment-meta { display:flex; flex-wrap:wrap; align-items:center; gap:3px 8px; font:11px/1.4 var(--sans); color:var(--kui-muted); }
+#detail-dialog.card-detail .detail-equipment-meta>span { display:inline-flex; align-items:center; gap:3px; }
+#detail-dialog.card-detail .detail-equipment-meta .lucide { width:12px; height:12px; }
+#detail-dialog.card-detail .detail-equipment-meta b { font-weight:600; }
+#detail-dialog.card-detail [data-equipment-state=active] .detail-equipment-meta b { color:var(--kui-energy); }
+#detail-dialog.card-detail [data-equipment-state=inactive] .detail-equipment-meta b { color:var(--kui-danger); }
+#detail-dialog.card-detail [data-equipment-state=active] .detail-equipment-art { outline:1px solid var(--kui-energy); outline-offset:2px; }
+#detail-dialog.card-detail .detail-equipment-card:hover { color:var(--kui-gold); }
+#detail-dialog.card-detail .detail-equipment-card:focus-visible { outline:2px solid var(--kui-energy); outline-offset:3px; }
+#detail-dialog.card-detail .detail-equipment-empty { margin:0; font-size:12px; color:var(--kui-muted); }
+#detail-dialog.card-detail .detail-section { border-top:1px solid var(--kui-border); }
+#detail-dialog.card-detail .detail-section>summary {
+  display:flex; align-items:center; gap:9px; min-height:48px; padding:8px 0;
+  list-style:none; cursor:pointer; font:600 14px/1.4 var(--sans); color:var(--kui-text);
+}
+#detail-dialog.card-detail summary::-webkit-details-marker { display:none; }
+#detail-dialog.card-detail .detail-section>summary>.lucide { width:18px; height:18px; flex:none; color:var(--kui-copper); }
+#detail-dialog.card-detail .detail-section>summary>.lucide:last-child { margin-left:auto; width:16px; }
+#detail-dialog.card-detail .detail-section[open]>summary>.lucide:last-child { transform:rotate(180deg); }
+#detail-dialog.card-detail summary:focus-visible { outline:2px solid var(--kui-energy); outline-offset:2px; }
+#detail-dialog.card-detail .detail-section-content { padding-bottom:12px; min-width:0; }
+#detail-dialog.card-detail .detail-base-weapon { display:flex; align-items:center; gap:6px; font-size:12px; color:var(--kui-muted); margin-bottom:6px; }
+#detail-dialog.card-detail .detail-base-weapon .lucide { width:16px; height:16px; }
+#detail-dialog.card-detail .stats-table { table-layout:fixed; font-size:13px; }
+#detail-dialog.card-detail .stats-table :is(td,th) { padding:8px 2px; }
+#detail-dialog.card-detail .affinities { margin-top:10px; line-height:1.6; }
+#detail-dialog.card-detail .story { margin:0; font:15px/1.65 var(--serif); }
+#detail-dialog.card-detail .live-bonuses { border:0; }
+#detail-dialog.card-detail .live-bonuses>h2 { margin:0; padding:0 0 8px; font-size:13px!important; }
+#detail-dialog.card-detail .single-trait-note { margin:0 0 8px; font-size:12px; line-height:1.5; }
+#detail-dialog.card-detail .bonus-explanation { padding:0; scroll-margin-block:10px; }
+#detail-dialog.card-detail .bonus-explanation>summary {
+  display:flex; justify-content:space-between; gap:8px; align-items:center;
+  min-height:44px; padding:8px 4px; cursor:pointer; list-style:none; font:12px/1.4 var(--sans);
+}
+#detail-dialog.card-detail .bonus-explanation>summary b { color:var(--kui-energy); text-align:right; }
+#detail-dialog.card-detail .bonus-explanation>summary::after { content:'+'; color:var(--kui-copper); flex:none; }
+#detail-dialog.card-detail .bonus-explanation[open]>summary::after { content:'-'; }
+#detail-dialog.card-detail .bonus-explanation p { margin:0; padding:0 6px 12px; font-size:12px; line-height:1.6; }
+#detail-dialog.card-detail .bonus-explanation.highlighted { border-left:2px solid var(--kui-energy); padding-left:7px; }
+#detail-dialog.card-detail .career-panel { padding-top:12px; }
+#detail-dialog.card-detail .ownership-banner { margin:0; flex-wrap:wrap; gap:8px; }
+#detail-dialog.card-detail .ownership-banner>span { min-width:0; overflow-wrap:anywhere; }
+#detail-dialog.card-detail .career-heading { flex-wrap:wrap; }
+#detail-dialog.card-detail .career-heading h3 { font-size:17px; }
+#detail-dialog.card-detail .career-heading label { min-width:0; max-width:100%; }
+#detail-dialog.card-detail #career-instance { min-height:44px; max-width:100%; }
+#detail-dialog.card-detail .career-history button { min-height:44px; }
+#detail-dialog.card-detail .career-history button span { min-width:0; overflow-wrap:anywhere; }
+#detail-dialog.card-detail .detail-actions {
+  flex:none; display:flex; flex-wrap:nowrap; gap:8px; justify-content:center;
+  padding:9px 16px; border-top:1px solid var(--kui-border); background:var(--kui-surface);
+}
+#detail-dialog.card-detail .detail-actions :is(button,a) { min-height:44px; display:inline-flex; align-items:center; justify-content:center; gap:7px; font-size:12px; padding:8px 12px; }
+#detail-dialog.card-detail .detail-actions a { border:1px solid var(--kui-border); border-radius:3px; color:var(--kui-text); text-decoration:none; }
+#detail-dialog.card-detail .detail-actions .lucide { width:18px; height:18px; flex:none; }
+@media(max-width:699px) {
+  body #detail-dialog.card-detail { width:calc(100% - 16px); max-height:calc(100dvh - 16px); }
+  body #detail-dialog.card-detail .detail-body { display:grid; grid-template-columns:minmax(0,1fr); gap:16px; padding:10px 12px; }
+  #detail-dialog.card-detail .detail-media { position:static; }
+  #detail-dialog.card-detail .detail-visual { height:min(44dvh,460px); }
+  #detail-dialog.card-detail .detail-equipment-list { gap:8px; }
+  #detail-dialog.card-detail .detail-equipment-name { font-size:11px; }
+  #detail-dialog.card-detail .detail-equipment-meta { font-size:10px; }
+  #detail-dialog.card-detail .detail-heading h2 { font-size:20px; }
+  #detail-dialog.card-detail .detail-actions { padding:8px 12px; }
+  #detail-dialog.card-detail .detail-actions :is(button,a) { padding:8px; }
+}
+@media(max-height:500px) and (min-width:700px) {
+  body #detail-dialog.card-detail .detail-body { grid-template-columns:minmax(0,.85fr) minmax(0,1fr); }
+  #detail-dialog.card-detail .detail-media { position:static; }
+  #detail-dialog.card-detail .detail-visual { height:260px; }
+}

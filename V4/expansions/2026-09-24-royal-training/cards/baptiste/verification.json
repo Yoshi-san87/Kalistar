@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "modelId": "42746644",
+  "referenceId": "4e489e527f047e2e6def3264718abb509cddb105cbc705bcd678ba0b20dc4bec",
+  "profileHash": "2a8319a6fa436dcaf697fd021c2a1b1cf4143ed30c15dd65cecaf2a2949e1d4e",
+  "hashes": {
+    "card.png": "1a70bbceb335ffabe80aba1cd84bc63aed415879146422205ffb5a67cfc59826",
+    "card.psd": "d85f6fd9a59aeaa1014d973244bd172d4b1f9058a0b7c783dade9cbac44612ac"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 108402
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "42746644",
+    "cases": {
+      "color-1": [
+        "42746644"
+      ],
+      "color-4": [
+        "42746644"
+      ],
+      "gray-1": [
+        "42746644"
+      ],
+      "gray-4": [
+        "42746644"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-24T15:45:14.181Z",
+  "key": "baptiste",
+  "preparationHash": "f6e82b3db52ad793e6d0a4bdd2e3e0a9fbc7890ec46908697e4bf36fef3d4395",
+  "nativeFiles": {
+    "V4/expansions/2026-09-24-royal-training/cards/baptiste/render/native.json": "b9a3b88ea192992bcfaac4a249bc263ad714cf3d14dc60bf9d98701fcb7b0ffa",
+    "V4/expansions/2026-09-24-royal-training/cards/baptiste/render/reopened.png": "3feedfe08330a3546880f9248d30da97f632e952f0a6cef36cd2f44ae8584699",
+    "V4/expansions/2026-09-24-royal-training/cards/baptiste/render/without-text.png": "452db191cc92486ed632aa5c778a9da56e83e32148380b84b9d06caec4d68010"
+  }
+}

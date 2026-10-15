@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-09-25",
+  "method": "Visual inspection of three localized generative edits and a fresh read-only native-component composite at unchanged cover crop zoom 1, x 0, y 0.",
+  "contactSheet": "V4/expansions/2026-09-24-royal-training/art-b/qa-v2/contact-native-windows.png",
+  "summary": "Three weapon occlusions resolved in native-component preview. All five faces clear. Keryn partial staff explicitly accepted by parent; Tazrik unchanged and clear. No locked layout change.",
+  "readyForNativeComposition": true,
+  "parentSelectionApproved": true,
+  "productionReady": false,
+  "pending": [
+    "Parent/Einstein final native PSD/render, text, barcode and protected-frame checks",
+    "Final Solaria banner/component revision belongs to parent"
+  ],
+  "cards": [
+    {
+      "key": "keryn",
+      "art": "keryn.png",
+      "fit": "parent_accepted",
+      "review": "Original untouched. Partial staff occlusion explicitly accepted by parent on 2026-09-24; rope and docking action remain legible."
+    },
+    {
+      "key": "brindor",
+      "art": "brindor-v2.png",
+      "fit": "pass_component_preview",
+      "review": "Hammer head and straight handle now lie on floor in front of feet, clear of right flag and lower-left position tile. Jar, face, bracing posture and seed-house setting visually preserved.",
+      "approximateWeaponLandmark": { "part": "hammer head center", "xPercent": 55, "yPercent": 88 },
+      "targetTolerance": "Generated hammer is lower than requested y83 but grounded plausibly and fully clear of native occluders."
+    },
+    {
+      "key": "asteran",
+      "art": "asteran-v2.png",
+      "fit": "pass_component_preview",
+      "review": "Sword rotated downward with continuous straight blade and natural two-handed hold. Tip is central and clear of faction flag. Face, crystalline identity, stance, costume, chains and gateway visually preserved.",
+      "approximateWeaponLandmark": { "part": "sword tip", "xPercent": 65, "yPercent": 88 },
+      "targetTolerance": "Generated tip is left/lower than requested x70/y82; native proof confirms complete visible tip and no flag or position-tile occlusion."
+    },
+    {
+      "key": "ornelle",
+      "art": "ornelle-v2.png",
+      "fit": "pass_component_preview",
+      "review": "Sceptre head, upper shaft and holding hand moved inward, now clear of left rail and halos. Doe face and ears remain readable; second hand on roots, bridge and kneeling pose visually preserved.",
+      "approximateWeaponLandmarks": [
+        { "part": "sceptre head", "xPercent": 28, "yPercent": 12 },
+        { "part": "holding hand", "xPercent": 27, "yPercent": 30 }
+      ]
+    },
+    {
+      "key": "tazrik",
+      "art": "tazrik.png",
+      "fit": "parent_accepted",
+      "review": "Original untouched. All three copper projectiles, hands and face visible; parent approved V1 native-component fit."
+    }
+  ]
+}

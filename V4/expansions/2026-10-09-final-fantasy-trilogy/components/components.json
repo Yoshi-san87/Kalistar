@@ -1,0 +1,134 @@
+{
+  "races": {
+    "YETI": {
+      "left": 711,
+      "top": 1116,
+      "width": 96,
+      "height": 95,
+      "source": "V4\\expansions\\2026-10-09-final-fantasy-trilogy\\components\\source-YETI.png",
+      "sourceHash": "bc5e407b2712a36bc54b8164fb8517fa0bb559ea6ab99545e69dace098d573d1",
+      "sha256": "52fda1cbbd6653cfa98da831de2a0205bdcd1645bc09b6e53efe1f40a33b19f9",
+      "nativeEmail": "V4\\collaborations\\ff7-set-01\\weapon-email-native.png",
+      "nativeEmailHash": "c6ef219cbe72e7addf544d52fac5e047e4eda5552bda1d2f985c84e250ce3bd6",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "width": 1301,
+        "height": 1209
+      },
+      "placement": {
+        "left": 13,
+        "top": 12
+      },
+      "sourceMetrics": {
+        "fullBounds": [
+          0,
+          0,
+          1301,
+          1209
+        ],
+        "visibleBounds": [
+          26,
+          27,
+          1291,
+          1195
+        ],
+        "centroid": [
+          641.291000390113,
+          679.195523564147
+        ],
+        "optical": [
+          647.3141502535735,
+          655.3270903166956
+        ],
+        "fullAlphaRadius": 1637.938109331363,
+        "opticalError": 853.5989822024293,
+        "visibleAlphaThreshold": 16
+      },
+      "metrics": {
+        "fullBounds": [
+          13,
+          12,
+          83,
+          77
+        ],
+        "visibleBounds": [
+          14,
+          13,
+          83,
+          77
+        ],
+        "centroid": [
+          47.50370800460923,
+          48.51698600325164
+        ],
+        "optical": [
+          47.852410202996,
+          47.28604090211356
+        ],
+        "fullAlphaRadius": 38.69431482789171,
+        "opticalError": 0.25992545806069245,
+        "visibleAlphaThreshold": 16
+      },
+      "motif": "V4\\expansions\\2026-10-09-final-fantasy-trilogy\\components\\race-YETI.motif.png",
+      "motifHash": "45a3c48a0216057cfbd79774ac4ea864e38fb6a872f60cd8ac6abc1a4de51a0b",
+      "opticalTarget": [
+        759,
+        1163.5
+      ],
+      "measuredOpticalCenter": [
+        758.852410202996,
+        1163.2860409021137
+      ],
+      "radiusLimit": 39,
+      "opticalTolerance": 0.75,
+      "method": "65% visible luminance-alpha centroid / 35% visible bounds centre; full nonzero alpha contour contained; visible alpha >=16"
+    }
+  },
+  "factions": {
+    "FF6": {
+      "geometry": {
+        "left": 672,
+        "top": 829,
+        "width": 98,
+        "height": 223
+      },
+      "sourceHash": "ed8cc17ac598dffe5dfbbea8e28ca768dd65bbc745e0520123fde78f5be7bf1c",
+      "packedHash": "e5d33da0025af736169c6994e997bafe716df3efe2441da50d1ff0c53d364cea",
+      "fullHash": "1bd04da0b6a222dfae837fd1b0eb9f01d300d4fec2189022f46eae4608ebd0a4"
+    },
+    "FF9": {
+      "geometry": {
+        "left": 672,
+        "top": 829,
+        "width": 98,
+        "height": 223
+      },
+      "sourceHash": "e58a61cb566ec3a4a9d1934f645dabe0b0d3d8b9d4e1371c07ce93eb17d621b6",
+      "packedHash": "4bf2dc98407faad6a7eca91f153519b21ed27b1761712d594c56a0720a128d32",
+      "fullHash": "af31e5378b74a55cd6f82dd887c078d6686569c3ffd05c4618a0c00d1484826e"
+    },
+    "FF13": {
+      "geometry": {
+        "left": 672,
+        "top": 829,
+        "width": 98,
+        "height": 223
+      },
+      "sourceHash": "eb4c80d457842ad0827aab5fe712f957415f324e96515973d1df6571cac426ee",
+      "packedHash": "58331f22d4747ef90db8e079385895d9f76bfb49b1cc65cad04f104d22677794",
+      "fullHash": "843633cbb8aad5ed4b0f7ed0e9066899657aa1740259c481f3efd54ef45dd140"
+    },
+    "FF15": {
+      "geometry": {
+        "left": 672,
+        "top": 829,
+        "width": 98,
+        "height": 223
+      },
+      "sourceHash": "17c9c65031011fb2e13955685e02dcdb7773e6049df964bbb81ee39cf4959be8",
+      "packedHash": "035c0881aed1754a74f3c604a7ccc9ff5da8cf51849014bac48331aa84a29455",
+      "fullHash": "323be41a2302471f366734fc9d33f350ea4be1e2665348a736a540868b19f6fd"
+    }
+  }
+}

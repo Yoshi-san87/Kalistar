@@ -1,0 +1,37 @@
+{
+  "job": "2f616b48-f0a3-4904-892c-cae02dd51053",
+  "setId": "2026-10-01-resident-evil",
+  "key": "heisenberg8",
+  "modelId": "49700120",
+  "hashes": {
+    "profile.json": "a891760f56b4dd844387b77d6e3baacb12e572e0cc226f47ffc928ccb1e203d7",
+    "card.png": "ecb21120b305e34bd82d592a4b3009fbccec71a6b19572a7453d46d3fbfeccf1",
+    "card.psd": "f48fbabbd8ab67f9cd562c50589654e0031cbe7130891e051ecde33fc21d4d88",
+    "verification.json": "8d193c6be5ace7698b1046563a8f7e995f6aaa85fc5ac28654517952aaedfbaa",
+    "illustration.png": "e08552cb48859f31c96004c0840f8dbb43a46306d4ade9c452a42d8573b736ed"
+  },
+  "createdAt": "2026-09-30T23:31:55.999Z",
+  "nativeRevision": {
+    "id": "2026-10-08-resident-evil-faces",
+    "key": "heisenberg",
+    "proof": "V4/revisions/2026-10-08-resident-evil-faces/work/49700120/verification.json",
+    "changedFields": [
+      "atk",
+      "defense",
+      "magic",
+      "barriers",
+      "canGuard",
+      "canHeal"
+    ],
+    "previous": {
+      "id": "2026-10-01-stat-personality",
+      "key": "heisenberg",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700120/verification.json",
+      "changedFields": [
+        "atk",
+        "defense"
+      ],
+      "previous": null
+    }
+  }
+}

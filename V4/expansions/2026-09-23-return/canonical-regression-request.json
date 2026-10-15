@@ -1,0 +1,1712 @@
+{
+  "items": [
+    {
+      "key": "zviri-tueuse",
+      "card": {
+        "name": "ZVIRI",
+        "title": "TUEUSE REDOUTABLE",
+        "job": "ASSASSIN",
+        "description": "Mercenaire assassin de Cryptown, Zviri traque ses cibles dans les ombres. Son fouet ne laisse aucune seconde chance. Elle rapporte le sang de ses victimes, et sa réputation arrive toujours avant elle.",
+        "element": "NECRO",
+        "race": "SKULLZ",
+        "weapon": "Fouet",
+        "faction": "Cryptown",
+        "positions": [
+          2
+        ],
+        "atk": [
+          294,
+          242,
+          "death",
+          145,
+          93,
+          41
+        ],
+        "defense": [
+          "dodge",
+          144,
+          112,
+          80,
+          55,
+          23
+        ],
+        "magic": [],
+        "barriers": [],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "30000010",
+        "characterId": "zviri",
+        "slug": "V4_30000010",
+        "output": "KALISTAR_V4_30000010",
+        "text": "Mercenaire assassin de Cryptown, Zviri traque ses cibles dans les ombres. Son fouet ne laisse aucune seconde chance. Elle rapporte le sang de ses victimes, et sa réputation arrive toujours avant elle.",
+        "color": "A979F7",
+        "hue": 270,
+        "weapon_index": 6,
+        "role": 2,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar V4 - expansion 2026-09-23-return",
+        "visual_revision": "V4-2026-09-23-return",
+        "edition": "canonical",
+        "artwork": "zviri-tueuse",
+        "legacyId": "30000010",
+        "legacySource": "V3/donnees/cartes.json",
+        "replacesModel": false
+      },
+      "profile": "V4/template-stable/return-20260923/zviri-tueuse/card.json",
+      "png": "V4/cartes/KALISTAR_V4_30000010.png",
+      "psd": "V4/templates/KALISTAR_V4_30000010.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "template": "V4/templates/KALISTAR_V4_30000010.psd",
+        "canvas": [
+          897,
+          1497
+        ],
+        "elements": [
+          "NECRO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "zviri-tueuse": [
+                "ILLUSTRATION - cadrage"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000010": [
+                "ID CODE128 - 30000010"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Fouet": [
+                "ARME - Fouet"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "SKULLZ": [
+                "RACE - SKULLZ"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Cryptown": [
+                "FACTION - Cryptown"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34
+        },
+        "effectLayouts": [],
+        "effectSupports": []
+      },
+      "options": {
+        "atk": [
+          [],
+          [],
+          [
+            "death"
+          ],
+          [],
+          [],
+          []
+        ],
+        "defense": [
+          [
+            "dodge"
+          ],
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      },
+      "artworkLayer": "ILLUSTRATION - cadrage",
+      "fonts": [
+        "MyriadPro-Regular",
+        "Bahnschrift-BoldSemiCondensed",
+        "TimesNewRomanPSMT"
+      ]
+    },
+    {
+      "key": "julienne",
+      "card": {
+        "name": "JULIENNE",
+        "title": "UN SOUFFLE SOUS LA MAREE",
+        "job": "GARDIENNE",
+        "description": "Sous les portes noyées de Thalasséa, Julienne retient la mer au-dessus des naufragés. Chaque souffle qu'elle leur offre lui coûte un peu de force. Elle ne relâchera l'arche qu'au dernier survivant.",
+        "element": "HYDRO",
+        "race": "SIRENA",
+        "weapon": "Bâton",
+        "faction": "Thalassea",
+        "positions": [
+          5
+        ],
+        "atk": [
+          174,
+          142,
+          110,
+          85,
+          "guard",
+          "revive"
+        ],
+        "defense": [
+          206,
+          169,
+          132,
+          95,
+          65,
+          28
+        ],
+        "magic": [
+          6,
+          5,
+          4,
+          3
+        ],
+        "barriers": [
+          6,
+          4
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "30000003",
+        "characterId": "julienne",
+        "slug": "V4_30000003",
+        "output": "KALISTAR_V4_30000003",
+        "text": "Sous les portes noyées de Thalasséa, Julienne retient la mer au-dessus des naufragés. Chaque souffle qu'elle leur offre lui coûte un peu de force. Elle ne relâchera l'arche qu'au dernier survivant.",
+        "color": "38CBED",
+        "hue": 192,
+        "weapon_index": 10,
+        "role": 5,
+        "sentry": true,
+        "canGuard": true,
+        "canHeal": true,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar V4 - expansion 2026-09-23-return",
+        "visual_revision": "V4-2026-09-23-return",
+        "edition": "canonical",
+        "artwork": "julienne",
+        "legacyId": "30000003",
+        "legacySource": "V3/donnees/cartes.json",
+        "replacesModel": false
+      },
+      "profile": "V4/template-stable/return-20260923/julienne/card.json",
+      "png": "V4/cartes/KALISTAR_V4_30000003.png",
+      "psd": "V4/templates/KALISTAR_V4_30000003.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "template": "V4/templates/KALISTAR_V4_30000003.psd",
+        "canvas": [
+          897,
+          1497
+        ],
+        "elements": [
+          "HYDRO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "julienne": [
+                "ILLUSTRATION - cadrage"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000003": [
+                "ID CODE128 - 30000003"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Bâton": [
+                "ARME - Bâton"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "SIRENA": [
+                "RACE - SIRENA"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Thalassea": [
+                "FACTION - Thalassea"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34
+        },
+        "effectLayouts": [],
+        "effectSupports": []
+      },
+      "options": {
+        "atk": [
+          [],
+          [],
+          [],
+          [],
+          [
+            "guard"
+          ],
+          [
+            "revive"
+          ]
+        ],
+        "defense": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      },
+      "artworkLayer": "ILLUSTRATION - cadrage",
+      "fonts": [
+        "MyriadPro-Regular",
+        "Bahnschrift-BoldSemiCondensed",
+        "TimesNewRomanPSMT"
+      ]
+    },
+    {
+      "key": "verminia-bureau",
+      "card": {
+        "name": "VERMINIA",
+        "title": "LES COMPTES DE LA NUIT",
+        "job": "DISSIDENTE",
+        "description": "Derrière son bureau de Draevenheim, Verminia efface un nom du registre de sa maison. Une signature suffit parfois à libérer une vie. Elle écoute les pas dans le couloir, puis reprend sa plume sans trembler.",
+        "element": "HEMATO",
+        "race": "VAMP",
+        "weapon": "Dague",
+        "faction": "Draevenheim",
+        "positions": [
+          3
+        ],
+        "atk": [
+          230,
+          195,
+          153,
+          111,
+          76,
+          34
+        ],
+        "defense": [
+          232,
+          190,
+          "dodge",
+          113,
+          71,
+          36
+        ],
+        "magic": [
+          6,
+          5,
+          3
+        ],
+        "barriers": [
+          6,
+          3
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "30000009",
+        "characterId": "verminia",
+        "slug": "V4_30000009",
+        "output": "KALISTAR_V4_30000009",
+        "text": "Derrière son bureau de Draevenheim, Verminia efface un nom du registre de sa maison. Une signature suffit parfois à libérer une vie. Elle écoute les pas dans le couloir, puis reprend sa plume sans trembler.",
+        "color": "E84976",
+        "hue": 343,
+        "weapon_index": 15,
+        "role": 3,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar V4 - expansion 2026-09-23-return",
+        "visual_revision": "V4-2026-09-23-return",
+        "edition": "canonical",
+        "artwork": "verminia-bureau",
+        "legacyId": "30000009",
+        "legacySource": "V3/donnees/cartes.json",
+        "replacesModel": false
+      },
+      "profile": "V4/template-stable/return-20260923/verminia-bureau/card.json",
+      "png": "V4/cartes/KALISTAR_V4_30000009.png",
+      "psd": "V4/templates/KALISTAR_V4_30000009.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "template": "V4/templates/KALISTAR_V4_30000009.psd",
+        "canvas": [
+          897,
+          1497
+        ],
+        "elements": [
+          "HEMATO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "verminia-bureau": [
+                "ILLUSTRATION - cadrage"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000009": [
+                "ID CODE128 - 30000009"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Dague": [
+                "ARME - Dague"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "VAMP": [
+                "RACE - VAMP"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Draevenheim": [
+                "FACTION - Draevenheim"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34
+        },
+        "effectLayouts": [],
+        "effectSupports": []
+      },
+      "options": {
+        "atk": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "defense": [
+          [],
+          [],
+          [
+            "dodge"
+          ],
+          [],
+          [],
+          []
+        ]
+      },
+      "artworkLayer": "ILLUSTRATION - cadrage",
+      "fonts": [
+        "MyriadPro-Regular",
+        "Bahnschrift-BoldSemiCondensed",
+        "TimesNewRomanPSMT"
+      ]
+    },
+    {
+      "key": "polux",
+      "card": {
+        "name": "POLUX",
+        "title": "LA CHALEUR QUI RESTE",
+        "job": "SOIGNEUR",
+        "description": "Polux réchauffe les linges sans les brûler. Il écoute la respiration derrière le rideau. Le feu, entre ses mains, sait aussi parler doucement.",
+        "element": "PYRO",
+        "race": "FELINEUS",
+        "weapon": "Bâton",
+        "faction": "Vulkar",
+        "positions": [
+          5
+        ],
+        "atk": [
+          174,
+          142,
+          110,
+          85,
+          "revive",
+          21
+        ],
+        "defense": [
+          206,
+          169,
+          132,
+          95,
+          65,
+          28
+        ],
+        "magic": [
+          6,
+          5,
+          4,
+          3,
+          1
+        ],
+        "barriers": [
+          6,
+          3
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "30000031",
+        "characterId": "polux",
+        "slug": "V4_30000031",
+        "output": "KALISTAR_V4_30000031",
+        "text": "Polux réchauffe les linges sans les brûler. Il écoute la respiration derrière le rideau. Le feu, entre ses mains, sait aussi parler doucement.",
+        "color": "FF704A",
+        "hue": 12,
+        "weapon_index": 10,
+        "role": 5,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": true,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar V4 - expansion 2026-09-23-return",
+        "visual_revision": "V4-2026-09-23-return",
+        "edition": "canonical",
+        "artwork": "polux",
+        "legacyId": "30000031",
+        "legacySource": "V3/donnees/cartes.json",
+        "replacesModel": false
+      },
+      "profile": "V4/template-stable/return-20260923/polux/card.json",
+      "png": "V4/cartes/KALISTAR_V4_30000031.png",
+      "psd": "V4/templates/KALISTAR_V4_30000031.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "template": "V4/templates/KALISTAR_V4_30000031.psd",
+        "canvas": [
+          897,
+          1497
+        ],
+        "elements": [
+          "PYRO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "polux": [
+                "ILLUSTRATION - cadrage"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000031": [
+                "ID CODE128 - 30000031"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Bâton": [
+                "ARME - Bâton"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "FELINEUS": [
+                "RACE - FELINEUS"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Vulkar": [
+                "FACTION - Vulkar"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34
+        },
+        "effectLayouts": [],
+        "effectSupports": []
+      },
+      "options": {
+        "atk": [
+          [],
+          [],
+          [],
+          [],
+          [
+            "revive"
+          ],
+          []
+        ],
+        "defense": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      },
+      "artworkLayer": "ILLUSTRATION - cadrage",
+      "fonts": [
+        "MyriadPro-Regular",
+        "Bahnschrift-BoldSemiCondensed",
+        "TimesNewRomanPSMT"
+      ]
+    },
+    {
+      "key": "nazar",
+      "card": {
+        "name": "NAZAR",
+        "title": "LA RONDE DE CANYONERO",
+        "job": "GARDIEN",
+        "description": "Nazar parcourt les plaines rocheuses de Canyonero, lance en main et regard au loin. Fils de Belrog, il connaît la valeur d'un passage sûr. La poussière peut effacer ses traces, jamais sa vigilance.",
+        "element": "GEO",
+        "race": "RHINOZ",
+        "weapon": "Lance",
+        "faction": "Zarok",
+        "positions": [
+          1
+        ],
+        "atk": [
+          201,
+          171,
+          134,
+          97,
+          "guard",
+          30
+        ],
+        "defense": [
+          293,
+          241,
+          196,
+          144,
+          92,
+          40
+        ],
+        "magic": [
+          6,
+          3
+        ],
+        "barriers": [
+          4,
+          2
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "30000011",
+        "characterId": "nazar",
+        "slug": "V4_30000011",
+        "output": "KALISTAR_V4_30000011",
+        "text": "Nazar parcourt les plaines rocheuses de Canyonero, lance en main et regard au loin. Fils de Belrog, il connaît la valeur d'un passage sûr. La poussière peut effacer ses traces, jamais sa vigilance.",
+        "color": "C7AB6D",
+        "hue": 41,
+        "weapon_index": 8,
+        "role": 1,
+        "sentry": true,
+        "canGuard": true,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar V4 - expansion 2026-09-23-return",
+        "visual_revision": "V4-2026-09-23-return",
+        "edition": "canonical",
+        "artwork": "nazar",
+        "legacyId": "30000011",
+        "legacySource": "V3/donnees/cartes.json",
+        "replacesModel": false
+      },
+      "profile": "V4/template-stable/return-20260923/nazar/card.json",
+      "png": "V4/cartes/KALISTAR_V4_30000011.png",
+      "psd": "V4/templates/KALISTAR_V4_30000011.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "template": "V4/templates/KALISTAR_V4_30000011.psd",
+        "canvas": [
+          897,
+          1497
+        ],
+        "elements": [
+          "GEO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "nazar": [
+                "ILLUSTRATION - cadrage"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000011": [
+                "ID CODE128 - 30000011"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Lance": [
+                "ARME - Lance"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "RHINOZ": [
+                "RACE - RHINOZ"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Zarok": [
+                "FACTION - Zarok"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34
+        },
+        "effectLayouts": [],
+        "effectSupports": []
+      },
+      "options": {
+        "atk": [
+          [],
+          [],
+          [],
+          [],
+          [
+            "guard"
+          ],
+          []
+        ],
+        "defense": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      },
+      "artworkLayer": "ILLUSTRATION - cadrage",
+      "fonts": [
+        "MyriadPro-Regular",
+        "Bahnschrift-BoldSemiCondensed",
+        "TimesNewRomanPSMT"
+      ]
+    },
+    {
+      "key": "capitaine-skully",
+      "card": {
+        "name": "CAPITAINE SKULLY",
+        "title": "LE CAP DES REVENANTS",
+        "job": "CAPITAINE",
+        "description": "Skully laisse la houle frapper l’étrave et garde le cap. Le sel ronge le bois, pas son obstination. Tant que le pont tient sous ses bottes, il reste un capitaine et la mer lui doit encore un passage.",
+        "element": "NECRO",
+        "race": "SKULLZ",
+        "weapon": "Epée courte",
+        "faction": "Cryptown",
+        "positions": [
+          3
+        ],
+        "atk": [
+          236,
+          194,
+          152,
+          "retry",
+          75,
+          33
+        ],
+        "defense": [
+          231,
+          196,
+          154,
+          112,
+          70,
+          35
+        ],
+        "magic": [
+          6
+        ],
+        "barriers": [
+          4
+        ],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "30000035",
+        "characterId": "capitaine-skully",
+        "slug": "V4_30000035",
+        "output": "KALISTAR_V4_30000035",
+        "text": "Skully laisse la houle frapper l’étrave et garde le cap. Le sel ronge le bois, pas son obstination. Tant que le pont tient sous ses bottes, il reste un capitaine et la mer lui doit encore un passage.",
+        "color": "A979F7",
+        "hue": 270,
+        "weapon_index": 16,
+        "role": 3,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar V4 - expansion 2026-09-23-return",
+        "visual_revision": "V4-2026-09-23-return",
+        "edition": "canonical",
+        "artwork": "capitaine-skully",
+        "legacyId": "30000035",
+        "legacySource": "V3/donnees/cartes.json",
+        "replacesModel": false
+      },
+      "profile": "V4/template-stable/return-20260923/capitaine-skully/card.json",
+      "png": "V4/cartes/KALISTAR_V4_30000035.png",
+      "psd": "V4/templates/KALISTAR_V4_30000035.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "template": "V4/templates/KALISTAR_V4_30000035.psd",
+        "canvas": [
+          897,
+          1497
+        ],
+        "elements": [
+          "NECRO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "capitaine-skully": [
+                "ILLUSTRATION - cadrage"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000035": [
+                "ID CODE128 - 30000035"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Epée courte": [
+                "ARME - Epée courte"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "SKULLZ": [
+                "RACE - SKULLZ"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Cryptown": [
+                "FACTION - Cryptown"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34
+        },
+        "effectLayouts": [],
+        "effectSupports": []
+      },
+      "options": {
+        "atk": [
+          [],
+          [],
+          [],
+          [
+            "retry"
+          ],
+          [],
+          []
+        ],
+        "defense": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      },
+      "artworkLayer": "ILLUSTRATION - cadrage",
+      "fonts": [
+        "MyriadPro-Regular",
+        "Bahnschrift-BoldSemiCondensed",
+        "TimesNewRomanPSMT"
+      ]
+    },
+    {
+      "key": "xiaomi",
+      "card": {
+        "name": "XIAOMI",
+        "title": "LE FIL DANS L OMBRE",
+        "job": "DUELLISTE",
+        "description": "Dans le couloir, Xiaomi ne laisse dépasser que le fil de sa lame. Le bruit des pas approche. Elle ralentit sa respiration ; le reste attendra que l’ombre lui donne raison.",
+        "element": "NONE",
+        "race": "HUMAIN",
+        "weapon": "Katana",
+        "faction": "Z13",
+        "positions": [
+          2
+        ],
+        "atk": [
+          292,
+          240,
+          195,
+          143,
+          91,
+          46
+        ],
+        "defense": [
+          174,
+          142,
+          110,
+          "dodge",
+          53,
+          21
+        ],
+        "magic": [],
+        "barriers": [],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "30000027",
+        "characterId": "xiaomi",
+        "slug": "V4_30000027",
+        "output": "KALISTAR_V4_30000027",
+        "text": "Dans le couloir, Xiaomi ne laisse dépasser que le fil de sa lame. Le bruit des pas approche. Elle ralentit sa respiration ; le reste attendra que l’ombre lui donne raison.",
+        "color": "93AAA5",
+        "hue": 160,
+        "weapon_index": 18,
+        "role": 2,
+        "sentry": false,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar V4 - expansion 2026-09-23-return",
+        "visual_revision": "V4-2026-09-23-return",
+        "edition": "canonical",
+        "artwork": "xiaomi",
+        "legacyId": "30000027",
+        "legacySource": "V3/donnees/cartes.json",
+        "replacesModel": false
+      },
+      "profile": "V4/template-stable/return-20260923/xiaomi/card.json",
+      "png": "V4/cartes/KALISTAR_V4_30000027.png",
+      "psd": "V4/templates/KALISTAR_V4_30000027.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "template": "V4/templates/KALISTAR_V4_30000027.psd",
+        "canvas": [
+          897,
+          1497
+        ],
+        "elements": [
+          "NONE"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "xiaomi": [
+                "ILLUSTRATION - cadrage"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000027": [
+                "ID CODE128 - 30000027"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Katana": [
+                "ARME - Katana"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "HUMAIN": [
+                "RACE - HUMAIN"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Z13": [
+                "FACTION - Z13"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34
+        },
+        "effectLayouts": [],
+        "effectSupports": []
+      },
+      "options": {
+        "atk": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "defense": [
+          [],
+          [],
+          [],
+          [
+            "dodge"
+          ],
+          [],
+          []
+        ]
+      },
+      "artworkLayer": "ILLUSTRATION - cadrage",
+      "fonts": [
+        "MyriadPro-Regular",
+        "Bahnschrift-BoldSemiCondensed",
+        "TimesNewRomanPSMT"
+      ]
+    },
+    {
+      "key": "gen-reparation",
+      "card": {
+        "name": "GEN",
+        "title": "LA PANNE QUI INSISTE",
+        "job": "MECANICIEN",
+        "description": "Une étincelle jaillit de son bras gauche. Gen suspend le tournevis, plisse les yeux, puis reprend. Ce n’est pas encore un pouvoir : seulement une mécanique récalcitrante et un garçon qui refuse de la laisser gagner.",
+        "element": "NONE",
+        "race": "CYBORG",
+        "weapon": "Projectile",
+        "faction": "Z13",
+        "positions": [
+          4
+        ],
+        "atk": [
+          290,
+          245,
+          193,
+          141,
+          96,
+          44
+        ],
+        "defense": [
+          172,
+          140,
+          115,
+          83,
+          51,
+          26
+        ],
+        "magic": [],
+        "barriers": [],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "30000023",
+        "characterId": "gen",
+        "slug": "V4_30000023",
+        "output": "KALISTAR_V4_30000023",
+        "text": "Une étincelle jaillit de son bras gauche. Gen suspend le tournevis, plisse les yeux, puis reprend. Ce n’est pas encore un pouvoir : seulement une mécanique récalcitrante et un garçon qui refuse de la laisser gagner.",
+        "color": "93AAA5",
+        "hue": 160,
+        "weapon_index": 9,
+        "role": 4,
+        "sentry": false,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar V4 - expansion 2026-09-23-return",
+        "visual_revision": "V4-2026-09-23-return",
+        "edition": "canonical",
+        "artwork": "gen-reparation",
+        "legacyId": "30000023",
+        "legacySource": "V3/donnees/cartes.json",
+        "replacesModel": false
+      },
+      "profile": "V4/template-stable/return-20260923/gen-reparation/card.json",
+      "png": "V4/cartes/KALISTAR_V4_30000023.png",
+      "psd": "V4/templates/KALISTAR_V4_30000023.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "template": "V4/templates/KALISTAR_V4_30000023.psd",
+        "canvas": [
+          897,
+          1497
+        ],
+        "elements": [
+          "NONE"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "gen-reparation": [
+                "ILLUSTRATION - cadrage"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000023": [
+                "ID CODE128 - 30000023"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Projectile": [
+                "ARME - Projectile"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "CYBORG": [
+                "RACE - CYBORG"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Z13": [
+                "FACTION - Z13"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34
+        },
+        "effectLayouts": [],
+        "effectSupports": []
+      },
+      "options": {
+        "atk": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "defense": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      },
+      "artworkLayer": "ILLUSTRATION - cadrage",
+      "fonts": [
+        "MyriadPro-Regular",
+        "Bahnschrift-BoldSemiCondensed",
+        "TimesNewRomanPSMT"
+      ]
+    },
+    {
+      "key": "lanio-astraball",
+      "card": {
+        "name": "LANIO",
+        "title": "LE BLONDINET DE ZAROK",
+        "job": "JOUEUR D ASTRABALL",
+        "description": "Lanio a enfin une vraie balle entre les mains. Sur le terrain de Zarok, le blondinet improvise un crochet et rit avant même de savoir s’il passera. Pour quelques minutes, la Z13 paraît très loin.",
+        "element": "NONE",
+        "race": "HUMAIN",
+        "weapon": "Lance",
+        "faction": "Z13",
+        "positions": [
+          3
+        ],
+        "atk": [
+          236,
+          194,
+          152,
+          110,
+          75,
+          33
+        ],
+        "defense": [
+          231,
+          196,
+          "dodge",
+          112,
+          70,
+          35
+        ],
+        "magic": [],
+        "barriers": [],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "30000021",
+        "characterId": "lanio",
+        "slug": "V4_30000021",
+        "output": "KALISTAR_V4_30000021",
+        "text": "Lanio a enfin une vraie balle entre les mains. Sur le terrain de Zarok, le blondinet improvise un crochet et rit avant même de savoir s’il passera. Pour quelques minutes, la Z13 paraît très loin.",
+        "color": "93AAA5",
+        "hue": 160,
+        "weapon_index": 8,
+        "role": 3,
+        "sentry": false,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar V4 - expansion 2026-09-23-return",
+        "visual_revision": "V4-2026-09-23-return",
+        "edition": "canonical",
+        "artwork": "lanio-astraball",
+        "legacyId": "30000021",
+        "legacySource": "V3/donnees/cartes.json",
+        "replacesModel": false
+      },
+      "profile": "V4/template-stable/return-20260923/lanio-astraball/card.json",
+      "png": "V4/cartes/KALISTAR_V4_30000021.png",
+      "psd": "V4/templates/KALISTAR_V4_30000021.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "template": "V4/templates/KALISTAR_V4_30000021.psd",
+        "canvas": [
+          897,
+          1497
+        ],
+        "elements": [
+          "NONE"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "lanio-astraball": [
+                "ILLUSTRATION - cadrage"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000021": [
+                "ID CODE128 - 30000021"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Lance": [
+                "ARME - Lance"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "HUMAIN": [
+                "RACE - HUMAIN"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Z13": [
+                "FACTION - Z13"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34
+        },
+        "effectLayouts": [],
+        "effectSupports": []
+      },
+      "options": {
+        "atk": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "defense": [
+          [],
+          [],
+          [
+            "dodge"
+          ],
+          [],
+          [],
+          []
+        ]
+      },
+      "artworkLayer": "ILLUSTRATION - cadrage",
+      "fonts": [
+        "MyriadPro-Regular",
+        "Bahnschrift-BoldSemiCondensed",
+        "TimesNewRomanPSMT"
+      ]
+    },
+    {
+      "key": "reevus",
+      "card": {
+        "name": "REEVUS",
+        "title": "LE REGISTRE DES ABSENTS",
+        "job": "INTENDANT",
+        "description": "Reevus suit les lignes du doigt, puis frappe le registre du poing. Les chiffres ne lui obéissent pas davantage que les mineurs. Alors il hausse la voix, convaincu que le problème vient des autres.",
+        "element": "NONE",
+        "race": "NAIN",
+        "weapon": "Fléau",
+        "faction": "Z13",
+        "positions": [
+          3
+        ],
+        "atk": [
+          235,
+          193,
+          151,
+          116,
+          74,
+          "buff_atk"
+        ],
+        "defense": [
+          230,
+          195,
+          153,
+          111,
+          76,
+          34
+        ],
+        "magic": [],
+        "barriers": [],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "30000026",
+        "characterId": "reevus",
+        "slug": "V4_30000026",
+        "output": "KALISTAR_V4_30000026",
+        "text": "Reevus suit les lignes du doigt, puis frappe le registre du poing. Les chiffres ne lui obéissent pas davantage que les mineurs. Alors il hausse la voix, convaincu que le problème vient des autres.",
+        "color": "93AAA5",
+        "hue": 160,
+        "weapon_index": 4,
+        "role": 3,
+        "sentry": false,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar V4 - expansion 2026-09-23-return",
+        "visual_revision": "V4-2026-09-23-return",
+        "edition": "canonical",
+        "artwork": "reevus",
+        "legacyId": "30000026",
+        "legacySource": "V3/donnees/cartes.json",
+        "replacesModel": false
+      },
+      "profile": "V4/template-stable/return-20260923/reevus/card.json",
+      "png": "V4/cartes/KALISTAR_V4_30000026.png",
+      "psd": "V4/templates/KALISTAR_V4_30000026.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "template": "V4/templates/KALISTAR_V4_30000026.psd",
+        "canvas": [
+          897,
+          1497
+        ],
+        "elements": [
+          "NONE"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "reevus": [
+                "ILLUSTRATION - cadrage"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000026": [
+                "ID CODE128 - 30000026"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Fléau": [
+                "ARME - Fléau"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "NAIN": [
+                "RACE - NAIN"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Z13": [
+                "FACTION - Z13"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34
+        },
+        "effectLayouts": [],
+        "effectSupports": []
+      },
+      "options": {
+        "atk": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [
+            "buff_atk"
+          ]
+        ],
+        "defense": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      },
+      "artworkLayer": "ILLUSTRATION - cadrage",
+      "fonts": [
+        "MyriadPro-Regular",
+        "Bahnschrift-BoldSemiCondensed",
+        "TimesNewRomanPSMT"
+      ]
+    },
+    {
+      "key": "kognus",
+      "card": {
+        "name": "KOGNUS",
+        "title": "LES CLES DU SERVICE",
+        "job": "SURVEILLANT",
+        "description": "Kognus fait tinter les clés pour que toute la galerie l’entende. Il connaît le prix du silence et celui d’une porte fermée. Son sourire ne promet jamais une faveur sans en compter le retour.",
+        "element": "NONE",
+        "race": "NAIN",
+        "weapon": "Dague",
+        "faction": "Z13",
+        "positions": [
+          2
+        ],
+        "atk": [
+          291,
+          246,
+          194,
+          142,
+          90,
+          45
+        ],
+        "defense": [
+          173,
+          141,
+          116,
+          84,
+          52,
+          "retry"
+        ],
+        "magic": [],
+        "barriers": [],
+        "upload": null,
+        "crop": {
+          "zoom": 1,
+          "x": 0,
+          "y": 0
+        },
+        "schemaVersion": 4,
+        "id": "30000025",
+        "characterId": "kognus",
+        "slug": "V4_30000025",
+        "output": "KALISTAR_V4_30000025",
+        "text": "Kognus fait tinter les clés pour que toute la galerie l’entende. Il connaît le prix du silence et celui d’une porte fermée. Son sourire ne promet jamais une faveur sans en compter le retour.",
+        "color": "93AAA5",
+        "hue": 160,
+        "weapon_index": 15,
+        "role": 2,
+        "sentry": false,
+        "canGuard": false,
+        "canHeal": false,
+        "advantage": 30,
+        "disadvantage": 30,
+        "source": "Kalistar V4 - expansion 2026-09-23-return",
+        "visual_revision": "V4-2026-09-23-return",
+        "edition": "canonical",
+        "artwork": "kognus",
+        "legacyId": "30000025",
+        "legacySource": "V3/donnees/cartes.json",
+        "replacesModel": false
+      },
+      "profile": "V4/template-stable/return-20260923/kognus/card.json",
+      "png": "V4/cartes/KALISTAR_V4_30000025.png",
+      "psd": "V4/templates/KALISTAR_V4_30000025.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "template": "V4/templates/KALISTAR_V4_30000025.psd",
+        "canvas": [
+          897,
+          1497
+        ],
+        "elements": [
+          "NONE"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "kognus": [
+                "ILLUSTRATION - cadrage"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000025": [
+                "ID CODE128 - 30000025"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Dague": [
+                "ARME - Dague"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "NAIN": [
+                "RACE - NAIN"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Z13": [
+                "FACTION - Z13"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34
+        },
+        "effectLayouts": [],
+        "effectSupports": []
+      },
+      "options": {
+        "atk": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "defense": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [
+            "retry"
+          ]
+        ]
+      },
+      "artworkLayer": "ILLUSTRATION - cadrage",
+      "fonts": [
+        "MyriadPro-Regular",
+        "Bahnschrift-BoldSemiCondensed",
+        "TimesNewRomanPSMT"
+      ]
+    }
+  ]
+}

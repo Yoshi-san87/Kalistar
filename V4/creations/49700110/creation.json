@@ -1,0 +1,37 @@
+{
+  "job": "9a22ddac-7c9a-41f0-95c3-c18f1f728327",
+  "setId": "2026-10-01-resident-evil",
+  "key": "ada6",
+  "modelId": "49700110",
+  "hashes": {
+    "profile.json": "407cd72e3822aed41de188a3d2a1fba9ca55c0943b2e0f9bd167bd4fbacc20b9",
+    "card.png": "ea60dd890484e1b200117722a5334167e818a75a1efe556653cc55f857d0586c",
+    "card.psd": "590b3cf3e9d6638873199df7100104962b7f1b1f9a362419259cbe082e728ca4",
+    "verification.json": "c2803b4524dc1d8a2ee3c1ecbbf6b760b21b996df75df9d4828685e8c83c0180",
+    "illustration.png": "92f998564e724a8860aadfcb8103081f5dd62ef21c39e51f0543ef51a08a9254"
+  },
+  "createdAt": "2026-09-30T23:31:55.711Z",
+  "nativeRevision": {
+    "id": "2026-10-08-resident-evil-faces",
+    "key": "ada-re6",
+    "proof": "V4/revisions/2026-10-08-resident-evil-faces/work/49700110/verification.json",
+    "changedFields": [
+      "atk",
+      "defense",
+      "magic",
+      "barriers",
+      "canGuard",
+      "canHeal"
+    ],
+    "previous": {
+      "id": "2026-10-01-stat-personality",
+      "key": "ada-re6",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700110/verification.json",
+      "changedFields": [
+        "atk",
+        "defense"
+      ],
+      "previous": null
+    }
+  }
+}

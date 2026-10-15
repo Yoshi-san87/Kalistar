@@ -1,0 +1,31 @@
+✖ boot downloads concurrently but executes validated dependencies in order (6.0696ms)
+✔ invalid catalogue and missing modules fail closed; preview hosts stay lightweight (4.646ms)
+✔ lossless grimoire derivatives are reproducible and preserve the source hashes (14.8579ms)
+✔ obsolete preview and affinity pagination are gone, live DNA pips remain (1.2149ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 119.3595
+
+✖ failing tests:
+
+test at V4\site\performance.test.cjs:16:1
+✖ boot downloads concurrently but executes validated dependencies in order (6.0696ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  46 !== 44
+  
+      at TestContext.<anonymous> (C:\Users\guill\AppData\Local\Temp\kalistar-razr-4619-zJ7qIq\V4\site\performance.test.cjs:17:36)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 46,
+    expected: 44,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

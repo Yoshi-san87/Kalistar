@@ -1,0 +1,431 @@
+{
+  "schemaVersion": 1,
+  "id": "2026-09-24-royal-training",
+  "cards": [
+    {
+      "key": "kaylis-entrainement",
+      "name": "KAYLIS",
+      "title": "L'ÉLAN DES COULEURS",
+      "job": "COMBATTANTE",
+      "description": "Sur la pierre soulevée par Balmhyr, Kaylis apprend à guider l'élan qui l'emportait. Sa lame dessine une ligne nette ; les couleurs courent sur ses bras. Cette fois, elle ne fuit plus : elle choisit son prochain pas.",
+      "element": "RAINBOW",
+      "race": "HUMAIN",
+      "weapon": "Katana",
+      "faction": "Z13",
+      "positions": [
+        1,
+        2,
+        3
+      ],
+      "role": 3,
+      "atk": [
+        224,
+        184,
+        144,
+        104,
+        64,
+        28
+      ],
+      "defense": [
+        216,
+        178,
+        138,
+        "dodge",
+        64,
+        28
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "characterId": "kaylis",
+      "art": "art-a/kaylis-entrainement.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      },
+      "id": "49055457"
+    },
+    {
+      "key": "baptiste",
+      "name": "BAPTISTE",
+      "title": "LE DERNIER ACCORD",
+      "job": "VIOLONISTE",
+      "description": "Sous les voûtes de Draevenheim, Baptiste retient la dernière note. Dans la salle, personne n'ose rompre le silence. Son archet repart ; l'élégance du geste ne dit pas encore à qui ce concert est destiné.",
+      "element": "HEMATO",
+      "race": "VAMP",
+      "weapon": "Instrument",
+      "faction": "Draevenheim",
+      "positions": [
+        3
+      ],
+      "role": 3,
+      "atk": [
+        228,
+        186,
+        148,
+        "mana",
+        68,
+        "retry"
+      ],
+      "defense": [
+        224,
+        184,
+        144,
+        104,
+        66,
+        30
+      ],
+      "magic": [
+        6,
+        5,
+        4
+      ],
+      "barriers": [
+        4,
+        2
+      ],
+      "characterId": "baptiste",
+      "art": "art-a/baptiste.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      },
+      "id": "42746644"
+    },
+    {
+      "key": "sapphire",
+      "name": "SAPPHIRE",
+      "title": "L'HÉRITIÈRE DES ABYSSES",
+      "job": "PRINCESSE",
+      "description": "La fille du roi de Thalassea n'attend pas derrière les gardes. Bras ouverts, griffes en avant, Sapphire sourit à ce qui vient. Ruby connaît les courants ; sa sœur sait leur résister.",
+      "element": "HYDRO",
+      "race": "SIRENA",
+      "weapon": "Poing",
+      "faction": "Thalassea",
+      "positions": [
+        1
+      ],
+      "role": 1,
+      "atk": [
+        208,
+        172,
+        136,
+        100,
+        64,
+        30
+      ],
+      "defense": [
+        284,
+        234,
+        184,
+        136,
+        88,
+        42
+      ],
+      "magic": [],
+      "barriers": [
+        6,
+        3
+      ],
+      "characterId": "sapphire",
+      "art": "art-a/sapphire.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      },
+      "id": "46167301"
+    },
+    {
+      "key": "aelis-veille",
+      "name": "AELIS",
+      "title": "LA PRIERE SANS REPONSE",
+      "job": "SOIGNEUSE",
+      "description": "Aelis a rallumé chaque veilleuse du sanctuaire. Devant la dernière, elle ne demande plus de miracle. Elle reste simplement là, pour que ceux qui reviendront ne trouvent pas la nuit seule à les attendre.",
+      "element": "LUXO",
+      "race": "AURELION",
+      "weapon": "Bâton",
+      "faction": "Solaria",
+      "positions": [
+        3,
+        5
+      ],
+      "role": 5,
+      "atk": [
+        175,
+        145,
+        115,
+        85,
+        55,
+        "revive"
+      ],
+      "defense": [
+        200,
+        166,
+        132,
+        98,
+        64,
+        30
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3,
+        2
+      ],
+      "barriers": [
+        6,
+        2
+      ],
+      "characterId": "aelis",
+      "art": "art-a/aelis-veille.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      },
+      "id": "48428173"
+    },
+    {
+      "key": "keryn",
+      "characterId": "keryn",
+      "name": "KERYN",
+      "title": "PERSONNE SUR L'AUTRE RIVE",
+      "job": "PASSEUR",
+      "description": "Keryn ramène sa nacelle contre les vents de Nestown. Sous son manteau, les remèdes sont encore secs. Il aurait pu attendre une accalmie, mais quelqu'un, sur l'autre rive, n'avait plus ce temps-là.",
+      "element": "AERO",
+      "race": "KORBOW",
+      "weapon": "Bâton",
+      "faction": "Nestown",
+      "positions": [
+        5
+      ],
+      "role": 5,
+      "atk": [
+        160,
+        "retry",
+        96,
+        "guard",
+        49,
+        "revive"
+      ],
+      "defense": [
+        195,
+        160,
+        126,
+        92,
+        "retry",
+        25
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "art-b/keryn.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      },
+      "id": "49983331"
+    },
+    {
+      "key": "brindor",
+      "characterId": "brindor",
+      "name": "BRINDOR",
+      "title": "LE POIDS D'UNE GRAINE",
+      "job": "GARDE SEMENCES",
+      "description": "La tempête force la porte du grenier d'Arborium. Brindor s'arc-boute et serre contre lui les semences sauvées. Il peut perdre son abri cette nuit ; pas le printemps de ceux qui viendront après lui.",
+      "element": "HERBO",
+      "race": "CARNIVERT",
+      "weapon": "Marteau",
+      "faction": "Arborium",
+      "positions": [
+        1
+      ],
+      "role": 1,
+      "atk": [
+        194,
+        160,
+        127,
+        93,
+        "guard",
+        27
+      ],
+      "defense": [
+        289,
+        239,
+        188,
+        137,
+        88,
+        39
+      ],
+      "magic": [
+        5,
+        3
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "art": "art-b/brindor.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      },
+      "id": "43434046"
+    },
+    {
+      "key": "asteran",
+      "characterId": "asteran",
+      "name": "ASTERAN",
+      "title": "UNE FAILLE DANS LE JUGEMENT",
+      "job": "LIBERATEUR",
+      "description": "Au seuil de Solaria, Asteran abat sa lame sur la chaîne qui barre le passage aux bannis. Le cristal de sa peau porte déjà une fêlure. Il ne cherche plus à paraître sans faute : il veut que quelqu'un puisse encore espérer.",
+      "element": "LUXO",
+      "race": "AURELION",
+      "weapon": "Epée longue",
+      "faction": "Solaria",
+      "positions": [
+        2
+      ],
+      "role": 2,
+      "atk": [
+        286,
+        236,
+        186,
+        136,
+        88,
+        "buff_atk"
+      ],
+      "defense": [
+        171,
+        140,
+        108,
+        "dodge",
+        53,
+        23
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        6,
+        2
+      ],
+      "art": "art-b/asteran.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      },
+      "id": "44077247"
+    },
+    {
+      "key": "ornelle",
+      "characterId": "ornelle",
+      "name": "ORNELLE",
+      "title": "LE CHEMIN QUI REPREND RACINE",
+      "job": "TISSEUSE DE PONTS",
+      "description": "Ornelle pose la main sur la berge rompue de Woodland. Les racines se rejoignent, se nouent, puis cessent de trembler sous le premier pas. Elle sourit enfin : la forêt n'a pas seulement repris du terrain, elle a rendu un chemin.",
+      "element": "HERBO",
+      "race": "CERELF",
+      "weapon": "Sceptre",
+      "faction": "Woodland",
+      "positions": [
+        4
+      ],
+      "role": 4,
+      "atk": [
+        278,
+        228,
+        179,
+        128,
+        "mana",
+        "retry"
+      ],
+      "defense": [
+        165,
+        135,
+        105,
+        76,
+        49,
+        21
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3
+      ],
+      "barriers": [
+        5,
+        3
+      ],
+      "art": "art-b/ornelle.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      },
+      "id": "48874445"
+    },
+    {
+      "key": "tazrik",
+      "characterId": "tazrik",
+      "name": "TAZRIK",
+      "title": "LE COURANT PASSE ENCORE",
+      "job": "SALTIMBANQUE",
+      "description": "Le tonneau roule, une sphère lui échappe et Tazrik éclate de rire. Une étincelle ramène le cuivre dans sa paume. Sur cette petite place de Chroma, même les mauvaises journées finissent parfois par applaudir.",
+      "element": "ELECTRO",
+      "race": "FELINEUS",
+      "weapon": "Projectile",
+      "faction": "Chroma",
+      "positions": [
+        3
+      ],
+      "role": 3,
+      "atk": [
+        225,
+        186,
+        145,
+        "buff_atk",
+        68,
+        "retry"
+      ],
+      "defense": [
+        220,
+        "dodge",
+        146,
+        108,
+        70,
+        "retry"
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        4
+      ],
+      "art": "art-b/tazrik.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      },
+      "id": "44263045"
+    }
+  ],
+  "arenas": []
+}

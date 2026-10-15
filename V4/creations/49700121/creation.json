@@ -1,0 +1,37 @@
+{
+  "job": "619d9520-4f51-4e1e-9907-3bd8122f66c0",
+  "setId": "2026-10-01-resident-evil",
+  "key": "beneviento8",
+  "modelId": "49700121",
+  "hashes": {
+    "profile.json": "02c578e7ad891bdb37411ca44849a0e47f09651eecab3266b3aeec0fe3793016",
+    "card.png": "fc3de0356a5d96c2a32e18a33e6a765aa151177fa445833dfd10c3a52df98d04",
+    "card.psd": "cdf44880afa1134a115da8029dfbacc3334af249512ee7dd4c936cff3d2c6070",
+    "verification.json": "445dd1cc3b82c4c9e455019b4bee4113e89d5960a2c9ccbbdb5686109247a85d",
+    "illustration.png": "3885a8dc803eb90670c3adfbccaea50510e390b0257522e68d3b4316d366b723"
+  },
+  "createdAt": "2026-09-30T23:31:56.026Z",
+  "nativeRevision": {
+    "id": "2026-10-08-resident-evil-faces",
+    "key": "beneviento",
+    "proof": "V4/revisions/2026-10-08-resident-evil-faces/work/49700121/verification.json",
+    "changedFields": [
+      "atk",
+      "defense",
+      "magic",
+      "barriers",
+      "canGuard",
+      "canHeal"
+    ],
+    "previous": {
+      "id": "2026-10-01-stat-personality",
+      "key": "beneviento",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700121/verification.json",
+      "changedFields": [
+        "atk",
+        "defense"
+      ],
+      "previous": null
+    }
+  }
+}

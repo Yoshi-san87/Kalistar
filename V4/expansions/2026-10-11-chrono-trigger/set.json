@@ -1,0 +1,322 @@
+{
+  "id": "2026-10-11-chrono-trigger",
+  "officialCollaboration": false,
+  "arenas": [],
+  "presets": [],
+  "cards": [
+    {
+      "key": "crono",
+      "name": "CRONO",
+      "title": "LE COURAGE N'ATTEND PAS",
+      "job": "ESCRIMEUR",
+      "description": "Crono descend les marches avant que le tonnerre ne finisse de gronder. Il ignore ce que le temps exigera de lui. Pour l'instant, quelqu'un a besoin d'aide, et sa lame a deja choisi son chemin.",
+      "element": "ELECTRO",
+      "race": "HUMAIN",
+      "weapon": "Katana",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        287,
+        228,
+        176,
+        131,
+        "buff_atk",
+        31
+      ],
+      "defense": [
+        164,
+        137,
+        106,
+        72,
+        "dodge",
+        21
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "rationale": "Eclair et escrime : deux faces magiques, soutien physique D2, esquive D2. Pas de vitesse ou combo hors moteur.",
+      "id": "49902001",
+      "characterId": "crono-chrono-trigger",
+      "faction": "CHRONOTRIGGER",
+      "collaboration": "CHRONOTRIGGER",
+      "artworkSource": "V4/propositions/2026-10-11-chrono-trigger/images/crono-v3.png"
+    },
+    {
+      "key": "marle",
+      "name": "MARLE",
+      "title": "UN AVENIR A GARDER VIVANT",
+      "job": "PRINCESSE",
+      "description": "Marle serre son pendentif, puis releve son arbalete. Elle a quitte les murs qui decidaient pour elle. Dans ce froid immense, sa liberte tient a une promesse simple : personne ne sera laisse seul.",
+      "element": "CRYO",
+      "race": "HUMAIN",
+      "weapon": "Arc",
+      "role": 5,
+      "positions": [
+        4,
+        5
+      ],
+      "atk": [
+        173,
+        128,
+        102,
+        "revive",
+        57,
+        "retry"
+      ],
+      "defense": [
+        196,
+        163,
+        123,
+        89,
+        53,
+        "dodge"
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "rationale": "Soutien froid : Reraise preventif D3 et trefle D1, ATK modeste. Arc represente l'arbalete dans la matrice existante.",
+      "id": "49902002",
+      "characterId": "marle-chrono-trigger",
+      "faction": "CHRONOTRIGGER",
+      "collaboration": "CHRONOTRIGGER",
+      "artworkSource": "V4/propositions/2026-10-11-chrono-trigger/images/marle-v2.png"
+    },
+    {
+      "key": "lucca",
+      "name": "LUCCA",
+      "title": "REPARER CE QUI PEUT L'ETRE",
+      "job": "INVENTRICE",
+      "description": "Lucca souffle sur le cuivre encore chaud. Derriere ses lunettes, la fatigue n'efface pas la curiosite. Si le monde ressemble a une machine brisee, elle refuse de croire que rien ne peut etre sauve.",
+      "element": "PYRO",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "role": 4,
+      "positions": [
+        3,
+        4,
+        5
+      ],
+      "atk": [
+        277,
+        218,
+        187,
+        "mana",
+        79,
+        34
+      ],
+      "defense": [
+        162,
+        129,
+        98,
+        68,
+        "retry",
+        19
+      ],
+      "magic": [
+        6,
+        5,
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "rationale": "Ingenierie et feu : trois fortes faces magiques, potion D3 et relance defensive D2 ; defense fragile de P4.",
+      "id": "49902003",
+      "characterId": "lucca-chrono-trigger",
+      "faction": "CHRONOTRIGGER",
+      "collaboration": "CHRONOTRIGGER",
+      "artworkSource": "V4/propositions/2026-10-11-chrono-trigger/images/lucca-v2.png"
+    },
+    {
+      "key": "frog",
+      "name": "FROG",
+      "title": "LE SERMENT SOUS LA PEAU",
+      "job": "CHEVALIER",
+      "description": "Frog pose une main sur son coeur, la Masamune calme dans l'autre. Le reflet de l'eau ne lui rend plus son ancien visage. Pourtant, le serment qu'il y cherche n'a pas change de voix depuis ce jour.",
+      "element": "HYDRO",
+      "race": "BATRA",
+      "weapon": "Epée longue",
+      "role": 3,
+      "positions": [
+        1,
+        2,
+        3
+      ],
+      "atk": [
+        228,
+        181,
+        151,
+        106,
+        65,
+        "buff_atk"
+      ],
+      "defense": [
+        232,
+        185,
+        145,
+        "dodge",
+        68,
+        29
+      ],
+      "magic": [
+        5,
+        3
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "rationale": "Chevalier polyvalent BATRA : lame et eau, soutien physique D1, esquive D3. Aucune garde de P1 sur un profil principal P3.",
+      "id": "49902004",
+      "characterId": "frog-chrono-trigger",
+      "faction": "CHRONOTRIGGER",
+      "collaboration": "CHRONOTRIGGER",
+      "artworkSource": "V4/propositions/2026-10-11-chrono-trigger/images/frog.png"
+    },
+    {
+      "key": "robo",
+      "name": "ROBO",
+      "title": "CE QUI GRANDIT ENTRE NOS MAINS",
+      "job": "GARDIEN",
+      "description": "Robo abrite la pousse entre ses doigts de metal. Ses circuits savent calculer des siecles, pas le prix de cette feuille. Il reste immobile, assez longtemps pour apprendre la patience des vivants.",
+      "element": "LUXO",
+      "race": "ROBOT",
+      "weapon": "Poing",
+      "role": 1,
+      "positions": [
+        1,
+        3,
+        5
+      ],
+      "atk": [
+        202,
+        154,
+        119,
+        "guard",
+        61,
+        23
+      ],
+      "defense": [
+        284,
+        229,
+        177,
+        132,
+        87,
+        38
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "rationale": "Protecteur : garde D3, DEF stable et ATK moderee. LUXO est une adaptation Kalistar de sa bienveillance, pas une affirmation de magie canonique.",
+      "id": "49902005",
+      "characterId": "robo-chrono-trigger",
+      "faction": "CHRONOTRIGGER",
+      "collaboration": "CHRONOTRIGGER",
+      "artworkSource": "V4/propositions/2026-10-11-chrono-trigger/images/robo.png"
+    },
+    {
+      "key": "ayla",
+      "name": "AYLA",
+      "title": "LA VIE NE RECULE PAS",
+      "job": "CHEFFE DE TRIBU",
+      "description": "Ayla plante ses pieds dans la poussiere et ouvre les mains. Elle n'a ni couronne ni lame pour parler a sa place. Ceux qui attendent derriere elle savent deja la reponse : aujourd'hui, elle tiendra.",
+      "element": "GEO",
+      "race": "HUMAIN",
+      "weapon": "Poing",
+      "role": 2,
+      "positions": [
+        1,
+        2
+      ],
+      "atk": [
+        293,
+        223,
+        182,
+        "buff_atk",
+        82,
+        39
+      ],
+      "defense": [
+        157,
+        "dodge",
+        102,
+        71,
+        44,
+        23
+      ],
+      "magic": [],
+      "barriers": [
+        4
+      ],
+      "rationale": "Force physique et agilite : soutien physique D3 et esquive D5 contre une grosse face DEF perdue. GEO est l'adaptation Kalistel, sans lui inventer de sort canonique.",
+      "id": "49902006",
+      "characterId": "ayla-chrono-trigger",
+      "faction": "CHRONOTRIGGER",
+      "collaboration": "CHRONOTRIGGER",
+      "artworkSource": "V4/propositions/2026-10-11-chrono-trigger/images/ayla.png"
+    },
+    {
+      "key": "magus",
+      "name": "MAGUS",
+      "title": "AU BOUT DE TOUTES LES EPOQUES",
+      "job": "MAGE",
+      "description": "Magus ecoute la mer sous la falaise, sa faux droite dans le vent. Il a traverse trop d'epoques pour confondre puissance et espoir. Pourtant, dans chaque silence, il cherche encore une voix disparue.",
+      "element": "NECRO",
+      "race": "HUMAIN",
+      "weapon": "Faucille",
+      "role": 4,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        296,
+        224,
+        178,
+        127,
+        "death",
+        29
+      ],
+      "defense": [
+        156,
+        132,
+        97,
+        69,
+        47,
+        16
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "rationale": "Mage offensif : quatre faces magiques, Mort D2, aucun soutien, aucune esquive. Janus reste HUMAIN ; son apparence ne cree pas de race.",
+      "id": "49902007",
+      "characterId": "magus-chrono-trigger",
+      "faction": "CHRONOTRIGGER",
+      "collaboration": "CHRONOTRIGGER",
+      "artworkSource": "V4/propositions/2026-10-11-chrono-trigger/images/magus.png"
+    }
+  ]
+}

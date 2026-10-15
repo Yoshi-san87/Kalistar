@@ -1,0 +1,68 @@
+{
+  "passed": true,
+  "modelId": "49901003",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "532f5b06bc42d812cc3d1b5ab1332da124aa71d34ef900b9ae97d2deb90cf4ca",
+  "hashes": {
+    "card.png": "f229f3d4bc22cd33b13cf9cd5aed3e502f3c80abccb4bcce4df2588b9f8d5b33",
+    "card.psd": "b12162d1c1720a48339b9f90d53ee006533a7566813f79a8e85619e104918630"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 138517
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49901003",
+    "cases": {
+      "color-1": [
+        "49901003"
+      ],
+      "color-4": [
+        "49901003"
+      ],
+      "gray-1": [
+        "49901003"
+      ],
+      "gray-4": [
+        "49901003"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-08T13:49:46.832Z",
+  "typographyCheck": {
+    "styles": {
+      "NOM": {
+        "font": "TimesNewRomanPSMT",
+        "sizePt": 10.0000012207031,
+        "tracking": 0,
+        "capitalization": "TextCase.NORMAL",
+        "fauxBold": false,
+        "fauxItalic": false
+      },
+      "TITLE": {
+        "font": "TimesNewRomanPSMT",
+        "sizePt": 7.68,
+        "tracking": 0,
+        "capitalization": "TextCase.ALLCAPS",
+        "fauxBold": false,
+        "fauxItalic": false
+      }
+    },
+    "accented": false,
+    "nameInk": [
+      368,
+      114,
+      531,
+      144
+    ]
+  },
+  "preparationHash": "07d9fb96707d800c88296cad35ab98c9961710e875703e1356aa293d3ea84526",
+  "typography": true
+}

@@ -1,0 +1,94 @@
+TAP version 13
+# Subtest: explicit formation wins over inventory order; both sides start immediately and cannot recall
+ok 1 - explicit formation wins over inventory order; both sides start immediately and cannot recall
+  ---
+  duration_ms: 38.0878
+  type: 'test'
+  ...
+# Subtest: P1/P2 incompatibilities, missing and reserve captain, unknown and incompatible weapons fail closed
+ok 2 - P1/P2 incompatibilities, missing and reserve captain, unknown and incompatible weapons fail closed
+  ---
+  duration_ms: 3.7288
+  type: 'test'
+  ...
+# Subtest: migration is deterministic, retains all inventory and copies equipment defaults once
+ok 3 - migration is deterministic, retains all inventory and copies equipment defaults once
+  ---
+  duration_ms: 1.0414
+  type: 'test'
+  ...
+# Subtest: legacy incomplete and invalid drafts retain every card and remain repairable, never playable
+ok 4 - legacy incomplete and invalid drafts retain every card and remain repairable, never playable
+  ---
+  duration_ms: 0.9847
+  type: 'test'
+  ...
+# Subtest: schema-2 library migration, clone, export/import and partial drafts preserve formation/captain/equipment
+ok 5 - schema-2 library migration, clone, export/import and partial drafts preserve formation/captain/equipment
+  ---
+  duration_ms: 5.3902
+  type: 'test'
+  ...
+# Subtest: storage conflicts remain atomic during writes
+ok 6 - storage conflicts remain atomic during writes
+  ---
+  duration_ms: 2.2371
+  type: 'test'
+  ...
+# Subtest: captain links are numeric, side-independent, non-stacking, +40 normal plus +10 maximum
+ok 7 - captain links are numeric, side-independent, non-stacking, +40 normal plus +10 maximum
+  ---
+  duration_ms: 4.2752
+  type: 'test'
+  ...
+# Subtest: captain without a second matching active fighter gives nothing; reserve and corpses never count
+ok 8 - captain without a second matching active fighter gives nothing; reserve and corpses never count
+  ---
+  duration_ms: 2.0367
+  type: 'test'
+  ...
+# Subtest: Reraise keeps commandment, definitive captain death removes it immediately and reserves inherit no crown
+ok 9 - Reraise keeps commandment, definitive captain death removes it immediately and reserves inherit no crown
+  ---
+  duration_ms: 5.8155
+  type: 'test'
+  ...
+# Subtest: shared reserve remains position-polymorphic and replacement creates/removes captain connections
+ok 10 - shared reserve remains position-polymorphic and replacement creates/removes captain connections
+  ---
+  duration_ms: 7.0076
+  type: 'test'
+  ...
+# Subtest: AI scores include the same commandment terms without reading future rolls
+ok 11 - AI scores include the same commandment terms without reading future rolls
+  ---
+  duration_ms: 3.0763
+  type: 'test'
+  ...
+# Subtest: equipment is isolated per deck, supports removal, and match snapshots cannot be changed by later edits
+ok 12 - equipment is isolated per deck, supports removal, and match snapshots cannot be changed by later edits
+  ---
+  duration_ms: 6.0538
+  type: 'test'
+  ...
+# Subtest: old setup matches and technical array callers retain historical behavior
+ok 13 - old setup matches and technical array callers retain historical behavior
+  ---
+  duration_ms: 9.6936
+  type: 'test'
+  ...
+# Subtest: complete composed matches, captain deaths, equipment states and reloads validate through match end
+ok 14 - complete composed matches, captain deaths, equipment states and reloads validate through match end
+  ---
+  duration_ms: 1026.7501
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1252.4491

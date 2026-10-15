@@ -1,0 +1,417 @@
+{
+  "passed": true,
+  "cards": 10,
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "approvedSourcesUnchanged": true,
+  "results": [
+    {
+      "passed": true,
+      "key": "cloud",
+      "modelId": "47208326",
+      "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+      "profileHash": "b01c9405f1285d81d3f064d2d7e5f43cf8b3967d0adf6aee11249e057a05516c",
+      "hashes": {
+        "card.png": "ad27bc33147c1d41a2d4904fdc501ab7454b5f1a18667698fa7c5c9f7dfcb673",
+        "card.psd": "a3a043f58afb3dd8ba120a4a2efbdeb410161ff12b65877bff640836f2969249"
+      },
+      "components": {
+        "fixedDifferences": 0,
+        "severePixels": 0,
+        "preservedApprovedCloud": true
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "47208326",
+        "cases": {
+          "color-1": [
+            "47208326"
+          ],
+          "color-4": [
+            "47208326"
+          ],
+          "gray-1": [
+            "47208326"
+          ],
+          "gray-4": [
+            "47208326"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "checkedAt": "2026-09-20T10:16:47.938Z"
+    },
+    {
+      "passed": true,
+      "key": "barret",
+      "modelId": "43698921",
+      "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+      "profileHash": "ede37c82630793df754f53e9522aaef26835f38e94ff4d4bc5f412e4d8878e49",
+      "hashes": {
+        "card.png": "4dbf587c7fb7c9902e586aeadbbaaf60dde8ee9c6be32d1d99d9ba0ddf56fb55",
+        "card.psd": "8d000f19312d69109600ea95149995f35a74a328acd2456e88c98f51c2a6a29d"
+      },
+      "components": {
+        "changed": 113809,
+        "maxChannelDelta": 1,
+        "severePixels": 0,
+        "fixedDifferences": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "43698921",
+        "cases": {
+          "color-1": [
+            "43698921"
+          ],
+          "color-4": [
+            "43698921"
+          ],
+          "gray-1": [
+            "43698921"
+          ],
+          "gray-4": [
+            "43698921"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "checkedAt": "2026-09-20T10:16:48.261Z"
+    },
+    {
+      "passed": true,
+      "key": "tifa",
+      "modelId": "46437046",
+      "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+      "profileHash": "6ba09f24ff7877fd71e1fe58bc302a60c9c1a510d3da5999f4f9df2c081d1c91",
+      "hashes": {
+        "card.png": "aed0ec86f454c4980bfc7d484524df764b4c38c291ae59e4d74728671c5b64ea",
+        "card.psd": "95d9b354282ce1eafcdc81839e3863c333e7c75fd023236ef435be27bf10e7dc"
+      },
+      "components": {
+        "changed": 108013,
+        "maxChannelDelta": 1,
+        "severePixels": 0,
+        "fixedDifferences": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "46437046",
+        "cases": {
+          "color-1": [
+            "46437046"
+          ],
+          "color-4": [
+            "46437046"
+          ],
+          "gray-1": [
+            "46437046"
+          ],
+          "gray-4": [
+            "46437046"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "checkedAt": "2026-09-20T10:16:48.554Z"
+    },
+    {
+      "passed": true,
+      "key": "aeris",
+      "modelId": "48210516",
+      "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+      "profileHash": "b8f33fa8bd562ffa04f719cc371dc078820247e27bc2486c1c4dc2ca899b0e81",
+      "hashes": {
+        "card.png": "6486ba73c23ec5b4d4be022f664a38c6b9647366672e7a02ea4dd816e908d53f",
+        "card.psd": "5e7267da40c0aea5db6d3b82b4543733efe0c09b2c810d4190374efad67bf878"
+      },
+      "components": {
+        "changed": 146769,
+        "maxChannelDelta": 2,
+        "severePixels": 0,
+        "fixedDifferences": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "48210516",
+        "cases": {
+          "color-1": [
+            "48210516"
+          ],
+          "color-4": [
+            "48210516"
+          ],
+          "gray-1": [
+            "48210516"
+          ],
+          "gray-4": [
+            "48210516"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "checkedAt": "2026-09-20T10:16:48.869Z"
+    },
+    {
+      "passed": true,
+      "key": "red-xiii",
+      "modelId": "42139493",
+      "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+      "profileHash": "2e0897abb63cddaa175f3057f31b22710cdd31833a9a99bd7b36452695cd865c",
+      "hashes": {
+        "card.png": "8db0814536088e395cca738c526f4f9983046021452dc6dc44c745118e6f6f92",
+        "card.psd": "e7e0c4fe2d6f4d7907682924c813483e6fcee3368c8f1ab876f609dfa3abad6f"
+      },
+      "components": {
+        "changed": 116331,
+        "maxChannelDelta": 1,
+        "severePixels": 0,
+        "fixedDifferences": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "42139493",
+        "cases": {
+          "color-1": [
+            "42139493"
+          ],
+          "color-4": [
+            "42139493"
+          ],
+          "gray-1": [
+            "42139493"
+          ],
+          "gray-4": [
+            "42139493"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "checkedAt": "2026-09-20T10:16:49.196Z"
+    },
+    {
+      "passed": true,
+      "key": "cait-sith",
+      "modelId": "46695200",
+      "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+      "profileHash": "03fa3bface4a21f04fbd0e89dea93883e91d269d6ef410167aeff930c65dbfe5",
+      "hashes": {
+        "card.png": "bdef866d3dd99db75f3f62c297a710b7b861eb7d7d058e9c86e2c16d67883b82",
+        "card.psd": "8689fe92c93a90ddbe8d9499ada8ac4de7c5112a693ac9e806c73af3db80202a"
+      },
+      "components": {
+        "changed": 136264,
+        "maxChannelDelta": 2,
+        "severePixels": 0,
+        "fixedDifferences": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "46695200",
+        "cases": {
+          "color-1": [
+            "46695200"
+          ],
+          "color-4": [
+            "46695200"
+          ],
+          "gray-1": [
+            "46695200"
+          ],
+          "gray-4": [
+            "46695200"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "checkedAt": "2026-09-20T10:16:49.526Z"
+    },
+    {
+      "passed": true,
+      "key": "cid",
+      "modelId": "41055247",
+      "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+      "profileHash": "4d31c72264134ffabf8a71ef6640beb8666a96b8f7b7f4bad816b06d2f2e2db2",
+      "hashes": {
+        "card.png": "183a0d1aeee0232ad1b99eb32418b5a8c6c9db1c353c701c5418c7ab4befc631",
+        "card.psd": "f14d63008535a2a075f0dbe0542d8ebbb28502a044a52ca14fadab463d2527e5"
+      },
+      "components": {
+        "changed": 108715,
+        "maxChannelDelta": 1,
+        "severePixels": 0,
+        "fixedDifferences": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "41055247",
+        "cases": {
+          "color-1": [
+            "41055247"
+          ],
+          "color-4": [
+            "41055247"
+          ],
+          "gray-1": [
+            "41055247"
+          ],
+          "gray-4": [
+            "41055247"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "checkedAt": "2026-09-20T10:16:49.872Z"
+    },
+    {
+      "passed": true,
+      "key": "vincent",
+      "modelId": "46129541",
+      "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+      "profileHash": "df735d522c5f1a0b7fc8f44101a82b50e4fe84f7ca1fccf716686f01434f6a09",
+      "hashes": {
+        "card.png": "33ac4a8deff8183add14ac3a2ae90f15c6257865e0d7f887d3d83161be2b39bf",
+        "card.psd": "a8514e5dd9870a18a5606223a9dae4f6139c9efd7519518597a2d73ae9b65f03"
+      },
+      "components": {
+        "changed": 117440,
+        "maxChannelDelta": 1,
+        "severePixels": 0,
+        "fixedDifferences": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "46129541",
+        "cases": {
+          "color-1": [
+            "46129541"
+          ],
+          "color-4": [
+            "46129541"
+          ],
+          "gray-1": [
+            "46129541"
+          ],
+          "gray-4": [
+            "46129541"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "checkedAt": "2026-09-20T10:16:50.177Z"
+    },
+    {
+      "passed": true,
+      "key": "yuffie",
+      "modelId": "41698138",
+      "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+      "profileHash": "8986d5da0a049049b3e359c0b7ef82fc9d3288ed5c0dd69f3f87cb6f6e6bd62f",
+      "hashes": {
+        "card.png": "6233b58b402a57d31e3142e60e7b78cd7803dc7f6f4dc74e94cc02ddeb26e48e",
+        "card.psd": "c6ac95f9d9ce95832a90d99a18b4fdbdc4059229de7a8c208aed97b20e58a130"
+      },
+      "components": {
+        "changed": 109215,
+        "maxChannelDelta": 1,
+        "severePixels": 0,
+        "fixedDifferences": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "41698138",
+        "cases": {
+          "color-1": [
+            "41698138"
+          ],
+          "color-4": [
+            "41698138"
+          ],
+          "gray-1": [
+            "41698138"
+          ],
+          "gray-4": [
+            "41698138"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "checkedAt": "2026-09-20T10:16:50.493Z"
+    },
+    {
+      "passed": true,
+      "key": "sephiroth",
+      "modelId": "41693428",
+      "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+      "profileHash": "376beadce6d7dc87b4664875a9828dbf487894ec4fdba43b98bd272458018265",
+      "hashes": {
+        "card.png": "788dcf750e8856582efbda6d7cfd5031fa14b4a893d6410dc948e162ec04eedb",
+        "card.psd": "255582d0b40bc2b7feeaf64936c5d1cad02903bb697e0bb84c2dcb470d9c36cb"
+      },
+      "components": {
+        "changed": 141338,
+        "maxChannelDelta": 1,
+        "severePixels": 0,
+        "fixedDifferences": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "41693428",
+        "cases": {
+          "color-1": [
+            "41693428"
+          ],
+          "color-4": [
+            "41693428"
+          ],
+          "gray-1": [
+            "41693428"
+          ],
+          "gray-4": [
+            "41693428"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "checkedAt": "2026-09-20T10:16:50.814Z"
+    }
+  ]
+}

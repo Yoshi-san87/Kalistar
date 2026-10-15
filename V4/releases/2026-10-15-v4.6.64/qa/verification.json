@@ -1,0 +1,77 @@
+{
+  "version": "4.6.64",
+  "base": "ba47d4edb08580c60ba0269fec7236b1568e824d",
+  "ci": {
+    "invocations": 85,
+    "passed": true,
+    "logSha256": "5d0c37252c59bfcfcc561d65d59ae71cfb34cb5a59d5346e921523edfa5ae8a7"
+  },
+  "build": {
+    "cards": 379,
+    "assets": 1379,
+    "bytes": 921451368
+  },
+  "browser": {
+    "passed": true,
+    "viewports": [
+      {
+        "viewport": "desktop",
+        "width": 1440,
+        "height": 1000,
+        "motion": "no-preference",
+        "protections": 36,
+        "equipReloadRemove": true,
+        "holderClick": true,
+        "resize": true,
+        "otherCategories": true
+      },
+      {
+        "viewport": "razr50",
+        "width": 412,
+        "height": 1007,
+        "motion": "no-preference",
+        "protections": 36,
+        "equipReloadRemove": true,
+        "holderClick": true,
+        "resize": true,
+        "otherCategories": true
+      },
+      {
+        "viewport": "compact",
+        "width": 320,
+        "height": 740,
+        "motion": "reduce",
+        "protections": 36,
+        "equipReloadRemove": true,
+        "holderClick": true,
+        "resize": true,
+        "otherCategories": true
+      }
+    ],
+    "errors": [],
+    "smokePassed": true
+  },
+  "runtime": [
+    {
+      "path": "jeu/v4.css",
+      "bytes": 4203,
+      "sha256": "7d36750d928bf67da2dcb5021c2054d1d5d7c5f8e6358f6a01206b6a71cbea9f"
+    },
+    {
+      "path": "jeu/weapon-cards.css",
+      "bytes": 19001,
+      "sha256": "2478d184d5e0f59d9d0387e2fd130e6002d6f7fd565fce4fe17a4c2337e7036b"
+    },
+    {
+      "path": "jeu/weapon-cards.js",
+      "bytes": 11371,
+      "sha256": "214420c32b434164c3a509f2d4435858f62d54a4fc30722abacbcfe08c017f27"
+    },
+    {
+      "path": "jeu/weapons-ui.js",
+      "bytes": 18752,
+      "sha256": "b8a0bda001ea7c0086f03aa1344d279ae4ccddc2fdf9d362ae8a34db3fb1da2a"
+    }
+  ],
+  "screenshots": "work/qa/protection-layout/final/ (local, not committed)"
+}

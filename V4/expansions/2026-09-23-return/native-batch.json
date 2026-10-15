@@ -1,0 +1,821 @@
+{
+  "schemaVersion": 1,
+  "passed": true,
+  "phase": "native-cards-only",
+  "checkedAt": "2026-09-23T16:12:01.325Z",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "count": 22,
+  "canonical": 11,
+  "previousCreatedPreserved": 31,
+  "published": false,
+  "referenceRegression": "canonical-regression.json (separate required gate)",
+  "results": [
+    {
+      "key": "zviri-tueuse",
+      "id": "30000010",
+      "edition": "canonical",
+      "passed": true,
+      "hashes": {
+        "card.png": "d7d845bdd1cc1083be586b533c1d770645f98dc1dad5533dfd3f93e1e503c940",
+        "card.psd": "6569747745d13a28f775fcecc8cef7b898e7cb84b9b1420d176293259afb1e85",
+        "profile.json": "d5271fe8eddda6882c6ea2cd104ab7018790f08cc5f4562aec9dd90596a3a323",
+        "verification.json": "8e7e4ca648cc2e4d418f9c34fc470f765de4489f7ef5f63bf7dbba3c619917cb",
+        "preparation.json": "b860a25e908fd2059b1ee2083e5c45a09dfcbc46c928a46d9d108f76d171c1cc",
+        "render/native.json": "67f280cd90723865be7e17cb00ad70b625a245e94cc457f3ed977313c452f2a4",
+        "render/reopened.png": "7a64511c8cb6b96416c3643d57b4d06b054c9d25a997652851ffd4d33c931fff"
+      },
+      "fixedDifferences": 0,
+      "severePixels": 0,
+      "reopenedDifferences": 0,
+      "barcode": {
+        "passed": true,
+        "expected": "30000010",
+        "cases": {
+          "color-1": [
+            "30000010"
+          ],
+          "color-4": [
+            "30000010"
+          ],
+          "gray-1": [
+            "30000010"
+          ],
+          "gray-4": [
+            "30000010"
+          ]
+        },
+        "physicalPrintVerified": false
+      }
+    },
+    {
+      "key": "zviri-chasse",
+      "id": "49321357",
+      "edition": "variant",
+      "passed": true,
+      "hashes": {
+        "card.png": "c02c4a02e497fca12e5a01db733f33b28daaaa15817ea8c7dee7211ebfb9f980",
+        "card.psd": "9a8123040115f639b4f4852178ee432955836c265785ec036bd3aa500793f84b",
+        "profile.json": "a96d730f35acde746c7dd9aae7916159188e6f404dc61c831d62a837dbd1b056",
+        "verification.json": "99afdb9b167e86cd575e7ea77669d8f38529161055ffe386326efc6aaaad340d",
+        "preparation.json": "d5a542814533336ed0e1c4b9879025665f9492a43a3fb9e6c358de08e2f2bb54",
+        "render/native.json": "129828a33b1d026cbe0e9b2503968ba4bda2ee742420ec925dcf0c6d5ebce135",
+        "render/reopened.png": "e69f9c0620e7128fe2cc51bc802df9fd25f613c7c0b2c035e1435198cd93b016"
+      },
+      "fixedDifferences": 0,
+      "severePixels": 0,
+      "reopenedDifferences": 0,
+      "barcode": {
+        "passed": true,
+        "expected": "49321357",
+        "cases": {
+          "color-1": [
+            "49321357"
+          ],
+          "color-4": [
+            "49321357"
+          ],
+          "gray-1": [
+            "49321357"
+          ],
+          "gray-4": [
+            "49321357"
+          ]
+        },
+        "physicalPrintVerified": false
+      }
+    },
+    {
+      "key": "julienne",
+      "id": "30000003",
+      "edition": "canonical",
+      "passed": true,
+      "hashes": {
+        "card.png": "ad9ac48faf030c4b1a9c229d58412c2d457af40a3935538d484da454c5ccf8f7",
+        "card.psd": "7797f339d13521f29f48908a98b8d44e9476da12cdf8c4d5756b183f7f045b84",
+        "profile.json": "3c96189d5dd16790beab49d2b1ec92ba7a66cca1283c76c073ad0e3ed15a9c31",
+        "verification.json": "7be9386224fcec9eeca893bb50deab58f47d6dbf1c4149391e633940fa1c201c",
+        "preparation.json": "3801a018402bff08c4065dd891ac7cdb237b2422e3aa3db70d1ece93668b751a",
+        "render/native.json": "006be265f433ad7cf41f1415fdc713423d544a162312f569a88b784be3bddad4",
+        "render/reopened.png": "4aea4a2ae8cedf260d8388dd7d55102f0bde3fa118fcf25626455757c17c397b"
+      },
+      "fixedDifferences": 0,
+      "severePixels": 0,
+      "reopenedDifferences": 0,
+      "barcode": {
+        "passed": true,
+        "expected": "30000003",
+        "cases": {
+          "color-1": [
+            "30000003"
+          ],
+          "color-4": [
+            "30000003"
+          ],
+          "gray-1": [
+            "30000003"
+          ],
+          "gray-4": [
+            "30000003"
+          ]
+        },
+        "physicalPrintVerified": false
+      }
+    },
+    {
+      "key": "verminia-bureau",
+      "id": "30000009",
+      "edition": "canonical",
+      "passed": true,
+      "hashes": {
+        "card.png": "f0c211de4680d2a8b0bef546620b1ed4838506554cc1e74f0e8bc1cd443c63e2",
+        "card.psd": "3821296f3bb118558e73adfcc9d6d29ea5814e74862152978b73355b1ea1eb47",
+        "profile.json": "594611594f87229cdc0720e97764ef568641e5910af974117ea99b5e1cfd84eb",
+        "verification.json": "cfa5a6df5b84e9b8c1f0a96338cab9888c7cb645320f5caf515e8c81735d51e4",
+        "preparation.json": "c7c7d46f9bbc6acf15079fb0d28af411e243ba397bcf04a21489a00daca1834e",
+        "render/native.json": "e259a0620a99738d5a535bb2ad9507f84930ff37212d1d89780e883c3d56788b",
+        "render/reopened.png": "5c6f93c6610e5b5e773e72439b24aab0a0513903e93b0730077350400d9724bd"
+      },
+      "fixedDifferences": 0,
+      "severePixels": 0,
+      "reopenedDifferences": 0,
+      "barcode": {
+        "passed": true,
+        "expected": "30000009",
+        "cases": {
+          "color-1": [
+            "30000009"
+          ],
+          "color-4": [
+            "30000009"
+          ],
+          "gray-1": [
+            "30000009"
+          ],
+          "gray-4": [
+            "30000009"
+          ]
+        },
+        "physicalPrintVerified": false
+      }
+    },
+    {
+      "key": "verminia-portail",
+      "id": "43683372",
+      "edition": "variant",
+      "passed": true,
+      "hashes": {
+        "card.png": "acf6b1b3d6caccb6d0a479cfdc4a5ddf5df7be2b997016741932f55dcdb250b9",
+        "card.psd": "66261f7720b81dea686cfb0acb3c75c2a0a2ea2ab665ccbee8182b43d3818faa",
+        "profile.json": "36a43c7179701425d73dbf41a084a3501eef3e9d14c09f59f399753470148c06",
+        "verification.json": "a82bed2fe882e05c4dbbf6c58c8d11b95d86401972c6e3ba181a19269944d631",
+        "preparation.json": "f24744797ad85e30319b17f92448328010a6ffe5b49fc49cb2a880703762b4fc",
+        "render/native.json": "a40804578821a88828c4909d946beaa2c9702f4077696d2e223f2e67503ab3de",
+        "render/reopened.png": "8e69632a4e1e6732776ab19422258200196152b8be78b216a844fca3c670c1e4"
+      },
+      "fixedDifferences": 0,
+      "severePixels": 0,
+      "reopenedDifferences": 0,
+      "barcode": {
+        "passed": true,
+        "expected": "43683372",
+        "cases": {
+          "color-1": [
+            "43683372"
+          ],
+          "color-4": [
+            "43683372"
+          ],
+          "gray-1": [
+            "43683372"
+          ],
+          "gray-4": [
+            "43683372"
+          ]
+        },
+        "physicalPrintVerified": false
+      }
+    },
+    {
+      "key": "polux",
+      "id": "30000031",
+      "edition": "canonical",
+      "passed": true,
+      "hashes": {
+        "card.png": "7a77342cebaad71d7723aba48c2b4ec3a6ac2c44bab92441ced1f36e8cf36e11",
+        "card.psd": "7ce2a1ed0ccd06ec4c55fc01928a6eea54e1aa3c978e00996e96dc4601029e70",
+        "profile.json": "6f6ef0168f666b1a9e56b392ad745c4b51f38c8e125a55d65ee0fcd076d8c8a7",
+        "verification.json": "6defa33b568882c3806ef83e7c17f321eafcf7b8957e6fc5f85d8a2afaa7cb9f",
+        "preparation.json": "69c1923d056964a513b54ec9b1635747784575999ba548321a41f5d23f682102",
+        "render/native.json": "4ca1d510a8bd5b0ab8d45a6e33d878658dffe932bcd435f7f06068da52bbaee5",
+        "render/reopened.png": "2ea840f0301459630987ac32beff54141fe74962efca3f2b3b3663dccc4083e9"
+      },
+      "fixedDifferences": 0,
+      "severePixels": 0,
+      "reopenedDifferences": 0,
+      "barcode": {
+        "passed": true,
+        "expected": "30000031",
+        "cases": {
+          "color-1": [
+            "30000031"
+          ],
+          "color-4": [
+            "30000031"
+          ],
+          "gray-1": [
+            "30000031"
+          ],
+          "gray-4": [
+            "30000031"
+          ]
+        },
+        "physicalPrintVerified": false
+      }
+    },
+    {
+      "key": "nazar",
+      "id": "30000011",
+      "edition": "canonical",
+      "passed": true,
+      "hashes": {
+        "card.png": "b07a599f0c4e4c36b2c532d7d851a76d3f3975b264471f42b3a91855b5e37dd2",
+        "card.psd": "194d163c5787b1b5cf48c0ed663b5fd24ee07e93dd216da1022caf7901467a42",
+        "profile.json": "3dcb0de4fd65a7051688ae6ead5d46d84b39b98c1b26893e9c40a7704dc78878",
+        "verification.json": "9ffb056e0ae8842c22aa27f043966baebf5a918def2fe640180d0cd07644bb89",
+        "preparation.json": "400ae2b3cda613737ed5681d7b10010fa610605d30597c3648fab48f17f6fa99",
+        "render/native.json": "d3cbe24196c6619ab325a11cd1829b765f18d28624dcb99349e73cdf8015a218",
+        "render/reopened.png": "048861d6c6aa10325e11b8feedaaa7a01388f9ac5bb83a0c15811862518e9b38"
+      },
+      "fixedDifferences": 0,
+      "severePixels": 0,
+      "reopenedDifferences": 0,
+      "barcode": {
+        "passed": true,
+        "expected": "30000011",
+        "cases": {
+          "color-1": [
+            "30000011"
+          ],
+          "color-4": [
+            "30000011"
+          ],
+          "gray-1": [
+            "30000011"
+          ],
+          "gray-4": [
+            "30000011"
+          ]
+        },
+        "physicalPrintVerified": false
+      }
+    },
+    {
+      "key": "capitaine-skully",
+      "id": "30000035",
+      "edition": "canonical",
+      "passed": true,
+      "hashes": {
+        "card.png": "f52ebf305c1372a056704d066fb662c96f2b99e6606ed794e421640b47d8f39e",
+        "card.psd": "7c1ba033e6ed00f7a2463322ef09744758047acb4195ca7397c2dfe85c6593cf",
+        "profile.json": "8b48a2959d49efe3a973f3fa1285ca2718aa7316093a5512658242e7357b6ec0",
+        "verification.json": "0349a71a1eac1e8b15abaf656cdc45847a9aa9a6476dd512ee62742056e912b3",
+        "preparation.json": "11776114f0220f4239ba2c224c3e3711539abfe5c9465a77fb6947a9aead94dc",
+        "render/native.json": "3b86efefbbbc94afd4f4af23c8396436c4c4e98f9152f23e2bcb9e7af208f2da",
+        "render/reopened.png": "b08af9c9c55f7117bd5d317587cd2c8db010f527d490967ed98c98ea3c2f6393"
+      },
+      "fixedDifferences": 0,
+      "severePixels": 0,
+      "reopenedDifferences": 0,
+      "barcode": {
+        "passed": true,
+        "expected": "30000035",
+        "cases": {
+          "color-1": [
+            "30000035"
+          ],
+          "color-4": [
+            "30000035"
+          ],
+          "gray-1": [
+            "30000035"
+          ],
+          "gray-4": [
+            "30000035"
+          ]
+        },
+        "physicalPrintVerified": false
+      }
+    },
+    {
+      "key": "xiaomi",
+      "id": "30000027",
+      "edition": "canonical",
+      "passed": true,
+      "hashes": {
+        "card.png": "88855013fc576950188b66f8affec30aac5480da8e6e25ab729caf409a2c7c01",
+        "card.psd": "123ad3353ead5f9a8fed7e8fb0959c87d7cb20de3264945978ad1ffc44c8d70f",
+        "profile.json": "0600f225f64490f06fa6b8761ef5ad7b7973f3e2cf03aca8b2ed8abb5190ba21",
+        "verification.json": "78c67af4d075ba32597e3cffc180b1a53bafdb3b25f06adc1cc813f3fbea4ccd",
+        "preparation.json": "8f1c0cbfd16cd76ac7700c75859f95d8d300d235264f12cc85524dee1dfa994f",
+        "render/native.json": "d4a630bf0511a50913f7a466c9af188046c582690beac98b4d6b33dba258eaf2",
+        "render/reopened.png": "5a9e4bee905d0f8df1fabf52b7085e0b7c731b037746230b3b54a3b49909fb17"
+      },
+      "fixedDifferences": 0,
+      "severePixels": 0,
+      "reopenedDifferences": 0,
+      "barcode": {
+        "passed": true,
+        "expected": "30000027",
+        "cases": {
+          "color-1": [
+            "30000027"
+          ],
+          "color-4": [
+            "30000027"
+          ],
+          "gray-1": [
+            "30000027"
+          ],
+          "gray-4": [
+            "30000027"
+          ]
+        },
+        "physicalPrintVerified": false
+      }
+    },
+    {
+      "key": "gen-reparation",
+      "id": "30000023",
+      "edition": "canonical",
+      "passed": true,
+      "hashes": {
+        "card.png": "2d04a163ebfbdd0fdc20f85e124553c8969ae174e5c68a18976408cb560726bd",
+        "card.psd": "4ea9f856c223808db9fa0c8269cc491d907859fbdd063be3737e135a101d1c8f",
+        "profile.json": "5824dd2397acaef4fb34ab49c4908b0a577860a9864836220b16231cda1078a6",
+        "verification.json": "ff7d75afa9c9e7017f7f5fcd20b0404c2d23d422321aefcb978a9589395032d2",
+        "preparation.json": "0352204b5a71eeaff709d49edff8f1821992e6dd533d7db9934901b0a187eb5b",
+        "render/native.json": "3a60e365f428fb2a4255751b009428df1009d37019bd9a59923bb320d16054b9",
+        "render/reopened.png": "a2458d0e1c1d592e616c7a45761965b1baa4d2b3370d3d3781089504b5a6563c"
+      },
+      "fixedDifferences": 0,
+      "severePixels": 0,
+      "reopenedDifferences": 0,
+      "barcode": {
+        "passed": true,
+        "expected": "30000023",
+        "cases": {
+          "color-1": [
+            "30000023"
+          ],
+          "color-4": [
+            "30000023"
+          ],
+          "gray-1": [
+            "30000023"
+          ],
+          "gray-4": [
+            "30000023"
+          ]
+        },
+        "physicalPrintVerified": false
+      }
+    },
+    {
+      "key": "gen-electro",
+      "id": "44703335",
+      "edition": "variant",
+      "passed": true,
+      "hashes": {
+        "card.png": "316547c59cfd196f1c11ccd9b5ff97668132c4617c5f6c017013300966114a15",
+        "card.psd": "b707147340c84653d5c18250e0c695dabea2972d79cd15a8eda6b32059bc55eb",
+        "profile.json": "fc2bf1ffac0985549ac8335141a0e245be3d17ba2df845a45e36671c03f8aa01",
+        "verification.json": "bf0c4039efdccc991ccaf86cccc7972fdca6bb0339d96d78c6573ec19a6c88c5",
+        "preparation.json": "6c3daa2218a6d2ee542ed7d2495448f7ceef353d6a863fe922fa42c140706639",
+        "render/native.json": "66cf58d52e4513d4b2ed58cdb990ad73f826362828102a4e2a6054c823385b3e",
+        "render/reopened.png": "8af11db3a9de2c91e6362a82ddf40e50c051e65e0e71526a3701e2e30d1c4913"
+      },
+      "fixedDifferences": 0,
+      "severePixels": 0,
+      "reopenedDifferences": 0,
+      "barcode": {
+        "passed": true,
+        "expected": "44703335",
+        "cases": {
+          "color-1": [
+            "44703335"
+          ],
+          "color-4": [
+            "44703335"
+          ],
+          "gray-1": [
+            "44703335"
+          ],
+          "gray-4": [
+            "44703335"
+          ]
+        },
+        "physicalPrintVerified": false
+      }
+    },
+    {
+      "key": "lanio-mines",
+      "id": "47414613",
+      "edition": "variant",
+      "passed": true,
+      "hashes": {
+        "card.png": "ee62b0da4333447be203d53aa52221aeae6e172877bba28ee8a25d221a642312",
+        "card.psd": "62dd59b3827d422dcd31c88c473be5a2b83004f655147698da96cc32a0c4b2ab",
+        "profile.json": "0e91e7505f39f72c55d43b4ab31a9b79dad3ffa02e5eaa8c6446b0a0d58789c2",
+        "verification.json": "87f95978628af68c2982352133f9014a14aa6f1af32c56ed4fcb2c0b3fe4eadb",
+        "preparation.json": "71b7be2876c540feed27117604c1e2a8f2b8c581ba4b2a9961f48be3da04968b",
+        "render/native.json": "f720e8aa4510fa1e05438133dbfcab84b22e7c969e890f4a2081a70e24a8d59a",
+        "render/reopened.png": "0bb112412092a29abd08e75f7f40c4010463e2b18ba154e35dc4397c7a2656be"
+      },
+      "fixedDifferences": 0,
+      "severePixels": 0,
+      "reopenedDifferences": 0,
+      "barcode": {
+        "passed": true,
+        "expected": "47414613",
+        "cases": {
+          "color-1": [
+            "47414613"
+          ],
+          "color-4": [
+            "47414613"
+          ],
+          "gray-1": [
+            "47414613"
+          ],
+          "gray-4": [
+            "47414613"
+          ]
+        },
+        "physicalPrintVerified": false
+      }
+    },
+    {
+      "key": "lanio-astraball",
+      "id": "30000021",
+      "edition": "canonical",
+      "passed": true,
+      "hashes": {
+        "card.png": "20cdb84a8925c8b25c71babbbde2a93d239c5f669ccb84783f3de4250f243cc9",
+        "card.psd": "3748e28fbe04d26d7327b6bc8bef6dc768f9489637c221d2d734bd9a916776f6",
+        "profile.json": "e63f0726fa4075dbabdfb7a672927c53505e030f1458732c679d2b9a6472b0f7",
+        "verification.json": "277725b20eda62830a966dac7b13e7eb844811c164ae4a63d0932099467884be",
+        "preparation.json": "16f0b31431610358b6c692e3f490d06129c36e3b4252294023f80df066da6843",
+        "render/native.json": "19f870bc86a97f25c97575d4f1ed28a936b7440b54919aadea3d398e75836b00",
+        "render/reopened.png": "8926ad4490e42c0d4049e787f3696ba59cf71fc3be233e5947009a84cebf8c60"
+      },
+      "fixedDifferences": 0,
+      "severePixels": 0,
+      "reopenedDifferences": 0,
+      "barcode": {
+        "passed": true,
+        "expected": "30000021",
+        "cases": {
+          "color-1": [
+            "30000021"
+          ],
+          "color-4": [
+            "30000021"
+          ],
+          "gray-1": [
+            "30000021"
+          ],
+          "gray-4": [
+            "30000021"
+          ]
+        },
+        "physicalPrintVerified": false
+      }
+    },
+    {
+      "key": "reevus",
+      "id": "30000026",
+      "edition": "canonical",
+      "passed": true,
+      "hashes": {
+        "card.png": "843a85d9b57036c7a5283d619f434cbbeb34d9c59ddc364ac2bc6441c20692d8",
+        "card.psd": "388523a96cb8027e558db2047785f1b6ba1212ce63e88c8919767566db58b98d",
+        "profile.json": "08812a645bcb76f3f621ff3eb366b1bd511496296bafee6ff9d55d470b604c72",
+        "verification.json": "ee2e29748c90015909f9fe393731cd8b1c542a7b039a21b53f4b9cd57e830d70",
+        "preparation.json": "cff511a157e4df60603ea5e1262f9d73f728b9a008ecf7c5ce04b01ad366cb2e",
+        "render/native.json": "88ee662e7e64414a8afa33cc83ceba91b1a34d54887222e5bb6616f933cffa1f",
+        "render/reopened.png": "4383b78b56f46f04088e3de75396d9026b51566bef9ec1c2a1a172ffe54b1289"
+      },
+      "fixedDifferences": 0,
+      "severePixels": 0,
+      "reopenedDifferences": 0,
+      "barcode": {
+        "passed": true,
+        "expected": "30000026",
+        "cases": {
+          "color-1": [
+            "30000026"
+          ],
+          "color-4": [
+            "30000026"
+          ],
+          "gray-1": [
+            "30000026"
+          ],
+          "gray-4": [
+            "30000026"
+          ]
+        },
+        "physicalPrintVerified": false
+      }
+    },
+    {
+      "key": "kognus",
+      "id": "30000025",
+      "edition": "canonical",
+      "passed": true,
+      "hashes": {
+        "card.png": "8a91e855f41d3c87158a49d17ecb094365a5e871409b58e70c7c1d5b19d1b3dd",
+        "card.psd": "ee1eaef99a4a190ee892ce386dd8b64e3d449cbec2ab0b37ac0e8dbc7bc918cc",
+        "profile.json": "47d7b6db0c7da70a1f1b4c1d4a2e8f4fd2b8641bdcb27e30909cf321bb0699e5",
+        "verification.json": "204e5784ed5c96fc5e6cd56b15c693d202b0d610cab184f055f1e4af182c1749",
+        "preparation.json": "80cafd0de8df52714cca19008abad8a03cb87981656f9de267b212529b493380",
+        "render/native.json": "35abd19ffc3e017112608e4fae030a31c3c0a0443e811e2179841413f0941f20",
+        "render/reopened.png": "06d887705e9979dbeea75bdc4f975097e1ee427b6133a3ef848e0efd58eb8fff"
+      },
+      "fixedDifferences": 0,
+      "severePixels": 0,
+      "reopenedDifferences": 0,
+      "barcode": {
+        "passed": true,
+        "expected": "30000025",
+        "cases": {
+          "color-1": [
+            "30000025"
+          ],
+          "color-4": [
+            "30000025"
+          ],
+          "gray-1": [
+            "30000025"
+          ],
+          "gray-4": [
+            "30000025"
+          ]
+        },
+        "physicalPrintVerified": false
+      }
+    },
+    {
+      "key": "commander",
+      "id": "45081933",
+      "passed": true,
+      "hashes": {
+        "card.png": "7a808106352e5c1410839058f17849c810e2d8c69dca1d591c3e2ab2bbaaa1ad",
+        "card.psd": "0f3e0b1db55510ab2c6fee5c668ae399e7e5066b53b610166994c235702fee74",
+        "profile.json": "4a155f1dd43e9ca54c5f3afe83a125a810c0dddbb89fe4c0f0031c6c74a22cc7",
+        "verification.json": "b9324f70350acaac3d22350fba522a993ca16d52da23c23ce66f14820b8de9c6",
+        "preparation.json": "e62c998a8a00f926bae232c00272cfa7eb44f213ede2f21ed3007b2787c212ac",
+        "render/native.json": "e533bb388a907078ffaf08b415e9df39aef5ab5ba52b2b91fa1ada11e4ff3632",
+        "render/reopened.png": "60e1a62fc6f42de9b4b7461ef77c51ea223abe237119fd21e3e83cf7de106b2e"
+      },
+      "fixedDifferences": 0,
+      "severePixels": 0,
+      "reopenedDifferences": 0,
+      "barcode": {
+        "passed": true,
+        "expected": "45081933",
+        "cases": {
+          "color-1": [
+            "45081933"
+          ],
+          "color-4": [
+            "45081933"
+          ],
+          "gray-1": [
+            "45081933"
+          ],
+          "gray-4": [
+            "45081933"
+          ]
+        },
+        "physicalPrintVerified": false
+      }
+    },
+    {
+      "key": "nier",
+      "id": "47689975",
+      "passed": true,
+      "hashes": {
+        "card.png": "234040290125fbb8be4641fb3c77bbc4f79e16837bf7cfd800a3b79bed9cdb88",
+        "card.psd": "efe78ae70f3361723c7f9a10c500f3e1525d0756825a5c3f1344a10ff56af733",
+        "profile.json": "2841ebfa98d8721f38bf42c477dd74ba0b2804325de93b0ed6a76d5845df564c",
+        "verification.json": "a87d1171aff149bcea1a27488684221d58dbc16785df006e14b36d36ca4ef853",
+        "preparation.json": "c0ef94b9828f016dea5928812e6d29b7571858db6aca80f590de54e5ec8eb42f",
+        "render/native.json": "e6c0362928a75f6026dbf7095f1cc8ac9ab864b99d1753c5fbb47541c7e9688c",
+        "render/reopened.png": "604c89786e514a3b31310eb49c20406a02f322ae9046e5c934d049343ced4ed2"
+      },
+      "fixedDifferences": 0,
+      "severePixels": 0,
+      "reopenedDifferences": 0,
+      "barcode": {
+        "passed": true,
+        "expected": "47689975",
+        "cases": {
+          "color-1": [
+            "47689975"
+          ],
+          "color-4": [
+            "47689975"
+          ],
+          "gray-1": [
+            "47689975"
+          ],
+          "gray-4": [
+            "47689975"
+          ]
+        },
+        "physicalPrintVerified": false
+      }
+    },
+    {
+      "key": "kaine",
+      "id": "45951088",
+      "passed": true,
+      "hashes": {
+        "card.png": "24729907ac30bd33ca52e25e49b23aa6093c104e3bb2555c8634fd0d0ac98074",
+        "card.psd": "1462bf65a5387ab81843e0b60d6c785d9472ea05cdf0626bd749b4fc3ea818a7",
+        "profile.json": "c0e96685a9a0211b99cf628501387f48becc19ebf2b578c167c07a8adea09851",
+        "verification.json": "05edd1c0d33046a3cf192b1891a797859978a7bbd3258917239e220052082901",
+        "preparation.json": "6683798c0d1563267acbb8f6b6999b3b6961bd9bc05c0f1c3a581fa2eacd936d",
+        "render/native.json": "5d2e563cd5429a22f95e6c686f99cedd8b86fd097cb316ff9aa4f01cae06fd35",
+        "render/reopened.png": "d7bc5af6b351e88b058030c22e24399758564a07133096df6f9d55cadf36df5a"
+      },
+      "fixedDifferences": 0,
+      "severePixels": 0,
+      "reopenedDifferences": 0,
+      "barcode": {
+        "passed": true,
+        "expected": "45951088",
+        "cases": {
+          "color-1": [
+            "45951088"
+          ],
+          "color-4": [
+            "45951088"
+          ],
+          "gray-1": [
+            "45951088"
+          ],
+          "gray-4": [
+            "45951088"
+          ]
+        },
+        "physicalPrintVerified": false
+      }
+    },
+    {
+      "key": "devola-automata",
+      "id": "43447599",
+      "passed": true,
+      "hashes": {
+        "card.png": "015b9280a9f4c8f845174cd808c5a9e52bcd898eebb32384b6fd57162005005c",
+        "card.psd": "5a016dce8fccace2ebece7d760ccc84e6fd87d20bfe73a5d2d6879bf95b4db99",
+        "profile.json": "8e67d2e25313aac88e190473782aa7517633a52defb04390e61b33e7b309f845",
+        "verification.json": "f122bcbeb05b8ebf6084d0718cf4052f93a687088c9393731cf7348cf985900d",
+        "preparation.json": "3ecf2f72d514816db99b56aa7821f34c214229c2da14f539b06101cc42537c13",
+        "render/native.json": "bc6bd4bf02e6609deb28f150ebf06727344874a0882a0b7e730c52d51b621d69",
+        "render/reopened.png": "e63239c17190e6186efb45b88a49a2c2d64b03862d3df8e4855b5b805b8defe8"
+      },
+      "fixedDifferences": 0,
+      "severePixels": 0,
+      "reopenedDifferences": 0,
+      "barcode": {
+        "passed": true,
+        "expected": "43447599",
+        "cases": {
+          "color-1": [
+            "43447599"
+          ],
+          "color-4": [
+            "43447599"
+          ],
+          "gray-1": [
+            "43447599"
+          ],
+          "gray-4": [
+            "43447599"
+          ]
+        },
+        "physicalPrintVerified": false
+      }
+    },
+    {
+      "key": "popola-automata",
+      "id": "42135864",
+      "passed": true,
+      "hashes": {
+        "card.png": "4392a0843339b8d24637bf1f88e65ab620c36b07852563f6cabc74afd864459f",
+        "card.psd": "04cb4edd7e6e6ca86d290d2970974ef9f1f9b4b6145796eda26627ca0537fea8",
+        "profile.json": "1319fce113d9602275c44ed96e682dd2010fa66073c04f32b4b72688b7573791",
+        "verification.json": "6c5064e484159136f8c667a11dd02dd9f0bef748cf787454a117037707598e1f",
+        "preparation.json": "db5e48ff73dbbd268fef498873633f50f7a8dc05d16783858c32878c18c2b95c",
+        "render/native.json": "07b9b024bc56c2b8c18e6431b571293fd4ebdb5078632a049208e5295681739a",
+        "render/reopened.png": "bd1922c53066cde6a3b42630f598a1f47319f2fd12daaa9f957c1cf3e2b0472b"
+      },
+      "fixedDifferences": 0,
+      "severePixels": 0,
+      "reopenedDifferences": 0,
+      "barcode": {
+        "passed": true,
+        "expected": "42135864",
+        "cases": {
+          "color-1": [
+            "42135864"
+          ],
+          "color-4": [
+            "42135864"
+          ],
+          "gray-1": [
+            "42135864"
+          ],
+          "gray-4": [
+            "42135864"
+          ]
+        },
+        "physicalPrintVerified": false
+      }
+    },
+    {
+      "key": "devola-replicant",
+      "id": "42252625",
+      "passed": true,
+      "hashes": {
+        "card.png": "3dca4aa016cd12b58d6cfde7850b814d49f7892f4f64686ff305cce099a458ac",
+        "card.psd": "02e0520d41f4e374866d53974b093aa581318c6f1c740ad6d86d3763c76b4edb",
+        "profile.json": "ff6e284a8a18cc0bb78d380c900b09a1a8e8c3ef5fc5d6a073675dc5a8f94c3d",
+        "verification.json": "1c27266371d94e2532708d37db29d67983842424ce0c9338a310fe984e46bcc8",
+        "preparation.json": "4f4462e380edbd7ee4ed4d6a190ba316439de1a5dface1ef88ca03ea04a45e73",
+        "render/native.json": "7ae17cd891c08c19cfbf23b4f4d443e9357b4b540dacb33a7ca4084ed68cfc10",
+        "render/reopened.png": "460be6afcec00645f79f2df02b4a6d8b09ddaaf75c249a586afabc1016a0f6e2"
+      },
+      "fixedDifferences": 0,
+      "severePixels": 0,
+      "reopenedDifferences": 0,
+      "barcode": {
+        "passed": true,
+        "expected": "42252625",
+        "cases": {
+          "color-1": [
+            "42252625"
+          ],
+          "color-4": [
+            "42252625"
+          ],
+          "gray-1": [
+            "42252625"
+          ],
+          "gray-4": [
+            "42252625"
+          ]
+        },
+        "physicalPrintVerified": false
+      }
+    },
+    {
+      "key": "popola-replicant",
+      "id": "44230782",
+      "passed": true,
+      "hashes": {
+        "card.png": "82913d79daecf3cd05ab49931580b32aa315186dc23644423844b176d9af70e1",
+        "card.psd": "56b4d38c34bd26eaefefeecc52d5dad0519cdc89141ae35c6d2e9b5a8930f4e5",
+        "profile.json": "f783bac4fccf575ab66f8662ff99225467f135964d0264c70c7765b4e7c402a6",
+        "verification.json": "b7be3a27f5dcb7c40e2f660fbe57857588cf2a7b6ba2978d4bd88bc30fb6f6fb",
+        "preparation.json": "9911232f2f29bc7131b50800a372f736b890b5e7b15e4fee3ac335ec792f2b27",
+        "render/native.json": "fb88a14095676b01ddc77492708d5a444f4fa6dd7d3aac01e06dabe34efb4b82",
+        "render/reopened.png": "0befce16c1d8772cd6448ce61dd73e0d55fa86528b3c16f96a5de8c8a102ec0b"
+      },
+      "fixedDifferences": 0,
+      "severePixels": 0,
+      "reopenedDifferences": 0,
+      "barcode": {
+        "passed": true,
+        "expected": "44230782",
+        "cases": {
+          "color-1": [
+            "44230782"
+          ],
+          "color-4": [
+            "44230782"
+          ],
+          "gray-1": [
+            "44230782"
+          ],
+          "gray-4": [
+            "44230782"
+          ]
+        },
+        "physicalPrintVerified": false
+      }
+    }
+  ]
+}

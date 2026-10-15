@@ -1,0 +1,29 @@
+{
+  "reviewedAt": "2026-09-29T13:56:49.687Z",
+  "modelId": "43844114",
+  "nativeDimensions": [
+    897,
+    1497,
+    300
+  ],
+  "photoshop": "25.12.4",
+  "files": {
+    "card.png": "dc11940b42d138a2920782aca53c5dbd0bc86698b1139d2bb0de0960881a47d8",
+    "card.psd": "f420ca1c394a5da3f89ac1f457320feb3d3b6487ed9996f48eadc88069d74db6",
+    "illustration.png": "9a26694f00d5b32da2e551361c013bba1c6c57e489204f329eaf19551827e880"
+  },
+  "views": [
+    "full native 897x1497",
+    "small 224px wide"
+  ],
+  "checks": {
+    "painterlyStyle": true,
+    "coherentHands": true,
+    "handkerchiefAndCanReadable": true,
+    "littleGrayFaceClearOfStats": true,
+    "strykerVisible": true,
+    "nativeTextAndIconsVisuallyReviewed": true,
+    "barcodeVisuallyPresent": true
+  },
+  "note": "One targeted illustration edit moved Little Gray inward after the initial framing preview. qa/design.json records the initial draft; illustration-initial.png preserves that image. Final technical validation is in cards/drebin/verification.json."
+}

@@ -1,0 +1,20 @@
+name: Check Kalistar organisation
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  organisation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - name: Check organisation without native media
+        run: node maintenance/check-organisation.cjs
+      - name: Test repository safeguards
+        run: node --test maintenance/organisation.test.cjs maintenance/validation.test.cjs

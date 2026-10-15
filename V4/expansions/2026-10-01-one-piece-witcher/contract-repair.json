@@ -1,0 +1,17 @@
+{
+  "reason": "Validate printed gameplay fields and engine capabilities on the projected game catalogue. Production-only officialCollaboration and artworkSource are validated on native profiles, not expected on the engine projection.",
+  "changed": [
+    "V4/expansions/2026-10-01-one-piece-witcher/model.cjs",
+    "V4/expansions/2026-10-01-one-piece-witcher/model.test.cjs"
+  ],
+  "before": {
+    "V4/expansions/2026-10-01-one-piece-witcher/model.cjs": "053bf3a512ba36c4d635d1ed325ab65ae0d0b6a9ac1c28fc00291a4dca4f2002",
+    "V4/expansions/2026-10-01-one-piece-witcher/model.test.cjs": "e131537d72d01f621f2d5d7a4fde7b66723ade40773df2e2778d37e45117a4ac"
+  },
+  "after": {
+    "V4/expansions/2026-10-01-one-piece-witcher/model.cjs": "aaf0a4ac34aec94905083c4d46be68c8f65fccc26900b32270160a7dd3364baf",
+    "V4/expansions/2026-10-01-one-piece-witcher/model.test.cjs": "721c68ea00c0ca53203814c9f32c427704ccd667caf76a45febce51fc39a2e58"
+  },
+  "nativeOutputsChanged": false,
+  "protectedSourcesUnchanged": true
+}

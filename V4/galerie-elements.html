@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <title>Kalistar V4 | Les &eacute;l&eacute;ments</title>
+  <style>
+    :root { color-scheme: dark; font: 14px/1.4 "Segoe UI", Arial, sans-serif; color: #e8ece6; background: #131614; --accent: #70d1e5; --line: #39423b; }
+    * { box-sizing: border-box; letter-spacing: 0; }
+    html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; color: inherit; cursor: pointer; }
+    a { color: inherit; text-decoration: none; }
+    button:disabled { opacity: .3; cursor: default; }
+    :focus-visible { outline: 2px solid #f5df9b; outline-offset: 3px; }
+    [hidden] { display: none !important; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+    .app { height: 100vh; height: 100dvh; display: grid; grid-template-rows: auto auto minmax(0, 1fr) auto; padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
+    .topbar { min-height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 4px 24px; border-bottom: 1px solid var(--line); }
+    .brand { margin: 0; font: 22px/1.1 Georgia, "Times New Roman", serif; font-weight: normal; }
+    .brand small { font: 11px/1 "Segoe UI", Arial, sans-serif; color: #a3afa6; margin-left: 8px; }
+    .top-tools { display: flex; align-items: center; gap: 14px; }
+    .total, .count, .page-count { font-variant-numeric: tabular-nums; }
+    .total { font-size: 12px; color: #adb7ae; white-space: nowrap; }
+    .icon-button { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; padding: 0; flex: none; border: 1px solid transparent; border-radius: 4px; background: transparent; }
+    .icon-button:hover:not(:disabled), .psd-link:hover { background: #29332c; border-color: #657568; }
+    .lucide { width: 19px; height: 19px; stroke-width: 1.65; flex: none; pointer-events: none; }
+    .icon-fallback { font-size: 22px; line-height: 1; }
+    .icons-ready .icon-fallback { display: none; }
+    .tabs { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); padding: 0 24px; border-bottom: 1px solid var(--line); background: #191e1a; }
+    .tab { display: flex; align-items: center; justify-content: center; gap: 8px; min-width: 0; min-height: 48px; padding: 7px 3px; border: 0; border-bottom: 2px solid transparent; background: transparent; color: #b9c3bb; font-size: 13px; }
+    .tab:hover { background: #242c26; }
+    .tab[aria-selected="true"] { color: #f3f5f0; border-bottom-color: var(--element-color); background: #252e27; }
+    .tab:focus-visible { outline-offset: -4px; }
+    .element-dot { display: inline-block; width: 7px; height: 7px; flex: none; border-radius: 50%; background: var(--element-color, var(--accent)); }
+    .tab .count { font-size: 10px; color: #a3afa6; }
+    .tab-label { min-width: 0; overflow-wrap: anywhere; }
+    .gallery-window { min-width: 0; min-height: 0; padding: 16px 24px 8px; outline-offset: -4px; }
+    .cards { display: flex; width: 100%; height: 100%; align-items: center; justify-content: center; gap: 20px; }
+    .card-item { flex: none; margin: 0; width: var(--art-width, 180px); height: calc(var(--art-height, 300px) + 40px); display: grid; grid-template-rows: minmax(0, 1fr) 40px; min-width: 0; }
+    .card-open { display: block; position: relative; width: 100%; height: 100%; padding: 0; border: 0; border-radius: 6px; background: transparent; }
+    .card-open:hover .art-image { filter: brightness(1.06); }
+    .artwork { position: relative; width: 100%; height: 100%; min-height: 0; }
+    .art-image { display: block; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity .15s ease, filter .15s ease; }
+    .artwork.is-ready .art-image { opacity: 1; }
+    .art-status { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 10px; border: 1px dashed #48534a; border-radius: 6px; color: #9ca99f; text-align: center; background: #1b211c; }
+    .art-status strong { max-width: 100%; font: 18px/1.2 Georgia, "Times New Roman", serif; color: #c4cec5; overflow-wrap: anywhere; }
+    .art-status span { font-size: 11px; }
+    .art-status .lucide { width: 25px; height: 25px; color: #778d7c; }
+    .artwork.is-ready .art-status { display: none; }
+    .card-meta { display: grid; grid-template-columns: minmax(0, 1fr) 34px; align-items: center; gap: 6px; min-width: 0; padding: 2px 1px; }
+    .card-name { margin: 0; color: #cdd5ce; font-size: 12px; font-weight: 500; line-height: 16px; overflow-wrap: anywhere; }
+    .psd-link { display: inline-flex; align-items: center; justify-content: center; gap: 5px; height: 36px; border: 1px solid transparent; border-radius: 4px; font-size: 10px; color: #a6b4a8; }
+    .card-meta .psd-link { flex-direction: column; gap: 0; font-size: 8px; line-height: 10px; }
+    .card-meta .psd-link .lucide { width: 14px; height: 14px; }
+    .footer { min-height: 52px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 3px 24px; border-top: 1px solid var(--line); }
+    .selection { min-width: 0; font-size: 12px; color: #b9c6bb; overflow-wrap: anywhere; }
+    .pager { display: flex; align-items: center; gap: 8px; flex: none; }
+    .page-count { min-width: 50px; text-align: center; font-size: 12px; color: #bdc9bf; }
+    dialog { position: fixed; inset: 0; margin: 0; width: 100vw; max-width: none; height: 100vh; height: 100dvh; max-height: none; padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); border: 0; background: #111512; color: #e8ece6; overflow: hidden; }
+    dialog[open] { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
+    dialog::backdrop { background: #090c0b; }
+    .viewer-header { display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 4px 20px; border-bottom: 1px solid var(--line); }
+    .viewer-title { flex: 1; min-width: 0; margin: 0; font: 18px/1.2 Georgia, "Times New Roman", serif; overflow-wrap: anywhere; }
+    .viewer-header .psd-link { padding: 0 8px; }
+    .viewer-stage { min-width: 0; min-height: 0; display: grid; place-items: center; padding: 8px 16px; }
+    .viewer-art { width: var(--viewer-width, 100%); height: var(--viewer-height, 100%); max-width: 100%; max-height: 100%; }
+    .viewer-footer { display: flex; justify-content: center; align-items: center; min-height: 48px; padding: 2px 12px; gap: 14px; }
+    .viewer-footer .page-count { min-width: 80px; }
+    noscript { position: fixed; inset: 45% 10% auto; text-align: center; color: #e4cda1; }
+    @media (min-width: 1500px) { .tabs { grid-template-columns: repeat(13, minmax(0, 1fr)); } }
+    @media (max-width: 640px) {
+      .topbar { padding: 4px 12px; min-height: 48px; }
+      .brand { font-size: 20px; }
+      .top-tools { gap: 4px; }
+      .tabs { padding: 0 8px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .tab { min-height: 38px; font-size: 12px; gap: 6px; }
+      .gallery-window { padding: 10px 14px 6px; }
+      .cards { gap: 12px; }
+      .footer { padding: 2px 12px; min-height: 48px; }
+      .icon-button { width: 44px; height: 44px; }
+      .pager { gap: 1px; }
+      .viewer-header { padding: 2px 10px; gap: 6px; }
+      .viewer-title { font-size: 16px; }
+      .viewer-stage { padding: 4px 10px; }
+    }
+    @media (max-height: 450px) and (min-width: 641px) {
+      .topbar { min-height: 36px; padding-top: 0; padding-bottom: 0; }
+      .brand { font-size: 18px; }
+      .tab { min-height: 36px; }
+      .gallery-window { padding-top: 6px; padding-bottom: 4px; }
+      .footer { min-height: 40px; padding-top: 0; padding-bottom: 0; }
+      .icon-button { width: 36px; height: 36px; }
+      .viewer-header { min-height: 40px; }
+      .viewer-footer { min-height: 40px; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <h1 class="brand">Kalistar <small>V4</small></h1>
+      <div class="top-tools">
+        <span class="total" id="total"></span>
+        <button class="icon-button" id="refresh" type="button" title="Actualiser les cartes" aria-label="Actualiser les cartes"><i data-lucide="refresh-cw" aria-hidden="true"></i><span class="icon-fallback" aria-hidden="true">&#8635;</span></button>
+      </div>
+    </header>
+    <nav class="tabs" id="tabs" role="tablist" aria-label="&Eacute;l&eacute;ments"></nav>
+    <main class="gallery-window" id="panel" role="tabpanel" tabindex="0">
+      <div class="cards" id="cards"></div>
+    </main>
+    <footer class="footer">
+      <span class="selection" id="selection"></span>
+      <div class="pager" role="group" aria-label="Pagination">
+        <button class="icon-button" id="previous" type="button" title="Page pr&eacute;c&eacute;dente" aria-label="Page pr&eacute;c&eacute;dente"><i data-lucide="chevron-left" aria-hidden="true"></i><span class="icon-fallback" aria-hidden="true">&#8592;</span></button>
+        <span class="page-count" id="page-count" aria-live="polite" aria-atomic="true"></span>
+        <button class="icon-button" id="next" type="button" title="Page suivante" aria-label="Page suivante"><i data-lucide="chevron-right" aria-hidden="true"></i><span class="icon-fallback" aria-hidden="true">&#8594;</span></button>
+      </div>
+    </footer>
+  </div>
+  <dialog id="viewer" aria-labelledby="viewer-title">
+    <header class="viewer-header">
+      <h2 class="viewer-title" id="viewer-title"></h2>
+      <a class="psd-link" id="viewer-psd" download><i data-lucide="file-down" aria-hidden="true"></i><span>PSD</span></a>
+      <button class="icon-button" id="close-viewer" type="button" title="Fermer" aria-label="Fermer la carte" autofocus><i data-lucide="x" aria-hidden="true"></i><span class="icon-fallback" aria-hidden="true">&#215;</span></button>
+    </header>
+    <div class="viewer-stage" id="viewer-stage"><div class="artwork viewer-art" id="viewer-art"></div></div>
+    <footer class="viewer-footer">
+      <button class="icon-button" id="viewer-previous" type="button" title="Carte pr&eacute;c&eacute;dente" aria-label="Carte pr&eacute;c&eacute;dente"><i data-lucide="chevron-left" aria-hidden="true"></i><span class="icon-fallback" aria-hidden="true">&#8592;</span></button>
+      <span class="page-count" id="viewer-count" aria-live="polite" aria-atomic="true"></span>
+      <button class="icon-button" id="viewer-next" type="button" title="Carte suivante" aria-label="Carte suivante"><i data-lucide="chevron-right" aria-hidden="true"></i><span class="icon-fallback" aria-hidden="true">&#8594;</span></button>
+    </footer>
+  </dialog>
+  <noscript>JavaScript est requis pour afficher les cartes.</noscript>
+  <!-- Snapshot of the current Electro and multi-element inventories.
+       Embedded data deliberately avoids fetch() and file:// CORS restrictions. -->
+  <script type="application/json" id="card-data">
+  [
+    {"output":"MOMO_V4_11_POSITIONS","element":"ELECTRO","name":"MOMO","shortLabel":"Momo (Artiste)","label":"Momo / L'artiste magique"},
+    {"output":"TAULIO_V4_02_POSITIONS","element":"ELECTRO","name":"TAULIO"},
+    {"output":"JELLY_JOE_V4_03_ENCRE","element":"ELECTRO","name":"JELLY-JOE"},
+    {"output":"MOMO_BAL_V4_01_TEMPLATE_ELECTRO","element":"ELECTRO","name":"MOMO","shortLabel":"Momo (Bal)","label":"Momo / Le bal des objets perdus"},
+    {"output":"RIKKA_V4_03_RECADRAGE","element":"ELECTRO","name":"RIKKA"},
+    {"output":"RUBY_V4_01_HYDRO","element":"HYDRO","name":"RUBY"},
+    {"output":"CANA_V4_01_AERO","element":"AERO","name":"CANA"},
+    {"output":"SCROW_V4_01_AERO","element":"AERO","name":"SCROW"},
+    {"output":"SORYN_V4_01_AERO","element":"AERO","name":"SORYN"},
+    {"output":"GILMARR_V4_01_AERO","element":"AERO","name":"GILMARR"},
+    {"output":"DARNAKO_V4_01_PYRO","element":"PYRO","name":"DARNAKO"},
+    {"output":"MALINIA_V4_01_CRYO","element":"CRYO","name":"MALINIA"},
+    {"output":"AELIS_V4_01_LUXO","element":"LUXO","name":"AELIS"},
+    {"output":"ILIANE_V4_01_LUXO","element":"LUXO","name":"ILIANE"},
+    {"output":"BELROG_V4_01_MINERO","element":"MINERO","name":"BELROG"},
+    {"output":"LOK_V4_01_MINERO","element":"MINERO","name":"LOK"},
+    {"output":"BALMHYR_V4_01_MINERO","element":"MINERO","name":"BALMHYR"},
+    {"output":"MAGNAR_V4_01_MINERO","element":"MINERO","name":"MAGNAR"},
+    {"output":"THALIE_V4_01_HERBO","element":"HERBO","name":"THALIE"},
+    {"output":"BLOOM_V4_01_HERBO","element":"HERBO","name":"BLOOM"},
+    {"output":"VICTORVINE_V4_01_HERBO","element":"HERBO","name":"VICTORVINE"},
+    {"output":"KAYLIS_V4_01_RAINBOW","element":"RAINBOW","name":"KAYLIS"},
+    {"output":"ELENION_V4_01_GEO","element":"GEO","name":"ELENION"},
+    {"output":"SERAPHINA_V4_01_HEMATO","element":"HEMATO","name":"SERAPHINA"},
+    {"output":"VALAZAR_V4_01_NECRO","element":"NECRO","name":"VALAZAR"},
+    {"output":"VOLODEN_V4_01_NECRO","element":"NECRO","name":"VOLODEN"},
+    {"output":"MALABA_V4_01_NONE","element":"NONE","name":"MALABA"}
+  ]
+  </script>
+  <script src="../V3/site/assets/lucide.min.js"></script>
+  <script>
+    'use strict';
+    const cards = JSON.parse(document.getElementById('card-data').textContent);
+    const elements = [
+      { id: 'ELECTRO', label: '\u00c9lectricit\u00e9', color: '#edc650' },
+      { id: 'HYDRO', label: 'Eau', color: '#70d1e5' },
+      { id: 'AERO', label: 'Air', color: '#9edec2' },
+      { id: 'PYRO', label: 'Feu', color: '#f39678' },
+      { id: 'CRYO', label: 'Glace', color: '#b5daef' },
+      { id: 'LUXO', label: 'Lumi\u00e8re', color: '#e8d894' },
+      { id: 'MINERO', label: 'Roche', color: '#b7c4cc' },
+      { id: 'HERBO', label: 'Plantes', color: '#a6cb80' },
+      { id: 'GEO', label: 'Terre', color: '#c7ab6d' },
+      { id: 'HEMATO', label: 'Sang', color: '#e84976' },
+      { id: 'NECRO', label: 'N\u00e9cro', color: '#b58dd6' },
+      { id: 'RAINBOW', label: 'Rainbow', color: '#e4d5fb' },
+      { id: 'NONE', label: 'Sans cristal', color: '#a4aaa8' }
+    ];
+    const $ = (id) => document.getElementById(id);
+    const ratio = 897 / 1497;
+    let activeElement = elements.some((e) => e.id === location.hash.slice(1)) ? location.hash.slice(1) : 'HYDRO';
+    let page = 0;
+    let pageSize = 1;
+    let viewerIndex = 0;
+    let revision = 0;
+    const group = () => cards.filter((card) => card.element === activeElement);
+    const displayName = (card) => card.label || card.name[0] + card.name.slice(1).toLowerCase();
+    const filePath = (card, kind) => (kind === 'png' ? 'cartes/' : 'templates/') + encodeURIComponent(card.output) + '.' + kind;
+
+    function icons() {
+      if (!window.lucide) return;
+      window.lucide.createIcons({ attrs: { 'aria-hidden': 'true', focusable: 'false' } });
+      document.documentElement.classList.add('icons-ready');
+    }
+
+    function artwork(host, card) {
+      host.classList.remove('is-ready');
+      host.setAttribute('aria-busy', 'true');
+      const img = document.createElement('img');
+      img.className = 'art-image';
+      img.width = 897;
+      img.height = 1497;
+      img.alt = 'Carte compl\u00e8te de ' + displayName(card);
+      img.decoding = 'async';
+      const status = document.createElement('span');
+      status.className = 'art-status';
+      status.innerHTML = '<i data-lucide="image" aria-hidden="true"></i><strong></strong><span>Chargement...</span>';
+      status.querySelector('strong').textContent = displayName(card);
+      img.addEventListener('load', () => {
+        if (host.firstChild !== img) return;
+        host.classList.add('is-ready');
+        host.setAttribute('aria-busy', 'false');
+      });
+      img.addEventListener('error', () => {
+        if (host.firstChild !== img) return;
+        img.hidden = true;
+        status.querySelector('span').textContent = 'PNG en attente';
+        host.setAttribute('aria-busy', 'false');
+      });
+      host.replaceChildren(img, status);
+      img.src = filePath(card, 'png') + (revision ? '?v=' + revision : '');
+    }
+
+    function renderCards() {
+      const filtered = group();
+      const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize));
+      page = Math.max(0, Math.min(page, pageCount - 1));
+      const fragment = document.createDocumentFragment();
+      filtered.slice(page * pageSize, (page + 1) * pageSize).forEach((card) => {
+        const item = document.createElement('article');
+        item.className = 'card-item';
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'card-open';
+        button.dataset.output = card.output;
+        button.setAttribute('aria-label', 'Agrandir la carte de ' + displayName(card));
+        button.setAttribute('aria-haspopup', 'dialog');
+        button.addEventListener('click', () => openViewer(filtered.indexOf(card)));
+        const art = document.createElement('div');
+        art.className = 'artwork';
+        artwork(art, card);
+        button.append(art);
+        const meta = document.createElement('div');
+        meta.className = 'card-meta';
+        const name = document.createElement('h2');
+        name.className = 'card-name';
+        name.textContent = card.shortLabel || displayName(card);
+        name.title = displayName(card);
+        const psd = document.createElement('a');
+        psd.className = 'psd-link';
+        psd.href = filePath(card, 'psd');
+        psd.download = card.output + '.psd';
+        psd.title = 'Fichier PSD de ' + displayName(card);
+        psd.setAttribute('aria-label', psd.title);
+        psd.innerHTML = '<i data-lucide="file-down" aria-hidden="true"></i><span>PSD</span>';
+        meta.append(name, psd);
+        item.append(button, meta);
+        fragment.append(item);
+      });
+      $('cards').replaceChildren(fragment);
+      $('previous').disabled = page === 0;
+      $('next').disabled = page === pageCount - 1;
+      $('page-count').textContent = (page + 1) + ' / ' + pageCount;
+      $('page-count').setAttribute('aria-label', 'Page ' + (page + 1) + ' sur ' + pageCount);
+      const element = elements.find((entry) => entry.id === activeElement);
+      $('selection').textContent = element.label + ' \u00b7 ' + filtered.length + (filtered.length === 1 ? ' carte' : ' cartes');
+      icons();
+    }
+
+    // Size a single row from the available space, never from image load dimensions.
+    function galleryLayout(width, height, count, narrow) {
+      const gap = narrow ? 12 : 20;
+      const minWidth = narrow ? Math.min(280, width) : Math.max(190, Math.min(290, (height - 40) * ratio));
+      const size = narrow ? 1 : Math.max(1, Math.min(count, Math.floor((width + gap) / (minWidth + gap))));
+      const artHeight = Math.floor(Math.max(1, Math.min(height - 40, ((width - (size - 1) * gap) / size) / ratio)));
+      return { size, artHeight, artWidth: artHeight * ratio };
+    }
+
+    function layout(force = false) {
+      const bounds = $('cards').getBoundingClientRect();
+      const next = galleryLayout(bounds.width, bounds.height, group().length, matchMedia('(max-width: 640px)').matches);
+      $('cards').style.setProperty('--art-width', next.artWidth + 'px');
+      $('cards').style.setProperty('--art-height', next.artHeight + 'px');
+      if (next.size !== pageSize || force) {
+        const focusedOutput = document.activeElement.dataset.output;
+        const anchor = page * pageSize;
+        pageSize = next.size;
+        page = Math.floor(anchor / pageSize);
+        renderCards();
+        if (focusedOutput && !$('viewer').open) {
+          const target = Array.from(document.querySelectorAll('.card-open')).find((button) => button.dataset.output === focusedOutput);
+          (target || $('panel')).focus({ preventScroll: true });
+        }
+      }
+    }
+
+    function selectElement(id) {
+      activeElement = id;
+      page = 0;
+      $('panel').setAttribute('aria-labelledby', 'tab-' + id);
+      document.querySelectorAll('.tab').forEach((tab) => {
+        const selected = tab.dataset.element === id;
+        tab.setAttribute('aria-selected', String(selected));
+        tab.tabIndex = selected ? 0 : -1;
+      });
+      document.documentElement.style.setProperty('--accent', elements.find((element) => element.id === id).color);
+      layout(true);
+    }
+
+    function changePage(delta) {
+      const candidate = page + delta;
+      if (candidate < 0 || candidate >= Math.ceil(group().length / pageSize)) return;
+      const focusInCards = $('cards').contains(document.activeElement);
+      page = candidate;
+      renderCards();
+      if (focusInCards) $('cards').querySelector('.card-open').focus({ preventScroll: true });
+    }
+
+    function fitViewer() {
+      if (!$('viewer').open) return;
+      const stage = $('viewer-stage');
+      const style = getComputedStyle(stage);
+      const width = stage.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+      const height = stage.clientHeight - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom);
+      const artHeight = Math.max(1, Math.min(height, width / ratio));
+      $('viewer-art').style.setProperty('--viewer-height', artHeight + 'px');
+      $('viewer-art').style.setProperty('--viewer-width', artHeight * ratio + 'px');
+    }
+
+    function renderViewer() {
+      const filtered = group();
+      const card = filtered[viewerIndex];
+      $('viewer-title').textContent = displayName(card);
+      $('viewer-psd').href = filePath(card, 'psd');
+      $('viewer-psd').download = card.output + '.psd';
+      $('viewer-psd').title = 'Fichier PSD de ' + displayName(card);
+      $('viewer-psd').setAttribute('aria-label', $('viewer-psd').title);
+      $('viewer-previous').disabled = viewerIndex === 0;
+      $('viewer-next').disabled = viewerIndex === filtered.length - 1;
+      $('viewer-count').textContent = (viewerIndex + 1) + ' / ' + filtered.length;
+      $('viewer-count').setAttribute('aria-label', displayName(card) + ', carte ' + (viewerIndex + 1) + ' sur ' + filtered.length);
+      artwork($('viewer-art'), card);
+      fitViewer();
+      icons();
+    }
+
+    function openViewer(index) {
+      viewerIndex = index;
+      $('viewer').showModal();
+      renderViewer();
+      $('close-viewer').focus({ preventScroll: true });
+    }
+
+    function stepViewer(delta) {
+      const candidate = viewerIndex + delta;
+      if (candidate < 0 || candidate >= group().length) return;
+      viewerIndex = candidate;
+      renderViewer();
+      if (document.activeElement.disabled) $('close-viewer').focus({ preventScroll: true });
+    }
+
+    elements.forEach((element, index) => {
+      const tab = document.createElement('button');
+      tab.type = 'button';
+      tab.className = 'tab';
+      tab.id = 'tab-' + element.id;
+      tab.dataset.element = element.id;
+      tab.style.setProperty('--element-color', element.color);
+      tab.setAttribute('role', 'tab');
+      tab.setAttribute('aria-controls', 'panel');
+      tab.innerHTML = '<span class="element-dot" aria-hidden="true"></span><span class="tab-label"></span><span class="count" aria-hidden="true"></span>';
+      tab.children[1].textContent = element.label;
+      const count = cards.filter((card) => card.element === element.id).length;
+      tab.children[2].textContent = count;
+      tab.setAttribute('aria-label', element.label + ', ' + count + (count === 1 ? ' carte' : ' cartes'));
+      tab.addEventListener('click', () => selectElement(element.id));
+      tab.addEventListener('keydown', (event) => {
+        let next;
+        if (event.key === 'ArrowRight') next = (index + 1) % elements.length;
+        if (event.key === 'ArrowLeft') next = (index + elements.length - 1) % elements.length;
+        if (event.key === 'Home') next = 0;
+        if (event.key === 'End') next = elements.length - 1;
+        if (next === undefined) return;
+        event.preventDefault();
+        selectElement(elements[next].id);
+        $('tab-' + elements[next].id).focus({ preventScroll: true });
+      });
+      $('tabs').append(tab);
+    });
+    $('previous').addEventListener('click', () => changePage(-1));
+    $('next').addEventListener('click', () => changePage(1));
+    $('panel').addEventListener('keydown', (event) => {
+      if (event.key !== 'PageDown' && event.key !== 'PageUp') return;
+      event.preventDefault();
+      changePage(event.key === 'PageDown' ? 1 : -1);
+    });
+    $('refresh').addEventListener('click', () => { revision = Date.now(); renderCards(); });
+    $('close-viewer').addEventListener('click', () => $('viewer').close());
+    $('viewer-previous').addEventListener('click', () => stepViewer(-1));
+    $('viewer-next').addEventListener('click', () => stepViewer(1));
+    $('viewer').addEventListener('keydown', (event) => {
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+      event.preventDefault();
+      stepViewer(event.key === 'ArrowLeft' ? -1 : 1);
+    });
+    // Native modal dialog supplies Escape and the focus trap; restore the viewed card on close.
+    $('viewer').addEventListener('close', () => {
+      page = Math.floor(viewerIndex / pageSize);
+      renderCards();
+      const output = group()[viewerIndex].output;
+      const target = Array.from(document.querySelectorAll('.card-open')).find((button) => button.dataset.output === output);
+      (target || $('tab-' + activeElement)).focus({ preventScroll: true });
+    });
+    window.addEventListener('hashchange', () => {
+      const id = location.hash.slice(1);
+      if (!$('viewer').open && elements.some((element) => element.id === id)) selectElement(id);
+    });
+    new ResizeObserver(() => layout()).observe($('cards'));
+    new ResizeObserver(fitViewer).observe($('viewer-stage'));
+    $('total').textContent = cards.length + ' cartes';
+    selectElement(activeElement);
+  </script>
+</body>
+</html>

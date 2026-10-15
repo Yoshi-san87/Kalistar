@@ -1,0 +1,67 @@
+{
+  "passed": true,
+  "parent": "69297147b2ba7529f9a22d74bc2103da1eb8254f",
+  "tests": 1163,
+  "checked": [
+    {
+      "file": "V4/deploy/browser.test.cjs",
+      "sha256": "472156031bcedafa0fa2f81d7e3fe8cb0b70504608487407b2fb4bd175bc28bf"
+    },
+    {
+      "file": "V4/deploy/build.test.cjs",
+      "sha256": "4c247ec8aac90de9e55e20c07d1cdef3916f44fd2893e48dc6765210260e3383"
+    },
+    {
+      "file": "V4/revisions/2026-10-13-collection-museum/README.md",
+      "sha256": "0563ffd15f15736efaf50ea2ea41b09052b0fc695478f63e0828ae3cada62082"
+    },
+    {
+      "file": "V4/site/README.md",
+      "sha256": "2f58e4af0ff899ae1816edb30ae2bde545605146ecbbb66951fd37c1ae5afee1"
+    },
+    {
+      "file": "V4/site/browser.test.cjs",
+      "sha256": "723b6ba78708922c0f56d8add50a75b25fb83913c39cff815787a599e0c7da7f"
+    },
+    {
+      "file": "V4/site/collection-binder.css",
+      "sha256": "cca9e1f4f5d6cc91424c905b832a988154b6472860591dde38abd199910e990e"
+    },
+    {
+      "file": "V4/site/collection-binder.js",
+      "sha256": "b951877c8f34d491bbea8494cb01dc115f1106bf6566b25fa72e4c67845129fe"
+    },
+    {
+      "file": "V4/site/collection-map.browser.test.cjs",
+      "sha256": "8a51b5fc896e2752b43e5a6eb249b98d84eaf41c6607ef292befe95ad5c7f3ff"
+    },
+    {
+      "file": "V4/site/collection-pedestal.css",
+      "sha256": "92d6b4ca48266942962fae9ab62b58408489ba484dbcebe372bf5546c5b40b1a"
+    },
+    {
+      "file": "V4/site/index.html",
+      "sha256": "fa0e7aea866883c6d5c2005a374eb772106385411d663864f0608df7db1dca8f"
+    },
+    {
+      "file": "V4/site/ui-system.test.cjs",
+      "sha256": "32e37395f74458adc42d85b3ce690a16a83b729fa5e631afa53689e67b150eb0"
+    },
+    {
+      "file": "V4/site/v4.css",
+      "sha256": "4dcb548393b12ce9353bb515e9f271af3c217161b65c06df491ef7208f46dbca"
+    },
+    {
+      "file": "V4/site/weapons.browser.test.cjs",
+      "sha256": "006c79752201a075345f361316b0253747c8a8384cd81c3dcdfe0222319d802e"
+    }
+  ],
+  "initialTree": "2f553b6d5fc40fe6b6e1dc965c4f556325af7cad",
+  "stagedTree": "01aea7b6809bdc9fbc57f5f69d5982edd7e19921",
+  "browserSuites": [
+    "collection",
+    "filters",
+    "navigation",
+    "pages"
+  ]
+}

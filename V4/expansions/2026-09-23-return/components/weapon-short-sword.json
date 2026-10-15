@@ -1,0 +1,84 @@
+{
+  "left": 89,
+  "top": 1116,
+  "width": 96,
+  "height": 95,
+  "source": "V3\\assets\\revisions-buffs-scenes-20260914\\armes\\16.png",
+  "sourceHash": "c78fa3b2a2887d992ec02868287573c7d95c1819292c185ded298a6c379c04fe",
+  "sha256": "c74a770279a2b5117518eaf4404a2c7941aab2d498bbda8eea18455ac4008778",
+  "nativeEmail": "V4\\collaborations\\ff7-set-01\\weapon-email-native.png",
+  "nativeEmailHash": "c6ef219cbe72e7addf544d52fac5e047e4eda5552bda1d2f985c84e250ce3bd6",
+  "crop": {
+    "left": 90,
+    "top": 89,
+    "width": 353,
+    "height": 347
+  },
+  "placement": {
+    "left": 21,
+    "top": 20
+  },
+  "sourceMetrics": {
+    "fullBounds": [
+      90,
+      89,
+      443,
+      436
+    ],
+    "visibleBounds": [
+      90,
+      89,
+      442,
+      436
+    ],
+    "centroid": [
+      270.8317429021193,
+      269.01273271526367
+    ],
+    "optical": [
+      269.14063288637755,
+      266.7332762649214
+    ],
+    "fullAlphaRadius": 541.2958987467022,
+    "opticalError": 311.3942981739373,
+    "visibleAlphaThreshold": 16
+  },
+  "metrics": {
+    "fullBounds": [
+      21,
+      20,
+      75,
+      73
+    ],
+    "visibleBounds": [
+      21,
+      20,
+      75,
+      73
+    ],
+    "centroid": [
+      48.683964525449944,
+      47.51708420737072
+    ],
+    "optical": [
+      48.444576941542465,
+      47.16110473479097
+    ],
+    "fullAlphaRadius": 38.53894134508627,
+    "opticalError": 0.559015793812977,
+    "visibleAlphaThreshold": 16
+  },
+  "motif": "V4\\expansions\\2026-09-23-return\\components\\weapon-short-sword.motif.png",
+  "motifHash": "ca737d1afbd8516abbea74e5e660a68d9222c9d3daf17b34672cfb5fef101fe4",
+  "opticalTarget": [
+    137,
+    1163.5
+  ],
+  "measuredOpticalCenter": [
+    137.44457694154246,
+    1163.161104734791
+  ],
+  "radiusLimit": 39,
+  "opticalTolerance": 0.75,
+  "method": "65% visible luminance-alpha centroid / 35% visible bounds centre; full nonzero alpha contour contained; visible alpha >=16"
+}

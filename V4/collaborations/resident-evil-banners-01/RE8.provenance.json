@@ -1,0 +1,36 @@
+{
+  "id": "RE8",
+  "label": "Resident Evil Village",
+  "prompt": "Create ONE narrow vertical Kalistar faction banner TEXTURE SOURCE, portrait about 1:2.3. Match supplied MGS reference textile, shallow folds and fine metallic double edge style, NOT its text/symbol/palette. Cover-like recognizable Resident Evil game typography embroidered/painted into textile, distinct game-specific identity below. Logo centered across upper-middle, numeral centered lower-middle, all readable when reduced to 98x223 pixels. Entire texture fills canvas, straight rectangular cloth panel with slight pointed bottom matching reference; no rod, tassels or hardware, no scene, characters, Umbrella substitute, frame/card/UI/watermark. Keep decoration within side edges. Premium hand-painted material, matte woven fabric, worn metallic narrow edge. Do not include MGS words. Official VILLAGE wordmark with first VIII letters highlighted antique gold, remaining AGE ivory, small RESIDENT EVIL beneath. Large VIII gold lower center on charcoal cloth. Exact VILLAGE spelling.",
+  "generatedPath": "C:\\Users\\guill\\.codex\\generated_images\\01a0f2da-7687-71f1-9c85-73548a8b4e66\\exec-910fda02-192b-4db8-b36d-8c048c979f39.png",
+  "status": "codex-visual-qa-human-approval-pending",
+  "visualReview": {
+    "date": "2026-10-01",
+    "reviewer": "Codex/parent visual QA",
+    "finding": "Recognizable per-game covers and numerals",
+    "humanApproval": false
+  },
+  "tool": "built-in imagegen",
+  "reference": "V4/expansions/2026-09-27-metal-gear-mines/art-flags/source-MGS1.png",
+  "officialReferences": [
+    "https://game.capcom.com/residentevil/en/lineup.html",
+    "https://game.capcom.com/residentevil/en/news-1834.html",
+    "https://www.playstation.com/en-us/games/resident-evil-requiem/"
+  ],
+  "referenceAccess": "Capcom search-index content available; direct news request returned 403. Requiem PlayStation page read successfully. Generated adaptations, not official logo extractions.",
+  "source": "source-RE8.png",
+  "flag": "flag-RE8.png",
+  "packedFlag": "flag-RE8-packed.png",
+  "packedGeometry": {
+    "left": 672,
+    "top": 829,
+    "width": 98,
+    "height": 223
+  },
+  "sourceHash": "e7ea7aa41ee0263376599229c910ba1e2b39a649221aa066eddaacff2fb912b2",
+  "flagHash": "0418ea752407b52cd816a89efedcd9b7ba270fc9a9ffdb4de7185fe0567ef648",
+  "packedHash": "ff0d43e0e36e9e2c0859b25b3fe34d1b4f1426db9aed8f67345d8398783d021b",
+  "bonusField": "faction",
+  "bonusStat": "ATK",
+  "membersScope": "living-board-only"
+}

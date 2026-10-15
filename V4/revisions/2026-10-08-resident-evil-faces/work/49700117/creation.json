@@ -1,0 +1,37 @@
+{
+  "job": "8ed4c1ca-2fd9-47e4-8e42-f245287d4039",
+  "setId": "2026-10-01-resident-evil",
+  "key": "nemesis3",
+  "modelId": "49700117",
+  "hashes": {
+    "profile.json": "92c246d6c46ae85770db3c36c8ffdc7d3dd78f4a725adc976856e12dd9d2e1fe",
+    "card.png": "31d3ae2f7bde491dd7ca09c5372b2e49fe445c986a1e472eb31bc29594ff52f4",
+    "card.psd": "d23efa3c4b0455d52b09d5239a1a5d5893c4558ddb368c9834504b4ff85dc0a0",
+    "verification.json": "61f34b18a67fac1db34974d7df2681e39493a9991e208a614bf381a9efdb016a",
+    "illustration.png": "31f21ae6c350d05af719b0708add2abd873749ad6ab066dcb4d8c20bd6876dce"
+  },
+  "createdAt": "2026-09-30T23:31:55.911Z",
+  "nativeRevision": {
+    "id": "2026-10-08-resident-evil-faces",
+    "key": "nemesis",
+    "proof": "V4/revisions/2026-10-08-resident-evil-faces/work/49700117/verification.json",
+    "changedFields": [
+      "atk",
+      "defense",
+      "magic",
+      "barriers",
+      "canGuard",
+      "canHeal"
+    ],
+    "previous": {
+      "id": "2026-10-01-stat-personality",
+      "key": "nemesis",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700117/verification.json",
+      "changedFields": [
+        "atk",
+        "defense"
+      ],
+      "previous": null
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "key": "nami",
+  "art": "OP_nami_01.png",
+  "prompt": "Use case: illustration-story. Create one standalone Kalistar character illustration, NOT a card. Input images 1 and 2 are STYLE REFERENCES ONLY: Momo for visible brush planes, expressive narrative painting and textured edges; Valazar for painted volumes and worn materials, not its skeleton or darkness. Repaint the new One Piece subject in that same coherent painterly fantasy language. Strong visible deliberate brush strokes and broken painted edges on skin and fabric, broad color planes, painterly non-photographic face. NO anime or manga outlines, cel shading, glossy skin, photographic smoothness, 3D, uniform noise or grunge filter. Vertical 4:5 composition adapted to a 737x921 window; central face and main gesture well inside the central 70%, generous room around head and hands, subject fills most of image but not a cropped face portrait. Motivated light, layered restrained background. No frame, lettering, stats, logos, barcode, signature or UI. Subject, exact costume and moment: Nami age 20 after timeskip, adult navigator with long orange hair, left upper-arm blue swirl tattoo, green and white striped bikini top with full natural coverage, fitted blue jeans, belt with practical pouch, sandals, blue segmented Clima-Tact weather staff held naturally in one hand. Canonical Sabaody reunion departure, episode 522: on the Sunny deck at railing reading the sea and the currents, a hand on the rail, relieved affectionate smile and purposeful eyes after two years away from her crew. Keep natural modest working posture, not a pinup or sexualized pose. Sunlit ocean with calm bubbles and mangrove silhouettes, a few ship ropes; no other main characters. Staff is a weather baton, not a bladed spear. One head two arms two legs. Additional HUMAN ANATOMY REQUIREMENT (priority): Reference 3 (RE Leon4) is a HUMAN FACE ANATOMY AND PAINTERLY VOLUME guide, not Leon identity, age, expression or clothing. Render the One Piece person as a believable real young adult translated into Kalistar painting: normally sized human eyes seated in eye sockets, natural small irises, distinct upper/lower eyelids with no black ink outlines, modeled cheekbones, real nose bridge and nostrils, dimensional lips and varied teeth planes. Recognizable identity through hair, scars, costume and emotion, NEVER copy the anime face geometry. No oversized manga eyes, tiny flat triangle nose, graphic tooth stripe, cel-shading or photographic smoothness.",
+  "references": [
+    "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+    "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+    "V4/Illustrations/RE_leon4_01.png"
+  ],
+  "officialReferences": [
+    "https://one-piece.com/character/nami/index.html",
+    "https://one-piece.com/anime/522/index.html"
+  ],
+  "status": "selected-awaiting-native-QA",
+  "generationMethod": "built-in image_gen.imagegen",
+  "generationLimit": 1,
+  "selectedOutput": {
+    "path": "V4/Illustrations/OP_nami_01.png",
+    "sha256": "def03837400463c7e487332cf3d0b82d8c973688bf1076d0c7bad657d4f8bddf",
+    "generatedSource": "C:/Users/guill/.codex/generated_images/01a0f748-d64f-7421-9210-8db82f2998f1/exec-d0e9b277-a2e0-455e-88d3-734211d40650.png",
+    "retainedOriginal": "V4/expansions/2026-10-01-one-piece/generated/nami-initial.png",
+    "originalByteIdentity": true
+  },
+  "referenceHashes": {
+    "V3/assets/illustrations/01_ELECTRO_MOMO.png": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8",
+    "V3/assets/illustrations/34_NECRO_VALAZAR.png": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee",
+    "V4/Illustrations/RE_leon4_01.png": "dad9a0f45067bd30bbbaa88668a75ad4136ed3b9957e485a286075dfea822e4e"
+  },
+  "dimensions": {
+    "width": 1122,
+    "height": 1402
+  },
+  "nativeQA": "pending"
+}

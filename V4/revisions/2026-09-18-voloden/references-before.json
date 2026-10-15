@@ -1,0 +1,6172 @@
+{
+  "schemaVersion": 1,
+  "id": "776dc4d80df6962de648b1553c1ae6868ffa95a10eefe8982fe1e0e38c82ce1a",
+  "createdAt": "2026-09-18T13:52:45.440Z",
+  "mode": "approved-PSD-derivatives",
+  "cards": [
+    {
+      "key": "momo",
+      "card": {
+        "element": "ELECTRO",
+        "name": "MOMO",
+        "race": "ROBOT",
+        "faction": "Chroma",
+        "job": "NETTOYEUR",
+        "title": "L’ARTISTE MAGIQUE",
+        "positions": [
+          3,
+          4
+        ],
+        "weapon": "Instrument",
+        "atk": [
+          202,
+          167,
+          "retry",
+          84,
+          "mana",
+          29
+        ],
+        "defense": [
+          200,
+          167,
+          "retry",
+          100,
+          59,
+          11
+        ],
+        "magic": [
+          6,
+          5,
+          3,
+          1
+        ],
+        "barriers": [
+          6,
+          5,
+          2
+        ],
+        "text": "2XM0 alias “Momo” est un petit robot triste vivant dans une décharge. Etant auparavant un petit robot de ménage, il est doté d'un talent artistique rare et incompris, il utilise une flûte traversière magique pour créer des sortilèges enchanteurs.",
+        "source": "carte JPG Momo et positions confirmees ; V2/donnees/cartes.json 00000001 ; scene conservee, profil reequilibre V3",
+        "color": "F5DC32",
+        "hue": 53,
+        "advantage": 30,
+        "disadvantage": 30,
+        "id": "30000001",
+        "slug": "01_ELECTRO_MOMO",
+        "art": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "reference": null,
+        "weapon_index": 11,
+        "visual_revision": "V3-repertoire-41",
+        "barcode_style": "spectrum_dark",
+        "characterId": "momo",
+        "role": 3,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "story_scene": "Momo joue de sa flute dans la decharge de Chroma.",
+        "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Petit robot nettoyeur sensible, seul, flute traversiere tenue horizontalement, melancolie tendre au milieu des objets abandonnes.",
+        "source_art": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V2/assets/illustrations/electro.png",
+        "art_action": "copy",
+        "previous_id": "00000001",
+        "replaces_v2_id": null,
+        "aliases": [],
+        "balance_source": "main/Kalistar.xlsx, Capacite base ; ajustements V3 decrits dans DECISIONS_NARRATIVES.md",
+        "artwork": "MOMO",
+        "description": "Au milieu des rebuts de Chroma, Momo joue pour ceux que l'on a oubliés. Sa flûte éveille une lumière dans la ferraille. Il ne sait pas encore si quelqu'un l'écoute. Alors il continue.",
+        "schemaVersion": 3,
+        "output": "MOMO_V4_11_POSITIONS"
+      },
+      "profile": "V4/template-stable/revision-03/momo/card.json",
+      "png": "V4/cartes/MOMO_V4_11_POSITIONS.png",
+      "psd": "V4/templates/MOMO_V4_11_POSITIONS.psd",
+      "registry": {
+        "schemaVersion": 3,
+        "template": "V4/template-stable/KALISTAR_V4_TEMPLATE_03_ELECTRO.psd",
+        "canvas": [
+          897,
+          1497
+        ],
+        "elements": [
+          "ELECTRO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "MOMO": [
+                "ART - MOMO"
+              ],
+              "TAULIO": [
+                "ART - TAULIO"
+              ],
+              "JELLY-JOE": [
+                "ART - JELLY-JOE"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000001": [
+                "ID CODE128 - 30000001"
+              ],
+              "30000013": [
+                "ID CODE128 - 30000013"
+              ],
+              "30000032": [
+                "ID CODE128 - 30000032"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Instrument": [
+                "ARME Instrument"
+              ],
+              "Poing": [
+                "ARME Poing - pictogramme",
+                "ARME Poing - email interieur"
+              ],
+              "Lance": [
+                "ARME Lance - pictogramme",
+                "ARME Lance - email interieur"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "ROBOT": [
+                "RACE ROBOT"
+              ],
+              "TANTALAK": [
+                "RACE TANTALAK - pictogramme",
+                "RACE TANTALAK - email interieur"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Chroma": [
+                "FACTION - Chroma - tissu source agrandi",
+                "OMBRE - detachement du tissu"
+              ],
+              "Crabazar": [
+                "FACTION - Crabazar - tissu source",
+                "OMBRE - Crabazar - detachement"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34,
+          "sizePt": 7.84,
+          "supportScale": 112,
+          "supportCenterX": 226,
+          "supportCenterY": 1020.5,
+          "shadow": {
+            "opacity": 65,
+            "distance": 3,
+            "blur": 4
+          }
+        },
+        "effectLayouts": [],
+        "effectSupports": []
+      },
+      "options": {
+        "atk": [
+          [],
+          [
+            "mana"
+          ],
+          [
+            "retry"
+          ],
+          [
+            "buff_atk"
+          ],
+          [
+            "guard",
+            "mana"
+          ],
+          [
+            "buff_atk",
+            "guard"
+          ]
+        ],
+        "defense": [
+          [],
+          [],
+          [
+            "retry"
+          ],
+          [],
+          [],
+          []
+        ]
+      },
+      "artworkLayer": "ART - MOMO",
+      "fonts": [
+        "MyriadPro-Regular",
+        "TimesNewRomanPSMT",
+        "Augustus",
+        null,
+        "Crystal",
+        "Bahnschrift-BoldSemiCondensed"
+      ]
+    },
+    {
+      "key": "taulio",
+      "card": {
+        "schemaVersion": 3,
+        "id": "30000013",
+        "name": "TAULIO",
+        "title": "GARDE DU CORPS LOYAL",
+        "job": "PROTECTEUR",
+        "race": "ROBOT",
+        "element": "ELECTRO",
+        "faction": "Chroma",
+        "weapon": "Poing",
+        "artwork": "TAULIO",
+        "positions": [
+          1
+        ],
+        "atk": [
+          202,
+          165,
+          135,
+          98,
+          "guard",
+          "buff_atk"
+        ],
+        "defense": [
+          294,
+          242,
+          190,
+          145,
+          93,
+          41
+        ],
+        "magic": [],
+        "barriers": [
+          2
+        ],
+        "description": "Conçu pour protéger les puissants, Taulio fut jeté à la décharge lorsqu'il apprit à ressentir. Sous sa cuirasse cabossée, rien n'a éteint sa loyauté. Il garde désormais le passage pour ceux que le monde a abandonnés.",
+        "output": "TAULIO_V4_02_POSITIONS"
+      },
+      "profile": "V4/template-stable/revision-03/taulio/card.json",
+      "png": "V4/cartes/TAULIO_V4_02_POSITIONS.png",
+      "psd": "V4/templates/TAULIO_V4_02_POSITIONS.psd",
+      "registry": {
+        "schemaVersion": 3,
+        "template": "V4/template-stable/KALISTAR_V4_TEMPLATE_03_ELECTRO.psd",
+        "canvas": [
+          897,
+          1497
+        ],
+        "elements": [
+          "ELECTRO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "MOMO": [
+                "ART - MOMO"
+              ],
+              "TAULIO": [
+                "ART - TAULIO"
+              ],
+              "JELLY-JOE": [
+                "ART - JELLY-JOE"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000001": [
+                "ID CODE128 - 30000001"
+              ],
+              "30000013": [
+                "ID CODE128 - 30000013"
+              ],
+              "30000032": [
+                "ID CODE128 - 30000032"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Instrument": [
+                "ARME Instrument"
+              ],
+              "Poing": [
+                "ARME Poing - pictogramme",
+                "ARME Poing - email interieur"
+              ],
+              "Lance": [
+                "ARME Lance - pictogramme",
+                "ARME Lance - email interieur"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "ROBOT": [
+                "RACE ROBOT"
+              ],
+              "TANTALAK": [
+                "RACE TANTALAK - pictogramme",
+                "RACE TANTALAK - email interieur"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Chroma": [
+                "FACTION - Chroma - tissu source agrandi",
+                "OMBRE - detachement du tissu"
+              ],
+              "Crabazar": [
+                "FACTION - Crabazar - tissu source",
+                "OMBRE - Crabazar - detachement"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34,
+          "sizePt": 7.84,
+          "supportScale": 112,
+          "supportCenterX": 226,
+          "supportCenterY": 1020.5,
+          "shadow": {
+            "opacity": 65,
+            "distance": 3,
+            "blur": 4
+          }
+        },
+        "effectLayouts": [],
+        "effectSupports": []
+      },
+      "options": {
+        "atk": [
+          [],
+          [
+            "mana"
+          ],
+          [
+            "retry"
+          ],
+          [
+            "buff_atk"
+          ],
+          [
+            "guard",
+            "mana"
+          ],
+          [
+            "buff_atk",
+            "guard"
+          ]
+        ],
+        "defense": [
+          [],
+          [],
+          [
+            "retry"
+          ],
+          [],
+          [],
+          []
+        ]
+      },
+      "artworkLayer": "ART - TAULIO",
+      "fonts": [
+        "MyriadPro-Regular",
+        "TimesNewRomanPSMT",
+        "Augustus",
+        null,
+        "Crystal",
+        "Bahnschrift-BoldSemiCondensed"
+      ]
+    },
+    {
+      "key": "jelly-joe",
+      "card": {
+        "schemaVersion": 3,
+        "id": "30000032",
+        "name": "JELLY-JOE",
+        "title": "LA MAREE DES CHOPES",
+        "job": "MERCENAIRE",
+        "race": "TANTALAK",
+        "element": "ELECTRO",
+        "faction": "Crabazar",
+        "weapon": "Lance",
+        "positions": [
+          3,
+          5
+        ],
+        "atk": [
+          171,
+          "mana",
+          114,
+          "buff_atk",
+          50,
+          "guard"
+        ],
+        "defense": [
+          203,
+          166,
+          136,
+          99,
+          62,
+          25
+        ],
+        "magic": [
+          6,
+          4,
+          2
+        ],
+        "barriers": [
+          6,
+          3
+        ],
+        "artwork": "JELLY-JOE",
+        "description": "Jelly-Joe porte un toast que personne n’arrive plus à compter. Sa voix couvre la salle, sa chope déborde, et chaque histoire devient une tempête plus grande que la précédente. Pour rentrer au port, on verra demain.",
+        "output": "JELLY_JOE_V4_03_ENCRE",
+        "positionSource": "Demande utilisateur : positions 3 et 5 pour Jelly-Joe V4 Encre.",
+        "artworkSource": "V4/assets/illustrations/32_ELECTRO_JELLY_JOE_V4_03_ENCRE.png"
+      },
+      "profile": "V4/template-stable/jelly-joe-encre/card.json",
+      "png": "V4/cartes/JELLY_JOE_V4_03_ENCRE.png",
+      "psd": "V4/templates/JELLY_JOE_V4_03_ENCRE.psd",
+      "registry": {
+        "schemaVersion": 3,
+        "template": "V4/template-stable/KALISTAR_V4_TEMPLATE_03B_ELECTRO_ENCRE.psd",
+        "canvas": [
+          897,
+          1497
+        ],
+        "elements": [
+          "ELECTRO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "MOMO": [
+                "ART - MOMO"
+              ],
+              "TAULIO": [
+                "ART - TAULIO"
+              ],
+              "JELLY-JOE": [
+                "ART - JELLY-JOE"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000001": [
+                "ID CODE128 - 30000001"
+              ],
+              "30000013": [
+                "ID CODE128 - 30000013"
+              ],
+              "30000032": [
+                "ID CODE128 - 30000032"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Instrument": [
+                "ARME Instrument"
+              ],
+              "Poing": [
+                "ARME Poing - pictogramme",
+                "ARME Poing - email interieur"
+              ],
+              "Lance": [
+                "ARME Lance - pictogramme",
+                "ARME Lance - email interieur"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "ROBOT": [
+                "RACE ROBOT"
+              ],
+              "TANTALAK": [
+                "RACE TANTALAK - pictogramme",
+                "RACE TANTALAK - email interieur"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Chroma": [
+                "FACTION - Chroma - tissu source agrandi",
+                "OMBRE - detachement du tissu"
+              ],
+              "Crabazar": [
+                "FACTION - Crabazar - tissu source",
+                "OMBRE - Crabazar - detachement"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34,
+          "sizePt": 7.84,
+          "supportScale": 112,
+          "supportCenterX": 226,
+          "supportCenterY": 1020.5,
+          "shadow": {
+            "opacity": 65,
+            "distance": 3,
+            "blur": 4
+          }
+        },
+        "artworkRevision": "JELLY-JOE ENCRE 08B",
+        "artworkAssets": {
+          "JELLY-JOE": {
+            "source": "V4/assets/illustrations/32_ELECTRO_JELLY_JOE_V4_03_ENCRE.png",
+            "approvedProposal": "V4/propositions/jelly-joe-dandy-02/08b-encre-visage-affine.png",
+            "sha256": "9385a53634053d8c3acdf17b4773bd1d11c4441d8d03111e1cafc31a050ceaaa",
+            "placement": {
+              "width": 737,
+              "height": 921,
+              "centerX": 432,
+              "top": 156
+            }
+          }
+        },
+        "effectLayouts": [],
+        "effectSupports": []
+      },
+      "options": {
+        "atk": [
+          [],
+          [
+            "mana"
+          ],
+          [
+            "retry"
+          ],
+          [
+            "buff_atk"
+          ],
+          [
+            "guard",
+            "mana"
+          ],
+          [
+            "buff_atk",
+            "guard"
+          ]
+        ],
+        "defense": [
+          [],
+          [],
+          [
+            "retry"
+          ],
+          [],
+          [],
+          []
+        ]
+      },
+      "artworkLayer": "ART - JELLY-JOE",
+      "fonts": [
+        "MyriadPro-Regular",
+        "TimesNewRomanPSMT",
+        "Augustus",
+        null,
+        "Crystal",
+        "Bahnschrift-BoldSemiCondensed"
+      ]
+    },
+    {
+      "key": "momo-bal",
+      "card": {
+        "schemaVersion": 3,
+        "id": "30000014",
+        "name": "MOMO",
+        "title": "LE BAL DES OBJETS PERDUS",
+        "job": "MUSICIEN",
+        "race": "ROBOT",
+        "element": "ELECTRO",
+        "faction": "Chroma",
+        "weapon": "Instrument",
+        "positions": [
+          3,
+          4
+        ],
+        "atk": [
+          296,
+          244,
+          192,
+          "retry",
+          95,
+          "mana"
+        ],
+        "defense": [
+          171,
+          146,
+          114,
+          82,
+          50,
+          25
+        ],
+        "magic": [
+          6,
+          5,
+          4,
+          2
+        ],
+        "barriers": [
+          5,
+          3
+        ],
+        "artwork": "MOMO-BAL",
+        "description": "Pour une nuit, Momo fait danser les objets dont personne ne voulait. Sa flûte soulève les vieux carillons au-dessus de la décharge. Personne n'applaudit. Cela ne l'empêche plus de jouer.",
+        "output": "MOMO_BAL_V4_01_TEMPLATE_ELECTRO",
+        "artworkSource": "V3/assets/illustrations/14_electro_momo_carillon.png",
+        "sourcePSD": "V3/templates/14_ELECTRO_MOMO_CARILLON.psd"
+      },
+      "profile": "V4/template-stable/momo-bal/card.json",
+      "png": "V4/cartes/MOMO_BAL_V4_01_TEMPLATE_ELECTRO.png",
+      "psd": "V4/templates/MOMO_BAL_V4_01_TEMPLATE_ELECTRO.psd",
+      "registry": {
+        "schemaVersion": 3,
+        "template": "V4/template-stable/KALISTAR_V4_TEMPLATE_03C_ELECTRO_MOMO_BAL.psd",
+        "canvas": [
+          897,
+          1497
+        ],
+        "elements": [
+          "ELECTRO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "MOMO": [
+                "ART - MOMO"
+              ],
+              "TAULIO": [
+                "ART - TAULIO"
+              ],
+              "JELLY-JOE": [
+                "ART - JELLY-JOE"
+              ],
+              "MOMO-BAL": [
+                "ART - MOMO BAL"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000001": [
+                "ID CODE128 - 30000001"
+              ],
+              "30000013": [
+                "ID CODE128 - 30000013"
+              ],
+              "30000014": [
+                "ID CODE128 - 30000014"
+              ],
+              "30000032": [
+                "ID CODE128 - 30000032"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Instrument": [
+                "ARME Instrument"
+              ],
+              "Poing": [
+                "ARME Poing - pictogramme",
+                "ARME Poing - email interieur"
+              ],
+              "Lance": [
+                "ARME Lance - pictogramme",
+                "ARME Lance - email interieur"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "ROBOT": [
+                "RACE ROBOT"
+              ],
+              "TANTALAK": [
+                "RACE TANTALAK - pictogramme",
+                "RACE TANTALAK - email interieur"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Chroma": [
+                "FACTION - Chroma - tissu source agrandi",
+                "OMBRE - detachement du tissu"
+              ],
+              "Crabazar": [
+                "FACTION - Crabazar - tissu source",
+                "OMBRE - Crabazar - detachement"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34,
+          "sizePt": 7.84,
+          "supportScale": 112,
+          "supportCenterX": 226,
+          "supportCenterY": 1020.5,
+          "shadow": {
+            "opacity": 65,
+            "distance": 3,
+            "blur": 4
+          }
+        },
+        "artworkRevision": "MOMO LE BAL DES OBJETS PERDUS - illustration V3 conservee",
+        "artworkAssets": {
+          "JELLY-JOE": {
+            "source": "V4/assets/illustrations/32_ELECTRO_JELLY_JOE_V4_03_ENCRE.png",
+            "approvedProposal": "V4/propositions/jelly-joe-dandy-02/08b-encre-visage-affine.png",
+            "sha256": "9385a53634053d8c3acdf17b4773bd1d11c4441d8d03111e1cafc31a050ceaaa",
+            "placement": {
+              "width": 737,
+              "height": 921,
+              "centerX": 432,
+              "top": 156
+            }
+          },
+          "MOMO-BAL": {
+            "source": "V3/assets/illustrations/14_electro_momo_carillon.png",
+            "sha256": "8f65e72bed15052c768250622267795aa33c61a26b3409e6775eae4cd8969b03",
+            "sourcePSD": "V3/templates/14_ELECTRO_MOMO_CARILLON.psd",
+            "placement": "Cadrage natif du PSD V3, sans transformation"
+          }
+        },
+        "effectLayouts": [],
+        "effectSupports": []
+      },
+      "options": {
+        "atk": [
+          [],
+          [
+            "mana"
+          ],
+          [
+            "retry"
+          ],
+          [
+            "buff_atk",
+            "retry"
+          ],
+          [
+            "guard",
+            "mana"
+          ],
+          [
+            "buff_atk",
+            "guard",
+            "mana"
+          ]
+        ],
+        "defense": [
+          [],
+          [],
+          [
+            "retry"
+          ],
+          [],
+          [],
+          []
+        ]
+      },
+      "artworkLayer": "ART - MOMO BAL",
+      "fonts": [
+        "MyriadPro-Regular",
+        "TimesNewRomanPSMT",
+        "Augustus",
+        null,
+        "Crystal",
+        "Bahnschrift-BoldSemiCondensed"
+      ]
+    },
+    {
+      "key": "rikka",
+      "card": {
+        "schemaVersion": 3,
+        "id": "40000042",
+        "characterId": "rikka",
+        "name": "RIKKA",
+        "title": "POUR UNE VIE DE PLUS",
+        "job": "VOLEUSE",
+        "race": "FELINEUS",
+        "element": "ELECTRO",
+        "faction": "Chroma",
+        "weapon": "Fouet",
+        "weapon_index": 6,
+        "positions": [
+          2
+        ],
+        "role": 2,
+        "sentry": true,
+        "canGuard": false,
+        "canHeal": false,
+        "atk": [
+          288,
+          238,
+          188,
+          138,
+          88,
+          38
+        ],
+        "defense": [
+          "dodge",
+          138,
+          108,
+          78,
+          48,
+          "retry"
+        ],
+        "magic": [
+          5
+        ],
+        "barriers": [],
+        "advantage": 30,
+        "disadvantage": 30,
+        "color": "F5DC32",
+        "hue": 53,
+        "artwork": "RIKKA",
+        "artworkSource": "V4/assets/illustrations/42_ELECTRO_RIKKA_V4_02_VITRINE_FRONTALE.png",
+        "approvedProposal": "V4/propositions/rilka-01/04d-kalistel-luxo.png",
+        "description": "Rikka dérobe un Kalistel Luxo au musée de Chroma. Un ami cher n'a plus le temps d'attendre. Blessée, elle serre le reliquaire : ce soir, elle ne vole pas une fortune, mais une chance de le sauver.",
+        "output": "RIKKA_V4_03_RECADRAGE",
+        "balanceStatus": "Proposition V4 calibree sur les P2 V3 ; a confirmer en parties.",
+        "integrationStatus": "Carte V4 uniquement ; V3, site et BDD inchanges.",
+        "revisionNote": "Illustration translatee de 55 px vers la droite, sans redimensionnement ni regeneration. Fouet et Kalistel visibles. Cadre, icones et statistiques inchanges."
+      },
+      "profile": "V4/template-stable/rikka-revision-03/card.json",
+      "png": "V4/cartes/RIKKA_V4_03_RECADRAGE.png",
+      "psd": "V4/templates/RIKKA_V4_03_RECADRAGE.psd",
+      "registry": {
+        "schemaVersion": 3,
+        "template": "V4/template-stable/KALISTAR_V4_TEMPLATE_03F_ELECTRO_RIKKA.psd",
+        "canvas": [
+          897,
+          1497
+        ],
+        "elements": [
+          "ELECTRO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "MOMO": [
+                "ART - MOMO"
+              ],
+              "TAULIO": [
+                "ART - TAULIO"
+              ],
+              "JELLY-JOE": [
+                "ART - JELLY-JOE"
+              ],
+              "MOMO-BAL": [
+                "ART - MOMO BAL"
+              ],
+              "RIKKA": [
+                "ART - RIKKA"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000001": [
+                "ID CODE128 - 30000001"
+              ],
+              "30000013": [
+                "ID CODE128 - 30000013"
+              ],
+              "30000014": [
+                "ID CODE128 - 30000014"
+              ],
+              "30000032": [
+                "ID CODE128 - 30000032"
+              ],
+              "40000042": [
+                "ID CODE128 - 40000042"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Instrument": [
+                "ARME Instrument"
+              ],
+              "Poing": [
+                "ARME Poing - pictogramme",
+                "ARME Poing - email interieur"
+              ],
+              "Lance": [
+                "ARME Lance - pictogramme",
+                "ARME Lance - email interieur"
+              ],
+              "Fouet": [
+                "ARME Fouet - pictogramme",
+                "ARME Fouet - email interieur"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "ROBOT": [
+                "RACE ROBOT"
+              ],
+              "TANTALAK": [
+                "RACE TANTALAK - pictogramme",
+                "RACE TANTALAK - email interieur"
+              ],
+              "FELINEUS": [
+                "RACE FELINEUS - pictogramme",
+                "RACE FELINEUS - email interieur"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Chroma": [
+                "FACTION - Chroma - tissu source agrandi",
+                "OMBRE - detachement du tissu"
+              ],
+              "Crabazar": [
+                "FACTION - Crabazar - tissu source",
+                "OMBRE - Crabazar - detachement"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34,
+          "sizePt": 7.84,
+          "supportScale": 112,
+          "supportCenterX": 226,
+          "supportCenterY": 1020.5,
+          "shadow": {
+            "opacity": 65,
+            "distance": 3,
+            "blur": 4
+          }
+        },
+        "artworkRevision": "RIKKA revision 03 - recentrage fouet et Kalistel",
+        "artworkAssets": {
+          "JELLY-JOE": {
+            "source": "V4/assets/illustrations/32_ELECTRO_JELLY_JOE_V4_03_ENCRE.png",
+            "approvedProposal": "V4/propositions/jelly-joe-dandy-02/08b-encre-visage-affine.png",
+            "sha256": "9385a53634053d8c3acdf17b4773bd1d11c4441d8d03111e1cafc31a050ceaaa",
+            "placement": {
+              "width": 737,
+              "height": 921,
+              "centerX": 432,
+              "top": 156
+            }
+          },
+          "MOMO-BAL": {
+            "source": "V3/assets/illustrations/14_electro_momo_carillon.png",
+            "sha256": "8f65e72bed15052c768250622267795aa33c61a26b3409e6775eae4cd8969b03",
+            "sourcePSD": "V3/templates/14_ELECTRO_MOMO_CARILLON.psd",
+            "placement": "Cadrage natif du PSD V3, sans transformation"
+          },
+          "RIKKA": {
+            "source": "V4/assets/illustrations/42_ELECTRO_RIKKA_V4_01.png",
+            "approvedProposal": "V4/propositions/rilka-01/04d-kalistel-luxo.png",
+            "sha256": "2f9c07116a99b2edb74eb22a0a861111c28fd2ff7cb3bfcae9cbc7ea203a6011",
+            "placement": {
+              "width": 921,
+              "height": 921,
+              "centerX": 526.5,
+              "top": 156
+            },
+            "renderSource": "V4/assets/illustrations/42_ELECTRO_RIKKA_V4_02_VITRINE_FRONTALE.png",
+            "generatedSource": "C:/Users/guill/.codex/generated_images/019e30c1-21b0-7e11-9f9d-2fe692f111d2/exec-d2b9c337-ab04-415d-8483-bbf9330e788a.png",
+            "tool": "built-in image_gen",
+            "prompt": "V4/template-stable/rikka-revision-02/prompt-vitrine-relevee.txt",
+            "reason": "Vitrine de taille humaine avec ouverture frontale relevee, sans porte laterale contradictoire.",
+            "renderSha256": "5b844793a91a292e6a495a2b60fdb76ad169b3f13eed10befd8c047da95af733",
+            "framing": {
+              "translation": [
+                55,
+                0
+              ],
+              "bounds": [
+                66,
+                156,
+                987,
+                1077
+              ],
+              "method": "Native PSD smart-object translation; original embedded pixels and scale retained."
+            }
+          }
+        },
+        "effectSupports": [
+          {
+            "side": "DEF",
+            "die": 1,
+            "layers": [
+              "DEF D1 - fond effet"
+            ]
+          }
+        ],
+        "effectLayouts": [
+          {
+            "layer": "DEF D6 - effet dodge",
+            "width": 72,
+            "height": 72,
+            "anchor": [
+              0.50505050505051,
+              0.46464646464646
+            ],
+            "center": [
+              754,
+              151
+            ],
+            "innerRadius": 53,
+            "safeRadius": 49,
+            "measuredInnerRim": {
+              "center": [
+                753.65,
+                151.15
+              ],
+              "radii": [
+                57,
+                59.65
+              ]
+            },
+            "measurement": "Visible contour alpha >=32; optical anchor balances figure and diagonal motion trail on the actual painted rim."
+          },
+          {
+            "layer": "DEF D1 - effet retry",
+            "width": 58,
+            "height": 55,
+            "anchor": [
+              0.49649967068222,
+              0.50630706323867
+            ],
+            "center": [
+              737,
+              773
+            ],
+            "innerRadius": 38.5,
+            "safeRadius": 32,
+            "measuredInnerRim": {
+              "center": [
+                736.85,
+                772.95
+              ],
+              "radii": [
+                38.85,
+                38.7
+              ]
+            },
+            "measurement": "Green leaf mass centroid aligned to the ACTUAL painted inner rim, not to support bounds or numeric field coordinates."
+          }
+        ]
+      },
+      "options": {
+        "atk": [
+          [],
+          [
+            "mana"
+          ],
+          [
+            "retry"
+          ],
+          [
+            "buff_atk",
+            "retry"
+          ],
+          [
+            "guard",
+            "mana"
+          ],
+          [
+            "buff_atk",
+            "guard",
+            "mana"
+          ]
+        ],
+        "defense": [
+          [
+            "dodge"
+          ],
+          [],
+          [
+            "retry"
+          ],
+          [],
+          [],
+          [
+            "retry"
+          ]
+        ]
+      },
+      "artworkLayer": "ART - RIKKA",
+      "fonts": [
+        "MyriadPro-Regular",
+        "TimesNewRomanPSMT",
+        "Augustus",
+        null,
+        "Crystal",
+        "Bahnschrift-BoldSemiCondensed"
+      ]
+    },
+    {
+      "key": "ruby",
+      "card": {
+        "schemaVersion": 4,
+        "id": "30000039",
+        "name": "RUBY",
+        "title": "LA CARTE DES COURANTS",
+        "job": "CARTOGRAPHE",
+        "race": "SIRENA",
+        "element": "HYDRO",
+        "faction": "Thalassea",
+        "weapon": "Gun",
+        "positions": [
+          4
+        ],
+        "atk": [
+          291,
+          246,
+          194,
+          142,
+          90,
+          45
+        ],
+        "defense": [
+          173,
+          141,
+          116,
+          84,
+          52,
+          20
+        ],
+        "magic": [
+          6,
+          5,
+          4,
+          3,
+          2,
+          1
+        ],
+        "barriers": [
+          4
+        ],
+        "slug": "39_HYDRO_RUBY",
+        "hue": 192,
+        "color": "38CBED",
+        "weapon_index": 7,
+        "description": "Ruby rit dans le silence de l'eau. Les dauphins croisent son sillage, et elle oublie un instant les routes à tracer. Ses deux petits harpons restent à ses hanches : aujourd'hui, la mer lui offre simplement sa joie.",
+        "artwork": "RUBY",
+        "artworkSource": "V4/assets/illustrations/elements-01/eau-feu-glace/RUBY_V4_01.png",
+        "artworkUnchanged": false,
+        "sourcePSD": "V3/templates/39_HYDRO_RUBY.psd",
+        "output": "RUBY_V4_01_HYDRO",
+        "profile": "V4/template-stable/elements-01/ruby/card.json"
+      },
+      "profile": "V4/template-stable/elements-01/ruby/card.json",
+      "png": "V4/cartes/RUBY_V4_01_HYDRO.png",
+      "psd": "V4/templates/RUBY_V4_01_HYDRO.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "elements": [
+          "HYDRO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "RUBY": [
+                "ART - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000039": [
+                "ID CODE128 - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Gun": [
+                "ARME - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "SIRENA": [
+                "RACE - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Thalassea": [
+                "FACTION - CONTENU"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34,
+          "sizePt": 7.84,
+          "supportScale": 112,
+          "supportCenterX": 226,
+          "supportCenterY": 1020.5,
+          "shadow": {
+            "opacity": 65,
+            "distance": 3,
+            "blur": 4
+          }
+        },
+        "effectSupports": [
+          {
+            "side": "DEF",
+            "die": 1,
+            "layers": [
+              "DEF D1 - fond effet"
+            ]
+          }
+        ],
+        "effectLayouts": [
+          {
+            "layer": "DEF D6 - effet dodge",
+            "width": 72,
+            "height": 72,
+            "anchor": [
+              0.50505050505051,
+              0.46464646464646
+            ],
+            "center": [
+              754,
+              151
+            ],
+            "innerRadius": 53,
+            "safeRadius": 49,
+            "measuredInnerRim": {
+              "center": [
+                753.65,
+                151.15
+              ],
+              "radii": [
+                57,
+                59.65
+              ]
+            },
+            "measurement": "Visible contour alpha >=32; optical anchor balances figure and diagonal motion trail on the actual painted rim."
+          },
+          {
+            "layer": "DEF D1 - effet retry",
+            "width": 58,
+            "height": 55,
+            "anchor": [
+              0.49649967068222,
+              0.50630706323867
+            ],
+            "center": [
+              737,
+              773
+            ],
+            "innerRadius": 38.5,
+            "safeRadius": 32,
+            "measuredInnerRim": {
+              "center": [
+                736.85,
+                772.95
+              ],
+              "radii": [
+                38.85,
+                38.7
+              ]
+            },
+            "measurement": "Green leaf mass centroid aligned to the ACTUAL painted inner rim, not to support bounds or numeric field coordinates."
+          }
+        ]
+      },
+      "options": {
+        "atk": [
+          [],
+          [
+            "mana"
+          ],
+          [
+            "retry"
+          ],
+          [
+            "buff_atk",
+            "retry"
+          ],
+          [
+            "guard",
+            "mana"
+          ],
+          [
+            "buff_atk",
+            "guard",
+            "mana"
+          ]
+        ],
+        "defense": [
+          [
+            "dodge"
+          ],
+          [],
+          [
+            "retry"
+          ],
+          [],
+          [],
+          [
+            "retry"
+          ]
+        ]
+      },
+      "artworkLayer": "ART - CONTENU",
+      "fonts": [
+        "MyriadPro-Regular",
+        "TimesNewRomanPSMT",
+        "Augustus",
+        null,
+        "Crystal",
+        "Bahnschrift-BoldSemiCondensed"
+      ]
+    },
+    {
+      "key": "cana",
+      "card": {
+        "schemaVersion": 4,
+        "id": "30000002",
+        "name": "CANA",
+        "title": "LE DERNIER PASSAGE",
+        "job": "MESSAGERE",
+        "race": "FALCO",
+        "element": "AERO",
+        "faction": "Nestown",
+        "weapon": "Arc",
+        "positions": [
+          2
+        ],
+        "atk": [
+          290,
+          245,
+          193,
+          141,
+          96,
+          44
+        ],
+        "defense": [
+          172,
+          140,
+          115,
+          83,
+          51,
+          26
+        ],
+        "magic": [
+          3
+        ],
+        "barriers": [
+          4
+        ],
+        "slug": "02_AERO_CANA",
+        "hue": 155,
+        "color": "89EDC2",
+        "weapon_index": 5,
+        "description": "Le pont a cédé avant l'aube. Cana replie son aile blessée et tend le message au-delà du vide. A Nestown, une promesse doit parfois voyager plus loin que celui qui la porte.",
+        "artwork": "CANA",
+        "artworkSource": "V4/assets/illustrations/elements-01/air/CANA_V4_01.png",
+        "artworkUnchanged": false,
+        "sourcePSD": "V3/templates/02_AERO_CANA.psd",
+        "output": "CANA_V4_01_AERO",
+        "profile": "V4/template-stable/elements-01/cana/card.json"
+      },
+      "profile": "V4/template-stable/elements-01/cana/card.json",
+      "png": "V4/cartes/CANA_V4_01_AERO.png",
+      "psd": "V4/templates/CANA_V4_01_AERO.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "elements": [
+          "AERO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "CANA": [
+                "ART - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000002": [
+                "ID CODE128 - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Arc": [
+                "ARME - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "FALCO": [
+                "RACE - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Nestown": [
+                "FACTION - CONTENU"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34,
+          "sizePt": 7.84,
+          "supportScale": 112,
+          "supportCenterX": 226,
+          "supportCenterY": 1020.5,
+          "shadow": {
+            "opacity": 65,
+            "distance": 3,
+            "blur": 4
+          }
+        },
+        "effectSupports": [
+          {
+            "side": "DEF",
+            "die": 1,
+            "layers": [
+              "DEF D1 - fond effet"
+            ]
+          }
+        ],
+        "effectLayouts": [
+          {
+            "layer": "DEF D6 - effet dodge",
+            "width": 72,
+            "height": 72,
+            "anchor": [
+              0.50505050505051,
+              0.46464646464646
+            ],
+            "center": [
+              754,
+              151
+            ],
+            "innerRadius": 53,
+            "safeRadius": 49,
+            "measuredInnerRim": {
+              "center": [
+                753.65,
+                151.15
+              ],
+              "radii": [
+                57,
+                59.65
+              ]
+            },
+            "measurement": "Visible contour alpha >=32; optical anchor balances figure and diagonal motion trail on the actual painted rim."
+          },
+          {
+            "layer": "DEF D1 - effet retry",
+            "width": 58,
+            "height": 55,
+            "anchor": [
+              0.49649967068222,
+              0.50630706323867
+            ],
+            "center": [
+              737,
+              773
+            ],
+            "innerRadius": 38.5,
+            "safeRadius": 32,
+            "measuredInnerRim": {
+              "center": [
+                736.85,
+                772.95
+              ],
+              "radii": [
+                38.85,
+                38.7
+              ]
+            },
+            "measurement": "Green leaf mass centroid aligned to the ACTUAL painted inner rim, not to support bounds or numeric field coordinates."
+          }
+        ]
+      },
+      "options": {
+        "atk": [
+          [],
+          [
+            "mana"
+          ],
+          [
+            "retry"
+          ],
+          [
+            "buff_atk",
+            "retry"
+          ],
+          [
+            "guard",
+            "mana"
+          ],
+          [
+            "buff_atk",
+            "guard",
+            "mana"
+          ]
+        ],
+        "defense": [
+          [
+            "dodge"
+          ],
+          [],
+          [
+            "retry"
+          ],
+          [],
+          [],
+          [
+            "retry"
+          ]
+        ]
+      },
+      "artworkLayer": "ART - CONTENU",
+      "fonts": [
+        "MyriadPro-Regular",
+        "TimesNewRomanPSMT",
+        "Augustus",
+        null,
+        "Crystal",
+        "Bahnschrift-BoldSemiCondensed"
+      ]
+    },
+    {
+      "key": "scrow",
+      "card": {
+        "schemaVersion": 4,
+        "id": "30000015",
+        "name": "SCROW",
+        "title": "LA FLECHE RETENUE",
+        "job": "GUETTEUR",
+        "race": "KORBOW",
+        "element": "AERO",
+        "faction": "Nestown",
+        "weapon": "Arc",
+        "positions": [
+          4
+        ],
+        "atk": [
+          293,
+          241,
+          196,
+          144,
+          92,
+          40
+        ],
+        "defense": [
+          175,
+          143,
+          111,
+          86,
+          54,
+          22
+        ],
+        "magic": [],
+        "barriers": [
+          4
+        ],
+        "slug": "15_AERO_SCROW",
+        "hue": 155,
+        "color": "89EDC2",
+        "weapon_index": 5,
+        "description": "Scrow reconnaît le sceau avant de lâcher la corde. Il laisse le messager franchir les toits. Une flèche retenue peut peser autant qu'une flèche tirée.",
+        "artwork": "SCROW",
+        "artworkSource": "V4/assets/illustrations/elements-01/air/SCROW_V4_01.png",
+        "artworkUnchanged": false,
+        "sourcePSD": "V3/templates/15_AERO_SCROW.psd",
+        "output": "SCROW_V4_01_AERO",
+        "profile": "V4/template-stable/elements-01/scrow/card.json"
+      },
+      "profile": "V4/template-stable/elements-01/scrow/card.json",
+      "png": "V4/cartes/SCROW_V4_01_AERO.png",
+      "psd": "V4/templates/SCROW_V4_01_AERO.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "elements": [
+          "AERO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "SCROW": [
+                "ART - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000015": [
+                "ID CODE128 - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Arc": [
+                "ARME - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "KORBOW": [
+                "RACE - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Nestown": [
+                "FACTION - CONTENU"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34,
+          "sizePt": 7.84,
+          "supportScale": 112,
+          "supportCenterX": 226,
+          "supportCenterY": 1020.5,
+          "shadow": {
+            "opacity": 65,
+            "distance": 3,
+            "blur": 4
+          }
+        },
+        "effectSupports": [
+          {
+            "side": "DEF",
+            "die": 1,
+            "layers": [
+              "DEF D1 - fond effet"
+            ]
+          }
+        ],
+        "effectLayouts": [
+          {
+            "layer": "DEF D6 - effet dodge",
+            "width": 72,
+            "height": 72,
+            "anchor": [
+              0.50505050505051,
+              0.46464646464646
+            ],
+            "center": [
+              754,
+              151
+            ],
+            "innerRadius": 53,
+            "safeRadius": 49,
+            "measuredInnerRim": {
+              "center": [
+                753.65,
+                151.15
+              ],
+              "radii": [
+                57,
+                59.65
+              ]
+            },
+            "measurement": "Visible contour alpha >=32; optical anchor balances figure and diagonal motion trail on the actual painted rim."
+          },
+          {
+            "layer": "DEF D1 - effet retry",
+            "width": 58,
+            "height": 55,
+            "anchor": [
+              0.49649967068222,
+              0.50630706323867
+            ],
+            "center": [
+              737,
+              773
+            ],
+            "innerRadius": 38.5,
+            "safeRadius": 32,
+            "measuredInnerRim": {
+              "center": [
+                736.85,
+                772.95
+              ],
+              "radii": [
+                38.85,
+                38.7
+              ]
+            },
+            "measurement": "Green leaf mass centroid aligned to the ACTUAL painted inner rim, not to support bounds or numeric field coordinates."
+          }
+        ]
+      },
+      "options": {
+        "atk": [
+          [],
+          [
+            "mana"
+          ],
+          [
+            "retry"
+          ],
+          [
+            "buff_atk",
+            "retry"
+          ],
+          [
+            "guard",
+            "mana"
+          ],
+          [
+            "buff_atk",
+            "guard",
+            "mana"
+          ]
+        ],
+        "defense": [
+          [
+            "dodge"
+          ],
+          [],
+          [
+            "retry"
+          ],
+          [],
+          [],
+          [
+            "retry"
+          ]
+        ]
+      },
+      "artworkLayer": "ART - CONTENU",
+      "fonts": [
+        "MyriadPro-Regular",
+        "TimesNewRomanPSMT",
+        "Augustus",
+        null,
+        "Crystal",
+        "Bahnschrift-BoldSemiCondensed"
+      ]
+    },
+    {
+      "key": "soryn",
+      "card": {
+        "schemaVersion": 4,
+        "id": "30000040",
+        "name": "SORYN",
+        "title": "LE VENT JUSTE",
+        "job": "ACCORDEUR",
+        "race": "FALCO",
+        "element": "AERO",
+        "faction": "Nestown",
+        "weapon": "Instrument",
+        "positions": [
+          4
+        ],
+        "atk": [
+          295,
+          243,
+          191,
+          146,
+          94,
+          "mana"
+        ],
+        "defense": [
+          170,
+          145,
+          113,
+          81,
+          56,
+          24
+        ],
+        "magic": [
+          6,
+          5,
+          4,
+          3,
+          2
+        ],
+        "barriers": [
+          4
+        ],
+        "slug": "40_AERO_SORYN",
+        "hue": 155,
+        "color": "89EDC2",
+        "weapon_index": 11,
+        "description": "Soryn attend que le vent tourne avant de toucher la corde. Une note traverse le brouillard. Sur le pont invisible, les voyageurs savent de nouveau où poser le pied.",
+        "artwork": "SORYN",
+        "artworkSource": "V4/assets/illustrations/elements-01/air/SORYN_V4_01.png",
+        "artworkUnchanged": false,
+        "sourcePSD": "V3/templates/40_AERO_SORYN.psd",
+        "output": "SORYN_V4_01_AERO",
+        "profile": "V4/template-stable/elements-01/soryn/card.json"
+      },
+      "profile": "V4/template-stable/elements-01/soryn/card.json",
+      "png": "V4/cartes/SORYN_V4_01_AERO.png",
+      "psd": "V4/templates/SORYN_V4_01_AERO.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "elements": [
+          "AERO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "SORYN": [
+                "ART - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000040": [
+                "ID CODE128 - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Instrument": [
+                "ARME - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "FALCO": [
+                "RACE - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Nestown": [
+                "FACTION - CONTENU"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34,
+          "sizePt": 7.84,
+          "supportScale": 112,
+          "supportCenterX": 226,
+          "supportCenterY": 1020.5,
+          "shadow": {
+            "opacity": 65,
+            "distance": 3,
+            "blur": 4
+          }
+        },
+        "effectSupports": [
+          {
+            "side": "DEF",
+            "die": 1,
+            "layers": [
+              "DEF D1 - fond effet"
+            ]
+          }
+        ],
+        "effectLayouts": [
+          {
+            "layer": "DEF D6 - effet dodge",
+            "width": 72,
+            "height": 72,
+            "anchor": [
+              0.50505050505051,
+              0.46464646464646
+            ],
+            "center": [
+              754,
+              151
+            ],
+            "innerRadius": 53,
+            "safeRadius": 49,
+            "measuredInnerRim": {
+              "center": [
+                753.65,
+                151.15
+              ],
+              "radii": [
+                57,
+                59.65
+              ]
+            },
+            "measurement": "Visible contour alpha >=32; optical anchor balances figure and diagonal motion trail on the actual painted rim."
+          },
+          {
+            "layer": "DEF D1 - effet retry",
+            "width": 58,
+            "height": 55,
+            "anchor": [
+              0.49649967068222,
+              0.50630706323867
+            ],
+            "center": [
+              737,
+              773
+            ],
+            "innerRadius": 38.5,
+            "safeRadius": 32,
+            "measuredInnerRim": {
+              "center": [
+                736.85,
+                772.95
+              ],
+              "radii": [
+                38.85,
+                38.7
+              ]
+            },
+            "measurement": "Green leaf mass centroid aligned to the ACTUAL painted inner rim, not to support bounds or numeric field coordinates."
+          }
+        ]
+      },
+      "options": {
+        "atk": [
+          [],
+          [
+            "mana"
+          ],
+          [
+            "retry"
+          ],
+          [
+            "buff_atk",
+            "retry"
+          ],
+          [
+            "guard",
+            "mana"
+          ],
+          [
+            "buff_atk",
+            "guard",
+            "mana"
+          ]
+        ],
+        "defense": [
+          [
+            "dodge"
+          ],
+          [],
+          [
+            "retry"
+          ],
+          [],
+          [],
+          [
+            "retry"
+          ]
+        ]
+      },
+      "artworkLayer": "ART - CONTENU",
+      "fonts": [
+        "MyriadPro-Regular",
+        "TimesNewRomanPSMT",
+        "Augustus",
+        null,
+        "Crystal",
+        "Bahnschrift-BoldSemiCondensed"
+      ]
+    },
+    {
+      "key": "gilmarr",
+      "card": {
+        "schemaVersion": 4,
+        "id": "30000038",
+        "name": "GILMARR",
+        "title": "LA PLACE DANS L EQUIPE",
+        "job": "PILIER D ASTRABALL",
+        "race": "RHINOZ",
+        "element": "AERO",
+        "faction": "Zarok",
+        "weapon": "Poing",
+        "positions": [
+          1
+        ],
+        "atk": [
+          204,
+          167,
+          130,
+          100,
+          "guard",
+          26
+        ],
+        "defense": [
+          296,
+          244,
+          192,
+          140,
+          95,
+          43
+        ],
+        "magic": [
+          6,
+          3
+        ],
+        "barriers": [
+          5,
+          2
+        ],
+        "slug": "38_AERO_GILMARR",
+        "hue": 155,
+        "color": "89EDC2",
+        "weapon_index": 3,
+        "description": "Gilmarr décale le plot de la ligne et fait signe d'entrer. Une place vient de s'ouvrir dans l'équipe. Son sourire promet un match difficile, pas une faveur.",
+        "artwork": "GILMARR",
+        "artworkSource": "V4/assets/illustrations/elements-01/air/GILMARR_V4_01.png",
+        "artworkUnchanged": false,
+        "sourcePSD": "V3/templates/38_AERO_GILMARR.psd",
+        "output": "GILMARR_V4_01_AERO",
+        "profile": "V4/template-stable/elements-01/gilmarr/card.json"
+      },
+      "profile": "V4/template-stable/elements-01/gilmarr/card.json",
+      "png": "V4/cartes/GILMARR_V4_01_AERO.png",
+      "psd": "V4/templates/GILMARR_V4_01_AERO.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "elements": [
+          "AERO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "GILMARR": [
+                "ART - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000038": [
+                "ID CODE128 - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Poing": [
+                "ARME - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "RHINOZ": [
+                "RACE - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Zarok": [
+                "FACTION - CONTENU"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34,
+          "sizePt": 7.84,
+          "supportScale": 112,
+          "supportCenterX": 226,
+          "supportCenterY": 1020.5,
+          "shadow": {
+            "opacity": 65,
+            "distance": 3,
+            "blur": 4
+          }
+        },
+        "effectSupports": [
+          {
+            "side": "DEF",
+            "die": 1,
+            "layers": [
+              "DEF D1 - fond effet"
+            ]
+          }
+        ],
+        "effectLayouts": [
+          {
+            "layer": "DEF D6 - effet dodge",
+            "width": 72,
+            "height": 72,
+            "anchor": [
+              0.50505050505051,
+              0.46464646464646
+            ],
+            "center": [
+              754,
+              151
+            ],
+            "innerRadius": 53,
+            "safeRadius": 49,
+            "measuredInnerRim": {
+              "center": [
+                753.65,
+                151.15
+              ],
+              "radii": [
+                57,
+                59.65
+              ]
+            },
+            "measurement": "Visible contour alpha >=32; optical anchor balances figure and diagonal motion trail on the actual painted rim."
+          },
+          {
+            "layer": "DEF D1 - effet retry",
+            "width": 58,
+            "height": 55,
+            "anchor": [
+              0.49649967068222,
+              0.50630706323867
+            ],
+            "center": [
+              737,
+              773
+            ],
+            "innerRadius": 38.5,
+            "safeRadius": 32,
+            "measuredInnerRim": {
+              "center": [
+                736.85,
+                772.95
+              ],
+              "radii": [
+                38.85,
+                38.7
+              ]
+            },
+            "measurement": "Green leaf mass centroid aligned to the ACTUAL painted inner rim, not to support bounds or numeric field coordinates."
+          }
+        ]
+      },
+      "options": {
+        "atk": [
+          [],
+          [
+            "mana"
+          ],
+          [
+            "retry"
+          ],
+          [
+            "buff_atk",
+            "retry"
+          ],
+          [
+            "guard",
+            "mana"
+          ],
+          [
+            "buff_atk",
+            "guard",
+            "mana"
+          ]
+        ],
+        "defense": [
+          [
+            "dodge"
+          ],
+          [],
+          [
+            "retry"
+          ],
+          [],
+          [],
+          [
+            "retry"
+          ]
+        ]
+      },
+      "artworkLayer": "ART - CONTENU",
+      "fonts": [
+        "MyriadPro-Regular",
+        "TimesNewRomanPSMT",
+        "Augustus",
+        null,
+        "Crystal",
+        "Bahnschrift-BoldSemiCondensed"
+      ]
+    },
+    {
+      "key": "darnako",
+      "card": {
+        "schemaVersion": 4,
+        "id": "30000004",
+        "name": "DARNAKO",
+        "title": "AVANT LE PREMIER CHOC",
+        "job": "FORGERON",
+        "race": "DRAX",
+        "element": "PYRO",
+        "faction": "Vulkar",
+        "weapon": "Epée longue",
+        "positions": [
+          2
+        ],
+        "atk": [
+          291,
+          246,
+          194,
+          142,
+          90,
+          45
+        ],
+        "defense": [
+          173,
+          141,
+          116,
+          84,
+          52,
+          20
+        ],
+        "magic": [
+          6,
+          4
+        ],
+        "barriers": [
+          5
+        ],
+        "slug": "04_PYRO_DARNAKO",
+        "hue": 12,
+        "color": "FF704A",
+        "weapon_index": 17,
+        "description": "Le souffle court, Darnako tire sa lame. La peur est là, mais son regard ne quitte pas l'adversaire. Il plante ses pieds dans la cendre : Vulkar ne le verra pas reculer.",
+        "artwork": "DARNAKO",
+        "artworkSource": "V4/assets/illustrations/elements-01/eau-feu-glace/DARNAKO_V4_01.png",
+        "artworkUnchanged": false,
+        "sourcePSD": "V3/templates/04_PYRO_DARNAKO.psd",
+        "output": "DARNAKO_V4_01_PYRO",
+        "profile": "V4/template-stable/elements-01/darnako/card.json"
+      },
+      "profile": "V4/template-stable/elements-01/darnako/card.json",
+      "png": "V4/cartes/DARNAKO_V4_01_PYRO.png",
+      "psd": "V4/templates/DARNAKO_V4_01_PYRO.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "elements": [
+          "PYRO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "DARNAKO": [
+                "ART - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000004": [
+                "ID CODE128 - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Epée longue": [
+                "ARME - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "DRAX": [
+                "RACE - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Vulkar": [
+                "FACTION - CONTENU"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34,
+          "sizePt": 7.84,
+          "supportScale": 112,
+          "supportCenterX": 226,
+          "supportCenterY": 1020.5,
+          "shadow": {
+            "opacity": 65,
+            "distance": 3,
+            "blur": 4
+          }
+        },
+        "effectSupports": [
+          {
+            "side": "DEF",
+            "die": 1,
+            "layers": [
+              "DEF D1 - fond effet"
+            ]
+          }
+        ],
+        "effectLayouts": [
+          {
+            "layer": "DEF D6 - effet dodge",
+            "width": 72,
+            "height": 72,
+            "anchor": [
+              0.50505050505051,
+              0.46464646464646
+            ],
+            "center": [
+              754,
+              151
+            ],
+            "innerRadius": 53,
+            "safeRadius": 49,
+            "measuredInnerRim": {
+              "center": [
+                753.65,
+                151.15
+              ],
+              "radii": [
+                57,
+                59.65
+              ]
+            },
+            "measurement": "Visible contour alpha >=32; optical anchor balances figure and diagonal motion trail on the actual painted rim."
+          },
+          {
+            "layer": "DEF D1 - effet retry",
+            "width": 58,
+            "height": 55,
+            "anchor": [
+              0.49649967068222,
+              0.50630706323867
+            ],
+            "center": [
+              737,
+              773
+            ],
+            "innerRadius": 38.5,
+            "safeRadius": 32,
+            "measuredInnerRim": {
+              "center": [
+                736.85,
+                772.95
+              ],
+              "radii": [
+                38.85,
+                38.7
+              ]
+            },
+            "measurement": "Green leaf mass centroid aligned to the ACTUAL painted inner rim, not to support bounds or numeric field coordinates."
+          }
+        ]
+      },
+      "options": {
+        "atk": [
+          [],
+          [
+            "mana"
+          ],
+          [
+            "retry"
+          ],
+          [
+            "buff_atk",
+            "retry"
+          ],
+          [
+            "guard",
+            "mana"
+          ],
+          [
+            "buff_atk",
+            "guard",
+            "mana"
+          ]
+        ],
+        "defense": [
+          [
+            "dodge"
+          ],
+          [],
+          [
+            "retry"
+          ],
+          [],
+          [],
+          [
+            "retry"
+          ]
+        ]
+      },
+      "artworkLayer": "ART - CONTENU",
+      "fonts": [
+        "MyriadPro-Regular",
+        "TimesNewRomanPSMT",
+        "Augustus",
+        null,
+        "Crystal",
+        "Bahnschrift-BoldSemiCondensed"
+      ]
+    },
+    {
+      "key": "malinia",
+      "card": {
+        "schemaVersion": 4,
+        "id": "30000005",
+        "name": "MALINIA",
+        "title": "LA MEMOIRE SOUS LE GIVRE",
+        "job": "VEILLEUSE",
+        "race": "HUMAIN",
+        "element": "CRYO",
+        "faction": "Niveria",
+        "weapon": "Sceptre",
+        "positions": [
+          4
+        ],
+        "atk": [
+          295,
+          243,
+          191,
+          146,
+          94,
+          42
+        ],
+        "defense": [
+          170,
+          145,
+          113,
+          81,
+          56,
+          24
+        ],
+        "magic": [
+          6,
+          5,
+          4,
+          3,
+          2,
+          1
+        ],
+        "barriers": [
+          6,
+          3
+        ],
+        "slug": "05_CRYO_MALINIA",
+        "hue": 201,
+        "color": "ACDFFD",
+        "weapon_index": 12,
+        "description": "Au fond du lac dort un souvenir que Niveria croyait perdu. Malinia retient les fissures du gel pendant qu'une lueur ancienne réchauffe ses mains. Sauver le passé commence parfois par le laisser fondre.",
+        "artwork": "MALINIA",
+        "artworkSource": "V4/assets/illustrations/elements-01/eau-feu-glace/MALINIA_V4_01.png",
+        "artworkUnchanged": false,
+        "sourcePSD": "V3/templates/05_CRYO_MALINIA.psd",
+        "output": "MALINIA_V4_01_CRYO",
+        "profile": "V4/template-stable/elements-01/malinia/card.json"
+      },
+      "profile": "V4/template-stable/elements-01/malinia/card.json",
+      "png": "V4/cartes/MALINIA_V4_01_CRYO.png",
+      "psd": "V4/templates/MALINIA_V4_01_CRYO.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "elements": [
+          "CRYO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "MALINIA": [
+                "ART - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000005": [
+                "ID CODE128 - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Sceptre": [
+                "ARME - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "HUMAIN": [
+                "RACE - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Niveria": [
+                "FACTION - CONTENU"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34,
+          "sizePt": 7.84,
+          "supportScale": 112,
+          "supportCenterX": 226,
+          "supportCenterY": 1020.5,
+          "shadow": {
+            "opacity": 65,
+            "distance": 3,
+            "blur": 4
+          }
+        },
+        "effectSupports": [
+          {
+            "side": "DEF",
+            "die": 1,
+            "layers": [
+              "DEF D1 - fond effet"
+            ]
+          }
+        ],
+        "effectLayouts": [
+          {
+            "layer": "DEF D6 - effet dodge",
+            "width": 72,
+            "height": 72,
+            "anchor": [
+              0.50505050505051,
+              0.46464646464646
+            ],
+            "center": [
+              754,
+              151
+            ],
+            "innerRadius": 53,
+            "safeRadius": 49,
+            "measuredInnerRim": {
+              "center": [
+                753.65,
+                151.15
+              ],
+              "radii": [
+                57,
+                59.65
+              ]
+            },
+            "measurement": "Visible contour alpha >=32; optical anchor balances figure and diagonal motion trail on the actual painted rim."
+          },
+          {
+            "layer": "DEF D1 - effet retry",
+            "width": 58,
+            "height": 55,
+            "anchor": [
+              0.49649967068222,
+              0.50630706323867
+            ],
+            "center": [
+              737,
+              773
+            ],
+            "innerRadius": 38.5,
+            "safeRadius": 32,
+            "measuredInnerRim": {
+              "center": [
+                736.85,
+                772.95
+              ],
+              "radii": [
+                38.85,
+                38.7
+              ]
+            },
+            "measurement": "Green leaf mass centroid aligned to the ACTUAL painted inner rim, not to support bounds or numeric field coordinates."
+          }
+        ]
+      },
+      "options": {
+        "atk": [
+          [],
+          [
+            "mana"
+          ],
+          [
+            "retry"
+          ],
+          [
+            "buff_atk",
+            "retry"
+          ],
+          [
+            "guard",
+            "mana"
+          ],
+          [
+            "buff_atk",
+            "guard",
+            "mana"
+          ]
+        ],
+        "defense": [
+          [
+            "dodge"
+          ],
+          [],
+          [
+            "retry"
+          ],
+          [],
+          [],
+          [
+            "retry"
+          ]
+        ]
+      },
+      "artworkLayer": "ART - CONTENU",
+      "fonts": [
+        "MyriadPro-Regular",
+        "TimesNewRomanPSMT",
+        "Augustus",
+        null,
+        "Crystal",
+        "Bahnschrift-BoldSemiCondensed"
+      ]
+    },
+    {
+      "key": "aelis",
+      "card": {
+        "schemaVersion": 4,
+        "id": "30000006",
+        "name": "AELIS",
+        "title": "LA LUMIERE AUX OUBLIES",
+        "job": "SOIGNEUSE",
+        "race": "AURELION",
+        "element": "LUXO",
+        "faction": "Solaria",
+        "weapon": "Bâton",
+        "positions": [
+          5
+        ],
+        "atk": [
+          172,
+          140,
+          115,
+          83,
+          51,
+          "revive"
+        ],
+        "defense": [
+          204,
+          167,
+          130,
+          100,
+          63,
+          26
+        ],
+        "magic": [
+          6,
+          5,
+          4,
+          3,
+          2
+        ],
+        "barriers": [
+          6,
+          5,
+          3
+        ],
+        "slug": "06_LUXO_AELIS",
+        "hue": 47,
+        "color": "F4E9AF",
+        "weapon_index": 10,
+        "description": "Dans le sanctuaire brisé, Aelis ramasse les fragments d'une lanterne. Elle en recoud la lumière pour ceux que la cité a rejetés. Son premier miracle n'est pas de juger les âmes, mais de leur faire une place.",
+        "artwork": "AELIS",
+        "artworkSource": "V3/assets/illustrations/06_LUXO_AELIS.png",
+        "artworkUnchanged": true,
+        "sourcePSD": "V3/templates/06_LUXO_AELIS.psd",
+        "output": "AELIS_V4_01_LUXO",
+        "profile": "V4/template-stable/elements-01/aelis/card.json"
+      },
+      "profile": "V4/template-stable/elements-01/aelis/card.json",
+      "png": "V4/cartes/AELIS_V4_01_LUXO.png",
+      "psd": "V4/templates/AELIS_V4_01_LUXO.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "elements": [
+          "LUXO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "AELIS": [
+                "ART - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000006": [
+                "ID CODE128 - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Bâton": [
+                "ARME - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "AURELION": [
+                "RACE - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Solaria": [
+                "FACTION - CONTENU"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34,
+          "sizePt": 7.84,
+          "supportScale": 112,
+          "supportCenterX": 226,
+          "supportCenterY": 1020.5,
+          "shadow": {
+            "opacity": 65,
+            "distance": 3,
+            "blur": 4
+          }
+        },
+        "effectSupports": [
+          {
+            "side": "DEF",
+            "die": 1,
+            "layers": [
+              "DEF D1 - fond effet"
+            ]
+          }
+        ],
+        "effectLayouts": [
+          {
+            "layer": "DEF D6 - effet dodge",
+            "width": 72,
+            "height": 72,
+            "anchor": [
+              0.50505050505051,
+              0.46464646464646
+            ],
+            "center": [
+              754,
+              151
+            ],
+            "innerRadius": 53,
+            "safeRadius": 49,
+            "measuredInnerRim": {
+              "center": [
+                753.65,
+                151.15
+              ],
+              "radii": [
+                57,
+                59.65
+              ]
+            },
+            "measurement": "Visible contour alpha >=32; optical anchor balances figure and diagonal motion trail on the actual painted rim."
+          },
+          {
+            "layer": "DEF D1 - effet retry",
+            "width": 58,
+            "height": 55,
+            "anchor": [
+              0.49649967068222,
+              0.50630706323867
+            ],
+            "center": [
+              737,
+              773
+            ],
+            "innerRadius": 38.5,
+            "safeRadius": 32,
+            "measuredInnerRim": {
+              "center": [
+                736.85,
+                772.95
+              ],
+              "radii": [
+                38.85,
+                38.7
+              ]
+            },
+            "measurement": "Green leaf mass centroid aligned to the ACTUAL painted inner rim, not to support bounds or numeric field coordinates."
+          }
+        ]
+      },
+      "options": {
+        "atk": [
+          [],
+          [
+            "mana"
+          ],
+          [
+            "retry"
+          ],
+          [
+            "buff_atk",
+            "retry"
+          ],
+          [
+            "guard",
+            "mana"
+          ],
+          [
+            "buff_atk",
+            "guard",
+            "mana",
+            "revive"
+          ]
+        ],
+        "defense": [
+          [
+            "dodge"
+          ],
+          [],
+          [
+            "retry"
+          ],
+          [],
+          [],
+          [
+            "retry"
+          ]
+        ]
+      },
+      "artworkLayer": "ART - CONTENU",
+      "fonts": [
+        "MyriadPro-Regular",
+        "TimesNewRomanPSMT",
+        "Augustus",
+        null,
+        "Crystal",
+        "Bahnschrift-BoldSemiCondensed"
+      ]
+    },
+    {
+      "key": "iliane",
+      "card": {
+        "schemaVersion": 4,
+        "id": "30000017",
+        "name": "ILIANE",
+        "title": "LE NOM RETROUVE",
+        "job": "ARCHIVISTE",
+        "race": "AURELION",
+        "element": "LUXO",
+        "faction": "Solaria",
+        "weapon": "Tome",
+        "positions": [
+          4
+        ],
+        "atk": [
+          294,
+          242,
+          190,
+          145,
+          93,
+          41
+        ],
+        "defense": [
+          176,
+          144,
+          112,
+          80,
+          55,
+          23
+        ],
+        "magic": [
+          6,
+          5,
+          4,
+          3,
+          2,
+          1
+        ],
+        "barriers": [
+          4
+        ],
+        "slug": "17_LUXO_ILIANE",
+        "hue": 47,
+        "color": "F4E9AF",
+        "weapon_index": 13,
+        "description": "Iliane éclaire les pages que le conseil voulait oublier. Lettre après lettre, les noms reviennent. Elle ne baisse plus les yeux quand la porte s'ouvre.",
+        "artwork": "ILIANE",
+        "artworkSource": "V3/assets/illustrations/17_LUXO_ILIANE.png",
+        "artworkUnchanged": true,
+        "sourcePSD": "V3/templates/17_LUXO_ILIANE.psd",
+        "output": "ILIANE_V4_01_LUXO",
+        "profile": "V4/template-stable/elements-01/iliane/card.json"
+      },
+      "profile": "V4/template-stable/elements-01/iliane/card.json",
+      "png": "V4/cartes/ILIANE_V4_01_LUXO.png",
+      "psd": "V4/templates/ILIANE_V4_01_LUXO.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "elements": [
+          "LUXO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "ILIANE": [
+                "ART - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000017": [
+                "ID CODE128 - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Tome": [
+                "ARME - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "AURELION": [
+                "RACE - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Solaria": [
+                "FACTION - CONTENU"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34,
+          "sizePt": 7.84,
+          "supportScale": 112,
+          "supportCenterX": 226,
+          "supportCenterY": 1020.5,
+          "shadow": {
+            "opacity": 65,
+            "distance": 3,
+            "blur": 4
+          }
+        },
+        "effectSupports": [
+          {
+            "side": "DEF",
+            "die": 1,
+            "layers": [
+              "DEF D1 - fond effet"
+            ]
+          }
+        ],
+        "effectLayouts": [
+          {
+            "layer": "DEF D6 - effet dodge",
+            "width": 72,
+            "height": 72,
+            "anchor": [
+              0.50505050505051,
+              0.46464646464646
+            ],
+            "center": [
+              754,
+              151
+            ],
+            "innerRadius": 53,
+            "safeRadius": 49,
+            "measuredInnerRim": {
+              "center": [
+                753.65,
+                151.15
+              ],
+              "radii": [
+                57,
+                59.65
+              ]
+            },
+            "measurement": "Visible contour alpha >=32; optical anchor balances figure and diagonal motion trail on the actual painted rim."
+          },
+          {
+            "layer": "DEF D1 - effet retry",
+            "width": 58,
+            "height": 55,
+            "anchor": [
+              0.49649967068222,
+              0.50630706323867
+            ],
+            "center": [
+              737,
+              773
+            ],
+            "innerRadius": 38.5,
+            "safeRadius": 32,
+            "measuredInnerRim": {
+              "center": [
+                736.85,
+                772.95
+              ],
+              "radii": [
+                38.85,
+                38.7
+              ]
+            },
+            "measurement": "Green leaf mass centroid aligned to the ACTUAL painted inner rim, not to support bounds or numeric field coordinates."
+          }
+        ]
+      },
+      "options": {
+        "atk": [
+          [],
+          [
+            "mana"
+          ],
+          [
+            "retry"
+          ],
+          [
+            "buff_atk",
+            "retry"
+          ],
+          [
+            "guard",
+            "mana"
+          ],
+          [
+            "buff_atk",
+            "guard",
+            "mana"
+          ]
+        ],
+        "defense": [
+          [
+            "dodge"
+          ],
+          [],
+          [
+            "retry"
+          ],
+          [],
+          [],
+          [
+            "retry"
+          ]
+        ]
+      },
+      "artworkLayer": "ART - CONTENU",
+      "fonts": [
+        "MyriadPro-Regular",
+        "TimesNewRomanPSMT",
+        "Augustus",
+        null,
+        "Crystal",
+        "Bahnschrift-BoldSemiCondensed"
+      ]
+    },
+    {
+      "key": "belrog",
+      "card": {
+        "schemaVersion": 4,
+        "id": "30000019",
+        "name": "BELROG",
+        "title": "LE SILENCE DE LA MONTAGNE",
+        "job": "ECLAIREUR",
+        "race": "RHINOZ",
+        "element": "MINERO",
+        "faction": "Zarok",
+        "weapon": "Masse",
+        "positions": [
+          1
+        ],
+        "atk": [
+          205,
+          168,
+          131,
+          101,
+          "guard",
+          27
+        ],
+        "defense": [
+          290,
+          245,
+          193,
+          141,
+          96,
+          44
+        ],
+        "magic": [
+          6,
+          3
+        ],
+        "barriers": [
+          5,
+          2
+        ],
+        "slug": "19_MINERO_BELROG",
+        "hue": 210,
+        "color": "B3BFCA",
+        "weapon_index": 2,
+        "description": "Au sommet du col, Belrog redresse le signal renversé par l'avalanche. La vallée ne répond pas encore. Il attend debout, couvert de poussière, jusqu'à distinguer une première lumière au loin.",
+        "artwork": "BELROG",
+        "artworkSource": "V3/assets/illustrations/19_MINERO_BELROG.png",
+        "artworkUnchanged": true,
+        "sourcePSD": "V3/templates/19_MINERO_BELROG.psd",
+        "output": "BELROG_V4_01_MINERO",
+        "profile": "V4/template-stable/elements-01/belrog/card.json"
+      },
+      "profile": "V4/template-stable/elements-01/belrog/card.json",
+      "png": "V4/cartes/BELROG_V4_01_MINERO.png",
+      "psd": "V4/templates/BELROG_V4_01_MINERO.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "elements": [
+          "MINERO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "BELROG": [
+                "ART - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000019": [
+                "ID CODE128 - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Masse": [
+                "ARME - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "RHINOZ": [
+                "RACE - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Zarok": [
+                "FACTION - CONTENU"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34,
+          "sizePt": 7.84,
+          "supportScale": 112,
+          "supportCenterX": 226,
+          "supportCenterY": 1020.5,
+          "shadow": {
+            "opacity": 65,
+            "distance": 3,
+            "blur": 4
+          }
+        },
+        "effectSupports": [
+          {
+            "side": "DEF",
+            "die": 1,
+            "layers": [
+              "DEF D1 - fond effet"
+            ]
+          }
+        ],
+        "effectLayouts": [
+          {
+            "layer": "DEF D6 - effet dodge",
+            "width": 72,
+            "height": 72,
+            "anchor": [
+              0.50505050505051,
+              0.46464646464646
+            ],
+            "center": [
+              754,
+              151
+            ],
+            "innerRadius": 53,
+            "safeRadius": 49,
+            "measuredInnerRim": {
+              "center": [
+                753.65,
+                151.15
+              ],
+              "radii": [
+                57,
+                59.65
+              ]
+            },
+            "measurement": "Visible contour alpha >=32; optical anchor balances figure and diagonal motion trail on the actual painted rim."
+          },
+          {
+            "layer": "DEF D1 - effet retry",
+            "width": 58,
+            "height": 55,
+            "anchor": [
+              0.49649967068222,
+              0.50630706323867
+            ],
+            "center": [
+              737,
+              773
+            ],
+            "innerRadius": 38.5,
+            "safeRadius": 32,
+            "measuredInnerRim": {
+              "center": [
+                736.85,
+                772.95
+              ],
+              "radii": [
+                38.85,
+                38.7
+              ]
+            },
+            "measurement": "Green leaf mass centroid aligned to the ACTUAL painted inner rim, not to support bounds or numeric field coordinates."
+          }
+        ]
+      },
+      "options": {
+        "atk": [
+          [],
+          [
+            "mana"
+          ],
+          [
+            "retry"
+          ],
+          [
+            "buff_atk",
+            "retry"
+          ],
+          [
+            "guard",
+            "mana"
+          ],
+          [
+            "buff_atk",
+            "guard",
+            "mana"
+          ]
+        ],
+        "defense": [
+          [
+            "dodge"
+          ],
+          [],
+          [
+            "retry"
+          ],
+          [],
+          [],
+          [
+            "retry"
+          ]
+        ]
+      },
+      "artworkLayer": "ART - CONTENU",
+      "fonts": [
+        "MyriadPro-Regular",
+        "TimesNewRomanPSMT",
+        "Augustus",
+        null,
+        "Crystal",
+        "Bahnschrift-BoldSemiCondensed"
+      ]
+    },
+    {
+      "key": "lok",
+      "card": {
+        "schemaVersion": 4,
+        "id": "30000018",
+        "name": "LOK",
+        "title": "LE POIDS DU TRÔNE",
+        "job": "ROI DE DURANE",
+        "race": "NAIN",
+        "element": "MINERO",
+        "faction": "Durane",
+        "weapon": "Marteau",
+        "positions": [
+          2
+        ],
+        "atk": [
+          291,
+          246,
+          194,
+          142,
+          90,
+          45
+        ],
+        "defense": [
+          173,
+          141,
+          116,
+          84,
+          52,
+          20
+        ],
+        "magic": [
+          6
+        ],
+        "barriers": [
+          5
+        ],
+        "slug": "18_MINERO_LOK",
+        "hue": 210,
+        "color": "B3BFCA",
+        "weapon_index": 1,
+        "description": "Sur le trône de Durane, Lok serre les accoudoirs. Chaque bruit de pas lui semble une menace. Il porte la couronne comme une arme, mais le silence de la salle lui pèse plus lourd que le fer.",
+        "artwork": "LOK",
+        "artworkSource": "V4/assets/illustrations/elements-01/terre-plantes/LOK_V4_01.png",
+        "artworkUnchanged": false,
+        "sourcePSD": "V3/templates/18_MINERO_LOK.psd",
+        "output": "LOK_V4_01_MINERO",
+        "profile": "V4/template-stable/elements-01/lok/card.json"
+      },
+      "profile": "V4/template-stable/elements-01/lok/card.json",
+      "png": "V4/cartes/LOK_V4_01_MINERO.png",
+      "psd": "V4/templates/LOK_V4_01_MINERO.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "elements": [
+          "MINERO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "LOK": [
+                "ART - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000018": [
+                "ID CODE128 - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Marteau": [
+                "ARME - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "NAIN": [
+                "RACE - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Durane": [
+                "FACTION - CONTENU"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34,
+          "sizePt": 7.84,
+          "supportScale": 112,
+          "supportCenterX": 226,
+          "supportCenterY": 1020.5,
+          "shadow": {
+            "opacity": 65,
+            "distance": 3,
+            "blur": 4
+          }
+        },
+        "effectSupports": [
+          {
+            "side": "DEF",
+            "die": 1,
+            "layers": [
+              "DEF D1 - fond effet"
+            ]
+          }
+        ],
+        "effectLayouts": [
+          {
+            "layer": "DEF D6 - effet dodge",
+            "width": 72,
+            "height": 72,
+            "anchor": [
+              0.50505050505051,
+              0.46464646464646
+            ],
+            "center": [
+              754,
+              151
+            ],
+            "innerRadius": 53,
+            "safeRadius": 49,
+            "measuredInnerRim": {
+              "center": [
+                753.65,
+                151.15
+              ],
+              "radii": [
+                57,
+                59.65
+              ]
+            },
+            "measurement": "Visible contour alpha >=32; optical anchor balances figure and diagonal motion trail on the actual painted rim."
+          },
+          {
+            "layer": "DEF D1 - effet retry",
+            "width": 58,
+            "height": 55,
+            "anchor": [
+              0.49649967068222,
+              0.50630706323867
+            ],
+            "center": [
+              737,
+              773
+            ],
+            "innerRadius": 38.5,
+            "safeRadius": 32,
+            "measuredInnerRim": {
+              "center": [
+                736.85,
+                772.95
+              ],
+              "radii": [
+                38.85,
+                38.7
+              ]
+            },
+            "measurement": "Green leaf mass centroid aligned to the ACTUAL painted inner rim, not to support bounds or numeric field coordinates."
+          }
+        ]
+      },
+      "options": {
+        "atk": [
+          [],
+          [
+            "mana"
+          ],
+          [
+            "retry"
+          ],
+          [
+            "buff_atk",
+            "retry"
+          ],
+          [
+            "guard",
+            "mana"
+          ],
+          [
+            "buff_atk",
+            "guard",
+            "mana"
+          ]
+        ],
+        "defense": [
+          [
+            "dodge"
+          ],
+          [],
+          [
+            "retry"
+          ],
+          [],
+          [],
+          [
+            "retry"
+          ]
+        ]
+      },
+      "artworkLayer": "ART - CONTENU",
+      "fonts": [
+        "MyriadPro-Regular",
+        "TimesNewRomanPSMT",
+        "Augustus",
+        null,
+        "Crystal",
+        "Bahnschrift-BoldSemiCondensed"
+      ]
+    },
+    {
+      "key": "balmhyr",
+      "card": {
+        "schemaVersion": 4,
+        "id": "30000007",
+        "name": "BALMHYR",
+        "title": "LE ROYAUME À L'HORIZON",
+        "job": "MENTOR",
+        "race": "NAIN",
+        "element": "MINERO",
+        "faction": "Durane",
+        "weapon": "Hache",
+        "positions": [
+          1
+        ],
+        "atk": [
+          206,
+          169,
+          132,
+          95,
+          "guard",
+          28
+        ],
+        "defense": [
+          291,
+          246,
+          194,
+          142,
+          90,
+          45
+        ],
+        "magic": [
+          6,
+          4
+        ],
+        "barriers": [
+          6,
+          3
+        ],
+        "slug": "07_MINERO_BALMHYR",
+        "hue": 210,
+        "color": "B3BFCA",
+        "weapon_index": 0,
+        "description": "Balmhyr regarde Durane sans courber le dos. Son ours veille derrière lui. Le roi déchu n'a plus de trône, mais ceux qui croisent son regard y trouvent encore la force d'un père et la patience d'un guide.",
+        "artwork": "BALMHYR",
+        "artworkSource": "V4/assets/illustrations/elements-01/terre-plantes/BALMHYR_V4_02_CANYONERO.png",
+        "artworkUnchanged": false,
+        "sourcePSD": "V3/templates/07_MINERO_BALMHYR.psd",
+        "output": "BALMHYR_V4_01_MINERO",
+        "profile": "V4/template-stable/elements-01/balmhyr/card.json"
+      },
+      "profile": "V4/template-stable/elements-01/balmhyr/card.json",
+      "png": "V4/cartes/BALMHYR_V4_01_MINERO.png",
+      "psd": "V4/templates/BALMHYR_V4_01_MINERO.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "elements": [
+          "MINERO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "BALMHYR": [
+                "ART - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000007": [
+                "ID CODE128 - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Hache": [
+                "ARME - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "NAIN": [
+                "RACE - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Durane": [
+                "FACTION - CONTENU"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34,
+          "sizePt": 7.84,
+          "supportScale": 112,
+          "supportCenterX": 226,
+          "supportCenterY": 1020.5,
+          "shadow": {
+            "opacity": 65,
+            "distance": 3,
+            "blur": 4
+          }
+        },
+        "effectSupports": [
+          {
+            "side": "DEF",
+            "die": 1,
+            "layers": [
+              "DEF D1 - fond effet"
+            ]
+          }
+        ],
+        "effectLayouts": [
+          {
+            "layer": "DEF D6 - effet dodge",
+            "width": 72,
+            "height": 72,
+            "anchor": [
+              0.50505050505051,
+              0.46464646464646
+            ],
+            "center": [
+              754,
+              151
+            ],
+            "innerRadius": 53,
+            "safeRadius": 49,
+            "measuredInnerRim": {
+              "center": [
+                753.65,
+                151.15
+              ],
+              "radii": [
+                57,
+                59.65
+              ]
+            },
+            "measurement": "Visible contour alpha >=32; optical anchor balances figure and diagonal motion trail on the actual painted rim."
+          },
+          {
+            "layer": "DEF D1 - effet retry",
+            "width": 58,
+            "height": 55,
+            "anchor": [
+              0.49649967068222,
+              0.50630706323867
+            ],
+            "center": [
+              737,
+              773
+            ],
+            "innerRadius": 38.5,
+            "safeRadius": 32,
+            "measuredInnerRim": {
+              "center": [
+                736.85,
+                772.95
+              ],
+              "radii": [
+                38.85,
+                38.7
+              ]
+            },
+            "measurement": "Green leaf mass centroid aligned to the ACTUAL painted inner rim, not to support bounds or numeric field coordinates."
+          }
+        ]
+      },
+      "options": {
+        "atk": [
+          [],
+          [
+            "mana"
+          ],
+          [
+            "retry"
+          ],
+          [
+            "buff_atk",
+            "retry"
+          ],
+          [
+            "guard",
+            "mana"
+          ],
+          [
+            "buff_atk",
+            "guard",
+            "mana"
+          ]
+        ],
+        "defense": [
+          [
+            "dodge"
+          ],
+          [],
+          [
+            "retry"
+          ],
+          [],
+          [],
+          [
+            "retry"
+          ]
+        ]
+      },
+      "artworkLayer": "ART - CONTENU",
+      "fonts": [
+        "MyriadPro-Regular",
+        "TimesNewRomanPSMT",
+        "Augustus",
+        null,
+        "Crystal",
+        "Bahnschrift-BoldSemiCondensed"
+      ]
+    },
+    {
+      "key": "magnar",
+      "card": {
+        "schemaVersion": 4,
+        "id": "30000024",
+        "name": "MAGNAR",
+        "title": "LA PORTE DE PIERRE",
+        "job": "GEOLIER",
+        "race": "GOLEM",
+        "element": "MINERO",
+        "faction": "Durane",
+        "weapon": "Masse",
+        "positions": [
+          1
+        ],
+        "atk": [
+          204,
+          167,
+          130,
+          100,
+          "guard",
+          26
+        ],
+        "defense": [
+          296,
+          244,
+          192,
+          140,
+          95,
+          43
+        ],
+        "magic": [
+          6,
+          3
+        ],
+        "barriers": [
+          5,
+          2
+        ],
+        "slug": "24_MINERO_MAGNAR",
+        "hue": 210,
+        "color": "B3BFCA",
+        "weapon_index": 2,
+        "description": "Magnar avance d'un pas et la galerie semble rétrécir. Il n'a pas besoin de hausser la voix. La roche de son corps connaît chaque vibration de la mine.",
+        "artwork": "MAGNAR",
+        "artworkSource": "V4/assets/illustrations/elements-01/terre-plantes/MAGNAR_V4_01.png",
+        "artworkUnchanged": false,
+        "sourcePSD": "V3/templates/24_MINERO_MAGNAR.psd",
+        "output": "MAGNAR_V4_01_MINERO",
+        "profile": "V4/template-stable/elements-01/magnar/card.json"
+      },
+      "profile": "V4/template-stable/elements-01/magnar/card.json",
+      "png": "V4/cartes/MAGNAR_V4_01_MINERO.png",
+      "psd": "V4/templates/MAGNAR_V4_01_MINERO.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "elements": [
+          "MINERO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "MAGNAR": [
+                "ART - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000024": [
+                "ID CODE128 - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Masse": [
+                "ARME - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "GOLEM": [
+                "RACE - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Durane": [
+                "FACTION - CONTENU"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34,
+          "sizePt": 7.84,
+          "supportScale": 112,
+          "supportCenterX": 226,
+          "supportCenterY": 1020.5,
+          "shadow": {
+            "opacity": 65,
+            "distance": 3,
+            "blur": 4
+          }
+        },
+        "effectSupports": [
+          {
+            "side": "DEF",
+            "die": 1,
+            "layers": [
+              "DEF D1 - fond effet"
+            ]
+          }
+        ],
+        "effectLayouts": [
+          {
+            "layer": "DEF D6 - effet dodge",
+            "width": 72,
+            "height": 72,
+            "anchor": [
+              0.50505050505051,
+              0.46464646464646
+            ],
+            "center": [
+              754,
+              151
+            ],
+            "innerRadius": 53,
+            "safeRadius": 49,
+            "measuredInnerRim": {
+              "center": [
+                753.65,
+                151.15
+              ],
+              "radii": [
+                57,
+                59.65
+              ]
+            },
+            "measurement": "Visible contour alpha >=32; optical anchor balances figure and diagonal motion trail on the actual painted rim."
+          },
+          {
+            "layer": "DEF D1 - effet retry",
+            "width": 58,
+            "height": 55,
+            "anchor": [
+              0.49649967068222,
+              0.50630706323867
+            ],
+            "center": [
+              737,
+              773
+            ],
+            "innerRadius": 38.5,
+            "safeRadius": 32,
+            "measuredInnerRim": {
+              "center": [
+                736.85,
+                772.95
+              ],
+              "radii": [
+                38.85,
+                38.7
+              ]
+            },
+            "measurement": "Green leaf mass centroid aligned to the ACTUAL painted inner rim, not to support bounds or numeric field coordinates."
+          }
+        ]
+      },
+      "options": {
+        "atk": [
+          [],
+          [
+            "mana"
+          ],
+          [
+            "retry"
+          ],
+          [
+            "buff_atk",
+            "retry"
+          ],
+          [
+            "guard",
+            "mana"
+          ],
+          [
+            "buff_atk",
+            "guard",
+            "mana"
+          ]
+        ],
+        "defense": [
+          [
+            "dodge"
+          ],
+          [],
+          [
+            "retry"
+          ],
+          [],
+          [],
+          [
+            "retry"
+          ]
+        ]
+      },
+      "artworkLayer": "ART - CONTENU",
+      "fonts": [
+        "MyriadPro-Regular",
+        "TimesNewRomanPSMT",
+        "Augustus",
+        null,
+        "Crystal",
+        "Bahnschrift-BoldSemiCondensed"
+      ]
+    },
+    {
+      "key": "thalie",
+      "card": {
+        "schemaVersion": 4,
+        "id": "30000041",
+        "name": "THALIE",
+        "title": "CE QUI REPOUSSE",
+        "job": "HERBORISTE",
+        "race": "CARNIVERT",
+        "element": "HERBO",
+        "faction": "Arborium",
+        "weapon": "Tome",
+        "positions": [
+          5
+        ],
+        "atk": [
+          172,
+          140,
+          115,
+          83,
+          "retry",
+          "revive"
+        ],
+        "defense": [
+          204,
+          167,
+          130,
+          100,
+          63,
+          26
+        ],
+        "magic": [
+          6,
+          5,
+          4,
+          3
+        ],
+        "barriers": [
+          6,
+          3
+        ],
+        "slug": "41_HERBO_THALIE",
+        "hue": 100,
+        "color": "89D355",
+        "weapon_index": 13,
+        "description": "Thalie tourne la page couverte de suie et pose une feuille neuve entre les feuillets. La forêt ne reprend pas tout d'un coup. Elle commence ici.",
+        "artwork": "THALIE",
+        "artworkSource": "V3/assets/illustrations/41_HERBO_THALIE.png",
+        "artworkUnchanged": true,
+        "sourcePSD": "V3/templates/41_HERBO_THALIE.psd",
+        "output": "THALIE_V4_01_HERBO",
+        "profile": "V4/template-stable/elements-01/thalie/card.json"
+      },
+      "profile": "V4/template-stable/elements-01/thalie/card.json",
+      "png": "V4/cartes/THALIE_V4_01_HERBO.png",
+      "psd": "V4/templates/THALIE_V4_01_HERBO.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "elements": [
+          "HERBO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "THALIE": [
+                "ART - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000041": [
+                "ID CODE128 - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Tome": [
+                "ARME - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "CARNIVERT": [
+                "RACE - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Arborium": [
+                "FACTION - CONTENU"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34,
+          "sizePt": 7.84,
+          "supportScale": 112,
+          "supportCenterX": 226,
+          "supportCenterY": 1020.5,
+          "shadow": {
+            "opacity": 65,
+            "distance": 3,
+            "blur": 4
+          }
+        },
+        "effectSupports": [
+          {
+            "side": "DEF",
+            "die": 1,
+            "layers": [
+              "DEF D1 - fond effet"
+            ]
+          }
+        ],
+        "effectLayouts": [
+          {
+            "layer": "DEF D6 - effet dodge",
+            "width": 72,
+            "height": 72,
+            "anchor": [
+              0.50505050505051,
+              0.46464646464646
+            ],
+            "center": [
+              754,
+              151
+            ],
+            "innerRadius": 53,
+            "safeRadius": 49,
+            "measuredInnerRim": {
+              "center": [
+                753.65,
+                151.15
+              ],
+              "radii": [
+                57,
+                59.65
+              ]
+            },
+            "measurement": "Visible contour alpha >=32; optical anchor balances figure and diagonal motion trail on the actual painted rim."
+          },
+          {
+            "layer": "DEF D1 - effet retry",
+            "width": 58,
+            "height": 55,
+            "anchor": [
+              0.49649967068222,
+              0.50630706323867
+            ],
+            "center": [
+              737,
+              773
+            ],
+            "innerRadius": 38.5,
+            "safeRadius": 32,
+            "measuredInnerRim": {
+              "center": [
+                736.85,
+                772.95
+              ],
+              "radii": [
+                38.85,
+                38.7
+              ]
+            },
+            "measurement": "Green leaf mass centroid aligned to the ACTUAL painted inner rim, not to support bounds or numeric field coordinates."
+          }
+        ]
+      },
+      "options": {
+        "atk": [
+          [],
+          [
+            "mana"
+          ],
+          [
+            "retry"
+          ],
+          [
+            "buff_atk",
+            "retry"
+          ],
+          [
+            "retry",
+            "guard",
+            "mana"
+          ],
+          [
+            "buff_atk",
+            "guard",
+            "mana",
+            "revive"
+          ]
+        ],
+        "defense": [
+          [
+            "dodge"
+          ],
+          [],
+          [
+            "retry"
+          ],
+          [],
+          [],
+          [
+            "retry"
+          ]
+        ]
+      },
+      "artworkLayer": "ART - CONTENU",
+      "fonts": [
+        "MyriadPro-Regular",
+        "TimesNewRomanPSMT",
+        "Augustus",
+        null,
+        "Crystal",
+        "Bahnschrift-BoldSemiCondensed"
+      ]
+    },
+    {
+      "key": "bloom",
+      "card": {
+        "schemaVersion": 4,
+        "id": "30000033",
+        "name": "BLOOM",
+        "title": "LA GRAINE SOUS SCELLES",
+        "job": "BOTANISTE",
+        "race": "TOXINAR",
+        "element": "HERBO",
+        "faction": "Arborium",
+        "weapon": "Orbe",
+        "positions": [
+          4
+        ],
+        "atk": [
+          295,
+          243,
+          191,
+          146,
+          94,
+          42
+        ],
+        "defense": [
+          170,
+          145,
+          113,
+          81,
+          56,
+          24
+        ],
+        "magic": [
+          6,
+          5,
+          4,
+          3,
+          2,
+          1
+        ],
+        "barriers": [
+          4
+        ],
+        "slug": "33_HERBO_BLOOM",
+        "hue": 100,
+        "color": "89D355",
+        "weapon_index": 14,
+        "description": "Bloom tourne la graine sous le verre. La fleur qu'elle promet pourrait sauver la serre ou l'étouffer. Il prend le temps d'apprendre la différence.",
+        "artwork": "BLOOM",
+        "artworkSource": "V3/assets/illustrations/33_HERBO_BLOOM.png",
+        "artworkUnchanged": true,
+        "sourcePSD": "V3/templates/33_HERBO_BLOOM.psd",
+        "output": "BLOOM_V4_01_HERBO",
+        "profile": "V4/template-stable/elements-01/bloom/card.json"
+      },
+      "profile": "V4/template-stable/elements-01/bloom/card.json",
+      "png": "V4/cartes/BLOOM_V4_01_HERBO.png",
+      "psd": "V4/templates/BLOOM_V4_01_HERBO.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "elements": [
+          "HERBO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "BLOOM": [
+                "ART - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000033": [
+                "ID CODE128 - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Orbe": [
+                "ARME - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "TOXINAR": [
+                "RACE - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Arborium": [
+                "FACTION - CONTENU"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34,
+          "sizePt": 7.84,
+          "supportScale": 112,
+          "supportCenterX": 226,
+          "supportCenterY": 1020.5,
+          "shadow": {
+            "opacity": 65,
+            "distance": 3,
+            "blur": 4
+          }
+        },
+        "effectSupports": [
+          {
+            "side": "DEF",
+            "die": 1,
+            "layers": [
+              "DEF D1 - fond effet"
+            ]
+          }
+        ],
+        "effectLayouts": [
+          {
+            "layer": "DEF D6 - effet dodge",
+            "width": 72,
+            "height": 72,
+            "anchor": [
+              0.50505050505051,
+              0.46464646464646
+            ],
+            "center": [
+              754,
+              151
+            ],
+            "innerRadius": 53,
+            "safeRadius": 49,
+            "measuredInnerRim": {
+              "center": [
+                753.65,
+                151.15
+              ],
+              "radii": [
+                57,
+                59.65
+              ]
+            },
+            "measurement": "Visible contour alpha >=32; optical anchor balances figure and diagonal motion trail on the actual painted rim."
+          },
+          {
+            "layer": "DEF D1 - effet retry",
+            "width": 58,
+            "height": 55,
+            "anchor": [
+              0.49649967068222,
+              0.50630706323867
+            ],
+            "center": [
+              737,
+              773
+            ],
+            "innerRadius": 38.5,
+            "safeRadius": 32,
+            "measuredInnerRim": {
+              "center": [
+                736.85,
+                772.95
+              ],
+              "radii": [
+                38.85,
+                38.7
+              ]
+            },
+            "measurement": "Green leaf mass centroid aligned to the ACTUAL painted inner rim, not to support bounds or numeric field coordinates."
+          }
+        ]
+      },
+      "options": {
+        "atk": [
+          [],
+          [
+            "mana"
+          ],
+          [
+            "retry"
+          ],
+          [
+            "buff_atk",
+            "retry"
+          ],
+          [
+            "guard",
+            "mana"
+          ],
+          [
+            "buff_atk",
+            "guard",
+            "mana"
+          ]
+        ],
+        "defense": [
+          [
+            "dodge"
+          ],
+          [],
+          [
+            "retry"
+          ],
+          [],
+          [],
+          [
+            "retry"
+          ]
+        ]
+      },
+      "artworkLayer": "ART - CONTENU",
+      "fonts": [
+        "MyriadPro-Regular",
+        "TimesNewRomanPSMT",
+        "Augustus",
+        null,
+        "Crystal",
+        "Bahnschrift-BoldSemiCondensed"
+      ]
+    },
+    {
+      "key": "victorvine",
+      "card": {
+        "schemaVersion": 4,
+        "id": "30000008",
+        "name": "VICTORVINE",
+        "title": "LA DERNIERE POUSSE",
+        "job": "VEILLEUR",
+        "race": "CARNIVERT",
+        "element": "HERBO",
+        "faction": "Arborium",
+        "weapon": "Bâton",
+        "positions": [
+          3
+        ],
+        "atk": [
+          233,
+          191,
+          156,
+          114,
+          72,
+          30
+        ],
+        "defense": [
+          235,
+          193,
+          151,
+          116,
+          74,
+          32
+        ],
+        "magic": [
+          6,
+          4,
+          2
+        ],
+        "barriers": [
+          5,
+          2
+        ],
+        "slug": "08_HERBO_VICTORVINE",
+        "hue": 100,
+        "color": "89D355",
+        "weapon_index": 10,
+        "description": "Victorvine recueille une jeune pousse au bord des eaux mortes. Autour, la forêt porte encore ses blessures. Dans ce geste fragile demeure une promesse : tout ce qui a été brisé n'est pas encore perdu.",
+        "artwork": "VICTORVINE",
+        "artworkSource": "V4/assets/illustrations/elements-01/terre-plantes/VICTORVINE_V4_01.png",
+        "artworkUnchanged": false,
+        "sourcePSD": "V3/templates/08_HERBO_VICTORVINE.psd",
+        "output": "VICTORVINE_V4_01_HERBO",
+        "profile": "V4/template-stable/elements-01/victorvine/card.json"
+      },
+      "profile": "V4/template-stable/elements-01/victorvine/card.json",
+      "png": "V4/cartes/VICTORVINE_V4_01_HERBO.png",
+      "psd": "V4/templates/VICTORVINE_V4_01_HERBO.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "elements": [
+          "HERBO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "VICTORVINE": [
+                "ART - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000008": [
+                "ID CODE128 - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Bâton": [
+                "ARME - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "CARNIVERT": [
+                "RACE - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Arborium": [
+                "FACTION - CONTENU"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34,
+          "sizePt": 7.84,
+          "supportScale": 112,
+          "supportCenterX": 226,
+          "supportCenterY": 1020.5,
+          "shadow": {
+            "opacity": 65,
+            "distance": 3,
+            "blur": 4
+          }
+        },
+        "effectSupports": [
+          {
+            "side": "DEF",
+            "die": 1,
+            "layers": [
+              "DEF D1 - fond effet"
+            ]
+          }
+        ],
+        "effectLayouts": [
+          {
+            "layer": "DEF D6 - effet dodge",
+            "width": 72,
+            "height": 72,
+            "anchor": [
+              0.50505050505051,
+              0.46464646464646
+            ],
+            "center": [
+              754,
+              151
+            ],
+            "innerRadius": 53,
+            "safeRadius": 49,
+            "measuredInnerRim": {
+              "center": [
+                753.65,
+                151.15
+              ],
+              "radii": [
+                57,
+                59.65
+              ]
+            },
+            "measurement": "Visible contour alpha >=32; optical anchor balances figure and diagonal motion trail on the actual painted rim."
+          },
+          {
+            "layer": "DEF D1 - effet retry",
+            "width": 58,
+            "height": 55,
+            "anchor": [
+              0.49649967068222,
+              0.50630706323867
+            ],
+            "center": [
+              737,
+              773
+            ],
+            "innerRadius": 38.5,
+            "safeRadius": 32,
+            "measuredInnerRim": {
+              "center": [
+                736.85,
+                772.95
+              ],
+              "radii": [
+                38.85,
+                38.7
+              ]
+            },
+            "measurement": "Green leaf mass centroid aligned to the ACTUAL painted inner rim, not to support bounds or numeric field coordinates."
+          }
+        ]
+      },
+      "options": {
+        "atk": [
+          [],
+          [
+            "mana"
+          ],
+          [
+            "retry"
+          ],
+          [
+            "buff_atk",
+            "retry"
+          ],
+          [
+            "guard",
+            "mana"
+          ],
+          [
+            "buff_atk",
+            "guard",
+            "mana"
+          ]
+        ],
+        "defense": [
+          [
+            "dodge"
+          ],
+          [],
+          [
+            "retry"
+          ],
+          [],
+          [],
+          [
+            "retry"
+          ]
+        ]
+      },
+      "artworkLayer": "ART - CONTENU",
+      "fonts": [
+        "MyriadPro-Regular",
+        "TimesNewRomanPSMT",
+        "Augustus",
+        null,
+        "Crystal",
+        "Bahnschrift-BoldSemiCondensed"
+      ]
+    },
+    {
+      "key": "kaylis",
+      "card": {
+        "schemaVersion": 4,
+        "id": "30000012",
+        "name": "KAYLIS",
+        "title": "LA PREMIÈRE BRÈCHE",
+        "job": "ÉVASION",
+        "race": "HUMAIN",
+        "element": "RAINBOW",
+        "faction": "Z13",
+        "weapon": "Dague",
+        "positions": [
+          5
+        ],
+        "atk": [
+          175,
+          143,
+          111,
+          86,
+          "guard",
+          "revive"
+        ],
+        "defense": [
+          200,
+          170,
+          133,
+          96,
+          66,
+          "retry"
+        ],
+        "magic": [
+          6,
+          5,
+          4,
+          3
+        ],
+        "barriers": [
+          6,
+          3
+        ],
+        "slug": "12_RAINBOW_KAYLIS",
+        "hue": 280,
+        "color": "E4D5FB",
+        "weapon_index": 15,
+        "description": "Kaylis s’arrête. Ses bras éclairent la roche, et cette lumière vient d’elle. Les deux pieds dans la poussière, elle regarde ses tatouages s’éveiller. La peur est encore là, mais elle ne la fait plus reculer.",
+        "artwork": "KAYLIS",
+        "artworkSource": "V3/assets/illustrations/12_RAINBOW_KAYLIS.png",
+        "artworkUnchanged": true,
+        "sourcePSD": "V3/templates/12_RAINBOW_KAYLIS.psd",
+        "output": "KAYLIS_V4_01_RAINBOW",
+        "profile": "V4/template-stable/elements-02/kaylis/card.json"
+      },
+      "profile": "V4/template-stable/elements-02/kaylis/card.json",
+      "png": "V4/cartes/KAYLIS_V4_01_RAINBOW.png",
+      "psd": "V4/templates/KAYLIS_V4_01_RAINBOW.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "elements": [
+          "RAINBOW"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "KAYLIS": [
+                "ART - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000012": [
+                "ID CODE128 - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Dague": [
+                "ARME - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "HUMAIN": [
+                "RACE - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Z13": [
+                "FACTION - CONTENU"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34,
+          "sizePt": 7.84,
+          "supportScale": 112,
+          "supportCenterX": 226,
+          "supportCenterY": 1020.5,
+          "shadow": {
+            "opacity": 65,
+            "distance": 3,
+            "blur": 4
+          }
+        },
+        "effectSupports": [
+          {
+            "side": "DEF",
+            "die": 1,
+            "layers": [
+              "DEF D1 - fond effet"
+            ]
+          }
+        ],
+        "effectLayouts": [
+          {
+            "layer": "DEF D6 - effet dodge",
+            "width": 72,
+            "height": 72,
+            "anchor": [
+              0.50505050505051,
+              0.46464646464646
+            ],
+            "center": [
+              754,
+              151
+            ],
+            "innerRadius": 53,
+            "safeRadius": 49,
+            "measuredInnerRim": {
+              "center": [
+                753.65,
+                151.15
+              ],
+              "radii": [
+                57,
+                59.65
+              ]
+            },
+            "measurement": "Visible contour alpha >=32; optical anchor balances figure and diagonal motion trail on the actual painted rim."
+          },
+          {
+            "layer": "DEF D1 - effet retry",
+            "width": 58,
+            "height": 55,
+            "anchor": [
+              0.49649967068222,
+              0.50630706323867
+            ],
+            "center": [
+              737,
+              773
+            ],
+            "innerRadius": 38.5,
+            "safeRadius": 32,
+            "measuredInnerRim": {
+              "center": [
+                736.85,
+                772.95
+              ],
+              "radii": [
+                38.85,
+                38.7
+              ]
+            },
+            "measurement": "Green leaf mass centroid aligned to the ACTUAL painted inner rim, not to support bounds or numeric field coordinates."
+          }
+        ]
+      },
+      "options": {
+        "atk": [
+          [],
+          [
+            "mana"
+          ],
+          [
+            "retry"
+          ],
+          [
+            "buff_atk",
+            "retry"
+          ],
+          [
+            "guard",
+            "mana"
+          ],
+          [
+            "buff_atk",
+            "guard",
+            "mana",
+            "revive"
+          ]
+        ],
+        "defense": [
+          [
+            "dodge"
+          ],
+          [],
+          [
+            "retry"
+          ],
+          [],
+          [],
+          [
+            "retry"
+          ]
+        ]
+      },
+      "artworkLayer": "ART - CONTENU",
+      "fonts": [
+        "MyriadPro-Regular",
+        "TimesNewRomanPSMT",
+        "Augustus",
+        null,
+        "Crystal",
+        "Bahnschrift-BoldSemiCondensed"
+      ]
+    },
+    {
+      "key": "elenion",
+      "card": {
+        "schemaVersion": 4,
+        "id": "30000036",
+        "name": "ELENION",
+        "title": "LA FLÈCHE DU SERMENT",
+        "job": "ARPENTEUR",
+        "race": "CERELF",
+        "element": "GEO",
+        "faction": "Woodland",
+        "weapon": "Arc",
+        "positions": [
+          3
+        ],
+        "atk": [
+          233,
+          191,
+          156,
+          114,
+          72,
+          30
+        ],
+        "defense": [
+          235,
+          193,
+          151,
+          116,
+          74,
+          32
+        ],
+        "magic": [
+          6,
+          4,
+          2
+        ],
+        "barriers": [
+          4
+        ],
+        "slug": "36_GEO_ELENION",
+        "hue": 41,
+        "color": "C7AB6D",
+        "weapon_index": 5,
+        "description": "Elenion retient son souffle. La corde tendue ne tremble plus entre ses bois et son épaule. À la lisière, chaque passage laisse une trace ; celui qu’il vise vient de laisser la dernière.",
+        "artwork": "ELENION",
+        "artworkSource": "V3/assets/illustrations/36_GEO_ELENION.png",
+        "artworkUnchanged": true,
+        "sourcePSD": "V3/templates/36_GEO_ELENION.psd",
+        "output": "ELENION_V4_01_GEO",
+        "profile": "V4/template-stable/elements-02/elenion/card.json"
+      },
+      "profile": "V4/template-stable/elements-02/elenion/card.json",
+      "png": "V4/cartes/ELENION_V4_01_GEO.png",
+      "psd": "V4/templates/ELENION_V4_01_GEO.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "elements": [
+          "GEO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "ELENION": [
+                "ART - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000036": [
+                "ID CODE128 - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Arc": [
+                "ARME - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "CERELF": [
+                "RACE - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Woodland": [
+                "FACTION - CONTENU"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34,
+          "sizePt": 7.84,
+          "supportScale": 112,
+          "supportCenterX": 226,
+          "supportCenterY": 1020.5,
+          "shadow": {
+            "opacity": 65,
+            "distance": 3,
+            "blur": 4
+          }
+        },
+        "effectSupports": [
+          {
+            "side": "DEF",
+            "die": 1,
+            "layers": [
+              "DEF D1 - fond effet"
+            ]
+          }
+        ],
+        "effectLayouts": [
+          {
+            "layer": "DEF D6 - effet dodge",
+            "width": 72,
+            "height": 72,
+            "anchor": [
+              0.50505050505051,
+              0.46464646464646
+            ],
+            "center": [
+              754,
+              151
+            ],
+            "innerRadius": 53,
+            "safeRadius": 49,
+            "measuredInnerRim": {
+              "center": [
+                753.65,
+                151.15
+              ],
+              "radii": [
+                57,
+                59.65
+              ]
+            },
+            "measurement": "Visible contour alpha >=32; optical anchor balances figure and diagonal motion trail on the actual painted rim."
+          },
+          {
+            "layer": "DEF D1 - effet retry",
+            "width": 58,
+            "height": 55,
+            "anchor": [
+              0.49649967068222,
+              0.50630706323867
+            ],
+            "center": [
+              737,
+              773
+            ],
+            "innerRadius": 38.5,
+            "safeRadius": 32,
+            "measuredInnerRim": {
+              "center": [
+                736.85,
+                772.95
+              ],
+              "radii": [
+                38.85,
+                38.7
+              ]
+            },
+            "measurement": "Green leaf mass centroid aligned to the ACTUAL painted inner rim, not to support bounds or numeric field coordinates."
+          }
+        ]
+      },
+      "options": {
+        "atk": [
+          [],
+          [
+            "mana"
+          ],
+          [
+            "retry"
+          ],
+          [
+            "buff_atk",
+            "retry"
+          ],
+          [
+            "guard",
+            "mana"
+          ],
+          [
+            "buff_atk",
+            "guard",
+            "mana"
+          ]
+        ],
+        "defense": [
+          [
+            "dodge"
+          ],
+          [],
+          [
+            "retry"
+          ],
+          [],
+          [],
+          [
+            "retry"
+          ]
+        ]
+      },
+      "artworkLayer": "ART - CONTENU",
+      "fonts": [
+        "MyriadPro-Regular",
+        "TimesNewRomanPSMT",
+        "Augustus",
+        null,
+        "Crystal",
+        "Bahnschrift-BoldSemiCondensed"
+      ]
+    },
+    {
+      "key": "seraphina",
+      "card": {
+        "schemaVersion": 4,
+        "id": "30000020",
+        "name": "SERAPHINA",
+        "title": "LE SERMENT SUSPENDU",
+        "job": "MÉDIATRICE",
+        "race": "VAMP",
+        "element": "HEMATO",
+        "faction": "Draevenheim",
+        "weapon": "Fouet",
+        "positions": [
+          5
+        ],
+        "atk": [
+          172,
+          140,
+          115,
+          83,
+          "guard",
+          "retry"
+        ],
+        "defense": [
+          204,
+          167,
+          130,
+          100,
+          63,
+          26
+        ],
+        "magic": [
+          6,
+          4,
+          3
+        ],
+        "barriers": [
+          6,
+          3
+        ],
+        "slug": "20_HEMATO_SERAPHINA",
+        "hue": 343,
+        "color": "E84976",
+        "weapon_index": 6,
+        "description": "Seraphina laisse le sceau se dissoudre entre ses doigts. Pour une nuit, aucune dette de sang ne franchira cette porte. Demain, elle devra répondre de ce répit.",
+        "artwork": "SERAPHINA",
+        "artworkSource": "V3/assets/illustrations/20_HEMATO_SERAPHINA.png",
+        "artworkUnchanged": true,
+        "sourcePSD": "V3/templates/20_HEMATO_SERAPHINA.psd",
+        "output": "SERAPHINA_V4_01_HEMATO",
+        "profile": "V4/template-stable/elements-02/seraphina/card.json"
+      },
+      "profile": "V4/template-stable/elements-02/seraphina/card.json",
+      "png": "V4/cartes/SERAPHINA_V4_01_HEMATO.png",
+      "psd": "V4/templates/SERAPHINA_V4_01_HEMATO.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "elements": [
+          "HEMATO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "SERAPHINA": [
+                "ART - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000020": [
+                "ID CODE128 - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Fouet": [
+                "ARME - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "VAMP": [
+                "RACE - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Draevenheim": [
+                "FACTION - CONTENU"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34,
+          "sizePt": 7.84,
+          "supportScale": 112,
+          "supportCenterX": 226,
+          "supportCenterY": 1020.5,
+          "shadow": {
+            "opacity": 65,
+            "distance": 3,
+            "blur": 4
+          }
+        },
+        "effectSupports": [
+          {
+            "side": "DEF",
+            "die": 1,
+            "layers": [
+              "DEF D1 - fond effet"
+            ]
+          }
+        ],
+        "effectLayouts": [
+          {
+            "layer": "DEF D6 - effet dodge",
+            "width": 72,
+            "height": 72,
+            "anchor": [
+              0.50505050505051,
+              0.46464646464646
+            ],
+            "center": [
+              754,
+              151
+            ],
+            "innerRadius": 53,
+            "safeRadius": 49,
+            "measuredInnerRim": {
+              "center": [
+                753.65,
+                151.15
+              ],
+              "radii": [
+                57,
+                59.65
+              ]
+            },
+            "measurement": "Visible contour alpha >=32; optical anchor balances figure and diagonal motion trail on the actual painted rim."
+          },
+          {
+            "layer": "DEF D1 - effet retry",
+            "width": 58,
+            "height": 55,
+            "anchor": [
+              0.49649967068222,
+              0.50630706323867
+            ],
+            "center": [
+              737,
+              773
+            ],
+            "innerRadius": 38.5,
+            "safeRadius": 32,
+            "measuredInnerRim": {
+              "center": [
+                736.85,
+                772.95
+              ],
+              "radii": [
+                38.85,
+                38.7
+              ]
+            },
+            "measurement": "Green leaf mass centroid aligned to the ACTUAL painted inner rim, not to support bounds or numeric field coordinates."
+          }
+        ]
+      },
+      "options": {
+        "atk": [
+          [],
+          [
+            "mana"
+          ],
+          [
+            "retry"
+          ],
+          [
+            "buff_atk",
+            "retry"
+          ],
+          [
+            "guard",
+            "mana"
+          ],
+          [
+            "buff_atk",
+            "guard",
+            "mana",
+            "retry"
+          ]
+        ],
+        "defense": [
+          [
+            "dodge"
+          ],
+          [],
+          [
+            "retry"
+          ],
+          [],
+          [],
+          [
+            "retry"
+          ]
+        ]
+      },
+      "artworkLayer": "ART - CONTENU",
+      "fonts": [
+        "MyriadPro-Regular",
+        "TimesNewRomanPSMT",
+        "Augustus",
+        null,
+        "Crystal",
+        "Bahnschrift-BoldSemiCondensed"
+      ]
+    },
+    {
+      "key": "valazar",
+      "card": {
+        "schemaVersion": 4,
+        "id": "30000034",
+        "name": "VALAZAR",
+        "title": "LE NOM DANS LA CENDRE",
+        "job": "NÉCROMANCIEN",
+        "race": "SKULLZ",
+        "element": "NECRO",
+        "faction": "Cryptown",
+        "weapon": "Sceptre",
+        "positions": [
+          4
+        ],
+        "atk": [
+          "death",
+          240,
+          195,
+          143,
+          91,
+          46
+        ],
+        "defense": [
+          174,
+          142,
+          110,
+          85,
+          53,
+          21
+        ],
+        "magic": [
+          5,
+          4,
+          3,
+          2,
+          1
+        ],
+        "barriers": [
+          4
+        ],
+        "slug": "34_NECRO_VALAZAR",
+        "hue": 270,
+        "color": "A979F7",
+        "weapon_index": 12,
+        "description": "Valazar suit du doigt une ligne de cendre. Il ne cherche pas à rappeler le mort, seulement son nom. Même Cryptown a des oublis qu'il refuse.",
+        "artwork": "VALAZAR",
+        "artworkSource": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "artworkUnchanged": true,
+        "sourcePSD": "V3/templates/34_NECRO_VALAZAR.psd",
+        "output": "VALAZAR_V4_01_NECRO",
+        "profile": "V4/template-stable/elements-02/valazar/card.json"
+      },
+      "profile": "V4/template-stable/elements-02/valazar/card.json",
+      "png": "V4/cartes/VALAZAR_V4_01_NECRO.png",
+      "psd": "V4/templates/VALAZAR_V4_01_NECRO.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "elements": [
+          "NECRO"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "VALAZAR": [
+                "ART - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000034": [
+                "ID CODE128 - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Sceptre": [
+                "ARME - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "SKULLZ": [
+                "RACE - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Cryptown": [
+                "FACTION - CONTENU"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34,
+          "sizePt": 7.84,
+          "supportScale": 112,
+          "supportCenterX": 226,
+          "supportCenterY": 1020.5,
+          "shadow": {
+            "opacity": 65,
+            "distance": 3,
+            "blur": 4
+          }
+        },
+        "effectSupports": [
+          {
+            "side": "DEF",
+            "die": 1,
+            "layers": [
+              "DEF D1 - fond effet"
+            ]
+          }
+        ],
+        "effectLayouts": [
+          {
+            "layer": "DEF D6 - effet dodge",
+            "width": 72,
+            "height": 72,
+            "anchor": [
+              0.50505050505051,
+              0.46464646464646
+            ],
+            "center": [
+              754,
+              151
+            ],
+            "innerRadius": 53,
+            "safeRadius": 49,
+            "measuredInnerRim": {
+              "center": [
+                753.65,
+                151.15
+              ],
+              "radii": [
+                57,
+                59.65
+              ]
+            },
+            "measurement": "Visible contour alpha >=32; optical anchor balances figure and diagonal motion trail on the actual painted rim."
+          },
+          {
+            "layer": "DEF D1 - effet retry",
+            "width": 58,
+            "height": 55,
+            "anchor": [
+              0.49649967068222,
+              0.50630706323867
+            ],
+            "center": [
+              737,
+              773
+            ],
+            "innerRadius": 38.5,
+            "safeRadius": 32,
+            "measuredInnerRim": {
+              "center": [
+                736.85,
+                772.95
+              ],
+              "radii": [
+                38.85,
+                38.7
+              ]
+            },
+            "measurement": "Green leaf mass centroid aligned to the ACTUAL painted inner rim, not to support bounds or numeric field coordinates."
+          },
+          {
+            "layer": "ATK D6 - effet death",
+            "width": 49.53,
+            "height": 78,
+            "anchor": [
+              0.49708225310359,
+              0.39916863583191
+            ],
+            "center": [
+              142,
+              147
+            ],
+            "safeRadius": 49
+          }
+        ]
+      },
+      "options": {
+        "atk": [
+          [
+            "death"
+          ],
+          [
+            "mana"
+          ],
+          [
+            "retry"
+          ],
+          [
+            "buff_atk",
+            "retry"
+          ],
+          [
+            "guard",
+            "mana"
+          ],
+          [
+            "buff_atk",
+            "guard",
+            "mana"
+          ]
+        ],
+        "defense": [
+          [
+            "dodge"
+          ],
+          [],
+          [
+            "retry"
+          ],
+          [],
+          [],
+          [
+            "retry"
+          ]
+        ]
+      },
+      "artworkLayer": "ART - CONTENU",
+      "fonts": [
+        "MyriadPro-Regular",
+        "TimesNewRomanPSMT",
+        "Augustus",
+        null,
+        "Crystal",
+        "Bahnschrift-BoldSemiCondensed"
+      ]
+    },
+    {
+      "key": "malaba",
+      "card": {
+        "schemaVersion": 4,
+        "id": "30000022",
+        "name": "MALABA",
+        "title": "UNE PLACE AU COMPTOIR",
+        "job": "MINEUR",
+        "race": "HUMAIN",
+        "element": "NONE",
+        "faction": "Z13",
+        "weapon": "Poing",
+        "positions": [
+          1
+        ],
+        "atk": [
+          203,
+          166,
+          136,
+          99,
+          "guard",
+          "buff_atk"
+        ],
+        "defense": [
+          295,
+          243,
+          191,
+          146,
+          94,
+          42
+        ],
+        "magic": [],
+        "barriers": [],
+        "slug": "22_NONE_MALABA",
+        "hue": 160,
+        "color": "93AAA5",
+        "weapon_index": 3,
+        "description": "Baba lève sa chope et plaisante avec la salle. Ses épaules occupent presque tout le comptoir. Pourtant, à la Gueule Fumante, personne ne sait faire autant de place aux autres.",
+        "artwork": "MALABA",
+        "artworkSource": "V3/assets/illustrations/22_NONE_MALABA.png",
+        "artworkUnchanged": true,
+        "sourcePSD": "V3/templates/22_NONE_MALABA.psd",
+        "output": "MALABA_V4_01_NONE",
+        "profile": "V4/template-stable/elements-02/malaba/card.json"
+      },
+      "profile": "V4/template-stable/elements-02/malaba/card.json",
+      "png": "V4/cartes/MALABA_V4_01_NONE.png",
+      "psd": "V4/templates/MALABA_V4_01_NONE.psd",
+      "registry": {
+        "schemaVersion": 4,
+        "elements": [
+          "NONE"
+        ],
+        "banks": [
+          {
+            "field": "artwork",
+            "variants": {
+              "MALABA": [
+                "ART - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "id",
+            "variants": {
+              "30000022": [
+                "ID CODE128 - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "weapon",
+            "variants": {
+              "Poing": [
+                "ARME - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "race",
+            "variants": {
+              "HUMAIN": [
+                "RACE - CONTENU"
+              ]
+            }
+          },
+          {
+            "field": "faction",
+            "variants": {
+              "Z13": [
+                "FACTION - CONTENU"
+              ]
+            }
+          }
+        ],
+        "positionLayout": {
+          "textX": 224,
+          "textY": 1020.5,
+          "step": 58,
+          "maxTextWidth": 34,
+          "sizePt": 7.84,
+          "supportScale": 112,
+          "supportCenterX": 226,
+          "supportCenterY": 1020.5,
+          "shadow": {
+            "opacity": 65,
+            "distance": 3,
+            "blur": 4
+          }
+        },
+        "effectSupports": [
+          {
+            "side": "DEF",
+            "die": 1,
+            "layers": [
+              "DEF D1 - fond effet"
+            ]
+          }
+        ],
+        "effectLayouts": [
+          {
+            "layer": "DEF D6 - effet dodge",
+            "width": 72,
+            "height": 72,
+            "anchor": [
+              0.50505050505051,
+              0.46464646464646
+            ],
+            "center": [
+              754,
+              151
+            ],
+            "innerRadius": 53,
+            "safeRadius": 49,
+            "measuredInnerRim": {
+              "center": [
+                753.65,
+                151.15
+              ],
+              "radii": [
+                57,
+                59.65
+              ]
+            },
+            "measurement": "Visible contour alpha >=32; optical anchor balances figure and diagonal motion trail on the actual painted rim."
+          },
+          {
+            "layer": "DEF D1 - effet retry",
+            "width": 58,
+            "height": 55,
+            "anchor": [
+              0.49649967068222,
+              0.50630706323867
+            ],
+            "center": [
+              737,
+              773
+            ],
+            "innerRadius": 38.5,
+            "safeRadius": 32,
+            "measuredInnerRim": {
+              "center": [
+                736.85,
+                772.95
+              ],
+              "radii": [
+                38.85,
+                38.7
+              ]
+            },
+            "measurement": "Green leaf mass centroid aligned to the ACTUAL painted inner rim, not to support bounds or numeric field coordinates."
+          }
+        ]
+      },
+      "options": {
+        "atk": [
+          [],
+          [
+            "mana"
+          ],
+          [
+            "retry"
+          ],
+          [
+            "buff_atk",
+            "retry"
+          ],
+          [
+            "guard",
+            "mana"
+          ],
+          [
+            "buff_atk",
+            "guard",
+            "mana"
+          ]
+        ],
+        "defense": [
+          [
+            "dodge"
+          ],
+          [],
+          [
+            "retry"
+          ],
+          [],
+          [],
+          [
+            "retry"
+          ]
+        ]
+      },
+      "artworkLayer": "ART - CONTENU",
+      "fonts": [
+        "MyriadPro-Regular",
+        "TimesNewRomanPSMT",
+        "Augustus",
+        null,
+        "Crystal",
+        "Bahnschrift-BoldSemiCondensed"
+      ]
+    }
+  ],
+  "protectedFiles": {
+    "V4/template-stable/current.json": "3a493b934c47d94100056ac294e1ca7a95557f52ef3570798dce60587b8bce06",
+    "V4/template-stable/current-elements.json": "d3d7da9a3990a2d76bf89a09d10ee829cab53d89cc8eda515ba122f1a309cb77",
+    "V4/template-stable/KALISTAR_V4_TEMPLATE_03F_ELECTRO_RIKKA.psd": "5693665379b64970b4f698e6348d2fa9683e8246509bd8141971bf397c1bd56d",
+    "V4/template-stable/KALISTAR_V4_TEMPLATE_04_ELEMENTS.psd": "8debe18c083cad5684c826b2b6267fd545b28d2d248974fd450afe02af05b7a3",
+    "V4/template-stable/registry-electro-03.json": "a3d13103799f76fef378f5ec822e6bc3c2a947ff4407825f2d4a9554b54298c5",
+    "V4/template-stable/registry-electro-03f.json": "9179294bcb6140e92386092a43c4ed93915747e00660712befb7198f3f6dc42f",
+    "V4/template-stable/registry-elements-04.json": "7f68e21169a407b9a0a2ba500125ec67be953d9f733880b68098998436de7ddd",
+    "V4/template-stable/registry-elements-05.json": "5c1dc35283ff90ae5d68fe76ccf266c18de334b348a3219eba8c0b2b8aad97d9",
+    "V4/scripts/stable/common.jsx": "b5932e0457d76d58694fe6100e2ed76c6c8340769955c4367e25e2802995fa5b",
+    "V4/scripts/stable/registered.jsx": "3cf8dc59d52ec4b4db129b54c8bed2c234dda838f907d9baf3b50edd6e40bd4b",
+    "V4/scripts/stable/elements-common.jsx": "0c034a98776e5c3b15d6cdf8099deaf0d9d6175a46e8ffdfa875e6cd57cf14b8",
+    "V4/template-stable/elements-01/manifest.json": "b0d4a9ff4f1dd80804bbd94e7c0e8fbec7e141826bb8526de46b5f673b6491bb",
+    "V3/donnees/cartes.json": "bb6de0d7b2b7eec0f1a9348dc892faa002fe542c169bbe202e11aca7e3788761",
+    "V3/site/index.html": "a61fb96c9f3cd4fe12d9573cbcce9ad6174888219f565b80e05f2c500a3bf768",
+    "V3/templates/39_HYDRO_RUBY.psd": "da7ff7495c32b63009f18cbaaa400f4c472a47d25d6c5f4acace4d5684842c02",
+    "V3/assets/illustrations/39_HYDRO_RUBY.png": "aa97188fec8b52e6161da6ca6cc592b44bd92f32043de7bc195782b2116feb89",
+    "V3/templates/02_AERO_CANA.psd": "c0fcf574a37ed9203d2de173f9b632dacccb3b0aeaa69fa6567a6130766097ae",
+    "V3/assets/illustrations/02_AERO_CANA.png": "1f41383c6fd37352685c965e930234e740c2470d812e490ac086a7a77ffa6d79",
+    "V3/templates/15_AERO_SCROW.psd": "be64cfcf7d28588dfb7d22af7ad21c0001325c28b39cc0a2efe03b36ec91d17f",
+    "V3/assets/illustrations/15_AERO_SCROW.png": "be4d74b4c3792db4437931c03f09922e274bf5192880cc90037e99a1bf939b7a",
+    "V3/templates/40_AERO_SORYN.psd": "5d47e085da70ad6cf4e3b86d2bd0393f1098e16179b4d6395c5d111b9d08e441",
+    "V3/assets/illustrations/40_AERO_SORYN.png": "aae106608f05a77c0a537ba1bc11fd302d87868b9c751b7bec59e01495138c9d",
+    "V3/templates/38_AERO_GILMARR.psd": "ea9c6924a0a819ba29cd756bf5c385da51399afd8a79641b377c4c214684cf18",
+    "V3/assets/illustrations/38_AERO_GILMARR.png": "8409efcaf0cc9c80c4119e4bb11ee6ee6f3c0dba7a6148733317958c82f38a51",
+    "V3/templates/04_PYRO_DARNAKO.psd": "6db86afb507ec18692d2e2db337d371ce0ad3329e676e54123804431cfbb767f",
+    "V3/assets/illustrations/04_PYRO_DARNAKO.png": "424a366d96edfafec08d82bf634403c57855ff271840613cbd2e668cfabd7ee7",
+    "V3/templates/05_CRYO_MALINIA.psd": "fc7bce2606d4299551964d4e5847c585c023e71379d8105667bd7b58b9ef9d60",
+    "V3/assets/illustrations/05_CRYO_MALINIA.png": "61e94b985d223cea9db8436eae5b8776961fce1c354fbe9df141aa486ebb395e",
+    "V3/templates/06_LUXO_AELIS.psd": "0bbcae4ba4b6fcecbc399eafab3d22b65277110ce25050cd48d79a23095a7bec",
+    "V3/assets/illustrations/06_LUXO_AELIS.png": "dc36531ecb2504f6de940fea3be097a01ffcecfe917f1db6ab01add2fe48ed58",
+    "V3/templates/17_LUXO_ILIANE.psd": "af7a54d10ad6fa871b5488872fdd0650b4f4aa48052e1e3ed1f7aa9f5157cdd7",
+    "V3/assets/illustrations/17_LUXO_ILIANE.png": "f94ea227561f617798f6901bd3043a3c2f2e71d5603738ace29ea7cecb27b2be",
+    "V3/templates/19_MINERO_BELROG.psd": "546645013a630c8d7fbe28468111d14919670e350b0d90ef5888934a625445f4",
+    "V3/assets/illustrations/19_MINERO_BELROG.png": "e3a8c1466c95027dd8a5cc5ff7ff2d92e7e262a1304c55dfc86c432b1ad2888c",
+    "V3/templates/18_MINERO_LOK.psd": "0d928012cd130c509f31805276a9a15a0a1095cf5b1e3c3c685159f8f77b386d",
+    "V3/assets/illustrations/18_MINERO_LOK.png": "440df970801cef0e7dae2dc3b670431e7564ffdbf0a209592a8c74d29fdea551",
+    "V3/templates/07_MINERO_BALMHYR.psd": "5b35e462efe9ef1dfba95571245724f58e348abba6910cf26572f67ea1e745d0",
+    "V3/assets/illustrations/07_MINERO_BALMHYR.png": "d4264912a6427f7a7d598ebf89cda97c0de6110056c0119a4bac8fb999f6f83d",
+    "V3/templates/24_MINERO_MAGNAR.psd": "c01ac3c4f8b0a11b3a2622caf46d1cb0247619f50bb914b51e785b1e953a7a62",
+    "V3/assets/illustrations/24_MINERO_MAGNAR.png": "abb80c08908de9c5a966b96005358607acf59545ac9c29a3f496af561e47f729",
+    "V3/templates/41_HERBO_THALIE.psd": "eb11680ef80705080a3f11c6865b5c6be1beb49f45170491cf02d2cea103f47f",
+    "V3/assets/illustrations/41_HERBO_THALIE.png": "f26ec17de3d5fc6a06619e1a279c1545e9a4e1a4435f0055e68aec20d6e5ea83",
+    "V3/templates/33_HERBO_BLOOM.psd": "c25440d2189436397b8df5f24e4764075bd781476c5c199ee003c1bd0b886288",
+    "V3/assets/illustrations/33_HERBO_BLOOM.png": "69bea26eae57d48cb7d840d62a440c205cf97bcb074e29a3856677df0aaf8210",
+    "V3/templates/08_HERBO_VICTORVINE.psd": "3805a326f28cf9b39c0916ad787a94f8754dd580f35d05f764483cbc6cf2d691",
+    "V3/assets/illustrations/08_HERBO_VICTORVINE.png": "ef67ce6b64f7d5e1c2b056a0225a4e28c69fd4d1180ad8af20de01485b2ea556",
+    "V4/templates/MOMO_V4_11_POSITIONS.psd": "42e096da659456c189e37936ffd745ed31627549cdf5ed6c8eb42e1b3df878a7",
+    "V4/cartes/MOMO_V4_11_POSITIONS.png": "a6a2e0ee1824583445c7718b56bd3dc870281f41bfc0ace77522d6b16cb4e146",
+    "V4/templates/TAULIO_V4_02_POSITIONS.psd": "015d50f916f05d483e8e918453909f0d753ce04753cb83def350b791929685e6",
+    "V4/cartes/TAULIO_V4_02_POSITIONS.png": "35c9d2b395e8566d7c0862ad333b1cb2cf06f58b8244f65b26bf7d2e6e842180",
+    "V4/templates/JELLY_JOE_V4_03_ENCRE.psd": "de6e1aa2391f5ace1ef776eec20bad99ed3f9a0e1d1400972ee514d157c0cac3",
+    "V4/cartes/JELLY_JOE_V4_03_ENCRE.png": "5cea90f6d4fd2277c8bd0e9545e8002c4601bba0efee3455159979bac68b72ef",
+    "V4/templates/MOMO_BAL_V4_01_TEMPLATE_ELECTRO.psd": "57fcba88b4d8ffd7e8dcd26b3fe1c1d358e21a044190fc6af87b136ea06b476f",
+    "V4/cartes/MOMO_BAL_V4_01_TEMPLATE_ELECTRO.png": "5466f2024fe84eb26f1b96499ba0a8cb70e199e82cc73020a01daf5ea57ccd7e",
+    "V4/templates/RIKKA_V4_03_RECADRAGE.psd": "bac249fcd0047629fe5fcc8aa043811eef0eabe9ac76c4971da754a150139015",
+    "V4/cartes/RIKKA_V4_03_RECADRAGE.png": "2c1591449b9fbf482893769f50b6aef79969ffb7b5aff6d5b2d7544b71e13759",
+    "V4/template-stable/elements-02/manifest.json": "64f464ec924711b3fe7774978987228112ead5fb1ad8086d535e36e4baeff421",
+    "V3/site/engine.js": "a1c3c6c3b6c4363adbcff6e00a41609513171a91a119f5ced864d68f18a49def",
+    "V4/templates/RUBY_V4_01_HYDRO.psd": "19f138df7cce37419c76bcc252ab9c5f3d9d6c5a31283c934534b8a2caf2236b",
+    "V4/cartes/RUBY_V4_01_HYDRO.png": "96d997cdad9345dcd04068837d851a4c51e83d1afbf7800831209ac4caf90e72",
+    "V4/template-stable/elements-01/ruby/card.json": "10080ffbc9a2ea9c3f28e6b52f30041cc7872450338dedab3b6bc9acfc64ac0a",
+    "V4/templates/CANA_V4_01_AERO.psd": "f4af5e29fde77611a754e050dd41d4c14b01f521497aa7acecab220710b5e0ab",
+    "V4/cartes/CANA_V4_01_AERO.png": "5797733c8ee9480ef2d05d8b5fdf8a3384fd7bc57e810c8b25df80e6e91993ef",
+    "V4/template-stable/elements-01/cana/card.json": "94299a595377751b39d7a7b5a761c19609eac55fa4e1d311ef2c0722785eca74",
+    "V4/templates/SCROW_V4_01_AERO.psd": "a048ade7a9ff60a1d8fc3c1e024bcad16f6e66a06b7d6937119595ebe08e0e4c",
+    "V4/cartes/SCROW_V4_01_AERO.png": "e1cf3104f465e77772d77778707e911c462c08d7a7d2c87c0f16f74f5d445fe4",
+    "V4/template-stable/elements-01/scrow/card.json": "a49ccc9a924fbea16bd2eeeb5091e8a557678666b9d4d188f7f8bd78973f2380",
+    "V4/templates/SORYN_V4_01_AERO.psd": "80ee36417aff2ea7a4cd6714ead40664f45bc74cb67d2f6aca09de63d8deb42b",
+    "V4/cartes/SORYN_V4_01_AERO.png": "06ba1ace1600d5cfe07852b090e4d4fe631f0e5a309c3d76c2d14a4c42f05ab8",
+    "V4/template-stable/elements-01/soryn/card.json": "4cd629c32ef877c6384f40c9d6887099d95487c442f1a5049d72ef511f7c9c79",
+    "V4/templates/GILMARR_V4_01_AERO.psd": "7ea7ac6469cc8982b475fdd30c1deb8de4a08a24c1d62a9ce35781b763ea2d13",
+    "V4/cartes/GILMARR_V4_01_AERO.png": "0a962c1c097863d1faa64c25f7785ab2ee23a0dfb366e1f664986191a4f190d0",
+    "V4/template-stable/elements-01/gilmarr/card.json": "93a99c0f0cdb4d5d7f7fd60dd592f1962b3f8d3be25b30fad067b79816cc56d6",
+    "V4/templates/DARNAKO_V4_01_PYRO.psd": "f6b9cdca2ff7d127aaee74d5d1c15e5465a901a915e72faee5cbe65b64861284",
+    "V4/cartes/DARNAKO_V4_01_PYRO.png": "fc137ca1dafe840ebcfd4aafbbca5d66dd71906cb748bf29124cc74b181444e5",
+    "V4/template-stable/elements-01/darnako/card.json": "5d95c2a594a1e5ff4158e6f8c290a6399370195fbdc82978ddd8b184906c70ab",
+    "V4/templates/MALINIA_V4_01_CRYO.psd": "2e967c4b46681d4630d553a09c91d63f00a50fc41f27b4d011a903279c8aef44",
+    "V4/cartes/MALINIA_V4_01_CRYO.png": "8c0d3dfb1c6f48f1657d6a3220cdfdce3efc84e152fffeedbafa3489ff58ae4a",
+    "V4/template-stable/elements-01/malinia/card.json": "dd120ff338a1c0b2501f1d99f95f945abe3496aeb0db7eea39fcc83d617dcd59",
+    "V4/templates/AELIS_V4_01_LUXO.psd": "195622b825c9adf11dad1b6b52e3eba0c6dc5227db23cc04e7b7e73013151fa4",
+    "V4/cartes/AELIS_V4_01_LUXO.png": "5f5ec39d7854c6de4ae64dba32bf8d356424d946957c3a12c5c5779a9ee80188",
+    "V4/template-stable/elements-01/aelis/card.json": "bf031eb85e523bd830d3702e7ffa9c9cef0c751eee91ae689f42e935fa2dbab6",
+    "V4/templates/ILIANE_V4_01_LUXO.psd": "71d6443869d02872f7cd1a04e30122f5a8e1a54de7ae1893cd0c3fd4b5e30e31",
+    "V4/cartes/ILIANE_V4_01_LUXO.png": "83673e4f0e0a2eb7d6fc8dab167d52a852f5596b7d7b8c47bbab3387fbde04bb",
+    "V4/template-stable/elements-01/iliane/card.json": "6c39d6a46f5bb253aba56c7c2cbe90dca1bcc2c4f1d17648388fbccd753b0648",
+    "V4/templates/BELROG_V4_01_MINERO.psd": "498ad060c8ae284a17f81b92ec87c0020baa817940d1c5054d454676be78617d",
+    "V4/cartes/BELROG_V4_01_MINERO.png": "e8b4fa8944a320d88d99fa3366502c8e8f3929d90e63df6304f9c441f84940c1",
+    "V4/template-stable/elements-01/belrog/card.json": "f11576c0d5b46677dcf8ab378c01383c158532030674321b1f9e4a3130f8bf93",
+    "V4/templates/LOK_V4_01_MINERO.psd": "5a22022e7127975fc3029939f5925627a89e1c6e2fd5290b1f180881b9750eee",
+    "V4/cartes/LOK_V4_01_MINERO.png": "37251d1c95909ae77b0bc60afa76bf85fdea26c57c3dc25d0e267ec60ae2ceaa",
+    "V4/template-stable/elements-01/lok/card.json": "49c70acc375d4359ad1bea372ecf564a47e849db2f99aa8db60347a364dbd56a",
+    "V4/templates/BALMHYR_V4_01_MINERO.psd": "edd7490d7d1c9c0c6d5f25049d6ec2439351e92795773016f48e4ed6768e4729",
+    "V4/cartes/BALMHYR_V4_01_MINERO.png": "e57aa28a0a23834491382b9951a85ef7d722e247485e508db4ba9e3e6c95c72d",
+    "V4/template-stable/elements-01/balmhyr/card.json": "cfee695e30cbb4fd5e06490d2a7952706781e572e546d349eb04036a80f9ac9e",
+    "V4/templates/MAGNAR_V4_01_MINERO.psd": "a372ddc89999753e87b263fb03cca65dbbc7804e546c44c7e267e0dfbf6f6bc2",
+    "V4/cartes/MAGNAR_V4_01_MINERO.png": "041b8494778a22ab6c561e9b2e400b4d22343f4ceff906f09408e4e6a8c7f176",
+    "V4/template-stable/elements-01/magnar/card.json": "8d9034b184d1e8414baa4791ec7753b55127c7f0879c1a2a87640b8749f77446",
+    "V4/templates/THALIE_V4_01_HERBO.psd": "1825a3851aadb6d6a2316728c22521df57383d14353c880a7612f9e66216b719",
+    "V4/cartes/THALIE_V4_01_HERBO.png": "621d0aa6f8bb2c823705bf506b28300457400cd19a1702cbd76d1c1ef7e33c31",
+    "V4/template-stable/elements-01/thalie/card.json": "145e271e48a2e1dc1006fd61a52bcaa969e96be960274f6856027546befe6f00",
+    "V4/templates/BLOOM_V4_01_HERBO.psd": "d508982db2551669e15e7da7b2ea00c268c790eb96a08b17f361ce723de69bf7",
+    "V4/cartes/BLOOM_V4_01_HERBO.png": "be2e14c7fcdb1701bde8644fe34a6fe45346d8b02928fdc053f495c1e016411e",
+    "V4/template-stable/elements-01/bloom/card.json": "ef15a1780a4671fbf90e6120573c6d9b15feea402cbe5d5ae1d9763d7bef6d52",
+    "V4/templates/VICTORVINE_V4_01_HERBO.psd": "37f8cd747b5a3791b18c9cb968e6fea88a484182f84e7f4d00ad3a33760da20d",
+    "V4/cartes/VICTORVINE_V4_01_HERBO.png": "633e8630d1a5d98d180d4354266edccf99713b459685e0d43608e794c7931a34",
+    "V4/template-stable/elements-01/victorvine/card.json": "f19152df41002291d83e6df948c98cb5c333dbe56807e5dbbbc36f3d41d9c6fd",
+    "V4/template-stable/revision-03/momo/card.json": "9c8623abb0d147f02e66d41fdeac310fb1b6774856690d8d29c7a82f5cbdba46",
+    "V4/template-stable/revision-03/taulio/card.json": "fe9d2922ea7d82b2e8acf8c5fab3a5427c7f446b1831d7c7e054f125ca4c4033",
+    "V4/template-stable/jelly-joe-encre/card.json": "78f604994680fc9970e33fa82983c243cf04691150f0df99aa0df480134032b6",
+    "V4/template-stable/momo-bal/card.json": "eb5a8a46f34e6147a9d94f5e88c696feb506ed42bbc1c34d7ea4d4f2b0328c67",
+    "V4/template-stable/rikka-revision-03/card.json": "6b16597e05378444bd8b2b30f986644462f1b0253e9eae0f8dafcbb4a397efce",
+    "V3/templates/12_RAINBOW_KAYLIS.psd": "e19f9aea31e15766c1a09aba53e558857cd9b64ad823b6b177022b3d87dea907",
+    "V3/assets/illustrations/12_RAINBOW_KAYLIS.png": "5aa38b060778cc434454f5e6a36a5ebd64e75efb7dfa3939f2b96c11d8decf75",
+    "V3/templates/36_GEO_ELENION.psd": "c0a2671de4530aa14dc7fea6ad4cc1fa429a60cb8a8af6b59bf520045c0ad98a",
+    "V3/assets/illustrations/36_GEO_ELENION.png": "14a45dc36a9fe8582c18402721d500eb6390c330855acaf5ad22d5993b5cea7a",
+    "V3/templates/20_HEMATO_SERAPHINA.psd": "71870c2956c006aef2e80f82840db8bb33ff901bdec56b45d7ad7f9eda78144c",
+    "V3/assets/illustrations/20_HEMATO_SERAPHINA.png": "2b1375ed4ea9e7657eaa739d68f077a9cedf179f497204490bb77c063d6a1794",
+    "V3/templates/34_NECRO_VALAZAR.psd": "10818a3e2e11413347e6be3d65820dfeaaa05b949d249952ab54efd86c717ac5",
+    "V3/assets/illustrations/34_NECRO_VALAZAR.png": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee",
+    "V3/templates/22_NONE_MALABA.psd": "7efedf990fbedb9ddb3ccd03511b251b32e2485c14ff32ee194654f858addbb6",
+    "V3/assets/illustrations/22_NONE_MALABA.png": "3ce4447d4bcc85a53108ad3d3547a759041fc2720a7c37d829832b95f0d00f05",
+    "V4/template-stable/revision-03/momo/render.json": "5247644c09de2e1e23767498e033e2abfc3b860e5114a421dbe32a3bde177cb6",
+    "V4/template-stable/revision-03/taulio/render.json": "dc383ac986e5e58a71555ba965d04e2ec61811739f0afb9d7be932bccce3fb51",
+    "V4/template-stable/jelly-joe-encre/render.json": "61dc084f13006dd76af78e7451e70fba48e52b4bbe50668c71a147b38e0ba8af",
+    "V4/template-stable/momo-bal/render.json": "a6546b11347d043a3bc147e08f78da539cc31aaafe3d5b62cf677dedf4b27c88",
+    "V4/template-stable/rikka-revision-03/render.json": "ac8fe626dfd9c4df2bd7aa65a06614ff482a68c7c1ef8542c5d19117641445f9",
+    "V4/template-stable/elements-01/ruby/render.json": "ff497d7f7d4d04e7572e5fa222f6beda0977fb5cada0e51e7017fc547845b825",
+    "V4/template-stable/elements-01/cana/render.json": "11e7093840b82ac0290d9355a314f40037cb970232092b7a3d0328ae81c2bef9",
+    "V4/template-stable/elements-01/scrow/render.json": "76623ab6df2e667a42be0673d37ae6e375b3320ce42d0f8877f44dfb2bc570d2",
+    "V4/template-stable/elements-01/soryn/render.json": "4fe34452df3d4800e21b50a02e4a9ed6acb243526a3a56166422330a1d3a68e2",
+    "V4/template-stable/elements-01/gilmarr/render.json": "4b4db24a9cbd5566c6c4a0626fc5234067047dba707096029fd1c2a68af08187",
+    "V4/template-stable/elements-01/darnako/render.json": "e210cd5b6a9d23ba6509d4e19c6dca0c4800e8d7e47f6e18d109e50dad51a8d7",
+    "V4/template-stable/elements-01/malinia/render.json": "b5072c1cbd020fceba3edbc560bf1b15157c926d5a2c79f30eec1daba3163362",
+    "V4/template-stable/elements-01/aelis/render.json": "0dbc798e21226efcec48bbab53bc15e18ae8000ff4302090f38ad75ac1929f9c",
+    "V4/template-stable/elements-01/iliane/render.json": "f898149443a7f9c0b8fafea5e510d47b5f5165489948f3f2a06f2683526bed8e",
+    "V4/template-stable/elements-01/belrog/render.json": "f6e678d91f89e0d6bd6abe9cac4703b83a8ee1b1cdd636ef194ac3b83f499636",
+    "V4/template-stable/elements-01/lok/render.json": "b52bb1749e580bdfd85d4ffb1c7efbc01b63ce507af51bedd07ae2b48f76b859",
+    "V4/template-stable/elements-01/balmhyr/render.json": "253e03dbf7cde6ab265405fe6dc8e28a2acd5994f7399727e0bf6602af2937fe",
+    "V4/template-stable/elements-01/magnar/render.json": "a2894decb9372d5ad218ced80886129ebca976d27df6818ce73e2c4c6237a2ca",
+    "V4/template-stable/elements-01/thalie/render.json": "85cb4f69951560232516eca5650c82758617e600ef4b2ee90feb488c7c8d7203",
+    "V4/template-stable/elements-01/bloom/render.json": "9567f6a1ea59d3ebd301a28f7a73aa1c65247e21b0cd14a4437490763a567738",
+    "V4/template-stable/elements-01/victorvine/render.json": "f726e3045f846af0c11c6f9bd8bc207ee84df35911e1f378360ba4fcd061b83e",
+    "V4/template-stable/elements-02/kaylis/card.json": "1f11646f9ee7f18c3f396248a1ca89f5fad2c81a992d5ffa045f7ca0b9f6bf51",
+    "V4/template-stable/elements-02/kaylis/render.json": "8db677a723d32629c24e3979bd0b7389f318d91ec8271bd66a3955f07bcd5571",
+    "V4/cartes/KAYLIS_V4_01_RAINBOW.png": "0e3c48b1d7cdb9e4656c71bde6aee443d22630821ba5e8e76adafabf4277415a",
+    "V4/templates/KAYLIS_V4_01_RAINBOW.psd": "3e8addb01a8e1911242d0d2cb1cce356ea668a6dc38666d250691a7cdbb9afa1",
+    "V4/template-stable/elements-02/elenion/card.json": "d088524ee97703f4d3bf0bcea43a4aabe19c8e77806783b54a5d817123b6f5ba",
+    "V4/template-stable/elements-02/elenion/render.json": "0760553c743e05c42215b87e32e7e64c90a19578bb036d09244aa0d3d22c6fe8",
+    "V4/cartes/ELENION_V4_01_GEO.png": "b495e2f3568c1cc1cc8b9522af9f603ad5508335a516390c7522adb4cdb3b3bf",
+    "V4/templates/ELENION_V4_01_GEO.psd": "acc78a86a15f269c80dc34775235a5ccfe12e6195777d2b6eb5bb9945c093224",
+    "V4/template-stable/elements-02/seraphina/card.json": "0656e70be11a91141fb5f965f56172729e96253a6611819ce1a1b728478037f9",
+    "V4/template-stable/elements-02/seraphina/render.json": "a8f77afcfc08508584224b8b97e44cd79c436adda0b2b83e9a1b17b6af2835ea",
+    "V4/cartes/SERAPHINA_V4_01_HEMATO.png": "0998181c9debd305aeefe865ddcc30bd45c0cf050ae9b118cda6d82efddb6888",
+    "V4/templates/SERAPHINA_V4_01_HEMATO.psd": "20edfc3c723a31544412b7837de3b4839706f48af657224443b18f8160919dcc",
+    "V4/template-stable/elements-02/valazar/card.json": "22e9c991174c6888d8365df19bfc24d8331f870c441b3076dc6a46c84375e752",
+    "V4/template-stable/elements-02/valazar/render.json": "c7fb8e819ac2055d86a269cfa6de279b7ab1baf5a31e9b3bc1dd5380d92f3d20",
+    "V4/cartes/VALAZAR_V4_01_NECRO.png": "20f39b2762c60749d3af9bf1779121bdb09a6eea120cfb7cdc55801012372463",
+    "V4/templates/VALAZAR_V4_01_NECRO.psd": "12d04d689112ab9991e02cd9b91bffede12c3e2b6598bf7caa746d4a500c35fe",
+    "V4/template-stable/elements-02/malaba/card.json": "6cfbf95a628c0d4ee11ef6033abe830176377298b801acc311eecc9e9fca2f05",
+    "V4/template-stable/elements-02/malaba/render.json": "3cc808a6b68e67b76a0130812d15c6f86ea6ea2f4bdaa86ccb65e21614c224d1",
+    "V4/cartes/MALABA_V4_01_NONE.png": "7c8b5ee50474820b468287d3ffd6b1e85c2a585bfb478a7cd128e0a950143b88",
+    "V4/templates/MALABA_V4_01_NONE.psd": "4d9bd46dc1ddd5aeda38f379c979b4cc744af19bdfebe2d3bc0fbc6e171d3fad",
+    "V4/revisions/2026-09-18-branches/branches-complete.png": "482a21830100077f0789620267197d4fcd6eca545a4f5a41004451a9fcdf2380",
+    "V4/revisions/2026-09-18-branches/plan.json": "0693a0b8fa4b55bb891ea7f0be5f71fcc4dda6df05e9f841fa0b3e24f2a97b98",
+    "V4/revisions/2026-09-18-branches/verification.json": "2b8ab3a9d997febe25b219fba057f7f9c21d7d5016c0c841532ff3b05ab92526",
+    "V4/revisions/2026-09-18-branches/master-proof.json": "6e7b3d22cdcd49f0d4e73053228233eedcf199c6f18798e374a528a5bc17f9ea",
+    "V4/revisions/2026-09-18-balmhyr-icons/plan.json": "cc52e5738d2e25662978be7a6e0a3928f353ee04137bb457eaf6907cbaa3c6c3",
+    "V4/revisions/2026-09-18-balmhyr-icons/verification.json": "8d28e9e290e03835d875b51c87b396ba0e7814f032e45a926ab9a1ce4ede4a7a",
+    "V4/revisions/2026-09-18-balmhyr-icons/references-before.json": "43191f1de96b48d8b38b6f6f7f1b29b1d7583c4c25266079a5fa5f43e8bf8d5d",
+    "V4/revisions/2026-09-18-balmhyr-icons/publish.cjs": "14ff6341bbe6d02b5922c74ac8c1c89676f2186f090d16cd6f028e27cb4cc655",
+    "V4/assets/illustrations/elements-01/terre-plantes/BALMHYR_V4_02_CANYONERO.png": "6ed71ff8f77f695f00afa6ff71350369ccf76c748d413f2abf2b26cd75414da4",
+    "V4/template-stable/icon-layouts.json": "aa0b0a8505fa8b87ceaa9ad66e806e56902181c357c7f50d70bf3c29f2865f9b",
+    "V4/atelier/designer-assets/packed/banks/weapon-Hache.png": "37ac745d3640269ca09ab39b7188c1aed20a02429fba5925c1ec50178daee03e",
+    "V4/atelier/designer-assets/banks/weapon-Hache.png": "b6bc6ee406aae69f48b2f46afe856aae1c70abf20d38ad6950928d743b0508e5",
+    "V4/atelier/designer-assets/packed/banks/race-NAIN.png": "203c8b2fd93e51da5f1677027020ff9bfde30daab006b6eee962c9bfa97a9f29",
+    "V4/atelier/designer-assets/banks/race-NAIN.png": "753dde8c47725f9f2541c3bd09d38904f115b1017e1b62bdac2ebbd3a65c43d4"
+  },
+  "parentReferenceId": "af17ee6bd1c0aba0771193bbe87d2498e1ffee55df90c5506507740b667af4ea",
+  "revision": {
+    "id": "balmhyr-icons-2026-09-18",
+    "reason": "Balmhyr canyon et calibration optique Hache / NAIN",
+    "audit": "V4/revisions/2026-09-18-balmhyr-icons/verification.json"
+  }
+}

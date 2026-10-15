@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "asset": "wakka-v2",
+  "mode": "builtin-imagegen",
+  "intent": "identity-preserve-pose-refinement",
+  "prompt": "Use case: identity-preserve and coherent pose refinement.\nEDIT TARGET: reference 1 is the current approved Kalistar painterly illustration of Wakka from Final Fantasy X on Besaid beach. Preserve his EXACT identity, big honest confident smile, orange quiff and blue headband, muscular proportions, yellow-blue Besaid Aurochs uniform, two planted feet, white beach, tropical sea, painterly strokes, colors and lighting. Keep the full-body composition.\nONE CRITICAL NATIVE CARD FRAMING CORRECTION: the whole blitzball and the entire hand holding it must sit farther INSIDE the composition. Currently the ball is at x13-28% and will be covered by the card's left statistics rail. Rework his throwing arm, shoulder rotation, elbow and ball as ONE anatomically coherent throwing wind-up, bringing the ball beside his head/upper shoulder toward the center. Set the complete ball between x28% and x43% of canvas width, with its center around x35%, and around y24-31% of canvas height. All fingers and wrist that hold this single ball must remain within x25-47%. No part of the ball or throwing hand may enter the left 23% margin. Make the body naturally accommodate this tucked-in athletic throwing gesture, not a pasted ball or broken forearm. Fingers wrap plausibly around the rear/side of a single spherical patterned ball, no duplicated ball or extra fingers. Keep a convincing ready-to-throw wind-up, not a ball held flat at his chest. His other arm can counterbalance but should be a little less extended toward the far right, hand within x80% if naturally possible.\nPreserve his joyful warmth, face design, original costume and full-body scale. Keep both feet fully visible with current bottom margin. Keep Momo/Valazar painterly Kalistar appearance: textured painted planes, organic edges, worn cloth, not anime, not photo, not 3D. Portrait 4:5. No frame, text, new accessory, additional limb or crop. Cohesive finished narrative painting, no patchwork.",
+  "referenced_image_paths": [
+    "V4/collaborations/ff10-set-01/art-c/wakka-v1.png"
+  ],
+  "output": "V4/collaborations/ff10-set-01/art-c/wakka.png",
+  "reason": "Parent native-frame QA: original blitzball partly under left statistic rail; coherent arm/ball recentering."
+}

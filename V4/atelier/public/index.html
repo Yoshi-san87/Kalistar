@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark"><title>Kalistar | Atelier V4</title>
+  <link rel="stylesheet" href="/style.css">
+  <script defer src="/lucide.js"></script><script defer src="/app.js"></script>
+</head>
+<body>
+  <div class="app" data-pane="preview">
+    <header class="topbar">
+      <h1>Kalistar <span>Atelier V4</span></h1>
+      <div class="top-actions">
+        <button id="integrity" class="integrity" title="Contr&ocirc;ler les r&eacute;f&eacute;rences"><i data-lucide="lock-keyhole"></i><span id="integrity-text">V&eacute;rification</span></button>
+        <button id="history" class="icon-button" title="Historique des compositions" aria-label="Historique des compositions"><i data-lucide="history"></i></button>
+      </div>
+    </header>
+    <nav class="mobile-nav" aria-label="Espace de travail">
+      <button data-pane="library"><i data-lucide="library"></i>Cartes</button>
+      <button data-pane="preview" aria-current="page"><i data-lucide="scan-eye"></i>Carte</button>
+      <button data-pane="editor"><i data-lucide="sliders-horizontal"></i>R&eacute;glages</button>
+    </nav>
+    <main class="workbench">
+      <aside class="library" aria-label="Biblioth&egrave;que">
+        <div class="library-head">
+          <div class="segmented" id="library-modes"><button data-mode="references" aria-pressed="true">R&eacute;f&eacute;rences <span id="reference-count">...</span></button><button data-mode="drafts" aria-pressed="false">Brouillons</button></div>
+          <label class="search"><i data-lucide="search"></i><input id="search" type="search" placeholder="Rechercher" aria-label="Rechercher une carte"></label>
+          <select id="element-filter" aria-label="Filtrer par cristal"><option value="">Tous les cristaux</option></select>
+        </div>
+        <div id="library-list" class="library-list" aria-live="polite"></div>
+        <div class="pagination"><button id="library-prev" class="icon-button" title="Page pr&eacute;c&eacute;dente" aria-label="Page pr&eacute;c&eacute;dente"><i data-lucide="chevron-left"></i></button><span id="library-page">1 / 1</span><button id="library-next" class="icon-button" title="Page suivante" aria-label="Page suivante"><i data-lucide="chevron-right"></i></button></div>
+      </aside>
+      <section class="preview" aria-label="Carte">
+        <div class="preview-toolbar">
+          <div class="segmented"><button id="show-reference" aria-pressed="true">R&eacute;f&eacute;rence</button><button id="show-draft" aria-pressed="false" disabled>Brouillon</button></div>
+          <div class="preview-actions"><button id="zoom" class="icon-button" title="Agrandir la carte" aria-label="Agrandir la carte"><i data-lucide="maximize"></i></button><a id="download-png" class="icon-button disabled" title="Exporter le PNG" aria-label="Exporter le PNG" download><i data-lucide="download"></i></a><a id="download-psd" class="psd-link disabled" title="Exporter le PSD &eacute;ditable" download>PSD<i data-lucide="file-down"></i></a></div>
+        </div>
+        <div class="preview-stage" id="preview-stage"><img id="card-image" alt="" width="897" height="1497"><div id="image-error" hidden>Image indisponible</div></div>
+        <div class="preview-caption"><div><h2 id="card-name">Atelier</h2><p id="card-title"></p></div><span id="preview-state" class="state-label">R&eacute;f&eacute;rence</span></div>
+      </section>
+      <section class="editor" aria-label="R&eacute;glages de la carte">
+        <header class="editor-head"><div><span class="eyebrow">Brouillon</span><h2 id="editor-name">Nouvelle variante</h2></div><button id="reset" class="icon-button" title="R&eacute;tablir la r&eacute;f&eacute;rence" aria-label="R&eacute;tablir la r&eacute;f&eacute;rence"><i data-lucide="rotate-ccw"></i></button><button id="save" class="icon-button" title="Enregistrer le brouillon" aria-label="Enregistrer le brouillon"><i data-lucide="save"></i></button></header>
+        <nav class="editor-tabs" role="tablist" aria-label="R&eacute;glages">
+          <button id="tab-identity" data-tab="identity" role="tab" aria-selected="true" aria-controls="panel-identity"><i data-lucide="type"></i>Identit&eacute;</button>
+          <button id="tab-combat" data-tab="combat" role="tab" aria-selected="false" aria-controls="panel-combat" tabindex="-1"><i data-lucide="swords"></i>Combat</button>
+          <button id="tab-board" data-tab="board" role="tab" aria-selected="false" aria-controls="panel-board" tabindex="-1"><i data-lucide="layout-grid"></i>Terrain</button>
+          <button id="tab-art" data-tab="art" role="tab" aria-selected="false" aria-controls="panel-art" tabindex="-1"><i data-lucide="image"></i>Image</button>
+        </nav>
+        <div class="editor-body">
+          <section id="panel-identity" role="tabpanel" aria-labelledby="tab-identity" class="editor-panel">
+            <label>Nom<input id="field-name" maxlength="35" autocomplete="off"></label>
+            <label>Version<input id="field-title" maxlength="60" autocomplete="off"></label>
+            <label>M&eacute;tier<input id="field-job" maxlength="35" autocomplete="off"></label>
+            <label class="description-label">R&eacute;cit<textarea id="field-description" maxlength="380" rows="5"></textarea><span id="description-count" class="field-count">0 / 380</span></label>
+            <dl class="model-facts" id="model-facts"></dl>
+          </section>
+          <section id="panel-combat" role="tabpanel" aria-labelledby="tab-combat" class="editor-panel" hidden>
+            <div class="segmented combat-switch"><button id="side-atk" aria-pressed="true"><i data-lucide="sword"></i>ATK</button><button id="side-def" aria-pressed="false"><i data-lucide="shield"></i>DEF</button></div>
+            <div class="stat-heading"><span>D&eacute;</span><span>Valeur / effet</span><span id="mode-label">Magie</span></div>
+            <div id="stat-rows"></div>
+          </section>
+          <section id="panel-board" role="tabpanel" aria-labelledby="tab-board" class="editor-panel" hidden>
+            <h3>Positions</h3><div class="position-board" id="position-board"></div>
+            <div class="board-summary" id="board-summary"></div>
+          </section>
+          <section id="panel-art" role="tabpanel" aria-labelledby="tab-art" class="editor-panel" hidden>
+            <div class="art-source"><img id="art-thumbnail" alt="Illustration s&eacute;lectionn&eacute;e"><span id="art-label">Illustration de r&eacute;f&eacute;rence</span></div>
+            <label class="command secondary import-button" for="art-upload"><i data-lucide="image-plus"></i>Importer une illustration<input id="art-upload" type="file" accept="image/png,image/jpeg,image/webp"></label>
+            <button id="restore-art" class="command secondary"><i data-lucide="undo-2"></i>R&eacute;tablir l&rsquo;illustration</button>
+          </section>
+        </div>
+        <div class="editor-foot"><span id="save-state">Non enregistr&eacute;</span><span id="model-id"></span></div>
+      </section>
+    </main>
+    <footer class="statusbar">
+      <div class="render-status"><span class="status-dot" id="status-dot"></span><div><strong id="status-title">Connexion &agrave; l&rsquo;Atelier</strong><span id="status-detail"></span></div></div>
+      <button id="compose" class="command primary" disabled><i data-lucide="wand-sparkles"></i>Composer</button>
+    </footer>
+  </div>
+  <div id="toast" role="status" hidden></div>
+  <dialog id="viewer" class="viewer"><header><h2 id="viewer-name"></h2><button data-close="viewer" class="icon-button" title="Fermer" aria-label="Fermer"><i data-lucide="x"></i></button></header><div class="viewer-image"><img id="viewer-image" alt="Carte agrandie"></div></dialog>
+  <dialog id="history-dialog" class="history-dialog"><header><h2>Compositions</h2><button data-close="history-dialog" class="icon-button" title="Fermer" aria-label="Fermer"><i data-lucide="x"></i></button></header><div id="history-list"></div><footer class="pagination"><button id="history-prev" class="icon-button" aria-label="Page pr&eacute;c&eacute;dente"><i data-lucide="chevron-left"></i></button><span id="history-page"></span><button id="history-next" class="icon-button" aria-label="Page suivante"><i data-lucide="chevron-right"></i></button></footer></dialog>
+  <dialog id="integrity-dialog" class="integrity-dialog"><header><h2>R&eacute;f&eacute;rences prot&eacute;g&eacute;es</h2><button data-close="integrity-dialog" class="icon-button" title="Fermer" aria-label="Fermer"><i data-lucide="x"></i></button></header><dl id="integrity-report"></dl><button id="rerun" class="command secondary"><i data-lucide="scan-line"></i>V&eacute;rifier les cartes</button></dialog>
+</body>
+</html>

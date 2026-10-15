@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: Two distinct narrative/gameplay editions preserve identity and deck exclusions
+ok 1 - Two distinct narrative/gameplay editions preserve identity and deck exclusions
+  ---
+  duration_ms: 59.6548
+  type: 'test'
+  ...
+# Subtest: Each printed ATK and DEF face, magic, barrier, Guard and physical support works in actual duels
+ok 2 - Each printed ATK and DEF face, magic, barrier, Guard and physical support works in actual duels
+  ---
+  duration_ms: 36.2277
+  type: 'test'
+  ...
+# Subtest: Signature equipment follows the printed family, not the other edition
+ok 3 - Signature equipment follows the printed family, not the other edition
+  ---
+  duration_ms: 0.8107
+  type: 'test'
+  ...
+# Subtest: New edition profiles stay within role limits and cannot add arbitrary special faces
+ok 4 - New edition profiles stay within role limits and cannot add arbitrary special faces
+  ---
+  duration_ms: 3.9376
+  type: 'test'
+  ...
+# Subtest: Both camps receive actual conditional DEF, unchanged family matchup, logs and restored equipment
+ok 5 - Both camps receive actual conditional DEF, unchanged family matchup, logs and restored equipment
+  ---
+  duration_ms: 26.067
+  type: 'test'
+  ...
+# Subtest: 12 full matches with both editions, equipment, replacement and save/reload
+ok 6 - 12 full matches with both editions, equipment, replacement and save/reload
+  ---
+  duration_ms: 978.1219
+  type: 'test'
+  ...
+# Subtest: Published PNGs match native pixel proof; PSD roundtrip and template are unchanged
+ok 7 - Published PNGs match native pixel proof; PSD roundtrip and template are unchanged
+  ---
+  duration_ms: 14.2474
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1258.6761

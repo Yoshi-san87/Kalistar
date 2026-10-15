@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "modelId": "40032462",
+  "referenceId": "02f0808cbd56d2b0d4103450e7943db69b95ac120a0df349f4374c82f7f712e5",
+  "profileHash": "c1446e6b7e052cf74aaffa642b2304de779e71a6b2e668b420a7322924d57ad3",
+  "hashes": {
+    "card.png": "8d476a5cd1108d5c375fb81555f2c02a5d5d65f4983731e83a9d6aba2d90f0ec",
+    "card.psd": "0a6a51a070e31ee81b145c6cb68f25e86b4e306f231f487af4d7e7b72a7611ea"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 104552
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "40032462",
+    "cases": {
+      "color-1": [
+        "40032462"
+      ],
+      "color-4": [
+        "40032462"
+      ],
+      "gray-1": [
+        "40032462"
+      ],
+      "gray-4": [
+        "40032462"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-25T14:07:18.345Z",
+  "key": "rikku",
+  "preparationHash": "3017aab6a298ef0cba56895a18bfd98fd1f69bb08c54f6312f4f40b124712a5f"
+}

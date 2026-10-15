@@ -1,0 +1,139 @@
+{
+  "version": "1.15",
+  "parentVersion": "1.14",
+  "date": "2026-10-12",
+  "generations": [
+    {
+      "file": "layers-1.15/icons/kalistopolis.png",
+      "generationId": "exec-2caf63a3-039e-40e7-aad3-df442ce6fbea",
+      "prompt": "layers-1.15/sources/kalistopolis.prompt.txt",
+      "reference": "kalistar-map-1.14.png"
+    },
+    {
+      "file": "layers-1.15/icons/durane.png",
+      "generationId": "exec-92b1e82a-445e-459a-8d5a-800c2d23b493",
+      "prompt": "layers-1.15/sources/durane.prompt.txt",
+      "references": [
+        "kalistar-map-1.14.png",
+        "layers-1.15/icons/kalistopolis.png"
+      ]
+    },
+    {
+      "file": "layers-1.15/icons/arborium.png",
+      "generationId": "exec-88416df1-c3ed-4b12-a837-5ec039c99881",
+      "prompt": "layers-1.15/sources/arborium.prompt.txt",
+      "references": [
+        "kalistar-map-1.14.png",
+        "layers-1.15/icons/kalistopolis.png"
+      ]
+    },
+    {
+      "file": "layers-1.15/sources/base-before-corrections.png",
+      "generationId": "exec-a98026bc-97b7-4ddc-b973-15cb697c663b",
+      "prompt": "layers-1.15/sources/base-removal.prompt.txt",
+      "reference": "kalistar-map-1.14.png"
+    },
+    {
+      "file": "layers-1.15/sources/base-first-corrections.png",
+      "generationId": "exec-371bf78b-e7e5-4001-b57c-a2501afe9a89",
+      "prompt": "layers-1.15/sources/base-corrections.prompt.txt",
+      "references": [
+        "layers-1.15/sources/base-before-corrections.png",
+        "kalistar-map-1.4.png"
+      ]
+    },
+    {
+      "file": "kalistar-map-1.15-base.png",
+      "generationId": "exec-1d2bc6da-fd57-442b-9c20-be073880ea94",
+      "prompt": "layers-1.15/sources/base-crater-final.prompt.txt",
+      "reference": "layers-1.15/sources/base-first-corrections.png"
+    }
+  ],
+  "files": [
+    {
+      "file": "layers-1.15/.gitignore",
+      "sha256": "5ae0312914f2b9eadfdae2e3ef4a0739e833ff421dfb42d81a419ecb1e68d560"
+    },
+    {
+      "file": "layers-1.15/build-layered-map.cjs",
+      "sha256": "1936a0aa56915f08cf05c35852b6375e4a85df7545f4be6c50cf23e231da005a"
+    },
+    {
+      "file": "layers-1.15/kalistar-map-1.15-preview.png",
+      "sha256": "8f2ce1f5675b69924185e9c11de80c2c74cd5a64f13d7e6263eccdb74d6b8eab"
+    },
+    {
+      "file": "layers-1.15/kalistar-map-1.15.psd",
+      "sha256": "72d081c42124cc8ecf6c302fc5055bfd7dc666c458b20b477a5fbd9042514b72"
+    },
+    {
+      "file": "layers-1.15/layout.json",
+      "sha256": "f2593dbd55deb21eb1d88b0da655d4159320f6b1b33dfd014fe2275e3fe7412c"
+    },
+    {
+      "file": "layers-1.15/README.md",
+      "sha256": "1f61abab0a777dd93237aae9207f679181e627efb1d9f978f12ede9b5f56258f"
+    },
+    {
+      "file": "layers-1.15/icons/arborium.png",
+      "sha256": "f270242484f7476aacc90924ea2a6f53a180293bc2759f8273f751238a8197f3"
+    },
+    {
+      "file": "layers-1.15/icons/durane.png",
+      "sha256": "80ec2e48282738cf4e3e68304c1fe3fd3a0aab09e89916d621a2358e249eb92f"
+    },
+    {
+      "file": "layers-1.15/icons/kalistopolis.png",
+      "sha256": "c692987df861d4fc1a5cdfb983698860b41781c3bc9c760c2f2060b957f55825"
+    },
+    {
+      "file": "layers-1.15/sources/arborium.prompt.txt",
+      "sha256": "981da0b85e05c475cd4dbe9d7b7643fab582a6db4df9fcf166e11f4138f8e16d"
+    },
+    {
+      "file": "layers-1.15/sources/base-before-corrections.png",
+      "sha256": "5776ab0b831c3e9e70c73d3aed2e25a698dd8c130efe291ea33fe8474406b28d"
+    },
+    {
+      "file": "layers-1.15/sources/base-corrections.prompt.txt",
+      "sha256": "93326196b9284c51fba765cc542da6680a47a55e4dc1177083f54980d6b39525"
+    },
+    {
+      "file": "layers-1.15/sources/base-crater-final.prompt.txt",
+      "sha256": "89e378dfbc1c5606180cd33407f83738235ccde497c9c2adb93e2d3e1c57dc68"
+    },
+    {
+      "file": "layers-1.15/sources/base-first-corrections.png",
+      "sha256": "e0a783a85bbc1f215a3c8a7f01c94efeacf86e00a6e5a9cda60aea5502c44f6e"
+    },
+    {
+      "file": "layers-1.15/sources/base-removal.prompt.txt",
+      "sha256": "b4358882be2039e5db2719c50bc544a16eead5b3dae56fabf444ebaa7d26c276"
+    },
+    {
+      "file": "layers-1.15/sources/durane.prompt.txt",
+      "sha256": "810d2b5ce6e3ff75c3af47706780c0b718d1a8a504e07da2827dc1d50eb686ae"
+    },
+    {
+      "file": "layers-1.15/sources/kalistopolis.prompt.txt",
+      "sha256": "b4fa58ee1987d4c13d0d9ab85fd1a29ecd7932f9383f34b89b209ac78f6ee313"
+    },
+    {
+      "file": "layers-1.15/tooling/package-lock.json",
+      "sha256": "afa227e8a9dd9efaae1654b604c70275808373d2ab9d2567f88e2ed84c83eaba"
+    },
+    {
+      "file": "layers-1.15/tooling/package.json",
+      "sha256": "1887f69af40f6de5fca2b25c35560d0065dee35ef5fd4499cf990ea55d1ab205"
+    }
+  ],
+  "checks": {
+    "realAlpha": true,
+    "psdRoundTrip": true,
+    "groups": 3,
+    "editableNames": 3,
+    "baseLocked": true,
+    "visualPreviewInspected": true,
+    "nativePhotoshopTested": false
+  }
+}

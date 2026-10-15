@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kalistar · Nouvelles voix &amp; Kaylis</title>
+<style>
+@font-face{font-family:Cinzel;src:url('../../site/assets/fonts/cinzel-v26-latin.woff2') format('woff2');font-display:swap}
+*{box-sizing:border-box;letter-spacing:0}
+:root{color-scheme:dark}
+body{margin:0;background:#101713;color:#e6e9e2;font:16px/1.55 Georgia,serif}
+header,main{max-width:1600px;margin:auto;padding:28px 32px}
+header{border-bottom:1px solid #405448}
+.eyebrow,.identity,.detail,.source,form{font-family:system-ui,sans-serif}
+.eyebrow{font-size:12px;color:#b8cbbb;margin:0 0 8px}
+h1,h2{font-family:Cinzel,Georgia,serif;line-height:1.25}
+h1{font-size:30px;margin:0 0 14px;font-weight:600}
+header>p{margin:0;color:#b8c5bc}
+form{display:flex;gap:16px;flex-wrap:wrap;align-items:end;margin-top:22px}
+label{display:grid;gap:5px;font-size:12px;color:#b8c5bc}
+input,select{font:inherit;font-size:15px;color:#e6e9e2;background:#18261f;border:1px solid #5e7565;border-radius:3px;min-height:44px;padding:9px 12px;width:100%;min-width:0}
+label:first-child{flex:1;max-width:420px;min-width:180px}
+label:last-of-type{min-width:160px}
+output{font-size:13px;color:#c8d2c8;padding-bottom:12px}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px 24px}
+figure{margin:0;min-width:0}
+figure[hidden]{display:none}
+.art{display:block;aspect-ratio:4/5;background:#0a100d;outline-offset:5px}
+.art img{display:block;width:100%;height:100%;object-fit:contain}
+figcaption{padding-top:15px}
+.identity{font-size:11px;color:#b8cbbb;margin:0 0 6px}
+h2{font-size:23px;color:#f1e4bd;margin:0 0 4px;overflow-wrap:anywhere}
+p{margin:8px 0}
+.title{font-style:italic;color:#c7d7cc;margin:0}
+.detail,.source{font-size:12px;color:#a9bdb0}
+a{color:#a5d8d1}
+.previous{font-size:13px;text-underline-offset:3px}
+.empty{padding:32px 0;color:#bbcbbf}
+a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #bcece0;outline-offset:4px}
+@media(max-width:1050px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){header,main{padding:22px 16px}.gallery{grid-template-columns:1fr;gap:35px}h1{font-size:25px}form{gap:12px}label:first-child{max-width:none;flex-basis:100%}label:last-of-type{flex:1}output{min-width:105px}h2{font-size:22px}}
+</style>
+</head>
+<body>
+<header><p class="eyebrow">KALISTAR · PROPOSITIONS · 14 OCTOBRE 2026</p>
+<h1>Nouvelles voix &amp; Kaylis</h1><p>Sept illustrations · Kaylis et Édris-7F sélectionnées pour les cartes</p>
+<p><a href="../../expansions/2026-10-14-kaylis-edris/index.html">Voir les deux cartes</a></p>
+<form onsubmit="return false"><label>Personnage<input id="search" type="search" placeholder="Rechercher" autocomplete="off"></label><label>Faction<select id="faction"><option value="">Toutes</option><option>Chroma</option><option>Crabazar</option><option>Durane</option><option>Vulkar</option><option>Z13</option></select></label><output id="count" aria-live="polite">7 illustrations</output></form></header>
+<main><div class="gallery"><figure id="kaylis" data-faction="Z13">
+<a class="art" href="images/07-kaylis-04.png" target="_blank" rel="noopener" aria-label="Kaylis : illustration originale"><img src="images/07-kaylis-04.png" alt="Kaylis en cape noire à motifs rouges, ses deux rapières droites au fourreau, au départ de chez Madania." loading="eager" decoding="async"></a>
+<figcaption><p class="identity">HUMAIN · Z13</p><h2>Kaylis</h2><p class="title">Le prochain pas</p><p>Au départ de chez Madania, à Durane, Kaylis ajuste ses armes avant de gagner la Tour de Fer.</p><p class="detail">RAINBOW · Deux rapières</p><p class="source">Scène inspirée du chapitre XIII, « Une rencontre retrouvée ».</p><a class="previous" href="images/07-kaylis-01.png" target="_blank" rel="noopener">Version précédente</a></figcaption></figure>
+<figure id="vardek" data-faction="Durane">
+<a class="art" href="images/01-vardek-01.png" target="_blank" rel="noopener" aria-label="Vardek : illustration originale"><img src="images/01-vardek-01.png" alt="Sur une plateforme de fret de Durane, Vardek couvre un départ avec son fusil magnétique de siège." loading="lazy" decoding="async"></a>
+<figcaption><p class="identity">NAIN · Durane · P4 / P3</p><h2>Vardek</h2><p class="title">L’Arpenteur de siège</p><p>Sur une plateforme de fret de Durane, Vardek couvre un départ avec son fusil magnétique de siège.</p><p class="detail">MINERO · Gun</p><a class="previous" href="../2026-10-13-twenty-new-voices/images/01-vardek-02.png" target="_blank" rel="noopener">Version précédente</a></figcaption></figure>
+<figure id="maedrine" data-faction="Durane">
+<a class="art" href="images/02-maedrine-01.png" target="_blank" rel="noopener" aria-label="Maëdrine : illustration originale"><img src="images/02-maedrine-01.png" alt="Maëdrine revient chercher les retardataires, son résonateur de soin prêt à servir." loading="lazy" decoding="async"></a>
+<figcaption><p class="identity">NAIN · Durane · P5</p><h2>Maëdrine</h2><p class="title">La Médecin des galeries</p><p>Maëdrine revient chercher les retardataires, son résonateur de soin prêt à servir.</p><p class="detail">GEO · Instrument</p><a class="previous" href="../2026-10-13-twenty-new-voices/images/02-maedrine-02.png" target="_blank" rel="noopener">Version précédente</a></figcaption></figure>
+<figure id="rhazene" data-faction="Vulkar">
+<a class="art" href="images/03-rhazene-01.png" target="_blank" rel="noopener" aria-label="Rhazène : illustration originale"><img src="images/03-rhazene-01.png" alt="À la sortie du four, Rhazène protège un cœur de verre incandescent." loading="lazy" decoding="async"></a>
+<figcaption><p class="identity">DRAX · Vulkar · P4</p><h2>Rhazène</h2><p class="title">La Verrière des braises</p><p>À la sortie du four, Rhazène protège un cœur de verre incandescent.</p><p class="detail">PYRO · Orbe</p><a class="previous" href="../2026-10-13-twenty-new-voices/images/11-rhazene-01.png" target="_blank" rel="noopener">Version précédente</a></figcaption></figure>
+<figure id="velume" data-faction="Crabazar">
+<a class="art" href="images/04-velume-01.png" target="_blank" rel="noopener" aria-label="Vélume : illustration originale"><img src="images/04-velume-01.png" alt="À marée basse, Vélume retrouve une balise et guette le retour de son signal." loading="lazy" decoding="async"></a>
+<figcaption><p class="identity">TANTALAK · Crabazar · P4 / P5</p><h2>Vélume</h2><p class="title">La Veilleuse des abysses</p><p>À marée basse, Vélume retrouve une balise et guette le retour de son signal.</p><p class="detail">ELECTRO · Orbe</p><a class="previous" href="../2026-10-13-twenty-new-voices/images/14-velume-02.png" target="_blank" rel="noopener">Version précédente</a></figcaption></figure>
+<figure id="salkor" data-faction="Crabazar">
+<a class="art" href="images/05-salkor-01.png" target="_blank" rel="noopener" aria-label="Salkor : illustration originale"><img src="images/05-salkor-01.png" alt="Sur le pont d'une embarcation, Salkor prépare sa lame de soin avec un filet d'eau." loading="lazy" decoding="async"></a>
+<figcaption><p class="identity">SHARKAN · Crabazar · P5</p><h2>Salkor</h2><p class="title">Le Chirurgien des quais</p><p>Sur le pont d'une embarcation, Salkor prépare sa lame de soin avec un filet d'eau.</p><p class="detail">HYDRO · Dague</p><a class="previous" href="../2026-10-13-twenty-new-voices/images/19-salkor-02.png" target="_blank" rel="noopener">Version précédente</a></figcaption></figure>
+<figure id="edris-7f" data-faction="Chroma">
+<a class="art" href="images/06-edris-7f-02.png" target="_blank" rel="noopener" aria-label="Édris-7F : illustration originale"><img src="images/06-edris-7f-02.png" alt="Édris-7F se glisse dans une maison de Chroma, retient la porte et écoute les pas à l'étage." loading="lazy" decoding="async"></a>
+<figcaption><p class="identity">ANDROID · Chroma · P2 / P3</p><h2>Édris-7F</h2><p class="title">Une présence de trop</p><p>Édris-7F se glisse dans une maison de Chroma, retient la porte et écoute les pas à l'étage.</p><p class="detail">ELECTRO · Epée courte</p><a class="previous" href="../2026-10-13-twenty-new-voices/images/20-edris-7-02.png" target="_blank" rel="noopener">Version précédente</a></figcaption></figure></div><p class="empty" hidden>Aucune illustration ne correspond.</p></main>
+<script>
+const normalise = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+const search=document.querySelector('#search'),faction=document.querySelector('#faction'),figures=[...document.querySelectorAll('figure')];
+function filter(){let count=0;const term=normalise(search.value.trim());for(const figure of figures){figure.hidden=!(normalise(figure.textContent).includes(term)&&(!faction.value||figure.dataset.faction===faction.value));if(!figure.hidden)count++;}document.querySelector('#count').textContent=count+' illustration'+(count>1?'s':'');document.querySelector('.empty').hidden=count>0;}
+search.addEventListener('input',filter);faction.addEventListener('change',filter);
+</script>
+</body></html>

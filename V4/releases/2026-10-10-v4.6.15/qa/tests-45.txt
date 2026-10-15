@@ -1,0 +1,14 @@
+✔ all 20 actual base families keep their existing matrix IDs (1.0034ms)
+✔ native anchor and all calibrated white contours respect the original circle (9.7061ms)
+✔ Projectile alone adopts a throwing-star silhouette; native geometry stays unchanged (24.9606ms)
+✔ Projectile has four equal, axis-aligned points and quarter-turn symmetry (1.6241ms)
+✔ four requested silhouettes change; the other sixteen stay byte-identical (1.6864ms)
+✔ site-only rendering leaves native sources and equipment rules independent (0.5018ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 100.2955

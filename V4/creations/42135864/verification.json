@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "modelId": "42135864",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "1319fce113d9602275c44ed96e682dd2010fa66073c04f32b4b72688b7573791",
+  "hashes": {
+    "card.png": "4392a0843339b8d24637bf1f88e65ab620c36b07852563f6cabc74afd864459f",
+    "card.psd": "04cb4edd7e6e6ca86d290d2970974ef9f1f9b4b6145796eda26627ca0537fea8"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 127712
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "42135864",
+    "cases": {
+      "color-1": [
+        "42135864"
+      ],
+      "color-4": [
+        "42135864"
+      ],
+      "gray-1": [
+        "42135864"
+      ],
+      "gray-4": [
+        "42135864"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-23T16:08:31.013Z",
+  "key": "popola-automata",
+  "typography": {
+    "NOM": {
+      "font": "TimesNewRomanPSMT",
+      "sizePt": 10.0000012207031,
+      "tracking": 0,
+      "capitalization": "TextCase.NORMAL",
+      "fauxBold": false,
+      "fauxItalic": false
+    },
+    "TITLE": {
+      "font": "TimesNewRomanPSMT",
+      "sizePt": 7.68,
+      "tracking": 0,
+      "capitalization": "TextCase.ALLCAPS",
+      "fauxBold": false,
+      "fauxItalic": false
+    }
+  },
+  "preparationHash": "db5e48ff73dbbd268fef498873633f50f7a8dc05d16783858c32878c18c2b95c"
+}

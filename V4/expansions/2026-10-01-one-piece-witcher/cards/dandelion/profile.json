@@ -1,0 +1,61 @@
+{
+  "name": "DANDELION",
+  "title": "Une ballade pour les vivants",
+  "job": "BARDE",
+  "description": "À Novigrad, Dandelion pince les cordes de son luth et retrouve le sourire de la salle. Une chanson ne change pas le passé ; elle donne parfois à un ami la force de poursuivre la route.",
+  "element": "LUXO",
+  "race": "HUMAIN",
+  "weapon": "Instrument",
+  "faction": "WITCHER",
+  "positions": [
+    5
+  ],
+  "atk": [
+    157,
+    123,
+    "revive",
+    "retry",
+    "buff_atk",
+    16
+  ],
+  "defense": [
+    197,
+    158,
+    114,
+    86,
+    42,
+    "retry"
+  ],
+  "magic": [
+    5
+  ],
+  "barriers": [
+    4
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49900107",
+  "characterId": "dandelion-witcher",
+  "slug": "V4_49900107",
+  "output": "KALISTAR_V4_49900107",
+  "text": "À Novigrad, Dandelion pince les cordes de son luth et retrouve le sourire de la salle. Une chanson ne change pas le passé ; elle donne parfois à un ami la force de poursuivre la route.",
+  "color": "F4E9AF",
+  "hue": 47,
+  "weapon_index": 11,
+  "role": 5,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": true,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Kalistar x The Witcher - fan crossover non officiel",
+  "visual_revision": "V4-2026-10-01-one-piece-witcher",
+  "collaboration": "WITCHER",
+  "officialCollaboration": false,
+  "artworkSource": "V4/Illustrations/TW_dandelion_01.png"
+}

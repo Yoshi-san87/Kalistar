@@ -1,0 +1,152 @@
+{
+  "at": "2026-09-15T08:53:02.657Z",
+  "tests": [
+    "Deck page: ten slots, two rows, no deck modal, original full-resolution cards",
+    "Strict coverage: removing a unique P2 disables play; new slots and matching filters work",
+    "Ten saved decks per profile, name persistence, duplicate limit and inline delete confirmation",
+    "All demo decks satisfy two compatibles per P1-P5 and preserve 41-card coverage",
+    "Reserve hover opens a large exact-ratio full card; eye is bottom-right; formation placement works",
+    "Sixteen arena console identities, no stretched card-border and fixed visible kill score",
+    "Resolved score, bonuses, dice and RNG remain readable until an explicit Next click",
+    "Navigation, reload and an obsolete true preference preserve the resolved duel and database",
+    "Compatible replacement reserves highlighted, incompatible reserves dimmed; legal deploy updates board",
+    "Dice and combat finish before Next is enabled; support results also wait for confirmation",
+    "Ten kills wins, final scoreboard equals dead pile, final report stays open",
+    "Normal-motion cards stay in duel view, then return to formation on Next",
+    "Human and AI duels both wait at results; AI resumes its actions after Next",
+    "Kills keep their recap before Next opens replacements or the final report",
+    "Mobile reserve opens by tap within viewport; AI reserve remains hidden",
+    "Responsive desktop/mobile deck page, no body overflow, images decoded",
+    "Tokyo has no owned cards or saved Paris decks, cannot start a forged deck"
+  ],
+  "screenshots": [
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-flow\\decks-desktop.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-flow\\reserve-grand-apercu.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-flow\\console-hydro.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-flow\\console-pyro.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-flow\\console-z13.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-flow\\tour-suivant-recap.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-flow\\renforts-compatibles.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-flow\\reserve-mobile.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-flow\\decks-2560.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-flow\\decks-1440.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-flow\\decks-390.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-flow\\decks-360.png"
+  ],
+  "errors": [],
+  "arenas": [
+    {
+      "arena": "aero",
+      "material": "bridge",
+      "color": "#acdccc",
+      "border": "none",
+      "innerOverflow": false
+    },
+    {
+      "arena": "hydro",
+      "material": "water",
+      "color": "#82dce3",
+      "border": "none",
+      "innerOverflow": false
+    },
+    {
+      "arena": "electro",
+      "material": "circuit",
+      "color": "#f2d668",
+      "border": "none",
+      "innerOverflow": false
+    },
+    {
+      "arena": "pyro",
+      "material": "forge",
+      "color": "#ee9b72",
+      "border": "none",
+      "innerOverflow": false
+    },
+    {
+      "arena": "cryo",
+      "material": "ice",
+      "color": "#b8eaf0",
+      "border": "none",
+      "innerOverflow": false
+    },
+    {
+      "arena": "luxo",
+      "material": "sun",
+      "color": "#e8d590",
+      "border": "none",
+      "innerOverflow": false
+    },
+    {
+      "arena": "minero",
+      "material": "stone",
+      "color": "#b5cbae",
+      "border": "none",
+      "innerOverflow": false
+    },
+    {
+      "arena": "herbo",
+      "material": "leaves",
+      "color": "#a6d88d",
+      "border": "none",
+      "innerOverflow": false
+    },
+    {
+      "arena": "hemato",
+      "material": "gates",
+      "color": "#ee879a",
+      "border": "none",
+      "innerOverflow": false
+    },
+    {
+      "arena": "necro",
+      "material": "gates",
+      "color": "#b2aedf",
+      "border": "none",
+      "innerOverflow": false
+    },
+    {
+      "arena": "geo",
+      "material": "stone",
+      "color": "#cfb87f",
+      "border": "none",
+      "innerOverflow": false
+    },
+    {
+      "arena": "rainbow",
+      "material": "prism",
+      "color": "#e4c5e2",
+      "border": "none",
+      "innerOverflow": false
+    },
+    {
+      "arena": "z13",
+      "material": "circuit",
+      "color": "#7fded6",
+      "border": "none",
+      "innerOverflow": false
+    },
+    {
+      "arena": "trone-fer",
+      "material": "gates",
+      "color": "#ddc799",
+      "border": "none",
+      "innerOverflow": false
+    },
+    {
+      "arena": "astraball",
+      "material": "street",
+      "color": "#e5b184",
+      "border": "none",
+      "innerOverflow": false
+    },
+    {
+      "arena": "ruins",
+      "material": "stone",
+      "color": "#b7c7ae",
+      "border": "none",
+      "innerOverflow": false
+    }
+  ],
+  "status": "passed"
+}

@@ -1,0 +1,71 @@
+{
+  "revision": "2026-09-27-weapon-optics",
+  "banks": {
+    "Faucille": {
+      "key": "voloden",
+      "source": "V4/revisions/2026-09-27-weapon-optics/staged/voloden/bank.png",
+      "sourceHash": "02a07d6d67e32870585d8d9c2e557b00fac3743c6ae8ac71a7de33921c0578c3",
+      "outputs": {
+        "packed": {
+          "from": "V4/revisions/2026-09-27-weapon-optics/staged/banks/weapon-Faucille-packed.png",
+          "to": "V4/atelier/designer-assets/packed/banks/weapon-Faucille.png",
+          "beforeHash": "dc3a312f21a1cf8d77c927b58e6d04649f1824052588b54104046c670e0fb467",
+          "afterHash": "9762468bd7d5b6f07ccd2f0814d1f4ee2d90e3afc512583cec08ae4d03f3dcf1",
+          "geometry": {
+            "left": 89,
+            "top": 1116,
+            "width": 96,
+            "height": 95
+          }
+        },
+        "raw": {
+          "from": "V4/revisions/2026-09-27-weapon-optics/staged/banks/weapon-Faucille-raw.png",
+          "to": "V4/atelier/designer-assets/banks/weapon-Faucille.png",
+          "beforeHash": "15cf65992f9e8f8567818cdf54d32f52cb69eee8e2c4b9f327d0b64fb5a28f97",
+          "afterHash": "de7a8146b88146e54546e164e2a64018140563f5cd05c6455b4716d5aa4d1a16",
+          "geometry": {
+            "left": 85,
+            "top": 1112,
+            "width": 104,
+            "height": 103
+          }
+        }
+      }
+    },
+    "Tome": {
+      "key": "iliane",
+      "source": "V4/revisions/2026-09-27-weapon-optics/staged/iliane/bank.png",
+      "sourceHash": "84eea4550aed7f0f07b0db02587c8c93cd639be06087078065ea88447c37a742",
+      "outputs": {
+        "packed": {
+          "from": "V4/revisions/2026-09-27-weapon-optics/staged/banks/weapon-Tome-packed.png",
+          "to": "V4/atelier/designer-assets/packed/banks/weapon-Tome.png",
+          "beforeHash": "d8ddacaa47bf1bfe90083a0552e03a5172c5da5290b204271e15764b26d73abc",
+          "afterHash": "b6e511bbf3e5d1ec1b160383bcc7416a4cebe67f5620bef736ff78d613e9673f",
+          "geometry": {
+            "left": 89,
+            "top": 1116,
+            "width": 96,
+            "height": 95
+          }
+        },
+        "raw": {
+          "from": "V4/revisions/2026-09-27-weapon-optics/staged/banks/weapon-Tome-raw.png",
+          "to": "V4/atelier/designer-assets/banks/weapon-Tome.png",
+          "beforeHash": "2b0d1d5d48448148b0cc85e96401d203a0686039177c609f1e9d368b68f952ae",
+          "afterHash": "fd5a909392862af2b3d8096ae7ece47c05bca532f7d54617742b46d7a900379e",
+          "geometry": {
+            "left": 85,
+            "top": 1112,
+            "width": 104,
+            "height": 103
+          }
+        }
+      }
+    }
+  },
+  "onlyWeapons": [
+    "Faucille",
+    "Tome"
+  ]
+}

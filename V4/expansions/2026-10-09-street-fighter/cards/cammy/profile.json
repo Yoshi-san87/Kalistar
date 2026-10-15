@@ -1,0 +1,61 @@
+{
+  "name": "CAMMY",
+  "title": "LA SECONDE AVANT L'ASSAUT",
+  "job": "AGENTE",
+  "description": "Cammy mesure la distance sans quitter sa cible. On lui a appris a obeir avant de penser ; elle choisit desormais ses combats. Dans ce bref silence, sa liberte precede deja son corps.",
+  "element": "CRYO",
+  "race": "HUMAIN",
+  "weapon": "Poing",
+  "faction": "STREETFIGHTER",
+  "positions": [
+    2,
+    3
+  ],
+  "atk": [
+    291,
+    244,
+    165,
+    119,
+    71,
+    "buff_atk"
+  ],
+  "defense": [
+    158,
+    126,
+    96,
+    "dodge",
+    38,
+    14
+  ],
+  "magic": [
+    2
+  ],
+  "barriers": [
+    4
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49901705",
+  "characterId": "cammy-street-fighter",
+  "slug": "V4_49901705",
+  "output": "KALISTAR_V4_49901705",
+  "text": "Cammy mesure la distance sans quitter sa cible. On lui a appris a obeir avant de penser ; elle choisit desormais ses combats. Dans ce bref silence, sa liberte precede deja son corps.",
+  "color": "ACDFFD",
+  "hue": 201,
+  "role": 2,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Kalistar x Street Fighter - fan crossover non officiel",
+  "visual_revision": "V4-2026-10-09-street-fighter",
+  "collaboration": "STREETFIGHTER",
+  "officialCollaboration": false,
+  "artworkSource": "V4/propositions/2026-10-09-street-fighter/images/cammy.png"
+}

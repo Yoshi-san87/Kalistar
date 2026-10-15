@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "key": "irvine",
+  "modelId": "48704873",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "6f42fc17baa3ec58087be22957455955b57837343f3f3da1bfb5783c1b0d8762",
+  "hashes": {
+    "card.png": "332ce8dffe8b6c2c9e173ace70ebb0106ae2f514e487f4bbcdc3804e35831458",
+    "card.psd": "8d1b28d47f09ec6edda1cd96f61038dd122cc7e1949ae92b01a2555d917c98cd"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 112020
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "48704873",
+    "cases": {
+      "color-1": [
+        "48704873"
+      ],
+      "color-4": [
+        "48704873"
+      ],
+      "gray-1": [
+        "48704873"
+      ],
+      "gray-4": [
+        "48704873"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-20T14:39:00.816Z"
+}

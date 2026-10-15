@@ -1,0 +1,185 @@
+{
+  "revision": "2026-10-01-kaine-framing",
+  "verification": {
+    "passed": true,
+    "modelId": "45951088",
+    "referenceId": "ef7a6767b57723d896ceecb050079bfb1abad0e79e7289a200f87b34585f9380",
+    "revision": "2026-10-01-kaine-framing",
+    "profileHash": "19b899147ca8626295c61cdbe52a1fe808decb1459d1ff35ab2bb9e9e06826e1",
+    "hashes": {
+      "card.psd": "19c7ba380fb6b28b5addb5591f531cd3aed016ca0a16937507218ba87269d81e",
+      "card.png": "46cb2c273b633342d5ce5dc6840a06a3cb3e3b6c192f082f096a26b46d02807e"
+    },
+    "original": {
+      "changed": 0,
+      "outside": 0
+    },
+    "actualCurrentCrop": {
+      "changed": 0,
+      "outside": 0
+    },
+    "unchangedOutsideArt": {
+      "changed": 456064,
+      "outside": 0
+    },
+    "withoutArt": {
+      "changed": 0,
+      "outside": 0
+    },
+    "roundtrip": {
+      "changed": 0,
+      "outside": 0
+    },
+    "barcode": {
+      "passed": true,
+      "expected": "45951088",
+      "cases": {
+        "color-1": [
+          "45951088"
+        ],
+        "color-4": [
+          "45951088"
+        ],
+        "gray-1": [
+          "45951088"
+        ],
+        "gray-4": [
+          "45951088"
+        ]
+      },
+      "physicalPrintVerified": false
+    },
+    "framing": {
+      "relativeZoom": 1.12,
+      "baseCrop": {
+        "zoom": 1.12,
+        "x": 0,
+        "y": 0
+      },
+      "effectiveZoom": 1.2544000000000002,
+      "x": 0,
+      "y": 0,
+      "clip": [
+        80,
+        156,
+        817,
+        1077
+      ],
+      "canvas": [
+        737,
+        921
+      ],
+      "sourceSize": [
+        1122,
+        1402
+      ],
+      "sourceHash": "61615a12c884053fb27ae580350f812ba3e1697f545e4ede300d782ea3f4b2b2",
+      "fullEmbeddedArtwork": true,
+      "reversible": true,
+      "currentRect": {
+        "left": 60,
+        "top": 75,
+        "width": 1002,
+        "height": 1252
+      }
+    },
+    "editableTextsAndStyleRunsUnchanged": true,
+    "allLayerGeometryUnchanged": true,
+    "fullEmbeddedArtworkBytesUnchanged": true,
+    "profileBytesUnchanged": true,
+    "typography": {
+      "NOM": {
+        "font": "TimesNewRomanPSMT",
+        "sizePt": 10.0000012207031,
+        "tracking": 0,
+        "capitalization": "TextCase.NORMAL",
+        "fauxBold": false,
+        "fauxItalic": false
+      },
+      "TITLE": {
+        "font": "TimesNewRomanPSMT",
+        "sizePt": 7.68,
+        "tracking": 0,
+        "capitalization": "TextCase.ALLCAPS",
+        "fauxBold": false,
+        "fauxItalic": false
+      }
+    },
+    "typographyCalibration": {
+      "nativeMetricsHash": "115079062ab5889e6cf13bdca5abd94669989df7ddb2963a0ba5c98f31d43a1c",
+      "requestHash": "830936d924375ec0b2945829c68346c64cc5105062e363c50027eb6692428c8e",
+      "priorDonorChanges": [
+        {
+          "file": "V4/templates/RUBY_V4_01_HYDRO.psd",
+          "historicalHash": "07a50442a21383433d04ff819ad2682ee1bbc592fe2b058091eb4c37d7ac0091",
+          "currentProtectedHash": "099486ecdef20bb9d5ed9694ded13ef24c93748348b1011b56b87bbd9cf622ac"
+        }
+      ],
+      "basis": "Unchanged current native Kaine styles and bounds; byte-verified historical glyph measurements."
+    },
+    "checkedAt": "2026-10-01T12:50:57.445Z"
+  },
+  "nativeRevision": {
+    "id": "2026-10-01-kaine-framing",
+    "key": "kaine",
+    "proof": "V4/revisions/2026-10-01-kaine-framing/work/kaine/verification.json",
+    "framing": {
+      "relativeZoom": 1.12,
+      "baseCrop": {
+        "zoom": 1.12,
+        "x": 0,
+        "y": 0
+      },
+      "effectiveZoom": 1.2544000000000002,
+      "x": 0,
+      "y": 0,
+      "clip": [
+        80,
+        156,
+        817,
+        1077
+      ],
+      "canvas": [
+        737,
+        921
+      ],
+      "sourceSize": [
+        1122,
+        1402
+      ],
+      "sourceHash": "61615a12c884053fb27ae580350f812ba3e1697f545e4ede300d782ea3f4b2b2",
+      "fullEmbeddedArtwork": true,
+      "reversible": true,
+      "currentRect": {
+        "left": 60,
+        "top": 75,
+        "width": 1002,
+        "height": 1252
+      }
+    },
+    "previousCreationHash": "8bc48cecd7e54112d6ef5163539fb6e62f916519e1987487f88301d3c323ad28"
+  },
+  "staged": {
+    "V4/revisions/2026-10-01-kaine-framing/staging/card.psd": "19c7ba380fb6b28b5addb5591f531cd3aed016ca0a16937507218ba87269d81e",
+    "V4/revisions/2026-10-01-kaine-framing/staging/card.png": "46cb2c273b633342d5ce5dc6840a06a3cb3e3b6c192f082f096a26b46d02807e",
+    "V4/revisions/2026-10-01-kaine-framing/staging/verification.json": "937cdaa537948a100647533fc56337e1e910c0c064eea16189d8bfe5efd07074",
+    "V4/revisions/2026-10-01-kaine-framing/staging/creation.json": "aac3bb3e62b74818128c3be059b3fd9482c1d709fdff43df8f60ab0949fc37b6"
+  },
+  "evidence": {
+    "V4/revisions/2026-10-01-kaine-framing/work/kaine/after-without-art.png": "69aa04c2ab067e1d0b67b03ae40393db3672223c69c944441c68770fa67f9bb1",
+    "V4/revisions/2026-10-01-kaine-framing/work/kaine/art-window.png": "bd5161f2758dd6ff793899d4b30578ea3ca3254e795995e0dcf3e9914ca70270",
+    "V4/revisions/2026-10-01-kaine-framing/work/kaine/art-window.psd": "564dbd58e96a1359caaf5b56711c0ffe25191e28f25c17ba39679ed46c1f1036",
+    "V4/revisions/2026-10-01-kaine-framing/work/kaine/before-card.png": "c5e238a437b22d50d9be3770ef89d2da376a387d0d7d258cf3847c0f15fc98f5",
+    "V4/revisions/2026-10-01-kaine-framing/work/kaine/before-without-art.png": "385b0b707d981e7bb37494b20b059d897bf9e0b364c8f3c451db9ee1fe483926",
+    "V4/revisions/2026-10-01-kaine-framing/work/kaine/card.png": "46cb2c273b633342d5ce5dc6840a06a3cb3e3b6c192f082f096a26b46d02807e",
+    "V4/revisions/2026-10-01-kaine-framing/work/kaine/card.psd": "19c7ba380fb6b28b5addb5591f531cd3aed016ca0a16937507218ba87269d81e",
+    "V4/revisions/2026-10-01-kaine-framing/work/kaine/current-embedded-window.png": "52c16f5ccb17fc968d5ea820717a20a902a5ff98694e5d6215d393b7e93fa664",
+    "V4/revisions/2026-10-01-kaine-framing/work/kaine/embedded-artwork.png": "61615a12c884053fb27ae580350f812ba3e1697f545e4ede300d782ea3f4b2b2",
+    "V4/revisions/2026-10-01-kaine-framing/work/kaine/illustration.png": "61615a12c884053fb27ae580350f812ba3e1697f545e4ede300d782ea3f4b2b2",
+    "V4/revisions/2026-10-01-kaine-framing/work/kaine/native.json": "7d5e28bdb681d2bd07269823d05a73fbca42a69cb45b91f365f7d70feda6c3ad",
+    "V4/revisions/2026-10-01-kaine-framing/work/kaine/profile.json": "19b899147ca8626295c61cdbe52a1fe808decb1459d1ff35ab2bb9e9e06826e1",
+    "V4/revisions/2026-10-01-kaine-framing/work/kaine/reopened.png": "cb24b77f2a6e35aacdc590eac7e0c08e3ec0dae1f4eddb6837e686c3bbef7e96",
+    "V4/revisions/2026-10-01-kaine-framing/work/kaine/small.png": "7305f0bb8c921fc8d1618c0176b0c2456f29a7b84acc01573d0dfac37acc9639",
+    "V4/revisions/2026-10-01-kaine-framing/work/kaine/verification.json": "937cdaa537948a100647533fc56337e1e910c0c064eea16189d8bfe5efd07074"
+  }
+}

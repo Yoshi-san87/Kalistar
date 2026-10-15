@@ -1,0 +1,534 @@
+{
+  "passed": true,
+  "parent": "64d3c73bbcb51a742b730554f040d1c3c3b67c7b",
+  "tests": 161,
+  "checked": [
+    {
+      "file": ".github/workflows/pages.yml",
+      "sha256": "a8793755c2538a5e8923876b37021b4e19d966b706f3235b38bf053e8c9be5e2"
+    },
+    {
+      "file": "V4/creations/49902701/card.png",
+      "sha256": "f59431ffab8308039f20237a8ef4df0c0a7bb82c9b6d369d385f10b35c426f34"
+    },
+    {
+      "file": "V4/creations/49902701/card.psd",
+      "sha256": "743a8a0e08016172fb2495eaa4ae0cc1f288282c870001c80c9ef5bba9906acb"
+    },
+    {
+      "file": "V4/creations/49902701/creation.json",
+      "sha256": "cead4b75b2d9c8e7354ef3eba86f60b2d24790355dce4e20af43487815b8712b"
+    },
+    {
+      "file": "V4/creations/49902701/illustration.png",
+      "sha256": "f35e7e2fa8a1add2ad1a26133c995e76005cf01fff770a805f599c796755fa5d"
+    },
+    {
+      "file": "V4/creations/49902701/profile.json",
+      "sha256": "d59f51b505b28409362ee8a1e678405df5e0119915b15eb3f4e53390e7c8d744"
+    },
+    {
+      "file": "V4/creations/49902701/verification.json",
+      "sha256": "08a78017411fe699223c14628b0619c43913ea17696c23360988c4c67e3c1c5b"
+    },
+    {
+      "file": "V4/creations/49902702/card.png",
+      "sha256": "95e2b3c0c29e339d19022707780ab5034ebe7cc12905c76758fe0e754b2bd691"
+    },
+    {
+      "file": "V4/creations/49902702/card.psd",
+      "sha256": "d6933d7e4888e23444338590bc2b11708bc1e32445567d8f00b902e69a5800cc"
+    },
+    {
+      "file": "V4/creations/49902702/creation.json",
+      "sha256": "1848d73c682ab467ab3878072403a9ea69ed37b8955d8a81f86a276f70d057e1"
+    },
+    {
+      "file": "V4/creations/49902702/illustration.png",
+      "sha256": "9463982e3dd6ba90fd8bdcca5ed856d58683372d466a10a25725b82ab07a2275"
+    },
+    {
+      "file": "V4/creations/49902702/profile.json",
+      "sha256": "b0bca49e6c3d1d21ee0aa1ec01862f6f1c9c6e83108370b86a71424f6e48626f"
+    },
+    {
+      "file": "V4/creations/49902702/verification.json",
+      "sha256": "d78ca913d3efe6f9cf91e91e152877d80d1dde76d090e1f899a88a1e6068a7e0"
+    },
+    {
+      "file": "V4/deploy/browser.test.cjs",
+      "sha256": "1afd2ab2aa010ddc8ed8a54bf530a344f17745a7241ce07dcf113fc1f9b339f9"
+    },
+    {
+      "file": "V4/deploy/build.cjs",
+      "sha256": "2f9bf648bfb6a0bc16b6a8293d0123f2286835a18e50733a17cefdfc611d77d7"
+    },
+    {
+      "file": "V4/deploy/build.test.cjs",
+      "sha256": "c2df8ee10c7ea00d5c7f504219ce9d3755b2411412b642e539ce829e3dd94938"
+    },
+    {
+      "file": "V4/donnees/catalogue.json",
+      "sha256": "47337781b31ceaaac4d91bd5015ac2da2998d2351d38395e9abec8329f1161a3"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/README.md",
+      "sha256": "bfa37834ac5c3c6b50edbcfc715a24e5da4859a6c06ab4bc7f13ae73315ee59d"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/before.json",
+      "sha256": "f80ae3e715b426ebc4a4771a20140d6d00c28a9918c6ba3f4227b76a453326ab"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/browser.test.cjs",
+      "sha256": "ab32cdb61bc1cb6b1db30df010323662f3a35374d5ae4afc25ec0a8f6abaebc4"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/build.cjs",
+      "sha256": "25bfc6f132b6284b9ecfd45f3b79e8f8c2afc55c8d328bb27569235a736a4daf"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards-overview.png",
+      "sha256": "a36322d0b58f0471cef205089b79d64ded5e5190d5fda1913a0ddee8b25347f7"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/card.png",
+      "sha256": "95e2b3c0c29e339d19022707780ab5034ebe7cc12905c76758fe0e754b2bd691"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/card.psd",
+      "sha256": "d6933d7e4888e23444338590bc2b11708bc1e32445567d8f00b902e69a5800cc"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/illustration.png",
+      "sha256": "9463982e3dd6ba90fd8bdcca5ed856d58683372d466a10a25725b82ab07a2275"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/profile.json",
+      "sha256": "b0bca49e6c3d1d21ee0aa1ec01862f6f1c9c6e83108370b86a71424f6e48626f"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/render/component-00.png",
+      "sha256": "b6c98ac9d50b6d70885a4890b6f337107f5f713b44b69555c25ac91d4a9199d9"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/render/component-01.png",
+      "sha256": "135f18c4ed407456ae5f5765bf8bbb83e64a0defc8575282cd940685073c177e"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/render/component-02.png",
+      "sha256": "2a41817191602237312ca1d82ac5cea37abf59d69416d7778ca2a2c3f74856d6"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/render/component-03.png",
+      "sha256": "2a41817191602237312ca1d82ac5cea37abf59d69416d7778ca2a2c3f74856d6"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/render/component-04.png",
+      "sha256": "0467d4f3dda9a6c67f087bb1e4dc0b76e96ddfc5c2652a419db9b93972133c0b"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/render/component-05.png",
+      "sha256": "700d09c2aa30e666c95548b09ae012f3046ee3a5ef845010eee3406fa786dd9b"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/render/component-06.png",
+      "sha256": "2a41817191602237312ca1d82ac5cea37abf59d69416d7778ca2a2c3f74856d6"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/render/component-07.png",
+      "sha256": "803ecb34e6bb76368e00f24bb54d9ed13ea6f30c8f5e1a5561739f50d5a166cb"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/render/component-08.png",
+      "sha256": "6b797a77ebea5f69a58433f55074fc84daf6649ab3b378830e80997a00bd47c2"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/render/component-09.png",
+      "sha256": "658e269a7374f4ad7bddc050c21ecc388655dd523eef79abb170f97c8db17efc"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/render/component-10.png",
+      "sha256": "5d5eba248daa61cd495775a0e616836857309493e04fd320e583bbd44698a409"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/render/component-11.png",
+      "sha256": "741f5d8ec7f2cff212fc4d6cdf72e22706b9b4463fc2b11765be6f3cf8ca3d69"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/render/component-12.png",
+      "sha256": "7d7c78177086706b178576d43d29687ffb9a893d1029cbbdfdfbae38a5b51d54"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/render/component-13.png",
+      "sha256": "20d45eaf1a9a2918f12467c539fb6f77df300bf8e78c9ca4071115f1268b4d7f"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/render/component-14.png",
+      "sha256": "d8c8a3ed04beaba405ae0b8eb8f478c1ce90a57976c362d9748df8e0210d20bc"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/render/component-15.png",
+      "sha256": "f4d4f2697e1379d736c9f80d06de93182af6f998f676902838e17b040275eec7"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/render/component-16.png",
+      "sha256": "62ca0c467e7d8316a386bcdc43654c8baa70b2921aef9e04d9596849b9ed6a15"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/render/component-17.png",
+      "sha256": "9191b346b6c672117134a6bb45b25994c2c7e0dfc427aef9722a3287148e9f20"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/render/component-18.png",
+      "sha256": "06a7c1709d279d735bd127972aa186297984715fecc8ab51e0f45a8421db5b25"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/render/composition.json",
+      "sha256": "0b7acbcb178b63e99681be9ffdc728bd9c7f97dde9aeb4ad71fff9028d2dcddf"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/render/expected-components.png",
+      "sha256": "d3a946997c783adebb2c757945bc07bec684639847731f55a4b278c9cc4b6256"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/render/native.json",
+      "sha256": "a2d62cf022085eeca46b711c89d8b5854e50284d446539e63178174bfbf9999a"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/render/reopened.png",
+      "sha256": "0b60066413a446c2a688830a1620525dac13e7417df6bff5bc72cf2a2f5858a0"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/render/without-text.png",
+      "sha256": "bfb280aba0f9a8ff2a96755435511ddcb0023ed9b0eced389c94bbe284581805"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/small.png",
+      "sha256": "487f8baff1659fe08879fc299ffa3d77b50697a94e611de4d3bccee935ada792"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/edris-7f/verification.json",
+      "sha256": "d78ca913d3efe6f9cf91e91e152877d80d1dde76d090e1f899a88a1e6068a7e0"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/card.png",
+      "sha256": "f59431ffab8308039f20237a8ef4df0c0a7bb82c9b6d369d385f10b35c426f34"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/card.psd",
+      "sha256": "743a8a0e08016172fb2495eaa4ae0cc1f288282c870001c80c9ef5bba9906acb"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/illustration.png",
+      "sha256": "f35e7e2fa8a1add2ad1a26133c995e76005cf01fff770a805f599c796755fa5d"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/profile.json",
+      "sha256": "d59f51b505b28409362ee8a1e678405df5e0119915b15eb3f4e53390e7c8d744"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/render/component-00.png",
+      "sha256": "468e5f91ac825f66ada2bb6d2c2019d3df4e048840f7fa5f7e1534e63e3a350c"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/render/component-01.png",
+      "sha256": "135f18c4ed407456ae5f5765bf8bbb83e64a0defc8575282cd940685073c177e"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/render/component-02.png",
+      "sha256": "04bb8d5bf41c46bbf8362a666d097ae5723b0ee7a914a30fe47b38c8ab5329f5"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/render/component-03.png",
+      "sha256": "04bb8d5bf41c46bbf8362a666d097ae5723b0ee7a914a30fe47b38c8ab5329f5"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/render/component-04.png",
+      "sha256": "97390dbb548015fd7f39f2ba5242dc179b4b49d99bbd22d8f3b479a7b0199ec0"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/render/component-05.png",
+      "sha256": "04bb8d5bf41c46bbf8362a666d097ae5723b0ee7a914a30fe47b38c8ab5329f5"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/render/component-06.png",
+      "sha256": "36ed7691d97907f87a972bb34d33041ae5eef3eada277cf671a5c68fd83268d1"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/render/component-07.png",
+      "sha256": "04bb8d5bf41c46bbf8362a666d097ae5723b0ee7a914a30fe47b38c8ab5329f5"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/render/component-08.png",
+      "sha256": "5a90fe5f80277815d213646851b7d08a05ed0c1f3e7306e97baa672e8030b485"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/render/component-09.png",
+      "sha256": "ba859abc72268e79c251d0b00a8c2ab52f677c648ea8f55362fe31ded36612e2"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/render/component-10.png",
+      "sha256": "2bfbf3f1b29d6576dfeb91f4bd98c820ca540f123a4c7b93013c8a1c35845847"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/render/component-11.png",
+      "sha256": "5d5eba248daa61cd495775a0e616836857309493e04fd320e583bbd44698a409"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/render/component-12.png",
+      "sha256": "741f5d8ec7f2cff212fc4d6cdf72e22706b9b4463fc2b11765be6f3cf8ca3d69"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/render/component-13.png",
+      "sha256": "7d7c78177086706b178576d43d29687ffb9a893d1029cbbdfdfbae38a5b51d54"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/render/component-14.png",
+      "sha256": "847d5522374a3045cc38c2d451fb6e63bb46edf5f7b17837b35420c7d0854132"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/render/component-15.png",
+      "sha256": "d8c8a3ed04beaba405ae0b8eb8f478c1ce90a57976c362d9748df8e0210d20bc"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/render/component-16.png",
+      "sha256": "6efc98a81fd24d93036845f9cf87d7e210d8b14303ff2b9b8f17805d54189a4d"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/render/component-17.png",
+      "sha256": "f7cab31aa61fefb4262877f3443e9fac3ead2dd6a43f603acb7ad5b7121642d7"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/render/component-18.png",
+      "sha256": "43543c0129ec69d94a7a4679db6a785d5bf3613455ec989ff786d6aa49d732c7"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/render/component-19.png",
+      "sha256": "9a672886da1724bd43db8a5d870ee1f47936904e413fe1541086602fa0d8dbae"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/render/composition.json",
+      "sha256": "7a862424bcf66aa3395f77f2f83bf1bd23432efc5e24860aca1b68e21b83562f"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/render/expected-components.png",
+      "sha256": "f1a8f92151adc5b844627c99b7be1c6bce295318cc9c12e5cc1b55b4c7a70757"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/render/native.json",
+      "sha256": "e605173200ac3f4cb4203dc4c290a4c783b3a1df2a31d9bd7d675681e3a201b0"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/render/reopened.png",
+      "sha256": "c86103ee9d3ed4b3bf7086ffa6c99462d46377d4adf529a51e5330e6ce98bdaa"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/render/without-text.png",
+      "sha256": "c7d4dd8e2f659a62545ca6c298e2b49b1d23481bf04748d12e9a30e87dd306ec"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/small.png",
+      "sha256": "0920a2603af0f0820a031ed8b1f30571cda3b39470547c44f1023fe8f7e8530e"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/cards/kaylis/verification.json",
+      "sha256": "08a78017411fe699223c14628b0619c43913ea17696c23360988c4c67e3c1c5b"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/compose.jsx",
+      "sha256": "0fdf8d6e9e78f05cfd861b312753e13042aaa34d11518067f93b02f4971fe2b8"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/fixtures.cjs",
+      "sha256": "6f8cf2606cdfca979891f9f24dc25aee90ff5a18ec307ed81cf38973330fd673"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/gallery.test.cjs",
+      "sha256": "4561dca5ff84689eb16d14dcb977b35a4bb0ee16ca50fa4bf115b624869344ea"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/index.html",
+      "sha256": "7c0191e3fac7f6992e1fe5aa9a88831324b3b3f55b7c38db9342b4ee21a8f372"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/integration.test.cjs",
+      "sha256": "f8cdd3d921f790f0a499439b29f00b87418b7a925a1e3bbe5b36671da935a912"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/model.cjs",
+      "sha256": "5ad6b4f2fcb1553846c5977f88517cb24f50fdc08242153e0efe414bd38cf82d"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/native-summary.json",
+      "sha256": "ce0e1c5cc26385569aab24b50e47b158a99779f2e910adb17c109614f01c3c52"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/publication.test.cjs",
+      "sha256": "639247f3f7d2415a5235ca858c0032811140362ac833649713e4412e9d0e71b1"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/publication/cc113655-ff89-451b-9aae-d5e882c8cf42/catalogue.before.json",
+      "sha256": "aa75c4e1188daa031a657ee942aef1a255d7887f96497ada52da669631d91ea2"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/publication/cc113655-ff89-451b-9aae-d5e882c8cf42/catalogue.next.json",
+      "sha256": "47337781b31ceaaac4d91bd5015ac2da2998d2351d38395e9abec8329f1161a3"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/published.json",
+      "sha256": "6069515558c668c66819eca9065744a5a7cae8e81bdd3f814e3658157fcca008"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/qa/gallery/cards-1440.png",
+      "sha256": "dc81bf5a739579ae015d3fdb855e2f4ae139cf45f69a58f910dbd54502358766"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/qa/gallery/cards-320.png",
+      "sha256": "71060e5e7d8722265b2d350d681ad442a8365c16f74dfaca52b9c6c52c0a72df"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/qa/gallery/cards-412.png",
+      "sha256": "f081da9e388a828222c7085bc4d4233bb333098c838983242a3325e326c2efc6"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/qa/gallery/results.json",
+      "sha256": "24198a14671d21c285128f6d5f286e7672cf4c05389dfd64de9758b65460ab73"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/render.ps1",
+      "sha256": "3ae14ba49345d8b939e11cd5f0d31e8f25915719bf3c236d80fcc46a3b93fa7d"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/set.json",
+      "sha256": "29977e7e4693aff89eec4bee18fc736043543323aa13533adff72d429a8c20af"
+    },
+    {
+      "file": "V4/expansions/2026-10-14-kaylis-edris/weapon-components.json",
+      "sha256": "54f57d7eabe50295e42766acc525572535d8ad1151d2ae3138e09eb2fad5d71a"
+    },
+    {
+      "file": "V4/propositions/2026-10-14-six-new-directions/README.md",
+      "sha256": "142f090af39114cc2f08eb1f7b5a24a828d4c386e8ae3c2939b9ba636cf7920b"
+    },
+    {
+      "file": "V4/propositions/2026-10-14-six-new-directions/card-final-edits.json",
+      "sha256": "f1914ab8a277a2de1302573ffed8b69d616dcd1c0269462b0359abbd3c0f043e"
+    },
+    {
+      "file": "V4/propositions/2026-10-14-six-new-directions/images/01-vardek-01.png",
+      "sha256": "e6a4a4ccc059e43827e9d665288799fdfed6b36eb599d6bbfe7a97d26d61765d"
+    },
+    {
+      "file": "V4/propositions/2026-10-14-six-new-directions/images/02-maedrine-01.png",
+      "sha256": "11262ae8469cce7dff197ab530a66f30d51b584dec191bc22e6eb2b6341e84b1"
+    },
+    {
+      "file": "V4/propositions/2026-10-14-six-new-directions/images/03-rhazene-01.png",
+      "sha256": "a5c4b3312e86272003b46bd026ca77d13b925864395eb2d2edbc0999d6606be8"
+    },
+    {
+      "file": "V4/propositions/2026-10-14-six-new-directions/images/04-velume-01.png",
+      "sha256": "ca8d98ee1a670e1a104c0cf472ec58cbfdbed115b34f84d50615c776c4b9bb49"
+    },
+    {
+      "file": "V4/propositions/2026-10-14-six-new-directions/images/05-salkor-01.png",
+      "sha256": "30d0f746279d11e103bef092aca421e00adbfa0e209a65fbe7c20040351e03fc"
+    },
+    {
+      "file": "V4/propositions/2026-10-14-six-new-directions/images/06-edris-7-01.png",
+      "sha256": "4288ec24f6d0955d533b5fd9dced7de0092424d08c380b3c67b1c488aca56518"
+    },
+    {
+      "file": "V4/propositions/2026-10-14-six-new-directions/images/06-edris-7f-02.png",
+      "sha256": "9463982e3dd6ba90fd8bdcca5ed856d58683372d466a10a25725b82ab07a2275"
+    },
+    {
+      "file": "V4/propositions/2026-10-14-six-new-directions/images/07-kaylis-01.png",
+      "sha256": "5107b1a4ab86b0ad26572c615e9fe1025af0d6e8c1968892919e036190db28c8"
+    },
+    {
+      "file": "V4/propositions/2026-10-14-six-new-directions/images/07-kaylis-02.png",
+      "sha256": "814b2087e41fce1f45a7ba0d3e684757a741031c33240766eb72ef958ebe9c4e"
+    },
+    {
+      "file": "V4/propositions/2026-10-14-six-new-directions/images/07-kaylis-03.png",
+      "sha256": "1b40f8657450467eaee383c795f49ccf0e801781e4206df6e0ac2a3b884b2f6c"
+    },
+    {
+      "file": "V4/propositions/2026-10-14-six-new-directions/images/07-kaylis-04.png",
+      "sha256": "f35e7e2fa8a1add2ad1a26133c995e76005cf01fff770a805f599c796755fa5d"
+    },
+    {
+      "file": "V4/propositions/2026-10-14-six-new-directions/index.html",
+      "sha256": "9d667b8d4187c42a8d439fd3d5b2d8eb75987a30da2429d7ec35f6dcf5bb0d76"
+    },
+    {
+      "file": "V4/propositions/2026-10-14-six-new-directions/kaylis-v2.prompt.json",
+      "sha256": "df94d42020ee7c1e5ab60fd9462cc95a7f5d881cb96fc172990d91a1f39ddeeb"
+    },
+    {
+      "file": "V4/propositions/2026-10-14-six-new-directions/kaylis-v4.prompt.json",
+      "sha256": "fffbedafb85b77efe9e5ef3e2c5898f6c04c862059e0c2fc72670d090d570a20"
+    },
+    {
+      "file": "V4/propositions/2026-10-14-six-new-directions/kaylis.prompt.json",
+      "sha256": "1e5082e0bea600bbcdf11a00cf539956200fe5a529e681e595dc6cf9acf23c7d"
+    },
+    {
+      "file": "V4/propositions/2026-10-14-six-new-directions/prompts.json",
+      "sha256": "2063ea0dfb63bda937ab5552a9cedd28cee783fc85ab6c321f86b9b980b9cc44"
+    },
+    {
+      "file": "V4/propositions/2026-10-14-six-new-directions/qa/check.cjs",
+      "sha256": "de4a0344da3372a59461906e90ee83769afbefe4b4218591a6cc303c6ca4a81f"
+    },
+    {
+      "file": "V4/propositions/2026-10-14-six-new-directions/qa/gallery-1440.png",
+      "sha256": "b94f9bca2f35b7b750fb1e7866d8eb0ef5505ed1aab030bf0dd1107357478db7"
+    },
+    {
+      "file": "V4/propositions/2026-10-14-six-new-directions/qa/gallery-320.png",
+      "sha256": "31705d2b6d7d3bf397722a82669fcd819c91b548a49197fa528c8066456231a3"
+    },
+    {
+      "file": "V4/propositions/2026-10-14-six-new-directions/qa/gallery-412.png",
+      "sha256": "a9838798b51a87e38728213260ac5a323d146b0ad137f7c447bc1c46f16226e1"
+    },
+    {
+      "file": "V4/propositions/2026-10-14-six-new-directions/qa/results.json",
+      "sha256": "dc5f6a3461f49222ebd95579d472a92a45bdf17c52bd4dc5d17cc8208b819fa7"
+    },
+    {
+      "file": "V4/propositions/2026-10-14-six-new-directions/selection.json",
+      "sha256": "c8bbd556614d1400dba84d581d5886afcdd5c52289c1e8b2c5e2c24dfbf9519b"
+    },
+    {
+      "file": "V4/site/README.md",
+      "sha256": "5ac2360d88131a0fb1ac7121a717493a6a3b072619b315ba5f67d6c99d566435"
+    },
+    {
+      "file": "V4/site/browser.test.cjs",
+      "sha256": "403550e95c549ee538838f52f494fed2573be478ff8ebfc8702920b6d9165fbe"
+    },
+    {
+      "file": "V4/site/index.html",
+      "sha256": "25bbcd8a0c004ef7efd6e6d23dca133d3f300ef0ec9d2f0e131119a1a084b5d1"
+    },
+    {
+      "file": "V4/site/v4.css",
+      "sha256": "a76a2e909c7cb1aaa2d3e559cddb5635be2e03218951c080ef1be2d388afab65"
+    },
+    {
+      "file": "V4/site/weapons.browser.test.cjs",
+      "sha256": "52aa775018f357deaef2fdb4e90c557568a5ef5632a2d7ff9652914c5a6cf64a"
+    }
+  ],
+  "initialTree": "1ee151ea9ec809097cf0bc543778b0c2c4d887a4",
+  "stagedTree": "4ec60138cc3cf0031cc51eb1601c389f68970257",
+  "browserSuites": [
+    "card readers",
+    "arena",
+    "old-backup migration"
+  ]
+}

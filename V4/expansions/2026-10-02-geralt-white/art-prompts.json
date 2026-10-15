@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-02",
+  "request": "Version Geralt en chemise blanche, Le Loup blanc",
+  "mode": "built-in image_gen",
+  "status": "moderation_blocked",
+  "prompt": "Use case: identity-preserve and narrative style-transfer. Create ONE new vertical 4:5 Kalistar illustration of Geralt of Rivia, the original video-game character.\nInput 1 is the approved IDENTITY and painted character reference: preserve this exact mature face, white hair pulled loosely back, short white beard, amber eyes, healed facial scar, natural build and small wolf necklace. Do NOT repeat its seated pose, armor, table or glove-repair scene. Inputs 2 and 3 are PAINTING STYLE references only.\nNew version: \"The White Wolf\" in a softly wrinkled white linen shirt, modest laced open collar, sleeves rolled to the forearms, charcoal fitted trousers, practical dark leather boots and belt. NO chainmail or plate armor. One coherent SHORT sword is fully SHEATHED at his belt with an anatomically plausible hilt, guard and short leather scabbard. He is not drawing it.\nDistinct calm story moment: standing beneath a simple vine-covered stone arcade at his countryside vineyard, his left forearm resting naturally on a low stone balustrade, his right hand loosely holding a small plain ceramic cup at waist height. He turns his head toward the garden with a subtle warm half-smile and thoughtful attentive eyes, a brief peaceful pause, quiet personality, not a fashion model pose. Believable hand-to-cup grip, relaxed body weight and coherent arms. Show him prominently from head to around the knees, central unobstructed face and shirt; leave readable shoulders and both hands inside the card-art central region. A small section of vineyard and a sunlit rustic house beyond, simple generous sky, spatially coherent and visually calm. Warm gentle daylight with cooler green-blue shadow; natural restrained color.\nKalistar narrative fantasy PAINTING matching the supplied Momo/Valazar references: visible deliberate brushstrokes, broken painted planes, textured patinated surfaces, expressive painted face, natural anatomy, tactile linen, hierarchy of sharp edges and soft background, no uniform artificial grunge. Believable living character, NOT photorealism, NOT a smooth 3D render, NOT anime/manga. Exactly one head, two arms, two legs. No other characters, no combat, blood, gore, wounds or threatening pose. No letters, title, logo, frame, statistics, UI or watermark. Standalone illustration only.",
+  "references": [
+    "V4/Illustrations/TW_geralt_witcher_01.png",
+    "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+    "V3/assets/illustrations/34_NECRO_VALAZAR.png"
+  ],
+  "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID f49d7e48-7ac0-415d-8263-dbaa5d57f65b.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+  "requestId": "f49d7e48-7ac0-415d-8263-dbaa5d57f65b",
+  "moderationStage": "output",
+  "categories": [
+    "other"
+  ],
+  "generatedImage": null,
+  "pendingProfile": "V4/expansions/2026-10-01-one-piece-witcher/set.json#geralt-white",
+  "catalogueUnchanged": true
+}

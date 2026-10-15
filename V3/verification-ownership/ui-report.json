@@ -1,0 +1,146 @@
+{
+  "at": "2026-09-15T10:35:46.232Z",
+  "isolation": "Fresh nonpersistent Chrome contexts, ephemeral loopback origin. No access to user browser databases.",
+  "tests": [
+    {
+      "name": "Paris owns 41, Tokyo zero; real catalogue unchanged",
+      "ok": true
+    },
+    {
+      "name": "Local profile switch isolates collection, decks and favorites",
+      "ok": true
+    },
+    {
+      "name": "Real bound match produces collectible career; AI does not mint ownership",
+      "ok": true
+    },
+    {
+      "name": "geometry desktop-review",
+      "ok": true,
+      "result": {
+        "width": 1440,
+        "height": 1000,
+        "dialog": {
+          "x": 220,
+          "y": 106.828125,
+          "width": 1000,
+          "height": 786.328125
+        },
+        "overflow": false,
+        "body": false,
+        "clipped": []
+      }
+    },
+    {
+      "name": "geometry mobile-review",
+      "ok": true,
+      "result": {
+        "width": 390,
+        "height": 844,
+        "dialog": {
+          "x": 17,
+          "y": 16,
+          "width": 356,
+          "height": 812
+        },
+        "overflow": false,
+        "body": false,
+        "clipped": []
+      }
+    },
+    {
+      "name": "Two-step transfer preview does not mutate ownership",
+      "ok": true
+    },
+    {
+      "name": "Owner can cancel; recipient can reject; requests retain history",
+      "ok": true
+    },
+    {
+      "name": "Recipient acceptance transfers same ID and career, survives reload",
+      "ok": true
+    },
+    {
+      "name": "Explicit issue creates unclaimed item, secret is not in backup",
+      "ok": true
+    },
+    {
+      "name": "Activation rejects wrong code, succeeds once for Tokyo",
+      "ok": true
+    },
+    {
+      "name": "Active game blocks transfer; explicit abandon releases without results",
+      "ok": true
+    },
+    {
+      "name": "geometry 360-profile",
+      "ok": true,
+      "result": {
+        "width": 360,
+        "height": 800,
+        "dialog": {
+          "x": 17,
+          "y": 16,
+          "width": 326,
+          "height": 768
+        },
+        "overflow": false,
+        "body": false,
+        "clipped": []
+      }
+    },
+    {
+      "name": "geometry 2560-profile",
+      "ok": true,
+      "result": {
+        "width": 2560,
+        "height": 1440,
+        "dialog": {
+          "x": 780,
+          "y": 318.8125,
+          "width": 1000,
+          "height": 802.359375
+        },
+        "overflow": false,
+        "body": false,
+        "clipped": []
+      }
+    },
+    {
+      "name": "Stockage reports actual browser estimate and responsive profile panel",
+      "ok": true
+    },
+    {
+      "name": "Full restore requires confirmation and clears stale resume pointers without changing owners",
+      "ok": true
+    },
+    {
+      "name": "Direct file URL starts local registry and preserves original catalogue",
+      "ok": true
+    }
+  ],
+  "screenshots": [
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-ownership\\ui-collection-paris.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-ownership\\ui-catalogue-tokyo.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-ownership\\ui-transfer-review.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-ownership\\ui-transfer-mobile.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-ownership\\ui-transfer-receive.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-ownership\\ui-activation-voucher.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-ownership\\ui-storage.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-ownership\\ui-registry-360.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-ownership\\ui-registry-wide.png"
+  ],
+  "errors": [],
+  "missing": [],
+  "storage": {
+    "estimate": {
+      "quota": 3221594112,
+      "usage": 368640,
+      "usageDetails": {
+        "indexedDB": 368640
+      }
+    },
+    "jsonBytes": 424951
+  },
+  "ok": true
+}

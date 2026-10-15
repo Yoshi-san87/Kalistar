@@ -1,0 +1,14 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict');
+const home=__dirname,root=path.resolve(home,'../../..'),set=require('./set.json');
+const hash=f=>crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex');
+const [key,source,actualPrompt]=process.argv.slice(2);const c=set.cards.find(c=>c.key===key);assert(c);
+const file=path.join(home,'art-prompts',key+'.json'),p=JSON.parse(fs.readFileSync(file,'utf8'));
+const selected='V4/Illustrations/'+c.art,target=path.join(root,selected);assert(fs.existsSync(target));
+if(source)assert.equal(hash(target),hash(source),'Original generation bytes differ');
+if(actualPrompt)p.prompt=actualPrompt;
+p.status='selected-awaiting-card-QA';p.generationMethod='built-in image_gen.imagegen';
+p.selectedOutput={path:selected,sha256:hash(target),originalByteIdentity:true,...(source?{generatedSource:source}:{})};
+p.referenceHashes=Object.fromEntries(p.references.map(f=>[f,hash(path.join(root,f))]));
+p.approval=key==='jill1'?'Parent visual DA/costume approval received 2026-10-01; native card QA pending':'Native card QA and final visual approval pending';
+fs.writeFileSync(file,JSON.stringify(p,null,2)+'\n');console.log(JSON.stringify({key,...p.selectedOutput}));

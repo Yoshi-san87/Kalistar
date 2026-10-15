@@ -1,0 +1,145 @@
+/* Single owner of the Collection plinth and on-card controls, in every layout. */
+.cb-page { --cb-caption-height:64px; }
+.cb-caption.cb-pedestal {
+  container:collection-plinth / inline-size;
+  position:relative;
+  isolation:isolate;
+  z-index:4;
+  display:block;
+  flex:0 0 var(--cb-caption-height);
+  width:min(calc(var(--cb-card-width) + var(--cb-card-gutter)),100%);
+  max-width:100%;
+  height:var(--cb-caption-height);
+  min-height:var(--cb-caption-height);
+  min-width:0;
+  margin:0;
+  padding:12px 8px 8px;
+  border:0;
+  border-radius:0;
+  background:none;
+  box-shadow:none;
+}
+/* Nine-slicing preserves the approved copper and seats the glass inside its corners. */
+.cb-plinth-art { position:absolute; inset:-8px 0 0; z-index:-1; display:grid; grid-template-columns:26px minmax(0,1fr) 26px; pointer-events:none; filter:drop-shadow(0 3px 2px #0005); }
+.cb-plinth-art > span { --plinth-bg-x:620.57142857%; --plinth-pos-x:0%; display:grid; grid-template-rows:10px minmax(0,1fr) 10px; min-width:0; }
+.cb-plinth-art > span:nth-child(2) { --plinth-bg-x:147.55434783%; --plinth-pos-x:50%; }
+.cb-plinth-art > span:last-child { --plinth-pos-x:100%; }
+.cb-plinth-art > span > span { --plinth-bg-y:822.72727273%; --plinth-pos-y:23.11320755%; background-image:url('assets/ui/collection-pedestal-v2.webp'); background-repeat:no-repeat; background-position:var(--plinth-pos-x) var(--plinth-pos-y); background-size:var(--plinth-bg-x) var(--plinth-bg-y); }
+.cb-plinth-art > span > span:nth-child(2) { --plinth-bg-y:362%; --plinth-pos-y:44.84732824%; }
+.cb-plinth-art > span > span:last-child { --plinth-bg-y:882.92682927%; --plinth-pos-y:67.75700935%; }
+.cb-faction-watermark { position:absolute; z-index:0; inset:2px 18px 8px; overflow:hidden; opacity:.13; mix-blend-mode:screen; pointer-events:none; }
+.cb-faction-watermark img { position:absolute; width:160px; height:128px; max-width:none; right:-8px; top:50%; object-fit:cover; object-position:center 45%; transform:translateY(-43%) rotate(-8deg); filter:saturate(.75); pointer-events:none; }
+.cb-pocket.is-unowned .cb-faction-watermark { opacity:.09; }
+.cb-pedestal::before { content:none; }
+.cb-pedestal::after { content:''; position:absolute; z-index:2; inset:10px 26px 9px; pointer-events:none; background:linear-gradient(110deg,transparent 40%,#fff1cc16 50%,transparent 60%); opacity:0; transition:opacity .2s ease; }
+
+.cb-pedestal-content {
+  --cb-position-width:24px;
+  --cb-switch-width:36px;
+  --cb-name-size:20px;
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:var(--cb-position-width) minmax(0,1fr);
+  grid-template-rows:minmax(0,1fr);
+  gap:4px;
+  align-items:center;
+  height:100%;
+  min-width:0;
+}
+.cb-pedestal-content.has-versions { grid-template-columns:var(--cb-position-width) minmax(0,1fr) var(--cb-switch-width); }
+.cb-pedestal-content.has-many-positions { --cb-position-width:32px; }
+.cb-caption-title { grid-column:2; grid-row:1; display:flex; align-items:center; justify-content:center; min-width:0; height:100%; margin:0; padding:0; border:0; background:none; box-shadow:none; }
+.cb-pedestal h2 { width:100%; margin:0; color:#f1eadc; font:600 var(--cb-name-size)/1.12 var(--kalistar-display,Georgia); letter-spacing:0; text-align:center; white-space:normal; overflow-wrap:normal; text-wrap:balance; text-shadow:0 1px 2px #000; }
+.cb-pocket-positions { grid-column:1; grid-row:1; display:flex; flex-direction:column; align-items:center; justify-content:center; flex-wrap:nowrap; gap:1px; width:var(--cb-position-width); height:100%; margin:0; padding:0; line-height:1; }
+.cb-pocket-positions .position-emblem { --position-size:20px; min-width:0; min-height:0; flex:none; }
+.has-many-positions .cb-pocket-positions { display:grid; grid-template-columns:repeat(2,16px); grid-auto-rows:14px; align-content:center; gap:0; }
+.has-many-positions .position-emblem { --position-size:14px; }
+
+/* Card counters and favorites sit outside the reader button and never nest controls. */
+.cb-page .cb-stack > .cb-card-copies { position:absolute; z-index:5; left:4px; bottom:4px; display:flex; align-items:center; gap:3px; width:auto; max-width:calc(100% - 32px); height:20px; margin:0; padding:0; color:#f1d3a4; filter:drop-shadow(0 1px 2px #000); pointer-events:none; }
+.cb-card-copies .cb-pedestal-icon { display:block; flex:none; width:18px; height:20px; max-width:none; object-fit:contain; aspect-ratio:auto; pointer-events:none; }
+.cb-card-copies b { display:block; min-width:0; overflow:hidden; text-overflow:ellipsis; color:inherit; font:600 12px/1 var(--sans,'Segoe UI',Arial,sans-serif); text-shadow:0 1px 2px #000; }
+.cb-page .cb-stack > .cb-card-favorite { position:absolute; z-index:5; right:0; bottom:0; width:28px; height:28px; min-height:0; padding:4px; border:0; border-radius:3px; background:none; color:#ecd1a8; box-shadow:none; filter:drop-shadow(0 1px 2px #000); transition:color .18s,filter .18s; }
+.cb-card-favorite .lucide { position:absolute; right:4px; bottom:4px; width:20px; height:20px; stroke-width:1.8; }
+.cb-card-favorite[aria-pressed=true] { color:#ffdd9a; filter:drop-shadow(0 1px 2px #000) drop-shadow(0 0 3px #db9d4155); }
+.cb-card-favorite[aria-pressed=true] .lucide { fill:#d8a757bb; }
+.cb-card-favorite:focus-visible { outline:2px solid #a9dcc4; outline-offset:1px; }
+.cb-card-favorite:active { filter:brightness(1.2) drop-shadow(0 1px 2px #000); }
+
+/* The dial is inset in a rail joined to the lower rim, only when variants exist. */
+.cb-page .cb-pedestal .cb-flip-control { position:relative; isolation:isolate; grid-column:3; grid-row:1; justify-self:center; display:grid; grid-template-rows:28px 12px; justify-items:center; align-items:center; width:34px; height:40px; min-height:40px; min-width:0; gap:0; margin:0; padding:0; border:0; border-radius:0; background:none; box-shadow:none; color:#fff0cf; font:600 10px/1 var(--sans,'Segoe UI',Arial,sans-serif); transition:filter .18s; }
+.cb-flip-control::before { content:''; position:absolute; z-index:-1; inset:-1px -1px -8px; pointer-events:none; background:linear-gradient(90deg,#a6795066,transparent 2px,transparent calc(100% - 2px),#a6795066),linear-gradient(#050b0dbb,#141b1966 70%,#94684555); box-shadow:inset 0 2px 3px #0009; clip-path:polygon(12% 0,88% 0,100% 10%,100% 100%,0 100%,0 10%); }
+.cb-flip-symbol { position:relative; display:grid; place-items:center; flex:none; width:26px; height:26px; border:1px solid #ac805a; border-radius:50%; background:radial-gradient(circle at 38% 18%,#9b7858,#534334 52%,#22302b 76%); box-shadow:0 0 0 2px #080f10,inset 0 1px #f5d2a499,inset 0 -2px 3px #000a; color:#fff0d3; transition:transform .55s cubic-bezier(.3,0,.3,1); }
+.cb-flip-symbol::after { content:''; position:absolute; inset:2px; border:1px dashed #dcb58977; border-radius:50%; pointer-events:none; }
+.cb-page .cb-flip-symbol .lucide { width:16px; height:16px; stroke-width:1.8; }
+.cb-flip-control b { display:block; min-width:7px; color:inherit; font:inherit; text-shadow:0 1px #000; }
+.cb-flip-control[aria-busy=true] .cb-flip-symbol { transform:rotate(180deg); }
+.cb-pedestal button:focus-visible { outline:2px solid #a9dcc4; outline-offset:0; }
+.cb-pedestal button:active { filter:brightness(1.2); }
+.cb-pedestal .cb-flip-control:active .cb-flip-symbol { box-shadow:0 0 0 2px #080f10,inset 0 2px 4px #0009; }
+
+@container collection-plinth (max-width:180px) {
+  .cb-pedestal-content { --cb-name-size:18px; --cb-position-width:22px; --cb-switch-width:32px; gap:2px; }
+  .cb-plinth-art { grid-template-columns:22px minmax(0,1fr) 22px; }
+  .cb-page .cb-pedestal .cb-flip-control { width:30px; }
+  .cb-pocket-positions .position-emblem { --position-size:18px; }
+  .has-many-positions .position-emblem { --position-size:14px; }
+}
+@container collection-plinth (max-width:150px) {
+  .cb-pedestal-content { --cb-name-size:16px; }
+  .cb-plinth-art > span { grid-template-rows:6px minmax(0,1fr) 6px; }
+  .cb-pedestal-content.has-versions { position:absolute; inset:0 8px; grid-template-rows:38px 26px; gap:0; }
+  .has-versions .cb-caption-title { grid-column:1 / -1; grid-row:1; padding-top:6px; }
+  .has-versions .cb-pocket-positions { grid-column:1 / 3; grid-row:2; display:flex; flex-direction:row; justify-content:flex-start; width:auto; height:24px; gap:0; }
+  .has-versions .cb-pocket-positions .position-emblem { --position-size:16px; }
+  .has-versions.has-many-positions .position-emblem { --position-size:12px; }
+  .cb-page .has-versions .cb-flip-control { display:flex; grid-row:2; height:24px; min-height:24px; gap:3px; }
+  .cb-page .cb-pedestal .cb-flip-symbol { width:20px; height:20px; }
+  .cb-page .cb-flip-symbol .lucide { width:13px; height:13px; }
+  .cb-flip-control::before { inset:-2px -1px 0; }
+  .cb-faction-watermark img { right:-32px; }
+}
+@container collection-plinth (max-width:110px) {
+  .cb-pedestal-content { --cb-name-size:14px; --cb-position-width:18px; --cb-switch-width:28px; }
+  .cb-pedestal-content.has-many-positions { --cb-position-width:24px; }
+  .cb-plinth-art { grid-template-columns:18px minmax(0,1fr) 18px; }
+  .cb-pocket-positions .position-emblem { --position-size:16px; }
+  .has-many-positions .cb-pocket-positions { grid-template-columns:repeat(2,12px); grid-auto-rows:12px; }
+  .has-many-positions .position-emblem,.has-versions.has-many-positions .position-emblem { --position-size:12px; }
+  .cb-page .cb-pedestal .cb-flip-control { width:28px; }
+}
+@container collection-plinth (max-width:80px) {
+  .cb-pedestal-content { --cb-name-size:12px; }
+  .has-versions .cb-pocket-positions .position-emblem { --position-size:12px; }
+  .has-versions.has-many-positions .position-emblem { --position-size:10px; }
+}
+@container (max-width:130px) {
+  .cb-card-favorite .lucide { width:16px; height:16px; }
+  .cb-card-copies .cb-pedestal-icon { width:14px; height:16px; }
+  .cb-card-copies b { font-size:10px; }
+}
+@media (pointer:coarse) {
+  .cb-page .cb-stack > .cb-card-favorite { width:44px; height:44px; padding:12px; }
+}
+@media (hover:hover) {
+  .cb-pocket:is(:hover,:focus-within) .cb-pedestal::after { opacity:1; }
+  .cb-pedestal button:hover { color:#fff1cf; filter:brightness(1.15); }
+  .cb-card-favorite:hover { color:#fff1cf; filter:brightness(1.15) drop-shadow(0 1px 2px #000); }
+  .cb-flip-control:is(:hover,:focus-visible) .cb-flip-symbol { transform:rotate(-24deg); }
+  .cb-flip-control[aria-busy=true] .cb-flip-symbol { transform:rotate(180deg); }
+}
+@media (prefers-reduced-motion:reduce) {
+  .cb-pedestal::after,.cb-card-favorite,.cb-flip-symbol,.cb-flip-control { transition:none; }
+  .cb-flip-control .cb-flip-symbol { transform:none !important; }
+}
+@media (forced-colors:active) {
+  .cb-caption.cb-pedestal { border:1px solid CanvasText; background:Canvas; }
+  .cb-pedestal h2 { color:CanvasText; }
+  .cb-plinth-art,.cb-faction-watermark,.cb-pedestal::before,.cb-pedestal::after,.cb-flip-control::before,.cb-flip-symbol::after { display:none; }
+  .cb-page .cb-pedestal .cb-flip-control,.cb-flip-symbol { background:Canvas; color:CanvasText; box-shadow:none; }
+  .cb-page .cb-pedestal .cb-flip-control { border:1px solid ButtonText; }
+  .cb-page .cb-stack > .cb-card-copies { background:Canvas; color:CanvasText; filter:none; }
+  .cb-page .cb-stack > .cb-card-favorite { border:1px solid ButtonText; background:Canvas; color:ButtonText; filter:none; }
+  .cb-card-favorite[aria-pressed=true] { color:Highlight; }
+}

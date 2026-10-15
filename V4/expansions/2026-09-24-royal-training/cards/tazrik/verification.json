@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "modelId": "44263045",
+  "referenceId": "4e489e527f047e2e6def3264718abb509cddb105cbc705bcd678ba0b20dc4bec",
+  "profileHash": "7c2743b640a5c32aae15dca084616bfec12dc8a5bd76f984f2992e012e00f925",
+  "hashes": {
+    "card.png": "6a124a430d60b860b2b8bc8f0229638d1e3f91602250d244020b033932c91412",
+    "card.psd": "fc875d1c7927c14a7124c1c36503527c94173ef3e2f3536dcfbc309ee84f1d48"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 88729
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "44263045",
+    "cases": {
+      "color-1": [
+        "44263045"
+      ],
+      "color-4": [
+        "44263045"
+      ],
+      "gray-1": [
+        "44263045"
+      ],
+      "gray-4": [
+        "44263045"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-24T15:45:53.828Z",
+  "key": "tazrik",
+  "preparationHash": "e9df45df35a196079278d25b0bd4455fe94c7ce904e100689eba7645b8ef6d45",
+  "nativeFiles": {
+    "V4/expansions/2026-09-24-royal-training/cards/tazrik/render/native.json": "dd8e0fd5ad658beba8bc72a1f0a815bf7fc0981bbd333678a30a45bed2abc2a1",
+    "V4/expansions/2026-09-24-royal-training/cards/tazrik/render/reopened.png": "29abcc80d5cdbe53ae8f2c19200cf20d7f8fbbb7a0362f68996e2228deb8229e",
+    "V4/expansions/2026-09-24-royal-training/cards/tazrik/render/without-text.png": "3d98379dc85d7da5f39fead2bbdcdefb38edf8d0f9ae6c86c086daa8d054515c"
+  }
+}

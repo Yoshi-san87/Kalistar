@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: navigation media is transparent, lossless, uniform and provenance-checked
+ok 1 - navigation media is transparent, lossless, uniform and provenance-checked
+  ---
+  duration_ms: 8.846
+  type: 'test'
+  ...
+# Subtest: Cinzel is self-hosted with its unmodified license and original WOFF2 files
+ok 2 - Cinzel is self-hosted with its unmodified license and original WOFF2 files
+  ---
+  duration_ms: 3.5431
+  type: 'test'
+  ...
+# Subtest: menu entry points and reduced motion remain available without tiny phone buttons
+ok 3 - menu entry points and reduced motion remain available without tiny phone buttons
+  ---
+  duration_ms: 1.2732
+  type: 'test'
+  ...
+# Subtest: navigation target height does not feed back from the measured masthead height
+ok 4 - navigation target height does not feed back from the measured masthead height
+  ---
+  duration_ms: 0.5451
+  type: 'test'
+  ...
+# Subtest: popup Back integrates before views without overriding browser gestures or dialog prototypes
+ok 5 - popup Back integrates before views without overriding browser gestures or dialog prototypes
+  ---
+  duration_ms: 0.9575
+  type: 'test'
+  ...
+# Subtest: dynamic popup cancellation resets the owning view instead of reopening on repaint
+ok 6 - dynamic popup cancellation resets the owning view instead of reopening on repaint
+  ---
+  duration_ms: 1.9659
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 123.3389

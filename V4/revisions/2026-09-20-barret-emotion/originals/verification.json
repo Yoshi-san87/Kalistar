@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "key": "barret",
+  "modelId": "43698921",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "ede37c82630793df754f53e9522aaef26835f38e94ff4d4bc5f412e4d8878e49",
+  "hashes": {
+    "card.png": "4dbf587c7fb7c9902e586aeadbbaaf60dde8ee9c6be32d1d99d9ba0ddf56fb55",
+    "card.psd": "8d000f19312d69109600ea95149995f35a74a328acd2456e88c98f51c2a6a29d"
+  },
+  "components": {
+    "changed": 113809,
+    "maxChannelDelta": 1,
+    "severePixels": 0,
+    "fixedDifferences": 0
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "43698921",
+    "cases": {
+      "color-1": [
+        "43698921"
+      ],
+      "color-4": [
+        "43698921"
+      ],
+      "gray-1": [
+        "43698921"
+      ],
+      "gray-4": [
+        "43698921"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-20T10:16:48.261Z"
+}

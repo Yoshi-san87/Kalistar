@@ -1,0 +1,60 @@
+{
+  "name": "SEVRANE",
+  "title": "LA GRIFFE DE L'AUBE",
+  "job": "SOLDAT",
+  "description": "Sevrane noue ses tresses avant la relève, comme sa sœur le faisait autrefois. La glace court sur sa lame, mais sa main ne tremble plus. Elle ouvre un chemin pour ceux qui n'ont pas encore appris à perdre.",
+  "element": "CRYO",
+  "race": "OKAMI",
+  "weapon": "Epée longue",
+  "faction": "Grivka",
+  "positions": [
+    2,
+    3
+  ],
+  "atk": [
+    277,
+    218,
+    171,
+    "buff_atk",
+    68,
+    29
+  ],
+  "defense": [
+    159,
+    128,
+    98,
+    69,
+    "dodge",
+    17
+  ],
+  "magic": [
+    4
+  ],
+  "barriers": [
+    5
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49902202",
+  "characterId": "sevrane-kalistar",
+  "slug": "V4_49902202",
+  "output": "KALISTAR_V4_49902202",
+  "text": "Sevrane noue ses tresses avant la relève, comme sa sœur le faisait autrefois. La glace court sur sa lame, mais sa main ne tremble plus. Elle ouvre un chemin pour ceux qui n'ont pas encore appris à perdre.",
+  "color": "ACDFFD",
+  "hue": 201,
+  "weapon_index": 17,
+  "role": 2,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Original Kalistar, illustration approuvee le 12 octobre 2026",
+  "visual_revision": "V4-2026-10-12-grivka-white-guard",
+  "artworkSource": "V4/propositions/2026-10-12-grivka-white-guard/images/sevrane-03.png"
+}

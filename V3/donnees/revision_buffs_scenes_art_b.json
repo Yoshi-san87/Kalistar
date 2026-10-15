@@ -1,0 +1,566 @@
+{
+  "schema_version": 1,
+  "lot": "art_b",
+  "date": "2026-09-14",
+  "direction": "V3/sources/REVISION_BUFFS_SCENES_20260914.md",
+  "mode": "built-in image_gen edit",
+  "expected_count": 6,
+  "completed_count": 6,
+  "status": "ready_for_parent_review",
+  "created_at": "2026-09-14T13:50:50.5842741Z",
+  "canonical_assets_written_by_worker": false,
+  "profiles_mechanics_text_modified": false,
+  "notification_batches": [
+    2,
+    4,
+    6
+  ],
+  "skully_historical_search": {
+    "status": "original_found_confirmed",
+    "searched": [
+      "main/Kalistar.xlsx",
+      "main/Book Kalistar-20260913T134649Z-1-001/Book Kalistar/Kalistar.xlsx",
+      "main/Book Kalistar-20260913T134649Z-1-001.zip",
+      "main DOCX archives",
+      "V1/assets/illustrations",
+      "V2/assets/illustrations",
+      "V3/sources/avant-harmonisation-20260914",
+      "V3/sources/avant-buffs-scenes-20260914",
+      "V3/donnees/generation_roster_final_manifest.json",
+      "Delivery, Templates, Test"
+    ],
+    "method": "Read-only System.IO.Compression ZipFile and XML DOM parsing of workbook shared strings, cells, drawing anchors and relationships; compared embedded media SHA256 across both workbooks; extracted and viewed seven PNG banners; inspected earliest tracked native Skully generation.",
+    "finding": "Parent located and extracted the actual first maritime Skully from native PSD layer873; preview visually confirms skeleton pirate on ship prow, long pale wavy hair, one raised braced leg, skull-tipped handle and rope fitting, storm sea-green sky and sun opening. This supersedes the unsuccessful loose-file/workbook search.",
+    "earliest_tracked_image": "C:/Users/guill/.codex/generated_images/01a09f6e-ba77-7d02-85cd-976892688aab/exec-07999988-02da-44d6-ad66-d84a2bad62dd.png",
+    "fallback": "Provisional helm generation superseded and not copied to staging; native original is now authoritative.",
+    "parent_review_required": true,
+    "previous_finding": "Both workbooks contain identical media sets with reordered names: 20 small JPG icons and seven PNG city/faction banners, not Skully scenes. Main ZIP/DOCX inspection found no image entries. Earliest tracked Skully generation is the quay scene.",
+    "native_source": {
+      "psd": "V3/sources/template-source.psd",
+      "group_name": "Cadre",
+      "group_id": 135,
+      "layer_id": 873,
+      "layer_name": "yoshisan78_Full_length_image_of_skull_Pirate_with_long_gun_on_bb70302c-4690-4e84-b396-6c0306adcabd_0",
+      "bounds": [
+        -50,
+        -190,
+        1017,
+        1410
+      ],
+      "extracted_by": "parent using Photoshop duplicate, unclipped; no source edit",
+      "extracted_png": "V3/sources/skully-original-psd.png",
+      "sha256": "F49213FCA3DD4E95821350E46EBA4FA5A640567236C5106DF7A7EFD9086F30A4",
+      "width": 1067,
+      "height": 1600,
+      "viewed_preview": "V3/verification/skully-original-preview.png",
+      "preview_sha256": "212C4BBAD15C2DF3EEF01FB15675FDFA5F9F6D3E442BD2B9CFD3ABCF8765FEAA",
+      "inspection_note": "Full PNG verified readable via System.Drawing but view_image and ImageGen rejected its base64 transport. Exact parent-provided preview viewed successfully and used as actual edit reference; no image conversion or source modification by this worker.",
+      "effective_imagegen_reference": "V3/verification/skully-original-preview.png"
+    }
+  },
+  "images": [
+    {
+      "id": "30000025",
+      "slug": "25_NONE_KOGNUS",
+      "name": "KOGNUS",
+      "source": "V3/assets/illustrations/25_NONE_KOGNUS.png",
+      "source_sha256": "9A15EAD88520FB524DBAF49D707E7E961FE5C66F8CADF8FA69EF6E1494EBC21E",
+      "prompt": "Use case: identity-preserve, narrative scene revision for Kalistar.\nInput roles in exact order: Image 1 is the character identity reference and edit target; Image 2 MOMO is the PRIMARY painting reference; Image 3 VOLODEN and Image 4 violet VALAZAR are secondary material/detail references. Borrow their painted construction, never their characters, objects, pose or palette.\nStyle: a fully repainted narrative fantasy illustration in Momo's gouache/oil language. Broad and medium opaque paint planes, selective broken bristle strokes, lost-and-found edges, layered worn cloth, wood, stone and metal, expressive faces constructed from colors. Rich detail where the action and expression need it, quieter grouped background shapes. Not a uniform mosaic of tiny flecks; not a superficial grain filter. No photo skin, airbrush, anime eyes, manga outlines, glossy 3D, artificial lens blur or videogame character render. Keep motive-specific light and a palette suited to this scene; do not import Momo's blue night.\nFormat: ONE full-bleed portrait PNG approximately 4:5, ideally 1122x1402 or larger, at least 1024 pixels on the short side. No text, typography, letters, logo, signature, watermark, border, card frame or collage.\nAnatomy: one coherent adult body, one head, exactly two arms and two hands with plausible fingers, natural shoulders/elbows/wrists. Two human-proportioned legs with two feet except Ruby's explicitly requested single natural mermaid tail. No extra arms, disembodied hands, duplicated joints or quadruped torso. For Jelly-Joe the jellyfish details are short head filaments only, never extra tentacle limbs.\nKOGNUS: Edit the same stocky adult dwarf from Image 1. Preserve his distinctive russet swept-back hair and beard, thick eyebrows, heavy grey guard coat, belt and dagger, brass key ring, lantern, stone Z13 corridor, close framing and existing hand/arm placement. Explicit change: he must read as mean, malicious, cunning and authoritarian, not a worried honest guard or a likeable hero. Make the eyes narrowed and sharply calculating beneath an asymmetrically lowered brow, gaze cutting sideways at someone outside the frame rather than benignly studying the keys. A slight cold contemptuous tight-lipped half-smirk, possessive tension in the hand holding the keys; no broad grin. Character-driven understated villainy, not exaggerated caricature. Same head identity and facial proportions. Two hands remain, one holding key ring, one near dagger. Preserve warm lantern versus cool stone light. No magic, aura or crystal; no added victim or secondary character.",
+      "refs": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/25_NONE_KOGNUS.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png"
+      ],
+      "reference_hashes": [
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/25_NONE_KOGNUS.png",
+          "sha256": "9A15EAD88520FB524DBAF49D707E7E961FE5C66F8CADF8FA69EF6E1494EBC21E"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966D49AF5D5F916C3AD3F3B62BF846FA1D6646CA609CB3BEE9ED6EEDC94AC8"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+          "sha256": "73DE7D13FE5525F05CA6543F2C0BCE5DCC1B015BCAA731EFF4467B86E36F4C3A"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2C443D9ADC4525953869B2DCC69433EBF00FD7243EC93E01BFFF5E11ED5DC6EE"
+        }
+      ],
+      "path": "V3/assets/revisions-buffs-scenes-20260914/illustrations/25_NONE_KOGNUS.png",
+      "status": "ready_for_parent_review",
+      "qa": {
+        "result": "pass",
+        "inputs_and_output_inspected_with_view_image": true,
+        "review": "Cold sideways calculating gaze and tight contemptuous half-smirk, no friendly reading; original russet dwarf identity, grey coat, keys/dagger, two coherent hands and lantern/corridor framing retained. Opaque painted planes throughout; no added limb, magic, text or border."
+      },
+      "imagegen_call_count": 1,
+      "sourcegen": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-6381b761-a5b4-4255-a248-f10ce78f9053.png",
+      "width": 1122,
+      "height": 1402,
+      "format": "PNG",
+      "sha256": "1707AF9E8C82254DBFC6AB621E7604A4A15DC1EB5BC71026F6497B1ABA9D241E",
+      "sourcegen_sha256": "1707AF9E8C82254DBFC6AB621E7604A4A15DC1EB5BC71026F6497B1ABA9D241E",
+      "canonical_sha256_at_save": "9A15EAD88520FB524DBAF49D707E7E961FE5C66F8CADF8FA69EF6E1494EBC21E",
+      "completed_at": "2026-09-14T13:54:00.7428137Z",
+      "source_copy_sha256_verified": true,
+      "canonical_source_unchanged_at_save": true,
+      "successful_generations": 1,
+      "failed_input_transports": 0
+    },
+    {
+      "id": "30000026",
+      "slug": "26_NONE_REEVUS",
+      "name": "REEVUS",
+      "source": "V3/assets/illustrations/26_NONE_REEVUS.png",
+      "source_sha256": "181AC674DA9C521E9B96CF5A9399D4CC924A973D8BEA23D74782959D6DD71956",
+      "prompt": "Use case: identity-preserve, narrative scene revision for Kalistar.\nInput roles in exact order: Image 1 is the character identity reference and edit target; Image 2 MOMO is the PRIMARY painting reference; Image 3 VOLODEN and Image 4 violet VALAZAR are secondary material/detail references. Borrow their painted construction, never their characters, objects, pose or palette.\nStyle: a fully repainted narrative fantasy illustration in Momo's gouache/oil language. Broad and medium opaque paint planes, selective broken bristle strokes, lost-and-found edges, layered worn cloth, wood, stone and metal, expressive faces constructed from colors. Rich detail where the action and expression need it, quieter grouped background shapes. Not a uniform mosaic of tiny flecks; not a superficial grain filter. No photo skin, airbrush, anime eyes, manga outlines, glossy 3D, artificial lens blur or videogame character render. Keep motive-specific light and a palette suited to this scene; do not import Momo's blue night.\nFormat: ONE full-bleed portrait PNG approximately 4:5, ideally 1122x1402 or larger, at least 1024 pixels on the short side. No text, typography, letters, logo, signature, watermark, border, card frame or collage.\nAnatomy: one coherent adult body, one head, exactly two arms and two hands with plausible fingers, natural shoulders/elbows/wrists. Two human-proportioned legs with two feet except Ruby's explicitly requested single natural mermaid tail. No extra arms, disembodied hands, duplicated joints or quadruped torso. For Jelly-Joe the jellyfish details are short head filaments only, never extra tentacle limbs.\nREEVUS: Edit the same adult dwarf intendant of Z13 from Image 1, unchanged long weathered face identity, grey beard in TWO braids, goggles on forehead, heavy worn green service coat, belt pouches, boots, high ledger desk, stool and stone office. Explicit change: he is the mean, malicious, blunt, obstinate and brutish member of the duo. Give him a heavy lowering brow, hard small glare, clenched jaw and downturned mouth, a stubborn confrontational expression with no wisdom, kindness or melancholy. Leaning his thick shoulders into the ledger closure should feel bullying and lumbering, not thoughtful. Keep natural non-caricatural dwarf proportions, both existing boots and the same coherent arm placement; the far arm may remain naturally occluded. Preserve the empty left stone pillar: NO hammer, NO new weapon. No crystal, aura, victim, new character or readable writing. Same warm lamp/cool stone palette, framing and room.",
+      "refs": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/26_NONE_REEVUS.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png"
+      ],
+      "reference_hashes": [
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/26_NONE_REEVUS.png",
+          "sha256": "181AC674DA9C521E9B96CF5A9399D4CC924A973D8BEA23D74782959D6DD71956"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966D49AF5D5F916C3AD3F3B62BF846FA1D6646CA609CB3BEE9ED6EEDC94AC8"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+          "sha256": "73DE7D13FE5525F05CA6543F2C0BCE5DCC1B015BCAA731EFF4467B86E36F4C3A"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2C443D9ADC4525953869B2DCC69433EBF00FD7243EC93E01BFFF5E11ED5DC6EE"
+        }
+      ],
+      "path": "V3/assets/revisions-buffs-scenes-20260914/illustrations/26_NONE_REEVUS.png",
+      "status": "ready_for_parent_review",
+      "qa": {
+        "result": "pass",
+        "inputs_and_output_inspected_with_view_image": true,
+        "review": "Hard confrontational glare, lowered brow and clenched downturned mouth; heavier forward-leaning shoulder posture reads stubborn and brutish, not wise or kindly. Grey twin beard braids, goggles, green service coat, ledger desk/stool and both boots retained. Near hand closes ledger, far hand naturally partially occluded; no extra limb. Empty pillar stays empty, no hammer, aura or text; painterly warm/cool room retained."
+      },
+      "imagegen_call_count": 1,
+      "sourcegen": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-1a5681b9-67b2-4d36-a14f-398c1cffc80f.png",
+      "width": 1122,
+      "height": 1402,
+      "format": "PNG",
+      "sha256": "61052AD941BF1AEABEA8DEDAA04AFB563ECFB19F545200E1313486A887DDFBD8",
+      "sourcegen_sha256": "61052AD941BF1AEABEA8DEDAA04AFB563ECFB19F545200E1313486A887DDFBD8",
+      "canonical_sha256_at_save": "181AC674DA9C521E9B96CF5A9399D4CC924A973D8BEA23D74782959D6DD71956",
+      "completed_at": "2026-09-14T13:55:35.8421081Z",
+      "source_copy_sha256_verified": true,
+      "canonical_source_unchanged_at_save": true,
+      "successful_generations": 1,
+      "failed_input_transports": 0
+    },
+    {
+      "id": "30000027",
+      "slug": "27_NONE_XIAOMI",
+      "name": "XIAOMI",
+      "source": "V3/assets/illustrations/27_NONE_XIAOMI.png",
+      "source_sha256": "37E94EF5BE5548C6877EDA680E39C42BAD256753A486B107C5E982C462867BA5",
+      "prompt": "Use case: identity-preserve, narrative scene revision for Kalistar.\nInput roles in exact order: Image 1 is the character identity reference and edit target; Image 2 MOMO is the PRIMARY painting reference; Image 3 VOLODEN and Image 4 violet VALAZAR are secondary material/detail references. Borrow their painted construction, never their characters, objects, pose or palette.\nStyle: a fully repainted narrative fantasy illustration in Momo's gouache/oil language. Broad and medium opaque paint planes, selective broken bristle strokes, lost-and-found edges, layered worn cloth, wood, stone and metal, expressive faces constructed from colors. Rich detail where the action and expression need it, quieter grouped background shapes. Not a uniform mosaic of tiny flecks; not a superficial grain filter. No photo skin, airbrush, anime eyes, manga outlines, glossy 3D, artificial lens blur or videogame character render. Keep motive-specific light and a palette suited to this scene; do not import Momo's blue night.\nFormat: ONE full-bleed portrait PNG approximately 4:5, ideally 1122x1402 or larger, at least 1024 pixels on the short side. No text, typography, letters, logo, signature, watermark, border, card frame or collage.\nAnatomy: one coherent adult body, one head, exactly two arms and two hands with plausible fingers, natural shoulders/elbows/wrists. Two human-proportioned legs with two feet except Ruby's explicitly requested single natural mermaid tail. No extra arms, disembodied hands, duplicated joints or quadruped torso. For Jelly-Joe the jellyfish details are short head filaments only, never extra tentacle limbs.\nXIAOMI: Replace the broken-sword contemplation scene with a stealthy threatening ninja moment in the dim stone corridor. She remains the same SLENDER ADULT woman, black high bun and loose black strands, clearly East Asian facial features, natural adult eyes, worn black/dark charcoal practical clothes and long coat with muted burgundy accents. Make her ethnic identity unambiguous without caricature and preserve her recognizable face/hair. One INTACT katana with a gently curved single-edged blade replaces the broken pieces. Low alert stance, knees flexed, weight clearly supported by two feet; torso angled along the wall, eyes scanning the corridor, held breath and controlled menace. Both hands credibly grip the ONE katana handle in a low ready guard, blade kept separate from limbs and face. The face is uncovered and readable in a small motivated sidelight; no bright frontal beauty lighting. Show whole figure including the two feet. Deep charcoal and muted burgundy corridor, small warm sconce light catching face and blade, faint neutral distant opening. No glowing sword, supernatural aura, magic, text, victim or extra weapon. Not anime or fashion pose.",
+      "refs": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/27_NONE_XIAOMI.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png"
+      ],
+      "reference_hashes": [
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/27_NONE_XIAOMI.png",
+          "sha256": "37E94EF5BE5548C6877EDA680E39C42BAD256753A486B107C5E982C462867BA5"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966D49AF5D5F916C3AD3F3B62BF846FA1D6646CA609CB3BEE9ED6EEDC94AC8"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+          "sha256": "73DE7D13FE5525F05CA6543F2C0BCE5DCC1B015BCAA731EFF4467B86E36F4C3A"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2C443D9ADC4525953869B2DCC69433EBF00FD7243EC93E01BFFF5E11ED5DC6EE"
+        }
+      ],
+      "path": "V3/assets/revisions-buffs-scenes-20260914/illustrations/27_NONE_XIAOMI.png",
+      "status": "ready_for_parent_review",
+      "qa": {
+        "result": "pass",
+        "inputs_and_output_inspected_with_view_image": true,
+        "review": "Adult East Asian face and black bun retained; low alert ninja stance in a dim corridor, two clearly supported feet and exactly two arms. One intact katana, two hands now correctly gripping the hilt behind the guard after targeted correction. Face and blade readable, no anime eyes or magical aura. Painted black/burgundy cloth and warm sidelight retained."
+      },
+      "imagegen_call_count": 2,
+      "sourcegen": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-57a581a3-823d-4131-a212-2d26d1fd3373.png",
+      "width": 1122,
+      "height": 1402,
+      "format": "PNG",
+      "sha256": "9987B795CB648ADD8205168DF0B359A6CD44B1EA2ACA88FBB38AF95A7A7718D7",
+      "sourcegen_sha256": "9987B795CB648ADD8205168DF0B359A6CD44B1EA2ACA88FBB38AF95A7A7718D7",
+      "canonical_sha256_at_save": "37E94EF5BE5548C6877EDA680E39C42BAD256753A486B107C5E982C462867BA5",
+      "completed_at": "2026-09-14T13:59:08.1172353Z",
+      "source_copy_sha256_verified": true,
+      "canonical_source_unchanged_at_save": true,
+      "generation_history": [
+        {
+          "call": 1,
+          "kind": "scene_revision",
+          "prompt": "Use case: identity-preserve, narrative scene revision for Kalistar.\nInput roles in exact order: Image 1 is the character identity reference and edit target; Image 2 MOMO is the PRIMARY painting reference; Image 3 VOLODEN and Image 4 violet VALAZAR are secondary material/detail references. Borrow their painted construction, never their characters, objects, pose or palette.\nStyle: a fully repainted narrative fantasy illustration in Momo's gouache/oil language. Broad and medium opaque paint planes, selective broken bristle strokes, lost-and-found edges, layered worn cloth, wood, stone and metal, expressive faces constructed from colors. Rich detail where the action and expression need it, quieter grouped background shapes. Not a uniform mosaic of tiny flecks; not a superficial grain filter. No photo skin, airbrush, anime eyes, manga outlines, glossy 3D, artificial lens blur or videogame character render. Keep motive-specific light and a palette suited to this scene; do not import Momo's blue night.\nFormat: ONE full-bleed portrait PNG approximately 4:5, ideally 1122x1402 or larger, at least 1024 pixels on the short side. No text, typography, letters, logo, signature, watermark, border, card frame or collage.\nAnatomy: one coherent adult body, one head, exactly two arms and two hands with plausible fingers, natural shoulders/elbows/wrists. Two human-proportioned legs with two feet except Ruby's explicitly requested single natural mermaid tail. No extra arms, disembodied hands, duplicated joints or quadruped torso. For Jelly-Joe the jellyfish details are short head filaments only, never extra tentacle limbs.\nXIAOMI: Replace the broken-sword contemplation scene with a stealthy threatening ninja moment in the dim stone corridor. She remains the same SLENDER ADULT woman, black high bun and loose black strands, clearly East Asian facial features, natural adult eyes, worn black/dark charcoal practical clothes and long coat with muted burgundy accents. Make her ethnic identity unambiguous without caricature and preserve her recognizable face/hair. One INTACT katana with a gently curved single-edged blade replaces the broken pieces. Low alert stance, knees flexed, weight clearly supported by two feet; torso angled along the wall, eyes scanning the corridor, held breath and controlled menace. Both hands credibly grip the ONE katana handle in a low ready guard, blade kept separate from limbs and face. The face is uncovered and readable in a small motivated sidelight; no bright frontal beauty lighting. Show whole figure including the two feet. Deep charcoal and muted burgundy corridor, small warm sconce light catching face and blade, faint neutral distant opening. No glowing sword, supernatural aura, magic, text, victim or extra weapon. Not anime or fashion pose.",
+          "refs": [
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/27_NONE_XIAOMI.png",
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png"
+          ],
+          "sourcegen": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-12a3d71f-3026-4306-97c6-2615149278a2.png",
+          "qa": {
+            "result": "needs_correction",
+            "reason": "Second hand partly reaches beyond guard toward blade instead of gripping hilt."
+          },
+          "sha256": "F7466184C590D71C7C6D34A3171D979ACB016EEBAF197CDD1FDF61721BFB0419"
+        },
+        {
+          "call": 2,
+          "kind": "targeted_grip_correction",
+          "prompt": "Use case: precise-object-edit. Correct ONLY the katana hand grip in Image 1, a finished Kalistar painting. Keep the woman's adult East Asian identity, facial expression, black bun, all clothing, crouched stealth stance, two feet, corridor, framing, blade direction, palette, lighting and Momo painted brushwork UNCHANGED.\nThe current second hand incorrectly reaches past the circular guard toward the blade. Move that hand BACK onto the wrapped HILT, on the SAME side of the circular guard as the other hand. Lengthen the wrapped handle slightly behind the guard if needed to fit TWO properly spaced hands. Both palms and all fingers must grip only the cloth-wrapped handle, one immediately behind the guard and the other farther toward the pommel. No fingertip or palm touches the blade. Show ONE blade, ONE circular guard and ONE continuous wrapped hilt in a physically coherent line. Keep two forearms attached naturally to their existing shoulders, exactly two hands. Preserve the katana's current low diagonal direction and all other content. No extra limb or weapon, no text, no frame. Same full-bleed portrait approx 4:5, PNG at least 1024 pixels wide.",
+          "refs": [
+            "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-12a3d71f-3026-4306-97c6-2615149278a2.png"
+          ],
+          "sourcegen": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-57a581a3-823d-4131-a212-2d26d1fd3373.png",
+          "qa": {
+            "result": "pass",
+            "reason": "Both hands now on the same wrapped handle behind the guard; scene and identity preserved."
+          },
+          "sha256": "9987B795CB648ADD8205168DF0B359A6CD44B1EA2ACA88FBB38AF95A7A7718D7"
+        }
+      ],
+      "successful_generations": 2,
+      "failed_input_transports": 0
+    },
+    {
+      "id": "30000032",
+      "slug": "32_ELECTRO_JELLY_JOE",
+      "name": "JELLY-JOE",
+      "source": "V3/assets/illustrations/32_ELECTRO_JELLY_JOE.png",
+      "source_sha256": "E43D338342FEB2B8B12D3D43BC049BF3DFF885303E5C05996517084D95C5FFA4",
+      "prompt": "Use case: identity-preserve, narrative scene revision for Kalistar.\nInput roles in exact order: Image 1 is the character identity reference and edit target; Image 2 MOMO is the PRIMARY painting reference; Image 3 VOLODEN and Image 4 violet VALAZAR are secondary material/detail references. Borrow their painted construction, never their characters, objects, pose or palette.\nStyle: a fully repainted narrative fantasy illustration in Momo's gouache/oil language. Broad and medium opaque paint planes, selective broken bristle strokes, lost-and-found edges, layered worn cloth, wood, stone and metal, expressive faces constructed from colors. Rich detail where the action and expression need it, quieter grouped background shapes. Not a uniform mosaic of tiny flecks; not a superficial grain filter. No photo skin, airbrush, anime eyes, manga outlines, glossy 3D, artificial lens blur or videogame character render. Keep motive-specific light and a palette suited to this scene; do not import Momo's blue night.\nFormat: ONE full-bleed portrait PNG approximately 4:5, ideally 1122x1402 or larger, at least 1024 pixels on the short side. No text, typography, letters, logo, signature, watermark, border, card frame or collage.\nAnatomy: one coherent adult body, one head, exactly two arms and two hands with plausible fingers, natural shoulders/elbows/wrists. Two human-proportioned legs with two feet except Ruby's explicitly requested single natural mermaid tail. No extra arms, disembodied hands, duplicated joints or quadruped torso. For Jelly-Joe the jellyfish details are short head filaments only, never extra tentacle limbs.\nJELLY-JOE: Replace the quay guard pose with a lively port-tavern BAR scene. He remains a TANTALAK humanoid, NOT a human: same compact translucent jellyfish bell head, pale blue/lilac expressive face, amber eyes and short hanging head filaments, exactly two humanoid arms and two legs in clothes. Explicitly make him an OLD weather-beaten heavy-drinking sailor, charming and boastful with disorderly joyful tipsiness, worn creased expressive face beneath the bell, tired half-lidded eyes and a crooked laughing grin. Keep the distinctive battered mustard-yellow oilskin coat, dark sailor layers, belts and two boots. Seated at an angle on a sturdy barstool, leaning back in a loud celebratory toast; one hand raises a pewter tankard, the other rests on a squat bottle on the bar. Both hands and their grips readable, one boot on stool rung and the other on floor, no hovering feet. His spear may rest clearly against the wall, not pass through him. Wet ring marks, a little spilled drink, scratched wood and warm lamplight create a lived-in dockside tavern. Small distant adult revelers can be secondary shapes, not a second equal portrait or repeated exchange scene. Subtle ELECTRO blue-white flicker among head filaments, tiny and controlled, not an electrical explosion. Pirate bravado and off-balance charm, but NOT Johnny Depp's face, NOT Jack Sparrow's costume or hat, no human dreadlocks. Warm amber wood, muted yellow coat, lilac head with limited cool accents; no photo or cartoon.",
+      "refs": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/32_ELECTRO_JELLY_JOE.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png"
+      ],
+      "reference_hashes": [
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/32_ELECTRO_JELLY_JOE.png",
+          "sha256": "E43D338342FEB2B8B12D3D43BC049BF3DFF885303E5C05996517084D95C5FFA4"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966D49AF5D5F916C3AD3F3B62BF846FA1D6646CA609CB3BEE9ED6EEDC94AC8"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+          "sha256": "73DE7D13FE5525F05CA6543F2C0BCE5DCC1B015BCAA731EFF4467B86E36F4C3A"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2C443D9ADC4525953869B2DCC69433EBF00FD7243EC93E01BFFF5E11ED5DC6EE"
+        }
+      ],
+      "path": "V3/assets/revisions-buffs-scenes-20260914/illustrations/32_ELECTRO_JELLY_JOE.png",
+      "status": "ready_for_parent_review",
+      "qa": {
+        "result": "pass",
+        "inputs_and_output_inspected_with_view_image": true,
+        "review": "Old weather-beaten Tantalak sailor with heavy eyelids, deep facial folds and uneven drunken grin after age correction. Jellyfish bell and short head-only filaments retained, not a human or tentacle-bodied creature. Two arms hold tankard/bottle, two legs with one boot on stool rung and one on floor. Yellow coat, spear, warm festive bar and small Electro glints preserved. No cloned limb or readable text."
+      },
+      "imagegen_call_count": 2,
+      "sourcegen": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-dc330464-3242-469b-9436-c7a1d5c6c29d.png",
+      "width": 1122,
+      "height": 1402,
+      "format": "PNG",
+      "sha256": "3A8B6C71E0AAF47BFC6B771A6FD97C4F38B99D28413391E52BD2843D97368700",
+      "sourcegen_sha256": "3A8B6C71E0AAF47BFC6B771A6FD97C4F38B99D28413391E52BD2843D97368700",
+      "canonical_sha256_at_save": "E43D338342FEB2B8B12D3D43BC049BF3DFF885303E5C05996517084D95C5FFA4",
+      "completed_at": "2026-09-14T14:02:46.1863061Z",
+      "source_copy_sha256_verified": true,
+      "canonical_source_unchanged_at_save": true,
+      "generation_history": [
+        {
+          "call": 1,
+          "kind": "scene_revision",
+          "prompt": "Use case: identity-preserve, narrative scene revision for Kalistar.\nInput roles in exact order: Image 1 is the character identity reference and edit target; Image 2 MOMO is the PRIMARY painting reference; Image 3 VOLODEN and Image 4 violet VALAZAR are secondary material/detail references. Borrow their painted construction, never their characters, objects, pose or palette.\nStyle: a fully repainted narrative fantasy illustration in Momo's gouache/oil language. Broad and medium opaque paint planes, selective broken bristle strokes, lost-and-found edges, layered worn cloth, wood, stone and metal, expressive faces constructed from colors. Rich detail where the action and expression need it, quieter grouped background shapes. Not a uniform mosaic of tiny flecks; not a superficial grain filter. No photo skin, airbrush, anime eyes, manga outlines, glossy 3D, artificial lens blur or videogame character render. Keep motive-specific light and a palette suited to this scene; do not import Momo's blue night.\nFormat: ONE full-bleed portrait PNG approximately 4:5, ideally 1122x1402 or larger, at least 1024 pixels on the short side. No text, typography, letters, logo, signature, watermark, border, card frame or collage.\nAnatomy: one coherent adult body, one head, exactly two arms and two hands with plausible fingers, natural shoulders/elbows/wrists. Two human-proportioned legs with two feet except Ruby's explicitly requested single natural mermaid tail. No extra arms, disembodied hands, duplicated joints or quadruped torso. For Jelly-Joe the jellyfish details are short head filaments only, never extra tentacle limbs.\nJELLY-JOE: Replace the quay guard pose with a lively port-tavern BAR scene. He remains a TANTALAK humanoid, NOT a human: same compact translucent jellyfish bell head, pale blue/lilac expressive face, amber eyes and short hanging head filaments, exactly two humanoid arms and two legs in clothes. Explicitly make him an OLD weather-beaten heavy-drinking sailor, charming and boastful with disorderly joyful tipsiness, worn creased expressive face beneath the bell, tired half-lidded eyes and a crooked laughing grin. Keep the distinctive battered mustard-yellow oilskin coat, dark sailor layers, belts and two boots. Seated at an angle on a sturdy barstool, leaning back in a loud celebratory toast; one hand raises a pewter tankard, the other rests on a squat bottle on the bar. Both hands and their grips readable, one boot on stool rung and the other on floor, no hovering feet. His spear may rest clearly against the wall, not pass through him. Wet ring marks, a little spilled drink, scratched wood and warm lamplight create a lived-in dockside tavern. Small distant adult revelers can be secondary shapes, not a second equal portrait or repeated exchange scene. Subtle ELECTRO blue-white flicker among head filaments, tiny and controlled, not an electrical explosion. Pirate bravado and off-balance charm, but NOT Johnny Depp's face, NOT Jack Sparrow's costume or hat, no human dreadlocks. Warm amber wood, muted yellow coat, lilac head with limited cool accents; no photo or cartoon.",
+          "refs": [
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/32_ELECTRO_JELLY_JOE.png",
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png"
+          ],
+          "sourcegen": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-8a1163ed-9acb-4bbd-a0fb-3d198fe088f9.png",
+          "qa": {
+            "result": "needs_correction",
+            "reason": "Bar celebration and anatomy passed, but face remained too youthful for explicit old sailor request."
+          },
+          "sha256": "419F900D8CE2280336F67DEDEAA2FAF89B3C33DFDD62677E540A8D6F6DEA01AE"
+        },
+        {
+          "call": 2,
+          "kind": "targeted_age_correction",
+          "prompt": "Use case: precise-object-edit / explicit age correction. In Image 1 change ONLY Jelly-Joe's FACE and nearby head skin so he unmistakably reads as a VERY OLD weather-beaten male sailor, equivalent of 70-80 years, not a youthful pretty elf. The previous face is much too young: a few faint smile lines are not enough.\nPreserve his exact TANTALAK nonhuman identity: translucent lavender-blue jellyfish bell head, short head filaments, amber eyes, blue-lilac membranous facial skin. Do NOT make him a human, do NOT add human hair or beard. Within this alien identity, render heavy folded lower eyelids and eye bags, deeply creased brow and crow's-feet, hollow weathered cheeks, sagging creased mouth corners, leathery folded chin/neck and a battered crooked drunken grin with a few uneven stained teeth. Old age and years of harsh sea weather and heavy drinking must be readable at card scale. Eyes smaller and weary under heavy lids, mischievous sparkle and exuberant drunken charm retained. Paint these features with sculpted gouache/oil color planes, not photo pores or caricature lines.\nEVERYTHING ELSE remains unchanged: same head outline and tilted angle, same raised tankard, bottle grip, exactly two arms and hands, exactly two legs and boots, stool contacts, yellow oilskin coat, belts, spear, festive bar, background people, framing, warm amber light and painted rendering. No new props, extra tentacles, limbs, text or frame. Same approx4:5 portrait PNG, shortest side1024+.",
+          "refs": [
+            "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-8a1163ed-9acb-4bbd-a0fb-3d198fe088f9.png"
+          ],
+          "sourcegen": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-dc330464-3242-469b-9436-c7a1d5c6c29d.png",
+          "qa": {
+            "result": "pass",
+            "reason": "Strongly aged creased alien face, heavy lids and battered grin while preserving Tantalak identity and complete bar composition."
+          },
+          "sha256": "3A8B6C71E0AAF47BFC6B771A6FD97C4F38B99D28413391E52BD2843D97368700"
+        }
+      ],
+      "successful_generations": 2,
+      "failed_input_transports": 0
+    },
+    {
+      "id": "30000035",
+      "slug": "35_NECRO_CAPITAINE_SKULLY",
+      "name": "CAPITAINE SKULLY",
+      "source": "V3/verification/skully-original-preview.png",
+      "source_sha256": "212C4BBAD15C2DF3EEF01FB15675FDFA5F9F6D3E442BD2B9CFD3ABCF8765FEAA",
+      "prompt": "Use case: style-transfer / faithful narrative illustration adaptation.\nImage roles, exact order: Image1 is the parent's exact preview of the ACTUAL ORIGINAL SKULLY extracted without clipping from PSD layer873, not the later quay painting. It is the sole identity, costume, scene and pose authority. Image2 MOMO is the PRIMARY painting-style reference. Image3 VOLODEN and Image4 violet VALAZAR supply secondary painted material/detail language only, not their figures or palettes.\nRepaint the original maritime Skully faithfully in Kalistar/Momo handmade oil-gouache. Preserve the original striking low viewpoint, pirate skeleton standing aboard the ship's carved PROW in open sea under a storm sky with a luminous opening behind him. NOT a helm/wheel scene, NOT a dock, NOT a calm harbor. Keep his charismatic broad ivory skull with open swaggering grin, weathered dark tricorn/bicorn, long WAVY PALE BLOND HAIR flowing in the wind, dark richly worn pirate coat, ivory skeleton ribcage and leather cross straps, broad ornamented belt and dark sea-green trousers. Preserve original silhouette, sea-green storm clouds, cream/gold sun opening and warm backlight on hair.\nPose and props: exactly TWO humanoid arms and TWO legs. His screen-left hand grips the same SKULL-TIPPED staff/handle, small skull finial facing outward. His screen-right hand holds the original short shaft with hooked/pointed maritime rope fitting and hanging rope, same relationship to body. Preserve these original objects, do not replace them with a ship wheel, long rifle, invented pistol, sword or magic staff. One bent leg is raised and firmly BRACED HIGH on the prow (screen-right knee), the other supports him lower on the deck. Make the two thighs, knees, shins and boot contacts physically coherent despite the original foreshortening; no duplicated lower leg or fused hip. Two hands with plausible skeletal finger joints, no extra detached skeletal fingers or additional arm. Hair is hair, not extra limbs.\nComposition: show main skeleton captain, raised knee, both coherent boot placements, curved carved prow, ropes and rigging; maintain the original powerful silhouette and open sea setting. Adapt the original tall image to a portrait approx4:5 by widening the scene naturally and reducing excess empty sky, NEVER by cropping away his hat, props or braced-leg anatomy. Keep the prow clearly a ship under way, not a throne. No extra crew portraits.\nPainting: visible purposeful medium/broad opaque brush planes, broken bristle marks, layered worn cloth/wood/metal, lost-and-found edges, selective incisive detail at skull/hands/rope. Bright sun opening and reflected light separate the figure from dark sea-green storm masses. Rich forms and expressive gesture rather than muddy grain. No uniform fleck mosaic, noisy grit overlay, photoreal skin or hair, glossy CGI, anime, manga lines or synthetic blur. Do not make every shadow flat black; retain legibility of dark coat and full anatomy.\nOne finished full-bleed PNG, around1122x1402 or larger, shortest side at least1024, no lettering, frame, logo, signature, watermark, comparison panel or card UI.",
+      "refs": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/verification/skully-original-preview.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png"
+      ],
+      "reference_hashes": [
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/verification/skully-original-preview.png",
+          "sha256": "212C4BBAD15C2DF3EEF01FB15675FDFA5F9F6D3E442BD2B9CFD3ABCF8765FEAA"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966D49AF5D5F916C3AD3F3B62BF846FA1D6646CA609CB3BEE9ED6EEDC94AC8"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+          "sha256": "73DE7D13FE5525F05CA6543F2C0BCE5DCC1B015BCAA731EFF4467B86E36F4C3A"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2C443D9ADC4525953869B2DCC69433EBF00FD7243EC93E01BFFF5E11ED5DC6EE"
+        }
+      ],
+      "path": "V3/assets/revisions-buffs-scenes-20260914/illustrations/35_NECRO_CAPITAINE_SKULLY.png",
+      "status": "ready_for_parent_review",
+      "qa": {
+        "result": "pass",
+        "inputs_and_output_inspected_with_view_image": true,
+        "review": "Faithful to confirmed PSD layer873 via parent preview: long pale wavy hair, original pirate hat and worn dark coat, exposed ribcage/straps, skull-tipped handle, opposite rope-fitting shaft, one high braced knee on carved prow. Two coherent arms/hands and two legs, lower supporting boot naturally occluded by prow, no extra limb. Low viewpoint, storm sea-green clouds and sun opening retained with clearer oil/gouache planes. No helm or harbor. Full PNG transport failed; exact original preview was effective reference."
+      },
+      "imagegen_call_count": 3,
+      "canonical_source": "V3/assets/illustrations/35_NECRO_CAPITAINE_SKULLY.png",
+      "canonical_source_sha256_at_start": "1720B15AB83268CBFE21CF12A23EC727E0C15B793360FFD6A6676460C2DB0C3D",
+      "generation_history": [
+        {
+          "call": 1,
+          "kind": "provisional_open_sea_fallback",
+          "prompt": "Use case: identity-preserve, narrative scene revision for Kalistar.\nInput roles in exact order: Image 1 is the character identity reference and edit target; Image 2 MOMO is the PRIMARY painting reference; Image 3 VOLODEN and Image 4 violet VALAZAR are secondary material/detail references. Borrow their painted construction, never their characters, objects, pose or palette.\nStyle: a fully repainted narrative fantasy illustration in Momo's gouache/oil language. Broad and medium opaque paint planes, selective broken bristle strokes, lost-and-found edges, layered worn cloth, wood, stone and metal, expressive faces constructed from colors. Rich detail where the action and expression need it, quieter grouped background shapes. Not a uniform mosaic of tiny flecks; not a superficial grain filter. No photo skin, airbrush, anime eyes, manga outlines, glossy 3D, artificial lens blur or videogame character render. Keep motive-specific light and a palette suited to this scene; do not import Momo's blue night.\nFormat: ONE full-bleed portrait PNG approximately 4:5, ideally 1122x1402 or larger, at least 1024 pixels on the short side. No text, typography, letters, logo, signature, watermark, border, card frame or collage.\nAnatomy: one coherent adult body, one head, exactly two arms and two hands with plausible fingers, natural shoulders/elbows/wrists. Two human-proportioned legs with two feet except Ruby's explicitly requested single natural mermaid tail. No extra arms, disembodied hands, duplicated joints or quadruped torso. For Jelly-Joe the jellyfish details are short head filaments only, never extra tentacle limbs.\nCAPITAINE SKULLY: The original requested historical open-sea picture was not found; Image 1 is the verified existing quay illustration used ONLY for his identity. This is a NEW faithful open-sea scene, NOT a claimed reconstruction of an unseen historical image. Preserve his broad worn ivory skull, petrol-blue tricorn with worn trim, maritime green long coat with brass buttons, burgundy scarf, dark clothing, belt and sheathed short sword, two leather sea boots. He is a dignified skeletal captain with dry swagger, no flesh decay or horror. Move him aboard his own weathered sailing vessel UNDER WAY IN OPEN SEA, not on a quay or next to a parked boat. Whole figure on the deck at a wooden ship's wheel, two bony hands grip two distinct wheel handles naturally, both boots braced on planks with clear leg separation. Skull turned toward the horizon as he steers. Billowing sail and rigging behind him, sea spray beyond the bulwark, rolling jade/turquoise water and open pale sky with golden breaks in clouds. No harbor buildings, dock bollard or mooring salute. Clear skeletal joints, no extra hand on wheel, no extra leg. Coat and scarf lifted by wind, restrained plum eye-socket glints can preserve NECRO identity. Rich Momo paint construction, adventurous maritime light rather than uniformly dark blue.",
+          "refs": [
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/35_NECRO_CAPITAINE_SKULLY.png",
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png"
+          ],
+          "sourcegen": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-ca033766-f8ef-4c00-b92b-61337ede7b8c.png",
+          "qa": {
+            "result": "superseded_not_delivered",
+            "reason": "Native original PSD layer873 identified by parent after generation; imagined helm scene is not used."
+          },
+          "sha256": "BA24EA2FFC2123C297741F6BFCCB82C09A73ECAA551BAB7F582F706DD9B372B0"
+        },
+        {
+          "call": 2,
+          "kind": "native_original_adaptation_attempt",
+          "prompt": "Use case: style-transfer / faithful narrative illustration adaptation.\nImage roles, exact order: Image1 is the ACTUAL ORIGINAL SKULLY extracted without clipping from PSD layer873. It is the sole identity, costume, scene and pose authority. Image2 MOMO is the PRIMARY painting-style reference. Image3 VOLODEN and Image4 violet VALAZAR supply secondary painted material/detail language only, not their figures or palettes.\nRepaint the original maritime Skully faithfully in Kalistar/Momo handmade oil-gouache. Preserve the original striking low viewpoint, pirate skeleton standing aboard the ship's carved PROW in open sea under a storm sky with a luminous opening behind him. NOT a helm/wheel scene, NOT a dock, NOT a calm harbor. Keep his charismatic broad ivory skull with open swaggering grin, weathered dark tricorn/bicorn, long WAVY PALE BLOND HAIR flowing in the wind, dark richly worn pirate coat, ivory skeleton ribcage and leather cross straps, broad ornamented belt and dark sea-green trousers. Preserve original silhouette, sea-green storm clouds, cream/gold sun opening and warm backlight on hair.\nPose and props: exactly TWO humanoid arms and TWO legs. His screen-left hand grips the same SKULL-TIPPED staff/handle, small skull finial facing outward. His screen-right hand holds the original short shaft with hooked/pointed maritime rope fitting and hanging rope, same relationship to body. Preserve these original objects, do not replace them with a ship wheel, long rifle, invented pistol, sword or magic staff. One bent leg is raised and firmly BRACED HIGH on the prow (screen-right knee), the other supports him lower on the deck. Make the two thighs, knees, shins and boot contacts physically coherent despite the original foreshortening; no duplicated lower leg or fused hip. Two hands with plausible skeletal finger joints, no extra detached skeletal fingers or additional arm. Hair is hair, not extra limbs.\nComposition: show main skeleton captain, raised knee, both coherent boot placements, curved carved prow, ropes and rigging; maintain the original powerful silhouette and open sea setting. Adapt the original tall image to a portrait approx4:5 by widening the scene naturally and reducing excess empty sky, NEVER by cropping away his hat, props or braced-leg anatomy. Keep the prow clearly a ship under way, not a throne. No extra crew portraits.\nPainting: visible purposeful medium/broad opaque brush planes, broken bristle marks, layered worn cloth/wood/metal, lost-and-found edges, selective incisive detail at skull/hands/rope. Bright sun opening and reflected light separate the figure from dark sea-green storm masses. Rich forms and expressive gesture rather than muddy grain. No uniform fleck mosaic, noisy grit overlay, photoreal skin or hair, glossy CGI, anime, manga lines or synthetic blur. Do not make every shadow flat black; retain legibility of dark coat and full anatomy.\nOne finished full-bleed PNG, around1122x1402 or larger, shortest side at least1024, no lettering, frame, logo, signature, watermark, comparison panel or card UI.",
+          "refs": [
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/verification/skully-original-preview.png",
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png"
+          ],
+          "sourcegen": null,
+          "qa": {
+            "result": "input_transport_failed",
+            "reason": "Full PNG rejected before generation by fs/readFile invalid base64 transport; no image produced."
+          }
+        },
+        {
+          "call": 3,
+          "kind": "native_original_adaptation",
+          "prompt": "Use case: style-transfer / faithful narrative illustration adaptation.\nImage roles, exact order: Image1 is the parent's exact preview of the ACTUAL ORIGINAL SKULLY extracted without clipping from PSD layer873, not the later quay painting. It is the sole identity, costume, scene and pose authority. Image2 MOMO is the PRIMARY painting-style reference. Image3 VOLODEN and Image4 violet VALAZAR supply secondary painted material/detail language only, not their figures or palettes.\nRepaint the original maritime Skully faithfully in Kalistar/Momo handmade oil-gouache. Preserve the original striking low viewpoint, pirate skeleton standing aboard the ship's carved PROW in open sea under a storm sky with a luminous opening behind him. NOT a helm/wheel scene, NOT a dock, NOT a calm harbor. Keep his charismatic broad ivory skull with open swaggering grin, weathered dark tricorn/bicorn, long WAVY PALE BLOND HAIR flowing in the wind, dark richly worn pirate coat, ivory skeleton ribcage and leather cross straps, broad ornamented belt and dark sea-green trousers. Preserve original silhouette, sea-green storm clouds, cream/gold sun opening and warm backlight on hair.\nPose and props: exactly TWO humanoid arms and TWO legs. His screen-left hand grips the same SKULL-TIPPED staff/handle, small skull finial facing outward. His screen-right hand holds the original short shaft with hooked/pointed maritime rope fitting and hanging rope, same relationship to body. Preserve these original objects, do not replace them with a ship wheel, long rifle, invented pistol, sword or magic staff. One bent leg is raised and firmly BRACED HIGH on the prow (screen-right knee), the other supports him lower on the deck. Make the two thighs, knees, shins and boot contacts physically coherent despite the original foreshortening; no duplicated lower leg or fused hip. Two hands with plausible skeletal finger joints, no extra detached skeletal fingers or additional arm. Hair is hair, not extra limbs.\nComposition: show main skeleton captain, raised knee, both coherent boot placements, curved carved prow, ropes and rigging; maintain the original powerful silhouette and open sea setting. Adapt the original tall image to a portrait approx4:5 by widening the scene naturally and reducing excess empty sky, NEVER by cropping away his hat, props or braced-leg anatomy. Keep the prow clearly a ship under way, not a throne. No extra crew portraits.\nPainting: visible purposeful medium/broad opaque brush planes, broken bristle marks, layered worn cloth/wood/metal, lost-and-found edges, selective incisive detail at skull/hands/rope. Bright sun opening and reflected light separate the figure from dark sea-green storm masses. Rich forms and expressive gesture rather than muddy grain. No uniform fleck mosaic, noisy grit overlay, photoreal skin or hair, glossy CGI, anime, manga lines or synthetic blur. Do not make every shadow flat black; retain legibility of dark coat and full anatomy.\nOne finished full-bleed PNG, around1122x1402 or larger, shortest side at least1024, no lettering, frame, logo, signature, watermark, comparison panel or card UI.",
+          "refs": [
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/verification/skully-original-preview.png",
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+            "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png"
+          ],
+          "sourcegen": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-b1a05c11-1374-4552-a484-070b57af06e2.png",
+          "qa": {
+            "result": "pass",
+            "reason": "Faithful native-reference prow composition, hair, costume, paired original props, raised leg and storm/sun palette; painted Momo execution."
+          },
+          "sha256": "04B30244E3624CC20F71CE0BC8569252E51FFEAC8F3C108526686F287A155BD9"
+        }
+      ],
+      "sourcegen": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-b1a05c11-1374-4552-a484-070b57af06e2.png",
+      "width": 1122,
+      "height": 1402,
+      "format": "PNG",
+      "sha256": "04B30244E3624CC20F71CE0BC8569252E51FFEAC8F3C108526686F287A155BD9",
+      "sourcegen_sha256": "04B30244E3624CC20F71CE0BC8569252E51FFEAC8F3C108526686F287A155BD9",
+      "canonical_sha256_at_save": "1720B15AB83268CBFE21CF12A23EC727E0C15B793360FFD6A6676460C2DB0C3D",
+      "completed_at": "2026-09-14T14:09:19.5776861Z",
+      "source_copy_sha256_verified": true,
+      "canonical_source_unchanged_at_save": true,
+      "successful_generations": 2,
+      "failed_input_transports": 1
+    },
+    {
+      "id": "30000039",
+      "slug": "39_HYDRO_RUBY",
+      "name": "RUBY",
+      "source": "V3/assets/illustrations/39_HYDRO_RUBY.png",
+      "source_sha256": "EF1A1D16F4152E882ACAD987CBE1C21B28FD127811A4E9287B71A7F9CF4426F7",
+      "prompt": "Use case: identity-preserve, narrative scene revision for Kalistar.\nInput roles in exact order: Image 1 is the character identity reference and edit target; Image 2 MOMO is the PRIMARY painting reference; Image 3 VOLODEN and Image 4 violet VALAZAR are secondary material/detail references. Borrow their painted construction, never their characters, objects, pose or palette.\nStyle: a fully repainted narrative fantasy illustration in Momo's gouache/oil language. Broad and medium opaque paint planes, selective broken bristle strokes, lost-and-found edges, layered worn cloth, wood, stone and metal, expressive faces constructed from colors. Rich detail where the action and expression need it, quieter grouped background shapes. Not a uniform mosaic of tiny flecks; not a superficial grain filter. No photo skin, airbrush, anime eyes, manga outlines, glossy 3D, artificial lens blur or videogame character render. Keep motive-specific light and a palette suited to this scene; do not import Momo's blue night.\nFormat: ONE full-bleed portrait PNG approximately 4:5, ideally 1122x1402 or larger, at least 1024 pixels on the short side. No text, typography, letters, logo, signature, watermark, border, card frame or collage.\nAnatomy: one coherent adult body, one head, exactly two arms and two hands with plausible fingers, natural shoulders/elbows/wrists. Two human-proportioned legs with two feet except Ruby's explicitly requested single natural mermaid tail. No extra arms, disembodied hands, duplicated joints or quadruped torso. For Jelly-Joe the jellyfish details are short head filaments only, never extra tentacle limbs.\nRUBY: Replace lighthouse/chart scene with Ruby swimming entirely UNDERWATER alongside ONE dolphin. Preserve the same adult Sirena face proportions, warm expression, red/copper hair and blue skin with subtle gill details. Two humanlike blue arms and hands. Explicitly permitted change: a SINGLE anatomically natural mermaid tail emerges continuously from her waist/hips and ends in ONE paired caudal fluke, replacing both legs and boots; no human legs, feet or extra lower body. Graceful active diagonal swimming pose across the portrait, not upright hovering; torso gently twisting toward the dolphin swimming in the same direction beside her. Two arms in relaxed swimming gestures, fingers clear, neither holding a weapon nor merged with dolphin. Copper hair loosened and flowing with the current, same ivory shirt and sea-green short jacket adapted naturally over torso with floating fabric, practical modest outfit. TWO SMALL holstered underwater HARPOON PISTOLS at opposite sides of the HIP BELT, one per hip, compact readable mechanical grips and short harpoon fittings, accessories only: no shooting, no projectile, no long rifle, no gun in hands. Keep face, both arms, coherent waist-to-tail transition and entire tail/fluke in frame. One dolphin with natural dolphin anatomy, distinct from Ruby's body and tail. Luminous shallow turquoise water, painted sun shafts and soft caustic patches, a few muted coral and sea grass shapes; copper hair and ivory/green cloth add warm/light contrast. Buoyant hair and fabric visibly underwater. No lighthouse, table, chart, text, borders or plastic photorealism.",
+      "refs": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/39_HYDRO_RUBY.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png"
+      ],
+      "reference_hashes": [
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/39_HYDRO_RUBY.png",
+          "sha256": "EF1A1D16F4152E882ACAD987CBE1C21B28FD127811A4E9287B71A7F9CF4426F7"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966D49AF5D5F916C3AD3F3B62BF846FA1D6646CA609CB3BEE9ED6EEDC94AC8"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/28_NECRO_VOLODEN.png",
+          "sha256": "73DE7D13FE5525F05CA6543F2C0BCE5DCC1B015BCAA731EFF4467B86E36F4C3A"
+        },
+        {
+          "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2C443D9ADC4525953869B2DCC69433EBF00FD7243EC93E01BFFF5E11ED5DC6EE"
+        }
+      ],
+      "path": "V3/assets/revisions-buffs-scenes-20260914/illustrations/39_HYDRO_RUBY.png",
+      "status": "ready_for_parent_review",
+      "qa": {
+        "result": "pass",
+        "inputs_and_output_inspected_with_view_image": true,
+        "review": "Ruby's adult blue face, gill details, copper-red hair and ivory/green clothes preserved. Clear underwater swimming pose beside one anatomically coherent dolphin. Exactly two blue arms/hands; one continuous natural mermaid tail with paired caudal fluke and no legs/boots, per explicit exception. Two compact holstered harpoon pistols at opposite hips, neither held nor firing. Buoyant hair/cloth, sunlit turquoise water and coral accents, painterly planes; no text/frame or duplicated limb."
+      },
+      "imagegen_call_count": 1,
+      "sourcegen": "C:\\Users\\guill\\.codex\\generated_images\\01a09f70-3ea0-7860-a50c-337ebe65e1fc\\exec-738b3fa4-5ea5-4e53-8253-40ca92a0f7a8.png",
+      "width": 1122,
+      "height": 1402,
+      "format": "PNG",
+      "sha256": "AA97188FEC8B52E6161DA6CA6CC592B44BD92F32043DE7BC195782B2116FEB89",
+      "sourcegen_sha256": "AA97188FEC8B52E6161DA6CA6CC592B44BD92F32043DE7BC195782B2116FEB89",
+      "canonical_sha256_at_save": "EF1A1D16F4152E882ACAD987CBE1C21B28FD127811A4E9287B71A7F9CF4426F7",
+      "completed_at": "2026-09-14T14:11:48.2459761Z",
+      "source_copy_sha256_verified": true,
+      "canonical_source_unchanged_at_save": true,
+      "successful_generations": 1,
+      "failed_input_transports": 0
+    }
+  ],
+  "updated_at": "2026-09-14T14:12:30.5564173Z",
+  "generation_summary": {
+    "tool": "built-in image_gen",
+    "mode": "edit",
+    "delivered_assets": 6,
+    "tool_call_attempts": 10,
+    "successful_generations": 9,
+    "failed_input_transports": 1,
+    "corrective_edits": [
+      "Xiaomi: both hands placed behind katana guard",
+      "Jelly-Joe: explicit old weather-beaten face"
+    ],
+    "superseded_generation": "Skully provisional helm scene never delivered; replaced by faithful PSD layer873 adaptation",
+    "one_asset_per_call": true,
+    "atlas": false
+  },
+  "final_qa": {
+    "result": "pass",
+    "checked_at": "2026-09-14T14:12:30.5564173Z",
+    "output_count": 6,
+    "all_outputs_inspected_with_view_image": true,
+    "all_output_hashes_match_manifest_and_native_generation": true,
+    "all_outputs_1122x1402": true,
+    "skully_original_found_and_used": true,
+    "canonical_writes_by_this_worker": false,
+    "parent_approval_status": "pending",
+    "read_only_canonical_snapshot": [
+      {
+        "slug": "25_NONE_KOGNUS",
+        "sha256": "1707AF9E8C82254DBFC6AB621E7604A4A15DC1EB5BC71026F6497B1ABA9D241E",
+        "matches_initial_input": false,
+        "matches_delivered_revision": true
+      },
+      {
+        "slug": "26_NONE_REEVUS",
+        "sha256": "61052AD941BF1AEABEA8DEDAA04AFB563ECFB19F545200E1313486A887DDFBD8",
+        "matches_initial_input": false,
+        "matches_delivered_revision": true
+      },
+      {
+        "slug": "27_NONE_XIAOMI",
+        "sha256": "9987B795CB648ADD8205168DF0B359A6CD44B1EA2ACA88FBB38AF95A7A7718D7",
+        "matches_initial_input": false,
+        "matches_delivered_revision": true
+      },
+      {
+        "slug": "32_ELECTRO_JELLY_JOE",
+        "sha256": "3A8B6C71E0AAF47BFC6B771A6FD97C4F38B99D28413391E52BD2843D97368700",
+        "matches_initial_input": false,
+        "matches_delivered_revision": true
+      },
+      {
+        "slug": "35_NECRO_CAPITAINE_SKULLY",
+        "sha256": "1720B15AB83268CBFE21CF12A23EC727E0C15B793360FFD6A6676460C2DB0C3D",
+        "matches_initial_input": true,
+        "matches_delivered_revision": false
+      },
+      {
+        "slug": "39_HYDRO_RUBY",
+        "sha256": "EF1A1D16F4152E882ACAD987CBE1C21B28FD127811A4E9287B71A7F9CF4426F7",
+        "matches_initial_input": true,
+        "matches_delivered_revision": false
+      }
+    ]
+  },
+  "provenance_notes": [
+    "source_sha256 records the edit input before generation; refs is the effective ordered reference list for the final scene adaptation. For Xiaomi and Jelly-Joe, generation_history includes the subsequent one-image targeted edit.",
+    "canonical_source_unchanged_at_save is a per-asset checkpoint, not a claim that shared canonical files cannot later change during parent integration.",
+    "Skully uses the exact parent-provided preview of native PSD layer873 after full PNG base64 transport failure. The full original path/hash and extraction evidence remain recorded. The former loose-file/workbook search finding is explicitly superseded.",
+    "Only six requested staged PNGs and this manifest were delivered in V3. Source-search media were extracted read-only into the separate conversation visualization scratch directory; no workbook, canonical, profile, game text or mechanics were edited by this worker."
+  ]
+}

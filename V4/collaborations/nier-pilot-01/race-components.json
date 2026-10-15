@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "races": {
+    "ANDROID": {
+      "left": 711,
+      "top": 1116,
+      "width": 96,
+      "height": 95,
+      "source": "V4\\collaborations\\nier-pilot-01\\art\\ANDROID.png",
+      "sourceHash": "6563b7f5e03a36064378b689986543f9031ac9a12b617c678580dfa93dd9d5dd",
+      "sha256": "532c9f388e12493604d4b2c0d1e27c12ee3367fd316ab348793db6ec662a109e",
+      "nativeEmail": "V4\\collaborations\\ff7-set-01\\weapon-email-native.png",
+      "nativeEmailHash": "c6ef219cbe72e7addf544d52fac5e047e4eda5552bda1d2f985c84e250ce3bd6",
+      "crop": {
+        "left": 0,
+        "top": 20,
+        "width": 1194,
+        "height": 1210
+      },
+      "placement": {
+        "left": 9,
+        "top": 13
+      },
+      "sourceMetrics": {
+        "fullBounds": [
+          0,
+          20,
+          1194,
+          1230
+        ],
+        "visibleBounds": [
+          258,
+          55,
+          1046,
+          1207
+        ],
+        "centroid": [
+          629.6121369121593,
+          560.2511645216513
+        ],
+        "optical": [
+          637.4478889929035,
+          585.0132569390734
+        ],
+        "fullAlphaRadius": 1645.3091654762031,
+        "opticalError": 797.7275946232777,
+        "visibleAlphaThreshold": 16
+      },
+      "metrics": {
+        "fullBounds": [
+          22,
+          13,
+          75,
+          86
+        ],
+        "visibleBounds": [
+          24,
+          15,
+          73,
+          85
+        ],
+        "centroid": [
+          46.963516180149796,
+          45.59178440443182
+        ],
+        "optical": [
+          47.501285517097365,
+          47.13465986288068
+        ],
+        "fullAlphaRadius": 38.82331773560833,
+        "opticalError": 0.6182148099546021,
+        "visibleAlphaThreshold": 16
+      },
+      "motif": "V4\\collaborations\\nier-pilot-01\\components\\race-ANDROID.motif.png",
+      "motifHash": "aff1fb75bf656a55c6ab7c37dc79ed9b6882ccb9e49d1856ab2be1adadd98be8",
+      "opticalTarget": [
+        759,
+        1163.5
+      ],
+      "measuredOpticalCenter": [
+        758.5012855170974,
+        1163.1346598628807
+      ],
+      "radiusLimit": 39,
+      "opticalTolerance": 0.75,
+      "method": "65% visible luminance-alpha centroid / 35% visible bounds centre; full nonzero alpha contour contained; visible alpha >=16"
+    },
+    "CYBORG": {
+      "left": 711,
+      "top": 1116,
+      "width": 96,
+      "height": 95,
+      "source": "V3\\assets\\races\\CYBORG.png",
+      "sourceHash": "958f452f44e25de564379a021e921f05c48cff9f6c8ad19522df5e21a80192d1",
+      "sha256": "e53d46b0930092e1b3305fcde54c3ec21decc60bd29d6f0aa37c39570f4ceb9d",
+      "nativeEmail": "V4\\collaborations\\ff7-set-01\\weapon-email-native.png",
+      "nativeEmailHash": "c6ef219cbe72e7addf544d52fac5e047e4eda5552bda1d2f985c84e250ce3bd6",
+      "crop": {
+        "left": 0,
+        "top": 17,
+        "width": 1230,
+        "height": 1211
+      },
+      "placement": {
+        "left": 12,
+        "top": 14
+      },
+      "sourceMetrics": {
+        "fullBounds": [
+          0,
+          17,
+          1230,
+          1228
+        ],
+        "visibleBounds": [
+          137,
+          20,
+          1038,
+          1211
+        ],
+        "centroid": [
+          633.3479113554939,
+          567.680679626889
+        ],
+        "optical": [
+          617.301142381071,
+          584.4174417574778
+        ],
+        "fullAlphaRadius": 1643.8723338507768,
+        "opticalError": 782.5497619830876,
+        "visibleAlphaThreshold": 16
+      },
+      "metrics": {
+        "fullBounds": [
+          18,
+          14,
+          75,
+          85
+        ],
+        "visibleBounds": [
+          20,
+          14,
+          73,
+          84
+        ],
+        "centroid": [
+          49.069856481086724,
+          46.28709551863891
+        ],
+        "optical": [
+          48.17040671270637,
+          47.23661208711529
+        ],
+        "fullAlphaRadius": 38.81043674065006,
+        "opticalError": 0.31370629638111136,
+        "visibleAlphaThreshold": 16
+      },
+      "motif": "V4\\collaborations\\nier-pilot-01\\components\\race-CYBORG.motif.png",
+      "motifHash": "82b62013dbd414c065357483af29775307682121373810cd5f831111ebf21de1",
+      "opticalTarget": [
+        759,
+        1163.5
+      ],
+      "measuredOpticalCenter": [
+        759.1704067127064,
+        1163.2366120871152
+      ],
+      "radiusLimit": 39,
+      "opticalTolerance": 0.75,
+      "method": "65% visible luminance-alpha centroid / 35% visible bounds centre; full nonzero alpha contour contained; visible alpha >=16"
+    }
+  }
+}

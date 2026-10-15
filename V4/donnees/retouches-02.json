@@ -1,0 +1,208 @@
+{
+  "status": "visual-design-revision-not-final-print-template",
+  "method": "built-in imagegen, regional assembly over locked original",
+  "prompt": "donnees/prompt-retouches-02.txt",
+  "baseline": "cartes/MOMO_ELECTRO_V4_01-base-validee.png",
+  "generated": "propositions/MOMO-retouches-02-generation-brute.png",
+  "output": "cartes/MOMO_ELECTRO_V4_02-retouches.png",
+  "dimensions": [
+    797,
+    1388
+  ],
+  "printCanvas": [
+    897,
+    1497
+  ],
+  "ppi": 300,
+  "preservedPixelIdentical": [
+    "Momo illustration",
+    "barcode",
+    "Chroma flag",
+    "MOMO title"
+  ],
+  "sourceSha256": "45b68dcee22c1af0ad3d0387a8d7238d0d8407f874811478d5adc247fdd69bed",
+  "positions": [
+    {
+      "value": 3,
+      "bounds": [
+        136,
+        950,
+        192,
+        1006
+      ]
+    },
+    {
+      "value": 4,
+      "bounds": [
+        204,
+        950,
+        260,
+        1006
+      ]
+    }
+  ],
+  "firstBadgeGapFromBarcodeRail": 12,
+  "placements": [
+    {
+      "name": "ATK 202",
+      "source": [
+        111,
+        113,
+        68
+      ],
+      "destination": [
+        91.5,
+        97,
+        56
+      ]
+    },
+    {
+      "name": "ATK 167",
+      "source": [
+        123,
+        379,
+        43
+      ],
+      "destination": [
+        105.5,
+        321.5,
+        35
+      ]
+    },
+    {
+      "name": "ATK 84",
+      "source": [
+        122,
+        625,
+        43
+      ],
+      "destination": [
+        105.5,
+        526.5,
+        35
+      ]
+    },
+    {
+      "name": "ATK 29",
+      "source": [
+        123,
+        850,
+        43
+      ],
+      "destination": [
+        105.5,
+        723.5,
+        35
+      ]
+    },
+    {
+      "name": "DEF 200 barrier",
+      "source": [
+        841,
+        115,
+        99
+      ],
+      "destination": [
+        705.5,
+        100,
+        85
+      ]
+    },
+    {
+      "name": "DEF 167 barrier",
+      "source": [
+        814,
+        380,
+        73
+      ],
+      "destination": [
+        683,
+        321.5,
+        61
+      ]
+    },
+    {
+      "name": "DEF 59 barrier",
+      "source": [
+        812,
+        740,
+        72
+      ],
+      "destination": [
+        682.5,
+        626.5,
+        61
+      ]
+    },
+    {
+      "name": "DEF 100 physical",
+      "source": [
+        813,
+        620,
+        58
+      ],
+      "destination": [
+        683.5,
+        526.5,
+        47
+      ]
+    },
+    {
+      "name": "DEF 11 physical",
+      "source": [
+        812,
+        850,
+        59
+      ],
+      "destination": [
+        683.5,
+        723.5,
+        47
+      ]
+    },
+    {
+      "name": "ATK clover",
+      "source": [
+        125,
+        500,
+        53
+      ],
+      "destination": [
+        105.5,
+        425.5,
+        44
+      ]
+    },
+    {
+      "name": "DEF clover",
+      "source": [
+        817,
+        500,
+        53
+      ],
+      "destination": [
+        684.5,
+        425.5,
+        44
+      ]
+    },
+    {
+      "name": "ATK potion",
+      "source": [
+        123,
+        738,
+        53
+      ],
+      "destination": [
+        105.5,
+        626.5,
+        44
+      ]
+    }
+  ],
+  "professionAndRaceOpticalShiftY": -4,
+  "statsChanged": false,
+  "v3SiteDatabaseChanged": false,
+  "previousPsdUpdated": false,
+  "printProofRequired": true
+}

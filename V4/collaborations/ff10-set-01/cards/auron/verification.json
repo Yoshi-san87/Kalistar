@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "modelId": "41124231",
+  "referenceId": "02f0808cbd56d2b0d4103450e7943db69b95ac120a0df349f4374c82f7f712e5",
+  "profileHash": "3212df394d56b3618c074849743abe35c056c34c0845b0b71089f67a939cea69",
+  "hashes": {
+    "card.png": "d47ed771cf9a009f77485e1889bd371203f5aa5ae70350e5b7f2d1a2a92eb28f",
+    "card.psd": "03420df3a5e2f33e36b009db1d40e0af5cb648c1598464acd50c0b1fa0caf9f4"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 116967
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "41124231",
+    "cases": {
+      "color-1": [
+        "41124231"
+      ],
+      "color-4": [
+        "41124231"
+      ],
+      "gray-1": [
+        "41124231"
+      ],
+      "gray-4": [
+        "41124231"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-25T14:04:08.678Z",
+  "key": "auron",
+  "preparationHash": "af12746e49fd8e30d9b4d4f564aab6b83605a1faf340e31d71a1e44a0416f7d2"
+}

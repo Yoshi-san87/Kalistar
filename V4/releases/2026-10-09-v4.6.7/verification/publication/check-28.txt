@@ -1,0 +1,136 @@
+TAP version 13
+# Subtest: bearer thumbnail occupies the lower-left illustration corner without covering the bonus
+ok 1 - bearer thumbnail occupies the lower-left illustration corner without covering the bonus
+  ---
+  duration_ms: 1.4807
+  type: 'test'
+  ...
+# Subtest: bearer names use the full right-hand band centered under its text panels
+ok 2 - bearer names use the full right-hand band centered under its text panels
+  ---
+  duration_ms: 3.2995
+  type: 'test'
+  ...
+# Subtest: inspection anchors to drawn card through letterboxing, late crop and live resize
+ok 3 - inspection anchors to drawn card through letterboxing, late crop and live resize
+  ---
+  duration_ms: 2.0818
+  type: 'test'
+  ...
+# Subtest: normal proportional card geometry is unchanged and deck inspection has no active bonus plate
+ok 4 - normal proportional card geometry is unchanged and deck inspection has no active bonus plate
+  ---
+  duration_ms: 1.2872
+  type: 'test'
+  ...
+# Subtest: closing, replacing, clearing and navigation disconnect inspection observers and listeners
+ok 5 - closing, replacing, clearing and navigation disconnect inspection observers and listeners
+  ---
+  duration_ms: 1.0884
+  type: 'test'
+  ...
+# Subtest: each weapon uses its own painted ring and keeps that skin in enlarged inspection
+ok 6 - each weapon uses its own painted ring and keeps that skin in enlarged inspection
+  ---
+  duration_ms: 3.0007
+  type: 'test'
+  ...
+# Subtest: native weapon assets retain approved sources, optical anchor and extracted copper
+ok 7 - native weapon assets retain approved sources, optical anchor and extracted copper
+  ---
+  duration_ms: 33.7304
+  type: 'test'
+  ...
+# Subtest: Pages includes the complete equipment chain and excludes its authoring proofs
+ok 8 - Pages includes the complete equipment chain and excludes its authoring proofs
+  ---
+  duration_ms: 97.3486
+  type: 'test'
+  ...
+# Subtest: unique weapon art fits the native interior and is included without its source PNGs
+ok 9 - unique weapon art fits the native interior and is included without its source PNGs
+  ---
+  duration_ms: 74.7335
+  type: 'test'
+  ...
+# Subtest: legacy equipment snapshots keep their original art and reject unknown replacement assets
+ok 10 - legacy equipment snapshots keep their original art and reject unknown replacement assets
+  ---
+  duration_ms: 19.2372
+  type: 'test'
+  ...
+# Subtest: stable identity, character/job/family restrictions, one weapon and schema limits
+ok 11 - stable identity, character/job/family restrictions, one weapon and schema limits
+  ---
+  duration_ms: 0.4054
+  type: 'test'
+  ...
+# Subtest: generic slot mutation replaces and transfers atomically, with a stale-confirmation guard
+ok 12 - generic slot mutation replaces and transfers atomically, with a stale-confirmation guard
+  ---
+  duration_ms: 0.3612
+  type: 'test'
+  ...
+# Subtest: axe inactive with allies, active as last board combatant despite reserves; base matrix unchanged
+ok 13 - axe inactive with allies, active as last board combatant despite reserves; base matrix unchanged
+  ---
+  duration_ms: 5.7753
+  type: 'test'
+  ...
+# Subtest: opponent equipment works with identical side-independent rules
+ok 14 - opponent equipment works with identical side-independent rules
+  ---
+  duration_ms: 2.2452
+  type: 'test'
+  ...
+# Subtest: flute luck grants +30 DEF once, survives reload/reroll, expires at duel end
+ok 15 - flute luck grants +30 DEF once, survives reload/reroll, expires at duel end
+  ---
+  duration_ms: 5.4027
+  type: 'test'
+  ...
+# Subtest: flute luck refresh cannot recharge or stack
+ok 16 - flute luck refresh cannot recharge or stack
+  ---
+  duration_ms: 2.3577
+  type: 'test'
+  ...
+# Subtest: flute mana grants +30 DEF once, survives reload/reroll, expires at duel end
+ok 17 - flute mana grants +30 DEF once, survives reload/reroll, expires at duel end
+  ---
+  duration_ms: 5.0463
+  type: 'test'
+  ...
+# Subtest: flute mana refresh cannot recharge or stack
+ok 18 - flute mana refresh cannot recharge or stack
+  ---
+  duration_ms: 1.86
+  type: 'test'
+  ...
+# Subtest: one-duel flute expires on attacking, support, dodge and Mort; special faces never become numeric
+ok 19 - one-duel flute expires on attacking, support, dodge and Mort; special faces never become numeric
+  ---
+  duration_ms: 7.0261
+  type: 'test'
+  ...
+# Subtest: snapshot decoupled from profile, rejected corrupt states and unchanged legacy games
+ok 20 - snapshot decoupled from profile, rejected corrupt states and unchanged legacy games
+  ---
+  duration_ms: 4.9843
+  type: 'test'
+  ...
+# Subtest: complete equipped matches remain valid at every step, including restored turns and match end
+ok 21 - complete equipped matches remain valid at every step, including restored turns and match end
+  ---
+  duration_ms: 1159.663
+  type: 'test'
+  ...
+1..21
+# tests 21
+# suites 0
+# pass 21
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1538.1084

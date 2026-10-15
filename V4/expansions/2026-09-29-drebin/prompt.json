@@ -1,0 +1,47 @@
+{
+  "tool": "image_gen built-in",
+  "useCase": "illustration-story",
+  "prompt": "Use case: illustration-story. Create ONLY an original standalone narrative painted illustration for Kalistar, no card, no frame, no typography, no logo, no statistics. Portrait ratio 4:5 for a 737x921 art window.\nReferences: images 1 Momo and 2 Valazar are REQUIRED PAINTING STYLE references: visible confident brush strokes, sculpted planes of color, expressive narrative, worn materials and hierarchical painted edges. Image 3 is identity reference ONLY for Drebin 893 and Little Gray (not composition or rendering style); image 4 shows a DIFFERENT vehicle: ignore it entirely. Image 5 is vehicle shape reference ONLY for his eight-wheeled Stryker ACV.\nSubject: Drebin 893 from Metal Gear Solid 4, adult Ugandan Black man, dark skin, short tightly cropped bleached platinum hair, slim rectangular lightly tinted glasses with eyes visible, angular expressive face, dark brown finely pinstriped tailored blazer, plum-dark open collar shirt with loosely hanging patterned neckwear, desert camouflage cargo trousers and belt. Little Gray is his SMALL HAIRLESS gray-pink monkey with wrinkled skin, large ears, slender limbs and long tail, wearing small dark shorts. Faithful identity, no fluffy chimpanzee.\nMoment: a relaxed but alert arms dealer between deals, torso turned slightly, weight naturally shifted, looking off toward a customer with an assured wry half-smile and one eyebrow raised, not smiling at camera. One hand at chest height lightly pinches a corner of a flowing white handkerchief as if just finishing a conjuring flourish; the other hand holds a red soda can at mid-torso, natural relaxed grip, coherent visible thumb and fingers, separate unambiguous hands, five fingers per hand. The can is plain with subtle silver rims, no readable label. Little Gray is perched on a low supply crate just beside Drebin at waist height, leaning curiously toward the can, its face, shorts, limbs and tail clearly readable and separate from the human arms.\nScene: Drebin's dusty tan/olive eight-wheeled angular Stryker armored carrier behind them, sloped front armor, big rubber tires, compact roof weapon station, NOT a tracked tank or a long cannon. A quiet dusty roadside staging area, restrained setting and open sky, no other people. Vehicle recognizable but subordinate, not covering figure.\nComposition: mid-thigh portrait with Drebin central; his face around upper central third, both hands, white cloth, can and monkey's head within central 65% of width and above bottom quarter. Keep all key props away from extreme side edges where card statistics will overlay. Monkey slightly to the right of center, vehicle behind left shoulder, enough breathing room around head. Avoid crowded full-body distant framing.\nStyle: match Momo/Valazar's painted narrative fantasy language translated to MGS4 military setting: visible broad and fine brushwork, rich worked cloth and metal, distinctly painted skin planes, emotional natural face; no photographic pores, no 3D render or plastic skin, no anime/manga, no digital uniform grain. Warm dusty late-afternoon light from upper left and soft cooler shadows, strongest contrast on face, handkerchief and monkey. Original scene, never copy the reference promotional pose. No magic glow, extra fingers, extra limbs, duplicate props, UI or text.",
+  "generation": "One successful generation; first local-path reference call failed before generation.",
+  "generatedOriginal": "C:/Users/guill/.codex/generated_images/01a0ba1f-103c-7472-b20c-8ee3b81bbf9d/exec-7a05527e-f8a5-48a8-9d4a-9e5606a350b7.png",
+  "finalSource": "V4/Illustrations/Drebin_MGS4_Stryker.png",
+  "references": [
+    {
+      "path": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+      "role": "painterly style; opened"
+    },
+    {
+      "path": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+      "role": "painted volumes and materials; opened"
+    },
+    {
+      "url": "https://3.bp.blogspot.com/_Au-fMdRMoXg/SmyBIEvIBJI/AAAAAAAAAEs/9XprO8tDXJQ/S660/drebin.jpg",
+      "role": "Konami 2007 promotional character reference mirrored on blog; opened; identity only"
+    },
+    {
+      "url": "https://www.igcd.net/vehicle.php?id=327123",
+      "image": "https://www.igcd.net/images/327/123.jpg",
+      "role": "MGS4 Stryker ACV screenshot; opened; vehicle only"
+    },
+    {
+      "url": "https://metalgear.fandom.com/wiki/Drebin_893",
+      "role": "search snippets: arms laundering, Little Gray, Narc Soda"
+    },
+    {
+      "url": "https://metalgear.fandom.com/wiki/Little_Gray",
+      "role": "search snippets: hairless pet monkey"
+    },
+    {
+      "url": "https://www.igcd.net/vehicle.php?id=327121",
+      "role": "Examined then rejected M1128 image, explicitly ignored in prompt."
+    }
+  ],
+  "edits": [
+    {
+      "tool": "image_gen built-in",
+      "prompt": "Edit the first image of the last two images: the standalone painted illustration of Drebin with the monkey and Stryker. The second image is ONLY a card framing diagnostic, never reproduce its frame or text. Return ONLY the standalone illustration, same 4:5 canvas, no card, no text, no UI. Make one precise composition correction: move Little Gray and his supporting supply crate inward to the left, so the monkey's face is centered at approximately 68% of image width instead of 81%, with its entire head including both ears inside the central 74% of the image width. Keep his head near its current height (around 55% image height), and its entire body substantially inside the central 78% image width. He should sit naturally close to Drebin's left elbow (viewer right), reaching toward the soda can, but without overlapping or obscuring Drebin's hand, can or forearm. Preserve coherent small hairless gray-pink monkey anatomy, dark shorts and tail. Preserve Drebin's face, expression, glasses, clothes, both hands, handkerchief, can, pose, vehicle, painted brushwork and warm lighting exactly as far as possible. Do not zoom or move Drebin. Repaint only the necessary monkey/crate relocation and the small background area vacated by it. Painted narrative Kalistar style, visible strokes and painted volumes, no photorealism, plastic skin, 3D or anime. Do not add people, limbs, fingers or props.",
+      "reason": "Initial framed preview partially obscured Little Gray behind DEF column",
+      "generatedOriginal": "C:/Users/guill/.codex/generated_images/01a0ba1f-103c-7472-b20c-8ee3b81bbf9d/exec-f3e8113e-66ac-4fc3-9d8e-c3988d1ebb30.png"
+    }
+  ]
+}

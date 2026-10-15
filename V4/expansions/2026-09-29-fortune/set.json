@@ -1,0 +1,54 @@
+{
+  "id": "2026-09-29-fortune",
+  "officialCollaboration": false,
+  "arenas": [],
+  "presets": [],
+  "cards": [
+    {
+      "key": "fortune",
+      "id": "49467210",
+      "characterId": "fortune-mgs",
+      "name": "FORTUNE",
+      "title": "La chance ne console pas",
+      "job": "REMPART",
+      "description": "Dans le hangar de Big Shell, Fortune avance sans craindre les balles. Son railgun crépite, mais sa colère cache un deuil sans repos : la chance la protège de tout, sauf de ceux qu'elle a perdus.",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "element": "ELECTRO",
+      "faction": "MGS2",
+      "collaboration": "MGS2",
+      "role": 1,
+      "positions": [
+        1,
+        2
+      ],
+      "atk": [
+        202,
+        166,
+        130,
+        94,
+        "retry",
+        28
+      ],
+      "defense": [
+        264,
+        218,
+        "dodge",
+        124,
+        "retry",
+        36
+      ],
+      "magic": [
+        5,
+        3
+      ],
+      "barriers": [],
+      "art": "Fortune_MGS2_Big_Shell.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    }
+  ]
+}

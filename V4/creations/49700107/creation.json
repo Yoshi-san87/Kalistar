@@ -1,0 +1,37 @@
+{
+  "job": "354ab896-0be8-447a-a4b4-b63bcc3dfc87",
+  "setId": "2026-10-01-resident-evil",
+  "key": "leon9",
+  "modelId": "49700107",
+  "hashes": {
+    "profile.json": "61924038411421e63a1f502cc36d3ff268c86526e39496d10836b1c651b21eeb",
+    "card.png": "443339fc35213382aa804b12dcdff92c22beb508d52a9bb754540dea52ded086",
+    "card.psd": "0f5b6b7989cba73f98b9f5651f04f3d6cb782af7f76dbb356111c6d7556f51c7",
+    "verification.json": "8b49d0c91c125337631beb92da34988554dcb71e2cd70a47d0fb58b1c89987f1",
+    "illustration.png": "e89efbe2353d56fdc258588246abe6e8d16119dc393d28b72060c7aa4c2b225b"
+  },
+  "createdAt": "2026-09-30T23:31:55.629Z",
+  "nativeRevision": {
+    "id": "2026-10-08-resident-evil-faces",
+    "key": "leon-re9",
+    "proof": "V4/revisions/2026-10-08-resident-evil-faces/work/49700107/verification.json",
+    "changedFields": [
+      "atk",
+      "defense",
+      "magic",
+      "barriers",
+      "canGuard",
+      "canHeal"
+    ],
+    "previous": {
+      "id": "2026-10-01-stat-personality",
+      "key": "leon-re9",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700107/verification.json",
+      "changedFields": [
+        "atk",
+        "defense"
+      ],
+      "previous": null
+    }
+  }
+}

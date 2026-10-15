@@ -1,0 +1,231 @@
+{
+  "diceOrder": "D6 to D1",
+  "baseCaps": {
+    "atk": [
+      300,
+      250,
+      200,
+      150,
+      100,
+      50
+    ],
+    "defense": [
+      180,
+      150,
+      120,
+      90,
+      60,
+      30
+    ]
+  },
+  "attackMean": 163,
+  "pureNumericP2AttackMean": 167.94444444444443,
+  "magicDice": [
+    5
+  ],
+  "physicalDice": [
+    6,
+    4,
+    3,
+    2,
+    1
+  ],
+  "dodgeDie": 6,
+  "retryDie": 1,
+  "barriers": 0,
+  "defenseDodgeProbabilityAfterRetries": 0.2,
+  "numericDefenseMeanAfterRetries": 93,
+  "note": "DEF retry relance le de, sans attribuer un buff. Le dodge remplace la meilleure DEF. Aucun reraise, mort ou buff offensif. Comparaison de budget de faces uniquement, pas une preuve de balance en match.",
+  "peers": [
+    {
+      "name": "CANA",
+      "atk": [
+        290,
+        245,
+        193,
+        141,
+        96,
+        44
+      ],
+      "defense": [
+        172,
+        140,
+        115,
+        83,
+        51,
+        26
+      ],
+      "magic": [
+        3
+      ],
+      "barriers": [
+        4
+      ]
+    },
+    {
+      "name": "DARNAKO",
+      "atk": [
+        291,
+        246,
+        194,
+        142,
+        90,
+        45
+      ],
+      "defense": [
+        173,
+        141,
+        116,
+        84,
+        52,
+        20
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        5
+      ]
+    },
+    {
+      "name": "ZVIRI",
+      "atk": [
+        294,
+        242,
+        "death",
+        145,
+        93,
+        41
+      ],
+      "defense": [
+        "dodge",
+        144,
+        112,
+        80,
+        55,
+        23
+      ],
+      "magic": [],
+      "barriers": []
+    },
+    {
+      "name": "LOK",
+      "atk": [
+        291,
+        246,
+        194,
+        142,
+        90,
+        45
+      ],
+      "defense": [
+        173,
+        141,
+        116,
+        84,
+        52,
+        20
+      ],
+      "magic": [
+        6
+      ],
+      "barriers": [
+        5
+      ]
+    },
+    {
+      "name": "KOGNUS",
+      "atk": [
+        291,
+        246,
+        194,
+        142,
+        90,
+        45
+      ],
+      "defense": [
+        173,
+        141,
+        116,
+        84,
+        52,
+        "retry"
+      ],
+      "magic": [],
+      "barriers": []
+    },
+    {
+      "name": "XIAOMI",
+      "atk": [
+        292,
+        240,
+        195,
+        143,
+        91,
+        46
+      ],
+      "defense": [
+        174,
+        142,
+        110,
+        "dodge",
+        53,
+        21
+      ],
+      "magic": [],
+      "barriers": []
+    },
+    {
+      "name": "VOLODEN",
+      "atk": [
+        "death",
+        244,
+        192,
+        140,
+        95,
+        43
+      ],
+      "defense": [
+        171,
+        146,
+        114,
+        82,
+        50,
+        25
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        4
+      ]
+    },
+    {
+      "name": "THANOR",
+      "atk": [
+        293,
+        241,
+        196,
+        144,
+        92,
+        40
+      ],
+      "defense": [
+        175,
+        143,
+        111,
+        86,
+        54,
+        22
+      ],
+      "magic": [
+        6,
+        3
+      ],
+      "barriers": [
+        4
+      ]
+    }
+  ]
+}

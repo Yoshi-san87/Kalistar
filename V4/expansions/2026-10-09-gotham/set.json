@@ -1,0 +1,334 @@
+{
+  "id": "2026-10-09-gotham",
+  "officialCollaboration": false,
+  "arenas": [],
+  "presets": [],
+  "cards": [
+    {
+      "key": "double-face",
+      "id": "49901501",
+      "characterId": "double-face-batman",
+      "name": "DOUBLE-FACE",
+      "title": "LE POIDS DU HASARD",
+      "job": "PROCUREUR",
+      "description": "Sur les marches du tribunal, Harvey scrute sa piece. Un visage se souvient de la justice, l'autre reclame un verdict. Entre ses doigts, le hasard porte ce qu'il ne peut plus choisir.",
+      "element": "NONE",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "role": 3,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        238,
+        175,
+        158,
+        83,
+        "death",
+        "retry"
+      ],
+      "defense": [
+        224,
+        174,
+        144,
+        "retry",
+        47,
+        18
+      ],
+      "magic": [],
+      "barriers": [],
+      "faction": "Gotham",
+      "collaboration": "Gotham",
+      "artworkSource": "V4/propositions/2026-10-09-batman-gallery/images/double-face.png"
+    },
+    {
+      "key": "poison-ivy",
+      "id": "49901502",
+      "characterId": "poison-ivy-batman",
+      "name": "POISON IVY",
+      "title": "CE QUI PEUT ENCORE POUSSER",
+      "job": "BOTANISTE",
+      "description": "Dans la serre abandonnee, Ivy veille sur une pousse. Elle sait ce que les hommes arrachent sans regarder. Sous sa main, la pierre cede enfin : la vie n'a pas demande leur permission.",
+      "element": "HERBO",
+      "race": "TOXINAR",
+      "weapon": "Fouet",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        171,
+        138,
+        "mana",
+        82,
+        "revive",
+        24
+      ],
+      "defense": [
+        198,
+        165,
+        113,
+        91,
+        45,
+        18
+      ],
+      "magic": [
+        6,
+        3
+      ],
+      "barriers": [
+        5,
+        2
+      ],
+      "faction": "Gotham",
+      "collaboration": "Gotham",
+      "artworkSource": "V4/propositions/2026-10-09-batman-gallery/images/poison-ivy.png"
+    },
+    {
+      "key": "sphinx",
+      "id": "49901503",
+      "characterId": "sphinx-batman",
+      "name": "LE SPHINX",
+      "title": "LA DERNIERE PIECE",
+      "job": "ENIGMISTE",
+      "description": "Le mecanisme resiste encore. Nygma retient son sourire : il aime cet instant ou le monde croit avoir une issue. Chaque piece qu'il deplace rend la sortie plus proche, et moins certaine.",
+      "element": "NONE",
+      "race": "HUMAIN",
+      "weapon": "Bâton",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        161,
+        126,
+        104,
+        "retry",
+        "buff_atk",
+        15
+      ],
+      "defense": [
+        191,
+        148,
+        109,
+        82,
+        "retry",
+        20
+      ],
+      "magic": [],
+      "barriers": [],
+      "faction": "Gotham",
+      "collaboration": "Gotham",
+      "artworkSource": "V4/propositions/2026-10-09-batman-gallery/images/sphinx.png"
+    },
+    {
+      "key": "epouvantail",
+      "id": "49901504",
+      "characterId": "epouvantail-batman",
+      "name": "L'EPOUVANTAIL",
+      "title": "L'ETUDE DU SILENCE",
+      "job": "TOXICOLOGUE",
+      "description": "Dans la gare deserte, Crane leve sa fiole vers le jour. Il n'ecoute ni les rails ni le vent. Il attend le silence qui precede la peur, cet instant ou chacun devient son propre ennemi.",
+      "element": "NECRO",
+      "race": "HUMAIN",
+      "weapon": "Projectile",
+      "role": 4,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        268,
+        233,
+        162,
+        133,
+        65,
+        "death"
+      ],
+      "defense": [
+        162,
+        125,
+        106,
+        68,
+        38,
+        14
+      ],
+      "magic": [
+        5,
+        3
+      ],
+      "barriers": [
+        4
+      ],
+      "faction": "Gotham",
+      "collaboration": "Gotham",
+      "artworkSource": "V4/propositions/2026-10-09-batman-gallery/images/epouvantail.png"
+    },
+    {
+      "key": "mr-freeze",
+      "id": "49901505",
+      "characterId": "mr-freeze-batman",
+      "name": "MR FREEZE",
+      "title": "CE QU'IL RESTE A SAUVER",
+      "job": "CRYOGENISTE",
+      "description": "Le givre gagne les vitres, pas le souvenir qu'il tient. Victor garde ce medaillon pres du froid qui le maintient en vie. Sous l'armure, un homme refuse encore de laisser le temps gagner.",
+      "element": "CRYO",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "role": 1,
+      "positions": [
+        1,
+        4
+      ],
+      "atk": [
+        206,
+        157,
+        126,
+        81,
+        54,
+        22
+      ],
+      "defense": [
+        287,
+        241,
+        175,
+        142,
+        78,
+        37
+      ],
+      "magic": [
+        6,
+        5,
+        3
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "faction": "Gotham",
+      "collaboration": "Gotham",
+      "artworkSource": "V4/propositions/2026-10-09-batman-gallery/images/mr-freeze.png"
+    },
+    {
+      "key": "catwoman",
+      "id": "49901506",
+      "characterId": "catwoman-batman",
+      "name": "CATWOMAN",
+      "title": "UNE PORTE DE PLUS",
+      "job": "CAMBRIOLEUSE",
+      "description": "Selina fait jouer une cle entre ses doigts. En bas, la ville croit ses portes fermees. Elle pourrait deja partir, mais certaines serrures ne gardent pas un tresor : elles retiennent une vie.",
+      "element": "NONE",
+      "race": "FELINEUS",
+      "weapon": "Fouet",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        268,
+        243,
+        178,
+        109,
+        "retry",
+        28
+      ],
+      "defense": [
+        156,
+        129,
+        "dodge",
+        72,
+        35,
+        "retry"
+      ],
+      "magic": [],
+      "barriers": [],
+      "faction": "Gotham",
+      "collaboration": "Gotham",
+      "artworkSource": "V4/propositions/2026-10-09-batman-gallery/images/catwoman.png"
+    },
+    {
+      "key": "ras-al-ghul",
+      "id": "49901507",
+      "characterId": "ras-al-ghul-batman",
+      "name": "RA'S AL GHUL",
+      "title": "LE TEMPS LUI APPARTIENT",
+      "job": "MENTOR",
+      "description": "Ra's replie la carte au bord du bassin. Les royaumes changent de nom, ses promesses demeurent. Il appelle cela sauver le monde ; ceux qu'il conduit doivent encore en mesurer le prix.",
+      "element": "HYDRO",
+      "race": "HUMAIN",
+      "weapon": "Epée longue",
+      "role": 5,
+      "positions": [
+        2,
+        5
+      ],
+      "atk": [
+        177,
+        131,
+        98,
+        "revive",
+        41,
+        "buff_atk"
+      ],
+      "defense": [
+        207,
+        153,
+        128,
+        75,
+        48,
+        20
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        6
+      ],
+      "faction": "Gotham",
+      "collaboration": "Gotham",
+      "artworkSource": "V4/propositions/2026-10-09-batman-gallery/images/ras-al-ghul.png"
+    },
+    {
+      "key": "pingouin",
+      "id": "49901508",
+      "characterId": "pingouin-batman",
+      "name": "LE PINGOUIN",
+      "title": "LE PROCHAIN COUP",
+      "job": "STRATEGE",
+      "description": "Cobblepot deplace son roi sans quitter le port des yeux. Les navires, les dettes et les silences suivent le meme courant. A sa table, meme celui qui croit gagner lui doit deja quelque chose.",
+      "element": "NONE",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "role": 3,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        222,
+        190,
+        128,
+        99,
+        "buff_atk",
+        29
+      ],
+      "defense": [
+        234,
+        177,
+        151,
+        85,
+        "retry",
+        22
+      ],
+      "magic": [],
+      "barriers": [],
+      "faction": "Gotham",
+      "collaboration": "Gotham",
+      "artworkSource": "V4/propositions/2026-10-09-batman-gallery/images/pingouin-02.png"
+    }
+  ]
+}

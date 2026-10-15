@@ -1,0 +1,15 @@
+✔ all weapons keep their origins and effects AND require their printed family (56.9657ms)
+✔ empty rosters are intentional, and new equips/new games reject every formerly incompatible edition (17.6028ms)
+✔ profile reconciliation removes only retired family mismatches and is pure/idempotent (0.9993ms)
+✔ old compositions preserve every card, formation and captain while removing retired loadouts (1.6245ms)
+✔ every formerly allowed collective or personal loadout keeps its snapshot and combat bonus in a saved match (206.8593ms)
+✔ personal restrictions follow the chosen edition, accept future matching editions and retire invalid decks (5.3175ms)
+✔ weapon faces put the accessible native family glyph in the title and only the origin in the footer (3.2683ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 404.7424

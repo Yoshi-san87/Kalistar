@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "races": {
+    "SHARKAN": {
+      "left": 711,
+      "top": 1116,
+      "width": 96,
+      "height": 95,
+      "source": "V4\\collaborations\\one-piece-assets-01\\source-SHARKAN.png",
+      "sourceHash": "69c6feee40f9951aab49dca44854bc475de18029d5e7d6dd0ec21a32bbbb18e1",
+      "sha256": "93a9d24656733794a1808a66e2966c2327e5d7c452a0ba8c3a6f2e36b8fb0722",
+      "nativeEmail": "V4\\collaborations\\ff7-set-01\\weapon-email-native.png",
+      "nativeEmailHash": "c6ef219cbe72e7addf544d52fac5e047e4eda5552bda1d2f985c84e250ce3bd6",
+      "crop": {
+        "left": 0,
+        "top": 21,
+        "width": 1240,
+        "height": 1233
+      },
+      "placement": {
+        "left": 8,
+        "top": 8
+      },
+      "sourceMetrics": {
+        "fullBounds": [
+          0,
+          21,
+          1240,
+          1254
+        ],
+        "visibleBounds": [
+          179,
+          103,
+          1139,
+          1166
+        ],
+        "centroid": [
+          656.1728698001634,
+          681.0840039580878
+        ],
+        "optical": [
+          657.1623653701063,
+          664.7796025727571
+        ],
+        "fullAlphaRadius": 1589.013294469244,
+        "opticalError": 867.244426407967,
+        "visibleAlphaThreshold": 16
+      },
+      "metrics": {
+        "fullBounds": [
+          16,
+          11,
+          79,
+          83
+        ],
+        "visibleBounds": [
+          18,
+          13,
+          77,
+          78
+        ],
+        "centroid": [
+          47.691944225575895,
+          48.13526491587766
+        ],
+        "optical": [
+          47.62476374662433,
+          47.21292219532048
+        ],
+        "fullAlphaRadius": 37.84507894033252,
+        "opticalError": 0.47245731213202846,
+        "visibleAlphaThreshold": 16
+      },
+      "motif": "V4\\collaborations\\one-piece-assets-01\\race-SHARKAN.motif.png",
+      "motifHash": "22f514dc025b0fa5708ecf9b8d4e7aa683e2894b7de529914ff6a0fb39dbc2c1",
+      "opticalTarget": [
+        759,
+        1163.5
+      ],
+      "measuredOpticalCenter": [
+        758.6247637466244,
+        1163.2129221953205
+      ],
+      "radiusLimit": 39,
+      "opticalTolerance": 0.75,
+      "method": "65% visible luminance-alpha centroid / 35% visible bounds centre; full nonzero alpha contour contained; visible alpha >=16"
+    }
+  }
+}

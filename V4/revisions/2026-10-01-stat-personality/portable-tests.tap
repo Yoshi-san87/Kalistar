@@ -1,0 +1,196 @@
+TAP version 13
+# Subtest: only the current approved V4 references, without legacy art or provenance paths
+ok 1 - only the current approved V4 references, without legacy art or provenance paths
+  ---
+  duration_ms: 24.657
+  type: 'test'
+  ...
+# Subtest: Voloden requires V4 approval and retains his V3 role, sentry and death face
+ok 2 - Voloden requires V4 approval and retains his V3 role, sentry and death face
+  ---
+  duration_ms: 9.4019
+  type: 'test'
+  ...
+# Subtest: printed V4 fields override V3 metadata and support faces remain valid
+ok 3 - printed V4 fields override V3 metadata and support faces remain valid
+  ---
+  duration_ms: 8.8711
+  type: 'test'
+  ...
+# Subtest: safe crop matches the approved PNG dimensions, rejects historical sizes
+ok 4 - safe crop matches the approved PNG dimensions, rejects historical sizes
+  ---
+  duration_ms: 7.9344
+  type: 'test'
+  ...
+# Subtest: default and preset decks use only owned V4 cards and cover P1-P5 twice
+ok 5 - default and preset decks use only owned V4 cards and cover P1-P5 twice
+  ---
+  duration_ms: 7.6057
+  type: 'test'
+  ...
+# Subtest: a deck accepts only one card per character across copies and variants
+ok 6 - a deck accepts only one card per character across copies and variants
+  ---
+  duration_ms: 8.1598
+  type: 'test'
+  ...
+# Subtest: publication appended with its new ID and correct URLs, no legacy fallbacks
+ok 7 - publication appended with its new ID and correct URLs, no legacy fallbacks
+  ---
+  duration_ms: 29.8294
+  type: 'test'
+  ...
+# Subtest: seed is additive and idempotent, Paris gets new originals, Tokyo stays empty
+ok 8 - seed is additive and idempotent, Paris gets new originals, Tokyo stays empty
+  ---
+  duration_ms: 25.8856
+  type: 'test'
+  ...
+# Subtest: printed support abilities are retained or explicitly rejected by V3 role constraints
+ok 9 - printed support abilities are retained or explicitly rejected by V3 role constraints
+  ---
+  duration_ms: 14.2209
+  type: 'test'
+  ...
+# Subtest: V4 storage and deck envelopes reject V3 without touching its keys
+ok 10 - V4 storage and deck envelopes reject V3 without touching its keys
+  ---
+  duration_ms: 26.9959
+  type: 'test'
+  ...
+# Subtest: active match restores unchanged after new catalogue publication
+ok 11 - active match restores unchanged after new catalogue publication
+  ---
+  duration_ms: 17.3492
+  type: 'test'
+  ...
+# Subtest: unchanged V3 mechanics: deterministic full games agree after identity normalization
+ok 12 - unchanged V3 mechanics: deterministic full games agree after identity normalization
+  ---
+  duration_ms: 32.2542
+  type: 'test'
+  ...
+# Subtest: 11 requested One Piece profiles and shared Chopper identity
+ok 13 - 11 requested One Piece profiles and shared Chopper identity
+  ---
+  duration_ms: 0.5289
+  type: 'test'
+  ...
+# Subtest: reject request drift, bad values, illegal effects and overlong descriptions
+ok 14 - reject request drift, bad values, illegal effects and overlong descriptions
+  ---
+  duration_ms: 9.9398
+  type: 'test'
+  ...
+# Subtest: portable real engine validates pure One Piece deck and duplicate Chopper rejection
+ok 15 - portable real engine validates pure One Piece deck and duplicate Chopper rejection
+  ---
+  duration_ms: 1.0674
+  type: 'test'
+  ...
+# Subtest: French print text retains accents and requested full names
+ok 16 - French print text retains accents and requested full names
+  ---
+  duration_ms: 0.1228
+  type: 'test'
+  ...
+# Subtest: 25 requested RE cards and shared identities
+ok 17 - 25 requested RE cards and shared identities
+  ---
+  duration_ms: 0.6176
+  type: 'test'
+  ...
+# Subtest: reject identity drift, ID collision, role overflow, magic on effects and incorrect requests
+ok 18 - reject identity drift, ID collision, role overflow, magic on effects and incorrect requests
+  ---
+  duration_ms: 2.1863
+  type: 'test'
+  ...
+# Subtest: native donor and profile preserve printed values
+ok 19 - native donor and profile preserve printed values
+  ---
+  duration_ms: 137.8878
+  type: 'test'
+  ...
+# Subtest: real RE-only deck coverage, family duplicate rejection and episode synergy
+ok 20 - real RE-only deck coverage, family duplicate rejection and episode synergy
+  ---
+  duration_ms: 113.2066
+  type: 'test'
+  ...
+# Subtest: all 11 OP, all 25 RE and 12 justified MGS revisions, never Skull Face or Rikka
+ok 21 - all 11 OP, all 25 RE and 12 justified MGS revisions, never Skull Face or Rikka
+  ---
+  duration_ms: 0.1436
+  type: 'test'
+  ...
+# Subtest: every numeric face respects its original role interval and every special is preserved
+ok 22 - every numeric face respects its original role interval and every special is preserved
+  ---
+  duration_ms: 13.0275
+  type: 'test'
+  ...
+# Subtest: unique numeric signatures and tradeoffs, not a blanket power increase
+ok 23 - unique numeric signatures and tradeoffs, not a blanket power increase
+  ---
+  duration_ms: 10.6134
+  type: 'test'
+  ...
+# Subtest: rejects nonnumeric drift, special relocation, missing faces and role overflow/underflow
+ok 24 - rejects nonnumeric drift, special relocation, missing faces and role overflow/underflow
+  ---
+  duration_ms: 3.3155
+  type: 'test'
+  ...
+# Subtest: publication preserves concurrent Kaine/Rikka additions and all unrelated metadata
+ok 25 - publication preserves concurrent Kaine/Rikka additions and all unrelated metadata
+  ---
+  duration_ms: 1.18
+  type: 'test'
+  ...
+# Subtest: first numeric revision accepts absent historical nativeRevision, not other absent metadata
+ok 26 - first numeric revision accepts absent historical nativeRevision, not other absent metadata
+  ---
+  duration_ms: 0.6727
+  type: 'test'
+  ...
+# Subtest: native audit rejects hidden style, effects, artwork, font and frame changes
+ok 27 - native audit rejects hidden style, effects, artwork, font and frame changes
+  ---
+  duration_ms: 10.9892
+  type: 'test'
+  ...
+# Subtest: circular pixel scope rejects rectangle corners and any changed frame pixel
+ok 28 - circular pixel scope rejects rectangle corners and any changed frame pixel
+  ---
+  duration_ms: 0.6073
+  type: 'test'
+  ...
+# Subtest: matrix tolerance accepts only IEEE rounding on edited numeric text, never real scaling
+ok 29 - matrix tolerance accepts only IEEE rounding on edited numeric text, never real scaling
+  ---
+  duration_ms: 0.9984
+  type: 'test'
+  ...
+# Subtest: native renderer requires exact existing Photoshop, process lock, shared mutex and explicit grant
+ok 30 - native renderer requires exact existing Photoshop, process lock, shared mutex and explicit grant
+  ---
+  duration_ms: 0.6494
+  type: 'test'
+  ...
+# Subtest: frozen originals and plan JSON agree with authored choices
+ok 31 - frozen originals and plan JSON agree with authored choices
+  ---
+  duration_ms: 3.9402
+  type: 'test'
+  ...
+1..31
+# tests 31
+# suites 0
+# pass 31
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 584.7013

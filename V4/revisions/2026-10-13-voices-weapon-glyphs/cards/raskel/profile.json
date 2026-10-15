@@ -1,0 +1,56 @@
+{
+  "name": "RASKEL",
+  "title": "LE MÉDECIN DES DETTES",
+  "job": "MÉDECIN",
+  "description": "À Durane, Raskel soigne les mineurs à crédit. Son carnet compte des vies rendues, jamais des intérêts. Il prétend attendre son paiement ; chacun sait pourquoi il oublie les adresses.",
+  "element": "NONE",
+  "race": "RATZ",
+  "weapon": "Instrument",
+  "faction": "Durane",
+  "positions": [
+    3,
+    5
+  ],
+  "atk": [
+    "revive",
+    132,
+    "retry",
+    74,
+    42,
+    18
+  ],
+  "defense": [
+    194,
+    158,
+    126,
+    96,
+    58,
+    "retry"
+  ],
+  "magic": [],
+  "barriers": [],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49902603",
+  "characterId": "raskel-kalistar",
+  "slug": "V4_49902603",
+  "output": "KALISTAR_V4_49902603",
+  "text": "À Durane, Raskel soigne les mineurs à crédit. Son carnet compte des vies rendues, jamais des intérêts. Il prétend attendre son paiement ; chacun sait pourquoi il oublie les adresses.",
+  "color": "93AAA5",
+  "hue": 160,
+  "weapon_index": 11,
+  "role": 5,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": true,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Original Kalistar, selection et retouches approuvees le 13 octobre 2026",
+  "visual_revision": "V4-2026-10-13-fourteen-new-voices",
+  "artworkSource": "V4/propositions/2026-10-13-twenty-new-voices/images/16-raskel-01.png"
+}

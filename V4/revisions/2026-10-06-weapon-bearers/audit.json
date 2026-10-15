@@ -1,0 +1,1950 @@
+{
+  "source": "Current approved V4 catalogue; definitions compared with v4.5.28",
+  "cards": 215,
+  "weapons": [
+    {
+      "id": "fallen-king-axe",
+      "name": "Hache du Roi Déchu",
+      "family": "Hache",
+      "nominative": true,
+      "restrictions": {
+        "characterIds": [
+          "balmhyr"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "30000007",
+          "characterId": "balmhyr",
+          "name": "BALMHYR",
+          "title": "LE ROYAUME À L'HORIZON",
+          "weapon": "Hache",
+          "faction": "Durane",
+          "job": "MENTOR",
+          "race": "NAIN"
+        }
+      ],
+      "removed": [],
+      "personalMismatches": []
+    },
+    {
+      "id": "little-joys-flute",
+      "name": "La Flûte des Petits Bonheurs",
+      "family": "Instrument",
+      "nominative": true,
+      "restrictions": {
+        "characterIds": [
+          "momo"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "30000001",
+          "characterId": "momo",
+          "name": "MOMO",
+          "title": "L’ARTISTE MAGIQUE",
+          "weapon": "Instrument",
+          "faction": "Chroma",
+          "job": "NETTOYEUR",
+          "race": "ROBOT"
+        },
+        {
+          "id": "30000014",
+          "characterId": "momo",
+          "name": "MOMO",
+          "title": "LE BAL DES OBJETS PERDUS",
+          "weapon": "Instrument",
+          "faction": "Chroma",
+          "job": "MUSICIEN",
+          "race": "ROBOT"
+        },
+        {
+          "id": "40243854",
+          "characterId": "momo",
+          "name": "MOMO",
+          "title": "Pour ceux qui restent",
+          "weapon": "Instrument",
+          "faction": "Chroma",
+          "job": "MUSICIEN",
+          "race": "ROBOT"
+        }
+      ],
+      "removed": [],
+      "personalMismatches": []
+    },
+    {
+      "id": "white-oath-rapier",
+      "name": "La Promesse Blanche",
+      "family": "Epée courte",
+      "nominative": true,
+      "restrictions": {
+        "characterIds": [
+          "kaylis"
+        ],
+        "families": [
+          "Epée courte"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "49055457",
+          "characterId": "kaylis",
+          "name": "KAYLIS",
+          "title": "L'ÉLAN DES COULEURS",
+          "weapon": "Epée courte",
+          "faction": "Z13",
+          "job": "COMBATTANTE",
+          "race": "HUMAIN"
+        }
+      ],
+      "removed": [],
+      "personalMismatches": []
+    },
+    {
+      "id": "brotherhood",
+      "name": "Fraternité",
+      "family": "Epée longue",
+      "nominative": true,
+      "restrictions": {
+        "characterIds": [
+          "tidus-ff10"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "40738164",
+          "characterId": "tidus-ff10",
+          "name": "TIDUS",
+          "title": "L'horizon nous attend",
+          "weapon": "Epée longue",
+          "faction": "FF10",
+          "job": "GARDIEN",
+          "race": "HUMAIN"
+        },
+        {
+          "id": "46513388",
+          "characterId": "tidus-ff10",
+          "name": "TIDUS",
+          "title": "Le souffle de Luca",
+          "weapon": "Projectile",
+          "faction": "FF10",
+          "job": "BLITZEUR",
+          "race": "HUMAIN"
+        }
+      ],
+      "removed": [],
+      "personalMismatches": [
+        {
+          "id": "46513388",
+          "characterId": "tidus-ff10",
+          "name": "TIDUS",
+          "title": "Le souffle de Luca",
+          "weapon": "Projectile",
+          "faction": "FF10",
+          "job": "BLITZEUR",
+          "race": "HUMAIN"
+        }
+      ]
+    },
+    {
+      "id": "virtuous-contract",
+      "name": "Virtuous Contract",
+      "family": "Katana",
+      "nominative": true,
+      "restrictions": {
+        "characterIds": [
+          "2b-nier"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "45911726",
+          "characterId": "2b-nier",
+          "name": "2B",
+          "title": "Lame des ruines",
+          "weapon": "Katana",
+          "faction": "NieR",
+          "job": "COMBATTANTE",
+          "race": "ANDROID"
+        }
+      ],
+      "removed": [],
+      "personalMismatches": []
+    },
+    {
+      "id": "virtuous-treaty",
+      "name": "Virtuous Treaty",
+      "family": "Epée longue",
+      "nominative": true,
+      "restrictions": {
+        "characterIds": [
+          "2b-nier"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "45911726",
+          "characterId": "2b-nier",
+          "name": "2B",
+          "title": "Lame des ruines",
+          "weapon": "Katana",
+          "faction": "NieR",
+          "job": "COMBATTANTE",
+          "race": "ANDROID"
+        }
+      ],
+      "removed": [],
+      "personalMismatches": [
+        {
+          "id": "45911726",
+          "characterId": "2b-nier",
+          "name": "2B",
+          "title": "Lame des ruines",
+          "weapon": "Katana",
+          "faction": "NieR",
+          "job": "COMBATTANTE",
+          "race": "ANDROID"
+        }
+      ]
+    },
+    {
+      "id": "socom",
+      "name": "SOCOM",
+      "family": "Gun",
+      "nominative": true,
+      "restrictions": {
+        "characterIds": [
+          "solid-snake-mgs"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "45297565",
+          "characterId": "solid-snake-mgs",
+          "name": "SOLID SNAKE",
+          "title": "Le silence de Shadow Moses",
+          "weapon": "Gun",
+          "faction": "MGS1",
+          "job": "INFILTRATEUR",
+          "race": "HUMAIN"
+        },
+        {
+          "id": "48683979",
+          "characterId": "solid-snake-mgs",
+          "name": "SOLID SNAKE",
+          "title": "Ce que nous transmettons",
+          "weapon": "Gun",
+          "faction": "MGS2",
+          "job": "INFILTRATEUR",
+          "race": "HUMAIN"
+        },
+        {
+          "id": "46676157",
+          "characterId": "solid-snake-mgs",
+          "name": "OLD SNAKE",
+          "title": "Encore quelques pas",
+          "weapon": "Gun",
+          "faction": "MGS4",
+          "job": "VÉTÉRAN",
+          "race": "HUMAIN"
+        }
+      ],
+      "removed": [],
+      "personalMismatches": []
+    },
+    {
+      "id": "lulu-mog",
+      "name": "Poupée Mog",
+      "family": "Tome",
+      "nominative": true,
+      "restrictions": {
+        "characterIds": [
+          "lulu-ff10"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "43120563",
+          "characterId": "lulu-ff10",
+          "name": "LULU",
+          "title": "Les mots restés derrière",
+          "weapon": "Tome",
+          "faction": "FF10",
+          "job": "MAGE NOIRE",
+          "race": "HUMAIN"
+        }
+      ],
+      "removed": [],
+      "personalMismatches": []
+    },
+    {
+      "id": "leopard-lightning",
+      "name": "La Griffe d'Orage",
+      "family": "Fouet",
+      "nominative": true,
+      "restrictions": {
+        "characterIds": [
+          "rikka"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "40000042",
+          "characterId": "rikka",
+          "name": "RIKKA",
+          "title": "POUR UNE VIE DE PLUS",
+          "weapon": "Fouet",
+          "faction": "Chroma",
+          "job": "VOLEUSE",
+          "race": "FELINEUS"
+        },
+        {
+          "id": "49800201",
+          "characterId": "rikka",
+          "name": "RIKKA",
+          "title": "LA VILLE SOUS SES PAS",
+          "weapon": "Fouet",
+          "faction": "Chroma",
+          "job": "VOLEUSE",
+          "race": "FELINEUS"
+        }
+      ],
+      "removed": [],
+      "personalMismatches": []
+    },
+    {
+      "id": "mythic-iron-gauntlet",
+      "name": "Le Serment de Fer",
+      "family": "Poing",
+      "nominative": true,
+      "restrictions": {
+        "characterIds": [
+          "balmhyr"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "30000007",
+          "characterId": "balmhyr",
+          "name": "BALMHYR",
+          "title": "LE ROYAUME À L'HORIZON",
+          "weapon": "Hache",
+          "faction": "Durane",
+          "job": "MENTOR",
+          "race": "NAIN"
+        }
+      ],
+      "removed": [],
+      "personalMismatches": [
+        {
+          "id": "30000007",
+          "characterId": "balmhyr",
+          "name": "BALMHYR",
+          "title": "LE ROYAUME À L'HORIZON",
+          "weapon": "Hache",
+          "faction": "Durane",
+          "job": "MENTOR",
+          "race": "NAIN"
+        }
+      ]
+    },
+    {
+      "id": "post-bow",
+      "name": "L'Arc des Dernières Lettres",
+      "family": "Arc",
+      "nominative": true,
+      "restrictions": {
+        "characterIds": [
+          "cana"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "30000002",
+          "characterId": "cana",
+          "name": "CANA",
+          "title": "LE DERNIER PASSAGE",
+          "weapon": "Arc",
+          "faction": "Nestown",
+          "job": "MESSAGERE",
+          "race": "FALCO"
+        }
+      ],
+      "removed": [],
+      "personalMismatches": []
+    },
+    {
+      "id": "grimoire-weiss",
+      "name": "Grimoire Weiss",
+      "family": "Tome",
+      "nominative": true,
+      "restrictions": {
+        "characterIds": [
+          "nier-replicant"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "47689975",
+          "characterId": "nier-replicant",
+          "name": "NIER",
+          "title": "Une promesse à Yonah",
+          "weapon": "Tome",
+          "faction": "Replicant",
+          "job": "PROTECTEUR",
+          "race": "HUMAIN"
+        }
+      ],
+      "removed": [],
+      "personalMismatches": []
+    },
+    {
+      "id": "gen-mechanical-arm",
+      "name": "Le Bras qui Insiste",
+      "family": "Projectile",
+      "nominative": true,
+      "restrictions": {
+        "characterIds": [
+          "gen"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "30000023",
+          "characterId": "gen",
+          "name": "GEN",
+          "title": "LA PANNE QUI INSISTE",
+          "weapon": "Projectile",
+          "faction": "Z13",
+          "job": "MECANICIEN",
+          "race": "CYBORG"
+        },
+        {
+          "id": "44703335",
+          "characterId": "gen",
+          "name": "GEN",
+          "title": "LA NUIT OU LA Z13 S ETEINT",
+          "weapon": "Projectile",
+          "faction": "Z13",
+          "job": "MECANICIEN",
+          "race": "CYBORG"
+        }
+      ],
+      "removed": [],
+      "personalMismatches": []
+    },
+    {
+      "id": "violet-reaping",
+      "name": "La Faux du Siège Vacant",
+      "family": "Faucille",
+      "nominative": true,
+      "restrictions": {
+        "characterIds": [
+          "voloden"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "30000028",
+          "characterId": "voloden",
+          "name": "VOLODEN",
+          "title": "LE SIÈGE VACANT",
+          "weapon": "Faucille",
+          "faction": "Z13",
+          "job": "DIRIGEANT",
+          "race": "CARDEMORTIS"
+        },
+        {
+          "id": "43905149",
+          "characterId": "voloden",
+          "name": "VOLODEN",
+          "title": "Avant que tout bascule",
+          "weapon": "Faucille",
+          "faction": "Z13",
+          "job": "DIRIGEANT",
+          "race": "CARDEMORTIS"
+        }
+      ],
+      "removed": [],
+      "personalMismatches": []
+    },
+    {
+      "id": "mantis-mask",
+      "name": "Le Masque du Silence",
+      "family": "Orbe",
+      "nominative": true,
+      "restrictions": {
+        "characterIds": [
+          "psycho-mantis-mgs"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "44001617",
+          "characterId": "psycho-mantis-mgs",
+          "name": "PSYCHO MANTIS",
+          "title": "Derrière vos pensées",
+          "weapon": "Orbe",
+          "faction": "MGS1",
+          "job": "MÉDIUM",
+          "race": "HUMAIN"
+        }
+      ],
+      "removed": [],
+      "personalMismatches": []
+    },
+    {
+      "id": "revolver-gunblade",
+      "name": "Revolver",
+      "family": "Epée longue",
+      "nominative": true,
+      "restrictions": {
+        "characterIds": [
+          "squall-ff8"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "45410910",
+          "characterId": "squall-ff8",
+          "name": "SQUALL",
+          "title": "LE POIDS DES PROMESSES",
+          "weapon": "Epée longue",
+          "faction": "FF8",
+          "job": "SEED",
+          "race": "HUMAIN"
+        }
+      ],
+      "removed": [],
+      "personalMismatches": []
+    },
+    {
+      "id": "wolf-steel",
+      "name": "L'Acier du Loup",
+      "family": "Epée longue",
+      "nominative": true,
+      "restrictions": {
+        "characterIds": [
+          "geralt-witcher"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "49900101",
+          "characterId": "geralt-witcher",
+          "name": "GERALT DE RIV",
+          "title": "Le contrat et la conscience",
+          "weapon": "Epée longue",
+          "faction": "WITCHER",
+          "job": "SORCELEUR",
+          "race": "HUMAIN"
+        }
+      ],
+      "removed": [],
+      "personalMismatches": []
+    },
+    {
+      "id": "wolf-silver",
+      "name": "L'Argent du Loup",
+      "family": "Epée longue",
+      "nominative": true,
+      "restrictions": {
+        "characterIds": [
+          "geralt-witcher"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "49900101",
+          "characterId": "geralt-witcher",
+          "name": "GERALT DE RIV",
+          "title": "Le contrat et la conscience",
+          "weapon": "Epée longue",
+          "faction": "WITCHER",
+          "job": "SORCELEUR",
+          "race": "HUMAIN"
+        }
+      ],
+      "removed": [],
+      "personalMismatches": []
+    },
+    {
+      "id": "kaine-saw",
+      "name": "La Lame de Kainé",
+      "family": "Epée longue",
+      "nominative": true,
+      "restrictions": {
+        "characterIds": [
+          "kaine-replicant"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "45951088",
+          "characterId": "kaine-replicant",
+          "name": "KAINÉ",
+          "title": "Ne baisse pas les yeux",
+          "weapon": "Epée longue",
+          "faction": "Replicant",
+          "job": "DUELLISTE",
+          "race": "HUMAIN"
+        }
+      ],
+      "removed": [],
+      "personalMismatches": []
+    },
+    {
+      "id": "buster-sword",
+      "name": "Buster Sword",
+      "family": "Epée longue",
+      "nominative": true,
+      "restrictions": {
+        "characterIds": [
+          "cloud-ff7"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "47208326",
+          "characterId": "cloud-ff7",
+          "name": "CLOUD",
+          "title": "AU-DELÀ DES LIMITES",
+          "weapon": "Epée longue",
+          "faction": "FF7",
+          "job": "MERCENAIRE",
+          "race": "HUMAIN"
+        }
+      ],
+      "removed": [],
+      "personalMismatches": []
+    },
+    {
+      "id": "psg1",
+      "name": "PSG1",
+      "family": "Gun",
+      "nominative": true,
+      "restrictions": {
+        "characterIds": [
+          "sniper-wolf-mgs"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "47200643",
+          "characterId": "sniper-wolf-mgs",
+          "name": "SNIPER WOLF",
+          "title": "La patience dans le froid",
+          "weapon": "Gun",
+          "faction": "MGS1",
+          "job": "TIREUSE D'ÉLITE",
+          "race": "HUMAIN"
+        }
+      ],
+      "removed": [],
+      "personalMismatches": []
+    },
+    {
+      "id": "single-action-army",
+      "name": "Single Action Army",
+      "family": "Gun",
+      "nominative": true,
+      "restrictions": {
+        "characterIds": [
+          "revolver-ocelot-mgs"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "48312725",
+          "characterId": "revolver-ocelot-mgs",
+          "name": "REVOLVER OCELOT",
+          "title": "La dernière cartouche",
+          "weapon": "Gun",
+          "faction": "MGS1",
+          "job": "TIREUR",
+          "race": "HUMAIN"
+        },
+        {
+          "id": "49600104",
+          "characterId": "revolver-ocelot-mgs",
+          "name": "LIQUID OCELOT",
+          "title": "Le dernier duel",
+          "weapon": "Poing",
+          "faction": "MGS4",
+          "job": "MAÎTRE DU CQC",
+          "race": "CYBORG"
+        },
+        {
+          "id": "49600114",
+          "characterId": "revolver-ocelot-mgs",
+          "name": "MAJOR OCELOT",
+          "title": "L'orgueil du jeune félin",
+          "weapon": "Gun",
+          "faction": "MGS3",
+          "job": "AS DU REVOLVER",
+          "race": "HUMAIN"
+        },
+        {
+          "id": "49600116",
+          "characterId": "revolver-ocelot-mgs",
+          "name": "REVOLVER OCELOT",
+          "title": "Les ficelles du désert",
+          "weapon": "Gun",
+          "faction": "MGS5",
+          "job": "INSTRUCTEUR",
+          "race": "HUMAIN"
+        }
+      ],
+      "removed": [],
+      "personalMismatches": [
+        {
+          "id": "49600104",
+          "characterId": "revolver-ocelot-mgs",
+          "name": "LIQUID OCELOT",
+          "title": "Le dernier duel",
+          "weapon": "Poing",
+          "faction": "MGS4",
+          "job": "MAÎTRE DU CQC",
+          "race": "CYBORG"
+        }
+      ]
+    },
+    {
+      "id": "wardens-spear",
+      "name": "La Veille des Remparts",
+      "family": "Lance",
+      "nominative": false,
+      "restrictions": {
+        "jobs": [
+          "GARDIEN",
+          "GARDIENNE"
+        ],
+        "families": [
+          "Lance"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "30000011",
+          "characterId": "nazar",
+          "name": "NAZAR",
+          "title": "LA RONDE DE CANYONERO",
+          "weapon": "Lance",
+          "faction": "Zarok",
+          "job": "GARDIEN",
+          "race": "RHINOZ"
+        },
+        {
+          "id": "47264450",
+          "characterId": "ward-ff8",
+          "name": "WARD",
+          "title": "LA FORCE DE RESTER",
+          "weapon": "Lance",
+          "faction": "FF8",
+          "job": "GARDIEN",
+          "race": "HUMAIN"
+        },
+        {
+          "id": "41354159",
+          "characterId": "kimahri-ff10",
+          "name": "KIMAHRI",
+          "title": "La parole des sommets",
+          "weapon": "Lance",
+          "faction": "FF10",
+          "job": "GARDIEN",
+          "race": "FELINEUS"
+        },
+        {
+          "id": "49900313",
+          "characterId": "karrok-kalistar",
+          "name": "KARROK",
+          "title": "Deux rivets de courage",
+          "weapon": "Lance",
+          "faction": "Nestown",
+          "job": "GARDIEN",
+          "race": "KORBOW"
+        },
+        {
+          "id": "49900315",
+          "characterId": "brask-kalistar",
+          "name": "BRASK",
+          "title": "La clef des marées",
+          "weapon": "Lance",
+          "faction": "Crabazar",
+          "job": "GARDIEN",
+          "race": "CRUSTOS"
+        }
+      ],
+      "removed": [
+        {
+          "id": "30000003",
+          "characterId": "julienne",
+          "name": "JULIENNE",
+          "title": "UN SOUFFLE SOUS LA MAREE",
+          "weapon": "Bâton",
+          "faction": "Thalassea",
+          "job": "GARDIENNE",
+          "race": "SIRENA"
+        },
+        {
+          "id": "43525184",
+          "characterId": "emil-nier",
+          "name": "EMIL",
+          "title": "Les fleurs se souviennent",
+          "weapon": "Sceptre",
+          "faction": "NieR",
+          "job": "GARDIEN",
+          "race": "CYBORG"
+        },
+        {
+          "id": "40738164",
+          "characterId": "tidus-ff10",
+          "name": "TIDUS",
+          "title": "L'horizon nous attend",
+          "weapon": "Epée longue",
+          "faction": "FF10",
+          "job": "GARDIEN",
+          "race": "HUMAIN"
+        },
+        {
+          "id": "41124231",
+          "characterId": "auron-ff10",
+          "name": "AURON",
+          "title": "Le serment tient encore",
+          "weapon": "Epée longue",
+          "faction": "FF10",
+          "job": "GARDIEN",
+          "race": "HUMAIN"
+        },
+        {
+          "id": "46269197",
+          "characterId": "jecht-ff10",
+          "name": "JECHT",
+          "title": "Sous la force, un père",
+          "weapon": "Epée longue",
+          "faction": "FF10",
+          "job": "GARDIEN",
+          "race": "HUMAIN"
+        },
+        {
+          "id": "49900202",
+          "characterId": "mirelle",
+          "name": "MIRELLE",
+          "title": "La Sève revenue",
+          "weapon": "Sceptre",
+          "faction": "Arborium",
+          "job": "GARDIENNE",
+          "race": "SERPES"
+        },
+        {
+          "id": "49900306",
+          "characterId": "torvan-kalistar",
+          "name": "TORVAN",
+          "title": "Le poids d’un refus",
+          "weapon": "Masse",
+          "faction": "Durane",
+          "job": "GARDIEN",
+          "race": "HUMAIN"
+        },
+        {
+          "id": "49900307",
+          "characterId": "eldra-kalistar",
+          "name": "ELDRA",
+          "title": "La fissure vivante",
+          "weapon": "Epée longue",
+          "faction": "Durane",
+          "job": "GARDIENNE",
+          "race": "HUMAIN"
+        },
+        {
+          "id": "49900308",
+          "characterId": "brund-kalistar",
+          "name": "BRUND",
+          "title": "La sortie qu’il invente",
+          "weapon": "Hache",
+          "faction": "Durane",
+          "job": "GARDIEN",
+          "race": "NAIN"
+        },
+        {
+          "id": "49900312",
+          "characterId": "vessa-kalistar",
+          "name": "VESSA",
+          "title": "Le fil retrouvé",
+          "weapon": "Bâton",
+          "faction": "Nestown",
+          "job": "GARDIENNE",
+          "race": "FALCO"
+        },
+        {
+          "id": "49900314",
+          "characterId": "neryk-kalistar",
+          "name": "NERYK",
+          "title": "La dernière plume blanche",
+          "weapon": "Epée courte",
+          "faction": "Nestown",
+          "job": "GARDIENNE",
+          "race": "KORBOW"
+        },
+        {
+          "id": "49900316",
+          "characterId": "maelka-kalistar",
+          "name": "MAELKA",
+          "title": "Ce que la mer rend",
+          "weapon": "Epée courte",
+          "faction": "Crabazar",
+          "job": "GARDIENNE",
+          "race": "CRUSTOS"
+        },
+        {
+          "id": "49900317",
+          "characterId": "tilko-kalistar",
+          "name": "TILKO",
+          "title": "Le signal des retours",
+          "weapon": "Instrument",
+          "faction": "Crabazar",
+          "job": "GARDIEN",
+          "race": "CRUSTOS"
+        }
+      ],
+      "personalMismatches": []
+    },
+    {
+      "id": "soldiers-blade",
+      "name": "La Lame de Relève",
+      "family": "Epée courte",
+      "nominative": false,
+      "restrictions": {
+        "jobs": [
+          "SOLDAT"
+        ],
+        "families": [
+          "Epée courte"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "49900305",
+          "characterId": "isvel-kalistar",
+          "name": "ISVEL",
+          "title": "La veille des petites portes",
+          "weapon": "Epée courte",
+          "faction": "Draevenheim",
+          "job": "SOLDAT",
+          "race": "VAMP"
+        },
+        {
+          "id": "49900404",
+          "characterId": "liorne-kalistar",
+          "name": "LIORNE",
+          "title": "La lettre sous le bois",
+          "weapon": "Epée courte",
+          "faction": "Arborium",
+          "job": "SOLDAT",
+          "race": "CERELF"
+        }
+      ],
+      "removed": [
+        {
+          "id": "41693428",
+          "characterId": "sephiroth-ff7",
+          "name": "SEPHIROTH",
+          "title": "L'OMBRE D'UNE PROMESSE",
+          "weapon": "Epée longue",
+          "faction": "FF7",
+          "job": "SOLDAT",
+          "race": "HUMAIN"
+        },
+        {
+          "id": "44143252",
+          "characterId": "laguna-ff8",
+          "name": "LAGUNA",
+          "title": "UNE MELODIE POUR DEMAIN",
+          "weapon": "Gun",
+          "faction": "FF8",
+          "job": "SOLDAT",
+          "race": "HUMAIN"
+        },
+        {
+          "id": "45960834",
+          "characterId": "meryl-mgs",
+          "name": "MERYL",
+          "title": "Apprendre à ne pas fuir",
+          "weapon": "Gun",
+          "faction": "MGS1",
+          "job": "SOLDAT",
+          "race": "HUMAIN"
+        },
+        {
+          "id": "49900301",
+          "characterId": "orven-kalistar",
+          "name": "ORVEN",
+          "title": "La porte reste ouverte",
+          "weapon": "Lance",
+          "faction": "Draevenheim",
+          "job": "SOLDAT",
+          "race": "HUMAIN"
+        },
+        {
+          "id": "49900302",
+          "characterId": "serya-kalistar",
+          "name": "SERYA",
+          "title": "Une minute avant la ronde",
+          "weapon": "Gun",
+          "faction": "Draevenheim",
+          "job": "SOLDAT",
+          "race": "HUMAIN"
+        },
+        {
+          "id": "49900303",
+          "characterId": "marel-kalistar",
+          "name": "MAREL",
+          "title": "Personne ne reste cassé",
+          "weapon": "Bâton",
+          "faction": "Draevenheim",
+          "job": "SOLDAT",
+          "race": "HUMAIN"
+        },
+        {
+          "id": "49900304",
+          "characterId": "veyr-kalistar",
+          "name": "VEYR",
+          "title": "Ce qui tient dans une main",
+          "weapon": "Gun",
+          "faction": "Draevenheim",
+          "job": "SOLDAT",
+          "race": "VAMP"
+        },
+        {
+          "id": "49900401",
+          "characterId": "eryss-kalistar",
+          "name": "ERYSS",
+          "title": "Ce qui attend de grandir",
+          "weapon": "Sceptre",
+          "faction": "Arborium",
+          "job": "SOLDAT",
+          "race": "TOXINAR"
+        },
+        {
+          "id": "49900402",
+          "characterId": "velran-kalistar",
+          "name": "VELRAN",
+          "title": "Un abri sans miracle",
+          "weapon": "Lance",
+          "faction": "Arborium",
+          "job": "SOLDAT",
+          "race": "HUMAIN"
+        },
+        {
+          "id": "49900403",
+          "characterId": "saelor-kalistar",
+          "name": "SAELOR",
+          "title": "Le cercle qui demeure",
+          "weapon": "Arc",
+          "faction": "Arborium",
+          "job": "SOLDAT",
+          "race": "CERELF"
+        },
+        {
+          "id": "49900501",
+          "characterId": "varkhen-kalistar",
+          "name": "VARKHEN",
+          "title": "LE DERNIER AVERTISSEMENT",
+          "weapon": "Epée longue",
+          "faction": "Cryptown",
+          "job": "SOLDAT",
+          "race": "SKULLZ"
+        },
+        {
+          "id": "49900601",
+          "characterId": "nereth-kalistar",
+          "name": "NERETH",
+          "title": "LE SILENCE VEILLE",
+          "weapon": "Gun",
+          "faction": "Cryptown",
+          "job": "SOLDAT",
+          "race": "SKULLZ"
+        },
+        {
+          "id": "49900602",
+          "characterId": "draust-kalistar",
+          "name": "DRAUST",
+          "title": "QUAND LES CHAÎNES SE TAISENT",
+          "weapon": "Fléau",
+          "faction": "Cryptown",
+          "job": "SOLDAT",
+          "race": "SKULLZ"
+        },
+        {
+          "id": "49900603",
+          "characterId": "morveth-kalistar",
+          "name": "MORVETH",
+          "title": "CEUX QUI RENTRENT ENCORE",
+          "weapon": "Faucille",
+          "faction": "Cryptown",
+          "job": "SOLDAT",
+          "race": "SKULLZ"
+        }
+      ],
+      "personalMismatches": []
+    },
+    {
+      "id": "commanders-sabre",
+      "name": "Le Fil du Ralliement",
+      "family": "Epée longue",
+      "nominative": false,
+      "restrictions": {
+        "jobs": [
+          "COMMANDANT",
+          "COMMANDANTE"
+        ],
+        "families": [
+          "Epée longue"
+        ]
+      },
+      "eligible": [],
+      "removed": [
+        {
+          "id": "45243854",
+          "characterId": "anemone-nier",
+          "name": "ANEMONE",
+          "title": "Ceux qui tiennent encore",
+          "weapon": "Gun",
+          "faction": "NieR",
+          "job": "COMMANDANTE",
+          "race": "HUMAIN"
+        },
+        {
+          "id": "45081933",
+          "characterId": "commander-nier",
+          "name": "COMMANDER WHITE",
+          "title": "Le poids du commandement",
+          "weapon": "Sceptre",
+          "faction": "NieR",
+          "job": "COMMANDANTE",
+          "race": "ANDROID"
+        },
+        {
+          "id": "41396996",
+          "characterId": "liquid-snake-mgs",
+          "name": "LIQUID SNAKE",
+          "title": "Le frère dans l'ombre",
+          "weapon": "Poing",
+          "faction": "MGS1",
+          "job": "COMMANDANT",
+          "race": "HUMAIN"
+        },
+        {
+          "id": "49800303",
+          "characterId": "portgas-d-ace-op",
+          "name": "PORTGAS D. ACE",
+          "title": "Une flamme pour mon frère",
+          "weapon": "Poing",
+          "faction": "ONEPIECE",
+          "job": "COMMANDANT",
+          "race": "HUMAIN"
+        }
+      ],
+      "personalMismatches": []
+    },
+    {
+      "id": "arborium-twinstring-bow",
+      "name": "L’Accord Sylvestre",
+      "family": "Arc",
+      "nominative": false,
+      "restrictions": {
+        "factions": [
+          "Arborium"
+        ],
+        "families": [
+          "Arc"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "49900201",
+          "characterId": "ssilas",
+          "name": "SSILAS",
+          "title": "Le Passeur des sentes",
+          "weapon": "Arc",
+          "faction": "Arborium",
+          "job": "ECLAIREUR",
+          "race": "SERPES"
+        },
+        {
+          "id": "49900403",
+          "characterId": "saelor-kalistar",
+          "name": "SAELOR",
+          "title": "Le cercle qui demeure",
+          "weapon": "Arc",
+          "faction": "Arborium",
+          "job": "SOLDAT",
+          "race": "CERELF"
+        }
+      ],
+      "removed": [
+        {
+          "id": "30000041",
+          "characterId": "thalie",
+          "name": "THALIE",
+          "title": "CE QUI REPOUSSE",
+          "weapon": "Tome",
+          "faction": "Arborium",
+          "job": "HERBORISTE",
+          "race": "CARNIVERT"
+        },
+        {
+          "id": "30000033",
+          "characterId": "bloom",
+          "name": "BLOOM",
+          "title": "LA GRAINE SOUS SCELLES",
+          "weapon": "Orbe",
+          "faction": "Arborium",
+          "job": "BOTANISTE",
+          "race": "TOXINAR"
+        },
+        {
+          "id": "30000008",
+          "characterId": "victorvine",
+          "name": "VICTORVINE",
+          "title": "LA DERNIERE POUSSE",
+          "weapon": "Bâton",
+          "faction": "Arborium",
+          "job": "VEILLEUR",
+          "race": "CARNIVERT"
+        },
+        {
+          "id": "43434046",
+          "characterId": "brindor",
+          "name": "BRINDOR",
+          "title": "LE POIDS D'UNE GRAINE",
+          "weapon": "Marteau",
+          "faction": "Arborium",
+          "job": "GARDE SEMENCES",
+          "race": "CARNIVERT"
+        },
+        {
+          "id": "49900202",
+          "characterId": "mirelle",
+          "name": "MIRELLE",
+          "title": "La Sève revenue",
+          "weapon": "Sceptre",
+          "faction": "Arborium",
+          "job": "GARDIENNE",
+          "race": "SERPES"
+        },
+        {
+          "id": "49900401",
+          "characterId": "eryss-kalistar",
+          "name": "ERYSS",
+          "title": "Ce qui attend de grandir",
+          "weapon": "Sceptre",
+          "faction": "Arborium",
+          "job": "SOLDAT",
+          "race": "TOXINAR"
+        },
+        {
+          "id": "49900402",
+          "characterId": "velran-kalistar",
+          "name": "VELRAN",
+          "title": "Un abri sans miracle",
+          "weapon": "Lance",
+          "faction": "Arborium",
+          "job": "SOLDAT",
+          "race": "HUMAIN"
+        },
+        {
+          "id": "49900404",
+          "characterId": "liorne-kalistar",
+          "name": "LIORNE",
+          "title": "La lettre sous le bois",
+          "weapon": "Epée courte",
+          "faction": "Arborium",
+          "job": "SOLDAT",
+          "race": "CERELF"
+        }
+      ],
+      "personalMismatches": []
+    },
+    {
+      "id": "arborium-thorn-dagger",
+      "name": "Le Cran de Ronce",
+      "family": "Dague",
+      "nominative": false,
+      "restrictions": {
+        "factions": [
+          "Arborium"
+        ],
+        "families": [
+          "Dague"
+        ]
+      },
+      "eligible": [],
+      "removed": [
+        {
+          "id": "30000041",
+          "characterId": "thalie",
+          "name": "THALIE",
+          "title": "CE QUI REPOUSSE",
+          "weapon": "Tome",
+          "faction": "Arborium",
+          "job": "HERBORISTE",
+          "race": "CARNIVERT"
+        },
+        {
+          "id": "30000033",
+          "characterId": "bloom",
+          "name": "BLOOM",
+          "title": "LA GRAINE SOUS SCELLES",
+          "weapon": "Orbe",
+          "faction": "Arborium",
+          "job": "BOTANISTE",
+          "race": "TOXINAR"
+        },
+        {
+          "id": "30000008",
+          "characterId": "victorvine",
+          "name": "VICTORVINE",
+          "title": "LA DERNIERE POUSSE",
+          "weapon": "Bâton",
+          "faction": "Arborium",
+          "job": "VEILLEUR",
+          "race": "CARNIVERT"
+        },
+        {
+          "id": "43434046",
+          "characterId": "brindor",
+          "name": "BRINDOR",
+          "title": "LE POIDS D'UNE GRAINE",
+          "weapon": "Marteau",
+          "faction": "Arborium",
+          "job": "GARDE SEMENCES",
+          "race": "CARNIVERT"
+        },
+        {
+          "id": "49900201",
+          "characterId": "ssilas",
+          "name": "SSILAS",
+          "title": "Le Passeur des sentes",
+          "weapon": "Arc",
+          "faction": "Arborium",
+          "job": "ECLAIREUR",
+          "race": "SERPES"
+        },
+        {
+          "id": "49900202",
+          "characterId": "mirelle",
+          "name": "MIRELLE",
+          "title": "La Sève revenue",
+          "weapon": "Sceptre",
+          "faction": "Arborium",
+          "job": "GARDIENNE",
+          "race": "SERPES"
+        },
+        {
+          "id": "49900401",
+          "characterId": "eryss-kalistar",
+          "name": "ERYSS",
+          "title": "Ce qui attend de grandir",
+          "weapon": "Sceptre",
+          "faction": "Arborium",
+          "job": "SOLDAT",
+          "race": "TOXINAR"
+        },
+        {
+          "id": "49900402",
+          "characterId": "velran-kalistar",
+          "name": "VELRAN",
+          "title": "Un abri sans miracle",
+          "weapon": "Lance",
+          "faction": "Arborium",
+          "job": "SOLDAT",
+          "race": "HUMAIN"
+        },
+        {
+          "id": "49900403",
+          "characterId": "saelor-kalistar",
+          "name": "SAELOR",
+          "title": "Le cercle qui demeure",
+          "weapon": "Arc",
+          "faction": "Arborium",
+          "job": "SOLDAT",
+          "race": "CERELF"
+        },
+        {
+          "id": "49900404",
+          "characterId": "liorne-kalistar",
+          "name": "LIORNE",
+          "title": "La lettre sous le bois",
+          "weapon": "Epée courte",
+          "faction": "Arborium",
+          "job": "SOLDAT",
+          "race": "CERELF"
+        }
+      ],
+      "personalMismatches": []
+    },
+    {
+      "id": "draevenheim-wing-spear",
+      "name": "Les Ailes du Rempart",
+      "family": "Lance",
+      "nominative": false,
+      "restrictions": {
+        "factions": [
+          "Draevenheim"
+        ],
+        "families": [
+          "Lance"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "49900301",
+          "characterId": "orven-kalistar",
+          "name": "ORVEN",
+          "title": "La porte reste ouverte",
+          "weapon": "Lance",
+          "faction": "Draevenheim",
+          "job": "SOLDAT",
+          "race": "HUMAIN"
+        }
+      ],
+      "removed": [
+        {
+          "id": "30000020",
+          "characterId": "seraphina",
+          "name": "SERAPHINA",
+          "title": "LE SERMENT SUSPENDU",
+          "weapon": "Fouet",
+          "faction": "Draevenheim",
+          "job": "MÉDIATRICE",
+          "race": "VAMP"
+        },
+        {
+          "id": "30000009",
+          "characterId": "verminia",
+          "name": "VERMINIA",
+          "title": "LES COMPTES DE LA NUIT",
+          "weapon": "Dague",
+          "faction": "Draevenheim",
+          "job": "DISSIDENTE",
+          "race": "VAMP"
+        },
+        {
+          "id": "43683372",
+          "characterId": "verminia",
+          "name": "VERMINIA",
+          "title": "LE DERNIER PASSAGE",
+          "weapon": "Dague",
+          "faction": "Draevenheim",
+          "job": "DISSIDENTE",
+          "race": "VAMP"
+        },
+        {
+          "id": "42746644",
+          "characterId": "baptiste",
+          "name": "BAPTISTE",
+          "title": "LE DERNIER ACCORD",
+          "weapon": "Instrument",
+          "faction": "Draevenheim",
+          "job": "VIOLONISTE",
+          "race": "VAMP"
+        },
+        {
+          "id": "49900302",
+          "characterId": "serya-kalistar",
+          "name": "SERYA",
+          "title": "Une minute avant la ronde",
+          "weapon": "Gun",
+          "faction": "Draevenheim",
+          "job": "SOLDAT",
+          "race": "HUMAIN"
+        },
+        {
+          "id": "49900303",
+          "characterId": "marel-kalistar",
+          "name": "MAREL",
+          "title": "Personne ne reste cassé",
+          "weapon": "Bâton",
+          "faction": "Draevenheim",
+          "job": "SOLDAT",
+          "race": "HUMAIN"
+        },
+        {
+          "id": "49900304",
+          "characterId": "veyr-kalistar",
+          "name": "VEYR",
+          "title": "Ce qui tient dans une main",
+          "weapon": "Gun",
+          "faction": "Draevenheim",
+          "job": "SOLDAT",
+          "race": "VAMP"
+        },
+        {
+          "id": "49900305",
+          "characterId": "isvel-kalistar",
+          "name": "ISVEL",
+          "title": "La veille des petites portes",
+          "weapon": "Epée courte",
+          "faction": "Draevenheim",
+          "job": "SOLDAT",
+          "race": "VAMP"
+        }
+      ],
+      "personalMismatches": []
+    },
+    {
+      "id": "draevenheim-crimson-crossbow",
+      "name": "L’Arbalète Écarlate",
+      "family": "Arc",
+      "nominative": false,
+      "restrictions": {
+        "factions": [
+          "Draevenheim"
+        ],
+        "families": [
+          "Arc"
+        ]
+      },
+      "eligible": [],
+      "removed": [
+        {
+          "id": "30000020",
+          "characterId": "seraphina",
+          "name": "SERAPHINA",
+          "title": "LE SERMENT SUSPENDU",
+          "weapon": "Fouet",
+          "faction": "Draevenheim",
+          "job": "MÉDIATRICE",
+          "race": "VAMP"
+        },
+        {
+          "id": "30000009",
+          "characterId": "verminia",
+          "name": "VERMINIA",
+          "title": "LES COMPTES DE LA NUIT",
+          "weapon": "Dague",
+          "faction": "Draevenheim",
+          "job": "DISSIDENTE",
+          "race": "VAMP"
+        },
+        {
+          "id": "43683372",
+          "characterId": "verminia",
+          "name": "VERMINIA",
+          "title": "LE DERNIER PASSAGE",
+          "weapon": "Dague",
+          "faction": "Draevenheim",
+          "job": "DISSIDENTE",
+          "race": "VAMP"
+        },
+        {
+          "id": "42746644",
+          "characterId": "baptiste",
+          "name": "BAPTISTE",
+          "title": "LE DERNIER ACCORD",
+          "weapon": "Instrument",
+          "faction": "Draevenheim",
+          "job": "VIOLONISTE",
+          "race": "VAMP"
+        },
+        {
+          "id": "49900301",
+          "characterId": "orven-kalistar",
+          "name": "ORVEN",
+          "title": "La porte reste ouverte",
+          "weapon": "Lance",
+          "faction": "Draevenheim",
+          "job": "SOLDAT",
+          "race": "HUMAIN"
+        },
+        {
+          "id": "49900302",
+          "characterId": "serya-kalistar",
+          "name": "SERYA",
+          "title": "Une minute avant la ronde",
+          "weapon": "Gun",
+          "faction": "Draevenheim",
+          "job": "SOLDAT",
+          "race": "HUMAIN"
+        },
+        {
+          "id": "49900303",
+          "characterId": "marel-kalistar",
+          "name": "MAREL",
+          "title": "Personne ne reste cassé",
+          "weapon": "Bâton",
+          "faction": "Draevenheim",
+          "job": "SOLDAT",
+          "race": "HUMAIN"
+        },
+        {
+          "id": "49900304",
+          "characterId": "veyr-kalistar",
+          "name": "VEYR",
+          "title": "Ce qui tient dans une main",
+          "weapon": "Gun",
+          "faction": "Draevenheim",
+          "job": "SOLDAT",
+          "race": "VAMP"
+        },
+        {
+          "id": "49900305",
+          "characterId": "isvel-kalistar",
+          "name": "ISVEL",
+          "title": "La veille des petites portes",
+          "weapon": "Epée courte",
+          "faction": "Draevenheim",
+          "job": "SOLDAT",
+          "race": "VAMP"
+        }
+      ],
+      "personalMismatches": []
+    },
+    {
+      "id": "cryptown-oath-sword",
+      "name": "Le Serment sans Visage",
+      "family": "Epée longue",
+      "nominative": false,
+      "restrictions": {
+        "factions": [
+          "Cryptown"
+        ],
+        "families": [
+          "Epée longue"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "49900501",
+          "characterId": "varkhen-kalistar",
+          "name": "VARKHEN",
+          "title": "LE DERNIER AVERTISSEMENT",
+          "weapon": "Epée longue",
+          "faction": "Cryptown",
+          "job": "SOLDAT",
+          "race": "SKULLZ"
+        }
+      ],
+      "removed": [
+        {
+          "id": "30000034",
+          "characterId": "valazar",
+          "name": "VALAZAR",
+          "title": "LE NOM DANS LA CENDRE",
+          "weapon": "Sceptre",
+          "faction": "Cryptown",
+          "job": "NÉCROMANCIEN",
+          "race": "SKULLZ"
+        },
+        {
+          "id": "30000010",
+          "characterId": "zviri",
+          "name": "ZVIRI",
+          "title": "TUEUSE REDOUTABLE",
+          "weapon": "Fouet",
+          "faction": "Cryptown",
+          "job": "ASSASSIN",
+          "race": "SKULLZ"
+        },
+        {
+          "id": "30000035",
+          "characterId": "capitaine-skully",
+          "name": "CAPITAINE SKULLY",
+          "title": "LE CAP DES REVENANTS",
+          "weapon": "Epée courte",
+          "faction": "Cryptown",
+          "job": "CAPITAINE",
+          "race": "SKULLZ"
+        },
+        {
+          "id": "49321357",
+          "characterId": "zviri",
+          "name": "ZVIRI",
+          "title": "LA PATIENCE DU PREDATEUR",
+          "weapon": "Fouet",
+          "faction": "Cryptown",
+          "job": "TRAQUEUSE",
+          "race": "SKULLZ"
+        },
+        {
+          "id": "49900601",
+          "characterId": "nereth-kalistar",
+          "name": "NERETH",
+          "title": "LE SILENCE VEILLE",
+          "weapon": "Gun",
+          "faction": "Cryptown",
+          "job": "SOLDAT",
+          "race": "SKULLZ"
+        },
+        {
+          "id": "49900602",
+          "characterId": "draust-kalistar",
+          "name": "DRAUST",
+          "title": "QUAND LES CHAÎNES SE TAISENT",
+          "weapon": "Fléau",
+          "faction": "Cryptown",
+          "job": "SOLDAT",
+          "race": "SKULLZ"
+        },
+        {
+          "id": "49900603",
+          "characterId": "morveth-kalistar",
+          "name": "MORVETH",
+          "title": "CEUX QUI RENTRENT ENCORE",
+          "weapon": "Faucille",
+          "faction": "Cryptown",
+          "job": "SOLDAT",
+          "race": "SKULLZ"
+        }
+      ],
+      "personalMismatches": []
+    },
+    {
+      "id": "cryptown-vigil-rifle",
+      "name": "La Relève Muette",
+      "family": "Gun",
+      "nominative": false,
+      "restrictions": {
+        "factions": [
+          "Cryptown"
+        ],
+        "families": [
+          "Gun"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "49900601",
+          "characterId": "nereth-kalistar",
+          "name": "NERETH",
+          "title": "LE SILENCE VEILLE",
+          "weapon": "Gun",
+          "faction": "Cryptown",
+          "job": "SOLDAT",
+          "race": "SKULLZ"
+        }
+      ],
+      "removed": [
+        {
+          "id": "30000034",
+          "characterId": "valazar",
+          "name": "VALAZAR",
+          "title": "LE NOM DANS LA CENDRE",
+          "weapon": "Sceptre",
+          "faction": "Cryptown",
+          "job": "NÉCROMANCIEN",
+          "race": "SKULLZ"
+        },
+        {
+          "id": "30000010",
+          "characterId": "zviri",
+          "name": "ZVIRI",
+          "title": "TUEUSE REDOUTABLE",
+          "weapon": "Fouet",
+          "faction": "Cryptown",
+          "job": "ASSASSIN",
+          "race": "SKULLZ"
+        },
+        {
+          "id": "30000035",
+          "characterId": "capitaine-skully",
+          "name": "CAPITAINE SKULLY",
+          "title": "LE CAP DES REVENANTS",
+          "weapon": "Epée courte",
+          "faction": "Cryptown",
+          "job": "CAPITAINE",
+          "race": "SKULLZ"
+        },
+        {
+          "id": "49321357",
+          "characterId": "zviri",
+          "name": "ZVIRI",
+          "title": "LA PATIENCE DU PREDATEUR",
+          "weapon": "Fouet",
+          "faction": "Cryptown",
+          "job": "TRAQUEUSE",
+          "race": "SKULLZ"
+        },
+        {
+          "id": "49900501",
+          "characterId": "varkhen-kalistar",
+          "name": "VARKHEN",
+          "title": "LE DERNIER AVERTISSEMENT",
+          "weapon": "Epée longue",
+          "faction": "Cryptown",
+          "job": "SOLDAT",
+          "race": "SKULLZ"
+        },
+        {
+          "id": "49900602",
+          "characterId": "draust-kalistar",
+          "name": "DRAUST",
+          "title": "QUAND LES CHAÎNES SE TAISENT",
+          "weapon": "Fléau",
+          "faction": "Cryptown",
+          "job": "SOLDAT",
+          "race": "SKULLZ"
+        },
+        {
+          "id": "49900603",
+          "characterId": "morveth-kalistar",
+          "name": "MORVETH",
+          "title": "CEUX QUI RENTRENT ENCORE",
+          "weapon": "Faucille",
+          "faction": "Cryptown",
+          "job": "SOLDAT",
+          "race": "SKULLZ"
+        }
+      ],
+      "personalMismatches": []
+    },
+    {
+      "id": "cryptown-watch-flail",
+      "name": "Le Glas des Veilleurs",
+      "family": "Fléau",
+      "nominative": false,
+      "restrictions": {
+        "factions": [
+          "Cryptown"
+        ],
+        "families": [
+          "Fléau"
+        ]
+      },
+      "eligible": [
+        {
+          "id": "49900602",
+          "characterId": "draust-kalistar",
+          "name": "DRAUST",
+          "title": "QUAND LES CHAÎNES SE TAISENT",
+          "weapon": "Fléau",
+          "faction": "Cryptown",
+          "job": "SOLDAT",
+          "race": "SKULLZ"
+        }
+      ],
+      "removed": [
+        {
+          "id": "30000034",
+          "characterId": "valazar",
+          "name": "VALAZAR",
+          "title": "LE NOM DANS LA CENDRE",
+          "weapon": "Sceptre",
+          "faction": "Cryptown",
+          "job": "NÉCROMANCIEN",
+          "race": "SKULLZ"
+        },
+        {
+          "id": "30000010",
+          "characterId": "zviri",
+          "name": "ZVIRI",
+          "title": "TUEUSE REDOUTABLE",
+          "weapon": "Fouet",
+          "faction": "Cryptown",
+          "job": "ASSASSIN",
+          "race": "SKULLZ"
+        },
+        {
+          "id": "30000035",
+          "characterId": "capitaine-skully",
+          "name": "CAPITAINE SKULLY",
+          "title": "LE CAP DES REVENANTS",
+          "weapon": "Epée courte",
+          "faction": "Cryptown",
+          "job": "CAPITAINE",
+          "race": "SKULLZ"
+        },
+        {
+          "id": "49321357",
+          "characterId": "zviri",
+          "name": "ZVIRI",
+          "title": "LA PATIENCE DU PREDATEUR",
+          "weapon": "Fouet",
+          "faction": "Cryptown",
+          "job": "TRAQUEUSE",
+          "race": "SKULLZ"
+        },
+        {
+          "id": "49900501",
+          "characterId": "varkhen-kalistar",
+          "name": "VARKHEN",
+          "title": "LE DERNIER AVERTISSEMENT",
+          "weapon": "Epée longue",
+          "faction": "Cryptown",
+          "job": "SOLDAT",
+          "race": "SKULLZ"
+        },
+        {
+          "id": "49900601",
+          "characterId": "nereth-kalistar",
+          "name": "NERETH",
+          "title": "LE SILENCE VEILLE",
+          "weapon": "Gun",
+          "faction": "Cryptown",
+          "job": "SOLDAT",
+          "race": "SKULLZ"
+        },
+        {
+          "id": "49900603",
+          "characterId": "morveth-kalistar",
+          "name": "MORVETH",
+          "title": "CEUX QUI RENTRENT ENCORE",
+          "weapon": "Faucille",
+          "faction": "Cryptown",
+          "job": "SOLDAT",
+          "race": "SKULLZ"
+        }
+      ],
+      "personalMismatches": []
+    },
+    {
+      "id": "rhinoz-ancestral-horn",
+      "name": "La Corne des Anciens",
+      "family": "Hache",
+      "nominative": false,
+      "restrictions": {
+        "races": [
+          "RHINOZ"
+        ],
+        "families": [
+          "Hache"
+        ]
+      },
+      "eligible": [],
+      "removed": [
+        {
+          "id": "30000038",
+          "characterId": "gilmarr",
+          "name": "GILMARR",
+          "title": "LA PLACE DANS L EQUIPE",
+          "weapon": "Poing",
+          "faction": "Zarok",
+          "job": "PILIER D ASTRABALL",
+          "race": "RHINOZ"
+        },
+        {
+          "id": "30000019",
+          "characterId": "belrog",
+          "name": "BELROG",
+          "title": "LE SILENCE DE LA MONTAGNE",
+          "weapon": "Masse",
+          "faction": "Zarok",
+          "job": "ECLAIREUR",
+          "race": "RHINOZ"
+        },
+        {
+          "id": "30000011",
+          "characterId": "nazar",
+          "name": "NAZAR",
+          "title": "LA RONDE DE CANYONERO",
+          "weapon": "Lance",
+          "faction": "Zarok",
+          "job": "GARDIEN",
+          "race": "RHINOZ"
+        }
+      ],
+      "personalMismatches": []
+    }
+  ]
+}

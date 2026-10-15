@@ -1,0 +1,559 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-14",
+  "status": "nine_ready_for_parent_qa",
+  "method": "Built-in image_gen.imagegen exclusivement; neuf generations initiales et trois appels ROBOT additionnels autorises par le parent (refonte mecanique, extraction alpha echouee, regeneration neuve sans reference reussie). Douze appels au total. Aucun detourage algorithmique ni retouche raster manuelle; sorties finales copiees bit pour bit avec alpha natif preserve.",
+  "scope": "Neuf candidats de race et ce manifeste exclusivement. Aucune integration, canonique, UI, BDD, profil ou script modifie.",
+  "directionSource": "V3/sources/DIRECTION_ARTISTIQUE_KALISTAR.md",
+  "dataSource": "V3/donnees/cartes.json",
+  "sourcePolicy": "Les neuf PNG canoniques et sept SVG ont ete lus/inspectes. Les neuf sorties finales sont des generations nouvelles via prompts. Deux essais ROBOT intermediaires utilisaient une reference locale inspectee, mais ont echoue a l'alpha et sont archives par chemins dans priorAttempts; ils ne sont pas livres comme candidats.",
+  "validationMethod": "Inspection de chaque source et sortie par view_image. Verification PNG carre, canal alpha, pixels transparents, interieur quasi opaque, bbox alpha >=128 et marges. Vignettes 80x80 sur #f4f5f6 et #20252b composees en memoire uniquement. Un residue alpha <=1/255 au bord est signale sans le confondre avec un fond opaque.",
+  "completedBatches": [
+    {
+      "batch": 1,
+      "races": [
+        "HUMAIN",
+        "NAIN",
+        "CARDEMORTIS"
+      ],
+      "status": "ready_for_parent_qa"
+    },
+    {
+      "batch": 2,
+      "races": [
+        "ROBOT",
+        "CYBORG",
+        "AURELION"
+      ],
+      "status": "ready_for_parent_qa",
+      "robotRevision": "Tete initiale rejetee; engrenage ouvert final avec vraie alpha pret pour la QA parent."
+    },
+    {
+      "batch": 3,
+      "races": [
+        "VAMP",
+        "SKULLZ",
+        "SIRENA"
+      ],
+      "status": "ready_for_parent_qa"
+    }
+  ],
+  "assets": [
+    {
+      "race": "HUMAIN",
+      "batch": 1,
+      "status": "approved_by_parent",
+      "destination": "V3/assets/revisions-20260914/races/HUMAIN.png",
+      "sourcePng": "V3/assets/races/HUMAIN.png",
+      "generationCalls": 1,
+      "prompt": "Use case: logo-brand. Create ONE NEW race logo for the fantasy card game Kalistar, an actual graphic heraldic SIGN, NOT a portrait or character illustration. Square PNG with a genuinely transparent alpha background, never a painted checkerboard or solid backdrop. One primary silhouette, at most THREE broad visual masses, bold clean readable edges at 80 x 80 pixels. Minimal shallow relief, matte patinated ivory and aged silver with one restrained race-specific enamel accent. Broad painted planes, slight material wear, no photorealistic texture, no glossy chrome, no heavy 3D bevels, no intricate engraving. Center the complete symbol, approximately 80 percent canvas height or width as appropriate, with about 10 percent transparent safe margins, no clipping. No outer circle, disc, ring, medallion, shield, housing, frame, pedestal, cast shadow, glow, aura, text, lettering, watermark or extra ornaments. Deliver a single finished isolated logo only, not a sheet or mockup. SUBJECT: a single complete natural adult HUMAN standing in relaxed contrapposto, slight three-quarter orientation, both arms hanging loosely beside the body, hands at thigh level, two separated legs and feet firmly on an invisible baseline. Exactly one head, two arms, two hands, two legs. Adult proportions about seven and a half heads tall, ordinary adult shoulders and believable elbows/knees; not a child, mannequin, robot or muscular superhero. Simplify to a clean sculpted heraldic silhouette with no facial features, simple short hair, plain unobtrusive tunic and trousers suggested by large planes, no armor, helmet, mask, weapons, props or cape. Warm ivory/silver figure with a single muted cobalt-blue tunic area; only broad large tonal planes, no seams or clothing detail. The recognizability must come from the natural whole human shape and relaxed pose, NOT a bust, head logo, frontal mask, stick-figure road sign, Vitruvian pose or spread arms. Figure height 80 percent canvas, horizontal centering; natural body width, do not widen the anatomy to fill square.",
+      "generatedSource": "C:/Users/guill/.codex/generated_images/01a09f6e-3912-74c2-a5d4-c660a01fc541/exec-e33a241a-4ad3-41a2-9df2-36ce435e8e40.png",
+      "qa": {
+        "race": "HUMAIN",
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true,
+        "sha256": "e68bde89ff2c7caa6aa7ec54282a9e2cf1c1ea6be5e5cb0900dbb3699971e9a7",
+        "bytes": 674937,
+        "alphaZeroPercent": 83.142,
+        "alpha255Percent": 0.036,
+        "alphaAtLeast250Percent": 14.985,
+        "edgeMaxAlpha": 0,
+        "bboxAlpha128": {
+          "x": 433,
+          "y": 55,
+          "width": 425,
+          "height": 1119
+        },
+        "longestSidePercent": 89.23,
+        "bboxCenterOffsetPercent": {
+          "x": 1.48,
+          "y": -1
+        },
+        "pass": true,
+        "framingNote": "Silhouette naturelle etroite; hauteur 89.23% au lieu des 80% vises. Non tronquee, bras et jambes lisibles.",
+        "visual": "Une personne adulte, deux bras relaches, deux jambes et pieds distincts; visage sans traits; ivoire et bleu. Plus modele que les autres signes, lisible a 80px.",
+        "sourceInspectedViaViewImage": true,
+        "outputInspectedViaViewImage": true,
+        "preview80OnLightAndDark": "pass",
+        "noTextOrOuterHousing": "pass"
+      }
+    },
+    {
+      "race": "NAIN",
+      "batch": 1,
+      "status": "ready_for_parent_qa",
+      "destination": "V3/assets/revisions-20260914/races/NAIN.png",
+      "sourcePng": "V3/assets/races/NAIN.png",
+      "generationCalls": 1,
+      "prompt": "Use case: logo-brand. Create ONE NEW race logo for the fantasy card game Kalistar, an actual graphic heraldic SIGN, NOT a portrait or character illustration. Square PNG with a genuinely transparent alpha background, never a painted checkerboard or solid backdrop. One primary silhouette, at most THREE broad visual masses, bold clean readable edges at 80 x 80 pixels. Minimal shallow relief, matte patinated ivory and aged silver with one restrained race-specific enamel accent. Broad painted planes, slight material wear, no photorealistic texture, no glossy chrome, no heavy 3D bevels, no intricate engraving. Center the complete symbol, approximately 80 percent canvas height or width as appropriate, with about 10 percent transparent safe margins, no clipping. No outer circle, disc, ring, medallion, shield, housing, frame, pedestal, cast shadow, glow, aura, text, lettering, watermark or extra ornaments. Deliver a single finished isolated logo only, not a sheet or mockup. SUBJECT: a natural stout DWARF humanoid emblem seen in clear side profile facing right, from the top of the head to the upper chest. A single broad connected silhouette whose profile nose, stocky short neck, wide shoulder and very large blunt beard instantly signify a dwarf. Simple uncovered head, bald crown, one ear, no helmet, no hat, no weapon. Beard is ONE single broad ivory wedge with only two large plane changes, no separate strands or braids. The compact shoulder is ONE muted burnt-copper enamel mass. The small facial profile is ONE aged ivory/silver mass with only a discreet eye notch; natural dwarf adult proportions, not a human bodybuilder, not realistic skin. At most three broad masses: uncovered profile head, solid beard, compact shoulder. Very minimal shallow relief like a cut metal inlay sign, nearly flat, not a sculpture or photographic head portrait. Strong clean negative space between the prominent nose and beard lip. Fill about 80 percent of the square, visually centered. No crown, goggles, ornaments, smiling cartoon expression or decorative backing.",
+      "generatedSource": "C:/Users/guill/.codex/generated_images/01a09f6e-3912-74c2-a5d4-c660a01fc541/exec-6e1d3fb2-0825-42c8-a15a-18b7287c482e.png",
+      "qa": {
+        "race": "NAIN",
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true,
+        "sha256": "1c841630b9d741415a4a94224ab852c8b083efe006a043ff20356d11102382d6",
+        "bytes": 1809873,
+        "alphaZeroPercent": 55.165,
+        "alpha255Percent": 0.041,
+        "alphaAtLeast250Percent": 43.442,
+        "edgeMaxAlpha": 1,
+        "bboxAlpha128": {
+          "x": 109,
+          "y": 101,
+          "width": 1035,
+          "height": 1050
+        },
+        "longestSidePercent": 83.73,
+        "bboxCenterOffsetPercent": {
+          "x": -0.04,
+          "y": -0.08
+        },
+        "pass": true,
+        "alphaNote": "Residue maximal 1/255 sur le bord; aucun pixel visible de symbole au bord. Alpha natif preserve.",
+        "visual": "Profil de nain compact; nez, oreille, grande barbe monobloc et epaule cuivre; trois masses principales, aucune photographie.",
+        "sourceInspectedViaViewImage": true,
+        "outputInspectedViaViewImage": true,
+        "preview80OnLightAndDark": "pass",
+        "noTextOrOuterHousing": "pass"
+      }
+    },
+    {
+      "race": "CARDEMORTIS",
+      "batch": 1,
+      "status": "approved_by_parent",
+      "destination": "V3/assets/revisions-20260914/races/CARDEMORTIS.png",
+      "sourcePng": "V3/assets/races/CARDEMORTIS.png",
+      "generationCalls": 1,
+      "prompt": "Use case: logo-brand. Create ONE NEW race logo for the fantasy card game Kalistar, an actual graphic heraldic SIGN, NOT a portrait or character illustration. Square PNG with a genuinely transparent alpha background, never a painted checkerboard or solid backdrop. One primary silhouette, at most THREE broad visual masses, bold clean readable edges at 80 x 80 pixels. Minimal shallow relief, matte patinated ivory and aged silver with one restrained race-specific enamel accent. Broad painted planes, slight material wear, no photorealistic texture, no glossy chrome, no heavy 3D bevels, no intricate engraving. Center the complete symbol, approximately 80 percent canvas height or width as appropriate, with about 10 percent transparent safe margins, no clipping. No outer circle, disc, ring, medallion, shield, housing, frame, pedestal, cast shadow, glow, aura, text, lettering, watermark or extra ornaments. Deliver a single finished isolated logo only, not a sheet or mockup. SUBJECT: the CARDEMORTIS race is represented ONLY by a DEAD BLACK HEART. A single bold, instantly recognizable stylized heart silhouette, two rounded upper lobes meeting a deep central notch and one lower point. Dense matte near-black enamel, lifeless and cold, with a single restrained angular dark charcoal plane suggesting dry inert stone. A discreet continuous thin patinated ivory/silver edging follows the heart shape itself to keep it readable on dark backgrounds; this edging must be substantial enough to survive at 80 pixels, about 2 percent of symbol width, not a separate frame. Optional ONE short quiet ivory-gray fissure descending from the top notch, not splitting into a tree of cracks. Three visual masses maximum: near-black heart, charcoal facet, ivory rim. Graphically flat with very shallow relief and restrained worn enamel. Heart occupies about 80 percent of the square in both dimensions, centered. NOT a human portrait, NOT a skull, NOT an anatomical organ with vessels, no blood, gore, wounds, fangs, bat wings, flames, halo, red highlights, glowing core, vines, crown or backing. The black enamel inside the heart must remain opaque; only the outside background is transparent.",
+      "generatedSource": "C:/Users/guill/.codex/generated_images/01a09f6e-3912-74c2-a5d4-c660a01fc541/exec-8cb4ead5-3b90-4a21-bae1-d8dbf7036400.png",
+      "qa": {
+        "race": "CARDEMORTIS",
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true,
+        "sha256": "2217f8d375d390f714d150a40e9ee446a6222c79ff8b3df2680356336b933e45",
+        "bytes": 1181456,
+        "alphaZeroPercent": 57.316,
+        "alpha255Percent": 0.017,
+        "alphaAtLeast250Percent": 41.39,
+        "edgeMaxAlpha": 0,
+        "bboxAlpha128": {
+          "x": 109,
+          "y": 148,
+          "width": 1036,
+          "height": 962
+        },
+        "longestSidePercent": 82.62,
+        "bboxCenterOffsetPercent": {
+          "x": 0,
+          "y": 0.16
+        },
+        "pass": true,
+        "visual": "Coeur noir inerte, facette charbon et lisere ivoire continu visible sur fond sombre; aucun crane ni gore.",
+        "sourceInspectedViaViewImage": true,
+        "outputInspectedViaViewImage": true,
+        "preview80OnLightAndDark": "pass",
+        "noTextOrOuterHousing": "pass"
+      }
+    },
+    {
+      "race": "ROBOT",
+      "batch": 2,
+      "status": "ready_for_parent_qa",
+      "destination": "V3/assets/revisions-20260914/races/ROBOT.png",
+      "sourcePng": "V3/assets/races/ROBOT.png",
+      "generationCalls": 4,
+      "prompt": "Use case: logo-brand. Create ONE BRAND NEW race logo for the fantasy card game Kalistar. Square PNG with a genuinely transparent alpha background. An actual graphic heraldic SIGN, not a portrait, scene or product photo. SUBJECT: a serious broken OPEN GEAR made of warm ivory and patinated aged silver with a SINGLE COBALT-BLUE OPTICAL EYE at its center. ONE broad incomplete C-shaped gear wheel, with a large missing quarter sector at the upper right, blunt broken ends, only SIX chunky large teeth. One simple silver socket containing a round dark cobalt-blue lens is held centrally by ONE short broad metal strut from the lower-left inner gear. A single restrained pale glint on the blue glass suggests an optical eye, not a glowing magical orb. No face, head, paired eyes, mouth, nose, antenna, toy or cartoon. The mechanical gear is the SUBJECT, not an added decorative medallion. Do not add any outer ring, frame, shield or housing. The gear opening and inner empty space must be genuinely transparent. Three broad masses maximum: warm ivory gear, worn silver edge and joining strut, blue lens. Bold clean edges and broad almost flat planes readable at 80x80 pixels. Very shallow heraldic relief, moderate material wear, no heavy bevels, chrome, bolts, fine wires, microcircuits or decorative filigree. Center the complete connected silhouette, approximately 80 percent of the square canvas in height or width, with about 10 percent transparent safe margins and no clipping. No pedestal, cast shadow, glow, aura, text, lettering, watermark or extra ornaments. Transparent background, not a solid backdrop or painted checkerboard. Deliver a single finished isolated transparent PNG logo only, not a sheet or mockup.",
+      "generatedSource": "C:/Users/guill/.codex/generated_images/01a09f6e-3912-74c2-a5d4-c660a01fc541/exec-257861e2-7bc7-479f-9d72-4e1839741fdd.png",
+      "qa": {
+        "race": "ROBOT",
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true,
+        "sha256": "423c7ab416e38d55283bf6ad7d951daedec037ad30360ceaf9b246df369710ba",
+        "bytes": 1536354,
+        "alphaZeroPercent": 61.439,
+        "alpha255Percent": 0.062,
+        "alphaAtLeast250Percent": 36.405,
+        "edgeMaxAlpha": 1,
+        "bboxAlpha128": {
+          "x": 70,
+          "y": 56,
+          "width": 1114,
+          "height": 1109
+        },
+        "longestSidePercent": 88.84,
+        "bboxCenterOffsetPercent": {
+          "x": 0,
+          "y": -1.32
+        },
+        "pass": true,
+        "visual": "Engrenage mecanique ouvert a grosses dents et extremites brisees, lentille bleue unique reliee par une entretoise. Trois masses principales ivoire, argent, bleu. Pas de tete, bouche ou antenne. Lisible a 80px sur clair/sombre.",
+        "alphaNote": "Vraie alpha; 61.439% de pixels completement transparents. Residue maximal 1/255 sur le bord, invisible. Alpha natif preserve.",
+        "framingNote": "Envergure 88.84% au lieu des 80% vises; centre horizontal exact, non tronque.",
+        "sourceInspectedViaViewImage": true,
+        "outputInspectedViaViewImage": true,
+        "preview80OnLightAndDark": "pass",
+        "noTextOrOuterHousing": "pass_gear_is_subject",
+        "parentDesignApproval": "pending_final_qa"
+      },
+      "priorAttempts": [
+        {
+          "prompt": "Use case: logo-brand. Create ONE NEW race logo for the fantasy card game Kalistar, an actual graphic heraldic SIGN, NOT a portrait or character illustration. Square PNG with a genuinely transparent alpha background, never a painted checkerboard or solid backdrop. One primary silhouette, at most THREE broad visual masses, bold clean readable edges at 80 x 80 pixels. Minimal shallow relief, matte patinated ivory and aged silver with one restrained race-specific enamel accent. Broad painted planes, slight material wear, no photorealistic texture, no glossy chrome, no heavy 3D bevels, no intricate engraving. Center the complete symbol, approximately 80 percent canvas height or width as appropriate, with about 10 percent transparent safe margins, no clipping. No outer circle, disc, ring, medallion, shield, housing, frame, pedestal, cast shadow, glow, aura, text, lettering, watermark or extra ornaments. Deliver a single finished isolated logo only, not a sheet or mockup. SUBJECT: a ROBOT race emblem, an instantly recognizable simple mechanical head PICTOGRAM, not a character portrait. A broad angular box-like robot head in patinated ivory/silver, two small square side tabs integrated into its outline, and one short central rectangular antenna stem. Three broad masses only: the ivory head shell, a single cobalt-blue enamel horizontal visor band containing two clear square ivory eye apertures, and a short dark charcoal mouth slot. The large rectangular outline and square eyes must immediately read machine, not knight helmet or human face. Plain geometry, no cheeks, nose, human lips, armor scales, horns or anatomical modelling. Nearly flat heraldic inlay, very shallow dull silver edge, no fine grooves, wires, bolts, gears, intricate panels or tiny decoration. Broad silhouette about 80 percent of the square, centered. Friendly neutral machine, no aggressive expression. No circular antenna bulb, round ears, circle backing or medallion.",
+          "generatedSource": "C:/Users/guill/.codex/generated_images/01a09f6e-3912-74c2-a5d4-c660a01fc541/exec-a2e45957-1c37-4d7c-8e1a-cff775135cdb.png",
+          "qa": {
+            "race": "ROBOT",
+            "format": "png",
+            "width": 1254,
+            "height": 1254,
+            "hasAlpha": true,
+            "sha256": "68d2ec086790cfce540f7ec94c4d31ffd0335d16d12d5a010e8aab76f1af6f25",
+            "bytes": 1433953,
+            "alphaZeroPercent": 57.993,
+            "alpha255Percent": 0.004,
+            "alphaAtLeast250Percent": 40.108,
+            "edgeMaxAlpha": 0,
+            "bboxAlpha128": {
+              "x": 168,
+              "y": 146,
+              "width": 919,
+              "height": 955
+            },
+            "longestSidePercent": 76.16,
+            "bboxCenterOffsetPercent": {
+              "x": 0.04,
+              "y": -0.28
+            },
+            "pass": true,
+            "visual": "Pictogramme geometrique, yeux carres et antenne rectangulaire; trois masses ivoire, bleu, bouche charbon; pas de portrait humain."
+          },
+          "status": "rejected_by_parent",
+          "reason": "Tete rectangulaire a antenne jugee trop robot jouet / pictogramme informatique."
+        },
+        {
+          "prompt": "Use case: style-transfer. Corrective redesign of the provided Kalistar ROBOT race logo. Input image 1 is the prior rejected robot-face design, used ONLY to match patinated ivory/silver and cobalt-blue enamel materials; completely replace its subject and silhouette. NEW SUBJECT: a serious ancient mechanical emblem formed by ONE chunky broken OPEN GEAR and ONE single BLUE OPTICAL EYE suspended in its center. The gear wheel is the actual mechanical SUBJECT, not an added medallion or frame. Design a broad incomplete C-shaped toothed gear with a clearly missing upper-right sector of about a quarter circle, strong large broken ends and only six or seven large blunt teeth. A few large irregular patinated silver and warm ivory metal plates form the gear, maximum three major tonal masses, no intricate screws, micro-panels, fine wires or engraving. The single central optical eye is a small but clearly readable cobalt-blue glass lens in one simple silver socket, held by ONE short sturdy metal strut from the lower-left inner gear, all ONE connected compact mechanical silhouette. Deep blue optical center with one restrained pale glint, not a magical glowing orb or a human eyeball. Worn serious salvaged machinery, asymmetric utilitarian balance, matte nearly flat shallow heraldic relief, broad painted planes and clean edges. Distinctive graphic logo readable at 80px, not a product photo, illustration scene or toy. NO human/robot face, NO paired eyes, NO mouth, nose, antenna, helmet, head or cartoon silhouette. NO external frame, shield, medallion, outer decorative circle, pedestal, background, text, lettering or watermark. The OPEN gear and blue lens are the entire sign. Center it on a square PNG canvas, about 80 percent occupancy, 10 percent clear safe margins. Genuinely transparent alpha outside the gear and in the large internal negative spaces, no solid backdrop or painted checkerboard. Retain subtle patinated ivory/aged silver/cobalt-blue enamel palette from the reference only.",
+          "generatedSource": "C:/Users/guill/.codex/generated_images/01a09f6e-3912-74c2-a5d4-c660a01fc541/exec-d7958301-09be-4cdf-afd0-bb2c95254521.png",
+          "referenceInputs": [
+            {
+              "path": "V3/assets/revisions-20260914/races/ROBOT.png",
+              "atGenerationSha256": "68d2ec086790cfce540f7ec94c4d31ffd0335d16d12d5a010e8aab76f1af6f25",
+              "role": "Ancien candidat robot-visage, reference de materiaux uniquement."
+            }
+          ],
+          "status": "rejected_alpha",
+          "qa": {
+            "race": "ROBOT",
+            "format": "png",
+            "width": 1254,
+            "height": 1254,
+            "hasAlpha": false,
+            "sha256": "c7feb2f1be3fe32061e64f81c8426a2c507b62e9c05b1c76b54f865bfa1f120f",
+            "bytes": 2367607,
+            "alphaZeroPercent": 0,
+            "alpha255Percent": 100,
+            "alphaAtLeast250Percent": 100,
+            "edgeMaxAlpha": 255,
+            "bboxAlpha128": {
+              "x": 0,
+              "y": 0,
+              "width": 1254,
+              "height": 1254
+            },
+            "longestSidePercent": 100,
+            "bboxCenterOffsetPercent": {
+              "x": 0,
+              "y": 0
+            },
+            "pass": false,
+            "visual": "Forme corrigee : roue dentee ouverte brisee et lentille optique bleue unique sur entretoise. Aucun visage, bouche ou antenne. Sujet reconnaissable a 80px.",
+            "alphaNote": "BLOQUANT : RGB sans canal alpha, damier peint dans le fichier. Ne pas integrer cette sortie.",
+            "sourceInspectedViaViewImage": true,
+            "outputInspectedViaViewImage": true,
+            "preview80OnLightAndDark": "fail_opaque_checkerboard",
+            "noTextOrOuterHousing": "pass_gear_is_subject"
+          }
+        },
+        {
+          "prompt": "Use case: background-extraction. EDIT INPUT IMAGE 1 ONLY. Preserve the broken open ivory/silver mechanical gear, its exact large teeth and broken ends, the short inner connecting strut, and the single cobalt-blue optical lens completely unchanged. Remove the gray-and-white checkerboard that is currently painted into every background pixel. Return a square PNG with a REAL TRANSPARENT ALPHA CHANNEL: alpha 0 outside the gear and throughout the open interior gaps; opaque alpha on the metal and blue lens, clean antialiased cutout edges. No checkerboard pixels, no white or gray backdrop, no simulated transparency, no shadows, no new geometry, no face, no text, no decoration. Preserve the supplied subject and placement exactly. This is a technical transparent-background extraction, not a redesign.",
+          "generatedSource": "C:/Users/guill/.codex/generated_images/01a09f6e-3912-74c2-a5d4-c660a01fc541/exec-36df5d75-df42-4ab9-9682-244913158b21.png",
+          "referenceInputs": [
+            {
+              "path": "C:/Users/guill/.codex/generated_images/01a09f6e-3912-74c2-a5d4-c660a01fc541/exec-d7958301-09be-4cdf-afd0-bb2c95254521.png",
+              "sha256": "c7feb2f1be3fe32061e64f81c8426a2c507b62e9c05b1c76b54f865bfa1f120f",
+              "role": "Extraction de fond stricte autorisee par le parent."
+            }
+          ],
+          "status": "rejected_alpha",
+          "qa": {
+            "race": "ROBOT",
+            "format": "png",
+            "width": 1254,
+            "height": 1254,
+            "hasAlpha": false,
+            "sha256": "8da9110141783f73ef0740ae28aa082e639f8b8f866516b42b6bfc8c5914ab60",
+            "bytes": 2075306,
+            "alphaZeroPercent": 0,
+            "alpha255Percent": 100,
+            "alphaAtLeast250Percent": 100,
+            "edgeMaxAlpha": 255,
+            "bboxAlpha128": {
+              "x": 0,
+              "y": 0,
+              "width": 1254,
+              "height": 1254
+            },
+            "longestSidePercent": 100,
+            "bboxCenterOffsetPercent": {
+              "x": 0,
+              "y": 0
+            },
+            "pass": false,
+            "outputInspectedViaViewImage": true,
+            "visual": "Damier peint persistant; pas de canal alpha."
+          }
+        }
+      ],
+      "referenceInputs": []
+    },
+    {
+      "race": "CYBORG",
+      "batch": 2,
+      "status": "ready_for_parent_qa",
+      "destination": "V3/assets/revisions-20260914/races/CYBORG.png",
+      "sourcePng": "V3/assets/races/CYBORG.png",
+      "generationCalls": 1,
+      "prompt": "Use case: logo-brand. Create ONE NEW race logo for the fantasy card game Kalistar, an actual graphic heraldic SIGN, NOT a portrait or character illustration. Square PNG with a genuinely transparent alpha background, never a painted checkerboard or solid backdrop. One primary silhouette, at most THREE broad visual masses, bold clean readable edges at 80 x 80 pixels. Minimal shallow relief, matte patinated ivory and aged silver with one restrained race-specific enamel accent. Broad painted planes, slight material wear, no photorealistic texture, no glossy chrome, no heavy 3D bevels, no intricate engraving. Center the complete symbol, approximately 80 percent canvas height or width as appropriate, with about 10 percent transparent safe margins, no clipping. No outer circle, disc, ring, medallion, shield, housing, frame, pedestal, cast shadow, glow, aura, text, lettering, watermark or extra ornaments. Deliver a single finished isolated logo only, not a sheet or mockup. SUBJECT: CYBORG means the fusion of organic human and machine. Design a single clean human head-and-short-neck PROFILE facing left, clearly a LOGO silhouette, not a portrait. Natural adult forehead, nose, lips and chin in one continuous simple patinated ivory cutout; no realistic skin, no detailed eye, no hair strands, no cheek shading. The rear half of the head is replaced by ONE large angular emerald-green enamel mechanical plate, ending in a small integrated squared-off nape. Divide organic front and machine rear with ONE bold silver zigzag join. Indicate machine circuitry using just TWO broad right-angle silver inlays inside the green plate, no tiny wiring, screws, gears or circular sockets. Exactly three visual masses: ivory human profile, emerald mechanical plate, silver join/circuit as one graphic accent. Very shallow patinated inlay with almost flat broad planes. The human facial contour must remain natural, the rear mechanical contour unmistakably angular. No frontal split-face, no human bust sculpture, no extra face, no skull, no armor helmet, no antenna, no separate machine or decorative symbol. Source identity nod: Gen has a mechanical limb and a green hair accent, represented here by the green organic-machine emblem rather than a portrait of Gen. Complete silhouette fills 80 percent canvas and remains centered.",
+      "generatedSource": "C:/Users/guill/.codex/generated_images/01a09f6e-3912-74c2-a5d4-c660a01fc541/exec-f81ef0a6-240d-4d1c-be8d-07bcef0acb81.png",
+      "qa": {
+        "race": "CYBORG",
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true,
+        "sha256": "540a1535449bf797e437e7e0a347a09fc1930e3a9444081938de008bf82bfad3",
+        "bytes": 1427634,
+        "alphaZeroPercent": 58.901,
+        "alpha255Percent": 0.045,
+        "alphaAtLeast250Percent": 39.872,
+        "edgeMaxAlpha": 1,
+        "bboxAlpha128": {
+          "x": 181,
+          "y": 118,
+          "width": 896,
+          "height": 1062
+        },
+        "longestSidePercent": 84.69,
+        "bboxCenterOffsetPercent": {
+          "x": 0.16,
+          "y": 1.75
+        },
+        "pass": true,
+        "visual": "Profil humain naturel en ivoire, plaque mecanique emeraude, joint et deux larges pistes argent; distinct du ROBOT.",
+        "alphaNote": "Residue maximal 1/255 sur le bord; aucun pixel visible de symbole au bord. Alpha natif preserve.",
+        "sourceInspectedViaViewImage": true,
+        "outputInspectedViaViewImage": true,
+        "preview80OnLightAndDark": "pass",
+        "noTextOrOuterHousing": "pass"
+      }
+    },
+    {
+      "race": "AURELION",
+      "batch": 2,
+      "status": "ready_for_parent_qa",
+      "destination": "V3/assets/revisions-20260914/races/AURELION.png",
+      "sourcePng": "V3/assets/races/AURELION.png",
+      "generationCalls": 1,
+      "prompt": "Use case: logo-brand. Create ONE NEW race logo for the fantasy card game Kalistar, an actual graphic heraldic SIGN, NOT a portrait or character illustration. Square PNG with a genuinely transparent alpha background, never a painted checkerboard or solid backdrop. One primary silhouette, at most THREE broad visual masses, bold clean readable edges at 80 x 80 pixels. Minimal shallow relief, matte patinated ivory and aged silver with one restrained race-specific enamel accent. Broad painted planes, slight material wear, no photorealistic texture, no glossy chrome, no heavy 3D bevels, no intricate engraving. Center the complete symbol, approximately 80 percent canvas height or width as appropriate, with about 10 percent transparent safe margins, no clipping. No outer circle, disc, ring, medallion, shield, housing, frame, pedestal, cast shadow, glow, aura, text, lettering, watermark or extra ornaments. Deliver a single finished isolated logo only, not a sheet or mockup. SUBJECT: AURELION, a luminous crystalline humanoid race, symbolized by a single winged crystal emblem, NOT a lion or a humanoid portrait. THREE visual masses exactly: a central tall golden-amber enamel rhombus of light, a single broad ivory/silver wing-shaped ray on the left, and its matching wing on the right. The central rhombus has only two large colored facets, no sparkle or radiating glow. Each wing is one clean upward-swept blade with just TWO broad feather tips and one large internal plane; avoid detailed feather arrays. Both wings touch the lower sides of the central crystal, forming one connected compact heraldic silhouette, calm balanced bilateral symmetry. Visual lineage: original Aurelion source uses solar light and wings; keep that identity while replacing its face with the crystal. Very shallow patinated silver and warm ivory, restrained amber-gold enamel, clean bold near-flat inlay. Fill about 80 percent of the square. No head, face, body, crown, halo, circular sun disc, detached star rays, secondary gemstones, flourishes or round backing. The negative spaces between wings and crystal must be fully transparent.",
+      "generatedSource": "C:/Users/guill/.codex/generated_images/01a09f6e-3912-74c2-a5d4-c660a01fc541/exec-45310461-4c60-418c-9776-d0b461b2dc40.png",
+      "qa": {
+        "race": "AURELION",
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true,
+        "sha256": "3f9e3efe6791a2620f8217d31dff600beee9bc43dbb270fd3a97c955f3a34752",
+        "bytes": 1248951,
+        "alphaZeroPercent": 67.424,
+        "alpha255Percent": 0.039,
+        "alphaAtLeast250Percent": 29.843,
+        "edgeMaxAlpha": 1,
+        "bboxAlpha128": {
+          "x": 72,
+          "y": 98,
+          "width": 1113,
+          "height": 1016
+        },
+        "longestSidePercent": 88.76,
+        "bboxCenterOffsetPercent": {
+          "x": 0.12,
+          "y": -1.67
+        },
+        "pass": true,
+        "visual": "Cristal ambre et deux ailes ivoire, trois masses lisibles; aucun visage ni disque solaire.",
+        "alphaNote": "Residue maximal 1/255 sur le bord; aucun pixel visible de symbole au bord. Alpha natif preserve.",
+        "framingNote": "Envergure 88.76% au lieu des 80% vises. Symetrique, non tronquee.",
+        "sourceInspectedViaViewImage": true,
+        "outputInspectedViaViewImage": true,
+        "preview80OnLightAndDark": "pass",
+        "noTextOrOuterHousing": "pass"
+      }
+    },
+    {
+      "race": "VAMP",
+      "batch": 3,
+      "status": "ready_for_parent_qa",
+      "destination": "V3/assets/revisions-20260914/races/VAMP.png",
+      "sourcePng": "V3/assets/races/VAMP.png",
+      "generationCalls": 1,
+      "prompt": "Use case: logo-brand. Create ONE NEW race logo for the fantasy card game Kalistar, an actual graphic heraldic SIGN, NOT a portrait or character illustration. Square PNG with a genuinely transparent alpha background, never a painted checkerboard or solid backdrop. One primary silhouette, at most THREE broad visual masses, bold clean readable edges at 80 x 80 pixels. Minimal shallow relief, matte patinated ivory and aged silver with one restrained race-specific enamel accent. Broad painted planes, slight material wear, no photorealistic texture, no glossy chrome, no heavy 3D bevels, no intricate engraving. Center the complete symbol, approximately 80 percent canvas height or width as appropriate, with about 10 percent transparent safe margins, no clipping. No outer circle, disc, ring, medallion, shield, housing, frame, pedestal, cast shadow, glow, aura, text, lettering, watermark or extra ornaments. Deliver a single finished isolated logo only, not a sheet or mockup. SUBJECT: VAMP race logo, a bold heraldic VAMPIRE FANG sign based on the source fangs pictogram. EXACTLY THREE visual masses: ONE broad deep-burgundy enamel upper-mouth arch, and TWO large matching ivory/silver canine fangs descending from it. The arch's two outer tips lift subtly like the corners of folded bat wings, but it remains one simple connected bar, no separate bat or head. The pair of fangs are unmistakably long tapered teeth with slightly inward curved tips; attach them naturally near the left and right sides of the upper arch, not at the center. Clear open transparent negative space between the two fangs. Fangs must be thick enough to read at 80px. Patinated ivory enamel teeth with a discreet shallow silver edge; flat dark crimson/burgundy arch with one broad worn plane. Symmetrical, single joined silhouette, compact not excessively wide, about 80 percent of canvas width and 70 percent height, centered. No face, eyes, nose, lips with skin, lower jaw, row of tiny teeth, blood drop, dripping blood, skull, heart, cross, ring or medallion. No large wing arrays or gothic ornament. This must read vampire fangs instantly as a calm clean game logo, not an illustration of an open mouth.",
+      "generatedSource": "C:/Users/guill/.codex/generated_images/01a09f6e-3912-74c2-a5d4-c660a01fc541/exec-4b225f92-6a0f-49f5-80fc-4f2b4d05e829.png",
+      "qa": {
+        "race": "VAMP",
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true,
+        "sha256": "c5df19fb8fc57b20ceaa83173a2538643fb9c2d32620204627abf79dae5081b4",
+        "bytes": 692851,
+        "alphaZeroPercent": 81.685,
+        "alpha255Percent": 0.036,
+        "alphaAtLeast250Percent": 16.685,
+        "edgeMaxAlpha": 0,
+        "bboxAlpha128": {
+          "x": 158,
+          "y": 194,
+          "width": 938,
+          "height": 808
+        },
+        "longestSidePercent": 74.8,
+        "bboxCenterOffsetPercent": {
+          "x": 0,
+          "y": -2.31
+        },
+        "pass": true,
+        "visual": "Deux grandes canines ivoire et une arche bordeaux; trois masses, pas de visage, sang ou coeur. Lisible a 80px.",
+        "sourceInspectedViaViewImage": true,
+        "outputInspectedViaViewImage": true,
+        "preview80OnLightAndDark": "pass",
+        "noTextOrOuterHousing": "pass"
+      }
+    },
+    {
+      "race": "SKULLZ",
+      "batch": 3,
+      "status": "ready_for_parent_qa",
+      "destination": "V3/assets/revisions-20260914/races/SKULLZ.png",
+      "sourcePng": "V3/assets/races/SKULLZ.png",
+      "generationCalls": 1,
+      "prompt": "Use case: logo-brand. Create ONE NEW race logo for the fantasy card game Kalistar, an actual graphic heraldic SIGN, NOT a portrait or character illustration. Square PNG with a genuinely transparent alpha background, never a painted checkerboard or solid backdrop. One primary silhouette, at most THREE broad visual masses, bold clean readable edges at 80 x 80 pixels. Minimal shallow relief, matte patinated ivory and aged silver with one restrained race-specific enamel accent. Broad painted planes, slight material wear, no photorealistic texture, no glossy chrome, no heavy 3D bevels, no intricate engraving. Center the complete symbol, approximately 80 percent canvas height or width as appropriate, with about 10 percent transparent safe margins, no clipping. No outer circle, disc, ring, medallion, shield, housing, frame, pedestal, cast shadow, glow, aura, text, lettering, watermark or extra ornaments. Deliver a single finished isolated logo only, not a sheet or mockup. SUBJECT: SKULLZ race emblem, a clean graphic human SKULL in strict side profile facing right, based on a humanoid skeleton race. Broad round cranium tapering into clear cheekbone, nasal notch and short squared jaw. Patinated warm ivory bone silhouette, one large genuinely transparent eye socket and a genuinely transparent nasal notch; three or four broad block teeth integrated into the same jaw shape, not a detailed row of tiny teeth. Use ONE small deep-violet enamel plane along the rear lower jaw as a restrained accent drawn from the original purple Skullz insignia. At most THREE broad masses: cranium, cheek/jaw, violet rear-jaw plane, all reading as a single skull mark. A side skull logo in nearly flat shallow silver-edged inlay, NOT an anatomical textbook rendering or realistic bone model. Keep the skull's overall shape plausible and recognizable; no monster horns, no vampire canines, no crossed bones, no pirate hat, no crown, no filigree, no neck armor, no face flesh, no gore, no black heart. Strong outline and broad holes readable at 80px. Fill about 80 percent of the square, centered.",
+      "generatedSource": "C:/Users/guill/.codex/generated_images/01a09f6e-3912-74c2-a5d4-c660a01fc541/exec-b0380a7e-310a-4f92-a1c1-cccd12b10abe.png",
+      "qa": {
+        "race": "SKULLZ",
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true,
+        "sha256": "6367d3ebafeb03aeedd95c4993001e8909177b53974ba06662790b68af109cfc",
+        "bytes": 1637430,
+        "alphaZeroPercent": 54.901,
+        "alpha255Percent": 0.035,
+        "alphaAtLeast250Percent": 43.39,
+        "edgeMaxAlpha": 1,
+        "bboxAlpha128": {
+          "x": 141,
+          "y": 113,
+          "width": 964,
+          "height": 1041
+        },
+        "longestSidePercent": 83.01,
+        "bboxCenterOffsetPercent": {
+          "x": -0.32,
+          "y": 0.52
+        },
+        "pass": true,
+        "visual": "Crane humain de profil, orbite et nez ajoures transparents, quatre dents larges et accent violet. Seul crane du set, distinct de CARDEMORTIS.",
+        "alphaNote": "Residue maximal 1/255 sur le bord; aucun pixel visible de symbole au bord. Alpha natif preserve.",
+        "sourceInspectedViaViewImage": true,
+        "outputInspectedViaViewImage": true,
+        "preview80OnLightAndDark": "pass",
+        "noTextOrOuterHousing": "pass"
+      }
+    },
+    {
+      "race": "SIRENA",
+      "batch": 3,
+      "status": "ready_for_parent_qa",
+      "destination": "V3/assets/revisions-20260914/races/SIRENA.png",
+      "sourcePng": "V3/assets/races/SIRENA.png",
+      "generationCalls": 1,
+      "prompt": "Use case: logo-brand. Create ONE NEW race logo for the fantasy card game Kalistar, an actual graphic heraldic SIGN, NOT a portrait or character illustration. Square PNG with a genuinely transparent alpha background, never a painted checkerboard or solid backdrop. One primary silhouette, at most THREE broad visual masses, bold clean readable edges at 80 x 80 pixels. Minimal shallow relief, matte patinated ivory and aged silver with one restrained race-specific enamel accent. Broad painted planes, slight material wear, no photorealistic texture, no glossy chrome, no heavy 3D bevels, no intricate engraving. Center the complete symbol, approximately 80 percent canvas height or width as appropriate, with about 10 percent transparent safe margins, no clipping. No outer circle, disc, ring, medallion, shield, housing, frame, pedestal, cast shadow, glow, aura, text, lettering, watermark or extra ornaments. Deliver a single finished isolated logo only, not a sheet or mockup. SUBJECT: SIRENA, an amphibious humanoid race with gills, NOT a mermaid with a fish tail. Reinterpret the original aquatic profile as a simple heraldic logo. ONE compact adult amphibious head-and-short-neck PROFILE facing right, warm patinated ivory/silver front outline with a natural forehead, small nose, closed lips and chin, no detailed eye, eyelashes, realistic skin, hair strands or expression. THREE broad visual masses only: the ivory human-like profile, ONE large turquoise enamel gill-fin sweeping back from the head with exactly three broad fin tips, and ONE short turquoise wave-shaped neck base flowing forward. Keep the wave an OPEN short curve, never a closed circle, ring, decorative scroll or housing. Gill-fin uses only two broad silver division lines, no tiny ribs or scales. All three masses connect into ONE readable silhouette; very shallow near-flat silver-edged enamel sign. Emphasize the visibly aquatic fin/gill contour, distinct from an elf ear or cyborg plate. Fill approximately 80 percent square, centered. No crown, tiara, horn, jewelry, weapon, trident, shell ornament, long flowing hair, full body, fish tail, bubbles, spray, glowing water, extra face or surrounding medallion. No photographic portrait and no fine filigree.",
+      "generatedSource": "C:/Users/guill/.codex/generated_images/01a09f6e-3912-74c2-a5d4-c660a01fc541/exec-e75bb4d7-ae58-4f72-9b0e-d9016bc7de66.png",
+      "qa": {
+        "race": "SIRENA",
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true,
+        "sha256": "7a14b71f5fc05e3f39eb57f3964899569dcbfb0758b4121dfc117602e9af7a78",
+        "bytes": 1381611,
+        "alphaZeroPercent": 65.311,
+        "alpha255Percent": 0.03,
+        "alphaAtLeast250Percent": 32.498,
+        "edgeMaxAlpha": 1,
+        "bboxAlpha128": {
+          "x": 145,
+          "y": 94,
+          "width": 971,
+          "height": 1074
+        },
+        "longestSidePercent": 85.65,
+        "bboxCenterOffsetPercent": {
+          "x": 0.28,
+          "y": 0.32
+        },
+        "pass": true,
+        "visual": "Profil amphibie ivoire, grande nageoire turquoise et vague ouverte courte. Trois masses lisibles, sans cercle ou medaillon.",
+        "alphaNote": "Residue maximal 1/255 sur le bord; aucun pixel visible de symbole au bord. Alpha natif preserve.",
+        "sourceInspectedViaViewImage": true,
+        "outputInspectedViaViewImage": true,
+        "preview80OnLightAndDark": "pass",
+        "noTextOrOuterHousing": "pass"
+      }
+    }
+  ],
+  "totalGenerationCalls": 12,
+  "parentFeedback": {
+    "approved": [
+      "HUMAIN",
+      "CARDEMORTIS"
+    ],
+    "robotCorrection": "Embleme mecanique serieux; roue dentee brisee/ouverte et oeil optique bleu unique; cercle mecanique autorise comme sujet, pas comme medaillon."
+  },
+  "blockers": [],
+  "robotCorrection": {
+    "status": "ready_for_parent_qa",
+    "authorization": "Parent autorise un correctif de vraie alpha puis, en cas d'echec, une generation neuve sans references; deux appels utilises dans cet ordre.",
+    "alpha": "pass",
+    "preview80": "pass",
+    "design": "Engrenage ouvert et optique bleue unique conformes a la nouvelle demande; validation finale parent attendue.",
+    "canonicalIntegration": "none"
+  },
+  "finalVerification": {
+    "assetCount": 9,
+    "realAlphaPngCount": 9,
+    "allSquare1254": true,
+    "sourceAndDestinationSha256Match": true,
+    "preview80Backgrounds": [
+      "#f4f5f6",
+      "#20252b"
+    ],
+    "scope": "Neuf PNG de revision plus ce manifeste. Aucun canonique, script, UI, BDD, profil ou autre asset modifie.",
+    "notes": "Quelques cadrages vont jusqu'a 89.23% au lieu des 80% vises; mesures par asset. Les residus alpha 1/255 au bord sont signales, aucun symbole ne touche le bord. HUMAIN est plus modele que les autres signes et a ete valide par le parent."
+  }
+}

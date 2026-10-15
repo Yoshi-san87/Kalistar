@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-09",
+  "characterArtwork": "User supplied; byte-identical copies; no illustration generation or retouching.",
+  "inputs": [
+    {
+      "source": "C:/Users/guill/Downloads/Batman.png",
+      "file": "art/batman.png",
+      "sha256": "618452b0604eba9553b6730d78ee196458763475d7424312d3990f3cca531133"
+    },
+    {
+      "source": "C:/Users/guill/Downloads/Joker.png",
+      "file": "art/joker.png",
+      "sha256": "aee9645d341a705903f11a215d2340c43b499b1bf06bd879e3200ca5a394eb6b"
+    },
+    {
+      "source": "C:/Users/guill/Downloads/BatmanLogo36.jpg",
+      "file": "art/supplied-logo.jpg",
+      "sha256": "8003b5377131bdda670733705eaa226dad48e54cb13892bea37ca41298ee54f0"
+    }
+  ],
+  "banner": {
+    "status": "not delivered; original Gothic tower preserved",
+    "mode": "built-in imagegen",
+    "attempts": [
+      {
+        "prompt": "Use case: precise-object-edit. Edit the supplied Kalistar faction pennant. Replace ONLY the central gold gothic tower emblem with the recognizable Batman bat silhouette emblem, in the same aged embroidered metallic gold material. Keep the black fabric, folds, gold hem, long pointed pennant outline and premium painted fantasy treatment. One clear horizontally spread bat silhouette, upright, centered in the upper-middle part of the fabric, as large as the available cloth width allows with breathing room. Remove the tower completely. No letters, no words, no additional symbols or scene. Keep the entire pennant visible and isolated on a genuinely transparent background. This is the black-and-gold faction banner for the user's Batman card collection.",
+        "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 4cd57625-6090-43e8-800f-5c8ed030596b.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")"
+      },
+      {
+        "prompt": "Use case: compositing. Image 1 is the existing black-and-gold Kalistar pennant to edit. Image 2 is the exact logo supplied by the user for insertion. Replace the central gothic tower of image 1 with the oval Batman emblem from image 2. Preserve the supplied emblem's exact recognizable oval and bat silhouette proportions, not stretched vertically. Convert only its yellow material to the aged embroidered metallic gold of the existing banner; the black portions merge with the black fabric. Position the emblem prominently in the upper-middle area, nearly the full available cloth width with clear margins. Keep the long black pennant, gold hem, folds and pointed bottom, and remove the tower completely. The rest of the cloth may remain calm and unadorned. No lettering or additional symbols. Entire pennant visible, genuinely transparent surrounding background.",
+        "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID a3e5e839-0d49-442e-9f81-0ff8665d5427.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")"
+      }
+    ],
+    "fallback": "No alternate generation route attempted. User informed; a finished supplied pennant can be integrated later."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "RE6",
+  "label": "Resident Evil 6",
+  "prompt": "Create ONE narrow vertical Kalistar faction banner TEXTURE SOURCE, portrait about 1:2.3. Match supplied MGS reference textile, shallow folds and fine metallic double edge style, NOT its text/symbol/palette. Cover-like recognizable Resident Evil game typography embroidered/painted into textile, distinct game-specific identity below. Logo centered across upper-middle, numeral centered lower-middle, all readable when reduced to 98x223 pixels. Entire texture fills canvas, straight rectangular cloth panel with slight pointed bottom matching reference; no rod, tassels or hardware, no scene, characters, Umbrella substitute, frame/card/UI/watermark. Keep decoration within side edges. Premium hand-painted material, matte woven fabric, worn metallic narrow edge. Do not include MGS words. Recognizable official pale lavender organic webbed elongated numeral 6 with loops and fine sinewy strands, silver RESIDENT EVIL title above, black cloth, readable bold motif.",
+  "generatedPath": "C:\\Users\\guill\\.codex\\generated_images\\01a0f2da-7687-71f1-9c85-73548a8b4e66\\exec-11f83cf8-7a9d-4c3b-af5f-61f7e4713bbd.png",
+  "status": "codex-visual-qa-human-approval-pending",
+  "visualReview": {
+    "date": "2026-10-01",
+    "reviewer": "Codex/parent visual QA",
+    "finding": "Recognizable per-game covers and numerals",
+    "humanApproval": false
+  },
+  "tool": "built-in imagegen",
+  "reference": "V4/expansions/2026-09-27-metal-gear-mines/art-flags/source-MGS1.png",
+  "officialReferences": [
+    "https://game.capcom.com/residentevil/en/lineup.html",
+    "https://game.capcom.com/residentevil/en/news-1834.html",
+    "https://www.playstation.com/en-us/games/resident-evil-requiem/"
+  ],
+  "referenceAccess": "Capcom search-index content available; direct news request returned 403. Requiem PlayStation page read successfully. Generated adaptations, not official logo extractions.",
+  "source": "source-RE6.png",
+  "flag": "flag-RE6.png",
+  "packedFlag": "flag-RE6-packed.png",
+  "packedGeometry": {
+    "left": 672,
+    "top": 829,
+    "width": 98,
+    "height": 223
+  },
+  "sourceHash": "179f759ab5547ac8e84c89a4c226ea24b85a8b5d6f596fad8cd7ac11d6615e70",
+  "flagHash": "a3e675ce236beb9765c804ab8c102dabfa494c10188414d0e3492d551b7a05a6",
+  "packedHash": "f07a9a184fb9b65e97fb10154d36708ab7c9d182642478cd7d4cf689a96ed9ff",
+  "bonusField": "faction",
+  "bonusStat": "ATK",
+  "membersScope": "living-board-only"
+}

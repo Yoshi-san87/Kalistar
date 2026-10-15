@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fr" data-hosting="local">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#101413">
+  <title>Kalistar V4.6.66 · Collection, Decks et Arène</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="arena.css">
+  <link rel="stylesheet" href="duel-presentation.css">
+  <link rel="stylesheet" href="duel-console.css">
+  <link rel="stylesheet" href="match-report.css">
+  <link rel="stylesheet" href="catalogue.css">
+  <link rel="stylesheet" href="v4.css">
+  <link rel="stylesheet" href="accounts.css">
+  <link rel="stylesheet" href="battle-ui.css">
+  <link rel="stylesheet" href="deck-builder.css">
+  <link rel="stylesheet" href="team-composition.css">
+  <link rel="stylesheet" href="collection-binder.css">
+  <link rel="stylesheet" href="integration.css">
+  <link rel="stylesheet" href="mobile.css">
+  <link rel="stylesheet" href="phone-preview.css">
+  <link rel="stylesheet" href="elemental-roll.css">
+  <link rel="stylesheet" href="statistics.css">
+  <link rel="stylesheet" href="kill-medals.css">
+  <link rel="stylesheet" href="pre-match.css">
+  <link rel="stylesheet" href="combat-reference.css">
+  <link rel="stylesheet" href="story-reader.css">
+  <link rel="stylesheet" href="weapons.css">
+  <link rel="stylesheet" href="weapon-cards.css">
+  <link rel="preload" href="assets/fonts/cinzel-v26-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="navigation.css">
+  <link rel="stylesheet" href="lineup-intro.css">
+  <link rel="stylesheet" href="ui-system.css">
+  <link rel="stylesheet" href="statistics-skin.css">
+  <link rel="stylesheet" href="turn-timeline.css">
+  <link rel="stylesheet" href="scoreboard.css">
+  <link rel="stylesheet" href="arena-console-skin.css">
+  <link rel="stylesheet" href="arena-finale.css">
+  <link rel="stylesheet" href="battle-report.css">
+  <link rel="stylesheet" href="home-screen.css">
+  <link rel="stylesheet" href="card-detail.css">
+  <link rel="stylesheet" href="arena-prompts.css">
+  <link rel="stylesheet" href="positions.css">
+  <link rel="stylesheet" href="collection-pedestal.css">
+  <link rel="stylesheet" href="map-view.css">
+  <link rel="stylesheet" href="guide-view.css">
+  <link rel="stylesheet" href="library-view.css">
+  <script defer src="site-config.js"></script>
+  <script defer src="phone-preview.js"></script>
+  <script defer src="pwa.js"></script>
+  <script defer src="boot.js"></script>
+</head>
+<body data-edition="V4">
+  <header class="masthead">
+    <a class="brand" href="#home" aria-label="Kalistar, accueil"><img src="assets/logo.webp" alt="Kalistar Card Game" width="300" height="100"></a>
+    <nav class="main-nav" aria-label="Navigation principale">
+      <button data-view="home" class="nav-home" aria-label="Accueil Kalistar"><span class="kalistar-sigil" aria-hidden="true">K</span><span>Accueil</span></button>
+      <button data-view="collection" class="active" aria-current="page"><img class="kalistar-nav-icon" src="assets/navigation/collection-v1.webp" alt="" aria-hidden="true" width="128" height="128"><span>Collection</span></button>
+      <button data-view="story"><img class="kalistar-nav-icon" src="assets/navigation/story-v1.webp" alt="" aria-hidden="true" width="128" height="128"><span>Story</span></button>
+      <button data-view="decks"><img class="kalistar-nav-icon" src="assets/navigation/decks-v1.webp" alt="" aria-hidden="true" width="128" height="128"><span>Decks</span></button>
+      <button data-view="weapons"><img class="kalistar-nav-icon" src="assets/navigation/weapons-v1.webp" alt="" aria-hidden="true" width="128" height="128"><span>Équipements</span></button>
+      <button data-view="arena"><img class="kalistar-nav-icon" src="assets/navigation/arena-v1.webp" alt="" aria-hidden="true" width="128" height="128"><span>Arène</span></button>
+      <button data-view="statistics"><img class="kalistar-nav-icon" src="assets/navigation/statistics-v1.webp" alt="" aria-hidden="true" width="128" height="128"><span class="desktop-nav-label">Statistiques</span><span class="phone-nav-label">Stats</span></button>
+      <button data-view="atelier"><i data-lucide="paintbrush"></i><span>Atelier</span></button>
+      <button class="nav-more" data-action="nav-more" aria-label="Autres sections" aria-haspopup="dialog" aria-controls="mobile-dialog" aria-expanded="false"><img class="kalistar-nav-icon" src="assets/navigation/more-v1.webp" alt="" aria-hidden="true" width="128" height="128"><span>Plus</span></button>
+    </nav>
+    <div class="header-actions"><span class="edition">VERSION 4.6.66</span><button class="icon-button pwa-install-button" data-pwa-install hidden title="Installer Kalistar comme une application" aria-label="Installer Kalistar comme une application"><i data-lucide="download"></i></button><button class="icon-button phone-preview-entry" data-action="phone-preview" title="Aperçu téléphone · Motorola Razr 50" aria-label="Mode téléphone · Motorola Razr 50" aria-pressed="false"><i data-lucide="smartphone"></i></button><button class="account-button" data-action="account" title="Profils locaux et transferts" aria-label="Profils locaux et transferts"><i data-lucide="users-round"></i><span id="account-name">Paris</span></button><button class="icon-button" data-action="rules" title="Règles de la démo" aria-label="Règles de la démo"><i data-lucide="scroll-text"></i></button><button class="deck-button" data-action="deck"><i data-lucide="layers-3"></i><span>Mon deck</span><b id="deck-count">10</b></button></div>
+  </header>
+  <main id="app"><div class="boot-status kalistar-boot" role="status"><span class="kalistar-sigil" aria-hidden="true">K</span><span>Chargement de Kalistar</span></div></main>
+  <section id="atelier-panel" aria-label="Atelier de cartes" hidden></section>
+  <button id="catalogue-refresh" class="catalogue-refresh" hidden title="Actualiser le catalogue et reprendre la partie"><i data-lucide="refresh-cw"></i><span>Nouvelles cartes</span></button>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <dialog id="detail-dialog" aria-label="Fiche de carte"></dialog>
+  <dialog id="deck-dialog" aria-label="Préparation du deck"></dialog>
+  <dialog id="rules-dialog" aria-label="Règles de Kalistar"></dialog>
+  <dialog id="new-game-dialog" aria-label="Nouvelle partie"></dialog>
+  <dialog id="journal-dialog" aria-label="Journal du duel"></dialog>
+  <dialog id="arena-dialog" class="arena-picker-dialog" aria-label="Choisir une arène"></dialog>
+  <dialog id="match-dialog" aria-label="Bilan du match"></dialog>
+  <dialog id="database-dialog" aria-label="Archives personnelles"></dialog>
+  <dialog id="account-dialog" aria-label="Profils locaux et transferts"></dialog>
+  <dialog id="mobile-dialog" class="mobile-sheet" aria-label="Actions de l’arène"></dialog>
+  <dialog id="combat-reference-dialog" aria-label="Codex des avantages en combat"></dialog>
+  <dialog id="weapons-dialog" aria-label="Équipement et porteurs compatibles"></dialog>
+</body>
+</html>

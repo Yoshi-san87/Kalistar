@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "key": "cait-sith",
+  "modelId": "46695200",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "03fa3bface4a21f04fbd0e89dea93883e91d269d6ef410167aeff930c65dbfe5",
+  "hashes": {
+    "card.png": "bdef866d3dd99db75f3f62c297a710b7b861eb7d7d058e9c86e2c16d67883b82",
+    "card.psd": "8689fe92c93a90ddbe8d9499ada8ac4de7c5112a693ac9e806c73af3db80202a"
+  },
+  "components": {
+    "changed": 136264,
+    "maxChannelDelta": 2,
+    "severePixels": 0,
+    "fixedDifferences": 0
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "46695200",
+    "cases": {
+      "color-1": [
+        "46695200"
+      ],
+      "color-4": [
+        "46695200"
+      ],
+      "gray-1": [
+        "46695200"
+      ],
+      "gray-4": [
+        "46695200"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-20T10:16:49.526Z"
+}

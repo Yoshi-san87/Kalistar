@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-25",
+  "generator": "image_gen.imagegen (built-in)",
+  "status": "art-selected-awaiting-parent-framed-QA",
+  "scope": "V4/collaborations/ff10-set-01/arenas",
+  "sourcePriority": "V4/AGENTS.md; V4/DIRECTION_ARTISTIQUE.md; V4/docs/IDENTITE_VISUELLE.md; docs/GUIDE_REPRISE.md",
+  "identitySource": {
+    "url": "https://na.finalfantasy.com/titles/finalfantasy10",
+    "logo": "https://cache-na.finalfantasy.com/assets/web/title/logo_ff10_en-540924fa631e0a47ef7b2388c092099cf4e1fea230cf80731e13f6408308e8b4.png"
+  },
+  "references": [
+    {
+      "path": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+      "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8",
+      "bytes": 2671393,
+      "width": 1122,
+      "height": 1402
+    },
+    {
+      "path": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+      "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee",
+      "bytes": 2334822,
+      "width": 1122,
+      "height": 1402
+    },
+    {
+      "path": "V4/collaborations/ff8-set-01/flag-source.png",
+      "sha256": "cd3a1a2cec59b4cc842790e0336d2fd90d9623ba529804777e1da1eee87316b7",
+      "bytes": 2040029,
+      "width": 864,
+      "height": 1821
+    },
+    {
+      "path": "V4/collaborations/ff8-set-01/flag-FF8.png",
+      "sha256": "ea1ea66adbc4518acaf96ed5de1e4c2cd166ca9d8ff6259332f81941aec14bc7",
+      "bytes": 44480,
+      "width": 109,
+      "height": 230
+    },
+    {
+      "path": "V4/collaborations/ff10-set-01/arenas/reference-logo-official-ff10.png",
+      "sha256": "540924fa631e0a47ef7b2388c092099cf4e1fea230cf80731e13f6408308e8b4",
+      "bytes": 303869,
+      "width": 706,
+      "height": 520
+    }
+  ],
+  "assets": [
+    {
+      "id": "ff10-luca-stadium",
+      "status": "selected",
+      "request": {
+        "path": "V4/collaborations/ff10-set-01/arenas/ff10-luca-stadium.request.json",
+        "sha256": "1b77c7f42a9e55862c710228323c3d31ab3e3ee74c1ddff8414525e85a13faa1",
+        "bytes": 2124,
+        "width": null,
+        "height": null
+      },
+      "output": {
+        "path": "V4/collaborations/ff10-set-01/arenas/ff10-luca-stadium.png",
+        "sha256": "af2f92f1883a16470be7e78144ddc0e6caed558c65002cd7990b9315cf040472",
+        "bytes": 2824722,
+        "width": 1672,
+        "height": 941
+      },
+      "generatedOriginal": "C:/Users/guill/.codex/generated_images/01a0d8c5-5db1-7a01-8915-48026bec8e0a/exec-52152bfa-cde1-452b-84ed-2d0e096476ac.png",
+      "selectedWithoutRasterChanges": true,
+      "visualReview": "Bright stadium water sphere, painted stone concourse clear for cards; no people or text."
+    },
+    {
+      "id": "ff10-zanarkand-ruins",
+      "status": "selected",
+      "request": {
+        "path": "V4/collaborations/ff10-set-01/arenas/ff10-zanarkand-ruins.request.json",
+        "sha256": "a3c20bbf9c45c2e82cb21d44acdcce8b55956008ee51f849f6c5c93b271e95d2",
+        "bytes": 2028,
+        "width": null,
+        "height": null
+      },
+      "output": {
+        "path": "V4/collaborations/ff10-set-01/arenas/ff10-zanarkand-ruins.png",
+        "sha256": "b3394ffe55f937492aed4308bf6e4bb9d2c85fb3b6e1f473e4f9fe6b6a4111d7",
+        "bytes": 2824672,
+        "width": 1672,
+        "height": 941
+      },
+      "generatedOriginal": "C:/Users/guill/.codex/generated_images/01a0d8c5-5db1-7a01-8915-48026bec8e0a/exec-9276e0e4-6fa9-4ea4-b7ef-0d937393fe17.png",
+      "selectedWithoutRasterChanges": true,
+      "visualReview": "Painted melancholy ruins, wide clear foreground, restrained pyreflies, no bodies/characters."
+    },
+    {
+      "id": "flag-source",
+      "status": "selected-texture-only",
+      "request": {
+        "path": "V4/collaborations/ff10-set-01/arenas/flag-source-official.request.json",
+        "sha256": "ca65e1e817b90504ee31e89a763812e843e1d1a4ad91bf08acc325e16df4c9c6",
+        "bytes": 2761,
+        "width": null,
+        "height": null
+      },
+      "output": {
+        "path": "V4/collaborations/ff10-set-01/arenas/flag-source.png",
+        "sha256": "826c850f8e3d3a074d6ada93e352f095fc9efcf22d94a85824e6805a3ed3594d",
+        "bytes": 2449106,
+        "width": 854,
+        "height": 1842
+      },
+      "generatedOriginal": "C:/Users/guill/.codex/generated_images/01a0d8c5-5db1-7a01-8915-48026bec8e0a/exec-25d0c616-f490-45fb-97b4-5df14f641233.png",
+      "selectedWithoutRasterChanges": true,
+      "visualReview": "Official logo supplied as reference; approved native alpha still required. Generated silhouette is not production geometry."
+    }
+  ],
+  "notes": [
+    "No shared/native files, profiles, PSDs, manifests, game code or publication changed.",
+    "All illustration assets copied byte-for-byte from built-in generator output.",
+    "Pending status inside initial request captures describes pre-generation plan; selection status here is authoritative.",
+    "flag-source.request.json was an initial unsent draft; actual generation used flag-source-official.request.json."
+  ]
+}

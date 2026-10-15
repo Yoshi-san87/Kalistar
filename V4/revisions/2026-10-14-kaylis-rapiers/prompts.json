@@ -1,0 +1,42 @@
+{
+  "mode": "builtin-image_gen",
+  "date": "2026-10-14",
+  "images": [
+    {
+      "role": "body",
+      "file": "exec-90d12cbf-7e5d-49e4-a544-de9646d9c4ca.png",
+      "refs": [
+        "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "V4/weapon-cards/sources/white-oath-rapier-scene-v3.png"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: transparent isolated weapon artwork for Kalistar collectible card and tiny animated medallion. Create a NEW exquisite black and red rapier for Kaylis, named Eclipse (NO written text). Image 1 is painterly style reference only: visible fine brushwork, tactile aged metal, heroic fantasy with subtle magitech, not photographic CGI. Image 2 is only a rapier silhouette/collection-quality reference: do NOT copy its ivory or gold coloring. One complete slender perfectly STRAIGHT needle-like blade, continuous coherent axis from pommel through grip to tip. Dark blackened steel blade with a fine silver cutting edge and very narrow crimson central inlay. Beautiful intricate swept black-steel guard with restrained antique copper edge accents, deep-red faceted jewel at pommel, black leather grip with fine red wrap. Very faint delicate crimson magical filaments curl ONLY around the grip and guard, subtle and elegant, never around the whole blade. Full weapon visible diagonally from hilt upper left to sharp tip lower right, enough empty margin all sides. Fine precise handcrafted object, elegant not bulky, no jagged teeth, no extra blades, no skulls. Genuine transparent background including holes through the guard; no floor, no frame, no circle, no shadow rectangle, no characters, no text, no watermark. Entire sharp point visible; do not curve blade to fit.",
+      "generated": "C:/Users/guill/.codex/generated_images/01a101d7-d348-7f93-aa10-a7bc601dc655/exec-90d12cbf-7e5d-49e4-a544-de9646d9c4ca.png",
+      "target": "V4/weapon-cards/sources/kaylis-eclipse-rapier-v1.png",
+      "transparent": true
+    },
+    {
+      "role": "scene",
+      "file": "exec-86548bb4-9d4a-4a3f-ad46-b7aa8399dd30.png",
+      "refs": [
+        "V4/weapon-cards/sources/kaylis-eclipse-rapier-v1.png",
+        "V3/assets/illustrations/01_ELECTRO_MOMO.png"
+      ],
+      "prompt": "Use case: compositing / illustration-story. Asset: full-bleed painted weapon collectible scene for Kalistar, no card frame or lettering. Image 1 is the EXACT weapon identity to preserve: exquisite black and red slender straight rapier, black leather red-thread grip, red faceted pommel gem, black-steel swept guard with copper edges and crimson inlay. Image 2 supplies the painterly Kalistar style: expressive visible brushwork, believable worn materials, fantasy with subtle magitech, NOT photoreal CGI. Show only this single whole rapier resting diagonally across two worn pale-grey stone steps of a quiet training courtyard at dusk. Hilt in upper-left portion, needle point lower-right, perfectly straight blade, all weapon visible with breathing space. Small folded charcoal cloth behind grip. Delicate faint red magic curls around grip only, a few tiny red motes. Strong readable weapon silhouette, black steel catches silver edge light. Background is calm, minimal, no distant detailed scenery, no other weapons, no people, no clutter, no large glow or smoke. Slightly portrait composition matching the prior white rapier's illustration, 4:5. No text, no border, no watermark.",
+      "generated": "C:/Users/guill/.codex/generated_images/01a101d7-d348-7f93-aa10-a7bc601dc655/exec-86548bb4-9d4a-4a3f-ad46-b7aa8399dd30.png",
+      "target": "V4/weapon-cards/sources/kaylis-eclipse-rapier-scene-v1.png",
+      "transparent": false
+    },
+    {
+      "role": "ring",
+      "file": "exec-06f029ed-2cec-4691-b28e-92a2167dece9.png",
+      "refs": [
+        "V4/weapon-cards/sources/white-oath-rapier-ring-v2.png",
+        "V4/weapon-cards/sources/kaylis-eclipse-rapier-v1.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: rotating hollow weapon medallion ring for Kalistar game. Redesign Image 1 white/gold ring into the black/red visual identity of the rapier shown in Image 2. Preserve Image 1 exact frontal circular concentric geometry, centered clean open circular hole, similar ring thickness and four restrained cardinal-point accents. Replace ivory panels with finely worked blackened steel and dark enamel, gold edges with restrained aged copper and silver highlights, opals with faceted deep-red jewels. Very faint narrow red magic threading along the INNER RIM, not giant flames. Exquisite fine painterly metal craftsmanship, legible at small size, physically plausible engraved circular trim. Ring ONLY: NO sword, NO lettering, NO center disk, NO background. Both inside hole and outside ring genuinely transparent alpha, center fully clear. Circle centered on square canvas with narrow safe margin and no clipping. Full clean outline, no extra disconnected ornaments, no heavy haze, no rectangular black fill. The reference rapier determines color and small engraving language only, never insert the weapon in ring.",
+      "generated": "C:/Users/guill/.codex/generated_images/01a101d7-d348-7f93-aa10-a7bc601dc655/exec-06f029ed-2cec-4691-b28e-92a2167dece9.png",
+      "target": "V4/weapon-cards/sources/kaylis-eclipse-rapier-ring-v1.png",
+      "transparent": true
+    }
+  ]
+}

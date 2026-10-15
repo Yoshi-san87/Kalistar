@@ -1,0 +1,50 @@
+{
+  "screens": [
+    {
+      "width": 2493,
+      "height": 1461,
+      "cardWidth": 222.1875,
+      "pageOverflow": false,
+      "crossGeometry": true,
+      "diceNonblank": true
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "cardWidth": 168,
+      "pageOverflow": false,
+      "crossGeometry": true,
+      "diceNonblank": true
+    },
+    {
+      "width": 1440,
+      "height": 1000,
+      "cardWidth": 168,
+      "pageOverflow": false,
+      "crossGeometry": true,
+      "diceNonblank": true
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "cardWidth": 106,
+      "pageOverflow": false,
+      "crossGeometry": true,
+      "diceNonblank": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "cardWidth": 106,
+      "pageOverflow": false,
+      "crossGeometry": true,
+      "diceNonblank": true
+    }
+  ],
+  "checks": [
+    "Mirrored cross positions; fixed player dice order; 5 responsive viewports; zoom persistence; journal; pending legacy heart migration",
+    "Heart earned through a real UI roll; badge disappears on a lethal hit; card stays on its position",
+    "Only active player die moves; canvas pixels change; final face matches exactly one seeded roll; navigation cancels pending animation without committing a stale result"
+  ],
+  "errors": []
+}

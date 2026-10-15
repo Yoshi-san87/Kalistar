@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "modelId": "30000009",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "594611594f87229cdc0720e97764ef568641e5910af974117ea99b5e1cfd84eb",
+  "hashes": {
+    "card.png": "f0c211de4680d2a8b0bef546620b1ed4838506554cc1e74f0e8bc1cd443c63e2",
+    "card.psd": "3821296f3bb118558e73adfcc9d6d29ea5814e74862152978b73355b1ea1eb47"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 119158
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "30000009",
+    "cases": {
+      "color-1": [
+        "30000009"
+      ],
+      "color-4": [
+        "30000009"
+      ],
+      "gray-1": [
+        "30000009"
+      ],
+      "gray-4": [
+        "30000009"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-23T15:54:30.530Z",
+  "key": "verminia-bureau",
+  "typography": {
+    "NOM": {
+      "font": "TimesNewRomanPSMT",
+      "sizePt": 10.0000012207031,
+      "tracking": 0,
+      "capitalization": "TextCase.NORMAL",
+      "fauxBold": false,
+      "fauxItalic": false
+    },
+    "TITLE": {
+      "font": "TimesNewRomanPSMT",
+      "sizePt": 7.68,
+      "tracking": 0,
+      "capitalization": "TextCase.ALLCAPS",
+      "fauxBold": false,
+      "fauxItalic": false
+    }
+  },
+  "preparationHash": "c7c7d46f9bbc6acf15079fb0d28af411e243ba397bcf04a21489a00daca1834e"
+}

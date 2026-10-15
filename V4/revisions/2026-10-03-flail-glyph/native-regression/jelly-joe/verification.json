@@ -1,0 +1,33 @@
+{
+  "key": "jelly-joe",
+  "passed": true,
+  "comparison": {
+    "changed": 0,
+    "outside": 0
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "fixed": null,
+  "barcode": {
+    "passed": true,
+    "expected": "30000032",
+    "cases": {
+      "color-1": [
+        "30000032"
+      ],
+      "color-4": [
+        "30000032"
+      ],
+      "gray-1": [
+        "30000032"
+      ],
+      "gray-4": [
+        "30000032"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "photoshop": "26.11.7"
+}

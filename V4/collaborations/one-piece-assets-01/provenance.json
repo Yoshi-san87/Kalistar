@@ -1,0 +1,484 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-01",
+  "officialCollaboration": false,
+  "requestFile": "requests.json",
+  "requestHash": "a69ee6b9cacde1f60eaf6c14fe59c5d695921e2a20ea86361e1461f489e1debf",
+  "officialReferences": [
+    "https://one-piece.com/character/robin/index.html",
+    "https://one-piece.com/character/franky/index.html",
+    "https://one-piece.com/character/brook/index.html",
+    "https://one-piece.com/character/Jinbe/index.html",
+    "https://one-piece.com/news/o20141027_1501/index.html"
+  ],
+  "referenceAccess": {
+    "method": "web search official ONE PIECE.com character pages and flag page",
+    "directOpen": "Character page direct opens returned HTTP 403; indexed official text was available and read. No downloaded official images were supplied to generation.",
+    "costumeBasis": "User-requested canonical early post-timeskip outfits, interpreted from established character designs; no claim that inaccessible current website images were inspected."
+  },
+  "assets": [
+    {
+      "id": "franky",
+      "output": "V4/Illustrations/OP_franky_01.png",
+      "sha256": "11983405d3e943f4bd98942fe37c4dba2384fdb2b027d12c3f85e213b577c273",
+      "promptFile": "requests.json",
+      "promptKey": "assets.franky",
+      "promptSha256": "2bd24517cc0066b16e9ce113a939555cfbe996b1f09aecd1d4351ea15ce6b58d",
+      "references": [
+        {
+          "file": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8"
+        },
+        {
+          "file": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee"
+        },
+        {
+          "file": "V4/Illustrations/RE_leon4_01.png",
+          "sha256": "dad9a0f45067bd30bbbaa88668a75ad4136ed3b9957e485a286075dfea822e4e"
+        }
+      ],
+      "retainedOriginal": "V4/Illustrations/OP_franky_01.png",
+      "entryId": "franky"
+    },
+    {
+      "id": "brook",
+      "output": "V4/Illustrations/OP_brook_01.png",
+      "sha256": "3e437db514944ecad18632baf13f9ad4a1af44eafb4bcfe7acf7ae407c543963",
+      "promptFile": "requests.json",
+      "promptKey": "assets.brook",
+      "promptSha256": "84f9611ac7f29e3d65765a48720d86ef82e3c3b6ee2ac4ec139753debe6b906e",
+      "references": [
+        {
+          "file": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8"
+        },
+        {
+          "file": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee"
+        }
+      ],
+      "retainedOriginal": "V4/Illustrations/OP_brook_01.png",
+      "entryId": "brook"
+    },
+    {
+      "id": "jinbe",
+      "output": "V4/Illustrations/OP_jinbe_01.png",
+      "sha256": "cb2c8b6e3a8908d984e353ca0b9f968da70c1bac6159424a85d1e310ed3f4668",
+      "promptFile": "requests.json",
+      "promptKey": "assets.jinbe",
+      "promptSha256": "595dcf19615359151285a66442ac5571d2f5b2c252aa8fbeb0ef0518997bfb77",
+      "references": [
+        {
+          "file": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8"
+        },
+        {
+          "file": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee"
+        },
+        {
+          "file": "V4/Illustrations/RE_leon4_01.png",
+          "sha256": "dad9a0f45067bd30bbbaa88668a75ad4136ed3b9957e485a286075dfea822e4e"
+        }
+      ],
+      "retainedOriginal": "V4/Illustrations/OP_jinbe_01.png",
+      "entryId": "jinbe"
+    },
+    {
+      "id": "robin",
+      "output": "V4/Illustrations/OP_robin_01.png",
+      "sha256": "191201c76d95bd6d29e892f3dbe6e57dc96071e4fc0ab7c01704dd441352fab5",
+      "promptFile": "requests.json",
+      "promptKey": "revisions.robin-face-v2",
+      "promptSha256": "4ad98efa15157fa3b036ffa6cf35f2f10bc6cd4c94e77a1dc4d2d3a6e3ab6592",
+      "references": [
+        {
+          "file": "V4/collaborations/one-piece-assets-01/OP_robin_01.initial.png",
+          "sha256": "75bb3e71cfa861e68bbd9262bf04848db2f76189206580a3423dd5f9281dc5a8"
+        },
+        {
+          "file": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8"
+        },
+        {
+          "file": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee"
+        },
+        {
+          "file": "V4/Illustrations/RE_leon4_01.png",
+          "sha256": "dad9a0f45067bd30bbbaa88668a75ad4136ed3b9957e485a286075dfea822e4e"
+        },
+        {
+          "file": "V4/Illustrations/Kaylis_Lelan_Des_Couleurs.png",
+          "sha256": "4b167fda27dd05eddb4baa48db73502fad07a89a9a3eba1fb804df3ba1edaefb"
+        }
+      ],
+      "retainedOriginal": "V4/Illustrations/OP_robin_01.png",
+      "entryId": "robin-face-v2"
+    }
+  ],
+  "entries": [
+    {
+      "id": "ONEPIECE",
+      "kind": "banner",
+      "tool": "built-in image_gen",
+      "callsForThisVersion": 1,
+      "promptFile": "requests.json",
+      "promptKey": "assets.ONEPIECE",
+      "promptSha256": "f580ad984ff24b0da883ef9118e980a9c1125ed89108588ecd9587a811ce43de",
+      "references": [
+        {
+          "file": "V4/collaborations/ff8-set-01/flag-FF8.png",
+          "sha256": "ea1ea66adbc4518acaf96ed5de1e4c2cd166ca9d8ff6259332f81941aec14bc7"
+        }
+      ],
+      "generatedPath": "C:/Users/guill/.codex/generated_images/01a0f748-d6dc-74e1-85cb-7901ff9acefa/exec-9149ae80-fa4b-4361-a56a-9b10002976c9.png",
+      "retainedOriginal": "V4/collaborations/one-piece-assets-01/source-ONEPIECE.png",
+      "sha256": "cb5ada556a11e9359d247af563318529a4d0ebf8a9f10c20cd800be494e9891d",
+      "width": 863,
+      "height": 1822,
+      "transparentBackgroundRequested": true,
+      "selected": true,
+      "supersededBy": null,
+      "visualReview": {
+        "parentApproved": true,
+        "humanApprovalNotInferred": true,
+        "status": "parent-visual-qa-approved",
+        "finding": "Recognizable straw-hat Jolly Roger and ONE PIECE wordmark; full and packed FF8 alpha identical."
+      }
+    },
+    {
+      "id": "SHARKAN",
+      "kind": "race",
+      "tool": "built-in image_gen",
+      "callsForThisVersion": 1,
+      "promptFile": "requests.json",
+      "promptKey": "assets.SHARKAN",
+      "promptSha256": "7483dd4d57ff01b43f96aec6980323197b583d6d62bd69b09ade64a4ecc0781e",
+      "references": [
+        {
+          "file": "V3/assets/races/SKULLZ.png",
+          "sha256": "3e8967f4267f4c28b4a44921244f93da5dd7b9cd41c49a93deea43e231bacd70"
+        },
+        {
+          "file": "V3/assets/races/HUMAIN.png",
+          "sha256": "a218d17e0d3aa0308ed0bffc4903c4b207ccb33f82188175692ab6a8d9094951"
+        }
+      ],
+      "generatedPath": "C:/Users/guill/.codex/generated_images/01a0f748-d6dc-74e1-85cb-7901ff9acefa/exec-6e4ad183-ef55-4371-86f3-5c7148b5142d.png",
+      "retainedOriginal": "V4/collaborations/one-piece-assets-01/source-SHARKAN.png",
+      "sha256": "69c6feee40f9951aab49dca44854bc475de18029d5e7d6dd0ec21a32bbbb18e1",
+      "width": 1254,
+      "height": 1254,
+      "transparentBackgroundRequested": true,
+      "selected": true,
+      "supersededBy": null,
+      "visualReview": {
+        "parentApproved": true,
+        "humanApprovalNotInferred": true,
+        "status": "parent-visual-qa-approved",
+        "finding": "Human-shark head/shoulder emblem matching existing painted race bank; all nonzero motif alpha radius 37.845px and optical error .472px."
+      }
+    },
+    {
+      "id": "robin",
+      "kind": "art",
+      "tool": "built-in image_gen",
+      "callsForThisVersion": 1,
+      "promptFile": "requests.json",
+      "promptKey": "assets.robin",
+      "promptSha256": "16a955e6ec500130d2e3a8729b18782c15d693be9089a47f9361de328f92dfca",
+      "references": [
+        {
+          "file": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8"
+        },
+        {
+          "file": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee"
+        }
+      ],
+      "generatedPath": "C:/Users/guill/.codex/generated_images/01a0f748-d6dc-74e1-85cb-7901ff9acefa/exec-a9991e70-2084-4af1-8897-e716b042fa79.png",
+      "retainedOriginal": "V4/collaborations/one-piece-assets-01/OP_robin_01.initial.png",
+      "sha256": "75bb3e71cfa861e68bbd9262bf04848db2f76189206580a3423dd5f9281dc5a8",
+      "width": 1122,
+      "height": 1402,
+      "transparentBackgroundRequested": false,
+      "selected": false,
+      "supersededBy": "robin-face-v2",
+      "visualReview": {
+        "parentApproved": false,
+        "humanApprovalNotInferred": true,
+        "status": "superseded-anime-face",
+        "finding": "First scene retained for provenance; anime facial proportions replaced in v2."
+      }
+    },
+    {
+      "id": "franky",
+      "kind": "art",
+      "tool": "built-in image_gen",
+      "callsForThisVersion": 1,
+      "promptFile": "requests.json",
+      "promptKey": "assets.franky",
+      "promptSha256": "2bd24517cc0066b16e9ce113a939555cfbe996b1f09aecd1d4351ea15ce6b58d",
+      "references": [
+        {
+          "file": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8"
+        },
+        {
+          "file": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee"
+        },
+        {
+          "file": "V4/Illustrations/RE_leon4_01.png",
+          "sha256": "dad9a0f45067bd30bbbaa88668a75ad4136ed3b9957e485a286075dfea822e4e"
+        }
+      ],
+      "generatedPath": "C:/Users/guill/.codex/generated_images/01a0f748-d6dc-74e1-85cb-7901ff9acefa/exec-a6928857-20bb-43c6-8ab2-d9b830056d9f.png",
+      "retainedOriginal": "V4/Illustrations/OP_franky_01.png",
+      "sha256": "11983405d3e943f4bd98942fe37c4dba2384fdb2b027d12c3f85e213b577c273",
+      "width": 1122,
+      "height": 1402,
+      "transparentBackgroundRequested": false,
+      "selected": true,
+      "supersededBy": null,
+      "visualReview": {
+        "parentApproved": true,
+        "humanApprovalNotInferred": true,
+        "status": "parent-visual-qa-approved",
+        "finding": "Joyful shipwright; integrated cannon replaces one hand, two arms/two legs; painted canonical exaggerated cyborg anatomy."
+      }
+    },
+    {
+      "id": "brook",
+      "kind": "art",
+      "tool": "built-in image_gen",
+      "callsForThisVersion": 1,
+      "promptFile": "requests.json",
+      "promptKey": "assets.brook",
+      "promptSha256": "84f9611ac7f29e3d65765a48720d86ef82e3c3b6ee2ac4ec139753debe6b906e",
+      "references": [
+        {
+          "file": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8"
+        },
+        {
+          "file": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee"
+        }
+      ],
+      "generatedPath": "C:/Users/guill/.codex/generated_images/01a0f748-d6dc-74e1-85cb-7901ff9acefa/exec-fb8e01eb-5b62-41ea-a689-b8227fa28d4f.png",
+      "retainedOriginal": "V4/Illustrations/OP_brook_01.png",
+      "sha256": "3e437db514944ecad18632baf13f9ad4a1af44eafb4bcfe7acf7ae407c543963",
+      "width": 1122,
+      "height": 1402,
+      "transparentBackgroundRequested": false,
+      "selected": true,
+      "supersededBy": null,
+      "visualReview": {
+        "parentApproved": true,
+        "humanApprovalNotInferred": true,
+        "status": "parent-visual-qa-approved",
+        "finding": "Soulful violin at night; skull, afro, two skeletal arms/two legs, violin and bow contacts visible."
+      }
+    },
+    {
+      "id": "jinbe",
+      "kind": "art",
+      "tool": "built-in image_gen",
+      "callsForThisVersion": 1,
+      "promptFile": "requests.json",
+      "promptKey": "assets.jinbe",
+      "promptSha256": "595dcf19615359151285a66442ac5571d2f5b2c252aa8fbeb0ef0518997bfb77",
+      "references": [
+        {
+          "file": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8"
+        },
+        {
+          "file": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee"
+        },
+        {
+          "file": "V4/Illustrations/RE_leon4_01.png",
+          "sha256": "dad9a0f45067bd30bbbaa88668a75ad4136ed3b9957e485a286075dfea822e4e"
+        }
+      ],
+      "generatedPath": "C:/Users/guill/.codex/generated_images/01a0f748-d6dc-74e1-85cb-7901ff9acefa/exec-70d4f915-ee29-47ce-9cff-ec286e3172a3.png",
+      "retainedOriginal": "V4/Illustrations/OP_jinbe_01.png",
+      "sha256": "cb2c8b6e3a8908d984e353ca0b9f968da70c1bac6159424a85d1e310ed3f4668",
+      "width": 1122,
+      "height": 1402,
+      "transparentBackgroundRequested": false,
+      "selected": true,
+      "supersededBy": null,
+      "visualReview": {
+        "parentApproved": true,
+        "humanApprovalNotInferred": true,
+        "status": "parent-visual-qa-approved",
+        "finding": "Massive blue fishman, orange patterned kimono, protective karate palm in storm, two arms/two planted legs."
+      }
+    },
+    {
+      "id": "robin-face-v2",
+      "kind": "art",
+      "tool": "built-in image_gen",
+      "callsForThisVersion": 1,
+      "promptFile": "requests.json",
+      "promptKey": "revisions.robin-face-v2",
+      "promptSha256": "4ad98efa15157fa3b036ffa6cf35f2f10bc6cd4c94e77a1dc4d2d3a6e3ab6592",
+      "references": [
+        {
+          "file": "V4/collaborations/one-piece-assets-01/OP_robin_01.initial.png",
+          "sha256": "75bb3e71cfa861e68bbd9262bf04848db2f76189206580a3423dd5f9281dc5a8"
+        },
+        {
+          "file": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+          "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8"
+        },
+        {
+          "file": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+          "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee"
+        },
+        {
+          "file": "V4/Illustrations/RE_leon4_01.png",
+          "sha256": "dad9a0f45067bd30bbbaa88668a75ad4136ed3b9957e485a286075dfea822e4e"
+        },
+        {
+          "file": "V4/Illustrations/Kaylis_Lelan_Des_Couleurs.png",
+          "sha256": "4b167fda27dd05eddb4baa48db73502fad07a89a9a3eba1fb804df3ba1edaefb"
+        }
+      ],
+      "generatedPath": "C:/Users/guill/.codex/generated_images/01a0f748-d6dc-74e1-85cb-7901ff9acefa/exec-dd092f0a-3d6b-4a3e-9394-d57a84ffdd94.png",
+      "retainedOriginal": "V4/Illustrations/OP_robin_01.png",
+      "sha256": "191201c76d95bd6d29e892f3dbe6e57dc96071e4fc0ab7c01704dd441352fab5",
+      "width": 1122,
+      "height": 1402,
+      "transparentBackgroundRequested": false,
+      "selected": true,
+      "supersededBy": null,
+      "visualReview": {
+        "parentApproved": false,
+        "humanApprovalNotInferred": true,
+        "status": "corrected-natural-face-awaiting-parent-view",
+        "finding": "Adult human eye size, nose/lip/cheek volumes corrected using RE Leon and Kaylis; crossed arms, outfit and Sunny scene retained."
+      }
+    }
+  ],
+  "prepared": {
+    "factions": [
+      {
+        "id": "ONEPIECE",
+        "label": "One Piece",
+        "source": "source-ONEPIECE.png",
+        "flag": "flag-ONEPIECE.png",
+        "packedFlag": "flag-ONEPIECE-packed.png",
+        "packedGeometry": {
+          "left": 672,
+          "top": 829,
+          "width": 98,
+          "height": 223
+        },
+        "sourceHash": "cb5ada556a11e9359d247af563318529a4d0ebf8a9f10c20cd800be494e9891d",
+        "flagHash": "0a57ba21e19e334794a498eb44c387cb3076a11f8b0f7540083f1755cc48c8ae",
+        "packedHash": "61ec2a913882f5c6b89544ede82a0bb24ece705542c5e85f88a520116282e9d7",
+        "outline": "V4/collaborations/ff8-set-01/flag-FF8.png",
+        "outlineHash": "ea1ea66adbc4518acaf96ed5de1e4c2cd166ca9d8ff6259332f81941aec14bc7",
+        "packedOutlineHash": "8afbf9cd1c89450716a37fa153973fc1c91b0f93bfe3ea2056498f42237a3487",
+        "bonusField": "faction",
+        "bonusStat": "ATK",
+        "membersScope": "living-board-only"
+      }
+    ],
+    "races": {
+      "SHARKAN": {
+        "left": 711,
+        "top": 1116,
+        "width": 96,
+        "height": 95,
+        "source": "V4\\collaborations\\one-piece-assets-01\\source-SHARKAN.png",
+        "sourceHash": "69c6feee40f9951aab49dca44854bc475de18029d5e7d6dd0ec21a32bbbb18e1",
+        "sha256": "93a9d24656733794a1808a66e2966c2327e5d7c452a0ba8c3a6f2e36b8fb0722",
+        "nativeEmail": "V4\\collaborations\\ff7-set-01\\weapon-email-native.png",
+        "nativeEmailHash": "c6ef219cbe72e7addf544d52fac5e047e4eda5552bda1d2f985c84e250ce3bd6",
+        "crop": {
+          "left": 0,
+          "top": 21,
+          "width": 1240,
+          "height": 1233
+        },
+        "placement": {
+          "left": 8,
+          "top": 8
+        },
+        "sourceMetrics": {
+          "fullBounds": [
+            0,
+            21,
+            1240,
+            1254
+          ],
+          "visibleBounds": [
+            179,
+            103,
+            1139,
+            1166
+          ],
+          "centroid": [
+            656.1728698001634,
+            681.0840039580878
+          ],
+          "optical": [
+            657.1623653701063,
+            664.7796025727571
+          ],
+          "fullAlphaRadius": 1589.013294469244,
+          "opticalError": 867.244426407967,
+          "visibleAlphaThreshold": 16
+        },
+        "metrics": {
+          "fullBounds": [
+            16,
+            11,
+            79,
+            83
+          ],
+          "visibleBounds": [
+            18,
+            13,
+            77,
+            78
+          ],
+          "centroid": [
+            47.691944225575895,
+            48.13526491587766
+          ],
+          "optical": [
+            47.62476374662433,
+            47.21292219532048
+          ],
+          "fullAlphaRadius": 37.84507894033252,
+          "opticalError": 0.47245731213202846,
+          "visibleAlphaThreshold": 16
+        },
+        "motif": "V4\\collaborations\\one-piece-assets-01\\race-SHARKAN.motif.png",
+        "motifHash": "22f514dc025b0fa5708ecf9b8d4e7aa683e2894b7de529914ff6a0fb39dbc2c1",
+        "opticalTarget": [
+          759,
+          1163.5
+        ],
+        "measuredOpticalCenter": [
+          758.6247637466244,
+          1163.2129221953205
+        ],
+        "radiusLimit": 39,
+        "opticalTolerance": 0.75,
+        "method": "65% visible luminance-alpha centroid / 35% visible bounds centre; full nonzero alpha contour contained; visible alpha >=16"
+      }
+    }
+  },
+  "processing": "Original built-in outputs retained byte-identically. Banner RGB resized and masked with exact approved FF8 alpha. SHARKAN uses existing nier-pilot-01 optical fitter and native enamel. No generated full card, Photoshop, catalogue write or Git operation.",
+  "pending": "Final native card crop/frame/barcode QA belongs to parent and profile/native agent. Robin revised face awaits parent view."
+}

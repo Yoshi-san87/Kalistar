@@ -1,0 +1,525 @@
+{
+  "schema_version": 1,
+  "project": "Kalistar",
+  "version": "V3",
+  "scope": "Four missing canonical race badges plus Woodland faction flag only",
+  "started_at": "2026-09-14T10:43:51.943Z",
+  "status": "complete_with_geometry_note",
+  "postprocessing": "None. Preserve native generated PNG canvas and alpha, byte-for-byte copy. QA thumbnails and measurements only.",
+  "reference_inspection": {
+    "badges": [
+      "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/races/DRAX.png",
+      "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/races/NAIN.png"
+    ],
+    "factions": [
+      "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V2/verification/flags_detoures.jpg",
+      "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V2/assets/factions/Arborium.png",
+      "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V2/assets/factions/Durane.png"
+    ],
+    "canonical_profiles": "V3/donnees/cartes.json: Polux, Jelly-Joe, Bloom, Elenion",
+    "interpretation": "TANTALAK combines canonical compact jellyfish-like head/short filaments with user-requested humanoid cephalopod features. TOXINAR combines canonical green floral face/short purple petals with user-requested reptile-plant features. No profile edits."
+  },
+  "constraints": {
+    "no_existing_art_overwrite": true,
+    "no_changes_to": [
+      "mechanics",
+      "code",
+      "UI",
+      "roster",
+      "other art"
+    ],
+    "badge_readability_px": 52,
+    "flag_alpha_bounds_height_width_target": 1.65,
+    "flag_bar_center_canvas_y_target": 0.08,
+    "flag_parent_alignment_y": 826
+  },
+  "assets": [
+    {
+      "id": "FELINEUS",
+      "category": "race",
+      "label": "FELINEUS",
+      "destination": "V3/assets/races/FELINEUS.png",
+      "prompt": "Use case: stylized-concept. Asset type: ONE original Kalistar V3 RACE BADGE, instantly recognizable at 52x52 pixels. Previously inspected existing Kalistar DRAX and NAIN badges establish the style: sculpted polished silver with warm copper accents, dimensional fantasy metalwork, dark recessed forms and crisp self-contained silhouette. Do NOT copy their dragon, dwarf, beard or helmet identity. Render one new carved metallic head emblem, no surrounding disc or medallion, no border, no shield behind head. Square PNG, genuinely transparent alpha background, full head visible and optically centered with 8 percent clear margin, shape occupies around 84 percent of canvas. Broad grouped masses, very few large readable carved shapes and color inlays, strong silhouette, clean edge highlights. Omit microscopic scales, filigree, individual hairs and busy engraving. Silver dominates, copper selectively reinforces the outline and large contours. No text, letters, logo, watermark, background, floor, external shadow, aura, particles, glow, painted checkerboard, extra heads, body, arms or unrelated objects. One asset only, never a sheet.\nSubject: Front-facing stylized LYNX HEAD: two tall triangular tufted ears, broad cheek ruffs shaped as just two or three large silver points per side, short broad feline muzzle, strong brow and two amber enamel eyes. Ash-silver face, dark nose, restrained copper at ears and cheeks. Clearly a lynx, not a lion, tiger, wolf, domestic cat or dragon. No mane, forehead gemstone or helmet. Head-only emblem of the Felineus humanoid race.",
+      "status": "complete",
+      "canonical_source": {
+        "file": "V3/donnees/cartes.json",
+        "card_id": "30000031",
+        "character": "POLUX",
+        "description": "Adult humanoid with an ash-gray lynx head and tufted ears."
+      },
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "mode": "built-in",
+        "input_images": [],
+        "calls": 3,
+        "generated_at": "2026-09-14T10:47:20.171Z",
+        "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-6c800a7a-1308-4ee7-be64-49b02115214d.png",
+        "output_hint": "Generated images are saved to C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626 as C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-6c800a7a-1308-4ee7-be64-49b02115214d.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+        "attempts": [
+          {
+            "prompt": "Use case: stylized-concept. Asset type: ONE original Kalistar V3 RACE BADGE, instantly recognizable at 52x52 pixels. Input images 1 (DRAX) and 2 (NAIN) are STYLE REFERENCES ONLY: match their sculpted polished silver with warm copper accents, dimensional fantasy metalwork, dark recessed forms and crisp self-contained silhouette. Do NOT copy their dragon, dwarf, beard or helmet identity. Render one new carved metallic head emblem, no surrounding disc or medallion, no border, no shield behind head. Square PNG, genuinely transparent alpha background, full head visible and optically centered with 8 percent clear margin, shape occupies around 84 percent of canvas. Broad grouped masses, very few large readable carved shapes and color inlays, strong silhouette, clean edge highlights. Omit microscopic scales, filigree, individual hairs and busy engraving. Silver dominates, copper selectively reinforces the outline and large contours. No text, letters, logo, watermark, background, floor, external shadow, aura, particles, glow, painted checkerboard, extra heads, body, arms or unrelated objects. One asset only, never a sheet.\nSubject: Front-facing stylized LYNX HEAD: two tall triangular tufted ears, broad cheek ruffs shaped as just two or three large silver points per side, short broad feline muzzle, strong brow and two amber enamel eyes. Ash-silver face, dark nose, restrained copper at ears and cheeks. Clearly a lynx, not a lion, tiger, wolf, domestic cat or dragon. No mane, forehead gemstone or helmet. Head-only emblem of the Felineus humanoid race.",
+            "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-a6a854f6-2b22-4f28-a023-c9141a5dd2d1.png",
+            "sha256": "2B83A7083D093B36D0477EA2429F4735B041B6FABA39FCDC5D31EAB2E97D4A16",
+            "result": "Rejected: opaque RGB checkerboard, not true transparency."
+          },
+          {
+            "prompt": "Use case: background-extraction. Edit target: the supplied original FELINEUS lynx head badge PNG. Fix ONLY the background: remove every gray-and-white checkerboard square and replace all empty space with GENUINE TRANSPARENT ALPHA in the output PNG, including gaps between the cheek tufts and below the chin. The checkerboard is a defect to REMOVE, never redraw or simulate. Preserve the exact existing silver-copper lynx head design, amber eyes, ear tufts, pose, size, sharp contours and square canvas composition. Do not recolor, redraw, crop, resize or otherwise change the badge itself. The final asset MUST have a real alpha channel, with all empty background pixels alpha=0. No solid background color, no grid, no checkerboard, no cast shadow, no added elements. Deliver one transparent PNG cutout, not a preview of transparency.",
+            "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-ee4bec08-4ccb-4b6e-9cd8-6b0d36b2f53f.png",
+            "sha256": "82C55F3146B38278A04BC153D1891CB8F794A893ECAAAB17A50A2D2C43784EF6",
+            "result": "Rejected: built-in edit also returned opaque RGB checkerboard."
+          },
+          {
+            "prompt": "Use case: stylized-concept. Asset type: ONE original Kalistar V3 RACE BADGE, instantly recognizable at 52x52 pixels. Previously inspected existing Kalistar DRAX and NAIN badges establish the style: sculpted polished silver with warm copper accents, dimensional fantasy metalwork, dark recessed forms and crisp self-contained silhouette. Do NOT copy their dragon, dwarf, beard or helmet identity. Render one new carved metallic head emblem, no surrounding disc or medallion, no border, no shield behind head. Square PNG, genuinely transparent alpha background, full head visible and optically centered with 8 percent clear margin, shape occupies around 84 percent of canvas. Broad grouped masses, very few large readable carved shapes and color inlays, strong silhouette, clean edge highlights. Omit microscopic scales, filigree, individual hairs and busy engraving. Silver dominates, copper selectively reinforces the outline and large contours. No text, letters, logo, watermark, background, floor, external shadow, aura, particles, glow, painted checkerboard, extra heads, body, arms or unrelated objects. One asset only, never a sheet.\nSubject: Front-facing stylized LYNX HEAD: two tall triangular tufted ears, broad cheek ruffs shaped as just two or three large silver points per side, short broad feline muzzle, strong brow and two amber enamel eyes. Ash-silver face, dark nose, restrained copper at ears and cheeks. Clearly a lynx, not a lion, tiger, wolf, domestic cat or dragon. No mane, forehead gemstone or helmet. Head-only emblem of the Felineus humanoid race.",
+            "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-6c800a7a-1308-4ee7-be64-49b02115214d.png",
+            "sha256": "2BE4349446E56F7050F05F79CF950E211CE43A3B722132D213A8A580CFFF3A96",
+            "result": "Regenerated from text specification without input images; actual alpha verified."
+          }
+        ],
+        "correction_reason": "Initial image-reference generation and a background-extraction edit both returned opaque checkerboards. Text-only regeneration provided real alpha; no local image processing.",
+        "inspected_style_references": [
+          "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/races/DRAX.png",
+          "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/races/NAIN.png"
+        ]
+      },
+      "verification": {
+        "sha256": "2BE4349446E56F7050F05F79CF950E211CE43A3B722132D213A8A580CFFF3A96",
+        "width": 1254,
+        "height": 1254,
+        "format": "Format32bppArgb",
+        "corner_alpha": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "byte_identical_to_generated_source": true,
+        "review_52px": "passed: original canvas displayed at 52x52 on light/dark backgrounds",
+        "alpha_metrics": {
+          "Width": 1254,
+          "Height": 1254,
+          "MinX": 147,
+          "MinY": 17,
+          "MaxX": 1105,
+          "MaxY": 1185,
+          "BorderMaxAlpha": 1,
+          "ZeroAlpha": 888339,
+          "AlmostTransparent": 900976,
+          "Opaque": 174,
+          "CenterX": 626.6520788828261,
+          "CenterY": 666.729443432011,
+          "Coverage": 0.4205807762846292,
+          "AspectHeightWidth": 1.218978102189781
+        },
+        "alpha_bounds_threshold": 8,
+        "bytes": 1811754,
+        "no_baked_checkerboard": true,
+        "visible_bounds_inside_canvas": true
+      }
+    },
+    {
+      "id": "TANTALAK",
+      "category": "race",
+      "label": "TANTALAK",
+      "destination": "V3/assets/races/TANTALAK.png",
+      "prompt": "Use case: stylized-concept. Asset type: ONE original Kalistar V3 RACE BADGE, instantly recognizable at 52x52 pixels. Previously inspected existing Kalistar DRAX and NAIN badges establish the style: sculpted polished silver with warm copper accents, dimensional fantasy metalwork, dark recessed forms and crisp self-contained silhouette. Do NOT copy their dragon, dwarf, beard or helmet identity. Render one new carved metallic head emblem, no surrounding disc or medallion, no border, no shield behind head. Square PNG, genuinely transparent alpha background, full head visible and optically centered with 8 percent clear margin, shape occupies around 84 percent of canvas. Broad grouped masses, very few large readable carved shapes and color inlays, strong silhouette, clean edge highlights. Omit microscopic scales, filigree, individual hairs and busy engraving. Silver dominates, copper selectively reinforces the outline and large contours. No text, letters, logo, watermark, background, floor, external shadow, aura, particles, glow, painted checkerboard, extra heads, body, arms or unrelated objects. One asset only, never a sheet.\nSubject: A front-facing humanoid CEPHALOPOD / JELLYFISH-INSPIRED HEAD emblem. One compact smooth domed mantle resembling a rounded translucent jellyfish bell translated into pale aqua enamel and silver sculpted metal. Clearly legible humanoid brow and TWO dark teal eyes below the dome. Exactly four short broad curved facial tentacles/filaments form a compact lower-face fringe with simple separated tips, all attached to the head and contained close to it. Copper contour accents, no long octopus arms, no full jellyfish animal, no suction-cup microdetails, no extra limbs, no teeth or horror. Preserve the canonical compact head and short filaments while using the requested cephalopod humanoid interpretation.",
+      "status": "complete",
+      "canonical_source": {
+        "file": "V3/donnees/cartes.json",
+        "card_id": "30000032",
+        "character": "JELLY-JOE",
+        "description": "Adult amphibious humanoid, compact translucent jellyfish-like head, short head filaments only, no additional tentacle arms."
+      },
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "mode": "built-in",
+        "input_images": [],
+        "calls": 1,
+        "inspected_style_references": [
+          "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/races/DRAX.png",
+          "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/races/NAIN.png"
+        ],
+        "generated_at": "2026-09-14T10:46:25.537Z",
+        "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-145b2066-5055-4145-955d-1a2a4ba56ed3.png",
+        "output_hint": "Generated images are saved to C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626 as C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-145b2066-5055-4145-955d-1a2a4ba56ed3.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+      },
+      "verification": {
+        "sha256": "AA5766F9A632815428A0A278DF824929A6CE2D9D871CF32ED890518F52D45073",
+        "width": 1254,
+        "height": 1254,
+        "format": "Format32bppArgb",
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "byte_identical_to_generated_source": true,
+        "review_52px": "passed: original canvas displayed at 52x52 on light/dark backgrounds",
+        "alpha_metrics": {
+          "Width": 1254,
+          "Height": 1254,
+          "MinX": 109,
+          "MinY": 54,
+          "MaxX": 1144,
+          "MaxY": 1172,
+          "BorderMaxAlpha": 1,
+          "ZeroAlpha": 856957,
+          "AlmostTransparent": 869969,
+          "Opaque": 315,
+          "CenterX": 626.3443379107044,
+          "CenterY": 575.5851405359966,
+          "Coverage": 0.44031730042810374,
+          "AspectHeightWidth": 1.08011583011583
+        },
+        "alpha_bounds_threshold": 8,
+        "bytes": 1637659,
+        "no_baked_checkerboard": true,
+        "visible_bounds_inside_canvas": true
+      }
+    },
+    {
+      "id": "TOXINAR",
+      "category": "race",
+      "label": "TOXINAR",
+      "destination": "V3/assets/races/TOXINAR.png",
+      "prompt": "Use case: stylized-concept. Asset type: ONE original Kalistar V3 RACE BADGE, instantly recognizable at 52x52 pixels. Previously inspected existing Kalistar DRAX and NAIN badges establish the style: sculpted polished silver with warm copper accents, dimensional fantasy metalwork, dark recessed forms and crisp self-contained silhouette. Do NOT copy their dragon, dwarf, beard or helmet identity. Render one new carved metallic head emblem, no surrounding disc or medallion, no border, no shield behind head. Square PNG, genuinely transparent alpha background, full head visible and optically centered with 8 percent clear margin, shape occupies around 84 percent of canvas. Broad grouped masses, very few large readable carved shapes and color inlays, strong silhouette, clean edge highlights. Omit microscopic scales, filigree, individual hairs and busy engraving. Silver dominates, copper selectively reinforces the outline and large contours. No text, letters, logo, watermark, background, floor, external shadow, aura, particles, glow, painted checkerboard, extra heads, body, arms or unrelated objects. One asset only, never a sheet.\nSubject: A front-facing REPTILE-PLANT hybrid humanoid HEAD emblem. A compact intelligent face with a short broad reptilian muzzle, two clearly readable eyes, dark nose slits and angular silver cheek plates inset with deep green enamel. Frame the face with FOUR broad short purple enamel leaf-petals like a compact floral collar or crown, edged selectively in copper. Plant identity and readable humanoid expression dominate; subtle reptile-shaped brow and muzzle, not a dragon. No horns, long snout, fangs, body, tendrils, poison cloud, busy scales, mane of many petals or realistic flower photograph. Canonical Toxinar green vegetation and short purple petals, with the user's requested reptile-plant traits.",
+      "status": "complete",
+      "canonical_source": {
+        "file": "V3/donnees/cartes.json",
+        "card_id": "30000033",
+        "character": "BLOOM",
+        "description": "Adult plant humanoid, compact floral head with readable face, green skin and short purple petals."
+      },
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "mode": "built-in",
+        "input_images": [],
+        "calls": 1,
+        "inspected_style_references": [
+          "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/races/DRAX.png",
+          "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/races/NAIN.png"
+        ],
+        "generated_at": "2026-09-14T10:48:12.754Z",
+        "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-9de6bd7d-bdc4-4eb6-9c2d-9682d58105e9.png",
+        "output_hint": "Generated images are saved to C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626 as C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-9de6bd7d-bdc4-4eb6-9c2d-9682d58105e9.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+      },
+      "verification": {
+        "sha256": "52D37348215A438ABE1734FFB159F185F5E7240C0A8EF54DF2E2A560061211ED",
+        "width": 1254,
+        "height": 1254,
+        "format": "Format32bppArgb",
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "byte_identical_to_generated_source": true,
+        "review_52px": "passed: original canvas displayed at 52x52 on light/dark backgrounds",
+        "alpha_metrics": {
+          "Width": 1254,
+          "Height": 1254,
+          "MinX": 121,
+          "MinY": 86,
+          "MaxX": 1133,
+          "MaxY": 1151,
+          "BorderMaxAlpha": 1,
+          "ZeroAlpha": 794307,
+          "AlmostTransparent": 802241,
+          "Opaque": 295,
+          "CenterX": 627.4480762240036,
+          "CenterY": 609.2722177983105,
+          "Coverage": 0.4866303427119342,
+          "AspectHeightWidth": 1.052319842053307
+        },
+        "alpha_bounds_threshold": 8,
+        "bytes": 1935294,
+        "no_baked_checkerboard": true,
+        "visible_bounds_inside_canvas": true
+      }
+    },
+    {
+      "id": "CERELF",
+      "category": "race",
+      "label": "CERELF",
+      "destination": "V3/assets/races/CERELF.png",
+      "prompt": "Use case: stylized-concept. Asset type: ONE original Kalistar V3 RACE BADGE, instantly recognizable at 52x52 pixels. Previously inspected existing Kalistar DRAX and NAIN badges establish the style: sculpted polished silver with warm copper accents, dimensional fantasy metalwork, dark recessed forms and crisp self-contained silhouette. Do NOT copy their dragon, dwarf, beard or helmet identity. Render one new carved metallic head emblem, no surrounding disc or medallion, no border, no shield behind head. Square PNG, genuinely transparent alpha background, full head visible and optically centered with 8 percent clear margin, shape occupies around 84 percent of canvas. Broad grouped masses, very few large readable carved shapes and color inlays, strong silhouette, clean edge highlights. Omit microscopic scales, filigree, individual hairs and busy engraving. Silver dominates, copper selectively reinforces the outline and large contours. No text, letters, logo, watermark, background, floor, external shadow, aura, particles, glow, painted checkerboard, extra heads, body, arms or unrelated objects. One asset only, never a sheet.\nSubject: Front three-quarter facing slightly right, an elegant DEER-ELF HEAD emblem. Slender sculpted silver deer face with long deer ears suggesting elven ears, one pair of short copper antlers with only two broad tines on each side and slight natural asymmetry, dark green inset eyes, small black deer nose and restrained copper brow accents. Calm intelligent noble expression, unmistakable deer muzzle, no human face with antler hat, no enormous branching crown, no helmet, no fur microdetail, no body. Clear short-antler silhouette.",
+      "status": "complete",
+      "canonical_source": {
+        "file": "V3/donnees/cartes.json",
+        "card_id": "30000036",
+        "character": "ELENION",
+        "description": "Adult deer-headed humanoid, short slightly asymmetric antlers, elven forest identity."
+      },
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "mode": "built-in",
+        "input_images": [],
+        "calls": 1,
+        "inspected_style_references": [
+          "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/races/DRAX.png",
+          "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/races/NAIN.png"
+        ],
+        "generated_at": "2026-09-14T10:48:58.456Z",
+        "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-ebc242e0-3c19-49af-bfe6-b4236c0813cc.png",
+        "output_hint": "Generated images are saved to C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626 as C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-ebc242e0-3c19-49af-bfe6-b4236c0813cc.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+      },
+      "verification": {
+        "sha256": "4C758923ADFD11C548FD3B2D224F46971C223C55B4E833BF74C6930D087263A1",
+        "width": 1254,
+        "height": 1254,
+        "format": "Format32bppArgb",
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "byte_identical_to_generated_source": true,
+        "review_52px": "passed: original canvas displayed at 52x52 on light/dark backgrounds",
+        "alpha_metrics": {
+          "Width": 1254,
+          "Height": 1254,
+          "MinX": 158,
+          "MinY": 15,
+          "MaxX": 1106,
+          "MaxY": 1227,
+          "BorderMaxAlpha": 0,
+          "ZeroAlpha": 1070220,
+          "AlmostTransparent": 1080958,
+          "Opaque": 426,
+          "CenterX": 653.5819712269537,
+          "CenterY": 601.19254371981,
+          "Coverage": 0.30766618590844225,
+          "AspectHeightWidth": 1.2781875658587987
+        },
+        "alpha_bounds_threshold": 8,
+        "bytes": 1358717,
+        "no_baked_checkerboard": true,
+        "visible_bounds_inside_canvas": true
+      }
+    },
+    {
+      "id": "Woodland",
+      "category": "faction",
+      "label": "Woodland",
+      "destination": "V3/assets/factions/Woodland.png",
+      "status": "complete",
+      "canonical_source": {
+        "file": "V3/donnees/cartes.json",
+        "card_id": "30000036",
+        "character": "ELENION",
+        "faction": "Woodland"
+      },
+      "prompt": "Use case: stylized-concept. Create ONE brand-new original fantasy faction banner for Kalistar V3: Woodland. Asset delivery: PNG with a genuinely transparent alpha background, portrait 1024x1536 canvas, no backdrop, no gradient field, no checkerboard, no floor and no external shadow. A straight HORIZONTAL silver suspension bar with small copper finials at the top, and a deep forest-green hanging cloth below. IMPORTANT BALANCED PROPORTIONS: the complete isolated object including the bar is approximately 820 pixels wide and 1350 pixels tall, height/width about 1.65. Bar is about 1.17 times the CLOTH WIDTH, just a little wider than the fabric, not a very long rod and not a thin narrow ribbon. Keep entire bar visible and horizontal at about y=120 (8 percent of canvas height); outer finial tips near x=100 and x=924. Main cloth sides near x=160 and x=864, broad rectangular body with a clean pentagonal pointed lower tip near y=1440. Rich dark emerald forest-green cloth, broad ivory edging, restrained copper and silver trim. One large centered crisp heraldic motif: an ivory-silver DEER HEAD with short simply branched antlers, merging into one large ivory LEAF below. Copper accent between deer and leaf. Punchy color contrast, polished hand-painted fantasy game banner, confident sculpted metal highlights and restrained large cloth folds. The artwork itself contains no text, letters, numbers, symbols unrelated to Woodland, tiny ornament, tassels, foliage border, ropes, vertical pole, scenery, glow, extra flags or atlas. Entire object floats isolated in real transparent empty alpha space. Keep deer-and-leaf motif readable when the banner is small.",
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "mode": "built-in",
+        "input_images": [],
+        "calls": 4,
+        "inspected_style_references": [
+          "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V2/assets/factions/Arborium.png",
+          "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V2/assets/factions/Durane.png"
+        ],
+        "generated_at": "2026-09-14T10:53:20.289Z",
+        "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-500bb6a5-6c9f-4a1a-9f74-24d5d0336045.png",
+        "output_hint": "Generated images are saved to C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626 as C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-500bb6a5-6c9f-4a1a-9f74-24d5d0336045.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+        "attempts": [
+          {
+            "prompt": "Use case: stylized-concept. Asset type: ONE original Kalistar V3 WOODLAND faction hanging banner PNG. Previously inspected existing Kalistar Arborium and Durane banners establish the style: rich punchy cloth colors, sculpted silver and copper hanging hardware, confident large heraldic motif, fantasy game-banner material painting. DO NOT reproduce their tree, hammers, mountains, border or composition defects. Make a NEW deep forest-green and ivory hanging standard, fully isolated on genuinely transparent alpha, no scene, floor, external shadow, text, letters, logo, watermark, painted checkerboard or extra objects. Portrait canvas approximately 2:3 width:height. IMPORTANT geometry: a single perfectly straight HORIZONTAL silver-copper suspension bar centered at y=8 PERCENT of the FULL CANVAS HEIGHT, extending from x=9 percent to x=91 percent; bar must be fully visible end-to-end and horizontal, with compact blunt silver-copper finials, no central tall ornament and no vertical pole. Cloth starts just BELOW this top bar on two simple attachment tabs and hangs down to y=94 percent. Entire visible alpha-bounded banner including bar should have HEIGHT/WIDTH about 1.65. Banner fabric is broad deep forest green with one strong ivory inset panel or broad ivory stripe, a clean PENTAGONAL POINTED bottom, restrained copper and silver edge trim. Centered large heraldic DEER-AND-LEAF motif: a bold ivory/silver stylized deer head with only two short antler branches on each side, merging into ONE large leaf below, small copper accent. Large flat emblem parts stay readable on a card; no tiny branches, writing, decorative scrollwork, tassels, foliage outside cloth, ropes above the bar, secondary rods, extra badges or floating fragments. Very restrained cloth folds, front-facing near-flat presentation, crisp rich colors and clear silhouette. Keep the straight top bar aligned and clearly distinguishable from the green cloth. Only ONE final banner, no atlas.",
+            "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-88c61f57-61bd-4bf1-844d-bffce67e932e.png",
+            "sha256": "5C7F8593F780193D91D25A154FF1FEB2682A06DD91203BC8850732D67E4CE64A",
+            "result": "Rejected proportions: visible-alpha height/width 1.453684, bar too wide."
+          },
+          {
+            "prompt": "Use case: stylized-concept. Asset type: ONE original Kalistar V3 WOODLAND faction hanging banner PNG. Previously inspected existing Kalistar Arborium and Durane banners establish the style: rich punchy cloth colors, sculpted silver and copper hanging hardware, confident large heraldic motif, fantasy game-banner material painting. DO NOT reproduce their tree, hammers, mountains, border or composition defects. Make a NEW deep forest-green and ivory hanging standard, fully isolated on genuinely transparent alpha, no scene, floor, external shadow, text, letters, logo, watermark, painted checkerboard or extra objects. Portrait canvas 1024x1536. All alpha-visible object pixels must fit between x=102 and x=922 and between y=84 and y=1440. This yields an overall visible HEIGHT/WIDTH ratio of 1.65. IMPORTANT geometry: a single perfectly straight HORIZONTAL silver-copper suspension bar centered at y=8 PERCENT of the FULL CANVAS HEIGHT, extending STRICTLY from x=10 percent to x=90 percent, including both small finials; bar must be fully visible end-to-end and horizontal, with TINY compact blunt silver-copper finials, the complete bar only 15 percent wider than the hanging cloth, no central tall ornament and no vertical pole. Cloth starts just BELOW this top bar on two simple attachment tabs and hangs down to y=94 percent. Entire visible alpha-bounded banner including bar should have HEIGHT/WIDTH about 1.65. Banner fabric is broad deep forest green with one strong ivory inset panel or broad ivory stripe, a clean PENTAGONAL POINTED bottom, restrained copper and silver edge trim. Centered large heraldic DEER-AND-LEAF motif: a bold ivory/silver stylized deer head with only two short antler branches on each side, merging into ONE large leaf below, small copper accent. Large flat emblem parts stay readable on a card; no tiny branches, writing, decorative scrollwork, tassels, foliage outside cloth, ropes above the bar, secondary rods, extra badges or floating fragments. Very restrained cloth folds, front-facing near-flat presentation, crisp rich colors and clear silhouette. Keep the straight top bar aligned and clearly distinguishable from the green cloth. Only ONE final banner, no atlas.\nPriority correction from an earlier draft: the previous bar was much too wide (overall alpha ratio 1.45). This version must visibly be TALLER AND NARROWER overall, with SHORT bar ends and tiny finials, giving height/width 1.65 including bar. A single large clean transparent cutout, not a room or backdrop. Keep the bar center at approximately y=8 percent of canvas height. True alpha background.",
+            "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-f16b8c6b-5216-44af-a091-d24ec534d8cd.png",
+            "sha256": "BABCE1B134721CD014F517753AAB297B38883DF8C3405696DBF725F356DC5820",
+            "result": "Rejected proportions: regeneration over-narrowed cloth; alpha ratio 1.908078."
+          },
+          {
+            "prompt": "Use case: precise-object-edit. The input is the EDIT TARGET: the first Woodland faction banner, on a transparent background. Keep the green and ivory fabric, deer-and-leaf heraldic motif, copper/silver trims, pentagonal bottom, cloth width, height, folds, and exact 1024x1536 canvas all UNCHANGED. Change ONLY the horizontal suspension bar: shorten its exposed left and right ends by about 55 pixels EACH. Bring the LEFTMOST metal finial tip to x=95 and the RIGHTMOST tip to x=929, preserving bar height and perfectly horizontal centerline at y=114. Keep the small existing end caps, just move them inward and shorten the rods outside the cloth attachment tabs. Do NOT narrow, elongate, redesign, scale, crop, stretch, or move the cloth or emblem. The complete alpha-visible banner should then be about 834 pixels wide and 1380 pixels tall, height/width about 1.65. Preserve the real TRANSPARENT ALPHA background of the input, including all empty space around bar and cloth: no checkerboard, no solid or gradient backdrop, no shadow outside the object. One corrected PNG, identical art except SHORTER exposed suspension bar ends.",
+            "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-6b799019-8300-4aed-a78c-669dbb9aafbc.png",
+            "sha256": "7F9C03BB5EB36489E78332EEDCED8FFD412F4CA796EA684D9F73A67D6705B7C8",
+            "result": "Rejected: reference-edit output opaque RGB checkerboard."
+          },
+          {
+            "prompt": "Use case: stylized-concept. Create ONE brand-new original fantasy faction banner for Kalistar V3: Woodland. Asset delivery: PNG with a genuinely transparent alpha background, portrait 1024x1536 canvas, no backdrop, no gradient field, no checkerboard, no floor and no external shadow. A straight HORIZONTAL silver suspension bar with small copper finials at the top, and a deep forest-green hanging cloth below. IMPORTANT BALANCED PROPORTIONS: the complete isolated object including the bar is approximately 820 pixels wide and 1350 pixels tall, height/width about 1.65. Bar is about 1.17 times the CLOTH WIDTH, just a little wider than the fabric, not a very long rod and not a thin narrow ribbon. Keep entire bar visible and horizontal at about y=120 (8 percent of canvas height); outer finial tips near x=100 and x=924. Main cloth sides near x=160 and x=864, broad rectangular body with a clean pentagonal pointed lower tip near y=1440. Rich dark emerald forest-green cloth, broad ivory edging, restrained copper and silver trim. One large centered crisp heraldic motif: an ivory-silver DEER HEAD with short simply branched antlers, merging into one large ivory LEAF below. Copper accent between deer and leaf. Punchy color contrast, polished hand-painted fantasy game banner, confident sculpted metal highlights and restrained large cloth folds. The artwork itself contains no text, letters, numbers, symbols unrelated to Woodland, tiny ornament, tassels, foliage border, ropes, vertical pole, scenery, glow, extra flags or atlas. Entire object floats isolated in real transparent empty alpha space. Keep deer-and-leaf motif readable when the banner is small.",
+            "source": "C:\\Users\\guill\\.codex\\generated_images\\01a09f6e-dcf2-7320-9fd3-b0d19d839626\\exec-500bb6a5-6c9f-4a1a-9f74-24d5d0336045.png",
+            "sha256": "380DBAF9DA058FD1B054BB3F0F8AC2C0FA61D4388B296C9BD9AC92F3822B375B",
+            "result": "Final text-only generation; actual transparency and geometry to be checked."
+          }
+        ],
+        "correction_reason": "Extra built-in attempts needed: initial geometry too wide, second too narrow, reference edit returned opaque checkerboard; final text-only generation. No local image transforms."
+      },
+      "verification": {
+        "sha256": "380DBAF9DA058FD1B054BB3F0F8AC2C0FA61D4388B296C9BD9AC92F3822B375B",
+        "width": 977,
+        "height": 1610,
+        "format": "Format32bppArgb",
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "byte_identical_to_generated_source": true,
+        "review_52px": "passed: aspect-preserved small preview and native visual review",
+        "alpha_metrics": {
+          "Width": 977,
+          "Height": 1610,
+          "MinX": 24,
+          "MinY": 87,
+          "MaxX": 952,
+          "MaxY": 1528,
+          "BorderMaxAlpha": 1,
+          "ZeroAlpha": 729160,
+          "AlmostTransparent": 737601,
+          "Opaque": 878,
+          "CenterX": 488.3364284259144,
+          "CenterY": 735.6101087429093,
+          "Coverage": 0.5256985193614627,
+          "AspectHeightWidth": 1.5522066738428417
+        },
+        "alpha_bounds_threshold": 8,
+        "bytes": 1661113,
+        "no_baked_checkerboard": true,
+        "visible_bounds_inside_canvas": true
+      },
+      "geometry": {
+        "coordinate_system": "Original generated PNG pixels; top-left origin; bounds are [left,top,right_exclusive,bottom_exclusive]. Alpha>8 filters native nearly invisible alpha noise without changing the file.",
+        "canvas": {
+          "width": 977,
+          "height": 1610,
+          "height_width": 1.6479017400204707
+        },
+        "alpha_bounds": {
+          "threshold": 8,
+          "left": 24,
+          "top": 87,
+          "right_exclusive": 953,
+          "bottom_exclusive": 1529,
+          "width": 929,
+          "height": 1442,
+          "height_width": 1.5522066738428417
+        },
+        "horizontal_bar": {
+          "center_y": 118.5,
+          "center_canvas_y_fraction": 0.07360248447204969,
+          "center_alpha_bounds_y_fraction": 0.021844660194174758,
+          "scan_alpha_threshold": 128,
+          "scan_method": "Upper 300 source rows; midpoint of rows whose opaque horizontal span is within 2 pixels of maximum.",
+          "rows": [
+            [
+              118,
+              25,
+              951,
+              927,
+              927
+            ],
+            [
+              119,
+              25,
+              951,
+              927,
+              927
+            ]
+          ],
+          "outer_alpha_bounds_top_y": 87,
+          "outer_alpha_bounds_top_canvas_y_fraction": 0.05403726708074534,
+          "visual_check": "Straight horizontal silver rod with copper finials; no vertical pole."
+        },
+        "parent_alignment": {
+          "target_bar_y": 826,
+          "uncropped_png_formula": "topY = 826 - displayedCanvasHeight * 0.073602484",
+          "alpha_bounds_placement_formula": "topY = 826 - displayedAlphaBoundsHeight * 0.021844660",
+          "native_pixel_scale_formula": "topY = 826 - 118.5 * scale",
+          "note": "Use canvas fraction for an uncropped placed PNG. Use alpha-bounds fraction only if the parent fits/places the alpha bounding rectangle. Do not mix these origins."
+        },
+        "proportion_note": "Native canvas height/width is 1.6479, approximately the requested 1.65. Visible alpha bounds height/width is 1.5522; use this measured ratio for content alignment, not the requested nominal ratio."
+      }
+    }
+  ],
+  "verification": {
+    "status": "passed_with_reported_geometry_variance",
+    "asset_count": 5,
+    "race_count": 4,
+    "faction_count": 1,
+    "all_png_true_alpha": true,
+    "source_copy_hashes_match": true,
+    "native_canvases_preserved": true,
+    "all_visible_bounds_inside_canvas": true,
+    "badges_review_px": 52,
+    "light_and_dark_background_review": true,
+    "preview": "C:/Users/guill/AppData/Local/Temp/kalistar-v3-races-52px.png",
+    "total_builtin_calls": 10,
+    "one_independent_asset_per_call": true,
+    "one_call_per_asset_achieved": false,
+    "extra_calls_explained": "FELINEUS: two rejected opaque checkerboard attempts before true-alpha regeneration. Woodland: two geometry drafts and one opaque reference edit before final true-alpha regeneration. All attempts use the built-in tool, never atlas generation or local image retouching.",
+    "v2_baseline": {
+      "file_count": 1951,
+      "changed_file_count": 0,
+      "comparison": "File existence, size and UTC modification time"
+    },
+    "woodland_geometry": {
+      "coordinate_system": "Original generated PNG pixels; top-left origin; bounds are [left,top,right_exclusive,bottom_exclusive]. Alpha>8 filters native nearly invisible alpha noise without changing the file.",
+      "canvas": {
+        "width": 977,
+        "height": 1610,
+        "height_width": 1.6479017400204707
+      },
+      "alpha_bounds": {
+        "threshold": 8,
+        "left": 24,
+        "top": 87,
+        "right_exclusive": 953,
+        "bottom_exclusive": 1529,
+        "width": 929,
+        "height": 1442,
+        "height_width": 1.5522066738428417
+      },
+      "horizontal_bar": {
+        "center_y": 118.5,
+        "center_canvas_y_fraction": 0.07360248447204969,
+        "center_alpha_bounds_y_fraction": 0.021844660194174758,
+        "scan_alpha_threshold": 128,
+        "scan_method": "Upper 300 source rows; midpoint of rows whose opaque horizontal span is within 2 pixels of maximum.",
+        "rows": [
+          [
+            118,
+            25,
+            951,
+            927,
+            927
+          ],
+          [
+            119,
+            25,
+            951,
+            927,
+            927
+          ]
+        ],
+        "outer_alpha_bounds_top_y": 87,
+        "outer_alpha_bounds_top_canvas_y_fraction": 0.05403726708074534,
+        "visual_check": "Straight horizontal silver rod with copper finials; no vertical pole."
+      },
+      "parent_alignment": {
+        "target_bar_y": 826,
+        "uncropped_png_formula": "topY = 826 - displayedCanvasHeight * 0.073602484",
+        "alpha_bounds_placement_formula": "topY = 826 - displayedAlphaBoundsHeight * 0.021844660",
+        "native_pixel_scale_formula": "topY = 826 - 118.5 * scale",
+        "note": "Use canvas fraction for an uncropped placed PNG. Use alpha-bounds fraction only if the parent fits/places the alpha bounding rectangle. Do not mix these origins."
+      },
+      "proportion_note": "Native canvas height/width is 1.6479, approximately the requested 1.65. Visible alpha bounds height/width is 1.5522; use this measured ratio for content alignment, not the requested nominal ratio."
+    },
+    "untouched_by_this_task": [
+      "all mechanics",
+      "all code/UI",
+      "all roster/profile data",
+      "existing race/faction art",
+      "weapons 14..19 delegated to parent"
+    ]
+  },
+  "completed_at": "2026-09-14T10:55:00.335Z"
+}

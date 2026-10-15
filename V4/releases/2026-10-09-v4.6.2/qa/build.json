@@ -1,0 +1,5318 @@
+{
+  "edition": "V4",
+  "version": "b6270007bd2a",
+  "cards": 296,
+  "assets": [
+    {
+      "path": "jeu/accounts-ui.js",
+      "bytes": 18618,
+      "sha256": "81b726d92ae4c49da4e8ce9fd296a8a5335a57a1d346652d4e4fc758ad306fef"
+    },
+    {
+      "path": "jeu/accounts.css",
+      "bytes": 11381,
+      "sha256": "6bba265c055784bb3a41902f89d0a8c54240adeba7002cdd90f50428c778b930"
+    },
+    {
+      "path": "jeu/app.js",
+      "bytes": 121665,
+      "sha256": "f98ce61d8f153210aa4ee6f48c47daf2bf6384d90d83593995bdd6c434077ca1"
+    },
+    {
+      "path": "jeu/arena-ambience.js",
+      "bytes": 9662,
+      "sha256": "2181e1cf42837ac93617fefd323c89f7804ffcbbd88b8cef80c813ec874edf3c"
+    },
+    {
+      "path": "jeu/arena.css",
+      "bytes": 15101,
+      "sha256": "aa1e29447b1cb894e2141f432c07264d644a43906d9cde03b3331fc3a61b4c82"
+    },
+    {
+      "path": "jeu/assets/arena.webp",
+      "bytes": 569772,
+      "sha256": "9f7e76e072a10cef60a01d0a9aad472e48406056e8074d8acc73f7090cd72c9d"
+    },
+    {
+      "path": "jeu/assets/arenas/aero.webp",
+      "bytes": 466638,
+      "sha256": "9960d0c8cf7e19767da04d5bee5fe80b3dadd6c113ade6b4dede3b21a6818647"
+    },
+    {
+      "path": "jeu/assets/arenas/astraball.webp",
+      "bytes": 473330,
+      "sha256": "d8bb2c5682ae7c23a756e0567756e732cfde0a2c0ec67cd679a3d70d84ab7fec"
+    },
+    {
+      "path": "jeu/assets/arenas/cryo.webp",
+      "bytes": 582290,
+      "sha256": "4eda367c325ccfc6a8c5cbe8ecb2f45beecd2de1d8e624b769c2a8f43b3be469"
+    },
+    {
+      "path": "jeu/assets/arenas/electro.webp",
+      "bytes": 575040,
+      "sha256": "376ed738ee596a66b582a7c3212043a7a944a94dd441a69a02e5e2ae629a96bd"
+    },
+    {
+      "path": "jeu/assets/arenas/forge.png",
+      "bytes": 2867098,
+      "sha256": "ab38581130ccfa66148180d518acf2a99496b8058e81b30d76964df0fda379a2"
+    },
+    {
+      "path": "jeu/assets/arenas/forge.webp",
+      "bytes": 484746,
+      "sha256": "6d1f26ea056571248db115fa67abef406b04dda37507e2fca2f03bde4017b4f5"
+    },
+    {
+      "path": "jeu/assets/arenas/geo.webp",
+      "bytes": 622680,
+      "sha256": "200aa89adb24b8f7825b73e6c642b0aab1b3d6f524b82a8d1fbd9ba7aef98b38"
+    },
+    {
+      "path": "jeu/assets/arenas/hemato.webp",
+      "bytes": 380784,
+      "sha256": "f32fd2d1dd018ef61948123ec2d0eb7140d0fd87c8d69af785664c5fb282a327"
+    },
+    {
+      "path": "jeu/assets/arenas/herbo.webp",
+      "bytes": 618522,
+      "sha256": "6bfcf1194139624fa87373c0a6d4c72080e6f819c3ed7a0e660afa6e545c318f"
+    },
+    {
+      "path": "jeu/assets/arenas/hydro.webp",
+      "bytes": 630670,
+      "sha256": "8b463be39208900544b2296e4f004b2d9d9241439af480a259ea3e626acbc9ce"
+    },
+    {
+      "path": "jeu/assets/arenas/luxo.webp",
+      "bytes": 473820,
+      "sha256": "12c9bc01a6fc248f963c00f52708b38382d2e6b8c63ca92a40cdd176f60528a1"
+    },
+    {
+      "path": "jeu/assets/arenas/minero.webp",
+      "bytes": 646116,
+      "sha256": "ef88c89ba6d06c32c7509cd9c545e13605d15b3f014d9548de22621c33de9f97"
+    },
+    {
+      "path": "jeu/assets/arenas/necro.webp",
+      "bytes": 519762,
+      "sha256": "926b27f62f8cdfab81c26151a28f0e6c1bfa0d453db9e46f1cb34671803c9ad4"
+    },
+    {
+      "path": "jeu/assets/arenas/pyro.webp",
+      "bytes": 509702,
+      "sha256": "9440d32701201ceaeee9789c4a6cfb2c96ef95b46b5c6fd68360ddfb2a730de3"
+    },
+    {
+      "path": "jeu/assets/arenas/rainbow.webp",
+      "bytes": 530548,
+      "sha256": "1b97fad3e59a599d8f9d2ea192fb19bb4fb351c938c5d29acbd89cb53687929e"
+    },
+    {
+      "path": "jeu/assets/arenas/ruins.webp",
+      "bytes": 569772,
+      "sha256": "9f7e76e072a10cef60a01d0a9aad472e48406056e8074d8acc73f7090cd72c9d"
+    },
+    {
+      "path": "jeu/assets/arenas/sanctuary.png",
+      "bytes": 3159029,
+      "sha256": "c199a24a7d6d119c6a4c7472ccdb672a8a0df29840c738b3c78081fea826829c"
+    },
+    {
+      "path": "jeu/assets/arenas/sanctuary.webp",
+      "bytes": 615002,
+      "sha256": "5a1af67e1a6aced10032691f4668e789e1637168be9f38b359a4bd8c5a1a9e3c"
+    },
+    {
+      "path": "jeu/assets/arenas/trone-fer.webp",
+      "bytes": 473814,
+      "sha256": "0569ac8a2889e0cac9cff629a527744c117eeca22ed93ce2662cb94e3e19bef0"
+    },
+    {
+      "path": "jeu/assets/arenas/z13.webp",
+      "bytes": 519408,
+      "sha256": "5971301d12770fbc905b3c72d4e689b7be409b4090e6d8e44353ff100178ffc9"
+    },
+    {
+      "path": "jeu/assets/arenes/ff10-luca-stadium.png",
+      "bytes": 2824722,
+      "sha256": "af2f92f1883a16470be7e78144ddc0e6caed558c65002cd7990b9315cf040472"
+    },
+    {
+      "path": "jeu/assets/arenes/ff10-zanarkand-ruins.png",
+      "bytes": 2824672,
+      "sha256": "b3394ffe55f937492aed4308bf6e4bb9d2c85fb3b6e1f473e4f9fe6b6a4111d7"
+    },
+    {
+      "path": "jeu/assets/arenes/ff7-cosmo-canyon.png",
+      "bytes": 2891644,
+      "sha256": "976490210d06101e30895ac3eacc20e5344e08aa9d63ea0dcccc866d583564ff"
+    },
+    {
+      "path": "jeu/assets/arenes/ff7-midgar.png",
+      "bytes": 2949592,
+      "sha256": "efc09d339ba023476a2f70b870cc3aac2a92427a1f30b023eae746f2d34ccf6a"
+    },
+    {
+      "path": "jeu/assets/arenes/ff8-balamb-garden.png",
+      "bytes": 2773041,
+      "sha256": "92bb613e135f9ac5ba3953ff187fc4e99f3dd661dadc727d8494c16145bcb83d"
+    },
+    {
+      "path": "jeu/assets/arenes/ff8-deling-parade.png",
+      "bytes": 3000974,
+      "sha256": "79cd589ad711da4152c4891b9587622e01f483557e1ff60817fbb550348a0b6c"
+    },
+    {
+      "path": "jeu/assets/arenes/mgs1-shadow-moses.png",
+      "bytes": 2769457,
+      "sha256": "08f7d46595282c5597dfcfaf8a5d4046a9e86143e95d786b6a57fda0afbb1ba7"
+    },
+    {
+      "path": "jeu/assets/arenes/mgs2-big-shell.png",
+      "bytes": 2698754,
+      "sha256": "39750ea078e1371c8bc7d823f798a81998be3d92f1f6072d3c7b891b868c9c98"
+    },
+    {
+      "path": "jeu/assets/arenes/mgs4-middle-east.png",
+      "bytes": 2739319,
+      "sha256": "3358c7cb4dca0efeede67a42e4339d89814e7871655adf596e63e7b3cb30eff5"
+    },
+    {
+      "path": "jeu/assets/arenes/nier-amusement-park.png",
+      "bytes": 2959653,
+      "sha256": "70aaf90546f6aef56b0bdb126076ad750a492efd4f133e0041c4e1f9cd4c5968"
+    },
+    {
+      "path": "jeu/assets/arenes/nier-city-ruins.png",
+      "bytes": 3087757,
+      "sha256": "86f33625652101e7afa643b0114ba64e51f7f18b1f93f2850b3dd265c6ccc5b0"
+    },
+    {
+      "path": "jeu/assets/arenes/replicant-village.png",
+      "bytes": 3085981,
+      "sha256": "a49dc033b3e570e20fd117fad964b44a34b729712fbc30a0c40d91aae8601ff3"
+    },
+    {
+      "path": "jeu/assets/back.webp",
+      "bytes": 244762,
+      "sha256": "4a283a283cace413443d38fea6ee31d3d0f5ba137527d1320f596107ecbd68c5"
+    },
+    {
+      "path": "jeu/assets/base-weapons/00.svg",
+      "bytes": 423,
+      "sha256": "ab78d1b7865c0888b3e38fdeef0e77929a56177bf823af314c80e87d8ca4623e"
+    },
+    {
+      "path": "jeu/assets/base-weapons/01.svg",
+      "bytes": 396,
+      "sha256": "12753c10850873f5e0a472e19d272633ecbea92a4004650017bc7315f1f7f3a8"
+    },
+    {
+      "path": "jeu/assets/base-weapons/02.svg",
+      "bytes": 536,
+      "sha256": "ed509391958388aefa32d0916a56b1cfe05e05bf41e6663f079efacf09abd374"
+    },
+    {
+      "path": "jeu/assets/base-weapons/03.svg",
+      "bytes": 542,
+      "sha256": "15a86af5c71117d2c88b3c2c338c91c8083b7047514401c96efbef3342143f3d"
+    },
+    {
+      "path": "jeu/assets/base-weapons/04.svg",
+      "bytes": 4500,
+      "sha256": "eec32a23b3c66a2aa330a0b056b6a841fd6681bae9d5d60b326e9d6ed1129c48"
+    },
+    {
+      "path": "jeu/assets/base-weapons/05.svg",
+      "bytes": 664,
+      "sha256": "bc75078b731729300d0023e5eaaf1b74dded6ec4e14b4e700a14387443d15623"
+    },
+    {
+      "path": "jeu/assets/base-weapons/06.svg",
+      "bytes": 596,
+      "sha256": "fa217393094c30e3d5ca1defb6442b80ed310f8c18f4330baa25b1f942b3052d"
+    },
+    {
+      "path": "jeu/assets/base-weapons/07.svg",
+      "bytes": 817,
+      "sha256": "cb7f65c579854b3e0ae170e04aae2a0f0fe6a0c0930f7e1d9ec906269cb35fe3"
+    },
+    {
+      "path": "jeu/assets/base-weapons/08.svg",
+      "bytes": 486,
+      "sha256": "cb82c9bcc190406c6a262b117b7b601768c35bcf3a554adc79704d593aeca3d6"
+    },
+    {
+      "path": "jeu/assets/base-weapons/09.svg",
+      "bytes": 432,
+      "sha256": "37ebc05b21557f8967a072c2b019729e22f58268395d3ceebeb063b526c5557b"
+    },
+    {
+      "path": "jeu/assets/base-weapons/10.svg",
+      "bytes": 462,
+      "sha256": "242ae3164e856ad89d241839d6f6beb051601c68a18efdc82ef6d0d3b61a319e"
+    },
+    {
+      "path": "jeu/assets/base-weapons/11.svg",
+      "bytes": 761,
+      "sha256": "9b87cc3614a80be9c3c621f86e0b466a9b5bca4080e25b8edf3f154934dfebe6"
+    },
+    {
+      "path": "jeu/assets/base-weapons/12.svg",
+      "bytes": 524,
+      "sha256": "d5759ca10d57ad2311378d272eafd08c217fae880f1effc6e2e44baf9c315fc1"
+    },
+    {
+      "path": "jeu/assets/base-weapons/13.svg",
+      "bytes": 568,
+      "sha256": "dbdd7e373c0f6f3e53b77daee5cada6c7135f59697f3d69da600b86376ae8806"
+    },
+    {
+      "path": "jeu/assets/base-weapons/14.svg",
+      "bytes": 705,
+      "sha256": "c3cb02c77bd47149821dd07a973c8bd6a8828eea29e4d631172b3f1b5a68f40f"
+    },
+    {
+      "path": "jeu/assets/base-weapons/15.svg",
+      "bytes": 591,
+      "sha256": "ab091b0f215309d08f1389967b7051f8d9993ead5cefc671c00171de68c5c2ef"
+    },
+    {
+      "path": "jeu/assets/base-weapons/16.svg",
+      "bytes": 452,
+      "sha256": "88ae2e61f99eb80c00a5a9d1b68ed433bcc8d26ac1230ca4c130b9d1cd326753"
+    },
+    {
+      "path": "jeu/assets/base-weapons/17.svg",
+      "bytes": 452,
+      "sha256": "0cada59274925a752881134e24b4fa1d1d0b7e08f774e4e2de543d4c95d10caa"
+    },
+    {
+      "path": "jeu/assets/base-weapons/18.svg",
+      "bytes": 591,
+      "sha256": "4a3044df603371419aea71a0c5bfa13e6dc6f928a6eb5b4f41a7b1fdb59037ca"
+    },
+    {
+      "path": "jeu/assets/base-weapons/19.svg",
+      "bytes": 382,
+      "sha256": "adeae980c85026bc74fb3fbeaad66148cb480a0855f5e230b417494bfc259bfb"
+    },
+    {
+      "path": "jeu/assets/base-weapons/enamel.png",
+      "bytes": 4427,
+      "sha256": "9588d3c555966d642c8cbdeaf328b34052cabc08303572b534e831f4c0c48d47"
+    },
+    {
+      "path": "jeu/assets/dice.bundle.js",
+      "bytes": 492756,
+      "sha256": "358876e465edc4bc1ee6757d6f574c67e7dc76fbcbc00bfb707ba10fdfbadb46"
+    },
+    {
+      "path": "jeu/assets/equipment/abyss-plastron-ring-v1.webp",
+      "bytes": 78642,
+      "sha256": "cdaa86876d8e0cd6e595c19df1f73bf39279cf1298af9d87062fc77e0bed947b"
+    },
+    {
+      "path": "jeu/assets/equipment/abyss-plastron-v1.webp",
+      "bytes": 25072,
+      "sha256": "08f6616bfaf2579f30b1fd379365ce0a21d9e1ab3b0bd7f309266433e977ca1a"
+    },
+    {
+      "path": "jeu/assets/equipment/arborium-thorn-dagger-ring-v1.webp",
+      "bytes": 67026,
+      "sha256": "d23ab816aaceccd717d92377344de35d16f3aacd7e13c2d008f1a42a17ebaa94"
+    },
+    {
+      "path": "jeu/assets/equipment/arborium-thorn-dagger-v1.webp",
+      "bytes": 13424,
+      "sha256": "2f43281d0fdba29fb7e25ea3a82cae4a91e7838fc0f45c32ab2865c0677fadfa"
+    },
+    {
+      "path": "jeu/assets/equipment/arborium-twinstring-bow-ring-v1.webp",
+      "bytes": 73688,
+      "sha256": "737a6e010cce10707aaf7d6e81f43c060e872e3d783345407e1465b7f02e55ba"
+    },
+    {
+      "path": "jeu/assets/equipment/arborium-twinstring-bow-v1.webp",
+      "bytes": 14496,
+      "sha256": "7cc09828891a8ca0441739f288704dae8bf7aabd76ef29d268c8b2bb14cb9f92"
+    },
+    {
+      "path": "jeu/assets/equipment/axe.webp",
+      "bytes": 13756,
+      "sha256": "cbf12934e6fc838e239642273afcace39453b45699f2b3a6d3a1ddef8db71c34"
+    },
+    {
+      "path": "jeu/assets/equipment/brotherhood-ring-v2.webp",
+      "bytes": 104458,
+      "sha256": "bfa3b38d7a844a584daaaa5889d3f355da60d51f66d16a953e9a88b24f8f6752"
+    },
+    {
+      "path": "jeu/assets/equipment/brotherhood-v1.webp",
+      "bytes": 12050,
+      "sha256": "d1bad54523c3fe11dd65a137db719b74d78b905342b2c4ba9c5c1b79239b4db4"
+    },
+    {
+      "path": "jeu/assets/equipment/buster-sword-ring-v2.webp",
+      "bytes": 76292,
+      "sha256": "518e21dff3cb1be817bb0c13f1583daaeb66fce31ede247ff735802adacb87a8"
+    },
+    {
+      "path": "jeu/assets/equipment/buster-sword-v1.webp",
+      "bytes": 13070,
+      "sha256": "5accb41b084350bd35242951dbee86efbd2a4cf8ad174fb87286d0ce9d8ec97d"
+    },
+    {
+      "path": "jeu/assets/equipment/cola-reserve-ring-v1.webp",
+      "bytes": 62016,
+      "sha256": "4a8c76ac9ccc793793834653a47ec4125f7492052ac9dc2d9ce0e8c66cf9cb32"
+    },
+    {
+      "path": "jeu/assets/equipment/cola-reserve-v1.webp",
+      "bytes": 25056,
+      "sha256": "1f635f92b3a4369ae5bfe49724db8a1a8801b11f1a5285bc511aa83c74aeb77f"
+    },
+    {
+      "path": "jeu/assets/equipment/cold-blood-mantle-ring-v1.webp",
+      "bytes": 67050,
+      "sha256": "5f18c12a7aea7643eb551198a0423bef16ef5cb40adc1670ec20f876e15cd9aa"
+    },
+    {
+      "path": "jeu/assets/equipment/cold-blood-mantle-v1.webp",
+      "bytes": 23140,
+      "sha256": "358667694a8957438ca4cb8cdf5284e3234d0beb67a34c813fca633981ba31fe"
+    },
+    {
+      "path": "jeu/assets/equipment/commanders-sabre-ring-v2.webp",
+      "bytes": 73748,
+      "sha256": "9f0ebe1be0dda4ede05daf33bfc61301c467756a1d7f9901aad9e588baef94cc"
+    },
+    {
+      "path": "jeu/assets/equipment/commanders-sabre-v1.webp",
+      "bytes": 8844,
+      "sha256": "9601c7da7101bb6f2fb4309f50a923eca6abc2d9e48d222e53a72d94035bbf70"
+    },
+    {
+      "path": "jeu/assets/equipment/cryptown-oath-sword-ring-v1.webp",
+      "bytes": 64354,
+      "sha256": "9ec9563bbdb71715b2b69de4266a6c604be9e382378c81f930b75e56b56a6147"
+    },
+    {
+      "path": "jeu/assets/equipment/cryptown-oath-sword-v1.webp",
+      "bytes": 10036,
+      "sha256": "7a277df8fbeead47ed6d19c5a2cdb10834705536b9665469923965c99d76c0f5"
+    },
+    {
+      "path": "jeu/assets/equipment/cryptown-vigil-rifle-ring-v1.webp",
+      "bytes": 63884,
+      "sha256": "41d12e80b01fed5bf325d42e05247432d1ea6f40c3a80967a3b4e893edf869b9"
+    },
+    {
+      "path": "jeu/assets/equipment/cryptown-vigil-rifle-v1.webp",
+      "bytes": 11350,
+      "sha256": "c3a4e9ef97e9bd7d4beb8e38ea7b7935afd58aacf775d49a9fc905bb7d30c970"
+    },
+    {
+      "path": "jeu/assets/equipment/cryptown-watch-flail-ring-v1.webp",
+      "bytes": 68352,
+      "sha256": "b4d16d06357d7a90b93fcd2442a43a8c51037fc65377a06588ee17e1249bda04"
+    },
+    {
+      "path": "jeu/assets/equipment/cryptown-watch-flail-v1.webp",
+      "bytes": 19906,
+      "sha256": "c7e6d2a11740e7d36d84e3bbc3906a56e190d9596fd89734bf03716da0770c1c"
+    },
+    {
+      "path": "jeu/assets/equipment/current-compass-ring-v1.webp",
+      "bytes": 80434,
+      "sha256": "8e0986ac85a1fe8354517601be15a11345781f065378ed3d0e8db98e3256f039"
+    },
+    {
+      "path": "jeu/assets/equipment/current-compass-v1.webp",
+      "bytes": 28768,
+      "sha256": "b3c379e56b3897200f7a1ee31ca7858d71fabb82b9a213f9fba0396b304ca28c"
+    },
+    {
+      "path": "jeu/assets/equipment/cyborg-ninja-armor-ring-v1.webp",
+      "bytes": 68892,
+      "sha256": "a43937482ff7de2954a5a51716cc2553ca4f68169c9d7dcb59d1a8745df7b903"
+    },
+    {
+      "path": "jeu/assets/equipment/cyborg-ninja-armor-v1.webp",
+      "bytes": 21594,
+      "sha256": "6bc87da09a54ca617356bc904204f242539231d4c124b65ecbdc06bbb663323f"
+    },
+    {
+      "path": "jeu/assets/equipment/dawn-gorget-ring-v1.webp",
+      "bytes": 65922,
+      "sha256": "66b869252cde0fb1fb3541f3d35fe4db2775e3ae596144b14d86f08099c3f394"
+    },
+    {
+      "path": "jeu/assets/equipment/dawn-gorget-v1.webp",
+      "bytes": 26758,
+      "sha256": "d653298af52e9a79966099f8a9fae812b15d28431528173745fba56124ec8ead"
+    },
+    {
+      "path": "jeu/assets/equipment/draevenheim-crimson-crossbow-ring-v1.webp",
+      "bytes": 67546,
+      "sha256": "5ee53e18d13d899aa8a3b1595ea1b92c986535dc2f9076d709a50524b8ef4aaf"
+    },
+    {
+      "path": "jeu/assets/equipment/draevenheim-crimson-crossbow-v1.webp",
+      "bytes": 22966,
+      "sha256": "235fe18ee70dddf1bae13562c4ae92cc2ab48d8388bb062a77018d397a75d11a"
+    },
+    {
+      "path": "jeu/assets/equipment/draevenheim-wing-spear-ring-v1.webp",
+      "bytes": 65316,
+      "sha256": "869b9647dfe83095758fa1ada5565817aea45b09e77433da160866dd55b883c5"
+    },
+    {
+      "path": "jeu/assets/equipment/draevenheim-wing-spear-v1.webp",
+      "bytes": 11166,
+      "sha256": "2e9ca49f8cbbe840babf37efc8cabe3630c5fffbe795c95d81fb71f491261f50"
+    },
+    {
+      "path": "jeu/assets/equipment/durane-rampart-ring-v1.webp",
+      "bytes": 67270,
+      "sha256": "33dad5f9120aef9a9a72d839bf52d07be8b3423b0d13563a3fd67488fd8272d2"
+    },
+    {
+      "path": "jeu/assets/equipment/durane-rampart-v1.webp",
+      "bytes": 21224,
+      "sha256": "95781e41469628d4f818797d99a4c33ba0a931fffc5ba69fb40bfb1c14909186"
+    },
+    {
+      "path": "jeu/assets/equipment/electro-copper-ring-v1.webp",
+      "bytes": 172930,
+      "sha256": "157e5d9f1ed2bf0a1afd9c30feed54a925bdb7e3d0111d95e9fad9bcb5c65c99"
+    },
+    {
+      "path": "jeu/assets/equipment/exiled-king-seal-ring-v1.webp",
+      "bytes": 80404,
+      "sha256": "4288b8c07b4f3c09dd44aef994d000aec85d75e235bff8f915c1d143a262c1cd"
+    },
+    {
+      "path": "jeu/assets/equipment/exiled-king-seal-v1.webp",
+      "bytes": 18806,
+      "sha256": "335dcf9dbff645b202f4d81e7119011c8cb578493a291a4fb380ab4c33719b49"
+    },
+    {
+      "path": "jeu/assets/equipment/fallen-king-axe-v2.webp",
+      "bytes": 107840,
+      "sha256": "19929eda912a09a29bcafeacef2354fc2ea60c018a99c046736fc16e30e8f3eb"
+    },
+    {
+      "path": "jeu/assets/equipment/fallen-king-axe-v3.webp",
+      "bytes": 33902,
+      "sha256": "55fce855bb04ca17c7523337c10cefdeeddf729fc991a2bafcf3fde619a01494"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-backstage-hammer-ring-v1.webp",
+      "bytes": 74798,
+      "sha256": "0b7d32f00092928d6d6f44b93e4aaacdeab74267a89ebdf59df455cfcdd259ee"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-backstage-hammer-v1.webp",
+      "bytes": 15412,
+      "sha256": "52cff663ea63ac852a896c01ca6b31107396384f1f59dcfb1a59177504031f11"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-burmecia-coat-ring-v1.webp",
+      "bytes": 73282,
+      "sha256": "3a7414b189475801749633f352b4d5b54cc5db082562c78f58169ab180c754ab"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-burmecia-coat-v1.webp",
+      "bytes": 23274,
+      "sha256": "42ed8b694c610cd2471eddabc5eddac11cf530c2319ea438f7668f61dfd3fa4a"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-dragonade-ring-v1.webp",
+      "bytes": 79036,
+      "sha256": "6564947b19f858d61f032cb772d4593b74860bdde7c0b1bb4a078530145b07ed"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-dragonade-v1.webp",
+      "bytes": 9862,
+      "sha256": "0dc2dc72b350c94041f5d237efd23541645d76461d9a6e0c9b8328487d96c40c"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-excalibur-ring-v1.webp",
+      "bytes": 77542,
+      "sha256": "f3b84dd3ad0a831484ce3e072f0669e46be535d9d35d146edd411eacefb29ad2"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-excalibur-v1.webp",
+      "bytes": 13656,
+      "sha256": "68bc9cc5e9f55d3513541def2de285955db259606ac255ea35b37bcc82c0e7c5"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-final-act-feather-ring-v1.webp",
+      "bytes": 72656,
+      "sha256": "bf3f9cc0b548f05f8d2b0661e11a5843b97b33d0f18cd13483f208b9b50d438d"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-final-act-feather-v1.webp",
+      "bytes": 15474,
+      "sha256": "b786b96dfb4c3b9118f70f511d2de019f4252277d1aca0100f4c7f20243e278d"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-garnet-pendant-ring-v1.webp",
+      "bytes": 72896,
+      "sha256": "ecdc8c97c683aeda26daad517764439751d344873170e70e22d2f7a3084c92ab"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-garnet-pendant-v1.webp",
+      "bytes": 16258,
+      "sha256": "09fdc04cb7a12391a9262975b40612da61ec4d6973517037e0e12267ccbd926f"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-gastrette-ring-v1.webp",
+      "bytes": 81440,
+      "sha256": "44053c3779151c80b7eb664424a519b4a3c64219a0dd90d6093e919a97ee3feb"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-gastrette-v1.webp",
+      "bytes": 15850,
+      "sha256": "1a035fd8c8de5359115a1cc5d2616b03008957baf15c7c9561ab61ac70ad6499"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-magekane-ring-v1.webp",
+      "bytes": 75142,
+      "sha256": "b08658c75ccb9540fe6496070c61aae9c7f0b0e7dbb1b70701a734f391968d00"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-magekane-v1.webp",
+      "bytes": 13404,
+      "sha256": "7b30e7ea7811ef236c99ee5c77e377ecf824093adb5c8791b3baa255b1ea5799"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-mog-ribbon-ring-v1.webp",
+      "bytes": 72032,
+      "sha256": "97d9c55a9f6373001a280aebd6202b8928a6d6628afa64bd1fff6b519d741c0e"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-mog-ribbon-v1.webp",
+      "bytes": 23746,
+      "sha256": "0aaf88478e656639d3e6573cf3dfa5f108f3577bd75dca9ff6a5ebc07cb3128f"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-oath-helm-ring-v1.webp",
+      "bytes": 79196,
+      "sha256": "26f1836d2a07b12198404156b53d0bb093b1458a8ce03e037b58e11420ab03fe"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-oath-helm-v1.webp",
+      "bytes": 19658,
+      "sha256": "cdd3403aed2e59e39390912908d5961af8b5da0944dc2d31b109ff61499b661d"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-orichalque-ring-v1.webp",
+      "bytes": 78784,
+      "sha256": "f08a609c0eb20a753210f9e11c54a216e04b0e08db3e6c1ec83219bf366c847b"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-orichalque-v1.webp",
+      "bytes": 15084,
+      "sha256": "9e888630bab37b5379b54c81a119b415a724dfd97ba3e857732f6aa9b517506c"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-reunion-bandana-ring-v1.webp",
+      "bytes": 75302,
+      "sha256": "032df4516ad51d4c8dc4058a59871ee322ad400e509020876961f5f544af0d0e"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-reunion-bandana-v1.webp",
+      "bytes": 17622,
+      "sha256": "846ea86c677e98b84a23c92971564db2771b926583579c4800ebf97b8bad4fe1"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-runigriffe-ring-v1.webp",
+      "bytes": 84104,
+      "sha256": "d58cab945243066f93917f2ec80753f5a2f358dc3166c895cb7f7edd500fb442"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-runigriffe-v1.webp",
+      "bytes": 30452,
+      "sha256": "3e06801db9f4b56aa5a6698ddf2c2b9fe904f50de9e6034559049ff778ba8894"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-save-the-queen-ring-v1.webp",
+      "bytes": 74672,
+      "sha256": "0951680d4042d6672f919f1f5099ce81544754e31023b52eb01b15cd0dfe12df"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-save-the-queen-v1.webp",
+      "bytes": 11850,
+      "sha256": "8b1a0f765588ce668dd4259937013130fb6fac2794a39f3b5d92eb324df8954c"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-solitary-wraps-ring-v1.webp",
+      "bytes": 85560,
+      "sha256": "dbf8752621fe2fd39ed4b596922fdc6f3b4bc1b4b5a92a9aa2c5420109ecce21"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-solitary-wraps-v1.webp",
+      "bytes": 22954,
+      "sha256": "ce21ba21836656859ef3e1d5a78cd3ace4371a72414ec1218203caa57c80ee16"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-tantalus-script-ring-v1.webp",
+      "bytes": 71172,
+      "sha256": "dc07e85be573512cb6c23fb6518cfe4e091d16300a41c3f0e3e36450f551e516"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-tantalus-script-v1.webp",
+      "bytes": 25440,
+      "sha256": "49bf7988586c940e52ab6e0282f40450c3e721d5b69e662ffa656426f619ca96"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-terra-fragment-ring-v1.webp",
+      "bytes": 75850,
+      "sha256": "6e8d7e17ab906389434f5e29b13bac5590ec4143bdde21c7384b4b5dd1b1c281"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-terra-fragment-v1.webp",
+      "bytes": 15686,
+      "sha256": "608581cced67a3e355071e3a9dc19a99db8f316ebf943af306e33bb9149350cc"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-vivi-hat-ring-v1.webp",
+      "bytes": 75628,
+      "sha256": "496ec3c500891db58f571697e96961a518ea7b9ccc10d7331a3844cf741442e8"
+    },
+    {
+      "path": "jeu/assets/equipment/ff9-vivi-hat-v1.webp",
+      "bytes": 22864,
+      "sha256": "28e2ab94f0cc63128a8a89e5795d7f8c3dff419048377687945ab211ae8d2bb2"
+    },
+    {
+      "path": "jeu/assets/equipment/first-thaw-cloak-ring-v1.webp",
+      "bytes": 81070,
+      "sha256": "d16ecf903724e12edcf92233ffba780be9fe7422dfed9eddcbee758b4563e05b"
+    },
+    {
+      "path": "jeu/assets/equipment/first-thaw-cloak-v1.webp",
+      "bytes": 23950,
+      "sha256": "ae5824b02974b8d1a98ba950476a37b679545c09f2ca7aaec38f9c75174a4612"
+    },
+    {
+      "path": "jeu/assets/equipment/flute.webp",
+      "bytes": 17878,
+      "sha256": "ea4878599321ea9de52ea68d08dd8c18834aa72004ddf2cbc60977e4f42d5873"
+    },
+    {
+      "path": "jeu/assets/equipment/gate-gauntlets-ring-v1.webp",
+      "bytes": 78762,
+      "sha256": "596c5152ce9c89e4f33bbc216dab28cf08060729b5f1c0ff6543d71ad3699c8c"
+    },
+    {
+      "path": "jeu/assets/equipment/gate-gauntlets-v1.webp",
+      "bytes": 30784,
+      "sha256": "0ccc90cbc76166d8f2f4f706f1cf947602d7d986c447bdacbd3890e1e34040c2"
+    },
+    {
+      "path": "jeu/assets/equipment/gen-mechanical-arm-ring-v2.webp",
+      "bytes": 73952,
+      "sha256": "87eed6baa26d5314f6ec2c2eea9f6cdba62ac635981c386bc718ce45b0e04709"
+    },
+    {
+      "path": "jeu/assets/equipment/gen-mechanical-arm-v1.webp",
+      "bytes": 19300,
+      "sha256": "1d0c857016400bd4728fbf1588863ffe79a553f44b260ec77017d1e8b771fe31"
+    },
+    {
+      "path": "jeu/assets/equipment/griever-pendant-ring-v1.webp",
+      "bytes": 78400,
+      "sha256": "916f27ac8ed28b5bae4da97158a5644695e28c514fcdcd123fb84ee14df5e302"
+    },
+    {
+      "path": "jeu/assets/equipment/griever-pendant-v1.webp",
+      "bytes": 28154,
+      "sha256": "3366418046ec23b1e11e1ed3c522516233dd5b37fe64015816ae574df915444e"
+    },
+    {
+      "path": "jeu/assets/equipment/grimoire-weiss-ring-v2.webp",
+      "bytes": 73916,
+      "sha256": "91bb6dc1b3c01d732924219c59b6fb3af4eec9fa363e5e8e41bd5e5ffe9f47cd"
+    },
+    {
+      "path": "jeu/assets/equipment/grimoire-weiss-v1.webp",
+      "bytes": 30792,
+      "sha256": "62906d777e7a48987ee11e88d121f6f5874675fbbbbc0aaf936a9f9654933667"
+    },
+    {
+      "path": "jeu/assets/equipment/guardian-jug-ring-v1.webp",
+      "bytes": 80220,
+      "sha256": "498c75f7d73bc28cfe94b8083b733804abb84b069bc61f8a3b8f416941f2b9e3"
+    },
+    {
+      "path": "jeu/assets/equipment/guardian-jug-v1.webp",
+      "bytes": 24376,
+      "sha256": "c20708a96a90641100ac7304f1678cfad1ccb3d3c037e69a2ac0345577b1d6b3"
+    },
+    {
+      "path": "jeu/assets/equipment/guardian-red-coat-ring-v1.webp",
+      "bytes": 74654,
+      "sha256": "ded7049cc82f756064a2969e04335834c5d7554a760d0fa490cb9f75cfa871f3"
+    },
+    {
+      "path": "jeu/assets/equipment/guardian-red-coat-v1.webp",
+      "bytes": 21600,
+      "sha256": "3fd180e02ffa8d3bcc5ab30a2f6808eed4066504b99813a511b3ccc535ec4987"
+    },
+    {
+      "path": "jeu/assets/equipment/infiltration-box-ring-v1.webp",
+      "bytes": 60758,
+      "sha256": "607d1d8260274071c9656a86e6517f178a4382bf0e35af792171c336b04ec701"
+    },
+    {
+      "path": "jeu/assets/equipment/infiltration-box-v1.webp",
+      "bytes": 23560,
+      "sha256": "a6ea19e20776573b79118aa821ddfb2598898b6d09ad7310256fcd12d4425614"
+    },
+    {
+      "path": "jeu/assets/equipment/jill-lockpicks-ring-v1.webp",
+      "bytes": 67610,
+      "sha256": "232cc1557a40328d4fb37d5dd0f981fb32ea2d29f559cda4449673b418266337"
+    },
+    {
+      "path": "jeu/assets/equipment/jill-lockpicks-v1.webp",
+      "bytes": 25818,
+      "sha256": "54e13c710cde21208200db233e5ceba9ad7e99c8404556cb97664891d1c54f2b"
+    },
+    {
+      "path": "jeu/assets/equipment/kaine-saw-ring-v2.webp",
+      "bytes": 74428,
+      "sha256": "6ca4a9937822efb41cebe570a170e0138148efcf270bf0dbbf82077cdc810bff"
+    },
+    {
+      "path": "jeu/assets/equipment/kaine-saw-v1.webp",
+      "bytes": 8610,
+      "sha256": "ebec9e63646eb5b9eabde91c24976a30e8f2b08fd89f96ea59cd643298934ec4"
+    },
+    {
+      "path": "jeu/assets/equipment/kaine-saw-v2.webp",
+      "bytes": 9684,
+      "sha256": "bc0dbdf98090307b141a03fd7ee9db76b3010be23f84ba16a54a1f13754f28b3"
+    },
+    {
+      "path": "jeu/assets/equipment/last-forge-apron-ring-v1.webp",
+      "bytes": 75024,
+      "sha256": "29f36652f2e8fe56dd4d1b4f135df816bb87b8ed8a39f7b58823f7fef2670b10"
+    },
+    {
+      "path": "jeu/assets/equipment/last-forge-apron-v1.webp",
+      "bytes": 19400,
+      "sha256": "d9c86af61e688266dcefaa9de1991da26df224e9d285804e532b7fa86b9bb386"
+    },
+    {
+      "path": "jeu/assets/equipment/last-garden-seed-ring-v1.webp",
+      "bytes": 75486,
+      "sha256": "f9fb22811f28d4595d74a6be87f91f2e31d292ef6ea673e7cf9faead5a8e9d64"
+    },
+    {
+      "path": "jeu/assets/equipment/last-garden-seed-v1.webp",
+      "bytes": 20898,
+      "sha256": "0ed5b176e14bae219c92cff9319146bf26e5d2bc06312090bc84e3ffbf40c25a"
+    },
+    {
+      "path": "jeu/assets/equipment/last-vigil-cuirass-ring-v1.webp",
+      "bytes": 71814,
+      "sha256": "1b9322c8359d47cb286bceed33583f4d33a1d537a1375cf21d0f06fed4b2ad20"
+    },
+    {
+      "path": "jeu/assets/equipment/last-vigil-cuirass-v1.webp",
+      "bytes": 25224,
+      "sha256": "288f5a003dbcb97e541e1322f5f6ada4db7ac024f57907df4d30053d68604cb6"
+    },
+    {
+      "path": "jeu/assets/equipment/leon-body-armor-ring-v1.webp",
+      "bytes": 60402,
+      "sha256": "bd7e539c6617a44b28fe482addb953b04aac29f8081ffd4764c672815a0d6808"
+    },
+    {
+      "path": "jeu/assets/equipment/leon-body-armor-v1.webp",
+      "bytes": 20888,
+      "sha256": "fb1be7b909e4f1daef663f905c0e03294557290ab9dc8634fb9ee37b276b23da"
+    },
+    {
+      "path": "jeu/assets/equipment/leopard-lightning-ring-v2.webp",
+      "bytes": 75290,
+      "sha256": "ec7a4d2df7acb881ce908cf784edca303d37ac30e1f0c06e7aaa14c3506404df"
+    },
+    {
+      "path": "jeu/assets/equipment/leopard-lightning-v1.webp",
+      "bytes": 18492,
+      "sha256": "18effa045b44c6aea029d9fdd9aed1855cbd96124d2f861efda7d2a7ee489c61"
+    },
+    {
+      "path": "jeu/assets/equipment/little-joys-box-ring-v1.webp",
+      "bytes": 78832,
+      "sha256": "95711998324557c6870f3530b40074650407ee2a2db80cfcd68c8eebb1393ac6"
+    },
+    {
+      "path": "jeu/assets/equipment/little-joys-box-v1.webp",
+      "bytes": 27998,
+      "sha256": "c11b3100a19230a0c18adf3a7dfeead4dbc07d692c393ab6e0be714c50c25f10"
+    },
+    {
+      "path": "jeu/assets/equipment/little-joys-flute-v2.webp",
+      "bytes": 99582,
+      "sha256": "b89cc2aaf054687aa5f72e139112ad65cea97b4b5c09e48ba324f6b7ed2be8c7"
+    },
+    {
+      "path": "jeu/assets/equipment/little-joys-flute-v3.webp",
+      "bytes": 33158,
+      "sha256": "93260dad9ebd240226c113670c95980865a8c407ce453a27896ae4739880b9cd"
+    },
+    {
+      "path": "jeu/assets/equipment/log-pose-ring-v1.webp",
+      "bytes": 83634,
+      "sha256": "efd24003f4dbcaaabd0be4ec937dadc38563a20c50995fad3c54b42630973cce"
+    },
+    {
+      "path": "jeu/assets/equipment/log-pose-v1.webp",
+      "bytes": 25680,
+      "sha256": "bfa7cc67f7b71be4abb439400c477645ec2eb8c2984d756642eebda8408a27a1"
+    },
+    {
+      "path": "jeu/assets/equipment/lost-names-bell-ring-v1.webp",
+      "bytes": 68252,
+      "sha256": "0980e873e901fef73be84ab45ac99c7f3cfc6f7b3a7499a30756755b3b37abb2"
+    },
+    {
+      "path": "jeu/assets/equipment/lost-names-bell-v1.webp",
+      "bytes": 16142,
+      "sha256": "983d9d3866efaaafbb55ece7b1b2b0309d62805f766b0039f503d8f632615f3a"
+    },
+    {
+      "path": "jeu/assets/equipment/lulu-mog-ring-v2.webp",
+      "bytes": 71522,
+      "sha256": "fcd678291131c4bd5231e3e0e85be05e3df998e2402e773453e7da168f45fb16"
+    },
+    {
+      "path": "jeu/assets/equipment/lulu-mog-v1.webp",
+      "bytes": 20114,
+      "sha256": "527c44b425efc121787f3d9a7458c672a0ba7c982783187c1bd442328b885f2e"
+    },
+    {
+      "path": "jeu/assets/equipment/lunar-tear-ring-v1.webp",
+      "bytes": 64096,
+      "sha256": "fe8826039500432398f1ac387a8415566dbd9e977e88ea0767abe5f782747990"
+    },
+    {
+      "path": "jeu/assets/equipment/lunar-tear-v1.webp",
+      "bytes": 19784,
+      "sha256": "9f9520e1aad0704b69af3fa135312265dedb971f5a65af4c811fd77638238626"
+    },
+    {
+      "path": "jeu/assets/equipment/mantis-mask-ring-v2.webp",
+      "bytes": 75148,
+      "sha256": "c1498d5d035da13e89df765d1e091c226da906681724acc1c3a4ea29bdf00fad"
+    },
+    {
+      "path": "jeu/assets/equipment/mantis-mask-v1.webp",
+      "bytes": 13378,
+      "sha256": "f0b7825e9e98b1b2f2170c0720fa46d742ed8792b89500d60273233c00eb4a2f"
+    },
+    {
+      "path": "jeu/assets/equipment/metal-gear-mkii-ring-v1.webp",
+      "bytes": 71244,
+      "sha256": "cb9abdaab9fd5bcf0d60b6baa6e3894d436b53059d9bd6030473339bb33cd1fe"
+    },
+    {
+      "path": "jeu/assets/equipment/metal-gear-mkii-v1.webp",
+      "bytes": 21850,
+      "sha256": "a974abd85236786fcfd06286219d646ec467d2d1a2121193439799b339039b70"
+    },
+    {
+      "path": "jeu/assets/equipment/mythic-iron-gauntlet-ring-v2.webp",
+      "bytes": 75732,
+      "sha256": "86efe3c234b7ff958ab4c8fafb1879e30a88b4c1cfea1595727d3df787664dca"
+    },
+    {
+      "path": "jeu/assets/equipment/mythic-iron-gauntlet-v1.webp",
+      "bytes": 22092,
+      "sha256": "d066b0f30190314a30b7f50cdd42e1227c2b80b0efc5c8788b273c6ff942d735"
+    },
+    {
+      "path": "jeu/assets/equipment/ninth-life-boots-ring-v1.webp",
+      "bytes": 81298,
+      "sha256": "fca913e1c2e6cefd87eb8329673bcaa025c16dad81c76d55567f5e229bc2b353"
+    },
+    {
+      "path": "jeu/assets/equipment/ninth-life-boots-v1.webp",
+      "bytes": 24090,
+      "sha256": "d71be90ac0aaebb4a02fab9417a7ec2782769c851d00f4c23bcc52deaec055bb"
+    },
+    {
+      "path": "jeu/assets/equipment/obsidian-star-ring-v1.webp",
+      "bytes": 63312,
+      "sha256": "cc2c7695c447498e50596870e2fb4adc2ae403f522777f332d9a1872302211da"
+    },
+    {
+      "path": "jeu/assets/equipment/obsidian-star-v1.webp",
+      "bytes": 20756,
+      "sha256": "bc57bab2c34a07c26bcd6244176fb8d704b585090db33b24b9768b66937abb05"
+    },
+    {
+      "path": "jeu/assets/equipment/octocamo-ring-v1.webp",
+      "bytes": 59994,
+      "sha256": "4516e509310c3848cfa3582e4e206e72ceeb0d4aff0e6a7f7d20b9ad4d4b15a6"
+    },
+    {
+      "path": "jeu/assets/equipment/octocamo-v1.webp",
+      "bytes": 26606,
+      "sha256": "a1694f3c68036268a8177a93f17c713cff9d806f64025f22c4d51e089a1cc567"
+    },
+    {
+      "path": "jeu/assets/equipment/pod-042-ring-v1.webp",
+      "bytes": 68794,
+      "sha256": "cf4222ab93de6185f4b6a620ebbbaaf6f6efdd67a3582704398b0313f1c83812"
+    },
+    {
+      "path": "jeu/assets/equipment/pod-042-v1.webp",
+      "bytes": 17684,
+      "sha256": "49e5290168b5ec8374624e136708b909b65b384557d1c1cf9a054ae993a2bfdc"
+    },
+    {
+      "path": "jeu/assets/equipment/pod-153-ring-v1.webp",
+      "bytes": 62890,
+      "sha256": "3cd3ebf200de1c481e044970efd7ad3db4fbfae98912449e547c6e60197dcb55"
+    },
+    {
+      "path": "jeu/assets/equipment/pod-153-v1.webp",
+      "bytes": 16754,
+      "sha256": "39d3cf662663130405bd072ba86ea653de70395c292be0a5c7b87e82e0a333cd"
+    },
+    {
+      "path": "jeu/assets/equipment/post-bow-ring-v2.webp",
+      "bytes": 70602,
+      "sha256": "2e3ce128674a26e06dd2de552d2b2b8720817ab287d7a24fc377ed45912d0306"
+    },
+    {
+      "path": "jeu/assets/equipment/post-bow-v1.webp",
+      "bytes": 8322,
+      "sha256": "e377e79cf2b5eaa8ea4b24b69f0ad684d4a88e050dab1b856f5deec932076905"
+    },
+    {
+      "path": "jeu/assets/equipment/psg1-ring-v2.webp",
+      "bytes": 71046,
+      "sha256": "535d70d7ba4c52b26856c9ee9e5d805062719113929d9bde458bdbff9be48fb0"
+    },
+    {
+      "path": "jeu/assets/equipment/psg1-v1.webp",
+      "bytes": 10842,
+      "sha256": "1ffbc4b82e48dace98b9b1eceb0787b0c36776c229a7ba5876841d946f7462e1"
+    },
+    {
+      "path": "jeu/assets/equipment/revolver-gunblade-ring-v2.webp",
+      "bytes": 72482,
+      "sha256": "aa1143be452571dc75b2dc2d5b173cf5c241414b39aa218f5a72cc544ac31954"
+    },
+    {
+      "path": "jeu/assets/equipment/revolver-gunblade-v1.webp",
+      "bytes": 8502,
+      "sha256": "896c11b97d88fe5e45c339e1320949e9805b0cf9413f48b62030ba8f9a7a5b95"
+    },
+    {
+      "path": "jeu/assets/equipment/rhinoz-ancestral-horn-ring-v1.webp",
+      "bytes": 71864,
+      "sha256": "6160f480c20c9b642f582b0ef1586cd2544566b0cc86e693484c834e7d17f62c"
+    },
+    {
+      "path": "jeu/assets/equipment/rhinoz-ancestral-horn-v2.webp",
+      "bytes": 13056,
+      "sha256": "20f51a0604fde2b674ed858a9590ff325a4fb0617dbbffed8c7153d2e7cd5ad6"
+    },
+    {
+      "path": "jeu/assets/equipment/rhinoz-hauberk-ring-v1.webp",
+      "bytes": 80332,
+      "sha256": "e1d4635f3bfb8789da4bc3abac5d932c62bf219cc2beb4ad31ed55f6aa43b952"
+    },
+    {
+      "path": "jeu/assets/equipment/rhinoz-hauberk-v1.webp",
+      "bytes": 29230,
+      "sha256": "edc754a706b2e13b4c18c05fdb18a19c9ad301f1c99459ed28efdb79a309a3b3"
+    },
+    {
+      "path": "jeu/assets/equipment/rim.webp",
+      "bytes": 9564,
+      "sha256": "8a806928fddf50f16ccb2b761bcb978a89c349f0a9b321a6dae85ef3a63bba81"
+    },
+    {
+      "path": "jeu/assets/equipment/rumble-ball-ring-v1.webp",
+      "bytes": 68478,
+      "sha256": "5360844cd8b8adae7908327ce631187f8e0d820f6e605e493c4987f1ce10f390"
+    },
+    {
+      "path": "jeu/assets/equipment/rumble-ball-v1.webp",
+      "bytes": 15824,
+      "sha256": "5449dbf41c17045ab8a16313e8ee5f3254c3ac19765303024818e08e0ac6cb63"
+    },
+    {
+      "path": "jeu/assets/equipment/sap-cuirass-ring-v1.webp",
+      "bytes": 76830,
+      "sha256": "5fd1f4ede24849805ec649d14faca241c9ac2605110103455e25b6d0da883f71"
+    },
+    {
+      "path": "jeu/assets/equipment/sap-cuirass-v1.webp",
+      "bytes": 26878,
+      "sha256": "349ddbe7f1ec74431d4ebdb62758ef3719fb53ac793d7f1654b4ec814e65bbdb"
+    },
+    {
+      "path": "jeu/assets/equipment/scarlet-cape-ring-v1.webp",
+      "bytes": 73096,
+      "sha256": "f80a49ce231c1142cc9bde361c6f53bce5592dde112224271dde7aa3cf41dd30"
+    },
+    {
+      "path": "jeu/assets/equipment/scarlet-cape-v1.webp",
+      "bytes": 23362,
+      "sha256": "6e9656845a233efce8abb5faf642e7c51c384bf134b2ffbf1173a87d91342c6a"
+    },
+    {
+      "path": "jeu/assets/equipment/sentinel-carapace-ring-v1.webp",
+      "bytes": 74796,
+      "sha256": "71a2511575b235172fa0e7728cff5bf492b1776799e3260a36961c8c11459393"
+    },
+    {
+      "path": "jeu/assets/equipment/sentinel-carapace-v1.webp",
+      "bytes": 26752,
+      "sha256": "7e4f8275521461d7c29396f54fe62134ea2ca3e8e26129889baa04483828e1c8"
+    },
+    {
+      "path": "jeu/assets/equipment/single-action-army-ring-v2.webp",
+      "bytes": 74212,
+      "sha256": "89eba05edda91ad0d4eaa3b6dbb59503ddedc42048e247a06d0a2632fbb75311"
+    },
+    {
+      "path": "jeu/assets/equipment/single-action-army-v1.webp",
+      "bytes": 13348,
+      "sha256": "69510f6ee4bc40d0c6ad430b0acd14ac4a9722fae9acd87c2e00ad0b44fd7fe3"
+    },
+    {
+      "path": "jeu/assets/equipment/socom-ring-v2.webp",
+      "bytes": 67422,
+      "sha256": "d4be7ccb6cbfa1fe79d006fa6f7943f724fde6067af1f1cc4f2a417dcdd7c477"
+    },
+    {
+      "path": "jeu/assets/equipment/socom-v1.webp",
+      "bytes": 10486,
+      "sha256": "0b6756a58ef544836c10007234e16066d1d8b4f4d84b719b198b8e6d575c44d1"
+    },
+    {
+      "path": "jeu/assets/equipment/soldiers-blade-ring-v2.webp",
+      "bytes": 73816,
+      "sha256": "79b01bb64080a86d5b40b8399ac8f03d1c9ad644be90e87205159d6dfe85bafb"
+    },
+    {
+      "path": "jeu/assets/equipment/soldiers-blade-v1.webp",
+      "bytes": 8456,
+      "sha256": "75b12cccce8424d0ccb595d4641e863e3d85990142d64212bbd4ba798d1f4791"
+    },
+    {
+      "path": "jeu/assets/equipment/stars-vest-ring-v1.webp",
+      "bytes": 71042,
+      "sha256": "bf79097a3db4494975bdeba20693c5e306510360db8a8e07465a36ece1289a94"
+    },
+    {
+      "path": "jeu/assets/equipment/stars-vest-v1.webp",
+      "bytes": 27342,
+      "sha256": "96b7bf70eabf4021cf2d88d84c9d72f7a30dafa3beedfd9fbd563d4e1b2a7028"
+    },
+    {
+      "path": "jeu/assets/equipment/stone-copper-ring-v1.webp",
+      "bytes": 165690,
+      "sha256": "2694cb9a67cdcc0e0fab34a6ef762943ad13b53be45533ce75d311e2243c80e6"
+    },
+    {
+      "path": "jeu/assets/equipment/straw-hat-ring-v1.webp",
+      "bytes": 69208,
+      "sha256": "d500310d3376dfc7f05f2b6a19667f042e35cf55dd17b4d8463effbb6596d8b5"
+    },
+    {
+      "path": "jeu/assets/equipment/straw-hat-v1.webp",
+      "bytes": 22972,
+      "sha256": "9a2b6bf3e79f7e3d44f59a8d34ea1926ce97a089feb6a181af308eff139f99e5"
+    },
+    {
+      "path": "jeu/assets/equipment/tide-pavise-ring-v1.webp",
+      "bytes": 78852,
+      "sha256": "5024306d48e27b3e12c98096904a8ca9c0e1050490077fa23a5b6ec8695a43fc"
+    },
+    {
+      "path": "jeu/assets/equipment/tide-pavise-v1.webp",
+      "bytes": 16746,
+      "sha256": "20cc843bda1d5365bf68a999244c033ce1f8905897be45f1819271976bdd5f78"
+    },
+    {
+      "path": "jeu/assets/equipment/violet-reaping-ring-v2.webp",
+      "bytes": 71780,
+      "sha256": "989caa14c4980cc1522917f8a8973654dc10d96e25bd91eae341630dfb191ba1"
+    },
+    {
+      "path": "jeu/assets/equipment/violet-reaping-v1.webp",
+      "bytes": 8406,
+      "sha256": "42d182a02f140aca84c866c1277b8d54b8e68245deadbdfc75957b47a3f2c774"
+    },
+    {
+      "path": "jeu/assets/equipment/virtuous-contract-ring-v2.webp",
+      "bytes": 71314,
+      "sha256": "152595ccb59eb2338d7259a13fc408ea7d90c950d68cf3b97e17a2643b822955"
+    },
+    {
+      "path": "jeu/assets/equipment/virtuous-contract-v1.webp",
+      "bytes": 9662,
+      "sha256": "9ae1c49ecc38eeed0749ba2d7e7d71ecfb99d36d878a0ff44e3ca9a1a5541a9d"
+    },
+    {
+      "path": "jeu/assets/equipment/virtuous-treaty-ring-v2.webp",
+      "bytes": 71258,
+      "sha256": "bf50cfc8bb05cbc284fdac43f4cef9fd19a6a299b87e27675159f98c4a04e7fa"
+    },
+    {
+      "path": "jeu/assets/equipment/virtuous-treaty-v1.webp",
+      "bytes": 10378,
+      "sha256": "bf5e87801da2590e8fa43da3be5e334d885d68999e458c7fd366b8b1d733abdc"
+    },
+    {
+      "path": "jeu/assets/equipment/wardens-spear-ring-v2.webp",
+      "bytes": 74878,
+      "sha256": "b50b3b24152d74a600a7a1fa2fbffc2bfb09c85139581fab654fb39e371752ad"
+    },
+    {
+      "path": "jeu/assets/equipment/wardens-spear-v1.webp",
+      "bytes": 6594,
+      "sha256": "5a09280f10ebbc46506200a3f6a305d4a179951c931740c631579d99be0f20cb"
+    },
+    {
+      "path": "jeu/assets/equipment/white-materia-ring-v1.webp",
+      "bytes": 64780,
+      "sha256": "f605207a4f132f0a440cebc48aba70e204093eff71ff4a7fa50958d0b513ec09"
+    },
+    {
+      "path": "jeu/assets/equipment/white-materia-v1.webp",
+      "bytes": 22464,
+      "sha256": "6c07744b5316d1d587c22d488d7478d81e2b0b12cf368ddb3b441ae750965880"
+    },
+    {
+      "path": "jeu/assets/equipment/white-oath-rapier-ring-v2.webp",
+      "bytes": 75422,
+      "sha256": "5ac03de75361f2229b499db71e94e047d6241c86de06445d7a0ec4c81377222f"
+    },
+    {
+      "path": "jeu/assets/equipment/white-oath-rapier-v1.webp",
+      "bytes": 10818,
+      "sha256": "c57f941b595bb5ea10dfd0f376b2c591127e41a3db4d9939225b60e36c02aaee"
+    },
+    {
+      "path": "jeu/assets/equipment/wolf-medallion-ring-v1.webp",
+      "bytes": 73702,
+      "sha256": "358ed830501064c068eb81b236bce71f239b9485d11e2abd65b1e6267eca6955"
+    },
+    {
+      "path": "jeu/assets/equipment/wolf-medallion-v1.webp",
+      "bytes": 21996,
+      "sha256": "5d1d1343fc82d1e5061d33afcb15b4b6b195e2f5520503a3d36c2e25794e9c1c"
+    },
+    {
+      "path": "jeu/assets/equipment/wolf-school-armor-ring-v1.webp",
+      "bytes": 83740,
+      "sha256": "4b9cb7205ac1b9cd58c18f35a4d8fa5ef16f82c2c7cb8d62b0ad8be40a1c1045"
+    },
+    {
+      "path": "jeu/assets/equipment/wolf-school-armor-v1.webp",
+      "bytes": 27658,
+      "sha256": "fb8c45a0cf2daa9d65aefd3a010d3865d2a8b0a26aa472d33d9710c3f60b15e1"
+    },
+    {
+      "path": "jeu/assets/equipment/wolf-silver-ring-v2.webp",
+      "bytes": 72930,
+      "sha256": "defd9864912261b087072385ef1c5e1010602ac190f1a84b55cbdc554e0d58f0"
+    },
+    {
+      "path": "jeu/assets/equipment/wolf-silver-v1.webp",
+      "bytes": 9478,
+      "sha256": "cb0ebb41660c0cdc7001be0e2cccc7f36b7da4ca277c89cf75067a25f3f3058d"
+    },
+    {
+      "path": "jeu/assets/equipment/wolf-steel-ring-v2.webp",
+      "bytes": 72790,
+      "sha256": "0da37e4732d16d7010d7d402f36ba56ccc812189fe9166256ea3b447bcd1ae75"
+    },
+    {
+      "path": "jeu/assets/equipment/wolf-steel-v1.webp",
+      "bytes": 9436,
+      "sha256": "6db2bf197e24d00d3d48681735f7069924a50a4449d8c2a37657196e1186e057"
+    },
+    {
+      "path": "jeu/assets/equipment/zanarkand-abes-pendant-ring-v1.webp",
+      "bytes": 76966,
+      "sha256": "6a59a39dde74259d4e207ec4fa3d31b3319d2f09dd829b5004839f99d773d909"
+    },
+    {
+      "path": "jeu/assets/equipment/zanarkand-abes-pendant-v1.webp",
+      "bytes": 22098,
+      "sha256": "e2d54b73d333857d957b40e91f2dd49d65001bbdea5a5b97b5f629a08c98577d"
+    },
+    {
+      "path": "jeu/assets/equipment/zanarkand-pauldron-ring-v1.webp",
+      "bytes": 74030,
+      "sha256": "4dbb40a879f333e9862feba869a3247c7ddceb84980d20a862b1dfcec60c9c3c"
+    },
+    {
+      "path": "jeu/assets/equipment/zanarkand-pauldron-v1.webp",
+      "bytes": 24740,
+      "sha256": "9ffa61c9a1d01e40830cf1293855b08acd77ff89db6abc002a08d77bb362256b"
+    },
+    {
+      "path": "jeu/assets/factions/FF10.png",
+      "bytes": 47997,
+      "sha256": "b45cb0f920c85b69aa6b7a874c246baee8409b9b7a6a254d7205ef19d724bb14"
+    },
+    {
+      "path": "jeu/assets/factions/FF13.png",
+      "bytes": 44456,
+      "sha256": "843633cbb8aad5ed4b0f7ed0e9066899657aa1740259c481f3efd54ef45dd140"
+    },
+    {
+      "path": "jeu/assets/factions/FF15.png",
+      "bytes": 44242,
+      "sha256": "323be41a2302471f366734fc9d33f350ea4be1e2665348a736a540868b19f6fd"
+    },
+    {
+      "path": "jeu/assets/factions/FF6.png",
+      "bytes": 47773,
+      "sha256": "1bd04da0b6a222dfae837fd1b0eb9f01d300d4fec2189022f46eae4608ebd0a4"
+    },
+    {
+      "path": "jeu/assets/factions/FF7.png",
+      "bytes": 44572,
+      "sha256": "4400df3646ef3a625acaa0bd230b0d7aeadc113b649ddd6dbeaab23a0de3433c"
+    },
+    {
+      "path": "jeu/assets/factions/FF8.png",
+      "bytes": 44298,
+      "sha256": "8afbf9cd1c89450716a37fa153973fc1c91b0f93bfe3ea2056498f42237a3487"
+    },
+    {
+      "path": "jeu/assets/factions/FF9.png",
+      "bytes": 46568,
+      "sha256": "af31e5378b74a55cd6f82dd887c078d6686569c3ffd05c4618a0c00d1484826e"
+    },
+    {
+      "path": "jeu/assets/factions/Grivka.png",
+      "bytes": 43248,
+      "sha256": "66a2b5dada79188b3eb39e2582e28c54766794a2d460eb48a7cffd70eeee5873"
+    },
+    {
+      "path": "jeu/assets/factions/MGS1.png",
+      "bytes": 47159,
+      "sha256": "78db79a83d5ee3a1a7a035080dc708c498fe78a7f33faab113cdbafba394a16c"
+    },
+    {
+      "path": "jeu/assets/factions/MGS2.png",
+      "bytes": 48623,
+      "sha256": "c58764c77a393e01bec2a9ae1e4d0a3e20e9da68d5e7e69694c9c9ca2ce29f6d"
+    },
+    {
+      "path": "jeu/assets/factions/MGS3.png",
+      "bytes": 48889,
+      "sha256": "1bfbff9efbd3f67a75fb3fe5e57f2f8ee24fcf496da4dbb79ab79b8da2d3ebae"
+    },
+    {
+      "path": "jeu/assets/factions/MGS4.png",
+      "bytes": 45139,
+      "sha256": "da0138441ebe6d9958ce5be5ada53434fc7eed0950eff9af88c7566a91274ffd"
+    },
+    {
+      "path": "jeu/assets/factions/MGS5.png",
+      "bytes": 46353,
+      "sha256": "a903363f0671eeca0ae464d85118846a97d31cea8b12f8903da976f58799dad4"
+    },
+    {
+      "path": "jeu/assets/factions/NieR.png",
+      "bytes": 41417,
+      "sha256": "12900f7900b7bd474c90681f5ae36d2e60441a54eb14a819024f1f285bef77db"
+    },
+    {
+      "path": "jeu/assets/factions/ONEPIECE.png",
+      "bytes": 46057,
+      "sha256": "0a57ba21e19e334794a498eb44c387cb3076a11f8b0f7540083f1755cc48c8ae"
+    },
+    {
+      "path": "jeu/assets/factions/RE1.png",
+      "bytes": 37468,
+      "sha256": "4ab28a1e426a61fa04883d3642e6bc34afd304fa5f9cc5b206b1a68ec5a4840b"
+    },
+    {
+      "path": "jeu/assets/factions/RE2.png",
+      "bytes": 39740,
+      "sha256": "416737b917200539bbd00ce6fcd31172e5103c6af252a0189cdf468ac4ab94fc"
+    },
+    {
+      "path": "jeu/assets/factions/RE3.png",
+      "bytes": 37215,
+      "sha256": "97fe4cfd0c8ed16bf2b07c5791c59272b417f117f046e76d048a6c7c3918473f"
+    },
+    {
+      "path": "jeu/assets/factions/RE4.png",
+      "bytes": 38838,
+      "sha256": "6fa892c82d5d268fca5328b2e4295f71b0aa6230e0fd12e60da3b739a8ad136f"
+    },
+    {
+      "path": "jeu/assets/factions/RE5.png",
+      "bytes": 39507,
+      "sha256": "ca55bd23730e1969dcc1c26f1dba3262549949285a717f8288fd924c11505ed6"
+    },
+    {
+      "path": "jeu/assets/factions/RE6.png",
+      "bytes": 37679,
+      "sha256": "a3e675ce236beb9765c804ab8c102dabfa494c10188414d0e3492d551b7a05a6"
+    },
+    {
+      "path": "jeu/assets/factions/RE7.png",
+      "bytes": 38099,
+      "sha256": "7ada505cab221fa52ae6170fbd1fd9a2d30862efb5310d104a66a034b7b1dbfc"
+    },
+    {
+      "path": "jeu/assets/factions/RE8.png",
+      "bytes": 43796,
+      "sha256": "0418ea752407b52cd816a89efedcd9b7ba270fc9a9ffdb4de7185fe0567ef648"
+    },
+    {
+      "path": "jeu/assets/factions/RE9.png",
+      "bytes": 36482,
+      "sha256": "40029d1e730aa682475737a8da6a8a114f1ce168ec2b1ba6a795bbf6b6264497"
+    },
+    {
+      "path": "jeu/assets/factions/Replicant.png",
+      "bytes": 46390,
+      "sha256": "e97d77b787f98aaae448ef6d0181aab4ef8c6f7217a7ab29164ec654c3fc46ec"
+    },
+    {
+      "path": "jeu/assets/factions/Solaria.png",
+      "bytes": 101638,
+      "sha256": "46bb701d008c8742428eca8fac99cbfc0c32a6e8551204a9c43cea9597cc1289"
+    },
+    {
+      "path": "jeu/assets/factions/WITCHER.png",
+      "bytes": 39165,
+      "sha256": "b84cc39c5f1bb6b60b0b4bd4f61aff30f103965c93296b5a2f71746df25a095a"
+    },
+    {
+      "path": "jeu/assets/favicon.svg",
+      "bytes": 372,
+      "sha256": "6fb471e322c375e89a28f4c5c07385f3d96ed2a82a7f53e6b2236616d7c2c7f6"
+    },
+    {
+      "path": "jeu/assets/fonts/Cinzel-OFL.txt",
+      "bytes": 4383,
+      "sha256": "f2b3029aba64c378bf0963b62945eee15e564fe4330b934c8f2eb058282b5e83"
+    },
+    {
+      "path": "jeu/assets/fonts/cinzel-v26-latin-ext.woff2",
+      "bytes": 14540,
+      "sha256": "8fc2606f8ae6c569f444e138dba052d9a6e3f0657f9031796503bbb94eced600"
+    },
+    {
+      "path": "jeu/assets/fonts/cinzel-v26-latin.woff2",
+      "bytes": 25904,
+      "sha256": "09941fb1c169c38fd414536b37690057fc01b3117a5c63dd6571186540c8f370"
+    },
+    {
+      "path": "jeu/assets/kalistar.ico",
+      "bytes": 21063,
+      "sha256": "36f954e0d47a22b6cd2ba2383d3246959b87fb6f2152b87ebf7af3005c0ae7e4"
+    },
+    {
+      "path": "jeu/assets/logo.webp",
+      "bytes": 47450,
+      "sha256": "1a8fdccd1b5275169c7f2c802c7db09cabe97d9fa7af048d633a101dc6bd2605"
+    },
+    {
+      "path": "jeu/assets/LUCIDE-LICENSE",
+      "bytes": 3208,
+      "sha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57"
+    },
+    {
+      "path": "jeu/assets/lucide.min.js",
+      "bytes": 397450,
+      "sha256": "ab85225ecc1daa2033607856f03dd2dabcbc08e2d260a5b97e17c690aa929766"
+    },
+    {
+      "path": "jeu/assets/navigation/arena-v1.webp",
+      "bytes": 21860,
+      "sha256": "0ecdbcc3462d5c7a965ffd74e4e66ecb14ab7bc097299cb78fe2385f3ffc2eff"
+    },
+    {
+      "path": "jeu/assets/navigation/collection-v1.webp",
+      "bytes": 28040,
+      "sha256": "44aa89d143d7955826dcfcf44080b29745e6db25b4223396be992465616d786d"
+    },
+    {
+      "path": "jeu/assets/navigation/decks-v1.webp",
+      "bytes": 21410,
+      "sha256": "2642903d9bd5a62e3e6987d64200c09b0b8440ed556b419055e9f246e3e6e15d"
+    },
+    {
+      "path": "jeu/assets/navigation/kalistel-rainbow-v1.webp",
+      "bytes": 14126,
+      "sha256": "2bc6cd1c8b366586ebdafd82803175d778b7d7597814bedee270f606df7aaa4c"
+    },
+    {
+      "path": "jeu/assets/navigation/more-v1.webp",
+      "bytes": 8632,
+      "sha256": "c662471d8f3b63a4883512585879ee782be9113f6d7bd96ee3e254ee7ca2e215"
+    },
+    {
+      "path": "jeu/assets/navigation/statistics-v1.webp",
+      "bytes": 14822,
+      "sha256": "18733159b1cf45223cca3ca6db4e87ea868dc4acb860d79d795f94bd279e130d"
+    },
+    {
+      "path": "jeu/assets/navigation/story-v1.webp",
+      "bytes": 22904,
+      "sha256": "17a944e8e387c31611d2bb37798da37203eb917501d0a4058fe4cf00e633585c"
+    },
+    {
+      "path": "jeu/assets/navigation/weapons-v1.webp",
+      "bytes": 11946,
+      "sha256": "0ba989e1ddaeb443f02a26a4f69bc3105c3fb48042b567c3f4d4f0ea09ac41e4"
+    },
+    {
+      "path": "jeu/assets/pwa-192.png",
+      "bytes": 3388,
+      "sha256": "216291acd2546e9602b464dde3e1cea841f9ea59e07d0d598f17a250a5c2d6e6"
+    },
+    {
+      "path": "jeu/assets/pwa-512.png",
+      "bytes": 10059,
+      "sha256": "ef5b47df01b6371122f1ed7890670bbea0d479bb0aba64deeb5e9a2938a6a6fb"
+    },
+    {
+      "path": "jeu/assets/races/ANDROID.png",
+      "bytes": 1560875,
+      "sha256": "6563b7f5e03a36064378b689986543f9031ac9a12b617c678580dfa93dd9d5dd"
+    },
+    {
+      "path": "jeu/assets/races/BATRA.png",
+      "bytes": 129903,
+      "sha256": "bd2b75bc2bc386722eea482370d6955ef9009eeac49d09847774657af3dfb12f"
+    },
+    {
+      "path": "jeu/assets/races/BUZZY.png",
+      "bytes": 83368,
+      "sha256": "df38aed6d02bb3a0ab8167dc7af3e64bee8f4d1291f18a054c2587d281506530"
+    },
+    {
+      "path": "jeu/assets/races/CRUSTOS.png",
+      "bytes": 135431,
+      "sha256": "063ba6276f79c693db147c5e51643d3f4639765a63675a8f00fde62b9bd11e48"
+    },
+    {
+      "path": "jeu/assets/races/MACAKO.png",
+      "bytes": 131927,
+      "sha256": "e126e7604641bb1991251c1e13ba653ccf511dd230992c25f96aceb207b348e2"
+    },
+    {
+      "path": "jeu/assets/races/MICE.png",
+      "bytes": 133163,
+      "sha256": "da8af323db340ec1e20444b5291d3b067c7d510f2e23750cb8a71f1556f484d1"
+    },
+    {
+      "path": "jeu/assets/races/OKAMI.png",
+      "bytes": 104080,
+      "sha256": "4c846e399095e635877e205467d74b854aa8eb1e2a5ed9494fa4cb8a8e319483"
+    },
+    {
+      "path": "jeu/assets/races/RATZ.png",
+      "bytes": 111344,
+      "sha256": "d10f3fa8bd683b3dd96f2d60f2e4352146f2b2436dbfa021192860adf6194317"
+    },
+    {
+      "path": "jeu/assets/races/SERPES.png",
+      "bytes": 97045,
+      "sha256": "524cd480865af7da94ed8637c8ed4fb7e981105a777b7d2371a6586ae90d7f50"
+    },
+    {
+      "path": "jeu/assets/races/SHARKAN.png",
+      "bytes": 88904,
+      "sha256": "120d3b961bcd25b9d1386be5167debbd54d4c59223a6503af877340f8add4003"
+    },
+    {
+      "path": "jeu/assets/races/YETI.png",
+      "bytes": 125757,
+      "sha256": "e7766cfc7441163cbcec1a4959118cb2fabc583a0f0cf515a7e15e87a96ed01c"
+    },
+    {
+      "path": "jeu/assets/THREE-LICENSE",
+      "bytes": 1081,
+      "sha256": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+    },
+    {
+      "path": "jeu/assets/trophies/golden-blocker.webp",
+      "bytes": 56964,
+      "sha256": "8db2fa574fdea05d095528420bedfd290e383b70b0f19f335f7a9652b13712fc"
+    },
+    {
+      "path": "jeu/assets/trophies/golden-clover.webp",
+      "bytes": 65350,
+      "sha256": "3a9a715427dbe08712e8c55854ddde6524e26e9fae229a1fd4b250c8609190bc"
+    },
+    {
+      "path": "jeu/assets/trophies/golden-crystal.webp",
+      "bytes": 44134,
+      "sha256": "dfd477ddaeb32d542d3e8813c0cefc22d393f6ad1b38cfcccd8bb9daf123bef0"
+    },
+    {
+      "path": "jeu/assets/trophies/golden-heart.webp",
+      "bytes": 64120,
+      "sha256": "79d7acf4cb3c75ea2c2ad54c840f53453e0854f02de9e121c01adb6d8ffb3d8d"
+    },
+    {
+      "path": "jeu/assets/trophies/golden-killer.webp",
+      "bytes": 55928,
+      "sha256": "8458cf8e39c1108f8996064d392c4f3fb2629c9b14ee13da78923f24fe7278ef"
+    },
+    {
+      "path": "jeu/assets/ui/captain-crown-v1.webp",
+      "bytes": 37204,
+      "sha256": "84a28ab78208d820badc5496eb817208efa985a33424181fab793323c41555a6"
+    },
+    {
+      "path": "jeu/assets/ui/collection-astralia-planisphere-v1.webp",
+      "bytes": 554542,
+      "sha256": "b24c1ea515648b41fccf287116568592332f756b9a89999624c936613816f691"
+    },
+    {
+      "path": "jeu/assets/ui/collection-astralia-planisphere-v2.webp",
+      "bytes": 473020,
+      "sha256": "3f8f076e2ad7479bcebc2560173b36ec0baaeb567e2d67a596b78a1668fc4191"
+    },
+    {
+      "path": "jeu/assets/ui/collection-grimoire-v1.png",
+      "bytes": 2964590,
+      "sha256": "d10ab07a387050c5e2f81894cc6c59384d55885c3bc0b8241847aae6c551335e"
+    },
+    {
+      "path": "jeu/assets/ui/collection-grimoire-v1.webp",
+      "bytes": 1823304,
+      "sha256": "609ca27987be9b9aab4671e9e4c57a901e98488754b2391429fc8626021284a2"
+    },
+    {
+      "path": "jeu/assets/ui/collection-reader-grimoire-v1.png",
+      "bytes": 2735079,
+      "sha256": "03bf9771a274bb8094673eb011d8aa4fd850e2f20bbdae76162e1110c6dff743"
+    },
+    {
+      "path": "jeu/assets/ui/collection-reader-grimoire-v1.webp",
+      "bytes": 1893990,
+      "sha256": "9f4e2bc355a63fd76dee101fb5e39a1b4474f256e879ac3eb552754968855592"
+    },
+    {
+      "path": "jeu/assets/ui/flail-white-v1.png",
+      "bytes": 2475,
+      "sha256": "688667649308f01913e9d73a62ff12dc24c1c23beb9cd5e3011fd4665cea7ac9"
+    },
+    {
+      "path": "jeu/assets/ui/story-books/aero-book-v1.webp",
+      "bytes": 646172,
+      "sha256": "80f201713f3d2496a1c4d99049feb275004ff8038421b09d0ca3769395f5b3ae"
+    },
+    {
+      "path": "jeu/assets/ui/story-books/cryo-book-v1.webp",
+      "bytes": 612628,
+      "sha256": "e2924b46db80459aeeb06cd6ec14d1d53835d149f759b5b24685f56c96b981b7"
+    },
+    {
+      "path": "jeu/assets/ui/story-books/electro-book-v1.webp",
+      "bytes": 666148,
+      "sha256": "d00f7047c707e76aee4060b994cd7fd314553cc087a4d1bb77f3f5b95066755f"
+    },
+    {
+      "path": "jeu/assets/ui/story-books/geo-book-v1.webp",
+      "bytes": 624370,
+      "sha256": "a456c0c8364533940255213ed7c1f9c63b085754755d27fff0df032c34cb6844"
+    },
+    {
+      "path": "jeu/assets/ui/story-books/hemato-book-v1.webp",
+      "bytes": 589168,
+      "sha256": "bb031a44e93d18dfa22fb6558e5043530065e27b599b611dce12076be14701b8"
+    },
+    {
+      "path": "jeu/assets/ui/story-books/herbo-book-v1.webp",
+      "bytes": 618618,
+      "sha256": "14503fee242b580ddd05b0cda2b02fdf94473c8e9c7dcb7408126031ae842f9a"
+    },
+    {
+      "path": "jeu/assets/ui/story-books/hydro-book-v1.webp",
+      "bytes": 621466,
+      "sha256": "bc4884b7fbaa663569bb42916013f3724211346f44f5571bd8bc49931ba73c24"
+    },
+    {
+      "path": "jeu/assets/ui/story-books/luxo-book-v1.webp",
+      "bytes": 560584,
+      "sha256": "d88c5c42fd4c3c79a327079b87118f28c89a682aa3860f631bde4f371692c914"
+    },
+    {
+      "path": "jeu/assets/ui/story-books/necro-book-v1.webp",
+      "bytes": 595558,
+      "sha256": "9becd6cf0d0d1390fc8c7dfc8d9ca35ea050007b120c3ff049a1ea95fbb6e4e9"
+    },
+    {
+      "path": "jeu/assets/ui/story-books/pyro-book-v1.webp",
+      "bytes": 627946,
+      "sha256": "7562aa5c13f1baef9ed134e34c07bf0f8be72826f56c311750439c2bf9c0bab1"
+    },
+    {
+      "path": "jeu/assets/ui/story-books/rainbow-book-v1.webp",
+      "bytes": 647198,
+      "sha256": "a2ecc299b52a428d77b7fe20e92bef0f8323e2b547c28e5261b0c439ff071b54"
+    },
+    {
+      "path": "jeu/assets/ui/story-closed-grimoire-v1.webp",
+      "bytes": 533884,
+      "sha256": "f061318b3db08b56e5e760852015ca3b87c47117f12da90dd45aaf140de0d861"
+    },
+    {
+      "path": "jeu/assets/ui/story-closed-grimoire-v2.webp",
+      "bytes": 671166,
+      "sha256": "3e50c2fb8fe605a08c706a251a68fa379a934baed0fb68cc2c2bd464a82a4a24"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/abyss-plastron-scene-v1.webp",
+      "bytes": 526306,
+      "sha256": "8106c95b4f4575c7e698f28e2cab92f917b9da16fc879353dd1307393d0a00f1"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/abyss-plastron-v1.webp",
+      "bytes": 277818,
+      "sha256": "829df0ac55588b73c19f7c667bcf9366383815fb2790e23d1b795324af7925e1"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/arborium-thorn-dagger-scene-v1.webp",
+      "bytes": 404746,
+      "sha256": "3296dec491325bb3c27c8b0523175d08769018e4a738244d93d8e605ce68c7fa"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/arborium-thorn-dagger-v1.webp",
+      "bytes": 192658,
+      "sha256": "672e04337a5f2522b8d02f0f8fcf9738d56f106fa9ec354aed77f35fb85db159"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/arborium-twinstring-bow-scene-v1.webp",
+      "bytes": 479994,
+      "sha256": "318be9c77445539188fb4d403e78431f04275bf20e122addf0ed43a2b87053f2"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/arborium-twinstring-bow-v1.webp",
+      "bytes": 196106,
+      "sha256": "ad847a5eadebfedd24cd5eaefbf83c83fb5df7d4d6b879395a9608be99358f0e"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/backgrounds/balamb-v1.webp",
+      "bytes": 200256,
+      "sha256": "02f03b87112da5f66959972b19b1155990662b55b10c096d4fb5d069ca2a50c9"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/backgrounds/besaid-shore-v1.webp",
+      "bytes": 341332,
+      "sha256": "36ff27302179267e83343d3010df148a70b68f9362339a6771d7b365eed3670f"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/backgrounds/chroma-v1.webp",
+      "bytes": 196610,
+      "sha256": "a4db3abd70edb0db98e8f1abbac13bd4b1f5f2c36b394fb0b030ed25830f4267"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/backgrounds/city-ruins-v1.webp",
+      "bytes": 249398,
+      "sha256": "5cfb325bc72bdf012f31a0ae24064db3825068ea77335c93b60593706e743d5e"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/backgrounds/durane-v1.webp",
+      "bytes": 227716,
+      "sha256": "b239bd8d30eb251f313c38f9d085d76d21cf5d5cad83552e677b608ea5bcbb0b"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/backgrounds/mechanic-workshop-v1.webp",
+      "bytes": 291028,
+      "sha256": "17fef92eaaae93b58c80dd248901668e2e4642db4af6bdb5892b90f536ac9570"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/backgrounds/midgar-v1.webp",
+      "bytes": 230804,
+      "sha256": "3028868399382494fb1108cbdc5de41adde5c0d5414493dc8f66477981b1d45e"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/backgrounds/postal-relay-v1.webp",
+      "bytes": 254978,
+      "sha256": "0b0f57ea230d432e9236548e7fe395b8e7d0b9204ba858281b508b843d5967a8"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/backgrounds/psychic-study-v1.webp",
+      "bytes": 217468,
+      "sha256": "c2455d97107d30b247ebf8cbc2fa1aef6dbccd991e451690d9c7ad7b5ad3ffa2"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/backgrounds/replicant-village-v1.webp",
+      "bytes": 246388,
+      "sha256": "28e61a91562752e0ae672f2e1f8597bd1f14dbe80af732b60f34a477ba6c8e24"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/backgrounds/shadow-moses-v1.webp",
+      "bytes": 185536,
+      "sha256": "613bc2e6aec94e9a264f502880a51a59f2f734acebf43839bd1dfdfc81fe0729"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/backgrounds/violet-sanctum-v1.webp",
+      "bytes": 274998,
+      "sha256": "25b77e4178f0a5f33a43001234d858a455a8948b1440d3cd06d46080b6da33de"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/backgrounds/white-courtyard-v1.webp",
+      "bytes": 332570,
+      "sha256": "8bb83cdf986bddffadd23629f7133b65ec9fc3bd2d5bec15264eb80e3497fe3d"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/backgrounds/wolf-keep-v1.webp",
+      "bytes": 414490,
+      "sha256": "2b478765f4056112c17045578a59157c15f6a7f919c3388827d9550a6f220a8d"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/blue-copper-template-v1.webp",
+      "bytes": 1348204,
+      "sha256": "93e80775003702d5a40e20d9aed77975b058667976d75df8f1b787aafa78c3ee"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/brotherhood-scene-v3.webp",
+      "bytes": 579718,
+      "sha256": "bc5c59d50bb08adaf4c1ff5624d4726272410274b44e2705c5ac842faa50821b"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/brotherhood-v1.webp",
+      "bytes": 111638,
+      "sha256": "596e5ea98608fed256fbc3ddbe5097ece686c04c462c9a687f70b50174a2d196"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/buster-sword-scene-v3.webp",
+      "bytes": 347120,
+      "sha256": "eca0893406fd5370846e9c76f056d77b87b785006f2d36365ca7745cced2a1a6"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/buster-sword-v1.webp",
+      "bytes": 162438,
+      "sha256": "65a0d9e0eeacb90b0ffa57b547c80219dd229a1ca7300f9314d06fb7bbf2be51"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/cola-reserve-scene-v1.webp",
+      "bytes": 373578,
+      "sha256": "5e2c916c89c4d7d35975e6687dcca36bbe8eafa05cd9c79637b77e71f8a7d6d1"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/cola-reserve-v1.webp",
+      "bytes": 320382,
+      "sha256": "b7900c15e2d3596afe8c5377bbee05e59d0b4bc2d19fd6f327b55cec1378ca40"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/cold-blood-mantle-scene-v1.webp",
+      "bytes": 342762,
+      "sha256": "dd6ade3fc35a7349816d0a5cd592263f08abaa0f0f7f981d05c483697109b03c"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/cold-blood-mantle-v1.webp",
+      "bytes": 279214,
+      "sha256": "1a1fcc450f68f4b4273e03b2bebc4e856970fb31d9a5c01d668f341f516f22d6"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/commanders-sabre-scene-v3.webp",
+      "bytes": 295522,
+      "sha256": "ea60731a4bf94b1d14a70aa3f0ad33fecbf31f0209d90d174ceb5fc2065680ca"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/commanders-sabre-v1.webp",
+      "bytes": 92404,
+      "sha256": "1f0c048b9d98a27081d21e3c43dd57baf6b3c67418c749d4c1c41239eb1e4243"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/cryptown-oath-sword-scene-v2.webp",
+      "bytes": 338566,
+      "sha256": "229b5fca43158189b45bd468fc9c70fa86e9ce4b2d6f7d0870a1a437451dedb1"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/cryptown-oath-sword-v1.webp",
+      "bytes": 121104,
+      "sha256": "780d812fa2d4cb92e8c6ce2f9e2674dbf7ed870b2f8c926557656747419aa275"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/cryptown-vigil-rifle-scene-v1.webp",
+      "bytes": 463754,
+      "sha256": "0d13d8f7c118cc3548afbf45bf965a27729283e78b291422a16ab6d2818db004"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/cryptown-vigil-rifle-v1.webp",
+      "bytes": 105776,
+      "sha256": "32907db52cf23af80afea54121a85e634a02720aff341fd756359bd5df5d90b9"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/cryptown-watch-flail-scene-v1.webp",
+      "bytes": 426976,
+      "sha256": "b3617a379bf05d646f263c264e0e6d56668669beabb5129d784126267473e4e2"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/cryptown-watch-flail-v1.webp",
+      "bytes": 294290,
+      "sha256": "e64ba42ae6f4be75c0016a1bdb8f2647fa2e4272cba9d74a1a3cb5fd3c7d2bed"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/current-compass-scene-v1.webp",
+      "bytes": 574346,
+      "sha256": "3094c5fb6ced7ce366697120b434674baf648eab59c70d850a11bf49d1d4b0b1"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/current-compass-v1.webp",
+      "bytes": 349084,
+      "sha256": "ec51e27a8c4b1a6baf49fd8652fce3567cc14670909967308df750c63685594d"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/cyborg-ninja-armor-scene-v1.webp",
+      "bytes": 311612,
+      "sha256": "09df7ab8e48e86c9ccc6064024b3c3550a4b5089f719a0521ef79192f70cd7cc"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/cyborg-ninja-armor-v1.webp",
+      "bytes": 248136,
+      "sha256": "740f416e0f2ca4e41979d74513c678243e16c042e004335c4c0e60849909f3dc"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/dawn-gorget-scene-v1.webp",
+      "bytes": 421826,
+      "sha256": "68e77576313df156dae702ab69b7bd79df1fe593a00f7cfb8efeb507b947b45f"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/dawn-gorget-v1.webp",
+      "bytes": 317824,
+      "sha256": "ebff1440c2c6d8ab3cb758f7f4f4cb100cc743e059bda5b68c671954e8c36c45"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/draevenheim-crimson-crossbow-scene-v1.webp",
+      "bytes": 419332,
+      "sha256": "beeccb2ad723821d71796f90198f0ed9e4879709c9e4157670058d7566000567"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/draevenheim-crimson-crossbow-v1.webp",
+      "bytes": 242202,
+      "sha256": "7afad36e72489fbbd6d1ee863633dc1429b07cdd3d325adc914e931e79d1af2a"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/draevenheim-wing-spear-scene-v2.webp",
+      "bytes": 371142,
+      "sha256": "99629fb4138dcad96d819402aad3c82a8927bd30fd23d010082bf44b69b2a429"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/draevenheim-wing-spear-v1.webp",
+      "bytes": 100682,
+      "sha256": "91197f100c38b03d4373c1510198a8db714796c63fc326a6e5742bf9b4e09e4a"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/durane-rampart-scene-v1.webp",
+      "bytes": 363626,
+      "sha256": "6ef0f79c8a70755b7dfdf1f2e43c22d5e9cf9f3420d523a294eeafe1c135eeca"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/durane-rampart-v1.webp",
+      "bytes": 344128,
+      "sha256": "0ce147ff79752885807265352e0708139140fc4f447e6be43f3503726d0c80f8"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/exiled-king-seal-scene-v2.webp",
+      "bytes": 496698,
+      "sha256": "ee7e6d77e71735452d19e675a812b6845de4931149fc92b4abb31c3c9c0fee19"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/exiled-king-seal-v1.webp",
+      "bytes": 218908,
+      "sha256": "a4215be6c5194feb8d00e02b88884b81e9bd49952fb4f3c4a1bf4ad0ba1ec69e"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/fallen-king-axe-scene-v1.webp",
+      "bytes": 561262,
+      "sha256": "0029b744a98c5474069e1c84b530d14b0541ca449fb3199cfc739c5d29b791f8"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-backstage-hammer-scene-v1.webp",
+      "bytes": 466020,
+      "sha256": "e4c4cc4cd22a0016b3e252db09a1df497ef963d05a51165314a4b212d6caa6ee"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-backstage-hammer-v1.webp",
+      "bytes": 180430,
+      "sha256": "a3f51a6d796f866d29e69c1f61ff3d87583928ae6a3189efea92fa5a58a38d23"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-burmecia-coat-scene-v1.webp",
+      "bytes": 523640,
+      "sha256": "a5f609b0ac24a4d3e83c3a9d90ccb272be69eac5eaf96d9bf84ebfe4ddff6f1b"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-burmecia-coat-v1.webp",
+      "bytes": 256082,
+      "sha256": "1392ceb6958ca5ebac25db39994a17016abbcb19db878ce19a60175a33da56c6"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-dragonade-scene-v1.webp",
+      "bytes": 417540,
+      "sha256": "98aefdbb8df37fec0f0e57421519dbd72b6b4ec0d2f54e1b65311a6e5f19fc1c"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-dragonade-v1.webp",
+      "bytes": 89710,
+      "sha256": "3de7888d7559ee992f2236a095eaaa00f2e69df0040983d011def44fa7811127"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-excalibur-scene-v1.webp",
+      "bytes": 435184,
+      "sha256": "d0ce2ea4dee3a449d0aae7e85cae8d48c399b9f54cb8238fab70c059b0e65740"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-excalibur-v1.webp",
+      "bytes": 145134,
+      "sha256": "cd48fe45a10ffe7e4c15b6aa4a7bce24cf50c27965029c44fd0353ff6deca477"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-final-act-feather-scene-v1.webp",
+      "bytes": 285946,
+      "sha256": "ab7ec3c09d2801d05f8fe88ba0b26072dfb55c9f703b186f9bab2c93662757da"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-final-act-feather-v1.webp",
+      "bytes": 176120,
+      "sha256": "8a9ecfb620b4be28d9026db0ba7951455b47c88bd3a7256f6f39fdeab5c2b0bc"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-garnet-pendant-scene-v1.webp",
+      "bytes": 343954,
+      "sha256": "2ac506b5c2ca77bee804e28182445e540d2831703f31807aaa9ca91268b65375"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-garnet-pendant-v1.webp",
+      "bytes": 160434,
+      "sha256": "d9c928a159b578ffd715a2c7c544fe01aa6cbf648a92bd413b5bdd69b1e19215"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-gastrette-scene-v1.webp",
+      "bytes": 467118,
+      "sha256": "271a0222d5a2b9159fcf11ef77699a3fcc1055f8f5dd17a1df2cc0b394abfd62"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-gastrette-v1.webp",
+      "bytes": 165268,
+      "sha256": "29b2b9b5bf6f25b153d461a18ab3db043f554fc351b3e9d26ca161d78b2d22bf"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-magekane-scene-v1.webp",
+      "bytes": 388116,
+      "sha256": "47c0d0847509fa939d07dc1f45e5eea0e1f4f34611f9deada1b9df3fa746cdf4"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-magekane-v1.webp",
+      "bytes": 139736,
+      "sha256": "ab81e244828df25f828d69d740bae835dde5b8fb9cb20f3dec24cc535aaf1d7b"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-mog-ribbon-scene-v1.webp",
+      "bytes": 473956,
+      "sha256": "ae8e33c574b9da64852d2e5f6cd3473a4ebc889e41b3e04d3baeca393022f316"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-mog-ribbon-v1.webp",
+      "bytes": 328728,
+      "sha256": "1bccd2de45dfcb9ac44fe2adab5d0b78cd3607a0006d289077d901d2b6aa4b33"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-oath-helm-scene-v1.webp",
+      "bytes": 497546,
+      "sha256": "5732bddf50b3669836b2cd99fb982af7427f152f9356c30a1405b845af583f90"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-oath-helm-v1.webp",
+      "bytes": 297146,
+      "sha256": "0971d1d2a01986bb4912a5e26fd64e3af581e3ee750cbcc2425e0583c9f989d1"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-orichalque-scene-v1.webp",
+      "bytes": 432252,
+      "sha256": "1b18a995fc75ab0fd262a41ae1b731a5735e668153e1cda1ecd68225f26e7333"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-orichalque-v1.webp",
+      "bytes": 170324,
+      "sha256": "50e441d97fc9681ea94b5c83fbe65ff72e78bc37ca49daf1485537adff5895ca"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-reunion-bandana-scene-v1.webp",
+      "bytes": 370720,
+      "sha256": "2b2f52e5aafd92973cc0a06ecb5a4f1e086405f2048e6b7937f270e406fecdb8"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-reunion-bandana-v1.webp",
+      "bytes": 216074,
+      "sha256": "76012532e6eec972c223bb0ccc7db6bf7b1b2804231a05bef7042af43dc7803d"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-runigriffe-scene-v1.webp",
+      "bytes": 555572,
+      "sha256": "dcd3787f21da92a3a3547f7228e267755de3d5c19965b58234d0d882135eb1dd"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-runigriffe-v1.webp",
+      "bytes": 373428,
+      "sha256": "883a0f7dd4116d87433c0bfc9e26925de0ad74301166c16d791edd2a7ebdba24"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-save-the-queen-scene-v1.webp",
+      "bytes": 431702,
+      "sha256": "d1b64f563c047e59159101ded31a366a798dec8deb48f37f3dca188bdbe58a3c"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-save-the-queen-v1.webp",
+      "bytes": 116728,
+      "sha256": "68e093e2ec09e314e46490cd219058e13b2ffcd596cfa7dd248e9f9313239d26"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-solitary-wraps-scene-v1.webp",
+      "bytes": 562046,
+      "sha256": "da8adfe10fd1b59be0226a9bbecbb76ce6316210b7322304771a00dd2d1114e6"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-solitary-wraps-v1.webp",
+      "bytes": 346576,
+      "sha256": "c3b4a7b13e31917a5f79aed7c25e369ed972c5ab3a959bc2a44b9af48405c9ac"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-tantalus-script-scene-v1.webp",
+      "bytes": 475110,
+      "sha256": "9d18ca6863aa12f1054507d2d33bdd30813c5e7c5dfc6f0760994ca3a3253f80"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-tantalus-script-v1.webp",
+      "bytes": 352678,
+      "sha256": "6eae578a60c303cf453ca50e423d78bd4afe76510212077743081ed94057260e"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-terra-fragment-scene-v1.webp",
+      "bytes": 366764,
+      "sha256": "85d2ae0b0ffe71e9cb9e66240d65ed8f183fbe81a2650f9999b610be1cc23226"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-terra-fragment-v1.webp",
+      "bytes": 187244,
+      "sha256": "d7f359714ddee2cfa2fa9494000132b112322e587c74a424d14e5bd5a0fa618d"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-vivi-hat-scene-v1.webp",
+      "bytes": 431642,
+      "sha256": "894ae77673951feec69fb9ed3390a3422f54fe4db4f8e0c59c359be96a848d34"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ff9-vivi-hat-v1.webp",
+      "bytes": 300122,
+      "sha256": "2b6330fa854299dfdcc4d3ee58c8ee7bbaf8438791be03f37476da1f20b192aa"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/first-thaw-cloak-scene-v1.webp",
+      "bytes": 543728,
+      "sha256": "b8492149b0332183170bff752859add9191e0925082e76c6c38fdeb0cc088b1a"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/first-thaw-cloak-v1.webp",
+      "bytes": 318064,
+      "sha256": "ce377ccdb57357b201041ac7b858b612b6b2e52cd77324f2e901a1d70f5a7b23"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/gate-gauntlets-scene-v1.webp",
+      "bytes": 484308,
+      "sha256": "f982bc9ab08a770cc81cbd2e4c5439e3fc0113b647726c0fe736513e55ba28a4"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/gate-gauntlets-v1.webp",
+      "bytes": 371016,
+      "sha256": "4e369138d2c59b00542bb024e92cdfb9a689265384eb7f57ed8fe496292ef2eb"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/gen-mechanical-arm-scene-v3.webp",
+      "bytes": 421082,
+      "sha256": "c5a5499877eb53dbc3146d84a1c801a814d1a358f79a82747a85239e72817a8a"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/gen-mechanical-arm-v1.webp",
+      "bytes": 231090,
+      "sha256": "b1cef7cb285ac9c41206a2f665dfa99295905635c211639e3b7a7861934d0e72"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/griever-pendant-scene-v1.webp",
+      "bytes": 449408,
+      "sha256": "b2e1b55b4fd85c811e96fb30901e157ddcb9252a4f0cccc596810d65df6d8053"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/griever-pendant-v1.webp",
+      "bytes": 285308,
+      "sha256": "631fc0f6c2c00a995006eee54baaae5bba7e0dcfac4a4f1c802c831d7744101f"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/grimoire-weiss-scene-v3.webp",
+      "bytes": 337974,
+      "sha256": "71abf409bd7a0705e4f1921039145af50c3d20e0e1828c5404ba817ea762de94"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/grimoire-weiss-v1.webp",
+      "bytes": 489442,
+      "sha256": "ede175e934f94e5380c9dd8e6aa71b515d5decc63216cbb6f09659fc718eb063"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/guardian-jug-scene-v1.webp",
+      "bytes": 507738,
+      "sha256": "29de2050b3c3d0b203c6eb4e404a9445c36bc9668fb62c627bb31af81c6ff095"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/guardian-jug-v1.webp",
+      "bytes": 321910,
+      "sha256": "59bdef2e8a6d26903295096d74e92913b40df8b21cd01fb76c21cde3082157d9"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/guardian-red-coat-scene-v1.webp",
+      "bytes": 447588,
+      "sha256": "55d75e9d96a8d75672c3e1f1760ab3e269dacf9300ce70a0e098e24b57dcb03d"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/guardian-red-coat-v1.webp",
+      "bytes": 243440,
+      "sha256": "2536477e51961d6760a6a7d9c37f0a52fbb8016b2b9b982ab8d3a131225951d0"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/infiltration-box-scene-v1.webp",
+      "bytes": 366070,
+      "sha256": "cb5663444be52e81bbd21271b1152093550518585b2ab7f134e9d4467a919233"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/infiltration-box-v1.webp",
+      "bytes": 335160,
+      "sha256": "6ce8eccae19ed6e8ad528cea44ba5fd7ff3a5520163733554ace8a7f2a2e7fb0"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/jill-lockpicks-scene-v1.webp",
+      "bytes": 386098,
+      "sha256": "110c997493f1cd349f9b8509eff86b1f94739146e1e26feb2009d1125d18b0d5"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/jill-lockpicks-v1.webp",
+      "bytes": 359012,
+      "sha256": "80c26bed0e6df62b61af0fd37cdda21511617ad3f2bad5870eedb1c69d9da088"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/kaine-saw-scene-v3.webp",
+      "bytes": 397320,
+      "sha256": "b240d2a4c390fbfeca187a8fb7fb0418ba05b1433e44b2eb5fc63ff26ed1529e"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/kaine-saw-v1.webp",
+      "bytes": 66292,
+      "sha256": "392745730dcea64636752b6f7a37ecb4f2ffec3af22e1e50d322552b4b90b83c"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/last-forge-apron-scene-v1.webp",
+      "bytes": 447964,
+      "sha256": "575b016488b2710f2f576a8f6af47189b69fd5520d68b196bc58af6015db620d"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/last-forge-apron-v1.webp",
+      "bytes": 239094,
+      "sha256": "5c05443efee723fc37a77269146a3acf5575d7844869a749fd28dbe975a8b2f2"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/last-garden-seed-scene-v1.webp",
+      "bytes": 441644,
+      "sha256": "5e8b623acfbef2eac0b279e9cad933770ed6aa9d7fe776fa8f84a06431c0a404"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/last-garden-seed-v1.webp",
+      "bytes": 234352,
+      "sha256": "23d7f4a066b2dbabeda5a0e6aaa3063f8f9dc320b195b2510ff73c15db6bcb64"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/last-vigil-cuirass-scene-v1.webp",
+      "bytes": 474022,
+      "sha256": "c62ce3200da349f7e57e51b6a45ba06f99eb16a8dee59313c0407e2001313a57"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/last-vigil-cuirass-v1.webp",
+      "bytes": 316774,
+      "sha256": "9623d5d9e5a6f7c3480b056fa1bf218a00690f6763e5290f4e35611a137447e0"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/leon-body-armor-scene-v1.webp",
+      "bytes": 382630,
+      "sha256": "dcdf4d2e3f1282c40d5f63daa6a20256762215d9299a67792320dbec4d0275d7"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/leon-body-armor-v1.webp",
+      "bytes": 323592,
+      "sha256": "ab2f37f257dd8ff65e1d620ae8e67dea03a6672a4ba33a467beda991d9f61c37"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/leopard-lightning-scene-v3.webp",
+      "bytes": 502512,
+      "sha256": "210b599664bc810ec59f0dfbdaee30940bd2fb04f73590a773db8d24751f2b87"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/leopard-lightning-v1.webp",
+      "bytes": 190254,
+      "sha256": "ebf05468474427d32da9fe47aa0c8dbf0c744f90c5d18dda00aa6591604ad0e7"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/little-joys-box-scene-v2.webp",
+      "bytes": 432498,
+      "sha256": "67a49071e51e40c5c6ccac4c79695a8019a44124433b74582c0695f06732a078"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/little-joys-box-v1.webp",
+      "bytes": 347136,
+      "sha256": "6f0f7830d576ccdd70c47be781c1f8def98132e0c59485ef56678bf7b6d145e5"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/little-joys-flute-scene-v1.webp",
+      "bytes": 507302,
+      "sha256": "fa3f44376980ea7d3c67c57578ec13ebed05d49e13566939766bc6a939359124"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/log-pose-scene-v1.webp",
+      "bytes": 388306,
+      "sha256": "42a74fd9c18f637726b3c9fd7b520be6d437ed3d750711e16913be7b98526733"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/log-pose-v1.webp",
+      "bytes": 312596,
+      "sha256": "2cbd486ea7ea93360746b1c1513251bdd83f50ad5be5a1d1dc247006663df962"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/lost-names-bell-scene-v1.webp",
+      "bytes": 369202,
+      "sha256": "93a65b0dd51e1efaaa4a904c1eb64cd8332cb7d09c5c10386eb8e522ddd1d924"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/lost-names-bell-v1.webp",
+      "bytes": 179696,
+      "sha256": "c5bc0ea0c1a7c105062fa497a65bf199e360ebcc272bb88903da44eb61dc7880"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/lulu-mog-scene-v4.webp",
+      "bytes": 382744,
+      "sha256": "46e4d58fb0371b136a67b4108393a9f58cacf910645dc24cfd7b7b4913848294"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/lulu-mog-v1.webp",
+      "bytes": 372056,
+      "sha256": "e94ad80dcc4d9e5ea63231858e623a701014f96a347bf43b3565976da32d1781"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/lunar-tear-scene-v1.webp",
+      "bytes": 407744,
+      "sha256": "f1c4d2693a8f0b52091cef97bc94ade1b0ec232e694bc959fd9a508eefcb3e27"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/lunar-tear-v1.webp",
+      "bytes": 190942,
+      "sha256": "a24352311902bc43ae92381168a66b90cd9b7cbb0c7e48f8e3f01773be366c85"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/mantis-mask-scene-v3.webp",
+      "bytes": 253160,
+      "sha256": "f8a96f6c177f0db944722f8c46afc1a900b375cb0669528c65c940992b3ce2a2"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/mantis-mask-v1.webp",
+      "bytes": 154668,
+      "sha256": "d5e3ee0c364e237e3fb49898a13e720126087ce91d8bff0a3b412244c3bd808a"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/metal-gear-mkii-scene-v2.webp",
+      "bytes": 311396,
+      "sha256": "daea72826663f57abf25be3eccfbef0904e22063beff088cb18e6959d406ca51"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/metal-gear-mkii-v1.webp",
+      "bytes": 203184,
+      "sha256": "59d787eb8a7e45efc4975fe6dda2dea6daf6bee9972272e73268a15e630581d3"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/mythic-iron-gauntlet-scene-v3.webp",
+      "bytes": 429302,
+      "sha256": "da3d413d256e47c93fd932ea3933811ea2e5f0d81f7ea565eb94de528f5a89d7"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/mythic-iron-gauntlet-v1.webp",
+      "bytes": 380428,
+      "sha256": "4ca53ee388910477a9d92df0a74a59a804fb8144fbe18f492af8c6be4b94ce4a"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ninth-life-boots-scene-v1.webp",
+      "bytes": 412444,
+      "sha256": "daccb41fa6dac846e5d41bd5a360479984103dc101c58111cf5cd225a0c3b40e"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/ninth-life-boots-v1.webp",
+      "bytes": 265126,
+      "sha256": "01c2844d4deedc868dbfc6a4bb38ad90915cd555a8850dd201a315f8a494534b"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/obsidian-star-scene-v1.webp",
+      "bytes": 292602,
+      "sha256": "44d0c6f84e84fb75d3cbcf5e0b7e189f25bca55e18ec245ccf0cabe8646176c4"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/obsidian-star-v1.webp",
+      "bytes": 217004,
+      "sha256": "d9df35f1b06200ff0073414d9d0e267a0965bd84ee6da545dd5fbe3694ee7d04"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/octocamo-scene-v1.webp",
+      "bytes": 451522,
+      "sha256": "4227c502e496dee9ce75192e62ffe0f49ddb896ef43a079d1a4b4913760978ef"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/octocamo-v1.webp",
+      "bytes": 358798,
+      "sha256": "710315d0055d33c775636d5e9693c353c024210a5468c891c9303153e68c84ed"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/pod-042-scene-v1.webp",
+      "bytes": 328394,
+      "sha256": "e0e91652f4435761b973061851372b0d65c45c2296e33574fb5e061e699f3733"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/pod-042-v1.webp",
+      "bytes": 267716,
+      "sha256": "0dd86f9392e5f125b448caa4ef1d05d97782e0ce50a66c2b8aa04c01b27414e8"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/pod-153-scene-v1.webp",
+      "bytes": 390014,
+      "sha256": "219601b490a0ad5c9f07795d7f1a6f9c4e150fab27ec3ffc6d23b65413b4e9da"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/pod-153-v1.webp",
+      "bytes": 184710,
+      "sha256": "ed0f2d41f452670686ec96bdaf58d0a85a5fb8b3e678883fca578983676aebe4"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/post-bow-scene-v3.webp",
+      "bytes": 388364,
+      "sha256": "9b4aeda81fd0b734a73c65c5f2485fd66618f07d7684a0ce78384533efa6a574"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/post-bow-v1.webp",
+      "bytes": 89782,
+      "sha256": "67f26fabdefd83893f8971b4f5d683066e7430fcc72dfc5470ae10aed697ff9e"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/psg1-scene-v3.webp",
+      "bytes": 386474,
+      "sha256": "a541bdea59f7fa2765c4f23d9e1605fe1a5bc564c95750d11a2d11cb1ca1b685"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/psg1-v1.webp",
+      "bytes": 82196,
+      "sha256": "685e4df1f2503060e4e9450049130c16e32bc1f192ebc1a4487f12140768c92d"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/revolver-gunblade-scene-v3.webp",
+      "bytes": 301176,
+      "sha256": "c8d59397ba6f46b92f76c8675fd9106b2a425254c0a0f129875f1cf4860febc2"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/revolver-gunblade-v1.webp",
+      "bytes": 74244,
+      "sha256": "2e9b841738336fd503daeaa224ad6ee34c480ba32b8c4bd51f78adac29eb7c7c"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/rhinoz-ancestral-horn-scene-v1.webp",
+      "bytes": 540554,
+      "sha256": "3880d408de24c5de8185c1daf5aa64c08c15f4e7cb9e200f5f0cb3409c241f69"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/rhinoz-ancestral-horn-v2.webp",
+      "bytes": 128462,
+      "sha256": "fc0e4fff227d67d7207d58291b300d50786d2335c7c8a06d48c88ebcbadac948"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/rhinoz-hauberk-scene-v2.webp",
+      "bytes": 448164,
+      "sha256": "0a3365eac578c51a10ab489b092d4f823724efbccb6ac21232efc42b63fc11c8"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/rhinoz-hauberk-v1.webp",
+      "bytes": 328674,
+      "sha256": "7e59e59ca9cdd4b1e50916576a1693bc27d81cbbb3d923857671d0f7dfb07c53"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/rumble-ball-scene-v1.webp",
+      "bytes": 239376,
+      "sha256": "49ba0866208ae906b8c48d3fae06c226feb392b5d2762b88b11034d52220795e"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/rumble-ball-v1.webp",
+      "bytes": 157942,
+      "sha256": "2fa3585bd304685ac1a4e91327db9c8fc2a05c23f41f4842fccfb4f49c30b4c8"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/sap-cuirass-scene-v1.webp",
+      "bytes": 555812,
+      "sha256": "006705c90baf4559eea55162f205ce65bd11e043d82b31945ab51fd029b2f7b6"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/sap-cuirass-v1.webp",
+      "bytes": 332158,
+      "sha256": "dd5da19b717e910d9f0bad6b5c86cd75a07fb6a28ca4f3f8eca00328e22083ba"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/scarlet-cape-scene-v1.webp",
+      "bytes": 360530,
+      "sha256": "b4f0a80db0a2224a509882fc09f195abde1ec8c44eda4fa873034ef3654223a0"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/scarlet-cape-v1.webp",
+      "bytes": 271196,
+      "sha256": "655135db10ce8ed0e957f3b9f0cca7cded7ced66aed0c75140dc69eca208a099"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/sentinel-carapace-scene-v2.webp",
+      "bytes": 347202,
+      "sha256": "22709b5fbb4cceaf870c2652b675bf1b7ac599cb055e0737dfc88a87c38b4fd3"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/sentinel-carapace-v1.webp",
+      "bytes": 317262,
+      "sha256": "2fb4c5b33a4fc9fa6a0ea25ca0adccd9162e082e3b3575dc3e14df29a6dff033"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/single-action-army-scene-v3.webp",
+      "bytes": 400468,
+      "sha256": "1dd7224869be552409d9c84ba3b04154b3994a95ff808efb372b98d168bfaaa5"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/single-action-army-v1.webp",
+      "bytes": 131596,
+      "sha256": "67121ad1814d9e1972e4b66e1e01ebfd1c432611e5a96bc334280f249db5bd9c"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/socom-scene-v3.webp",
+      "bytes": 432870,
+      "sha256": "6344b17322e5b28b3e9b9379a373e5771cbf019d29e429529dd62475d0e9aa5c"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/socom-v1.webp",
+      "bytes": 107002,
+      "sha256": "c89f89ad922ed0e09c24ebc851d206c98df80290334d3c870eb856df6000a090"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/soldiers-blade-scene-v3.webp",
+      "bytes": 389202,
+      "sha256": "b35b36dc31b775a6795d4102925c8d6603762e2ab24220709a52d92d3d45501a"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/soldiers-blade-v1.webp",
+      "bytes": 106432,
+      "sha256": "459d8152d98059273d5ea47dfdfe97dae0484f2f23b3cc9de7735119dd722281"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/stars-vest-scene-v1.webp",
+      "bytes": 380046,
+      "sha256": "8bb96d51fc1e252df4c8434f124ba6cc7f1d1d98f0f786cb97879e399bbefb71"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/stars-vest-v1.webp",
+      "bytes": 343030,
+      "sha256": "a48ccbfe88a302f133e9c9002d45129d161acc3f862b31f7a17909420190cd12"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/straw-hat-scene-v1.webp",
+      "bytes": 379214,
+      "sha256": "70093b03a8ac9fb52ce41d6fc6ebad0020023d88a9d793c40344e82023e38ecb"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/straw-hat-v1.webp",
+      "bytes": 278020,
+      "sha256": "120062d5053bfec8102d7716e18dcfdb5e3730298812875a52e39a422b5790b1"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/tide-pavise-scene-v1.webp",
+      "bytes": 538394,
+      "sha256": "fbe44d5b94d820cdee07a0ba468f39489b5260dce6cab2cada5ab244917d4d4f"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/tide-pavise-v1.webp",
+      "bytes": 266448,
+      "sha256": "5d23974422e8b7ea47082fd97f384fe57b912fa534e547d288979e28b083f638"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/violet-reaping-scene-v3.webp",
+      "bytes": 354732,
+      "sha256": "b6e8358c659b9f6ac905a4ff0167e67f64da9d5cc201bedc42afe02c1446c519"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/violet-reaping-v1.webp",
+      "bytes": 105946,
+      "sha256": "0b14f343b425131d31df4aebfb8846437f2c6ec9d64a24cbbe2f8b740b5a5c5d"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/virtuous-contract-scene-v3.webp",
+      "bytes": 280392,
+      "sha256": "451c20fccdf1645dddf39c0f1fc2fe3cf25e059e4ea55007f7e23210a97d09d0"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/virtuous-contract-v1.webp",
+      "bytes": 96080,
+      "sha256": "6259fd0efe6d5c15bd7f8e893e27eabbd9517d5547e2ba108bde0fc3dc2ab06f"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/virtuous-treaty-scene-v3.webp",
+      "bytes": 409706,
+      "sha256": "36bafb2142bca73764268d3ee3464b5374465616d988cfc8b03a0afd7bcc7ade"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/virtuous-treaty-v1.webp",
+      "bytes": 127132,
+      "sha256": "504fc2cca410a5e4eca254d126bd91be94da47e9a7b3c243973c58fe83560ab3"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/wardens-spear-scene-v3.webp",
+      "bytes": 355934,
+      "sha256": "60e7ca146a1c498532dd22b6c16c590e8742d75b619814d7f2414017193e3276"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/wardens-spear-v1.webp",
+      "bytes": 64244,
+      "sha256": "418368b51c216672688d9869f44f34960ecef2985a231bbea12ef253935bf625"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/white-materia-scene-v1.webp",
+      "bytes": 313184,
+      "sha256": "c4c45ca4724125e866a7cfb73a150986351a40af995f07a2a18c294ba878235e"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/white-materia-v1.webp",
+      "bytes": 272006,
+      "sha256": "de31a286e7b1154ad8abaadec11c0ce84c94c1428c0f3d747921b92e05bb04b6"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/white-oath-rapier-scene-v3.webp",
+      "bytes": 282358,
+      "sha256": "b1ad301f57347f85c51c4dc0a6e50c78e4c1d715942458193ab1a339b928a12f"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/white-oath-rapier-v1.webp",
+      "bytes": 119676,
+      "sha256": "7bde7e1a21f94a6f9c4c61984b84e4c8cbda5cff37ab373aac9e2bee0ad2abf6"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/wolf-medallion-scene-v1.webp",
+      "bytes": 430150,
+      "sha256": "eb529bfbb565a2d7c29c22b3a4adba85a68095633e154d5fc7eb59a62cbcdf59"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/wolf-medallion-v1.webp",
+      "bytes": 250358,
+      "sha256": "06a8243d74a907768bd5036d51b09bfa14012d878d3db071cba3d313cf2a9f61"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/wolf-school-armor-scene-v1.webp",
+      "bytes": 489812,
+      "sha256": "ccfb5d479a92fb0c957d41534c66fd29a32650430ed3dc47d574f3217ec258d8"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/wolf-school-armor-v1.webp",
+      "bytes": 362186,
+      "sha256": "e2db4e7bf395c4e93c832051c32c2cb3dc01f2ecfe669cea205dd979b3e0e1f7"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/wolf-silver-scene-v3.webp",
+      "bytes": 339652,
+      "sha256": "6a34cf2799e197b8133247befcdc38aa7bf5aac19290245f0e2815637da9e67d"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/wolf-silver-v1.webp",
+      "bytes": 91942,
+      "sha256": "86ce28b947a075502ec3b6ece97593f01df3ea388a2e77635bead345e7c47526"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/wolf-steel-scene-v3.webp",
+      "bytes": 476570,
+      "sha256": "707909326aee555c5bf7b2b6b6134e7f2968771b48553ac172477ec8c3dcbe26"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/wolf-steel-v1.webp",
+      "bytes": 88888,
+      "sha256": "43c5164aad4cae049d006b4fcc9d8a08758d2953dc86b5ee6cdf82923b5839d6"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/zanarkand-abes-pendant-scene-v1.webp",
+      "bytes": 534884,
+      "sha256": "4f5afb78822011810bd3e32d83349c62a371517b1b8dd4c6bae44097e588ae52"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/zanarkand-abes-pendant-v1.webp",
+      "bytes": 227394,
+      "sha256": "55c6648aac32e0ed5c0104c33c6b63f04ea6d693827b88b16e3b8fc447226ac0"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/zanarkand-pauldron-scene-v1.webp",
+      "bytes": 512698,
+      "sha256": "e27afe83fdb4bfa11e55454b91271cd8333c8a93948123dc9c953f3ef123e564"
+    },
+    {
+      "path": "jeu/assets/weapon-cards/zanarkand-pauldron-v1.webp",
+      "bytes": 283912,
+      "sha256": "03da40c60ee3d442e1abf8044f9a3eefd1e776380928d2f4b96b5152b0384a0e"
+    },
+    {
+      "path": "jeu/base-weapons.js",
+      "bytes": 3227,
+      "sha256": "ab84294160fff990753c54c112a39a2e7e0901f63ed5e6203707fd6f7410cd9b"
+    },
+    {
+      "path": "jeu/battle-ui.css",
+      "bytes": 9593,
+      "sha256": "5b2861c1e81a50a859c5d9b73d94527ea504abec7b3f68e81df88bca498c7ca0"
+    },
+    {
+      "path": "jeu/boot.js",
+      "bytes": 3638,
+      "sha256": "5943a6079778155c84e18b88676f9f3de78abe24708bf8291f913808e219ba92"
+    },
+    {
+      "path": "jeu/card-media.js",
+      "bytes": 2919,
+      "sha256": "960dbd3767f3e97fc71115d6b2f711988d7682d1545b1e8a49e6946872ba1fb2"
+    },
+    {
+      "path": "jeu/catalogue-updates.js",
+      "bytes": 1711,
+      "sha256": "1870473d09a7e8b03124167c0deca8bb8689be45daabb6018b07ba66a6288c48"
+    },
+    {
+      "path": "jeu/catalogue.css",
+      "bytes": 12311,
+      "sha256": "d3717ea02836ee630cdb4054ab1a2e35ff8e26332e7f72a5b3f0c558e2062ac3"
+    },
+    {
+      "path": "jeu/catalogue.js",
+      "bytes": 8616,
+      "sha256": "09fc3d49686df3cd96f23fd43e4a25451284f504f87ff1aa4e787564dfe5c60c"
+    },
+    {
+      "path": "jeu/collaborations.js",
+      "bytes": 2557,
+      "sha256": "88c231f33d0b5c380753a2e25b67786849310dc4aaafb2a71c0ccfc69fb06c40"
+    },
+    {
+      "path": "jeu/collection-binder.css",
+      "bytes": 52590,
+      "sha256": "b199c1e62cadddba67803aa047072e7ee5a8f2e1412e59f2f7975e79e8c6db1d"
+    },
+    {
+      "path": "jeu/collection-binder.js",
+      "bytes": 39693,
+      "sha256": "23d288580c11b3dc60814c176b3c64c8664730797d0a13de7a98d076bb2c787c"
+    },
+    {
+      "path": "jeu/combat-effects.js",
+      "bytes": 19231,
+      "sha256": "cb99a0eec966602f1f540d11b007fd24a96b5b9bada86c840fea64dde183e43e"
+    },
+    {
+      "path": "jeu/combat-reference.css",
+      "bytes": 6617,
+      "sha256": "c962f7212131f1f7f0bcd265ff4fa4a27898b36143625783e1988a1d9e7d0052"
+    },
+    {
+      "path": "jeu/combat-timeline.js",
+      "bytes": 1879,
+      "sha256": "0d9390e84a37bd80a9e8d18d60f375cc7c160336827dcb96a7c69d8b3e6cf3b8"
+    },
+    {
+      "path": "jeu/deck-builder.css",
+      "bytes": 42225,
+      "sha256": "d225d399920447475bfd9cc408c093f6a3532768992c895cb14bf9cddafb4a66"
+    },
+    {
+      "path": "jeu/deck-builder.js",
+      "bytes": 65926,
+      "sha256": "0c39439849ea05e0e1ac9c7f303ccf234f94308cf7c64b8d0a47bc00f648541a"
+    },
+    {
+      "path": "jeu/deck-library.js",
+      "bytes": 7679,
+      "sha256": "f740d42992591ff9606f10e2afd60015dca0635cedd22e77c673cb9863a3be5d"
+    },
+    {
+      "path": "jeu/defensive-equipment.js",
+      "bytes": 10327,
+      "sha256": "6a4ece8220b3ef468dea26ef753255de699a8c99733e85332e7bed13dfaa47a3"
+    },
+    {
+      "path": "jeu/dialog-history.js",
+      "bytes": 4263,
+      "sha256": "47266f238010c2a08debe8c37ea1ca5f2431cdec8daa4ee7abb77a9b3f960627"
+    },
+    {
+      "path": "jeu/duel-console.css",
+      "bytes": 12668,
+      "sha256": "3f684f4a9849023dd7bed2ddf9ffb79b6515ce092b0c57361c68c70919aad6f4"
+    },
+    {
+      "path": "jeu/duel-focus.js",
+      "bytes": 13703,
+      "sha256": "1cfc317f7e95ba7b8ca9d972307fed793aba0a3c3b1edbf35fd5ad9b3990eb5c"
+    },
+    {
+      "path": "jeu/duel-presentation.css",
+      "bytes": 9902,
+      "sha256": "d28b01805fa3391977753edb39fb9a5074754c040ef30e25f92350c2f0cfe36d"
+    },
+    {
+      "path": "jeu/elemental-roll.css",
+      "bytes": 7407,
+      "sha256": "5f025c8881519f70e46e88e6aeab524c9038227713b27aa95a458b79e6ddc20b"
+    },
+    {
+      "path": "jeu/elemental-roll.js",
+      "bytes": 26303,
+      "sha256": "39e48eae5dae8faee7448cd9564592ba65b3e54c7508093b4d402c0b24649523"
+    },
+    {
+      "path": "jeu/engine.js",
+      "bytes": 53463,
+      "sha256": "50273f64fc066d95339e99a871a9ac8953a9f5a4e037e647fc39674cb49e5703"
+    },
+    {
+      "path": "jeu/equipment-presentation.js",
+      "bytes": 18034,
+      "sha256": "dd2b8ca2d6c1c4ba625bf17b6f6f544bb2d3313ecaf12821cb308d1e9b5d40a2"
+    },
+    {
+      "path": "jeu/equipment.js",
+      "bytes": 19086,
+      "sha256": "572ae457e6ef62535d90cced0d31178b76509fdefce648284eb20f37d3494cba"
+    },
+    {
+      "path": "jeu/factions.js",
+      "bytes": 533,
+      "sha256": "0a720ce68fecff8fa7f3d079295aa3e4ebe87a2d8b69c14c9642b54410501ec8"
+    },
+    {
+      "path": "jeu/formation-drag.js",
+      "bytes": 4373,
+      "sha256": "91a25752afe9cf02c60e52eb700655a63922a5a52a273f6e61b830f29283cf93"
+    },
+    {
+      "path": "jeu/index.html",
+      "bytes": 6815,
+      "sha256": "8d1b990af51d4acc1dd34eaa41559d57e1ee38aba714ebe9860674d103e970bc"
+    },
+    {
+      "path": "jeu/integration.css",
+      "bytes": 1260,
+      "sha256": "10788fd62dd1c1c551b13d1435f738c8361aeee70abbcff689c8fa212a13da9e"
+    },
+    {
+      "path": "jeu/kill-medals.css",
+      "bytes": 5049,
+      "sha256": "0ab2a12f679659cecea9218c85765597923f4d6932cc6979f99fdc84d58c2843"
+    },
+    {
+      "path": "jeu/lineup-intro.css",
+      "bytes": 9769,
+      "sha256": "be086cadf7a60b7d8978b3884464453dab15d4fd3f0c04ddf9abb8b3421fe604"
+    },
+    {
+      "path": "jeu/lineup-intro.js",
+      "bytes": 20318,
+      "sha256": "be49384230186e0188656e25688049e81589c065cba95b82ca7366b2deb511fd"
+    },
+    {
+      "path": "jeu/local-db.js",
+      "bytes": 24523,
+      "sha256": "da2ef3735d663f187c23ba3b29a667ad842101b361b05e04842b63d7392bdc03"
+    },
+    {
+      "path": "jeu/manifest.webmanifest",
+      "bytes": 576,
+      "sha256": "fe3864ca0f7cc0a491ee65d8205dbea5f0b314d0905e19e691152425b78c16b8"
+    },
+    {
+      "path": "jeu/match-metrics.js",
+      "bytes": 3922,
+      "sha256": "2f593eff066dad3716279b187f3f8a83486c8e54c0e6ff14a05913f28837f608"
+    },
+    {
+      "path": "jeu/match-report.css",
+      "bytes": 34386,
+      "sha256": "9faf43a005bad17ce7e37981d4a868cd5c1821f9039d3ce95d33c8e6197cf178"
+    },
+    {
+      "path": "jeu/match-report.js",
+      "bytes": 14948,
+      "sha256": "aee01b6f1d8fc46dcfbd26e1153cfc7729dd5e51ce8822f55d318b6ab1e2ede1"
+    },
+    {
+      "path": "jeu/mobile.css",
+      "bytes": 27750,
+      "sha256": "ff42138fc3a188eb088828450db4cd84484948122e62a79fdaeb73523cc829c4"
+    },
+    {
+      "path": "jeu/navigation.css",
+      "bytes": 12245,
+      "sha256": "24947020dd29c6755aa516da40b52a5c2a8fa7217c3bd80eae136fc436ad9194"
+    },
+    {
+      "path": "jeu/ownership.js",
+      "bytes": 26574,
+      "sha256": "7513f726782ed3e4bc2a4cf9340481b593d7f508123288271719a300d4599f4c"
+    },
+    {
+      "path": "jeu/phone-preview.css",
+      "bytes": 1577,
+      "sha256": "db128ff77f607dc7f5d9671bc5a2e04630dbf7024e80be1a7343ded457d49ea9"
+    },
+    {
+      "path": "jeu/phone-preview.js",
+      "bytes": 3110,
+      "sha256": "f2e1a6e91c9690d224b2be62ff6a1ce46a82273e58d1d5427f59e57c24b0e689"
+    },
+    {
+      "path": "jeu/pre-match.css",
+      "bytes": 12637,
+      "sha256": "4d069d149c8b92d586d369dd4d62fc58acd6dc4031f552933fbbe993519e67f1"
+    },
+    {
+      "path": "jeu/pwa.js",
+      "bytes": 817,
+      "sha256": "769a6245121c62ecc70d9096fd8a5daca0068d9a5e6241e8f7213c6ce9f3ddcf"
+    },
+    {
+      "path": "jeu/reserve-preview.js",
+      "bytes": 5131,
+      "sha256": "9322a2ceb8f3fad0cea9fe282e6abbaee2e653fa6ab186876340f81a641cd360"
+    },
+    {
+      "path": "jeu/scoreboard.css",
+      "bytes": 4405,
+      "sha256": "ac1aa0a8cf632b6ef9d526e80cae8c668f33cf4b734cb5bd63f9062452c13dec"
+    },
+    {
+      "path": "jeu/shared/armes_transparentes/00.svg",
+      "bytes": 3213,
+      "sha256": "388c1861261ebe18cabc5af8d050da6374881c656f4782585c9db1278a2ad24c"
+    },
+    {
+      "path": "jeu/shared/armes_transparentes/01.svg",
+      "bytes": 3277,
+      "sha256": "18e0a19b9981e4fac1de7cc7145a0ab091c5ed9cdf6fd349f357eb6116408c4a"
+    },
+    {
+      "path": "jeu/shared/armes_transparentes/02.svg",
+      "bytes": 2209,
+      "sha256": "f5bd758283301d449aef336d3f33b457203f858c62926874cda2c932bf213cef"
+    },
+    {
+      "path": "jeu/shared/armes_transparentes/03.svg",
+      "bytes": 3545,
+      "sha256": "da1c327bc01b247c4192571e694afadbdccefdbcd3c883281691d31d4015f0da"
+    },
+    {
+      "path": "jeu/shared/armes_transparentes/04.svg",
+      "bytes": 3253,
+      "sha256": "b7123bbca7865163f3abfe2e019c7d824f06ed6f3fe057ba27500b83baf28542"
+    },
+    {
+      "path": "jeu/shared/armes_transparentes/05.svg",
+      "bytes": 3329,
+      "sha256": "2d79fc5520e4f5ab4ea54651770abde74f476a181a271ae6d3ba8b5eb5487d91"
+    },
+    {
+      "path": "jeu/shared/armes_transparentes/06.svg",
+      "bytes": 3349,
+      "sha256": "d5c755a07fc7e9a9aed88b4882ac1fbdab96edbbb52c86b41f35c8ee5c285620"
+    },
+    {
+      "path": "jeu/shared/armes_transparentes/07.svg",
+      "bytes": 3105,
+      "sha256": "829d96da1e2812052b3cb348c0612f77e1d7454c3ef4e912293e8ffa020633da"
+    },
+    {
+      "path": "jeu/shared/armes_transparentes/08.svg",
+      "bytes": 3005,
+      "sha256": "b637641bda821382d27a62c6ea1105bdbc85c25ee2fee9615cbd6a868d9dfe2b"
+    },
+    {
+      "path": "jeu/shared/armes_transparentes/09.svg",
+      "bytes": 3165,
+      "sha256": "32959331fef4fa1eeca9bd135d89a89a827952f9e5573b55942e0dfbcc760b8c"
+    },
+    {
+      "path": "jeu/shared/armes_transparentes/10.svg",
+      "bytes": 3053,
+      "sha256": "e0fe420ca5a930b6b898efc6f9cb8e8ccc274aa80f554b675e67dd3cedf575ce"
+    },
+    {
+      "path": "jeu/shared/armes_transparentes/11.svg",
+      "bytes": 3373,
+      "sha256": "68ab39e745897e1b6b9ff3831e6bce511ad300f338728e309e7f2c70d02fc400"
+    },
+    {
+      "path": "jeu/shared/armes_transparentes/12.svg",
+      "bytes": 3185,
+      "sha256": "1be7da02da2e2e187af5655fbe721363a8b30e9f470ea7482e14d2c6f3217c05"
+    },
+    {
+      "path": "jeu/shared/armes_transparentes/13.svg",
+      "bytes": 2225,
+      "sha256": "39f528f10ab7eac6bba89c0eabffa6eaaaf0bd7eb8c68a272cad9d7b67a40807"
+    },
+    {
+      "path": "jeu/shared/armes_transparentes/14.svg",
+      "bytes": 2281,
+      "sha256": "75819863ad1b12720109977f58d89f17b75c1d48c1058f15f981861624f3f722"
+    },
+    {
+      "path": "jeu/shared/armes_transparentes/15.svg",
+      "bytes": 2989,
+      "sha256": "5c09d843a677da4c57d4e8e857bf84182f9bc1eeda1032d887746197a27b054f"
+    },
+    {
+      "path": "jeu/shared/armes_transparentes/16.svg",
+      "bytes": 2057,
+      "sha256": "d55e06f121699d2f9937423fd67f3cba1525c12efc1b9bfd611ed1a677ac7708"
+    },
+    {
+      "path": "jeu/shared/armes_transparentes/17.svg",
+      "bytes": 3101,
+      "sha256": "6bc52844ac52045f9a48a1388f784feb91d2c9aa0b3c0ebf023d7a56ef4bf070"
+    },
+    {
+      "path": "jeu/shared/armes_transparentes/18.svg",
+      "bytes": 3033,
+      "sha256": "cba9b56f3666a13292281bea112bfd7fc40215c08c55d1e68ff1f1b2bb7e0dd6"
+    },
+    {
+      "path": "jeu/shared/armes_transparentes/19.svg",
+      "bytes": 2061,
+      "sha256": "ce1043e3393acc1ff61d4e102653a4585ffbc01a8400f8c336db70903d917f10"
+    },
+    {
+      "path": "jeu/shared/armes/00.jpg",
+      "bytes": 2198,
+      "sha256": "1e2ac6d3999d8905638907fa510ac100f5c49d9b8e2ffe6280000755c62fcd6e"
+    },
+    {
+      "path": "jeu/shared/armes/00.png",
+      "bytes": 15012,
+      "sha256": "e10ebf9e959a735045602a57bc500680af995ff2398c0ada2a39ea39fc12bcb1"
+    },
+    {
+      "path": "jeu/shared/armes/01.jpg",
+      "bytes": 2247,
+      "sha256": "048ac562c298aaa537e6cc217d08b03f857d98653f6d662ea47b0ec214f11a4e"
+    },
+    {
+      "path": "jeu/shared/armes/01.png",
+      "bytes": 16170,
+      "sha256": "d8e3ef5594546e0a26b56c1bbea9e179db014203ec5040c3ebe7683da53f5490"
+    },
+    {
+      "path": "jeu/shared/armes/02.jpg",
+      "bytes": 1445,
+      "sha256": "3f14fa3aae8393fa020130fb74073b184127434c9964ecf5e9246751ce433553"
+    },
+    {
+      "path": "jeu/shared/armes/02.png",
+      "bytes": 19068,
+      "sha256": "4e83b033dbb7eefd7467923915fb45a96c4e7f62b8e673473fb4fb1504e199f4"
+    },
+    {
+      "path": "jeu/shared/armes/03.jpg",
+      "bytes": 2448,
+      "sha256": "0d66f78e0fa13b126dae98e7094695b45227f6bd777fff47ae8cc6eaeb72f83a"
+    },
+    {
+      "path": "jeu/shared/armes/03.png",
+      "bytes": 22400,
+      "sha256": "f66049699f0f846bc5d90db3712dcfc2bed2da2493e88acafe70389c40124422"
+    },
+    {
+      "path": "jeu/shared/armes/04.jpg",
+      "bytes": 2227,
+      "sha256": "9226b89290bb6d42d8b187f663cc7e171904f8f77262e1d90fad4cb73e981793"
+    },
+    {
+      "path": "jeu/shared/armes/04.png",
+      "bytes": 16185,
+      "sha256": "20757256d883befff149387f6aaf98e30ed26094d2548a64aa12669d0a59c23b"
+    },
+    {
+      "path": "jeu/shared/armes/05.jpg",
+      "bytes": 2284,
+      "sha256": "0b6a6db86b9c70714fb028adf7fe158c34127fd342089832d86f3953615e483f"
+    },
+    {
+      "path": "jeu/shared/armes/05.png",
+      "bytes": 19854,
+      "sha256": "c9a96fd5b8f802f043a5ea15dcb82f743fe289484c8a86f46fc2764ec1110225"
+    },
+    {
+      "path": "jeu/shared/armes/06.jpg",
+      "bytes": 2301,
+      "sha256": "9435682570a583d3a7930375e7d5bc470702f130182855f127702955381ad06c"
+    },
+    {
+      "path": "jeu/shared/armes/06.png",
+      "bytes": 16960,
+      "sha256": "ee3c6b12acebc66e5bb2cbfb9b7fde054d44113fa9ff4fa3d6c2c6e13a7208ad"
+    },
+    {
+      "path": "jeu/shared/armes/07.jpg",
+      "bytes": 2116,
+      "sha256": "2bb9bc7390ff42ff7890d107404cdbb399d9d07e1913d2bd9f1af287e7a36804"
+    },
+    {
+      "path": "jeu/shared/armes/07.png",
+      "bytes": 16442,
+      "sha256": "8e1dd2f83e026277cca0c6810bc081015297d8b9cee918ee0a3dc861ed5ed257"
+    },
+    {
+      "path": "jeu/shared/armes/08.jpg",
+      "bytes": 2041,
+      "sha256": "52613b229740174fa8992bb7daae934c0322d57e15b1f5e4084d12485bf792a4"
+    },
+    {
+      "path": "jeu/shared/armes/08.png",
+      "bytes": 13549,
+      "sha256": "1cbc5edbdabbd1d40115bfa980744a897188f571d47a002799473dbe363bfd3d"
+    },
+    {
+      "path": "jeu/shared/armes/09.jpg",
+      "bytes": 2163,
+      "sha256": "1a519a73729bcb54b6a062edbdd3a0811eb8a9a0c9773105f103e0150348dcfb"
+    },
+    {
+      "path": "jeu/shared/armes/09.png",
+      "bytes": 16488,
+      "sha256": "c3cad629267cd585f1e4a6d15da7381c1652f77464a1a1bef98ee202daaa9efe"
+    },
+    {
+      "path": "jeu/shared/armes/10.jpg",
+      "bytes": 2077,
+      "sha256": "0256359cd554b8fec0ed56d8aed4bfb381639eaba35d75562e886fbebb2d48f7"
+    },
+    {
+      "path": "jeu/shared/armes/10.png",
+      "bytes": 13724,
+      "sha256": "b8fe5fd1bcb278c788043a03fa8aaf60c0e51ec47ab4f56e7c2e711c0f86f089"
+    },
+    {
+      "path": "jeu/shared/armes/11.jpg",
+      "bytes": 2319,
+      "sha256": "d4bbf3e2c0ae130a6ce7f52815332dee302ec0e43ec876b33c7c864faf3371c4"
+    },
+    {
+      "path": "jeu/shared/armes/11.png",
+      "bytes": 8545,
+      "sha256": "1a01c981b53a1cd110fa8fe07dad1ad49329a35564bd5b6bed0946ac92cb8ddf"
+    },
+    {
+      "path": "jeu/shared/armes/12.jpg",
+      "bytes": 2177,
+      "sha256": "34f7d02ad457f771fe19f72e70c5605850dd0b10885df316e346c5c98487fbce"
+    },
+    {
+      "path": "jeu/shared/armes/12.png",
+      "bytes": 15680,
+      "sha256": "6211ec8526eff0a6c82f600086bc0a135991f81e5b37a516fb6a694182c57a51"
+    },
+    {
+      "path": "jeu/shared/armes/13.jpg",
+      "bytes": 1458,
+      "sha256": "c7079886419c7f00b2ac30d4b21e7c3d3d2b33c890578f351cc5e27869544b40"
+    },
+    {
+      "path": "jeu/shared/armes/13.png",
+      "bytes": 19067,
+      "sha256": "eee52bf81da0bdad1c942abaa55277667796fd43ddd72d6191059756d7026cef"
+    },
+    {
+      "path": "jeu/shared/armes/14.jpg",
+      "bytes": 1500,
+      "sha256": "b811c7690a1e85508baf1077fc7ec306e779f5b1b8cc17392ddbdd4078a60bd3"
+    },
+    {
+      "path": "jeu/shared/armes/14.png",
+      "bytes": 22269,
+      "sha256": "2a9f1f86884687b3e85b8c1117b2c1c2cc2ea0dca64ee768d2a0b6604657a48e"
+    },
+    {
+      "path": "jeu/shared/armes/15.jpg",
+      "bytes": 2030,
+      "sha256": "c08d249d6ff8ec4b62b0e588bf9204c8fafbf813561ec0e8249fb7e9fea26f24"
+    },
+    {
+      "path": "jeu/shared/armes/15.png",
+      "bytes": 12352,
+      "sha256": "71b8f69a9c066296ffb4cb62ef46f51f974d71ebdba786341ad1d24b74947a33"
+    },
+    {
+      "path": "jeu/shared/armes/16.jpg",
+      "bytes": 1331,
+      "sha256": "4e8937443fee08831a9d40bb3ae45982b75db3b45e7f2f6fc2d65df88404af89"
+    },
+    {
+      "path": "jeu/shared/armes/16.png",
+      "bytes": 13841,
+      "sha256": "c78fa3b2a2887d992ec02868287573c7d95c1819292c185ded298a6c379c04fe"
+    },
+    {
+      "path": "jeu/shared/armes/17.jpg",
+      "bytes": 2115,
+      "sha256": "0ecc1bf53f0d3b66c895af0cb4c7608dd816459360c34beedab7aeb5fbbea64d"
+    },
+    {
+      "path": "jeu/shared/armes/17.png",
+      "bytes": 14542,
+      "sha256": "5a72bacb59cdc60f435627859bf59abfc855ac7b66d56d7201a91e682171f481"
+    },
+    {
+      "path": "jeu/shared/armes/18.jpg",
+      "bytes": 2063,
+      "sha256": "f6d2ecf5c98d04017b73261c727926cda23d2c2d43c01f54f1fed4d574ffd495"
+    },
+    {
+      "path": "jeu/shared/armes/18.png",
+      "bytes": 15096,
+      "sha256": "81845068b870d2f2bee3ebb92e3b7671d0d1955b9fddfbca72b1489c91bea8be"
+    },
+    {
+      "path": "jeu/shared/armes/19.jpg",
+      "bytes": 1334,
+      "sha256": "347a8f5a1ec050399113fd4fec1f6a2ae15f56e8ac5cb9396d801a07d6c5e96c"
+    },
+    {
+      "path": "jeu/shared/armes/19.png",
+      "bytes": 15484,
+      "sha256": "c496303d87c09c08c94ca2cf7c34a0479c91b866ba5373044ce902d1767be6eb"
+    },
+    {
+      "path": "jeu/shared/cristaux/AERO.png",
+      "bytes": 206411,
+      "sha256": "f0702e627a34dcdf87bec7b135703624f79522f67d172335d7c40927d5dd2517"
+    },
+    {
+      "path": "jeu/shared/cristaux/CRYO.png",
+      "bytes": 206258,
+      "sha256": "99f06d3a9001b1948e68dc32236659119970568188a398b96eef6d04af6b9efe"
+    },
+    {
+      "path": "jeu/shared/cristaux/crystal_atlas.png",
+      "bytes": 1997467,
+      "sha256": "52e19aff656d5202fca6502211408548d8fbe4a7b303e90e15eb2dd4d3963d50"
+    },
+    {
+      "path": "jeu/shared/cristaux/ELECTRO.png",
+      "bytes": 191721,
+      "sha256": "0bad717a715183c3aa43445c0db8604c3c8a86564ba64b8f5a5664f7e5802659"
+    },
+    {
+      "path": "jeu/shared/cristaux/GEO.png",
+      "bytes": 200038,
+      "sha256": "ecf88131bce228d5acced56947880c8a2434a5f4d1ca7aa090c2e1cbc3513d1e"
+    },
+    {
+      "path": "jeu/shared/cristaux/HEMATO.png",
+      "bytes": 182546,
+      "sha256": "1051347697332682646d421e095c13be39296c37dd24ba02d224eeb984e3dc14"
+    },
+    {
+      "path": "jeu/shared/cristaux/HERBO.png",
+      "bytes": 199248,
+      "sha256": "2be9a5dd5908db6b1ab4f5af1847ae166caf45942d4f9faada2ecd38b65ec483"
+    },
+    {
+      "path": "jeu/shared/cristaux/HYDRO.png",
+      "bytes": 200234,
+      "sha256": "9fbac0d2911f1efce3dcf681fa0bd73434c667f300df447e60ae0f1bbd6351f2"
+    },
+    {
+      "path": "jeu/shared/cristaux/LUXO.png",
+      "bytes": 208178,
+      "sha256": "4026d31e9ff2dd101e0c98581b97130b2d73964128e6a566067d1bb3a7f42eca"
+    },
+    {
+      "path": "jeu/shared/cristaux/MINERO.png",
+      "bytes": 198212,
+      "sha256": "abc43bc4435e1d0f064c2f4072195494b62b0e2755843786128fb3c36ffa56c8"
+    },
+    {
+      "path": "jeu/shared/cristaux/NECRO.png",
+      "bytes": 200333,
+      "sha256": "efffa338807407b0dc52ec001b6cf05596d05e02e9f7dc0a33cb178b6e509964"
+    },
+    {
+      "path": "jeu/shared/cristaux/NONE.png",
+      "bytes": 1238440,
+      "sha256": "35e5341e5d9539c05c96f026455fad3da492cca24c80800b3881d2b706ea244a"
+    },
+    {
+      "path": "jeu/shared/cristaux/PYRO.png",
+      "bytes": 192035,
+      "sha256": "2b3b90472b0c796164ae36fd42a77d3edbd91273955c9c814034e9b755b19e4c"
+    },
+    {
+      "path": "jeu/shared/cristaux/RAINBOW.png",
+      "bytes": 209474,
+      "sha256": "e4606cc3a2224b30cfb48154577580913bc062fdf99406fb3761a6df955009eb"
+    },
+    {
+      "path": "jeu/shared/effets/AERO.png",
+      "bytes": 242790,
+      "sha256": "d839fc7bd4ac489c0d52095d3ee35ff33f5f16787b3bd90d40af1b44ae48f60b"
+    },
+    {
+      "path": "jeu/shared/effets/aura_atlas.png",
+      "bytes": 2360234,
+      "sha256": "d87907418ac5fd649e19d979ce8b63fb5479cc0545d1d1e425fa4f2a90edb8c1"
+    },
+    {
+      "path": "jeu/shared/effets/barrier.png",
+      "bytes": 112084,
+      "sha256": "3d58435a066715c2da23d885907d5acfe7ba90a60437558ab55981525dff2130"
+    },
+    {
+      "path": "jeu/shared/effets/buff_atk.png",
+      "bytes": 1277947,
+      "sha256": "5026a66165609d5649e58e6cce197f50d4ced971794b1a334e0521d9757925f1"
+    },
+    {
+      "path": "jeu/shared/effets/CRYO.png",
+      "bytes": 226746,
+      "sha256": "82f18b6d9c7119a8113277989312b672f1c7f4f0ca362dcb36f401209a509f1e"
+    },
+    {
+      "path": "jeu/shared/effets/death.png",
+      "bytes": 55685,
+      "sha256": "0453824dcffead6a60d7d6621cedbe318ad74746381c2306a672fad9e455ad23"
+    },
+    {
+      "path": "jeu/shared/effets/death.svg",
+      "bytes": 306,
+      "sha256": "c911f6edefe359d305e87762622bd2a3c4afcd79942044eab81dccf6fff37acc"
+    },
+    {
+      "path": "jeu/shared/effets/dodge.png",
+      "bytes": 61585,
+      "sha256": "dd556fe117569ead56cf0248726157e0c4f6baaa47b5471d704a6eee5aa1f806"
+    },
+    {
+      "path": "jeu/shared/effets/dodge.svg",
+      "bytes": 296,
+      "sha256": "5c4566ca8b7a905c78ccafb86ac5a3775f686490db9705812bcf3835af940a46"
+    },
+    {
+      "path": "jeu/shared/effets/ELECTRO.png",
+      "bytes": 244648,
+      "sha256": "3cfbb0042953c3dd3ae44bb3b9bb949d0c39adb628ab7718f1ba0923d1fc9359"
+    },
+    {
+      "path": "jeu/shared/effets/GEO.png",
+      "bytes": 2210614,
+      "sha256": "fae0e2cd8e8498523ff164caafb27a06bbe638b338681d9e866f9974c1c46c98"
+    },
+    {
+      "path": "jeu/shared/effets/guard.png",
+      "bytes": 1607512,
+      "sha256": "08eeaaf78f657dde44f5c2331d6bb2f3705d94dcb5014d7d4d7ef3fe60dc3d12"
+    },
+    {
+      "path": "jeu/shared/effets/HEMATO.png",
+      "bytes": 188603,
+      "sha256": "35b31aba36a7b1bbb0a19fb6f569f0883dcde6762c941e5fae56697fdce6e32a"
+    },
+    {
+      "path": "jeu/shared/effets/HERBO.png",
+      "bytes": 215022,
+      "sha256": "230274b2e5c5e6adfab002f73eaa4a046598dcca1ebd4770c0d0c6b135e3768e"
+    },
+    {
+      "path": "jeu/shared/effets/HYDRO.png",
+      "bytes": 240068,
+      "sha256": "b2b66232b13e45a7f6bb519170a48c97293f3a67b917882f03fd8f88fed19c99"
+    },
+    {
+      "path": "jeu/shared/effets/icones_atlas_v2_alpha.png",
+      "bytes": 2721853,
+      "sha256": "dfa7e0dc509b472ed18f640b43b6947f9b2f5795a7bc5e7fc557a66b5ab1be85"
+    },
+    {
+      "path": "jeu/shared/effets/icones_atlas_v2_subject.png",
+      "bytes": 6291670,
+      "sha256": "2ec5bf94aa1c8acddf57a52277e52e3cf852de244825b5974dbfdbdedc872744"
+    },
+    {
+      "path": "jeu/shared/effets/icones_atlas_v2_wand.png",
+      "bytes": 6291670,
+      "sha256": "8e4c7649fdb19c7d5f2446fedf92a69da40304b7c83faaf539581ea6d95d7bf3"
+    },
+    {
+      "path": "jeu/shared/effets/icones_atlas_v2.png",
+      "bytes": 2702914,
+      "sha256": "37680847edc3b224fe35103d24d8861104342ea1391e5a3cc7370b5ba08fa40b"
+    },
+    {
+      "path": "jeu/shared/effets/LUXO.png",
+      "bytes": 223505,
+      "sha256": "e82e90c7e27d4ac13e8967c961d6a6731afed23440a4b64aabf541a6f45e018c"
+    },
+    {
+      "path": "jeu/shared/effets/mana.png",
+      "bytes": 53369,
+      "sha256": "5edae6a2417ea4b8cca10099afdccf3ec1deb2f5bbfc98139adf7ea7d82843f6"
+    },
+    {
+      "path": "jeu/shared/effets/mana.svg",
+      "bytes": 295,
+      "sha256": "aca7c55ebf5e1e1a35df062e40282e86b66bbaaacfb6181c7779f44b8792e631"
+    },
+    {
+      "path": "jeu/shared/effets/MINERO.png",
+      "bytes": 2185644,
+      "sha256": "e11f94c19990b41fd3f87d359791ccffc348b978432ad45688c116bdc1e8a99b"
+    },
+    {
+      "path": "jeu/shared/effets/NECRO.png",
+      "bytes": 286073,
+      "sha256": "9815d801faa79f5a73a208c01658fba9e7799d6475b9f4f520fc6d1a82c1bdd7"
+    },
+    {
+      "path": "jeu/shared/effets/PYRO.png",
+      "bytes": 205679,
+      "sha256": "8c4fb4e7253f6d87dda332ece4adb1ad06eba57ed805e85bef728989d5906f85"
+    },
+    {
+      "path": "jeu/shared/effets/RAINBOW.png",
+      "bytes": 242584,
+      "sha256": "aabb98be9d3226e2145838ab4cd0ea2989f704320975bcabd692f9be2b0d3dda"
+    },
+    {
+      "path": "jeu/shared/effets/retry.png",
+      "bytes": 1333453,
+      "sha256": "1aff4a6edc310c9c9d1b8bc1edef94fb288d8ce0958d9fd9d6b4559f9ac3f58f"
+    },
+    {
+      "path": "jeu/shared/effets/retry.svg",
+      "bytes": 260,
+      "sha256": "a42f460e0fc6f14bf5d18de17898b0be34e6e97bf833a2718b8819745e8f670d"
+    },
+    {
+      "path": "jeu/shared/effets/revive.png",
+      "bytes": 944283,
+      "sha256": "ff4d66dca6da36aa416d74c9f8aa53010750106d6cc1f1d2605bb4ebf427e0f0"
+    },
+    {
+      "path": "jeu/shared/effets/revive.svg",
+      "bytes": 231,
+      "sha256": "a6dfc46dd00ed284d09d75682348573823b941763a2347c33f09921028c37d44"
+    },
+    {
+      "path": "jeu/shared/effets/shield_physical.png",
+      "bytes": 1346040,
+      "sha256": "197763bd464ff24db8300df0af5eb3ddfc1bdf1c5c4b1b8338266fa2d8e28cb9"
+    },
+    {
+      "path": "jeu/shared/factions/Arborium.png",
+      "bytes": 96277,
+      "sha256": "e51eee3f2935d35460b5e5506a98efce65c7329c111c417b56f7df05c7feae8d"
+    },
+    {
+      "path": "jeu/shared/factions/atlas_v2_alpha.png",
+      "bytes": 2913809,
+      "sha256": "631644d33824170dd3bf15beefab5da447453fc8dc9a33338b5f15422f812cb3"
+    },
+    {
+      "path": "jeu/shared/factions/atlas_v2_subject.png",
+      "bytes": 6295769,
+      "sha256": "add925ce09add0e4625a0c99a025c41078c65cb93d94c44481a671130d603262"
+    },
+    {
+      "path": "jeu/shared/factions/atlas_v2_wand.png",
+      "bytes": 6295769,
+      "sha256": "c6f752524c8226ea6aa6dd0e8208cbb47ece7faaceaa75fb1ba79aab300b2416"
+    },
+    {
+      "path": "jeu/shared/factions/atlas_v2.png",
+      "bytes": 2981302,
+      "sha256": "dfccc6e713d32e9d5073f3154ee44ecfcb405ed98cbf013f457e0e5ecbc8fc17"
+    },
+    {
+      "path": "jeu/shared/factions/Chroma.png",
+      "bytes": 89412,
+      "sha256": "ea201732a3a6a626f4cd0ff421dfbd8dbda74f48b62e6703a836a6c788febe06"
+    },
+    {
+      "path": "jeu/shared/factions/Crabazar.png",
+      "bytes": 1831086,
+      "sha256": "85e4115d8e9cef5a02c65322cdfd074eb3cf0d2e2c46a3d4446f6741d238b3c3"
+    },
+    {
+      "path": "jeu/shared/factions/Cryptown.png",
+      "bytes": 84390,
+      "sha256": "fdbd53fe4f5b4b4b9e4e491fe9f9d34581c24ca9a89c95bee91edb75021f631f"
+    },
+    {
+      "path": "jeu/shared/factions/Draevenheim.png",
+      "bytes": 85407,
+      "sha256": "1e12c16c372f2076b07f5cafc2d60dd697f4fb570f8be371c4ca0d8f23154bb9"
+    },
+    {
+      "path": "jeu/shared/factions/Draevenheim.svg",
+      "bytes": 674,
+      "sha256": "3dcd1a6ea1031e1f51b533e0cf71b8476b3dd0e572bbea003b6ae0d0af2544b7"
+    },
+    {
+      "path": "jeu/shared/factions/Durane.png",
+      "bytes": 88669,
+      "sha256": "cbc63ec9ce2e26502c6e4dff338c8589aca6a77f193e08e934e091d41ad9551b"
+    },
+    {
+      "path": "jeu/shared/factions/Durane.svg",
+      "bytes": 670,
+      "sha256": "05f14a154f9ae853a2de28140b95d8044d58bcf6877011e5fdd60b2c05228fd3"
+    },
+    {
+      "path": "jeu/shared/factions/MechaHeaven.png",
+      "bytes": 101679,
+      "sha256": "ee0724066d33808d84aadaf8c0d5b20f69a8d154f5e4a7e350055b63f822a40a"
+    },
+    {
+      "path": "jeu/shared/factions/Nestown.png",
+      "bytes": 95585,
+      "sha256": "352dd436d9d328685b8bd969522b88f48445f4b86b20336e64dfe8dee5eaf8bc"
+    },
+    {
+      "path": "jeu/shared/factions/Nestown.svg",
+      "bytes": 680,
+      "sha256": "fb0c69dee95c4ea6c3dd3dc51a023a1012bfcdbbd9d0e732cf652aca5a11888e"
+    },
+    {
+      "path": "jeu/shared/factions/Niveria.png",
+      "bytes": 66312,
+      "sha256": "c39c4e7b89e7d358b72dda62490824acdf78658f52845ed3ce8b916406cc0e63"
+    },
+    {
+      "path": "jeu/shared/factions/Niveria.svg",
+      "bytes": 690,
+      "sha256": "1317657efafbcafdce9fbe6a802316704407b76e31bfa97e3efd7c058c366170"
+    },
+    {
+      "path": "jeu/shared/factions/Solaria.png",
+      "bytes": 102002,
+      "sha256": "6c4a48d89936bd2f7e3a96fd4ded204a201c5dca836528f1c93b8a45da49adfb"
+    },
+    {
+      "path": "jeu/shared/factions/Solaria.svg",
+      "bytes": 761,
+      "sha256": "fe375e20e1d2e86d52fbb0f12c7897a27f5d092f749ea7c782d438422ed9289a"
+    },
+    {
+      "path": "jeu/shared/factions/Temple.png",
+      "bytes": 79714,
+      "sha256": "b6f50ce3803e9e5aa946c34f7c989bed23a7c668314be61ab2af54f37d2614a6"
+    },
+    {
+      "path": "jeu/shared/factions/Thalassea.png",
+      "bytes": 90588,
+      "sha256": "9712f2773bc6cd19c04e1e55a9327831ebdd6db1ff31d396617ba07b5f12544a"
+    },
+    {
+      "path": "jeu/shared/factions/Thalassea.svg",
+      "bytes": 763,
+      "sha256": "ed8751ee68909118b0f2661771e11372f23406ee63c75c08b9e8839ea2c6ae68"
+    },
+    {
+      "path": "jeu/shared/factions/Vulkar.png",
+      "bytes": 95057,
+      "sha256": "8cbff2b3b7671f7d212d526a1c7d5ee3b5487a173691d201dc9176e920279152"
+    },
+    {
+      "path": "jeu/shared/factions/Woodland.png",
+      "bytes": 1661113,
+      "sha256": "380dbaf9da058fd1b054bb3f0f8ac2c0fa61d4388b296c9bd9ac92f3822b375b"
+    },
+    {
+      "path": "jeu/shared/factions/Z13.png",
+      "bytes": 82789,
+      "sha256": "7de42de9786ea0df75e8a9db283120919b62ea1f8faad048ae3d374a808c2cce"
+    },
+    {
+      "path": "jeu/shared/factions/Z13.svg",
+      "bytes": 690,
+      "sha256": "9b31bdf8a59f030cdd9b5b2a9f1a65f4e0c02ec0e2a8814f37acd6ef72e6f168"
+    },
+    {
+      "path": "jeu/shared/factions/Zarok.png",
+      "bytes": 99880,
+      "sha256": "cc215d2ae54a321fbeb0f424b3b3b2120fe7eb2f535f1c6ff8c1ecc0a8624ad2"
+    },
+    {
+      "path": "jeu/shared/factions/Zarok.svg",
+      "bytes": 706,
+      "sha256": "390d938c03f094f0b7ec01667b9995733bef8d45c7bd600f3ace53d4eeae70e3"
+    },
+    {
+      "path": "jeu/shared/races/AURELION.png",
+      "bytes": 1634890,
+      "sha256": "363e011e74fef0865b56858c8f6ad8c7367846f907107f26d472312ffbd5a6bd"
+    },
+    {
+      "path": "jeu/shared/races/AURELION.svg",
+      "bytes": 269,
+      "sha256": "2bc95e2c3fbb1d1c12480475e49bd6e03065c41bc9db440cf96b0c5012e09fc7"
+    },
+    {
+      "path": "jeu/shared/races/CARDEMORTIS.png",
+      "bytes": 1825317,
+      "sha256": "834aa4d6166b7a311969544ad8e0a94772113457ed0920ce7c4af643abdc0d2d"
+    },
+    {
+      "path": "jeu/shared/races/CARNIVERT.png",
+      "bytes": 1122457,
+      "sha256": "1bb798c8bc08bfd20a27d1391f30b3054ac6e3a13adbd60d2b8f0750e5f8ebb9"
+    },
+    {
+      "path": "jeu/shared/races/CARNIVERT.svg",
+      "bytes": 265,
+      "sha256": "541f2762fb6f7acd841fd27eebbfacf06a51bbff3e62f2584e3fd010f911e1b9"
+    },
+    {
+      "path": "jeu/shared/races/CERELF.png",
+      "bytes": 1363411,
+      "sha256": "6861a3a07a799447a67ac81d6a286e0d1fc91ee0a94c48aa5606c300fa8593be"
+    },
+    {
+      "path": "jeu/shared/races/CYBORG.png",
+      "bytes": 1770352,
+      "sha256": "958f452f44e25de564379a021e921f05c48cff9f6c8ad19522df5e21a80192d1"
+    },
+    {
+      "path": "jeu/shared/races/DRAX.png",
+      "bytes": 2163338,
+      "sha256": "e156abd20325c1b0b99606c41bd17906a2e736b9b0d875bddf6da975e53c9056"
+    },
+    {
+      "path": "jeu/shared/races/DRAX.svg",
+      "bytes": 228,
+      "sha256": "69bc992e913848b2fbb01107865c0b349cd6be39b5b2ee8bb963a1270f740423"
+    },
+    {
+      "path": "jeu/shared/races/FALCO.png",
+      "bytes": 2176821,
+      "sha256": "589aeb0c29591df624c17ef7cd63f7df4b96f09e1230dcfa5d67871d70ce751e"
+    },
+    {
+      "path": "jeu/shared/races/FALCO.svg",
+      "bytes": 188,
+      "sha256": "e3d281b009286a216920bd3fca57303ee8855c6875627120de4f65b607947c9b"
+    },
+    {
+      "path": "jeu/shared/races/FELINEUS.png",
+      "bytes": 1532775,
+      "sha256": "3b971e468e13ee80a0f5c0405bc30cc69a4437014956e072a5e4b594f1c7cd33"
+    },
+    {
+      "path": "jeu/shared/races/GOLEM.png",
+      "bytes": 1705628,
+      "sha256": "de3dc725d6e0c8f3c591e76919df817bc3dc837002133927ecf9996100d69ff1"
+    },
+    {
+      "path": "jeu/shared/races/HUMAIN.png",
+      "bytes": 750564,
+      "sha256": "a218d17e0d3aa0308ed0bffc4903c4b207ccb33f82188175692ab6a8d9094951"
+    },
+    {
+      "path": "jeu/shared/races/HUMAIN.svg",
+      "bytes": 198,
+      "sha256": "69f2744fe6db49b6f166130dadc7cb8196b5f87a6c0d77803ccfc202e4c9886e"
+    },
+    {
+      "path": "jeu/shared/races/KORBOW.png",
+      "bytes": 2129997,
+      "sha256": "7495ac0faf98850b3ca469f16b73f444559a53bde94840f171becc961c1ff4fa"
+    },
+    {
+      "path": "jeu/shared/races/NAIN.png",
+      "bytes": 1863691,
+      "sha256": "d65c072ec16c84e4392115c7966f8f3e102f0cfe987bd83ac656425b2b9505a8"
+    },
+    {
+      "path": "jeu/shared/races/NAIN.svg",
+      "bytes": 178,
+      "sha256": "c487996badd269e4190d8860706b9a90adb4235e6d805a902fba336710cf0802"
+    },
+    {
+      "path": "jeu/shared/races/RHINOZ.png",
+      "bytes": 2347377,
+      "sha256": "c90d8e5e139ecb5e252dc39983436a21716147a562b9a7ec4545db14de2b0b39"
+    },
+    {
+      "path": "jeu/shared/races/RHINOZ.svg",
+      "bytes": 214,
+      "sha256": "ede2adfed71889d386fe69119697a4157849a670b17d06dcd3d85e6f5207d742"
+    },
+    {
+      "path": "jeu/shared/races/ROBOT.png",
+      "bytes": 1801266,
+      "sha256": "758bc0cbbda8d41fc47252560c520acc8ce046fdbbf3436b02febeb248dada70"
+    },
+    {
+      "path": "jeu/shared/races/ROBOT.svg",
+      "bytes": 330,
+      "sha256": "08a60d6b3367e5dcd690e271184649f61a8e7b51abd2240db61fd54609a44495"
+    },
+    {
+      "path": "jeu/shared/races/SIRENA.png",
+      "bytes": 1746107,
+      "sha256": "34d964b5fd85d33cb86b045529756472e718595f26597509d136927add97b10e"
+    },
+    {
+      "path": "jeu/shared/races/SIRENA.svg",
+      "bytes": 271,
+      "sha256": "94cab4f485ccf3295b807a8d279619dbf6c2a6c4e4fcc76eb88130ca022a44d2"
+    },
+    {
+      "path": "jeu/shared/races/SKULLZ.png",
+      "bytes": 1802797,
+      "sha256": "3e8967f4267f4c28b4a44921244f93da5dd7b9cd41c49a93deea43e231bacd70"
+    },
+    {
+      "path": "jeu/shared/races/SKULLZ.svg",
+      "bytes": 343,
+      "sha256": "76901ceb435c5c461674abfa72dfad97ef18c437318d3f31dc5f52b65e55064a"
+    },
+    {
+      "path": "jeu/shared/races/TANTALAK.png",
+      "bytes": 1595523,
+      "sha256": "9b9606f820f2ee98aac0ddf8bb2f9931efeb22a35c40eea89e7d769c1be6db44"
+    },
+    {
+      "path": "jeu/shared/races/TOXINAR.png",
+      "bytes": 1690236,
+      "sha256": "88bc0ebe45211b64b10be6a4ec736653d4ab77cd925eff75c94b3ae7ddf08362"
+    },
+    {
+      "path": "jeu/shared/races/VAMP.png",
+      "bytes": 1717132,
+      "sha256": "d264199172eee8d6a0b5c47b2eae18b54199afe8ac4036b965afa8fb764dd639"
+    },
+    {
+      "path": "jeu/shared/races/VAMP.svg",
+      "bytes": 182,
+      "sha256": "8e5d114451a1c5d1dd7679b9e2e7a1414ec9d61e94eb83c32b6554706f3513f8"
+    },
+    {
+      "path": "jeu/site-config.js",
+      "bytes": 603,
+      "sha256": "bcce6520a29ec37bcaf4cdbbae60bf6061e6332fadd1981c72f8df8ea83af50e"
+    },
+    {
+      "path": "jeu/statistics.css",
+      "bytes": 17694,
+      "sha256": "45a095d3977d81bcb5db3b03e9bd7c579bbd7562c1e4b7665c814bf6c67bd226"
+    },
+    {
+      "path": "jeu/statistics.js",
+      "bytes": 14870,
+      "sha256": "9736d0bffbb4c55ac90cc377cd78e8a0bce9458cea21ac50291956b10897c569"
+    },
+    {
+      "path": "jeu/story-content.json",
+      "bytes": 712400,
+      "sha256": "e6f3468b33b786156cb98ddaf48cc152fea2e8980e6cedf2a44a39fb797d2cef"
+    },
+    {
+      "path": "jeu/story-reader.css",
+      "bytes": 21178,
+      "sha256": "ce58dafb8b88753e2b851a7386fb862c7e850346a266f65d6f56b6e5642b8077"
+    },
+    {
+      "path": "jeu/story-reader.js",
+      "bytes": 20647,
+      "sha256": "b4992461caa1e0bfac980c750d2f406af0bedf4053382f97cb91c0bc5180f5e5"
+    },
+    {
+      "path": "jeu/style.css",
+      "bytes": 21313,
+      "sha256": "3a62d9b5278713668e97b185db8ed03b62e0cfc4f4a65dea62d47f3bd86c6737"
+    },
+    {
+      "path": "jeu/team-composition.css",
+      "bytes": 19896,
+      "sha256": "e573fb17e3f7d6fcceafe7331ae5128c6cfd1e40120f1ce659b56d342ae323b2"
+    },
+    {
+      "path": "jeu/team-composition.js",
+      "bytes": 4998,
+      "sha256": "ba80a057f9c36b75a76840e78313c2b14c60a0677e716747ce7754081fb04bf1"
+    },
+    {
+      "path": "jeu/trophies.js",
+      "bytes": 5957,
+      "sha256": "0ebbce514d1952f5da38f8db7708185f8f953c7c59531bf3ab0b1058e16b9666"
+    },
+    {
+      "path": "jeu/turn-order.js",
+      "bytes": 3099,
+      "sha256": "8b61d3a90c7759e6af233c8a3e3f21d518baa26541a45bb1321bdbc49e03c86e"
+    },
+    {
+      "path": "jeu/turn-timeline.css",
+      "bytes": 4444,
+      "sha256": "f271af6ad47c3317d60b9412f5c36ed0605dec238cbf62bdc50ec2c757434f67"
+    },
+    {
+      "path": "jeu/ui-system.css",
+      "bytes": 11493,
+      "sha256": "a5ae8043408dcae6d7ca0a85afd9115117208e8d1f697355ac512de41468bd5f"
+    },
+    {
+      "path": "jeu/ui-system.js",
+      "bytes": 8975,
+      "sha256": "d003827f70ac064126bb1df4fcc9a2b19abcb416f67d41d6d9fc4a6e601c2f88"
+    },
+    {
+      "path": "jeu/v4.css",
+      "bytes": 4202,
+      "sha256": "20cb941e96c864b987fb8d4e0b76e94e8c13fe7995384791f1511eeaa284d100"
+    },
+    {
+      "path": "jeu/weapon-art.js",
+      "bytes": 17185,
+      "sha256": "3326c194bb1b70672c691bf43b17802e8057d1e4e7e50de42d43ad638946e3a7"
+    },
+    {
+      "path": "jeu/weapon-cards.css",
+      "bytes": 18607,
+      "sha256": "a8b79dbaf109ff01c91c21a61983427cb763f0ab3ecf002bfbad7129bcf7fffa"
+    },
+    {
+      "path": "jeu/weapon-cards.js",
+      "bytes": 9380,
+      "sha256": "5c747e7530348b451e054211cca8786fc5cbe76852d5ecc9f32c90e3bc2a8183"
+    },
+    {
+      "path": "jeu/weapons-ui.js",
+      "bytes": 17656,
+      "sha256": "1cd616e986543ee338b78b8eee42bb996b608ba46d4b314ad8751f034cd1f981"
+    },
+    {
+      "path": "jeu/weapons.css",
+      "bytes": 12294,
+      "sha256": "9d9c9a15b0ad0eb87bf733d6ca007efe06b79588cfcf365a4a0e4524d20dc3c6"
+    },
+    {
+      "path": "jeu/weapons.js",
+      "bytes": 63213,
+      "sha256": "6a292f32b855616525c0deb11bcc9d3cddcf436462b25bc7f4ca2f2370fa96a2"
+    },
+    {
+      "path": "media/created/40032462.png",
+      "bytes": 1789724,
+      "sha256": "8d476a5cd1108d5c375fb81555f2c02a5d5d65f4983731e83a9d6aba2d90f0ec"
+    },
+    {
+      "path": "media/created/40243854.png",
+      "bytes": 1726143,
+      "sha256": "f2f281761c838a90cd22e3280321fe08036e36db9077d293575fd05d9b73300d"
+    },
+    {
+      "path": "media/created/40651224.png",
+      "bytes": 1803834,
+      "sha256": "b0155bfd299b80f6f8c43811b8f73d4aed9d8dd0f03ee971df003b6772deb568"
+    },
+    {
+      "path": "media/created/40738164.png",
+      "bytes": 1763093,
+      "sha256": "b7947a2743fddb2b43929a6df8f39ad926bb57f1435ca378d606e3357310892f"
+    },
+    {
+      "path": "media/created/40976482.png",
+      "bytes": 1648829,
+      "sha256": "b6cee26aa2d628299d8e90c0b2e1cc1fed63954307c690a11c628df8c64b62a4"
+    },
+    {
+      "path": "media/created/41055247.png",
+      "bytes": 1760727,
+      "sha256": "183a0d1aeee0232ad1b99eb32418b5a8c6c9db1c353c701c5418c7ab4befc631"
+    },
+    {
+      "path": "media/created/41124231.png",
+      "bytes": 1787913,
+      "sha256": "c0be104d458c0ea48891158bd4cc92c5d3af2d91262476126142fcb9caf61e5a"
+    },
+    {
+      "path": "media/created/41354159.png",
+      "bytes": 1796795,
+      "sha256": "858e2f3451f6b0027fc9ff29f74ec8007533dcfb2e5392d1688dbd00bf6309cf"
+    },
+    {
+      "path": "media/created/41396996.png",
+      "bytes": 1592368,
+      "sha256": "df1f17789ed05a4b83809b7f22ef774d24bc0e2f73ca3533a4f5ded3dc960efb"
+    },
+    {
+      "path": "media/created/41536078.png",
+      "bytes": 1758559,
+      "sha256": "ac240f34d322aeb2e2ee1cc3b9ce54ce5d3f3d5020aaa3565db8495e54805b3d"
+    },
+    {
+      "path": "media/created/41693428.png",
+      "bytes": 1714801,
+      "sha256": "788dcf750e8856582efbda6d7cfd5031fa14b4a893d6410dc948e162ec04eedb"
+    },
+    {
+      "path": "media/created/41698138.png",
+      "bytes": 1747267,
+      "sha256": "6233b58b402a57d31e3142e60e7b78cd7803dc7f6f4dc74e94cc02ddeb26e48e"
+    },
+    {
+      "path": "media/created/42135864.png",
+      "bytes": 1741341,
+      "sha256": "4392a0843339b8d24637bf1f88e65ab620c36b07852563f6cabc74afd864459f"
+    },
+    {
+      "path": "media/created/42138845.png",
+      "bytes": 1805560,
+      "sha256": "8fee68d160901014122c98d586316230785c726fcd0494861e587c4996e1467e"
+    },
+    {
+      "path": "media/created/42139493.png",
+      "bytes": 1710285,
+      "sha256": "8db0814536088e395cca738c526f4f9983046021452dc6dc44c745118e6f6f92"
+    },
+    {
+      "path": "media/created/42252625.png",
+      "bytes": 1815438,
+      "sha256": "3dca4aa016cd12b58d6cfde7850b814d49f7892f4f64686ff305cce099a458ac"
+    },
+    {
+      "path": "media/created/42258087.png",
+      "bytes": 1815245,
+      "sha256": "87366a506daee1d8d0aedc8cec5d0ed7e77e99bb5e2c542d45b97a5a6f1c57c2"
+    },
+    {
+      "path": "media/created/42650442.png",
+      "bytes": 1757372,
+      "sha256": "e2e2dacef72dc29568d2966792cc8582e32aace97ce8f225c055c71155604355"
+    },
+    {
+      "path": "media/created/42746644.png",
+      "bytes": 1641422,
+      "sha256": "1a70bbceb335ffabe80aba1cd84bc63aed415879146422205ffb5a67cfc59826"
+    },
+    {
+      "path": "media/created/43120563.png",
+      "bytes": 1757197,
+      "sha256": "871507d66a3e91eacba4f629da4d60386a4f09ee767046f56920c6d70ef8f259"
+    },
+    {
+      "path": "media/created/43434046.png",
+      "bytes": 1682036,
+      "sha256": "59be33fabd251967dd609c18d20c83e7eec95568d6c6fff9fa98246ebffdec69"
+    },
+    {
+      "path": "media/created/43447599.png",
+      "bytes": 1854006,
+      "sha256": "015b9280a9f4c8f845174cd808c5a9e52bcd898eebb32384b6fd57162005005c"
+    },
+    {
+      "path": "media/created/43525184.png",
+      "bytes": 1803775,
+      "sha256": "889ce14866a4ff64212ab7bde84f61fea7b241b6705a09b6d938574c1481c4fe"
+    },
+    {
+      "path": "media/created/43683372.png",
+      "bytes": 1740941,
+      "sha256": "acf6b1b3d6caccb6d0a479cfdc4a5ddf5df7be2b997016741932f55dcdb250b9"
+    },
+    {
+      "path": "media/created/43695729.png",
+      "bytes": 1717002,
+      "sha256": "6111ccd960d6e631a4d0e192490429b13c45269fa45bac4b0648045f305dc086"
+    },
+    {
+      "path": "media/created/43698921.png",
+      "bytes": 1762857,
+      "sha256": "38dda06602fe0fe30f9b6b96e2f5300ec948a7979709c79efdda1ef165af26f2"
+    },
+    {
+      "path": "media/created/43726101.png",
+      "bytes": 1782761,
+      "sha256": "2979beb49a52f7d1ebe320f5b35a76ec0824a29f804acb577d36a27a03ccd898"
+    },
+    {
+      "path": "media/created/43844114.png",
+      "bytes": 4034793,
+      "sha256": "71ed2377d940a068fb856deede8b8d3e98d24b77794bf2df9fe40ba8e5fcc4f0"
+    },
+    {
+      "path": "media/created/43905149.png",
+      "bytes": 1630197,
+      "sha256": "f949a4bad4abeaa02a6e827c082327c339f2da18d0d1e5c10ed3a0b7df4d28c0"
+    },
+    {
+      "path": "media/created/44001617.png",
+      "bytes": 1631989,
+      "sha256": "0c9f7626da6f8dd1929bb4c588137b87bdb94e6ba7855ec1eccecead0b90a071"
+    },
+    {
+      "path": "media/created/44077247.png",
+      "bytes": 1758637,
+      "sha256": "5116820fb996ac5c1423ba106611df66103277f0b648a1559e8506e98b5adaca"
+    },
+    {
+      "path": "media/created/44143252.png",
+      "bytes": 1579932,
+      "sha256": "0c47700bb7da64147810eaca1f2586596cc384551bc57378ee9716505ecf3822"
+    },
+    {
+      "path": "media/created/44230782.png",
+      "bytes": 1685019,
+      "sha256": "82913d79daecf3cd05ab49931580b32aa315186dc23644423844b176d9af70e1"
+    },
+    {
+      "path": "media/created/44263045.png",
+      "bytes": 1760042,
+      "sha256": "6a124a430d60b860b2b8bc8f0229638d1e3f91602250d244020b033932c91412"
+    },
+    {
+      "path": "media/created/44703335.png",
+      "bytes": 1668506,
+      "sha256": "316547c59cfd196f1c11ccd9b5ff97668132c4617c5f6c017013300966114a15"
+    },
+    {
+      "path": "media/created/45081933.png",
+      "bytes": 1744173,
+      "sha256": "7a808106352e5c1410839058f17849c810e2d8c69dca1d591c3e2ab2bbaaa1ad"
+    },
+    {
+      "path": "media/created/45243854.png",
+      "bytes": 1778408,
+      "sha256": "fd3a90346e78085f4552f826b9a1275cdb2dc2696ebb8a4d4a40b97ab8b1e28c"
+    },
+    {
+      "path": "media/created/45297565.png",
+      "bytes": 1716721,
+      "sha256": "eb769565e2cc6a4aa0067c59c475efed12d797bb2188874c99e51f9d4c9709fe"
+    },
+    {
+      "path": "media/created/45410910.png",
+      "bytes": 1633479,
+      "sha256": "787434e18578bab67401f2ce38c28bef0ec87c1fb694ecea99a2aae1b6edba87"
+    },
+    {
+      "path": "media/created/45513029.png",
+      "bytes": 1754833,
+      "sha256": "adb552fe2745069129a2c53fc082acd81494d571538d1b077047a78c99169dcd"
+    },
+    {
+      "path": "media/created/45862715.png",
+      "bytes": 1792139,
+      "sha256": "ec6b4d0bbd353bef05d4bc8b89451d0f6a628fb2ce691b9088c7e2b3481a5a7c"
+    },
+    {
+      "path": "media/created/45911726.png",
+      "bytes": 1832029,
+      "sha256": "4d717c8c162356c718fe60e620bf03911ae334ff6c318f8aa1a79092d291add3"
+    },
+    {
+      "path": "media/created/45951088.png",
+      "bytes": 1810494,
+      "sha256": "46cb2c273b633342d5ce5dc6840a06a3cb3e3b6c192f082f096a26b46d02807e"
+    },
+    {
+      "path": "media/created/45960834.png",
+      "bytes": 1588836,
+      "sha256": "ff1a609e9ccf7cc0ebac65d7b3bf80bc0bf40163bec35d48414b5d131c645261"
+    },
+    {
+      "path": "media/created/46129541.png",
+      "bytes": 1695024,
+      "sha256": "33ac4a8deff8183add14ac3a2ae90f15c6257865e0d7f887d3d83161be2b39bf"
+    },
+    {
+      "path": "media/created/46167301.png",
+      "bytes": 1874188,
+      "sha256": "69976d77b1e9673de5c3e2cc9f94f7d999422aa82d1898d40f44392808728acc"
+    },
+    {
+      "path": "media/created/46269197.png",
+      "bytes": 1774196,
+      "sha256": "49c3ea62be2b8d8baeb36d8b6a91ec0a9633de4ddf56f4fd7929478c40b11506"
+    },
+    {
+      "path": "media/created/46437046.png",
+      "bytes": 1803847,
+      "sha256": "aed0ec86f454c4980bfc7d484524df764b4c38c291ae59e4d74728671c5b64ea"
+    },
+    {
+      "path": "media/created/46513388.png",
+      "bytes": 1828073,
+      "sha256": "d9dbbcbf49b60ac4c9bfd2ddf3971d5079f0b20ab8ee229d1f12fa4015abf8f5"
+    },
+    {
+      "path": "media/created/46676157.png",
+      "bytes": 1798996,
+      "sha256": "90780522b26edaca407bb21774464edd8b5c5960de3c8c71324786684f5a703b"
+    },
+    {
+      "path": "media/created/46695200.png",
+      "bytes": 1818999,
+      "sha256": "bdef866d3dd99db75f3f62c297a710b7b861eb7d7d058e9c86e2c16d67883b82"
+    },
+    {
+      "path": "media/created/46860270.png",
+      "bytes": 1576050,
+      "sha256": "dab89e6afc0bc812ebcfa2e799b04b46215f459124e9954f8cbf3937e77fb426"
+    },
+    {
+      "path": "media/created/47023549.png",
+      "bytes": 1807126,
+      "sha256": "29ee51548c408b8b1311b9ecbd333ac7ebbe19b60a06b9e8e17f07465efd6ae1"
+    },
+    {
+      "path": "media/created/47200643.png",
+      "bytes": 1758493,
+      "sha256": "391cc52abc880f4df7501f18e8aad5844ce105b4775d5b5bc134b8f701d131ab"
+    },
+    {
+      "path": "media/created/47208326.png",
+      "bytes": 1743200,
+      "sha256": "ad27bc33147c1d41a2d4904fdc501ab7454b5f1a18667698fa7c5c9f7dfcb673"
+    },
+    {
+      "path": "media/created/47264450.png",
+      "bytes": 1788317,
+      "sha256": "9150d346e11db13857f023dbe48efc1fead4894d826dd5756b3400de2bfce37a"
+    },
+    {
+      "path": "media/created/47414613.png",
+      "bytes": 1662862,
+      "sha256": "996c8a3f54ce70f33a6b687c2890f462251576d57b5b1039f833abf512a8be93"
+    },
+    {
+      "path": "media/created/47689975.png",
+      "bytes": 1903316,
+      "sha256": "72f415ae79a53b459f7c1dbcb3e061f6348aabab378e8af61e7041c3ba64551f"
+    },
+    {
+      "path": "media/created/47702575.png",
+      "bytes": 1798716,
+      "sha256": "44ddfc35c62a8e85a62b4a84ed22e017d769daf452adb5ff799e68e46cb486bd"
+    },
+    {
+      "path": "media/created/47842924.png",
+      "bytes": 1775974,
+      "sha256": "10f6449c08f7958e3a7c538efd181bbde94ca2b2779a7d4de3735a3cfbb777d2"
+    },
+    {
+      "path": "media/created/47884687.png",
+      "bytes": 1668309,
+      "sha256": "9fe98bdbc066573cb923ee15783690014f4c8f6abeb87a67a97511055965a0ba"
+    },
+    {
+      "path": "media/created/47952087.png",
+      "bytes": 1794642,
+      "sha256": "0427148e5eaed919e088d5ec9111e805251a7494ccf599296603db8504ac78a4"
+    },
+    {
+      "path": "media/created/48210516.png",
+      "bytes": 1774393,
+      "sha256": "6486ba73c23ec5b4d4be022f664a38c6b9647366672e7a02ea4dd816e908d53f"
+    },
+    {
+      "path": "media/created/48312725.png",
+      "bytes": 1716427,
+      "sha256": "2ab4064a1914fab793a72e4d91c265273e30ae7fb6c1b9882f024d96f6347197"
+    },
+    {
+      "path": "media/created/48428173.png",
+      "bytes": 1835867,
+      "sha256": "3424787ceeb51178f085a6efe48776cb1b80cc2707ef19d85a2083200e9d77d0"
+    },
+    {
+      "path": "media/created/48683979.png",
+      "bytes": 1822242,
+      "sha256": "f51649f67a8ccf81be4e26a9977eab0232497cd04a3feed3d838e42963faeb29"
+    },
+    {
+      "path": "media/created/48704873.png",
+      "bytes": 1658757,
+      "sha256": "34fadd25598a8b44b4f686bd8230c1fa6137e14920fe65fa1f102e848317ef21"
+    },
+    {
+      "path": "media/created/48867563.png",
+      "bytes": 1791697,
+      "sha256": "68cca67ae34c12e9156cc29cbff040983d571a154855dc3f6af45497c0eea542"
+    },
+    {
+      "path": "media/created/48874445.png",
+      "bytes": 1839666,
+      "sha256": "6677fa9a196ace0e494a3c854a80e7ca43d0341de852957bb363f3dc8ddbad01"
+    },
+    {
+      "path": "media/created/48933308.png",
+      "bytes": 1733419,
+      "sha256": "87d0abdd61f816291162f1a90a4b31dc89e1f288f61df10ddc3ed85fc01ede5f"
+    },
+    {
+      "path": "media/created/49055457.png",
+      "bytes": 1736303,
+      "sha256": "94a4c241072f5eb4bfbb15433cb57d48cf26d9288b112fffd9f1b3df5c8c54e5"
+    },
+    {
+      "path": "media/created/49134060.png",
+      "bytes": 1767821,
+      "sha256": "2b595cb4d6ab1222e4bd8eef1e78d75d8d90a0b0dcba638b622389f32975944a"
+    },
+    {
+      "path": "media/created/49163588.png",
+      "bytes": 1768990,
+      "sha256": "3496de95db2801a5525f7a7cb990253b1caadbb500c942ba7d13198d7679f37f"
+    },
+    {
+      "path": "media/created/49173082.png",
+      "bytes": 1763775,
+      "sha256": "e6506d97f5d4ae59ba35b7c623de09e8fbc98a45b2c113ae6115712cf25008cd"
+    },
+    {
+      "path": "media/created/49321357.png",
+      "bytes": 1721116,
+      "sha256": "c02c4a02e497fca12e5a01db733f33b28daaaa15817ea8c7dee7211ebfb9f980"
+    },
+    {
+      "path": "media/created/49382016.png",
+      "bytes": 1718347,
+      "sha256": "bf923815f21809e6cf61d2d625262e79f8982ba57a969e64056e3b74952c8799"
+    },
+    {
+      "path": "media/created/49451961.png",
+      "bytes": 1804924,
+      "sha256": "721f7aa34ba5d275b8e2a665622a626d27c3a50a3e82e00382550246f2d971a0"
+    },
+    {
+      "path": "media/created/49467210.png",
+      "bytes": 1660849,
+      "sha256": "e12a4db93de153cc3a8899e668b480db016640b6727c292e7fa02033bf428c9a"
+    },
+    {
+      "path": "media/created/49508137.png",
+      "bytes": 1737890,
+      "sha256": "9a011625fcfee2a1aa522c46e0a0b9a59cf6b60ea76a36880a43ae1332e195c7"
+    },
+    {
+      "path": "media/created/49592640.png",
+      "bytes": 1640031,
+      "sha256": "a20ca52a7f7ce9639397c4c27a6ba933510ce6fcb4a901b291db1caff371cc12"
+    },
+    {
+      "path": "media/created/49600101.png",
+      "bytes": 1746162,
+      "sha256": "9bf6cd24bf5d14531901c46c926bc2f276ffb8e9ed16030be2fb11eee55d66e1"
+    },
+    {
+      "path": "media/created/49600102.png",
+      "bytes": 1736945,
+      "sha256": "192fa4f15f3fb402d0532efd5ee903850317571751974ef8ac989193acc3c9e2"
+    },
+    {
+      "path": "media/created/49600103.png",
+      "bytes": 1673669,
+      "sha256": "ea06e1311d2e9286a589758633fd1f6ca7714151b623faa8131bcefd4369b71b"
+    },
+    {
+      "path": "media/created/49600104.png",
+      "bytes": 1743605,
+      "sha256": "87d69feb1724a1edda4749791ff662aea3578085520033fe82a6842161eb93cc"
+    },
+    {
+      "path": "media/created/49600105.png",
+      "bytes": 1744882,
+      "sha256": "88f9f6cb44e8afdcd256df4376fe9e5cf03133ebf7c93894609565b10d01de0a"
+    },
+    {
+      "path": "media/created/49600106.png",
+      "bytes": 1748630,
+      "sha256": "1aabd08c12170871d7fc395da9367967ed9290f898b4af337d0fbde1873b1a15"
+    },
+    {
+      "path": "media/created/49600107.png",
+      "bytes": 1788964,
+      "sha256": "78c89638fdeea9049212d9baf4e7438f81cf348bd87f4436866449e2e913ce24"
+    },
+    {
+      "path": "media/created/49600108.png",
+      "bytes": 1831763,
+      "sha256": "cd4016875adc72cee4d905caf3626466cf3ee61ec42da2908ed91fb5e7629bbf"
+    },
+    {
+      "path": "media/created/49600109.png",
+      "bytes": 1786494,
+      "sha256": "a699dec1ffa36db5c7316a15e8fe8dd1037883cc6188a7c7cd4f83d62fa9e6b9"
+    },
+    {
+      "path": "media/created/49600110.png",
+      "bytes": 1832902,
+      "sha256": "34b03b70aa5c2dc6c2a281166e1ecac968633953a9dc0c82a2c4ea8612c1eb9a"
+    },
+    {
+      "path": "media/created/49600111.png",
+      "bytes": 1743012,
+      "sha256": "cf15cf0c7181f026a0953d90f69cfd4694e5e3f0ea580380bd36983ba228dee9"
+    },
+    {
+      "path": "media/created/49600112.png",
+      "bytes": 1714354,
+      "sha256": "ddd5069f7367704666b50cf2b66c214cfafede1b3178dfb52426903a0a5fdbd4"
+    },
+    {
+      "path": "media/created/49600113.png",
+      "bytes": 1788371,
+      "sha256": "0d4ff20b2344d35f63f33f265b5434203c2ce08f9cbe7a44c0d955a54c616146"
+    },
+    {
+      "path": "media/created/49600114.png",
+      "bytes": 1714729,
+      "sha256": "9f7c593e7e23fd70ebedb3f528698bc9072e3ec74a17be663f5290200d232162"
+    },
+    {
+      "path": "media/created/49600115.png",
+      "bytes": 1830183,
+      "sha256": "f0f28e7e8aaee079f41525f71285a93344d016c0c051740f1d46b25ea08a0d92"
+    },
+    {
+      "path": "media/created/49600116.png",
+      "bytes": 1703033,
+      "sha256": "9d0207b91db39a6c3029756136abd3bc6c27272b33be52c52999fdfaffa8a1d6"
+    },
+    {
+      "path": "media/created/49600117.png",
+      "bytes": 1732157,
+      "sha256": "73b663cb3fe1a4cba839e2993c61acf164318beb80710ec24be1854d03df119e"
+    },
+    {
+      "path": "media/created/49600118.png",
+      "bytes": 1648745,
+      "sha256": "3c3f9f1ed99c1f0dff665cf9a316cb1e8872c749579121652d246f331abfa24b"
+    },
+    {
+      "path": "media/created/49600119.png",
+      "bytes": 1801092,
+      "sha256": "70e682c04330364a6c2ffced1dabc49849d8ab8cc9c41ec2c44ac64e604f63b5"
+    },
+    {
+      "path": "media/created/49700101.png",
+      "bytes": 1620357,
+      "sha256": "da215dd233d7b434a3cdc8fb2eac620a06824031a153e18058ce7f9d98ab0c13"
+    },
+    {
+      "path": "media/created/49700102.png",
+      "bytes": 1675544,
+      "sha256": "05d4c82a555ec299a065f8877f1f3e1a05f5e88478f7f11a0b34d78ccce8e25f"
+    },
+    {
+      "path": "media/created/49700103.png",
+      "bytes": 1677320,
+      "sha256": "a3bbad012256976e5d60c31a33ed07806c2ca6011e8f86f3f9681fc622f5a54d"
+    },
+    {
+      "path": "media/created/49700104.png",
+      "bytes": 1665209,
+      "sha256": "2583e19c5373c26eb71063359e52a0dea43c27823931c9f84d06e7d980727457"
+    },
+    {
+      "path": "media/created/49700105.png",
+      "bytes": 1758533,
+      "sha256": "b3b89e2627644fa8fbbc6f9c0c3b66733b80d2314ce883cf02a985f55a8ca2e0"
+    },
+    {
+      "path": "media/created/49700106.png",
+      "bytes": 1689042,
+      "sha256": "3ac287ea32f8abe9177f169f146492ff086809b55443ac4c8e4e3815341f31a3"
+    },
+    {
+      "path": "media/created/49700107.png",
+      "bytes": 1715689,
+      "sha256": "443339fc35213382aa804b12dcdff92c22beb508d52a9bb754540dea52ded086"
+    },
+    {
+      "path": "media/created/49700108.png",
+      "bytes": 1614698,
+      "sha256": "28ed9a4521d58d25ef0f2b8ddc3c55387a79c336ebbf429698d0e6c4a9dceddf"
+    },
+    {
+      "path": "media/created/49700109.png",
+      "bytes": 1702096,
+      "sha256": "bb9aba4eeab8868499d97bf4a4eecfeaf815ed22d584d33a171f166d2dbd3963"
+    },
+    {
+      "path": "media/created/49700110.png",
+      "bytes": 1616997,
+      "sha256": "ea60dd890484e1b200117722a5334167e818a75a1efe556653cc55f857d0586c"
+    },
+    {
+      "path": "media/created/49700111.png",
+      "bytes": 1646593,
+      "sha256": "1547fbddba0a1593a3516d05a1b43424d532fee5194e82512414a0b0c5e256ac"
+    },
+    {
+      "path": "media/created/49700112.png",
+      "bytes": 1779007,
+      "sha256": "1491bc3e230827ae1f7220d170ff6917159aa226eeef78edc5e0726b2ca74e5c"
+    },
+    {
+      "path": "media/created/49700113.png",
+      "bytes": 1716702,
+      "sha256": "30361796c5ce6b153e64fad30be10b6e8f21b419c3434673a1e9023352f23921"
+    },
+    {
+      "path": "media/created/49700114.png",
+      "bytes": 1676161,
+      "sha256": "4f0f645fb8fde8c0562314251a46722fc0486b489d8c4ea52c278362c6a12c52"
+    },
+    {
+      "path": "media/created/49700115.png",
+      "bytes": 1684549,
+      "sha256": "c1b3a32cab6bc9ff0c585a4391f9f5da98de9f0ff5f751849b80e7638554ccf7"
+    },
+    {
+      "path": "media/created/49700116.png",
+      "bytes": 1583945,
+      "sha256": "b39630792486aff9cef1f8fe4c045c7fdec92427114217db1f8891029c7eaed7"
+    },
+    {
+      "path": "media/created/49700117.png",
+      "bytes": 1725085,
+      "sha256": "31d3ae2f7bde491dd7ca09c5372b2e49fe445c986a1e472eb31bc29594ff52f4"
+    },
+    {
+      "path": "media/created/49700118.png",
+      "bytes": 1627166,
+      "sha256": "62d857b562ff3ac6606ddb13ec51be664a7c3961fd65f23ed25af02af5ffd5cd"
+    },
+    {
+      "path": "media/created/49700119.png",
+      "bytes": 1702843,
+      "sha256": "dfbea17f8c67ca1993a622b26e890f883232e3ec4aa1c630a7b1e757ac242364"
+    },
+    {
+      "path": "media/created/49700120.png",
+      "bytes": 1697237,
+      "sha256": "ecb21120b305e34bd82d592a4b3009fbccec71a6b19572a7453d46d3fbfeccf1"
+    },
+    {
+      "path": "media/created/49700121.png",
+      "bytes": 1604161,
+      "sha256": "fc3de0356a5d96c2a32e18a33e6a765aa151177fa445833dfd10c3a52df98d04"
+    },
+    {
+      "path": "media/created/49700122.png",
+      "bytes": 1711460,
+      "sha256": "3107fd4984d1caedbdc9cb2f0353018ed702bd4b8a58815c137e640f43e395ab"
+    },
+    {
+      "path": "media/created/49700123.png",
+      "bytes": 1768239,
+      "sha256": "ba6a36293feeb6fb2d337efe9c01c18673a517d781513bf9d68e50109f9e5231"
+    },
+    {
+      "path": "media/created/49700124.png",
+      "bytes": 1645022,
+      "sha256": "e222a802da2bed226d21cdae30aab626600d6906e96c301ecc9f1ccb874ce5f7"
+    },
+    {
+      "path": "media/created/49700125.png",
+      "bytes": 1663853,
+      "sha256": "4d973051a778f7962bde818ed508975c7b89c013b73cea84b9a55ea8426bda7a"
+    },
+    {
+      "path": "media/created/49800101.png",
+      "bytes": 1671906,
+      "sha256": "36db1577a3cdb2cb17b167be34ea154746405eba8e5ae3de460a2ae48b6bccbd"
+    },
+    {
+      "path": "media/created/49800102.png",
+      "bytes": 1723194,
+      "sha256": "211c237d06e5969bd46971e48cf22c165df092342628f4efa4e4febff50536fe"
+    },
+    {
+      "path": "media/created/49800103.png",
+      "bytes": 1759182,
+      "sha256": "8bfe7b4788555839b042a3483f0b9ea7b3501e4a83ce7c7d18abaff0b6a1b210"
+    },
+    {
+      "path": "media/created/49800104.png",
+      "bytes": 1748492,
+      "sha256": "b27c80c58ac9e1505af124866c1ca19b4648947d7ccaa113095b98e138b81664"
+    },
+    {
+      "path": "media/created/49800105.png",
+      "bytes": 1767060,
+      "sha256": "c69edafb39edb4c7c4987b81c06db6ffab41b76243fa8aebb6a0e96c02318080"
+    },
+    {
+      "path": "media/created/49800106.png",
+      "bytes": 1599828,
+      "sha256": "e37a58c94c3484bce5a1bd432a926b7f84ead8e1ff6aed5a1e5a1d5a8ebdb434"
+    },
+    {
+      "path": "media/created/49800107.png",
+      "bytes": 1704793,
+      "sha256": "8af3919e7934015c58e4a2398d48b0569382561d1ea786688232eacf0b8f538f"
+    },
+    {
+      "path": "media/created/49800108.png",
+      "bytes": 1650299,
+      "sha256": "a268c7e20c6dd0f2f67a8753669e3ecf68d94b2951e53a2165f05e4ae1c9238c"
+    },
+    {
+      "path": "media/created/49800109.png",
+      "bytes": 1779764,
+      "sha256": "24c56d02f2fa2d5deb043c6948165dfb198679d2297ae41cb79e17f2601a62eb"
+    },
+    {
+      "path": "media/created/49800110.png",
+      "bytes": 1767778,
+      "sha256": "74278f8f9e3b7f8f8969391093a24c064b357937f1699b4c9ef60e6acddd769a"
+    },
+    {
+      "path": "media/created/49800111.png",
+      "bytes": 1824920,
+      "sha256": "cbcff6a2a821c7a50705f76899846cace7a51cfb9641a7cc30e14b3ed31e1166"
+    },
+    {
+      "path": "media/created/49800201.png",
+      "bytes": 1775477,
+      "sha256": "fdcca4753094cc146ed2b31fa0bf56a23c49d199529c93ec9dbfe93a567ea301"
+    },
+    {
+      "path": "media/created/49800301.png",
+      "bytes": 1729225,
+      "sha256": "ef9d5025160db46938beaf733c4c8b931f9b75583c687058ef87a8a15e8f5a37"
+    },
+    {
+      "path": "media/created/49800302.png",
+      "bytes": 1715554,
+      "sha256": "540bea49dd212331f3e5fb822a5a2271bdd1afac07cf39410b93b5f9b7fe2c7d"
+    },
+    {
+      "path": "media/created/49800303.png",
+      "bytes": 1753170,
+      "sha256": "b7570b19a7c4783b16ec904d1fe87817d53fbc4488ab4f4db87bded6911ccc82"
+    },
+    {
+      "path": "media/created/49800304.png",
+      "bytes": 1696651,
+      "sha256": "4a4689d4ace65a2a09a4e4addb85f7babec79a9d7bf2f0c58becf59826ff4510"
+    },
+    {
+      "path": "media/created/49800305.png",
+      "bytes": 1739165,
+      "sha256": "5a0d0e1a925bc5007c7c187c8f1486aaa7ea0f0a341fa6fd24e63b1c969aba44"
+    },
+    {
+      "path": "media/created/49800306.png",
+      "bytes": 1693376,
+      "sha256": "b4a450595a68a8a978b94b6117af326b30aa2133dc348703a9d4f3f1923add87"
+    },
+    {
+      "path": "media/created/49800307.png",
+      "bytes": 1725966,
+      "sha256": "2af0804c3f778a15b5bce7db48d69a42aa553d07699ab7d650eece5d7aee738f"
+    },
+    {
+      "path": "media/created/49800308.png",
+      "bytes": 1697771,
+      "sha256": "c533f12c71717e248e77767fd01c089cb26bce35a857ead1296b81622ba0e176"
+    },
+    {
+      "path": "media/created/49800309.png",
+      "bytes": 1642415,
+      "sha256": "970903e38839d2cc6671bd50e52fa73ea937b22dafd401c018459ba80157459d"
+    },
+    {
+      "path": "media/created/49800310.png",
+      "bytes": 1770667,
+      "sha256": "8716b994d987153357beddb564cebe7d0e79dd12914a73c0c82a07e0203e07a9"
+    },
+    {
+      "path": "media/created/49900101.png",
+      "bytes": 1707857,
+      "sha256": "7f2826bd22bdd1a95834eef5d4eab3f7ca17aa9d2929cc295aaf0dda77f032e7"
+    },
+    {
+      "path": "media/created/49900103.png",
+      "bytes": 1706372,
+      "sha256": "814731111ea5826dd722697e50aea27c948855a39e20e856dcbaad07d0aa8ace"
+    },
+    {
+      "path": "media/created/49900104.png",
+      "bytes": 1738519,
+      "sha256": "ca043fa86a783170ae4f47f1c362b7bc7c5bd19012ebe7ede38ebd423bfaeb72"
+    },
+    {
+      "path": "media/created/49900105.png",
+      "bytes": 1692924,
+      "sha256": "fbe18bb4fa13296a4cedcbf02634d6384b96e840d12e370d2a7e4f6853e1f570"
+    },
+    {
+      "path": "media/created/49900106.png",
+      "bytes": 1771240,
+      "sha256": "9ca83a4f18b6fa7e88ebb28a9c012ae03b1c31680ff00a92384466434e414a9d"
+    },
+    {
+      "path": "media/created/49900107.png",
+      "bytes": 1707753,
+      "sha256": "25ef1967aae43b8e805d432045918b91619933a87c17a0decfa8472236f4aa54"
+    },
+    {
+      "path": "media/created/49900201.png",
+      "bytes": 1782559,
+      "sha256": "74958e87419c99e72288429cf7c027c0067dbaa07a835e5b0fb3c653566d29d5"
+    },
+    {
+      "path": "media/created/49900202.png",
+      "bytes": 1829646,
+      "sha256": "5f8553f4aa35f7f61be364703a12c9eb6a28135575d9dec340c3f008be024f9e"
+    },
+    {
+      "path": "media/created/49900301.png",
+      "bytes": 1652854,
+      "sha256": "44462ca928c640a97e53934e17e31fd08ea55cd5482cbdb65051f01d2ebfb33f"
+    },
+    {
+      "path": "media/created/49900302.png",
+      "bytes": 1655117,
+      "sha256": "90086f9f73f1f217eac922dffd2fb8edc4d7513138e172868620ca2a0394620e"
+    },
+    {
+      "path": "media/created/49900303.png",
+      "bytes": 1724599,
+      "sha256": "f8eaf2bb375412435ffa47ffd1eced356cd5c959f993a619702e903aeaf7282f"
+    },
+    {
+      "path": "media/created/49900304.png",
+      "bytes": 1704062,
+      "sha256": "1177b143e258a7578daf14fb027f56f603be174d466509fa2277ca3086427310"
+    },
+    {
+      "path": "media/created/49900305.png",
+      "bytes": 1736956,
+      "sha256": "6de082824cfd251816bfce2ff20340f69e18a7c9a32f3e6eac638b25c43a972a"
+    },
+    {
+      "path": "media/created/49900306.png",
+      "bytes": 1775009,
+      "sha256": "4fb2fa7b9956e41410ef601aff7cfcb011ad0f8c57c21f2564f137dfaa1f23f4"
+    },
+    {
+      "path": "media/created/49900307.png",
+      "bytes": 1852339,
+      "sha256": "acd379bc1263300e95b91254ba76a0c2467cd306ec1dfa4ac523509ae2cd27e6"
+    },
+    {
+      "path": "media/created/49900308.png",
+      "bytes": 1765390,
+      "sha256": "51ea1de845b80e6faae3eeadf44be6035a0e15de1c1381ab8ca3e0c4db9be0fa"
+    },
+    {
+      "path": "media/created/49900312.png",
+      "bytes": 1761570,
+      "sha256": "c1afaee1f80805777350a292d933465cd463e92a4281e4ac25b3807af309bcf8"
+    },
+    {
+      "path": "media/created/49900313.png",
+      "bytes": 1823444,
+      "sha256": "e948feb11aac46c21b655ecffc21fb005e5541df69ae3e8d40ee94a29e479f4f"
+    },
+    {
+      "path": "media/created/49900314.png",
+      "bytes": 1696310,
+      "sha256": "7f55a8ddad989fd2fe6f76937c50606e4678a73e2dc3569c635ef3eac87a6e4a"
+    },
+    {
+      "path": "media/created/49900315.png",
+      "bytes": 1816617,
+      "sha256": "8385a4d710b3bcbbd2de00a0f81e32a3a7004cbb2cb2bf00503ea41802d0f354"
+    },
+    {
+      "path": "media/created/49900316.png",
+      "bytes": 1784906,
+      "sha256": "49e0548046b16babd0d5b496d8efe24970df0cbaad6b6b21b353282707f8f290"
+    },
+    {
+      "path": "media/created/49900317.png",
+      "bytes": 1725065,
+      "sha256": "b733a81460708648a34145641d388fd777fd752c9e503fdeb16b5d1e9c69280a"
+    },
+    {
+      "path": "media/created/49900401.png",
+      "bytes": 1789749,
+      "sha256": "3f61ab8e1eda38a5bc849e24c88c048a972e26df70e489663a2ce984a6d1b698"
+    },
+    {
+      "path": "media/created/49900402.png",
+      "bytes": 1760706,
+      "sha256": "668d2c52101739c06b30639b6f3249d31d1ff2c0edde60a1f3018508a08c7c6a"
+    },
+    {
+      "path": "media/created/49900403.png",
+      "bytes": 1784523,
+      "sha256": "53badec7dd608ecbd45567c2ea1daa0030e5ee876016ac41be49d8416fa051ea"
+    },
+    {
+      "path": "media/created/49900404.png",
+      "bytes": 1733538,
+      "sha256": "684cc00cc1579832dfcd1a2dab54b26fa92cb2771ad3880fef29004334b84d9d"
+    },
+    {
+      "path": "media/created/49900501.png",
+      "bytes": 1717473,
+      "sha256": "32a63c7aa414b9b906003e2e3a54370e1c73d334004a874d365e3998bc895d91"
+    },
+    {
+      "path": "media/created/49900601.png",
+      "bytes": 1743526,
+      "sha256": "da7c00152249fcbcfda783d948b06bdb0b034eee9b0a4096987eb66662df78fc"
+    },
+    {
+      "path": "media/created/49900602.png",
+      "bytes": 1795125,
+      "sha256": "c70621660ba8c52862571ea398d7e999be07acc930220d7919c66f8c7bdb28f2"
+    },
+    {
+      "path": "media/created/49900603.png",
+      "bytes": 1785430,
+      "sha256": "b3c0291797e9f36412662481c618a8e2b016d9bc6043bb3e4e4e73daef303f77"
+    },
+    {
+      "path": "media/created/49900701.png",
+      "bytes": 1820146,
+      "sha256": "339032915d2bba7316f8456894de0ddec01ea75abf289a9b21d72c9f84f9e73c"
+    },
+    {
+      "path": "media/created/49900702.png",
+      "bytes": 1755245,
+      "sha256": "81663ea56a2612278ccba21d486c2c3c92e1bc6fb767090ae62094ab46002b17"
+    },
+    {
+      "path": "media/created/49900703.png",
+      "bytes": 1775585,
+      "sha256": "7f0f84a8c4a4bd023577341e67286b8106243280bba8fe165244664d6e3da375"
+    },
+    {
+      "path": "media/created/49900704.png",
+      "bytes": 1707288,
+      "sha256": "74969f7027d679b7cde43d967acd03d7a8d7e08f492e5c3c00fce40beb3e451b"
+    },
+    {
+      "path": "media/created/49900705.png",
+      "bytes": 1726748,
+      "sha256": "b0d0a7bd64310a95d3dd987b808b4d84839143c9f92743411d7772494c65ed6b"
+    },
+    {
+      "path": "media/created/49900706.png",
+      "bytes": 1608961,
+      "sha256": "4e815f771308a9094840b3862665995f3b6bc757455728e8242d61fcc0703093"
+    },
+    {
+      "path": "media/created/49900707.png",
+      "bytes": 1763330,
+      "sha256": "1fc0cef9081fb649d9acec84d45654521f2f77672188bdf7efeb4b6eee80f514"
+    },
+    {
+      "path": "media/created/49900708.png",
+      "bytes": 1711631,
+      "sha256": "8430644bab3c919f903c5ba4297437760f9f14402a549b0607fd9e076e831925"
+    },
+    {
+      "path": "media/created/49900709.png",
+      "bytes": 1683239,
+      "sha256": "d7ab13189efc08e306ff784285eb6270b3407f78fc119afcecea680de124aa5c"
+    },
+    {
+      "path": "media/created/49900710.png",
+      "bytes": 1688757,
+      "sha256": "9e68be50f23d2e608a4d217db0924d9829e13407c1dc782c9d606ba9f3a808c0"
+    },
+    {
+      "path": "media/created/49900711.png",
+      "bytes": 1778201,
+      "sha256": "d4d9e6bb745ae470f17376e943072dfddef37aa271be527ff366045c1a993dd2"
+    },
+    {
+      "path": "media/created/49900712.png",
+      "bytes": 1785226,
+      "sha256": "dd68bda1180eaaa96d023330e40f6dc535d82f43b60e53d18c57cd2ad064793c"
+    },
+    {
+      "path": "media/created/49900713.png",
+      "bytes": 1691933,
+      "sha256": "513a0c97f4725ff2d3dcdfb7fd3cf0c1a20f798a4935bfe265ad4193339c432d"
+    },
+    {
+      "path": "media/created/49900714.png",
+      "bytes": 1700485,
+      "sha256": "16fedb0f9420885e9c287d057d0ffe18b92e86e8a41ccf07db2f0d9226b08b2a"
+    },
+    {
+      "path": "media/created/49900715.png",
+      "bytes": 1704153,
+      "sha256": "0f7d8229c5b54501d4a828430f2863fcc80a7b9e186978338aa7b1c7c6a851fe"
+    },
+    {
+      "path": "media/created/49900801.png",
+      "bytes": 1691874,
+      "sha256": "5287a5cf0789536f20f15655d555557458d41bfdda9183cab2e89831b626d4c4"
+    },
+    {
+      "path": "media/created/49900802.png",
+      "bytes": 1719782,
+      "sha256": "d4c6ff5c9500e0e71519faf8749526f36447da136c704a6a6ef8393b743fb922"
+    },
+    {
+      "path": "media/created/49900901.png",
+      "bytes": 1636114,
+      "sha256": "b6a5019e212d468acea9f3039910c2ecf418af50c0814704e08a212987398bcc"
+    },
+    {
+      "path": "media/created/49900902.png",
+      "bytes": 1709055,
+      "sha256": "6101c8800589643338b027cc933608b0f5de299eb9b232a36f95d44a77501e66"
+    },
+    {
+      "path": "media/created/49900903.png",
+      "bytes": 1784440,
+      "sha256": "63731b8f64e2478cb7953a616a73d5cecc3c48b4a114bfcde549ce24a37925a7"
+    },
+    {
+      "path": "media/created/49900904.png",
+      "bytes": 1789154,
+      "sha256": "39095973fc682027161e97f2ebcf82e66b27a75d3f75667feb2b3750dd929832"
+    },
+    {
+      "path": "media/created/49900905.png",
+      "bytes": 1791046,
+      "sha256": "b4da7beb4ffa90ea9a79b4200e38e63f35d1bc73665a5e95e1916efac68fd3e4"
+    },
+    {
+      "path": "media/created/49900906.png",
+      "bytes": 1718771,
+      "sha256": "25ee460b677904583e4765f383b16f3558af6adc4a91f07d6a60fe5ea20f89a1"
+    },
+    {
+      "path": "media/created/49900907.png",
+      "bytes": 1800775,
+      "sha256": "54b4e4297d79cfb318f16417f951d45d12f5f10c8520f321d46062d27f562ffc"
+    },
+    {
+      "path": "media/created/49900908.png",
+      "bytes": 1714943,
+      "sha256": "903baff051bdccc75ea41c020d59c4ff06879332eaf47812b1ebdbdb6d4de65b"
+    },
+    {
+      "path": "media/created/49900909.png",
+      "bytes": 1731783,
+      "sha256": "5743246c36cbc9a38c79dad790b0287405fc8d8d165469bc792d6a812e2dd7d8"
+    },
+    {
+      "path": "media/created/49900910.png",
+      "bytes": 1669059,
+      "sha256": "613b6beb7dddfbba593d85d6a0ee519a46c63d64ddab71cf0ce0be31e38bc02c"
+    },
+    {
+      "path": "media/created/49900911.png",
+      "bytes": 1698699,
+      "sha256": "7e5a30130553a5ef31719a1ac154e81f63cabe2d2f2f0496de61ea6519a7d9e2"
+    },
+    {
+      "path": "media/created/49901001.png",
+      "bytes": 1652232,
+      "sha256": "76cc85b095e7b1d7633d787f9eb63029a4ad50cea569c375991019879ae15f94"
+    },
+    {
+      "path": "media/created/49901002.png",
+      "bytes": 1650385,
+      "sha256": "1c4e177104cd025f014eb623541922d723e933643d811eb36afad4eb97582c2f"
+    },
+    {
+      "path": "media/created/49901003.png",
+      "bytes": 1659997,
+      "sha256": "b3385c880a5670e5f2b65915516cdf772153cb209a11c12518ffdebf1f8967e3"
+    },
+    {
+      "path": "media/created/49901004.png",
+      "bytes": 1692689,
+      "sha256": "70804752a729e7cc20ba7f9394caa0e3d6c2a1d330d7e90533baad9b37d95ff8"
+    },
+    {
+      "path": "media/created/49901005.png",
+      "bytes": 1733386,
+      "sha256": "a0a00ec08c2f029698d7897a76f22c2bad099e9ea33f096421b832e4b3ec5888"
+    },
+    {
+      "path": "media/created/49901006.png",
+      "bytes": 1719129,
+      "sha256": "ceb363b1b43747a0375547aaed4c4c258ba4d7e8e5cd0a4dae1a4f14013e7fa7"
+    },
+    {
+      "path": "media/created/49901007.png",
+      "bytes": 1765157,
+      "sha256": "9a9723949bc7f24b1a64cd64a0b25317f785bdd506bbcdf9a83693ca93a0fdcf"
+    },
+    {
+      "path": "media/created/49901008.png",
+      "bytes": 1656618,
+      "sha256": "a2305cb7c8dd1fbcdd1e87b156e7564f51d364a1f9bbe9d183f506617d15d6b1"
+    },
+    {
+      "path": "media/created/49901009.png",
+      "bytes": 1666076,
+      "sha256": "8e52b0e781fa32c83d326a168bdca0b51aed47463a958a7ebf643d61f5ca1115"
+    },
+    {
+      "path": "media/created/49901010.png",
+      "bytes": 1650073,
+      "sha256": "6464b8634a6ccaa8709cb6e7745ad156e6412b292835c8acc1209559b4e1b786"
+    },
+    {
+      "path": "media/created/49901011.png",
+      "bytes": 1601785,
+      "sha256": "167ac3716edd6ea124dd06e568a330bda487dbaf98c4fbf581a9ccbf99d30557"
+    },
+    {
+      "path": "media/created/49901012.png",
+      "bytes": 1613525,
+      "sha256": "ed2e4103e86f9e5a741a3dcd981225588778a60ca9e95037325b5870a015759d"
+    },
+    {
+      "path": "media/created/49901013.png",
+      "bytes": 1674773,
+      "sha256": "38ede6f15cab732c740b834926b8def3bf2d431e0aef698ff7ae17d16460c9f9"
+    },
+    {
+      "path": "media/created/49901014.png",
+      "bytes": 1752539,
+      "sha256": "fee5734e8d3ca920c026835542de32d087c96770a583be705b625c6570aae6e0"
+    },
+    {
+      "path": "media/created/49901015.png",
+      "bytes": 1612357,
+      "sha256": "0e4bb20bf0e88569ce316b338e1092aeeb02559f39a89b20d461d2781d68cab3"
+    },
+    {
+      "path": "media/created/49901016.png",
+      "bytes": 1696925,
+      "sha256": "da9a56e29db8a73bbabc7ad9a4cb6627aba33fa5588b3a1c70b701e19bd3e5bd"
+    },
+    {
+      "path": "media/created/49901017.png",
+      "bytes": 1652112,
+      "sha256": "b67003ad2da65fc961456057b031b629ed1bf42f1bd6c31f0975e2c321b2d8f7"
+    },
+    {
+      "path": "media/created/49901018.png",
+      "bytes": 1678249,
+      "sha256": "6ae229ce992f9f684dc845ab04af1616e653698f416464d4ae073a95dbaf891f"
+    },
+    {
+      "path": "media/created/49901019.png",
+      "bytes": 1586973,
+      "sha256": "dd5904de3bc2074afa55fbca4c68a56d72f5ba638c1a872b663c3367ecd7d6ea"
+    },
+    {
+      "path": "media/created/49901020.png",
+      "bytes": 1706184,
+      "sha256": "3d4212f2798f940004b502199f3019a9947d4a2e466bd09397169f906c1fe8d9"
+    },
+    {
+      "path": "media/created/49901021.png",
+      "bytes": 1805616,
+      "sha256": "bdddfabf4909db096335fcaa334bc919a58c215a10f57f59d5cd911e6f972c67"
+    },
+    {
+      "path": "media/created/49901022.png",
+      "bytes": 1685183,
+      "sha256": "b9591edead212d454fe8f1b8418ce29ffb43dbf10d0e6837194883937f7e2416"
+    },
+    {
+      "path": "media/created/49901101.png",
+      "bytes": 1684319,
+      "sha256": "e123238134baf366bbe8794139fd55074fc8dfd52ff5bafe3f6580de59e8abbf"
+    },
+    {
+      "path": "media/created/49901102.png",
+      "bytes": 1737023,
+      "sha256": "34a6ed89891274f749e29198fbbfdfb33e05b2256d7c6c26e4d7174859cef394"
+    },
+    {
+      "path": "media/created/49901103.png",
+      "bytes": 1621400,
+      "sha256": "a0ca0abfa3c5b49106d6e56feee2e206a3971c60b4bc789c6c403615b27e36d2"
+    },
+    {
+      "path": "media/created/49901104.png",
+      "bytes": 1742462,
+      "sha256": "81a3f581d4753aecc80113804609622643fd4f5aebbe3548e42883a745eff196"
+    },
+    {
+      "path": "media/created/49901105.png",
+      "bytes": 1622202,
+      "sha256": "79ae2b8f48d2d7ac585a35246756fa3f2edd3640480628b1ee804d1f7e5db063"
+    },
+    {
+      "path": "media/created/49901106.png",
+      "bytes": 1725993,
+      "sha256": "9b8e4e4401d4889c0dc276dbc920b05ec6f71ac2f7ebfa669e05ad1f054da3de"
+    },
+    {
+      "path": "media/created/49901107.png",
+      "bytes": 1591792,
+      "sha256": "e450c490cad4577f5c181e497102f4efc698763ac415809dd603df4bbfd97074"
+    },
+    {
+      "path": "media/created/49901108.png",
+      "bytes": 1679612,
+      "sha256": "97284c60c1f62e8813e40c1359fe2558f1417e07629d23b222cf47c026576e17"
+    },
+    {
+      "path": "media/created/49901109.png",
+      "bytes": 1683491,
+      "sha256": "6ad1148e7877664d92d6fb64887be71c6becd278665b0bc5c178fb24803cb7e1"
+    },
+    {
+      "path": "media/created/49901110.png",
+      "bytes": 1632246,
+      "sha256": "0811ac266bd1eb25fb409ead3c4920f63b5b680866fc755370a6c1a9da76230d"
+    },
+    {
+      "path": "media/created/49901111.png",
+      "bytes": 1800004,
+      "sha256": "d16bbece1cce3f809f26d55b2febdc627c464687c4dce6874a7d573bad6eedd0"
+    },
+    {
+      "path": "media/created/49901112.png",
+      "bytes": 1772531,
+      "sha256": "f25185d0fbc44a7d74e59aa3b13837ad5e4abe89cf213a56020fc0b678cc8ced"
+    },
+    {
+      "path": "media/created/49901113.png",
+      "bytes": 1677394,
+      "sha256": "3e484ad4668c712de8d3544a83878e8a4fd05ff26b0a322325d8936c89c63649"
+    },
+    {
+      "path": "media/created/49901114.png",
+      "bytes": 1693206,
+      "sha256": "47319a6c64ebae091e53e336f20e22ec71dd9f44f8e11ef34c7ab0036d638966"
+    },
+    {
+      "path": "media/created/49901115.png",
+      "bytes": 1663763,
+      "sha256": "f0bd7151417314bb1f70b00706860739ce132b58f9e7098fdad7f503c99adbf1"
+    },
+    {
+      "path": "media/created/49901116.png",
+      "bytes": 1580590,
+      "sha256": "ae2b6351f6dbf694db4009c5585cddc7a52a8dab554275db305042d487528bb3"
+    },
+    {
+      "path": "media/created/49901117.png",
+      "bytes": 1783972,
+      "sha256": "654e4db9bf072f385210905bac068d16aeab3a91b4e618013ffd154119769017"
+    },
+    {
+      "path": "media/created/49901118.png",
+      "bytes": 1719462,
+      "sha256": "5564647a88e087783299502c871bf50792fc4bafb1a62b4b4f0312c2205b66be"
+    },
+    {
+      "path": "media/created/49901119.png",
+      "bytes": 1700188,
+      "sha256": "76190b436497e793a742ea68dc723c0a48ecaf4389a1e88a3726cd855c1538e0"
+    },
+    {
+      "path": "media/created/49901120.png",
+      "bytes": 1626825,
+      "sha256": "fb3fc74ac69326330a323c7eafdb45dd1b7544788544cb975b744f60f33a18fd"
+    },
+    {
+      "path": "media/created/49901121.png",
+      "bytes": 1747662,
+      "sha256": "c5413389ab9e24057110fd8a1cba1837594417fe6f3d7cb832fede15906d256b"
+    },
+    {
+      "path": "media/created/49901122.png",
+      "bytes": 1675806,
+      "sha256": "144ee90a1917bdb6ad125624dbafbe6a81de3f963a21bb55cbf94ade4a952e67"
+    },
+    {
+      "path": "media/created/49901123.png",
+      "bytes": 1723295,
+      "sha256": "78ce568489111abd84f01fadf899f5a96c74cd4c9a6962b90b5215ef4f4ad98b"
+    },
+    {
+      "path": "media/created/49901124.png",
+      "bytes": 1740949,
+      "sha256": "ae34f8eac03bc5e17cb8698be532dfac58545f556e0b90324fa8fccd4b2407eb"
+    },
+    {
+      "path": "media/created/49901125.png",
+      "bytes": 1720530,
+      "sha256": "7639e846d9fb0c49ec02d553b75f8fd4e6455a64c99211509b450e4115e84feb"
+    },
+    {
+      "path": "media/created/49901126.png",
+      "bytes": 1734335,
+      "sha256": "1416d98ca0e8c45f67545a177421c786b00c0d80f10b672bc2f82d339ceeb3e2"
+    },
+    {
+      "path": "media/created/49901127.png",
+      "bytes": 1613651,
+      "sha256": "15956541642af6c1c4e60e4ab15a9f97fd4dae110bb8854909b597aa3fd2023a"
+    },
+    {
+      "path": "media/created/49901128.png",
+      "bytes": 1654647,
+      "sha256": "d93bca2a8a2f3bf6f14dfa9e564703238cf9ae484a6389f889565886dff4d431"
+    },
+    {
+      "path": "media/created/49901129.png",
+      "bytes": 1698687,
+      "sha256": "09e5eccc8c5396894c7e695bfb0ce023447a9ec715dbc7f9adc64d3192b5f542"
+    },
+    {
+      "path": "media/created/49901401.png",
+      "bytes": 1624075,
+      "sha256": "cde4de3de48ae220b0b07b45a3209bced9884736bcb1d137dd79bea1f310a939"
+    },
+    {
+      "path": "media/created/49901402.png",
+      "bytes": 1674377,
+      "sha256": "7c03e9c76f37b993a3bf19d81b4bff87c028d64cbba292b8b5a4506eda9e5af5"
+    },
+    {
+      "path": "media/created/49983331.png",
+      "bytes": 1795554,
+      "sha256": "1aa9b626aa54cfc15d55422c9e5dbc7df57110c90598f96377eae2367830e8ec"
+    },
+    {
+      "path": "media/reference/aelis.png",
+      "bytes": 1843632,
+      "sha256": "48ba05c03f1feb41fd3f5550636e8242e5e630f46c81d230bedeab68eca3be72"
+    },
+    {
+      "path": "media/reference/balmhyr.png",
+      "bytes": 1921933,
+      "sha256": "3a0ce6353601297bf931e35436b779ffa976fbde0f5459f51cec9cb926b64fe9"
+    },
+    {
+      "path": "media/reference/belrog.png",
+      "bytes": 1914251,
+      "sha256": "e3b1d4a40c03401c8dd5a2bae42b7c85dadbe7f993d3b438a8345bd5b04566ab"
+    },
+    {
+      "path": "media/reference/bloom.png",
+      "bytes": 1861776,
+      "sha256": "cc704a4157c023b8cb05121474feed3e90f3e35f06045ff7db2abd7ece78d66a"
+    },
+    {
+      "path": "media/reference/cana.png",
+      "bytes": 1782036,
+      "sha256": "5fed79ef84b296f0e7eb8731b5f183a19ec28a8fdfbccd3bde21b10caa6ef07f"
+    },
+    {
+      "path": "media/reference/capitaine-skully.png",
+      "bytes": 1741748,
+      "sha256": "a4bc965a96befb28eec7e5026911eac4d2c0dab1bad08e0b2c220bc9ef512121"
+    },
+    {
+      "path": "media/reference/darnako.png",
+      "bytes": 1775724,
+      "sha256": "570f63c948b2817303c142f4f03e47567a2dc3bc0f900775363acd63c48cbbfe"
+    },
+    {
+      "path": "media/reference/elenion.png",
+      "bytes": 1938549,
+      "sha256": "44167fb23b4681537b2f2470cc540e079516030ff4aea2b2462bc716d7f429f4"
+    },
+    {
+      "path": "media/reference/gen-reparation.png",
+      "bytes": 1647354,
+      "sha256": "2d04a163ebfbdd0fdc20f85e124553c8969ae174e5c68a18976408cb560726bd"
+    },
+    {
+      "path": "media/reference/gilmarr.png",
+      "bytes": 1792910,
+      "sha256": "77e44961a44a6878f9df48fb9b00f9498fa5a3d2e20cb3338fe0ee8e8ffcb4a6"
+    },
+    {
+      "path": "media/reference/iliane.png",
+      "bytes": 1813574,
+      "sha256": "eb7aa31084c895d64be3a85d350fcce75240e288f8423e31ab28b7815d3b2a10"
+    },
+    {
+      "path": "media/reference/jelly-joe.png",
+      "bytes": 1830856,
+      "sha256": "c9d6aba08c3fb511044ba5d85b04420ed90c69fc125725f9d310749e82139431"
+    },
+    {
+      "path": "media/reference/julienne.png",
+      "bytes": 1957669,
+      "sha256": "ad9ac48faf030c4b1a9c229d58412c2d457af40a3935538d484da454c5ccf8f7"
+    },
+    {
+      "path": "media/reference/kaylis.png",
+      "bytes": 1771403,
+      "sha256": "c13712fd55dc39d76472a241eb13bee4ad338aad1ce81df8a6c49ab78f5d06d0"
+    },
+    {
+      "path": "media/reference/kognus.png",
+      "bytes": 1678232,
+      "sha256": "8a91e855f41d3c87158a49d17ecb094365a5e871409b58e70c7c1d5b19d1b3dd"
+    },
+    {
+      "path": "media/reference/lanio-astraball.png",
+      "bytes": 1730712,
+      "sha256": "20cdb84a8925c8b25c71babbbde2a93d239c5f669ccb84783f3de4250f243cc9"
+    },
+    {
+      "path": "media/reference/lok.png",
+      "bytes": 1741477,
+      "sha256": "96a7cf3cb1664060d98ba4004806d9febd692cd3c0eb34b3af3c02e3a9b1ec82"
+    },
+    {
+      "path": "media/reference/magnar.png",
+      "bytes": 1739592,
+      "sha256": "fb302cbdf4bb8a9fa8b51d7d1456fab152c4439abbbb3f7b774a5d2fff8c0abe"
+    },
+    {
+      "path": "media/reference/malaba.png",
+      "bytes": 1737390,
+      "sha256": "2be06818cac7d885e5e7146d17bd563572b8715798ec2b1f5b25901ed87709e4"
+    },
+    {
+      "path": "media/reference/malinia.png",
+      "bytes": 1947619,
+      "sha256": "4f17614d5bee89cff83acb1c2b80b8f5ca62998efdcec65280b92a51fecd378b"
+    },
+    {
+      "path": "media/reference/momo-bal.png",
+      "bytes": 1784170,
+      "sha256": "0e84b6039f85afd2478c31e744ae82b46009bc539ae4262022a072e5c1dee791"
+    },
+    {
+      "path": "media/reference/momo.png",
+      "bytes": 1798999,
+      "sha256": "9ac1b90c4f16eb6789c7dac9e2fe3eeb94699ddf6cf6dadee94986f82c682e50"
+    },
+    {
+      "path": "media/reference/nazar.png",
+      "bytes": 1862737,
+      "sha256": "b07a599f0c4e4c36b2c532d7d851a76d3f3975b264471f42b3a91855b5e37dd2"
+    },
+    {
+      "path": "media/reference/polux.png",
+      "bytes": 1720998,
+      "sha256": "7a77342cebaad71d7723aba48c2b4ec3a6ac2c44bab92441ced1f36e8cf36e11"
+    },
+    {
+      "path": "media/reference/reevus.png",
+      "bytes": 1682280,
+      "sha256": "b3d3042de017e9c629aafd930e0ec41fb2c4fc813e1c6cbfba4495b67b231ba3"
+    },
+    {
+      "path": "media/reference/rikka.png",
+      "bytes": 1703304,
+      "sha256": "4f53f396b6a08e99c2ecfb96866ee80b4da2ef99917e5b2b2e2af3e609305e88"
+    },
+    {
+      "path": "media/reference/ruby.png",
+      "bytes": 1866575,
+      "sha256": "7b6f7a3faa423f674fe6f5fab961aa96d4db46271b380184a0e21b82f7242efc"
+    },
+    {
+      "path": "media/reference/scrow.png",
+      "bytes": 1776131,
+      "sha256": "aa810a02c2efdfc53952abb77ba104978a07f452dff823540fa01c5cf0f6538c"
+    },
+    {
+      "path": "media/reference/seraphina.png",
+      "bytes": 1794790,
+      "sha256": "dee4aa1bb780347dab2b73799a67c77296bb10663a43e5f2afb8ef2207ecc273"
+    },
+    {
+      "path": "media/reference/soryn.png",
+      "bytes": 1780087,
+      "sha256": "cf573c52c0f133b487a80df0acf3bd7df2d92b487b934a816eb57c2db8118d22"
+    },
+    {
+      "path": "media/reference/taulio.png",
+      "bytes": 1812096,
+      "sha256": "0937dc28bfbad9753503d02c4b76fea10d980745e1a387b8547ec45729f83ee3"
+    },
+    {
+      "path": "media/reference/thalie.png",
+      "bytes": 1891139,
+      "sha256": "5378237dfdaf8a82d276831d9d02eb03519a991e30400456e7b4877f9dfad047"
+    },
+    {
+      "path": "media/reference/valazar.png",
+      "bytes": 1706150,
+      "sha256": "ea4b24cb2df6faddc6f29c04c2a13faf95cd4206d51a7d7ba62ed764bccca68b"
+    },
+    {
+      "path": "media/reference/verminia-bureau.png",
+      "bytes": 1667615,
+      "sha256": "f0c211de4680d2a8b0bef546620b1ed4838506554cc1e74f0e8bc1cd443c63e2"
+    },
+    {
+      "path": "media/reference/victorvine.png",
+      "bytes": 1893326,
+      "sha256": "af7f369e89822a162caded8a4affc319d7156b871714476e2d8697fe1085da60"
+    },
+    {
+      "path": "media/reference/voloden.png",
+      "bytes": 1686689,
+      "sha256": "154a47184c97e391f3fa734954c785c3e392f8c12e600416a42f30db130f3aa0"
+    },
+    {
+      "path": "media/reference/xiaomi.png",
+      "bytes": 1624715,
+      "sha256": "b36dc16361d591e5a507587a3337e5e9a2582806e24eb88353ca10d9c15cf7f2"
+    },
+    {
+      "path": "media/reference/zviri-tueuse.png",
+      "bytes": 1606067,
+      "sha256": "d7d845bdd1cc1083be586b533c1d770645f98dc1dad5533dfd3f93e1e503c940"
+    }
+  ],
+  "bytes": 761568391
+}

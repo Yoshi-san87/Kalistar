@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 3,
+  "template": "V4/template-stable/KALISTAR_V4_TEMPLATE_03D_ELECTRO_RIKKA.psd",
+  "canvas": [
+    897,
+    1497
+  ],
+  "elements": [
+    "ELECTRO"
+  ],
+  "banks": [
+    {
+      "field": "artwork",
+      "variants": {
+        "MOMO": [
+          "ART - MOMO"
+        ],
+        "TAULIO": [
+          "ART - TAULIO"
+        ],
+        "JELLY-JOE": [
+          "ART - JELLY-JOE"
+        ],
+        "MOMO-BAL": [
+          "ART - MOMO BAL"
+        ],
+        "RIKKA": [
+          "ART - RIKKA"
+        ]
+      }
+    },
+    {
+      "field": "id",
+      "variants": {
+        "30000001": [
+          "ID CODE128 - 30000001"
+        ],
+        "30000013": [
+          "ID CODE128 - 30000013"
+        ],
+        "30000014": [
+          "ID CODE128 - 30000014"
+        ],
+        "30000032": [
+          "ID CODE128 - 30000032"
+        ],
+        "40000042": [
+          "ID CODE128 - 40000042"
+        ]
+      }
+    },
+    {
+      "field": "weapon",
+      "variants": {
+        "Instrument": [
+          "ARME Instrument"
+        ],
+        "Poing": [
+          "ARME Poing - pictogramme",
+          "ARME Poing - email interieur"
+        ],
+        "Lance": [
+          "ARME Lance - pictogramme",
+          "ARME Lance - email interieur"
+        ],
+        "Fouet": [
+          "ARME Fouet - pictogramme",
+          "ARME Fouet - email interieur"
+        ]
+      }
+    },
+    {
+      "field": "race",
+      "variants": {
+        "ROBOT": [
+          "RACE ROBOT"
+        ],
+        "TANTALAK": [
+          "RACE TANTALAK - pictogramme",
+          "RACE TANTALAK - email interieur"
+        ],
+        "FELINEUS": [
+          "RACE FELINEUS - pictogramme",
+          "RACE FELINEUS - email interieur"
+        ]
+      }
+    },
+    {
+      "field": "faction",
+      "variants": {
+        "Chroma": [
+          "FACTION - Chroma - tissu source agrandi",
+          "OMBRE - detachement du tissu"
+        ],
+        "Crabazar": [
+          "FACTION - Crabazar - tissu source",
+          "OMBRE - Crabazar - detachement"
+        ]
+      }
+    }
+  ],
+  "positionLayout": {
+    "textX": 224,
+    "textY": 1020.5,
+    "step": 58,
+    "maxTextWidth": 34,
+    "sizePt": 7.84,
+    "supportScale": 112,
+    "supportCenterX": 226,
+    "supportCenterY": 1020.5,
+    "shadow": {
+      "opacity": 65,
+      "distance": 3,
+      "blur": 4
+    }
+  },
+  "artworkRevision": "RIKKA - Kalistel Luxo 04D approuve",
+  "artworkAssets": {
+    "JELLY-JOE": {
+      "source": "V4/assets/illustrations/32_ELECTRO_JELLY_JOE_V4_03_ENCRE.png",
+      "approvedProposal": "V4/propositions/jelly-joe-dandy-02/08b-encre-visage-affine.png",
+      "sha256": "9385a53634053d8c3acdf17b4773bd1d11c4441d8d03111e1cafc31a050ceaaa",
+      "placement": {
+        "width": 737,
+        "height": 921,
+        "centerX": 432,
+        "top": 156
+      }
+    },
+    "MOMO-BAL": {
+      "source": "V3/assets/illustrations/14_electro_momo_carillon.png",
+      "sha256": "8f65e72bed15052c768250622267795aa33c61a26b3409e6775eae4cd8969b03",
+      "sourcePSD": "V3/templates/14_ELECTRO_MOMO_CARILLON.psd",
+      "placement": "Cadrage natif du PSD V3, sans transformation"
+    },
+    "RIKKA": {
+      "source": "V4/assets/illustrations/42_ELECTRO_RIKKA_V4_01.png",
+      "approvedProposal": "V4/propositions/rilka-01/04d-kalistel-luxo.png",
+      "sha256": "2f9c07116a99b2edb74eb22a0a861111c28fd2ff7cb3bfcae9cbc7ea203a6011",
+      "placement": {
+        "width": 921,
+        "height": 921,
+        "centerX": 472,
+        "top": 156
+      },
+      "renderSource": "V4/assets/illustrations/42_ELECTRO_RIKKA_V4_01_CADRAGE.png",
+      "generatedSource": "C:/Users/guill/.codex/generated_images/019e30c1-21b0-7e11-9f9d-2fe692f111d2/exec-98d7a11c-fc50-4551-9f6f-5f24e253c466.png",
+      "tool": "built-in image_gen",
+      "prompt": "V4/template-stable/rikka/prompt-cadrage.txt",
+      "reason": "Extension du musee pour laisser le reliquaire Luxo visible dans la fenetre, hors de la colonne DEF. Illustration approuvee conservee separement ; adaptation generative du decor.",
+      "renderSha256": "247f5c2388b8a88b96e3a9f9145d58e5e26a9d1b8a22a2222694aa5e26e09730"
+    }
+  },
+  "effectSupports": [
+    {
+      "side": "DEF",
+      "die": 1,
+      "layers": [
+        "DEF D1 - fond effet"
+      ]
+    }
+  ]
+}

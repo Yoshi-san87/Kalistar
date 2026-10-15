@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "modelId": "49902606",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "605702077e8e33549d838b05e59b9d00e3c2a07da9d4b0155676509b2b117bce",
+  "hashes": {
+    "card.png": "0ee0f48fb6956403d20f034271e179ecb6f7b94a8bcb2420cfb65f811fb49078",
+    "card.psd": "30a67fe5c63206cfec2d13486c04a3949e3acb4b4e8fae6314c16fa56301a859"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 116857
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49902606",
+    "cases": {
+      "color-1": [
+        "49902606"
+      ],
+      "color-4": [
+        "49902606"
+      ],
+      "gray-1": [
+        "49902606"
+      ],
+      "gray-4": [
+        "49902606"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-13T13:07:49.850Z",
+  "revision": "2026-10-13-voices-weapon-glyphs",
+  "scope": {
+    "changed": 662,
+    "outside": 0
+  },
+  "weaponOnly": true,
+  "profileUnchanged": true,
+  "source": {
+    "id": "49902606",
+    "key": "orseon",
+    "family": "Lance",
+    "source": "V4/site/assets/base-weapons/08.svg",
+    "sourceHash": "cb82c9bcc190406c6a262b117b7b601768c35bcf3a554adc79704d593aeca3d6",
+    "enamelHash": "9588d3c555966d642c8cbdeaf328b34052cabc08303572b534e831f4c0c48d47"
+  },
+  "inputManifestHash": "0439066a6f7aebdc9f2eb9c69117386eb89306a3bf9a647eaf60523abd0c384c"
+}

@@ -1,0 +1,48 @@
+{
+  "viewports": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "horizontalOverflow": false,
+      "imagesLoaded": true
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "horizontalOverflow": false,
+      "imagesLoaded": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "horizontalOverflow": false,
+      "imagesLoaded": true
+    },
+    {
+      "width": 320,
+      "height": 740,
+      "horizontalOverflow": false,
+      "imagesLoaded": true
+    }
+  ],
+  "checks": [
+    "20 versions across 15 character stacks; all images; search; every filter; favorite persistence; detail and artwork",
+    "Invalid deck blocks game with a usable editor; deck JSON export and import; all 10 positions deploy",
+    "Complete local match through UI; reload mid-game; game JSON export/import; corrupt save rejected; 12 exchanges against automatic opponent"
+  ],
+  "errors": [],
+  "localMatch": {
+    "steps": 137,
+    "exchanges": 33,
+    "winner": 1,
+    "phases": {
+      "choose": 32,
+      "attack": 32,
+      "defense": 30,
+      "result": 32,
+      "replace": 10,
+      "heart": 1
+    },
+    "reloadPreservedState": true
+  }
+}

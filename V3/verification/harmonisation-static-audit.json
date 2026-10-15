@@ -1,0 +1,2706 @@
+{
+  "schema_version": 1,
+  "task": "Kalistar V3 harmonisation: static asset routing, identity and isolated DB/preset audit",
+  "status": "closed_parent_handoff_accepted",
+  "closure": {
+    "closed_at": "2026-09-14T12:54:57.895Z",
+    "disposition": "Audit closed; final integration verification remains owned by the parent.",
+    "historical_findings_and_snapshots_preserved": true,
+    "snapshot_hashes_preserved_for_parent_anchor": true,
+    "finding_disposition": {
+      "F01": {
+        "status": "covered_by_parent_verifier",
+        "verifier": "V3/scripts/verify_harmonisation.cjs",
+        "evidence": "Read-only inspection confirms dependency freshness checks for PSD/TIFF/PNG and pixel-identical game crops for each card."
+      },
+      "F02": {
+        "status": "covered_by_parent_verifier",
+        "verifier": "V3/scripts/verify_harmonisation.cjs",
+        "evidence": "Read-only inspection confirms 57 integrated asset hashes matched to canonical and staging files, protected-art checks, export freshness, game-crop equality and generated art derivative hashes. Execution and final visual sign-off belong to the parent."
+      },
+      "F03": {
+        "status": "integration_note_retained"
+      },
+      "F04": {
+        "status": "accepted_parent_follow_up",
+        "owner": "parent",
+        "action": "Correct the integration guard to site/local-db.js and add immutable hashes from this audit snapshot as anchors.",
+        "verification": "Parent announced correction in progress; not marked implemented or retested by this audit."
+      },
+      "F05": {
+        "status": "integration_note_retained"
+      }
+    },
+    "tests_repeated": false,
+    "existing_results_retained": {
+      "db_engine_contract": "9/9 passed",
+      "presets": "10/10 passed"
+    },
+    "new_production_changes": [],
+    "new_execution": "Only read-only source inspection and audit-report JSON validation; no verifier, browser test, build or export rerun."
+  },
+  "created_at": "2026-09-14T12:53:17.922Z",
+  "project": "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3",
+  "scope": {
+    "game_files_read_only": true,
+    "production_changes": [],
+    "report": "V3/verification/harmonisation-static-audit.json",
+    "user_browser_profile_opened": false,
+    "user_database_opened": false,
+    "no_builds_or_exports_run": true,
+    "parent_owns": [
+      "Photoshop exports",
+      "game bundle rebuild",
+      "verify_site_v3.cjs",
+      "final asset/render visual QA"
+    ],
+    "concurrent_parent_work": true
+  },
+  "verdict": {
+    "bundle_alone_from_new_source_pngs_sufficient": false,
+    "bundle_after_final_print_exports_sufficient_for_card_derivatives": true,
+    "canonical_integration_required": true,
+    "database_migration_required": false,
+    "dice_bundle_rebuild_required": false,
+    "reload_required": true,
+    "summary": "The game bundle consumes V3/cartes/<slug>.png, not the icon or halo sources. Once the parent has integrated the revisions and regenerated all final print PNGs, build_game_bundle.cjs overwrites the site's card PNG/WebP derivatives and data.js. Direct race/effect/art images are loaded from V3/assets. No application V2 asset cache or migration route was found. Browser HTTP cache must still be revalidated.",
+    "visual_limit": "The two isolated browser scripts replace images with a 1x1 PNG. Their success validates behavior and DB contracts, NOT the new artwork, alpha, framing, halo pixels, image requests or final exports."
+  },
+  "findings": [
+    {
+      "id": "F01",
+      "severity": "release_dependency",
+      "title": "Final print exports must precede the game bundle",
+      "detail": "build_game_bundle.cjs reads V3/cartes, validates 897x1497, crops at (50,50) to 797x1388, writes -full.png and a 538px-wide WebP, and separately produces -art.webp. It does not execute Photoshop or incorporate new race/weapon/crystal/halo PNGs itself. Building while exports are incomplete can show a new direct race icon beside an old baked card image.",
+      "evidence": [
+        {
+          "file": "V3/scripts/build_game_bundle.cjs",
+          "line": 12,
+          "note": "Existing print is the input"
+        },
+        {
+          "file": "V3/scripts/build_game_bundle.cjs",
+          "line": 16,
+          "note": "Writes cropped full card"
+        },
+        {
+          "file": "V3/scripts/build_cards.jsx",
+          "line": 83,
+          "note": "Canonical illustration, weapon and race paths"
+        },
+        {
+          "file": "V3/scripts/build_cards.jsx",
+          "line": 118,
+          "note": "Canonical halo source baked into print"
+        },
+        {
+          "file": "V3/scripts/build_cards.jsx",
+          "line": 145,
+          "note": "Final print PNG export"
+        }
+      ],
+      "observed_at": "2026-09-14T12:51:12.050Z",
+      "print_files_older_than_at_least_one_asset_input": 36,
+      "freshness_caveat": "mtime is an advisory freshness check, not pixel proof. Parent is exporting concurrently; this count can change immediately."
+    },
+    {
+      "id": "F02",
+      "severity": "verification_gap",
+      "title": "Bundle success and exported count are not freshness proofs",
+      "detail": "A missing print is skipped and reported but does not cause a nonzero exit; an older derivative may remain. game-bundle.json records counts and crop only, not source hashes or the harmonisation revision. All required paths currently exist, so this is a build-validation gap rather than a missing-file failure in this snapshot.",
+      "evidence": [
+        {
+          "file": "V3/scripts/build_game_bundle.cjs",
+          "line": 13,
+          "note": "Missing prints are skipped"
+        },
+        {
+          "file": "V3/scripts/build_game_bundle.cjs",
+          "line": 22,
+          "note": "Count-only report"
+        },
+        {
+          "file": "V3/scripts/build_game_bundle.cjs",
+          "line": 24,
+          "note": "Missing inputs only logged"
+        }
+      ],
+      "recommendation": "After final exports, require 41/41, missing=[], and verify source freshness plus visible changes on representative cards."
+    },
+    {
+      "id": "F03",
+      "severity": "integration_note",
+      "title": "Direct UI symbols and baked print symbols have different paths",
+      "detail": "Race logos in detail are direct ../assets/races/<RACE>.png. Weapon 11 appears in baked cards; detail/filter text remains Instrument. NONE.png is placed in print cards, while filter/version selector/duel status intentionally use a circle-slash symbol. PNG halos MINERO/GEO are baked around attack values; moving board auras and spell trails are procedural canvas drawings and will not change when a PNG is replaced.",
+      "evidence": [
+        {
+          "file": "V3/site/app.js",
+          "line": 8,
+          "note": "Direct V3 canonical assets"
+        },
+        {
+          "file": "V3/site/app.js",
+          "line": 123,
+          "note": "Race image and weapon text in detail"
+        },
+        {
+          "file": "V3/site/catalogue.js",
+          "line": 16,
+          "note": "NONE uses circle-slash"
+        },
+        {
+          "file": "V3/site/app.js",
+          "line": 276,
+          "note": "No-crystal status uses circle-slash"
+        },
+        {
+          "file": "V3/scripts/build_cards.jsx",
+          "line": 92,
+          "note": "Print uses uppercase element PNG including NONE"
+        },
+        {
+          "file": "V3/site/duel-focus.js",
+          "line": 56,
+          "note": "NONE exits procedural aura paint"
+        },
+        {
+          "file": "V3/site/combat-effects.js",
+          "line": 73,
+          "note": "Procedural magicFlight"
+        }
+      ],
+      "recommendation": "Validate these surfaces separately; do not interpret unchanged procedural effects or circle-slash controls as stale V2 copies."
+    },
+    {
+      "id": "F04",
+      "severity": "verification_gap",
+      "title": "Integration hash guard omits the actual DB module",
+      "detail": "integrate_harmonisation.cjs lists site/db.js, but production uses site/local-db.js. The nonexistent db.js is silently skipped. The existing guard therefore proves cartes/elements/regles/engine stability, not historical local-db.js stability. This audit additionally hashes the actual DB/UI/stat files and executes isolated DB tests. No relevant source changed during this audit.",
+      "evidence": [
+        {
+          "file": "V3/scripts/integrate_harmonisation.cjs",
+          "line": 11,
+          "note": "site/db.js path in optional contract list"
+        },
+        {
+          "file": "V3/site/local-db.js",
+          "line": 8,
+          "note": "Actual production namespace"
+        },
+        {
+          "file": "V3/site/index.html",
+          "line": 24,
+          "note": "Actual local-db.js script loading"
+        }
+      ],
+      "recommendation": "For future integration gates, check local-db.js, armes.json, regles_demo.json and identity registries as well. No code changed in this audit."
+    },
+    {
+      "id": "F05",
+      "severity": "integration_note",
+      "title": "Stable URLs require reload, not DB reset",
+      "detail": "No service worker, CacheStorage asset cache, V2 runtime asset path or revision-folder runtime route was found in top-level site source. URLs are not content-hashed, so an HTTP browser cache or an already-open page can still display earlier bytes. Revalidate/reload after the parent's bundle. Preserve the same origin and do not clear localStorage or IndexedDB to refresh graphics.",
+      "evidence": [
+        {
+          "file": "V3/site/index.html",
+          "line": 17,
+          "note": "data.js is loaded by its stable filename"
+        },
+        {
+          "file": "V3/site/app.js",
+          "line": 9,
+          "note": "Stable slug-based image URLs"
+        },
+        {
+          "file": "V3/site/local-db.js",
+          "line": 41,
+          "note": "Metadata versions refreshed on open"
+        }
+      ]
+    }
+  ],
+  "asset_routing": [
+    {
+      "surface": "Collection, version strip, archive portraits and match reports",
+      "source": "V3/site/assets/cards/<slug>.webp",
+      "producer": "build_game_bundle.cjs from V3/cartes/<slug>.png",
+      "references": [
+        {
+          "file": "V3/site/catalogue.js",
+          "line": 12,
+          "note": "Collection"
+        },
+        {
+          "file": "V3/site/catalogue.js",
+          "line": 22,
+          "note": "Version strip"
+        },
+        {
+          "file": "V3/site/match-report.js",
+          "line": 11,
+          "note": "Stat portrait"
+        }
+      ]
+    },
+    {
+      "surface": "Detailed card and battlefield",
+      "source": "V3/site/assets/cards/<slug>-full.png",
+      "producer": "build_game_bundle.cjs from V3/cartes/<slug>.png",
+      "references": [
+        {
+          "file": "V3/site/app.js",
+          "line": 10,
+          "note": "Full card path"
+        },
+        {
+          "file": "V3/site/app.js",
+          "line": 184,
+          "note": "Battlefield uses duelImage"
+        }
+      ]
+    },
+    {
+      "surface": "Illustration toggle",
+      "source": "V3/assets/illustrations/<slug>.png",
+      "producer": "Parent canonical integration; direct file reference",
+      "note": "Current bundle strips c.art; app fallback resolves to the canonical V3 illustration. The bundle-produced -art.webp is not used by this toggle."
+    },
+    {
+      "surface": "Race in detail",
+      "source": "V3/assets/races/<RACE>.png",
+      "producer": "Parent canonical integration"
+    },
+    {
+      "surface": "Weapon symbol",
+      "source": "V3/assets/armes/<weapon_index padded to 2 digits>.png",
+      "producer": "Photoshop build, then game bundle"
+    },
+    {
+      "surface": "Crystal NONE on printed/full card",
+      "source": "V3/assets/cristaux/NONE.png",
+      "producer": "Photoshop build, then game bundle"
+    },
+    {
+      "surface": "Printed magic halos",
+      "source": "V3/assets/effets/<ELEMENT>.png",
+      "producer": "Photoshop build, then game bundle",
+      "condition": "element != NONE and die in magic[]"
+    },
+    {
+      "surface": "Printed barriers",
+      "source": "V3/assets/effets/barrier.png",
+      "producer": "Photoshop build, then game bundle",
+      "condition": "element != NONE and die in barriers[]"
+    },
+    {
+      "surface": "Effect faces, trait badges and combat support emblems",
+      "source": "V3/assets/effets/<effect>.png",
+      "producer": "Direct canonical image; printed copies also need Photoshop",
+      "references": [
+        {
+          "file": "V3/site/app.js",
+          "line": 121,
+          "note": "Stat table effects"
+        },
+        {
+          "file": "V3/site/app.js",
+          "line": 158,
+          "note": "Trait badges"
+        },
+        {
+          "file": "V3/site/combat-effects.js",
+          "line": 48,
+          "note": "Support emblems"
+        }
+      ]
+    },
+    {
+      "surface": "Physical guard fallback",
+      "source": "V3/assets/effets/shield_physical.png",
+      "condition": "Only if direct guard.png image fails",
+      "reference": {
+        "file": "V3/site/app.js",
+        "line": 481,
+        "note": "V3-local fallback, not V2"
+      }
+    }
+  ],
+  "instrument_contract": {
+    "by_index": [
+      {
+        "id": "30000001",
+        "slug": "01_ELECTRO_MOMO",
+        "weapon": "Instrument",
+        "weapon_index": 11
+      },
+      {
+        "id": "30000014",
+        "slug": "14_ELECTRO_MOMO_CARILLON",
+        "weapon": "Instrument",
+        "weapon_index": 11
+      },
+      {
+        "id": "30000040",
+        "slug": "40_AERO_SORYN",
+        "weapon": "Instrument",
+        "weapon_index": 11
+      }
+    ],
+    "index11_label": "Instrument",
+    "all_mappings": true,
+    "matrix_categories": 20,
+    "matrix_same_as_V2": true,
+    "row": {
+      "Hache": 0,
+      "Marteau": 0,
+      "Masse": 0,
+      "Poing": 0,
+      "Fléau": 0,
+      "Arc": 50,
+      "Fouet": 50,
+      "Gun": 50,
+      "Lance": 50,
+      "Projectile": 50,
+      "Bâton": 0,
+      "Instrument": 0,
+      "Sceptre": 0,
+      "Tome": 0,
+      "Orbe": 0,
+      "Dague": -50,
+      "Epée courte": -50,
+      "Epée longue": -50,
+      "Katana": -50,
+      "Faucille": -50
+    },
+    "mechanics_lookup": "data.weapons[attacker.weapon][defender.weapon]",
+    "visual_index_only": true,
+    "canonical_guitar_matches_revision": {
+      "asset": "armes/11.png",
+      "canonical_exists": true,
+      "matches_integration": true,
+      "matches_revision": true,
+      "integratedAt": "2026-09-14T12:42:25.669Z"
+    },
+    "evidence": [
+      {
+        "file": "V3/donnees/cartes.json",
+        "line": 13,
+        "note": "Instrument label"
+      },
+      {
+        "file": "V3/donnees/cartes.json",
+        "line": 51,
+        "note": "weapon_index 11"
+      },
+      {
+        "file": "V3/donnees/armes.json",
+        "line": 244,
+        "note": "Instrument matrix row"
+      },
+      {
+        "file": "V3/site/engine.js",
+        "line": 364,
+        "note": "Matrix lookup uses weapon labels"
+      },
+      {
+        "file": "V3/scripts/build_cards.jsx",
+        "line": 84,
+        "note": "Padded index chooses 11.png"
+      }
+    ]
+  },
+  "identity_and_storage": {
+    "cards": 41,
+    "characters": 40,
+    "valid_range": true,
+    "all_unique": true,
+    "only_multi_version_characters": [
+      {
+        "characterId": "momo",
+        "ids": [
+          "30000001",
+          "30000014"
+        ]
+      }
+    ],
+    "bundled_identity_unchanged": true,
+    "namespace": "kalistar.v3.",
+    "database": "kalistar-v3-cards",
+    "indexeddb_version": 1,
+    "game_schema": 6,
+    "library_backup_schema": 2,
+    "instance_format": "K3-<cardId>-00[1-4]",
+    "statistics_keys": {
+      "versions": "id",
+      "instances": "id and unique serial",
+      "matches": "id (state.matchId)",
+      "results": [
+        "matchId",
+        "instanceId"
+      ],
+      "careers": [
+        "cardId",
+        "optional instanceId"
+      ]
+    },
+    "no_image_blob_store": true,
+    "metadata_refresh": "local-db.js upserts versions from the loaded bundle and adds instance 001 only when absent; opening does not clear matches or results.",
+    "historical_profiles": "Finalized matches and historical profiles/rules/arenas are retained; report portraits resolve by current cardId/slug rather than an old image snapshot.",
+    "contract_hash_checks": [
+      {
+        "path": "donnees/cartes.json",
+        "expected": "45af148f8d1828287116a9985f4d33f41a58a64a43852980da8d231c48707fcf",
+        "current": "45af148f8d1828287116a9985f4d33f41a58a64a43852980da8d231c48707fcf",
+        "unchanged": true
+      },
+      {
+        "path": "donnees/elements.json",
+        "expected": "4eccd33d94f92aa6da4f8b28b08b1157e794147fbdeea05c35c21d2675dd4846",
+        "current": "4eccd33d94f92aa6da4f8b28b08b1157e794147fbdeea05c35c21d2675dd4846",
+        "unchanged": true
+      },
+      {
+        "path": "donnees/regles.json",
+        "expected": "31050cb513762c411651c1fc371d23f320b4df4394d108a6856f4c9069cf3129",
+        "current": "31050cb513762c411651c1fc371d23f320b4df4394d108a6856f4c9069cf3129",
+        "unchanged": true
+      },
+      {
+        "path": "site/engine.js",
+        "expected": "81efb5c965666707a722aae873fdfeacf404ece955118596ef82e6e96787baa7",
+        "current": "81efb5c965666707a722aae873fdfeacf404ece955118596ef82e6e96787baa7",
+        "unchanged": true
+      }
+    ],
+    "actual_source_hashes_unchanged_during_audit": true,
+    "historical_limit": "No git repository and no pre-harmonisation hash for local-db.js were available. Its present contract, unchanged hash during this audit and behavior in isolated tests are verified; an older byte-for-byte baseline is not claimed.",
+    "evidence": [
+      {
+        "file": "V3/site/local-db.js",
+        "line": 8,
+        "note": "V3 constants"
+      },
+      {
+        "file": "V3/site/local-db.js",
+        "line": 20,
+        "note": "IndexedDB store keys"
+      },
+      {
+        "file": "V3/site/local-db.js",
+        "line": 41,
+        "note": "Version refresh without library reset"
+      },
+      {
+        "file": "V3/site/local-db.js",
+        "line": 94,
+        "note": "Career lookup keys"
+      },
+      {
+        "file": "V3/site/local-db.js",
+        "line": 115,
+        "note": "Backup schema"
+      },
+      {
+        "file": "V3/site/engine.js",
+        "line": 49,
+        "note": "K3 instance IDs"
+      },
+      {
+        "file": "V3/site/engine.js",
+        "line": 97,
+        "note": "Schema 6 state"
+      }
+    ]
+  },
+  "legacy_data_notes": {
+    "active_V2_asset_routes_found": 0,
+    "ui_asset_cache_stores_found": 0,
+    "legacy_registry": "V3/donnees/registre_identifiants.json contains 20 legacy 000000xx entries, but neither the active site nor the scripts reference it. Current identity authority is cartes.json and registre_personnages.json; the latter passes 41-card/40-character tests.",
+    "package_metadata": "site/package.json still says kalistar-v2-local / 2.1.0; this does not control runtime storage or game schema.",
+    "provenance_copies": "14 source_art entries point to historical V2 originals. They are provenance, stripped from data.js. prepare_card_inputs.cjs may copy such a source only when the canonical V3 illustration is absent; none is absent now. This helper was not run and is not called by the game bundle.",
+    "evidence": [
+      {
+        "file": "V3/scripts/prepare_card_inputs.cjs",
+        "line": 16,
+        "note": "Conditional source_art recovery"
+      },
+      {
+        "file": "V3/scripts/build_game_bundle.cjs",
+        "line": 20,
+        "note": "Visual/provenance fields stripped"
+      },
+      {
+        "file": "V3/scripts/testsrepertoire.test.cjs",
+        "line": 19,
+        "note": "Current identity contract"
+      }
+    ]
+  },
+  "snapshot": {
+    "observed_at": "2026-09-14T12:51:12.050Z",
+    "bundle_sha256": "f8381040eb2b5f02eef5f10eac8ef412f6c0c62618d466c3cfc54b9cd7d508f5",
+    "bundle_vs_source": {
+      "cards": true,
+      "weapons": true,
+      "rules": true,
+      "elements": true,
+      "demo": true,
+      "decks": true,
+      "arenas": true
+    },
+    "build_config_at_observation": {
+      "ids": [
+        "30000001",
+        "30000002",
+        "30000003",
+        "30000004",
+        "30000005",
+        "30000006",
+        "30000007",
+        "30000008",
+        "30000009",
+        "30000010",
+        "30000011",
+        "30000012",
+        "30000013",
+        "30000014",
+        "30000015",
+        "30000016",
+        "30000017",
+        "30000018",
+        "30000021",
+        "30000022",
+        "30000025",
+        "30000026",
+        "30000027",
+        "30000028",
+        "30000029",
+        "30000030",
+        "30000031",
+        "30000032",
+        "30000033",
+        "30000034",
+        "30000035"
+      ]
+    },
+    "initial_prints_older_than_inputs": 41,
+    "latest_prints_older_than_inputs": 36,
+    "integrated_asset_count": 52,
+    "integrated_asset_checks": [
+      {
+        "asset": "armes/11.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:42:25.669Z"
+      },
+      {
+        "asset": "cristaux/NONE.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:42:25.705Z"
+      },
+      {
+        "asset": "effets/MINERO.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:42:25.745Z"
+      },
+      {
+        "asset": "effets/GEO.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:42:25.786Z"
+      },
+      {
+        "asset": "races/HUMAIN.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:42:25.815Z"
+      },
+      {
+        "asset": "races/NAIN.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:42:25.850Z"
+      },
+      {
+        "asset": "races/AURELION.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:42:25.886Z"
+      },
+      {
+        "asset": "illustrations/07_MINERO_BALMHYR.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:42:25.904Z"
+      },
+      {
+        "asset": "illustrations/22_NONE_MALABA.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:42:25.916Z"
+      },
+      {
+        "asset": "illustrations/34_NECRO_VALAZAR.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:42:25.929Z"
+      },
+      {
+        "asset": "illustrations/12_RAINBOW_KAYLIS.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:42:25.945Z"
+      },
+      {
+        "asset": "races/CARDEMORTIS.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:44:01.159Z"
+      },
+      {
+        "asset": "races/CYBORG.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:44:01.196Z"
+      },
+      {
+        "asset": "races/VAMP.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:44:01.223Z"
+      },
+      {
+        "asset": "races/SKULLZ.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:44:01.259Z"
+      },
+      {
+        "asset": "races/SIRENA.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:44:01.290Z"
+      },
+      {
+        "asset": "races/RHINOZ.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:44:01.323Z"
+      },
+      {
+        "asset": "races/FALCO.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:44:01.347Z"
+      },
+      {
+        "asset": "races/KORBOW.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:44:01.373Z"
+      },
+      {
+        "asset": "races/DRAX.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:44:01.397Z"
+      },
+      {
+        "asset": "races/FELINEUS.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:44:01.425Z"
+      },
+      {
+        "asset": "races/CARNIVERT.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:44:01.456Z"
+      },
+      {
+        "asset": "races/CERELF.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:44:01.481Z"
+      },
+      {
+        "asset": "races/GOLEM.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:44:01.511Z"
+      },
+      {
+        "asset": "races/TANTALAK.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:44:01.536Z"
+      },
+      {
+        "asset": "races/TOXINAR.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:44:01.557Z"
+      },
+      {
+        "asset": "races/ROBOT.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:45:15.508Z"
+      },
+      {
+        "asset": "illustrations/03_HYDRO_JULIENNE.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:46:28.379Z"
+      },
+      {
+        "asset": "illustrations/04_PYRO_DARNAKO.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:46:28.393Z"
+      },
+      {
+        "asset": "illustrations/05_CRYO_MALINIA.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:46:28.407Z"
+      },
+      {
+        "asset": "illustrations/08_HERBO_VICTORVINE.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:46:28.419Z"
+      },
+      {
+        "asset": "illustrations/09_HEMATO_VERMINIA.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:46:28.433Z"
+      },
+      {
+        "asset": "illustrations/11_GEO_NAZAR.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:46:28.445Z"
+      },
+      {
+        "asset": "illustrations/15_AERO_SCROW.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:46:28.460Z"
+      },
+      {
+        "asset": "illustrations/16_CRYO_NERIS.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:46:28.471Z"
+      },
+      {
+        "asset": "illustrations/17_LUXO_ILIANE.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:46:28.482Z"
+      },
+      {
+        "asset": "illustrations/18_MINERO_LOK.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:46:28.494Z"
+      },
+      {
+        "asset": "illustrations/21_NONE_LANIO.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:46:28.505Z"
+      },
+      {
+        "asset": "illustrations/25_NONE_KOGNUS.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:46:28.515Z"
+      },
+      {
+        "asset": "illustrations/26_NONE_REEVUS.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:46:28.527Z"
+      },
+      {
+        "asset": "illustrations/27_NONE_XIAOMI.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:46:28.538Z"
+      },
+      {
+        "asset": "illustrations/29_PYRO_THANOR.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:46:28.550Z"
+      },
+      {
+        "asset": "illustrations/30_PYRO_DARUK.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:46:28.561Z"
+      },
+      {
+        "asset": "illustrations/31_PYRO_POLUX.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:46:28.571Z"
+      },
+      {
+        "asset": "illustrations/32_ELECTRO_JELLY_JOE.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:46:28.586Z"
+      },
+      {
+        "asset": "illustrations/33_HERBO_BLOOM.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:46:28.600Z"
+      },
+      {
+        "asset": "illustrations/35_NECRO_CAPITAINE_SKULLY.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:46:28.611Z"
+      },
+      {
+        "asset": "illustrations/19_MINERO_BELROG.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:51:09.667Z"
+      },
+      {
+        "asset": "illustrations/36_GEO_ELENION.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:51:09.688Z"
+      },
+      {
+        "asset": "illustrations/37_GEO_YVAR.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:51:09.701Z"
+      },
+      {
+        "asset": "illustrations/38_AERO_GILMARR.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:51:09.715Z"
+      },
+      {
+        "asset": "illustrations/39_HYDRO_RUBY.png",
+        "canonical_exists": true,
+        "matches_integration": true,
+        "matches_revision": true,
+        "integratedAt": "2026-09-14T12:51:09.727Z"
+      }
+    ],
+    "missing_paths": [],
+    "all_ui_art_paths_inside_V3": true,
+    "none_profiles": [
+      {
+        "id": "30000021",
+        "slug": "21_NONE_LANIO",
+        "magic": [],
+        "barriers": []
+      },
+      {
+        "id": "30000022",
+        "slug": "22_NONE_MALABA",
+        "magic": [],
+        "barriers": []
+      },
+      {
+        "id": "30000023",
+        "slug": "23_NONE_GEN",
+        "magic": [],
+        "barriers": []
+      },
+      {
+        "id": "30000025",
+        "slug": "25_NONE_KOGNUS",
+        "magic": [],
+        "barriers": []
+      },
+      {
+        "id": "30000026",
+        "slug": "26_NONE_REEVUS",
+        "magic": [],
+        "barriers": []
+      },
+      {
+        "id": "30000027",
+        "slug": "27_NONE_XIAOMI",
+        "magic": [],
+        "barriers": []
+      }
+    ],
+    "geometry_entries_required_by_roster_all_present": true,
+    "per_card_routes_and_freshness": [
+      {
+        "id": "30000001",
+        "slug": "01_ELECTRO_MOMO",
+        "raw": [
+          "assets/illustrations/01_ELECTRO_MOMO.png",
+          "assets/races/ROBOT.png",
+          "assets/armes/11.png",
+          "assets/cristaux/ELECTRO.png",
+          "assets/factions/Chroma.png",
+          "assets/barcodes/30000001.png",
+          "assets/effets/retry.png",
+          "assets/effets/mana.png",
+          "assets/effets/ELECTRO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/01_ELECTRO_MOMO.webp",
+          "site/assets/cards/01_ELECTRO_MOMO-full.png",
+          "site/assets/cards/01_ELECTRO_MOMO-art.webp"
+        ],
+        "print": "cartes/01_ELECTRO_MOMO.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [],
+        "site_older_than_print": [
+          "site/assets/cards/01_ELECTRO_MOMO.webp",
+          "site/assets/cards/01_ELECTRO_MOMO-full.png",
+          "site/assets/cards/01_ELECTRO_MOMO-art.webp"
+        ],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T12:48:36.659Z",
+        "site_mtimes": {
+          "site/assets/cards/01_ELECTRO_MOMO.webp": "2026-09-14T11:04:59.621Z",
+          "site/assets/cards/01_ELECTRO_MOMO-full.png": "2026-09-14T11:04:59.502Z",
+          "site/assets/cards/01_ELECTRO_MOMO-art.webp": "2026-09-14T11:04:59.775Z"
+        }
+      },
+      {
+        "id": "30000002",
+        "slug": "02_AERO_CANA",
+        "raw": [
+          "assets/illustrations/02_AERO_CANA.png",
+          "assets/races/FALCO.png",
+          "assets/armes/05.png",
+          "assets/cristaux/AERO.png",
+          "assets/factions/Nestown.png",
+          "assets/barcodes/30000002.png",
+          "assets/effets/AERO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/02_AERO_CANA.webp",
+          "site/assets/cards/02_AERO_CANA-full.png",
+          "site/assets/cards/02_AERO_CANA-art.webp"
+        ],
+        "print": "cartes/02_AERO_CANA.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [],
+        "site_older_than_print": [
+          "site/assets/cards/02_AERO_CANA.webp",
+          "site/assets/cards/02_AERO_CANA-full.png",
+          "site/assets/cards/02_AERO_CANA-art.webp"
+        ],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T12:49:06.529Z",
+        "site_mtimes": {
+          "site/assets/cards/02_AERO_CANA.webp": "2026-09-14T11:04:59.895Z",
+          "site/assets/cards/02_AERO_CANA-full.png": "2026-09-14T11:04:59.784Z",
+          "site/assets/cards/02_AERO_CANA-art.webp": "2026-09-14T11:05:00.052Z"
+        }
+      },
+      {
+        "id": "30000003",
+        "slug": "03_HYDRO_JULIENNE",
+        "raw": [
+          "assets/illustrations/03_HYDRO_JULIENNE.png",
+          "assets/races/SIRENA.png",
+          "assets/armes/10.png",
+          "assets/cristaux/HYDRO.png",
+          "assets/factions/Thalassea.png",
+          "assets/barcodes/30000003.png",
+          "assets/effets/guard.png",
+          "assets/effets/revive.png",
+          "assets/effets/HYDRO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/03_HYDRO_JULIENNE.webp",
+          "site/assets/cards/03_HYDRO_JULIENNE-full.png",
+          "site/assets/cards/03_HYDRO_JULIENNE-art.webp"
+        ],
+        "print": "cartes/03_HYDRO_JULIENNE.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [],
+        "site_older_than_print": [
+          "site/assets/cards/03_HYDRO_JULIENNE.webp",
+          "site/assets/cards/03_HYDRO_JULIENNE-full.png",
+          "site/assets/cards/03_HYDRO_JULIENNE-art.webp"
+        ],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T12:49:41.112Z",
+        "site_mtimes": {
+          "site/assets/cards/03_HYDRO_JULIENNE.webp": "2026-09-14T11:05:00.177Z",
+          "site/assets/cards/03_HYDRO_JULIENNE-full.png": "2026-09-14T11:05:00.062Z",
+          "site/assets/cards/03_HYDRO_JULIENNE-art.webp": "2026-09-14T11:05:00.359Z"
+        }
+      },
+      {
+        "id": "30000004",
+        "slug": "04_PYRO_DARNAKO",
+        "raw": [
+          "assets/illustrations/04_PYRO_DARNAKO.png",
+          "assets/races/DRAX.png",
+          "assets/armes/17.png",
+          "assets/cristaux/PYRO.png",
+          "assets/factions/Vulkar.png",
+          "assets/barcodes/30000004.png",
+          "assets/effets/PYRO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/04_PYRO_DARNAKO.webp",
+          "site/assets/cards/04_PYRO_DARNAKO-full.png",
+          "site/assets/cards/04_PYRO_DARNAKO-art.webp"
+        ],
+        "print": "cartes/04_PYRO_DARNAKO.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [],
+        "site_older_than_print": [
+          "site/assets/cards/04_PYRO_DARNAKO.webp",
+          "site/assets/cards/04_PYRO_DARNAKO-full.png",
+          "site/assets/cards/04_PYRO_DARNAKO-art.webp"
+        ],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T12:50:08.710Z",
+        "site_mtimes": {
+          "site/assets/cards/04_PYRO_DARNAKO.webp": "2026-09-14T11:05:00.481Z",
+          "site/assets/cards/04_PYRO_DARNAKO-full.png": "2026-09-14T11:05:00.368Z",
+          "site/assets/cards/04_PYRO_DARNAKO-art.webp": "2026-09-14T11:05:00.645Z"
+        }
+      },
+      {
+        "id": "30000005",
+        "slug": "05_CRYO_MALINIA",
+        "raw": [
+          "assets/illustrations/05_CRYO_MALINIA.png",
+          "assets/races/HUMAIN.png",
+          "assets/armes/12.png",
+          "assets/cristaux/CRYO.png",
+          "assets/factions/Niveria.png",
+          "assets/barcodes/30000005.png",
+          "assets/effets/CRYO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/05_CRYO_MALINIA.webp",
+          "site/assets/cards/05_CRYO_MALINIA-full.png",
+          "site/assets/cards/05_CRYO_MALINIA-art.webp"
+        ],
+        "print": "cartes/05_CRYO_MALINIA.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [],
+        "site_older_than_print": [
+          "site/assets/cards/05_CRYO_MALINIA.webp",
+          "site/assets/cards/05_CRYO_MALINIA-full.png",
+          "site/assets/cards/05_CRYO_MALINIA-art.webp"
+        ],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T12:50:41.987Z",
+        "site_mtimes": {
+          "site/assets/cards/05_CRYO_MALINIA.webp": "2026-09-14T11:05:00.777Z",
+          "site/assets/cards/05_CRYO_MALINIA-full.png": "2026-09-14T11:05:00.655Z",
+          "site/assets/cards/05_CRYO_MALINIA-art.webp": "2026-09-14T11:05:00.945Z"
+        }
+      },
+      {
+        "id": "30000006",
+        "slug": "06_LUXO_AELIS",
+        "raw": [
+          "assets/illustrations/06_LUXO_AELIS.png",
+          "assets/races/AURELION.png",
+          "assets/armes/10.png",
+          "assets/cristaux/LUXO.png",
+          "assets/factions/Solaria.png",
+          "assets/barcodes/30000006.png",
+          "assets/effets/revive.png",
+          "assets/effets/LUXO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/06_LUXO_AELIS.webp",
+          "site/assets/cards/06_LUXO_AELIS-full.png",
+          "site/assets/cards/06_LUXO_AELIS-art.webp"
+        ],
+        "print": "cartes/06_LUXO_AELIS.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/races/AURELION.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T10:45:58.488Z",
+        "site_mtimes": {
+          "site/assets/cards/06_LUXO_AELIS.webp": "2026-09-14T11:05:01.074Z",
+          "site/assets/cards/06_LUXO_AELIS-full.png": "2026-09-14T11:05:00.955Z",
+          "site/assets/cards/06_LUXO_AELIS-art.webp": "2026-09-14T11:05:01.237Z"
+        }
+      },
+      {
+        "id": "30000007",
+        "slug": "07_MINERO_BALMHYR",
+        "raw": [
+          "assets/illustrations/07_MINERO_BALMHYR.png",
+          "assets/races/NAIN.png",
+          "assets/armes/00.png",
+          "assets/cristaux/MINERO.png",
+          "assets/factions/Durane.png",
+          "assets/barcodes/30000007.png",
+          "assets/effets/guard.png",
+          "assets/effets/MINERO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/07_MINERO_BALMHYR.webp",
+          "site/assets/cards/07_MINERO_BALMHYR-full.png",
+          "site/assets/cards/07_MINERO_BALMHYR-art.webp"
+        ],
+        "print": "cartes/07_MINERO_BALMHYR.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/illustrations/07_MINERO_BALMHYR.png",
+          "assets/races/NAIN.png",
+          "assets/effets/MINERO.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T10:46:26.395Z",
+        "site_mtimes": {
+          "site/assets/cards/07_MINERO_BALMHYR.webp": "2026-09-14T11:05:01.361Z",
+          "site/assets/cards/07_MINERO_BALMHYR-full.png": "2026-09-14T11:05:01.247Z",
+          "site/assets/cards/07_MINERO_BALMHYR-art.webp": "2026-09-14T11:05:01.517Z"
+        }
+      },
+      {
+        "id": "30000008",
+        "slug": "08_HERBO_VICTORVINE",
+        "raw": [
+          "assets/illustrations/08_HERBO_VICTORVINE.png",
+          "assets/races/CARNIVERT.png",
+          "assets/armes/10.png",
+          "assets/cristaux/HERBO.png",
+          "assets/factions/Arborium.png",
+          "assets/barcodes/30000008.png",
+          "assets/effets/HERBO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/08_HERBO_VICTORVINE.webp",
+          "site/assets/cards/08_HERBO_VICTORVINE-full.png",
+          "site/assets/cards/08_HERBO_VICTORVINE-art.webp"
+        ],
+        "print": "cartes/08_HERBO_VICTORVINE.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/illustrations/08_HERBO_VICTORVINE.png",
+          "assets/races/CARNIVERT.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T10:46:54.397Z",
+        "site_mtimes": {
+          "site/assets/cards/08_HERBO_VICTORVINE.webp": "2026-09-14T11:05:01.637Z",
+          "site/assets/cards/08_HERBO_VICTORVINE-full.png": "2026-09-14T11:05:01.525Z",
+          "site/assets/cards/08_HERBO_VICTORVINE-art.webp": "2026-09-14T11:05:01.796Z"
+        }
+      },
+      {
+        "id": "30000009",
+        "slug": "09_HEMATO_VERMINIA",
+        "raw": [
+          "assets/illustrations/09_HEMATO_VERMINIA.png",
+          "assets/races/VAMP.png",
+          "assets/armes/15.png",
+          "assets/cristaux/HEMATO.png",
+          "assets/factions/Draevenheim.png",
+          "assets/barcodes/30000009.png",
+          "assets/effets/dodge.png",
+          "assets/effets/HEMATO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/09_HEMATO_VERMINIA.webp",
+          "site/assets/cards/09_HEMATO_VERMINIA-full.png",
+          "site/assets/cards/09_HEMATO_VERMINIA-art.webp"
+        ],
+        "print": "cartes/09_HEMATO_VERMINIA.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/illustrations/09_HEMATO_VERMINIA.png",
+          "assets/races/VAMP.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T10:47:22.194Z",
+        "site_mtimes": {
+          "site/assets/cards/09_HEMATO_VERMINIA.webp": "2026-09-14T11:05:01.919Z",
+          "site/assets/cards/09_HEMATO_VERMINIA-full.png": "2026-09-14T11:05:01.807Z",
+          "site/assets/cards/09_HEMATO_VERMINIA-art.webp": "2026-09-14T11:05:02.076Z"
+        }
+      },
+      {
+        "id": "30000010",
+        "slug": "10_NECRO_ZVIRI",
+        "raw": [
+          "assets/illustrations/10_NECRO_ZVIRI.png",
+          "assets/races/SKULLZ.png",
+          "assets/armes/06.png",
+          "assets/cristaux/NECRO.png",
+          "assets/factions/Cryptown.png",
+          "assets/barcodes/30000010.png",
+          "assets/effets/death.png",
+          "assets/effets/dodge.png"
+        ],
+        "site": [
+          "site/assets/cards/10_NECRO_ZVIRI.webp",
+          "site/assets/cards/10_NECRO_ZVIRI-full.png",
+          "site/assets/cards/10_NECRO_ZVIRI-art.webp"
+        ],
+        "print": "cartes/10_NECRO_ZVIRI.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/races/SKULLZ.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T10:47:47.497Z",
+        "site_mtimes": {
+          "site/assets/cards/10_NECRO_ZVIRI.webp": "2026-09-14T11:05:02.214Z",
+          "site/assets/cards/10_NECRO_ZVIRI-full.png": "2026-09-14T11:05:02.084Z",
+          "site/assets/cards/10_NECRO_ZVIRI-art.webp": "2026-09-14T11:05:02.366Z"
+        }
+      },
+      {
+        "id": "30000011",
+        "slug": "11_GEO_NAZAR",
+        "raw": [
+          "assets/illustrations/11_GEO_NAZAR.png",
+          "assets/races/RHINOZ.png",
+          "assets/armes/08.png",
+          "assets/cristaux/GEO.png",
+          "assets/factions/Zarok.png",
+          "assets/barcodes/30000011.png",
+          "assets/effets/guard.png",
+          "assets/effets/GEO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/11_GEO_NAZAR.webp",
+          "site/assets/cards/11_GEO_NAZAR-full.png",
+          "site/assets/cards/11_GEO_NAZAR-art.webp"
+        ],
+        "print": "cartes/11_GEO_NAZAR.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/illustrations/11_GEO_NAZAR.png",
+          "assets/races/RHINOZ.png",
+          "assets/effets/GEO.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T10:48:14.430Z",
+        "site_mtimes": {
+          "site/assets/cards/11_GEO_NAZAR.webp": "2026-09-14T11:05:02.492Z",
+          "site/assets/cards/11_GEO_NAZAR-full.png": "2026-09-14T11:05:02.374Z",
+          "site/assets/cards/11_GEO_NAZAR-art.webp": "2026-09-14T11:05:02.649Z"
+        }
+      },
+      {
+        "id": "30000012",
+        "slug": "12_RAINBOW_KAYLIS",
+        "raw": [
+          "assets/illustrations/12_RAINBOW_KAYLIS.png",
+          "assets/races/HUMAIN.png",
+          "assets/armes/15.png",
+          "assets/cristaux/RAINBOW.png",
+          "assets/factions/Z13.png",
+          "assets/barcodes/30000012.png",
+          "assets/effets/guard.png",
+          "assets/effets/revive.png",
+          "assets/effets/retry.png",
+          "assets/effets/RAINBOW.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/12_RAINBOW_KAYLIS.webp",
+          "site/assets/cards/12_RAINBOW_KAYLIS-full.png",
+          "site/assets/cards/12_RAINBOW_KAYLIS-art.webp"
+        ],
+        "print": "cartes/12_RAINBOW_KAYLIS.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/illustrations/12_RAINBOW_KAYLIS.png",
+          "assets/races/HUMAIN.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T10:48:44.714Z",
+        "site_mtimes": {
+          "site/assets/cards/12_RAINBOW_KAYLIS.webp": "2026-09-14T11:05:02.772Z",
+          "site/assets/cards/12_RAINBOW_KAYLIS-full.png": "2026-09-14T11:05:02.659Z",
+          "site/assets/cards/12_RAINBOW_KAYLIS-art.webp": "2026-09-14T11:05:02.926Z"
+        }
+      },
+      {
+        "id": "30000013",
+        "slug": "13_ELECTRO_TAULIO",
+        "raw": [
+          "assets/illustrations/13_ELECTRO_TAULIO.png",
+          "assets/races/ROBOT.png",
+          "assets/armes/03.png",
+          "assets/cristaux/ELECTRO.png",
+          "assets/factions/Chroma.png",
+          "assets/barcodes/30000013.png",
+          "assets/effets/guard.png",
+          "assets/effets/buff_atk.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/13_ELECTRO_TAULIO.webp",
+          "site/assets/cards/13_ELECTRO_TAULIO-full.png",
+          "site/assets/cards/13_ELECTRO_TAULIO-art.webp"
+        ],
+        "print": "cartes/13_ELECTRO_TAULIO.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/races/ROBOT.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T10:49:11.432Z",
+        "site_mtimes": {
+          "site/assets/cards/13_ELECTRO_TAULIO.webp": "2026-09-14T11:05:03.045Z",
+          "site/assets/cards/13_ELECTRO_TAULIO-full.png": "2026-09-14T11:05:02.936Z",
+          "site/assets/cards/13_ELECTRO_TAULIO-art.webp": "2026-09-14T11:05:03.199Z"
+        }
+      },
+      {
+        "id": "30000014",
+        "slug": "14_ELECTRO_MOMO_CARILLON",
+        "raw": [
+          "assets/illustrations/14_ELECTRO_MOMO_CARILLON.png",
+          "assets/races/ROBOT.png",
+          "assets/armes/11.png",
+          "assets/cristaux/ELECTRO.png",
+          "assets/factions/Chroma.png",
+          "assets/barcodes/30000014.png",
+          "assets/effets/retry.png",
+          "assets/effets/mana.png",
+          "assets/effets/ELECTRO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/14_ELECTRO_MOMO_CARILLON.webp",
+          "site/assets/cards/14_ELECTRO_MOMO_CARILLON-full.png",
+          "site/assets/cards/14_ELECTRO_MOMO_CARILLON-art.webp"
+        ],
+        "print": "cartes/14_ELECTRO_MOMO_CARILLON.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/races/ROBOT.png",
+          "assets/armes/11.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T10:49:42.695Z",
+        "site_mtimes": {
+          "site/assets/cards/14_ELECTRO_MOMO_CARILLON.webp": "2026-09-14T11:05:03.321Z",
+          "site/assets/cards/14_ELECTRO_MOMO_CARILLON-full.png": "2026-09-14T11:05:03.210Z",
+          "site/assets/cards/14_ELECTRO_MOMO_CARILLON-art.webp": "2026-09-14T11:05:03.466Z"
+        }
+      },
+      {
+        "id": "30000015",
+        "slug": "15_AERO_SCROW",
+        "raw": [
+          "assets/illustrations/15_AERO_SCROW.png",
+          "assets/races/KORBOW.png",
+          "assets/armes/05.png",
+          "assets/cristaux/AERO.png",
+          "assets/factions/Nestown.png",
+          "assets/barcodes/30000015.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/15_AERO_SCROW.webp",
+          "site/assets/cards/15_AERO_SCROW-full.png",
+          "site/assets/cards/15_AERO_SCROW-art.webp"
+        ],
+        "print": "cartes/15_AERO_SCROW.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/illustrations/15_AERO_SCROW.png",
+          "assets/races/KORBOW.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T10:59:04.593Z",
+        "site_mtimes": {
+          "site/assets/cards/15_AERO_SCROW.webp": "2026-09-14T11:05:03.582Z",
+          "site/assets/cards/15_AERO_SCROW-full.png": "2026-09-14T11:05:03.476Z",
+          "site/assets/cards/15_AERO_SCROW-art.webp": "2026-09-14T11:05:03.731Z"
+        }
+      },
+      {
+        "id": "30000016",
+        "slug": "16_CRYO_NERIS",
+        "raw": [
+          "assets/illustrations/16_CRYO_NERIS.png",
+          "assets/races/HUMAIN.png",
+          "assets/armes/14.png",
+          "assets/cristaux/CRYO.png",
+          "assets/factions/Niveria.png",
+          "assets/barcodes/30000016.png",
+          "assets/effets/mana.png",
+          "assets/effets/revive.png",
+          "assets/effets/CRYO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/16_CRYO_NERIS.webp",
+          "site/assets/cards/16_CRYO_NERIS-full.png",
+          "site/assets/cards/16_CRYO_NERIS-art.webp"
+        ],
+        "print": "cartes/16_CRYO_NERIS.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/illustrations/16_CRYO_NERIS.png",
+          "assets/races/HUMAIN.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T10:50:11.429Z",
+        "site_mtimes": {
+          "site/assets/cards/16_CRYO_NERIS.webp": "2026-09-14T11:05:03.847Z",
+          "site/assets/cards/16_CRYO_NERIS-full.png": "2026-09-14T11:05:03.739Z",
+          "site/assets/cards/16_CRYO_NERIS-art.webp": "2026-09-14T11:05:03.999Z"
+        }
+      },
+      {
+        "id": "30000017",
+        "slug": "17_LUXO_ILIANE",
+        "raw": [
+          "assets/illustrations/17_LUXO_ILIANE.png",
+          "assets/races/AURELION.png",
+          "assets/armes/13.png",
+          "assets/cristaux/LUXO.png",
+          "assets/factions/Solaria.png",
+          "assets/barcodes/30000017.png",
+          "assets/effets/LUXO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/17_LUXO_ILIANE.webp",
+          "site/assets/cards/17_LUXO_ILIANE-full.png",
+          "site/assets/cards/17_LUXO_ILIANE-art.webp"
+        ],
+        "print": "cartes/17_LUXO_ILIANE.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/illustrations/17_LUXO_ILIANE.png",
+          "assets/races/AURELION.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T10:50:39.866Z",
+        "site_mtimes": {
+          "site/assets/cards/17_LUXO_ILIANE.webp": "2026-09-14T11:05:04.117Z",
+          "site/assets/cards/17_LUXO_ILIANE-full.png": "2026-09-14T11:05:04.009Z",
+          "site/assets/cards/17_LUXO_ILIANE-art.webp": "2026-09-14T11:05:04.265Z"
+        }
+      },
+      {
+        "id": "30000018",
+        "slug": "18_MINERO_LOK",
+        "raw": [
+          "assets/illustrations/18_MINERO_LOK.png",
+          "assets/races/NAIN.png",
+          "assets/armes/01.png",
+          "assets/cristaux/MINERO.png",
+          "assets/factions/Durane.png",
+          "assets/barcodes/30000018.png",
+          "assets/effets/MINERO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/18_MINERO_LOK.webp",
+          "site/assets/cards/18_MINERO_LOK-full.png",
+          "site/assets/cards/18_MINERO_LOK-art.webp"
+        ],
+        "print": "cartes/18_MINERO_LOK.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/illustrations/18_MINERO_LOK.png",
+          "assets/races/NAIN.png",
+          "assets/effets/MINERO.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T10:51:05.670Z",
+        "site_mtimes": {
+          "site/assets/cards/18_MINERO_LOK.webp": "2026-09-14T11:05:04.381Z",
+          "site/assets/cards/18_MINERO_LOK-full.png": "2026-09-14T11:05:04.274Z",
+          "site/assets/cards/18_MINERO_LOK-art.webp": "2026-09-14T11:05:04.532Z"
+        }
+      },
+      {
+        "id": "30000019",
+        "slug": "19_MINERO_BELROG",
+        "raw": [
+          "assets/illustrations/19_MINERO_BELROG.png",
+          "assets/races/RHINOZ.png",
+          "assets/armes/02.png",
+          "assets/cristaux/MINERO.png",
+          "assets/factions/Zarok.png",
+          "assets/barcodes/30000019.png",
+          "assets/effets/guard.png",
+          "assets/effets/MINERO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/19_MINERO_BELROG.webp",
+          "site/assets/cards/19_MINERO_BELROG-full.png",
+          "site/assets/cards/19_MINERO_BELROG-art.webp"
+        ],
+        "print": "cartes/19_MINERO_BELROG.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/illustrations/19_MINERO_BELROG.png",
+          "assets/races/RHINOZ.png",
+          "assets/effets/MINERO.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T10:51:33.155Z",
+        "site_mtimes": {
+          "site/assets/cards/19_MINERO_BELROG.webp": "2026-09-14T11:05:04.652Z",
+          "site/assets/cards/19_MINERO_BELROG-full.png": "2026-09-14T11:05:04.540Z",
+          "site/assets/cards/19_MINERO_BELROG-art.webp": "2026-09-14T11:05:04.812Z"
+        }
+      },
+      {
+        "id": "30000020",
+        "slug": "20_HEMATO_SERAPHINA",
+        "raw": [
+          "assets/illustrations/20_HEMATO_SERAPHINA.png",
+          "assets/races/VAMP.png",
+          "assets/armes/06.png",
+          "assets/cristaux/HEMATO.png",
+          "assets/factions/Draevenheim.png",
+          "assets/barcodes/30000020.png",
+          "assets/effets/guard.png",
+          "assets/effets/retry.png",
+          "assets/effets/HEMATO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/20_HEMATO_SERAPHINA.webp",
+          "site/assets/cards/20_HEMATO_SERAPHINA-full.png",
+          "site/assets/cards/20_HEMATO_SERAPHINA-art.webp"
+        ],
+        "print": "cartes/20_HEMATO_SERAPHINA.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/races/VAMP.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T10:52:00.661Z",
+        "site_mtimes": {
+          "site/assets/cards/20_HEMATO_SERAPHINA.webp": "2026-09-14T11:05:04.926Z",
+          "site/assets/cards/20_HEMATO_SERAPHINA-full.png": "2026-09-14T11:05:04.820Z",
+          "site/assets/cards/20_HEMATO_SERAPHINA-art.webp": "2026-09-14T11:05:05.066Z"
+        }
+      },
+      {
+        "id": "30000021",
+        "slug": "21_NONE_LANIO",
+        "raw": [
+          "assets/illustrations/21_NONE_LANIO.png",
+          "assets/races/HUMAIN.png",
+          "assets/armes/08.png",
+          "assets/cristaux/NONE.png",
+          "assets/factions/Z13.png",
+          "assets/barcodes/30000021.png",
+          "assets/effets/dodge.png"
+        ],
+        "site": [
+          "site/assets/cards/21_NONE_LANIO.webp",
+          "site/assets/cards/21_NONE_LANIO-full.png",
+          "site/assets/cards/21_NONE_LANIO-art.webp"
+        ],
+        "print": "cartes/21_NONE_LANIO.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/illustrations/21_NONE_LANIO.png",
+          "assets/races/HUMAIN.png",
+          "assets/cristaux/NONE.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T11:04:15.817Z",
+        "site_mtimes": {
+          "site/assets/cards/21_NONE_LANIO.webp": "2026-09-14T11:05:05.187Z",
+          "site/assets/cards/21_NONE_LANIO-full.png": "2026-09-14T11:05:05.077Z",
+          "site/assets/cards/21_NONE_LANIO-art.webp": "2026-09-14T11:05:05.343Z"
+        }
+      },
+      {
+        "id": "30000022",
+        "slug": "22_NONE_MALABA",
+        "raw": [
+          "assets/illustrations/22_NONE_MALABA.png",
+          "assets/races/HUMAIN.png",
+          "assets/armes/03.png",
+          "assets/cristaux/NONE.png",
+          "assets/factions/Z13.png",
+          "assets/barcodes/30000022.png",
+          "assets/effets/guard.png",
+          "assets/effets/buff_atk.png"
+        ],
+        "site": [
+          "site/assets/cards/22_NONE_MALABA.webp",
+          "site/assets/cards/22_NONE_MALABA-full.png",
+          "site/assets/cards/22_NONE_MALABA-art.webp"
+        ],
+        "print": "cartes/22_NONE_MALABA.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/illustrations/22_NONE_MALABA.png",
+          "assets/races/HUMAIN.png",
+          "assets/cristaux/NONE.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T11:04:20.618Z",
+        "site_mtimes": {
+          "site/assets/cards/22_NONE_MALABA.webp": "2026-09-14T11:05:05.458Z",
+          "site/assets/cards/22_NONE_MALABA-full.png": "2026-09-14T11:05:05.353Z",
+          "site/assets/cards/22_NONE_MALABA-art.webp": "2026-09-14T11:05:05.605Z"
+        }
+      },
+      {
+        "id": "30000023",
+        "slug": "23_NONE_GEN",
+        "raw": [
+          "assets/illustrations/23_NONE_GEN.png",
+          "assets/races/CYBORG.png",
+          "assets/armes/09.png",
+          "assets/cristaux/NONE.png",
+          "assets/factions/Z13.png",
+          "assets/barcodes/30000023.png"
+        ],
+        "site": [
+          "site/assets/cards/23_NONE_GEN.webp",
+          "site/assets/cards/23_NONE_GEN-full.png",
+          "site/assets/cards/23_NONE_GEN-art.webp"
+        ],
+        "print": "cartes/23_NONE_GEN.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/races/CYBORG.png",
+          "assets/cristaux/NONE.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T11:04:24.731Z",
+        "site_mtimes": {
+          "site/assets/cards/23_NONE_GEN.webp": "2026-09-14T11:05:05.716Z",
+          "site/assets/cards/23_NONE_GEN-full.png": "2026-09-14T11:05:05.613Z",
+          "site/assets/cards/23_NONE_GEN-art.webp": "2026-09-14T11:05:05.869Z"
+        }
+      },
+      {
+        "id": "30000024",
+        "slug": "24_MINERO_MAGNAR",
+        "raw": [
+          "assets/illustrations/24_MINERO_MAGNAR.png",
+          "assets/races/GOLEM.png",
+          "assets/armes/02.png",
+          "assets/cristaux/MINERO.png",
+          "assets/factions/Durane.png",
+          "assets/barcodes/30000024.png",
+          "assets/effets/guard.png",
+          "assets/effets/MINERO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/24_MINERO_MAGNAR.webp",
+          "site/assets/cards/24_MINERO_MAGNAR-full.png",
+          "site/assets/cards/24_MINERO_MAGNAR-art.webp"
+        ],
+        "print": "cartes/24_MINERO_MAGNAR.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/races/GOLEM.png",
+          "assets/effets/MINERO.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T11:00:22.182Z",
+        "site_mtimes": {
+          "site/assets/cards/24_MINERO_MAGNAR.webp": "2026-09-14T11:05:05.984Z",
+          "site/assets/cards/24_MINERO_MAGNAR-full.png": "2026-09-14T11:05:05.878Z",
+          "site/assets/cards/24_MINERO_MAGNAR-art.webp": "2026-09-14T11:05:06.125Z"
+        }
+      },
+      {
+        "id": "30000025",
+        "slug": "25_NONE_KOGNUS",
+        "raw": [
+          "assets/illustrations/25_NONE_KOGNUS.png",
+          "assets/races/NAIN.png",
+          "assets/armes/15.png",
+          "assets/cristaux/NONE.png",
+          "assets/factions/Z13.png",
+          "assets/barcodes/30000025.png",
+          "assets/effets/retry.png"
+        ],
+        "site": [
+          "site/assets/cards/25_NONE_KOGNUS.webp",
+          "site/assets/cards/25_NONE_KOGNUS-full.png",
+          "site/assets/cards/25_NONE_KOGNUS-art.webp"
+        ],
+        "print": "cartes/25_NONE_KOGNUS.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/illustrations/25_NONE_KOGNUS.png",
+          "assets/races/NAIN.png",
+          "assets/cristaux/NONE.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T11:04:28.699Z",
+        "site_mtimes": {
+          "site/assets/cards/25_NONE_KOGNUS.webp": "2026-09-14T11:05:06.239Z",
+          "site/assets/cards/25_NONE_KOGNUS-full.png": "2026-09-14T11:05:06.133Z",
+          "site/assets/cards/25_NONE_KOGNUS-art.webp": "2026-09-14T11:05:06.379Z"
+        }
+      },
+      {
+        "id": "30000026",
+        "slug": "26_NONE_REEVUS",
+        "raw": [
+          "assets/illustrations/26_NONE_REEVUS.png",
+          "assets/races/NAIN.png",
+          "assets/armes/04.png",
+          "assets/cristaux/NONE.png",
+          "assets/factions/Z13.png",
+          "assets/barcodes/30000026.png",
+          "assets/effets/buff_atk.png"
+        ],
+        "site": [
+          "site/assets/cards/26_NONE_REEVUS.webp",
+          "site/assets/cards/26_NONE_REEVUS-full.png",
+          "site/assets/cards/26_NONE_REEVUS-art.webp"
+        ],
+        "print": "cartes/26_NONE_REEVUS.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/illustrations/26_NONE_REEVUS.png",
+          "assets/races/NAIN.png",
+          "assets/cristaux/NONE.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T11:04:32.928Z",
+        "site_mtimes": {
+          "site/assets/cards/26_NONE_REEVUS.webp": "2026-09-14T11:05:06.489Z",
+          "site/assets/cards/26_NONE_REEVUS-full.png": "2026-09-14T11:05:06.386Z",
+          "site/assets/cards/26_NONE_REEVUS-art.webp": "2026-09-14T11:05:06.632Z"
+        }
+      },
+      {
+        "id": "30000027",
+        "slug": "27_NONE_XIAOMI",
+        "raw": [
+          "assets/illustrations/27_NONE_XIAOMI.png",
+          "assets/races/HUMAIN.png",
+          "assets/armes/18.png",
+          "assets/cristaux/NONE.png",
+          "assets/factions/Z13.png",
+          "assets/barcodes/30000027.png",
+          "assets/effets/dodge.png"
+        ],
+        "site": [
+          "site/assets/cards/27_NONE_XIAOMI.webp",
+          "site/assets/cards/27_NONE_XIAOMI-full.png",
+          "site/assets/cards/27_NONE_XIAOMI-art.webp"
+        ],
+        "print": "cartes/27_NONE_XIAOMI.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/illustrations/27_NONE_XIAOMI.png",
+          "assets/races/HUMAIN.png",
+          "assets/cristaux/NONE.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T11:04:36.864Z",
+        "site_mtimes": {
+          "site/assets/cards/27_NONE_XIAOMI.webp": "2026-09-14T11:05:06.742Z",
+          "site/assets/cards/27_NONE_XIAOMI-full.png": "2026-09-14T11:05:06.642Z",
+          "site/assets/cards/27_NONE_XIAOMI-art.webp": "2026-09-14T11:05:06.886Z"
+        }
+      },
+      {
+        "id": "30000028",
+        "slug": "28_NECRO_VOLODEN",
+        "raw": [
+          "assets/illustrations/28_NECRO_VOLODEN.png",
+          "assets/races/CARDEMORTIS.png",
+          "assets/armes/19.png",
+          "assets/cristaux/NECRO.png",
+          "assets/factions/Z13.png",
+          "assets/barcodes/30000028.png",
+          "assets/effets/death.png",
+          "assets/effets/NECRO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/28_NECRO_VOLODEN.webp",
+          "site/assets/cards/28_NECRO_VOLODEN-full.png",
+          "site/assets/cards/28_NECRO_VOLODEN-art.webp"
+        ],
+        "print": "cartes/28_NECRO_VOLODEN.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/races/CARDEMORTIS.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T11:01:30.774Z",
+        "site_mtimes": {
+          "site/assets/cards/28_NECRO_VOLODEN.webp": "2026-09-14T11:05:06.995Z",
+          "site/assets/cards/28_NECRO_VOLODEN-full.png": "2026-09-14T11:05:06.894Z",
+          "site/assets/cards/28_NECRO_VOLODEN-art.webp": "2026-09-14T11:05:07.141Z"
+        }
+      },
+      {
+        "id": "30000029",
+        "slug": "29_PYRO_THANOR",
+        "raw": [
+          "assets/illustrations/29_PYRO_THANOR.png",
+          "assets/races/DRAX.png",
+          "assets/armes/17.png",
+          "assets/cristaux/PYRO.png",
+          "assets/factions/Vulkar.png",
+          "assets/barcodes/30000029.png",
+          "assets/effets/PYRO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/29_PYRO_THANOR.webp",
+          "site/assets/cards/29_PYRO_THANOR-full.png",
+          "site/assets/cards/29_PYRO_THANOR-art.webp"
+        ],
+        "print": "cartes/29_PYRO_THANOR.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/illustrations/29_PYRO_THANOR.png",
+          "assets/races/DRAX.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T10:54:10.548Z",
+        "site_mtimes": {
+          "site/assets/cards/29_PYRO_THANOR.webp": "2026-09-14T11:05:07.255Z",
+          "site/assets/cards/29_PYRO_THANOR-full.png": "2026-09-14T11:05:07.149Z",
+          "site/assets/cards/29_PYRO_THANOR-art.webp": "2026-09-14T11:05:07.399Z"
+        }
+      },
+      {
+        "id": "30000030",
+        "slug": "30_PYRO_DARUK",
+        "raw": [
+          "assets/illustrations/30_PYRO_DARUK.png",
+          "assets/races/DRAX.png",
+          "assets/armes/00.png",
+          "assets/cristaux/PYRO.png",
+          "assets/factions/Vulkar.png",
+          "assets/barcodes/30000030.png",
+          "assets/effets/guard.png",
+          "assets/effets/PYRO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/30_PYRO_DARUK.webp",
+          "site/assets/cards/30_PYRO_DARUK-full.png",
+          "site/assets/cards/30_PYRO_DARUK-art.webp"
+        ],
+        "print": "cartes/30_PYRO_DARUK.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/illustrations/30_PYRO_DARUK.png",
+          "assets/races/DRAX.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T10:54:39.739Z",
+        "site_mtimes": {
+          "site/assets/cards/30_PYRO_DARUK.webp": "2026-09-14T11:05:07.521Z",
+          "site/assets/cards/30_PYRO_DARUK-full.png": "2026-09-14T11:05:07.407Z",
+          "site/assets/cards/30_PYRO_DARUK-art.webp": "2026-09-14T11:05:07.676Z"
+        }
+      },
+      {
+        "id": "30000031",
+        "slug": "31_PYRO_POLUX",
+        "raw": [
+          "assets/illustrations/31_PYRO_POLUX.png",
+          "assets/races/FELINEUS.png",
+          "assets/armes/10.png",
+          "assets/cristaux/PYRO.png",
+          "assets/factions/Vulkar.png",
+          "assets/barcodes/30000031.png",
+          "assets/effets/revive.png",
+          "assets/effets/PYRO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/31_PYRO_POLUX.webp",
+          "site/assets/cards/31_PYRO_POLUX-full.png",
+          "site/assets/cards/31_PYRO_POLUX-art.webp"
+        ],
+        "print": "cartes/31_PYRO_POLUX.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/illustrations/31_PYRO_POLUX.png",
+          "assets/races/FELINEUS.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T11:02:16.294Z",
+        "site_mtimes": {
+          "site/assets/cards/31_PYRO_POLUX.webp": "2026-09-14T11:05:07.788Z",
+          "site/assets/cards/31_PYRO_POLUX-full.png": "2026-09-14T11:05:07.684Z",
+          "site/assets/cards/31_PYRO_POLUX-art.webp": "2026-09-14T11:05:07.927Z"
+        }
+      },
+      {
+        "id": "30000032",
+        "slug": "32_ELECTRO_JELLY_JOE",
+        "raw": [
+          "assets/illustrations/32_ELECTRO_JELLY_JOE.png",
+          "assets/races/TANTALAK.png",
+          "assets/armes/08.png",
+          "assets/cristaux/ELECTRO.png",
+          "assets/factions/Crabazar.png",
+          "assets/barcodes/30000032.png",
+          "assets/effets/mana.png",
+          "assets/effets/buff_atk.png",
+          "assets/effets/guard.png",
+          "assets/effets/ELECTRO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/32_ELECTRO_JELLY_JOE.webp",
+          "site/assets/cards/32_ELECTRO_JELLY_JOE-full.png",
+          "site/assets/cards/32_ELECTRO_JELLY_JOE-art.webp"
+        ],
+        "print": "cartes/32_ELECTRO_JELLY_JOE.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/illustrations/32_ELECTRO_JELLY_JOE.png",
+          "assets/races/TANTALAK.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T11:02:54.543Z",
+        "site_mtimes": {
+          "site/assets/cards/32_ELECTRO_JELLY_JOE.webp": "2026-09-14T11:05:08.054Z",
+          "site/assets/cards/32_ELECTRO_JELLY_JOE-full.png": "2026-09-14T11:05:07.935Z",
+          "site/assets/cards/32_ELECTRO_JELLY_JOE-art.webp": "2026-09-14T11:05:08.210Z"
+        }
+      },
+      {
+        "id": "30000033",
+        "slug": "33_HERBO_BLOOM",
+        "raw": [
+          "assets/illustrations/33_HERBO_BLOOM.png",
+          "assets/races/TOXINAR.png",
+          "assets/armes/14.png",
+          "assets/cristaux/HERBO.png",
+          "assets/factions/Arborium.png",
+          "assets/barcodes/30000033.png",
+          "assets/effets/HERBO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/33_HERBO_BLOOM.webp",
+          "site/assets/cards/33_HERBO_BLOOM-full.png",
+          "site/assets/cards/33_HERBO_BLOOM-art.webp"
+        ],
+        "print": "cartes/33_HERBO_BLOOM.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/illustrations/33_HERBO_BLOOM.png",
+          "assets/races/TOXINAR.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T11:03:32.207Z",
+        "site_mtimes": {
+          "site/assets/cards/33_HERBO_BLOOM.webp": "2026-09-14T11:05:08.328Z",
+          "site/assets/cards/33_HERBO_BLOOM-full.png": "2026-09-14T11:05:08.218Z",
+          "site/assets/cards/33_HERBO_BLOOM-art.webp": "2026-09-14T11:05:08.480Z"
+        }
+      },
+      {
+        "id": "30000034",
+        "slug": "34_NECRO_VALAZAR",
+        "raw": [
+          "assets/illustrations/34_NECRO_VALAZAR.png",
+          "assets/races/SKULLZ.png",
+          "assets/armes/12.png",
+          "assets/cristaux/NECRO.png",
+          "assets/factions/Cryptown.png",
+          "assets/barcodes/30000034.png",
+          "assets/effets/death.png",
+          "assets/effets/NECRO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/34_NECRO_VALAZAR.webp",
+          "site/assets/cards/34_NECRO_VALAZAR-full.png",
+          "site/assets/cards/34_NECRO_VALAZAR-art.webp"
+        ],
+        "print": "cartes/34_NECRO_VALAZAR.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/illustrations/34_NECRO_VALAZAR.png",
+          "assets/races/SKULLZ.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T10:55:07.708Z",
+        "site_mtimes": {
+          "site/assets/cards/34_NECRO_VALAZAR.webp": "2026-09-14T11:05:08.597Z",
+          "site/assets/cards/34_NECRO_VALAZAR-full.png": "2026-09-14T11:05:08.489Z",
+          "site/assets/cards/34_NECRO_VALAZAR-art.webp": "2026-09-14T11:05:08.748Z"
+        }
+      },
+      {
+        "id": "30000035",
+        "slug": "35_NECRO_CAPITAINE_SKULLY",
+        "raw": [
+          "assets/illustrations/35_NECRO_CAPITAINE_SKULLY.png",
+          "assets/races/SKULLZ.png",
+          "assets/armes/16.png",
+          "assets/cristaux/NECRO.png",
+          "assets/factions/Cryptown.png",
+          "assets/barcodes/30000035.png",
+          "assets/effets/retry.png",
+          "assets/effets/NECRO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/35_NECRO_CAPITAINE_SKULLY.webp",
+          "site/assets/cards/35_NECRO_CAPITAINE_SKULLY-full.png",
+          "site/assets/cards/35_NECRO_CAPITAINE_SKULLY-art.webp"
+        ],
+        "print": "cartes/35_NECRO_CAPITAINE_SKULLY.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/illustrations/35_NECRO_CAPITAINE_SKULLY.png",
+          "assets/races/SKULLZ.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T10:55:34.277Z",
+        "site_mtimes": {
+          "site/assets/cards/35_NECRO_CAPITAINE_SKULLY.webp": "2026-09-14T11:05:08.865Z",
+          "site/assets/cards/35_NECRO_CAPITAINE_SKULLY-full.png": "2026-09-14T11:05:08.756Z",
+          "site/assets/cards/35_NECRO_CAPITAINE_SKULLY-art.webp": "2026-09-14T11:05:09.034Z"
+        }
+      },
+      {
+        "id": "30000036",
+        "slug": "36_GEO_ELENION",
+        "raw": [
+          "assets/illustrations/36_GEO_ELENION.png",
+          "assets/races/CERELF.png",
+          "assets/armes/04.png",
+          "assets/cristaux/GEO.png",
+          "assets/factions/Woodland.png",
+          "assets/barcodes/30000036.png",
+          "assets/effets/GEO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/36_GEO_ELENION.webp",
+          "site/assets/cards/36_GEO_ELENION-full.png",
+          "site/assets/cards/36_GEO_ELENION-art.webp"
+        ],
+        "print": "cartes/36_GEO_ELENION.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/illustrations/36_GEO_ELENION.png",
+          "assets/races/CERELF.png",
+          "assets/effets/GEO.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T11:04:09.668Z",
+        "site_mtimes": {
+          "site/assets/cards/36_GEO_ELENION.webp": "2026-09-14T11:05:09.156Z",
+          "site/assets/cards/36_GEO_ELENION-full.png": "2026-09-14T11:05:09.042Z",
+          "site/assets/cards/36_GEO_ELENION-art.webp": "2026-09-14T11:05:09.315Z"
+        }
+      },
+      {
+        "id": "30000037",
+        "slug": "37_GEO_YVAR",
+        "raw": [
+          "assets/illustrations/37_GEO_YVAR.png",
+          "assets/races/RHINOZ.png",
+          "assets/armes/08.png",
+          "assets/cristaux/GEO.png",
+          "assets/factions/Zarok.png",
+          "assets/barcodes/30000037.png",
+          "assets/effets/GEO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/37_GEO_YVAR.webp",
+          "site/assets/cards/37_GEO_YVAR-full.png",
+          "site/assets/cards/37_GEO_YVAR-art.webp"
+        ],
+        "print": "cartes/37_GEO_YVAR.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/illustrations/37_GEO_YVAR.png",
+          "assets/races/RHINOZ.png",
+          "assets/effets/GEO.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T10:56:04.333Z",
+        "site_mtimes": {
+          "site/assets/cards/37_GEO_YVAR.webp": "2026-09-14T11:05:09.432Z",
+          "site/assets/cards/37_GEO_YVAR-full.png": "2026-09-14T11:05:09.323Z",
+          "site/assets/cards/37_GEO_YVAR-art.webp": "2026-09-14T11:05:09.587Z"
+        }
+      },
+      {
+        "id": "30000038",
+        "slug": "38_AERO_GILMARR",
+        "raw": [
+          "assets/illustrations/38_AERO_GILMARR.png",
+          "assets/races/RHINOZ.png",
+          "assets/armes/03.png",
+          "assets/cristaux/AERO.png",
+          "assets/factions/Zarok.png",
+          "assets/barcodes/30000038.png",
+          "assets/effets/guard.png",
+          "assets/effets/AERO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/38_AERO_GILMARR.webp",
+          "site/assets/cards/38_AERO_GILMARR-full.png",
+          "site/assets/cards/38_AERO_GILMARR-art.webp"
+        ],
+        "print": "cartes/38_AERO_GILMARR.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/illustrations/38_AERO_GILMARR.png",
+          "assets/races/RHINOZ.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T10:56:33.676Z",
+        "site_mtimes": {
+          "site/assets/cards/38_AERO_GILMARR.webp": "2026-09-14T11:05:09.707Z",
+          "site/assets/cards/38_AERO_GILMARR-full.png": "2026-09-14T11:05:09.597Z",
+          "site/assets/cards/38_AERO_GILMARR-art.webp": "2026-09-14T11:05:09.857Z"
+        }
+      },
+      {
+        "id": "30000039",
+        "slug": "39_HYDRO_RUBY",
+        "raw": [
+          "assets/illustrations/39_HYDRO_RUBY.png",
+          "assets/races/SIRENA.png",
+          "assets/armes/07.png",
+          "assets/cristaux/HYDRO.png",
+          "assets/factions/Thalassea.png",
+          "assets/barcodes/30000039.png",
+          "assets/effets/HYDRO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/39_HYDRO_RUBY.webp",
+          "site/assets/cards/39_HYDRO_RUBY-full.png",
+          "site/assets/cards/39_HYDRO_RUBY-art.webp"
+        ],
+        "print": "cartes/39_HYDRO_RUBY.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/illustrations/39_HYDRO_RUBY.png",
+          "assets/races/SIRENA.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T10:57:05.461Z",
+        "site_mtimes": {
+          "site/assets/cards/39_HYDRO_RUBY.webp": "2026-09-14T11:05:09.976Z",
+          "site/assets/cards/39_HYDRO_RUBY-full.png": "2026-09-14T11:05:09.864Z",
+          "site/assets/cards/39_HYDRO_RUBY-art.webp": "2026-09-14T11:05:10.143Z"
+        }
+      },
+      {
+        "id": "30000040",
+        "slug": "40_AERO_SORYN",
+        "raw": [
+          "assets/illustrations/40_AERO_SORYN.png",
+          "assets/races/FALCO.png",
+          "assets/armes/11.png",
+          "assets/cristaux/AERO.png",
+          "assets/factions/Nestown.png",
+          "assets/barcodes/30000040.png",
+          "assets/effets/mana.png",
+          "assets/effets/AERO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/40_AERO_SORYN.webp",
+          "site/assets/cards/40_AERO_SORYN-full.png",
+          "site/assets/cards/40_AERO_SORYN-art.webp"
+        ],
+        "print": "cartes/40_AERO_SORYN.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/races/FALCO.png",
+          "assets/armes/11.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T10:57:36.856Z",
+        "site_mtimes": {
+          "site/assets/cards/40_AERO_SORYN.webp": "2026-09-14T11:05:10.258Z",
+          "site/assets/cards/40_AERO_SORYN-full.png": "2026-09-14T11:05:10.150Z",
+          "site/assets/cards/40_AERO_SORYN-art.webp": "2026-09-14T11:05:10.411Z"
+        }
+      },
+      {
+        "id": "30000041",
+        "slug": "41_HERBO_THALIE",
+        "raw": [
+          "assets/illustrations/41_HERBO_THALIE.png",
+          "assets/races/CARNIVERT.png",
+          "assets/armes/13.png",
+          "assets/cristaux/HERBO.png",
+          "assets/factions/Arborium.png",
+          "assets/barcodes/30000041.png",
+          "assets/effets/retry.png",
+          "assets/effets/revive.png",
+          "assets/effets/HERBO.png",
+          "assets/effets/barrier.png"
+        ],
+        "site": [
+          "site/assets/cards/41_HERBO_THALIE.webp",
+          "site/assets/cards/41_HERBO_THALIE-full.png",
+          "site/assets/cards/41_HERBO_THALIE-art.webp"
+        ],
+        "print": "cartes/41_HERBO_THALIE.png",
+        "missing": [],
+        "asset_inputs_newer_than_print": [
+          "assets/races/CARNIVERT.png"
+        ],
+        "site_older_than_print": [],
+        "ui_art_resolves_inside_V3": true,
+        "print_mtime": "2026-09-14T10:58:08.965Z",
+        "site_mtimes": {
+          "site/assets/cards/41_HERBO_THALIE.webp": "2026-09-14T11:05:10.530Z",
+          "site/assets/cards/41_HERBO_THALIE-full.png": "2026-09-14T11:05:10.419Z",
+          "site/assets/cards/41_HERBO_THALIE-art.webp": "2026-09-14T11:05:10.694Z"
+        }
+      }
+    ],
+    "static_site_refs": [
+      {
+        "url": "assets/favicon.svg",
+        "resolves": "site/assets/favicon.svg",
+        "exists": true,
+        "inside_V3": true
+      },
+      {
+        "url": "style.css",
+        "resolves": "site/style.css",
+        "exists": true,
+        "inside_V3": true
+      },
+      {
+        "url": "arena.css",
+        "resolves": "site/arena.css",
+        "exists": true,
+        "inside_V3": true
+      },
+      {
+        "url": "duel-presentation.css",
+        "resolves": "site/duel-presentation.css",
+        "exists": true,
+        "inside_V3": true
+      },
+      {
+        "url": "duel-console.css",
+        "resolves": "site/duel-console.css",
+        "exists": true,
+        "inside_V3": true
+      },
+      {
+        "url": "match-report.css",
+        "resolves": "site/match-report.css",
+        "exists": true,
+        "inside_V3": true
+      },
+      {
+        "url": "catalogue.css",
+        "resolves": "site/catalogue.css",
+        "exists": true,
+        "inside_V3": true
+      },
+      {
+        "url": "v3.css",
+        "resolves": "site/v3.css",
+        "exists": true,
+        "inside_V3": true
+      },
+      {
+        "url": "assets/lucide.min.js",
+        "resolves": "site/assets/lucide.min.js",
+        "exists": true,
+        "inside_V3": true
+      },
+      {
+        "url": "data.js",
+        "resolves": "site/data.js",
+        "exists": true,
+        "inside_V3": true
+      },
+      {
+        "url": "engine.js",
+        "resolves": "site/engine.js",
+        "exists": true,
+        "inside_V3": true
+      },
+      {
+        "url": "assets/dice.bundle.js",
+        "resolves": "site/assets/dice.bundle.js",
+        "exists": true,
+        "inside_V3": true
+      },
+      {
+        "url": "combat-effects.js",
+        "resolves": "site/combat-effects.js",
+        "exists": true,
+        "inside_V3": true
+      },
+      {
+        "url": "duel-focus.js",
+        "resolves": "site/duel-focus.js",
+        "exists": true,
+        "inside_V3": true
+      },
+      {
+        "url": "formation-drag.js",
+        "resolves": "site/formation-drag.js",
+        "exists": true,
+        "inside_V3": true
+      },
+      {
+        "url": "match-report.js",
+        "resolves": "site/match-report.js",
+        "exists": true,
+        "inside_V3": true
+      },
+      {
+        "url": "local-db.js",
+        "resolves": "site/local-db.js",
+        "exists": true,
+        "inside_V3": true
+      },
+      {
+        "url": "catalogue.js",
+        "resolves": "site/catalogue.js",
+        "exists": true,
+        "inside_V3": true
+      },
+      {
+        "url": "app.js",
+        "resolves": "site/app.js",
+        "exists": true,
+        "inside_V3": true
+      },
+      {
+        "url": "assets/logo.webp",
+        "resolves": "site/assets/logo.webp",
+        "exists": true,
+        "inside_V3": true
+      },
+      {
+        "url": "assets/arena.webp",
+        "resolves": "site/assets/arena.webp",
+        "exists": true,
+        "inside_V3": true
+      },
+      {
+        "url": "assets/back.webp",
+        "resolves": "site/assets/back.webp",
+        "exists": true,
+        "inside_V3": true
+      }
+    ],
+    "source_scan": {
+      "legacy_asset_routes": [],
+      "service_worker_or_cache_storage": [],
+      "legacy_registry_consumer": [],
+      "baked_revision_routes": []
+    },
+    "file_sha256": {
+      "donnees/cartes.json": "45af148f8d1828287116a9985f4d33f41a58a64a43852980da8d231c48707fcf",
+      "donnees/armes.json": "f179c9f8e8744e388aa32588e7b8c3dec1cf783428d57baeac55997fd916ff8f",
+      "donnees/elements.json": "4eccd33d94f92aa6da4f8b28b08b1157e794147fbdeea05c35c21d2675dd4846",
+      "donnees/regles.json": "31050cb513762c411651c1fc371d23f320b4df4394d108a6856f4c9069cf3129",
+      "donnees/regles_demo.json": "6e5a6a8fab0c09203832f257059368ff581d8fd4d18123f7b60f7914029f3aad",
+      "donnees/decks_demo.json": "44947a8e06240e1ca4851f5d0564ee7d55e4725ec5bee3c86c726365689821b8",
+      "donnees/arenes.json": "087afa1057afb1f28ac27ab2bf77fad4cdd015002fcc0a5592127687588de79b",
+      "site/data.js": "f8381040eb2b5f02eef5f10eac8ef412f6c0c62618d466c3cfc54b9cd7d508f5",
+      "site/app.js": "d0b192fe8141a91a84a6862d68c9b067c0035dfa1c521e5150846576421c6527",
+      "site/catalogue.js": "cc27d4337c46b392b366659a080ab38fbd7cc41634e4a4f9eab16ee13ca4cf7f",
+      "site/local-db.js": "db6234bf5478f067dc548518a4f93a328f19c0e2d498de8d97a701aebec53d68",
+      "site/engine.js": "81efb5c965666707a722aae873fdfeacf404ece955118596ef82e6e96787baa7",
+      "site/match-report.js": "ee8a1b6191247f08e8385cb7a609ccd62e109d36ed4cde96032c012079aaf7e4",
+      "site/combat-effects.js": "be394fb0109b343c42a2f62838c1e36d2eebae2ca8370a4197731dc1eece7590",
+      "site/duel-focus.js": "95a7314563a31e04a3efa4d57d7dbe3b0c0e7cd3f5d1822ae1f97a32ad53db34",
+      "site/dice-view.js": "d69d74eb5d13885fe64eea70261796fd16fb3a2e766b61af0410138886f0eeed",
+      "site/index.html": "d007fb9993c30e5b1a984eff16a6ba43a10abdf4545628ceb5006ce159e58b61",
+      "scripts/build_game_bundle.cjs": "b6b250330d6222f0ca6d371a509e469f782d437ba992a193db8ebaeca74aea34",
+      "scripts/build_cards.jsx": "336f95520014bdfb9b6ad85623976ea5cebed9da9955e258a8de136350a0c3a0",
+      "scripts/integrate_harmonisation.cjs": "382ed00ab7b68267be931953fa92568044a79bde5698deb7225eaadbe8381b86"
+    }
+  },
+  "tests": {
+    "node": [
+      {
+        "command": "node V3/site/engine.test.cjs",
+        "exit_code": 0,
+        "checks": 61,
+        "output": "61 tests passed, including 100 complete deterministic campaigns.",
+        "production_writes": false,
+        "browser": false
+      },
+      {
+        "command": "node V3/site/engine-v3.test.cjs",
+        "exit_code": 0,
+        "checks": 26,
+        "output": "PASS Guard supports either side and both authorized roles, including self\nPASS Guard rejects enemies, reserves, dead units, invalid phases and duplicate grants atomically\nPASS Guard AI chooses an unprotected living ally using no RNG or hidden state\nPASS Ward is consumed on every first numeric physical defense, including zero ATK, ties and lethal hits\nPASS Magic, dodge and Mort leave ward untouched\nPASS Printed DEF retries preserve ward until the first numeric defense\nPASS Consumed ward is not renewed on the next exchange\nPASS Spent ward stays in a saved duel through subsequent retries without a second live trait\nPASS Ward coexists with numeric synergies and home defense, but never other live traits\nPASS Arena bonuses use character identity across versions and both teams\nPASS Arena numeric modifiers are symmetric for physical and magical attacks\nPASS Second chance keeps arena bonuses and spent mana while recalculating the new barrier\nPASS Combat AI accounts for arena affinity and opposing wards without touching RNG\nPASS NONE receives home affinity but no elemental arena bonus or barrier\nPASS RAINBOW matches only its own arena crystal\nPASS Arena effects never manufacture numeric scores for support, dodge or Mort\nPASS Dynamic arena catalog replaces hardcoded choices and defaults to its first entry without ruins\nPASS Arena selection is atomic, setup-only, and does not advance RNG\nPASS Malformed or excessive arena definitions are rejected\nPASS Guard and Reraise permissions are enforced in profiles and before dice or grants mutate state\nPASS V3 profile validation rejects legacy IDs, missing metadata, illegal faces and NONE barriers\nPASS K3 identifiers distinguish all four copies, persist through deployment and reject K2 even with schema 6\nPASS Malformed pending guards, tokens and recipients are rejected without mutation\nPASS V3 numeric formula imports require all bonus fields and consistent totals\nPASS Stored guard survives magic and is consumed only on a later physical defense\nPASS Seed and xorshift RNG sequence are unchanged; arena and support AI never consume draws\n26 V3 engine tests passed.",
+        "production_writes": false,
+        "browser": false
+      },
+      {
+        "command": "node V3/site/match-stats.test.cjs",
+        "exit_code": 0,
+        "checks": 18,
+        "output": "PASS Kill and defense totals belong to actual units, not their card version or side role\nPASS Side two attacks: offense credited to the right, defense to the left\nPASS Reraise saves a life without a kill, hold or death\nPASS Clover failure and retry are never accumulated; only the final defense counts\nPASS Dodge and shield cancel numeric scores but count as stops\nPASS Mort records a real kill without invented numerical damage\nPASS All five support types count the caster; ally gifts and unchanged refreshes are distinct\nPASS Identical copies remain separate by UID and team totals equal the sum of unit totals\nPASS V3 saves without telemetry remain explicitly partial without RNG changes\nPASS Unknown arenas and malformed telemetry are rejected\nPASS Reading statistics is pure and cannot accumulate points\nPASS A V3 save missing even its first resolved exchange is explicitly partial\nPASS Complete deterministic campaigns agree with real casualties and survive JSON import\nPASS Debuffer credits weapon, element and barrier reductions to the defender\nPASS Ward support is credited to its caster and spent defense to the recipient on either side\nPASS Arena and ward totals are separate contributions, not double-counted scores\nPASS Unused ward never contributes defense statistics on magic, dodge or Mort\nPASS V3 statistics reject V2 input and malformed V3 bonus telemetry\n18 match statistics tests passed.",
+        "production_writes": false,
+        "browser": false
+      },
+      {
+        "command": "node V3/scripts/testsrepertoire.test.cjs",
+        "exit_code": 0,
+        "checks": 12,
+        "output": "✔ 41 consecutive V3 IDs, 40 identities, 15 V2 identities preserved, Momo alone twice (1.618ms)\n✔ V2-shaped profiles, required narrative metadata and local V3 destinations (0.5589ms)\n✔ Every numeric face lies in the corrected Capacite base role interval (0.6211ms)\n✔ Guard only ATK P1/some P5, Reraise only canHeal P5, no DEF shield (0.2901ms)\n✔ NONE is entirely physical, canonical scene constraints and explicit V2 elemental exception (0.372ms)\n✔ 13 element definitions retain V2 cycles; NONE and matchup metadata are explicit (1.0336ms)\n✔ Both extracted red/green weapon sheets exactly match the unchanged 20x20 V2 matrix (1.9089ms)\n✔ Five ten-card decks obey limits, permit a full formation and cover all 41 cards (0.3466ms)\n✔ 16 arenas, one per crystal, neutral NONE, capped bonuses and real character IDs (0.5706ms)\n✔ Every arena production prompt has an exact targeted history source or explicit invention (5.1762ms)\n✔ Production manifest: 14 true V2 copy sources, two redraws, 25 new images (2.7227ms)\n✔ Generation is deterministic and --check has no write side effects (15.3347ms)\nℹ tests 12\nℹ suites 0\nℹ pass 12\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 35.9156",
+        "production_writes": false,
+        "browser": false
+      },
+      {
+        "command": "node V3/site/engine-roster.test.cjs",
+        "exit_code": 0,
+        "checks": null,
+        "output": "JSON roster: 41 cards, 16 arenas, 246 attack faces and 80 complete campaigns passed.",
+        "production_writes": false,
+        "browser": false
+      },
+      {
+        "command": "node V3/site/engine-roster.test.cjs --bundle",
+        "exit_code": 0,
+        "checks": null,
+        "output": "data.js bundle: 41 cards, 16 arenas, 246 attack faces and 80 complete campaigns passed.",
+        "production_writes": false,
+        "browser": false
+      }
+    ],
+    "browser": [
+      {
+        "command": "node V3/scripts/verify_db_engine_contract.cjs",
+        "exit_code": 0,
+        "summary": {
+          "cards": 41,
+          "arenas": 16,
+          "passed": 9,
+          "failed": [],
+          "sources": {
+            "app.js": "d0b192fe8141",
+            "local-db.js": "db6234bf5478",
+            "catalogue.js": "cc27d4337c46",
+            "engine.js": "81efb5c96566",
+            "data.js": "f8381040eb2b",
+            "match-report.js": "ee8a1b619124"
+          },
+          "changedDuringReview": []
+        },
+        "output": "PASS NONE catalogue/detail renders without exception or elemental barrier\nPASS Setup arena selection and imported guard retain the exact arena\nPASS UI guard replaces clover once; saved state and DB stats equal the engine\nPASS Invalid arena, multiple traits and V2 game imports leave active state intact\nPASS UI defense consumes ward only for physical numeric rolls; DB retains identical totals\nPASS Final results retain ward/arena metrics; repeated save/import never doubles careers\nPASS V2 library import is rejected atomically and V2 storage remains isolated\nPASS Historical arena snapshots survive library import just like profiles and rules\nPASS No browser exceptions in the reviewed flows\n{\n  \"cards\": 41,\n  \"arenas\": 16,\n  \"passed\": 9,\n  \"failed\": [],\n  \"sources\": {\n    \"app.js\": \"d0b192fe8141\",\n    \"local-db.js\": \"db6234bf5478\",\n    \"catalogue.js\": \"cc27d4337c46\",\n    \"engine.js\": \"81efb5c96566\",\n    \"data.js\": \"f8381040eb2b\",\n    \"match-report.js\": \"ee8a1b619124\"\n  },\n  \"changedDuringReview\": []\n}"
+      },
+      {
+        "command": "node V3/scripts/verify_presets_v3.cjs",
+        "exit_code": 0,
+        "summary": {
+          "ok": true,
+          "checks": 10,
+          "decks": 5,
+          "cards": 41,
+          "browserErrors": [],
+          "changedDuringTest": [],
+          "sourceHashes": {
+            "app.js": "d0b192fe8141",
+            "local-db.js": "db6234bf5478",
+            "catalogue.js": "cc27d4337c46",
+            "engine.js": "81efb5c96566",
+            "data.js": "f8381040eb2b",
+            "v3.css": "fc12eb47aec9"
+          }
+        },
+        "output": "PASS Five named presets cover 41 cards and all pass validateDeck\nPASS Editing the initial draft cannot mutate source presets\nPASS Selecting is inert; Charger loads each draft without changing the active match\nPASS Draft and preset preferences persist in V3; canceled IA choice preserves the match\nPASS Each of the five IA decks is used only by the next confirmed match\nPASS Opponent selector remains coherent for local two-player matches\nPASS An invalid draft cannot replace an active game, even by forged form submission\nPASS Preset controls fit desktop and mobile dialogs without horizontal overflow\nPASS Invalid saved presets fall back; invalid presets are disabled and cannot bypass validation\nPASS Unknown stored preference IDs are normalized without disturbing an existing game\n{\n  \"ok\": true,\n  \"checks\": 10,\n  \"decks\": 5,\n  \"cards\": 41,\n  \"browserErrors\": [],\n  \"changedDuringTest\": [],\n  \"sourceHashes\": {\n    \"app.js\": \"d0b192fe8141\",\n    \"local-db.js\": \"db6234bf5478\",\n    \"catalogue.js\": \"cc27d4337c46\",\n    \"engine.js\": \"81efb5c96566\",\n    \"data.js\": \"f8381040eb2b\",\n    \"v3.css\": \"fc12eb47aec9\"\n  }\n}"
+      }
+    ],
+    "isolation": {
+      "launch": "playwright.chromium.launch({channel:'chrome',headless:true})",
+      "context": "browser.newContext; nonpersistent temporary Playwright profile, no userDataDir supplied, no attach to existing browser",
+      "routes": "localhost:39872 and localhost:39873 intercepted and fulfilled from project files; other hosts fulfilled with 204; images replaced by 1x1 PNG",
+      "databases": "Only fresh context-local test DBs, including V2 sentinels and named contract-source/dest/history DBs",
+      "cleanup": "Both scripts close their launched browser in finally; presets explicitly closes both contexts",
+      "source_changes_reported_by_both_browser_scripts": [],
+      "real_user_storage_accessed": false
+    },
+    "environment_retries": [
+      {
+        "command": "node --test V3/scripts/testsrepertoire.test.cjs",
+        "failure": "spawn EPERM in sandboxed node:test runner",
+        "resolution": "Same test file run directly with node; all 12 passed, no production writes allowed by its --check test"
+      },
+      {
+        "command": "node V3/scripts/verify_db_engine_contract.cjs",
+        "failure": "Chrome spawn EPERM in sandbox",
+        "resolution": "User-authorized escalation; temporary headless profile; 9/9 passed. Preset test also ran with escalation and passed 10/10."
+      }
+    ],
+    "not_run": [
+      "Photoshop build",
+      "build_game_bundle.cjs",
+      "build:dice",
+      "verify_site_v3.cjs",
+      "any real-profile browser/BDD access"
+    ]
+  },
+  "parent_follow_up_tests": [
+    {
+      "step": 1,
+      "action": "Finish all final 897x1497 V3/cartes exports from integrated canonical assets, outside the prototype outputPrefix; confirm every required card was exported."
+    },
+    {
+      "step": 2,
+      "action": "Run node V3/scripts/build_game_bundle.cjs after exports finish. Require 41 exported, missing=[], expected 797x1388 full cards and 538px WebP thumbnails. Do not use counts alone as evidence of fresh artwork."
+    },
+    {
+      "step": 3,
+      "action": "Run node V3/scripts/verify_site_v3.cjs on the new bundle. The two requested isolated DB/preset scripts passed on bundle SHA256 f8381040eb2b5f02eef5f10eac8ef412f6c0c62618d466c3cfc54b9cd7d508f5."
+    },
+    {
+      "step": 4,
+      "action": "In an isolated browser with cache disabled, inspect collection, detail full card, illustration toggle, battlefield, archive and match report; require no V2 image requests, no 404s and all images decoded. Reload at the same origin for normal-user rollout, without deleting storage."
+    },
+    {
+      "step": 5,
+      "action": "Verify guitar 11 on 30000001, 30000014 and 30000040 while filter/detail label remains Instrument. Numeric test: Instrument vs Arc +50, vs Dague -50, vs Instrument 0; index remains 11."
+    },
+    {
+      "step": 6,
+      "action": "Verify six NONE cards (30000021,22,23,25,26,27): inert printed crystal, zero magic and barriers; circle-slash UI controls remain intentional. Selected NONE units must have no element-aura canvas."
+    },
+    {
+      "step": 7,
+      "action": "Verify MINERO halo on BALMHYR D6/D4 and GEO halo on NAZAR D6/D3. Distinguish these baked PNG halos from unchanged procedural board auras. Inspect all approved race logos both in direct detail icons and baked card medallions."
+    },
+    {
+      "step": 8,
+      "action": "After the final bundle, optionally rerun isolated DB/preset checks; export/import a test library twice and confirm identical careers and result counts, K3 identity preservation and V2 sentinel isolation. Never use the user's real browser profile for these tests."
+    }
+  ]
+}

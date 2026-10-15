@@ -1,0 +1,48 @@
+{
+  "date": "2026-09-23",
+  "tool": "image_gen.imagegen (built-in)",
+  "status": "Selected after assistant visual review; artistic approval remains with user",
+  "sources": [
+    {
+      "page": "https://www.jp.square-enix.com/column/detail/17/",
+      "files": [
+        "art/references/world-official.png",
+        "art/references/park-wide-official.jpg",
+        "art/references/park-official.png"
+      ],
+      "role": "Official City Ruins and Amusement Park location screenshots"
+    },
+    {
+      "file": "art/references/city-official.png",
+      "url": "https://www.jp.square-enix.com/column/detail/files/NieR_Automata_09.png",
+      "role": "Inspected but NOT used: this depicts Flooded City, not starting City Ruins"
+    }
+  ],
+  "entries": [
+    {
+      "key": "city-ruins",
+      "prompt": "Use case: stylized-concept environment illustration. One original finished LANDSCAPE 16:9 game-arena background for KALISTAR x NieR:Automata, the starting CITY RUINS before the giant crater. Image1 Momo and2 Valazar are PAINTING TECHNIQUE references only, image3 official game screenshot is LOCATION reference only. Paint a broad deserted cracked asphalt intersection reclaimed by grass, stately mature green trees growing against weathered modern concrete buildings, distinctive half-collapsed rectangular skyscrapers with exposed grid floors and broken tops. One leaning skeletal tower beyond trees echoes the canonical City Ruins; a low abandoned rusted vehicle near an outside edge. Ground-level view with enough distance to let pale blue-grey morning sky breathe in upper half. Quiet broad open central plaza/road, low tufts of grass and a few shallow reflections on stone near margins, clear layered composition, architectural shapes mostly at side edges and middle distance; spacious simple lower45% for a game board. Not a flooded coastal city, no sea, no desert, no huge central crater, no white tower, no medieval city, no generic sci-fi megacity. Feeling: melancholy peace, life reclaiming concrete after humanity, luminous morning after light rain with warm soft sunlight touching green canopies and cool grey ruin shadows. Important place is readable not blurred or hidden. Kalistar narrative fantasy PAINTING: obvious varied brushwork and textured color planes, tactile chipped concrete and rust, selective edges and organized details, same material sensibility as Momo. No photo, no photorealism, no glossy CGI, no anime, no illustration of UI. No foreground characters, no text, no logos, no watermark, no cards or game-board graphics. Original composition rather than copying the screenshot.",
+      "referenced_image_paths": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/collaborations/nier-arenas-01/art/references/world-official.png"
+      ],
+      "generatedFile": "C:/Users/guill/.codex/generated_images/019e30c1-21b0-7e11-9f9d-2fe692f111d2/exec-cff157cc-d7c2-4856-8234-4536e49b8155.png",
+      "selectedFile": "V4/collaborations/nier-arenas-01/art/city-ruins.png",
+      "review": "16:9, recognizable location, visible textured brushwork, calm playable center. In-game layout still to review."
+    },
+    {
+      "key": "amusement-park",
+      "prompt": "Use case: stylized-concept environment illustration. Create ONE finished original LANDSCAPE 16:9 KALISTAR x NieR:Automata arena background: the ABANDONED AMUSEMENT PARK still glowing at dusk. Images1 Momo and2 Valazar define PAINTING TECHNIQUE only. Image3 is official location screenshot showing iconic theatre and Ferris wheel, image4 shows brick facades and friendly clown-costumed machines for identity. New composition from just INSIDE the park entrance, a wide open old cobblestone promenade leads toward the recognizable tall crooked fairy-tale theatre castle with a steep spire and round amber light high above windows. Rusted Ferris wheel on right behind the facades, sparse arching rollercoaster track at left distance. Faded brick fairground facades, ivy, elegant old wrought iron railings at extreme sides. Warm amber bulbs and a few strings of colored festival lights still glow along attractions. Two small welcoming machine lifeforms in faded carnival ruffs/top hat near LEFT outer edge, tiny distant, not heroes or focal subjects. A few old balloons tied to a stall at the far side; one modest firework fading high over the distant theatre, not a sky cluttered with explosions. Broad calm empty foreground and center50% reserved for card-game board, attractions mainly upper half and sides. Purple-grey twilight sky with rose-grey sunset clouds, weathered rose-red brick, cool grey paving, warm illuminated windows; bittersweet joy and loneliness, charming slightly uncanny celebration after people have gone, not horror, not an intact modern theme park, not generic Disneyland. Match the Kalistar narrative fantasy painting in images1/2: obvious hand-painted varied strokes, textured color planes, worn materials, controlled detail, crisp focal architecture, no photorealism, no smooth3D, no anime, no uniform noise. No foreground humans/android heroes, no large crowds, no legible text/signage, logos, watermark, cards, border, UI or board markings. No cut-and-paste screenshot; original atmospheric painterly reinterpretation retaining real location cues.",
+      "referenced_image_paths": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/collaborations/nier-arenas-01/art/references/park-wide-official.jpg",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/collaborations/nier-arenas-01/art/references/park-official.png"
+      ],
+      "generatedFile": "C:/Users/guill/.codex/generated_images/019e30c1-21b0-7e11-9f9d-2fe692f111d2/exec-6a47a616-c670-4cba-a00f-6bd5753a006e.png",
+      "selectedFile": "V4/collaborations/nier-arenas-01/art/amusement-park.png",
+      "review": "16:9, recognizable location, visible textured brushwork, calm playable center. In-game layout still to review."
+    }
+  ]
+}

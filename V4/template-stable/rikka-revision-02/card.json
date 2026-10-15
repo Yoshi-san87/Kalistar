@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 3,
+  "id": "40000042",
+  "characterId": "rikka",
+  "name": "RIKKA",
+  "title": "POUR UNE VIE DE PLUS",
+  "job": "VOLEUSE",
+  "race": "FELINEUS",
+  "element": "ELECTRO",
+  "faction": "Chroma",
+  "weapon": "Fouet",
+  "weapon_index": 6,
+  "positions": [
+    2
+  ],
+  "role": 2,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": false,
+  "atk": [
+    288,
+    238,
+    188,
+    138,
+    88,
+    38
+  ],
+  "defense": [
+    "dodge",
+    138,
+    108,
+    78,
+    48,
+    "retry"
+  ],
+  "magic": [
+    5
+  ],
+  "barriers": [],
+  "advantage": 30,
+  "disadvantage": 30,
+  "color": "F5DC32",
+  "hue": 53,
+  "artwork": "RIKKA",
+  "artworkSource": "V4/assets/illustrations/42_ELECTRO_RIKKA_V4_02_VITRINE_FRONTALE.png",
+  "approvedProposal": "V4/propositions/rilka-01/04d-kalistel-luxo.png",
+  "description": "Rikka dérobe un Kalistel Luxo au musée de Chroma. Un ami cher n'a plus le temps d'attendre. Blessée, elle serre le reliquaire : ce soir, elle ne vole pas une fortune, mais une chance de le sauver.",
+  "output": "RIKKA_V4_02_VITRINE_ICONES",
+  "balanceStatus": "Proposition V4 calibree sur les P2 V3 ; a confirmer en parties.",
+  "integrationStatus": "Carte V4 uniquement ; V3, site et BDD inchanges.",
+  "revisionNote": "Vitrine accessible de face, dodge inscrit dans le cercle, trefle centre optiquement. Statistiques inchangees."
+}

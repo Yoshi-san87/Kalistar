@@ -1,0 +1,52 @@
+{
+  "passed": true,
+  "key": "barret",
+  "modelId": "43698921",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "ede37c82630793df754f53e9522aaef26835f38e94ff4d4bc5f412e4d8878e49",
+  "hashes": {
+    "card.png": "b8e1ae17d295186d26e2af3fa924c8d07242ee215163df6eabdbc91d8c996e96",
+    "card.psd": "e5c4482329a5c89bd32cb6ee719843c8d914d16fb0e8d77f29390b6394293780"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "proof": "same PSD with only embedded artwork replaced",
+    "withoutArt": {
+      "changed": 0,
+      "outside": 0
+    }
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "43698921",
+    "cases": {
+      "color-1": [
+        "43698921"
+      ],
+      "color-4": [
+        "43698921"
+      ],
+      "gray-1": [
+        "43698921"
+      ],
+      "gray-4": [
+        "43698921"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-20T10:34:06.616Z",
+  "illustrationOnly": {
+    "outside": {
+      "changed": 455157,
+      "outside": 0
+    },
+    "layerStateIdentical": true
+  },
+  "revision": "2026-09-20-barret-emotion"
+}

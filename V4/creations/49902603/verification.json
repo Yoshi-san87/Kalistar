@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "modelId": "49902603",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "c7bc6b590c82bc3907a5af1329809ad1be77db6d3b484e214af4196307e09be4",
+  "hashes": {
+    "card.png": "76ee1cfc43f5e0dad04460ba8aecf765a1c82dedd67bd487fdde0eed31bb37b4",
+    "card.psd": "03120b32e6514e0116b6762c39af8a52811d9b0ff5555add5287375cbb454191"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 90343
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49902603",
+    "cases": {
+      "color-1": [
+        "49902603"
+      ],
+      "color-4": [
+        "49902603"
+      ],
+      "gray-1": [
+        "49902603"
+      ],
+      "gray-4": [
+        "49902603"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-13T13:07:48.162Z",
+  "revision": "2026-10-13-voices-weapon-glyphs",
+  "scope": {
+    "changed": 7255,
+    "outside": 0
+  },
+  "weaponOnly": true,
+  "profileUnchanged": true,
+  "source": {
+    "id": "49902603",
+    "key": "raskel",
+    "family": "Instrument",
+    "source": "V4/site/assets/base-weapons/11.svg",
+    "sourceHash": "9b87cc3614a80be9c3c621f86e0b466a9b5bca4080e25b8edf3f154934dfebe6",
+    "enamelHash": "9588d3c555966d642c8cbdeaf328b34052cabc08303572b534e831f4c0c48d47"
+  },
+  "inputManifestHash": "0439066a6f7aebdc9f2eb9c69117386eb89306a3bf9a647eaf60523abd0c384c"
+}

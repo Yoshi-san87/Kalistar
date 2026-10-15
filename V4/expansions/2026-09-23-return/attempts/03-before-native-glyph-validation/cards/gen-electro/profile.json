@@ -1,0 +1,67 @@
+{
+  "name": "GEN",
+  "title": "LA NUIT OU LA Z13 S ETEINT",
+  "job": "MECANICIEN",
+  "description": "Devant le panneau électrique, Gen retient son souffle. Son bras gauche crépite, puis les lampes de la Z13 s’éteignent une à une. Ses mains tremblent encore : pour la première fois, la panne ouvre un chemin.",
+  "element": "ELECTRO",
+  "race": "CYBORG",
+  "weapon": "Projectile",
+  "faction": "Z13",
+  "positions": [
+    4
+  ],
+  "atk": [
+    286,
+    238,
+    188,
+    "mana",
+    90,
+    40
+  ],
+  "defense": [
+    169,
+    138,
+    108,
+    80,
+    49,
+    24
+  ],
+  "magic": [
+    6,
+    5,
+    4,
+    2
+  ],
+  "barriers": [
+    5,
+    3
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "44703335",
+  "characterId": "gen",
+  "slug": "V4_44703335",
+  "output": "KALISTAR_V4_44703335",
+  "text": "Devant le panneau électrique, Gen retient son souffle. Son bras gauche crépite, puis les lampes de la Z13 s’éteignent une à une. Ses mains tremblent encore : pour la première fois, la panne ouvre un chemin.",
+  "color": "F5DC32",
+  "hue": 53,
+  "weapon_index": 9,
+  "role": 4,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Kalistar V4 - expansion 2026-09-23-return",
+  "visual_revision": "V4-2026-09-23-return",
+  "edition": "variant",
+  "artwork": "gen-electro",
+  "legacyId": "30000023",
+  "legacySource": "V3/donnees/cartes.json",
+  "replacesModel": false
+}

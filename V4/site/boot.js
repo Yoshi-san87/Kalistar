@@ -1,0 +1,52 @@
+(() => {
+  'use strict';
+  const release = new URL(document.currentScript?.src || location.href).searchParams.get('v') || '';
+  const scripts = ['assets/lucide.min.js', 'ui-system.js', 'positions.js', 'dialog-history.js', 'factions.js', 'ultimate-definitions.js', 'weapons.js', 'weapon-art.js', 'defensive-equipment.js', 'relic-ultimates.js', 'ultimate-runtime.js', 'equipment.js', 'turn-order.js', 'combat-timeline.js', 'performance-index.js', 'ai-strategies.js', 'engine.js', 'base-weapons.js', 'collaborations.js', 'card-media.js', 'ultimate-ui.js', 'equipment-presentation.js', 'elemental-roll.js',
+    'arena-ambience.js', 'combat-effects.js', 'duel-focus.js', 'lineup-intro.js', 'formation-drag.js', 'match-metrics.js', 'trophies.js', 'battle-report.js', 'match-report.js', 'arena-finale.js',
+    'ownership.js', 'local-db.js', 'weapon-cards.js', 'weapons-ui.js', 'catalogue.js', 'catalogue-updates.js', 'collection-binder.js', 'accounts-ui.js',
+    'reserve-preview.js', 'deck-library.js', 'team-composition.js', 'deck-builder.js', 'statistics.js', 'story-reader.js', 'matchmaking.js', 'pre-match.js', 'home-screen.js', 'page-transitions.js', 'map-view.js', 'guide-scenario.js', 'guide-view.js', 'rules-documents.js', 'library-view.js', 'app.js'];
+  const fail = error => {
+    if (window.KALISTAR_READY || window.KALISTAR_PREVIEW_READY) return;
+    const app = document.getElementById('app'); app.replaceChildren();
+    const panel = document.createElement('section'); panel.className = 'boot-status';
+    const title = document.createElement('h1'); title.textContent = 'Jeu V4 indisponible';
+    const message = document.createElement('p'); message.textContent = error.message || 'Le catalogue ne peut pas etre charge.';
+    const retry = document.createElement('button'); retry.textContent = 'Reessayer'; retry.onclick = () => location.reload();
+    const atelier = document.createElement('a'); atelier.href = '/'; atelier.textContent = 'Atelier';
+    panel.append(title, message, retry);
+    if (!window.KalistarSite?.online) panel.append(atelier);
+    app.append(panel);
+  };
+  window.addEventListener('unhandledrejection', event => fail(event.reason || {}));
+  window.addEventListener('error', event => { if (event.message) fail(event); });
+  async function start() {
+    if(window.KalistarPhonePreview?.isHost){
+      await new Promise((resolve,reject)=>{
+        const script=document.createElement('script');script.src='assets/lucide.min.js';
+        script.onload=resolve;script.onerror=()=>reject(Error('Icônes indisponibles.'));document.head.append(script);
+      });
+      window.KalistarPhonePreview.mountHost();return;
+    }
+    const style=document.createElement('link');style.rel='stylesheet';style.href='ultimate-ui.css'+(release?'?v='+encodeURIComponent(release):'');document.head.append(style);
+    const catalogue = fetch(window.KalistarSite?.catalogue || '/api/game/catalogue', { cache: 'no-store' });
+    // Fetch concurrently, but execute only after validation and in dependency order.
+    const preloads = scripts.map(src => {
+      const link = document.createElement('link'); link.rel = 'preload'; link.as = 'script';
+      link.href = release ? `${src}?v=${encodeURIComponent(release)}` : src;
+      document.head.append(link); return link;
+    });
+    try {
+      const response = await catalogue;
+      if (!response.ok) throw Error('Catalogue V4 indisponible (HTTP ' + response.status + ').');
+      const data = await response.json();
+      if (data.version !== 4 || data.edition !== 'V4' || !data.cards?.length || data.cards.some(c => c.edition !== 'V4' || !c.pngUrl)) throw Error('Catalogue V4 attendu. Aucun catalogue historique ne sera charge.');
+      window.KALISTAR_DATA = data;
+      for (const src of scripts) await new Promise((resolve, reject) => {
+        const script = document.createElement('script'); script.src = release ? `${src}?v=${encodeURIComponent(release)}` : src;
+        script.onload = resolve; script.onerror = () => reject(Error('Module introuvable : ' + src));
+        document.head.append(script);
+      });
+    } finally { preloads.forEach(link => link.remove()); }
+  }
+  start().catch(fail);
+})();

@@ -1,0 +1,113 @@
+{
+  "schema": "kalistar.v4.illustration-provenance.v1",
+  "name": "SCROW",
+  "version": "V4_01",
+  "source_database": {
+    "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/donnees/cartes.json",
+    "card_id": "30000015",
+    "art": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/15_AERO_SCROW.png",
+    "lore": "Scrow reconnait le sceau avant de lacher la corde. Il laisse le messager franchir les toits. Une fleche retenue peut peser autant qu une fleche tiree.",
+    "story_scene": "Scene inventee : Scrow attend sur une tour de Nestown et decide de ne pas tirer sur un messager."
+  },
+  "source_sha256": "BE4D74B4C3792DB4437931C03F09922E274BF5192880CC90037E99A1BF939B7A",
+  "source_file_unchanged_verified": true,
+  "instructions": [
+    "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/AGENTS.md",
+    "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/DIRECTION_ARTISTIQUE.md",
+    "C:/Users/guill/.codex/skills/.system/imagegen/SKILL.md"
+  ],
+  "generation": {
+    "tool": "image_gen builtin",
+    "callable_tool": "image_gen__imagegen",
+    "mode": "edit",
+    "use_case": "identity-preserve",
+    "calls": 1,
+    "cli_used": false,
+    "model_override": null,
+    "prompt_path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/donnees/elements-01/air/SCROW_V4_01.prompt.txt",
+    "prompt_sha256": "FAEBAA461931EEBD6CB3EC1010D5AADBE3E59A65242D445D69850719AA3D75BA",
+    "reference_images_in_call_order": [
+      {
+        "role": "edit_target",
+        "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/15_AERO_SCROW.png",
+        "view_image_inspected": true
+      },
+      {
+        "role": "authoritative_faction_flag",
+        "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/factions/Nestown.png",
+        "view_image_inspected": true
+      },
+      {
+        "role": "style_only",
+        "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "view_image_inspected": true
+      },
+      {
+        "role": "style_only",
+        "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "view_image_inspected": true
+      }
+    ],
+    "generated_path": "C:/Users/guill/.codex/generated_images/01a0af75-4daa-7b01-a046-e727c648c1e8/exec-73a7b4e6-dd50-4c35-8a92-326e4f332d4a.png"
+  },
+  "flag_verification": {
+    "asset_path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/factions/Nestown.png",
+    "card_reference_path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/site/assets/cards/15_AERO_SCROW-full.png",
+    "both_inspected_with_view_image": true,
+    "description": "Turquoise/teal cloth, ivory heraldic bird with raised wings, gold trim. This is the faction flag on Scrow's card; the solar motifs in the old illustration are not the authoritative flag.",
+    "legacy_svg_not_used": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V3/assets/factions/Nestown.svg"
+  },
+  "output": {
+    "path": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/assets/illustrations/elements-01/air/SCROW_V4_01.png",
+    "format": "PNG",
+    "width": 1122,
+    "height": 1402,
+    "bytes": 2789083,
+    "sha256": "6733A20688A6A4A99595AF22BEB7AC355DEE2F89E4D2773BEAC4BE1332150737",
+    "copy_method": "PowerShell Copy-Item",
+    "exact_generated_file_copy_verified": true,
+    "overwrote_existing_file": false,
+    "resized": false,
+    "cropped": false
+  },
+  "framing": {
+    "target_window": {
+      "width": 737,
+      "height": 921
+    },
+    "method": "Native high-resolution illustration supplied for parent to fit to art window.",
+    "cover_crop_total_at_target_pixels": {
+      "horizontal": 0.0628,
+      "vertical": 0
+    },
+    "character_positions": "Approved source positions retained; central faces/action remain readable. No recentering that would change approved poses.",
+    "psd_template_work": "Not performed; parent owns template and final card integration."
+  },
+  "qa": {
+    "source_inspected_with": "view_image",
+    "final_inspected_with": "view_image",
+    "status": "accepted_for_parent_integration",
+    "observations": [
+      "Meme tete de corvide, oeil ambre, regard vigilant, pose sur le parapet, mantelet clair, broche, cuir, mains et arc visuellement conserves.",
+      "Beau ciel bleu dominant et architecture reduite a un ensemble de remparts/tours du chateau principal avec un pont ; beaucoup moins d'elements flottants.",
+      "Le petit messager en planeur reste visible, preservant la raison narrative de la fleche retenue.",
+      "Bannieres turquoise avec oiseau ivoire aux ailes deployees et bordures dorees : identite du vrai drapeau Nestown reprise, y compris sur le planeur. Les anciens soleils des tissus ont ete remplaces.",
+      "La broche du personnage est conservee ; elle n'a pas ete confondue avec les bannieres.",
+      "Peinture narrative et matieres patinees coherentes avec Momo/Valazar, sans cadre ni texte."
+    ],
+    "correction_needed": false,
+    "additional_generation_calls": 0,
+    "character_preservation_assessment": "Visual comparison against approved source; not a claim of pixel-identical character regions.",
+    "card_composite_checked": false,
+    "card_composite_reason": "Explicitly out of scope; no Photoshop launched."
+  },
+  "scope": {
+    "new_project_files_only": true,
+    "allowed_project_write_directories": [
+      "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/assets/illustrations/elements-01/air/",
+      "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V4/donnees/elements-01/air/"
+    ],
+    "photoshop_launched": false,
+    "existing_project_files_modified": []
+  }
+}

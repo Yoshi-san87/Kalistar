@@ -1,0 +1,26 @@
+{
+  "version": "V1 - prototype",
+  "deck_size": 10,
+  "positions": {
+    "1": "Tank",
+    "2": "DPS physique",
+    "3": "Middle",
+    "4": "DPS magique",
+    "5": "Support / Healer"
+  },
+  "rainbow_limit": 1,
+  "weapon_modifier": 50,
+  "barrier": 30,
+  "synergy": [
+    0,
+    0,
+    10,
+    20,
+    30,
+    40
+  ],
+  "faction_stat": "ATK",
+  "race_stat": "DEF",
+  "ties": "defender survives",
+  "special_effects": "resolve separately; numeric model never treats an effect as zero"
+}

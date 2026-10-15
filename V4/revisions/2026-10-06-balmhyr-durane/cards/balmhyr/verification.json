@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "modelId": "49900802",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "4ba1f82ec8a176b9448eb8211e8aa412a11f8426ca27a82a108ed58b20c83860",
+  "hashes": {
+    "card.png": "d4c6ff5c9500e0e71519faf8749526f36447da136c704a6a6ef8393b743fb922",
+    "card.psd": "1f73c47ee7308ad8a0aa705de67c41063a38b407aa871970812f03532fdd73e3"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 95019
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49900802",
+    "cases": {
+      "color-1": [
+        "49900802"
+      ],
+      "color-4": [
+        "49900802"
+      ],
+      "gray-1": [
+        "49900802"
+      ],
+      "gray-4": [
+        "49900802"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-06T09:26:10.137Z",
+  "typography": true,
+  "revision": "2026-10-06-balmhyr-durane",
+  "narrativeOnly": {
+    "changed": 468247,
+    "outside": 0
+  }
+}

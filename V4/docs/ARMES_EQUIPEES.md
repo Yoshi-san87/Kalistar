@@ -1,0 +1,580 @@
+# Equipements - reference et historique
+
+## Regles actuelles : V4.6.0
+
+La reference active est [EQUIPEMENTS_460.md](EQUIPEMENTS_460.md) et la section
+Equipements de [REGLES_JEU.md](REGLES_JEU.md). Un personnage peut maintenant
+porter une arme, une protection et une relique simultanement. Les armes et
+protections donnent leur bonus sur un D6 numerique conserve; les reliques
+gardent leurs conditions et consommations. La flute de Momo reste un soutien
+et devient une relique. Les anciens matchs conservent leur propre snapshot.
+
+Les sections ci-dessous documentent les implementations anterieures et les
+sources du pipeline graphique. Leurs regles de slot unique et leurs anciennes
+conditions d'arme/protection ne sont plus celles des nouvelles rencontres.
+
+## Evolution du 6 octobre 2026 : Equipements
+
+La vue `#weapons` est maintenant nommee **Equipements** et filtre trois
+categories : Armes, Protections et Reliques. Un personnage choisit UN objet,
+pas un objet de chaque categorie. Les 33 armes conservent leurs restrictions
+de famille imprimee. Les protections/reliques n'ajoutent pas cette restriction.
+Les regles de compatibilite introduites ci-dessous priment sur les descriptions
+historiques plus bas dans ce document.
+
+| Objet | Compatibilite | Effet numerique |
+| --- | --- | --- |
+| Le Rempart de Durane (`durane-rampart`) | Faction `Durane`, toute arme imprimee | +30 DEF pendant sa premiere defense, une fois par match |
+| Pod 042 (`pod-042`) | `characterId: 2b-nier`, toutes ses editions | Apres un Block reussi, +20 DEF a sa prochaine defense, une fois par match |
+
+Le Block du Pod est exactement le `hold` du bilan existant : une defense
+survecue, dont l'esquive, mais ni soutien, ni mort, ni Reraise. Le bonus
+ne s'applique pas au Block qui l'a prepare. Une attaque ou un soutien ne
+consomme pas la charge ; une defense la consomme a sa resolution, y compris
+Mort/Esquive. Les relances du MEME duel conservent le bonus capture. Les faces
+speciales ne deviennent jamais numeriques. Le Pod ne peut pas se recharger.
+Un cadeau de Momo et un bonus personnel ne se cumulent pas : le plus grand
+est retenu, comme avant. La premiere defense est depensee meme si Momo fournit
+le bonus retenu. Aucun objet ne change les vingt matchups d'armes de base.
+
+### Quarante nouveaux objets (6 octobre 2026)
+
+Vingt protections (armures, manteaux, bottes, gantelets et boucliers) et vingt
+reliques s'ajoutent aux deux objets ci-dessus. Le total est 75 equipements :
+33 armes, 21 protections et 21 reliques. La categorie interne `shield` reste
+stable, seul son libelle visible devient Protections.
+
+Ils utilisent `ONCE_DEFENSE` avec `duration: 'NEXT_DEFENSE'` et une valeur DEF
+de 20 a 30. Une attribution par source et par match. Les evenements sont
+`DEFENSE`, `BLOCK`, `DODGE`, `ALLY_FALL`, `SUPPORT`, `DEPLOY` et
+`ALLY_DEPLOY`. Le module pur `site/defensive-equipment.js` en gere les regles.
+Il n'utilise ni DOM, ni noms affiches, ni branchement par identifiant d'objet.
+
+Le bonus attend une vraie defense. Une attaque ou un soutien ne le depense
+pas ; une defense speciale le depense sans recevoir de valeur numerique.
+La preparation se fait apres acceptation du jet ATK/Kalistel, jamais sur un
+jet abandonne. Le bonus capture survit aux relances DEF du meme duel.
+Un Block ou un soutien ne beneficie pas retroactivement de sa propre charge.
+Un soutien deja present ne cree pas de nouvelle charge. Une elimination
+annulee par Reraise ne declenche pas `ALLY_FALL`. Les entrees initiales sur
+le plateau ne declenchent pas les conditions de remplacement.
+
+Les cadeaux `recipient: 'ally'` demandent de choisir directement une carte
+alliee mise en evidence, sans pouvoir choisir le donneur. Tour suivant attend
+ce choix, sauvegarde et repris apres reload. L'IA choisit un allie selon sa
+DEF moyenne. Les cadeaux attaches au soutien ou au renfort visent directement
+le beneficiaire existant. Plusieurs sources DEF ne s'additionnent pas :
+seule la valeur maximale est appliquee, toutes les charges de cette defense
+sont consommees. Les regles historiques de la flute de Momo restent intactes.
+
+L'etat optionnel `equipment.defensive` contient `grants` et `deployments`.
+Une attribution est
+`{sourceUid, weaponId, recipient, round, event, status, spentRound?}`.
+`status` vaut `choice`, `ready` ou `spent`, et `recipient` reste null
+pendant le choix. Les identites, destinataires, declencheurs et consommations
+sont confrontes aux evenements du match a la restauration. Cette validation
+locale n'est pas un dispositif anti-triche serveur. Les anciennes parties
+sans ce champ restent lisibles, sans nouvelle base de donnees.
+
+Pour ajouter un objet : voir le schema, les references visuelles, les prompts,
+le pipeline reproductible et les controles dans
+[`revisions/2026-10-06-protections-relics/`](../revisions/2026-10-06-protections-relics/README.md).
+
+### Schema des deux premiers objets
+
+- `kind` vaut `weapon` (defaut historique), `shield` ou `relic`.
+- La cle historique `slot: 'weapon'` et `profile.slots.weapon` est conservee
+  comme emplacement PARTAGE, pour ne pas dupliquer ni perdre les sauvegardes.
+- Les compositions enregistrent toujours leur propre `equipment` et le match
+  prend son snapshot. Modifier le profil ne modifie ni une composition deja
+  enregistree ni une rencontre commencee.
+- Nouveaux effets declaratifs : `FIRST_DEFENSE` et `AFTER_BLOCK`, avec
+  `stat: 'DEF'`, `duration: 'NEXT_DEFENSE'`, valeurs bornees de 1 a 40.
+- `state.equipment.charges` est optionnel pour les anciennes sauvegardes.
+  Sa cle est l'UID de l'unite, sa valeur
+  `{weaponId, status: 'ready'|'spent', round}`. Le premier bouclier n'a pas
+  besoin d'une entree avant consommation. Le Pod en a une des son Block.
+  Les entrees sont validees contre le porteur et le journal d'evenements.
+- Aucun nouveau store IndexedDB, aucune migration destructive, aucun slot Job.
+
+### Ajouter un autre objet
+
+Ajouter une definition dans `site/weapons.js`, avec un ID stable, `kind`,
+restrictions explicites, un effet deja connu et un numero collectible unique.
+Ne pas ajouter `families` aux boucliers/reliques sauf choix de design explicite.
+Fournir separement le detourage, la scene et l'anneau transparent dans
+`weapon-cards/sources/`, puis une entree `site/weapon-art.js`. Le renderer
+commun utilise le meme template, les categories colorent uniquement les
+panneaux par CSS et la geometrie native du medaillon reste inchangee.
+Le pipeline `weapon-cards/build-assets.cjs` sait reconstruire ces objets.
+La revision possede aussi un builder limite aux huit nouveaux WebP.
+
+Validation : `site/equipment-categories.test.cjs` (moteur, parties completes,
+reprise, assets) et `site/equipment-categories.browser.test.cjs` (profils QA
+isoles, desktop, Razr 50, compact/Reduced Motion, combat et inspection).
+Sources, prompts image_gen, empreintes et captures :
+`revisions/2026-10-06-equipment-categories/`.
+
+Feature additive du 2 octobre 2026. Les PNG/PSD, les vingt familles d'armes et
+leur matrice d'avantages restent inchanges. Aucun systeme Job n'est ajoute.
+
+## Regles Jouables
+
+| Arme | Porteur stable | Activation | Bonus |
+| --- | --- | --- | --- |
+| Hache du Roi Dechu | `balmhyr` | Seul combattant vivant sur son plateau | +30 ATK numerique tant que cet etat dure |
+| La Flute des Petits Bonheurs | `momo`, toutes editions compatibles | Nouveau trefle ou nouvelle potion attribue par Momo | +30 DEF au beneficiaire pour son prochain duel |
+
+Un remplacant encore en reserve ne compte pas comme combattant actif. Le retour
+d'un allie sur le plateau desactive la Hache. Son bonus ne remplace jamais le
+matchup Hache, ni celui d'une autre famille imprimee.
+
+La Flute prolonge le soutien existant `retry`/`mana` : pas de nouveau jet ni de
+regle de soutien parallele. Auteur compris, le beneficiaire doit etre vivant
+sur le plateau allie. Une categorie deja chargee ne declenche pas la Flute ;
+une charge de Flute deja presente ne se cumule pas et n'est pas rafraichie.
+Le cadeau expire a la fin du prochain duel impliquant son beneficiaire, meme
+s'il attaque ou obtient une face speciale. Il ne transforme pas Esquive, Mort,
+Retry ou un autre effet en score numerique. Les relances DEF du MEME duel
+conservent le +30 ; elles ne consomment pas plusieurs cadeaux. Un cadeau gagne
+sur soi pendant une action de soutien n'expire pas sur cette action : seul
+un cadeau present au verrouillage du duel est consomme.
+
+Les +30 restent ponctuels, sous les +60 des soutiens ordinaires et sans
+multiplicateur. Ils creent une opportunite, pas un kill garanti. Cette premiere
+version n'affirme pas un taux de victoire equilibre : il faudra mesurer les
+resultats joues avant d'ajuster les valeurs.
+
+## Responsabilites
+
+- `site/weapons.js` : catalogue declaratif des objets reels.
+- `site/equipment.js` : compatibilite, profils, snapshots, conditions,
+  modificateurs, consommation et validation, sans DOM.
+- `site/local-db.js` : transactions, sauvegardes et profils locaux.
+- `site/engine.js` : verrouillage, soutiens, calcul reel et journal.
+- `site/weapons-ui.js` : liste, detail, porteurs, equipement et confirmations.
+- `site/equipment-presentation.js` / `weapons.css` : medaillon partage entre
+  fiche et arene, ancrage, transitions et transfert de soutien.
+- `site/app.js` : branchements aux vues et animations existantes.
+
+La forme `slots.weapon` laisse une place a un futur slot Job. Aujourd'hui seul
+`weapon` est accepte : aucun bonus Job, inventaire RPG ou changement de famille
+n'est implicitement active.
+
+## Donnees
+
+Exemple du catalogue :
+
+```js
+{
+  id: 'fallen-king-axe',
+  slot: 'weapon',
+  name: 'Hache du Roi Dechu',
+  family: 'Hache',
+  visual: 'axe',
+  restrictions: { characterIds: ['balmhyr'] },
+  effect: {
+    trigger: 'LAST_STANDING', stat: 'ATK', value: 30,
+    duration: 'WHILE_TRUE'
+  },
+  condition: 'Dernier combattant actif de son equipe.',
+  lore: '...'
+}
+```
+
+Les restrictions peuvent etre `characterIds`, `jobs`, `families`, `factions` et `races`. Plusieurs
+valeurs d'une liste sont alternatives ; plusieurs categories se cumulent
+avec un ET. `families` cible `card.weapon`, la famille imprimee. Les noms
+affiches ne sont jamais des cles. Les jobs sont les valeurs exactes du
+catalogue, par exemple `MENTOR`, pas une traduction UI.
+
+`factions` cible la valeur exacte de `card.faction`, sans normaliser un nom
+affiche. Exemple : `{ jobs: ['SOLDAT'], factions: ['Arborium'] }` exige les
+deux proprietes sur la meme edition. Un Gardien d'Arborium ou un Soldat
+d'une autre faction est refuse. Les anciennes definitions sans `factions`
+gardent leur compatibilite et leur snapshot, sans migration.
+
+`races` cible exactement `card.race`, par exemple `{races:['RHINOZ']}`.
+La liste peut contenir plusieurs races (OU) et se combine aux autres categories
+par ET. Aucun nom affiche, job ou faction n'est utilise comme substitut.
+Les definitions historiques sans ce champ conservent leur comportement.
+
+Le second effet est declare par :
+
+```js
+{ trigger: 'AFTER_SUPPORT', supports: ['luck', 'mana'],
+  stat: 'DEF', value: 30, duration: 'NEXT_DUEL' }
+```
+
+Profil local stocke dans le store `equipment` de `kalistar-v4-cards` :
+
+```js
+{ id: 'user-paris', version: 1,
+  slots: { weapon: { balmhyr: 'fallen-king-axe',
+                     momo: 'little-joys-flute' } } }
+```
+
+Un seul objet par personnage et un seul porteur par identifiant d'arme.
+Les changements sont atomiques, avec verification du profil ayant servi a
+la confirmation. Une confirmation ancienne ne peut pas ecraser un changement
+effectue dans un autre onglet. Paris et Tokyo ont des profils distincts.
+
+Nouvelle composition (V4.3.7) : le loadout propre a chaque deck fait autorite.
+Le profil global n'est qu'une preference initiale de migration. Voir
+[Composition d'equipe](COMPOSITION_EQUIPE.md). Un match conserve les definitions
+et loadouts copies au lancement, meme si le joueur modifie son equipe ensuite.
+
+Appel historique / technique :
+
+```js
+engine.newGame(deck0, deck1, {
+  equipment: [profile0.slots.weapon, profile1.slots.weapon]
+});
+```
+
+Les anciens appels techniques peuvent prendre le profil actif. Un adversaire
+tableau n'a pas d'arme equipee par defaut; une equipe adverse sauvegardee fournit
+son propre loadout. Le moteur supporte les deux camps de facon
+symetrique. Le match conserve une copie des definitions ET des deux loadouts :
+une modification du profil ne change jamais un match commence.
+
+Dans le snapshot `state.equipment` : `version`, `definitions`, `loadouts` et
+`pending`. Une charge temporaire est indexee par UID d'instance de match,
+avec `{weaponId, sourceUid, grantedRound}`. Le duel conserve les modificateurs
+captures dans `duel.equipment.attack/defense` et les UIDs a consommer dans
+`expires`. Les formules ajoutent `equipmentAttack` / `equipmentDefense` aux
+totaux reels ; les recaps et journaux nomment leur source.
+
+## Compatibilite Et Reprise
+
+Le store est ajoute par l'upgrade IndexedDB existant. Un profil absent equivaut
+a `{weapon:{}}`. Les parties schema 6 sans `equipment` gardent leur forme et
+leur comportement precedents ; aucun equipement n'est injecte retroactivement.
+
+Les sauvegardes de bibliotheque schema 3 incluent desormais `equipment`.
+Une ancienne sauvegarde sans cette propriete conserve les equipements actuels,
+y compris lors d'une restauration confirmee. Un equipement importe invalide
+fait echouer la restauration avant toute mutation. Les charges temporaires et
+captures de duel sont sauvegardees dans le match et restaurees sans recharge.
+
+## Medaillon Natif
+
+Native : 897 x 1497 ; crop de `card-media.js` : `(50,50,797,1388)`.
+Le centre optique valide est `(137,1163.5)`, extraction `(76,1103,122,122)`.
+Le positionnement utilise ces coordonnees, le crop et les dimensions CSS
+reelles de l'image DANS `.slot-card`. Le focus et le zoom de la carte portent
+donc aussi le medaillon. L'overlay attend l'image recadree, pas le PNG brut.
+
+`node V4/site/build-weapon-media.cjs` extrait les pixels cuivre de la frame
+approuvee et compose les banques natives Hache/Instrument. Il ne touche aucune
+source. L'Instrument conserve le pictogramme Instrument imprime sur Momo ;
+aucun symbole approximatif n'est dessine depuis une capture. La preuve des
+sources, ancres et derives est dans `site/verification/weapons/media-provenance.json`.
+
+Activation : 640 ms, anneau/reflet puis languette. Desactivation : 420 ms,
+repli puis disparition. Usage : impulsion 340 ms ; soutien : quelques notes
+et transfert 650 ms. Reduced Motion : fades courts, sans rotation ni trajet.
+Animations WAAPI, ResizeObserver et listeners sont nettoyes lors du rendu,
+de la navigation et de la fermeture. Pas de Canvas permanent par arme.
+
+## Inspection Des Cartes (V4.4.2)
+
+Dans Composition, l'oeil ouvre la carte avec l'arme choisie pour CE deck,
+pas avec un equipement repris automatiquement du profil. Le medaillon tourne
+sur la carte de composition et dans sa popup ; la languette de bonus n'apparait
+pas hors combat. Les autres versions du meme personnage conservent ce contexte.
+
+Dans l'Arene, l'inspection lit `engine.equipmentView` sur l'instance presente
+sur le plateau et le snapshot du match. Seule une arme actuellement active
+remplace le medaillon imprime ; elle garde sa languette et la rotation radar.
+Une arme inactive, consommee, en reserve ou une carte d'un match termine reste
+native. Une modification du profil n'affecte pas la carte inspectee du match.
+
+`equipment-presentation.js` gere `mountDetail` / `clearDetail` independamment
+des observers du plateau. L'ancrage tient compte de la zone effectivement
+dessinee par `object-fit: contain`, du crop natif et du chargement asynchrone.
+Les listeners et ResizeObservers sont liberes a la fermeture, au remplacement
+de la popup et lors d'un rendu/navigation. La vue Illustration n'a pas d'overlay.
+Collection, statistiques et fiches de l'Arsenal n'adoptent pas cet overlay de
+combat. Reduced Motion supprime les rotations dans tous les contextes.
+
+Tests : `site/equipment-presentation.test.cjs` et les parcours d'inspection de
+`site/weapons.browser.test.cjs`. Captures de cette revision :
+`revisions/2026-10-03-equipped-card-inspection/qa/`.
+
+## Cartes Collectionnables (Prototype Local)
+
+L'arsenal utilise maintenant des cartes poker horizontales assemblees depuis
+le cadre bleu/cuivre fourni, une illustration distincte et des textes vivants.
+Le medaillon anime reste independant ; les regles et snapshots ne changent pas.
+Le master commun, les sources conservees, les exports et la procedure pour
+ajouter une carte sont documentes dans
+[le workflow cartes d'armes](../weapon-cards/README.md).
+Ce prototype du 3 octobre 2026 reste local, sans publication.
+
+## Extension De L'Arsenal (3 Octobre 2026, Locale)
+
+Le catalogue compte maintenant 25 armes : les deux originales, vingt armes
+personnelles et trois armes de Job. Le detail, les choix d'equilibrage et les
+preuves sont dans [la revision de l'arsenal](../revisions/2026-10-03-weapons-arsenal/README.md).
+Il s'agit de restrictions sur les Jobs existants, pas de cartes Job nouvelles.
+
+Les nouvelles definitions utilisent un seul trigger declaratif supplementaire :
+
+```js
+effect: {
+  trigger: 'TEAM_STATE', stat: 'DEF', value: 15, duration: 'WHILE_TRUE',
+  when: { activeAtMost: 2 }
+}
+```
+
+Predicats acceptes dans `when` (tous doivent etre vrais s'ils sont combines) :
+
+- `outnumbered: true` : moins de combattants presents sur le plateau allie
+  que sur le plateau adverse ; les reserves ne comptent pas.
+- `activeAtMost: n` : au plus n combattants sur le plateau allie (entier 1-4).
+- `reserveAtMost: n` : au plus n cartes en reserve alliee (entier 0-4).
+
+Une arme sur une carte en reserve, morte, en preparation ou en fin de match
+reste inactive. L'etat suit les remplacements et les retours d'allies.
+Le modificateur est capture au verrouillage du duel, comme les armes V1.
+Il s'applique seulement a un jet numerique de sa statistique. Aucun nouveau
+jet, aucune face speciale convertie en nombre, aucun changement de matchup.
+
+Les armes personnelles ajoutent +20 ou +25 ; celles de Job +15. Le dernier
+survivant est la condition des +25. Pour une meme statistique, le moteur prend
+le maximum entre l'arme personnelle et le cadeau temporaire de Momo, jamais
+leur somme. Le cadeau expire normalement apres le duel, meme si un autre
+bonus plus fort a ete retenu. Les bonus ordinaires du jeu restent inchanges.
+
+2B et Geralt ont chacun deux armes alternatives ; Balmhyr choisit entre la
+Hache et le Gant. Aucun de ces personnages ne gagne un deuxieme slot.
+La Promesse Blanche exige `characterId: kaylis` ET `families: ['Epée courte']`.
+Elle n'est donc pas compatible avec la version Dague. La revision native de
+Kaylis est documentee separement, sans changer les autres cartes.
+
+Les tableaux imbriques des definitions sont geles ; les matchs les copient
+dans leur snapshot. Pas de migration de base ou de changement de schema.
+Les anciennes definitions `LAST_STANDING` / `AFTER_SUPPORT` restent valides.
+
+## Ajouter Une Arme
+
+### Equipements De Faction (5 Octobre 2026)
+
+Le catalogue contient 29 armes. Apres la premiere publication Arborium,
+l'utilisateur ouvre explicitement ses deux armes a TOUS les membres de cette
+faction, sans restriction de metier, et ajoute deux armes Draevenheim.
+
+| Arme | Faction exclusive | Activation | Effet |
+| --- | --- | --- | --- |
+| L'Accord Sylvestre, ARM-026 | Arborium | Moins de combattants actifs allies qu'adverses | +20 ATK numerique |
+| Le Cran de Ronce, ARM-027 | Arborium | Reserve alliee vide | +20 ATK numerique |
+| Les Ailes du Rempart, ARM-028 | Draevenheim | Moins de combattants actifs allies qu'adverses | +20 DEF numerique |
+| L'Arbalete Ecarlate, ARM-029 | Draevenheim | Au plus deux combattants actifs allies | +20 ATK numerique |
+
+Les quatre reutilisent `TEAM_STATE` / `WHILE_TRUE`. L'arme de base imprimee
+continue de definir le matchup. Le poison du Cran est un element narratif,
+pas un statut : aucun degat automatique ou sur plusieurs tours n'est ajoute.
+Le bonus disparait si la condition cesse ; il ne convertit pas une face
+speciale en score et ne cree pas de charge temporaire. Une seule arme equipee.
+
+Arborium : Thalie, Bloom, Victorvine, Brindor, Ssilas, Mirelle, Eryss, Velran,
+Saelor et Liorne. Draevenheim : Seraphina, Verminia (ses deux editions),
+Baptiste, Orven, Serya, Marel, Veyr et Isvel. `Draevenheim` est la valeur exacte
+du catalogue, distincte de l'orthographe libre "Dravenheim" de la demande.
+La compatibilite reste declarative, sans liste de noms ou de characterId.
+Les futurs membres de ces factions seront automatiquement compatibles.
+
+Les familles des nouveaux objets sont `Lance` et `Arc` (arbalete), reutilisant
+les vingt familles existantes ; elles ne remplacent pas le matchup imprime.
+La restriction generale de faction ne requiert ni SOLDAT ni arme de base precise.
+Le +20 reste conditionnel et sans cumul de deux equipements. Il ne garantit pas
+l'equilibrage competitif ; les parties reelles pourront motiver un ajustement.
+
+Les anciennes parties conservent leurs definitions SOLDAT + Arborium originales
+et leurs equipements. Seuls les nouveaux choix de profil/composition et les
+nouveaux matchs utilisent la restriction elargie. Aucun schema n'est migre.
+
+Tests : `arborium-weapons.test.cjs` (restriction, profil, deck, snapshots,
+40 duels sur dix porteurs) et `draevenheim-weapons.test.cjs` (36 duels sur neuf
+editions). `arborium-weapons.browser.test.cjs` couvre maintenant les QUATRE
+armes de faction : UI, sauvegarde, remplacement, inspection, alignement,
+formules reelles, adversaire, PC/mobile et Reduced Motion. Les preuves sont
+dans `revisions/2026-10-05-faction-weapons/`, pas dans l'ancien rapport Arborium.
+
+Visuels uniques : voir `../revisions/2026-10-02-unique-weapon-art/README.md`.
+Le champ facultatif `art` choisit un WebP versionne du meme medaillon natif ;
+`visual` conserve la famille d'animation. Sans `art`, les anciens snapshots
+utilisent toujours leurs fichiers historiques. `build-weapon-art.cjs` calibre
+les PNG transparents sur le contour interieur sans modifier cadre ou regles.
+
+1. Relever le `characterId`, `job` ou `weapon` exact dans le catalogue V4.
+2. Ajouter une definition a `site/weapons.js` avec un ID nouveau et une
+   restriction explicite. Reutiliser un effet declaratif existant si possible.
+3. Ajouter `art: '<id>-v1'` et les metadonnees `collectible` dans la definition
+   pour un objet detoure. Suivre le workflow `weapon-cards/README.md`. `visual`
+   est un nom historique de STYLE D'ANNEAU : `axe` pour pierre/cuivre,
+   `flute` pour energie/cuivre. Il ne decide ni de l'objet dessine ni de sa
+   famille mecanique. Les notes musicales sont reservees a `Instrument`.
+   Conserver les anciens assets : ils peuvent etre utilises par un snapshot.
+4. Pour un nouveau trigger, ajouter son evaluation/consommation dans
+   `equipment.js` et son point de declenchement moteur. Ne jamais disperser
+   des `if (weapon.id === ...)` dans les vues ou calculs.
+5. Ajouter des tests de compatibilite, effet, expiration, reprise et rendu.
+   La fiche, les confirmations, le deck et les recaps lisent deja le catalogue.
+
+Le champ futur `changesFamily` est refuse aujourd'hui. Une mecanique modifiant
+la matrice exigerait une decision d'equilibrage et une version explicite,
+pas l'ajout silencieux d'un objet au catalogue.
+
+## Porteurs Collectifs - 6 Octobre 2026
+
+Decision utilisateur : adapter uniquement les armes non nominatives aux
+familles imprimees des porteurs. Les onze armes collectives exigent desormais
+leur famille exacte (`restrictions.families`) EN PLUS du job, de la faction
+ou de la race deja prevus. Aucun elargissement a une origine voisine.
+Les vingt-deux armes nominatives, leurs effets et leurs porteurs sont inchanges.
+Cette decision remplace les listes de compatibilite generales historiques
+Arborium / Draevenheim / Cryptown / Rhinoz ci-dessous, pas leurs sauvegardes.
+
+| Arme collective | Porteurs actuels |
+| --- | --- |
+| La Veille des Remparts | Nazar, Ward, Kimahri, Karrok, Brask |
+| La Lame de Releve | Isvel, Liorne |
+| L'Accord Sylvestre | Ssilas, Saelor |
+| Les Ailes du Rempart | Orven |
+| Le Serment sans Visage | Varkhen |
+| La Releve Muette | Nereth |
+| Le Glas des Veilleurs | Draust |
+
+Restent visibles mais sans porteur actuel : Le Fil du Ralliement (aucun
+COMMANDANT/COMMANDANTE a Epee longue), Le Cran de Ronce (aucune Dague
+d'Arborium), L'Arbalete Ecarlate (aucun Arc de Draevenheim) et La Corne des
+Anciens (aucune Hache RHINOZ). Les futures cartes correspondant exactement
+aux restrictions deviendront compatibles automatiquement.
+
+La famille utilisee dans le matchup reste celle imprimee. Aucun profil de
+personnage, illustration, jet, bonus ou mecanisme de combat n'est modifie.
+Les exceptions personnelles voulues sont conservees : Gant de Balmhyr,
+Virtuous Treaty de 2B, Fraternite sur la version Projectile de Tidus et
+Single Action Army sur la version Poing de Liquid Ocelot.
+
+`equipment.reconcileLoadout/reconcileProfile` retirent seulement les anciennes
+attributions collectives devenues incompatibles a cause du nouveau filtre
+de famille. Une origine incorrecte, une arme inconnue, un doublon ou une
+restriction nominative invalide restent rejetes. La normalisation est pure,
+idempotente, appliquee aux profils IndexedDB, imports et compositions lues.
+Les ecritures sont transactionnelles ; aucune carte, possession, formation
+ou capitaine n'est supprime. Les profils d'un catalogue plus recent ne sont
+pas migres par un onglet obsolete. Les matchs gardent leur propre snapshot
+de definitions et leurs bonus historiques, sans recablage retroactif.
+
+Audit detaille et controles : `revisions/2026-10-06-weapon-bearers/`.
+Fixture historique immuable : `site/fixtures/weapons-v4.5.28.json`, extraite
+du tag publie. Les tests distinguent porteurs actuels et matchs historiques.
+
+## Famille Obligatoire Pour Toutes Les Armes - 6 Octobre 2026
+
+Nouvelle decision, qui remplace les exceptions nominatives ci-dessus : une
+arme exige toujours sa famille imprimee, y compris lorsqu'elle est reservee
+a un characterId. Le catalogue ajoute `restrictions.families: [weapon.family]`
+a chaque definition. Les autres restrictions se cumulent toujours par ET.
+
+Fraternite reste disponible sur les Tidus a Epee longue, pas sur l'edition
+Projectile "Le souffle de Luca". Single Action Army reste disponible sur
+les Ocelot Gun, pas sur Liquid Ocelot Poing. Virtuous Treaty et Le Serment
+de Fer restent visibles, sans porteur actuel, en attente de nouvelles
+editions de 2B a Epee longue et de Balmhyr au Poing. Aucun personnage n'est
+cree ou modifie pour contourner cette decision.
+
+Les choix se font sur l'edition presente dans la composition, pas seulement
+sur l'identite du personnage. Le profil global peut conserver une preference
+si une autre edition compatible existe ; elle ne s'applique jamais a une
+edition incompatible. Les decks historiques perdent seulement l'equipement
+devenu incompatible. Les parties deja commencees gardent leur snapshot.
+
+`weapons.legacyRestrictions` contient les anciennes restrictions exactes des
+33 objets existants. Cette table sert uniquement a lire les profils/decks
+historiques avant de retirer les attributions retirees ; elle ne doit pas
+etre etendue aux nouvelles armes. Les anciennes restrictions de Kaylis sont
+preservees. Les nouveaux equipements utilisent uniquement les regles actuelles.
+
+La famille est representee par son pictogramme blanc dans le bandeau du nom
+des cartes d'armes, avec un texte alternatif et une infobulle. Le bas ne
+contient que l'origine/le porteur. Aucun changement des valeurs de bonus,
+matrices ou schemas de sauvegarde.
+
+## Validation
+
+### FFIX - 9 octobre 2026
+
+18 objets additifs : huit armes (ARM-034 a 041), cinq protections (PRO-022
+a 026), cinq reliques (REL-022 a 026). Catalogue : 93 equipements, dont
+41 armes, 26 protections et 26 reliques. Un seul emplacement reste partage.
+Les armes exigent le characterId et la famille imprimee ; les protections
+et reliques suivent le personnage, toutes editions compatibles.
+
+Aucun trigger, schema ou calcul nouveau. Les conditions TEAM_STATE,
+LAST_STANDING, AFTER_SUPPORT et ONCE_DEFENSE existantes pilotent le lot.
+Details, effets, sources graphiques, ajout d'un objet et commandes de test :
+[lot FFIX](../revisions/2026-10-09-ff9-equipment/README.md).
+
+### Hache Rhinoz - 6 octobre 2026
+
+ARM-033, **La Corne des Anciens**, est une Hache reservee a la race RHINOZ,
+independamment de la faction, du job ou de l'arme de base. Porteurs actuels :
+Belrog, Gilmarr et Nazar. Le catalogue atteint 33 armes.
+
+Effet existant TEAM_STATE / WHILE_TRUE : +20 ATK numerique en inferiorite
+numerique sur le plateau. Les reserves ne comptent pas ; le bonus se retire
+lorsque la condition cesse. Leurs armes imprimees Masse, Poing et Lance
+continuent de determiner les matchups. La Garde D2 n'est pas convertie en ATK.
+
+Seule la restriction declarative `races` est nouvelle. Aucun nouveau trigger,
+statut, schema de sauvegarde, multiplicateur ou emplacement d'equipement.
+Les anciennes parties gardent leurs snapshots. Tests specifiques :
+`site/rhinoz-weapon.test.cjs` et `site/rhinoz-weapon.browser.test.cjs`.
+Sources et preuves : `revisions/2026-10-06-rhinoz-weapons/`.
+
+### Cryptown - 6 octobre 2026
+
+Le catalogue contient 32 armes, dont trois nouvelles armes de faction :
+
+| ID | Nom | Famille | Effet |
+| --- | --- | --- | --- |
+| cryptown-oath-sword | Le Serment sans Visage | Epée longue | +20 ATK en infériorité numérique sur le plateau |
+| cryptown-vigil-rifle | La Relève Muette | Gun | +20 ATK quand la réserve est vide |
+| cryptown-watch-flail | Le Glas des Veilleurs | Fléau | +20 DEF avec deux combattants actifs ou moins |
+
+La restriction est exclusivement `{factions:['Cryptown']}`, sans contrainte
+de job. Elle couvre actuellement six personnages et sept éditions : Varkhen,
+Nereth, Draust, Capitaine Skully, Valazar et les deux Zviri. Les noms affichés
+ne participent pas à la compatibilité.
+
+Les effets réutilisent TEAM_STATE / WHILE_TRUE, sans modifier le moteur,
+la matrice des armes imprimées ou les anciennes sauvegardes. Les +20 restent
+numériques : aucune augmentation d'une Mort, aucune double attaque de fléau,
+aucun nouveau poison ou soutien. Une seule arme peut être portée.
+
+`site/cryptown-weapons.test.cjs` couvre les restrictions, remplacements,
+snapshots, 42 duels numériques, la désactivation, Mort/Esquive/Reraise de
+Nereth et Garde de Varkhen/Draust. Le test navigateur du même nom couvre
+PC, Razr 50 et écran compact en Reduced Motion, avec stockage QA isolé.
+Voir `revisions/2026-10-06-cryptown-weapons/` pour les preuves.
+
+```powershell
+node --test --test-isolation=none V4/site/equipment.test.cjs
+node --test V4/site/weapons-arsenal.test.cjs V4/site/equipment-presentation.test.cjs
+node V4/site/weapons-arsenal.browser.test.cjs
+node V4/site/weapon-cards.browser.test.cjs
+node V4/site/weapons.browser.test.cjs
+node V4/deploy/build.cjs
+```
+
+Le navigateur utilise un contexte jetable et suffixe tous les noms IndexedDB
+par `-weapons-qa-only`. Il ne modifie aucun compte du navigateur personnel.
+Desktop, Razr 50, Reduced Motion, formules reelles, snapshots, anciennes bases,
+sauvegardes, zoom et nettoyage sont couverts. Captures et resultats :
+`site/verification/weapons/`. Le libelle "Lame Prismatique" de la demande
+initiale ne correspond pas a la seconde arme finale : les tests portent sur
+La Flute des Petits Bonheurs, sans inventer une troisieme arme en production.

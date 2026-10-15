@@ -1,0 +1,100 @@
+TAP version 13
+# Subtest: five pairings retain saved order, captains, native clues and the entire engine snapshot
+ok 1 - five pairings retain saved order, captains, native clues and the entire engine snapshot
+  ---
+  duration_ms: 44.745
+  type: 'test'
+  ...
+# Subtest: all catalogue identities, collaborations and NONE are data driven
+ok 2 - all catalogue identities, collaborations and NONE are data driven
+  ---
+  duration_ms: 0.5366
+  type: 'test'
+  ...
+# Subtest: missing identities have neutral clues and missing cards fail before mounting
+ok 3 - missing identities have neutral clues and missing cards fail before mounting
+  ---
+  duration_ms: 0.5937
+  type: 'test'
+  ...
+# Subtest: slower clues and revealed cards share the same reading time with reduced motion
+ok 4 - slower clues and revealed cards share the same reading time with reduced motion
+  ---
+  duration_ms: 0.264
+  type: 'test'
+  ...
+# Subtest: Tip Off and the winning captain have explicit readable pauses
+ok 5 - Tip Off and the winning captain have explicit readable pauses
+  ---
+  duration_ms: 0.1336
+  type: 'test'
+  ...
+# Subtest: D6 captains are stat-independent, ties reroll, combat RNG and match metrics stay untouched
+ok 6 - D6 captains are stat-independent, ties reroll, combat RNG and match metrics stay untouched
+  ---
+  duration_ms: 52.9925
+  type: 'test'
+  ...
+# Subtest: ABBA tracks every resolved action and reload, opener 0
+ok 7 - ABBA tracks every resolved action and reload, opener 0
+  ---
+  duration_ms: 32.1935
+  type: 'test'
+  ...
+# Subtest: ABBA tracks every resolved action and reload, opener 1
+ok 8 - ABBA tracks every resolved action and reload, opener 1
+  ---
+  duration_ms: 28.6036
+  type: 'test'
+  ...
+# Subtest: two consecutive actions can kill twice; replacements do not advance the timeline
+ok 9 - two consecutive actions can kill twice; replacements do not advance the timeline
+  ---
+  duration_ms: 5.5404
+  type: 'test'
+  ...
+# Subtest: support can lead directly into an allied magic attack in the same double window
+ok 10 - support can lead directly into an allied magic attack in the same double window
+  ---
+  duration_ms: 3.989
+  type: 'test'
+  ...
+# Subtest: unmarked historical games keep strict alternation and original state identity
+ok 11 - unmarked historical games keep strict alternation and original state identity
+  ---
+  duration_ms: 10.5197
+  type: 'test'
+  ...
+# Subtest: corrupt initiative, turn, history and premature combat fail closed
+ok 12 - corrupt initiative, turn, history and premature combat fail closed
+  ---
+  duration_ms: 7.9251
+  type: 'test'
+  ...
+# Subtest: seeded initiative has reproducible results and balanced faces and openers
+ok 13 - seeded initiative has reproducible results and balanced faces and openers
+  ---
+  duration_ms: 52.8124
+  type: 'test'
+  ...
+# Subtest: UI presets nominate their P1 captain explicitly without changing legacy migration or default equipment
+ok 14 - UI presets nominate their P1 captain explicitly without changing legacy migration or default equipment
+  ---
+  duration_ms: 10.5917
+  type: 'test'
+  ...
+# Subtest: 250 complete ABBA matches validate every phase, equipment, archive and reload
+ok 15 - 250 complete ABBA matches validate every phase, equipment, archive and reload
+  ---
+  duration_ms: 44140.4144
+  type: 'test'
+  ...
+1..15
+# tests 15
+# suites 0
+# pass 15
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 44483.8529

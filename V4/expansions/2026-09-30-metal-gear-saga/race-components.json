@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "races": {
+    "BUZZY": {
+      "left": 711,
+      "top": 1116,
+      "width": 96,
+      "height": 95,
+      "source": "V4\\expansions\\2026-09-30-metal-gear-saga\\components\\source-BUZZY.png",
+      "sourceHash": "9b7f8ca447c0d2b1c8a9d50d8be3ac003880226beebf6379e69e3ce23eb78d30",
+      "sha256": "c7ba32658bd993f30e9ba785d341df2e2b68ef12d198a688bdae98e812f6fb6a",
+      "nativeEmail": "V4\\collaborations\\ff7-set-01\\weapon-email-native.png",
+      "nativeEmailHash": "c6ef219cbe72e7addf544d52fac5e047e4eda5552bda1d2f985c84e250ce3bd6",
+      "crop": {
+        "left": 0,
+        "top": 51,
+        "width": 1190,
+        "height": 1170
+      },
+      "placement": {
+        "left": 13,
+        "top": 17
+      },
+      "sourceMetrics": {
+        "fullBounds": [
+          0,
+          51,
+          1190,
+          1221
+        ],
+        "visibleBounds": [
+          67,
+          115,
+          1187,
+          1142
+        ],
+        "centroid": [
+          643.8624183595261,
+          611.3555651038203
+        ],
+        "optical": [
+          637.960571933692,
+          617.3561173174832
+        ],
+        "fullAlphaRadius": 1482.946475770451,
+        "opticalError": 820.2374478652423,
+        "visibleAlphaThreshold": 16
+      },
+      "metrics": {
+        "fullBounds": [
+          14,
+          18,
+          78,
+          79
+        ],
+        "visibleBounds": [
+          16,
+          20,
+          78,
+          77
+        ],
+        "centroid": [
+          48.17707942437986,
+          47.644279759224936
+        ],
+        "optical": [
+          47.76510162584691,
+          47.94378184349621
+        ],
+        "fullAlphaRadius": 38.70723446592381,
+        "opticalError": 0.5021150971606617,
+        "visibleAlphaThreshold": 16
+      },
+      "motif": "V4\\expansions\\2026-09-30-metal-gear-saga\\components\\race-BUZZY.motif.png",
+      "motifHash": "80d74f463cc463baf7089f464896f9a03c20fb27970bd20b96991dad1545ee3f",
+      "opticalTarget": [
+        759,
+        1163.5
+      ],
+      "measuredOpticalCenter": [
+        758.7651016258469,
+        1163.9437818434963
+      ],
+      "radiusLimit": 39,
+      "opticalTolerance": 0.75,
+      "method": "65% visible luminance-alpha centroid / 35% visible bounds centre; full nonzero alpha contour contained; visible alpha >=16"
+    },
+    "SERPES": {
+      "left": 711,
+      "top": 1116,
+      "width": 96,
+      "height": 95,
+      "source": "V4\\expansions\\2026-09-30-metal-gear-saga\\components\\source-SERPES.png",
+      "sourceHash": "3ecce851f1bab3cc4cea49274bf0f7795d8f1d37e3a75cac0a219a63a30ac5c0",
+      "sha256": "69473d968241dac9b775c9e5c545390902d5bada728f56d105ca3e19e4e9a673",
+      "nativeEmail": "V4\\collaborations\\ff7-set-01\\weapon-email-native.png",
+      "nativeEmailHash": "c6ef219cbe72e7addf544d52fac5e047e4eda5552bda1d2f985c84e250ce3bd6",
+      "crop": {
+        "left": 0,
+        "top": 55,
+        "width": 1232,
+        "height": 1127
+      },
+      "placement": {
+        "left": 7,
+        "top": 14
+      },
+      "sourceMetrics": {
+        "fullBounds": [
+          0,
+          55,
+          1232,
+          1182
+        ],
+        "visibleBounds": [
+          144,
+          110,
+          1122,
+          1164
+        ],
+        "centroid": [
+          647.0180865591661,
+          549.9321639419279
+        ],
+        "optical": [
+          642.111756263458,
+          580.4059065622532
+        ],
+        "fullAlphaRadius": 1394.7699631121973,
+        "opticalError": 798.0961622382277,
+        "visibleAlphaThreshold": 16
+      },
+      "metrics": {
+        "fullBounds": [
+          13,
+          15,
+          81,
+          85
+        ],
+        "visibleBounds": [
+          16,
+          17,
+          78,
+          84
+        ],
+        "centroid": [
+          47.96778605871549,
+          45.159705494616134
+        ],
+        "optical": [
+          47.62906093816507,
+          47.028808571500484
+        ],
+        "fullAlphaRadius": 38.81043674065006,
+        "opticalError": 0.5996808733704901,
+        "visibleAlphaThreshold": 16
+      },
+      "motif": "V4\\expansions\\2026-09-30-metal-gear-saga\\components\\race-SERPES.motif.png",
+      "motifHash": "83eeb479a766351948ca0d5ee7f80621d3194d8469cc8f8a4fda36aeed3ccfb9",
+      "opticalTarget": [
+        759,
+        1163.5
+      ],
+      "measuredOpticalCenter": [
+        758.629060938165,
+        1163.0288085715006
+      ],
+      "radiusLimit": 39,
+      "opticalTolerance": 0.75,
+      "method": "65% visible luminance-alpha centroid / 35% visible bounds centre; full nonzero alpha contour contained; visible alpha >=16"
+    }
+  }
+}

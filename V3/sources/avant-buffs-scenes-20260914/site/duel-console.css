@@ -1,0 +1,92 @@
+.arena-view .duel-console{
+  --ritual-color:#d3b7ab;--ward-color:#9acdd5;--action-color:#d3b7ab;
+  border:1px solid #ab8d80;border-radius:5px;
+  background:linear-gradient(90deg,#362e2c,transparent 7%,transparent 93%,#362e2c),repeating-linear-gradient(0deg,#ffffff02 0 1px,transparent 1px 4px),#121918;
+  box-shadow:0 14px 35px #0009,0 0 0 3px #101615,0 0 0 4px #635755,inset 0 0 0 3px #101615,inset 0 0 0 4px #6a625c;
+  isolation:isolate;
+}
+.duel-console::before,.duel-console::after{content:'';pointer-events:none;position:absolute;left:25%;right:25%;height:7px;border:1px solid #e3c8ae;background:linear-gradient(90deg,#574d48,#c8bca7 24%,var(--ritual-color) 50%,#c8bca7 76%,#574d48);clip-path:polygon(0 50%,10% 0,90% 0,100% 50%,90% 100%,10% 100%);box-shadow:0 0 12px var(--ritual-color)}
+.duel-console::before{top:-4px}.duel-console::after{bottom:-4px}
+.arena-view .duel-die{border:0;padding:5px 5px 8px}
+.arena-view .duel-die:last-child{border:0;padding:8px 5px 5px}
+.arena-view .dice-owner{font-size:10px;color:#b5cebf}
+.arena-view .player-1 .dice-owner{color:#e0b2b7}
+.arena-view .dice-owner span{border:0;padding:1px 0;font-size:10px;color:#f1e1c4}
+.arena-view .duel-die.active::before{left:-5px;top:8px;bottom:8px;width:2px;background:var(--action-color);box-shadow:0 0 8px color-mix(in srgb,var(--action-color) 65%,transparent)}
+.arena-view .duel-die>b{font-family:var(--serif);font-size:15px;color:#f1e4d9}
+.duel-console .dice-stage::before{content:'';position:absolute;width:78px;height:22px;left:calc(50% - 39px);bottom:9px;border:1px solid #a09f9080;border-radius:50%;box-shadow:0 0 0 4px #a2a18b0d,inset 0 0 0 3px #c7b79c10;pointer-events:none;z-index:-1}
+.duel-console[data-casting] .duel-die.active .dice-stage::before{border-color:var(--action-color);animation:ritual-pedestal 1s ease-in-out infinite}
+.arena-view .duel-die small{font-size:11px;color:#bac6bd}
+.arena-view .duel-status{gap:3px;border-top:1px solid #967f7066;padding:5px 0 3px}
+.arena-view .duel-status .phase-label{display:flex;align-items:center;justify-content:center;gap:5px;color:#d8c1a6;font-size:9px;min-height:24px;line-height:1.35}
+.phase-label>span{min-width:0}.phase-label>.lucide{width:18px;height:18px;color:var(--ritual-color)}
+.console-crystal{width:21px;height:24px;object-fit:contain;filter:drop-shadow(0 0 4px color-mix(in srgb,var(--ritual-color) 55%,transparent));flex:none}
+.arena-view .duel-status h2{font-size:18px;color:#f1e4d9;text-wrap:balance}
+.arena-view .duel-status .outcome{font-size:15px;line-height:1.25}
+.arena-view .duel-recap{padding:5px 0 4px;border-top:1px solid #7b706966;border-bottom:1px solid #7b706966}
+.duel-console .recap-type{justify-content:flex-start;gap:5px;min-height:19px;margin-bottom:4px;font-size:11px;color:#decbae}
+.recap-type>small{margin-left:auto;font-size:8px;color:#a7b7ac;white-space:nowrap}
+.duel-console .recap-type>.lucide{color:var(--ritual-color);width:14px;height:14px}
+.duel-console .recap-row{padding:1px 3px;min-height:20px;gap:5px;font-size:11px}
+.duel-console .recap-row:nth-child(2n){background:#c8d9d304}
+.duel-console .recap-row>span{display:flex;align-items:center;gap:6px;min-width:0;flex-shrink:0}
+.duel-console .recap-row .lucide{width:12px;height:12px;color:#b3a89a}
+.duel-console .recap-row b{font-size:12px;line-height:1.3;text-align:right;font-weight:650}
+.duel-console .recap-row b.conditional{font-size:10px;color:#c2bbb0;font-weight:400}
+.duel-console .recap-row b.unknown{color:#74857b}
+.duel-console .recap-row b.positive{color:#a5efc7}.duel-console .recap-row b.negative,.duel-console .recap-totals .negative{color:#ff9eaf}
+.duel-console .recap-defense{margin-top:2px;padding-top:2px;border-color:#92c8d03a}
+.duel-console .recap-totals{grid-template-columns:minmax(0,1fr) 16px minmax(0,1fr);gap:6px;margin-top:4px;padding-top:4px;border-color:#b7a59566}
+.duel-console .recap-totals>div{min-width:0;gap:2px}
+.duel-console .recap-totals>span,.duel-console .recap-totals>.lucide{width:14px;height:14px;color:#a99c8d}
+.duel-console .recap-totals span{font-size:9px}
+.duel-console .recap-totals strong{font-family:var(--serif);font-size:29px;font-weight:700;line-height:1;color:#cbefdc}
+.duel-console .recap-totals>div:last-child strong{color:#f3c6d0}
+.duel-console .preview-totals strong{font-size:25px}
+.preview-note{margin:4px 0 0;color:#9ead9f;font-size:9px;line-height:1.3;text-align:center}
+.arena-view .duel-actions{padding-top:7px}
+.arena-view .duel-centre .duel-actions .ritual-action{
+  --button-glow:color-mix(in srgb,var(--action-color) 38%,transparent);
+  position:relative;isolation:isolate;display:grid;grid-template-columns:32px minmax(0,1fr) 12px;gap:7px;
+  width:100%;height:58px;min-height:58px;padding:6px 9px;
+  border:1px solid #c4a99b;border-radius:3px;
+  background:linear-gradient(115deg,#343d3b,#1b2827 48%,#2c3434);color:#f4e6cc;
+  box-shadow:0 4px 0 #060c0c,0 5px 0 #968274,inset 0 0 0 3px #101717,inset 0 0 0 4px #8d81776b;
+  text-shadow:0 1px 2px #000;transition:transform .15s ease,box-shadow .2s ease,border-color .2s ease;
+  overflow:visible;opacity:1;
+}
+.ritual-action::before{content:'';position:absolute;inset:4px;z-index:-1;pointer-events:none;border:1px solid color-mix(in srgb,var(--action-color) 48%,#64716b);background:linear-gradient(110deg,transparent 15%,color-mix(in srgb,var(--action-color) 10%,transparent),transparent 80%);clip-path:polygon(0 8px,8px 0,calc(100% - 8px) 0,100% 8px,100% calc(100% - 8px),calc(100% - 8px) 100%,8px 100%,0 calc(100% - 8px))}
+.ritual-action .action-sigil{height:32px;width:32px;display:grid;place-items:center;border:1px solid #bbaa8c77;background:#060f0f66;transform:rotate(45deg);box-shadow:inset 0 0 10px #8fab9922}
+.ritual-action .action-sigil>.lucide{width:20px;height:20px;transform:rotate(-45deg);color:var(--action-color);stroke-width:1.7}
+.ritual-action .action-label{font-family:var(--serif);font-size:15px;font-weight:700;line-height:1.15;overflow-wrap:anywhere;text-wrap:balance;position:relative}
+.ritual-action .action-tail{display:flex;justify-content:center;color:#d1bea2}.ritual-action .action-tail .lucide{width:13px;height:13px}
+.ritual-action .action-charge{position:absolute;pointer-events:none;bottom:2px;left:14px;right:14px;height:1px;background:linear-gradient(90deg,transparent,var(--action-color),transparent);transform-origin:center;opacity:.7}
+.arena-view .duel-centre .ritual-action:hover:not(:disabled){transform:translateY(-2px);border-color:var(--action-color);box-shadow:0 6px 0 #060c0c,0 7px 0 #968274,0 0 22px var(--button-glow),inset 0 0 0 3px #101717,inset 0 0 0 4px var(--action-color)}
+.ritual-action:hover:not(:disabled) .action-tail{animation:ritual-chevron .7s ease-in-out infinite alternate}
+.arena-view .duel-centre .ritual-action:active:not(:disabled){transform:translateY(3px);box-shadow:0 1px 0 #060c0c,0 2px 0 #968274,inset 0 0 20px var(--button-glow)}
+.arena-view .ritual-action:focus-visible{outline:2px solid #f8ecd3;outline-offset:5px}
+.arena-view .duel-centre .ritual-action:disabled{color:#a09f94;border-color:#676a60;box-shadow:0 3px 0 #060c0c,inset 0 0 0 3px #101717;background:#1d2523}
+.ritual-action:disabled .action-sigil,.ritual-action:disabled .action-tail{opacity:.45}
+.ritual-action:disabled .action-charge{opacity:.15}
+.ritual-action[data-mode="lock"]:not(:disabled) .action-charge{animation:ritual-ready 2.6s ease-in-out infinite}
+.ritual-action[data-mode="lock"]:not(:disabled) .action-sigil{border-color:var(--action-color);box-shadow:0 0 10px var(--button-glow)}
+.ritual-action[data-mode="attack"]:not(:disabled) .action-sigil>.lucide{animation:ritual-die 3s ease-in-out infinite}
+.ritual-action[data-mode="defense"]:not(:disabled) .action-sigil{animation:ritual-ward 2.4s ease-in-out infinite}
+.ritual-action[data-mode="next"] .action-charge{background:linear-gradient(90deg,transparent,#d6c09c,transparent)}
+.ritual-action[data-mode="next"] .action-sigil>.lucide{color:#d6c09c}
+.arena-view .duel-centre .ritual-action.is-casting{border-color:var(--action-color);color:#faf0d7;box-shadow:0 3px 0 #060c0c,0 0 24px var(--button-glow),inset 0 0 0 3px #101717}
+.ritual-action.is-casting .action-sigil{opacity:1;animation:ritual-ward .6s ease-in-out infinite}
+.ritual-action.is-casting .action-charge{height:2px;opacity:1;animation:ritual-charge .75s ease-in-out infinite}
+.arena-view .setup-actions{gap:5px}
+.arena-view .duel-centre .duel-actions .formation-auto{border:0;background:none;min-height:23px;height:23px;padding:1px;color:#c6c8b8;font-size:10px}
+.formation-auto .lucide{width:13px;height:13px}
+.clover-choice-status{font-family:var(--serif);color:#c9f0d2}
+@keyframes ritual-ready{0%,100%{transform:scaleX(.35);opacity:.35}50%{transform:scaleX(1);opacity:1}}
+@keyframes ritual-chevron{from{transform:translateX(-1px)}to{transform:translateX(2px)}}
+@keyframes ritual-die{0%,65%,100%{transform:rotate(-45deg)}77%{transform:rotate(-65deg)}88%{transform:rotate(-30deg)}}
+@keyframes ritual-ward{0%,100%{box-shadow:inset 0 0 0 1px transparent,0 0 0 transparent}50%{box-shadow:inset 0 0 12px var(--button-glow),0 0 12px var(--button-glow)}}
+@keyframes ritual-charge{0%{transform:scaleX(.15);opacity:.25}70%{transform:scaleX(1);opacity:1}100%{transform:scaleX(1);opacity:.25}}
+@keyframes ritual-pedestal{0%,100%{opacity:.35;transform:scale(.9)}50%{opacity:1;transform:scale(1.06)}}
+@media(max-width:1100px){.arena-view .duel-centre .duel-actions .ritual-action{grid-template-columns:26px minmax(0,1fr) 10px;padding:6px 8px;gap:6px}.ritual-action .action-sigil{width:26px;height:26px}.ritual-action .action-sigil>.lucide{width:18px;height:18px}.ritual-action .action-label{font-size:14px}}
+@media(max-width:640px){.duel-console .recap-row{min-height:18px;padding:0 3px}.duel-console .recap-type{margin-bottom:4px}.duel-console .recap-totals{margin-top:4px;padding-top:5px}.duel-console .recap-totals strong{font-size:25px}.duel-console .preview-totals strong{font-size:23px}.arena-view .duel-status h2{font-size:17px}.arena-view .duel-status .outcome{font-size:14px}}
+@media(prefers-reduced-motion:reduce){.duel-console *,.duel-console *::before,.duel-console *::after{animation:none!important;transition:none!important}}

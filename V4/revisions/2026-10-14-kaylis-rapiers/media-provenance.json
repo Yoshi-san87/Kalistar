@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "method": "3 independently generated images; existing 488px optical medallion canvas preserved.",
+  "assets": [
+    {
+      "source": "V4/weapon-cards/sources/kaylis-eclipse-rapier-v1.png",
+      "sourceHash": "0ffdf5effbbf68ea9e4251cf7348b325cc32eeea84223379168bad9e40873ada",
+      "width": 1176,
+      "height": 1337,
+      "file": "V4/site/assets/equipment/kaylis-eclipse-rapier-v1.webp",
+      "sha256": "d9272a2a81ebc98b89b5e496dc2e8c56df83e25711496e88749e601259486a39",
+      "bytes": 12304,
+      "role": "body",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 240
+      }
+    },
+    {
+      "source": "V4/weapon-cards/sources/kaylis-eclipse-rapier-v1.png",
+      "sourceHash": "0ffdf5effbbf68ea9e4251cf7348b325cc32eeea84223379168bad9e40873ada",
+      "file": "V4/site/assets/weapon-cards/kaylis-eclipse-rapier-v1.webp",
+      "sha256": "1b4b4542b0f3f1ca93afb6fbf6d48cee24e5c87e659efefb35de91b32d0ef254",
+      "bytes": 142972,
+      "role": "collectible-source"
+    },
+    {
+      "source": "V4/weapon-cards/sources/kaylis-eclipse-rapier-scene-v1.png",
+      "sourceHash": "1489ad1f769dcbba9e1569e662142ad1b8a509f060cfb6b0e83137c3341c6b36",
+      "width": 1122,
+      "height": 1402,
+      "file": "V4/site/assets/weapon-cards/kaylis-eclipse-rapier-scene-v1.webp",
+      "sha256": "f6ae2babfc229088ba9dea61770edadbd1d172ddbf653e0dd7f56493900101fb",
+      "bytes": 514532,
+      "role": "scene",
+      "placement": null
+    },
+    {
+      "source": "V4/weapon-cards/sources/kaylis-eclipse-rapier-ring-v1.png",
+      "sourceHash": "dad95ae0e29ca1091fe8f98a99be08e947fb63f2ba99b50b41a74822a978e6ae",
+      "width": 1254,
+      "height": 1254,
+      "file": "V4/site/assets/equipment/kaylis-eclipse-rapier-ring-v1.webp",
+      "sha256": "c5e014f6540f1a614931639e7eb5c6b282059e5559de4ce0d92a430adf544429",
+      "bytes": 77922,
+      "role": "ring",
+      "placement": {
+        "canvas": 488,
+        "center": [
+          244,
+          242
+        ],
+        "maximumMotifBox": 484
+      }
+    }
+  ]
+}

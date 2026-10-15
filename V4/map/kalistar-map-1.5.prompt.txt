@@ -1,0 +1,23 @@
+Use case: precise-object-edit
+Asset type: Kalistar / Astralia map, version 1.5, with small engraved city landmarks.
+Input image 1: EDIT TARGET, complete current map version 1.4. Preserve its geography, enlarged left continent and reduced impact crater.
+Input image 2: LOCATION REFERENCE ONLY, the author's small crop where Durane must stand. This matches the rectangle x=370..444, y=317..387 on the 1774x887 target, immediately beside the southeast/east rim of the crater.
+Input image 3: DESIGN RESTORATION REFERENCE ONLY, the earlier clean map version 1.1. Use ONLY its original central Kalistopolis temple design and exact clean letterforms as reference. Do not restore its old coastlines or remove the current crater.
+
+Make exactly TWO carefully localized changes:
+
+1. DURANE
+Add the city's canonical landmark from the story: the Obelisque de Fer (Iron Obelisk). The text explicitly describes this landmark dominating a square in Durane, a dwarven industrial city on the rim of Canyonero, with metal towers and suspended walkways. Render it as ONE compact cartographic city emblem, not a whole city: a straight, solid, slender four-sided iron obelisk/tower, pointed restrained top, strongly vertical straight ribs, a small geometric stepped base, perhaps one understated buttress. Recognizable and robust dwarven iron architecture, no elaborate invented ornament.
+Anchor its base near x=414, y=366 on the 1774x887 map (23.3% width, 41.3% height), on the high ground just southeast of the crater, inside the location reference. Landmark height about 34-40 pixels and width about 22-28 pixels at this map scale. It must NOT sit at the center of the crater or obscure the crater's bowl/trench. Place the exact name "Durane" just under it, centered, small readable dark umber antique italic serif lettering, consistent with Kalistopolis. Only the city name, no monument-name label, no banner or label box.
+
+2. KALISTOPOLIS, RESTORE AND REDUCE
+The central temple has gradually become distorted through earlier edits. Restore the recognizable ORIGINAL architectural silhouette shown on image 3: a crisp straight vertical faceted spire, balanced symmetrical buttresses on either side, narrow pointed central entrance and clear small stone steps. Do NOT invent a different building and do not perpetuate the warped leaning version in image 1.
+Reduce the ORIGINAL image-3 temple to about 60% of its original width and height, so it is now a discreet small city landmark, comparable in visual scale to Durane. Target about 42-46 pixels wide and 46-50 pixels tall at the full 1774x887 map scale. Keep it centered on the SAME central island at approximately x=880, with its base around y=426. It must stand perfectly upright and stable, not sag, lean, melt, duplicate or become blurry.
+Keep the exact word "Kalistopolis" directly underneath, sharp antique serif lettering around 14-15 pixels tall. Preserve its spelling and visual identity. Cleanly restore island terrain where the larger old temple stood. Do NOT shrink the island or change its coastline. Do not show remnants/ghosts of the previous larger structure.
+
+SHARED CITY STYLE
+Both miniature monuments must look drawn by the SAME cartographer as the map, with delicate crisp sepia ink, subtle short crosshatching, no color or glow, no dark block or sticker edge. City symbols are much smaller than the major geographic features. Carefully simplify tiny architectural detail for clarity while retaining straight edges and identity. Keep labels clear but understated.
+Use continuous original parchment texture behind and around both edits; no pasted rectangles, sharp patch borders, bright blank halos, smooth paint blobs, or blur. Do not remove underlying terrain outside the tiny monument footprints.
+
+PRESERVATION IS CRITICAL
+Keep all other pixels/areas as close to image 1 as possible; do not repaint or reinterpret the world map. No whole-map blur, smoothing, loss of fine linework, extra contrast or recoloring. The author specifically wants to stop degradation of existing artwork. Preserve the exact current crater size, trench and fractures; all current coastlines; frozen northern bridge; right continent; southern islands; compass; scale; navigation lines; border and numbers. Only add Durane and cleanly restore/reduce Kalistopolis. No other symbols, labels, new geography, UI, decorative border or title. Preserve the full 2:1 map framing. Return the full map.

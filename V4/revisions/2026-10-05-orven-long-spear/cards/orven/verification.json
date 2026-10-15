@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "modelId": "49900301",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "76e4bfbf112ddc33ac93bce51c24ad9c5b2d3bad257e0255867910707e588b4d",
+  "hashes": {
+    "card.png": "44462ca928c640a97e53934e17e31fd08ea55cd5482cbdb65051f01d2ebfb33f",
+    "card.psd": "89b72f983f7adf621bfadc98891d491edc9007037fe83a259609f52dccf9fbd0"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 86028
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49900301",
+    "cases": {
+      "color-1": [
+        "49900301"
+      ],
+      "color-4": [
+        "49900301"
+      ],
+      "gray-1": [
+        "49900301"
+      ],
+      "gray-4": [
+        "49900301"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-04T15:41:53.029Z",
+  "none": {
+    "unlit": true,
+    "crystalHash": "fd16efbb06ac645589885aed82cadacab4461f08dcc4f4dd1d58d7d42b11f8bf",
+    "branchHash": "c8bf5bb6de74db43356255c19c6747ffd0daa03ae6476c0ef1b66c628d77a7cb"
+  },
+  "typography": true,
+  "revision": "2026-10-05-orven-long-spear",
+  "artOnly": {
+    "changed": 444600,
+    "outside": 0
+  }
+}

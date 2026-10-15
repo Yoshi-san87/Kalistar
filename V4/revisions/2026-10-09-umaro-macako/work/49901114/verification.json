@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "modelId": "49901114",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "0d0f99fda071cfe7058cb5a1d04c53025f0257f07a7f4ee6798e7b1eabddea4e",
+  "hashes": {
+    "card.png": "47319a6c64ebae091e53e336f20e22ec71dd9f44f8e11ef34c7ab0036d638966",
+    "card.psd": "5a3eff3d442f50fa1e3a6414136213434777e2ded091405765d38f361e0e8d91"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 100669
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49901114",
+    "cases": {
+      "color-1": [
+        "49901114"
+      ],
+      "color-4": [
+        "49901114"
+      ],
+      "gray-1": [
+        "49901114"
+      ],
+      "gray-4": [
+        "49901114"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-08T23:34:16.293Z",
+  "revision": "2026-10-09-umaro-macako",
+  "scope": {
+    "changed": 4026,
+    "outside": 0
+  },
+  "raceChange": {
+    "from": "YETI",
+    "to": "MACAKO"
+  },
+  "statsUnchanged": true,
+  "previousProofHash": "e66b8de5f7891edf0db7003548c18c66cf820da21e2e16fc8a18c76dfae8db0d",
+  "inputManifestHash": "3fa657597d079bf632166d050e84588082a2a3c75d382de4115b81d3189ad9a3"
+}

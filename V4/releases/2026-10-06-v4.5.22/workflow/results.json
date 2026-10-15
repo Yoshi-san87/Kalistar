@@ -1,0 +1,147 @@
+[
+  {
+    "command": "node --test V4/atelier/game-catalog.test.cjs V4/atelier/collaboration-arenas.test.cjs V4/deploy/build.test.cjs V4/deploy/pwa.test.cjs V4/site/statistics.test.cjs V4/site/collaborations.test.cjs V4/site/metal-gear.test.cjs V4/site/resident-evil.test.cjs V4/site/one-piece.test.cjs",
+    "passed": true,
+    "tests": 43
+  },
+  {
+    "command": "node --test V4/expansions/2026-10-01-one-piece/model.test.cjs",
+    "passed": true,
+    "tests": 4
+  },
+  {
+    "command": "node --test V4/revisions/2026-10-04-armor-refinement/integration.test.cjs",
+    "passed": true,
+    "tests": 3
+  },
+  {
+    "command": "node --test V4/revisions/2026-10-05-orven-long-spear/revision.test.cjs",
+    "passed": true,
+    "tests": 3
+  },
+  {
+    "command": "node --test V4/expansions/2026-10-05-cryptown-sentinel/integration.test.cjs",
+    "passed": true,
+    "tests": 4
+  },
+  {
+    "command": "node --test V4/expansions/2026-10-06-cryptown-sniper/integration.test.cjs",
+    "passed": true,
+    "tests": 8
+  },
+  {
+    "command": "node --test V4/revisions/2026-10-01-stat-personality/revision.test.cjs",
+    "passed": true,
+    "tests": 11
+  },
+  {
+    "command": "node --test V4/expansions/2026-10-01-rikka-rooftops/model.test.cjs",
+    "passed": true,
+    "tests": 4
+  },
+  {
+    "command": "node --test V4/expansions/2026-10-01-one-piece-witcher/model.test.cjs",
+    "passed": true,
+    "tests": 4
+  },
+  {
+    "command": "node --test V4/revisions/2026-10-01-luffy-light/revision.test.cjs",
+    "passed": true,
+    "tests": 2
+  },
+  {
+    "command": "node --test V4/expansions/2026-10-02-witcher-completion/model.test.cjs V4/revisions/2026-10-02-sanji-legs/revision.test.cjs",
+    "passed": true,
+    "tests": 4
+  },
+  {
+    "command": "node --test V4/releases/2026-10-02-pages-portability/portable.test.cjs",
+    "passed": true,
+    "tests": 3
+  },
+  {
+    "command": "node V4/site/kalistel.test.cjs",
+    "passed": true,
+    "tests": 0
+  },
+  {
+    "command": "node V4/site/arena-ambience.test.cjs",
+    "passed": true,
+    "tests": 0
+  },
+  {
+    "command": "node --test V4/site/equipment.test.cjs V4/site/equipment-presentation.test.cjs",
+    "passed": true,
+    "tests": 19
+  },
+  {
+    "command": "node --test V4/site/arborium-weapons.test.cjs",
+    "passed": true,
+    "tests": 7
+  },
+  {
+    "command": "node --test V4/site/draevenheim-weapons.test.cjs",
+    "passed": true,
+    "tests": 4
+  },
+  {
+    "command": "node --test V4/site/weapon-art.test.cjs",
+    "passed": true,
+    "tests": 3
+  },
+  {
+    "command": "node --test V4/site/base-weapons.test.cjs",
+    "passed": true,
+    "tests": 4
+  },
+  {
+    "command": "node --test V4/site/team-composition.test.cjs",
+    "passed": true,
+    "tests": 14
+  },
+  {
+    "command": "node --test V4/site/lineup-intro.test.cjs V4/site/turn-order.test.cjs",
+    "passed": true,
+    "tests": 15
+  },
+  {
+    "command": "node --test V4/site/turn-timeline.test.cjs",
+    "passed": true,
+    "tests": 3
+  },
+  {
+    "command": "node --test V4/site/scoreboard.test.cjs",
+    "passed": true,
+    "tests": 4
+  },
+  {
+    "command": "node --test V4/site/catalogue-updates.test.cjs",
+    "passed": true,
+    "tests": 9
+  },
+  {
+    "command": "node --test V4/site/match-metrics.test.cjs V4/site/kill-medals.test.cjs",
+    "passed": true,
+    "tests": 2
+  },
+  {
+    "command": "node --test V4/site/navigation.test.cjs",
+    "passed": true,
+    "tests": 4
+  },
+  {
+    "command": "node --test V4/site/ui-system.test.cjs",
+    "passed": true,
+    "tests": 3
+  },
+  {
+    "command": "node --test V4/site/story-content.test.cjs",
+    "passed": true,
+    "tests": 3
+  },
+  {
+    "command": "node V4/deploy/build.cjs",
+    "passed": true,
+    "tests": 0
+  }
+]

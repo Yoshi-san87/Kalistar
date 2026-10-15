@@ -1,0 +1,42 @@
+{
+  "job": "5dd763fb-bc13-48ae-a83c-bd8842ea948f",
+  "setId": "2026-10-08-final-fantasy-ix",
+  "key": "djidane",
+  "modelId": "49901001",
+  "hashes": {
+    "profile.json": "95f73d32204866d459d07e7d2960970aa352cfc899f1d06991773df86380e7bc",
+    "card.png": "76cc85b095e7b1d7633d787f9eb63029a4ad50cea569c375991019879ae15f94",
+    "card.psd": "f856249a849c1c893074c86bdca3f794527fa58abad62a603d33a5ed75972a17",
+    "verification.json": "a72d75f0026e8dbf3a01d403da533097e572eba563eea9f662f5090cbbfd9a68",
+    "illustration.png": "f96efbae4996aa3200d24be70cb496812330dcba30cbf06391c50e404498f247"
+  },
+  "createdAt": "2026-10-08T13:50:51.111Z",
+  "nativeRevision": {
+    "id": "2026-10-09-skaern-luxo",
+    "key": "djidane",
+    "proof": "V4/expansions/2026-10-09-skaern-luxo/cards/djidane/verification.json",
+    "changedFields": [
+      "element",
+      "color",
+      "hue",
+      "sentry"
+    ],
+    "previous": {
+      "id": "2026-10-09-ff-logo-banners",
+      "key": "djidane",
+      "proof": "V4/revisions/2026-10-09-ff-logo-banners/work/49901001/verification.json",
+      "changedFields": [
+        "factionIllustration"
+      ],
+      "previous": {
+        "id": "2026-10-08-ff9-art-direction",
+        "key": "djidane",
+        "proof": "V4/revisions/2026-10-08-ff9-art-direction/work/49901001/verification.json",
+        "changedFields": [
+          "raceIllustration"
+        ],
+        "previous": null
+      }
+    }
+  }
+}

@@ -1,0 +1,462 @@
+[
+  {
+    "id": "gotham-catwoman-whip",
+    "slot": "weapon",
+    "rulesVersion": 2,
+    "name": "Fouet de Selina",
+    "family": "Fouet",
+    "visual": "axe",
+    "art": "gotham-catwoman-whip-v1",
+    "restrictions": {
+      "characterIds": [
+        "catwoman-batman"
+      ],
+      "families": [
+        "Fouet"
+      ]
+    },
+    "effect": {
+      "trigger": "RETAINED_SIX",
+      "stat": "ATK",
+      "value": 20,
+      "duration": "DUEL"
+    },
+    "condition": "Jet ATK 6 numérique conservé : +20 ATK pour ce duel.",
+    "lore": "Selina vérifie la tresse avant de retrouver les toits. Ce cuir usé connaît les corniches et les portes fermées. Il ne choisit pas son camp à sa place ; il lui laisse une seconde pour le faire.",
+    "collectible": {
+      "number": "ARM-042",
+      "illustration": "gotham-catwoman-whip-v1.webp",
+      "cutout": true,
+      "flavour": "La ville tient au bout d'un fil.",
+      "alt": "Fouet de Selina, équipement de la collection Batman."
+    }
+  },
+  {
+    "id": "gotham-freeze-gun",
+    "slot": "weapon",
+    "rulesVersion": 2,
+    "name": "Fusil Cryogénique",
+    "family": "Gun",
+    "visual": "axe",
+    "art": "gotham-freeze-gun-v1",
+    "restrictions": {
+      "characterIds": [
+        "mr-freeze-batman"
+      ],
+      "families": [
+        "Gun"
+      ]
+    },
+    "effect": {
+      "trigger": "RETAINED_SIX",
+      "stat": "ATK",
+      "value": 25,
+      "duration": "DUEL"
+    },
+    "condition": "Jet ATK 6 numérique conservé : +25 ATK pour ce duel.",
+    "lore": "Victor resserre le collier du canon avec une patience de chercheur. Le givre gagne le métal. Chaque intervention devait être la dernière ; au fond du laboratoire, Nora attend toujours.",
+    "collectible": {
+      "number": "ARM-043",
+      "illustration": "gotham-freeze-gun-v1.webp",
+      "cutout": true,
+      "flavour": "Arrêter le monde, pas son espoir.",
+      "alt": "Fusil Cryogénique, équipement de la collection Batman."
+    }
+  },
+  {
+    "id": "gotham-demon-sword",
+    "slot": "weapon",
+    "rulesVersion": 2,
+    "name": "Lame de la Ligue",
+    "family": "Epée longue",
+    "visual": "axe",
+    "art": "gotham-demon-sword-v1",
+    "restrictions": {
+      "characterIds": [
+        "ras-al-ghul-batman"
+      ],
+      "families": [
+        "Epée longue"
+      ]
+    },
+    "effect": {
+      "trigger": "RETAINED_SIX",
+      "stat": "ATK",
+      "value": 25,
+      "duration": "DUEL"
+    },
+    "condition": "Jet ATK 6 numérique conservé : +25 ATK pour ce duel.",
+    "lore": "Ra's al Ghul essuie la lame avant de la ranger. Les hommes qui lui jurèrent fidélité ont changé, jamais la précision de ce geste. L'acier ne lui promet pas un monde meilleur ; il porte le poids de celui qu'il veut imposer.",
+    "collectible": {
+      "number": "ARM-044",
+      "illustration": "gotham-demon-sword-v1.webp",
+      "cutout": true,
+      "flavour": "Des siècles. Un seul fil.",
+      "alt": "Lame de la Ligue, équipement de la collection Batman."
+    }
+  },
+  {
+    "id": "gotham-penguin-umbrella",
+    "slot": "weapon",
+    "rulesVersion": 2,
+    "name": "Parapluie de l'Iceberg",
+    "family": "Gun",
+    "visual": "axe",
+    "art": "gotham-penguin-umbrella-v1",
+    "restrictions": {
+      "characterIds": [
+        "pingouin-batman"
+      ],
+      "families": [
+        "Gun"
+      ]
+    },
+    "effect": {
+      "trigger": "RETAINED_SIX",
+      "stat": "ATK",
+      "value": 20,
+      "duration": "DUEL"
+    },
+    "condition": "Jet ATK 6 numérique conservé : +20 ATK pour ce duel.",
+    "lore": "Cobblepot lisse le tissu noir comme s'il attendait seulement la pluie. L'argent du pommeau ne porte aucune empreinte. À l'Iceberg, la courtoisie est un langage dont il conserve toujours le dernier mot.",
+    "collectible": {
+      "number": "ARM-045",
+      "illustration": "gotham-penguin-umbrella-v1.webp",
+      "cutout": true,
+      "flavour": "La politesse garde une réserve.",
+      "alt": "Parapluie de l'Iceberg, équipement de la collection Batman."
+    }
+  },
+  {
+    "id": "gotham-joker-cane",
+    "slot": "weapon",
+    "rulesVersion": 2,
+    "name": "Canne du Dernier Rire",
+    "family": "Bâton",
+    "visual": "axe",
+    "art": "gotham-joker-cane-v1",
+    "restrictions": {
+      "characterIds": [
+        "joker-batman"
+      ],
+      "families": [
+        "Bâton"
+      ]
+    },
+    "effect": {
+      "trigger": "RETAINED_SIX",
+      "stat": "ATK",
+      "value": 20,
+      "duration": "DUEL"
+    },
+    "condition": "Jet ATK 6 numérique conservé : +20 ATK pour ce duel.",
+    "lore": "Le Joker fait rouler la canne entre ses doigts avant d'entrer. Un éclat manque au sourire du pommeau. Il l'aime ainsi : même une plaisanterie parfaitement préparée doit garder quelque chose de travers.",
+    "collectible": {
+      "number": "ARM-046",
+      "illustration": "gotham-joker-cane-v1.webp",
+      "cutout": true,
+      "flavour": "Le silence n'était qu'une entrée.",
+      "alt": "Canne du Dernier Rire, équipement de la collection Batman."
+    }
+  },
+  {
+    "id": "gotham-batsuit",
+    "slot": "shield",
+    "kind": "shield",
+    "rulesVersion": 2,
+    "name": "Armure du Chevalier Noir",
+    "family": "Plastron",
+    "visual": "axe",
+    "art": "gotham-batsuit-v1",
+    "restrictions": {
+      "characterIds": [
+        "batman-batman"
+      ]
+    },
+    "effect": {
+      "trigger": "RETAINED_SIX",
+      "stat": "DEF",
+      "value": 30,
+      "duration": "DUEL"
+    },
+    "condition": "Jet DEF 6 numérique conservé : +30 DEF pour ce duel.",
+    "lore": "Alfred a réparé la couture que Bruce prétendait ne pas sentir. Sous les plaques sombres, les traces des nuits précédentes restent visibles. Cette armure ne le rend pas invulnérable ; elle lui permet de revenir.",
+    "collectible": {
+      "number": "PRO-027",
+      "illustration": "gotham-batsuit-v1.webp",
+      "cutout": true,
+      "flavour": "Se relever avant que la ville cède.",
+      "alt": "Armure du Chevalier Noir, équipement de la collection Batman."
+    }
+  },
+  {
+    "id": "gotham-cryo-suit",
+    "slot": "shield",
+    "kind": "shield",
+    "rulesVersion": 2,
+    "name": "Scaphandre Cryogénique",
+    "family": "Scaphandre",
+    "visual": "axe",
+    "art": "gotham-cryo-suit-v1",
+    "restrictions": {
+      "characterIds": [
+        "mr-freeze-batman"
+      ]
+    },
+    "effect": {
+      "trigger": "RETAINED_SIX",
+      "stat": "DEF",
+      "value": 30,
+      "duration": "DUEL"
+    },
+    "condition": "Jet DEF 6 numérique conservé : +30 DEF pour ce duel.",
+    "lore": "Le joint du col doit rester impeccable. Victor le vérifie encore, puis écoute le souffle régulier du circuit. Ce froid qui l'isole des autres est aussi ce qui lui laisse le temps de poursuivre.",
+    "collectible": {
+      "number": "PRO-028",
+      "illustration": "gotham-cryo-suit-v1.webp",
+      "cutout": true,
+      "flavour": "Un hiver pour garder une promesse.",
+      "alt": "Scaphandre Cryogénique, équipement de la collection Batman."
+    }
+  },
+  {
+    "id": "gotham-cat-goggles",
+    "slot": "shield",
+    "kind": "shield",
+    "rulesVersion": 2,
+    "name": "Lunettes de Selina",
+    "family": "Lunettes",
+    "visual": "axe",
+    "art": "gotham-cat-goggles-v1",
+    "restrictions": {
+      "characterIds": [
+        "catwoman-batman"
+      ]
+    },
+    "effect": {
+      "trigger": "RETAINED_SIX",
+      "stat": "DEF",
+      "value": 20,
+      "duration": "DUEL"
+    },
+    "condition": "Jet DEF 6 numérique conservé : +20 DEF pour ce duel.",
+    "lore": "Selina passe le pouce sur une rayure du verre. La ville est différente derrière ces lentilles : les ombres y ont des bords, les fenêtres une distance. Elle sait déjà où poser le prochain pied.",
+    "collectible": {
+      "number": "PRO-029",
+      "illustration": "gotham-cat-goggles-v1.webp",
+      "cutout": true,
+      "flavour": "Voir une issue là où tout se ferme.",
+      "alt": "Lunettes de Selina, équipement de la collection Batman."
+    }
+  },
+  {
+    "id": "gotham-fear-mask",
+    "slot": "shield",
+    "kind": "shield",
+    "rulesVersion": 2,
+    "name": "Masque de l'Épouvantail",
+    "family": "Masque",
+    "visual": "axe",
+    "art": "gotham-fear-mask-v1",
+    "restrictions": {
+      "characterIds": [
+        "epouvantail-batman"
+      ]
+    },
+    "effect": {
+      "trigger": "RETAINED_SIX",
+      "stat": "DEF",
+      "value": 25,
+      "duration": "DUEL"
+    },
+    "condition": "Jet DEF 6 numérique conservé : +25 DEF pour ce duel.",
+    "lore": "Crane replace le filtre sous la toile grossière. Derrière les coutures, l'air doit rester parfaitement calme. Il connaît trop bien ce que ses expériences font aux autres pour vouloir en respirer le moindre souvenir.",
+    "collectible": {
+      "number": "PRO-030",
+      "illustration": "gotham-fear-mask-v1.webp",
+      "cutout": true,
+      "flavour": "Il garde son souffle. Pas ses remords.",
+      "alt": "Masque de l'Épouvantail, équipement de la collection Batman."
+    }
+  },
+  {
+    "id": "gotham-harvey-coin",
+    "slot": "relic",
+    "kind": "relic",
+    "rulesVersion": 2,
+    "name": "La Pièce de Harvey",
+    "family": "Relique",
+    "visual": "flute",
+    "art": "gotham-harvey-coin-v1",
+    "restrictions": {
+      "characterIds": [
+        "double-face-batman"
+      ]
+    },
+    "effect": {
+      "trigger": "ONCE_DEFENSE",
+      "stat": "DEF",
+      "value": 20,
+      "duration": "NEXT_DEFENSE",
+      "event": "DEFENSE",
+      "when": {
+        "attack": "physical"
+      },
+      "recipient": "self"
+    },
+    "condition": "Première défense physique.",
+    "lore": "Harvey retourne la pièce et reconnaît chaque entaille. Il dit que le hasard est juste. Pourtant, avant de la lancer, sa main se referme toujours un peu trop longtemps.",
+    "collectible": {
+      "number": "REL-027",
+      "illustration": "gotham-harvey-coin-v1.webp",
+      "cutout": true,
+      "flavour": "Le métal décide de ce qu'il tait.",
+      "alt": "La Pièce de Harvey, équipement de la collection Batman."
+    }
+  },
+  {
+    "id": "gotham-riddle-box",
+    "slot": "relic",
+    "kind": "relic",
+    "rulesVersion": 2,
+    "name": "Le Dernier Point d'Interrogation",
+    "family": "Relique",
+    "visual": "flute",
+    "art": "gotham-riddle-box-v1",
+    "restrictions": {
+      "characterIds": [
+        "sphinx-batman"
+      ]
+    },
+    "effect": {
+      "trigger": "ONCE_DEFENSE",
+      "stat": "DEF",
+      "value": 20,
+      "duration": "NEXT_DEFENSE",
+      "event": "SUPPORT",
+      "when": {
+        "supports": [
+          "physical"
+        ]
+      },
+      "recipient": "support"
+    },
+    "condition": "Après un nouveau buff physique accordé.",
+    "lore": "Le Sphinx referme le petit coffret avec un sourire contrarié. Il a trouvé la solution avant tout le monde. Il lui reste à décider qui aura le droit de s'en servir.",
+    "collectible": {
+      "number": "REL-028",
+      "illustration": "gotham-riddle-box-v1.webp",
+      "cutout": true,
+      "flavour": "Une solution offerte, jamais gratuitement.",
+      "alt": "Le Dernier Point d'Interrogation, équipement de la collection Batman."
+    }
+  },
+  {
+    "id": "gotham-ivy-seed",
+    "slot": "relic",
+    "kind": "relic",
+    "rulesVersion": 2,
+    "name": "La Dernière Graine",
+    "family": "Relique",
+    "visual": "flute",
+    "art": "gotham-ivy-seed-v1",
+    "restrictions": {
+      "characterIds": [
+        "poison-ivy-batman"
+      ]
+    },
+    "effect": {
+      "trigger": "ONCE_DEFENSE",
+      "stat": "DEF",
+      "value": 25,
+      "duration": "NEXT_DEFENSE",
+      "event": "SUPPORT",
+      "when": {
+        "supports": [
+          "mana",
+          "reraise"
+        ]
+      },
+      "recipient": "support"
+    },
+    "condition": "Après une nouvelle potion ou un Reraise.",
+    "lore": "Ivy protège cette graine dans le creux d'une capsule. Elle ne vient d'aucun jardin que Gotham ait su conserver. Quand la coque s'entrouvre, quelque chose de fragile recommence à demander de la place.",
+    "collectible": {
+      "number": "REL-029",
+      "illustration": "gotham-ivy-seed-v1.webp",
+      "cutout": true,
+      "flavour": "Une vie minuscule réclame sa place.",
+      "alt": "La Dernière Graine, équipement de la collection Batman."
+    }
+  },
+  {
+    "id": "gotham-utility-belt",
+    "slot": "relic",
+    "kind": "relic",
+    "rulesVersion": 2,
+    "name": "Ceinture de la Dernière Issue",
+    "family": "Relique",
+    "visual": "flute",
+    "art": "gotham-utility-belt-v1",
+    "restrictions": {
+      "characterIds": [
+        "batman-batman"
+      ]
+    },
+    "effect": {
+      "trigger": "ONCE_DEFENSE",
+      "stat": "DEF",
+      "value": 20,
+      "duration": "NEXT_DEFENSE",
+      "event": "SUPPORT",
+      "when": {
+        "supports": [
+          "ward"
+        ]
+      },
+      "recipient": "support"
+    },
+    "condition": "Après une nouvelle garde accordée.",
+    "lore": "Bruce recompte les compartiments avant de partir. Alfred lui rappelle qu'il ne peut pas tout prévoir. Il le sait ; il veut seulement qu'au moment critique, quelqu'un ait encore une issue.",
+    "collectible": {
+      "number": "REL-030",
+      "illustration": "gotham-utility-belt-v1.webp",
+      "cutout": true,
+      "flavour": "Toujours prévoir le retour des autres.",
+      "alt": "Ceinture de la Dernière Issue, équipement de la collection Batman."
+    }
+  },
+  {
+    "id": "gotham-lazarus-vial",
+    "slot": "relic",
+    "kind": "relic",
+    "rulesVersion": 2,
+    "name": "Mémoire de Lazare",
+    "family": "Relique",
+    "visual": "flute",
+    "art": "gotham-lazarus-vial-v1",
+    "restrictions": {
+      "characterIds": [
+        "ras-al-ghul-batman"
+      ]
+    },
+    "effect": {
+      "trigger": "ONCE_DEFENSE",
+      "stat": "DEF",
+      "value": 25,
+      "duration": "NEXT_DEFENSE",
+      "event": "ALLY_FALL",
+      "when": {},
+      "recipient": "self"
+    },
+    "condition": "Après une élimination alliée.",
+    "lore": "Ra's conserve un peu de l'eau verte dans un flacon scellé. Il a vu tant de fidèles tomber qu'il prétend ne plus les compter. Le verre serré dans sa paume dit autre chose.",
+    "collectible": {
+      "number": "REL-031",
+      "illustration": "gotham-lazarus-vial-v1.webp",
+      "cutout": true,
+      "flavour": "Survivre ne rend pas ce qui est perdu.",
+      "alt": "Mémoire de Lazare, équipement de la collection Batman."
+    }
+  }
+]

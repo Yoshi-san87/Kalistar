@@ -1,0 +1,25 @@
+{
+  "version": "V2-demo-5-collection-locale",
+  "copy_limit": 2,
+  "token_bonus": 60,
+  "max_turns": 200,
+  "conventions": [
+    "Deux exemplaires par version au maximum, une seule Rainbow. Les deux decks de depart couvrent les 20 versions disponibles.",
+    "Le joueur commence. Les roles alternent apres chaque duel ou action de soutien.",
+    "Une carte ne peut porter qu'un seul trait actif : Reraise, trefle, potion magique ou puissance physique. Convention : un nouveau trait remplace le precedent, sans cumul. Les synergies de faction et de race ne sont pas des traits et restent cumulables.",
+    "La potion magique remplace l'attaque du tour : le joueur choisit une carte vivante de son propre plateau, y compris l'auteur du jet. Elle recoit +60 sur sa prochaine attaque numerique magique. Le bonus physique reste attribue a la carte qui obtient sa face, pour sa prochaine attaque numerique physique. Les deux traits sont consommes au jet numerique du type correspondant, meme si la cible esquive.",
+    "Le coeur (champ technique revive) remplace l'attaque : le joueur choisit une carte vivante de son propre plateau, y compris l'auteur du jet. Elle recoit un Reraise, en remplacant son trait precedent. Le coeur peut etre regagne apres consommation. A la prochaine elimination, meme par Mort, il est consomme et la carte reste a sa position, sans passage au cimetiere ni remplacement. Les cartes deja mortes ne reviennent pas.",
+    "L'esquive et le bouclier du type approprie priment sur Mort. Une barriere ordinaire de -30 n'annule pas Mort.",
+    "Le bouclier magique annule une attaque magique. La cellule C5 du classeur duplique le texte physique de C4 : cette divergence est tranchee ici.",
+    "Un bouclier special du mauvais type donne un nouveau jet DEF, jamais une valeur zero fictive. Taulio porte le bouclier physique.",
+    "Trefle en ATK (champ technique retry) : action de soutien remplacant l'attaque. Le joueur attribue ce trait a une carte vivante de son propre plateau, y compris celle qui a lance le de, en remplacant son ancien trait. Le trefle peut etre regagne apres consommation.",
+    "Si la DEF finale est strictement inferieure a l'ATK finale numerique, le trefle est consomme et relance automatiquement le de DEF. Les modificateurs, dont la barriere du nouveau jet, sont recalcules. Une egalite, une defense suffisante, une esquive ou un bouclier adapte conservent le trait. Le trefle et le Reraise ne peuvent pas coexister. Convention : Mort ignore les scores et ne declenche pas le trefle.",
+    "La face trefle en DEF conserve sa relance immediate du de DEF et ne consomme pas de jeton. Si la seconde chance automatique obtient une face relance ou un bouclier inadapte, les jets DEF continuent automatiquement jusqu'a resolution. L'attaquant et la cible restent les memes.",
+    "Les remplacements compatibles sont effectues avant le duel suivant. Aucun deplacement de carte vivante hors formation initiale.",
+    "Defaite quand le plateau est vide et qu'aucune reserve ne peut occuper une position libre. La reserve incompatible seule ne prolonge pas la partie.",
+    "Garde-fou de demo : match nul apres 200 echanges. Ce n'est pas une regle definitive du jeu.",
+    "Mode local avec deux joueurs ou adversaire automatique. L'IA lit le plateau public, jamais les jets futurs. La graine rend les essais reproductibles."
+  ],
+  "source_specials": "main/Kalistar.xlsx, Capacite Speciale, B2:G9",
+  "status": "Conventions provisoires explicites, a valider en tests. Statistiques imprimees inchangees."
+}

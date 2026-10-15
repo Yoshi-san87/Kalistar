@@ -1,0 +1,332 @@
+{
+  "label": "compact detail",
+  "samples": [
+    {
+      "id": "fallen-king-axe",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "rules": [
+        {
+          "label": "Condition : Dernier combattant actif de son équipe.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +30 ATK. Tant qu’il reste seul.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            45.703125,
+            4.984375,
+            45.71875,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            2.796875,
+            4.140625,
+            2.796875,
+            5.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            9.8125,
+            2,
+            10.828125
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            3.90625,
+            0.21875,
+            3.921875,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            8.109375,
+            4.703125,
+            8.109375,
+            4.71875
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "little-joys-flute",
+      "ratio": 1.4000291672743181,
+      "medallionRatio": 1,
+      "rules": [
+        {
+          "label": "Condition : Nouveau trèfle ou nouvelle potion.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +30 DEF au bénéficiaire. Prochain duel · 1 charge.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.003125,
+        -0.0011666909727285986
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 216.40625,
+          "height": 23.859375,
+          "overflow": 0,
+          "textInset": [
+            15.890625,
+            4.984375,
+            15.890625,
+            6
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 107.78125,
+          "height": 39.296875,
+          "overflow": 0,
+          "textInset": [
+            13.296875,
+            4.140625,
+            13.3125,
+            5.65625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 71.578125,
+          "height": 10.75,
+          "overflow": 0,
+          "textInset": [
+            10.59375,
+            0.375,
+            10.59375,
+            1.375
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 104.828125,
+          "height": 61.984375,
+          "overflow": 0,
+          "textInset": [
+            2,
+            4.875,
+            2,
+            5.875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 50.09375,
+          "height": 15.4375,
+          "overflow": 0,
+          "textInset": [
+            4.328125,
+            0.21875,
+            4.34375,
+            0.21875
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 73.671875,
+          "height": 21.515625,
+          "overflow": 0,
+          "textInset": [
+            17.890625,
+            4.703125,
+            17.890625,
+            4.71875
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    },
+    {
+      "id": "little-joys-flute",
+      "ratio": 1.4,
+      "medallionRatio": 1,
+      "rules": [
+        {
+          "label": "Condition : Nouveau trèfle ou nouvelle potion.",
+          "align": "left",
+          "color": "rgb(240, 209, 154)",
+          "icon": true
+        },
+        {
+          "label": "Effet : +30 DEF au bénéficiaire. Prochain duel · 1 charge.",
+          "align": "left",
+          "color": "rgb(182, 235, 220)",
+          "icon": true
+        }
+      ],
+      "medallionOffset": [
+        0.0031356292517006803,
+        -0.0011160714285714285
+      ],
+      "fields": [
+        {
+          "field": "wc-title",
+          "width": 212.078125,
+          "height": 23.375,
+          "overflow": 0,
+          "textInset": [
+            13.71875,
+            4.75,
+            13.734375,
+            5.75
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-flavour",
+          "width": 105.625,
+          "height": 38.5,
+          "overflow": 0,
+          "textInset": [
+            12.21875,
+            3.75,
+            12.234375,
+            5.25
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation-title",
+          "width": 70.140625,
+          "height": 10.53125,
+          "overflow": 0,
+          "textInset": [
+            9.875,
+            0.265625,
+            9.875,
+            1.265625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-activation",
+          "width": 102.734375,
+          "height": 60.75,
+          "overflow": 0,
+          "textInset": [
+            2,
+            4.25,
+            2,
+            5.265625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-power",
+          "width": 49.09375,
+          "height": 15.125,
+          "overflow": 0,
+          "textInset": [
+            3.828125,
+            0.0625,
+            3.84375,
+            0.0625
+          ],
+          "insideCard": true,
+          "textFits": true
+        },
+        {
+          "field": "wc-bearers",
+          "width": 72.203125,
+          "height": 21.078125,
+          "overflow": 0,
+          "textInset": [
+            17.15625,
+            4.484375,
+            17.15625,
+            4.5
+          ],
+          "insideCard": true,
+          "textFits": true
+        }
+      ]
+    }
+  ]
+}

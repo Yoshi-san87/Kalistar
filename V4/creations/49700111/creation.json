@@ -1,0 +1,37 @@
+{
+  "job": "7c20fc97-624b-49e7-b5b5-1ff47e0fda51",
+  "setId": "2026-10-01-resident-evil",
+  "key": "chris1",
+  "modelId": "49700111",
+  "hashes": {
+    "profile.json": "ca4cc0168769bbafa74394e4734649012faf2060f5a3cc3876f021fc4fa30006",
+    "card.png": "1547fbddba0a1593a3516d05a1b43424d532fee5194e82512414a0b0c5e256ac",
+    "card.psd": "6de954cd818dc20a58e0591847724165b343fc46e6bd950875c72470a3b65c7b",
+    "verification.json": "3538ccea65f371e5eebe1e0de2c310fee50a0b540033b58787e78a593c07d29c",
+    "illustration.png": "9837a651ee95315a1be17ef6defd72f1e5e3b7caabcf7eb65ef54c79ef9c9988"
+  },
+  "createdAt": "2026-09-30T23:31:55.743Z",
+  "nativeRevision": {
+    "id": "2026-10-08-resident-evil-faces",
+    "key": "chris-re1",
+    "proof": "V4/revisions/2026-10-08-resident-evil-faces/work/49700111/verification.json",
+    "changedFields": [
+      "atk",
+      "defense",
+      "magic",
+      "barriers",
+      "canGuard",
+      "canHeal"
+    ],
+    "previous": {
+      "id": "2026-10-01-stat-personality",
+      "key": "chris-re1",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700111/verification.json",
+      "changedFields": [
+        "atk",
+        "defense"
+      ],
+      "previous": null
+    }
+  }
+}

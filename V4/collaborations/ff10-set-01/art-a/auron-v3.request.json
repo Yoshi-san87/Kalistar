@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "asset": "auron-v3",
+  "mode": "builtin-imagegen",
+  "intent": "identity-preserve-canonical-weapon-framing",
+  "prompt": "Edit target image 1: the new Kalistar Auron painting with upright sword. KEEP exactly the same portrait, face, glasses, expression, costume, Luca setting, light and visible brushwork, entire body and feet. Images 2/3 are canonical Auron weapon/face reference only, images 4/5 are the Momo/Valazar painting language.\nThe sword itself is now structurally coherent and has the right broad steel geometry; preserve its length, modest curve, tip, dark-and-gold guard, long wrapped hilt and pommel. Do not redesign, shorten, bend or widen it.\nONLY REMAINING CORRECTION: reposition the ENTIRE upright sword and gripping hand inward toward his body by about 9 percent of image width (roughly 100 pixels on this 1122 wide canvas). Move blade, guard, grip, pommel and hanging tassel together, not separately, with a naturally adjusted bent forearm. The leftmost outline of the widest guard MUST be at x25% or farther right, never the current x16%. Sword handle center should be around x29%, tip around x38%. The whole weapon including tassel stays between x24% and x41%. Keep blade just LEFT of his face; it must not cover face/glasses/hair. Shift pose coherently to allow this tucked-in one-handed grip, wrist and elbow physically natural. His free left arm remains inside the coat. Keep current blade vertical position and full blade tip clearance. There must be EMPTY BACKGROUND in the entire x0%-23% strip at the weapon and hand's height, no weapon or fingers there. Do not place a replacement/duplicate sword or alter any other part of Auron.\nCoherent finished illustration, not raster patchwork, no crop, no frame, no lettering, no new accessories. Portrait 4:5.",
+  "referenced_image_paths": [
+    "V4/collaborations/ff10-set-01/art-a/auron-v2.png",
+    "V4/collaborations/ff10-set-01/art-a/references/auron-full.jpg",
+    "V4/collaborations/ff10-set-01/art-a/references/auron-official.jpg",
+    "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+    "V3/assets/illustrations/34_NECRO_VALAZAR.png"
+  ],
+  "output": "V4/collaborations/ff10-set-01/art-a/auron.png",
+  "reason": "v2 coherent sword but guard at x16% still risks rail. Move sword and connected gripping arm inward, preserving weapon geometry."
+}

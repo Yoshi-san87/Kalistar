@@ -1,0 +1,37 @@
+{
+  "job": "14205518-b28e-4c99-89e5-7c373dcda4a6",
+  "setId": "2026-10-01-resident-evil",
+  "key": "salazar4",
+  "modelId": "49700123",
+  "hashes": {
+    "profile.json": "6d273787f478da4c1ee62b05d9acd629442513a0ac060da12d2167cae30e0bc9",
+    "card.png": "ba6a36293feeb6fb2d337efe9c01c18673a517d781513bf9d68e50109f9e5231",
+    "card.psd": "15e10a662eb79f5836ace0fe6cd9b2c4d2f798d1c812bafe48f986352ef79558",
+    "verification.json": "4b476af991dac5a853716a0569c1125ac817affd5321da157655b6194aa31906",
+    "illustration.png": "f46ce420c045fa536e559e3be3a7617857797916fb3abd52e942c787710103b1"
+  },
+  "createdAt": "2026-09-30T23:31:56.085Z",
+  "nativeRevision": {
+    "id": "2026-10-08-resident-evil-faces",
+    "key": "salazar",
+    "proof": "V4/revisions/2026-10-08-resident-evil-faces/work/49700123/verification.json",
+    "changedFields": [
+      "atk",
+      "defense",
+      "magic",
+      "barriers",
+      "canGuard",
+      "canHeal"
+    ],
+    "previous": {
+      "id": "2026-10-01-stat-personality",
+      "key": "salazar",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700123/verification.json",
+      "changedFields": [
+        "atk",
+        "defense"
+      ],
+      "previous": null
+    }
+  }
+}

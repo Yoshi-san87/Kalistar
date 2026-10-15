@@ -1,0 +1,214 @@
+{
+  "reason": "Chris RE1 narrative exceeded unchanged native frame",
+  "error": "Photoshop Error 54: Recit hors cadre apres equilibrage",
+  "before": "Chris se place devant ses compagnons dans les couloirs du manoir. Son arme reste ferme malgre l'incomprehension : il cherche les disparus de Bravo et refuse que les survivants deviennent les prochaines victimes.",
+  "after": "Chris garde le passage dans les couloirs du manoir. Il cherche les disparus de Bravo, arme en main, et refuse de laisser ses compagnons unis devenir les prochaines victimes.",
+  "oldSetReconstructedSha256": "29ddb97b4a4a82203b2ed4b19b0372e6a7a3195ca581aad32379a43bd1678cd1",
+  "currentSetSha256": "a9ccd1ad299611618255f4b66497d2865e12c9ea8a484cb0cfca6c1cf6a77986",
+  "oldSetStatus": "Reconstructed from exact original narrative; not a retained original byte archive",
+  "preparationStatus": "Original preparations were renewed before archive instruction arrived. Retained copies are corrected preparations; do not claim otherwise.",
+  "nativeEvidence": "First ten completed native reports retained; no rerender requested. Final unchanged strict verification must pass.",
+  "protectedLocksChanged": false,
+  "evidence": [
+    {
+      "path": "jill1/preparation.json",
+      "sha256": "a51e4940d33007fa0b386e089d2376349df4e5ace081aea1bb26e449c1e92cbd"
+    },
+    {
+      "path": "jill1/profile.json",
+      "sha256": "fcfa2b1f6d6f79de23d01c06780ba30ac42a01daf47a93c824a947a8a694641c"
+    },
+    {
+      "path": "jill1/render/native.json",
+      "sha256": "3de16c8f7305b92664e626639f8460f00d00478f1ecf16f223d2abbbea32ee9c"
+    },
+    {
+      "path": "jill1/render/composition.json",
+      "sha256": "b5843f2aeefeff0df15eea4e16c1bac613d5eebcc8043ab1ebc8265b32c84f07"
+    },
+    {
+      "path": "jill1/render/expected-components.png",
+      "sha256": "c437957951a52f74435a066f2ce5fe59101be698acb5ad0a7839ee8773762bd9"
+    },
+    {
+      "path": "jill3/preparation.json",
+      "sha256": "42351ed1c4f280714e673720b12295fa41189d3218c8ab96ff2a7600b9c351a8"
+    },
+    {
+      "path": "jill3/profile.json",
+      "sha256": "846e5875787f1832c0fcb3dc8b60e5ff067321c810a9b01478632aced3c4af17"
+    },
+    {
+      "path": "jill3/render/native.json",
+      "sha256": "5f55bddd8b23672c1fc8d8e1d2926fb8976748de1282ba853ffb9a16d0748434"
+    },
+    {
+      "path": "jill3/render/composition.json",
+      "sha256": "1489cca79fad8b4126bfd5e3aad5e9538d1c44223276dc07221a3eb0c0f89314"
+    },
+    {
+      "path": "jill3/render/expected-components.png",
+      "sha256": "429063fec39d15309b962a9501de8e21aa3fb5a7bb289bbee4f350b4a90dd295"
+    },
+    {
+      "path": "jill5/preparation.json",
+      "sha256": "4aa45e37d29cb41c002c8e35661f6142593a45f7f797b04082feb4e34dc3c40d"
+    },
+    {
+      "path": "jill5/profile.json",
+      "sha256": "ad0070d50678106501087175ebae5a0c210bf95493d0aa7a3d503712715abd00"
+    },
+    {
+      "path": "jill5/render/native.json",
+      "sha256": "538d1ba7a75ca92d9a42eac8d83cf4030dfae42d6c92d769f476d4adf3de270e"
+    },
+    {
+      "path": "jill5/render/composition.json",
+      "sha256": "5321d67da24e4d48e4e09ff29927f86427966ce2d89c6c28e1e7de878c72e209"
+    },
+    {
+      "path": "jill5/render/expected-components.png",
+      "sha256": "dd72f31a31a3c8951f5a592547105afde2f5f3cdc628dbced2716794c5fa622c"
+    },
+    {
+      "path": "leon2/preparation.json",
+      "sha256": "f742b8e79b937bd718272c4ba40544945b248d55fca258df6399948129f8afac"
+    },
+    {
+      "path": "leon2/profile.json",
+      "sha256": "fd7fec74b34ea65e2f67a9fb3349702da67c586fe5b44544e39153c1947c81c4"
+    },
+    {
+      "path": "leon2/render/native.json",
+      "sha256": "11013da2868553e603fd80445411dc2b71b2f7973e3c8614fb0d6e0890474fa9"
+    },
+    {
+      "path": "leon2/render/composition.json",
+      "sha256": "7168c9a96a81582910294f08251751b546602f543412b6404cd4b9a8f59f6b04"
+    },
+    {
+      "path": "leon2/render/expected-components.png",
+      "sha256": "a1dc7538b469cb58c0b5f7ea6a7841a0b0a896c16003bd81c086cd5a24fdf2a9"
+    },
+    {
+      "path": "leon4/preparation.json",
+      "sha256": "217e7e5560757f3415422e464b31bbd20696a495a7ee9c76af6f8fc79dfbabfa"
+    },
+    {
+      "path": "leon4/profile.json",
+      "sha256": "43102fb13ecef38baf0e6d2cd575c90496464bd886d30d4efce0f5b8bb17076d"
+    },
+    {
+      "path": "leon4/render/native.json",
+      "sha256": "28e7e4aeda522780952a8d28e93184dda0f04089081012ad74f23413c2fa338b"
+    },
+    {
+      "path": "leon4/render/composition.json",
+      "sha256": "5b40b9bdfed96e34205cb893b24e4ad87f76f5af3fafa4af7aadee15bcb622b7"
+    },
+    {
+      "path": "leon4/render/expected-components.png",
+      "sha256": "d15090f2fb6a8c5172280cda6588961fd57899f9e445de8e4f785b05869867b2"
+    },
+    {
+      "path": "leon6/preparation.json",
+      "sha256": "60258e0822e79da39f31ce3aaa46f1c12c0c4afcac32a88220da47e46d779f5a"
+    },
+    {
+      "path": "leon6/profile.json",
+      "sha256": "2ae23b83d3b5d74f81ee9069cd09f89bb0a7981269f5904561bb21266aa5c1fc"
+    },
+    {
+      "path": "leon6/render/native.json",
+      "sha256": "958668a743ddd55c9571ec344e9cb96bf86e02a8e2af4e922cd3ff584766b4ad"
+    },
+    {
+      "path": "leon6/render/composition.json",
+      "sha256": "d20f2e8f12aea6ca5855faaaba4a789e69c2fba7d72ff428f9f2f181cb9163b3"
+    },
+    {
+      "path": "leon6/render/expected-components.png",
+      "sha256": "4bd9de7b6eb8f6b868673c2dd98a15a78ab76325bbeec4e0cc0631874885744c"
+    },
+    {
+      "path": "leon9/preparation.json",
+      "sha256": "37500c105de39ee1b41fda971364f79f7056837934022fc09997bf97a0064829"
+    },
+    {
+      "path": "leon9/profile.json",
+      "sha256": "aef30cd60dd3dbb239e5925ea8cced7403300eb3ae4abd13add00ab508dfbec5"
+    },
+    {
+      "path": "leon9/render/native.json",
+      "sha256": "d37d0338fee7f4762ffe58325cdacbdb1603a13b88846bdffcac453cc843390a"
+    },
+    {
+      "path": "leon9/render/composition.json",
+      "sha256": "7ec7a843e39b623de1720fdfbe786880f923847ec0deaef2eaf4bfa4ba7731e0"
+    },
+    {
+      "path": "leon9/render/expected-components.png",
+      "sha256": "59cfd76ca3f9b6af8d7eaf48b4131e2d1b54d92801d3359b059ee3398682152d"
+    },
+    {
+      "path": "ada2/preparation.json",
+      "sha256": "65c6d2c1f4177a941097079ec32c776fcd1f6f58c7cf46ba44c5825f86a34ef3"
+    },
+    {
+      "path": "ada2/profile.json",
+      "sha256": "02462bc97c87a729e5a42e044e2369703d24cea1b05761e0adaa7f27e03c6f09"
+    },
+    {
+      "path": "ada2/render/native.json",
+      "sha256": "e97aa343c3bcbfd14e0c00805ea38e2a21c9e18507bc332f867a7738a07e184f"
+    },
+    {
+      "path": "ada2/render/composition.json",
+      "sha256": "9204e87452a10ac37c7ff931f3de612db1dfd05921c2472145b62abc07859eb1"
+    },
+    {
+      "path": "ada2/render/expected-components.png",
+      "sha256": "d957e0b4ddb999563b668c012fd2c5642927504d179004b382d982f4694a5078"
+    },
+    {
+      "path": "ada4/preparation.json",
+      "sha256": "9197f7a2f13af27dc274ab95712e24f884f65a5bc2f74fb2ae71839cc07e9c98"
+    },
+    {
+      "path": "ada4/profile.json",
+      "sha256": "fef55489820cad2a111589d9c3ec52884443f383f40f23805f4b355374b2aa24"
+    },
+    {
+      "path": "ada4/render/native.json",
+      "sha256": "4b94ddc1b174fb8c94241371aca62a1cae9ec0119a52e7cf1d63ddec3b1cba0d"
+    },
+    {
+      "path": "ada4/render/composition.json",
+      "sha256": "d29075ffde49444432cacc2e0579aa2422390ad44a65e05fd8d5886518ad61ec"
+    },
+    {
+      "path": "ada4/render/expected-components.png",
+      "sha256": "8e39df7fbe8639cd69a01904342edcb0f15e9753a3c4ac135666764de756525d"
+    },
+    {
+      "path": "ada6/preparation.json",
+      "sha256": "ffe03083b3bcdf4f69431e9f23cff92c61aeab1fd9fc2a6fdb66947210ef0fc5"
+    },
+    {
+      "path": "ada6/profile.json",
+      "sha256": "573e8ddbe0179220fb097502cdb2469d9016ff478df5c2f455e79491712771f3"
+    },
+    {
+      "path": "ada6/render/native.json",
+      "sha256": "5791d9bc011984db7097f62c61d546ddf249b9f0e01f3d0f2d251f4a414c46ff"
+    },
+    {
+      "path": "ada6/render/composition.json",
+      "sha256": "71bfbba928861ee07dadcb3447e51714a5eee57e3ae2434793b465942e91080e"
+    },
+    {
+      "path": "ada6/render/expected-components.png",
+      "sha256": "51c41c442d93401e9bbed0f3c374838f481c402c6c4ddeca3faefaf8c6eb2ea1"
+    }
+  ]
+}

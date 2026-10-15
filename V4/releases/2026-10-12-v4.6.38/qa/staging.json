@@ -1,0 +1,99 @@
+{
+  "passed": true,
+  "parent": "fc3873d2ac56307837ca508a11dfb9097e69ad9f",
+  "tests": 919,
+  "checked": [
+    {
+      "file": "V4/deploy/browser.test.cjs",
+      "sha256": "a938a988a6c5a0e56396832e93a3b635bfb1c4f1db8c8ac3991417ef76768246"
+    },
+    {
+      "file": "V4/deploy/build.test.cjs",
+      "sha256": "6ccb6b5e6d517696d8d8f56ecce47fd0c13a66d7c1595adfb799067b01c7638e"
+    },
+    {
+      "file": "V4/docs/joueurs/COMPOSITION_EQUIPE.md",
+      "sha256": "d1cd6af04e2087031fb22524a06bd7271209251257f6807e0db8bb6a9e3c8257"
+    },
+    {
+      "file": "V4/docs/joueurs/EQUIPEMENTS_460.md",
+      "sha256": "b5666f665fd8cab567ff13921410e4cb7b7bb7371401643142be7f6e389b6c2b"
+    },
+    {
+      "file": "V4/docs/joueurs/INDICE_PERFORMANCE.md",
+      "sha256": "a9a913047f5161861e8d9eeae8c70ecdd71c9097edd34406d5e5ee76510a751b"
+    },
+    {
+      "file": "V4/docs/joueurs/INITIATIVE_ABBA.md",
+      "sha256": "a546802c8fc7d86f7c9efeebe662c9c4a7cfde6146583aba865f41e3f7d556f7"
+    },
+    {
+      "file": "V4/docs/joueurs/REGLES_JEU.md",
+      "sha256": "8a9469459d2874762b2ebec1a88ef542c406fcc0598db5fa539608215eab328d"
+    },
+    {
+      "file": "V4/docs/joueurs/RELIQUES_ULTIMES.md",
+      "sha256": "261fe9dad5cc39417389ac4917d58a1f46200dd222c5d2038a3457d45b7a85da"
+    },
+    {
+      "file": "V4/site/README.md",
+      "sha256": "628109f6b2218376e8dfeb23ef5778481aa703879efd1116a5f5f45dab89e7ff"
+    },
+    {
+      "file": "V4/site/browser.test.cjs",
+      "sha256": "b914efe8d5eba226d3b68b7da19a988ddf306bccc929ebb06ef2d0dbc434ba1f"
+    },
+    {
+      "file": "V4/site/guide.browser.test.cjs",
+      "sha256": "b952fa63a34f3bc626aac44b3ea034ff0c84f033ee424b531aa6c11d71f712ab"
+    },
+    {
+      "file": "V4/site/index.html",
+      "sha256": "bc6492d9177b62e14804acdff85aebd06dee00795c7699384cea62661869590a"
+    },
+    {
+      "file": "V4/site/library-view.css",
+      "sha256": "d760fc6925f8ae58ea4e3b295136ccec9bb8627eabc90a86538566287f4a13af"
+    },
+    {
+      "file": "V4/site/library-view.js",
+      "sha256": "bd4a3bd8f0ca81b98f2ba7706ba1c2d3479a574577bc2ea9942db3d24a3de850"
+    },
+    {
+      "file": "V4/site/library.browser.test.cjs",
+      "sha256": "54345475507e3eea2a6c689c5b66ce9863f13d4c791401017f174081832bd60b"
+    },
+    {
+      "file": "V4/site/library.test.cjs",
+      "sha256": "f409f6e86e8a25950cdb537905b13b05fb07eab1d0666363ea9ad14cdd7a01b5"
+    },
+    {
+      "file": "V4/site/rules-documents.cjs",
+      "sha256": "fc7af3f4f888006135f88b199e4a12fc7ce3110e6cc2e04e11ff19366a7ee27b"
+    },
+    {
+      "file": "V4/site/rules-documents.js",
+      "sha256": "cd52c7b7d0182de5af60cde9043d12887dfe48207825581fd2beb69b9eebb92d"
+    },
+    {
+      "file": "V4/site/v4.css",
+      "sha256": "147f2be6956cba1fa62b8579b45de0e161588d1050d825cdf173cd648c8b858e"
+    },
+    {
+      "file": "V4/site/weapons.browser.test.cjs",
+      "sha256": "d927b1b6d8a9e8f74f842e9270002fd027cf1fe70b983504d56ff702d453a274"
+    },
+    {
+      "file": "docs/GUIDE_REPRISE.md",
+      "sha256": "ca19b64f44ff0f827f015c3f9553f0a290d25b38b598a8bdcc927b77e3908e6a"
+    }
+  ],
+  "initialTree": "929f9d18e377670bfb180ceac0fce9219a4af13d",
+  "stagedTree": "8a3a2f325d15f97260a874708dce394f4374b0a5",
+  "browserSuites": [
+    "library",
+    "guide",
+    "navigation",
+    "pages"
+  ]
+}

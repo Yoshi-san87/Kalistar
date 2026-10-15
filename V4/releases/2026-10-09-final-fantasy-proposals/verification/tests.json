@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "command": "node --test V4/deploy/build.test.cjs",
+      "exitCode": 0
+    },
+    {
+      "command": "node V4/deploy/build.cjs",
+      "exitCode": 0
+    },
+    {
+      "command": "node V4/deploy/browser.test.cjs",
+      "exitCode": 0
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "modelId": "49901007",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "8156dcb57158d372049394f36ac103496ab3f208ec306d9bf12d7a9fcba8f89c",
+  "hashes": {
+    "card.png": "9a9723949bc7f24b1a64cd64a0b25317f785bdd506bbcdf9a83693ca93a0fdcf",
+    "card.psd": "82bdb67ee3522bb633176574b943990d1c95ff363a24811accca72b5ac459b33"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 127128
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49901007",
+    "cases": {
+      "color-1": [
+        "49901007"
+      ],
+      "color-4": [
+        "49901007"
+      ],
+      "gray-1": [
+        "49901007"
+      ],
+      "gray-4": [
+        "49901007"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-08T22:49:21.034Z",
+  "revision": "2026-10-09-ff-logo-banners",
+  "scope": {
+    "changed": 15363,
+    "outside": 0,
+    "rectangles": [
+      [
+        672,
+        829,
+        770,
+        1052
+      ]
+    ]
+  },
+  "gameplayUnchanged": true,
+  "previousProofHash": "02ba45d8762e3d2c96d866483e0d42d1f60d34f7b80cb26536c0bb7b9ffc2ab6",
+  "inputManifestHash": "f84ec1327ab9de989f23c165a715150c5a0a94c3a6bc3aa351559eed87d034da"
+}

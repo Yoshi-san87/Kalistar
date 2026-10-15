@@ -1,0 +1,219 @@
+{
+  "version": "V3-demo-6-repertoire-41",
+  "schema": 6,
+  "copy_limit": 2,
+  "rainbow_limit": 1,
+  "deck_size": 10,
+  "token_bonus": 60,
+  "max_turns": 200,
+  "storage": {
+    "namespace": "kalistar.v3.",
+    "database": "kalistar-v3-cards",
+    "instancePattern": "K3-<id>-001",
+    "rejectV2Saves": true
+  },
+  "roster": {
+    "cards": 41,
+    "characters": 40,
+    "onlyMultipleVersionCharacter": "momo"
+  },
+  "roles": {
+    "1": "Tank",
+    "2": "DPS physique",
+    "3": "Middle",
+    "4": "DPS magique / distance",
+    "5": "Support / Healer"
+  },
+  "roleBounds": {
+    "1": {
+      "atk": [
+        210,
+        175,
+        140,
+        105,
+        70,
+        35
+      ],
+      "defense": [
+        300,
+        250,
+        200,
+        150,
+        100,
+        50
+      ]
+    },
+    "2": {
+      "atk": [
+        300,
+        250,
+        200,
+        150,
+        100,
+        50
+      ],
+      "defense": [
+        180,
+        150,
+        120,
+        90,
+        60,
+        30
+      ]
+    },
+    "3": {
+      "atk": [
+        240,
+        200,
+        160,
+        120,
+        80,
+        40
+      ],
+      "defense": [
+        240,
+        200,
+        160,
+        120,
+        80,
+        40
+      ]
+    },
+    "4": {
+      "atk": [
+        300,
+        250,
+        200,
+        150,
+        100,
+        50
+      ],
+      "defense": [
+        180,
+        150,
+        120,
+        90,
+        60,
+        30
+      ]
+    },
+    "5": {
+      "atk": [
+        180,
+        150,
+        120,
+        90,
+        60,
+        30
+      ],
+      "defense": [
+        210,
+        175,
+        140,
+        105,
+        70,
+        35
+      ]
+    }
+  },
+  "crystalMatchups": {
+    "classicAgainstNone": 20,
+    "rainbowAgainstNone": 30,
+    "noneAgainstCrystal": 0,
+    "rainbowAgainstClassic": 40,
+    "classicAgainstRainbow": -40,
+    "classicCycles": "V2 inchanges, voir elements.json",
+    "rainbowAgainstRainbow": 0,
+    "noneAgainstNone": 0
+  },
+  "arena": {
+    "elementBonus": 15,
+    "homeAttack": 10,
+    "homeDefense": 10,
+    "maxAttack": 25,
+    "maxDefense": 10,
+    "onlyNumeric": true,
+    "lockedAfterSetup": true,
+    "homeKey": "characterId",
+    "noneCountsAsCrystal": false
+  },
+  "buffPolicy": {
+    "revision": "stacked-buffs-20260914",
+    "categories": [
+      "ward",
+      "luck",
+      "reraise",
+      "mana",
+      "physical"
+    ],
+    "maxChargesPerCategory": 1,
+    "defenseOrder": [
+      "ward",
+      "luck",
+      "reraise"
+    ],
+    "automatic": true
+  },
+  "physical": {
+    "face": "buff_atk",
+    "phase": "physical",
+    "trait": "physical",
+    "value": 60,
+    "targets": "living-ally-including-self",
+    "consumeOn": "next-numeric-physical-attack",
+    "stacking": "one-per-category"
+  },
+  "guard": {
+    "face": "guard",
+    "phase": "guard",
+    "trait": "ward",
+    "value": 60,
+    "targets": "living-ally-including-self",
+    "requires": "canGuard",
+    "allowedRoles": [
+      1,
+      5
+    ],
+    "consumeOn": "next-numeric-defense-against-physical-attack",
+    "persistAcrossDuelRerolls": true,
+    "deathBypasses": true,
+    "nonConsumingResults": [
+      "magic",
+      "dodge",
+      "death"
+    ],
+    "stacking": "one-per-category"
+  },
+  "reraise": {
+    "face": "revive",
+    "requires": "canHeal",
+    "allowedRoles": [
+      5
+    ],
+    "targets": "living-ally-including-self",
+    "consumeOn": "next-elimination-including-death",
+    "returnFromGraveyard": false,
+    "stacking": "one-per-category"
+  },
+  "conventions": [
+    "41 cartes et 40 personnages. Momo seul possede deux versions. Deux exemplaires par version au maximum et une seule Rainbow par deck. Les presets couvrent l ensemble du repertoire.",
+    "Le joueur commence. Les roles alternent apres chaque duel ou action de soutien.",
+    "P1 tank ; P2 DPS physique ; P3 middle ; P4 DPS magique ou distance ; P5 support. Une position ne donne pas de bonus statistique automatique. Les deux Momo restent compatibles P3/P4.",
+    "NONE signifie sans cristal : sentry=false, magic=[], barriers=[], attaque physique seulement. Aucun halo ni barriere elementaire. Gen et Scrow utilisent des attaques de distance physiques en P4.",
+    "Un cristal classique contre NONE ajoute +20 ATK, Rainbow contre NONE +30 ATK, NONE contre cristal 0. Rainbow contre classique +40 et retour classique -40. Les cycles classiques et la matrice armes rouge/vert V2 restent identiques.",
+    "Les cinq categories Reraise, trefle, mana, puissance physique et ward sont cumulables, avec une seule charge par categorie. Ordre automatique : ward dans la DEF, puis trefle si le score est insuffisant, puis Reraise si l elimination persiste. Les synergies et bonus de lieu restent cumulables.",
+    "Garde est uniquement une face ATK, reservee aux canGuard=true, P1 ou certains P5. Elle remplace l attaque, ouvre la phase guard et attribue ward=60 a un allie vivant du plateau, auteur compris. Aucun bouclier special en DEF dans le repertoire V3.",
+    "Ward ajoute +60 DEF a la prochaine defense numerique contre une ATK physique puis est consomme une seule fois. Magie, esquive et Mort ne le consomment pas. Mort contourne ward. Une relance DEF du meme duel conserve le +60 deja applique, sans seconde consommation.",
+    "La potion magique remplace l attaque et attribue +60 sur la prochaine attaque numerique magique d un allie vivant, auteur compris. La puissance physique ouvre la phase physical et s attribue aussi a un allie vivant du plateau, auteur compris, pour sa prochaine attaque numerique physique. Le jet numerique du type concerne consomme le trait meme si la cible esquive.",
+    "Reraise, face technique revive, est reserve aux soigneurs canHeal=true de role principal P5. Il protege un allie vivant, auteur compris, de sa prochaine elimination meme par Mort ; la carte reste en place. Aucun retour du cimetiere. Il peut etre regagne apres consommation.",
+    "Le trefle en ATK est un soutien attribuable a un allie vivant, auteur compris. Si la DEF finale est strictement inferieure a l ATK numerique, il est consomme et relance le de DEF. Egalite, defense suffisante et esquive le conservent. Mort ne le declenche pas.",
+    "La face retry en DEF relance immediatement sans jeton. Les jets continuent jusqu a resolution. Les modificateurs et la barriere du nouveau jet sont recalcules ; un ward deja utilise dans ce duel est conserve dans sa formule.",
+    "Esquive annule une attaque, y compris Mort. Une barriere ordinaire de -30 ne neutralise pas Mort. Les anciens shields DEF physiques ou magiques ne figurent sur aucune carte V3.",
+    "Les arenes donnent +15 ATK au cristal correspondant, +10 ATK/+10 DEF aux characterId locaux. Plafond +25 ATK/+10 DEF, symetrique pour les deux camps, uniquement sur scores numeriques. Aucune affinite elementaire NONE. Le lieu est verrouille apres setup.",
+    "Les remplacements compatibles sont effectues avant le duel suivant. Aucun deplacement de carte vivante hors formation initiale. Defaite si plateau vide et aucune reserve compatible ; match nul de demo apres 200 echanges.",
+    "V3 utilise schema 6, namespace kalistar.v3., DB kalistar-v3-cards et instances K3-<id>-001. Refuser une partie V2 avec message explicite ; aucun import V2 silencieux et aucune ecriture dans les statistiques V2.",
+    "Mode local a deux joueurs ou IA lisant le plateau public sans connaissance des jets futurs. Graine reproductible."
+  ],
+  "source_specials": "main/Kalistar.xlsx, Capacite Speciale B2:G9 ; CONTRAT_V3.md prioritaire pour Garde et Reraise",
+  "status": "Profils V3 reequilibres par poste, tests de repertoire automatises ; equilibrage empirique en parties a poursuivre."
+}

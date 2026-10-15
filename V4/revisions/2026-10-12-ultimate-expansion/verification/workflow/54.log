@@ -1,0 +1,15 @@
+✔ 4.6 original arsenal keeps origins/family restrictions; frozen 4.5.64 effects stay exact (62.0543ms)
+✔ empty rosters are intentional, and new equips/new games reject every formerly incompatible edition (18.2405ms)
+✔ version-1 profile migration removes only retired bearers, keeps Momo weapon and is pure/idempotent (1.4327ms)
+✔ old compositions preserve every card, formation and captain while removing retired loadouts (1.6471ms)
+✔ every formerly allowed collective or personal loadout keeps its snapshot and combat bonus in a saved match (236.3588ms)
+✔ personal restrictions follow the chosen edition, accept future matching editions and retire invalid decks (5.1138ms)
+✔ 4.6 weapon faces retain the native family glyph; Momo box has an accessible relic icon (4.8785ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 430.9177

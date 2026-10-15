@@ -1,0 +1,327 @@
+✔ three-slot defaults are snapshotted once without borrowing other characters or objects (24.1142ms)
+✔ legacy flat loadouts migrate by actual category while retaining formation and captain (1.2952ms)
+✔ profile migration rejects corrupt versions and extra legacy slots without changing the source (1.0865ms)
+✔ weapon, protection and relic coexist; clicked removal cannot erase another slot (1.4494ms)
+✔ transfers and replacements are scoped to the clicked category, with one wearer per item (1.2123ms)
+✔ stale confirmations reject both target-slot changes and unrelated composition changes (0.6879ms)
+✔ stable character and Job compatibility remain enforced rather than display-name matching (0.4664ms)
+✔ card edits prune every departed character slot, but reject corrupt equipment before editing (1.1316ms)
+✔ schema 1 and schema 2 flat imports migrate durably; exports remain schema 2 (3.8046ms)
+✔ schema 2 saves, duplication and returned drafts never share equipment maps (1.9555ms)
+✖ a match retains its three-slot equipment snapshot after profile and deck edits (11.7982ms)
+✔ three-slot detail uses native asymmetrical glyphs, letterboxing and one shared radar epoch (7.5947ms)
+✔ default inspection still omits inactive equipment and preserves legacy single-definition position (0.9831ms)
+✔ arena inspection keeps inactive weapon and protection, enlarges only their circles and never shows their plates (1.041ms)
+✔ new detail cleanup cancels all three overlays and artwork is the real medallion cutout (26.6185ms)
+✔ retained D6 radar shares delay without losing its center during impact and reduced motion remains quiet (19.3885ms)
+✔ 4.6 definitions, legacy definitions and three independent stable-identity slots (66.5642ms)
+✔ 4.6 catalogue restrictions expose unavailable arms rather than grant an incompatible bonus (3.1121ms)
+✖ every compatible weapon applies only on retained numeric D6, with unchanged base matchup (14.6589ms)
+✖ every compatible shield applies only on retained numeric D6, with unchanged base matchup (3.8914ms)
+✖ discarded Kalistel D6 has no equipment effect; retained and mandatory second D6 do (3.5469ms)
+✖ magic ATK6 and barrier DEF6 coexist with their direct equipment arithmetic (3.9751ms)
+✖ protection contribution remains captured when its wearer dies; ordinary non-D6 Block has none (3.1215ms)
+✖ luck recomputes protection 6 -> 5 and restores both attempted formulas (3.0803ms)
+✖ luck recomputes protection 5 -> 6 and restores both attempted formulas (3.2519ms)
+✖ DEF retry replaces an active protection with the final result without leaving a stale bonus (3.7976ms)
+✖ all native special D6 faces remain special, never numeric equipment or automatic Block (5.3808ms)
+✖ relic support + protection adds only strongest relic, expires gift, keeps separate direct bonus (3.3781ms)
+✖ forged direct contribution, die, source, relic contribution and failed-attempt totals are rejected (3.2603ms)
+✖ modern snapshot freezes all three slots; legacy match snapshot and old axe trigger stay unchanged (3.5126ms)
+✖ initiative and ABBA timeline are identical before any equipment use (1.9442ms)
+✖ every one-shot relic trigger still grants, survives reload and attacking, consumes once on defense (4.7858ms)
+✖ complete three-slot ABBA matches preserve numeric effects and state through repeated restores (25.2406ms)
+✖ public AI values a D6 weapon at one sixth of its bonus, not as a permanent +30 (3.0101ms)
+✖ several actual relic grants choose strongest once, add direct protection, then consume every charge (3.1325ms)
+✖ Death versus numeric DEF6 does not activate a protection or generate a numeric formula (2.8559ms)
+✔ replacing a weapon preserves protection/relic and does not mutate the original profile (0.3826ms)
+✖ same-valued DEF faces cannot forge a D6 protection when the recorded die was D5 (4.9223ms)
+✖ failed luck attempt cannot borrow the D6 of its later successful reroll (6.0909ms)
+✖ legacy unsuitable special shield requests a new DEF die, never zero or a D6 protection bonus (3.4671ms)
+✖ failed numeric defense saved by Reraise still reports a used protection, not a Block (3.023ms)
+ℹ tests 41
+ℹ suites 0
+ℹ pass 18
+ℹ fail 23
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 306.9355
+
+✖ failing tests:
+
+test at V4\site\equipment-slots-persistence.test.cjs:118:1
+✖ a match retains its three-slot equipment snapshot after profile and deck edits (11.7982ms)
+  Error: Équipement invalide.
+      at fail (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:8:25)
+      at Object.validate (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:193:264)
+      at assertState (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:593:17)
+      at start (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:234:42)
+      at Object.newGame (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:171:9)
+      at TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-slots-persistence.test.cjs:121:17)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at V4\site\equipment-v2.test.cjs:55:39
+✖ every compatible weapon applies only on retained numeric D6, with unchanged base matchup (14.6589ms)
+  Error: Équipement invalide.
+      at fail (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:8:25)
+      at Object.validate (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:193:264)
+      at assertState (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:593:17)
+      at Object.newGame (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:173:7)
+      at fixture (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:18:13)
+      at async TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:61:15)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at V4\site\equipment-v2.test.cjs:55:39
+✖ every compatible shield applies only on retained numeric D6, with unchanged base matchup (3.8914ms)
+  Error: Équipement invalide.
+      at fail (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:8:25)
+      at Object.validate (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:193:264)
+      at assertState (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:593:17)
+      at Object.newGame (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:173:7)
+      at fixture (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:18:13)
+      at async TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:61:15)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at V4\site\equipment-v2.test.cjs:72:1
+✖ discarded Kalistel D6 has no equipment effect; retained and mandatory second D6 do (3.5469ms)
+  Error: Équipement invalide.
+      at fail (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:8:25)
+      at Object.validate (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:193:264)
+      at assertState (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:593:17)
+      at Object.newGame (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:173:7)
+      at fixture (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:18:13)
+      at async TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:75:13)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at V4\site\equipment-v2.test.cjs:82:1
+✖ magic ATK6 and barrier DEF6 coexist with their direct equipment arithmetic (3.9751ms)
+  Error: Équipement invalide.
+      at fail (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:8:25)
+      at Object.validate (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:193:264)
+      at assertState (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:593:17)
+      at Object.newGame (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:173:7)
+      at fixture (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:18:13)
+      at async TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:84:11)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at V4\site\equipment-v2.test.cjs:88:1
+✖ protection contribution remains captured when its wearer dies; ordinary non-D6 Block has none (3.1215ms)
+  Error: Équipement invalide.
+      at fail (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:8:25)
+      at Object.validate (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:193:264)
+      at assertState (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:593:17)
+      at Object.newGame (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:173:7)
+      at fixture (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:18:13)
+      at async TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:90:11)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at V4\site\equipment-v2.test.cjs:95:33
+✖ luck recomputes protection 6 -> 5 and restores both attempted formulas (3.0803ms)
+  Error: Équipement invalide.
+      at fail (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:8:25)
+      at Object.validate (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:193:264)
+      at assertState (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:593:17)
+      at Object.newGame (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:173:7)
+      at fixture (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:18:13)
+      at async TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:97:11)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at V4\site\equipment-v2.test.cjs:95:33
+✖ luck recomputes protection 5 -> 6 and restores both attempted formulas (3.2519ms)
+  Error: Équipement invalide.
+      at fail (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:8:25)
+      at Object.validate (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:193:264)
+      at assertState (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:593:17)
+      at Object.newGame (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:173:7)
+      at fixture (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:18:13)
+      at async TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:97:11)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at V4\site\equipment-v2.test.cjs:102:1
+✖ DEF retry replaces an active protection with the final result without leaving a stale bonus (3.7976ms)
+  Error: Équipement invalide.
+      at fail (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:8:25)
+      at Object.validate (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:193:264)
+      at assertState (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:593:17)
+      at Object.newGame (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:173:7)
+      at fixture (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:18:13)
+      at async TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:104:11)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at V4\site\equipment-v2.test.cjs:107:1
+✖ all native special D6 faces remain special, never numeric equipment or automatic Block (5.3808ms)
+  Error: Équipement invalide.
+      at fail (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:8:25)
+      at Object.validate (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:193:264)
+      at assertState (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:593:17)
+      at Object.newGame (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:173:7)
+      at fixture (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:18:13)
+      at async TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:110:44)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at V4\site\equipment-v2.test.cjs:117:1
+✖ relic support + protection adds only strongest relic, expires gift, keeps separate direct bonus (3.3781ms)
+  Error: Équipement invalide.
+      at fail (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:8:25)
+      at Object.validate (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:193:264)
+      at assertState (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:593:17)
+      at Object.newGame (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:173:7)
+      at fixture (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:18:13)
+      at async TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:119:11)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at V4\site\equipment-v2.test.cjs:123:1
+✖ forged direct contribution, die, source, relic contribution and failed-attempt totals are rejected (3.2603ms)
+  Error: Équipement invalide.
+      at fail (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:8:25)
+      at Object.validate (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:193:264)
+      at assertState (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:593:17)
+      at Object.newGame (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:173:7)
+      at fixture (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:18:13)
+      at async TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:125:11)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at V4\site\equipment-v2.test.cjs:129:1
+✖ modern snapshot freezes all three slots; legacy match snapshot and old axe trigger stay unchanged (3.5126ms)
+  Error: Équipement invalide.
+      at fail (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:8:25)
+      at Object.validate (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:193:264)
+      at assertState (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:593:17)
+      at Object.newGame (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:173:7)
+      at fixture (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:18:13)
+      at async TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:131:11)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at V4\site\equipment-v2.test.cjs:137:1
+✖ initiative and ABBA timeline are identical before any equipment use (1.9442ms)
+  Error: Équipement invalide.
+      at fail (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:8:25)
+      at Object.validate (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:193:264)
+      at assertState (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:593:17)
+      at Object.newGame (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:173:7)
+      at TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:138:61)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at V4\site\equipment-v2.test.cjs:143:1
+✖ every one-shot relic trigger still grants, survives reload and attacking, consumes once on defense (4.7858ms)
+  Error: Équipement invalide.
+      at fail (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:8:25)
+      at Object.validate (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:193:264)
+      at assertState (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:593:17)
+      at Object.newGame (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:173:7)
+      at fixture (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:18:13)
+      at async TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:147:45)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at V4\site\equipment-v2.test.cjs:173:1
+✖ complete three-slot ABBA matches preserve numeric effects and state through repeated restores (25.2406ms)
+  Error: Équipement invalide.
+      at fail (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:8:25)
+      at Object.validate (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:193:264)
+      at assertState (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:593:17)
+      at start (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:234:42)
+      at Object.newGame (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:171:9)
+      at Object.run (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\revisions\2026-10-09-equipment-slots\balance.cjs:36:11)
+      at TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:177:24)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at V4\site\equipment-v2.test.cjs:181:1
+✖ public AI values a D6 weapon at one sixth of its bonus, not as a permanent +30 (3.0101ms)
+  Error: Équipement invalide.
+      at fail (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:8:25)
+      at Object.validate (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:193:264)
+      at assertState (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:593:17)
+      at Object.newGame (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:173:7)
+      at fixture (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:18:13)
+      at async TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:183:11)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at V4\site\equipment-v2.test.cjs:188:1
+✖ several actual relic grants choose strongest once, add direct protection, then consume every charge (3.1325ms)
+  Error: Équipement invalide.
+      at fail (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:8:25)
+      at Object.validate (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:193:264)
+      at assertState (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:593:17)
+      at Object.newGame (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:173:7)
+      at fixture (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:18:13)
+      at async TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:191:11)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at V4\site\equipment-v2.test.cjs:199:1
+✖ Death versus numeric DEF6 does not activate a protection or generate a numeric formula (2.8559ms)
+  Error: Équipement invalide.
+      at fail (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:8:25)
+      at Object.validate (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:193:264)
+      at assertState (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:593:17)
+      at Object.newGame (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:173:7)
+      at fixture (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:18:13)
+      at async TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:201:11)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at V4\site\equipment-v2.test.cjs:212:1
+✖ same-valued DEF faces cannot forge a D6 protection when the recorded die was D5 (4.9223ms)
+  Error: Équipement invalide.
+      at fail (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:8:25)
+      at Object.validate (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:193:264)
+      at assertState (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:593:17)
+      at Object.newGame (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:173:7)
+      at fixture (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:18:13)
+      at async TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:214:11)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at V4\site\equipment-v2.test.cjs:221:1
+✖ failed luck attempt cannot borrow the D6 of its later successful reroll (6.0909ms)
+  Error: Équipement invalide.
+      at fail (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:8:25)
+      at Object.validate (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:193:264)
+      at assertState (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:593:17)
+      at Object.newGame (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:173:7)
+      at fixture (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:18:13)
+      at async TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:223:11)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at V4\site\equipment-v2.test.cjs:228:1
+✖ legacy unsuitable special shield requests a new DEF die, never zero or a D6 protection bonus (3.4671ms)
+  Error: Équipement invalide.
+      at fail (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:8:25)
+      at Object.validate (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:193:264)
+      at assertState (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:593:17)
+      at Object.newGame (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:173:7)
+      at fixture (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:18:13)
+      at async TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:231:13)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at V4\site\equipment-v2.test.cjs:239:1
+✖ failed numeric defense saved by Reraise still reports a used protection, not a Block (3.023ms)
+  Error: Équipement invalide.
+      at fail (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:8:25)
+      at Object.validate (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment.js:193:264)
+      at assertState (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:593:17)
+      at Object.newGame (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\engine.js:173:7)
+      at fixture (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:18:13)
+      at async TestContext.<anonymous> (C:\Users\guill\Documents\Doc\GP-2 inside\Cartes\Kalistar\paquets-transfert\github-personnel-20260921\V4\site\equipment-v2.test.cjs:241:11)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)

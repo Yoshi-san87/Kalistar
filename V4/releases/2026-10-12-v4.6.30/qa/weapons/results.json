@@ -1,0 +1,1982 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "label": "old database upgraded in place",
+      "version": 2,
+      "equipment": true,
+      "marker": "preserved"
+    },
+    {
+      "label": "desktop deck inspection",
+      "samples": [
+        {
+          "slot": "weapon",
+          "active": true,
+          "dx": 0.01422910662824961,
+          "dy": 0.0001801152737925804,
+          "width": 0.007880043227665112,
+          "height": 0.007880043227665112,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "desktop back to deck card",
+      "samples": [
+        {
+          "slot": "weapon",
+          "active": true,
+          "dx": 0.01422910662824961,
+          "dy": 0.0001801152737925804,
+          "width": 0.007880043227665112,
+          "height": 0.007880043227665112,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "desktop deck character version",
+      "samples": [
+        {
+          "slot": "weapon",
+          "active": true,
+          "dx": 0.01422910662824961,
+          "dy": 0.0001801152737925804,
+          "width": 0.007880043227665112,
+          "height": 0.007880043227665112,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "desktop 4.6 pre-match UI captures three-slot deck loadout, not global preferences",
+      "passed": true
+    },
+    {
+      "label": "desktop inactive arena inspection",
+      "hiddenInactiveOverlay": true,
+      "equipmentListed": true
+    },
+    {
+      "label": "desktop archived 4.5.64 challenger",
+      "samples": [
+        {
+          "uid": "0-0",
+          "slot": "relic",
+          "dx": 0.026393493116302125,
+          "dy": 0.7930322096435702,
+          "width": 0.0172109185078817
+        }
+      ]
+    },
+    {
+      "label": "desktop active arena inspection",
+      "samples": [
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.0022964697406564483,
+          "dy": 0.014544308357358204,
+          "width": 0.004637968299711304,
+          "height": 0.004637968299711304,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "desktop resize while inspecting",
+      "samples": [
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.005116399495705082,
+          "dy": 0.007013238472609373,
+          "width": 0.00033771613832556113,
+          "height": 0.00033771613832556113,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "desktop restore inspector viewport",
+      "samples": [
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.0022964697406564483,
+          "dy": 0.014544308357358204,
+          "width": 0.004637968299711304,
+          "height": 0.004637968299711304,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "desktop after attack",
+      "samples": [
+        {
+          "uid": "0-0",
+          "slot": "relic",
+          "dx": 0.026393493116302125,
+          "dy": 0.7930322096435702,
+          "width": 0.0172109185078817
+        }
+      ]
+    },
+    {
+      "label": "desktop resizing during activation",
+      "samples": [
+        {
+          "uid": "0-0",
+          "slot": "relic",
+          "dx": 0.026393493116302125,
+          "dy": 0.7930322096435702,
+          "width": 0.0172109185078817
+        }
+      ]
+    },
+    {
+      "label": "desktop board zoom 125%",
+      "samples": [
+        {
+          "uid": "0-0",
+          "slot": "relic",
+          "dx": 0.016009571262088684,
+          "dy": 0.790152931763032,
+          "width": 0.025522306243630055
+        }
+      ]
+    },
+    {
+      "label": "desktop inspection preserves original match equipment",
+      "samples": [
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.0022964697406564483,
+          "dy": 0.014544308357358204,
+          "width": 0.004637968299711304,
+          "height": 0.004637968299711304,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "desktop archived 4.5.64 flute support",
+      "samples": [
+        {
+          "uid": "0-4",
+          "slot": "relic",
+          "dx": 0.015340730865773367,
+          "dy": 0.46106179061155217,
+          "width": 0.010018036386451712
+        }
+      ]
+    },
+    {
+      "label": "desktop active flute inspection",
+      "samples": [
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.0022964697406564483,
+          "dy": 0.014544308357358204,
+          "width": 0.004637968299711304,
+          "height": 0.004637968299711304,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "desktop current 4.6 three native anchors",
+      "samples": [
+        {
+          "uid": "0-0",
+          "slot": "weapon",
+          "dx": 0.017066907703224388,
+          "dy": 0.8404224406745016,
+          "width": 0.008234844901778615
+        },
+        {
+          "uid": "0-0",
+          "slot": "shield",
+          "dx": 0.018296723982018648,
+          "dy": 0.8296413806398277,
+          "width": 0.008234844901778615
+        },
+        {
+          "uid": "1-0",
+          "slot": "weapon",
+          "dx": 0.017097425281349388,
+          "dy": 0.8404224406745016,
+          "width": 0.008295880058028615
+        },
+        {
+          "uid": "1-0",
+          "slot": "shield",
+          "dx": 0.01832724156020049,
+          "dy": 0.8296413806398277,
+          "width": 0.008295880058028615
+        },
+        {
+          "uid": "1-0",
+          "slot": "relic",
+          "dx": 0.026074111536445344,
+          "dy": 0.7829968621002763,
+          "width": 0.01701280313872644
+        }
+      ]
+    },
+    {
+      "label": "desktop current ATK anchor inspection",
+      "samples": [
+        {
+          "slot": "weapon",
+          "active": true,
+          "dx": 0.015129682997155669,
+          "dy": 0.0010806916426702173,
+          "width": 0.006078890489909838,
+          "height": 0.006078890489909838,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        },
+        {
+          "slot": "shield",
+          "inactiveArena": true,
+          "display": "none",
+          "width": 0,
+          "height": 0,
+          "animation": "none"
+        }
+      ]
+    },
+    {
+      "label": "desktop current DEF and relic anchor inspection",
+      "samples": [
+        {
+          "slot": "weapon",
+          "inactiveArena": true,
+          "display": "none",
+          "width": 0,
+          "height": 0,
+          "animation": "none"
+        },
+        {
+          "slot": "shield",
+          "active": true,
+          "dx": 0.010221541786791022,
+          "dy": 0.0005327164268180695,
+          "width": 0.006078890489909838,
+          "height": 0.006078890489909838,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        },
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.0022964697406564483,
+          "dy": 0.014536678962826954,
+          "width": 0.004637968299711304,
+          "height": 0.004637968299711304,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "desktop current multi-slot inspector resize",
+      "samples": [
+        {
+          "slot": "weapon",
+          "inactiveArena": true,
+          "display": "none",
+          "width": 0,
+          "height": 0,
+          "animation": "none"
+        },
+        {
+          "slot": "shield",
+          "active": true,
+          "dx": 0.005769317363160553,
+          "dy": 0.004305880763695313,
+          "width": 0.011820064841494116,
+          "height": 0.011820064841494116,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        },
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.005116399495705082,
+          "dy": 0.006997979683546873,
+          "width": 0.00033771613832556113,
+          "height": 0.00033771613832556113,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "desktop current multi-slot inspector restore",
+      "samples": [
+        {
+          "slot": "weapon",
+          "inactiveArena": true,
+          "display": "none",
+          "width": 0,
+          "height": 0,
+          "animation": "none"
+        },
+        {
+          "slot": "shield",
+          "active": true,
+          "dx": 0.010216407885764056,
+          "dy": 0.0005290336499115256,
+          "width": 0.006076559896776246,
+          "height": 0.006076559896776246,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        },
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.0023046597966640547,
+          "dy": 0.014513526938515042,
+          "width": 0.00463528591892981,
+          "height": 0.00463528591892981,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "desktop current three-slot arena resize",
+      "samples": [
+        {
+          "uid": "0-0",
+          "slot": "weapon",
+          "dx": 0.01731357550534085,
+          "dy": 0.8512045670654516,
+          "width": 0.008395971587788154
+        },
+        {
+          "uid": "0-0",
+          "slot": "shield",
+          "dx": 0.0185718608171328,
+          "dy": 0.8402174034448535,
+          "width": 0.008365454009663154
+        },
+        {
+          "uid": "1-0",
+          "slot": "weapon",
+          "dx": 0.0172914818508616,
+          "dy": 0.8512045670654516,
+          "width": 0.008343054030738983
+        },
+        {
+          "uid": "1-0",
+          "slot": "shield",
+          "dx": 0.018609060098469854,
+          "dy": 0.8402174034448535,
+          "width": 0.008343054030738983
+        },
+        {
+          "uid": "1-0",
+          "slot": "relic",
+          "dx": 0.02636963809595727,
+          "dy": 0.7930322096435702,
+          "width": 0.017281296561325377
+        }
+      ]
+    },
+    {
+      "label": "desktop current three-slot board zoom",
+      "samples": [
+        {
+          "uid": "0-0",
+          "slot": "weapon",
+          "dx": 0.026098023992574326,
+          "dy": 0.8695828550487477,
+          "width": 0.017341221291264475
+        },
+        {
+          "uid": "0-0",
+          "slot": "shield",
+          "dx": 0.02327265912947496,
+          "dy": 0.8453807006308125,
+          "width": 0.017371738869389475
+        },
+        {
+          "uid": "1-0",
+          "slot": "weapon",
+          "dx": 0.026113282781579983,
+          "dy": 0.8695828550487477,
+          "width": 0.017371738869389475
+        },
+        {
+          "uid": "1-0",
+          "slot": "shield",
+          "dx": 0.023303176707486273,
+          "dy": 0.8453807006308125,
+          "width": 0.017310703713139475
+        },
+        {
+          "uid": "1-0",
+          "slot": "relic",
+          "dx": 0.01601816749337104,
+          "dy": 0.7901589671198508,
+          "width": 0.02554348092456138
+        }
+      ]
+    },
+    {
+      "label": "desktop current three-slot snapshot reload",
+      "samples": [
+        {
+          "uid": "0-0",
+          "slot": "weapon",
+          "dx": 0.010057245922212132,
+          "dy": 0.4948723432996758,
+          "width": 0.0048619824341269435
+        },
+        {
+          "uid": "0-0",
+          "slot": "shield",
+          "dx": 0.010782622333749714,
+          "dy": 0.48850076548990273,
+          "width": 0.0048619824341269435
+        },
+        {
+          "uid": "1-0",
+          "slot": "weapon",
+          "dx": 0.010057245922212132,
+          "dy": 0.4948723432996758,
+          "width": 0.0048619824341269435
+        },
+        {
+          "uid": "1-0",
+          "slot": "shield",
+          "dx": 0.010782622333749714,
+          "dy": 0.48850076548990273,
+          "width": 0.0048619824341269435
+        },
+        {
+          "uid": "1-0",
+          "slot": "relic",
+          "dx": 0.015340730865773367,
+          "dy": 0.46106179061155217,
+          "width": 0.010018036386451712
+        }
+      ]
+    },
+    {
+      "label": "desktop current D6 weapon/protection, conditional relic, three anchors, restart and expiry",
+      "passed": true,
+      "formula": {
+        "baseAttack": 206,
+        "weapon": 0,
+        "element": 0,
+        "faction": 0,
+        "buff": 0,
+        "barrier": -30,
+        "baseDefense": 291,
+        "race": 0,
+        "magic": true,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "ward": 0,
+        "equipmentAttack": 30,
+        "equipmentDefense": 30,
+        "equipmentWeapon": 30,
+        "equipmentProtection": 30,
+        "equipmentDefenseDie": 6,
+        "attack": 206,
+        "defense": 321
+      }
+    },
+    {
+      "label": "UI replacement / cancel / move / unequip, QA-only definition and in-memory profile",
+      "passed": true
+    },
+    {
+      "label": "desktop",
+      "passed": true,
+      "profileTests": {
+        "incompatible": true,
+        "stale": true,
+        "invalidImport": true,
+        "unchanged": true,
+        "isolated": true,
+        "retained": true
+      }
+    },
+    {
+      "label": "phone navigation",
+      "nav": [
+        {
+          "label": "KAccueil",
+          "height": 59,
+          "width": 82.390625
+        },
+        {
+          "label": "Decks",
+          "height": 59,
+          "width": 82.40625
+        },
+        {
+          "label": "Arène",
+          "height": 59,
+          "width": 82.390625
+        },
+        {
+          "label": "StatistiquesStats",
+          "height": 59,
+          "width": 82.40625
+        },
+        {
+          "label": "Plus",
+          "height": 59,
+          "width": 82.40625
+        }
+      ]
+    },
+    {
+      "label": "razr50 deck inspection",
+      "samples": [
+        {
+          "slot": "weapon",
+          "active": true,
+          "dx": 0.006512292867441261,
+          "dy": 0.011949522694550296,
+          "width": 0.015467399135445703,
+          "height": 0.015467399135445703,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "razr50 back to deck card",
+      "samples": [
+        {
+          "slot": "weapon",
+          "active": true,
+          "dx": 0.006512292867441261,
+          "dy": 0.011949522694550296,
+          "width": 0.015467399135445703,
+          "height": 0.015467399135445703,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "razr50 deck character version",
+      "samples": [
+        {
+          "slot": "weapon",
+          "active": true,
+          "dx": 0.006512292867441261,
+          "dy": 0.011949522694550296,
+          "width": 0.015467399135445703,
+          "height": 0.015467399135445703,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "razr50 4.6 pre-match UI captures three-slot deck loadout, not global preferences",
+      "passed": true
+    },
+    {
+      "label": "razr50 inactive arena inspection",
+      "hiddenInactiveOverlay": true,
+      "equipmentListed": true
+    },
+    {
+      "label": "razr50 archived 4.5.64 challenger",
+      "samples": [
+        {
+          "uid": "0-0",
+          "slot": "relic",
+          "dx": 0.01712592063913121,
+          "dy": 1.1422064404486036,
+          "width": 0.01148573756966087
+        }
+      ]
+    },
+    {
+      "label": "razr50 active arena inspection",
+      "samples": [
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.012219695605182324,
+          "dy": 0.014240363832868752,
+          "width": 0.007407240634002221,
+          "height": 0.007407240634002221,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "razr50 resize while inspecting",
+      "samples": [
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.003703620316997558,
+          "dy": 0.014341678674384184,
+          "width": 0.006484149855907617,
+          "height": 0.006484149855907617,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "razr50 restore inspector viewport",
+      "samples": [
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.012219695605182324,
+          "dy": 0.014240363832868752,
+          "width": 0.007407240634002221,
+          "height": 0.007407240634002221,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "razr50 after attack",
+      "samples": [
+        {
+          "uid": "0-0",
+          "slot": "relic",
+          "dx": 0.01712592063913121,
+          "dy": 1.1422064404486036,
+          "width": 0.01148573756966087
+        }
+      ]
+    },
+    {
+      "label": "razr50 resizing during activation",
+      "samples": [
+        {
+          "uid": "0-0",
+          "slot": "relic",
+          "dx": 0.02689929708483163,
+          "dy": 1.1453497737030602,
+          "width": 0.030610959233722923
+        }
+      ]
+    },
+    {
+      "label": "razr50 inspection preserves original match equipment",
+      "samples": [
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.012219695605182324,
+          "dy": 0.014240363832868752,
+          "width": 0.007407240634002221,
+          "height": 0.007407240634002221,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "razr50 archived 4.5.64 flute support",
+      "samples": [
+        {
+          "uid": "0-4",
+          "slot": "relic",
+          "dx": 0.006871471141778329,
+          "dy": 0.45836015377710737,
+          "width": 0.004607120451694868
+        }
+      ]
+    },
+    {
+      "label": "razr50 active flute inspection",
+      "samples": [
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.012219695605182324,
+          "dy": 0.014240363832868752,
+          "width": 0.007407240634002221,
+          "height": 0.007407240634002221,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "razr50 current 4.6 three native anchors",
+      "samples": [
+        {
+          "uid": "0-0",
+          "slot": "weapon",
+          "dx": 0.021205148254168193,
+          "dy": 1.2159061486851215,
+          "width": 0.03742509504483138
+        },
+        {
+          "uid": "0-0",
+          "slot": "shield",
+          "dx": 0.025859559943398835,
+          "dy": 1.2243177430430023,
+          "width": 0.037428909742097005
+        },
+        {
+          "uid": "1-0",
+          "slot": "weapon",
+          "dx": 0.021193902794664154,
+          "dy": 1.2158756311070533,
+          "width": 0.03743093914189899
+        },
+        {
+          "uid": "1-0",
+          "slot": "shield",
+          "dx": 0.025865045066439052,
+          "dy": 1.2242872254649342,
+          "width": 0.03746145672002399
+        },
+        {
+          "uid": "1-0",
+          "slot": "relic",
+          "dx": 0.01710660544364373,
+          "dy": 1.1422216992376661,
+          "width": 0.011468999807629388
+        }
+      ]
+    },
+    {
+      "label": "razr50 current ATK anchor inspection",
+      "samples": [
+        {
+          "slot": "weapon",
+          "active": true,
+          "dx": 0.0018067813400648447,
+          "dy": 0.007244011167188091,
+          "width": 0.009253422190198535,
+          "height": 0.009253422190198535,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        },
+        {
+          "slot": "shield",
+          "inactiveArena": true,
+          "display": "none",
+          "width": 0,
+          "height": 0,
+          "animation": "none"
+        }
+      ]
+    },
+    {
+      "label": "razr50 current DEF and relic anchor inspection",
+      "samples": [
+        {
+          "slot": "weapon",
+          "inactiveArena": true,
+          "display": "none",
+          "width": 0,
+          "height": 0,
+          "animation": "none"
+        },
+        {
+          "slot": "shield",
+          "active": true,
+          "dx": 0.0067486941642300735,
+          "dy": 0.0006923180835940457,
+          "width": 0.009253422190198535,
+          "height": 0.009253422190198535,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        },
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.012219695605182324,
+          "dy": 0.014240363832868752,
+          "width": 0.007407240634002221,
+          "height": 0.007407240634002221,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "razr50 current multi-slot inspector resize",
+      "samples": [
+        {
+          "slot": "weapon",
+          "inactiveArena": true,
+          "display": "none",
+          "width": 0,
+          "height": 0,
+          "animation": "none"
+        },
+        {
+          "slot": "shield",
+          "active": true,
+          "dx": 0.01311464337175039,
+          "dy": 0.0006416606628363297,
+          "width": 0.008195244956773706,
+          "height": 0.008195244956773706,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        },
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.003703620316997558,
+          "dy": 0.014341678674384184,
+          "width": 0.006484149855907617,
+          "height": 0.006484149855907617,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "razr50 current multi-slot inspector restore",
+      "samples": [
+        {
+          "slot": "weapon",
+          "inactiveArena": true,
+          "display": "none",
+          "width": 0,
+          "height": 0,
+          "animation": "none"
+        },
+        {
+          "slot": "shield",
+          "active": true,
+          "dx": 0.006743560263316795,
+          "dy": 0.0006810059121562517,
+          "width": 0.009251091597064942,
+          "height": 0.009251091597064942,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        },
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.012227885661275195,
+          "dy": 0.01420958241402559,
+          "width": 0.007404558253220728,
+          "height": 0.007404558253220728,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "razr50 current three-slot arena resize",
+      "samples": [
+        {
+          "uid": "0-0",
+          "slot": "weapon",
+          "dx": 0.028221159089014236,
+          "dy": 1.244979748464857,
+          "width": 0.014543803752289364
+        },
+        {
+          "uid": "0-0",
+          "slot": "shield",
+          "dx": 0.042229744541430136,
+          "dy": 1.2087058691195125,
+          "width": 0.014547618449554989
+        },
+        {
+          "uid": "1-0",
+          "slot": "weapon",
+          "dx": 0.028223265069925674,
+          "dy": 1.2449950072538627,
+          "width": 0.014549647849356973
+        },
+        {
+          "uid": "1-0",
+          "slot": "shield",
+          "dx": 0.04223332231583754,
+          "dy": 1.2087440160921687,
+          "width": 0.014549647849356973
+        },
+        {
+          "uid": "1-0",
+          "slot": "relic",
+          "dx": 0.026881917955876133,
+          "dy": 1.1449122536799905,
+          "width": 0.030593604036379674
+        }
+      ]
+    },
+    {
+      "label": "razr50 current three-slot snapshot reload",
+      "samples": [
+        {
+          "uid": "0-0",
+          "slot": "weapon",
+          "dx": 0.008508469259709273,
+          "dy": 0.48792101945241484,
+          "width": 0.015017252195733022
+        },
+        {
+          "uid": "0-0",
+          "slot": "shield",
+          "dx": 0.010370922208267075,
+          "dy": 0.4912981808357699,
+          "width": 0.015017252195733022
+        },
+        {
+          "uid": "1-0",
+          "slot": "weapon",
+          "dx": 0.008508469259709273,
+          "dy": 0.4879210194524717,
+          "width": 0.015017252195733022
+        },
+        {
+          "uid": "1-0",
+          "slot": "shield",
+          "dx": 0.010370922208267075,
+          "dy": 0.4912981808357131,
+          "width": 0.015017252195733022
+        },
+        {
+          "uid": "1-0",
+          "slot": "relic",
+          "dx": 0.006871471141778329,
+          "dy": 0.45836015377710737,
+          "width": 0.004607120451694868
+        }
+      ]
+    },
+    {
+      "label": "razr50 current D6 weapon/protection, conditional relic, three anchors, restart and expiry",
+      "passed": true,
+      "formula": {
+        "baseAttack": 206,
+        "weapon": 0,
+        "element": 0,
+        "faction": 0,
+        "buff": 0,
+        "barrier": -30,
+        "baseDefense": 291,
+        "race": 0,
+        "magic": true,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "ward": 0,
+        "equipmentAttack": 30,
+        "equipmentDefense": 30,
+        "equipmentWeapon": 30,
+        "equipmentProtection": 30,
+        "equipmentDefenseDie": 6,
+        "attack": 206,
+        "defense": 321
+      }
+    },
+    {
+      "label": "razr50",
+      "passed": true,
+      "profileTests": {
+        "incompatible": true,
+        "stale": true,
+        "invalidImport": true,
+        "unchanged": true,
+        "isolated": true,
+        "retained": true
+      }
+    },
+    {
+      "label": "reduced deck inspection",
+      "samples": [
+        {
+          "slot": "weapon",
+          "active": true,
+          "dx": 0.010305970821320898,
+          "dy": 0.009821911023038865,
+          "width": 0.00929845100864668,
+          "height": 0.00929845100864668,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "none"
+        }
+      ]
+    },
+    {
+      "label": "reduced back to deck card",
+      "samples": [
+        {
+          "slot": "weapon",
+          "active": true,
+          "dx": 0.010305970821320898,
+          "dy": 0.009821911023038865,
+          "width": 0.00929845100864668,
+          "height": 0.00929845100864668,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "none"
+        }
+      ]
+    },
+    {
+      "label": "reduced deck character version",
+      "samples": [
+        {
+          "slot": "weapon",
+          "active": true,
+          "dx": 0.010305970821320898,
+          "dy": 0.009821911023038865,
+          "width": 0.00929845100864668,
+          "height": 0.00929845100864668,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "none"
+        }
+      ]
+    },
+    {
+      "label": "reduced 4.6 pre-match UI captures three-slot deck loadout, not global preferences",
+      "passed": true
+    },
+    {
+      "label": "reduced inactive arena inspection",
+      "hiddenInactiveOverlay": true,
+      "equipmentListed": true
+    },
+    {
+      "label": "reduced archived 4.5.64 challenger",
+      "samples": [
+        {
+          "uid": "1-0",
+          "slot": "relic",
+          "dx": 0.033011978513172835,
+          "dy": 1.0881149155746925,
+          "width": 0.013875274466752074
+        }
+      ]
+    },
+    {
+      "label": "reduced active arena inspection",
+      "samples": [
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.009506709293958693,
+          "dy": 0.011381033861653123,
+          "width": 0.000472802593662891,
+          "height": 0.000472802593662891,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "none"
+        }
+      ]
+    },
+    {
+      "label": "reduced resize while inspecting",
+      "samples": [
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.0009906340057597163,
+          "dy": 0.011482348703168554,
+          "width": 0.015174711815561182,
+          "height": 0.015174711815561182,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "none"
+        }
+      ]
+    },
+    {
+      "label": "reduced restore inspector viewport",
+      "samples": [
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.009506709293958693,
+          "dy": 0.011381033861653123,
+          "width": 0.000472802593662891,
+          "height": 0.000472802593662891,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "none"
+        }
+      ]
+    },
+    {
+      "label": "reduced after attack",
+      "samples": [
+        {
+          "uid": "1-0",
+          "slot": "relic",
+          "dx": 0.033011978513172835,
+          "dy": 1.0881149155746925,
+          "width": 0.013875274466752074
+        }
+      ]
+    },
+    {
+      "label": "reduced resizing during activation",
+      "samples": [
+        {
+          "uid": "1-0",
+          "slot": "relic",
+          "dx": 0.0413670366351937,
+          "dy": 1.0693397737334749,
+          "width": 0.03145374408181212
+        }
+      ]
+    },
+    {
+      "label": "reduced inspection preserves original match equipment",
+      "samples": [
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.009506709293958693,
+          "dy": 0.011381033861653123,
+          "width": 0.000472802593662891,
+          "height": 0.000472802593662891,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "none"
+        }
+      ]
+    },
+    {
+      "label": "reduced archived 4.5.64 flute support",
+      "samples": [
+        {
+          "uid": "0-4",
+          "slot": "relic",
+          "dx": 0.033011978513172835,
+          "dy": 1.0881149155746925,
+          "width": 0.013875274466752074
+        }
+      ]
+    },
+    {
+      "label": "reduced active flute inspection",
+      "samples": [
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.009506709293958693,
+          "dy": 0.011381033861653123,
+          "width": 0.000472802593662891,
+          "height": 0.000472802593662891,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "none"
+        }
+      ]
+    },
+    {
+      "label": "reduced current 4.6 three native anchors",
+      "samples": [
+        {
+          "uid": "0-0",
+          "slot": "weapon",
+          "dx": 0.024677501568383775,
+          "dy": 1.1921253039445219,
+          "width": 0.003538660602258048
+        },
+        {
+          "uid": "0-0",
+          "slot": "shield",
+          "dx": 0.0018624529485578023,
+          "dy": 1.1823934505583793,
+          "width": 0.003538660602258048
+        },
+        {
+          "uid": "0-0",
+          "slot": "relic",
+          "dx": 0.033011978513172835,
+          "dy": 1.0881149155746925,
+          "width": 0.013875274466752074
+        },
+        {
+          "uid": "1-0",
+          "slot": "weapon",
+          "dx": 0.02467750156836246,
+          "dy": 1.1921253039445219,
+          "width": 0.003538660602258048
+        },
+        {
+          "uid": "1-0",
+          "slot": "shield",
+          "dx": 0.0018624529485578023,
+          "dy": 1.1823934505583509,
+          "width": 0.003538660602258048
+        }
+      ]
+    },
+    {
+      "label": "reduced current ATK anchor inspection",
+      "samples": [
+        {
+          "slot": "weapon",
+          "active": true,
+          "dx": 0.006681150936600488,
+          "dy": 0.0061970911383326666,
+          "width": 0.0009230907780981568,
+          "height": 0.0009230907780981568,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "none"
+        },
+        {
+          "slot": "shield",
+          "inactiveArena": true,
+          "display": "none",
+          "width": 0,
+          "height": 0,
+          "animation": "none"
+        }
+      ]
+    },
+    {
+      "label": "reduced current DEF and relic anchor inspection",
+      "samples": [
+        {
+          "slot": "weapon",
+          "inactiveArena": true,
+          "display": "none",
+          "width": 0,
+          "height": 0,
+          "animation": "none"
+        },
+        {
+          "slot": "shield",
+          "active": true,
+          "dx": 0.0041707943083793,
+          "dy": 0.0021219830691734387,
+          "width": 0.0009230907780981568,
+          "height": 0.0009230907780981568,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "none"
+        },
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.009506709293958693,
+          "dy": 0.011381033861653123,
+          "width": 0.000472802593662891,
+          "height": 0.000472802593662891,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "none"
+        }
+      ]
+    },
+    {
+      "label": "reduced current multi-slot inspector resize",
+      "samples": [
+        {
+          "slot": "weapon",
+          "inactiveArena": true,
+          "display": "none",
+          "width": 0,
+          "height": 0,
+          "animation": "none"
+        },
+        {
+          "slot": "shield",
+          "active": true,
+          "dx": 0.010536743515842772,
+          "dy": 0.0020713256484157228,
+          "width": 0.015489913544666223,
+          "height": 0.015489913544666223,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "none"
+        },
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.0009906340057597163,
+          "dy": 0.011482348703168554,
+          "width": 0.015174711815561182,
+          "height": 0.015174711815561182,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "none"
+        }
+      ]
+    },
+    {
+      "label": "reduced current multi-slot inspector restore",
+      "samples": [
+        {
+          "slot": "weapon",
+          "inactiveArena": true,
+          "display": "none",
+          "width": 0,
+          "height": 0,
+          "animation": "none"
+        },
+        {
+          "slot": "shield",
+          "active": true,
+          "dx": 0.0041707943083793,
+          "dy": 0.0021219830691734387,
+          "width": 0.0009230907780981568,
+          "height": 0.0009230907780981568,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "none"
+        },
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.009506709293958693,
+          "dy": 0.011381033861653123,
+          "width": 0.000472802593662891,
+          "height": 0.000472802593662891,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "none"
+        }
+      ]
+    },
+    {
+      "label": "reduced current three-slot arena resize",
+      "samples": [
+        {
+          "uid": "0-0",
+          "slot": "weapon",
+          "dx": 0.012664455093137406,
+          "dy": 1.1415844788125469,
+          "width": 0.018440543333888115
+        },
+        {
+          "uid": "0-0",
+          "slot": "shield",
+          "dx": 0.03536099442274576,
+          "dy": 1.1265535601964984,
+          "width": 0.018432913939356865
+        },
+        {
+          "uid": "0-0",
+          "slot": "relic",
+          "dx": 0.041367036635186594,
+          "dy": 1.0693059883328715,
+          "width": 0.03144611468728087
+        },
+        {
+          "uid": "1-0",
+          "slot": "weapon",
+          "dx": 0.012660640395864675,
+          "dy": 1.141571578100013,
+          "width": 0.018440543333888115
+        },
+        {
+          "uid": "1-0",
+          "slot": "shield",
+          "dx": 0.035357179725451715,
+          "dy": 1.126525466655096,
+          "width": 0.018440543333888115
+        }
+      ]
+    },
+    {
+      "label": "reduced current three-slot snapshot reload",
+      "samples": [
+        {
+          "uid": "0-0",
+          "slot": "weapon",
+          "dx": 0.024677501568383775,
+          "dy": 1.1921253039445219,
+          "width": 0.003538660602258048
+        },
+        {
+          "uid": "0-0",
+          "slot": "shield",
+          "dx": 0.0018624529485578023,
+          "dy": 1.1823934505583793,
+          "width": 0.003538660602258048
+        },
+        {
+          "uid": "0-0",
+          "slot": "relic",
+          "dx": 0.033011978513172835,
+          "dy": 1.0881149155746925,
+          "width": 0.013875274466752074
+        },
+        {
+          "uid": "1-0",
+          "slot": "weapon",
+          "dx": 0.02467750156836246,
+          "dy": 1.1921253039445219,
+          "width": 0.003538660602258048
+        },
+        {
+          "uid": "1-0",
+          "slot": "shield",
+          "dx": 0.0018624529485578023,
+          "dy": 1.1823934505583509,
+          "width": 0.003538660602258048
+        }
+      ]
+    },
+    {
+      "label": "reduced current D6 weapon/protection, conditional relic, three anchors, restart and expiry",
+      "passed": true,
+      "formula": {
+        "baseAttack": 206,
+        "weapon": 0,
+        "element": 0,
+        "faction": 0,
+        "buff": 0,
+        "barrier": -30,
+        "baseDefense": 291,
+        "race": 0,
+        "magic": true,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "ward": 0,
+        "equipmentAttack": 30,
+        "equipmentDefense": 30,
+        "equipmentWeapon": 30,
+        "equipmentProtection": 30,
+        "equipmentDefenseDie": 6,
+        "attack": 206,
+        "defense": 321
+      }
+    },
+    {
+      "label": "reduced",
+      "passed": true,
+      "profileTests": {
+        "incompatible": true,
+        "stale": true,
+        "invalidImport": true,
+        "unchanged": true,
+        "isolated": true,
+        "retained": true
+      }
+    },
+    {
+      "label": "compact deck inspection",
+      "samples": [
+        {
+          "slot": "weapon",
+          "active": true,
+          "dx": 0.0016773234870299802,
+          "dy": 0.0031857889049007326,
+          "width": 0.015354827089337775,
+          "height": 0.015354827089337775,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "compact back to deck card",
+      "samples": [
+        {
+          "slot": "weapon",
+          "active": true,
+          "dx": 0.0016773234870299802,
+          "dy": 0.0031857889049007326,
+          "width": 0.015354827089337775,
+          "height": 0.015354827089337775,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "compact deck character version",
+      "samples": [
+        {
+          "slot": "weapon",
+          "active": true,
+          "dx": 0.0016773234870299802,
+          "dy": 0.0031857889049007326,
+          "width": 0.015354827089337775,
+          "height": 0.015354827089337775,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "compact 4.6 pre-match UI captures three-slot deck loadout, not global preferences",
+      "passed": true
+    },
+    {
+      "label": "compact inactive arena inspection",
+      "hiddenInactiveOverlay": true,
+      "equipmentListed": true
+    },
+    {
+      "label": "compact archived 4.5.64 challenger",
+      "samples": [
+        {
+          "uid": "0-0",
+          "slot": "relic",
+          "dx": 0.008882759505866034,
+          "dy": 0.9537776985407618,
+          "width": 0.009383829803658372
+        }
+      ]
+    },
+    {
+      "label": "compact active arena inspection",
+      "samples": [
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.010345371037459472,
+          "dy": 0.012142895965155276,
+          "width": 0.012698126801154785,
+          "height": 0.012698126801154785,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "compact resize while inspecting",
+      "samples": [
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.013260987031699756,
+          "dy": 0.008465417867455471,
+          "width": 0.013148414985590051,
+          "height": 0.013148414985590051,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "compact restore inspector viewport",
+      "samples": [
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.010345371037459472,
+          "dy": 0.012135266570624026,
+          "width": 0.012698126801154785,
+          "height": 0.012698126801154785,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "compact after attack",
+      "samples": [
+        {
+          "uid": "0-0",
+          "slot": "relic",
+          "dx": 0.008882759505866034,
+          "dy": 0.9537928322578182,
+          "width": 0.009383829803658372
+        }
+      ]
+    },
+    {
+      "label": "compact resizing during activation",
+      "samples": [
+        {
+          "uid": "0-0",
+          "slot": "relic",
+          "dx": 0.008879535919149362,
+          "dy": 0.9537623146796932,
+          "width": 0.009383518692841264
+        }
+      ]
+    },
+    {
+      "label": "compact inspection preserves original match equipment",
+      "samples": [
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.010341276009427247,
+          "dy": 0.01213158379368906,
+          "width": 0.012699467991545532,
+          "height": 0.012699467991545532,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "compact archived 4.5.64 flute support",
+      "samples": [
+        {
+          "uid": "0-4",
+          "slot": "relic",
+          "dx": 0.004156210790455361,
+          "dy": 0.44631937390749954,
+          "width": 0.004391468005018773
+        }
+      ]
+    },
+    {
+      "label": "compact active flute inspection",
+      "samples": [
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.010345371037459472,
+          "dy": 0.012135266570624026,
+          "width": 0.012698126801154785,
+          "height": 0.012698126801154785,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "compact current 4.6 three native anchors",
+      "samples": [
+        {
+          "uid": "0-0",
+          "slot": "weapon",
+          "dx": 0.04212475181972053,
+          "dy": 1.0501586188500482,
+          "width": 0.019648347325725624
+        },
+        {
+          "uid": "0-0",
+          "slot": "shield",
+          "dx": 0.021764647556807404,
+          "dy": 1.0279286739118447,
+          "width": 0.01965216202299125
+        },
+        {
+          "uid": "1-0",
+          "slot": "weapon",
+          "dx": 0.04212942087514193,
+          "dy": 1.0501662482445795,
+          "width": 0.019643517928559007
+        },
+        {
+          "uid": "1-0",
+          "slot": "shield",
+          "dx": 0.021777163784349796,
+          "dy": 1.0279439327009072,
+          "width": 0.019643517928559007
+        },
+        {
+          "uid": "1-0",
+          "slot": "relic",
+          "dx": 0.008881926686143515,
+          "dy": 0.9537851403272839,
+          "width": 0.009382661941510051
+        }
+      ]
+    },
+    {
+      "label": "compact current ATK anchor inspection",
+      "samples": [
+        {
+          "slot": "weapon",
+          "active": true,
+          "dx": 0.013700018011533643,
+          "dy": 0.015208483429404396,
+          "width": 0.006934438040346436,
+          "height": 0.006942067434877686,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        },
+        {
+          "slot": "shield",
+          "inactiveArena": true,
+          "display": "none",
+          "width": 0,
+          "height": 0,
+          "animation": "none"
+        }
+      ]
+    },
+    {
+      "label": "compact current DEF and relic anchor inspection",
+      "samples": [
+        {
+          "slot": "weapon",
+          "inactiveArena": true,
+          "display": "none",
+          "width": 0,
+          "height": 0,
+          "animation": "none"
+        },
+        {
+          "slot": "shield",
+          "active": true,
+          "dx": 0.009892515902549803,
+          "dy": 0.001743025326248926,
+          "width": 0.006933272743776087,
+          "height": 0.006933272743776087,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        },
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.010349466065505908,
+          "dy": 0.012138949347502148,
+          "width": 0.012696785610760486,
+          "height": 0.012696785610760486,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "compact current multi-slot inspector resize",
+      "samples": [
+        {
+          "slot": "weapon",
+          "inactiveArena": true,
+          "display": "none",
+          "width": 0,
+          "height": 0,
+          "animation": "none"
+        },
+        {
+          "slot": "shield",
+          "active": true,
+          "dx": 0.0032645893371636703,
+          "dy": 0.0035797910662722643,
+          "width": 0.00706952449567666,
+          "height": 0.00707715389020791,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        },
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.013260987031699756,
+          "dy": 0.008457788472924221,
+          "width": 0.013148414985590051,
+          "height": 0.013148414985590051,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "compact current multi-slot inspector restore",
+      "samples": [
+        {
+          "slot": "weapon",
+          "inactiveArena": true,
+          "display": "none",
+          "width": 0,
+          "height": 0,
+          "animation": "none"
+        },
+        {
+          "slot": "shield",
+          "active": true,
+          "dx": 0.009897649803491504,
+          "dy": 0.0017467081031554699,
+          "width": 0.006935603336916785,
+          "height": 0.006935603336916785,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        },
+        {
+          "slot": "relic",
+          "active": true,
+          "dx": 0.010341276009427247,
+          "dy": 0.01213158379368906,
+          "width": 0.012699467991545532,
+          "height": 0.012699467991545532,
+          "bodyWidth": 0,
+          "bodyHeight": 0,
+          "animation": "eq-continuous-orbit"
+        }
+      ]
+    },
+    {
+      "label": "compact current three-slot arena resize",
+      "samples": [
+        {
+          "uid": "0-0",
+          "slot": "weapon",
+          "dx": 0.04212409609384338,
+          "dy": 1.0501586188500482,
+          "width": 0.019651391425425047
+        },
+        {
+          "uid": "0-0",
+          "slot": "shield",
+          "dx": 0.02176524584685069,
+          "dy": 1.0279286739118447,
+          "width": 0.01964757672815942
+        },
+        {
+          "uid": "1-0",
+          "slot": "weapon",
+          "dx": 0.04211626806701929,
+          "dy": 1.0501627111297545,
+          "width": 0.019645547328359214
+        },
+        {
+          "uid": "1-0",
+          "slot": "shield",
+          "dx": 0.021752131329265012,
+          "dy": 1.027932667251278,
+          "width": 0.019660806117421714
+        },
+        {
+          "uid": "1-0",
+          "slot": "relic",
+          "dx": 0.008883592325588552,
+          "dy": 0.9537806138097125,
+          "width": 0.00938499766580847
+        }
+      ]
+    },
+    {
+      "label": "compact current three-slot snapshot reload",
+      "samples": [
+        {
+          "uid": "0-0",
+          "slot": "weapon",
+          "dx": 0.019712594102884395,
+          "dy": 0.4914220100864668,
+          "width": 0.00919463613550775
+        },
+        {
+          "uid": "0-0",
+          "slot": "shield",
+          "dx": 0.010184676913411295,
+          "dy": 0.48102035302594004,
+          "width": 0.00919463613550775
+        },
+        {
+          "uid": "1-0",
+          "slot": "weapon",
+          "dx": 0.019712594102884395,
+          "dy": 0.4914220100864668,
+          "width": 0.00919463613550775
+        },
+        {
+          "uid": "1-0",
+          "slot": "shield",
+          "dx": 0.010184676913411295,
+          "dy": 0.48102035302594004,
+          "width": 0.00919463613550775
+        },
+        {
+          "uid": "1-0",
+          "slot": "relic",
+          "dx": 0.004156210790455361,
+          "dy": 0.44631937390749954,
+          "width": 0.004391468005018773
+        }
+      ]
+    },
+    {
+      "label": "compact current D6 weapon/protection, conditional relic, three anchors, restart and expiry",
+      "passed": true,
+      "formula": {
+        "baseAttack": 206,
+        "weapon": 0,
+        "element": 0,
+        "faction": 0,
+        "buff": 0,
+        "barrier": -30,
+        "baseDefense": 291,
+        "race": 0,
+        "magic": true,
+        "arenaAttack": 0,
+        "arenaDefense": 0,
+        "ward": 0,
+        "equipmentAttack": 30,
+        "equipmentDefense": 30,
+        "equipmentWeapon": 30,
+        "equipmentProtection": 30,
+        "equipmentDefenseDie": 6,
+        "attack": 206,
+        "defense": 321
+      }
+    },
+    {
+      "label": "compact",
+      "passed": true,
+      "profileTests": {
+        "incompatible": true,
+        "stale": true,
+        "invalidImport": true,
+        "unchanged": true,
+        "isolated": true,
+        "retained": true
+      }
+    }
+  ],
+  "errors": []
+}

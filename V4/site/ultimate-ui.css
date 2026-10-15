@@ -1,0 +1,40 @@
+.ultimate-choice{width:100%;min-width:0;box-sizing:border-box;border-block:1px solid #b9a38680;padding:8px 0;color:#eee3cd;letter-spacing:0;}
+.ultimate-choice header{display:flex;gap:8px;align-items:center;min-width:0;margin-bottom:8px;}
+.ultimate-choice header>img{width:38px;height:38px;object-fit:contain;flex:none;}
+.ultimate-choice header>div{min-width:0;}
+.ultimate-choice strong{display:block;font:600 13px/1.3 var(--kalistar-display,var(--serif));overflow-wrap:anywhere;}
+.ultimate-choice header span{display:block;margin-top:3px;font:12px/1.3 var(--sans);color:#bce4d5;}
+.ultimate-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;max-height:210px;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;}
+.arena-view .duel-centre .ultimate-options button{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:5px;min-width:0;min-height:44px;height:auto;margin:0;padding:7px 5px;border:1px solid #b5957770;border-radius:3px;background:#142722;color:#f2e8d2;box-shadow:inset 0 -2px #b5957730;font:600 12px/1.25 var(--sans);letter-spacing:0;}
+.ultimate-options button>span{min-width:0;overflow-wrap:anywhere;}
+.ultimate-options button>.lucide{width:16px;height:16px;flex:none;}
+.ultimate-options button>small{display:block;flex-basis:100%;font:11px/1.2 var(--sans);color:#bfe1d5;}
+.arena-view .duel-centre .ultimate-options button:hover:not(:disabled){border-color:#a5e2cf;background:#244139;}
+.ultimate-options button:focus-visible{outline:2px solid #afe9d7;outline-offset:-3px;}
+.ultimate-options button:disabled{opacity:.55;cursor:wait;}
+.arena-view .duel-console:has(.ultimate-choice){grid-template-rows:var(--die-row) auto var(--die-row);}
+.arena-view .duel-centre:has(.ultimate-choice){height:auto;grid-template-rows:auto minmax(0,max-content) auto;}
+.arena-view .duel-centre:has(.ultimate-choice) .duel-status{min-height:50px;}
+.wc-surface[data-effect=ULTIMATE] .wc-rule{font-size:.78em;line-height:1.18;}
+.eq-relic-transfer[data-trait=ward]{color:#c7e9f1;}
+.eq-relic-transfer[data-trait=mana]{color:#aae6fb;}
+.eq-relic-transfer[data-trait=physical]{color:#ffd0ae;}
+.eq-relic-transfer[data-trait=reraise]{color:#ffd1e1;}
+.eq-relic-emblem[data-kind=bonus]>span{color:#c7eaf0;}
+.eq-relic-emblem[data-negative=true]>span{color:#f0b4be;}
+@media(max-width:699px),(pointer:coarse) and (max-width:1100px) and (max-height:500px){
+  .arena-view .battlefield:has(.ultimate-choice){grid-template-rows:minmax(0,1fr) auto minmax(0,1fr);}
+  .arena-view .battlefield .duel-console:has(.ultimate-choice){height:auto;min-height:110px;display:block;padding:7px 10px;}
+  body.arena-view .battlefield .duel-console:has(.ultimate-choice)>.duel-die,body.arena-view .duel-centre:has(.ultimate-choice)>.duel-status,body.arena-view .duel-centre:has(.ultimate-choice)>.duel-recap{display:none;}
+  .arena-view .duel-console .duel-centre:has(.ultimate-choice){display:block;height:auto;min-height:0;}
+  .duel-console .duel-centre:has(.ultimate-choice) .duel-actions{position:static;width:100%;max-width:none;min-height:0;margin:0;padding:0;}
+  .ultimate-choice{padding:0;border:0;}
+  .ultimate-choice header{margin-bottom:6px;gap:7px;}
+  .ultimate-choice header>img{width:30px;height:30px;}
+  .ultimate-choice strong{font-size:13px;}
+  .ultimate-choice header span{font-size:11px;margin-top:1px;}
+  .ultimate-options{max-height:104px;gap:4px;}
+  .ultimate-choice[data-mode=target] .ultimate-options{grid-template-columns:repeat(3,minmax(0,1fr));}
+  .arena-view .duel-centre .ultimate-options button{padding:5px;min-height:44px;font-size:12px;}
+}
+@media(prefers-reduced-motion:reduce){.ultimate-choice,.ultimate-options button{animation:none!important;transition:none!important;}}

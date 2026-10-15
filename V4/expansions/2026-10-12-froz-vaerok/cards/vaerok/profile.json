@@ -1,0 +1,59 @@
+{
+  "name": "VAEROK",
+  "title": "LE CROC DU PASSAGE",
+  "job": "SOLDAT",
+  "description": "Vaerok reconnaît les siens avant qu'ils sortent du brouillard. Sous le rouge de Froz, il garde les noms de ceux qui ne sont pas revenus. Sa lame ne promet pas la victoire, seulement un passage pour les autres.",
+  "element": "HEMATO",
+  "race": "OKAMI",
+  "weapon": "Epée longue",
+  "faction": "Froz",
+  "positions": [
+    2
+  ],
+  "atk": [
+    286,
+    229,
+    174,
+    119,
+    72,
+    "buff_atk"
+  ],
+  "defense": [
+    158,
+    127,
+    94,
+    "dodge",
+    42,
+    16
+  ],
+  "magic": [
+    4
+  ],
+  "barriers": [
+    5
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49902301",
+  "characterId": "vaerok-kalistar",
+  "slug": "V4_49902301",
+  "output": "KALISTAR_V4_49902301",
+  "text": "Vaerok reconnaît les siens avant qu'ils sortent du brouillard. Sous le rouge de Froz, il garde les noms de ceux qui ne sont pas revenus. Sa lame ne promet pas la victoire, seulement un passage pour les autres.",
+  "color": "E84976",
+  "hue": 343,
+  "weapon_index": 17,
+  "role": 2,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Original Kalistar, illustration approuvee le 12 octobre 2026",
+  "visual_revision": "V4-2026-10-12-froz-vaerok",
+  "artworkSource": "V4/propositions/2026-10-12-froz-okami/froz-okami-01.png"
+}

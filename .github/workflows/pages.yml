@@ -1,0 +1,23 @@
+name: Verify Kalistar code
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          lfs: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - name: Check repository organisation and local media policy
+        run: node maintenance/check-organisation.cjs
+      - name: Validate code and publication safeguards without LFS
+        run: node maintenance/validate.cjs --suite repository

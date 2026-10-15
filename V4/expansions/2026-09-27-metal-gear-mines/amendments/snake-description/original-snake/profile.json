@@ -1,0 +1,63 @@
+{
+  "name": "SOLID SNAKE",
+  "title": "Le silence de Shadow Moses",
+  "job": "INFILTRATEUR",
+  "description": "Dans la neige de Shadow Moses, Snake retient son souffle entre deux faisceaux. On lui a confié une mission ; ceux qu'il rencontre lui donnent une raison de continuer. Sous le bandeau, le doute reste éveillé.",
+  "element": "CRYO",
+  "race": "HUMAIN",
+  "weapon": "Gun",
+  "faction": "MGS1",
+  "positions": [
+    1,
+    2,
+    3
+  ],
+  "atk": [
+    230,
+    190,
+    150,
+    110,
+    "buff_atk",
+    32
+  ],
+  "defense": [
+    222,
+    182,
+    144,
+    106,
+    "retry",
+    30
+  ],
+  "magic": [
+    4
+  ],
+  "barriers": [
+    5
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": -0.15
+  },
+  "schemaVersion": 4,
+  "id": "45297565",
+  "characterId": "solid-snake-mgs",
+  "slug": "V4_45297565",
+  "output": "KALISTAR_V4_45297565",
+  "text": "Dans la neige de Shadow Moses, Snake retient son souffle entre deux faisceaux. On lui a confié une mission ; ceux qu'il rencontre lui donnent une raison de continuer. Sous le bandeau, le doute reste éveillé.",
+  "color": "ACDFFD",
+  "hue": 201,
+  "weapon_index": 7,
+  "role": 3,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Kalistar x Metal Gear - fan crossover non officiel",
+  "visual_revision": "V4-2026-09-27-metal-gear-mines",
+  "collaboration": "MGS1",
+  "officialCollaboration": false,
+  "artworkSource": "V4/Illustrations/Solid_Snake_MGS1.png"
+}

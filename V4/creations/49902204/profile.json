@@ -1,0 +1,60 @@
+{
+  "name": "ULVREN",
+  "title": "LA MORSURE DU COL",
+  "job": "SOLDAT",
+  "description": "Ulvren a appris à briser les portes pour en sortir les vivants. Sous les crocs de son marteau, la glace cède avant les serments. Sa voix est rude ; c'est pourtant lui qui porte les blessés jusqu'aux lumières.",
+  "element": "CRYO",
+  "race": "OKAMI",
+  "weapon": "Marteau",
+  "faction": "Grivka",
+  "positions": [
+    1,
+    2
+  ],
+  "atk": [
+    207,
+    168,
+    131,
+    96,
+    57,
+    "buff_atk"
+  ],
+  "defense": [
+    262,
+    209,
+    164,
+    111,
+    61,
+    21
+  ],
+  "magic": [
+    3
+  ],
+  "barriers": [
+    5
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49902204",
+  "characterId": "ulvren-kalistar",
+  "slug": "V4_49902204",
+  "output": "KALISTAR_V4_49902204",
+  "text": "Ulvren a appris à briser les portes pour en sortir les vivants. Sous les crocs de son marteau, la glace cède avant les serments. Sa voix est rude ; c'est pourtant lui qui porte les blessés jusqu'aux lumières.",
+  "color": "ACDFFD",
+  "hue": 201,
+  "weapon_index": 1,
+  "role": 1,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Original Kalistar, illustration approuvee le 12 octobre 2026",
+  "visual_revision": "V4-2026-10-12-grivka-white-guard",
+  "artworkSource": "V4/propositions/2026-10-12-grivka-white-guard/images/ulvren-03.png"
+}

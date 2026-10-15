@@ -1,0 +1,237 @@
+{
+  "version": 1,
+  "mediaStorage": "local-cloudflare",
+  "rootFiles": [
+    ".gitattributes",
+    ".gitignore",
+    ".lfsconfig",
+    "AGENTS.md",
+    "README.md",
+    "Lancer-Kalistar.cmd",
+    "package.json"
+  ],
+  "roots": {
+    ".github": {
+      "role": "outillage",
+      "purpose": "Integration continue et publication."
+    },
+    "docs": {
+      "role": "documentation",
+      "purpose": "Entree et guides actifs, historique explicitement separe."
+    },
+    "maintenance": {
+      "role": "outillage",
+      "purpose": "Organisation, validation et audits; scripts historiques non actifs."
+    },
+    "V1": {
+      "role": "heritage",
+      "purpose": "Sources preservees; lecteur de codes-barres encore utilise."
+    },
+    "V2": {
+      "role": "heritage",
+      "purpose": "Version historique preservee."
+    },
+    "V3": {
+      "role": "partage",
+      "purpose": "Ancien jeu preserve; donnees et medias encore partages avec V4."
+    },
+    "V4": {
+      "role": "production",
+      "purpose": "Jeu et production courants."
+    },
+    "main": {
+      "role": "heritage",
+      "purpose": "Sources originales de l'univers."
+    },
+    "Templates": {
+      "role": "heritage",
+      "purpose": "Premiers templates natifs preserves."
+    },
+    "work": {
+      "role": "local",
+      "purpose": "Travaux jetables exclus de Git, sauf le guide de rangement."
+    }
+  },
+  "v4Files": [
+    "AGENTS.md",
+    "DIRECTION_ARTISTIQUE.md",
+    "README.md",
+    "galerie-elements.html"
+  ],
+  "v4": {
+    "site": {
+      "role": "jeu",
+      "purpose": "HTML, CSS, modules du jeu, medias optimises et tests."
+    },
+    "donnees": {
+      "role": "production",
+      "purpose": "Registre de publications; pas de sauvegardes navigateur."
+    },
+    "atelier": {
+      "role": "outillage",
+      "purpose": "Serveur local, composition native, composants et verrous approuves."
+    },
+    "template-stable": {
+      "role": "production",
+      "purpose": "Maitres valides, profils et calibrages optiques."
+    },
+    "cartes": {
+      "role": "production",
+      "purpose": "PNG approuves selon les chemins du verrou, pas selon le nom."
+    },
+    "templates": {
+      "role": "production",
+      "purpose": "PSD approuves selon les chemins du verrou."
+    },
+    "creations": {
+      "role": "production",
+      "purpose": "Sorties courantes par identifiant de modele."
+    },
+    "assets": {
+      "role": "production",
+      "purpose": "Illustrations et composants natifs sources."
+    },
+    "Illustrations": {
+      "role": "production",
+      "purpose": "Sources artistiques existantes; nom historique preserve."
+    },
+    "map": {
+      "role": "production",
+      "purpose": "Carte du monde, couches et versions preservees."
+    },
+    "weapon-cards": {
+      "role": "production",
+      "purpose": "Sources des cartes d'equipement et provenance."
+    },
+    "scripts": {
+      "role": "outillage",
+      "purpose": "Scripts natifs; route stable active, autres scripts dates."
+    },
+    "deploy": {
+      "role": "outillage",
+      "purpose": "Build du site et controles de publication."
+    },
+    "docs": {
+      "role": "documentation",
+      "purpose": "Regles, DA, contrats techniques et textes joueur."
+    },
+    "collaborations": {
+      "role": "lots",
+      "purpose": "Lots de collaboration, sources et preuves; pas un registre courant."
+    },
+    "expansions": {
+      "role": "lots",
+      "purpose": "Lots d'ajout de cartes; certaines sources restent actives."
+    },
+    "revisions": {
+      "role": "lots",
+      "purpose": "Revisions, originaux et preuves; certaines sources restent actives."
+    },
+    "releases": {
+      "role": "preuves",
+      "purpose": "Livraisons datees et preuves retenues."
+    },
+    "propositions": {
+      "role": "recherche",
+      "purpose": "Explorations artistiques non publiees par leur seule presence."
+    },
+    "audits": {
+      "role": "preuves",
+      "purpose": "Audits existants a conserver; nouveaux essais dans work/."
+    },
+    "apercus": {
+      "role": "recherche",
+      "purpose": "Apercus historiques, jamais source canonique implicite."
+    },
+    "impression": {
+      "role": "production",
+      "purpose": "Sorties et preparation d'impression existantes."
+    },
+    "references": {
+      "role": "heritage",
+      "purpose": "References historiques; le verrou decide du statut."
+    },
+    "master": {
+      "role": "heritage",
+      "purpose": "Anciens essais de cadre, pas le maitre courant."
+    },
+    "momo-bottom": {
+      "role": "heritage",
+      "purpose": "Experimentations anciennes preservees."
+    },
+    "sauvegardes_psd": {
+      "role": "heritage",
+      "purpose": "Sources natives preservees, pas des sauvegardes joueur."
+    },
+    "verification": {
+      "role": "preuves",
+      "purpose": "Anciennes preuves, pas la destination des nouveaux essais."
+    },
+    "story-work": {
+      "role": "local",
+      "purpose": "Brouillons narratifs prives exclus de Git."
+    }
+  },
+  "localOnly": [
+    "lfs",
+    "paquets-transfert",
+    "sauvegardes-personnelles",
+    "V4/story-work",
+    "V4/deploy/dist",
+    "V4/deploy/verification",
+    "V4/atelier/data/runtime.json",
+    "V4/atelier/data/active.json",
+    "V4/atelier/data/render.lock",
+    "V4/atelier/data/server.lock",
+    "V4/atelier/data/jobs",
+    "V4/atelier/data/drafts",
+    "V4/atelier/data/uploads",
+    "V4/atelier/data/designer"
+  ],
+  "maintainedDocs": [
+    "README.md",
+    "docs/INDEX.md",
+    "docs/GUIDE_REPRISE.md",
+    "docs/ORGANISATION.md",
+    "docs/VALIDATION.md",
+    "docs/TRANSFERT_ET_GIT.md",
+    "docs/historique/README.md",
+    "V4/README.md",
+    "V4/site/README.md",
+    "V4/deploy/README.md",
+    "maintenance/README.md",
+    "work/README.md",
+    "V4/creations/README.md",
+    "V4/expansions/README.md",
+    "V4/revisions/README.md",
+    "V4/releases/README.md",
+    "V4/propositions/README.md",
+    "V4/scripts/README.md"
+  ],
+  "requiredFiles": [
+    "AGENTS.md",
+    "V4/AGENTS.md",
+    "V4/site/index.html",
+    "V4/site/boot.js",
+    "V4/site/engine.js",
+    "V4/atelier/game-catalog.cjs",
+    "V4/atelier/server.cjs",
+    "V4/atelier/data/references.json",
+    "V4/atelier/designer-assets/manifest.json",
+    "V4/atelier/data/regression.json",
+    "V4/donnees/catalogue.json",
+    "V4/template-stable/current.json",
+    "V4/template-stable/current-elements.json",
+    "V4/template-stable/icon-layouts.json"
+  ],
+  "testDirectories": [
+    "maintenance",
+    "V4/site",
+    "V4/atelier",
+    "V4/deploy"
+  ],
+  "testAreas": [
+    "maintenance",
+    "V4"
+  ]
+}

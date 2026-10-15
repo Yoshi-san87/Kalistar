@@ -1,0 +1,58 @@
+TAP version 13
+# Subtest: Published Morveth uses the approved scythe image and verified native card
+ok 1 - Published Morveth uses the approved scythe image and verified native card
+  ---
+  duration_ms: 6.9184
+  type: 'test'
+  ...
+# Subtest: Morveth is P2 only, with exactly one Death ATK D1 and valid numeric modes
+ok 2 - Morveth is P2 only, with exactly one Death ATK D1 and valid numeric modes
+  ---
+  duration_ms: 5.2192
+  type: 'test'
+  ...
+# Subtest: Kalistar collection, Faucille and ordinary Cryptown/Skullz synergies stay intact
+ok 3 - Kalistar collection, Faucille and ordinary Cryptown/Skullz synergies stay intact
+  ---
+  duration_ms: 56.6367
+  type: 'test'
+  ...
+# Subtest: Death ignores numeric defense, ward and luck, preserves ATK buffs and logs a kill
+ok 4 - Death ignores numeric defense, ward and luck, preserves ATK buffs and logs a kill
+  ---
+  duration_ms: 11.3832
+  type: 'test'
+  ...
+# Subtest: A real defender Dodge D1 still cancels Morveth Death
+ok 5 - A real defender Dodge D1 still cancels Morveth Death
+  ---
+  duration_ms: 1.0781
+  type: 'test'
+  ...
+# Subtest: Reraise survives Death once without granting a kill
+ok 6 - Reraise survives Death once without granting a kill
+  ---
+  duration_ms: 0.9388
+  type: 'test'
+  ...
+# Subtest: A discarded Death face becomes an ordinary numeric attack after Kalistel
+ok 7 - A discarded Death face becomes an ordinary numeric attack after Kalistel
+  ---
+  duration_ms: 1.5955
+  type: 'test'
+  ...
+# Subtest: Morveth completes 24 matches on either team with repeated restoration
+ok 8 - Morveth completes 24 matches on either team with repeated restoration
+  ---
+  duration_ms: 288.5971
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 470.4908

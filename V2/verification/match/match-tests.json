@@ -1,0 +1,31 @@
+{
+  "checks": [
+    "Player 1 remains left, player 2 right, with correct ATK/DEF roles and values during preview and final results on either turn",
+    "Three arena images render, picker and new-game selection work, selection survives reload and does not change RNG, board, duel or game rules",
+    "Automatic end-of-match report, four awards, 20 distinct units, sortable team-filtered table, reopening and JSON export identical to engine totals",
+    "Five responsive widths, no dialog/page overflow or clipped awards, all assets loaded; old saves explicitly marked partial without invented champions"
+  ],
+  "viewports": [
+    {
+      "width": 2493,
+      "height": 1461
+    },
+    {
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "width": 390,
+      "height": 844
+    },
+    {
+      "width": 320,
+      "height": 780
+    }
+  ],
+  "errors": []
+}

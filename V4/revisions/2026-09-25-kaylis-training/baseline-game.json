@@ -1,0 +1,6364 @@
+{
+  "version": 4,
+  "edition": "V4",
+  "referenceId": "02f0808cbd56d2b0d4103450e7943db69b95ac120a0df349f4374c82f7f712e5",
+  "crop": {
+    "left": 50,
+    "top": 50,
+    "width": 797,
+    "height": 1388
+  },
+  "imageSize": {
+    "width": 897,
+    "height": 1497
+  },
+  "cards": [
+    {
+      "id": "30000001",
+      "edition": "V4",
+      "referenceKey": "momo",
+      "origin": "approved",
+      "slug": "v4-30000001",
+      "characterId": "momo",
+      "name": "MOMO",
+      "title": "L’ARTISTE MAGIQUE",
+      "job": "NETTOYEUR",
+      "race": "ROBOT",
+      "faction": "Chroma",
+      "weapon": "Instrument",
+      "weapon_index": 11,
+      "element": "ELECTRO",
+      "positions": [
+        3,
+        4
+      ],
+      "role": 3,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        202,
+        167,
+        "retry",
+        84,
+        "mana",
+        29
+      ],
+      "defense": [
+        200,
+        167,
+        "retry",
+        100,
+        59,
+        11
+      ],
+      "magic": [
+        6,
+        5,
+        3,
+        1
+      ],
+      "barriers": [
+        6,
+        5,
+        2
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "F5DC32",
+      "hue": 53,
+      "text": "Au milieu des rebuts de Chroma, Momo joue pour ceux que l'on a oubliés. Sa flûte éveille une lumière dans la ferraille. Il ne sait pas encore si quelqu'un l'écoute. Alors il continue.",
+      "description": "Au milieu des rebuts de Chroma, Momo joue pour ceux que l'on a oubliés. Sa flûte éveille une lumière dans la ferraille. Il ne sait pas encore si quelqu'un l'écoute. Alors il continue.",
+      "pngUrl": "/media/reference/momo.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000013",
+      "edition": "V4",
+      "referenceKey": "taulio",
+      "origin": "approved",
+      "slug": "v4-30000013",
+      "characterId": "taulio",
+      "name": "TAULIO",
+      "title": "GARDE DU CORPS LOYAL",
+      "job": "PROTECTEUR",
+      "race": "ROBOT",
+      "faction": "Chroma",
+      "weapon": "Poing",
+      "weapon_index": 3,
+      "element": "ELECTRO",
+      "positions": [
+        1
+      ],
+      "role": 1,
+      "sentry": true,
+      "canGuard": true,
+      "canHeal": false,
+      "atk": [
+        202,
+        165,
+        135,
+        98,
+        "guard",
+        "buff_atk"
+      ],
+      "defense": [
+        294,
+        242,
+        190,
+        145,
+        93,
+        41
+      ],
+      "magic": [],
+      "barriers": [
+        2
+      ],
+      "advantage": 40,
+      "disadvantage": 20,
+      "color": "F5DC32",
+      "hue": 53,
+      "text": "Conçu pour protéger les puissants, Taulio fut jeté à la décharge lorsqu'il apprit à ressentir. Sous sa cuirasse cabossée, rien n'a éteint sa loyauté. Il garde désormais le passage pour ceux que le monde a abandonnés.",
+      "description": "Conçu pour protéger les puissants, Taulio fut jeté à la décharge lorsqu'il apprit à ressentir. Sous sa cuirasse cabossée, rien n'a éteint sa loyauté. Il garde désormais le passage pour ceux que le monde a abandonnés.",
+      "pngUrl": "/media/reference/taulio.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000032",
+      "edition": "V4",
+      "referenceKey": "jelly-joe",
+      "origin": "approved",
+      "slug": "v4-30000032",
+      "characterId": "jelly-joe",
+      "name": "JELLY-JOE",
+      "title": "LA MAREE DES CHOPES",
+      "job": "MERCENAIRE",
+      "race": "TANTALAK",
+      "faction": "Crabazar",
+      "weapon": "Lance",
+      "weapon_index": 8,
+      "element": "ELECTRO",
+      "positions": [
+        3,
+        5
+      ],
+      "role": 5,
+      "sentry": true,
+      "canGuard": true,
+      "canHeal": false,
+      "atk": [
+        171,
+        "mana",
+        114,
+        "buff_atk",
+        50,
+        "guard"
+      ],
+      "defense": [
+        203,
+        166,
+        136,
+        99,
+        62,
+        25
+      ],
+      "magic": [
+        6,
+        4,
+        2
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "F5DC32",
+      "hue": 53,
+      "text": "Jelly-Joe porte un toast que personne n’arrive plus à compter. Sa voix couvre la salle, sa chope déborde, et chaque histoire devient une tempête plus grande que la précédente. Pour rentrer au port, on verra demain.",
+      "description": "Jelly-Joe porte un toast que personne n’arrive plus à compter. Sa voix couvre la salle, sa chope déborde, et chaque histoire devient une tempête plus grande que la précédente. Pour rentrer au port, on verra demain.",
+      "pngUrl": "/media/reference/jelly-joe.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000014",
+      "edition": "V4",
+      "referenceKey": "momo-bal",
+      "origin": "approved",
+      "slug": "v4-30000014",
+      "characterId": "momo",
+      "name": "MOMO",
+      "title": "LE BAL DES OBJETS PERDUS",
+      "job": "MUSICIEN",
+      "race": "ROBOT",
+      "faction": "Chroma",
+      "weapon": "Instrument",
+      "weapon_index": 11,
+      "element": "ELECTRO",
+      "positions": [
+        3,
+        4
+      ],
+      "role": 4,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        296,
+        244,
+        192,
+        "retry",
+        95,
+        "mana"
+      ],
+      "defense": [
+        171,
+        146,
+        114,
+        82,
+        50,
+        25
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        2
+      ],
+      "barriers": [
+        5,
+        3
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "F5DC32",
+      "hue": 53,
+      "text": "Pour une nuit, Momo fait danser les objets dont personne ne voulait. Sa flûte soulève les vieux carillons au-dessus de la décharge. Personne n'applaudit. Cela ne l'empêche plus de jouer.",
+      "description": "Pour une nuit, Momo fait danser les objets dont personne ne voulait. Sa flûte soulève les vieux carillons au-dessus de la décharge. Personne n'applaudit. Cela ne l'empêche plus de jouer.",
+      "pngUrl": "/media/reference/momo-bal.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "40000042",
+      "edition": "V4",
+      "referenceKey": "rikka",
+      "origin": "approved",
+      "slug": "v4-40000042",
+      "characterId": "rikka",
+      "name": "RIKKA",
+      "title": "POUR UNE VIE DE PLUS",
+      "job": "VOLEUSE",
+      "race": "FELINEUS",
+      "faction": "Chroma",
+      "weapon": "Fouet",
+      "weapon_index": 6,
+      "element": "ELECTRO",
+      "positions": [
+        2
+      ],
+      "role": 2,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        288,
+        238,
+        188,
+        138,
+        88,
+        38
+      ],
+      "defense": [
+        "dodge",
+        138,
+        108,
+        78,
+        48,
+        "retry"
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "F5DC32",
+      "hue": 53,
+      "text": "Rikka dérobe un Kalistel Luxo au musée de Chroma. Un ami cher n'a plus le temps d'attendre. Blessée, elle serre le reliquaire : ce soir, elle ne vole pas une fortune, mais une chance de le sauver.",
+      "description": "Rikka dérobe un Kalistel Luxo au musée de Chroma. Un ami cher n'a plus le temps d'attendre. Blessée, elle serre le reliquaire : ce soir, elle ne vole pas une fortune, mais une chance de le sauver.",
+      "pngUrl": "/media/reference/rikka.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000039",
+      "edition": "V4",
+      "referenceKey": "ruby",
+      "origin": "approved",
+      "slug": "v4-30000039",
+      "characterId": "ruby",
+      "name": "RUBY",
+      "title": "LA CARTE DES COURANTS",
+      "job": "CARTOGRAPHE",
+      "race": "SIRENA",
+      "faction": "Thalassea",
+      "weapon": "Gun",
+      "weapon_index": 7,
+      "element": "HYDRO",
+      "positions": [
+        4
+      ],
+      "role": 4,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        291,
+        246,
+        194,
+        142,
+        90,
+        45
+      ],
+      "defense": [
+        173,
+        141,
+        116,
+        84,
+        52,
+        20
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "barriers": [
+        4
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "38CBED",
+      "hue": 192,
+      "text": "Ruby rit dans le silence de l'eau. Les dauphins croisent son sillage, et elle oublie un instant les routes à tracer. Ses deux petits harpons restent à ses hanches : aujourd'hui, la mer lui offre simplement sa joie.",
+      "description": "Ruby rit dans le silence de l'eau. Les dauphins croisent son sillage, et elle oublie un instant les routes à tracer. Ses deux petits harpons restent à ses hanches : aujourd'hui, la mer lui offre simplement sa joie.",
+      "pngUrl": "/media/reference/ruby.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000002",
+      "edition": "V4",
+      "referenceKey": "cana",
+      "origin": "approved",
+      "slug": "v4-30000002",
+      "characterId": "cana",
+      "name": "CANA",
+      "title": "LE DERNIER PASSAGE",
+      "job": "MESSAGERE",
+      "race": "FALCO",
+      "faction": "Nestown",
+      "weapon": "Arc",
+      "weapon_index": 5,
+      "element": "AERO",
+      "positions": [
+        2
+      ],
+      "role": 2,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        290,
+        245,
+        193,
+        141,
+        96,
+        44
+      ],
+      "defense": [
+        172,
+        140,
+        115,
+        83,
+        51,
+        26
+      ],
+      "magic": [
+        3
+      ],
+      "barriers": [
+        4
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "89EDC2",
+      "hue": 155,
+      "text": "Le pont a cédé avant l'aube. Cana replie son aile blessée et tend le message au-delà du vide. A Nestown, une promesse doit parfois voyager plus loin que celui qui la porte.",
+      "description": "Le pont a cédé avant l'aube. Cana replie son aile blessée et tend le message au-delà du vide. A Nestown, une promesse doit parfois voyager plus loin que celui qui la porte.",
+      "pngUrl": "/media/reference/cana.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000015",
+      "edition": "V4",
+      "referenceKey": "scrow",
+      "origin": "approved",
+      "slug": "v4-30000015",
+      "characterId": "scrow",
+      "name": "SCROW",
+      "title": "LA FLECHE RETENUE",
+      "job": "GUETTEUR",
+      "race": "KORBOW",
+      "faction": "Nestown",
+      "weapon": "Arc",
+      "weapon_index": 5,
+      "element": "AERO",
+      "positions": [
+        4
+      ],
+      "role": 4,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        293,
+        241,
+        196,
+        144,
+        92,
+        40
+      ],
+      "defense": [
+        175,
+        143,
+        111,
+        86,
+        54,
+        22
+      ],
+      "magic": [],
+      "barriers": [
+        4
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "89EDC2",
+      "hue": 155,
+      "text": "Scrow reconnaît le sceau avant de lâcher la corde. Il laisse le messager franchir les toits. Une flèche retenue peut peser autant qu'une flèche tirée.",
+      "description": "Scrow reconnaît le sceau avant de lâcher la corde. Il laisse le messager franchir les toits. Une flèche retenue peut peser autant qu'une flèche tirée.",
+      "pngUrl": "/media/reference/scrow.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000040",
+      "edition": "V4",
+      "referenceKey": "soryn",
+      "origin": "approved",
+      "slug": "v4-30000040",
+      "characterId": "soryn",
+      "name": "SORYN",
+      "title": "LE VENT JUSTE",
+      "job": "ACCORDEUR",
+      "race": "FALCO",
+      "faction": "Nestown",
+      "weapon": "Instrument",
+      "weapon_index": 11,
+      "element": "AERO",
+      "positions": [
+        4
+      ],
+      "role": 4,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        295,
+        243,
+        191,
+        146,
+        94,
+        "mana"
+      ],
+      "defense": [
+        170,
+        145,
+        113,
+        81,
+        56,
+        24
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3,
+        2
+      ],
+      "barriers": [
+        4
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "89EDC2",
+      "hue": 155,
+      "text": "Soryn attend que le vent tourne avant de toucher la corde. Une note traverse le brouillard. Sur le pont invisible, les voyageurs savent de nouveau où poser le pied.",
+      "description": "Soryn attend que le vent tourne avant de toucher la corde. Une note traverse le brouillard. Sur le pont invisible, les voyageurs savent de nouveau où poser le pied.",
+      "pngUrl": "/media/reference/soryn.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000038",
+      "edition": "V4",
+      "referenceKey": "gilmarr",
+      "origin": "approved",
+      "slug": "v4-30000038",
+      "characterId": "gilmarr",
+      "name": "GILMARR",
+      "title": "LA PLACE DANS L EQUIPE",
+      "job": "PILIER D ASTRABALL",
+      "race": "RHINOZ",
+      "faction": "Zarok",
+      "weapon": "Poing",
+      "weapon_index": 3,
+      "element": "AERO",
+      "positions": [
+        1
+      ],
+      "role": 1,
+      "sentry": true,
+      "canGuard": true,
+      "canHeal": false,
+      "atk": [
+        204,
+        167,
+        130,
+        100,
+        "guard",
+        26
+      ],
+      "defense": [
+        296,
+        244,
+        192,
+        140,
+        95,
+        43
+      ],
+      "magic": [
+        6,
+        3
+      ],
+      "barriers": [
+        5,
+        2
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "89EDC2",
+      "hue": 155,
+      "text": "Gilmarr décale le plot de la ligne et fait signe d'entrer. Une place vient de s'ouvrir dans l'équipe. Son sourire promet un match difficile, pas une faveur.",
+      "description": "Gilmarr décale le plot de la ligne et fait signe d'entrer. Une place vient de s'ouvrir dans l'équipe. Son sourire promet un match difficile, pas une faveur.",
+      "pngUrl": "/media/reference/gilmarr.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000004",
+      "edition": "V4",
+      "referenceKey": "darnako",
+      "origin": "approved",
+      "slug": "v4-30000004",
+      "characterId": "darnako",
+      "name": "DARNAKO",
+      "title": "AVANT LE PREMIER CHOC",
+      "job": "FORGERON",
+      "race": "DRAX",
+      "faction": "Vulkar",
+      "weapon": "Epée longue",
+      "weapon_index": 17,
+      "element": "PYRO",
+      "positions": [
+        2
+      ],
+      "role": 2,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        291,
+        246,
+        194,
+        142,
+        90,
+        45
+      ],
+      "defense": [
+        173,
+        141,
+        116,
+        84,
+        52,
+        20
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "FF704A",
+      "hue": 12,
+      "text": "Le souffle court, Darnako tire sa lame. La peur est là, mais son regard ne quitte pas l'adversaire. Il plante ses pieds dans la cendre : Vulkar ne le verra pas reculer.",
+      "description": "Le souffle court, Darnako tire sa lame. La peur est là, mais son regard ne quitte pas l'adversaire. Il plante ses pieds dans la cendre : Vulkar ne le verra pas reculer.",
+      "pngUrl": "/media/reference/darnako.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000005",
+      "edition": "V4",
+      "referenceKey": "malinia",
+      "origin": "approved",
+      "slug": "v4-30000005",
+      "characterId": "malinia",
+      "name": "MALINIA",
+      "title": "LA MEMOIRE SOUS LE GIVRE",
+      "job": "VEILLEUSE",
+      "race": "HUMAIN",
+      "faction": "Niveria",
+      "weapon": "Sceptre",
+      "weapon_index": 12,
+      "element": "CRYO",
+      "positions": [
+        4
+      ],
+      "role": 4,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        295,
+        243,
+        191,
+        146,
+        94,
+        42
+      ],
+      "defense": [
+        170,
+        145,
+        113,
+        81,
+        56,
+        24
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "ACDFFD",
+      "hue": 201,
+      "text": "Au fond du lac dort un souvenir que Niveria croyait perdu. Malinia retient les fissures du gel pendant qu'une lueur ancienne réchauffe ses mains. Sauver le passé commence parfois par le laisser fondre.",
+      "description": "Au fond du lac dort un souvenir que Niveria croyait perdu. Malinia retient les fissures du gel pendant qu'une lueur ancienne réchauffe ses mains. Sauver le passé commence parfois par le laisser fondre.",
+      "pngUrl": "/media/reference/malinia.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000006",
+      "edition": "V4",
+      "referenceKey": "aelis",
+      "origin": "approved",
+      "slug": "v4-30000006",
+      "characterId": "aelis",
+      "name": "AELIS",
+      "title": "LA LUMIERE AUX OUBLIES",
+      "job": "SOIGNEUSE",
+      "race": "AURELION",
+      "faction": "Solaria",
+      "weapon": "Bâton",
+      "weapon_index": 10,
+      "element": "LUXO",
+      "positions": [
+        5
+      ],
+      "role": 5,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": true,
+      "atk": [
+        172,
+        140,
+        115,
+        83,
+        51,
+        "revive"
+      ],
+      "defense": [
+        204,
+        167,
+        130,
+        100,
+        63,
+        26
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3,
+        2
+      ],
+      "barriers": [
+        6,
+        5,
+        3
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "F4E9AF",
+      "hue": 47,
+      "text": "Dans le sanctuaire brisé, Aelis ramasse les fragments d'une lanterne. Elle en recoud la lumière pour ceux que la cité a rejetés. Son premier miracle n'est pas de juger les âmes, mais de leur faire une place.",
+      "description": "Dans le sanctuaire brisé, Aelis ramasse les fragments d'une lanterne. Elle en recoud la lumière pour ceux que la cité a rejetés. Son premier miracle n'est pas de juger les âmes, mais de leur faire une place.",
+      "pngUrl": "/media/reference/aelis.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000017",
+      "edition": "V4",
+      "referenceKey": "iliane",
+      "origin": "approved",
+      "slug": "v4-30000017",
+      "characterId": "iliane",
+      "name": "ILIANE",
+      "title": "LE NOM RETROUVE",
+      "job": "ARCHIVISTE",
+      "race": "AURELION",
+      "faction": "Solaria",
+      "weapon": "Tome",
+      "weapon_index": 13,
+      "element": "LUXO",
+      "positions": [
+        4
+      ],
+      "role": 4,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        294,
+        242,
+        190,
+        145,
+        93,
+        41
+      ],
+      "defense": [
+        176,
+        144,
+        112,
+        80,
+        55,
+        23
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "barriers": [
+        4
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "F4E9AF",
+      "hue": 47,
+      "text": "Iliane éclaire les pages que le conseil voulait oublier. Lettre après lettre, les noms reviennent. Elle ne baisse plus les yeux quand la porte s'ouvre.",
+      "description": "Iliane éclaire les pages que le conseil voulait oublier. Lettre après lettre, les noms reviennent. Elle ne baisse plus les yeux quand la porte s'ouvre.",
+      "pngUrl": "/media/reference/iliane.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000019",
+      "edition": "V4",
+      "referenceKey": "belrog",
+      "origin": "approved",
+      "slug": "v4-30000019",
+      "characterId": "belrog",
+      "name": "BELROG",
+      "title": "LE SILENCE DE LA MONTAGNE",
+      "job": "ECLAIREUR",
+      "race": "RHINOZ",
+      "faction": "Zarok",
+      "weapon": "Masse",
+      "weapon_index": 2,
+      "element": "MINERO",
+      "positions": [
+        1
+      ],
+      "role": 1,
+      "sentry": true,
+      "canGuard": true,
+      "canHeal": false,
+      "atk": [
+        205,
+        168,
+        131,
+        101,
+        "guard",
+        27
+      ],
+      "defense": [
+        290,
+        245,
+        193,
+        141,
+        96,
+        44
+      ],
+      "magic": [
+        6,
+        3
+      ],
+      "barriers": [
+        5,
+        2
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "B3BFCA",
+      "hue": 210,
+      "text": "Au sommet du col, Belrog redresse le signal renversé par l'avalanche. La vallée ne répond pas encore. Il attend debout, couvert de poussière, jusqu'à distinguer une première lumière au loin.",
+      "description": "Au sommet du col, Belrog redresse le signal renversé par l'avalanche. La vallée ne répond pas encore. Il attend debout, couvert de poussière, jusqu'à distinguer une première lumière au loin.",
+      "pngUrl": "/media/reference/belrog.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000018",
+      "edition": "V4",
+      "referenceKey": "lok",
+      "origin": "approved",
+      "slug": "v4-30000018",
+      "characterId": "lok",
+      "name": "LOK",
+      "title": "LE POIDS DU TRÔNE",
+      "job": "ROI DE DURANE",
+      "race": "NAIN",
+      "faction": "Durane",
+      "weapon": "Marteau",
+      "weapon_index": 1,
+      "element": "MINERO",
+      "positions": [
+        2
+      ],
+      "role": 2,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        291,
+        246,
+        194,
+        142,
+        90,
+        45
+      ],
+      "defense": [
+        173,
+        141,
+        116,
+        84,
+        52,
+        20
+      ],
+      "magic": [
+        6
+      ],
+      "barriers": [
+        5
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "B3BFCA",
+      "hue": 210,
+      "text": "Sur le trône de Durane, Lok serre les accoudoirs. Chaque bruit de pas lui semble une menace. Il porte la couronne comme une arme, mais le silence de la salle lui pèse plus lourd que le fer.",
+      "description": "Sur le trône de Durane, Lok serre les accoudoirs. Chaque bruit de pas lui semble une menace. Il porte la couronne comme une arme, mais le silence de la salle lui pèse plus lourd que le fer.",
+      "pngUrl": "/media/reference/lok.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000007",
+      "edition": "V4",
+      "referenceKey": "balmhyr",
+      "origin": "approved",
+      "slug": "v4-30000007",
+      "characterId": "balmhyr",
+      "name": "BALMHYR",
+      "title": "LE ROYAUME À L'HORIZON",
+      "job": "MENTOR",
+      "race": "NAIN",
+      "faction": "Durane",
+      "weapon": "Hache",
+      "weapon_index": 0,
+      "element": "MINERO",
+      "positions": [
+        1
+      ],
+      "role": 1,
+      "sentry": true,
+      "canGuard": true,
+      "canHeal": false,
+      "atk": [
+        206,
+        169,
+        132,
+        95,
+        "guard",
+        28
+      ],
+      "defense": [
+        291,
+        246,
+        194,
+        142,
+        90,
+        45
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "B3BFCA",
+      "hue": 210,
+      "text": "Balmhyr regarde Durane sans courber le dos. Son ours veille derrière lui. Le roi déchu n'a plus de trône, mais ceux qui croisent son regard y trouvent encore la force d'un père et la patience d'un guide.",
+      "description": "Balmhyr regarde Durane sans courber le dos. Son ours veille derrière lui. Le roi déchu n'a plus de trône, mais ceux qui croisent son regard y trouvent encore la force d'un père et la patience d'un guide.",
+      "pngUrl": "/media/reference/balmhyr.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000024",
+      "edition": "V4",
+      "referenceKey": "magnar",
+      "origin": "approved",
+      "slug": "v4-30000024",
+      "characterId": "magnar",
+      "name": "MAGNAR",
+      "title": "LA PORTE DE PIERRE",
+      "job": "GEOLIER",
+      "race": "GOLEM",
+      "faction": "Durane",
+      "weapon": "Masse",
+      "weapon_index": 2,
+      "element": "MINERO",
+      "positions": [
+        1
+      ],
+      "role": 1,
+      "sentry": true,
+      "canGuard": true,
+      "canHeal": false,
+      "atk": [
+        204,
+        167,
+        130,
+        100,
+        "guard",
+        26
+      ],
+      "defense": [
+        296,
+        244,
+        192,
+        140,
+        95,
+        43
+      ],
+      "magic": [
+        6,
+        3
+      ],
+      "barriers": [
+        5,
+        2
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "B3BFCA",
+      "hue": 210,
+      "text": "Magnar avance d'un pas et la galerie semble rétrécir. Il n'a pas besoin de hausser la voix. La roche de son corps connaît chaque vibration de la mine.",
+      "description": "Magnar avance d'un pas et la galerie semble rétrécir. Il n'a pas besoin de hausser la voix. La roche de son corps connaît chaque vibration de la mine.",
+      "pngUrl": "/media/reference/magnar.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000041",
+      "edition": "V4",
+      "referenceKey": "thalie",
+      "origin": "approved",
+      "slug": "v4-30000041",
+      "characterId": "thalie",
+      "name": "THALIE",
+      "title": "CE QUI REPOUSSE",
+      "job": "HERBORISTE",
+      "race": "CARNIVERT",
+      "faction": "Arborium",
+      "weapon": "Tome",
+      "weapon_index": 13,
+      "element": "HERBO",
+      "positions": [
+        5
+      ],
+      "role": 5,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": true,
+      "atk": [
+        172,
+        140,
+        115,
+        83,
+        "retry",
+        "revive"
+      ],
+      "defense": [
+        204,
+        167,
+        130,
+        100,
+        63,
+        26
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "89D355",
+      "hue": 100,
+      "text": "Thalie tourne la page couverte de suie et pose une feuille neuve entre les feuillets. La forêt ne reprend pas tout d'un coup. Elle commence ici.",
+      "description": "Thalie tourne la page couverte de suie et pose une feuille neuve entre les feuillets. La forêt ne reprend pas tout d'un coup. Elle commence ici.",
+      "pngUrl": "/media/reference/thalie.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000033",
+      "edition": "V4",
+      "referenceKey": "bloom",
+      "origin": "approved",
+      "slug": "v4-30000033",
+      "characterId": "bloom",
+      "name": "BLOOM",
+      "title": "LA GRAINE SOUS SCELLES",
+      "job": "BOTANISTE",
+      "race": "TOXINAR",
+      "faction": "Arborium",
+      "weapon": "Orbe",
+      "weapon_index": 14,
+      "element": "HERBO",
+      "positions": [
+        4
+      ],
+      "role": 4,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        295,
+        243,
+        191,
+        146,
+        94,
+        42
+      ],
+      "defense": [
+        170,
+        145,
+        113,
+        81,
+        56,
+        24
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "barriers": [
+        4
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "89D355",
+      "hue": 100,
+      "text": "Bloom tourne la graine sous le verre. La fleur qu'elle promet pourrait sauver la serre ou l'étouffer. Il prend le temps d'apprendre la différence.",
+      "description": "Bloom tourne la graine sous le verre. La fleur qu'elle promet pourrait sauver la serre ou l'étouffer. Il prend le temps d'apprendre la différence.",
+      "pngUrl": "/media/reference/bloom.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000008",
+      "edition": "V4",
+      "referenceKey": "victorvine",
+      "origin": "approved",
+      "slug": "v4-30000008",
+      "characterId": "victorvine",
+      "name": "VICTORVINE",
+      "title": "LA DERNIERE POUSSE",
+      "job": "VEILLEUR",
+      "race": "CARNIVERT",
+      "faction": "Arborium",
+      "weapon": "Bâton",
+      "weapon_index": 10,
+      "element": "HERBO",
+      "positions": [
+        3
+      ],
+      "role": 3,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        233,
+        191,
+        156,
+        114,
+        72,
+        30
+      ],
+      "defense": [
+        235,
+        193,
+        151,
+        116,
+        74,
+        32
+      ],
+      "magic": [
+        6,
+        4,
+        2
+      ],
+      "barriers": [
+        5,
+        2
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "89D355",
+      "hue": 100,
+      "text": "Victorvine recueille une jeune pousse au bord des eaux mortes. Autour, la forêt porte encore ses blessures. Dans ce geste fragile demeure une promesse : tout ce qui a été brisé n'est pas encore perdu.",
+      "description": "Victorvine recueille une jeune pousse au bord des eaux mortes. Autour, la forêt porte encore ses blessures. Dans ce geste fragile demeure une promesse : tout ce qui a été brisé n'est pas encore perdu.",
+      "pngUrl": "/media/reference/victorvine.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000012",
+      "edition": "V4",
+      "referenceKey": "kaylis",
+      "origin": "approved",
+      "slug": "v4-30000012",
+      "characterId": "kaylis",
+      "name": "KAYLIS",
+      "title": "LA PREMIÈRE BRÈCHE",
+      "job": "ÉVASION",
+      "race": "HUMAIN",
+      "faction": "Z13",
+      "weapon": "Dague",
+      "weapon_index": 15,
+      "element": "RAINBOW",
+      "positions": [
+        5
+      ],
+      "role": 5,
+      "sentry": true,
+      "canGuard": true,
+      "canHeal": true,
+      "atk": [
+        175,
+        143,
+        111,
+        86,
+        "guard",
+        "revive"
+      ],
+      "defense": [
+        200,
+        170,
+        133,
+        96,
+        66,
+        "retry"
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "advantage": 40,
+      "disadvantage": 0,
+      "color": "E4D5FB",
+      "hue": 280,
+      "text": "Kaylis s’arrête. Ses bras éclairent la roche, et cette lumière vient d’elle. Les deux pieds dans la poussière, elle regarde ses tatouages s’éveiller. La peur est encore là, mais elle ne la fait plus reculer.",
+      "description": "Kaylis s’arrête. Ses bras éclairent la roche, et cette lumière vient d’elle. Les deux pieds dans la poussière, elle regarde ses tatouages s’éveiller. La peur est encore là, mais elle ne la fait plus reculer.",
+      "pngUrl": "/media/reference/kaylis.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000036",
+      "edition": "V4",
+      "referenceKey": "elenion",
+      "origin": "approved",
+      "slug": "v4-30000036",
+      "characterId": "elenion",
+      "name": "ELENION",
+      "title": "LA FLÈCHE DU SERMENT",
+      "job": "ARPENTEUR",
+      "race": "CERELF",
+      "faction": "Woodland",
+      "weapon": "Arc",
+      "weapon_index": 5,
+      "element": "GEO",
+      "positions": [
+        3
+      ],
+      "role": 3,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        233,
+        191,
+        156,
+        114,
+        72,
+        30
+      ],
+      "defense": [
+        235,
+        193,
+        151,
+        116,
+        74,
+        32
+      ],
+      "magic": [
+        6,
+        4,
+        2
+      ],
+      "barriers": [
+        4
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "C7AB6D",
+      "hue": 41,
+      "text": "Elenion retient son souffle. La corde tendue ne tremble plus entre ses bois et son épaule. À la lisière, chaque passage laisse une trace ; celui qu’il vise vient de laisser la dernière.",
+      "description": "Elenion retient son souffle. La corde tendue ne tremble plus entre ses bois et son épaule. À la lisière, chaque passage laisse une trace ; celui qu’il vise vient de laisser la dernière.",
+      "pngUrl": "/media/reference/elenion.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000020",
+      "edition": "V4",
+      "referenceKey": "seraphina",
+      "origin": "approved",
+      "slug": "v4-30000020",
+      "characterId": "seraphina",
+      "name": "SERAPHINA",
+      "title": "LE SERMENT SUSPENDU",
+      "job": "MÉDIATRICE",
+      "race": "VAMP",
+      "faction": "Draevenheim",
+      "weapon": "Fouet",
+      "weapon_index": 6,
+      "element": "HEMATO",
+      "positions": [
+        5
+      ],
+      "role": 5,
+      "sentry": true,
+      "canGuard": true,
+      "canHeal": false,
+      "atk": [
+        172,
+        140,
+        115,
+        83,
+        "guard",
+        "retry"
+      ],
+      "defense": [
+        204,
+        167,
+        130,
+        100,
+        63,
+        26
+      ],
+      "magic": [
+        6,
+        4,
+        3
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "E84976",
+      "hue": 343,
+      "text": "Seraphina laisse le sceau se dissoudre entre ses doigts. Pour une nuit, aucune dette de sang ne franchira cette porte. Demain, elle devra répondre de ce répit.",
+      "description": "Seraphina laisse le sceau se dissoudre entre ses doigts. Pour une nuit, aucune dette de sang ne franchira cette porte. Demain, elle devra répondre de ce répit.",
+      "pngUrl": "/media/reference/seraphina.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000034",
+      "edition": "V4",
+      "referenceKey": "valazar",
+      "origin": "approved",
+      "slug": "v4-30000034",
+      "characterId": "valazar",
+      "name": "VALAZAR",
+      "title": "LE NOM DANS LA CENDRE",
+      "job": "NÉCROMANCIEN",
+      "race": "SKULLZ",
+      "faction": "Cryptown",
+      "weapon": "Sceptre",
+      "weapon_index": 12,
+      "element": "NECRO",
+      "positions": [
+        4
+      ],
+      "role": 4,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        "death",
+        240,
+        195,
+        143,
+        91,
+        46
+      ],
+      "defense": [
+        174,
+        142,
+        110,
+        85,
+        53,
+        21
+      ],
+      "magic": [
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "barriers": [
+        4
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "A979F7",
+      "hue": 270,
+      "text": "Valazar suit du doigt une ligne de cendre. Il ne cherche pas à rappeler le mort, seulement son nom. Même Cryptown a des oublis qu'il refuse.",
+      "description": "Valazar suit du doigt une ligne de cendre. Il ne cherche pas à rappeler le mort, seulement son nom. Même Cryptown a des oublis qu'il refuse.",
+      "pngUrl": "/media/reference/valazar.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000022",
+      "edition": "V4",
+      "referenceKey": "malaba",
+      "origin": "approved",
+      "slug": "v4-30000022",
+      "characterId": "malaba",
+      "name": "MALABA",
+      "title": "UNE PLACE AU COMPTOIR",
+      "job": "MINEUR",
+      "race": "HUMAIN",
+      "faction": "Z13",
+      "weapon": "Poing",
+      "weapon_index": 3,
+      "element": "NONE",
+      "positions": [
+        1
+      ],
+      "role": 1,
+      "sentry": false,
+      "canGuard": true,
+      "canHeal": false,
+      "atk": [
+        203,
+        166,
+        136,
+        99,
+        "guard",
+        "buff_atk"
+      ],
+      "defense": [
+        295,
+        243,
+        191,
+        146,
+        94,
+        42
+      ],
+      "magic": [],
+      "barriers": [],
+      "advantage": 0,
+      "disadvantage": 0,
+      "color": "93AAA5",
+      "hue": 160,
+      "text": "Baba lève sa chope et plaisante avec la salle. Ses épaules occupent presque tout le comptoir. Pourtant, à la Gueule Fumante, personne ne sait faire autant de place aux autres.",
+      "description": "Baba lève sa chope et plaisante avec la salle. Ses épaules occupent presque tout le comptoir. Pourtant, à la Gueule Fumante, personne ne sait faire autant de place aux autres.",
+      "pngUrl": "/media/reference/malaba.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000028",
+      "edition": "V4",
+      "referenceKey": "voloden",
+      "origin": "approved",
+      "slug": "v4-30000028",
+      "characterId": "voloden",
+      "name": "VOLODEN",
+      "title": "LE SIÈGE VACANT",
+      "job": "DIRIGEANT",
+      "race": "CARDEMORTIS",
+      "faction": "Z13",
+      "weapon": "Faucille",
+      "weapon_index": 19,
+      "element": "NECRO",
+      "positions": [
+        2
+      ],
+      "role": 2,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        "death",
+        244,
+        192,
+        140,
+        95,
+        43
+      ],
+      "defense": [
+        171,
+        146,
+        114,
+        82,
+        50,
+        25
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        4
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "A979F7",
+      "hue": 270,
+      "text": "Voloden a repris son siège au Conseil des Zones. Ses mains restent croisées, sa voix ne monte pas. Autour de la table, les autres comprennent déjà qu'il ne demande plus la permission.",
+      "description": "Voloden a repris son siège au Conseil des Zones. Ses mains restent croisées, sa voix ne monte pas. Autour de la table, les autres comprennent déjà qu'il ne demande plus la permission.",
+      "pngUrl": "/media/reference/voloden.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000010",
+      "edition": "V4",
+      "referenceKey": "zviri-tueuse",
+      "origin": "approved",
+      "slug": "v4-30000010",
+      "characterId": "zviri",
+      "name": "ZVIRI",
+      "title": "TUEUSE REDOUTABLE",
+      "job": "ASSASSIN",
+      "race": "SKULLZ",
+      "faction": "Cryptown",
+      "weapon": "Fouet",
+      "weapon_index": 6,
+      "element": "NECRO",
+      "positions": [
+        2
+      ],
+      "role": 2,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        294,
+        242,
+        "death",
+        145,
+        93,
+        41
+      ],
+      "defense": [
+        "dodge",
+        144,
+        112,
+        80,
+        55,
+        23
+      ],
+      "magic": [],
+      "barriers": [],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "A979F7",
+      "hue": 270,
+      "text": "Mercenaire assassin de Cryptown, Zviri traque ses cibles dans les ombres. Son fouet ne laisse aucune seconde chance. Elle rapporte le sang de ses victimes, et sa réputation arrive toujours avant elle.",
+      "description": "Mercenaire assassin de Cryptown, Zviri traque ses cibles dans les ombres. Son fouet ne laisse aucune seconde chance. Elle rapporte le sang de ses victimes, et sa réputation arrive toujours avant elle.",
+      "pngUrl": "/media/reference/zviri-tueuse.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000003",
+      "edition": "V4",
+      "referenceKey": "julienne",
+      "origin": "approved",
+      "slug": "v4-30000003",
+      "characterId": "julienne",
+      "name": "JULIENNE",
+      "title": "UN SOUFFLE SOUS LA MAREE",
+      "job": "GARDIENNE",
+      "race": "SIRENA",
+      "faction": "Thalassea",
+      "weapon": "Bâton",
+      "weapon_index": 10,
+      "element": "HYDRO",
+      "positions": [
+        5
+      ],
+      "role": 5,
+      "sentry": true,
+      "canGuard": true,
+      "canHeal": true,
+      "atk": [
+        174,
+        142,
+        110,
+        85,
+        "guard",
+        "revive"
+      ],
+      "defense": [
+        206,
+        169,
+        132,
+        95,
+        65,
+        28
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "38CBED",
+      "hue": 192,
+      "text": "Sous les portes noyées de Thalasséa, Julienne retient la mer au-dessus des naufragés. Chaque souffle qu'elle leur offre lui coûte un peu de force. Elle ne relâchera l'arche qu'au dernier survivant.",
+      "description": "Sous les portes noyées de Thalasséa, Julienne retient la mer au-dessus des naufragés. Chaque souffle qu'elle leur offre lui coûte un peu de force. Elle ne relâchera l'arche qu'au dernier survivant.",
+      "pngUrl": "/media/reference/julienne.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000009",
+      "edition": "V4",
+      "referenceKey": "verminia-bureau",
+      "origin": "approved",
+      "slug": "v4-30000009",
+      "characterId": "verminia",
+      "name": "VERMINIA",
+      "title": "LES COMPTES DE LA NUIT",
+      "job": "DISSIDENTE",
+      "race": "VAMP",
+      "faction": "Draevenheim",
+      "weapon": "Dague",
+      "weapon_index": 15,
+      "element": "HEMATO",
+      "positions": [
+        3
+      ],
+      "role": 3,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        230,
+        195,
+        153,
+        111,
+        76,
+        34
+      ],
+      "defense": [
+        232,
+        190,
+        "dodge",
+        113,
+        71,
+        36
+      ],
+      "magic": [
+        6,
+        5,
+        3
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "E84976",
+      "hue": 343,
+      "text": "Derrière son bureau de Draevenheim, Verminia efface un nom du registre de sa maison. Une signature suffit parfois à libérer une vie. Elle écoute les pas dans le couloir, puis reprend sa plume sans trembler.",
+      "description": "Derrière son bureau de Draevenheim, Verminia efface un nom du registre de sa maison. Une signature suffit parfois à libérer une vie. Elle écoute les pas dans le couloir, puis reprend sa plume sans trembler.",
+      "pngUrl": "/media/reference/verminia-bureau.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000031",
+      "edition": "V4",
+      "referenceKey": "polux",
+      "origin": "approved",
+      "slug": "v4-30000031",
+      "characterId": "polux",
+      "name": "POLUX",
+      "title": "LA CHALEUR QUI RESTE",
+      "job": "SOIGNEUR",
+      "race": "FELINEUS",
+      "faction": "Vulkar",
+      "weapon": "Bâton",
+      "weapon_index": 10,
+      "element": "PYRO",
+      "positions": [
+        5
+      ],
+      "role": 5,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": true,
+      "atk": [
+        174,
+        142,
+        110,
+        85,
+        "revive",
+        21
+      ],
+      "defense": [
+        206,
+        169,
+        132,
+        95,
+        65,
+        28
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3,
+        1
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "FF704A",
+      "hue": 12,
+      "text": "Polux réchauffe les linges sans les brûler. Il écoute la respiration derrière le rideau. Le feu, entre ses mains, sait aussi parler doucement.",
+      "description": "Polux réchauffe les linges sans les brûler. Il écoute la respiration derrière le rideau. Le feu, entre ses mains, sait aussi parler doucement.",
+      "pngUrl": "/media/reference/polux.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000011",
+      "edition": "V4",
+      "referenceKey": "nazar",
+      "origin": "approved",
+      "slug": "v4-30000011",
+      "characterId": "nazar",
+      "name": "NAZAR",
+      "title": "LA RONDE DE CANYONERO",
+      "job": "GARDIEN",
+      "race": "RHINOZ",
+      "faction": "Zarok",
+      "weapon": "Lance",
+      "weapon_index": 8,
+      "element": "GEO",
+      "positions": [
+        1
+      ],
+      "role": 1,
+      "sentry": true,
+      "canGuard": true,
+      "canHeal": false,
+      "atk": [
+        201,
+        171,
+        134,
+        97,
+        "guard",
+        30
+      ],
+      "defense": [
+        293,
+        241,
+        196,
+        144,
+        92,
+        40
+      ],
+      "magic": [
+        6,
+        3
+      ],
+      "barriers": [
+        4,
+        2
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "C7AB6D",
+      "hue": 41,
+      "text": "Nazar parcourt les plaines rocheuses de Canyonero, lance en main et regard au loin. Fils de Belrog, il connaît la valeur d'un passage sûr. La poussière peut effacer ses traces, jamais sa vigilance.",
+      "description": "Nazar parcourt les plaines rocheuses de Canyonero, lance en main et regard au loin. Fils de Belrog, il connaît la valeur d'un passage sûr. La poussière peut effacer ses traces, jamais sa vigilance.",
+      "pngUrl": "/media/reference/nazar.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000035",
+      "edition": "V4",
+      "referenceKey": "capitaine-skully",
+      "origin": "approved",
+      "slug": "v4-30000035",
+      "characterId": "capitaine-skully",
+      "name": "CAPITAINE SKULLY",
+      "title": "LE CAP DES REVENANTS",
+      "job": "CAPITAINE",
+      "race": "SKULLZ",
+      "faction": "Cryptown",
+      "weapon": "Epée courte",
+      "weapon_index": 16,
+      "element": "NECRO",
+      "positions": [
+        3
+      ],
+      "role": 3,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        236,
+        194,
+        152,
+        "retry",
+        75,
+        33
+      ],
+      "defense": [
+        231,
+        196,
+        154,
+        112,
+        70,
+        35
+      ],
+      "magic": [
+        6
+      ],
+      "barriers": [
+        4
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "A979F7",
+      "hue": 270,
+      "text": "Skully laisse la houle frapper l’étrave et garde le cap. Le sel ronge le bois, pas son obstination. Tant que le pont tient sous ses bottes, il reste un capitaine et la mer lui doit encore un passage.",
+      "description": "Skully laisse la houle frapper l’étrave et garde le cap. Le sel ronge le bois, pas son obstination. Tant que le pont tient sous ses bottes, il reste un capitaine et la mer lui doit encore un passage.",
+      "pngUrl": "/media/reference/capitaine-skully.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000027",
+      "edition": "V4",
+      "referenceKey": "xiaomi",
+      "origin": "approved",
+      "slug": "v4-30000027",
+      "characterId": "xiaomi",
+      "name": "XIAOMI",
+      "title": "LE FIL DANS L OMBRE",
+      "job": "DUELLISTE",
+      "race": "HUMAIN",
+      "faction": "Z13",
+      "weapon": "Katana",
+      "weapon_index": 18,
+      "element": "NONE",
+      "positions": [
+        2
+      ],
+      "role": 2,
+      "sentry": false,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        292,
+        240,
+        195,
+        143,
+        91,
+        46
+      ],
+      "defense": [
+        174,
+        142,
+        110,
+        "dodge",
+        53,
+        21
+      ],
+      "magic": [],
+      "barriers": [],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "93AAA5",
+      "hue": 160,
+      "text": "Dans le couloir, Xiaomi ne laisse dépasser que le fil de sa lame. Le bruit des pas approche. Elle ralentit sa respiration ; le reste attendra que l’ombre lui donne raison.",
+      "description": "Dans le couloir, Xiaomi ne laisse dépasser que le fil de sa lame. Le bruit des pas approche. Elle ralentit sa respiration ; le reste attendra que l’ombre lui donne raison.",
+      "pngUrl": "/media/reference/xiaomi.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000023",
+      "edition": "V4",
+      "referenceKey": "gen-reparation",
+      "origin": "approved",
+      "slug": "v4-30000023",
+      "characterId": "gen",
+      "name": "GEN",
+      "title": "LA PANNE QUI INSISTE",
+      "job": "MECANICIEN",
+      "race": "CYBORG",
+      "faction": "Z13",
+      "weapon": "Projectile",
+      "weapon_index": 9,
+      "element": "NONE",
+      "positions": [
+        4
+      ],
+      "role": 4,
+      "sentry": false,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        290,
+        245,
+        193,
+        141,
+        96,
+        44
+      ],
+      "defense": [
+        172,
+        140,
+        115,
+        83,
+        51,
+        26
+      ],
+      "magic": [],
+      "barriers": [],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "93AAA5",
+      "hue": 160,
+      "text": "Une étincelle jaillit de son bras gauche. Gen suspend le tournevis, plisse les yeux, puis reprend. Ce n’est pas encore un pouvoir : seulement une mécanique récalcitrante et un garçon qui refuse de la laisser gagner.",
+      "description": "Une étincelle jaillit de son bras gauche. Gen suspend le tournevis, plisse les yeux, puis reprend. Ce n’est pas encore un pouvoir : seulement une mécanique récalcitrante et un garçon qui refuse de la laisser gagner.",
+      "pngUrl": "/media/reference/gen-reparation.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000021",
+      "edition": "V4",
+      "referenceKey": "lanio-astraball",
+      "origin": "approved",
+      "slug": "v4-30000021",
+      "characterId": "lanio",
+      "name": "LANIO",
+      "title": "LE BLONDINET DE ZAROK",
+      "job": "JOUEUR D ASTRABALL",
+      "race": "HUMAIN",
+      "faction": "Z13",
+      "weapon": "Lance",
+      "weapon_index": 8,
+      "element": "NONE",
+      "positions": [
+        3
+      ],
+      "role": 3,
+      "sentry": false,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        236,
+        194,
+        152,
+        110,
+        75,
+        33
+      ],
+      "defense": [
+        231,
+        196,
+        "dodge",
+        112,
+        70,
+        35
+      ],
+      "magic": [],
+      "barriers": [],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "93AAA5",
+      "hue": 160,
+      "text": "Lanio a enfin une vraie balle entre les mains. Sur le terrain de Zarok, le blondinet improvise un crochet et rit avant même de savoir s’il passera. Pour quelques minutes, la Z13 paraît très loin.",
+      "description": "Lanio a enfin une vraie balle entre les mains. Sur le terrain de Zarok, le blondinet improvise un crochet et rit avant même de savoir s’il passera. Pour quelques minutes, la Z13 paraît très loin.",
+      "pngUrl": "/media/reference/lanio-astraball.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000026",
+      "edition": "V4",
+      "referenceKey": "reevus",
+      "origin": "approved",
+      "slug": "v4-30000026",
+      "characterId": "reevus",
+      "name": "REEVUS",
+      "title": "LE REGISTRE DES ABSENTS",
+      "job": "INTENDANT",
+      "race": "NAIN",
+      "faction": "Z13",
+      "weapon": "Fléau",
+      "weapon_index": 4,
+      "element": "NONE",
+      "positions": [
+        3
+      ],
+      "role": 3,
+      "sentry": false,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        235,
+        193,
+        151,
+        116,
+        74,
+        "buff_atk"
+      ],
+      "defense": [
+        230,
+        195,
+        153,
+        111,
+        76,
+        34
+      ],
+      "magic": [],
+      "barriers": [],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "93AAA5",
+      "hue": 160,
+      "text": "Reevus suit les lignes du doigt, puis frappe le registre du poing. Les chiffres ne lui obéissent pas davantage que les mineurs. Alors il hausse la voix, convaincu que le problème vient des autres.",
+      "description": "Reevus suit les lignes du doigt, puis frappe le registre du poing. Les chiffres ne lui obéissent pas davantage que les mineurs. Alors il hausse la voix, convaincu que le problème vient des autres.",
+      "pngUrl": "/media/reference/reevus.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "30000025",
+      "edition": "V4",
+      "referenceKey": "kognus",
+      "origin": "approved",
+      "slug": "v4-30000025",
+      "characterId": "kognus",
+      "name": "KOGNUS",
+      "title": "LES CLES DU SERVICE",
+      "job": "SURVEILLANT",
+      "race": "NAIN",
+      "faction": "Z13",
+      "weapon": "Dague",
+      "weapon_index": 15,
+      "element": "NONE",
+      "positions": [
+        2
+      ],
+      "role": 2,
+      "sentry": false,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        291,
+        246,
+        194,
+        142,
+        90,
+        45
+      ],
+      "defense": [
+        173,
+        141,
+        116,
+        84,
+        52,
+        "retry"
+      ],
+      "magic": [],
+      "barriers": [],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "93AAA5",
+      "hue": 160,
+      "text": "Kognus fait tinter les clés pour que toute la galerie l’entende. Il connaît le prix du silence et celui d’une porte fermée. Son sourire ne promet jamais une faveur sans en compter le retour.",
+      "description": "Kognus fait tinter les clés pour que toute la galerie l’entende. Il connaît le prix du silence et celui d’une porte fermée. Son sourire ne promet jamais une faveur sans en compter le retour.",
+      "pngUrl": "/media/reference/kognus.png",
+      "psdUrl": null,
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "47208326",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-47208326",
+      "characterId": "cloud-ff7",
+      "name": "CLOUD",
+      "title": "AU-DELÀ DES LIMITES",
+      "job": "MERCENAIRE",
+      "race": "HUMAIN",
+      "faction": "FF7",
+      "weapon": "Epée longue",
+      "collaboration": "FF7",
+      "weapon_index": 17,
+      "element": "ELECTRO",
+      "positions": [
+        2
+      ],
+      "role": 2,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        286,
+        236,
+        186,
+        136,
+        86,
+        36
+      ],
+      "defense": [
+        174,
+        142,
+        110,
+        78,
+        "retry",
+        22
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "F5DC32",
+      "hue": 53,
+      "text": "Sous les lueurs de Midgar, Cloud resserre sa prise. La foudre court sur l'Épée broyeuse, mais son regard ne tremble plus. Il ne se bat pas pour devenir un héros. Seulement pour ne plus perdre ceux qui comptent.",
+      "description": "Sous les lueurs de Midgar, Cloud resserre sa prise. La foudre court sur l'Épée broyeuse, mais son regard ne tremble plus. Il ne se bat pas pour devenir un héros. Seulement pour ne plus perdre ceux qui comptent.",
+      "pngUrl": "/media/created/47208326.png",
+      "psdUrl": "/media/created/47208326.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "43698921",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-43698921",
+      "characterId": "barret-ff7",
+      "name": "BARRET",
+      "title": "CEUX QUI RESTENT DEBOUT",
+      "job": "REMPART",
+      "race": "CYBORG",
+      "faction": "FF7",
+      "weapon": "Gun",
+      "collaboration": "FF7",
+      "weapon_index": 7,
+      "element": "GEO",
+      "positions": [
+        1
+      ],
+      "role": 1,
+      "sentry": true,
+      "canGuard": true,
+      "canHeal": false,
+      "atk": [
+        184,
+        150,
+        116,
+        82,
+        "guard",
+        14
+      ],
+      "defense": [
+        298,
+        246,
+        194,
+        142,
+        90,
+        38
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "C7AB6D",
+      "hue": 41,
+      "text": "Sous les plaques de Midgar, Barret tient le passage. Le métal de son bras gronde, mais sa colère a un nom : ceux qu'il refuse de perdre. Derrière ce rempart, quelqu'un peut encore rentrer chez soi.",
+      "description": "Sous les plaques de Midgar, Barret tient le passage. Le métal de son bras gronde, mais sa colère a un nom : ceux qu'il refuse de perdre. Derrière ce rempart, quelqu'un peut encore rentrer chez soi.",
+      "pngUrl": "/media/created/43698921.png",
+      "psdUrl": "/media/created/43698921.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "46437046",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-46437046",
+      "characterId": "tifa-ff7",
+      "name": "TIFA",
+      "title": "NE JAMAIS LÂCHER PRISE",
+      "job": "PUGILISTE",
+      "race": "HUMAIN",
+      "faction": "FF7",
+      "weapon": "Poing",
+      "collaboration": "FF7",
+      "weapon_index": 3,
+      "element": "HYDRO",
+      "positions": [
+        2
+      ],
+      "role": 2,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        295,
+        243,
+        191,
+        139,
+        87,
+        35
+      ],
+      "defense": [
+        167,
+        137,
+        "dodge",
+        77,
+        47,
+        17
+      ],
+      "magic": [
+        3
+      ],
+      "barriers": [
+        5
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "38CBED",
+      "hue": 192,
+      "text": "La pluie efface le sang de ses gants, pas sa détermination. Tifa reprend appui et se relève. Elle n'a pas besoin de promettre la victoire : son poing dit déjà qu'elle ne laissera personne derrière.",
+      "description": "La pluie efface le sang de ses gants, pas sa détermination. Tifa reprend appui et se relève. Elle n'a pas besoin de promettre la victoire : son poing dit déjà qu'elle ne laissera personne derrière.",
+      "pngUrl": "/media/created/46437046.png",
+      "psdUrl": "/media/created/46437046.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "48210516",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-48210516",
+      "characterId": "aeris-ff7",
+      "name": "AERIS",
+      "title": "UNE FLEUR DANS LES RUINES",
+      "job": "CETRA",
+      "race": "HUMAIN",
+      "faction": "FF7",
+      "weapon": "Bâton",
+      "collaboration": "FF7",
+      "weapon_index": 10,
+      "element": "LUXO",
+      "positions": [
+        3,
+        4,
+        5
+      ],
+      "role": 5,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": true,
+      "atk": [
+        175,
+        143,
+        111,
+        "mana",
+        "revive",
+        "retry"
+      ],
+      "defense": [
+        210,
+        174,
+        "retry",
+        102,
+        66,
+        30
+      ],
+      "magic": [
+        6,
+        5,
+        4
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "F4E9AF",
+      "hue": 47,
+      "text": "Au milieu de l'église brisée, Aeris écoute ce que les autres n'entendent plus. Une fleur tient entre ses doigts. Tant qu'une lumière répond sous les décombres, aucun destin n'est tout à fait refermé.",
+      "description": "Au milieu de l'église brisée, Aeris écoute ce que les autres n'entendent plus. Une fleur tient entre ses doigts. Tant qu'une lumière répond sous les décombres, aucun destin n'est tout à fait refermé.",
+      "pngUrl": "/media/created/48210516.png",
+      "psdUrl": "/media/created/48210516.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "42139493",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-42139493",
+      "characterId": "red-xiii-ff7",
+      "name": "RED XIII",
+      "title": "LE FEU DES ANCÊTRES",
+      "job": "VEILLEUR",
+      "race": "FELINEUS",
+      "faction": "FF7",
+      "weapon": "Poing",
+      "collaboration": "FF7",
+      "weapon_index": 3,
+      "element": "PYRO",
+      "positions": [
+        2,
+        3,
+        5
+      ],
+      "role": 2,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        238,
+        196,
+        154,
+        112,
+        "buff_atk",
+        28
+      ],
+      "defense": [
+        214,
+        176,
+        "retry",
+        100,
+        62,
+        24
+      ],
+      "magic": [
+        4,
+        3
+      ],
+      "barriers": [
+        5
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "FF704A",
+      "hue": 12,
+      "text": "Sur les hauteurs de Cosmo Canyon, Nanaki cesse un instant de fuir son héritage. La braise au bout de sa queue répond aux étoiles. Il ne marche plus pour prouver sa force, mais pour veiller sur les siens.",
+      "description": "Sur les hauteurs de Cosmo Canyon, Nanaki cesse un instant de fuir son héritage. La braise au bout de sa queue répond aux étoiles. Il ne marche plus pour prouver sa force, mais pour veiller sur les siens.",
+      "pngUrl": "/media/created/42139493.png",
+      "psdUrl": "/media/created/42139493.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "46695200",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-46695200",
+      "characterId": "cait-sith-ff7",
+      "name": "CAIT SITH",
+      "title": "LE DERNIER COUP DE CHANCE",
+      "job": "ILLUSIONNISTE",
+      "race": "ROBOT",
+      "faction": "FF7",
+      "weapon": "Instrument",
+      "collaboration": "FF7",
+      "weapon_index": 11,
+      "element": "CRYO",
+      "positions": [
+        1,
+        4
+      ],
+      "role": 1,
+      "sentry": true,
+      "canGuard": true,
+      "canHeal": false,
+      "atk": [
+        232,
+        190,
+        148,
+        "mana",
+        "retry",
+        "guard"
+      ],
+      "defense": [
+        264,
+        218,
+        172,
+        126,
+        80,
+        34
+      ],
+      "magic": [
+        6,
+        5,
+        4
+      ],
+      "barriers": [
+        5,
+        3
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "ACDFFD",
+      "hue": 201,
+      "text": "Un rire, un pronostic impossible, puis Cait Sith s'interpose. Derrière le numéro et les coutures de sa monture, quelqu'un a choisi son camp. Ce soir, la chance ne servira pas seulement à gagner.",
+      "description": "Un rire, un pronostic impossible, puis Cait Sith s'interpose. Derrière le numéro et les coutures de sa monture, quelqu'un a choisi son camp. Ce soir, la chance ne servira pas seulement à gagner.",
+      "pngUrl": "/media/created/46695200.png",
+      "psdUrl": "/media/created/46695200.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "41055247",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-41055247",
+      "characterId": "cid-ff7",
+      "name": "CID",
+      "title": "LE CIEL N'ATTEND PAS",
+      "job": "DRAGONNIER",
+      "race": "HUMAIN",
+      "faction": "FF7",
+      "weapon": "Lance",
+      "collaboration": "FF7",
+      "weapon_index": 8,
+      "element": "AERO",
+      "positions": [
+        2,
+        3
+      ],
+      "role": 2,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        264,
+        218,
+        172,
+        126,
+        "buff_atk",
+        34
+      ],
+      "defense": [
+        194,
+        160,
+        126,
+        92,
+        58,
+        24
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        4
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "89EDC2",
+      "hue": 155,
+      "text": "Le vent tire sur son écharpe tandis que le Highwind traverse les nuages. Cid serre sa lance et sourit enfin. Les rêves ont pris des coups, comme lui. Cela ne les empêche pas de repartir.",
+      "description": "Le vent tire sur son écharpe tandis que le Highwind traverse les nuages. Cid serre sa lance et sourit enfin. Les rêves ont pris des coups, comme lui. Cela ne les empêche pas de repartir.",
+      "pngUrl": "/media/created/41055247.png",
+      "psdUrl": "/media/created/41055247.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "46129541",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-46129541",
+      "characterId": "vincent-ff7",
+      "name": "VINCENT",
+      "title": "CE QUI VEILLE DANS L'OMBRE",
+      "job": "EXPIATEUR",
+      "race": "HUMAIN",
+      "faction": "FF7",
+      "weapon": "Gun",
+      "collaboration": "FF7",
+      "weapon_index": 7,
+      "element": "HEMATO",
+      "positions": [
+        3,
+        4
+      ],
+      "role": 3,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        282,
+        232,
+        182,
+        132,
+        82,
+        32
+      ],
+      "defense": [
+        178,
+        146,
+        114,
+        82,
+        "dodge",
+        18
+      ],
+      "magic": [
+        6,
+        4,
+        2
+      ],
+      "barriers": [
+        4
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "E84976",
+      "hue": 343,
+      "text": "Vincent connaît le poids d'une porte que l'on ferme trop tard. Sous sa cape rouge, il garde le silence et reprend sa veille. Si le passé réclame encore une vie, cette fois il devra passer par lui.",
+      "description": "Vincent connaît le poids d'une porte que l'on ferme trop tard. Sous sa cape rouge, il garde le silence et reprend sa veille. Si le passé réclame encore une vie, cette fois il devra passer par lui.",
+      "pngUrl": "/media/created/46129541.png",
+      "psdUrl": "/media/created/46129541.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "41698138",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-41698138",
+      "characterId": "yuffie-ff7",
+      "name": "YUFFIE",
+      "title": "POUR QUE WUTAI SE RELÈVE",
+      "job": "NINJA",
+      "race": "HUMAIN",
+      "faction": "FF7",
+      "weapon": "Projectile",
+      "collaboration": "FF7",
+      "weapon_index": 9,
+      "element": "HERBO",
+      "positions": [
+        2,
+        4
+      ],
+      "role": 2,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        263,
+        217,
+        171,
+        125,
+        "retry",
+        33
+      ],
+      "defense": [
+        182,
+        150,
+        118,
+        "dodge",
+        54,
+        22
+      ],
+      "magic": [
+        4,
+        3
+      ],
+      "barriers": [
+        5
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "89D355",
+      "hue": 100,
+      "text": "Yuffie prétend ne courir que pour la matéria. Pourtant, lorsqu'elle se retourne vers Wutai, son sourire change. L'étoile géante revient dans sa main : il reste un pays à relever, et elle compte bien commencer.",
+      "description": "Yuffie prétend ne courir que pour la matéria. Pourtant, lorsqu'elle se retourne vers Wutai, son sourire change. L'étoile géante revient dans sa main : il reste un pays à relever, et elle compte bien commencer.",
+      "pngUrl": "/media/created/41698138.png",
+      "psdUrl": "/media/created/41698138.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "41693428",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-41693428",
+      "characterId": "sephiroth-ff7",
+      "name": "SEPHIROTH",
+      "title": "L'OMBRE D'UNE PROMESSE",
+      "job": "SOLDAT",
+      "race": "HUMAIN",
+      "faction": "FF7",
+      "weapon": "Epée longue",
+      "collaboration": "FF7",
+      "weapon_index": 17,
+      "element": "NECRO",
+      "positions": [
+        1,
+        5
+      ],
+      "role": 1,
+      "sentry": true,
+      "canGuard": true,
+      "canHeal": false,
+      "atk": [
+        235,
+        194,
+        154,
+        "mana",
+        "death",
+        "guard"
+      ],
+      "defense": [
+        265,
+        219,
+        173,
+        127,
+        81,
+        35
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "A979F7",
+      "hue": 270,
+      "text": "Dans le silence qui suit les flammes, Sephiroth attend. Sa lame trace une frontière que nul n'ose franchir. Il protège ce qu'il nomme son destin, avec la même douceur terrible qu'il met à condamner le reste.",
+      "description": "Dans le silence qui suit les flammes, Sephiroth attend. Sa lame trace une frontière que nul n'ose franchir. Il protège ce qu'il nomme son destin, avec la même douceur terrible qu'il met à condamner le reste.",
+      "pngUrl": "/media/created/41693428.png",
+      "psdUrl": "/media/created/41693428.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "45410910",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-45410910",
+      "characterId": "squall-ff8",
+      "name": "SQUALL",
+      "title": "LE POIDS DES PROMESSES",
+      "job": "SEED",
+      "race": "HUMAIN",
+      "faction": "FF8",
+      "weapon": "Epée longue",
+      "collaboration": "FF8",
+      "weapon_index": 17,
+      "element": "CRYO",
+      "positions": [
+        2,
+        1
+      ],
+      "role": 2,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        275,
+        229,
+        183,
+        137,
+        "buff_atk",
+        45
+      ],
+      "defense": [
+        235,
+        195,
+        155,
+        115,
+        75,
+        35
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "ACDFFD",
+      "hue": 201,
+      "text": "Sa gunblade sur l'épaule, Squall regarde devant lui avec cette réserve qui le protège si mal. Depuis le bal des SeeD, Linoa a fissuré son silence. La lame pèse moins lourd que les promesses qu'il commence à faire.",
+      "description": "Sa gunblade sur l'épaule, Squall regarde devant lui avec cette réserve qui le protège si mal. Depuis le bal des SeeD, Linoa a fissuré son silence. La lame pèse moins lourd que les promesses qu'il commence à faire.",
+      "pngUrl": "/media/created/45410910.png",
+      "psdUrl": "/media/created/45410910.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "48933308",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-48933308",
+      "characterId": "zell-ff8",
+      "name": "ZELL",
+      "title": "LE SOURIRE AVANT L'IMPACT",
+      "job": "PUGILISTE",
+      "race": "HUMAIN",
+      "faction": "FF8",
+      "weapon": "Poing",
+      "collaboration": "FF8",
+      "weapon_index": 3,
+      "element": "ELECTRO",
+      "positions": [
+        2
+      ],
+      "role": 2,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        300,
+        248,
+        196,
+        144,
+        92,
+        40
+      ],
+      "defense": [
+        174,
+        144,
+        "dodge",
+        84,
+        54,
+        24
+      ],
+      "magic": [],
+      "barriers": [
+        5
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "F5DC32",
+      "hue": 53,
+      "text": "Zell lève les poings et sourit déjà au prochain échange. Le pain de la cafétéria de Balamb peut attendre : ses amis ont besoin de lui. Cette joie n'efface pas le danger ; elle lui donne une raison de ne pas reculer.",
+      "description": "Zell lève les poings et sourit déjà au prochain échange. Le pain de la cafétéria de Balamb peut attendre : ses amis ont besoin de lui. Cette joie n'efface pas le danger ; elle lui donne une raison de ne pas reculer.",
+      "pngUrl": "/media/created/48933308.png",
+      "psdUrl": "/media/created/48933308.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "45513029",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-45513029",
+      "characterId": "linoa-ff8",
+      "name": "LINOA",
+      "title": "LES JOURS A DEFENDRE",
+      "job": "SORCIERE",
+      "race": "HUMAIN",
+      "faction": "FF8",
+      "weapon": "Projectile",
+      "collaboration": "FF8",
+      "weapon_index": 9,
+      "element": "LUXO",
+      "positions": [
+        5
+      ],
+      "role": 5,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": true,
+      "atk": [
+        164,
+        136,
+        108,
+        "mana",
+        "revive",
+        "retry"
+      ],
+      "defense": [
+        222,
+        184,
+        146,
+        108,
+        70,
+        32
+      ],
+      "magic": [
+        6,
+        5,
+        4
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "F4E9AF",
+      "hue": 47,
+      "text": "Parmi les fleurs, Linoa retrouve Angelo et laisse enfin retomber sa garde. À Timber, elle rêvait de liberté ; voici ce qu'elle voulait sauver aussi : un jour paisible, une présence fidèle, le droit de rire sans peur.",
+      "description": "Parmi les fleurs, Linoa retrouve Angelo et laisse enfin retomber sa garde. À Timber, elle rêvait de liberté ; voici ce qu'elle voulait sauver aussi : un jour paisible, une présence fidèle, le droit de rire sans peur.",
+      "pngUrl": "/media/created/45513029.png",
+      "psdUrl": "/media/created/45513029.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "48704873",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-48704873",
+      "characterId": "irvine-ff8",
+      "name": "IRVINE",
+      "title": "UN SOUVENIR DANS LA MIRE",
+      "job": "TIREUR",
+      "race": "HUMAIN",
+      "faction": "FF8",
+      "weapon": "Gun",
+      "collaboration": "FF8",
+      "weapon_index": 7,
+      "element": "GEO",
+      "positions": [
+        3,
+        4
+      ],
+      "role": 3,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        274,
+        226,
+        178,
+        130,
+        82,
+        34
+      ],
+      "defense": [
+        188,
+        154,
+        120,
+        86,
+        "retry",
+        18
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        4
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "C7AB6D",
+      "hue": 41,
+      "text": "Dans la tour de Deling, Irvine épaule son fusil et vise Edea pour le tir décisif. Matrone reste là, au fond de sa mémoire. Il retient son souffle ; pour couvrir ses amis, il lui faut traverser ce souvenir sans le renier.",
+      "description": "Dans la tour de Deling, Irvine épaule son fusil et vise Edea pour le tir décisif. Matrone reste là, au fond de sa mémoire. Il retient son souffle ; pour couvrir ses amis, il lui faut traverser ce souvenir sans le renier.",
+      "pngUrl": "/media/created/48704873.png",
+      "psdUrl": "/media/created/48704873.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "49163588",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-49163588",
+      "characterId": "quistis-ff8",
+      "name": "QUISTIS",
+      "title": "AU-DELA DES LECONS",
+      "job": "INSTRUCTRICE",
+      "race": "HUMAIN",
+      "faction": "FF8",
+      "weapon": "Fouet",
+      "collaboration": "FF8",
+      "weapon_index": 6,
+      "element": "HYDRO",
+      "positions": [
+        4
+      ],
+      "role": 4,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        272,
+        224,
+        176,
+        "mana",
+        80,
+        32
+      ],
+      "defense": [
+        196,
+        162,
+        128,
+        94,
+        "retry",
+        26
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        2
+      ],
+      "barriers": [
+        5,
+        3
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "38CBED",
+      "hue": 192,
+      "text": "Au centre de combat de Balamb, Quistis laisse enfin tomber le ton de l'instructrice. Le fouet reste prêt, les mots beaucoup moins. Sous la lune, elle apprend qu'on peut guider les autres sans savoir où déposer sa solitude.",
+      "description": "Au centre de combat de Balamb, Quistis laisse enfin tomber le ton de l'instructrice. Le fouet reste prêt, les mots beaucoup moins. Sous la lune, elle apprend qu'on peut guider les autres sans savoir où déposer sa solitude.",
+      "pngUrl": "/media/created/49163588.png",
+      "psdUrl": "/media/created/49163588.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "40976482",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-40976482",
+      "characterId": "selphie-ff8",
+      "name": "SELPHIE",
+      "title": "LA JOIE FAIT ECOLE",
+      "job": "SEED",
+      "race": "HUMAIN",
+      "faction": "FF8",
+      "weapon": "Fléau",
+      "collaboration": "FF8",
+      "weapon_index": 4,
+      "element": "AERO",
+      "positions": [
+        3,
+        2
+      ],
+      "role": 3,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        232,
+        192,
+        152,
+        112,
+        "buff_atk",
+        "retry"
+      ],
+      "defense": [
+        216,
+        178,
+        140,
+        102,
+        64,
+        26
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        4
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "89EDC2",
+      "hue": 155,
+      "text": "Dans la cour de l'école, Selphie éclate de rire, sa tenue jaune au soleil et ses nunchakus rangés à la hanche. Elle pense aux amis de Trabia et au prochain festival : pour elle, personne ne devrait rester à l'écart.",
+      "description": "Dans la cour de l'école, Selphie éclate de rire, sa tenue jaune au soleil et ses nunchakus rangés à la hanche. Elle pense aux amis de Trabia et au prochain festival : pour elle, personne ne devrait rester à l'écart.",
+      "pngUrl": "/media/created/40976482.png",
+      "psdUrl": "/media/created/40976482.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "49134060",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-49134060",
+      "characterId": "edea-ff8",
+      "name": "EDEA",
+      "title": "SOUS LES ORNEMENTS",
+      "job": "SORCIERE",
+      "race": "HUMAIN",
+      "faction": "FF8",
+      "weapon": "Bâton",
+      "collaboration": "FF8",
+      "weapon_index": 10,
+      "element": "CRYO",
+      "positions": [
+        4,
+        5
+      ],
+      "role": 4,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        252,
+        208,
+        164,
+        "mana",
+        "retry",
+        32
+      ],
+      "defense": [
+        222,
+        184,
+        146,
+        108,
+        70,
+        32
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        1
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "ACDFFD",
+      "hue": 201,
+      "text": "Le ciel seul entoure Edea et l'armature de sa robe. Sous la possession, Matrone demeure, liée aux enfants qu'elle a aimés. La glace obéit à sa main ; ces liens résistent à la voix qui parle à sa place.",
+      "description": "Le ciel seul entoure Edea et l'armature de sa robe. Sous la possession, Matrone demeure, liée aux enfants qu'elle a aimés. La glace obéit à sa main ; ces liens résistent à la voix qui parle à sa place.",
+      "pngUrl": "/media/created/49134060.png",
+      "psdUrl": "/media/created/49134060.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "46860270",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-46860270",
+      "characterId": "seifer-ff8",
+      "name": "SEIFER",
+      "title": "LE DEFI DANS LES YEUX",
+      "job": "CHEVALIER",
+      "race": "HUMAIN",
+      "faction": "FF8",
+      "weapon": "Epée longue",
+      "collaboration": "FF8",
+      "weapon_index": 17,
+      "element": "PYRO",
+      "positions": [
+        1
+      ],
+      "role": 1,
+      "sentry": true,
+      "canGuard": true,
+      "canHeal": false,
+      "atk": [
+        210,
+        174,
+        138,
+        102,
+        "guard",
+        30
+      ],
+      "defense": [
+        282,
+        234,
+        186,
+        138,
+        90,
+        42
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "FF704A",
+      "hue": 12,
+      "text": "À Balamb, Seifer pose les pieds sur son pupitre, sourire insolent. Sous ses airs de mauvais garçon, le rêve du chevalier tient bon. Il veut une place dans l'histoire, quitte à ne plus voir ceux qui l'attendent.",
+      "description": "À Balamb, Seifer pose les pieds sur son pupitre, sourire insolent. Sous ses airs de mauvais garçon, le rêve du chevalier tient bon. Il veut une place dans l'histoire, quitte à ne plus voir ceux qui l'attendent.",
+      "pngUrl": "/media/created/46860270.png",
+      "psdUrl": "/media/created/46860270.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "47264450",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-47264450",
+      "characterId": "ward-ff8",
+      "name": "WARD",
+      "title": "LA FORCE DE RESTER",
+      "job": "GARDIEN",
+      "race": "HUMAIN",
+      "faction": "FF8",
+      "weapon": "Lance",
+      "collaboration": "FF8",
+      "weapon_index": 8,
+      "element": "NONE",
+      "positions": [
+        1
+      ],
+      "role": 1,
+      "sentry": true,
+      "canGuard": true,
+      "canHeal": false,
+      "atk": [
+        172,
+        144,
+        116,
+        88,
+        "guard",
+        32
+      ],
+      "defense": [
+        312,
+        258,
+        204,
+        150,
+        96,
+        42
+      ],
+      "magic": [],
+      "barriers": [],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "93AAA5",
+      "hue": 160,
+      "text": "Sur la falaise de Centra, Ward s'appuie sur son harpon pour ménager son épaule. Avant la mer en contrebas, il cherche Laguna et Kiros du regard. Dans leur trio, sa force n'a jamais servi à partir le premier.",
+      "description": "Sur la falaise de Centra, Ward s'appuie sur son harpon pour ménager son épaule. Avant la mer en contrebas, il cherche Laguna et Kiros du regard. Dans leur trio, sa force n'a jamais servi à partir le premier.",
+      "pngUrl": "/media/created/47264450.png",
+      "psdUrl": "/media/created/47264450.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "43695729",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-43695729",
+      "characterId": "kiros-ff8",
+      "name": "KIROS",
+      "title": "TE RETROUVER ENFIN",
+      "job": "ECLAIREUR",
+      "race": "HUMAIN",
+      "faction": "FF8",
+      "weapon": "Dague",
+      "collaboration": "FF8",
+      "weapon_index": 15,
+      "element": "NONE",
+      "positions": [
+        2
+      ],
+      "role": 2,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        292,
+        242,
+        192,
+        142,
+        92,
+        42
+      ],
+      "defense": [
+        182,
+        150,
+        118,
+        86,
+        "dodge",
+        22
+      ],
+      "magic": [],
+      "barriers": [],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "93AAA5",
+      "hue": 160,
+      "text": "À Winhill, Kiros retrouve Laguna vivant. Ses lames s'abaissent et son sourire revient. Il aura le temps de railler son ami ; pour l'instant, cette présence apaise les craintes de sa longue route.",
+      "description": "À Winhill, Kiros retrouve Laguna vivant. Ses lames s'abaissent et son sourire revient. Il aura le temps de railler son ami ; pour l'instant, cette présence apaise les craintes de sa longue route.",
+      "pngUrl": "/media/created/43695729.png",
+      "psdUrl": "/media/created/43695729.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "44143252",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-44143252",
+      "characterId": "laguna-ff8",
+      "name": "LAGUNA",
+      "title": "UNE MELODIE POUR DEMAIN",
+      "job": "SOLDAT",
+      "race": "HUMAIN",
+      "faction": "FF8",
+      "weapon": "Gun",
+      "collaboration": "FF8",
+      "weapon_index": 7,
+      "element": "ELECTRO",
+      "positions": [
+        3
+      ],
+      "role": 3,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        238,
+        196,
+        154,
+        112,
+        "buff_atk",
+        28
+      ],
+      "defense": [
+        220,
+        182,
+        144,
+        106,
+        68,
+        30
+      ],
+      "magic": [
+        5,
+        3
+      ],
+      "barriers": [
+        4
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "F5DC32",
+      "hue": 53,
+      "text": "Au piano de l'hôtel de Deling, Julia joue et Laguna perd ses mots. Son fusil repose, ses jambes le trahissent. Lui qui rêve de devenir journaliste voudrait garder cet instant sans avoir à le raconter.",
+      "description": "Au piano de l'hôtel de Deling, Julia joue et Laguna perd ses mots. Son fusil repose, ses jambes le trahissent. Lui qui rêve de devenir journaliste voudrait garder cet instant sans avoir à le raconter.",
+      "pngUrl": "/media/created/44143252.png",
+      "psdUrl": "/media/created/44143252.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "47842924",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-47842924",
+      "characterId": "ultimecia-ff8",
+      "name": "ULTIMECIA",
+      "title": "NE PLUS ETRE SEULE",
+      "job": "SORCIERE",
+      "race": "HUMAIN",
+      "faction": "FF8",
+      "weapon": "Bâton",
+      "collaboration": "FF8",
+      "weapon_index": 10,
+      "element": "NECRO",
+      "positions": [
+        5
+      ],
+      "role": 5,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": true,
+      "atk": [
+        188,
+        156,
+        "mana",
+        "revive",
+        "death",
+        28
+      ],
+      "defense": [
+        216,
+        178,
+        140,
+        102,
+        "retry",
+        26
+      ],
+      "magic": [
+        6,
+        5,
+        1
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "A979F7",
+      "hue": 270,
+      "text": "Seule dans son château, Ultimecia veut comprimer le temps jusqu'à tout posséder. La colère remplit le vide entre les heures. Abolir hier et demain semble plus facile que d'affronter sa propre solitude.",
+      "description": "Seule dans son château, Ultimecia veut comprimer le temps jusqu'à tout posséder. La colère remplit le vide entre les heures. Abolir hier et demain semble plus facile que d'affronter sa propre solitude.",
+      "pngUrl": "/media/created/47842924.png",
+      "psdUrl": "/media/created/47842924.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "45911726",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-45911726",
+      "characterId": "2b-nier",
+      "name": "2B",
+      "title": "Lame des ruines",
+      "job": "COMBATTANTE",
+      "race": "ANDROID",
+      "faction": "NieR",
+      "weapon": "Katana",
+      "collaboration": "NieR",
+      "weapon_index": 18,
+      "element": "LUXO",
+      "positions": [
+        2
+      ],
+      "role": 2,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        294,
+        244,
+        194,
+        144,
+        94,
+        44
+      ],
+      "defense": [
+        170,
+        140,
+        "dodge",
+        80,
+        "retry",
+        20
+      ],
+      "magic": [],
+      "barriers": [
+        6
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "F4E9AF",
+      "hue": 47,
+      "text": "Entre les tours brisées, 2B suspend un instant sa course. Son katana capte une lueur pâle ; sous le bandeau, rien ne trahit son prochain geste. La ville retient son souffle, puis la lame reprend sa danse.",
+      "description": "Entre les tours brisées, 2B suspend un instant sa course. Son katana capte une lueur pâle ; sous le bandeau, rien ne trahit son prochain geste. La ville retient son souffle, puis la lame reprend sa danse.",
+      "pngUrl": "/media/created/45911726.png",
+      "psdUrl": "/media/created/45911726.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "42138845",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-42138845",
+      "characterId": "9s-nier",
+      "name": "9S",
+      "title": "Les fils du silence",
+      "job": "SCANNER",
+      "race": "ANDROID",
+      "faction": "NieR",
+      "weapon": "Lance",
+      "collaboration": "NieR",
+      "weapon_index": 8,
+      "element": "ELECTRO",
+      "positions": [
+        3,
+        5
+      ],
+      "role": 5,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": true,
+      "atk": [
+        174,
+        144,
+        "revive",
+        "buff_atk",
+        "mana",
+        24
+      ],
+      "defense": [
+        200,
+        165,
+        130,
+        95,
+        60,
+        25
+      ],
+      "magic": [
+        6
+      ],
+      "barriers": [
+        5,
+        3
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "F5DC32",
+      "hue": 53,
+      "text": "Du bout des doigts, 9S parcourt un écran de signes lumineux. Chaque code entrouvre un passage dans le silence des machines. Sa lance reste proche ; pour protéger son alliée, il cherche encore une autre voie.",
+      "description": "Du bout des doigts, 9S parcourt un écran de signes lumineux. Chaque code entrouvre un passage dans le silence des machines. Sa lance reste proche ; pour protéger son alliée, il cherche encore une autre voie.",
+      "pngUrl": "/media/created/42138845.png",
+      "psdUrl": "/media/created/42138845.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "43525184",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-43525184",
+      "characterId": "emil-nier",
+      "name": "EMIL",
+      "title": "Les fleurs se souviennent",
+      "job": "GARDIEN",
+      "race": "CYBORG",
+      "faction": "NieR",
+      "weapon": "Sceptre",
+      "collaboration": "NieR",
+      "weapon_index": 12,
+      "element": "HEMATO",
+      "positions": [
+        4,
+        3
+      ],
+      "role": 4,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        278,
+        226,
+        176,
+        "mana",
+        82,
+        32
+      ],
+      "defense": [
+        166,
+        134,
+        "retry",
+        78,
+        48,
+        20
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        2
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "E84976",
+      "hue": 343,
+      "text": "Sous la terre, Emil veille parmi les larmes lunaires. Son sourire immobile abrite une tendresse que les siècles n'ont pas effacée ; au bout de son sceptre, un souvenir demeure, fragile et plus tenace que la guerre.",
+      "description": "Sous la terre, Emil veille parmi les larmes lunaires. Son sourire immobile abrite une tendresse que les siècles n'ont pas effacée ; au bout de son sceptre, un souvenir demeure, fragile et plus tenace que la guerre.",
+      "pngUrl": "/media/created/43525184.png",
+      "psdUrl": "/media/created/43525184.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "47952087",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-47952087",
+      "characterId": "a2-nier",
+      "name": "A2",
+      "title": "Au seuil du dernier serment",
+      "job": "DÉSERTEUSE",
+      "race": "ANDROID",
+      "faction": "NieR",
+      "weapon": "Epée longue",
+      "collaboration": "NieR",
+      "weapon_index": 17,
+      "element": "CRYO",
+      "positions": [
+        2,
+        1
+      ],
+      "role": 2,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        292,
+        242,
+        190,
+        140,
+        90,
+        40
+      ],
+      "defense": [
+        168,
+        "dodge",
+        108,
+        78,
+        "retry",
+        22
+      ],
+      "magic": [],
+      "barriers": [
+        4
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "ACDFFD",
+      "hue": 201,
+      "text": "Au seuil des ruines que le désert engloutit, A2 serre son épée. La fatigue pèse plus lourd que le métal, mais elle avance encore : derrière son refus des ordres, les voix perdues exigent autre chose que l'oubli.",
+      "description": "Au seuil des ruines que le désert engloutit, A2 serre son épée. La fatigue pèse plus lourd que le métal, mais elle avance encore : derrière son refus des ordres, les voix perdues exigent autre chose que l'oubli.",
+      "pngUrl": "/media/created/47952087.png",
+      "psdUrl": "/media/created/47952087.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "42650442",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-42650442",
+      "characterId": "pascal-nier",
+      "name": "PASCAL",
+      "title": "La paix entre les pages",
+      "job": "PACIFISTE",
+      "race": "ROBOT",
+      "faction": "NieR",
+      "weapon": "Tome",
+      "collaboration": "NieR",
+      "weapon_index": 13,
+      "element": "HERBO",
+      "positions": [
+        5
+      ],
+      "role": 5,
+      "sentry": true,
+      "canGuard": true,
+      "canHeal": true,
+      "atk": [
+        "revive",
+        "guard",
+        "retry",
+        "mana",
+        "buff_atk",
+        18
+      ],
+      "defense": [
+        184,
+        150,
+        116,
+        82,
+        48,
+        20
+      ],
+      "magic": [],
+      "barriers": [
+        5
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "89D355",
+      "hue": 100,
+      "text": "Dans le village suspendu aux arbres, Pascal ouvre un livre aux petites machines. Chaque page offre un monde où l'on peut apprendre sans détruire ; sa voix patiente protège cette paix que nul blindage ne garantit.",
+      "description": "Dans le village suspendu aux arbres, Pascal ouvre un livre aux petites machines. Chaque page offre un monde où l'on peut apprendre sans détruire ; sa voix patiente protège cette paix que nul blindage ne garantit.",
+      "pngUrl": "/media/created/42650442.png",
+      "psdUrl": "/media/created/42650442.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "47023549",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-47023549",
+      "characterId": "adam-nier",
+      "name": "ADAM",
+      "title": "La raison dans le vide blanc",
+      "job": "OBSERVATEUR",
+      "race": "ROBOT",
+      "faction": "NieR",
+      "weapon": "Orbe",
+      "collaboration": "NieR",
+      "weapon_index": 14,
+      "element": "LUXO",
+      "positions": [
+        3,
+        4
+      ],
+      "role": 4,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        282,
+        232,
+        182,
+        132,
+        82,
+        32
+      ],
+      "defense": [
+        164,
+        134,
+        104,
+        "retry",
+        46,
+        18
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "F4E9AF",
+      "hue": 47,
+      "text": "Dans la Cité copiée, Adam lève les mains dans un calme sans chaleur. Entre les façades blanches, il cherche dans le combat une réponse aux passions humaines, comme si comprendre la douleur donnait un sens au vide.",
+      "description": "Dans la Cité copiée, Adam lève les mains dans un calme sans chaleur. Entre les façades blanches, il cherche dans le combat une réponse aux passions humaines, comme si comprendre la douleur donnait un sens au vide.",
+      "pngUrl": "/media/created/47023549.png",
+      "psdUrl": "/media/created/47023549.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "48867563",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-48867563",
+      "characterId": "eve-nier",
+      "name": "EVE",
+      "title": "Le deuil ne sait plus se taire",
+      "job": "RAVAGEUR",
+      "race": "ROBOT",
+      "faction": "NieR",
+      "weapon": "Poing",
+      "collaboration": "NieR",
+      "weapon_index": 3,
+      "element": "PYRO",
+      "positions": [
+        1,
+        2
+      ],
+      "role": 1,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        204,
+        168,
+        132,
+        96,
+        62,
+        28
+      ],
+      "defense": [
+        286,
+        236,
+        186,
+        138,
+        90,
+        42
+      ],
+      "magic": [],
+      "barriers": [
+        4
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "FF704A",
+      "hue": 12,
+      "text": "Dans les ruines de la ville, Eve ne cherche plus de réponse. L'absence d'Adam brûle jusque dans son bras marqué ; chaque coup veut nier la perte, et sa fureur dresse contre le monde un rempart que rien ne console.",
+      "description": "Dans les ruines de la ville, Eve ne cherche plus de réponse. L'absence d'Adam brûle jusque dans son bras marqué ; chaque coup veut nier la perte, et sa fureur dresse contre le monde un rempart que rien ne console.",
+      "pngUrl": "/media/created/48867563.png",
+      "psdUrl": "/media/created/48867563.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "45243854",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-45243854",
+      "characterId": "anemone-nier",
+      "name": "ANEMONE",
+      "title": "Ceux qui tiennent encore",
+      "job": "COMMANDANTE",
+      "race": "HUMAIN",
+      "faction": "NieR",
+      "weapon": "Gun",
+      "collaboration": "NieR",
+      "weapon_index": 7,
+      "element": "GEO",
+      "positions": [
+        4
+      ],
+      "role": 4,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        272,
+        222,
+        172,
+        "buff_atk",
+        76,
+        28
+      ],
+      "defense": [
+        160,
+        130,
+        100,
+        72,
+        "retry",
+        18
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "C7AB6D",
+      "hue": 41,
+      "text": "Au camp de la Résistance, Anemone compte les retours avant les victoires. Le fusil à portée de main, elle écoute, tranche et rassemble : tant qu'un refuge tient debout, les disparus n'auront pas emporté tout l'espoir.",
+      "description": "Au camp de la Résistance, Anemone compte les retours avant les victoires. Le fusil à portée de main, elle écoute, tranche et rassemble : tant qu'un refuge tient debout, les disparus n'auront pas emporté tout l'espoir.",
+      "pngUrl": "/media/created/45243854.png",
+      "psdUrl": "/media/created/45243854.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "45862715",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-45862715",
+      "characterId": "simone-nier",
+      "name": "SIMONE",
+      "title": "La beauté jusqu'au silence",
+      "job": "CANTATRICE",
+      "race": "ROBOT",
+      "faction": "NieR",
+      "weapon": "Instrument",
+      "collaboration": "NieR",
+      "weapon_index": 11,
+      "element": "HEMATO",
+      "positions": [
+        4
+      ],
+      "role": 4,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        280,
+        230,
+        180,
+        "mana",
+        80,
+        30
+      ],
+      "defense": [
+        162,
+        132,
+        102,
+        74,
+        44,
+        18
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        2
+      ],
+      "barriers": [
+        5,
+        3
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "E84976",
+      "hue": 343,
+      "text": "Dans le théâtre du parc, Simone chante pour un regard qui ne vient pas. Sous les bijoux et la robe de métal, son besoin d'être aimée devient une obsession ; chaque note poursuit une beauté que rien ne peut combler.",
+      "description": "Dans le théâtre du parc, Simone chante pour un regard qui ne vient pas. Sous les bijoux et la robe de métal, son besoin d'être aimée devient une obsession ; chaque note poursuit une beauté que rien ne peut combler.",
+      "pngUrl": "/media/created/45862715.png",
+      "psdUrl": "/media/created/45862715.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "49321357",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-49321357",
+      "characterId": "zviri",
+      "name": "ZVIRI",
+      "title": "LA PATIENCE DU PREDATEUR",
+      "job": "TRAQUEUSE",
+      "race": "SKULLZ",
+      "faction": "Cryptown",
+      "weapon": "Fouet",
+      "weapon_index": 6,
+      "element": "NECRO",
+      "positions": [
+        2
+      ],
+      "role": 2,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        284,
+        238,
+        185,
+        140,
+        90,
+        "retry"
+      ],
+      "defense": [
+        "dodge",
+        138,
+        108,
+        78,
+        "retry",
+        22
+      ],
+      "magic": [],
+      "barriers": [],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "A979F7",
+      "hue": 270,
+      "text": "Dans les ruelles de Cryptown, Zviri s'arrête sur une trace presque effacée. Le fouet glisse sans bruit entre ses doigts. La chasse peut durer une nuit entière : elle sait que sa proie finira par regarder derrière elle.",
+      "description": "Dans les ruelles de Cryptown, Zviri s'arrête sur une trace presque effacée. Le fouet glisse sans bruit entre ses doigts. La chasse peut durer une nuit entière : elle sait que sa proie finira par regarder derrière elle.",
+      "pngUrl": "/media/created/49321357.png",
+      "psdUrl": "/media/created/49321357.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "43683372",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-43683372",
+      "characterId": "verminia",
+      "name": "VERMINIA",
+      "title": "LE DERNIER PASSAGE",
+      "job": "DISSIDENTE",
+      "race": "VAMP",
+      "faction": "Draevenheim",
+      "weapon": "Dague",
+      "weapon_index": 15,
+      "element": "HEMATO",
+      "positions": [
+        3,
+        4
+      ],
+      "role": 4,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        278,
+        229,
+        177,
+        "mana",
+        81,
+        30
+      ],
+      "defense": [
+        172,
+        141,
+        "dodge",
+        84,
+        54,
+        24
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        2
+      ],
+      "barriers": [
+        5,
+        2
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "E84976",
+      "hue": 343,
+      "text": "Les derniers fugitifs ont traversé. Verminia rassemble les fils de son Kalistel et force le portail à se refermer. De l'autre côté grondent les hommes de sa maison. Cette fois, son héritage leur ferme la route.",
+      "description": "Les derniers fugitifs ont traversé. Verminia rassemble les fils de son Kalistel et force le portail à se refermer. De l'autre côté grondent les hommes de sa maison. Cette fois, son héritage leur ferme la route.",
+      "pngUrl": "/media/created/43683372.png",
+      "psdUrl": "/media/created/43683372.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "44703335",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-44703335",
+      "characterId": "gen",
+      "name": "GEN",
+      "title": "LA NUIT OU LA Z13 S ETEINT",
+      "job": "MECANICIEN",
+      "race": "CYBORG",
+      "faction": "Z13",
+      "weapon": "Projectile",
+      "weapon_index": 9,
+      "element": "ELECTRO",
+      "positions": [
+        4
+      ],
+      "role": 4,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        286,
+        238,
+        188,
+        "mana",
+        90,
+        40
+      ],
+      "defense": [
+        169,
+        138,
+        108,
+        80,
+        49,
+        24
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        2
+      ],
+      "barriers": [
+        5,
+        3
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "F5DC32",
+      "hue": 53,
+      "text": "Devant le panneau électrique, Gen retient son souffle. Son bras gauche crépite, puis les lampes de la Z13 s’éteignent une à une. Ses mains tremblent encore : pour la première fois, la panne ouvre un chemin.",
+      "description": "Devant le panneau électrique, Gen retient son souffle. Son bras gauche crépite, puis les lampes de la Z13 s’éteignent une à une. Ses mains tremblent encore : pour la première fois, la panne ouvre un chemin.",
+      "pngUrl": "/media/created/44703335.png",
+      "psdUrl": "/media/created/44703335.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "47414613",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-47414613",
+      "characterId": "lanio",
+      "name": "LANIO",
+      "title": "LE VERTIGE POUR RIRE",
+      "job": "ACROBATE",
+      "race": "HUMAIN",
+      "faction": "Z13",
+      "weapon": "Lance",
+      "weapon_index": 8,
+      "element": "NONE",
+      "positions": [
+        3
+      ],
+      "role": 3,
+      "sentry": false,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        230,
+        190,
+        150,
+        110,
+        "retry",
+        30
+      ],
+      "defense": [
+        228,
+        190,
+        150,
+        "dodge",
+        70,
+        32
+      ],
+      "magic": [],
+      "barriers": [],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "93AAA5",
+      "hue": 160,
+      "text": "Suspendu au-dessus de la galerie, Lanio trouve encore le moyen de faire rire les autres. Un appui, un crochet, puis son sourire insolent disparaît dans la poussière. Même les mines de la Z13 n’ont pas réussi à le faire taire.",
+      "description": "Suspendu au-dessus de la galerie, Lanio trouve encore le moyen de faire rire les autres. Un appui, un crochet, puis son sourire insolent disparaît dans la poussière. Même les mines de la Z13 n’ont pas réussi à le faire taire.",
+      "pngUrl": "/media/created/47414613.png",
+      "psdUrl": "/media/created/47414613.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "45081933",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-45081933",
+      "characterId": "commander-nier",
+      "name": "COMMANDER WHITE",
+      "title": "Le poids du commandement",
+      "job": "COMMANDANTE",
+      "race": "ANDROID",
+      "faction": "NieR",
+      "weapon": "Sceptre",
+      "collaboration": "NieR",
+      "weapon_index": 12,
+      "element": "LUXO",
+      "positions": [
+        5
+      ],
+      "role": 5,
+      "sentry": true,
+      "canGuard": true,
+      "canHeal": true,
+      "atk": [
+        172,
+        "guard",
+        "revive",
+        "mana",
+        "buff_atk",
+        24
+      ],
+      "defense": [
+        202,
+        167,
+        132,
+        96,
+        "retry",
+        26
+      ],
+      "magic": [
+        6
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "F4E9AF",
+      "hue": 47,
+      "text": "Face aux consoles du Bunker, White garde une voix ferme. Chaque départ vers la Terre pèse sous l'uniforme immaculé. Ses soldats ne doivent pas entendre le doute.",
+      "description": "Face aux consoles du Bunker, White garde une voix ferme. Chaque départ vers la Terre pèse sous l'uniforme immaculé. Ses soldats ne doivent pas entendre le doute.",
+      "pngUrl": "/media/created/45081933.png",
+      "psdUrl": "/media/created/45081933.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "47689975",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-47689975",
+      "characterId": "nier-replicant",
+      "name": "NIER",
+      "title": "Une promesse à Yonah",
+      "job": "PROTECTEUR",
+      "race": "HUMAIN",
+      "faction": "Replicant",
+      "weapon": "Tome",
+      "collaboration": "Replicant",
+      "weapon_index": 13,
+      "element": "NECRO",
+      "positions": [
+        4
+      ],
+      "role": 4,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        286,
+        236,
+        184,
+        134,
+        84,
+        "mana"
+      ],
+      "defense": [
+        166,
+        136,
+        106,
+        76,
+        "retry",
+        22
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3,
+        2
+      ],
+      "barriers": [
+        5
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "A979F7",
+      "hue": 270,
+      "text": "Les mots de Weiss tournent dans l'air tandis que Nier avance vers le sanctuaire. Il ne cherche ni gloire ni pardon, seulement sa sœur. Chaque vers scellé ouvre un passage et rend plus lourd le prix de sa promesse.",
+      "description": "Les mots de Weiss tournent dans l'air tandis que Nier avance vers le sanctuaire. Il ne cherche ni gloire ni pardon, seulement sa sœur. Chaque vers scellé ouvre un passage et rend plus lourd le prix de sa promesse.",
+      "pngUrl": "/media/created/47689975.png",
+      "psdUrl": "/media/created/47689975.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "45951088",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-45951088",
+      "characterId": "kaine-replicant",
+      "name": "KAINÉ",
+      "title": "Ne baisse pas les yeux",
+      "job": "DUELLISTE",
+      "race": "HUMAIN",
+      "faction": "Replicant",
+      "weapon": "Epée longue",
+      "collaboration": "Replicant",
+      "weapon_index": 17,
+      "element": "HEMATO",
+      "positions": [
+        2
+      ],
+      "role": 2,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        294,
+        244,
+        194,
+        144,
+        94,
+        "buff_atk"
+      ],
+      "defense": [
+        170,
+        140,
+        "dodge",
+        84,
+        "retry",
+        24
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        6
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "E84976",
+      "hue": 343,
+      "text": "Au village suspendu, Kainé serre ses deux lames. Les insultes ont laissé des traces plus profondes que les bandages. Elle avance : personne ne choisira à sa place qui mérite d'être protégé.",
+      "description": "Au village suspendu, Kainé serre ses deux lames. Les insultes ont laissé des traces plus profondes que les bandages. Elle avance : personne ne choisira à sa place qui mérite d'être protégé.",
+      "pngUrl": "/media/created/45951088.png",
+      "psdUrl": "/media/created/45951088.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "43447599",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-43447599",
+      "characterId": "devola-nier",
+      "name": "DEVOLA",
+      "title": "Un passage pour demain",
+      "job": "RÉSISTANTE",
+      "race": "ANDROID",
+      "faction": "NieR",
+      "weapon": "Epée courte",
+      "collaboration": "NieR",
+      "weapon_index": 16,
+      "element": "PYRO",
+      "positions": [
+        2,
+        3
+      ],
+      "role": 2,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        282,
+        232,
+        182,
+        132,
+        "retry",
+        36
+      ],
+      "defense": [
+        164,
+        134,
+        104,
+        "dodge",
+        44,
+        18
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "FF704A",
+      "hue": 12,
+      "text": "Devant la Tour, Devola se place entre les machines et le dernier espoir de sa sœur. La faute qu'on leur a léguée n'est pas la leur. Pourtant, sa lame choisit encore de protéger ceux qui les ont tenues à l'écart.",
+      "description": "Devant la Tour, Devola se place entre les machines et le dernier espoir de sa sœur. La faute qu'on leur a léguée n'est pas la leur. Pourtant, sa lame choisit encore de protéger ceux qui les ont tenues à l'écart.",
+      "pngUrl": "/media/created/43447599.png",
+      "psdUrl": "/media/created/43447599.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "42135864",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-42135864",
+      "characterId": "popola-nier",
+      "name": "POPOLA",
+      "title": "La main qui reste tendue",
+      "job": "RÉSISTANTE",
+      "race": "ANDROID",
+      "faction": "NieR",
+      "weapon": "Epée courte",
+      "collaboration": "NieR",
+      "weapon_index": 16,
+      "element": "LUXO",
+      "positions": [
+        3,
+        5
+      ],
+      "role": 5,
+      "sentry": true,
+      "canGuard": true,
+      "canHeal": true,
+      "atk": [
+        164,
+        "revive",
+        112,
+        "guard",
+        "mana",
+        26
+      ],
+      "defense": [
+        198,
+        163,
+        128,
+        93,
+        "retry",
+        26
+      ],
+      "magic": [
+        6
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "F4E9AF",
+      "hue": 47,
+      "text": "Dans le camp de la Résistance, Popola remet une pièce réparée entre des mains tremblantes. Elle connaît la méfiance et continue pourtant d'aider. Tant que Devola est près d'elle, leur silence n'est pas encore une défaite.",
+      "description": "Dans le camp de la Résistance, Popola remet une pièce réparée entre des mains tremblantes. Elle connaît la méfiance et continue pourtant d'aider. Tant que Devola est près d'elle, leur silence n'est pas encore une défaite.",
+      "pngUrl": "/media/created/42135864.png",
+      "psdUrl": "/media/created/42135864.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "42252625",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-42252625",
+      "characterId": "devola-nier",
+      "name": "DEVOLA",
+      "title": "Le chant près de la fontaine",
+      "job": "CHANTEUSE",
+      "race": "ANDROID",
+      "faction": "Replicant",
+      "weapon": "Instrument",
+      "collaboration": "Replicant",
+      "weapon_index": 11,
+      "element": "AERO",
+      "positions": [
+        3,
+        4
+      ],
+      "role": 4,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        278,
+        228,
+        178,
+        "mana",
+        78,
+        "retry"
+      ],
+      "defense": [
+        162,
+        132,
+        102,
+        72,
+        "retry",
+        18
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        2
+      ],
+      "barriers": [
+        4
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "89EDC2",
+      "hue": 155,
+      "text": "Près de la fontaine, Devola laisse courir les premières notes du Chant des anciens. Le village ralentit pour écouter. Derrière sa douceur familière, elle garde une mémoire dont personne ne devine encore le poids.",
+      "description": "Près de la fontaine, Devola laisse courir les premières notes du Chant des anciens. Le village ralentit pour écouter. Derrière sa douceur familière, elle garde une mémoire dont personne ne devine encore le poids.",
+      "pngUrl": "/media/created/42252625.png",
+      "psdUrl": "/media/created/42252625.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "44230782",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-44230782",
+      "characterId": "popola-nier",
+      "name": "POPOLA",
+      "title": "Entre les lignes du destin",
+      "job": "BIBLIOTHÉCAIRE",
+      "race": "ANDROID",
+      "faction": "Replicant",
+      "weapon": "Sceptre",
+      "collaboration": "Replicant",
+      "weapon_index": 12,
+      "element": "LUXO",
+      "positions": [
+        4,
+        5
+      ],
+      "role": 5,
+      "sentry": true,
+      "canGuard": true,
+      "canHeal": true,
+      "atk": [
+        168,
+        "guard",
+        "revive",
+        "mana",
+        "retry",
+        22
+      ],
+      "defense": [
+        198,
+        163,
+        128,
+        93,
+        58,
+        24
+      ],
+      "magic": [
+        6
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "F4E9AF",
+      "hue": 47,
+      "text": "À la bibliothèque, Popola referme son dossier pour accueillir Nier. Un conseil lui rend espoir. Ses doigts restent sur la couverture, retenant une vérité trop ancienne.",
+      "description": "À la bibliothèque, Popola referme son dossier pour accueillir Nier. Un conseil lui rend espoir. Ses doigts restent sur la couverture, retenant une vérité trop ancienne.",
+      "pngUrl": "/media/created/44230782.png",
+      "psdUrl": "/media/created/44230782.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "49055457",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-49055457",
+      "characterId": "kaylis",
+      "name": "KAYLIS",
+      "title": "L'ÉLAN DES COULEURS",
+      "job": "COMBATTANTE",
+      "race": "HUMAIN",
+      "faction": "Z13",
+      "weapon": "Katana",
+      "weapon_index": 18,
+      "element": "RAINBOW",
+      "positions": [
+        1,
+        2,
+        3
+      ],
+      "role": 3,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        224,
+        184,
+        144,
+        104,
+        64,
+        28
+      ],
+      "defense": [
+        216,
+        178,
+        138,
+        "dodge",
+        64,
+        28
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "E4D5FB",
+      "hue": 280,
+      "text": "Sur la pierre soulevée par Balmhyr, Kaylis apprend à guider l'élan qui l'emportait. Sa lame dessine une ligne nette ; les couleurs courent sur ses bras. Cette fois, elle ne fuit plus : elle choisit son prochain pas.",
+      "description": "Sur la pierre soulevée par Balmhyr, Kaylis apprend à guider l'élan qui l'emportait. Sa lame dessine une ligne nette ; les couleurs courent sur ses bras. Cette fois, elle ne fuit plus : elle choisit son prochain pas.",
+      "pngUrl": "/media/created/49055457.png",
+      "psdUrl": "/media/created/49055457.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "42746644",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-42746644",
+      "characterId": "baptiste",
+      "name": "BAPTISTE",
+      "title": "LE DERNIER ACCORD",
+      "job": "VIOLONISTE",
+      "race": "VAMP",
+      "faction": "Draevenheim",
+      "weapon": "Instrument",
+      "weapon_index": 11,
+      "element": "HEMATO",
+      "positions": [
+        3
+      ],
+      "role": 3,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        228,
+        186,
+        148,
+        "mana",
+        68,
+        "retry"
+      ],
+      "defense": [
+        224,
+        184,
+        144,
+        104,
+        66,
+        30
+      ],
+      "magic": [
+        6,
+        5,
+        4
+      ],
+      "barriers": [
+        4,
+        2
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "E84976",
+      "hue": 343,
+      "text": "Sous les voûtes de Draevenheim, Baptiste retient la dernière note. Dans la salle, personne n'ose rompre le silence. Son archet repart ; l'élégance du geste ne dit pas encore à qui ce concert est destiné.",
+      "description": "Sous les voûtes de Draevenheim, Baptiste retient la dernière note. Dans la salle, personne n'ose rompre le silence. Son archet repart ; l'élégance du geste ne dit pas encore à qui ce concert est destiné.",
+      "pngUrl": "/media/created/42746644.png",
+      "psdUrl": "/media/created/42746644.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "46167301",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-46167301",
+      "characterId": "sapphire",
+      "name": "SAPPHIRE",
+      "title": "L'HÉRITIÈRE DES ABYSSES",
+      "job": "PRINCESSE",
+      "race": "SIRENA",
+      "faction": "Thalassea",
+      "weapon": "Poing",
+      "weapon_index": 3,
+      "element": "HYDRO",
+      "positions": [
+        1
+      ],
+      "role": 1,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        208,
+        172,
+        136,
+        100,
+        64,
+        30
+      ],
+      "defense": [
+        284,
+        234,
+        184,
+        136,
+        88,
+        42
+      ],
+      "magic": [],
+      "barriers": [
+        6,
+        3
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "38CBED",
+      "hue": 192,
+      "text": "La fille du roi de Thalassea n'attend pas derrière les gardes. Bras ouverts, griffes en avant, Sapphire sourit à ce qui vient. Ruby connaît les courants ; sa sœur sait leur résister.",
+      "description": "La fille du roi de Thalassea n'attend pas derrière les gardes. Bras ouverts, griffes en avant, Sapphire sourit à ce qui vient. Ruby connaît les courants ; sa sœur sait leur résister.",
+      "pngUrl": "/media/created/46167301.png",
+      "psdUrl": "/media/created/46167301.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "48428173",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-48428173",
+      "characterId": "aelis",
+      "name": "AELIS",
+      "title": "LA PRIERE SANS REPONSE",
+      "job": "SOIGNEUSE",
+      "race": "AURELION",
+      "faction": "Solaria",
+      "weapon": "Bâton",
+      "weapon_index": 10,
+      "element": "LUXO",
+      "positions": [
+        3,
+        5
+      ],
+      "role": 5,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": true,
+      "atk": [
+        175,
+        145,
+        115,
+        85,
+        55,
+        "revive"
+      ],
+      "defense": [
+        200,
+        166,
+        132,
+        98,
+        64,
+        30
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3,
+        2
+      ],
+      "barriers": [
+        6,
+        2
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "F4E9AF",
+      "hue": 47,
+      "text": "Aelis a rallumé chaque veilleuse du sanctuaire. Devant la dernière, elle ne demande plus de miracle. Elle reste simplement là, pour que ceux qui reviendront ne trouvent pas la nuit seule à les attendre.",
+      "description": "Aelis a rallumé chaque veilleuse du sanctuaire. Devant la dernière, elle ne demande plus de miracle. Elle reste simplement là, pour que ceux qui reviendront ne trouvent pas la nuit seule à les attendre.",
+      "pngUrl": "/media/created/48428173.png",
+      "psdUrl": "/media/created/48428173.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "49983331",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-49983331",
+      "characterId": "keryn",
+      "name": "KERYN",
+      "title": "PERSONNE SUR L'AUTRE RIVE",
+      "job": "PASSEUR",
+      "race": "KORBOW",
+      "faction": "Nestown",
+      "weapon": "Bâton",
+      "weapon_index": 10,
+      "element": "AERO",
+      "positions": [
+        5
+      ],
+      "role": 5,
+      "sentry": true,
+      "canGuard": true,
+      "canHeal": true,
+      "atk": [
+        160,
+        "retry",
+        96,
+        "guard",
+        49,
+        "revive"
+      ],
+      "defense": [
+        195,
+        160,
+        126,
+        92,
+        "retry",
+        25
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "89EDC2",
+      "hue": 155,
+      "text": "Keryn ramène sa nacelle contre les vents de Nestown. Sous son manteau, les remèdes sont encore secs. Il aurait pu attendre une accalmie, mais quelqu'un, sur l'autre rive, n'avait plus ce temps-là.",
+      "description": "Keryn ramène sa nacelle contre les vents de Nestown. Sous son manteau, les remèdes sont encore secs. Il aurait pu attendre une accalmie, mais quelqu'un, sur l'autre rive, n'avait plus ce temps-là.",
+      "pngUrl": "/media/created/49983331.png",
+      "psdUrl": "/media/created/49983331.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "43434046",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-43434046",
+      "characterId": "brindor",
+      "name": "BRINDOR",
+      "title": "LE POIDS D'UNE GRAINE",
+      "job": "GARDE SEMENCES",
+      "race": "CARNIVERT",
+      "faction": "Arborium",
+      "weapon": "Marteau",
+      "weapon_index": 1,
+      "element": "HERBO",
+      "positions": [
+        1
+      ],
+      "role": 1,
+      "sentry": true,
+      "canGuard": true,
+      "canHeal": false,
+      "atk": [
+        194,
+        160,
+        127,
+        93,
+        "guard",
+        27
+      ],
+      "defense": [
+        289,
+        239,
+        188,
+        137,
+        88,
+        39
+      ],
+      "magic": [
+        5,
+        3
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "89D355",
+      "hue": 100,
+      "text": "La tempête force la porte du grenier d'Arborium. Brindor s'arc-boute et serre contre lui les semences sauvées. Il peut perdre son abri cette nuit ; pas le printemps de ceux qui viendront après lui.",
+      "description": "La tempête force la porte du grenier d'Arborium. Brindor s'arc-boute et serre contre lui les semences sauvées. Il peut perdre son abri cette nuit ; pas le printemps de ceux qui viendront après lui.",
+      "pngUrl": "/media/created/43434046.png",
+      "psdUrl": "/media/created/43434046.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "44077247",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-44077247",
+      "characterId": "asteran",
+      "name": "ASTERAN",
+      "title": "UNE FAILLE DANS LE JUGEMENT",
+      "job": "LIBERATEUR",
+      "race": "AURELION",
+      "faction": "Solaria",
+      "weapon": "Epée longue",
+      "weapon_index": 17,
+      "element": "LUXO",
+      "positions": [
+        2
+      ],
+      "role": 2,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        286,
+        236,
+        186,
+        136,
+        88,
+        "buff_atk"
+      ],
+      "defense": [
+        171,
+        140,
+        108,
+        "dodge",
+        53,
+        23
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        6,
+        2
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "F4E9AF",
+      "hue": 47,
+      "text": "Au seuil de Solaria, Asteran abat sa lame sur la chaîne qui barre le passage aux bannis. Le cristal de sa peau porte déjà une fêlure. Il ne cherche plus à paraître sans faute : il veut que quelqu'un puisse encore espérer.",
+      "description": "Au seuil de Solaria, Asteran abat sa lame sur la chaîne qui barre le passage aux bannis. Le cristal de sa peau porte déjà une fêlure. Il ne cherche plus à paraître sans faute : il veut que quelqu'un puisse encore espérer.",
+      "pngUrl": "/media/created/44077247.png",
+      "psdUrl": "/media/created/44077247.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "48874445",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-48874445",
+      "characterId": "ornelle",
+      "name": "ORNELLE",
+      "title": "LE CHEMIN QUI REPREND RACINE",
+      "job": "TISSEUSE DE PONTS",
+      "race": "CERELF",
+      "faction": "Woodland",
+      "weapon": "Sceptre",
+      "weapon_index": 12,
+      "element": "HERBO",
+      "positions": [
+        4
+      ],
+      "role": 4,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        278,
+        228,
+        179,
+        128,
+        "mana",
+        "retry"
+      ],
+      "defense": [
+        165,
+        135,
+        105,
+        76,
+        49,
+        21
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3
+      ],
+      "barriers": [
+        5,
+        3
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "89D355",
+      "hue": 100,
+      "text": "Sur la berge rompue de Woodland, Ornelle relie les racines. Elles se nouent et cessent de trembler sous le premier pas. Elle sourit enfin : la forêt n'a pas seulement repris du terrain, elle a rendu un chemin.",
+      "description": "Sur la berge rompue de Woodland, Ornelle relie les racines. Elles se nouent et cessent de trembler sous le premier pas. Elle sourit enfin : la forêt n'a pas seulement repris du terrain, elle a rendu un chemin.",
+      "pngUrl": "/media/created/48874445.png",
+      "psdUrl": "/media/created/48874445.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    },
+    {
+      "id": "44263045",
+      "edition": "V4",
+      "referenceKey": null,
+      "origin": "published",
+      "slug": "v4-44263045",
+      "characterId": "tazrik",
+      "name": "TAZRIK",
+      "title": "LE COURANT PASSE ENCORE",
+      "job": "SALTIMBANQUE",
+      "race": "FELINEUS",
+      "faction": "Chroma",
+      "weapon": "Projectile",
+      "weapon_index": 9,
+      "element": "ELECTRO",
+      "positions": [
+        3
+      ],
+      "role": 3,
+      "sentry": true,
+      "canGuard": false,
+      "canHeal": false,
+      "atk": [
+        225,
+        186,
+        145,
+        "buff_atk",
+        68,
+        "retry"
+      ],
+      "defense": [
+        220,
+        "dodge",
+        146,
+        108,
+        70,
+        "retry"
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        4
+      ],
+      "advantage": 30,
+      "disadvantage": 30,
+      "color": "F5DC32",
+      "hue": 53,
+      "text": "Le tonneau roule, une sphère lui échappe et Tazrik éclate de rire. Une étincelle ramène le cuivre dans sa paume. Sur cette petite place de Chroma, même les mauvaises journées finissent parfois par applaudir.",
+      "description": "Le tonneau roule, une sphère lui échappe et Tazrik éclate de rire. Une étincelle ramène le cuivre dans sa paume. Sur cette petite place de Chroma, même les mauvaises journées finissent parfois par applaudir.",
+      "pngUrl": "/media/created/44263045.png",
+      "psdUrl": "/media/created/44263045.psd",
+      "imageWidth": 897,
+      "imageHeight": 1497
+    }
+  ],
+  "elements": {
+    "AERO": {
+      "id": "AERO",
+      "label": "AIR",
+      "strong_against": "HYDRO",
+      "weak_against": "ELECTRO",
+      "color": "89EDC2",
+      "hue": 155
+    },
+    "HYDRO": {
+      "id": "HYDRO",
+      "label": "EAU",
+      "strong_against": "PYRO",
+      "weak_against": "AERO",
+      "color": "38CBED",
+      "hue": 192
+    },
+    "ELECTRO": {
+      "id": "ELECTRO",
+      "label": "ELECTRICITE",
+      "strong_against": "AERO",
+      "weak_against": "MINERO",
+      "color": "F5DC32",
+      "hue": 53
+    },
+    "PYRO": {
+      "id": "PYRO",
+      "label": "FEU",
+      "strong_against": "CRYO",
+      "weak_against": "HYDRO",
+      "color": "FF704A",
+      "hue": 12
+    },
+    "CRYO": {
+      "id": "CRYO",
+      "label": "GLACE",
+      "strong_against": "HERBO",
+      "weak_against": "PYRO",
+      "color": "ACDFFD",
+      "hue": 201
+    },
+    "LUXO": {
+      "id": "LUXO",
+      "label": "LUMIERE",
+      "strong_against": "HEMATO",
+      "weak_against": "NECRO",
+      "color": "F4E9AF",
+      "hue": 47
+    },
+    "MINERO": {
+      "id": "MINERO",
+      "label": "ROCHE",
+      "strong_against": "ELECTRO",
+      "weak_against": "GEO",
+      "color": "B3BFCA",
+      "hue": 210
+    },
+    "HERBO": {
+      "id": "HERBO",
+      "label": "PLANTE",
+      "strong_against": "GEO",
+      "weak_against": "CRYO",
+      "color": "89D355",
+      "hue": 100
+    },
+    "HEMATO": {
+      "id": "HEMATO",
+      "label": "SANG",
+      "strong_against": "NECRO",
+      "weak_against": "LUXO",
+      "color": "E84976",
+      "hue": 343
+    },
+    "NECRO": {
+      "id": "NECRO",
+      "label": "TENEBRES",
+      "strong_against": "LUXO",
+      "weak_against": "HEMATO",
+      "color": "A979F7",
+      "hue": 270
+    },
+    "GEO": {
+      "id": "GEO",
+      "label": "TERRE",
+      "strong_against": "MINERO",
+      "weak_against": "HERBO",
+      "color": "C7AB6D",
+      "hue": 41
+    },
+    "RAINBOW": {
+      "id": "RAINBOW",
+      "label": "RAINBOW",
+      "strong_against": null,
+      "weak_against": null,
+      "color": "E4D5FB",
+      "hue": 280
+    },
+    "NONE": {
+      "id": "NONE",
+      "label": "SANS CRISTAL",
+      "strong_against": null,
+      "weak_against": null,
+      "color": "93AAA5",
+      "hue": 160
+    }
+  },
+  "weapons": {
+    "Hache": {
+      "Hache": 0,
+      "Marteau": 0,
+      "Masse": 0,
+      "Poing": 0,
+      "Fléau": 0,
+      "Arc": -50,
+      "Fouet": -50,
+      "Gun": -50,
+      "Lance": -50,
+      "Projectile": -50,
+      "Bâton": 0,
+      "Instrument": 0,
+      "Sceptre": 0,
+      "Tome": 0,
+      "Orbe": 0,
+      "Dague": 50,
+      "Epée courte": 50,
+      "Epée longue": 50,
+      "Katana": 50,
+      "Faucille": 50
+    },
+    "Marteau": {
+      "Hache": 0,
+      "Marteau": 0,
+      "Masse": 0,
+      "Poing": 0,
+      "Fléau": 0,
+      "Arc": -50,
+      "Fouet": -50,
+      "Gun": -50,
+      "Lance": -50,
+      "Projectile": -50,
+      "Bâton": 0,
+      "Instrument": 0,
+      "Sceptre": 0,
+      "Tome": 0,
+      "Orbe": 0,
+      "Dague": 50,
+      "Epée courte": 50,
+      "Epée longue": 50,
+      "Katana": 50,
+      "Faucille": 50
+    },
+    "Masse": {
+      "Hache": 0,
+      "Marteau": 0,
+      "Masse": 0,
+      "Poing": 0,
+      "Fléau": 0,
+      "Arc": -50,
+      "Fouet": -50,
+      "Gun": -50,
+      "Lance": -50,
+      "Projectile": -50,
+      "Bâton": 0,
+      "Instrument": 0,
+      "Sceptre": 0,
+      "Tome": 0,
+      "Orbe": 0,
+      "Dague": 50,
+      "Epée courte": 50,
+      "Epée longue": 50,
+      "Katana": 50,
+      "Faucille": 50
+    },
+    "Poing": {
+      "Hache": 0,
+      "Marteau": 0,
+      "Masse": 0,
+      "Poing": 0,
+      "Fléau": 0,
+      "Arc": -50,
+      "Fouet": -50,
+      "Gun": -50,
+      "Lance": -50,
+      "Projectile": -50,
+      "Bâton": 0,
+      "Instrument": 0,
+      "Sceptre": 0,
+      "Tome": 0,
+      "Orbe": 0,
+      "Dague": 50,
+      "Epée courte": 50,
+      "Epée longue": 50,
+      "Katana": 50,
+      "Faucille": 50
+    },
+    "Fléau": {
+      "Hache": 0,
+      "Marteau": 0,
+      "Masse": 0,
+      "Poing": 0,
+      "Fléau": 0,
+      "Arc": -50,
+      "Fouet": -50,
+      "Gun": -50,
+      "Lance": -50,
+      "Projectile": -50,
+      "Bâton": 0,
+      "Instrument": 0,
+      "Sceptre": 0,
+      "Tome": 0,
+      "Orbe": 0,
+      "Dague": 50,
+      "Epée courte": 50,
+      "Epée longue": 50,
+      "Katana": 50,
+      "Faucille": 50
+    },
+    "Arc": {
+      "Hache": 50,
+      "Marteau": 50,
+      "Masse": 50,
+      "Poing": 50,
+      "Fléau": 50,
+      "Arc": 0,
+      "Fouet": 0,
+      "Gun": 0,
+      "Lance": 0,
+      "Projectile": 0,
+      "Bâton": -50,
+      "Instrument": -50,
+      "Sceptre": -50,
+      "Tome": -50,
+      "Orbe": -50,
+      "Dague": 0,
+      "Epée courte": 0,
+      "Epée longue": 0,
+      "Katana": 0,
+      "Faucille": 0
+    },
+    "Fouet": {
+      "Hache": 50,
+      "Marteau": 50,
+      "Masse": 50,
+      "Poing": 50,
+      "Fléau": 50,
+      "Arc": 0,
+      "Fouet": 0,
+      "Gun": 0,
+      "Lance": 0,
+      "Projectile": 0,
+      "Bâton": -50,
+      "Instrument": -50,
+      "Sceptre": -50,
+      "Tome": -50,
+      "Orbe": -50,
+      "Dague": 0,
+      "Epée courte": 0,
+      "Epée longue": 0,
+      "Katana": 0,
+      "Faucille": 0
+    },
+    "Gun": {
+      "Hache": 50,
+      "Marteau": 50,
+      "Masse": 50,
+      "Poing": 50,
+      "Fléau": 50,
+      "Arc": 0,
+      "Fouet": 0,
+      "Gun": 0,
+      "Lance": 0,
+      "Projectile": 0,
+      "Bâton": -50,
+      "Instrument": -50,
+      "Sceptre": -50,
+      "Tome": -50,
+      "Orbe": -50,
+      "Dague": 0,
+      "Epée courte": 0,
+      "Epée longue": 0,
+      "Katana": 0,
+      "Faucille": 0
+    },
+    "Lance": {
+      "Hache": 50,
+      "Marteau": 50,
+      "Masse": 50,
+      "Poing": 50,
+      "Fléau": 50,
+      "Arc": 0,
+      "Fouet": 0,
+      "Gun": 0,
+      "Lance": 0,
+      "Projectile": 0,
+      "Bâton": -50,
+      "Instrument": -50,
+      "Sceptre": -50,
+      "Tome": -50,
+      "Orbe": -50,
+      "Dague": 0,
+      "Epée courte": 0,
+      "Epée longue": 0,
+      "Katana": 0,
+      "Faucille": 0
+    },
+    "Projectile": {
+      "Hache": 50,
+      "Marteau": 50,
+      "Masse": 50,
+      "Poing": 50,
+      "Fléau": 50,
+      "Arc": 0,
+      "Fouet": 0,
+      "Gun": 0,
+      "Lance": 0,
+      "Projectile": 0,
+      "Bâton": -50,
+      "Instrument": -50,
+      "Sceptre": -50,
+      "Tome": -50,
+      "Orbe": -50,
+      "Dague": 0,
+      "Epée courte": 0,
+      "Epée longue": 0,
+      "Katana": 0,
+      "Faucille": 0
+    },
+    "Bâton": {
+      "Hache": 0,
+      "Marteau": 0,
+      "Masse": 0,
+      "Poing": 0,
+      "Fléau": 0,
+      "Arc": 50,
+      "Fouet": 50,
+      "Gun": 50,
+      "Lance": 50,
+      "Projectile": 50,
+      "Bâton": 0,
+      "Instrument": 0,
+      "Sceptre": 0,
+      "Tome": 0,
+      "Orbe": 0,
+      "Dague": -50,
+      "Epée courte": -50,
+      "Epée longue": -50,
+      "Katana": -50,
+      "Faucille": -50
+    },
+    "Instrument": {
+      "Hache": 0,
+      "Marteau": 0,
+      "Masse": 0,
+      "Poing": 0,
+      "Fléau": 0,
+      "Arc": 50,
+      "Fouet": 50,
+      "Gun": 50,
+      "Lance": 50,
+      "Projectile": 50,
+      "Bâton": 0,
+      "Instrument": 0,
+      "Sceptre": 0,
+      "Tome": 0,
+      "Orbe": 0,
+      "Dague": -50,
+      "Epée courte": -50,
+      "Epée longue": -50,
+      "Katana": -50,
+      "Faucille": -50
+    },
+    "Sceptre": {
+      "Hache": 0,
+      "Marteau": 0,
+      "Masse": 0,
+      "Poing": 0,
+      "Fléau": 0,
+      "Arc": 50,
+      "Fouet": 50,
+      "Gun": 50,
+      "Lance": 50,
+      "Projectile": 50,
+      "Bâton": 0,
+      "Instrument": 0,
+      "Sceptre": 0,
+      "Tome": 0,
+      "Orbe": 0,
+      "Dague": -50,
+      "Epée courte": -50,
+      "Epée longue": -50,
+      "Katana": -50,
+      "Faucille": -50
+    },
+    "Tome": {
+      "Hache": 0,
+      "Marteau": 0,
+      "Masse": 0,
+      "Poing": 0,
+      "Fléau": 0,
+      "Arc": 50,
+      "Fouet": 50,
+      "Gun": 50,
+      "Lance": 50,
+      "Projectile": 50,
+      "Bâton": 0,
+      "Instrument": 0,
+      "Sceptre": 0,
+      "Tome": 0,
+      "Orbe": 0,
+      "Dague": -50,
+      "Epée courte": -50,
+      "Epée longue": -50,
+      "Katana": -50,
+      "Faucille": -50
+    },
+    "Orbe": {
+      "Hache": 0,
+      "Marteau": 0,
+      "Masse": 0,
+      "Poing": 0,
+      "Fléau": 0,
+      "Arc": 50,
+      "Fouet": 50,
+      "Gun": 50,
+      "Lance": 50,
+      "Projectile": 50,
+      "Bâton": 0,
+      "Instrument": 0,
+      "Sceptre": 0,
+      "Tome": 0,
+      "Orbe": 0,
+      "Dague": -50,
+      "Epée courte": -50,
+      "Epée longue": -50,
+      "Katana": -50,
+      "Faucille": -50
+    },
+    "Dague": {
+      "Hache": -50,
+      "Marteau": -50,
+      "Masse": -50,
+      "Poing": -50,
+      "Fléau": -50,
+      "Arc": 0,
+      "Fouet": 0,
+      "Gun": 0,
+      "Lance": 0,
+      "Projectile": 0,
+      "Bâton": 50,
+      "Instrument": 50,
+      "Sceptre": 50,
+      "Tome": 50,
+      "Orbe": 50,
+      "Dague": 0,
+      "Epée courte": 0,
+      "Epée longue": 0,
+      "Katana": 0,
+      "Faucille": 0
+    },
+    "Epée courte": {
+      "Hache": -50,
+      "Marteau": -50,
+      "Masse": -50,
+      "Poing": -50,
+      "Fléau": -50,
+      "Arc": 0,
+      "Fouet": 0,
+      "Gun": 0,
+      "Lance": 0,
+      "Projectile": 0,
+      "Bâton": 50,
+      "Instrument": 50,
+      "Sceptre": 50,
+      "Tome": 50,
+      "Orbe": 50,
+      "Dague": 0,
+      "Epée courte": 0,
+      "Epée longue": 0,
+      "Katana": 0,
+      "Faucille": 0
+    },
+    "Epée longue": {
+      "Hache": -50,
+      "Marteau": -50,
+      "Masse": -50,
+      "Poing": -50,
+      "Fléau": -50,
+      "Arc": 0,
+      "Fouet": 0,
+      "Gun": 0,
+      "Lance": 0,
+      "Projectile": 0,
+      "Bâton": 50,
+      "Instrument": 50,
+      "Sceptre": 50,
+      "Tome": 50,
+      "Orbe": 50,
+      "Dague": 0,
+      "Epée courte": 0,
+      "Epée longue": 0,
+      "Katana": 0,
+      "Faucille": 0
+    },
+    "Katana": {
+      "Hache": -50,
+      "Marteau": -50,
+      "Masse": -50,
+      "Poing": -50,
+      "Fléau": -50,
+      "Arc": 0,
+      "Fouet": 0,
+      "Gun": 0,
+      "Lance": 0,
+      "Projectile": 0,
+      "Bâton": 50,
+      "Instrument": 50,
+      "Sceptre": 50,
+      "Tome": 50,
+      "Orbe": 50,
+      "Dague": 0,
+      "Epée courte": 0,
+      "Epée longue": 0,
+      "Katana": 0,
+      "Faucille": 0
+    },
+    "Faucille": {
+      "Hache": -50,
+      "Marteau": -50,
+      "Masse": -50,
+      "Poing": -50,
+      "Fléau": -50,
+      "Arc": 0,
+      "Fouet": 0,
+      "Gun": 0,
+      "Lance": 0,
+      "Projectile": 0,
+      "Bâton": 50,
+      "Instrument": 50,
+      "Sceptre": 50,
+      "Tome": 50,
+      "Orbe": 50,
+      "Dague": 0,
+      "Epée courte": 0,
+      "Epée longue": 0,
+      "Katana": 0,
+      "Faucille": 0
+    }
+  },
+  "arenas": [
+    {
+      "id": "aero",
+      "name": "Les ponts de Nestown",
+      "subtitle": "Passerelles et cloches au-dessus des nuages",
+      "image": "/jeu/assets/arenas/aero.webp",
+      "element": "AERO",
+      "elementBonus": 15,
+      "homeCharacters": [
+        "cana",
+        "scrow",
+        "soryn"
+      ],
+      "homeAttack": 10,
+      "homeDefense": 10,
+      "source": "V2 Nestown ; architecture du Guide complet des mondes, scene de lieu proposee V3"
+    },
+    {
+      "id": "hydro",
+      "name": "Les portes de Thalassea",
+      "subtitle": "Arches immergees et bassin des marees",
+      "image": "/jeu/assets/arenas/hydro.webp",
+      "element": "HYDRO",
+      "elementBonus": 15,
+      "homeCharacters": [
+        "julienne",
+        "ruby"
+      ],
+      "homeAttack": 10,
+      "homeDefense": 10,
+      "source": "V2 Thalassea ; Guide complet des mondes, region Eau ; lieu de Julienne extrapole"
+    },
+    {
+      "id": "electro",
+      "name": "La decharge de Chroma",
+      "subtitle": "Carillons oublies et rails conducteurs",
+      "image": "/jeu/assets/arenas/electro.webp",
+      "element": "ELECTRO",
+      "elementBonus": 15,
+      "homeCharacters": [
+        "momo",
+        "taulio"
+      ],
+      "homeAttack": 10,
+      "homeDefense": 10,
+      "source": "V2 Momo et Taulio ; faction Chroma conservee selon confirmation utilisateur V2"
+    },
+    {
+      "id": "pyro",
+      "name": "La grande forge de Vulkar",
+      "subtitle": "Ponts de basalte et vannes de lave",
+      "image": "/jeu/assets/arenas/pyro.webp",
+      "element": "PYRO",
+      "elementBonus": 15,
+      "homeCharacters": [
+        "darnako",
+        "polux"
+      ],
+      "homeAttack": 10,
+      "homeDefense": 10,
+      "source": "Classeur Vulkar et Guide complet des mondes, region Feu ; aire de combat proposee"
+    },
+    {
+      "id": "cryo",
+      "name": "Le lac de Niveria",
+      "subtitle": "Memoires sous le givre",
+      "image": "/jeu/assets/arenas/cryo.webp",
+      "element": "CRYO",
+      "elementBonus": 15,
+      "homeCharacters": [
+        "malinia"
+      ],
+      "homeAttack": 10,
+      "homeDefense": 10,
+      "source": "V2 Niveria ; extension originale du lieu de Malinia"
+    },
+    {
+      "id": "luxo",
+      "name": "Le sanctuaire de Solaria",
+      "subtitle": "Lanternes et archives de lumiere",
+      "image": "/jeu/assets/arenas/luxo.webp",
+      "element": "LUXO",
+      "elementBonus": 15,
+      "homeCharacters": [
+        "aelis",
+        "iliane"
+      ],
+      "homeAttack": 10,
+      "homeDefense": 10,
+      "source": "V2 Solaria ; Guide complet des mondes, region Lumiere"
+    },
+    {
+      "id": "minero",
+      "name": "Les terrasses de Canyonero",
+      "subtitle": "La pierre et le minerai de Durane",
+      "image": "/jeu/assets/arenas/minero.webp",
+      "element": "MINERO",
+      "elementBonus": 15,
+      "homeCharacters": [
+        "balmhyr",
+        "lok",
+        "magnar"
+      ],
+      "homeAttack": 10,
+      "homeDefense": 10,
+      "source": "Histoire chapitres 7-10 et Guide complet des mondes ; aire de combat proposee"
+    },
+    {
+      "id": "herbo",
+      "name": "La serre d Arborium",
+      "subtitle": "Racines anciennes et nouvelles pousses",
+      "image": "/jeu/assets/arenas/herbo.webp",
+      "element": "HERBO",
+      "elementBonus": 15,
+      "homeCharacters": [
+        "victorvine",
+        "bloom",
+        "thalie"
+      ],
+      "homeAttack": 10,
+      "homeDefense": 10,
+      "source": "V2 Arborium ; Guide complet des mondes, region Plante ; serre proposee"
+    },
+    {
+      "id": "hemato",
+      "name": "Les grilles de Draevenheim",
+      "subtitle": "Le passage des serments",
+      "image": "/jeu/assets/arenas/hemato.webp",
+      "element": "HEMATO",
+      "elementBonus": 15,
+      "homeCharacters": [
+        "verminia",
+        "seraphina"
+      ],
+      "homeAttack": 10,
+      "homeDefense": 10,
+      "source": "V2 Draevenheim ; Guide complet des mondes, region Sang"
+    },
+    {
+      "id": "necro",
+      "name": "Le quai de Cryptown",
+      "subtitle": "Cendres et dernier amarrage",
+      "image": "/jeu/assets/arenas/necro.webp",
+      "element": "NECRO",
+      "elementBonus": 15,
+      "homeCharacters": [
+        "zviri",
+        "valazar",
+        "capitaine-skully"
+      ],
+      "homeAttack": 10,
+      "homeDefense": 10,
+      "source": "Classeur Cryptown ; quai invente pour la scene de Skully"
+    },
+    {
+      "id": "geo",
+      "name": "Les remparts de Zarok",
+      "subtitle": "Routes et canaux du peuple Rhinoz",
+      "image": "/jeu/assets/arenas/geo.webp",
+      "element": "GEO",
+      "elementBonus": 15,
+      "homeCharacters": [
+        "nazar",
+        "belrog",
+        "gilmarr"
+      ],
+      "homeAttack": 10,
+      "homeDefense": 10,
+      "source": "Histoire chapitre 10, village de Zarok ; affinites de jeu proposees"
+    },
+    {
+      "id": "rainbow",
+      "name": "Le seuil du Temple",
+      "subtitle": "La lumiere des douze cristaux",
+      "image": "/jeu/assets/arenas/rainbow.webp",
+      "element": "RAINBOW",
+      "elementBonus": 15,
+      "homeCharacters": [
+        "kaylis"
+      ],
+      "homeAttack": 10,
+      "homeDefense": 10,
+      "source": "Classeur Ville, Temple et Rainbow ; lieu et affinite Kaylis symboliques inventes, pas un voyage canonique"
+    },
+    {
+      "id": "z13",
+      "name": "La Gueule Fumante",
+      "subtitle": "Un refuge au fond de la mine",
+      "image": "/jeu/assets/arenas/z13.webp",
+      "element": null,
+      "elementBonus": 0,
+      "homeCharacters": [
+        "kaylis",
+        "lanio",
+        "malaba",
+        "gen",
+        "kognus",
+        "reevus",
+        "xiaomi",
+        "voloden"
+      ],
+      "homeAttack": 10,
+      "homeDefense": 10,
+      "source": "Histoire Le Reveil V2, chapitre 1, La Gueule Fumante et Z13 ; lieu sans bonus de cristal"
+    },
+    {
+      "id": "trone-fer",
+      "name": "Le Trone de Fer",
+      "subtitle": "Le Conseil des Zones",
+      "image": "/jeu/assets/arenas/trone-fer.webp",
+      "element": null,
+      "elementBonus": 0,
+      "homeCharacters": [
+        "balmhyr",
+        "lok",
+        "voloden"
+      ],
+      "homeAttack": 10,
+      "homeDefense": 10,
+      "source": "Histoire chapitres 16-17, Tour de Fer et Conseil ; titre de lieu de jeu Trone de Fer"
+    },
+    {
+      "id": "astraball",
+      "name": "Le terrain de Zarok",
+      "subtitle": "La place dans l equipe",
+      "image": "/jeu/assets/arenas/astraball.webp",
+      "element": null,
+      "elementBonus": 0,
+      "homeCharacters": [
+        "lanio",
+        "gilmarr",
+        "nazar"
+      ],
+      "homeAttack": 10,
+      "homeDefense": 10,
+      "source": "Histoire chapitres 10-12, Astraball a Zarok ; affinite Nazar, hote local, proposee"
+    },
+    {
+      "id": "ruins",
+      "name": "Les ruines silencieuses",
+      "subtitle": "Terrain neutre",
+      "image": "/jeu/assets/arenas/ruins.webp",
+      "element": null,
+      "elementBonus": 0,
+      "homeCharacters": [],
+      "homeAttack": 0,
+      "homeDefense": 0,
+      "source": "Terrain de test invente V3, aucun bonus"
+    },
+    {
+      "id": "ff7-midgar",
+      "name": "MIDGAR",
+      "subtitle": "Sous les plaques",
+      "image": "/jeu/assets/arenes/ff7-midgar.png",
+      "element": "ELECTRO",
+      "elementBonus": 15,
+      "homeCharacters": [
+        "cloud-ff7",
+        "barret-ff7",
+        "tifa-ff7",
+        "aeris-ff7"
+      ],
+      "homeAttack": 10,
+      "homeDefense": 10,
+      "source": "Final Fantasy VII (FF7) : collaboration privee non officielle avec Kalistar."
+    },
+    {
+      "id": "ff7-cosmo-canyon",
+      "name": "COSMO CANYON",
+      "subtitle": "La memoire de la planete",
+      "image": "/jeu/assets/arenes/ff7-cosmo-canyon.png",
+      "element": "GEO",
+      "elementBonus": 15,
+      "homeCharacters": [
+        "red-xiii-ff7",
+        "cait-sith-ff7",
+        "cid-ff7"
+      ],
+      "homeAttack": 10,
+      "homeDefense": 10,
+      "source": "Final Fantasy VII (FF7) : collaboration privee non officielle avec Kalistar."
+    },
+    {
+      "id": "ff8-balamb-garden",
+      "name": "BALAMB GARDEN",
+      "subtitle": "Ceux qui grandissent ensemble",
+      "image": "/jeu/assets/arenes/ff8-balamb-garden.png",
+      "element": "AERO",
+      "elementBonus": 15,
+      "homeCharacters": [
+        "squall-ff8",
+        "zell-ff8",
+        "linoa-ff8",
+        "irvine-ff8",
+        "quistis-ff8",
+        "selphie-ff8"
+      ],
+      "homeAttack": 10,
+      "homeDefense": 10,
+      "source": "Final Fantasy VIII (FF8) : collaboration privee non officielle ; lieu et affinites reinterpretes par des fans."
+    },
+    {
+      "id": "ff8-deling-parade",
+      "name": "DELING CITY",
+      "subtitle": "La nuit des promesses brisees",
+      "image": "/jeu/assets/arenes/ff8-deling-parade.png",
+      "element": "CRYO",
+      "elementBonus": 15,
+      "homeCharacters": [
+        "edea-ff8",
+        "seifer-ff8",
+        "irvine-ff8",
+        "laguna-ff8"
+      ],
+      "homeAttack": 10,
+      "homeDefense": 10,
+      "source": "Final Fantasy VIII (FF8) : collaboration privee non officielle ; lieu et affinites reinterpretes par des fans."
+    },
+    {
+      "id": "nier-city-ruins",
+      "name": "RUINES DE LA CITE",
+      "subtitle": "La vie entre les tours brisees",
+      "image": "/jeu/assets/arenes/nier-city-ruins.png",
+      "element": "HERBO",
+      "elementBonus": 15,
+      "homeCharacters": [
+        "2b-nier",
+        "9s-nier",
+        "anemone-nier"
+      ],
+      "homeAttack": 10,
+      "homeDefense": 10,
+      "source": "NieR:Automata : collaboration privee non officielle ; lieu et affinites reinterpretes par des fans."
+    },
+    {
+      "id": "nier-amusement-park",
+      "name": "FETE FORAINE",
+      "subtitle": "Les lumieres d'une fete sans fin",
+      "image": "/jeu/assets/arenes/nier-amusement-park.png",
+      "element": "HEMATO",
+      "elementBonus": 15,
+      "homeCharacters": [
+        "simone-nier"
+      ],
+      "homeAttack": 10,
+      "homeDefense": 10,
+      "source": "NieR:Automata : collaboration privee non officielle ; lieu et affinites reinterpretes par des fans."
+    },
+    {
+      "id": "replicant-village",
+      "name": "VILLAGE DE NIER",
+      "subtitle": "Un matin avant le départ",
+      "image": "/jeu/assets/arenes/replicant-village.png",
+      "element": "AERO",
+      "elementBonus": 15,
+      "homeCharacters": [
+        "nier-replicant",
+        "kaine-replicant",
+        "devola-nier",
+        "popola-nier"
+      ],
+      "homeAttack": 10,
+      "homeDefense": 10,
+      "source": "NieR Replicant : collaboration privée non officielle ; village, place de la fontaine et bibliothèque réinterprétés en peinture Kalistar. Affinités de jeu proposées."
+    }
+  ],
+  "rules": {
+    "version": "V1 - prototype",
+    "deck_size": 10,
+    "positions": {
+      "1": "Tank",
+      "2": "DPS physique",
+      "3": "Middle",
+      "4": "DPS magique",
+      "5": "Support / Healer"
+    },
+    "rainbow_limit": 1,
+    "weapon_modifier": 50,
+    "barrier": 30,
+    "synergy": [
+      0,
+      0,
+      10,
+      20,
+      30,
+      40
+    ],
+    "faction_stat": "ATK",
+    "race_stat": "DEF",
+    "ties": "defender survives",
+    "special_effects": "resolve separately; numeric model never treats an effect as zero"
+  },
+  "demo": {
+    "version": "V4",
+    "schema": 6,
+    "copy_limit": 2,
+    "rainbow_limit": 1,
+    "deck_size": 10,
+    "token_bonus": 60,
+    "max_turns": 200,
+    "storage": {
+      "namespace": "kalistar.v3.",
+      "database": "kalistar-v3-cards",
+      "instancePattern": "K3-<id>-001",
+      "rejectV2Saves": true
+    },
+    "roster": {
+      "cards": 41,
+      "characters": 40,
+      "onlyMultipleVersionCharacter": "momo"
+    },
+    "roles": {
+      "1": "Tank",
+      "2": "DPS physique",
+      "3": "Middle",
+      "4": "DPS magique / distance",
+      "5": "Support / Healer"
+    },
+    "roleBounds": {
+      "1": {
+        "atk": [
+          210,
+          175,
+          140,
+          105,
+          70,
+          35
+        ],
+        "defense": [
+          300,
+          250,
+          200,
+          150,
+          100,
+          50
+        ]
+      },
+      "2": {
+        "atk": [
+          300,
+          250,
+          200,
+          150,
+          100,
+          50
+        ],
+        "defense": [
+          180,
+          150,
+          120,
+          90,
+          60,
+          30
+        ]
+      },
+      "3": {
+        "atk": [
+          240,
+          200,
+          160,
+          120,
+          80,
+          40
+        ],
+        "defense": [
+          240,
+          200,
+          160,
+          120,
+          80,
+          40
+        ]
+      },
+      "4": {
+        "atk": [
+          300,
+          250,
+          200,
+          150,
+          100,
+          50
+        ],
+        "defense": [
+          180,
+          150,
+          120,
+          90,
+          60,
+          30
+        ]
+      },
+      "5": {
+        "atk": [
+          180,
+          150,
+          120,
+          90,
+          60,
+          30
+        ],
+        "defense": [
+          210,
+          175,
+          140,
+          105,
+          70,
+          35
+        ]
+      }
+    },
+    "crystalMatchups": {
+      "classicAgainstNone": 20,
+      "rainbowAgainstNone": 30,
+      "noneAgainstCrystal": 0,
+      "rainbowAgainstClassic": 40,
+      "classicAgainstRainbow": -40,
+      "classicCycles": "V2 inchanges, voir elements.json",
+      "rainbowAgainstRainbow": 0,
+      "noneAgainstNone": 0
+    },
+    "arena": {
+      "elementBonus": 15,
+      "homeAttack": 10,
+      "homeDefense": 10,
+      "maxAttack": 25,
+      "maxDefense": 10,
+      "onlyNumeric": true,
+      "lockedAfterSetup": true,
+      "homeKey": "characterId",
+      "noneCountsAsCrystal": false
+    },
+    "buffPolicy": {
+      "revision": "stacked-buffs-20260914",
+      "categories": [
+        "ward",
+        "luck",
+        "reraise",
+        "mana",
+        "physical"
+      ],
+      "maxChargesPerCategory": 1,
+      "defenseOrder": [
+        "ward",
+        "luck",
+        "reraise"
+      ],
+      "automatic": true
+    },
+    "physical": {
+      "face": "buff_atk",
+      "phase": "physical",
+      "trait": "physical",
+      "value": 60,
+      "targets": "living-ally-including-self",
+      "consumeOn": "next-numeric-physical-attack",
+      "stacking": "one-per-category"
+    },
+    "guard": {
+      "face": "guard",
+      "phase": "guard",
+      "trait": "ward",
+      "value": 60,
+      "targets": "living-ally-including-self",
+      "requires": "canGuard",
+      "allowedRoles": [
+        1,
+        5
+      ],
+      "consumeOn": "next-numeric-defense-against-physical-attack",
+      "persistAcrossDuelRerolls": true,
+      "deathBypasses": true,
+      "nonConsumingResults": [
+        "magic",
+        "dodge",
+        "death"
+      ],
+      "stacking": "one-per-category"
+    },
+    "reraise": {
+      "face": "revive",
+      "requires": "canHeal",
+      "allowedRoles": [
+        5
+      ],
+      "targets": "living-ally-including-self",
+      "consumeOn": "next-elimination-including-death",
+      "returnFromGraveyard": false,
+      "stacking": "one-per-category"
+    },
+    "conventions": [
+      "41 cartes et 40 personnages. Momo seul possede deux versions. Deux exemplaires par version au maximum et une seule Rainbow par deck. Les presets couvrent l ensemble du repertoire.",
+      "Le joueur commence. Les roles alternent apres chaque duel ou action de soutien.",
+      "P1 tank ; P2 DPS physique ; P3 middle ; P4 DPS magique ou distance ; P5 support. Une position ne donne pas de bonus statistique automatique. Les deux Momo restent compatibles P3/P4.",
+      "NONE signifie sans cristal : sentry=false, magic=[], barriers=[], attaque physique seulement. Aucun halo ni barriere elementaire. Gen et Scrow utilisent des attaques de distance physiques en P4.",
+      "Un cristal classique contre NONE ajoute +20 ATK, Rainbow contre NONE +30 ATK, NONE contre cristal 0. Rainbow contre classique +40 et retour classique -40. Les cycles classiques et la matrice armes rouge/vert V2 restent identiques.",
+      "Les cinq categories Reraise, trefle, mana, puissance physique et ward sont cumulables, avec une seule charge par categorie. Ordre automatique : ward dans la DEF, puis trefle si le score est insuffisant, puis Reraise si l elimination persiste. Les synergies et bonus de lieu restent cumulables.",
+      "Garde est uniquement une face ATK, reservee aux canGuard=true, P1 ou certains P5. Elle remplace l attaque, ouvre la phase guard et attribue ward=60 a un allie vivant du plateau, auteur compris. Aucun bouclier special en DEF dans le repertoire V3.",
+      "Ward ajoute +60 DEF a la prochaine defense numerique contre une ATK physique puis est consomme une seule fois. Magie, esquive et Mort ne le consomment pas. Mort contourne ward. Une relance DEF du meme duel conserve le +60 deja applique, sans seconde consommation.",
+      "La potion magique remplace l attaque et attribue +60 sur la prochaine attaque numerique magique d un allie vivant, auteur compris. La puissance physique ouvre la phase physical et s attribue aussi a un allie vivant du plateau, auteur compris, pour sa prochaine attaque numerique physique. Le jet numerique du type concerne consomme le trait meme si la cible esquive.",
+      "Reraise, face technique revive, est reserve aux soigneurs canHeal=true de role principal P5. Il protege un allie vivant, auteur compris, de sa prochaine elimination meme par Mort ; la carte reste en place. Aucun retour du cimetiere. Il peut etre regagne apres consommation.",
+      "Le trefle en ATK est un soutien attribuable a un allie vivant, auteur compris. Si la DEF finale est strictement inferieure a l ATK numerique, il est consomme et relance le de DEF. Egalite, defense suffisante et esquive le conservent. Mort ne le declenche pas.",
+      "La face retry en DEF relance immediatement sans jeton. Les jets continuent jusqu a resolution. Les modificateurs et la barriere du nouveau jet sont recalcules ; un ward deja utilise dans ce duel est conserve dans sa formule.",
+      "Esquive annule une attaque, y compris Mort. Une barriere ordinaire de -30 ne neutralise pas Mort. Les anciens shields DEF physiques ou magiques ne figurent sur aucune carte V3.",
+      "Les arenes donnent +15 ATK au cristal correspondant, +10 ATK/+10 DEF aux characterId locaux. Plafond +25 ATK/+10 DEF, symetrique pour les deux camps, uniquement sur scores numeriques. Aucune affinite elementaire NONE. Le lieu est verrouille apres setup.",
+      "Les remplacements compatibles sont effectues avant le duel suivant. Aucun deplacement de carte vivante hors formation initiale. Defaite si plateau vide et aucune reserve compatible ; match nul de demo apres 200 echanges.",
+      "V3 utilise schema 6, namespace kalistar.v3., DB kalistar-v3-cards et instances K3-<id>-001. Refuser une partie V2 avec message explicite ; aucun import V2 silencieux et aucune ecriture dans les statistiques V2.",
+      "Mode local a deux joueurs ou IA lisant le plateau public sans connaissance des jets futurs. Graine reproductible."
+    ],
+    "source_specials": "main/Kalistar.xlsx, Capacite Speciale B2:G9 ; CONTRAT_V3.md prioritaire pour Garde et Reraise",
+    "status": "Profils V3 reequilibres par poste, tests de repertoire automatises ; equilibrage empirique en parties a poursuivre."
+  },
+  "decks": {
+    "player": [
+      "42139493",
+      "46695200",
+      "48210516",
+      "45410910",
+      "30000001",
+      "30000013",
+      "30000005",
+      "30000002",
+      "30000021",
+      "30000012"
+    ],
+    "enemy": [
+      "42139493",
+      "46695200",
+      "48210516",
+      "45410910",
+      "30000008",
+      "30000005",
+      "30000011",
+      "30000019",
+      "30000009",
+      "30000017"
+    ],
+    "presets": [
+      {
+        "id": "z13",
+        "name": "Les chemins de la Z13 - V4",
+        "cards": [
+          "42139493",
+          "46695200",
+          "48210516",
+          "45410910",
+          "30000021",
+          "30000022",
+          "30000023",
+          "30000025",
+          "30000026",
+          "30000027"
+        ]
+      },
+      {
+        "id": "cites",
+        "name": "Les cites en eveil - V4",
+        "cards": [
+          "42139493",
+          "46695200",
+          "48210516",
+          "45410910",
+          "30000015",
+          "30000020",
+          "30000024",
+          "30000021",
+          "30000032",
+          "30000033"
+        ]
+      },
+      {
+        "id": "frontieres",
+        "name": "Les frontieres vivantes - V4",
+        "cards": [
+          "42139493",
+          "46695200",
+          "48210516",
+          "45410910",
+          "30000036",
+          "30000038",
+          "30000039",
+          "30000040",
+          "30000041",
+          "30000018"
+        ]
+      },
+      {
+        "id": "ff7-set-01",
+        "name": "FF7 - Les voix de la planete",
+        "cards": [
+          "47208326",
+          "43698921",
+          "46437046",
+          "48210516",
+          "42139493",
+          "46695200",
+          "41055247",
+          "46129541",
+          "41698138",
+          "41693428"
+        ]
+      },
+      {
+        "id": "ff8-set-01-a",
+        "name": "FF8 - Les liens retrouves",
+        "cards": [
+          "45410910",
+          "48933308",
+          "45513029",
+          "48704873",
+          "49163588",
+          "49134060",
+          "47264450",
+          "43695729",
+          "44143252",
+          "47842924"
+        ]
+      },
+      {
+        "id": "ff8-set-01-b",
+        "name": "FF8 - Les promesses du Garden",
+        "cards": [
+          "45410910",
+          "48933308",
+          "45513029",
+          "48704873",
+          "49163588",
+          "40976482",
+          "49134060",
+          "46860270",
+          "44143252",
+          "47842924"
+        ]
+      }
+    ]
+  }
+}

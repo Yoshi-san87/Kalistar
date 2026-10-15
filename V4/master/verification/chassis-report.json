@@ -1,0 +1,25 @@
+{
+  "checks": {
+    "bottomAndTextUnchanged": true,
+    "illustrationCoreUnchanged": true,
+    "psdReexportIdentical": true,
+    "approvedMomoUnchanged": true,
+    "barcodeStraightAcrossEntireWidth": true,
+    "noOldBarcodeAlongEdges": false,
+    "statContentsUnchanged": true,
+    "textsUnchanged": true,
+    "geometryLocked": true,
+    "barcodeNativeAndEnlarged": true
+  },
+  "metrics": {
+    "bottomChangedPixels": 0,
+    "artCoreChangedPixels": 0,
+    "barcode": {
+      "inconsistentRowPixels": 0,
+      "assetMismatch": 0,
+      "dirtyGutter": 1
+    }
+  },
+  "status": "visual-proof-awaiting-user-review",
+  "note": "These tests establish data, registration and barcode integrity, not aesthetic approval. The previous Taulio was rejected despite passing technical tests."
+}

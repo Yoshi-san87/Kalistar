@@ -1,0 +1,84 @@
+{
+  "passed": true,
+  "parent": "48b5fca95f276536d70287854b54c0541c908141",
+  "tests": 1185,
+  "checked": [
+    {
+      "file": "V4/deploy/browser.test.cjs",
+      "sha256": "56a96c73ff26e414e832fdc117ae3358c469687c7bbac1bfe411bdd98f8815f3"
+    },
+    {
+      "file": "V4/deploy/build.test.cjs",
+      "sha256": "1782095078ae23a6ded11a40190c749683ab6602e3374495bdea52dee10ea0e4"
+    },
+    {
+      "file": "V4/revisions/2026-10-14-collection-integrated-dial/README.md",
+      "sha256": "636bcac66126f355f7a6260f2e15f99f6c31b438a32a9860540c3602eef44977"
+    },
+    {
+      "file": "V4/site/README.md",
+      "sha256": "2f39dfed778cf8c60023b7ab6b4e809a05227aa4aa1e56b2e821166d802fb014"
+    },
+    {
+      "file": "V4/site/browser.test.cjs",
+      "sha256": "285392a03ad9d362298c353337f031afdba1d1ab9015ea2080ed33da67288782"
+    },
+    {
+      "file": "V4/site/collection-binder.css",
+      "sha256": "250b858918b337e81db8da593bc43a78c1af4c92b506449c9f3bbc9c87bfa641"
+    },
+    {
+      "file": "V4/site/collection-binder.js",
+      "sha256": "9ee0c80fcfc0638096adce4d55110fabc0309edd3b58d6daae5144e6409cc234"
+    },
+    {
+      "file": "V4/site/collection-map.browser.test.cjs",
+      "sha256": "4d70c3ec75a6b2849cb781d760f184aec829cfdca97a61f8bee10b7ccb0c3c30"
+    },
+    {
+      "file": "V4/site/collection-pedestal.css",
+      "sha256": "bd98866a9103b4c0ed7e91256499f0257c54b51be744eb427912429f1a5193fb"
+    },
+    {
+      "file": "V4/site/collection-versions.test.cjs",
+      "sha256": "5ee55cdbb5a97ccb6d59a79a7d2e046ce2f654dab59190a70ae22c0cf3914f0f"
+    },
+    {
+      "file": "V4/site/index.html",
+      "sha256": "f58851d06eeb796d0aa24451e5f0ce5666775f9d737211ca568eab3a5d336ddb"
+    },
+    {
+      "file": "V4/site/mobile.css",
+      "sha256": "360f2b4a6b8b2aec5e824862c177767b2cd1a0dbbb71efb9ccbc253b38a149e0"
+    },
+    {
+      "file": "V4/site/performance-contracts.browser.test.cjs",
+      "sha256": "7847219d2328ca3c4dd744d52bd75815ee0765eef3fd95333d8a870140596c4f"
+    },
+    {
+      "file": "V4/site/positions.css",
+      "sha256": "65eb13e41633e47dcc122dc83af274be2457fdbd48092d9891823a42341df689"
+    },
+    {
+      "file": "V4/site/ui-system.test.cjs",
+      "sha256": "b490ca68c5620130ad450348ec627f9753cd7e0736bc699ca07bba814ce1c4f8"
+    },
+    {
+      "file": "V4/site/v4.css",
+      "sha256": "3d33bad72dc893a765e4691452b114b3d39dd65498a407adeedfa6a91dfd7e33"
+    },
+    {
+      "file": "V4/site/weapons.browser.test.cjs",
+      "sha256": "45da68719187756eaadbbd1a0e587c6c02775daf1b0f62b666d455dcda4f2b5b"
+    }
+  ],
+  "initialTree": "e358209c0b6e0f112f6c7e936093f52c90def9b4",
+  "stagedTree": "ce48acfc157378ed363aa091cd7005e0850042c8",
+  "browserSuites": [
+    "collection",
+    "versions",
+    "filters",
+    "navigation",
+    "pages"
+  ]
+}

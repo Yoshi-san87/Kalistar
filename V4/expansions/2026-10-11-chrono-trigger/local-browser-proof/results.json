@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "base": "http://127.0.0.1:54443/",
+  "readers": 21,
+  "viewports": [
+    1440,
+    412,
+    320
+  ],
+  "migration": {
+    "before": 343,
+    "after": 350
+  },
+  "duelReload": true,
+  "screens": [
+    "desktop-collection.png",
+    "desktop-crono.png",
+    "desktop-marle.png",
+    "desktop-lucca.png",
+    "desktop-frog.png",
+    "desktop-robo.png",
+    "desktop-ayla.png",
+    "desktop-magus.png",
+    "razr50-collection.png",
+    "razr50-crono.png",
+    "razr50-marle.png",
+    "razr50-robo.png",
+    "narrow-collection.png",
+    "narrow-crono.png",
+    "narrow-marle.png",
+    "narrow-robo.png",
+    "desktop-crono-magus-duel.png",
+    "razr50-crono-magus-duel.png"
+  ],
+  "errors": [],
+  "failures": []
+}

@@ -1,0 +1,145 @@
+{
+  "tool": "built-in image_gen",
+  "scenePrompt": "Create ONE finished weapon-in-environment painting for a Kalistar collectible card. Near-square portrait 1100x1250 composition. First reference is the weapon identity to preserve; second is the approved AXE painting for pictorial technique and realism, third is Momo for the painterly fantasy/sci-fi language. Weapon is the clear foreground hero, occupies about 80% of diagonal, complete and recognizable, materials touch the scene with real contact shadows and consistent light. Build a single unified painting, not a cutout floating over a backdrop. Rich hand-painted strokes, tactile surfaces, cinematic but legible lighting. Keep manufactured shafts, barrels and blades straight and geometrically coherent; zoom out to fit, NEVER bend to fit. Environment is deliberately SPARSE and quiet: ONE close support surface, one restrained narrative prop at most, simple distant tonal planes. NO intricate background architecture, NO forests of towers, NO busy ruins, no filler details. Material contact and lighting provide the life, not scenic clutter. Weapon takes visual priority by far. The axe reference informs paint technique ONLY; do NOT copy its elaborate landscape.  No person, no cards, frame, text, numerals, logos, UI, border, watermark. ",
+  "ringPrompt": "Create ONE high-quality Kalistar weapon medallion ring bitmap on TRUE transparent background. The reference is the EXACT GEOMETRY guide: perfectly circular, front-on, square canvas, concentric hollow annulus centered at (50%,49.6%). Match its outer diameter 98% and inner transparent hole diameter 69%; no ellipse, no perspective. Maintain a subtle copper fantasy mechanical identity and a consistent circular outer silhouette. The center and outside must be entirely empty alpha, no weapon or backplate, no text, no badge plaque. All details stay inside the ring band so it can rotate seamlessly. Painterly physical materials, crisp bevels, restrained beautiful highlights, coherent light, not a flat UI icon. Replace the reference materials and motifs with this weapon-specific design: ",
+  "weapons": [
+    {
+      "id": "white-oath-rapier",
+      "scene": "Kaylis's magnificent ivory-white straight rapier, a gift from the fallen king, resting diagonally on worn marble steps in a white ruined courtyard, dawn reflected in its pearl grip and fine gold guard, a folded crimson training cloth underneath, fresh ivy.",
+      "ring": "Ivory enamel and white pearl, fine rapier-basket filigree in pale gold, four small rainbow opals.",
+      "color": "#e5c8ff"
+    },
+    {
+      "id": "brotherhood",
+      "scene": "Tidus's blue translucent Brotherhood sword leaning diagonally on a sunlit rock in the shallow turquoise waters of Besaid, foam touching its tip, orange grip cloth lifted by sea breeze, tropical village distant.",
+      "ring": "Translucent aquamarine segments with wave carvings, copper-gold outer rail, four small coral-red fastenings.",
+      "color": "#85e6fa"
+    },
+    {
+      "id": "virtuous-contract",
+      "scene": "2B's white-handled Virtuous Contract katana leaning on a moss-covered ruined city wall beside white flowers, clean long blade, little white tassel moving in wind, cool morning haze and angled sun.",
+      "ring": "White silk-laced sections and polished silver steel, discreet black enamel diamond pattern, hairline copper edge.",
+      "color": "#e8efff"
+    },
+    {
+      "id": "virtuous-treaty",
+      "scene": "2B's large Virtuous Treaty greatsword resting in the cracked floor of a deserted industrial cathedral, white long hilt and dark decorated blade shown clearly, pale shafts of daylight through broken roof.",
+      "ring": "Thick blackened steel segments, silver ornamental scrollwork and white ceramic fastenings, copper edging.",
+      "color": "#bdc8e7"
+    },
+    {
+      "id": "socom",
+      "scene": "Snake's suppressed SOCOM pistol on a scuffed metal supply crate inside a snowy Shadow Moses loading bay, holster cloth beneath, cold blue snowlight across matte gunmetal, one subtle red equipment lamp reflected in steel. No ammunition instructions.",
+      "ring": "Dark parkerized steel with precise suppressor-like knurling, small red optics and brushed copper screws.",
+      "color": "#da7676"
+    },
+    {
+      "id": "lulu-mog",
+      "scene": "Lulu's enchanted handmade Mog doll sitting on a weathered wooden temple bench in Besaid, stitches and red pompom prominent, a folded black velvet ribbon beneath, little violet magic reflected in its cloth and carved wood, warm distant candles.",
+      "ring": "Warm ivory stitched fabric inset into a fine copper hoop, burgundy buttons and small violet enamel scallops.",
+      "color": "#dcafec"
+    },
+    {
+      "id": "leopard-lightning",
+      "scene": "Rikka's customized leopard-pattern electric whip partially coiled on a wet rooftop ledge in Chroma, straight leopard handle foreground, fine blue arcs linking cable to raindrops, copper city machinery in distance.",
+      "ring": "Braided dark cable and leopard-spotted amber panels, copper clamps, restrained electric blue channels.",
+      "color": "#81cfff"
+    },
+    {
+      "id": "mythic-iron-gauntlet",
+      "scene": "Balmhyr's mythical iron gauntlet on a stone throne armrest, massive armored fingers slightly open, cracked crown emblem visible, red cloth and heavy gray stone, sunset giving the iron weight and warmth.",
+      "ring": "Articulated battered iron knuckle plates with copper rivets, narrow amber cracks, small broken-crown engraving.",
+      "color": "#ddb781"
+    },
+    {
+      "id": "post-bow",
+      "scene": "Cana's special postal bow leaning beside a leather mailbag on the stone sill of a windswept mountain postal relay; wrapped letters in quiver attachment, true straight arrow, bow string taut, morning light and a distant bridge.",
+      "ring": "Polished postal-brass channels, green leather bindings, small envelope-shaped engraved plates and copper seals.",
+      "color": "#a8d8b2"
+    },
+    {
+      "id": "grimoire-weiss",
+      "scene": "Grimoire Weiss hovering a few centimeters above a battered stone reading desk in a NieR village library, recognizable pale embossed face on dark tome cover, pages slightly open, dust in sunlight, subtle reflected ivory magic.",
+      "ring": "Ancient silver book clasps alternating with carved ivory page-edge segments, black calligraphic incisions without readable text, copper patina.",
+      "color": "#e4d7ad"
+    },
+    {
+      "id": "gen-mechanical-arm",
+      "scene": "Gen's mechanical forearm resting on a repair bench in Chroma, articulated fingers braced against wood, exposed copper pistons and softly glowing teal power core, maintenance rag and tool shadows, intimate workshop morning light.",
+      "ring": "Brushed iron micro-pistons and exposed copper couplings arranged into a circular mechanical assembly, teal energy pinlights.",
+      "color": "#9ee0db"
+    },
+    {
+      "id": "violet-reaping",
+      "scene": "Voloden's immense retractable violet magic scythe leaning against a cracked stone altar in a ruined necromantic sanctuary, straight long telescoping shaft fully visible diagonally, huge purposeful scythe arc, violet edge light physically reflected on stone and purple cloth.",
+      "ring": "Obsidian sections and beveled amethyst facets, silver retracting joints, fine aged copper lip and a restrained violet seam.",
+      "color": "#c496f6"
+    },
+    {
+      "id": "mantis-mask",
+      "scene": "Psycho Mantis's recognizable black respirator mask suspended just above a distressed chair in an abandoned office, straps drooping naturally, tiny paper fragments levitating nearby, green-gray psychic light through cracked window.",
+      "ring": "Respirator-filter steel mesh inset in black rubber and copper rings, small acid-green vents, restrained industrial detail.",
+      "color": "#b1d2a1"
+    },
+    {
+      "id": "revolver-gunblade",
+      "scene": "Squall's Revolver gunblade leaning on a Balamb Garden stone balustrade after rain, straight broad blade and revolver cylinder clear, black grip and lion pendant, blue sky opening beyond monumental garden arches.",
+      "ring": "Brushed gunsteel with revolver-cylinder recesses, restrained silver lion scrollwork and dark leather inset, copper outer seam.",
+      "color": "#a9cde6"
+    },
+    {
+      "id": "wolf-steel",
+      "scene": "Geralt's steel sword resting diagonally across a training bench at Kaer Morhen, brown leather grip and wolf detail clear, chipped stone walls, warm late afternoon, worn gloves nearby, long straight blade fully within frame.",
+      "ring": "Dark leather-wrapped steel, angular engraved wolf tracks and bronze rivets, warm copper rim.",
+      "color": "#dcc297"
+    },
+    {
+      "id": "wolf-silver",
+      "scene": "Geralt's silver sword leaning on a moss-covered marker in a moonlit forest clearing near Kaer Morhen, straight blade reflecting clean moonlight, wolf insignia, sparse glowing herbs near the stone, no creatures.",
+      "ring": "Bright silver sword-steel engraved with angular runic lines, moonstone studs and aged copper border.",
+      "color": "#c2dced"
+    },
+    {
+      "id": "kaine-saw",
+      "scene": "Kaine's distinctive NieR Replicant serrated sword, as shown in the supplied OFFICIAL FIGURE reference: a broad dark rectangular slightly curved cleaver-like single-edged blade, one row of large triangular saw teeth along its convex back, straight flat non-pointed end, long slim plain cylindrical metallic grip with rounded pommel, NO katana tip or fantasy ornate guard. One sword leaning on an old stone doorstep beside a small white Lunar Tear flower, loosely folded pale blue fabric underneath, quiet wind in village grass, morning cool light.",
+      "ring": "Dark serrated steel inlaid with pale blue enamel, restrained white flower-like silver fourfold details and copper binding.",
+      "color": "#b6deef"
+    },
+    {
+      "id": "buster-sword",
+      "scene": "Cloud's Buster Sword, immense straight rectangular slab blade with angled clipped point, dark grip and two materia sockets, leaned diagonally against industrial rubble on a Midgar rooftop, dusky amber sunlight through smoke, clean bold iconic silhouette.",
+      "ring": "Broad scratched steel plates with two small jade materia-like insets opposite one another, copper bolts and black rails.",
+      "color": "#9ddbaf"
+    },
+    {
+      "id": "psg1",
+      "scene": "Sniper Wolf's PSG1 sniper rifle lying diagonally on an abandoned concrete window ledge overlooking snowy pines at Shadow Moses, straight barrel, scope and stock entirely visible, a green wool cloth partly beneath it, cold dawn, no firing or target.",
+      "ring": "Matte gunmetal and scope-knurled steel around an olive leather band, subtle ice-blue lens insets and copper screws.",
+      "color": "#bdcedd"
+    },
+    {
+      "id": "single-action-army",
+      "scene": "Ocelot's engraved Single Action Army revolver resting on a red leather holster on a worn wooden officer's desk, barrel straight and all visible, cylinder and warm ivory grip gleaming, golden side light through shutters.",
+      "ring": "Engraved silver cylinder chambers, rich red leather panels and ivory accents, small polished brass fastenings.",
+      "color": "#f0b2a0"
+    },
+    {
+      "id": "wardens-spear",
+      "scene": "A guardian's long straight spear leaning against a weathered castle parapet, engraved leaf-shaped spearhead, leather bindings, green watch cloak underneath, mist in valley and crisp morning light, whole shaft visible by zooming out.",
+      "ring": "Weathered stone-gray steel with four leaf-shaped green enamel segments, thick copper rails and guard-like fastenings.",
+      "color": "#a4d6b8"
+    },
+    {
+      "id": "soldiers-blade",
+      "scene": "An ordinary but lovingly maintained soldier's straight sword on a camp bench, plain strong blade and leather grip, a mended blue cloak and stone fort visible behind, first light before patrol.",
+      "ring": "Simple hardened steel and blue cloth bindings, evenly spaced copper rivets, service-worn but cared-for.",
+      "color": "#abcfe8"
+    },
+    {
+      "id": "commanders-sabre",
+      "scene": "A commander's elegant nearly straight sabre resting across the edge of a campaign map on a white-stone balcony, polished basket guard, deep red tassel, dawn over a distant city, symbolic quiet before command.",
+      "ring": "Fine gold and copper laurel engravings, oxblood enamel and ivory compass-like ticks, slim noble military finish.",
+      "color": "#ecc597"
+    }
+  ]
+}

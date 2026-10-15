@@ -1,0 +1,53 @@
+{
+  "version": "V3",
+  "request": "2026-09-14 harmonisation",
+  "tool": "image_gen__imagegen built-in",
+  "status": "complete_native_exports_game_bundle_and_browser_verified",
+  "assets": [
+    {
+      "asset": "illustrations/34_NECRO_VALAZAR.png",
+      "source": "C:/Users/guill/.codex/generated_images/019e30c1-21b0-7e11-9f9d-2fe692f111d2/exec-b0312ccb-41bd-4c0f-ab5d-adede95764aa.png",
+      "prompt": "Use case: precise-object-edit. Edit this exact approved Kalistar painting. Change ONLY the crimson/red cloth of Valazar's hood, tunic folds, scarf, and trailing cape into deep royal-violet and muted amethyst cloth. Keep the same realistic material values, worn paint texture, frayed edges, warm candle reflections and deep shadows. The red cloth lying on the lower ground that belongs to his trailing robe should become violet as well. Preserve EVERYTHING else: identical skeletal face and hands, exact gesture and body pose, staff, stones, engraved broken tablet, composition, candle flames, cathedral architecture, perspective, lighting, painterly brushwork and portrait 4:5 framing. Do not redesign, beautify or smooth the artwork. No new objects, no text, no frame. The goal is the same excellent original painting with purple garments instead of red, not a new illustration. Output full-resolution portrait PNG.",
+      "references": [
+        "V3/assets/illustrations/34_NECRO_VALAZAR.png"
+      ],
+      "qa": "Inspected: purple textiles, scene and pose retained."
+    },
+    {
+      "asset": "armes/11.png",
+      "source": "C:/Users/guill/.codex/generated_images/019e30c1-21b0-7e11-9f9d-2fe692f111d2/exec-4118a35e-7c94-4834-a451-cb0e650bb554.png",
+      "prompt": "Use case: stylized-concept. Create ONE original transparent-background equipment icon for Kalistar, the standard generic Instrument weapon category. A classic six-string acoustic GUITAR, broad instantly recognizable waisted body and circular sound hole, simple straight neck and six tuning pegs, compact readable silhouette. Front view with very slight depth, placed diagonally from lower-left body to upper-right neck. Warm pale ivory-maple soundboard, darker walnut sides, ebony bridge, restrained antique copper fittings. Illustrated painted game icon with clean light bevels, bold material masses and clear edges, matching polished fantasy base weapons. This is a standard common guitar, not Momo's special flute, not a magic legendary object. Fill about 84 percent of a square canvas with balanced safe margins, no clipping. Genuine alpha transparency outside the guitar, no shadow rectangle, no backdrop, no circle/medallion, no text, no branding, no frame, no particles. Readable as a guitar at 80 pixels. Output square PNG at least 1024x1024.",
+      "qa": "Six string guitar, broad readable body, native RGBA 1254 square. Category index11 unchanged."
+    },
+    {
+      "asset": "cristaux/NONE.png",
+      "source": "C:/Users/guill/.codex/generated_images/019e30c1-21b0-7e11-9f9d-2fe692f111d2/exec-73144221-7ca3-4714-aa37-02cdf7aae734.png",
+      "prompt": "Create ONE transparent-background fantasy game icon: a dormant elemental crystal in an ornate upright HEXAGONAL gold housing. Transparent PNG cutout with actual alpha outside the icon. Isolated object only, no background, no checkerboard. The tall hexagon has a sharp vertex at top and bottom, vertical left and right sides, six small pointed arrowhead corner ornaments, a double antique-gold metallic bevel, and a flat frontal view. Inside the hexagon is a solid near-black charcoal chamber containing one suspended elongated sharply faceted obsidian crystal, black with faint gray ambient reflections. There is absolutely NO light inside the crystal, no glowing core, no lightning, no rays, no sparkle or magical effects. The frame has restrained gold highlights from external ambient light, never self-luminous. This represents SANS CRISTAL / no elemental power in Kalistar, with the exact same category silhouette as other elemental crystal hexagon emblems. Elegant painted game equipment design, high contrast silhouette, readable at 100 pixels. Preserve 5 percent empty transparent margin around all six points. Portrait approximately4:5. No words or symbols, no slash, no power-button overlay, no medallion around the hexagon. Deliver a genuine RGBA transparent PNG.",
+      "qa": "RGBA 1122x1402 verified, transparent corners. Native Malaba prototype approved: dormant black crystal in gold hexagon, no magic glow."
+    },
+    {
+      "asset": "effets/MINERO.png",
+      "source": "C:/Users/guill/.codex/generated_images/019e30c1-21b0-7e11-9f9d-2fe692f111d2/exec-a3590905-6770-4c2a-8d5e-2a295e7e4151.png",
+      "prompt": "Create ONE transparent PNG game visual-effect sprite for Kalistar: MINERO / ROCK magic aura around a circular attack-stat capsule. A PERFECTLY ROUND centered ring of ten bold angular SILVER-GRAY stone shards and pale quartz fragments, bright ivory-cut facets and clearly visible cold white luminous fissures between the rocks. A thin continuous pale-silver circular inner rim makes the circle read instantly at small size. The center is a fully transparent circular hole, diameter about 56 percent of the square canvas; no disk or fill inside. Outer stone tips stay within a centered circle of diameter88 percent; soft restrained white mineral energy halo may extend to94 percent. Composition symmetric and evenly weighted all around the circle, not an oval or tilted torus. Front orthographic view, no perspective. Strong readable silhouette at100px, chunky painted game icon materials, not gray indistinct smoke. Blue-gray stones, white highlights, dark charcoal crevices; no orange/fire, no snowflake, no lightning, no text or numbers. Genuine alpha transparency both outside the ring and in its central hole. No background, no checkerboard, no frame or other object. Output square RGBA PNG at least1024x1024.",
+      "qa": "RGBA 1254 square, alpha center zero, alpha corners verified. Native Balmhyr prototype approved: visible circular stone facets around D6 and D4, numbers legible. Geometry alpha bounds 0,9,1228,1254; optical center 627,627; reference radius460."
+    },
+    {
+      "asset": "effets/GEO.png",
+      "source": "C:/Users/guill/.codex/generated_images/019e30c1-21b0-7e11-9f9d-2fe692f111d2/exec-196dc671-da4d-4eb0-9abf-7fe10561afb8.png",
+      "prompt": "Create ONE transparent PNG game visual-effect sprite for Kalistar: GEO / EARTH magic aura around a circular attack-stat capsule. A perfectly round centered ring of chunky fractured ochre-earth plates, layered sandstone and dark loam, with bright warm amber seams showing earth magic and a thin ivory-gold continuous inner rim. Sparse muted green moss in 3 small crevices, not a vine wreath. This is EARTH magic, visibly distinct from icy silver ROCK magic and from fire. Bold readable masses at100px, painted fantasy game material, no indistinct brown smoke. Fully transparent circular hole in the center with diameter56 percent of square canvas; no fill or disk. Outer earth plates inside centered diameter88 percent, restrained amber rim glow can extend to94 percent. Flat frontal orthographic circular silhouette, perfectly centered, symmetric visual weight, not an ellipse or tilted torus. Genuine alpha outside AND in center. No particles far from ring, no numbers, lettering, background, checkerboard, icon overlay or frame. Square RGBA PNG at least1024x1024.",
+      "qa": "RGBA 1254 square, alpha center zero, alpha corners verified. Native Nazar card approved: circular ochre earth plates, amber seams distinct from MINERO, D6/D3 readable. Centered circular geometry reference radius0.375."
+    }
+  ],
+  "discarded": [
+    {
+      "source": "C:/Users/guill/.codex/generated_images/019e30c1-21b0-7e11-9f9d-2fe692f111d2/exec-e82766b7-0e7c-4f9c-ba43-79467810e4ea.png",
+      "prompt": "Use case: precise-object-edit. This is the approved elemental crystal badge of Kalistar. Make its NONE / UNPOWERED version. Preserve the exact upright pointed HEXAGON housing, six corner ornaments, proportions and ornamental frame design, and the central suspended faceted crystal silhouette. Turn off ALL the magic: remove every lightning bolt, spark, luminous core, energy bloom and glow. The inner chamber is nearly black charcoal, like an unlit room. The central crystal is dark smoke/obsidian glass with only faint neutral ambient edge reflections so its facets and silhouette remain perceptible; it does NOT emit any light. The frame remains readable antique muted gold/copper, only weak external reflections, no luminous gold interior. It must be obviously the same family of hexagonal elemental badges, but dormant, empty of power. Do not add a slash, lock, power button, text, icon overlay, pedestal or new shape. Preserve a genuinely transparent background outside the hexagon. Output a high resolution transparent PNG, portrait proportions matching this badge approximately 4:5, no clipping.",
+      "reason": "RGB output with baked checkerboard, not usable as transparent asset."
+    },
+    {
+      "source": "C:/Users/guill/.codex/generated_images/019e30c1-21b0-7e11-9f9d-2fe692f111d2/exec-b6c32bcb-540f-443d-83c6-7bafbbf95756.png",
+      "prompt": "Use case: background-extraction. Keep this hexagonal gold badge and its black unpowered crystal exactly as they are. Remove ONLY the gray-and-white checkerboard outside the outer hexagon. The checkerboard must be replaced by REAL alpha transparency in a transparent PNG, not painted squares, not white, not black. Preserve the entire solid near-black inner chamber, the dark central crystal, all six gold corners and their edges. No redesign, no relighting, no cropping, no added shadow. Output RGBA PNG with genuine transparent pixels around the cut-out hexagon. The gray-and-white check pattern is an unwanted existing background to remove, not a desired transparency visualization.",
+      "reason": "Extraction attempt retained checkerboard; not delivered."
+    }
+  ]
+}

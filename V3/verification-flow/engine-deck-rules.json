@@ -1,0 +1,57 @@
+{
+  "ok": true,
+  "runtime": "Node v24.19.0",
+  "schema": 6,
+  "api": {
+    "deckCoverage": "Object keyed by positions 1..5; each copy counts at every compatible position",
+    "validateDeckDefault": 1,
+    "validatePlayableDeck": 2,
+    "newGameOption": {"deckCoverage": 2},
+    "stateMarker": {"deckCoverage": 2},
+    "unmarkedArchives": "Historical validation, unchanged restore",
+    "parentRequirement": "Force deckCoverage:2 on every fresh game; do not use restoreGame as a new-game factory",
+    "score": "state.players[1-side].dead.length",
+    "victoryChanged": false
+  },
+  "tests": {
+    "deckRulesGroups": 13,
+    "newDeterministicStrictMatches": 4,
+    "engine": 61,
+    "engineV3": 26,
+    "matchStats": 18,
+    "buffStacking": 11,
+    "existingNamedTests": 116,
+    "existingCampaigns": 200,
+    "roster": {"cards": 41, "arenas": 16, "attackFaces": 246, "campaigns": 80},
+    "indexedDB": {
+      "isolatedTemporaryProfile": true,
+      "productionDatabaseOpened": false,
+      "legacyAndStrictMatchesPreserved": true,
+      "resultsPreserved": true,
+      "repeatedImport": true,
+      "invalidStrictSaveRejected": true,
+      "invalidStrictImportRejectedAtomically": true
+    },
+    "uiFormBypass": "Direct engine entrypoints tested; actual UI integration belongs to parent",
+    "sandbox": "Chrome spawn EPERM resolved by authorized rerun; existing suites run directly to avoid Node test-runner subprocesses"
+  },
+  "presets": [
+    {"id": "player", "coverage": {"1": 2, "2": 1, "3": 3, "4": 4, "5": 2}, "baselineValid": true, "playable": false, "missing": [2]},
+    {"id": "enemy", "coverage": {"1": 2, "2": 3, "3": 2, "4": 1, "5": 2}, "baselineValid": true, "playable": false, "missing": [4]},
+    {"id": "z13", "coverage": {"1": 2, "2": 3, "3": 2, "4": 1, "5": 2}, "baselineValid": true, "playable": false, "missing": [4]},
+    {"id": "cites", "coverage": {"1": 2, "2": 1, "3": 1, "4": 3, "5": 3}, "baselineValid": true, "playable": false, "missing": [2, 3]},
+    {"id": "frontieres", "coverage": {"1": 2, "2": 2, "3": 2, "4": 2, "5": 2}, "baselineValid": true, "playable": true, "missing": []}
+  ],
+  "sha256": {
+    "V3/site/engine.js": "a1c3c6c3b6c4363adbcff6e00a41609513171a91a119f5ced864d68f18a49def",
+    "V3/site/deck-rules.test.cjs": "b930bd906d6b6b50be72a7b419a45af1024d172722596456651c934320ad863e",
+    "V3/site/data.js": "29039948e01d7f9bab743ce2b7978653ac6d06c99b90f1dde1ecf580d887d5c6",
+    "V3/site/local-db.js": "4fb3827624fa289261b2b88057068b7980657657e7a7131ee2db7f363c675497"
+  },
+  "writtenFiles": [
+    "V3/site/engine.js",
+    "V3/site/deck-rules.test.cjs",
+    "V3/verification-flow/engine-deck-rules.md",
+    "V3/verification-flow/engine-deck-rules.json"
+  ]
+}

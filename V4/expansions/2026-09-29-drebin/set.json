@@ -1,0 +1,52 @@
+{
+  "id": "2026-09-29-drebin",
+  "officialCollaboration": false,
+  "arenas": [],
+  "presets": [],
+  "cards": [
+    {
+      "key": "drebin",
+      "id": "43844114",
+      "characterId": "drebin-893-mgs",
+      "name": "DREBIN 893",
+      "title": "Le prix de la liberté",
+      "job": "ARMURIER",
+      "description": "Au pied de son Stryker, Drebin fait danser un mouchoir sous les yeux de Little Gray. Derrière le sourire du marchand, il déverrouille les armes de Snake : dans cette guerre, même la liberté a un prix.",
+      "race": "HUMAIN",
+      "weapon": "Projectile",
+      "element": "GEO",
+      "faction": "MGS4",
+      "collaboration": "MGS4",
+      "role": 5,
+      "positions": [
+        5
+      ],
+      "atk": [
+        160,
+        130,
+        100,
+        "guard",
+        "buff_atk",
+        15
+      ],
+      "defense": [
+        185,
+        150,
+        115,
+        80,
+        45,
+        15
+      ],
+      "magic": [],
+      "barriers": [
+        4
+      ],
+      "art": "Drebin_MGS4_Stryker.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    }
+  ]
+}

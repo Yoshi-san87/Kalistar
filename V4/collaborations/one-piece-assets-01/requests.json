@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-01",
+  "tool": "built-in image_gen",
+  "oneCallPerAsset": true,
+  "officialCollaboration": false,
+  "referenceAccess": {
+    "method": "web search official ONE PIECE.com character pages and flag page",
+    "directOpen": "Character page direct opens returned HTTP 403; indexed official text was available and read. No downloaded official images were supplied to generation.",
+    "costumeBasis": "User-requested canonical early post-timeskip outfits, interpreted from established character designs; no claim that inaccessible current website images were inspected."
+  },
+  "officialReferences": [
+    "https://one-piece.com/character/robin/index.html",
+    "https://one-piece.com/character/franky/index.html",
+    "https://one-piece.com/character/brook/index.html",
+    "https://one-piece.com/character/Jinbe/index.html",
+    "https://one-piece.com/news/o20141027_1501/index.html"
+  ],
+  "assets": [
+    {
+      "id": "ONEPIECE",
+      "kind": "banner",
+      "output": "V4/collaborations/one-piece-assets-01/source-ONEPIECE.png",
+      "references": [
+        "V4/collaborations/ff8-set-01/flag-FF8.png"
+      ],
+      "transparent": true,
+      "prompt": "Use case: logo-brand. Asset: ONE PIECE faction hanging cloth pennant for the Kalistar card game. Reference image is the APPROVED FF8 pennant geometry and painterly material: retain the same straight narrow vertical long triangular-point silhouette, small upper notch, narrow antique copper-gold piping and tiny side tassels in the same places, viewed exactly front-on. Change its red fabric to weathered charcoal-black painted cloth with subtle folds, its center emblem to the iconic Straw Hat Pirates Jolly Roger: broad cheerful white skull with round eye sockets, grinning teeth, diagonal crossed white bones BEHIND it, golden straw hat with red hatband clearly on top. Keep the skull big and instantly readable in upper-middle. Beneath the skull, paint a compact authentic nautical ONE PIECE wordmark, exact text 'ONE PIECE', O-N-E space P-I-E-C-E, on ONE horizontal line, warm ivory with restrained red/gold details. Entire emblem and wordmark fit inside the central 76% width. Painted cloth, aged metal thread and broad readable planes in the Kalistar style, not a flat vector, not glossy CGI. Canvas portrait ratio 109:230, banner fills canvas in the exact reference placement, all tassels and tip visible, no excessive outside margins. Truly transparent background outside the pennant. No pole, no surrounding scenery, no secondary text, no FF8 image or lettering. This generated RGB texture will be deterministically resized to 109x230 and masked with the exact approved FF8 alpha, so respect the reference silhouette and alignment precisely."
+    },
+    {
+      "id": "SHARKAN",
+      "kind": "race",
+      "output": "V4/collaborations/one-piece-assets-01/source-SHARKAN.png",
+      "references": [
+        "V3/assets/races/SKULLZ.png",
+        "V3/assets/races/HUMAIN.png"
+      ],
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. Asset: SHARKAN fantasy race emblem for Kalistar, genuinely transparent outside the single isolated motif. Image 1 SKULLZ and image 2 HUMAIN are references for the EXISTING race bank's painted material quality, not characters to copy. Create a compact dignified three-quarter head-and-shoulders emblem of a half-human half-shark warrior: recognizably human upright neck, broad human brow and cheekbones merging with shark muzzle, blue-grey skin, small sharp shark teeth in a closed determined mouth, three clearly painted gill slits along cheek/neck, one subtle swept dorsal ridge on skull, intelligent visible eye. Half-man half-shark, NOT a normal shark animal, not Jinbe portrait, not skull, no full animal body or tail. Worn silver shoulder armour with thin copper-gold edges and a restrained teal cloth collar ties this emblem to the existing bank. Strong readable unified silhouette, finely painted fantasy materials with broad volumes and selective brushstroke detail; not anime, manga, photographic, flat vector or smooth 3D. Head dominant, short bust, neutral three-quarter view facing slightly left; no raised hands or weapons, no extra appendages. Compact circular visual balance with generous fully transparent margins, no outer circle or disc, no background shadow, no mist, no particles. Icon must remain readable after optical fitting to 96x95 pixels inside a medallion. No text, no letters, no numbers, no logo or watermark."
+    },
+    {
+      "id": "robin",
+      "kind": "art",
+      "output": "V4/Illustrations/OP_robin_01.png",
+      "references": [
+        "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "V3/assets/illustrations/34_NECRO_VALAZAR.png"
+      ],
+      "transparent": false,
+      "prompt": "Use case: illustration-story. Asset: standalone Kalistar character painting, NOT a card. Reference image 1 (Momo) is the primary PAINTING STYLE reference; reference image 2 (Valazar) supplies painted volumes and worn materials only, not its skeleton subject or obligatory darkness. Match their narrative fantasy oil/gouache brushwork: visible broad confident brushstrokes, sculpted color planes, hierarchical edges, expressive face, tactile worn fabric, painted metal. Absolutely no anime, manga outlines, cel shading, photography, photorealism, smooth CGI, plastic skin or uniform noise. ONE PIECE canonical identity and post-timeskip costume reinterpreted in this exact painterly family. Vertical 4:5 composition for a 737 x 921 card art window, 1122 x 1402 preferred, showing meaningful environment and full humanoid silhouette. Face and main hands/action within central 70% with generous side and head margins for later framing. One character, one head, exactly TWO arms and TWO legs; no duplicates, extra limbs, floating hands or branching appendages. No written text, letters, logo, watermark, frame, stats, numbers or UI. Subject: adult Nico Robin, tall elegant HUMAN archaeologist, long straight jet-black hair swept behind the ears, distinctive calm eyes and straight nose, sunglasses resting visibly on top of her hair. Canonical early post-timeskip outfit: fitted sleeveless blue zip-front top with turned collar, long pink sarong-style skirt with botanical motifs and long slit, practical heeled sandals. Scene: standing on the Thousand Sunny's sun-worn wooden deck beside its railing, with rigging, pale sail and a restrained glimpse of green lawn behind. Moment: a troubling discovery has interrupted her reading; the closed book rests on the rail, BOTH natural arms crossed against her own chest, shoulders steady, concerned knitted brows and lips set in quiet protective resolve as she looks toward the unseen crew. No conjured limbs or powers at all. Warm late-afternoon side light crosses her face, cool distant storm clouds over turquoise sea; restrained tension, neither smile nor fashion pose. Entire standing figure and both feet in frame, hair separate from arms. Game context HUMAIN, P3, conveyed only by her character; do not print it."
+    },
+    {
+      "id": "franky",
+      "kind": "art",
+      "output": "V4/Illustrations/OP_franky_01.png",
+      "references": [
+        "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "V4/Illustrations/RE_leon4_01.png"
+      ],
+      "transparent": false,
+      "prompt": "Use case: illustration-story. Asset: standalone Kalistar character painting, NOT a card. Reference image 1 (Momo) is the primary PAINTING STYLE reference; reference image 2 (Valazar) supplies painted volumes and worn materials only, not its skeleton subject or obligatory darkness. Match their narrative fantasy oil/gouache brushwork: visible broad confident brushstrokes, sculpted color planes, hierarchical edges, expressive face, tactile worn fabric, painted metal. Absolutely no anime, manga outlines, cel shading, photography, photorealism, smooth CGI, plastic skin or uniform noise. ONE PIECE canonical identity and post-timeskip costume reinterpreted in this exact painterly family. Vertical 4:5 composition for a 737 x 921 card art window, 1122 x 1402 preferred, showing meaningful environment and full humanoid silhouette. Face and main hands/action within central 70% with generous side and head margins for later framing. One character, one head, exactly TWO arms and TWO legs; no duplicates, extra limbs, floating hands or branching appendages. No written text, letters, logo, watermark, frame, stats, numbers or UI. Subject: Franky, adult huge broad-chested CYBORG shipwright after the timeskip, angular face with triple-point chin, blue hair, metallic nose, immense red spherical shoulders and large pale-blue mechanical forearms with simple blue star insignia; open red tropical short-sleeved shirt, canonical dark swim briefs, massive legs. He is Franky himself, not a piloted robot or General Franky. Scene: repaired railing and a small carpenter workbench aboard the Thousand Sunny, distinctive green lawn and bright sail in the background, wood shavings and a few tools. Moment: laughing with unmistakable proud shipwright JOY at a successful repair, damp eyes and broad delighted grin. One forearm is transformed into his own integrated arm cannon angled safely toward open sea, other mechanical hand rests on the repaired beam; cannon replaces the hand on that arm, never an added third arm. Exactly two arms and two legs. Sunlit summer noon, lively painted red metal against cyan sea and warm honey-colored wood. Full body kept comfortably in frame, action central and environmental storytelling clear. Game context CYBORG P1 only, no labels. Additional reference 3 (RE Leon) is the standard for painted facial modelling, NOT his identity: eyes must sit inside dimensional sockets, nose bridge, lips and cheeks built from visible paint volumes without black outlines or cel shading. Canonical Franky/Jinbe exaggerated bodily shapes are allowed but rendered as truly volumetric painted forms. No anime grin as a flat white band of teeth; model individual teeth and mouth depth naturally. No photo-smooth surfaces."
+    },
+    {
+      "id": "brook",
+      "kind": "art",
+      "output": "V4/Illustrations/OP_brook_01.png",
+      "references": [
+        "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "V3/assets/illustrations/34_NECRO_VALAZAR.png"
+      ],
+      "transparent": false,
+      "prompt": "Use case: illustration-story. Asset: standalone Kalistar character painting, NOT a card. Reference image 1 (Momo) is the primary PAINTING STYLE reference; reference image 2 (Valazar) supplies painted volumes and worn materials only, not its skeleton subject or obligatory darkness. Match their narrative fantasy oil/gouache brushwork: visible broad confident brushstrokes, sculpted color planes, hierarchical edges, expressive face, tactile worn fabric, painted metal. Absolutely no anime, manga outlines, cel shading, photography, photorealism, smooth CGI, plastic skin or uniform noise. ONE PIECE canonical identity and post-timeskip costume reinterpreted in this exact painterly family. Vertical 4:5 composition for a 737 x 921 card art window, 1122 x 1402 preferred, showing meaningful environment and full humanoid silhouette. Face and main hands/action within central 70% with generous side and head margins for later framing. One character, one head, exactly TWO arms and TWO legs; no duplicates, extra limbs, floating hands or branching appendages. No written text, letters, logo, watermark, frame, stats, numbers or UI. Subject: Brook, very tall slender living skeleton musician, real bare ivory skull with hollow eye sockets and broad teeth, large round black afro. Canonical post-timeskip Soul King costume: black fitted long coat with gold edging, orange feather boa, flamboyant crown above a dark tall hat nestled in his afro, rose-tinted sunglasses pushed up above the eye sockets, colorful fitted trousers and pointed shoes. Scene: quiet evening on the Thousand Sunny's deck, solitary lantern by the rail, open sea and small moon. Moment: a deeply soulful intimate VIOLIN performance for absent friends; head bowed tenderly toward violin, shoulders leaning into a heartfelt phrase, bittersweet joy and melancholy expressed by pose, not a horror attack. Left skeletal hand grips the violin neck with plausible fingers and chin rests on chinrest, right skeletal hand holds one bow across the strings. Full body with both long legs and shoes visible; TWO skeletal arms only. Restrained icy blue breath and tiny frost on rail suggest CRYO soul music without a ghost body, extra hands or printed musical notes. Warm lantern on ivory fingers and lacquered wood, cool moonlight on blue-purple sea. Game context SKULLZ, Instrument, CRYO, P5, do not print these words. No sword or guitar; violin and bow only."
+    },
+    {
+      "id": "jinbe",
+      "kind": "art",
+      "output": "V4/Illustrations/OP_jinbe_01.png",
+      "references": [
+        "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "V4/Illustrations/RE_leon4_01.png"
+      ],
+      "transparent": false,
+      "prompt": "Use case: illustration-story. Asset: standalone Kalistar character painting, NOT a card. Reference image 1 (Momo) is the primary PAINTING STYLE reference; reference image 2 (Valazar) supplies painted volumes and worn materials only, not its skeleton subject or obligatory darkness. Match their narrative fantasy oil/gouache brushwork: visible broad confident brushstrokes, sculpted color planes, hierarchical edges, expressive face, tactile worn fabric, painted metal. Absolutely no anime, manga outlines, cel shading, photography, photorealism, smooth CGI, plastic skin or uniform noise. ONE PIECE canonical identity and post-timeskip costume reinterpreted in this exact painterly family. Vertical 4:5 composition for a 737 x 921 card art window, 1122 x 1402 preferred, showing meaningful environment and full humanoid silhouette. Face and main hands/action within central 70% with generous side and head margins for later framing. One character, one head, exactly TWO arms and TWO legs; no duplicates, extra limbs, floating hands or branching appendages. No written text, letters, logo, watermark, frame, stats, numbers or UI. Subject: Jinbe, massive blue whale-shark fishman with genuinely very broad heavy torso and thick powerful human-shaped limbs, broad flat nose, curled eyebrow markings and temple hair, black topknot and short dark chin beard, two small upward lower tusks and neck gills. Not a human painted blue and not a normal shark. Canonical post-timeskip orange kimono patterned with black-and-white geometric diamonds, yellow sash and short dark overcoat thrown back from shoulders, traditional sandals. Scene: storm on the Thousand Sunny, slanting rain, taut rigging, wet wooden deck, towering ocean wave beyond the rail. Moment: grounded fishman KARATE defensive stance to protect the ship, one open palm extended centrally toward the coming wave, the other fist drawn back at his waist; quiet resolute protective fierceness in his face. TWO arms and TWO sturdy legs with both feet planted visibly, no tail, no floating limbs, no wave shaped as an arm. A sweeping low arc of turquoise water curls around his planted feet, clearly water not a third limb. Cool grey storm light with a break in clouds illuminating his blue face, orange cloth saturated but physically painted and rain-heavy. Full body within frame with breathing room, no cropped hands. Game context SHARKAN HYDRO P1/P2 only, do not print it. Additional reference 3 (RE Leon) is the standard for painted facial modelling, NOT his identity: eyes must sit inside dimensional sockets, nose bridge, lips and cheeks built from visible paint volumes without black outlines or cel shading. Canonical Franky/Jinbe exaggerated bodily shapes are allowed but rendered as truly volumetric painted forms. No anime grin as a flat white band of teeth; model individual teeth and mouth depth naturally. No photo-smooth surfaces."
+    }
+  ],
+  "revisions": [
+    {
+      "id": "robin-face-v2",
+      "replaces": "robin",
+      "kind": "art",
+      "output": "V4/Illustrations/OP_robin_01.png",
+      "original": "V4/collaborations/one-piece-assets-01/OP_robin_01.initial.png",
+      "references": [
+        "V4/collaborations/one-piece-assets-01/OP_robin_01.initial.png",
+        "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+        "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+        "V4/Illustrations/RE_leon4_01.png",
+        "V4/Illustrations/Kaylis_Lelan_Des_Couleurs.png"
+      ],
+      "transparent": false,
+      "prompt": "Use case: precise-object-edit. Edit target IMAGE 1 is the existing Kalistar Robin on the Thousand Sunny. The parent rejects her anime-style face. Change ONLY Robin's facial anatomy and its painting treatment, while retaining her adult Nico Robin identity, long black hair, sunglasses on head, precise crossed arms, clothing, entire pose, ship scene, book, composition and lighting. The face must read as a real adult woman aged about 30 with normal-sized human eyes, naturally proportioned irises, believable eyelids and eye sockets, a substantial three-dimensional long straight nose with painted bridge/nostrils, volumetric cheeks and naturally shaped closed lips. Retain her worried, protective, quietly resolute expression and gaze direction. REMOVE anime/manga eyes, black ink outlines, flat cel-shading, pointed cartoon chin and simplified mouth. IMAGE 2 Momo and IMAGE 3 Valazar are the brushwork and narrative painted-volumes family. IMAGE 4 RE Leon establishes how human eyes, nose, cheeks and lips are constructed from dimensional paint planes rather than illustration linework; IMAGE 5 Kaylis is another adult human proportion reference, NOT a reason to copy her hair, identity, clothes or photo-smooth rendering. Build Robin's face entirely in confident visible oil/gouache brushwork with small warm/cool planes of flesh, including painterly edges lost into hair shadows. No photography, no smooth CGI skin, no beauty retouching. Preserve the original image dimensions and everything except this carefully localized face correction. Exactly two arms and two legs. No added text, logo, interface or frame."
+    }
+  ]
+}

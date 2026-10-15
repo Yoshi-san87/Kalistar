@@ -1,0 +1,63 @@
+{
+  "passed": true,
+  "parent": "ee55b6d944515f7d0012781e330abb13eccb7b92",
+  "tests": 1157,
+  "checked": [
+    {
+      "file": "V4/deploy/browser.test.cjs",
+      "sha256": "7897cc3b92b3d8d3f0305b39de30b9f9d25d47019ce69b2f3e10fb1dc3c5e0c8"
+    },
+    {
+      "file": "V4/deploy/build.test.cjs",
+      "sha256": "a888940984df66aad1f481b181967d0b9fea7e2f78b299267c4865b7587fbc7e"
+    },
+    {
+      "file": "V4/site/README.md",
+      "sha256": "da704d1a2445a557d385fe1d8d1300357180313874740875516433dee181cf02"
+    },
+    {
+      "file": "V4/site/browser.test.cjs",
+      "sha256": "9a3d61e2c913e7dddb2028f7a99aea40bdb7e2e37800b04d41868d49d90c6b93"
+    },
+    {
+      "file": "V4/site/collaborations.browser.test.cjs",
+      "sha256": "6169ef3151bff48b58823566a39bb6c8a6d6f8b456401504ab9ac33ef44f4db6"
+    },
+    {
+      "file": "V4/site/collection-binder.js",
+      "sha256": "9bdc3a385a640a7cdc0e77fd61a85a843a9df18b99966322ffb38b8ad64681ca"
+    },
+    {
+      "file": "V4/site/collection-map.browser.test.cjs",
+      "sha256": "6e183b0a457d02243b8604f5d6623d6249f89be9152d398e9d43cf48e5fbe4ac"
+    },
+    {
+      "file": "V4/site/collection-pedestal.css",
+      "sha256": "2e23ea71ea5b0002afcef50ca1c0620d6db57ecd315d9134e555b5cbb6e060a5"
+    },
+    {
+      "file": "V4/site/index.html",
+      "sha256": "115aeaa9c446d4e31a9627645a8f92976234a88b4bc07753fd35d2cc02331441"
+    },
+    {
+      "file": "V4/site/ui-system.test.cjs",
+      "sha256": "7a0aa0dc0dd96192332b1f9289fd6e94a5861213e30e7682a3fed589e5ebb74d"
+    },
+    {
+      "file": "V4/site/v4.css",
+      "sha256": "24172c621a76a57e680fb797c1829beb5ed84cacf43c65d825069bc8364e0b11"
+    },
+    {
+      "file": "V4/site/weapons.browser.test.cjs",
+      "sha256": "3dc13bced740a34d4f5b24f35e99d48086001e0766c97d01031baaa61bc44423"
+    }
+  ],
+  "initialTree": "f92289b0f993b75c5eebe6dfe4fc7f0dafa16ca3",
+  "stagedTree": "5916fafc97b27d8c9944f608804a215f57852c43",
+  "browserSuites": [
+    "collection",
+    "filters",
+    "navigation",
+    "pages"
+  ]
+}

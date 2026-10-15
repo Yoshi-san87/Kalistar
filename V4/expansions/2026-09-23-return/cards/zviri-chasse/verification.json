@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "modelId": "49321357",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "a96d730f35acde746c7dd9aae7916159188e6f404dc61c831d62a837dbd1b056",
+  "hashes": {
+    "card.png": "c02c4a02e497fca12e5a01db733f33b28daaaa15817ea8c7dee7211ebfb9f980",
+    "card.psd": "9a8123040115f639b4f4852178ee432955836c265785ec036bd3aa500793f84b"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 88424
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49321357",
+    "cases": {
+      "color-1": [
+        "49321357"
+      ],
+      "color-4": [
+        "49321357"
+      ],
+      "gray-1": [
+        "49321357"
+      ],
+      "gray-4": [
+        "49321357"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-23T15:53:23.203Z",
+  "key": "zviri-chasse",
+  "typography": {
+    "NOM": {
+      "font": "TimesNewRomanPSMT",
+      "sizePt": 10.0000012207031,
+      "tracking": 0,
+      "capitalization": "TextCase.NORMAL",
+      "fauxBold": false,
+      "fauxItalic": false
+    },
+    "TITLE": {
+      "font": "TimesNewRomanPSMT",
+      "sizePt": 7.68,
+      "tracking": 0,
+      "capitalization": "TextCase.ALLCAPS",
+      "fauxBold": false,
+      "fauxItalic": false
+    }
+  },
+  "preparationHash": "d5a542814533336ed0e1c4b9879025665f9492a43a3fb9e6c358de08e2f2bb54"
+}

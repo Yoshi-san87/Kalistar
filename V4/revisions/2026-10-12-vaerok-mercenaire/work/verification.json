@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "modelId": "49902301",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "cd6d0369c8f0ca8dc4ea82430c96914b788c9acdf1e036dc36edba34b94cbf7a",
+  "hashes": {
+    "card.png": "70dc60229706c41f19f6f96f900af5f110da983620fb293ee4ca050ebc815207",
+    "card.psd": "af9bc73bfd4274fc25d0f259d6ee04f6c92b46ba6db6fa8a6bb2068cca770664"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 97108
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49902301",
+    "cases": {
+      "color-1": [
+        "49902301"
+      ],
+      "color-4": [
+        "49902301"
+      ],
+      "gray-1": [
+        "49902301"
+      ],
+      "gray-4": [
+        "49902301"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-12T13:51:10.250Z",
+  "revision": "2026-10-12-vaerok-mercenaire",
+  "scope": {
+    "changed": 1479,
+    "outside": 0
+  },
+  "jobOnly": true,
+  "inputManifestHash": "5822e3058110a3d28bcb8664d79dcec49bf5e07bfe6c0ef34ae36959927ec56b"
+}

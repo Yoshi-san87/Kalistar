@@ -1,0 +1,61 @@
+{
+  "passed": true,
+  "key": "ward",
+  "modelId": "47264450",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "124225cfc3bd58e2cd1665ab3d9eea95b38fe24464eaa89ba2f2efd655d46441",
+  "hashes": {
+    "card.png": "9150d346e11db13857f023dbe48efc1fead4894d826dd5756b3400de2bfce37a",
+    "card.psd": "a9531d6265174ab99e3bdcd68ee32bad78976980ed6aaf5d2a1c65860565dad6"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 92518
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "47264450",
+    "cases": {
+      "color-1": [
+        "47264450"
+      ],
+      "color-4": [
+        "47264450"
+      ],
+      "gray-1": [
+        "47264450"
+      ],
+      "gray-4": [
+        "47264450"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "none": {
+    "unlit": true,
+    "crystalHash": "fd16efbb06ac645589885aed82cadacab4461f08dcc4f4dd1d58d7d42b11f8bf",
+    "branchHash": "c8bf5bb6de74db43356255c19c6747ffd0daa03ae6476c0ef1b66c628d77a7cb"
+  },
+  "checkedAt": "2026-09-20T16:06:05.926Z",
+  "illustrationOnly": {
+    "withoutArt": {
+      "changed": 0,
+      "outside": 0
+    },
+    "outside": {
+      "changed": 457056,
+      "outside": 0
+    },
+    "originalPixels": {
+      "changed": 0,
+      "outside": 0
+    },
+    "layerStateIdentical": true
+  },
+  "revision": "2026-09-21-ff8-refinements"
+}

@@ -1,0 +1,79 @@
+{
+  "passed": true,
+  "parent": "5d98ad306a64889243d78b2df7a41577630f7705",
+  "tests": 1163,
+  "checked": [
+    {
+      "file": "V4/deploy/browser.test.cjs",
+      "sha256": "81b78f6f30dcfdaee0276dda62bf25017b093c88be423edfc4eaa65b7b10afc3"
+    },
+    {
+      "file": "V4/deploy/build.test.cjs",
+      "sha256": "e748656862eab5bf2b46c93f90292548abc6f18b7583cfb8ceee7fcf39eca44c"
+    },
+    {
+      "file": "V4/revisions/2026-10-13-collection-sculpted/README.md",
+      "sha256": "a7e5d79a15ed06ede4d6fdf0c06c7b9f07b7aaf26fcae300f36be1f44f9229d6"
+    },
+    {
+      "file": "V4/revisions/2026-10-13-collection-sculpted/art/pedestal-source-v2.png",
+      "sha256": "fae6bb969aadeeca28bb1eea147ba32f4701b8c3e17f0519d35891cd098389d5"
+    },
+    {
+      "file": "V4/revisions/2026-10-13-collection-sculpted/art/prompt-v2.txt",
+      "sha256": "2fb6c3d6f33dfded28f1b141cdd4574fe29c517fca2da17101bc62fa6331233d"
+    },
+    {
+      "file": "V4/revisions/2026-10-13-collection-sculpted/art/provenance.json",
+      "sha256": "b5a9a0f3482551168095bf2574dbafb0a3531b913a0f077b7b436bffed053085"
+    },
+    {
+      "file": "V4/site/README.md",
+      "sha256": "bb7d1a155ea207ef70ce1ff3a685ada15fea4f66a4912586a28f21ef64238a66"
+    },
+    {
+      "file": "V4/site/assets/ui/collection-pedestal-v2.webp",
+      "sha256": "41f6a3b79f5263183d74d694847cf390ec8f0f11b085e50716876e4519f0b9d6"
+    },
+    {
+      "file": "V4/site/browser.test.cjs",
+      "sha256": "fa137a6609d67f154edec830d8f1508cc2fa76732932a0ef6c200919835fc081"
+    },
+    {
+      "file": "V4/site/collection-binder.js",
+      "sha256": "193d040c789e70384fc15af57837648344fb8910bd4a0e48b7ead5e9c7a9ff2f"
+    },
+    {
+      "file": "V4/site/collection-map.browser.test.cjs",
+      "sha256": "074420f7a46832ffa3cf808a0b0709dfb212273e56e477ebc5693e97a0a85bfc"
+    },
+    {
+      "file": "V4/site/collection-pedestal.css",
+      "sha256": "f1d878ba3d4dba70b403d7183e8c5fb3d704c6c909192437da393d6011c5ca52"
+    },
+    {
+      "file": "V4/site/index.html",
+      "sha256": "4d9114c43a9b2b6473f412c612bd475d2758b8b7bd3df244fc745859b8d8ad95"
+    },
+    {
+      "file": "V4/site/ui-system.test.cjs",
+      "sha256": "62f28aff3ab37ce594498a16ad5b020704392a6e1b8b17954f4e7f559026cba5"
+    },
+    {
+      "file": "V4/site/v4.css",
+      "sha256": "f6eb46bf689b7ee713cd810810945191f864f871704557484052936bfe22dd85"
+    },
+    {
+      "file": "V4/site/weapons.browser.test.cjs",
+      "sha256": "0526e657182e2a3cf1705477a89fd6bdf771e74357fa0330dbbb5b976950a2b0"
+    }
+  ],
+  "initialTree": "7891beb020b19404319bf123b8395471c4ab6180",
+  "stagedTree": "d87f59c0edcee9227d7cca0ec1717b26ade70d2e",
+  "browserSuites": [
+    "collection",
+    "filters",
+    "navigation",
+    "pages"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "revision": "voloden-2026-09-18",
+  "referenceId": "776dc4d80df6962de648b1553c1ae6868ffa95a10eefe8982fe1e0e38c82ce1a",
+  "scope": "voloden-and-two-new-banks-only",
+  "banks": [
+    {
+      "source": "V4/revisions/2026-09-18-voloden/staged/weapon-bank.png",
+      "sourceHash": "f0de343acda998a7e8a9c7ce6c34c849a6776887de1f84f62d4885fd28505d15",
+      "exports": [
+        {
+          "to": "V4/atelier/designer-assets/packed/banks/weapon-Faucille.png",
+          "sha256": "dc3a312f21a1cf8d77c927b58e6d04649f1824052588b54104046c670e0fb467",
+          "left": 89,
+          "top": 1116,
+          "width": 96,
+          "height": 95,
+          "margin": 0
+        },
+        {
+          "to": "V4/atelier/designer-assets/banks/weapon-Faucille.png",
+          "sha256": "15cf65992f9e8f8567818cdf54d32f52cb69eee8e2c4b9f327d0b64fb5a28f97",
+          "left": 85,
+          "top": 1112,
+          "width": 104,
+          "height": 103,
+          "margin": 4
+        }
+      ]
+    },
+    {
+      "source": "V4/revisions/2026-09-18-voloden/staged/race-bank.png",
+      "sourceHash": "c5e1bbf513ea3720e0dd1f255f2b234f9057eecb49feb88c1441d13d028e830a",
+      "exports": [
+        {
+          "to": "V4/atelier/designer-assets/packed/banks/race-CARDEMORTIS.png",
+          "sha256": "e36033a00a6c7dd8a832f6fdcdcc2a1abcd955cbb1df6f2cf7c9fd5c0ab0dfbd",
+          "left": 711,
+          "top": 1116,
+          "width": 96,
+          "height": 95,
+          "margin": 0
+        },
+        {
+          "to": "V4/atelier/designer-assets/banks/race-CARDEMORTIS.png",
+          "sha256": "b43355e8ae95fb8e8c266cec842bcba7750d4133deabc31819dc68951f5ae20e",
+          "left": 707,
+          "top": 1112,
+          "width": 104,
+          "height": 103,
+          "margin": 4
+        }
+      ]
+    }
+  ],
+  "installHashes": {
+    "V4/template-stable/voloden/card.json": "3879dd722d7fd002875d386bf12331c3fcd85caf5bd2ee5b0b0f9c5a77ff9c68",
+    "V4/templates/VOLODEN_V4_01_NECRO.psd": "4980c5aa758ba370eff0f7bf51d52d099808c12da6a6c7bbe397f2843e7781b2",
+    "V4/cartes/VOLODEN_V4_01_NECRO.png": "0dfeb957bfdef3a06846685cf898218cb260fba3278d81a8ae9a38c6de4dc68d",
+    "V4/template-stable/voloden/render.json": "3cb4abf905aad61efbdc4703bec967f672a31feb45ce5dcdef26a837cb5066c0",
+    "V4/template-stable/icon-layouts.json": "1a1537fd83da200a6bc2edb054a6fdd259e08050ba457057db284e495eb3500e",
+    "V4/template-stable/current-elements.json": "272908883940c98b2290bab6b7d485d3c22ab22a88253758a627cc0b5351c463",
+    "V4/atelier/designer-assets/packed/banks/weapon-Faucille.png": "dc3a312f21a1cf8d77c927b58e6d04649f1824052588b54104046c670e0fb467",
+    "V4/atelier/designer-assets/banks/weapon-Faucille.png": "15cf65992f9e8f8567818cdf54d32f52cb69eee8e2c4b9f327d0b64fb5a28f97",
+    "V4/atelier/designer-assets/packed/banks/race-CARDEMORTIS.png": "e36033a00a6c7dd8a832f6fdcdcc2a1abcd955cbb1df6f2cf7c9fd5c0ab0dfbd",
+    "V4/atelier/designer-assets/banks/race-CARDEMORTIS.png": "b43355e8ae95fb8e8c266cec842bcba7750d4133deabc31819dc68951f5ae20e",
+    "V4/atelier/designer-assets/manifest.json": "1955a7e6bde54de7961adf49591ca08a4348b448395f41801230d4bad6e175cd",
+    "V4/atelier/designer-assets/manifest.raw.json": "699ca65f1103e76fdcf521594508fb978f4280fbb46e47ed829569a09034272a"
+  },
+  "fullPackComparisonPerformed": false,
+  "regressionRequired": true,
+  "auditRefreshRequired": true
+}

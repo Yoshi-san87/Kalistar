@@ -1,0 +1,154 @@
+{
+  "date": "2026-10-14",
+  "method": "Built-in image_gen",
+  "stage": "two-cards-approved",
+  "productionModified": true,
+  "characters": [
+    {
+      "index": 1,
+      "key": "kaylis",
+      "name": "Kaylis",
+      "title": "Le prochain pas",
+      "race": "HUMAIN",
+      "faction": "Z13",
+      "element": "RAINBOW",
+      "positions": [
+        2,
+        3
+      ],
+      "weapon": "Deux rapières",
+      "file": "images/07-kaylis-04.png",
+      "story": "Au départ de chez Madania, à Durane, Kaylis ajuste ses armes avant de gagner la Tour de Fer.",
+      "previousFile": "images/07-kaylis-02.png",
+      "status": "card-approved",
+      "promptFile": "kaylis-v4.prompt.json",
+      "generatedSource": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-26e95da5-6cd3-47a6-a2ea-8401add4f717.png",
+      "storyReference": {
+        "file": "V4/site/story-content.json",
+        "section": "chapter-13",
+        "title": "Une rencontre retrouvée",
+        "paragraphIndex": 64,
+        "note": "Scène inspirée du départ chez Madania. Cape, coiffure et seconde rapière ajoutées à la demande du joueur, non présentées comme des détails déjà écrits."
+      },
+      "cardId": "49902701"
+    },
+    {
+      "index": 2,
+      "key": "vardek",
+      "name": "Vardek",
+      "title": "L’Arpenteur de siège",
+      "race": "NAIN",
+      "faction": "Durane",
+      "element": "MINERO",
+      "positions": [
+        4,
+        3
+      ],
+      "weapon": "Gun",
+      "file": "images/01-vardek-01.png",
+      "story": "Sur une plateforme de fret de Durane, Vardek couvre un départ avec son fusil magnétique de siège.",
+      "previousFile": "../2026-10-13-twenty-new-voices/images/01-vardek-02.png",
+      "status": "awaiting-user-selection",
+      "promptFile": "prompts.json",
+      "generatedSource": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-16db6da2-5327-4e31-940e-3f125ab38a7e.png"
+    },
+    {
+      "index": 3,
+      "key": "maedrine",
+      "name": "Maëdrine",
+      "title": "La Médecin des galeries",
+      "race": "NAIN",
+      "faction": "Durane",
+      "element": "GEO",
+      "positions": [
+        5
+      ],
+      "weapon": "Instrument",
+      "file": "images/02-maedrine-01.png",
+      "story": "Maëdrine revient chercher les retardataires, son résonateur de soin prêt à servir.",
+      "previousFile": "../2026-10-13-twenty-new-voices/images/02-maedrine-02.png",
+      "status": "awaiting-user-selection",
+      "promptFile": "prompts.json",
+      "generatedSource": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-c812f85c-64dd-4f3f-988e-59ab1f697fa2.png"
+    },
+    {
+      "index": 4,
+      "key": "rhazene",
+      "name": "Rhazène",
+      "title": "La Verrière des braises",
+      "race": "DRAX",
+      "faction": "Vulkar",
+      "element": "PYRO",
+      "positions": [
+        4
+      ],
+      "weapon": "Orbe",
+      "file": "images/03-rhazene-01.png",
+      "story": "À la sortie du four, Rhazène protège un cœur de verre incandescent.",
+      "previousFile": "../2026-10-13-twenty-new-voices/images/11-rhazene-01.png",
+      "status": "awaiting-user-selection",
+      "promptFile": "prompts.json",
+      "generatedSource": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-a805edb2-181f-4afa-b5fc-d0d6c68302ac.png"
+    },
+    {
+      "index": 5,
+      "key": "velume",
+      "name": "Vélume",
+      "title": "La Veilleuse des abysses",
+      "race": "TANTALAK",
+      "faction": "Crabazar",
+      "element": "ELECTRO",
+      "positions": [
+        4,
+        5
+      ],
+      "weapon": "Orbe",
+      "file": "images/04-velume-01.png",
+      "story": "À marée basse, Vélume retrouve une balise et guette le retour de son signal.",
+      "previousFile": "../2026-10-13-twenty-new-voices/images/14-velume-02.png",
+      "status": "awaiting-user-selection",
+      "promptFile": "prompts.json",
+      "generatedSource": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-cec8e316-10a3-413e-965b-9f527370321f.png"
+    },
+    {
+      "index": 6,
+      "key": "salkor",
+      "name": "Salkor",
+      "title": "Le Chirurgien des quais",
+      "race": "SHARKAN",
+      "faction": "Crabazar",
+      "element": "HYDRO",
+      "positions": [
+        5
+      ],
+      "weapon": "Dague",
+      "file": "images/05-salkor-01.png",
+      "story": "Sur le pont d'une embarcation, Salkor prépare sa lame de soin avec un filet d'eau.",
+      "previousFile": "../2026-10-13-twenty-new-voices/images/19-salkor-02.png",
+      "status": "awaiting-user-selection",
+      "promptFile": "prompts.json",
+      "generatedSource": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-dd0c42a1-c736-40fc-89d9-c4568dae1f21.png"
+    },
+    {
+      "index": 7,
+      "key": "edris-7f",
+      "name": "Édris-7F",
+      "title": "Une présence de trop",
+      "race": "ANDROID",
+      "faction": "Chroma",
+      "element": "ELECTRO",
+      "positions": [
+        2,
+        3
+      ],
+      "weapon": "Epée courte",
+      "file": "images/06-edris-7f-02.png",
+      "story": "Édris-7F se glisse dans une maison de Chroma, retient la porte et écoute les pas à l'étage.",
+      "previousFile": "images/06-edris-7-01.png",
+      "status": "card-approved",
+      "promptFile": "card-final-edits.json",
+      "generatedSource": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-88329676-90b9-45fc-9cd2-03fe1916955b.png",
+      "cardId": "49902702"
+    }
+  ]
+}

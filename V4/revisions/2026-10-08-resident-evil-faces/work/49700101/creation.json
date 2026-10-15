@@ -1,0 +1,37 @@
+{
+  "job": "1463693e-7bba-483f-a316-ee7e1846e02b",
+  "setId": "2026-10-01-resident-evil",
+  "key": "jill1",
+  "modelId": "49700101",
+  "hashes": {
+    "profile.json": "4fa442add8163926bd2c371f3f0e555863eb3de07eb2452944d6a0c56cff74a1",
+    "card.png": "da215dd233d7b434a3cdc8fb2eac620a06824031a153e18058ce7f9d98ab0c13",
+    "card.psd": "5dcdf9d6c2969b7c751be96cbff43ee05fb1e434a225cdaabd951988ad0bda92",
+    "verification.json": "8d532c9d9f915f5fb2094fd4e9da09ef506143bcfcb5459c14b3fa0c6f06b12b",
+    "illustration.png": "3ab99451f99887c3058c03054d9db35d10d4d0d8beaf485ef500f938aa03abad"
+  },
+  "createdAt": "2026-09-30T23:31:55.457Z",
+  "nativeRevision": {
+    "id": "2026-10-08-resident-evil-faces",
+    "key": "jill-re1",
+    "proof": "V4/revisions/2026-10-08-resident-evil-faces/work/49700101/verification.json",
+    "changedFields": [
+      "atk",
+      "defense",
+      "magic",
+      "barriers",
+      "canGuard",
+      "canHeal"
+    ],
+    "previous": {
+      "id": "2026-10-01-stat-personality",
+      "key": "jill-re1",
+      "proof": "V4/revisions/2026-10-01-stat-personality/work/49700101/verification.json",
+      "changedFields": [
+        "atk",
+        "defense"
+      ],
+      "previous": null
+    }
+  }
+}

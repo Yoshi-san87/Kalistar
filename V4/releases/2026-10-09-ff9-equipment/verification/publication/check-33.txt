@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: all 20 actual base families keep their existing matrix IDs
+ok 1 - all 20 actual base families keep their existing matrix IDs
+  ---
+  duration_ms: 1.6764
+  type: 'test'
+  ...
+# Subtest: native anchor and all calibrated white contours respect the original circle
+ok 2 - native anchor and all calibrated white contours respect the original circle
+  ---
+  duration_ms: 11.0557
+  type: 'test'
+  ...
+# Subtest: Projectile alone adopts a throwing-star silhouette; native geometry stays unchanged
+ok 3 - Projectile alone adopts a throwing-star silhouette; native geometry stays unchanged
+  ---
+  duration_ms: 4.4977
+  type: 'test'
+  ...
+# Subtest: Projectile has four equal, axis-aligned points and quarter-turn symmetry
+ok 4 - Projectile has four equal, axis-aligned points and quarter-turn symmetry
+  ---
+  duration_ms: 0.8215
+  type: 'test'
+  ...
+# Subtest: four requested silhouettes change; the other sixteen stay byte-identical
+ok 5 - four requested silhouettes change; the other sixteen stay byte-identical
+  ---
+  duration_ms: 2.6533
+  type: 'test'
+  ...
+# Subtest: site-only rendering leaves native sources and equipment rules independent
+ok 6 - site-only rendering leaves native sources and equipment rules independent
+  ---
+  duration_ms: 0.9117
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 131.323

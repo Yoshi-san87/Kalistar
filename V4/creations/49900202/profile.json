@@ -1,0 +1,61 @@
+{
+  "name": "MIRELLE",
+  "title": "La Sève revenue",
+  "job": "GARDIENNE",
+  "description": "Aux racines d'Arborium, Mirelle rend vie aux jeunes pousses. Son sceptre protège ceux qui reprennent souffle : après chaque blessure, elle veille à laisser une chance au vivant.",
+  "element": "HERBO",
+  "race": "SERPES",
+  "weapon": "Sceptre",
+  "faction": "Arborium",
+  "positions": [
+    3,
+    5
+  ],
+  "atk": [
+    166,
+    126,
+    104,
+    73,
+    "mana",
+    "revive"
+  ],
+  "defense": [
+    193,
+    158,
+    117,
+    84,
+    53,
+    "retry"
+  ],
+  "magic": [
+    6,
+    4
+  ],
+  "barriers": [
+    4
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49900202",
+  "characterId": "mirelle",
+  "slug": "V4_49900202",
+  "output": "KALISTAR_V4_49900202",
+  "text": "Aux racines d'Arborium, Mirelle rend vie aux jeunes pousses. Son sceptre protège ceux qui reprennent souffle : après chaque blessure, elle veille à laisser une chance au vivant.",
+  "color": "89D355",
+  "hue": 100,
+  "weapon_index": 12,
+  "role": 5,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": true,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Personnage original propose pour Kalistar, demande du 2 octobre 2026",
+  "visual_revision": "V4-2026-10-02-serpes-mirelle",
+  "artworkSource": "V4/Illustrations/Mirelle_La_Seve_Revenue_01.png"
+}

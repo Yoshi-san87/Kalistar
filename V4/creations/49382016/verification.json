@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "modelId": "49382016",
+  "referenceId": "ef7a6767b57723d896ceecb050079bfb1abad0e79e7289a200f87b34585f9380",
+  "profileHash": "65a2c342e21667967f7ba77c9eba33c530697cc04fd09cbc070463c37416edd2",
+  "hashes": {
+    "card.png": "bf923815f21809e6cf61d2d625262e79f8982ba57a969e64056e3b74952c8799",
+    "card.psd": "f23f7bb645fe6d5ca6f834c6559fc51148d7d149e325257320d298820882ac6c"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 99633
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49382016",
+    "cases": {
+      "color-1": [
+        "49382016"
+      ],
+      "color-4": [
+        "49382016"
+      ],
+      "gray-1": [
+        "49382016"
+      ],
+      "gray-4": [
+        "49382016"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-28T21:05:27.470Z",
+  "revision": "2026-09-29-raiden-painterly",
+  "scope": {
+    "originalPixels": {
+      "changed": 0,
+      "outside": 0
+    },
+    "withoutArt": {
+      "changed": 0,
+      "outside": 0
+    },
+    "outside": {
+      "changed": 450945,
+      "outside": 0
+    },
+    "nativeTextUnchanged": true,
+    "nativeStyleRunsUnchanged": true,
+    "geometryUnchanged": true,
+    "embeddedObjects": true,
+    "changedProfileFields": []
+  }
+}

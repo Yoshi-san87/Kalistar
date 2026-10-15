@@ -1,0 +1,11 @@
+{
+  "name": "kalistar-v2-local",
+  "private": true,
+  "version": "2.1.0",
+  "scripts": {
+    "build:dice": "esbuild dice-view.js --bundle --minify --format=iife --outfile=assets/dice.bundle.js",
+    "test": "node engine.test.cjs"
+  },
+  "dependencies": { "three": "0.180.0" },
+  "devDependencies": { "esbuild": "0.25.10" }
+}

@@ -1,0 +1,1293 @@
+{
+  "tests": [
+    "Single screen contains ten slots, synergies, recruits and inspector at desktop sizes",
+    "Hover links correspond to selected faction or race and candidate potential comes from model",
+    "Deck slots swap without changing the owned set and recruit drag targets validate independently",
+    "Cancelled recruit drag never commits and click replacement updates coverage",
+    "Paged recruitment and quick filters remain in place without scrolling",
+    "Saved named decks switch instantly and preserve independent compositions",
+    "Mobile panels and short landscape screens have no scrolling or clipped actions",
+    "No browser exceptions or unrendered glyphs"
+  ],
+  "errors": [],
+  "geometry": [
+    {
+      "label": "1600x1080",
+      "width": 1600,
+      "height": 1080,
+      "scrollX": 0,
+      "scrollY": 0,
+      "bodyH": 1080,
+      "bodyW": 1600,
+      "boxes": [
+        {
+          "name": "kdb-heading",
+          "x": 0,
+          "y": 101.25,
+          "right": 1600,
+          "bottom": 155.25,
+          "clientH": 53,
+          "scrollH": 53
+        },
+        {
+          "name": "kdb-workbench",
+          "x": 0,
+          "y": 155.25,
+          "right": 1600,
+          "bottom": 1080,
+          "clientH": 925,
+          "scrollH": 925
+        },
+        {
+          "name": "kdb-affinities",
+          "x": 12,
+          "y": 163.25,
+          "right": 222,
+          "bottom": 900,
+          "clientH": 737,
+          "scrollH": 737
+        },
+        {
+          "name": "kdb-composition",
+          "x": 234,
+          "y": 163.25,
+          "right": 1276,
+          "bottom": 900,
+          "clientH": 737,
+          "scrollH": 737
+        },
+        {
+          "name": "kdb-slots",
+          "x": 237,
+          "y": 197.25,
+          "right": 1273,
+          "bottom": 832,
+          "clientH": 635,
+          "scrollH": 635
+        },
+        {
+          "name": "kdb-coverage",
+          "x": 237,
+          "y": 836,
+          "right": 1273,
+          "bottom": 876,
+          "clientH": 39,
+          "scrollH": 39
+        },
+        {
+          "name": "kdb-preview",
+          "x": 1288,
+          "y": 163.25,
+          "right": 1588,
+          "bottom": 1070,
+          "clientH": 907,
+          "scrollH": 907
+        },
+        {
+          "name": "kdb-browser",
+          "x": 12,
+          "y": 900,
+          "right": 1276,
+          "bottom": 1070,
+          "clientH": 169,
+          "scrollH": 169
+        }
+      ],
+      "outside": []
+    },
+    {
+      "label": "1440x900",
+      "width": 1440,
+      "height": 900,
+      "scrollX": 0,
+      "scrollY": 0,
+      "bodyH": 900,
+      "bodyW": 1440,
+      "boxes": [
+        {
+          "name": "kdb-heading",
+          "x": 0,
+          "y": 101.25,
+          "right": 1440,
+          "bottom": 155.25,
+          "clientH": 53,
+          "scrollH": 53
+        },
+        {
+          "name": "kdb-workbench",
+          "x": 0,
+          "y": 155.25,
+          "right": 1440,
+          "bottom": 900,
+          "clientH": 745,
+          "scrollH": 745
+        },
+        {
+          "name": "kdb-affinities",
+          "x": 12,
+          "y": 163.25,
+          "right": 222,
+          "bottom": 720,
+          "clientH": 557,
+          "scrollH": 557
+        },
+        {
+          "name": "kdb-composition",
+          "x": 234,
+          "y": 163.25,
+          "right": 1116,
+          "bottom": 720,
+          "clientH": 557,
+          "scrollH": 557
+        },
+        {
+          "name": "kdb-slots",
+          "x": 237,
+          "y": 197.25,
+          "right": 1113,
+          "bottom": 652,
+          "clientH": 455,
+          "scrollH": 455
+        },
+        {
+          "name": "kdb-coverage",
+          "x": 237,
+          "y": 656,
+          "right": 1113,
+          "bottom": 696,
+          "clientH": 39,
+          "scrollH": 39
+        },
+        {
+          "name": "kdb-preview",
+          "x": 1128,
+          "y": 163.25,
+          "right": 1428,
+          "bottom": 890,
+          "clientH": 727,
+          "scrollH": 727
+        },
+        {
+          "name": "kdb-browser",
+          "x": 12,
+          "y": 720,
+          "right": 1116,
+          "bottom": 890,
+          "clientH": 169,
+          "scrollH": 169
+        }
+      ],
+      "outside": []
+    },
+    {
+      "label": "1280x720",
+      "width": 1280,
+      "height": 720,
+      "scrollX": 0,
+      "scrollY": 0,
+      "bodyH": 720,
+      "bodyW": 1280,
+      "boxes": [
+        {
+          "name": "kdb-heading",
+          "x": 0,
+          "y": 101.25,
+          "right": 1280,
+          "bottom": 149.25,
+          "clientH": 47,
+          "scrollH": 47
+        },
+        {
+          "name": "kdb-workbench",
+          "x": 0,
+          "y": 149.25,
+          "right": 1280,
+          "bottom": 720,
+          "clientH": 571,
+          "scrollH": 571
+        },
+        {
+          "name": "kdb-affinities",
+          "x": 12,
+          "y": 155.25,
+          "right": 222,
+          "bottom": 602,
+          "clientH": 447,
+          "scrollH": 447
+        },
+        {
+          "name": "kdb-composition",
+          "x": 234,
+          "y": 155.25,
+          "right": 956,
+          "bottom": 602,
+          "clientH": 447,
+          "scrollH": 447
+        },
+        {
+          "name": "kdb-slots",
+          "x": 237,
+          "y": 181.25,
+          "right": 953,
+          "bottom": 550,
+          "clientH": 369,
+          "scrollH": 369
+        },
+        {
+          "name": "kdb-coverage",
+          "x": 237,
+          "y": 552,
+          "right": 953,
+          "bottom": 584,
+          "clientH": 31,
+          "scrollH": 31
+        },
+        {
+          "name": "kdb-preview",
+          "x": 968,
+          "y": 155.25,
+          "right": 1268,
+          "bottom": 714,
+          "clientH": 559,
+          "scrollH": 559
+        },
+        {
+          "name": "kdb-browser",
+          "x": 12,
+          "y": 602,
+          "right": 956,
+          "bottom": 714,
+          "clientH": 111,
+          "scrollH": 111
+        }
+      ],
+      "outside": []
+    },
+    {
+      "label": "2560x1440",
+      "width": 2560,
+      "height": 1440,
+      "scrollX": 0,
+      "scrollY": 0,
+      "bodyH": 1440,
+      "bodyW": 2560,
+      "boxes": [
+        {
+          "name": "kdb-heading",
+          "x": 0,
+          "y": 101.25,
+          "right": 2560,
+          "bottom": 155.25,
+          "clientH": 53,
+          "scrollH": 53
+        },
+        {
+          "name": "kdb-workbench",
+          "x": 0,
+          "y": 155.25,
+          "right": 2560,
+          "bottom": 1440,
+          "clientH": 1285,
+          "scrollH": 1285
+        },
+        {
+          "name": "kdb-affinities",
+          "x": 12,
+          "y": 163.25,
+          "right": 222,
+          "bottom": 1260,
+          "clientH": 1097,
+          "scrollH": 1097
+        },
+        {
+          "name": "kdb-composition",
+          "x": 234,
+          "y": 163.25,
+          "right": 2236,
+          "bottom": 1260,
+          "clientH": 1097,
+          "scrollH": 1097
+        },
+        {
+          "name": "kdb-slots",
+          "x": 237,
+          "y": 197.25,
+          "right": 2233,
+          "bottom": 1192,
+          "clientH": 995,
+          "scrollH": 995
+        },
+        {
+          "name": "kdb-coverage",
+          "x": 237,
+          "y": 1196,
+          "right": 2233,
+          "bottom": 1236,
+          "clientH": 39,
+          "scrollH": 39
+        },
+        {
+          "name": "kdb-preview",
+          "x": 2248,
+          "y": 163.25,
+          "right": 2548,
+          "bottom": 1430,
+          "clientH": 1267,
+          "scrollH": 1267
+        },
+        {
+          "name": "kdb-browser",
+          "x": 12,
+          "y": 1260,
+          "right": 2236,
+          "bottom": 1430,
+          "clientH": 169,
+          "scrollH": 169
+        }
+      ],
+      "outside": []
+    },
+    {
+      "label": "filters",
+      "width": 1600,
+      "height": 1080,
+      "scrollX": 0,
+      "scrollY": 0,
+      "bodyH": 1080,
+      "bodyW": 1600,
+      "boxes": [
+        {
+          "name": "kdb-heading",
+          "x": 0,
+          "y": 101.25,
+          "right": 1600,
+          "bottom": 155.25,
+          "clientH": 53,
+          "scrollH": 53
+        },
+        {
+          "name": "kdb-workbench",
+          "x": 0,
+          "y": 155.25,
+          "right": 1600,
+          "bottom": 1080,
+          "clientH": 925,
+          "scrollH": 925
+        },
+        {
+          "name": "kdb-affinities",
+          "x": 12,
+          "y": 163.25,
+          "right": 222,
+          "bottom": 900,
+          "clientH": 737,
+          "scrollH": 737
+        },
+        {
+          "name": "kdb-composition",
+          "x": 234,
+          "y": 163.25,
+          "right": 1276,
+          "bottom": 900,
+          "clientH": 737,
+          "scrollH": 737
+        },
+        {
+          "name": "kdb-slots",
+          "x": 237,
+          "y": 197.25,
+          "right": 1273,
+          "bottom": 832,
+          "clientH": 635,
+          "scrollH": 635
+        },
+        {
+          "name": "kdb-coverage",
+          "x": 237,
+          "y": 836,
+          "right": 1273,
+          "bottom": 876,
+          "clientH": 39,
+          "scrollH": 39
+        },
+        {
+          "name": "kdb-preview",
+          "x": 1288,
+          "y": 163.25,
+          "right": 1588,
+          "bottom": 1070,
+          "clientH": 907,
+          "scrollH": 907
+        },
+        {
+          "name": "kdb-browser",
+          "x": 12,
+          "y": 900,
+          "right": 1276,
+          "bottom": 1070,
+          "clientH": 169,
+          "scrollH": 169
+        },
+        {
+          "name": "kdb-filters",
+          "x": 12,
+          "y": 726,
+          "right": 1276,
+          "bottom": 896,
+          "clientH": 168,
+          "scrollH": 168
+        }
+      ],
+      "outside": []
+    },
+    {
+      "label": "recruits",
+      "width": 1600,
+      "height": 1080,
+      "scrollX": 0,
+      "scrollY": 0,
+      "bodyH": 1080,
+      "bodyW": 1600,
+      "boxes": [
+        {
+          "name": "kdb-heading",
+          "x": 0,
+          "y": 101.25,
+          "right": 1600,
+          "bottom": 155.25,
+          "clientH": 53,
+          "scrollH": 53
+        },
+        {
+          "name": "kdb-workbench",
+          "x": 0,
+          "y": 155.25,
+          "right": 1600,
+          "bottom": 1080,
+          "clientH": 925,
+          "scrollH": 925
+        },
+        {
+          "name": "kdb-affinities",
+          "x": 12,
+          "y": 163.25,
+          "right": 222,
+          "bottom": 900,
+          "clientH": 737,
+          "scrollH": 737
+        },
+        {
+          "name": "kdb-composition",
+          "x": 234,
+          "y": 163.25,
+          "right": 1276,
+          "bottom": 900,
+          "clientH": 737,
+          "scrollH": 737
+        },
+        {
+          "name": "kdb-slots",
+          "x": 237,
+          "y": 197.25,
+          "right": 1273,
+          "bottom": 832,
+          "clientH": 635,
+          "scrollH": 635
+        },
+        {
+          "name": "kdb-coverage",
+          "x": 237,
+          "y": 836,
+          "right": 1273,
+          "bottom": 876,
+          "clientH": 39,
+          "scrollH": 39
+        },
+        {
+          "name": "kdb-preview",
+          "x": 1288,
+          "y": 163.25,
+          "right": 1588,
+          "bottom": 1070,
+          "clientH": 907,
+          "scrollH": 907
+        },
+        {
+          "name": "kdb-browser",
+          "x": 12,
+          "y": 900,
+          "right": 1276,
+          "bottom": 1070,
+          "clientH": 169,
+          "scrollH": 169
+        }
+      ],
+      "outside": []
+    },
+    {
+      "label": "manage",
+      "width": 1600,
+      "height": 1080,
+      "scrollX": 0,
+      "scrollY": 0,
+      "bodyH": 1080,
+      "bodyW": 1600,
+      "boxes": [
+        {
+          "name": "kdb-heading",
+          "x": 0,
+          "y": 101.25,
+          "right": 1600,
+          "bottom": 155.25,
+          "clientH": 53,
+          "scrollH": 53
+        },
+        {
+          "name": "kdb-library-bar",
+          "x": 1370,
+          "y": 160.25,
+          "right": 1588,
+          "bottom": 267.25,
+          "clientH": 105,
+          "scrollH": 105
+        },
+        {
+          "name": "kdb-workbench",
+          "x": 0,
+          "y": 155.25,
+          "right": 1600,
+          "bottom": 1080,
+          "clientH": 925,
+          "scrollH": 925
+        },
+        {
+          "name": "kdb-affinities",
+          "x": 12,
+          "y": 163.25,
+          "right": 222,
+          "bottom": 900,
+          "clientH": 737,
+          "scrollH": 737
+        },
+        {
+          "name": "kdb-composition",
+          "x": 234,
+          "y": 163.25,
+          "right": 1276,
+          "bottom": 900,
+          "clientH": 737,
+          "scrollH": 737
+        },
+        {
+          "name": "kdb-slots",
+          "x": 237,
+          "y": 197.25,
+          "right": 1273,
+          "bottom": 832,
+          "clientH": 635,
+          "scrollH": 635
+        },
+        {
+          "name": "kdb-coverage",
+          "x": 237,
+          "y": 836,
+          "right": 1273,
+          "bottom": 876,
+          "clientH": 39,
+          "scrollH": 39
+        },
+        {
+          "name": "kdb-preview",
+          "x": 1288,
+          "y": 163.25,
+          "right": 1588,
+          "bottom": 1070,
+          "clientH": 907,
+          "scrollH": 907
+        },
+        {
+          "name": "kdb-browser",
+          "x": 12,
+          "y": 900,
+          "right": 1276,
+          "bottom": 1070,
+          "clientH": 169,
+          "scrollH": 169
+        }
+      ],
+      "outside": []
+    },
+    {
+      "label": "390-board",
+      "width": 390,
+      "height": 844,
+      "scrollX": 0,
+      "scrollY": 0,
+      "bodyH": 844,
+      "bodyW": 390,
+      "boxes": [
+        {
+          "name": "kdb-heading",
+          "x": 0,
+          "y": 127.609375,
+          "right": 390,
+          "bottom": 211.609375,
+          "clientH": 83,
+          "scrollH": 83
+        },
+        {
+          "name": "kdb-workbench",
+          "x": 0,
+          "y": 241.609375,
+          "right": 390,
+          "bottom": 844,
+          "clientH": 602,
+          "scrollH": 602
+        },
+        {
+          "name": "kdb-composition",
+          "x": 8,
+          "y": 246.609375,
+          "right": 382,
+          "bottom": 702,
+          "clientH": 455,
+          "scrollH": 455
+        },
+        {
+          "name": "kdb-slots",
+          "x": 9,
+          "y": 273.609375,
+          "right": 381,
+          "bottom": 643,
+          "clientH": 369,
+          "scrollH": 369
+        },
+        {
+          "name": "kdb-coverage",
+          "x": 9,
+          "y": 646,
+          "right": 381,
+          "bottom": 682,
+          "clientH": 35,
+          "scrollH": 35
+        },
+        {
+          "name": "kdb-browser",
+          "x": 8,
+          "y": 702,
+          "right": 382,
+          "bottom": 838,
+          "clientH": 135,
+          "scrollH": 135
+        }
+      ],
+      "outside": []
+    },
+    {
+      "label": "390-synergy",
+      "width": 390,
+      "height": 844,
+      "scrollX": 0,
+      "scrollY": 0,
+      "bodyH": 844,
+      "bodyW": 390,
+      "boxes": [
+        {
+          "name": "kdb-heading",
+          "x": 0,
+          "y": 127.609375,
+          "right": 390,
+          "bottom": 211.609375,
+          "clientH": 83,
+          "scrollH": 83
+        },
+        {
+          "name": "kdb-workbench",
+          "x": 0,
+          "y": 241.609375,
+          "right": 390,
+          "bottom": 844,
+          "clientH": 602,
+          "scrollH": 602
+        },
+        {
+          "name": "kdb-affinities",
+          "x": 8,
+          "y": 246.609375,
+          "right": 382,
+          "bottom": 702,
+          "clientH": 455,
+          "scrollH": 455
+        },
+        {
+          "name": "kdb-browser",
+          "x": 8,
+          "y": 702,
+          "right": 382,
+          "bottom": 838,
+          "clientH": 135,
+          "scrollH": 135
+        }
+      ],
+      "outside": []
+    },
+    {
+      "label": "390-inspect",
+      "width": 390,
+      "height": 844,
+      "scrollX": 0,
+      "scrollY": 0,
+      "bodyH": 844,
+      "bodyW": 390,
+      "boxes": [
+        {
+          "name": "kdb-heading",
+          "x": 0,
+          "y": 127.609375,
+          "right": 390,
+          "bottom": 211.609375,
+          "clientH": 83,
+          "scrollH": 83
+        },
+        {
+          "name": "kdb-workbench",
+          "x": 0,
+          "y": 241.609375,
+          "right": 390,
+          "bottom": 844,
+          "clientH": 602,
+          "scrollH": 602
+        },
+        {
+          "name": "kdb-preview",
+          "x": 8,
+          "y": 246.609375,
+          "right": 382,
+          "bottom": 702,
+          "clientH": 455,
+          "scrollH": 455
+        },
+        {
+          "name": "kdb-browser",
+          "x": 8,
+          "y": 702,
+          "right": 382,
+          "bottom": 838,
+          "clientH": 135,
+          "scrollH": 135
+        }
+      ],
+      "outside": []
+    },
+    {
+      "label": "390-filters",
+      "width": 390,
+      "height": 844,
+      "scrollX": 0,
+      "scrollY": 0,
+      "bodyH": 844,
+      "bodyW": 390,
+      "boxes": [
+        {
+          "name": "kdb-heading",
+          "x": 0,
+          "y": 127.609375,
+          "right": 390,
+          "bottom": 211.609375,
+          "clientH": 83,
+          "scrollH": 83
+        },
+        {
+          "name": "kdb-workbench",
+          "x": 0,
+          "y": 241.609375,
+          "right": 390,
+          "bottom": 844,
+          "clientH": 602,
+          "scrollH": 602
+        },
+        {
+          "name": "kdb-preview",
+          "x": 8,
+          "y": 246.609375,
+          "right": 382,
+          "bottom": 702,
+          "clientH": 455,
+          "scrollH": 455
+        },
+        {
+          "name": "kdb-browser",
+          "x": 8,
+          "y": 702,
+          "right": 382,
+          "bottom": 838,
+          "clientH": 135,
+          "scrollH": 135
+        },
+        {
+          "name": "kdb-filters",
+          "x": 8,
+          "y": 482,
+          "right": 382,
+          "bottom": 698,
+          "clientH": 214,
+          "scrollH": 214
+        }
+      ],
+      "outside": []
+    },
+    {
+      "label": "360-board",
+      "width": 360,
+      "height": 740,
+      "scrollX": 0,
+      "scrollY": 0,
+      "bodyH": 740,
+      "bodyW": 360,
+      "boxes": [
+        {
+          "name": "kdb-heading",
+          "x": 0,
+          "y": 127.609375,
+          "right": 360,
+          "bottom": 211.609375,
+          "clientH": 83,
+          "scrollH": 83
+        },
+        {
+          "name": "kdb-workbench",
+          "x": 0,
+          "y": 241.609375,
+          "right": 360,
+          "bottom": 740,
+          "clientH": 498,
+          "scrollH": 498
+        },
+        {
+          "name": "kdb-composition",
+          "x": 8,
+          "y": 246.609375,
+          "right": 352,
+          "bottom": 598,
+          "clientH": 351,
+          "scrollH": 351
+        },
+        {
+          "name": "kdb-slots",
+          "x": 9,
+          "y": 273.609375,
+          "right": 351,
+          "bottom": 539,
+          "clientH": 265,
+          "scrollH": 265
+        },
+        {
+          "name": "kdb-coverage",
+          "x": 9,
+          "y": 542,
+          "right": 351,
+          "bottom": 578,
+          "clientH": 35,
+          "scrollH": 35
+        },
+        {
+          "name": "kdb-browser",
+          "x": 8,
+          "y": 598,
+          "right": 352,
+          "bottom": 734,
+          "clientH": 135,
+          "scrollH": 135
+        }
+      ],
+      "outside": []
+    },
+    {
+      "label": "360-synergy",
+      "width": 360,
+      "height": 740,
+      "scrollX": 0,
+      "scrollY": 0,
+      "bodyH": 740,
+      "bodyW": 360,
+      "boxes": [
+        {
+          "name": "kdb-heading",
+          "x": 0,
+          "y": 127.609375,
+          "right": 360,
+          "bottom": 211.609375,
+          "clientH": 83,
+          "scrollH": 83
+        },
+        {
+          "name": "kdb-workbench",
+          "x": 0,
+          "y": 241.609375,
+          "right": 360,
+          "bottom": 740,
+          "clientH": 498,
+          "scrollH": 498
+        },
+        {
+          "name": "kdb-affinities",
+          "x": 8,
+          "y": 246.609375,
+          "right": 352,
+          "bottom": 598,
+          "clientH": 351,
+          "scrollH": 351
+        },
+        {
+          "name": "kdb-browser",
+          "x": 8,
+          "y": 598,
+          "right": 352,
+          "bottom": 734,
+          "clientH": 135,
+          "scrollH": 135
+        }
+      ],
+      "outside": []
+    },
+    {
+      "label": "360-inspect",
+      "width": 360,
+      "height": 740,
+      "scrollX": 0,
+      "scrollY": 0,
+      "bodyH": 740,
+      "bodyW": 360,
+      "boxes": [
+        {
+          "name": "kdb-heading",
+          "x": 0,
+          "y": 127.609375,
+          "right": 360,
+          "bottom": 211.609375,
+          "clientH": 83,
+          "scrollH": 83
+        },
+        {
+          "name": "kdb-workbench",
+          "x": 0,
+          "y": 241.609375,
+          "right": 360,
+          "bottom": 740,
+          "clientH": 498,
+          "scrollH": 498
+        },
+        {
+          "name": "kdb-preview",
+          "x": 8,
+          "y": 246.609375,
+          "right": 352,
+          "bottom": 598,
+          "clientH": 351,
+          "scrollH": 351
+        },
+        {
+          "name": "kdb-browser",
+          "x": 8,
+          "y": 598,
+          "right": 352,
+          "bottom": 734,
+          "clientH": 135,
+          "scrollH": 135
+        }
+      ],
+      "outside": []
+    },
+    {
+      "label": "360-filters",
+      "width": 360,
+      "height": 740,
+      "scrollX": 0,
+      "scrollY": 0,
+      "bodyH": 740,
+      "bodyW": 360,
+      "boxes": [
+        {
+          "name": "kdb-heading",
+          "x": 0,
+          "y": 127.609375,
+          "right": 360,
+          "bottom": 211.609375,
+          "clientH": 83,
+          "scrollH": 83
+        },
+        {
+          "name": "kdb-workbench",
+          "x": 0,
+          "y": 241.609375,
+          "right": 360,
+          "bottom": 740,
+          "clientH": 498,
+          "scrollH": 498
+        },
+        {
+          "name": "kdb-preview",
+          "x": 8,
+          "y": 246.609375,
+          "right": 352,
+          "bottom": 598,
+          "clientH": 351,
+          "scrollH": 351
+        },
+        {
+          "name": "kdb-browser",
+          "x": 8,
+          "y": 598,
+          "right": 352,
+          "bottom": 734,
+          "clientH": 135,
+          "scrollH": 135
+        },
+        {
+          "name": "kdb-filters",
+          "x": 8,
+          "y": 378,
+          "right": 352,
+          "bottom": 594,
+          "clientH": 214,
+          "scrollH": 214
+        }
+      ],
+      "outside": []
+    },
+    {
+      "label": "844-board",
+      "width": 844,
+      "height": 390,
+      "scrollX": 0,
+      "scrollY": 0,
+      "bodyH": 390,
+      "bodyW": 844,
+      "boxes": [
+        {
+          "name": "kdb-heading",
+          "x": 0,
+          "y": 70,
+          "right": 844,
+          "bottom": 118,
+          "clientH": 47,
+          "scrollH": 47
+        },
+        {
+          "name": "kdb-workbench",
+          "x": 0,
+          "y": 144,
+          "right": 844,
+          "bottom": 390,
+          "clientH": 246,
+          "scrollH": 246
+        },
+        {
+          "name": "kdb-composition",
+          "x": 8,
+          "y": 146,
+          "right": 836,
+          "bottom": 299,
+          "clientH": 153,
+          "scrollH": 153
+        },
+        {
+          "name": "kdb-slots",
+          "x": 9,
+          "y": 164,
+          "right": 835,
+          "bottom": 263,
+          "clientH": 99,
+          "scrollH": 99
+        },
+        {
+          "name": "kdb-coverage",
+          "x": 9,
+          "y": 264,
+          "right": 835,
+          "bottom": 286,
+          "clientH": 21,
+          "scrollH": 21
+        },
+        {
+          "name": "kdb-browser",
+          "x": 8,
+          "y": 299,
+          "right": 836,
+          "bottom": 387,
+          "clientH": 87,
+          "scrollH": 88
+        }
+      ],
+      "outside": []
+    },
+    {
+      "label": "844-synergy",
+      "width": 844,
+      "height": 390,
+      "scrollX": 0,
+      "scrollY": 0,
+      "bodyH": 390,
+      "bodyW": 844,
+      "boxes": [
+        {
+          "name": "kdb-heading",
+          "x": 0,
+          "y": 70,
+          "right": 844,
+          "bottom": 118,
+          "clientH": 47,
+          "scrollH": 47
+        },
+        {
+          "name": "kdb-workbench",
+          "x": 0,
+          "y": 144,
+          "right": 844,
+          "bottom": 390,
+          "clientH": 246,
+          "scrollH": 246
+        },
+        {
+          "name": "kdb-affinities",
+          "x": 8,
+          "y": 146,
+          "right": 836,
+          "bottom": 299,
+          "clientH": 153,
+          "scrollH": 153
+        },
+        {
+          "name": "kdb-browser",
+          "x": 8,
+          "y": 299,
+          "right": 836,
+          "bottom": 387,
+          "clientH": 87,
+          "scrollH": 88
+        }
+      ],
+      "outside": []
+    },
+    {
+      "label": "844-inspect",
+      "width": 844,
+      "height": 390,
+      "scrollX": 0,
+      "scrollY": 0,
+      "bodyH": 390,
+      "bodyW": 844,
+      "boxes": [
+        {
+          "name": "kdb-heading",
+          "x": 0,
+          "y": 70,
+          "right": 844,
+          "bottom": 118,
+          "clientH": 47,
+          "scrollH": 47
+        },
+        {
+          "name": "kdb-workbench",
+          "x": 0,
+          "y": 144,
+          "right": 844,
+          "bottom": 390,
+          "clientH": 246,
+          "scrollH": 246
+        },
+        {
+          "name": "kdb-preview",
+          "x": 8,
+          "y": 146,
+          "right": 836,
+          "bottom": 299,
+          "clientH": 153,
+          "scrollH": 153
+        },
+        {
+          "name": "kdb-browser",
+          "x": 8,
+          "y": 299,
+          "right": 836,
+          "bottom": 387,
+          "clientH": 87,
+          "scrollH": 88
+        }
+      ],
+      "outside": []
+    },
+    {
+      "label": "844-filters",
+      "width": 844,
+      "height": 390,
+      "scrollX": 0,
+      "scrollY": 0,
+      "bodyH": 390,
+      "bodyW": 844,
+      "boxes": [
+        {
+          "name": "kdb-heading",
+          "x": 0,
+          "y": 70,
+          "right": 844,
+          "bottom": 118,
+          "clientH": 47,
+          "scrollH": 47
+        },
+        {
+          "name": "kdb-workbench",
+          "x": 0,
+          "y": 144,
+          "right": 844,
+          "bottom": 390,
+          "clientH": 246,
+          "scrollH": 246
+        },
+        {
+          "name": "kdb-preview",
+          "x": 8,
+          "y": 146,
+          "right": 836,
+          "bottom": 299,
+          "clientH": 153,
+          "scrollH": 153
+        },
+        {
+          "name": "kdb-browser",
+          "x": 8,
+          "y": 299,
+          "right": 836,
+          "bottom": 387,
+          "clientH": 87,
+          "scrollH": 88
+        },
+        {
+          "name": "kdb-filters",
+          "x": 8,
+          "y": 181,
+          "right": 836,
+          "bottom": 295,
+          "clientH": 112,
+          "scrollH": 112
+        }
+      ],
+      "outside": []
+    }
+  ],
+  "screenshots": [
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-squad\\squad-1600.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-squad\\squad-1440.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-squad\\squad-1280.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-squad\\squad-2560.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-squad\\squad-390-board.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-squad\\squad-390-synergy.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-squad\\squad-390-inspect.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-squad\\squad-360-board.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-squad\\squad-360-synergy.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-squad\\squad-360-inspect.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-squad\\squad-844-board.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-squad\\squad-844-synergy.png",
+    "C:\\Users\\guill\\Documents\\Doc\\GP-2 inside\\Cartes\\Kalistar\\V3\\verification-squad\\squad-844-inspect.png"
+  ]
+}

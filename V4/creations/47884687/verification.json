@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "modelId": "47884687",
+  "referenceId": "ef7a6767b57723d896ceecb050079bfb1abad0e79e7289a200f87b34585f9380",
+  "profileHash": "fe933882d162f235a3323cc63ff29493abc281bb68199606dda20e97ca18fa83",
+  "hashes": {
+    "card.png": "9fe98bdbc066573cb923ee15783690014f4c8f6abeb87a67a97511055965a0ba",
+    "card.psd": "55ba874c0f316771f4da2868ea1bbdf08a50a1a35fa4c7b333e11da9cb9478d0"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 85166
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "47884687",
+    "cases": {
+      "color-1": [
+        "47884687"
+      ],
+      "color-4": [
+        "47884687"
+      ],
+      "gray-1": [
+        "47884687"
+      ],
+      "gray-4": [
+        "47884687"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-27T13:49:56.661Z",
+  "none": {
+    "unlit": true,
+    "crystalHash": "fd16efbb06ac645589885aed82cadacab4461f08dcc4f4dd1d58d7d42b11f8bf",
+    "branchHash": "c8bf5bb6de74db43356255c19c6747ffd0daa03ae6476c0ef1b66c628d77a7cb"
+  },
+  "key": "malaba-mine",
+  "preparationHash": "92c97ede8e6f829ceb2ac536bc7d363aa1fa8590e59bc8535e4b4e8ac0857234",
+  "typographyAudit": {
+    "passed": true,
+    "rulesHash": "c3520779bdfad875fe67798dc8605193152395d4267d8fa2e39efeb6a962af4a",
+    "orphanPunctuation": false
+  }
+}

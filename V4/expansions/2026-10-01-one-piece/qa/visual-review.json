@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "set": "2026-10-01-one-piece",
+  "status": "passed",
+  "scope": "Native exported cards after PSD save and reopen",
+  "inspected": [
+    "luffy", "zoro", "sanji", "nami", "usopp",
+    "chopper-small", "chopper-heavy", "robin", "franky", "brook", "jinbe"
+  ],
+  "contactSheets": ["qa/card-1.png", "qa/card-6.png", "qa/card-11.png"],
+  "checks": {
+    "fullSizeCardsInspected": 11,
+    "contactCardsInspected": 11,
+    "namesFit": true,
+    "frenchAccentsRetained": true,
+    "descriptionsWithinFourLines": true,
+    "facesAndPrimaryActionsReadable": true,
+    "factionAndRaceEmblemsReadable": true,
+    "luffyAndZoroApprovedFaceRevisionsUsed": true,
+    "robinApprovedRevisionUsed": true,
+    "repairRequested": false
+  },
+  "notes": [
+    "Nami's face is unobstructed and the lower weather baton remains visible. Her left hand and upper baton are partly covered by the ATK column. The approved art and crop were preserved; parent final native review accepted the crop without repair.",
+    "Heavy Point's longer occupation uses the existing native fit policy. The native typography verifier passed without relaxing its checks.",
+    "Luffy and Sanji descriptions use three lines; the remaining nine use four lines.",
+    "Brook has support effects and no revive. The two Chopper cards share their character identity."
+  ],
+  "parentReview": {
+    "source": "Explicit parent message in this task after all eleven native cards were rendered",
+    "allElevenPassed": true,
+    "reportedEvidence": "qa/native-1.png and qa/native-2.png under parent release",
+    "repairRequested": false
+  },
+  "technicalProof": "cards/<key>/verification.json",
+  "publication": "Pending parent command; no catalogue or Git operation performed"
+}

@@ -1,0 +1,84 @@
+{
+  "passed": true,
+  "modelId": "49600118",
+  "referenceId": "ef7a6767b57723d896ceecb050079bfb1abad0e79e7289a200f87b34585f9380",
+  "profileHash": "b11a5c2ef8fe247b3ab7876dea501d938d074cea4d51da123bb7f161c4f26272",
+  "hashes": {
+    "card.png": "3c3f9f1ed99c1f0dff665cf9a316cb1e8872c749579121652d246f331abfa24b",
+    "card.psd": "977341e0dc9814336cbda07097108545b73fe26ed60c524bdfbf146156efc0fc"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 123579
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49600118",
+    "cases": {
+      "color-1": [
+        "49600118"
+      ],
+      "color-4": [
+        "49600118"
+      ],
+      "gray-1": [
+        "49600118"
+      ],
+      "gray-4": [
+        "49600118"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-01T11:55:30.382Z",
+  "revision": "2026-10-01-skull-face",
+  "scope": {
+    "changed": 450167,
+    "outside": 0
+  },
+  "allowedRectangles": [
+    [
+      80,
+      156,
+      817,
+      1077
+    ],
+    [
+      711,
+      1116,
+      807,
+      1211
+    ],
+    [
+      549,
+      1162,
+      649,
+      1183
+    ],
+    [
+      553,
+      1162,
+      645,
+      1183
+    ]
+  ],
+  "originalPixels": {
+    "changed": 0,
+    "outside": 0
+  },
+  "withoutChanges": {
+    "changed": 0,
+    "outside": 0
+  },
+  "reopenedWithoutChanges": {
+    "changed": 0,
+    "outside": 0
+  },
+  "preservedNativeStyles": true,
+  "onlyProfileRaceChanged": true
+}

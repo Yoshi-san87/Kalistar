@@ -1,0 +1,52 @@
+{
+  "passed": true,
+  "key": "barret",
+  "modelId": "43698921",
+  "referenceId": "6fbc1ace44f922a84ebb3f4608534c5d7ab88d23de47f404aa478b70e10f6ecc",
+  "profileHash": "ede37c82630793df754f53e9522aaef26835f38e94ff4d4bc5f412e4d8878e49",
+  "hashes": {
+    "card.png": "ff1b9ce7d3f6ff31e0c70bdab5dad4ab3ec24990922ec4eb55cc032a716850c9",
+    "card.psd": "03fbcc3a3efb41334884c98013297be56d11837c6f691b736758ef88361a047d"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "proof": "same PSD with only embedded artwork replaced",
+    "withoutArt": {
+      "changed": 0,
+      "outside": 0
+    }
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "43698921",
+    "cases": {
+      "color-1": [
+        "43698921"
+      ],
+      "color-4": [
+        "43698921"
+      ],
+      "gray-1": [
+        "43698921"
+      ],
+      "gray-4": [
+        "43698921"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-09-20T13:09:14.275Z",
+  "illustrationOnly": {
+    "outside": {
+      "changed": 454054,
+      "outside": 0
+    },
+    "layerStateIdentical": true
+  },
+  "revision": "2026-09-20-barret-original-mako"
+}

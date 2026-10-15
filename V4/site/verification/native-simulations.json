@@ -1,0 +1,948 @@
+{
+  "schema": 1,
+  "kind": "native-smoke-not-balance",
+  "date": "2026-10-12",
+  "description": "32 same-seed comparisons with unmodified native profiles. Both teams equip the relic in the equipped branch. Restore and validate after every action. One seed per relic; these observations do not establish balance or player win rates.",
+  "limits": {
+    "actionsPerMatch": 4000,
+    "exchangesPerMatch": 200,
+    "consecutiveDefenseRolls": 79
+  },
+  "matches": 64,
+  "carriersEquipped": 64,
+  "spent": 11,
+  "hungMatches": 0,
+  "pairs": [
+    {
+      "id": "exiled-king-seal",
+      "baseline": {
+        "id": "exiled-king-seal",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-exiled-king-seal",
+        "carrierId": "30000007",
+        "actions": 140,
+        "exchanges": 28,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "exiled-king-seal",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-exiled-king-seal",
+        "carrierId": "30000007",
+        "actions": 140,
+        "exchanges": 28,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      }
+    },
+    {
+      "id": "current-compass",
+      "baseline": {
+        "id": "current-compass",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-current-compass",
+        "carrierId": "30000039",
+        "actions": 154,
+        "exchanges": 32,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "current-compass",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-current-compass",
+        "carrierId": "30000039",
+        "actions": 154,
+        "exchanges": 32,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      }
+    },
+    {
+      "id": "last-garden-seed",
+      "baseline": {
+        "id": "last-garden-seed",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-last-garden-seed",
+        "carrierId": "30000041",
+        "actions": 159,
+        "exchanges": 34,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "last-garden-seed",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-last-garden-seed",
+        "carrierId": "30000041",
+        "actions": 159,
+        "exchanges": 34,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      }
+    },
+    {
+      "id": "lost-names-bell",
+      "baseline": {
+        "id": "lost-names-bell",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-lost-names-bell",
+        "carrierId": "49900713",
+        "actions": 169,
+        "exchanges": 36,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "lost-names-bell",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-lost-names-bell",
+        "carrierId": "49900713",
+        "actions": 169,
+        "exchanges": 36,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      }
+    },
+    {
+      "id": "kalistar-nerval-lantern",
+      "baseline": {
+        "id": "kalistar-nerval-lantern",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-kalistar-nerval-lantern",
+        "carrierId": "49901402",
+        "actions": 166,
+        "exchanges": 36,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "kalistar-nerval-lantern",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-kalistar-nerval-lantern",
+        "carrierId": "49901402",
+        "actions": 166,
+        "exchanges": 36,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      }
+    },
+    {
+      "id": "kalistar-nestown-beacon",
+      "baseline": {
+        "id": "kalistar-nestown-beacon",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-kalistar-nestown-beacon",
+        "carrierId": "30000002",
+        "actions": 149,
+        "exchanges": 33,
+        "winner": 0,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "kalistar-nestown-beacon",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-kalistar-nestown-beacon",
+        "carrierId": "30000002",
+        "actions": 149,
+        "exchanges": 33,
+        "winner": 0,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      }
+    },
+    {
+      "id": "griever-pendant",
+      "baseline": {
+        "id": "griever-pendant",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-griever-pendant",
+        "carrierId": "45410910",
+        "actions": 140,
+        "exchanges": 30,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "griever-pendant",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-griever-pendant",
+        "carrierId": "45410910",
+        "actions": 140,
+        "exchanges": 30,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      }
+    },
+    {
+      "id": "zanarkand-abes-pendant",
+      "baseline": {
+        "id": "zanarkand-abes-pendant",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-zanarkand-abes-pendant",
+        "carrierId": "40738164",
+        "actions": 159,
+        "exchanges": 33,
+        "winner": 0,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "zanarkand-abes-pendant",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-zanarkand-abes-pendant",
+        "carrierId": "40738164",
+        "actions": 160,
+        "exchanges": 33,
+        "winner": 0,
+        "armed": 1,
+        "spent": 1,
+        "uses": 0,
+        "grants": 1
+      }
+    },
+    {
+      "id": "guardian-jug",
+      "baseline": {
+        "id": "guardian-jug",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-guardian-jug",
+        "carrierId": "41124231",
+        "actions": 173,
+        "exchanges": 38,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "guardian-jug",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-guardian-jug",
+        "carrierId": "41124231",
+        "actions": 173,
+        "exchanges": 38,
+        "winner": 1,
+        "armed": 1,
+        "spent": 1,
+        "uses": 0,
+        "grants": 1
+      }
+    },
+    {
+      "id": "ff9-garnet-pendant",
+      "baseline": {
+        "id": "ff9-garnet-pendant",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-ff9-garnet-pendant",
+        "carrierId": "49901003",
+        "actions": 243,
+        "exchanges": 55,
+        "winner": 0,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "ff9-garnet-pendant",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-ff9-garnet-pendant",
+        "carrierId": "49901003",
+        "actions": 243,
+        "exchanges": 55,
+        "winner": 0,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      }
+    },
+    {
+      "id": "ff9-mog-ribbon",
+      "baseline": {
+        "id": "ff9-mog-ribbon",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-ff9-mog-ribbon",
+        "carrierId": "49901006",
+        "actions": 218,
+        "exchanges": 49,
+        "winner": 0,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "ff9-mog-ribbon",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-ff9-mog-ribbon",
+        "carrierId": "49901006",
+        "actions": 218,
+        "exchanges": 49,
+        "winner": 0,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      }
+    },
+    {
+      "id": "ff9-final-act-feather",
+      "baseline": {
+        "id": "ff9-final-act-feather",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-ff9-final-act-feather",
+        "carrierId": "49901009",
+        "actions": 220,
+        "exchanges": 49,
+        "winner": 0,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "ff9-final-act-feather",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-ff9-final-act-feather",
+        "carrierId": "49901009",
+        "actions": 220,
+        "exchanges": 49,
+        "winner": 0,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      }
+    },
+    {
+      "id": "ff9-terra-fragment",
+      "baseline": {
+        "id": "ff9-terra-fragment",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-ff9-terra-fragment",
+        "carrierId": "49901014",
+        "actions": 133,
+        "exchanges": 27,
+        "winner": 0,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "ff9-terra-fragment",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-ff9-terra-fragment",
+        "carrierId": "49901014",
+        "actions": 133,
+        "exchanges": 27,
+        "winner": 0,
+        "armed": 2,
+        "spent": 2,
+        "uses": 2,
+        "grants": 0
+      }
+    },
+    {
+      "id": "ff9-tantalus-script",
+      "baseline": {
+        "id": "ff9-tantalus-script",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-ff9-tantalus-script",
+        "carrierId": "49901019",
+        "actions": 153,
+        "exchanges": 34,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "ff9-tantalus-script",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-ff9-tantalus-script",
+        "carrierId": "49901019",
+        "actions": 153,
+        "exchanges": 34,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      }
+    },
+    {
+      "id": "pod-153",
+      "baseline": {
+        "id": "pod-153",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-pod-153",
+        "carrierId": "42138845",
+        "actions": 223,
+        "exchanges": 50,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "pod-153",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-pod-153",
+        "carrierId": "42138845",
+        "actions": 223,
+        "exchanges": 50,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      }
+    },
+    {
+      "id": "lunar-tear",
+      "baseline": {
+        "id": "lunar-tear",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-lunar-tear",
+        "carrierId": "45951088",
+        "actions": 150,
+        "exchanges": 32,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "lunar-tear",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-lunar-tear",
+        "carrierId": "45951088",
+        "actions": 150,
+        "exchanges": 32,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      }
+    },
+    {
+      "id": "infiltration-box",
+      "baseline": {
+        "id": "infiltration-box",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-infiltration-box",
+        "carrierId": "45297565",
+        "actions": 131,
+        "exchanges": 28,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "infiltration-box",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-infiltration-box",
+        "carrierId": "45297565",
+        "actions": 131,
+        "exchanges": 28,
+        "winner": 1,
+        "armed": 2,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      }
+    },
+    {
+      "id": "metal-gear-mkii",
+      "baseline": {
+        "id": "metal-gear-mkii",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-metal-gear-mkii",
+        "carrierId": "49600103",
+        "actions": 187,
+        "exchanges": 41,
+        "winner": 0,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "metal-gear-mkii",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-metal-gear-mkii",
+        "carrierId": "49600103",
+        "actions": 187,
+        "exchanges": 41,
+        "winner": 0,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      }
+    },
+    {
+      "id": "jill-lockpicks",
+      "baseline": {
+        "id": "jill-lockpicks",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-jill-lockpicks",
+        "carrierId": "49700101",
+        "actions": 166,
+        "exchanges": 34,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "jill-lockpicks",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-jill-lockpicks",
+        "carrierId": "49700101",
+        "actions": 179,
+        "exchanges": 37,
+        "winner": 0,
+        "armed": 1,
+        "spent": 1,
+        "uses": 0,
+        "grants": 1
+      }
+    },
+    {
+      "id": "wolf-medallion",
+      "baseline": {
+        "id": "wolf-medallion",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-wolf-medallion",
+        "carrierId": "49900106",
+        "actions": 163,
+        "exchanges": 35,
+        "winner": 0,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "wolf-medallion",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-wolf-medallion",
+        "carrierId": "49900106",
+        "actions": 163,
+        "exchanges": 35,
+        "winner": 0,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      }
+    },
+    {
+      "id": "obsidian-star",
+      "baseline": {
+        "id": "obsidian-star",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-obsidian-star",
+        "carrierId": "49900104",
+        "actions": 132,
+        "exchanges": 28,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "obsidian-star",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-obsidian-star",
+        "carrierId": "49900104",
+        "actions": 132,
+        "exchanges": 28,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      }
+    },
+    {
+      "id": "straw-hat",
+      "baseline": {
+        "id": "straw-hat",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-straw-hat",
+        "carrierId": "49800101",
+        "actions": 168,
+        "exchanges": 37,
+        "winner": 0,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "straw-hat",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-straw-hat",
+        "carrierId": "49800101",
+        "actions": 179,
+        "exchanges": 39,
+        "winner": 0,
+        "armed": 2,
+        "spent": 2,
+        "uses": 2,
+        "grants": 0
+      }
+    },
+    {
+      "id": "log-pose",
+      "baseline": {
+        "id": "log-pose",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-log-pose",
+        "carrierId": "49800104",
+        "actions": 181,
+        "exchanges": 38,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "log-pose",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-log-pose",
+        "carrierId": "49800104",
+        "actions": 181,
+        "exchanges": 38,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      }
+    },
+    {
+      "id": "rumble-ball",
+      "baseline": {
+        "id": "rumble-ball",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-rumble-ball",
+        "carrierId": "49800106",
+        "actions": 188,
+        "exchanges": 42,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "rumble-ball",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-rumble-ball",
+        "carrierId": "49800106",
+        "actions": 188,
+        "exchanges": 42,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      }
+    },
+    {
+      "id": "cola-reserve",
+      "baseline": {
+        "id": "cola-reserve",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-cola-reserve",
+        "carrierId": "49800109",
+        "actions": 140,
+        "exchanges": 31,
+        "winner": 0,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "cola-reserve",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-cola-reserve",
+        "carrierId": "49800109",
+        "actions": 140,
+        "exchanges": 31,
+        "winner": 0,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      }
+    },
+    {
+      "id": "gotham-harvey-coin",
+      "baseline": {
+        "id": "gotham-harvey-coin",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-gotham-harvey-coin",
+        "carrierId": "49901501",
+        "actions": 164,
+        "exchanges": 32,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "gotham-harvey-coin",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-gotham-harvey-coin",
+        "carrierId": "49901501",
+        "actions": 164,
+        "exchanges": 32,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      }
+    },
+    {
+      "id": "gotham-riddle-box",
+      "baseline": {
+        "id": "gotham-riddle-box",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-gotham-riddle-box",
+        "carrierId": "49901503",
+        "actions": 239,
+        "exchanges": 53,
+        "winner": 0,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "gotham-riddle-box",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-gotham-riddle-box",
+        "carrierId": "49901503",
+        "actions": 239,
+        "exchanges": 53,
+        "winner": 0,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      }
+    },
+    {
+      "id": "gotham-ivy-seed",
+      "baseline": {
+        "id": "gotham-ivy-seed",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-gotham-ivy-seed",
+        "carrierId": "49901502",
+        "actions": 176,
+        "exchanges": 38,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "gotham-ivy-seed",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-gotham-ivy-seed",
+        "carrierId": "49901502",
+        "actions": 176,
+        "exchanges": 38,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      }
+    },
+    {
+      "id": "gotham-utility-belt",
+      "baseline": {
+        "id": "gotham-utility-belt",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-gotham-utility-belt",
+        "carrierId": "49901509",
+        "actions": 280,
+        "exchanges": 64,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "gotham-utility-belt",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-gotham-utility-belt",
+        "carrierId": "49901509",
+        "actions": 222,
+        "exchanges": 50,
+        "winner": 1,
+        "armed": 2,
+        "spent": 2,
+        "uses": 2,
+        "grants": 0
+      }
+    },
+    {
+      "id": "gotham-lazarus-vial",
+      "baseline": {
+        "id": "gotham-lazarus-vial",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-gotham-lazarus-vial",
+        "carrierId": "49901507",
+        "actions": 160,
+        "exchanges": 34,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "gotham-lazarus-vial",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-gotham-lazarus-vial",
+        "carrierId": "49901507",
+        "actions": 171,
+        "exchanges": 37,
+        "winner": 0,
+        "armed": 2,
+        "spent": 2,
+        "uses": 0,
+        "grants": 2
+      }
+    },
+    {
+      "id": "castlevania-hector-ring",
+      "baseline": {
+        "id": "castlevania-hector-ring",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-castlevania-hector-ring",
+        "carrierId": "49901806",
+        "actions": 142,
+        "exchanges": 31,
+        "winner": 0,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "castlevania-hector-ring",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-castlevania-hector-ring",
+        "carrierId": "49901806",
+        "actions": 142,
+        "exchanges": 31,
+        "winner": 0,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      }
+    },
+    {
+      "id": "castlevania-lisa-memory",
+      "baseline": {
+        "id": "castlevania-lisa-memory",
+        "equipped": false,
+        "seed": "NATIVE-ULTIMATE-castlevania-lisa-memory",
+        "carrierId": "49901807",
+        "actions": 176,
+        "exchanges": 34,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      },
+      "equipped": {
+        "id": "castlevania-lisa-memory",
+        "equipped": true,
+        "seed": "NATIVE-ULTIMATE-castlevania-lisa-memory",
+        "carrierId": "49901807",
+        "actions": 176,
+        "exchanges": 34,
+        "winner": 1,
+        "armed": 0,
+        "spent": 0,
+        "uses": 0,
+        "grants": 0
+      }
+    }
+  ],
+  "generatedAt": "2026-10-12 15:00:56 UTC",
+  "spentPerEquippedCarrier": 0.171875,
+  "relicKindsWithSpend": 7
+}

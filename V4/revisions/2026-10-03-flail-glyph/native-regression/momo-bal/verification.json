@@ -1,0 +1,33 @@
+{
+  "key": "momo-bal",
+  "passed": true,
+  "comparison": {
+    "changed": 0,
+    "outside": 0
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "fixed": null,
+  "barcode": {
+    "passed": true,
+    "expected": "30000014",
+    "cases": {
+      "color-1": [
+        "30000014"
+      ],
+      "color-4": [
+        "30000014"
+      ],
+      "gray-1": [
+        "30000014"
+      ],
+      "gray-4": [
+        "30000014"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "photoshop": "26.11.7"
+}

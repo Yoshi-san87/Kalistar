@@ -1,0 +1,61 @@
+{
+  "name": "FORTUNE",
+  "title": "La chance ne console pas",
+  "job": "REMPART",
+  "description": "Dans le hangar de Big Shell, Fortune avance sans craindre les balles. Son railgun crépite, mais sa colère cache un deuil sans repos : la chance la protège de tout, sauf de ceux qu'elle a perdus.",
+  "element": "ELECTRO",
+  "race": "HUMAIN",
+  "weapon": "Gun",
+  "faction": "MGS2",
+  "positions": [
+    1,
+    2
+  ],
+  "atk": [
+    202,
+    166,
+    130,
+    94,
+    "retry",
+    28
+  ],
+  "defense": [
+    264,
+    218,
+    "dodge",
+    124,
+    "retry",
+    36
+  ],
+  "magic": [
+    5,
+    3
+  ],
+  "barriers": [],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49467210",
+  "characterId": "fortune-mgs",
+  "slug": "V4_49467210",
+  "output": "KALISTAR_V4_49467210",
+  "text": "Dans le hangar de Big Shell, Fortune avance sans craindre les balles. Son railgun crépite, mais sa colère cache un deuil sans repos : la chance la protège de tout, sauf de ceux qu'elle a perdus.",
+  "color": "F5DC32",
+  "hue": 53,
+  "weapon_index": 7,
+  "role": 1,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Kalistar x Metal Gear - fan crossover non officiel",
+  "visual_revision": "V4-2026-09-29-fortune",
+  "collaboration": "MGS2",
+  "officialCollaboration": false,
+  "artworkSource": "V4/Illustrations/Fortune_MGS2_Big_Shell.png"
+}

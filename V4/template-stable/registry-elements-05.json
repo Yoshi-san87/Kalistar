@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 5,
+  "template": "V4/template-stable/KALISTAR_V4_TEMPLATE_04_ELEMENTS.psd",
+  "canvas": [
+    897,
+    1497
+  ],
+  "resolution": 300,
+  "baseRegistry": "V4/template-stable/registry-elements-04.json",
+  "elements": {
+    "GEO": {
+      "hue": 35,
+      "saturation": 38,
+      "lightness": -8
+    },
+    "HEMATO": {
+      "hue": 343,
+      "saturation": 52,
+      "lightness": -10
+    },
+    "NECRO": {
+      "hue": 274,
+      "saturation": 42,
+      "lightness": -14
+    },
+    "RAINBOW": {
+      "spectrum": [
+        [
+          0,
+          "171726"
+        ],
+        [
+          850,
+          "494275"
+        ],
+        [
+          1550,
+          "398294"
+        ],
+        [
+          2250,
+          "82A184"
+        ],
+        [
+          3100,
+          "C8AA77"
+        ],
+        [
+          3650,
+          "C48CBA"
+        ],
+        [
+          4096,
+          "EFE2EA"
+        ]
+      ]
+    },
+    "NONE": {
+      "hue": 210,
+      "saturation": 5,
+      "lightness": -30
+    }
+  },
+  "branchPalette": {
+    "NONE": {
+      "hue": 210,
+      "saturation": 0,
+      "lightness": -52
+    }
+  },
+  "crystalBoxes": {
+    "NONE": {
+      "width": 116,
+      "height": 144
+    }
+  },
+  "bindings": [
+    {
+      "key": "kaylis",
+      "element": "RAINBOW",
+      "profile": "V4/template-stable/elements-02/kaylis/card.json",
+      "output": "KAYLIS_V4_01_RAINBOW"
+    },
+    {
+      "key": "elenion",
+      "element": "GEO",
+      "profile": "V4/template-stable/elements-02/elenion/card.json",
+      "output": "ELENION_V4_01_GEO"
+    },
+    {
+      "key": "seraphina",
+      "element": "HEMATO",
+      "profile": "V4/template-stable/elements-02/seraphina/card.json",
+      "output": "SERAPHINA_V4_01_HEMATO"
+    },
+    {
+      "key": "valazar",
+      "element": "NECRO",
+      "profile": "V4/template-stable/elements-02/valazar/card.json",
+      "output": "VALAZAR_V4_01_NECRO"
+    },
+    {
+      "key": "malaba",
+      "element": "NONE",
+      "profile": "V4/template-stable/elements-02/malaba/card.json",
+      "output": "MALABA_V4_01_NONE"
+    }
+  ],
+  "renderer": [
+    "V4/scripts/stable/common.jsx",
+    "V4/scripts/stable/registered.jsx",
+    "V4/scripts/stable/elements-common.jsx",
+    "V4/scripts/stable/element-batch.jsx",
+    "V4/scripts/stable/render-elements-02.jsx"
+  ],
+  "effectLayouts": [
+    {
+      "layer": "ATK D6 - effet death",
+      "width": 49.53,
+      "height": 78,
+      "anchor": [
+        0.49708225310358656,
+        0.3991686358319086
+      ],
+      "center": [
+        142,
+        147
+      ],
+      "safeRadius": 49
+    }
+  ]
+}

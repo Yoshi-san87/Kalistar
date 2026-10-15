@@ -1,0 +1,20 @@
+/* Decision cues decorate existing controls without moving cards or intercepting input. */
+.arena-view .slot-card[data-arena-prompt]::after {
+  content:'';position:absolute;inset:0;z-index:3;pointer-events:none;border-radius:inherit;
+  border:1px solid #99dcd1;box-shadow:inset 0 0 7px #99dcd138,0 0 5px #99dcd12e;opacity:.6;
+}
+.arena-view .slot.enemy .slot-card[data-arena-prompt]::after { border-color:#e8a2ac;box-shadow:inset 0 0 7px #e8a2ac38,0 0 5px #e8a2ac2e; }
+.arena-view .ritual-action .arena-action-cue { position:absolute;inset:3px;pointer-events:none;overflow:hidden;border-radius:2px;border:1px solid #d7af7940; }
+.arena-action-cue::before { content:'';position:absolute;top:0;left:0;width:28%;height:1px;opacity:0;background:linear-gradient(90deg,transparent,#f2d39d,transparent); }
+body.arena-view:not(.lineup-opening):not(:has(dialog[open])) #app:not(.rolling) .slot-card[data-arena-prompt]::after { animation:arena-choice-breathe 3.4s ease-in-out infinite; }
+body.arena-view:not(.lineup-opening):not(:has(dialog[open])) #app:not(.rolling) .ritual-action:not(:disabled):not(.is-casting) .arena-action-cue::before { animation:arena-action-reflect 3.8s ease-in-out infinite; }
+.arena-view .ritual-action:disabled .arena-action-cue,.arena-view .ritual-action.is-casting .arena-action-cue,
+body.lineup-opening .arena-action-cue,body:has(dialog[open]) .arena-action-cue,
+body.lineup-opening .slot-card[data-arena-prompt]::after,body:has(dialog[open]) .slot-card[data-arena-prompt]::after,
+#app.rolling .arena-action-cue,#app.rolling .slot-card[data-arena-prompt]::after { visibility:hidden; }
+@keyframes arena-choice-breathe { 0%,100%{opacity:.22;}50%{opacity:.75;} }
+@keyframes arena-action-reflect { 0%,15%{transform:translateX(-110%);opacity:0;}35%,65%{opacity:.8;}85%,100%{transform:translateX(360%);opacity:0;} }
+@media(prefers-reduced-motion:reduce) {
+  .arena-view .slot-card[data-arena-prompt]::after,.arena-view .arena-action-cue::before { animation:none!important; }
+  .arena-view .arena-action-cue::before { display:none; }
+}

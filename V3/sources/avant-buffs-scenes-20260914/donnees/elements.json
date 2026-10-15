@@ -1,0 +1,106 @@
+{
+  "AERO": {
+    "id": "AERO",
+    "label": "AIR",
+    "strong_against": "HYDRO",
+    "weak_against": "ELECTRO",
+    "color": "89EDC2",
+    "hue": 155
+  },
+  "HYDRO": {
+    "id": "HYDRO",
+    "label": "EAU",
+    "strong_against": "PYRO",
+    "weak_against": "AERO",
+    "color": "38CBED",
+    "hue": 192
+  },
+  "ELECTRO": {
+    "id": "ELECTRO",
+    "label": "ELECTRICITE",
+    "strong_against": "AERO",
+    "weak_against": "MINERO",
+    "color": "F5DC32",
+    "hue": 53
+  },
+  "PYRO": {
+    "id": "PYRO",
+    "label": "FEU",
+    "strong_against": "CRYO",
+    "weak_against": "HYDRO",
+    "color": "FF704A",
+    "hue": 12
+  },
+  "CRYO": {
+    "id": "CRYO",
+    "label": "GLACE",
+    "strong_against": "HERBO",
+    "weak_against": "PYRO",
+    "color": "ACDFFD",
+    "hue": 201
+  },
+  "LUXO": {
+    "id": "LUXO",
+    "label": "LUMIERE",
+    "strong_against": "HEMATO",
+    "weak_against": "NECRO",
+    "color": "F4E9AF",
+    "hue": 47
+  },
+  "MINERO": {
+    "id": "MINERO",
+    "label": "ROCHE",
+    "strong_against": "ELECTRO",
+    "weak_against": "GEO",
+    "color": "B3BFCA",
+    "hue": 210
+  },
+  "HERBO": {
+    "id": "HERBO",
+    "label": "PLANTE",
+    "strong_against": "GEO",
+    "weak_against": "CRYO",
+    "color": "89D355",
+    "hue": 100
+  },
+  "HEMATO": {
+    "id": "HEMATO",
+    "label": "SANG",
+    "strong_against": "NECRO",
+    "weak_against": "LUXO",
+    "color": "E84976",
+    "hue": 343
+  },
+  "NECRO": {
+    "id": "NECRO",
+    "label": "TENEBRES",
+    "strong_against": "LUXO",
+    "weak_against": "HEMATO",
+    "color": "A979F7",
+    "hue": 270
+  },
+  "GEO": {
+    "id": "GEO",
+    "label": "TERRE",
+    "strong_against": "MINERO",
+    "weak_against": "HERBO",
+    "color": "C7AB6D",
+    "hue": 41
+  },
+  "RAINBOW": {
+    "id": "RAINBOW",
+    "label": "RAINBOW",
+    "strong_against": null,
+    "weak_against": null,
+    "color": "E4D5FB",
+    "hue": 280
+  },
+  "NONE": {
+    "id": "NONE",
+    "label": "SANS CRISTAL",
+    "strong_against": null,
+    "weak_against": null,
+    "color": "93AAA5",
+    "hue": 160
+  }
+}

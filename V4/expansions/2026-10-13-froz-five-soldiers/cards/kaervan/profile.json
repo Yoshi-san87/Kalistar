@@ -1,0 +1,60 @@
+{
+  "name": "KAERVAN",
+  "title": "LE BRISEUR DE RANGS",
+  "job": "SOLDAT",
+  "description": "Kaervan ne hausse jamais la voix. Il attend contre la porte, sa hache sur l'épaule, et laisse le silence finir l'ordre. Au retour des patrouilles, il compte les absents avant les prisonniers.",
+  "element": "CRYO",
+  "race": "OKAMI",
+  "weapon": "Hache",
+  "faction": "Froz",
+  "positions": [
+    2,
+    3
+  ],
+  "atk": [
+    292,
+    214,
+    176,
+    128,
+    76,
+    "buff_atk"
+  ],
+  "defense": [
+    167,
+    135,
+    104,
+    71,
+    43,
+    18
+  ],
+  "magic": [
+    4
+  ],
+  "barriers": [
+    5
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49902401",
+  "characterId": "kaervan-kalistar",
+  "slug": "V4_49902401",
+  "output": "KALISTAR_V4_49902401",
+  "text": "Kaervan ne hausse jamais la voix. Il attend contre la porte, sa hache sur l'épaule, et laisse le silence finir l'ordre. Au retour des patrouilles, il compte les absents avant les prisonniers.",
+  "color": "ACDFFD",
+  "hue": 201,
+  "weapon_index": 0,
+  "role": 2,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Original Kalistar, illustration approuvee le 13 octobre 2026",
+  "visual_revision": "V4-2026-10-13-froz-five-soldiers",
+  "artworkSource": "V4/propositions/2026-10-13-froz-backgrounds/images/kaervan.png"
+}

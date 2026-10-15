@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "modelId": "49902610",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "f4ca574d42c9261dd9a52d8b851686d8ecb376baa01e1cfc68b9829db9634f4d",
+  "hashes": {
+    "card.png": "e8157328a623cb8b17ee4c039bb7c14d8240e53e5f0a24ad54bd5d24a9ac9aee",
+    "card.psd": "93b8aa2b42ba7c4687461af7a879cb7865128b2ba298e0018acf8080efbbce03"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 133069
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49902610",
+    "cases": {
+      "color-1": [
+        "49902610"
+      ],
+      "color-4": [
+        "49902610"
+      ],
+      "gray-1": [
+        "49902610"
+      ],
+      "gray-4": [
+        "49902610"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-13T13:07:52.010Z",
+  "revision": "2026-10-13-voices-weapon-glyphs",
+  "scope": {
+    "changed": 3165,
+    "outside": 0
+  },
+  "weaponOnly": true,
+  "profileUnchanged": true,
+  "source": {
+    "id": "49902610",
+    "key": "ossiane",
+    "family": "Tome",
+    "source": "V4/site/assets/base-weapons/13.svg",
+    "sourceHash": "dbdd7e373c0f6f3e53b77daee5cada6c7135f59697f3d69da600b86376ae8806",
+    "enamelHash": "9588d3c555966d642c8cbdeaf328b34052cabc08303572b534e831f4c0c48d47"
+  },
+  "inputManifestHash": "0439066a6f7aebdc9f2eb9c69117386eb89306a3bf9a647eaf60523abd0c384c"
+}

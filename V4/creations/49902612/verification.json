@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "modelId": "49902612",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "95a343bc84b7ac3c3f02de077a74bfe2008b0e08e6420e2f325947320a9db5d6",
+  "hashes": {
+    "card.png": "76c101cb85f750d4cd51df1f9a9ed03af4d351f86b26bf52230ae8bbf625f7f8",
+    "card.psd": "be4cb919aed03a339408e636e77007298a5338d28f503dd41faa5400467d6294"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 105487
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49902612",
+    "cases": {
+      "color-1": [
+        "49902612"
+      ],
+      "color-4": [
+        "49902612"
+      ],
+      "gray-1": [
+        "49902612"
+      ],
+      "gray-4": [
+        "49902612"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-13T13:07:53.058Z",
+  "revision": "2026-10-13-voices-weapon-glyphs",
+  "scope": {
+    "changed": 1320,
+    "outside": 0
+  },
+  "weaponOnly": true,
+  "profileUnchanged": true,
+  "source": {
+    "id": "49902612",
+    "key": "auldran",
+    "family": "Masse",
+    "source": "V4/site/assets/base-weapons/02.svg",
+    "sourceHash": "ed509391958388aefa32d0916a56b1cfe05e05bf41e6663f079efacf09abd374",
+    "enamelHash": "9588d3c555966d642c8cbdeaf328b34052cabc08303572b534e831f4c0c48d47"
+  },
+  "inputManifestHash": "0439066a6f7aebdc9f2eb9c69117386eb89306a3bf9a647eaf60523abd0c384c"
+}

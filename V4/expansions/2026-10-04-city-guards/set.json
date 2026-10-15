@@ -1,0 +1,768 @@
+{
+  "id": "2026-10-04-city-guards",
+  "officialCollaboration": false,
+  "cards": [
+    {
+      "key": "orven",
+      "characterId": "orven-kalistar",
+      "id": "49900301",
+      "name": "ORVEN",
+      "title": "La porte reste ouverte",
+      "job": "SOLDAT",
+      "race": "HUMAIN",
+      "weapon": "Lance",
+      "element": "NONE",
+      "faction": "Draevenheim",
+      "role": 1,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        201,
+        158,
+        124,
+        87,
+        "guard",
+        24
+      ],
+      "defense": [
+        282,
+        226,
+        177,
+        137,
+        88,
+        38
+      ],
+      "magic": [],
+      "barriers": [],
+      "description": "Orven connaît les deux faces de son uniforme. Au barrage, son bouclier articulé retient la porte qui devait se fermer. Cette nuit, il choisit de laisser passer avant d'obéir.",
+      "art": "City_Guards_Orven_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "serya",
+      "characterId": "serya-kalistar",
+      "id": "49900302",
+      "name": "SERYA",
+      "title": "Une minute avant la ronde",
+      "job": "SOLDAT",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "element": "NONE",
+      "faction": "Draevenheim",
+      "role": 4,
+      "positions": [
+        2,
+        4
+      ],
+      "atk": [
+        281,
+        228,
+        175,
+        123,
+        79,
+        34
+      ],
+      "defense": [
+        157,
+        121,
+        99,
+        72,
+        "dodge",
+        18
+      ],
+      "magic": [],
+      "barriers": [],
+      "description": "Serya voit tout depuis les voies suspendues. Avant la ronde, elle répare une chaussure oubliée, son arme tournée vers le sol. Il lui reste une minute pour être autre chose qu'un uniforme.",
+      "art": "City_Guards_Serya_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "marel",
+      "characterId": "marel-kalistar",
+      "id": "49900303",
+      "name": "MAREL",
+      "title": "Personne ne reste cassé",
+      "job": "SOLDAT",
+      "race": "HUMAIN",
+      "weapon": "Bâton",
+      "element": "NONE",
+      "faction": "Draevenheim",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        163,
+        121,
+        99,
+        63,
+        "guard",
+        "revive"
+      ],
+      "defense": [
+        191,
+        153,
+        119,
+        91,
+        56,
+        22
+      ],
+      "magic": [],
+      "barriers": [],
+      "description": "Marel soigne même les petites machines que la ville abandonne. Son bâton de secours ouvre les serrures et ramène les blessés. Ses collègues rient de lui, puis viennent chercher ses mains.",
+      "art": "City_Guards_Marel_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "veyr",
+      "characterId": "veyr-kalistar",
+      "id": "49900304",
+      "name": "VEYR",
+      "title": "Ce qui tient dans une main",
+      "job": "SOLDAT",
+      "race": "VAMP",
+      "weapon": "Gun",
+      "element": "HEMATO",
+      "faction": "Draevenheim",
+      "role": 4,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        276,
+        231,
+        168,
+        127,
+        "mana",
+        32
+      ],
+      "defense": [
+        158,
+        121,
+        96,
+        74,
+        47,
+        23
+      ],
+      "magic": [
+        6,
+        4,
+        3
+      ],
+      "barriers": [],
+      "description": "Veyr garde un oiseau de papier sous son plastron. Le Sang qui refroidit son arme peut aussi protéger cette chose fragile. Au poste de nuit, il se souvient pourquoi il a accepté l'uniforme.",
+      "art": "City_Guards_Veyr_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "isvel",
+      "characterId": "isvel-kalistar",
+      "id": "49900305",
+      "name": "ISVEL",
+      "title": "La veille des petites portes",
+      "job": "SOLDAT",
+      "race": "VAMP",
+      "weapon": "Epée courte",
+      "element": "HEMATO",
+      "faction": "Draevenheim",
+      "role": 3,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        229,
+        184,
+        137,
+        97,
+        59,
+        23
+      ],
+      "defense": [
+        228,
+        179,
+        146,
+        99,
+        58,
+        "dodge"
+      ],
+      "magic": [
+        5,
+        3
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "description": "Isvel lève son bouclier devant les portes qu'on oublie de défendre. Son Sang en éclaire le contour. Elle connaît le règlement, et ceux qu'il laisse parfois dehors sous la pluie.",
+      "art": "City_Guards_Isvel_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "torvan",
+      "characterId": "torvan-kalistar",
+      "id": "49900306",
+      "name": "TORVAN",
+      "title": "Le poids d’un refus",
+      "job": "GARDIEN",
+      "race": "HUMAIN",
+      "weapon": "Masse",
+      "element": "MINERO",
+      "faction": "Durane",
+      "role": 1,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        198,
+        151,
+        117,
+        77,
+        "guard",
+        24
+      ],
+      "defense": [
+        294,
+        239,
+        181,
+        132,
+        83,
+        32
+      ],
+      "magic": [],
+      "barriers": [
+        4
+      ],
+      "description": "Torvan porte le gris de l'Ordre de Fer depuis vingt ans. Son bouclier tient comme un pont, mais sa main hésite devant un ordre injuste. Pour la première fois, il baisse la masse et reste.",
+      "art": "City_Guards_Torvan_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "eldra",
+      "characterId": "eldra-kalistar",
+      "id": "49900307",
+      "name": "ELDRA",
+      "title": "La fissure vivante",
+      "job": "GARDIENNE",
+      "race": "HUMAIN",
+      "weapon": "Epée longue",
+      "element": "MINERO",
+      "faction": "Durane",
+      "role": 3,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        218,
+        177,
+        134,
+        96,
+        "buff_atk",
+        26
+      ],
+      "defense": [
+        225,
+        184,
+        143,
+        102,
+        59,
+        27
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "description": "Eldra connaît les canaux que l'Ordre de Fer surveille. Au retour, une pousse l'arrête entre deux pierres. Sa lame peut ouvrir un passage ; cette fois, elle protège ce qui y grandit.",
+      "art": "City_Guards_Eldra_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "brund",
+      "characterId": "brund-kalistar",
+      "id": "49900308",
+      "name": "BRUND",
+      "title": "La sortie qu’il invente",
+      "job": "GARDIEN",
+      "race": "NAIN",
+      "weapon": "Hache",
+      "element": "GEO",
+      "faction": "Durane",
+      "role": 1,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        207,
+        166,
+        119,
+        82,
+        "guard",
+        19
+      ],
+      "defense": [
+        286,
+        232,
+        190,
+        141,
+        87,
+        35
+      ],
+      "magic": [
+        3
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "description": "Brund refuse qu'une issue devienne un mur. Sa hache en demi-lune a libéré plus de passages qu'elle n'a pris de vies. Sous le gris, il garde un sourire que nul ordre ne peut fermer.",
+      "art": "City_Guards_Brund_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "helvik",
+      "characterId": "helvik-kalistar",
+      "id": "49900309",
+      "name": "HELVIK",
+      "title": "Encore un coup de travers",
+      "job": "GARDIENNE",
+      "race": "NAIN",
+      "weapon": "Marteau",
+      "element": "MINERO",
+      "faction": "Durane",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        289,
+        229,
+        166,
+        124,
+        "buff_atk",
+        28
+      ],
+      "defense": [
+        168,
+        132,
+        99,
+        73,
+        43,
+        17
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [],
+      "description": "Helvik a réparé son marteau plus souvent que son uniforme. La tête à deux mâchoires mord les blindages et les moteurs bloqués. Quand tout refuse de céder, son rire précède le prochain coup.",
+      "art": "City_Guards_Helvik_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "sovra",
+      "characterId": "sovra-kalistar",
+      "id": "49900310",
+      "name": "SOVRA",
+      "title": "Les coutures du retour",
+      "job": "GARDIENNE",
+      "race": "NAIN",
+      "weapon": "Bâton",
+      "element": "NONE",
+      "faction": "Durane",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        171,
+        128,
+        93,
+        67,
+        "guard",
+        "revive"
+      ],
+      "defense": [
+        199,
+        157,
+        119,
+        79,
+        46,
+        20
+      ],
+      "magic": [],
+      "barriers": [],
+      "description": "Sovra recoud les gants de ceux qui ne rentrent plus. Son bâton accroche les corps aux passerelles avant la chute. Elle ne promet aucun miracle : seulement une main qui ne lâche pas.",
+      "art": "City_Guards_Sovra_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "aeren",
+      "characterId": "aeren-kalistar",
+      "id": "49900311",
+      "name": "AEREN",
+      "title": "Le vent avant le saut",
+      "job": "GARDIEN",
+      "race": "FALCO",
+      "weapon": "Arc",
+      "element": "AERO",
+      "faction": "Nestown",
+      "role": 4,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        287,
+        233,
+        183,
+        127,
+        76,
+        29
+      ],
+      "defense": [
+        168,
+        124,
+        93,
+        62,
+        "dodge",
+        13
+      ],
+      "magic": [
+        5,
+        3
+      ],
+      "barriers": [],
+      "description": "Aeren vérifie chaque plume avant le départ. Son arc à deux ailes suit des courants invisibles. Il a peur du vide, mais davantage encore de laisser quelqu'un y disparaître sans rien tenter.",
+      "art": "City_Guards_Aeren_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "vessa",
+      "characterId": "vessa-kalistar",
+      "id": "49900312",
+      "name": "VESSA",
+      "title": "Le fil retrouvé",
+      "job": "GARDIENNE",
+      "race": "FALCO",
+      "weapon": "Bâton",
+      "element": "AERO",
+      "faction": "Nestown",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        168,
+        127,
+        98,
+        "guard",
+        "mana",
+        "revive"
+      ],
+      "defense": [
+        196,
+        155,
+        117,
+        82,
+        54,
+        "retry"
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        4
+      ],
+      "description": "Vessa ne nomme jamais un sauvetage une victoire. Son bâton déroule un fil entre les toits ; ses mains refont les nœuds. Le bleu de son uniforme demeure quand les nuages avalent le monde.",
+      "art": "City_Guards_Vessa_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "karrok",
+      "characterId": "karrok-kalistar",
+      "id": "49900313",
+      "name": "KARROK",
+      "title": "Deux rivets de courage",
+      "job": "GARDIEN",
+      "race": "KORBOW",
+      "weapon": "Lance",
+      "element": "AERO",
+      "faction": "Nestown",
+      "role": 3,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        228,
+        181,
+        137,
+        96,
+        59,
+        21
+      ],
+      "defense": [
+        222,
+        174,
+        137,
+        98,
+        66,
+        "dodge"
+      ],
+      "magic": [
+        5,
+        3
+      ],
+      "barriers": [
+        5
+      ],
+      "description": "Karrok répare son bouclier avec deux rivets qui n'étaient pas prévus pour voler. Sa lance garde la route entre les plateformes. Il plaisante surtout quand ses compagnons ont peur.",
+      "art": "City_Guards_Karrok_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "neryk",
+      "characterId": "neryk-kalistar",
+      "id": "49900314",
+      "name": "NERYK",
+      "title": "La dernière plume blanche",
+      "job": "GARDIENNE",
+      "race": "KORBOW",
+      "weapon": "Epée courte",
+      "element": "AERO",
+      "faction": "Nestown",
+      "role": 2,
+      "positions": [
+        2,
+        4
+      ],
+      "atk": [
+        282,
+        222,
+        169,
+        119,
+        "buff_atk",
+        26
+      ],
+      "defense": [
+        166,
+        124,
+        95,
+        67,
+        "dodge",
+        15
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [],
+      "description": "Neryk a noué un ruban de secours à sa lame ajourée. Elle se rappelle celle qu'elle n'a pas rattrapée. Sur les ponts du ciel, sa vitesse protège les silences autant que les vivants.",
+      "art": "City_Guards_Neryk_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "brask",
+      "characterId": "brask-kalistar",
+      "id": "49900315",
+      "name": "BRASK",
+      "title": "La clef des marées",
+      "job": "GARDIEN",
+      "race": "CRUSTOS",
+      "weapon": "Lance",
+      "element": "HYDRO",
+      "faction": "Crabazar",
+      "role": 1,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        200,
+        157,
+        116,
+        79,
+        "guard",
+        21
+      ],
+      "defense": [
+        288,
+        232,
+        178,
+        132,
+        78,
+        31
+      ],
+      "magic": [],
+      "barriers": [
+        6,
+        4
+      ],
+      "description": "Brask sent les amarres faiblir avant le quai. Sa pince retient le câble, sa main trouve le bon appui. Sous son bicorne bleu, il a appris que la patience tient plus fort que sa carapace.",
+      "art": "City_Guards_Brask_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "maelka",
+      "characterId": "maelka-kalistar",
+      "id": "49900316",
+      "name": "MAELKA",
+      "title": "Ce que la mer rend",
+      "job": "GARDIENNE",
+      "race": "CRUSTOS",
+      "weapon": "Epée courte",
+      "element": "HYDRO",
+      "faction": "Crabazar",
+      "role": 3,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        226,
+        173,
+        133,
+        91,
+        54,
+        19
+      ],
+      "defense": [
+        218,
+        172,
+        136,
+        89,
+        51,
+        "dodge"
+      ],
+      "magic": [
+        5,
+        3
+      ],
+      "barriers": [
+        4
+      ],
+      "description": "Maelka garde ce que la mer rapporte. Sa lame d'écume libère les cordages pris sous les coques. Le petit bateau retrouvé lui arrache un rire : cette fois, elle ramène un peu de bonheur.",
+      "art": "City_Guards_Maelka_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "key": "tilko",
+      "characterId": "tilko-kalistar",
+      "id": "49900317",
+      "name": "TILKO",
+      "title": "Le signal des retours",
+      "job": "GARDIEN",
+      "race": "CRUSTOS",
+      "weapon": "Instrument",
+      "element": "NONE",
+      "faction": "Crabazar",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        165,
+        127,
+        96,
+        "guard",
+        "retry",
+        "revive"
+      ],
+      "defense": [
+        191,
+        152,
+        113,
+        77,
+        45,
+        17
+      ],
+      "magic": [],
+      "barriers": [],
+      "description": "Tilko siffle le soir vers les navires absents. Sa pince protège la lampe et sa main règle le signal. Les marins reconnaissent sa note avant le port ; lui attend encore une réponse.",
+      "art": "City_Guards_Tilko_01.png",
+      "crop": {
+        "zoom": 1,
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "arenas": [],
+  "presets": []
+}

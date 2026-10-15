@@ -1,0 +1,63 @@
+{
+  "passed": true,
+  "modelId": "42650442",
+  "referenceId": "ef7a6767b57723d896ceecb050079bfb1abad0e79e7289a200f87b34585f9380",
+  "profileHash": "0a76f96418770ac8f22a2cf97c61de7ad72fb52b6028c52caa0017a1cae4f32a",
+  "hashes": {
+    "card.png": "e2e2dacef72dc29568d2966792cc8582e32aace97ce8f225c055c71155604355",
+    "card.psd": "2e91ec4c1c63f21374ca5d1f923d227f70ea13fdefd5fe2a34df9232c9415b26"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "changed": 2111,
+    "verificationScope": "unchanged outside circular weapon mask; native editable layers preserved"
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "42650442",
+    "cases": {
+      "color-1": [
+        "42650442"
+      ],
+      "color-4": [
+        "42650442"
+      ],
+      "gray-1": [
+        "42650442"
+      ],
+      "gray-4": [
+        "42650442"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "nativeRevision": {
+    "id": "2026-09-27-weapon-optics",
+    "referenceId": "ef7a6767b57723d896ceecb050079bfb1abad0e79e7289a200f87b34585f9380",
+    "previousReferenceId": "02f0808cbd56d2b0d4103450e7943db69b95ac120a0df349f4374c82f7f712e5",
+    "audit": "V4/revisions/2026-09-27-weapon-optics/verification.json",
+    "scope": "weapon-optical-sizing-only"
+  },
+  "comparison": {
+    "changed": 2111,
+    "outside": 0,
+    "maximumChangedRadius": 47.43680006071236,
+    "permittedRadius": 47.5,
+    "pixelCornersChecked": true
+  },
+  "layers": {
+    "unchangedExcept": "ARME - Tome",
+    "editableTextsPreserved": true,
+    "embeddedWeapon": true
+  },
+  "checkedAt": "2026-09-27T13:04:33.078Z",
+  "previousVerification": {
+    "file": "V4/revisions/2026-09-27-weapon-optics/originals/V4/creations/42650442/verification.json",
+    "hash": "9721c4ec0f1c1ea16993ed4b9a6aabb585e2b990c7cb4bdaf991cf632ef5bf08",
+    "checkedAt": "2026-09-23T02:30:35.900Z"
+  }
+}

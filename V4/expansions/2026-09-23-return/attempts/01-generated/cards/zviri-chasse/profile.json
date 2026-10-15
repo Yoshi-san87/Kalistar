@@ -1,0 +1,59 @@
+{
+  "name": "ZVIRI",
+  "title": "LA PATIENCE DU PREDATEUR",
+  "job": "TRAQUEUSE",
+  "description": "Dans les ruelles de Cryptown, Zviri s'arrête sur une trace presque effacée. Le fouet glisse sans bruit entre ses doigts. La chasse peut durer une nuit entière : elle sait que sa proie finira par regarder derrière elle.",
+  "element": "NECRO",
+  "race": "SKULLZ",
+  "weapon": "Fouet",
+  "faction": "Cryptown",
+  "positions": [
+    2
+  ],
+  "atk": [
+    284,
+    238,
+    185,
+    140,
+    90,
+    "retry"
+  ],
+  "defense": [
+    "dodge",
+    138,
+    108,
+    78,
+    "retry",
+    22
+  ],
+  "magic": [],
+  "barriers": [],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49321357",
+  "characterId": "zviri",
+  "slug": "V4_49321357",
+  "output": "KALISTAR_V4_49321357",
+  "text": "Dans les ruelles de Cryptown, Zviri s'arrête sur une trace presque effacée. Le fouet glisse sans bruit entre ses doigts. La chasse peut durer une nuit entière : elle sait que sa proie finira par regarder derrière elle.",
+  "color": "A979F7",
+  "hue": 270,
+  "weapon_index": 6,
+  "role": 2,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Kalistar V4 - expansion 2026-09-23-return",
+  "visual_revision": "V4-2026-09-23-return",
+  "edition": "variant",
+  "artwork": "zviri-chasse",
+  "legacyId": "30000010",
+  "legacySource": "V3/donnees/cartes.json",
+  "replacesModel": false
+}

@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-07",
+  "status": "partial-generation-awaiting-user-review",
+  "tool": "image_gen.imagegen",
+  "requested": 10,
+  "generated": 3,
+  "failed": 7,
+  "prompts": "prompts.json",
+  "nativeCardsCreated": false,
+  "publishedToGame": false,
+  "paletteOrRulesChanged": false,
+  "images": [
+    {
+      "slug": "professeur-x",
+      "file": "Professeur-X-01.png",
+      "name": "Professeur X",
+      "sha256": "cb9de81d217c31589cbc16a615efe3e951319002169f17fb23a0a2d8e4cee754",
+      "generatedSource": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-f15ccde9-717d-4e52-8121-22a0e48e26df.png",
+      "transparent_background": false,
+      "visualReview": "Painterly Kalistar grain, recognizable identity and readable gesture reviewed. Awaiting author approval."
+    },
+    {
+      "slug": "jean-grey",
+      "file": "Jean-Grey-01.png",
+      "name": "Jean Grey",
+      "sha256": "3a1abd447a94128fdcde70a031b52ddcd5f8cc8b320e9c825b2da4bc0db4af6f",
+      "generatedSource": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-c0059e98-7738-4fa5-8209-f223e0c3ccfa.png",
+      "transparent_background": false,
+      "visualReview": "Painterly Kalistar grain, recognizable identity and readable gesture reviewed. Awaiting author approval."
+    },
+    {
+      "slug": "iceberg",
+      "file": "Iceberg-01.png",
+      "name": "Iceberg",
+      "sha256": "a4ea0ee00430a34490d7c74587ca95f3c8a8322fc6aab587f43d78a2aaf78e5b",
+      "generatedSource": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-b70e7fdb-03b0-4924-b2eb-392198f55978.png",
+      "transparent_background": false,
+      "visualReview": "Painterly Kalistar grain, recognizable identity and readable gesture reviewed. Awaiting author approval."
+    }
+  ],
+  "failures": [
+    {
+      "slug": "wolverine",
+      "requestId": "0d25d07d-1697-4bb8-a7b2-16c1339245b1",
+      "status": "moderation_blocked",
+      "stage": "output",
+      "category": "other",
+      "deliveredImage": false
+    },
+    {
+      "slug": "cyclope",
+      "requestId": "124ddef1-873f-4a9f-8c35-c5775f40981d",
+      "status": "moderation_blocked",
+      "stage": "output",
+      "category": "other",
+      "deliveredImage": false
+    },
+    {
+      "slug": "tornade",
+      "requestId": "8254e18d-9f03-45d5-a4e2-7afbb6da1581",
+      "status": "moderation_blocked",
+      "stage": "output",
+      "category": "other",
+      "deliveredImage": false
+    },
+    {
+      "slug": "malicia",
+      "requestId": "0f6a25f0-56e4-4489-a25b-58c6d91df13d",
+      "status": "moderation_blocked",
+      "stage": "output",
+      "category": "other",
+      "deliveredImage": false
+    },
+    {
+      "slug": "le-fauve",
+      "requestId": "d85b43f6-d7bb-4bb4-859e-762c1b291dc7",
+      "status": "moderation_blocked",
+      "stage": "output",
+      "category": "other",
+      "deliveredImage": false
+    },
+    {
+      "slug": "diablo",
+      "requestId": "0719c7d5-0534-9289-8fb3-e7053e1f8163",
+      "status": "moderation_blocked",
+      "stage": "output",
+      "category": "other",
+      "deliveredImage": false
+    },
+    {
+      "slug": "magneto",
+      "requestId": "aa135ec2-5cc1-4089-9971-082026dd6395",
+      "status": "moderation_blocked",
+      "stage": "output",
+      "category": "other",
+      "deliveredImage": false
+    }
+  ],
+  "notes": [
+    "All ten requested characters were attempted individually with the built-in tool.",
+    "No rejected request was retried or routed to a different generation service.",
+    "No native card, gameplay profile, faction, runtime catalogue or release version changed.",
+    "The three previews remain local pending review; this is not a completed or approved collaboration."
+  ]
+}

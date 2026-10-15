@@ -1,0 +1,8 @@
+{
+  "passed": false,
+  "label": "desktop inactive arena inspection",
+  "cause": "Legacy test expected a visible inactive detail overlay; published card-detail.css hides it intentionally.",
+  "source": "V4/site/card-detail.css:23",
+  "runtimeChanged": false,
+  "resolution": "Assert hidden inactive overlay and the visible inactive equipment card; preserve all active alignment checks."
+}

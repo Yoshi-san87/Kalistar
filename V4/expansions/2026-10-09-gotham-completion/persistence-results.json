@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "isolated": true,
+  "oldCards": 304,
+  "checks": [
+    {
+      "id": "49901509",
+      "checks": [
+        "published: old backup preserves transferred newer originals, issued copies, activation and transfer proofs",
+        "published: default merge rejects old ownership conflicts; explicit restore retains newer transfers",
+        "published: newer pending transfers survive an old snapshot and forged transfer history is rejected",
+        "published: mixed old/new matches preserve connected owners, release proofs and recomputed counters",
+        "published: tampered owners, missing origins and omitted approved profiles fail atomically",
+        "published: old backup restores into a fresh expanded registry without reminting newer originals",
+        "published: stale connection reports new IDs and cannot import until its catalogue is refreshed"
+      ]
+    },
+    {
+      "id": "49901510",
+      "checks": [
+        "published: old backup preserves transferred newer originals, issued copies, activation and transfer proofs",
+        "published: default merge rejects old ownership conflicts; explicit restore retains newer transfers",
+        "published: newer pending transfers survive an old snapshot and forged transfer history is rejected",
+        "published: mixed old/new matches preserve connected owners, release proofs and recomputed counters",
+        "published: tampered owners, missing origins and omitted approved profiles fail atomically",
+        "published: old backup restores into a fresh expanded registry without reminting newer originals",
+        "published: stale connection reports new IDs and cannot import until its catalogue is refreshed"
+      ]
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,588 @@
+{
+  "id": "2026-10-13-fourteen-new-voices",
+  "cards": [
+    {
+      "key": "kessaro",
+      "id": "49902601",
+      "characterId": "kessaro-kalistar",
+      "name": "KESSARO",
+      "title": "L'ARTIFICIER REPENTI",
+      "job": "ARTIFICIER",
+      "description": "Il fabriquait des charges pour abattre les portes. Depuis la guerre, Kessaro apprend aux enfants de Vulkar à lever les yeux. Il garde une dernière fusée pour ceux qui ne sont pas revenus.",
+      "race": "MACAKO",
+      "faction": "Vulkar",
+      "element": "PYRO",
+      "weapon": "Projectile",
+      "role": 4,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        288,
+        232,
+        "mana",
+        126,
+        78,
+        24
+      ],
+      "defense": [
+        168,
+        144,
+        112,
+        84,
+        52,
+        22
+      ],
+      "magic": [
+        6,
+        5,
+        3
+      ],
+      "barriers": [
+        5
+      ],
+      "artworkSource": "V4/propositions/2026-10-13-twenty-new-voices/images/18-kessaro-02.png"
+    },
+    {
+      "key": "borelune",
+      "id": "49902602",
+      "characterId": "borelune-kalistar",
+      "name": "BORELUNE",
+      "title": "LE MAÎTRE DES EAUX LENTES",
+      "job": "HYDROMANCIEN",
+      "description": "Borelune mesure les crues avec un bâton plus vieux que lui. Quand les maisons s'enfoncent, il reste dans l'eau jusqu'au départ du dernier enfant. On ne l'a jamais entendu parler de courage.",
+      "race": "BATRA",
+      "faction": "Woodland",
+      "element": "HYDRO",
+      "weapon": "Sceptre",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        "guard",
+        140,
+        106,
+        "mana",
+        54,
+        22
+      ],
+      "defense": [
+        206,
+        166,
+        132,
+        104,
+        "retry",
+        30
+      ],
+      "magic": [
+        5,
+        4
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "artworkSource": "V4/propositions/2026-10-13-twenty-new-voices/images/17-borelune-02.png"
+    },
+    {
+      "key": "raskel",
+      "id": "49902603",
+      "characterId": "raskel-kalistar",
+      "name": "RASKEL",
+      "title": "LE MÉDECIN DES DETTES",
+      "job": "MÉDECIN",
+      "description": "À Durane, Raskel soigne les mineurs à crédit. Son carnet compte des vies rendues, jamais des intérêts. Il prétend attendre son paiement ; chacun sait pourquoi il oublie les adresses.",
+      "race": "RATZ",
+      "faction": "Durane",
+      "element": "NONE",
+      "weapon": "Instrument",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        "revive",
+        132,
+        "retry",
+        74,
+        42,
+        18
+      ],
+      "defense": [
+        194,
+        158,
+        126,
+        96,
+        58,
+        "retry"
+      ],
+      "magic": [],
+      "barriers": [],
+      "artworkSource": "V4/propositions/2026-10-13-twenty-new-voices/images/16-raskel-01.png"
+    },
+    {
+      "key": "perelle",
+      "id": "49902604",
+      "characterId": "perelle-kalistar",
+      "name": "PÉRELLE",
+      "title": "LA CAMBRIOLEUSE D'HORLOGES",
+      "job": "VOLEUSE",
+      "description": "Pérelle sait ouvrir toutes les serrures, sauf celle de l'atelier de son père. Elle vole des minutes aux puissants et des rouages aux horloges, espérant encore réparer ce qui s'est arrêté.",
+      "race": "MICE",
+      "faction": "Chroma",
+      "element": "NONE",
+      "weapon": "Dague",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        276,
+        226,
+        174,
+        136,
+        "retry",
+        42
+      ],
+      "defense": [
+        164,
+        138,
+        "dodge",
+        76,
+        49,
+        "retry"
+      ],
+      "magic": [],
+      "barriers": [],
+      "artworkSource": "V4/propositions/2026-10-13-twenty-new-voices/images/15-perelle-02.png"
+    },
+    {
+      "key": "ossum",
+      "id": "49902605",
+      "characterId": "ossum-kalistar",
+      "name": "OSSUM",
+      "title": "LE PORTE-VOIX DE PIERRE",
+      "job": "MUSICIEN",
+      "description": "Les cordes d'Ossum vibrent avant chaque descente. Les mineurs disent que la roche reconnaît sa voix. Lui joue surtout pour couvrir la peur du plus jeune, sans jamais le regarder.",
+      "race": "GOLEM",
+      "faction": "Durane",
+      "element": "MINERO",
+      "weapon": "Instrument",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        168,
+        "guard",
+        104,
+        82,
+        "buff_atk",
+        22
+      ],
+      "defense": [
+        204,
+        164,
+        132,
+        99,
+        62,
+        28
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "artworkSource": "V4/propositions/2026-10-13-twenty-new-voices/images/13-ossum-02.png"
+    },
+    {
+      "key": "orseon",
+      "id": "49902606",
+      "characterId": "orseon-kalistar",
+      "name": "ORSÉON",
+      "title": "LE CENSEUR DE LUMIÈRE",
+      "job": "GARDIEN",
+      "description": "Orséon garde un palais dont il a refusé les honneurs. Son bouclier renvoie la lumière, pas les visages. Il cherche encore comment protéger un royaume sans servir son aveuglement.",
+      "race": "AURELION",
+      "faction": "Solaria",
+      "element": "LUXO",
+      "weapon": "Lance",
+      "role": 1,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        202,
+        166,
+        "guard",
+        98,
+        64,
+        22
+      ],
+      "defense": [
+        286,
+        238,
+        194,
+        144,
+        92,
+        38
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        6,
+        4,
+        2
+      ],
+      "artworkSource": "V4/propositions/2026-10-13-twenty-new-voices/images/12-orseon-02.png"
+    },
+    {
+      "key": "nereis",
+      "id": "49902607",
+      "characterId": "nereis-kalistar",
+      "name": "NÉRÉÏS",
+      "title": "LA LAME DES DETTES",
+      "job": "CORSAIRE",
+      "description": "Néréïs a racheté sa liberté avec les perles de sa mère. Son épée-harpon porte encore la marque du prêteur. Elle coupe désormais les amarres de ceux qu'on vend avec leur bateau.",
+      "race": "SIRENA",
+      "faction": "Thalassea",
+      "element": "HYDRO",
+      "weapon": "Epée courte",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        284,
+        236,
+        190,
+        128,
+        82,
+        "retry"
+      ],
+      "defense": [
+        174,
+        "dodge",
+        112,
+        86,
+        48,
+        22
+      ],
+      "magic": [
+        4,
+        2
+      ],
+      "barriers": [
+        4,
+        2
+      ],
+      "artworkSource": "V4/propositions/2026-10-13-twenty-new-voices/images/10-nereis-03.png"
+    },
+    {
+      "key": "khariel",
+      "id": "49902608",
+      "characterId": "khariel-kalistar",
+      "name": "KHARIEL",
+      "title": "L'ANCRE DU CIEL",
+      "job": "GARDIEN",
+      "description": "Khariel reste sur le pont quand les autres replient leurs ailes. Son ancre a retenu un ferry entier dans la tempête. Depuis, une petite plume nouée au manche lui rappelle qui il a sauvé.",
+      "race": "FALCO",
+      "faction": "Nestown",
+      "element": "AERO",
+      "weapon": "Fléau",
+      "role": 1,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        198,
+        "guard",
+        136,
+        102,
+        64,
+        30
+      ],
+      "defense": [
+        278,
+        236,
+        188,
+        "dodge",
+        94,
+        44
+      ],
+      "magic": [
+        3
+      ],
+      "barriers": [
+        5,
+        2
+      ],
+      "artworkSource": "V4/propositions/2026-10-13-twenty-new-voices/images/09-khariel-02.png"
+    },
+    {
+      "key": "velkris",
+      "id": "49902609",
+      "characterId": "velkris-kalistar",
+      "name": "DAME VÉLKRIS",
+      "title": "LA PRÉVÔTE ROUGE",
+      "job": "PRÉVÔTE",
+      "description": "Vélkris connaît chaque famille derrière la grande porte. Elle applique la loi sans trembler, puis veille elle-même sur les enfants des condamnés. Son uniforme ne dit rien de ses nuits.",
+      "race": "VAMP",
+      "faction": "Draevenheim",
+      "element": "HEMATO",
+      "weapon": "Lance",
+      "role": 1,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        204,
+        172,
+        "guard",
+        94,
+        66,
+        "death"
+      ],
+      "defense": [
+        284,
+        248,
+        192,
+        148,
+        96,
+        42
+      ],
+      "magic": [
+        5,
+        2
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "artworkSource": "V4/propositions/2026-10-13-twenty-new-voices/images/08-velkris-02.png"
+    },
+    {
+      "key": "ossiane",
+      "id": "49902610",
+      "characterId": "ossiane-kalistar",
+      "name": "SŒUR OSSIANE",
+      "title": "LA RELIEUSE",
+      "job": "RELIEUSE",
+      "description": "Sous son masque, Ossiane ne promet aucun miracle. Elle recoud les livres dont les morts ont oublié la fin. Une page tient parfois encore un nom ; elle refuse de le laisser tomber.",
+      "race": "SKULLZ",
+      "faction": "Cryptown",
+      "element": "NECRO",
+      "weapon": "Tome",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        162,
+        "revive",
+        114,
+        78,
+        "retry",
+        26
+      ],
+      "defense": [
+        198,
+        172,
+        134,
+        98,
+        66,
+        32
+      ],
+      "magic": [
+        6,
+        4,
+        1
+      ],
+      "barriers": [
+        5,
+        2
+      ],
+      "artworkSource": "V4/propositions/2026-10-13-twenty-new-voices/images/07-ossiane-02.png"
+    },
+    {
+      "key": "elneve",
+      "id": "49902611",
+      "characterId": "elneve-kalistar",
+      "name": "ELNÈVE",
+      "title": "LA MÉDECIN DES LISIÈRES",
+      "job": "MÉDECIN",
+      "description": "Elnève laisse sa lampe allumée au bord de l'étang. Bêtes, voyageurs et soldats trouvent le même banc sous son auvent. Elle demande où la douleur commence, jamais quel drapeau l'a causée.",
+      "race": "CERELF",
+      "faction": "Woodland",
+      "element": "HERBO",
+      "weapon": "Tome",
+      "role": 5,
+      "positions": [
+        5
+      ],
+      "atk": [
+        172,
+        145,
+        "revive",
+        84,
+        56,
+        "mana"
+      ],
+      "defense": [
+        202,
+        168,
+        136,
+        102,
+        64,
+        "retry"
+      ],
+      "magic": [
+        5,
+        3
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "artworkSource": "V4/propositions/2026-10-13-twenty-new-voices/images/06-elneve-02.png"
+    },
+    {
+      "key": "auldran",
+      "id": "49902612",
+      "characterId": "auldran-kalistar",
+      "name": "AULDRAN",
+      "title": "LE DERNIER CHÊNE",
+      "job": "GARDIEN",
+      "description": "Son bouclier vient du chêne sous lequel il s'était marié. Auldran en connaît chaque cercle, chaque saison perdue. Quand un enfant traverse le bois, il marche encore quelques pas derrière.",
+      "race": "CERELF",
+      "faction": "Woodland",
+      "element": "GEO",
+      "weapon": "Masse",
+      "role": 1,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        200,
+        168,
+        132,
+        96,
+        "guard",
+        28
+      ],
+      "defense": [
+        294,
+        242,
+        196,
+        142,
+        92,
+        46
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5,
+        3
+      ],
+      "artworkSource": "V4/propositions/2026-10-13-twenty-new-voices/images/05-auldran-03.png"
+    },
+    {
+      "key": "ithrek",
+      "id": "49902613",
+      "characterId": "ithrek-kalistar",
+      "name": "ITHREK",
+      "title": "L'ÉCOUTEUR DES FAILLES",
+      "job": "GÉOLOGUE",
+      "description": "Ithrek pose la main avant de poser le pied. Ses fléchettes sondent les failles que nul ne voit. Depuis l'effondrement de son village, il préfère qu'on rie de sa prudence plutôt qu'on la regrette.",
+      "race": "RHINOZ",
+      "faction": "Zarok",
+      "element": "GEO",
+      "weapon": "Projectile",
+      "role": 4,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        274,
+        238,
+        184,
+        142,
+        92,
+        "retry"
+      ],
+      "defense": [
+        166,
+        142,
+        "retry",
+        78,
+        56,
+        26
+      ],
+      "magic": [
+        6,
+        4,
+        2
+      ],
+      "barriers": [
+        5
+      ],
+      "artworkSource": "V4/propositions/2026-10-13-twenty-new-voices/images/04-ithrek-02.png"
+    },
+    {
+      "key": "khorna",
+      "id": "49902614",
+      "characterId": "khorna-kalistar",
+      "name": "KHORNA",
+      "title": "LA CHAMPIONNE DÉCHUE",
+      "job": "PUGILISTE",
+      "description": "Khorna a rendu sa médaille, pas ses gants. Chaque matin, elle trace un terrain pour les enfants du quartier. Ils ignorent pourquoi leur entraîneuse sourit toujours quand elle perd.",
+      "race": "RHINOZ",
+      "faction": "Zarok",
+      "element": "GEO",
+      "weapon": "Poing",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        296,
+        244,
+        186,
+        "buff_atk",
+        86,
+        36
+      ],
+      "defense": [
+        176,
+        144,
+        116,
+        84,
+        "retry",
+        24
+      ],
+      "magic": [],
+      "barriers": [
+        4
+      ],
+      "artworkSource": "V4/propositions/2026-10-13-twenty-new-voices/images/03-khorna-02.png"
+    }
+  ]
+}

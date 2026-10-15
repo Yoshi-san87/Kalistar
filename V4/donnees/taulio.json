@@ -1,0 +1,68 @@
+{
+  "element": "ELECTRO",
+  "name": "TAULIO",
+  "race": "ROBOT",
+  "faction": "Chroma",
+  "job": "PROTECTEUR",
+  "title": "GARDE DU CORPS LOYAL",
+  "positions": [
+    1
+  ],
+  "weapon": "Poing",
+  "atk": [
+    202,
+    165,
+    135,
+    98,
+    "guard",
+    "buff_atk"
+  ],
+  "defense": [
+    294,
+    242,
+    190,
+    145,
+    93,
+    41
+  ],
+  "magic": [],
+  "barriers": [
+    2
+  ],
+  "text": "Conçu pour protéger les puissants, Taulio fut jeté à la décharge lorsqu'il apprit à ressentir. Sous sa cuirasse cabossée, rien n'a éteint sa loyauté. Désormais, il garde le passage pour ceux que le monde a abandonnés.",
+  "source": "Valeurs, effets, texte et exception elementaire de main/V1_P1_FR_Taulio.jpg. Race Robot et faction Chroma confirmees. Arme Poing par lecture du pictogramme. ; V2/donnees/cartes.json 00000013 ; scene conservee, profil reequilibre V3",
+  "color": "F5DC32",
+  "hue": 53,
+  "advantage": 40,
+  "disadvantage": 20,
+  "id": "30000013",
+  "slug": "13_ELECTRO_TAULIO",
+  "art": "V4/assets/illustrations/13_ELECTRO_TAULIO.png",
+  "reference": null,
+  "weapon_index": 3,
+  "visual_revision": "V4-taulio-test-01",
+  "barcode_style": "spectrum_dark",
+  "characterId": "taulio",
+  "role": 1,
+  "sentry": true,
+  "canGuard": true,
+  "canHeal": false,
+  "story_scene": "Taulio protege ses amis dans la decharge de Chroma.",
+  "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Grand robot protecteur massif, main mecanique ouverte vers le spectateur, posture stable et regard empathique, armure usee, aucun bouclier magique.",
+  "source_art": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V2/assets/illustrations/13_electro_taulio.png",
+  "art_action": "copy",
+  "previous_id": "00000013",
+  "replaces_v2_id": null,
+  "aliases": [],
+  "balance_source": "main/Kalistar.xlsx, Capacite base ; ajustements V3 decrits dans DECISIONS_NARRATIVES.md",
+  "visualReference": "V4/cartes/MOMO_ELECTRO_V4_04-typographie.png",
+  "descriptionLines": [
+    "Conçu pour protéger les puissants, Taulio fut jeté à la",
+    "décharge lorsqu'il apprit à ressentir. Sous sa cuirasse",
+    "cabossée, rien n'a éteint sa loyauté. Désormais, il garde",
+    "le passage pour ceux que le monde a abandonnés."
+  ],
+  "originalTitle": "GARDE DU CORP LOYAL",
+  "originalDescription": "Taulio, est un ancien robot de combat imposant utilisé dans la protection rapprochée de VIP. Il a été jeté à la décharge des robots après avoir développé une forte empathie. Malgré cela, il est toujours puissant, loyal et prêt à tout pour protéger ses amis.",
+  "changes": "Orthographe du titre et adaptation narrative; aucune modification du gameplay."
+}

@@ -1,0 +1,219 @@
+{
+  "revision": "balmhyr-icons-2026-09-18",
+  "passed": true,
+  "results": [
+    {
+      "key": "balmhyr",
+      "passed": true,
+      "comparison": {
+        "changed": 454807,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "repeat": {
+        "changed": 0,
+        "outside": 0
+      },
+      "fixed": {
+        "changed": 0,
+        "outside": 0
+      },
+      "race": {
+        "visiblePixels": 2862,
+        "maxRadius": 42.85148772213166,
+        "safeRadius": 44,
+        "innerRadius": 47.5,
+        "optical": [
+          758.5194222215894,
+          1163.2888264574624
+        ],
+        "opticalError": [
+          0.480577778410634,
+          0.21117354253760823
+        ]
+      },
+      "weapon": {
+        "visiblePixels": 795,
+        "maxRadius": 42.85148772213165,
+        "safeRadius": 44,
+        "innerRadius": 47.5,
+        "optical": [
+          137.44477123602425,
+          1163.1618669461814
+        ],
+        "opticalError": [
+          0.44477123602425195,
+          0.33813305381863756
+        ]
+      },
+      "futureRace": {
+        "changed": 0,
+        "outside": 0
+      },
+      "futureWeapon": {
+        "changed": 0,
+        "outside": 0
+      },
+      "bindRace": {
+        "changed": 0,
+        "outside": 0
+      },
+      "bindWeapon": {
+        "changed": 0,
+        "outside": 0
+      },
+      "barcode": {
+        "passed": true,
+        "expected": "30000007",
+        "cases": {
+          "color-1": [
+            "30000007"
+          ],
+          "color-4": [
+            "30000007"
+          ],
+          "gray-1": [
+            "30000007"
+          ],
+          "gray-4": [
+            "30000007"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "psdHash": "edd7490d7d1c9c0c6d5f25049d6ec2439351e92795773016f48e4ed6768e4729",
+      "pngHash": "e57aa28a0a23834491382b9951a85ef7d722e247485e508db4ba9e3e6c95c72d",
+      "nativeHash": "776f83c7f3105c964aa1f5490a5354fff51607cc70aed0122f9047c9a1227ba4"
+    },
+    {
+      "key": "lok",
+      "passed": true,
+      "comparison": {
+        "changed": 4033,
+        "outside": 0
+      },
+      "roundtrip": {
+        "changed": 0,
+        "outside": 0
+      },
+      "repeat": {
+        "changed": 0,
+        "outside": 0
+      },
+      "fixed": {
+        "changed": 0,
+        "outside": 0
+      },
+      "race": {
+        "visiblePixels": 2862,
+        "maxRadius": 42.85148772213166,
+        "safeRadius": 44,
+        "innerRadius": 47.5,
+        "optical": [
+          758.5194222215894,
+          1163.2888264574624
+        ],
+        "opticalError": [
+          0.480577778410634,
+          0.21117354253760823
+        ]
+      },
+      "weapon": null,
+      "futureRace": {
+        "changed": 0,
+        "outside": 0
+      },
+      "futureWeapon": null,
+      "bindRace": {
+        "changed": 0,
+        "outside": 0
+      },
+      "bindWeapon": null,
+      "barcode": {
+        "passed": true,
+        "expected": "30000018",
+        "cases": {
+          "color-1": [
+            "30000018"
+          ],
+          "color-4": [
+            "30000018"
+          ],
+          "gray-1": [
+            "30000018"
+          ],
+          "gray-4": [
+            "30000018"
+          ]
+        },
+        "physicalPrintVerified": false
+      },
+      "psdHash": "5a22022e7127975fc3029939f5925627a89e1c6e2fd5290b1f180881b9750eee",
+      "pngHash": "37251d1c95909ae77b0bc60afa76bf85fdea26c57c3dc25d0e267ec60ae2ceaa",
+      "nativeHash": "4912595ef8e5389e21d2fda3c635580acd3d194d72dce7fc97126539f207e3e6"
+    }
+  ],
+  "installHashes": {
+    "V4/templates/BALMHYR_V4_01_MINERO.psd": "edd7490d7d1c9c0c6d5f25049d6ec2439351e92795773016f48e4ed6768e4729",
+    "V4/cartes/BALMHYR_V4_01_MINERO.png": "e57aa28a0a23834491382b9951a85ef7d722e247485e508db4ba9e3e6c95c72d",
+    "V4/templates/LOK_V4_01_MINERO.psd": "5a22022e7127975fc3029939f5925627a89e1c6e2fd5290b1f180881b9750eee",
+    "V4/cartes/LOK_V4_01_MINERO.png": "37251d1c95909ae77b0bc60afa76bf85fdea26c57c3dc25d0e267ec60ae2ceaa",
+    "V4/assets/illustrations/elements-01/terre-plantes/BALMHYR_V4_02_CANYONERO.png": "6ed71ff8f77f695f00afa6ff71350369ccf76c748d413f2abf2b26cd75414da4",
+    "V4/template-stable/icon-layouts.json": "0675b18f099dd02d2e63e4e605228b98688268e1be019a26a935c7f5068a864f",
+    "V4/scripts/stable/elements-common.jsx": "0c034a98776e5c3b15d6cdf8099deaf0d9d6175a46e8ffdfa875e6cd57cf14b8",
+    "V4/template-stable/elements-01/balmhyr/card.json": "583f84cb6fb11e96e4476e327dc26cc3a97be4fc76f7f53c8d7dad2314d66b2c",
+    "V4/template-stable/elements-01/balmhyr/render.json": "41608d6057c0af75bfc78c660985d141dd0cf5a3b228bde2ab311442f483541d",
+    "V4/template-stable/elements-01/lok/card.json": "721897ace0df666e2584e0715663cf779c2c20b23361c8266a32fefdf24a9798",
+    "V4/template-stable/elements-01/lok/render.json": "5b13de262b81ad5d8b2948d8fc0b8c5f762f885195a48bbbcfc428e1f93d51ea",
+    "V4/template-stable/elements-01/manifest.json": "17d65e99b900755ccc26baa8ccc481a6f677907d64d3adb93cee1d0e072fdc1e",
+    "V4/template-stable/elements-02/manifest.json": "7bb1efa008dc00e63739ef1f25fd6cd58d10e3e2aa0084665767360a7f0abd2c",
+    "V4/template-stable/current-elements.json": "c40a64bb4cd6ddcdbcd3205fb483bde2a559f2a6472582bd941fa5150958de55",
+    "V4/atelier/designer-assets/packed/banks/weapon-Hache.png": "37ac745d3640269ca09ab39b7188c1aed20a02429fba5925c1ec50178daee03e",
+    "V4/atelier/designer-assets/banks/weapon-Hache.png": "b6bc6ee406aae69f48b2f46afe856aae1c70abf20d38ad6950928d743b0508e5",
+    "V4/atelier/designer-assets/packed/banks/race-NAIN.png": "203c8b2fd93e51da5f1677027020ff9bfde30daab006b6eee962c9bfa97a9f29",
+    "V4/atelier/designer-assets/banks/race-NAIN.png": "753dde8c47725f9f2541c3bd09d38904f115b1017e1b62bdac2ebbd3a65c43d4",
+    "V4/atelier/designer-assets/manifest.json": "ffd082f9c6687eaae842cf7cd7b37ee8fe4461f8902d00034ac7a83d3a3d12c2",
+    "V4/atelier/designer-assets/manifest.raw.json": "806679d1b257372aa6f5fab164311623ab9c60cc8bd8e7bd3b21d675755f50bd"
+  },
+  "componentHashes": {
+    "V4/assets/illustrations/elements-01/terre-plantes/BALMHYR_V4_02_CANYONERO.png": "6ed71ff8f77f695f00afa6ff71350369ccf76c748d413f2abf2b26cd75414da4",
+    "V4/template-stable/icon-layouts.json": "0675b18f099dd02d2e63e4e605228b98688268e1be019a26a935c7f5068a864f",
+    "V4/atelier/designer-assets/packed/banks/weapon-Hache.png": "37ac745d3640269ca09ab39b7188c1aed20a02429fba5925c1ec50178daee03e",
+    "V4/atelier/designer-assets/banks/weapon-Hache.png": "b6bc6ee406aae69f48b2f46afe856aae1c70abf20d38ad6950928d743b0508e5",
+    "V4/atelier/designer-assets/packed/banks/race-NAIN.png": "203c8b2fd93e51da5f1677027020ff9bfde30daab006b6eee962c9bfa97a9f29",
+    "V4/atelier/designer-assets/banks/race-NAIN.png": "753dde8c47725f9f2541c3bd09d38904f115b1017e1b62bdac2ebbd3a65c43d4"
+  },
+  "calibrationHash": "0675b18f099dd02d2e63e4e605228b98688268e1be019a26a935c7f5068a864f",
+  "unchangedCards": [
+    "momo",
+    "taulio",
+    "jelly-joe",
+    "momo-bal",
+    "rikka",
+    "ruby",
+    "cana",
+    "scrow",
+    "soryn",
+    "gilmarr",
+    "darnako",
+    "malinia",
+    "aelis",
+    "iliane",
+    "belrog",
+    "magnar",
+    "thalie",
+    "bloom",
+    "victorvine",
+    "kaylis",
+    "elenion",
+    "seraphina",
+    "valazar",
+    "malaba"
+  ],
+  "originalReferenceId": "af17ee6bd1c0aba0771193bbe87d2498e1ffee55df90c5506507740b667af4ea",
+  "checkedAt": "2026-09-18T13:52:33.659Z",
+  "sourcesUnchanged": true
+}

@@ -1,0 +1,119 @@
+{
+  "passed": true,
+  "modelId": "45951088",
+  "referenceId": "ef7a6767b57723d896ceecb050079bfb1abad0e79e7289a200f87b34585f9380",
+  "revision": "2026-10-01-kaine-framing",
+  "profileHash": "19b899147ca8626295c61cdbe52a1fe808decb1459d1ff35ab2bb9e9e06826e1",
+  "hashes": {
+    "card.psd": "19c7ba380fb6b28b5addb5591f531cd3aed016ca0a16937507218ba87269d81e",
+    "card.png": "46cb2c273b633342d5ce5dc6840a06a3cb3e3b6c192f082f096a26b46d02807e"
+  },
+  "original": {
+    "changed": 0,
+    "outside": 0
+  },
+  "actualCurrentCrop": {
+    "changed": 0,
+    "outside": 0
+  },
+  "unchangedOutsideArt": {
+    "changed": 456064,
+    "outside": 0
+  },
+  "withoutArt": {
+    "changed": 0,
+    "outside": 0
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "45951088",
+    "cases": {
+      "color-1": [
+        "45951088"
+      ],
+      "color-4": [
+        "45951088"
+      ],
+      "gray-1": [
+        "45951088"
+      ],
+      "gray-4": [
+        "45951088"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "framing": {
+    "relativeZoom": 1.12,
+    "baseCrop": {
+      "zoom": 1.12,
+      "x": 0,
+      "y": 0
+    },
+    "effectiveZoom": 1.2544000000000002,
+    "x": 0,
+    "y": 0,
+    "clip": [
+      80,
+      156,
+      817,
+      1077
+    ],
+    "canvas": [
+      737,
+      921
+    ],
+    "sourceSize": [
+      1122,
+      1402
+    ],
+    "sourceHash": "61615a12c884053fb27ae580350f812ba3e1697f545e4ede300d782ea3f4b2b2",
+    "fullEmbeddedArtwork": true,
+    "reversible": true,
+    "currentRect": {
+      "left": 60,
+      "top": 75,
+      "width": 1002,
+      "height": 1252
+    }
+  },
+  "editableTextsAndStyleRunsUnchanged": true,
+  "allLayerGeometryUnchanged": true,
+  "fullEmbeddedArtworkBytesUnchanged": true,
+  "profileBytesUnchanged": true,
+  "typography": {
+    "NOM": {
+      "font": "TimesNewRomanPSMT",
+      "sizePt": 10.0000012207031,
+      "tracking": 0,
+      "capitalization": "TextCase.NORMAL",
+      "fauxBold": false,
+      "fauxItalic": false
+    },
+    "TITLE": {
+      "font": "TimesNewRomanPSMT",
+      "sizePt": 7.68,
+      "tracking": 0,
+      "capitalization": "TextCase.ALLCAPS",
+      "fauxBold": false,
+      "fauxItalic": false
+    }
+  },
+  "typographyCalibration": {
+    "nativeMetricsHash": "115079062ab5889e6cf13bdca5abd94669989df7ddb2963a0ba5c98f31d43a1c",
+    "requestHash": "830936d924375ec0b2945829c68346c64cc5105062e363c50027eb6692428c8e",
+    "priorDonorChanges": [
+      {
+        "file": "V4/templates/RUBY_V4_01_HYDRO.psd",
+        "historicalHash": "07a50442a21383433d04ff819ad2682ee1bbc592fe2b058091eb4c37d7ac0091",
+        "currentProtectedHash": "099486ecdef20bb9d5ed9694ded13ef24c93748348b1011b56b87bbd9cf622ac"
+      }
+    ],
+    "basis": "Unchanged current native Kaine styles and bounds; byte-verified historical glyph measurements."
+  },
+  "checkedAt": "2026-10-01T12:50:57.445Z"
+}

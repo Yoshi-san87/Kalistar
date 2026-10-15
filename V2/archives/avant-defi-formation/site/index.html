@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101413">
+  <title>Kalistar Card Game</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="arena.css">
+  <script defer src="assets/lucide.min.js"></script>
+  <script defer src="data.js"></script>
+  <script defer src="engine.js"></script>
+  <script defer src="assets/dice.bundle.js"></script>
+  <script defer src="combat-effects.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="masthead">
+    <a class="brand" href="#collection" aria-label="Kalistar, collection"><img src="assets/logo.webp" alt="Kalistar Card Game" width="300" height="100"></a>
+    <nav class="main-nav" aria-label="Navigation principale">
+      <button data-view="collection" class="active"><i data-lucide="book-open"></i><span>Collection</span></button>
+      <button data-view="arena"><i data-lucide="swords"></i><span>Arène</span></button>
+    </nav>
+    <div class="header-actions"><span class="edition">ÉDITION V2</span><button class="icon-button" data-action="rules" title="Règles de la démo" aria-label="Règles de la démo"><i data-lucide="scroll-text"></i></button><button class="deck-button" data-action="deck"><i data-lucide="layers-3"></i><span>Mon deck</span><b id="deck-count">10</b></button></div>
+  </header>
+  <main id="app"></main>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <dialog id="detail-dialog" aria-label="Fiche de carte"></dialog>
+  <dialog id="deck-dialog" aria-label="Préparation du deck"></dialog>
+  <dialog id="rules-dialog" aria-label="Règles de Kalistar"></dialog>
+  <dialog id="new-game-dialog" aria-label="Nouvelle partie"></dialog>
+  <dialog id="journal-dialog" aria-label="Journal du duel"></dialog>
+  <script>window.addEventListener('error',function(){var t=document.getElementById('toast');if(t&&!window.KALISTAR_READY){t.textContent='Le site ne s’est pas chargé. Ouvrez index.html depuis le dossier V2/site complet.';t.classList.add('visible');}});</script>
+</body>
+</html>

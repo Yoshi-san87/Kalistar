@@ -1,0 +1,937 @@
+{
+  "schemaVersion": 1,
+  "id": "2026-09-23-return",
+  "cards": [
+    {
+      "key": "zviri-tueuse",
+      "legacyId": "30000010",
+      "characterId": "zviri",
+      "art": "art-a/zviri-tueuse.png",
+      "name": "ZVIRI",
+      "title": "TUEUSE REDOUTABLE",
+      "job": "ASSASSIN",
+      "element": "NECRO",
+      "race": "SKULLZ",
+      "faction": "Cryptown",
+      "weapon": "Fouet",
+      "positions": [
+        2
+      ],
+      "role": 2,
+      "atk": [
+        294,
+        242,
+        "death",
+        145,
+        93,
+        41
+      ],
+      "defense": [
+        "dodge",
+        144,
+        112,
+        80,
+        55,
+        23
+      ],
+      "magic": [],
+      "barriers": [],
+      "gameplayOrigin": "Exact V3 gameplay; only description shortened and original typo corrected.",
+      "artOrigin": "Preserve V3 approved illustration byte-for-byte.",
+      "edition": "canonical",
+      "id": "30000010",
+      "description": "Mercenaire assassin de Cryptown, Zviri traque ses cibles dans les ombres. Son fouet ne laisse aucune seconde chance. Elle rapporte le sang de ses victimes, et sa réputation arrive toujours avant elle."
+    },
+    {
+      "key": "zviri-chasse",
+      "legacyId": "30000010",
+      "characterId": "zviri",
+      "art": "art-a/zviri-chasse.png",
+      "name": "ZVIRI",
+      "title": "LA PATIENCE DU PREDATEUR",
+      "job": "TRAQUEUSE",
+      "element": "NECRO",
+      "race": "SKULLZ",
+      "faction": "Cryptown",
+      "weapon": "Fouet",
+      "positions": [
+        2
+      ],
+      "role": 2,
+      "atk": [
+        284,
+        238,
+        185,
+        140,
+        90,
+        "retry"
+      ],
+      "defense": [
+        "dodge",
+        138,
+        108,
+        78,
+        "retry",
+        22
+      ],
+      "magic": [],
+      "barriers": [],
+      "gameplayOrigin": "New P2 variant: loses instant death and some damage; gains luck attribution and one defensive reroll. Same character identity, never deckable with other Zviri.",
+      "artOrigin": "New hunting scene, identity from V3.",
+      "edition": "variant",
+      "id": "49321357",
+      "description": "Dans les ruelles de Cryptown, Zviri s'arrête sur une trace presque effacée. Le fouet glisse sans bruit entre ses doigts. La chasse peut durer une nuit entière : elle sait que sa proie finira par regarder derrière elle."
+    },
+    {
+      "key": "julienne",
+      "legacyId": "30000003",
+      "characterId": "julienne",
+      "art": "art-a/julienne.png",
+      "name": "JULIENNE",
+      "title": "UN SOUFFLE SOUS LA MAREE",
+      "job": "GARDIENNE",
+      "element": "HYDRO",
+      "race": "SIRENA",
+      "faction": "Thalassea",
+      "weapon": "Bâton",
+      "positions": [
+        5
+      ],
+      "role": 5,
+      "atk": [
+        174,
+        142,
+        110,
+        85,
+        "guard",
+        "revive"
+      ],
+      "defense": [
+        206,
+        169,
+        132,
+        95,
+        65,
+        28
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "gameplayOrigin": "Exact V3 gameplay and description.",
+      "artOrigin": "Preserve V3 approved illustration byte-for-byte.",
+      "edition": "canonical",
+      "id": "30000003",
+      "description": "Sous les portes noyées de Thalasséa, Julienne retient la mer au-dessus des naufragés. Chaque souffle qu'elle leur offre lui coûte un peu de force. Elle ne relâchera l'arche qu'au dernier survivant."
+    },
+    {
+      "key": "verminia-bureau",
+      "legacyId": "30000009",
+      "characterId": "verminia",
+      "art": "art-a/verminia-bureau.png",
+      "name": "VERMINIA",
+      "title": "LES COMPTES DE LA NUIT",
+      "job": "DISSIDENTE",
+      "element": "HEMATO",
+      "race": "VAMP",
+      "faction": "Draevenheim",
+      "weapon": "Dague",
+      "positions": [
+        3
+      ],
+      "role": 3,
+      "atk": [
+        230,
+        195,
+        153,
+        111,
+        76,
+        34
+      ],
+      "defense": [
+        232,
+        190,
+        "dodge",
+        113,
+        71,
+        36
+      ],
+      "magic": [
+        6,
+        5,
+        3
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "gameplayOrigin": "Exact V3 gameplay. New requested desk scene and corresponding proposed narrative.",
+      "artOrigin": "New desk scene, identity from V3.",
+      "edition": "canonical",
+      "id": "30000009",
+      "description": "Derrière son bureau de Draevenheim, Verminia efface un nom du registre de sa maison. Une signature suffit parfois à libérer une vie. Elle écoute les pas dans le couloir, puis reprend sa plume sans trembler."
+    },
+    {
+      "key": "verminia-portail",
+      "legacyId": "30000009",
+      "characterId": "verminia",
+      "art": "art-a/verminia-portail.png",
+      "name": "VERMINIA",
+      "title": "LE DERNIER PASSAGE",
+      "job": "DISSIDENTE",
+      "element": "HEMATO",
+      "race": "VAMP",
+      "faction": "Draevenheim",
+      "weapon": "Dague",
+      "positions": [
+        3,
+        4
+      ],
+      "role": 4,
+      "atk": [
+        278,
+        229,
+        177,
+        "mana",
+        81,
+        30
+      ],
+      "defense": [
+        172,
+        141,
+        "dodge",
+        84,
+        54,
+        24
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        2
+      ],
+      "barriers": [
+        5,
+        2
+      ],
+      "gameplayOrigin": "New caster variant, role P4 bounds with P3 deployment. More magic and one mana support face, substantially reduced numeric defense. Same character identity as desk version.",
+      "artOrigin": "New magical portal-closing scene; not a repaint of the former iron-gate illustration.",
+      "edition": "variant",
+      "id": "43683372",
+      "description": "Les derniers fugitifs ont traversé. Verminia rassemble les fils de son Kalistel et force le portail à se refermer. De l'autre côté grondent les hommes de sa maison. Cette fois, son héritage leur ferme la route."
+    },
+    {
+      "key": "polux",
+      "legacyId": "30000031",
+      "characterId": "polux",
+      "art": "art-a/polux.png",
+      "name": "POLUX",
+      "title": "LA CHALEUR QUI RESTE",
+      "job": "SOIGNEUR",
+      "element": "PYRO",
+      "race": "FELINEUS",
+      "faction": "Vulkar",
+      "weapon": "Bâton",
+      "positions": [
+        5
+      ],
+      "role": 5,
+      "atk": [
+        174,
+        142,
+        110,
+        85,
+        "revive",
+        21
+      ],
+      "defense": [
+        206,
+        169,
+        132,
+        95,
+        65,
+        28
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3,
+        1
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "gameplayOrigin": "Exact V3 gameplay; French accents restored in unchanged description.",
+      "artOrigin": "Preserve V3 approved illustration byte-for-byte.",
+      "edition": "canonical",
+      "id": "30000031",
+      "description": "Polux réchauffe les linges sans les brûler. Il écoute la respiration derrière le rideau. Le feu, entre ses mains, sait aussi parler doucement."
+    },
+    {
+      "key": "nazar",
+      "legacyId": "30000011",
+      "characterId": "nazar",
+      "art": "art-a/nazar.png",
+      "name": "NAZAR",
+      "title": "LA RONDE DE CANYONERO",
+      "job": "GARDIEN",
+      "element": "GEO",
+      "race": "RHINOZ",
+      "faction": "Zarok",
+      "weapon": "Lance",
+      "positions": [
+        1
+      ],
+      "role": 1,
+      "atk": [
+        201,
+        171,
+        134,
+        97,
+        "guard",
+        30
+      ],
+      "defense": [
+        293,
+        241,
+        196,
+        144,
+        92,
+        40
+      ],
+      "magic": [
+        6,
+        3
+      ],
+      "barriers": [
+        4,
+        2
+      ],
+      "gameplayOrigin": "Exact V3 gameplay and faction; Canyonero is the requested new scene, not a faction change.",
+      "artOrigin": "New Canyonero patrol scene, identity from V3.",
+      "edition": "canonical",
+      "id": "30000011",
+      "description": "Nazar parcourt les plaines rocheuses de Canyonero, lance en main et regard au loin. Fils de Belrog, il connaît la valeur d'un passage sûr. La poussière peut effacer ses traces, jamais sa vigilance."
+    },
+    {
+      "key": "capitaine-skully",
+      "legacyId": "30000035",
+      "characterId": "capitaine-skully",
+      "name": "CAPITAINE SKULLY",
+      "title": "LE CAP DES REVENANTS",
+      "job": "CAPITAINE",
+      "element": "NECRO",
+      "race": "SKULLZ",
+      "faction": "Cryptown",
+      "weapon": "Epée courte",
+      "positions": [
+        3
+      ],
+      "role": 3,
+      "atk": [
+        236,
+        194,
+        152,
+        "retry",
+        75,
+        33
+      ],
+      "defense": [
+        231,
+        196,
+        154,
+        112,
+        70,
+        35
+      ],
+      "magic": [
+        6
+      ],
+      "barriers": [
+        4
+      ],
+      "art": "art-b/capitaine-skully.png",
+      "edition": "canonical",
+      "id": "30000035",
+      "description": "Skully laisse la houle frapper l’étrave et garde le cap. Le sel ronge le bois, pas son obstination. Tant que le pont tient sous ses bottes, il reste un capitaine et la mer lui doit encore un passage."
+    },
+    {
+      "key": "xiaomi",
+      "legacyId": "30000027",
+      "characterId": "xiaomi",
+      "name": "XIAOMI",
+      "title": "LE FIL DANS L OMBRE",
+      "job": "DUELLISTE",
+      "element": "NONE",
+      "race": "HUMAIN",
+      "faction": "Z13",
+      "weapon": "Katana",
+      "positions": [
+        2
+      ],
+      "role": 2,
+      "atk": [
+        292,
+        240,
+        195,
+        143,
+        91,
+        46
+      ],
+      "defense": [
+        174,
+        142,
+        110,
+        "dodge",
+        53,
+        21
+      ],
+      "magic": [],
+      "barriers": [],
+      "art": "art-b/xiaomi.png",
+      "edition": "canonical",
+      "id": "30000027",
+      "description": "Dans le couloir, Xiaomi ne laisse dépasser que le fil de sa lame. Le bruit des pas approche. Elle ralentit sa respiration ; le reste attendra que l’ombre lui donne raison."
+    },
+    {
+      "key": "gen-reparation",
+      "legacyId": "30000023",
+      "characterId": "gen",
+      "name": "GEN",
+      "title": "LA PANNE QUI INSISTE",
+      "job": "MECANICIEN",
+      "element": "NONE",
+      "race": "CYBORG",
+      "faction": "Z13",
+      "weapon": "Projectile",
+      "positions": [
+        4
+      ],
+      "role": 4,
+      "atk": [
+        290,
+        245,
+        193,
+        141,
+        96,
+        44
+      ],
+      "defense": [
+        172,
+        140,
+        115,
+        83,
+        51,
+        26
+      ],
+      "magic": [],
+      "barriers": [],
+      "art": "art-b/gen-reparation.png",
+      "edition": "canonical",
+      "id": "30000023",
+      "description": "Une étincelle jaillit de son bras gauche. Gen suspend le tournevis, plisse les yeux, puis reprend. Ce n’est pas encore un pouvoir : seulement une mécanique récalcitrante et un garçon qui refuse de la laisser gagner."
+    },
+    {
+      "key": "gen-electro",
+      "legacyId": "30000023",
+      "characterId": "gen",
+      "name": "GEN",
+      "title": "LA NUIT OU LA Z13 S ETEINT",
+      "job": "MECANICIEN",
+      "element": "ELECTRO",
+      "race": "CYBORG",
+      "faction": "Z13",
+      "weapon": "Projectile",
+      "positions": [
+        4
+      ],
+      "role": 4,
+      "atk": [
+        286,
+        238,
+        188,
+        "mana",
+        90,
+        40
+      ],
+      "defense": [
+        169,
+        138,
+        108,
+        80,
+        49,
+        24
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        2
+      ],
+      "barriers": [
+        5,
+        3
+      ],
+      "art": "art-b/gen-electro.png",
+      "edition": "variant",
+      "id": "44703335",
+      "description": "Devant le panneau électrique, Gen retient son souffle. Son bras gauche crépite, puis les lampes de la Z13 s’éteignent une à une. Ses mains tremblent encore : pour la première fois, la panne ouvre un chemin."
+    },
+    {
+      "key": "lanio-mines",
+      "legacyId": "30000021",
+      "characterId": "lanio",
+      "name": "LANIO",
+      "title": "LE VERTIGE POUR RIRE",
+      "job": "ACROBATE",
+      "element": "NONE",
+      "race": "HUMAIN",
+      "faction": "Z13",
+      "weapon": "Lance",
+      "positions": [
+        3
+      ],
+      "role": 3,
+      "atk": [
+        230,
+        190,
+        150,
+        110,
+        "retry",
+        30
+      ],
+      "defense": [
+        228,
+        190,
+        150,
+        "dodge",
+        70,
+        32
+      ],
+      "magic": [],
+      "barriers": [],
+      "art": "art-b/lanio-mines.png",
+      "edition": "variant",
+      "id": "47414613",
+      "description": "Suspendu au-dessus de la galerie, Lanio trouve encore le moyen de faire rire les autres. Un appui, un crochet, puis son sourire insolent disparaît dans la poussière. Même les mines de la Z13 n’ont pas réussi à le faire taire."
+    },
+    {
+      "key": "lanio-astraball",
+      "legacyId": "30000021",
+      "characterId": "lanio",
+      "name": "LANIO",
+      "title": "LE BLONDINET DE ZAROK",
+      "job": "JOUEUR D ASTRABALL",
+      "element": "NONE",
+      "race": "HUMAIN",
+      "faction": "Z13",
+      "weapon": "Lance",
+      "positions": [
+        3
+      ],
+      "role": 3,
+      "atk": [
+        236,
+        194,
+        152,
+        110,
+        75,
+        33
+      ],
+      "defense": [
+        231,
+        196,
+        "dodge",
+        112,
+        70,
+        35
+      ],
+      "magic": [],
+      "barriers": [],
+      "art": "art-b/lanio-astraball.png",
+      "edition": "canonical",
+      "id": "30000021",
+      "description": "Lanio a enfin une vraie balle entre les mains. Sur le terrain de Zarok, le blondinet improvise un crochet et rit avant même de savoir s’il passera. Pour quelques minutes, la Z13 paraît très loin."
+    },
+    {
+      "key": "reevus",
+      "legacyId": "30000026",
+      "characterId": "reevus",
+      "name": "REEVUS",
+      "title": "LE REGISTRE DES ABSENTS",
+      "job": "INTENDANT",
+      "element": "NONE",
+      "race": "NAIN",
+      "faction": "Z13",
+      "weapon": "Fléau",
+      "positions": [
+        3
+      ],
+      "role": 3,
+      "atk": [
+        235,
+        193,
+        151,
+        116,
+        74,
+        "buff_atk"
+      ],
+      "defense": [
+        230,
+        195,
+        153,
+        111,
+        76,
+        34
+      ],
+      "magic": [],
+      "barriers": [],
+      "art": "art-b/reevus.png",
+      "edition": "canonical",
+      "id": "30000026",
+      "description": "Reevus suit les lignes du doigt, puis frappe le registre du poing. Les chiffres ne lui obéissent pas davantage que les mineurs. Alors il hausse la voix, convaincu que le problème vient des autres."
+    },
+    {
+      "key": "kognus",
+      "legacyId": "30000025",
+      "characterId": "kognus",
+      "name": "KOGNUS",
+      "title": "LES CLES DU SERVICE",
+      "job": "SURVEILLANT",
+      "element": "NONE",
+      "race": "NAIN",
+      "faction": "Z13",
+      "weapon": "Dague",
+      "positions": [
+        2
+      ],
+      "role": 2,
+      "atk": [
+        291,
+        246,
+        194,
+        142,
+        90,
+        45
+      ],
+      "defense": [
+        173,
+        141,
+        116,
+        84,
+        52,
+        "retry"
+      ],
+      "magic": [],
+      "barriers": [],
+      "art": "art-b/kognus.png",
+      "edition": "canonical",
+      "id": "30000025",
+      "description": "Kognus fait tinter les clés pour que toute la galerie l’entende. Il connaît le prix du silence et celui d’une porte fermée. Son sourire ne promet jamais une faveur sans en compter le retour."
+    },
+    {
+      "key": "commander",
+      "characterId": "commander-nier",
+      "name": "COMMANDER WHITE",
+      "title": "Le poids du commandement",
+      "job": "COMMANDANTE",
+      "race": "ANDROID",
+      "faction": "NieR",
+      "weapon": "Sceptre",
+      "element": "LUXO",
+      "positions": [
+        5
+      ],
+      "role": 5,
+      "atk": [
+        172,
+        "guard",
+        "revive",
+        "mana",
+        "buff_atk",
+        24
+      ],
+      "defense": [
+        202,
+        167,
+        132,
+        96,
+        "retry",
+        26
+      ],
+      "magic": [
+        6
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "art": "art-c/commander.png",
+      "id": "45081933",
+      "description": "Face aux consoles du Bunker, White tient sa posture comme elle tient ses ordres. Sous l'uniforme immaculé, chaque départ vers la Terre pèse davantage. La voix reste ferme : les soldats ne doivent pas entendre le doute."
+    },
+    {
+      "key": "nier",
+      "characterId": "nier-replicant",
+      "name": "NIER",
+      "title": "Une promesse à Yonah",
+      "job": "PROTECTEUR",
+      "race": "HUMAIN",
+      "faction": "Replicant",
+      "weapon": "Tome",
+      "element": "NECRO",
+      "positions": [
+        4
+      ],
+      "role": 4,
+      "atk": [
+        286,
+        236,
+        184,
+        134,
+        84,
+        "mana"
+      ],
+      "defense": [
+        166,
+        136,
+        106,
+        76,
+        "retry",
+        22
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3,
+        2
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "art-c/nier.png",
+      "id": "47689975",
+      "description": "Les mots de Weiss tournent dans l'air tandis que Nier avance vers le sanctuaire. Il ne cherche ni gloire ni pardon, seulement sa sœur. Chaque vers scellé ouvre un passage et rend plus lourd le prix de sa promesse."
+    },
+    {
+      "key": "kaine",
+      "characterId": "kaine-replicant",
+      "name": "KAINÉ",
+      "title": "Ne baisse pas les yeux",
+      "job": "DUELLISTE",
+      "race": "HUMAIN",
+      "faction": "Replicant",
+      "weapon": "Epée longue",
+      "element": "HEMATO",
+      "positions": [
+        2
+      ],
+      "role": 2,
+      "atk": [
+        294,
+        244,
+        194,
+        144,
+        94,
+        "buff_atk"
+      ],
+      "defense": [
+        170,
+        140,
+        "dodge",
+        84,
+        "retry",
+        24
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        6
+      ],
+      "art": "art-c/kaine.png",
+      "id": "45951088",
+      "description": "Au bord du village suspendu, Kainé serre ses deux lames. Les insultes ont laissé des traces plus profondes que les bandages. Elle répond par un pas en avant : cette fois, personne ne décidera à sa place qui mérite d'être protégé."
+    },
+    {
+      "key": "devola-automata",
+      "characterId": "devola-nier",
+      "name": "DEVOLA",
+      "title": "Un passage pour demain",
+      "job": "RÉSISTANTE",
+      "race": "ANDROID",
+      "faction": "NieR",
+      "weapon": "Epée courte",
+      "element": "PYRO",
+      "positions": [
+        2,
+        3
+      ],
+      "role": 2,
+      "atk": [
+        282,
+        232,
+        182,
+        132,
+        "retry",
+        36
+      ],
+      "defense": [
+        164,
+        134,
+        104,
+        "dodge",
+        44,
+        18
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "art": "art-c/devola-automata.png",
+      "id": "43447599",
+      "description": "Devant la Tour, Devola se place entre les machines et le dernier espoir de sa sœur. La faute qu'on leur a léguée n'est pas la leur. Pourtant, sa lame choisit encore de protéger ceux qui les ont tenues à l'écart."
+    },
+    {
+      "key": "popola-automata",
+      "characterId": "popola-nier",
+      "name": "POPOLA",
+      "title": "La main qui reste tendue",
+      "job": "RÉSISTANTE",
+      "race": "ANDROID",
+      "faction": "NieR",
+      "weapon": "Epée courte",
+      "element": "LUXO",
+      "positions": [
+        3,
+        5
+      ],
+      "role": 5,
+      "atk": [
+        164,
+        "revive",
+        112,
+        "guard",
+        "mana",
+        26
+      ],
+      "defense": [
+        198,
+        163,
+        128,
+        93,
+        "retry",
+        26
+      ],
+      "magic": [
+        6
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "art": "art-c/popola-automata.png",
+      "id": "42135864",
+      "description": "Dans le camp de la Résistance, Popola remet une pièce réparée entre des mains tremblantes. Elle connaît la méfiance et continue pourtant d'aider. Tant que Devola est près d'elle, leur silence n'est pas encore une défaite."
+    },
+    {
+      "key": "devola-replicant",
+      "characterId": "devola-nier",
+      "name": "DEVOLA",
+      "title": "Le chant près de la fontaine",
+      "job": "CHANTEUSE",
+      "race": "ANDROID",
+      "faction": "Replicant",
+      "weapon": "Instrument",
+      "element": "AERO",
+      "positions": [
+        3,
+        4
+      ],
+      "role": 4,
+      "atk": [
+        278,
+        228,
+        178,
+        "mana",
+        78,
+        "retry"
+      ],
+      "defense": [
+        162,
+        132,
+        102,
+        72,
+        "retry",
+        18
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        2
+      ],
+      "barriers": [
+        4
+      ],
+      "art": "art-c/devola-replicant.png",
+      "id": "42252625",
+      "description": "Près de la fontaine, Devola laisse courir les premières notes du Chant des anciens. Le village ralentit pour écouter. Derrière sa douceur familière, elle garde une mémoire dont personne ne devine encore le poids."
+    },
+    {
+      "key": "popola-replicant",
+      "characterId": "popola-nier",
+      "name": "POPOLA",
+      "title": "Entre les lignes du destin",
+      "job": "BIBLIOTHÉCAIRE",
+      "race": "ANDROID",
+      "faction": "Replicant",
+      "weapon": "Sceptre",
+      "element": "LUXO",
+      "positions": [
+        4,
+        5
+      ],
+      "role": 5,
+      "atk": [
+        168,
+        "guard",
+        "revive",
+        "mana",
+        "retry",
+        22
+      ],
+      "defense": [
+        198,
+        163,
+        128,
+        93,
+        58,
+        24
+      ],
+      "magic": [
+        6
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "art": "art-c/popola-replicant.png",
+      "id": "44230782",
+      "description": "Dans la bibliothèque, Popola referme un dossier avant d'accueillir Nier. Elle trouve toujours une tâche, un conseil, une raison d'espérer. Ses doigts restent sur la couverture, comme pour retenir une vérité trop ancienne."
+    }
+  ],
+  "arenas": [],
+  "presets": []
+}

@@ -1,0 +1,45 @@
+[
+  {
+    "archived": false,
+    "errors": [],
+    "state": {
+      "ready": true,
+      "body": "KALISTAR · PARIS\nÉquipements\nTous\nÉquipées\nLibres\nATK\nDEF\nTrèfles alliés\nReraise\nHache\nInstrument\nEpée courte\nEpée longue\nKatana\nGun\nTome\nFouet\nPoing\n",
+      "profile": {
+        "id": "user-paris",
+        "version": 2,
+        "slots": {
+          "weapon": {
+            "balmhyr": "fallen-king-axe",
+            "momo": "little-joys-flute"
+          },
+          "shield": {},
+          "relic": {}
+        }
+      }
+    }
+  },
+  {
+    "archived": true,
+    "errors": [
+      {
+        "message": "Cannot convert undefined or null to object",
+        "stack": "TypeError: Cannot convert undefined or null to object\n    at Object.entries (<anonymous>)\n    at carrier (https://kalistar.pages.dev/jeu/weapons-ui.js?v=d502ed2168db:15:29)\n    at https://kalistar.pages.dev/jeu/weapons-ui.js?v=d502ed2168db:43:691\n    at Array.map (<anonymous>)\n    at list (https://kalistar.pages.dev/jeu/weapons-ui.js?v=d502ed2168db:43:534)\n    at refresh (https://kalistar.pages.dev/jeu/weapons-ui.js?v=d502ed2168db:78:31)\n    at Object.mount (https://kalistar.pages.dev/jeu/weapons-ui.js?v=d502ed2168db:132:53)\n    at render (https://kalistar.pages.dev/jeu/app.js?v=d502ed2168db:214:38)\n    at https://kalistar.pages.dev/jeu/app.js?v=d502ed2168db:1176:3"
+      }
+    ],
+    "state": {
+      "ready": false,
+      "body": "Jeu V4 indisponible\n\nCannot convert undefined or null to object\n\nReessayer",
+      "profile": {
+        "id": "user-paris",
+        "version": 1,
+        "slots": {
+          "weapon": {
+            "balmhyr": "fallen-king-axe",
+            "momo": "little-joys-flute"
+          }
+        }
+      }
+    }
+  }
+]

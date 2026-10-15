@@ -1,0 +1,1486 @@
+{
+  "version": "V3-repertoire-41",
+  "status": "roster-definitif",
+  "cardCount": 41,
+  "characterCount": 40,
+  "retainedV2Characters": 15,
+  "retainedV2Cards": 16,
+  "replacementCards": 4,
+  "additionalSlots": 21,
+  "newIdentityCards": 25,
+  "characters": [
+    {
+      "characterId": "momo",
+      "name": "MOMO",
+      "aliases": [],
+      "race": "ROBOT",
+      "faction": "Chroma",
+      "cardIds": [
+        "30000001",
+        "30000014"
+      ],
+      "slugs": [
+        "01_ELECTRO_MOMO",
+        "14_ELECTRO_MOMO_CARILLON"
+      ],
+      "origin": "carte JPG Momo et positions confirmees ; V2/donnees/cartes.json 00000001 ; scene conservee, profil reequilibre V3",
+      "homeArenas": [
+        "electro"
+      ]
+    },
+    {
+      "characterId": "cana",
+      "name": "CANA",
+      "aliases": [],
+      "race": "FALCO",
+      "faction": "Nestown",
+      "cardIds": [
+        "30000002"
+      ],
+      "slugs": [
+        "02_AERO_CANA"
+      ],
+      "origin": "proposition V1 ; V2/donnees/cartes.json 00000002 ; scene conservee, profil reequilibre V3",
+      "homeArenas": [
+        "aero"
+      ]
+    },
+    {
+      "characterId": "julienne",
+      "name": "JULIENNE",
+      "aliases": [],
+      "race": "SIRENA",
+      "faction": "Thalassea",
+      "cardIds": [
+        "30000003"
+      ],
+      "slugs": [
+        "03_HYDRO_JULIENNE"
+      ],
+      "origin": "proposition V1 ; V2/donnees/cartes.json 00000003 ; scene conservee, profil reequilibre V3",
+      "homeArenas": [
+        "hydro"
+      ]
+    },
+    {
+      "characterId": "darnako",
+      "name": "DARNAKO",
+      "aliases": [],
+      "race": "DRAX",
+      "faction": "Vulkar",
+      "cardIds": [
+        "30000004"
+      ],
+      "slugs": [
+        "04_PYRO_DARNAKO"
+      ],
+      "origin": "proposition V1 ; V2/donnees/cartes.json 00000004 ; scene conservee, profil reequilibre V3",
+      "homeArenas": [
+        "pyro"
+      ]
+    },
+    {
+      "characterId": "malinia",
+      "name": "MALINIA",
+      "aliases": [],
+      "race": "HUMAIN",
+      "faction": "Niveria",
+      "cardIds": [
+        "30000005"
+      ],
+      "slugs": [
+        "05_CRYO_MALINIA"
+      ],
+      "origin": "proposition V1 ; V2/donnees/cartes.json 00000005 ; scene conservee, profil reequilibre V3",
+      "homeArenas": [
+        "cryo"
+      ]
+    },
+    {
+      "characterId": "aelis",
+      "name": "AELIS",
+      "aliases": [],
+      "race": "AURELION",
+      "faction": "Solaria",
+      "cardIds": [
+        "30000006"
+      ],
+      "slugs": [
+        "06_LUXO_AELIS"
+      ],
+      "origin": "proposition V1 ; V2/donnees/cartes.json 00000006 ; scene conservee, profil reequilibre V3",
+      "homeArenas": [
+        "luxo"
+      ]
+    },
+    {
+      "characterId": "balmhyr",
+      "name": "BALMHYR",
+      "aliases": [],
+      "race": "NAIN",
+      "faction": "Durane",
+      "cardIds": [
+        "30000007"
+      ],
+      "slugs": [
+        "07_MINERO_BALMHYR"
+      ],
+      "origin": "statistiques Personnages ligne 13; scene inspiree du chapitre 8 ; V2/donnees/cartes.json 00000007 ; scene conservee, profil reequilibre V3",
+      "homeArenas": [
+        "minero",
+        "trone-fer"
+      ]
+    },
+    {
+      "characterId": "victorvine",
+      "name": "VICTORVINE",
+      "aliases": [],
+      "race": "CARNIVERT",
+      "faction": "Arborium",
+      "cardIds": [
+        "30000008"
+      ],
+      "slugs": [
+        "08_HERBO_VICTORVINE"
+      ],
+      "origin": "proposition V1 ; V2/donnees/cartes.json 00000008 ; scene conservee, profil reequilibre V3",
+      "homeArenas": [
+        "herbo"
+      ]
+    },
+    {
+      "characterId": "verminia",
+      "name": "VERMINIA",
+      "aliases": [],
+      "race": "VAMP",
+      "faction": "Draevenheim",
+      "cardIds": [
+        "30000009"
+      ],
+      "slugs": [
+        "09_HEMATO_VERMINIA"
+      ],
+      "origin": "proposition V1 ; V2/donnees/cartes.json 00000009 ; scene conservee, profil reequilibre V3",
+      "homeArenas": [
+        "hemato"
+      ]
+    },
+    {
+      "characterId": "zviri",
+      "name": "ZVIRI",
+      "aliases": [],
+      "race": "SKULLZ",
+      "faction": "Cryptown",
+      "cardIds": [
+        "30000010"
+      ],
+      "slugs": [
+        "10_NECRO_ZVIRI"
+      ],
+      "origin": "carte JPG Zviri; texte original preserve ; V2/donnees/cartes.json 00000010 ; scene conservee, profil reequilibre V3",
+      "homeArenas": [
+        "necro"
+      ]
+    },
+    {
+      "characterId": "nazar",
+      "name": "NAZAR",
+      "aliases": [],
+      "race": "RHINOZ",
+      "faction": "Zarok",
+      "cardIds": [
+        "30000011"
+      ],
+      "slugs": [
+        "11_GEO_NAZAR"
+      ],
+      "origin": "proposition V1 ; V2/donnees/cartes.json 00000011 ; scene conservee, profil reequilibre V3",
+      "homeArenas": [
+        "geo",
+        "astraball"
+      ]
+    },
+    {
+      "characterId": "kaylis",
+      "name": "KAYLIS",
+      "aliases": [],
+      "race": "HUMAIN",
+      "faction": "Z13",
+      "cardIds": [
+        "30000012"
+      ],
+      "slugs": [
+        "12_RAINBOW_KAYLIS"
+      ],
+      "origin": "V3/sources/histoire.txt, Le Reveil V2, chapitre 5, evasion et lame de Xiaomi brisee, lignes 6725-6733 ; direction physique explicite utilisateur",
+      "homeArenas": [
+        "rainbow",
+        "z13"
+      ]
+    },
+    {
+      "characterId": "taulio",
+      "name": "TAULIO",
+      "aliases": [],
+      "race": "ROBOT",
+      "faction": "Chroma",
+      "cardIds": [
+        "30000013"
+      ],
+      "slugs": [
+        "13_ELECTRO_TAULIO"
+      ],
+      "origin": "Valeurs, effets, texte et exception elementaire de main/V1_P1_FR_Taulio.jpg. Race Robot et faction Chroma confirmees. Arme Poing par lecture du pictogramme. ; V2/donnees/cartes.json 00000013 ; scene conservee, profil reequilibre V3",
+      "homeArenas": [
+        "electro"
+      ]
+    },
+    {
+      "characterId": "scrow",
+      "name": "SCROW",
+      "aliases": [],
+      "race": "KORBOW",
+      "faction": "Nestown",
+      "cardIds": [
+        "30000015"
+      ],
+      "slugs": [
+        "15_AERO_SCROW"
+      ],
+      "origin": "main/Kalistar.xlsx, Personnages ligne 25, via V3/sources/sources-extraites.json",
+      "homeArenas": [
+        "aero"
+      ]
+    },
+    {
+      "characterId": "neris",
+      "name": "NERIS",
+      "aliases": [],
+      "race": "HUMAIN",
+      "faction": "Niveria",
+      "cardIds": [
+        "30000016"
+      ],
+      "slugs": [
+        "16_CRYO_NERIS"
+      ],
+      "origin": "Creation V3 ; Niveria et cristal CRYO issus du repertoire V2",
+      "homeArenas": [
+        "cryo"
+      ]
+    },
+    {
+      "characterId": "iliane",
+      "name": "ILIANE",
+      "aliases": [],
+      "race": "AURELION",
+      "faction": "Solaria",
+      "cardIds": [
+        "30000017"
+      ],
+      "slugs": [
+        "17_LUXO_ILIANE"
+      ],
+      "origin": "Creation V3 ; Aurelion et Solaria issus du repertoire V2",
+      "homeArenas": [
+        "luxo"
+      ]
+    },
+    {
+      "characterId": "lok",
+      "name": "LOK",
+      "aliases": [],
+      "race": "NAIN",
+      "faction": "Durane",
+      "cardIds": [
+        "30000018"
+      ],
+      "slugs": [
+        "18_MINERO_LOK"
+      ],
+      "origin": "Nom, race, cristal, faction, position et 12 valeurs de main/Kalistar.xlsx, Personnages ligne 14. Arme, metier, effets et scene proposes V2. Profil DEF eleve conserve malgre le role P2. ; V2/donnees/cartes.json 00000018 ; scene conservee, profil reequilibre V3",
+      "homeArenas": [
+        "minero",
+        "trone-fer"
+      ]
+    },
+    {
+      "characterId": "belrog",
+      "name": "BELROG",
+      "aliases": [],
+      "race": "RHINOZ",
+      "faction": "Zarok",
+      "cardIds": [
+        "30000019"
+      ],
+      "slugs": [
+        "19_MINERO_BELROG"
+      ],
+      "origin": "Nom Belrog, race Rhinoz, cristal MINERO et faction Zarok de main/Kalistar.xlsx, Personnages ligne 2. Autres champs et scene proposes V2. ; V2/donnees/cartes.json 00000019 ; scene conservee, profil reequilibre V3",
+      "homeArenas": [
+        "geo"
+      ]
+    },
+    {
+      "characterId": "seraphina",
+      "name": "SERAPHINA",
+      "aliases": [],
+      "race": "VAMP",
+      "faction": "Draevenheim",
+      "cardIds": [
+        "30000020"
+      ],
+      "slugs": [
+        "20_HEMATO_SERAPHINA"
+      ],
+      "origin": "main/Kalistar.xlsx, Personnages ligne 44, via V3/sources/sources-extraites.json ; race, faction et scene proposes V3",
+      "homeArenas": [
+        "hemato"
+      ]
+    },
+    {
+      "characterId": "lanio",
+      "name": "LANIO",
+      "aliases": [],
+      "race": "HUMAIN",
+      "faction": "Z13",
+      "cardIds": [
+        "30000021"
+      ],
+      "slugs": [
+        "21_NONE_LANIO"
+      ],
+      "origin": "main/Kalistar.xlsx, Personnages ligne 11, via V3/sources/sources-extraites.json ; V3/sources/histoire.txt, chapitres 10-12, Astraball a Zarok ; Le Reveil V2 chapitre 1",
+      "homeArenas": [
+        "z13",
+        "astraball"
+      ]
+    },
+    {
+      "characterId": "malaba",
+      "name": "MALABA",
+      "aliases": [
+        "Baba"
+      ],
+      "race": "HUMAIN",
+      "faction": "Z13",
+      "cardIds": [
+        "30000022"
+      ],
+      "slugs": [
+        "22_NONE_MALABA"
+      ],
+      "origin": "main/Kalistar.xlsx, Personnages ligne 12, via V3/sources/sources-extraites.json ; V3/sources/histoire.txt, Le Reveil V2, chapitre 1, La Gueule Fumante, lignes 6289-6294",
+      "homeArenas": [
+        "z13"
+      ]
+    },
+    {
+      "characterId": "gen",
+      "name": "GEN",
+      "aliases": [],
+      "race": "CYBORG",
+      "faction": "Z13",
+      "cardIds": [
+        "30000023"
+      ],
+      "slugs": [
+        "23_NONE_GEN"
+      ],
+      "origin": "main/Kalistar.xlsx, Personnages ligne 15, via V3/sources/sources-extraites.json ; V3/sources/histoire.txt, Le Reveil V2 chapitre 1, bras gauche et meche verte, lignes 6297-6299 ; chapitre 4 atelier avant transfusion",
+      "homeArenas": [
+        "z13"
+      ]
+    },
+    {
+      "characterId": "magnar",
+      "name": "MAGNAR",
+      "aliases": [],
+      "race": "GOLEM",
+      "faction": "Durane",
+      "cardIds": [
+        "30000024"
+      ],
+      "slugs": [
+        "24_MINERO_MAGNAR"
+      ],
+      "origin": "main/Kalistar.xlsx, Personnages ligne 6, via V3/sources/sources-extraites.json ; V3/sources/histoire.txt, chapitre 5, Gen et Magnar",
+      "homeArenas": [
+        "minero"
+      ]
+    },
+    {
+      "characterId": "kognus",
+      "name": "KOGNUS",
+      "aliases": [],
+      "race": "NAIN",
+      "faction": "Z13",
+      "cardIds": [
+        "30000025"
+      ],
+      "slugs": [
+        "25_NONE_KOGNUS"
+      ],
+      "origin": "main/Kalistar.xlsx, Personnages ligne 7, via V3/sources/sources-extraites.json ; V3/sources/histoire.txt, chapitres 1 et 5, Kognus nain et dague ; absence de cristal attribuee par prudence",
+      "homeArenas": [
+        "z13"
+      ]
+    },
+    {
+      "characterId": "reevus",
+      "name": "REEVUS",
+      "aliases": [
+        "Revuus"
+      ],
+      "race": "NAIN",
+      "faction": "Z13",
+      "cardIds": [
+        "30000026"
+      ],
+      "slugs": [
+        "26_NONE_REEVUS"
+      ],
+      "origin": "main/Kalistar.xlsx, Personnages ligne 8, via V3/sources/sources-extraites.json ; V3/sources/histoire.txt, chapitre 7, Reevus charge de la Z13 ; variante Revuus au chapitre 1",
+      "homeArenas": [
+        "z13"
+      ]
+    },
+    {
+      "characterId": "xiaomi",
+      "name": "XIAOMI",
+      "aliases": [],
+      "race": "HUMAIN",
+      "faction": "Z13",
+      "cardIds": [
+        "30000027"
+      ],
+      "slugs": [
+        "27_NONE_XIAOMI"
+      ],
+      "origin": "main/Kalistar.xlsx, Personnages ligne 9, via V3/sources/sources-extraites.json ; V3/sources/histoire.txt, chapitre 5, katana brise et hesitation ; race humaine et NONE proposes sans transfusion attestee",
+      "homeArenas": [
+        "z13"
+      ]
+    },
+    {
+      "characterId": "voloden",
+      "name": "VOLODEN",
+      "aliases": [],
+      "race": "CARDEMORTIS",
+      "faction": "Z13",
+      "cardIds": [
+        "30000028"
+      ],
+      "slugs": [
+        "28_NECRO_VOLODEN"
+      ],
+      "origin": "main/Kalistar.xlsx, Personnages ligne 10, via V3/sources/sources-extraites.json ; V3/sources/histoire.txt, chapitre 16, retour de Voloden au siege Z13 ; Le Reveil V2 description",
+      "homeArenas": [
+        "z13",
+        "trone-fer"
+      ]
+    },
+    {
+      "characterId": "thanor",
+      "name": "THANOR",
+      "aliases": [],
+      "race": "DRAX",
+      "faction": "Vulkar",
+      "cardIds": [
+        "30000029"
+      ],
+      "slugs": [
+        "29_PYRO_THANOR"
+      ],
+      "origin": "main/Kalistar.xlsx, Personnages ligne 20, via V3/sources/sources-extraites.json ; scene et fonction locale proposes V3, titre Le Roi Dragon du classeur non impose comme souverain global",
+      "homeArenas": [
+        "pyro"
+      ]
+    },
+    {
+      "characterId": "daruk",
+      "name": "DARUK",
+      "aliases": [],
+      "race": "DRAX",
+      "faction": "Vulkar",
+      "cardIds": [
+        "30000030"
+      ],
+      "slugs": [
+        "30_PYRO_DARUK"
+      ],
+      "origin": "main/Kalistar.xlsx, Personnages ligne 33, via V3/sources/sources-extraites.json ; scene proposee V3",
+      "homeArenas": [
+        "pyro"
+      ]
+    },
+    {
+      "characterId": "polux",
+      "name": "POLUX",
+      "aliases": [],
+      "race": "FELINEUS",
+      "faction": "Vulkar",
+      "cardIds": [
+        "30000031"
+      ],
+      "slugs": [
+        "31_PYRO_POLUX"
+      ],
+      "origin": "main/Kalistar.xlsx, Personnages ligne 34, via V3/sources/sources-extraites.json ; faction et scene proposees V3",
+      "homeArenas": [
+        "pyro"
+      ]
+    },
+    {
+      "characterId": "jelly-joe",
+      "name": "JELLY-JOE",
+      "aliases": [],
+      "race": "TANTALAK",
+      "faction": "Crabazar",
+      "cardIds": [
+        "30000032"
+      ],
+      "slugs": [
+        "32_ELECTRO_JELLY_JOE"
+      ],
+      "origin": "main/Kalistar.xlsx, Personnages ligne 30, via V3/sources/sources-extraites.json ; alias Tentalak dans TribuHybride Animals ; scene proposee V3",
+      "homeArenas": []
+    },
+    {
+      "characterId": "bloom",
+      "name": "BLOOM",
+      "aliases": [],
+      "race": "TOXINAR",
+      "faction": "Arborium",
+      "cardIds": [
+        "30000033"
+      ],
+      "slugs": [
+        "33_HERBO_BLOOM"
+      ],
+      "origin": "main/Kalistar.xlsx, Personnages ligne 42, via V3/sources/sources-extraites.json ; faction et scene proposees V3",
+      "homeArenas": [
+        "herbo"
+      ]
+    },
+    {
+      "characterId": "valazar",
+      "name": "VALAZAR",
+      "aliases": [],
+      "race": "SKULLZ",
+      "faction": "Cryptown",
+      "cardIds": [
+        "30000034"
+      ],
+      "slugs": [
+        "34_NECRO_VALAZAR"
+      ],
+      "origin": "main/Kalistar.xlsx, Personnages ligne 45, via V3/sources/sources-extraites.json ; scene et arme proposees V3",
+      "homeArenas": [
+        "necro"
+      ]
+    },
+    {
+      "characterId": "capitaine-skully",
+      "name": "CAPITAINE SKULLY",
+      "aliases": [],
+      "race": "SKULLZ",
+      "faction": "Cryptown",
+      "cardIds": [
+        "30000035"
+      ],
+      "slugs": [
+        "35_NECRO_CAPITAINE_SKULLY"
+      ],
+      "origin": "main/Kalistar.xlsx, Personnages ligne 47, via V3/sources/sources-extraites.json ; contradiction classe Middle / pos 2 tranchee vers P3, scene proposee V3",
+      "homeArenas": [
+        "necro"
+      ]
+    },
+    {
+      "characterId": "elenion",
+      "name": "ELENION",
+      "aliases": [],
+      "race": "CERELF",
+      "faction": "Woodland",
+      "cardIds": [
+        "30000036"
+      ],
+      "slugs": [
+        "36_GEO_ELENION"
+      ],
+      "origin": "main/Kalistar.xlsx, Personnages ligne 48, via V3/sources/sources-extraites.json ; cristal Terre conserve malgre HERBO dans la table generique des Cerelf ; scene proposee V3",
+      "homeArenas": []
+    },
+    {
+      "characterId": "yvar",
+      "name": "YVAR",
+      "aliases": [],
+      "race": "RHINOZ",
+      "faction": "Zarok",
+      "cardIds": [
+        "30000037"
+      ],
+      "slugs": [
+        "37_GEO_YVAR"
+      ],
+      "origin": "main/Kalistar.xlsx, Personnages ligne 4, via V3/sources/sources-extraites.json ; V3/sources/histoire.txt, chapitres 10 et 15, Yvar fils de Koronak, lance et route d infiltration ; cristal GEO et scene proposes V3",
+      "homeArenas": [
+        "geo"
+      ]
+    },
+    {
+      "characterId": "gilmarr",
+      "name": "GILMARR",
+      "aliases": [],
+      "race": "RHINOZ",
+      "faction": "Zarok",
+      "cardIds": [
+        "30000038"
+      ],
+      "slugs": [
+        "38_AERO_GILMARR"
+      ],
+      "origin": "main/Kalistar.xlsx, Personnages ligne 3, via V3/sources/sources-extraites.json ; V3/sources/histoire.txt, chapitre 11, rencontre de Gilmarr sur le terrain ; role pilier et cristal AERO inventes, Sentry aerien anonyme non identifie a Gilmarr par le recit",
+      "homeArenas": [
+        "geo",
+        "astraball"
+      ]
+    },
+    {
+      "characterId": "ruby",
+      "name": "RUBY",
+      "aliases": [],
+      "race": "SIRENA",
+      "faction": "Thalassea",
+      "cardIds": [
+        "30000039"
+      ],
+      "slugs": [
+        "39_HYDRO_RUBY"
+      ],
+      "origin": "main/Kalistar.xlsx, Pull1 Carte A85 et AA85 (Ruby, HYDRO, Sirenas) ; faction, arme et scene proposees V3",
+      "homeArenas": [
+        "hydro"
+      ]
+    },
+    {
+      "characterId": "soryn",
+      "name": "SORYN",
+      "aliases": [],
+      "race": "FALCO",
+      "faction": "Nestown",
+      "cardIds": [
+        "30000040"
+      ],
+      "slugs": [
+        "40_AERO_SORYN"
+      ],
+      "origin": "Creation V3 ; race Falco et faction Nestown issues du repertoire V2",
+      "homeArenas": [
+        "aero"
+      ]
+    },
+    {
+      "characterId": "thalie",
+      "name": "THALIE",
+      "aliases": [],
+      "race": "CARNIVERT",
+      "faction": "Arborium",
+      "cardIds": [
+        "30000041"
+      ],
+      "slugs": [
+        "41_HERBO_THALIE"
+      ],
+      "origin": "Creation V3 ; Carnivert et Arborium issus du repertoire V2",
+      "homeArenas": [
+        "herbo"
+      ]
+    }
+  ],
+  "imageAssignments": [
+    {
+      "id": "30000001",
+      "characterId": "momo",
+      "slug": "01_ELECTRO_MOMO",
+      "element": "ELECTRO",
+      "race": "ROBOT",
+      "faction": "Chroma",
+      "action": "copy",
+      "source_art": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V2/assets/illustrations/electro.png",
+      "art": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+      "story_scene": "Momo joue de sa flute dans la decharge de Chroma.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Petit robot nettoyeur sensible, seul, flute traversiere tenue horizontalement, melancolie tendre au milieu des objets abandonnes."
+    },
+    {
+      "id": "30000002",
+      "characterId": "cana",
+      "slug": "02_AERO_CANA",
+      "element": "AERO",
+      "race": "FALCO",
+      "faction": "Nestown",
+      "action": "copy",
+      "source_art": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V2/assets/illustrations/aero.png",
+      "art": "V3/assets/illustrations/02_AERO_CANA.png",
+      "story_scene": "Cana sauve le dernier message apres la rupture du pont de Nestown.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Messagere Falco humanoide a tete de faucon, une aile repliee blessee, bras tendu avec un courrier au-dessus du vide, urgence et determination."
+    },
+    {
+      "id": "30000003",
+      "characterId": "julienne",
+      "slug": "03_HYDRO_JULIENNE",
+      "element": "HYDRO",
+      "race": "SIRENA",
+      "faction": "Thalassea",
+      "action": "redraw",
+      "source_art": null,
+      "art": "V3/assets/illustrations/03_HYDRO_JULIENNE.png",
+      "story_scene": "Julienne maintient une arche d eau sous les portes noyees de Thalassea ; scene originale conservee, illustration redessinee.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Julienne, femme Sirena adulte amphibie a deux jambes, peau turquoise nacree et fines ouies, cheveux sombres attaches, tunique de gardienne marine. Seule au premier plan, trois-quarts de profil, un genou flechi sur une marche inondee, les deux mains ecartent une arche d eau lumineuse au-dessus du passage. Visage epuise mais resolu, souffle retenu. Les silhouettes des rescapes restent petites au fond, aucun duo pose, anatomie parfaitement lisible."
+    },
+    {
+      "id": "30000004",
+      "characterId": "darnako",
+      "slug": "04_PYRO_DARNAKO",
+      "element": "PYRO",
+      "race": "DRAX",
+      "faction": "Vulkar",
+      "action": "copy",
+      "source_art": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V2/assets/illustrations/pyro.png",
+      "art": "V3/assets/illustrations/04_PYRO_DARNAKO.png",
+      "story_scene": "Darnako retient une poutre dans sa forge pour permettre une evacuation.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Forgeron Drax humanoide a tete de dragon, deux bras et deux jambes, lame longue utilisee comme levier sous une poutre, effort physique et peur maitrisee."
+    },
+    {
+      "id": "30000005",
+      "characterId": "malinia",
+      "slug": "05_CRYO_MALINIA",
+      "element": "CRYO",
+      "race": "HUMAIN",
+      "faction": "Niveria",
+      "action": "copy",
+      "source_art": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V2/assets/illustrations/cryo.png",
+      "art": "V3/assets/illustrations/05_CRYO_MALINIA.png",
+      "story_scene": "Malinia retrouve une memoire emprisonnee dans la glace de Niveria.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Veilleuse humaine seule au bord du lac gele, corps penche en avant, sceptre tenu bas, expression d emerveillement grave, fissures nettes sous la glace."
+    },
+    {
+      "id": "30000006",
+      "characterId": "aelis",
+      "slug": "06_LUXO_AELIS",
+      "element": "LUXO",
+      "race": "AURELION",
+      "faction": "Solaria",
+      "action": "copy",
+      "source_art": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V2/assets/illustrations/luxo.png",
+      "art": "V3/assets/illustrations/06_LUXO_AELIS.png",
+      "story_scene": "Aelis recoud la lumiere d une lanterne pour les oublies de Solaria.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Soigneuse Aurelion adulte agenouillee seule parmi les lanternes, mains fines reparant la lumiere, douceur attentive, visage distinct de Julienne."
+    },
+    {
+      "id": "30000007",
+      "characterId": "balmhyr",
+      "slug": "07_MINERO_BALMHYR",
+      "element": "MINERO",
+      "race": "NAIN",
+      "faction": "Durane",
+      "action": "copy",
+      "source_art": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V2/assets/illustrations/minero.png",
+      "art": "V3/assets/illustrations/07_MINERO_BALMHYR.png",
+      "story_scene": "Balmhyr enseigne la maitrise de la roche derriere sa maison de Canyonero, chapitre 8.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Vieux nain robuste, longue barbe blanche tressee, hache gravee, posture ouverte de mentor levant la roche avec une main, assurance malicieuse."
+    },
+    {
+      "id": "30000008",
+      "characterId": "victorvine",
+      "slug": "08_HERBO_VICTORVINE",
+      "element": "HERBO",
+      "race": "CARNIVERT",
+      "faction": "Arborium",
+      "action": "copy",
+      "source_art": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V2/assets/illustrations/herbo.png",
+      "art": "V3/assets/illustrations/08_HERBO_VICTORVINE.png",
+      "story_scene": "Victorvine recueille une pousse aux abords d une usine abandonnee.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Carnivert humanoide vegetal, accroupi au bord de l eau, protege une jeune pousse entre ses deux mains, concentration silencieuse, racines au decor et non membres supplementaires."
+    },
+    {
+      "id": "30000009",
+      "characterId": "verminia",
+      "slug": "09_HEMATO_VERMINIA",
+      "element": "HEMATO",
+      "race": "VAMP",
+      "faction": "Draevenheim",
+      "action": "copy",
+      "source_art": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V2/assets/illustrations/hemato.png",
+      "art": "V3/assets/illustrations/09_HEMATO_VERMINIA.png",
+      "story_scene": "Verminia ferme la grille apres le passage des serviteurs fugitifs.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Vamp adulte a details de chauve-souris, silhouette humanoide, vue de dos trois-quarts, regard inquiet retourne vers la grille, un fil de sang tendu comme un verrou."
+    },
+    {
+      "id": "30000010",
+      "characterId": "zviri",
+      "slug": "10_NECRO_ZVIRI",
+      "element": "NECRO",
+      "race": "SKULLZ",
+      "faction": "Cryptown",
+      "action": "copy",
+      "source_art": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V2/assets/illustrations/necro.png",
+      "art": "V3/assets/illustrations/10_NECRO_ZVIRI.png",
+      "story_scene": "Zviri, assassin de Cryptown ; identite et texte de sa carte source conserves.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Tueuse Skullz adulte, un fouet identifiable, silhouette osseuse humanoide, posture basse avant le mouvement, sang-froid implacable, aucune mutilation graphique."
+    },
+    {
+      "id": "30000011",
+      "characterId": "nazar",
+      "slug": "11_GEO_NAZAR",
+      "element": "GEO",
+      "race": "RHINOZ",
+      "faction": "Zarok",
+      "action": "copy",
+      "source_art": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V2/assets/illustrations/geo.png",
+      "art": "V3/assets/illustrations/11_GEO_NAZAR.png",
+      "story_scene": "Nazar stabilise une berge emportee par la pluie a Zarok.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Rhinoz humanoide a tete de rhinoceros, deux mains dans la terre, pieds fermement plantes, grand effort et regard bienveillant, charrette minuscule au fond."
+    },
+    {
+      "id": "30000012",
+      "characterId": "kaylis",
+      "slug": "12_RAINBOW_KAYLIS",
+      "element": "RAINBOW",
+      "race": "HUMAIN",
+      "faction": "Z13",
+      "action": "redraw",
+      "source_art": null,
+      "art": "V3/assets/illustrations/12_RAINBOW_KAYLIS.png",
+      "story_scene": "Kaylis vient de briser la lame de Xiaomi avec son bras tatoue pendant l evasion de la Z13. Son pouvoir Rainbow est deja eveille ; elle avance vers la sortie, avant la Tour de Fer.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Kaylis, belle jeune femme clairement adulte de 23 ans, metissee indienne et antillaise, peau brune halee, traits delicats, corps athletique de mineuse, cheveux noirs attaches avec quelques meches libres. Tenue NOIRE fonctionnelle de mine, pantalon noir et haut noir de travail, poussiere de roche, pas robe ni armure de reine. Seule figure centrale en mouvement de sortie, torsion dynamique, un avant-bras tatoue leve devant elle ; tatouages Rainbow deja eveilles emettant une iridescence precise. Regard farouche, surprise dans les yeux, respiration courte. Barreaux ouverts et fragments d une lame au sol, galerie de la Z13 en arriere-plan. Ne pas representer Lanio mort, un trone, une resurrection ou une scene de couple."
+    },
+    {
+      "id": "30000013",
+      "characterId": "taulio",
+      "slug": "13_ELECTRO_TAULIO",
+      "element": "ELECTRO",
+      "race": "ROBOT",
+      "faction": "Chroma",
+      "action": "copy",
+      "source_art": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V2/assets/illustrations/13_electro_taulio.png",
+      "art": "V3/assets/illustrations/13_ELECTRO_TAULIO.png",
+      "story_scene": "Taulio protege ses amis dans la decharge de Chroma.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Grand robot protecteur massif, main mecanique ouverte vers le spectateur, posture stable et regard empathique, armure usee, aucun bouclier magique."
+    },
+    {
+      "id": "30000014",
+      "characterId": "momo",
+      "slug": "14_ELECTRO_MOMO_CARILLON",
+      "element": "ELECTRO",
+      "race": "ROBOT",
+      "faction": "Chroma",
+      "action": "copy",
+      "source_art": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V2/assets/illustrations/14_electro_momo_carillon.png",
+      "art": "V3/assets/illustrations/14_ELECTRO_MOMO_CARILLON.png",
+      "story_scene": "Momo anime les carillons abandonnes pour une nuit de musique.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Meme identite visuelle que Momo original, petit robot avec flute traversiere, posture dansante, joie fragile, carillons suspendus par la musique dans la decharge."
+    },
+    {
+      "id": "30000015",
+      "characterId": "scrow",
+      "slug": "15_AERO_SCROW",
+      "element": "AERO",
+      "race": "KORBOW",
+      "faction": "Nestown",
+      "action": "generate",
+      "source_art": null,
+      "art": "V3/assets/illustrations/15_AERO_SCROW.png",
+      "story_scene": "Scene inventee : Scrow attend sur une tour de Nestown et decide de ne pas tirer sur un messager.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Korbow adulte humanoide a tete de corbeau, bec sombre, mantelet gris clair, deux bras tenant un arc, deux jambes sur un parapet, ailes dorsales repliees. Profil serre, corde relachee, doute lucide, ville aerienne de Nestown."
+    },
+    {
+      "id": "30000016",
+      "characterId": "neris",
+      "slug": "16_CRYO_NERIS",
+      "element": "CRYO",
+      "race": "HUMAIN",
+      "faction": "Niveria",
+      "action": "generate",
+      "source_art": null,
+      "art": "V3/assets/illustrations/16_CRYO_NERIS.png",
+      "story_scene": "Scene inventee : Neris chauffe un abri de secours en isolant la tempete par une paroi de givre.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Soigneuse humaine adulte d une cinquantaine d annees, visage rond, cheveux gris courts, lunettes rondes, manteau prune et blanc. Vue de face a hauteur de poitrine, mains autour d un orbe de glace translucide, expression rassurante et fatigue reelle, abri de montagne et lits vides derriere."
+    },
+    {
+      "id": "30000017",
+      "characterId": "iliane",
+      "slug": "17_LUXO_ILIANE",
+      "element": "LUXO",
+      "race": "AURELION",
+      "faction": "Solaria",
+      "action": "generate",
+      "source_art": null,
+      "art": "V3/assets/illustrations/17_LUXO_ILIANE.png",
+      "story_scene": "Scene inventee : Iliane revele les noms effaces d une archive de Solaria.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Aurelion adulte a peau cristallisee lumineuse, visage anguleux androgyne, crane rase, robe rouge et ivoire, debout de trois-quarts avec un tome ouvert. Une main montre un nom efface sans texte lisible, calme indocile, rayonnages de pierre blanche."
+    },
+    {
+      "id": "30000018",
+      "characterId": "lok",
+      "slug": "18_MINERO_LOK",
+      "element": "MINERO",
+      "race": "NAIN",
+      "faction": "Durane",
+      "action": "copy",
+      "source_art": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V2/assets/illustrations/18_minero_lok.png",
+      "art": "V3/assets/illustrations/18_MINERO_LOK.png",
+      "story_scene": "Lok bloque un convoi dans la fonderie ; vignette V2 inventee conservee, sans en faire un episode canonique.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Nain aux cheveux noirs et barbe courte, main sur un levier de fonderie, marteau au cote, orgueil inquiet, cadrage serre, scene V2 conservee."
+    },
+    {
+      "id": "30000019",
+      "characterId": "belrog",
+      "slug": "19_MINERO_BELROG",
+      "element": "MINERO",
+      "race": "RHINOZ",
+      "faction": "Zarok",
+      "action": "copy",
+      "source_art": "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/V2/assets/illustrations/19_minero_belrog.png",
+      "art": "V3/assets/illustrations/19_MINERO_BELROG.png",
+      "story_scene": "Belrog redresse le signal du col ; scene originale V2 conservee.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Rhinoz humanoide vieillissant a tete de rhinoceros, masse de voyage, deux bras relevant un signal de col, poussiere et attente patiente, deux jambes robustes."
+    },
+    {
+      "id": "30000020",
+      "characterId": "seraphina",
+      "slug": "20_HEMATO_SERAPHINA",
+      "element": "HEMATO",
+      "race": "VAMP",
+      "faction": "Draevenheim",
+      "action": "generate",
+      "source_art": null,
+      "art": "V3/assets/illustrations/20_HEMATO_SERAPHINA.png",
+      "story_scene": "Scene inventee : Seraphina suspend un sceau de dette plutot que de l executer.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Femme Vamp adulte aux traits matures, oreilles de chauve-souris discretes, cheveux argent courts, manteau vert sombre. Assise seule a une longue table, fouet fin enroule a la ceinture, main ouverte au-dessus d un sceau rouge qui se defait, compassion retenue et regard ferme."
+    },
+    {
+      "id": "30000021",
+      "characterId": "lanio",
+      "slug": "21_NONE_LANIO",
+      "element": "NONE",
+      "race": "HUMAIN",
+      "faction": "Z13",
+      "action": "generate",
+      "source_art": null,
+      "art": "V3/assets/illustrations/21_NONE_LANIO.png",
+      "story_scene": "Lanio joue a l Astraball chez les Rhinoz de Zarok, sans cristal. Il reste humain ; les Rhinoz sont ses partenaires et adversaires.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Beau jeune HOMME HUMAIN clairement adulte, 21 ans, cheveux BLONDS dores, sourire ravageur joyeux, silhouette fine et sportive. Pivot acrobatique lisible sur le terrain d Astraball de Zarok, une main protege le ballon, une jambe en appui et l autre levee. Partenaires Rhinoz humanoides a tete de rhinoceros en arriere-plan uniquement, gradins dans la roche. Sa lance double-lame repose hors du jeu contre la barriere. PAS tete animale sur Lanio, pas cristal, pas pouvoir ni halo ; mouvement athletique naturel. Sans cristal : aucun halo ni barriere elementaire."
+    },
+    {
+      "id": "30000022",
+      "characterId": "malaba",
+      "slug": "22_NONE_MALABA",
+      "element": "NONE",
+      "race": "HUMAIN",
+      "faction": "Z13",
+      "action": "generate",
+      "source_art": null,
+      "art": "V3/assets/illustrations/22_NONE_MALABA.png",
+      "story_scene": "Malaba, dit Baba, au bar de La Gueule Fumante au debut du recit, avant toute fusion.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Malaba surnomme Baba, homme humain adulte massif tres baraque, immenses epaules et mains calleuses, yeux bruns chaleureux, visage humain doux, vetements de mineur uses. Assis de biais au comptoir de La Gueule Fumante, grand sourire bon enfant, il pousse une assiette de pain vers une place vide. Bras et carrure puissants, ambiance de bar populaire souterrain debut du recit ; personne a secourir dans les bras, aucun duo pose, aucun cristal, aucune pierre integree au corps, aucun halo. Sans cristal : aucun halo ni barriere elementaire."
+    },
+    {
+      "id": "30000023",
+      "characterId": "gen",
+      "slug": "23_NONE_GEN",
+      "element": "NONE",
+      "race": "CYBORG",
+      "faction": "Z13",
+      "action": "generate",
+      "source_art": null,
+      "art": "V3/assets/illustrations/23_NONE_GEN.png",
+      "story_scene": "Vignette de Gen reparant son bras gauche dans l atelier improvise, AVANT la transfusion Electro du chapitre 4.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Gen, jeune homme adulte plutot petit et mince, yeux sombres attentifs, cheveux noirs soigneusement peignes avec UNE meche vert emeraude. Assis seul a son etabli de recuperation dans la Z13, penche avec concentration, main DROITE organique tenant un petit tournevis et reparant son propre bras GAUCHE partiellement mecanique, qui reste attache a son epaule. Exactement deux bras, deux jambes, pas de bras de rechange ressemblant a un membre vivant. Pieces, cables, lampe de travail ; leger sourire d une solution trouvee. Prothese rudimentaire, avant fusion, sans cristal, aucun arc electrique, aucun halo, aucune barriere magique. Sans cristal : aucun halo ni barriere elementaire."
+    },
+    {
+      "id": "30000024",
+      "characterId": "magnar",
+      "slug": "24_MINERO_MAGNAR",
+      "element": "MINERO",
+      "race": "GOLEM",
+      "faction": "Durane",
+      "action": "generate",
+      "source_art": null,
+      "art": "V3/assets/illustrations/24_MINERO_MAGNAR.png",
+      "story_scene": "Magnar garde seul un passage etroit de la Z13, juste avant l affrontement avec Gen.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Golem humanoide colossal de granit, silhouette humaine deux bras deux jambes, fissures minerales fines, masse de pierre tenue basse. Contre-plongee au seuil d une galerie, calme menacant, epaules presque au plafond, aucun autre personnage principal."
+    },
+    {
+      "id": "30000025",
+      "characterId": "kognus",
+      "slug": "25_NONE_KOGNUS",
+      "element": "NONE",
+      "race": "NAIN",
+      "faction": "Z13",
+      "action": "generate",
+      "source_art": null,
+      "art": "V3/assets/illustrations/25_NONE_KOGNUS.png",
+      "story_scene": "Vignette inventee de Kognus comptant les cles avant sa ronde dans la Z13.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Nain adulte trapu, traits burines, sourcils epais, barbe rousse courte, veste grise de surveillance. Gros plan en trois-quarts sur le trousseau dans sa main, autre main pres d une dague, nervosite dissimulee, pas de cristal ni halo. Sans cristal : aucun halo ni barriere elementaire."
+    },
+    {
+      "id": "30000026",
+      "characterId": "reevus",
+      "slug": "26_NONE_REEVUS",
+      "element": "NONE",
+      "race": "NAIN",
+      "faction": "Z13",
+      "action": "generate",
+      "source_art": null,
+      "art": "V3/assets/illustrations/26_NONE_REEVUS.png",
+      "story_scene": "Vignette inventee : Reevus seul a la Z13 apres le depart de Voloden, devant le registre des travailleurs.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Nain adulte au visage long, barbe grise en deux tresses, lunettes sur le front, habit de service vert, debout devant une table trop haute. Il ferme un registre sans texte lisible, fleau court pose pres du mur, humeur irritee et fatiguee, aucun cristal ou aura. Sans cristal : aucun halo ni barriere elementaire."
+    },
+    {
+      "id": "30000027",
+      "characterId": "xiaomi",
+      "slug": "27_NONE_XIAOMI",
+      "element": "NONE",
+      "race": "HUMAIN",
+      "faction": "Z13",
+      "action": "generate",
+      "source_art": null,
+      "art": "V3/assets/illustrations/27_NONE_XIAOMI.png",
+      "story_scene": "Xiaomi observe le katana brise apres l intervention de Kaylis, sans pouvoir personnel affirme.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Guerriere humaine adulte elancee, cheveux noirs en chignon haut, manteau sombre ample, debout seule de profil dans un couloir. Elle tient un katana casse a distance de son visage, surprise contenue qui fissure son assurance, aucune magie personnelle ni halo. Sans cristal : aucun halo ni barriere elementaire."
+    },
+    {
+      "id": "30000028",
+      "characterId": "voloden",
+      "slug": "28_NECRO_VOLODEN",
+      "element": "NECRO",
+      "race": "CARDEMORTIS",
+      "faction": "Z13",
+      "action": "generate",
+      "source_art": null,
+      "art": "V3/assets/illustrations/28_NECRO_VOLODEN.png",
+      "story_scene": "Voloden reprend le siege de la Z13 au Conseil des Zones. Scene canonique, cadrage individuel.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Homme Cardemortis grand et imposant, peau blanc nacre presque translucide, longs cheveux d argent, yeux glacials, manteau noir austere. Assis tres droit sur le siege du conseil, mains croisees, faux ceremonielle appuyee a cote, sourire infime, menace politique calme et non attaque spectaculaire."
+    },
+    {
+      "id": "30000029",
+      "characterId": "thanor",
+      "slug": "29_PYRO_THANOR",
+      "element": "PYRO",
+      "race": "DRAX",
+      "faction": "Vulkar",
+      "action": "generate",
+      "source_art": null,
+      "art": "V3/assets/illustrations/29_PYRO_THANOR.png",
+      "story_scene": "Scene inventee : Thanor depose une couronne de cerement a la forge de Vulkar.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Drax adulte humanoide a tete de dragon rouge sombre, petites cornes abimees, deux bras deux jambes, tablier de forge ceremonial. Debout penche sur une enclume, une main depose une couronne de metal, epee longue au dos, fierte lasse, aucun dragon quadrupede."
+    },
+    {
+      "id": "30000030",
+      "characterId": "daruk",
+      "slug": "30_PYRO_DARUK",
+      "element": "PYRO",
+      "race": "DRAX",
+      "faction": "Vulkar",
+      "action": "generate",
+      "source_art": null,
+      "art": "V3/assets/illustrations/30_PYRO_DARUK.png",
+      "story_scene": "Scene inventee : Daruk ferme une vanne de lave au bout d un pont de Vulkar.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Drax humanoide robuste a tete de dragon aux ecailles claires et cornes courtes, exactement deux bras deux jambes. Vue laterale plein corps, il pousse une grande roue de vanne, hache accrochee a la taille, effort obstine et sueur, lave confinee sous un pont de basalte."
+    },
+    {
+      "id": "30000031",
+      "characterId": "polux",
+      "slug": "31_PYRO_POLUX",
+      "element": "PYRO",
+      "race": "FELINEUS",
+      "faction": "Vulkar",
+      "action": "generate",
+      "source_art": null,
+      "art": "V3/assets/illustrations/31_PYRO_POLUX.png",
+      "story_scene": "Scene inventee : Polux entretient des compresses chaudes dans un dispensaire de Vulkar.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Felineus adulte humanoide a tete de lynx couleur gris cendre, touffes aux oreilles, deux mains et deux pieds, pas pattes de quadrupede. Soigneur en tablier blanc et vert, assis seul, baton au cote, chauffe des compresses dans ses paumes avec une flamme minuscule, douceur serieuse, dispensaire sobre."
+    },
+    {
+      "id": "30000032",
+      "characterId": "jelly-joe",
+      "slug": "32_ELECTRO_JELLY_JOE",
+      "element": "ELECTRO",
+      "race": "TANTALAK",
+      "faction": "Crabazar",
+      "action": "generate",
+      "source_art": null,
+      "art": "V3/assets/illustrations/32_ELECTRO_JELLY_JOE.png",
+      "story_scene": "Scene inventee : Jelly-Joe refuse de laisser un quai de Crabazar sans protection.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Tantalak adulte humanoide amphibie a tete de meduse translucide compacte, torse vetu et exactement deux bras et deux jambes ; filaments courts uniquement comme details de tete, aucun bras-tentacule supplementaire. Mercenaire en ciré jaune desature, une botte sur une bitte d amarrage, lance droite dans une main, sourire goguenard, leger reflet Electro dans une lanterne de quai."
+    },
+    {
+      "id": "30000033",
+      "characterId": "bloom",
+      "slug": "33_HERBO_BLOOM",
+      "element": "HERBO",
+      "race": "TOXINAR",
+      "faction": "Arborium",
+      "action": "generate",
+      "source_art": null,
+      "art": "V3/assets/illustrations/33_HERBO_BLOOM.png",
+      "story_scene": "Scene inventee : Bloom examine une semence toxique dans la serre d Arborium.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Toxinar vegetal humanoide adulte, tete florale ramassee avec visage lisible, peau verte et petales pourpres courts, deux bras deux jambes. Debout courbe devant un orbe de verre contenant une graine, pince dans une main, curiosite prudente, serre blanche eclairee par un matin net."
+    },
+    {
+      "id": "30000034",
+      "characterId": "valazar",
+      "slug": "34_NECRO_VALAZAR",
+      "element": "NECRO",
+      "race": "SKULLZ",
+      "faction": "Cryptown",
+      "action": "generate",
+      "source_art": null,
+      "art": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+      "story_scene": "Scene inventee : Valazar reconstitue une inscription funeraire effacee dans Cryptown.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Skullz adulte au crane fin, robe de cendres gris et rouge, un sceptre simple. Agenouille seul devant une plaque brisee sans texte lisible, geste minutieux avec une main osseuse, recueillement severe, lumiere de veilleuse et magie sombre limitee a la cendre."
+    },
+    {
+      "id": "30000035",
+      "characterId": "capitaine-skully",
+      "slug": "35_NECRO_CAPITAINE_SKULLY",
+      "element": "NECRO",
+      "race": "SKULLZ",
+      "faction": "Cryptown",
+      "action": "generate",
+      "source_art": null,
+      "art": "V3/assets/illustrations/35_NECRO_CAPITAINE_SKULLY.png",
+      "story_scene": "Scene inventee : le capitaine Skully ramene seul son navire a quai.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Capitaine Skullz adulte, crane large use, tricorne de toile bleu petrole, manteau maritime vert, epee courte a la ceinture. Debout sur un quai, un bras tire une corde, l autre salue, fierte nostalgique et humour discret, bateau ancien entier visible au fond."
+    },
+    {
+      "id": "30000036",
+      "characterId": "elenion",
+      "slug": "36_GEO_ELENION",
+      "element": "GEO",
+      "race": "CERELF",
+      "faction": "Woodland",
+      "action": "generate",
+      "source_art": null,
+      "art": "V3/assets/illustrations/36_GEO_ELENION.png",
+      "story_scene": "Scene inventee : Elenion releve une borne de Woodland deracinee par la crue.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Cerelf adulte humanoide a tete de cerf, bois courts asymetriques, deux bras humains et deux jambes vetues, tunique verte et rouge. Agenouille sur un seul genou pres d une borne, fleau de marche pose au sol, regard mesure et pensif, clairiere humide."
+    },
+    {
+      "id": "30000037",
+      "characterId": "yvar",
+      "slug": "37_GEO_YVAR",
+      "element": "GEO",
+      "race": "RHINOZ",
+      "faction": "Zarok",
+      "action": "generate",
+      "source_art": null,
+      "art": "V3/assets/illustrations/37_GEO_YVAR.png",
+      "story_scene": "Yvar reconnait le canal asseche avant la mission de sauvetage de Gen ; instant de preparation extrapole du chapitre 15.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Rhinoz humanoide adulte a tete de rhinoceros, corne courte marquee d une rayure, armure legere verte, lance gravee. Plein corps vu en leger plongee, accroupi au bord d un canal asseche et montrant une piste, vigilance tranquille, pas de corps animal."
+    },
+    {
+      "id": "30000038",
+      "characterId": "gilmarr",
+      "slug": "38_AERO_GILMARR",
+      "element": "AERO",
+      "race": "RHINOZ",
+      "faction": "Zarok",
+      "action": "generate",
+      "source_art": null,
+      "art": "V3/assets/illustrations/38_AERO_GILMARR.png",
+      "story_scene": "Gilmarr accueille Lanio sur le terrain. Pose individuelle et specialisation AERO proposees V3.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Jeune adulte Rhinoz humanoide a tete de rhinoceros, carrure de pilier sportif, maillot vert bouteille et blanc, deux bras deux jambes. Debout bras ouvert invitant a entrer, autre main tient un plot, sourire confiant, anneaux d Astraball derriere, souffle AERO discret soulevant la poussiere et non une boule magique."
+    },
+    {
+      "id": "30000039",
+      "characterId": "ruby",
+      "slug": "39_HYDRO_RUBY",
+      "element": "HYDRO",
+      "race": "SIRENA",
+      "faction": "Thalassea",
+      "action": "generate",
+      "source_art": null,
+      "art": "V3/assets/illustrations/39_HYDRO_RUBY.png",
+      "story_scene": "Scene inventee : Ruby cartographie les courants depuis un phare de Thalassea.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Sirena adulte amphibie a peau bleu profond, fines ouies, cheveux rouges attaches, deux jambes en bottes de pont. Debout seule dans un phare ouvert, pistolet hydrographique categorie Gun et carte sans ecriture lisible sur la table, lignes d eau fines forment un releve, enthousiasme methodique."
+    },
+    {
+      "id": "30000040",
+      "characterId": "soryn",
+      "slug": "40_AERO_SORYN",
+      "element": "AERO",
+      "race": "FALCO",
+      "faction": "Nestown",
+      "action": "generate",
+      "source_art": null,
+      "art": "V3/assets/illustrations/40_AERO_SORYN.png",
+      "story_scene": "Scene inventee : Soryn accorde les cloches de brume des ponts de Nestown.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Falco humanoide adulte a tete de faucon claire, petites plumes rousses, ailes dorsales repliees distinctes des deux bras. Assis sur une traverse stable, deux pieds visibles, pince les cordes d une cithare portable, yeux mi-clos de concentration heureuse, cloches et ponts suspendus dans un brouillard lumineux."
+    },
+    {
+      "id": "30000041",
+      "characterId": "thalie",
+      "slug": "41_HERBO_THALIE",
+      "element": "HERBO",
+      "race": "CARNIVERT",
+      "faction": "Arborium",
+      "action": "generate",
+      "source_art": null,
+      "art": "V3/assets/illustrations/41_HERBO_THALIE.png",
+      "story_scene": "Scene inventee : Thalie consigne la reprise d une foret apres un incendie.",
+      "prompt": "Illustration verticale 3:4, peinture fantasy narrative dans la direction artistique de Momo, matieres peintes et visage expressif, sujet principal lisible, eclairage motive par le lieu, couleurs nuancees. Aucun texte, cadre, logo, symbole de carte ou interface. Anatomie lisible : deux bras, deux jambes, une tete ; pour les metamorphes, torse et posture humanoides, tete animale, details des extremites et ailes dorsales possibles ; ni corps quadrupede ni membres dupliques. Carnivert humanoide adulte au visage vegetal ovale et expressif, coiffure de feuilles courtes, peau vert sombre, habit de voyage blanc et corail. Assise en tailleur sur un tronc, deux mains dans un herbier ouvert, sourire de soulagement, jeunes pousses clairement visibles parmi des troncs brules, aucune silhouette secondaire principale."
+    }
+  ],
+  "assetRequirements": {
+    "races": [
+      "ROBOT",
+      "FALCO",
+      "SIRENA",
+      "DRAX",
+      "HUMAIN",
+      "AURELION",
+      "NAIN",
+      "CARNIVERT",
+      "VAMP",
+      "SKULLZ",
+      "RHINOZ",
+      "KORBOW",
+      "CYBORG",
+      "GOLEM",
+      "CARDEMORTIS",
+      "FELINEUS",
+      "TANTALAK",
+      "TOXINAR",
+      "CERELF"
+    ],
+    "factions": [
+      "Chroma",
+      "Nestown",
+      "Thalassea",
+      "Vulkar",
+      "Niveria",
+      "Solaria",
+      "Durane",
+      "Arborium",
+      "Draevenheim",
+      "Cryptown",
+      "Zarok",
+      "Z13",
+      "Crabazar",
+      "Woodland"
+    ],
+    "arenas": [
+      {
+        "id": "aero",
+        "image": "assets/arenas/aero.webp",
+        "prompt": "Peinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Les ponts de Nestown : large esplanade de pierre claire et metal patine au-dessus des nuages, garde-corps fins, ponts suspendus conduisant aux tours de guet a plusieurs niveaux. Cloches de brume suspendues sur les bords, petits cristaux AERO vert menthe enchasses dans les balises. Ciel de matin bleu pale, ombres nettes, voiles tendues par le vent, accents rouges sur cordages. Sol central libre, horizon aerien, aucune silhouette volante.",
+        "source_history": {
+          "file": "V3/sources/histoire.txt",
+          "docx": "KALISTAR - GUIDE COMPLET DES MONDES.docx",
+          "section": "Guide complet des mondes, tome 5, Architecture & Climat",
+          "lineStart": 2666,
+          "lineEnd": 2673,
+          "anchor": "TOME 5 - ALTITIA"
+        }
+      },
+      {
+        "id": "hydro",
+        "image": "assets/arenas/hydro.webp",
+        "prompt": "Peinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Les portes de Thalassea : vaste bassin de maree borde d arches de nacre et de corail vivant, marches de pierre descendantes, passage central emerge tres peu profond. Murs immerges visibles sous une eau turquoise transparente, ecluses laterales ouvertes sur la mer, cristaux HYDRO cyan dans les piliers. Lumiere diurne filtree par l eau, reflets naturels et coquilles bordeaux. Pas de vague geante ni de personnage ; deux rives utilisables et sol central clairement visible.",
+        "source_history": {
+          "file": "V3/sources/histoire.txt",
+          "docx": "KALISTAR - GUIDE COMPLET DES MONDES.docx",
+          "section": "Guide complet des mondes, tome 4, Architecture & Climat",
+          "lineStart": 2646,
+          "lineEnd": 2653,
+          "anchor": "TOME 4 -"
+        }
+      },
+      {
+        "id": "electro",
+        "image": "assets/arenas/electro.webp",
+        "prompt": "Peinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. La decharge de Chroma : cour ouverte entre des piles organisees de machines anciennes, rails conducteurs incrustes dans le sol, petits carillons de recuperation suspendus aux poutres. Au fond, tours conductrices et reseaux electriques visibles, pas de grand ecran publicitaire. Cristaux ELECTRO jaune clair dans des bornes laterales ; acier patine, morceaux de peinture rouge et vert, lumiere de fin d apres-midi douce. Passage central degage, quelques fleurs dans les interstices, aucune machine humanoide active, aucun robot personnage.",
+        "source_history": {
+          "file": "V3/sources/histoire.txt",
+          "docx": "KALISTAR - GUIDE COMPLET DES MONDES.docx",
+          "section": "Guide complet des mondes, tome 2, Architecture & Climat ; cartes V2 Momo et Taulio",
+          "lineStart": 2606,
+          "lineEnd": 2613,
+          "anchor": "TOME 2 - VOLTANIA"
+        }
+      },
+      {
+        "id": "pyro",
+        "image": "assets/arenas/pyro.webp",
+        "prompt": "Peinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. La grande forge de Vulkar : plateforme immense de basalte et de fer entre deux vannes de lave, ponts metalliques et grandes enclumes sur les bords, forge titanesque dans un cratere ouvert au ciel. Lave rouge-orange confinee dans des canaux en contrebas, cristaux PYRO rouges dans les verrous, vapeur blanche ponctuelle. Lumiere du jour gris clair entrant par la toiture ouverte, acier bleute, materiaux nets ; aucun incendie de surface, sol praticable sombre au centre, pas de personnage.",
+        "source_history": {
+          "file": "V3/sources/histoire.txt",
+          "docx": "KALISTAR - GUIDE COMPLET DES MONDES.docx",
+          "section": "Guide complet des mondes, tome 3, Architecture & Climat ; classeur Ville Vulkar",
+          "lineStart": 2626,
+          "lineEnd": 2633,
+          "anchor": "TOME 3 - PYROTHIA"
+        }
+      },
+      {
+        "id": "cryo",
+        "image": "assets/arenas/cryo.webp",
+        "prompt": "Peinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Le lac de Niveria : large plateau de glace solide au premier plan, petites fractures sous la surface laissant voir de vieilles pierres et des bulles immobiles, aucun personnage emprisonne. Palais de glace et ponts de givre sur les rives, cristaux CRYO bleu pale dans des bornes et sapins sombres aux extremites. Matin clair, neige blanche, reflets turquoise et tissus rouges sur les balises, ciel froid sans aurore envahissante. Le centre reste plat, securisant et ouvert.",
+        "source_history": {
+          "file": "V3/sources/histoire.txt",
+          "docx": "KALISTAR - GUIDE COMPLET DES MONDES.docx",
+          "section": "Guide complet des mondes, tome 11, Architecture & Climat ; carte V2 Malinia",
+          "lineStart": 2786,
+          "lineEnd": 2793,
+          "anchor": "TOME 11 - GLACIALIS"
+        }
+      },
+      {
+        "id": "luxo",
+        "image": "assets/arenas/luxo.webp",
+        "prompt": "Peinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Le sanctuaire de Solaria : grande nef de cristal et pierre blanche, prismes verticaux, lanternes reparees et rayonnages d archives sur les murs lateraux. Escalier de lumiere solidifiee visible au fond, fontaines de lumiere liquide discretes, cristaux LUXO ivoire enchasses dans les colonnes. Lumiere blanche chaleureuse, fines refractions colorees locales, touches de tissu rouge et bronze. Sol central clair et libre, reliefs architecturaux nets, aucune statue ressemblant a un personnage principal.",
+        "source_history": {
+          "file": "V3/sources/histoire.txt",
+          "docx": "KALISTAR - GUIDE COMPLET DES MONDES.docx",
+          "section": "Guide complet des mondes, tome 7, Architecture & Climat ; carte V2 Aelis",
+          "lineStart": 2706,
+          "lineEnd": 2713,
+          "anchor": "TOME 7 - SOLARIA"
+        }
+      },
+      {
+        "id": "minero",
+        "image": "assets/arenas/minero.webp",
+        "prompt": "Peinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Les terrasses de Canyonero : large terrasse de roche stratifee et plaques de fer, rails de mine et treuils lourds repartis sur les bords. Perspective ouverte sur le canyon d extraction geant en spirale et la cite de Durane sur le rebord, passerelles metalliques tres lisibles. Cristaux MINERO gris argent dans la roche, soleil oblique et ciel pale, poussiere fine limitee. Deux acces symetriques au plateau, centre libre, aucun effondrement, pas de personnage.",
+        "source_history": {
+          "file": "V3/sources/histoire.txt",
+          "docx": "KALISTAR - GUIDE COMPLET DES MONDES.docx",
+          "section": "Guide complet des mondes, tome 1, Architecture & Climat ; Le Reveil V2 chapitre 1",
+          "lineStart": 2586,
+          "lineEnd": 2593,
+          "anchor": "TOME 1 - CANYONERO"
+        }
+      },
+      {
+        "id": "herbo",
+        "image": "assets/arenas/herbo.webp",
+        "prompt": "Peinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. La serre d Arborium : tres grande serre cathedrale faite de bois vivant, verre transparent et lianes-ponts, vue a hauteur du sol depuis une allee de pierre couverte de mousse basse. Massifs de plantes et tables de semences sur les bords, canopee habitee en arriere-plan sans personnages visibles. Cristaux HERBO verts dans des niches racinaires, fleurs corail et blanches, rayons de soleil lisibles a travers les vitres. Espace central degage et fertile, aucune racine bloquant la marche.",
+        "source_history": {
+          "file": "V3/sources/histoire.txt",
+          "docx": "KALISTAR - GUIDE COMPLET DES MONDES.docx",
+          "section": "Guide complet des mondes, tome 10, Architecture & Climat ; classeur Ville Arborium",
+          "lineStart": 2766,
+          "lineEnd": 2773,
+          "anchor": "TOME 10 - VERDANIA"
+        }
+      },
+      {
+        "id": "hemato",
+        "image": "assets/arenas/hemato.webp",
+        "prompt": "Peinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Les grilles de Draevenheim : cour gothique pavée devant des grilles de fer entrouvertes, manoir de pierre rouge et tours elancees, roses sombres et ronces taillees le long des murs. Fontaine scellee au fond, cristaux HEMATO rose carmin dans les ferrures, clairiere et lunes pales au-dessus des toits. Nuit lisible grace a des lanternes ivoire, pierre grise et feuillage vert froid pour varier la palette. Aucun sang repandu, aucune victime, centre ouvert pour un duel.",
+        "source_history": {
+          "file": "V3/sources/histoire.txt",
+          "docx": "KALISTAR - GUIDE COMPLET DES MONDES.docx",
+          "section": "Guide complet des mondes, tome 9, Architecture & Climat ; carte V2 Verminia",
+          "lineStart": 2746,
+          "lineEnd": 2753,
+          "anchor": "TOME 9 - HEMOGLOBIA"
+        }
+      },
+      {
+        "id": "necro",
+        "image": "assets/arenas/necro.webp",
+        "prompt": "Peinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Le quai de Cryptown : quai de pierre sombre au bord d un lac souterrain tres calme, portes de necropole et piliers d obsidienne en arriere-plan, une embarcation ancienne attachee a droite. Bollards, cordes et petits braseros pales sur les bords, cristaux NECRO violet fume discretement incrustes sous les arches. Reflets argent, murs charbon, bois vert patine, lumiere diffuse rendant chaque marche lisible. Melancolie paisible, aucun squelette personnage, pas de brouillard opaque, centre plat et degage.",
+        "source_history": {
+          "file": "V3/sources/histoire.txt",
+          "docx": "KALISTAR - GUIDE COMPLET DES MONDES.docx",
+          "section": "Guide complet des mondes, tome 8, Architecture & Climat ; classeur Cryptown et Capitaine Skully",
+          "lineStart": 2726,
+          "lineEnd": 2733,
+          "anchor": "TOME 8 - UMBRIA"
+        }
+      },
+      {
+        "id": "geo",
+        "image": "assets/arenas/geo.webp",
+        "prompt": "Peinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Les remparts de Zarok : large place de terre compacte et de pierre gravee devant des maisons taillees dans les parois du canyon, ponts suspendus et toits de metal avec vegetation locale. Monument Rhinoz de pierre noire en arriere-plan : statue d un HUMANOIDE a tete de rhinoceros avec exactement deux bras, deux jambes et une lance. Cristaux GEO ocre dans des bornes, drapeaux verts et blancs, lumiere de fin d apres-midi. Terre humide et canal longeant le bord, sol central bien libre, aucun personnage vivant.",
+        "source_history": {
+          "file": "V3/sources/histoire.txt",
+          "docx": "Kalistar - Le réveil.docx",
+          "section": "Histoire, chapitre 10, accueil au village de Zarok",
+          "lineStart": 3966,
+          "lineEnd": 3973,
+          "anchor": "Au centre du village, une immense statue"
+        }
+      },
+      {
+        "id": "rainbow",
+        "image": "assets/arenas/rainbow.webp",
+        "prompt": "Peinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Le seuil du Temple de Kalistopolis : vaste parvis de pierre blanche sur une ile suspendue entre mer et ciel, temple monumental au fond, douze petites niches architecturales pour les cristaux autour de la place. Eau, vegetaux, roche et metal coexistent dans des details localises, cristal RAINBOW translucide dans une seule clef de voute. Refractions arc-en-ciel fines sur la pierre, lumiere du matin naturelle, ciel bleu et accents vermillon. Pas de personnage royal, pas de trone, pas de portail noir, aucune explosion de couleurs ; centre simple et degage.",
+        "source_history": {
+          "file": "V3/sources/histoire.txt",
+          "docx": "KALISTAR - GUIDE COMPLET DES MONDES.docx",
+          "section": "Guide complet des mondes, tome 12, description de la cite ; classeur Ville, Temple",
+          "lineStart": 2806,
+          "lineEnd": 2813,
+          "anchor": "TOME 12 - KALISTOPOLIS"
+        }
+      },
+      {
+        "id": "z13",
+        "image": "assets/arenas/z13.webp",
+        "prompt": "Peinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. La Gueule Fumante dans la Z13 : salle de taverne ouvriere encastree dans une galerie profonde, plafond bas soutenu de poutres rouillees, comptoir use au fond et tables solides repoussees sur les cotes. Lanternes a bougie sous des cages metalliques, assiettes de pain, chaises marquees par le travail, entree du tunnel visible. Lumiere ambree locale et reflets gris-vert de la mine, air legerement enfume mais architecture nette et entierement lisible. Centre du sol libre, pas de patrons ni de clients, aucun cristal central actif ni aura elementaire.",
+        "source_history": {
+          "file": "V3/sources/histoire.txt",
+          "docx": "⭐ KALISTAR - LE RÉVEIL V2.docx",
+          "section": "Le Reveil V2, chapitre 1, La Gueule Fumante",
+          "lineStart": 6290,
+          "lineEnd": 6297,
+          "anchor": "Une taverne au fond du gouffre"
+        }
+      },
+      {
+        "id": "trone-fer",
+        "image": "assets/arenas/trone-fer.webp",
+        "prompt": "Peinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Le Trone de Fer de Durane, salle du Conseil des Zones : vaste salle circulaire d acier sombre et metal poli, douze sieges massifs disposes autour d une estrade ronde, chaque dossier portant un motif geometrique different sans lettres ni nombres. Grandes baies en hauteur, passerelles techniques et ancien pupitre de retransmission sur le cote. Siege royal en metal forge sobre au fond, PAS un amoncellement depee ni reference a Game of Thrones. Lumiere bleutee naturelle et reflets chauds discrets, sol central degage, aucun dirigeant ni foule, aucun cristal de bonus mis en evidence.",
+        "source_history": {
+          "file": "V3/sources/histoire.txt",
+          "docx": "🔥 Chapitre 16 – Le Conseil des Zones.docx",
+          "section": "Chapitre 16, Le Conseil des Zones, ouverture",
+          "lineStart": 7261,
+          "lineEnd": 7268,
+          "anchor": "La salle haute de la Tour de Fer"
+        }
+      },
+      {
+        "id": "astraball",
+        "image": "assets/arenas/astraball.webp",
+        "prompt": "Peinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Le terrain d Astraball de Zarok : terrain sportif improvise mais spacieux en terre compacte pres de la grande place du village, entre des maisons taillees dans le canyon. Le sport utilise pieds et mains, comme un melange de basket et de contact. A chaque extremite, un PANIER EN FORME DE U INVERSE, arche etroite arrondie avec deux montants et filet de reception, de taille humaine proportionnee au terrain ; PAS de cercle de basket, pas anneaux, pas cage de football. Marques au sol simples pour la zone du pilier qui ne peut la quitter et les transitions des cinq roles, sans texte ni chiffres. Gradins bas tailles dans la roche, structures robustes, une balle pres du bord, drapeaux vert et blanc. Grand ciel lumineux, ombres franches, aucun joueur ni foule ni magie. Centre entierement libre. Dimensions exactes, nombre et disposition des paniers sont une extrapolation visuelle, pas une regle additionnelle.",
+        "source_history": {
+          "file": "V3/sources/histoire.txt",
+          "docx": "Chapitre 11 – Les Flammes de la Fonderie.docx",
+          "section": "Chapitre 11, L Astraball : Le Jeu des Elements, panier en U inverse et cinq roles",
+          "lineStart": 380,
+          "lineEnd": 387,
+          "anchor": "panier en forme de U inversé"
+        }
+      },
+      {
+        "id": "ruins",
+        "image": "assets/arenas/ruins.webp",
+        "prompt": "Peinture fantasy narrative coherente avec les illustrations de Momo et les cartes Kalistar. Image horizontale 16:9, decor de combat sans personnage, sans texte, sans logo, sans cadre, sans cartes ni interface. Perspective architecturale lisible, espace central praticable degage, premier plan stable avec deux approches laterales de poids visuel comparable. Details du lieu reconnaissables, eclairage lisible et profondeur naturelle, pas de brouillard opaque ni flou general, pas d explosion au centre.  Haute resolution, composition large en perspective HAUTE TROIS-QUARTS, camera au-dessus du sol regardant obliquement vers le bas. Au moins la moitie centrale de la scene est un sol jouable simple destine a recevoir plus tard des cartes superposees, sans dessiner ces cartes. Details concentres en peripherie. Pas de bokeh, pas d orbes decoratives, pas de pastilles lumineuses, pas d arene romaine generique. Les ruines silencieuses : cour de pierre grise ancienne dans une vallee ordinaire, colonnes brisees basses et arcades ouvertes sur des collines vertes, herbes basses entre les dalles. Quelques fragments de toit rouge patine, lumiere douce de milieu de jour et ciel gris clair. Aucun embleme, aucun cristal, aucun trone, aucune machine, aucun monument de personnage. Sol central plat et entierement libre, acces par les deux cotes, atmosphere neutre et paisible, lieu non rattache a une faction.",
+        "source_history": {
+          "file": null,
+          "docx": null,
+          "section": "Creation V3 pour tests neutres, aucune scene canonique revendiquee",
+          "lineStart": null,
+          "lineEnd": null,
+          "anchor": null
+        }
+      }
+    ]
+  }
+}

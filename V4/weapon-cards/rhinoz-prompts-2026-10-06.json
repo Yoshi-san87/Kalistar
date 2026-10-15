@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-06",
+  "tool": "built-in image_gen",
+  "intent": "Rhinoz horn-shaped axe; independent cutout, scene and ring, without changes to character cards",
+  "images": [
+    {
+      "id": "rhinoz-ancestral-horn-v1",
+      "prompt": "Use case: stylized-concept. Asset: ONE isolated equipable fantasy AXE for the RHINOZ people of Kalistar, genuinely transparent background. Image 1 Belrog is a reference for Rhinoz physical identity, mountain craft and worn materials, not a character to include; image 2 Momo is the mandatory narrative painterly style reference. Invent a distinctive heirloom called La Corne des Anciens. Its single large AXE BLADE is itself shaped like a rhinoceros nasal horn: a very broad wedge rooted at the socket, tapering into one strong forward/upward sweeping point, with a bright sharpened convex outside edge. The blade must clearly read as a broad cutting axe head, not a skinny pick or scythe. Forged warm ivory-gray steel with restrained horn-like longitudinal grain, dark basalt-colored socket with layered armor folds suggesting a rhino's heavy brow, weathered copper bands and minimal engraved ancestral chevrons. A smaller low horn ridge on the back balances the silhouette without a second blade. Massive but meticulously crafted, dignified and protective, no literal animal head or skull glued onto it. Long stout perfectly STRAIGHT dark wood haft, leather handwrap, copper collars, flat faceted stone pommel. Entire object shown diagonally from lower-left grip to upper-right head, generous clear margins, strong legible silhouette, all tip and pommel visible. Painterly worked metal, visible brush strokes and hierarchy of details consistent with reference. No crown, gems, neon, blood, words, frame, medallion, shadows on a floor, hands, person or scenery. Actual alpha transparency everywhere outside the single axe.",
+      "referenced_image_paths": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V3/assets/illustrations/19_MINERO_BELROG.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V3/assets/illustrations/01_ELECTRO_MOMO.png"
+      ],
+      "transparent_background": true,
+      "generated": "C:/Users/guill/.codex/generated_images/01a101d7-d348-7f93-aa10-a7bc601dc655/exec-4dc1175e-e217-498c-94b8-7c260ab03022.png",
+      "selected": false,
+      "reason": "Blade reads as a conventional crescent axe; requested horn identity should govern the silhouette."
+    },
+    {
+      "id": "rhinoz-ancestral-horn-v2",
+      "prompt": "Use case: precise-object-edit. Refine this single Kalistar axe on a genuinely transparent background. PRESERVE the exact straight wood shaft, leather wrap, stone pommel, dark layered armor socket, aged copper bands, painted worn materials and diagonal orientation. Change ONLY the blade silhouette to be unmistakably a rhinoceros horn forged as a cutting weapon: one large BROAD TRIANGULAR HORN growing from a thick base at the socket and sweeping outward/upward to ONE long tapered point. The blade is flattened, broad and sharpened along its outward-facing convex edge so it remains an axe. DELETE the curved lower downward tooth / beard of the current crescent axe: the underside must slope straight back from the main point to the thick base with NO second dangling point. Think an enormous rhinoceros nasal horn flattened into a wedge-shaped axe blade, NOT a crescent moon, not a Viking axe. Retain horn-like lengthwise grain in gray-ivory steel and small low secondary horn on back of socket. Powerful dignified shape, beautifully hand forged in the Kalistar painterly style. Show the ENTIRE weapon in a square canvas with at least 8 percent transparent margin around all extremities including tip and pommel, zoom OUT; do not bend or shorten the straight handle. No scenery, shadow plane, text, frame, extra weapons, animal or character. Actual alpha transparency.",
+      "referenced_image_paths": [
+        "C:/Users/guill/.codex/generated_images/01a101d7-d348-7f93-aa10-a7bc601dc655/exec-4dc1175e-e217-498c-94b8-7c260ab03022.png"
+      ],
+      "transparent_background": true,
+      "generated": "C:/Users/guill/.codex/generated_images/01a101d7-d348-7f93-aa10-a7bc601dc655/exec-fbec1a6b-061c-476b-ab56-4f87e7f6c936.png",
+      "selected": true,
+      "saved": "V4/weapon-cards/sources/rhinoz-ancestral-horn-v2.png"
+    },
+    {
+      "id": "rhinoz-ancestral-horn-scene-v1",
+      "prompt": "Use case: illustration-story. Asset: separate square painted scene for a Kalistar collectible weapon card, NO card frame or lettering. Reference image 1 is the EXACT weapon design: preserve the entire straight shaft, copper bands, slate stone pommel and distinctive broad rhino-horn-shaped ivory-gray steel axe blade with a single upswept point, no lower crescent tooth. Reference 2 Belrog is the canonical mountain landscape and worn Rhinoz material identity. Reference 3 Momo is the mandatory painterly style. Paint this axe resting securely diagonally across a low weathered stone marker at a quiet mountain pass. A simple dark green worn cloth beneath the grip suggests a protector has just set it down. In the middle distance a narrow safe trail disappears between two broad stone shoulders, a little snow in shaded crevices and a pale clear sky. Sparse setting with depth and big painterly shapes, very few small details, no buildings, crowds, banners or extra weapons. Warm sidelight across the horn blade contrasts with cool distant rock. Hand-painted fantasy, visible brushwork, not photorealistic, not 3D. Object is the unmistakable focal point, whole axe visible, head top-right and pommel lower-left. Pull the camera back enough that ALL important parts remain inside the central 78 percent of a SQUARE image; leave breathing room especially at top and bottom because a card aperture crops the image. Do not change or bend the handle to fit. No character, animal, skull, text, logo, border, interface, sparkles or neon.",
+      "referenced_image_paths": [
+        "C:/Users/guill/.codex/generated_images/01a101d7-d348-7f93-aa10-a7bc601dc655/exec-fbec1a6b-061c-476b-ab56-4f87e7f6c936.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V3/assets/illustrations/19_MINERO_BELROG.png",
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V3/assets/illustrations/01_ELECTRO_MOMO.png"
+      ],
+      "transparent_background": false,
+      "generated": "C:/Users/guill/.codex/generated_images/01a101d7-d348-7f93-aa10-a7bc601dc655/exec-126e7927-4016-4af3-8c41-c9be7fd0f4b9.png",
+      "saved": "V4/weapon-cards/sources/rhinoz-ancestral-horn-scene-v1.png"
+    },
+    {
+      "id": "rhinoz-ancestral-horn-ring-v1",
+      "prompt": "Use case: stylized-concept. Create ONE independent circular weapon medallion RIM for Kalistar, transparent center hole AND transparent exterior. Image 1 is geometry reference ONLY: perfectly circular, front-facing, flat orthographic, centered in square, slim annulus with large empty central aperture. Do NOT inherit its red energy, bat wings or gemstones. Image 2 is this new weapon's exact material and identity reference: La Corne des Anciens, Rhinoz horn axe. Design a custom rim from weathered copper rails and overlapping slate-gray forged armor plates, with subtle horn-grain ivory steel inlays shaped like small Rhinoz nasal horns that follow the circular rail tangentially. Four robust copper riveted clasps at cardinal points; calm aged ivory metal highlights, restrained tiny warm white seams, no bright magical fire. Repeated broad hammered relief evokes the folded armored skin of a rhinoceros without drawing an animal head. Meticulous painterly material in the Kalistar style. Complete outer contour should fit in a circle occupying 93 percent of square canvas, centered exactly; the inner EMPTY circular aperture is about 72 percent of canvas diameter. No projection or horn into the center; ornaments stay on the ring itself. Beautiful restrained mechanics, legible at tiny card medallion scale. NO weapon inside, no disc background, no plaque, no number, text, logo, animal skull, smoke, scene, UI or perspective. Genuine alpha transparency inside and outside the ring.",
+      "referenced_image_paths": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/weapon-cards/sources/draevenheim-wing-spear-ring-v1.png",
+        "C:/Users/guill/.codex/generated_images/01a101d7-d348-7f93-aa10-a7bc601dc655/exec-fbec1a6b-061c-476b-ab56-4f87e7f6c936.png"
+      ],
+      "transparent_background": true,
+      "generated": "C:/Users/guill/.codex/generated_images/01a101d7-d348-7f93-aa10-a7bc601dc655/exec-dbd353c6-15c6-4d08-9f30-378a054857b6.png",
+      "saved": "V4/weapon-cards/sources/rhinoz-ancestral-horn-ring-v1.png"
+    }
+  ]
+}

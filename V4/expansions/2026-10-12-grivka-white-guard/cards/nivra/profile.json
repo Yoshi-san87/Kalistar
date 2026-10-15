@@ -1,0 +1,61 @@
+{
+  "name": "NIVRA",
+  "title": "LES CROCS DU SILENCE",
+  "job": "ECLAIREUSE",
+  "description": "Nivra reconnaît ses compagnons au bruit de leurs pas dans la neige. Elle veille loin des feux, là où les pistes se séparent. Ses flèches gardent le silence ; le chemin du retour, lui, doit rester ouvert.",
+  "element": "CRYO",
+  "race": "OKAMI",
+  "weapon": "Arc",
+  "faction": "Grivka",
+  "positions": [
+    3,
+    4,
+    5
+  ],
+  "atk": [
+    224,
+    183,
+    142,
+    "retry",
+    53,
+    24
+  ],
+  "defense": [
+    207,
+    "dodge",
+    138,
+    97,
+    54,
+    18
+  ],
+  "magic": [
+    4
+  ],
+  "barriers": [
+    4
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49902205",
+  "characterId": "nivra-kalistar",
+  "slug": "V4_49902205",
+  "output": "KALISTAR_V4_49902205",
+  "text": "Nivra reconnaît ses compagnons au bruit de leurs pas dans la neige. Elle veille loin des feux, là où les pistes se séparent. Ses flèches gardent le silence ; le chemin du retour, lui, doit rester ouvert.",
+  "color": "ACDFFD",
+  "hue": 201,
+  "weapon_index": 5,
+  "role": 3,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Original Kalistar, illustration approuvee le 12 octobre 2026",
+  "visual_revision": "V4-2026-10-12-grivka-white-guard",
+  "artworkSource": "V4/propositions/2026-10-12-grivka-white-guard/images/nivra-06.png"
+}

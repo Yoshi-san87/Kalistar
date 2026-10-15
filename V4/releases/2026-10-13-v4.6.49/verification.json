@@ -1,0 +1,56 @@
+{
+  "release": "4.6.49",
+  "testedAt": "2026-10-13T05:09:47.268Z",
+  "unitTests": {
+    "passed": 37,
+    "failed": 0
+  },
+  "clonePolicyWithoutVariable": "synthetic 67 MB pointer, download endpoint deliberately blocked, smudge returns pointer",
+  "build": {
+    "cards": 363,
+    "files": 1319,
+    "MiB": 865.638,
+    "identicalAssetsAcrossProviders": true
+  },
+  "protectedMetadata": {
+    ".gitattributes": "f9010b966cf7e71c0b36b0ab83e889eb837550836518cda2de1f214c061fcbb3",
+    "V4/atelier/data/references.json": "1ff9dcd5f88c3c24d89305074261f859e13c60765d4000e458b2f27ad1c2e59a",
+    "V4/atelier/designer-assets/manifest.json": "54d75f70de22a0f10439db4de1526cc400de9df3ec8d7ff101d849e0a60f6bf4"
+  },
+  "noSourceFilesDeleted": true,
+  "dnsChanged": false,
+  "cloudflareRealDeploymentVerified": false,
+  "browser": {
+    "desktop": true,
+    "phone": true,
+    "cards": 363,
+    "reader": true,
+    "pngDownload": true,
+    "decks": true,
+    "arena": true,
+    "savedMatch": true,
+    "additivePublication": true,
+    "httpErrors": [],
+    "scriptErrors": []
+  },
+  "isolatedFreshClone": {
+    "cloneSucceeded": true,
+    "skipSmudgeVariable": false,
+    "realLfsFilterEnabled": true,
+    "downloadedLfsObjects": 0,
+    "samples": [
+      {
+        "file": "V4/revisions/2026-09-18-branches/originals/V4/templates/BALMHYR_V4_01_MINERO.psd",
+        "checkedOutBytes": 133,
+        "pointer": true
+      },
+      {
+        "file": "V4/creations/49902501/card.png",
+        "checkedOutBytes": 132,
+        "pointer": true
+      }
+    ],
+    "cards": 363,
+    "playableFiles": 1318
+  }
+}

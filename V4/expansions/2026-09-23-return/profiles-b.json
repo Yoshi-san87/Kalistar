@@ -1,0 +1,302 @@
+[
+  {
+    "key": "capitaine-skully",
+    "legacyId": "30000035",
+    "characterId": "capitaine-skully",
+    "name": "CAPITAINE SKULLY",
+    "title": "LE CAP DES REVENANTS",
+    "job": "CAPITAINE",
+    "text": "Skully laisse la houle frapper l’étrave et garde le cap. Le sel ronge le bois, pas son obstination. Tant que le pont tient sous ses bottes, il reste un capitaine et la mer lui doit encore un passage.",
+    "element": "NECRO",
+    "race": "SKULLZ",
+    "faction": "Cryptown",
+    "weapon": "Epée courte",
+    "positions": [
+      3
+    ],
+    "role": 3,
+    "atk": [
+      236,
+      194,
+      152,
+      "retry",
+      75,
+      33
+    ],
+    "defense": [
+      231,
+      196,
+      154,
+      112,
+      70,
+      35
+    ],
+    "magic": [
+      6
+    ],
+    "barriers": [
+      4
+    ],
+    "art": "V4/expansions/2026-09-23-return/art-b/capitaine-skully.png"
+  },
+  {
+    "key": "xiaomi",
+    "legacyId": "30000027",
+    "characterId": "xiaomi",
+    "name": "XIAOMI",
+    "title": "LE FIL DANS L OMBRE",
+    "job": "DUELLISTE",
+    "text": "Dans le couloir, Xiaomi ne laisse dépasser que le fil de sa lame. Le bruit des pas approche. Elle ralentit sa respiration ; le reste attendra que l’ombre lui donne raison.",
+    "element": "NONE",
+    "race": "HUMAIN",
+    "faction": "Z13",
+    "weapon": "Katana",
+    "positions": [
+      2
+    ],
+    "role": 2,
+    "atk": [
+      292,
+      240,
+      195,
+      143,
+      91,
+      46
+    ],
+    "defense": [
+      174,
+      142,
+      110,
+      "dodge",
+      53,
+      21
+    ],
+    "magic": [],
+    "barriers": [],
+    "art": "V4/expansions/2026-09-23-return/art-b/xiaomi.png"
+  },
+  {
+    "key": "gen-reparation",
+    "legacyId": "30000023",
+    "characterId": "gen",
+    "name": "GEN",
+    "title": "LA PANNE QUI INSISTE",
+    "job": "MECANICIEN",
+    "text": "Une étincelle jaillit de son bras gauche. Gen suspend le tournevis, plisse les yeux, puis reprend. Ce n’est pas encore un pouvoir : seulement une mécanique récalcitrante et un garçon qui refuse de la laisser gagner.",
+    "element": "NONE",
+    "race": "CYBORG",
+    "faction": "Z13",
+    "weapon": "Projectile",
+    "positions": [
+      4
+    ],
+    "role": 4,
+    "atk": [
+      290,
+      245,
+      193,
+      141,
+      96,
+      44
+    ],
+    "defense": [
+      172,
+      140,
+      115,
+      83,
+      51,
+      26
+    ],
+    "magic": [],
+    "barriers": [],
+    "art": "V4/expansions/2026-09-23-return/art-b/gen-reparation.png"
+  },
+  {
+    "key": "gen-electro",
+    "legacyId": "30000023",
+    "characterId": "gen",
+    "name": "GEN",
+    "title": "LA NUIT OU LA Z13 S ETEINT",
+    "job": "MECANICIEN",
+    "text": "Devant le panneau électrique, Gen retient son souffle. Son bras gauche crépite, puis les lampes de la Z13 s’éteignent une à une. Ses mains tremblent encore : pour la première fois, la panne ouvre un chemin.",
+    "element": "ELECTRO",
+    "race": "CYBORG",
+    "faction": "Z13",
+    "weapon": "Projectile",
+    "positions": [
+      4
+    ],
+    "role": 4,
+    "atk": [
+      286,
+      238,
+      188,
+      "mana",
+      90,
+      40
+    ],
+    "defense": [
+      169,
+      138,
+      108,
+      80,
+      49,
+      24
+    ],
+    "magic": [
+      6,
+      5,
+      4,
+      2
+    ],
+    "barriers": [
+      5,
+      3
+    ],
+    "art": "V4/expansions/2026-09-23-return/art-b/gen-electro.png"
+  },
+  {
+    "key": "lanio-mines",
+    "legacyId": "30000021",
+    "characterId": "lanio",
+    "name": "LANIO",
+    "title": "LE VERTIGE POUR RIRE",
+    "job": "ACROBATE",
+    "text": "Suspendu au-dessus de la galerie, Lanio trouve encore le moyen de faire rire les autres. Un appui, un crochet, puis son sourire insolent disparaît dans la poussière. Même les mines de la Z13 n’ont pas réussi à le faire taire.",
+    "element": "NONE",
+    "race": "HUMAIN",
+    "faction": "Z13",
+    "weapon": "Lance",
+    "positions": [
+      3
+    ],
+    "role": 3,
+    "atk": [
+      230,
+      190,
+      150,
+      110,
+      "retry",
+      30
+    ],
+    "defense": [
+      228,
+      190,
+      150,
+      "dodge",
+      70,
+      32
+    ],
+    "magic": [],
+    "barriers": [],
+    "art": "V4/expansions/2026-09-23-return/art-b/lanio-mines.png"
+  },
+  {
+    "key": "lanio-astraball",
+    "legacyId": "30000021",
+    "characterId": "lanio",
+    "name": "LANIO",
+    "title": "LE BLONDINET DE ZAROK",
+    "job": "JOUEUR D ASTRABALL",
+    "text": "Lanio a enfin une vraie balle entre les mains. Sur le terrain de Zarok, le blondinet improvise un crochet et rit avant même de savoir s’il passera. Pour quelques minutes, la Z13 paraît très loin.",
+    "element": "NONE",
+    "race": "HUMAIN",
+    "faction": "Z13",
+    "weapon": "Lance",
+    "positions": [
+      3
+    ],
+    "role": 3,
+    "atk": [
+      236,
+      194,
+      152,
+      110,
+      75,
+      33
+    ],
+    "defense": [
+      231,
+      196,
+      "dodge",
+      112,
+      70,
+      35
+    ],
+    "magic": [],
+    "barriers": [],
+    "art": "V4/expansions/2026-09-23-return/art-b/lanio-astraball.png"
+  },
+  {
+    "key": "reevus",
+    "legacyId": "30000026",
+    "characterId": "reevus",
+    "name": "REEVUS",
+    "title": "LE REGISTRE DES ABSENTS",
+    "job": "INTENDANT",
+    "text": "Reevus suit les lignes du doigt, puis frappe le registre du poing. Les chiffres ne lui obéissent pas davantage que les mineurs. Alors il hausse la voix, convaincu que le problème vient des autres.",
+    "element": "NONE",
+    "race": "NAIN",
+    "faction": "Z13",
+    "weapon": "Fléau",
+    "positions": [
+      3
+    ],
+    "role": 3,
+    "atk": [
+      235,
+      193,
+      151,
+      116,
+      74,
+      "buff_atk"
+    ],
+    "defense": [
+      230,
+      195,
+      153,
+      111,
+      76,
+      34
+    ],
+    "magic": [],
+    "barriers": [],
+    "art": "V4/expansions/2026-09-23-return/art-b/reevus.png"
+  },
+  {
+    "key": "kognus",
+    "legacyId": "30000025",
+    "characterId": "kognus",
+    "name": "KOGNUS",
+    "title": "LES CLES DU SERVICE",
+    "job": "SURVEILLANT",
+    "text": "Kognus fait tinter les clés pour que toute la galerie l’entende. Il connaît le prix du silence et celui d’une porte fermée. Son sourire ne promet jamais une faveur sans en compter le retour.",
+    "element": "NONE",
+    "race": "NAIN",
+    "faction": "Z13",
+    "weapon": "Dague",
+    "positions": [
+      2
+    ],
+    "role": 2,
+    "atk": [
+      291,
+      246,
+      194,
+      142,
+      90,
+      45
+    ],
+    "defense": [
+      173,
+      141,
+      116,
+      84,
+      52,
+      "retry"
+    ],
+    "magic": [],
+    "barriers": [],
+    "art": "V4/expansions/2026-09-23-return/art-b/kognus.png"
+  }
+]

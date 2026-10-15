@@ -1,0 +1,63 @@
+{
+  "passed": true,
+  "modelId": "40976482",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "adf29e98387360aab6184ce70849a21dae76b0c2c72fab08e2ed854ec927568d",
+  "hashes": {
+    "card.png": "b6cee26aa2d628299d8e90c0b2e1cc1fed63954307c690a11c628df8c64b62a4",
+    "card.psd": "d469f347ee4f2e0c4026d12913981977946c907b773b7d03ffd809112bfad358"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "changed": 1788,
+    "verificationScope": "Native white flail replacement; zero changed pixels outside circular medallion"
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "40976482",
+    "cases": {
+      "color-1": [
+        "40976482"
+      ],
+      "color-4": [
+        "40976482"
+      ],
+      "gray-1": [
+        "40976482"
+      ],
+      "gray-4": [
+        "40976482"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "comparison": {
+    "changed": 1788,
+    "outside": 0,
+    "maximumChangedRadius": 40.30198506277327,
+    "permittedRadius": 47.5,
+    "pixelCornersChecked": true
+  },
+  "layers": {
+    "unchangedExcept": "ARME - Fléau",
+    "editableTextsPreserved": true,
+    "embeddedWeapon": true
+  },
+  "nativeRevision": {
+    "id": "2026-10-03-flail-glyph",
+    "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+    "previousReferenceId": "ef7a6767b57723d896ceecb050079bfb1abad0e79e7289a200f87b34585f9380",
+    "audit": "V4/revisions/2026-10-03-flail-glyph/verification.json",
+    "scope": "white-flail-glyph-only"
+  },
+  "checkedAt": "2026-10-03T02:50:18.764Z",
+  "previousVerification": {
+    "file": "V4/revisions/2026-10-03-flail-glyph/originals/V4/creations/40976482/verification.json",
+    "hash": "590b12cccd89b9bff340112d9d38bb2177cb01bb9ca80f72bda3bd474cc3358a",
+    "checkedAt": "2026-09-20T14:39:01.414Z"
+  }
+}

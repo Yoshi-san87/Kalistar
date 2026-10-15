@@ -1,0 +1,61 @@
+{
+  "name": "VESSA",
+  "title": "Le fil retrouvé",
+  "job": "GARDIENNE",
+  "description": "Vessa ne nomme jamais un sauvetage une victoire. Son bâton déroule un fil entre les toits ; ses mains refont les nœuds. Le bleu de son uniforme demeure quand les nuages avalent le monde.",
+  "element": "AERO",
+  "race": "FALCO",
+  "weapon": "Bâton",
+  "faction": "Nestown",
+  "positions": [
+    3,
+    5
+  ],
+  "atk": [
+    168,
+    127,
+    98,
+    "guard",
+    "mana",
+    "revive"
+  ],
+  "defense": [
+    196,
+    155,
+    117,
+    82,
+    54,
+    "retry"
+  ],
+  "magic": [
+    6,
+    4
+  ],
+  "barriers": [
+    4
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49900312",
+  "characterId": "vessa-kalistar",
+  "slug": "V4_49900312",
+  "output": "KALISTAR_V4_49900312",
+  "text": "Vessa ne nomme jamais un sauvetage une victoire. Son bâton déroule un fil entre les toits ; ses mains refont les nœuds. Le bleu de son uniforme demeure quand les nuages avalent le monde.",
+  "color": "89EDC2",
+  "hue": 155,
+  "weapon_index": 10,
+  "role": 5,
+  "sentry": true,
+  "canGuard": true,
+  "canHeal": true,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Personnage original Kalistar, demande du 4 octobre 2026",
+  "visual_revision": "V4-2026-10-04-city-guards",
+  "artworkSource": "V4/Illustrations/City_Guards_Vessa_01.png"
+}

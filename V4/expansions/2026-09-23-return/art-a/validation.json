@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "verifiedOn": "2026-09-23",
+  "passed": true,
+  "profileCount": 7,
+  "imageCount": 7,
+  "imageDimensions": { "width": 1122, "height": 1402 },
+  "exactPreservedV3Gameplay": ["zviri-tueuse", "julienne", "verminia-bureau", "polux", "nazar"],
+  "newBoundedVariants": ["zviri-chasse", "verminia-portail"],
+  "byteIdenticalArtReuse": ["zviri-tueuse", "julienne", "polux"],
+  "checks": [
+    "Seven profiles, six ATK and DEF faces each",
+    "Every numeric face between zero and its V3 principal-role bound",
+    "Principal role included in deployment positions",
+    "Only supported ATK/DEF effects",
+    "Magic/barrier faces reference numeric dice results, D6-to-D1 convention",
+    "Revive only role 5, guard only role 1/5, NONE forbids magic and barriers",
+    "All seven legacyId/characterId associations match V3",
+    "Five base profiles exactly match V3 for element, race, faction, weapon, positions, role, atk, defense, magic and barriers",
+    "Both variants share source characterId",
+    "Seven PNG dimensions checked from PNG headers, all 1122 x 1402",
+    "Seven selected PNG SHA256 hashes match provenance",
+    "Three reused PNGs compared byte-for-byte with V3 sources"
+  ],
+  "notYetVerified": ["Native PSD rendering", "Locked frame pixels", "Barcode decoding", "Final card small-size appearance", "Publication", "User art approval"]
+}

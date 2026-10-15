@@ -1,0 +1,23 @@
+{
+  "id": "nier-pilot-01",
+  "faction": "NieR",
+  "officialCollaboration": false,
+  "arenas": [],
+  "presets": [],
+  "cards": [
+    {
+      "key": "2b", "id": "45911726", "name": "2B",
+      "title": "Lame des ruines", "job": "COMBATTANTE",
+      "description": "Entre les tours bris\u00e9es, 2B suspend un instant sa course. Son katana capte une lueur p\u00e2le ; sous le bandeau, rien ne trahit son prochain geste. La ville retient son souffle, puis la lame reprend sa danse.",
+      "race": "ANDROID", "weapon": "Katana", "element": "LUXO", "positions": [2], "role": 2,
+      "atk": [294,244,194,144,94,44], "defense": [170,140,"dodge",80,"retry",20], "magic": [], "barriers": [6]
+    },
+    {
+      "key": "9s", "id": "42138845", "name": "9S",
+      "title": "Les fils du silence", "job": "SCANNER",
+      "description": "Du bout des doigts, 9S parcourt un \u00e9cran de signes lumineux. Chaque code entrouvre un passage dans le silence des machines. Sa lance reste proche ; pour prot\u00e9ger son alli\u00e9e, il cherche encore une autre voie.",
+      "race": "ANDROID", "weapon": "Lance", "element": "ELECTRO", "positions": [3,5], "role": 5,
+      "atk": [174,144,"revive","buff_atk","mana",24], "defense": [200,165,130,95,60,25], "magic": [6], "barriers": [5,3]
+    }
+  ]
+}

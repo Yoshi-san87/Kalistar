@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "isolated": true,
+  "built": true,
+  "current": 211,
+  "archived": 3,
+  "checks": [
+    "three archived-only versions do not show either update notice; ownership and active match are unchanged",
+    "a fresh peer adds one actual available card; three historical IDs remain excluded from both counts",
+    "manual refresh and a second reload hide the notice without deleting historic versions, ownership or match history"
+  ],
+  "errors": []
+}

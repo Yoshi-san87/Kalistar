@@ -1,0 +1,62 @@
+{
+  "name": "9S",
+  "title": "Les fils du silence",
+  "job": "SCANNER",
+  "description": "Du bout des doigts, 9S parcourt un écran de signes lumineux. Chaque code entrouvre un passage dans le silence des machines. Sa lance reste proche ; pour protéger son alliée, il cherche encore une autre voie.",
+  "element": "ELECTRO",
+  "race": "ANDROID",
+  "weapon": "Lance",
+  "faction": "NieR",
+  "positions": [
+    3,
+    5
+  ],
+  "atk": [
+    174,
+    144,
+    "revive",
+    "buff_atk",
+    "mana",
+    24
+  ],
+  "defense": [
+    200,
+    165,
+    130,
+    95,
+    60,
+    25
+  ],
+  "magic": [
+    6
+  ],
+  "barriers": [
+    5,
+    3
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "42138845",
+  "characterId": "9s-nier",
+  "slug": "V4_42138845",
+  "output": "KALISTAR_V4_42138845",
+  "text": "Du bout des doigts, 9S parcourt un écran de signes lumineux. Chaque code entrouvre un passage dans le silence des machines. Sa lance reste proche ; pour protéger son alliée, il cherche encore une autre voie.",
+  "color": "F5DC32",
+  "hue": 53,
+  "weapon_index": 8,
+  "role": 5,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": true,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Kalistar x NieR - fan crossover prive non officiel",
+  "visual_revision": "V4-nier-pilot-01",
+  "collaboration": "NieR",
+  "officialCollaboration": false
+}

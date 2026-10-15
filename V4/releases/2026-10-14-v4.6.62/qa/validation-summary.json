@@ -1,0 +1,55 @@
+{
+  "version": "4.6.62",
+  "baseCommit": "4bcc98b2803316e5e08c4c9e05210decebb7da54",
+  "organisation": {
+    "tests": 20,
+    "passed": 20,
+    "command": "npm run test:organisation"
+  },
+  "ci": {
+    "exitCode": 0,
+    "signal": null,
+    "seconds": 344.125,
+    "completedInvocations": 85,
+    "nodeTests": 1219,
+    "output": "work/organisation-2026-10-14/ci-output.txt",
+    "passed": 1218,
+    "failed": 0,
+    "skipped": 1
+  },
+  "build": {
+    "cards": 379,
+    "assets": 1379,
+    "bytes": 921449710,
+    "excludedUntracked": [
+      "V4/site/assets/weapon-cards/cryptown-oath-sword-scene-v1.webp"
+    ]
+  },
+  "browser": {
+    "passed": true,
+    "cards": 379,
+    "desktop": true,
+    "phone": true,
+    "reader": true,
+    "pngDownload": true,
+    "decks": true,
+    "arena": true,
+    "reload": true,
+    "isolatedProfiles": true
+  },
+  "collection": {
+    "passed": true,
+    "viewports": 7
+  },
+  "launcher": {
+    "tests": 2,
+    "passed": 2,
+    "fixtureOnly": true
+  },
+  "runtimeChange": "Version strings only; 1385 source hashes compared",
+  "notes": [
+    "Suite CI complete then focused organisation rerun after exact-selector hardening",
+    "Restrictions sandbox Git LFS/localhost resolved by running unchanged tests with necessary access",
+    "No source movement, source deletion, save reset or gameplay change"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "kalistar-workspace",
+  "private": true,
+  "description": "Commandes de travail du depot source Kalistar; aucune dependance runtime ajoutee.",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "check": "node maintenance/check-organisation.cjs",
+    "test": "node maintenance/validate.cjs --suite ci",
+    "test:organisation": "node maintenance/validate.cjs --suite organisation",
+    "test:local": "node maintenance/validate.cjs --suite local",
+    "test:browser": "node maintenance/validate.cjs --suite browser",
+    "build": "node maintenance/check-organisation.cjs && node V4/deploy/build.cjs",
+    "prepare:release": "node V4/deploy/prepare-release.cjs",
+    "media:refresh": "node V4/deploy/runtime-media.cjs"
+  }
+}

@@ -1,0 +1,19 @@
+✔ all 11 OP, all 25 RE and 12 justified MGS revisions, never Skull Face or Rikka (1.1263ms)
+✔ every numeric face respects its original role interval and every special is preserved (53.7081ms)
+✔ unique numeric signatures and tradeoffs, not a blanket power increase (94.0976ms)
+✔ rejects nonnumeric drift, special relocation, missing faces and role overflow/underflow (5.7354ms)
+✔ publication preserves concurrent Kaine/Rikka additions and all unrelated metadata (2.1598ms)
+✔ first numeric revision accepts absent historical nativeRevision, not other absent metadata (1.2113ms)
+✔ native audit rejects hidden style, effects, artwork, font and frame changes (20.619ms)
+✔ circular pixel scope rejects rectangle corners and any changed frame pixel (0.598ms)
+✔ matrix tolerance accepts only IEEE rounding on edited numeric text, never real scaling (1.3661ms)
+✔ native renderer requires exact existing Photoshop, process lock, shared mutex and explicit grant (1.7526ms)
+✔ frozen originals and plan JSON agree with authored choices (19.474ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 320.215

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 4,
+  "id": "30000005",
+  "name": "MALINIA",
+  "title": "LA MEMOIRE SOUS LE GIVRE",
+  "job": "VEILLEUSE",
+  "race": "HUMAIN",
+  "element": "CRYO",
+  "faction": "Niveria",
+  "weapon": "Sceptre",
+  "positions": [
+    4
+  ],
+  "atk": [
+    295,
+    243,
+    191,
+    146,
+    94,
+    42
+  ],
+  "defense": [
+    170,
+    145,
+    113,
+    81,
+    56,
+    24
+  ],
+  "magic": [
+    6,
+    5,
+    4,
+    3,
+    2,
+    1
+  ],
+  "barriers": [
+    6,
+    3
+  ],
+  "slug": "05_CRYO_MALINIA",
+  "hue": 201,
+  "color": "ACDFFD",
+  "weapon_index": 12,
+  "description": "Au fond du lac dort un souvenir que Niveria croyait perdu. Malinia retient les fissures du gel pendant qu'une lueur ancienne réchauffe ses mains. Sauver le passé commence parfois par le laisser fondre.",
+  "artwork": "MALINIA",
+  "artworkSource": "V4/assets/illustrations/elements-01/eau-feu-glace/MALINIA_V4_01.png",
+  "artworkUnchanged": false,
+  "sourcePSD": "V3/templates/05_CRYO_MALINIA.psd",
+  "output": "MALINIA_V4_01_CRYO",
+  "profile": "V4/template-stable/elements-01/malinia/card.json"
+}

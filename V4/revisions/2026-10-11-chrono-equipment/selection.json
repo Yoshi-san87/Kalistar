@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "included": [
+    "chrono-rainbow",
+    "chrono-valkyrie",
+    "chrono-wondershot",
+    "chrono-masamune",
+    "chrono-teraton-arm",
+    "chrono-doom-scythe"
+  ],
+  "excluded": [
+    {
+      "characterId": "ayla-chrono-trigger",
+      "reason": "Ayla combat à mains nues. Bronze Fist est une évolution innée, pas un objet équipable à inventer."
+    }
+  ]
+}

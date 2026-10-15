@@ -1,0 +1,92 @@
+{
+  "date": "2026-10-12",
+  "generator": "built-in image_gen",
+  "kind": "five-derived-character-illustrations",
+  "references": [
+    "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/propositions/2026-10-12-froz-soldier/froz-soldier-01.png",
+    "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V3/assets/illustrations/01_ELECTRO_MOMO.png",
+    "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V3/assets/illustrations/34_NECRO_VALAZAR.png"
+  ],
+  "approval": "User approved prototype; these five illustrations await selection. No cards, profiles, engine or release changes.",
+  "items": [
+    {
+      "key": "kaervan",
+      "name": "Kaervan",
+      "title": "Le briseur de rangs",
+      "weapon": "Mâchoire de Siège",
+      "file": "images/kaervan-01.png",
+      "source": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-ab20548d-f6e1-418c-b648-8a9d8a5258f5.png",
+      "prompt": "prompts/kaervan-01.txt",
+      "status": "proposal-awaiting-user-approval"
+    },
+    {
+      "key": "nyrska",
+      "name": "Nyrska",
+      "title": "Les crocs de velours",
+      "weapon": "Les Jumelles de Froid",
+      "file": "images/nyrska-01.png",
+      "source": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-bb0bcd2a-1216-4c27-b352-01242597bf1c.png",
+      "prompt": "prompts/nyrska-01.txt",
+      "status": "proposal-awaiting-user-approval"
+    },
+    {
+      "key": "vrold",
+      "name": "Vrold",
+      "title": "Le dernier silence",
+      "weapon": "Le Croc Lointain",
+      "file": "images/vrold-04.png",
+      "source": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-622db8db-8a93-405a-8d7a-db3de60b97c3.png",
+      "prompt": "prompts/vrold-01.txt",
+      "status": "proposal-awaiting-user-approval"
+    },
+    {
+      "key": "saevra",
+      "name": "Saevra",
+      "title": "La voix du blizzard",
+      "weapon": "L'Ordre Rouge",
+      "file": "images/saevra-01.png",
+      "source": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-c892bb10-fd68-4888-a42f-6c46cd222760.png",
+      "prompt": "prompts/saevra-01.txt",
+      "status": "proposal-awaiting-user-approval"
+    },
+    {
+      "key": "drogan",
+      "name": "Drogan",
+      "title": "Le mur des crocs",
+      "weapon": "Brise-Meute",
+      "file": "images/drogan-01.png",
+      "source": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-beb26c9c-0d9c-4d05-8c5b-78eb91531e18.png",
+      "prompt": "prompts/drogan-01.txt",
+      "status": "proposal-awaiting-user-approval"
+    }
+  ],
+  "corrections": [
+    {
+      "key": "vrold",
+      "reason": "User reports incoherent diagonal bandolier below forearm.",
+      "attempts": [
+        {
+          "source": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-39d71f11-bc1c-4cb5-b2bc-c22083e1f18b.png",
+          "prompt": "prompts/vrold-01.txt",
+          "status": "superseded-wrong-lower-strap"
+        },
+        {
+          "source": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-ba6bd907-4ba3-4f08-bf1a-160a86ce1096.png",
+          "prompt": "prompts/vrold-02.txt",
+          "status": "superseded-raccord-still-wrong"
+        },
+        {
+          "source": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-161f70c8-1f49-4901-9c7d-ff61783e5df8.png",
+          "prompt": "prompts/vrold-03.txt",
+          "status": "superseded-upper-glow-missing"
+        },
+        {
+          "source": "C:/Users/guill/.codex/generated_images/01a105ff-8f81-73d3-a496-05ee3a7f1a72/exec-622db8db-8a93-405a-8d7a-db3de60b97c3.png",
+          "prompt": "prompts/vrold-04.txt",
+          "status": "selected-for-gallery",
+          "note": "Incorrect waist segment removed; upper strap glow restored, continuation occluded by arm and knee."
+        }
+      ]
+    }
+  ]
+}

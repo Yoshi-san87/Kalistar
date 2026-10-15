@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 4,
+  "id": "30000019",
+  "name": "BELROG",
+  "title": "LE SILENCE DE LA MONTAGNE",
+  "job": "ECLAIREUR",
+  "race": "RHINOZ",
+  "element": "MINERO",
+  "faction": "Zarok",
+  "weapon": "Masse",
+  "positions": [
+    1
+  ],
+  "atk": [
+    205,
+    168,
+    131,
+    101,
+    "guard",
+    27
+  ],
+  "defense": [
+    290,
+    245,
+    193,
+    141,
+    96,
+    44
+  ],
+  "magic": [
+    6,
+    3
+  ],
+  "barriers": [
+    5,
+    2
+  ],
+  "slug": "19_MINERO_BELROG",
+  "hue": 210,
+  "color": "B3BFCA",
+  "weapon_index": 2,
+  "description": "Au sommet du col, Belrog redresse le signal renversé par l'avalanche. La vallée ne répond pas encore. Il attend debout, couvert de poussière, jusqu'à distinguer une première lumière au loin.",
+  "artwork": "BELROG",
+  "artworkSource": "V3/assets/illustrations/19_MINERO_BELROG.png",
+  "artworkUnchanged": true,
+  "sourcePSD": "V3/templates/19_MINERO_BELROG.psd",
+  "output": "BELROG_V4_01_MINERO",
+  "profile": "V4/template-stable/elements-01/belrog/card.json"
+}
