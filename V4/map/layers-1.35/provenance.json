@@ -1,0 +1,84 @@
+{
+  "version": "1.35",
+  "parentVersion": "1.34",
+  "status": "proposal",
+  "runtimePublished": false,
+  "generator": "built-in image_gen; deterministic masked terrain compositing",
+  "generationId": "exec-73ee1ac0-a8ee-49c1-9281-7739f6ce601b",
+  "parentFiles": [
+    {
+      "file": "V4/map/layers-1.34/kalistar-map-1.34-base.png",
+      "sha256": "ad62078e4f5c7fa4911c8bd5ab74ebd8671d09a57802cfffb73775d04f0e59df"
+    },
+    {
+      "file": "V4/map/layers-1.34/kalistar-map-1.34.psd",
+      "sha256": "6b6c13ec893a802959aa73d867fbee7f24631d216ad2517a467b60078a21be8b"
+    }
+  ],
+  "files": [
+    {
+      "file": "build-proposal.cjs",
+      "sha256": "889e85207d918fbb9317c70dc8d7dffd8e22052bf67ac508c490d4425064a63b"
+    },
+    {
+      "file": "crater-detail.png",
+      "sha256": "41da5cbf1e50e1b060ce666089b928b2b043c29faa2db0869851b3ef7ad914b8"
+    },
+    {
+      "file": "depth-generated.png",
+      "sha256": "525f6180e02dbdfe309aca3eb9b16856d7e909d6aefe404d5f7072b0e9ed059c"
+    },
+    {
+      "file": "depth.prompt.txt",
+      "sha256": "81be29c957bdb1aa77522744faa12c2177632a0c910b8091942ea96f7632b62b"
+    },
+    {
+      "file": "join.prompt.txt",
+      "sha256": "9cb0d870af8cfbbf9a56bd0d23548bcaa88518eec4150fe23ac7db3cfc323110"
+    },
+    {
+      "file": "kalistar-map-1.35-base.png",
+      "sha256": "12ad24ac9ee3633b0f137bd0eaaf8b6a6dc3f0f88bc07dc56f9b7794a9e806bc"
+    },
+    {
+      "file": "kalistar-map-1.35-preview.png",
+      "sha256": "180f82a4b67a15e7b9172770dd7d17d27ee9af01232a2b0cb634c04e260a29c4"
+    },
+    {
+      "file": "kalistar-map-1.35.psd",
+      "sha256": "410538bfb465828f9dc24a6814d75b6681b148541b4b99cc4dea17b107de22c6"
+    },
+    {
+      "file": "README.md",
+      "sha256": "af4a3056ba26dfb76267fdc0cce6b1846c4af20f6ac8231f903c2ddeee86e101"
+    },
+    {
+      "file": "verification.json",
+      "sha256": "0ec8fefcce2c89a18319313fbfeade412698c3d945cf89ef7f2aee221d6adf76"
+    },
+    {
+      "file": "zone-after.png",
+      "sha256": "37da29828900946f550dfe86a30563480f8bcd04c25175e88041dcc2a4c3bd99"
+    },
+    {
+      "file": "zone-before.png",
+      "sha256": "6f3277882f379f2c393b49eb1daa29fc2f286bf9b9aee75c981e765549b31537"
+    },
+    {
+      "file": "zone-fitted.png",
+      "sha256": "dba14e10a0f4239a804420938734d8f990161def17df1e0cdba02c6588d6787d"
+    },
+    {
+      "file": "zone-generated.png",
+      "sha256": "716614e4646798154665f895a2dac8ec37f57ad1b9f40876d0dca59d258e420b"
+    },
+    {
+      "file": "zone-mask.png",
+      "sha256": "b0feda25046b00f9162854c21fc7f32ae1cf85f21c6093f56476327f7984540f"
+    },
+    {
+      "file": "zone.json",
+      "sha256": "eda2b0d289663e5ad873c931235efaf8eb26160a9122238b02c2156540a764b4"
+    }
+  ]
+}

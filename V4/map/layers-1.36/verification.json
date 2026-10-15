@@ -1,0 +1,112 @@
+{
+  "version": "1.36",
+  "parentVersion": "1.35",
+  "status": "proposal",
+  "runtimePublished": false,
+  "width": 1774,
+  "height": 887,
+  "changedInside": 55813,
+  "changedOutside": 0,
+  "compositeChangedOutside": 0,
+  "edits": [
+    {
+      "id": "wall",
+      "crop": {
+        "left": 199,
+        "top": 63,
+        "width": 261,
+        "height": 165
+      },
+      "generationId": "exec-48bff56e-c095-4366-9851-4acd6fef8658",
+      "colorOffsets": [
+        -2,
+        1,
+        4
+      ],
+      "changedInside": 17760
+    },
+    {
+      "id": "crater",
+      "crop": {
+        "left": 330,
+        "top": 285,
+        "width": 175,
+        "height": 140
+      },
+      "generationId": "exec-c00c20af-0fe0-482b-9c16-c98ba59d8579",
+      "colorOffsets": [
+        -8,
+        -2,
+        2
+      ],
+      "changedInside": 13051
+    },
+    {
+      "id": "fog",
+      "crop": {
+        "left": 20,
+        "top": 510,
+        "width": 250,
+        "height": 250
+      },
+      "generationId": "exec-afe08477-6750-4a1a-9ce5-bbf3eb90258c",
+      "colorOffsets": [
+        -1,
+        4,
+        6
+      ],
+      "changedInside": 25002
+    }
+  ],
+  "protectedRegions": {
+    "thalassea": 0,
+    "frame": 0,
+    "scarUpstream": 0
+  },
+  "abyssChangedPixels": 0,
+  "fogNeighborChangedPixels": 0,
+  "navigationHubChangedPixels": 0,
+  "geometryFogRegionChanges": 0,
+  "atmosphereIndependent": true,
+  "cityCount": 8,
+  "cityGroupsUnchanged": true,
+  "duraneAnchor": {
+    "globalX": 449,
+    "globalY": 393,
+    "localX": 119,
+    "localY": 108,
+    "iconBounds": {
+      "left": 438,
+      "top": 317,
+      "width": 22,
+      "height": 76
+    },
+    "cityPositionUnchanged": true
+  },
+  "originalLayersUnchanged": true,
+  "editableMasksRoundTrip": true,
+  "compositeRoundTrip": true,
+  "nativePhotoshopTested": false,
+  "protectedSources": [
+    {
+      "file": "V4/map/layers-1.35/kalistar-map-1.35-base.png",
+      "sha256": "12ad24ac9ee3633b0f137bd0eaaf8b6a6dc3f0f88bc07dc56f9b7794a9e806bc"
+    },
+    {
+      "file": "V4/map/layers-1.35/kalistar-map-1.35.psd",
+      "sha256": "410538bfb465828f9dc24a6814d75b6681b148541b4b99cc4dea17b107de22c6"
+    },
+    {
+      "file": "V4/map/kalistar-map-1.0.png",
+      "sha256": "ed35a624086c2a965bf3a19fa148d76be8f5dff54c7e3e60d2f18b0a1b756604"
+    },
+    {
+      "file": "V4/site/map-view.js",
+      "sha256": "03a7b9835c87daa4b28db634b4fbd94a80d1d5c0055c9be2333ea27c62105575"
+    },
+    {
+      "file": "V4/site/assets/ui/kalistar-atlas-1.33.webp",
+      "sha256": "da4fe6e85bcf258eb7e812932a0f33a6d856510abe746fdc1e1a40bfb54c71c3"
+    }
+  ]
+}

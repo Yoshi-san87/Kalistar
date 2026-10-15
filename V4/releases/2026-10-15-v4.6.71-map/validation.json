@@ -1,0 +1,51 @@
+{
+  "version": "4.6.71",
+  "mapVersion": "1.36",
+  "date": "2026-10-15",
+  "cards": 424,
+  "scope": "Approved map terrain only; eight city assets and positions unchanged",
+  "localValidation": {
+    "organisation": "PASS after explicit scoped staging",
+    "ci": { "command": "node maintenance/validate.cjs --suite ci", "exitCode": 0, "invocations": 94 },
+    "local": { "command": "node maintenance/validate.cjs --suite local", "exitCode": 0, "invocations": 10 },
+    "build": { "command": "node V4/deploy/build.cjs", "exitCode": 0 },
+    "environment": { "CF_PAGES": "1", "node": "24", "KALISTAR_NODE_MODULES": "configured local runtime" },
+    "logs": "work/qa/map-4.6.71/",
+    "initialRegistryCheck": "Historical browser alias retained, then all validation rerun successfully"
+  },
+  "preflightBrowser": {
+    "map": {
+      "command": "node V4/map/layers-1.36/map.browser.test.cjs",
+      "exitCode": 0,
+      "viewports": ["1440x1000", "412x1007", "390x844"],
+      "cities": 8,
+      "verifiedAssetHashesPerViewport": 11,
+      "testedSelections": ["durane", "cryptown", "thalassea"],
+      "reload": true,
+      "pageErrors": 0,
+      "httpFailures": 0,
+      "screenshotsVisuallyInspected": ["overview-1440x1000.png", "durane-412x1007.png", "cryptown-390x844.png"],
+      "evidence": "work/qa/map-4.6.71/preflight-map/results.json"
+    },
+    "game": {
+      "command": "node V4/deploy/browser.test.cjs",
+      "exitCode": 0,
+      "checks": ["424 cards", "desktop/phone", "reader", "PNG download", "decks", "arena", "saved match and reload", "additive catalogue update", "no Atelier or HTTP errors"],
+      "evidence": "work/qa/map-4.6.71/preflight-game/"
+    }
+  },
+  "native": {
+    "generationProvenanceUnchanged": true,
+    "changedPixelsOutsideMasks": 0,
+    "originalCityGroupsUnchanged": true,
+    "duraneTowerFoot": [449, 393],
+    "psdRoundTrip": true,
+    "runtimeWebpLossless": true,
+    "runtimeTerrainSha256": "2d9cba3ff26a84df0e0695d00ded5475a706af6ee2a82a5a81f2d29cdaea7722",
+    "nativePhotoshopTested": false
+  },
+  "backup": { "files": 73, "bytes": 125604392, "allHashesVerified": true, "manifest": "work/qa/map-4.6.71/backup.json" },
+  "postCommitRequired": ["prepare exact commit", "test frozen map and game build", "atomic main/tag push", "GitHub repository suite success", "Wrangler deployment to existing kalistar project", "public release/media hashes and desktop/phone map/game verification"],
+  "postCommitEvidence": "work/qa/map-4.6.71/publication.json",
+  "unchanged": ["gameplay", "player storage", "approved card catalogue", "city coordinates", "Cloudflare Access", "DNS", "billing", "public origin"]
+}

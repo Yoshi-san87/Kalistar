@@ -6,12 +6,12 @@ Ces numeros sont independants de la version du jeu.
 Lire [la direction artistique et ses references](DIRECTION_ARTISTIQUE.md)
 avant les prochaines retouches : trait, parchemin, villes, biomes et cotes.
 
-Publication active : [map 1.33](layers-1.33/kalistar-map-1.33-preview.png),
-livraison jeu 4.6.68. Huit villes selectionnables, dont Thalassea dans sa bulle
-sous-marine, au centre d'un anneau d'iles. Le mur et sa porte barrent les
-montagnes du nord-ouest. Terrain et emblemes restent independants.
-Sources, prompts et export runtime : [layers-1.33](layers-1.33/PUBLICATION.md).
-Les retouches du cratere 1.34/1.35 sont des propositions locales non publiees.
+Publication active : [map 1.36](layers-1.36/kalistar-map-1.36-preview.png),
+livraison jeu 4.6.71. Huit villes selectionnables, dont Thalassea dans sa bulle
+sous-marine. Le cratere et son sillon profond rejoignent Durane ; un barrage
+compact barre le col du nord-ouest et une brume epaisse entoure Cryptown.
+Terrain, atmosphere et emblemes restent independants dans le PSD.
+Sources, prompts et export runtime : [layers-1.36](layers-1.36/PUBLICATION.md).
 
 | Version | Fichier | Contenu |
 | --- | --- | --- |

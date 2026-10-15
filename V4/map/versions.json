@@ -1,5 +1,5 @@
 {
-  "latestVersion": "1.33",
+  "latestVersion": "1.36",
   "artDirection": "DIRECTION_ARTISTIQUE.md",
   "versions": [
     {
@@ -492,6 +492,58 @@
       "runtimePublished": true,
       "runtimeCitiesSeparate": true,
       "sha256": "fde7e50499b0c2520cc684122b5b2639e9067a0a5ceb31736f6a072fdc8fd85c"
+    },
+    {
+      "version": "1.34",
+      "parentVersion": "1.33",
+      "file": "layers-1.34/kalistar-map-1.34-preview.png",
+      "base": "layers-1.34/kalistar-map-1.34-base.png",
+      "description": "Trainee d'impact gravee et debris geologiques fins",
+      "layeredDocument": "layers-1.34/kalistar-map-1.34.psd",
+      "preview": "layers-1.34/kalistar-map-1.34-preview.png",
+      "provenance": "layers-1.34/provenance.json",
+      "verification": "layers-1.34/verification.json",
+      "status": "approved-intermediate",
+      "authorApprovedOn": "2026-10-15",
+      "includedInVersion": "1.36",
+      "runtimePublished": false,
+      "runtimeCitiesSeparate": true,
+      "sha256": "b6f8a583dd3f2d68e68e68a447c6bf09b077ece6e340ed738718c5071da61e30"
+    },
+    {
+      "version": "1.35",
+      "parentVersion": "1.34",
+      "file": "layers-1.35/kalistar-map-1.35-preview.png",
+      "base": "layers-1.35/kalistar-map-1.35-base.png",
+      "description": "Sillon d'impact profond et jonction ouverte avec le cratere",
+      "layeredDocument": "layers-1.35/kalistar-map-1.35.psd",
+      "preview": "layers-1.35/kalistar-map-1.35-preview.png",
+      "provenance": "layers-1.35/provenance.json",
+      "verification": "layers-1.35/verification.json",
+      "status": "approved-intermediate",
+      "authorApprovedOn": "2026-10-15",
+      "includedInVersion": "1.36",
+      "runtimePublished": false,
+      "runtimeCitiesSeparate": true,
+      "sha256": "180f82a4b67a15e7b9172770dd7d17d27ee9af01232a2b0cb634c04e260a29c4"
+    },
+    {
+      "version": "1.36",
+      "parentVersion": "1.35",
+      "file": "layers-1.36/kalistar-map-1.36-preview.png",
+      "base": "layers-1.36/kalistar-map-1.36-base.png",
+      "description": "Cratere au pied de Durane, barrage nord compact et brume marine de Cryptown",
+      "layeredDocument": "layers-1.36/kalistar-map-1.36.psd",
+      "preview": "layers-1.36/kalistar-map-1.36-preview.png",
+      "provenance": "layers-1.36/provenance.json",
+      "verification": "layers-1.36/verification.json",
+      "status": "approved",
+      "authorApprovedOn": "2026-10-15",
+      "publishedAsset": "../site/assets/ui/kalistar-atlas-1.36.webp",
+      "publishedMedia": "layers-1.36/published-media.json",
+      "runtimePublished": true,
+      "runtimeCitiesSeparate": true,
+      "sha256": "0f6842f93a0303dc918ee044804dacdf78a8c303cf6927ace3738660f32daf68"
     }
   ]
 }

@@ -1,0 +1,394 @@
+{
+  "version": "1.36",
+  "parentVersion": "1.35",
+  "status": "proposal",
+  "runtimePublished": false,
+  "date": "2026-10-15",
+  "parentBase": "V4/map/layers-1.35/kalistar-map-1.35-base.png",
+  "parentPsd": "V4/map/layers-1.35/kalistar-map-1.35.psd",
+  "edits": [
+    {
+      "id": "wall",
+      "kind": "terrain",
+      "name": "Nord - barrage compact, petite porte et montagnes",
+      "crop": {
+        "left": 199,
+        "top": 63,
+        "width": 261,
+        "height": 165
+      },
+      "polygon": [
+        [
+          18,
+          10
+        ],
+        [
+          40,
+          6
+        ],
+        [
+          66,
+          13
+        ],
+        [
+          96,
+          28
+        ],
+        [
+          123,
+          31
+        ],
+        [
+          153,
+          28
+        ],
+        [
+          177,
+          17
+        ],
+        [
+          205,
+          15
+        ],
+        [
+          231,
+          20
+        ],
+        [
+          247,
+          43
+        ],
+        [
+          244,
+          70
+        ],
+        [
+          228,
+          92
+        ],
+        [
+          203,
+          105
+        ],
+        [
+          177,
+          108
+        ],
+        [
+          153,
+          104
+        ],
+        [
+          142,
+          119
+        ],
+        [
+          143,
+          135
+        ],
+        [
+          126,
+          139
+        ],
+        [
+          116,
+          129
+        ],
+        [
+          109,
+          111
+        ],
+        [
+          90,
+          98
+        ],
+        [
+          69,
+          92
+        ],
+        [
+          45,
+          87
+        ],
+        [
+          26,
+          65
+        ],
+        [
+          15,
+          38
+        ]
+      ],
+      "feather": 5,
+      "colorAnchor": {
+        "left": 163,
+        "top": 132,
+        "width": 32,
+        "height": 16
+      },
+      "colorLimit": 6,
+      "generationId": "exec-48bff56e-c095-4366-9851-4acd6fef8658",
+      "visualAnnotations": {
+        "oldMasonrySpan": 175,
+        "newMasonrySpan": 43,
+        "newDoorwayWidth": 2,
+        "units": "native map pixels; visual landmark annotations, not segmentation measurements"
+      }
+    },
+    {
+      "id": "crater",
+      "kind": "terrain",
+      "name": "Durane - bassin d'impact et rebord sous la tour",
+      "crop": {
+        "left": 330,
+        "top": 285,
+        "width": 175,
+        "height": 140
+      },
+      "polygon": [
+        [
+          12,
+          8
+        ],
+        [
+          35,
+          3
+        ],
+        [
+          60,
+          4
+        ],
+        [
+          83,
+          7
+        ],
+        [
+          110,
+          15
+        ],
+        [
+          129,
+          29
+        ],
+        [
+          143,
+          47
+        ],
+        [
+          148,
+          72
+        ],
+        [
+          145,
+          94
+        ],
+        [
+          136,
+          111
+        ],
+        [
+          124,
+          121
+        ],
+        [
+          105,
+          124
+        ],
+        [
+          81,
+          119
+        ],
+        [
+          57,
+          114
+        ],
+        [
+          36,
+          104
+        ],
+        [
+          19,
+          86
+        ],
+        [
+          9,
+          64
+        ],
+        [
+          7,
+          38
+        ]
+      ],
+      "feather": 5,
+      "colorAnchor": {
+        "left": 8,
+        "top": 112,
+        "width": 24,
+        "height": 10
+      },
+      "colorLimit": 8,
+      "generationId": "exec-c00c20af-0fe0-482b-9c16-c98ba59d8579",
+      "duraneAnchor": {
+        "globalX": 449,
+        "globalY": 393,
+        "localX": 119,
+        "localY": 108,
+        "iconBounds": {
+          "left": 438,
+          "top": 317,
+          "width": 22,
+          "height": 76
+        },
+        "cityPositionUnchanged": true
+      }
+    },
+    {
+      "id": "fog",
+      "kind": "atmosphere",
+      "name": "Cryptown - brouillard marin dense",
+      "crop": {
+        "left": 20,
+        "top": 510,
+        "width": 250,
+        "height": 250
+      },
+      "polygon": [
+        [
+          18,
+          58
+        ],
+        [
+          27,
+          37
+        ],
+        [
+          50,
+          21
+        ],
+        [
+          80,
+          18
+        ],
+        [
+          111,
+          28
+        ],
+        [
+          140,
+          48
+        ],
+        [
+          159,
+          77
+        ],
+        [
+          171,
+          108
+        ],
+        [
+          181,
+          137
+        ],
+        [
+          178,
+          165
+        ],
+        [
+          160,
+          192
+        ],
+        [
+          137,
+          218
+        ],
+        [
+          112,
+          231
+        ],
+        [
+          83,
+          229
+        ],
+        [
+          55,
+          221
+        ],
+        [
+          32,
+          205
+        ],
+        [
+          20,
+          184
+        ],
+        [
+          17,
+          157
+        ],
+        [
+          17,
+          127
+        ],
+        [
+          17,
+          94
+        ]
+      ],
+      "feather": 8,
+      "colorAnchor": {
+        "left": 208,
+        "top": 10,
+        "width": 20,
+        "height": 30
+      },
+      "colorLimit": 6,
+      "preserveAbyss": {
+        "x": 88,
+        "y": 117,
+        "rx": 20,
+        "ry": 23
+      },
+      "preserveNeighbors": {
+        "left": 168,
+        "top": 128,
+        "feather": 8
+      },
+      "preserveHubs": [
+        {
+          "x": 80,
+          "y": 46,
+          "radius": 7,
+          "feather": 5
+        },
+        {
+          "x": 154,
+          "y": 240,
+          "radius": 7,
+          "feather": 5
+        }
+      ],
+      "generationId": "exec-afe08477-6750-4a1a-9ce5-bbf3eb90258c"
+    }
+  ],
+  "protectedRegions": {
+    "thalassea": {
+      "left": 754,
+      "top": 571,
+      "width": 281,
+      "height": 266
+    },
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 35,
+      "height": 887
+    },
+    "scarUpstream": {
+      "left": 170,
+      "top": 205,
+      "width": 160,
+      "height": 90
+    }
+  },
+  "authorNote": "The deep impact scar is approved; the crater bowl is now reshaped locally to meet Durane's unchanged tower foot."
+}

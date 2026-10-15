@@ -9,12 +9,12 @@ test('map remains in the shell and the extra navigation menu',()=>{
   assert(read('map-view.css').includes('drop-shadow'));assert(read('map-view.css').includes('data-compact-labels'));
 });
 test('published atlas exists with no PSD or authoring data used at runtime',()=>{
-  const source=fs.readFileSync(path.join(__dirname,'map-view.js'),'utf8');assert(source.includes('kalistar-atlas-1.33.webp'));assert(!source.includes('.psd'));const image=fs.readFileSync(path.join(__dirname,'assets/ui/kalistar-atlas-1.33.webp'));assert.equal(image.toString('ascii',0,4),'RIFF');assert(image.length>100000);
+  const source=fs.readFileSync(path.join(__dirname,'map-view.js'),'utf8');assert(source.includes('kalistar-atlas-1.36.webp'));assert(!source.includes('.psd'));const image=fs.readFileSync(path.join(__dirname,'assets/ui/kalistar-atlas-1.36.webp'));assert.equal(image.toString('ascii',0,4),'RIFF');assert(image.length>100000);
 });
 
 test('latest published map and eight city assets match their recorded provenance',()=>{
   const crypto=require('node:crypto'),root=path.resolve(__dirname,'../..');
-  const proof=JSON.parse(fs.readFileSync(path.join(root,'V4/map/layers-1.33/published-media.json')));
+  const proof=JSON.parse(fs.readFileSync(path.join(root,'V4/map/layers-1.36/published-media.json')));
   for(const asset of proof.assets){
     const bytes=fs.readFileSync(path.join(root,asset.file));
     assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),asset.sha256);

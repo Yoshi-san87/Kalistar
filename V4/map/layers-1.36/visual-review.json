@@ -1,0 +1,29 @@
+{
+  "version": "1.36",
+  "date": "2026-10-15",
+  "status": "proposal",
+  "runtimePublished": false,
+  "method": "Visual inspection of saved integrated PNGs with view_image, plus deterministic pixel and PSD checks",
+  "reviewedFiles": [
+    "durane-detail.png",
+    "wall-detail.png",
+    "cryptown-detail.png",
+    "kalistar-map-1.36-preview.png"
+  ],
+  "visualChecks": {
+    "duraneOriginalTowerFootOnSoutheasternLip": true,
+    "craterScarJunctionOpen": true,
+    "damCompactWithTinyGateAndMountainAbutments": true,
+    "cryptownDenseFogWithoutRectangularSeam": true,
+    "cryptownAbyssAndCityRemainReadable": true,
+    "completeMapCoherentWithKalistarEngravedParchment": true
+  },
+  "regression": {
+    "command": "node --test V4/map/layers-1.33/map.test.cjs V4/site/map-view.test.cjs",
+    "passed": 10,
+    "failed": 0
+  },
+  "nativePhotoshopTested": false,
+  "newRuntimeBrowserTested": false,
+  "note": "This is a local layered map proposal. The website still uses approved map 1.33."
+}

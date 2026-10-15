@@ -1,0 +1,187 @@
+{
+  "version": "1.36",
+  "parentVersion": "1.35",
+  "status": "proposal",
+  "runtimePublished": false,
+  "generator": "built-in image_gen; deterministic masked terrain and atmosphere compositing",
+  "generations": [
+    {
+      "id": "wall",
+      "generationId": "exec-48bff56e-c095-4366-9851-4acd6fef8658",
+      "prompt": "wall.prompt.txt",
+      "output": "wall-generated.png"
+    },
+    {
+      "id": "crater",
+      "generationId": "exec-c00c20af-0fe0-482b-9c16-c98ba59d8579",
+      "prompt": "crater.prompt.txt",
+      "output": "crater-generated.png"
+    },
+    {
+      "id": "fog",
+      "generationId": "exec-afe08477-6750-4a1a-9ce5-bbf3eb90258c",
+      "prompt": "fog.prompt.txt",
+      "output": "fog-generated.png"
+    }
+  ],
+  "parentFiles": [
+    {
+      "file": "V4/map/layers-1.35/kalistar-map-1.35-base.png",
+      "sha256": "12ad24ac9ee3633b0f137bd0eaaf8b6a6dc3f0f88bc07dc56f9b7794a9e806bc"
+    },
+    {
+      "file": "V4/map/layers-1.35/kalistar-map-1.35.psd",
+      "sha256": "410538bfb465828f9dc24a6814d75b6681b148541b4b99cc4dea17b107de22c6"
+    },
+    {
+      "file": "V4/map/kalistar-map-1.0.png",
+      "sha256": "ed35a624086c2a965bf3a19fa148d76be8f5dff54c7e3e60d2f18b0a1b756604"
+    },
+    {
+      "file": "V4/site/map-view.js",
+      "sha256": "03a7b9835c87daa4b28db634b4fbd94a80d1d5c0055c9be2333ea27c62105575"
+    },
+    {
+      "file": "V4/site/assets/ui/kalistar-atlas-1.33.webp",
+      "sha256": "da4fe6e85bcf258eb7e812932a0f33a6d856510abe746fdc1e1a40bfb54c71c3"
+    }
+  ],
+  "files": [
+    {
+      "file": "build-proposal.cjs",
+      "sha256": "1a15277a8ea0c70135a08c39af064cb7658eca65dc8d1e64160eb4d082cf086a"
+    },
+    {
+      "file": "crater-after.png",
+      "sha256": "40a4c15269a5a6f3fd8b8f262927b64a83ec308718d34d04b9427316e910b340"
+    },
+    {
+      "file": "crater-before-large.png",
+      "sha256": "a4534316b43440179b52a24ad9759cf85f9fb438dae179a7b14bae58e5c5ef55"
+    },
+    {
+      "file": "crater-before.png",
+      "sha256": "ce41cfdbba3b87bec808f2a191b1dbbd4279634b38395305c79ef959a99e0c08"
+    },
+    {
+      "file": "crater-city-placement.png",
+      "sha256": "1b8949246897f8d162bc0c68ce5bc28e41095262cd3e565c80886f3922c3e263"
+    },
+    {
+      "file": "crater-fitted.png",
+      "sha256": "70ca1b73be7c56c8d9b84a1ffebc742ad97df81f6ebb31ca2670edb258a30843"
+    },
+    {
+      "file": "crater-generated.png",
+      "sha256": "f96f77591346168424f129c16f58ae0bc1e393363f724ebbf7c5ac04b6d4bd12"
+    },
+    {
+      "file": "crater-mask.png",
+      "sha256": "4749417b01fbec0e8d26645d1bf47478eb339f82b224f7a0953abc5fd412b59a"
+    },
+    {
+      "file": "crater.prompt.txt",
+      "sha256": "bc967ca25629fa17299c147ac8fc7611606feb5f96f52f9b26888073e32df357"
+    },
+    {
+      "file": "cryptown-detail.png",
+      "sha256": "7db9d811800764d36fe41d4498b5ac948fb082da925d70eb10e7c54d2b8721e6"
+    },
+    {
+      "file": "durane-detail.png",
+      "sha256": "6ff19bee43bbd00a04af9033f08a6c37f02038dee67c38eb203f2b9a1378f11d"
+    },
+    {
+      "file": "fog-after.png",
+      "sha256": "28440c2b9eef0adf1b46e53b9f39e9aaa9cd81767d861ad265ef78a8292814bb"
+    },
+    {
+      "file": "fog-before-large.png",
+      "sha256": "4eddd03fc88186d962f0cdbae0586a7843637a4bd29d96cbd1636c39ca6238c7"
+    },
+    {
+      "file": "fog-before.png",
+      "sha256": "c1a5cebf5f86beb1c62d1f01c24d116045a7d4699d0fbf4a73b2639bff77ff9b"
+    },
+    {
+      "file": "fog-fitted.png",
+      "sha256": "ee63a0380f49c4dc29a752afc24ab31f4d37d968837c140eb32b2a51b3f351d1"
+    },
+    {
+      "file": "fog-generated.png",
+      "sha256": "f587ac84d1d3a61862d5375016f2a51d4213cb11b6e419bfd37e88a9dd3992e2"
+    },
+    {
+      "file": "fog-mask.png",
+      "sha256": "f5c2c42992102581dd9c516a5c4aa19c51136da3fa9b2034ea44dbe46a086aa3"
+    },
+    {
+      "file": "fog.prompt.txt",
+      "sha256": "a4ec976717fe8e21796b1b8489ea72b5c047397e21cbf8ad409441bd133c7914"
+    },
+    {
+      "file": "kalistar-map-1.36-base.png",
+      "sha256": "917c00972a5e541a55ed9cdfcb46988f667811e14955f3d45eab29a10f2b70c5"
+    },
+    {
+      "file": "kalistar-map-1.36-geometry.png",
+      "sha256": "ecb3e51c3cb748ecc12157fe081c49e5ea22f3c9f660eb9c8ea3bf37c5555cae"
+    },
+    {
+      "file": "kalistar-map-1.36-preview.png",
+      "sha256": "0f6842f93a0303dc918ee044804dacdf78a8c303cf6927ace3738660f32daf68"
+    },
+    {
+      "file": "kalistar-map-1.36.psd",
+      "sha256": "f2d85db9bbc9fbf1fb42ec730882df742089807fe5d1fae885df70170893f403"
+    },
+    {
+      "file": "README.md",
+      "sha256": "24ec32618d664175374c883583a754e56328e60871bf2f2b61eb385460d8608a"
+    },
+    {
+      "file": "verification.json",
+      "sha256": "99fc12edcea2e6f9b2bbc1dd0d79cf510ad86601fdd10cb8af9a92263457fc4f"
+    },
+    {
+      "file": "visual-review.json",
+      "sha256": "57ff8c720acdfbd12abc2247eba259d27c4642b830e60377723ee808017553f0"
+    },
+    {
+      "file": "wall-after.png",
+      "sha256": "b65e60e99b2718b05475bd4af5c64f650786b8d1e40090c0b5ae61c8f0faa084"
+    },
+    {
+      "file": "wall-before-large.png",
+      "sha256": "c952414c91733a519a1ceca5722a492f6515c5bca8d1d40e4c7910573c7d5a19"
+    },
+    {
+      "file": "wall-before.png",
+      "sha256": "7ff02b1a9b510aaa9c09d31edb5b809beca2e9612528c84c96353e4f31a96327"
+    },
+    {
+      "file": "wall-detail.png",
+      "sha256": "95a896667b6e2eb7c21a379caede2ba949fe3d233e6f9e28c193f2921bb800d0"
+    },
+    {
+      "file": "wall-fitted.png",
+      "sha256": "543e84462c1347ea2fe63f293562368826bb2fbb3657435817893e12a5cc1ffe"
+    },
+    {
+      "file": "wall-generated.png",
+      "sha256": "49552d2ab1eb1d835a0a74b48a580802710568670ad5e608cdcc451a08c51a5f"
+    },
+    {
+      "file": "wall-mask.png",
+      "sha256": "bde3cd2fa1750d988bcd14878ff7686e1979e442cca052c7a14c1ba91f57cf4c"
+    },
+    {
+      "file": "wall.prompt.txt",
+      "sha256": "0649643edd3be9cce0ccd59e16c1bd1e9bd0aeb0293caab4bb2ef429b7b4555c"
+    },
+    {
+      "file": "zone.json",
+      "sha256": "59231515e2338ba6dcba7b8ea75fca23fd0156edd77b0d0ec7af0f7da656f433"
+    }
+  ]
+}
