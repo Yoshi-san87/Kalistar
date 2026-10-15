@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "prompt": "V4/revisions/2026-10-15-home-sanctum/sanctum.prompt.txt",
+  "references": [
+    {"source": "V3/assets/illustrations/01_ELECTRO_MOMO.png", "role": "painterly style only"},
+    {"source": "V3/assets/illustrations/34_NECRO_VALAZAR.png", "role": "painted materials only"}
+  ],
+  "original": {
+    "source": "V4/revisions/2026-10-15-home-sanctum/source/sanctum-original-v1.png",
+    "bytes": 3083975,
+    "sha256": "491b5e1380d8f61c08e75dc752679f379c361526549bdcf9147fec4e48a2495c"
+  },
+  "assets": [
+    {"source": "V4/site/assets/home/sanctum-v1.webp", "width": 1672, "height": 941, "bytes": 382292, "sha256": "430458f73edcac7d68a876061d472d304dea6b5a9e50a9ca81e4aae1a080e48d"},
+    {"source": "V4/site/assets/home/sanctum-phone-v1.webp", "width": 740, "height": 1180, "bytes": 121552, "sha256": "cdef8def3d7d23f7d7260d7a0dd30ade3207baeff2ebef46155d0bbd61e95de9"}
+  ],
+  "conversion": {"tool": "sharp", "desktopWebpQuality": 86, "phoneWebpQuality": 83, "phoneCrop": "centre", "preserveOriginal": true}
+}

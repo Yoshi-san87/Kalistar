@@ -109,8 +109,10 @@
   let deckBuilder=null,collectionBinder=null,statisticsSheet=null;
   const weaponsUI=KalistarWeaponsUI.create({data,db,userId:accountId,toast,onCard:id=>showDetail(id)});
   const storyReader=KalistarStoryReader.create({storageKey:preferencePrefix+'story-progress'});
-  const homeScreen=KalistarHome.create({data,image:cardImage,equipment:KalistarWeapons.weapons,medallion:KalistarEquipmentFX.markup,onDetail:id=>showDetail(id),onNavigate:category=>{
-    if(category==='collection'){setView('collection');return;}
+  const homeScreen=KalistarHome.create({data,image:cardImage,asset,equipment:KalistarWeapons.weapons,medallion:KalistarEquipmentFX.markup,
+    getState:()=>({deckName:teamDraft.name,deckCount:teamDraft.cards.filter(Boolean).length,resume:!!game&&game.phase!=='over'}),
+    onDetail:id=>showDetail(id),onNavigate:category=>{
+    if(['collection','arena','decks','story','map','guide'].includes(category)){setView(category);return;}
     weaponsUI.selectCategory(category);setView('weapons');
   }});
   const overlayOpen=()=>!!document.querySelector('dialog[open]')||!!window.KalistarReservePreview?.isOpen();

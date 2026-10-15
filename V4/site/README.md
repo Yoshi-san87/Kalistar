@@ -18,6 +18,12 @@ consomment le meme catalogue V4. Aucun fallback vers le jeu ou `data.js` V3.
 - `home-screen.js`, `page-transitions.js`, `phone-preview.js/css` :
   accueil, transitions et preview Razr. Le desktop garde sa navigation propre.
 
+Home utilise une peinture panoramique et son export portrait dans `assets/home/`,
+avec les cartes et emblemes reels en DOM. `home-screen.css` est l'unique
+proprietaire de sa mise en page. Le carrousel garde huit cartes au plus et
+respecte focus, popup, visibilite et Reduced Motion. Son resume de composition
+vient de l'etat local fourni par app.js, jamais d'un jeu de donnees decoratif.
+
 Les vues publiques sont Home, Collection, Decks, Equipements, Arene,
 Statistiques, Story, Map, Guide et Library. Le serveur local garde en plus
 l'Atelier ; il ne fait pas partie du build public.
