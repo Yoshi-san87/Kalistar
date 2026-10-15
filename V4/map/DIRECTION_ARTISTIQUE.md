@@ -97,6 +97,12 @@ version 1.30. L'auteur valide le rendu et demande sa publication sur le site
 le 14 octobre 2026. Les six autres villes et le terrain hors masque restent
 identiques ; les versions precedentes sont conservees.
 
+Thalassea est definie par l'auteur le 15 octobre 2026 : cite sous-marine
+abritee dans une bulle au fond de la mer, au centre d'un anneau d'iles arrondi.
+Une petite cite gravee sepia dans une sphere represente la ville, sans ajouter
+de terre centrale, de scene sous-marine moderne ou de bleu lumineux.
+Terrain, embleme, ombre, filet serre et nom restent independants (map 1.33).
+
 Lisibilite (13 octobre 2026, map 1.29) : en interface, conserver le terrain
 separe des emblemes. Taille minimale en pixels ecran, limites de proximite,
 filet parchemin serre et ombre portee pour detacher les silhouettes sans badge.

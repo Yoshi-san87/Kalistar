@@ -1,0 +1,127 @@
+{
+  "version": "1.33",
+  "parentVersion": "1.32",
+  "status": "proposal",
+  "runtimePublished": false,
+  "generator": "built-in image_gen; deterministic masked compositing; independent city emblem and native editable text",
+  "generationIds": {
+    "terrain": "exec-a2696a9c-7c14-49e4-89f2-6ee00d098e86",
+    "icon": "exec-c7bf0ed1-f841-46cf-9424-17e2ec6d5178"
+  },
+  "parentFiles": [
+    {
+      "file": "V4/map/layers-1.32/kalistar-map-1.32-base.png",
+      "sha256": "4fd4b8d59d77e11add71b86fdd3a1941991ffcbdad73d63aba7e9918ac6fb679"
+    },
+    {
+      "file": "V4/map/layers-1.32/kalistar-map-1.32.psd",
+      "sha256": "e5f4a77f047fd93632866ed3d1081d94d99dc9fb9e2be2754c0883096b933ef0"
+    },
+    {
+      "file": "V4/map/versions.json",
+      "sha256": "2b61e71ad7f2c3360ba8ad0d6328738b670515e9f579c1bf3038d7cba6f6f8c7"
+    },
+    {
+      "file": "V4/site/map-view.js",
+      "sha256": "a61cc80a948f9446c4d70140150d6e7ebdc9c3c1db72618ad02cc7e720777a81"
+    },
+    {
+      "file": "V4/site/assets/ui/kalistar-atlas-1.30.webp",
+      "sha256": "2ffc2d52c4d2858658c3f95589860a24e01d78d295c31b6753b5d3af5ebaec29"
+    },
+    {
+      "file": "V4/deploy/runtime-media.json",
+      "sha256": "3ef290d5a102e015f19382fdc2e5b3ff50c8d5dbed164bf1eabcda87fdb67ca6"
+    },
+    {
+      "file": "V4/map/layers-1.32/island-barrier-detail.png",
+      "sha256": "07c5046ba542767d364213d284005343000d88c5d2fa420d9489178b9becaee6"
+    },
+    {
+      "file": "V4/site/assets/map/arborium-v2.webp",
+      "sha256": "f8eca4e1a7d6bba3b45c21d56a523605b91a12d51215c7ea4813a478b785b8b4"
+    }
+  ],
+  "files": [
+    {
+      "file": "build-proposal.cjs",
+      "sha256": "2d26e066ecfaf64346777c8b423523a83d2461dee5ad859c892d6fc810977516"
+    },
+    {
+      "file": "kalistar-map-1.33-base.png",
+      "sha256": "98781200c0e40b2d0e9abdbeec925e39c7574147750b3c5bab9c6ddfefbf0040"
+    },
+    {
+      "file": "kalistar-map-1.33-preview.png",
+      "sha256": "fde7e50499b0c2520cc684122b5b2639e9067a0a5ceb31736f6a072fdc8fd85c"
+    },
+    {
+      "file": "kalistar-map-1.33.psd",
+      "sha256": "671573abc51e3ec91158b0457939feef82a251a87afa8f17f98dfcdc58b36a10"
+    },
+    {
+      "file": "README.md",
+      "sha256": "2caf930c11194c9346d1a612ae10ea3e343e0c1989e72d1622216535b57c633f"
+    },
+    {
+      "file": "thalassea-detail.png",
+      "sha256": "971915493bbc5fd91c4ce837ad23569a8f1976c294c2ef7b35db4e28275ff54c"
+    },
+    {
+      "file": "thalassea-icon.png",
+      "sha256": "b25ea06624135d110403c457b1772b3afb14b890d4243a4bc9501d82f22e6e9b"
+    },
+    {
+      "file": "thalassea-source.png",
+      "sha256": "f47c04c32448703dbd0aeba76511c9a2f1aa9f6b8177da70ac9fa587bc382a4f"
+    },
+    {
+      "file": "thalassea-v1.webp",
+      "sha256": "a83b140b7c02cad39efa3b3937775d91f2031c3fea1947350a8792642e6a04b4"
+    },
+    {
+      "file": "thalassea-v2.webp",
+      "sha256": "8cc2ce7bffb611f0d506bfbde2b7d2521398e0e2d884d325b0d33c82a17b9339"
+    },
+    {
+      "file": "thalassea.prompt.txt",
+      "sha256": "6f7bb28686a3f69e935a49e549b0f417c854997390dfeffd8b54f29238e9bd20"
+    },
+    {
+      "file": "user-zone-reference.png",
+      "sha256": "b3476254a6ebb251e6ec3c9791f7cd200d5f2df691348f45470521fc0407efd1"
+    },
+    {
+      "file": "verification.json",
+      "sha256": "5ff2d581ef52c87247340fb9f02d215ab8fb9e11bead57a60620b40c4d15d14b"
+    },
+    {
+      "file": "zone-after.png",
+      "sha256": "9926bb20b1b8ae4042f6d81a82d51b6083cdef54a01a7b37a55280e466cf1371"
+    },
+    {
+      "file": "zone-before.png",
+      "sha256": "cccdbf5f72e114acb6c058805101986c14cc27e6cf9d64e2cbf76756d2523857"
+    },
+    {
+      "file": "zone-fitted.png",
+      "sha256": "5093d90399d5c905a893c65c806dac958b1344d2681668895148689ad7b9aa02"
+    },
+    {
+      "file": "zone-generated.png",
+      "sha256": "732c1f08a02726bcc4188e4c65aef6a049ad4c4301a2195cb193a5c015509905"
+    },
+    {
+      "file": "zone-mask.png",
+      "sha256": "1adc82ae56f08dd95e15850173d8b59ace02a0b7eed5c9c47d1ce1ed8dd4d9f0"
+    },
+    {
+      "file": "zone.json",
+      "sha256": "5bb9ce189ffbd7eccec999d9219b150dedbc0332d65abdf2b5c450ec82c17cf0"
+    },
+    {
+      "file": "zone.prompt.txt",
+      "sha256": "1dd1af7c4f0aaa72aa0d90d7f72eb7c2ecf0c23272c45a7c5a9f7cb532a65190"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "latestVersion": "1.30",
+  "latestVersion": "1.33",
   "artDirection": "DIRECTION_ARTISTIQUE.md",
   "versions": [
     {
@@ -441,6 +441,57 @@
       "runtimePublished": true,
       "runtimeCitiesSeparate": true,
       "sha256": "4986c0303cf16c9bcfd0188288cf882e3f9abb4cec81c3407a46112e52fbb5b2"
+    },
+    {
+      "version": "1.31",
+      "parentVersion": "1.30",
+      "file": "layers-1.31/kalistar-map-1.31-preview.png",
+      "base": "layers-1.31/kalistar-map-1.31-base.png",
+      "description": "Mur monumental et porte dans les montagnes du nord-ouest, terrain cote terre harmonise",
+      "layeredDocument": "layers-1.31/kalistar-map-1.31.psd",
+      "preview": "layers-1.31/kalistar-map-1.31-preview.png",
+      "provenance": "layers-1.31/provenance.json",
+      "verification": "layers-1.31/verification.json",
+      "status": "approved-intermediate",
+      "authorApprovedOn": "2026-10-15",
+      "includedInVersion": "1.33",
+      "runtimePublished": false,
+      "runtimeCitiesSeparate": true,
+      "sha256": "d3b4e5363e454decb391ce086cc68c189afd6009ec4c4c83207ff782ba79a174"
+    },
+    {
+      "version": "1.32",
+      "parentVersion": "1.31",
+      "file": "layers-1.32/kalistar-map-1.32-preview.png",
+      "base": "layers-1.32/kalistar-map-1.32-base.png",
+      "description": "Barriere d'iles et bassin marin profond, remplacee par l'anneau 1.33",
+      "layeredDocument": "layers-1.32/kalistar-map-1.32.psd",
+      "preview": "layers-1.32/kalistar-map-1.32-preview.png",
+      "provenance": "layers-1.32/provenance.json",
+      "verification": "layers-1.32/verification.json",
+      "status": "superseded",
+      "includedInVersion": "1.33",
+      "runtimePublished": false,
+      "runtimeCitiesSeparate": true,
+      "sha256": "b44802317e4974e2b65f1415bdaa5ceac3e685a6f090bb0545176fcdfa88897e"
+    },
+    {
+      "version": "1.33",
+      "parentVersion": "1.32",
+      "file": "layers-1.33/kalistar-map-1.33-preview.png",
+      "base": "layers-1.33/kalistar-map-1.33-base.png",
+      "description": "Thalassea : anneau rond, cite sous-marine en bulle et mur du nord-ouest",
+      "layeredDocument": "layers-1.33/kalistar-map-1.33.psd",
+      "preview": "layers-1.33/kalistar-map-1.33-preview.png",
+      "provenance": "layers-1.33/provenance.json",
+      "verification": "layers-1.33/verification.json",
+      "status": "approved",
+      "authorApprovedOn": "2026-10-15",
+      "publishedAsset": "../site/assets/ui/kalistar-atlas-1.33.webp",
+      "publishedMedia": "layers-1.33/published-media.json",
+      "runtimePublished": true,
+      "runtimeCitiesSeparate": true,
+      "sha256": "fde7e50499b0c2520cc684122b5b2639e9067a0a5ceb31736f6a072fdc8fd85c"
     }
   ]
 }

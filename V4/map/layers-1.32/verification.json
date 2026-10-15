@@ -1,0 +1,59 @@
+{
+  "version": "1.32",
+  "parentVersion": "1.31",
+  "status": "proposal",
+  "runtimePublished": false,
+  "date": "2026-10-15",
+  "crop": {
+    "left": 754,
+    "top": 571,
+    "width": 281,
+    "height": 266
+  },
+  "terrainChanges": {
+    "changedInside": 35921,
+    "changedOutside": 0
+  },
+  "fullChanges": {
+    "changedInside": 35921,
+    "changedOutside": 0
+  },
+  "northernWallChangedPixels": 0,
+  "colorOffsets": [
+    -4,
+    0,
+    1
+  ],
+  "cityCount": 7,
+  "originalLayersUnchanged": true,
+  "cityGroupsUnchanged": true,
+  "editableMaskRoundTrip": true,
+  "compositeRoundTrip": true,
+  "nativePhotoshopTested": false,
+  "protectedSources": [
+    {
+      "file": "V4/map/layers-1.31/kalistar-map-1.31-base.png",
+      "sha256": "1807af6d7e48ac7d92011dd637f62e98f267037eb5c52efb320b247265c76e29"
+    },
+    {
+      "file": "V4/map/layers-1.31/kalistar-map-1.31.psd",
+      "sha256": "60761f2fb7cf2322e79b21e930d7a80a486d8d959593e3ebfde6c0db51779748"
+    },
+    {
+      "file": "V4/map/versions.json",
+      "sha256": "2b61e71ad7f2c3360ba8ad0d6328738b670515e9f579c1bf3038d7cba6f6f8c7"
+    },
+    {
+      "file": "V4/site/map-view.js",
+      "sha256": "a61cc80a948f9446c4d70140150d6e7ebdc9c3c1db72618ad02cc7e720777a81"
+    },
+    {
+      "file": "V4/site/assets/ui/kalistar-atlas-1.30.webp",
+      "sha256": "2ffc2d52c4d2858658c3f95589860a24e01d78d295c31b6753b5d3af5ebaec29"
+    },
+    {
+      "file": "V4/deploy/runtime-media.json",
+      "sha256": "7ed03aeac7f64fbbe1cc9d4743bdd00845ea76004672710b33a3500879622226"
+    }
+  ]
+}

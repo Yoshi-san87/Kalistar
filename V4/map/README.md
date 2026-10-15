@@ -6,10 +6,12 @@ Ces numeros sont independants de la version du jeu.
 Lire [la direction artistique et ses references](DIRECTION_ARTISTIQUE.md)
 avant les prochaines retouches : trait, parchemin, villes, biomes et cotes.
 
-Publication active : [map 1.29](layers-1.29/kalistar-map-1.29-preview.png),
-jeu 4.6.44. Six villes selectionnables ; emblemes independants lisibles a l'ecran.
-Les propositions 1.20-1.27 restent archivees dans `versions.json`.
-Sources et export runtime : [layers-1.29](layers-1.29/README.md).
+Publication active : [map 1.33](layers-1.33/kalistar-map-1.33-preview.png),
+livraison jeu 4.6.68. Huit villes selectionnables, dont Thalassea dans sa bulle
+sous-marine, au centre d'un anneau d'iles. Le mur et sa porte barrent les
+montagnes du nord-ouest. Terrain et emblemes restent independants.
+Sources, prompts et export runtime : [layers-1.33](layers-1.33/PUBLICATION.md).
+Les retouches du cratere 1.34/1.35 sont des propositions locales non publiees.
 
 | Version | Fichier | Contenu |
 | --- | --- | --- |

@@ -1,0 +1,119 @@
+{
+  "version": "1.31",
+  "parentVersion": "1.30",
+  "status": "proposal",
+  "runtimePublished": false,
+  "generator": "built-in image_gen; deterministic local masks and original independent city groups",
+  "generationIds": {
+    "wall": "exec-7b8fc1d1-d80b-4845-985a-38b83a4dd24a",
+    "foreground": "exec-a39e38b6-6a6e-466f-8869-9c231928d38d"
+  },
+  "styleReference": {
+    "file": "V4/map/kalistar-map-1.0.png",
+    "sha256": "ed35a624086c2a965bf3a19fa148d76be8f5dff54c7e3e60d2f18b0a1b756604"
+  },
+  "parentFiles": [
+    {
+      "file": "V4/map/kalistar-map-1.30-base.png",
+      "sha256": "08ad4d7db43294b2e1013c751f202508da0dc6745ff1407b9d17ecd4b5bc94a4"
+    },
+    {
+      "file": "V4/map/layers-1.30/kalistar-map-1.30.psd",
+      "sha256": "5d3f16344c626af742c17648b32b3caecd10d784a47919bf19b9c1020672ae89"
+    },
+    {
+      "file": "V4/map/versions.json",
+      "sha256": "2b61e71ad7f2c3360ba8ad0d6328738b670515e9f579c1bf3038d7cba6f6f8c7"
+    },
+    {
+      "file": "V4/site/map-view.js",
+      "sha256": "a61cc80a948f9446c4d70140150d6e7ebdc9c3c1db72618ad02cc7e720777a81"
+    },
+    {
+      "file": "V4/site/assets/ui/kalistar-atlas-1.30.webp",
+      "sha256": "2ffc2d52c4d2858658c3f95589860a24e01d78d295c31b6753b5d3af5ebaec29"
+    },
+    {
+      "file": "V4/deploy/runtime-media.json",
+      "sha256": "7ed03aeac7f64fbbe1cc9d4743bdd00845ea76004672710b33a3500879622226"
+    }
+  ],
+  "files": [
+    {
+      "file": "build-proposal.cjs",
+      "sha256": "b8f3c6edb47c7941ca5ae20ef7db01207c975def39570a4734778854d36d0bd3"
+    },
+    {
+      "file": "kalistar-map-1.31-base.png",
+      "sha256": "1807af6d7e48ac7d92011dd637f62e98f267037eb5c52efb320b247265c76e29"
+    },
+    {
+      "file": "kalistar-map-1.31-preview.png",
+      "sha256": "d3b4e5363e454decb391ce086cc68c189afd6009ec4c4c83207ff782ba79a174"
+    },
+    {
+      "file": "kalistar-map-1.31.psd",
+      "sha256": "60761f2fb7cf2322e79b21e930d7a80a486d8d959593e3ebfde6c0db51779748"
+    },
+    {
+      "file": "land-fitted.png",
+      "sha256": "1009a3820eb9c5d9b28f8c3a1a15fe7c0af812c104ad26aac47c8a1d091ea506"
+    },
+    {
+      "file": "land-generated.png",
+      "sha256": "dc08ec536c2f6215f1d4e6854427a8a65d314e1b710128c526ff34bde5acd5fb"
+    },
+    {
+      "file": "land-mask.png",
+      "sha256": "8d2b8b577615f2aca8a6016b29ac82f8421393a575a77c6a045ecd858d7a2d66"
+    },
+    {
+      "file": "land.prompt.txt",
+      "sha256": "964faff493d3a9d4831ce2b2b930082a948113500941d0de13b3dfa9133a1960"
+    },
+    {
+      "file": "README.md",
+      "sha256": "c2747248c6b45019b380b36ab04c6fb74ca994f788facad47553421cee9961ab"
+    },
+    {
+      "file": "user-zone-reference.png",
+      "sha256": "ac2110356562fd9e5fcbc8cdfcbc518217ecd4c4762d236ab63dff5a893c210a"
+    },
+    {
+      "file": "verification.json",
+      "sha256": "fe5922b114189f185fdb94f659c56431cd0cce3440948e929825f2e09f1b870c"
+    },
+    {
+      "file": "wall-detail.png",
+      "sha256": "06d5a9b4d6ebb74f7310d248a7d8c6f3c4404df2b394880325a218eedc0ae3e6"
+    },
+    {
+      "file": "wall-fitted.png",
+      "sha256": "5300a9fb1b723bfb9f1441cd90c1400702053a14401dc5cf91a619e7acad7193"
+    },
+    {
+      "file": "wall-generated.png",
+      "sha256": "2e3f1e9009cd6d4738d1b25d006d9d253784b7090ea11ebb27ff427dba43dada"
+    },
+    {
+      "file": "wall-mask.png",
+      "sha256": "fe1a79b32a255df1eca284bb3b7d10f5baff6b38255454df96e06b7f236ef4a7"
+    },
+    {
+      "file": "wall.prompt.txt",
+      "sha256": "668b33c2742c13a1f153350b634322e6cfd54e203b10e3e9979024dfa263335c"
+    },
+    {
+      "file": "zone-after.png",
+      "sha256": "f9d57366603be4d26e278fa1e84cf857075396d191a1effb917f9fc1d711b1a9"
+    },
+    {
+      "file": "zone-before.png",
+      "sha256": "af3d31199fbabc92153f6582b539e81988677233ca957b2ce6844bc5fb156e4e"
+    },
+    {
+      "file": "zone.json",
+      "sha256": "741caeb5b28f5b203bf388a30e2781a26fa940d3dffd1109018fb9dc80c4b90b"
+    }
+  ]
+}

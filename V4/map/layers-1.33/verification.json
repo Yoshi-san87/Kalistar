@@ -1,0 +1,104 @@
+{
+  "version": "1.33",
+  "parentVersion": "1.32",
+  "status": "proposal",
+  "runtimePublished": false,
+  "date": "2026-10-15",
+  "crop": {
+    "left": 754,
+    "top": 571,
+    "width": 281,
+    "height": 266
+  },
+  "terrainChangedInside": 38820,
+  "terrainChangedOutside": 0,
+  "compositeChangedOutsideAllowed": 0,
+  "northernWallChangedPixels": 0,
+  "cityChangedPixels": 3594,
+  "colorOffsets": [
+    -1,
+    1,
+    1
+  ],
+  "navigationJoin": {
+    "top": 230,
+    "bottom": 245,
+    "targetTopX": 135,
+    "targetBottomX": 132.8,
+    "sourceCenters": [
+      135,
+      135,
+      135,
+      135,
+      135,
+      135,
+      135,
+      135,
+      133.72,
+      133,
+      132.89,
+      132.83,
+      132.8,
+      132.79,
+      132.79,
+      132.79
+    ],
+    "halfWidth": 8
+  },
+  "oldCityCount": 7,
+  "cityCount": 8,
+  "originalLayersUnchanged": true,
+  "cityGroupsUnchanged": true,
+  "editableMaskRoundTrip": true,
+  "compositeRoundTrip": true,
+  "independentCityAndName": true,
+  "city": {
+    "id": "thalassea",
+    "name": "Thalassea",
+    "x": 897,
+    "y": 717,
+    "symbolSize": 50
+  },
+  "icon": {
+    "width": 757,
+    "height": 730,
+    "transparent": 112250,
+    "opaque": 433370,
+    "visibleRed": 0
+  },
+  "nativePhotoshopTested": false,
+  "protectedSources": [
+    {
+      "file": "V4/map/layers-1.32/kalistar-map-1.32-base.png",
+      "sha256": "4fd4b8d59d77e11add71b86fdd3a1941991ffcbdad73d63aba7e9918ac6fb679"
+    },
+    {
+      "file": "V4/map/layers-1.32/kalistar-map-1.32.psd",
+      "sha256": "e5f4a77f047fd93632866ed3d1081d94d99dc9fb9e2be2754c0883096b933ef0"
+    },
+    {
+      "file": "V4/map/versions.json",
+      "sha256": "2b61e71ad7f2c3360ba8ad0d6328738b670515e9f579c1bf3038d7cba6f6f8c7"
+    },
+    {
+      "file": "V4/site/map-view.js",
+      "sha256": "a61cc80a948f9446c4d70140150d6e7ebdc9c3c1db72618ad02cc7e720777a81"
+    },
+    {
+      "file": "V4/site/assets/ui/kalistar-atlas-1.30.webp",
+      "sha256": "2ffc2d52c4d2858658c3f95589860a24e01d78d295c31b6753b5d3af5ebaec29"
+    },
+    {
+      "file": "V4/deploy/runtime-media.json",
+      "sha256": "3ef290d5a102e015f19382fdc2e5b3ff50c8d5dbed164bf1eabcda87fdb67ca6"
+    },
+    {
+      "file": "V4/map/layers-1.32/island-barrier-detail.png",
+      "sha256": "07c5046ba542767d364213d284005343000d88c5d2fa420d9489178b9becaee6"
+    },
+    {
+      "file": "V4/site/assets/map/arborium-v2.webp",
+      "sha256": "f8eca4e1a7d6bba3b45c21d56a523605b91a12d51215c7ea4813a478b785b8b4"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "version": "1.32",
+  "parentVersion": "1.31",
+  "status": "proposal",
+  "runtimePublished": false,
+  "generator": "built-in image_gen; deterministic masked compositing; original independent city groups",
+  "generationId": "exec-cf553e4e-9a40-4f04-b975-95c1fe9b2f78",
+  "parentFiles": [
+    {
+      "file": "V4/map/layers-1.31/kalistar-map-1.31-base.png",
+      "sha256": "1807af6d7e48ac7d92011dd637f62e98f267037eb5c52efb320b247265c76e29"
+    },
+    {
+      "file": "V4/map/layers-1.31/kalistar-map-1.31.psd",
+      "sha256": "60761f2fb7cf2322e79b21e930d7a80a486d8d959593e3ebfde6c0db51779748"
+    },
+    {
+      "file": "V4/map/versions.json",
+      "sha256": "2b61e71ad7f2c3360ba8ad0d6328738b670515e9f579c1bf3038d7cba6f6f8c7"
+    },
+    {
+      "file": "V4/site/map-view.js",
+      "sha256": "a61cc80a948f9446c4d70140150d6e7ebdc9c3c1db72618ad02cc7e720777a81"
+    },
+    {
+      "file": "V4/site/assets/ui/kalistar-atlas-1.30.webp",
+      "sha256": "2ffc2d52c4d2858658c3f95589860a24e01d78d295c31b6753b5d3af5ebaec29"
+    },
+    {
+      "file": "V4/deploy/runtime-media.json",
+      "sha256": "7ed03aeac7f64fbbe1cc9d4743bdd00845ea76004672710b33a3500879622226"
+    }
+  ],
+  "files": [
+    {
+      "file": "build-proposal.cjs",
+      "sha256": "0359657dd1190f0eaed9d265320ddfa4662dc455ded7b8fa152391c1a8d9ab7f"
+    },
+    {
+      "file": "island-barrier-detail.png",
+      "sha256": "07c5046ba542767d364213d284005343000d88c5d2fa420d9489178b9becaee6"
+    },
+    {
+      "file": "kalistar-map-1.32-base.png",
+      "sha256": "4fd4b8d59d77e11add71b86fdd3a1941991ffcbdad73d63aba7e9918ac6fb679"
+    },
+    {
+      "file": "kalistar-map-1.32-preview.png",
+      "sha256": "b44802317e4974e2b65f1415bdaa5ceac3e685a6f090bb0545176fcdfa88897e"
+    },
+    {
+      "file": "kalistar-map-1.32.psd",
+      "sha256": "e5f4a77f047fd93632866ed3d1081d94d99dc9fb9e2be2754c0883096b933ef0"
+    },
+    {
+      "file": "README.md",
+      "sha256": "7840afc8569511812a19451360987d05b8c4de7602a6123575bfd85fa2f0c696"
+    },
+    {
+      "file": "user-zone-reference.png",
+      "sha256": "b3476254a6ebb251e6ec3c9791f7cd200d5f2df691348f45470521fc0407efd1"
+    },
+    {
+      "file": "verification.json",
+      "sha256": "defe8248ad20f2942d734abdbf5ee9046189abed20552f151753c17e8e10d24f"
+    },
+    {
+      "file": "zone-after.png",
+      "sha256": "cccdbf5f72e114acb6c058805101986c14cc27e6cf9d64e2cbf76756d2523857"
+    },
+    {
+      "file": "zone-before.png",
+      "sha256": "431a5641582f0ef9d5a83d7ac2eb7f89f7ffbd88f1d85f94bdcbca1b1acf160b"
+    },
+    {
+      "file": "zone-fitted.png",
+      "sha256": "fb17006f0d9d16b9fb27fd2abd961917f4516dc7608130149bc99fdc9b24ac4e"
+    },
+    {
+      "file": "zone-generated.png",
+      "sha256": "762a206b0a2289362b7c3f5a28f8a80367d1e03a0709e19943c81f48b45f05d2"
+    },
+    {
+      "file": "zone-mask.png",
+      "sha256": "92f35e20b2ca7ff5038b46df2597eaf8198c0cd7354d0743760a424a4e076eb3"
+    },
+    {
+      "file": "zone.json",
+      "sha256": "ceb8aa265e11ee576142e2d876e3e552eacf9289b83f07f079eb4e88360d3640"
+    },
+    {
+      "file": "zone.prompt.txt",
+      "sha256": "5a12394efef2f7645349bc8c6a06a55b4cb95ada28b5c117efcdae2a11c54759"
+    }
+  ]
+}

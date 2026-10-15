@@ -1,0 +1,83 @@
+{
+  "appVersion": "4.6.68",
+  "mapVersion": "1.33",
+  "authorApprovedOn": "2026-10-15",
+  "cards": 424,
+  "scope": [
+    "northwest wall and gate",
+    "rounded Thalassea archipelago",
+    "independent underwater city emblem and accessible city details"
+  ],
+  "excluded": [
+    "crater proposals 1.34 and 1.35",
+    "uncommitted Home refactor",
+    "gameplay and saved state changes"
+  ],
+  "preflight": {
+    "organisation": "passed",
+    "ci": {
+      "command": "npm test",
+      "invocations": 87,
+      "exitCode": 0,
+      "log": "work/qa/map-4.6.68/ci.log"
+    },
+    "local": {
+      "command": "npm run test:local",
+      "invocations": 9,
+      "exitCode": 0,
+      "log": "work/qa/map-4.6.68/local-with-network.log"
+    },
+    "mapAndRuntime": {
+      "tests": 10,
+      "passed": 10
+    },
+    "environment": {
+      "KALISTAR_NODE_MODULES": "bundled local dependencies",
+      "CF_PAGES": "1"
+    },
+    "setupRetries": [
+      "Initial CI attempt omitted the local dependency path; rerun uses bundled marked without source changes.",
+      "Restricted local loopback test was blocked with EACCES; the complete local suite passed after approval with loopback access."
+    ]
+  },
+  "native": {
+    "previousCityCount": 7,
+    "currentCityCount": 8,
+    "outsideMaskChangedPixels": 0,
+    "oldCityLayersUnchanged": true,
+    "sourcePsdReopened": true,
+    "nativePhotoshopTested": false,
+    "runtimeTerrainLossless": true
+  },
+  "backup": {
+    "directory": "C:/Users/guill/Documents/Sauvegardes-Kalistar/2026-10-15_map-1.33_213558",
+    "files": 59,
+    "bytes": 105099923,
+    "allHashesVerified": true
+  },
+  "publicationGate": {
+    "exactCommitSnapshotRequired": true,
+    "commands": [
+      "node V4/map/layers-1.33/map.browser.test.cjs",
+      "node V4/deploy/browser.test.cjs"
+    ],
+    "screens": [
+      {
+        "width": 1440,
+        "height": 1000
+      },
+      {
+        "width": 412,
+        "height": 1007
+      },
+      {
+        "width": 390,
+        "height": 844
+      }
+    ],
+    "evidenceDirectory": "work/qa/map-4.6.68/",
+    "publicReleaseAndAssetHashesRequired": true,
+    "existingProject": "kalistar",
+    "noAccessDnsOrBillingChanges": true
+  }
+}

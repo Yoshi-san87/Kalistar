@@ -1,0 +1,107 @@
+{
+  "version": "1.31",
+  "parentVersion": "1.30",
+  "status": "proposal",
+  "runtimePublished": false,
+  "date": "2026-10-15",
+  "crop": {
+    "left": 199,
+    "top": 63,
+    "width": 261,
+    "height": 165
+  },
+  "locationMatch": {
+    "score": 176.42222222222222,
+    "left": 264,
+    "top": 108,
+    "width": 131,
+    "height": 55
+  },
+  "changes": {
+    "changedInside": 22953,
+    "changedOutside": 0
+  },
+  "fullChanges": {
+    "changedInside": 22953,
+    "changedOutside": 0
+  },
+  "foregroundChanges": {
+    "changedInside": 13997,
+    "changedOutside": 0
+  },
+  "gateChangedPixels": 0,
+  "riverSamples": [
+    {
+      "y": 144,
+      "before": 123,
+      "after": 118.15254237288137
+    },
+    {
+      "y": 146,
+      "before": 122,
+      "after": 117.45454545454544
+    },
+    {
+      "y": 148,
+      "before": 121,
+      "after": 116.73417721518986
+    },
+    {
+      "y": 150,
+      "before": 121,
+      "after": 115.24999999999999
+    },
+    {
+      "y": 152,
+      "before": 121,
+      "after": 114.27272727272728
+    }
+  ],
+  "riverShift": 5.22720153693121,
+  "colorMatch": [
+    {
+      "scale": 0.9,
+      "offset": 14
+    },
+    {
+      "scale": 0.9,
+      "offset": 14
+    },
+    {
+      "scale": 0.9496402877697842,
+      "offset": 10.158273381294975
+    }
+  ],
+  "cityCount": 7,
+  "originalLayersUnchanged": true,
+  "cityGroupsUnchanged": true,
+  "editableMasksRoundTrip": true,
+  "compositeRoundTrip": true,
+  "nativePhotoshopTested": false,
+  "protectedSources": [
+    {
+      "file": "V4/map/kalistar-map-1.30-base.png",
+      "sha256": "08ad4d7db43294b2e1013c751f202508da0dc6745ff1407b9d17ecd4b5bc94a4"
+    },
+    {
+      "file": "V4/map/layers-1.30/kalistar-map-1.30.psd",
+      "sha256": "5d3f16344c626af742c17648b32b3caecd10d784a47919bf19b9c1020672ae89"
+    },
+    {
+      "file": "V4/map/versions.json",
+      "sha256": "2b61e71ad7f2c3360ba8ad0d6328738b670515e9f579c1bf3038d7cba6f6f8c7"
+    },
+    {
+      "file": "V4/site/map-view.js",
+      "sha256": "a61cc80a948f9446c4d70140150d6e7ebdc9c3c1db72618ad02cc7e720777a81"
+    },
+    {
+      "file": "V4/site/assets/ui/kalistar-atlas-1.30.webp",
+      "sha256": "2ffc2d52c4d2858658c3f95589860a24e01d78d295c31b6753b5d3af5ebaec29"
+    },
+    {
+      "file": "V4/deploy/runtime-media.json",
+      "sha256": "7ed03aeac7f64fbbe1cc9d4743bdd00845ea76004672710b33a3500879622226"
+    }
+  ]
+}
