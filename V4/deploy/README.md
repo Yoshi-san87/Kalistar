@@ -1,6 +1,6 @@
 # Construction et publication
 
-Le jeu public est sur [Cloudflare](https://kalistar.pages.dev/jeu/), projet
+Le jeu heberge est sur [Cloudflare](https://kalistar.pages.dev/jeu/), projet
 personnel existant `kalistar`. Le PC construit et envoie directement le site.
 GitHub conserve le code, les profils, les verrous et les empreintes des medias,
 pas les images ni les PSD. Aucun abonnement supplementaire n'est necessaire.
@@ -99,14 +99,36 @@ creer un nouveau projet pour publier. Les constructions automatiques Git sont
 desactivees en production et en preview. Conserver Cloudflare Access sur les
 previews : un test non connecte peut recevoir une page de connexion, pas le jeu.
 
-Verifier ensuite la version publique, les empreintes de release.json, le rendu
-PC/Razr, Collection, Decks, Arene et sauvegarde/reload. Le precedent deploiement
+Verifier ensuite le login anonyme PC/Razr avec `login.browser.test.cjs` et
+`KALISTAR_LOGIN_LIVE_URL=https://kalistar.pages.dev/jeu/`. Aucun mot de passe
+reel n'est injecte par ce test. La version du commit est visible dans les URLs
+versionnees des scripts publics du login ; `release.json` exige une connexion.
+Tester Collection, Decks, Arene et sauvegarde/reload sur le build fige et faire
+confirmer la premiere connexion reelle par le titulaire. Le precedent deploiement
 Cloudflare reste disponible pour un rollback ; ne pas l'effacer apres l'envoi.
 Ne signaler la livraison en ligne qu'apres ces controles.
 
 Le build respecte les limites Cloudflare sous CF_PAGES=1 : 20 000 fichiers et
 25 Mio par fichier. Le site ne contient ni PSD ni donnees privees. Les limites
 et les verrous natifs ne sont pas assouplis par la migration.
+
+## Acces prive du site heberge
+
+`CF_PAGES=1` inclut `_worker.js` et `_routes.json` sur toutes les routes. Le
+Worker verifie Supabase Auth et la liste privee des joueurs avant de donner
+acces au jeu et aux medias. Seuls le login et ses assets minimaux sont publics.
+Les inscriptions sont fermees. Le developpement localhost reste independant.
+
+Le secret de production `KALISTAR_SESSION_KEY` est gere par Cloudflare Pages.
+Ne jamais le mettre dans Git, un build, un export joueur ou un rapport. Sa
+sauvegarde privee est hors checkout ; sa rotation invalide les cookies du site.
+Sans ce secret, le Worker refuse l'acces. Une preview a besoin de son propre
+secret et conserve en plus Cloudflare Access : ne pas la rendre publique.
+
+La connexion utilise un cookie signe HttpOnly de quinze minutes, renouvele
+toutes les quatre minutes de jeu visible. Le registre revalide les droits a
+chaque appel. Voir [le contrat d'acces](../docs/REGISTRE_EN_LIGNE.md), notamment
+la revocation bornee et la recuperation de mot de passe par email.
 
 ## Sauvegardes et application
 

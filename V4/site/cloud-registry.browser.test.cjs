@@ -4,7 +4,7 @@ const runtime=createRequire(path.join(process.env.KALISTAR_NODE_MODULES||path.jo
 const {chromium}=runtime('playwright');
 const output=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'../../work/qa/cloud-registry');
 const dist=path.resolve(process.env.KALISTAR_DIST||path.join(__dirname,'../deploy/dist'));
-const base='https://kalistar.pages.dev/jeu/?registry=1#home';
+const base='https://kalistar-cloud-qa.invalid/jeu/?registry=1#home';
 const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.webmanifest':'application/manifest+json','.png':'image/png','.webp':'image/webp','.svg':'image/svg+xml','.woff2':'font/woff2'};
 const specimen='KC-'+'a'.repeat(32),secret='b'.repeat(64),userId='11111111-1111-4111-8111-111111111111';
 const item={id:specimen,serial:'000001',barcode:'00000001',modelId:'30000001',name:'MOMO',title:'L\u2019ARTISTE MAGIQUE',status:'owned',pilot:true,owner:{handle:'fixture',displayName:'Voyageur'}};
@@ -57,37 +57,12 @@ async function geometry(page,name){
 async function main(){
   fs.mkdirSync(output,{recursive:true});const browser=await chromium.launch({channel:'chrome',headless:true}),results=[];
   try{
-    if(process.env.KALISTAR_CLOUD_LIVE_URL){
-      for(const profile of profiles.filter(p=>['desktop','razr'].includes(p.name))){
-        const context=await browser.newContext({viewport:{width:profile.width,height:profile.height},isMobile:!!profile.mobile,hasTouch:!!profile.mobile,serviceWorkers:'block'});
-        const calls=[];
-        await context.route('https://fkskjhlaaagqlfcsojjp.supabase.co/**',route=>{
-          const r=route.request();assert(r.method()==='OPTIONS'||new URL(r.url()).pathname==='/rest/v1/rpc/kalistar_certificate','Live QA permits only public certificate reads');
-          calls.push(r.url());return route.continue();
-        });
-        const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
-        const url=new URL(process.env.KALISTAR_CLOUD_LIVE_URL);url.searchParams.set('registry','1');
-        await page.goto(url.href);await idle(page);await page.locator('[data-cloud-form=login]').waitFor();await geometry(page,profile.name);
-        assert.equal(calls.length,0,'anonymous login screen sends no email or private query');
-        await page.screenshot({path:path.join(output,profile.name+'-login-live.png')});
-        await tab(page,'lookup');await page.locator('#cloud-dialog input[name=id]').fill('00000000');await page.locator('[data-cloud-form=lookup] button').click();await idle(page);
-        assert.match(await page.locator('#cloud-dialog [role=alert]').innerText(),/introuvable/);assert(calls.length>0);assert.deepEqual(errors,[]);
-        results.push({profile:profile.name,passed:true,mode:'live public read only'});await context.close();
-      }
-      fs.writeFileSync(path.join(output,'results.json'),JSON.stringify({passed:true,profiles:results},null,2));console.log('PASS live registry: desktop/Razr, SDK loading, anonymous login screen, public read only, no email or specimen creation.');return;
-    }
+    if(process.env.KALISTAR_CLOUD_LIVE_URL)throw Error('Use login.browser.test.cjs with KALISTAR_LOGIN_LIVE_URL for the now-private site.');
     for(const profile of profiles){
       const context=await browser.newContext({viewport:{width:profile.width,height:profile.height},isMobile:!!profile.mobile,hasTouch:!!profile.mobile,reducedMotion:profile.reduced?'reduce':'no-preference',serviceWorkers:'block'});
+      await context.addInitScript(s=>{localStorage.setItem('kalistar.cloud.auth.v1',JSON.stringify(s));},session());
       const fixture=await prepare(context),page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
-      if(profile.name==='desktop'){
-        await page.goto('https://kalistar-cloud-qa.invalid/jeu/?registry=1#home');await idle(page);
-        assert.equal(await page.locator('[data-cloud-form=login]').count(),0,'local and preview origins do not initiate a cross-origin PKCE login');
-        assert.equal(await page.locator('.cloud-auth a').getAttribute('href'),'https://kalistar.pages.dev/jeu/?registry=1');
-      }
-      await page.goto(base);await idle(page);await page.locator('[data-cloud-form=login]').waitFor();
-      assert.equal(fixture.calls.length,0,'opening anonymous register makes no private requests');
-      await page.locator('#cloud-dialog input[name=email]').fill('fixture@example.invalid');await page.locator('[data-cloud-form=login] button').click();await idle(page);
-      assert.match(await page.locator('.cloud-status').innerText(),/envoye/);assert.equal(fixture.calls.filter(c=>c.path.includes('/otp')).length,1);
+      await page.goto(base);await idle(page);assert.match(await page.locator('.cloud-account-bar').innerText(),/@fixture/);
       await tab(page,'lookup');await page.locator('#cloud-dialog input[name=id]').fill('00000001');await page.locator('[data-cloud-form=lookup] button').click();await idle(page);
       await page.locator('.cloud-specimen img').evaluate(i=>i.decode());await geometry(page,profile.name);
       await page.screenshot({path:path.join(output,profile.name+'-public.png')});
@@ -123,12 +98,12 @@ async function main(){
       await action(page,'close').click();assert.equal(await page.locator('.cloud-issued-secret').count(),0);await page.reload();await idle(page);await tab(page,'issue');assert.equal(await page.locator('.cloud-issued-secret').count(),0,'secret never survives reload');
       // A second isolated page shares only this disposable browser context's SDK session.
       const other=await context.newPage();await other.goto(base);await idle(other);await action(other,'logout').click();await idle(other);
-      await page.locator('[data-cloud-form=login]').waitFor();assert.equal(await page.locator('.cloud-specimen').count(),0,'cross-tab signout clears private DOM');
+      await page.locator('.cloud-auth a').waitFor();assert.equal(await page.locator('.cloud-specimen').count(),0,'cross-tab signout clears private DOM');
       assert.deepEqual(errors,[],profile.name+' no JavaScript errors');
       results.push({profile:profile.name,passed:true,requests:fixture.calls.length});await context.close();
     }
     fs.writeFileSync(path.join(output,'results.json'),JSON.stringify({passed:true,mode:'isolated mocked Auth and RPC through official Supabase SDK; no remote mutations',profiles:results},null,2));
-    console.log('PASS online registry: '+results.map(r=>r.profile).join(', ')+'; OTP request, profile, consent, activation, transfers, pilot voucher, reload, cross-tab signout, Back.');
+    console.log('PASS online registry: '+results.map(r=>r.profile).join(', ')+'; authenticated profile, consent, activation, transfers, pilot voucher, reload, cross-tab signout, Back.');
   }finally{await browser.close();}
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});

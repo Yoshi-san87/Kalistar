@@ -4,7 +4,7 @@
   "suites": {
     "repository": [
       ["--test", "maintenance/organisation.test.cjs", "maintenance/validation.test.cjs", "V4/deploy/prepare-release.test.cjs", "V4/deploy/runtime-media.test.cjs"],
-      ["--test", "V4/site/cloud-registry.test.cjs"]
+      ["--test", "V4/site/cloud-registry.test.cjs", "V4/site/cloud-session.test.cjs", "V4/deploy/access-worker.test.cjs"]
     ],
     "organisation": [
       [
@@ -407,7 +407,7 @@
         "V4/deploy/prepare-release.test.cjs",
         "V4/deploy/runtime-media.test.cjs"
       ],
-      ["--test", "V4/site/cloud-registry.test.cjs"]
+      ["--test", "V4/site/cloud-registry.test.cjs", "V4/site/cloud-session.test.cjs", "V4/deploy/access-worker.test.cjs"]
     ],
     "local": [
       ["--test", "V4/map/layers-1.33/map.test.cjs"],

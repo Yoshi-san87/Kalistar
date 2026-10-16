@@ -84,6 +84,7 @@ async function plan({mediaPolicy = true} = {}) {
     if (entry.isFile() && /\.(js|css|html|webmanifest)$/.test(entry.name)) add('V4/site/' + entry.name, 'jeu/' + entry.name);
   }
   add('V4/site/story-content.json', 'jeu/story-content.json');
+  if(process.env.CF_PAGES==='1')add('V4/deploy/access-worker.mjs','_worker.js');
   await tree('V3/site/assets', 'jeu/assets', name => name !== 'cards' && !['arena.png','logo.png','back.png'].includes(name));
   await tree('V4/site/assets', 'jeu/assets');
   for (const folder of ['cristaux','effets','factions','races','armes','armes_transparentes']) {
@@ -131,8 +132,9 @@ async function build() {
     if (file.target === 'jeu/index.html') {
       const html = bytes.toString('utf8');
       if (html.split('data-hosting="local"').length !== 2) throw Error('Missing hosting marker');
-      bytes = Buffer.from(versionStaticAssets(html.replace('data-hosting="local"', 'data-hosting="static"'), version));
+      bytes = Buffer.from(versionStaticAssets(html.replace('data-hosting="local"', 'data-hosting="static" data-auth-state="checking"'), version));
     }
+    if(file.target==='jeu/login.html')bytes=Buffer.from(versionStaticAssets(bytes.toString('utf8'),version));
     const target = inside(DIST, file.target);
     await fs.mkdir(path.dirname(target), {recursive: true});
     await fs.writeFile(target, bytes);
@@ -141,9 +143,10 @@ async function build() {
   await fs.writeFile(path.join(DIST, 'jeu/catalogue.json'), JSON.stringify(catalogue));
   await fs.writeFile(path.join(DIST, 'index.html'), '<!doctype html><html lang="fr"><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=jeu/"><title>Kalistar</title><a href="jeu/">Jouer a Kalistar</a></html>');
   await fs.writeFile(path.join(DIST, '.nojekyll'), '');
+  if(process.env.CF_PAGES==='1')await fs.writeFile(path.join(DIST,'_routes.json'),JSON.stringify({version:1,include:['/*'],exclude:[]}));
   const manifest = {edition: 'V4', version, cards: catalogue.cards.length, assets, bytes: assets.reduce((n,a) => n+a.bytes, 0)};
   const generatedAssets = process.env.CF_PAGES === '1' ? await Promise.all([
-    MARKER, 'jeu/catalogue.json', 'index.html', '.nojekyll'
+    MARKER, 'jeu/catalogue.json', 'index.html', '.nojekyll', '_routes.json'
   ].map(async file => ({path: file, bytes: (await fs.stat(path.join(DIST, file))).size}))) : [];
   if (process.env.CF_PAGES === '1') generatedAssets.push({path: 'release.json', bytes: Buffer.byteLength(JSON.stringify(manifest))});
   assertPublicationLimits([...assets, ...generatedAssets]);

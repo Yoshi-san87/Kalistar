@@ -12,6 +12,9 @@ consomment le meme catalogue V4. Aucun fallback vers le jeu ou `data.js` V3.
 
 - `index.html`, `site-config.js`, `boot.js` : shell, resolution du prefixe,
   chargement du catalogue et ordre de dependances. Conserver l'ordre des modules.
+- `login.html/js/css`, `cloud-session.js`, `auth-guard.js/css` : entree par
+  email/mot de passe et reprise de session avant tout chargement du jeu heberge.
+  `../deploy/access-worker.mjs` protege aussi les fichiers bruts cote Cloudflare.
 - `app.js` : orchestration des vues et des commandes. Les regles restent dans
   les modules purs, pas dans le DOM.
 - `ui-system.js/css`, `positions.js/css`, `navigation.css` : langage visuel commun.
@@ -50,7 +53,10 @@ Conserver les schemas, identifiants stables et validations des anciens imports.
 Ne pas tester sur les possessions ou parties reelles.
 
 `cloud-config.js`, `cloud-registry.js` et `cloud-registry-ui.js/css` ajoutent un
-registre distant independant. Le SDK officiel est charge a la demande. Ne pas
+registre distant independant. Le SDK officiel partage la session de connexion.
+Sur le site heberge, seule l'identite autorisee par le serveur choisit le profil
+local Paris/Tokyo ; le selecteur de profils reste reserve au developpement local.
+Les parties et possessions locales ne sont pas synchronisees vers Supabase. Ne pas
 confondre compte Auth, profil local et exemplaire emis ; ne jamais certifier
 un resultat local par simple import. Voir le [contrat du registre](../docs/REGISTRE_EN_LIGNE.md).
 

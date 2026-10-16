@@ -1,7 +1,8 @@
 (async () => {
   'use strict';
   const data=window.KALISTAR_DATA,E=KalistarEngine.createEngine(data),cards=data.cards,Catalogue=window.KalistarCatalogue;
-  let db=null,dbError='',lastStored='',reportGame=null,reportArchive=null,accountsUI=null;
+  let db=null,dbError='',lastStored='',reportGame=null,reportArchive=null,accountsUI=null,cloudRegistryUI=null;
+  const connectedAccess=window.KALISTAR_CLOUD_ACCESS||null;
   const catalogueUpdates=KalistarCatalogueUpdates.create({loaded:data,readLatest:async signal=>{
     const response=await fetch(window.KalistarSite?.catalogue||'/api/game/catalogue',{cache:'no-store',signal});
     if(!response.ok)throw Error('Catalogue indisponible.');
@@ -26,8 +27,8 @@
   const format=v=>typeof v==='number'?String(v):names[v]||v;
   let storageAvailable=true,toastTimer,aiTimer,epoch=0,rolling=false,game=null,combatController=null,aiPlan=null,aiThinking=null;
   try{db=await KalistarLocalDB.open(data);window.KALISTAR_DB=db;}catch(error){dbError=error.message;}
-  let accountId=KalistarOwnership.PARIS;
-  try{const saved=localStorage.getItem('kalistar.v4.activeUser');if(db?.registry?.user(saved))accountId=saved;}catch{storageAvailable=false;}
+  let accountId=connectedAccess?.localProfile||KalistarOwnership.PARIS;
+  if(!connectedAccess)try{const saved=localStorage.getItem('kalistar.v4.activeUser');if(db?.registry?.user(saved))accountId=saved;}catch{storageAvailable=false;}
   window.KALISTAR_ACTIVE_USER=accountId;
   const preferencePrefix=accountId===KalistarOwnership.PARIS?'kalistar.v4.':'kalistar.v4.'+accountId+'.';
   const storedPreferences=new Map();
@@ -141,7 +142,7 @@
     if(accountId!==KalistarOwnership.PARIS){$('#database-dialog .database-actions')?.remove();$('#database-dialog .database-inspector')?.remove();}
     const notice=$('#database-dialog .database-notice');if(notice)notice.textContent='Profil local : '+(db?.registry?.user(accountId)?.email||'indisponible')+'. Stockage de ce navigateur uniquement. La sauvegarde complete du registre est disponible depuis Paris, profil administrateur local.';
   }
-  function openAccounts(tab='transfers',id=null){if(!accountsUI)return toast('Registre local indisponible : '+dbError);accountsUI.open(tab,id).catch(e=>toast(e.message));}
+  function openAccounts(tab='transfers',id=null){if(connectedAccess)return cloudRegistryUI?.open();if(!accountsUI)return toast('Registre local indisponible : '+dbError);accountsUI.open(tab,id).catch(e=>toast(e.message));}
   async function ownershipChanged(){
     if(game){try{db.registry.validateGame(game,accountId);}catch{suspendGame();}}
     const counts={},slots=Team.slots(teamDraft).map(id=>id&&(counts[id]=(counts[id]||0)+1)<=owned(id).length?id:null);
@@ -223,7 +224,7 @@
     if(ui.view==='story')storyReader.mount($('#story-reader-root'));
     syncConsole();icons();
     $('#account-name').textContent=accountId===KalistarOwnership.PARIS?'Paris':'Tokyo';
-    $('[data-action="account"]').title='Profil local : '+(db?.registry?.user(accountId)?.email||'indisponible');
+    $('[data-action="account"]').title=connectedAccess?'Mon compte Kalistar':'Profil local : '+(db?.registry?.user(accountId)?.email||'indisponible');
     if($('.battlefield-viewport'))$('.battlefield-viewport').scrollLeft=scroll;
     window.KalistarDice?.mount(document.querySelectorAll('.dice-stage'));
     if($('#journal-dialog').open){$('#journal-dialog').innerHTML=head('Journal du duel')+journal();icons();}
@@ -896,7 +897,7 @@ function showDeck(){setView('decks');}
     home?.classList.toggle('active',homeSelected);home?.setAttribute('aria-current',homeSelected?'page':'false');
   }
   function showNavigation(){
-    modal('mobile-dialog',head('Kalistar')+`<div class="dialog-body mobile-menu">${learningNavigation()}${window.KalistarCloudConfig?.enabled?`<button data-action="cloud-account">${icon('fingerprint')}Registre en ligne${icon('chevron-right')}</button>`:''}${navigationItem('story','Story')}${navigationItem('map','Map')}${window.KalistarSite?.online?'':`<button data-view="atelier">${icon('paintbrush')}Atelier${icon('chevron-right')}</button>`}</div>`);
+    modal('mobile-dialog',head('Kalistar')+`<div class="dialog-body mobile-menu">${learningNavigation()}${window.KalistarCloudConfig?.enabled?`<button data-action="cloud-account">${icon('fingerprint')}Mon compte${icon('chevron-right')}</button>`:''}${navigationItem('story','Story')}${navigationItem('map','Map')}${window.KalistarSite?.online?'':`<button data-view="atelier">${icon('paintbrush')}Atelier${icon('chevron-right')}</button>`}</div>`);
     $('#mobile-dialog').classList.add('navigation-sheet');$('#mobile-dialog').setAttribute('aria-label','Autres sections de Kalistar');
     $('.nav-more')?.setAttribute('aria-expanded','true');
   }
@@ -1164,9 +1165,13 @@ function showDeck(){setView('decks');}
   document.addEventListener('fullscreenchange',()=>{const b=$('[data-action="fullscreen"]');if(b){const label=document.fullscreenElement?'Quitter le plein écran':'Plein écran';b.title=label;b.setAttribute('aria-label',label);b.innerHTML=icon(document.fullscreenElement?'minimize':'maximize');icons();}});
   document.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}}));
   if(ui.view==='arena'&&!game){try{await createGame('ai','KALI-2026');}catch{ui.view='collection';}}
-  const cloudRegistryUI=KalistarCloudRegistryUI.create({data,modal,onLocal:()=>openAccounts()});
-  if(db?.registry)accountsUI=KalistarAccountsUI.create({db,getCatalogueChanges:()=>catalogueUpdates.ids(),getUserId:()=>accountId,onChanged:ownershipChanged,modal,toast,download,onCloud:window.KalistarCloudConfig?.enabled?()=>cloudRegistryUI.open():null,onSwitch:async id=>{if(!db.registry.user(id))throw new Error('Profil inconnu.');persist();await db.idle();localStorage.setItem('kalistar.v4.activeUser',id);location.reload();}});
-  else toast('Registre local indisponible : '+dbError);
+  cloudRegistryUI=KalistarCloudRegistryUI.create({data,modal,onLocal:()=>connectedAccess?showDatabase():openAccounts()});
+  if(db?.registry&&!connectedAccess)accountsUI=KalistarAccountsUI.create({db,getCatalogueChanges:()=>catalogueUpdates.ids(),getUserId:()=>accountId,onChanged:ownershipChanged,modal,toast,download,onCloud:window.KalistarCloudConfig?.enabled?()=>cloudRegistryUI.open():null,onSwitch:async id=>{if(!db.registry.user(id))throw new Error('Profil inconnu.');persist();await db.idle();localStorage.setItem('kalistar.v4.activeUser',id);location.reload();}});
+  else if(!db?.registry)toast('Registre local indisponible : '+dbError);
+  if(connectedAccess){
+    const button=$('[data-action=account]');button.title='Mon compte Kalistar';button.setAttribute('aria-label','Mon compte Kalistar');
+    KalistarCloudSession.beforeLogout=async()=>{persist();await db?.idle();};
+  }
   const stopCatalogueRefresh=db?.onCatalogueChange(()=>{
     markCatalogueOutdated();
     if(ui.view==='collection')collectionBinder?.refresh();

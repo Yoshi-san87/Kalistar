@@ -46,6 +46,8 @@ test('release contains all published cards and only playable files', async () =>
   assert.ok(files.filter(f => f.target.startsWith('media/reference/')).every(f => f.expectedHash));
   assert.ok(files.some(f => f.target === 'jeu/manifest.webmanifest'));
   assert.ok(files.some(f => f.target === 'jeu/pwa.js'));
+  assert.ok(files.some(f => f.target === 'jeu/login.html'));
+  assert.equal(files.some(f => f.target === '_worker.js'),process.env.CF_PAGES === '1');
   assert.ok(files.some(f => f.target === 'jeu/assets/pwa-192.png'));
   assert.ok(files.some(f => f.target === 'jeu/assets/pwa-512.png'));
 });
@@ -98,9 +100,9 @@ test('static release versions stylesheet and script URLs together', () => {
 test('application version matches in desktop and phone headers', () => {
   const html = fs.readFileSync(path.join(__dirname, '../site/index.html'), 'utf8');
   const css = fs.readFileSync(path.join(__dirname, '../site/v4.css'), 'utf8');
-  assert.match(html, /<title>Kalistar V4\.6\.74/);
-  assert.match(html, /<span class="edition">VERSION 4\.6\.74<\/span>/);
-  assert.ok(css.includes("content:'V4.6.74'"));
+  assert.match(html, /<title>Kalistar V4\.6\.75/);
+  assert.match(html, /<span class="edition">VERSION 4\.6\.75<\/span>/);
+  assert.ok(css.includes("content:'V4.6.75'"));
 });
 test('hosting adapter supports local, project Pages and saved canonical image paths', () => {
   const script = fs.readFileSync(path.join(__dirname, '../site/site-config.js'), 'utf8');

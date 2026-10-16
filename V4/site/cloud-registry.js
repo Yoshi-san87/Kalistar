@@ -4,7 +4,7 @@
   const handle=name=>typeof name==='string'&&/^[a-z0-9_]{3,24}$/.test(name);
   const secret=value=>typeof value==='string'&&/^[a-f0-9]{64}$/.test(value);
   const empty=()=>({user:null,profile:null,isAdmin:false,cards:[],transfers:[],models:[]});
-  function create({client,redirectTo}){
+  function create({client}){
     let state=empty(),generation=0;
     const listeners=new Set(),emit=()=>{for(const fn of listeners)fn(snapshot());};
     const snapshot=()=>structuredClone(state);
@@ -30,10 +30,6 @@
     }).data.subscription;
     return {
       snapshot,refresh,subscribe:fn=>{listeners.add(fn);return()=>listeners.delete(fn);},
-      login:async email=>{
-        if(typeof email!=='string'||email.length>254||!/^\S+@\S+\.\S+$/.test(email))throw Error('Adresse email invalide.');
-        const {error}=await client.auth.signInWithOtp({email,options:{emailRedirectTo:redirectTo,shouldCreateUser:true}});if(error)throw error;
-      },
       logout:async()=>{generation++;state=empty();emit();const {error}=await client.auth.signOut({scope:'local'});if(error)throw error;},
       profile:async values=>{
         if(!handle(values.handle)||typeof values.displayName!=='string'||values.displayName.trim().length<1||values.displayName.length>40)throw Error('Choisis un pseudo de 3 a 24 lettres minuscules, chiffres ou tirets bas.');

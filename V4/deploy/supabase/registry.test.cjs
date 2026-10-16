@@ -4,7 +4,7 @@ const runtime=process.env.KALISTAR_CLOUD_MODULES||path.resolve(__dirname,'../../
 const requireRuntime=createRequire(path.join(runtime,'_registry_test.cjs'));
 const {PGlite}=requireRuntime('@electric-sql/pglite'),{pgcrypto}=requireRuntime('@electric-sql/pglite/contrib/pgcrypto');
 const migrations=fs.readdirSync(path.join(__dirname,'migrations')).filter(n=>n.endsWith('.sql')).sort().map(n=>fs.readFileSync(path.join(__dirname,'migrations',n),'utf8'));
-const ids=['00000000-0000-4000-8000-000000000001','00000000-0000-4000-8000-000000000002','00000000-0000-4000-8000-000000000003','00000000-0000-4000-8000-000000000004'];
+const ids=['00000000-0000-4000-8000-000000000001','00000000-0000-4000-8000-000000000002','00000000-0000-4000-8000-000000000003','00000000-0000-4000-8000-000000000004','00000000-0000-4000-8000-000000000005'];
 
 test('registry migration, real PostgreSQL permissions and complete specimen lifecycle',async t=>{
   const db=new PGlite({extensions:{pgcrypto}});
@@ -14,22 +14,24 @@ test('registry migration, real PostgreSQL permissions and complete specimen life
   let issued,other,transfer;
   try{
     await db.exec(`create schema auth;create schema extensions;create role anon;create role authenticated;
-      create table auth.users(id uuid primary key,email_confirmed_at timestamptz);
+      create table auth.users(id uuid primary key,email_confirmed_at timestamptz,email text);
       create function auth.uid() returns uuid language sql stable as $$select nullif(current_setting('request.jwt.claim.sub',true),'')::uuid$$;
       grant usage on schema public,auth to anon,authenticated;grant execute on function auth.uid() to anon,authenticated;`);
-    for(let i=0;i<ids.length;i++)await query('insert into auth.users values($1,$2)',[ids[i],i===3?null:new Date().toISOString()]);
+    for(let i=0;i<ids.length;i++)await query('insert into auth.users values($1,$2,$3)',[ids[i],i===3?null:new Date().toISOString(),'fixture'+i+'@example.invalid']);
     for(const migration of migrations)await db.exec(migration);
+    for(let i=0;i<3;i++)await query("insert into kalistar_private.players values($1,extensions.digest($2,'sha256'),$3,$4)",[ids[i],'fixture'+i+'@example.invalid','user-fixture'+i,'Fixture '+i]);
     await query('insert into kalistar_private.admins values($1)',[ids[0]]);
     await t.test('default deny includes private schemas, hashes, audit and all owner mutations',async()=>{
       await as(null,'anon');
-      assert.equal(await value('select count(*)::int from public.kalistar_models'),2);
+      await denied('select count(*)::int from public.kalistar_models');
       for(const table of ['kalistar_profiles','kalistar_collectibles','kalistar_transfers'])await denied('select * from public.'+table);
       for(const table of ['activations','events','admins','attempts'])await denied('select * from kalistar_private.'+table);
       await denied("select public.kalistar_my_cards()");await denied("select public.kalistar_issue('30000001',true)");
-      assert.equal(await value("select public.kalistar_certificate('KC-00000000000000000000000000000000')"),null);
+      await denied("select public.kalistar_certificate('KC-00000000000000000000000000000000')");
     });
     await t.test('only confirmed authenticated users create profiles, no client-chosen owner or admin',async()=>{
       await as(3);await denied("select public.kalistar_set_profile('unverified','Non verifie',false)");
+      await as(4);await denied('select public.kalistar_access()');await denied('select public.kalistar_me()');await denied("select public.kalistar_certificate('00000001')");
       for(let i=0;i<3;i++){await as(i);await value('select public.kalistar_set_profile($1,$2,false)',['player_'+i,'Joueur '+i]);}
       await as(1);assert.equal((await value('select public.kalistar_me()')).isAdmin,false);
       await denied("select public.kalistar_issue('30000001',true)");
@@ -46,7 +48,7 @@ test('registry migration, real PostgreSQL permissions and complete specimen life
       assert.match(issued.card.barcode,/^\d{8}$/);assert.notEqual(issued.card.barcode,other.card.barcode);
       assert.equal((await value('select public.kalistar_certificate($1)',[issued.card.barcode])).id,issued.card.id);
       assert.equal((await value('select public.kalistar_my_cards()')).length,0);
-      await as(null,'anon');const cert=await value('select public.kalistar_certificate($1)',[issued.card.id]);
+      await as(2);const cert=await value('select public.kalistar_certificate($1)',[issued.card.id]);
       assert.equal(cert.owner,null);assert(!JSON.stringify(cert).includes(issued.secret));assert(!JSON.stringify(cert).includes(ids[0]));
     });
     await t.test('bad activation attempts commit and are limited per account, without revealing existence',async()=>{
@@ -66,7 +68,7 @@ test('registry migration, real PostgreSQL permissions and complete specimen life
       await as(2);assert.equal((await value('select public.kalistar_activate($1,$2)',[issued.card.id,issued.secret])).code,'activation_refused');
       assert.equal((await value('select public.kalistar_my_cards()')).length,0);
       await as(1);await value("select public.kalistar_set_profile('player_1','Mon pseudo',true)");
-      await as(null,'anon');const cert=await value('select public.kalistar_certificate($1)',[issued.card.id]);
+      await as(2);const cert=await value('select public.kalistar_certificate($1)',[issued.card.id]);
       assert.deepEqual(cert.owner,{handle:'player_1',displayName:'Mon pseudo'});assert(!JSON.stringify(cert).includes(ids[1]));
     });
     await t.test('only the owner offers, only the recipient accepts, one pending transfer per specimen',async()=>{
@@ -97,6 +99,15 @@ test('registry migration, real PostgreSQL permissions and complete specimen life
       assert.deepEqual(history,['issued','issued','activated','offered','accepted','offered','cancelled','offered','rejected']);
       const activation=(await query('select secret_hash,used_at from kalistar_private.activations where collectible_id=$1',[issued.card.id.slice(3)])).rows[0];
       assert(activation.used_at);assert.equal(activation.secret_hash.length,32);
+    });
+    await t.test('changing the Auth email or revoking the private player closes every registry read without deleting possessions',async()=>{
+      await db.exec('reset role');await query('update auth.users set email=$1 where id=$2',['changed@example.invalid',ids[2]]);
+      await as(2);await denied('select public.kalistar_access()');await denied('select public.kalistar_my_cards()');await denied('select * from public.kalistar_models');
+      await db.exec('reset role');await query('update auth.users set email=$1 where id=$2',['fixture2@example.invalid',ids[2]]);
+      await as(2);assert.equal((await value('select public.kalistar_my_cards()')).length,1);
+      await db.exec('reset role');await query('delete from kalistar_private.players where user_id=$1',[ids[2]]);
+      await as(2);await denied('select public.kalistar_me()');await denied('select public.kalistar_certificate($1)',[issued.card.id]);
+      await db.exec('reset role');assert.equal(await value('select count(*)::int from public.kalistar_collectibles where owner_id=$1',[ids[2]]),1);
     });
   }finally{await db.close();}
 });

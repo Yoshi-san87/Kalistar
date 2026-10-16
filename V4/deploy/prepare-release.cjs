@@ -58,7 +58,7 @@ function verifiedMedia(entry, committed, root, objectRoot) {
   throw Error('Verified local media missing (no network fallback): ' + entry.path);
 }
 function isMetadata(file) {
-  return /^V4\/(?:site|deploy)\/[^/]+\.(?:cjs|js|json|css|html|webmanifest)$/.test(file)
+  return /^V4\/(?:site|deploy)\/[^/]+\.(?:cjs|js|mjs|json|css|html|webmanifest)$/.test(file)
     || /^V4\/docs\/(?:joueurs\/)?[^/]+\.md$/.test(file)
     || /^V[34]\/donnees\/[^/]+\.json$/.test(file)
     || ['V4/atelier/game-catalog.cjs','V4/atelier/data/references.json',
