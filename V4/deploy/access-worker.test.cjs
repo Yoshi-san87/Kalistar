@@ -7,7 +7,10 @@ const post=(body,origin='https://kalistar.pages.dev')=>request('/auth/session',{
 test('all game entrypoints, raw media and catalogue are closed by default, never a client-only gate',async()=>{
   const {handle}=await load();
   for(const path of ['/','/jeu/','/jeu/index.html']){const r=await handle(request(path),env);assert.equal(r.status,302);assert.equal(new URL(r.headers.get('Location')).pathname,'/jeu/login.html');}
-  for(const path of ['/jeu/catalogue.json','/media/reference/momo.png','/jeu/boot.js','/release.json'])assert.equal((await handle(request(path),env)).status,401,path);
+  for(const path of ['/jeu/catalogue.json','/media/reference/momo.png','/jeu/boot.js','/release.json',
+    '/jeu/assets/cinematics/kalistar-anime-v1.mp4','/jeu/assets/cinematics/kalistar-anime-v1-phone.mp4',
+    '/jeu/assets/cinematics/kalistar-anime-v1-poster.webp'])assert.equal((await handle(request(path),env)).status,401,path);
+  for(const path of ['/jeu/login-intro.js','/jeu/login-intro.css'])assert.equal((await handle(request(path),env)).status,200,path);
   assert.equal((await handle(request('/jeu/login.html'),env)).status,200);
   for(const path of ['/jeu/login','/jeu/login.html']){
     const normalized={...env,ASSETS:{fetch:async r=>{assert.equal(new URL(r.url).pathname,'/jeu/login');return new Response('Login');}}};
@@ -24,6 +27,7 @@ test('signed short-lived HttpOnly sessions reject tampering, expiry, wrong keys 
   assert.equal(await verifySession(value.replace(/^./,value[0]==='a'?'b':'a'),secret),null);
   for(const patch of [{exp:now+901},{iat:now+40},{profile:'admin'},{sub:'forged'}])assert.equal(await verifySession(await signSession({...claims,...patch},secret),secret),null);
   const r=await handle(request('/jeu/catalogue.json',{headers:{Cookie:'__Host-kalistar='+value}}),env);assert.equal(r.status,200);assert.equal(r.headers.get('Cache-Control'),'private, max-age=300');assert.equal(r.headers.get('Vary'),'Cookie');
+  assert.equal((await handle(request('/jeu/assets/cinematics/kalistar-anime-v1.mp4',{headers:{Cookie:'__Host-kalistar='+value}}),env)).status,200);
   assert.equal((await handle(request('/jeu/catalogue.json',{headers:{Cookie:'__Host-kalistar='+value}}),{...env,KALISTAR_SESSION_KEY:''})).status,401);
 });
 test('session exchange verifies Supabase identity AND server authorization; never accepts an email or admin claimed by a client',async()=>{

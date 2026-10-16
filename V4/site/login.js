@@ -14,7 +14,7 @@
     }
     entry.insertBefore(form,status);icons();form.querySelector('input')?.focus();
   }
-  const go=()=>{const p=new URL(location.href).searchParams;let next=KalistarCloudSession.target(p.get('next'),location.origin);if(!next.includes('#')&&/^#(?:home|collection|decks|weapons|arena|statistics|story|map|guide|library)$/.test(location.hash))next+=location.hash;location.replace(next);};
+  const go=()=>{const p=new URL(location.href).searchParams;let next=KalistarCloudSession.target(p.get('next'),location.origin);if(!next.includes('#')&&/^#(?:home|collection|decks|weapons|arena|statistics|story|map|guide|library|journeys)$/.test(location.hash))next+=location.hash;location.replace(next);};
   async function run(fn){
     if(busy)return;busy=true;entry.setAttribute('aria-busy','true');error.textContent='';status.textContent='Connexion…';
     entry.querySelectorAll('input,button').forEach(n=>n.disabled=true);
@@ -27,7 +27,14 @@
     const values=new FormData(event.target);
     if(mode==='forgot')return run(async()=>{await session.forgot(String(values.get('email')).trim());status.textContent='Si ton compte est autorise, un lien de recuperation te sera envoye.';});
     if(mode==='password')return run(async()=>{const s=await session.password(values.get('password'),values.get('confirmation'));if(s.user)go();});
-    return run(async()=>{const s=await session.login(String(values.get('email')).trim(),values.get('password'));if(s.user)go();});
+    return run(async()=>{
+      const s=await session.login(String(values.get('email')).trim(),values.get('password'));
+      values.delete('password');entry.querySelectorAll('input[name=password]').forEach(n=>n.value='');
+      if(s.user){
+        try{await window.KalistarLoginIntro?.play();}catch{}
+        go();
+      }
+    });
   });
   entry.addEventListener('click',event=>{
     const action=event.target.closest('[data-login-action]')?.dataset.loginAction;if(!action||busy)return;

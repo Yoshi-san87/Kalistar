@@ -4,7 +4,7 @@
   "suites": {
     "repository": [
       ["--test", "maintenance/organisation.test.cjs", "maintenance/validation.test.cjs", "V4/deploy/prepare-release.test.cjs", "V4/deploy/runtime-media.test.cjs"],
-      ["--test", "V4/site/cloud-registry.test.cjs", "V4/site/cloud-session.test.cjs", "V4/site/cloud-sync.test.cjs", "V4/site/cloud-ownership.test.cjs", "V4/deploy/access-worker.test.cjs"]
+      ["--test", "V4/site/cloud-registry.test.cjs", "V4/site/cloud-session.test.cjs", "V4/site/login-intro.test.cjs", "V4/site/cloud-sync.test.cjs", "V4/site/cloud-ownership.test.cjs", "V4/deploy/access-worker.test.cjs"]
     ],
     "organisation": [
       [
@@ -33,6 +33,7 @@
         "--test",
         "V4/site/map-view.test.cjs"
       ],
+      ["--test", "V4/site/login-intro.test.cjs"],
       [
         "--test",
         "V4/atelier/game-catalog.test.cjs",
@@ -411,6 +412,7 @@
       ["--test", "V4/site/cloud-registry.test.cjs", "V4/site/cloud-session.test.cjs", "V4/site/cloud-sync.test.cjs", "V4/site/cloud-ownership.test.cjs", "V4/deploy/access-worker.test.cjs"]
     ],
     "local": [
+      ["--test", "V4/revisions/2026-10-16-login-cinematic/film.test.cjs"],
       ["--test", "V4/map/layers-1.33/map.test.cjs"],
       ["--test", "V4/map/layers-1.36/map.test.cjs"],
       ["--test", "V4/map/layers-1.39/map.test.cjs"],

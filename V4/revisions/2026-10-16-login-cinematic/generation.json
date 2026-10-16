@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-16",
+  "purpose": "Anime adaptation for the post-password-login trailer only; native card artwork unchanged.",
+  "sources": {
+    "momo": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+    "kaylis": "V3/assets/illustrations/12_RAINBOW_KAYLIS.png",
+    "balmhyr": "V4/assets/illustrations/elements-01/terre-plantes/BALMHYR_V4_02_CANYONERO.png"
+  },
+  "keyframes": {
+    "tool": "Built-in image_gen, identity references and anime adaptation",
+    "momo": "exec-ca5d49ae-60b4-4606-b126-c4560f4ab214.png",
+    "kaylis": "exec-70acf602-35d1-4f11-9354-f3769789ad71.png",
+    "balmhyr": "exec-fe72be65-3119-4599-82de-e01a0cdfcd7d.png"
+  },
+  "runway": {
+    "momo": {
+      "taskId": "f2f47cb4-a176-44e0-a6f9-c8e9fbdd48bc",
+      "model": "gen-4.5",
+      "duration": 4,
+      "prompt": "A serious beautifully hand-drawn 2D fantasy anime film shot. Preserve this exact little mechanical robot Momo, his one blue circular eye, wide ragged hat, patched cloak and transverse silver flute. During four seconds he plays a short flute phrase: small individual finger movements on the keys, a gentle head tilt and blue eye brightening, cloth and hat edge stirred by a light breeze. Blue luminous musical motes travel away from the flute and ascend. Very slow cinematic dolly toward him with real foreground/background parallax in the ancient Chroma ruins; stars shimmer subtly. Calm emotional opening before an epic adventure. Maintain fine ink outlines and cel shading on the character, atmospheric painted background. The flute stays rigid and horizontal with both hands connected, the robot stays a robot with one eye. One continuous shot with natural character animation, not a still-image pan, no scene cuts, no text or logos, no talking, no sudden flashing, no body morphing."
+    },
+    "kaylis": {
+      "taskId": "c66519d1-510f-4f8e-a410-5d578ab2e029",
+      "model": "gen-4.5",
+      "duration": 4,
+      "prompt": "Serious hand-drawn 2D fantasy anime film. Preserve this exact adult heroine Kaylis: warm freckled face, dark curly tied-up hair, black sleeveless clothes, both arms covered in delicate rainbow filigree tattoos. She slowly turns her palms slightly upward, astonished as rainbow light travels once along the existing tattoos from wrist to shoulder. Her breathing and a small lift of her eyes toward the cave opening turn fear into quiet determination. A few loose hair strands sway. Camera pushes in very gently to her expression and glowing arms, subtle real cave parallax, warm amber and cool cyan light reflect on her cheeks, sparse dust moving through light. Restrained powerful emotion, elegant cinematic animation, exact identity, clean ink lines and cel-shaded character against a painted cavern background. Keep five fingers per hand and natural joints, stable tattoo patterns, no transformation of body, no invented weapon, no spell projectile or explosion. One uninterrupted shot, no cut, no text, no subtitles, no logos, no speaking, no screen flashes, not a static image zoom."
+    },
+    "balmhyr": {
+      "taskId": "d3f67bce-abcf-422a-a682-621e69fdee31",
+      "model": "gen-4.5",
+      "duration": 4,
+      "prompt": "A noble cinematic hand-drawn 2D fantasy anime shot of the exact old dwarf king Balmhyr and his brown bear in the reference. His long white braided beard, brass beard rings, rust scarf, stocky build, leather armor and huge steel axe remain consistent. Wind lifts the scarf, the white beard strands move lightly, the bear breathes naturally and raises its gaze with him. Balmhyr slowly lifts his chin and tightens his hands on the axe shaft, resolute and paternal, the fallen king facing his homeland. Camera slowly arcs right a few degrees and moves slightly closer, giving strong parallax between foreground rocks and immense red-grey Canyonero mesas at golden sunset. Fine ink outlines and graphic cel shading, cinematic anime compositing, warm copper light on the face against cool distant rock. Powerful presence without attacking or threatening. One continuous four-second shot, actual subtle character and cloth animation, anatomically consistent hands and axe, bear remains one natural bear, no humanoid bear, no added weapon, no duplicate limbs. No crown, no battle, no magic fire, no dialogue, no text, no logos, no scene cut."
+    },
+    "music": {
+      "taskId": "30d24c89-7150-4ce6-b3cf-dd22a37c636b",
+      "model": "lyria-3-clip",
+      "prompt": "Instrumental cinematic fantasy-anime title sting, no vocals, no speech, no lyrics. Opening 0-3 seconds: a lonely warm transverse flute phrase, soft night air and one distant metallic bell. 3-7 seconds: strings begin a hopeful rising motif, restrained deep synth pulse and delicate crystalline shimmer, heroic fantasy with subtle futuristic energy. 7-10 seconds: measured orchestral toms and low brass build tension without frantic action. At second 10 a single noble resonant title impact and iridescent chime, then a warm sustained resolution fading by second 12, leaving silence. Through-composed short dramatic trailer cue, serious and emotional rather than a commercial jingle, no recognizable existing melody, no EDM drop, not cheerful or childish, natural dynamic range without harsh clipping. Designed for the original Kalistar world: Momo's flute, Kaylis's rainbow light, Balmhyr's grounded courage."
+    }
+  },
+  "creditsSpent": {
+    "video": 144,
+    "music": 4,
+    "total": 148,
+    "purchasesPerformed": 0
+  },
+  "editing": {
+    "duration": 12,
+    "fps": 24,
+    "segments": [
+      {
+        "character": "momo",
+        "start": 0,
+        "end": 3.5
+      },
+      {
+        "character": "kaylis",
+        "start": 3.5,
+        "end": 7
+      },
+      {
+        "character": "balmhyr",
+        "start": 7,
+        "end": 10
+      },
+      {
+        "asset": "approved Kalistar logo",
+        "start": 10,
+        "end": 12
+      }
+    ],
+    "nativeVideo": [
+      1280,
+      720
+    ],
+    "phone": [
+      720,
+      1280
+    ],
+    "audio": "Original instrumental cue, normalized -18 LUFS / -2 dBTP, fade out from 10.8s",
+    "build": "build-film.cjs",
+    "mediaRegistry": "../../deploy/runtime-media.json"
+  },
+  "originals": {
+    "directory": "source",
+    "outsideCheckoutBackup": "sauvegardes-personnelles/intro-anime-20261016",
+    "files": [
+      {
+        "name": "momo.mp4",
+        "sha256": "1e37c58bd8dc5ae167f76ba9a42dd10f682e80ec1fefbfee7d664c818c1a9f9c"
+      },
+      {
+        "name": "kaylis.mp4",
+        "sha256": "fe9f35955a28ffc1b3aa13c7a25746c6daf48ecc38059bb2401fd08435b19bfb"
+      },
+      {
+        "name": "balmhyr.mp4",
+        "sha256": "a28e5d3ada66043ff4dcdc2e458b2246683d88a104b6a2f499486f8f0d4f3b6c"
+      },
+      {
+        "name": "music.mp3",
+        "sha256": "21ae69eb4aca02d18371d15769250ec8595e49553f85cea6d061981a0e35ddb9"
+      }
+    ]
+  }
+}

@@ -15,6 +15,9 @@ consomment le meme catalogue V4. Aucun fallback vers le jeu ou `data.js` V3.
 - `login.html/js/css`, `cloud-session.js`, `auth-guard.js/css` : entree par
   email/mot de passe et reprise de session avant tout chargement du jeu heberge.
   `../deploy/access-worker.mjs` protege aussi les fichiers bruts cote Cloudflare.
+- `login-intro.js/css` : film anime de douze secondes apres le seul login
+  explicite reussi, avec skip, son et coupe portrait. Reprise/reload et Reduced
+  Motion ne le rejouent pas. [Contrat du lecteur](../docs/INTRO_CONNEXION.md).
 - `app.js` : orchestration des vues et des commandes. Les regles restent dans
   les modules purs, pas dans le DOM.
 - `ui-system.js/css`, `positions.js/css`, `navigation.css` : langage visuel commun.

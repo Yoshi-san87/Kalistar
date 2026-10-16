@@ -3,7 +3,7 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
 const runtime=createRequire(path.join(process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules'),'_login_browser.cjs'));
 const {chromium}=runtime('playwright'),dist=path.resolve(process.env.KALISTAR_DIST||path.join(__dirname,'../deploy/dist'));
 const output=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'../../work/qa/login');
-const origin='https://kalistar.pages.dev',mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.webmanifest':'application/manifest+json','.png':'image/png','.webp':'image/webp','.svg':'image/svg+xml','.woff2':'font/woff2'};
+const origin='https://kalistar.pages.dev',mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.webmanifest':'application/manifest+json','.png':'image/png','.webp':'image/webp','.svg':'image/svg+xml','.woff2':'font/woff2','.mp4':'video/mp4'};
 const profiles=[{name:'desktop',width:1440,height:1000},{name:'razr',width:412,height:1007,mobile:true},{name:'compact',width:320,height:740,mobile:true},{name:'landscape',width:1007,height:412,mobile:true},{name:'reduced',width:412,height:1007,mobile:true,reduced:true}];
 function token(profile){const sub=profile==='user-paris'?'11111111-1111-4111-8111-111111111111':'22222222-2222-4222-8222-222222222222',email=profile==='user-paris'?'paris@example.invalid':'tokyo@example.invalid';
   const access_token=Buffer.from(JSON.stringify({alg:'HS256',typ:'JWT'})).toString('base64url')+'.'+Buffer.from(JSON.stringify({sub,exp:Math.floor(Date.now()/1000)+3600,role:'authenticated',aud:'authenticated'})).toString('base64url')+'.fixture-signature';
@@ -59,9 +59,25 @@ async function main(){
         try{return route.fulfill({json:name==='kalistar_models'?await database.models():await database.call(name,args,who)});}catch(error){return route.fulfill({status:403,json:{code:error.code,message:error.message}});}
       });
       page.on('pageerror',e=>errors.push(e.message));
-      const ready=async()=>{try{await page.waitForFunction(()=>window.KALISTAR_READY,{},{timeout:30000});}catch(e){console.error({errors,boot:await page.locator('#app').innerText().catch(()=>''),sync:await page.evaluate(()=>window.KALISTAR_SYNC?.snapshot())});throw e;}};
+      let filmCompleted=false;
+      const ready=async(expectIntro=false)=>{try{
+        await page.waitForFunction(()=>window.KALISTAR_READY||document.querySelector('.login-intro[open]'),{},{timeout:30000});
+        assert.equal(await page.locator('.login-intro[open]').count(),expectIntro&&!p.reduced?1:0,'intro only follows an explicit successful password login');
+        if(await page.locator('.login-intro[open]').count()){
+          assert((await context.cookies()).some(c=>c.name==='__Host-kalistar'),'intro follows server authentication');
+          assert.equal(await page.locator('input[name=password]').inputValue(),'','password is cleared before playback');
+          if(!filmCompleted&&['desktop','razr'].includes(p.name)){
+            await page.waitForFunction(()=>document.querySelector('.login-intro video')?.currentTime>.3);
+            assert(Math.abs(await page.locator('.login-intro video').evaluate(v=>v.duration)-12)<.1);
+            await page.locator('.login-intro').waitFor({state:'detached'});filmCompleted=true;
+          }else await page.locator('.login-intro__skip').click();
+        }
+        await page.waitForFunction(()=>window.KALISTAR_READY,{},{timeout:30000});
+      }catch(e){console.error({errors,boot:await page.locator('#app').innerText().catch(()=>''),sync:await page.evaluate(()=>window.KALISTAR_SYNC?.snapshot())});throw e;}};
       await page.goto(origin+'/jeu/');await page.waitForURL('**/jeu/login*');await page.locator('#login-form button[type=submit]:enabled').waitFor();
       assert.equal(await page.locator('.main-nav').count(),0);assert(!calls.some(c=>c.includes('kalistar_me')),'game does not initialize before authentication');
+      assert.equal(await page.locator('.login-intro').count(),0,'no intro before authentication');
+      assert.equal(await page.evaluate(()=>fetch('assets/cinematics/kalistar-anime-v1.mp4').then(r=>r.status)),401,'film remains private');
       await page.evaluate(()=>document.fonts.ready);await page.screenshot({path:path.join(output,p.name+'.png')});
       const layout=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth,controls:[...document.querySelectorAll('button,input')].map(n=>({w:n.getBoundingClientRect().width,h:n.getBoundingClientRect().height}))}));
       assert.equal(layout.width,layout.scroll,p.name+' no horizontal overflow');assert(layout.controls.every(c=>c.w>=44&&c.h>=44),p.name+' touch targets');
@@ -69,15 +85,19 @@ async function main(){
       await page.locator('input[name=email]').fill('paris@example.invalid');await page.locator('input[name=password]').fill('incorrect-fixture');await page.locator('#login-form [type=submit]').click();await page.locator('#login-error:not(:empty)').waitFor();
       assert.equal(await page.locator('input[name=password]').inputValue(),'');assert.equal(await page.evaluate(url=>fetch(url).then(r=>r.status),origin+'/jeu/catalogue.json'),401);
       denied=true;await page.locator('input[name=password]').fill('only-a-fixture-password');await page.locator('#login-form [type=submit]').click();await page.getByText('Ce compte ne peut pas acceder a Kalistar.').waitFor();assert.equal(await page.evaluate(url=>fetch(url).then(r=>r.status),origin+'/jeu/catalogue.json'),401);
-      denied=false;await page.locator('input[name=password]').fill('only-a-fixture-password');await page.locator('#login-form [type=submit]').click();await ready();
+      denied=false;await page.locator('input[name=password]').fill('only-a-fixture-password');await page.locator('#login-form [type=submit]').click();await ready(true);
       assert.equal(await page.evaluate(()=>KALISTAR_ACTIVE_USER),'user-paris');assert.equal(await page.locator('[data-registry-action=cloud]').count(),0);
       const cookies=await context.cookies();assert(cookies.some(c=>c.name==='__Host-kalistar'&&c.httpOnly&&c.secure));
       await page.evaluate(()=>localStorage.setItem('kalistar-auth-qa-marker','preserve'));await page.reload();await ready();assert.equal(await page.evaluate(()=>localStorage.getItem('kalistar-auth-qa-marker')),'preserve');
+      if(['desktop','razr'].includes(p.name)){
+        await page.goto(origin+'/jeu/login.html?next='+encodeURIComponent('/jeu/#home'));await ready();
+        assert.equal(new URL(page.url()).hash,'#home','resumed login keeps the destination without replaying the film');
+      }
       await page.locator('[data-action=account]').click();await page.locator('#cloud-dialog[aria-busy=false]').waitFor();
       try{await page.locator('[data-cloud-action=logout]').click({timeout:10000});}catch(e){console.error(await page.evaluate(()=>({sync:window.KALISTAR_SYNC?.snapshot(),dialogs:[...document.querySelectorAll('dialog[open]')].map(d=>({id:d.id,text:d.textContent.slice(0,700)}))})));throw e;}
       await page.waitForURL('**/jeu/login*');await page.locator('#login-form [type=submit]:enabled').waitFor();
       assert.equal(await page.evaluate(url=>fetch(url).then(r=>r.status),origin+'/jeu/catalogue.json'),401);assert.equal(await page.evaluate(()=>localStorage.getItem('kalistar-auth-qa-marker')),'preserve');
-      await page.locator('input[name=email]').fill('tokyo@example.invalid');await page.locator('input[name=password]').fill('only-a-fixture-password');await page.locator('#login-form [type=submit]').click();await ready();
+      await page.locator('input[name=email]').fill('tokyo@example.invalid');await page.locator('input[name=password]').fill('only-a-fixture-password');await page.locator('#login-form [type=submit]').click();await ready(true);
       assert.equal(await page.evaluate(()=>KALISTAR_ACTIVE_USER),'user-tokyo','server profile wins over former local Paris selection');
       assert(!calls.some(c=>c.includes('/signup')||c.includes('/otp')),'no optional signup or email-code login');assert.deepEqual(errors,[],p.name+' no JavaScript errors');
       results.push({profile:p.name,passed:true,layout});await context.close();

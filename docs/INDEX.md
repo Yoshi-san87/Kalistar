@@ -26,6 +26,7 @@ les rapports dates racontent une livraison et ne remplacent pas les sources.
 | Comptes et exemplaires en ligne | [REGISTRE_EN_LIGNE.md](../V4/docs/REGISTRE_EN_LIGNE.md) |
 | Livres a quatre combats et cartes gagnees | [PARCOURS_BIBLIOTHEQUE.md](../V4/docs/PARCOURS_BIBLIOTHEQUE.md) |
 | Identite visuelle du site | [IDENTITE_VISUELLE.md](../V4/docs/IDENTITE_VISUELLE.md) |
+| Film anime apres connexion | [INTRO_CONNEXION.md](../V4/docs/INTRO_CONNEXION.md) |
 | Illustrations des personnages | [DIRECTION_ARTISTIQUE.md](../V4/DIRECTION_ARTISTIQUE.md) |
 | Peuples et regions | [PEUPLES_ET_REGIONS.md](../V4/docs/PEUPLES_ET_REGIONS.md) |
 | Reprise narrative et suspense | [HISTOIRE_100K_REPRISE.md](../V4/docs/HISTOIRE_100K_REPRISE.md) |
