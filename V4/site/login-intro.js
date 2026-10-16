@@ -6,7 +6,7 @@
 })(typeof globalThis!=='undefined'?globalThis:this,function(){
   'use strict';
   let active=null;
-  const MEDIA='assets/cinematics/kalistar-anime-v2';
+  const MEDIA='assets/cinematics/kalistar-anime-v3';
   function play({host=window,doc=host.document}={}){
     if(active)return active;
     const reduced=host.matchMedia('(prefers-reduced-motion: reduce)');

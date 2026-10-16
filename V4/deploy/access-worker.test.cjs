@@ -11,7 +11,9 @@ test('all game entrypoints, raw media and catalogue are closed by default, never
     '/jeu/assets/cinematics/kalistar-anime-v1.mp4','/jeu/assets/cinematics/kalistar-anime-v1-phone.mp4',
     '/jeu/assets/cinematics/kalistar-anime-v1-poster.webp',
     '/jeu/assets/cinematics/kalistar-anime-v2.mp4','/jeu/assets/cinematics/kalistar-anime-v2-phone.mp4',
-    '/jeu/assets/cinematics/kalistar-anime-v2-poster.webp','/jeu/assets/cinematics/kalistar-anime-v2-phone-poster.webp'])assert.equal((await handle(request(path),env)).status,401,path);
+    '/jeu/assets/cinematics/kalistar-anime-v2-poster.webp','/jeu/assets/cinematics/kalistar-anime-v2-phone-poster.webp',
+    '/jeu/assets/cinematics/kalistar-anime-v3.mp4','/jeu/assets/cinematics/kalistar-anime-v3-phone.mp4',
+    '/jeu/assets/cinematics/kalistar-anime-v3-poster.webp','/jeu/assets/cinematics/kalistar-anime-v3-phone-poster.webp'])assert.equal((await handle(request(path),env)).status,401,path);
   for(const path of ['/jeu/login-intro.js','/jeu/login-intro.css'])assert.equal((await handle(request(path),env)).status,200,path);
   assert.equal((await handle(request('/jeu/login.html'),env)).status,200);
   for(const path of ['/jeu/login','/jeu/login.html']){
@@ -29,7 +31,7 @@ test('signed short-lived HttpOnly sessions reject tampering, expiry, wrong keys 
   assert.equal(await verifySession(value.replace(/^./,value[0]==='a'?'b':'a'),secret),null);
   for(const patch of [{exp:now+901},{iat:now+40},{profile:'admin'},{sub:'forged'}])assert.equal(await verifySession(await signSession({...claims,...patch},secret),secret),null);
   const r=await handle(request('/jeu/catalogue.json',{headers:{Cookie:'__Host-kalistar='+value}}),env);assert.equal(r.status,200);assert.equal(r.headers.get('Cache-Control'),'private, max-age=300');assert.equal(r.headers.get('Vary'),'Cookie');
-  for(const version of [1,2])assert.equal((await handle(request('/jeu/assets/cinematics/kalistar-anime-v'+version+'.mp4',{headers:{Cookie:'__Host-kalistar='+value}}),env)).status,200);
+  for(const version of [1,2,3])assert.equal((await handle(request('/jeu/assets/cinematics/kalistar-anime-v'+version+'.mp4',{headers:{Cookie:'__Host-kalistar='+value}}),env)).status,200);
   assert.equal((await handle(request('/jeu/catalogue.json',{headers:{Cookie:'__Host-kalistar='+value}}),{...env,KALISTAR_SESSION_KEY:''})).status,401);
 });
 test('session exchange verifies Supabase identity AND server authorization; never accepts an email or admin claimed by a client',async()=>{

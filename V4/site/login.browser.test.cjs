@@ -77,7 +77,7 @@ async function main(){
       await page.goto(origin+'/jeu/');await page.waitForURL('**/jeu/login*');await page.locator('#login-form button[type=submit]:enabled').waitFor();
       assert.equal(await page.locator('.main-nav').count(),0);assert(!calls.some(c=>c.includes('kalistar_me')),'game does not initialize before authentication');
       assert.equal(await page.locator('.login-intro').count(),0,'no intro before authentication');
-      for(const version of [1,2])assert.equal(await page.evaluate(v=>fetch('assets/cinematics/kalistar-anime-v'+v+'.mp4').then(r=>r.status),version),401,'film remains private');
+      for(const version of [1,2,3])assert.equal(await page.evaluate(v=>fetch('assets/cinematics/kalistar-anime-v'+v+'.mp4').then(r=>r.status),version),401,'film remains private');
       await page.evaluate(()=>document.fonts.ready);await page.screenshot({path:path.join(output,p.name+'.png')});
       const layout=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth,controls:[...document.querySelectorAll('button,input')].map(n=>({w:n.getBoundingClientRect().width,h:n.getBoundingClientRect().height}))}));
       assert.equal(layout.width,layout.scroll,p.name+' no horizontal overflow');assert(layout.controls.every(c=>c.w>=44&&c.h>=44),p.name+' touch targets');

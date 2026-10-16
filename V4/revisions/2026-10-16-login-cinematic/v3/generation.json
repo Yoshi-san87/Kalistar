@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-16",
+  "purpose": "User-approved 4K master, refined mixed-race Kaylis and smaller tender Momo. Preserve contemplative 30s edit, original music and native cards.",
+  "creditsBefore": 441,
+  "expectedCredits": 248,
+  "requestedPurchases": 0,
+  "keyframes": {
+    "kaylis": {
+      "prompt": "Edit this Kalistar anime film keyframe, preserving its 16:9 framing, exact ruins background, lighting, pose, clothes and rainbow magic. Refine ONLY Kaylis' character appearance: a beautiful adult mixed-race woman with warm medium-brown skin (do NOT lighten it), harmonious softly defined facial features, elegant cheekbones, full natural lips, expressive almond eyes, a few subtle freckles, dark naturally curly hair tied up with lovely loose curls. Her face is attractive and individually memorable, not generic, not glamour makeup. Keep her vulnerability, inward fear, quiet wonder while looking down at her hands discovering rainbow power; knit brows but softer, more graceful face. Same adult age, athletic practical silhouette and worn dark clothes. Keep BOTH hands, all ten fingers natural, tattoo lines rainbow and original composition. Mature hand-drawn anime with ink contours, controlled cel shading, rich painted scenery matching this existing film. No text, card border, watermark or logo. One finished widescreen frame.",
+      "generation": "exec-e1c6220c-bb43-47ae-87c5-7c26fc74646b.png"
+    },
+    "momo": {
+      "prompt": "Edit this exact 16:9 Kalistar anime film keyframe. Keep the exact beautiful ruined city at dusk, wide composition, stone ledge, starry blue sky, sunset, detailed ink and cel shading style and magical flute scene. Change ONLY Momo: make this distinctive one-blue-eyed mechanical robot about 20 percent smaller in physical stature relative to the ledge and surroundings, with more compact limbs and a slightly larger rounded head relative to his body for a subtly cute, tender lovable silhouette. He remains a finely built, weathered metal fantasy automaton, NOT a human child or plastic toy. Preserve ONE glowing blue circular eye, side gears, layered worn beige cape, oversized battered straw hat, delicate silver transverse flute and all iconic details. Shorter lower legs gently dangle from the edge; his hips are visibly resting on the same ledge and both knees bent. Same seated pose playing the flute with two natural mechanical hands, soft blue magic notes drifting out. Keep Momo near the same central-right location, clearly visible and face readable for central portrait crop. The hat, cloak and flute must fit his smaller scale coherently, hat charmingly a little oversized. Restrained emotional mature anime, quiet warmth, not chibi caricature. Keep background unchanged, no text, border, watermark or logo.",
+      "generation": "exec-567cc5d0-91d5-4f81-ae85-6d0706556511.png"
+    }
+  },
+  "runway": {
+    "momo": {
+      "taskId": "6f60c0ca-bbf9-4755-92f5-1b1f20ac1473",
+      "prompt": "One continuous contemplative anime shot, very slow serene rhythm. Momo is the small, cute one-blue-eyed weathered robot seated firmly on the stone ledge exactly as in the starting frame, compact body, slightly oversized straw hat, hips resting on the ledge, short legs dangling with both knees bent. Throughout the entire shot he remains seated in that same place and gently plays his silver transverse flute with tiny finger movements. His tender small seated silhouette stays unchanged. A delicate ribbon of pale blue and warm golden luminous notes drifts from the flute into the night air. First five seconds: the camera makes an extremely slow shallow eight-degree orbit around seated Momo, maintaining his face, hands and flute in frame, cloth moving softly in the breeze. Final five seconds: while Momo continues playing seated, the camera gently tilts and glides upward following the same sparse luminous notes into the immense starry blue sky; Momo gradually leaves the lower frame solely because the CAMERA looks up. End looking at stars and drifting magic. Tender, peaceful, quietly emotional. Fluid restrained hand-drawn anime, preserve exact small robot proportions, one eye, clear ink lines, cel shading and rich background. One uninterrupted calm take, fixed seated pose, stable instrument, subtle ambient movement.",
+      "duration": 10,
+      "model": "gen-4.5"
+    },
+    "kaylis": {
+      "taskId": "fe2c2675-5dbc-4f14-8f0e-c0287487f0f0",
+      "prompt": "One uninterrupted very slow intimate anime shot. Kaylis is the beautiful adult mixed-race woman with warm medium-brown skin, full natural lips, harmonious delicate facial features, fine freckles and dark tied curly hair of the starting image. She remains standing almost still in the stone mine, looking down at her hands and the delicate rainbow tattoos along her forearms. Her brow gently draws together, eyes subtly widen with fear and uncertainty, a small held breath, lips barely part. The emotion is private and vulnerable, discovering something she cannot understand. Her hands stay close to their starting positions. Fine rainbow light softly breathes along the existing tattoo lines, a few tiny suspended motes. Camera makes a restrained slow push toward her face and hands over six seconds, just a few inches. Loose curls barely move. Preserve her exact refined face, warm brown skin, adult age, clothes, hands, tattoo pattern and mature hand-drawn anime styling, clean contours and cel shading. Quiet emotional moment throughout, gentle magic, stable composition, no cuts.",
+      "duration": 6,
+      "model": "gen-4.5"
+    },
+    "volodenUpscale": {
+      "taskId": "c5ece362-9eb5-4b62-bea2-3f1c11866d58",
+      "source": "../v2/source/voloden.mp4",
+      "duration": 6
+    },
+    "balmhyrUpscale": {
+      "taskId": "c6d7ea2c-b4ff-4aa6-b152-3e0eeaa98cab",
+      "source": "../v2/source/balmhyr.mp4",
+      "duration": 6
+    },
+    "momoUpscale": {
+      "taskId": "b12a8036-4f2b-43b0-be5e-80da705f98ce",
+      "duration": 10
+    },
+    "kaylisUpscale": {
+      "taskId": "9b1595e4-e6f3-4a16-85e3-e3da96accd6a",
+      "duration": 4
+    }
+  },
+  "music": {
+    "source": "../v2/source/music.mp3",
+    "sha256": "21ae69eb4aca02d18371d15769250ec8595e49553f85cea6d061981a0e35ddb9"
+  },
+  "sourceHashes": {
+    "kaylis-selected.mp4": "a955eac77877e89e6dd496eaea1de8857fb645a64107327088cc058814549489",
+    "kaylis.mp4": "40f787207843b83d094a65102f0ea4ef2bbf6511254ab321d75b5a298704f524",
+    "momo.mp4": "59ef2df8c9837ca56a8d4b4a50557ef45c91357c53893c4e2c772ae4d177b2a4",
+    "music.mp3": "21ae69eb4aca02d18371d15769250ec8595e49553f85cea6d061981a0e35ddb9",
+    "keyframes/kaylis.png": "9ff7aa51c32bee640c5bb0d782b9e3877b7c21b00a885b9e535a6f8e0d36d69a",
+    "keyframes/momo.png": "8bfbba0de67be6c1729182be7c1fc8fa34e1b0a980582885f6a31b43b3840ecc",
+    "upscaled/balmhyr.mp4": "84b227462cbdb820bbfe1564f773d2bd04128f25cae3383d11756d91a54b3acd",
+    "upscaled/kaylis.mp4": "06a449dc1cffe548b304c8879de74cc971ac9a849c55efac73033e0a65244be7",
+    "upscaled/momo.mp4": "ab0dc8add3a97a4d760c1f1c7875f1bd3a4859c79347324c416e849f92d56f5a",
+    "upscaled/voloden.mp4": "73c6dac3a6741aee2f5e9c9fd1c14035b99ea4d14ae62414eb47f5194673dbb9"
+  },
+  "creditsSpent": {
+    "video": 192,
+    "upscale": 52,
+    "music": 0,
+    "total": 244,
+    "purchasesPerformed": 0,
+    "creditsRemaining": 197
+  },
+  "editing": {
+    "duration": 30,
+    "fps": 24,
+    "momoSpeed": 0.9090909090909091,
+    "kaylisSpeed": 0.6666666666666666,
+    "kaylisSelectedSeconds": 4,
+    "crossfades": 0.5,
+    "segments": [
+      {
+        "character": "momo",
+        "sourceStart": 0,
+        "sourceEnd": 5,
+        "start": 0,
+        "end": 5.5
+      },
+      {
+        "character": "kaylis",
+        "sourceStart": 0,
+        "sourceEnd": 4,
+        "start": 5,
+        "end": 11
+      },
+      {
+        "character": "voloden",
+        "start": 10.5,
+        "end": 16.5
+      },
+      {
+        "character": "balmhyr",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "character": "momo",
+        "sourceStart": 5,
+        "sourceEnd": 10,
+        "start": 21.5,
+        "end": 27
+      },
+      {
+        "character": "approved-logo",
+        "start": 26.5,
+        "end": 30
+      }
+    ],
+    "master": "master/kalistar-anime-v3-4k.mp4",
+    "exports": [
+      "V4/site/assets/cinematics/kalistar-anime-v3.mp4",
+      "V4/site/assets/cinematics/kalistar-anime-v3-phone.mp4"
+    ]
+  }
+}

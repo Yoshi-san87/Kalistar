@@ -30,15 +30,19 @@ la reference des cartes natives.
 dans la branche du login explicite. Il efface le champ de mot de passe avant
 la lecture. Aucun flag personnel ou nouveau schema de sauvegarde n'est ajoute.
 
-Les fichiers `assets/cinematics/kalistar-anime-v2*` sont servis par Cloudflare,
+Les fichiers `assets/cinematics/kalistar-anime-v3*` sont servis par Cloudflare,
 pas par Runway au runtime. Les scripts/CSS du lecteur sont publics comme le
 formulaire ; les films et leurs posters restent proteges par le cookie du jeu.
 Ne pas ajouter ces medias a l'allowlist publique du Worker.
 
 | Export | Format | Duree | Taille |
 | --- | --- | --- | --- |
-| PC/paysage | 1280 x 720, H264/AAC, 24 fps | 30 s | environ 13,2 Mio |
-| Telephone portrait | 720 x 1280, H264/AAC, 24 fps | 30 s | environ 11,8 Mio |
+| PC/paysage | 1920 x 1080, H264/AAC, 24 fps | 30 s | moins de 25 Mio |
+| Telephone portrait | 1080 x 1920, H264/AAC, 24 fps | 30 s | moins de 25 Mio |
+
+Les deux coupes viennent des sources ameliorees en 4K. Le film maitre UHD
+3840 x 2160 est conserve localement dans le lot de production et sa sauvegarde,
+hors build web. Le lecteur charge uniquement la coupe 1080p adaptee.
 
 Le portrait est recadre au montage pour chaque personnage. Le lecteur affiche
 l'image entiere, meme sur un Razr plus allonge qu'un ecran 16:9. Il ne charge
@@ -49,12 +53,15 @@ permanent dans le site.
 ## Production et remplacement
 
 Sources, prompts, identifiants de generation et montage sont dans
-`revisions/2026-10-16-login-cinematic/v2/`. Le rebuild utilise son `build-film.cjs`
+`revisions/2026-10-16-login-cinematic/v3/`. Le rebuild utilise son `build-film.cjs`
 avec `KALISTAR_FILM_SOURCE` et `KALISTAR_FFMPEG` ; il ne relance aucun service
 de generation. Les originaux et les exports sont sauvegardes hors checkout.
-La premiere version de douze secondes et sa provenance restent preservees.
+Les versions precedentes et leurs provenances restent preservees.
 La musique originale est reutilisee, sans regeneration. L'ouverture et le
 retour de Momo sont les deux moities consecutives d'un meme plan de dix secondes.
+Kaylis utilise les quatre secondes calmes de son nouveau plan, etirees sur six
+secondes. Son visage metis est affine et Momo est plus petit ; ces adaptations
+anime ne modifient aucune carte native.
 Les medias binaires restent hors Git, leurs SHA-256 dans le registre runtime.
 
 Pour une nouvelle intro, produire un nouveau nom versionne, verifier la duree,

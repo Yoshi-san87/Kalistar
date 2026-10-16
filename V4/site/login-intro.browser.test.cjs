@@ -51,7 +51,7 @@ async function main(){
       const p=new URL(route.request().url()).pathname;
       if(p==='/jeu/')return route.fulfill({contentType:'text/html',body:'<script src="/jeu/login-intro.js"></script><button onclick="KalistarLoginIntro.play().then(v=>window.result=v)">Start</button>'});
       if(p.endsWith('.js'))return route.fulfill({contentType:'text/javascript',body:fs.readFileSync(path.join(dist,'jeu/login-intro.js'))});
-      if(playable&&p.endsWith('.mp4'))return route.fulfill({contentType:'video/mp4',body:fs.readFileSync(path.join(dist,'jeu/assets/cinematics/kalistar-anime-v2.mp4'))});
+      if(playable&&p.endsWith('.mp4'))return route.fulfill({contentType:'video/mp4',body:fs.readFileSync(path.join(dist,'jeu/assets/cinematics/kalistar-anime-v3.mp4'))});
       return route.fulfill({status:404,body:''});
     });
     await page.goto(origin+'/jeu/');await page.getByText('Start').click();await page.waitForFunction(()=>window.result==='unavailable');assert.equal(await page.locator('video').count(),0);

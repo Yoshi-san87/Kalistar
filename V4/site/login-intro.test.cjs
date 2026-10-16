@@ -29,7 +29,7 @@ test('Reduced Motion never creates a player or requests video',async()=>{
   const f=fixture({reduced:true});assert.equal(await Intro.play(f),'reduced-motion');assert.equal(f.nodes.length,0);assert.equal(f.media.src,undefined);
 });
 test('desktop starts with sound and a protected same-origin film, then releases every resource',async()=>{
-  const f=fixture(),p=Intro.play(f);assert.equal(f.media.src,'assets/cinematics/kalistar-anime-v2.mp4');assert.equal(f.media.muted,false);
+  const f=fixture(),p=Intro.play(f);assert.equal(f.media.src,'assets/cinematics/kalistar-anime-v3.mp4');assert.equal(f.media.muted,false);
   assert.equal(f.lookup['.login-intro__sound'].getAttribute('aria-pressed'),'true');assert.equal(f.media.volume,.65);
   assert(f.dialog.open);assert(f.lookup['.login-intro__skip'].focused);f.fire(f.media,'ended');assert.equal(await p,'completed');
   assert.equal(f.dialog.isConnected,false);assert.equal(f.media.src,'');assert(f.media.paused);assert.equal(f.media.loads,1);assert.equal(f.timers.size,0);assert.equal(f.classes.size,0);
