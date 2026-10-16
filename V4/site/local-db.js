@@ -14,10 +14,11 @@
     if(value.players?.some(p=>[...(p.board||[]),...(p.reserve||[]),...(p.dead||[])].some(u=>u&&!/^K4-[34]\d{7}-00[1-4]$/.test(u.instanceId))))throw legacyError();
     return value;
   }
-  async function open(data,{name=NAME}={}) {
+  async function open(data,{name=NAME,cloud=null}={}) {
     if(!name.startsWith(NAME))throw new Error('La base V4 doit rester isolée de V2.');
     if(data.version!==4||data.edition!=='V4'||!data.cards?.length||data.cards.some(c=>c.edition!=='V4'||!c.characterId))throw new Error('Profils V4 indisponibles : aucune donnée historique copiée dans la base V4.');
-    const E=KalistarEngine.createEngine(data),O=window.KalistarOwnership,T=window.KalistarTrophies,Q=window.KalistarEquipment;
+    const E=KalistarEngine.createEngine(data),O=cloud?null:window.KalistarOwnership,T=window.KalistarTrophies,Q=window.KalistarEquipment;
+    let cloudRegistry=null;
     async function connect(version){
       const req=version===undefined?indexedDB.open(name):indexedDB.open(name,version);
       req.onupgradeneeded=()=>{
@@ -32,7 +33,7 @@
           const results=db.createObjectStore('results',{keyPath:['matchId','instanceId']});
           results.createIndex('cardId','cardId');results.createIndex('instanceId','instanceId');results.createIndex('matchId','matchId');
         }
-        if(O)for(const table of registryStores)if(!db.objectStoreNames.contains(table))db.createObjectStore(table,{keyPath:'id'});
+        if(O||cloud)for(const table of registryStores)if(!db.objectStoreNames.contains(table))db.createObjectStore(table,{keyPath:'id'});
         if(!db.objectStoreNames.contains('equipment'))db.createObjectStore('equipment',{keyPath:'id'});
       };
       return new Promise((resolve,reject)=>{
@@ -43,7 +44,7 @@
       });
     }
     let db=await connect();
-    while(!db.objectStoreNames.contains('equipment')||O&&registryStores.some(s=>!db.objectStoreNames.contains(s))){
+    while(!db.objectStoreNames.contains('equipment')||(O||cloud)&&registryStores.some(s=>!db.objectStoreNames.contains(s))){
       const version=db.version+1;db.close();
       try{db=await connect(version);}catch(e){if(e.name!=='VersionError')throw e;db=await connect();}
     }
@@ -118,6 +119,7 @@
           const item=instance(card.id,1,date);if(!s.instances.some(i=>i.id===item.id))write('instances',item);
         }
         if(O)O.seed(s,write,data);
+        if(cloud)write('users',{id:cloud.localProfile,name:cloud.label,role:'user'});
         // Add derived honours to old archives without changing a game or ownership.
         if(T)for(const match of s.matches.filter(m=>m.finalized)){
           const rows=s.results.filter(r=>r.matchId===match.id);
@@ -197,10 +199,11 @@
       for(const match of incoming){
           const old=s.matches.find(m=>m.id===match.id);
           const bound=Object.hasOwn(match.state,'collection'),oldBound=old&&Object.hasOwn(old.state,'collection');
-          if((bound||oldBound)&&!O)throw new Error('Module de propriete requis pour cette partie.');
-          if(O)O.validateSave(match.state,old,s,{restoring,restoreLegacy});
+          if((bound||oldBound)&&!O&&!cloud)throw new Error('Module de propriete requis pour cette partie.');
+          if(cloud)cloudRegistry.validateSave(match.state,old,{restoring});
+          else if(O)O.validateSave(match.state,old,s,{restoring,restoreLegacy});
           // Older standalone loaders must not bypass an already upgraded registry.
-          else if(hasRegistry&&!(old?.finalized&&match.finalized&&sameFinal(old,match))){
+          else if(hasRegistry&&!cloud&&!(old?.finalized&&match.finalized&&sameFinal(old,match))){
             const p=match.state.players[0];
             for(const u of [...p.board.filter(Boolean),...p.reserve,...p.dead]){
               const original=s.collectibles.find(c=>c.legacyInstanceId===u.instanceId&&c.cardId===String(u.cardId));
@@ -258,6 +261,7 @@
       counts:()=>Object.fromEntries(stores.map(s=>[s,cache[s].length])),
       exportBackup:()=>enqueue(async()=>{await refresh();return {format:'kalistar-local-library',schema:hasRegistry?3:2,edition:EDITION,gameSchema:GAME_SCHEMA,database:NAME,exportedAt:new Date().toISOString(),...copy(cache)};}),
       importBackup:(input,options={})=>{const value=copy(input),replaceRegistry=options.replaceRegistry===true;return enqueue(async()=>{
+        if(cloud)throw new Error('Une sauvegarde de demonstration ne peut pas modifier la collection en ligne.');
         if(value?.edition!==EDITION||value?.gameSchema!==GAME_SCHEMA||value?.database!==NAME)throw legacyError();
         if(value?.format!=='kalistar-local-library'||![2,3].includes(value.schema)||!stores.every(s=>Array.isArray(value[s]))||value.matches.length>10000||value.instances.length>data.cards.length*4)throw new Error('Sauvegarde de collection invalide.');
         if(value.schema===2&&(replaceRegistry||registryStores.some(s=>Object.hasOwn(value,s))||value.matches.some(m=>m?.state&&Object.hasOwn(m.state,'collection'))))throw new Error('Une sauvegarde historique ne peut pas modifier le registre.');
@@ -318,6 +322,38 @@
       idle:()=>queue,close
     };
     if(O)api.registry=O.create({data,engine:E,getCache:()=>cache,enqueue,transaction:atomic,refresh,isOpen:()=>opened});
+    if(cloud){
+      cloudRegistry=window.KalistarCloudOwnership.create({data,engine:E,player:cloud,getCache:()=>cache,enqueue,transaction:atomic,refresh,isOpen:()=>opened});
+      api.registry=cloudRegistry;
+      api.cloudProgress={
+        storage:{
+          getItem:key=>Promise.resolve(cache.registryMeta.find(m=>m.id==='sync-meta-'+key)?.value??null),
+          setItem:(key,value)=>enqueue(()=>atomic((s,write)=>write('registryMeta',{id:'sync-meta-'+key,value})))
+        },
+        capture:()=>({matches:copy(cache.matches),equipment:api.equipment.profile(cloud.localProfile),releasedMatches:cache.registryMeta.filter(m=>m.id.startsWith('lease-')).map(m=>m.matchId)}),
+        backup:(payload,reason)=>enqueue(()=>atomic((s,write,clear)=>{
+          const rows=s.registryMeta.filter(m=>m.id.startsWith('cloud-backup-')).sort((a,b)=>b.id.localeCompare(a.id)).slice(0,4);
+          const kept=s.registryMeta.filter(m=>!m.id.startsWith('cloud-backup-'));clear('registryMeta');
+          for(const row of [...kept,...rows])write('registryMeta',row);
+          write('registryMeta',{id:'cloud-backup-'+Date.now(),reason,payload:copy(payload)});
+        })),
+        apply:(value,{isCurrent=()=>true}={})=>enqueue(async()=>{
+          if(!isCurrent())throw Error('Synchronisation interrompue.');
+          const equipment=Q.reconcileProfile(value.equipment,data.cards);Q.validateProfile(equipment,data.cards);
+          if(equipment.id!==cloud.localProfile||!Array.isArray(value.matches)||value.matches.length>500)throw Error('Progression d un autre compte ou trop volumineuse.');
+          const matches=value.matches.map(m=>{if(!m||m.state.collection?.userId!==cloud.localProfile)throw Error('Archive d un autre compte.');const checked=makeMatch(m.state,m.updatedAt,m);return {...checked,createdAt:m.createdAt,updatedAt:m.updatedAt};});
+          for(const m of matches)cloudRegistry.validateSave(m.state,null,{restoring:true});
+          await atomic((s,write,clear)=>{
+            if(!isCurrent())throw Error('Synchronisation interrompue.');
+            const kept=s.registryMeta.filter(m=>!m.id.startsWith('lease-'));
+            for(const store of ['matches','results','equipment','registryMeta'])clear(store);
+            for(const row of kept)write('registryMeta',row);
+            for(const id of value.releasedMatches||[])write('registryMeta',{id:'lease-'+id,matchId:id,userId:cloud.localProfile,releasedAt:new Date().toISOString()});
+            write('equipment',equipment);mergeMatches(matches,[],s,write,{restoring:true});
+          });
+        })
+      };
+    }
     const equippedItems=(userId,characterId)=>{
       const row=cache.equipment.find(r=>r.id===userId)||Q.profile(userId);
       return Q.items(row.version===1?row.slots.weapon:row.slots).filter(item=>item.characterId===characterId)

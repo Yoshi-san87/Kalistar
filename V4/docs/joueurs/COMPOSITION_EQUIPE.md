@@ -4,6 +4,18 @@ Une bonne composition ne se résume pas aux plus gros nombres. Pensez aux cinq p
 
 ## Dix personnages, cinq titulaires
 
+Votre collection appartient à votre compte. Une carte visible dans le catalogue
+n'est pas forcément possédée : seuls vos exemplaires disponibles peuvent entrer
+dans votre équipe. Deux joueurs peuvent posséder chacun leur propre exemplaire
+du même personnage.
+
+Vos compositions, équipements, favoris et rencontres sont sauvegardés sur votre
+compte. Utilisez la même adresse sur PC et téléphone pour les retrouver. Si le
+jeu est déjà ouvert ailleurs, choisissez **Reprendre ici** pour continuer sur cet
+appareil. En cas de deux sauvegardes différentes, choisissez celle à conserver ;
+aucune n'est remplacée sans votre accord. Une petite icône nuage indique l'état
+de la sauvegarde. Attendez sa confirmation avant de changer d'appareil.
+
 Votre deck contient **dix personnages distincts**, avec au maximum **une carte Rainbow**. Deux versions du même personnage ne peuvent pas être réunies dans le même deck.
 
 Cinq titulaires commencent sur le plateau. Les cinq autres forment une réserve commune : ils ne sont pas attachés à un titulaire en particulier.

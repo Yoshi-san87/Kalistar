@@ -3,7 +3,7 @@
   const escape = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const forthcomingKalistels = Object.freeze(['ELECTRO','PYRO','HYDRO','CRYO','AERO','HERBO','GEO','HEMATO','NECRO','LUXO','RAINBOW']);
 
-  function create({storageKey = 'kalistar.v4.story-progress'} = {}) {
+  function create({storageKey = 'kalistar.v4.story-progress',onChange=()=>{}} = {}) {
     let root = null, manuscript = null, loading = null, saveTimer = 0, observer = null, wordCounts = [], wordTotal = 0, opening = false, generation = 0;
     let state = {section: 0, ratio: 0, size: 'regular', paper: 'day'};
     try {
@@ -82,7 +82,7 @@
     }
     function save(ratio = state.ratio) {
       state.ratio = Math.max(0, Math.min(1, ratio));
-      try { const raw=JSON.stringify(state);if(localStorage.getItem(storageKey)!==raw)localStorage.setItem(storageKey,raw); } catch { /* Reading remains available without progress storage. */ }
+      try { const raw=JSON.stringify(state);if(localStorage.getItem(storageKey)!==raw){localStorage.setItem(storageKey,raw);onChange();} } catch { /* Reading remains available without progress storage. */ }
     }
     function fitBook() {
       if (!root || matchMedia('(max-width: 850px), (max-width: 950px) and (max-height: 500px)').matches) return;

@@ -12,7 +12,18 @@ La migration `202610160003_private_access.sql` ferme le registre aux utilisateur
 hors liste privee. Elle ne contient ni adresse personnelle ni identite Auth reelle.
 Les deux comptes Auth ont ete crees manuellement par leur titulaire, puis relies
 aux profils Paris/Tokyo par une operation privee verifiee. Inscriptions publiques
-fermees, aucun administrateur joueur ni exemplaire reel attribue.
+fermees ; cette etape initiale n'avait attribue ni administrateur joueur ni carte.
+
+Les migrations 004/005 ajoutent la progression par compte, ses revisions et le
+bail d'ecriture, sans ouvrir les tables privees. La migration 006 evite de
+renvoyer tout l'historique lorsque sa revision n'a pas change ou apres une
+ecriture deja acquittee. Le client reconstruit ces reponses uniquement depuis
+la revision locale verifiee. `starter-grants.cjs` produit
+uniquement sous `work/` la distribution initiale explicitement autorisee :
+catalogue approuve complet pour Paris, dix cartes legales dont Kaylis pour Tokyo.
+Le script est rejouable sans reemission ; aucune adresse/AuthUUID de production
+n'est inscrite dans les sources. Ne pas l'utiliser pour offrir automatiquement
+les prochaines cartes. Les droits et limites actuels sont dans le guide actif.
 
 ## Tests
 
@@ -23,6 +34,7 @@ npm install --prefix work/supabase-runtime --no-audit --no-fund @electric-sql/pg
 node --test V4/deploy/supabase/registry.test.cjs
 node --test V4/site/cloud-registry.test.cjs
 node --test V4/site/cloud-session.test.cjs V4/deploy/access-worker.test.cjs
+node --test V4/deploy/supabase/player-sync.test.cjs V4/site/cloud-sync.test.cjs V4/site/cloud-ownership.test.cjs
 ```
 
 `KALISTAR_CLOUD_MODULES` permet de fournir un autre dossier `node_modules`.
@@ -35,6 +47,9 @@ Les parcours navigateur simulent Auth et les reponses privees dans des profils
 jetables ; les controles heberges sont limites a la lecture. Un essai distant
 d'emission anonyme a ete bloque par le controle de securite avant execution.
 Aucune emission distante n'est necessaire pour verifier le droit EXECUTE.
+La distribution des lots, demandee par l'auteur, est une operation de production
+distincte des tests. `browser-fixture.cjs` utilise le vrai schema PostgreSQL et
+des comptes fictifs pour les tests multi-appareils, jamais le service reel.
 
 ## Client officiel
 

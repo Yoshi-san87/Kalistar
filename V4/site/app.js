@@ -3,6 +3,7 @@
   const data=window.KALISTAR_DATA,E=KalistarEngine.createEngine(data),cards=data.cards,Catalogue=window.KalistarCatalogue;
   let db=null,dbError='',lastStored='',reportGame=null,reportArchive=null,accountsUI=null,cloudRegistryUI=null;
   const connectedAccess=window.KALISTAR_CLOUD_ACCESS||null;
+  let cloudPlayer=null,cloudSync=null,cloudSyncUI=null,cloudBooting=true;
   const catalogueUpdates=KalistarCatalogueUpdates.create({loaded:data,readLatest:async signal=>{
     const response=await fetch(window.KalistarSite?.catalogue||'/api/game/catalogue',{cache:'no-store',signal});
     if(!response.ok)throw Error('Catalogue indisponible.');
@@ -26,15 +27,26 @@
   let statsSort='kills',statsSide='all',statsTab='lineup',statsPage=0,statsGroup='core',statsAward=0,statsSpotlight='rating',statsBattle=null;
   const format=v=>typeof v==='number'?String(v):names[v]||v;
   let storageAvailable=true,toastTimer,aiTimer,epoch=0,rolling=false,game=null,combatController=null,aiPlan=null,aiThinking=null;
-  try{db=await KalistarLocalDB.open(data);window.KALISTAR_DB=db;}catch(error){dbError=error.message;}
+  if(connectedAccess){cloudPlayer=await KalistarCloudPlayer.connect({data,access:connectedAccess});db=cloudPlayer.db;}
+  else try{db=await KalistarLocalDB.open(data);}catch(error){dbError=error.message;}
+  window.KALISTAR_DB=db;
   let accountId=connectedAccess?.localProfile||KalistarOwnership.PARIS;
   if(!connectedAccess)try{const saved=localStorage.getItem('kalistar.v4.activeUser');if(db?.registry?.user(saved))accountId=saved;}catch{storageAvailable=false;}
   window.KALISTAR_ACTIVE_USER=accountId;
-  const preferencePrefix=accountId===KalistarOwnership.PARIS?'kalistar.v4.':'kalistar.v4.'+accountId+'.';
+  const preferencePrefix=cloudPlayer?.prefix||(accountId===KalistarOwnership.PARIS?'kalistar.v4.':'kalistar.v4.'+accountId+'.');
   const storedPreferences=new Map();
   window.addEventListener('storage',event=>{if(event.storageArea===localStorage){if(event.key===null)storedPreferences.clear();else storedPreferences.delete(event.key);}});
   function load(key,fallback){try{const fullKey=preferencePrefix+key,raw=localStorage.getItem(fullKey);if(raw===null)return fallback;const value=JSON.parse(raw);storedPreferences.set(fullKey,raw);return value;}catch{return fallback;}}
-  function save(key,value){let raw;try{const fullKey=preferencePrefix+key;raw=JSON.stringify(value);if(storedPreferences.get(fullKey)!==raw){localStorage.setItem(fullKey,raw);storedPreferences.set(fullKey,raw);}}catch{storageAvailable=false;}return raw;}
+  function save(key,value){let raw;try{const fullKey=preferencePrefix+key;raw=JSON.stringify(value);if(storedPreferences.get(fullKey)!==raw){localStorage.setItem(fullKey,raw);storedPreferences.set(fullKey,raw);if(!cloudPlayer?.applying)cloudSync?.changed();}}catch{storageAvailable=false;}return raw;}
+  if(cloudPlayer){
+    const key='kalistar.cloud.device.'+cloudPlayer.userId;let deviceId=sessionStorage.getItem(key);
+    if(!deviceId){deviceId=crypto.randomUUID();sessionStorage.setItem(key,deviceId);}
+    cloudSync=KalistarCloudSync.create({client:cloudPlayer.client,userId:cloudPlayer.userId,storage:cloudPlayer.syncStorage,deviceId,
+      capture:cloudPlayer.capture,apply:cloudPlayer.apply,backup:cloudPlayer.backup,
+      onApplied:()=>{if(!cloudBooting)location.reload();},onChange:()=>{if(!cloudBooting)syncActivity();}});
+    cloudPlayer.onChanged(()=>cloudSync.changed());window.KALISTAR_SYNC=cloudSync;
+    await cloudSync.start();
+  }
   const owned=(id)=>db?.registry?.owned(accountId,id)||[];
   const ownershipErrors=ids=>db?.registry?db.registry.deckErrors(accountId,ids):['Registre local indisponible.'];
   const deckErrors=value=>[...(Array.isArray(value)?E.validatePlayableDeck(value):E.validateComposition(value)),...ownershipErrors((Array.isArray(value)?value:value.cards).filter(Boolean))];
@@ -71,6 +83,7 @@
   let favorites=new Set((Array.isArray(savedFavorites)?savedFavorites:[]).filter(id=>E.byId[id]));
   const restored=load('game',null);let restoreError='';
   if(restored){try{game=E.restoreGame(KalistarLocalDB.validateGame(restored));db.registry.validateGame(game,accountId);}catch(error){game=null;restoreError=error.message;}}
+  if(cloudPlayer&&game&&db.match(game.matchId))lastStored=JSON.stringify(game);
   let boardScale=Math.max(85,Math.min(140,Number(load('boardScale',100))||100));
   const views=window.KalistarSite?.online?['home','collection','arena','decks','weapons','statistics','story','map','guide','library']:['home','collection','arena','decks','weapons','statistics','story','map','guide','library','atelier'];
   const mapView=KalistarMap.create();
@@ -83,6 +96,7 @@
   const finale=KalistarFinale.create();
   function cancelLineup(){lineupIntro?.destroy();lineupIntro=null;presentationOpening=false;}
   function presentLineup(){
+    if(cloudBlocked())return;
     if(ui.view!=='arena'||!pendingLineup&&game?.phase!=='initiative')return;
     const captainsOnly=!pendingLineup&&load('openingMatch',null)!==game?.matchId,opening=pendingLineup||game;pendingLineup=null;
     if(opening!==game||!['choose','initiative'].includes(game.phase)||!game.composition)return;
@@ -109,7 +123,7 @@
   }
   let deckBuilder=null,collectionBinder=null,statisticsSheet=null;
   const weaponsUI=KalistarWeaponsUI.create({data,db,userId:accountId,toast,onCard:id=>showDetail(id)});
-  const storyReader=KalistarStoryReader.create({storageKey:preferencePrefix+'story-progress'});
+  const storyReader=KalistarStoryReader.create({storageKey:preferencePrefix+'story-progress',onChange:()=>cloudSync?.changed()});
   const homeScreen=KalistarHome.create({data,image:cardImage,asset,equipment:KalistarWeapons.weapons,medallion:KalistarEquipmentFX.markup,
     getState:()=>({deckName:teamDraft.name,deckCount:teamDraft.cards.filter(Boolean).length,resume:!!game&&game.phase!=='over'}),
     onDetail:id=>showDetail(id),onNavigate:category=>{
@@ -136,11 +150,13 @@
         }).catch(error=>{lastStored='';dbError=error.message;if(error.name==='OwnershipError'&&game?.matchId===JSON.parse(fingerprint).matchId)suspendGame();toast('Base locale : '+error.message);});
       }
     }
+    if(!cloudPlayer?.applying)cloudSync?.changed();
   }
   function showDatabase(){
     modal('database-dialog',head('Archives personnelles')+Catalogue.database(collectionDB(),dbError));
     if(accountId!==KalistarOwnership.PARIS){$('#database-dialog .database-actions')?.remove();$('#database-dialog .database-inspector')?.remove();}
-    const notice=$('#database-dialog .database-notice');if(notice)notice.textContent='Profil local : '+(db?.registry?.user(accountId)?.email||'indisponible')+'. Stockage de ce navigateur uniquement. La sauvegarde complete du registre est disponible depuis Paris, profil administrateur local.';
+    if(cloudPlayer)$('#database-dialog .database-actions')?.remove();
+    const notice=$('#database-dialog .database-notice');if(notice)notice.textContent=cloudPlayer?'Progression du compte '+connectedAccess.label+' : sauvegarde locale et synchronisation Supabase. Les anciens fichiers de demonstration restent conserves sur cet appareil.':'Profil local : '+(db?.registry?.user(accountId)?.email||'indisponible')+'. Stockage de ce navigateur uniquement. La sauvegarde complete du registre est disponible depuis Paris, profil administrateur local.';
   }
   function openAccounts(tab='transfers',id=null){if(connectedAccess)return cloudRegistryUI?.open();if(!accountsUI)return toast('Registre local indisponible : '+dbError);accountsUI.open(tab,id).catch(e=>toast(e.message));}
   async function ownershipChanged(){
@@ -150,7 +166,14 @@
     render();
   }
   function suspendGame(){clearTimeout(aiTimer);epoch++;game=null;lastStored='';save('game',null);ui.view='collection';KalistarDialogHistory.replace('#collection');render();}
-  function checkGame(value=game){try{db.registry.validateGame(value,accountId);}catch(error){suspendGame();throw error;}}
+  function cloudBlocked(){return !!cloudSync&&!cloudSync.snapshot().canWrite;}
+  let cloudWasBlocked=false;
+  function syncActivity(){
+    const blocked=cloudBlocked();$('.game-shell')?.setAttribute('data-cloud-readonly',String(blocked));
+    if(blocked&&!cloudWasBlocked){clearTimeout(aiTimer);epoch++;combatController?.abort();if(lineupIntro){pendingLineup=game;cancelLineup();}}
+    cloudWasBlocked=blocked;if(!blocked)scheduleAI();
+  }
+  function checkGame(value=game){if(cloudBlocked())throw Error('Reprends la sauvegarde sur cet appareil avant de jouer.');try{db.registry.validateGame(value,accountId);}catch(error){suspendGame();throw error;}}
   function modal(id,html){const d=$('#'+id);if(id==='detail-dialog')window.KalistarEquipmentFX.clearDetail();if(id==='mobile-dialog'){d.classList.remove('navigation-sheet');$('.nav-more')?.setAttribute('aria-expanded','false');}d.innerHTML=html;KalistarDialogHistory.open(d);icons();}
   function head(title){return `<div class="dialog-head"><h2>${esc(title)}</h2>${ib('close','x','Fermer')}</div>`;}
   function enterFullscreen(reportFailure=true){
@@ -279,7 +302,7 @@
   }
 function showDeck(){setView('decks');}
   function builder(){
-    if(!deckBuilder)deckBuilder=KalistarDeckBuilder.create({data,engine:E,registry:db?.registry,userId:accountId,getDraft:()=>Team.clone(teamDraft),onDraft:next=>{teamDraft=Team.clone(next);deck=next.cards.filter(Boolean);deckName=next.name;persist();},onPlay:newGameDialog,onDetail:id=>showDetail(id,false,{source:'deck'}),getEquipmentDefaults:()=>db?.equipment.profile(accountId).slots||KalistarEquipment.emptyLoadout(),renderHeaderTools:()=>`<div class="kdb-demo-tools" role="group" aria-label="Decks de démonstration"><label for="deck-preset"><span>Démo</span><select id="deck-preset" aria-label="Deck de démonstration">${presetOptions(deckPresetId)}</select></label><button type="button" class="kdb-icon" data-action="load-preset" title="Charger le deck sélectionné" aria-label="Charger le deck sélectionné">${icon('folder-open')}</button><button type="button" class="kdb-icon" data-action="export-deck" title="Exporter le deck courant" aria-label="Exporter le deck courant">${icon('download')}</button><button type="button" class="kdb-icon" data-action="import-deck" title="Importer un deck" aria-label="Importer un deck">${icon('upload')}</button><input hidden type="file" id="deck-file" accept="application/json,.json"></div>`,toast});
+    if(!deckBuilder)deckBuilder=KalistarDeckBuilder.create({data,engine:E,storage:cloudPlayer?.scopedStorage,registry:db?.registry,userId:accountId,getDraft:()=>Team.clone(teamDraft),onDraft:next=>{teamDraft=Team.clone(next);deck=next.cards.filter(Boolean);deckName=next.name;persist();},onPlay:newGameDialog,onDetail:id=>showDetail(id,false,{source:'deck'}),getEquipmentDefaults:()=>db?.equipment.profile(accountId).slots||KalistarEquipment.emptyLoadout(),renderHeaderTools:()=>`<div class="kdb-demo-tools" role="group" aria-label="Decks de démonstration"><label for="deck-preset"><span>Démo</span><select id="deck-preset" aria-label="Deck de démonstration">${presetOptions(deckPresetId)}</select></label><button type="button" class="kdb-icon" data-action="load-preset" title="Charger le deck sélectionné" aria-label="Charger le deck sélectionné">${icon('folder-open')}</button><button type="button" class="kdb-icon" data-action="export-deck" title="Exporter le deck courant" aria-label="Exporter le deck courant">${icon('download')}</button><button type="button" class="kdb-icon" data-action="import-deck" title="Importer un deck" aria-label="Importer un deck">${icon('upload')}</button><input hidden type="file" id="deck-file" accept="application/json,.json"></div>`,toast});
     return deckBuilder;
   }
   function decksPage(){
@@ -328,6 +351,7 @@ function showDeck(){setView('decks');}
     $('#rules-dialog .formula').insertAdjacentHTML('beforebegin','<h3>Arme, protection et relique</h3><p>Un objet par emplacement, soit trois équipements simultanés. L’arme, entre ATK 6 et 5, ajoute son bonus seulement sur un 6 numérique conservé. La protection, entre DEF 6 et 5, ajoute le sien seulement sur un 6 numérique en défense. Une face spéciale ne devient jamais numérique. Le type d’arme imprimé reste celui de la matrice d’avantages.</p><p>La relique reste sur le médaillon inférieur : ses conditions, effets et charges sont propres à chaque objet. Le bonus de l’arme ou de la protection s’ajoute au meilleur bonus de relique applicable ; plusieurs cadeaux de reliques ne s’additionnent pas. La Flûte des Petits Bonheurs de Momo est une arme. Sa Boîte des Petits Bonheurs est une relique : en infériorité numérique, si Momo est attaqué, elle offre une fois par partie un trèfle aux autres alliés actifs sans trèfle.</p><p>Avant de garder le jet ATK, aucun bonus direct n’est engagé. Un 6 abandonné ne compte pas ; le second jet Kalistel est obligatoire. Chaque relance DEF recalcule le bonus de protection, sans consommer plusieurs fois une charge de relique valable pour le duel. Une protection utilisée s’anime même si la défense échoue ; un Block sans son bonus garde le bouclier habituel.</p><p>Les équipements sont figés au lancement : les modifier ensuite ne change pas une rencontre en cours. Les anciennes sauvegardes conservent leurs effets historiques ; les nouvelles rencontres utilisent les trois emplacements.</p>');
   }
   async function createGame(mode,seed,arenaId=load('arena',arenas[0].id),opponentId=enemyPresetId==='random'?'enemy':enemyPresetId,playerDeck=teamDraft,aiProfile='soren'){
+    if(cloudPlayer){const saved=await cloudSync.flush();if(!saved.canWrite)throw Error('La sauvegarde doit etre synchronisee sur cet appareil avant de jouer.');await cloudPlayer.refresh();await cloudPlayer.validateDeck(playerDeck.cards.filter(Boolean));}
     if(!['grantGuard','aiGuardChoice','arenaBonuses','setArena'].every(key=>typeof E[key]==='function')||cards.some(c=>!/^[34]\d{7}$/.test(c.id)||!c.characterId))throw new Error('Moteur ou profils V4 en attente. Aucune partie V2 ne sera créée dans V4.');
     const errors=deckErrors(playerDeck);if(errors.length)throw new Error(errors.join(' '));
     const selected=matchOpponentByChoice(opponentId),opponent=selected?Team.clone(selected):null;
@@ -344,6 +368,7 @@ function showDeck(){setView('decks');}
     cancelLineup();clearTimeout(aiTimer);epoch++;game=bound;pendingLineup=bound;enemyPresetId=opponent.id;ui.attacker=ui.target=ui.reserve=null;ui.endShown=false;statsSort='kills';statsSide='all';save('arena',game.arenaId);persist();
     // Presentation progress is a profile preference, never a combat/save-schema change.
     save('openingMatch',game.matchId);
+    if(cloudSync){const saved=await cloudSync.flush();if(!saved.canWrite||saved.pending)throw Error('La partie reste sur cet appareil, en attente de synchronisation.');}
   }
   function arenaRule(a){
     const crystal=a.element&&a.element!=='NONE'?(data.elements[a.element]?.label||a.element)+' : +'+(a.elementBonus||0)+' ATK':'Terrain neutre';
@@ -821,7 +846,7 @@ function showDeck(){setView('decks');}
     finally{combatController?.abort();combatController=null;rolling=false;render();}
   }
   function scheduleAI(){
-    clearTimeout(aiTimer);if(!game||ui.view!=='arena'||rolling||presentationOpening||pendingLineup||document.hidden||overlayOpen())return;
+    clearTimeout(aiTimer);if(cloudBlocked()||!game||ui.view!=='arena'||rolling||presentationOpening||pendingLineup||document.hidden||overlayOpen())return;
     const p=game.phase,token=epoch;
     const second=p==='defense'&&game.duel.autoDefense;
     const gift=E.equipmentChoice(game);
@@ -925,6 +950,7 @@ function showDeck(){setView('decks');}
   document.addEventListener('click',event=>{
     const view=event.target.closest('[data-view]');if(view){view.closest('dialog')?.close();setView(view.dataset.view);return;}
     const b=event.target.closest('[data-action]');if(!b||b.disabled)return;const action=b.dataset.action,id=b.dataset.id;
+    if(cloudBlocked()&&b.closest('.game-shell')&&!['detail','exit-arena','journal','match-stats','combat-reference','fullscreen','focus-left','focus-right','focus-duel','save-game','duel-details','archive'].includes(action)){cloudSyncUI?.open();return;}
     try{
       if(action==='close'){b.closest('dialog').close();return;}
       if(b.closest('#mobile-dialog')&&action!=='duel-details')$('#mobile-dialog').close();
@@ -1165,12 +1191,12 @@ function showDeck(){setView('decks');}
   document.addEventListener('fullscreenchange',()=>{const b=$('[data-action="fullscreen"]');if(b){const label=document.fullscreenElement?'Quitter le plein écran':'Plein écran';b.title=label;b.setAttribute('aria-label',label);b.innerHTML=icon(document.fullscreenElement?'minimize':'maximize');icons();}});
   document.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}}));
   if(ui.view==='arena'&&!game){try{await createGame('ai','KALI-2026');}catch{ui.view='collection';}}
-  cloudRegistryUI=KalistarCloudRegistryUI.create({data,modal,onLocal:()=>connectedAccess?showDatabase():openAccounts()});
+  cloudRegistryUI=KalistarCloudRegistryUI.create({data,modal,onLocal:()=>connectedAccess?showDatabase():openAccounts(),onChanged:cloudPlayer?async()=>{await cloudPlayer.refresh();await ownershipChanged();}:null});
   if(db?.registry&&!connectedAccess)accountsUI=KalistarAccountsUI.create({db,getCatalogueChanges:()=>catalogueUpdates.ids(),getUserId:()=>accountId,onChanged:ownershipChanged,modal,toast,download,onCloud:window.KalistarCloudConfig?.enabled?()=>cloudRegistryUI.open():null,onSwitch:async id=>{if(!db.registry.user(id))throw new Error('Profil inconnu.');persist();await db.idle();localStorage.setItem('kalistar.v4.activeUser',id);location.reload();}});
   else if(!db?.registry)toast('Registre local indisponible : '+dbError);
   if(connectedAccess){
     const button=$('[data-action=account]');button.title='Mon compte Kalistar';button.setAttribute('aria-label','Mon compte Kalistar');
-    KalistarCloudSession.beforeLogout=async()=>{persist();await db?.idle();};
+    KalistarCloudSession.beforeLogout=async()=>{persist();await db?.idle();if(cloudSync){await cloudSync.changed();await cloudSync.flush();await cloudSync.pause();cloudSyncUI?.destroy();cloudSync.destroy();}};
   }
   const stopCatalogueRefresh=db?.onCatalogueChange(()=>{
     markCatalogueOutdated();
@@ -1178,12 +1204,15 @@ function showDeck(){setView('decks');}
     accountsUI?.refresh();
   });
   const stopEquipmentRefresh=db?.equipment.subscribe(()=>{
+    if(!cloudPlayer?.applying)cloudSync?.changed();
     if(ui.view==='collection')collectionBinder?.refresh();
     if(ui.view==='decks')deckBuilder?.refresh();
   });
   window.addEventListener('pagehide',()=>{preMatch.cancel();pendingLineup=null;cancelLineup();finale.destroy();stopCatalogueRefresh?.();catalogueUpdates.destroy();stopEquipmentRefresh?.();weaponsUI.destroy();});
-  render();if(restoreError)toast(restoreError);window.KALISTAR_READY=true;
+  cloudBooting=false;
+  render();syncActivity();if(restoreError)toast(restoreError);if(cloudPlayer?.notice)toast(cloudPlayer.notice);window.KALISTAR_READY=true;
+  if(cloudSync)cloudSyncUI=KalistarCloudSyncUI.create({sync:cloudSync,mount:$('.header-actions'),modal,toast});
   const cloudRequest=new URL(location.href).searchParams;
   if(window.KalistarCloudConfig?.enabled&&(cloudRequest.get('registry')==='1'||cloudRequest.has('specimen')))void cloudRegistryUI.open({id:cloudRequest.get('specimen')});
-  window.addEventListener('pagehide',event=>{if(!event.persisted)cloudRegistryUI.destroy();});
+  window.addEventListener('pagehide',event=>{if(!event.persisted){cloudRegistryUI.destroy();cloudSyncUI?.destroy();cloudSync?.destroy();}});
 })();

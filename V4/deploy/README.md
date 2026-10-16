@@ -137,9 +137,13 @@ Aucune manipulation de l'IndexedDB personnelle n'est necessaire. Les tests
 utilisent des profils jetables. GitHub Pages et localhost ont un stockage
 distinct : exporter/importer depuis le jeu avant de changer d'origine.
 
-Les profils Paris/Tokyo restent locaux. Une publication ajoute les nouvelles
-cartes sans effacer possessions, compositions ni parties ; les rencontres
-conservent leur snapshot. Le manifest reste relatif a /jeu/, sans service worker.
+Les comptes Paris/Tokyo ont des collections serveur et une progression synchronisee
+separee. Une publication de modele n'offre pas automatiquement un exemplaire.
+Les anciens profils de demonstration restent sur leur appareil, sans reset.
+Les rencontres conservent leur snapshot. Le manifest reste relatif a /jeu/,
+sans service worker. Tester la synchronisation avec
+`V4/site/cloud-sync.browser.test.cjs` et ses comptes PostgreSQL ephemeres, jamais
+en ecrasant une progression personnelle pour obtenir une preuve.
 
 ## Archive et stockage LFS
 

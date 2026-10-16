@@ -25,24 +25,75 @@ Il s'agit d'un registre central Kalistar, pas d'un NFT sur blockchain ni d'une
 preuve infalsifiable d'authenticite du carton. Une vente physique ne transfere
 pas automatiquement le compte numerique : les deux joueurs doivent confirmer.
 
-## Separation du jeu local
+## Collections du jeu heberge
 
-La base IndexedDB, les profils Paris/Tokyo, leurs possessions et les matchs
-restent sur l'appareil, sans effacement ni synchronisation automatique. Le
-serveur associe chaque compte autorise a son profil local ; le jeu heberge ne
-propose plus le selecteur de profils invites. Aucun exemplaire n'est importe ou emis
-automatiquement depuis cette demonstration. Un profil local administrateur
-ne donne aucun privilege dans Supabase.
+Le serveur fournit les exemplaires attribues au compte. Le jeu heberge ne
+reprend plus les possessions de demonstration pour autoriser un deck. Le serveur
+verifie au lancement les dix exemplaires disponibles, les personnages distincts,
+la limite Rainbow, deux candidats par position et une formation P1-P5 possible.
+Les identites KC sont figees dans la partie. L'adversaire IA reste virtuel.
 
-Le registre en ligne reste independant des autorisations de deck locales.
-Les statistiques et trophees de combats calcules dans le navigateur ne sont
-pas televerses comme resultats certifies. Leur validation serveur fera l'objet
-d'une evolution separee avant tout classement ou recompense de valeur.
+Distribution autorisee le 16 octobre : Paris recoit une copie de chacune des
+434 versions publiees ; Tokyo dix cartes dont Kaylis 30000012. Le script
+`starter-grants.cjs` derive le catalogue approuve et produit une transaction
+controlee sous work/, sans adresse ou AuthUUID dans Git. La table privee des lots
+empeche toute reemission au second passage, meme apres transfert. Les nouvelles
+publications ne sont pas automatiquement offertes. Ces lots numeriques sont
+deja attribues, sans secret recuperable a imprimer ; les futurs exemplaires
+physiques suivent le parcours d'activation distinct.
+
+Un administrateur local ne devient pas administrateur Supabase. Les equipements
+actuels restent disponibles selon leur compatibilite ; leur possession en
+exemplaires n'est pas ajoutee par cette evolution.
+
+## Synchronisation
+
+`cloud-player.js` filtre la progression, `cloud-ownership.js` projette les droits
+serveur, `cloud-sync.js` gere revisions et conflits. Decks, equipements, favoris,
+lecture Story et rencontres sont lies au compte Auth, pas a un nom ou email
+utilise comme cle. Paris et Tokyo ne partagent pas leurs sauvegardes. Les images
+restent sur Cloudflare, jamais dans les payloads de progression.
+
+La table privee `player_saves` conserve revision, payload et bail d'appareil.
+Les RPC `kalistar_sync_read/claim/write/release` exigent l'acteur autorise. Une
+ecriture exige la revision lue et un bail valide : aucun dernier-ecrivain-gagne
+silencieux. Le bail dure 120 secondes, renouvele toutes les 45 secondes visibles.
+Une lecture avec revision connue et un acquittement reussi n'envoient pas tout
+l'historique a nouveau ; une divergence renvoie l'etat complet a resoudre.
+Un autre appareil demande explicitement de reprendre ; l'ancien perd le droit
+d'ecriture a sa prochaine operation. Le jeu y suspend les actions de combat.
+Un conflit conserve le brouillon et propose compte/appareil. Un choix local ne
+contourne ni revision ni bail. Le serveur interdit le transfert d'une carte
+engagee dans la partie synchronisee et valide ses liaisons a chaque ecriture.
+
+Cache IndexedDB : `kalistar-v4-cards-cloud-<AuthUUID>`, meme couche locale et
+preferences `kalistar.v4.cloud.<AuthUUID>.`. Baseline et outbox sont dans IndexedDB,
+pas dans le petit quota localStorage. Aucun token, mot de passe, secret
+d'activation ou registre de propriete local ne fait partie du payload. Une
+coupure laisse les changements en attente ; un nouveau match exige le controle
+en ligne. Il n'y a pas de convergence aveugle entre appareils hors ligne.
+
+L'ancienne base `kalistar-v4-cards` et ses preferences restent intactes. Une copie
+de reprise filtre les donnees du compte et relie les rencontres compatibles aux
+exemplaires attribues, sans changer les originaux. Les archives incompatibles
+restent locales avec avertissement. Avant application du cloud ou resolution
+de conflit, cinq sauvegardes de securite au plus sont conservees dans le cache.
+Un cloud existant et un appareil deja modifie demandent un choix explicite.
+
+Payload schema 1, V4 : `localProfile`, `preferences` (liste fermee), `deckLibrary`,
+`equipment`, `matches`, `activeMatchId`, `releasedMatches`. Maximum 8 Mio et
+500 rencontres, sans suppression automatique pour respecter ces limites. Une
+rencontre conserve seulement les profils engages et son arene, avec regles et
+equipements figes. Les resultats sont reconstruits depuis les snapshots valides.
+
+Les statistiques et trophees solo restent calcules dans le navigateur : leur
+synchronisation n'en fait pas des resultats certifies anti-triche. Une execution
+serveur sera necessaire avant un classement ou des recompenses de valeur.
 
 ## Donnees et droits
 
 `kalistar_models` contient seulement les versions approuvees rendues disponibles
-a l'emission. Le pilote contient Momo et Balmhyr. Un futur import doit venir
+a l'emission. Les 434 versions du lot initial sont inscrites. Un futur import doit venir
 du catalogue du producteur, jamais d'un formulaire joueur.
 
 `kalistar_profiles` ne contient aucun email : pseudo, nom affiche et consentement
@@ -135,6 +186,6 @@ Prevoir des sauvegardes exportees du registre : le plan gratuit ne fournit pas
 de sauvegardes automatiques. La sauvegarde des PSD du PC ne couvre pas cette base.
 
 Les tests utilisent uniquement des profils jetables et un PostgreSQL en memoire.
-Les lectures du service heberge verifient les droits sans emettre d'exemplaire.
-Une validation d'achat/activation avec de vrais comptes exige une campagne
-pilote explicitement autorisee ; elle n'est pas remplacee par une capture UI.
+Les tests d'activation et de transfert utilisent des specimens fictifs. La
+distribution administrative ci-dessus est la seule emission reelle autorisee
+dans cette livraison ; aucun achat ni transfert reel n'est simule.

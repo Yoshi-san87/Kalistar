@@ -15,7 +15,7 @@ async function boot({invalid=false,missing='',preview=false}={}){
   return {preload,styles,executed,errors,nodes,window};
 }
 test('boot downloads concurrently but executes validated dependencies in order',async()=>{
-  const result=await boot();assert.equal(result.preload.length,61);assert.deepEqual(result.executed,result.preload);
+  const result=await boot();assert.equal(result.preload.length,65);assert.deepEqual(result.executed,result.preload);
   assert.deepEqual(result.styles,['ultimate-ui.css?v=audit']);
   const names=result.executed.map(src=>src.split('?')[0]);assert.equal(new Set(names).size,names.length);
   for(const name of ['team-composition.js','matchmaking.js','pre-match.js','positions.js','home-screen.js','page-transitions.js','map-view.js','guide-scenario.js','guide-view.js','rules-documents.js','library-view.js']){assert.ok(names.includes(name));assert.ok(names.indexOf(name)<names.indexOf('app.js'));}

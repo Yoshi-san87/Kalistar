@@ -10,6 +10,7 @@
 .cloud-auth h3,.cloud-registry .registry-form h3{font:500 22px/1.4 var(--kalistar-display);margin:0 0 20px;}
 .cloud-muted{font:12px/1.6 var(--sans);color:#bac6bb;margin:18px 0 0;}.cloud-registry .registry-form input:not([type=checkbox]),.cloud-registry select{min-height:44px;}
 .cloud-card-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;}.cloud-card-list>section{min-width:0;border-bottom:1px solid #8b765444;padding-bottom:18px;}
+.cloud-card-pages{display:flex;justify-content:center;align-items:center;gap:14px;margin:12px 0 20px;padding:10px 0;border-bottom:1px solid #8b765444;font-size:12px;color:#d8c29e;}.cloud-card-pages>span{min-width:0;text-align:center;}
 .cloud-specimen{display:flex;gap:16px;align-items:center;min-width:0;margin-block:18px;}.cloud-specimen>img{width:96px;aspect-ratio:797/1388;object-fit:contain;flex:none;height:auto;}
 .cloud-specimen>div{min-width:0;}.cloud-specimen h3{font:500 20px/1.35 var(--kalistar-display);margin:8px 0;overflow-wrap:anywhere;}.cloud-specimen p{font-size:12px;line-height:1.6;overflow-wrap:anywhere;}
 .cloud-specimen code{display:block;font-size:10px;color:#b5c6bd;overflow-wrap:anywhere;margin-top:10px;}.cloud-specimen .eyebrow{font-size:10px;color:#d5b77f;}

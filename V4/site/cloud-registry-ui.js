@@ -2,16 +2,20 @@
   'use strict';
   const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const icon=name=>`<i data-lucide="${name}" aria-hidden="true"></i>`;
-  function create({data,modal,onLocal}){
+  function create({data,modal,onLocal,onChanged}){
     const config=window.KalistarCloudConfig,controller=new AbortController();
     const dialog=document.createElement('dialog');dialog.id='cloud-dialog';dialog.className='registry-dialog cloud-registry';dialog.setAttribute('aria-label','Registre Kalistar en ligne');document.body.append(dialog);
-    let api=null,busy=false,tab='cards',note='',error='',issued=null,certificate=null,selected=null,viewEpoch=0;
+    let api=null,busy=false,tab='cards',note='',error='',issued=null,certificate=null,selected=null,viewEpoch=0,cardPage=0;
     const state=()=>api?.snapshot()||{user:null,profile:null,isAdmin:false,cards:[],transfers:[],models:[]};
     const command=(action,label,symbol,attrs='',cls='')=>`<button type="button" data-cloud-action="${action}" ${attrs} class="${cls}">${icon(symbol)}${label?`<span>${esc(label)}</span>`:''}</button>`;
     const model=id=>data.cards.find(c=>c.id===id);
+    function cardPages(){
+      const total=state().cards.length,pages=Math.max(1,Math.ceil(total/12));cardPage=Math.min(cardPage,pages-1);
+      return total>12?`<nav class="cloud-card-pages" aria-label="Pages des exemplaires">${command('previous','','chevron-left',`aria-label="Exemplaires precedents" ${cardPage===0?'disabled':''}`,'icon-button')}<span>${cardPage+1} / ${pages} · ${total} exemplaires</span>${command('next','','chevron-right',`aria-label="Exemplaires suivants" ${cardPage===pages-1?'disabled':''}`,'icon-button')}</nav>`:'';
+    }
     const publicLink=item=>{const url=new URL(config.redirectTo);url.searchParams.set('specimen',item.id);return url.href;};
     const image=item=>{const card=model(item.modelId);return card?KalistarCardMedia.image(card):'assets/back.webp';};
-    const card=item=>`<article class="cloud-specimen"><img src="${esc(image(item))}" alt="${esc(item.name)}" width="797" height="1388" decoding="async"><div><span class="eyebrow">${item.pilot?'Preparation · ':''}N° ${esc(item.serial)}</span><h3>${esc(item.name)}</h3><p>${esc(item.title)}</p><code>${esc(item.barcode||item.id)}</code><p class="cloud-owner">${icon('fingerprint')}${esc(item.status==='unclaimed'?'Non attribuee':item.status==='revoked'?'Exemplaire revoque':item.owner?item.owner.displayName+' · @'+item.owner.handle:'Proprietaire prive')}</p></div></article>`;
+    const card=item=>`<article class="cloud-specimen"><img src="${esc(image(item))}" alt="${esc(item.name)}" width="797" height="1388" loading="lazy" decoding="async"><div><span class="eyebrow">${item.pilot?'Preparation · ':''}N° ${esc(item.serial)}</span><h3>${esc(item.name)}</h3><p>${esc(item.title)}</p><code>${esc(item.barcode||item.id)}</code><p class="cloud-owner">${icon('fingerprint')}${esc(item.status==='unclaimed'?'Non attribuee':item.status==='revoked'?'Exemplaire revoque':item.owner?item.owner.displayName+' · @'+item.owner.handle:'Proprietaire prive')}</p></div></article>`;
     const profileForm=()=>{const p=state().profile;return `<form data-cloud-form="profile" class="registry-form"><h3>${p?'Mon profil':'Creer mon profil Kalistar'}</h3><label>Pseudo<input name="handle" value="${esc(p?.handle||'')}" pattern="[a-z0-9_]{3,24}" minlength="3" maxlength="24" autocomplete="nickname" required></label><label>Nom affiche<input name="displayName" value="${esc(p?.displayName||'')}" maxlength="40" required></label><label class="check-label"><input name="publish" type="checkbox" ${p?.publishOwner?'checked':''}>Afficher mon pseudo comme proprietaire de mes cartes</label><button class="primary" type="submit">${icon('save')}Enregistrer</button></form>`;};
     function content(){
       const s=state();
@@ -25,7 +29,7 @@
         if(issued)return `<section class="registry-voucher"><h3>Exemplaire de preparation cree</h3>${card(issued.card)}<p class="registry-warning">Secret affiche une seule fois. A conserver separement de l'image publique.</p><label>Secret d'activation<code class="cloud-issued-secret">${esc(issued.secret)}</code></label>${command('voucher','Bon d activation','download','','primary')}${command('new-issue','Autre exemplaire','plus')}</section>`;
         return `<form data-cloud-form="issue" class="registry-form"><h3>Emission · Preparation</h3><label>Modele<select name="model">${s.models.map(m=>`<option value="${esc(m.id)}">${esc(m.name+' · '+m.title)}</option>`).join('')}</select></label><label class="check-label"><input type="checkbox" required>Creer un nouvel exemplaire de preparation non attribue.</label><button type="submit" class="primary">${icon('stamp')}Emettre</button></form>`;
       }
-      return `<div class="cloud-card-list">${s.cards.map(item=>`<section>${card(item)}<div class="cloud-card-commands">${command('certificate','Fiche exemplaire','scan-eye',`data-id="${esc(item.id)}"`)}${item.status==='owned'?command('offer','Transferer','arrow-right-left',`data-id="${esc(item.id)}"`):''}</div></section>`).join('')||`<div class="cloud-empty">${icon('layers-3')}<h3>Aucun exemplaire enregistre</h3>${command('tab','Enregistrer une carte','key-round','data-tab="activate"')}</div>`}</div>`;
+      return `${cardPages()}<div class="cloud-card-list">${s.cards.slice(cardPage*12,(cardPage+1)*12).map(item=>`<section>${card(item)}<div class="cloud-card-commands">${command('certificate','Fiche exemplaire','scan-eye',`data-id="${esc(item.id)}"`)}${item.status==='owned'?command('offer','Transferer','arrow-right-left',`data-id="${esc(item.id)}"`):''}</div></section>`).join('')||`<div class="cloud-empty">${icon('layers-3')}<h3>Aucun exemplaire enregistre</h3>${command('tab','Enregistrer une carte','key-round','data-tab="activate"')}</div>`}</div>`;
     }
     function markup(){
       const s=state();
@@ -47,7 +51,7 @@
     }
     async function run(fn){
       if(busy)return;const epoch=viewEpoch;busy=true;error='';note='';render();
-      try{await ready();await fn();}
+      try{await ready();await fn();if(onChanged&&api.snapshot().user)await onChanged();}
       catch(e){if(epoch===viewEpoch)error=e?.code==='23505'?'Pseudo deja utilise ou transfert deja en attente.':e?.name==='TimeoutError'?'Connexion trop lente. Reessaie.':e?.message||'Registre indisponible.';}
       finally{busy=false;if(epoch===viewEpoch)render();else{issued=null;selected=null;certificate=null;}}
     }
@@ -56,6 +60,7 @@
       const button=event.target.closest('[data-cloud-action]');if(!button||busy)return;
       const action=button.dataset.cloudAction;
       if(action==='close'){dialog.close();return;}
+      if(action==='previous'||action==='next'){cardPage=Math.max(0,Math.min(Math.ceil(state().cards.length/12)-1,cardPage+(action==='next'?1:-1)));render();return;}
       if(action==='local'){dialog.close();onLocal();return;}
       if(action==='tab'){tab=button.dataset.tab;issued=null;selected=null;certificate=null;note='';error='';render();return;}
       if(action==='new-issue'){issued=null;render();return;}
@@ -82,7 +87,7 @@
     dialog.addEventListener('close',()=>{viewEpoch++;issued=null;certificate=null;selected=null;note='';error='';dialog.replaceChildren();},{signal:controller.signal});
     return {
       open:async({id=null}={})=>{
-        if(busy)return;viewEpoch++;tab=id?'lookup':'cards';note='';error='';issued=null;certificate=null;selected=null;
+        if(busy)return;viewEpoch++;tab=id?'lookup':'cards';cardPage=0;note='';error='';issued=null;certificate=null;selected=null;
         modal('cloud-dialog',markup());icons();if(!config?.enabled)return;
         await run(async()=>{await api.refresh();if(id){certificate=await api.certificate(id);if(!certificate)throw Error('Exemplaire introuvable.');}});
       },

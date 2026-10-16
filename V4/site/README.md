@@ -56,7 +56,9 @@ Ne pas tester sur les possessions ou parties reelles.
 registre distant independant. Le SDK officiel partage la session de connexion.
 Sur le site heberge, seule l'identite autorisee par le serveur choisit le profil
 local Paris/Tokyo ; le selecteur de profils reste reserve au developpement local.
-Les parties et possessions locales ne sont pas synchronisees vers Supabase. Ne pas
+`cloud-player.js`, `cloud-ownership.js` et `cloud-sync.js/css` ajoutent collections
+serveur, progression par compte, outbox IndexedDB, revisions et reprise explicite
+entre appareils. L'ancienne base de demonstration n'est jamais effacee. Ne pas
 confondre compte Auth, profil local et exemplaire emis ; ne jamais certifier
 un resultat local par simple import. Voir le [contrat du registre](../docs/REGISTRE_EN_LIGNE.md).
 

@@ -41,11 +41,14 @@ test('human defender prediction takes precedence over enemy AI turn',()=>{
   assert.equal(UI.automatic({mode:'local',turn:0},enemy),false);
   for(const sourceUid of ['0-1','1-1']){
     const timers=[],calls=[],gift=choice('parity',sourceUid),game={mode:'ai',turn:1,phase:'attack'},context={game,ui:{view:'arena'},rolling:false,presentationOpening:false,pendingLineup:null,epoch:1,aiTimer:null,
-      document:{hidden:false},overlayOpen:()=>false,E:{equipmentChoice:()=>gift,aiEquipmentChoice:()=>'even'},KalistarUltimateUI:UI,
+      document:{hidden:false},overlayOpen:()=>false,cloudBlocked:()=>false,E:{equipmentChoice:()=>gift,aiEquipmentChoice:()=>'even'},KalistarUltimateUI:UI,
       clearTimeout(){},setTimeout(callback){timers.push(callback);},animatedEquipmentGift:value=>calls.push(value)};
     vm.runInNewContext(fn('scheduleAI','__not_a_function__').split('  async function animatedEquipmentGift')[0]+'\nscheduleAI();',context);
     assert.equal(timers.length,sourceUid[0]==='1'?1:0,'timer follows choice owner, not attacker');
     for(const timer of timers)timer();assert.deepEqual(calls,sourceUid[0]==='1'?['even']:[]);
+    timers.length=0;context.cloudBlocked=()=>true;
+    vm.runInNewContext(fn('scheduleAI','__not_a_function__').split('  async function animatedEquipmentGift')[0]+'\nscheduleAI();',context);
+    assert.equal(timers.length,0,'a device without the cloud writer lease cannot drive an AI choice');
   }
 });
 
