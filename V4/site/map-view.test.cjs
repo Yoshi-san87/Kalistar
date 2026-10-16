@@ -9,7 +9,10 @@ test('map remains in the shell and the extra navigation menu',()=>{
   assert(read('map-view.css').includes('drop-shadow'));assert(read('map-view.css').includes('data-compact-labels'));
 });
 test('published atlas exists with no PSD or authoring data used at runtime',()=>{
-  const source=fs.readFileSync(path.join(__dirname,'map-view.js'),'utf8');assert(source.includes('kalistar-atlas-1.39.webp'));assert(!source.includes('.psd'));const image=fs.readFileSync(path.join(__dirname,'assets/ui/kalistar-atlas-1.39.webp'));assert.equal(image.toString('ascii',0,4),'RIFF');assert(image.length>100000);
+  const source=fs.readFileSync(path.join(__dirname,'map-view.js'),'utf8');assert(source.includes('window.KalistarSite.atlas'));assert(!source.includes('.psd'));
+  const versions=JSON.parse(fs.readFileSync(path.join(__dirname,'../map/versions.json'),'utf8'));
+  const current=versions.versions.find(version=>version.version===versions.latestVersion);
+  const image=fs.readFileSync(path.resolve(__dirname,'../map',current.publishedAsset));assert.equal(image.toString('ascii',0,4),'RIFF');assert(image.length>100000);
 });
 
 test('latest published map and eight city assets match their recorded provenance',()=>{

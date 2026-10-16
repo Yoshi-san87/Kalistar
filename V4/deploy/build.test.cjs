@@ -79,7 +79,8 @@ test('Collection atlas is continuous and does not replace reading surfaces', () 
   const mobile = fs.readFileSync(path.join(__dirname, '../site/mobile.css'), 'utf8');
   const story = fs.readFileSync(path.join(__dirname, '../site/story-reader.css'), 'utf8');
   assert.match(binder, /\.cb-page\[data-mode=book\] \.cb-workbench \{[^}]*isolation: isolate;[^}]*background: #b89b71;/);
-  assert.match(binder, /\.cb-page\[data-mode=book\] \.cb-workbench::before, \.cb-mini-book::before \{[^}]*pointer-events: none;[^}]*collection-astralia-planisphere-v2\.webp[^}]*filter: blur\(1\.6px\)/);
+  assert.match(binder, /\.cb-page\[data-mode=book\] \.cb-workbench::before, \.cb-mini-book::before \{[^}]*pointer-events: none;[^}]*var\(--kalistar-atlas-image\)[^}]*filter: blur\(1\.6px\)/);
+  assert.doesNotMatch(binder, /collection-astralia-planisphere/);
   assert.match(binder, /\.cb-spread::before \{ content: none; \}/);
   assert.match(binder, /\.cb-spread \{[^}]*background: transparent;/);
   assert.match(binder, /\.cb-mini-book \{[^}]*isolation: isolate;[^}]*overflow: hidden;/);
@@ -100,20 +101,26 @@ test('static release versions stylesheet and script URLs together', () => {
 test('application version matches in desktop and phone headers', () => {
   const html = fs.readFileSync(path.join(__dirname, '../site/index.html'), 'utf8');
   const css = fs.readFileSync(path.join(__dirname, '../site/v4.css'), 'utf8');
-  assert.match(html, /<title>Kalistar V4\.6\.77/);
-  assert.match(html, /<span class="edition">VERSION 4\.6\.77<\/span>/);
-  assert.ok(css.includes("content:'V4.6.77'"));
+  assert.match(html, /<title>Kalistar V4\.6\.78/);
+  assert.match(html, /<span class="edition">VERSION 4\.6\.78<\/span>/);
+  assert.ok(css.includes("content:'V4.6.78'"));
 });
 test('hosting adapter supports local, project Pages and saved canonical image paths', () => {
   const script = fs.readFileSync(path.join(__dirname, '../site/site-config.js'), 'utf8');
-  for (const [src, mode] of [['http://127.0.0.1:4304/jeu/site-config.js','local'],['https://example.test/Kalistar/jeu/site-config.js','static']]) {
+  const versions = JSON.parse(fs.readFileSync(path.join(__dirname, '../map/versions.json'), 'utf8'));
+  const published = versions.versions.find(version => version.version === versions.latestVersion).publishedAsset;
+  const atlasPath = path.relative(path.resolve(__dirname,'../site'), path.resolve(__dirname,'../map',published)).replaceAll('\\','/');
+  for (const [src, mode] of [['http://127.0.0.1:4304/jeu/site-config.js','local'],['https://example.test/Kalistar/jeu/site-config.js?v=release','static'],['https://example.test/jeu/site-config.js?v=release','static']]) {
     let removed = 0;
-    const context = {URL, window: {}, document: {currentScript: {src}, documentElement: {dataset: {hosting: mode}}, querySelectorAll: () => [{remove() {removed++;}}]}};
+    const properties = new Map();
+    const context = {URL, window: {}, document: {currentScript: {src}, documentElement: {dataset: {hosting: mode},style:{setProperty:(key,value)=>properties.set(key,value)}}, querySelectorAll: () => [{remove() {removed++;}}]}};
     vm.runInNewContext(script, context);
     const site = context.window.KalistarSite;
     assert.equal(site.online, mode === 'static');
     assert.equal(removed, mode === 'static' ? 1 : 0);
-    assert.equal(site.url('/media/reference/momo.png'), mode === 'static' ? 'https://example.test/Kalistar/media/reference/momo.png' : '/media/reference/momo.png');
+    assert.equal(site.url('/media/reference/momo.png'), new URL('../',src).pathname==='/' ? '/media/reference/momo.png' : 'https://example.test/Kalistar/media/reference/momo.png');
+    assert.equal(site.atlas,new URL(atlasPath,src).href,'shared atlas follows the approved published map on every host');
+    assert.equal(properties.get('--kalistar-atlas-image'),`url(${JSON.stringify(site.atlas)})`);
     assert.equal(site.url('blob:abc'), 'blob:abc');
     assert.equal(site.url(site.url('/jeu/assets/arena.webp')), site.url('/jeu/assets/arena.webp'));
   }

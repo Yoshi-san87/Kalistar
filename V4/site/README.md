@@ -31,6 +31,11 @@ Les vues publiques sont Home, Collection, Decks, Equipements, Arene,
 Statistiques, Story, Map, Guide, Library et Bibliotheque de parcours. Le serveur local garde en plus
 l'Atelier ; il ne fait pas partie du build public.
 
+`site-config.js` definit aussi `KalistarSite.atlas`, source unique de la Map
+et du fond Collection. La variable CSS `--kalistar-atlas-image` reprend cette
+URL ; Collection conserve son flou leger sans toucher aux cartes ni aux
+surfaces de lecture. Une publication Map met a jour cette seule reference.
+
 ## Regles et sauvegardes
 
 | Domaine | Modules principaux |

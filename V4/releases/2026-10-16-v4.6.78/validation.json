@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-16",
+  "applicationVersion": "4.6.78",
+  "mapVersion": "1.39",
+  "scope": {
+    "sharedAtlasReference": "KalistarSite.atlas",
+    "collectionCssProperty": "--kalistar-atlas-image",
+    "newMedia": false,
+    "nativeSourcesChanged": false,
+    "runtimeMediaRegistryChanged": false,
+    "gameplayChanged": false,
+    "realPlayerDataTouched": false,
+    "authenticationChanged": false
+  },
+  "localValidation": {
+    "organisation": "PASS",
+    "ci": {"exitCode": 0, "registeredCommands": 90, "elapsedMs": 360404},
+    "local": {"exitCode": 0, "registeredCommands": 12, "elapsedMs": 24386},
+    "cloudflareBuild": {"exitCode": 0, "elapsedMs": 4652},
+    "focusedMapAndBuildTests": {"exitCode": 0, "tests": 12}
+  },
+  "preflightBrowsers": {
+    "collection": {"exitCode": 0, "formats": 7, "elapsedMs": 55378},
+    "map": {"exitCode": 0, "formats": 3, "elapsedMs": 5607},
+    "game": {"exitCode": 0, "desktopAndPhone": true, "cards": 434, "elapsedMs": 16368},
+    "login": {"exitCode": 0, "formats": 5, "isolatedFixturesOnly": true, "elapsedMs": 26061},
+    "visuallyInspected": ["collection-1440x1000.png", "collection-412x1007.png"],
+    "checks": ["same approved atlas in Map and Collection", "page thumbnails", "paging", "filters", "sharp cards", "caption contrast", "no horizontal overflow", "unchanged notebook and Story", "reload", "touch controls", "saved match"]
+  },
+  "deliveryGatesAtCommit": {
+    "status": "required-before-live-announcement",
+    "required": ["exact committed Cloudflare build with existing private Worker", "frozen Collection Map game and login browser tests", "atomic branch and annotated tag push", "GitHub repository workflow", "public versioned login and private-file refusal", "public login desktop and Razr"],
+    "evidence": "work/qa/collection-atlas-4.6.78/publication.json",
+    "realAccountPasswordAutomated": false
+  }
+}

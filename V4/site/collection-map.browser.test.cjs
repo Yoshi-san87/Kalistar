@@ -34,7 +34,7 @@ async function main(){
       const image=new Image();image.src=source;await image.decode();
       return {source,width:image.naturalWidth,height:image.naturalHeight};
     });
-    assert.match(asset.source,/collection-astralia-planisphere-v2\.webp$/);
+    assert.equal(asset.source,await page.evaluate(()=>KalistarSite.atlas));
     assert.equal(asset.width/asset.height,2,'the full atlas has its original aspect ratio');
     const pedestalAsset=await page.locator('.cb-plinth-art > span > span').first().evaluate(async node=>{
       const source=getComputedStyle(node).backgroundImage.match(/url\("?(.*?)"?\)/)?.[1],image=new Image();image.src=source;await image.decode();
@@ -68,7 +68,7 @@ async function main(){
         return {inside:r.left>=card.left&&r.right<=card.right&&r.top>=card.top&&r.bottom<=card.bottom,left:Math.abs(r.left-card.left-4)<1,bottom:Math.abs(r.bottom-card.bottom+4)<1,adjacent:icon.right<number.left&&Math.abs(icon.y+icon.height/2-number.y-number.height/2)<1,noninteractive:getComputedStyle(n).pointerEvents==='none',inPlinth:n.closest('.cb-pocket').querySelector('.cb-pedestal .cb-copy-count')!==null,label:n.getAttribute('aria-label')};
       }));
       assert(geometry.copies.length===geometry.cards.length&&geometry.copies.every(c=>c.inside&&c.left&&c.bottom&&c.adjacent&&c.noninteractive&&!c.inPlinth&&/exemplaire/.test(c.label)),'copies sit beside their card icon in the bottom-left corner: '+JSON.stringify(geometry.copies));
-      assert.match(geometry.background,/collection-astralia-planisphere-v2\.webp/);
+      assert.ok(geometry.background.includes(asset.source));
       assert.equal(geometry.blur,'blur(1.6px)','only the map has a restrained blur');
       assert.equal(geometry.interactive,'none','map layer never blocks controls');
       assert.equal(geometry.workFilter,'none');assert.equal(geometry.spreadFilter,'none');
@@ -123,7 +123,7 @@ async function main(){
     const initial=await page.locator('.cb-page-label').textContent();
     await action('next-page').last().click();assert.notEqual(await page.locator('.cb-page-label').textContent(),initial);
     await action('pages').click();await page.locator('.cb-overlay:modal').waitFor();
-    assert.match(await page.locator('.cb-mini-book').first().evaluate(n=>getComputedStyle(n,'::before').backgroundImage),/collection-astralia-planisphere-v2\.webp/);
+    assert.ok((await page.locator('.cb-mini-book').first().evaluate(n=>getComputedStyle(n,'::before').backgroundImage)).includes(asset.source));
     await action('jump-page','0').click();
     await action('filters').click();
     await page.locator('[data-binder-filter=collection]').last().selectOption('kalistar');
@@ -147,7 +147,10 @@ async function main(){
     assert.match(await page.locator('.story-volume-object img').first().getAttribute('src'),/story-closed-grimoire-v2\.webp/,'Story is unchanged');
     await page.locator('[data-view=collection]').click();await page.locator('.cb-spread').waitFor();
     await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);
-    assert.match(await page.locator('.cb-workbench').evaluate(n=>getComputedStyle(n,'::before').backgroundImage),/collection-astralia-planisphere-v2\.webp/);
+    assert.ok((await page.locator('.cb-workbench').evaluate(n=>getComputedStyle(n,'::before').backgroundImage)).includes(asset.source));
+    await page.goto(url+'/jeu/#map');await page.waitForFunction(()=>window.KALISTAR_READY&&document.querySelector('.map-atlas')?.complete);
+    assert.equal(await page.locator('.map-atlas').getAttribute('src'),asset.source,'Map and Collection share the same atlas');
+    await page.goto(url+'/jeu/#collection');await page.waitForFunction(()=>window.KALISTAR_READY&&document.querySelector('.cb-spread'));
     await page.emulateMedia({reducedMotion:'no-preference'});
     await page.locator('[data-binder-field=search]').fill('MAELOR');
     const card=action('open').first(),rim=()=>card.evaluate(n=>getComputedStyle(n.closest('.cb-stack'),'::before').borderColor);

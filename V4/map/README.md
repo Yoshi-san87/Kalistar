@@ -14,6 +14,13 @@ Le cratere de Durane, le barrage nord, Cryptown et Thalassea sont preserves.
 Terrain, atmosphere et emblemes restent independants dans le PSD.
 Sources, prompts et export runtime : [layers-1.39](layers-1.39/PUBLICATION.md).
 
+Le chemin runtime courant est defini une seule fois par `KalistarSite.atlas`
+dans `../site/site-config.js`. La vue Map et le fond Collection (y compris
+ses miniatures de pages) utilisent ce meme asset. A chaque nouvelle carte
+approuvee, mettre a jour ce chemin avec `versions.json` et le registre media ;
+le test de publication refuse une divergence. Le flou Collection reste un
+effet CSS separe : ne pas flouter ni dupliquer l'image source.
+
 | Version | Fichier | Contenu |
 | --- | --- | --- |
 | 1.0 | [kalistar-map-1.0.png](kalistar-map-1.0.png) | Carte originale, sans le temple ni le nom Kalistopolis. |
