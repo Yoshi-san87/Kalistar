@@ -4,7 +4,7 @@
   const icon=n=>`<i data-lucide="${n}"></i>`;
   const date=s=>s?new Date(s).toLocaleString('fr-FR'):'-';
   const labels={pending:'En attente',accepted:'Accepte',cancelled:'Annule',rejected:'Refuse',completed:'Accepte'};
-  function create({db,getCatalogueChanges=()=>db.catalogueChanges?.()||[],getUserId,onSwitch,onChanged,modal,toast,download}){
+  function create({db,getCatalogueChanges=()=>db.catalogueChanges?.()||[],getUserId,onSwitch,onChanged,modal,toast,download,onCloud=null}){
     const registry=db.registry,cards=window.KALISTAR_DATA.cards;
     let byId=Object.fromEntries(cards.map(c=>[c.id,c]));
     const card=id=>byId[id]||{id,name:'Carte #'+id,title:'Profil a actualiser'};
@@ -47,7 +47,8 @@
       byId=Object.fromEntries([...cards,...db.inspect('versions')].map(c=>[c.id,c]));
       const pending=getCatalogueChanges();
       const notice=pending.length?`<div class="registry-catalogue-notice" role="status"><span>${new Set(pending).size} nouvelle(s) version(s) disponible(s)</span><button type="button" data-action="catalogue-refresh">${icon('refresh-cw')}Actualiser le catalogue</button></div>`:'';
-      modal('account-dialog',head(mode==='hub'?'Registre de Kalistar':'Transfert de carte')+`<div class="registry-shell">${notice}${mode==='hub'?hub():transfer()}<p class="registry-feedback" role="status"></p></div>`);dialog().classList.add('registry-dialog');
+      const online=onCloud?`<div class="cloud-online-entry"><span>Archives et profils de ce navigateur</span>${action('cloud','Compte Kalistar en ligne','fingerprint')}</div>`:'';
+      modal('account-dialog',head(mode==='hub'?'Registre local de Kalistar':'Transfert de carte')+`<div class="registry-shell">${online}${notice}${mode==='hub'?hub():transfer()}<p class="registry-feedback" role="status"></p></div>`);dialog().classList.add('registry-dialog');
       const active=registry.activeGames(getUserId());
       if(mode==='hub'&&tab==='transfers'&&active.length){
         const notice=document.createElement('section');notice.className='registry-active-games';
@@ -67,6 +68,7 @@
       const b=event.target.closest('[data-registry-action]');if(!b||b.disabled||busy)return;
       const name=b.dataset.registryAction;
       if(name==='close'){dialog().close();issued=null;return;}
+      if(name==='cloud'&&onCloud){onCloud();return;}
       if(name==='tab'){tab=b.dataset.tab;mode='hub';if(tab==='storage')return run(measure);render();return;}
       if(name==='compose'){mode='compose';selected=b.dataset.id||registry.owned(getUserId())[0]?.id;recipient=null;review=null;render();return;}
       if(name==='back'){mode='hub';tab='transfers';review=null;render();return;}
@@ -85,7 +87,7 @@
       if(event.target.id==='registry-transfer-item'){selected=event.target.value;recipient=dialog().querySelector('[name="recipient"]').value;render();}
     });
     document.addEventListener('submit',event=>{
-      if(!event.target.id.startsWith('registry-'))return;event.preventDefault();if(busy)return;
+      if(!event.target.getAttribute('id')?.startsWith('registry-'))return;event.preventDefault();if(busy)return;
       const values=new FormData(event.target),actor=getUserId();
       if(event.target.id==='registry-transfer-form')return run(async()=>{await registry.refresh();selected=values.get('item');recipient=values.get('recipient');const item=registry.get(selected);if(item?.ownerId!==actor||!registry.user(recipient)||recipient===actor)throw new Error('Proprietaire ou destinataire invalide.');review={id:selected,to:recipient,actor};});
       if(event.target.id==='registry-confirm-form'&&values.get('confirm'))return run(async()=>{if(mode==='receive'){await registry.accept(actor,selected);toast('Exemplaire recu.');}else{if(!review||review.actor!==actor)throw new Error('Confirmation expiree.');await registry.offer(actor,review.id,review.to);toast('Demande envoyee. Le destinataire doit l’accepter.');}mode='hub';tab='transfers';review=null;});

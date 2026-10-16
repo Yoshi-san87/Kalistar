@@ -15,12 +15,15 @@ async function boot({invalid=false,missing='',preview=false}={}){
   return {preload,styles,executed,errors,nodes,window};
 }
 test('boot downloads concurrently but executes validated dependencies in order',async()=>{
-  const result=await boot();assert.equal(result.preload.length,57);assert.deepEqual(result.executed,result.preload);
+  const result=await boot();assert.equal(result.preload.length,60);assert.deepEqual(result.executed,result.preload);
   assert.deepEqual(result.styles,['ultimate-ui.css?v=audit']);
   const names=result.executed.map(src=>src.split('?')[0]);assert.equal(new Set(names).size,names.length);
   for(const name of ['team-composition.js','matchmaking.js','pre-match.js','positions.js','home-screen.js','page-transitions.js','map-view.js','guide-scenario.js','guide-view.js','rules-documents.js','library-view.js']){assert.ok(names.includes(name));assert.ok(names.indexOf(name)<names.indexOf('app.js'));}
   assert.ok(names.indexOf('guide-scenario.js')<names.indexOf('guide-view.js'));
   assert.ok(names.indexOf('rules-documents.js')<names.indexOf('library-view.js'));
+  for(const name of ['cloud-config.js','cloud-registry.js','cloud-registry-ui.js'])assert.ok(names.indexOf(name)>=0&&names.indexOf(name)<names.indexOf('app.js'));
+  assert.ok(names.indexOf('cloud-config.js')<names.indexOf('cloud-registry-ui.js'));
+  assert(!names.some(name=>name.startsWith('assets/supabase/')),'the official Auth SDK stays lazy until the registry is opened');
   assert.ok(names.indexOf('engine.js')<names.indexOf('matchmaking.js'));
   assert.ok(names.includes('ai-strategies.js'));assert.ok(names.indexOf('ai-strategies.js')<names.indexOf('engine.js'));
   assert.ok(names.indexOf('relic-ultimates.js')<names.indexOf('equipment.js'));

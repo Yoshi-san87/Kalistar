@@ -49,6 +49,11 @@ IndexedDB `kalistar-v4-cards` et cles `kalistar.v4.*` vivent dans le navigateur.
 Conserver les schemas, identifiants stables et validations des anciens imports.
 Ne pas tester sur les possessions ou parties reelles.
 
+`cloud-config.js`, `cloud-registry.js` et `cloud-registry-ui.js/css` ajoutent un
+registre distant independant. Le SDK officiel est charge a la demande. Ne pas
+confondre compte Auth, profil local et exemplaire emis ; ne jamais certifier
+un resultat local par simple import. Voir le [contrat du registre](../docs/REGISTRE_EN_LIGNE.md).
+
 La conversion des profils d'equipement se fait profil par profil : une carte
 archivee hors du catalogue ne bloque pas la migration d'un profil connu.
 Si un porteur ou un equipement historique manque, garder ce profil intact et

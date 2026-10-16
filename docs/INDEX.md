@@ -23,6 +23,7 @@ les rapports dates racontent une livraison et ne remplacent pas les sources.
 | Armes, protections et reliques | [EQUIPEMENTS_460.md](../V4/docs/EQUIPEMENTS_460.md), [RELIQUES_ULTIMES.md](../V4/docs/RELIQUES_ULTIMES.md) |
 | Indice de performance et MVP | [INDICE_PERFORMANCE.md](../V4/docs/INDICE_PERFORMANCE.md) |
 | Adversaires IA | [ADVERSAIRES_IA.md](../V4/docs/ADVERSAIRES_IA.md) |
+| Comptes et exemplaires en ligne | [REGISTRE_EN_LIGNE.md](../V4/docs/REGISTRE_EN_LIGNE.md) |
 | Identite visuelle du site | [IDENTITE_VISUELLE.md](../V4/docs/IDENTITE_VISUELLE.md) |
 | Illustrations des personnages | [DIRECTION_ARTISTIQUE.md](../V4/DIRECTION_ARTISTIQUE.md) |
 | Peuples et regions | [PEUPLES_ET_REGIONS.md](../V4/docs/PEUPLES_ET_REGIONS.md) |

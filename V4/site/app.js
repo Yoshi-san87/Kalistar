@@ -896,7 +896,7 @@ function showDeck(){setView('decks');}
     home?.classList.toggle('active',homeSelected);home?.setAttribute('aria-current',homeSelected?'page':'false');
   }
   function showNavigation(){
-    modal('mobile-dialog',head('Kalistar')+`<div class="dialog-body mobile-menu">${learningNavigation()}${navigationItem('story','Story')}${navigationItem('map','Map')}${window.KalistarSite?.online?'':`<button data-view="atelier">${icon('paintbrush')}Atelier${icon('chevron-right')}</button>`}</div>`);
+    modal('mobile-dialog',head('Kalistar')+`<div class="dialog-body mobile-menu">${learningNavigation()}${window.KalistarCloudConfig?.enabled?`<button data-action="cloud-account">${icon('fingerprint')}Registre en ligne${icon('chevron-right')}</button>`:''}${navigationItem('story','Story')}${navigationItem('map','Map')}${window.KalistarSite?.online?'':`<button data-view="atelier">${icon('paintbrush')}Atelier${icon('chevron-right')}</button>`}</div>`);
     $('#mobile-dialog').classList.add('navigation-sheet');$('#mobile-dialog').setAttribute('aria-label','Autres sections de Kalistar');
     $('.nav-more')?.setAttribute('aria-expanded','true');
   }
@@ -961,6 +961,7 @@ function showDeck(){setView('decks');}
         Promise.resolve(db?.idle()).then(()=>{if(!window.KalistarPhonePreview.enter())scheduleAI();}).catch(error=>{toast(error.message);scheduleAI();});return;
       }
       if(action==='account')return openAccounts();
+      if(action==='cloud-account')return cloudRegistryUI.open();
       if(action==='owned-cards')return openAccounts(owned(id).length?'collection':'activation',owned(id)[0]?.id||null);
       if(action==='detail'){
         const context=b.dataset.instance?{instanceId:b.dataset.instance}:b.dataset.uid?{side:Number(b.dataset.side),uid:b.dataset.uid}:{};
@@ -1163,7 +1164,8 @@ function showDeck(){setView('decks');}
   document.addEventListener('fullscreenchange',()=>{const b=$('[data-action="fullscreen"]');if(b){const label=document.fullscreenElement?'Quitter le plein écran':'Plein écran';b.title=label;b.setAttribute('aria-label',label);b.innerHTML=icon(document.fullscreenElement?'minimize':'maximize');icons();}});
   document.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}}));
   if(ui.view==='arena'&&!game){try{await createGame('ai','KALI-2026');}catch{ui.view='collection';}}
-  if(db?.registry)accountsUI=KalistarAccountsUI.create({db,getCatalogueChanges:()=>catalogueUpdates.ids(),getUserId:()=>accountId,onChanged:ownershipChanged,modal,toast,download,onSwitch:async id=>{if(!db.registry.user(id))throw new Error('Profil inconnu.');persist();await db.idle();localStorage.setItem('kalistar.v4.activeUser',id);location.reload();}});
+  const cloudRegistryUI=KalistarCloudRegistryUI.create({data,modal,onLocal:()=>openAccounts()});
+  if(db?.registry)accountsUI=KalistarAccountsUI.create({db,getCatalogueChanges:()=>catalogueUpdates.ids(),getUserId:()=>accountId,onChanged:ownershipChanged,modal,toast,download,onCloud:window.KalistarCloudConfig?.enabled?()=>cloudRegistryUI.open():null,onSwitch:async id=>{if(!db.registry.user(id))throw new Error('Profil inconnu.');persist();await db.idle();localStorage.setItem('kalistar.v4.activeUser',id);location.reload();}});
   else toast('Registre local indisponible : '+dbError);
   const stopCatalogueRefresh=db?.onCatalogueChange(()=>{
     markCatalogueOutdated();
@@ -1176,4 +1178,7 @@ function showDeck(){setView('decks');}
   });
   window.addEventListener('pagehide',()=>{preMatch.cancel();pendingLineup=null;cancelLineup();finale.destroy();stopCatalogueRefresh?.();catalogueUpdates.destroy();stopEquipmentRefresh?.();weaponsUI.destroy();});
   render();if(restoreError)toast(restoreError);window.KALISTAR_READY=true;
+  const cloudRequest=new URL(location.href).searchParams;
+  if(window.KalistarCloudConfig?.enabled&&(cloudRequest.get('registry')==='1'||cloudRequest.has('specimen')))void cloudRegistryUI.open({id:cloudRequest.get('specimen')});
+  window.addEventListener('pagehide',event=>{if(!event.persisted)cloudRegistryUI.destroy();});
 })();

@@ -3,7 +3,8 @@
   "description": "Les 84 invocations CI anterieures sont conservees, dans le meme ordre. Navigateur et atelier restent explicites.",
   "suites": {
     "repository": [
-      ["--test", "maintenance/organisation.test.cjs", "maintenance/validation.test.cjs", "V4/deploy/prepare-release.test.cjs", "V4/deploy/runtime-media.test.cjs"]
+      ["--test", "maintenance/organisation.test.cjs", "maintenance/validation.test.cjs", "V4/deploy/prepare-release.test.cjs", "V4/deploy/runtime-media.test.cjs"],
+      ["--test", "V4/site/cloud-registry.test.cjs"]
     ],
     "organisation": [
       [
@@ -405,7 +406,8 @@
         "--test",
         "V4/deploy/prepare-release.test.cjs",
         "V4/deploy/runtime-media.test.cjs"
-      ]
+      ],
+      ["--test", "V4/site/cloud-registry.test.cjs"]
     ],
     "local": [
       ["--test", "V4/map/layers-1.33/map.test.cjs"],
@@ -441,7 +443,8 @@
       [
         "--test",
         "V4/site/weapon-backgrounds.test.cjs"
-      ]
+      ],
+      ["--test", "V4/deploy/supabase/registry.test.cjs"]
     ]
   },
   "browserAliases": [
