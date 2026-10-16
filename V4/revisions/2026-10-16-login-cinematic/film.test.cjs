@@ -23,10 +23,20 @@ function movie(bytes){
   });
   return {duration,tracks};
 }
-for(const phone of [false,true])test((phone?'portrait':'desktop')+' is a real 12-second H264/AAC film, small and registered',()=>{
-  const name='kalistar-anime-v1'+(phone?'-phone':'')+'.mp4',file=path.join(assets,name),bytes=fs.readFileSync(file),data=movie(bytes);
-  assert(Math.abs(data.duration-12)<.1);assert.deepEqual(data.tracks.find(t=>t.type==='vide'),{type:'vide',width:phone?720:1280,height:phone?1280:720});assert(data.tracks.some(t=>t.type==='soun'));
-  assert(bytes.includes(Buffer.from('avc1')));assert(bytes.includes(Buffer.from('mp4a')));assert(bytes.length<10*1024**2);
+test('v2 preserves the original music and records all generated source hashes',()=>{
+  const folder=path.join(__dirname,'v2'),data=JSON.parse(fs.readFileSync(path.join(folder,'generation.json')));
+  const hash=file=>crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+  assert.equal(hash(path.join(folder,'source/music.mp3')),data.music.sha256);
+  assert.equal(hash(path.join(__dirname,'source/music.mp3')),data.music.sha256);
+  for(const [file,sha256] of Object.entries(data.sourceHashes))assert.equal(hash(path.join(folder,'source',file)),sha256,file);
+  assert.equal(data.creditsSpent.total,336);assert.equal(data.creditsSpent.purchasesPerformed,0);
+  const momo=data.editing.segments.filter(s=>s.character==='momo');assert.equal(momo.length,2);
+  assert.equal(momo[0].sourceEnd,momo[1].sourceStart);assert.equal(momo[0].sourceStart,0);assert.equal(momo[1].sourceEnd,10);
+});
+for(const [version,duration,limit] of [[1,12,10],[2,30,25]])for(const phone of [false,true])test('v'+version+' '+(phone?'portrait':'desktop')+' is a real '+duration+'-second H264/AAC film, small and registered',()=>{
+  const name='kalistar-anime-v'+version+(phone?'-phone':'')+'.mp4',file=path.join(assets,name),bytes=fs.readFileSync(file),data=movie(bytes);
+  assert(Math.abs(data.duration-duration)<.1);assert.deepEqual(data.tracks.find(t=>t.type==='vide'),{type:'vide',width:phone?720:1280,height:phone?1280:720});assert(data.tracks.some(t=>t.type==='soun'));
+  assert(bytes.includes(Buffer.from('avc1')));assert(bytes.includes(Buffer.from('mp4a')));assert(bytes.length<limit*1024**2);
   const registry=JSON.parse(fs.readFileSync(path.join(root,'V4/deploy/runtime-media.json'))),record=registry.files.find(r=>r.source.endsWith('/cinematics/'+name));
   assert(record);assert.equal(record.bytes,bytes.length);assert.equal(record.sha256,crypto.createHash('sha256').update(bytes).digest('hex'));
   assert(fs.statSync(path.join(assets,name.replace('.mp4','-poster.webp'))).size<300000);

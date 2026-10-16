@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-16",
+  "purpose": "User-requested contemplative revision, approximately 30 seconds. Native cards untouched.",
+  "duration": 30,
+  "sources": {
+    "momo": "../source/momo.png",
+    "kaylis": "../source/kaylis.png",
+    "balmhyr": "../source/balmhyr-anime.png",
+    "voloden": "V4/Illustrations/Voloden_Thinking.png"
+  },
+  "keyframes": {
+    "tool": "Built-in image_gen; v1 anime keyframes reused for Momo, Kaylis and Balmhyr",
+    "voloden": {
+      "output": "source/keyframes/voloden.png",
+      "generation": "exec-1c919b03-77a9-49de-ba12-0e7685a218af.png",
+      "prompt": "Use case: style-transfer. Create one cinematic 16:9 anime keyframe for the Kalistar film. Image 1 is the exact subject and office scene reference: Voloden_Thinking. Image 2 is STYLE ONLY, the existing Kalistar Kaylis anime shot. Transform image 1 into the same mature serious hand-drawn anime style as image 2: clean dark ink contours, controlled two-to-three cel shading values, fine line detail and a rich painted environment, NOT photorealistic. Preserve Voloden's narrow pale adult masculine face, long straight silver-white hair, pointed ears, clean-shaven appearance, black high-collar robe with subtle antique gold filigree. He is STANDING still in his stone office beside the huge window overlooking the deep vertical mine with suspended ore buckets and amber lit catwalks. One hand under chin and other arm folded. Medium shot waist up, Voloden slightly left of center, his face and upper body readable in a portrait central crop as well. His eyes are fixed outside, subtly tense with dread and uncertainty, held breath, restrained emotion; not a villain pose. Desk papers and warm lantern at left, cool grey mine beyond glass at right. Cinematic amber/cool rock balance, beautiful quiet lighting. Wide landscape frame without text, subtitles, card border, logo or watermark. Only Voloden, no additional characters.",
+      "references": [
+        "V4/Illustrations/Voloden_Thinking.png",
+        "../source/kaylis.png"
+      ]
+    }
+  },
+  "runway": {
+    "momo": {
+      "taskId": "440febae-7151-4825-80eb-edfc6f8b94fb",
+      "model": "gen-4.5",
+      "duration": 10,
+      "prompt": "One continuous contemplative anime shot, very slow serene rhythm. Momo is the small one-blue-eyed robot seated firmly on the stone ledge exactly as in the starting frame, hips resting on the ledge, both knees bent. Throughout the entire shot he remains seated in that same place and gently plays his silver transverse flute with tiny finger movements. His relaxed seated silhouette stays unchanged. A delicate ribbon of pale blue and warm golden luminous notes drifts from the flute into the night air. First five seconds: the camera makes an extremely slow shallow eight-degree orbit around seated Momo, maintaining his face, hands and flute in frame, cloth moving softly in the breeze. Final five seconds: while Momo continues playing seated, the camera gently tilts and glides upward following the same sparse luminous notes into the immense starry blue sky; Momo gradually leaves the lower frame solely because the CAMERA looks up. End looking at stars and drifting magic. Tender, peaceful, quietly emotional. Fluid restrained hand-drawn anime, preserve exact identity, clear ink lines, cel shading and rich background. This is one uninterrupted calm take, fixed seated pose, stable instrument, subtle ambient movement."
+    },
+    "kaylis": {
+      "taskId": "a5f9c311-90fa-4948-842f-d97a20d872b1",
+      "model": "gen-4.5",
+      "duration": 6,
+      "prompt": "One uninterrupted very slow intimate anime shot. Kaylis remains standing almost still in the stone mine, looking down at her own hands and the delicate rainbow tattoos along her forearms. Her brow gently draws together, eyes subtly widen with fear and uncertainty, a small held breath, lips barely part. The emotion is private and vulnerable, discovering something she cannot understand, not triumphant. Her hands stay close to their starting positions. Fine rainbow light softly breathes along the existing tattoo lines, a few tiny suspended motes. Camera makes a restrained slow push toward her face and hands over six seconds, just a few inches. Strands of curly hair barely move. Preserve her exact face, warm brown freckled skin, dark tied curly hair, clothes, tattoo pattern and mature hand-drawn anime styling, clean contours and cel shading. A quiet emotional moment throughout, not an action scene; the magic remains a gentle glow."
+    },
+    "voloden": {
+      "taskId": "7a2e58ad-a9f6-4f2f-8719-c32ce97b4cea",
+      "model": "gen-4.5",
+      "duration": 6,
+      "prompt": "One uninterrupted restrained anime shot in the exact stone office and mine of the starting frame. Voloden stands motionless beside his tall window, one hand at his chin, other arm folded, gazing into the deep mine outside. The camera slowly glides a few inches to the right in a tiny shallow orbit, keeping his face readable in three-quarter profile. His face conveys restrained dread: a slight tightening of the brow and eyes, a quiet breath, the weight of a frightening thought. His gaze remains on the mine. One slow blink, almost imperceptible hair movement, warm lantern flicker and a gently swaying distant suspended ore bucket. Preserve his long silver-white hair, pointed ears, pale narrow masculine face, black gold-filagree high collar robe and the exact office geography. Serious refined hand-drawn anime with clean outlines and cel shading, rich background. Slow contemplative cinema, held pose, emotional stillness."
+    },
+    "balmhyr": {
+      "taskId": "84755239-7f74-4c4e-bba3-bfe7c14c9a31",
+      "model": "gen-4.5",
+      "duration": 6,
+      "prompt": "One uninterrupted contemplative anime shot, very slow and grounded. Balmhyr stands firmly and quietly on the canyon ledge, both hands resting on top of the upright axe handle exactly as in the starting image. The axe head stays planted on the rock for the entire shot; his hands and arms remain resting and his feet remain still. He looks out across the canyon with solemn, tender resolve. The camera performs only a very slow shallow eight-degree orbit around him over six seconds. Wind gently lifts the tips of his white braids, beard and rust scarf, with soft fabric movement. The bear behind him calmly takes one small deliberate step closer and rests peacefully at his side. Calm companionship, no aggression. Preserve the exact old dwarf identity, layered leather and fur armor, brass beard rings, grounded engraved axe and brown bear. Mature hand-drawn anime, clear ink lines and cel shading, warm sunset in Canyonero. Quiet emotional presence throughout."
+    }
+  },
+  "creditsSpent": {
+    "video": 336,
+    "music": 0,
+    "total": 336,
+    "purchasesPerformed": 0
+  },
+  "music": {
+    "source": "../source/music.mp3",
+    "reusedWithoutRegeneration": true,
+    "sha256": "21ae69eb4aca02d18371d15769250ec8595e49553f85cea6d061981a0e35ddb9"
+  },
+  "editing": {
+    "fps": 24,
+    "momoSpeed": 0.9090909090909091,
+    "crossfades": 0.5,
+    "segments": [
+      {
+        "character": "momo",
+        "sourceStart": 0,
+        "sourceEnd": 5,
+        "start": 0,
+        "end": 5.5
+      },
+      {
+        "character": "kaylis",
+        "start": 5,
+        "end": 11
+      },
+      {
+        "character": "voloden",
+        "start": 10.5,
+        "end": 16.5
+      },
+      {
+        "character": "balmhyr",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "character": "momo",
+        "sourceStart": 5,
+        "sourceEnd": 10,
+        "start": 21.5,
+        "end": 27
+      },
+      {
+        "character": "approved-logo",
+        "start": 26.5,
+        "end": 30
+      }
+    ],
+    "audio": "Original full cue, trimmed at 30s, same -18 LUFS target, 1.4s final fade",
+    "exports": [
+      "V4/site/assets/cinematics/kalistar-anime-v2.mp4",
+      "V4/site/assets/cinematics/kalistar-anime-v2-phone.mp4"
+    ]
+  },
+  "sourceHashes": {
+    "momo.mp4": "1ea10170fb9a62097526425e382458df1b9e31620ef0e1e62ca6117597c3181f",
+    "kaylis.mp4": "47a10caa18e9165aeab4db66ee81b95fe91a4cd5fd8e6418170a3fbaf1aa005d",
+    "voloden.mp4": "cd5824d90be1064255dcc4865088b4a4a9a1e67609f8b90bb46aae63dcf4ffbf",
+    "balmhyr.mp4": "e74d5445024d71868c94c936f27bb02d4b5b330c08eb64749387868be4dd903e",
+    "keyframes/momo.png": "9fd72f8a9ce4bd423bacdb4c62fdf4e1b0de517c26573a66be431f4d958646c0",
+    "keyframes/kaylis.png": "80c86a253b79c56e37dbe3c651ba8ec3c88139ded1ffea8fc06f0d9936f59e2b",
+    "keyframes/voloden.png": "5c02cc973a4fcc4508b9ef06743ffbb34df0fd220172d20a69e09daeae7c8e40",
+    "keyframes/balmhyr-anime.png": "ffef03e132dad5ab07cf8737bf752c87d338a675ee55be6308b5044a1007aad5"
+  }
+}

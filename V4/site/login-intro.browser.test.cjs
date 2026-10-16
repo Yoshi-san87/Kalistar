@@ -24,11 +24,11 @@ async function main(){
       else{
         const film=page.locator('.login-intro video');await page.waitForFunction(()=>document.querySelector('video')?.currentTime>.35);
         const info=await film.evaluate(v=>({width:v.videoWidth,height:v.videoHeight,duration:v.duration,muted:v.muted,src:v.currentSrc}));
-        assert.equal(info.muted,true);assert(Math.abs(info.duration-12)<.1);assert.equal(info.height>info.width,profile.height>profile.width&&profile.width<=699);
+        assert.equal(info.muted,false);assert(Math.abs(info.duration-30)<.1);assert.equal(info.height>info.width,profile.height>profile.width&&profile.width<=699);
         const layout=await page.locator('.login-intro').evaluate(d=>({w:innerWidth,scroll:document.documentElement.scrollWidth,buttons:[...d.querySelectorAll('button:not([hidden])')].map(b=>{const r=b.getBoundingClientRect();return{x:r.x,y:r.y,w:r.width,h:r.height};})}));
         assert.equal(layout.w,layout.scroll);assert(layout.buttons.every(b=>b.w>=44&&b.h>=44&&b.x>=0&&b.y>=0&&b.x+b.w<=profile.width&&b.y+b.h<=profile.height));
         const frames=[];
-        for(const time of [1,4.7,8.3,10.8]){
+        for(const time of [1,8,14,19,24,28]){
           if(!['desktop','razr'].includes(profile.name))break;
           await page.waitForFunction(t=>document.querySelector('video')?.currentTime>=t,time);
           const pixels=await film.evaluate(v=>{const c=document.createElement('canvas');c.width=96;c.height=96;const x=c.getContext('2d');x.drawImage(v,0,0,96,96);return [...x.getImageData(0,0,96,96).data];});
@@ -36,7 +36,7 @@ async function main(){
           await page.screenshot({path:path.join(out,profile.name+'-'+time+'.png')});
         }
         if(frames.length){assert.notDeepEqual(frames[0],frames[1]);await page.waitForFunction(()=>window.result==='completed');assert.equal(await page.locator('video').count(),0);}
-        else{await page.locator('.login-intro__sound').click();assert.equal(await film.evaluate(v=>v.muted),false);await page.locator('.login-intro__skip').click();await page.waitForFunction(()=>window.result==='skipped');}
+        else{await page.locator('.login-intro__sound').click();assert.equal(await film.evaluate(v=>v.muted),true);await page.locator('.login-intro__skip').click();await page.waitForFunction(()=>window.result==='skipped');}
         assert.equal(mediaRequests.length,1,'only selected cut is downloaded');assert.equal(await page.evaluate(()=>document.documentElement.classList.contains('login-intro-open')),false);
         if(profile.name==='razr'){
           await page.locator('#start').click();await page.waitForFunction(()=>document.querySelector('video')?.currentTime>.2);
@@ -51,14 +51,21 @@ async function main(){
       const p=new URL(route.request().url()).pathname;
       if(p==='/jeu/')return route.fulfill({contentType:'text/html',body:'<script src="/jeu/login-intro.js"></script><button onclick="KalistarLoginIntro.play().then(v=>window.result=v)">Start</button>'});
       if(p.endsWith('.js'))return route.fulfill({contentType:'text/javascript',body:fs.readFileSync(path.join(dist,'jeu/login-intro.js'))});
-      if(playable&&p.endsWith('.mp4'))return route.fulfill({contentType:'video/mp4',body:fs.readFileSync(path.join(dist,'jeu/assets/cinematics/kalistar-anime-v1.mp4'))});
+      if(playable&&p.endsWith('.mp4'))return route.fulfill({contentType:'video/mp4',body:fs.readFileSync(path.join(dist,'jeu/assets/cinematics/kalistar-anime-v2.mp4'))});
       return route.fulfill({status:404,body:''});
     });
     await page.goto(origin+'/jeu/');await page.getByText('Start').click();await page.waitForFunction(()=>window.result==='unavailable');assert.equal(await page.locator('video').count(),0);
-    playable=true;await context.addInitScript(()=>{HTMLMediaElement.prototype.play=()=>Promise.reject(new DOMException('Fixture','NotAllowedError'));});
+    playable=true;await context.addInitScript(()=>{
+      const play=HTMLMediaElement.prototype.play;
+      HTMLMediaElement.prototype.play=function(){return this.muted?play.call(this):Promise.reject(new DOMException('Sound fixture','NotAllowedError'));};
+    });
+    await page.reload();await page.getByText('Start').click();await page.waitForFunction(()=>document.querySelector('video')?.currentTime>.2);
+    assert.equal(await page.locator('video').evaluate(v=>v.muted),true);assert.equal(await page.locator('.login-intro__sound').getAttribute('aria-pressed'),'false');
+    await page.keyboard.press('Escape');await page.waitForFunction(()=>window.result==='skipped');
+    await context.addInitScript(()=>{HTMLMediaElement.prototype.play=()=>Promise.reject(new DOMException('Fixture','NotAllowedError'));});
     await page.reload();await page.getByText('Start').click();await page.locator('.login-intro__play:not([hidden])').waitFor();await page.keyboard.press('Escape');await page.waitForFunction(()=>window.result==='skipped');await context.close();
     fs.writeFileSync(path.join(out,'results.json'),JSON.stringify({passed:true,profiles:results,failures:['404 decodes safely','autoplay denied remains skippable']},null,2));
-    console.log('PASS cinematic: real 12s playback desktop/Razr, decoded pixels, portrait/landscape/compact, sound/skip, resize, Reduced Motion, network failure and blocked autoplay.');
+    console.log('PASS cinematic: real 30s playback desktop/Razr, six decoded scenes, portrait/landscape/compact, sound default/muted fallback/skip, resize, Reduced Motion, network failure and blocked autoplay.');
   }finally{await browser.close();}
 }
 main().catch(e=>{console.error(e);process.exitCode=1;});

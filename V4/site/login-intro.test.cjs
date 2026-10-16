@@ -9,9 +9,9 @@ class Element extends EventTarget{
   focus(){this.focused=true;}
   addEventListener(name,fn,options){if(options?.signal)this.signals.push(options.signal);super.addEventListener(name,fn,options);}
 }
-function fixture({phone=false,reduced=false,playError}={}){
+function fixture({phone=false,reduced=false,playError,blockSound=false}={}){
   let id=0;const timers=new Map(),classes=new Set(),nodes=[],media=new Element(),before=new Element();
-  media.play=()=>playError?Promise.reject(Object.assign(new Error('fixture'),{name:playError})):Promise.resolve();
+  media.play=()=>{media.plays=(media.plays||0)+1;const error=playError||(blockSound&&!media.muted?'NotAllowedError':null);return error?Promise.reject(Object.assign(new Error('fixture'),{name:error})):Promise.resolve();};
   media.pause=()=>{media.paused=true;};media.load=()=>{media.loads=(media.loads||0)+1;};
   const lookup=Object.fromEntries(['.login-intro__sound','.login-intro__play','.login-intro__status','.login-intro__track span','.login-intro__skip'].map(k=>[k,new Element()]));
   const dialog=new Element();dialog.dataset={};dialog.querySelector=q=>q==='video'?media:lookup[q];
@@ -28,8 +28,9 @@ function fixture({phone=false,reduced=false,playError}={}){
 test('Reduced Motion never creates a player or requests video',async()=>{
   const f=fixture({reduced:true});assert.equal(await Intro.play(f),'reduced-motion');assert.equal(f.nodes.length,0);assert.equal(f.media.src,undefined);
 });
-test('desktop starts muted with a protected same-origin film, then releases every resource',async()=>{
-  const f=fixture(),p=Intro.play(f);assert.equal(f.media.src,'assets/cinematics/kalistar-anime-v1.mp4');assert.equal(f.media.muted,true);
+test('desktop starts with sound and a protected same-origin film, then releases every resource',async()=>{
+  const f=fixture(),p=Intro.play(f);assert.equal(f.media.src,'assets/cinematics/kalistar-anime-v2.mp4');assert.equal(f.media.muted,false);
+  assert.equal(f.lookup['.login-intro__sound'].getAttribute('aria-pressed'),'true');assert.equal(f.media.volume,.65);
   assert(f.dialog.open);assert(f.lookup['.login-intro__skip'].focused);f.fire(f.media,'ended');assert.equal(await p,'completed');
   assert.equal(f.dialog.isConnected,false);assert.equal(f.media.src,'');assert(f.media.paused);assert.equal(f.media.loads,1);assert.equal(f.timers.size,0);assert.equal(f.classes.size,0);
   for(const node of [f.host,f.doc,f.dialog,f.media,f.reducedQuery])assert(node.signals.every(signal=>signal.aborted));
@@ -38,19 +39,27 @@ test('portrait selects the separately framed phone cut',async()=>{
   const f=fixture({phone:true}),p=Intro.play(f);assert(f.media.src.endsWith('-phone.mp4'));assert(f.media.poster.endsWith('-phone-poster.webp'));f.fire(f.media,'ended');await p;
 });
 test('sound is an explicit toggle and skip always works',async()=>{
-  const f=fixture(),p=Intro.play(f),button=f.lookup['.login-intro__sound'];f.fire(button,'click');assert.equal(f.media.muted,false);assert.equal(button.getAttribute('aria-pressed'),'true');
-  f.fire(button,'click');assert.equal(f.media.muted,true);f.fire(f.lookup['.login-intro__skip'],'click');assert.equal(await p,'skipped');
+  const f=fixture(),p=Intro.play(f),button=f.lookup['.login-intro__sound'];f.fire(button,'click');assert.equal(f.media.muted,true);assert.equal(button.getAttribute('aria-pressed'),'false');
+  f.fire(button,'click');assert.equal(f.media.muted,false);f.fire(f.lookup['.login-intro__skip'],'click');assert.equal(await p,'skipped');
 });
 test('native dialog cancel is a skip, not a failed authentication',async()=>{
   const f=fixture(),p=Intro.play(f);assert.equal(f.fire(f.dialog,'cancel'),false);assert.equal(await p,'skipped');
 });
 test('media error falls through and stale events cannot touch a later player',async()=>{
   const f=fixture(),p=Intro.play(f);f.fire(f.media,'error');assert.equal(await p,'unavailable');
-  f.fire(f.lookup['.login-intro__sound'],'click');assert.equal(f.media.muted,true);f.fire(f.media,'playing');assert.equal(f.timers.size,0);
+  f.fire(f.lookup['.login-intro__sound'],'click');assert.equal(f.media.muted,false);f.fire(f.media,'playing');assert.equal(f.timers.size,0);
 });
+test('sound autoplay denied retries muted once and keeps the sound control truthful',async()=>{
+  const f=fixture({blockSound:true}),p=Intro.play(f);await Promise.resolve();await Promise.resolve();
+  assert.equal(f.media.plays,2);assert.equal(f.media.muted,true);assert.equal(f.lookup['.login-intro__sound'].getAttribute('aria-pressed'),'false');
+  assert.equal(f.lookup['.login-intro__sound'].getAttribute('aria-label'),'Activer le son');
+  f.fire(f.media,'playing');assert.equal(f.lookup['.login-intro__play'].hidden,true);
+  f.fire(f.lookup['.login-intro__sound'],'click');assert.equal(f.media.muted,false);f.fire(f.media,'ended');assert.equal(await p,'completed');
+});
+
 test('blocked autoplay offers a keyboard-focusable manual play button',async()=>{
-  const f=fixture({playError:'NotAllowedError'}),p=Intro.play(f);await Promise.resolve();assert.equal(f.lookup['.login-intro__play'].hidden,false);assert(f.lookup['.login-intro__play'].focused);
-  assert(![...f.timers.values()].some(t=>t.ms===4500));f.expire(17000);assert.equal(await p,'timeout');
+  const f=fixture({playError:'NotAllowedError'}),p=Intro.play(f);await Promise.resolve();await Promise.resolve();assert.equal(f.media.plays,2);assert.equal(f.lookup['.login-intro__play'].hidden,false);assert(f.lookup['.login-intro__play'].focused);
+  assert(![...f.timers.values()].some(t=>t.ms===4500));f.expire(35000);assert.equal(await p,'timeout');
 });
 test('unsupported decoding does not hold up login',async()=>{
   const f=fixture({playError:'NotSupportedError'});assert.equal(await Intro.play(f),'unavailable');assert.equal(f.timers.size,0);
@@ -59,7 +68,7 @@ test('slow first frame is bounded',async()=>{
   const f=fixture(),p=Intro.play(f);f.expire(4500);assert.equal(await p,'slow-network');
 });
 test('playback watchdog covers stalls after the first frame',async()=>{
-  const f=fixture(),p=Intro.play(f);f.fire(f.media,'playing');assert.equal(f.timers.size,1);f.expire(13500);assert.equal(await p,'timeout');
+  const f=fixture(),p=Intro.play(f);f.fire(f.media,'playing');assert.equal(f.timers.size,1);f.expire(31500);assert.equal(await p,'timeout');
 });
 for(const reason of ['navigation','background','reduced-motion'])test(reason+' cancels playback and timers',async()=>{
   const f=fixture(),p=Intro.play(f);

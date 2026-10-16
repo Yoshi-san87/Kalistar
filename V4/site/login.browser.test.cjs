@@ -68,8 +68,8 @@ async function main(){
           assert.equal(await page.locator('input[name=password]').inputValue(),'','password is cleared before playback');
           if(!filmCompleted&&['desktop','razr'].includes(p.name)){
             await page.waitForFunction(()=>document.querySelector('.login-intro video')?.currentTime>.3);
-            assert(Math.abs(await page.locator('.login-intro video').evaluate(v=>v.duration)-12)<.1);
-            await page.locator('.login-intro').waitFor({state:'detached'});filmCompleted=true;
+            assert(Math.abs(await page.locator('.login-intro video').evaluate(v=>v.duration)-30)<.1);
+            await page.locator('.login-intro').waitFor({state:'detached',timeout:35000});filmCompleted=true;
           }else await page.locator('.login-intro__skip').click();
         }
         await page.waitForFunction(()=>window.KALISTAR_READY,{},{timeout:30000});
@@ -77,7 +77,7 @@ async function main(){
       await page.goto(origin+'/jeu/');await page.waitForURL('**/jeu/login*');await page.locator('#login-form button[type=submit]:enabled').waitFor();
       assert.equal(await page.locator('.main-nav').count(),0);assert(!calls.some(c=>c.includes('kalistar_me')),'game does not initialize before authentication');
       assert.equal(await page.locator('.login-intro').count(),0,'no intro before authentication');
-      assert.equal(await page.evaluate(()=>fetch('assets/cinematics/kalistar-anime-v1.mp4').then(r=>r.status)),401,'film remains private');
+      for(const version of [1,2])assert.equal(await page.evaluate(v=>fetch('assets/cinematics/kalistar-anime-v'+v+'.mp4').then(r=>r.status),version),401,'film remains private');
       await page.evaluate(()=>document.fonts.ready);await page.screenshot({path:path.join(output,p.name+'.png')});
       const layout=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth,controls:[...document.querySelectorAll('button,input')].map(n=>({w:n.getBoundingClientRect().width,h:n.getBoundingClientRect().height}))}));
       assert.equal(layout.width,layout.scroll,p.name+' no horizontal overflow');assert(layout.controls.every(c=>c.w>=44&&c.h>=44),p.name+' touch targets');
