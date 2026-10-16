@@ -1,6 +1,10 @@
 (async () => {
   'use strict';
-  const data=window.KALISTAR_DATA,E=KalistarEngine.createEngine(data),cards=data.cards,Catalogue=window.KalistarCatalogue;
+  const data=window.KALISTAR_DATA,baseEngine=KalistarEngine.createEngine(data),cards=data.cards,Catalogue=window.KalistarCatalogue;
+  let journeyCommands=null,journeyView=null;
+  const E={...baseEngine,...Object.fromEntries(KalistarJourneyCombat.methods.map(method=>[method,(state,...args)=>{
+    const result=baseEngine[method](state,...args);if(journeyCommands&&state.journey&&!state.journey.preview)journeyCommands.push({method,args});return result;
+  }]))};
   let db=null,dbError='',lastStored='',reportGame=null,reportArchive=null,accountsUI=null,cloudRegistryUI=null;
   const connectedAccess=window.KALISTAR_CLOUD_ACCESS||null;
   let cloudPlayer=null,cloudSync=null,cloudSyncUI=null,cloudBooting=true;
@@ -11,7 +15,7 @@
   },onChange:updateCatalogueNotice});
   const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const icon=n=>`<i data-lucide="${n}"></i>`,ib=(action,n,title,extra='')=>`<button class="icon-button" data-action="${action}" title="${esc(title)}" aria-label="${esc(title)}" ${extra}>${icon(n)}</button>`;
-  const navigationItem=(view,label)=>`<button data-view="${view}" aria-current="${ui.view===view?'page':'false'}"><img class="kalistar-nav-icon" src="assets/navigation/${view}-v1.webp" alt="" aria-hidden="true" width="128" height="128"><span>${esc(label)}</span>${icon('chevron-right')}</button>`;
+  const navigationItem=(view,label)=>`<button data-view="${view}" aria-current="${ui.view===view?'page':'false'}"><img class="kalistar-nav-icon" src="assets/navigation/${view==='journeys'?'library':view}-v1.webp" alt="" aria-hidden="true" width="128" height="128"><span>${esc(label)}</span>${icon('chevron-right')}</button>`;
   const asset=window.KalistarCollaborations.asset;
   const cardImage=c=>KalistarCardMedia.image(c),artImage=c=>KalistarCardMedia.image(c,'art');
   const duelImage=cardImage;
@@ -85,7 +89,7 @@
   if(restored){try{game=E.restoreGame(KalistarLocalDB.validateGame(restored));db.registry.validateGame(game,accountId);}catch(error){game=null;restoreError=error.message;}}
   if(cloudPlayer&&game&&db.match(game.matchId))lastStored=JSON.stringify(game);
   let boardScale=Math.max(85,Math.min(140,Number(load('boardScale',100))||100));
-  const views=window.KalistarSite?.online?['home','collection','arena','decks','weapons','statistics','story','map','guide','library']:['home','collection','arena','decks','weapons','statistics','story','map','guide','library','atelier'];
+  const views=window.KalistarSite?.online?['home','collection','arena','decks','weapons','statistics','story','map','guide','library','journeys']:['home','collection','arena','decks','weapons','statistics','story','map','guide','library','journeys','atelier'];
   const mapView=KalistarMap.create();
   const guideView=KalistarGuide.create({data,image:cardImage,onNavigate:view=>setView(view)});
   const libraryView=KalistarLibrary.create();
@@ -102,17 +106,25 @@
     if(opening!==game||!['choose','initiative'].includes(game.phase)||!game.composition)return;
     const formations=KalistarLineupIntro.describe(game,cards,{elements:data.elements,asset,url:KalistarSite.url});
     formations.forEach((team,side)=>team.forEach((entry,slot)=>{if(entry)entry.node=$(`.formation[data-player="${side}"] .slot[data-position="${slot+1}"] .slot-card`);}));
-    const complete=()=>{
+    const rollOpening=async()=>{
+      if(opening.journey&&!opening.journey.preview){Object.assign(opening,await journeyStep(opening,'rollInitiative'));}
+      else E.rollInitiative(opening);
+      E.assertState(opening);if(opening.initiative.first!==null)save('openingMatch',null);persist();
+      return {dice:opening.initiative.rolls.at(-1),first:opening.initiative.first,attempt:opening.initiative.rolls.length};
+    };
+    const complete=async()=>{
       lineupIntro=null;presentationOpening=false;
       if(game!==opening)return;
-      try{while(game.phase==='initiative')E.rollInitiative(game);E.assertState(game);}
-      catch(error){toast(error.message);setView('collection');return;}
+      rolling=true;
+      try{while(game.phase==='initiative')await rollOpening();E.assertState(game);}
+      catch(error){rolling=false;toast(error.message);setView('collection');return;}
+      finally{rolling=false;}
       save('openingMatch',null);
       render();
     };
     presentationOpening=true;clearTimeout(aiTimer);
     try{lineupIntro=KalistarLineupIntro.play({shell:$('.game-shell'),formations,cardBack:KalistarSite.url('assets/back.webp'),captainsOnly,
-      initiative:game.phase==='initiative'?{roll:()=>{const result=E.rollInitiative(opening);E.assertState(opening);if(result.first!==null)save('openingMatch',null);persist();return result;},labels:['Joueur 1',KalistarAI.name(game)]}:null,
+      initiative:game.phase==='initiative'?{roll:rollOpening,labels:['Joueur 1',KalistarAI.name(game)]}:null,
       onComplete:complete,onSkip:complete,onExit:()=>{lineupIntro=null;presentationOpening=false;setView('collection');}});}
     catch(error){
       console.warn('Lineup presentation:',error);presentationOpening=false;
@@ -123,6 +135,8 @@
   }
   let deckBuilder=null,collectionBinder=null,statisticsSheet=null;
   const weaponsUI=KalistarWeaponsUI.create({data,db,userId:accountId,toast,onCard:id=>showDetail(id)});
+  const journeys=KalistarJourneyClient.create({data,player:cloudPlayer,sync:cloudSync,localAdmin:!connectedAccess&&db?.registry?.user(accountId)?.role==='admin',onUpdate:()=>journeyView?.refresh()});
+  journeyView=KalistarJourneyView.create({data,image:cardImage,art:artImage,getState:journeys.snapshot,onStart:startJourney,onResume:resumeJourney,onClaim:claimJourney,onAcknowledge:id=>journeys.acknowledge(id),onPreview:previewJourney,onDetail:id=>showDetail(id),onRefresh:()=>journeys.refresh(),toast});
   const storyReader=KalistarStoryReader.create({storageKey:preferencePrefix+'story-progress',onChange:()=>cloudSync?.changed()});
   const homeScreen=KalistarHome.create({data,image:cardImage,asset,equipment:KalistarWeapons.weapons,medallion:KalistarEquipmentFX.markup,
     getState:()=>({deckName:teamDraft.name,deckCount:teamDraft.cards.filter(Boolean).length,resume:!!game&&game.phase!=='over'}),
@@ -135,8 +149,9 @@
   function toast(message){clearTimeout(toastTimer);$('#toast').textContent=message;$('#toast').classList.add('visible');toastTimer=setTimeout(()=>$('#toast').classList.remove('visible'),3500);}
   function persist(){
     save('deckPreset',deckPresetId);save('enemyDeckPreset',enemyPresetId);
-    save('deck',deck);save('deckName',deckName);save('teamDraft',teamDraft);save('favorites',[...favorites]);const fingerprint=game?save('game',game):null;$('#deck-count').textContent=deck.length;
-    if(db&&game){
+    const storedGame=game?.journey?.preview?null:game;
+    save('deck',deck);save('deckName',deckName);save('teamDraft',teamDraft);save('favorites',[...favorites]);const fingerprint=save('game',storedGame);$('#deck-count').textContent=deck.length;
+    if(db&&storedGame){
       if(!fingerprint)return;
       if(fingerprint!==lastStored){
         lastStored=fingerprint;
@@ -195,9 +210,11 @@
     clearTimeout(aiTimer);
     if(ui.view!==view)epoch++;
     if(view==='arena'&&!game){try{await createGame('ai','KALI-'+Math.floor(Math.random()*999999));}catch(e){toast(e.message);showDeck();return;}}
+    if(view==='arena'&&ui.view!=='arena'&&game?.journey&&!game.journey.preview){try{game=await journeys.resume(game.journey.attemptId);}catch(error){toast(error.message);return;}}
     const changed=ui.view!==view;
     ui.view=view;KalistarDialogHistory.replace('#'+view);render();
     if(changed)window.KalistarPageTransitions?.enter(view);
+    if(view==='journeys')void journeys.refresh().catch(error=>toast(error.message));
   }
   function render(){
     cancelLineup();
@@ -212,7 +229,7 @@
     const scroll=$('.battlefield-viewport')?.scrollLeft||0;
     document.body.classList.toggle('arena-view',ui.view==='arena');
     document.querySelectorAll('[data-view]').forEach(b=>{const on=b.dataset.view===ui.view;b.classList.toggle('active',on);b.setAttribute('aria-current',on?'page':'false');});
-    deckBuilder?.destroy();collectionBinder?.destroy();statisticsSheet?.destroy();storyReader.destroy();weaponsUI.destroy();homeScreen.destroy();mapView.destroy();guideView.destroy();libraryView.destroy();
+    deckBuilder?.destroy();collectionBinder?.destroy();statisticsSheet?.destroy();storyReader.destroy();weaponsUI.destroy();homeScreen.destroy();mapView.destroy();guideView.destroy();libraryView.destroy();journeyView?.destroy();
     document.body.classList.toggle('map-view',ui.view==='map');
     document.body.classList.toggle('home-view',ui.view==='home');
     document.body.classList.toggle('statistics-view',ui.view==='statistics');
@@ -221,6 +238,7 @@
     document.body.classList.toggle('atelier-view',ui.view==='atelier');
     document.body.classList.toggle('story-view',ui.view==='story');
     document.body.classList.toggle('weapons-view',ui.view==='weapons');
+    document.body.classList.toggle('journeys-view',ui.view==='journeys');
     syncNavigation();
     $('#app').hidden=ui.view==='atelier';$('#atelier-panel').hidden=ui.view!=='atelier';
     if(ui.view==='atelier'){
@@ -232,7 +250,8 @@
       $('#account-name').textContent=accountId===KalistarOwnership.PARIS?'Paris':'Tokyo';
       icons();persist();return;
     }
-    $('#app').innerHTML=ui.view==='guide'?'<div id="guide-root"></div>':ui.view==='library'?'<div id="library-root"></div>':ui.view==='map'?'<div id="map-root"></div>':ui.view==='home'?'<div id="home-root"></div>':ui.view==='collection'?collection():ui.view==='story'?'<div id="story-reader-root"></div>':ui.view==='decks'?decksPage():ui.view==='weapons'?'<div id="weapons-root"></div>':ui.view==='statistics'?'<div id="statistics-root"></div>':arena();
+    $('#app').innerHTML=ui.view==='journeys'?'<div id="journey-root"></div>':ui.view==='guide'?'<div id="guide-root"></div>':ui.view==='library'?'<div id="library-root"></div>':ui.view==='map'?'<div id="map-root"></div>':ui.view==='home'?'<div id="home-root"></div>':ui.view==='collection'?collection():ui.view==='story'?'<div id="story-reader-root"></div>':ui.view==='decks'?decksPage():ui.view==='weapons'?'<div id="weapons-root"></div>':ui.view==='statistics'?'<div id="statistics-root"></div>':arena();
+    if(ui.view==='journeys')journeyView.mount($('#journey-root'));
     if(ui.view==='guide')guideView.mount($('#guide-root'));
     if(ui.view==='library')libraryView.mount($('#library-root'));
     if(ui.view==='map')mapView.mount($('#map-root'));
@@ -261,6 +280,12 @@
     if(ui.view==='arena')window.KalistarEquipmentFX.mount(game,E);
     syncDetailEquipment();
     presentLineup();persist();scheduleAI();
+    if(ui.view==='arena'&&game?.journey){
+      const book=KalistarJourneyDefinitions.catalogue(data).find(b=>b.id===game.journey.bookId);
+      const banner=document.createElement('div');banner.className='journey-arena-strip';
+      banner.innerHTML=`<span>${icon('book-open')} ${esc(book?.title||'Biblioth\u00e8que')} <b>${game.journey.stage+1}/4</b>${game.journey.preview?' · Aper\u00e7u administrateur':''}</span><button data-action="journey-return">${icon('bookmark')}${game.phase==='over'?(game.winner===0?'\u00c9tape remport\u00e9e':'Retrouver le livre'):'Le parcours'}</button>`;
+      $('.game-shell').prepend(banner);icons();
+    }
     if(ui.view==='arena'&&game?.phase==='over'){
       const ceremony=ui.finaleBoard!==game.matchId,shell=$('.game-shell');
       shell.dataset.finale=String(ceremony);
@@ -361,6 +386,7 @@ function showDeck(){setView('decks');}
     await db.idle();
     const next=E.newGame(playerDeck,opponent.formation?opponent:opponent.cards.slice(),{mode,seed,arenaId:arenaById(arenaId).id,deckCoverage:2,turnOrder:'ABBA',...(mode==='ai'?{aiProfile}:{})});
     KalistarLocalDB.validateGame(next);E.assertState(next);
+    if(game?.journey&&!game.journey.preview&&game.phase!=='over')await journeys.abandon(game.journey.attemptId);
     const bound=db.registry.bindGame(accountId,next);
     await db.idle();
     await db.saveGame(bound);
@@ -369,6 +395,58 @@ function showDeck(){setView('decks');}
     // Presentation progress is a profile preference, never a combat/save-schema change.
     save('openingMatch',game.matchId);
     if(cloudSync){const saved=await cloudSync.flush();if(!saved.canWrite||saved.pending)throw Error('La partie reste sur cet appareil, en attente de synchronisation.');}
+  }
+  async function installJourney(next,{opening=true,navigate=true,expectedMatch=game?.matchId||null}={}){
+    if(expectedMatch!==(game?.matchId||null)){toast('Parcours pret. Reprends-le depuis la Bibliotheque.');return;}
+    if(game?.collection&&game.phase!=='over'&&game.matchId!==next.matchId&&!game.journey?.preview)await db.registry.releaseGame(accountId,game.matchId);
+    cancelLineup();clearTimeout(aiTimer);epoch++;game=next;lastStored='';ui.attacker=ui.target=ui.reserve=null;ui.endShown=false;
+    const originView=ui.view,ticket=epoch;
+    pendingLineup=navigate&&opening&&game.phase==='initiative'?game:null;
+    save('openingMatch',opening&&game.phase==='initiative'?game.matchId:null);
+    if(!next.journey.preview){await db.saveGame(next);persist();await db.idle();await cloudSync.flush();}
+    if(navigate&&ui.view===originView&&epoch===ticket){ui.view='arena';KalistarDialogHistory.replace('#arena');}render();
+  }
+  async function startJourney(bookId){
+    const originView=ui.view,ticket=epoch,expectedMatch=game?.matchId||null;
+    if(!cloudPlayer)throw Error('Connecte-toi au site Kalistar pour obtenir les cartes des parcours.');
+    const active=Object.values(journeys.snapshot().progress).find(p=>p.activeAttempt);
+    if(active){
+      if(active.id===bookId)return resumeJourney(bookId);
+      if(!confirm('Abandonner le combat en cours pour ouvrir ce livre ? Les etapes deja gagnees restent conservees.'))return;
+      await journeys.abandon(active.activeAttempt.id);
+    }else if(game&&game.phase!=='over'&&!game.journey?.preview&&!confirm('Remplacer la partie en cours par ce parcours ? Ses archives seront conservees.'))return;
+    const next=await journeys.start(bookId,Team.clone(teamDraft));await journeys.refresh().catch(error=>toast(error.message));await installJourney(next,{navigate:ui.view===originView&&epoch===ticket,expectedMatch});
+  }
+  async function resumeJourney(bookId){
+    const originView=ui.view,ticket=epoch,expectedMatch=game?.matchId||null;
+    const active=journeys.snapshot().progress[bookId]?.activeAttempt;if(!active)return startJourney(bookId);
+    try{const next=await journeys.resume(active.id);await installJourney(next,{opening:false,navigate:ui.view===originView&&epoch===ticket,expectedMatch});}
+    catch(error){
+      if(error.code==='runtime_changed'&&confirm('Cette etape utilise d anciennes regles. La recommencer en conservant tes victoires ?')){await journeys.abandon(active.id);return startJourney(bookId);}
+      throw error;
+    }
+  }
+  async function previewJourney(bookId,stage=0){
+    if(!journeys.snapshot().isAdmin)throw Error('Apercu reserve a l administration.');
+    if(game&&game.phase!=='over'&&!game.journey?.preview&&!confirm('Ouvrir un apercu sans recompense et quitter cette partie ?'))return;
+    const runtime=KalistarJourneyCombat.create(data),book=runtime.books.find(b=>b.id===bookId);
+    if(!book||!Number.isInteger(stage)||stage<0||stage>=4)throw Error('Etape inconnue.');
+    const next=runtime.initial({id:crypto.randomUUID(),bookId,revision:book.revision,stage,seed:'preview-'+crypto.randomUUID(),deck:Team.clone(teamDraft),localProfile:accountId,cards:owned().map(c=>({...c,modelId:c.modelId||c.cardId}))});
+    if(game?.journey&&!game.journey.preview&&game.phase!=='over')await journeys.abandon(game.journey.attemptId);
+    next.journey.preview=true;await installJourney(next);
+  }
+  async function claimJourney(bookId){
+    const result=await journeys.claim(bookId);await ownershipChanged();
+    if(ui.view!=='journeys')await setView('journeys');
+    await journeyView.revealReward(E.byId[result.card.modelId],{alreadyOwned:result.alreadyOwned});
+    await journeys.acknowledge(bookId);
+  }
+  async function journeyStep(state,method,args=[]){
+    if(state.journey&&!state.journey.preview)return journeys.move(state,[{method,args}]);
+    const next=E.clone(state);E[method](next,...args);return next;
+  }
+  function retainJourney(next){
+    if(next?.journey&&!next.journey.preview&&game?.matchId===next.matchId&&next.journey.sequence>game.journey.sequence&&!cloudBlocked()){game=next;epoch++;}
   }
   function arenaRule(a){
     const crystal=a.element&&a.element!=='NONE'?(data.elements[a.element]?.label||a.element)+' : +'+(a.elementBonus||0)+' ATK':'Terrain neutre';
@@ -768,16 +846,25 @@ function showDeck(){setView('decks');}
     if(!game)return '<div class="resume-strip"><h2>Arène de Kalistar</h2><button class="primary" data-action="new-game">Préparer une partie</button></div>';
     return `${!storageAvailable?'<div class="storage-note">Sauvegarde navigateur indisponible. Exportez la partie pour la conserver.</div>':''}<div class="game-shell" style="--board-scale:${boardScale/100};--arena-image:url('${arenaById(game.arenaId).image}')"><div class="arena-toolbar"><div><h1>${arenaById(game.arenaId).name} <span class="round">Échange ${game.round} / 200</span></h1><span class="muted game-seed">${esc(game.seed)} · ${game.mode==='ai'?'Adversaire automatique':'Deux joueurs locaux'}</span><span class="arena-rules">${arenaRule(arenaById(game.arenaId))}</span></div><div class="tools"><label class="board-zoom" title="Taille des cartes">${icon('scan')}<input id="board-scale" type="range" min="85" max="140" step="5" value="${boardScale}" aria-label="Taille des cartes"><output>${boardScale}%</output></label>${ib('arena-picker','map',game.phase==='setup'?'Choisir une arène':'Arène verrouillée',game.phase==='setup'?'':'disabled')}${ib('combat-reference','gem','Avantages des cristaux','data-reference="elements"')}${ib('combat-reference','swords','Avantages des armes','data-reference="weapons"')}${ib('match-stats','trophy','Bilan et statistiques du match')}${ib('journal','scroll-text','Ouvrir le journal du duel')}${ib('fullscreen','maximize','Plein écran')}${ib('exit-arena','log-out','Quitter l’arène')}${ib('save-game','save','Exporter la sauvegarde')}${ib('load-game','upload','Importer une sauvegarde')}${ib('new-game','rotate-ccw','Nouvelle partie')}<input hidden type="file" id="game-file" accept="application/json,.json"></div><div class="board-navigation">${ib('focus-left','panel-left','Centrer le joueur 1')}${ib('focus-duel','dice-6','Centrer les dés')}${ib('focus-right','panel-right','Centrer le joueur 2')}</div></div><div class="arena-reference-dock" aria-label="Codex de combat">${ib('combat-reference','gem','Avantages des cristaux','data-reference="elements"')}${ib('combat-reference','swords','Avantages des armes','data-reference="weapons"')}</div><div class="arena-layout"><div class="battlefield-viewport"><section class="battlefield" aria-label="Plateau de jeu"><section class="team team-left" data-team="0">${sideHeading(0)}${board(0)}${reserveZone(0)}</section><div class="duel-console" aria-live="polite">${dice(0)}<div class="duel-centre">${consoleBody()}</div>${dice(1)}</div><section class="team team-right" data-team="1">${sideHeading(1)}${board(1)}${reserveZone(1)}</section></section></div></div></div>`;
   }
-  function act(fn){if(rolling||presentationOpening||E.equipmentChoice(game))return;try{checkGame();const before=E.clone(game);fn();E.assertState(game);epoch++;render();if(KalistarUltimateUI.newEvents(before,game).length)void playCommittedEquipment(before);}catch(e){toast(e.message);}}
+  async function act(fn){
+    if(rolling||presentationOpening||E.equipmentChoice(game))return;
+    const before=E.clone(game);let awaiting=false;
+    try{
+      checkGame();const commands=[];journeyCommands=commands;fn();journeyCommands=null;E.assertState(game);
+      if(commands.length){game=before;rolling=awaiting=true;clearTimeout(aiTimer);game=await journeys.move(before,commands);}
+      epoch++;if(awaiting){rolling=false;awaiting=false;}render();if(KalistarUltimateUI.newEvents(before,game).length)void playCommittedEquipment(before);
+    }catch(e){if(before.journey&&!before.journey.preview)game=before;toast(e.message);}
+    finally{journeyCommands=null;if(awaiting){rolling=false;render();}}
+  }
   async function playCommittedEquipment(before){
     rolling=true;clearTimeout(aiTimer);combatController=new AbortController();
     try{await window.KalistarEquipmentFX.play({before,after:game,signal:combatController.signal});}
     catch(error){toast(error.message);}
     finally{combatController?.abort();combatController=null;rolling=false;render();}
   }
-  function engageDuel(){
+  async function engageDuel(){
     if(rolling||presentationOpening||game?.phase!=='choose'||E.equipmentChoice(game))return;
-    act(()=>{E.lock(game,ui.attacker,ui.target);ui.attacker=ui.target=null;});
+    await act(()=>{E.lock(game,ui.attacker,ui.target);ui.attacker=ui.target=null;});
     if(game?.phase==='attack'){
       window.KalistarDice?.engage();window.KalistarAmbience?.engage();window.KalistarFocus?.engage();
     }
@@ -797,11 +884,11 @@ function showDeck(){setView('decks');}
   }
   async function animatedRoll(kalistel=false){
     if(rolling||presentationOpening||E.equipmentChoice(game)||!(kalistel?game.phase==='kalistel':['attack','defense'].includes(game.phase)))return;
-    const token=epoch,phase=kalistel?'attack':game.phase,actor=phase==='attack'?game.turn:1-game.turn,next=E.clone(game);
+    const token=epoch,phase=kalistel?'attack':game.phase,actor=phase==='attack'?game.turn:1-game.turn;let next=null;
     let celebration=null;
     try{
       checkGame();
-      if(kalistel)E.useKalistel(next);else if(phase==='attack')E.rollAttack(next);else E.rollDefense(next);E.assertState(next);
+      rolling=true;clearTimeout(aiTimer);next=await journeyStep(game,kalistel?'useKalistel':phase==='attack'?'rollAttack':'rollDefense');E.assertState(next);
       const value=phase==='attack'?next.duel.attackDie:next.duel.defenseDie;
       rolling=true;clearTimeout(aiTimer);$('#app').classList.add('rolling');
       document.querySelectorAll('.kalistel-control').forEach(button=>{button.disabled=true;if(kalistel&&Number(button.dataset.side)===actor)button.classList.add('is-spent');});
@@ -829,21 +916,21 @@ function showDeck(){setView('decks');}
         }
       }
     }catch(e){toast(e.message);}
-    finally{combatController?.abort();combatController=null;rolling=false;$('#app').classList.remove('rolling');render();if(celebration&&ui.view==='arena')window.KalistarCombat?.celebrateKill(celebration);}
+    finally{retainJourney(next);combatController?.abort();combatController=null;rolling=false;$('#app').classList.remove('rolling');render();if(celebration&&ui.view==='arena')window.KalistarCombat?.celebrateKill(celebration);}
   }
   async function animatedTrait(uid){
     if(rolling||presentationOpening||E.equipmentChoice(game)||!['clover','potion','physical','heart','guard'].includes(game.phase))return;
-    const token=epoch,next=E.clone(game);
+    const token=epoch;let next=null;
     try{
       checkGame();
-      if(game.phase==='guard')E.grantGuard(next,uid);else if(game.phase==='heart')E.grantReraise(next,uid);else if(game.phase==='potion')E.grantPotion(next,uid);else if(game.phase==='physical')E.grantPhysical(next,uid);else E.grantClover(next,uid);
+      rolling=true;clearTimeout(aiTimer);next=await journeyStep(game,game.phase==='guard'?'grantGuard':game.phase==='heart'?'grantReraise':game.phase==='potion'?'grantPotion':game.phase==='physical'?'grantPhysical':'grantClover',[uid]);
       E.assertState(next);rolling=true;clearTimeout(aiTimer);
       combatController=new AbortController();
       await window.KalistarEquipmentFX.play({before:game,after:next,signal:combatController.signal});
       await window.KalistarCombat?.play({before:game,after:next,element:'',color:'#7eeb9b',reduced:matchMedia('(prefers-reduced-motion:reduce)').matches,signal:combatController.signal});
       if(token===epoch&&!combatController.signal.aborted){checkGame(next);game=next;epoch++;}
     }catch(e){toast(e.message);}
-    finally{combatController?.abort();combatController=null;rolling=false;render();}
+    finally{retainJourney(next);combatController?.abort();combatController=null;rolling=false;render();}
   }
   function scheduleAI(){
     clearTimeout(aiTimer);if(cloudBlocked()||!game||ui.view!=='arena'||rolling||presentationOpening||pendingLineup||document.hidden||overlayOpen())return;
@@ -881,28 +968,28 @@ function showDeck(){setView('decks');}
     if(rolling||presentationOpening||!E.equipmentChoice(game))return;
     const gift=E.equipmentChoice(game);
     if(gift.type==='ultimate'&&!KalistarUltimateUI.options(gift).some(option=>option.value===uid))return;
-    const token=epoch,next=E.clone(game),restoreFocus=!!document.activeElement?.closest('.ultimate-choice');
+    const token=epoch,restoreFocus=!!document.activeElement?.closest('.ultimate-choice');let next=null;
     try{
-      E.grantEquipment(next,uid);E.assertState(next);rolling=true;clearTimeout(aiTimer);
+      rolling=true;clearTimeout(aiTimer);checkGame();next=await journeyStep(game,'grantEquipment',[uid]);E.assertState(next);
       document.querySelectorAll('.ultimate-options button').forEach(button=>{button.disabled=true;});$('.ultimate-choice')?.setAttribute('aria-busy','true');
       combatController=new AbortController();
       await window.KalistarEquipmentFX.play({before:game,after:next,signal:combatController.signal});
       if(token===epoch&&!combatController.signal.aborted){checkGame(next);game=next;epoch++;}
     }catch(e){toast(e.message);}
-    finally{combatController?.abort();combatController=null;rolling=false;render();if(restoreFocus)$('.ultimate-options button:not(:disabled),.duel-status')?.focus({preventScroll:true});}
+    finally{retainJourney(next);combatController?.abort();combatController=null;rolling=false;render();if(restoreFocus)$('.ultimate-options button:not(:disabled),.duel-status')?.focus({preventScroll:true});}
   }
   async function animatedAcceptAttack(){
     if(rolling||presentationOpening||game?.phase!=='kalistel'||E.equipmentChoice(game))return;
-    const token=epoch,next=E.clone(game),attacker=consoleParticipants(game).a;
+    const token=epoch,attacker=consoleParticipants(game).a;let next=null;
     try{
-      E.acceptAttack(next);E.assertState(next);rolling=true;clearTimeout(aiTimer);combatController=new AbortController();
+      rolling=true;clearTimeout(aiTimer);next=await journeyStep(game,'acceptAttack');E.assertState(next);combatController=new AbortController();
       $('.duel-centre').innerHTML=consoleBody(next);syncConsole(next);icons();
       await window.KalistarEquipmentFX.play({before:game,after:next,signal:combatController.signal});
       const c=attacker&&E.card(attacker);
       await window.KalistarCombat?.play({before:game,after:next,element:c?.element||'',color:'#'+(data.elements[c?.element]?.color||'E4D5FB'),reduced:matchMedia('(prefers-reduced-motion:reduce)').matches,signal:combatController.signal});
       if(token===epoch&&!combatController.signal.aborted){checkGame(next);game=next;epoch++;}
     }catch(e){toast(e.message);}
-    finally{combatController?.abort();combatController=null;rolling=false;render();}
+    finally{retainJourney(next);combatController?.abort();combatController=null;rolling=false;render();}
   }
   function download(name,value){const blob=new Blob([JSON.stringify(value,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
   function inspectUnit(side,uid,bonus){
@@ -916,7 +1003,7 @@ function showDeck(){setView('decks');}
   });
   const phoneLayout=()=>matchMedia(phoneQuery).matches;
   function syncNavigation(){
-    const button=$('.nav-more'),selected=['map','guide','library'].includes(ui.view)||phoneLayout()&&['story','atelier'].includes(ui.view);
+    const button=$('.nav-more'),selected=['map','guide','library','journeys'].includes(ui.view)||phoneLayout()&&['story','atelier'].includes(ui.view);
     button?.classList.toggle('active',selected);button?.setAttribute('aria-current',selected?'page':'false');
     const home=$('.nav-home'),homeSelected=phoneLayout()&&['home','collection','weapons'].includes(ui.view);
     home?.classList.toggle('active',homeSelected);home?.setAttribute('aria-current',homeSelected?'page':'false');
@@ -927,7 +1014,7 @@ function showDeck(){setView('decks');}
     $('.nav-more')?.setAttribute('aria-expanded','true');
   }
   function learningNavigation(){
-    return navigationItem('guide','Guide')+navigationItem('library','Library');
+    return navigationItem('journeys','Biblioth\u00e8que')+navigationItem('guide','Guide')+navigationItem('library','Library · R\u00e8gles');
   }
   function showArenaMenu(){
     const items=[['duel-details','list-plus','Calculs et effets du duel'],['arena-picker','map','Choisir l’arène'],['auto-formation','shuffle','Formation automatique'],['match-stats','trophy','Bilan du match'],['journal','scroll-text','Journal du duel'],['fullscreen',document.fullscreenElement?'minimize':'maximize',document.fullscreenElement?'Quitter le plein écran':'Plein écran'],['rules','book-open','Règles'],['save-game','download','Exporter la partie'],['load-game','upload','Importer une partie'],['new-game','rotate-ccw','Nouvelle partie']].filter(([action])=>action!=='auto-formation'||!game.composition);
@@ -957,7 +1044,11 @@ function showDeck(){setView('decks');}
       if(action==='arena-menu')return showArenaMenu();
       if(action==='nav-more')return showNavigation();
       if(action==='retry-lineup'){pendingLineup=game;render();return;}
-      if(action==='skip-lineup'){pendingLineup=null;while(game?.phase==='initiative')E.rollInitiative(game);E.assertState(game);save('openingMatch',null);render();return;}
+      if(action==='skip-lineup'){
+        pendingLineup=null;cancelLineup();
+        void(async()=>{rolling=true;try{while(game?.phase==='initiative')Object.assign(game,await journeyStep(game,'rollInitiative'));E.assertState(game);save('openingMatch',null);}catch(error){toast(error.message);}finally{rolling=false;render();}})();return;
+      }
+      if(action==='journey-return')return setView('journeys');
       if(action==='equipment-detail')return weaponsUI.open(id);
       if(action==='combat-reference')return showCombatReference(b.dataset.reference);
       if(action==='match-random-opponent')return shuffleMatchOpponent();
@@ -1209,10 +1300,15 @@ function showDeck(){setView('decks');}
     if(ui.view==='decks')deckBuilder?.refresh();
   });
   window.addEventListener('pagehide',()=>{preMatch.cancel();pendingLineup=null;cancelLineup();finale.destroy();stopCatalogueRefresh?.();catalogueUpdates.destroy();stopEquipmentRefresh?.();weaponsUI.destroy();});
+  window.KALISTAR_JOURNEYS=journeys;
+  if(game?.journey&&!game.journey.preview&&cloudPlayer&&!cloudBlocked()){
+    try{game=await journeys.resume(game.journey.attemptId);}catch(error){restoreError=error.message;ui.view='journeys';}
+  }
   cloudBooting=false;
   render();syncActivity();if(restoreError)toast(restoreError);if(cloudPlayer?.notice)toast(cloudPlayer.notice);window.KALISTAR_READY=true;
   if(cloudSync)cloudSyncUI=KalistarCloudSyncUI.create({sync:cloudSync,mount:$('.header-actions'),modal,toast});
   const cloudRequest=new URL(location.href).searchParams;
   if(window.KalistarCloudConfig?.enabled&&(cloudRequest.get('registry')==='1'||cloudRequest.has('specimen')))void cloudRegistryUI.open({id:cloudRequest.get('specimen')});
-  window.addEventListener('pagehide',event=>{if(!event.persisted){cloudRegistryUI.destroy();cloudSyncUI?.destroy();cloudSync?.destroy();}});
+  if(ui.view==='journeys')void journeys.refresh().catch(error=>toast(error.message));
+  window.addEventListener('pagehide',event=>{if(!event.persisted){journeyView?.destroy();journeys.destroy();cloudRegistryUI.destroy();cloudSyncUI?.destroy();cloudSync?.destroy();}});
 })();

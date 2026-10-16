@@ -84,7 +84,11 @@ async function plan({mediaPolicy = true} = {}) {
     if (entry.isFile() && /\.(js|css|html|webmanifest)$/.test(entry.name)) add('V4/site/' + entry.name, 'jeu/' + entry.name);
   }
   add('V4/site/story-content.json', 'jeu/story-content.json');
-  if(process.env.CF_PAGES==='1')add('V4/deploy/access-worker.mjs','_worker.js');
+  if(process.env.CF_PAGES==='1'){
+    add('V4/deploy/access-worker.mjs','_worker.js');
+    add('V4/deploy/journey-worker.mjs','journey-worker.mjs');
+    add('V4/deploy/journey-runtime.cjs','journey-runtime.cjs');
+  }
   await tree('V3/site/assets', 'jeu/assets', name => name !== 'cards' && !['arena.png','logo.png','back.png'].includes(name));
   await tree('V4/site/assets', 'jeu/assets');
   for (const folder of ['cristaux','effets','factions','races','armes','armes_transparentes']) {
@@ -124,6 +128,14 @@ async function build() {
   await fs.mkdir(DIST, {recursive: true});
   await fs.writeFile(path.join(DIST, MARKER), 'Kalistar static output\n');
   const assets = [];
+  const journeyModules=['factions','ultimate-definitions','weapons','defensive-equipment','relic-ultimates','ultimate-runtime','equipment','turn-order','performance-index','ai-strategies','engine','team-composition','journey-definitions','journey-combat'];
+  let journeyHash='';
+  if(process.env.CF_PAGES==='1'){
+    const hash=crypto.createHash('sha256');
+    for(const name of journeyModules){hash.update(name+'\n');hash.update(await fs.readFile(path.join(ROOT,'V4/site',name+'.js')));}
+    hash.update(await fs.readFile(path.join(ROOT,'V4/deploy/journey-worker.mjs')));
+    hash.update(JSON.stringify(catalogue));journeyHash=hash.digest('hex');
+  }
   for (const file of files) {
     let bytes = await fs.readFile(inside(ROOT, file.source));
     if (bytes.subarray(0, 100).toString().startsWith('version https://git-lfs.github.com/spec/v1')) throw Error('LFS object not downloaded: ' + file.source);
@@ -135,6 +147,7 @@ async function build() {
       bytes = Buffer.from(versionStaticAssets(html.replace('data-hosting="local"', 'data-hosting="static" data-auth-state="checking"'), version));
     }
     if(file.target==='jeu/login.html')bytes=Buffer.from(versionStaticAssets(bytes.toString('utf8'),version));
+    if(file.target==='journey-runtime.cjs')bytes=Buffer.from("'use strict';\nmodule.exports={Combat:require('./jeu/journey-combat.js'),Composition:require('./jeu/team-composition.js'),hash:"+JSON.stringify(journeyHash)+"};\n");
     const target = inside(DIST, file.target);
     await fs.mkdir(path.dirname(target), {recursive: true});
     await fs.writeFile(target, bytes);

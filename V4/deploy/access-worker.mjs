@@ -1,3 +1,4 @@
+import {journeyRequest} from './journey-worker.mjs';
 const COOKIE='__Host-kalistar',TTL=900,encoder=new TextEncoder(),decoder=new TextDecoder();
 const PUBLIC=new Set(['/jeu/login','/jeu/login.html','/jeu/login.js','/jeu/login.css','/jeu/cloud-session.js','/jeu/cloud-config.js',
   '/jeu/assets/supabase/supabase-2.118.0.js','/jeu/assets/logo.webp','/jeu/assets/navigation/kalistel-rainbow-v1.webp',
@@ -61,6 +62,7 @@ export async function handle(request,env,fetcher=fetch){
       return json({ok:true},200,{'Set-Cookie':cookie(value)});
     }catch{return json({error:'Connexion temporairement indisponible.'},503);}
   }
+  if(path.startsWith('/api/journeys/'))return journeyRequest(request,env,fetcher);
   if(!['GET','HEAD'].includes(request.method))return json({error:'Methode refusee.'},405);
   if(PUBLIC.has(path)){
     const isLogin=path==='/jeu/login'||path==='/jeu/login.html';

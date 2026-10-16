@@ -28,7 +28,7 @@ respecte focus, popup, visibilite et Reduced Motion. Son resume de composition
 vient de l'etat local fourni par app.js, jamais d'un jeu de donnees decoratif.
 
 Les vues publiques sont Home, Collection, Decks, Equipements, Arene,
-Statistiques, Story, Map, Guide et Library. Le serveur local garde en plus
+Statistiques, Story, Map, Guide, Library et Bibliotheque de parcours. Le serveur local garde en plus
 l'Atelier ; il ne fait pas partie du build public.
 
 ## Regles et sauvegardes
@@ -61,6 +61,14 @@ serveur, progression par compte, outbox IndexedDB, revisions et reprise explicit
 entre appareils. L'ancienne base de demonstration n'est jamais effacee. Ne pas
 confondre compte Auth, profil local et exemplaire emis ; ne jamais certifier
 un resultat local par simple import. Voir le [contrat du registre](../docs/REGISTRE_EN_LIGNE.md).
+
+`journey-definitions.js`, `journey-combat.js`, `journey-client.js` et
+`journey-view.js/css` separent livres, commandes moteur, transport et rendu.
+La route `#journeys` est la Bibliotheque ; `#library` reste les regles joueur.
+Chaque livre comporte quatre combats. Le Worker execute le meme moteur et
+Supabase conserve la progression faisant autorite. Voir le
+[contrat des parcours](../docs/PARCOURS_BIBLIOTHEQUE.md). Les essais admin sont
+explicitement sans progression, archive de match ou recompense.
 
 La conversion des profils d'equipement se fait profil par profil : une carte
 archivee hors du catalogue ne bloque pas la migration d'un profil connu.

@@ -28,6 +28,7 @@
         "V4/site/guide-scenario.test.cjs",
         "V4/site/library.test.cjs"
       ],
+      ["--test", "V4/site/journey-combat.test.cjs", "V4/site/journey-client.test.cjs", "V4/deploy/journey-runtime.test.cjs"],
       [
         "--test",
         "V4/site/map-view.test.cjs"
@@ -445,7 +446,7 @@
         "--test",
         "V4/site/weapon-backgrounds.test.cjs"
       ],
-      ["--test", "V4/deploy/supabase/registry.test.cjs", "V4/deploy/supabase/player-sync.test.cjs"]
+      ["--test", "V4/deploy/supabase/registry.test.cjs", "V4/deploy/supabase/player-sync.test.cjs", "V4/deploy/supabase/unique-models.test.cjs", "V4/deploy/supabase/journeys.test.cjs"]
     ]
   },
   "browserAliases": [

@@ -5,7 +5,8 @@ const runtime=createRequire(path.join(process.env.KALISTAR_CLOUD_MODULES||path.r
 const {PGlite}=runtime('@electric-sql/pglite'),{pgcrypto}=runtime('@electric-sql/pglite/contrib/pgcrypto');
 const ids=['11111111-1111-4111-8111-111111111111','22222222-2222-4222-8222-222222222222'];
 const calls={kalistar_access:[],kalistar_player:[],kalistar_sync_read:['p_known_revision'],kalistar_sync_claim:['p_device_id','p_expected_revision','p_takeover'],kalistar_sync_write:['p_device_id','p_expected_revision','p_payload'],kalistar_sync_release:['p_device_id'],kalistar_validate_deck:['p_cards'],kalistar_me:[],kalistar_my_cards:[],kalistar_my_transfers:[],kalistar_certificate:['p_id'],kalistar_set_profile:['p_handle','p_display_name','p_publish_owner'],kalistar_offer:['p_id','p_recipient'],kalistar_settle:['p_transfer','p_action']};
-async function create(data){
+Object.assign(calls,{kalistar_journey_library:[],kalistar_journey_start:['p_book_id','p_deck','p_device_id','p_runtime_hash'],kalistar_journey_context:['p_attempt_id','p_device_id'],kalistar_journey_commit:['p_frame','p_signature','p_device_id'],kalistar_journey_abandon:['p_attempt_id','p_device_id'],kalistar_journey_claim:['p_book_id'],kalistar_journey_ack:['p_book_id']});
+async function create(data,{journeyKey=null}={}){
   const db=new PGlite({extensions:{pgcrypto}});let queue=Promise.resolve();
   await db.exec(`create schema auth;create schema extensions;create role anon;create role authenticated;
     create table auth.users(id uuid primary key,email_confirmed_at timestamptz,email text);
@@ -15,6 +16,10 @@ async function create(data){
   for(const file of fs.readdirSync(path.join(__dirname,'migrations')).filter(n=>n.endsWith('.sql')).sort())await db.exec(fs.readFileSync(path.join(__dirname,'migrations',file),'utf8'));
   for(let i=0;i<2;i++)await db.query("insert into kalistar_private.players(user_id,email_sha256,local_profile,label) values($1,extensions.digest($2,'sha256'),$3,$4)",[ids[i],i?'tokyo@example.invalid':'paris@example.invalid',i?'user-tokyo':'user-paris',i?'Tokyo':'Paris']);
   await db.exec(require('./starter-grants.cjs').sql(data));
+  if(journeyKey){
+    await db.query('insert into kalistar_private.journey_config(id,signing_key) values(true,$1)',[journeyKey]);
+    await db.query('insert into kalistar_private.admins(user_id) values($1)',[ids[0]]);
+  }
   async function serialized(fn){const next=queue.then(fn);queue=next.catch(()=>{});return next;}
   async function call(name,args={},profile='user-paris'){
     return serialized(async()=>{

@@ -93,16 +93,16 @@ test('global deployment events and duel events deduplicate by stable id, includi
   assert.equal(UI.eventLabel(UI.newEvents(after,lost)[0]),'Marque perdue');
 });
 
-test('deployment actions animate committed global gifts once without replaying older events',()=>{
+test('deployment actions animate committed global gifts once without replaying older events',async()=>{
   const state={matchId:'deploy',equipment:{rituals:{events:[]}}},calls=[];
   const context={game:state,rolling:false,presentationOpening:false,epoch:0,checkGame(){},render(){},toast:message=>assert.fail(message),
     E:{equipmentChoice:()=>null,clone:structuredClone,assertState(){}},KalistarUltimateUI:UI,playCommittedEquipment:before=>calls.push({before,after:structuredClone(state)})};
-  vm.runInNewContext(app.slice(app.indexOf('  function act('),app.indexOf('  async function playCommittedEquipment(')),context);
+  vm.runInNewContext(app.slice(app.indexOf('  async function act('),app.indexOf('  async function playCommittedEquipment(')),context);
   const event={id:'deploy-1',kind:'grant',weaponId:'kalistar-nestown-beacon',sourceUid:'0-1',recipient:'0-2',trait:'ward'};
-  context.act(()=>state.equipment.rituals.events.push(event));
+  await context.act(()=>state.equipment.rituals.events.push(event));
   assert.equal(calls.length,1);assert.equal(UI.newEvents(calls[0].before,calls[0].after).length,1);
-  context.act(()=>{});assert.equal(calls.length,1,'no replay on subsequent deployment/lock');
-  context.E.equipmentChoice=()=>choice('trait');context.act(()=>assert.fail('pending choice must block game advance'));
+  await context.act(()=>{});assert.equal(calls.length,1,'no replay on subsequent deployment/lock');
+  context.E.equipmentChoice=()=>choice('trait');await context.act(()=>assert.fail('pending choice must block game advance'));
   assert.equal(calls.length,1);
 });
 

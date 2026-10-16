@@ -46,6 +46,18 @@ Un administrateur local ne devient pas administrateur Supabase. Les equipements
 actuels restent disponibles selon leur compatibilite ; leur possession en
 exemplaires n'est pas ajoutee par cette evolution.
 
+Le compte Paris recoit explicitement le role administrateur du registre pour
+les apercus de parcours. Tokyo reste joueur. Ce droit vient de la table privee
+`admins`, jamais du pseudo, du profil local ou de metadata Auth modifiable.
+La [Bibliotheque](PARCOURS_BIBLIOTHEQUE.md) contient des livres de quatre combats
+dont la carte finale est attribuee par le serveur apres les quatre victoires.
+
+Un compte ne peut posseder qu'un seul exemplaire de chaque modele/version,
+administrateur compris. Les autres versions du personnage restent autorisees.
+L'index serveur couvre activation, transfert, recompense et futurs ajouts.
+Un doublon n'est pas detruit : une activation deja possedee laisse son secret
+disponible et un transfert incompatible est refuse avant attribution.
+
 ## Synchronisation
 
 `cloud-player.js` filtre la progression, `cloud-ownership.js` projette les droits
@@ -86,9 +98,11 @@ Payload schema 1, V4 : `localProfile`, `preferences` (liste fermee), `deckLibrar
 rencontre conserve seulement les profils engages et son arene, avec regles et
 equipements figes. Les resultats sont reconstruits depuis les snapshots valides.
 
-Les statistiques et trophees solo restent calcules dans le navigateur : leur
-synchronisation n'en fait pas des resultats certifies anti-triche. Une execution
-serveur sera necessaire avant un classement ou des recompenses de valeur.
+Les statistiques et trophees des parties ordinaires restent calcules dans le
+navigateur : leur synchronisation n'en fait pas des resultats certifies anti-triche.
+Les parcours font exception : leur moteur s'execute dans le Worker et leurs
+victoires/recompenses sont validees dans des tables privees distinctes. Cela
+n'autorise pas a transformer les anciens historiques en recompenses certifiees.
 
 ## Donnees et droits
 
@@ -167,7 +181,8 @@ sans joker. Le retour de recuperation de mot de passe conserve l'adresse approuv
 Le Site URL configure est `https://kalistar.pages.dev/jeu/` et l'unique retour
 autorise est `https://kalistar.pages.dev/jeu/?registry=1`, avec accord explicite.
 Le compte administrateur du tableau de bord Supabase reste distinct des comptes
-joueurs : aucun des deux comptes n'est automatiquement administrateur du registre.
+joueurs : aucun joueur n'est automatiquement administrateur du registre ; Paris
+l'est par attribution explicite de l'auteur, pas par sa connexion au tableau de bord.
 La recuperation PKCE doit etre ouverte dans le meme navigateur et sur la meme
 origine que la demande. Les mots de passe sont saisis uniquement par leur titulaire.
 

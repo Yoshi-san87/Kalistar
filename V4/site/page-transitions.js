@@ -2,7 +2,7 @@
   'use strict';
   let current=null;
   const reduced=matchMedia('(prefers-reduced-motion:reduce)');
-  const illustrations={home:'kalistel-rainbow',collection:'collection',decks:'decks',weapons:'weapons',arena:'arena',statistics:'statistics',story:'story'};
+  const illustrations={home:'kalistel-rainbow',collection:'collection',decks:'decks',weapons:'weapons',arena:'arena',statistics:'statistics',story:'story',journeys:'library'};
   function cancel(){current?.remove();current=null;document.getElementById('app')?.classList.remove('page-arriving');}
   function enter(view){
     cancel();

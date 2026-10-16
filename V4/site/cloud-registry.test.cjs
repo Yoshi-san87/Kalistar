@@ -38,6 +38,17 @@ test('a used or invalid activation cannot be presented as successful',async()=>{
   f.client.rpc=async()=>({data:{ok:false,code:'rate_limited'}});await assert.rejects(f.api.activate(id,secret),/minute/);f.api.destroy();
 });
 
+test('one-version refusals are readable and never retry or clear the current account',async()=>{
+  const f=fixture();await f.api.refresh();const before=f.api.snapshot();let count=0;
+  f.client.rpc=async()=>{count++;return {data:{ok:false,code:'already_owned'}};};
+  await assert.rejects(f.api.activate(id,secret),/deja cette version.*secret reste disponible/);
+  assert.equal(count,1);assert.deepEqual(f.api.snapshot(),before);
+  f.client.rpc=async()=>({error:{code:'23505',message:'already_owned'}});
+  await assert.rejects(f.api.offer(id,'fixture_recipient'),/destinataire possede deja cette version/);
+  await assert.rejects(f.api.settle('33333333-3333-4333-8333-333333333333','accepted'),/Aucun transfert/);
+  assert.deepEqual(f.api.snapshot(),before);f.api.destroy();
+});
+
 test('expired or refused server sessions clear previously displayed private state',async()=>{
   const f=fixture();await f.api.refresh();assert(f.api.snapshot().user);
   f.client.rpc=async()=>({error:{code:'42501',message:'Session refusee'}});

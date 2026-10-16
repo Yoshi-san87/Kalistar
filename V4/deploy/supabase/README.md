@@ -25,6 +25,13 @@ Le script est rejouable sans reemission ; aucune adresse/AuthUUID de production
 n'est inscrite dans les sources. Ne pas l'utiliser pour offrir automatiquement
 les prochaines cartes. Les droits et limites actuels sont dans le guide actif.
 
+Les migrations 007/008/009 imposent un exemplaire par modele/version et ajoutent
+les livres a quatre combats. La cle de preuve et le role Paris sont installes
+par une operation privee autorisee, pas dans les migrations versionnees.
+Voir [Bibliotheque](../../docs/PARCOURS_BIBLIOTHEQUE.md) pour le contrat serveur,
+les limites et la procedure d'ajout. La migration 007 refuse une base contenant
+deja des doublons ; elle ne supprime ni ne reaffecte aucun exemplaire.
+
 ## Tests
 
 Le test PostgreSQL utilise un moteur PGlite ephemere, jamais le projet public :
@@ -35,6 +42,7 @@ node --test V4/deploy/supabase/registry.test.cjs
 node --test V4/site/cloud-registry.test.cjs
 node --test V4/site/cloud-session.test.cjs V4/deploy/access-worker.test.cjs
 node --test V4/deploy/supabase/player-sync.test.cjs V4/site/cloud-sync.test.cjs V4/site/cloud-ownership.test.cjs
+node --test V4/deploy/supabase/unique-models.test.cjs V4/deploy/supabase/journeys.test.cjs
 ```
 
 `KALISTAR_CLOUD_MODULES` permet de fournir un autre dossier `node_modules`.

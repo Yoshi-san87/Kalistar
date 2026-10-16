@@ -62,7 +62,11 @@ test('real PostgreSQL: complete/ten-card starter sets, idempotent distribution, 
       const specimen=Object.values(payload.matches[0].state.collection.bindings)[0];
       await denied('select public.kalistar_offer($1,$2)',[specimen,'kalistar_paris']);
       const released={...payload,activeMatchId:null};assert((await value('select public.kalistar_sync_write($1,2,$2)',[deviceB,JSON.stringify(released)])).ok);
-      assert(await value('select public.kalistar_offer($1,$2)',[specimen,'kalistar_paris']));
+      await assert.rejects(query('select public.kalistar_offer($1,$2)',[specimen,'kalistar_paris']),e=>e.code==='23505'&&e.message==='already_owned');
+      await db.exec('reset role');
+      await query("insert into kalistar_private.players(user_id,email_sha256,local_profile,label) values($1,extensions.digest('player2@example.invalid','sha256'),'user-sync-recipient','Recipient')",[ids[2]]);
+      await as(2);await value('select public.kalistar_set_profile($1,$2,false)',['sync_recipient','Recipient']);await as(1);
+      assert(await value('select public.kalistar_offer($1,$2)',[specimen,'sync_recipient']));
       await denied('select public.kalistar_sync_write($1,3,$2)',[deviceB,JSON.stringify(payload)]);
       await value('select public.kalistar_sync_release($1)',[deviceB]);assert.equal((await value('select public.kalistar_sync_write($1,3,$2)',[deviceB,JSON.stringify(released)])).code,'busy');
       assert.equal((await value('select public.kalistar_sync_write(null,3,$1)',[JSON.stringify(released)])).code,'busy');

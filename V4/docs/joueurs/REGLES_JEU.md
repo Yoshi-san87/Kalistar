@@ -4,6 +4,21 @@ Dans Kalistar, deux équipes de dix personnages s'affrontent. Cinq combattants s
 
 ## Préparer la rencontre
 
+### Gagner des cartes dans la Bibliothèque
+
+Ouvrez un livre pour suivre un personnage. Chaque parcours contient **quatre
+combats**. Une victoire ouvre l'étape suivante et un passage du récit. Une
+défaite ou un match nul ne retire pas les victoires déjà gagnées : vous pouvez
+réessayer la même étape. Votre composition et les règles habituelles de l'Arène
+s'appliquent. Une connexion est nécessaire pour jouer ces parcours et les reprendre.
+
+Après quatre victoires, recevez la carte montrée sur la couverture. Le livre
+reste consultable mais ne redonne pas sa récompense. Vous ne pouvez posséder
+qu'un exemplaire d'une même version ; si vous l'avez déjà, aucun doublon n'est
+ajouté. Les autres versions du personnage restent collectionnables.
+
+### Un combat libre
+
 Choisissez votre composition, votre adversaire et l'arène. Les équipements sont fixés au début de la partie : les changer ailleurs ne modifie pas un combat déjà commencé.
 
 Vous pouvez tirer l'équipe adverse au hasard. **Détente**, **Équilibré** et **Tactique** proposent des équipes de plus en plus cohérentes dans leurs synergies. Ces choix ne rendent pas les dés plus favorables et ne changent pas les valeurs des cartes. Une équipe tirée au hasard ne reçoit pas automatiquement d'équipement.

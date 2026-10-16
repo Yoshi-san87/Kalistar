@@ -16,6 +16,21 @@ comportement actuel, avec composition et commandement demandes explicitement. Re
 - Les profils du [verrou courant](../atelier/data/references.json) font autorite
   pour les valeurs et faces d'une carte ; ne pas les recreer depuis ce resume.
 
+## Bibliotheque et collection
+
+Chaque livre de la Bibliotheque propose exactement quatre combats contre une
+equipe definie pour chaque etape. Une victoire avance d'une etape ; une defaite
+ou un nul conserve les etapes gagnees. Le joueur utilise ses dix exemplaires et
+sa composition habituelle, avec les memes regles que l'Arene. Le serveur valide
+les combats et permet de reprendre la tentative en cours sur l'appareil actif.
+
+La quatrieme victoire ouvre l'attribution de la carte de couverture. Un livre
+ne donne sa recompense qu'une fois, puis reste lisible. Le compte ne peut
+posseder qu'un seul exemplaire de chaque modele/version : une carte deja
+possedee n'est pas dupliquee. Collectionner plusieurs versions d'un personnage
+reste possible ; en jouer plusieurs dans un deck reste interdit. Les apercus
+administrateur n'ajoutent ni victoire ni carte. Voir [les parcours](PARCOURS_BIBLIOTHEQUE.md).
+
 ## Deck et formation
 
 - Dix cartes par deck, une seule carte par personnage toutes versions confondues,

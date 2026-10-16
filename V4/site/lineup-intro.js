@@ -204,7 +204,7 @@
           for(let frame=0;frame<8;frame++){dice([frame%6+1,(frame+3)%6+1]);if(!await wait(80))return false;}
         }else if(!await wait(180))return false;
         if(!active)return false;
-        result=initiative.roll();dice(result.dice);panel.classList.remove('is-rolling');
+        result=await initiative.roll();if(!active)return false;dice(result.dice);panel.classList.remove('is-rolling');
         if(result.first===null){resultText.textContent='\u00c9galit\u00e9 \u00b7 Nouveau jet';mark('initiative-tie');if(!await wait(ceremonyTiming.tie))return false;}
       }while(active&&result.first===null);
       if(!active)return false;

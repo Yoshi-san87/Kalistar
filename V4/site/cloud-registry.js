@@ -9,7 +9,7 @@
     const listeners=new Set(),emit=()=>{for(const fn of listeners)fn(snapshot());};
     const snapshot=()=>structuredClone(state);
     const clear=()=>{generation++;state=empty();emit();};
-    async function rpc(name,args={}){const {data,error}=await client.rpc(name,args);if(error){if(['PGRST301','PGRST302','PGRST303','42501'].includes(error.code))clear();throw error;}return data;}
+    async function rpc(name,args={}){const {data,error}=await client.rpc(name,args);if(error){if(error.code==='23505'&&error.message==='already_owned')throw Object.assign(Error('Le destinataire possede deja cette version. Aucun transfert n a ete effectue.'),{code:'already_owned'});if(['PGRST301','PGRST302','PGRST303','42501'].includes(error.code))clear();throw error;}return data;}
     async function refresh(){
       const ticket=++generation,{data,error}=await client.auth.getSession();if(error){clear();throw error;}
       if(ticket!==generation)return snapshot();
@@ -38,7 +38,7 @@
       activate:async(id,value)=>{
         if(!specimen(id)||!secret(value))throw Error('Identifiant ou code d activation invalide.');
         const result=await rpc('kalistar_activate',{p_id:id,p_secret:value});
-        if(!result?.ok)throw Error(result?.code==='rate_limited'?'Trop de tentatives. Attends une minute.':'Activation refusee : code invalide, deja utilise ou carte indisponible.');
+        if(!result?.ok)throw Error(result?.code==='already_owned'?'Tu possedes deja cette version. Le secret reste disponible pour son exemplaire.':result?.code==='rate_limited'?'Trop de tentatives. Attends une minute.':'Activation refusee : code invalide, deja utilise ou carte indisponible.');
         await refresh();return result.card;
       },
       certificate:async id=>{if(!specimen(id))throw Error('Identifiant d exemplaire invalide.');return rpc('kalistar_certificate',{p_id:id});},
