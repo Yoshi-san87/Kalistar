@@ -1,0 +1,95 @@
+{
+  "version": "1.38",
+  "parentVersion": "1.37",
+  "status": "proposal",
+  "runtimePublished": false,
+  "width": 1774,
+  "height": 887,
+  "changedInside": 8569,
+  "changedOutside": 0,
+  "compositeChangedOutside": 0,
+  "edits": [
+    {
+      "id": "eruption",
+      "generationId": "exec-9f58b259-28fe-44ab-b71c-325899bcadb6",
+      "crop": {
+        "left": 45,
+        "top": 235,
+        "width": 330,
+        "height": 310
+      },
+      "changedInside": 6077,
+      "colorOffsets": [
+        1,
+        3,
+        3
+      ],
+      "warmRedPixelSignal": 611
+    },
+    {
+      "id": "lake",
+      "generationId": "exec-89822a89-1cdd-4125-91d6-183e8096edc8",
+      "crop": {
+        "left": 150,
+        "top": 360,
+        "width": 115,
+        "height": 100
+      },
+      "changedInside": 2492,
+      "colorOffsets": [
+        -3,
+        2,
+        4
+      ]
+    }
+  ],
+  "protectedRegions": {
+    "northernDam": 0,
+    "cryptownFog": 0,
+    "thalassea": 0,
+    "forest": 0,
+    "westernCliffs": 0,
+    "easternSeaBay": 0
+  },
+  "sourceProtectionChanges": {
+    "V4/map/layers-1.34/zone-mask.png": 0,
+    "V4/map/layers-1.35/zone-mask.png": 0,
+    "V4/map/layers-1.36/crater-mask.png": 0
+  },
+  "cityCount": 8,
+  "cityGroupsUnchanged": true,
+  "originalLayersUnchanged": true,
+  "editableMasksRoundTrip": true,
+  "compositeRoundTrip": true,
+  "nativePhotoshopTested": false,
+  "protectedSources": [
+    {
+      "file": "V4/map/layers-1.37/kalistar-map-1.37-base.png",
+      "sha256": "9452ca21de9ceca5d731bd0bd1a771b13af3f38c17c68033e13be96ba415acfe"
+    },
+    {
+      "file": "V4/map/layers-1.37/kalistar-map-1.37.psd",
+      "sha256": "8b489c0d70c60da760c39c314bfde5d28413eee86b0632a5b9a7673950695296"
+    },
+    {
+      "file": "V4/map/kalistar-map-1.0.png",
+      "sha256": "ed35a624086c2a965bf3a19fa148d76be8f5dff54c7e3e60d2f18b0a1b756604"
+    },
+    {
+      "file": "V4/site/assets/ui/kalistar-atlas-1.36.webp",
+      "sha256": "2d9cba3ff26a84df0e0695d00ded5475a706af6ee2a82a5a81f2d29cdaea7722"
+    },
+    {
+      "file": "V4/map/layers-1.34/zone-mask.png",
+      "sha256": "10c870dfff85edad0c13e99698e59e54f0511ac5ce4505fcd1aa5a1ac1857897"
+    },
+    {
+      "file": "V4/map/layers-1.35/zone-mask.png",
+      "sha256": "b0feda25046b00f9162854c21fc7f32ae1cf85f21c6093f56476327f7984540f"
+    },
+    {
+      "file": "V4/map/layers-1.36/crater-mask.png",
+      "sha256": "4749417b01fbec0e8d26645d1bf47478eb339f82b224f7a0953abc5fd412b59a"
+    }
+  ]
+}

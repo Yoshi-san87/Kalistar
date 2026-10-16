@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "applicationVersion": "4.6.74",
+  "mapVersion": "1.39",
+  "date": "2026-10-16",
+  "localChecks": {
+    "organisation": {"exitCode": 0},
+    "ci": {"exitCode": 0, "invocations": 96, "elapsedMs": 296930},
+    "local": {"exitCode": 0, "invocations": 12, "elapsedMs": 20055},
+    "focusedMapAndBuild": {"exitCode": 0, "tests": 20}
+  },
+  "nativeMap": {
+    "intermediateVersions": ["1.37", "1.38"],
+    "finalVersion": "1.39",
+    "volcanicIslands": 6,
+    "islandChangedPixels": 4841,
+    "islandChangedPixelsOutsideMasks": 0,
+    "islandMainlandChangedPixels": 0,
+    "cityGroupsUnchanged": 8,
+    "psdRoundTrip": true,
+    "nativePhotoshopTested": false,
+    "runtimeLossless": true,
+    "runtimeSha256": "8d3ac19faa824020df6c077f364bded610daf913ca14c4b7a714e201a6c344ca"
+  },
+  "backup": {
+    "path": "C:/Users/guill/Documents/Sauvegardes-Kalistar/2026-10-16_map-1.39_release-4.6.74",
+    "files": 70,
+    "bytes": 121213569,
+    "allHashesVerified": true
+  },
+  "postCommitDeliveryGates": {
+    "statusAtCommit": "required-before-live-announcement",
+    "frozenCommitBuild": true,
+    "frozenMapBrowserViewports": ["1440x1000", "412x1007", "390x844"],
+    "frozenGameplayDesktopAndPhone": true,
+    "publicReleaseAndMediaHashes": true,
+    "publicMapAndGameplayBrowser": true,
+    "githubRepositoryWorkflow": true,
+    "finalEvidence": "work/qa/map-4.6.74/publication.json"
+  },
+  "scope": {
+    "cards": 434,
+    "authDraftsIncluded": false,
+    "otherChatChangesIncluded": false,
+    "browserStorageModified": false,
+    "cloudflareAccessChanged": false,
+    "newBillableService": false
+  }
+}

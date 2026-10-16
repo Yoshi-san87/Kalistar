@@ -1,0 +1,112 @@
+{
+  "version": "1.37",
+  "parentVersion": "1.36",
+  "status": "proposal",
+  "runtimePublished": false,
+  "generator": "built-in image_gen; deterministic masked terrain compositing",
+  "generationId": "exec-151c9646-9e2f-418d-868e-472bd91f3984",
+  "parentFiles": [
+    {
+      "file": "V4/map/layers-1.36/kalistar-map-1.36-base.png",
+      "sha256": "917c00972a5e541a55ed9cdfcb46988f667811e14955f3d45eab29a10f2b70c5"
+    },
+    {
+      "file": "V4/map/layers-1.36/kalistar-map-1.36.psd",
+      "sha256": "f2d85db9bbc9fbf1fb42ec730882df742089807fe5d1fae885df70170893f403"
+    },
+    {
+      "file": "V4/map/kalistar-map-1.0.png",
+      "sha256": "ed35a624086c2a965bf3a19fa148d76be8f5dff54c7e3e60d2f18b0a1b756604"
+    },
+    {
+      "file": "V4/site/assets/ui/kalistar-atlas-1.36.webp",
+      "sha256": "2d9cba3ff26a84df0e0695d00ded5475a706af6ee2a82a5a81f2d29cdaea7722"
+    },
+    {
+      "file": "V4/map/layers-1.34/zone-mask.png",
+      "sha256": "10c870dfff85edad0c13e99698e59e54f0511ac5ce4505fcd1aa5a1ac1857897"
+    },
+    {
+      "file": "V4/map/layers-1.35/zone-mask.png",
+      "sha256": "b0feda25046b00f9162854c21fc7f32ae1cf85f21c6093f56476327f7984540f"
+    },
+    {
+      "file": "V4/map/layers-1.36/crater-mask.png",
+      "sha256": "4749417b01fbec0e8d26645d1bf47478eb339f82b224f7a0953abc5fd412b59a"
+    }
+  ],
+  "files": [
+    {
+      "file": "build-proposal.cjs",
+      "sha256": "09a5b2cd34bf97d9446fb3518f85b7beabb3b410994f582907adf0755a3c6d58"
+    },
+    {
+      "file": "cities-before-large.png",
+      "sha256": "e11c2770ab638d03207185d74eddd0f237e20885db874a8d03f61b6b0d3f0a11"
+    },
+    {
+      "file": "kalistar-map-1.37-base.png",
+      "sha256": "9452ca21de9ceca5d731bd0bd1a771b13af3f38c17c68033e13be96ba415acfe"
+    },
+    {
+      "file": "kalistar-map-1.37-preview.png",
+      "sha256": "e42d10d00da7376b505cc68a4293d0e1cabbd91a23a12724e45518e384ceb025"
+    },
+    {
+      "file": "kalistar-map-1.37.psd",
+      "sha256": "8b489c0d70c60da760c39c314bfde5d28413eee86b0632a5b9a7673950695296"
+    },
+    {
+      "file": "README.md",
+      "sha256": "59b3f644b150011500a6ad0fee2a1eb105132d099a81a666f7c935c97de0f35b"
+    },
+    {
+      "file": "user-zone.png",
+      "sha256": "fa0b9ce300b786c21824d54fb6c345d44747f2d18c0f6fa39a8377ee65235915"
+    },
+    {
+      "file": "verification.json",
+      "sha256": "63b811bed2ee07bc5ef1d9f0b28b0d68909362ec1f83cb0ccd9d6365b2c1238a"
+    },
+    {
+      "file": "visual-review.json",
+      "sha256": "9538f79179805ad70d85196e0f067b7661eb7bb3c2ea8ec7670a72312b085012"
+    },
+    {
+      "file": "vulkar-detail.png",
+      "sha256": "160631491e45362b8135938fc88cd5123ab8f953452b662ce3635b23cdd3ca3c"
+    },
+    {
+      "file": "zone-after.png",
+      "sha256": "638e9e0ed8d056ca6a890332a389ad8a725cbffe7fb9e588dc90eb10ac6f958a"
+    },
+    {
+      "file": "zone-before-large.png",
+      "sha256": "0b62ef8d185d30a1c08ebc58a97384ff243d427f8c50bb2676b134312bde6451"
+    },
+    {
+      "file": "zone-before.png",
+      "sha256": "bf9370b1b47557a6e9a7043fffb382e1a650f02f67f407860a31e97f23c65492"
+    },
+    {
+      "file": "zone-fitted.png",
+      "sha256": "b5a1695e654ba362f81310067c710c116fc22e5f8a61ecd946cb8cacfe4a2bdc"
+    },
+    {
+      "file": "zone-generated.png",
+      "sha256": "14c1fc86e2764f652501199184ec7d87fcefcff2929b12a388a22fa57af913f0"
+    },
+    {
+      "file": "zone-mask.png",
+      "sha256": "d4698f18c9ea12e9e6350a5923c40972617456803d6cfefa4d6e4a563091ac42"
+    },
+    {
+      "file": "zone.json",
+      "sha256": "827e57f853396cc45054c7df64574e0349355a531f6d43f569b80d0f5250b480"
+    },
+    {
+      "file": "zone.prompt.txt",
+      "sha256": "fe0bd406f73772ad01892a80274ea3ccfbbdbad546be82a6d72c117ae2fbe8ab"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "latestVersion": "1.36",
+  "latestVersion": "1.39",
   "artDirection": "DIRECTION_ARTISTIQUE.md",
   "versions": [
     {
@@ -544,6 +544,58 @@
       "runtimePublished": true,
       "runtimeCitiesSeparate": true,
       "sha256": "0f6842f93a0303dc918ee044804dacdf78a8c303cf6927ace3738660f32daf68"
+    },
+    {
+      "version": "1.37",
+      "parentVersion": "1.36",
+      "file": "layers-1.37/kalistar-map-1.37-preview.png",
+      "base": "layers-1.37/kalistar-map-1.37-base.png",
+      "description": "Hauts plateaux de Vulkar, cendres sombres, falaises abruptes et eaux noires",
+      "layeredDocument": "layers-1.37/kalistar-map-1.37.psd",
+      "preview": "layers-1.37/kalistar-map-1.37-preview.png",
+      "provenance": "layers-1.37/provenance.json",
+      "verification": "layers-1.37/verification.json",
+      "status": "approved-intermediate",
+      "authorApprovedOn": "2026-10-16",
+      "includedInVersion": "1.39",
+      "runtimePublished": false,
+      "runtimeCitiesSeparate": true,
+      "sha256": "e42d10d00da7376b505cc68a4293d0e1cabbd91a23a12724e45518e384ceb025"
+    },
+    {
+      "version": "1.38",
+      "parentVersion": "1.37",
+      "file": "layers-1.38/kalistar-map-1.38-preview.png",
+      "base": "layers-1.38/kalistar-map-1.38-base.png",
+      "description": "Un volcan actif, lave localisee et lac noir interieur agrandi",
+      "layeredDocument": "layers-1.38/kalistar-map-1.38.psd",
+      "preview": "layers-1.38/kalistar-map-1.38-preview.png",
+      "provenance": "layers-1.38/provenance.json",
+      "verification": "layers-1.38/verification.json",
+      "status": "approved-intermediate",
+      "authorApprovedOn": "2026-10-16",
+      "includedInVersion": "1.39",
+      "runtimePublished": false,
+      "runtimeCitiesSeparate": true,
+      "sha256": "85c1c968090e0ab58daa1cf692727a81584fd53d699c32cd5a8d0dd4bba05110"
+    },
+    {
+      "version": "1.39",
+      "parentVersion": "1.38",
+      "file": "layers-1.39/kalistar-map-1.39-preview.png",
+      "base": "layers-1.39/kalistar-map-1.39-base.png",
+      "description": "Six ilots volcaniques a l'ouest de Vulkar, avec plateau actif et lac agrandi",
+      "layeredDocument": "layers-1.39/kalistar-map-1.39.psd",
+      "preview": "layers-1.39/kalistar-map-1.39-preview.png",
+      "provenance": "layers-1.39/provenance.json",
+      "verification": "layers-1.39/verification.json",
+      "status": "approved",
+      "authorApprovedOn": "2026-10-16",
+      "publishedAsset": "../site/assets/ui/kalistar-atlas-1.39.webp",
+      "publishedMedia": "layers-1.39/published-media.json",
+      "runtimePublished": true,
+      "runtimeCitiesSeparate": true,
+      "sha256": "247242c05e8e4696cf80cfb20d6bbfb4bd7fcfd40fef3f097c687bb3c6f16b1d"
     }
   ]
 }

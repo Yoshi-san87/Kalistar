@@ -6,12 +6,13 @@ Ces numeros sont independants de la version du jeu.
 Lire [la direction artistique et ses references](DIRECTION_ARTISTIQUE.md)
 avant les prochaines retouches : trait, parchemin, villes, biomes et cotes.
 
-Publication active : [map 1.36](layers-1.36/kalistar-map-1.36-preview.png),
-livraison jeu 4.6.71. Huit villes selectionnables, dont Thalassea dans sa bulle
-sous-marine. Le cratere et son sillon profond rejoignent Durane ; un barrage
-compact barre le col du nord-ouest et une brume epaisse entoure Cryptown.
+Publication active : [map 1.39](layers-1.39/kalistar-map-1.39-preview.png),
+livraison jeu 4.6.74. Vulkar occupe de hauts plateaux cendreux aux falaises
+abruptes, avec un volcan actif, de la lave, un grand lac noir et des ilots
+volcaniques a l'ouest. Huit villes restent selectionnables et independantes.
+Le cratere de Durane, le barrage nord, Cryptown et Thalassea sont preserves.
 Terrain, atmosphere et emblemes restent independants dans le PSD.
-Sources, prompts et export runtime : [layers-1.36](layers-1.36/PUBLICATION.md).
+Sources, prompts et export runtime : [layers-1.39](layers-1.39/PUBLICATION.md).
 
 | Version | Fichier | Contenu |
 | --- | --- | --- |

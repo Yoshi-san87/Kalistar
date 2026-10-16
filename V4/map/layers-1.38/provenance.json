@@ -1,0 +1,145 @@
+{
+  "version": "1.38",
+  "parentVersion": "1.37",
+  "status": "proposal",
+  "runtimePublished": false,
+  "generator": "built-in image_gen; deterministic masked terrain compositing",
+  "generations": [
+    {
+      "id": "eruption",
+      "generationId": "exec-9f58b259-28fe-44ab-b71c-325899bcadb6",
+      "prompt": "eruption.prompt.txt",
+      "selectedOutput": "eruption-generated.png"
+    },
+    {
+      "id": "lake",
+      "generationId": "exec-89822a89-1cdd-4125-91d6-183e8096edc8",
+      "prompt": "lake.prompt.txt",
+      "selectedOutput": "lake-generated.png"
+    }
+  ],
+  "parentFiles": [
+    {
+      "file": "V4/map/layers-1.37/kalistar-map-1.37-base.png",
+      "sha256": "9452ca21de9ceca5d731bd0bd1a771b13af3f38c17c68033e13be96ba415acfe"
+    },
+    {
+      "file": "V4/map/layers-1.37/kalistar-map-1.37.psd",
+      "sha256": "8b489c0d70c60da760c39c314bfde5d28413eee86b0632a5b9a7673950695296"
+    },
+    {
+      "file": "V4/map/kalistar-map-1.0.png",
+      "sha256": "ed35a624086c2a965bf3a19fa148d76be8f5dff54c7e3e60d2f18b0a1b756604"
+    },
+    {
+      "file": "V4/site/assets/ui/kalistar-atlas-1.36.webp",
+      "sha256": "2d9cba3ff26a84df0e0695d00ded5475a706af6ee2a82a5a81f2d29cdaea7722"
+    },
+    {
+      "file": "V4/map/layers-1.34/zone-mask.png",
+      "sha256": "10c870dfff85edad0c13e99698e59e54f0511ac5ce4505fcd1aa5a1ac1857897"
+    },
+    {
+      "file": "V4/map/layers-1.35/zone-mask.png",
+      "sha256": "b0feda25046b00f9162854c21fc7f32ae1cf85f21c6093f56476327f7984540f"
+    },
+    {
+      "file": "V4/map/layers-1.36/crater-mask.png",
+      "sha256": "4749417b01fbec0e8d26645d1bf47478eb339f82b224f7a0953abc5fd412b59a"
+    }
+  ],
+  "files": [
+    {
+      "file": "build-proposal.cjs",
+      "sha256": "af9f88abc70594ed2c979bf0ba817f441e9e742d94627cf785d65529fc54a814"
+    },
+    {
+      "file": "eruption-after.png",
+      "sha256": "3148d0ff727b01eb70755004fad447ebcbf34d21d8a656418d594c13fa390268"
+    },
+    {
+      "file": "eruption-before-large.png",
+      "sha256": "5050312d27533d0e2d22dbe759cb2d9b848b083aa3e725466f9aaab82796a9b2"
+    },
+    {
+      "file": "eruption-before.png",
+      "sha256": "638e9e0ed8d056ca6a890332a389ad8a725cbffe7fb9e588dc90eb10ac6f958a"
+    },
+    {
+      "file": "eruption-fitted.png",
+      "sha256": "185c30faaaa1ba6ce8c4127afb4b2997fd5cbf51bc34870f8827d29618831df8"
+    },
+    {
+      "file": "eruption-generated.png",
+      "sha256": "7b12a6987b4ef010f59549b15192aee846e35314a660d81f30213d33daf820ab"
+    },
+    {
+      "file": "eruption-mask.png",
+      "sha256": "c91eed0fab037c9ff1992ba4f4fe3da20fd4477858d5c76b6115f912b42a823f"
+    },
+    {
+      "file": "eruption.prompt.txt",
+      "sha256": "104b4a97d21d3e8dc1e6d2004afe5fd0ffbbab3ba2abce6a1531dea9858533b6"
+    },
+    {
+      "file": "kalistar-map-1.38-base.png",
+      "sha256": "9c17ae03a598e67d5a0a74cab14a88f233f0bd95ca036ce4817f51e6be0ea195"
+    },
+    {
+      "file": "kalistar-map-1.38-preview.png",
+      "sha256": "85c1c968090e0ab58daa1cf692727a81584fd53d699c32cd5a8d0dd4bba05110"
+    },
+    {
+      "file": "kalistar-map-1.38.psd",
+      "sha256": "e1def250a578ece4ddb336ce55a26ce8583c38cb1b81cd5ad96bf97fcc89bcb7"
+    },
+    {
+      "file": "lake-after.png",
+      "sha256": "cc74c9ccf58473808672d3096cf09e01e1857b974b919843845fd74392a333fd"
+    },
+    {
+      "file": "lake-before-large.png",
+      "sha256": "86333d4f4be7bcfbb51ca25a39d54d39bf25cea7fc6abeb309dbb1dd0eaa2445"
+    },
+    {
+      "file": "lake-before.png",
+      "sha256": "8bc968a4bc1fd616462f71b94ae77475c8dc6ea6c0f5a1390b0750fc755a3c2b"
+    },
+    {
+      "file": "lake-fitted.png",
+      "sha256": "0bf847e6b1293a89e9679388114df4c26370326c66720d86ab9c7413624514bf"
+    },
+    {
+      "file": "lake-generated.png",
+      "sha256": "b9f5921e22b11c181cb5e244a3e109f84a3821971e8ab6159146cb33108fc6ef"
+    },
+    {
+      "file": "lake-mask.png",
+      "sha256": "356c386eb19d119a5bf0db3924c780b92996899666c82de21e8392bf8a80558f"
+    },
+    {
+      "file": "lake.prompt.txt",
+      "sha256": "b1071b3b78c0d2d3dad92a7c86040150906e1cc52ee6c8d4bbd7c0bc6fab0a0e"
+    },
+    {
+      "file": "README.md",
+      "sha256": "4c109dc28d51ce31eb1cfc67c529265dc051bd79ecf4e03a65c3d2a4684e4892"
+    },
+    {
+      "file": "verification.json",
+      "sha256": "9bb4395d22ffce9767305fc5d2d605d575040ba189a3d6823f65d7b1390e182b"
+    },
+    {
+      "file": "visual-review.json",
+      "sha256": "a7746341cafd260bf9bdb4627c71aef4a145522972a93a15964714e043e9b0b7"
+    },
+    {
+      "file": "vulkar-detail.png",
+      "sha256": "c589170f0472ba9a842261df15ffec20dce16a733934679cbad9d3e022326a6d"
+    },
+    {
+      "file": "zone.json",
+      "sha256": "3d9ae5e3cfe7062651fe1ffaaaab0afaf373060d5d058bbf5a2cdc6b8f9dd331"
+    }
+  ]
+}

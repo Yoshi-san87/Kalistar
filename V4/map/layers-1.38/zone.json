@@ -1,0 +1,282 @@
+{
+  "version": "1.38",
+  "parentVersion": "1.37",
+  "date": "2026-10-16",
+  "status": "proposal",
+  "runtimePublished": false,
+  "parentBase": "V4/map/layers-1.37/kalistar-map-1.37-base.png",
+  "parentPsd": "V4/map/layers-1.37/kalistar-map-1.37.psd",
+  "detailCrop": {
+    "left": 45,
+    "top": 235,
+    "width": 330,
+    "height": 310
+  },
+  "edits": [
+    {
+      "id": "eruption",
+      "name": "Vulkar - volcan actif, panache et coulees de lave",
+      "crop": {
+        "left": 45,
+        "top": 235,
+        "width": 330,
+        "height": 310
+      },
+      "polygon": [
+        [
+          80,
+          8
+        ],
+        [
+          105,
+          3
+        ],
+        [
+          125,
+          7
+        ],
+        [
+          135,
+          24
+        ],
+        [
+          129,
+          40
+        ],
+        [
+          120,
+          50
+        ],
+        [
+          129,
+          64
+        ],
+        [
+          144,
+          81
+        ],
+        [
+          155,
+          101
+        ],
+        [
+          148,
+          113
+        ],
+        [
+          130,
+          111
+        ],
+        [
+          110,
+          103
+        ],
+        [
+          89,
+          100
+        ],
+        [
+          69,
+          91
+        ],
+        [
+          57,
+          80
+        ],
+        [
+          59,
+          61
+        ],
+        [
+          73,
+          50
+        ],
+        [
+          84,
+          36
+        ],
+        [
+          78,
+          22
+        ]
+      ],
+      "feather": 4,
+      "colorAnchor": {
+        "left": 8,
+        "top": 180,
+        "width": 18,
+        "height": 25
+      },
+      "colorLimit": 4,
+      "generationId": "exec-9f58b259-28fe-44ab-b71c-325899bcadb6",
+      "selectionNote": "Only eruption area is selected from this generation; its lake redraw is not used."
+    },
+    {
+      "id": "lake",
+      "name": "Vulkar - lac noir agrandi et rive rocheuse",
+      "crop": {
+        "left": 150,
+        "top": 360,
+        "width": 115,
+        "height": 100
+      },
+      "polygon": [
+        [
+          12,
+          30
+        ],
+        [
+          24,
+          24
+        ],
+        [
+          38,
+          24
+        ],
+        [
+          42,
+          20
+        ],
+        [
+          56,
+          20
+        ],
+        [
+          64,
+          26
+        ],
+        [
+          74,
+          29
+        ],
+        [
+          78,
+          37
+        ],
+        [
+          78,
+          50
+        ],
+        [
+          74,
+          61
+        ],
+        [
+          67,
+          65
+        ],
+        [
+          50,
+          66
+        ],
+        [
+          41,
+          66
+        ],
+        [
+          29,
+          66
+        ],
+        [
+          17,
+          62
+        ],
+        [
+          9,
+          54
+        ],
+        [
+          8,
+          43
+        ]
+      ],
+      "feather": 3,
+      "colorAnchor": {
+        "left": 90,
+        "top": 75,
+        "width": 10,
+        "height": 15
+      },
+      "colorLimit": 4,
+      "generationId": "exec-89822a89-1cdd-4125-91d6-183e8096edc8",
+      "preserveCircles": [
+        {
+          "x": 55,
+          "y": 64,
+          "radius": 3,
+          "feather": 2
+        }
+      ]
+    }
+  ],
+  "sourceProtectionMasks": [
+    {
+      "file": "V4/map/layers-1.34/zone-mask.png",
+      "crop": {
+        "left": 170,
+        "top": 177,
+        "width": 310,
+        "height": 222
+      }
+    },
+    {
+      "file": "V4/map/layers-1.35/zone-mask.png",
+      "crop": {
+        "left": 170,
+        "top": 177,
+        "width": 310,
+        "height": 222
+      }
+    },
+    {
+      "file": "V4/map/layers-1.36/crater-mask.png",
+      "crop": {
+        "left": 330,
+        "top": 285,
+        "width": 175,
+        "height": 140
+      }
+    }
+  ],
+  "sourceProtectionFeather": 4,
+  "protectedRegions": {
+    "northernDam": {
+      "left": 199,
+      "top": 63,
+      "width": 261,
+      "height": 165
+    },
+    "cryptownFog": {
+      "left": 20,
+      "top": 510,
+      "width": 250,
+      "height": 250
+    },
+    "thalassea": {
+      "left": 754,
+      "top": 571,
+      "width": 281,
+      "height": 266
+    },
+    "forest": {
+      "left": 270,
+      "top": 450,
+      "width": 300,
+      "height": 190
+    },
+    "westernCliffs": {
+      "left": 140,
+      "top": 375,
+      "width": 23,
+      "height": 70
+    },
+    "easternSeaBay": {
+      "left": 232,
+      "top": 375,
+      "width": 143,
+      "height": 90
+    }
+  },
+  "cityCount": 8,
+  "cityLayersUnchanged": true
+}

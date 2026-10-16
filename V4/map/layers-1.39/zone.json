@@ -1,0 +1,455 @@
+{
+  "version": "1.39",
+  "parentVersion": "1.38",
+  "date": "2026-10-16",
+  "status": "selected-for-publication",
+  "runtimePublished": false,
+  "parentBase": "V4/map/layers-1.38/kalistar-map-1.38-base.png",
+  "parentPsd": "V4/map/layers-1.38/kalistar-map-1.38.psd",
+  "crop": {
+    "left": 38,
+    "top": 270,
+    "width": 165,
+    "height": 230
+  },
+  "generationId": "exec-cc647046-693d-47c9-a38c-1468c9650fa2",
+  "feather": 2.5,
+  "colorAnchor": {
+    "left": 7,
+    "top": 190,
+    "width": 15,
+    "height": 25
+  },
+  "colorLimit": 4,
+  "regions": [
+    {
+      "id": "twin-cones",
+      "name": "Ilots de Vulkar - cones jumeaux et caldeira",
+      "polygon": [
+        [
+          15,
+          25
+        ],
+        [
+          27,
+          21
+        ],
+        [
+          44,
+          21
+        ],
+        [
+          49,
+          26
+        ],
+        [
+          47,
+          34
+        ],
+        [
+          47,
+          39
+        ],
+        [
+          52,
+          46
+        ],
+        [
+          52,
+          59
+        ],
+        [
+          45,
+          70
+        ],
+        [
+          34,
+          74
+        ],
+        [
+          23,
+          67
+        ],
+        [
+          11,
+          60
+        ],
+        [
+          7,
+          50
+        ],
+        [
+          9,
+          38
+        ]
+      ]
+    },
+    {
+      "id": "small-cone",
+      "name": "Ilots de Vulkar - petit cone",
+      "polygon": [
+        [
+          24,
+          75
+        ],
+        [
+          35,
+          74
+        ],
+        [
+          43,
+          80
+        ],
+        [
+          47,
+          92
+        ],
+        [
+          46,
+          103
+        ],
+        [
+          37,
+          107
+        ],
+        [
+          25,
+          102
+        ],
+        [
+          19,
+          93
+        ],
+        [
+          19,
+          83
+        ]
+      ]
+    },
+    {
+      "id": "volcanic-ridge",
+      "name": "Ilots de Vulkar - crete volcanique",
+      "polygon": [
+        [
+          50,
+          63
+        ],
+        [
+          58,
+          62
+        ],
+        [
+          63,
+          73
+        ],
+        [
+          68,
+          81
+        ],
+        [
+          70,
+          90
+        ],
+        [
+          76,
+          99
+        ],
+        [
+          81,
+          108
+        ],
+        [
+          86,
+          115
+        ],
+        [
+          84,
+          121
+        ],
+        [
+          75,
+          120
+        ],
+        [
+          66,
+          114
+        ],
+        [
+          59,
+          109
+        ],
+        [
+          57,
+          98
+        ],
+        [
+          54,
+          91
+        ],
+        [
+          50,
+          84
+        ],
+        [
+          45,
+          77
+        ],
+        [
+          46,
+          68
+        ]
+      ]
+    },
+    {
+      "id": "open-caldera",
+      "name": "Ilots de Vulkar - caldeira ouverte",
+      "polygon": [
+        [
+          50,
+          108
+        ],
+        [
+          60,
+          108
+        ],
+        [
+          65,
+          115
+        ],
+        [
+          69,
+          123
+        ],
+        [
+          66,
+          134
+        ],
+        [
+          59,
+          139
+        ],
+        [
+          49,
+          136
+        ],
+        [
+          44,
+          129
+        ],
+        [
+          44,
+          119
+        ]
+      ]
+    },
+    {
+      "id": "shield-island",
+      "name": "Ilots de Vulkar - volcan bouclier",
+      "polygon": [
+        [
+          65,
+          129
+        ],
+        [
+          75,
+          129
+        ],
+        [
+          82,
+          134
+        ],
+        [
+          94,
+          138
+        ],
+        [
+          98,
+          144
+        ],
+        [
+          95,
+          151
+        ],
+        [
+          82,
+          153
+        ],
+        [
+          70,
+          150
+        ],
+        [
+          61,
+          144
+        ],
+        [
+          59,
+          136
+        ]
+      ]
+    },
+    {
+      "id": "volcanic-stack",
+      "name": "Ilots de Vulkar - piton volcanique",
+      "polygon": [
+        [
+          108,
+          161
+        ],
+        [
+          118,
+          161
+        ],
+        [
+          121,
+          169
+        ],
+        [
+          120,
+          180
+        ],
+        [
+          114,
+          187
+        ],
+        [
+          106,
+          186
+        ],
+        [
+          101,
+          180
+        ],
+        [
+          103,
+          170
+        ]
+      ]
+    }
+  ],
+  "mainlandProtection": [
+    [
+      62,
+      0
+    ],
+    [
+      165,
+      0
+    ],
+    [
+      165,
+      230
+    ],
+    [
+      130,
+      230
+    ],
+    [
+      126,
+      209
+    ],
+    [
+      127,
+      193
+    ],
+    [
+      122,
+      179
+    ],
+    [
+      120,
+      163
+    ],
+    [
+      115,
+      151
+    ],
+    [
+      112,
+      139
+    ],
+    [
+      107,
+      125
+    ],
+    [
+      99,
+      115
+    ],
+    [
+      92,
+      102
+    ],
+    [
+      85,
+      87
+    ],
+    [
+      80,
+      74
+    ],
+    [
+      73,
+      60
+    ],
+    [
+      60,
+      47
+    ],
+    [
+      56,
+      39
+    ],
+    [
+      47,
+      33
+    ],
+    [
+      47,
+      25
+    ],
+    [
+      54,
+      22
+    ],
+    [
+      61,
+      17
+    ]
+  ],
+  "mainlandFeather": 2,
+  "protectedRegions": {
+    "crater": {
+      "left": 330,
+      "top": 285,
+      "width": 175,
+      "height": 140
+    },
+    "northernDam": {
+      "left": 199,
+      "top": 63,
+      "width": 261,
+      "height": 165
+    },
+    "cryptown": {
+      "left": 20,
+      "top": 510,
+      "width": 250,
+      "height": 250
+    },
+    "forest": {
+      "left": 270,
+      "top": 450,
+      "width": 300,
+      "height": 190
+    },
+    "thalassea": {
+      "left": 754,
+      "top": 571,
+      "width": 281,
+      "height": 266
+    }
+  },
+  "cityCount": 8,
+  "cityLayersUnchanged": true
+}

@@ -54,5 +54,5 @@ test('published 1.36 terrain is lossless and all city assets are unchanged',asyn
   assert.deepEqual(await raw(path.join(root,proof.assets[0].file)),await raw(path.join(root,proof.terrainSource)));
   for(const entry of proof.assets)assert.equal(sha(path.join(root,entry.file)),entry.sha256);
   assert.deepEqual(proof.assets.slice(1),json(path.join(dir,'../layers-1.33/published-media.json')).assets.slice(1));
-  assert.equal(json(path.join(root,'V4/map/versions.json')).latestVersion,'1.36');
+  assert.equal(json(path.join(root,'V4/map/versions.json')).versions.find(entry=>entry.version==='1.36').status,'approved');
 });

@@ -1,0 +1,27 @@
+{
+  "version": "1.37",
+  "date": "2026-10-16",
+  "status": "proposal",
+  "runtimePublished": false,
+  "method": "view_image inspection of integrated terrain/cities and complete atlas, plus deterministic pixel and PSD checks",
+  "reviewedFiles": ["vulkar-detail.png", "kalistar-map-1.37-preview.png"],
+  "visualChecks": {
+    "highPlateauReliefAndStratifiedSeaCliffs": true,
+    "volcanicChainExtendsSouth": true,
+    "charcoalAshKeepsFineEngravedTexture": true,
+    "enclosedBlackLakeDistinctFromEasternDarkSeaBasin": true,
+    "easternWaterToneFadesToOriginalOcean": true,
+    "southernCliffsMeetSeaAfterCoastalMaskRefinement": true,
+    "cityEmblemsAndLabelsRemainLegible": true,
+    "noRectangularPatchEdge": true,
+    "completeMapCoherentWithKalistarParchment": true
+  },
+  "regression": {
+    "command": "node --test V4/map/layers-1.36/map.test.cjs V4/site/map-view.test.cjs",
+    "passed": 9,
+    "failed": 0
+  },
+  "nativePhotoshopTested": false,
+  "newRuntimeBrowserTested": false,
+  "note": "The public map remains 1.36; the new image is a local layered proposal, not a website release."
+}

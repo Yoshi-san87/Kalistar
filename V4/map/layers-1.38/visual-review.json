@@ -1,0 +1,27 @@
+{
+  "version": "1.38",
+  "date": "2026-10-16",
+  "status": "proposal",
+  "runtimePublished": false,
+  "method": "view_image inspection of saved integrated detail and full atlas, plus deterministic pixel/PSD checks",
+  "reviewedFiles": ["vulkar-detail.png", "kalistar-map-1.38-preview.png"],
+  "visualChecks": {
+    "oneActiveTerrainVolcanoDistinctFromCityEmblem": true,
+    "localizedLavaChannelsAndCompactAshPlume": true,
+    "lavaRetainsAntiqueHandTintedAtlasAppearance": true,
+    "inlandBlackLakeVisiblyLarger": true,
+    "lakeRemainsEnclosedWithRockDivideFromSea": true,
+    "cliffsForestAndCraterRemainCoherent": true,
+    "allCitiesAndLabelsUnchangedAndLegible": true,
+    "noRectangularPatchBoundary": true
+  },
+  "note": "Warm-red pixel counts are an image signal, not a material segmentation or a measured lava surface. Lake enlargement is visually checked; no exact area multiplier is claimed.",
+  "regression": {
+    "command": "node --test V4/map/layers-1.36/map.test.cjs V4/site/map-view.test.cjs",
+    "passed": 9,
+    "failed": 0
+  },
+  "nativePhotoshopTested": false,
+  "newRuntimeBrowserTested": false,
+  "publicMapUnchanged": true
+}
