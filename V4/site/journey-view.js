@@ -8,7 +8,12 @@
   const icon = name => `<i data-lucide="${name}" aria-hidden="true"></i>`;
   const fold = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('fr');
   const asset = path => globalThis.KalistarSite?.url(path) || path;
-  const coverElements = new Set(['ELECTRO','PYRO','HYDRO','CRYO','AERO','HERBO','GEO','HEMATO','NECRO','LUXO','RAINBOW']);
+  // Keyed by the rewarded model, never by a display name or another version.
+  const coverArt = Object.freeze({
+    '30000001':'assets/journeys/30000001-art-v1.webp',
+    '49900802':'assets/journeys/49900802-art-v1.webp',
+    '49055457':'assets/journeys/49055457-art-v1.webp'
+  });
 
   function create({data = {}, image, art, getState, onStart, onResume, onClaim, onAcknowledge, onPreview, onDetail, onRefresh, toast} = {}) {
     let root = null, view = null, controller = null, observer = null, frame = 0;
@@ -45,8 +50,9 @@
       return {label:value?.label || (book.element === 'NONE' ? 'Sans cristal' : book.element || 'Sans cristal'),
         color:/^#?[\da-f]{6}$/i.test(value?.color || '') ? '#' + value.color.replace(/^#/, '') : '#a4c7bd'};
     }
-    function coverOf(book) {
-      return asset(coverElements.has(book.element) ? `assets/ui/story-books/${book.element.toLowerCase()}-book-v1.webp` : 'assets/ui/story-closed-grimoire-v2.webp');
+    function coverIllustration(book) {
+      const source = Object.hasOwn(coverArt,book.rewardModelId) ? coverArt[book.rewardModelId] : null, label = `Illustration de la carte récompense : ${characterOf(book)}`;
+      return source ? `<img src="${esc(asset(source))}" data-jv-cover-model="${esc(book.rewardModelId)}" alt="${esc(label)}" width="900" height="1200" loading="lazy" decoding="async" draggable="false">` : media(book.rewardModelId,'art',label);
     }
     function button(action, label, glyph, {key = action, disabled = false, primary = false, extra = ''} = {}) {
       return `<button type="button" class="jv-command${primary ? ' jv-primary' : ''}" data-jv-action="${action}" data-jv-key="${esc(key)}" ${disabled ? 'disabled' : ''} ${extra}>${icon(glyph)}<span>${esc(label)}</span></button>`;
@@ -106,10 +112,10 @@
           const p = progressOf(book,state), card = model(book.rewardModelId), total = stagesOf(book).length;
           return `<li class="jv-volume" style="--jv-element:${elementOf(book).color}">
             <button type="button" class="jv-cover" data-jv-action="open" data-jv-book="${esc(book.id)}" data-jv-key="open-${esc(book.id)}" aria-label="${p.claimed ? 'Consulter' : 'Ouvrir'} ${esc(titleOf(book))}, ${esc(statusLabel(p))}">
-              <span class="jv-cover-object"><img class="jv-cover-skin" src="${esc(coverOf(book))}" alt="" width="1024" height="1536" decoding="async" draggable="false">
-                <span class="jv-cover-inscription"><span class="jv-cover-character">${esc(book.subtitle || characterOf(book))}</span><span class="jv-cover-title">${esc(titleOf(book))}</span></span>
-                <span class="jv-cover-card">${media(book.rewardModelId,'card',`Carte récompense : ${card?.name || book.subtitle}`)}</span>
-                <span class="jv-cover-seal" aria-hidden="true">${icon(p.claimed ? 'check' : 'gem')}</span>
+              <span class="jv-cover-object"><span class="jv-cover-art">${coverIllustration(book)}</span><img class="jv-cover-skin" src="${esc(asset('assets/journeys/binding-v1.webp'))}" alt="" width="1024" height="1536" loading="lazy" decoding="async" draggable="false">
+                <span class="jv-cover-character">${esc(card?.name || book.subtitle || characterOf(book))}</span>
+                <span class="jv-cover-inscription"><span class="jv-cover-title">${esc(titleOf(book))}</span></span>
+                ${p.claimed ? `<span class="jv-cover-seal" aria-hidden="true">${icon('check')}</span>` : ''}
               </span><span class="jv-cover-command">${icon(p.claimed ? 'book-open' : p.cleared || p.activeAttempt ? 'bookmark' : 'book-open')}<span>${p.claimed ? 'Consulter' : p.cleared || p.activeAttempt ? 'Poursuivre' : 'Ouvrir'}</span>${icon('chevron-right')}</span>
             </button>
             <div class="jv-volume-meta"><span class="jv-volume-element"><span class="jv-element-dot" aria-hidden="true"></span>${esc(elementOf(book).label)}</span><span class="jv-volume-state" data-state="${statusOf(p)}">${esc(statusLabel(p))}</span><progress max="${Math.max(1,total)}" value="${p.cleared}" aria-label="${esc(titleOf(book))} : ${p.cleared} combats gagnés sur ${total}"></progress><span class="jv-volume-count">${p.cleared} / ${total} combats</span></div>
@@ -378,7 +384,7 @@
       root.addEventListener('submit',event => { if (event.target.matches('.jv-filters')) event.preventDefault(); },{signal});
       root.addEventListener('keydown',keydown,{signal});
       root.addEventListener('scroll',event => { if (event.target.matches('.jv-shelf')) updateShelf(); },{capture:true,passive:true,signal});
-      root.addEventListener('error',event => { if (event.target.matches('img[data-jv-media]')) { event.target.classList.add('jv-media-unavailable'); event.target.alt = 'Visuel indisponible'; } },{capture:true,signal});
+      root.addEventListener('error',event => { if (event.target.matches('img[data-jv-media],img[data-jv-cover-model]')) { event.target.classList.add('jv-media-unavailable'); event.target.alt = 'Visuel indisponible'; } },{capture:true,signal});
       if (globalThis.ResizeObserver) {
         observer = new ResizeObserver(() => {
           cancelAnimationFrame(frame); frame = requestAnimationFrame(() => { frame = 0; updateShelf(); });

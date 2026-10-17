@@ -37,6 +37,29 @@ colonnes. Le rayonnage defile horizontalement et la page verticalement si
 necessaire. Le livre ouvert devient une page de lecture, avec ses commandes
 au-dessus du menu fixe. Les quatre combats et les recompenses ne changent pas.
 
+### Couvertures Illustrees
+
+Le livre ferme montre en grand la peinture de la **version recompense**, pas
+une miniature de carte sur une couverture Story. La reliure originale cuivre,
+argent et cuir sombre est partagee ; sa fenetre transparente laisse voir la
+peinture sans la regenerer. Le nom et le titre restent du texte HTML lisible.
+Story et ses douze couvertures Kalistel sont independants et preserves.
+
+Les trois peintures optimisees et la reliure vivent dans `site/assets/journeys/`.
+La table `coverArt` de `journey-view.js` est indexee par `rewardModelId`, jamais
+par nom ou `characterId`. Un modele sans export dedie utilise le recadrage de
+sa propre carte via `card-media.js`, pas l'illustration d'une autre version.
+Les images sont chargees paresseusement, sans animation ou canvas permanent.
+La progression reste visible hors de la couverture ; une coche marque un livre
+acheve. Les titres et controles restent utilisables en Reduced Motion.
+
+Provenance, prompt de generation, preparation des WebP et empreintes sources :
+`V4/revisions/2026-10-17-fragment-covers/`. Pour ajouter une couverture, selectionner
+l'illustration approuvee du modele recompense, produire son WebP avec le meme
+pipeline, ajouter son entree `coverArt`, sauvegarder et inscrire le media dans
+`runtime-media.json`, puis verifier PC/Razr. Une couverture seule ne modifie pas
+la revision des rencontres, les recompenses ni le schema de progression.
+
 - `journey-definitions.js` : livres, quatre etapes, textes, images, equipes et
   modele/version recompense. Aucun nom affiche n'est une cle de personnage.
 - `journey-combat.js` : initialise et applique des commandes avec le moteur
@@ -126,3 +149,6 @@ trois livres. `journey-combat.test.cjs` execute les commandes de bout en bout.
 PostgreSQL, puis la vraie ceremonie UI. `journey-view.browser.test.cjs` verifie
 le rendu, les controles, les petits ecrans et le nettoyage dans un contexte
 jetable. Aucun test ne distribue de carte sur un compte reel.
+`journey-covers.test.cjs` verifie les sources exactes, leurs empreintes, les
+medias inscrits et la transparence de la reliure. Le test navigateur controle
+aussi le cadrage, la separation du titre et le fallback d'une autre version.

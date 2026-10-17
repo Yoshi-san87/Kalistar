@@ -66,8 +66,8 @@ async function routeFixture(context) {
 }
 const action = name => `[data-jv-action="${name}"]`;
 async function imagesReady(page) {
-  const selector = '.jv-cover-card img,.jv-scene img,.jv-reward-prize img';
-  await page.waitForFunction(selector => [...document.querySelectorAll(selector)].every(image => image.complete && image.naturalWidth > 0 && (image.dataset.v4Cropped || image.src.startsWith('blob:'))), selector);
+  const selector = '.jv-cover-art img,.jv-cover-skin,.jv-scene img,.jv-reward-prize img';
+  await page.waitForFunction(selector => [...document.querySelectorAll(selector)].every(image => image.complete && image.naturalWidth > 0 && (!image.hasAttribute('data-jv-media') || image.dataset.v4Cropped || image.src.startsWith('blob:'))), selector);
   await page.evaluate(async selector => {
     await Promise.all([...document.querySelectorAll(selector)].map(image => image.decode()));
     await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
@@ -87,8 +87,8 @@ async function assertLayout(page, label) {
       mobileNav:getComputedStyle(document.querySelector('.main-nav')).position==='fixed',
       regions:[...document.querySelectorAll('.jv-filters,.jv-route,.jv-stage-actions,.jv-stage-heading,.jv-library-heading,.jv-reward-ceremony')].map(node => ({name:node.className,fits:node.scrollWidth <= node.clientWidth+1})),
       covers:[...document.querySelectorAll('.jv-cover-object')].map(node => {
-        const inscription = rect(node.querySelector('.jv-cover-inscription')), card = rect(node.querySelector('.jv-cover-card'));
-        return {inside:within(inscription,rect(node)),separate:inscription.bottom+3 <= card.top,text:[...node.querySelectorAll('.jv-cover-title,.jv-cover-character')].every(textFits)};
+        const inscription = rect(node.querySelector('.jv-cover-inscription')), art = rect(node.querySelector('.jv-cover-art')), title = rect(node.querySelector('.jv-cover-title'));
+        return {inside:within(inscription,rect(node)) && within(title,inscription),separate:art.bottom+1 <= inscription.top,text:[...node.querySelectorAll('.jv-cover-title,.jv-cover-character')].every(textFits)};
       }),
       headings:[...document.querySelectorAll('.jv-stage-heading h3,.jv-illustrated-page h2,.jv-reward h2')].every(textFits),
       stations:[...document.querySelectorAll('.jv-route button')].every(node => rect(node).width >= 44 && rect(node).height >= 44)};
@@ -96,7 +96,7 @@ async function assertLayout(page, label) {
   assert.ok(geometry.overflow <= 1, label+': no document overflow '+JSON.stringify(geometry));
   assert.ok(!geometry.mobileNav || geometry.appBottom <= geometry.navTop+1,label+': content stays above bottom navigation '+JSON.stringify(geometry));
   assert.ok(geometry.regions.every(region => region.fits), label+': regions fit '+JSON.stringify(geometry));
-  assert.ok(geometry.covers.every(cover => cover.inside && cover.separate && cover.text), label+': cover inscriptions clear the reward card '+JSON.stringify(geometry));
+  assert.ok(geometry.covers.every(cover => cover.inside && cover.separate && cover.text), label+': cover titles fit the leather plaque below the illustration '+JSON.stringify(geometry));
   assert.ok(geometry.headings && geometry.stations, label+': readable headings and touch-sized stations '+JSON.stringify(geometry));
 }
 async function cleanupProbe(page) {
@@ -151,12 +151,18 @@ async function main() {
     await page.goto(origin); await page.waitForFunction(()=>window.fixtureReady);
     assert.equal(await page.locator('.jv-cover').count(),3);
     assert.equal(await page.locator('.jv-library-heading h1').textContent(),'Fragment');
-    assert.equal(await page.locator('.jv-cover-card img').count(),3,'all three real reward models are present');
+    assert.equal(await page.locator('.jv-cover-card').count(),0,'no miniature card pasted over a generic book');
+    assert.equal(await page.locator('.jv-cover-art img').count(),3,'all three reward paintings are present');
+    assert.deepEqual(await page.locator('.jv-cover-art img').evaluateAll(nodes=>nodes.map(img=>img.dataset.jvCoverModel)),await page.evaluate(()=>harness.state.books.map(book=>book.rewardModelId)),'cover art follows the exact rewarded version');
+    await page.evaluate(()=>{harness.state.books[0].rewardModelId='40243854';harness.view.refresh();});
+    assert.equal(await page.locator('.jv-cover-art img').first().getAttribute('data-jv-media'),'40243854','a future version uses its own card artwork, never the registered painting of another Momo');
+    await imagesReady(page);
+    await page.evaluate(()=>{harness.state.books[0].rewardModelId='30000001';harness.view.refresh();});
     assert.deepEqual(await page.evaluate(()=>harness.state.books.map(book=>book.stages.length)),[4,4,4]);
     for (const viewport of [{width:1440,height:1000},{width:412,height:1007},{width:320,height:568},{width:844,height:390}]) {
       await page.setViewportSize(viewport);
       await page.locator('.jv-shelf').evaluate(node=>{node.scrollLeft=0;node.dispatchEvent(new Event('scroll'));});
-      await assertLayout(page,'library '+viewport.width); await capture('library-'+viewport.width);
+      await capture('library-'+viewport.width); await assertLayout(page,'library '+viewport.width);
       if (viewport.width <= 760) {
         assert.equal(await page.locator('.jv-filters').isVisible(),false);
         await page.locator(action('toggle-filters')).click();
