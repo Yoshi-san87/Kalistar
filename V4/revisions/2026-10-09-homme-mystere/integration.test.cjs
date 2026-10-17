@@ -1,6 +1,6 @@
 'use strict';
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
-const before=require('./before.json'),catalogue=require('../../donnees/catalogue.json'),p=require('../../creations/49901503/profile.json'),proof=require('./work/verification.json');
+const before=require('./before.json'),catalogue=require('../../revisions/2026-10-17-nestown-manteau-rempart/compatibility.cjs').previousCatalogue(require('../../donnees/catalogue.json')),p=require('../../creations/49901503/profile.json'),proof=require('./work/verification.json');
 const {previousEntry}=require('./compatibility.cjs'),{buildCatalog}=require('../../atelier/game-catalog.cjs'),{createEngine}=require('../../site/engine.js'),Q=require('../../site/equipment.js');
 const data=buildCatalog({published:catalogue.cards.filter(c=>c.kind==='created')});
 const entry=catalogue.cards.find(c=>c.id==='49901503'),name="L'HOMME MYST\u00c8RE";

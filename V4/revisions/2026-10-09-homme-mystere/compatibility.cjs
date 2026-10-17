@@ -1,6 +1,7 @@
 'use strict';
 const assert=require('node:assert/strict'),before=require('./before.json');
 function previousEntry(actual){
+ actual=require('../2026-10-17-nestown-manteau-rempart/compatibility.cjs').previousEntry(actual);
  if(actual.nativeRevision?.id!=='2026-10-09-homme-mystere')return actual;
  assert.equal(actual.id,'49901503');assert.equal(actual.name,"L'HOMME MYSTÈRE");
  assert.equal(actual.profile.name,actual.name);assert.equal(actual.profile.characterId,'sphinx-batman');

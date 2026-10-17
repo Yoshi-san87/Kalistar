@@ -2,15 +2,15 @@
   "passed": true,
   "modelId": "49902608",
   "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
-  "profileHash": "f51e3ce1ed81e5fbd538d113377c23ebc162407ed19df79cd00b5ad11c894571",
+  "profileHash": "c0b630d8ee38c2d6fb6079b0681d487edd4896df1d98cad0bc5657f7928af98b",
   "hashes": {
-    "card.png": "3ca844006752bb5ee225161f71841507fa5b74fb686633442c16f29a459efbff",
-    "card.psd": "3fc946dd453d0dc2283bde8612797980e5469d5d6a0692e21e358305edc5669f"
+    "card.png": "337d2343ef1ef43f93cc4b5b98fa06b95b7a22db232281894f59d04aa778858f",
+    "card.psd": "c695c85e9eec8924acf3154d200cc4d26df2435801b77076fa88f2383775ad4a"
   },
   "components": {
     "fixedDifferences": 0,
     "severePixels": 0,
-    "changed": 104905
+    "changed": 103971
   },
   "roundtrip": {
     "changed": 0,
@@ -35,21 +35,12 @@
     },
     "physicalPrintVerified": false
   },
-  "checkedAt": "2026-10-13T13:07:50.916Z",
-  "revision": "2026-10-13-voices-weapon-glyphs",
-  "scope": {
-    "changed": 1755,
+  "checkedAt": "2026-10-17T02:45:23.735Z",
+  "revision": "2026-10-17-nestown-manteau-rempart",
+  "artOnly": {
+    "changed": 448094,
     "outside": 0
   },
-  "weaponOnly": true,
-  "profileUnchanged": true,
-  "source": {
-    "id": "49902608",
-    "key": "khariel",
-    "family": "Fléau",
-    "source": "V4/site/assets/base-weapons/04.svg",
-    "sourceHash": "eec32a23b3c66a2aa330a0b056b6a841fd6681bae9d5d60b326e9d6ed1129c48",
-    "enamelHash": "9588d3c555966d642c8cbdeaf328b34052cabc08303572b534e831f4c0c48d47"
-  },
-  "inputManifestHash": "0439066a6f7aebdc9f2eb9c69117386eb89306a3bf9a647eaf60523abd0c384c"
+  "gameplayUnchanged": true,
+  "inputManifestHash": "450d5dd184212f604adb673674fde0ca870d5534d885d842d6719b8fbe7e7d5f"
 }

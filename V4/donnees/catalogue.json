@@ -15914,8 +15914,8 @@
         "advantage": 30,
         "disadvantage": 30,
         "source": "Personnage original Kalistar, demande du 4 octobre 2026",
-        "visual_revision": "V4-2026-10-04-kalistel-armor",
-        "artworkSource": "V4/Illustrations/City_Guards_Vessa_03.png"
+        "visual_revision": "V4-2026-10-17-nestown-manteau-rempart",
+        "artworkSource": "V4/revisions/2026-10-17-nestown-manteau-rempart/cards/vessa/illustration.png"
       },
       "png": "V4/creations/49900312/card.png",
       "psd": "V4/creations/49900312/card.psd",
@@ -15923,7 +15923,15 @@
       "psdUrl": "/media/created/49900312.psd",
       "createdAt": "2026-10-04T09:46:05.862Z",
       "publicationSource": "V4/expansions/2026-10-04-city-guards",
-      "nativeRevision": "2026-10-04-kalistel-armor"
+      "nativeRevision": {
+        "id": "2026-10-17-nestown-manteau-rempart",
+        "key": "vessa",
+        "proof": "V4/revisions/2026-10-17-nestown-manteau-rempart/cards/vessa/verification.json",
+        "changedFields": [
+          "artwork"
+        ],
+        "previous": "2026-10-04-kalistel-armor"
+      }
     },
     {
       "id": "49900313",
@@ -15989,15 +15997,24 @@
         "advantage": 30,
         "disadvantage": 30,
         "source": "Personnage original Kalistar, demande du 4 octobre 2026",
-        "visual_revision": "V4-2026-10-04-city-guards",
-        "artworkSource": "V4/Illustrations/City_Guards_Karrok_01.png"
+        "visual_revision": "V4-2026-10-17-nestown-manteau-rempart",
+        "artworkSource": "V4/revisions/2026-10-17-nestown-manteau-rempart/cards/karrok/illustration.png"
       },
       "png": "V4/creations/49900313/card.png",
       "psd": "V4/creations/49900313/card.psd",
       "pngUrl": "/media/created/49900313.png",
       "psdUrl": "/media/created/49900313.psd",
       "createdAt": "2026-10-04T09:46:05.892Z",
-      "publicationSource": "V4/expansions/2026-10-04-city-guards"
+      "publicationSource": "V4/expansions/2026-10-04-city-guards",
+      "nativeRevision": {
+        "id": "2026-10-17-nestown-manteau-rempart",
+        "key": "karrok",
+        "proof": "V4/revisions/2026-10-17-nestown-manteau-rempart/cards/karrok/verification.json",
+        "changedFields": [
+          "artwork"
+        ],
+        "previous": null
+      }
     },
     {
       "id": "49900314",
@@ -16061,8 +16078,8 @@
         "advantage": 30,
         "disadvantage": 30,
         "source": "Personnage original Kalistar, demande du 4 octobre 2026",
-        "visual_revision": "V4-2026-10-04-armor-refinement",
-        "artworkSource": "V4/Illustrations/City_Guards_Neryk_04.png"
+        "visual_revision": "V4-2026-10-17-nestown-manteau-rempart",
+        "artworkSource": "V4/revisions/2026-10-17-nestown-manteau-rempart/cards/neryk/illustration.png"
       },
       "png": "V4/creations/49900314/card.png",
       "psd": "V4/creations/49900314/card.psd",
@@ -16070,7 +16087,15 @@
       "psdUrl": "/media/created/49900314.psd",
       "createdAt": "2026-10-04T09:46:05.926Z",
       "publicationSource": "V4/expansions/2026-10-04-city-guards",
-      "nativeRevision": "2026-10-04-armor-refinement"
+      "nativeRevision": {
+        "id": "2026-10-17-nestown-manteau-rempart",
+        "key": "neryk",
+        "proof": "V4/revisions/2026-10-17-nestown-manteau-rempart/cards/neryk/verification.json",
+        "changedFields": [
+          "artwork"
+        ],
+        "previous": "2026-10-04-armor-refinement"
+      }
     },
     {
       "id": "49900315",
@@ -29091,8 +29116,8 @@
         "advantage": 30,
         "disadvantage": 30,
         "source": "Original Kalistar, selection et retouches approuvees le 13 octobre 2026",
-        "visual_revision": "V4-2026-10-13-fourteen-new-voices",
-        "artworkSource": "V4/propositions/2026-10-13-twenty-new-voices/images/09-khariel-02.png"
+        "visual_revision": "V4-2026-10-17-nestown-manteau-rempart",
+        "artworkSource": "V4/revisions/2026-10-17-nestown-manteau-rempart/cards/khariel/illustration.png"
       },
       "png": "V4/creations/49902608/card.png",
       "psd": "V4/creations/49902608/card.psd",
@@ -29101,13 +29126,21 @@
       "createdAt": "2026-10-13T11:44:20.936Z",
       "publicationSource": "V4/expansions/2026-10-13-fourteen-new-voices",
       "nativeRevision": {
-        "id": "2026-10-13-voices-weapon-glyphs",
+        "id": "2026-10-17-nestown-manteau-rempart",
         "key": "khariel",
-        "proof": "V4/revisions/2026-10-13-voices-weapon-glyphs/cards/khariel/verification.json",
+        "proof": "V4/revisions/2026-10-17-nestown-manteau-rempart/cards/khariel/verification.json",
         "changedFields": [
-          "weaponGlyph"
+          "artwork"
         ],
-        "previous": null
+        "previous": {
+          "id": "2026-10-13-voices-weapon-glyphs",
+          "key": "khariel",
+          "proof": "V4/revisions/2026-10-13-voices-weapon-glyphs/cards/khariel/verification.json",
+          "changedFields": [
+            "weaponGlyph"
+          ],
+          "previous": null
+        }
       }
     },
     {

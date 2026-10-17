@@ -2,7 +2,7 @@
 const {test}=require('node:test'),assert=require('node:assert/strict');
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const M=require('./model-02.cjs'),set=require('./set.json'),spec=set.cards[0],p=require('./cards/elyrane/profile.json');
-const cat=require('../../donnees/catalogue.json'),{deck,formation,deploy}=require('./fixtures-02.cjs');
+const cat=require('../../revisions/2026-10-17-nestown-manteau-rempart/compatibility.cjs').previousCatalogue(require('../../donnees/catalogue.json')),{deck,formation,deploy}=require('./fixtures-02.cjs');
 const {buildCatalog}=require('../../atelier/game-catalog.cjs'),{createEngine}=require('../../site/engine.js');
 const published=cat.cards.filter(c=>c.kind==='created'&&c.id!==spec.id);
 published.push({id:p.id,profile:p,pngUrl:'/media/created/'+p.id+'.png'});

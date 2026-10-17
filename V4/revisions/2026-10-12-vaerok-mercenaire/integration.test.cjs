@@ -1,6 +1,6 @@
 'use strict';
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
-const before=require('./before.json'),catalogue=require('../../donnees/catalogue.json'),p=require('../../creations/49902301/profile.json'),proof=require('./work/verification.json');
+const before=require('./before.json'),catalogue=require('../../revisions/2026-10-17-nestown-manteau-rempart/compatibility.cjs').previousCatalogue(require('../../donnees/catalogue.json')),p=require('../../creations/49902301/profile.json'),proof=require('./work/verification.json');
 const {buildCatalog}=require('../../atelier/game-catalog.cjs'),{createEngine}=require('../../site/engine.js');
 test('User correction changes only Vaerok job, with one identity and unchanged stats',()=>{
  assert.equal(p.job,'MERCENAIRE');assert.deepEqual({...p,job:before.entry.profile.job},before.entry.profile);

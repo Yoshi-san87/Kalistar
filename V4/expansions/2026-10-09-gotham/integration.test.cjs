@@ -97,7 +97,7 @@ test('32 complete seeded ABBA matches with all eight characters and recurring re
   for(const c of set.cards)assert(seen.has(c.id));
 });
 test('Eight native PSD/PNG proofs, exact approved art and preserved previous catalogue entries',()=>{
-  const before=require('./before.json'),cat=D.catalogue();
+  const before=require('./before.json'),cat=require('../../revisions/2026-10-17-nestown-manteau-rempart/compatibility.cjs').previousCatalogue(D.catalogue());
   for(const c of before.catalogue.cards)assert.deepEqual(cat.cards.find(p=>p.id===c.id),c);
   for(const c of set.cards){
     const dir=path.join(__dirname,'cards',c.key),v=JSON.parse(fs.readFileSync(path.join(dir,'verification.json'),'utf8'));

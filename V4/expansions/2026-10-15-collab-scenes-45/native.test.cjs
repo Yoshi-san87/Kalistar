@@ -3,7 +3,7 @@ const {test}=require('node:test'),assert=require('node:assert/strict');
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),set=require('./set.json');
 const root=path.resolve(__dirname,'../../..'),digest=f=>crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex');
 test('45 native proofs, approved art, current weapon glyphs and preserved catalogue',()=>{
- const cat=require('../../donnees/catalogue.json'),seen=new Set();
+ const cat=require('../../revisions/2026-10-17-nestown-manteau-rempart/compatibility.cjs').previousCatalogue(require('../../donnees/catalogue.json')),seen=new Set();
  for(const c of set.cards){
   const dir=path.join(__dirname,'cards',c.key),v=require(path.join(dir,'verification.json'));
   assert(v.passed&&v.barcode.passed);assert.equal(v.components.fixedDifferences,0);assert.equal(v.roundtrip.changed,0);

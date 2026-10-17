@@ -1,12 +1,13 @@
 'use strict';
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
-const root=path.resolve(__dirname,'../../..'),before=require('./before.json'),catalogue=require('../../donnees/catalogue.json');
+const root=path.resolve(__dirname,'../../..'),before=require('./before.json'),catalogue=require('../../revisions/2026-10-17-nestown-manteau-rempart/compatibility.cjs').previousCatalogue(require('../../donnees/catalogue.json'));
 const digest=f=>{const b=fs.readFileSync(f),p=b.length<1024&&/^version https:\/\/git-lfs.github.com\/spec\/v1\r?\noid sha256:([a-f0-9]{64})/.exec(b.toString());return p?p[1]:crypto.createHash('sha256').update(b).digest('hex');};
 test('14 native medallions use the current screen glyphs without changing any profile or artwork',()=>{
  assert.equal(before.cards.length,14);assert.equal(require('./verification.json').passed,true);
  for(const [f,h]of Object.entries(require('./render-driver.json').hashes))assert.equal(digest(path.join(__dirname,f)),h);
  for(const c of before.cards){
-  const dir=path.join(__dirname,'cards',c.key),prod=path.join(root,'V4/creations',c.id),current=catalogue.cards.find(x=>x.id===c.id),v=require(path.join(dir,'verification.json'));
+  // Khariel's later art-only revision preserves this exact weapon proof in its native backup.
+  const dir=path.join(__dirname,'cards',c.key),prod=c.id==='49902608'?path.join(__dirname,'../2026-10-17-nestown-manteau-rempart/originals/khariel'):path.join(root,'V4/creations',c.id),current=catalogue.cards.find(x=>x.id===c.id),v=require(path.join(dir,'verification.json'));
   assert(v.passed&&v.weaponOnly&&v.profileUnchanged);assert.equal(v.scope.outside,0);assert(v.scope.changed>0);assert.equal(v.roundtrip.changed,0);assert.equal(v.components.fixedDifferences,0);assert(v.barcode.passed);
   assert.deepEqual(current.profile,c.entry.profile);assert.deepEqual(require(path.join(prod,'profile.json')),c.entry.profile);
   assert.equal(current.nativeRevision.id,path.basename(__dirname));assert.deepEqual(current.nativeRevision.changedFields,['weaponGlyph']);

@@ -8,7 +8,7 @@ test('Both cards are published and old catalogue entries are byte-independent an
   const item=catalogue.cards.find(v=>v.id===c.id);assert(item);assert.equal(item.characterId,c.characterId);
   assert(files.some(f=>f.source==='V4/creations/'+c.id+'/card.png'));
  }
- const cat=require('../../donnees/catalogue.json');
+ const cat=require('../../revisions/2026-10-17-nestown-manteau-rempart/compatibility.cjs').previousCatalogue(require('../../donnees/catalogue.json'));
  for(const old of require('./before.json').catalogue.cards)assert.deepEqual(cat.cards.find(c=>c.id===old.id),old);
 });
 test('Four unused authoring atlases stay in source control but are not deployed',async()=>{

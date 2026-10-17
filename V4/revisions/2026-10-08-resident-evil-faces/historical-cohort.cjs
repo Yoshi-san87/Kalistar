@@ -2,6 +2,7 @@
 const assert=require('node:assert/strict'),S=require('./rules.cjs'),before=require('./before.json'),plan=require('./plan.json');
 // Older artwork audits compare their original cohort, after verifying this explicit later revision.
 function entryBeforeRevision(entry){
+ entry=require('../2026-10-17-nestown-manteau-rempart/compatibility.cjs').previousEntry(entry);
  const row=plan.cards.find(r=>r.id===entry.id);
  if(!row||entry.nativeRevision?.id!==S.REV)return entry;
  const original=before.cards.find(c=>c.id===entry.id).catalogueEntry;

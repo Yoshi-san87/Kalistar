@@ -1,6 +1,6 @@
 'use strict';
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
-const root=path.resolve(__dirname,'../../..'),cat=require('../../donnees/catalogue.json'),set=require('./set.json'),M=require('./model.cjs');
+const root=path.resolve(__dirname,'../../..'),cat=require('../../revisions/2026-10-17-nestown-manteau-rempart/compatibility.cjs').previousCatalogue(require('../../donnees/catalogue.json')),set=require('./set.json'),M=require('./model.cjs');
 const read=p=>JSON.parse(fs.readFileSync(path.join(root,p),'utf8'));
 const hash=p=>crypto.createHash('sha256').update(fs.readFileSync(path.join(root,p))).digest('hex');
 test('Seven Chrono Trigger native cards are published with unchanged approved art',()=>{

@@ -76,7 +76,7 @@ test('Forty complete matches against new and legacy decks, with saved intermedia
  for(const c of set.cards)assert(seen.has(c.id),c.key);
 });
 test('Native proofs, exact approved illustrations, NONE components and preserved catalogue',()=>{
- const root=path.resolve(__dirname,'../../..'),cat=require('../../donnees/catalogue.json');
+ const root=path.resolve(__dirname,'../../..'),cat=require('../../revisions/2026-10-17-nestown-manteau-rempart/compatibility.cjs').previousCatalogue(require('../../donnees/catalogue.json'));
  const digest=f=>{const b=fs.readFileSync(f),m=b.length<1024&&/^version https:\/\/git-lfs.github.com\/spec\/v1\r?\noid sha256:([a-f0-9]{64})/.exec(b.toString());return m?m[1]:crypto.createHash('sha256').update(b).digest('hex');};
  for(const c of set.cards){
   const dir=path.join(__dirname,'cards',c.key),v=require(path.join(dir,'verification.json'));

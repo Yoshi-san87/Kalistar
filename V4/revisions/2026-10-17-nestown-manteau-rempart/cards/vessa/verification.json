@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "modelId": "49900312",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "d9b286d8ffd3c3401f5764fd2d943c50744e88e68821167d3ee029a0685417a0",
+  "hashes": {
+    "card.png": "ddde07d315c1852a68b79d064e1bd8e0a5056688232d86ebb4e871aecee71433",
+    "card.psd": "cbb34353fa4a8fd1eee9e99b1240336eddd64b18a38cb58ada6875c029d0d827"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 113257
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49900312",
+    "cases": {
+      "color-1": [
+        "49900312"
+      ],
+      "color-4": [
+        "49900312"
+      ],
+      "gray-1": [
+        "49900312"
+      ],
+      "gray-4": [
+        "49900312"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-17T02:45:22.153Z",
+  "revision": "2026-10-17-nestown-manteau-rempart",
+  "artOnly": {
+    "changed": 448246,
+    "outside": 0
+  },
+  "gameplayUnchanged": true,
+  "inputManifestHash": "450d5dd184212f604adb673674fde0ca870d5534d885d842d6719b8fbe7e7d5f"
+}

@@ -76,7 +76,7 @@ test('Sixteen complete matches, both sides, ABBA and restored intermediate state
  assert(appearances>0);
 });
 test('Native proofs, original art and existing catalogue unchanged',()=>{
- const root=path.resolve(__dirname,'../../..'),cat=require('../../donnees/catalogue.json'),dir=path.join(__dirname,'cards',c.key);
+ const root=path.resolve(__dirname,'../../..'),cat=require('../../revisions/2026-10-17-nestown-manteau-rempart/compatibility.cjs').previousCatalogue(require('../../donnees/catalogue.json')),dir=path.join(__dirname,'cards',c.key);
  const digest=f=>{const b=fs.readFileSync(f),m=b.length<1024&&/^version https:\/\/git-lfs.github.com\/spec\/v1\r?\noid sha256:([a-f0-9]{64})/.exec(b.toString());return m?m[1]:crypto.createHash('sha256').update(b).digest('hex');};
  const v=require(path.join(dir,'verification.json'));assert(v.passed&&v.barcode.passed);assert.equal(v.components.fixedDifferences,0);assert.equal(v.roundtrip.changed,0);
  assert.equal(digest(path.join(root,c.artworkSource)),digest(path.join(dir,'illustration.png')));

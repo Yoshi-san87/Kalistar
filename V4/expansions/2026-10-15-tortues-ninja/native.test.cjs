@@ -3,7 +3,12 @@ const {test}=require('node:test'),assert=require('node:assert/strict');
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),set=require('./set.json');
 const root=path.resolve(__dirname,'../../..'),digest=f=>crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex');
 test('Ten native proofs, editable text, current glyphs and exact approved art',async()=>{
- await require('./build.cjs').stable();
+ // Keep the frozen production driver untouched; audit its inputs and the documented later artwork revision.
+ const L=require('../../atelier/lib.cjs');await L.protectedCheck();await require('../../atelier/designer-render.cjs').verifyAssets();
+ const frozen=require('./before.json'),cat=require('../../donnees/catalogue.json');
+ for(const [f,h]of Object.entries(frozen.inputs))assert.equal(digest(path.join(root,f)),h,'Frozen input changed: '+f);
+ const {previousEntry}=require('../../revisions/2026-10-17-nestown-manteau-rempart/compatibility.cjs');
+ for(const c of frozen.catalogue.cards)assert.deepEqual(previousEntry(cat.cards.find(n=>n.id===c.id)),c);
  const seen=new Set();
  for(const c of set.cards){
   const dir=path.join(__dirname,'cards',c.key),v=require(path.join(dir,'verification.json'));

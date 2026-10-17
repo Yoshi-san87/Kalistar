@@ -1,7 +1,7 @@
 'use strict';
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const set=require('./set.json'),c=set.cards[0],M=require('./model.cjs'),{deck,formation,deploy}=require('./fixtures.cjs');
-const cat=require('../../donnees/catalogue.json'),{createEngine}=require('../../site/engine.js');
+const cat=require('../../revisions/2026-10-17-nestown-manteau-rempart/compatibility.cjs').previousCatalogue(require('../../donnees/catalogue.json')),{createEngine}=require('../../site/engine.js');
 const dataPromise=require('../../atelier/game-catalog.cjs').buildCatalog({published:cat.cards.filter(c=>c.kind==='created')});
 const root=path.resolve(__dirname,'../../..'),hash=f=>crypto.createHash('sha256').update(fs.readFileSync(path.join(root,f))).digest('hex');
 const restore=(E,s)=>assert.deepEqual(E.restoreGame(JSON.parse(JSON.stringify(s))),s);
