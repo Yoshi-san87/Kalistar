@@ -282,9 +282,9 @@
     syncDetailEquipment();
     presentLineup();persist();scheduleAI();
     if(ui.view==='arena'&&game?.journey){
-      const book=KalistarJourneyDefinitions.catalogue(data).find(b=>b.id===game.journey.bookId);
+      const context=journeyArenaContext();
       const banner=document.createElement('div');banner.className='journey-arena-strip';
-      banner.innerHTML=`<span>${icon('book-open')} ${esc(book?.title||'Fragment')} <b>${game.journey.stage+1}/4</b>${game.journey.preview?' · Aper\u00e7u administrateur':''}</span><button data-action="journey-return">${icon('bookmark')}${game.phase==='over'?(game.winner===0?'\u00c9tape remport\u00e9e':'Retrouver le livre'):'Le parcours'}</button>`;
+      banner.innerHTML=`<span>${icon('book-open')} ${esc(context.title)} <b>${context.step}/4</b>${context.preview}</span><button data-action="journey-return">${icon('bookmark')}${context.label}</button>`;
       $('.game-shell').prepend(banner);icons();
     }
     if(ui.view==='arena'&&game?.phase==='over'){
@@ -792,7 +792,8 @@ function showDeck(){setView('decks');}
     const arena=arenaById(game.arenaId),styles={aero:['wind','#acdccc','#152322','bridge'],hydro:['waves','#82dce3','#112429','water'],electro:['zap','#f2d668','#20232c','circuit'],pyro:['flame','#ee9b72','#2b1c1e','forge'],cryo:['snowflake','#b8eaf0','#1b2830','ice'],luxo:['sun','#e8d590','#262521','sun'],minero:['mountain','#b5cbae','#232922','stone'],herbo:['leaf','#a6d88d','#1b2a23','leaves'],hemato:['droplets','#ee879a','#291d28','gates'],necro:['moon','#b2aedf','#211f2e','gates'],geo:['brick-wall','#cfb87f','#282620','stone'],rainbow:['gem','#e4c5e2','#242231','prism'],z13:['pickaxe','#7fded6','#162a2c','circuit'],'trone-fer':['crown','#ddc799','#24282a','gates'],astraball:['goal','#e5b184','#242924','street'],ruins:['landmark','#b7c7ae','#232723','stone']};
     const [,accent,surface,material]=styles[arena.id]||styles.ruins;
     shell.dataset.arena=arena.id;console.dataset.material=material;console.style.setProperty('--arena-accent',accent);console.style.setProperty('--arena-surface',surface);
-    $('.arena-toolbar .tools').insertAdjacentHTML('beforeend',`<button class="icon-button mobile-only" data-action="arena-menu" aria-label="Options du match" title="Options du match">${icon('ellipsis')}</button>`);
+    const journey=journeyArenaContext(),menuLabel=journey?`Options du match, Fragment, \u00e9tape ${journey.step} sur 4`:'Options du match';
+    $('.arena-toolbar .tools').insertAdjacentHTML('beforeend',`<button class="icon-button mobile-only${journey?' journey-arena-options':''}" data-action="arena-menu" aria-label="${menuLabel}" title="${menuLabel}">${icon('ellipsis')}${journey?`<span class="journey-arena-progress" aria-hidden="true">${journey.step}/4</span>`:''}</button>`);
     shell.querySelectorAll('.resources [data-action]').forEach(button=>button.setAttribute('aria-label',(button.dataset.action==='reserves'?'Réserve':'Cimetière')+' du joueur '+(Number(button.dataset.side)+1)));
     console.insertAdjacentHTML('beforeend',`<div class="arena-crown" title="${esc(arena.name)}" aria-label="${esc(arena.name)}"><img src="assets/navigation/arena-v1.webp" alt="" width="128" height="128" draggable="false"></div>`);
     const score=[game.players[1].dead.length,game.players[0].dead.length];
@@ -1017,9 +1018,16 @@ function showDeck(){setView('decks');}
   function learningNavigation(){
     return navigationItem('journeys','Fragment')+navigationItem('guide','Guide')+navigationItem('library','Library · R\u00e8gles');
   }
+  function journeyArenaContext(){
+    if(!game?.journey)return null;
+    const book=KalistarJourneyDefinitions.catalogue(data).find(b=>b.id===game.journey.bookId);
+    return {title:book?.title||'Fragment',step:game.journey.stage+1,preview:game.journey.preview?' · Aper\u00e7u administrateur':'',label:game.phase==='over'?(game.winner===0?'\u00c9tape remport\u00e9e':'Retrouver le livre'):'Le parcours'};
+  }
   function showArenaMenu(){
+    const journey=journeyArenaContext();
+    const journeyLink=journey?`<button class="journey-arena-return" data-action="journey-return">${icon('book-open')}<span><strong>${esc(journey.title)}</strong><small>\u00c9tape ${journey.step}/4${journey.preview} · ${journey.label}</small></span>${icon('chevron-right')}</button>`:'';
     const items=[['duel-details','list-plus','Calculs et effets du duel'],['arena-picker','map','Choisir l’arène'],['auto-formation','shuffle','Formation automatique'],['match-stats','trophy','Bilan du match'],['journal','scroll-text','Journal du duel'],['fullscreen',document.fullscreenElement?'minimize':'maximize',document.fullscreenElement?'Quitter le plein écran':'Plein écran'],['rules','book-open','Règles'],['save-game','download','Exporter la partie'],['load-game','upload','Importer une partie'],['new-game','rotate-ccw','Nouvelle partie']].filter(([action])=>action!=='auto-formation'||!game.composition);
-    modal('mobile-dialog',head('La rencontre')+`<div class="dialog-body mobile-menu">${navigationItem('collection','Collection')}${navigationItem('decks','Mes decks')}${navigationItem('weapons','Équipements')}${navigationItem('statistics','Statistiques')}${learningNavigation()}${items.map(([action,symbol,label])=>`<button data-action="${action}" ${['arena-picker','auto-formation'].includes(action)&&game.phase!=='setup'?'disabled':''}>${icon(symbol)}${label}${icon('chevron-right')}</button>`).join('')}</div>`);
+    modal('mobile-dialog',head('La rencontre')+`<div class="dialog-body mobile-menu">${journeyLink}${navigationItem('collection','Collection')}${navigationItem('decks','Mes decks')}${navigationItem('weapons','Équipements')}${navigationItem('statistics','Statistiques')}${learningNavigation()}${items.map(([action,symbol,label])=>`<button data-action="${action}" ${['arena-picker','auto-formation'].includes(action)&&game.phase!=='setup'?'disabled':''}>${icon(symbol)}${label}${icon('chevron-right')}</button>`).join('')}</div>`);
     $('#mobile-dialog').classList.add('navigation-sheet');$('#mobile-dialog').setAttribute('aria-label','Actions de la rencontre');
     $('#mobile-dialog .mobile-menu').insertAdjacentHTML('beforeend',`<button data-action="reserves" data-side="1">${icon('layers-3')}Réserve adverse · ${game.players[1].reserve.length}${icon('chevron-right')}</button><button data-action="grave" data-side="1">${icon('skull')}Cimetière adverse · ${game.players[1].dead.length}${icon('chevron-right')}</button>`);icons();
   }

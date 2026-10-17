@@ -73,6 +73,13 @@ la revision des rencontres, les recompenses ni le schema de progression.
 - `journey-view.js/css` : rayonnage horizontal, filtres, ouverture, parcours,
   lecture et ceremonie de carte. Aucun calcul de victoire.
 
+Sur telephone (y compris paysage tactile), le contexte Fragment n'ajoute aucune
+ligne au plateau : le bouton des options du match indique l'etape `1/4` a `4/4`.
+Sa premiere action affiche le livre, l'etape et le retour au parcours. Le bandeau
+complet reste visible sur PC. Les commandes, la sauvegarde et la reprise sont
+identiques aux autres rencontres ; ne pas masquer un debordement du plateau
+avec un overflow global pour compenser un nouvel element dans son flux.
+
 Le build assemble les memes modules purs de moteur et le catalogue approuve
 dans le Worker, par une entree CommonJS standard, sans eval ni nouvelle
 dependance runtime. Son SHA-256 identifie

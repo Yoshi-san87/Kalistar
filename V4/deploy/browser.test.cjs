@@ -35,7 +35,7 @@ async function main() {
     page.on('response', r => {if(r.status() >= 400) failures.push(r.status() + ' ' + r.url());});
     await page.goto(base);
     await page.waitForFunction(() => window.KALISTAR_READY);
-assert.equal(await page.locator('.masthead .edition').innerText(), 'VERSION 4.6.83');
+assert.equal(await page.locator('.masthead .edition').innerText(), 'VERSION 4.6.84');
     const {appManifest, manifestUrl} = await page.evaluate(async () => {
       const manifestUrl = new URL('manifest.webmanifest', location.href);
       return {appManifest: await (await fetch(manifestUrl)).json(), manifestUrl: manifestUrl.href};
@@ -76,7 +76,7 @@ assert.equal(await page.locator('.masthead .edition').innerText(), 'VERSION 4.6.
     assert.equal(await page.locator('#match-arena-summary h3').innerText(),lastArenaName);
     await page.setViewportSize({width:390,height:844});
     await page.waitForTimeout(250);
-    assert.equal(await page.locator('.brand').evaluate(el => getComputedStyle(el, '::after').content), '"V4.6.83"');
+    assert.equal(await page.locator('.brand').evaluate(el => getComputedStyle(el, '::after').content), '"V4.6.84"');
     const preMatchWidth=await page.locator('#new-game-dialog .pre-match-form').evaluate(el=>({scroll:el.scrollWidth,client:el.clientWidth}));
     assert.ok(preMatchWidth.scroll<=preMatchWidth.client+1,'Pre-match lobby overflows on phone: '+JSON.stringify(preMatchWidth));
     await page.screenshot({path:path.join(output,'pre-match-phone.png')});
@@ -162,7 +162,11 @@ assert.equal(await page.locator('.masthead .edition').innerText(), 'VERSION 4.6.
     await page.screenshot({path:path.join(output,'combat-reference-weapons-phone.png')});
     await page.locator('#combat-reference-dialog [data-action=close]').click();
     await page.screenshot({path:path.join(output,'arena-phone.png')});
+    assert.equal(await page.locator('.journey-arena-progress,.journey-arena-strip').count(),0,'ordinary matches have no Fragment context');
+    const arenaOverflow=await page.locator('#app').evaluate(el=>el.scrollHeight-el.clientHeight);
+    assert.ok(arenaOverflow<=1,'ordinary Razr arena remains within its viewport');
     await page.locator('[data-action=arena-menu]').click();
+    assert.equal(await page.locator('#mobile-dialog [data-action=journey-return]').count(),0);
     await page.locator('#mobile-dialog [data-action=fullscreen]').click();
     await page.waitForFunction(() => document.fullscreenElement === document.documentElement);
     assert.equal(await page.locator('[data-action=exit-arena]').isVisible(), true);

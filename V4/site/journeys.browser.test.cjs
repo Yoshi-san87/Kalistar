@@ -72,6 +72,26 @@ async function main(){
   async function closeDialogs(p){await p.evaluate(()=>{for(const d of document.querySelectorAll('dialog[open]'))d.close();});await p.waitForFunction(()=>!history.state?.kalistarDialogBack);}
   async function view(p){await closeDialogs(p);await p.evaluate(()=>location.hash='journeys');await p.locator('.jv-view').waitFor();await p.waitForFunction(()=>KALISTAR_JOURNEYS.snapshot().status==='ready');}
   async function shot(name){await page.screenshot({path:path.join(out,name+'.png'),fullPage:true});}
+  async function arenaLayout(label,{short=false}={}){
+    await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+    const geometry=await page.evaluate(()=>{
+      const app=document.querySelector('#app'),shell=document.querySelector('.game-shell'),board=document.querySelector('.arena-layout'),nav=document.querySelector('.main-nav'),menu=document.querySelector('[data-action=arena-menu]'),strip=document.querySelector('.journey-arena-strip');
+      const box=node=>{const r=node.getBoundingClientRect();return {top:r.top,bottom:r.bottom,width:r.width,height:r.height};};
+      return {width:innerWidth,scrollWidth:document.documentElement.scrollWidth,app:box(app),shell:box(shell),board:box(board),nav:box(nav),menu:box(menu),scroll:app.scrollHeight,client:app.clientHeight,stripVisible:!!strip.getClientRects().length,menuLabel:menu.getAttribute('aria-label'),progress:menu.querySelector('.journey-arena-progress')?.textContent};
+    });
+    result.arenaLayouts??=[];result.arenaLayouts.push({label,...geometry});
+    assert.equal(geometry.stripVisible,false,label+': no extra journey row on phone');
+    assert(geometry.scrollWidth<=geometry.width+1,label+': no horizontal page overflow');
+    assert(geometry.menu.width>=44&&geometry.menu.height>=44,label+': thumb-sized options');
+    assert.match(geometry.menuLabel,/Fragment, étape 1 sur 4/);assert.equal(geometry.progress,'1/4');
+    // Short landscape boards keep the existing 640px minimum; this fix must
+    // remove the journey row there too, without changing ordinary arena sizing.
+    if(!short){
+      assert(geometry.board.bottom<=geometry.shell.bottom+1,label+': journey does not extend board past its shell');
+      assert(geometry.scroll<=geometry.client+1,label+': arena must not scroll '+JSON.stringify(geometry));
+      assert(geometry.board.bottom<=geometry.nav.top+1,label+': board stays above navigation');
+    }
+  }
   async function state(p){return p.evaluate(()=>JSON.parse(localStorage.getItem('kalistar.v4.cloud.'+KALISTAR_SYNC.snapshot().userId+'.game')||'null'));}
   function command(s,policy=0,step=0){
     if(E.equipmentChoice(s))return {method:'grantEquipment',args:[E.aiEquipmentChoice(s)]};
@@ -96,7 +116,7 @@ async function main(){
   }
   try{
     browser=await chromium.launch({channel:'chrome',headless:true});
-    stage='desktop-library';page=await device({width:1440,height:1000},'user-tokyo');
+    stage='desktop-library';page=await device({width:1440,height:1000,mobile:true},'user-tokyo');
     await page.locator('.jv-cover').first().waitFor();assert.equal(await page.locator('.jv-cover').count(),3);await shot('desktop-library');
     assert.equal(await page.evaluate(()=>KALISTAR_JOURNEYS.snapshot().isAdmin),false);
     await page.locator('[data-jv-filter=character]').selectOption('momo');assert.equal(await page.locator('.jv-cover').count(),1);
@@ -116,7 +136,13 @@ async function main(){
     await page.waitForFunction(()=>!!document.querySelector('.li-skip')||!!document.querySelector('[data-action=skip-lineup]'),null,{timeout:30000});
     if(await page.locator('.li-skip').count())await page.locator('.li-skip').click();else await page.locator('[data-action=skip-lineup]').click();
     await page.waitForFunction(()=>JSON.parse(localStorage.getItem('kalistar.v4.cloud.'+KALISTAR_SYNC.snapshot().userId+'.game'))?.phase!=='initiative');
-    await shot('razr-real-arena');
+    stage='phone-arena-layout';
+    await arenaLayout('razr');await shot('razr-real-arena');
+    await page.emulateMedia({reducedMotion:'no-preference'});
+    for(const [width,height] of [[360,800],[320,740],[1007,412],[412,1007]]){
+      await page.setViewportSize({width,height});await arenaLayout(width+'x'+height,{short:height<640});
+    }
+    await page.emulateMedia({reducedMotion:'reduce'});
     stage='human-ui-signed-command';let clicked=false;
     for(let action=0;action<12&&!clicked;action++){
       await page.waitForFunction(()=>{const g=JSON.parse(localStorage.getItem('kalistar.v4.cloud.'+KALISTAR_SYNC.snapshot().userId+'.game'));return g&&(g.phase==='choose'&&g.turn===0||g.phase==='result'||g.phase==='replace'&&g.replacing===0||g.phase==='defense'&&g.turn===1&&!g.duel.autoDefense);},null,{timeout:40000});
@@ -135,12 +161,19 @@ async function main(){
     }
     assert(clicked,'A real player must be able to engage and roll through the normal arena controls');
     await page.waitForFunction(()=>document.querySelector('[data-action=journey-return]')&&!document.querySelector('#app.rolling'));
+    await arenaLayout('razr-duel');
     // Navigation is deliberately attempted through the real control, so the
     // app cannot leave a network command or combat animation half committed.
-    await page.locator('[data-action=journey-return]').click();await page.locator('.jv-view').waitFor({timeout:30000});
+    await page.locator('[data-action=arena-menu]').click();
+    const returnLink=page.locator('#mobile-dialog [data-action=journey-return]');
+    await returnLink.waitFor();assert.match(await returnLink.innerText(),/Étape 1\/4/);await shot('razr-fragment-menu');
+    await returnLink.click();await page.locator('.jv-view').waitFor({timeout:30000});
     stage='canonical-resume';const before=await state(page);await page.reload();await ready(page);await closeDialogs(page);const after=await state(page);
     assert.equal(after.matchId,before.matchId);assert(after.journey.sequence>=before.journey.sequence);
     await view(page);await page.locator('[data-jv-book=momo-petits-bonheurs]').click();await page.locator('[data-jv-action=resume]').waitFor();await shot('razr-resume');
+    await page.locator('[data-jv-action=resume]').click();await page.locator('.game-shell').waitFor();
+    await arenaLayout('razr-resumed');
+    await page.locator('[data-action=arena-menu]').click();await page.locator('#mobile-dialog [data-action=journey-return]').click();await page.locator('.jv-view').waitFor();
     // Keep the arena unmounted while making legal commands rapidly. UI/AI timers
     // cannot race this full end-to-end Worker/PostgreSQL transcript.
     const book='momo-petits-bonheurs';let totalMoves=0,attempts=0,losses=0;
@@ -166,8 +199,12 @@ async function main(){
     stage='admin';page=await device({width:1440,height:1000},'user-paris');assert.equal(await page.evaluate(()=>KALISTAR_JOURNEYS.snapshot().isAdmin),true);
     await page.locator('[data-jv-book=balmhyr-retour]').click();await page.locator('[data-jv-stage="3"]').click();await page.locator('[data-jv-action=preview]').waitFor();await shot('desktop-admin-fourth-stage');
     await page.locator('[data-jv-action=preview]').click();await page.locator('.journey-arena-strip').waitFor();assert.match(await page.locator('.journey-arena-strip').innerText(),/Aperçu/);
+    await page.locator('.li-skip').waitFor();await page.locator('.li-skip').click();
+    await page.waitForFunction(()=>!document.querySelector('.lineup-intro'));
+    await page.waitForFunction(()=>[...document.querySelectorAll('.slot-card img')].every(img=>img.complete&&img.naturalWidth));
+    await shot('desktop-fragment-arena');assert.equal(await page.locator('.journey-arena-strip [data-action=journey-return]').isVisible(),true);
     assert.equal(await state(page),null,'An admin preview must not become a persisted or reward-bearing game');
-    await view(page);assert((await page.evaluate(()=>Object.values(KALISTAR_JOURNEYS.snapshot().progress))).every(p=>p.cleared===0&&!p.claimed));
+    await page.locator('.journey-arena-strip [data-action=journey-return]').click();await page.locator('.jv-view').waitFor();assert((await page.evaluate(()=>Object.values(KALISTAR_JOURNEYS.snapshot().progress))).every(p=>p.cleared===0&&!p.claimed));
     result.profiles.push({name:'Paris',admin:true,previewWithoutProgress:true});assert.deepEqual(errors,[]);assert.deepEqual(missing,[]);result.passed=true;
     console.log('PASS journeys browser: four complete signed command transcripts, Tokyo reward/reload, Paris preview, PC/Razr.');
   }catch(error){result.failure={stage,message:error.message};if(page&&!page.isClosed()){await shot('failure-'+stage).catch(()=>{});result.failure.ui=await page.locator('body').innerText().catch(()=>null);}throw error;}
