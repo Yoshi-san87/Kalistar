@@ -19,13 +19,13 @@
       return [...counts].filter(([cardId,n])=>owned(id,cardId).filter(c=>!pending.has(c.id)).length<n).map(()=> 'Tu ne possedes pas tous les exemplaires disponibles de ce deck.');
     };
     const released=matchId=>getCache().registryMeta.some(m=>m.id==='lease-'+matchId);
-    function validateGame(game,id,{historical=false}={}){
+    function validateGame(game,id,{historical=false,registryMeta=getCache().registryMeta}={}){
       known(id);const b=game.collection;
       if(!b||b.schema!==1||b.userId!==id||b.opponent!=='virtual'||!b.bindings||typeof b.bindings!=='object')fail('Partie liee a une autre collection.');
       const own=units(game),values=Object.values(b.bindings);
       if(values.length!==own.length||new Set(values).size!==own.length||values.some(v=>!publicId.test(v))||own.some(u=>!Object.hasOwn(b.bindings,u.instanceId)))fail('Exemplaires de partie invalides.');
       if(!historical){
-        if(released(game.matchId))fail('Cette partie a ete abandonnee.');
+        if(registryMeta.some(m=>m.id==='lease-'+game.matchId))fail('Cette partie a ete abandonnee.');
         for(const u of own){const c=cards.find(c=>c.id===b.bindings[u.instanceId]);if(!c||c.cardId!==u.cardId||pending.has(c.id))fail('Un exemplaire de cette partie n est plus disponible.');}
       }
       return true;
@@ -47,9 +47,9 @@
         game.collection={schema:1,userId:id,bindings,opponent:'virtual'};return game;
       },
       validateGame:(game,id)=>validateGame(game,id,{historical:game.phase==='over'}),
-      validateSave(game,old,{restoring=false}={}){
+      validateSave(game,old,{restoring=false,registryMeta}={}){
         if(old&&stable(old.state.collection)!==stable(game.collection))fail('La liaison des exemplaires est immuable.');
-        validateGame(game,userId,{historical:restoring||game.phase==='over'});
+        validateGame(game,userId,{historical:restoring||game.phase==='over',registryMeta});
       },
       releaseGame:(id,matchId)=>{known(id);return enqueue(()=>transaction((s,write)=>{const row={id:'lease-'+matchId,matchId,userId:id,releasedAt:new Date().toISOString()};write('registryMeta',row);return row;}));},
       refresh:()=>enqueue(refresh),

@@ -16,6 +16,7 @@ test('Cloudflare plan includes the standard bundler entry and both server module
     for(const name of ['_worker.js','journey-worker.mjs','journey-runtime.cjs','jeu/journey-combat.js','jeu/engine.js','jeu/team-composition.js'])assert(plan.files.some(f=>f.target===name),name);
     const builder=fs.readFileSync(path.join(__dirname,'build.cjs'),'utf8');
     assert(builder.includes("Combat:require('./jeu/journey-combat.js')"));
-    assert(builder.includes("hash.update(JSON.stringify(catalogue))"));
+    assert(builder.includes("require('./journey-hash.cjs').hash(ROOT)"));
+    assert(!builder.includes('hash.update(JSON.stringify(catalogue))'));
   }finally{if(previous===undefined)delete process.env.CF_PAGES;else process.env.CF_PAGES=previous;}
 });

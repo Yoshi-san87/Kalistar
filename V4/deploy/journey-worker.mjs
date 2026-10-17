@@ -2,7 +2,7 @@ import Runtime from './journey-runtime.cjs';
 const PROJECT='https://fkskjhlaaagqlfcsojjp.supabase.co',PUBLISHABLE='sb_publishable_TwMp0VMZvhlJ0-ojTtaIcw_eU4AQpE4';
 const encoder=new TextEncoder(),uuid=/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/;
 const json=(body,status=200)=>new Response(JSON.stringify(body),{status,headers:{'Content-Type':'application/json','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
-let cachedRuntime=null,cachedData=null;
+const catalogues=new WeakMap();
 async function body(request){
   if(!request.headers.get('Content-Type')?.startsWith('application/json'))throw Error('Requete invalide.');
   const reader=request.body?.getReader();if(!reader)throw Error('Requete vide.');let count=0,text='';const decoder=new TextDecoder();
@@ -42,27 +42,36 @@ export async function journeyRequest(request,env,fetcher=fetch,source=Runtime){
     if(action==='claim'||action==='ack')return json(await rpc(action,{p_book_id:input.bookId}));
     if(!uuid.test(input.deviceId||''))return json({error:'Appareil invalide.'},400);
     if(action==='abandon')return json(await rpc('abandon',{p_attempt_id:input.attemptId,p_device_id:input.deviceId}));
-    const runtimeHash=source.hash;
+    let runtimeHash=source.hash;
     if(!source.Combat||!runtimeHash||!env.KALISTAR_JOURNEY_KEY)return json({error:'Parcours temporairement indisponibles.'},503);
-    // Cache only the immutable public catalogue. Identity, attempt and state never enter this cache.
-    if(!cachedData){const response=await env.ASSETS.fetch(new Request(new URL('/jeu/catalogue.json',url)));if(!response.ok)throw Error('Catalogue indisponible.');cachedData=await response.json();}
-    if(!cachedRuntime)cachedRuntime=source.Combat.create(cachedData);
+    // Scope immutable catalogue caches to their asset binding, never to an attempt.
+    const data=async()=>{
+      if(!catalogues.has(env.ASSETS)){const response=await env.ASSETS.fetch(new Request(new URL('/jeu/catalogue.json',url)));if(!response.ok)throw Error('Catalogue indisponible.');catalogues.set(env.ASSETS,await response.json());}
+      return catalogues.get(env.ASSETS);
+    };
+    let runtime;
     let attempt;
     if(action==='start'){
-      const team=source.Composition.create(cachedRuntime.engine).normalize(input.deck);
-      if(cachedRuntime.engine.validateComposition(team).length)throw Error('Composition de parcours invalide.');
+      runtime=source.Combat.create(await data());
+      const team=source.Composition.create(runtime.engine).normalize(input.deck);
+      if(runtime.engine.validateComposition(team).length)throw Error('Composition de parcours invalide.');
       attempt=await rpc('start',{p_book_id:input.bookId,p_deck:team,p_device_id:input.deviceId,p_runtime_hash:runtimeHash});
     }else attempt=await rpc('context',{p_attempt_id:input.attemptId,p_device_id:input.deviceId});
-    if(attempt.runtimeHash!==runtimeHash)return json({error:'Les regles de ce combat ont ete actualisees. Abandonne cette etape puis relance-la ; tes victoires restent conservees.',code:'runtime_changed',attempt},409);
+    if(attempt.runtimeHash!==runtimeHash){
+      if(attempt.runtimeHash!==source.legacy?.hash)return json({error:'Les regles de ce combat ont ete actualisees. Abandonne cette etape puis relance-la ; tes victoires restent conservees.',code:'runtime_changed',attempt},409);
+      runtimeHash=attempt.runtimeHash;
+      if(attempt.state&&!attempt.state.journey?.snapshot)attempt.state.journey.snapshot=source.Combat.freeze(source.legacy.data,attempt.state);
+    }
     if(attempt.state&&action!=='move')return json({attempt});
     if(attempt.status!=='active')return json({error:'Ce combat est deja termine.',attempt},409);
     let state;
     if(attempt.state){
       if(input.sequence!==attempt.sequence)return json({error:'Le combat a avance sur un autre ecran. Reprends sa sauvegarde.',attempt,code:'conflict'},409);
-      state=cachedRuntime.apply(entropyState(attempt.state),input.commands);
+      // Existing fights do not depend on validation of newly published books.
+      state=source.Combat.create(await data(),{resume:true}).apply(entropyState(attempt.state),input.commands);
     }else{
       if(action==='move')return json({error:'Le combat doit d abord etre initialise.'},409);
-      state=cachedRuntime.initial(attempt);
+      state=(runtimeHash===source.legacy?.hash?source.Combat.create(source.legacy.data):runtime||source.Combat.create(await data())).initial(attempt);
     }
     const frame=JSON.stringify({attemptId:attempt.id,actorId:attempt.actorId,runtimeHash,sequence:state.journey.sequence,state});
     const signature=await signFrame(frame,env.KALISTAR_JOURNEY_KEY);

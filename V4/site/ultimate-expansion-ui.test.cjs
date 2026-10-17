@@ -78,7 +78,9 @@ test('choices replace the normal action in attack, choose, replace and result wi
     const s={phase,mode:'local',turn:1,replacing:0,players:[{board:[],reserve:[],dead:[]},{board:[],reserve:[],dead:[]}],duel:{side:1,attackRolls:[],defenseRolls:[],outcome:'Block'}};
     const context={game:s,ui:{attacker:null,target:null},rolling:false,E:{equipmentChoice:()=>choice('parity')},KalistarUltimateUI:UI,KalistarEquipmentFX:{art:()=>''},KalistarFinale:{endsAfterResult:()=>false},
       consoleParticipants:()=>({a:null}),duelRecap:()=>'',hasCrystal:()=>false,asset:()=>'',icon:()=>'',esc:s=>String(s),duelAction:(action)=>`<button data-action="${action}"></button>`};
-    const html=vm.runInNewContext(fn('consoleBody','reserveZone')+'\nconsoleBody(game);',context);
+    context.data={elements:{}};context.baseEngine={...context.E,data:context.data};
+    context.KalistarJourneyCombat={engineFor:(data,state)=>{assert.equal(data,context.data);assert.equal(state,s);return null;}};
+    const html=vm.runInNewContext(fn('matchEngine','matchArena')+fn('consoleBody','reserveZone')+'\nconsoleBody(game);',context);
     assert(html.includes('data-mode="parity"'),phase);assert(!/data-action="(?:roll|next|lock|auto-replace)"/.test(html),phase);assert.equal(s.phase,phase);
   }
 });

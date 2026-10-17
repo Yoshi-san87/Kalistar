@@ -120,7 +120,7 @@ test('pure JourneyCombat: legal commands, protected AI and twelve complete runti
     assert.equal(state.matchId, 'match-' + fixture.id);
     assert.deepEqual(state.collection.bindings, bindings);
     assert.deepEqual(state.journey, {version: 1, attemptId: fixture.id, bookId: fixture.bookId,
-      stage: fixture.stage, revision: fixture.revision, sequence: actions + 1});
+      stage: fixture.stage, revision: fixture.revision, sequence: actions + 1,snapshot:initial.journey.snapshot});
     assert.deepEqual(copy(E.restoreGame(copy(state))), state);
     assert.equal(JSON.stringify(fixture), fixtureBefore);
     remember(state);
@@ -330,5 +330,83 @@ test('pure JourneyCombat: legal commands, protected AI and twelve complete runti
     const terminal = sample('over', false);
     for (const method of expectedMethods) refuses(terminal, [{method}], /Commande de parcours refusee/);
     assert.equal(JSON.stringify(data), catalogueBefore);
+  });
+
+  await t.test('snapshots contain only participants and their arena, detached from later catalogue edits', () => {
+    const state = copy(firstInitial), snapshot = state.journey.snapshot;
+    const ids = new Set(state.players.flatMap(p => [...p.board.filter(Boolean), ...p.reserve, ...p.dead].map(u => u.cardId)));
+    assert.deepEqual(snapshot.cards.map(c => c.id).sort(), [...ids].sort());
+    assert.deepEqual(snapshot.arenas.map(a => a.id), [state.arenaId]);
+    const published = copy(data), frozen = Combat.freeze(published, state);
+    published.cards[0].name = 'Changed after freezing';
+    published.elements.ELECTRO.strong_against = 'ELECTRO';
+    published.demo.barrier = 0;
+    assert.deepEqual(frozen, snapshot);
+    const E = Combat.engineFor(data, state);
+    assert.equal(E, Combat.engineFor(data, state), 'Reuse the engine for this snapshot and catalogue');
+    E.byId[snapshot.cards[0].id].name = 'Only the cached engine copy';
+    assert.deepEqual(state.journey.snapshot, snapshot);
+    assert.notEqual(snapshot.cards[0].name, E.byId[snapshot.cards[0].id].name);
+  });
+
+  await t.test('cosmetic titles and unrelated cards or arenas do not change a running fight', () => {
+    const published = copy(data);
+    for (const c of published.cards) { c.title = 'New printed title'; c.name = 'Updated name'; }
+    published.cards.push({...copy(published.cards[0]), id: '49999998', characterId: 'unrelated-fixture'});
+    published.arenas.push({...copy(published.arenas[0]), id: 'unrelated-fixture'});
+    const updated = Combat.create(published);
+    assert.deepEqual(updated.apply(copy(firstInitial), firstCommands), runtime.apply(copy(firstInitial), firstCommands));
+  });
+
+  await t.test('all saved phases keep stats, matrices, rules, AI and summaries after a publication', () => {
+    const published = copy(data);
+    for (const c of published.cards) {
+      c.atk = c.atk.map(v => typeof v === 'number' ? v + 17 : v);
+      c.defense = c.defense.map(v => typeof v === 'number' ? v + 11 : v);
+    }
+    for (const row of Object.values(published.weapons)) for (const key of Object.keys(row)) row[key] += 13;
+    for (const e of Object.values(published.elements)) [e.strong_against, e.weak_against] = [e.weak_against, e.strong_against];
+    for (const arena of published.arenas) { arena.elementBonus = 0; arena.homeAttack = 0; arena.homeDefense = 0; }
+    published.rules = {...published.rules, barrier: 0};
+    published.demo = {...published.demo, barrier: 0, synergy: [0, 0, 0, 0, 0, 0], max_turns: 1};
+    // Resume mode must still honor each state's snapshot, not the constructor's data.
+    const updated = Combat.create(published, {resume: true});
+    for (const saved of samples.values()) {
+      const state = copy(saved), before = JSON.stringify(state);
+      const frozen = Combat.engineFor(published, state), old = Combat.engineFor(data, state);
+      assert.deepEqual(frozen.matchStats(state), old.matchStats(state));
+      assert.deepEqual(frozen.restoreGame(copy(state)), state);
+      assert.equal(updated.automatic(state), runtime.automatic(state));
+      if (state.phase !== 'over') {
+        const command = commandFor({engine: old}, state);
+        assert.deepEqual(updated.apply(state, [command]), runtime.apply(state, [command]), state.phase);
+      }
+      assert.equal(JSON.stringify(state), before);
+    }
+    const state = copy(firstInitial), element = state.journey.snapshot.cards.find(c => c.element !== 'NONE').element;
+    delete published.elements[element];
+    assert.doesNotThrow(() => Combat.engineFor(published, state).assertState(state), 'Historical matrices validate historical cards');
+  });
+
+  await t.test('snapshot caching never bypasses catalogue identity checks or accepts invalid profiles', () => {
+    const state = copy(firstInitial);
+    Combat.engineFor(data, state);
+    const changed = copy(data);
+    changed.cards.find(c => c.id === state.journey.snapshot.cards[0].id).characterId = 'different-character';
+    assert.throws(() => Combat.engineFor(changed, state), /Profils historiques/);
+    const malformed = copy(state);
+    malformed.journey.snapshot.cards[0].atk = [99999];
+    assert.throws(() => Combat.engineFor(data, malformed));
+  });
+
+  await t.test('adding the migration snapshot preserves every naturally reached legacy phase', () => {
+    const withoutSnapshot = value => { const next = copy(value); delete next.journey.snapshot; return next; };
+    for (const state of samples.values()) {
+      const legacy = withoutSnapshot(state);
+      assert.deepEqual(E.matchStats(legacy), Combat.engineFor(data, state).matchStats(state));
+      if (state.phase === 'over') continue;
+      const command = commandFor(runtime, legacy);
+      assert.deepEqual(withoutSnapshot(runtime.apply(state, [command])), runtime.apply(legacy, [command]), state.phase);
+    }
   });
 });

@@ -59,6 +59,64 @@ La distribution des lots, demandee par l'auteur, est une operation de production
 distincte des tests. `browser-fixture.cjs` utilise le vrai schema PostgreSQL et
 des comptes fictifs pour les tests multi-appareils, jamais le service reel.
 
+## Sauvegarde du registre
+
+Avant toute migration de production, exporter puis verifier une sauvegarde
+logique privee. `backup.cjs query` produit un SELECT unique : toutes les tables
+Kalistar, Auth users/identities, colonnes, dependances et sequences sont lues
+dans une photographie PostgreSQL coherente. Aucun droit ou donnee n'est modifie.
+Executer ce SELECT dans le projet personnel puis Export > Download CSV. Les
+morceaux numerotes et SHA-256 permettent de refuser un export tronque.
+
+```sh
+node V4/deploy/supabase/backup.cjs query
+node V4/deploy/supabase/backup-local.cjs seal <export.csv> <hors-checkout/registre-date.dpapi>
+node V4/deploy/supabase/backup-local.cjs verify <hors-checkout/registre-date.dpapi>
+```
+
+`seal` joint les migrations correspondant au schema exporte, restaure les
+donnees dans un PostgreSQL PGlite neuf, compare chaque ligne typee et controle
+RLS. Il compresse puis chiffre avec Windows DPAPI CurrentUser, rouvre le fichier
+pour verifier son integrite et produit un manifeste sans donnees personnelles.
+`verify` refait la restauration depuis le fichier chiffre. Aucun outil de cette
+procedure n'accepte une adresse de restauration : les essais sont uniquement
+locaux, en memoire, sans pouvoir remplacer une base distante.
+
+L'export CSV transitoire contient des donnees sensibles, dont des empreintes
+d'authentification et la cle Fragment. Ne pas l'afficher, le publier, le mettre
+dans Git ou le conserver en clair apres verification du fichier chiffre.
+Le programme refuse de creer la sauvegarde dans le checkout. Le manifeste
+seul peut servir de preuve ; les fichiers prives restent hors des rapports Git.
+
+Limites explicites : ce n'est pas un dump complet des services Supabase. Les
+sessions Auth, les parametres SMTP/OAuth, les medias et la configuration
+Cloudflare restent distincts. L'essai prouve la restauration des lignes et
+du schema applicatif, pas le redemarrage d'un serveur Auth complet. Un retour
+en production demande un projet de restauration separe et la procedure
+officielle Supabase/pg_dump, jamais une suppression de la base courante.
+
+DPAPI depend de ce compte Windows et de ses cles : copier seulement le fichier
+chiffre ne constitue pas une sauvegarde portable. Avant ouverture publique,
+prevoir un export chiffre portable avec cle de recuperation separee et un
+support independant. Aucun disque/cloud supplementaire ni tache planifiee
+n'est configure automatiquement. Le rythme recommande est hebdomadaire et
+avant migration, avec sept copies recentes, quatre hebdomadaires et six
+mensuelles. La rotation est manuelle : aucun fichier prive n'est efface par
+les scripts. Le forfait gratuit n'est pas change.
+
+## Archives de progression
+
+La migration 010 separe les snapshots historiques du document courant, sans
+effacer ni convertir automatiquement les lignes existantes. Le client utilise
+le protocole v2 apres son installation. Appliquer la migration avant le nouveau
+site. Un rollback vers un client schema 1 ne peut pas ecrire un payload deja
+migre ; conserver le client v2 ou publier un correctif en avant.
+
+Tests supplementaires : `progress-archives.test.cjs`, `backup.test.cjs`,
+`V4/site/cloud-archives.test.cjs` et `local-db-performance.browser.test.cjs`.
+Le parcours multi-appareils comprend 120 archives derivees de cinq combats
+reels simules ; ce test de volume n'est pas une preuve d'equilibrage.
+
 ## Client officiel
 
 `@supabase/supabase-js` 2.118.0, distribution npm officielle, licence MIT.

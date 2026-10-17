@@ -5,7 +5,7 @@ const modules=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFI
 const runtime=createRequire(path.join(modules,'__equipment_slots_qa__.cjs'));
 const ROOT=path.resolve(__dirname,'../..'),origin='https://equipment-460.invalid';
 const output=process.env.KALISTAR_VERIFICATION_DIR||path.join(__dirname,'verification/equipment-slots-460');
-const scripts=['assets/lucide.min.js','ui-system.js','factions.js','ultimate-definitions.js','weapons.js','weapon-art.js','defensive-equipment.js','relic-ultimates.js','ultimate-runtime.js','equipment.js','turn-order.js','performance-index.js','engine.js','base-weapons.js','positions.js','collaborations.js','card-media.js','equipment-presentation.js','local-db.js','weapon-cards.js','weapons-ui.js','deck-library.js','team-composition.js','deck-builder.js'];
+const scripts=['assets/lucide.min.js','ui-system.js','factions.js','ultimate-definitions.js','weapons.js','weapon-art.js','defensive-equipment.js','relic-ultimates.js','ultimate-runtime.js','equipment.js','turn-order.js','performance-index.js','engine.js','base-weapons.js','positions.js','collaborations.js','card-media.js','ultimate-ui.js','equipment-presentation.js','local-db.js','weapon-cards.js','weapons-ui.js','deck-library.js','team-composition.js','deck-builder.js'];
 const types={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.webp':'image/webp','.svg':'image/svg+xml','.woff2':'font/woff2'};
 async function main(){
   const data=await buildCatalog(),references=require('../atelier/data/references.json'),checks=[],errors=[];
@@ -52,6 +52,7 @@ async function main(){
     for(const check of checks)console.log('PASS '+check);
     await context.close();
   }catch(error){
+    console.error('UI diagnostics',JSON.stringify({errors,toasts:await page?.evaluate(()=>window.QA?.toasts).catch(()=>[])}));
     if(page&&!page.isClosed()){fs.mkdirSync(output,{recursive:true});await page.screenshot({path:path.join(output,'failure.png')}).catch(()=>{});}
     throw error;
   }finally{await browser.close();}
@@ -153,9 +154,11 @@ async function compositionScenarios(page,checks,data){
   const draft=()=>page.evaluate(()=>structuredClone(QA.draft));
   await page.locator('[data-deck-action=slot][data-slot="0"]').click();
   await page.locator('[data-deck-action=recruit-mode][data-id=weapons]').click();
+  await page.locator('.team-equipment-group').first().waitFor({state:'visible'});
   assert.equal(await page.locator('.team-equipment-group').count(),3);
   for(const id of ['fallen-king-axe','durane-rampart','exiled-king-seal'])await page.locator('[data-deck-action=equip][data-id="'+id+'"]').click();
   let value=await draft();assert.equal(value.equipment.weapon.balmhyr,'fallen-king-axe');assert.equal(value.equipment.shield.balmhyr,'durane-rampart');assert.equal(value.equipment.relic.balmhyr,'exiled-king-seal');
+  await page.waitForFunction(()=>document.querySelectorAll('[data-deck-slot="0"] .team-equipped').length===3);
   assert.equal(await page.locator('[data-deck-slot="0"] .team-equipped').count(),3);
   await page.locator('[data-deck-action=unequip][data-id=durane-rampart]').click();
   value=await draft();assert.deepEqual(value.equipment.shield,{});assert.equal(value.equipment.weapon.balmhyr,'fallen-king-axe');

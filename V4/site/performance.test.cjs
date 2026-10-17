@@ -15,7 +15,7 @@ async function boot({invalid=false,missing='',preview=false}={}){
   return {preload,styles,executed,errors,nodes,window};
 }
 test('boot downloads concurrently but executes validated dependencies in order',async()=>{
-  const result=await boot();assert.equal(result.preload.length,69);assert.deepEqual(result.executed,result.preload);
+  const result=await boot();assert.equal(result.preload.length,70);assert.deepEqual(result.executed,result.preload);
   assert.deepEqual(result.styles,['ultimate-ui.css?v=audit']);
   const names=result.executed.map(src=>src.split('?')[0]);assert.equal(new Set(names).size,names.length);
   for(const name of ['team-composition.js','matchmaking.js','pre-match.js','positions.js','home-screen.js','page-transitions.js','map-view.js','guide-scenario.js','guide-view.js','rules-documents.js','library-view.js']){assert.ok(names.includes(name));assert.ok(names.indexOf(name)<names.indexOf('app.js'));}
@@ -25,6 +25,7 @@ test('boot downloads concurrently but executes validated dependencies in order',
   assert.ok(names.indexOf('journey-definitions.js')<names.indexOf('journey-combat.js'));
   for(const name of ['cloud-config.js','cloud-session.js','cloud-registry.js','cloud-registry-ui.js'])assert.ok(names.indexOf(name)>=0&&names.indexOf(name)<names.indexOf('app.js'));
   assert.ok(names.indexOf('cloud-config.js')<names.indexOf('cloud-registry-ui.js'));
+  assert.ok(names.indexOf('cloud-archives.js')>=0&&names.indexOf('cloud-archives.js')<names.indexOf('cloud-player.js'));
   assert(!names.some(name=>name.startsWith('assets/supabase/')),'the official Auth SDK is loaded by the session controller, never as a game dependency');
   assert.ok(names.indexOf('engine.js')<names.indexOf('matchmaking.js'));
   assert.ok(names.includes('ai-strategies.js'));assert.ok(names.indexOf('ai-strategies.js')<names.indexOf('engine.js'));
@@ -37,6 +38,7 @@ test('invalid catalogue and missing modules fail closed; preview hosts stay ligh
   const missing=await boot({missing:'engine.js'});assert(missing.executed.at(-1).startsWith('engine.js'));assert(!missing.executed.some(src=>src.startsWith('app.js')));assert.equal(missing.errors.length,1);assert(missing.nodes.filter(n=>n.rel==='preload').every(n=>n.removed));
   const missingAI=await boot({missing:'ai-strategies.js'});assert(missingAI.executed.at(-1).startsWith('ai-strategies.js'));assert(!missingAI.executed.some(src=>src.startsWith('engine.js')));assert.equal(missingAI.errors.length,1);assert(missingAI.nodes.filter(n=>n.rel==='preload').every(n=>n.removed));
   const preview=await boot({preview:true});assert.deepEqual(preview.preload,[]);assert.deepEqual(preview.styles,[]);assert.deepEqual(preview.executed,['assets/lucide.min.js']);assert(preview.window.KALISTAR_PREVIEW_READY);
+  const missingArchives=await boot({missing:'cloud-archives.js'});assert.equal(missingArchives.errors.length,1);assert(!missingArchives.executed.some(src=>src.startsWith('cloud-player.js')));
 });
 test('lossless grimoire derivatives are reproducible and preserve the source hashes',()=>{
   const manifest=JSON.parse(read('../deploy/lossless-grimoire.json')).assets;

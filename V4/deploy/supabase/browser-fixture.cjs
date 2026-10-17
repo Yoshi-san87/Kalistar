@@ -5,6 +5,8 @@ const runtime=createRequire(path.join(process.env.KALISTAR_CLOUD_MODULES||path.r
 const {PGlite}=runtime('@electric-sql/pglite'),{pgcrypto}=runtime('@electric-sql/pglite/contrib/pgcrypto');
 const ids=['11111111-1111-4111-8111-111111111111','22222222-2222-4222-8222-222222222222'];
 const calls={kalistar_access:[],kalistar_player:[],kalistar_sync_read:['p_known_revision'],kalistar_sync_claim:['p_device_id','p_expected_revision','p_takeover'],kalistar_sync_write:['p_device_id','p_expected_revision','p_payload'],kalistar_sync_release:['p_device_id'],kalistar_validate_deck:['p_cards'],kalistar_me:[],kalistar_my_cards:[],kalistar_my_transfers:[],kalistar_certificate:['p_id'],kalistar_set_profile:['p_handle','p_display_name','p_publish_owner'],kalistar_offer:['p_id','p_recipient'],kalistar_settle:['p_transfer','p_action']};
+for(const verb of ['read','claim','write','release'])calls['kalistar_sync_v2_'+verb]=calls['kalistar_sync_'+verb];
+calls.kalistar_archive_put=['p_device_id','p_expected_revision','p_archives'];calls.kalistar_archive_read=['p_refs'];
 Object.assign(calls,{kalistar_journey_library:[],kalistar_journey_start:['p_book_id','p_deck','p_device_id','p_runtime_hash'],kalistar_journey_context:['p_attempt_id','p_device_id'],kalistar_journey_commit:['p_frame','p_signature','p_device_id'],kalistar_journey_abandon:['p_attempt_id','p_device_id'],kalistar_journey_claim:['p_book_id'],kalistar_journey_ack:['p_book_id']});
 async function create(data,{journeyKey=null}={}){
   const db=new PGlite({extensions:{pgcrypto}});let queue=Promise.resolve();
@@ -24,13 +26,15 @@ async function create(data,{journeyKey=null}={}){
   async function call(name,args={},profile='user-paris'){
     return serialized(async()=>{
       if(!Object.hasOwn(calls,name))throw Error('Unexpected fixture RPC '+name);
-      await db.exec('reset role');await db.query("select set_config('request.jwt.claim.sub',$1,false)",[profile==='user-paris'?ids[0]:ids[1]]);await db.exec('set role authenticated');
+      if(!['user-paris','user-tokyo','anon'].includes(profile))throw Error('Unexpected fixture identity');
+      await db.exec('reset role');await db.query("select set_config('request.jwt.claim.sub',$1,false)",[profile==='anon'?'':profile==='user-paris'?ids[0]:ids[1]]);await db.exec('set role '+(profile==='anon'?'anon':'authenticated'));
       try{const params=calls[name],values=params.map(k=>{const v=args[k]??null;return v&&typeof v==='object'?JSON.stringify(v):v;});
         const result=await db.query('select public.'+name+'('+params.map((_,i)=>'$'+(i+1)).join(',')+')',values);return Object.values(result.rows[0])[0];
       }finally{await db.exec('reset role');}
     });
   }
   return {call,
+    backup:()=>serialized(async()=>(await db.query(require('./backup.cjs').query())).rows),
     models:()=>serialized(async()=>(await db.query('select id,name,title from public.kalistar_models order by name')).rows),
     resetProgress:()=>serialized(()=>db.exec('delete from kalistar_private.player_saves')),
     read:profile=>call('kalistar_sync_read',{},profile),close:()=>queue.then(()=>db.close())};

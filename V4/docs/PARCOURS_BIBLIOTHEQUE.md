@@ -80,10 +80,22 @@ complet reste visible sur PC. Les commandes, la sauvegarde et la reprise sont
 identiques aux autres rencontres ; ne pas masquer un debordement du plateau
 avec un overflow global pour compenser un nouvel element dans son flux.
 
-Le build assemble les memes modules purs de moteur et le catalogue approuve
-dans le Worker, par une entree CommonJS standard, sans eval ni nouvelle
-dependance runtime. Son SHA-256 identifie
-les regles exactes de chaque tentative. Une mise a jour incompatible demande de
+Le build assemble les memes modules purs de moteur dans le Worker, par une
+entree CommonJS standard, sans eval ni nouvelle dependance runtime. Son SHA-256
+porte sur les modules executables enumeres dans `journey-hash.cjs`, pas sur
+tout le catalogue public. Chaque tentative fige ses participants, son arene,
+ses matrices et ses regles dans `journey.snapshot`. Serveur, reprise, calculs
+et rapports utilisent ces donnees. Une nouvelle carte ou une modification
+descriptive du catalogue ne change donc pas un combat en cours.
+
+La reprise des tentatives 4.6.85 sans snapshot est explicitement autorisee par
+`journey-compatibility.json` et le catalogue historique verifie par SHA-256,
+`journey-legacy-4.6.85.json`. Le serveur conserve leur ancienne signature et
+sequence. Cette exception ne fonctionne que pour la paire exacte d'empreintes
+relue et testee ; modifier le moteur la desactive automatiquement. Ne jamais
+actualiser cette correspondance pour contourner une incompatibilite reelle.
+Les modules executables `weapons.js` et `factions.js` restent hashes car ils
+contiennent aussi des helpers. Une mise a jour incompatible demande encore de
 recommencer le combat courant ; les etapes gagnees restent conservees.
 
 ## Donnees Serveur

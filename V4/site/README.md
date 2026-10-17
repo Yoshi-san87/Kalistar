@@ -65,11 +65,24 @@ Ne pas tester sur les possessions ou parties reelles.
 registre distant independant. Le SDK officiel partage la session de connexion.
 Sur le site heberge, seule l'identite autorisee par le serveur choisit le profil
 local Paris/Tokyo ; le selecteur de profils reste reserve au developpement local.
-`cloud-player.js`, `cloud-ownership.js` et `cloud-sync.js/css` ajoutent collections
+`cloud-player.js`, `cloud-archives.js`, `cloud-ownership.js` et `cloud-sync.js/css` ajoutent collections
 serveur, progression par compte, outbox IndexedDB, revisions et reprise explicite
 entre appareils. L'ancienne base de demonstration n'est jamais effacee. Ne pas
 confondre compte Auth, profil local et exemplaire emis ; ne jamais certifier
 un resultat local par simple import. Voir le [contrat du registre](../docs/REGISTRE_EN_LIGNE.md).
+
+Les archives cloud immuables sont synchronisees par pages, separement du
+document courant. Les transactions IndexedDB ordinaires ne relisent que les
+domaines ou cles touches ; les mutations du registre local conservent leur
+graphe atomique complet. La retention des metadonnees ne supprime jamais un
+brouillon en attente. Tester le cas volumineux et les changements d'appareil.
+
+`card-media.js` conserve au plus 48 recadrages ou 24 Mio de Blob lorsque les
+visuels inutilises sont liberables. Les images encore connectees au DOM sont
+protegees, y compris `currentSrc` pendant un remplacement ; elles peuvent donc
+depasser temporairement cette cible. Les URL stables permettent une reinsertion
+apres eviction. `dispose()` debranche l'observateur, les listeners et les URL,
+sans laisser une ancienne promesse recreer un cache apres destruction.
 
 `journey-definitions.js`, `journey-combat.js`, `journey-client.js` et
 `journey-view.js/css` separent livres, commandes moteur, transport et rendu.

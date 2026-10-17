@@ -2,8 +2,9 @@
   'use strict';
   const data=window.KALISTAR_DATA,baseEngine=KalistarEngine.createEngine(data),cards=data.cards,Catalogue=window.KalistarCatalogue;
   let journeyCommands=null,journeyView=null;
-  const E={...baseEngine,...Object.fromEntries(KalistarJourneyCombat.methods.map(method=>[method,(state,...args)=>{
-    const result=baseEngine[method](state,...args);if(journeyCommands&&state.journey&&!state.journey.preview)journeyCommands.push({method,args});return result;
+  const E={...baseEngine,...Object.fromEntries(Object.keys(baseEngine).filter(key=>typeof baseEngine[key]==='function').map(method=>[method,(state,...args)=>{
+    const engine=state?.schema===6?KalistarJourneyCombat.engineFor(data,state)||baseEngine:baseEngine;
+    const result=engine[method](state,...args);if(journeyCommands&&state?.journey&&!state.journey.preview&&KalistarJourneyCombat.methods.includes(method))journeyCommands.push({method,args});return result;
   }]))};
   let db=null,dbError='',lastStored='',reportGame=null,reportArchive=null,accountsUI=null,cloudRegistryUI=null;
   const connectedAccess=window.KALISTAR_CLOUD_ACCESS||null;
@@ -20,8 +21,8 @@
   const cardImage=c=>KalistarCardMedia.image(c),artImage=c=>KalistarCardMedia.image(c,'art');
   const duelImage=cardImage;
   const noCrystal={id:'NONE',label:'SANS CRISTAL',color:'93AAA5',hue:160};
-  const elementInfo=c=>data.elements[c?.element]||noCrystal;
-  const hasCrystal=c=>!!c?.element&&c.element!=='NONE'&&!!data.elements[c.element];
+  const elementInfo=(c,source=data)=>source.elements[c?.element]||noCrystal;
+  const hasCrystal=(c,source=data)=>!!c?.element&&c.element!=='NONE'&&!!source.elements[c.element];
   const elements={...data.elements,NONE:data.elements.NONE||noCrystal};
   const dieLabel=(value,attack)=>value==='retry'&&attack?'Trèfle':format(value);
   const names={guard:'Garde · Bouclier',retry:'Relance',mana:'Potion',revive:'Cœur · Reraise',death:'Mort',dodge:'Esquive',buff_atk:'Buff physique',shield_magic:'Bouclier magique',shield_physical:'Bouclier physique'};
@@ -31,6 +32,15 @@
   let statsSort='kills',statsSide='all',statsTab='lineup',statsPage=0,statsGroup='core',statsAward=0,statsSpotlight='rating',statsBattle=null;
   const format=v=>typeof v==='number'?String(v):names[v]||v;
   let storageAvailable=true,toastTimer,aiTimer,epoch=0,rolling=false,game=null,combatController=null,aiPlan=null,aiThinking=null;
+  // Read-only combat views select their state explicitly; E remains the catalogue
+  // engine/command recorder for composition and new matches.
+  function matchEngine(state=game){return KalistarJourneyCombat.engineFor(data,state)||baseEngine;}
+  function matchData(state=game){return matchEngine(state).data;}
+  function matchArena(state=game){
+    const arena=matchData(state).arenas?.find(a=>a.id===state?.arenaId);
+    return arena?{...arena,image:window.KalistarSite?.url(arena.image)||arena.image}:arenaById(state?.arenaId);
+  }
+  function detailState(context){return context?.matchState||((context?.source==='arena'||context?.uid&&ui.view==='arena')?game:null);}
   if(connectedAccess){cloudPlayer=await KalistarCloudPlayer.connect({data,access:connectedAccess});db=cloudPlayer.db;}
   else try{db=await KalistarLocalDB.open(data);}catch(error){dbError=error.message;}
   window.KALISTAR_DB=db;
@@ -46,7 +56,7 @@
     const key='kalistar.cloud.device.'+cloudPlayer.userId;let deviceId=sessionStorage.getItem(key);
     if(!deviceId){deviceId=crypto.randomUUID();sessionStorage.setItem(key,deviceId);}
     cloudSync=KalistarCloudSync.create({client:cloudPlayer.client,userId:cloudPlayer.userId,storage:cloudPlayer.syncStorage,deviceId,
-      capture:cloudPlayer.capture,apply:cloudPlayer.apply,backup:cloudPlayer.backup,
+      capture:cloudPlayer.capture,apply:cloudPlayer.apply,backup:cloudPlayer.backup,requestTimeoutMs:60000,
       onApplied:()=>{if(!cloudBooting)location.reload();},onChange:()=>{if(!cloudBooting)syncActivity();}});
     cloudPlayer.onChanged(()=>cloudSync.changed());window.KALISTAR_SYNC=cloudSync;
     await cloudSync.start();
@@ -105,7 +115,8 @@
     if(ui.view!=='arena'||!pendingLineup&&game?.phase!=='initiative')return;
     const captainsOnly=!pendingLineup&&load('openingMatch',null)!==game?.matchId,opening=pendingLineup||game;pendingLineup=null;
     if(opening!==game||!['choose','initiative'].includes(game.phase)||!game.composition)return;
-    const formations=KalistarLineupIntro.describe(game,cards,{elements:data.elements,asset,url:KalistarSite.url});
+    const combatData=matchData(game);
+    const formations=KalistarLineupIntro.describe(game,combatData.cards,{elements:combatData.elements,asset,url:KalistarSite.url});
     formations.forEach((team,side)=>team.forEach((entry,slot)=>{if(entry)entry.node=$(`.formation[data-player="${side}"] .slot[data-position="${slot+1}"] .slot-card`);}));
     const rollOpening=async()=>{
       if(opening.journey&&!opening.journey.preview){Object.assign(opening,await journeyStep(opening,'rollInitiative'));}
@@ -274,11 +285,11 @@
     if($('#detail-dialog').open&&ui.detailContext&&$('#detail-dialog .live-bonuses')){
       $('#detail-dialog .live-bonuses').outerHTML=bonusDetails(ui.detailContext)||'<div class="live-bonuses"><p class="muted">Cette carte n’est plus sur le plateau.</p></div>';
     }
-    window.KalistarReservePreview?.mount({getGame:()=>ui.view==='arena'?game:null,data,engine:E,canPlace:canDeployReserve,onSelect:(side,uid)=>{if(['setup','replace'].includes(game?.phase)){ui.reserve=uid;render();}},onPlace:(side,uid,slot)=>act(()=>{placeReserve(side,uid,slot);ui.replacementSlot=null;}),onDetail:showDetail});
+    window.KalistarReservePreview?.mount({getGame:()=>ui.view==='arena'?game:null,data:matchData(game),engine:matchEngine(game),canPlace:canDeployReserve,onSelect:(side,uid)=>{if(['setup','replace'].includes(game?.phase)){ui.reserve=uid;render();}},onPlace:(side,uid,slot)=>act(()=>{placeReserve(side,uid,slot);ui.replacementSlot=null;}),onDetail:id=>showDetail(id,false,{source:'arena'})});
     decorateArena();
-    window.KalistarAmbience?.mount($('.battlefield'),{arena:arenaById(game?.arenaId),game,engine:E});
+    window.KalistarAmbience?.mount($('.battlefield'),{arena:matchArena(game),game,engine:matchEngine(game)});
     window.KalistarFocus?.mount(game?.phase==='over'?[]:document.querySelectorAll('.formation'));
-    if(ui.view==='arena')window.KalistarEquipmentFX.mount(game,E);
+    if(ui.view==='arena')window.KalistarEquipmentFX.mount(game,matchEngine(game));
     syncDetailEquipment();
     presentLineup();persist();scheduleAI();
     if(ui.view==='arena'&&game?.journey){
@@ -291,7 +302,7 @@
       const ceremony=ui.finaleBoard!==game.matchId,shell=$('.game-shell');
       shell.dataset.finale=String(ceremony);
       if(ceremony){
-        $('.arena-layout').insertAdjacentHTML('beforeend',KalistarFinale.render(game,E,{image:cardImage,arenaName:arenaById(game.arenaId).name}));
+        $('.arena-layout').insertAdjacentHTML('beforeend',KalistarFinale.render(game,matchEngine(game),{image:cardImage,arenaName:matchArena(game).name}));
         icons();finale.mount($('.arena-finale'),{focus:!ui.endShown&&!window.KALISTAR_INTRO_PENDING});
       }
       ui.endShown=true;
@@ -336,6 +347,7 @@ function showDeck(){setView('decks');}
     return '<div class="decks-shell"><div id="deck-builder-root"></div></div>';
   }
   function bonusDetails(context){
+    const E=matchEngine(game);
     const p=game?.players[context?.side],u=p?.board.find(u=>u?.uid===context?.uid);
     if(!u||u.cardId!==ui.detail)return '';
     const c=E.card(u),arena=E.arenaBonuses(game,u),section=(key,title,text)=>`<section class="bonus-explanation ${context.bonus===key?'highlighted':''}" data-explains="${key}"><h3>${title}</h3><p>${text}</p></section>`;
@@ -345,15 +357,16 @@ function showDeck(){setView('decks');}
     };
     const leader=E.captainUnit(game,context.side),ca=E.captainBonus(game,u,'attack'),cd=E.captainBonus(game,u,'defense');
     const command=game.composition?section('captain',`Commandement <b>ATK +${ca} / DEF +${cd}</b>`,leader?`Capitaine : ${esc(E.card(leader).name)}. +10 ATK pour sa faction et +10 DEF pour sa race lorsqu'un autre allie actif partage le lien. Un seul +10 par lien, en plus de la synergie normale. La reserve ne compte pas.`:'Capitaine elimine : aucun bonus de Commandement.'):'';
-    return `<div class="live-bonuses"><h2>Bonus sur le plateau · Joueur ${context.side+1}</h2><p class="single-trait-note">Les catégories de buffs se cumulent, avec une seule charge par catégorie. Résolution automatique : bouclier, puis trèfle, puis Reraise.</p>${group('faction','Faction','ATK')}${group('race','Race','DEF')}${command}${section('arena',`Arène · ${esc(arenaById(game.arenaId).name)} <b>ATK +${arena.attack} / DEF +${arena.defense}</b>`,`Cristal : +${arena.element} ATK. Affinité du personnage : +${arena.homeAttack} ATK et +${arena.homeDefense} DEF. Bonus identiques pour les deux camps, sur les scores numériques uniquement.`)}${section('ward',`Garde physique <b>${u.ward?'+60 DEF':'Inactive'}</b>`,u.ward?'La prochaine défense numérique contre une ATK physique reçoit +60 DEF. Consommation unique, bonus conservé pour les relances du même duel. Magie, esquive et Mort ne le consomment pas ; Mort le contourne.':'Aucun bouclier physique en attente.')}${section('mana',`Potion <b>${u.mana?'+'+u.mana:'0'}</b>`,u.mana?'La prochaine attaque numérique magique de cette carte reçoit +60 ATK. Le jeton est ensuite consommé. Une attaque physique ne le consomme pas.':'Aucun jeton de potion actif.')}${section('physical',`Puissance physique <b>${u.physical?'+'+u.physical:'0'}</b>`,u.physical?'La prochaine attaque numérique physique de cette carte reçoit +60 ATK. Le jeton est ensuite consommé. Une attaque magique ne le consomme pas.':'Aucun bonus physique en attente.')}${section('luck',`Trèfle · Seconde chance <b>${u.luck?'Actif':'Inactif'}</b>`,u.luck?'Si le score DEF final est inférieur à l’ATK finale, ce trèfle est consommé et le dé DEF est relancé automatiquement. Tous les bonus sont recalculés sur le nouveau jet. Si cette seconde chance échoue, le Reraise sauve la carte s’il est actif ; sinon elle est éliminée. Le bouclier physique s’applique avant le trèfle et reste compté pendant la relance. Une égalité le conserve. Mort ignore les scores et ne déclenche pas ce jeton.':'Aucun trèfle actif. Un trèfle obtenu en ATK peut être attribué à cette carte par une carte alliée, ou par elle-même.')}${section('reraise',`Cœur · Reraise <b>${u.reraise?'Actif':'Inactif'}</b>`,u.reraise?'Une vie supplémentaire. À la prochaine élimination, même par Mort, ce cœur est consommé et la carte reprend vie à la même position. Un seul cœur actif à la fois.':'Aucune vie supplémentaire active. Un cœur obtenu en ATK peut être attribué à toute carte de votre plateau, elle-même comprise.')}</div>`;
+    return `<div class="live-bonuses"><h2>Bonus sur le plateau · Joueur ${context.side+1}</h2><p class="single-trait-note">Les catégories de buffs se cumulent, avec une seule charge par catégorie. Résolution automatique : bouclier, puis trèfle, puis Reraise.</p>${group('faction','Faction','ATK')}${group('race','Race','DEF')}${command}${section('arena',`Arène · ${esc(matchArena(game).name)} <b>ATK +${arena.attack} / DEF +${arena.defense}</b>`,`Cristal : +${arena.element} ATK. Affinité du personnage : +${arena.homeAttack} ATK et +${arena.homeDefense} DEF. Bonus identiques pour les deux camps, sur les scores numériques uniquement.`)}${section('ward',`Garde physique <b>${u.ward?'+60 DEF':'Inactive'}</b>`,u.ward?'La prochaine défense numérique contre une ATK physique reçoit +60 DEF. Consommation unique, bonus conservé pour les relances du même duel. Magie, esquive et Mort ne le consomment pas ; Mort le contourne.':'Aucun bouclier physique en attente.')}${section('mana',`Potion <b>${u.mana?'+'+u.mana:'0'}</b>`,u.mana?'La prochaine attaque numérique magique de cette carte reçoit +60 ATK. Le jeton est ensuite consommé. Une attaque physique ne le consomme pas.':'Aucun jeton de potion actif.')}${section('physical',`Puissance physique <b>${u.physical?'+'+u.physical:'0'}</b>`,u.physical?'La prochaine attaque numérique physique de cette carte reçoit +60 ATK. Le jeton est ensuite consommé. Une attaque magique ne le consomme pas.':'Aucun bonus physique en attente.')}${section('luck',`Trèfle · Seconde chance <b>${u.luck?'Actif':'Inactif'}</b>`,u.luck?'Si le score DEF final est inférieur à l’ATK finale, ce trèfle est consommé et le dé DEF est relancé automatiquement. Tous les bonus sont recalculés sur le nouveau jet. Si cette seconde chance échoue, le Reraise sauve la carte s’il est actif ; sinon elle est éliminée. Le bouclier physique s’applique avant le trèfle et reste compté pendant la relance. Une égalité le conserve. Mort ignore les scores et ne déclenche pas ce jeton.':'Aucun trèfle actif. Un trèfle obtenu en ATK peut être attribué à cette carte par une carte alliée, ou par elle-même.')}${section('reraise',`Cœur · Reraise <b>${u.reraise?'Actif':'Inactif'}</b>`,u.reraise?'Une vie supplémentaire. À la prochaine élimination, même par Mort, ce cœur est consommé et la carte reprend vie à la même position. Un seul cœur actif à la fois.':'Aucune vie supplémentaire active. Un cœur obtenu en ATK peut être attribué à toute carte de votre plateau, elle-même comprise.')}</div>`;
   }
   function showDetail(id,art=false,context=null){
     ui.detail=id;ui.art=art;ui.detailContext=context;ui.careerInstance=context?.instanceId||game?.players[context?.side]?.board.find(u=>u?.uid===context?.uid)?.instanceId||'all';
-    const current=E.byId[id],profile=context?.profile;
-    if(profile)KalistarEngine.createEngine({...data,cards:[profile]});
-    const c=profile?{...profile,id:current.id,slug:current.slug,pngUrl:current.pngUrl}:current,el=elementInfo(c);
+    const state=detailState(context),sourceData=state?matchData(state):data;
+    const current=E.byId[id],profile=context?.profile,frozen=state?.journey?.snapshot?matchEngine(state).byId[id]:null;
+    if(profile&&!frozen)KalistarEngine.createEngine({...sourceData,cards:[profile]});
+    const c=frozen||(profile?{...profile,id:current.id,slug:current.slug,pngUrl:current.pngUrl}:current),el=elementInfo(c,sourceData);
     const v=(x,attack=false)=>typeof x==='number'?x:`<img src="${asset('effets',x)}" alt="${dieLabel(x,attack)}" title="${dieLabel(x,attack)}">`;
-    const source=profile?'archive':context?.uid&&ui.view==='arena'?'arena':context?.source==='deck'?'deck':'profile';
+    const source=profile?'archive':state===game&&ui.view==='arena'?'arena':context?.source==='deck'?'deck':'profile';
     const live=document.createElement('div');live.innerHTML=profile?'':bonusDetails(context);
     // Keep the existing live explanations, including their highlighted deep links.
     live.querySelectorAll('.bonus-explanation').forEach(section=>{
@@ -363,9 +376,9 @@ function showDeck(){setView('decks');}
       item.open=section.classList.contains('highlighted');section.replaceWith(item);
     });
     const fold=(key,symbol,label,content,open=false)=>`<details class="detail-section" data-detail-section="${key}"${open?' open':''}><summary>${icon(symbol)}<span>${label}</span>${icon('chevron-down')}</summary><div class="detail-section-content">${content}</div></details>`;
-    const faces=`<div class="detail-base-weapon">${icon('swords')}<span>${esc(c.weapon)}</span></div><table class="stats-table"><thead><tr><th scope="col">Dé</th>${[6,5,4,3,2,1].map(d=>`<th scope="col">${d}</th>`).join('')}</tr></thead><tbody><tr><th scope="row">ATK</th>${c.atk.map((x,i)=>`<td class="${c.magic.includes(6-i)?'magic':''}" title="${c.magic.includes(6-i)?'Magique':'Physique'}">${v(x,true)}</td>`).join('')}</tr><tr><th scope="row">DEF</th>${c.defense.map((x,i)=>`<td class="${hasCrystal(c)&&c.barriers.includes(6-i)?'barrier':''}" title="${hasCrystal(c)&&c.barriers.includes(6-i)?'Barrière : -30 contre magie':'Défense sans barrière'}">${v(x)}</td>`).join('')}</tr></tbody></table><div class="affinities">${!hasCrystal(c)?'Sans cristal · aucun bonus élémentaire ni barrière':c.element==='RAINBOW'?'+40 contre les cristaux classiques · +30 contre sans cristal':`+${esc(c.advantage)} ${esc(data.elements[el.strong_against]?.label||'')}<span>-${esc(c.disadvantage)} ${esc(data.elements[el.weak_against]?.label||'')}</span> · +20 contre sans cristal`}</div>`;
+    const faces=`<div class="detail-base-weapon">${icon('swords')}<span>${esc(c.weapon)}</span></div><table class="stats-table"><thead><tr><th scope="col">Dé</th>${[6,5,4,3,2,1].map(d=>`<th scope="col">${d}</th>`).join('')}</tr></thead><tbody><tr><th scope="row">ATK</th>${c.atk.map((x,i)=>`<td class="${c.magic.includes(6-i)?'magic':''}" title="${c.magic.includes(6-i)?'Magique':'Physique'}">${v(x,true)}</td>`).join('')}</tr><tr><th scope="row">DEF</th>${c.defense.map((x,i)=>`<td class="${hasCrystal(c,sourceData)&&c.barriers.includes(6-i)?'barrier':''}" title="${hasCrystal(c,sourceData)&&c.barriers.includes(6-i)?'Barrière : -'+(state?matchEngine(state):baseEngine).rules.barrier+' contre magie':'Défense sans barrière'}">${v(x)}</td>`).join('')}</tr></tbody></table><div class="affinities">${!hasCrystal(c,sourceData)?'Sans cristal · aucun bonus élémentaire ni barrière':c.element==='RAINBOW'?'+40 contre les cristaux classiques · +30 contre sans cristal':`+${esc(c.advantage)} ${esc(sourceData.elements[el.strong_against]?.label||'')}<span>-${esc(c.disadvantage)} ${esc(sourceData.elements[el.weak_against]?.label||'')}</span> · +20 contre sans cristal`}</div>`;
     const dialog=$('#detail-dialog');dialog.classList.add('card-detail');dialog.dataset.detailSource=source;
-    modal('detail-dialog',head(c.name)+`<div class="dialog-body detail-body"><div class="detail-media"><div class="detail-visual" style="--element-color:#${el.color}"><img src="${art?artImage(c):duelImage(c)}" alt="${art?'Illustration':'Carte'} de ${esc(c.name)}"></div>${equippedCard(c,context)}</div><div class="detail-info"><div class="detail-heading"><span class="eyebrow">${esc(c.element)} · #${c.id}</span><h2>${esc(c.title)}</h2>${profile?'<p class="detail-source-note">Profil du match archivé · visuel actuel</p>':''}</div>${profile?'':Catalogue.versionStrip(id)}<div class="identity-strip"><img src="${asset('factions',c.faction)}" alt="Drapeau ${esc(c.faction)}"><span><b>${esc(c.faction)}</b><br>${esc(c.job)}</span><img class="race-icon" src="${asset('races',c.race)}" alt=""><span>${esc(c.race)}<br>${KalistarPositions.list(c.positions)}</span></div>${live.innerHTML?fold('live','sparkles','Bonus en direct',live.innerHTML,true):''}${fold('faces','dices',profile?'Faces du match archivé':'Faces et affinités',faces,source!=='arena')}${fold('lore','book-open','Histoire',`<p class="story">${esc(c.text)}</p>`)}${fold('career','medal','Carrière et exemplaires',`${profile?'':'<div class="detail-ownership"></div>'}${Catalogue.career(id,profile?db:collectionDB(),ui.careerInstance)}`)}</div></div><div class="detail-actions"><button data-action="toggle-art">${icon(art?'credit-card':'image')}${art?'Carte':'Illustration'}</button><a href="${esc(globalThis.KalistarSite?.url(c.pngUrl)||c.pngUrl)}" download title="PNG d’impression${profile?' actuel':''}" aria-label="PNG d’impression${profile?' actuel':''}">${icon('download')}<span>PNG${profile?' actuel':''}</span></a>${ib('favorite','star','Favori',`data-id="${id}" aria-pressed="${favorites.has(id)}"`)}</div>`);
+    modal('detail-dialog',head(c.name)+`<div class="dialog-body detail-body"><div class="detail-media"><div class="detail-visual" style="--element-color:#${el.color}"><img src="${art?artImage(c):duelImage(c)}" alt="${art?'Illustration':'Carte'} de ${esc(c.name)}"></div>${equippedCard(c,context)}</div><div class="detail-info"><div class="detail-heading"><span class="eyebrow">${esc(c.element)} · #${c.id}</span><h2>${esc(c.title)}</h2>${profile?'<p class="detail-source-note">Profil du match archivé · visuel actuel</p>':''}</div>${profile||frozen?'':Catalogue.versionStrip(id)}<div class="identity-strip"><img src="${asset('factions',c.faction)}" alt="Drapeau ${esc(c.faction)}"><span><b>${esc(c.faction)}</b><br>${esc(c.job)}</span><img class="race-icon" src="${asset('races',c.race)}" alt=""><span>${esc(c.race)}<br>${KalistarPositions.list(c.positions)}</span></div>${live.innerHTML?fold('live','sparkles','Bonus en direct',live.innerHTML,true):''}${fold('faces','dices',profile?'Faces du match archivé':'Faces et affinités',faces,source!=='arena')}${fold('lore','book-open','Histoire',`<p class="story">${esc(c.text)}</p>`)}${fold('career','medal','Carrière et exemplaires',`${profile?'':'<div class="detail-ownership"></div>'}${Catalogue.career(id,profile?db:collectionDB(),ui.careerInstance)}`)}</div></div><div class="detail-actions"><button data-action="toggle-art">${icon(art?'credit-card':'image')}${art?'Carte':'Illustration'}</button><a href="${esc(globalThis.KalistarSite?.url(c.pngUrl)||c.pngUrl)}" download title="PNG d’impression${profile?' actuel':''}" aria-label="PNG d’impression${profile?' actuel':''}">${icon('download')}<span>PNG${profile?' actuel':''}</span></a>${ib('favorite','star','Favori',`data-id="${id}" aria-pressed="${favorites.has(id)}"`)}</div>`);
     if(!profile){$('#detail-dialog .detail-ownership').innerHTML=ownershipBanner(id);icons();}
     syncDetailEquipment();
     if(context?.bonus)requestAnimationFrame(()=>$('#detail-dialog .highlighted')?.scrollIntoView({block:'nearest'}));
@@ -449,9 +462,9 @@ function showDeck(){setView('decks');}
   function retainJourney(next){
     if(next?.journey&&!next.journey.preview&&game?.matchId===next.matchId&&next.journey.sequence>game.journey.sequence&&!cloudBlocked()){game=next;epoch++;}
   }
-  function arenaRule(a){
-    const crystal=a.element&&a.element!=='NONE'?(data.elements[a.element]?.label||a.element)+' : +'+(a.elementBonus||0)+' ATK':'Terrain neutre';
-    const home=(a.homeCharacters||[]).map(id=>cards.find(c=>c.characterId===id)?.name||id);
+  function arenaRule(a,source=data){
+    const crystal=a.element&&a.element!=='NONE'?(source.elements[a.element]?.label||a.element)+' : +'+(a.elementBonus||0)+' ATK':'Terrain neutre';
+    const home=(a.homeCharacters||[]).map(id=>source.cards.find(c=>c.characterId===id)?.name||id);
     return esc(crystal+(home.length?' · '+home.join(', ')+' : +'+(a.homeAttack||0)+' ATK / +'+(a.homeDefense||0)+' DEF':''));
   }
   function arenaChoices(id){return `<fieldset class="arena-options"><legend>Lieu de la rencontre</legend>${arenas.map(a=>`<label class="arena-option"><input type="radio" name="arena" value="${a.id}" ${arenaById(id).id===a.id?'checked':''}><img src="${a.image}" alt="${a.name}"><span>${a.name}<small>${esc(a.subtitle)}</small><small class="arena-bonus-rule">${arenaRule(a)}</small></span></label>`).join('')}</fieldset>`;}
@@ -555,6 +568,7 @@ function showDeck(){setView('decks');}
     refreshMatchLobby();
   }
   function buffs(p,u,side){
+    const E=matchEngine(game);
     const f=E.synergy(p,u,'faction'),r=E.synergy(p,u,'race'),arena=E.arenaBonuses(game,u),ca=E.captainBonus(game,u,'attack'),cd=E.captainBonus(game,u,'defense');
     const chip=(key,text,title)=>`<button class="buff-chip ${key}" data-action="bonus" data-side="${side}" data-uid="${u.uid}" data-bonus="${key}" title="${title}" aria-label="${title}">${text}</button>`;
     return `${f?chip('faction','ATK +'+f,'Bonus de faction : ATK +'+f):''}${r?chip('race','DEF +'+r,'Bonus de race : DEF +'+r):''}${ca||cd?chip('captain',icon('crown')+(ca?' ATK +'+ca:'')+(cd?' DEF +'+cd:''),'Commandement : ATK +'+ca+' / DEF +'+cd):''}${arena.attack||arena.defense?chip('arena','A +'+arena.attack+'/'+arena.defense,'Arène : ATK +'+arena.attack+' / DEF +'+arena.defense):''}`;
@@ -572,6 +586,7 @@ function showDeck(){setView('decks');}
   }
   function canDeployReserve(side,uid,slot){
     if(rolling||!game||game.mode==='ai'&&side===1||!(game.phase==='setup'||game.phase==='replace'&&game.replacing===side))return false;
+    const E=matchEngine(game);
     if(E.equipmentChoice(game))return false;
     const p=game.players[side],u=p?.reserve.find(u=>u.uid===uid);
     return !!u&&Number.isInteger(slot)&&slot>=0&&slot<5&&E.card(u).positions.includes(slot+1)&&(game.phase==='setup'||!p.board[slot]);
@@ -592,6 +607,7 @@ function showDeck(){setView('decks');}
     return compatible?'placement':'';
   }
   function board(side){
+    const E=matchEngine(game),data=E.data;
     const p=game.players[side],selectedReserve=p.reserve.find(u=>u.uid===ui.reserve),gift=E.equipmentChoice(game);
     const stats=E.matchStats(game),performance=new Map(stats.units.map(u=>[u.uid,u]));
     const participants=consoleParticipants(game),chosen=side===participants.side?participants.a:participants.b;
@@ -605,11 +621,12 @@ function showDeck(){setView('decks');}
       const grantTitle=equipmentBeneficiary?`Attribuer ${gift.weapon.name} : ${KalistarWeaponCards.effectLabel(gift.weapon)} à ${c.name}`:beneficiary?`Attribuer ${grantName} à ${c.name}${u[grantKey]?' · déjà actif, sans charge supplémentaire':''}`:'';
       const saved=u&&game.duel?.reraised===u.uid?'reraise-saved':'';
       const prompt=arenaCardPrompt(side,u,{beneficiary:!!beneficiary,compatible:!!selectedReserve&&canDeployReserve(side,selectedReserve.uid,slot)});
-      return `<div class="slot ${side?'enemy':''} ${isA?'selected':''} ${isT?'target':''} ${isA||isT?'challenger':''} ${saved} ${beneficiary?'trait-eligible '+game.phase+'-eligible':''} ${selectedReserve&&canDeployReserve(side,selectedReserve.uid,slot)?'compatible':''}" data-position="${slot+1}" data-key="${side}-${slot}" data-unit="${u?.uid||''}" data-element="${c?.element||''}" style="--element-color:#${elementInfo(c).color};--trait-color:${equipmentBeneficiary&&gift.trait==='reraise'?'#ff96b7':equipmentBeneficiary||game.phase==='guard'?'#a6d8eb':game.phase==='heart'?'#ff96b7':game.phase==='potion'?'#8adbf5':game.phase==='physical'?'#f4b08a':'#9cf3b7'}"><div class="position-label">${KalistarPositions.markup(slot+1)}</div><button class="slot-card ${u?'':'empty'}" ${prompt?`data-arena-prompt="${prompt}"`:''} data-action="${equipmentBeneficiary?'equipment-recipient':'slot'}" ${equipmentBeneficiary?`data-uid="${u.uid}"`:''} data-side="${side}" data-slot="${slot}" aria-pressed="${isA||isT}" ${beneficiary?`title="${esc(grantTitle)}"`:''} aria-label="${beneficiary?esc(grantTitle):`${side?'Adversaire':'Joueur'} P${slot+1}${c?' '+c.name:', emplacement libre'}`}">${c?`<img src="${duelImage(c)}" alt="${c.name}" width="797" height="1388" draggable="false">${u&&E.captainUnit(game,side)?.uid===u.uid?`<span class="arena-captain ${E.captainBonus(game,u,'attack')||E.captainBonus(game,u,'defense')?'is-commanding':''}" role="img" aria-label="Capitaine : ${esc(c.name)}" title="Capitaine"><img src="${KalistarSite.url('assets/ui/captain-crown-v1.webp')}" alt="" aria-hidden="true" draggable="false"></span>`:''}`:icon('plus')}</button>${(isA||isT)&&hasCrystal(c)?'<canvas class="element-aura" aria-hidden="true"></canvas>':''}${u?traitBadge(side,u):''}${c?`<button class="inspect" data-action="detail" data-id="${c.id}" data-side="${side}" data-uid="${u.uid}" aria-label="Inspecter ${c.name}" title="Inspecter ${c.name}">${icon('scan-eye')}</button>`:''}<div class="slot-buffs">${u?buffs(p,u,side):''}</div>${isA||isT?KalistarMatchMetrics.strip(performance.get(u.uid),stats):''}</div>`;
+      return `<div class="slot ${side?'enemy':''} ${isA?'selected':''} ${isT?'target':''} ${isA||isT?'challenger':''} ${saved} ${beneficiary?'trait-eligible '+game.phase+'-eligible':''} ${selectedReserve&&canDeployReserve(side,selectedReserve.uid,slot)?'compatible':''}" data-position="${slot+1}" data-key="${side}-${slot}" data-unit="${u?.uid||''}" data-element="${c?.element||''}" style="--element-color:#${elementInfo(c,data).color};--trait-color:${equipmentBeneficiary&&gift.trait==='reraise'?'#ff96b7':equipmentBeneficiary||game.phase==='guard'?'#a6d8eb':game.phase==='heart'?'#ff96b7':game.phase==='potion'?'#8adbf5':game.phase==='physical'?'#f4b08a':'#9cf3b7'}"><div class="position-label">${KalistarPositions.markup(slot+1)}</div><button class="slot-card ${u?'':'empty'}" ${prompt?`data-arena-prompt="${prompt}"`:''} data-action="${equipmentBeneficiary?'equipment-recipient':'slot'}" ${equipmentBeneficiary?`data-uid="${u.uid}"`:''} data-side="${side}" data-slot="${slot}" aria-pressed="${isA||isT}" ${beneficiary?`title="${esc(grantTitle)}"`:''} aria-label="${beneficiary?esc(grantTitle):`${side?'Adversaire':'Joueur'} P${slot+1}${c?' '+c.name:', emplacement libre'}`}">${c?`<img src="${duelImage(c)}" alt="${c.name}" width="797" height="1388" draggable="false">${u&&E.captainUnit(game,side)?.uid===u.uid?`<span class="arena-captain ${E.captainBonus(game,u,'attack')||E.captainBonus(game,u,'defense')?'is-commanding':''}" role="img" aria-label="Capitaine : ${esc(c.name)}" title="Capitaine"><img src="${KalistarSite.url('assets/ui/captain-crown-v1.webp')}" alt="" aria-hidden="true" draggable="false"></span>`:''}`:icon('plus')}</button>${(isA||isT)&&hasCrystal(c,data)?'<canvas class="element-aura" aria-hidden="true"></canvas>':''}${u?traitBadge(side,u):''}${c?`<button class="inspect" data-action="detail" data-id="${c.id}" data-side="${side}" data-uid="${u.uid}" aria-label="Inspecter ${c.name}" title="Inspecter ${c.name}">${icon('scan-eye')}</button>`:''}<div class="slot-buffs">${u?buffs(p,u,side):''}</div>${isA||isT?KalistarMatchMetrics.strip(performance.get(u.uid),stats):''}</div>`;
     }).join('')}</div>`;
   }
   function sideHeading(side){const p=game.players[side];return `<div class="side-heading"><div class="player-name ${side?'enemy':'ally'}">${side?(game.mode==='ai'?KalistarAI.name(game)+' · IA':'Joueur 2'):'Joueur 1'}${game.turn===side&&game.phase!=='setup'?' · ATK':''}</div><div class="resources"><span>${p.board.filter(Boolean).length}/5</span><button data-action="reserves" data-side="${side}">${icon('layers-3')}${p.reserve.length}</button><button data-action="grave" data-side="${side}">${icon('skull')}${p.dead.length}</button></div></div>`;}
   function dice(side){
+    const E=matchEngine(game),data=E.data;
     const d=['attack','kalistel','defense','clover','potion','physical','heart','guard','result'].includes(game.phase)?game.duel:null,isAttack=d?d.side===side:game.turn===side,rolls=d?(isAttack?d.attackRolls:d.defenseRolls):[],die=rolls.at(-1);
     const selected=game.phase==='choose'?game.players[side].board[isAttack?ui.attacker:ui.target]:null;
     const participants=consoleParticipants(game),unit=side===participants.side?participants.a:participants.b,c=unit?E.card(unit):null;
@@ -630,8 +647,8 @@ function showDeck(){setView('decks');}
   }
   function syncConsole(s=game){
     const node=$('.duel-console');if(!node||!s)return;
-    const {a,b}=consoleParticipants(s),ac=a?E.card(a):null,bc=b?E.card(b):null;
-    const color=c=>data.elements[c?.element]?'#'+data.elements[c.element].color:null;
+    const {a,b}=consoleParticipants(s),ac=a?matchEngine(s).card(a):null,bc=b?matchEngine(s).card(b):null;
+    const color=c=>c&&matchData(s).elements[c.element]?'#'+matchData(s).elements[c.element].color:null;
     node.style.setProperty('--ritual-color',color(ac)||'#d3b7ab');
     node.style.setProperty('--ward-color',color(bc)||'#9acdd5');
     node.style.setProperty('--action-color',s.phase==='guard'?'#a6d8eb':s.phase==='heart'?'#ff96b7':s.phase==='potion'?'#8adbf5':s.phase==='physical'?'#f4b08a':s.phase==='clover'||s.duel?.autoDefense?'#9bebac':s.phase==='defense'?color(bc)||'#9acdd5':color(ac)||'#d3b7ab');
@@ -644,6 +661,7 @@ function showDeck(){setView('decks');}
     return `<div class="recap-row${equipment?' recap-equipment':''}" data-bonus="${key}" ${help?`title="${esc(help)}"`:''}><span>${equipment?`<img class="recap-equipment-art" src="${esc(KalistarEquipmentFX.art(equipment))}" alt="${esc(KalistarWeapons.categories[KalistarWeapons.kind(equipment)].singular)}" draggable="false">`:icon(symbols[key])}${label}</span><b class="${value==null?'unknown':typeof value!=='number'?'conditional':bonus&&value>0?'positive':value<0?'negative':''}">${value==null?'…':bonus&&value>0?'+'+value:esc(value)}</b></div>`;
   }
   function equipmentRows(s,stat){
+    const E=matchEngine(s);
     const {a,b}=consoleParticipants(s),d=s.duel;
     const bonus=['choose','setup'].includes(s.phase)?E.equipmentModifier(s,stat==='ATK'?a:b,stat):d?.equipment?.[stat==='ATK'?'attack':'defense'];
     const direct=d?.equipment?.[stat==='ATK'?'weapon':'protection'];
@@ -658,25 +676,28 @@ function showDeck(){setView('decks');}
     }).join('');
   }
   function detailEquipment(c,context){
-    if(!c||context?.profile)return null;
+    const state=detailState(context);
+    if(!c||context?.profile&&!state)return null;
     if(context?.source==='deck'&&ui.view==='decks'){
       return KalistarEquipment.items(teamDraft.equipment).filter(item=>item.characterId===c.characterId).map(item=>{
         const w=KalistarWeapons.weapons.find(w=>w.id===item.id);
         return {weapon:w&&KalistarEquipment.compatible(w,c)?w:null,slot:item.slot,active:null};
       });
     }
-    if(context?.uid&&ui.view==='arena'){
-      const player=game?.players[context.side],u=player&&[...player.board,...player.reserve,...player.dead].find(u=>u?.uid===context.uid&&u.cardId===c.id);
-      return u?E.equipmentViews(game,u):[];
+    if(state){
+      const units=state.players.flatMap(p=>[...p.board,...p.reserve,...p.dead]).filter(u=>u&&u.cardId===c.id&&(context.uid?u.uid===context.uid:context.instanceId?u.instanceId===context.instanceId:true));
+      const u=units.length===1?units[0]:null;
+      return u?matchEngine(state).equipmentViews(state,u):[];
     }
     return null;
   }
   function syncDetailEquipment(){
-    const dialog=$('#detail-dialog'),states=detailEquipment(E.byId[ui.detail],ui.detailContext)||[];
+    const dialog=$('#detail-dialog'),state=detailState(ui.detailContext),states=detailEquipment((state?matchEngine(state):baseEngine).byId[ui.detail],ui.detailContext)||[];
     const visible=dialog.open&&!ui.art?states:[];
     window.KalistarEquipmentFX.mountDetail(dialog.querySelector('.detail-visual'),visible,{bonus:ui.detailContext?.source!=='deck',arena:ui.view==='arena'});
   }
   function equippedCard(c,context){
+    const state=detailState(context),data=state?matchData(state):baseEngine.data;
     const states=detailEquipment(c,context);
     const entries=states||(!context?.profile?(db?.equipment.items(accountId,c.characterId)||[]).map(weapon=>({weapon,active:null})):[]);
     const source=context?.profile?'archive':states!==null?(context?.source==='deck'?'deck':'arena'):'profile';
@@ -686,7 +707,7 @@ function showDeck(){setView('decks');}
       const card=KalistarWeaponCards.markup(w,{cards:data.cards,medallion:KalistarEquipmentFX.markup,url:p=>globalThis.KalistarSite?.url(p)||p,carrier:c,cardImage});
       return `<button type="button" class="card-equipped detail-equipment-card" data-action="equipment-detail" data-id="${esc(w.id)}" data-equipment-state="${runtime?(state.active?'active':'inactive'):'snapshot'}" title="${esc(w.condition)}" aria-label="${esc(category.singular+' : '+w.name+' · '+status+'. Voir la fiche équipement.')}"><span class="detail-equipment-art" aria-hidden="true">${card}</span><span class="detail-equipment-name">${esc(w.name)}</span><span class="detail-equipment-meta"><span>${icon(category.icon)}${esc(category.singular)}</span><b>${status}</b></span></button>`;
     }).join('');
-    const label={deck:'Composition du deck · hors combat',arena:'Équipements du match · état en direct',profile:'Préférences du profil · hors combat',archive:'Équipements non documentés dans cette fiche archivée'}[source];
+    const label={deck:'Composition du deck · hors combat',arena:'Équipements du match · état en direct',profile:'Préférences du profil · hors combat',archive:state?'Équipements du match archivé':'Équipements non documentés dans cette fiche archivée'}[source];
     return `<section class="detail-equipment" data-equipment-source="${source}" aria-label="Équipements portés"><h3>Équipements portés</h3><p class="detail-source-note">${label}</p>${items?`<div class="detail-equipment-list">${items}</div>`:source==='archive'?'':`<p class="detail-equipment-empty">Aucun équipement ${source==='arena'?'dans ce match':source==='deck'?'dans ce deck':'sur ce profil'}.</p>`}</section>`;
   }
   function scoreTotals(side,attackLabel,attackValue,defenseLabel,defenseValue,preview=false){
@@ -696,19 +717,21 @@ function showDeck(){setView('decks');}
     return `<div class="recap-totals ${preview?'preview-totals':''}">${cell(scores[0],0)}<span class="recap-versus">/</span>${cell(scores[1],1)}</div>`;
   }
   function previewRecap(s){
+    const E=matchEngine(s),data=E.data;
     const {side,a,b}=consoleParticipants(s),ac=a?E.card(a):null,bc=b?E.card(b):null,pair=!!a&&!!b;
     const weapon=pair?(data.weapons[ac.weapon]?.[bc.weapon]||0):null,element=pair?E.elementModifier(ac,bc):null;
     const faction=a?E.synergy(s.players[side],a,'faction'):null,race=b?E.synergy(s.players[1-side],b,'race'):null;
     const attackArena=a?E.arenaBonuses(s,a):null,defenseArena=b?E.arenaBonuses(s,b):null;
     const tokens=a?[a.mana?'M +'+a.mana:'',a.physical?'P +'+a.physical:''].filter(Boolean).join(' / ')||0:null;
-    const barrier=pair?(hasCrystal(bc)&&ac.atk.some((v,i)=>typeof v==='number'&&ac.magic.includes(6-i))&&bc.defense.some((v,i)=>typeof v==='number'&&bc.barriers.includes(6-i))?'-'+E.rules.barrier+' possible':0):null;
+    const barrier=pair?(hasCrystal(bc,data)&&ac.atk.some((v,i)=>typeof v==='number'&&ac.magic.includes(6-i))&&bc.defense.some((v,i)=>typeof v==='number'&&bc.barriers.includes(6-i))?'-'+E.rules.barrier+' possible':0):null;
     const ward=b?(b.ward?'+60 si physique':0):null;
     const fixed=pair?weapon+element+faction+attackArena.attack+(E.equipmentModifier(s,a,'ATK')?.value||0)+E.captainBonus(s,a,'attack'):null,defense=b?race+defenseArena.defense+(E.equipmentModifier(s,b,'DEF')?.value||0)+E.captainBonus(s,b,'defense'):null;
     const signed=v=>v==null?'…':v>0?'+'+v:String(v),row=recapRow;
     const arenaHelp=bonus=>bonus?`Cristal +${bonus.element} ATK ; affinité +${bonus.homeAttack} ATK / +${bonus.homeDefense} DEF.`:'Selon le personnage et le lieu';
-    return `<section class="duel-recap preview-recap ${!a&&!b?'pending-recap':''}" aria-label="Aperçu des bonus avant les dés"><div class="recap-type">${icon('scan-eye')}<span>Forces engagées</span><small>AVANT JET</small></div>${row('baseAttack','Jet ATK','À lancer',false)}${row('weapon','Arme',weapon)}${equipmentRows(s,'ATK')}${row('element','Cristal',element,true,pair?elementInfo(ac).label+' contre '+elementInfo(bc).label:'Selon les deux cristaux')}${row('faction','Faction',faction)}${s.composition?row('captainAttack','Capitaine Faction',a?E.captainBonus(s,a,'attack'):null):''}${row('arenaAttack','Arène ATK',attackArena?.attack,true,arenaHelp(attackArena))}${row('buff','Jeton',tokens,true,'M : attaque magique. P : attaque physique. Aucun jeton consommé avant le jet.')}${row('barrier','Barrière',barrier,true,'Seulement contre une attaque magique ; aucune barrière sans cristal.')}<div class="recap-defense">${row('baseDefense','Jet DEF','À lancer',false)}${row('race','Race',race)}${s.composition?row('captainDefense','Capitaine Race',b?E.captainBonus(s,b,'defense'):null):''}${row('arenaDefense','Arène DEF',defenseArena?.defense,true,arenaHelp(defenseArena))}${equipmentRows(s,'DEF')}${row('ward','Garde',ward,true,'Ward 60 : prochaine défense numérique contre une ATK physique. Mort le contourne.')}</div>${scoreTotals(side,'Modif. ATK',signed(fixed),'Bonus DEF',signed(defense),true)}<p class="preview-note">Hors dés et effets conditionnels</p></section>`;
+    return `<section class="duel-recap preview-recap ${!a&&!b?'pending-recap':''}" aria-label="Aperçu des bonus avant les dés"><div class="recap-type">${icon('scan-eye')}<span>Forces engagées</span><small>AVANT JET</small></div>${row('baseAttack','Jet ATK','À lancer',false)}${row('weapon','Arme',weapon)}${equipmentRows(s,'ATK')}${row('element','Cristal',element,true,pair?elementInfo(ac,data).label+' contre '+elementInfo(bc,data).label:'Selon les deux cristaux')}${row('faction','Faction',faction)}${s.composition?row('captainAttack','Capitaine Faction',a?E.captainBonus(s,a,'attack'):null):''}${row('arenaAttack','Arène ATK',attackArena?.attack,true,arenaHelp(attackArena))}${row('buff','Jeton',tokens,true,'M : attaque magique. P : attaque physique. Aucun jeton consommé avant le jet.')}${row('barrier','Barrière',barrier,true,'Seulement contre une attaque magique ; aucune barrière sans cristal.')}<div class="recap-defense">${row('baseDefense','Jet DEF','À lancer',false)}${row('race','Race',race)}${s.composition?row('captainDefense','Capitaine Race',b?E.captainBonus(s,b,'defense'):null):''}${row('arenaDefense','Arène DEF',defenseArena?.defense,true,arenaHelp(defenseArena))}${equipmentRows(s,'DEF')}${row('ward','Garde',ward,true,'Ward 60 : prochaine défense numérique contre une ATK physique. Mort le contourne.')}</div>${scoreTotals(side,'Modif. ATK',signed(fixed),'Bonus DEF',signed(defense),true)}<p class="preview-note">Hors dés et effets conditionnels</p></section>`;
   }
   function duelRecap(s){
+    const E=matchEngine(s),data=E.data;
     const d=['attack','kalistel','defense','clover','potion','physical','heart','guard','result'].includes(s.phase)?s.duel:null;
     if(!d?.attackRolls.length)return previewRecap(s);
     const numeric=typeof d.attackValue==='number',final=d.formula;
@@ -729,6 +752,7 @@ function showDeck(){setView('decks');}
     return `<button class="primary ritual-action" data-action="${action}" data-mode="${mode}" ${disabled?'disabled':''}><span class="action-sigil" aria-hidden="true">${icon(symbol)}</span><span class="action-label">${label}</span><span class="action-tail" aria-hidden="true">${icon(action==='next'?'chevrons-right':'chevron-right')}</span><span class="action-charge" aria-hidden="true"></span><span class="arena-action-cue" aria-hidden="true"></span></button>`;
   }
   function consoleBody(s=game){
+    const E=matchEngine(s),data=E.data;
     let label,title,actions='';
     if(s.phase==='setup'){
       label='AVANT LE COMBAT';title='Formation initiale';actions=`<div class="setup-actions"><button class="formation-auto" data-action="auto-formation">${icon('shuffle')}Formation auto</button>${duelAction('start','swords','Commencer',{disabled:s.players.some(p=>p.board.some(u=>!u))})}</div>`;
@@ -773,15 +797,17 @@ function showDeck(){setView('decks');}
       }
     }
     const {a}=consoleParticipants(s),element=a?E.card(a).element:null;
-    return `<div class="duel-status" tabindex="0" role="region" aria-label="État du duel"><div class="phase-label">${hasCrystal({element})?`<img class="console-crystal" src="${asset('cristaux',element)}" alt="Cristal ${element}">`:icon(element==='NONE'?'circle-slash':'swords')}<span>${label}</span></div><h2 class="${s.phase==='result'?'outcome':''}">${esc(title)}</h2></div>${duelRecap(s)}<div class="duel-actions">${actions}</div>`;
+    return `<div class="duel-status" tabindex="0" role="region" aria-label="État du duel"><div class="phase-label">${hasCrystal({element},data)?`<img class="console-crystal" src="${asset('cristaux',element)}" alt="Cristal ${element}">`:icon(element==='NONE'?'circle-slash':'swords')}<span>${label}</span></div><h2 class="${s.phase==='result'?'outcome':''}">${esc(title)}</h2></div>${duelRecap(s)}<div class="duel-actions">${actions}</div>`;
   }
   function reserveZone(side){
+    const E=matchEngine(game),data=E.data;
     const p=game.players[side],hidden=game.mode==='ai'&&side===1,draggable=!hidden&&(game.phase==='setup'||game.phase==='replace'&&game.replacing===side);
     const slot=game.phase==='replace'&&game.replacing===side?replacementSlot():null;
-    return `<div class="reserve-zone"><div class="reserve-heading"><h3>${slot===null?'Réserve':'Renfort '+KalistarPositions.markup(slot+1)} <span class="muted">${p.reserve.length}</span></h3></div><div class="reserve-cards">${p.reserve.map(u=>{const c=E.card(u),eligible=slot!==null&&canDeployReserve(side,u.uid,slot);return hidden?'<div class="reserve-card face-down"><img src="assets/back.webp" alt="Carte adverse face cachée" draggable="false"></div>':`<button class="reserve-card ${ui.reserve===u.uid?'selected':''} ${slot!==null?eligible?'reinforcement-eligible':'reinforcement-unavailable':''}" data-element="${c.element}" data-reserve-card data-uid="${u.uid}" data-side="${side}" ${draggable?'data-drag-reserve="true"':''} style="--element-color:#${elementInfo(c).color}" aria-label="${esc(c.name)} · ${c.positions.map(p=>'P'+p).join('/')} ${eligible?'· compatible P'+(slot+1):''}"><img src="${cardImage(c)}" alt="${c.name}" draggable="false">${eligible?`<span class="reserve-eligibility">${KalistarPositions.markup(slot+1)}</span>`:''}${reserveTrait(u)}</button>`;}).join('')||'<span class="muted">Aucune carte</span>'}</div></div>`;
+    return `<div class="reserve-zone"><div class="reserve-heading"><h3>${slot===null?'Réserve':'Renfort '+KalistarPositions.markup(slot+1)} <span class="muted">${p.reserve.length}</span></h3></div><div class="reserve-cards">${p.reserve.map(u=>{const c=E.card(u),eligible=slot!==null&&canDeployReserve(side,u.uid,slot);return hidden?'<div class="reserve-card face-down"><img src="assets/back.webp" alt="Carte adverse face cachée" draggable="false"></div>':`<button class="reserve-card ${ui.reserve===u.uid?'selected':''} ${slot!==null?eligible?'reinforcement-eligible':'reinforcement-unavailable':''}" data-element="${c.element}" data-reserve-card data-uid="${u.uid}" data-side="${side}" ${draggable?'data-drag-reserve="true"':''} style="--element-color:#${elementInfo(c,data).color}" aria-label="${esc(c.name)} · ${c.positions.map(p=>'P'+p).join('/')} ${eligible?'· compatible P'+(slot+1):''}"><img src="${cardImage(c)}" alt="${c.name}" draggable="false">${eligible?`<span class="reserve-eligibility">${KalistarPositions.markup(slot+1)}</span>`:''}${reserveTrait(u)}</button>`;}).join('')||'<span class="muted">Aucune carte</span>'}</div></div>`;
   }
   function replacementSlot(){
     if(game?.phase!=='replace')return null;
+    const E=matchEngine(game);
     const p=game.players[game.replacing],vacant=p.board.flatMap((u,i)=>!u&&p.reserve.some(r=>E.card(r).positions.includes(i+1))?[i]:[]);
     return vacant.includes(ui.replacementSlot)?ui.replacementSlot:vacant[0]??null;
   }
@@ -789,7 +815,7 @@ function showDeck(){setView('decks');}
     const shell=$('.game-shell'),console=$('.duel-console');if(!shell||!console||!game)return;
     console.insertAdjacentHTML('beforeend','<span class="console-turn-light" aria-hidden="true"></span>');
     console.insertAdjacentHTML('beforeend','<span class="console-inlay" aria-hidden="true"></span>');
-    const arena=arenaById(game.arenaId),styles={aero:['wind','#acdccc','#152322','bridge'],hydro:['waves','#82dce3','#112429','water'],electro:['zap','#f2d668','#20232c','circuit'],pyro:['flame','#ee9b72','#2b1c1e','forge'],cryo:['snowflake','#b8eaf0','#1b2830','ice'],luxo:['sun','#e8d590','#262521','sun'],minero:['mountain','#b5cbae','#232922','stone'],herbo:['leaf','#a6d88d','#1b2a23','leaves'],hemato:['droplets','#ee879a','#291d28','gates'],necro:['moon','#b2aedf','#211f2e','gates'],geo:['brick-wall','#cfb87f','#282620','stone'],rainbow:['gem','#e4c5e2','#242231','prism'],z13:['pickaxe','#7fded6','#162a2c','circuit'],'trone-fer':['crown','#ddc799','#24282a','gates'],astraball:['goal','#e5b184','#242924','street'],ruins:['landmark','#b7c7ae','#232723','stone']};
+    const arena=matchArena(game),styles={aero:['wind','#acdccc','#152322','bridge'],hydro:['waves','#82dce3','#112429','water'],electro:['zap','#f2d668','#20232c','circuit'],pyro:['flame','#ee9b72','#2b1c1e','forge'],cryo:['snowflake','#b8eaf0','#1b2830','ice'],luxo:['sun','#e8d590','#262521','sun'],minero:['mountain','#b5cbae','#232922','stone'],herbo:['leaf','#a6d88d','#1b2a23','leaves'],hemato:['droplets','#ee879a','#291d28','gates'],necro:['moon','#b2aedf','#211f2e','gates'],geo:['brick-wall','#cfb87f','#282620','stone'],rainbow:['gem','#e4c5e2','#242231','prism'],z13:['pickaxe','#7fded6','#162a2c','circuit'],'trone-fer':['crown','#ddc799','#24282a','gates'],astraball:['goal','#e5b184','#242924','street'],ruins:['landmark','#b7c7ae','#232723','stone']};
     const [,accent,surface,material]=styles[arena.id]||styles.ruins;
     shell.dataset.arena=arena.id;console.dataset.material=material;console.style.setProperty('--arena-accent',accent);console.style.setProperty('--arena-surface',surface);
     const journey=journeyArenaContext(),menuLabel=journey?`Options du match, Fragment, \u00e9tape ${journey.step} sur 4`:'Options du match';
@@ -818,6 +844,7 @@ function showDeck(){setView('decks');}
     return `<section class="turn-timeline" aria-label="Progression du combat"><span class="tt-now" role="status" aria-label="${current}"></span><ol>${steps.map(step=>`<li class="${step.side?'is-enemy':'is-ally'} ${step.past?'is-past':''} ${step.current?'is-current':''} ${step.resolved?'is-resolved':''} ${step.desktopLead?'round-start':''} ${step.phoneLead?'phone-round-start':''}" data-turn-side="${step.side}" data-turn-round="${step.turn}" data-combat-round="${step.round}" data-phone="${step.phone}" ${step.current?'aria-current="step"':''} aria-label="Round ${step.round}, tour ${step.turn}, joueur ${step.side+1}${step.past?', passé':step.resolved?', résolu':step.current?', en cours':', à venir'}" title="Round ${step.round} · Tour ${step.turn} · Joueur ${step.side+1}">${roundLabel(step,'desktop')}${roundLabel(step,'phone')}<span class="tt-stop" aria-hidden="true"><span class="tt-dot">${step.resolved?icon('check'):''}</span><span class="tt-turn">T${step.turn}</span></span></li>`).join('')}</ol></section>`;
   }
   function weaponMatchupGrid(attacker){
+    const data=matchData(game);
     const weapons=Object.keys(data.weapons);
     return weapons.map((defender,index)=>{
       const modifier=data.weapons[attacker]?.[defender]||0,sign=modifier>0?'+':'';
@@ -825,6 +852,7 @@ function showDeck(){setView('decks');}
     }).join('');
   }
   function showCombatReference(kind){
+    const E=matchEngine(game),data=E.data;
     if(kind==='elements'){
       const matchups=Object.values(data.elements).filter(e=>e.strong_against&&data.elements[e.strong_against]);
       const grid=matchups.map(e=>{
@@ -846,7 +874,7 @@ function showDeck(){setView('decks');}
   }
   function arena(){
     if(!game)return '<div class="resume-strip"><h2>Arène de Kalistar</h2><button class="primary" data-action="new-game">Préparer une partie</button></div>';
-    return `${!storageAvailable?'<div class="storage-note">Sauvegarde navigateur indisponible. Exportez la partie pour la conserver.</div>':''}<div class="game-shell" style="--board-scale:${boardScale/100};--arena-image:url('${arenaById(game.arenaId).image}')"><div class="arena-toolbar"><div><h1>${arenaById(game.arenaId).name} <span class="round">Échange ${game.round} / 200</span></h1><span class="muted game-seed">${esc(game.seed)} · ${game.mode==='ai'?'Adversaire automatique':'Deux joueurs locaux'}</span><span class="arena-rules">${arenaRule(arenaById(game.arenaId))}</span></div><div class="tools"><label class="board-zoom" title="Taille des cartes">${icon('scan')}<input id="board-scale" type="range" min="85" max="140" step="5" value="${boardScale}" aria-label="Taille des cartes"><output>${boardScale}%</output></label>${ib('arena-picker','map',game.phase==='setup'?'Choisir une arène':'Arène verrouillée',game.phase==='setup'?'':'disabled')}${ib('combat-reference','gem','Avantages des cristaux','data-reference="elements"')}${ib('combat-reference','swords','Avantages des armes','data-reference="weapons"')}${ib('match-stats','trophy','Bilan et statistiques du match')}${ib('journal','scroll-text','Ouvrir le journal du duel')}${ib('fullscreen','maximize','Plein écran')}${ib('exit-arena','log-out','Quitter l’arène')}${ib('save-game','save','Exporter la sauvegarde')}${ib('load-game','upload','Importer une sauvegarde')}${ib('new-game','rotate-ccw','Nouvelle partie')}<input hidden type="file" id="game-file" accept="application/json,.json"></div><div class="board-navigation">${ib('focus-left','panel-left','Centrer le joueur 1')}${ib('focus-duel','dice-6','Centrer les dés')}${ib('focus-right','panel-right','Centrer le joueur 2')}</div></div><div class="arena-reference-dock" aria-label="Codex de combat">${ib('combat-reference','gem','Avantages des cristaux','data-reference="elements"')}${ib('combat-reference','swords','Avantages des armes','data-reference="weapons"')}</div><div class="arena-layout"><div class="battlefield-viewport"><section class="battlefield" aria-label="Plateau de jeu"><section class="team team-left" data-team="0">${sideHeading(0)}${board(0)}${reserveZone(0)}</section><div class="duel-console" aria-live="polite">${dice(0)}<div class="duel-centre">${consoleBody()}</div>${dice(1)}</div><section class="team team-right" data-team="1">${sideHeading(1)}${board(1)}${reserveZone(1)}</section></section></div></div></div>`;
+    return `${!storageAvailable?'<div class="storage-note">Sauvegarde navigateur indisponible. Exportez la partie pour la conserver.</div>':''}<div class="game-shell" style="--board-scale:${boardScale/100};--arena-image:url('${matchArena(game).image}')"><div class="arena-toolbar"><div><h1>${matchArena(game).name} <span class="round">Échange ${game.round} / 200</span></h1><span class="muted game-seed">${esc(game.seed)} · ${game.mode==='ai'?'Adversaire automatique':'Deux joueurs locaux'}</span><span class="arena-rules">${arenaRule(matchArena(game),matchData(game))}</span></div><div class="tools"><label class="board-zoom" title="Taille des cartes">${icon('scan')}<input id="board-scale" type="range" min="85" max="140" step="5" value="${boardScale}" aria-label="Taille des cartes"><output>${boardScale}%</output></label>${ib('arena-picker','map',game.phase==='setup'?'Choisir une arène':'Arène verrouillée',game.phase==='setup'?'':'disabled')}${ib('combat-reference','gem','Avantages des cristaux','data-reference="elements"')}${ib('combat-reference','swords','Avantages des armes','data-reference="weapons"')}${ib('match-stats','trophy','Bilan et statistiques du match')}${ib('journal','scroll-text','Ouvrir le journal du duel')}${ib('fullscreen','maximize','Plein écran')}${ib('exit-arena','log-out','Quitter l’arène')}${ib('save-game','save','Exporter la sauvegarde')}${ib('load-game','upload','Importer une sauvegarde')}${ib('new-game','rotate-ccw','Nouvelle partie')}<input hidden type="file" id="game-file" accept="application/json,.json"></div><div class="board-navigation">${ib('focus-left','panel-left','Centrer le joueur 1')}${ib('focus-duel','dice-6','Centrer les dés')}${ib('focus-right','panel-right','Centrer le joueur 2')}</div></div><div class="arena-reference-dock" aria-label="Codex de combat">${ib('combat-reference','gem','Avantages des cristaux','data-reference="elements"')}${ib('combat-reference','swords','Avantages des armes','data-reference="weapons"')}</div><div class="arena-layout"><div class="battlefield-viewport"><section class="battlefield" aria-label="Plateau de jeu"><section class="team team-left" data-team="0">${sideHeading(0)}${board(0)}${reserveZone(0)}</section><div class="duel-console" aria-live="polite">${dice(0)}<div class="duel-centre">${consoleBody()}</div>${dice(1)}</div><section class="team team-right" data-team="1">${sideHeading(1)}${board(1)}${reserveZone(1)}</section></section></div></div></div>`;
   }
   async function act(fn){
     if(rolling||presentationOpening||E.equipmentChoice(game))return;
@@ -907,9 +935,9 @@ function showDeck(){setView('decks');}
         $('.duel-centre').innerHTML=consoleBody(next);syncConsole(next);delete $('.duel-console').dataset.casting;icons();
         const label=$(`.duel-die[data-player="${actor}"] small`);
         if(label)label.textContent='D'+value+' · '+dieLabel(phase==='attack'?next.duel.attackValue:next.duel.defenseValue,phase==='attack');
-        const d=next.duel,c=E.card(game.players[d.side].board[d.attackerSlot]);
+        const d=next.duel,c=matchEngine(game).card(game.players[d.side].board[d.attackerSlot]);
         await window.KalistarEquipmentFX.play({before:game,after:next,signal:combatController.signal});
-        await window.KalistarCombat?.play({before:game,after:next,element:c.element,color:'#'+(data.elements[c.element]?.color||'E4D5FB'),reduced,signal:combatController.signal});
+        await window.KalistarCombat?.play({before:game,after:next,element:c.element,color:'#'+(matchData(game).elements[c.element]?.color||'E4D5FB'),reduced,signal:combatController.signal});
         if(token===epoch&&!combatController.signal.aborted){
           checkGame(next);
           const medal=window.KalistarTrophies?.killMilestone(E.matchStats(game),E.matchStats(next),d.attacker);
@@ -987,8 +1015,8 @@ function showDeck(){setView('decks');}
       rolling=true;clearTimeout(aiTimer);next=await journeyStep(game,'acceptAttack');E.assertState(next);combatController=new AbortController();
       $('.duel-centre').innerHTML=consoleBody(next);syncConsole(next);icons();
       await window.KalistarEquipmentFX.play({before:game,after:next,signal:combatController.signal});
-      const c=attacker&&E.card(attacker);
-      await window.KalistarCombat?.play({before:game,after:next,element:c?.element||'',color:'#'+(data.elements[c?.element]?.color||'E4D5FB'),reduced:matchMedia('(prefers-reduced-motion:reduce)').matches,signal:combatController.signal});
+      const c=attacker&&matchEngine(game).card(attacker);
+      await window.KalistarCombat?.play({before:game,after:next,element:c?.element||'',color:'#'+(matchData(game).elements[c?.element]?.color||'E4D5FB'),reduced:matchMedia('(prefers-reduced-motion:reduce)').matches,signal:combatController.signal});
       if(token===epoch&&!combatController.signal.aborted){checkGame(next);game=next;epoch++;}
     }catch(e){toast(e.message);}
     finally{retainJourney(next);combatController?.abort();combatController=null;rolling=false;render();}
@@ -1032,14 +1060,15 @@ function showDeck(){setView('decks');}
     $('#mobile-dialog .mobile-menu').insertAdjacentHTML('beforeend',`<button data-action="reserves" data-side="1">${icon('layers-3')}Réserve adverse · ${game.players[1].reserve.length}${icon('chevron-right')}</button><button data-action="grave" data-side="1">${icon('skull')}Cimetière adverse · ${game.players[1].dead.length}${icon('chevron-right')}</button>`);icons();
   }
   function showArchive(side,kind,slot=null){
+    const E=matchEngine(game);
     if(slot===null&&kind==='reserve'&&phoneLayout()&&game.phase==='replace'&&game.replacing===side)slot=replacementSlot();
     const p=game.players[side],hidden=kind==='reserve'&&side===1&&game.mode==='ai',target=kind==='reserve'&&!hidden&&Number.isInteger(slot)?slot:null;
     const units=(kind==='dead'?p.dead:p.reserve).filter(u=>target===null||canDeployReserve(side,u.uid,target));
     modal('detail-dialog',head(`${kind==='dead'?'Cimetière':'Réserve'} · ${side===0?'Joueur 1':'Adversaire'}`)+`<div class="dialog-body archive-list">${units.map(u=>{
       const c=E.card(u),positions=kind==='reserve'&&!hidden?c.positions.filter(pos=>(target===null||pos===target+1)&&canDeployReserve(side,u.uid,pos-1)):[];
       const direct=phoneLayout()&&target!==null&&positions.length;
-      if(direct)return `<figure class="reinforcement-choice"><div class="reinforcement-image"><button class="card-open reinforcement-card" data-action="deploy-reserve" data-side="${side}" data-uid="${u.uid}" data-slot="${target}" aria-label="Déployer ${esc(c.name)} en P${target+1}"><img src="${cardImage(c)}" alt="${esc(c.name)}"></button><button class="reinforcement-inspect" data-action="detail" data-id="${u.cardId}" aria-label="Inspecter ${esc(c.name)}" title="Inspecter ${esc(c.name)}">${icon('scan-eye')}</button></div><figcaption><span class="reinforcement-position">${KalistarPositions.markup(target+1)}</span>${esc(c.name)}</figcaption></figure>`;
-      return `<figure>${hidden?'<img src="assets/back.webp" alt="Carte adverse face cachée">':`<button class="card-open" data-action="detail" data-id="${u.cardId}" aria-label="Inspecter ${esc(c.name)}"><img src="${cardImage(c)}" alt="${esc(c.name)}"></button>`}<figcaption>${hidden?'Carte en réserve':esc(c.name)}${u.revived?'<br><span class="revived">Déjà ressuscitée</span>':''}</figcaption>${positions.length?`<div class="reserve-placements" aria-label="Déployer ${esc(c.name)}">${positions.map(pos=>`<button data-action="deploy-reserve" data-side="${side}" data-uid="${u.uid}" data-slot="${pos-1}" title="${p.board[pos-1]?'Remplacer '+esc(E.card(p.board[pos-1]).name):'Déployer'} en P${pos}">${KalistarPositions.markup(pos)}</button>`).join('')}</div>`:''}</figure>`;
+      if(direct)return `<figure class="reinforcement-choice"><div class="reinforcement-image"><button class="card-open reinforcement-card" data-action="deploy-reserve" data-side="${side}" data-uid="${u.uid}" data-slot="${target}" aria-label="Déployer ${esc(c.name)} en P${target+1}"><img src="${cardImage(c)}" alt="${esc(c.name)}"></button><button class="reinforcement-inspect" data-action="detail" data-id="${u.cardId}" data-side="${side}" data-uid="${u.uid}" aria-label="Inspecter ${esc(c.name)}" title="Inspecter ${esc(c.name)}">${icon('scan-eye')}</button></div><figcaption><span class="reinforcement-position">${KalistarPositions.markup(target+1)}</span>${esc(c.name)}</figcaption></figure>`;
+      return `<figure>${hidden?'<img src="assets/back.webp" alt="Carte adverse face cachée">':`<button class="card-open" data-action="detail" data-id="${u.cardId}" data-side="${side}" data-uid="${u.uid}" aria-label="Inspecter ${esc(c.name)}"><img src="${cardImage(c)}" alt="${esc(c.name)}"></button>`}<figcaption>${hidden?'Carte en réserve':esc(c.name)}${u.revived?'<br><span class="revived">Déjà ressuscitée</span>':''}</figcaption>${positions.length?`<div class="reserve-placements" aria-label="Déployer ${esc(c.name)}">${positions.map(pos=>`<button data-action="deploy-reserve" data-side="${side}" data-uid="${u.uid}" data-slot="${pos-1}" title="${p.board[pos-1]?'Remplacer '+esc(E.card(p.board[pos-1]).name):'Déployer'} en P${pos}">${KalistarPositions.markup(pos)}</button>`).join('')}</div>`:''}</figure>`;
     }).join('')||'<p class="muted">Aucune carte.</p>'}</div>`);
     if(target!==null)$('#detail-dialog .dialog-head h2').insertAdjacentHTML('beforeend',KalistarPositions.markup(target+1));
   }
@@ -1092,7 +1121,10 @@ function showDeck(){setView('decks');}
       if(action==='owned-cards')return openAccounts(owned(id).length?'collection':'activation',owned(id)[0]?.id||null);
       if(action==='detail'){
         const context=b.dataset.instance?{instanceId:b.dataset.instance}:b.dataset.uid?{side:Number(b.dataset.side),uid:b.dataset.uid}:{};
-        if(b.closest('#match-dialog')&&reportArchive)context.profile=reportArchive.profiles.find(c=>c.id===id);
+        if(b.closest('#match-dialog')){
+          context.matchState=reportGame;
+          context.profile=reportGame?.journey?.snapshot?matchEngine(reportGame).byId[id]:reportArchive?.profiles.find(c=>c.id===id);
+        }
         return showDetail(id,false,context);
       }
       if(action==='detail-version')return showDetail(id,false,ui.detailContext);
@@ -1144,7 +1176,7 @@ function showDeck(){setView('decks');}
         }
         return;
       }
-      if(action==='export-log')return download('Kalistar-journal.json',{seed:game.seed,rules:data.demo,log:game.log});
+      if(action==='export-log')return download('Kalistar-journal.json',{seed:game.seed,rules:matchData(game).demo,log:game.log});
       if(action==='grave'||action==='reserves'){$('#detail-dialog').classList.remove('card-detail');return showArchive(Number(b.dataset.side),action==='grave'?'dead':'reserve');}
       if(action==='slot'&&['clover','potion','physical','heart','guard'].includes(game.phase)){
         const side=Number(b.dataset.side),u=game.players[side].board[Number(b.dataset.slot)];

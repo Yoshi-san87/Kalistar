@@ -1,0 +1,41 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict'),{randomUUID}=require('node:crypto');
+const Archives=require('../../site/cloud-archives.js'),Player=require('../../site/cloud-player.js');
+test('SQL archive protocol: paged private immutable snapshots, leases, migration and unchanged ownership',async()=>{
+  const data=(await require('../build.cjs').plan()).catalogue,fixture=await require('./browser-fixture.cjs').create(data),device=randomUUID();
+  const call=(name,args={},profile='user-tokyo')=>fixture.call(name,args,profile);
+  const client={auth:{},rpc:async(name,args)=>{try{return {data:await call(name,args)};}catch(e){return {error:{code:e.code,message:e.message}};}}};
+  try{
+    for(const name of ['kalistar_archive_put','kalistar_archive_read','kalistar_sync_v2_read','kalistar_sync_v2_claim','kalistar_sync_v2_write','kalistar_sync_v2_release'])await assert.rejects(call(name,{},'anon'),e=>e.code==='42501');
+    const player=await call('kalistar_player'),E=require('../../site/engine.js').createEngine(data),Team=require('../../site/team-composition.js').create(E);
+    const state=E.newGame(Team.fromPreset({name:'Tokyo',cards:player.starterDeck}),Team.fromPreset({name:'Virtual',cards:data.decks.enemy}),{mode:'ai',seed:'archive-v2',turnOrder:'ABBA',deckCoverage:2});
+    const units=[...state.players[0].board.filter(Boolean),...state.players[0].reserve];
+    state.collection={schema:1,userId:'user-tokyo',opponent:'virtual',bindings:Object.fromEntries(units.map(u=>[u.instanceId,player.cards.find(c=>c.modelId===u.cardId).id]))};
+    const date='2026-10-17T00:00:00Z',match={id:state.matchId,state,profiles:data.cards,arenas:data.arenas,rules:data.demo,summary:E.matchStats(state),createdAt:date,updatedAt:date,finalized:false};
+    const legacy={schema:1,edition:'V4',localProfile:'user-tokyo',preferences:{},deckLibrary:{schema:2,edition:'V4',decks:[]},equipment:require('../../site/equipment.js').profile('user-tokyo'),matches:[match],activeMatchId:null,releasedMatches:[match.id]};
+    await call('kalistar_sync_claim',{p_device_id:device,p_expected_revision:0,p_takeover:false});
+    await call('kalistar_sync_write',{p_device_id:device,p_expected_revision:0,p_payload:legacy});
+    assert.equal((await call('kalistar_sync_v2_read')).payload.schema,1,'No destructive eager migration');
+    const api=Archives.create({client,profile:'user-tokyo',compact:Player.compactArchive}),value=await api.split(legacy),ref=value.archives[0];
+    await assert.rejects(call('kalistar_sync_v2_write',{p_device_id:device,p_expected_revision:1,p_payload:value}),/References/);
+    const saved=await api.transport.rpc('kalistar_sync_write',{p_device_id:device,p_expected_revision:1,p_payload:value});assert.ifError(saved.error);assert.equal(saved.data.revision,2);
+    const read=await call('kalistar_sync_v2_read');assert.deepEqual(read.payload,value);assert.equal((await call('kalistar_player')).cards.length,10);
+    const expanded=await Archives.create({client,profile:'user-tokyo',compact:Player.compactArchive}).expand(value);assert.equal(expanded.matches[0].id,match.id);
+    await assert.rejects(call('kalistar_archive_read',{p_refs:[ref]},'user-paris'),/indisponible/);
+    await assert.rejects(call('kalistar_archive_read',{p_refs:Array(9).fill(ref)}),/invalide/);
+    await assert.rejects(call('kalistar_sync_write',{p_device_id:device,p_expected_revision:2,p_payload:legacy}),/Recharge/);
+    await assert.rejects(call('kalistar_sync_v2_write',{p_device_id:device,p_expected_revision:2,p_payload:{...value,localProfile:'user-paris'}}));
+    await assert.rejects(call('kalistar_sync_v2_write',{p_device_id:device,p_expected_revision:2,p_payload:{...value,archives:[ref,ref]}}));
+    const text=Archives.stable(Player.compactArchive(match)),hash=await Archives.digest(text);
+    const batch={p_device_id:device,p_expected_revision:2,p_archives:[{hash,text}]};
+    assert.equal((await call('kalistar_archive_put',{...batch,p_device_id:randomUUID()})).code,'busy');
+    assert.equal((await call('kalistar_archive_put',{...batch,p_expected_revision:1})).code,'conflict');
+    await assert.rejects(call('kalistar_archive_put',{...batch,p_archives:[{hash:'0'.repeat(64),text}]}),/corrompue/);
+    assert((await call('kalistar_archive_put',batch)).ok);assert((await call('kalistar_archive_put',batch)).ok);
+    assert.equal((await call('kalistar_sync_v2_read')).revision,2,'Archive retries never increment the progress revision');
+    for(const releasedMatches of [[null],[match.id,match.id]])await assert.rejects(call('kalistar_sync_v2_write',{p_device_id:device,p_expected_revision:2,p_payload:{...value,releasedMatches}}));
+    const active={...value,matches:[Player.compactArchive(match)],archives:[],activeMatchId:match.id,releasedMatches:[]};
+    assert((await call('kalistar_sync_v2_write',{p_device_id:device,p_expected_revision:2,p_payload:active})).ok);
+    await assert.rejects(call('kalistar_offer',{p_id:Object.values(state.collection.bindings)[0],p_recipient:'kalistar_paris'}),e=>e.code==='42501');
+  }finally{await fixture.close();}
+});

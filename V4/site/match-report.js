@@ -42,9 +42,10 @@
   }
   function render(s,{sort='rating',side='all',profiles=null,arenas=null,rules=null,tab='lineup',page=0,group='core',award=0,spotlight='rating',battle=null}={}){
     const core=metrics(coreDefaults,window.KalistarMatchMetrics?.core),extras=metrics(extraDefaults,window.KalistarMatchMetrics?.extras),allMetrics=[...core,...extras];
-    const byId={...engine.byId};
-    if(Array.isArray(profiles))for(const c of profiles)if(c&&engine.byId[c.id])byId[c.id]={...c,slug:engine.byId[c.id].slug};
-    const reportEngine=profiles&&arenas&&rules?KalistarEngine.createArchiveEngine(window.KALISTAR_DATA,{profiles,arenas,rules}):engine;
+    const frozen=window.KalistarJourneyCombat?.engineFor(window.KALISTAR_DATA,s);
+    const reportEngine=frozen||(profiles&&arenas&&rules?KalistarEngine.createArchiveEngine(window.KALISTAR_DATA,{profiles,arenas,rules}):engine);
+    const byId={...reportEngine.byId};
+    if(!frozen&&Array.isArray(profiles))for(const c of profiles)if(c&&engine.byId[c.id])byId[c.id]={...c,slug:engine.byId[c.id].slug};
     const stats=reportEngine.matchStats(s),units=stats.units;
     const ratingHelp=Index.helpFor(stats.ratingVersion);
     for(const metric of extras)if(metric.key==='rating')metric.help=ratingHelp;
@@ -53,8 +54,8 @@
     for(const metric of extras)if(unknown(metric))metric.help+=' Non renseigne dans cet historique.';
     const metricValue=(metric,u)=>unknown(metric)?'\u2014':metric.key==='rating'?indexDetail(u):num(u[metric.key]);
     const medal=u=>stats.partial?'':trophies.medal(u.kills);
-    const currentArenas=window.KALISTAR_DATA.arenas||[],arena=(Array.isArray(arenas)?arenas:currentArenas).find(a=>a.id===s.arenaId);
-    const arenaVisual=currentArenas.find(a=>a.id===s.arenaId),accent=window.KALISTAR_DATA.elements?.[arenaVisual?.element]?.color;
+    const currentArenas=window.KALISTAR_DATA.arenas||[],arena=(frozen?frozen.data.arenas:Array.isArray(arenas)?arenas:currentArenas).find(a=>a.id===s.arenaId);
+    const arenaVisual=frozen?arena:currentArenas.find(a=>a.id===s.arenaId),accent=reportEngine.data.elements?.[arenaVisual?.element]?.color;
     const arenaImage=arenaVisual?.image||'assets/arena.webp';
     const arenaStyle=`--match-arena:url(${JSON.stringify(globalThis.KalistarSite?.url(arenaImage)||arenaImage)});--match-accent:#${/^[\da-f]{6}$/i.test(accent)?accent:'BDA77A'}`;
     spotlight=categories.some(([key])=>key===spotlight)?spotlight:'rating';
@@ -67,9 +68,9 @@
     const rowBudget=height-(mobile?330:spacious?height>900?450:400:360);
     const pageSize=tab==='teams'&&!mobile&&height>=850?columns.length:Math.max(1,Math.min(mobile?3:height>900?10:5,Math.floor(rowBudget/(mobile||spacious?96:74))));
     const player=side=>side===0?'Joueur 1':(window.KalistarAI?.name(s)||(s.mode==='ai'?'Le Veilleur':'Joueur 2'));
-    const portrait=u=>`<img src="${KalistarCardMedia.image(engine.byId[u.cardId])}" alt="" width="34" height="46">`;
+    const portrait=u=>`<img src="${KalistarCardMedia.image((frozen||engine).byId[u.cardId])}" alt="" width="34" height="46">`;
     const artwork=u=>{
-      const c=engine.byId[u.cardId];
+      const c=(frozen||engine).byId[u.cardId];
       return `<img class="award-art" src="${esc(KalistarCardMedia.image(c,'art'))}" alt="${esc('Illustration de '+byId[u.cardId].name)}" draggable="false">`;
     };
     const identity=(u,className='match-unit')=>{

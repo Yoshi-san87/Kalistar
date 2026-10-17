@@ -35,6 +35,7 @@
         }
         if(O||cloud)for(const table of registryStores)if(!db.objectStoreNames.contains(table))db.createObjectStore(table,{keyPath:'id'});
         if(!db.objectStoreNames.contains('equipment'))db.createObjectStore('equipment',{keyPath:'id'});
+        if(cloud&&!db.objectStoreNames.contains('cloudArchives'))db.createObjectStore('cloudArchives',{keyPath:'hash'});
       };
       return new Promise((resolve,reject)=>{
         let blocked=false;
@@ -44,7 +45,7 @@
       });
     }
     let db=await connect();
-    while(!db.objectStoreNames.contains('equipment')||(O||cloud)&&registryStores.some(s=>!db.objectStoreNames.contains(s))){
+    while(!db.objectStoreNames.contains('equipment')||cloud&&!db.objectStoreNames.contains('cloudArchives')||(O||cloud)&&registryStores.some(s=>!db.objectStoreNames.contains(s))){
       const version=db.version+1;db.close();
       try{db=await connect(version);}catch(e){if(e.name!=='VersionError')throw e;db=await connect();}
     }
@@ -64,52 +65,78 @@
     const serial=(id,n)=>`K4-${id}-${String(n).padStart(3,'0')}`;
     const instance=(id,n,date)=>({id:serial(id,n),cardId:id,characterId:E.byId[id].characterId,copy:n,serial:serial(id,n),createdAt:date});
     const enqueue=fn=>{const run=queue.then(fn);queue=run.catch(()=>{});return run;};
-    async function refresh(){
-      if(!opened)throw new Error('Base locale fermee.');
-      const tx=db.transaction(allStores,'readonly'),done=completed(tx),reads=allStores.map(s=>request(tx.objectStore(s).getAll())),next={};
-      for(let i=0;i<allStores.length;i++)next[allStores[i]]=await reads[i];
-      await done;
-      const historical=next.versions.some(c=>!E.byId[c.id]);
-      next.equipment=next.equipment.map(row=>reconcileEquipment(row,historical));
+    function acceptCache(next){
       const previous=catalogueChanges().join(','),equipmentBefore=stable(cache.equipment);cache=next;
       const changed=catalogueChanges();
       if(changed.join(',')!==previous)for(const listener of catalogueListeners)try{listener(changed.slice());}catch{}
       if(stable(cache.equipment)!==equipmentBefore)for(const listener of equipmentListeners)try{listener();}catch{}
     }
-    async function publish(){
-      await refresh();
-      for(const peer of connections.get(name)||[])if(peer!==refresh)try{await peer();}catch{}
-      channel?.postMessage('changed');
-    }
-    // Every registry mutation and match write locks the same tables. The callback
-    // runs inside the last IDB read event; no crypto/network await can close the tx.
-    async function atomic(fn){
+    async function refresh(names=allStores){
       if(!opened)throw new Error('Base locale fermee.');
-      const tx=db.transaction(allStores,'readwrite'),done=completed(tx),snapshot={};
-      let remaining=allStores.length,result,failure;
+      if(!Array.isArray(names))names=allStores;
+      const tx=db.transaction(names,'readonly'),done=completed(tx),reads=names.map(s=>request(tx.objectStore(s).getAll())),next={...cache};
+      for(let i=0;i<names.length;i++)next[names[i]]=await reads[i];
+      await done;
+      const historical=next.versions.some(c=>!E.byId[c.id]);
+      next.equipment=next.equipment.map(row=>reconcileEquipment(row,historical));
+      acceptCache(next);
+    }
+    async function publish(names){
+      for(const peer of connections.get(name)||[])if(peer!==refresh)try{await peer(names);}catch{}
+      channel?.postMessage({stores:names});
+    }
+    // Ownership mutations retain their full lock set; cloud writes can read only
+    // their affected keys. The callback runs inside the last IDB read event.
+    async function atomic(fn,scope=allStores){
+      if(!opened)throw new Error('Base locale fermee.');
+      const names=Array.isArray(scope)?scope:Object.keys(scope),selectors=Array.isArray(scope)?{}:scope;
+      const tx=db.transaction(names,'readwrite'),done=completed(tx),snapshot={...cache},removed=new Map(),cleared=new Set();
+      let remaining=names.length,result,failure;
       const key=(store,row)=>store==='results'?stable([row.matchId,row.instanceId]):row.id;
       const write=(store,row)=>{
+        if(!names.includes(store))throw new Error('Table hors transaction.');
         const item=copy(row),index=snapshot[store].findIndex(r=>key(store,r)===key(store,item));
         if(index<0)snapshot[store].push(item);else snapshot[store][index]=item;
         tx.objectStore(store).put(item);
       };
       const clear=store=>{snapshot[store]=[];tx.objectStore(store).clear();};
-      for(const store of allStores){
-        const get=tx.objectStore(store).getAll();
-        get.onsuccess=()=>{
-          snapshot[store]=get.result;
+      const clearRows=store=>{cleared.add(store);clear(store);};
+      const remove=(store,id)=>{
+        if(!names.includes(store))throw new Error('Table hors transaction.');
+        const k=store==='results'?stable(id):id;
+        snapshot[store]=snapshot[store].filter(row=>key(store,row)!==k);
+        if(!removed.has(store))removed.set(store,new Set());removed.get(store).add(k);tx.objectStore(store).delete(id);
+      };
+      function read(store,rows){
+          snapshot[store]=rows;
           if(--remaining===0)try{
             const historical=snapshot.versions.some(c=>!E.byId[c.id]);
-            for(const row of snapshot.equipment){
+            for(const row of names.includes('equipment')?snapshot.equipment:[]){
               const next=reconcileEquipment(row,historical);
               if(stable(row)!==stable(next))write('equipment',next);
             }
-            result=fn(snapshot,write,clear);
+            result=fn(snapshot,write,clearRows,remove);
           }catch(e){failure=e;tx.abort();}
-        };
+      }
+      for(const store of names){
+        const ids=selectors[store];
+        if(!Array.isArray(ids)){const get=tx.objectStore(store).getAll();get.onsuccess=()=>read(store,get.result);}
+        else if(!ids.length){const get=tx.objectStore(store).count();get.onsuccess=()=>read(store,[]);}
+        else{
+          const rows=[];let pending=ids.length;
+          for(const id of ids){const get=tx.objectStore(store).get(id);get.onsuccess=()=>{if(get.result)rows.push(get.result);if(!--pending)read(store,rows);};}
+        }
       }
       try{await done;}catch(e){throw failure||e;}
-      await publish();return result;
+      const next={...cache};
+      for(const store of names){
+        if(!Array.isArray(selectors[store])||cleared.has(store))next[store]=snapshot[store];
+        else{
+          const replaced=new Set([...selectors[store].map(id=>store==='results'?stable(id):id),...snapshot[store].map(row=>key(store,row)),...(removed.get(store)||[])]);
+          next[store]=cache[store].filter(row=>!replaced.has(key(store,row))).concat(snapshot[store]);
+        }
+      }
+      acceptCache(next);await publish(names);return result;
     }
     try{
       await atomic((s,write)=>{
@@ -132,14 +159,15 @@
     if(!connections.has(name))connections.set(name,new Set());connections.get(name).add(refresh);
     if(typeof BroadcastChannel!=='undefined'){
       channel=new BroadcastChannel(name+'-ownership');
-      channel.onmessage=()=>{enqueue(refresh).catch(()=>{});};
+      channel.onmessage=event=>{const names=event.data?.stores;enqueue(()=>refresh(Array.isArray(names)&&names.every(s=>allStores.includes(s))?names:allStores)).catch(()=>{});};
     }
     const close=()=>{opened=false;catalogueListeners.clear();equipmentListeners.clear();channel?.close();connections.get(name)?.delete(refresh);db.close();};
     db.onversionchange=close;
     function makeMatch(value,at=new Date().toISOString(),archive=null){
-      const engine=archive?KalistarEngine.createArchiveEngine(data,archive):E;
+      const engine=globalThis.KalistarJourneyCombat?.engineFor(data,value)||(archive?KalistarEngine.createArchiveEngine(data,archive):E);
       const state=engine.restoreGame(validateGame(value)),summary=engine.matchStats(state);
-      return {id:state.matchId,state,summary,createdAt:at,updatedAt:at,finalized:state.phase==='over',edition:EDITION,arenas:copy(engine.data.arenas||[]),rules:copy(engine.data.demo),profiles:copy(engine.data.cards)};
+      const ids=new Set(state.players.flatMap(p=>[...p.board.filter(Boolean),...p.reserve,...p.dead].map(u=>u.cardId)));
+      return {id:state.matchId,state,summary,createdAt:at,updatedAt:at,finalized:state.phase==='over',edition:EDITION,arenas:copy((engine.data.arenas||[]).filter(a=>a.id===state.arenaId)),rules:copy(engine.data.demo),profiles:copy(engine.data.cards.filter(c=>ids.has(c.id)))};
     }
     function historicalArenas(arenas,arenaId){
       if(!Array.isArray(arenas)||!arenas.length||arenas.length>1000||arenas.some(a=>!a||['name','subtitle','image','source'].some(key=>typeof a[key]!=='string'||a[key].length>10000)))throw new Error('Arènes historiques invalides.');
@@ -200,7 +228,7 @@
           const old=s.matches.find(m=>m.id===match.id);
           const bound=Object.hasOwn(match.state,'collection'),oldBound=old&&Object.hasOwn(old.state,'collection');
           if((bound||oldBound)&&!O&&!cloud)throw new Error('Module de propriete requis pour cette partie.');
-          if(cloud)cloudRegistry.validateSave(match.state,old,{restoring});
+          if(cloud)cloudRegistry.validateSave(match.state,old,{restoring,registryMeta:s.registryMeta});
           else if(O)O.validateSave(match.state,old,s,{restoring,restoreLegacy});
           // Older standalone loaders must not bypass an already upgraded registry.
           else if(hasRegistry&&!cloud&&!(old?.finalized&&match.finalized&&sameFinal(old,match))){
@@ -227,7 +255,10 @@
       }
     }
     async function writeMatches(incoming,extraInstances=[]){
-      return atomic((s,write)=>mergeMatches(incoming,extraInstances,s,write));
+      const units=incoming.flatMap(m=>m.summary.units),ids=[...new Set(units.map(u=>u.instanceId))];
+      // Local/demo ownership still uses its full atomic dependency graph.
+      const scope=cloud?{matches:incoming.map(m=>m.id),instances:ids,results:units.map(u=>[incoming.find(m=>m.summary.units.includes(u)).id,u.instanceId]),registryMeta:incoming.map(m=>'lease-'+m.id)}:allStores;
+      return atomic((s,write)=>mergeMatches(incoming,extraInstances,s,write),scope);
     }
     function career(cardId,instanceId=null){
       const rows=cache.results.filter(r=>r.cardId===cardId&&(!instanceId||r.instanceId===instanceId)&&r.participated&&!r.partial);
@@ -263,7 +294,7 @@
       importBackup:(input,options={})=>{const value=copy(input),replaceRegistry=options.replaceRegistry===true;return enqueue(async()=>{
         if(cloud)throw new Error('Une sauvegarde de demonstration ne peut pas modifier la collection en ligne.');
         if(value?.edition!==EDITION||value?.gameSchema!==GAME_SCHEMA||value?.database!==NAME)throw legacyError();
-        if(value?.format!=='kalistar-local-library'||![2,3].includes(value.schema)||!stores.every(s=>Array.isArray(value[s]))||value.matches.length>10000||value.instances.length>data.cards.length*4)throw new Error('Sauvegarde de collection invalide.');
+        if(value?.format!=='kalistar-local-library'||![2,3].includes(value.schema)||!stores.every(s=>Array.isArray(value[s]))||value.matches.length>10001||value.instances.length>data.cards.length*4)throw new Error('Sauvegarde de collection invalide.');
         if(value.schema===2&&(replaceRegistry||registryStores.some(s=>Object.hasOwn(value,s))||value.matches.some(m=>m?.state&&Object.hasOwn(m.state,'collection'))))throw new Error('Une sauvegarde historique ne peut pas modifier le registre.');
         if(value.schema===3&&!O)throw new Error('Module de propriete requis pour importer ce registre.');
         if(!value.versions.length||value.versions.length>1000||new Set(value.versions.map(p=>p?.id)).size!==value.versions.length||value.versions.some(p=>!E.byId[p?.id]||p.edition!==EDITION||p.characterId!==E.byId[p.id].characterId))throw legacyError();
@@ -323,24 +354,36 @@
     };
     if(O)api.registry=O.create({data,engine:E,getCache:()=>cache,enqueue,transaction:atomic,refresh,isOpen:()=>opened});
     if(cloud){
-      cloudRegistry=window.KalistarCloudOwnership.create({data,engine:E,player:cloud,getCache:()=>cache,enqueue,transaction:atomic,refresh,isOpen:()=>opened});
+      cloudRegistry=window.KalistarCloudOwnership.create({data,engine:E,player:cloud,getCache:()=>cache,enqueue,transaction:fn=>atomic(fn,['registryMeta']),refresh,isOpen:()=>opened});
       api.registry=cloudRegistry;
       api.cloudProgress={
+        archives:{
+          get:async hash=>{const tx=db.transaction('cloudArchives','readonly'),done=completed(tx),row=await request(tx.objectStore('cloudArchives').get(hash));await done;return row?.text??null;},
+          put:async(hash,text)=>{const tx=db.transaction('cloudArchives','readwrite'),done=completed(tx);tx.objectStore('cloudArchives').put({hash,text});await done;}
+        },
         storage:{
           getItem:key=>Promise.resolve(cache.registryMeta.find(m=>m.id==='sync-meta-'+key)?.value??null),
-          setItem:(key,value)=>enqueue(()=>atomic((s,write)=>write('registryMeta',{id:'sync-meta-'+key,value})))
+          setItem:(key,value)=>enqueue(()=>atomic((s,write,clear,remove)=>{
+            const id='sync-meta-'+key;write('registryMeta',{id,value,touchedAt:Date.now()});
+            // Pending or unreadable drafts are never pruned. Keep four acknowledged tabs.
+            const acknowledged=s.registryMeta.filter(row=>{
+              if(!row.id.startsWith('sync-meta-'))return false;
+              try{const record=JSON.parse(row.value);return record.schema===1&&record.outbox===null&&!!record.base;}catch{return false;}
+            }).sort((a,b)=>(b.touchedAt||0)-(a.touchedAt||0));
+            for(const row of acknowledged.filter(row=>row.id!==id).slice(3))remove('registryMeta',row.id);
+          },['registryMeta']))
         },
-        capture:()=>({matches:copy(cache.matches),equipment:api.equipment.profile(cloud.localProfile),releasedMatches:cache.registryMeta.filter(m=>m.id.startsWith('lease-')).map(m=>m.matchId)}),
+        capture:()=>({matches:cache.matches,equipment:api.equipment.profile(cloud.localProfile),releasedMatches:cache.registryMeta.filter(m=>m.id.startsWith('lease-')).map(m=>m.matchId)}),
         backup:(payload,reason)=>enqueue(()=>atomic((s,write,clear)=>{
           const rows=s.registryMeta.filter(m=>m.id.startsWith('cloud-backup-')).sort((a,b)=>b.id.localeCompare(a.id)).slice(0,4);
           const kept=s.registryMeta.filter(m=>!m.id.startsWith('cloud-backup-'));clear('registryMeta');
           for(const row of [...kept,...rows])write('registryMeta',row);
           write('registryMeta',{id:'cloud-backup-'+Date.now(),reason,payload:copy(payload)});
-        })),
+        },['registryMeta'])),
         apply:(value,{isCurrent=()=>true}={})=>enqueue(async()=>{
           if(!isCurrent())throw Error('Synchronisation interrompue.');
           const equipment=Q.reconcileProfile(value.equipment,data.cards);Q.validateProfile(equipment,data.cards);
-          if(equipment.id!==cloud.localProfile||!Array.isArray(value.matches)||value.matches.length>500)throw Error('Progression d un autre compte ou trop volumineuse.');
+          if(equipment.id!==cloud.localProfile||!Array.isArray(value.matches)||value.matches.length>10001)throw Error('Progression d un autre compte ou trop volumineuse.');
           const matches=value.matches.map(m=>{if(!m||m.state.collection?.userId!==cloud.localProfile)throw Error('Archive d un autre compte.');const checked=makeMatch(m.state,m.updatedAt,m);return {...checked,createdAt:m.createdAt,updatedAt:m.updatedAt};});
           for(const m of matches)cloudRegistry.validateSave(m.state,null,{restoring:true});
           await atomic((s,write,clear)=>{
@@ -368,12 +411,12 @@
         if(hasRegistry&&!s.users.some(u=>u.id===userId))throw new Error('Profil inconnu.');
         const current=s.equipment.find(r=>r.id===userId)||Q.profile(userId);
         const row=Q.equipProfile(current,characterId,weaponId,data.cards,{expected,expectedProfile});write('equipment',row);return copy(row);
-      })),
+      },hasRegistry?['users','equipment']:['equipment'])),
       unequip:(userId,characterId,weaponId)=>enqueue(()=>atomic((s,write)=>{
         const row=copy(s.equipment.find(r=>r.id===userId)||Q.profile(userId)),slot=Q.catalogue.weapons.find(w=>w.id===weaponId)?.slot;
         if(!slot||row.slots[slot][characterId]!==weaponId)throw new Error('L\u2019\u00e9quipement a chang\u00e9.');
         delete row.slots[slot][characterId];Q.validateProfile(row,data.cards);write('equipment',row);return copy(row);
-      }))
+      },['equipment']))
     };
     return api;
   }

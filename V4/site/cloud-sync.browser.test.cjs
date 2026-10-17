@@ -282,12 +282,50 @@ async function main(){
       const cloud=await database.read('user-paris');assert(cloud.revision>0);assert.equal(cloud.payload.preferences.teamDraft.name,name);
       assert(cloud.payload.preferences.favorites.includes(KAYLIS));assert(cloud.payload.deckLibrary.decks.some(d=>d.name===name));assert.equal(cloud.payload.equipment.slots.weapon.balmhyr,AXE);
       assert.equal(cloud.payload.preferences['story-progress'].section,1);assert.equal(cloud.payload.preferences['story-progress'].paper,'night');
-      assert.deepEqual(Object.keys(cloud.payload).sort(),['schema','edition','localProfile','preferences','deckLibrary','equipment','matches','activeMatchId','releasedMatches'].sort(),'Progress RPC contains no ownership registry or credentials');
+      assert.equal(cloud.payload.schema,2);
+      assert.deepEqual(Object.keys(cloud.payload).sort(),['schema','edition','localProfile','preferences','deckLibrary','equipment','matches','archives','activeMatchId','releasedMatches'].sort(),'Progress RPC contains no ownership registry or credentials');
       assert.equal(cloud.payload.localProfile,'user-paris');assert.equal(cloud.payload.activeMatchId,null);await shot(first.page,'paris-pc-saved');
       result.checks.push('real-ui-deck-favorites-equipment-story-upload');
+      if(profile.name==='desktop'){
+        stage='large-history-upload';
+        result.largeHistory=await first.page.evaluate(async()=>{
+          await KALISTAR_SYNC.pause();
+          const E=KalistarEngine.createEngine(KALISTAR_DATA),T=KalistarTeamComposition.create(E),samples=[];
+          const step=s=>{
+            if(E.equipmentChoice(s))return E.grantEquipment(s,E.aiEquipmentChoice(s));
+            if(s.phase==='initiative')return E.rollInitiative(s);
+            if(s.phase==='choose')return E.lock(s,...E.aiChoice(s));
+            if(s.phase==='attack')return E.rollAttack(s);
+            if(s.phase==='defense')return E.rollDefense(s);
+            if(s.phase==='kalistel')return E.aiUseKalistel(s)?E.useKalistel(s):E.acceptAttack(s);
+            if(s.phase==='result')return E.next(s);
+            if(s.phase==='replace')return E.autoDeploy(s,s.replacing);
+            const pair={clover:['grantClover','aiCloverChoice'],potion:['grantPotion','aiPotionChoice'],physical:['grantPhysical','aiPhysicalChoice'],heart:['grantReraise','aiReraiseChoice'],guard:['grantGuard','aiGuardChoice']}[s.phase];
+            if(!pair)throw Error('Unexpected history phase');return E[pair[0]](s,E[pair[1]](s));
+          };
+          for(let i=0;i<5;i++){
+            const s=KALISTAR_DB.registry.bindGame('user-paris',E.newGame(T.fromPreset({name:'History',cards:KALISTAR_DATA.decks.player}),T.fromPreset({name:'Enemy',cards:KALISTAR_DATA.decks.enemy}),{mode:'ai',seed:'archive-large-'+i,turnOrder:'ABBA'}));
+            let actions=0;while(s.phase!=='over'&&actions++<10000)step(s);if(s.phase!=='over')throw Error('Incomplete history simulation');samples.push(s);
+          }
+          for(let i=0;i<120;i++){const s=structuredClone(samples[i%5]);s.matchId='match-'+crypto.randomUUID();await KALISTAR_DB.saveGame(s);}
+          const entries=KALISTAR_DB.matches(),bytes=new TextEncoder().encode(JSON.stringify(entries)).length;
+          KALISTAR_SYNC.changed();await KALISTAR_SYNC.retry();
+          return {matches:entries.length,fullBytes:bytes,sampleId:entries[0].id,sampleWinner:entries[0].state.winner,sampleKills:entries[0].summary.units.reduce((n,u)=>n+u.kills,0)};
+        });
+        await flush(first.page);await closeDialogs(first.page);
+        const large=await database.read('user-paris');assert.equal(large.payload.archives.length,120);assert.equal(large.payload.matches.length,0);
+        result.largeHistory.wireBytes=Buffer.byteLength(JSON.stringify(large.payload));
+        assert(result.largeHistory.fullBytes>8*1024*1024);assert(result.largeHistory.wireBytes<100000);
+        assert(calls.some(c=>c.device===first.label&&c.name==='kalistar_archive_put'));
+      }
       stage='paris-second-login';const second=await device({...profile,mobile:!profile.mobile,width:profile.mobile?1440:412,height:profile.mobile?1000:1007},profile.name+'-paris-second');
       await login(second,'user-paris');await busy(second.page);
       const copied=await local(second.page,PARIS);assert.equal(copied.name,name);assert(copied.favorites.includes(KAYLIS));assert.equal(copied.equipment.slots.weapon.balmhyr,AXE);
+      if(result.largeHistory){
+        const restored=await second.page.evaluate(id=>({count:KALISTAR_DB.matches().length,winner:KALISTAR_DB.match(id).state.winner,kills:KALISTAR_DB.match(id).summary.units.reduce((n,u)=>n+u.kills,0)}),result.largeHistory.sampleId);
+        assert.equal(restored.count,120);assert.equal(restored.winner,result.largeHistory.sampleWinner);assert.equal(restored.kills,result.largeHistory.sampleKills);
+        assert(calls.filter(c=>c.device===second.label&&c.name==='kalistar_archive_read').length>=15);result.checks.push('120-archives-paged-restore-over-eight-mib');
+      }
       assert(copied.library.decks.some(d=>d.name===name));assert.equal(copied.story.section,1);assert.equal(copied.story.paper,'night');await shot(second.page,'paris-second-busy');
       result.checks.push('second-device-restores-all-progress');
       stage='paris-takeover';const claimsBefore=calls.filter(c=>c.takeover).length;await takeover(second.page);assert.equal(calls.filter(c=>c.takeover).length,claimsBefore+1);

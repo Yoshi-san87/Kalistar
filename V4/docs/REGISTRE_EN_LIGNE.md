@@ -60,14 +60,15 @@ disponible et un transfert incompatible est refuse avant attribution.
 
 ## Synchronisation
 
-`cloud-player.js` filtre la progression, `cloud-ownership.js` projette les droits
+`cloud-player.js` filtre la progression, `cloud-archives.js` separe les archives,
+`cloud-ownership.js` projette les droits
 serveur, `cloud-sync.js` gere revisions et conflits. Decks, equipements, favoris,
 lecture Story et rencontres sont lies au compte Auth, pas a un nom ou email
 utilise comme cle. Paris et Tokyo ne partagent pas leurs sauvegardes. Les images
 restent sur Cloudflare, jamais dans les payloads de progression.
 
 La table privee `player_saves` conserve revision, payload et bail d'appareil.
-Les RPC `kalistar_sync_read/claim/write/release` exigent l'acteur autorise. Une
+Les RPC `kalistar_sync_v2_read/claim/write/release` exigent l'acteur autorise. Une
 ecriture exige la revision lue et un bail valide : aucun dernier-ecrivain-gagne
 silencieux. Le bail dure 120 secondes, renouvele toutes les 45 secondes visibles.
 Une lecture avec revision connue et un acquittement reussi n'envoient pas tout
@@ -92,11 +93,31 @@ restent locales avec avertissement. Avant application du cloud ou resolution
 de conflit, cinq sauvegardes de securite au plus sont conservees dans le cache.
 Un cloud existant et un appareil deja modifie demandent un choix explicite.
 
-Payload schema 1, V4 : `localProfile`, `preferences` (liste fermee), `deckLibrary`,
-`equipment`, `matches`, `activeMatchId`, `releasedMatches`. Maximum 8 Mio et
-500 rencontres, sans suppression automatique pour respecter ces limites. Une
-rencontre conserve seulement les profils engages et son arene, avec regles et
-equipements figes. Les resultats sont reconstruits depuis les snapshots valides.
+Payload schema 2, V4 : `localProfile`, `preferences` (liste fermee), `deckLibrary`,
+`equipment`, `matches` (la seule partie active), `archives` (references `id/hash`),
+`activeMatchId`, `releasedMatches`. Le document courant reste limite a 8 Mio et
+10 000 references. Chaque archive immuable est privee au compte, identifiee par
+SHA-256 et limitee a 2 Mio. Les RPC `kalistar_archive_put/read` transferent au
+plus huit archives par appel ; chaque envoi exige le meme bail et la meme revision
+que la progression. Le document courant n'est valide qu'apres leur acquittement.
+Le serveur refuse les references absentes ou appartenant a un autre compte.
+
+La migration 010 ne reecrit ni ne supprime les anciens payloads schema 1. Le
+nouveau client les convertit a leur prochaine sauvegarde ; un ancien onglet ne
+peut pas ecraser un document deja migre. Les archives et brouillons non acquittes
+sont conserves en IndexedDB, meme apres fermeture de l'onglet. Une empreinte
+incorrecte interrompt la restauration sans remplacer la progression locale.
+Une archive contient les profils engages et la seule arene du combat. Les
+resultats sont reconstruits depuis les snapshots valides, sans importer des
+compteurs fournis par le joueur. Les anciennes versions d'une archive ne sont
+pas automatiquement effacees : surveiller la taille serveur avant ouverture large.
+
+La retention locale garde quatre sessions acquittees et preserve tous les
+brouillons en attente ou illisibles. Les identifiants d'onglet restent distincts
+pour les baux. Une petite ecriture de metadonnees ne relit plus les rencontres ;
+les sauvegardes cloud utilisent les cles de la partie et des exemplaires touches.
+Le chargement initial/statistiques conserve encore l'historique complet en local :
+la pagination reseau n'est pas une virtualisation complete de l'historique.
 
 Les statistiques et trophees des parties ordinaires restent calcules dans le
 navigateur : leur synchronisation n'en fait pas des resultats certifies anti-triche.
@@ -197,8 +218,10 @@ et n'a pas ete testee en envoyant un message reel.
 Le projet personnel actuel est sur l'offre gratuite, region Mumbai. Aucun
 deplacement de region ou nouveau projet n'est effectue sans demande. Les
 images restent sur Cloudflare ; le schema et les migrations restent dans Git.
-Prevoir des sauvegardes exportees du registre : le plan gratuit ne fournit pas
-de sauvegardes automatiques. La sauvegarde des PSD du PC ne couvre pas cette base.
+Le plan gratuit ne fournit pas de sauvegardes automatiques. Le processus local
+d'[export chiffre et restauration d'essai](../deploy/supabase/README.md#sauvegarde-du-registre)
+couvre le registre ; les sauvegardes PSD ne le remplacent pas. Une copie locale
+ne protege pas contre la perte du PC : un support independant reste necessaire.
 
 Les tests utilisent uniquement des profils jetables et un PostgreSQL en memoire.
 Les tests d'activation et de transfert utilisent des specimens fictifs. La
