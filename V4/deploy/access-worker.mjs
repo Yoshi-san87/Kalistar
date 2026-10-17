@@ -1,7 +1,7 @@
 import {journeyRequest} from './journey-worker.mjs';
 const COOKIE='__Host-kalistar',TTL=900,encoder=new TextEncoder(),decoder=new TextDecoder();
 const PUBLIC=new Set(['/jeu/login','/jeu/login.html','/jeu/login.js','/jeu/login.css','/jeu/login-intro.js','/jeu/login-intro.css','/jeu/cloud-session.js','/jeu/cloud-config.js',
-  '/jeu/assets/supabase/supabase-2.118.0.js','/jeu/assets/logo.webp','/jeu/assets/navigation/kalistel-rainbow-v1.webp',
+  '/jeu/assets/supabase/supabase-2.118.0.js','/jeu/assets/logo-rainbow-v2.webp','/jeu/assets/navigation/kalistel-rainbow-v2.webp',
   '/jeu/assets/home/sanctum-v1.webp','/jeu/assets/home/sanctum-phone-v1.webp','/jeu/assets/fonts/cinzel-v26-latin.woff2',
   '/jeu/assets/lucide.min.js','/jeu/manifest.webmanifest','/jeu/assets/pwa-192.png','/jeu/assets/pwa-512.png','/jeu/assets/favicon.svg']);
 const PROJECT='https://fkskjhlaaagqlfcsojjp.supabase.co',PUBLISHABLE='sb_publishable_TwMp0VMZvhlJ0-ojTtaIcw_eU4AQpE4';

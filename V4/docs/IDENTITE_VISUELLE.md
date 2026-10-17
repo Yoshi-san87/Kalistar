@@ -216,8 +216,12 @@ les illustrations fournies intactes, sans regeneration des personnages.
 La proposition de menu argent/cuivre est approuvee par l'utilisateur, avec
 un leger accent futuriste cyberpunk heroic fantasy : gravures energisees cyan,
 matieres sombres et mecanismes fins. Ne pas transformer le jeu en HUD neon.
-Le Kalistel de selection est prismatique rainbow. Les couleurs elementaires
-du combat et le logo original restent intacts.
+Le Kalistel de selection et le cristal du logo utilisent le meme rainbow
+eclatant, inspire des cartes RAINBOW : facettes lumineuses, axe vertical droit,
+monture cuivre conservee. Le lettrage original reste intact. Les couleurs
+elementaires du combat et les cristaux des personnages ne changent pas.
+Le logo web V4 utilise `logo-rainbow-v2.webp`; la source historique V3 est preservee.
+Source et export reproductible : `revisions/2026-10-17-rainbow-brand/`.
 
 Les nouveaux emblemes bitmap sont dans `site/assets/navigation/`.
 La police de signature est un traitement de Cinzel auto-hebergee (SIL OFL),

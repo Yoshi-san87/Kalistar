@@ -6,7 +6,7 @@ test('console uses shared materials after legacy arena chrome without changing b
   assert(html.indexOf('arena-console-skin.css')>html.indexOf('ui-system.css'));
   for(const token of ['--kui-edge','--kui-ink','--kui-copper','--kui-text','--kalistar-display'])assert(css.includes(token));
   assert(css.includes('assets/ui/collection-reader-grimoire-v1.webp'));
-  assert(css.includes('assets/navigation/kalistel-rainbow-v1.webp'));
+  assert(css.includes('assets/navigation/kalistel-rainbow-v2.webp'));
   assert(!/--console-width|--die-row|--recap-row|grid-template|position:sticky|z-index:\s*\d/.test(css));
   assert(read('app.js').includes('<span class="console-inlay" aria-hidden="true"></span>'));
 });

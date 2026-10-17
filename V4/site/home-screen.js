@@ -68,7 +68,7 @@
         ${pool.length>1?cardMarkup(pool[wrap(index-1)],'home-satellite home-satellite-left',wrap(index-1)):''}
         ${pool.length>2?cardMarkup(pool[wrap(index+1)],'home-satellite home-satellite-right',wrap(index+1)):''}
         ${cardMarkup(card,'home-card')}
-        <div class="home-card-plinth" aria-hidden="true"><span></span><img src="assets/navigation/kalistel-rainbow-v1.webp" alt="" width="48" height="48"></div>
+        <div class="home-card-plinth" aria-hidden="true"><span></span><img src="assets/navigation/kalistel-rainbow-v2.webp" alt="" width="48" height="48"></div>
       </div><div class="home-card-copy" id="home-card-copy">
         <div class="home-card-origin">${crystal}<span>${esc(element?.label||'Sans cristal')}<small>${esc(card.faction)}</small></span>${banner}</div>
         <h2>${esc(card.name)}</h2><p class="home-card-title">${esc(card.title)}</p>
@@ -96,8 +96,8 @@
       const state=deckStatus(getState());
       root.innerHTML=`<section class="kalistar-home" aria-label="Accueil Kalistar">
         <picture class="home-world" aria-hidden="true"><source media="(max-width:699px)" srcset="assets/home/sanctum-phone-v1.webp"><img src="assets/home/sanctum-v1.webp" alt="" width="1672" height="941" fetchpriority="high"></picture>
-        <div class="home-inner"><header class="home-heading"><span class="home-heading-rule" aria-hidden="true"></span><div><p class="home-kicker">Les chroniques d'Astralia</p><h1><img src="assets/logo.webp" width="300" height="100" alt="Kalistar Card Game"></h1></div><span class="home-heading-rule" aria-hidden="true"></span></header>
-        <div class="home-edition"><span>${esc(data.cards.length)} cartes</span><img src="assets/navigation/kalistel-rainbow-v1.webp" alt="" width="20" height="28"><span>${esc(new Set(data.cards.map(c=>c.characterId||c.id)).size)} personnages</span></div>
+        <div class="home-inner"><header class="home-heading"><span class="home-heading-rule" aria-hidden="true"></span><div><p class="home-kicker">Les chroniques d'Astralia</p><h1><img src="assets/logo-rainbow-v2.webp" width="300" height="100" alt="Kalistar Card Game"></h1></div><span class="home-heading-rule" aria-hidden="true"></span></header>
+        <div class="home-edition"><span>${esc(data.cards.length)} cartes</span><img src="assets/navigation/kalistel-rainbow-v2.webp" alt="" width="20" height="28"><span>${esc(new Set(data.cards.map(c=>c.characterId||c.id)).size)} personnages</span></div>
         <section class="home-gallery" aria-roledescription="carrousel" aria-label="Cartes \u00e0 d\u00e9couvrir">
           <div class="home-showcase" aria-live="off">${pool.length?'':'<div class="home-empty"><h2>Le grimoire attend ses cartes</h2></div>'}</div>
           <div class="home-gallery-controls"><button data-kui-native data-home-control="previous" aria-label="Carte pr\u00e9c\u00e9dente" title="Carte pr\u00e9c\u00e9dente" ${pool.length<2?'disabled':''}>${icon('chevron-left')}</button><span class="home-position">00 / 00</span><span class="home-reel-ticks" aria-hidden="true"></span><button data-kui-native data-home-control="pause" aria-label="Mettre le carrousel en pause" aria-pressed="false" title="Pause">${icon('pause')}</button><button data-kui-native data-home-control="next" aria-label="Carte suivante" title="Carte suivante" ${pool.length<2?'disabled':''}>${icon('chevron-right')}</button></div>

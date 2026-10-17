@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Kalistar - Cinq dos de carte</title>
+  <style>
+    @font-face{font-family:Cinzel;src:url('../../site/assets/fonts/cinzel-v26-latin.woff2') format('woff2');font-display:swap}
+    *{box-sizing:border-box}body{margin:0;background:#101716;color:#f3ece2;font:15px/1.5 Georgia,serif;letter-spacing:0}
+    header{padding:32px 24px 24px;text-align:center;border-bottom:1px solid #775d48}header img{width:min(330px,85%);height:auto;mix-blend-mode:screen}h1{font:500 25px/1.3 Cinzel,Georgia,serif;margin:8px 0;color:#f3dfbb}header p{color:#baa997;margin:8px 0}
+    main{max-width:1800px;margin:auto;padding:30px 24px 44px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px}
+    figure{margin:0;min-width:0}button.preview{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;transition:transform .2s}button.preview:hover{transform:translateY(-5px)}button:focus-visible{outline:2px solid #91e8e0;outline-offset:5px}
+    .preview img{display:block;width:100%;height:auto;aspect-ratio:3/5;object-fit:contain;filter:drop-shadow(0 12px 12px #0009)}figcaption{padding-top:17px;display:grid;grid-template-columns:28px 1fr;gap:8px}.number{color:#8fe5d6;font:24px/1 Cinzel,Georgia,serif}h2{font:500 16px/1.35 Cinzel,Georgia,serif;margin:0 0 5px}figcaption p{margin:0;color:#c0b5a8;font:13px/1.5 system-ui}
+    dialog{padding:0;border:1px solid #997656;background:#101716;color:#fff;max-width:96vw;max-height:96dvh;overflow:visible}dialog::backdrop{background:#050908ed}dialog img{display:block;max-height:91dvh;max-width:90vw;width:auto;height:auto}dialog button{position:absolute;right:6px;top:6px;width:44px;height:44px;font:26px/1 system-ui;color:white;background:#101716dd;border:1px solid #a38b68;cursor:pointer}
+    footer{text-align:center;padding:0 24px 28px;color:#9aaca8;font:13px system-ui}footer a{color:#e2c493}
+    @media(max-width:1050px){main{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 18px}}@media(max-width:640px){header{padding-top:22px}h1{font-size:21px}main{grid-template-columns:repeat(2,minmax(0,1fr));padding:24px 14px;gap:26px 14px}h2{font-size:14px}figcaption{grid-template-columns:20px 1fr;gap:6px}.number{font-size:20px}}
+    @media(prefers-reduced-motion:reduce){button.preview{transition:none}button.preview:hover{transform:none}}
+  </style>
+</head>
+<body>
+  <header><img src="../../site/assets/logo-rainbow-v2.webp" alt="Kalistar Card Game" width="1000" height="333"><h1>Cinq dos de carte</h1><p>Cuivre, argent et lumi&egrave;re prismatique</p></header>
+  <main>
+    <figure><button class="preview" aria-label="Agrandir le dos 1, Prisme souverain"><img src="dos-1.webp" alt="Grand prisme rainbow, cuivre et pierre vert sombre" width="600" height="1000"></button><figcaption><span class="number">01</span><div><h2>Prisme souverain</h2><p>La continuit&eacute; du dos actuel, plus lumineuse.</p></div></figcaption></figure>
+    <figure><button class="preview" aria-label="Agrandir le dos 2, Astrolabe d'Astralia"><img src="dos-2.webp" alt="Cristal rainbow au centre d'un astrolabe cuivre et argent" width="600" height="1000"></button><figcaption><span class="number">02</span><div><h2>Astrolabe d'Astralia</h2><p>Navigation c&eacute;leste, anneaux et gravures.</p></div></figcaption></figure>
+    <figure><button class="preview" aria-label="Agrandir le dos 3, Grimoire des Fragments"><img src="dos-3.webp" alt="Reliure sombre grav&eacute;e, fermoir cuivre et petit cristal rainbow" width="600" height="1000"></button><figcaption><span class="number">03</span><div><h2>Grimoire des Fragments</h2><p>Un objet ancien, sobre et pr&eacute;cieux.</p></div></figcaption></figure>
+    <figure><button class="preview" aria-label="Agrandir le dos 4, Sceau de Chroma"><img src="dos-4.webp" alt="Sceau m&eacute;canique, cristal &eacute;clatant et circuits grav&eacute;s" width="600" height="1000"></button><figcaption><span class="number">04</span><div><h2>Sceau de Chroma</h2><p>La rencontre de la magie et de la technologie.</p></div></figcaption></figure>
+    <figure><button class="preview" aria-label="Agrandir le dos 5, Vitrail des Kalistels"><img src="dos-5.webp" alt="Vitrail multicolore, lames de cuivre et diamant rainbow lumineux" width="600" height="1000"></button><figcaption><span class="number">05</span><div><h2>Vitrail des Kalistels</h2><p>Verre lumineux et composition ornementale.</p></div></figcaption></figure>
+  </main>
+  <footer>Propositions en attente de choix. Le dos utilis&eacute; en jeu reste inchang&eacute;.</footer>
+  <dialog aria-label="Dos de carte agrandi"><button aria-label="Fermer">&times;</button><img alt="" src="dos-1.webp"></dialog>
+  <script>
+    const dialog=document.querySelector('dialog');let opener;
+    document.querySelectorAll('.preview').forEach(button=>button.addEventListener('click',()=>{opener=button;const image=button.querySelector('img'),large=dialog.querySelector('img');large.src=image.src;large.alt=image.alt;dialog.showModal();}));
+    dialog.querySelector('button').addEventListener('click',()=>dialog.close());
+    dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});
+    dialog.addEventListener('close',()=>opener?.focus());
+  </script>
+</body>
+</html>

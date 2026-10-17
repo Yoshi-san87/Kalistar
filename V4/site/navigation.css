@@ -49,7 +49,7 @@ body .masthead .main-nav button.active {
 }
 body .masthead .main-nav button::after {
   content:''; position:absolute; bottom:-8px; left:calc(50% - 7px); width:14px; height:20px;
-  background:url('assets/navigation/kalistel-rainbow-v1.webp') center/contain no-repeat;
+  background:url('assets/navigation/kalistel-rainbow-v2.webp') center/contain no-repeat;
   opacity:0; transform:translateY(2px); transition:opacity .18s,transform .18s; pointer-events:none;
 }
 body .masthead .main-nav button.active::after { opacity:1; transform:none; filter:drop-shadow(0 0 3px #84e5dc70); }
