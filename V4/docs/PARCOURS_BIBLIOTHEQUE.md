@@ -1,10 +1,10 @@
-# Bibliotheque de parcours
+# Fragment : parcours de personnages
 
 [Index](../../docs/INDEX.md) | [Registre](REGISTRE_EN_LIGNE.md)
 
 ## Regles joueur
 
-La Bibliotheque est accessible dans le menu Plus. Chaque livre suit un
+Fragment est accessible dans le menu Plus. Chaque livre suit un
 personnage et comporte **exactement quatre combats** contre des equipes fixes.
 Le joueur utilise sa composition et ses propres exemplaires. Les regles de
 duel, les des, les equipements et les synergies restent ceux de l'Arene.
@@ -29,6 +29,13 @@ combats, clairement marque, sans sauvegarde de rencontre ni recompense. Tokyo
 reste un joueur normal.
 
 ## Responsabilites
+
+Le nom joueur est Fragment. La route `#journeys`, les identifiants des livres
+et les noms de tables restent stables ; `#library` reste les regles du jeu.
+Sur telephone, le bouton de filtres pres du titre deplie les champs en deux
+colonnes. Le rayonnage defile horizontalement et la page verticalement si
+necessaire. Le livre ouvert devient une page de lecture, avec ses commandes
+au-dessus du menu fixe. Les quatre combats et les recompenses ne changent pas.
 
 - `journey-definitions.js` : livres, quatre etapes, textes, images, equipes et
   modele/version recompense. Aucun nom affiche n'est une cle de personnage.

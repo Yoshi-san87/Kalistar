@@ -26,9 +26,21 @@ la reference des cartes natives.
 
 ## Code et medias
 
-`site/login-intro.js/css` possedent le lecteur. `login.js` l'attend uniquement
-dans la branche du login explicite. Il efface le champ de mot de passe avant
-la lecture. Aucun flag personnel ou nouveau schema de sauvegarde n'est ajoute.
+`site/login-intro.js/css` possedent le lecteur. Apres le login explicite,
+`login.js` efface le mot de passe et prepare un marqueur a usage unique dans
+sessionStorage, puis rejoint immediatement la destination demandee.
+Ce marqueur ne contient qu'une date, expire apres deux minutes et ne donne
+aucun droit d'acces. Si ce stockage est refuse, le lecteur reste sur le login.
+
+`boot.js` consomme le marqueur et revalide l'acces avant d'ouvrir le film.
+Le catalogue, les modules, le profil synchronise et la vue se chargent pendant
+la lecture, dans le meme document : ni iframe ni seconde session de jeu.
+La presentation des equipes et l'IA attendent la fermeture du film. Les popups
+demandant une action et les notifications de reprise sont presentees ensuite.
+Si le jeu n'est pas encore pret apres Passer, son ecran de chargement habituel
+reste visible ; une erreur de chargement conserve son bouton Reessayer.
+Le marqueur consomme ne relance pas le film au rechargement et aucun schema
+de sauvegarde n'est modifie.
 
 Les fichiers `assets/cinematics/kalistar-anime-v3*` sont servis par Cloudflare,
 pas par Runway au runtime. Les scripts/CSS du lecteur sont publics comme le

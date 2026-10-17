@@ -12,7 +12,7 @@ test('Guide and Library share the illustrated navigation component and transpare
     assert.equal((bits&0x3fff)+1,128);assert.equal(((bits>>>14)&0x3fff)+1,128);assert(bits&0x10000000);
   }
   const app=read('V4/site/app.js').toString();
-  for(const entry of ["navigationItem('journeys','Biblioth\\u00e8que')","navigationItem('guide','Guide')","navigationItem('library','Library "])assert(app.includes(entry));
+  for(const entry of ["navigationItem('journeys','Fragment')","navigationItem('guide','Guide')","navigationItem('library','Library "])assert(app.includes(entry));
 });
 test('navigation media is transparent, lossless, uniform and provenance-checked',()=>{
   assert.deepEqual(proof.assets.map(a=>a.name),['collection','story','decks','weapons','arena','statistics','more','kalistel']);

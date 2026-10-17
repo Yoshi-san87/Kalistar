@@ -16,6 +16,7 @@
     let pending = null, detailPending = null, claimBook = null, errorMessage = '', reward = null;
     const libraryPosition = {left:0,top:0};
     const filters = {character:'', element:'', status:'', search:''};
+    let filtersOpen = false;
     const cards = new Map((data.cards || []).map(card => [String(card.id), card]));
     const reduced = () => globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
     const model = id => cards.get(String(id));
@@ -92,9 +93,10 @@
       const characters = [...new Map(all.map(book => [book.characterId, characterOf(book)])).entries()].sort((a,b) => String(a[1]).localeCompare(String(b[1]), 'fr'));
       const elements = [...new Map(all.map(book => [book.element, elementOf(book).label])).entries()];
       const select = (key, label, options) => `<label class="jv-filter"><span>${label}</span><select data-jv-filter="${key}" data-jv-key="filter-${key}" aria-label="${label}"><option value="">Tous</option>${options.map(([value,text]) => `<option value="${esc(value)}" ${filters[key] === value ? 'selected' : ''}>${esc(text)}</option>`).join('')}</select></label>`;
-      return `<section class="jv-library" aria-label="Bibliothèque de parcours">
-        <header class="jv-library-heading"><div><p class="jv-eyebrow">Kalistar</p><h1>Bibliothèque de parcours</h1></div><span class="jv-library-total">${all.filter(book => progressOf(book,state).claimed).length} / ${all.length} achevés</span></header>
-        <form class="jv-filters" role="search" aria-label="Filtrer les parcours">
+      const activeFilters=Object.values(filters).filter(Boolean).length;
+      return `<section class="jv-library" aria-label="Fragment" data-filters-open="${filtersOpen}">
+        <header class="jv-library-heading"><div><p class="jv-eyebrow">Kalistar</p><h1>Fragment</h1></div><div class="jv-library-actions"><span class="jv-library-total">${all.filter(book => progressOf(book,state).claimed).length} / ${all.length} achevés</span><button type="button" class="jv-tool jv-filter-toggle" data-jv-action="toggle-filters" data-jv-key="toggle-filters" aria-label="Filtres${activeFilters ? ', '+activeFilters+' actifs' : ''}" title="Filtres" aria-expanded="${filtersOpen}" aria-controls="jv-filters">${icon('sliders-horizontal')}${activeFilters ? `<b>${activeFilters}</b>` : ''}</button></div></header>
+        <form id="jv-filters" class="jv-filters" role="search" aria-label="Filtrer les parcours">
           <label class="jv-search"><span class="jv-sr-only">Rechercher un parcours</span>${icon('search')}<input type="search" data-jv-filter="search" data-jv-key="filter-search" value="${esc(filters.search)}" placeholder="Rechercher un parcours" autocomplete="off"></label>
           ${select('character','Personnage',characters)}${select('element','Cristal',elements)}${select('status','État',[['new','À découvrir'],['started','En cours'],['reward','Récompense disponible'],['claimed','Achevé']])}
           ${tool('reset-filters','Réinitialiser les filtres','filter-x',Object.values(filters).some(Boolean) ? '' : 'disabled')}
@@ -187,7 +189,7 @@
       paint++;
       view.setAttribute('aria-busy', String(state.status === 'loading' || !!pending));
       if (state.status !== 'ready') {
-        view.innerHTML = `<section class="jv-message" ${state.status === 'error' ? 'role="alert"' : 'role="status"'}>${icon(state.status === 'error' ? 'book-x' : 'library')}<h1>${state.status === 'error' ? 'Bibliothèque indisponible' : 'Ouverture de la bibliothèque…'}</h1>${state.status === 'error' ? `<p>${esc(state.error?.message || state.error || 'Impossible de charger les parcours.')}</p>${button('refresh','Réessayer','refresh-cw',{disabled:!!pending})}${errorMarkup()}` : ''}</section>`;
+        view.innerHTML = `<section class="jv-message" ${state.status === 'error' ? 'role="alert"' : 'role="status"'}>${icon(state.status === 'error' ? 'book-x' : 'library')}<h1>${state.status === 'error' ? 'Fragment indisponible' : 'Ouverture de Fragment…'}</h1>${state.status === 'error' ? `<p>${esc(state.error?.message || state.error || 'Impossible de charger les parcours.')}</p>${button('refresh','Réessayer','refresh-cw',{disabled:!!pending})}${errorMarkup()}` : ''}</section>`;
       } else {
         const book = syncSelection(state);
         view.innerHTML = book ? readerMarkup(book,state,opening) : libraryMarkup(state);
@@ -326,6 +328,7 @@
       if (action === 'acknowledge') { void acknowledgeReward(); return; }
       if (action === 'detail') { void showDetail(node); return; }
       if (reward) return;
+      if (action === 'toggle-filters') { filtersOpen = !filtersOpen; draw(); return; }
       if (action === 'open') return openBook(node.dataset.jvBook);
       if (action === 'library') { const id = selectedBook; selectedBook = null; errorMessage = ''; draw(); focusKey('open-'+id); return; }
       if (action === 'refresh') return onRefresh ? void run(onRefresh,[]) : draw();

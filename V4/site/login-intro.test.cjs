@@ -81,11 +81,42 @@ test('duplicate starts share the same film and a later login can start again',as
   const f=fixture(),p=Intro.play(f);assert.strictEqual(Intro.play(f),p);assert.equal(f.nodes.length,1);f.fire(f.media,'ended');await p;
   const next=fixture(),q=Intro.play(next);assert.notStrictEqual(p,q);next.fire(next.media,'ended');await q;
 });
-test('only an explicit successful password login awaits the intro; recovery and resume do not',()=>{
+test('only an explicit successful password login prepares the intro; recovery and resume do not',()=>{
   const source=fs.readFileSync(path.join(__dirname,'login.js'),'utf8');
   assert.equal(source.match(/KalistarLoginIntro/g).length,1);assert(source.indexOf('session.login(')<source.indexOf('KalistarLoginIntro'));
   assert.match(source,/if\(s\.recovery\)[\s\S]*else if\(s\.user\)go\(\)/);
   assert.match(source,/session\.password[\s\S]*if\(s\.user\)go\(\)/);
   assert(source.indexOf("values.delete('password')")<source.indexOf('KalistarLoginIntro'));
   assert(source.includes('|journeys)'));
+  assert.match(source,/if\(!intro\?\.prepare\(\)\)await intro\?\.play\(\)/);
+});
+
+test('handoff is tab-local, short-lived, consumed once and contains no credentials',()=>{
+  const values=new Map(),host={sessionStorage:{setItem:(k,v)=>values.set(k,v),getItem:k=>values.get(k)??null,removeItem:k=>values.delete(k)}};
+  assert.equal(Intro.consume({host,now:1000}),false);
+  assert.equal(Intro.prepare({host,now:1000}),true);assert.deepEqual([...values.values()],['1000']);
+  assert.equal(Intro.consume({host,now:1001}),true);assert.equal(Intro.consume({host,now:1002}),false);
+  for(const now of [999,121000]){Intro.prepare({host,now:1000});assert.equal(Intro.consume({host,now}),false);assert.equal(values.size,0);}
+  values.set('kalistar.login.intro.pending','invalid');assert.equal(Intro.consume({host,now:1000}),false);
+  const blocked={get sessionStorage(){throw Error('Storage denied');}};
+  assert.equal(Intro.prepare({host:blocked}),false);assert.equal(Intro.consume({host:blocked}),false);
+});
+
+test('destination loads catalogue and modules during the film, but never before authorization',async()=>{
+  const vm=require('node:vm'),source=fs.readFileSync(path.join(__dirname,'boot.js'),'utf8');
+  for(const authorized of [true,false]){
+    let allow,finish,reads=0,plays=0;const nodes=[];
+    const auth=new Promise(resolve=>{allow=resolve;}),film=new Promise(resolve=>{finish=resolve;});
+    const window={KalistarSite:{online:true},KalistarAuthGuard:{ensure:()=>auth},KalistarLoginIntro:{consume:()=>true,play:()=>{plays++;return film;}},addEventListener(){}};
+    const doc={currentScript:{src:'https://game.invalid/jeu/boot.js'},createElement:tag=>({tag,remove(){}}),head:{append:node=>{nodes.push(node);if(node.tag==='script')queueMicrotask(()=>node.onload());}}};
+    vm.runInNewContext(source,{window,document:doc,location:new URL('https://game.invalid/jeu/#journeys'),URL,fetch:async()=>{reads++;return {ok:true,json:async()=>({version:4,edition:'V4',cards:[{edition:'V4',pngUrl:'card.png'}]})};}});
+    assert.equal(reads,0);assert.equal(plays,0);
+    allow(authorized);await new Promise(resolve=>setImmediate(resolve));
+    assert.equal(reads,authorized?1:0);assert.equal(plays,authorized?1:0);
+    if(authorized){
+      assert.equal(window.KALISTAR_INTRO_PENDING,true);
+      assert(nodes.some(node=>node.src==='app.js'),'full application loaded without waiting for the movie');
+      finish('skipped');await window.KALISTAR_INTRO_FINISHED;assert.equal(window.KALISTAR_INTRO_PENDING,false);
+    }
+  }
 });

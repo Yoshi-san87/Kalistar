@@ -11,13 +11,15 @@ const frozen = process.env.KALISTAR_BUILT_SITE === '1' || process.env.KALISTAR_D
 const output = process.env.KALISTAR_VERIFICATION_DIR || path.join(root, 'work/qa/journeys-view');
 const origin = 'https://kalistar-journey-view.invalid';
 const currentModules = new Set(['journey-view.js', 'journey-view.css', 'journey-definitions.js']);
+const shell = fs.readFileSync(path.join(frozen ? path.join(dist,'jeu') : __dirname,'index.html'),'utf8');
+const shellStyles = shell.match(/<link[^>]+rel="stylesheet"[^>]*>/g).join('\n');
+const masthead = shell.match(/<header class="masthead">[\s\S]*?<\/header>/)[0];
 const types = {'.js':'text/javascript', '.css':'text/css', '.json':'application/json', '.png':'image/png', '.webp':'image/webp', '.svg':'image/svg+xml', '.woff2':'font/woff2'};
 // The harness has no application boot, server commands, account or browser storage.
 const fixture = `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><base href="/jeu/"><title>Kalistar Journey View QA</title>
-<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="mobile.css"><link rel="stylesheet" href="navigation.css"><link rel="stylesheet" href="ui-system.css"><link rel="stylesheet" href="journey-view.css">
-<style>body{margin:0;overflow:hidden}#fixture{width:100%;height:100dvh;min-width:0}</style>
+${shellStyles}
 <script defer src="assets/lucide.min.js"></script><script defer src="ui-system.js"></script><script defer src="dialog-history.js"></script><script defer src="card-media.js"></script><script defer src="journey-definitions.js"></script><script defer src="journey-view.js"></script>
-</head><body><main id="fixture"></main><script>
+</head><body class="journeys-view">${masthead}<main id="app"><div id="journey-root"></div></main><script>
 window.addEventListener('DOMContentLoaded',async()=>{
   const data=await fetch('catalogue.json').then(response=>response.json());
   const freeze=value=>{if(value&&typeof value==='object'){Object.freeze(value);Object.values(value).forEach(freeze);}return value;};
@@ -41,9 +43,10 @@ window.addEventListener('DOMContentLoaded',async()=>{
     onStart:id=>action('start',id),onResume:id=>action('resume',id),onClaim:id=>action('claim',id),
     onAcknowledge:id=>action('acknowledge',id),onPreview:(id,index)=>action('preview',id,index),
     onDetail:id=>action('detail',id),onRefresh:()=>action('refresh'),toast:message=>harness.notices.push(message)});
-  harness.mount=()=>harness.view.mount(document.querySelector('#fixture'));
+  harness.mount=()=>harness.view.mount(document.querySelector('#journey-root'));
   harness.progress=(index,value)=>{harness.state.progress[harness.state.books[index].id]={cleared:0,completed:false,claimed:false,acknowledged:false,activeAttempt:null,...value};harness.view.refresh();};
   harness.mount();window.fixtureReady=true;
+  lucide.createIcons();
 });
 </script></body></html>`;
 
@@ -79,6 +82,9 @@ async function assertLayout(page, label) {
       return node.scrollWidth <= node.clientWidth+1 && within(range.getBoundingClientRect(),rect(node));
     };
     return {overflow:document.documentElement.scrollWidth-innerWidth,
+      appBottom:rect(document.querySelector('#app')).bottom,
+      navTop:rect(document.querySelector('.main-nav')).top,
+      mobileNav:getComputedStyle(document.querySelector('.main-nav')).position==='fixed',
       regions:[...document.querySelectorAll('.jv-filters,.jv-route,.jv-stage-actions,.jv-stage-heading,.jv-library-heading,.jv-reward-ceremony')].map(node => ({name:node.className,fits:node.scrollWidth <= node.clientWidth+1})),
       covers:[...document.querySelectorAll('.jv-cover-object')].map(node => {
         const inscription = rect(node.querySelector('.jv-cover-inscription')), card = rect(node.querySelector('.jv-cover-card'));
@@ -88,6 +94,7 @@ async function assertLayout(page, label) {
       stations:[...document.querySelectorAll('.jv-route button')].every(node => rect(node).width >= 44 && rect(node).height >= 44)};
   });
   assert.ok(geometry.overflow <= 1, label+': no document overflow '+JSON.stringify(geometry));
+  assert.ok(!geometry.mobileNav || geometry.appBottom <= geometry.navTop+1,label+': content stays above bottom navigation '+JSON.stringify(geometry));
   assert.ok(geometry.regions.every(region => region.fits), label+': regions fit '+JSON.stringify(geometry));
   assert.ok(geometry.covers.every(cover => cover.inside && cover.separate && cover.text), label+': cover inscriptions clear the reward card '+JSON.stringify(geometry));
   assert.ok(geometry.headings && geometry.stations, label+': readable headings and touch-sized stations '+JSON.stringify(geometry));
@@ -143,6 +150,7 @@ async function main() {
   try {
     await page.goto(origin); await page.waitForFunction(()=>window.fixtureReady);
     assert.equal(await page.locator('.jv-cover').count(),3);
+    assert.equal(await page.locator('.jv-library-heading h1').textContent(),'Fragment');
     assert.equal(await page.locator('.jv-cover-card img').count(),3,'all three real reward models are present');
     assert.deepEqual(await page.evaluate(()=>harness.state.books.map(book=>book.stages.length)),[4,4,4]);
     for (const viewport of [{width:1440,height:1000},{width:412,height:1007},{width:320,height:568},{width:844,height:390}]) {
@@ -150,6 +158,13 @@ async function main() {
       await page.locator('.jv-shelf').evaluate(node=>{node.scrollLeft=0;node.dispatchEvent(new Event('scroll'));});
       await assertLayout(page,'library '+viewport.width); await capture('library-'+viewport.width);
       if (viewport.width <= 760) {
+        assert.equal(await page.locator('.jv-filters').isVisible(),false);
+        await page.locator(action('toggle-filters')).click();
+        assert.equal(await page.locator(action('toggle-filters')).getAttribute('aria-expanded'),'true');
+        await assertLayout(page,'filters '+viewport.width); await capture('filters-'+viewport.width);
+        await page.locator('[data-jv-filter="search"]').fill('momo');assert.equal(await page.locator('.jv-cover').count(),1);
+        await page.locator(action('reset-filters')).first().click();
+        await page.locator(action('toggle-filters')).click();
         await page.locator(action('shelf-right')).click(); await page.waitForFunction(()=>document.querySelector('.jv-shelf').scrollLeft>0);
         await page.locator(action('shelf-left')).click();
       }
@@ -195,6 +210,7 @@ async function main() {
     for (const viewport of [{width:1024,height:768},{width:800,height:600},{width:412,height:1007},{width:390,height:844},{width:320,height:568},{width:844,height:390}]) {
       await page.setViewportSize(viewport); await assertLayout(page,'reader '+viewport.width); await capture('reader-'+viewport.width);
       await page.locator(action('resume')).scrollIntoViewIfNeeded(); assert.equal(await page.locator(action('resume')).isVisible(),true);
+      assert.equal(await page.locator(action('resume')).evaluate(node=>{const r=node.getBoundingClientRect();return node.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));}),true,'combat command is not covered by the bottom navigation');
     }
     await page.evaluate(()=>{harness.state.isAdmin=true;harness.view.refresh();});
     await page.locator('[data-jv-action="stage"][data-jv-stage="3"]').click(); await page.locator(action('preview')).click();

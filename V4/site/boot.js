@@ -20,6 +20,7 @@
   window.addEventListener('unhandledrejection', event => fail(event.reason || {}));
   window.addEventListener('error', event => { if (event.message) fail(event); });
   async function start() {
+    const showIntro=window.KalistarLoginIntro?.consume();
     const hosted=window.KalistarSite?.online&&location.protocol==='https:'&&!location.hostname.endsWith('.invalid')&&!['localhost','127.0.0.1','[::1]'].includes(location.hostname);
     if(hosted&&!window.KalistarAuthGuard)throw Error('Connexion Kalistar indisponible.');
     if(window.KalistarAuthGuard&&!await window.KalistarAuthGuard.ensure())return;
@@ -30,6 +31,10 @@
       });
       window.KalistarPhonePreview.mountHost();return;
     }
+    // The destination boots once, underneath the film, after server access checks.
+    window.KALISTAR_INTRO_PENDING=!!showIntro;
+    window.KALISTAR_INTRO_FINISHED=(showIntro?window.KalistarLoginIntro.play():Promise.resolve())
+      .catch(()=>{}).finally(()=>{window.KALISTAR_INTRO_PENDING=false;});
     const style=document.createElement('link');style.rel='stylesheet';style.href='ultimate-ui.css'+(release?'?v='+encodeURIComponent(release):'');document.head.append(style);
     const catalogue = fetch(window.KalistarSite?.catalogue || '/api/game/catalogue', { cache: 'no-store' });
     // Fetch concurrently, but execute only after validation and in dependency order.

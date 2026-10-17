@@ -4,7 +4,7 @@ Dans Kalistar, deux équipes de dix personnages s'affrontent. Cinq combattants s
 
 ## Préparer la rencontre
 
-### Gagner des cartes dans la Bibliothèque
+### Gagner des cartes dans Fragment
 
 Ouvrez un livre pour suivre un personnage. Chaque parcours contient **quatre
 combats**. Une victoire ouvre l'étape suivante et un passage du récit. Une

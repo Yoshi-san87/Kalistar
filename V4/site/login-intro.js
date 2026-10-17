@@ -6,7 +6,19 @@
 })(typeof globalThis!=='undefined'?globalThis:this,function(){
   'use strict';
   let active=null;
+  const PENDING='kalistar.login.intro.pending';
   const MEDIA='assets/cinematics/kalistar-anime-v3';
+  // A one-use, tab-local handoff, never an authentication credential.
+  function prepare({host=window,now=Date.now()}={}){
+    try{host.sessionStorage.setItem(PENDING,String(now));return true;}catch{return false;}
+  }
+  function consume({host=window,now=Date.now()}={}){
+    try{
+      const value=host.sessionStorage.getItem(PENDING);host.sessionStorage.removeItem(PENDING);
+      const time=Number(value);
+      return value!==null&&Number.isFinite(time)&&time>0&&now>=time&&now-time<120000;
+    }catch{return false;}
+  }
   function play({host=window,doc=host.document}={}){
     if(active)return active;
     const reduced=host.matchMedia('(prefers-reduced-motion: reduce)');
@@ -16,6 +28,7 @@
       const previous=doc.activeElement;
       let ended=false,started=false,mutedFallback=false,startTimer,deadline;
       dialog.className='login-intro';
+      dialog.setAttribute('data-kui-native','');
       dialog.setAttribute('aria-label','Kalistar : introduction cin\u00e9matographique');
       dialog.innerHTML=`<video class="login-intro__film" playsinline preload="auto" disablepictureinpicture aria-label="Momo, Kaylis, Voloden et Balmhyr : l\u2019\u00e9veil de Kalistar"></video>
         <div class="login-intro__shade" aria-hidden="true"></div>
@@ -91,5 +104,5 @@
     }).finally(()=>{active=null;});
     return active;
   }
-  return {play};
+  return {play,prepare,consume};
 });

@@ -17,7 +17,8 @@ consomment le meme catalogue V4. Aucun fallback vers le jeu ou `data.js` V3.
   `../deploy/access-worker.mjs` protege aussi les fichiers bruts cote Cloudflare.
 - `login-intro.js/css` : film anime contemplatif de trente secondes apres le seul login
   explicite reussi, avec skip, son et coupe portrait. Reprise/reload et Reduced
-  Motion ne le rejouent pas. [Contrat du lecteur](../docs/INTRO_CONNEXION.md).
+  Motion ne le rejouent pas. Le jeu charge sous le film dans le meme document.
+  [Contrat du lecteur](../docs/INTRO_CONNEXION.md).
 - `app.js` : orchestration des vues et des commandes. Les regles restent dans
   les modules purs, pas dans le DOM.
 - `ui-system.js/css`, `positions.js/css`, `navigation.css` : langage visuel commun.
@@ -31,7 +32,7 @@ respecte focus, popup, visibilite et Reduced Motion. Son resume de composition
 vient de l'etat local fourni par app.js, jamais d'un jeu de donnees decoratif.
 
 Les vues publiques sont Home, Collection, Decks, Equipements, Arene,
-Statistiques, Story, Map, Guide, Library et Bibliotheque de parcours. Le serveur local garde en plus
+Statistiques, Story, Map, Guide, Library et Fragment. Le serveur local garde en plus
 l'Atelier ; il ne fait pas partie du build public.
 
 `site-config.js` definit aussi `KalistarSite.atlas`, source unique de la Map
@@ -72,7 +73,7 @@ un resultat local par simple import. Voir le [contrat du registre](../docs/REGIS
 
 `journey-definitions.js`, `journey-combat.js`, `journey-client.js` et
 `journey-view.js/css` separent livres, commandes moteur, transport et rendu.
-La route `#journeys` est la Bibliotheque ; `#library` reste les regles joueur.
+La route `#journeys` est Fragment ; `#library` reste les regles joueur.
 Chaque livre comporte quatre combats. Le Worker execute le meme moteur et
 Supabase conserve la progression faisant autorite. Voir le
 [contrat des parcours](../docs/PARCOURS_BIBLIOTHEQUE.md). Les essais admin sont

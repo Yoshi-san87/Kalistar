@@ -31,7 +31,8 @@
       const s=await session.login(String(values.get('email')).trim(),values.get('password'));
       values.delete('password');entry.querySelectorAll('input[name=password]').forEach(n=>n.value='');
       if(s.user){
-        try{await window.KalistarLoginIntro?.play();}catch{}
+        const intro=window.KalistarLoginIntro;
+        try{if(!intro?.prepare())await intro?.play();}catch{}
         go();
       }
     });

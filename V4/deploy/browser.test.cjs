@@ -9,7 +9,7 @@ const DIST = path.resolve(process.env.KALISTAR_DIST || defaultDist);
 const runtime = process.env.KALISTAR_NODE_MODULES || path.join(process.env.USERPROFILE, '.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const {chromium} = createRequire(path.join(runtime, '_pages_test.cjs'))('playwright');
 const output = process.env.KALISTAR_VERIFICATION_DIR || path.join(__dirname, 'verification');
-const mime = {'.html':'text/html; charset=utf-8','.json':'application/json','.webmanifest':'application/manifest+json','.js':'text/javascript','.css':'text/css','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.woff2':'font/woff2'};
+const mime = {'.html':'text/html; charset=utf-8','.json':'application/json','.webmanifest':'application/manifest+json','.js':'text/javascript','.css':'text/css','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.woff2':'font/woff2','.mp4':'video/mp4'};
 async function main() {
   const server = http.createServer((req,res) => {
     try {
@@ -35,7 +35,7 @@ async function main() {
     page.on('response', r => {if(r.status() >= 400) failures.push(r.status() + ' ' + r.url());});
     await page.goto(base);
     await page.waitForFunction(() => window.KALISTAR_READY);
-assert.equal(await page.locator('.masthead .edition').innerText(), 'VERSION 4.6.81');
+assert.equal(await page.locator('.masthead .edition').innerText(), 'VERSION 4.6.82');
     const {appManifest, manifestUrl} = await page.evaluate(async () => {
       const manifestUrl = new URL('manifest.webmanifest', location.href);
       return {appManifest: await (await fetch(manifestUrl)).json(), manifestUrl: manifestUrl.href};
@@ -76,7 +76,7 @@ assert.equal(await page.locator('.masthead .edition').innerText(), 'VERSION 4.6.
     assert.equal(await page.locator('#match-arena-summary h3').innerText(),lastArenaName);
     await page.setViewportSize({width:390,height:844});
     await page.waitForTimeout(250);
-    assert.equal(await page.locator('.brand').evaluate(el => getComputedStyle(el, '::after').content), '"V4.6.81"');
+    assert.equal(await page.locator('.brand').evaluate(el => getComputedStyle(el, '::after').content), '"V4.6.82"');
     const preMatchWidth=await page.locator('#new-game-dialog .pre-match-form').evaluate(el=>({scroll:el.scrollWidth,client:el.clientWidth}));
     assert.ok(preMatchWidth.scroll<=preMatchWidth.client+1,'Pre-match lobby overflows on phone: '+JSON.stringify(preMatchWidth));
     await page.screenshot({path:path.join(output,'pre-match-phone.png')});
@@ -86,6 +86,19 @@ assert.equal(await page.locator('.masthead .edition').innerText(), 'VERSION 4.6.
     await page.locator('#game-seed').fill('PAGES-QA-2');
     await page.locator('#new-game-dialog [type=submit]').click();
     await page.waitForFunction(() => document.body.classList.contains('arena-view'));
+    await page.locator('.lineup-intro').waitFor();
+    const opening = await page.evaluate(() => {KalistarLoginIntro.prepare();return JSON.parse(localStorage.getItem('kalistar.v4.game'));});
+    await page.emulateMedia({reducedMotion:'no-preference'});
+    await page.reload();
+    await page.locator('.login-intro[open]').waitFor();
+    await page.waitForFunction(() => window.KALISTAR_READY);
+    assert.equal(await page.locator('.lineup-intro').count(),0,'captain presentation waits behind the login film');
+    const covered = await page.evaluate(() => JSON.parse(localStorage.getItem('kalistar.v4.game')));
+    assert.equal(covered.phase,'initiative');assert.deepEqual(covered.initiative,opening.initiative);assert.equal(covered.rng,opening.rng);
+    await page.locator('.login-intro__skip').click();
+    await page.locator('.lineup-intro').waitFor();
+    assert.equal(await page.locator('.lineup-intro').count(),1,'presentation starts exactly once after skipping the film');
+    await page.emulateMedia({reducedMotion:'reduce'});
     await page.locator('.li-skip').click();
     assert.equal(await page.evaluate(() => document.fullscreenElement === null), true, 'starting a match must not request browser fullscreen');
     await page.setViewportSize({width:1440,height:1000});

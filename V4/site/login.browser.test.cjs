@@ -25,13 +25,17 @@ async function main(){
     for(const p of profiles.filter(p=>!process.env.KALISTAR_LOGIN_PROFILES||process.env.KALISTAR_LOGIN_PROFILES.split(',').includes(p.name))){
       await database.resetProgress();
       const context=await browser.newContext({viewport:{width:p.width,height:p.height},isMobile:!!p.mobile,hasTouch:!!p.mobile,reducedMotion:p.reduced?'reduce':'no-preference',serviceWorkers:'block'}),page=await context.newPage(),errors=[],calls=[];
-      let denied=false;const paris=token('user-paris'),tokyo=token('user-tokyo');
+      let denied=false;const leaseDevices=[];const paris=token('user-paris'),tokyo=token('user-tokyo');
       const identify=authorization=>authorization==='Bearer '+paris.access_token?paris:authorization==='Bearer '+tokyo.access_token?tokyo:null;
       const permission=session=>session===paris?{localProfile:'user-paris',label:'Paris'}:{localProfile:'user-tokyo',label:'Tokyo'};
       const api=async(url,options={})=>{
         const pathname=new URL(url).pathname,session=identify(options.headers?.Authorization||options.headers?.authorization);
         if(pathname==='/auth/v1/user')return new Response(JSON.stringify(session?.user||{}),{status:session?200:401});
         if(pathname==='/rest/v1/rpc/kalistar_access')return new Response(JSON.stringify(session&&!denied?permission(session):{message:'Denied',code:'42501'}),{status:session&&!denied?200:403});
+        if(pathname==='/rest/v1/rpc/kalistar_journey_library'){
+          if(!session||denied)return Response.json({message:'Denied'},{status:403});
+          return Response.json(await database.call('kalistar_journey_library',{},session===paris?'user-paris':'user-tokyo'));
+        }
         throw Error('Unexpected edge request '+pathname);
       };
       const env={KALISTAR_SESSION_KEY:'test-only-session-key-'.repeat(4),ASSETS:{fetch:async r=>{
@@ -56,6 +60,7 @@ async function main(){
         if(u.pathname==='/auth/v1/recover')return route.fulfill({json:{}});
         if(u.pathname.endsWith('/kalistar_access')){const response=await api(r.url(),{headers:await r.allHeaders()});return route.fulfill({status:response.status,json:await response.json()});}
         const name=u.pathname.split('/').pop(),who=identify((await r.allHeaders()).authorization)===tokyo?'user-tokyo':'user-paris';
+        if(name==='kalistar_sync_claim')leaseDevices.push(args.p_device_id);
         try{return route.fulfill({json:name==='kalistar_models'?await database.models():await database.call(name,args,who)});}catch(error){return route.fulfill({status:403,json:{code:error.code,message:error.message}});}
       });
       page.on('pageerror',e=>errors.push(e.message));
@@ -65,16 +70,24 @@ async function main(){
         assert.equal(await page.locator('.login-intro[open]').count(),expectIntro&&!p.reduced?1:0,'intro only follows an explicit successful password login');
         if(await page.locator('.login-intro[open]').count()){
           assert((await context.cookies()).some(c=>c.name==='__Host-kalistar'),'intro follows server authentication');
-          assert.equal(await page.locator('input[name=password]').inputValue(),'','password is cleared before playback');
+          assert.equal(await page.locator('input[name=password]').count(),0,'no password form survives in the game document');
+          assert.equal(new URL(page.url()).pathname,'/jeu/','film runs on the destination, without a hidden second game');
+          assert.equal(await page.locator('iframe').count(),0);
           if(!filmCompleted&&['desktop','razr'].includes(p.name)){
             await page.waitForFunction(()=>document.querySelector('.login-intro video')?.currentTime>.3);
             assert(Math.abs(await page.locator('.login-intro video').evaluate(v=>v.duration)-30)<.1);
+            await page.waitForFunction(()=>window.KALISTAR_READY&&document.querySelector('.login-intro[open]'),{},{timeout:20000});
+            assert.equal(await page.evaluate(()=>KALISTAR_INTRO_PENDING),true,'game initialized before film completion');
+            assert.equal(new Set(leaseDevices).size,1,'lease acquisition and renewal use the same game device');
+            assert.equal(await page.locator('script[src*="/app.js"],script[src^="app.js"]').count(),1,'the application starts only once');
+            const bounds=await page.locator('.login-intro').boundingBox();assert(bounds.width>=p.width&&bounds.height>=p.height,'film fills the actual game shell');
+            await page.screenshot({path:path.join(output,p.name+'-game-loading-under-film.png')});
             await page.locator('.login-intro').waitFor({state:'detached',timeout:35000});filmCompleted=true;
           }else await page.locator('.login-intro__skip').click();
         }
         await page.waitForFunction(()=>window.KALISTAR_READY,{},{timeout:30000});
       }catch(e){console.error({errors,boot:await page.locator('#app').innerText().catch(()=>''),sync:await page.evaluate(()=>window.KALISTAR_SYNC?.snapshot())});throw e;}};
-      await page.goto(origin+'/jeu/');await page.waitForURL('**/jeu/login*');await page.locator('#login-form button[type=submit]:enabled').waitFor();
+      await page.goto(origin+'/jeu/login.html?next='+encodeURIComponent('/jeu/#home'));await page.waitForURL('**/jeu/login*');await page.locator('#login-form button[type=submit]:enabled').waitFor();
       assert.equal(await page.locator('.main-nav').count(),0);assert(!calls.some(c=>c.includes('kalistar_me')),'game does not initialize before authentication');
       assert.equal(await page.locator('.login-intro').count(),0,'no intro before authentication');
       for(const version of [1,2,3])assert.equal(await page.evaluate(v=>fetch('assets/cinematics/kalistar-anime-v'+v+'.mp4').then(r=>r.status),version),401,'film remains private');
@@ -86,6 +99,7 @@ async function main(){
       assert.equal(await page.locator('input[name=password]').inputValue(),'');assert.equal(await page.evaluate(url=>fetch(url).then(r=>r.status),origin+'/jeu/catalogue.json'),401);
       denied=true;await page.locator('input[name=password]').fill('only-a-fixture-password');await page.locator('#login-form [type=submit]').click();await page.getByText('Ce compte ne peut pas acceder a Kalistar.').waitFor();assert.equal(await page.evaluate(url=>fetch(url).then(r=>r.status),origin+'/jeu/catalogue.json'),401);
       denied=false;await page.locator('input[name=password]').fill('only-a-fixture-password');await page.locator('#login-form [type=submit]').click();await ready(true);
+      assert.equal(new URL(page.url()).hash,'#home','explicit login and intro preserve the requested destination');
       assert.equal(await page.evaluate(()=>KALISTAR_ACTIVE_USER),'user-paris');assert.equal(await page.locator('[data-registry-action=cloud]').count(),0);
       const cookies=await context.cookies();assert(cookies.some(c=>c.name==='__Host-kalistar'&&c.httpOnly&&c.secure));
       await page.evaluate(()=>localStorage.setItem('kalistar-auth-qa-marker','preserve'));await page.reload();await ready();assert.equal(await page.evaluate(()=>localStorage.getItem('kalistar-auth-qa-marker')),'preserve');
@@ -99,6 +113,17 @@ async function main(){
       assert.equal(await page.evaluate(url=>fetch(url).then(r=>r.status),origin+'/jeu/catalogue.json'),401);assert.equal(await page.evaluate(()=>localStorage.getItem('kalistar-auth-qa-marker')),'preserve');
       await page.locator('input[name=email]').fill('tokyo@example.invalid');await page.locator('input[name=password]').fill('only-a-fixture-password');await page.locator('#login-form [type=submit]').click();await ready(true);
       assert.equal(await page.evaluate(()=>KALISTAR_ACTIVE_USER),'user-tokyo','server profile wins over former local Paris selection');
+      await page.locator('.nav-more').click();
+      await page.locator('[data-view=journeys]').click();
+      await page.getByRole('heading',{name:'Fragment',exact:true}).waitFor();
+      assert.equal(await page.locator('.jv-cover').count(),3);
+      await page.screenshot({path:path.join(output,p.name+'-fragment.png')});
+      await page.locator('[data-jv-action=open]').first().click();
+      await page.locator('.jv-scene img').evaluate(img=>img.decode());
+      await page.locator('[data-jv-action=start]').scrollIntoViewIfNeeded();
+      assert.equal(await page.locator('[data-jv-action=start]').evaluate(node=>{const r=node.getBoundingClientRect();return node.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));}),true,'Fragment combat button is reachable in the real mobile shell');
+      assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'Fragment has no horizontal page overflow');
+      await page.screenshot({path:path.join(output,p.name+'-fragment-reader.png')});
       assert(!calls.some(c=>c.includes('/signup')||c.includes('/otp')),'no optional signup or email-code login');assert.deepEqual(errors,[],p.name+' no JavaScript errors');
       results.push({profile:p.name,passed:true,layout});await context.close();
     }
