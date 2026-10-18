@@ -180,6 +180,14 @@ dans `revisions/2026-09-25-kaylis-training/`.
 
 ## Reception artistique et technique
 
+### Dos Obsidienne, validation du 18 octobre 2026
+
+Le dos commun du jeu est la proposition 02 Obsidienne : pierre noire, cuivre et
+cristal rainbow vertical. Utiliser `site/assets/back-obsidian-v1.webp` pour les
+cartes cachees, presentations, transitions et images de remplacement. La source
+historique V3 reste intacte. Sources, prompt, export et empreintes sont conserves
+dans `revisions/2026-10-18-obsidian-back/`. Les rectos natifs ne changent pas.
+
 ### Lot utilisateur du 27 septembre 2026
 
 - Kaylis, L'elan des couleurs, et Lanio, Le vertige pour rire : remplacer

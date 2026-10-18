@@ -34,7 +34,7 @@
     function cardButton(u,side,slot){
       const c=u&&E.card(u),o=op(),expected=o?.method==='lock'?(chosen?1-state().turn:state().turn):o?.select?o.side:null;
       const eligible=side===expected,selected=state().duel?.attacker===u?.uid||state().duel?.target===u?.uid;
-      return `<div class="guide-unit ${selected?'is-dueling':''}">${globalThis.KalistarPositions.markup(slot+1)}<button class="guide-card ${eligible?'is-eligible':''}" data-guide-card="${side}:${slot}" aria-label="${esc(c?.name||'Poste libre')}" ${!eligible||!c?'disabled':''}><img src="${esc(c?image(c):'assets/back.webp')}" alt="${esc(c?.name||'Poste libre')}" width="797" height="1388" draggable="false">${c?`<span>${esc(c.name)}</span>`:''}</button>${c?traits(u):''}</div>`;
+      return `<div class="guide-unit ${selected?'is-dueling':''}">${globalThis.KalistarPositions.markup(slot+1)}<button class="guide-card ${eligible?'is-eligible':''}" data-guide-card="${side}:${slot}" aria-label="${esc(c?.name||'Poste libre')}" ${!eligible||!c?'disabled':''}><img src="${esc(c?image(c):'assets/back-obsidian-v1.webp')}" alt="${esc(c?.name||'Poste libre')}" width="797" height="1388" draggable="false">${c?`<span>${esc(c.name)}</span>`:''}</button>${c?traits(u):''}</div>`;
     }
     function traits(u){
       const labels={ward:'Garde +60',luck:'Trèfle',reraise:'Cœur',mana:'Potion +60',physical:'Puissance +60'};

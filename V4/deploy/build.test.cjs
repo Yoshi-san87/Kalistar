@@ -52,6 +52,24 @@ test('release contains all published cards and only playable files', async () =>
   assert.ok(files.some(f => f.target === 'jeu/assets/pwa-192.png'));
   assert.ok(files.some(f => f.target === 'jeu/assets/pwa-512.png'));
 });
+test('selected Obsidian back is registered and used on every V4 surface', async () => {
+  const {files}=await plan();
+  const provenance=JSON.parse(fs.readFileSync(path.join(__dirname,'../revisions/2026-10-18-obsidian-back/provenance.json'),'utf8'));
+  const back=files.find(file=>file.target==='jeu/assets/back-obsidian-v1.webp');
+  assert.equal(back.source,provenance.output.path);
+  assert.equal(back.expectedHash,provenance.output.sha256);
+  const bytes=fs.readFileSync(path.resolve(__dirname,'../..',back.source));
+  assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),provenance.output.sha256);
+  assert.ok(bytes.length<350*1024,'one shared lightweight back');
+  for(const name of ['app.js','accounts-ui.js','cloud-registry-ui.js','guide-view.js','page-transitions.js']){
+    const source=fs.readFileSync(path.join(__dirname,'../site',name),'utf8');
+    assert.ok(source.includes('assets/back-obsidian-v1.webp'),name);
+    assert.ok(!source.includes('assets/back.webp'),name+' must not retain the historical V3 back');
+  }
+  const previous=fs.readFileSync(path.resolve(__dirname,'../../V3/site/assets/back.webp'));
+  assert.equal(crypto.createHash('sha256').update(previous).digest('hex'),provenance.previous.sha256);
+});
+
 test('build paths cannot escape the generated directory', () => {
   for (const value of ['../README.md', '..\\README.md', '/outside', '']) assert.throws(() => inside(DIST, value));
 });
@@ -102,9 +120,9 @@ test('static release versions stylesheet and script URLs together', () => {
 test('application version matches in desktop and phone headers', () => {
   const html = fs.readFileSync(path.join(__dirname, '../site/index.html'), 'utf8');
   const css = fs.readFileSync(path.join(__dirname, '../site/v4.css'), 'utf8');
-  assert.match(html, /<title>Kalistar V4\.6\.87/);
-  assert.match(html, /<span class="edition">VERSION 4\.6\.87<\/span>/);
-  assert.ok(css.includes("content:'V4.6.87'"));
+  assert.match(html, /<title>Kalistar V4\.6\.88/);
+  assert.match(html, /<span class="edition">VERSION 4\.6\.88<\/span>/);
+  assert.ok(css.includes("content:'V4.6.88'"));
 });
 test('hosting adapter supports local, project Pages and saved canonical image paths', () => {
   const script = fs.readFileSync(path.join(__dirname, '../site/site-config.js'), 'utf8');

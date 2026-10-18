@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-18",
+  "status": "user-approved",
+  "name": "Obsidienne",
+  "proposal": "02",
+  "generator": "built-in image_gen",
+  "prompt": "Use case: stylized-concept. Asset: one print-quality collectible trading CARD BACK for the original game KALISTAR. This is a new artistic proposal, not a character front.\nReferences: image 1 is the approved Kalistar wordmark and copper/silver material identity; image 2 is the approved luminous rainbow jewel. Match the jewel's vivid refractive multi-hued triangular facets and STRAIGHT vertical axis, top and bottom points precisely aligned. Not a diagonal jewel and not flat rainbow stripes.\nFormat: full single portrait rectangle, aspect ratio 3:5 matching the game's 897x1497 cards. Flat straight-on orthographic printable design; four corners entirely visible; no perspective, hands, table, props, mockup scene, shadows outside the card or extra surrounding margins. Card artwork extends to all canvas edges. All ornament intentional and readable at thumbnail size, luxurious restrained detail, engraved copper and silver, painterly tactile material, dark heroic fantasy with subtle magical technology. Exact word only \"KALISTAR\" in elegant embossed silver serif lettering inspired by reference, spelled K A L I S T A R. No other words, numbers or watermark. Put wordmark within the composition, with comfortable internal margins. Avoid generic glowing blue gamer HUD, photographic plastic, cartoon, tilted central geometry. There must be just ONE upright rainbow jewel, beautifully rendered and not washed out white. Do not copy the previous backs' composition automatically.\nUnique direction for THIS proposal: Quiet radical luxury: predominantly polished black obsidian with subtle natural matte-black mineral planes, a SMALL brilliant rainbow diamond at exact center in a very refined thin rose-copper mount. Large intentional negative space. Four exquisitely narrow double copper lines define the rectangle, hairline silver etched geometric ornament only at corners. No big central medallion or circle. KALISTAR engraved discreetly immediately below jewel at mid-height, not a giant title. A premium minimal collectible object. Make minimalism feel expensive, not empty or flat.",
+  "generatedSource": "C:\\Users\\guill\\.codex\\generated_images\\01a0b4b1-d740-7ec2-b8fb-65be8d2942c9\\exec-800a2c0e-f02c-4665-ae32-ae103d43ee68.png",
+  "references": [
+    "V4/site/assets/logo-rainbow-v2.webp",
+    "V4/revisions/2026-10-17-rainbow-brand/sources/rainbow-jewel-upright-v1.png"
+  ],
+  "original": {
+    "path": "sources/obsidian-original.png",
+    "sha256": "6a4c5098cf02fad5eb036d37bac83a5c1eb5ade146abedbe0300821252ead928"
+  },
+  "previous": {
+    "path": "sources/previous-back.webp",
+    "source": "V3/site/assets/back.webp",
+    "sha256": "4a283a283cace413443d38fea6ee31d3d0f5ba137527d1320f596107ecbd68c5"
+  },
+  "output": {
+    "path": "V4/site/assets/back-obsidian-v1.webp",
+    "width": 897,
+    "height": 1497,
+    "bytes": 292054,
+    "sha256": "33d14b11c87a565d5505108e577868b3ca835b8792339035da1474ce93caa8e1"
+  },
+  "transform": "Resize with contain; no crop, regeneration or retouch. Black padding only to native card ratio."
+}

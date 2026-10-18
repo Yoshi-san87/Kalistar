@@ -10,7 +10,7 @@
     const app=document.getElementById('app');if(!app||document.querySelector('.lineup-intro'))return;
     app.classList.add('page-arriving');
     const node=document.createElement('div');node.className='kalistar-page-crossing crossing-'+view;node.setAttribute('aria-hidden','true');
-    node.innerHTML=view==='decks'?'<div class="crossing-deck">'+[0,1,2].map(i=>'<img src="assets/back.webp" alt="" style="--card-index:'+i+'">').join('')+'</div>':'<img class="crossing-emblem" src="assets/navigation/'+(illustrations[view]||'kalistel-rainbow')+'-v1.webp" alt="">';
+    node.innerHTML=view==='decks'?'<div class="crossing-deck">'+[0,1,2].map(i=>'<img src="assets/back-obsidian-v1.webp" alt="" style="--card-index:'+i+'">').join('')+'</div>':'<img class="crossing-emblem" src="assets/navigation/'+(illustrations[view]||'kalistel-rainbow')+'-v1.webp" alt="">';
     node.append(Object.assign(document.createElement('span'),{className:'crossing-line'}));
     document.body.append(node);current=node;
     node.addEventListener('animationend',event=>{if(event.target===node&&current===node)cancel();});

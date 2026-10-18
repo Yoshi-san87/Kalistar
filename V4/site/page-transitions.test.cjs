@@ -11,7 +11,7 @@ function fixture(){
 }
 test('page entry uses native deck media and ignores child animation end',()=>{
   const f=fixture();f.api.enter('decks');const n=f.nodes[0];
-  assert(n.innerHTML.includes('assets/back.webp'));assert(f.classes.has('page-arriving'));
+  assert(n.innerHTML.includes('assets/back-obsidian-v1.webp'));assert(f.classes.has('page-arriving'));
   n.end({target:{}});assert(!n.removed);n.end({target:n});assert(n.removed);assert(!f.classes.has('page-arriving'));
 });
 test('navigation replacement and pagehide remove transient elements',()=>{

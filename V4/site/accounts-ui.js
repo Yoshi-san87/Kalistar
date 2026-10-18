@@ -8,7 +8,7 @@
     const registry=db.registry,cards=window.KALISTAR_DATA.cards;
     let byId=Object.fromEntries(cards.map(c=>[c.id,c]));
     const card=id=>byId[id]||{id,name:'Carte #'+id,title:'Profil a actualiser'};
-    const image=c=>c.pngUrl?KalistarCardMedia.image(c):'assets/back.webp';
+    const image=c=>c.pngUrl?KalistarCardMedia.image(c):'assets/back-obsidian-v1.webp';
     let tab='transfers',mode='hub',selected=null,recipient=null,review=null,issued=null,busy=false,storage=null;
     const dialog=()=>document.querySelector('#account-dialog'),user=()=>registry.user(getUserId());
     const action=(name,label,symbol,attrs='',cls='')=>`<button type="button" data-registry-action="${name}" class="${cls}" ${attrs}>${icon(symbol)}${label}</button>`;
