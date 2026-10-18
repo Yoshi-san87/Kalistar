@@ -1,0 +1,220 @@
+{
+  "id": "2026-10-18-vulkar-black-guard",
+  "arenas": [],
+  "presets": [],
+  "cards": [
+    {
+      "key": "zhaerik",
+      "name": "ZHAERIK",
+      "title": "LE SEUIL INFRANCHISSABLE",
+      "job": "GARDIEN",
+      "description": "Zhaerik connaît chaque fissure du pont. Sa lance barre le passage, mais il laisse toujours revenir les retardataires. Les ordres parlent de frontières ; lui se souvient des visages.",
+      "weapon": "Lance",
+      "role": 1,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        203,
+        159,
+        "guard",
+        92,
+        62,
+        24
+      ],
+      "defense": [
+        292,
+        224,
+        174,
+        135,
+        88,
+        35
+      ],
+      "magic": [
+        3
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "rationale": "Sentinelle de pont : Garde D4, DEF régulière et deux barrières, sans esquive ni Mort.",
+      "id": "49903001",
+      "characterId": "zhaerik-kalistar",
+      "element": "PYRO",
+      "race": "DRAX",
+      "faction": "Vulkar",
+      "artworkSource": "V4/propositions/2026-10-17-vulkar-black-guard/images/01-zhaerik-scene-kalistar-04.png"
+    },
+    {
+      "key": "syrkha",
+      "name": "SYRKHA",
+      "title": "LE SOUFFLE RETENU",
+      "job": "SNIPER",
+      "description": "Syrkha attend que les cendres retombent avant de choisir sa cible. Elle connaît le prix d'un tir trop tôt. Sous sa visière, son regard ne quitte jamais la fenêtre où veille son jeune frère.",
+      "weapon": "Gun",
+      "role": 4,
+      "positions": [
+        4
+      ],
+      "atk": [
+        289,
+        232,
+        169,
+        "death",
+        75,
+        28
+      ],
+      "defense": [
+        161,
+        129,
+        98,
+        73,
+        "retry",
+        21
+      ],
+      "magic": [
+        4,
+        2
+      ],
+      "barriers": [
+        5
+      ],
+      "rationale": "Tir à distance : Mort D3 contre une face numérique, deux tirs Pyro et une relance DEF ; pas d'esquive.",
+      "id": "49903002",
+      "characterId": "syrkha-kalistar",
+      "element": "PYRO",
+      "race": "DRAX",
+      "faction": "Vulkar",
+      "artworkSource": "V4/propositions/2026-10-17-vulkar-black-guard/images/02-syrkha-scene-kalistar-04.png"
+    },
+    {
+      "key": "dhorven",
+      "name": "DHORVEN",
+      "title": "LA MEMOIRE DU BASALTE",
+      "job": "SOLDAT",
+      "description": "Dhorven pose la main sur la pierre avant d'ouvrir la marche. Il reconnaît un pas hésitant sous le grondement du volcan. Sa hache a sauvé plus de portes qu'elle n'en a brisé.",
+      "weapon": "Hache",
+      "role": 3,
+      "positions": [
+        1,
+        3
+      ],
+      "atk": [
+        223,
+        181,
+        146,
+        104,
+        "buff_atk",
+        31
+      ],
+      "defense": [
+        232,
+        186,
+        147,
+        109,
+        65,
+        27
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "rationale": "Vétéran Middle : valeurs équilibrées et soutien physique D2, six défenses numériques, aucune Garde car rôle principal P3.",
+      "id": "49903003",
+      "characterId": "dhorven-kalistar",
+      "element": "PYRO",
+      "race": "DRAX",
+      "faction": "Vulkar",
+      "artworkSource": "V4/propositions/2026-10-17-vulkar-black-guard/images/03-dhorven-scene-kalistar-04.png"
+    },
+    {
+      "key": "nessyra",
+      "name": "NESSYRA",
+      "title": "AU-DELA DU REMPART",
+      "job": "SOLDAT",
+      "description": "Nessyra déploie ses ailes quand les chemins cessent. La chaleur des Kalistels traverse son manteau ; elle sourit à peine. Tout en bas, une sentinelle sait déjà qu'elle ne sera plus seule.",
+      "weapon": "Epée longue",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        274,
+        238,
+        179,
+        "retry",
+        66,
+        34
+      ],
+      "defense": [
+        163,
+        127,
+        "dodge",
+        77,
+        45,
+        22
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        3
+      ],
+      "rationale": "Duelliste mobile : pic ATK contenu, trèfle D3 et esquive DEF D4 ; le vol est narratif, sans règle supplémentaire.",
+      "id": "49903004",
+      "characterId": "nessyra-kalistar",
+      "element": "PYRO",
+      "race": "DRAX",
+      "faction": "Vulkar",
+      "artworkSource": "V4/propositions/2026-10-17-vulkar-black-guard/images/04-nessyra-scene-kalistar-04.png"
+    },
+    {
+      "key": "orzhan",
+      "name": "ORZHAN",
+      "title": "LE SILENCE DES ORDRES",
+      "job": "COMMANDANT",
+      "description": "Orzhan attend dans la salle de garde, son bâton contre la dalle. Il retient les ordres qui coûteraient une vie de trop. Quand il se lève enfin, chacun sait pour qui il faudra tenir.",
+      "weapon": "Bâton",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        174,
+        "guard",
+        109,
+        "mana",
+        53,
+        "retry"
+      ],
+      "defense": [
+        202,
+        163,
+        122,
+        94,
+        58,
+        24
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "rationale": "Officier P5 : Garde D5, potion D3 et trèfle D1 avec trois attaques numériques. Pas de Reraise artificiel.",
+      "id": "49903005",
+      "characterId": "orzhan-kalistar",
+      "element": "PYRO",
+      "race": "DRAX",
+      "faction": "Vulkar",
+      "artworkSource": "V4/propositions/2026-10-17-vulkar-black-guard/images/05-orzhan-scene-kalistar-04.png"
+    }
+  ]
+}

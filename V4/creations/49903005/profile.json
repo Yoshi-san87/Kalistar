@@ -1,0 +1,61 @@
+{
+  "name": "ORZHAN",
+  "title": "LE SILENCE DES ORDRES",
+  "job": "COMMANDANT",
+  "description": "Orzhan attend dans la salle de garde, son bâton contre la dalle. Il retient les ordres qui coûteraient une vie de trop. Quand il se lève enfin, chacun sait pour qui il faudra tenir.",
+  "element": "PYRO",
+  "race": "DRAX",
+  "weapon": "Bâton",
+  "faction": "Vulkar",
+  "positions": [
+    3,
+    5
+  ],
+  "atk": [
+    174,
+    "guard",
+    109,
+    "mana",
+    53,
+    "retry"
+  ],
+  "defense": [
+    202,
+    163,
+    122,
+    94,
+    58,
+    24
+  ],
+  "magic": [
+    4
+  ],
+  "barriers": [
+    6,
+    4
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49903005",
+  "characterId": "orzhan-kalistar",
+  "slug": "V4_49903005",
+  "output": "KALISTAR_V4_49903005",
+  "text": "Orzhan attend dans la salle de garde, son bâton contre la dalle. Il retient les ordres qui coûteraient une vie de trop. Quand il se lève enfin, chacun sait pour qui il faudra tenir.",
+  "color": "FF704A",
+  "hue": 12,
+  "weapon_index": 10,
+  "role": 5,
+  "sentry": true,
+  "canGuard": true,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Original Kalistar, illustration approuvee le 18 octobre 2026",
+  "visual_revision": "V4-2026-10-18-vulkar-black-guard",
+  "artworkSource": "V4/propositions/2026-10-17-vulkar-black-guard/images/05-orzhan-scene-kalistar-04.png"
+}

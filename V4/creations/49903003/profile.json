@@ -1,0 +1,61 @@
+{
+  "name": "DHORVEN",
+  "title": "LA MEMOIRE DU BASALTE",
+  "job": "SOLDAT",
+  "description": "Dhorven pose la main sur la pierre avant d'ouvrir la marche. Il reconnaît un pas hésitant sous le grondement du volcan. Sa hache a sauvé plus de portes qu'elle n'en a brisé.",
+  "element": "PYRO",
+  "race": "DRAX",
+  "weapon": "Hache",
+  "faction": "Vulkar",
+  "positions": [
+    1,
+    3
+  ],
+  "atk": [
+    223,
+    181,
+    146,
+    104,
+    "buff_atk",
+    31
+  ],
+  "defense": [
+    232,
+    186,
+    147,
+    109,
+    65,
+    27
+  ],
+  "magic": [
+    5
+  ],
+  "barriers": [
+    6,
+    3
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49903003",
+  "characterId": "dhorven-kalistar",
+  "slug": "V4_49903003",
+  "output": "KALISTAR_V4_49903003",
+  "text": "Dhorven pose la main sur la pierre avant d'ouvrir la marche. Il reconnaît un pas hésitant sous le grondement du volcan. Sa hache a sauvé plus de portes qu'elle n'en a brisé.",
+  "color": "FF704A",
+  "hue": 12,
+  "weapon_index": 0,
+  "role": 3,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Original Kalistar, illustration approuvee le 18 octobre 2026",
+  "visual_revision": "V4-2026-10-18-vulkar-black-guard",
+  "artworkSource": "V4/propositions/2026-10-17-vulkar-black-guard/images/03-dhorven-scene-kalistar-04.png"
+}

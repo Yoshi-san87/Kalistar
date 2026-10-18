@@ -6,7 +6,7 @@ const archive=require('./fixtures/equipment-v4.5.64.json');
 const {buildCatalog}=require('../atelier/game-catalog.cjs'),{createEngine}=require('./engine.js');
 const dataPromise=buildCatalog({published:require('../donnees/catalogue.json').cards.filter(c=>c.kind==='created')});
 const expected={
-  'wardens-spear':['brask-kalistar','karrok-kalistar','kimahri-ff10','nazar','orseon-kalistar','ward-ff8'],
+  'wardens-spear':['brask-kalistar','karrok-kalistar','kimahri-ff10','nazar','orseon-kalistar','ward-ff8','zhaerik-kalistar'],
   'soldiers-blade':['isvel-kalistar','liorne-kalistar'],
   'commanders-sabre':['saevra-kalistar'],
   'arborium-twinstring-bow':['saelor-kalistar','ssilas'],
