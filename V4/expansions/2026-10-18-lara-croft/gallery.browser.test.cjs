@@ -1,0 +1,60 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
+const {pathToFileURL}=require('node:url');
+const {createRequire}=require('node:module');
+const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
+const {chromium}=createRequire(path.join(runtime,'_test.cjs'))('playwright');
+const root=path.resolve(__dirname,'../../..'),dir=__dirname,qa=path.join(root,'work/qa/lara-croft/gallery');
+const selection={cards:require('./set.json').cards.map(c=>({...c,crystal:c.element+' · HUMAIN · Tomb Raider',file:'cards/'+c.key+'/card.png'}))};
+(async()=>{
+ fs.mkdirSync(qa,{recursive:true});
+ const browser=await chromium.launch({channel:'msedge',headless:true});
+ try{
+  const page=await browser.newPage({viewport:{width:1440,height:1100}}),errors=[];
+  page.on('pageerror',e=>errors.push(e.message));
+  page.on('requestfailed',r=>errors.push(r.url()+': '+r.failure()?.errorText));
+  await page.goto(pathToFileURL(path.join(dir,'index.html')).href);
+  await page.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.querySelectorAll('.art img')].map(i=>{i.loading='eager';return i.decode()}));});
+  assert.equal(await page.locator('.gallery>figure').count(),5);
+  assert.equal(await page.locator('.art img').evaluateAll(imgs=>imgs.filter(i=>i.naturalWidth>0).length),5);
+  assert.ok(await page.locator('button svg').count()>=3);
+  const reports=[];
+  for(const width of [1920,1440,800,412,320]){
+   await page.setViewportSize({width,height:width<500?915:1100});
+   const layout=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth,figures:[...document.querySelectorAll('.gallery>figure')].filter(f=>!f.hidden).map(f=>{const r=f.getBoundingClientRect();return {left:r.left,right:r.right,width:r.width}})}));
+   assert.ok(layout.scroll<=width+1,'Page overflow '+width);
+   assert.ok(layout.figures.every(r=>r.left>=0&&r.right<=width+1),'Figure outside '+width);
+   reports.push(layout);
+   if([1440,412].includes(width))await page.screenshot({path:path.join(qa,width===1440?'desktop.png':'mobile.png')});
+   await page.locator('.art').first().click();
+   await page.locator('#full-art').evaluate(i=>i.decode());
+   assert.equal(await page.locator('#viewer').evaluate(e=>e.open),true);
+   assert.equal(await page.locator('#viewer-crystal').textContent(),selection.cards[0].crystal);
+   assert.equal(await page.locator('#full-art').getAttribute('src'),selection.cards[0].file);
+   assert.equal(await page.locator('#previous').isDisabled(),true);
+   const stage=await page.locator('.stage').boundingBox();assert.ok(stage.height>150&&stage.width>200,'Dialog image too small');
+   if([1440,412].includes(width))await page.screenshot({path:path.join(qa,width===1440?'desktop-detail.png':'mobile-detail.png')});
+   await page.keyboard.press('ArrowRight');
+   assert.equal(await page.locator('#counter').textContent(),'02 / 5');
+   await page.keyboard.press('Escape');
+   assert.equal(await page.locator('#viewer').evaluate(e=>e.open),false);
+   assert.equal(await page.locator('.art').first().evaluate(e=>e===document.activeElement),true);
+  }
+  await page.locator('#group').selectOption('P2');
+  assert.equal(await page.locator('.gallery>figure:visible').count(),1);
+  await page.locator('#group').selectOption('');
+  await page.locator('#search').fill('NEVADA');
+  assert.equal(await page.locator('.gallery>figure:visible').count(),1);
+  await page.locator('#search').fill('absent-xyz');
+  assert.equal(await page.locator('#empty').isVisible(),true);
+  await page.locator('#search').fill('');
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await page.locator('.art').last().click();
+  await page.locator('#full-art').evaluate(i=>i.decode());
+  assert.equal(await page.locator('#next').isDisabled(),true);
+  await page.keyboard.press('Escape');
+  assert.deepEqual(errors,[]);
+  fs.writeFileSync(path.join(qa,'results.json'),JSON.stringify({status:'passed',cards:5,viewports:reports,checks:['all sources loaded','responsive bounds','lightbox 5 widths','keyboard navigation','focus restore','filters','empty state','reduced motion','no page or resource errors']},null,2)+'\n');
+  console.log('PASS: five images; 1920, 1440, 800, 412 and 320px; lightbox, keyboard, focus, filters, reduced motion.');
+ }finally{await browser.close()}
+})().catch(e=>{console.error(e);process.exitCode=1});

@@ -1,0 +1,228 @@
+{
+  "schemaVersion": 1,
+  "id": "2026-10-18-lara-croft",
+  "officialCollaboration": false,
+  "arenas": [],
+  "presets": [],
+  "cards": [
+    {
+      "key": "classic",
+      "id": "49903101",
+      "characterId": "lara-croft-tomb-raider",
+      "name": "LARA CROFT",
+      "title": "LA VALLEE PERDUE",
+      "element": "GEO",
+      "role": 3,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        230,
+        185,
+        145,
+        105,
+        "retry",
+        35
+      ],
+      "defense": [
+        222,
+        182,
+        144,
+        94,
+        "dodge",
+        "retry"
+      ],
+      "magic": [
+        6
+      ],
+      "barriers": [
+        5
+      ],
+      "job": "EXPLORATRICE",
+      "description": "Au seuil de la vallée perdue, Lara oublie un instant le poids de ses pistolets. Le vent apporte une histoire plus ancienne que les pierres. Elle sourit, puis vérifie où poser le pied.",
+      "rationale": "Exploration équilibrée : trèfle D2, esquive D2 et relance D1 en défense. Un seul tir élémentaire, pour garder une Lara polyvalente.",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "faction": "TOMBRAIDER",
+      "collaboration": "TOMBRAIDER",
+      "artworkSource": "V4/propositions/2026-10-18-lara-croft-five-eras/images/01-lara-tomb-raider-1996.png"
+    },
+    {
+      "key": "venice",
+      "id": "49903102",
+      "characterId": "lara-croft-tomb-raider",
+      "name": "LARA CROFT",
+      "title": "LES OMBRES DE VENISE",
+      "element": "HYDRO",
+      "role": 4,
+      "positions": [
+        2,
+        4
+      ],
+      "atk": [
+        282,
+        234,
+        180,
+        138,
+        "buff_atk",
+        44
+      ],
+      "defense": [
+        166,
+        136,
+        100,
+        "dodge",
+        48,
+        22
+      ],
+      "magic": [
+        5,
+        3
+      ],
+      "barriers": [
+        6
+      ],
+      "job": "AVENTURIERE",
+      "description": "Un reflet dans le canal suffit. Lara pivote avant le premier coup de feu, ses deux pistolets déjà levés. Derrière les façades tranquilles, la piste du dragon n'a rien d'une promenade.",
+      "rationale": "Distance offensive : puissance physique D2, deux tirs Hydro et esquive D3. Défense modeste, sans Mort ni relance.",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "faction": "TOMBRAIDER",
+      "collaboration": "TOMBRAIDER",
+      "artworkSource": "V4/propositions/2026-10-18-lara-croft-five-eras/images/02-lara-tomb-raider-ii.png"
+    },
+    {
+      "key": "nevada",
+      "id": "49903103",
+      "characterId": "lara-croft-tomb-raider",
+      "name": "LARA CROFT",
+      "title": "LA LIGNE INTERDITE",
+      "element": "MINERO",
+      "role": 3,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        216,
+        188,
+        148,
+        "retry",
+        72,
+        "mana"
+      ],
+      "defense": [
+        234,
+        190,
+        154,
+        112,
+        "retry",
+        34
+      ],
+      "magic": [
+        6
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "job": "ECLAIREUSE",
+      "description": "Au Nevada, Lara compte les rondes plutôt que les étoiles. Les jumelles quittent ses yeux ; un bruit vient de derrière elle. Trouver l'entrée était facile. Sortir avec la vérité sera autre chose.",
+      "rationale": "Reconnaissance : trèfle D3 et potion D1 soutiennent l'équipe, au prix de deux attaques numériques. Défense stable, sans esquive.",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "faction": "TOMBRAIDER",
+      "collaboration": "TOMBRAIDER",
+      "artworkSource": "V4/propositions/2026-10-18-lara-croft-five-eras/images/03-lara-tomb-raider-iii.png"
+    },
+    {
+      "key": "egypt",
+      "id": "49903104",
+      "characterId": "lara-croft-tomb-raider",
+      "name": "LARA CROFT",
+      "title": "LE POIDS DES ANCIENS",
+      "element": "LUXO",
+      "role": 4,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        268,
+        220,
+        176,
+        126,
+        "mana",
+        "retry"
+      ],
+      "defense": [
+        174,
+        142,
+        108,
+        78,
+        "retry",
+        "dodge"
+      ],
+      "magic": [
+        6,
+        4,
+        3
+      ],
+      "barriers": [
+        5
+      ],
+      "job": "ARCHEOLOGUE",
+      "description": "La fusée rouge éclaire un signe qu'elle aurait préféré ne pas comprendre. Lara referme ses doigts sur l'ankh. Certains tombeaux gardent un trésor ; celui-ci attend que quelqu'un répare une faute.",
+      "rationale": "Mystères d'Égypte : trois tirs Luxo, potion D2 et trèfle D1. Pas de Reraise artificiel : Lara n'est pas transformée en soigneuse.",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "faction": "TOMBRAIDER",
+      "collaboration": "TOMBRAIDER",
+      "artworkSource": "V4/propositions/2026-10-18-lara-croft-five-eras/images/04-lara-last-revelation.png"
+    },
+    {
+      "key": "vci",
+      "id": "49903105",
+      "characterId": "lara-croft-tomb-raider",
+      "name": "LARA CROFT",
+      "title": "SANS LAISSER DE TRACE",
+      "element": "NECRO",
+      "role": 2,
+      "positions": [
+        2,
+        4
+      ],
+      "atk": [
+        286,
+        236,
+        184,
+        "buff_atk",
+        78,
+        38
+      ],
+      "defense": [
+        164,
+        "dodge",
+        110,
+        80,
+        "retry",
+        24
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        4
+      ],
+      "job": "INFILTREE",
+      "description": "Suspendue au-dessus des lumières de la ville, Lara attend que le faisceau passe. Son appareil ne donne qu'une seconde de marge. Elle connaît le vertige ; ce soir, elle lui demande de se taire.",
+      "rationale": "Infiltration physique : puissance D3, esquive D5 et relance D2. Un tir Necro D5, pas de Mort automatique ni règle d'invisibilité.",
+      "race": "HUMAIN",
+      "weapon": "Gun",
+      "faction": "TOMBRAIDER",
+      "collaboration": "TOMBRAIDER",
+      "artworkSource": "V4/propositions/2026-10-18-lara-croft-five-eras/images/05-lara-chronicles.png"
+    }
+  ]
+}

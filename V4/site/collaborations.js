@@ -28,6 +28,7 @@
     {id:'castlevania',faction:'CASTLEVANIA',title:'Castlevania'},
     {id:'chrono-trigger',faction:'CHRONOTRIGGER',title:'Chrono Trigger'},
     {id:'tortues-ninja',faction:'TMNT',title:'Tortues Ninja'},
+    {id:'tomb-raider',faction:'TOMBRAIDER',title:'Tomb Raider'},
     ...Array.from({length:9},(_,i)=>({id:'re'+(i+1),faction:'RE'+(i+1),title:i===0?'Resident Evil':i===6?'Resident Evil 7 biohazard':i===7?'Resident Evil Village':i===8?'Resident Evil Requiem':'Resident Evil '+(i+1)}))
   ].map(Object.freeze));
   const factionKey=value=>{const name=String(value||'').trim().toLowerCase();return name==='gotham'?'batman':name;};
