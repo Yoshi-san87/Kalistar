@@ -382,7 +382,7 @@
         },['registryMeta'])),
         apply:(value,{isCurrent=()=>true}={})=>enqueue(async()=>{
           if(!isCurrent())throw Error('Synchronisation interrompue.');
-          const equipment=Q.reconcileProfile(value.equipment,data.cards);Q.validateProfile(equipment,data.cards);
+          const equipment=Q.reconcileProfile(value.equipment,data.cards);equipment.slots=cloudRegistry.filterEquipment(cloud.localProfile,equipment.slots);Q.validateProfile(equipment,data.cards);
           if(equipment.id!==cloud.localProfile||!Array.isArray(value.matches)||value.matches.length>10001)throw Error('Progression d un autre compte ou trop volumineuse.');
           const matches=value.matches.map(m=>{if(!m||m.state.collection?.userId!==cloud.localProfile)throw Error('Archive d un autre compte.');const checked=makeMatch(m.state,m.updatedAt,m);return {...checked,createdAt:m.createdAt,updatedAt:m.updatedAt};});
           for(const m of matches)cloudRegistry.validateSave(m.state,null,{restoring:true});
@@ -398,18 +398,21 @@
       };
     }
     const equippedItems=(userId,characterId)=>{
-      const row=cache.equipment.find(r=>r.id===userId)||Q.profile(userId);
+      const row=api.equipment.profile(userId);
       return Q.items(row.version===1?row.slots.weapon:row.slots).filter(item=>item.characterId===characterId)
         .map(item=>Q.catalogue.weapons.find(w=>w.id===item.id)).filter(Boolean);
     };
     api.equipment={
-      profile:userId=>copy(cache.equipment.find(r=>r.id===userId)||Q.profile(userId)),
+      profile:userId=>{const row=copy(cache.equipment.find(r=>r.id===userId)||Q.profile(userId));if(cloudRegistry)row.slots=cloudRegistry.filterEquipment(userId,row.slots);return row;},
+      owns:(userId,itemId)=>cloudRegistry?cloudRegistry.ownsEquipment(userId,itemId):true,
       weapon:(userId,characterId)=>copy(equippedItems(userId,characterId)[0]||null),
       items:(userId,characterId)=>copy(equippedItems(userId,characterId)),
       subscribe:listener=>{equipmentListeners.add(listener);return()=>equipmentListeners.delete(listener);},
       equip:(userId,characterId,weaponId,{expected=null,expectedProfile=null}={})=>enqueue(()=>atomic((s,write)=>{
         if(hasRegistry&&!s.users.some(u=>u.id===userId))throw new Error('Profil inconnu.');
-        const current=s.equipment.find(r=>r.id===userId)||Q.profile(userId);
+        if(cloudRegistry&&!cloudRegistry.ownsEquipment(userId,weaponId))throw Error('Cet equipement ne fait pas partie de ton arsenal.');
+        const current=copy(s.equipment.find(r=>r.id===userId)||Q.profile(userId));
+        if(cloudRegistry)current.slots=cloudRegistry.filterEquipment(userId,current.slots);
         const row=Q.equipProfile(current,characterId,weaponId,data.cards,{expected,expectedProfile});write('equipment',row);return copy(row);
       },hasRegistry?['users','equipment']:['equipment'])),
       unequip:(userId,characterId,weaponId)=>enqueue(()=>atomic((s,write)=>{

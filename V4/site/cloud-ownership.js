@@ -6,13 +6,29 @@
   function create({data,engine,player,getCache,enqueue,transaction,refresh,isOpen}){
     const userId=player.localProfile;
     if(!['user-paris','user-tokyo'].includes(userId)||!Array.isArray(player.cards))fail('Collection serveur invalide.');
-    let cards=[],pending=new Set();
+    let cards=[],pending=new Set(),equipmentAccess={all:false,ids:[]};
     function update(next){
       if(next.localProfile!==userId||!Array.isArray(next.cards)||next.cards.some(c=>!publicId.test(c.id)||!engine.byId[c.modelId])||new Set(next.cards.map(c=>c.id)).size!==next.cards.length)fail('Collection serveur incompatible avec ce catalogue.');
       cards=next.cards.filter(c=>c.status==='owned').map(c=>({...copy(c),cardId:c.modelId,ownerId:userId}));pending=new Set(next.pending||[]);
+      equipmentAccess={all:next.equipment?.all===true,ids:Array.isArray(next.equipment?.ids)?next.equipment.ids.filter(id=>typeof id==='string'):[]};
     }
     update(player);
     const known=id=>{if(!isOpen()||id!==userId)fail('Cette collection appartient a un autre compte.');};
+    const ownsEquipment=(id,item)=>{known(id);return equipmentAccess.all||equipmentAccess.ids.includes(item);};
+    const filterEquipment=(id,loadout)=>{known(id);return Object.fromEntries(['weapon','shield','relic'].map(slot=>[slot,Object.fromEntries(Object.entries(loadout?.[slot]||{}).filter(([,item])=>ownsEquipment(id,item)))]));};
+    const restrictTeam=(id,team)=>team?.equipment?{...copy(team),equipment:filterEquipment(id,team.equipment)}:copy(team);
+    function restrictProgress(value){
+      known(value.localProfile);
+      // Match snapshots can be large and are immutable: only copy editable progress.
+      const result={...value,equipment:{...value.equipment,slots:filterEquipment(userId,value.equipment.slots)},
+        preferences:{...value.preferences},deckLibrary:{...value.deckLibrary,decks:value.deckLibrary.decks.map(team=>restrictTeam(userId,team))}};
+      if(result.preferences.teamDraft)result.preferences.teamDraft=restrictTeam(userId,result.preferences.teamDraft);
+      return result;
+    }
+    function checkEquipment(game){
+      const loadout=game.equipment?.loadouts?.[0];
+      if(loadout&&Object.values(loadout).some(items=>Object.values(items).some(item=>!ownsEquipment(userId,item))))fail('Un equipement de ce deck ne fait pas partie de ton arsenal.');
+    }
     const owned=(id,cardId)=>{known(id);return copy(cards.filter(c=>cardId===undefined||c.cardId===String(cardId)));};
     const deckErrors=(id,ids)=>{
       known(id);if(!Array.isArray(ids))return ['Deck invalide.'];const counts=new Map();for(const cardId of ids)counts.set(cardId,(counts.get(cardId)||0)+1);
@@ -32,7 +48,7 @@
     }
     const matches=id=>{known(id);return copy(getCache().matches).sort((a,b)=>b.updatedAt.localeCompare(a.updatedAt));};
     const api={
-      get initialized(){return isOpen();},update,owned,deckErrors,
+      get initialized(){return isOpen();},update,owned,deckErrors,ownsEquipment,filterEquipment,restrictTeam,restrictProgress,
       user:id=>{known(id);return {id,name:player.label,email:player.label,role:'user'};},
       users:()=>[{id:userId,name:player.label,role:'user'}],get:id=>copy(cards.find(c=>c.id===id)),
       transfers:()=>[...pending].map(id=>({collectibleId:id,status:'pending',fromUserId:userId})),events:()=>[],matches,
@@ -42,12 +58,13 @@
         if(game.collection){validateGame(game,id);return game;}
         const freshComposition=game.composition&&game.phase==='initiative'&&game.round===1&&game.duel===null&&game.initiative?.first===null&&game.initiative.rolls.length===0&&game.match?.events.length===0;
         if(game.phase!=='setup'&&!freshComposition)fail('Une partie ancienne doit etre migree avant reprise.');
-        const errors=deckErrors(id,units(game).map(u=>u.cardId));if(errors.length)fail(errors[0]);
+        const errors=deckErrors(id,units(game).map(u=>u.cardId));if(errors.length)fail(errors[0]);checkEquipment(game);
         const used=new Set(),bindings={};for(const u of units(game)){const c=cards.find(c=>c.cardId===u.cardId&&!used.has(c.id)&&!pending.has(c.id));used.add(c.id);bindings[u.instanceId]=c.id;}
         game.collection={schema:1,userId:id,bindings,opponent:'virtual'};return game;
       },
       validateGame:(game,id)=>validateGame(game,id,{historical:game.phase==='over'}),
       validateSave(game,old,{restoring=false,registryMeta}={}){
+        if(!old&&!restoring&&game.phase!=='over')checkEquipment(game);
         if(old&&stable(old.state.collection)!==stable(game.collection))fail('La liaison des exemplaires est immuable.');
         validateGame(game,userId,{historical:restoring||game.phase==='over',registryMeta});
       },

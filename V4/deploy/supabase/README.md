@@ -117,6 +117,22 @@ Tests supplementaires : `progress-archives.test.cjs`, `backup.test.cjs`,
 Le parcours multi-appareils comprend 120 archives derivees de cinq combats
 reels simules ; ce test de volume n'est pas une preuve d'equilibrage.
 
+## Possession des equipements
+
+La migration 011 ajoute les droits prives `equipment_grants` et leur lecture
+dans `kalistar_player().equipment`. Joueur normal : aucun objet par defaut.
+Administrateur serveur : catalogue complet pour les essais. Aucun ajout de
+role, d'utilisateur, de secret ou de forfait dans cette migration.
+
+Appliquer apres export chiffre et verification de restauration. Le nettoyage
+vise uniquement `user-tokyo` et conserve une copie privee reversible dans
+`equipment_reset_backups`; Paris et les snapshots de matchs restent intacts.
+Les anciennes ecritures contenant un equipement non possede sont refusees,
+jamais silencieusement acquittees avec un contenu different. Le client publie
+filtre ses brouillons et imports ; un conflit garde le parcours de recuperation
+normal de la synchronisation. Tester avec `equipment-ownership.test.cjs` et
+`cloud-sync.browser.test.cjs` (base locale, comptes fictifs).
+
 ## Client officiel
 
 `@supabase/supabase-js` 2.118.0, distribution npm officielle, licence MIT.

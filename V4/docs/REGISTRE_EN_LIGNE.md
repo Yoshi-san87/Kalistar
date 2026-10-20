@@ -73,9 +73,24 @@ publications ne sont pas automatiquement offertes. Ces lots numeriques sont
 deja attribues, sans secret recuperable a imprimer ; les futurs exemplaires
 physiques suivent le parcours d'activation distinct.
 
-Un administrateur local ne devient pas administrateur Supabase. Les equipements
-actuels restent disponibles selon leur compatibilite ; leur possession en
-exemplaires n'est pas ajoutee par cette evolution.
+Un administrateur local ne devient pas administrateur Supabase. Sur le jeu
+heberge, un joueur commence sans arme, protection ou relique. Les droits viennent
+de `kalistar_private.equipment_grants`, avec une seule attribution par objet et
+par compte. Ce sont des objets debloques, pas des exemplaires de cartes a code
+barres ni des biens transferables. Aucun endpoint joueur ne permet de s'en donner.
+Paris conserve l'acces au catalogue pour ses essais via le role serveur `admins`.
+
+La migration 011 retire les attributions non possedees du profil, du brouillon
+et des decks sauvegardes de Tokyo. Une copie privee du document precedent est
+conservee et sa revision avance. Ni les cartes, ni les archives, ni les snapshots
+des combats deja commences ne sont reecrits. Une ancienne session peut devoir
+recharger la progression serveur ; elle ne peut pas reinjecter ces equipements.
+Les nouveaux combats Fragment et sauvegardes verifient les droits serveur ;
+l'arsenal et l'editeur de deck appliquent les memes droits cote client.
+Les adversaires virtuels ne sont pas soumis a l'inventaire du joueur.
+
+L'obtention par chapitres bonus Fragment est une proposition distincte, pas
+encore une mecanique publiee. Les livres actuels gardent leurs quatre combats.
 
 Le compte Paris recoit explicitement le role administrateur du registre pour
 les apercus de parcours. Tokyo reste joueur. Ce droit vient de la table privee

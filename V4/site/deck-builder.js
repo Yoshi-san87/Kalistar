@@ -107,7 +107,8 @@
     if (typeof getDraft !== 'function' || typeof onDraft !== 'function') throw new Error('getDraft et onDraft sont requis.');
     const model = createModel(options), byId = new Map(data.cards.map(c => [String(c.id), c]));
     const searchText=new Map(data.cards.map(c=>[c.id,[c.name,c.title,c.faction,c.race,c.id].join(' ').toLocaleLowerCase('fr')]));
-    const Team=Composition.create(engine,options.getEquipmentDefaults);
+    const composition=Composition.create(engine,options.getEquipmentDefaults);
+    const Team={...composition,normalize:value=>{const team=composition.normalize(value);return registry?.restrictTeam?registry.restrictTeam(userId,team):team;}};
     const candidate=(slots,index,id)=>model.candidate(slots,index,id,{formation:true});
     let recruitMode='characters',phoneLayout=false;
     let library, libraryError = '', root = null, selected = '', target = 0, previewId = null;
@@ -294,7 +295,7 @@
     function weaponHTML(){
       const c=byId.get(draft.cards[target]);
       if(!c)return '<p class="kdb-empty-results">Choisissez un personnage de votre equipe.</p>';
-      const weapons=globalThis.KalistarWeapons.weapons.filter(w=>globalThis.KalistarEquipment.compatible(w,c));
+      const weapons=globalThis.KalistarWeapons.weapons.filter(w=>globalThis.KalistarEquipment.compatible(w,c)&&(!registry?.ownsEquipment||registry.ownsEquipment(userId,w.id)));
       return `<div class="team-weapon-list">${Object.entries(globalThis.KalistarWeapons.categories).map(([slot,category])=>{
         const available=weapons.filter(w=>w.slot===slot),equipped=draft.equipment[slot][c.characterId];
         return `<section class="team-equipment-group" aria-label="${esc(category.label)}"><h3>${icon(category.icon)}${esc(category.label)}</h3>${available.map(w=>{
@@ -616,6 +617,7 @@
         if(action==='equip'||action==='unequip'){
           const c=byId.get(draft.cards[target]);if(!c)return;
           const item=globalThis.KalistarWeapons.weapons.find(w=>w.id===id);if(!item)return;
+          if(action==='equip'&&registry?.ownsEquipment&&!registry.ownsEquipment(userId,id))throw Error('Cet equipement ne fait pas partie de ton arsenal.');
           const old=draft.equipment[item.slot][c.characterId],carrier=Object.entries(draft.equipment[item.slot]).find(([key,value])=>value===id&&key!==c.characterId);
           const expectedLoadout=JSON.parse(JSON.stringify(draft.equipment));
           if(action==='equip'&&(old||carrier)&&!mountedWindow.confirm('Remplacer ou deplacer cet equipement dans cette equipe ?'))return;

@@ -35,9 +35,20 @@ async function create(data,{journeyKey=null}={}){
     });
   }
   return {call,
+    equipmentGrant:(profile,item)=>serialized(()=>db.query('insert into kalistar_private.equipment_grants(user_id,equipment_id,source) values($1,$2,$3) on conflict do nothing',[ids[profile==='user-paris'?0:1],item,'local-test'])),
+    legacyEquipmentSave:(profile,payload)=>serialized(()=>db.query('update kalistar_private.player_saves set payload=$2 where user_id=$1',[ids[profile==='user-paris'?0:1],JSON.stringify(payload)])),
+    resetEquipment:profile=>serialized(async()=>(await db.query('select kalistar_private.reset_unowned_equipment($1) as changed',[ids[profile==='user-paris'?0:1]])).rows[0].changed),
+    equipmentPermissions:()=>serialized(async()=>(await db.query(`select rolname,
+      has_table_privilege(rolname,'kalistar_private.equipment_grants','SELECT,INSERT,UPDATE,DELETE') as grants,
+      has_table_privilege(rolname,'kalistar_private.equipment_reset_backups','SELECT,INSERT,UPDATE,DELETE') as backups,
+      has_function_privilege(rolname,'kalistar_private.reset_unowned_equipment(uuid)','EXECUTE') as reset,
+      has_function_privilege(rolname,'kalistar_private.kalistar_player_before_equipment()','EXECUTE') as old_player,
+      has_function_privilege(rolname,'kalistar_private.kalistar_journey_start_before_equipment(text,jsonb,uuid,text)','EXECUTE') as old_journey
+      from pg_roles where rolname in ('anon','authenticated')`)).rows),
     backup:()=>serialized(async()=>(await db.query(require('./backup.cjs').query())).rows),
     models:()=>serialized(async()=>(await db.query('select id,name,title from public.kalistar_models order by name')).rows),
     resetProgress:()=>serialized(()=>db.exec('delete from kalistar_private.player_saves')),
+    resetEquipmentGrants:()=>serialized(()=>db.exec('delete from kalistar_private.equipment_grants')),
     read:profile=>call('kalistar_sync_read',{},profile),close:()=>queue.then(()=>db.close())};
 }
 module.exports={create,ids};

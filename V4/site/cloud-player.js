@@ -56,7 +56,7 @@
       return db.idle().then(async()=>{
         if(context.isCurrent&&!context.isCurrent())throw Error('Synchronisation interrompue.');
         const progress=db.cloudProgress.capture(),game=parse(storage,prefix+'game'),activeMatchId=game&&game.phase!=='over'?game.matchId:null;
-        const payload=await archives.split({schema:1,edition:'V4',localProfile:profile,preferences:preferences(),deckLibrary:parse(storage,libraryKey,{schema:2,edition:'V4',decks:[]}),equipment:progress.equipment,matches:progress.matches,activeMatchId,releasedMatches:progress.releasedMatches});
+        const payload=db.registry.restrictProgress(await archives.split({schema:1,edition:'V4',localProfile:profile,preferences:preferences(),deckLibrary:parse(storage,libraryKey,{schema:2,edition:'V4',decks:[]}),equipment:progress.equipment,matches:progress.matches,activeMatchId,releasedMatches:progress.releasedMatches}));
         validatePayload(payload,profile,data);
         const meaningful=payload.matches.length>0||payload.archives.length>0||payload.deckLibrary.decks.length>0||payload.preferences.favorites?.length>0||!!payload.preferences['story-progress']||Object.values(payload.equipment.slots).some(items=>Object.keys(items).length>0)||JSON.stringify(payload.preferences.teamDraft)!==JSON.stringify(starter);
         return {payload,meaningful};
@@ -67,7 +67,7 @@
       try{
         if(context.isCurrent&&!context.isCurrent())throw Error('Synchronisation interrompue.');
         const wire=payload.schema===1?await archives.split(payload):validatePayload(payload,profile,data);
-        const value=validatePayload(await archives.expand(wire,context),profile,data,{expanded:true});await db.cloudProgress.apply(value,context);
+        const value=db.registry.restrictProgress(validatePayload(await archives.expand(wire,context),profile,data,{expanded:true}));await db.cloudProgress.apply(value,context);
         if(context.isCurrent&&!context.isCurrent())throw Error('Synchronisation interrompue.');
         for(const key of keys){if(Object.hasOwn(value.preferences,key))storage.setItem(prefix+key,JSON.stringify(value.preferences[key]));else storage.removeItem(prefix+key);}
         storage.setItem(libraryKey,JSON.stringify(value.deckLibrary));

@@ -114,6 +114,7 @@
   let teamDraft;
   try{teamDraft=Team.normalize(load('teamDraft',null)||{name:deckName,cards:deck});}
   catch{teamDraft=Team.normalize({name:deckName,cards:deck});}
+  if(db?.registry?.restrictTeam)teamDraft=db.registry.restrictTeam(accountId,teamDraft);
   const savedFavorites=load('favorites',[]);
   let favorites=new Set((Array.isArray(savedFavorites)?savedFavorites:[]).filter(id=>E.byId[id]));
   const restored=load('game',null);let restoreError='';
@@ -182,6 +183,7 @@
   function icons(root=document){window.KalistarUI?.icons(root)??window.lucide?.createIcons({root});}
   function toast(message){clearTimeout(toastTimer);$('#toast').textContent=message;$('#toast').classList.add('visible');toastTimer=setTimeout(()=>$('#toast').classList.remove('visible'),3500);}
   function persist(){
+    if(db?.registry?.restrictTeam)teamDraft=db.registry.restrictTeam(accountId,teamDraft);
     save('deckPreset',deckPresetId);save('enemyDeckPreset',enemyPresetId);
     const storedGame=game?.journey?.preview?null:game;
     save('deck',deck);save('deckName',deckName);save('teamDraft',teamDraft);save('favorites',[...favorites]);const fingerprint=save('game',storedGame);$('#deck-count').textContent=deck.length;
@@ -420,7 +422,7 @@ function showDeck(){setView('decks');}
     const selected=matchOpponentByChoice(opponentId),opponent=selected?Team.clone(selected):null;
     if(!opponent)throw new Error('Equipe adverse introuvable.');
     opponent.id=opponentId;
-    playerDeck=Team.clone(playerDeck);
+    playerDeck=Team.clone(playerDeck);if(db?.registry?.restrictTeam)playerDeck=db.registry.restrictTeam(accountId,playerDeck);
     await db.idle();
     const next=E.newGame(playerDeck,opponent.formation?opponent:opponent.cards.slice(),{mode,seed,arenaId:arenaById(arenaId).id,deckCoverage:2,turnOrder:'ABBA',...(mode==='ai'?{aiProfile}:{})});
     KalistarLocalDB.validateGame(next);E.assertState(next);

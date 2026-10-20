@@ -24,7 +24,7 @@ async function main(){
   fs.mkdirSync(output,{recursive:true});
   const data=JSON.parse(fs.readFileSync(path.join(dist,'jeu/catalogue.json'),'utf8'));
   const worker=await import(pathToFileURL(path.join(dist,'_worker.js')).href);
-  const database=await require('../deploy/supabase/browser-fixture.cjs').create(data);
+  const database=await require('../deploy/supabase/browser-fixture.cjs').create(data,{journeyKey:'a'.repeat(64)});
   let browser;const results={passed:false,mode:'disposable Chrome + built Worker + official SDK + local PostgreSQL migrations',catalogue:data.cards.length,profiles:[],issues:[]};
   const sessions={'user-paris':token('user-paris'),'user-tokyo':token('user-tokyo')};
   const identify=authorization=>Object.entries(sessions).find(([,s])=>'Bearer '+s.access_token===authorization)?.[0]||null;
@@ -336,6 +336,7 @@ async function main(){
       const reloaded=await local(second.page,PARIS);assert.equal(reloaded.name,secondName);assert(reloaded.favorites.includes(MOMO));assert.equal(reloaded.story.section,1);assert.equal(reloaded.equipment.slots.weapon.balmhyr,AXE);
       assert.equal((await database.read('user-paris')).payload.preferences.teamDraft.name,secondName);await shot(second.page,'paris-reloaded');
       result.checks.push('latest-data-survive-reload');
+      await database.resetEquipmentGrants();
       stage='tokyo-login';const tokyo=await device(profile,profile.name+'-tokyo-first');await login(tokyo,'user-tokyo');await flush(tokyo.page);
       const owned=await player(tokyo.page,'user-tokyo');assert.equal(owned.count,10);assert(owned.cards.some(c=>c.modelId===KAYLIS));assert.equal(owned.users.length,1);assert(owned.db.endsWith(TOKYO));
       assert.equal(owned.deck.cards.length,10);assert(owned.deck.cards.includes(KAYLIS));
@@ -345,6 +346,14 @@ async function main(){
       assert.equal(await tokyo.page.evaluate(p=>Object.keys(localStorage).some(k=>k.startsWith(p)),prefix(PARIS)),false,'Another account progress is never imported');
       result.tokyo=owned.count;result.coverage=coverage;result.kaylis=true;await shot(tokyo.page,'tokyo-owned-starter');
       result.checks.push('tokyo-ten-owned-kaylis-legal-coverage-distinct-profile');
+      await view(tokyo.page,'weapons');
+      assert.equal(await tokyo.page.locator('.weapon-entry').count(),0);
+      await tokyo.page.locator('.weapons-empty').waitFor();await shot(tokyo.page,'tokyo-empty-arsenal');
+      assert.equal(await tokyo.page.evaluate(id=>KALISTAR_DB.equipment.owns(KALISTAR_ACTIVE_USER,id),AXE),false);
+      await assert.rejects(tokyo.page.evaluate(id=>KALISTAR_DB.equipment.equip(KALISTAR_ACTIVE_USER,'balmhyr',id),AXE),/arsenal/);
+      result.checks.push('tokyo-empty-arsenal-and-unowned-equip-denied');
+      // An explicit test-only server grant exercises future earned equipment, not a starter gift.
+      await database.equipmentGrant('user-tokyo',AXE);await tokyo.page.reload();await ready(tokyo.page);await flush(tokyo.page);
       await tokyoMatch(tokyo,result);
       assert.deepEqual(pageErrors,[],'No browser JavaScript errors');assert.deepEqual(routeErrors,[],'No unexpected HTTP or SQL failures');assert.deepEqual([...missingAssets],[],'All referenced build assets exist');
       result.completed=true;result.passed=!results.issues.some(i=>i.profile===profile.name);result.rpcCalls=calls.length;result.checks.push('tokyo-real-match-d6-snapshot-controlled-resume');

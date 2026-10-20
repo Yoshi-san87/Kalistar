@@ -40,3 +40,24 @@ test('cloud archive payloads are account scoped, omit catalogue duplication, and
   const compact=Player.compactArchive({...value.matches[0],profiles:[{id:'30000012'},{id:'30000007'},{id:'30000001'}],arenas:[{id:'ruins'},{id:'other'}],state:{...bound,arenaId:'ruins',players:[bound.players[0],{board:[],reserve:[],dead:[]}]}});
   assert.equal(compact.profiles.length,2);assert.equal(compact.arenas.length,1);assert.notEqual(Player.prefixFor('a'),Player.prefixFor('b'));
 });
+
+test('equipment rights are server owned; stale drafts are filtered without changing match snapshots',()=>{
+  const f=fixture(),slots={weapon:{kaylis:'test-blade'},shield:{kaylis:'test-shield'},relic:{kaylis:'test-relic'}};
+  assert.equal(f.api.ownsEquipment(f.profile,'test-blade'),false);
+  const game={...f.game,equipment:{version:2,loadouts:[slots,slots]}};
+  assert.throws(()=>f.api.bindGame(f.profile,game),/arsenal/);
+  f.api.update({...f.player,equipment:{all:true,ids:[]}});
+  const bound=f.api.bindGame(f.profile,game);
+  f.api.update({...f.player,equipment:{all:false,ids:['test-blade']}});
+  const team={name:'Test',equipment:slots},payload={localProfile:f.profile,equipment:{slots},preferences:{teamDraft:team},deckLibrary:{decks:[team]},matches:[bound],archives:[{hash:'unchanged'}]};
+  const clean=f.api.restrictProgress(payload);
+  assert.deepEqual(clean.equipment.slots,{weapon:slots.weapon,shield:{},relic:{}});
+  assert.deepEqual(clean.preferences.teamDraft.equipment,clean.equipment.slots);
+  assert.deepEqual(clean.deckLibrary.decks[0].equipment,clean.equipment.slots);
+  assert.deepEqual(clean.matches,payload.matches);assert.deepEqual(clean.archives,payload.archives);
+  assert.deepEqual(payload.equipment.slots,slots,'Never mutate the source or history');
+  assert.doesNotThrow(()=>f.api.validateSave(bound,{state:bound}));
+  assert.doesNotThrow(()=>f.api.validateSave(bound,null,{restoring:true}));
+  assert.throws(()=>f.api.validateSave(bound,null),/arsenal/);
+  assert.throws(()=>f.api.filterEquipment('user-paris',slots));
+});
