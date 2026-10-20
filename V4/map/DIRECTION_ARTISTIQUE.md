@@ -115,7 +115,7 @@ Les huit vues validees le 20 octobre 2026 sont repertoriees dans
 `city-portraits.json`, avec les empreintes des PNG et des deux exports WebP.
 Elles gardent la peinture narrative Kalistar, distincte de la gravure de l'atlas.
 Durane 02, WoodLand 07, Kalistopolis 03, Arborium 11, Velane 01, Vulkar 12,
-Cryptown 03 et Thalassea 04 sont les choix approuves, pas la derniere image
+Cryptown 03 et Thalassea 13 sont les choix approuves, pas la derniere image
 d'un dossier prise automatiquement. Arborium possede un dome colossal, des
 quartiers forestiers et un palais-laboratoire botanique central. La vue Vulkar
 est a l'interieur d'un cratere isole : aucun sommet derriere sa couronne, aucune
@@ -153,3 +153,9 @@ L'outil utilise pour ces retouches est image_gen integre. Une retouche
 generative ne garantit pas l'identite pixel a pixel hors de la zone cible ;
 les fichiers de reference restent donc conserves separement.
 La version du jeu et la version des maps sont independantes.
+
+Thalassea est corrigee le 21 octobre 2026 : l'exterieur de la bulle est un
+volume marin continu. Sous les ponts exterieurs, montrer les fonds rocheux et
+la profondeur de l'ocean, jamais des bassins a l'air libre ni des cascades.
+Les canaux peuvent rester dans la bulle. Sources, prompt et hashes sont dans
+`../revisions/2026-10-21-thalassea-underwater/` ; les sept autres vues et l'atlas restent inchanges.

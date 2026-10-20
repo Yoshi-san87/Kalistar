@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "date": "2026-10-21",
+  "revision": "13",
+  "generator": "Built-in image_gen",
+  "published": true,
+  "scope": "Thalassea only. Seven other city illustrations, terrain, emblems and accounts unchanged.",
+  "authorDecision": "Corriger les surfaces d'eau et cascades sous les ponts a l'exterieur de la bulle : tout l'exterieur est deja sous la mer. Des canaux ou cascades peuvent rester uniquement dans la bulle. Corriger et publier.",
+  "cities": [
+    {
+      "id": "thalassea",
+      "name": "Thalassea",
+      "revision": "13",
+      "date": "2026-10-21",
+      "request": "Corriger les surfaces d'eau et cascades sous les ponts a l'exterieur de la bulle : tout l'exterieur est deja sous la mer. Des canaux ou cascades peuvent rester uniquement dans la bulle. Corriger et publier.",
+      "intent": "targeted-underwater-physics-correction",
+      "refs": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/propositions/2026-10-20-city-portraits/originals/thalassea-04.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Image 1 is the EXACT THALASSEA 04 EDIT TARGET, an author-approved Kalistar underwater city. Make a precise PHYSICAL COHERENCE correction to the WATER OUTSIDE THE GREAT BUBBLE. Preserve the composition, architecture, giant protective membrane, palace, straight central jet to the bubble apex, anchoring captors, foreground outlying habitat pods and tunnels, bridges, rocky seabed, fish, palette, light, wide 16:9 framing and tactile Kalistar painterly style. No redesign, text, collage or watermark.\nTHE ERROR: the whole panorama is ALREADY DEEP UNDER THE OCEAN, but outside the bubble some spaces UNDER BRIDGES and between rock terraces look like little open-air rivers/pools and white WATERFALLS spilling down wet cliffs. That is impossible: there cannot be a separate water surface or falling liquid water inside the surrounding ocean.\nCORRECT EVERYTHING OUTSIDE THE MAIN BUBBLE, particularly the foreground and the left/right outlying bridges: it is one continuous three-dimensional volume of SEAWATER, from above the buildings all the way down to a solid rocky/sandy seabed. Remove all exterior flat turquoise water planes, river channels, pond outlines, reflected shorelines, foam, white river rapids, falling water ribbons and cascades below bridges or off the sides of rock platforms. Do not simply remove the colour: replace the erroneous water features with coherent submarine geography and open submerged depth. The open arches of exterior bridges reveal continuous blue seawater and a lower rocky seabed behind/below them, with the SAME marine haze and suspended particles as the water surrounding the bridge. Ground beneath and between exterior terraces is solid textured basalt and pale sediment with rocks, sparse sea plants or coral already fitting this scene, not a glossy blue liquid surface. A few modest underwater light caustics on solid stone are fine, but no horizontal surface sheen, splashing, spray or whitewater. No waterfall-like sand plumes as a substitute.\nThe large membrane separates a habitable air pocket from the exterior sea. INSIDE this protective bubble ONLY, the palace-city may retain its existing genuine canals, garden pools and contained little falls. Keep the interior city and its water as close as possible to the reference. Its canals must NOT pour out into the ocean or cross the membrane as open rivers. Respect the actual visible curved bubble boundary when separating the two environments. No new little air bubbles enclosing the exterior bridges as a workaround.\nKeep the beautiful pale stone/copper/teal architecture and inhabited submarine suburbs with sealed glazed corridors and habitat pods. Exterior bridges remain visibly submerged masonry structures with no falling water along their sides, not new dry streets with air around them. The whole exterior remains clearly UNDER THE SEA, not drained land, not a daytime coastal city and not a second ocean waterline at street level. Preserve the existing real sea surface far ABOVE at the top of the picture; this is not one of the erroneous local surfaces.\nUnified Kalistar narrative fantasy PAINTING, confident brushwork, selective detail, sapphire/teal deep sea and warm ivory illuminated buildings. No copied repeated filler, no extra buildings, no altered palace or membrane. Targeted coherent repair, especially the lower exterior bridge arches and terrace edges.",
+      "originalSource": "C:/Users/guill/.codex/generated_images/01a12863-205a-7172-9800-7c1a7d0b723c/exec-330c69f1-ee4b-4ba5-88a6-1a8e1e38dbc2.png",
+      "file": "originals/thalassea-13.png",
+      "preview": "images/thalassea-13.webp",
+      "status": "approved-correction-authorized-for-publication"
+    }
+  ]
+}

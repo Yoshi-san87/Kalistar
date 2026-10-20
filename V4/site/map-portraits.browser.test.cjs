@@ -49,7 +49,7 @@ async function main(){
     assert.equal(await page.locator('[data-map-landmark="'+city.id+'"]').evaluate(el=>el.classList.contains('is-selected')),true);
     assert(requests.every(url=>url.endsWith('-small.webp')||cities.slice(0,index).some(c=>url.endsWith('/'+path.basename(c.portrait.src)))),'large views are fetched only when opened');
     const portraitBox=await opener.boundingBox();assert(portraitBox.width>=190&&portraitBox.height>=100);
-    if(name==='desktop'&&['arborium','vulkar'].includes(city.id))await page.screenshot({path:path.join(output,name+'-'+city.id+'.png')});
+    if(name==='desktop'&&['arborium','vulkar','thalassea'].includes(city.id))await page.screenshot({path:path.join(output,name+'-'+city.id+'.png')});
     if(touch)await opener.tap();else{await opener.focus();await page.keyboard.press('Enter');}
     const dialog=page.locator('.map-portrait-dialog');
     assert.equal(await dialog.evaluate(el=>el.open),true);
@@ -60,7 +60,7 @@ async function main(){
     const bounds=await dialog.boundingBox();
     assert(bounds.x>=0&&bounds.y>=0&&bounds.x+bounds.width<=width+1&&bounds.y+bounds.height<=height+1,name+' dialog stays in viewport');
     assert.equal(await page.evaluate(()=>{document.querySelector('[data-map-city]').focus();return document.querySelector('.map-portrait-dialog').contains(document.activeElement);}),true,'native modal keeps background inert');
-    if(city.id==='arborium')await page.screenshot({path:path.join(output,name+'-arborium-large.png')});
+    if(['arborium','thalassea'].includes(city.id))await page.screenshot({path:path.join(output,name+'-'+city.id+'-large.png')});
     if(index===1)await dialog.locator('[data-map-portrait-close]').click();
     else if(index===2)await page.mouse.click(2,2);
     else await page.keyboard.press('Escape');

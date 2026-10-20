@@ -56,7 +56,7 @@ test('approved city portraits are registered, versioned and exported without cha
   const proof=JSON.parse(fs.readFileSync(path.join(root,'V4/map/city-portraits.json'),'utf8'));
   const media=JSON.parse(fs.readFileSync(path.join(root,'V4/deploy/runtime-media.json'),'utf8'));
   assert.equal(proof.cities.length,8);assert(proof.authorApproval);
-  assert.deepEqual(proof.cities.map(c=>[c.id,c.revision]),[['durane','02'],['woodland','07'],['kalistopolis','03'],['arborium','11'],['velane','01'],['vulkar','12'],['cryptown','03'],['thalassea','04']]);
+  assert.deepEqual(proof.cities.map(c=>[c.id,c.revision]),[['durane','02'],['woodland','07'],['kalistopolis','03'],['arborium','11'],['velane','01'],['vulkar','12'],['cryptown','03'],['thalassea','13']]);
   for(const entry of proof.cities){
     const city=cities.find(c=>c.id===entry.id);
     assert.equal('V4/site/'+city.portrait.preview,entry.preview.file);
@@ -74,4 +74,18 @@ test('approved city portraits are registered, versioned and exported without cha
   assert(proof.cities.reduce((n,c)=>n+c.preview.bytes,0)<1024*1024);
   assert(cities.find(c=>c.id==='arborium').text.includes('palais-laboratoire'));
   assert(cities.find(c=>c.id==='vulkar').text.includes('cratère d’un volcan isolé'));
+});
+
+test('Thalassea underwater repair preserves the seven other portraits and retires only its old runtime exports',async()=>{
+  const crypto=require('node:crypto'),root=path.resolve(__dirname,'../..');
+  const previous=JSON.parse(fs.readFileSync(path.join(root,'V4/revisions/2026-10-21-thalassea-underwater/previous-city-portraits.json'),'utf8'));
+  const current=JSON.parse(fs.readFileSync(path.join(root,'V4/map/city-portraits.json'),'utf8'));
+  for(const city of previous.cities)if(city.id!=='thalassea')assert.deepEqual(current.cities.find(c=>c.id===city.id),city);
+  const old=previous.cities.find(c=>c.id==='thalassea');
+  for(const key of ['source','preview','full'])assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root,old[key].file))).digest('hex'),old[key].sha256);
+  const {files}=await require('../deploy/build.cjs').plan();
+  assert.equal(files.filter(f=>f.target.startsWith('jeu/assets/map/portraits/')).length,16);
+  assert(!files.some(f=>/thalassea-04(?:-small)?\.webp$/.test(f.target)));
+  assert(files.some(f=>f.target==='jeu/assets/map/portraits/thalassea-13-small.webp'));
+  assert(files.some(f=>f.target==='jeu/assets/map/portraits/thalassea-13.webp'));
 });

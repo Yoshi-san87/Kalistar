@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "date": "2026-10-20",
+  "date": "2026-10-21",
   "authorApproval": {
     "date": "2026-10-20",
     "request": "ok go pour les integrer dans la description des villes"
@@ -184,28 +184,35 @@
     },
     {
       "id": "thalassea",
-      "revision": "04",
+      "revision": "13",
       "source": {
-        "file": "V4/propositions/2026-10-20-city-portraits/originals/thalassea-04.png",
-        "bytes": 2962105,
-        "sha256": "d47a5f69f4807dd8d019ee40e1e1a10d969cf5efeadeded6cd025d330df4cf44",
+        "file": "V4/propositions/2026-10-20-city-portraits/originals/thalassea-13.png",
+        "bytes": 2957432,
+        "sha256": "66f1ce9f6be157f16a87c6713c2a9e2f380a367e0a142f7183f670ead1d7469a",
         "width": 1672,
         "height": 941
       },
       "preview": {
-        "file": "V4/site/assets/map/portraits/thalassea-04-small.webp",
-        "bytes": 119972,
-        "sha256": "0b19d64c3e634dbb0c451c1a26ad37153d41d690ed4c0415395932d60345693a",
+        "file": "V4/site/assets/map/portraits/thalassea-13-small.webp",
+        "bytes": 118678,
+        "sha256": "94ec4fa35694cdcbb73eaa7d24f11a4443d6042a6bea5aa3e0ef61b50b6c982a",
         "width": 768,
         "height": 432
       },
       "full": {
-        "file": "V4/site/assets/map/portraits/thalassea-04.webp",
-        "bytes": 432582,
-        "sha256": "f1b6d2b2913f8b92f53ecd119505bf9bb9e988c72802efded3d73cd51c3e67cb",
+        "file": "V4/site/assets/map/portraits/thalassea-13.webp",
+        "bytes": 433112,
+        "sha256": "b900ace03822e64373ad141c9c299618530b1361f04a3a95666e419888da3105",
         "width": 1672,
         "height": 941
       }
     }
-  ]
+  ],
+  "lastRevision": {
+    "date": "2026-10-21",
+    "city": "thalassea",
+    "from": "04",
+    "to": "13",
+    "request": "Corriger les surfaces d'eau et cascades sous les ponts a l'exterieur de la bulle : tout l'exterieur est deja sous la mer. Des canaux ou cascades peuvent rester uniquement dans la bulle. Corriger et publier."
+  }
 }

@@ -19,7 +19,7 @@
     woodland:{file:'woodland-07',alt:'WoodLand, cité des Cerelf : un sanctuaire entre les deux bois feuillus d’un arbre immense, au milieu des cascades.'},
     vulkar:{file:'vulkar-12',alt:'Le palais et les quartiers de Vulkar dans un cratère isolé, avec lac noir, basalte et lave intérieure, sans sommet au fond.'},
     cryptown:{file:'cryptown-03',alt:'La nécropole de Cryptown et sa grande croix, enfoncées dans le gouffre brumeux d’une île.'},
-    thalassea:{file:'thalassea-04',alt:'Thalassea sous une immense bulle marine, avec capteurs, habitations extérieures et jet vertical au sommet du palais.'}
+    thalassea:{file:'thalassea-13',alt:'Thalassea sous une immense bulle marine, avec capteurs et jet vertical ; au-dehors, les ponts et habitats sont immergés au-dessus des fonds rocheux.'}
   };
   const symbolSizes={kalistopolis:62,durane:76,arborium:60,velane:60,woodland:44,vulkar:56,cryptown:42,thalassea:50};
   for(const city of cities){

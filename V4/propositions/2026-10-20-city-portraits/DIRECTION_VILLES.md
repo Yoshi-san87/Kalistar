@@ -29,11 +29,11 @@ Une nouvelle composition est preferable si la precedente impose une echelle faus
 | Velane | Version 01 validee telle quelle | Aucun changement |
 | Vulkar | Palais, quartiers sur corniches et lac noir | Vue 12 : un seul cratere de volcan isole ; uniquement le ciel derriere la couronne, aucun sommet exterieur ni coulee de lave venue d'un autre volcan |
 | Cryptown | Version 03 conservee sans nouvelle retouche | Necropole profonde, croix, parois coherentes et horizon marin calme |
-| Thalassea | Grande bulle, cite, capteurs, banlieues | Un jet droit monte du sommet du batiment principal vers la bulle ; source a la fleche et arrivee sur la membrane au-dessus |
+| Thalassea | Grande bulle, cite, capteurs, banlieues et jet central | Version 13 : exterieur entierement immerge, pas de surface liquide ni cascade dans la mer ; canaux et eau courante uniquement a l'interieur de la bulle |
 
-Les huit vues sont validees pour integration le 20 octobre 2026 :
+Selection integree le 20 octobre 2026, avec correction Thalassea le 21 octobre :
 Durane 02, WoodLand 07, Kalistopolis 03, Arborium 11, Velane 01, Vulkar 12,
-Cryptown 03 et Thalassea 04. selection.json fixe cette selection ; le manifeste
+Cryptown 03 et Thalassea 13. selection.json fixe cette selection ; le manifeste
 ../../map/city-portraits.json fixe leurs sources et exports runtime.
 Les anciennes variantes gardent leur historique et ne sont pas repromues.
 Les dimensions numeriques du prompt Arborium servent a calibrer le rendu ;
@@ -65,3 +65,9 @@ Dernier prompt Vulkar : `prompts-12.json`. Le volcan de la cite est isole :
 la couronne du cratere ferme le paysage, aucun autre relief ne depasse au fond.
 Les anciennes coulees venant de volcans exterieurs sont retirees, sans effacer
 l'activite volcanique a l'interieur du cratere.
+
+Thalassea est corrigee le 21 octobre 2026 : l'exterieur de la bulle est un
+volume marin continu. Sous les ponts exterieurs, montrer les fonds rocheux et
+la profondeur de l'ocean, jamais des bassins a l'air libre ni des cascades.
+Les canaux peuvent rester dans la bulle. Sources, prompt et hashes sont dans
+`../../revisions/2026-10-21-thalassea-underwater/` ; les sept autres vues et l'atlas restent inchanges.

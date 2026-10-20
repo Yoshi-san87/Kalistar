@@ -1,9 +1,9 @@
 {
   "schema": 1,
-  "date": "2026-10-20",
-  "revision": "12",
+  "date": "2026-10-21",
+  "revision": "13",
   "published": false,
-  "prompts": "prompts-12.json",
+  "prompts": "prompts-13.json",
   "cities": [
     {
       "id": "durane",
@@ -79,15 +79,20 @@
       "id": "thalassea",
       "name": "Thalassea",
       "subtitle": "Le jet du palais et la grande bulle",
-      "description": "Un jet lumineux parfaitement vertical relie la fleche du palais au sommet de la bulle, au-dessus de la cite sous-marine.",
-      "file": "originals/thalassea-04.png",
-      "preview": "images/thalassea-04.webp",
+      "description": "La cite et ses canaux sont proteges par la bulle ; au-dehors, les ponts et habitations sont immerges au-dessus de fonds marins rocheux, sans surface ni cascade d'eau.",
+      "file": "originals/thalassea-13.png",
+      "preview": "images/thalassea-13.webp",
       "status": "approved-by-author",
-      "revision": "04"
+      "revision": "13"
     }
   ],
   "authorApproval": {
     "date": "2026-10-20",
     "request": "ok go pour les integrer dans la description des villes"
+  },
+  "lastCorrection": {
+    "date": "2026-10-21",
+    "city": "thalassea",
+    "request": "Corriger les surfaces d'eau et cascades sous les ponts a l'exterieur de la bulle : tout l'exterieur est deja sous la mer. Des canaux ou cascades peuvent rester uniquement dans la bulle. Corriger et publier."
   }
 }
