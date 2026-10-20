@@ -35,6 +35,16 @@ avec les cartes et emblemes reels en DOM. `home-screen.css` est l'unique
 proprietaire de sa mise en page. Le carrousel garde huit cartes au plus et
 respecte focus, popup, visibilite et Reduced Motion. Son resume de composition
 vient de l'etat local fourni par app.js, jamais d'un jeu de donnees decoratif.
+Sur PC, le decor couvre au moins la hauteur disponible et la taille des cartes
+s'adapte a cette hauteur (plafond 720 px), sans agrandir les polices avec le
+viewport. Le mode telephone garde son propre cadrage et le defilement vertical.
+
+Les menus "..." general et Arene utilisent `showMenu`, `menuGroup` et
+`menuItem` dans app.js, avec un seul habillage dans navigation.css. Toute
+nouvelle destination ou commande passe par ces lignes communes. Fragment utilise
+le cristal rainbow approuve, pas l'icone de Library. L'entete et la fermeture
+restent visibles pendant le defilement interne, avec Retour et Echap natifs.
+Ne pas recreer de variantes de menu dans mobile.css ou les CSS de parcours.
 
 Les vues publiques sont Home, Collection, Decks, Equipements, Arene,
 Statistiques, Story, Map, Guide, Library et Fragment. Le serveur local garde en plus

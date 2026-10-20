@@ -245,9 +245,6 @@
   .duel-actions .setup-actions { display: block; width: 100%; }
   .duel-actions .formation-auto { display: none; }
   .duel-actions .clover-choice-status { font-size: 11px; padding: 8px; border: 1px solid #9abb9380; border-radius: 4px; background: #0b1b1ce8; }
-  .mobile-menu { display: grid; gap: 4px; }
-  .mobile-menu > button { display: flex; align-items: center; gap: 12px; text-align: left; min-height: 52px; padding: 12px; }
-  .mobile-menu > button svg:last-child { margin-left: auto; }
   .mobile-recap .duel-recap { width: 100%; }
   }
 
@@ -316,18 +313,9 @@
 }
 
 @media (min-width: 700px) {
-  body.arena-view #mobile-dialog {
+  body.arena-view #mobile-dialog:not(.navigation-sheet) {
     position: fixed; width: min(430px,calc(100vw - 32px)); max-height: min(80dvh,760px);
     margin: auto; padding: 0; border: 1px solid #b89b6d; border-radius: 5px;
     background: #0b1412; color: var(--text); box-shadow: 0 24px 80px #000b;
   }
-  body.arena-view #mobile-dialog::backdrop { background: #020806a6; backdrop-filter: blur(4px); }
-  body.arena-view #mobile-dialog .dialog-body.mobile-menu {
-    display: grid; gap: 6px; max-height: calc(80dvh - 72px); padding: 12px;
-    overflow-y: auto; scrollbar-width: thin;
-  }
-  body.arena-view #mobile-dialog .mobile-menu > button {
-    width: 100%; min-height: 42px; justify-content: flex-start; text-align: left;
-  }
-  body.arena-view #mobile-dialog .mobile-menu > button svg:last-child { margin-left: auto; }
 }

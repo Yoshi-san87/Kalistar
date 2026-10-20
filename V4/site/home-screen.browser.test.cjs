@@ -7,6 +7,7 @@ const dist=path.resolve(process.env.KALISTAR_DIST||path.join(__dirname,'../deplo
 const base=process.env.KALISTAR_URL||'https://kalistar-home-qa.invalid/Kalistar/jeu/#home';
 const profiles=[
   {name:'desktop',width:1440,height:1000},{name:'wide',width:1920,height:1080},
+  {name:'qhd',width:2560,height:1440},{name:'ultrawide',width:3440,height:1440},
   {name:'laptop',width:1024,height:768},{name:'razr',width:412,height:1007,mobile:true},
   {name:'phone',width:390,height:844,mobile:true},{name:'compact',width:320,height:740,mobile:true},
   {name:'phone-long-name',width:360,height:800,mobile:true,longName:true},
@@ -23,7 +24,7 @@ async function geometry(page,profile){
   const actual=await page.evaluate(()=>{
     const rect=selector=>{const r=document.querySelector(selector).getBoundingClientRect();return {x:r.x,y:r.y,width:r.width,height:r.height,right:r.right,bottom:r.bottom};};
     const fit=selector=>[...document.querySelectorAll(selector)].every(n=>n.scrollWidth<=n.clientWidth+1);
-    return {width:innerWidth,overflow:document.documentElement.scrollWidth,card:rect('.home-card'),copy:rect('.home-card-copy'),explore:rect('.home-explore'),
+    return {width:innerWidth,overflow:document.documentElement.scrollWidth,home:rect('.kalistar-home'),card:rect('.home-card'),copy:rect('.home-card-copy'),explore:rect('.home-explore'),
       textFits:fit('.home-card-copy h2,.home-card-title,.home-play-row strong,.home-portals>button,.home-explore strong'),
       commands:[...document.querySelectorAll('.home-gallery-controls button,.home-play-row button,.home-portals>button,.home-explore button')].map(n=>({width:n.getBoundingClientRect().width,height:n.getBoundingClientRect().height})),
       backdrop:document.querySelector('.home-world img').currentSrc};
@@ -35,6 +36,10 @@ async function geometry(page,profile){
   assert(actual.commands.every(c=>c.width>=44&&c.height>=44),profile.name+' comfortable touch and keyboard targets');
   if(actual.width<=699)assert(actual.backdrop.endsWith('sanctum-phone-v1.webp'),'phone loads the smaller portrait painting');
   if(!profile.mobile&&profile.height>=950)assert(actual.explore.y<profile.height-25,profile.name+' next section is visible in the first viewport');
+  if(!profile.mobile){
+    assert(actual.home.bottom>=profile.height-1,profile.name+' scenery fills the viewport without a blank lower band');
+    if(profile.height>=1400)assert(actual.card.height>=650,profile.name+' tall desktop makes the cards substantially larger');
+  }
   return actual;
 }
 async function main(){
