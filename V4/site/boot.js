@@ -5,7 +5,8 @@
     'arena-ambience.js', 'combat-effects.js', 'duel-focus.js', 'lineup-intro.js', 'formation-drag.js', 'match-metrics.js', 'trophies.js', 'battle-report.js', 'match-report.js', 'arena-finale.js',
     'ownership.js', 'cloud-ownership.js', 'local-db.js', 'weapon-cards.js', 'weapons-ui.js', 'catalogue.js', 'catalogue-updates.js', 'collection-binder.js', 'accounts-ui.js', 'cloud-config.js', 'cloud-session.js', 'cloud-registry.js', 'cloud-registry-ui.js', 'cloud-sync.js', 'cloud-sync-ui.js',
     'reserve-preview.js', 'deck-library.js', 'team-composition.js', 'deck-builder.js', 'cloud-archives.js', 'cloud-player.js', 'statistics.js', 'story-reader.js', 'matchmaking.js', 'pre-match.js', 'home-screen.js', 'page-transitions.js', 'map-view.js', 'guide-scenario.js', 'guide-view.js', 'rules-documents.js', 'library-view.js', 'journey-definitions.js', 'journey-combat.js', 'journey-client.js', 'journey-view.js', 'app.js'];
-  const fail = error => {
+  let failed=false;
+  const showFailure = error => {
     if (window.KALISTAR_READY || window.KALISTAR_PREVIEW_READY) return;
     const app = document.getElementById('app'); app.replaceChildren();
     const panel = document.createElement('section'); panel.className = 'boot-status';
@@ -16,6 +17,12 @@
     panel.append(title, message, retry);
     if (!window.KalistarSite?.online) panel.append(atelier);
     app.append(panel);
+  };
+  const fail = error => {
+    if(failed||window.KALISTAR_READY||window.KALISTAR_PREVIEW_READY)return;
+    failed=true;
+    if(window.KALISTAR_STARTUP)void window.KALISTAR_STARTUP.fail(()=>showFailure(error));
+    else showFailure(error);
   };
   window.addEventListener('unhandledrejection', event => fail(event.reason || {}));
   window.addEventListener('error', event => { if (event.message) fail(event); });
@@ -31,10 +38,11 @@
       });
       window.KalistarPhonePreview.mountHost();return;
     }
-    // The destination boots once, underneath the film, after server access checks.
+    // Fetch/prepare once after authorization. app.js owns the later activation.
     window.KALISTAR_INTRO_PENDING=!!showIntro;
     window.KALISTAR_INTRO_FINISHED=(showIntro?window.KalistarLoginIntro.play():Promise.resolve())
       .catch(()=>{}).finally(()=>{window.KALISTAR_INTRO_PENDING=false;});
+    window.KALISTAR_STARTUP=window.KalistarStartup.create({presentation:window.KALISTAR_INTRO_FINISHED});
     const style=document.createElement('link');style.rel='stylesheet';style.href='ultimate-ui.css'+(release?'?v='+encodeURIComponent(release):'');document.head.append(style);
     const catalogue = fetch(window.KalistarSite?.catalogue || '/api/game/catalogue', { cache: 'no-store' });
     // Fetch concurrently, but execute only after validation and in dependency order.

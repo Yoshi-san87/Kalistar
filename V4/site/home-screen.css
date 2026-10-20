@@ -102,6 +102,7 @@
 @keyframes home-play-breathe{0%,100%{opacity:.35;}50%{opacity:1;}}
 #home-root[data-home-paused=true] .home-world img,#home-root[data-home-paused=true] .home-play::after,#home-root[data-home-paused=true] .home-reel-ticks span.current::after{animation-play-state:paused;}
 #home-root[data-home-paused=true] .home-card>img,#home-root[data-home-paused=true] .home-card::after{animation-play-state:paused;}
+#home-root[data-home-offscreen=true] .kalistar-home *,#home-root[data-home-offscreen=true] .kalistar-home *::before,#home-root[data-home-offscreen=true] .kalistar-home *::after{animation-play-state:paused!important;}
 @media(min-width:1600px) and (min-height:950px){.home-gallery{--home-card-height:420px;}.home-inner{padding-top:20px;}.home-heading h1 img{width:300px;height:98px;}.home-card-copy h2{font-size:38px;}.home-card-story{font-size:17px;}}
 @media(min-width:700px) and (max-height:800px){.home-inner{padding-top:10px;}.home-heading h1 img{width:235px;height:73px;}.home-gallery{--home-card-height:320px;margin-top:8px;}.home-card-copy h2{font-size:28px;}.home-card-story{font-size:15px;margin-block:10px;}.home-play-row{margin-bottom:17px;}.home-portals{margin-bottom:20px;}}
 @media(max-width:699px),(pointer:coarse) and (max-width:1100px) and (max-height:500px){

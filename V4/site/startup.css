@@ -1,0 +1,14 @@
+/* The loading shell is inert until the single runtime activation boundary. */
+html[data-runtime-state="preparing"] .masthead,
+html[data-runtime-state="prepared"] .masthead,
+html[data-runtime-state="activating"] .masthead{visibility:hidden;}
+html[data-runtime-state]:not([data-runtime-state="active"]) body>:not(.login-intro),
+html[data-runtime-state]:not([data-runtime-state="active"]) body>:not(.login-intro) *,
+html[data-runtime-state]:not([data-runtime-state="active"]) body>:not(.login-intro) *::before,
+html[data-runtime-state]:not([data-runtime-state="active"]) body>:not(.login-intro) *::after,
+html[data-runtime-visibility="hidden"] body *,
+html[data-runtime-visibility="hidden"] body *::before,
+html[data-runtime-visibility="hidden"] body *::after,
+body:has(>dialog[open]) #app *,
+body:has(>dialog[open]) #app *::before,
+body:has(>dialog[open]) #app *::after{animation-play-state:paused!important;}

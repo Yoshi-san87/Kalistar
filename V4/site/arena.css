@@ -1,6 +1,13 @@
-.arena-view .masthead{min-height:68px;padding:0 22px;gap:26px}
-.arena-view .brand{width:200px}
-.arena-view .main-nav{min-height:68px}
+body.arena-view{display:flex;flex-direction:column;width:100%;height:100dvh;min-height:0;margin:0;padding:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px);overflow:hidden}
+body.arena-view #app{display:flex;flex-direction:column;flex:1 1 0;min-width:0;min-height:0;width:100%;max-width:none;margin:0;padding:0;overflow:hidden}
+body.arena-view .game-shell{display:flex;flex-direction:column;flex:1 1 0;height:100%;min-height:0;margin:0}
+body.arena-view .game-shell>.arena-toolbar,body.arena-view .turn-timeline{flex:none}
+body.arena-view .game-shell>.arena-layout{flex:1 1 0;min-height:0;overflow:hidden;container-type:size}
+body.arena-view .battlefield-viewport{height:100%;min-height:0;overflow:auto;overscroll-behavior:contain}
+/* Ceremony content may scroll, but the arena controls stay outside its scrollport. */
+body.arena-view .game-shell[data-finale=true]{height:100%;min-height:0;overflow:hidden}
+body.arena-view .game-shell[data-finale=true]>.arena-layout{overflow-y:auto;overflow-x:hidden}
+body.arena-view .arena-finale{min-height:100%}
 .arena-view .game-shell{max-width:none;width:100%;--card-base:clamp(168px,min(calc((100vw - 520px)/6),calc((100dvh - 350px)*.2)),270px);--card-width:calc(var(--card-base)*var(--board-scale,1));--reserve-width:76px;--formation-gap:20px;--console-width:244px}
 .arena-view .arena-toolbar{min-height:62px;padding:10px 22px;gap:12px}
 .arena-view .arena-toolbar h1{font-size:23px}
@@ -133,3 +140,26 @@
 @media(max-width:640px){.arena-view .duel-console{margin-top:10px;gap:12px;padding:12px 8px}.dice-stage{height:110px}.arena-view .duel-centre{min-height:112px;gap:8px}.arena-view .duel-centre h2{font-size:17px}}
 @media(prefers-reduced-motion:reduce){.reraise-saved .slot-card,.dice-stage:not(.webgl-ready).is-rolling .die-fallback{animation:none!important}}
 @media(max-width:640px){.arena-view .reserve-heading h3{font-size:11px}.arena-view .duel-console{gap:9px}.arena-view .duel-console .dice-stage{height:88px}.duel-recap{padding:6px 0}.recap-row{min-height:18px}.recap-totals strong{font-size:23px}}
+/* Size the desktop board from its remaining space, including Fragment's strip. */
+@media (min-width:700px) and (min-height:501px), (min-width:700px) and (pointer:fine) {
+  body.arena-view .arena-toolbar { min-height:50px;padding:4px 12px;gap:8px;background:#09120df0;border-bottom:1px solid #a88b5e66; }
+  body.arena-view .arena-toolbar > div:first-child { display:flex;flex:1 1 auto;align-items:center;min-width:0;gap:10px; }
+  body.arena-view .arena-toolbar h1 { font-size:18px; }
+  body.arena-view .arena-toolbar .game-seed,body.arena-view .arena-toolbar .arena-rules { display:none; }
+  body.arena-view .arena-toolbar .tools { flex:0 0 auto;margin-left:auto; }
+  body.arena-view .arena-toolbar .tools > :not(.board-zoom):not([data-action=arena-menu]):not([data-action=exit-arena]):not([data-action=combat-reference]) { display:none; }
+  body.arena-view .arena-toolbar .tools [data-action=arena-menu] { display:inline-flex; }
+  body.arena-view .board-navigation { display:none; }
+  body.arena-view .game-shell .battlefield {
+    --card-base:max(48px,min(270px,calc((100cqw - var(--console-width) - 2 * var(--reserve-width) - 4 * var(--formation-gap) - 120px) / 6),calc((100cqh - 230px) * .1914)));
+    --card-width:calc(var(--card-base) * var(--board-scale,1));
+    height:100%;min-height:100%;align-items:center;grid-template-rows:minmax(0,1fr);
+  }
+  body.arena-view .battlefield .duel-console {
+    height:calc(100% - 24px);max-height:900px;margin:24px 0 0;position:relative;top:auto;align-self:center;
+    grid-template-rows:minmax(76px,1fr) minmax(0,3fr) minmax(76px,1fr);gap:8px;
+  }
+  body.arena-view .duel-console .duel-die { height:100%; }
+  body.arena-view .duel-console .duel-centre { height:100%;grid-template-rows:minmax(58px,auto) minmax(0,1fr) auto; }
+  body.arena-view .duel-console .duel-recap { overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-width:thin; }
+}

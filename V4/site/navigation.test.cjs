@@ -34,7 +34,8 @@ test('menu entry points and reduced motion remain available without tiny phone b
   assert.equal((html.match(/class="kalistar-nav-icon"/g)||[]).length,7);
   assert(html.includes('aria-haspopup="dialog"'));assert(html.includes('aria-expanded="false"'));
   assert(css.includes('prefers-reduced-motion:reduce'));assert(css.includes('repeat(5,minmax(0,1fr))'));
-  assert(css.includes('height:60px'));assert(css.includes('body.arena-view .masthead > * { display:none; }'));
+  assert(css.includes('height:60px'));assert(css.includes('body.arena-view > .masthead { display:none; }'));
+  assert(!css.includes('body.arena-view .masthead > .main-nav { display:grid; }'));
 });
 test('navigation target height does not feed back from the measured masthead height',()=>{
   const css=read('V4/site/navigation.css').toString();
@@ -44,9 +45,11 @@ test('navigation target height does not feed back from the measured masthead hei
   assert(css.includes('position:relative; z-index:30; overflow:visible'));
 });
 
-test('arena help stays above the phone bar and retains its fullscreen safe inset',()=>{
+test('arena help retains its safe inset without reserving the hidden phone bar',()=>{
   const css=read('V4/site/combat-reference.css').toString();
+  const mobile=read('V4/site/mobile.css').toString();
   assert(css.includes('bottom: calc(var(--phone-nav,60px) + 12px)'));
+  assert(mobile.includes('--phone-nav: env(safe-area-inset-bottom,0px)'));
   assert(css.includes('html:fullscreen .arena-reference-dock { bottom: calc(12px + env(safe-area-inset-bottom,0px))'));
   assert(css.includes('(pointer:coarse) and (max-width:1100px)'));
 });

@@ -20,11 +20,37 @@
   // Non-elemental places and crossovers can override ambience without changing arena data.
   const places={z13:'MINERO','trone-fer':'MINERO',astraball:'GEO',ruins:'NONE',
     'ff7-midgar':'ELECTRO','ff8-deling-parade':'LUXO','nier-amusement-park':'LUXO'};
-  let field=null,canvas=null,shade=null,light=null,ctx=null,observer=null,frame=0,last=0;
+  let field=null,canvas=null,shade=null,light=null,ctx=null,observer=null,frame=0,timer=0,last=0;
+  let intersection=null,overlays=null,visible=true,covered=false;
   let profile=profiles.NONE,width=0,height=0,ratio=1,particles=[],lockUntil=0,hit=null,shake=null,sizeKey='';
   const listeners=new Set();
   const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
   const profileFor=arena=>profiles[places[arena?.id]||arena?.element]||profiles.NONE;
+  const drawable=()=>!document.hidden&&!covered&&(!field||field.isConnected&&visible);
+  function stop(){cancelAnimationFrame(frame);clearTimeout(timer);frame=timer=0;}
+  function syncVisibility(){
+    stop();
+    if(drawable())refresh();
+    else{clearReaction();lockUntil=0;if(field)delete field.dataset.awakening;}
+  }
+  function observeVisibility(){
+    covered=!!document.querySelector('dialog[open]');
+    overlays=new MutationObserver(records=>{
+      if(!records.some(record=>record.type==='attributes'||[...record.addedNodes,...record.removedNodes].some(node=>
+        node.nodeType===1&&(node.matches('dialog[open]')||node.querySelector('dialog[open]')))))return;
+      const next=!!document.querySelector('dialog[open]');
+      if(next!==covered){covered=next;syncVisibility();}
+    });
+    overlays.observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['open']});
+    if(typeof IntersectionObserver==='function'){
+      visible=false;
+      intersection=new IntersectionObserver(entries=>{
+        const entry=entries.find(entry=>entry.target===field);if(!entry)return;
+        const next=entry.isIntersecting&&entry.intersectionRect.width>0&&entry.intersectionRect.height>0;
+        if(next!==visible){visible=next;syncVisibility();}
+      });intersection.observe(field);
+    }
+  }
   function stateFor(game,engine){
     if(!game||['setup','over'].includes(game.phase))return {last:[],imminent:[]};
     const last=game.players.flatMap((p,side)=>p.board.filter(Boolean).length===1?[side]:[]);
@@ -38,18 +64,20 @@
     return {last,imminent};
   }
   function schedule(){
-    if(!frame&&!document.hidden&&!motion.matches&&(field||listeners.size))frame=requestAnimationFrame(tick);
+    if(!frame&&!timer&&drawable()&&!motion.matches&&(field||listeners.size)){
+      timer=setTimeout(()=>{timer=0;frame=requestAnimationFrame(tick);},Math.max(0,32-(performance.now()-last)-4));
+    }
   }
   function refresh(){
-    if(document.hidden)return;
-    const now=performance.now();draw(now);for(const fn of listeners)fn(now);schedule();
+    if(!drawable())return;
+    const now=performance.now();last=now;draw(now);for(const fn of listeners)fn(now);schedule();
   }
   function tick(now){
-    frame=0;if(document.hidden)return;
+    frame=0;if(!drawable())return;
     if(now-last>=32){last=now;draw(now);for(const fn of listeners)fn(now);}
     schedule();
   }
-  function subscribe(fn){listeners.add(fn);refresh();return ()=>{listeners.delete(fn);if(!field&&!listeners.size){cancelAnimationFrame(frame);frame=0;}};}
+  function subscribe(fn){listeners.add(fn);refresh();return ()=>{listeners.delete(fn);if(!field&&!listeners.size)stop();};}
   function clearReaction(){hit=null;shake?.cancel();shake=null;if(light)light.style.opacity='0';}
   function resize(){
     if(!field)return;
@@ -99,6 +127,7 @@
     ctx.restore();
   }
   function destroy(){
+    intersection?.disconnect();overlays?.disconnect();intersection=overlays=null;visible=true;covered=false;
     observer?.disconnect();observer=null;clearReaction();lockUntil=0;
     canvas?.remove();shade?.remove();light?.remove();
     if(field){
@@ -106,13 +135,14 @@
       field.querySelectorAll('.last-combatant,.match-point').forEach(node=>node.classList.remove('last-combatant','match-point'));
     }
     field=canvas=shade=light=ctx=null;particles=[];sizeKey='';
-    if(!listeners.size){cancelAnimationFrame(frame);frame=0;}last=0;
+    if(!listeners.size)stop();last=0;
   }
   function mount(node,{arena,game,engine}={}){
     destroy();if(!node||game?.phase==='over')return;
     field=node;profile=profileFor(arena);canvas=document.createElement('canvas');canvas.className='arena-ambience';ctx=canvas.getContext('2d');
     shade=document.createElement('div');shade.className='arena-tension';light=document.createElement('div');light.className='arena-arrival';
     for(const node of [canvas,shade,light]){node.setAttribute('aria-hidden','true');field.append(node);}
+    observeVisibility();
     const state=stateFor(game,engine);
     field.dataset.tension=String(!!state.imminent.length);field.dataset.lastStanding=String(!!state.last.length);
     field.dataset.presentation=game?.phase==='result'?'resolved':game?.duel?'duel':field.querySelector('.challenger')?'selection':'rest';
@@ -123,15 +153,15 @@
   function engage(){if(!field)return;field.dataset.presentation='duel';if(!motion.matches){lockUntil=performance.now()+800;field.dataset.awakening='true';}refresh();}
   function action(){if(!field)return;lockUntil=0;delete field.dataset.awakening;field.dataset.presentation='action';refresh();}
   function react({magic=false,color='#e8dccb',major=false,defeat=false}={}){
-    if(!field||document.hidden||motion.matches)return;
+    if(!field||!drawable()||motion.matches)return;
     clearReaction();light.style.setProperty('--arrival-color',color);
     hit={start:performance.now(),duration:magic?220:180,strength:magic ? .10 : defeat ? .035 : 0};
     if(major)shake=field.animate([{transform:'translate(0,0)'},{transform:'translate(1.5px,-1px)',offset:.25},{transform:'translate(-1px,.5px)',offset:.55},{transform:'translate(0,0)'}],{duration:140,easing:'ease-out'});
     refresh();
   }
-  document.addEventListener('visibilitychange',()=>{cancelAnimationFrame(frame);frame=0;clearReaction();lockUntil=0;if(field)delete field.dataset.awakening;if(!document.hidden)refresh();});
-  motion.addEventListener('change',()=>{cancelAnimationFrame(frame);frame=0;clearReaction();lockUntil=0;if(field)delete field.dataset.awakening;refresh();});
+  document.addEventListener('visibilitychange',()=>{stop();clearReaction();lockUntil=0;if(field)delete field.dataset.awakening;if(!document.hidden)refresh();});
+  motion.addEventListener('change',()=>{stop();clearReaction();lockUntil=0;if(field)delete field.dataset.awakening;refresh();});
   phone.addEventListener('change',resize);window.addEventListener('pagehide',destroy);
   window.KalistarAmbience={mount,destroy,engage,action,react,clearReaction,subscribe,refresh,profileFor,stateFor,
-    inspect:()=>({running:!!frame,subscribers:listeners.size,particles:motion.matches?0:particles.length,dpr:ratio,profile:profile.motions.slice(),awakening:!!lockUntil,reaction:!!hit})};
+    inspect:()=>({running:!!(frame||timer),subscribers:listeners.size,particles:motion.matches?0:particles.length,dpr:ratio,profile:profile.motions.slice(),awakening:!!lockUntil,reaction:!!hit})};
 })();

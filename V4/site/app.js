@@ -9,6 +9,7 @@
   let db=null,dbError='',lastStored='',reportGame=null,reportArchive=null,accountsUI=null,cloudRegistryUI=null;
   const connectedAccess=window.KALISTAR_CLOUD_ACCESS||null;
   let cloudPlayer=null,cloudSync=null,cloudSyncUI=null,cloudBooting=true;
+  window.addEventListener('pagehide',event=>{if(!event.persisted)cloudSync?.destroy();});
   const catalogueUpdates=KalistarCatalogueUpdates.create({loaded:data,readLatest:async signal=>{
     const response=await fetch(window.KalistarSite?.catalogue||'/api/game/catalogue',{cache:'no-store',signal});
     if(!response.ok)throw Error('Catalogue indisponible.');
@@ -49,7 +50,6 @@
   window.KALISTAR_ACTIVE_USER=accountId;
   const preferencePrefix=cloudPlayer?.prefix||(accountId===KalistarOwnership.PARIS?'kalistar.v4.':'kalistar.v4.'+accountId+'.');
   const storedPreferences=new Map();
-  window.addEventListener('storage',event=>{if(event.storageArea===localStorage){if(event.key===null)storedPreferences.clear();else storedPreferences.delete(event.key);}});
   function load(key,fallback){try{const fullKey=preferencePrefix+key,raw=localStorage.getItem(fullKey);if(raw===null)return fallback;const value=JSON.parse(raw);storedPreferences.set(fullKey,raw);return value;}catch{return fallback;}}
   function save(key,value){let raw;try{const fullKey=preferencePrefix+key;raw=JSON.stringify(value);if(storedPreferences.get(fullKey)!==raw){localStorage.setItem(fullKey,raw);storedPreferences.set(fullKey,raw);if(!cloudPlayer?.applying)cloudSync?.changed();}}catch{storageAvailable=false;}return raw;}
   if(cloudPlayer){
@@ -61,6 +61,24 @@
     cloudPlayer.onChanged(()=>cloudSync.changed());window.KALISTAR_SYNC=cloudSync;
     await cloudSync.start();
   }
+  // Do not construct views, subscribe UI, restore a match into the DOM or start
+  // its commands behind the film. The synchronized state is read after this gate.
+  const startup=window.KALISTAR_STARTUP;
+  const preparedHomeCards=location.hash==='#home'?KalistarHome.selection(cards):null;
+  if(startup){
+    const view=location.hash.slice(1),savedGame=load('game',null);
+    const warmIds=view==='arena'&&Array.isArray(savedGame?.players)
+      ?savedGame.players.flatMap(player=>(Array.isArray(player.board)?player.board:[]).filter(Boolean).map(unit=>unit.cardId))
+      :load('deck',data.decks.player);
+    const warmCards=preparedHomeCards?.length
+      ?[preparedHomeCards[0],preparedHomeCards[1],preparedHomeCards.at(-1)].filter(Boolean).map(card=>card.pngUrl)
+      :(Array.isArray(warmIds)?warmIds:[]).slice(0,6).map(id=>baseEngine.byId[id]?.pngUrl).filter(Boolean);
+    const backdrop=view==='home'?'assets/home/sanctum'+(matchMedia('(max-width:699px)').matches?'-phone':'')+'-v1.webp'
+      :view==='arena'?arenaById(savedGame?.arenaId).image:window.KalistarSite?.atlas;
+    startup.preloadImages([typeof backdrop==='string'?backdrop:null,...warmCards].filter(Boolean).map(url=>window.KalistarSite?.url(url)||url));
+    if(!await startup.ready()){cloudSync?.destroy();return;}
+  }
+  window.addEventListener('storage',event=>{if(event.storageArea===localStorage){if(event.key===null)storedPreferences.clear();else storedPreferences.delete(event.key);}});
   const owned=(id)=>db?.registry?.owned(accountId,id)||[];
   const ownershipErrors=ids=>db?.registry?db.registry.deckErrors(accountId,ids):['Registre local indisponible.'];
   const deckErrors=value=>[...(Array.isArray(value)?E.validatePlayableDeck(value):E.validateComposition(value)),...ownershipErrors((Array.isArray(value)?value:value.cards).filter(Boolean))];
@@ -150,7 +168,7 @@
   const journeys=KalistarJourneyClient.create({data,player:cloudPlayer,sync:cloudSync,localAdmin:!connectedAccess&&db?.registry?.user(accountId)?.role==='admin',onUpdate:()=>journeyView?.refresh()});
   journeyView=KalistarJourneyView.create({data,image:cardImage,art:artImage,getState:journeys.snapshot,onStart:startJourney,onResume:resumeJourney,onClaim:claimJourney,onAcknowledge:id=>journeys.acknowledge(id),onPreview:previewJourney,onDetail:id=>showDetail(id),onRefresh:()=>journeys.refresh(),toast});
   const storyReader=KalistarStoryReader.create({storageKey:preferencePrefix+'story-progress',onChange:()=>cloudSync?.changed()});
-  const homeScreen=KalistarHome.create({data,image:cardImage,asset,equipment:KalistarWeapons.weapons,medallion:KalistarEquipmentFX.markup,
+  const homeScreen=KalistarHome.create({data,image:cardImage,asset,initialCards:preparedHomeCards,equipment:KalistarWeapons.weapons,medallion:KalistarEquipmentFX.markup,
     getState:()=>({deckName:teamDraft.name,deckCount:teamDraft.cards.filter(Boolean).length,resume:!!game&&game.phase!=='over'}),
     onDetail:id=>showDetail(id),onNavigate:category=>{
     if(['collection','arena','decks','story','map','guide'].includes(category)){setView(category);return;}
@@ -1346,11 +1364,10 @@ function showDeck(){setView('decks');}
     try{game=await journeys.resume(game.journey.attemptId);}catch(error){restoreError=error.message;ui.view='journeys';}
   }
   cloudBooting=false;
-  render();syncActivity();window.KALISTAR_READY=true;
+  startup?.activate();render();syncActivity();window.KALISTAR_READY=true;
   if(cloudSync)cloudSyncUI=KalistarCloudSyncUI.create({sync:cloudSync,mount:$('.header-actions'),modal,toast});
   if(ui.view==='journeys')void journeys.refresh().catch(error=>toast(error.message));
   window.addEventListener('pagehide',event=>{if(!event.persisted){journeyView?.destroy();journeys.destroy();cloudRegistryUI.destroy();cloudSyncUI?.destroy();cloudSync?.destroy();}});
-  await window.KALISTAR_INTRO_FINISHED;
   if(restoreError)toast(restoreError);if(cloudPlayer?.notice)toast(cloudPlayer.notice);
   presentLineup();scheduleAI();
   const cloudRequest=new URL(location.href).searchParams;

@@ -8,7 +8,7 @@ async function boot({invalid=false,missing='',preview=false}={}){
     else if(node.tag==='link'){assert.equal(node.rel,'preload');assert.equal(node.as,'script');assert(requested,'catalogue starts before preloads');preload.push(node.href);}
     else{executed.push(node.src);queueMicrotask(()=>node.src.startsWith(missing)&&missing?node.onerror():node.onload());}
   }},createElement(tag){return {tag,append(){},remove(){this.removed=true;}};},getElementById(){return {replaceChildren(){errors.push('failed');},append(){}};}};
-  const window={KalistarPhonePreview:preview?{isHost:true,mountHost(){window.KALISTAR_PREVIEW_READY=true;}}:null,addEventListener(name,fn){listeners[name]=fn;}};
+  const window={KalistarStartup:{create:()=>({fail:fn=>fn()})},KalistarPhonePreview:preview?{isHost:true,mountHost(){window.KALISTAR_PREVIEW_READY=true;}}:null,addEventListener(name,fn){listeners[name]=fn;}};
   const fetch=()=>{requested=true;return Promise.resolve({ok:true,json:async()=>invalid?{version:3}:{version:4,edition:'V4',cards:[{edition:'V4',pngUrl:'card.png'}]}});};
   vm.runInNewContext(read('boot.js'),{window,document,fetch,URL,location:{href:'https://kalistar.test/jeu/'},encodeURIComponent,Error});
   for(let i=0;i<100;i++)await new Promise(resolve=>setImmediate(resolve));

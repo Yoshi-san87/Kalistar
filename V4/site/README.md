@@ -15,9 +15,14 @@ consomment le meme catalogue V4. Aucun fallback vers le jeu ou `data.js` V3.
 - `login.html/js/css`, `cloud-session.js`, `auth-guard.js/css` : entree par
   email/mot de passe et reprise de session avant tout chargement du jeu heberge.
   `../deploy/access-worker.mjs` protege aussi les fichiers bruts cote Cloudflare.
+- `startup.js/css` : frontiere preparation/activation. Les donnees et un petit
+  budget d'images peuvent charger ; aucun controleur de vue ni commande de jeu
+  ne demarre avant la fin du film et le retour au premier plan. `KALISTAR_PREPARED`
+  signifie donnees pretes, `KALISTAR_READY` signifie interface active.
 - `login-intro.js/css` : film anime contemplatif de trente secondes apres le seul login
   explicite reussi, avec skip, son et coupe portrait. Reprise/reload et Reduced
-  Motion ne le rejouent pas. Le jeu charge sous le film dans le meme document.
+  Motion ne le rejouent pas. Le jeu se prepare dans le meme document sans monter
+  ses vues sous le film.
   [Contrat du lecteur](../docs/INTRO_CONNEXION.md).
 - `app.js` : orchestration des vues et des commandes. Les regles restent dans
   les modules purs, pas dans le DOM.
@@ -126,6 +131,16 @@ est defini dans `collection-pedestal.css`, pas par de nouveaux overrides dans
 `mobile.css`, `positions.css` ou `collection-binder.css`.
 Verifier les tailles reelles, petits ecrans, clavier, tactile et Reduced Motion.
 Les timers/listeners/observateurs de vue doivent etre nettoyes a sa destruction.
+Les effets d'ambiance et les cristaux en attente dessinent autour de 30 Hz,
+sans polling RAF a la frequence maximale de l'ecran. Hors champ, en arriere-plan
+ou derriere un dialogue, leurs boucles s'arretent ; les jets actifs gardent leur
+animation propre. Les effets CSS decoratifs utilisent transform/opacity autant
+que possible. Ne pas ajouter un timer permanent pour un effet purement visuel.
+
+L'arene masque la navigation generale sur PC et telephone, sans imposer le
+plein ecran du navigateur. Son toolbar garde sortie et menu de combat. Le
+plateau se dimensionne dans la hauteur restante, y compris le contexte Fragment ;
+seuls les contenus longs du bilan ou des calculs peuvent defiler dans leur zone.
 
 ## Images et contenu
 

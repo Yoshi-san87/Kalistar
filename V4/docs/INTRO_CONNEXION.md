@@ -33,10 +33,25 @@ Ce marqueur ne contient qu'une date, expire apres deux minutes et ne donne
 aucun droit d'acces. Si ce stockage est refuse, le lecteur reste sur le login.
 
 `boot.js` consomme le marqueur et revalide l'acces avant d'ouvrir le film.
-Le catalogue, les modules, le profil synchronise et la vue se chargent pendant
-la lecture, dans le meme document : ni iframe ni seconde session de jeu.
-La presentation des equipes et l'IA attendent la fermeture du film. Les popups
-demandant une action et les notifications de reprise sont presentees ensuite.
+Le catalogue, les modules et le profil synchronise se preparent pendant la
+lecture, dans le meme document : ni iframe ni seconde session de jeu. Au plus
+huit images de la destination sont prechargees a priorite basse ; aucun parcours
+de toutes les cartes et aucun rendu cache du plateau ne tournent sous le film.
+
+`startup.js` porte une seule frontiere : preparation, donnees pretes, activation,
+puis interface active. `app.js` attend cette frontiere avant de construire les
+vues, brancher les reactions de l'interface, lancer une partie ou monter les
+notifications. Ce n'est pas un filtre sur un type de popup. La synchronisation
+initiale des donnees reste autorisee, mais aucun resultat de combat n'est produit
+par ce prechargement. Les preferences synchronisees sont relues a l'activation.
+
+La fin, Passer, Echap, Reduced Motion ou une erreur du film ouvrent la meme
+frontiere. Si le document est en arriere-plan, l'activation attend son retour.
+Une navigation definitive annule cette attente ; le retour bfcache ne cree pas
+un second demarrage. Les erreurs de chargement attendent elles aussi la fin du
+film avant d'afficher Reessayer. Les menus restent inertes tant que l'application
+n'est pas active. Les animations CSS de la page sont en pause dans un onglet
+cache et derriere une popup globale ; celles de la popup restent independantes.
 Si le jeu n'est pas encore pret apres Passer, son ecran de chargement habituel
 reste visible ; une erreur de chargement conserve son bouton Reessayer.
 Le marqueur consomme ne relance pas le film au rechargement et aucun schema
@@ -84,6 +99,9 @@ version deja publiee sans mettre a jour son nom et sa provenance.
 ## Verification
 
 - `login-intro.test.cjs` : cycle de vie, nettoyage et activation conditionnelle.
+- `startup.test.cjs` et `startup.browser.test.cjs` : separation des phases,
+  media anticipe, absence de vue/action derriere le film, conflits de sauvegarde
+  presentes ensuite, reprise inchangee, arriere-plan et erreurs de chargement.
 - `login-intro.browser.test.cjs` : vraie lecture complete PC/Razr, pixels
   decodes, 320 px, paysage, son, skip, resize et erreurs.
 - `login.browser.test.cjs` : SDK Auth et Worker reels avec comptes factices,

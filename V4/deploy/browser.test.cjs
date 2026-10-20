@@ -35,7 +35,7 @@ async function main() {
     page.on('response', r => {if(r.status() >= 400) failures.push(r.status() + ' ' + r.url());});
     await page.goto(base);
     await page.waitForFunction(() => window.KALISTAR_READY);
-assert.equal(await page.locator('.masthead .edition').innerText(), 'VERSION 4.6.91');
+assert.equal(await page.locator('.masthead .edition').innerText(), 'VERSION 4.6.92');
     const {appManifest, manifestUrl} = await page.evaluate(async () => {
       const manifestUrl = new URL('manifest.webmanifest', location.href);
       return {appManifest: await (await fetch(manifestUrl)).json(), manifestUrl: manifestUrl.href};
@@ -76,7 +76,7 @@ assert.equal(await page.locator('.masthead .edition').innerText(), 'VERSION 4.6.
     assert.equal(await page.locator('#match-arena-summary h3').innerText(),lastArenaName);
     await page.setViewportSize({width:390,height:844});
     await page.waitForTimeout(250);
-    assert.equal(await page.locator('.brand').evaluate(el => getComputedStyle(el, '::after').content), '"V4.6.91"');
+    assert.equal(await page.locator('.brand').evaluate(el => getComputedStyle(el, '::after').content), '"V4.6.92"');
     const preMatchWidth=await page.locator('#new-game-dialog .pre-match-form').evaluate(el=>({scroll:el.scrollWidth,client:el.clientWidth}));
     assert.ok(preMatchWidth.scroll<=preMatchWidth.client+1,'Pre-match lobby overflows on phone: '+JSON.stringify(preMatchWidth));
     await page.screenshot({path:path.join(output,'pre-match-phone.png')});
@@ -91,7 +91,9 @@ assert.equal(await page.locator('.masthead .edition').innerText(), 'VERSION 4.6.
     await page.emulateMedia({reducedMotion:'no-preference'});
     await page.reload();
     await page.locator('.login-intro[open]').waitFor();
-    await page.waitForFunction(() => window.KALISTAR_READY);
+    await page.waitForFunction(() => window.KALISTAR_PREPARED);
+    assert.equal(await page.evaluate(() => !!window.KALISTAR_READY),false,'preloading does not activate the game');
+    assert.equal(await page.locator('.game-shell').count(),0,'the arena is not mounted behind the film');
     assert.equal(await page.locator('.lineup-intro').count(),0,'captain presentation waits behind the login film');
     const covered = await page.evaluate(() => JSON.parse(localStorage.getItem('kalistar.v4.game')));
     assert.equal(covered.phase,'initiative');assert.deepEqual(covered.initiative,opening.initiative);assert.equal(covered.rng,opening.rng);
@@ -102,12 +104,13 @@ assert.equal(await page.locator('.masthead .edition').innerText(), 'VERSION 4.6.
     await page.locator('.li-skip').click();
     assert.equal(await page.evaluate(() => document.fullscreenElement === null), true, 'starting a match must not request browser fullscreen');
     await page.setViewportSize({width:1440,height:1000});
-    await page.locator('[data-view=arena]').first().click();
     await page.waitForFunction(() => document.body.classList.contains('arena-view'));
     assert.equal(await page.evaluate(() => document.fullscreenElement === null), true, 'opening Arena must not request browser fullscreen');
-    assert.notEqual(await page.locator('.masthead').evaluate(el => getComputedStyle(el).display), 'none');
-    assert.equal(await page.locator('.arena-toolbar .tools [data-action=new-game]').isVisible(), true);
-    await page.locator('.arena-toolbar .tools [data-action=fullscreen]').click();
+    assert.equal(await page.locator('.masthead').isVisible(),false,'arena hides global navigation without requiring fullscreen');
+    assert.equal(await page.locator('.arena-toolbar .tools [data-action=new-game]').isVisible(), false);
+    await page.locator('[data-action=arena-menu]').click();
+    assert.equal(await page.locator('#mobile-dialog [data-action=new-game]').isVisible(),true,'secondary actions remain available in the combat menu');
+    await page.locator('#mobile-dialog [data-action=fullscreen]').click();
     await page.waitForFunction(() => document.fullscreenElement === document.documentElement);
     assert.equal(await page.locator('.masthead').evaluate(el => getComputedStyle(el).display), 'none');
     assert.equal(await page.locator('.arena-toolbar .tools [data-action=new-game]').isVisible(), false);

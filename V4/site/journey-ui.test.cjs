@@ -49,7 +49,7 @@ function contextFor(data) {
       style: {setProperty: (key, value) => { properties[key] = value; }}, querySelector: () => null, querySelectorAll: () => [], close() {}});
     return nodes.get(selector);
   };
-  const ctx = vm.createContext({structuredClone, clearTimeout, console,
+  const ctx = vm.createContext({structuredClone, clearTimeout, console, addEventListener() {},
     KALISTAR_DATA: data, KalistarEngine: Engine, KalistarJourneyCombat: Combat,
     KalistarCatalogue: {versionStrip: () => 'catalogue-versions', career: () => ''},
     KalistarCatalogueUpdates: {create: () => ({})}, updateCatalogueNotice() {},

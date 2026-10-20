@@ -5,7 +5,35 @@
   const motion = matchMedia('(prefers-reduced-motion:reduce)');
   const rows = [774, 676, 577, 475, 371, 147], TAU = Math.PI * 2, SET_DURATION = 520;
   const liveDuelPhases = new Set(['attack', 'kalistel', 'defense', 'clover', 'potion', 'physical', 'heart', 'guard', 'result']);
-  let generation = 0, idleFrame = 0, lastPaint = 0;
+  let generation = 0, idleFrame = 0, idleTimer = 0, lastPaint = 0;
+  let intersection = null, overlays = null, covered = false;
+
+  function observeVisibility() {
+    covered = !!document.querySelector('dialog[open]');
+    overlays = new MutationObserver(records => {
+      if (!records.some(record => record.type === 'attributes' || [...record.addedNodes, ...record.removedNodes].some(node =>
+        node.nodeType === 1 && (node.matches('dialog[open]') || node.querySelector('dialog[open]'))))) return;
+      const next = !!document.querySelector('dialog[open]');
+      if (next !== covered) { covered = next; syncIdle(); }
+    });
+    overlays.observe(document.body, { subtree: true, childList: true, attributes: true, attributeFilter: ['open'] });
+    if (typeof IntersectionObserver === 'function') intersection = new IntersectionObserver(entries => {
+      let changed = false;
+      for (const entry of entries) {
+        const v = views.get(Number(entry.target.dataset.player));
+        if (v?.host !== entry.target) continue;
+        const visible = entry.isIntersecting && entry.intersectionRect.width > 0 && entry.intersectionRect.height > 0;
+        if (v.visible !== visible) { v.visible = visible; changed = true; }
+      }
+      if (changed) syncIdle();
+    });
+  }
+  const waitingVisible = v => v.waiting && !v.revealing && v.visible && v.host.isConnected;
+  function scheduleIdle() {
+    if (idleFrame || idleTimer || document.hidden || covered || motion.matches || ![...views.values()].some(waitingVisible)) return;
+    // Sleep between paints instead of polling at the display's (possibly 240 Hz) refresh rate.
+    idleTimer = setTimeout(() => { idleTimer = 0; idleFrame = requestAnimationFrame(idleTick); }, Math.max(0, 1000 / 30 - (performance.now() - lastPaint) - 4));
+  }
 
   function art(src) {
     if (!images.has(src)) { const image = new Image(); image.src = src; images.set(src, image); }
@@ -309,28 +337,30 @@
     else v.setAt = null;
   }
   function engage() {
-    if (motion.matches || document.hidden) return;
+    if (motion.matches || document.hidden || covered) return;
     const now = performance.now();
     for (const v of views.values()) if (v.waiting && !v.revealing) {
       v.setAt = now; drawWaiting(v, now);
     }
     syncIdle();
   }
-  function stopFrame() { cancelAnimationFrame(idleFrame); idleFrame = 0; }
+  function stopFrame() { cancelAnimationFrame(idleFrame); clearTimeout(idleTimer); idleFrame = idleTimer = 0; }
   function idleTick(now) {
     idleFrame = 0;
-    if (document.hidden) return;
+    if (document.hidden || covered) return;
     if (motion.matches) { syncIdle(); return; }
-    const waiting = [...views.values()].filter(v => v.waiting && !v.revealing && v.host.isConnected);
+    const waiting = [...views.values()].filter(waitingVisible);
     if (!waiting.length) return;
     // One shared 30 fps loop, also on high-refresh-rate phones.
     if (now - lastPaint >= 1000 / 30) { waiting.forEach(v => drawWaiting(v, now)); lastPaint = now; }
-    idleFrame = requestAnimationFrame(idleTick);
+    scheduleIdle();
   }
   function syncIdle() {
     stopFrame();
-    for (const v of views.values()) if (v.waiting && !v.revealing && v.host.isConnected) drawWaiting(v);
-    if (!document.hidden && !motion.matches && [...views.values()].some(v => v.waiting && !v.revealing && v.host.isConnected)) idleFrame = requestAnimationFrame(idleTick);
+    if (document.hidden || covered) return;
+    lastPaint = performance.now();
+    for (const v of views.values()) if (waitingVisible(v)) drawWaiting(v, lastPaint);
+    scheduleIdle();
   }
   function stopWaiting() {
     stopFrame();
@@ -373,6 +403,7 @@
     } finally { n.remove(); }
   }
   function cancel(preserveResults = false) {
+    intersection?.disconnect(); overlays?.disconnect(); intersection = overlays = null;
     generation++; stopWaiting();
     for (const stop of [...pending]) stop();
     if (!preserveResults) {
@@ -385,6 +416,7 @@
   function mount(hosts) {
     const previous = new Map([...views].map(([side, v]) => [side, { crystal: v.host.dataset.crystal, started: v.started, setAt: v.setAt }]));
     cancel(true);
+    if (hosts.length) observeVisibility();
     const phase = document.querySelector('.duel-console')?.dataset.phase;
     if (phase && !liveDuelPhases.has(phase)) {
       for (const record of [...activeResults.values()]) removeResult(record);
@@ -401,11 +433,13 @@
       const awaitingRoll = phase === 'attack' || host.dataset.role === 'DEF' && ['kalistel', 'defense'].includes(phase);
       const v = { host, canvas, ctx, color, halo, image: host.dataset.crystal ? art(host.dataset.crystal) : null,
         weapon: host.dataset.weapon ? art(host.dataset.weapon) : null,
+        visible: !intersection,
         setAt: sameCrystal ? prior.setAt : null,
         started: sameCrystal ? prior.started : performance.now(), spent: !!Number(host.dataset.result) && !awaitingRoll,
         waiting: awaitingRoll && host.dataset.selected === 'true' && host.dataset.element !== 'NONE' };
       host.dataset.spent = String(v.spent);
       views.set(Number(host.dataset.player), v);
+      intersection?.observe(host);
       if (!sameCrystal) host.classList.add('crystal-change');
       host.classList.toggle('is-engaging', v.waiting); drawWaiting(v);
       for (const image of [v.image, v.weapon]) if (image && !image.complete) image.addEventListener('load', () => {

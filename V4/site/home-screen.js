@@ -27,7 +27,7 @@
     const count=Number(state?.deckCount);
     return {name:String(state?.deckName||'Ma composition'),count:Number.isFinite(count)?Math.max(0,Math.min(10,Math.trunc(count))):0,resume:state?.resume===true};
   }
-  function create({data,image,equipment=[],medallion=null,asset=null,getState=()=>({}),onDetail=()=>{},onNavigate=()=>{}}){
+  function create({data,image,initialCards=null,equipment=[],medallion=null,asset=null,getState=()=>({}),onDetail=()=>{},onNavigate=()=>{}}){
     let root=null,controller=null,timer=null,index=0,paused=false,pool=[],observer=null,frame=null,intersect=null,visible=true,hovering=false,gesture=null,suppressClick=0;
     let reduced=null,finePointer=null,remaining=interval,startedAt=0;
     const motion=()=>reduced?.matches??true;
@@ -40,7 +40,11 @@
     function schedule(){
       stop();if(!root)return;
       const focused=root.querySelector('.home-gallery')?.contains(document.activeElement);
-      const blocked=paused||focused||hovering||!visible||document.hidden||motion()||!!document.querySelector('dialog[open]');
+      const suspended=!root.isConnected||!visible||!!document.querySelector('dialog[open]');
+      const blocked=paused||focused||hovering||suspended||document.hidden||motion();
+      root.dataset.homeSuspended=String(suspended||document.hidden);
+      root.dataset.homeOffscreen=String(!root.isConnected||!visible);
+      if(suspended||document.hidden)resetPointer();
       root.dataset.homePaused=String(blocked);root.dataset.homeReduced=String(motion());
       const button=root.querySelector('[data-home-control=pause]');
       button.disabled=motion()||pool.length<2;button.setAttribute('aria-pressed',String(paused));
@@ -90,7 +94,8 @@
     function mount(node){
       destroy();root=node;controller=new AbortController();
       // App repainting after a dialog must not shuffle the card being read.
-      if(!pool.length)pool=selection(data.cards);
+      if(!pool.length)pool=initialCards?.length?initialCards:selection(data.cards);
+      initialCards=null;
       visible=true;hovering=false;suppressClick=0;remaining=interval;
       reduced=matchMedia('(prefers-reduced-motion:reduce)');finePointer=matchMedia('(hover:hover) and (pointer:fine)');
       const state=deckStatus(getState());
@@ -124,7 +129,7 @@
       gallery.addEventListener('pointerenter',event=>{if(event.pointerType==='mouse'){hovering=true;schedule();}},{signal});
       gallery.addEventListener('pointerleave',()=>{hovering=false;resetPointer();schedule();},{signal});
       gallery.addEventListener('pointermove',event=>{
-        if(motion()||!finePointer.matches||event.pointerType!=='mouse'||frame!==null)return;
+        if(motion()||root.dataset.homeSuspended==='true'||!finePointer.matches||event.pointerType!=='mouse'||frame!==null)return;
         frame=requestAnimationFrame(()=>{frame=null;if(!root)return;const box=gallery.getBoundingClientRect();root.style.setProperty('--home-pointer-x',((event.clientX-box.left)/box.width-.5)*10+'px');root.style.setProperty('--home-pointer-y',((event.clientY-box.top)/box.height-.5)*6+'px');});
       },{signal,passive:true});
       gallery.addEventListener('pointerdown',event=>{if(event.pointerType==='touch')gesture={id:event.pointerId,x:event.clientX,y:event.clientY};},{signal,passive:true});
@@ -138,15 +143,22 @@
       reduced.addEventListener('change',()=>{resetPointer();schedule();},{signal});
       window.addEventListener('pagehide',event=>{
         if(!event.persisted){destroy();return;}
-        stop();resetPointer();if(root)root.dataset.homePaused='true';
+        stop();resetPointer();if(root){root.dataset.homePaused='true';root.dataset.homeSuspended='true';}
       },{signal});
       window.addEventListener('pageshow',schedule,{signal});
-      observer=new MutationObserver(()=>{if(document.querySelector('dialog[open]'))resetPointer();schedule();});
-      observer.observe(document.body,{subtree:true,attributes:true,attributeFilter:['open']});
-      if(typeof IntersectionObserver==='function'){intersect=new IntersectionObserver(entries=>{visible=entries[0]?.isIntersecting!==false;schedule();},{threshold:0});intersect.observe(gallery);}
+      observer=new MutationObserver(records=>{
+        if(records.some(record=>record.type==='attributes'||[...record.addedNodes,...record.removedNodes].some(node=>
+          node.nodeType===1&&(node.matches('dialog[open]')||node.querySelector('dialog[open]')))))schedule();
+      });
+      observer.observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['open']});
+      if(typeof IntersectionObserver==='function'){intersect=new IntersectionObserver(entries=>{
+        const entry=entries[0],next=!!entry?.isIntersecting&&entry.intersectionRect.width>0&&entry.intersectionRect.height>0;
+        if(next!==visible){visible=next;schedule();}
+      },{threshold:0});intersect.observe(gallery);}
       if(pool.length)show(index);else{icons();schedule();}
     }
     function destroy(){
+      if(root){root.dataset.homePaused='true';root.dataset.homeSuspended='true';root.dataset.homeOffscreen='true';}
       stop();resetPointer();observer?.disconnect();intersect?.disconnect();observer=null;intersect=null;
       controller?.abort();controller=null;root=null;reduced=null;finePointer=null;gesture=null;
     }

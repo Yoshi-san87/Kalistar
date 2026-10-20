@@ -60,7 +60,7 @@ async function main(){
         if(u.pathname==='/auth/v1/recover')return route.fulfill({json:{}});
         if(u.pathname.endsWith('/kalistar_access')){const response=await api(r.url(),{headers:await r.allHeaders()});return route.fulfill({status:response.status,json:await response.json()});}
         const name=u.pathname.split('/').pop(),who=identify((await r.allHeaders()).authorization)===tokyo?'user-tokyo':'user-paris';
-        if(name==='kalistar_sync_claim')leaseDevices.push(args.p_device_id);
+        if(['kalistar_sync_claim','kalistar_sync_v2_claim'].includes(name))leaseDevices.push(args.p_device_id);
         try{return route.fulfill({json:name==='kalistar_models'?await database.models():await database.call(name,args,who)});}catch(error){return route.fulfill({status:403,json:{code:error.code,message:error.message}});}
       });
       page.on('pageerror',e=>errors.push(e.message));
@@ -76,8 +76,10 @@ async function main(){
           if(!filmCompleted&&['desktop','razr'].includes(p.name)){
             await page.waitForFunction(()=>document.querySelector('.login-intro video')?.currentTime>.3);
             assert(Math.abs(await page.locator('.login-intro video').evaluate(v=>v.duration)-30)<.1);
-            await page.waitForFunction(()=>window.KALISTAR_READY&&document.querySelector('.login-intro[open]'),{},{timeout:20000});
-            assert.equal(await page.evaluate(()=>KALISTAR_INTRO_PENDING),true,'game initialized before film completion');
+            await page.waitForFunction(()=>window.KALISTAR_PREPARED&&document.querySelector('.login-intro[open]'),{},{timeout:20000});
+            assert.equal(await page.evaluate(()=>KALISTAR_INTRO_PENDING),true,'data prepared before film completion');
+            assert.equal(await page.evaluate(()=>!!window.KALISTAR_READY),false,'game not activated during film');
+            assert.equal(await page.locator('#home-root,.game-shell,.cloud-sync-dialog').count(),0,'views and sync notifications wait at the activation boundary');
             assert.equal(new Set(leaseDevices).size,1,'lease acquisition and renewal use the same game device');
             assert.equal(await page.locator('script[src*="/app.js"],script[src^="app.js"]').count(),1,'the application starts only once');
             const bounds=await page.locator('.login-intro').boundingBox();assert(bounds.width>=p.width&&bounds.height>=p.height,'film fills the actual game shell');
@@ -86,7 +88,7 @@ async function main(){
           }else await page.locator('.login-intro__skip').click();
         }
         await page.waitForFunction(()=>window.KALISTAR_READY,{},{timeout:30000});
-      }catch(e){console.error({errors,boot:await page.locator('#app').innerText().catch(()=>''),sync:await page.evaluate(()=>window.KALISTAR_SYNC?.snapshot())});throw e;}};
+      }catch(e){console.error({errors,calls,leaseDevices,boot:await page.locator('#app').innerText().catch(()=>''),sync:await page.evaluate(()=>window.KALISTAR_SYNC?.snapshot())});throw e;}};
       await page.goto(origin+'/jeu/login.html?next='+encodeURIComponent('/jeu/#home'));await page.waitForURL('**/jeu/login*');await page.locator('#login-form button[type=submit]:enabled').waitFor();
       assert.equal(await page.locator('.main-nav').count(),0);assert(!calls.some(c=>c.includes('kalistar_me')),'game does not initialize before authentication');
       assert.equal(await page.locator('.login-intro').count(),0,'no intro before authentication');

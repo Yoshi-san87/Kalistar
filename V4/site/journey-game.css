@@ -1,4 +1,4 @@
-.journey-arena-strip { display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:40px; padding:4px 14px; background:#101c1b; border-block:1px solid #ae8156; color:#f2dfb5; font:13px var(--font-display,Georgia,serif); }
+.journey-arena-strip { display:flex; flex:none; align-items:center; justify-content:space-between; gap:12px; min-height:40px; padding:4px 14px; background:#101c1b; border-block:1px solid #ae8156; color:#f2dfb5; font:13px var(--font-display,Georgia,serif); }
 .journey-arena-strip > span { display:flex; align-items:center; flex-wrap:wrap; gap:8px; }
 .journey-arena-strip b { color:#9cdddd; font-variant-numeric:tabular-nums; }
 .journey-arena-strip svg { width:18px; height:18px; flex-shrink:0; }
