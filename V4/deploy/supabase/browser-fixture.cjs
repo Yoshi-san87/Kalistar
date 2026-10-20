@@ -7,6 +7,7 @@ const ids=['11111111-1111-4111-8111-111111111111','22222222-2222-4222-8222-22222
 const calls={kalistar_access:[],kalistar_player:[],kalistar_sync_read:['p_known_revision'],kalistar_sync_claim:['p_device_id','p_expected_revision','p_takeover'],kalistar_sync_write:['p_device_id','p_expected_revision','p_payload'],kalistar_sync_release:['p_device_id'],kalistar_validate_deck:['p_cards'],kalistar_me:[],kalistar_my_cards:[],kalistar_my_transfers:[],kalistar_certificate:['p_id'],kalistar_set_profile:['p_handle','p_display_name','p_publish_owner'],kalistar_offer:['p_id','p_recipient'],kalistar_settle:['p_transfer','p_action']};
 for(const verb of ['read','claim','write','release'])calls['kalistar_sync_v2_'+verb]=calls['kalistar_sync_'+verb];
 calls.kalistar_archive_put=['p_device_id','p_expected_revision','p_archives'];calls.kalistar_archive_read=['p_refs'];
+calls.kalistar_issue=['p_model_id','p_pilot'];calls.kalistar_activate=['p_id','p_secret'];
 Object.assign(calls,{kalistar_journey_library:[],kalistar_journey_start:['p_book_id','p_deck','p_device_id','p_runtime_hash'],kalistar_journey_context:['p_attempt_id','p_device_id'],kalistar_journey_commit:['p_frame','p_signature','p_device_id'],kalistar_journey_abandon:['p_attempt_id','p_device_id'],kalistar_journey_claim:['p_book_id'],kalistar_journey_ack:['p_book_id']});
 async function create(data,{journeyKey=null}={}){
   const db=new PGlite({extensions:{pgcrypto}});let queue=Promise.resolve();

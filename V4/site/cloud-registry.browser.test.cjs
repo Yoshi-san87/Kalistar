@@ -44,14 +44,18 @@ async function prepare(context){
   });
   return fixture;
 }
-const action=(page,name)=>page.locator('#cloud-dialog [data-cloud-action="'+name+'"]');
-async function tab(page,name){await page.locator('#cloud-dialog nav [data-tab="'+name+'"]').click();}
-async function idle(page){await page.locator('#cloud-dialog[aria-busy=false]').waitFor();}
+const action=(page,name)=>page.locator('#account-root [data-cloud-action="'+name+'"]');
+async function tab(page,name){
+  const link=page.locator('.account-page a[href="#account/'+name+'"]').first();
+  if(!await link.count())await page.locator('.account-sidebar a[href="#account/transfers"]').click();
+  await link.click();
+}
+async function idle(page){await page.locator('#account-root[aria-busy=false]').waitFor();}
 async function geometry(page,name){
-  const actual=await page.locator('#cloud-dialog').evaluate(n=>({width:n.clientWidth,scroll:n.scrollWidth,viewport:innerWidth,right:n.getBoundingClientRect().right,x:n.getBoundingClientRect().x,
+  const actual=await page.locator('#account-root').evaluate(n=>({width:n.clientWidth,scroll:n.scrollWidth,viewport:innerWidth,right:n.getBoundingClientRect().right,x:n.getBoundingClientRect().x,
     controls:[...n.querySelectorAll('button,input:not([type=checkbox]),select')].filter(b=>b.getClientRects().length).map(b=>({height:b.getBoundingClientRect().height,width:b.getBoundingClientRect().width})),
     images:[...n.querySelectorAll('img')].every(i=>i.complete&&i.naturalWidth>0)}));
-  assert(actual.scroll<=actual.width+1,name+' dialog has no horizontal overflow');assert(actual.x>=0&&actual.right<=actual.viewport+1,name+' dialog fits viewport');
+  assert(actual.scroll<=actual.width+1,name+' page has no horizontal overflow');assert(actual.x>=0&&actual.right<=actual.viewport+1,name+' page fits viewport');
   assert(actual.controls.every(c=>c.height>=44&&c.width>=44),name+' controls have 44px targets');assert(actual.images,name+' card images loaded');return actual;
 }
 async function main(){
@@ -62,43 +66,50 @@ async function main(){
       const context=await browser.newContext({viewport:{width:profile.width,height:profile.height},isMobile:!!profile.mobile,hasTouch:!!profile.mobile,reducedMotion:profile.reduced?'reduce':'no-preference',serviceWorkers:'block'});
       await context.addInitScript(s=>{localStorage.setItem('kalistar.cloud.auth.v1',JSON.stringify(s));},session());
       const fixture=await prepare(context),page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
-      await page.goto(base);await idle(page);assert.match(await page.locator('.cloud-account-bar').innerText(),/@fixture/);
-      await tab(page,'lookup');await page.locator('#cloud-dialog input[name=id]').fill('00000001');await page.locator('[data-cloud-form=lookup] button').click();await idle(page);
-      await page.locator('.cloud-specimen img').evaluate(i=>i.decode());await geometry(page,profile.name);
+      await page.goto(base);await idle(page);assert.equal(await page.locator('[data-cloud-form=profile] [name=handle]').inputValue(),'fixture');
+      const localOwned=await page.evaluate(()=>KALISTAR_DB.registry.owned('user-paris').length);
+      assert.equal(new URL(page.url()).search,'','registry entry parameters are consumed');
+      await tab(page,'lookup');await page.locator('#account-root input[name=id]').fill('00000001');await page.locator('[data-cloud-form=lookup] button').click();await idle(page);
+      await page.waitForFunction(()=>{const i=document.querySelector('.cloud-specimen img');return i?.complete&&i.naturalWidth>0&&i.dataset.v4Cropped;});await geometry(page,profile.name);
       await page.screenshot({path:path.join(output,profile.name+'-public.png')});
-      await page.goBack();await page.locator('#cloud-dialog').waitFor({state:'hidden'});assert(page.url().includes('#home'));
+      await page.goBack();await page.getByRole('heading',{name:'Transférer une carte',exact:true}).waitFor();
+      await page.locator('.account-home').click();await page.locator('#home-root').waitFor();
       if(profile.name==='desktop'||profile.name==='razr'){
         await page.locator('[data-action=account]').click();await page.locator('#account-dialog[open]').waitFor();
         await page.locator('[data-registry-action=cloud]').click();await idle(page);
-        await page.goBack();await page.locator('#cloud-dialog').waitFor({state:'hidden'});assert(await page.locator('#account-dialog').evaluate(n=>n.open),'Back returns to the local archive');
-        await page.goBack();await page.locator('#account-dialog').waitFor({state:'hidden'});
-        assert.equal(await page.evaluate(()=>KALISTAR_DB.registry.owned('user-paris').length),434,'opening the online register preserves the local catalogue and possessions');
+        assert.equal(await page.locator('dialog[open]').count(),0,'entering the account page closes the legacy local tools');
+        assert.equal(await page.evaluate(()=>KALISTAR_DB.registry.owned('user-paris').length),localOwned,'opening the online register preserves local possessions');
       }
       await page.evaluate(s=>{localStorage.setItem('kalistar.cloud.auth.v1',JSON.stringify(s));},session());
-      await page.reload();await idle(page);assert.match(await page.locator('.cloud-account-bar').innerText(),/@fixture/);
-      assert.equal(await page.locator('#cloud-dialog [data-tab=issue]').count(),0,'ordinary user has no emission control');
-      await tab(page,'profile');await page.locator('#cloud-dialog input[name=displayName]').fill('Voyageur du ciel');await page.locator('#cloud-dialog input[name=publish]').check();await page.locator('[data-cloud-form=profile] button').click();await idle(page);assert(fixture.profile.publishOwner);
-      await tab(page,'activate');await page.locator('#cloud-dialog input[name=id]').fill('30000001');await page.locator('#cloud-dialog input[name=secret]').fill(secret);await page.locator('[data-cloud-form=activate] button').click();await idle(page);
+      await page.goto(base);await idle(page);
+      await tab(page,'transfers');assert.equal(await page.locator('a[href="#account/issue"]').count(),0,'ordinary user has no emission control');
+      await tab(page,'profile');await page.locator('#account-root input[name=displayName]').fill('Voyageur du ciel');await page.locator('[data-cloud-form=profile] button').click();await idle(page);
+      await tab(page,'settings');await page.locator('#account-root input[name=publish]').check();await page.locator('[data-cloud-form=privacy] button').click();await idle(page);assert(fixture.profile.publishOwner);
+      await tab(page,'activate');await page.locator('#account-root input[name=id]').fill('30000001');await page.locator('#account-root input[name=secret]').fill(secret);await page.locator('[data-cloud-form=activate] button').click();await idle(page);
       assert.equal(fixture.calls.filter(c=>c.path.includes('kalistar_activate')).length,0,'model barcode is rejected before a request');
-      await page.locator('#cloud-dialog input[name=id]').fill('00000001');await page.locator('#cloud-dialog input[name=secret]').fill(secret);fixture.failActivation=true;await page.locator('[data-cloud-form=activate] button').click();await idle(page);
-      assert.match(await page.locator('#cloud-dialog [role=alert]').innerText(),/refusee/);assert.equal(fixture.cards.length,0);
-      fixture.failActivation=false;await page.locator('#cloud-dialog input[name=id]').fill('00000001');await page.locator('#cloud-dialog input[name=secret]').fill(secret);await page.locator('[data-cloud-form=activate] button').click();await idle(page);
-      await page.locator('.cloud-specimen img').evaluate(i=>i.decode());await geometry(page,profile.name);await page.screenshot({path:path.join(output,profile.name+'-owned.png')});
-      assert(!(await page.locator('#cloud-dialog').innerText()).includes(secret));
-      await action(page,'offer').click();await page.locator('#cloud-dialog input[name=handle]').fill('recipient');await page.locator('[data-cloud-form=offer] button').click();assert.equal(fixture.transfers.length,0,'unchecked confirmation blocks transfer');
+      await page.locator('#account-root input[name=id]').fill('00000001');await page.locator('#account-root input[name=secret]').fill(secret);fixture.failActivation=true;await page.locator('[data-cloud-form=activate] button').click();await idle(page);
+      assert.match(await page.locator('#account-root [role=alert]').innerText(),/refusee/);assert.equal(fixture.cards.length,0);
+      fixture.failActivation=false;await page.locator('#account-root input[name=id]').fill('00000001');await page.locator('#account-root input[name=secret]').fill(secret);await page.locator('[data-cloud-form=activate] button').click();await idle(page);
+      assert.equal(await page.locator('#account-root input[name=secret]').inputValue(),'');
+      await tab(page,'transfers');await page.locator('[name=card]').selectOption(specimen);
+      await page.waitForFunction(()=>{const i=document.querySelector('.cloud-specimen img');return i?.complete&&i.naturalWidth>0&&i.dataset.v4Cropped;});await geometry(page,profile.name);await page.screenshot({path:path.join(output,profile.name+'-owned.png')});
+      assert(!(await page.locator('#account-root').innerText()).includes(secret));
+      await page.locator('#account-root input[name=handle]').fill('recipient');await page.locator('[data-cloud-form=offer] button').click();assert.equal(fixture.transfers.length,0,'unchecked confirmation blocks transfer');
       await page.locator('[data-cloud-form=offer] input[type=checkbox]').check();await page.locator('[data-cloud-form=offer] button').click();await idle(page);assert.equal(fixture.transfers.length,1);
       await action(page,'settle').click();await idle(page);assert.equal(fixture.transfers[0].status,'cancelled');
       fixture.transfers[0]={...fixture.transfers[0],incoming:true,status:'pending',sender:'sender',recipient:'fixture'};
-      await action(page,'close').click();await page.reload();await idle(page);await tab(page,'transfers');
-      await page.locator('[data-cloud-form=accept] input').check();await page.locator('[data-cloud-form=accept] button').click();await idle(page);assert.equal(fixture.transfers[0].status,'accepted');
-      fixture.isAdmin=true;await action(page,'close').click();await page.reload();await idle(page);await tab(page,'issue');
+      await page.reload();await idle(page);
+      await page.locator('[data-cloud-form=accept] input').check();await page.locator('[data-cloud-form=accept] [type=submit]').click();await idle(page);assert.equal(fixture.transfers[0].status,'accepted');
+      fixture.isAdmin=true;await page.reload();await idle(page);await tab(page,'issue');
       await page.locator('[data-cloud-form=issue] input').check();await page.locator('[data-cloud-form=issue] button').click();await idle(page);
       assert.equal(await page.locator('.cloud-issued-secret').innerText(),secret);
-      const downloadEvent=page.waitForEvent('download');await action(page,'voucher').click();const download=await downloadEvent;const voucher=JSON.parse(fs.readFileSync(await download.path(),'utf8'));assert.equal(voucher.secret,secret);assert.equal(voucher.barcode,'00000001');
-      await action(page,'close').click();assert.equal(await page.locator('.cloud-issued-secret').count(),0);await page.reload();await idle(page);await tab(page,'issue');assert.equal(await page.locator('.cloud-issued-secret').count(),0,'secret never survives reload');
+      const downloadEvent=page.waitForEvent('download');await action(page,'voucher').click();const download=await downloadEvent;
+      assert.equal(await download.failure(),null,profile.name+' activation voucher download');
+      const voucher=JSON.parse(fs.readFileSync(await download.path(),'utf8'));assert.equal(voucher.secret,secret);assert.equal(voucher.barcode,'00000001');
+      await tab(page,'profile');assert.equal(await page.locator('.cloud-issued-secret').count(),0);await page.reload();await idle(page);await tab(page,'issue');assert.equal(await page.locator('.cloud-issued-secret').count(),0,'secret never survives reload');
       // A second isolated page shares only this disposable browser context's SDK session.
       const other=await context.newPage();await other.goto(base);await idle(other);await action(other,'logout').click();await idle(other);
-      await page.locator('.cloud-auth a').waitFor();assert.equal(await page.locator('.cloud-specimen').count(),0,'cross-tab signout clears private DOM');
+      await page.locator('.account-content a[href$="login.html"]').waitFor();assert.equal(await page.locator('.cloud-specimen').count(),0,'cross-tab signout clears private DOM');
       assert.deepEqual(errors,[],profile.name+' no JavaScript errors');
       results.push({profile:profile.name,passed:true,requests:fixture.calls.length});await context.close();
     }

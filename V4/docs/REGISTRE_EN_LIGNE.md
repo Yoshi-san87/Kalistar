@@ -3,6 +3,22 @@
 [Index](../../docs/INDEX.md) | [Architecture du site](../site/README.md) |
 [Migrations et tests](../deploy/supabase/README.md)
 
+## Espace personnel
+
+Mon compte est une page du jeu (`#account/profile`), pas une modale.
+Compte regroupe le nom public, le pseudo et la deconnexion. Parametres regroupe
+le consentement de visibilite, l'etat de sauvegarde et le changement de mot de
+passe via la session Auth existante. Le formulaire ne memorise pas ce secret.
+Transferer une carte propose un selecteur d'exemplaire et les demandes en cours,
+sans reproduire la galerie Collection. Activation et certificats restent dans
+cette rubrique, ainsi que l'emission pour le seul role administrateur serveur.
+Changer de rubrique ou quitter la page efface les secrets affiches ; les
+reponses tardives ne peuvent pas les restaurer.
+
+Facturation / paiements n'est pas encore un service ouvert. Contact affiche
+`contact@Kalistar.com` comme future adresse, sans lien d'envoi tant que la boite
+n'est pas active. Aucun email personnel n'est utilise comme support public.
+
 ## Identites
 
 - Le modele/version reste le `card.id` du catalogue V4 approuve.

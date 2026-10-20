@@ -109,7 +109,25 @@ async function main(){
         await page.goto(origin+'/jeu/login.html?next='+encodeURIComponent('/jeu/#home'));await ready();
         assert.equal(new URL(page.url()).hash,'#home','resumed login keeps the destination without replaying the film');
       }
-      await page.locator('[data-action=account]').click();await page.locator('#cloud-dialog[aria-busy=false]').waitFor();
+      await page.locator('[data-action=account]').click();await page.locator('#account-root[aria-busy=false]').waitFor();
+      assert.equal(new URL(page.url()).hash,'#account/profile');
+      assert.equal(await page.locator('#cloud-dialog').count(),0,'account is a page, not a dialog');
+      await page.locator('[data-cloud-form=profile] [name=displayName]').fill('Paris QA');
+      await page.locator('[data-cloud-form=profile] [type=submit]').click();
+      await page.getByText('Profil enregistré.',{exact:true}).waitFor();
+      assert.equal(await page.locator('[data-cloud-form=profile] [name=displayName]').inputValue(),'Paris QA','cloud ownership refresh does not destroy the page');
+      await page.locator('.account-sidebar a[href="#account/settings"]').click();
+      await page.locator('[data-cloud-form=privacy]').waitFor();
+      assert.equal(new URL(page.url()).hash,'#account/settings');
+      await page.locator('[data-cloud-form=password] [type=submit]').scrollIntoViewIfNeeded();
+      assert.equal(await page.locator('[data-cloud-form=password] [type=submit]').evaluate(n=>{const r=n.getBoundingClientRect();return n.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));}),true,'account controls stay above phone navigation');
+      await page.goBack();await page.locator('[data-cloud-form=profile]').waitFor();
+      await page.screenshot({path:path.join(output,p.name+'-account.png')});
+      await page.locator('.account-sidebar a[href="#account/contact"]').click();
+      await page.reload();await ready();await page.locator('#account-root[aria-busy=false]').waitFor();
+      assert.equal(await page.locator('#account-section-title').innerText(),'Contact','a deep account route survives reload');
+      assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+      await page.locator('.account-sidebar a[href="#account/profile"]').click();
       try{await page.locator('[data-cloud-action=logout]').click({timeout:10000});}catch(e){console.error(await page.evaluate(()=>({sync:window.KALISTAR_SYNC?.snapshot(),dialogs:[...document.querySelectorAll('dialog[open]')].map(d=>({id:d.id,text:d.textContent.slice(0,700)}))})));throw e;}
       await page.waitForURL('**/jeu/login*');await page.locator('#login-form [type=submit]:enabled').waitFor();
       assert.equal(await page.evaluate(url=>fetch(url).then(r=>r.status),origin+'/jeu/catalogue.json'),401);assert.equal(await page.evaluate(()=>localStorage.getItem('kalistar-auth-qa-marker')),'preserve');

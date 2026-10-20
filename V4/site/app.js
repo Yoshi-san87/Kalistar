@@ -120,12 +120,13 @@
   if(restored){try{game=E.restoreGame(KalistarLocalDB.validateGame(restored));db.registry.validateGame(game,accountId);}catch(error){game=null;restoreError=error.message;}}
   if(cloudPlayer&&game&&db.match(game.matchId))lastStored=JSON.stringify(game);
   let boardScale=Math.max(85,Math.min(140,Number(load('boardScale',100))||100));
-  const views=window.KalistarSite?.online?['home','collection','arena','decks','weapons','statistics','story','map','guide','library','journeys']:['home','collection','arena','decks','weapons','statistics','story','map','guide','library','journeys','atelier'];
+  const views=window.KalistarSite?.online?['home','collection','arena','decks','weapons','statistics','story','map','guide','library','journeys','account']:['home','collection','arena','decks','weapons','statistics','story','map','guide','library','journeys','account','atelier'];
   const mapView=KalistarMap.create();
   const guideView=KalistarGuide.create({data,image:cardImage,onNavigate:view=>setView(view)});
   const libraryView=KalistarLibrary.create();
   const phoneQuery='(max-width:699px), (pointer:coarse) and (max-width:1100px) and (max-height:500px)';
-  const hashView=()=>views.includes(location.hash.slice(1))?location.hash.slice(1):!location.hash&&matchMedia(phoneQuery).matches?'home':'collection';
+  const hashView=()=>location.hash==='#account'||location.hash.startsWith('#account/')?'account':views.includes(location.hash.slice(1))?location.hash.slice(1):!location.hash&&matchMedia(phoneQuery).matches?'home':'collection';
+  const accountSection=()=>location.hash.split('/')[1]||'profile';
   const ui={view:hashView(),attacker:null,target:null,reserve:null,replacementSlot:null,detail:null,art:false};
   let pendingLineup=null,lineupIntro=null,presentationOpening=false;
   const finale=KalistarFinale.create();
@@ -206,12 +207,12 @@
     if(cloudPlayer)$('#database-dialog .database-actions')?.remove();
     const notice=$('#database-dialog .database-notice');if(notice)notice.textContent=cloudPlayer?'Progression du compte '+connectedAccess.label+' : sauvegarde locale et synchronisation Supabase. Les anciens fichiers de demonstration restent conserves sur cet appareil.':'Profil local : '+(db?.registry?.user(accountId)?.email||'indisponible')+'. Stockage de ce navigateur uniquement. La sauvegarde complete du registre est disponible depuis Paris, profil administrateur local.';
   }
-  function openAccounts(tab='transfers',id=null){if(connectedAccess)return cloudRegistryUI?.open();if(!accountsUI)return toast('Registre local indisponible : '+dbError);accountsUI.open(tab,id).catch(e=>toast(e.message));}
+  function openAccounts(tab='profile',id=null){if(connectedAccess)return cloudRegistryUI?.open({section:tab==='activation'?'activate':tab==='collection'?'transfers':tab,id});if(!accountsUI)return toast('Registre local indisponible : '+dbError);accountsUI.open(tab==='profile'?'transfers':tab,id).catch(e=>toast(e.message));}
   async function ownershipChanged(){
     if(game){try{db.registry.validateGame(game,accountId);}catch{suspendGame();}}
     const counts={},slots=Team.slots(teamDraft).map(id=>id&&(counts[id]=(counts[id]||0)+1)<=owned(id).length?id:null);
     teamDraft=Team.edit(teamDraft,slots);deck=teamDraft.cards.filter(Boolean);persist();
-    render();
+    if(ui.view!=='account')render();
   }
   function suspendGame(){clearTimeout(aiTimer);epoch++;game=null;lastStored='';save('game',null);ui.view='collection';KalistarDialogHistory.replace('#collection');render();}
   function cloudBlocked(){return !!cloudSync&&!cloudSync.snapshot().canWrite;}
@@ -234,7 +235,7 @@
     return operation;
   }
   function exitFullscreen(){if(document.fullscreenElement)document.exitFullscreen().catch(()=>{});}
-  async function setView(view){
+  async function setView(view,section=null){
     preMatch.cancel();
     if(view==='atelier'&&window.KalistarSite?.online)return;
     if(rolling)return toast('Le duel se termine…');
@@ -245,7 +246,7 @@
     if(view==='arena'&&!game){try{await createGame('ai','KALI-'+Math.floor(Math.random()*999999));}catch(e){toast(e.message);showDeck();return;}}
     if(view==='arena'&&ui.view!=='arena'&&game?.journey&&!game.journey.preview){try{game=await journeys.resume(game.journey.attemptId);}catch(error){toast(error.message);return;}}
     const changed=ui.view!==view;
-    ui.view=view;KalistarDialogHistory.replace('#'+view);render();
+    ui.view=view;KalistarDialogHistory.replace('#'+view+(view==='account'?'/'+(section||accountSection()):''));render();
     if(changed)window.KalistarPageTransitions?.enter(view);
     if(view==='journeys')void journeys.refresh().catch(error=>toast(error.message));
   }
@@ -262,7 +263,8 @@
     const scroll=$('.battlefield-viewport')?.scrollLeft||0;
     document.body.classList.toggle('arena-view',ui.view==='arena');
     document.querySelectorAll('[data-view]').forEach(b=>{const on=b.dataset.view===ui.view;b.classList.toggle('active',on);b.setAttribute('aria-current',on?'page':'false');});
-    deckBuilder?.destroy();collectionBinder?.destroy();statisticsSheet?.destroy();storyReader.destroy();weaponsUI.destroy();homeScreen.destroy();mapView.destroy();guideView.destroy();libraryView.destroy();journeyView?.destroy();
+    deckBuilder?.destroy();collectionBinder?.destroy();statisticsSheet?.destroy();storyReader.destroy();weaponsUI.destroy();homeScreen.destroy();mapView.destroy();guideView.destroy();libraryView.destroy();journeyView?.destroy();cloudRegistryUI?.unmount();
+    document.body.classList.toggle('account-view',ui.view==='account');
     document.body.classList.toggle('map-view',ui.view==='map');
     document.body.classList.toggle('home-view',ui.view==='home');
     document.body.classList.toggle('statistics-view',ui.view==='statistics');
@@ -283,7 +285,8 @@
       $('#account-name').textContent=accountId===KalistarOwnership.PARIS?'Paris':'Tokyo';
       icons();persist();return;
     }
-    $('#app').innerHTML=ui.view==='journeys'?'<div id="journey-root"></div>':ui.view==='guide'?'<div id="guide-root"></div>':ui.view==='library'?'<div id="library-root"></div>':ui.view==='map'?'<div id="map-root"></div>':ui.view==='home'?'<div id="home-root"></div>':ui.view==='collection'?collection():ui.view==='story'?'<div id="story-reader-root"></div>':ui.view==='decks'?decksPage():ui.view==='weapons'?'<div id="weapons-root"></div>':ui.view==='statistics'?'<div id="statistics-root"></div>':arena();
+    $('#app').innerHTML=ui.view==='account'?'<div id="account-root"></div>':ui.view==='journeys'?'<div id="journey-root"></div>':ui.view==='guide'?'<div id="guide-root"></div>':ui.view==='library'?'<div id="library-root"></div>':ui.view==='map'?'<div id="map-root"></div>':ui.view==='home'?'<div id="home-root"></div>':ui.view==='collection'?collection():ui.view==='story'?'<div id="story-reader-root"></div>':ui.view==='decks'?decksPage():ui.view==='weapons'?'<div id="weapons-root"></div>':ui.view==='statistics'?'<div id="statistics-root"></div>':arena();
+    if(ui.view==='account')cloudRegistryUI.mount($('#account-root'),accountSection());
     if(ui.view==='journeys')journeyView.mount($('#journey-root'));
     if(ui.view==='guide')guideView.mount($('#guide-root'));
     if(ui.view==='library')libraryView.mount($('#library-root'));
@@ -1054,7 +1057,7 @@ function showDeck(){setView('decks');}
   });
   const phoneLayout=()=>matchMedia(phoneQuery).matches;
   function syncNavigation(){
-    const button=$('.nav-more'),selected=['map','guide','library','journeys'].includes(ui.view)||phoneLayout()&&['story','atelier'].includes(ui.view);
+    const button=$('.nav-more'),selected=['map','guide','library','journeys','account'].includes(ui.view)||phoneLayout()&&['story','atelier'].includes(ui.view);
     button?.classList.toggle('active',selected);button?.setAttribute('aria-current',selected?'page':'false');
     const home=$('.nav-home'),homeSelected=phoneLayout()&&['home','collection','weapons'].includes(ui.view);
     home?.classList.toggle('active',homeSelected);home?.setAttribute('aria-current',homeSelected?'page':'false');
@@ -1306,7 +1309,7 @@ function showDeck(){setView('decks');}
     const img=event.target;
     if(img instanceof HTMLImageElement&&img.getAttribute('src')===asset('effets','guard'))img.src=asset('effets','shield_physical');
   },true);
-  window.addEventListener('hashchange',()=>{const view=hashView();if(view!==ui.view)setView(view);});
+  window.addEventListener('hashchange',()=>{const view=hashView();if(view!==ui.view)setView(view);else if(view==='account')cloudRegistryUI?.route(accountSection());});
   window.addEventListener('message',event=>{
     if(event.origin!==location.origin||event.source!==$('#atelier-frame')?.contentWindow||event.data?.type!=='kalistar:card-published')return;
     markCatalogueOutdated();
@@ -1353,7 +1356,7 @@ function showDeck(){setView('decks');}
   document.addEventListener('fullscreenchange',()=>{const b=$('[data-action="fullscreen"]');if(b){const label=document.fullscreenElement?'Quitter le plein écran':'Plein écran';b.title=label;b.setAttribute('aria-label',label);b.innerHTML=icon(document.fullscreenElement?'minimize':'maximize');icons();}});
   document.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}}));
   if(ui.view==='arena'&&!game){try{await createGame('ai','KALI-2026');}catch{ui.view='collection';}}
-  cloudRegistryUI=KalistarCloudRegistryUI.create({data,modal,onLocal:()=>connectedAccess?showDatabase():openAccounts(),onChanged:cloudPlayer?async()=>{await cloudPlayer.refresh();await ownershipChanged();}:null});
+  cloudRegistryUI=KalistarCloudRegistryUI.create({data,onNavigate:section=>{document.querySelectorAll('dialog[open]').forEach(d=>d.close());return setView('account',section);},onLocal:()=>connectedAccess?showDatabase():openAccounts(),sync:cloudSync,onSync:()=>cloudSyncUI?.open(),onChanged:cloudPlayer?async()=>{await cloudPlayer.refresh();await ownershipChanged();}:null});
   if(db?.registry&&!connectedAccess)accountsUI=KalistarAccountsUI.create({db,getCatalogueChanges:()=>catalogueUpdates.ids(),getUserId:()=>accountId,onChanged:ownershipChanged,modal,toast,download,onCloud:window.KalistarCloudConfig?.enabled?()=>cloudRegistryUI.open():null,onSwitch:async id=>{if(!db.registry.user(id))throw new Error('Profil inconnu.');persist();await db.idle();localStorage.setItem('kalistar.v4.activeUser',id);location.reload();}});
   else if(!db?.registry)toast('Registre local indisponible : '+dbError);
   if(connectedAccess){
@@ -1383,5 +1386,9 @@ function showDeck(){setView('decks');}
   if(restoreError)toast(restoreError);if(cloudPlayer?.notice)toast(cloudPlayer.notice);
   presentLineup();scheduleAI();
   const cloudRequest=new URL(location.href).searchParams;
-  if(window.KalistarCloudConfig?.enabled&&(cloudRequest.get('registry')==='1'||cloudRequest.has('specimen')))void cloudRegistryUI.open({id:cloudRequest.get('specimen')});
+  if(window.KalistarCloudConfig?.enabled&&(cloudRequest.get('registry')==='1'||cloudRequest.has('specimen'))){
+    const id=cloudRequest.get('specimen'),url=new URL(location.href);
+    url.searchParams.delete('registry');url.searchParams.delete('specimen');KalistarDialogHistory.replace(url);
+    void cloudRegistryUI.open({id});
+  }
 })();

@@ -47,7 +47,7 @@ restent visibles pendant le defilement interne, avec Retour et Echap natifs.
 Ne pas recreer de variantes de menu dans mobile.css ou les CSS de parcours.
 
 Les vues publiques sont Home, Collection, Decks, Equipements, Arene,
-Statistiques, Story, Map, Guide, Library et Fragment. Le serveur local garde en plus
+Statistiques, Story, Map, Guide, Library, Fragment et Mon compte. Le serveur local garde en plus
 l'Atelier ; il ne fait pas partie du build public.
 
 `site-config.js` definit aussi `KalistarSite.atlas`, source unique de la Map
@@ -83,6 +83,14 @@ Ne pas tester sur les possessions ou parties reelles.
 
 `cloud-config.js`, `cloud-registry.js` et `cloud-registry-ui.js/css` ajoutent un
 registre distant independant. Le SDK officiel partage la session de connexion.
+`#account/profile`, `transfers`, `settings`, `billing` et `contact` sont les
+rubriques de la vraie page Mon compte, sans galerie dupliquant Collection.
+Les formulaires utilisent toujours les RPC du registre. Les certificats,
+l'activation et l'emission admin restent accessibles depuis Transferts.
+Les pages Facturation et Contact indiquent leur indisponibilite tant que les
+services ne sont pas ouverts ; ne jamais simuler un paiement ni publier les
+emails prives comme adresse de support. La navigation detruit les secrets
+transitoires et ignore les resultats d'une ancienne rubrique.
 Sur le site heberge, seule l'identite autorisee par le serveur choisit le profil
 local Paris/Tokyo ; le selecteur de profils reste reserve au developpement local.
 `cloud-player.js`, `cloud-archives.js`, `cloud-ownership.js` et `cloud-sync.js/css` ajoutent collections
