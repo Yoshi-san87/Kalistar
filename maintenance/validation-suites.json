@@ -14,6 +14,7 @@
       ]
     ],
     "ci": [
+      ["--test", "V4/expansions/2026-10-20-riko/integration.test.cjs", "V4/expansions/2026-10-20-riko/native.test.cjs", "V4/expansions/2026-10-20-riko/publication.test.cjs"],
       ["--test", "V4/expansions/2026-10-18-vulkar-black-guard/integration.test.cjs", "V4/expansions/2026-10-18-vulkar-black-guard/native.test.cjs", "V4/expansions/2026-10-18-vulkar-black-guard/publication.test.cjs"],
       ["--test", "V4/expansions/2026-10-18-lara-croft/integration.test.cjs", "V4/expansions/2026-10-18-lara-croft/native.test.cjs", "V4/expansions/2026-10-18-lara-croft/publication.test.cjs"],
       ["--test", "V4/revisions/2026-10-20-tomb-raider-banner/integration.test.cjs"],
@@ -462,6 +463,8 @@
     "V4/expansions/2026-10-18-vulkar-black-guard/game.browser.test.cjs",
     "V4/expansions/2026-10-18-lara-croft/gallery.browser.test.cjs",
     "V4/expansions/2026-10-18-lara-croft/game.browser.test.cjs",
+    "V4/expansions/2026-10-20-riko/gallery.browser.test.cjs",
+    "V4/expansions/2026-10-20-riko/game.browser.test.cjs",
     "V4/revisions/2026-10-17-nestown-manteau-rempart/cards.browser.test.cjs",
     "V4/expansions/2026-10-15-tortues-ninja/cards.browser.test.cjs",
     "V4/expansions/2026-10-15-tortues-ninja/gallery.browser.test.cjs",

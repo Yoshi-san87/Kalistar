@@ -1,0 +1,20 @@
+@font-face{font-family:Kalistar;src:url("../../site/assets/fonts/cinzel-v26-latin.woff2") format("woff2");font-display:swap}
+*{box-sizing:border-box}
+html{color-scheme:dark;background:#0b1719;color:#e5ebe7}
+body{margin:0;font:16px/1.6 Georgia,serif;letter-spacing:0}
+header,footer{padding:28px max(20px,calc((100% - 1080px)/2));border-bottom:1px solid #516361}
+header p{font:12px/1.6 Arial,sans-serif;color:#b3ceca;margin:0}
+h1{font-family:Kalistar,Georgia,serif;font-size:36px;margin:4px 0 0}
+main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px;max-width:1080px;margin:auto;padding:28px 20px 40px}
+figure{margin:0;min-width:0}
+.card{display:block}
+.card img{width:100%;height:auto;display:block}
+figcaption{padding:16px 10px}
+h2{font-size:19px;color:#f0d4ac;margin:0}
+p{margin:10px 0}
+.identity{font:13px/1.6 Arial,sans-serif;color:#9bd3ca}
+a{color:#b7e7e4;text-underline-offset:4px}
+a:focus-visible{outline:2px solid #f5d19e;outline-offset:4px}
+nav{display:flex;gap:20px;flex-wrap:wrap;font-size:14px}
+footer{font-size:14px;border-top:1px solid #516361}
+@media(max-width:650px){main{grid-template-columns:1fr;max-width:460px;gap:22px;padding:14px 12px 28px}header{padding:20px}h1{font-size:30px}}

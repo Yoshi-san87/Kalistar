@@ -1,0 +1,60 @@
+{
+  "name": "RIKO",
+  "title": "DES AILES AUTREMENT",
+  "job": "PILOTE",
+  "description": "Au-dessus de Nestown, Riko cesse de raconter ses exploits : ses mains les accomplissent. Le vent emporte son rire, jamais ses passagers. Il n'a pas d'ailes, mais sait enfin ce que voler veut dire.",
+  "element": "AERO",
+  "race": "KORBOW",
+  "weapon": "Poing",
+  "faction": "Nestown",
+  "positions": [
+    3,
+    4
+  ],
+  "atk": [
+    226,
+    187,
+    148,
+    "buff_atk",
+    62,
+    28
+  ],
+  "defense": [
+    222,
+    178,
+    "dodge",
+    101,
+    59,
+    "retry"
+  ],
+  "magic": [
+    5,
+    2
+  ],
+  "barriers": [
+    5
+  ],
+  "upload": null,
+  "crop": {
+    "zoom": 1,
+    "x": 0,
+    "y": 0
+  },
+  "schemaVersion": 4,
+  "id": "49903202",
+  "characterId": "riko-kalistar",
+  "slug": "V4_49903202",
+  "output": "KALISTAR_V4_49903202",
+  "text": "Au-dessus de Nestown, Riko cesse de raconter ses exploits : ses mains les accomplissent. Le vent emporte son rire, jamais ses passagers. Il n'a pas d'ailes, mais sait enfin ce que voler veut dire.",
+  "color": "89EDC2",
+  "hue": 155,
+  "role": 3,
+  "sentry": true,
+  "canGuard": false,
+  "canHeal": false,
+  "advantage": 30,
+  "disadvantage": 30,
+  "source": "Original Kalistar, Orilo renomme Riko le 20 octobre 2026",
+  "visual_revision": "V4-2026-10-20-riko",
+  "artworkSource": "V4/expansions/2026-10-20-riko/images/riko-en-vol.png"
+}
