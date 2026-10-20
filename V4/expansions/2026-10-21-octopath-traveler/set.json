@@ -1,0 +1,730 @@
+{
+  "id": "2026-10-21-octopath-traveler",
+  "officialCollaboration": false,
+  "arenas": [],
+  "presets": [],
+  "cards": [
+    {
+      "key": "ophilia",
+      "id": "49903301",
+      "characterId": "ophilia-octopath-traveler",
+      "name": "OPHILIA",
+      "title": "LA FLAMME DANS LA NEIGE",
+      "job": "PRÊTRESSE",
+      "description": "Elle abrite la flamme sacrée comme on protège une promesse. Dans le froid, Ophilia avance sans hausser la voix : sa douceur ne chasse pas la peur, elle apprend aux autres à marcher malgré elle.",
+      "element": "LUXO",
+      "race": "HUMAIN",
+      "faction": "OCTOPATH",
+      "collaboration": "OCTOPATH",
+      "originGame": "Octopath Traveler I",
+      "weapon": "Sceptre",
+      "role": 5,
+      "positions": [
+        4,
+        5
+      ],
+      "atk": [
+        174,
+        138,
+        "revive",
+        83,
+        "mana",
+        22
+      ],
+      "defense": [
+        201,
+        165,
+        129,
+        93,
+        56,
+        29
+      ],
+      "magic": [
+        6,
+        5
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "artworkSource": "V4/propositions/2026-10-20-octopath-traveler/images/01-ophilia-02.png",
+      "rationale": "Soutien lumineux : coeur préventif et potion, peu d'attaque physique. La foi protège les vivants ; aucune résurrection de cimetière."
+    },
+    {
+      "key": "cyrus",
+      "id": "49903302",
+      "characterId": "cyrus-octopath-traveler",
+      "name": "CYRUS",
+      "title": "LA PAGE MANQUANTE",
+      "job": "ÉRUDIT",
+      "description": "Un détail oublié peut changer toute une histoire. Entre deux pages, Cyrus relève la tête : quelqu'un a voulu cacher ce savoir. Son plaisir de comprendre devient alors une raison de poursuivre la route.",
+      "element": "CRYO",
+      "race": "HUMAIN",
+      "faction": "OCTOPATH",
+      "collaboration": "OCTOPATH",
+      "originGame": "Octopath Traveler I",
+      "weapon": "Tome",
+      "role": 4,
+      "positions": [
+        3,
+        4
+      ],
+      "atk": [
+        284,
+        232,
+        176,
+        "mana",
+        68,
+        31
+      ],
+      "defense": [
+        158,
+        126,
+        96,
+        68,
+        "retry",
+        16
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        2
+      ],
+      "barriers": [
+        5
+      ],
+      "artworkSource": "V4/propositions/2026-10-20-octopath-traveler/images/02-cyrus-01.png",
+      "rationale": "Érudit offensif de glace, quatre faces magiques et une potion pour transmettre son savoir ; défense faible, une relance."
+    },
+    {
+      "key": "tressa",
+      "id": "49903303",
+      "characterId": "tressa-octopath-traveler",
+      "name": "TRESSA",
+      "title": "L'HORIZON VAUT LE DÉTOUR",
+      "job": "MARCHANDE",
+      "description": "Son carnet compte les dépenses, mais ses yeux cherchent déjà le prochain port. Tressa veut découvrir ce qu'aucune vitrine ne vend : les rencontres, les détours et le courage de choisir sa propre route.",
+      "element": "AERO",
+      "race": "HUMAIN",
+      "faction": "OCTOPATH",
+      "collaboration": "OCTOPATH",
+      "originGame": "Octopath Traveler I",
+      "weapon": "Lance",
+      "role": 3,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        218,
+        181,
+        "retry",
+        94,
+        56,
+        "mana"
+      ],
+      "defense": [
+        223,
+        184,
+        145,
+        "dodge",
+        57,
+        27
+      ],
+      "magic": [
+        6,
+        3
+      ],
+      "barriers": [
+        6,
+        2
+      ],
+      "artworkSource": "V4/propositions/2026-10-20-octopath-traveler/images/03-tressa-03.png",
+      "rationale": "Marchande polyvalente : trèfle pour la bonne occasion, potion partagée et esquive. Le vent soutient le voyage, sans effet économique inventé."
+    },
+    {
+      "key": "olberic",
+      "id": "49903304",
+      "characterId": "olberic-octopath-traveler",
+      "name": "OLBERIC",
+      "title": "TENIR LE PASSAGE",
+      "job": "GUERRIER",
+      "description": "Il a perdu le royaume auquel il avait juré sa vie, pas le geste de se placer devant les autres. Sur ce pont, Olberic retrouve une réponse simple : tant que quelqu'un passe derrière lui, son épée a un sens.",
+      "element": "MINERO",
+      "race": "HUMAIN",
+      "faction": "OCTOPATH",
+      "collaboration": "OCTOPATH",
+      "originGame": "Octopath Traveler I",
+      "weapon": "Epée longue",
+      "role": 1,
+      "positions": [
+        1,
+        2
+      ],
+      "atk": [
+        196,
+        158,
+        124,
+        "guard",
+        54,
+        21
+      ],
+      "defense": [
+        287,
+        236,
+        188,
+        139,
+        89,
+        42
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        6,
+        5
+      ],
+      "artworkSource": "V4/propositions/2026-10-20-octopath-traveler/images/04-olberic-01.png",
+      "rationale": "Tank de roche : chiffres DEF réguliers et Garde D3, sans esquive ni Mort. Sa protection a pour prix une attaque modérée."
+    },
+    {
+      "key": "primrose",
+      "id": "49903305",
+      "characterId": "primrose-octopath-traveler",
+      "name": "PRIMROSE",
+      "title": "DERRIÈRE LE SOURIRE",
+      "job": "DANSEUSE",
+      "description": "La salle ne voit qu'un sourire et le mouvement d'une étoffe. Primrose reconnaît les regards qui mentent. Chaque pas prolonge sa couverture ; sous la musique, la mémoire de son père ne se tait jamais.",
+      "element": "NECRO",
+      "race": "HUMAIN",
+      "faction": "OCTOPATH",
+      "collaboration": "OCTOPATH",
+      "originGame": "Octopath Traveler I",
+      "weapon": "Dague",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        168,
+        "buff_atk",
+        104,
+        76,
+        "mana",
+        18
+      ],
+      "defense": [
+        180,
+        149,
+        "dodge",
+        84,
+        48,
+        20
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "artworkSource": "V4/propositions/2026-10-20-octopath-traveler/images/05-primrose-01.png",
+      "rationale": "Danse de soutien : puissance physique D5 et potion D2, une esquive. L'ombre et la dague restent secondaires ; pas de coeur réservé aux soigneurs."
+    },
+    {
+      "key": "alfyn",
+      "id": "49903306",
+      "characterId": "alfyn-octopath-traveler",
+      "name": "ALFYN",
+      "title": "LE REMÈDE AVANT LA ROUTE",
+      "job": "APOTHICAIRE",
+      "description": "Avant de demander un nom ou une pièce, Alfyn demande où cela fait mal. Il broie ses herbes avec la même patience pour tous. Le sourire qu'il reçoit lui suffit encore pour croire que sa route est la bonne.",
+      "element": "CRYO",
+      "race": "HUMAIN",
+      "faction": "OCTOPATH",
+      "collaboration": "OCTOPATH",
+      "originGame": "Octopath Traveler I",
+      "weapon": "Hache",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        164,
+        131,
+        "revive",
+        "mana",
+        43,
+        16
+      ],
+      "defense": [
+        203,
+        167,
+        130,
+        95,
+        "retry",
+        26
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "artworkSource": "V4/propositions/2026-10-20-octopath-traveler/images/06-alfyn-01.png",
+      "rationale": "Apothicaire de glace : coeur D4 et potion D3, défense solide pour un soutien, une relance. La hache demeure une arme de secours."
+    },
+    {
+      "key": "therion",
+      "id": "49903307",
+      "characterId": "therion-octopath-traveler",
+      "name": "THERION",
+      "title": "UNE DETTE AU POIGNET",
+      "job": "VOLEUR",
+      "description": "La pierre est dans sa main, le bracelet à son poignet. Therion sait ouvrir presque toutes les serrures ; faire confiance lui coûte davantage. Il poursuit sa dette en prétendant n'attendre personne.",
+      "element": "PYRO",
+      "race": "HUMAIN",
+      "faction": "OCTOPATH",
+      "collaboration": "OCTOPATH",
+      "originGame": "Octopath Traveler I",
+      "weapon": "Dague",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        273,
+        221,
+        178,
+        126,
+        "retry",
+        34
+      ],
+      "defense": [
+        157,
+        129,
+        "dodge",
+        71,
+        44,
+        19
+      ],
+      "magic": [
+        4
+      ],
+      "barriers": [
+        5
+      ],
+      "artworkSource": "V4/propositions/2026-10-20-octopath-traveler/images/07-therion-01.png",
+      "rationale": "Voleur physique, feu ponctuel, trèfle D2 et esquive D4. Pas de vol d'inventaire ni nouvelle règle de richesse."
+    },
+    {
+      "key": "haanit",
+      "id": "49903308",
+      "characterId": "haanit-octopath-traveler",
+      "name": "H'AANIT",
+      "title": "À L'ÉCOUTE DES BOIS",
+      "job": "CHASSERESSE",
+      "description": "Un bruit cesse et la forêt change. H'aanit lève la main ; Linde s'arrête avant le signal. Leur confiance tient dans ce silence, plus sûre qu'un ordre et plus ancienne que les traces qu'elles suivent.",
+      "element": "ELECTRO",
+      "race": "HUMAIN",
+      "faction": "OCTOPATH",
+      "collaboration": "OCTOPATH",
+      "originGame": "Octopath Traveler I",
+      "weapon": "Arc",
+      "role": 4,
+      "positions": [
+        2,
+        4
+      ],
+      "atk": [
+        276,
+        227,
+        181,
+        132,
+        "buff_atk",
+        38
+      ],
+      "defense": [
+        164,
+        131,
+        103,
+        73,
+        41,
+        "retry"
+      ],
+      "magic": [
+        3
+      ],
+      "barriers": [
+        4
+      ],
+      "artworkSource": "V4/propositions/2026-10-20-octopath-traveler/images/08-haanit-03.png",
+      "rationale": "Chasseuse à distance surtout physique ; un éclair, une puissance physique partagée et une relance DEF. Linde est narrative, sans seconde unité."
+    },
+    {
+      "key": "hikari",
+      "id": "49903309",
+      "characterId": "hikari-octopath-traveler",
+      "name": "HIKARI",
+      "title": "LE SABRE RETENU",
+      "job": "GUERRIER",
+      "description": "Le sable retombe avant sa colère. Hikari retient son sabre : gagner ne doit pas toujours vouloir dire détruire. Il cherche une force capable d'unir ceux que son royaume a dressés les uns contre les autres.",
+      "element": "LUXO",
+      "race": "HUMAIN",
+      "faction": "OCTOPATH",
+      "collaboration": "OCTOPATH",
+      "originGame": "Octopath Traveler II",
+      "weapon": "Katana",
+      "role": 2,
+      "positions": [
+        1,
+        2
+      ],
+      "atk": [
+        289,
+        236,
+        186,
+        134,
+        "buff_atk",
+        33
+      ],
+      "defense": [
+        163,
+        134,
+        105,
+        77,
+        45,
+        "dodge"
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        6
+      ],
+      "artworkSource": "V4/propositions/2026-10-20-octopath-traveler/images/09-hikari-05.png",
+      "rationale": "DPS au katana : pic physique, puissance D2 et esquive D1. Lumière pour son idéal de paix, aucun pouvoir garanti ni double attaque."
+    },
+    {
+      "key": "agnea",
+      "id": "49903310",
+      "characterId": "agnea-octopath-traveler",
+      "name": "AGNEA",
+      "title": "LE PREMIER RANG",
+      "job": "DANSEUSE",
+      "description": "Elle cherche un visage au premier rang et y trouve le courage de continuer. Agnea offre sa danse avant de réclamer des applaudissements. Son rêve grandit chaque fois qu'il fait sourire quelqu'un.",
+      "element": "AERO",
+      "race": "HUMAIN",
+      "faction": "OCTOPATH",
+      "collaboration": "OCTOPATH",
+      "originGame": "Octopath Traveler II",
+      "weapon": "Dague",
+      "role": 5,
+      "positions": [
+        3,
+        5
+      ],
+      "atk": [
+        161,
+        "buff_atk",
+        98,
+        "retry",
+        44,
+        21
+      ],
+      "defense": [
+        179,
+        147,
+        112,
+        86,
+        "dodge",
+        18
+      ],
+      "magic": [
+        6
+      ],
+      "barriers": [
+        4
+      ],
+      "artworkSource": "V4/propositions/2026-10-20-octopath-traveler/images/10-agnea-02.png",
+      "rationale": "Danseuse Aéro : puissance D5 et trèfle D3 pour entraîner ses alliés, esquive D2. Distincte de Primrose, sans potion ni soins inventés."
+    },
+    {
+      "key": "partitio",
+      "id": "49903311",
+      "characterId": "partitio-octopath-traveler",
+      "name": "PARTITIO",
+      "title": "UNE AFFAIRE POUR TOUS",
+      "job": "MARCHAND",
+      "description": "Une bonne affaire ne devrait laisser personne sur le quai. Partitio tend la main avant de sortir sa bourse. Derrière son sourire, il calcule combien de vies pourraient repartir avec cette machine.",
+      "element": "PYRO",
+      "race": "HUMAIN",
+      "faction": "OCTOPATH",
+      "collaboration": "OCTOPATH",
+      "originGame": "Octopath Traveler II",
+      "weapon": "Lance",
+      "role": 3,
+      "positions": [
+        1,
+        3,
+        5
+      ],
+      "atk": [
+        213,
+        179,
+        "buff_atk",
+        98,
+        "retry",
+        25
+      ],
+      "defense": [
+        230,
+        191,
+        151,
+        109,
+        68,
+        31
+      ],
+      "magic": [
+        3
+      ],
+      "barriers": [
+        6,
+        3
+      ],
+      "artworkSource": "V4/propositions/2026-10-20-octopath-traveler/images/11-partitio-01.png",
+      "rationale": "Marchand résilient : puissance D4, trèfle D2 et DEF sans face d'esquive. Feu de son métier conservé, aucune monnaie ajoutée au combat."
+    },
+    {
+      "key": "osvald",
+      "id": "49903312",
+      "characterId": "osvald-octopath-traveler",
+      "name": "OSVALD",
+      "title": "LE FEU SOUS LA CENDRE",
+      "job": "ÉRUDIT",
+      "description": "Le froid n'a pas éteint ce qu'on lui a pris. Osvald tourne une page avec une précision terrible, puis le feu répond. Sous les calculs et la vengeance, un père cherche encore la vérité sur les siens.",
+      "element": "PYRO",
+      "race": "HUMAIN",
+      "faction": "OCTOPATH",
+      "collaboration": "OCTOPATH",
+      "originGame": "Octopath Traveler II",
+      "weapon": "Tome",
+      "role": 4,
+      "positions": [
+        4
+      ],
+      "atk": [
+        294,
+        237,
+        184,
+        126,
+        73,
+        "mana"
+      ],
+      "defense": [
+        154,
+        124,
+        95,
+        67,
+        36,
+        13
+      ],
+      "magic": [
+        6,
+        5,
+        4,
+        3,
+        2
+      ],
+      "barriers": [
+        6
+      ],
+      "artworkSource": "V4/propositions/2026-10-20-octopath-traveler/images/12-osvald-01.png",
+      "rationale": "Érudit de feu très offensif, cinq attaques magiques, potion D1 mais aucune esquive ni relance ; fragilité numérique assumée."
+    },
+    {
+      "key": "throne",
+      "id": "49903313",
+      "characterId": "throne-octopath-traveler",
+      "name": "THRONÉ",
+      "title": "LA RUE D'APRÈS",
+      "job": "VOLEUSE",
+      "description": "Le métal à son cou lui rappelle le prix d'un ordre. Throné avance pourtant vers une rue qui n'appartiendrait qu'à elle. Sa lame sait obéir ; c'est à ses propres mains qu'elle veut rendre leur liberté.",
+      "element": "NECRO",
+      "race": "HUMAIN",
+      "faction": "OCTOPATH",
+      "collaboration": "OCTOPATH",
+      "originGame": "Octopath Traveler II",
+      "weapon": "Dague",
+      "role": 2,
+      "positions": [
+        2,
+        3
+      ],
+      "atk": [
+        281,
+        229,
+        "death",
+        127,
+        74,
+        29
+      ],
+      "defense": [
+        152,
+        "dodge",
+        98,
+        71,
+        42,
+        16
+      ],
+      "magic": [
+        3
+      ],
+      "barriers": [
+        4
+      ],
+      "artworkSource": "V4/propositions/2026-10-20-octopath-traveler/images/13-throne-01.png",
+      "rationale": "Assassine d'ombre : une seule Mort D4 et esquive D5, compensées par DEF basse et absence de soutien. Pas de tour supplémentaire."
+    },
+    {
+      "key": "temenos",
+      "id": "49903314",
+      "characterId": "temenos-octopath-traveler",
+      "name": "TEMENOS",
+      "title": "LE DOUTE VEILLE",
+      "job": "PRÊTRE",
+      "description": "Il sourit quand une réponse paraît trop parfaite. Temenos n'abandonne pas la lumière : il refuse qu'elle serve à cacher une ombre. Sous les voûtes, le moindre silence devient une question de plus.",
+      "element": "LUXO",
+      "race": "HUMAIN",
+      "faction": "OCTOPATH",
+      "collaboration": "OCTOPATH",
+      "originGame": "Octopath Traveler II",
+      "weapon": "Sceptre",
+      "role": 5,
+      "positions": [
+        4,
+        5
+      ],
+      "atk": [
+        172,
+        137,
+        102,
+        "revive",
+        43,
+        "mana"
+      ],
+      "defense": [
+        193,
+        159,
+        125,
+        91,
+        53,
+        "retry"
+      ],
+      "magic": [
+        6,
+        4
+      ],
+      "barriers": [
+        6,
+        5
+      ],
+      "artworkSource": "V4/propositions/2026-10-20-octopath-traveler/images/14-temenos-02.png",
+      "rationale": "Prêtre enquêteur : coeur D3, potion D1, deux faces lumineuses et relance DEF D1. Moins de DEF qu'Ophilia, davantage de risque dans ses soutiens."
+    },
+    {
+      "key": "ochette",
+      "id": "49903315",
+      "characterId": "ochette-octopath-traveler",
+      "name": "OCHETTE",
+      "title": "LE VENT DES ÎLES",
+      "job": "CHASSERESSE",
+      "description": "Une piste fraîche, l'odeur du sel et la promesse d'un repas partagé : Ochette n'en demande pas plus pour bondir. Pourtant, derrière ce rire sans détour, elle veille déjà sur bien plus grand que son île.",
+      "element": "ELECTRO",
+      "race": "FELINEUS",
+      "faction": "OCTOPATH",
+      "collaboration": "OCTOPATH",
+      "originGame": "Octopath Traveler II",
+      "weapon": "Arc",
+      "role": 2,
+      "positions": [
+        2,
+        4
+      ],
+      "atk": [
+        286,
+        231,
+        183,
+        "buff_atk",
+        76,
+        37
+      ],
+      "defense": [
+        161,
+        130,
+        99,
+        "dodge",
+        41,
+        17
+      ],
+      "magic": [
+        5
+      ],
+      "barriers": [
+        4
+      ],
+      "artworkSource": "V4/propositions/2026-10-20-octopath-traveler/images/15-ochette-02.png",
+      "rationale": "Correspondance Kalistar Felineus pour la chasseuse hybride. DPS physique mobile, puissance D3 et esquive D3 ; un éclair, pas d'invocation."
+    },
+    {
+      "key": "castti",
+      "id": "49903316",
+      "characterId": "castti-octopath-traveler",
+      "name": "CASTTI",
+      "title": "LES GESTES SE SOUVIENNENT",
+      "job": "APOTHICAIRE",
+      "description": "Elle ne retrouve pas tous les visages du passé, mais ses mains savent doser le remède. Castti se penche vers le malade. Avant de comprendre qui elle fut, elle choisit déjà celle qu'elle veut être.",
+      "element": "HERBO",
+      "race": "HUMAIN",
+      "faction": "OCTOPATH",
+      "collaboration": "OCTOPATH",
+      "originGame": "Octopath Traveler II",
+      "weapon": "Hache",
+      "role": 5,
+      "positions": [
+        1,
+        5
+      ],
+      "atk": [
+        176,
+        "revive",
+        106,
+        "guard",
+        "mana",
+        19
+      ],
+      "defense": [
+        205,
+        169,
+        133,
+        99,
+        61,
+        31
+      ],
+      "magic": [
+        6
+      ],
+      "barriers": [
+        6,
+        4
+      ],
+      "artworkSource": "V4/propositions/2026-10-20-octopath-traveler/images/16-castti-01.png",
+      "rationale": "Apothicaire Herbo défensive : coeur D5, Garde D3, potion D2. Trois ATK numériques seulement, aucune esquive ; mémoire de soignante, pas de guérison illimitée."
+    }
+  ]
+}
