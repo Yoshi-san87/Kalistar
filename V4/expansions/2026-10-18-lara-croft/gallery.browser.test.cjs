@@ -4,8 +4,8 @@ const {pathToFileURL}=require('node:url');
 const {createRequire}=require('node:module');
 const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const {chromium}=createRequire(path.join(runtime,'_test.cjs'))('playwright');
-const root=path.resolve(__dirname,'../../..'),dir=__dirname,qa=path.join(root,'work/qa/lara-croft/gallery');
-const selection={cards:require('./set.json').cards.map(c=>({...c,crystal:c.element+' · HUMAIN · Tomb Raider',file:'cards/'+c.key+'/card.png'}))};
+const root=path.resolve(__dirname,'../../..'),dir=__dirname,qa=process.env.KALISTAR_VERIFICATION_DIR||path.join(root,'work/qa/lara-croft/gallery');
+const selection={cards:require('./set.json').cards.map(c=>({...c,crystal:c.element+' · HUMAIN · Tomb Raider',file:'../../creations/'+c.id+'/card.png?revision=tomb-raider-banner-v2'}))};
 (async()=>{
  fs.mkdirSync(qa,{recursive:true});
  const browser=await chromium.launch({channel:'msedge',headless:true});

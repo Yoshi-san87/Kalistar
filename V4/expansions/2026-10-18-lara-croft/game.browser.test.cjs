@@ -24,6 +24,9 @@ async function main(){
   const ready=()=>page.waitForFunction(()=>window.KALISTAR_READY);
   const images=()=>page.waitForFunction(()=>[...document.images].filter(i=>i.getClientRects().length).every(i=>i.complete&&i.naturalWidth>0));
   await page.goto(base+'jeu/#collection');await ready();
+  const bannerUrl=await page.evaluate(()=>new URL(KalistarCollaborations.asset('factions','TOMBRAIDER'),location.href).href);
+  const banner=await page.request.get(bannerUrl);assert(banner.ok());
+  assert.equal(sha(await banner.body()),sha(fs.readFileSync(path.resolve(__dirname,'../../site/assets/factions/TOMBRAIDER-native-v2.png'))));
   assert.equal(await page.evaluate(ids=>KALISTAR_DATA.cards.filter(c=>ids.includes(c.id)).length,ids),5);
   const migration=await page.evaluate(async ids=>{
    const data=KALISTAR_DATA,old=structuredClone(data);old.cards=old.cards.filter(c=>!ids.includes(c.id));
@@ -41,6 +44,12 @@ async function main(){
     await page.locator('.cb-card[data-id="'+c.id+'"]').click();await page.locator('.cb-reader').waitFor();
     const pane=page.locator('[data-binder-action=pane][data-id=visual]');if(await pane.isVisible())await pane.click();
     await images();assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
+    const renderedHash=await page.locator('.cb-hero-image').evaluate(async i=>{
+     const response=await fetch(i.dataset.v4MediaSource||i.currentSrc);if(!response.ok)throw Error('Native image unavailable');
+     const digest=await crypto.subtle.digest('SHA-256',await response.arrayBuffer());
+     return [...new Uint8Array(digest)].map(n=>n.toString(16).padStart(2,'0')).join('');
+    });
+    assert.equal(renderedHash,sha(fs.readFileSync(path.resolve(__dirname,'../../creations',c.id,'card.png'))),'Current native banner served for '+c.id);
     await page.screenshot({path:path.join(out,name+'-'+c.key+'.png')});readers.push({name,id:c.id});
     await page.locator('[data-binder-action=back]').click();
    }

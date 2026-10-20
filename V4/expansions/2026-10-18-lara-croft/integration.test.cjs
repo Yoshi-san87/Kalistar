@@ -11,7 +11,8 @@ test('Tomb Raider collection groups five editions but deck admits only one Lara'
  const data=await dataPromise,E=createEngine(data),C=require('../../site/collaborations.js'),Binder=require('../../site/collection-binder.js');
  const versions=set.cards.map(c=>E.byId[c.id]);
  assert(versions.every(c=>C.matches(c,'tomb-raider')&&Binder.matchesScope(c,'tomb-raider')&&!Binder.matchesScope(c,'kalistar')));
- assert.equal(C.asset('factions','TOMBRAIDER'),'assets/factions/TOMBRAIDER.png');
+ // Current visual revision; the original asset remains frozen by native.test.cjs.
+ assert.equal(C.asset('factions','TOMBRAIDER'),'assets/factions/TOMBRAIDER-native-v2.png');
  assert.deepEqual(Binder.groupCards(versions).map(g=>g.length),[5]);
  const model=require('../../site/deck-builder.js').createModel({data,engine:E,registry:{owned:()=>[{}],deckErrors:()=>[]},userId:'fixture'});
  for(const a of set.cards)for(const b of set.cards)if(a.id!==b.id){

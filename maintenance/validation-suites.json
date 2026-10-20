@@ -16,6 +16,7 @@
     "ci": [
       ["--test", "V4/expansions/2026-10-18-vulkar-black-guard/integration.test.cjs", "V4/expansions/2026-10-18-vulkar-black-guard/native.test.cjs", "V4/expansions/2026-10-18-vulkar-black-guard/publication.test.cjs"],
       ["--test", "V4/expansions/2026-10-18-lara-croft/integration.test.cjs", "V4/expansions/2026-10-18-lara-croft/native.test.cjs", "V4/expansions/2026-10-18-lara-croft/publication.test.cjs"],
+      ["--test", "V4/revisions/2026-10-20-tomb-raider-banner/integration.test.cjs"],
       ["--test", "V4/site/cloud-archives.test.cjs", "V4/deploy/journey-compatibility.test.cjs", "V4/site/journey-ui.test.cjs"],
       ["--test", "V4/revisions/2026-10-17-nestown-manteau-rempart/integration.test.cjs"],
       [

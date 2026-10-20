@@ -38,6 +38,7 @@
   const universe=card=>of(card)?.faction||'kalistar';
   const matches=(card,id)=>of(card)?.id===id;
   const choices=cards=>entries.filter(entry=>entry.id==='ff7'||entry.id==='ff8'||cards.some(card=>matches(card,entry.id))).map(entry=>[entry.faction,entry.faction]);
-  const asset=(folder,name)=>folder==='armes'&&W?.asset(name)?W.asset(name):(folder==='factions'&&(find(name)||['Solaria','Grivka','Froz'].includes(name))||folder==='races'&&['ANDROID','BUZZY','SERPES','SHARKAN','CRUSTOS','OKAMI','MICE','BATRA','RATZ','MACAKO','YETI','FACOCHE','TORTUGA'].includes(name)?'assets/':'shared/')+folder+'/'+encodeURIComponent(folder==='factions'?F.assetName(name):name)+'.png';
+  // Visual-only aliases stay outside the executable faction identity contract.
+  const asset=(folder,name)=>folder==='armes'&&W?.asset(name)?W.asset(name):(folder==='factions'&&(find(name)||['Solaria','Grivka','Froz'].includes(name))||folder==='races'&&['ANDROID','BUZZY','SERPES','SHARKAN','CRUSTOS','OKAMI','MICE','BATRA','RATZ','MACAKO','YETI','FACOCHE','TORTUGA'].includes(name)?'assets/':'shared/')+folder+'/'+encodeURIComponent(folder==='factions'?(name==='TOMBRAIDER'?'TOMBRAIDER-native-v2':F.assetName(name)):name)+'.png';
   return {entries,of,universe,matches,choices,asset};
 });

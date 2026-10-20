@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "modelId": "49903105",
+  "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
+  "profileHash": "e0ab9c32c916b9467e1677100ca1e53e2996476c42d3771b08234ec9aacae3f2",
+  "hashes": {
+    "card.png": "40ebb2e429b151f6fa31c7e0386b6e8572faa572f553ecbdaadf0a7fcd12534c",
+    "card.psd": "0724daecae0daa1febd3abbe93e6050d38a2d8cab32694cf3f024867bc1ff37b"
+  },
+  "components": {
+    "fixedDifferences": 0,
+    "severePixels": 0,
+    "changed": 113125
+  },
+  "roundtrip": {
+    "changed": 0,
+    "outside": 0
+  },
+  "barcode": {
+    "passed": true,
+    "expected": "49903105",
+    "cases": {
+      "color-1": [
+        "49903105"
+      ],
+      "color-4": [
+        "49903105"
+      ],
+      "gray-1": [
+        "49903105"
+      ],
+      "gray-4": [
+        "49903105"
+      ]
+    },
+    "physicalPrintVerified": false
+  },
+  "checkedAt": "2026-10-20T00:59:35.892Z",
+  "revision": "2026-10-20-tomb-raider-banner",
+  "bannerOnly": {
+    "changed": 15096,
+    "outside": 0
+  },
+  "gameplayUnchanged": true,
+  "inputManifestHash": "d0b993b1dc9b2ab8c759e053dfbf3687f40261eca0ac2efd40c0b6823410ae18"
+}
