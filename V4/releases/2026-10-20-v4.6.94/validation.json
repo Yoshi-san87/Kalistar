@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-20",
+  "applicationVersion": "4.6.94",
+  "mapVersion": "1.39",
+  "scope": {
+    "ctrlWheelMapOnly": true,
+    "zoomUnderCursor": true,
+    "zoomBounds": [1, 8],
+    "newMedia": false,
+    "nativeSourcesChanged": false,
+    "cityCoordinatesChanged": false,
+    "runtimeMediaRegistryChanged": false,
+    "gameplayChanged": false,
+    "authenticationChanged": false,
+    "personalPlayerDataTouched": false
+  },
+  "localValidation": {
+    "organisation": "PASS",
+    "focusedMapUnitTests": {"exitCode": 0, "tests": 5},
+    "isolatedWheelBrowser": "PASS",
+    "ci": {"exitCode": 0, "registeredCommands": 96, "elapsedMs": 265798},
+    "local": {"exitCode": 0, "registeredCommands": 13, "elapsedMs": 27900},
+    "cloudflareBuild": {"exitCode": 0, "elapsedMs": 3922}
+  },
+  "preflightBrowsers": {
+    "wheel": {"exitCode": 0, "elapsedMs": 3973},
+    "map": {"exitCode": 0, "formats": 3, "elapsedMs": 5632},
+    "game": {"exitCode": 0, "cards": 444, "desktopAndPhone": true, "elapsedMs": 20197},
+    "login": {"exitCode": 0, "formats": 5, "isolatedFixtureAccounts": true, "elapsedMs": 104980},
+    "checks": ["real Ctrl+wheel input", "cursor anchoring with selected city", "pixel line and page deltas", "minimum and maximum zoom", "normal wheel untouched", "outside map untouched", "browser page zoom unchanged", "dragging", "double click", "keyboard and buttons", "listener removal and single handler after remount", "saved match reload"],
+    "visuallyInspected": ["preflight-wheel/cursor-zoom-desktop.png", "preflight-map/vulkar-412x1007.png"]
+  },
+  "deliveryGatesAtCommit": {
+    "status": "required-before-live-announcement",
+    "required": ["exact committed Cloudflare build and private Worker", "committed test drivers and isolated fixtures", "frozen wheel Map game and login regressions", "atomic branch and annotated tag push", "successful GitHub repository workflow", "public versioned login and private file refusal", "public login PC and Razr"],
+    "evidence": "work/qa/map-wheel-4.6.94/publication.json",
+    "realAccountPasswordAutomated": false
+  }
+}

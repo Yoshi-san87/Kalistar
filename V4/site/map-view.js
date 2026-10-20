@@ -35,14 +35,17 @@
         if(on){marker.style.width=(height*aspect+12)+'px';marker.style.height=(height+12)+'px';}
       }
     }
-    function render(next=zoom){
+    function render(next=zoom,anchor){
       if(!viewport)return;
+      const bounds=anchor&&frame.getBoundingClientRect(),point=anchor&&{x:(anchor.clientX-bounds.left)/Math.max(1,bounds.width),y:(anchor.clientY-bounds.top)/Math.max(1,bounds.height)};
       const cx=(viewport.scrollLeft+viewport.clientWidth/2)/Math.max(1,stage.offsetWidth),cy=(viewport.scrollTop+viewport.clientHeight/2)/Math.max(1,stage.offsetHeight);
       zoom=Math.max(1,Math.min(8,next));const fit=Math.min(viewport.clientWidth/1774,viewport.clientHeight/887);
       const width=Math.round(1774*fit*zoom),height=Math.round(887*fit*zoom);
       frame.style.width=width+'px';frame.style.height=height+'px';stage.style.width=Math.max(width,viewport.clientWidth)+'px';stage.style.height=Math.max(height,viewport.clientHeight)+'px';
-      viewport.scrollLeft=cx*stage.offsetWidth-viewport.clientWidth/2;viewport.scrollTop=cy*stage.offsetHeight-viewport.clientHeight/2;viewport.dataset.zoomed=String(zoom>1);
-      if(selected&&zoom>1){const city=cities.find(city=>city.id===selected);viewport.scrollLeft=frame.offsetLeft+city.x/1774*frame.offsetWidth-viewport.clientWidth/2;viewport.scrollTop=frame.offsetTop+city.y/887*frame.offsetHeight-viewport.clientHeight/2;}
+      if(point){const bounds=frame.getBoundingClientRect();viewport.scrollLeft+=bounds.left+point.x*bounds.width-anchor.clientX;viewport.scrollTop+=bounds.top+point.y*bounds.height-anchor.clientY;}
+      else{viewport.scrollLeft=cx*stage.offsetWidth-viewport.clientWidth/2;viewport.scrollTop=cy*stage.offsetHeight-viewport.clientHeight/2;
+        if(selected&&zoom>1){const city=cities.find(city=>city.id===selected);viewport.scrollLeft=frame.offsetLeft+city.x/1774*frame.offsetWidth-viewport.clientWidth/2;viewport.scrollTop=frame.offsetTop+city.y/887*frame.offsetHeight-viewport.clientHeight/2;}}
+      viewport.dataset.zoomed=String(zoom>1);
       const root=viewport.parentElement;root.querySelector('[data-map-action="out"]').disabled=zoom===1;root.querySelector('[data-map-action="in"]').disabled=zoom===8;landmarks(width/1774);highlight();
     }
     function select(id){
@@ -62,6 +65,12 @@
       root.addEventListener('click',event=>{const city=event.target.closest('[data-map-city]');if(city){select(city.dataset.mapCity);return;}const button=event.target.closest('[data-map-action]');if(button)render(button.dataset.mapAction==='fit'?1:zoom*(button.dataset.mapAction==='in'?1.5:1/1.5));},{signal});
       viewport.addEventListener('keydown',event=>{if(['+','=','-','0'].includes(event.key)){event.preventDefault();render(event.key==='0'?1:zoom*(event.key==='-'?1/1.5:1.5));}},{signal});
       viewport.addEventListener('dblclick',()=>render(zoom===1?2:1),{signal});
+      viewport.addEventListener('wheel',event=>{
+        if(!event.ctrlKey||!event.deltaY)return;
+        event.preventDefault();
+        const unit=event.deltaMode===1?16:event.deltaMode===2?viewport.clientHeight:1,delta=Math.max(-240,Math.min(240,event.deltaY*unit));
+        render(zoom*Math.exp(-delta*.002),event);
+      },{signal,passive:false});
       viewport.addEventListener('pointerdown',event=>{if(event.pointerType!=='mouse'||event.button!==0||zoom===1)return;drag={x:event.clientX,y:event.clientY,left:viewport.scrollLeft,top:viewport.scrollTop};viewport.setPointerCapture(event.pointerId);},{signal});
       viewport.addEventListener('pointermove',event=>{if(drag){viewport.scrollLeft=drag.left+drag.x-event.clientX;viewport.scrollTop=drag.top+drag.y-event.clientY;}},{signal});
       for(const name of ['pointerup','pointercancel','lostpointercapture'])viewport.addEventListener(name,()=>{drag=null;},{signal});

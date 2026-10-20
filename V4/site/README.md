@@ -55,6 +55,11 @@ et du fond Collection. La variable CSS `--kalistar-atlas-image` reprend cette
 URL ; Collection conserve son flou leger sans toucher aux cartes ni aux
 surfaces de lecture. Une publication Map met a jour cette seule reference.
 
+Dans Map, Ctrl + molette zoome autour du pointeur, uniquement dans la zone
+de carte. La molette seule et le comportement du navigateur hors carte sont
+preserves, ainsi que les boutons, le clavier et le tactile. Le zoom reste
+borne de 1 a 8 ; le listener non passif est retire au demontage de la vue.
+
 ## Regles et sauvegardes
 
 | Domaine | Modules principaux |
