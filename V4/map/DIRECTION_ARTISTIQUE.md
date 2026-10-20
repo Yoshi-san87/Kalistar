@@ -109,6 +109,23 @@ filet parchemin serre et ombre portee pour detacher les silhouettes sans badge.
 Les noms ne diminuent pas avec l'atlas ; sur petit ecran, afficher celui de la
 ville selectionnee et cadrer sa region. Garder la geometrie et le trait d'origine.
 
+## Vues de villes dans les fiches
+
+Les huit vues validees le 20 octobre 2026 sont repertoriees dans
+`city-portraits.json`, avec les empreintes des PNG et des deux exports WebP.
+Elles gardent la peinture narrative Kalistar, distincte de la gravure de l'atlas.
+Durane 02, WoodLand 07, Kalistopolis 03, Arborium 11, Velane 01, Vulkar 12,
+Cryptown 03 et Thalassea 04 sont les choix approuves, pas la derniere image
+d'un dossier prise automatiquement. Arborium possede un dome colossal, des
+quartiers forestiers et un palais-laboratoire botanique central. La vue Vulkar
+est a l'interieur d'un cratere isole : aucun sommet derriere sa couronne, aucune
+coulee provenant d'un autre volcan. Terrain, icones et noms restent inchanges.
+
+`prepare-city-portraits.cjs` verifie les sources, exporte sans retouche graphique
+et sauvegarde les originaux hors checkout. Les petits apercus ne chargent qu'a
+l'ouverture d'une fiche et les vues detaillees au clic. Ne pas remplacer un PNG
+valide ou regenerer l'atlas pour changer une illustration de ville.
+
 ## Methode de retouche
 
 Depuis 1.15, separer le terrain et les villes : fond sans monuments ni noms,

@@ -60,6 +60,15 @@ de carte. La molette seule et le comportement du navigateur hors carte sont
 preserves, ainsi que les boutons, le clavier et le tactile. Le zoom reste
 borne de 1 a 8 ; le listener non passif est retire au demontage de la vue.
 
+Les huit fiches de villes affichent les vues validees dans
+`../map/city-portraits.json`. Un apercu WebP est demande seulement a l'ouverture
+de sa fiche ; la vue detaillee ne charge qu'au clic. Le lecteur modal natif
+conserve le focus, Echap et la fermeture tactile, sans quitter Map. Un echec
+d'image ne masque pas la description. Les images, les noms et le terrain de
+l'atlas restent independants. La peinture des villes ne remplace pas la gravure
+sepia ; originaux et prompts restent dans le lot de propositions, sauvegarde
+hors du checkout avant publication.
+
 ## Regles et sauvegardes
 
 | Domaine | Modules principaux |

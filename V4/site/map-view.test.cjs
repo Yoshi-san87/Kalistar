@@ -48,3 +48,30 @@ test('WoodLand is additive and agrees with the approved landmark coordinates',()
   assert.equal(woodland.name,zone.city.name);assert.deepEqual([woodland.x,woodland.y,woodland.symbolSize],[zone.city.x,zone.city.y,zone.city.symbolSize]);
   assert(woodland.x>zone.lake.centerX);assert(woodland.text.includes('Cerelf'));assert(woodland.text.includes('lac en forme de cœur'));
 });
+
+test('approved city portraits are registered, versioned and exported without changing their original PNGs',()=>{
+  const vm=require('node:vm'),crypto=require('node:crypto'),root=path.resolve(__dirname,'../..'),sandbox={window:{}};
+  vm.runInNewContext(fs.readFileSync(path.join(__dirname,'map-view.js'),'utf8'),sandbox);
+  const cities=sandbox.window.KalistarMap.cities;
+  const proof=JSON.parse(fs.readFileSync(path.join(root,'V4/map/city-portraits.json'),'utf8'));
+  const media=JSON.parse(fs.readFileSync(path.join(root,'V4/deploy/runtime-media.json'),'utf8'));
+  assert.equal(proof.cities.length,8);assert(proof.authorApproval);
+  assert.deepEqual(proof.cities.map(c=>[c.id,c.revision]),[['durane','02'],['woodland','07'],['kalistopolis','03'],['arborium','11'],['velane','01'],['vulkar','12'],['cryptown','03'],['thalassea','04']]);
+  for(const entry of proof.cities){
+    const city=cities.find(c=>c.id===entry.id);
+    assert.equal('V4/site/'+city.portrait.preview,entry.preview.file);
+    assert.equal('V4/site/'+city.portrait.src,entry.full.file);
+    assert(city.portrait.alt.length>40);
+    for(const kind of ['source','preview','full']){
+      const file=entry[kind],bytes=fs.readFileSync(path.join(root,file.file));
+      assert.equal(bytes.length,file.bytes);
+      assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),file.sha256);
+      if(kind!=='source')assert.deepEqual(media.files.find(f=>f.source===file.file),{source:file.file,bytes:file.bytes,sha256:file.sha256});
+    }
+    assert.equal(entry.preview.width,768);assert.equal(entry.preview.height,432);
+    assert(entry.preview.bytes<220*1024);assert(entry.full.bytes<800*1024);
+  }
+  assert(proof.cities.reduce((n,c)=>n+c.preview.bytes,0)<1024*1024);
+  assert(cities.find(c=>c.id==='arborium').text.includes('palais-laboratoire'));
+  assert(cities.find(c=>c.id==='vulkar').text.includes('cratère d’un volcan isolé'));
+});

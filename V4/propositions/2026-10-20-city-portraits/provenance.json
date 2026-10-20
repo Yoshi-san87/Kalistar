@@ -1,0 +1,227 @@
+{
+  "schema": 1,
+  "status": "proposed-awaiting-author-approval",
+  "generator": "Built-in image_gen",
+  "runtimeBefore": [
+    {
+      "path": "V4/site/map-view.js",
+      "bytes": 9978,
+      "sha256": "394ddb80b1c8a5af1cf835241509217fecc961f3903da4837f3a370bcb448c80"
+    },
+    {
+      "path": "V4/site/map-view.css",
+      "bytes": 4660,
+      "sha256": "97c30f065583d96ac069902096c0866f716f82d55e4ff773c3e5420668f92d31"
+    },
+    {
+      "path": "V4/site/site-config.js",
+      "bytes": 811,
+      "sha256": "2e91573d112db35abc0625b9ad9d95ca459ff4fcb1632b667ab4674ce4c30dbd"
+    }
+  ],
+  "references": [
+    {
+      "path": "V3/assets/illustrations/01_ELECTRO_MOMO.png",
+      "bytes": 2671393,
+      "sha256": "44966d49af5d5f916c3ad3f3b62bf846fa1d6646ca609cb3bee9ed6eedc94ac8"
+    },
+    {
+      "path": "V3/assets/illustrations/34_NECRO_VALAZAR.png",
+      "bytes": 2334822,
+      "sha256": "2c443d9adc4525953869b2dcc69433ebf00fd7243ec93e01bfff5e11ed5dc6ee"
+    },
+    {
+      "path": "V4/site/assets/map/durane-v2.webp",
+      "bytes": 12550,
+      "sha256": "ad78c57e4eb76b1640d0525ad597915b8acecf5685bbdc2ac7fcbb498fefcb1e"
+    },
+    {
+      "path": "V4/site/assets/weapon-cards/backgrounds/durane-v1.webp",
+      "bytes": 227716,
+      "sha256": "b239bd8d30eb251f313c38f9d085d76d21cf5d5cad83552e677b608ea5bcbb0b"
+    },
+    {
+      "path": "V4/map/layers-1.30/woodland-architecture-reference.png",
+      "bytes": 3852386,
+      "sha256": "2c73290934b398b5bb5b425050269cc9276b309a5008397c74233cff7118b465"
+    },
+    {
+      "path": "V4/site/assets/map/kalistopolis-v2.webp",
+      "bytes": 24112,
+      "sha256": "25e66af1dee779b1224279dd9a73f0f00118a8bc3239b9835c8414767e77d42b"
+    },
+    {
+      "path": "V4/site/assets/map/arborium-v2.webp",
+      "bytes": 48812,
+      "sha256": "f8eca4e1a7d6bba3b45c21d56a523605b91a12d51215c7ea4813a478b785b8b4"
+    },
+    {
+      "path": "V4/site/assets/map/velane-v2.webp",
+      "bytes": 54694,
+      "sha256": "6772948c6515b3afa47889c4747006e54229d1417d02c21f0971f64ac6ccd436"
+    },
+    {
+      "path": "V4/propositions/2026-10-17-vulkar-black-guard/images/01-zhaerik-scene-kalistar-04.png",
+      "bytes": 2779090,
+      "sha256": "65491b112c479f5f153a8d5814594f196e575a7f7c84a0212ab2858f1672ea6c"
+    },
+    {
+      "path": "V4/site/assets/map/thalassea-v2.webp",
+      "bytes": 57634,
+      "sha256": "8cc2ce7bffb611f0d506bfbde2b7d2521398e0e2d884d325b0d33c82a17b9339"
+    },
+    {
+      "path": "V4/map/layers-1.39/kalistar-map-1.39-preview.png",
+      "bytes": 4208157,
+      "sha256": "247242c05e8e4696cf80cfb20d6bbfb4bd7fcfd40fef3f097c687bb3c6f16b1d"
+    }
+  ],
+  "cities": [
+    {
+      "id": "durane",
+      "status": "proposed-awaiting-author-approval",
+      "width": 1672,
+      "height": 941,
+      "original": {
+        "path": "V4/propositions/2026-10-20-city-portraits/originals/durane-01.png",
+        "bytes": 3181803,
+        "sha256": "6749da8b9f875c2b16caa08fe6ca549d69444c4f2e4b09959b9e2d0cb2adefdf"
+      },
+      "preview": {
+        "path": "V4/propositions/2026-10-20-city-portraits/images/durane-01.webp",
+        "bytes": 323058,
+        "sha256": "18b5b03d0ee412f2d9f1a1c2a4679070d6237cb7e1b67c71b5b6bc63a1a5de3e"
+      }
+    },
+    {
+      "id": "woodland",
+      "status": "proposed-awaiting-author-approval",
+      "width": 1672,
+      "height": 941,
+      "original": {
+        "path": "V4/propositions/2026-10-20-city-portraits/originals/woodland-01.png",
+        "bytes": 3672257,
+        "sha256": "560dfc198fbcc93aef42d307e5bf013195079be56985b0a6a500a34095e14d6e"
+      },
+      "preview": {
+        "path": "V4/propositions/2026-10-20-city-portraits/images/woodland-01.webp",
+        "bytes": 413640,
+        "sha256": "3b9a0662c7b9edbc5c503dbdf51010581de59c5eb5e51c744ed36d8541a3ae7b"
+      }
+    },
+    {
+      "id": "kalistopolis",
+      "status": "proposed-awaiting-author-approval",
+      "width": 1672,
+      "height": 941,
+      "original": {
+        "path": "V4/propositions/2026-10-20-city-portraits/originals/kalistopolis-01.png",
+        "bytes": 2837091,
+        "sha256": "a87a31d42eedbb6e9b8990850535e4994d1c67a047f74197c46a7d92aeb4a747"
+      },
+      "preview": {
+        "path": "V4/propositions/2026-10-20-city-portraits/images/kalistopolis-01.webp",
+        "bytes": 250216,
+        "sha256": "2b3c039344bbad5db439df799204f4ee98041e6547884bedcd52c64a459c022c"
+      }
+    },
+    {
+      "id": "arborium",
+      "status": "proposed-awaiting-author-approval",
+      "width": 1672,
+      "height": 941,
+      "original": {
+        "path": "V4/propositions/2026-10-20-city-portraits/originals/arborium-01.png",
+        "bytes": 3870492,
+        "sha256": "2fa5548c513bf8997b4d3d861608dfcbd3e2f5adb6e672b4540f2ad39fba5744"
+      },
+      "preview": {
+        "path": "V4/propositions/2026-10-20-city-portraits/images/arborium-01.webp",
+        "bytes": 432476,
+        "sha256": "d83a51c45dda275f15890dfd8b9f8b16cf94ba8d67bc920c2187e90c770e5b5f"
+      }
+    },
+    {
+      "id": "velane",
+      "status": "proposed-awaiting-author-approval",
+      "width": 1672,
+      "height": 941,
+      "original": {
+        "path": "V4/propositions/2026-10-20-city-portraits/originals/velane-01.png",
+        "bytes": 3595783,
+        "sha256": "64e4019fe06fc2d0f59228a6bb1eb66c138e6eac17bb781b731645d7cd2d16b2"
+      },
+      "preview": {
+        "path": "V4/propositions/2026-10-20-city-portraits/images/velane-01.webp",
+        "bytes": 403340,
+        "sha256": "4242eaec8f26b4323ec71ce08f61ccb751fc1f6d22f4208188d6d7722f8b8ccd"
+      }
+    },
+    {
+      "id": "vulkar",
+      "status": "proposed-awaiting-author-approval",
+      "width": 1672,
+      "height": 941,
+      "original": {
+        "path": "V4/propositions/2026-10-20-city-portraits/originals/vulkar-01.png",
+        "bytes": 3162566,
+        "sha256": "992b4ded2b996eebc249b105719e137e1676c07916bb4bcaf2229ea95a8241ac"
+      },
+      "preview": {
+        "path": "V4/propositions/2026-10-20-city-portraits/images/vulkar-01.webp",
+        "bytes": 286378,
+        "sha256": "367041fe127e0c460879ea1fc81289ec9be88e45100776f8edde288d0931ea0d"
+      }
+    },
+    {
+      "id": "cryptown",
+      "status": "proposed-awaiting-author-approval",
+      "width": 1672,
+      "height": 941,
+      "original": {
+        "path": "V4/propositions/2026-10-20-city-portraits/originals/cryptown-01.png",
+        "bytes": 3126699,
+        "sha256": "34731f215337d3848bef9653c748266ab35928a62eee448a76a56383a7870864"
+      },
+      "preview": {
+        "path": "V4/propositions/2026-10-20-city-portraits/images/cryptown-01.webp",
+        "bytes": 294660,
+        "sha256": "6ee7fe26cf6b73e6031b3d0442fb44274ab60b6937b708f7da5ae400f466856c"
+      }
+    },
+    {
+      "id": "thalassea",
+      "status": "proposed-awaiting-author-approval",
+      "width": 1672,
+      "height": 941,
+      "original": {
+        "path": "V4/propositions/2026-10-20-city-portraits/originals/thalassea-01.png",
+        "bytes": 3122914,
+        "sha256": "5a722d6c3496834665bdac0c3d50081dce1648b8446af2a7b4b413111ca25596"
+      },
+      "preview": {
+        "path": "V4/propositions/2026-10-20-city-portraits/images/thalassea-01.webp",
+        "bytes": 311060,
+        "sha256": "0024d78acc40faea76f679d9cdc9dcfe75f157a8537f8f4dbcbd4733040d1adb"
+      }
+    }
+  ],
+  "runtimeAfter": [
+    {
+      "path": "V4/site/map-view.js",
+      "bytes": 9978,
+      "sha256": "394ddb80b1c8a5af1cf835241509217fecc961f3903da4837f3a370bcb448c80"
+    },
+    {
+      "path": "V4/site/map-view.css",
+      "bytes": 4660,
+      "sha256": "97c30f065583d96ac069902096c0866f716f82d55e4ff773c3e5420668f92d31"
+    },
+    {
+      "path": "V4/site/site-config.js",
+      "bytes": 811,
+      "sha256": "2e91573d112db35abc0625b9ad9d95ca459ff4fcb1632b667ab4674ce4c30dbd"
+    }
+  ],
+  "runtimeUnchanged": true
+}

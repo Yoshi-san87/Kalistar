@@ -13,7 +13,8 @@ async function main(){
   const publicBase=process.env.KALISTAR_MAP_URL||(process.env.KALISTAR_MAP_PUBLIC?process.env.KALISTAR_MAP_PUBLIC.replace(/\/$/,'')+'/jeu/':null);
   const published=dist||publicBase?null:await plan();
   const files=new Map((published?.files||[]).map(file=>[file.target,file]));
-  const proof=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../map/layers-1.30/published-media.json'),'utf8'));
+  const versions=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../map/versions.json'),'utf8'));
+  const proof=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../map/layers-'+versions.latestVersion+'/published-media.json'),'utf8'));
   const server=http.createServer((req,res)=>{
     try{
       let rel=decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/^\//,'');
@@ -55,11 +56,11 @@ async function main(){
       await page.locator('#mobile-dialog [data-view=map]').click();
       await page.locator('.kalistar-map').waitFor();
       assert.equal(await page.locator('#mobile-dialog').evaluate(dialog=>dialog.open),false);
-      await page.waitForFunction(()=>[...document.querySelectorAll('.kalistar-map img')].every(img=>img.complete&&img.naturalWidth>0));
+      await page.waitForFunction(()=>[...document.querySelectorAll('.kalistar-map img')].filter(img=>img.getClientRects().length).every(img=>img.complete&&img.naturalWidth>0));
       if(process.env.KALISTAR_EXPECTED_VERSION)assert((await page.title()).includes('V'+process.env.KALISTAR_EXPECTED_VERSION));
-      assert.equal(await page.locator('[data-map-city]').count(),7);assert.equal(await page.locator('[data-map-landmark]').count(),7);
+      assert.equal(await page.locator('[data-map-city]').count(),8);assert.equal(await page.locator('[data-map-landmark]').count(),8);
       const image=await page.locator('.map-atlas').evaluate(img=>({src:img.src,width:img.naturalWidth,height:img.naturalHeight}));
-      assert(image.src.includes('kalistar-atlas-1.30.webp'));assert.equal(image.width,1774);assert.equal(image.height,887);
+      assert(image.src.includes('kalistar-atlas-'+versions.latestVersion+'.webp'));assert.equal(image.width,1774);assert.equal(image.height,887);
       const geometry=await page.evaluate(()=>{
         const viewport=document.querySelector('.map-viewport').getBoundingClientRect(),image=document.querySelector('.map-atlas').getBoundingClientRect();
         return {viewport:viewport.toJSON(),image:image.toJSON()};
@@ -72,7 +73,7 @@ async function main(){
       const body=await page.evaluate(()=>({width:document.documentElement.clientWidth,scroll:document.documentElement.scrollWidth}));
       assert(body.scroll<=body.width+1,name+' horizontal overflow');
       await page.screenshot({path:path.join(output,name+'-overview.png')});
-      for(const id of ['kalistopolis','durane','arborium','velane','woodland','vulkar','cryptown']){
+      for(const id of ['kalistopolis','durane','arborium','velane','woodland','vulkar','cryptown','thalassea']){
         const button=page.locator('[data-map-city="'+id+'"]');
         if(touch)await button.tap();else await button.click();
         assert.equal(await button.getAttribute('aria-expanded'),'true');
@@ -100,7 +101,7 @@ async function main(){
           await page.screenshot({path:path.join(output,name+'-woodland.png')});
         }
       }
-      const selected=page.locator('[data-map-city="cryptown"]');if(touch)await selected.tap();else await selected.click();
+      const selected=page.locator('[data-map-city="thalassea"]');if(touch)await selected.tap();else await selected.click();
       assert.equal(await selected.getAttribute('aria-expanded'),'false');assert(!(await page.locator('.map-city-marker').isVisible()));
       const fit=page.locator('[data-map-action=fit]');if(touch)await fit.tap();else await fit.click();
       assert.equal(await page.locator('[data-map-action=out]').isDisabled(),true);
@@ -123,7 +124,7 @@ async function main(){
         }
         await page.evaluate(()=>{location.hash='library';});await page.locator('.kalistar-map').waitFor({state:'detached'});
         await page.evaluate(()=>{location.hash='map';});await page.locator('.kalistar-map').waitFor();
-        assert.equal(await page.locator('[data-map-city]').count(),7);
+        assert.equal(await page.locator('[data-map-city]').count(),8);
         assert.equal(await page.locator('[data-map-city][aria-expanded=true]').count(),0);
         await page.setViewportSize({width:390,height:844});
         await page.locator('[data-map-city=woodland]').click();
@@ -135,14 +136,14 @@ async function main(){
       assert.equal(await page.locator('[data-map-city][aria-expanded=true]').count(),0);
       await page.locator('.nav-more').click();await page.locator('#mobile-dialog [data-view=story]').click();
       await page.locator('#story-reader-root').waitFor();assert.equal(await page.locator('.map-viewport').count(),0);
-      results.push({name,width,height,touch,cities:7,selection:true,zoom:true,labels:true});
+      results.push({name,width,height,touch,cities:8,selection:true,zoom:true,labels:true});
       await context.close();
     }
     if(!publicBase){
       const context=await browser.newContext();const page=await context.newPage();
       await page.goto(local+'/Kalistar/jeu/#map');await page.waitForFunction(()=>window.KALISTAR_READY);
-      await page.locator('.kalistar-map').waitFor();assert.equal(await page.locator('[data-map-city]').count(),7);
-      await page.waitForFunction(()=>[...document.querySelectorAll('.kalistar-map img')].every(img=>img.complete&&img.naturalWidth>0));
+      await page.locator('.kalistar-map').waitFor();assert.equal(await page.locator('[data-map-city]').count(),8);
+      await page.waitForFunction(()=>[...document.querySelectorAll('.kalistar-map img')].filter(img=>img.getClientRects().length).every(img=>img.complete&&img.naturalWidth>0));
       await context.close();
     }
     assert.deepEqual(errors,[]);assert.deepEqual(failures,[]);

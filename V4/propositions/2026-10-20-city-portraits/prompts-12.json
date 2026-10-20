@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "date": "2026-10-20",
+  "revision": "12",
+  "generator": "Built-in image_gen",
+  "published": false,
+  "runtimeModified": false,
+  "scope": "Vulkar distant crater geography only. Seven other selected city images unchanged; Arborium 11 marked approved after the author's confirmation.",
+  "authorDecision": "Vulkar est dans le cratere d'un volcan isole. Retirer les volcans derriere qui y deversent leur lave, et tous les sommets qui depassent a l'arriere-plan.",
+  "referenceRoles": [
+    "Vulkar 04 exact edit target: keep the interior city and remove external volcanoes, external lava feeders and all distant peaks beyond the caldera rim."
+  ],
+  "cities": [
+    {
+      "id": "vulkar",
+      "name": "Vulkar",
+      "revision": "12",
+      "subtitle": "La cite du cratere solitaire",
+      "description": "La cite et son palais occupent un unique cratere de volcan isole ; derriere sa couronne rocheuse, seul le ciel reste visible.",
+      "request": "Vulkar est dans le cratere d'un volcan isole. Retirer les volcans derriere qui y deversent leur lave, et tous les sommets qui depassent a l'arriere-plan.",
+      "intent": "targeted-background-geography-correction",
+      "refs": [
+        "C:/Users/guill/Documents/Doc/GP-2 inside/Cartes/Kalistar/paquets-transfert/github-personnel-20260921/V4/propositions/2026-10-20-city-portraits/originals/vulkar-04.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Image 1 is the EXACT VULKAR 04 EDIT TARGET. The author likes this city but identifies a geographical error in the UPPER BACKGROUND: external volcanic cones are spilling lava INTO this crater. Fix that error without redesigning the accepted city.\nVULKAR IS BUILT INSIDE ONE SINGLE ISOLATED VOLCANO CRATER. Its broad continuous enclosing basalt rim is the last visible terrain on the horizon. Behind that rim there is ONLY OPEN PAINTED SKY. Remove ALL the distant mountain chains across the top background, ALL external volcano cones, their eruptive plumes and the two bright lava streams spilling from above the distant crater wall. NOTHING geological should protrude behind the crater rim anywhere across the upper picture: no distant hills, peaks, cliffs or second volcano. No huge smoke column standing in for the removed volcano.\nMake the back wall a physically coherent concave segment of the SAME continuous ring-shaped inner caldera wall. Maintain its depth, dark basalt layers and a believable rim skyline with modest natural irregularities, not a new pointed mountain, tall barrier, smooth straight dam or square quarry. The crater city is enclosed by this ONE hollow volcanic bowl. The rim meets a restrained atmospheric ash-grey sky with the existing warm pale sunset at the upper left. Do not reveal a distant valley, new terrain or ocean beyond it. Do not merely hide external mountains with a fog blanket: actually remove them and reconstruct coherent sky and crater edge.\nFor the far back/right INNER wall where the external lava rivers used to descend, restore solid dry weathered dark basalt. No lava crossing over the rim, no luminous lines leading in from outside the crater. Keep believable active geothermal lava DOWN INSIDE THIS CALDERA: existing foreground and lower-side local lava fissures, glowing lower channels and steam near the basin can stay. All these lava sources belong to the same crater's interior, no feeder from a second volcano.\nPRESERVE AS CLOSELY AS POSSIBLE: central black basalt palace with its distinctive tall curved horn-like finials, city location, irregular modest inhabited neighborhoods on connected ledges, large calm black lake, existing dry causeways and bridges, foreground fractured basalt, tiny banners, warm internal firelight, restrained steam, panorama framing and viewpoint. Keep the scale hierarchy and believable human proportions. Do not add houses, towers, extra arches, new islands or repetitive ornamental filler.\nSTYLE: EXACT same Kalistar narrative fantasy painting with tactile confident brushwork, dark charcoal basalt, muted gold sky and restrained orange local lava. Not photoreal CGI, not sepia map engraving. One targeted correction to the distant crater geography and its sky, not a total scene regeneration. Wide 16:9, no text, watermark, border or UI.",
+      "originalSource": "C:/Users/guill/.codex/generated_images/01a12863-205a-7172-9800-7c1a7d0b723c/exec-27b9d3f1-07c7-4097-86bd-712331a1ed33.png",
+      "file": "originals/vulkar-12.png",
+      "preview": "images/vulkar-12.webp",
+      "status": "revised-proposal-awaiting-author-approval"
+    }
+  ]
+}

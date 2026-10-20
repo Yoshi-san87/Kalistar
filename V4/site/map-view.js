@@ -1,20 +1,51 @@
 (() => {
   'use strict';
   const cities=[
-    {id:'kalistopolis',name:'Kalistopolis',kind:'Sanctuaire',x:881,y:403,text:'Sur son île centrale, Kalistopolis abrite un sanctuaire consacré aux essences. Son temple se dresse à l’écart des grands continents.'},
+    {id:'kalistopolis',name:'Kalistopolis',kind:'Sanctuaire',x:881,y:403,text:'Sur son île centrale, Kalistopolis abrite un sanctuaire consacré aux essences. Sa cité couronne un sommet solitaire, au-dessus de l’océan et des nuages.'},
     {id:'durane',name:'Durane',kind:'Cité de l’Obélisque de Fer',x:449,y:355,text:'Durane se tient contre le rebord du grand cratère. L’Obélisque de Fer domine sa place, repère monumental de la cité.'},
-    {id:'arborium',name:'Arborium',kind:'Cité du dôme',x:391,y:531,text:'Au cœur de la grande forêt occidentale, Arborium se reconnaît à son dôme nervuré, entouré de bois et de cours d’eau.'},
+    {id:'arborium',name:'Arborium',kind:'Cité du dôme',x:391,y:531,text:'Au cœur de la grande forêt occidentale, un dôme colossal abrite les quartiers boisés d’Arborium. Son palais-laboratoire botanique rassemble serres de recherche, galeries et jardins d’expérimentation.'},
     {id:'velane',name:'Velane',kind:'Village de cabanes',x:292,y:475,text:'Velane est un village accueillant de cabanes nichées dans les arbres, habité principalement par des humains. Il occupe la lisière nord-ouest de la grande forêt.'},
     {id:'woodland',name:'WoodLand',kind:'Terre des Cerelf',x:529,y:490,text:'WoodLand, la terre des Cerelf, se situe à droite d’un lac en forme de cœur dans la forêt côtière occidentale. Sa cité arboricole relie les arbres par des passerelles, une architecture végétale et des cascades.'},
-    {id:'vulkar',name:'Vulkar',kind:'Cité du plateau du feu',x:181,y:330,text:'Vulkar se situe au milieu des trois volcans du plateau du feu. Les terres cendrées et les escarpements descendent jusqu’à la lisière de la forêt.'},
+    {id:'vulkar',name:'Vulkar',kind:'Cité du plateau du feu',x:181,y:330,text:'Sur le plateau du feu, Vulkar occupe le cratère d’un volcan isolé. Son palais et ses quartiers suivent des corniches de basalte, au-dessus d’un lac noir et des coulées de lave intérieures.'},
     {id:'cryptown',name:'Cryptown',kind:'Royaume des Skullz',x:108,y:627,text:'Cryptown est un royaume des Skullz prenant la forme d’un cimetière géant. Une croix funéraire le représente au cœur du gouffre sombre de son île.'},
     {id:'thalassea',name:'Thalassea',kind:'Cité sous-marine',x:897,y:717,text:'Thalassea est une cité sous-marine abritée dans une bulle au fond de la mer, au centre d’un anneau d’îles et de récifs.'}
   ];
+  const portraitRoot='assets/map/portraits/';
+  const portraits={
+    kalistopolis:{file:'kalistopolis-03',alt:'Kalistopolis, cité et sanctuaire au sommet d’une île solitaire, au-dessus de l’océan et des nuages.'},
+    durane:{file:'durane-02',alt:'L’Obélisque de Fer et la cité de Durane au bord d’un vaste cratère minier.'},
+    arborium:{file:'arborium-11',alt:'Le dôme colossal d’Arborium abrite une forêt habitée et un palais-laboratoire botanique.'},
+    velane:{file:'velane-01',alt:'Les cabanes et passerelles de bois du village humain de Velane, nichées dans les arbres.'},
+    woodland:{file:'woodland-07',alt:'WoodLand, cité des Cerelf : un sanctuaire entre les deux bois feuillus d’un arbre immense, au milieu des cascades.'},
+    vulkar:{file:'vulkar-12',alt:'Le palais et les quartiers de Vulkar dans un cratère isolé, avec lac noir, basalte et lave intérieure, sans sommet au fond.'},
+    cryptown:{file:'cryptown-03',alt:'La nécropole de Cryptown et sa grande croix, enfoncées dans le gouffre brumeux d’une île.'},
+    thalassea:{file:'thalassea-04',alt:'Thalassea sous une immense bulle marine, avec capteurs, habitations extérieures et jet vertical au sommet du palais.'}
+  };
   const symbolSizes={kalistopolis:62,durane:76,arborium:60,velane:60,woodland:44,vulkar:56,cryptown:42,thalassea:50};
-  for(const city of cities)city.symbolSize=symbolSizes[city.id];
+  for(const city of cities){
+    city.symbolSize=symbolSizes[city.id];
+    city.portrait={preview:portraitRoot+portraits[city.id].file+'-small.webp',src:portraitRoot+portraits[city.id].file+'.webp',alt:portraits[city.id].alt};
+  }
   function create() {
-    let controller,observer,viewport,stage,frame,marker,zoom=1,drag=null,selected=null;
-    function destroy(){controller?.abort();observer?.disconnect();controller=observer=viewport=stage=frame=marker=null;drag=null;selected=null;}
+    let controller,observer,viewport,stage,frame,marker,portraitDialog,portraitOpener,zoom=1,drag=null,selected=null;
+    function destroy(){controller?.abort();observer?.disconnect();if(portraitDialog?.open)portraitDialog.close();controller=observer=viewport=stage=frame=marker=portraitDialog=portraitOpener=null;drag=null;selected=null;}
+    function loadPortrait(city){
+      const button=viewport.closest('.kalistar-map').querySelector('[data-map-portrait="'+city.id+'"]');
+      if(button.querySelector('img'))return;
+      const image=document.createElement('img');image.width=768;image.height=432;image.alt=city.portrait.alt;image.decoding='async';
+      image.addEventListener('error',()=>{image.hidden=true;button.disabled=true;button.querySelector('.map-portrait-status').hidden=false;},{signal:controller.signal});
+      image.src=city.portrait.preview;button.prepend(image);
+    }
+    function openPortrait(button){
+      const city=cities.find(city=>city.id===button.dataset.mapPortrait);
+      if(!city||button.disabled)return;
+      portraitOpener=button;
+      portraitDialog.querySelector('h2').textContent=city.name;
+      const image=portraitDialog.querySelector('img'),status=portraitDialog.querySelector('.map-portrait-status');
+      image.hidden=false;image.alt=city.portrait.alt;status.textContent='Chargement…';status.hidden=false;
+      image.src=city.portrait.src;
+      if(window.KalistarDialogHistory)window.KalistarDialogHistory.open(portraitDialog);else portraitDialog.showModal();
+    }
     function highlight(){const city=cities.find(city=>city.id===selected);marker.hidden=!city;if(city){marker.style.left=(city.x/1774*100)+'%';marker.style.top=(city.y/887*100)+'%';marker.setAttribute('aria-label',city.name+' sélectionné');}}
     function landmarks(scale){
       const compact=viewport.clientWidth<700;
@@ -52,17 +83,24 @@
       selected=selected===id?null:id;
       const root=viewport.closest('.kalistar-map');
       for(const button of root.querySelectorAll('[data-map-city]')){const on=button.dataset.mapCity===selected;button.setAttribute('aria-expanded',String(on));button.closest('.map-city').classList.toggle('selected',on);root.querySelector('#'+button.getAttribute('aria-controls')).hidden=!on;}
+      if(selected)loadPortrait(cities.find(city=>city.id===selected));
       const fit=Math.min(viewport.clientWidth/1774,viewport.clientHeight/887);
       if(selected&&viewport.clientWidth<700)render(Math.max(zoom,Math.min(8,46/(cities.find(city=>city.id===selected).symbolSize*fit))));
       else render();
     }
     function mount(root){
       destroy();zoom=1;controller=new AbortController();const signal=controller.signal;
-      root.innerHTML='<section class="kalistar-map" aria-label="Map de Kalistar"><aside class="map-cities" aria-label="Villes de Kalistar"><h1>Villes de Kalistar</h1>'+cities.map(city=>'<section class="map-city"><h2><button data-map-city="'+city.id+'" aria-expanded="false" aria-controls="map-city-'+city.id+'"><img src="assets/map/'+city.id+'-v1.webp" alt="" width="56" height="56"><span><b>'+city.name+'</b><small>'+city.kind+'</small></span><i data-lucide="chevron-down"></i></button></h2><div id="map-city-'+city.id+'" class="map-city-details" hidden><p>'+city.text+'</p></div></section>').join('')+'</aside><div class="map-canvas"><div class="map-tools" role="toolbar" aria-label="Vue de la carte">'+
+      root.innerHTML='<section class="kalistar-map" aria-label="Map de Kalistar"><aside class="map-cities" aria-label="Villes de Kalistar"><h1>Villes de Kalistar</h1>'+cities.map(city=>'<section class="map-city"><h2><button data-map-city="'+city.id+'" aria-expanded="false" aria-controls="map-city-'+city.id+'"><img src="assets/map/'+city.id+'-v1.webp" alt="" width="56" height="56"><span><b>'+city.name+'</b><small>'+city.kind+'</small></span><i data-lucide="chevron-down"></i></button></h2><div id="map-city-'+city.id+'" class="map-city-details" hidden><figure class="map-city-portrait"><button type="button" data-map-portrait="'+city.id+'" aria-label="Agrandir la vue de '+city.name+'" title="Agrandir '+city.name+'"><i data-lucide="maximize-2" aria-hidden="true"></i><span class="map-portrait-status" hidden>Illustration indisponible</span></button></figure><p>'+city.text+'</p></div></section>').join('')+'</aside><div class="map-canvas"><div class="map-tools" role="toolbar" aria-label="Vue de la carte">'+
         [['out','minus','Dézoomer'],['in','plus','Zoomer'],['fit','scan','Afficher toute la carte']].map(([action,icon,label])=>'<button class="icon-button" data-map-action="'+action+'" title="'+label+'" aria-label="'+label+'"><i data-lucide="'+icon+'"></i></button>').join('')+
-        '</div><div class="map-viewport" tabindex="0" role="region" aria-label="Carte navigable"><div class="map-stage"><div class="map-image-frame"><img class="map-atlas" src="'+window.KalistarSite.atlas+'" width="1774" height="887" alt="Atlas de Kalistar : Kalistopolis, Durane, Arborium, Velane, WoodLand, Vulkar, Cryptown et Thalassea." draggable="false" decoding="async">'+cities.map(city=>'<span class="map-landmark" data-map-landmark="'+city.id+'" style="left:'+city.x/1774*100+'%;top:'+city.y/887*100+'%" aria-hidden="true"><img src="assets/map/'+city.id+'-v2.webp" alt=""><span>'+city.name+'</span></span>').join('')+'<span class="map-city-marker" role="img" hidden></span></div></div></div></div></section>';
+        '</div><div class="map-viewport" tabindex="0" role="region" aria-label="Carte navigable"><div class="map-stage"><div class="map-image-frame"><img class="map-atlas" src="'+window.KalistarSite.atlas+'" width="1774" height="887" alt="Atlas de Kalistar : Kalistopolis, Durane, Arborium, Velane, WoodLand, Vulkar, Cryptown et Thalassea." draggable="false" decoding="async">'+cities.map(city=>'<span class="map-landmark" data-map-landmark="'+city.id+'" style="left:'+city.x/1774*100+'%;top:'+city.y/887*100+'%" aria-hidden="true"><img src="assets/map/'+city.id+'-v2.webp" alt=""><span>'+city.name+'</span></span>').join('')+'<span class="map-city-marker" role="img" hidden></span></div></div></div></div><dialog class="map-portrait-dialog" aria-labelledby="map-portrait-title"><header><h2 id="map-portrait-title"></h2><button type="button" data-map-portrait-close aria-label="Fermer" title="Fermer"><i data-lucide="x" aria-hidden="true"></i></button></header><div class="map-portrait-body"><p class="map-portrait-status" role="status" hidden></p><img width="1672" height="941" alt=""></div></dialog></section>';
       viewport=root.querySelector('.map-viewport');stage=root.querySelector('.map-stage');frame=root.querySelector('.map-image-frame');marker=root.querySelector('.map-city-marker');
-      root.addEventListener('click',event=>{const city=event.target.closest('[data-map-city]');if(city){select(city.dataset.mapCity);return;}const button=event.target.closest('[data-map-action]');if(button)render(button.dataset.mapAction==='fit'?1:zoom*(button.dataset.mapAction==='in'?1.5:1/1.5));},{signal});
+      portraitDialog=root.querySelector('.map-portrait-dialog');
+      const portraitImage=portraitDialog.querySelector('img'),portraitStatus=portraitDialog.querySelector('.map-portrait-status');
+      portraitImage.addEventListener('load',()=>{portraitStatus.hidden=true;},{signal});
+      portraitImage.addEventListener('error',()=>{portraitImage.hidden=true;portraitStatus.textContent='Illustration indisponible';portraitStatus.hidden=false;},{signal});
+      portraitDialog.addEventListener('close',()=>{if(portraitOpener?.isConnected)portraitOpener.focus({preventScroll:true});portraitOpener=null;},{signal});
+      portraitDialog.addEventListener('click',event=>{if(event.target!==portraitDialog)return;const bounds=portraitDialog.getBoundingClientRect();if(event.clientX<bounds.left||event.clientX>bounds.right||event.clientY<bounds.top||event.clientY>bounds.bottom)portraitDialog.close();},{signal});
+      root.addEventListener('click',event=>{const city=event.target.closest('[data-map-city]');if(city){select(city.dataset.mapCity);return;}const portrait=event.target.closest('[data-map-portrait]');if(portrait){openPortrait(portrait);return;}if(event.target.closest('[data-map-portrait-close]')){portraitDialog.close();return;}const button=event.target.closest('[data-map-action]');if(button)render(button.dataset.mapAction==='fit'?1:zoom*(button.dataset.mapAction==='in'?1.5:1/1.5));},{signal});
       viewport.addEventListener('keydown',event=>{if(['+','=','-','0'].includes(event.key)){event.preventDefault();render(event.key==='0'?1:zoom*(event.key==='-'?1/1.5:1.5));}},{signal});
       viewport.addEventListener('dblclick',()=>render(zoom===1?2:1),{signal});
       viewport.addEventListener('wheel',event=>{
