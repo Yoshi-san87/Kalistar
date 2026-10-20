@@ -90,7 +90,11 @@ async function main(){
       await page.locator('#account-root input[name=id]').fill('00000001');await page.locator('#account-root input[name=secret]').fill(secret);fixture.failActivation=true;await page.locator('[data-cloud-form=activate] button').click();await idle(page);
       assert.match(await page.locator('#account-root [role=alert]').innerText(),/refusee/);assert.equal(fixture.cards.length,0);
       fixture.failActivation=false;await page.locator('#account-root input[name=id]').fill('00000001');await page.locator('#account-root input[name=secret]').fill(secret);await page.locator('[data-cloud-form=activate] button').click();await idle(page);
-      assert.equal(await page.locator('#account-root input[name=secret]').inputValue(),'');
+      assert.equal(await page.locator('#account-root input[name=secret]').count(),0);
+      assert.equal(await page.locator('[data-activation-stage]').getAttribute('data-phase'),'registered');
+      await page.waitForFunction(()=>{const i=document.querySelector('.activation-front');return i?.complete&&i.naturalWidth>0&&i.dataset.v4Cropped;});
+      await page.locator('[data-activation-stage]').evaluate(n=>Promise.all(n.getAnimations({subtree:true}).map(a=>a.finished.catch(()=>{}))));
+      await geometry(page,profile.name);await page.screenshot({path:path.join(output,profile.name+'-registered.png')});
       await tab(page,'transfers');await page.locator('[name=card]').selectOption(specimen);
       await page.waitForFunction(()=>{const i=document.querySelector('.cloud-specimen img');return i?.complete&&i.naturalWidth>0&&i.dataset.v4Cropped;});await geometry(page,profile.name);await page.screenshot({path:path.join(output,profile.name+'-owned.png')});
       assert(!(await page.locator('#account-root').innerText()).includes(secret));

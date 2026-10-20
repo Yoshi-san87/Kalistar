@@ -13,6 +13,7 @@
     let api=null,initializing=null,root=null,listeners=null,unsubscribeSync=null,busy=false,disposed=false;
     let tab='profile',note='',error='',issued=null,certificate=null,selectedId='',pendingId=null,viewEpoch=0,authEpoch=0,queuedRefresh=null;
     let recipientHandle='',transferScene=null,transferMotion='';
+    let activationId='',activationScene=null,activationMotion='';
     const state=()=>api?.snapshot()||{user:null,profile:null,isAdmin:false,cards:[],transfers:[],models:[]};
     const command=(action,label,symbol,attrs='',cls='')=>`<button type="button" data-cloud-action="${action}" ${attrs} class="${cls}">${icon(symbol)}<span>${esc(label)}</span></button>`;
     const link=(section,label,symbol)=>`<a href="#account/${section}" class="account-text-link">${icon(symbol)}<span>${esc(label)}</span>${icon('chevron-right')}</a>`;
@@ -83,6 +84,31 @@
         <p class="cloud-transfer-meta"><span>@${esc(t.sender)}</span>${icon('arrow-right')}<span>@${esc(t.recipient)}</span></p>
         ${t.status==='pending'?(t.incoming?`<form data-cloud-form="accept" data-id="${esc(t.id)}" class="account-form"><label class="account-check"><input type="checkbox" required><span>Je confirme recevoir cet exemplaire.</span></label><div class="account-actions">${submit('Accepter','check')}${command('settle','Refuser','x',`data-id="${esc(t.id)}" data-state="rejected"`)}</div></form>`:command('settle','Annuler la demande','x',`data-id="${esc(t.id)}" data-state="cancelled"`)):''}</article>`;
     }
+    function activation(){
+      const phase=activationScene?.phase||'sealed',item=activationScene?.item,handle=state().profile.handle;
+      const labels={sealed:'Exemplaire scellé',checking:'Vérification du sceau…',error:'Enregistrement non confirmé',registered:'Ajoutée à ta collection'};
+      return `<div class="account-section-heading"><h2 id="account-section-title" tabindex="-1">Enregistrer une carte</h2><p>Relie ton exemplaire à ton compte Kalistar.</p></div>
+        <div class="account-activation-workspace"><div class="account-activation-controls">
+        ${item?`<div class="activation-receipt">${icon('badge-check')}<span class="eyebrow">Enregistrement confirmé</span><h3 tabindex="-1" data-activation-confirmed>Cette carte est à toi</h3><p>${esc(item.name)} rejoint ta collection sous le pseudo <strong>@${esc(handle)}</strong>.</p>
+          <a class="account-text-link" href="#collection">${icon('layers')}Ouvrir ma collection${icon('arrow-up-right')}</a>
+          ${command('new-activation','Enregistrer une autre carte','key-round','','account-text-command')}</div>`:
+          `<form data-cloud-form="activate" class="account-form">
+            <label><span class="account-step">1</span> Identifiant de l’exemplaire<input name="id" value="${esc(activationId)}" placeholder="00000001 ou KC-…" maxlength="35" required autocomplete="off" spellcheck="false" autocapitalize="none"></label>
+            <label><span class="account-step">2</span> Secret d’activation<input name="secret" type="password" maxlength="64" minlength="64" required autocomplete="off" spellcheck="false" autocapitalize="none" aria-describedby="activation-secret-help"></label>
+            <p id="activation-secret-help" class="account-note">Le secret reste privé. Ne le partage pas avec un autre joueur.</p>
+            ${submit('Enregistrer ma carte','key-round')}<p class="account-note">Une seule carte de chaque version par joueur.</p>
+          </form>`}</div>
+          <section class="account-activation-stage" data-activation-stage data-phase="${phase}" data-motion="${activationMotion}" aria-label="Enregistrement de l’exemplaire">
+            <div class="activation-display"><div class="activation-card">
+              <img class="activation-back" src="assets/back-obsidian-v1.webp" alt="${item?'':'Dos de carte Kalistar'}" width="797" height="1388" decoding="async">
+              ${item?`<img class="activation-front" src="${esc(image(item))}" alt="${esc(item.name)}" width="797" height="1388" decoding="async">`:''}
+              <span class="activation-seal" aria-hidden="true"><img src="assets/navigation/kalistel-rainbow-v2.webp" alt="" width="32" height="44">${icon('lock-keyhole')}</span>
+            </div></div>
+            <div class="activation-caption">${item?`<span class="eyebrow">Exemplaire ${esc(item.barcode||item.serial)}</span><h3>${esc(item.name)}</h3><p>${esc(item.title)}</p><code>${esc(item.id)}</code>`:
+              `<span class="eyebrow">Registre Kalistar</span><h3>Une carte. Ton histoire.</h3><p>Destinée à @${esc(handle)}</p>`}</div>
+            <p class="activation-status" role="status">${icon(item?'badge-check':phase==='checking'?'scan-line':'lock-keyhole')}<span>${labels[phase]}</span></p>
+          </section></div>`;
+    }
     function syncContent(){
       const s=sync?.snapshot();
       if(!s)return '<p class="account-note">La synchronisation est disponible avec une connexion au jeu en ligne.</p>';
@@ -108,7 +134,7 @@
       if(!s.profile||tab==='profile')return profile();
       if(tab==='transfers')return transfers();
       if(tab==='settings')return settings();
-      if(tab==='activate')return `<h2 id="account-section-title" tabindex="-1">Enregistrer une carte</h2><form data-cloud-form="activate" class="account-form"><label>Identifiant de l’exemplaire<input name="id" placeholder="00000001 ou KC-…" maxlength="35" required autocomplete="off" spellcheck="false"></label><label>Secret d’activation<input name="secret" type="password" maxlength="64" minlength="64" required autocomplete="off" spellcheck="false"></label><p class="account-note">Le secret reste privé. Ne le partage pas avec un autre joueur.</p>${submit('Attribuer à @'+s.profile.handle,'key-round')}</form>`;
+      if(tab==='activate')return activation();
       if(tab==='issue'&&s.isAdmin){
         if(issued)return `<h2 id="account-section-title" tabindex="-1">Exemplaire créé</h2>${card(issued.card)}<p>Secret affiché une seule fois. À conserver séparément de l’image publique.</p><code class="cloud-issued-secret">${esc(issued.secret)}</code><div class="account-actions">${command('voucher','Télécharger le bon d’activation','download','','primary')}${command('new-issue','Autre exemplaire','plus')}</div>`;
         return `<h2 id="account-section-title" tabindex="-1">Émission · Administration</h2><form data-cloud-form="issue" class="account-form"><label>Modèle<select name="model">${s.models.map(m=>`<option value="${esc(m.id)}">${esc(m.name+' · '+m.title)}</option>`).join('')}</select></label><label class="account-check"><input type="checkbox" required><span>Créer un nouvel exemplaire de préparation non attribué.</span></label>${submit('Émettre','stamp')}</form>`;
@@ -129,12 +155,12 @@
     function feedback(){
       if(!root)return;
       root.setAttribute('aria-busy',String(busy));
-      root.querySelector('[data-account-status]').textContent=busy?(transferScene&&['sending','receiving'].includes(transferScene.phase)?transferLabels[transferScene.phase]:'Connexion au compte…'):note;
+      root.querySelector('[data-account-status]').textContent=busy?(activationScene?.phase==='checking'?'Vérification de ton exemplaire…':transferScene&&['sending','receiving'].includes(transferScene.phase)?transferLabels[transferScene.phase]:'Connexion au compte…'):note;
       root.querySelector('[data-account-error]').textContent=error;
       root.querySelectorAll('[data-account-content] button,[data-account-content] input,[data-account-content] select').forEach(n=>n.disabled=busy);
     }
-    function render(){if(!root)return;root.innerHTML=markup();transferMotion='';feedback();icons();}
-    function clearSensitive(){issued=null;certificate=null;selectedId='';recipientHandle='';transferScene=null;transferMotion='';note='';error='';}
+    function render(){if(!root)return;root.innerHTML=markup();transferMotion='';activationMotion='';feedback();icons();}
+    function clearSensitive(){issued=null;certificate=null;selectedId='';recipientHandle='';transferScene=null;transferMotion='';activationId='';activationScene=null;activationMotion='';note='';error='';}
     async function ready(){
       if(api)return api;
       if(!config?.enabled)throw Error('Registre en préparation.');
@@ -159,11 +185,16 @@
         if(root&&epoch===viewEpoch&&session===authEpoch){
           error=e?.code==='23505'?'Pseudo déjà utilisé ou transfert déjà en attente.':e?.name==='TimeoutError'?'Connexion trop lente. Réessaie.':e?.message||'Compte indisponible.';
           if(scene&&transferScene===scene)transferScene={...scene,phase:'error'};
+          if(scene&&activationScene===scene)activationScene={phase:'error'};
         }
       }finally{
         busy=false;render();
         if(scene&&root&&epoch===viewEpoch&&session===authEpoch&&['pending','received'].includes(transferScene?.phase)){
           root.querySelector('[data-transfer-stage]')?.scrollIntoView({block:'nearest',behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth'});
+        }
+        if(scene&&root&&epoch===viewEpoch&&session===authEpoch&&activationScene?.phase==='registered'){
+          root.querySelector('[data-activation-confirmed]')?.focus({preventScroll:true});
+          root.querySelector('[data-activation-stage]')?.scrollIntoView({block:'nearest',behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth'});
         }
         const next=queuedRefresh;queuedRefresh=null;
         if(root&&next?.epoch===viewEpoch)refreshAccount(next.id);
@@ -188,6 +219,7 @@
       if(action==='sync')return onSync?.();
       if(action==='refresh')return refreshAccount();
       if(action==='new-issue'){issued=null;render();return;}
+      if(action==='new-activation'){activationId='';activationScene=null;activationMotion='';note='';error='';render();root.querySelector('[name=id]')?.focus();return;}
       if(action==='logout')return run(async a=>{clearSensitive();if(KalistarCloudSession.required())await KalistarCloudSession.logout();else await a.logout();});
       if(action==='settle')return run(a=>a.settle(button.dataset.id,button.dataset.state),()=>{note='Transfert mis à jour.';},true);
       if(action==='voucher'&&issued){
@@ -208,7 +240,15 @@
       if(kind==='lookup')return run(async a=>{const c=await a.certificate(String(v.get('id')).trim());if(!c)throw Error('Exemplaire introuvable.');return c;},c=>{certificate=c;});
       if(kind==='activate'){
         const secret=String(v.get('secret')).trim();v.delete('secret');form.elements.secret.value='';
-        return run(a=>a.activate(String(v.get('id')).trim(),secret),()=>{note='Carte attribuée à ton compte.';},true);
+        const id=String(v.get('id')).trim();activationId=id;
+        const scene={phase:'checking'};activationScene=scene;render();
+        return run(async a=>{
+          const item=await a.activate(id,secret);
+          // Decode before the reveal; a failed image must not undo a confirmed registration.
+          const preview=new Image();preview.src=image(item);
+          await Promise.race([preview.decode().catch(()=>{}),new Promise(resolve=>setTimeout(resolve,1500))]);
+          return item;
+        },item=>{activationScene={phase:'registered',item};activationMotion='unseal';note='Carte attribuée à ton compte.';},true,scene);
       }
       if(kind==='offer'){
         const scene={item:state().cards.find(c=>c.id===v.get('card')),sender:state().profile.handle,recipient:String(v.get('handle')),phase:'sending'};

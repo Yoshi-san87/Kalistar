@@ -147,6 +147,52 @@ body.account-view{display:flex;flex-direction:column;height:100dvh;min-height:0;
 .cloud-issued-secret{display:block;overflow-wrap:anywhere;user-select:all;background:#19322c;border:1px solid #bd9a62;padding:16px;margin:12px 0 18px;}
 .cloud-online-entry{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #7c694344;margin-bottom:14px;}
 .cloud-online-entry>span{flex:1;font-size:12px;color:#b7c7bc;}
+.account-activation-workspace{display:grid;grid-template-columns:minmax(280px,460px) minmax(0,1fr);gap:32px 48px;align-items:start;}
+.account-activation-controls{padding-top:28px;}
+.account-activation-controls .account-note{margin:0;}
+.account-activation-stage{--activation-height:420px;display:grid;justify-items:center;gap:20px;padding:8px 24px 24px;text-align:center;}
+.activation-display{position:relative;display:grid;place-items:center;width:100%;padding:0 0 24px;perspective:1000px;}
+.activation-display::after{content:'';position:absolute;bottom:0;width:72%;max-width:420px;height:9px;border-block:1px solid #ac8b5b80;transform:skewX(-35deg);}
+.activation-card{position:relative;height:var(--activation-height);aspect-ratio:797/1388;max-width:100%;}
+.activation-card>img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transform-origin:center;backface-visibility:hidden;}
+.activation-back{opacity:.78;}
+.activation-seal{position:absolute;left:50%;bottom:11%;display:grid;justify-items:center;gap:6px;padding:10px 14px;background:#10231df2;border:1px solid #c6a46d;box-shadow:0 4px 12px #0007;transform:translateX(-50%);clip-path:polygon(0 0,100% 0,100% 85%,50% 100%,0 85%);}
+.activation-seal>img{height:44px;width:32px;object-fit:contain;}
+.activation-seal>.lucide{color:#dbbd87;width:17px;height:17px;}
+.activation-caption{width:100%;max-width:440px;min-height:100px;overflow-wrap:anywhere;}
+.activation-caption>.eyebrow{font-size:10px;color:#d5b77f;}
+.activation-caption>h3{font-size:24px;line-height:1.25;margin:6px 0;}
+.activation-caption>p{font-size:13px;color:#b5c8bc;margin:5px 0;}
+.activation-caption>code{display:block;font-size:10px;color:#94a99e;overflow-wrap:anywhere;}
+.account-page .activation-status{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;max-width:520px;min-height:48px;margin:0;padding-top:16px;border-top:1px solid var(--account-line);font-size:12px;color:#d9c093;}
+.activation-status>.lucide{width:18px;height:18px;}
+.activation-receipt{display:grid;justify-items:start;gap:12px;max-width:460px;}
+.activation-receipt>.lucide{width:38px;height:38px;color:#a1e6d0;margin-bottom:8px;}
+.activation-receipt>.eyebrow{font-size:11px;color:#94d3c1;}
+.activation-receipt>h3{font-size:28px;line-height:1.25;margin:0;}
+.activation-receipt>p{color:#bdcfc3;margin:0 0 12px;}
+.activation-receipt strong{color:#e8d7b8;overflow-wrap:anywhere;}
+.account-activation-stage[data-phase=registered] .activation-back,.account-activation-stage[data-phase=registered] .activation-seal{opacity:0;pointer-events:none;}
+.account-activation-stage[data-phase=registered] .activation-status{color:#a1e6d0;border-top-color:#8fd6c480;}
+.account-activation-stage[data-phase=error] .activation-status{color:#edb7aa;}
+.account-activation-stage[data-phase=checking] .activation-seal{animation:activation-check 1.8s ease-in-out;}
+.account-activation-stage[data-motion=unseal] .activation-back{animation:activation-back-open 1.15s ease-in-out both;}
+.account-activation-stage[data-motion=unseal] .activation-front{animation:activation-front-open 1.15s ease-in-out both;}
+.account-activation-stage[data-motion=unseal] .activation-seal{animation:activation-seal-open .45s ease-in both;}
+.account-activation-stage[data-motion=unseal] .activation-caption{animation:transfer-card-reveal .45s .8s ease-out both;}
+@keyframes activation-check{0%,100%{transform:translateX(-50%);}40%{transform:translateX(-50%) scale(1.07);}}
+@keyframes activation-seal-open{from{opacity:1;transform:translateX(-50%);}to{opacity:0;transform:translateX(-50%) translateY(18px) scale(.85);}}
+@keyframes activation-back-open{0%,20%{opacity:.78;transform:rotateY(0);}49%{opacity:.78;}50%,100%{opacity:0;transform:rotateY(90deg);}}
+@keyframes activation-front-open{0%,49%{opacity:0;transform:rotateY(-90deg) scale(.97);}50%{opacity:1;transform:rotateY(-90deg) scale(.97);}85%{transform:rotateY(4deg) scale(1.01);}100%{opacity:1;transform:none;}}
+@media(min-width:1800px){.account-activation-stage{--activation-height:480px;}}
+@media(max-width:1200px){
+  .account-activation-workspace{grid-template-columns:minmax(0,1fr);gap:24px;}
+  .account-activation-controls{padding:0;}
+  .account-activation-stage{--activation-height:230px;grid-row:1;padding:8px 0 16px;gap:14px;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;}
+  .activation-caption{min-height:0;text-align:left;}
+  .account-activation-stage .activation-status{grid-column:1/-1;max-width:none;}
+  .account-activation-controls .account-form,.activation-receipt{max-width:none;}
+}
 @media(max-width:850px){
   .account-page{padding:22px 20px 48px;}
   .account-layout{grid-template-columns:210px minmax(0,1fr);gap:26px;}
@@ -184,6 +230,15 @@ body.account-view{display:flex;flex-direction:column;height:100dvh;min-height:0;
   .transfer-channel>img{width:23px;height:34px;}
   .account-transfer-stage[data-phase=empty]{--transfer-card-height:120px;}
   .account-transfer-stage[data-phase=empty] .transfer-visual{min-height:120px;}
+  .account-activation-stage{--activation-height:190px;grid-template-columns:110px minmax(0,1fr);gap:14px;}
+  .activation-display{padding-bottom:16px;}
+  .activation-display::after{width:95%;}
+  .activation-caption>h3{font-size:21px;}
+  .activation-caption>p{font-size:12px;}
+  .activation-seal{padding:6px 8px;gap:3px;}
+  .activation-seal>img{width:20px;height:28px;}
+  .activation-seal>.lucide{width:13px;height:13px;}
+  .activation-receipt>h3{font-size:24px;}
   .cloud-online-entry{align-items:flex-start;flex-wrap:wrap;}
   .cloud-online-entry>span{flex-basis:100%;}
 }

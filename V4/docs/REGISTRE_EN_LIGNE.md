@@ -22,6 +22,14 @@ apres navigation. Modifier le destinataire invalide immediatement la confirmatio
 Changer de rubrique ou quitter la page efface les secrets affiches ; les
 reponses tardives ne peuvent pas les restaurer.
 
+L'enregistrement (`#account/activate`) presente un dos scelle, puis revele
+l'exemplaire retourne par le serveur apres activation et actualisation du compte.
+Le secret est masque et efface des la soumission ; seul l'identifiant public
+est conserve en cas d'echec. La ceremonie est courte, sans boucle, et respecte
+le mouvement reduit. Un refus, une reponse tardive apres navigation/deconnexion
+ou un retour par l'historique ne declenche aucune revelation. La confirmation
+donne acces a Collection ou a l'enregistrement d'un autre exemplaire.
+
 Facturation / paiements n'est pas encore un service ouvert. Contact affiche
 `contact@Kalistar.com` comme future adresse, sans lien d'envoi tant que la boite
 n'est pas active. Aucun email personnel n'est utilise comme support public.
