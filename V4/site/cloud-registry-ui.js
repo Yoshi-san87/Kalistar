@@ -12,6 +12,7 @@
     const config=window.KalistarCloudConfig;
     let api=null,initializing=null,root=null,listeners=null,unsubscribeSync=null,busy=false,disposed=false;
     let tab='profile',note='',error='',issued=null,certificate=null,selectedId='',pendingId=null,viewEpoch=0,authEpoch=0,queuedRefresh=null;
+    let recipientHandle='',transferScene=null,transferMotion='';
     const state=()=>api?.snapshot()||{user:null,profile:null,isAdmin:false,cards:[],transfers:[],models:[]};
     const command=(action,label,symbol,attrs='',cls='')=>`<button type="button" data-cloud-action="${action}" ${attrs} class="${cls}">${icon(symbol)}<span>${esc(label)}</span></button>`;
     const link=(section,label,symbol)=>`<a href="#account/${section}" class="account-text-link">${icon(symbol)}<span>${esc(label)}</span>${icon('chevron-right')}</a>`;
@@ -20,6 +21,37 @@
     const publicLink=item=>{const url=new URL(config.redirectTo);url.searchParams.set('specimen',item.id);return url.href;};
     const image=item=>{const c=model(item.modelId);return c?KalistarCardMedia.image(c):'assets/back-obsidian-v1.webp';};
     const card=item=>`<article class="cloud-specimen"><img src="${esc(image(item))}" alt="${esc(item.name)}" width="797" height="1388" loading="lazy" decoding="async"><div><span class="eyebrow">Exemplaire ${esc(item.barcode||item.serial)}</span><h3>${esc(item.name)}</h3><p>${esc(item.title)}</p><code>${esc(item.id)}</code></div></article>`;
+    const transferLabels={empty:'Choisir un exemplaire',preview:'Carte sélectionnée',sending:'Envoi de la demande…',receiving:'Réception en cours…',pending:'Demande envoyée · En attente',received:'Carte reçue',accepted:'Transfert accepté',cancelled:'Demande annulée',rejected:'Demande refusée',error:'Confirmation indisponible'};
+    function previewScene(){
+      return transferScene||{item:state().cards.find(c=>c.id===selectedId),sender:state().profile?.handle||'',recipient:recipientHandle,phase:selectedId?'preview':'empty'};
+    }
+    function transferPreview(){
+      const scene=previewScene(),item=scene.item;
+      return `<div class="transfer-visual" data-account-selection>${item?card(item):'<div class="transfer-placeholder"><img src="assets/back-obsidian-v1.webp" alt="" width="797" height="1388" decoding="async"></div>'}</div>
+        <div class="transfer-route"><div class="transfer-endpoint">${icon('fingerprint')}<span>Expéditeur<strong>@${esc(scene.sender)}</strong></span></div>
+          <div class="transfer-channel" aria-hidden="true"><span></span><img src="assets/navigation/kalistel-rainbow-v2.webp" alt="" width="32" height="44">${icon('chevron-right')}</div>
+          <div class="transfer-endpoint transfer-destination">${icon('user-round')}<span>Destinataire<strong data-transfer-recipient>${scene.recipient?'@'+esc(scene.recipient):'—'}</strong></span></div></div>
+        <p class="transfer-status" role="status">${icon(['received','accepted'].includes(scene.phase)?'badge-check':scene.phase==='pending'?'clock-3':'arrow-right-left')}<span>${esc(transferLabels[scene.phase])}</span></p>`;
+    }
+    function updatePreview(){
+      const stage=root?.querySelector('[data-transfer-stage]');if(!stage)return;
+      stage.dataset.phase=previewScene().phase;stage.dataset.motion=transferMotion;transferMotion='';
+      stage.innerHTML=transferPreview();icons();
+    }
+    function reconcileTransfer(){
+      if(!transferScene)return;
+      const current=state().transfers.find(t=>transferScene.id?t.id===transferScene.id:
+        transferScene.phase==='error'&&t.status==='pending'&&t.card.id===transferScene.item?.id&&t.recipient===transferScene.recipient&&!t.incoming);
+      const phase=current?.status==='accepted'&&current.incoming?'received':current?.status;
+      if(current&&phase!=='pending'&&phase!==transferScene.phase){
+        transferScene={...transferScene,phase};
+        transferMotion=phase==='received'?'receive':phase==='accepted'?'dispatch':'';
+      }else if(current?.status==='pending'&&transferScene.phase==='error')transferScene={...transferScene,id:current.id,phase:'pending'};
+    }
+    function clearTransferFeedback(){
+      note='';error='';feedback();
+      root?.querySelector('.account-feedback [data-cloud-action=refresh]')?.remove();
+    }
     const profileFields=()=>{const p=state().profile;return field('Nom affiché','displayName',p?.displayName||'','maxlength="40" autocomplete="name" required')+field('Pseudo','handle',p?.handle||'','pattern="[a-z0-9_]{3,24}" minlength="3" maxlength="24" autocomplete="nickname" aria-describedby="account-handle-help" required')+'<small id="account-handle-help">3 à 24 caractères : lettres minuscules, chiffres ou tiret bas.</small>';};
     const privacyField=()=>`<label class="account-check"><input name="publish" type="checkbox" ${state().profile?.publishOwner?'checked':''}><span>Afficher mon pseudo sur mes certificats de carte<small>Ton adresse email reste privée.</small></span></label>`;
     const submit=(label,symbol='save')=>`<button class="primary" type="submit">${icon(symbol)}<span>${esc(label)}</span></button>`;
@@ -31,15 +63,16 @@
         ${command('logout','Se déconnecter','log-out','','account-logout')}</section>`;
     }
     function transfers(){
-      const s=state(),cards=s.cards.filter(c=>c.status==='owned'),selected=cards.find(c=>c.id===selectedId);
+      const s=state(),cards=s.cards.filter(c=>c.status==='owned');
       const pending=s.transfers.filter(t=>t.status==='pending'),past=s.transfers.filter(t=>t.status!=='pending');
       return `<div class="account-section-heading"><h2 id="account-section-title" tabindex="-1">Transférer une carte</h2><p>Choisis un exemplaire et le pseudo de son destinataire. Il devra accepter le transfert.</p></div>
-        ${cards.length?`<form data-cloud-form="offer" class="account-form">
+        <form data-cloud-form="offer" class="account-form account-transfer-workspace"><div class="account-transfer-controls">
+        ${cards.length?`
           <label><span class="account-step">1</span> Carte à transférer<select name="card" required><option value="">Choisir une carte</option>${cards.map(c=>`<option value="${esc(c.id)}" ${c.id===selectedId?'selected':''}>${esc(c.name+' · '+c.title+' · '+(c.barcode||c.serial))}</option>`).join('')}</select></label>
-          <div data-account-selection>${selected?card(selected):''}</div>
-          <label><span class="account-step">2</span> Pseudo du destinataire<input name="handle" pattern="[a-z0-9_]{3,24}" minlength="3" maxlength="24" placeholder="pseudo" autocapitalize="none" spellcheck="false" required autocomplete="off"></label>
+          <label><span class="account-step">2</span> Pseudo du destinataire<input name="handle" value="${esc(recipientHandle)}" pattern="[a-z0-9_]{3,24}" minlength="3" maxlength="24" placeholder="pseudo" autocapitalize="none" spellcheck="false" required autocomplete="off"></label>
           <label class="account-check"><input name="confirm" type="checkbox" required><span>Je confirme proposer cette carte à ce destinataire.</span></label>
-          <p class="account-note">Une seule carte de chaque version par joueur. Une carte engagée dans un combat ne peut pas être transférée.</p>${submit('Proposer le transfert','arrow-right-left')}</form>`:'<p class="account-empty">Aucune carte à transférer pour le moment.</p>'}
+          <p class="account-note">Une seule carte de chaque version par joueur. Une carte engagée dans un combat ne peut pas être transférée.</p>${submit('Proposer le transfert','arrow-right-left')}`:'<p class="account-empty">Aucune carte à transférer pour le moment.</p>'}
+        </div><section class="account-transfer-stage" data-transfer-stage data-phase="${esc(previewScene().phase)}" data-motion="${esc(transferMotion)}" aria-label="Aperçu du transfert">${transferPreview()}</section></form>
         <section class="account-section"><div class="account-section-heading account-row"><h3>Transferts en attente <span class="account-count">${pending.length}</span></h3>${command('refresh','Actualiser','refresh-cw')}</div>
           ${pending.map(transfer).join('')||'<p class="account-note">Aucun transfert en attente.</p>'}
           ${past.length?`<details class="account-history"><summary>Historique des transferts <span>${past.length}</span></summary>${past.map(transfer).join('')}</details>`:''}</section>
@@ -96,12 +129,12 @@
     function feedback(){
       if(!root)return;
       root.setAttribute('aria-busy',String(busy));
-      root.querySelector('[data-account-status]').textContent=busy?'Connexion au compte…':note;
+      root.querySelector('[data-account-status]').textContent=busy?(transferScene&&['sending','receiving'].includes(transferScene.phase)?transferLabels[transferScene.phase]:'Connexion au compte…'):note;
       root.querySelector('[data-account-error]').textContent=error;
       root.querySelectorAll('[data-account-content] button,[data-account-content] input,[data-account-content] select').forEach(n=>n.disabled=busy);
     }
-    function render(){if(!root)return;root.innerHTML=markup();feedback();icons();}
-    function clearSensitive(){issued=null;certificate=null;selectedId='';note='';error='';}
+    function render(){if(!root)return;root.innerHTML=markup();transferMotion='';feedback();icons();}
+    function clearSensitive(){issued=null;certificate=null;selectedId='';recipientHandle='';transferScene=null;transferMotion='';note='';error='';}
     async function ready(){
       if(api)return api;
       if(!config?.enabled)throw Error('Registre en préparation.');
@@ -114,18 +147,24 @@
       })().finally(()=>{initializing=null;});
       return initializing;
     }
-    async function run(operation,apply=()=>{},changed=false){
+    async function run(operation,apply=()=>{},changed=false,scene=null){
       if(busy||disposed)return;
       const epoch=viewEpoch,session=authEpoch;busy=true;error='';note='';feedback();
       try{
         const service=await ready(),result=await operation(service);
         if(changed&&service.snapshot().user)await onChanged?.();
         // Navigation or logout may finish before the request. Never reopen its view or secret.
-        if(root&&epoch===viewEpoch&&session===authEpoch)apply(result);
+        if(root&&epoch===viewEpoch&&session===authEpoch){reconcileTransfer();apply(result);}
       }catch(e){
-        if(root&&epoch===viewEpoch)error=e?.code==='23505'?'Pseudo déjà utilisé ou transfert déjà en attente.':e?.name==='TimeoutError'?'Connexion trop lente. Réessaie.':e?.message||'Compte indisponible.';
+        if(root&&epoch===viewEpoch&&session===authEpoch){
+          error=e?.code==='23505'?'Pseudo déjà utilisé ou transfert déjà en attente.':e?.name==='TimeoutError'?'Connexion trop lente. Réessaie.':e?.message||'Compte indisponible.';
+          if(scene&&transferScene===scene)transferScene={...scene,phase:'error'};
+        }
       }finally{
         busy=false;render();
+        if(scene&&root&&epoch===viewEpoch&&session===authEpoch&&['pending','received'].includes(transferScene?.phase)){
+          root.querySelector('[data-transfer-stage]')?.scrollIntoView({block:'nearest',behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth'});
+        }
         const next=queuedRefresh;queuedRefresh=null;
         if(root&&next?.epoch===viewEpoch)refreshAccount(next.id);
       }
@@ -171,8 +210,22 @@
         const secret=String(v.get('secret')).trim();v.delete('secret');form.elements.secret.value='';
         return run(a=>a.activate(String(v.get('id')).trim(),secret),()=>{note='Carte attribuée à ton compte.';},true);
       }
-      if(kind==='offer')return run(a=>a.offer(v.get('card'),v.get('handle')),()=>{selectedId='';note='Demande envoyée. Le destinataire doit l’accepter.';},true);
-      if(kind==='accept')return run(a=>a.settle(form.dataset.id,'accepted'),()=>{note='Carte reçue.';},true);
+      if(kind==='offer'){
+        const scene={item:state().cards.find(c=>c.id===v.get('card')),sender:state().profile.handle,recipient:String(v.get('handle')),phase:'sending'};
+        transferScene=scene;updatePreview();
+        return run(a=>a.offer(v.get('card'),v.get('handle')),id=>{
+          selectedId='';recipientHandle='';transferScene={...scene,id,phase:'pending'};transferMotion='dispatch';
+          note='Demande envoyée. Le destinataire doit l’accepter.';
+        },true,scene);
+      }
+      if(kind==='accept'){
+        const t=state().transfers.find(t=>t.id===form.dataset.id);
+        const scene=t?{id:t.id,item:t.card,sender:t.sender,recipient:t.recipient,phase:'receiving'}:null;
+        transferScene=scene;updatePreview();
+        return run(a=>a.settle(form.dataset.id,'accepted'),()=>{
+          transferScene=scene?{...scene,phase:'received'}:null;transferMotion='receive';note='Carte reçue.';
+        },true,scene);
+      }
       if(kind==='issue')return run(a=>a.issue(v.get('model')),value=>{issued=value;});
     }
     function unmount(){
@@ -182,11 +235,17 @@
       unmount();root=node;listeners=new AbortController();tab=Object.hasOwn(titles,section)?section:'profile';render();
       root.addEventListener('click',click,{signal:listeners.signal});
       root.addEventListener('submit',submitForm,{signal:listeners.signal});
+      root.addEventListener('input',event=>{
+        if(event.target.name!=='handle'||!event.target.closest('[data-cloud-form=offer]')||busy)return;
+        recipientHandle=event.target.value;root.querySelector('[name=confirm]').checked=false;
+        clearTransferFeedback();
+        if(transferScene){transferScene=null;updatePreview();}
+        else {const recipient=root.querySelector('[data-transfer-recipient]');if(recipient)recipient.textContent=recipientHandle?'@'+recipientHandle:'—';}
+      },{signal:listeners.signal});
       root.addEventListener('change',event=>{
-        if(event.target.name==='handle'&&event.target.closest('[data-cloud-form=offer]'))root.querySelector('[name=confirm]').checked=false;
-        if(event.target.name!=='card')return;
-        selectedId=event.target.value;const selected=state().cards.find(c=>c.id===selectedId);
-        root.querySelector('[data-account-selection]').innerHTML=selected?card(selected):'';icons();
+        if(event.target.name!=='card'||busy)return;
+        selectedId=event.target.value;transferScene=null;transferMotion=selectedId?'reveal':'';updatePreview();
+        clearTransferFeedback();
         const confirmation=root.querySelector('[name=confirm]');if(confirmation)confirmation.checked=false;
       },{signal:listeners.signal});
       unsubscribeSync=sync?.subscribe(()=>{

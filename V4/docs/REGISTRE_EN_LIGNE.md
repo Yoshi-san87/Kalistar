@@ -12,6 +12,13 @@ passe via la session Auth existante. Le formulaire ne memorise pas ce secret.
 Transferer une carte propose un selecteur d'exemplaire et les demandes en cours,
 sans reproduire la galerie Collection. Activation et certificats restent dans
 cette rubrique, ainsi que l'emission pour le seul role administrateur serveur.
+La carte selectionnee occupe la colonne de droite sur PC ; sur telephone,
+un apercu compact suit le selecteur. Le trajet visuel relie les pseudos sans
+rechercher ou certifier un destinataire pendant la saisie. Les effets courts
+d'envoi et de reception attendent la confirmation serveur. Une proposition
+reste en attente : seul le consentement du destinataire transfere la propriete.
+Les effets sont finis, desactives en mouvement reduit, et ne sont pas rejoues
+apres navigation. Modifier le destinataire invalide immediatement la confirmation.
 Changer de rubrique ou quitter la page efface les secrets affiches ; les
 reponses tardives ne peuvent pas les restaurer.
 

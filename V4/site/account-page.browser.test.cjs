@@ -12,7 +12,7 @@ async function main(){
   const database=await require('../deploy/supabase/browser-fixture.cjs').create(data,{journeyKey:'account-fixture-only-'.repeat(4)});
   const browser=await chromium.launch({channel:'chrome',headless:true});
   const results=[],calls=[];
-  let held=null,holdIssue=false;
+  let held=null,holdIssue=false,heldTransfer=null,holdTransfer='';
   try{
     for(const p of profiles){
       await database.call('kalistar_set_profile',{p_handle:'paris',p_display_name:'Paris',p_publish_owner:false});
@@ -24,6 +24,7 @@ async function main(){
         try{
           const value=name==='models'?await database.models():await database.call(name,args,who);
           if(name==='kalistar_issue'&&holdIssue)await new Promise(resolve=>{held=resolve;});
+          if(name===holdTransfer)await new Promise(resolve=>{heldTransfer=resolve;});
           return {data:value,error:null};
         }catch(e){return {data:null,error:{message:e.message,code:e.code}};}
       });
@@ -63,7 +64,12 @@ async function main(){
       },data);
       const idle=()=>page.locator('#account-root[aria-busy=false]').waitFor();
       const section=async name=>{await page.locator('.account-sidebar a[href="#account/'+name+'"]').click();await idle();};
-      const shot=async name=>{await page.evaluate(()=>document.fonts.ready);await page.screenshot({path:path.join(output,p.name+'-'+name+'.png'),fullPage:true});};
+      const shot=async name=>{
+        await page.evaluate(()=>document.fonts.ready);
+        await page.waitForFunction(()=>[...document.querySelectorAll('.account-page img')].every(i=>i.complete&&i.naturalWidth));
+        await page.evaluate(()=>Promise.all([...document.querySelectorAll('[data-transfer-stage]')].flatMap(n=>n.getAnimations({subtree:true})).map(a=>a.finished.catch(()=>{}))));
+        await page.screenshot({path:path.join(output,p.name+'-'+name+'.png'),fullPage:true});
+      };
       const fit=async()=>assert.deepEqual(await page.evaluate(()=>({
         overflow:document.documentElement.scrollWidth>innerWidth+1,
         outside:[...document.querySelectorAll('.account-page button,.account-page input:not([type=checkbox]),.account-page select,.account-page a')].filter(n=>{const r=n.getBoundingClientRect();return r.width>0&&(r.left<0||r.right>innerWidth+1||r.height<43);}).map(n=>n.outerHTML.slice(0,120))
@@ -109,13 +115,67 @@ async function main(){
       await page.locator('[name=handle]').fill('tokyo');await page.locator('[name=confirm]').check();
       await page.locator('[data-cloud-form=offer] [type=submit]').click();await idle();
       assert.match(await page.locator('[data-account-error]').innerText(),/deja cette version/);
+      assert.equal(await page.locator('[data-transfer-stage]').getAttribute('data-phase'),'error','a refused transfer never plays a success scene');
+      assert.equal(await page.locator('[name=handle]').inputValue(),'tokyo','a failed offer keeps the intended recipient');
       await page.locator('[name=card]').selectOption(available.id);await page.locator('[name=handle]').fill('tokyo');await page.locator('[name=confirm]').check();
+      await page.locator('[name=handle]').fill('tokyo_');
+      assert.equal(await page.locator('[name=confirm]').isChecked(),false,'typing resets confirmation before blur');
+      assert.equal(await page.locator('[data-transfer-recipient]').innerText(),'@tokyo_');
+      await page.locator('[name=handle]').fill('tokyo');await page.locator('[name=confirm]').check();
+      const preview=await page.evaluate(()=>{
+        const r=n=>n.getBoundingClientRect(),stage=r(document.querySelector('[data-transfer-stage]'));
+        const select=r(document.querySelector('[name=card]')),recipient=r(document.querySelector('[name=handle]'));
+        const image=r(document.querySelector('[data-account-selection] img'));
+        return {right:stage.left>=select.right+20,aboveRecipient:stage.bottom<=recipient.top,height:image.height,width:image.width,scroll:document.documentElement.scrollWidth>innerWidth};
+      });
+      assert.equal(preview.scroll,false);
+      if(p.width>1200){assert(preview.right,'desktop preview uses the right column');assert(preview.height>=400,'desktop card is genuinely large');}
+      else assert(preview.aboveRecipient,'compact preview sits after selection and before recipient');
       await shot('transfer');await fit();
-      await page.locator('[data-cloud-form=offer] [type=submit]').click();await idle();
+      holdTransfer='kalistar_offer';
+      await page.locator('[data-cloud-form=offer] [type=submit]').click();
+      await page.waitForFunction(()=>document.querySelector('[data-transfer-stage]')?.dataset.phase==='sending');
+      assert.equal(await page.locator('[data-transfer-stage]').getAttribute('data-motion'),'','no sending celebration before the server confirms');
+      assert.equal(await page.locator('[data-cloud-form=offer] [type=submit]').isDisabled(),true);
+      for(let n=0;!heldTransfer&&n<100;n++)await new Promise(resolve=>setTimeout(resolve,50));
+      assert(heldTransfer,'offer response delayed by fixture');heldTransfer();heldTransfer=null;holdTransfer='';
+      await idle();
+      assert.equal(await page.locator('[data-transfer-stage]').getAttribute('data-phase'),'pending');
+      assert.equal(await page.locator('[data-transfer-stage]').getAttribute('data-motion'),'dispatch');
+      assert.match(await page.locator('.transfer-status').innerText(),/En attente/);
+      assert.equal(await page.locator('[data-transfer-stage]').evaluate(n=>n.getAnimations({subtree:true}).every(a=>a.effect.getTiming().iterations===1)),true,'transfer effects are finite, never a permanent CPU loop');
+      if(p.name!=='compact'){
+        const motion=await page.locator('[data-account-selection] img').evaluate(n=>({name:getComputedStyle(n).animationName,duration:getComputedStyle(n).animationDuration}));
+        assert.equal(motion.name,'transfer-card-dispatch');assert(parseFloat(motion.duration)<=1.2,'dispatch remains brief');
+      }
+      await shot('sent');
+      if(p.name==='compact')assert.equal(await page.locator('[data-account-selection] img').evaluate(n=>getComputedStyle(n).animationName),'none','reduced motion disables the ceremony');
       const offer=(await database.call('kalistar_my_transfers')).find(t=>t.status==='pending');
       assert(offer,'server pending transfer created only after confirmation');
-      await page.locator('[data-cloud-action=settle][data-id="'+offer.id+'"]').click();await idle();
-      assert.equal((await database.call('kalistar_my_transfers')).find(t=>t.id===offer.id).status,'cancelled');
+      await page.locator('[data-cloud-action=refresh]').click();await idle();
+      assert.equal(await page.locator('[data-transfer-stage]').getAttribute('data-motion'),'','refresh does not replay a sent ceremony');
+      if(p.name==='razr'){
+        await database.call('kalistar_settle',{p_transfer:offer.id,p_action:'accepted'},'user-tokyo');
+        await page.locator('[data-cloud-action=refresh]').click();await idle();
+        assert.equal(await page.locator('[data-transfer-stage]').getAttribute('data-phase'),'accepted','sender sees actual acceptance after refreshing');
+        await shot('delivered');
+      }else{
+        await page.locator('[data-cloud-action=settle][data-id="'+offer.id+'"]').click();await idle();
+        assert.equal((await database.call('kalistar_my_transfers')).find(t=>t.id===offer.id).status,'cancelled');
+        assert.equal(await page.locator('[data-transfer-stage]').getAttribute('data-phase'),'cancelled','cancellation is reflected in the preview');
+      }
+      if(p.name==='wide'){
+        await page.locator('[name=card]').selectOption(available.id);await page.locator('[name=handle]').fill('tokyo');await page.locator('[name=confirm]').check();
+        holdTransfer='kalistar_offer';await page.locator('[data-cloud-form=offer] [type=submit]').click();
+        for(let n=0;!heldTransfer&&n<100;n++)await new Promise(resolve=>setTimeout(resolve,50));
+        assert(heldTransfer);await page.locator('.account-sidebar a[href="#account/contact"]').click();
+        heldTransfer();heldTransfer=null;holdTransfer='';await idle();
+        assert.equal(await page.locator('[data-transfer-stage]').count(),0,'a late response cannot reopen the transfer ceremony');
+        await section('transfers');
+        assert.equal(await page.locator('[data-transfer-stage]').getAttribute('data-phase'),'empty','returning to the page does not replay an old ceremony');
+        const late=(await database.call('kalistar_my_transfers')).find(t=>t.status==='pending');
+        await page.locator('[data-cloud-action=settle][data-id="'+late.id+'"]').click();await idle();
+      }
       if(p.name==='desktop'){
         await page.locator('[name=card]').selectOption(available.id);await page.locator('[name=handle]').fill('tokyo');await page.locator('[name=confirm]').check();
         await page.locator('[data-cloud-form=offer] [type=submit]').click();await idle();
@@ -124,6 +184,9 @@ async function main(){
         assert.equal(await page.locator('a[href="#account/issue"]').count(),0,'Tokyo has no administration entry');
         await page.locator('[data-cloud-form=accept] input').check();
         await page.locator('[data-cloud-form=accept] [type=submit]').click();await idle();
+        assert.equal(await page.locator('[data-transfer-stage]').getAttribute('data-phase'),'received');
+        assert.equal(await page.locator('[data-transfer-stage]').getAttribute('data-motion'),'receive');
+        await shot('received');
         assert.equal((await database.call('kalistar_my_transfers',{},'user-tokyo')).find(t=>t.id===next.id).status,'accepted');
         assert((await database.call('kalistar_my_cards',{},'user-tokyo')).some(c=>c.id===available.id));
         await page.evaluate(()=>QA.ui.open({section:'issue'}));await idle();
@@ -157,6 +220,6 @@ async function main(){
     }
     fs.writeFileSync(path.join(output,'results.json'),JSON.stringify({passed:true,profiles:results,rpcCalls:calls.length,mode:'isolated page + actual registry API + PostgreSQL migrations; fictional users only'},null,2));
     console.log('PASS account page: '+results.map(p=>p.profile).join(', ')+'; profile, privacy, password form, sync, transfer/duplicate/cancel/accept, admin, certificates, secret lifecycle, history, logout.');
-  }finally{held?.();await browser.close();await database.close();}
+  }finally{held?.();heldTransfer?.();await browser.close();await database.close();}
 }
 main().catch(e=>{console.error(e);process.exitCode=1;});
