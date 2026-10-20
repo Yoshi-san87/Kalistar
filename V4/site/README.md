@@ -85,6 +85,9 @@ Ne pas tester sur les possessions ou parties reelles.
 registre distant independant. Le SDK officiel partage la session de connexion.
 `#account/profile`, `transfers`, `settings`, `billing` et `contact` sont les
 rubriques de la vraie page Mon compte, sans galerie dupliquant Collection.
+La page occupe toute la surface disponible sous la navigation, sans largeur
+maximale centree. Seuls les formulaires gardent une largeur de lecture ; le
+defilement reste dans `#app`, au-dessus de la barre mobile.
 Les formulaires utilisent toujours les RPC du registre. Les certificats,
 l'activation et l'emission admin restent accessibles depuis Transferts.
 Les pages Facturation et Contact indiquent leur indisponibilite tant que les

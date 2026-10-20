@@ -68,12 +68,23 @@ async function main(){
         overflow:document.documentElement.scrollWidth>innerWidth+1,
         outside:[...document.querySelectorAll('.account-page button,.account-page input:not([type=checkbox]),.account-page select,.account-page a')].filter(n=>{const r=n.getBoundingClientRect();return r.width>0&&(r.left<0||r.right>innerWidth+1||r.height<43);}).map(n=>n.outerHTML.slice(0,120))
       })),{overflow:false,outside:[]},p.name+' controls fit and remain touch sized');
+      const fullPage=async()=>assert.deepEqual(await page.evaluate(()=>{
+        const rect=selector=>document.querySelector(selector).getBoundingClientRect();
+        const app=rect('#app'),page=rect('.account-page'),layout=rect('.account-layout'),content=rect('.account-content');
+        const padding=parseFloat(getComputedStyle(document.querySelector('.account-page')).paddingBottom);
+        return {
+          fullWidth:Math.abs(page.left-app.left)<1&&Math.abs(page.width-app.width)<1,
+          fullHeight:page.height>=app.height-1,
+          contentToRight:Math.abs(content.right-layout.right)<1,
+          layoutToBottom:Math.abs(layout.bottom-(page.bottom-padding))<1
+        };
+      }),{fullWidth:true,fullHeight:true,contentToRight:true,layoutToBottom:true},p.name+' account fills the available workspace');
       await idle();assert.equal(await page.locator('dialog,.cloud-card-list').count(),0);
-      await shot('profile');await fit();
+      await shot('profile');await fit();await fullPage();
       await page.locator('[name=displayName]').fill('W'.repeat(40));
       await page.locator('[data-cloud-form=profile] [type=submit]').click();await idle();
       assert.equal((await database.call('kalistar_me')).profile.displayName,'W'.repeat(40));await fit();
-      await section('settings');await shot('settings');await fit();
+      await section('settings');await shot('settings');await fit();await fullPage();
       await page.locator('[name=publish]').check();await page.locator('[data-cloud-form=privacy] [type=submit]').click();await idle();
       assert.equal((await database.call('kalistar_me')).profile.publishOwner,true);
       await page.locator('[name=password]').fill('fixture-only-new-password');await page.locator('[name=confirmation]').fill('fixture-only-new-password');
@@ -84,7 +95,7 @@ async function main(){
       assert.equal(await page.locator('[name=password]').inputValue(),'','password is not retained after submitting');
       await page.locator('[data-cloud-action=sync]').click();await page.locator('[data-cloud-action=local]').click();
       assert.deepEqual(await page.evaluate(()=>[QA.sync,QA.archives]),[1,1]);
-      await section('contact');await shot('contact');await fit();
+      await section('contact');await shot('contact');await fit();await fullPage();
       assert.equal(await page.locator('a[href^="mailto:"]').count(),0,'uncreated support address must not solicit mail');
       assert((await page.locator('.account-content').innerText()).includes('contact@Kalistar.com'));
       await section('billing');await fit();assert.equal(await page.locator('.account-content input').count(),0,'no fake payment collection');

@@ -4,7 +4,7 @@ const runtime=createRequire(path.join(process.env.KALISTAR_NODE_MODULES||path.jo
 const {chromium}=runtime('playwright'),dist=path.resolve(process.env.KALISTAR_DIST||path.join(__dirname,'../deploy/dist'));
 const output=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'../../work/qa/login');
 const origin='https://kalistar.pages.dev',mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.webmanifest':'application/manifest+json','.png':'image/png','.webp':'image/webp','.svg':'image/svg+xml','.woff2':'font/woff2','.mp4':'video/mp4'};
-const profiles=[{name:'desktop',width:1440,height:1000},{name:'razr',width:412,height:1007,mobile:true},{name:'compact',width:320,height:740,mobile:true},{name:'landscape',width:1007,height:412,mobile:true},{name:'reduced',width:412,height:1007,mobile:true,reduced:true}];
+const profiles=[{name:'desktop',width:1440,height:1000},{name:'wide',width:2532,height:1412},{name:'razr',width:412,height:1007,mobile:true},{name:'compact',width:320,height:740,mobile:true},{name:'landscape',width:1007,height:412,mobile:true},{name:'reduced',width:412,height:1007,mobile:true,reduced:true}];
 function token(profile){const sub=profile==='user-paris'?'11111111-1111-4111-8111-111111111111':'22222222-2222-4222-8222-222222222222',email=profile==='user-paris'?'paris@example.invalid':'tokyo@example.invalid';
   const access_token=Buffer.from(JSON.stringify({alg:'HS256',typ:'JWT'})).toString('base64url')+'.'+Buffer.from(JSON.stringify({sub,exp:Math.floor(Date.now()/1000)+3600,role:'authenticated',aud:'authenticated'})).toString('base64url')+'.fixture-signature';
   return {access_token,refresh_token:'fixture-refresh-'+profile,expires_at:Math.floor(Date.now()/1000)+3600,expires_in:3600,token_type:'bearer',user:{id:sub,email,email_confirmed_at:'2026-10-16T00:00:00Z',aud:'authenticated',role:'authenticated',app_metadata:{provider:'email'},user_metadata:{}}};}
@@ -112,6 +112,20 @@ async function main(){
       await page.locator('[data-action=account]').click();await page.locator('#account-root[aria-busy=false]').waitFor();
       assert.equal(new URL(page.url()).hash,'#account/profile');
       assert.equal(await page.locator('#cloud-dialog').count(),0,'account is a page, not a dialog');
+      await page.locator('#app:not(.page-arriving)').waitFor();
+      assert.deepEqual(await page.evaluate(()=>{
+        const app=document.querySelector('#app'),rect=app.getBoundingClientRect();
+        const account=document.querySelector('.account-page').getBoundingClientRect();
+        const header=document.querySelector('.masthead').getBoundingClientRect();
+        const bottom=parseFloat(getComputedStyle(document.body).paddingBottom);
+        return {
+          width:Math.abs(account.width-app.clientWidth)<1&&Math.abs(account.left)<1,
+          height:account.height>=app.clientHeight-1,
+          belowHeader:Math.abs(rect.top-header.bottom)<1,
+          aboveFooter:Math.abs(rect.bottom-(innerHeight-bottom))<1,
+          noBodyScroll:document.documentElement.scrollHeight<=innerHeight+1
+        };
+      }),{width:true,height:true,belowHeader:true,aboveFooter:true,noBodyScroll:true},p.name+' account fills the shell without covering navigation');
       await page.locator('[data-cloud-form=profile] [name=displayName]').fill('Paris QA');
       await page.locator('[data-cloud-form=profile] [type=submit]').click();
       await page.getByText('Profil enregistré.',{exact:true}).waitFor();
