@@ -133,6 +133,25 @@ filtre ses brouillons et imports ; un conflit garde le parcours de recuperation
 normal de la synchronisation. Tester avec `equipment-ownership.test.cjs` et
 `cloud-sync.browser.test.cjs` (base locale, comptes fictifs).
 
+## Suite des Fragments
+
+La migration 012 conserve les quatre victoires et les cartes deja remises, puis
+ajoute trois chapitres : arme, protection, relique. Elle ne reinitialise aucun
+compte. Le schema de sauvegarde du registre passe a 11 ; `backup.cjs` associe
+ce numero aux douze migrations et verifie la restauration des nouvelles tables.
+
+Appliquer seulement apres export chiffre et restauration locale verifiee, avant
+le site correspondant. Une recompense exige une victoire signee du chapitre et
+l'acquittement de la precedente. Chaque attribution verrouille le profil et
+enregistre ensemble le droit d'equipement et sa remise idempotente. Les clients
+n'ont aucun acces direct aux deux nouvelles tables privees.
+
+`journey-sequels.test.cjs` couvre les trois livres et les sept victoires,
+la defaite/reprise, les etapes anticipees, les droits et doubles demandes.
+`journeys.test.cjs` conserve volontairement le schema historique 001-009.
+`journeys.browser.test.cjs` teste l'integration avec des comptes fictifs et
+les ceremonies sur PC/Razr ; aucun combat reel des joueurs n'est modifie.
+
 ## Client officiel
 
 `@supabase/supabase-js` 2.118.0, distribution npm officielle, licence MIT.

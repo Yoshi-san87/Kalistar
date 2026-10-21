@@ -37,9 +37,13 @@ export async function journeyRequest(request,env,fetcher=fetch,source=Runtime){
   };
   try{
     const input=await body(request);
-    if(!['library','start','context','move','abandon','claim','ack'].includes(action))return json({error:'Parcours introuvable.'},404);
+    if(!['library','start','context','move','abandon','claim','ack','equipment-claim','equipment-ack'].includes(action))return json({error:'Parcours introuvable.'},404);
     if(action==='library')return json(await rpc('library'));
     if(action==='claim'||action==='ack')return json(await rpc(action,{p_book_id:input.bookId}));
+    if(action==='equipment-claim'||action==='equipment-ack'){
+      if(!Number.isInteger(input.stage)||input.stage<4||input.stage>6)return json({error:'Chapitre invalide.'},400);
+      return json(await rpc(action.replace('-','_'),{p_book_id:input.bookId,p_stage:input.stage}));
+    }
     if(!uuid.test(input.deviceId||''))return json({error:'Appareil invalide.'},400);
     if(action==='abandon')return json(await rpc('abandon',{p_attempt_id:input.attemptId,p_device_id:input.deviceId}));
     let runtimeHash=source.hash;
@@ -58,7 +62,8 @@ export async function journeyRequest(request,env,fetcher=fetch,source=Runtime){
       attempt=await rpc('start',{p_book_id:input.bookId,p_deck:team,p_device_id:input.deviceId,p_runtime_hash:runtimeHash});
     }else attempt=await rpc('context',{p_attempt_id:input.attemptId,p_device_id:input.deviceId});
     if(attempt.runtimeHash!==runtimeHash){
-      if(attempt.runtimeHash!==source.legacy?.hash)return json({error:'Les regles de ce combat ont ete actualisees. Abandonne cette etape puis relance-la ; tes victoires restent conservees.',code:'runtime_changed',attempt},409);
+      const compatibleSnapshot=source.snapshotHashes?.includes(attempt.runtimeHash)&&(!attempt.state||attempt.state.journey?.snapshot);
+      if(attempt.runtimeHash!==source.legacy?.hash&&!compatibleSnapshot)return json({error:'Les regles de ce combat ont ete actualisees. Abandonne cette etape puis relance-la ; tes victoires restent conservees.',code:'runtime_changed',attempt},409);
       runtimeHash=attempt.runtimeHash;
       if(attempt.state&&!attempt.state.journey?.snapshot)attempt.state.journey.snapshot=source.Combat.freeze(source.legacy.data,attempt.state);
     }

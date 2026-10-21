@@ -2336,6 +2336,25 @@
       flavour:'Son ombre, son propre chemin.',
       alt:'Éclipse, rapière noire et rouge de Kaylis, magie discrète autour de la poignée.'}
   });
+  // Fragment sequel objects: additive definitions; existing snapshots stay immutable.
+  weapons.push({
+    id:'kaylis-next-step-boots',slot:'shield',kind:'shield',rulesVersion:2,name:'Bottes du Prochain Pas',
+    family:'Bottes',visual:'axe',art:'kaylis-next-step-boots-v1',restrictions:{characterIds:['kaylis']},
+    effect:{trigger:'RETAINED_SIX',stat:'DEF',value:20,duration:'DUEL'},
+    condition:'Jet DEF 6 num\u00e9rique conserv\u00e9 : +20 DEF pour ce duel.',
+    lore:'Kaylis serre les lacets de ses bottes sur la pierre de l\u2019enceinte. Le cuir garde les plis des pas h\u00e9sitants. Elle ne cherche plus \u00e0 les effacer : chaque marque lui rappelle un appui retrouv\u00e9, avant de choisir le suivant.',
+    collectible:{number:'PRO-038',illustration:'kaylis-next-step-boots-v1.webp',cutout:true,
+      flavour:'Retrouver son appui. Choisir son pas.',alt:'Bottes brunes de Kaylis, cuir us\u00e9 et lacets aux \u0153illets de cuivre.'}
+  },{
+    id:'kaylis-colours-ribbon',slot:'relic',kind:'relic',rulesVersion:2,name:'Ruban des Couleurs',
+    family:'Relique',visual:'flute',art:'kaylis-colours-ribbon-v1',restrictions:{characterIds:['kaylis']},
+    effect:{trigger:'ULTIMATE',duration:'ONCE_MATCH',event:'SURVIVED',when:{outnumbered:true},action:{kind:'ARM',stat:'ATK',value:40,target:'self'}},
+    condition:'Apr\u00e8s avoir surv\u00e9cu \u00e0 une attaque en inf\u00e9riorit\u00e9 num\u00e9rique : +40 ATK \u00e0 sa prochaine attaque num\u00e9rique conserv\u00e9e. Une fois par partie.',
+    lore:'Le ruban bleu nuit a suivi tous les mouvements de son apprentissage. Kaylis en lisse les motifs dor\u00e9s, puis refait le n\u0153ud. Les couleurs de ses bras passent sur le tissu : une lumi\u00e8re famili\u00e8re, assez proche pour lui rappeler que son prochain geste lui appartient.',
+    collectible:{number:'REL-038',illustration:'kaylis-colours-ribbon-v1.webp',cutout:true,
+      flavour:'Son prochain geste lui appartient.',alt:'Ruban bleu nuit et or de Kaylis, travers\u00e9 de reflets rainbow.'}
+  });
+  // End of additive Fragment sequel objects.
   // Reactive ultimates affect new matches only; saved definitions stay immutable.
   const ultimates={
     'little-joys-box':{

@@ -2,6 +2,17 @@
 
 Chaque personnage peut porter **une arme, une protection et une relique** en même temps. Ce sont trois objets différents : renforcer une attaque, renforcer une défense ou déclencher un effet particulier.
 
+## Obtenir des équipements
+
+Un nouveau joueur commence sans équipement. Dans Fragment, remportez les quatre
+combats d'un livre et recevez sa carte. La suite de son histoire s'ouvre alors :
+un combat pour l'arme, puis un pour la protection et un pour la relique. Les
+chapitres se dévoilent un à un. Une défaite conserve tous vos gains.
+
+Chaque objet est débloqué une seule fois pour votre compte et se retrouve sur
+vos appareils connectés. Il n'est pas transférable comme une carte. Vous pouvez
+l'équiper sur un porteur compatible avant votre prochaine rencontre.
+
 ## Équiper avant le combat
 
 Consultez un objet pour voir ses porteurs compatibles. Un objet peut être réservé à certains personnages, à un job ou à une famille d'arme. Seuls les personnages compatibles peuvent le porter.

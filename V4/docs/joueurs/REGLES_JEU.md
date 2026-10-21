@@ -6,14 +6,19 @@ Dans Kalistar, deux équipes de dix personnages s'affrontent. Cinq combattants s
 
 ### Gagner des cartes dans Fragment
 
-Ouvrez un livre pour suivre un personnage. Chaque parcours contient **quatre
+Ouvrez un livre pour suivre un personnage. Chaque parcours commence par **quatre
 combats**. Une victoire ouvre l'étape suivante et un passage du récit. Une
 défaite ou un match nul ne retire pas les victoires déjà gagnées : vous pouvez
 réessayer la même étape. Votre composition et les règles habituelles de l'Arène
 s'appliquent. Une connexion est nécessaire pour jouer ces parcours et les reprendre.
 
-Après quatre victoires, recevez la carte montrée sur la couverture. Le livre
-reste consultable mais ne redonne pas sa récompense. Vous ne pouvez posséder
+Après quatre victoires, recevez la carte montrée sur la couverture. Une nouvelle
+page s'ouvre alors : l'histoire continue autour de ses équipements. Gagnez un
+combat pour son arme, puis un pour sa protection et un dernier pour sa relique.
+Chaque chapitre apparaît après la remise de la récompense précédente. Perdre
+ne vous retire rien : vous pouvez réessayer le chapitre en cours.
+
+Le livre reste consultable mais ne redonne pas ses récompenses. Vous ne pouvez posséder
 qu'un exemplaire d'une même version ; si vous l'avez déjà, aucun doublon n'est
 ajouté. Les autres versions du personnage restent collectionnables.
 

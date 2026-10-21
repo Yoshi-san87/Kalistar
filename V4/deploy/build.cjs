@@ -149,7 +149,7 @@ async function build() {
       bytes = Buffer.from(versionStaticAssets(html.replace('data-hosting="local"', 'data-hosting="static" data-auth-state="checking"'), version));
     }
     if(file.target==='jeu/login.html')bytes=Buffer.from(versionStaticAssets(bytes.toString('utf8'),version));
-    if(file.target==='journey-runtime.cjs')bytes=Buffer.from("'use strict';\nmodule.exports={Combat:require('./jeu/journey-combat.js'),Composition:require('./jeu/team-composition.js'),hash:"+JSON.stringify(journeyHash)+",legacy:"+(compatibility?"{hash:"+JSON.stringify(compatibility.legacyHash)+",data:require('./journey-legacy-4.6.85.json')}":'null')+"};\n");
+    if(file.target==='journey-runtime.cjs')bytes=Buffer.from("'use strict';\nmodule.exports={Combat:require('./jeu/journey-combat.js'),Composition:require('./jeu/team-composition.js'),hash:"+JSON.stringify(journeyHash)+",snapshotHashes:"+JSON.stringify(compatibility?.snapshotHashes||[])+",legacy:"+(compatibility?"{hash:"+JSON.stringify(compatibility.legacyHash)+",data:require('./journey-legacy-4.6.85.json')}":'null')+"};\n");
     const target = inside(DIST, file.target);
     await fs.mkdir(path.dirname(target), {recursive: true});
     await fs.writeFile(target, bytes);

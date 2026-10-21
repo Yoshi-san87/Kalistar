@@ -10,6 +10,8 @@ calls.kalistar_archive_put=['p_device_id','p_expected_revision','p_archives'];ca
 calls.kalistar_issue=['p_model_id','p_pilot'];calls.kalistar_activate=['p_id','p_secret'];
 Object.assign(calls,{kalistar_journey_library:[],kalistar_journey_start:['p_book_id','p_deck','p_device_id','p_runtime_hash'],kalistar_journey_context:['p_attempt_id','p_device_id'],kalistar_journey_commit:['p_frame','p_signature','p_device_id'],kalistar_journey_abandon:['p_attempt_id','p_device_id'],kalistar_journey_claim:['p_book_id'],kalistar_journey_ack:['p_book_id']});
 async function create(data,{journeyKey=null}={}){
+  calls.kalistar_journey_equipment_claim=['p_book_id','p_stage'];
+  calls.kalistar_journey_equipment_ack=['p_book_id','p_stage'];
   const db=new PGlite({extensions:{pgcrypto}});let queue=Promise.resolve();
   await db.exec(`create schema auth;create schema extensions;create role anon;create role authenticated;
     create table auth.users(id uuid primary key,email_confirmed_at timestamptz,email text);

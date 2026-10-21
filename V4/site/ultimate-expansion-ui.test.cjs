@@ -15,8 +15,8 @@ function fixture(){
   return {fx:window.KalistarEquipmentFX,children,container};
 }
 
-test('all 34 ultimates have separate, meaningful condition/action copy without top-level numeric assumptions',()=>{
-  assert.equal(relics.length,34);
+test('all 35 ultimates have separate, meaningful condition/action copy without top-level numeric assumptions',()=>{
+  assert.equal(relics.length,35);
   for(const w of relics){
     assert.equal(w.effect.stat,undefined);assert.equal(w.effect.value,undefined);
     const p=Cards.activation(w),html=Cards.markup(w);

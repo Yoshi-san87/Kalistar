@@ -19,11 +19,12 @@ const types = {'.js':'text/javascript', '.css':'text/css', '.json':'application/
 const fixture = `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><base href="/jeu/"><title>Kalistar Journey View QA</title>
 ${shellStyles}
 <script defer src="assets/lucide.min.js"></script><script defer src="ui-system.js"></script><script defer src="dialog-history.js"></script><script defer src="card-media.js"></script><script defer src="journey-definitions.js"></script><script defer src="journey-view.js"></script>
+<script defer src="ultimate-definitions.js"></script><script defer src="weapons.js"></script><script defer src="weapon-art.js"></script><script defer src="base-weapons.js"></script><script defer src="ultimate-ui.js"></script><script defer src="weapon-cards.js"></script>
 </head><body class="journeys-view">${masthead}<main id="app"><div id="journey-root"></div></main><script>
 window.addEventListener('DOMContentLoaded',async()=>{
   const data=await fetch('catalogue.json').then(response=>response.json());
   const freeze=value=>{if(value&&typeof value==='object'){Object.freeze(value);Object.values(value).forEach(freeze);}return value;};
-  const state={status:'ready',isAdmin:false,books:KalistarJourneyDefinitions.catalogue(data),progress:{}};
+  const state={status:'ready',isAdmin:false,books:KalistarJourneyDefinitions.catalogue(data).map(book=>({...book,bonusStages:[]})),progress:{}};
   window.harness={data,state,calls:[],behavior:{},notices:[],release:null};
   async function action(name,...args){
     harness.calls.push({name,args});
@@ -34,7 +35,16 @@ window.addEventListener('DOMContentLoaded',async()=>{
     if(name==='claim'&&behavior==='reveal'){
       harness.state.progress[args[0]].claimed=true;harness.view.refresh();
       const book=harness.state.books.find(item=>item.id===args[0]);
-      await harness.view.revealReward(data.cards.find(card=>card.id===book.rewardModelId));
+      if(await harness.view.revealReward(data.cards.find(card=>card.id===book.rewardModelId)))await action('acknowledge',book.id);
+    }
+    if(name==='acknowledgeEquipment')harness.state.progress[args[0]].equipmentClaims.find(claim=>claim.stage===args[1]).acknowledged=true;
+    if(name==='claimEquipment'&&behavior==='reveal'){
+      const book=harness.state.books.find(item=>item.id===args[0]),stage=book.bonusStages[args[1]-4],p=harness.state.progress[book.id];
+      const item=KalistarWeapons.weapons.find(item=>item.id===stage.rewardEquipmentId);
+      p.equipmentClaims.push({stage:args[1],equipmentId:item.id,kind:stage.rewardKind,alreadyOwned:!!harness.alreadyOwned,acknowledged:false});
+      p.finished=p.equipmentClaims.length===3;harness.view.refresh();
+      harness.confirmed=await harness.view.revealEquipment(item,{alreadyOwned:!!harness.alreadyOwned});
+      if(harness.confirmed){await action('acknowledgeEquipment',book.id,args[1]);harness.view.refresh();await harness.view.revealSequel(book,args[1]+1);}
     }
   }
   harness.view=KalistarJourneyView.create({data,
@@ -42,16 +52,18 @@ window.addEventListener('DOMContentLoaded',async()=>{
     getState:()=>freeze(structuredClone(harness.state)),
     onStart:id=>action('start',id),onResume:id=>action('resume',id),onClaim:id=>action('claim',id),
     onAcknowledge:id=>action('acknowledge',id),onPreview:(id,index)=>action('preview',id,index),
+    onClaimEquipment:(id,stage)=>action('claimEquipment',id,stage),onAcknowledgeEquipment:(id,stage)=>action('acknowledgeEquipment',id,stage),
     onDetail:id=>action('detail',id),onRefresh:()=>action('refresh'),toast:message=>harness.notices.push(message)});
   harness.mount=()=>harness.view.mount(document.querySelector('#journey-root'));
-  harness.progress=(index,value)=>{harness.state.progress[harness.state.books[index].id]={cleared:0,completed:false,claimed:false,acknowledged:false,activeAttempt:null,...value};harness.view.refresh();};
+  harness.progress=(index,value)=>{harness.state.progress[harness.state.books[index].id]={cleared:0,completed:false,claimed:false,acknowledged:false,finished:false,equipmentClaims:[],activeAttempt:null,...value};harness.view.refresh();};
   harness.mount();window.fixtureReady=true;
   lucide.createIcons();
 });
 </script></body></html>`;
 
 async function routeFixture(context) {
-  await context.route(origin+'/**', async route => {
+  await context.route('**/*', async route => {
+    if(new URL(route.request().url()).origin!==origin)return route.abort('blockedbyclient');
     const name = decodeURIComponent(new URL(route.request().url()).pathname);
     if (name === '/') return route.fulfill({contentType:'text/html', body:fixture});
     const relative = name.replace(/^\//, '');
@@ -91,6 +103,12 @@ async function assertLayout(page, label) {
         return {inside:within(inscription,rect(node)) && within(title,inscription),separate:art.bottom+1 <= inscription.top,text:[...node.querySelectorAll('.jv-cover-title,.jv-cover-character')].every(textFits)};
       }),
       headings:[...document.querySelectorAll('.jv-stage-heading h3,.jv-illustrated-page h2,.jv-reward h2')].every(textFits),
+      prizes:[...document.querySelectorAll('.jv-reward-display')].every(node=>{
+        const display=rect(node),name=rect(node.parentElement.querySelector('.jv-reward-name'));
+        const separate=name.top>=display.bottom-1 || name.left>=display.right-1;
+        return separate && [...node.querySelectorAll('.jv-reward-prize img')].every(image=>within(rect(image),display));
+      }),
+      reader:[...document.querySelectorAll('.jv-spread')].every(node=>within(rect(node.querySelector('.jv-stage-footer')),rect(node))),
       stations:[...document.querySelectorAll('.jv-route button')].every(node => rect(node).width >= 44 && rect(node).height >= 44)};
   });
   assert.ok(geometry.overflow <= 1, label+': no document overflow '+JSON.stringify(geometry));
@@ -98,6 +116,8 @@ async function assertLayout(page, label) {
   assert.ok(geometry.regions.every(region => region.fits), label+': regions fit '+JSON.stringify(geometry));
   assert.ok(geometry.covers.every(cover => cover.inside && cover.separate && cover.text), label+': cover titles fit the leather plaque below the illustration '+JSON.stringify(geometry));
   assert.ok(geometry.headings && geometry.stations, label+': readable headings and touch-sized stations '+JSON.stringify(geometry));
+  assert.ok(geometry.prizes,label+': reward art stays separate from its real name '+JSON.stringify(geometry));
+  assert.ok(geometry.reader,label+': book never clips its combat commands '+JSON.stringify(geometry));
 }
 async function cleanupProbe(page) {
   const result = await page.evaluate(async () => {
@@ -134,6 +154,163 @@ async function cleanupProbe(page) {
     } finally { probe.destroy(); host.remove(); globalThis.ResizeObserver = Original; }
   });
   assert.deepEqual(result,{lateMediaIgnored:true,rewardCancelled:true,starts:1,acknowledgements:0,observers:0,dialogs:0,views:0});
+}
+async function bonusProbe(page,capture) {
+  await page.evaluate(()=>{
+    document.querySelector('[data-jv-action="library"]')?.click();
+    const book=harness.state.books[0];
+    book.bonusReveal={title:'Le sceau des souvenirs',paragraphs:['Une page attendait dans le silence.','La lumière revient sur le cuivre.']};
+    book.bonusStages=['little-joys-flute','durane-rampart','little-joys-box'].map((id,index)=>({
+      ...structuredClone(book.stages[index]),title:'Chapitre secret QA '+(index+5),rewardEquipmentId:id,rewardKind:['weapon','shield','relic'][index],
+      intro:['Avant le chapitre secret QA '+(index+5)],outro:['Après le chapitre secret QA '+(index+5)],
+      ...(index===1?{reveal:{title:'Le cuivre se souvient',paragraphs:['Un second feuillet se détache.']}}:{})}));
+    harness.state.isAdmin=false;harness.behavior={};harness.calls=[];harness.progress(0,{cleared:4,completed:true});
+  });
+  await page.locator(action('open')).first().click();
+  for (const claimed of [false,true]) {
+    await page.evaluate(claimed=>harness.progress(0,{cleared:4,completed:true,claimed}),claimed);
+    assert.equal(await page.locator('.jv-bonus-route').count(),0,'no bonus locks or total before card ACK');
+    assert.doesNotMatch(await page.locator('.jv-reader').textContent(),/Chapitre secret|\/ 7|\/7/);
+    assert.equal(await page.evaluate(()=>harness.view.revealSequel(harness.state.books[0],4)),false);
+  }
+  await page.evaluate(()=>{harness.state.isAdmin=true;harness.view.refresh();});
+  assert.equal(await page.locator(action('stage')).count(),7);
+  for (let index=0;index<7;index++) {
+    await page.locator(action('stage')+'[data-jv-stage="'+index+'"]').click();
+    assert.match(await page.locator(action('preview')).getAttribute('aria-label') || await page.locator(action('preview')).textContent(),/Aperçu sans récompense/);
+    await page.locator(action('outro')).click();
+    assert.equal(await page.locator('.jv-reading>p').first().textContent(),await page.evaluate(index=>[...harness.state.books[0].stages,...harness.state.books[0].bonusStages][index].outro[0],index));
+    await page.locator(action('preview')).click();
+    assert.deepEqual(await page.evaluate(()=>harness.calls.at(-1)),{name:'preview',args:['momo-petits-bonheurs',index]});
+  }
+  assert.equal(await page.evaluate(()=>harness.state.progress[harness.state.books[0].id].cleared),4,'admin previews never win rewards');
+  await page.evaluate(()=>{harness.state.isAdmin=false;harness.view.refresh();});
+  assert.equal(await page.locator(action('stage')).count(),4);
+  await page.evaluate(()=>harness.progress(0,{cleared:4,claimed:true,acknowledged:true}));
+  assert.equal(await page.locator(action('stage')).count(),5);
+  await page.evaluate(()=>{
+    harness.state.progress[harness.state.books[0].id].equipmentClaims=[{stage:4,equipmentId:'little-joys-flute',acknowledged:true}];harness.view.refresh();
+  });
+  assert.equal(await page.locator(action('stage')).count(),5,'unwon claim cannot expose another chapter');
+  await page.evaluate(()=>{harness.state.progress[harness.state.books[0].id].equipmentClaims=[];harness.view.refresh();});
+  assert.equal(await page.locator('dialog').count(),0,'refresh/reload never starts a ceremony');
+  await page.evaluate(()=>{harness.sequelResult='pending';void harness.view.revealSequel(harness.state.books[0],4).then(result=>harness.sequelResult=result);});
+  for (const viewport of [{width:1440,height:1000},{width:412,height:1007},{width:320,height:568},{width:844,height:390}]) {
+    await page.setViewportSize(viewport); await assertLayout(page,'sequel '+viewport.width); await capture('sequel-'+viewport.width);
+  }
+  assert.equal(await page.evaluate(()=>harness.sequelResult),'pending');
+  assert.equal(await page.locator('.jv-sequel-leaf').evaluate(node=>getComputedStyle(node).animationName),'none');
+  await page.locator(action('acknowledge')).click();
+  assert.equal(await page.evaluate(()=>harness.sequelResult),true);
+  assert.equal(await page.locator(action('stage')+'[data-jv-stage="4"]').getAttribute('aria-current'),'step');
+  assert.equal(await page.locator('.jv-reading>p').textContent(),'Avant le chapitre secret QA 5');
+  for (let index=4;index<=6;index++) {
+    await page.locator(action('start')).click();
+    assert.deepEqual(await page.evaluate(()=>harness.calls.at(-1)),{name:'start',args:['momo-petits-bonheurs']});
+    await page.evaluate(index=>{const p=harness.state.progress[harness.state.books[0].id];p.activeAttempt={id:'qa-bonus',stage:index};harness.view.refresh();},index);
+    await page.locator(action('resume')).click();
+    assert.equal(await page.evaluate(()=>harness.calls.at(-1).name),'resume');
+    await page.evaluate(index=>{const p=harness.state.progress[harness.state.books[0].id];p.activeAttempt=null;p.cleared=index+1;harness.view.refresh();},index);
+    assert.equal(await page.locator('.jv-reading>p').textContent(),'Après le chapitre secret QA '+(index+1));
+    for (const viewport of [{width:1440,height:1000},{width:1024,height:768},{width:800,height:600},{width:412,height:1007},{width:320,height:568},{width:844,height:390}]) {
+      await page.setViewportSize(viewport);await assertLayout(page,'bonus reader '+index+' '+viewport.width);await capture('bonus-reader-'+index+'-'+viewport.width);
+    }
+    await page.locator(action('intro')).click();
+    assert.equal(await page.locator('.jv-reading>p').textContent(),'Avant le chapitre secret QA '+(index+1));
+    await page.locator(action('outro')).click();
+    assert.equal(await page.locator('.jv-scene img').getAttribute('data-jv-media'),await page.evaluate(index=>harness.state.books[0].bonusStages[index-4].imageModelId || harness.state.books[0].rewardModelId,index));
+    if (index===4) {
+      await page.evaluate(()=>{harness.behavior.claimEquipment='reject';});await page.locator(action('claim-equipment')).click();
+      assert.match(await page.locator('.jv-error').textContent(),/Erreur QA claimEquipment/);
+      await page.evaluate(()=>{harness.behavior.claimEquipment='defer';harness.calls=[];});
+      await page.locator(action('claim-equipment')).evaluate(node=>{node.click();node.click();});
+      assert.equal(await page.evaluate(()=>harness.calls.filter(call=>call.name==='claimEquipment').length),1);
+      await page.evaluate(()=>harness.release());await page.locator(action('claim-equipment')+':enabled').waitFor();
+    }
+    await page.evaluate(index=>{harness.behavior.claimEquipment='reveal';harness.alreadyOwned=index===5;harness.confirmed='pending';harness.calls=[];},index);
+    await page.locator(action('claim-equipment')).click();await page.locator('.jv-equipment-reveal[open]').waitFor();
+    assert.equal(await page.evaluate(()=>harness.confirmed),'pending');
+    assert.equal(await page.locator(action('stage')).count(),index+1,'next chapter absent until equipment ACK');
+    assert.equal(await page.locator('.jv-reward-name strong').textContent(),await page.evaluate(index=>KalistarWeapons.weapons.find(item=>item.id===harness.state.books[0].bonusStages[index-4].rewardEquipmentId).name,index));
+    assert.equal(await page.locator('.jv-equipment-art img').count(),1,'real catalogue illustration');
+    if(index===5)assert.match(await page.locator('.jv-reward-note').textContent(),/Aucun deuxième exemplaire/);
+    for (const viewport of [{width:1440,height:1000},{width:412,height:1007},{width:320,height:568},{width:844,height:390}]) {
+      await page.setViewportSize(viewport);await assertLayout(page,'equipment '+index+' '+viewport.width);await capture('equipment-'+index+'-'+viewport.width);
+      const bounds=await page.locator(action('acknowledge')).evaluate(node=>({button:node.getBoundingClientRect().toJSON(),dialog:node.closest('dialog').getBoundingClientRect().toJSON()}));
+      assert.ok(bounds.button.bottom<=bounds.dialog.bottom+1,'equipment confirmation fully visible');
+    }
+    assert.equal(await page.evaluate(()=>harness.calls.filter(call=>call.name==='acknowledgeEquipment').length),0);
+    await page.locator(action('acknowledge')).click();
+    if(index<6){
+      await page.locator('.jv-sequel-reveal[open]').waitFor();
+      assert.equal(await page.locator(action('stage')).count(),index+2);
+      if(index===4)assert.equal(await page.locator('.jv-reward h2').textContent(),'Le cuivre se souvient');
+      await page.locator(action('acknowledge')).click();
+    }
+    await page.waitForFunction(()=>document.querySelector('.jv-view').getAttribute('aria-busy')==='false');
+    assert.equal(await page.evaluate(()=>harness.confirmed),true);
+    assert.deepEqual(await page.evaluate(()=>harness.calls.filter(call=>call.name==='acknowledgeEquipment')),[{name:'acknowledgeEquipment',args:['momo-petits-bonheurs',index]}]);
+    assert.equal(await page.locator(action('claim')).count(),0,'card claim never returns');
+  }
+  assert.equal(await page.locator(action('start')).count(),0);
+  assert.match(await page.locator('.jv-earned').textContent(),/Récit achevé/);
+  await page.locator(action('reward-page')).click();assert.equal(await page.locator('.jv-reward-page').count(),1,'card page distinct from stage 4');
+  for(let index=0;index<7;index++){
+    await page.locator(action('stage')+'[data-jv-stage="'+index+'"]').click();
+    await page.locator(action('intro')).click();await page.locator(action('outro')).click();
+  }
+  await page.evaluate(()=>{harness.view.destroy();harness.mount();harness.view.refresh();});
+  assert.equal(await page.locator('dialog').count(),0,'all chapters reread without replay after remount');
+
+  // Fresh, fictitious progress exercises ACK retry, motion, native close and cancellation.
+  await page.evaluate(()=>harness.progress(0,{cleared:5,claimed:true,acknowledged:true,equipmentClaims:[{stage:4,equipmentId:'little-joys-flute',kind:'weapon',alreadyOwned:true,acknowledged:false}]}));
+  await page.setViewportSize({width:412,height:1007});await page.emulateMedia({reducedMotion:'no-preference'});
+  await page.evaluate(()=>{harness.behavior.acknowledgeEquipment='reject';harness.calls=[];document.querySelector('[data-jv-action="reveal-equipment"]').click();});
+  assert.equal(await page.locator(action('acknowledge')).isDisabled(),true,'animation cannot be acknowledged early');
+  await page.keyboard.press('Escape');assert.equal(await page.locator('.jv-equipment-reveal[open]').count(),1);
+  await page.locator(action('acknowledge')+':enabled').waitFor();
+  assert.equal(await page.evaluate(()=>harness.calls.length),0,'animation completion is not an ACK');
+  await page.locator(action('acknowledge')).click();assert.match(await page.locator('.jv-error').textContent(),/Erreur QA acknowledgeEquipment/);
+  assert.equal(await page.locator(action('stage')).count(),5);
+  await page.evaluate(()=>{harness.behavior.acknowledgeEquipment='noop';});await page.locator(action('reveal-equipment')).click();
+  await page.locator(action('acknowledge')+':enabled').waitFor();await page.keyboard.press('Escape');
+  await page.locator('.jv-sequel-reveal[open]').waitFor();await page.locator(action('acknowledge')+':enabled').waitFor();
+  await page.waitForFunction(()=>document.querySelector('dialog').getAnimations({subtree:true}).every(animation=>animation.playState==='finished'));
+  assert.equal(await page.locator('dialog[open]').count(),1,'finite animation waits for explicit confirmation');
+  await capture('sequel-motion-finished');await page.locator(action('acknowledge')).click();
+  await page.waitForFunction(()=>document.querySelector('.jv-view').getAttribute('aria-busy')==='false');
+  await page.emulateMedia({reducedMotion:'reduce'});
+  const cancelled=await page.evaluate(async()=>{
+    const book=harness.state.books[0],item=KalistarWeapons.weapons.find(item=>item.id==='little-joys-flute');
+    harness.progress(0,{cleared:5,claimed:true,acknowledged:true,equipmentClaims:[{stage:4,equipmentId:item.id,kind:'weapon',acknowledged:false}]});
+    harness.calls=[];
+    const equipment=harness.view.revealEquipment(item);harness.view.destroy();const equipmentResult=await equipment;
+    harness.mount();harness.progress(0,{cleared:4,claimed:true,acknowledged:true});
+    const sequel=harness.view.revealSequel(book,4);harness.view.destroy();const sequelResult=await sequel;
+    harness.mount();harness.progress(0,{cleared:5,claimed:true,acknowledged:true,equipmentClaims:[{stage:4,equipmentId:item.id,kind:'weapon',acknowledged:false}]});
+    const duplicate=harness.view.revealEquipment(item),same=harness.view.revealEquipment(item);
+    const samePromise=duplicate===same;harness.view.destroy();await duplicate;harness.mount();
+    return {equipmentResult,sequelResult,samePromise,acknowledgements:harness.calls.filter(call=>call.name.includes('acknowledge')).length,dialogs:document.querySelectorAll('dialog').length};
+  });
+  assert.deepEqual(cancelled,{equipmentResult:false,sequelResult:false,samePromise:true,acknowledgements:0,dialogs:0});
+  await page.evaluate(()=>{
+    harness.closedResult='pending';harness.calls=[];
+    void harness.view.revealEquipment(KalistarWeapons.weapons.find(item=>item.id==='little-joys-flute')).then(result=>harness.closedResult=result);
+  });
+  await page.locator(action('acknowledge')+':enabled').waitFor();
+  await page.evaluate(()=>document.querySelector('.jv-reward').close());
+  await page.waitForFunction(()=>harness.closedResult===true);
+  assert.equal(await page.evaluate(()=>harness.calls.length),0,'public native close confirms but leaves server ACK to parent');
+  assert.equal(await page.locator(action('stage')).count(),5,'no next chapter before parent ACK');
+  await page.evaluate(()=>{
+    harness.behavior.acknowledgeEquipment='defer';harness.calls=[];
+    document.querySelector('[data-jv-action="reveal-equipment"]').click();
+  });
+  await page.locator(action('acknowledge')).click();
+  await page.waitForFunction(()=>harness.calls.some(call=>call.name==='acknowledgeEquipment'));
+  await page.evaluate(()=>{harness.view.destroy();harness.release();harness.mount();});
+  await page.evaluate(()=>Promise.resolve());
+  assert.equal(await page.locator('dialog').count(),0,'late ACK cannot open a sequel in a remounted view');
 }
 async function main() {
   assert.ok(fs.existsSync(path.join(dist,'jeu/catalogue.json')), 'An existing V4/deploy/dist build is required; this test never builds or changes it.');
@@ -233,8 +410,9 @@ async function main() {
       const bounds = await page.locator(action('acknowledge')).evaluate(node=>({button:node.getBoundingClientRect().toJSON(),dialog:node.closest('dialog').getBoundingClientRect().toJSON()}));
       assert.ok(bounds.button.bottom<=bounds.dialog.bottom+1,'ceremony command fully visible '+viewport.width);
     }
-    await page.locator(action('acknowledge')).click(); assert.match(await page.locator('.jv-reward-error').textContent(),/Erreur QA acknowledge/);
-    await page.evaluate(()=>{harness.behavior.acknowledge='noop';}); await page.keyboard.press('Escape'); await page.locator('.jv-reward').waitFor({state:'detached'});
+    await page.locator(action('acknowledge')).click(); assert.match(await page.locator('.jv-error').textContent(),/Erreur QA acknowledge/);
+    await page.evaluate(()=>{harness.behavior.acknowledge='noop';}); await page.locator(action('reveal')).click();
+    await page.locator(action('acknowledge')+':enabled').waitFor(); await page.keyboard.press('Escape'); await page.locator('.jv-reward').waitFor({state:'detached'});
     await page.waitForFunction(()=>document.querySelector('.jv-view').getAttribute('aria-busy')==='false');
     assert.equal(await page.evaluate(()=>harness.state.progress[harness.state.books[0].id].acknowledged),true);
     assert.equal(await page.evaluate(()=>harness.calls.filter(call=>call.name==='claim').length),1); assert.equal(await page.locator(action('claim')).count(),0);
@@ -263,6 +441,7 @@ async function main() {
     await page.locator(action('refresh')).click(); assert.equal(await page.evaluate(()=>harness.calls.at(-1).name),'refresh');
     await page.evaluate(()=>{harness.behavior.refresh='reject';}); await page.locator(action('refresh')).click(); assert.match(await page.locator('.jv-error').textContent(),/Erreur QA refresh/);
     await page.evaluate(()=>{harness.state.status='ready';harness.view.refresh();}); await cleanupProbe(page);
+    await bonusProbe(page,capture);
     assert.deepEqual(errors,[]); assert.deepEqual(failures,[]);
 
     const touch = await browser.newContext({viewport:{width:412,height:1007},isMobile:true,hasTouch:true,reducedMotion:'reduce'});
@@ -279,7 +458,7 @@ async function main() {
       assert.ok(Math.abs(await phone.locator('.jv-shelf').evaluate(node=>node.scrollLeft)-before)<2,'closing the last book restores the shelf position');
       await imagesReady(phone); await phone.screenshot({path:path.join(output,'touch-412.png')}); await cdp.detach();
     } finally { await touch.close(); }
-    console.log(JSON.stringify({ok:true,books:3,combatsPerBook:4,viewports:7,source:frozen?'frozen-build':'current-view-with-built-assets',dist,output,checks:['cover-text-bounds','filters','keyboard','touch-swipe','four-stations','approved-narration','frozen-state','busy','async-errors','resume','admin-only-preview','claim-once','ack-retry','already-owned','reduced-motion','remount-selection','late-action','late-media','observer-cleanup','modal-cleanup','onRefresh']},null,2));
+    console.log(JSON.stringify({ok:true,books:3,combatsPerBook:4,bonusCombats:3,viewports:7,source:frozen?'frozen-build':'current-view-with-built-assets',dist,output,checks:['cover-text-bounds','filters','keyboard','touch-swipe','four-stations','approved-narration','frozen-state','busy','async-errors','resume','seven-admin-previews','claim-once','ack-retry','already-owned','reduced-motion','remount-selection','late-action','late-media','observer-cleanup','modal-cleanup','onRefresh','no-bonus-before-card-ack','sequential-equipment-ack','reward-art-bounds','equipment-real-names','equipment-cancel','sequel-cancel','no-reload-ceremony','finite-animation-no-auto-ack','public-reveals-parent-ack','late-ack-remount']},null,2));
   } finally { await browser.close(); }
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});

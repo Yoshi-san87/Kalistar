@@ -133,7 +133,8 @@ la revocation bornee et la recuperation de mot de passe par email.
 Les parcours utilisent en plus `journey-worker.mjs`, distribue avec le Worker,
 et la cle dediee `KALISTAR_JOURNEY_KEY` dans Pages et Supabase prive. Le build
 assemble les memes regles moteur et leur empreinte pour les quatre combats de
-chaque livre. Cette cle n'est ni une cle Auth ni une cle service_role. Sa
+carte et les trois chapitres d'equipement de chaque livre. Cette cle n'est ni
+une cle Auth ni une cle service_role. Sa
 sauvegarde reste hors checkout. Sans elle, les combats de parcours sont refuses,
 pas remplaces par une victoire locale. Appliquer les migrations ordonnees et
 verifier le role Paris/Tokyo avant de publier les definitions correspondantes.

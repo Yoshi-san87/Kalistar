@@ -126,6 +126,27 @@ test('the unpublished mapping matches the reviewed executable and exact frozen l
   await assert.rejects(builtSource(migration.compatibleHash, {corruptLegacy: true}), /Legacy journey catalogue changed/);
 });
 
+test('sequel equipment is strictly additive to the reviewed runtime and old snapshots keep their signature',async()=>{
+  const text=await fs.readFile(path.join(root,'V4/site/weapons.js'),'utf8');
+  const previous=text.replace(/  \/\/ Fragment sequel objects:[\s\S]*?  \/\/ End of additive Fragment sequel objects\.\r?\n/,'');
+  assert.notEqual(previous,text);
+  assert.equal(crypto.createHash('sha256').update(previous).digest('hex'),migration.additiveEquipmentProof.weaponsSha256);
+  const h=crypto.createHash('sha256').update('kalistar-fragment-snapshot-v1\n');
+  for(const name of Hash.modules){h.update(name+'\n');h.update(name==='weapons'?previous:await fs.readFile(path.join(root,'V4/site',name+'.js')));}
+  assert.deepEqual(migration.snapshotHashes,[h.digest('hex')],'No executable change hidden by the compatibility allowance');
+  const source=await builtSource(migration.compatibleHash);
+  assert.deepEqual(Array.from(source.snapshotHashes),migration.snapshotHashes);
+  const original=fixture();original.runtimeHash=migration.snapshotHashes[0];
+  original.state.journey.snapshot=Combat.freeze(legacyData,original.state);
+  const app=await harness(source,original);
+  const result=await app.request('move',{sequence:1,commands:[{method:'rollInitiative'}]});
+  assert.equal(result.status,200);assert.equal(result.body.attempt.runtimeHash,original.runtimeHash);
+  assert.deepEqual(result.body.attempt.state.journey.snapshot,original.state.journey.snapshot);
+  const changed=await builtSource('b'.repeat(64));
+  assert.equal(changed.snapshotHashes.length,0);
+  assert.equal((await (await harness(changed,original)).request('context')).status,409);
+});
+
 test('real builder gate disables legacy migration after an executable hash change; unknown attempts fail closed', async () => {
   const changedHash = crypto.createHash('sha256').update(migration.compatibleHash + ':changed-engine').digest('hex');
   const source = await builtSource(changedHash);

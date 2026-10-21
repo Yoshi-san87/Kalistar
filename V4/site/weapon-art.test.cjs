@@ -9,6 +9,7 @@ const gothamProof=require('../revisions/2026-10-09-gotham-equipment/media-proven
 const castlevaniaKalistarProof=require('../revisions/2026-10-11-castlevania-kalistar-equipment/media-provenance.json');
 const frozGrivkaProof=require('../revisions/2026-10-13-froz-grivka-equipment/media-provenance.json');
 const kaylisProof=require('../revisions/2026-10-14-kaylis-rapiers/media-provenance.json');
+const sequelProof=require('../revisions/2026-10-21-fragment-sequels/media-provenance.json');
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
 test('every weapon has a unique medallion, immutable definition and stable saved art identity',()=>{
   const rims=new Set(['stone-copper-ring-v1.webp','electro-copper-ring-v1.webp']);
@@ -27,7 +28,7 @@ test('every weapon has a unique medallion, immutable definition and stable saved
 });
 test('every current scene, ring and corrected body is distributed with its recorded hash',()=>{
   for(const a of Object.values(A.entries))for(const [folder,file]of [['weapon-cards',a.scene],['equipment',a.rim],['equipment',a.body]]){
-    const target='V4/site/assets/'+folder+'/'+file,p=[...proof.assets,...equipmentProof.assets,...defensiveProof.assets,...ff9Proof.assets,...gothamProof.assets,...castlevaniaKalistarProof.assets,...require('../revisions/2026-10-11-chrono-equipment/media-provenance.json').assets,...frozGrivkaProof.assets,...kaylisProof.assets].find(p=>p.file===target);assert(p,target);
+    const target='V4/site/assets/'+folder+'/'+file,p=[...proof.assets,...equipmentProof.assets,...defensiveProof.assets,...ff9Proof.assets,...gothamProof.assets,...castlevaniaKalistarProof.assets,...require('../revisions/2026-10-11-chrono-equipment/media-provenance.json').assets,...frozGrivkaProof.assets,...kaylisProof.assets,...sequelProof.assets].find(p=>p.file===target);assert(p,target);
     const bytes=fs.readFileSync(path.join(root,target));assert.equal(hash(bytes),p.sha256,target);
     assert(bytes.length>1000);assert(bytes.length<1500000,target+' bounded download');
     if(folder==='equipment')assert.deepEqual(p.placement.center,[244,242]);
@@ -46,7 +47,7 @@ test('boot and Pages contain the presentation manifest without coupling it to th
 test('new collaboration and Kalistar medallions retain a transparent center and keep each object inside its ring',async()=>{
   const modules=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
   const sharp=require('node:module').createRequire(path.join(modules,'__ff9_media__.cjs'))('sharp');
-  for(const p of [...ff9Proof.assets,...gothamProof.assets,...castlevaniaKalistarProof.assets,...require('../revisions/2026-10-11-chrono-equipment/media-provenance.json').assets,...frozGrivkaProof.assets,...kaylisProof.assets].filter(p=>['body','ring'].includes(p.role))){
+  for(const p of [...ff9Proof.assets,...gothamProof.assets,...castlevaniaKalistarProof.assets,...require('../revisions/2026-10-11-chrono-equipment/media-provenance.json').assets,...frozGrivkaProof.assets,...kaylisProof.assets,...sequelProof.assets].filter(p=>['body','ring'].includes(p.role))){
     const {data,info}=await sharp(path.join(root,p.file)).ensureAlpha().raw().toBuffer({resolveWithObject:true});
     assert.equal(info.width,488);assert.equal(info.height,488);
     let visible=0;

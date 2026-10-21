@@ -89,8 +89,13 @@ Les nouveaux combats Fragment et sauvegardes verifient les droits serveur ;
 l'arsenal et l'editeur de deck appliquent les memes droits cote client.
 Les adversaires virtuels ne sont pas soumis a l'inventaire du joueur.
 
-L'obtention par chapitres bonus Fragment est une proposition distincte, pas
-encore une mecanique publiee. Les livres actuels gardent leurs quatre combats.
+Les livres Fragment gardent leurs quatre combats pour la carte. Sa remise
+debloque un cinquieme chapitre pour une arme, puis un sixieme pour une protection
+et un septieme pour une relique. La suite reste cachee jusqu'a la remise de la
+recompense precedente. Les tables privees `journey_equipment_rewards` et
+`journey_equipment_claims` associent chaque victoire a son objet. Les appels de
+recompense sont idempotents ; aucun identifiant d'objet fourni par le joueur ne
+decide du gain. Les droits se synchronisent entre appareils sans reset de profil.
 
 Le compte Paris recoit explicitement le role administrateur du registre pour
 les apercus de parcours. Tokyo reste joueur. Ce droit vient de la table privee

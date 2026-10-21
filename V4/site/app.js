@@ -171,7 +171,7 @@
   let deckBuilder=null,collectionBinder=null,statisticsSheet=null;
   const weaponsUI=KalistarWeaponsUI.create({data,db,userId:accountId,toast,onCard:id=>showDetail(id)});
   const journeys=KalistarJourneyClient.create({data,player:cloudPlayer,sync:cloudSync,localAdmin:!connectedAccess&&db?.registry?.user(accountId)?.role==='admin',onUpdate:()=>journeyView?.refresh()});
-  journeyView=KalistarJourneyView.create({data,image:cardImage,art:artImage,getState:journeys.snapshot,onStart:startJourney,onResume:resumeJourney,onClaim:claimJourney,onAcknowledge:id=>journeys.acknowledge(id),onPreview:previewJourney,onDetail:id=>showDetail(id),onRefresh:()=>journeys.refresh(),toast});
+  journeyView=KalistarJourneyView.create({data,image:cardImage,art:artImage,getState:journeys.snapshot,onStart:startJourney,onResume:resumeJourney,onClaim:claimJourney,onAcknowledge:id=>journeys.acknowledge(id),onClaimEquipment:claimJourneyEquipment,onAcknowledgeEquipment:(id,stage)=>journeys.acknowledgeEquipment(id,stage),onPreview:previewJourney,onDetail:id=>showDetail(id),onRefresh:()=>journeys.refresh(),toast});
   const storyReader=KalistarStoryReader.create({storageKey:preferencePrefix+'story-progress',onChange:()=>cloudSync?.changed()});
   const homeScreen=KalistarHome.create({data,image:cardImage,asset,initialCards:preparedHomeCards,equipment:KalistarWeapons.weapons,medallion:KalistarEquipmentFX.markup,
     getState:()=>({deckName:teamDraft.name,deckCount:teamDraft.cards.filter(Boolean).length,resume:!!game&&game.phase!=='over'}),
@@ -321,7 +321,7 @@
     if(ui.view==='arena'&&game?.journey){
       const context=journeyArenaContext();
       const banner=document.createElement('div');banner.className='journey-arena-strip';
-      banner.innerHTML=`<span>${icon('book-open')} ${esc(context.title)} <b>${context.step}/4</b>${context.preview}</span><button data-action="journey-return">${icon('bookmark')}${context.label}</button>`;
+      banner.innerHTML=`<span>${icon('book-open')} ${esc(context.title)} <b>${context.progressLabel}</b>${context.preview}</span><button data-action="journey-return">${icon('bookmark')}${context.label}</button>`;
       $('.game-shell').prepend(banner);icons();
     }
     if(ui.view==='arena'&&game?.phase==='over'){
@@ -470,16 +470,30 @@ function showDeck(){setView('decks');}
     if(!journeys.snapshot().isAdmin)throw Error('Apercu reserve a l administration.');
     if(game&&game.phase!=='over'&&!game.journey?.preview&&!confirm('Ouvrir un apercu sans recompense et quitter cette partie ?'))return;
     const runtime=KalistarJourneyCombat.create(data),book=runtime.books.find(b=>b.id===bookId);
-    if(!book||!Number.isInteger(stage)||stage<0||stage>=4)throw Error('Etape inconnue.');
+    if(!book||!Number.isInteger(stage)||stage<0||stage>=book.stages.length)throw Error('Etape inconnue.');
     const next=runtime.initial({id:crypto.randomUUID(),bookId,revision:book.revision,stage,seed:'preview-'+crypto.randomUUID(),deck:Team.clone(teamDraft),localProfile:accountId,cards:owned().map(c=>({...c,modelId:c.modelId||c.cardId}))});
     if(game?.journey&&!game.journey.preview&&game.phase!=='over')await journeys.abandon(game.journey.attemptId);
     next.journey.preview=true;await installJourney(next);
   }
   async function claimJourney(bookId){
+    const ticket=epoch;
     const result=await journeys.claim(bookId);await ownershipChanged();
-    if(ui.view!=='journeys')await setView('journeys');
-    await journeyView.revealReward(E.byId[result.card.modelId],{alreadyOwned:result.alreadyOwned});
-    await journeys.acknowledge(bookId);
+    if(ui.view!=='journeys'||epoch!==ticket)return;
+    if(await journeyView.revealReward(E.byId[result.card.modelId],{alreadyOwned:result.alreadyOwned})){
+      await journeys.acknowledge(bookId);
+      if(ui.view==='journeys'&&epoch===ticket)await journeyView.revealSequel(bookId,4);
+    }
+  }
+  async function claimJourneyEquipment(bookId,stage){
+    const ticket=epoch;
+    const result=await journeys.claimEquipment(bookId,stage);await ownershipChanged();
+    if(ui.view!=='journeys'||epoch!==ticket)return;
+    const item=KalistarWeapons.weapons.find(w=>w.id===result.equipmentId);
+    if(!item)throw Error('Equipement de parcours indisponible.');
+    if(await journeyView.revealEquipment(item,{alreadyOwned:result.alreadyOwned})){
+      await journeys.acknowledgeEquipment(bookId,stage);
+      if(ui.view==='journeys'&&epoch===ticket&&stage<6)await journeyView.revealSequel(bookId,stage+1);
+    }
   }
   async function journeyStep(state,method,args=[]){
     if(state.journey&&!state.journey.preview)return journeys.move(state,[{method,args}]);
@@ -844,8 +858,8 @@ function showDeck(){setView('decks');}
     const arena=matchArena(game),styles={aero:['wind','#acdccc','#152322','bridge'],hydro:['waves','#82dce3','#112429','water'],electro:['zap','#f2d668','#20232c','circuit'],pyro:['flame','#ee9b72','#2b1c1e','forge'],cryo:['snowflake','#b8eaf0','#1b2830','ice'],luxo:['sun','#e8d590','#262521','sun'],minero:['mountain','#b5cbae','#232922','stone'],herbo:['leaf','#a6d88d','#1b2a23','leaves'],hemato:['droplets','#ee879a','#291d28','gates'],necro:['moon','#b2aedf','#211f2e','gates'],geo:['brick-wall','#cfb87f','#282620','stone'],rainbow:['gem','#e4c5e2','#242231','prism'],z13:['pickaxe','#7fded6','#162a2c','circuit'],'trone-fer':['crown','#ddc799','#24282a','gates'],astraball:['goal','#e5b184','#242924','street'],ruins:['landmark','#b7c7ae','#232723','stone']};
     const [,accent,surface,material]=styles[arena.id]||styles.ruins;
     shell.dataset.arena=arena.id;console.dataset.material=material;console.style.setProperty('--arena-accent',accent);console.style.setProperty('--arena-surface',surface);
-    const journey=journeyArenaContext(),menuLabel=journey?`Options du match, Fragment, \u00e9tape ${journey.step} sur 4`:'Options du match';
-    $('.arena-toolbar .tools').insertAdjacentHTML('beforeend',`<button class="icon-button mobile-only${journey?' journey-arena-options':''}" data-action="arena-menu" aria-label="${menuLabel}" title="${menuLabel}" aria-haspopup="dialog" aria-controls="mobile-dialog" aria-expanded="false">${icon('ellipsis')}${journey?`<span class="journey-arena-progress" aria-hidden="true">${journey.step}/4</span>`:''}</button>`);
+    const journey=journeyArenaContext(),menuLabel=journey?`Options du match, Fragment, ${journey.progressLabel}`:'Options du match';
+    $('.arena-toolbar .tools').insertAdjacentHTML('beforeend',`<button class="icon-button mobile-only${journey?' journey-arena-options':''}" data-action="arena-menu" aria-label="${menuLabel}" title="${menuLabel}" aria-haspopup="dialog" aria-controls="mobile-dialog" aria-expanded="false">${icon('ellipsis')}${journey?`<span class="journey-arena-progress" aria-hidden="true">${journey.progress}</span>`:''}</button>`);
     shell.querySelectorAll('.resources [data-action]').forEach(button=>button.setAttribute('aria-label',(button.dataset.action==='reserves'?'Réserve':'Cimetière')+' du joueur '+(Number(button.dataset.side)+1)));
     console.insertAdjacentHTML('beforeend',`<div class="arena-crown" title="${esc(arena.name)}" aria-label="${esc(arena.name)}"><img src="assets/navigation/arena-v1.webp" alt="" width="128" height="128" draggable="false"></div>`);
     const score=[game.players[1].dead.length,game.players[0].dead.length];
@@ -1082,11 +1096,12 @@ function showDeck(){setView('decks');}
   function journeyArenaContext(){
     if(!game?.journey)return null;
     const book=KalistarJourneyDefinitions.catalogue(data).find(b=>b.id===game.journey.bookId);
-    return {title:book?.title||'Fragment',step:game.journey.stage+1,preview:game.journey.preview?' · Aper\u00e7u administrateur':'',label:game.phase==='over'?(game.winner===0?'\u00c9tape remport\u00e9e':'Retrouver le livre'):'Le parcours'};
+    const step=game.journey.stage+1,progress=step<=4?`${step}/4`:String(step),progressLabel=step<=4?`\u00c9tape ${progress}`:`Chapitre ${step}`;
+    return {title:book?.title||'Fragment',step,progress,progressLabel,preview:game.journey.preview?' · Aper\u00e7u administrateur':'',label:game.phase==='over'?(game.winner===0?'\u00c9tape remport\u00e9e':'Retrouver le livre'):'Le parcours'};
   }
   function showArenaMenu(){
     const journey=journeyArenaContext();
-    const journeyLink=journey?menuGroup('Fragment',menuItem('data-action="journey-return"',journey.title,'<img class="kalistar-nav-icon" src="assets/navigation/kalistel-rainbow-v2.webp" alt="" width="128" height="128">',`\u00c9tape ${journey.step}/4${journey.preview} · ${journey.label}`)):'';
+    const journeyLink=journey?menuGroup('Fragment',menuItem('data-action="journey-return"',journey.title,'<img class="kalistar-nav-icon" src="assets/navigation/kalistel-rainbow-v2.webp" alt="" width="128" height="128">',`${journey.progressLabel}${journey.preview} · ${journey.label}`)):'';
     const combat=menuAction('duel-details','list-plus','Calculs et effets du duel')+menuAction('match-stats','trophy','Bilan du match')+
       menuAction('journal','scroll-text','Journal du duel')+menuAction('reserves','layers-3',`Réserve adverse · ${game.players[1].reserve.length}`,'data-side="1"')+menuAction('grave','skull',`Cimetière adverse · ${game.players[1].dead.length}`,'data-side="1"');
     const items=[['fullscreen',document.fullscreenElement?'minimize':'maximize',document.fullscreenElement?'Quitter le plein écran':'Plein écran'],['arena-picker','map','Choisir l’arène'],['auto-formation','shuffle','Formation automatique'],['rules','book-open','Règles'],['save-game','download','Exporter la partie'],['load-game','upload','Importer une partie'],['new-game','rotate-ccw','Nouvelle partie']].filter(([action])=>action!=='auto-formation'||!game.composition);

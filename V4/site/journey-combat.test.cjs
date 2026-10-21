@@ -56,7 +56,7 @@ function commandFor(runtime, state, step = 0, focusCharacter, preserveEnemyFace)
   return {method: choice[0], args: [E[choice[1]](state)]};
 }
 
-test('pure JourneyCombat: legal commands, protected AI and twelve complete runtime-only matches', async t => {
+test('pure JourneyCombat: twenty-one initial states, protected AI and twelve complete historical matches', async t => {
   const data = await buildCatalog({published});
   const catalogueBefore = JSON.stringify(data);
   const runtime = Combat.create(data), E = runtime.engine, Team = Composition.create(E);
@@ -128,14 +128,21 @@ test('pure JourneyCombat: legal commands, protected AI and twelve complete runti
     return {state, actions, commands};
   };
 
-  await t.test('exactly three books, four valid compositions each, real captains and matching character rewards', () => {
+  await t.test('three books keep four historical stages and expose seven valid runtime compositions each', () => {
     assert.deepEqual(runtime.books.map(book => book.id).sort(), ['balmhyr-retour', 'kaylis-prochain-pas', 'momo-petits-bonheurs']);
     assert.equal(runtime.books.length, 3);
     assert.deepEqual(Combat.methods.slice().sort(), expectedMethods.slice().sort());
     assert.deepEqual(Definitions.validate(data, E, Team), runtime.books);
+    const catalogue = Definitions.catalogue(data);
     for (const book of runtime.books) {
-      assert.equal(book.stages.length, 4);
-      assert.equal(new Set(book.stages.map(stage => stage.id)).size, 4);
+      const original = catalogue.find(value => value.id === book.id);
+      assert.equal(original.stages.length, 4);
+      assert.equal(original.bonusStages.length, 3);
+      assert.equal(book.revision, 'journeys-1');
+      assert.equal(book.stages.length, 7);
+      assert.equal(new Set(book.stages.map(stage => stage.id)).size, 7);
+      assert.deepEqual(book.stages.slice(0, 4), original.stages);
+      assert.deepEqual(book.stages.slice(4), original.bonusStages);
       assert.equal(E.byId[book.rewardModelId].characterId, book.characterId);
       for (const stage of book.stages) {
         const opponent = Team.fromPreset({name: book.subtitle, cards: stage.deck});
@@ -167,10 +174,37 @@ test('pure JourneyCombat: legal commands, protected AI and twelve complete runti
     assert.equal(new Set(Object.values(state.collection.bindings)).size, 10);
     for (const unit of state.players[0].board.filter(Boolean).concat(state.players[0].reserve))
       assert.equal(state.collection.bindings[unit.instanceId], fixture.cards.find(card => card.modelId === unit.cardId).id);
-    for (const patch of [{bookId: 'not-a-book'}, {revision: 'obsolete'}, {stage: -1}, {stage: 4}, {stage: 1.5}])
+    for (const patch of [{bookId: 'not-a-book'}, {revision: 'obsolete'}, {stage: -1}, {stage: 7}, {stage: 1.5}])
       assert.throws(() => runtime.initial({...fixture, ...patch}), /Edition de parcours indisponible/);
     assert.throws(() => runtime.initial({...fixture, cards: fixture.cards.slice(1)}), /Exemplaire de parcours absent/);
     assert.throws(() => runtime.initial({...fixture, deck: {...fixture.deck, cards: []}}));
+  });
+
+  await t.test('all twenty-one initial states use the exact stage and survive snapshot restoration', () => {
+    let checked = 0;
+    for (const book of runtime.books) for (let index = 0; index < 7; index++) {
+      const fixture = attempt(book, index), before = JSON.stringify(fixture), stage = book.stages[index];
+      const state = runtime.initial(fixture);
+      assert.equal(JSON.stringify(fixture), before);
+      assert.deepEqual(state, runtime.initial(copy(fixture)));
+      assert.equal(state.phase, 'initiative');
+      assert.equal(state.journey.bookId, book.id);
+      assert.equal(state.journey.stage, index);
+      assert.equal(state.journey.revision, 'journeys-1');
+      assert.equal(state.journey.sequence, 1);
+      assert.equal(state.arenaId, stage.arenaId);
+      assert.deepEqual(state.composition.teams[1].cards, stage.deck);
+      assert.equal(state.composition.teams[1].captain, stage.captain);
+      assert.deepEqual(state.journey.snapshot.arenas.map(arena => arena.id), [stage.arenaId]);
+      const participants = new Set(state.players.flatMap(player =>
+        [...player.board.filter(Boolean), ...player.reserve].map(unit => unit.cardId)));
+      assert.deepEqual(state.journey.snapshot.cards.map(card => card.id).sort(), [...participants].sort());
+      assert.equal(Object.keys(state.collection.bindings).length, 10);
+      assert.deepEqual(copy(E.restoreGame(copy(state))), state);
+      assert.deepEqual(copy(Combat.engineFor(data, state).restoreGame(copy(state))), state);
+      checked++;
+    }
+    assert.equal(checked, 21);
   });
 
   await t.test('definitions reject missing rewards, wrong character identities, missing arenas and nonplayable compositions', () => {
@@ -187,7 +221,7 @@ test('pure JourneyCombat: legal commands, protected AI and twelve complete runti
   });
 
   for (const book of runtime.books) for (let stage = 0; stage < 4; stage++) await t.test(
-    'complete runtime.apply-only combat: ' + book.id + '/' + (stage + 1), () => {
+    'complete historical runtime.apply-only combat: ' + book.id + '/' + (stage + 1), () => {
       const fixture = attempt(book, stage), result = play(fixture);
       results.push({bookId: book.id, stage, actions: result.actions, winner: result.state.winner});
     });
@@ -225,7 +259,7 @@ test('pure JourneyCombat: legal commands, protected AI and twelve complete runti
     assert.equal(selected.journey.sequence, pending.journey.sequence + 1);
   });
 
-  await t.test('every exposed command has a successful real-engine execution and all twelve official combats terminated', () => {
+  await t.test('every exposed command succeeds and the four historical combats per book all terminate', () => {
     assert.equal(results.length, 12);
     for (const book of runtime.books) assert.deepEqual(results.filter(result => result.bookId === book.id).map(result => result.stage), [0, 1, 2, 3]);
     assert.deepEqual([...accepted].sort(), expectedMethods.slice().sort());

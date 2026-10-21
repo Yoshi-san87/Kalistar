@@ -243,7 +243,7 @@ test('journeys: real migrations 001-009, signed engine outcomes, Worker and acco
     return result.body.attempt;
   };
 
-  await t.test('three DB books and runtime definitions have exactly four stages and matching rewards', async () => {
+  await t.test('historical schema keeps four card stages and matching rewards within the extended runtime', async () => {
     await root();
     assert.equal(await value('select version from kalistar_private.registry_version'), 8);
     const books = (await query('select id,revision,reward_model_id,stage_count,enabled from kalistar_private.journeys order by id')).rows;
@@ -255,8 +255,10 @@ test('journeys: real migrations 001-009, signed engine outcomes, Worker and acco
       assert.equal(book.reward_model_id, expectedBooks[book.id]);
       const definition = runtime.books.find(item => item.id === book.id);
       assert.equal(definition.revision, book.revision);
-      assert.equal(definition.stages.length, 4);
-      assert.equal(new Set(definition.stages.map(stage => stage.id)).size, 4);
+      assert.equal(definition.stages.length, 7);
+      const originalStages=definition.stages.slice(0,book.stage_count);
+      assert.equal(new Set(originalStages.map(stage => stage.id)).size, 4);
+      assert(originalStages.every(stage=>!stage.rewardEquipmentId));
       assert.equal(definition.rewardModelId, book.reward_model_id);
     }
     for (const actor of [0, 1]) assert((await library(actor)).books.every(book => book.cleared === 0 && !book.completed && !book.claimed));

@@ -26,7 +26,12 @@
       const progress={};
       for(const book of result.books){
         const definition=definitions.find(b=>b.id===book.id);
-        if(!definition||book.revision!==definition.revision||!Number.isInteger(book.cleared)||book.cleared<0||book.cleared>4)throw Error('Edition de livre incompatible.');
+        if(!definition||book.revision!==definition.revision||!Number.isInteger(book.cleared)||book.cleared<0||book.cleared>4+(definition.bonusStages?.length||0))throw Error('Edition de livre incompatible.');
+        const claims=book.equipmentClaims===undefined?[]:book.equipmentClaims;
+        if(!Array.isArray(claims)||claims.length>3||claims.some(c=>!c||typeof c!=='object')||new Set(claims.map(c=>c.stage)).size!==claims.length||claims.some(c=>{
+          const stage=definition.bonusStages?.[c.stage-4];
+          return !Number.isInteger(c.stage)||!stage||stage.rewardEquipmentId!==c.equipmentId||stage.rewardKind!==c.kind||c.stage>=book.cleared||typeof c.acknowledged!=='boolean'||typeof c.alreadyOwned!=='boolean';
+        }))throw Error('Recompenses de livre incompatibles.');
         progress[book.id]=book;
       }
       update({status:'ready',error:'',isAdmin:result.isAdmin,books:definitions.filter(b=>Object.hasOwn(progress,b.id)),progress});
@@ -64,7 +69,14 @@
     async function abandon(attemptId){libraryEpoch++;const result=await request('abandon',{attemptId,deviceId:await device()});libraryEpoch++;project(result);}
     async function claim(bookId){libraryEpoch++;const result=await request('claim',{bookId});libraryEpoch++;await player.refresh();await refresh();return result;}
     async function acknowledge(bookId){libraryEpoch++;const result=await request('ack',{bookId});libraryEpoch++;project(result);}
-    return {snapshot,refresh,start,resume,move,abandon,claim,acknowledge,destroy(){destroyed=true;generation++;for(const controller of requests)controller.abort();requests.clear();}};
+    async function claimEquipment(bookId,stage){
+      libraryEpoch++;const result=await request('equipment-claim',{bookId,stage});libraryEpoch++;
+      const expected=definitions.find(b=>b.id===bookId)?.bonusStages?.[stage-4];
+      if(!Number.isInteger(stage)||!expected||result.equipmentId!==expected.rewardEquipmentId||result.kind!==expected.rewardKind||result.stage!==stage||typeof result.alreadyOwned!=='boolean'||typeof result.replayed!=='boolean')throw Error('Recompense de livre incompatible.');
+      await player.refresh();await refresh();return result;
+    }
+    async function acknowledgeEquipment(bookId,stage){libraryEpoch++;const result=await request('equipment-ack',{bookId,stage});libraryEpoch++;project(result);}
+    return {snapshot,refresh,start,resume,move,abandon,claim,acknowledge,claimEquipment,acknowledgeEquipment,destroy(){destroyed=true;generation++;for(const controller of requests)controller.abort();requests.clear();}};
   }
   return {create};
 });

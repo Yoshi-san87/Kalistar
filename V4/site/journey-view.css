@@ -91,6 +91,9 @@ body.journeys-view #app { flex:1 1 0; width:100%; min-width:0; min-height:0; max
 .jv-scene-caption span { display:block; margin-top:2px; font:italic 12px/1.45 Georgia,serif; }
 .jv-route { flex:none; padding:0 0 13px; border-bottom:1px solid #75634c66; }
 .jv-route ol { display:flex; justify-content:space-between; padding:0; list-style:none; }
+.jv-route .jv-bonus-route { justify-content:flex-start; gap:12px; margin-top:12px; padding-top:12px; border-top:1px solid #75634c40; }
+.jv-bonus-route li { flex:0 1 76px; min-width:44px; }
+.jv-route .is-preview .jv-station { border-style:dashed; }
 .jv-route li { position:relative; flex:1 1 0; min-width:0; }
 .jv-route li:not(:last-child)::after { position:absolute; top:17px; left:calc(50% + 18px); right:calc(-50% + 18px); border-top:1px dashed #77695399; content:''; }
 .jv-route li.is-done:not(:last-child)::after { border-top-style:solid; border-color:#496654; }
@@ -147,6 +150,19 @@ body.journeys-view #app { flex:1 1 0; width:100%; min-width:0; min-height:0; max
 .jv-reward-error { color:#f1beb0; font-size:13px; overflow-wrap:anywhere; }
 .jv-reward-error:empty { display:none; }
 .jv-reward .jv-command { margin-top:6px; min-width:160px; }
+.jv-equipment-reveal { width:min(100% - 24px,720px); max-width:720px; }
+.jv-equipment-reveal .jv-reward-display { height:min(42dvh,330px); }
+.jv-reward .jv-equipment-art { position:absolute; inset:0; display:block; width:100%; max-width:100%; height:100%; min-height:0; }
+.jv-reward .jv-equipment-art img { width:100%; height:100%; max-height:100%; aspect-ratio:auto; object-fit:contain; }
+.jv-sequel-reveal { background:#171e1d; }
+.jv-sequel-leaf { position:relative; width:100%; min-width:0; padding:28px 24px; color:#352e25; background:#d4c9b2 url('assets/ui/collection-reader-grimoire-v1.webp') 88% center/250% 140%; animation:jv-page-unseal .85s cubic-bezier(.2,.65,.25,1) both; transform-origin:left center; }
+.jv-sequel-leaf h2 { position:relative; color:#352e25; font-size:22px; }
+.jv-sequel-paragraphs { position:relative; margin-top:18px; font:16px/1.8 'Segoe Print','Bradley Hand',Georgia,serif; text-align:left; overflow-wrap:anywhere; }
+.jv-sequel-paragraphs p+p { margin-top:1em; }
+.jv-sequel-seal { display:grid; place-items:center; width:64px; height:64px; margin:0 auto 20px; border:2px solid #9c704b; outline:1px solid #668e83; outline-offset:5px; color:#b3ede3; background:#263f37; transform:rotate(45deg); animation:jv-seal-release .85s ease-out both; }
+.jv-sequel-seal .lucide { width:30px; height:30px; transform:rotate(-45deg); }
+@keyframes jv-page-unseal { from { opacity:.25; transform:perspective(900px) rotateY(-16deg); } to { opacity:1; transform:perspective(900px) rotateY(0); } }
+@keyframes jv-seal-release { 0% { opacity:1; transform:rotate(45deg) scale(1.08); } 45% { opacity:1; transform:rotate(45deg) scale(1); } 100% { opacity:.8; transform:rotate(45deg) scale(.85); } }
 @keyframes jv-card-arrive { 0% { opacity:0; transform:perspective(900px) rotateY(65deg) translateY(14px) scale(.88); filter:drop-shadow(0 0 0 #bdeed1); } 65% { opacity:1; filter:drop-shadow(0 0 24px #bdeed16b); } 100% { opacity:1; transform:perspective(900px) rotateY(0) translateY(0) scale(1); filter:drop-shadow(0 10px 19px #0009); } }
 @keyframes jv-seal-awaken { from { opacity:0; transform:rotate(32deg) scale(.65); } to { opacity:1; transform:rotate(45deg) scale(.8); } }
 @media (min-width:1500px) and (min-height:900px) { .jv-volume { flex-basis:280px; width:280px; } .jv-volumes { gap:54px; } .jv-cover-title { font-size:16px; } }
@@ -196,4 +212,6 @@ body.journeys-view #app { flex:1 1 0; width:100%; min-width:0; min-height:0; max
 @media (max-height:600px) and (min-width:761px) { .jv-volume { flex-basis:224px; width:224px; } .jv-cover-title { font-size:13px; } .jv-library { padding-top:12px; } .jv-library-heading h1 { font-size:23px; } .jv-filters { margin-top:12px; } }
 @media (max-height:650px) { .jv-reward-ceremony { gap:6px; padding:16px 18px; } .jv-reward h2 { font-size:20px; } .jv-reward-display { height:min(34dvh,210px); margin-block:8px; } .jv-reward-name strong { font-size:18px; } .jv-reward-note { font-size:11px; } }
 @media (min-width:600px) and (max-height:500px) { .jv-reward-ceremony { grid-template-columns:minmax(120px,.85fr) minmax(0,1fr); gap:6px 20px; } .jv-reward-ceremony>* { grid-column:2; } .jv-reward-ceremony>.jv-reward-display { grid-column:1; grid-row:1/8; height:calc(100dvh - 72px); max-height:320px; min-height:0; margin:0; } .jv-reward h2 { font-size:19px; } .jv-reward-engraving { width:80%; height:66%; } }
+.jv-sequel-reveal .jv-reward-ceremony { display:flex; flex-direction:column; align-items:center; }
+.jv-sequel-reveal .jv-command { position:sticky; bottom:0; flex:none; }
 @media (prefers-reduced-motion:reduce) { .jv-view *,.jv-reward * { animation:none !important; transition:none !important; scroll-behavior:auto !important; } .jv-cover:hover .jv-cover-object { transform:none; } }

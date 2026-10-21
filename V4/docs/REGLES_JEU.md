@@ -16,16 +16,23 @@ comportement actuel, avec composition et commandement demandes explicitement. Re
 - Les profils du [verrou courant](../atelier/data/references.json) font autorite
   pour les valeurs et faces d'une carte ; ne pas les recreer depuis ce resume.
 
-## Bibliotheque et collection
+## Fragment et collection
 
-Chaque livre de la Bibliotheque propose exactement quatre combats contre une
+Chaque livre de Fragment propose d'abord quatre combats contre une
 equipe definie pour chaque etape. Une victoire avance d'une etape ; une defaite
 ou un nul conserve les etapes gagnees. Le joueur utilise ses dix exemplaires et
 sa composition habituelle, avec les memes regles que l'Arene. Le serveur valide
 les combats et permet de reprendre la tentative en cours sur l'appareil actif.
 
-La quatrieme victoire ouvre l'attribution de la carte de couverture. Un livre
-ne donne sa recompense qu'une fois, puis reste lisible. Le compte ne peut
+La quatrieme victoire ouvre l'attribution de la carte de couverture. Apres sa
+remise, un chapitre cache s'ouvre pour gagner une arme. Sa remise debloque un
+combat pour une protection, puis un dernier pour une relique. Chaque objet
+correspond au personnage et chaque chapitre ajoute un passage de son recit.
+Les combats bonus ne sont pas affiches avant leur deblocage. Une defaite ne
+retire ni les chapitres precedents ni les recompenses deja gagnees.
+
+Un livre ne donne chacune de ses quatre recompenses qu'une fois, puis reste
+lisible. Les objets sont des droits d'equipement non transferables. Le compte ne peut
 posseder qu'un seul exemplaire de chaque modele/version : une carte deja
 possedee n'est pas dupliquee. Collectionner plusieurs versions d'un personnage
 reste possible ; en jouer plusieurs dans un deck reste interdit. Les apercus

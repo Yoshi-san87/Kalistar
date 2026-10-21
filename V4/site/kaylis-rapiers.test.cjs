@@ -22,7 +22,7 @@ test('Eclipse is a separate collectible of equal strength, restricted to the act
   assert.equal(eclipse.name,'\u00c9clipse');assert.equal(eclipse.collectible.number,'ARM-063');
   assert.deepEqual(eclipse.effect,promise.effect);assert(Object.isFrozen(eclipse.effect));
   assert(!Q.catalogue.legacyWeapons.some(w=>w.id===eclipse.id));
-  assert.equal(new Set(Q.catalogue.weapons.map(w=>w.collectible?.number).filter(Boolean)).size,134);
+  assert.equal(new Set(Q.catalogue.weapons.map(w=>w.collectible?.number).filter(Boolean)).size,136);
   for(const w of [promise,eclipse]){
     const compatible=d.cards.filter(c=>Q.compatible(w,c));
     assert(compatible.some(c=>c.id==='49055457'));
