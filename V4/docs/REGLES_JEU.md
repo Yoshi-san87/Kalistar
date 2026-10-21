@@ -330,6 +330,15 @@ correspondant : +15 ATK. Affinite du personnage (`characterId`, toutes versions
 comprises) : +10 ATK et +10 DEF. Maximum +25 ATK/+10 DEF, uniquement sur les
 scores numeriques. NONE ne donne pas d'affinite elementaire.
 
+Les affinites de domicile sont individuelles, jamais attribuees a toute une
+collaboration ou faction. Un visiteur d'un autre univers peut recevoir le
+bonus elementaire si son cristal correspond. Un terrain sans bonus de cristal
+peut encore posseder des affinites de domicile (par exemple le commissariat
+de Raccoon City). Le recapitulatif avant match affiche les deux conditions.
+Les ajouts V4 sont dans `donnees/arenes-collaborations.json` et
+`donnees/arenes-kalistar.json`, controles par le meme validateur. Les definitions
+V3 et les snapshots des rencontres commencees ne sont pas remplaces.
+
 ## Buffs et effets
 
 Cinq categories coexistent : `ward`, `luck`, `reraise`, `mana`, `physical`.

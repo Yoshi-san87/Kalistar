@@ -82,6 +82,12 @@ La famille d'arme imprimée participe également aux avantages du duel. **Une ar
 
 Dans une arène, un cristal correspondant au lieu gagne +15 ATK. Un personnage lié au lieu gagne +10 ATK et +10 DEF. Les deux peuvent se cumuler, jusqu'à +25 ATK et +10 DEF.
 
+Ces bonus sont indiqués avant le combat et fonctionnent de la même façon pour
+les deux équipes. Le bonus du lieu concerne les personnages cités, dans toutes
+leurs versions, pas toute leur faction. Une carte d'un autre univers peut aussi
+profiter du cristal du lieu. Au commissariat de Raccoon City, il n'y a pas de
+bonus de cristal : seuls les personnages indiqués gagnent +10 ATK et +10 DEF.
+
 ## Physique, magie et barrières
 
 Certaines faces ATK sont magiques ; les autres attaques chiffrées sont physiques. Cela détermine les soutiens utilisables et la protection rencontrée.

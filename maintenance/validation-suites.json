@@ -14,6 +14,7 @@
       ]
     ],
     "ci": [
+      ["--test", "V4/expansions/2026-10-21-arenes/integration.test.cjs", "V4/expansions/2026-10-21-arenes/arena-balance.test.cjs"],
       ["--test", "V4/revisions/2026-10-21-collab-kalistels/integration.test.cjs", "V4/revisions/2026-10-21-collab-kalistels/native.test.cjs"],
       ["--test", "V4/expansions/2026-10-21-octopath-traveler/integration.test.cjs", "V4/expansions/2026-10-21-octopath-traveler/native.test.cjs", "V4/expansions/2026-10-21-octopath-traveler/publication.test.cjs"],
       ["--test", "V4/expansions/2026-10-20-riko/integration.test.cjs", "V4/expansions/2026-10-20-riko/native.test.cjs", "V4/expansions/2026-10-20-riko/publication.test.cjs"],
@@ -461,6 +462,7 @@
     ]
   },
   "browserAliases": [
+    "V4/expansions/2026-10-21-arenes/arenas.browser.test.cjs",
     "V4/revisions/2026-10-21-collab-kalistels/game.browser.test.cjs",
     "V4/revisions/2026-10-21-fragment-sequels/equipment.browser.test.cjs",
     "V4/expansions/2026-10-21-octopath-traveler/gallery.browser.test.cjs",

@@ -2,7 +2,7 @@
 const fs = require('node:fs/promises');
 const path = require('node:path');
 const { createEngine } = require('../site/engine.js');
-const collaborations = require('../site/collaborations.js');
+const { collaborationArenas, kalistarArenas } = require('./arena-catalog.cjs');
 const factions = require('../site/factions.js');
 const ROOT = path.resolve(__dirname, '../..');
 const CROP = Object.freeze({ left: 50, top: 50, width: 797, height: 1388 });
@@ -63,32 +63,6 @@ function makeDeck(engine, preference) {
   return selected;
 }
 
-function collaborationArenas(entries, characterIds, elements, existing, cards) {
-  if (!Array.isArray(entries)) throw Error('La liste des arenes de collaboration est invalide.');
-  const ids = new Set(existing.map(a => a.id)), arenas = [];
-  const slug = value => typeof value === 'string' && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value) && value.length <= 80;
-  for (const a of entries) {
-    if (!a || typeof a !== 'object' || Array.isArray(a) || !slug(a.id) || ids.has(a.id) || !slug(a.collaboration)) throw Error('Identifiant d arene de collaboration invalide ou duplique.');
-    ids.add(a.id);
-    for (const field of ['name', 'subtitle', 'source']) {
-      if (typeof a[field] !== 'string' || !a[field].trim() || a[field].length > 500 || /[<>"\x00-\x1f]/.test(a[field])) throw Error('Champ d arene de collaboration invalide : ' + field);
-    }
-    if (typeof a.image !== 'string' || !/^\/jeu\/assets\/arenes\/[a-z0-9][a-z0-9_-]*\.(png|webp|jpg|jpeg)$/.test(a.image)) throw Error('Image d arene de collaboration invalide.');
-    if (![null, 'NONE', ...Object.keys(elements)].includes(a.element)) throw Error('Element d arene de collaboration invalide.');
-    for (const [field, max] of [['elementBonus', 15], ['homeAttack', 10], ['homeDefense', 10]]) {
-      if (!Number.isInteger(a[field]) || a[field] < 0 || a[field] > max) throw Error('Bonus d arene de collaboration invalide : ' + field);
-    }
-    if (!Array.isArray(a.homeCharacters) || a.homeCharacters.some(id => !slug(id)) || new Set(a.homeCharacters).size !== a.homeCharacters.length) throw Error('Affinites d arene de collaboration invalides.');
-    // Shared characters keep their identity across factions; their version unlocks the arena.
-    const available = cards ? cards.some(card => collaborations.matches(card, a.collaboration))
-      : [...characterIds].some(id => id.endsWith('-' + a.collaboration));
-    if (!available) continue;
-    const { collaboration, ...arena } = a;
-    arenas.push({ ...arena, homeCharacters: a.homeCharacters.filter(id => characterIds.has(id)) });
-  }
-  return arenas;
-}
-
 // Pure catalogue builder: callers own publication persistence and HTTP media routes.
 async function buildCatalog({ published = [] } = {}) {
   if (!Array.isArray(published)) throw Error('La liste des publications est invalide.');
@@ -110,6 +84,7 @@ async function buildCatalog({ published = [] } = {}) {
     homeAttack: a.homeAttack, homeDefense: a.homeDefense, source: a.source
   }));
   arenas.push(...collaborationArenas(await read('V4/donnees/arenes-collaborations.json'), characterIds, elements, arenas, cards));
+  arenas.push(...kalistarArenas(await read('V4/donnees/arenes-kalistar.json'), characterIds, elements, arenas, cards));
   const data = { version: 4, edition: 'V4', referenceId: references.id, crop: { ...CROP },
     imageSize: { width: 897, height: 1497 }, cards, elements, weapons, arenas,
     rules: await read('V3/donnees/regles.json'), demo: await read('V3/donnees/regles_demo.json') };
@@ -141,4 +116,4 @@ async function buildCatalog({ published = [] } = {}) {
   return JSON.parse(JSON.stringify(data));
 }
 
-module.exports = { buildCatalog, collaborationArenas, CROP };
+module.exports = { buildCatalog, collaborationArenas, kalistarArenas, CROP };

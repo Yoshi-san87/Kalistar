@@ -19,7 +19,8 @@
   };
   // Non-elemental places and crossovers can override ambience without changing arena data.
   const places={z13:'MINERO','trone-fer':'MINERO',astraball:'GEO',ruins:'NONE',
-    'ff7-midgar':'ELECTRO','ff8-deling-parade':'LUXO','nier-amusement-park':'LUXO'};
+    'ff7-midgar':'ELECTRO','ff8-deling-parade':'LUXO','nier-amusement-park':'LUXO',
+    'witcher-kaer-morhen':'CRYO','froz-bastion':'CRYO','re2-rpd':'NONE'};
   let field=null,canvas=null,shade=null,light=null,ctx=null,observer=null,frame=0,timer=0,last=0;
   let intersection=null,overlays=null,visible=true,covered=false;
   let profile=profiles.NONE,width=0,height=0,ratio=1,particles=[],lockUntil=0,hit=null,shake=null,sizeKey='';

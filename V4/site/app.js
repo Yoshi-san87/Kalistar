@@ -503,11 +503,11 @@ function showDeck(){setView('decks');}
     if(next?.journey&&!next.journey.preview&&game?.matchId===next.matchId&&next.journey.sequence>game.journey.sequence&&!cloudBlocked()){game=next;epoch++;}
   }
   function arenaRule(a,source=data){
-    const crystal=a.element&&a.element!=='NONE'?(source.elements[a.element]?.label||a.element)+' : +'+(a.elementBonus||0)+' ATK':'Terrain neutre';
+    const crystal=a.element&&a.element!=='NONE'?(source.elements[a.element]?.label||a.element)+' : +'+(a.elementBonus||0)+' ATK':a.homeCharacters?.length?'Sans bonus de cristal':'Terrain neutre';
     const home=(a.homeCharacters||[]).map(id=>source.cards.find(c=>c.characterId===id)?.name||id);
     return esc(crystal+(home.length?' · '+home.join(', ')+' : +'+(a.homeAttack||0)+' ATK / +'+(a.homeDefense||0)+' DEF':''));
   }
-  function arenaChoices(id){return `<fieldset class="arena-options"><legend>Lieu de la rencontre</legend>${arenas.map(a=>`<label class="arena-option"><input type="radio" name="arena" value="${a.id}" ${arenaById(id).id===a.id?'checked':''}><img src="${a.image}" alt="${a.name}"><span>${a.name}<small>${esc(a.subtitle)}</small><small class="arena-bonus-rule">${arenaRule(a)}</small></span></label>`).join('')}</fieldset>`;}
+  function arenaChoices(id){return `<fieldset class="arena-options"><legend>Lieu de la rencontre</legend>${arenas.map(a=>`<label class="arena-option"><input type="radio" name="arena" value="${a.id}" ${arenaById(id).id===a.id?'checked':''}><img src="${a.image}" alt="${a.name}" loading="lazy" decoding="async"><span>${a.name}<small>${esc(a.subtitle)}</small><small class="arena-bonus-rule">${arenaRule(a)}</small></span></label>`).join('')}</fieldset>`;}
   function matchDeckSources(){
     let saved=[];try{saved=builder().listDecks();}catch{}
     return [{...Team.clone(teamDraft),id:'active'},...saved.map(value=>({...Team.clone(value),id:'saved:'+value.id}))];
