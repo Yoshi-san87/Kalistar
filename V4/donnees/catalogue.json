@@ -3862,13 +3862,13 @@
       "creationJob": "a216ed85-08a4-4f58-8b23-5a78bd24db49",
       "name": "WARD",
       "title": "LA FORCE DE RESTER",
-      "element": "NONE",
+      "element": "MINERO",
       "profile": {
         "name": "WARD",
         "title": "LA FORCE DE RESTER",
         "job": "GARDIEN",
         "description": "Sur la falaise de Centra, Ward s'appuie sur son harpon pour ménager son épaule. Avant la mer en contrebas, il cherche Laguna et Kiros du regard. Dans leur trio, sa force n'a jamais servi à partir le premier.",
-        "element": "NONE",
+        "element": "MINERO",
         "race": "HUMAIN",
         "weapon": "Lance",
         "faction": "FF8",
@@ -3905,8 +3905,8 @@
         "slug": "V4_47264450",
         "output": "KALISTAR_V4_47264450",
         "text": "Sur la falaise de Centra, Ward s'appuie sur son harpon pour ménager son épaule. Avant la mer en contrebas, il cherche Laguna et Kiros du regard. Dans leur trio, sa force n'a jamais servi à partir le premier.",
-        "color": "93AAA5",
-        "hue": 160,
+        "color": "B3BFCA",
+        "hue": 210,
         "weapon_index": 8,
         "role": 1,
         "sentry": true,
@@ -3924,7 +3924,18 @@
       "pngUrl": "/media/created/47264450.png",
       "psdUrl": "/media/created/47264450.psd",
       "createdAt": "2026-09-20T14:41:02.036Z",
-      "publicationSource": "V4/collaborations/ff8-set-01"
+      "publicationSource": "V4/collaborations/ff8-set-01",
+      "nativeRevision": {
+        "id": "2026-10-21-collab-kalistels",
+        "key": "ward",
+        "proof": "V4/revisions/2026-10-21-collab-kalistels/cards/ward/verification.json",
+        "changedFields": [
+          "element",
+          "color",
+          "hue"
+        ],
+        "previous": null
+      }
     },
     {
       "id": "43695729",
@@ -3932,13 +3943,13 @@
       "creationJob": "7123c4bb-521a-4829-ba1b-33c136777201",
       "name": "KIROS",
       "title": "TE RETROUVER ENFIN",
-      "element": "NONE",
+      "element": "AERO",
       "profile": {
         "name": "KIROS",
         "title": "TE RETROUVER ENFIN",
         "job": "ECLAIREUR",
         "description": "À Winhill, Kiros retrouve Laguna vivant. Ses lames s'abaissent et son sourire revient. Il aura le temps de railler son ami ; pour l'instant, cette présence apaise les craintes de sa longue route.",
-        "element": "NONE",
+        "element": "AERO",
         "race": "HUMAIN",
         "weapon": "Dague",
         "faction": "FF8",
@@ -3975,8 +3986,8 @@
         "slug": "V4_43695729",
         "output": "KALISTAR_V4_43695729",
         "text": "À Winhill, Kiros retrouve Laguna vivant. Ses lames s'abaissent et son sourire revient. Il aura le temps de railler son ami ; pour l'instant, cette présence apaise les craintes de sa longue route.",
-        "color": "93AAA5",
-        "hue": 160,
+        "color": "89EDC2",
+        "hue": 155,
         "weapon_index": 15,
         "role": 2,
         "sentry": true,
@@ -3994,7 +4005,18 @@
       "pngUrl": "/media/created/43695729.png",
       "psdUrl": "/media/created/43695729.psd",
       "createdAt": "2026-09-20T14:41:02.069Z",
-      "publicationSource": "V4/collaborations/ff8-set-01"
+      "publicationSource": "V4/collaborations/ff8-set-01",
+      "nativeRevision": {
+        "id": "2026-10-21-collab-kalistels",
+        "key": "kiros",
+        "proof": "V4/revisions/2026-10-21-collab-kalistels/cards/kiros/verification.json",
+        "changedFields": [
+          "element",
+          "color",
+          "hue"
+        ],
+        "previous": null
+      }
     },
     {
       "id": "44143252",
@@ -20493,13 +20515,13 @@
       "creationJob": "1c4b4075-6d70-43d8-acc3-9d195d4a7506",
       "name": "CINA",
       "title": "LE CAFÉ PEUT ATTENDRE",
-      "element": "NONE",
+      "element": "GEO",
       "profile": {
         "name": "CINA",
         "title": "LE CAFÉ PEUT ATTENDRE",
         "job": "MACHINISTE",
         "description": "Cina souffle sur son café puis écoute une planche craquer derrière le rideau. Il soupire, repose la tasse et reprend son marteau. Les autres auront une scène solide ; sa pause attendra.",
-        "element": "NONE",
+        "element": "GEO",
         "race": "MACAKO",
         "weapon": "Marteau",
         "faction": "FF9",
@@ -20537,8 +20559,8 @@
         "slug": "V4_49901018",
         "output": "KALISTAR_V4_49901018",
         "text": "Cina souffle sur son café puis écoute une planche craquer derrière le rideau. Il soupire, repose la tasse et reprend son marteau. Les autres auront une scène solide ; sa pause attendra.",
-        "color": "93AAA5",
-        "hue": 160,
+        "color": "C7AB6D",
+        "hue": 41,
         "weapon_index": 1,
         "role": 1,
         "sentry": false,
@@ -20559,20 +20581,30 @@
       "createdAt": "2026-10-08T13:50:51.786Z",
       "publicationSource": "V4/expansions/2026-10-08-final-fantasy-ix",
       "nativeRevision": {
-        "id": "2026-10-09-ff-logo-banners",
+        "id": "2026-10-21-collab-kalistels",
         "key": "cina",
-        "proof": "V4/revisions/2026-10-09-ff-logo-banners/work/49901018/verification.json",
+        "proof": "V4/revisions/2026-10-21-collab-kalistels/cards/cina/verification.json",
         "changedFields": [
-          "factionIllustration"
+          "element",
+          "color",
+          "hue"
         ],
         "previous": {
-          "id": "2026-10-08-ff9-art-direction",
+          "id": "2026-10-09-ff-logo-banners",
           "key": "cina",
-          "proof": "V4/revisions/2026-10-08-ff9-art-direction/work/49901018/verification.json",
+          "proof": "V4/revisions/2026-10-09-ff-logo-banners/work/49901018/verification.json",
           "changedFields": [
-            "raceIllustration"
+            "factionIllustration"
           ],
-          "previous": null
+          "previous": {
+            "id": "2026-10-08-ff9-art-direction",
+            "key": "cina",
+            "proof": "V4/revisions/2026-10-08-ff9-art-direction/work/49901018/verification.json",
+            "changedFields": [
+              "raceIllustration"
+            ],
+            "previous": null
+          }
         }
       }
     },
@@ -21115,13 +21147,13 @@
       "creationJob": "22fab665-90ff-4cfc-b405-1c031d505c9e",
       "name": "LOCKE",
       "title": "LE TRÉSOR QU’ON NE VOLE PAS",
-      "element": "NONE",
+      "element": "AERO",
       "profile": {
         "name": "LOCKE",
         "title": "LE TRÉSOR QU’ON NE VOLE PAS",
         "job": "VOLEUR",
         "description": "Locke examine un souvenir que personne ne voudrait acheter. Les trésors qu'il poursuit ont souvent un visage. Il referme doucement le coffre : cette fois, quelque chose lui sera rendu.",
-        "element": "NONE",
+        "element": "AERO",
         "race": "HUMAIN",
         "weapon": "Dague",
         "faction": "FF6",
@@ -21159,8 +21191,8 @@
         "slug": "V4_49901103",
         "output": "KALISTAR_V4_49901103",
         "text": "Locke examine un souvenir que personne ne voudrait acheter. Les trésors qu'il poursuit ont souvent un visage. Il referme doucement le coffre : cette fois, quelque chose lui sera rendu.",
-        "color": "93AAA5",
-        "hue": 160,
+        "color": "89EDC2",
+        "hue": 155,
         "weapon_index": 15,
         "role": 2,
         "sentry": false,
@@ -21179,7 +21211,18 @@
       "pngUrl": "/media/created/49901103.png",
       "psdUrl": "/media/created/49901103.psd",
       "createdAt": "2026-10-08T23:08:18.872Z",
-      "publicationSource": "V4/expansions/2026-10-09-final-fantasy-trilogy"
+      "publicationSource": "V4/expansions/2026-10-09-final-fantasy-trilogy",
+      "nativeRevision": {
+        "id": "2026-10-21-collab-kalistels",
+        "key": "locke",
+        "proof": "V4/revisions/2026-10-21-collab-kalistels/cards/locke/verification.json",
+        "changedFields": [
+          "element",
+          "color",
+          "hue"
+        ],
+        "previous": null
+      }
     },
     {
       "id": "49901104",
@@ -21266,13 +21309,13 @@
       "creationJob": "2b96b452-f2c5-4c8b-b35f-9d3c4cfe2fc9",
       "name": "EDGAR",
       "title": "LE ROI SOUS LA COURONNE",
-      "element": "NONE",
+      "element": "ELECTRO",
       "profile": {
         "name": "EDGAR",
         "title": "LE ROI SOUS LA COURONNE",
         "job": "ROI INGÉNIEUR",
         "description": "Edgar règle le mécanisme avec des mains tachées d'huile. La couronne attendra. Un ressort qui tient, une arme qui répond : protéger Figaro commence parfois par une pièce que nul ne voit.",
-        "element": "NONE",
+        "element": "ELECTRO",
         "race": "HUMAIN",
         "weapon": "Arc",
         "faction": "FF6",
@@ -21311,8 +21354,8 @@
         "slug": "V4_49901105",
         "output": "KALISTAR_V4_49901105",
         "text": "Edgar règle le mécanisme avec des mains tachées d'huile. La couronne attendra. Un ressort qui tient, une arme qui répond : protéger Figaro commence parfois par une pièce que nul ne voit.",
-        "color": "93AAA5",
-        "hue": 160,
+        "color": "F5DC32",
+        "hue": 53,
         "weapon_index": 5,
         "role": 3,
         "sentry": false,
@@ -21331,7 +21374,18 @@
       "pngUrl": "/media/created/49901105.png",
       "psdUrl": "/media/created/49901105.psd",
       "createdAt": "2026-10-08T23:08:19.066Z",
-      "publicationSource": "V4/expansions/2026-10-09-final-fantasy-trilogy"
+      "publicationSource": "V4/expansions/2026-10-09-final-fantasy-trilogy",
+      "nativeRevision": {
+        "id": "2026-10-21-collab-kalistels",
+        "key": "edgar",
+        "proof": "V4/revisions/2026-10-21-collab-kalistels/cards/edgar/verification.json",
+        "changedFields": [
+          "element",
+          "color",
+          "hue"
+        ],
+        "previous": null
+      }
     },
     {
       "id": "49901106",
@@ -21412,13 +21466,13 @@
       "creationJob": "983ecbac-1f76-472c-b46c-8f7678381c07",
       "name": "SHADOW",
       "title": "CELUI QUI RESTE",
-      "element": "NONE",
+      "element": "NECRO",
       "profile": {
         "name": "SHADOW",
         "title": "CELUI QUI RESTE",
         "job": "ASSASSIN",
         "description": "Sous l'abri, Shadow garde une main sur la nuque d'Interceptor. La pluie efface les traces, pas les promesses. Il pourrait repartir seul. Pourtant, cette nuit encore, il attend avec lui.",
-        "element": "NONE",
+        "element": "NECRO",
         "race": "HUMAIN",
         "weapon": "Projectile",
         "faction": "FF6",
@@ -21456,8 +21510,8 @@
         "slug": "V4_49901107",
         "output": "KALISTAR_V4_49901107",
         "text": "Sous l'abri, Shadow garde une main sur la nuque d'Interceptor. La pluie efface les traces, pas les promesses. Il pourrait repartir seul. Pourtant, cette nuit encore, il attend avec lui.",
-        "color": "93AAA5",
-        "hue": 160,
+        "color": "A979F7",
+        "hue": 270,
         "weapon_index": 9,
         "role": 2,
         "sentry": false,
@@ -21476,7 +21530,18 @@
       "pngUrl": "/media/created/49901107.png",
       "psdUrl": "/media/created/49901107.psd",
       "createdAt": "2026-10-08T23:08:19.157Z",
-      "publicationSource": "V4/expansions/2026-10-09-final-fantasy-trilogy"
+      "publicationSource": "V4/expansions/2026-10-09-final-fantasy-trilogy",
+      "nativeRevision": {
+        "id": "2026-10-21-collab-kalistels",
+        "key": "shadow",
+        "proof": "V4/revisions/2026-10-21-collab-kalistels/cards/shadow/verification.json",
+        "changedFields": [
+          "element",
+          "color",
+          "hue"
+        ],
+        "previous": null
+      }
     },
     {
       "id": "49901108",
@@ -21559,13 +21624,13 @@
       "creationJob": "8b03a549-03ac-491d-b131-fe4b777f6e51",
       "name": "CYAN",
       "title": "LE SERMENT DEMEURE",
-      "element": "NONE",
+      "element": "LUXO",
       "profile": {
         "name": "CYAN",
         "title": "LE SERMENT DEMEURE",
         "job": "SAMOURAÏ",
         "description": "Cyan noue lentement le tissu autour du fourreau. Chaque geste porte un nom qu'il ne prononce plus. Quand il se relève, sa douleur demeure ; elle ne décidera pas seule de ce qu'il fera.",
-        "element": "NONE",
+        "element": "LUXO",
         "race": "HUMAIN",
         "weapon": "Katana",
         "faction": "FF6",
@@ -21603,8 +21668,8 @@
         "slug": "V4_49901109",
         "output": "KALISTAR_V4_49901109",
         "text": "Cyan noue lentement le tissu autour du fourreau. Chaque geste porte un nom qu'il ne prononce plus. Quand il se relève, sa douleur demeure ; elle ne décidera pas seule de ce qu'il fera.",
-        "color": "93AAA5",
-        "hue": 160,
+        "color": "F4E9AF",
+        "hue": 47,
         "weapon_index": 18,
         "role": 1,
         "sentry": false,
@@ -21623,7 +21688,18 @@
       "pngUrl": "/media/created/49901109.png",
       "psdUrl": "/media/created/49901109.psd",
       "createdAt": "2026-10-08T23:08:19.278Z",
-      "publicationSource": "V4/expansions/2026-10-09-final-fantasy-trilogy"
+      "publicationSource": "V4/expansions/2026-10-09-final-fantasy-trilogy",
+      "nativeRevision": {
+        "id": "2026-10-21-collab-kalistels",
+        "key": "cyan",
+        "proof": "V4/revisions/2026-10-21-collab-kalistels/cards/cyan/verification.json",
+        "changedFields": [
+          "element",
+          "color",
+          "hue"
+        ],
+        "previous": null
+      }
     },
     {
       "id": "49901110",
@@ -21865,13 +21941,13 @@
       "creationJob": "cce26c04-1f84-4b67-adc7-3ce98f8dcd68",
       "name": "GOGO",
       "title": "LE GESTE EMPRUNTÉ",
-      "element": "NONE",
+      "element": "AERO",
       "profile": {
         "name": "GOGO",
         "title": "LE GESTE EMPRUNTÉ",
         "job": "MIME",
         "description": "Gogo lève la main en face du petit mannequin. Même inclinaison, même silence. Sous les tissus, un être reste impossible à saisir. Pour un instant pourtant, son geste semble répondre au nôtre.",
-        "element": "NONE",
+        "element": "AERO",
         "race": "HUMAIN",
         "weapon": "Poing",
         "faction": "FF6",
@@ -21909,8 +21985,8 @@
         "slug": "V4_49901113",
         "output": "KALISTAR_V4_49901113",
         "text": "Gogo lève la main en face du petit mannequin. Même inclinaison, même silence. Sous les tissus, un être reste impossible à saisir. Pour un instant pourtant, son geste semble répondre au nôtre.",
-        "color": "93AAA5",
-        "hue": 160,
+        "color": "89EDC2",
+        "hue": 155,
         "role": 5,
         "sentry": false,
         "canGuard": true,
@@ -21928,7 +22004,18 @@
       "pngUrl": "/media/created/49901113.png",
       "psdUrl": "/media/created/49901113.psd",
       "createdAt": "2026-10-08T23:08:19.570Z",
-      "publicationSource": "V4/expansions/2026-10-09-final-fantasy-trilogy"
+      "publicationSource": "V4/expansions/2026-10-09-final-fantasy-trilogy",
+      "nativeRevision": {
+        "id": "2026-10-21-collab-kalistels",
+        "key": "gogo",
+        "proof": "V4/revisions/2026-10-21-collab-kalistels/cards/gogo/verification.json",
+        "changedFields": [
+          "element",
+          "color",
+          "hue"
+        ],
+        "previous": null
+      }
     },
     {
       "id": "49901114",
@@ -22173,13 +22260,13 @@
       "creationJob": "8adecfa8-655e-44a8-a18e-2898e8cecf0c",
       "name": "GLADIOLUS",
       "title": "LE PASSAGE SERA SÛR",
-      "element": "NONE",
+      "element": "MINERO",
       "profile": {
         "name": "GLADIOLUS",
         "title": "LE PASSAGE SERA SÛR",
         "job": "GARDE ROYAL",
         "description": "Gladiolus se retourne au milieu du passage. Il connaît la fatigue des autres sans avoir besoin de les voir. Son épée touche le sol, son regard cherche le danger. Ils pourront avancer.",
-        "element": "NONE",
+        "element": "MINERO",
         "race": "HUMAIN",
         "weapon": "Epée longue",
         "faction": "FF15",
@@ -22217,8 +22304,8 @@
         "slug": "V4_49901117",
         "output": "KALISTAR_V4_49901117",
         "text": "Gladiolus se retourne au milieu du passage. Il connaît la fatigue des autres sans avoir besoin de les voir. Son épée touche le sol, son regard cherche le danger. Ils pourront avancer.",
-        "color": "93AAA5",
-        "hue": 160,
+        "color": "B3BFCA",
+        "hue": 210,
         "weapon_index": 17,
         "role": 1,
         "sentry": false,
@@ -22237,7 +22324,18 @@
       "pngUrl": "/media/created/49901117.png",
       "psdUrl": "/media/created/49901117.psd",
       "createdAt": "2026-10-08T23:08:19.859Z",
-      "publicationSource": "V4/expansions/2026-10-09-final-fantasy-trilogy"
+      "publicationSource": "V4/expansions/2026-10-09-final-fantasy-trilogy",
+      "nativeRevision": {
+        "id": "2026-10-21-collab-kalistels",
+        "key": "gladiolus",
+        "proof": "V4/revisions/2026-10-21-collab-kalistels/cards/gladiolus/verification.json",
+        "changedFields": [
+          "element",
+          "color",
+          "hue"
+        ],
+        "previous": null
+      }
     },
     {
       "id": "49901118",
@@ -22245,13 +22343,13 @@
       "creationJob": "7f15bfe8-4024-406f-9ec7-0b4b14845af3",
       "name": "PROMPTO",
       "title": "POUR NE RIEN OUBLIER",
-      "element": "NONE",
+      "element": "LUXO",
       "profile": {
         "name": "PROMPTO",
         "title": "POUR NE RIEN OUBLIER",
         "job": "TIREUR",
         "description": "Prompto vérifie la photo et sourit tout seul. Il a peur de ne pas être à sa place, parfois. Mais dans ce petit rectangle de lumière, ils sont tous ensemble, et personne ne semble en douter.",
-        "element": "NONE",
+        "element": "LUXO",
         "race": "HUMAIN",
         "weapon": "Gun",
         "faction": "FF15",
@@ -22289,8 +22387,8 @@
         "slug": "V4_49901118",
         "output": "KALISTAR_V4_49901118",
         "text": "Prompto vérifie la photo et sourit tout seul. Il a peur de ne pas être à sa place, parfois. Mais dans ce petit rectangle de lumière, ils sont tous ensemble, et personne ne semble en douter.",
-        "color": "93AAA5",
-        "hue": 160,
+        "color": "F4E9AF",
+        "hue": 47,
         "weapon_index": 7,
         "role": 4,
         "sentry": false,
@@ -22309,7 +22407,18 @@
       "pngUrl": "/media/created/49901118.png",
       "psdUrl": "/media/created/49901118.psd",
       "createdAt": "2026-10-08T23:08:19.926Z",
-      "publicationSource": "V4/expansions/2026-10-09-final-fantasy-trilogy"
+      "publicationSource": "V4/expansions/2026-10-09-final-fantasy-trilogy",
+      "nativeRevision": {
+        "id": "2026-10-21-collab-kalistels",
+        "key": "prompto",
+        "proof": "V4/revisions/2026-10-21-collab-kalistels/cards/prompto/verification.json",
+        "changedFields": [
+          "element",
+          "color",
+          "hue"
+        ],
+        "previous": null
+      }
     },
     {
       "id": "49901119",
@@ -22394,13 +22503,13 @@
       "creationJob": "a51d6df8-6929-485d-94c3-100d60ee32e0",
       "name": "CINDY",
       "title": "ENCORE QUELQUES KILOMÈTRES",
-      "element": "NONE",
+      "element": "ELECTRO",
       "profile": {
         "name": "CINDY",
         "title": "ENCORE QUELQUES KILOMÈTRES",
         "job": "MÉCANICIENNE",
         "description": "Cindy resserre la pièce, écoute le moteur, recommence. La poussière colle à ses gants, pas à son sourire. La route est longue ; elle aime savoir que son travail aidera quelqu'un à la poursuivre.",
-        "element": "NONE",
+        "element": "ELECTRO",
         "race": "HUMAIN",
         "weapon": "Marteau",
         "faction": "FF15",
@@ -22438,8 +22547,8 @@
         "slug": "V4_49901120",
         "output": "KALISTAR_V4_49901120",
         "text": "Cindy resserre la pièce, écoute le moteur, recommence. La poussière colle à ses gants, pas à son sourire. La route est longue ; elle aime savoir que son travail aidera quelqu'un à la poursuivre.",
-        "color": "93AAA5",
-        "hue": 160,
+        "color": "F5DC32",
+        "hue": 53,
         "weapon_index": 1,
         "role": 5,
         "sentry": false,
@@ -22458,7 +22567,18 @@
       "pngUrl": "/media/created/49901120.png",
       "psdUrl": "/media/created/49901120.psd",
       "createdAt": "2026-10-08T23:08:20.112Z",
-      "publicationSource": "V4/expansions/2026-10-09-final-fantasy-trilogy"
+      "publicationSource": "V4/expansions/2026-10-09-final-fantasy-trilogy",
+      "nativeRevision": {
+        "id": "2026-10-21-collab-kalistels",
+        "key": "cindy",
+        "proof": "V4/revisions/2026-10-21-collab-kalistels/cards/cindy/verification.json",
+        "changedFields": [
+          "element",
+          "color",
+          "hue"
+        ],
+        "previous": null
+      }
     },
     {
       "id": "49901121",

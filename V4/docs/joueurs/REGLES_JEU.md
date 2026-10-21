@@ -76,6 +76,8 @@ Un avantage classique vaut généralement +30 ATK ; un désavantage, −30. Cert
 
 Rainbow gagne +40 ATK contre un cristal classique ; un cristal classique perd 40 ATK contre Rainbow. Contre une carte sans cristal, un cristal classique gagne +20 et Rainbow +30. Une carte sans cristal n'a pas de bonus de cristal. Deux cristaux identiques ne donnent aucun avantage.
 
+Les personnages de collaboration possèdent un Kalistel, à l'exception de **Koby**, qui reste sans cristal. Porter un cristal ne rend pas toutes les attaques magiques : seules les faces marquées comme telles le sont.
+
 La famille d'arme imprimée participe également aux avantages du duel. **Une arme équipée ne remplace pas cette famille.**
 
 Dans une arène, un cristal correspondant au lieu gagne +15 ATK. Un personnage lié au lieu gagne +10 ATK et +10 DEF. Les deux peuvent se cumuler, jusqu'à +25 ATK et +10 DEF.

@@ -1,14 +1,28 @@
 'use strict';
 const assert=require('node:assert/strict'),M=require('./model.cjs'),initial=require('./set.json');
 const revision=require('../../revisions/2026-10-09-umaro-macako/plan.json'),set=structuredClone(initial);
+const crystals=require('../../revisions/2026-10-21-collab-kalistels/plan.json');
 for(const change of revision.cards)set.cards.find(c=>c.id===change.id).race=change.race;
+for(const change of crystals.cards){const c=set.cards.find(c=>c.id===change.id);if(c)c.element=change.element;}
 function validateSet(candidate){
  const historical=structuredClone(candidate);
+ for(const change of crystals.cards){
+  const c=historical.cards.find(c=>c.id===change.id);if(!c)continue;
+  assert.equal(c.element,change.element);c.element=initial.cards.find(c=>c.id===change.id).element;
+ }
  for(const change of revision.cards){
   assert.equal(candidate.cards.find(c=>c.id===change.id)?.race,change.race);
   historical.cards.find(c=>c.id===change.id).race=initial.cards.find(c=>c.id===change.id).race;
  }
  M.validateSet(historical);return candidate;
+}
+function validateProfile(p,c){
+ const change=crystals.cards.find(s=>s.id===c.id);
+ if(!change)return M.validateProfile(p,c);
+ const prior=require('../../revisions/2026-10-21-collab-kalistels/before.json').entries.find(e=>e.id===c.id).profile;
+ const {color,hue}=require('../../../V3/donnees/elements.json')[change.element];
+ assert.deepEqual(p,{...prior,element:change.element,color,hue});
+ M.validateProfile(prior,{...c,element:prior.element});
 }
 function validateGame(data,candidate,createEngine){
  validateSet(candidate);
@@ -25,4 +39,4 @@ function validateGame(data,candidate,createEngine){
  assert(E.validatePlayableDeck(bad).length,'Terra variants must share one deck identity');
  return {cards:data.cards.length,added:29,qaDecks:decks,noPresetInstalled:true};
 }
-module.exports={...M,set,initial,revision,validateSet,validateGame};
+module.exports={...M,set,initial,revision,validateSet,validateProfile,validateGame};

@@ -204,6 +204,12 @@ Classique contre NONE : +20 ; RAINBOW contre NONE : +30 ; NONE contre cristal : 
 Meme element contre lui-meme : 0. Ne pas confondre GEO (Terre) et MINERO (Roche).
 NONE n'a ni face magique ni barriere elementaire.
 
+Les cartes de collaboration portent un Kalistel. Koby (`koby-op`, modele
+`49800306`) reste sans cristal sur demande explicite de l'auteur. Ajouter une
+affinite applique les cycles et bonus d'arene existants ; cela n'ajoute pas
+automatiquement de faces magiques, de barrieres ou de nouvelles capacites.
+Les matchs deja commences conservent les profils de leur snapshot.
+
 Une barriere sur la face DEF numerique obtenue retire 30 ATK seulement a une
 attaque magique. C'est distinct de la garde physique `ward` et de l'icone
 bouclier utilisee pour afficher la somme des scores DEF.

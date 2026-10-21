@@ -20,7 +20,7 @@ test('Native banner uses uniform scaling, original alpha contour and versioned w
  assert.equal(require('../../site/collaborations.js').asset('factions','TOMBRAIDER'),'assets/factions/TOMBRAIDER-native-v2.png');
 });
 test('Five cards change only the banner; illustrations, editable texts and gameplay stay exact',async()=>{
- const current=read(path.join(ROOT,'V4/donnees/catalogue.json')),g=component.geometry;
+ const current=require('../2026-10-21-collab-kalistels/compatibility.cjs').previousCatalogue(read(path.join(ROOT,'V4/donnees/catalogue.json'))),g=component.geometry;
  for(const c of before.cards){
   const dir=file('cards/'+c.key),prod=path.join(ROOT,'V4/creations',c.id),old=file('originals/'+c.key),entry=current.cards.find(v=>v.id===c.id);
   assert.deepEqual(entry.profile,c.entry.profile);assert.deepEqual(read(path.join(prod,'profile.json')),c.entry.profile);

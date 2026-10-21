@@ -2,6 +2,7 @@
 const assert=require('node:assert/strict'),before=require('./before.json'),REV='2026-10-17-nestown-manteau-rempart';
 // Historical assertions retain their snapshots after checking the exact approved later art revision.
 function previousEntry(actual){
+ actual=require('../2026-10-21-collab-kalistels/compatibility.cjs').previousEntry(actual);
  if(actual.nativeRevision?.id!==REV)return actual;
  const c=before.cards.find(c=>c.id===actual.id);assert(c,'Unapproved Nestown target');
  assert.deepEqual(actual.nativeRevision,{id:REV,key:c.key,proof:'V4/revisions/'+REV+'/cards/'+c.key+'/verification.json',changedFields:['artwork'],previous:c.entry.nativeRevision||null});

@@ -8,6 +8,6 @@ test('Two Riko editions published, existing Nestown banner and catalogue untouch
   assert(files.some(f=>f.source==='V4/creations/'+c.id+'/card.png'));
  }
  assert(!files.some(f=>f.source.startsWith('V4/propositions/2026-10-20-kaylis-rencontres/')));
- const cat=require('../../donnees/catalogue.json');
+ const cat=require('../../revisions/2026-10-21-collab-kalistels/compatibility.cjs').previousCatalogue(require('../../donnees/catalogue.json'));
  for(const old of require('./before.json').catalogue.cards)assert.deepEqual(cat.cards.find(c=>c.id===old.id),old);
 });

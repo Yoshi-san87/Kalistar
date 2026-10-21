@@ -1,6 +1,6 @@
 'use strict';
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
-const before=require('./before.json'),catalogue=require('../../donnees/catalogue.json'),root=path.resolve(__dirname,'../../..'),REV=path.basename(__dirname);
+const before=require('./before.json'),catalogue=require('../2026-10-21-collab-kalistels/compatibility.cjs').previousCatalogue(require('../../donnees/catalogue.json')),root=path.resolve(__dirname,'../../..'),REV=path.basename(__dirname);
 const digest=f=>crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex');
 const rules=p=>Object.fromEntries(Object.entries(p).filter(([k])=>!['artworkSource','visual_revision'].includes(k)));
 test('Historical projection rejects unrelated edits instead of weakening old snapshots',()=>{

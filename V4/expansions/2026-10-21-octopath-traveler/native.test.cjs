@@ -5,7 +5,7 @@ const root=path.resolve(__dirname,'../../..'),digest=f=>crypto.createHash('sha25
 test('Sixteen native proofs, editable text, current glyphs and exact approved art',async()=>{
  // Verify frozen inputs and approved artwork without changing historical locks.
  const L=require('../../atelier/lib.cjs');await L.protectedCheck();await require('../../atelier/designer-render.cjs').verifyAssets();
- const frozen=require('./before.json'),cat=require('../../donnees/catalogue.json');
+ const frozen=require('./before.json'),cat=require('../../revisions/2026-10-21-collab-kalistels/compatibility.cjs').previousCatalogue(require('../../donnees/catalogue.json'));
  for(const [f,h]of Object.entries(frozen.inputs))assert.equal(digest(path.join(root,f)),h,'Frozen input changed: '+f);
  for(const c of frozen.catalogue.cards)assert.deepEqual(cat.cards.find(n=>n.id===c.id),c);
  const seen=new Set();

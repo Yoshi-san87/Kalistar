@@ -2,15 +2,15 @@
   "passed": true,
   "modelId": "49901105",
   "referenceId": "3f61a30cef60d029b672d620cdcbb3dd46b07b668ef1a1865cf8a74a68c4f820",
-  "profileHash": "bb3767c9670680403ed3d6fdabdb5db72ddf9e4ae3cea43b132b30402eb2a1be",
+  "profileHash": "4062d9ebf61278f83da9df6d352b4a0020f5d07662de9e5abccc67c45775fa74",
   "hashes": {
-    "card.png": "79ae2b8f48d2d7ac585a35246756fa3f2edd3640480628b1ee804d1f7e5db063",
-    "card.psd": "f5522beb136706191cc29997318d3eb7a0775dc484fd4fd607f33578dc2b8e2e"
+    "card.png": "423b9556dc62ad0b7103747acc29ae438e5bfeca46b156d6d9af1e2c0e4a75c0",
+    "card.psd": "b6d453a9b4791bedcc85c57b2878ef17448b6285c1a01de1eb7b139a5bf21a07"
   },
   "components": {
     "fixedDifferences": 0,
     "severePixels": 0,
-    "changed": 98319
+    "changed": 87768
   },
   "roundtrip": {
     "changed": 0,
@@ -35,39 +35,126 @@
     },
     "physicalPrintVerified": false
   },
-  "checkedAt": "2026-10-08T23:07:21.223Z",
-  "none": {
-    "unlit": true,
-    "crystalHash": "fd16efbb06ac645589885aed82cadacab4461f08dcc4f4dd1d58d7d42b11f8bf",
-    "branchHash": "c8bf5bb6de74db43356255c19c6747ffd0daa03ae6476c0ef1b66c628d77a7cb"
+  "checkedAt": "2026-10-21T08:35:30.469Z",
+  "revision": "2026-10-21-collab-kalistels",
+  "elementChange": {
+    "from": "NONE",
+    "to": "ELECTRO"
   },
-  "typographyCheck": {
-    "styles": {
-      "NOM": {
-        "font": "TimesNewRomanPSMT",
-        "sizePt": 10.0000012207031,
-        "tracking": 0,
-        "capitalization": "TextCase.NORMAL",
-        "fauxBold": false,
-        "fauxItalic": false
-      },
-      "TITLE": {
-        "font": "TimesNewRomanPSMT",
-        "sizePt": 7.68,
-        "tracking": 0,
-        "capitalization": "TextCase.ALLCAPS",
-        "fauxBold": false,
-        "fauxItalic": false
-      }
-    },
-    "accented": false,
-    "nameInk": [
-      377,
-      114,
-      522,
-      144
+  "scope": {
+    "changed": 44790,
+    "outside": 0,
+    "rectangles": [
+      [
+        122,
+        739,
+        193,
+        810
+      ],
+      [
+        122,
+        739,
+        193,
+        810
+      ],
+      [
+        122,
+        642,
+        193,
+        713
+      ],
+      [
+        122,
+        642,
+        193,
+        713
+      ],
+      [
+        122,
+        542,
+        193,
+        613
+      ],
+      [
+        122,
+        542,
+        193,
+        613
+      ],
+      [
+        122,
+        441,
+        193,
+        512
+      ],
+      [
+        122,
+        441,
+        193,
+        512
+      ],
+      [
+        122,
+        337,
+        193,
+        408
+      ],
+      [
+        122,
+        337,
+        193,
+        408
+      ],
+      [
+        90,
+        95,
+        194,
+        199
+      ],
+      [
+        90,
+        95,
+        194,
+        199
+      ],
+      [
+        182,
+        1190,
+        703,
+        1227
+      ],
+      [
+        196,
+        1190,
+        702,
+        1227
+      ],
+      [
+        390,
+        1123,
+        505,
+        1267
+      ],
+      [
+        383,
+        1123,
+        512,
+        1267
+      ],
+      [
+        207,
+        1154,
+        378,
+        1190
+      ],
+      [
+        514,
+        1154,
+        684,
+        1190
+      ]
     ]
   },
-  "preparationHash": "4fc5c4bbe152b66e08b1d4c7d7ca6509b6652477320b81f045b9148d1c92cc67",
-  "typography": true
+  "numericFacesAndEffectsUnchanged": true,
+  "inputManifestHash": "103a659f14db9bcecbbe1cc57141187141f123dca411b56187dfbd37d57fdf56"
 }

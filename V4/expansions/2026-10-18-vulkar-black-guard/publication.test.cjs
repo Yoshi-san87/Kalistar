@@ -8,6 +8,6 @@ test('Five approved Vulkar cards published additively, Lara proposals excluded',
   assert(files.some(f=>f.source==='V4/creations/'+c.id+'/card.png'));
  }
  assert(!files.some(f=>f.source.startsWith('V4/propositions/2026-10-18-lara-croft-five-eras/')));
- const cat=require('../../donnees/catalogue.json');
+ const cat=require('../../revisions/2026-10-21-collab-kalistels/compatibility.cjs').previousCatalogue(require('../../donnees/catalogue.json'));
  for(const old of require('./before.json').catalogue.cards)assert.deepEqual(cat.cards.find(c=>c.id===old.id),old);
 });

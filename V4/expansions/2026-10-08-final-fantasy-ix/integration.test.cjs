@@ -1,7 +1,7 @@
 'use strict';
 const {test}=require('node:test'),assert=require('node:assert/strict');
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
-const M=require('./model.cjs'),{set,initial,revision,elementRevision}=require('./current.cjs'),catalogue=require('../../donnees/catalogue.json');
+const M=require('./current.cjs'),{set,initial,revision,elementRevision}=M,catalogue=require('../../donnees/catalogue.json');
 const profiles=set.cards.map(c=>require('../../creations/'+c.id+'/profile.json'));
 const {buildCatalog}=require('../../atelier/game-catalog.cjs'),{createEngine}=require('../../site/engine.js');
 const published=catalogue.cards.filter(c=>c.kind==='created'&&!set.cards.some(s=>s.id===c.id));
@@ -120,7 +120,8 @@ test('Published native cards, exact selected artwork, no rejected character inst
   const changed=revision.cards.some(r=>r.id===c.id);
   const luxo=c.id===elementRevision.id;
   if(luxo)assert.equal(entry[0].nativeRevision.id,'2026-10-09-skaern-luxo');
-  const bannerRevision=luxo?entry[0].nativeRevision.previous:entry[0].nativeRevision;
+  const projected=require('../../revisions/2026-10-21-collab-kalistels/compatibility.cjs').previousEntry(entry[0]);
+  const bannerRevision=luxo?projected.nativeRevision.previous:projected.nativeRevision;
   assert.equal(bannerRevision.id,'2026-10-09-ff-logo-banners');
   if(changed)assert.equal(bannerRevision.previous.id,revision.revision);
   else assert.equal(bannerRevision.previous,null);
@@ -136,8 +137,9 @@ test('Published native cards, exact selected artwork, no rejected character inst
    assert.equal(bannerProof.gameplayUnchanged,true);assert.equal(bannerProof.scope.outside,0);
    assert.deepEqual(bannerProof.scope.rectangles,[[672,829,770,1052]]);
   }else{
-   assert.equal(proof.gameplayUnchanged,true);
-   assert.deepEqual(proof.scope.rectangles,[[672,829,770,1052]]);
+   const bannerProof=c.id==='49901018'?require('../../revisions/2026-10-21-collab-kalistels/originals/49901018/verification.json'):proof;
+   assert.equal(bannerProof.gameplayUnchanged,true);
+   assert.deepEqual(bannerProof.scope.rectangles,[[672,829,770,1052]]);
   }
  }
  assert.equal(set.cards.find(c=>c.key==='cina').art,'18-cina-02.png');

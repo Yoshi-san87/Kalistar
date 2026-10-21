@@ -1,6 +1,6 @@
 'use strict';
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
-const plan=require('./plan.json'),catalogue=require('../../donnees/catalogue.json'),frozen=require('./before.json');
+const plan=require('./plan.json'),catalogue=require('../2026-10-21-collab-kalistels/compatibility.cjs').previousCatalogue(require('../../donnees/catalogue.json')),frozen=require('./before.json');
 const hash=f=>crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex');
 test('22 FFIX flags preserve the latest profiles, artworks and prior revision chains',()=>{
  assert.equal(plan.cards.length,22);
@@ -16,7 +16,7 @@ test('22 FFIX flags preserve the latest profiles, artworks and prior revision ch
   assert.deepEqual(profile,before.profile);
   assert.equal(currentRevision.id,plan.revision);
   assert.deepEqual(currentRevision.previous,before.nativeRevision||null);
-  const dir=luxo?path.resolve(__dirname,'../../expansions/2026-10-09-skaern-luxo/originals',c.id):path.resolve(__dirname,'../../creations',c.id);
+  const dir=c.id==='49901018'?path.resolve(__dirname,'../2026-10-21-collab-kalistels/originals',c.id):luxo?path.resolve(__dirname,'../../expansions/2026-10-09-skaern-luxo/originals',c.id):path.resolve(__dirname,'../../creations',c.id);
   const proof=JSON.parse(fs.readFileSync(path.join(dir,'verification.json'),'utf8'));
   assert(proof.passed&&proof.barcode.passed);assert.equal(proof.roundtrip.changed,0);assert.equal(proof.components.fixedDifferences,0);
   assert.equal(proof.scope.outside,0);assert(proof.scope.changed>0);assert.equal(proof.gameplayUnchanged,true);
