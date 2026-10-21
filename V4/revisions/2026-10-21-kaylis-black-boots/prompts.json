@@ -1,0 +1,22 @@
+{
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "source": "V4/weapon-cards/sources/kaylis-next-step-boots-v2.png",
+      "generated": "C:/Users/guill/.codex/generated_images/01a0b4b1-d740-7ec2-b8fb-65be8d2942c9/exec-88967be7-d5ba-4be4-9bd4-9f6114ebf278.png",
+      "references": [
+        "V4/weapon-cards/sources/kaylis-next-step-boots-v1.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Edit target: supplied isolated pair of Kaylis boots for Kalistar. Change ONLY the leather, laces and rubber soles from brown to BLACK. Black/charcoal worn matte leather with cool gray highlights, black laces, black soles; keep copper eyelets and metal lace tips copper, keep fine restrained rainbow reflections. Preserve the exact boot design, pose, pair arrangement, size, perspective, full silhouette, stitching, canvas margins, and detailed painterly brushwork. Do not make the boots flat silhouettes: maintain readable texture and volume. No new elements, text, card frame, logo, pedestal, floor or shadow. Preserve genuine transparent background and internal transparency. The result must clearly read as BLACK boots, not dark brown."
+    },
+    {
+      "source": "V4/weapon-cards/sources/kaylis-next-step-boots-scene-v2.png",
+      "generated": "C:/Users/guill/.codex/generated_images/01a0b4b1-d740-7ec2-b8fb-65be8d2942c9/exec-d89bd1d1-be75-4e42-992e-e788feb2567e.png",
+      "references": [
+        "V4/weapon-cards/sources/kaylis-next-step-boots-scene-v1.png",
+        "V4/weapon-cards/sources/kaylis-next-step-boots-v2.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Image 1 is the scene to EDIT; image 2 is the corrected BLACK boots color reference only. In image 1, change ONLY the leather, laces and soles of Kaylis's two boots from brown to BLACK matching image 2. Clearly black/charcoal matte worn leather with gray highlights, black laces, black soles. Keep copper eyelets copper and small rainbow reflections. Keep the exact boot pair design, pose, perspective, scale, arrangement, framing, placement and brushwork. Preserve the mountain landscape, sky, pale stone step, vegetation, sunlight, shadows and entire background unchanged. The boots must read BLACK even in sunlight, not dark brown. Retain textured readable volumes, not flat silhouettes. No new props, words, card frame or logo. Opaque image."
+    }
+  ]
+}

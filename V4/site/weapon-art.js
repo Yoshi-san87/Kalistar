@@ -140,7 +140,7 @@
   entries['grivka-silent-breath']=Object.freeze({key:'grivka-silent-breath-v1',scene:'grivka-silent-breath-scene-v1.webp',rim:'grivka-silent-breath-ring-v1.webp',body:'grivka-silent-breath-v1.webp',color:'#99ddff'});
   entries['froz-crystal-bandolier']=Object.freeze({key:'froz-crystal-bandolier-v1',scene:'froz-crystal-bandolier-scene-v1.webp',rim:'froz-crystal-bandolier-ring-v1.webp',body:'froz-crystal-bandolier-v1.webp',color:'#81daff'});
   entries['kaylis-eclipse-rapier']=Object.freeze({key:'kaylis-eclipse-rapier-v1',scene:'kaylis-eclipse-rapier-scene-v1.webp',rim:'kaylis-eclipse-rapier-ring-v1.webp',body:'kaylis-eclipse-rapier-v1.webp',color:'#e9899a'});
-  entries['kaylis-next-step-boots']=Object.freeze({key:'kaylis-next-step-boots-v1',scene:'kaylis-next-step-boots-scene-v1.webp',rim:'kaylis-next-step-boots-ring-v1.webp',body:'kaylis-next-step-boots-v1.webp',color:'#d9bd8e'});
+  entries['kaylis-next-step-boots']=Object.freeze({key:'kaylis-next-step-boots-v1',scene:'kaylis-next-step-boots-scene-v2.webp',rim:'kaylis-next-step-boots-ring-v1.webp',body:'kaylis-next-step-boots-v2.webp',color:'#d9bd8e'});
   entries['kaylis-colours-ribbon']=Object.freeze({key:'kaylis-colours-ribbon-v1',scene:'kaylis-colours-ribbon-scene-v1.webp',rim:'kaylis-colours-ribbon-ring-v1.webp',body:'kaylis-colours-ribbon-v1.webp',color:'#c9d6e8'});
   Object.freeze(entries);
   const get=weapon=>entries[weapon.id]?.key===weapon.art?entries[weapon.id]:null;

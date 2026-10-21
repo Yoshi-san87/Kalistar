@@ -10,6 +10,7 @@ const castlevaniaKalistarProof=require('../revisions/2026-10-11-castlevania-kali
 const frozGrivkaProof=require('../revisions/2026-10-13-froz-grivka-equipment/media-provenance.json');
 const kaylisProof=require('../revisions/2026-10-14-kaylis-rapiers/media-provenance.json');
 const sequelProof=require('../revisions/2026-10-21-fragment-sequels/media-provenance.json');
+const blackBootsProof=require('../revisions/2026-10-21-kaylis-black-boots/media-provenance.json');
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
 test('every weapon has a unique medallion, immutable definition and stable saved art identity',()=>{
   const rims=new Set(['stone-copper-ring-v1.webp','electro-copper-ring-v1.webp']);
@@ -28,7 +29,7 @@ test('every weapon has a unique medallion, immutable definition and stable saved
 });
 test('every current scene, ring and corrected body is distributed with its recorded hash',()=>{
   for(const a of Object.values(A.entries))for(const [folder,file]of [['weapon-cards',a.scene],['equipment',a.rim],['equipment',a.body]]){
-    const target='V4/site/assets/'+folder+'/'+file,p=[...proof.assets,...equipmentProof.assets,...defensiveProof.assets,...ff9Proof.assets,...gothamProof.assets,...castlevaniaKalistarProof.assets,...require('../revisions/2026-10-11-chrono-equipment/media-provenance.json').assets,...frozGrivkaProof.assets,...kaylisProof.assets,...sequelProof.assets].find(p=>p.file===target);assert(p,target);
+    const target='V4/site/assets/'+folder+'/'+file,p=[...proof.assets,...equipmentProof.assets,...defensiveProof.assets,...ff9Proof.assets,...gothamProof.assets,...castlevaniaKalistarProof.assets,...require('../revisions/2026-10-11-chrono-equipment/media-provenance.json').assets,...frozGrivkaProof.assets,...kaylisProof.assets,...sequelProof.assets,...blackBootsProof.assets].find(p=>p.file===target);assert(p,target);
     const bytes=fs.readFileSync(path.join(root,target));assert.equal(hash(bytes),p.sha256,target);
     assert(bytes.length>1000);assert(bytes.length<1500000,target+' bounded download');
     if(folder==='equipment')assert.deepEqual(p.placement.center,[244,242]);
@@ -47,7 +48,7 @@ test('boot and Pages contain the presentation manifest without coupling it to th
 test('new collaboration and Kalistar medallions retain a transparent center and keep each object inside its ring',async()=>{
   const modules=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
   const sharp=require('node:module').createRequire(path.join(modules,'__ff9_media__.cjs'))('sharp');
-  for(const p of [...ff9Proof.assets,...gothamProof.assets,...castlevaniaKalistarProof.assets,...require('../revisions/2026-10-11-chrono-equipment/media-provenance.json').assets,...frozGrivkaProof.assets,...kaylisProof.assets,...sequelProof.assets].filter(p=>['body','ring'].includes(p.role))){
+  for(const p of [...ff9Proof.assets,...gothamProof.assets,...castlevaniaKalistarProof.assets,...require('../revisions/2026-10-11-chrono-equipment/media-provenance.json').assets,...frozGrivkaProof.assets,...kaylisProof.assets,...sequelProof.assets,...blackBootsProof.assets].filter(p=>['body','ring'].includes(p.role))){
     const {data,info}=await sharp(path.join(root,p.file)).ensureAlpha().raw().toBuffer({resolveWithObject:true});
     assert.equal(info.width,488);assert.equal(info.height,488);
     let visible=0;
@@ -59,4 +60,15 @@ test('new collaboration and Kalistar medallions retain a transparent center and 
     }
     assert(visible>500,p.file+' nonblank');
   }
+});
+
+test('black Kaylis boots use the current skin without changing saved equipment identities',()=>{
+  const boots=weapons.find(w=>w.id==='kaylis-next-step-boots'),art=A.get(boots);
+  assert.equal(boots.art,'kaylis-next-step-boots-v1');
+  assert.equal(art.body,'kaylis-next-step-boots-v2.webp');
+  assert.equal(art.scene,'kaylis-next-step-boots-scene-v2.webp');
+  assert.equal(art.rim,'kaylis-next-step-boots-ring-v1.webp');
+  assert.equal(C.faces[boots.id].illustration,art.scene);
+  assert(!C.faces[boots.id].alt.includes('brunes'));
+  assert.deepEqual(boots.effect,{trigger:'RETAINED_SIX',stat:'DEF',value:20,duration:'DUEL'});
 });
