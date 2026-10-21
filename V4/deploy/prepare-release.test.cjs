@@ -5,7 +5,22 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const crypto = require('node:crypto');
-const {parseTree,parseBatch,pointer,verifiedMedia,isRuntimeTree,gitHash} = require('./prepare-release.cjs');
+const {parseTree,parseBatch,pointer,verifiedMedia,isMetadata,isRuntimeTree,gitHash} = require('./prepare-release.cjs');
+test('frozen metadata includes every local startup dependency of the builder', () => {
+  const root = path.resolve(__dirname, '../..'), seen = new Set();
+  function visit(module) {
+    if (seen.has(module.filename)) return;
+    seen.add(module.filename);
+    const relative = path.relative(root, module.filename).split(path.sep).join('/');
+    assert.ok(isMetadata(relative), 'Missing frozen build dependency: ' + relative);
+    for (const child of module.children) visit(child);
+  }
+  visit(require.cache[require.resolve('./build.cjs')]);
+  assert.ok(seen.has(require.resolve('../atelier/arena-catalog.cjs')));
+  for (const file of ['V4/atelier/server.cjs', 'work/private.json', 'V4/creations/example/card.psd']) {
+    assert.equal(isMetadata(file), false, 'Not publication metadata: ' + file);
+  }
+});
 test('frozen publication accepts only regular Git files', () => {
   const oid='a'.repeat(40);
   assert.deepEqual(parseTree(Buffer.from(`100644 blob ${oid}\tV4/site/a.js\0`)),[{path:'V4/site/a.js',oid}]);

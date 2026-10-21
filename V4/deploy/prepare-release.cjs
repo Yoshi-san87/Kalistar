@@ -61,7 +61,7 @@ function isMetadata(file) {
   return /^V4\/(?:site|deploy)\/[^/]+\.(?:cjs|js|mjs|json|css|html|webmanifest)$/.test(file)
     || /^V4\/docs\/(?:joueurs\/)?[^/]+\.md$/.test(file)
     || /^V[34]\/donnees\/[^/]+\.json$/.test(file)
-    || ['V4/atelier/game-catalog.cjs','V4/atelier/data/references.json',
+    || ['V4/atelier/game-catalog.cjs','V4/atelier/arena-catalog.cjs','V4/atelier/data/references.json',
       'V4/collaborations/ff8-set-01/set.json','V4/collaborations/ff10-set-01/set.json'].includes(file);
 }
 function isRuntimeTree(file) {
@@ -118,7 +118,7 @@ async function prepare({root=ROOT, ref='HEAD'} = {}) {
   fs.writeFileSync(path.join(snapshot,'publication.json'),JSON.stringify(report,null,2));
   return report;
 }
-module.exports = {prepare,parseTree,parseBatch,pointer,verifiedMedia,isRuntimeTree,gitHash};
+module.exports = {prepare,parseTree,parseBatch,pointer,verifiedMedia,isMetadata,isRuntimeTree,gitHash};
 if (require.main === module) {
   const args = process.argv.slice(2);
   if (args.length > 1 || args[0]?.startsWith('-')) { console.error('Usage: node V4/deploy/prepare-release.cjs [commit-or-tag]'); process.exitCode=1; }

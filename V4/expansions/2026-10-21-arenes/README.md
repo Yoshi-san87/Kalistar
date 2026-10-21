@@ -86,4 +86,9 @@ Les preuves volumineuses et captures restent dans `work/qa/arenas-20261021/` ;
 les logs complets sont `work/arenas-46107-ci.log` et `work/arenas-46107-local.log`.
 Les memes tests navigateur sont rejoues sur la copie figee du commit avant
 l'envoi Cloudflare. Canal personnel : `https://kalistar.pages.dev/jeu/`.
-Tag de livraison : `v4.6.107`. Aucun changement de secret, compte, schema ou forfait.
+Le gel de `v4.6.107` a detecte une dependance absente de la liste de publication :
+`V4/atelier/arena-catalog.cjs`. Aucun deploiement Cloudflare de ce commit.
+La livraison corrective `v4.6.108` inclut ce module et un test parcourant les
+dependances locales du constructeur pour verifier leur presence dans le gel.
+Les huit lieux et toutes les regles restent identiques aux tests ci-dessus.
+Aucun changement de secret, compte, schema ou forfait.
