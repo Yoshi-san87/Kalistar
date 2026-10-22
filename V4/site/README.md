@@ -164,6 +164,12 @@ dans leur orientation d'origine. Les ancres d'equipement en arene ne changent pa
 Respecter le proprietaire CSS d'un composant. Par exemple, le socle Collection
 est defini dans `collection-pedestal.css`, pas par de nouveaux overrides dans
 `mobile.css`, `positions.css` ou `collection-binder.css`.
+La preparation avant-match utilise une seule zone de defilement dans
+`pre-match.css` : capitaines face a face et reglages lateraux sur PC, puis
+blocs successifs sur telephone. Entete et lancement restent fixes, meme en
+paysage et avec les options avancees ouvertes. Le formulaire garde les memes
+choix, validations et snapshots de composition ; cette presentation ne change
+ni les profils IA, ni la cohesion, ni les bonus du terrain.
 Verifier les tailles reelles, petits ecrans, clavier, tactile et Reduced Motion.
 Les timers/listeners/observateurs de vue doivent etre nettoyes a sa destruction.
 Les effets d'ambiance et les cristaux en attente dessinent autour de 30 Hz,

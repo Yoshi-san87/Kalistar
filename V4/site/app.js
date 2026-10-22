@@ -523,7 +523,7 @@ function showDeck(){setView('decks');}
     const a=arenaById(id);
     return `<img src="${a.image}" alt=""><div class="match-arena-copy"><h3>${esc(a.name)}</h3><div class="match-arena-rule">${icon(a.element&&a.element!=='NONE'?'gem':'compass')}<span>${arenaRule(a)}</span></div></div>`;
   }
-  function matchArenaOptions(id){return `<div class="match-arena-controls"><label class="match-arena-select"><span>Arène</span><select name="arena" id="match-arena">${arenas.map(a=>`<option value="${esc(a.id)}" ${arenaById(id).id===a.id?'selected':''}>${esc(a.name)}</option>`).join('')}</select></label><button type="button" data-action="match-random-arena">${icon('shuffle')}Au hasard</button></div>`;}
+  function matchArenaOptions(id){return `<div class="match-arena-controls"><label class="match-arena-select"><span class="sr-only">Arène</span><select name="arena" id="match-arena">${arenas.map(a=>`<option value="${esc(a.id)}" ${arenaById(id).id===a.id?'selected':''}>${esc(a.name)}</option>`).join('')}</select></label><button type="button" data-action="match-random-arena" title="Arène au hasard" aria-label="Arène au hasard">${icon('shuffle')}</button></div>`;}
   function refreshMatchLobby(){
     const form=$('#new-game-form');if(!form)return;
     const playerChoice=$('#player-match-deck').value,player=matchDeckByChoice(playerChoice),playerErrors=player?deckErrors(player):['Deck introuvable.'];
@@ -591,19 +591,24 @@ function showDeck(){setView('decks');}
     const difficulty=load('matchDifficulty','balanced'),aiProfile=(KalistarAI.get(load('aiProfile','soren'))||KalistarAI.get('soren')).id;
     $('#new-game-dialog').classList.add('arena-picker-dialog','pre-match-dialog');
     modal('new-game-dialog',head('Préparation')+`<div class="dialog-body"><form id="new-game-form" class="pre-match-form">
-      <label class="match-mode-control"><span>Rencontre</span><select id="game-mode"><option value="ai">Solo · contre l’IA</option><option value="local">Duel local · 2 joueurs</option></select></label>
-      <section class="matchup-decks" aria-label="Composition des équipes">
+      <div class="match-lobby-scroll">
+      <section class="match-roster" aria-label="Composition des équipes">
+      <div class="match-lobby-bar"><h3 class="match-section-title">Face-à-face</h3><label class="match-mode-control"><span class="sr-only">Rencontre</span><select id="game-mode"><option value="ai">Solo · contre l’IA</option><option value="local">Duel local · 2 joueurs</option></select></label></div>
+      <div class="matchup-decks">
         <section class="match-side-player"><h3 class="match-side-heading">VOTRE ÉQUIPE</h3><div id="match-player-preview">${matchDeckSummary(player,deckErrors(player))}</div><label class="match-deck-select"><span>Deck de départ</span><select id="player-match-deck">${matchDeckOptions(player.id)}</select></label></section>
-        <div class="match-versus" aria-hidden="true">${icon('swords')}</div>
+        <div class="match-versus" aria-hidden="true"><span>VS</span>${icon('swords')}</div>
         <section class="match-side-enemy"><h3 class="match-side-heading" id="match-enemy-title">ADVERSAIRE IA</h3><div id="match-enemy-preview"></div><label class="match-deck-select"><span id="enemy-deck-label">Deck IA</span><select id="enemy-deck-preset">${presetOptions(enemyPresetId)}<option value="random" ${enemyPresetId==='random'?'selected':''}>Composition au hasard</option>${builder().listDecks().filter(d=>!E.validateComposition(d).length).map(d=>`<option value="saved:${d.id}" ${enemyPresetId==='saved:'+d.id?'selected':''}>${esc(d.name)} · Equipe</option>`).join('')}</select></label></section>
-      </section>
-      <section class="match-ai-controls" id="match-ai-controls" aria-label="Adversaire"><label><span>Adversaire</span><select id="match-ai-profile" aria-describedby="match-ai-summary">${KalistarAI.profiles.map(p=>`<option value="${p.id}" ${p.id===aiProfile?'selected':''}>${esc(p.name)} · ${esc(p.title)}</option>`).join('')}</select></label><div class="match-ai-summary" id="match-ai-summary" aria-live="polite"></div></section>
-      <div class="match-opponent-controls"><label><span>Cohésion adverse</span><select id="match-difficulty">${[['relaxed','Détente'],['balanced','Équilibré'],['tactical','Tactique']].map(([id,name])=>`<option value="${id}" ${difficulty===id?'selected':''}>${name}</option>`).join('')}</select></label><button type="button" data-action="match-random-opponent">${icon('shuffle')}Deck au hasard</button></div>
-      <section class="match-arena-section"><div class="match-arena-showcase" id="match-arena-summary">${matchArenaSummary(arenaId)}</div>${matchArenaOptions(arenaId)}</section>
+      </div></section>
+      <div class="match-settings">
+      <section class="match-opponent-section" aria-labelledby="match-opponent-heading"><h3 class="match-section-title" id="match-opponent-heading">${icon('swords')}Adversaire</h3>
+      <div class="match-ai-controls" id="match-ai-controls"><label><span>Style de jeu</span><select id="match-ai-profile" aria-describedby="match-ai-summary">${KalistarAI.profiles.map(p=>`<option value="${p.id}" ${p.id===aiProfile?'selected':''}>${esc(p.name)} · ${esc(p.title)}</option>`).join('')}</select></label><div class="match-ai-summary" id="match-ai-summary" aria-live="polite"></div></div>
+      <div class="match-opponent-controls"><label><span>Cohésion adverse</span><select id="match-difficulty">${[['relaxed','Détente'],['balanced','Équilibré'],['tactical','Tactique']].map(([id,name])=>`<option value="${id}" ${difficulty===id?'selected':''}>${name}</option>`).join('')}</select></label><button type="button" data-action="match-random-opponent">${icon('shuffle')}Deck au hasard</button></div></section>
+      <section class="match-arena-section" aria-labelledby="match-arena-heading"><h3 class="match-section-title" id="match-arena-heading">${icon('map')}Champ de bataille</h3><div class="match-arena-showcase" id="match-arena-summary">${matchArenaSummary(arenaId)}</div>${matchArenaOptions(arenaId)}</section>
+      </div>
       <details class="match-advanced"><summary>${icon('settings-2')}Options avancées</summary><label>Graine des dés<input id="game-seed" maxlength="60" value="KALI-${Math.floor(Math.random()*999999)}" required></label></details>
       ${game&&game.phase!=='over'?'<p class="validation match-replace-warning">Cette rencontre remplacera la partie actuellement en cours. Son historique restera archivé.</p>':''}
-      <span id="match-shuffle-status" class="sr-only" role="status"></span>
-      <footer class="match-footer"><button type="button" data-action="close">Retour</button><button class="primary match-launch" type="submit">${icon('swords')}<span>Lancer la rencontre</span></button></footer>
+      <span id="match-shuffle-status" class="sr-only" role="status"></span></div>
+      <footer class="match-footer"><button type="button" data-action="close" aria-label="Retour">${icon('arrow-left')}Retour</button><button class="primary match-launch" type="submit">${icon('swords')}<span>Lancer la rencontre</span>${icon('chevron-right')}</button></footer>
     </form></div>`);
     refreshMatchLobby();
   }
