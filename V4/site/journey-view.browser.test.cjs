@@ -462,13 +462,18 @@ async function balmhyrProbe(browser) {
         await page.locator(action('stage')+'[data-jv-stage="'+index+'"]').click();await imagesReady(page);
         for (const mode of ['intro','outro']) {
           await page.locator(action(mode)).click();
-          assert.deepEqual(await page.locator('.jv-reading>p').allTextContents(),stage[mode]);
+          assert.deepEqual(await page.locator('.jv-reading>p:not(.jv-admin-note)').allTextContents(),stage[mode]);
           await assertLayout(page,'balmhyr '+index+' '+mode+' '+viewport.width);
         }
         await page.locator(action('intro')).click();
         await page.screenshot({path:path.join(output,'balmhyr-'+stage.id+'-'+viewport.width+'.png')});
       }
-      await page.evaluate(()=>{void harness.view.revealEquipment(KalistarWeapons.weapons.find(item=>item.id==='mythic-iron-gauntlet'));});
+      await page.evaluate(()=>{
+        harness.state.isAdmin=false;
+        harness.progress(1,{cleared:7,completed:true,claimed:true,acknowledged:true,
+          equipmentClaims:harness.state.books[1].bonusStages.map((stage,index)=>({stage:4+index,equipmentId:stage.rewardEquipmentId,kind:stage.rewardKind,acknowledged:index<2}))});
+        void harness.view.revealEquipment(KalistarWeapons.weapons.find(item=>item.id==='mythic-iron-gauntlet'));
+      });
       await page.locator('.jv-equipment-reveal[open]').waitFor();await imagesReady(page);
       assert.equal(await page.locator('.jv-reward-name strong').textContent(),'Gant de Fer');
       await assertLayout(page,'balmhyr relic '+viewport.width);

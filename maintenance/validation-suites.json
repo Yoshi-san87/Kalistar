@@ -243,8 +243,6 @@
       [
         "--test",
         "V4/site/equipment-v2.test.cjs",
-        "V4/site/balmhyr-equipment.test.cjs",
-        "V4/site/balmhyr-equipment-persistence.test.cjs",
         "V4/site/equipment-slots-persistence.test.cjs",
         "V4/site/equipment-slots-presentation.test.cjs"
       ],
@@ -421,7 +419,8 @@
         "V4/deploy/prepare-release.test.cjs",
         "V4/deploy/runtime-media.test.cjs"
       ],
-      ["--test", "V4/site/cloud-registry.test.cjs", "V4/site/cloud-session.test.cjs", "V4/site/cloud-sync.test.cjs", "V4/site/cloud-ownership.test.cjs", "V4/deploy/access-worker.test.cjs"]
+      ["--test", "V4/site/cloud-registry.test.cjs", "V4/site/cloud-session.test.cjs", "V4/site/cloud-sync.test.cjs", "V4/site/cloud-ownership.test.cjs", "V4/deploy/access-worker.test.cjs"],
+      ["--test", "V4/site/balmhyr-equipment.test.cjs", "V4/site/balmhyr-equipment-persistence.test.cjs"]
     ],
     "local": [
       ["--test", "V4/revisions/2026-10-22-fragment-adventure/progression.test.cjs"],

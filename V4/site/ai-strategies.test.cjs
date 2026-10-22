@@ -6,7 +6,10 @@ const F=require('./fixtures/ultimate-expansion.cjs');
 const fixtures=require('./fixtures/ai-native.json');
 const data=buildCatalog({published:require('../donnees/catalogue.json').cards.filter(c=>c.kind==='created')});
 async function native(index=0,id='soren'){
-  const E=createEngine(await data),f=fixtures[index],s=E.newGame(...f.teams,{seed:f.seed,arenaId:f.arenaId,turnOrder:'ABBA',aiProfiles:[id,id]});
+  const E=createEngine(await data),f=fixtures[index],T=require('./team-composition.js').create(E);
+  const before=JSON.stringify(f),teams=f.teams.map(team=>T.normalize(team));
+  assert.equal(JSON.stringify(f),before,'historical preset fixture stays unchanged');
+  const s=E.newGame(...teams,{seed:f.seed,arenaId:f.arenaId,turnOrder:'ABBA',aiProfiles:[id,id]});
   while(s.phase==='initiative')E.rollInitiative(s);return {E,s};
 }
 test('five distinct frozen policies; valid snapshots and legacy games keep their policy',async()=>{

@@ -97,6 +97,14 @@ actuels sont termines et restaures par les tests cibles.
 
 ### Integration
 
+Les 102 invocations CI ont ete couvertes, avec reprise apres mise a jour des
+attentes heritees, et les 14 invocations locales ont termine sans echec.
+Les 22 tests propres au Gant et a son stockage IndexedDB sont inclus dans
+une invocation additive : les 84 commandes CI historiques restent intactes.
+Les anciens presets IA passent par la normalisation publique avant un nouveau
+match, sans reecrire leur fixture. Les tests SQL couvrent egalement le schema
+13, ses quatorze migrations et la restauration du journal prive.
+
 Les tests cibles couvrent la migration et sa restauration, les verrous de
 progression, les recompenses compatibles, l'usage unique du Gant, les anciens
 profils et le rejeu d'un ancien match. Les preuves historiques ne sont pas
