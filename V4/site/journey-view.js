@@ -22,7 +22,7 @@
     rester:['momo-rester','Debout, Momo fait danser la lumière parmi les objets oubliés.'],
     souffle:['momo-souffle','Momo retrouve sa mélodie au milieu des outils d’un atelier.'],
     coutures:['momo-coutures','Taulio ajuste le harnais de Momo avant le passage du pont.'],
-    boite:['momo-boite','Momo et Kaylis écoutent une boîte à musique au matin.']
+    boite:['momo-boite','Momo et Kaylis, en cape noire, écoutent une boîte à musique au matin.',2]
   });
 
   // Parent contract: stages stays at four; bonusStages adds absolute stages 4..6.
@@ -115,7 +115,7 @@
       const scene = book.id === 'momo-petits-bonheurs' && momoScenes[stage?.id || 'rester'];
       const key = book.id+':'+(stage?.id || 'reward');
       if (!scene) return `<figure class="jv-panorama is-portrait" data-jv-scene="${esc(key)}">${media(id,'art',stage?.title || titleOf(book),{lazy:false})}</figure>`;
-      const base = 'assets/journeys/'+scene[0]+'-v1';
+      const base = 'assets/journeys/'+scene[0]+'-v'+(scene[2] || 1);
       return `<figure class="jv-panorama" data-jv-scene="${esc(key)}"><img src="${esc(asset(base+'.webp'))}" srcset="${esc(asset(base+'-small.webp'))} 840w, ${esc(asset(base+'.webp'))} 1672w" sizes="100vw" alt="${esc(scene[1])}" width="1672" height="941" decoding="async" draggable="false"></figure>`;
     }
     function hydrate(scope) {

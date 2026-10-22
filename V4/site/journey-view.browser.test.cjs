@@ -167,7 +167,7 @@ async function assertSequelScene(page,index) {
   const scene=page.locator('.jv-sequel-leaf .jv-panorama');
   assert.equal(await scene.count(),1,'the sequel ceremony has its own chapter illustration');
   assert.equal(await scene.getAttribute('data-jv-scene'),expected.key);
-  assert.match(new URL(await scene.locator('img').evaluate(img=>img.currentSrc)).pathname,new RegExp('/momo-'+expected.scene+'-v1(?:-small)?\\.webp$'));
+  assert.match(new URL(await scene.locator('img').evaluate(img=>img.currentSrc)).pathname,new RegExp('/momo-'+expected.scene+'-v'+(expected.scene==='boite'?2:1)+'(?:-small)?\\.webp$'));
   const backgrounds=await page.locator('.jv-sequel-reveal,.jv-sequel-leaf').evaluateAll(nodes=>nodes.map(node=>getComputedStyle(node).backgroundImage));
   sequelDiagnostics.push({stage:index,key:expected.key,backgrounds,noBookBackground:backgrounds.every(background=>!background.includes('collection-reader-grimoire'))});
   fs.writeFileSync(path.join(output,'sequel-scenes.json'),JSON.stringify(sequelDiagnostics,null,2));
@@ -346,7 +346,7 @@ async function adventureProbe(browser) {
     page.on('pageerror',error=>report.errors.push({viewport,message:error.message}));
     page.on('response',response=>{if(response.status()>=400)report.errors.push({viewport,url:response.url(),status:response.status()});});
     page.on('request',request=>{
-      const match=new URL(request.url()).pathname.match(/\/momo-([a-z]+)-v1(?:-small)?\.webp$/);
+      const match=new URL(request.url()).pathname.match(/\/momo-([a-z]+)-v[12](?:-small)?\.webp$/);
       if(match)requested.push(match[1]);
     });
     try{
@@ -385,7 +385,7 @@ async function adventureProbe(browser) {
         assert.equal(await page.locator('.jv-panorama').count(),1,'one narrative background, not a preloaded strip');
         assert.equal(await page.locator('.jv-panorama').getAttribute('data-jv-scene'),book.id+':'+stages[index].id);
         const url=await page.locator('.jv-panorama img').evaluate(img=>img.currentSrc);urls.push(url);
-        assert.match(new URL(url).pathname,new RegExp('/momo-'+stages[index].id+'-v1(?:-small)?\\.webp$'));
+        assert.match(new URL(url).pathname,new RegExp('/momo-'+stages[index].id+'-v'+(stages[index].id==='boite'?2:1)+'(?:-small)?\\.webp$'));
         assert.equal(await page.locator('.jv-stage-heading h3').textContent(),stages[index].title);
         assert.deepEqual(await page.locator('.jv-reading>p').allTextContents(),stages[index].intro);
         assert.equal(await page.locator('.jv-panorama img').evaluate(img=>getComputedStyle(img).animationName),'none');

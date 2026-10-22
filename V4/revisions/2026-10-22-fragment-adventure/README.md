@@ -30,7 +30,7 @@ Le roman Story, les profils des cartes et les regles de duel restent inchanges.
 Les sources PNG sont preservees sous sources/ et sauvegardees hors checkout.
 Seuls les WebP inscrits au registre media sont deployes, jamais les originaux.
 Les deux tailles de scene permettent de ne charger que la resolution utile.
-Les 15 nouveaux medias pesent 3 796 880 octets au total ; une scene desktop
+Les 15 medias actifs pesent 3 754 892 octets au total ; une scene desktop
 reste sous 500 ko et une scene mobile sous 180 ko.
 
 ## Verification Et Integration
@@ -49,3 +49,16 @@ Integration terminee pour [la version 4.6.109](../../releases/2026-10-22-v4.6.10
 101 groupes CI, 14 groupes locaux, lecteur PC/Razr et parcours signe de sept
 combats valides. Les notes DECKS/BACKEND conservent le bilan des sous-perimetres
 avant integration ; les demandes de raccordement y sont maintenant traitees.
+
+## Kaylis, Revision 2
+
+Retouche demandee apres la premiere publication : Kaylis porte maintenant sa
+cape noire brodee de rouge, sa tresse et une allure plus affirmee, en reference
+a la version approuvee 49902701, Le Prochain Pas. Momo, la boite musicale et
+la composition de la rencontre sont conserves. Aucun texte, duel ou compte
+ne change. L'illustration native de carte n'est pas modifiee.
+
+Le prompt, les references et leurs empreintes sont dans
+[kaylis-cape-v2.json](kaylis-cape-v2.json). Source et deux exports WebP v2
+distincts ; les v1 restent preserves. Le lecteur utilise uniquement les v2
+pour cette scene. La nouvelle source est sauvegardee hors checkout.

@@ -10,11 +10,12 @@ async function main() {
   fs.mkdirSync(destination,{recursive:true});
   const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex'), records = [];
   for (const name of names) {
-    const source = 'V4/revisions/2026-10-22-fragment-adventure/sources/'+name+'-v1.png';
+    const revision = name === 'momo-boite' ? 2 : 1;
+    const source = 'V4/revisions/2026-10-22-fragment-adventure/sources/'+name+'-v'+revision+'.png';
     const input = fs.readFileSync(path.join(root,source));
     // Separate responsive encodings, no crop or alteration of the original painting.
     for (const [suffix,width] of [['',1672],['-small',840]]) {
-      const output = 'V4/site/assets/journeys/'+name+'-v1'+suffix+'.webp';
+      const output = 'V4/site/assets/journeys/'+name+'-v'+revision+suffix+'.webp';
       const bytes = await sharp(input).resize({width,withoutEnlargement:true}).webp({quality:86,effort:6}).toBuffer();
       fs.writeFileSync(path.join(root,output),bytes);
       const info = await sharp(bytes).metadata();

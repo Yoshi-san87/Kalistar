@@ -16,7 +16,8 @@ test('release contains all published cards and only playable files', async () =>
   assert.ok(files.some(f => f.target === 'jeu/assets/ui/story-closed-grimoire-v2.webp'));
   assert.equal(files.filter(f => f.target.startsWith('jeu/assets/ui/story-books/')).length, 11, 'all forthcoming Kalistel covers are published');
   const fragmentAssets = ['30000001-art-v1.webp','30000014-art-v1.webp','49055457-art-v1.webp','49900802-art-v1.webp','binding-v1.webp',
-    ...['rebuts','passage','carillons','rester','souffle','coutures','boite'].flatMap(id=>['momo-'+id+'-v1.webp','momo-'+id+'-v1-small.webp'])];
+    ...['rebuts','passage','carillons','rester','souffle','coutures','boite'].flatMap(id=>['momo-'+id+'-v1.webp','momo-'+id+'-v1-small.webp']),
+    'momo-boite-v2.webp','momo-boite-v2-small.webp'];
   assert.deepEqual(files.filter(f => f.target.startsWith('jeu/assets/journeys/')).map(f=>f.target).sort(), fragmentAssets.map(name=>'jeu/assets/journeys/'+name).sort(), 'Fragment publishes only the binding, reward paintings and responsive story scenes');
   assert.ok(files.every(f => !/story-closed-grimoire-v\d+\.original\.png$/.test(f.target)), 'cover authoring sources stay out of the runtime');
   const story = JSON.parse(fs.readFileSync(path.join(__dirname, '../site/story-content.json'), 'utf8'));
@@ -122,9 +123,9 @@ test('static release versions stylesheet and script URLs together', () => {
 test('application version matches in desktop and phone headers', () => {
   const html = fs.readFileSync(path.join(__dirname, '../site/index.html'), 'utf8');
   const css = fs.readFileSync(path.join(__dirname, '../site/v4.css'), 'utf8');
-  assert.match(html, /<title>Kalistar V4\.6\.109/);
-  assert.match(html, /<span class="edition">VERSION 4\.6\.109<\/span>/);
-  assert.ok(css.includes("content:'V4.6.109'"));
+  assert.match(html, /<title>Kalistar V4\.6\.110/);
+  assert.match(html, /<span class="edition">VERSION 4\.6\.110<\/span>/);
+  assert.ok(css.includes("content:'V4.6.110'"));
 });
 test('hosting adapter supports local, project Pages and saved canonical image paths', () => {
   const script = fs.readFileSync(path.join(__dirname, '../site/site-config.js'), 'utf8');

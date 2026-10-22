@@ -49,6 +49,15 @@ test('the seven narrative scenes preserve their originals and ship two bounded W
   assert.ok(ui.includes("'30000001':'assets/journeys/30000001-art-v1.webp'"),'historical reward cover remains available');
 });
 
+test('the later-story Kaylis scene uses revision 2 and preserves its reference and first edition', () => {
+  const edit = require('../revisions/2026-10-22-fragment-adventure/kaylis-cape-v2.json');
+  for(const item of [edit.editTarget,edit.reference,edit.output,...edit.preservedExports]) assert.equal(hash(item.source),item.sha256);
+  assert.equal(edit.reference.modelId,'49902701');
+  const scene = adventure.assets.filter(asset=>asset.source===edit.output.source);
+  assert.equal(scene.length,2);
+  for(const asset of scene) assert.match(asset.output,/momo-boite-v2(?:-small)?\.webp$/);
+});
+
 test('new binding is transparent at the painting aperture and opaque at the title plaque', async () => {
   const asset = provenance.assets.find(asset=>!asset.modelId);
   assert.equal(hash(asset.source),asset.sourceSha256);
