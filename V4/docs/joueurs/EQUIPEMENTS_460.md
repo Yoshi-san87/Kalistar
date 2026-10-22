@@ -49,6 +49,8 @@ Une relique ne fonctionne pas simplement sur un 6. Sa fiche indique une conditio
 
 Chaque relique possède un ultime à usage unique. Certaines distribuent un soutien, d'autres préparent une riposte, protègent un compagnon ou affaiblissent un adversaire précis. Leur préparation et leur effet ne sont pas la même chose : une relique peut être prête sans avoir encore ajouté un bonus au duel.
 
+Le **Gant de Fer** est la relique de Balmhyr, pas son arme. S'il survit à une attaque alors que son équipe est en infériorité numérique, il prépare +40 ATK pour sa prochaine attaque chiffrée conservée, une seule fois par partie. Sa Hache et le Rempart peuvent être portés avec lui sur une version de Balmhyr équipée d'une hache.
+
 Le manuscrit **Les reliques ultimes** détaille les conditions de chaque objet, notamment la Boîte des Petits Bonheurs de Momo, la Materia blanche d'Aeris et le Pod 042 de 2B.
 
 ## Reconnaître une activation

@@ -12,6 +12,7 @@
   const coverArt = Object.freeze({
     '30000001':'assets/journeys/30000001-art-v1.webp',
     '30000014':'assets/journeys/30000014-art-v1.webp',
+    '30000007':'assets/journeys/30000007-art-v1.webp',
     '49900802':'assets/journeys/49900802-art-v1.webp',
     '49055457':'assets/journeys/49055457-art-v1.webp'
   });

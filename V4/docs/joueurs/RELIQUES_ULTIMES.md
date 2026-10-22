@@ -2,6 +2,14 @@
 
 Ces objets changent une situation précise, pas toutes les attaques. Chaque ultime décrit ici ne peut être utilisé **qu'une fois par rencontre**. Il faut l'équiper sur son personnage avant la partie.
 
+## Balmhyr : le Gant de Fer
+
+**Condition :** Balmhyr survit à une attaque alors que son équipe compte moins de combattants actifs que l'adversaire au début du duel.
+
+**Effet :** il prépare +40 ATK pour sa prochaine attaque chiffrée conservée, une seule fois par rencontre. Une attaque abandonnée ou une face spéciale ne dépense pas cette riposte.
+
+Le Gant est une relique : il ne remplace pas la Hache. Sur un 6 chiffré conservé, les +30 de la Hache peuvent s'ajouter aux +40 du Gant. Le Rempart protège séparément sur un 6 en défense. Toutes les versions de Balmhyr peuvent porter le Gant ; seules celles qui utilisent une hache peuvent porter la Hache du Roi Déchu.
+
 ## Momo : la Boîte des Petits Bonheurs
 
 **Condition :** au début du duel, l'équipe de Momo compte moins de combattants actifs que l'adversaire. Momo doit ensuite être la cible d'une attaque chiffrée conservée ou de Mort.

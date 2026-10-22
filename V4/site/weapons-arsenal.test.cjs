@@ -119,18 +119,28 @@ test('archived 4.5.64: original arsenal completes real matches and restores ever
 });
 test('4.6 compatible weapon alternatives replace atomically without altering the other slots',async()=>{
   const data=await dataPromise;let p=Q.profile('arsenal-qa');
-  for(const [characterId,first,next]of [['2b-nier','virtuous-contract','virtuous-treaty'],['geralt-witcher','wolf-steel','wolf-silver'],['balmhyr','fallen-king-axe','mythic-iron-gauntlet']]){
+  for(const [characterId,first,next]of [['2b-nier','virtuous-contract','virtuous-treaty'],['geralt-witcher','wolf-steel','wolf-silver']]){
     p=Q.equipProfile(p,characterId,first,data.cards);assert.throws(()=>Q.equipProfile(p,characterId,next,data.cards));
     if(unmatched.includes(next)){assert.throws(()=>Q.equipProfile(p,characterId,next,data.cards,{expected:first,expectedProfile:p}));assert.equal(p.slots.weapon[characterId],first);continue;}
     p=Q.equipProfile(p,characterId,next,data.cards,{expected:first,expectedProfile:p});assert.equal(p.slots.weapon[characterId],next);
   }
-  assert.equal(Object.keys(p.slots.weapon).length,3);
+  assert.equal(Object.keys(p.slots.weapon).length,2);
   assert.deepEqual(p.slots.shield,{});assert.deepEqual(p.slots.relic,{});
+  p=Q.equipProfile(p,'balmhyr','fallen-king-axe',data.cards);
+  p=Q.equipProfile(p,'balmhyr','mythic-iron-gauntlet',data.cards);
+  assert.equal(p.slots.weapon.balmhyr,'fallen-king-axe');assert.equal(p.slots.relic.balmhyr,'mythic-iron-gauntlet');
 });
 
 test('4.6 original arsenal keeps metadata and values, with ATK-six weapons including Momo flute',()=>{
   for(const old of weapons){
     const current=Q.catalogue.weapons.find(w=>w.id===old.id);Q.validateDefinition(current);
+    if(old.id==='mythic-iron-gauntlet'){
+      assert.equal(current.slot,'relic');assert.equal(current.name,'Gant de Fer');
+      assert.equal(current.effect.trigger,'ULTIMATE');assert.equal(current.effect.action.value,40);
+      for(const key of ['id','art','visual'])assert.equal(current[key],old[key]);
+      assert.deepEqual(Q.catalogue.legacyWeapons.find(w=>w.id===old.id),old);
+      continue;
+    }
     const expectedMetadata=old.id==='white-oath-rapier'?{...old,name:'Promesse',collectible:{...old.collectible,alt:'Promesse : rapière blanche offerte à Kaylis par Balmhyr.'}}:old;
     for(const key of ['id','name','family','art','visual','restrictions','collectible','lore'])assert.deepEqual(current[key],expectedMetadata[key],old.id+' '+key);
     assert.equal(current.rulesVersion,2);

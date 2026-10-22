@@ -1,5 +1,16 @@
 # Reliques ultimes
 
+## Gant de Fer de Balmhyr
+
+`mythic-iron-gauntlet` est une relique dans les nouvelles parties. Condition
+`ULTIMATE / SURVIVED / outnumbered`, action `ARM / ATK / 40 / self`, duree
+`ONCE_MATCH` : apres survie d'une attaque en inferiorite numerique, le prochain
+jet ATK numerique conserve recoit +40. Le moteur declaratif existant gere la
+charge et son expiration, sans changement des des ni de la famille imprimee.
+Toutes les versions de Balmhyr sont compatibles. La Hache reste une arme
+reservee a ses versions Hache. Les snapshots historiques gardent le Gant arme.
+La reconciliation des profils n'ecrase jamais une relique deja equipee.
+
 Decision utilisateur du 12 octobre 2026. Le premier lot concerne la Boite des
 Petits Bonheurs, la Materia blanche et le Pod 042. Ses regles et sa documentation
 historique sont conservees ci-dessous. L'extension aux 32 autres reliques est

@@ -45,14 +45,23 @@ test('Each printed ATK and DEF face, magic, barrier, Guard and physical support 
   defense.E.assertState(defense.s);restored(defense.E,defense.s);
  }
 });
-test('Signature equipment follows the printed family, not the other edition',async()=>{
+test('Current signature weapons follow printed families; Balmhyr relic spans both editions without changing the legacy weapon',async()=>{
  const data=await dataPromise;
  for(const spec of set.cards){
   const old=data.cards.find(c=>c.id===spec.lineage),next=data.cards.find(c=>c.id===spec.id);
   const w=Q.catalogue.weapons.find(w=>w.id===loadout[spec.characterId]);
-  assert.equal(Q.compatible(w,next),true);assert.equal(Q.compatible(w,old),false);
+  const relic=w.id==='mythic-iron-gauntlet';
+  assert.equal(Q.compatible(w,next),true);assert.equal(Q.compatible(w,old),relic);
+  assert.equal(w.slot,relic?'relic':'weapon');
+  if(relic){
+   assert.deepEqual(w.restrictions,{characterIds:['balmhyr']});assert.equal(w.effect.trigger,'ULTIMATE');
+   const legacy=Q.catalogue.legacyWeapons.find(item=>item.id===w.id);
+   assert.equal(legacy.slot,'weapon');assert.deepEqual(legacy.restrictions.families,['Poing']);
+   assert.equal(Q.compatible(legacy,next),true);assert.equal(Q.compatible(legacy,old),false);
+  }
   const row=Q.equipProfile(Q.profile('VARIANTS'),spec.characterId,w.id,data.cards);
-  assert.equal(row.slots.weapon[spec.characterId],w.id);
+  assert.equal(row.slots[relic?'relic':'weapon'][spec.characterId],w.id);
+  assert.equal(row.slots[relic?'weapon':'relic'][spec.characterId],undefined);
  }
 });
 test('New edition profiles stay within role limits and cannot add arbitrary special faces',()=>{

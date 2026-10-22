@@ -126,8 +126,11 @@ Une lecture avec revision connue et un acquittement reussi n'envoient pas tout
 l'historique a nouveau ; une divergence renvoie l'etat complet a resoudre.
 Un autre appareil demande explicitement de reprendre ; l'ancien perd le droit
 d'ecriture a sa prochaine operation. Le jeu y suspend les actions de combat.
-Un conflit conserve le brouillon et propose compte/appareil. Un choix local ne
-contourne ni revision ni bail. Le serveur interdit le transfert d'une carte
+Un conflit conserve le brouillon et propose deux boutons regroupant chacun
+source, date et action : appareil a gauche, compte a droite. Sur telephone,
+ces boutons se suivent dans le meme ordre, sans separer la date de son choix.
+Aucun choix n'est automatique ; Fermer ou Echap ne resout pas le conflit.
+Un choix local ne contourne ni revision ni bail. Le serveur interdit le transfert d'une carte
 engagee dans la partie synchronisee et valide ses liaisons a chaque ecriture.
 
 Cache IndexedDB : `kalistar-v4-cards-cloud-<AuthUUID>`, meme couche locale et

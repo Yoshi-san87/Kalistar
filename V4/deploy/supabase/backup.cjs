@@ -46,8 +46,8 @@ function bundle(snapshot){
   const version=snapshot.tables.find(t=>t.name==='registry_version').rows[0]?.version;
   const all=fs.readdirSync(path.join(__dirname,'migrations')).filter(n=>n.endsWith('.sql')).sort();
   // Match the live schema, not an unpublished additive migration in this checkout.
-  const migrations=all.filter(n=>version===8?n<'202610170000':version===9?n<='202610170010_progress_archives.sql':version===10?n<='202610210011_equipment_ownership.sql':version===11?n<='202610210012_journey_sequels.sql':version===12?n<='202610220013_journey_momo_reward.sql':false).map(name=>({name,sql:fs.readFileSync(path.join(__dirname,'migrations',name),'utf8')}));
-  if(![8,9,10,11,12].includes(version)||!migrations.length)throw Error('Unsupported schema for backup bundle');
+  const migrations=all.filter(n=>version===8?n<'202610170000':version===9?n<='202610170010_progress_archives.sql':version===10?n<='202610210011_equipment_ownership.sql':version===11?n<='202610210012_journey_sequels.sql':version===12?n<='202610220013_journey_momo_reward.sql':version===13?n<='202610220014_balmhyr_iron_gauntlet.sql':false).map(name=>({name,sql:fs.readFileSync(path.join(__dirname,'migrations',name),'utf8')}));
+  if(![8,9,10,11,12,13].includes(version)||!migrations.length)throw Error('Unsupported schema for backup bundle');
   return {snapshot,migrations};
 }
 function counts(snapshot){return Object.fromEntries(snapshot.tables.map(t=>[t.schema+'.'+t.name,t.rows.length]));}

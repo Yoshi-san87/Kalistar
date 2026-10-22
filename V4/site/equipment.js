@@ -75,15 +75,19 @@
   function reconcileLoadout(loadout,cards){
     // Keep the exact former restrictions; future weapons are never relaxed.
     const formerFlute=isSlots(loadout)&&object(loadout.relic)&&Object.values(loadout.relic).includes('little-joys-flute');
+    const formerGauntlet=isSlots(loadout)&&object(loadout.weapon)&&Object.values(loadout.weapon).includes('mythic-iron-gauntlet');
     const previous=(isSlots(loadout)?catalogue.weapons:catalogue.legacyWeapons).map(w=>({...w,
       ...(formerFlute&&w.id==='little-joys-flute'?{slot:'relic'}:{}),
-      restrictions:catalogue.legacyRestrictions[w.id]||w.restrictions}));
+      restrictions:catalogue.legacyRestrictions[w.id]||w.restrictions,
+      ...(formerGauntlet&&w.id==='mythic-iron-gauntlet'?{slot:'weapon'}:{})}));
     validateLoadout(loadout,cards,previous);
     const next=emptyLoadout();
-    for(const {characterId,id} of items(loadout)){
+    const entries=items(loadout),relocated=entry=>formerGauntlet&&entry.id==='mythic-iron-gauntlet';
+    // Existing relics win a slot conflict. Ownership lives outside this loadout.
+    for(const {characterId,id} of [...entries.filter(e=>!relocated(e)),...entries.filter(relocated)]){
       const w=catalogue.weapons.find(w=>w.id===id);
       if(cards.some(c=>c.characterId===characterId&&compatible(w,c))){
-        if(next[w.slot][characterId])fail();
+        if(next[w.slot][characterId]){if(formerGauntlet&&id==='mythic-iron-gauntlet')continue;fail();}
         next[w.slot][characterId]=id;
       }
     }

@@ -243,6 +243,8 @@
       [
         "--test",
         "V4/site/equipment-v2.test.cjs",
+        "V4/site/balmhyr-equipment.test.cjs",
+        "V4/site/balmhyr-equipment-persistence.test.cjs",
         "V4/site/equipment-slots-persistence.test.cjs",
         "V4/site/equipment-slots-presentation.test.cjs"
       ],
@@ -460,7 +462,7 @@
         "--test",
         "V4/site/weapon-backgrounds.test.cjs"
       ],
-      ["--test", "V4/deploy/supabase/registry.test.cjs", "V4/deploy/supabase/player-sync.test.cjs", "V4/deploy/supabase/unique-models.test.cjs", "V4/deploy/supabase/journeys.test.cjs", "V4/deploy/supabase/journey-sequels.test.cjs", "V4/deploy/supabase/progress-archives.test.cjs", "V4/deploy/supabase/equipment-ownership.test.cjs", "V4/deploy/supabase/backup.test.cjs"]
+      ["--test", "V4/deploy/supabase/registry.test.cjs", "V4/deploy/supabase/player-sync.test.cjs", "V4/deploy/supabase/unique-models.test.cjs", "V4/deploy/supabase/journeys.test.cjs", "V4/deploy/supabase/journey-sequels.test.cjs", "V4/deploy/supabase/progress-archives.test.cjs", "V4/deploy/supabase/equipment-ownership.test.cjs", "V4/deploy/supabase/backup.test.cjs", "V4/deploy/supabase/balmhyr-rewards.test.cjs"]
     ]
   },
   "browserAliases": [

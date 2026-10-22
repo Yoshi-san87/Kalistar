@@ -27,10 +27,11 @@
       return new Intl.DateTimeFormat('fr-FR',{dateStyle:'short',timeStyle:'short'}).format(new Date(value));
     };
     const command=(action,text,icon,primary=false)=>`<button type="button" data-sync-action="${action}" data-kui="command" ${working?'disabled':''} ${primary?'class="primary"':''}>${glyph(icon)}<span>${esc(text)}</span></button>`;
+    const saveChoice=(action,source,updatedAt,text,icon)=>`<button type="button" class="cloud-sync-save" data-sync-action="${action}" aria-labelledby="${id}-${action}-action" aria-describedby="${id}-${action}-source ${id}-${action}-date" ${working?'disabled':''}><span class="cloud-sync-save-source" id="${id}-${action}-source">${glyph(action==='local'?'smartphone':'cloud')}${esc(source)}</span><span class="cloud-sync-save-date" id="${id}-${action}-date">${esc(date(updatedAt))}</span><span class="cloud-sync-save-action" id="${id}-${action}-action">${glyph(icon)}<span>${esc(text)}</span></span></button>`;
     function markup(s){
       let body='';
       if(s.status==='conflict'){
-        body=`<p>Deux sauvegardes diff\u00e9rentes. La copie de cet appareil sera sauvegard\u00e9e avant ton choix.</p><dl class="cloud-sync-versions"><div><dt>${glyph('smartphone')}Cet appareil</dt><dd>${esc(date(s.localUpdatedAt))}</dd></div><div><dt>${glyph('cloud')}Compte Kalistar</dt><dd>${esc(date(s.cloudUpdatedAt))}</dd></div></dl><div class="cloud-sync-choices">${command('cloud','Utiliser celle du compte','cloud-download',true)}${command('local','Conserver celle de cet appareil','hard-drive-upload')}</div>`;
+        body=`<p>Deux sauvegardes diff\u00e9rentes. La copie de cet appareil sera sauvegard\u00e9e avant ton choix.</p><div class="cloud-sync-saves" role="group" aria-label="Choisir une sauvegarde">${saveChoice('local','Cet appareil',s.localUpdatedAt,'Conserver celle de cet appareil','hard-drive-upload')}${saveChoice('cloud','Compte Kalistar',s.cloudUpdatedAt,'Utiliser celle du compte','cloud-download')}</div>`;
       }else if(s.status==='busy'){
         body=`<p>Kalistar est ouvert sur un autre appareil.</p>${s.pending?'<p class="cloud-sync-note">Tes modifications restent en attente ici.</p>':''}<div class="cloud-sync-choices">${command('takeover','Reprendre ici','monitor-smartphone',true)}${command('retry','Actualiser','refresh-cw')}</div>`;
       }else if(s.status==='offline'){
@@ -61,7 +62,7 @@
       decorate();
       if(!['conflict','busy'].includes(s.status)){lastAlert=null;return;}
       const alert=s.status+':'+s.revision+':'+s.cloudUpdatedAt;
-      if(autoOpen&&!working&&lastAlert!==alert){lastAlert=alert;open();}
+      if(autoOpen&&!working&&lastAlert!==alert){lastAlert=alert;if(!dialog.open)open();}
     }
     function open(){
       if(disposed)return;

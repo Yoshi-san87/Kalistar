@@ -15,8 +15,9 @@ function fixture(){
   return {fx:window.KalistarEquipmentFX,children,container};
 }
 
-test('all 35 ultimates have separate, meaningful condition/action copy without top-level numeric assumptions',()=>{
-  assert.equal(relics.length,35);
+test('all 36 reactive ultimates, including the Gant de Fer, have separate condition/action copy',()=>{
+  assert.equal(relics.length,36);
+  assert.equal(weapon('mythic-iron-gauntlet').slot,'relic');
   for(const w of relics){
     assert.equal(w.effect.stat,undefined);assert.equal(w.effect.value,undefined);
     const p=Cards.activation(w),html=Cards.markup(w);

@@ -53,7 +53,7 @@ test('4.6 definitions, legacy definitions and three independent stable-identity 
   for(const w of Q.catalogue.weapons){Q.validateDefinition(w);assert.equal(w.rulesVersion,2);assert.equal(w.slot,Q.catalogue.kind(w));if(w.slot!=='relic'){assert.equal(w.effect.trigger,'RETAINED_SIX');assert.equal(w.effect.duration,'DUEL');assert.equal(w.effect.stat,w.slot==='weapon'?'ATK':'DEF');assert(w.effect.value<=40);}}
   assert.equal(relicArchive.version,'4.6.42');assert.equal(relicArchive.commit,'58331507505633fd8be21cfd9adefd6c9fd6cf4f');
   assert.equal(relicArchive.weapons.length,35);assert.equal(Object.keys(ultimates).length,32);
-  assert.deepEqual(Q.catalogue.weapons.filter(w=>w.effect.trigger==='ULTIMATE').map(w=>w.id).sort(),Object.keys(ultimates).concat(factionAdditions.filter(w=>w.slot==='relic').map(w=>w.id),'kaylis-colours-ribbon').sort());
+  assert.deepEqual(Q.catalogue.weapons.filter(w=>w.effect.trigger==='ULTIMATE').map(w=>w.id).sort(),Object.keys(ultimates).concat(factionAdditions.filter(w=>w.slot==='relic').map(w=>w.id),'kaylis-colours-ribbon','mythic-iron-gauntlet').sort());
   for(const old of relicArchive.weapons){
     Q.validateDefinition(old);const current=Q.catalogue.weapons.find(w=>w.id===old.id);assert(current,old.id);
     assert.deepEqual(current.effect,ultimates[old.id]?.effect||old.effect);assert.equal(current.condition,ultimates[old.id]?.condition||old.condition);

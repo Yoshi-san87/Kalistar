@@ -27,9 +27,11 @@ async function main(){
     for(const [id,allowed] of Object.entries(expected)){
       await openEquipment(page,id);await images(page);
       const actual=await page.locator('#weapons-dialog [data-weapon-action=equip],#weapons-dialog [data-weapon-action=unequip]').evaluateAll(nodes=>nodes.map(n=>n.dataset.character).sort());assert.deepEqual(actual,allowed,id);
-      const family=await page.evaluate(id=>KalistarWeapons.weapons.find(w=>w.id===id).family,id);
-      assert.equal(await page.locator('#weapons-dialog .wc-family img').getAttribute('alt'),'Famille : '+family);
-      assert(!((await page.locator('#weapons-dialog .wc-bearers').innerText()).includes(family)),'footer is reserved for the bearer/origin');
+      const {family,slot}=await page.evaluate(id=>KalistarWeapons.weapons.find(w=>w.id===id),id);
+      if(slot==='weapon'){
+        assert.equal(await page.locator('#weapons-dialog .wc-family img').getAttribute('alt'),'Famille : '+family);
+        assert(!((await page.locator('#weapons-dialog .wc-bearers').innerText()).includes(family)),'footer is reserved for the bearer/origin');
+      }else assert.equal(await page.locator('#weapons-dialog .wc-family[aria-label="Relique"]').count(),1);
       const versions=await page.locator('#weapons-dialog [data-weapon-action=card]').evaluateAll(nodes=>nodes.map(n=>n.dataset.id));
       if(id==='brotherhood')assert(!versions.includes('46513388'));
       if(id==='single-action-army')assert(!versions.includes('49600104'));
@@ -37,7 +39,7 @@ async function main(){
       else{
         await page.locator('#weapons-dialog [data-weapon-action=equip]').first().click();
         if(await page.locator('[data-weapon-action=confirm]').count())await page.locator('[data-weapon-action=confirm]').click();
-        await page.waitForFunction(id=>Object.values(KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots.weapon).includes(id),id);
+        await page.waitForFunction(({id,slot})=>Object.values(KALISTAR_DB.equipment.profile(KALISTAR_ACTIVE_USER).slots[slot]).includes(id),{id,slot});
       }
       if(['gen-mechanical-arm','brotherhood','virtuous-treaty','cryptown-oath-sword','wardens-spear'].includes(id))await page.screenshot({path:path.join(out,name+'-'+id+'.png')});
       assert(await page.locator('#weapons-dialog').evaluate(n=>n.scrollWidth<=n.clientWidth+1),'dialog horizontal overflow');
@@ -76,7 +78,7 @@ async function main(){
         try{await db.importBackup(malformed,{replaceRegistry:true});}catch{rejected=true;}
         return {profile:db.equipment.profile(KALISTAR_ACTIVE_USER),raw,match:db.match(saved.match.matchId).state,team:lib.list()[0],unchanged:JSON.stringify(before.collectibles)===JSON.stringify(after.collectibles),rejected};
       },saved);
-      const normalized={...saved.profile,version:2,slots:{weapon:{nazar:'wardens-spear',momo:'little-joys-flute','2b-nier':'virtuous-treaty',balmhyr:'mythic-iron-gauntlet'},shield:{},relic:{}}};
+      const normalized={...saved.profile,version:2,slots:{weapon:{nazar:'wardens-spear',momo:'little-joys-flute','2b-nier':'virtuous-treaty'},shield:{},relic:{balmhyr:'mythic-iron-gauntlet'}}};
       assert.deepEqual(migration.profile,normalized);assert.deepEqual(migration.raw,normalized);assert.deepEqual(migration.match,saved.match);
       assert.deepEqual(migration.team,{id:'kd-12345678-1234-4234-8234-123456789abc',...saved.team,equipment:{weapon:{},shield:{},relic:{}}});assert(migration.unchanged);assert(migration.rejected);
       results.push({name,migration:true,backupImport:true,legacyMatchUnchanged:true,cardsUnchanged:true});

@@ -24,13 +24,20 @@ function deckFor(E,data,c){const base=data.decks.player;return base.map((_,i)=>b
 
 test('4.6 original arsenal keeps origins/family restrictions; frozen 4.5.64 effects stay exact',async()=>{
   const {cards}=await dataPromise;assert.equal(weapons.length,33);
-  assert.equal(weapons.filter(w=>Q.catalogue.kind(w)==='weapon').length,33);
+  assert.equal(weapons.filter(w=>Q.catalogue.kind(w)==='weapon').length,32);
   assert.deepEqual(Q.catalogue.legacyWeapons,archive.weapons);
   assert.deepEqual(weapons.filter(w=>!w.restrictions.characterIds).map(w=>w.id).sort(),Object.keys(expected).sort());
   for(const w of weapons){
     const old=previous.find(p=>p.id===w.id);Q.validateDefinition(w);
     const frozen=archive.weapons.find(p=>p.id===w.id);
     assert.deepEqual(frozen,{...old,restrictions:{...old.restrictions,families:[old.family]}});
+    if(w.id==='mythic-iron-gauntlet'){
+      assert.equal(w.slot,'relic');assert.equal(w.name,'Gant de Fer');assert.deepEqual(w.restrictions,{characterIds:['balmhyr']});
+      for(const key of ['id','art','visual'])assert.equal(w[key],frozen[key]);
+      assert.equal(w.effect.trigger,'ULTIMATE');assert.equal(w.effect.action.value,40);
+      for(const c of cards)assert.equal(Q.compatible(w,c),c.characterId==='balmhyr');
+      continue;
+    }
     const expectedMetadata=w.id==='white-oath-rapier'?{...frozen,name:'Promesse',collectible:{...frozen.collectible,alt:'Promesse : rapière blanche offerte à Kaylis par Balmhyr.'}}:frozen;
     for(const key of ['id','name','family','art','visual','restrictions','collectible','lore'])assert.deepEqual(w[key],expectedMetadata[key],w.id+' '+key);
     assert.equal(w.rulesVersion,2);assert.equal(w.slot,'weapon');
@@ -65,9 +72,9 @@ test('version-1 profile migration removes only retired bearers, keeps Momo weapo
   const {cards}=await dataPromise;
   const old={id:'qa',version:1,slots:{weapon:{belrog:'rhinoz-ancestral-horn',nazar:'wardens-spear',momo:'little-joys-flute','2b-nier':'virtuous-treaty',balmhyr:'mythic-iron-gauntlet','valazar':'cryptown-oath-sword'}}},copy=structuredClone(old);
   const next=Q.reconcileProfile(old,cards);
-  assert.deepEqual(next,{id:'qa',version:2,slots:{weapon:{nazar:'wardens-spear',momo:'little-joys-flute','2b-nier':'virtuous-treaty',balmhyr:'mythic-iron-gauntlet'},shield:{},relic:{}}});
+  assert.deepEqual(next,{id:'qa',version:2,slots:{weapon:{nazar:'wardens-spear',momo:'little-joys-flute','2b-nier':'virtuous-treaty'},shield:{},relic:{balmhyr:'mythic-iron-gauntlet'}}});
   const originalEditions=cards.filter(c=>!['49900801','49900802'].includes(c.id));
-  assert.deepEqual(Q.reconcileProfile(old,originalEditions).slots,{weapon:{nazar:'wardens-spear',momo:'little-joys-flute'},shield:{},relic:{}});
+  assert.deepEqual(Q.reconcileProfile(old,originalEditions).slots,{weapon:{nazar:'wardens-spear',momo:'little-joys-flute'},shield:{},relic:{balmhyr:'mythic-iron-gauntlet'}});
   assert.deepEqual(old,copy);assert.deepEqual(Q.reconcileProfile(next,cards),next);
   for(const weapon of [{unknown:'wardens-spear'},{momo:'unknown'},{momo:'rhinoz-ancestral-horn'},{momo:'fallen-king-axe'},{nazar:'wardens-spear','ward-ff8':'wardens-spear'}])
     assert.throws(()=>Q.reconcileProfile({id:'qa',version:1,slots:{weapon}},cards));
@@ -105,7 +112,7 @@ test('every formerly allowed collective or personal loadout keeps its snapshot a
 
 test('personal restrictions follow the chosen edition, accept future matching editions and retire invalid decks',async()=>{
   const data=await dataPromise,E=createEngine(data),teams=T.create(E);
-  const mismatches={'brotherhood':'46513388','virtuous-treaty':'45911726','mythic-iron-gauntlet':'30000007','single-action-army':'49600104'};
+  const mismatches={'brotherhood':'46513388','virtuous-treaty':'45911726','single-action-army':'49600104'};
   for(const [id,cardId]of Object.entries(mismatches)){
     const w=byId(id),c=data.cards.find(c=>c.id===cardId),loadout={[c.characterId]:id};assert(c);
     assert(!Q.compatible(w,c));assert.throws(()=>Q.equipProfile(Q.profile('qa'),c.characterId,id,[c]));
@@ -121,7 +128,7 @@ test('personal restrictions follow the chosen edition, accept future matching ed
     assert(!Q.compatible(w,{...future,characterId:'different-character'}));
   }
   for(const id of ['brotherhood','single-action-army'])assert(data.cards.some(c=>Q.compatible(byId(id),c)),id+' keeps its matching editions');
-  for(const [id,model]of [['virtuous-treaty','49900801'],['mythic-iron-gauntlet','49900802']]){
+  for(const [id,model]of [['virtuous-treaty','49900801']]){
     assert.deepEqual(data.cards.filter(c=>Q.compatible(byId(id),c)).map(c=>c.id),[model],id+' now has exactly its second edition');
   }
 });
@@ -133,7 +140,7 @@ test('4.6 weapon faces retain the native family glyph; Momo box has an accessibl
     if(w.slot==='weapon'){
       assert(html.includes(B.asset(B.code(w.family))));assert(html.includes('alt="Famille : '+w.family+'"'));
     }else{
-      assert.equal(w.id,'little-joys-box');assert(html.includes('role="img" aria-label="Relique"'));assert(html.includes('data-lucide="gem"'));
+      assert(['little-joys-box','mythic-iron-gauntlet'].includes(w.id));assert(html.includes('role="img" aria-label="Relique"'));assert(html.includes('data-lucide="gem"'));
     }
     assert(!/<span class="wc-bearers"[^>]*><span><b>[^<]*(?:Gun|Hache|Lance|Epée|Dague|Arc|Fléau)/.test(html));
   }

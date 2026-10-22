@@ -17,7 +17,7 @@ const copy = value => JSON.parse(JSON.stringify(value));
 const digest = value => crypto.createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const rewards = {
   'momo-petits-bonheurs': ['little-joys-flute', 'kalistar-chroma-harness', 'little-joys-box'],
-  'balmhyr-retour': ['mythic-iron-gauntlet', 'durane-rampart', 'exiled-king-seal'],
+  'balmhyr-retour': ['fallen-king-axe', 'durane-rampart', 'mythic-iron-gauntlet'],
   'kaylis-prochain-pas': ['white-oath-rapier', 'kaylis-next-step-boots', 'kaylis-colours-ribbon']
 };
 // Recorded before adding sequels, using the frozen 4.6.85 catalogue and fixture below.
@@ -105,7 +105,7 @@ function historicalRuntime() {
   return context.module.exports.create(legacy);
 }
 
-test('catalogue keeps journeys-1 identifiers and four card fights while updating the requested Momo version', () => {
+test('catalogue keeps journeys-1 identifiers and four card fights with the author-approved rewards', () => {
   const books = Definitions.catalogue(legacy);
   assert.equal(Definitions.revision, 'journeys-1');
   assert.deepEqual(books.map(book => book.id), Object.keys(rewards));
@@ -114,7 +114,7 @@ test('catalogue keeps journeys-1 identifiers and four card fights while updating
     assert.equal(book.stages.length, 4);
     assert(book.stages.every(stage => !Object.hasOwn(stage, 'rewardEquipmentId')));
   }
-  assert.deepEqual(books.map(book => book.rewardModelId), ['30000014', '49900802', '49055457']);
+  assert.deepEqual(books.map(book => book.rewardModelId), ['30000014', '30000007', '49055457']);
   assert.deepEqual(books.map(book => book.stages.map(stage => stage.id)), [
     ['rebuts','passage','carillons','rester'], ['horizon','durane','guide','portes'], ['breche','couleurs','ligne','seuil']
   ]);
@@ -168,7 +168,7 @@ test('all nine opponents are distinct legal teams available in the frozen 4.6.85
     assert(engine.byId[stage.imageModelId]);
     assert(legacy.arenas.some(arena => arena.id === stage.arenaId));
     assert(stage.deck.every(id => !engine.byId[id].collaboration));
-    assert(stage.deck.some(id => engine.byId[id].characterId === book.characterId));
+    assert(stage.deck.includes(stage.captain), 'The episode anchor may be an opponent, not the rewarded hero');
     for (let position = 1; position <= 5; position++)
       assert(stage.deck.filter(id => engine.byId[id].positions.includes(position)).length >= 2);
     for (const original of book.stages)

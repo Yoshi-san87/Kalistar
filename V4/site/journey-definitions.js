@@ -222,210 +222,210 @@
     "title": "Le poids du retour",
     "subtitle": "Balmhyr",
     "characterId": "balmhyr",
-    "rewardModelId": "49900802",
+    "rewardModelId": "30000007",
     "element": "MINERO",
     "stages": [
       {
         "id": "horizon",
-        "title": "Un royaume \u00e0 l\u2019horizon",
-        "imageModelId": "30000007",
-        "arenaId": "minero",
-        "captain": "30000007",
+        "title": "Le fr\u00e8re qui refusait d\u2019\u00eatre second",
+        "imageModelId": "30000018",
+        "arenaId": "trone-fer",
+        "captain": "30000018",
         "deck": [
-          "30000007",
-          "30000002",
-        "30000021",
-        "30000023",
-        "49901402",
-        "49900313",
-        "49902604",
-        "30000040",
-        "49902613",
-        "49900702"
+          "49900306",
+          "30000018",
+          "49900906",
+          "30000023",
+          "49902603",
+          "30000024",
+          "30000025",
+          "49900307",
+          "49902613",
+          "49902605"
         ],
         "intro": [
-          "Balmhyr brosse lentement le flanc de son ours. Depuis les hauteurs de Canyonero, Durane demeure visible certains jours, lorsque la poussi\u00e8re laisse un peu de place au loin. Il conna\u00eet cette direction sans avoir besoin de la chercher. Le royaume continue sans lui ; cette id\u00e9e change de poids selon les matins.",
-          "Il v\u00e9rifie l\u2019eau, replace un outil et s\u2019attarde devant le chemin. Rien ici ne l\u2019appelle roi. Pourtant, ceux qui arrivent \u00e9puis\u00e9s trouvent encore sa porte et une place \u00e0 sa table. Avant de songer \u00e0 reprendre la route, Balmhyr doit regarder ce qu\u2019il est devenu loin du tr\u00f4ne : un homme capable d\u2019attendre quelqu\u2019un."
+          "Apr\u00e8s la mort d\u2019Igmhar le Vertueux, Balmhyr devait devenir roi. Il connaissait les salles de Durane, les devoirs qu\u2019on lui avait enseign\u00e9s et la voix de son fr\u00e8re cadet. Il avait moins bien compris ce que Lok entendait, lui, chaque fois qu\u2019on rappelait lequel des deux \u00e9tait l\u2019a\u00een\u00e9. Les d\u00e9cisions provisoires s\u2019\u00e9taient accumul\u00e9es. Lorsque Balmhyr avait voulu les discuter, les portes qu\u2019il connaissait n\u2019avaient plus ouvert de la m\u00eame fa\u00e7on.",
+          "Lok refusait d\u2019\u00eatre second. Son fr\u00e8re devenait un obstacle, surtout lorsqu\u2019il s\u2019opposait aux pers\u00e9cutions contre les peuples mut\u00e9s. Balmhyr croyait encore pouvoir lui parler. Il allait d\u00e9couvrir ce qu\u2019une trahison retire \u00e0 une voix famili\u00e8re."
         ],
         "outro": [
-          "La journ\u00e9e s\u2019ach\u00e8ve par des gestes ordinaires. Balmhyr rapproche un si\u00e8ge, d\u00e9gage l\u2019acc\u00e8s \u00e0 la r\u00e9serve d\u2019eau et referme le coffre laiss\u00e9 ouvert. Il aurait autrefois confi\u00e9 ces d\u00e9tails \u00e0 d\u2019autres. Aujourd\u2019hui, ils lui permettent de mesurer pr\u00e9cis\u00e9ment ce qu\u2019il a fait pour ceux qui viennent reprendre souffle.",
-          "Il regarde une derni\u00e8re fois vers Durane. L\u2019exil n\u2019a pas effac\u00e9 son attachement, mais il lui a retir\u00e9 les phrases faciles. Revenir ne pourra pas seulement signifier retrouver une place perdue. Il faudra regarder ceux qui ont continu\u00e9 \u00e0 vivre sans lui, leurs blessures, leurs habitudes et ce qu\u2019ils attendent d\u00e9sormais. Balmhyr rentre avant que le repas refroidisse."
+          "Lok ne lui laisse pas seulement un tr\u00f4ne vide \u00e0 regretter. Il le fait bannir loin de Durane, dans un territoire o\u00f9 un champ magn\u00e9tique reconna\u00eetra son identit\u00e9 et l\u2019emp\u00eachera de revenir. Balmhyr cherche d\u2019abord une faille dans l\u2019ordre, un homme qui acceptera d\u2019entendre son nom autrement que comme une consigne \u00e0 ex\u00e9cuter. Son fr\u00e8re a pr\u00e9vu le silence apr\u00e8s son d\u00e9part.",
+          "Dans le royaume, on parlera d\u2019un disparu, puis d\u2019un mort possible. Balmhyr, lui, demeure vivant. Il regarde la route et pense \u00e0 Madania. Il voudrait lui dire o\u00f9 il est, avant m\u00eame de lui expliquer comment celui qu\u2019il appelait son fr\u00e8re a pu l\u2019y envoyer."
         ]
       },
       {
         "id": "durane",
-        "title": "Les chemins de Durane",
-        "imageModelId": "30000018",
+        "title": "Une prison sans murs",
+        "imageModelId": "30000007",
         "arenaId": "minero",
-        "captain": "30000018",
+        "captain": "30000024",
         "deck": [
-        "49900308",
-          "30000018",
-        "49900906",
-          "30000023",
-        "49902603",
-        "30000024",
+          "30000024",
           "30000025",
-        "49900306",
-        "49902613",
-        "49902605"
+          "49900308",
+          "30000023",
+          "49902603",
+          "49900306",
+          "49900705",
+          "49900906",
+          "49902613",
+          "49902605"
         ],
         "intro": [
-          "Durane ne se r\u00e9sume pas au si\u00e8ge occup\u00e9 par Lok. Il y a les galeries, les d\u00e9parts avant le jour, les familles qui attendent pr\u00e8s d\u2019un pont r\u00e9par\u00e9. Balmhyr conna\u00eet ces vies, mais la distance les a parfois rendues trop simples dans son souvenir. Imaginer son retour l\u2019oblige \u00e0 leur rendre leurs difficult\u00e9s.",
-          "Dans les mines, on ne d\u00e9place pas une charge en lui annon\u00e7ant que son roi revient. Il faut des mains, des appuis et un passage s\u00fbr. Balmhyr pense \u00e0 la pierre qui peut prot\u00e9ger autant qu\u2019enfermer. Pour avancer vers les portes, il devra apprendre \u00e0 entendre ce qui se passe de leur autre c\u00f4t\u00e9."
+          "La prison ne ressemble pas \u00e0 un cachot. Balmhyr peut marcher entre les maisons du canyon, entretenir son abri, recevoir Belrog. Mais sur la route de Durane, une ancienne borne r\u00e9agit \u00e0 son approche. Une lumi\u00e8re bleue remonte du poignet au coude ; son souffle se coupe. Devant lui, la poussi\u00e8re reste libre. D\u2019autres y passent sans m\u00eame ralentir.",
+          "Il recommence, puis apprend \u00e0 reconna\u00eetre l\u2019instant o\u00f9 son corps ne supportera plus d\u2019insister. Les appareils ne portent pas sa voix jusqu\u2019\u00e0 Madania. Certains soirs, il pr\u00e9pare pourtant les mots qu\u2019il lui dira, comme si une phrase assez exacte pouvait enfin traverser la limite."
         ],
         "outro": [
-          "Le chemin devient plus concret lorsqu\u2019il cesse d\u2019y voir une marche vers son ancien titre. Balmhyr se repr\u00e9sente les arr\u00eats, la fatigue, l\u2019espace qu\u2019il faudra laisser aux autres. Il sait ce qu\u2019une entr\u00e9e imposante peut dissimuler : un homme qui pr\u00e9f\u00e8re \u00eatre reconnu plut\u00f4t que r\u00e9pondre aux questions.",
-          "Lok demeure sur le tr\u00f4ne. Cela ne donne \u00e0 Balmhyr ni une victoire future ni le droit de disposer de ceux qui pourraient l\u2019aider. Il ram\u00e8ne son attention \u00e0 ce qu\u2019il peut pr\u00e9parer aujourd\u2019hui. Avant d\u2019entrer dans une salle o\u00f9 chacun parlera pour les autres, il veut \u00eatre capable de guider quelqu\u2019un sans d\u00e9cider de tous ses pas."
+          "Les ann\u00e9es prennent la forme de gestes r\u00e9p\u00e9t\u00e9s : chercher l\u2019eau, r\u00e9parer la maison, s\u2019arr\u00eater avant la borne. Balmhyr sait que ces gestes le maintiennent vivant. Il sait aussi qu\u2019ils peuvent finir par ressembler \u00e0 un choix, vus de loin. Il redoute que Madania croie un jour qu\u2019il a pr\u00e9f\u00e9r\u00e9 ce silence \u00e0 leur vie.",
+          "Puis Kaylis arrive avec ses compagnons. Le nain leur ouvre sa porte, leur donne du temps, observe des capacit\u00e9s qu\u2019il ne comprend pas enti\u00e8rement. L\u2019espoir de rentrer lui revient avec une honte pr\u00e9cise : il pourrait \u00eatre tent\u00e9 de leur demander davantage qu\u2019ils n\u2019ont choisi de lui offrir. Il faudra le leur dire."
         ]
       },
       {
         "id": "guide",
-        "title": "La patience du guide",
-        "imageModelId": "30000007",
+        "title": "Le second pas",
+        "imageModelId": "49055457",
+        "arenaId": "minero",
+        "captain": "49055457",
+        "deck": [
+          "30000007",
+          "49055457",
+          "47414613",
+          "49902613",
+          "49900711",
+          "30000019",
+          "49900705",
+          "49900704",
+          "30000023",
+          "49902603"
+        ],
+        "intro": [
+          "Au bord de la gorge, Balmhyr montre la limite. Kaylis a entendu ce qu\u2019il lui avait cach\u00e9 : son sang royal, son fr\u00e8re et l\u2019espoir qu\u2019il avait plac\u00e9 dans ses pouvoirs. Elle veut l\u2019aider sans devenir la solution \u00e0 toutes ses portes ferm\u00e9es. Si elle \u00e9choue, il ne lui demandera pas de recommencer jusqu\u2019\u00e0 tomber. Balmhyr accepte, cette fois en la regardant.",
+          "Pr\u00e8s de la borne, elle cherche une pulsation. Nazar suit les signes, Lanio compte, Baba attend pr\u00e8s du nain. La premi\u00e8re tentative \u00e9choue. Balmhyr avance trop t\u00f4t et doit reculer. Kaylis retire sa main. Il lui faudra attendre son signal, m\u00eame si la route est juste l\u00e0."
+        ],
+        "outro": [
+          "Le premier pas reste difficile. Au second, rien ne retient Balmhyr. Il regarde ses bottes, revient sur sa trace, avance encore. Sa main monte \u00e0 sa bouche pour retenir un rire qui lui \u00e9chappe malgr\u00e9 tout. Pendant des ann\u00e9es, il avait imagin\u00e9 une grande victoire ; la libert\u00e9 commence par cette poussi\u00e8re qu\u2019il peut traverser.",
+          "Kaylis s\u2019assied, les bras tremblants. Elle ne veut pas que sa r\u00e9ussite devienne une promesse pour la Tour de Fer. Balmhyr revient jusqu\u2019\u00e0 elle et s\u2019assied de l\u2019autre c\u00f4t\u00e9 de l\u2019ancienne limite. Ils attendent. Pour rejoindre Madania, il devra encore parcourir la route ; aujourd\u2019hui, il peut enfin choisir de ne pas partir tout de suite."
+        ]
+      },
+      {
+        "id": "portes",
+        "title": "La maison qui avait continu\u00e9 de vivre",
+        "imageModelId": "49900802",
         "arenaId": "minero",
         "captain": "30000007",
         "deck": [
           "30000007",
           "49900705",
-        "49900308",
-          "49902613",
-        "49902605",
-        "49900307",
-          "30000011",
-          "49900906",
-          "30000023",
-        "49902603"
-        ],
-        "intro": [
-          "Dans la cour, Kaylis recommence un mouvement qu\u2019elle voudrait d\u00e9j\u00e0 r\u00e9ussir. Balmhyr remarque la tension de sa main, puis celle de son visage lorsqu\u2019il approche. Il lui montre o\u00f9 placer les doigts et se retire. La correction doit lui laisser assez d\u2019espace pour essayer seule, pas la garder sous son regard.",
-          "Les pierres qu\u2019il soul\u00e8ve ne dispensent personne de sentir ses appuis. Il pourrait rendre l\u2019exercice spectaculaire ; il pr\u00e9f\u00e8re voir le geste se terminer sans douleur. La patience lui co\u00fbte parfois davantage qu\u2019un effort de force. Elle l\u2019oblige \u00e0 accepter que la personne devant lui n\u2019avance ni au rythme de ses souvenirs ni pour lui faire plaisir."
-        ],
-        "outro": [
-          "Kaylis s\u2019arr\u00eate \u00e0 la distance qu\u2019elle a choisie. Balmhyr n\u2019annonce pas une victoire. Il lui demande o\u00f9 repose son poids, puis la laisse r\u00e9pondre avec son corps. Quand elle recommence sans attendre sa main, il retrouve quelque chose qu\u2019un ordre n\u2019aurait jamais obtenu.",
-          "Il ramasse les linges pr\u00e8s du coffre. Aider ne lui rendra pas son royaume, et ce travail ne l\u2019absout de rien. Il a pourtant donn\u00e9 une chose r\u00e9elle : un peu de temps pour apprendre sans \u00eatre humili\u00e9. Plus tard, \u00e0 Durane, il lui faudra conserver cette attention au milieu des portes et des titres. Il ferme le coffre en pensant \u00e0 ceux qui marchent avec lui."
-        ]
-      },
-      {
-        "id": "portes",
-        "title": "Le poids du retour",
-        "imageModelId": "49900802",
-      "arenaId": "minero",
-        "captain": "49900802",
-        "deck": [
-        "49900308",
-          "49900705",
-          "49900802",
+          "49900307",
           "49902613",
           "49902605",
-          "30000024",
-          "49900307",
+          "49900308",
           "49900906",
+          "49902701",
           "30000023",
           "49902603"
         ],
         "intro": [
-          "Dans les couloirs de Durane, Balmhyr ralentit malgr\u00e9 lui. Il porte le gant que Madania lui a gard\u00e9. Le fer est familier ; la sensation de le retrouver apr\u00e8s tant d\u2019ann\u00e9es ne l\u2019est pas. Ses doigts cherchent leur place et rencontrent aussi le souvenir de mains qui ont v\u00e9cu sans les siennes.",
-          "Derri\u00e8re les portes, le Conseil si\u00e8ge. Balmhyr entend des voix sans distinguer toutes les phrases. Il pourrait se pr\u00e9parer seulement \u00e0 para\u00eetre solide. Il pr\u00e9f\u00e8re penser aux questions auxquelles il devra r\u00e9pondre, aux absences qu\u2019aucun retour ne r\u00e9pare d\u2019un geste. Le gant reste ouvert. Il n\u2019est pas venu jusqu\u2019ici pour que le poids du fer parle \u00e0 sa place."
+          "Madania balaie ses marches lorsque Balmhyr prononce son nom. Elle se retourne, laisse tomber le manche, vient toucher son visage avant de le serrer contre elle. Il retrouve l\u2019odeur du savon et de la poussi\u00e8re sur sa manche. Il voudrait expliquer les ann\u00e9es d\u2019un seul souffle. Elle le fait entrer.",
+          "La maison n\u2019est pas rest\u00e9e immobile pour lui. Un pot s\u2019est cass\u00e9, la table a \u00e9t\u00e9 r\u00e9par\u00e9e ; Madania a re\u00e7u des visites, v\u00e9cu, dout\u00e9 et parfois d\u00e9branch\u00e9 les appareils pour dormir. Avant d\u2019ouvrir le coffre qu\u2019elle a gard\u00e9, elle lui demande ce qu\u2019il attend de ceux qui l\u2019accompagnent. Balmhyr doit r\u00e9pondre avant de tendre la main."
         ],
         "outro": [
-          "Balmhyr retrouve une respiration r\u00e9guli\u00e8re. Le couloir ne s\u2019est pas \u00e9largi, les voix ne se sont pas tues, et aucune couronne ne l\u2019attend au bout de cette \u00e9preuve. Pourtant, il peut regarder les portes sans d\u00e9tourner aussit\u00f4t les yeux vers une certitude ancienne.",
-          "Il touche la fermeture du gant, comme Madania l\u2019a fait lorsqu\u2019elle le lui a rendu. Elle avait conserv\u00e9 l\u2019objet ; elle n\u2019avait pas arr\u00eat\u00e9 sa vie autour de lui. Cette diff\u00e9rence l\u2019accompagnera lorsqu\u2019il entrera. Avant de se lever, Balmhyr laisse passer quelqu\u2019un dans le couloir. Son retour commence aussi par cette place qu\u2019il accepte de ne pas occuper enti\u00e8rement."
+          "Dans le coffre repose le Gant de Fer, la plus grande relique de Durane. Avant le bannissement, il avait \u00e9t\u00e9 cach\u00e9 chez Madania. Elle en a pr\u00e9serv\u00e9 le m\u00e9canisme comme le secret, malgr\u00e9 les fouilles et les rumeurs. Balmhyr reconna\u00eet l\u2019usure des jointures ; sa femme lui montre la courroie qu\u2019il faut desserrer. Le retrouver ne lui rend pas leurs ann\u00e9es.",
+          "Le gant amplifie son Minero, pas son droit \u00e0 d\u00e9cider pour les autres. Madania pose sa paume contre la sienne, le m\u00e9tal entre leurs doigts. Balmhyr est revenu aupr\u00e8s d\u2019elle. Il peut maintenant regarder vers le royaume sans oublier la vie qui a continu\u00e9 ici pendant son absence."
         ]
       }
     ],
     "bonusReveal": {
-      "title": "Ce qu\u2019il choisit de porter",
+      "title": "Le retour ne s\u2019arr\u00eate pas au seuil",
       "paragraphs": [
-        "Le gant retrouv\u00e9 ne suffit pas \u00e0 pr\u00e9parer Balmhyr. Dans l\u2019attente devant le Conseil, chaque objet lui demande un geste diff\u00e9rent : serrer juste, prot\u00e9ger sans enfermer, parler sans exiger l\u2019ob\u00e9issance. Il lui reste \u00e0 \u00e9prouver ces choix avant de franchir les portes."
+        "Madania a rendu le gant, pas effac\u00e9 les ann\u00e9es. Lok tient encore Durane. Avant de l\u2019affronter, Balmhyr reprend sa hache, pr\u00e9pare de quoi prot\u00e9ger le passage vers le Conseil et mesure ce que porter la relique lui demandera lorsqu\u2019il retrouvera son fr\u00e8re."
       ]
     },
     "bonusStages": [
       {
         "id": "serment",
-        "title": "La main rendue",
-        "imageModelId": "49900802",
+        "title": "La hache du roi d\u00e9chu",
+        "imageModelId": "30000007",
         "arenaId": "minero",
-        "captain": "49900802",
+        "captain": "30000007",
         "deck": [
-          "49900306",
+          "30000007",
           "49900906",
-          "49900802",
+          "49900308",
           "30000023",
           "49902603",
-          "49900704",
+          "49900306",
           "49900705",
-          "49900302",
+          "49900704",
           "49902613",
           "49902605"
         ],
         "intro": [
-          "Balmhyr ouvre et referme le gant conserv\u00e9 par Madania. Une articulation r\u00e9siste l\u00e9g\u00e8rement. Il pourrait forcer ; il pr\u00e9f\u00e8re reprendre l\u2019ajustement, retrouver la position qui laisse le mouvement entier. L\u2019objet n\u2019a pas chang\u00e9 pour lui cacher le temps \u00e9coul\u00e9. Ses mains, elles, ont connu d\u2019autres efforts.",
-          "Il revoit Madania le reconna\u00eetre avant de lui demander une explication. Ce souvenir rend la prise moins facile, pas moins s\u00fbre. Le Serment de Fer porte une force qu\u2019il devra diriger avec pr\u00e9cision. Balmhyr ne veut pas confondre cette puissance retrouv\u00e9e avec une r\u00e9ponse \u00e0 toutes les ann\u00e9es o\u00f9 il n\u2019\u00e9tait pas l\u00e0. Il pose les pieds et essaie."
+          "Balmhyr reprend sa hache avant de quitter la maison. Ses doigts connaissent le manche autrement que les attaches du gant : cette arme appartient aux ann\u00e9es o\u00f9 personne ne venait s\u2019incliner devant lui. Il v\u00e9rifie la prise, laisse son \u00e9paule trouver l\u2019\u00e9quilibre. Madania le regarde pr\u00e9parer ce d\u00e9part qui ne ressemble pas au pr\u00e9c\u00e9dent.",
+          "Il pense \u00e0 Lok, puis interrompt le mouvement commenc\u00e9 trop vite. La col\u00e8re raccourcit ce qu\u2019il voit autour de lui. Kaylis est l\u00e0, les autres aussi. Il faudra pouvoir arr\u00eater une attaque sans laisser la suivante les atteindre. Balmhyr recommence plus lentement, en gardant une place derri\u00e8re son bras."
         ],
         "outro": [
-          "Le gant accompagne enfin le mouvement sans tirer sur son poignet. Balmhyr le laisse retomber contre sa cuisse et attend que l\u2019effort quitte son bras. Ce qu\u2019il vient de retrouver n\u2019est pas la facilit\u00e9 d\u2019autrefois. C\u2019est une prise qu\u2019il conna\u00eet de nouveau assez pour ne pas lui demander ce qu\u2019elle ne peut donner.",
-          "Il essuie le fer avec le linge laiss\u00e9 pr\u00e8s du banc. Madania n\u2019a pas gard\u00e9 ce gant pour qu\u2019il remplace ses paroles. Il le sait en prenant le temps de plier le tissu. \u00c0 c\u00f4t\u00e9 repose un bouclier marqu\u00e9 de marteaux crois\u00e9s. Il lui faudra aussi apprendre \u00e0 tenir une place sans fermer le passage."
+          "La lame s\u2019immobilise l\u00e0 o\u00f9 il l\u2019a voulu. Balmhyr ne cherche pas un coup plus grand. Il v\u00e9rifie qu\u2019il peut revenir en garde, d\u00e9placer son poids et laisser passer quelqu\u2019un \u00e0 ses c\u00f4t\u00e9s. La Hache du Roi D\u00e9chu reste lourde ; il retrouve surtout la responsabilit\u00e9 de la retenir.",
+          "Il la porte sans la lever lorsqu\u2019il quitte le seuil. Madania n\u2019a pas demand\u00e9 qu\u2019il renonce \u00e0 rentrer dans son royaume. Elle lui a demand\u00e9 de voir les personnes qui feront ce chemin avec lui. Devant les acc\u00e8s du Conseil, cette attention devra prendre une forme plus concr\u00e8te encore : un bras qui tient, une protection et assez de largeur pour traverser."
         ],
-        "rewardEquipmentId": "mythic-iron-gauntlet",
+        "rewardEquipmentId": "fallen-king-axe",
         "rewardKind": "weapon"
       },
       {
         "id": "rempart",
-        "title": "La largeur d\u2019un passage",
-        "imageModelId": "30000024",
-        "arenaId": "minero",
-        "captain": "30000024",
-        "deck": [
-          "30000024",
-          "49900307",
-          "49900802",
-          "49902613",
-          "49902605",
-          "49900308",
-          "49900906",
-          "49900704",
-          "30000023",
-          "49902603"
-        ],
-        "intro": [
-          "Le Rempart de Durane fr\u00f4le la pierre lorsque Balmhyr le soul\u00e8ve. Il tourne l\u2019\u00e9paule pour d\u00e9gager le couloir. Un bouclier qui occupe toute la largeur prot\u00e8ge peut-\u00eatre celui qui le tient ; il emp\u00eache aussi les autres d\u2019avancer. Balmhyr reprend sa position en regardant derri\u00e8re lui.",
-          "Les marteaux crois\u00e9s portent des marques qu\u2019il ne cherche pas \u00e0 polir. Le Kalistel gris accroche la lumi\u00e8re, mais ce n\u2019est pas lui qui d\u00e9cidera de la place laiss\u00e9e libre. Le bras encore fatigu\u00e9 par le gant, Balmhyr mesure l\u2019espace d\u2019un corps, puis celui d\u2019un second. Tenir n\u2019aura de sens que si quelqu\u2019un peut encore passer."
-        ],
-        "outro": [
-          "Le choc glisse sur le bord du bouclier. Balmhyr garde ses appuis au lieu de poursuivre aussit\u00f4t le mouvement. Derri\u00e8re son \u00e9paule, le passage demeure libre. Il v\u00e9rifie cela avant de se redresser ; la solidit\u00e9 du Rempart ne lui aurait servi \u00e0 rien s\u2019il avait lui-m\u00eame barr\u00e9 la route.",
-          "Il pose le bouclier de biais contre le banc. La pierre a transmis la force re\u00e7ue jusque dans son bras. Elle ne lui a pas appris \u00e0 qui la rendre. Balmhyr desserre la sangle et masse son poignet. Dans sa poche, un petit objet heurte ses doigts. Il sort le sceau, dont une \u00e9br\u00e9chure interrompt encore l\u2019empreinte."
-        ],
-        "rewardEquipmentId": "durane-rampart",
-        "rewardKind": "shield"
-      },
-      {
-        "id": "empreinte",
-        "title": "Sans cire ni d\u00e9cret",
+        "title": "Un passage vers le Conseil",
         "imageModelId": "49900306",
         "arenaId": "trone-fer",
         "captain": "49900306",
         "deck": [
           "49900306",
           "49900705",
-          "49900802",
-          "30000017",
-          "49902603",
-          "49900308",
           "49900307",
+          "49902613",
+          "49902605",
+          "30000024",
           "49900906",
+          "49900308",
           "30000023",
-          "49902605"
+          "49902603"
         ],
         "intro": [
-          "Le Sceau du Roi sans Tr\u00f4ne tient dans la paume de Balmhyr. Il suit l\u2019empreinte du pouce, sans document \u00e0 marquer devant lui. Le manque sur le bord ne rendrait aucune d\u00e9cision meilleure. Une forme intacte n\u2019aurait pas garanti davantage la justice de ce qu\u2019il aurait demand\u00e9.",
-          "Il pense \u00e0 la place gard\u00e9e derri\u00e8re le bouclier. Les personnes qui la traversaient n\u2019\u00e9taient pas des sujets venus confirmer son retour. Elles avaient besoin de passer. Balmhyr voudrait conserver cette \u00e9vidence lorsque les titres recommenceront \u00e0 peser dans la conversation. Il laisse le sceau visible, le temps d\u2019affronter ce que son ancien pouvoir lui donne encore envie d\u2019exiger."
+          "Dans le couloir du Conseil, les voix arrivent avant les visages. Balmhyr reconna\u00eet celle de Lok. Sa main se ferme, puis il ajuste le Rempart de Durane contre son bras. La largeur du bouclier le rassure jusqu\u2019\u00e0 ce qu\u2019il remarque la place qu\u2019il retire aux autres. Il pivote pour d\u00e9gager le passage.",
+          "Le gant reste envelopp\u00e9 : il ne doit pas \u00eatre reconnu trop t\u00f4t. Kaylis porte les dossiers, Farouk surveille les acc\u00e8s. Balmhyr ne leur demande pas de regarder son retour. Il v\u00e9rifie o\u00f9 ils pourront reculer si les portes se ferment. Derri\u00e8re la pierre, la col\u00e8re de Lok couvre de plus en plus souvent les autres voix."
         ],
         "outro": [
-          "Apr\u00e8s l\u2019effort, Balmhyr rouvre la main. Il n\u2019a scell\u00e9 aucun ordre. Le gant repose pr\u00e8s de lui, le bouclier ne g\u00eane personne et l\u2019empreinte garde son d\u00e9faut. Aucun de ces objets ne lui promet l\u2019issue du Conseil. Ils lui demandent seulement de rester attentif \u00e0 la fa\u00e7on dont il s\u2019en sert.",
-          "Il range le sceau et se l\u00e8ve lentement. Sa premi\u00e8re pens\u00e9e n\u2019est plus de retrouver la silhouette d\u2019un roi devant les portes. Il v\u00e9rifie que le couloir reste libre, puis rejoint ceux qui l\u2019attendent. Le retour n\u2019effacera pas ce qui s\u2019est pass\u00e9 en son absence. Il peut au moins commencer sans demander aux autres de l\u2019oublier."
+          "Quand les gardes se mettent en mouvement, Balmhyr tient le passage au lieu de les poursuivre. Le choc traverse le Rempart jusque dans son \u00e9paule. Il garde les pieds au sol, assez de biais pour que les autres franchissent l\u2019ouverture. La protection ne vaut pas seulement par ce qu\u2019elle arr\u00eate, mais par ceux qu\u2019elle laisse avancer.",
+          "Dans la salle, son nom circule avant qu\u2019il ait pu le dire. Il d\u00e9couvre le Gant de Fer. Certains reconnaissent l\u2019h\u00e9ritier qu\u2019on disait disparu. Balmhyr leur demande de rester debout, d\u2019aider ceux qui en ont besoin. Lok regarde la relique, puis son fr\u00e8re. Sa main n\u2019a pas quitt\u00e9 sa dague."
         ],
-        "rewardEquipmentId": "exiled-king-seal",
+        "rewardEquipmentId": "durane-rampart",
+        "rewardKind": "shield"
+      },
+      {
+        "id": "empreinte",
+        "title": "Les deux fr\u00e8res",
+        "imageModelId": "30000018",
+        "arenaId": "trone-fer",
+        "captain": "30000018",
+        "deck": [
+          "30000024",
+          "30000018",
+          "49900906",
+          "49902613",
+          "49902605",
+          "49900306",
+          "49900705",
+          "49900307",
+          "30000023",
+          "49902603"
+        ],
+        "intro": [
+          "Lok ne regarde pas un souvenir revenu prendre place. Il voit son fr\u00e8re a\u00een\u00e9 devant lui, avec le gant qu\u2019il n\u2019a jamais pu lui enlever. La dague monte. Balmhyr pare, r\u00e9duit la distance, cherche \u00e0 emp\u00eacher Lok de revenir vers les si\u00e8ges. Sous le m\u00e9tal, sa main retrouve la peur de la limite invisible.",
+          "Puis le champ le saisit de nouveau. Le gant vibre, son dos heurte le mur et son souffle se brise. Toute la force retrouv\u00e9e ne suffit pas \u00e0 le lib\u00e9rer. Kaylis voit ses doigts retenus dans le fer. Balmhyr doit encore accepter qu\u2019une autre main puisse l\u2019aider, jusque dans cette salle o\u00f9 il voulait revenir en roi."
+        ],
+        "outro": [
+          "Kaylis rompt la pression. Balmhyr retombe, se rel\u00e8ve et saisit le poignet de Lok tandis qu\u2019elle \u00e9carte la dague. Farouk ramasse l\u2019arme. Cette fois, le fr\u00e8re cadet ne peut plus prolonger sa col\u00e8re en ordre. Lorsque les gardes le prennent en charge, il est vivant, d\u00e9sarm\u00e9. Balmhyr ne l\u2019embrasse pas ; il ne demande pas non plus qu\u2019on le tue.",
+          "Lok prononce le nom de Madania, puis quelques mots de regret. Balmhyr les entend sans leur laisser effacer le reste. Il baisse enfin le Gant de Fer. Porter la relique ne lui demande pas d\u2019\u00e9craser son fr\u00e8re vaincu. Il laisse Lok sous garde, ouvre les passages pour les secours et reprend la responsabilit\u00e9 de Durane. Le royaume lui revient avec des habitants \u00e0 prot\u00e9ger, pas avec des ann\u00e9es qu\u2019il pourrait recommencer."
+        ],
+        "rewardEquipmentId": "mythic-iron-gauntlet",
         "rewardKind": "relic"
       }
     ]

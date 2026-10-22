@@ -279,6 +279,15 @@ changer un profil ou un autre deck ne modifie jamais une rencontre commencee.
   anciens snapshots gardent le Pod +20 DEF apres Block, la Flute +30 DEF
   apres soutien ou son ultime de la 4.6.24, et la Boite +20 DEF apres perte.
 
+Le Gant de Fer de Balmhyr est desormais une relique, compatible avec toutes
+ses versions : apres avoir survecu a une attaque en inferiorite numerique,
+il prepare +40 ATK pour sa prochaine attaque numerique conservee, une fois
+par partie. Ce bonus peut s'ajouter aux +30 de la Hache sur un 6 conserve.
+Un ancien match conserve son Gant arme et sa formule figee ; un profil ancien
+est reconcilie vers le slot relique, sans remplacer une autre relique equipee.
+Les objets deja possedes restent acquis. La famille imprimee ne change pas :
+la Hache reste reservee aux versions de Balmhyr qui utilisent une hache.
+
 Un 6 ATK en attente de decision Kalistel ne donne pas encore le bonus.
 Un 6 abandonne ne l'active pas ; un second 6 impose ou un 6 accepte l'active.
 En DEF, le bonus est recalcule a CHAQUE relance : passer de 6 a 5 le retire,

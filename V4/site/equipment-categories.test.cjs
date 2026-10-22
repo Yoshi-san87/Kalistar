@@ -25,7 +25,7 @@ function next(f){f.E.next(f.s);while(f.s.phase==='replace')f.E.autoDeploy(f.s,f.
 test('4.6 has three independent slots, with compatible bearers and unchanged base families',async()=>{
   const {cards}=await dataPromise,shield=item('durane-rampart'),pod=item('pod-042');
   assert.equal(Q.catalogue.weapons.length,138);
-  assert.deepEqual(['weapon','shield','relic'].map(kind=>Q.catalogue.weapons.filter(w=>Q.catalogue.kind(w)===kind).length),[63,37,38]);
+  assert.deepEqual(['weapon','shield','relic'].map(kind=>Q.catalogue.weapons.filter(w=>Q.catalogue.kind(w)===kind).length),[62,37,39]);
   assert.deepEqual(Q.catalogue.legacyWeapons,archive.weapons);
   for(const w of [shield,pod]){Q.validateDefinition(w);assert.equal(w.restrictions.families,undefined);assert.equal(w.changesFamily,undefined);}
   for(const c of cards){assert.equal(Q.compatible(shield,c),c.faction==='Durane');assert.equal(Q.compatible(pod,c),c.characterId==='2b-nier');}
@@ -39,8 +39,8 @@ test('4.6 has three independent slots, with compatible bearers and unchanged bas
   assert.throws(()=>Q.validateProfile({...p,slots:{...p.slots,weapon:{balmhyr:shield.id}}},cards));
   const original=structuredClone(p);
   assert.throws(()=>Q.equipProfile(p,'balmhyr','mythic-iron-gauntlet',cards));
-  const replaced=Q.equipProfile(p,'balmhyr','mythic-iron-gauntlet',cards,{expected:'fallen-king-axe',expectedProfile:p});
-  assert.deepEqual(replaced.slots,{weapon:{balmhyr:'mythic-iron-gauntlet'},shield:{balmhyr:shield.id},relic:{balmhyr:'exiled-king-seal'}});
+  const replaced=Q.equipProfile(p,'balmhyr','mythic-iron-gauntlet',cards,{expected:'exiled-king-seal',expectedProfile:p});
+  assert.deepEqual(replaced.slots,{weapon:{balmhyr:'fallen-king-axe'},shield:{balmhyr:shield.id},relic:{balmhyr:'mythic-iron-gauntlet'}});
   assert.deepEqual(p,original,'replacement must not mutate the old profile');
   assert.throws(()=>Q.equipProfile(p,'momo',shield.id,cards));
   assert.throws(()=>Q.validateDefinition({...shield,kind:'unknown'}));

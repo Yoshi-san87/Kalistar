@@ -162,6 +162,18 @@ leurs anciens adversaires ; les nouvelles utilisent les decks narratifs.
 Voir `V4/revisions/2026-10-22-fragment-adventure/BACKEND.md` pour le contrat
 et les essais de rollback, idempotence, attribution et reprise.
 
+## Revision Balmhyr
+
+La migration 014 (schema 13) adapte le Fragment Balmhyr : futures cartes
+`30000007`, Hache au cinquieme combat, Rempart au sixieme et Gant de Fer en
+relique au septieme. Les cartes deja remises et les matchs restent intacts.
+Un ancien recu d'equipement est archive dans `journey_reward_adjustments`
+avant son adaptation, avec attribution additive du nouvel objet et sans
+retirer l'ancien. Les acquittements et la progression sont preserves ; une
+seconde application est sans effet. Ce journal est prive, RLS actif, sans
+droits pour anon/authenticated. `balmhyr-rewards.test.cjs` verifie migration,
+rollback, repetitions, incompatibilites, transferts et restauration schema 13.
+
 ## Client officiel
 
 `@supabase/supabase-js` 2.118.0, distribution npm officielle, licence MIT.

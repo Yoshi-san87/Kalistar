@@ -11,7 +11,7 @@ const sources = Object.freeze([
   {id:'composition', file:'COMPOSITION_EQUIPE.md', title:'Composition d\u2019\u00e9quipe', category:'Le commandement', icon:'users-round', description:'Dix personnages, cinq titulaires et un capitaine. Les liens qui font une \u00e9quipe.'},
   {id:'initiative', file:'INITIATIVE_ABBA.md', title:'Tours et rounds', category:'Le rythme du combat', icon:'dices', description:'Qui commence, qui joue ensuite et comment anticiper les prochaines actions.'},
   {id:'equipements', file:'EQUIPEMENTS_460.md', title:'Armes, protections et reliques', category:'L\u2019arsenal', icon:'swords', description:'Choisir ses objets et comprendre quand leurs effets interviennent.'},
-  {id:'reliques', file:'RELIQUES_ULTIMES.md', title:'Les reliques ultimes', category:'Les dons singuliers', icon:'gem', description:'Les 35 reliques : conditions, dons, ripostes et encha\u00eenements \u00e0 usage unique.'},
+  {id:'reliques', file:'RELIQUES_ULTIMES.md', title:'Les reliques ultimes', category:'Les dons singuliers', icon:'gem', description:'Conditions, dons, ripostes et encha\u00eenements des reliques \u00e0 usage unique.'},
   {id:'performance', file:'INDICE_PERFORMANCE.md', title:'Bilan et r\u00e9compenses', category:'Les hauts faits', icon:'award', description:'Comprendre les performances, le MVP, les troph\u00e9es et les m\u00e9dailles.'}
 ]);
 const digest = value => crypto.createHash('sha256').update(value).digest('hex');

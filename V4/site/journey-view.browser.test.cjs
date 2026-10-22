@@ -441,6 +441,44 @@ async function adventureProbe(browser) {
   assert.deepEqual(report.errors,[]);assert.deepEqual(report.violations,[]);
   return report;
 }
+async function balmhyrProbe(browser) {
+  for (const viewport of [{width:1440,height:1000},{width:412,height:1007}]) {
+    const context=await browser.newContext({viewport,isMobile:viewport.width===412,hasTouch:viewport.width===412,reducedMotion:'reduce'});
+    try {
+      await routeFixture(context);
+      const page=await context.newPage(),errors=[];
+      page.on('pageerror',error=>errors.push(error.message));
+      page.on('response',response=>{if(response.status()>=400)errors.push(response.url());});
+      await page.goto(origin);await page.waitForFunction(()=>window.fixtureReady);await imagesReady(page);
+      const cover=page.locator('.jv-cover-art img[data-jv-cover-model="30000007"]');
+      assert.equal(await cover.count(),1);
+      assert.match(await cover.getAttribute('src'),/30000007-art-v1\.webp/);
+      await page.evaluate(()=>{harness.state.books=KalistarJourneyDefinitions.catalogue(harness.data);harness.state.isAdmin=true;harness.view.refresh();});
+      await page.locator(action('open')).nth(1).click();await imagesReady(page);
+      const book=await page.evaluate(()=>harness.state.books[1]),stages=[...book.stages,...book.bonusStages];
+      assert.equal(book.rewardModelId,'30000007');
+      assert.deepEqual(book.bonusStages.map(stage=>stage.rewardEquipmentId),['fallen-king-axe','durane-rampart','mythic-iron-gauntlet']);
+      for (const [index,stage] of stages.entries()) {
+        await page.locator(action('stage')+'[data-jv-stage="'+index+'"]').click();await imagesReady(page);
+        for (const mode of ['intro','outro']) {
+          await page.locator(action(mode)).click();
+          assert.deepEqual(await page.locator('.jv-reading>p').allTextContents(),stage[mode]);
+          await assertLayout(page,'balmhyr '+index+' '+mode+' '+viewport.width);
+        }
+        await page.locator(action('intro')).click();
+        await page.screenshot({path:path.join(output,'balmhyr-'+stage.id+'-'+viewport.width+'.png')});
+      }
+      await page.evaluate(()=>{void harness.view.revealEquipment(KalistarWeapons.weapons.find(item=>item.id==='mythic-iron-gauntlet'));});
+      await page.locator('.jv-equipment-reveal[open]').waitFor();await imagesReady(page);
+      assert.equal(await page.locator('.jv-reward-name strong').textContent(),'Gant de Fer');
+      await assertLayout(page,'balmhyr relic '+viewport.width);
+      await page.screenshot({path:path.join(output,'balmhyr-gant-'+viewport.width+'.png')});
+      await page.locator(action('acknowledge')+':enabled').click();
+      assert.deepEqual(errors,[]);
+    } finally {await context.close();}
+  }
+}
+
 async function main() {
   assert.ok(fs.existsSync(path.join(dist,'jeu/catalogue.json')), 'An existing V4/deploy/dist build is required; this test never builds or changes it.');
   fs.mkdirSync(output,{recursive:true});
@@ -605,6 +643,7 @@ async function main() {
       assert.ok(Math.abs(await phone.locator('.jv-shelf').evaluate(node=>node.scrollLeft)-before)<2,'closing the last book restores the shelf position');
       await imagesReady(phone); await phone.screenshot({path:path.join(output,'touch-412.png')}); await cdp.detach();
     } finally { await touch.close(); }
+    await balmhyrProbe(browser);
     assert.deepEqual(sequelDiagnostics.filter(scene=>!scene.noBookBackground),[],'no old book background in the sequel ceremonies');
     console.log(JSON.stringify({ok:true,books:3,combatsPerBook:4,bonusCombats:3,viewports:7,adventureSceneCaptures:adventure.scenes.length,source:frozen?'frozen-build':'current-view-with-built-assets',dist,output,checks:['seven-real-scenes-desktop-razr','no-hidden-scene-request-before-ack','readable-narrative-ending','finite-scene-animation','idle-no-raf-loop','no-repeating-timers','cover-text-bounds','filters','keyboard','touch-swipe','four-stations','approved-narration','frozen-state','busy','async-errors','resume','seven-admin-previews','claim-once','ack-retry','already-owned','reduced-motion','remount-selection','late-action','late-media','observer-cleanup','modal-cleanup','onRefresh','no-bonus-before-card-ack','sequential-equipment-ack','reward-art-bounds','equipment-real-names','equipment-cancel','sequel-cancel','no-reload-ceremony','finite-animation-no-auto-ack','public-reveals-parent-ack','late-ack-remount']},null,2));
   } finally { await browser.close(); }

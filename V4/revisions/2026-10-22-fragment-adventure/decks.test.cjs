@@ -97,6 +97,73 @@ test('Momo follows the specified version, friendship, remembered flute and gradu
   assert.equal(book.stages[3].deck.filter(id => byId.get(id).element === 'ELECTRO').length, 7);
 });
 
+test('Balmhyr keeps the seven author beats, the axe reward and Lok as the final active opponent', async () => {
+  const data = await planned, engine = Engine.createEngine(data), Team = Composition.create(engine);
+  const book = Definitions.catalogue(data).find(book => book.id === 'balmhyr-retour');
+  const all = Definitions.combatStages(book), final = all[6];
+  assert.equal(book.rewardModelId, '30000007');
+  assert.equal(engine.byId[book.rewardModelId].weapon, 'Hache');
+  assert.equal(all[0].captain, '30000018', 'The betrayal is represented by Lok');
+  assert.equal(all[1].captain, '30000024', 'The confinement is represented by Magnar');
+  assert.equal(all[2].captain, '49055457', 'Kaylis actively anchors the liberation');
+  assert.equal(all[2].deck[1], '49055457');
+  assert.equal(all[3].captain, book.rewardModelId);
+  assert.equal(all[3].deck[0], book.rewardModelId, 'The awarded Balmhyr is actually active in P1');
+  assert.equal(all[3].imageModelId, '49900802', 'The returned gauntlet has its existing canonical illustration');
+  assert.equal(final.captain, '30000018');
+  assert.equal(final.deck[1], '30000018', 'Lok occupies his legal P2, not an assumed P1 captain slot');
+  assert.equal(final.arenaId, 'trone-fer');
+  assert(!final.deck.some(id => engine.byId[id].characterId === 'balmhyr'), 'Do not make Balmhyr fight for Lok');
+  assert.equal(final.deck.filter(id => engine.byId[id].faction === 'Durane').length, 8);
+  for (const stage of all) {
+    const team = Team.fromPreset({name: book.subtitle, cards: stage.deck});
+    team.captain = stage.captain;
+    assert.deepEqual(engine.validateComposition(team), []);
+    assert.deepEqual(team.formation, stage.deck.slice(0, 5));
+    assert(team.formation.includes(stage.captain));
+    assert.equal(new Set(stage.deck.map(id => engine.byId[id].characterId)).size, 10);
+    assert(Object.values(engine.deckCoverage(stage.deck)).every(count => count >= 2));
+    assert(stage.deck.filter(id => engine.byId[id].element === 'RAINBOW').length <= 1);
+    assert(stage.deck.every(id => !engine.byId[id].collaboration));
+  }
+});
+
+test('Balmhyr rewards the compatible axe, rampart and final gauntlet relic', async () => {
+  const data = await planned, book = Definitions.catalogue(data).find(book => book.id === 'balmhyr-retour');
+  assert.deepEqual(book.bonusStages.map(stage => [stage.id, stage.rewardEquipmentId, stage.rewardKind]), [
+    ['serment', 'fallen-king-axe', 'weapon'], ['rempart', 'durane-rampart', 'shield'],
+    ['empreinte', 'mythic-iron-gauntlet', 'relic']
+  ]);
+  const model = data.cards.find(card => card.id === book.rewardModelId);
+  for (const stage of book.bonusStages) {
+    const equipment = Equipment.catalogue.weapons.find(item => item.id === stage.rewardEquipmentId);
+    assert(equipment, stage.rewardEquipmentId);
+    assert.equal(Equipment.catalogue.kind(equipment), stage.rewardKind);
+    assert(Equipment.compatible(equipment, model), stage.rewardEquipmentId + ' must fit the awarded Hache version');
+  }
+});
+
+test('Balmhyr narrative preserves confinement, Madania agency and the living disarmed Lok ending', () => {
+  const book = Definitions.catalogue().find(book => book.id === 'balmhyr-retour');
+  const all = Definitions.combatStages(book), scenes = all.map(stage => stage.intro.concat(stage.outro).join(' '));
+  assert.match(scenes[0], /fr\u00e8re cadet/);
+  assert.match(scenes[0], /Lok refusait d\u2019\u00eatre second/);
+  assert.match(scenes[0], /disparu/);
+  assert.match(scenes[1], /ne ressemble pas \u00e0 un cachot/);
+  assert.match(scenes[1], /borne/);
+  assert.match(scenes[2], /Kaylis/);
+  assert.match(scenes[2], /Au second, rien ne retient Balmhyr/);
+  assert.match(scenes[3], /Madania a re\u00e7u des visites, v\u00e9cu/);
+  assert.match(scenes[3], /Avant le bannissement, il avait \u00e9t\u00e9 cach\u00e9 chez Madania/);
+  assert.match(scenes[3], /la plus grande relique de Durane/);
+  assert.match(scenes[4], /Hache du Roi D\u00e9chu/);
+  assert.match(scenes[5], /Rempart de Durane/);
+  assert.match(scenes[6], /vivant, d\u00e9sarm\u00e9/);
+  assert.match(scenes[6], /laisse Lok sous garde/);
+  assert.match(scenes[6], /reprend la responsabilit\u00e9 de Durane/);
+  assert(!/Sceau du Roi|couronnement|Lanio.{0,30}(mort|meurt|tombe|tu\u00e9)/i.test(scenes.join(' ')));
+});
+
 test('all 42 narrative scenes are complete, concise and separate from mechanics; Kaylis boots are black', async () => {
   const data = await planned, scenes = [];
   for (const book of Definitions.catalogue(data)) for (const stage of Definitions.combatStages(book)) for (const kind of ['intro', 'outro']) {
@@ -150,9 +217,13 @@ test('optional paired comparison samples every episode against three native base
   const data = await planned, engine = Engine.createEngine(data), Team = Composition.create(engine);
   const seeds = 24;
   const rows = [];
-  for (const book of Definitions.validate(data, engine, Team)) for (const stage of book.stages) {
+  const selectedBook = process.env.KALISTAR_JOURNEY_BALANCE_BOOK;
+  const books = Definitions.validate(data, engine, Team).filter(book => !selectedBook || book.id === selectedBook);
+  assert(books.length, 'Unknown selected journey: ' + selectedBook);
+  for (const book of books) for (const stage of book.stages) {
     const enemy = Team.fromPreset({name: book.subtitle, cards: stage.deck}); enemy.captain = stage.captain;
     const row = {book: book.id, stage: stage.id, games: 0, wins: 0, draws: 0, maxTurns: 0, byBaseline: {}};
+    if (selectedBook) row.trials = [];
     for (const baseline of baselines) {
       const own = Team.fromPreset(baseline), result = {wins: 0, games: 0};
       assert(own.cards.every(id => !engine.byId[id].collaboration));
@@ -168,6 +239,7 @@ test('optional paired comparison samples every episode against three native base
         row.games++; result.games++;
         if (state.winner === side) {row.wins++; result.wins++;}
         if (state.winner === 'draw') row.draws++;
+        if (selectedBook) row.trials.push({baseline: baseline.id, seed, side, won: state.winner === side, draw: state.winner === 'draw'});
         row.maxTurns = Math.max(row.maxTurns, state.round);
       }
       row.byBaseline[baseline.id] = result;
@@ -175,7 +247,9 @@ test('optional paired comparison samples every episode against three native base
     rows.push(row);
     t.diagnostic(book.id + '/' + stage.id + ': ' + row.wins + '/' + row.games + ' opponent wins');
   }
-  const target = path.resolve(__dirname, '../../../work/qa/fragment-adventure-decks.json');
+  const target = path.resolve(__dirname, selectedBook === 'balmhyr-retour' ?
+    '../../../work/balmhyr-story/balance.json' : selectedBook ?
+      '../../../work/qa/fragment-adventure-' + books[0].id + '.json' : '../../../work/qa/fragment-adventure-decks.json');
   fs.mkdirSync(path.dirname(target), {recursive: true});
   fs.writeFileSync(target, JSON.stringify({catalogue: digest(data.cards), definitions: digest(Definitions.catalogue(data)),
     seeds, games: rows.reduce((sum, r) => sum + r.games, 0), rules: 'Unmodified AI, ABBA, paired seat swaps, no equipment', rows}, null, 2) + '\n');

@@ -2355,6 +2355,17 @@
       flavour:'Son prochain geste lui appartient.',alt:'Ruban bleu nuit et or de Kaylis, travers\u00e9 de reflets rainbow.'}
   });
   // End of additive Fragment sequel objects.
+  // Balmhyr relic conversion: only new loadouts; never rewrite saved definitions.
+  const ironGauntlet=weapons.find(item=>item.id==='mythic-iron-gauntlet');
+  Object.assign(ironGauntlet,{
+    slot:'relic',kind:'relic',name:'Gant de Fer',family:'Relique',
+    restrictions:{characterIds:['balmhyr']},
+    effect:{trigger:'ULTIMATE',duration:'ONCE_MATCH',event:'SURVIVED',when:{outnumbered:true},action:{kind:'ARM',stat:'ATK',value:40,target:'self'}},
+    condition:'Apr\u00e8s avoir surv\u00e9cu \u00e0 une attaque en inf\u00e9riorit\u00e9 num\u00e9rique : +40 ATK \u00e0 sa prochaine attaque num\u00e9rique conserv\u00e9e. Une fois par partie.',
+    lore:'Avant son bannissement, Balmhyr avait cach\u00e9 ce gant chez Madania, sa femme. Elle l\u2019a gard\u00e9 pendant son absence. De retour, il retrouve dans le fer le poids d\u2019une promesse : tenir debout pour les siens, m\u00eame quand il lui faut affronter Lok.',
+    collectible:{...ironGauntlet.collectible,number:'REL-039',flavour:'Ce que Madania a gard\u00e9. Ce qu\u2019il reste \u00e0 tenir.',alt:'Gant de Fer de Balmhyr, relique gard\u00e9e par Madania avant son retour.'}
+  });
+  // End of Balmhyr relic conversion.
   // Reactive ultimates affect new matches only; saved definitions stay immutable.
   const ultimates={
     'little-joys-box':{

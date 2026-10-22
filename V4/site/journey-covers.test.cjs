@@ -7,6 +7,7 @@ const sharp = createRequire(path.join(runtime,'_journey_covers.cjs'))('sharp');
 const root = path.resolve(__dirname,'../..');
 const provenance = require('../revisions/2026-10-17-fragment-covers/provenance.json');
 const adventure = require('../revisions/2026-10-22-fragment-adventure/art-provenance.json');
+const balmhyr = require('../revisions/2026-10-22-balmhyr-fragment/cover-provenance.json');
 const hash = file => crypto.createHash('sha256').update(fs.readFileSync(path.join(root,file))).digest('hex');
 
 test('Fragment covers use the paintings belonging to the rewarded model versions', async () => {
@@ -15,7 +16,7 @@ test('Fragment covers use the paintings belonging to the rewarded model versions
   const media = require('../deploy/runtime-media.json').files;
   const ui = fs.readFileSync(path.join(__dirname,'journey-view.js'),'utf8');
   for (const book of books) {
-    const asset = [...provenance.assets,...adventure.assets].find(asset=>asset.modelId===book.rewardModelId);
+    const asset = [...provenance.assets,...adventure.assets,...balmhyr.assets].find(asset=>asset.modelId===book.rewardModelId);
     assert.ok(asset,book.id+' has its own exact version painting');
     const card = catalogue.find(card=>card.id===book.rewardModelId);
     const source = card.profile.artworkSource || card.profile.art || `V4/creations/${card.id}/illustration.png`;

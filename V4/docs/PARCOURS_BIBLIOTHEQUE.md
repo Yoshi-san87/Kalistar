@@ -41,15 +41,27 @@ les trois bonus, respectivement apres la cinquieme, sixieme et septieme victoire
 | Livre | Carte apres 4 victoires | Arme, indice 4 | Protection, indice 5 | Relique, indice 6 |
 | --- | --- | --- | --- | --- |
 | Momo, Pour ceux que l'on oublie | `30000014`, Le Bal des objets perdus | La Flute des Petits Bonheurs, `little-joys-flute` | Harnais des Passerelles, `kalistar-chroma-harness` | Boite des Petits Bonheurs, `little-joys-box` |
-| Balmhyr, Le poids du retour | `49900802` | Le Serment de Fer, `mythic-iron-gauntlet` | Le Rempart de Durane, `durane-rampart` | Sceau du Roi sans Trone, `exiled-king-seal` |
+| Balmhyr, Le poids du retour | `30000007`, Le royaume a l'horizon | Hache du Roi Dechu, `fallen-king-axe` | Le Rempart de Durane, `durane-rampart` | Gant de Fer, `mythic-iron-gauntlet` |
 | Kaylis, Choisir son prochain pas | `49055457` | Promesse, `white-oath-rapier` | Bottes du Prochain Pas, `kaylis-next-step-boots` | Ruban des Couleurs, `kaylis-colours-ribbon` |
 
 La compatibilite porte sur la version recompensee, pas seulement le personnage.
 La migration 013 dirige les futures attributions Momo vers la version debout a
 la flute. Une ancienne attribution `30000001` reste definitive et affiche sa
 vraie version : ni remplacement, ni seconde carte, ni remise a zero.
-Balmhyr `49900802` utilise le Poing : son arme est le Serment de Fer, pas la
-Hache du Roi Dechu. Promesse convient a Kaylis `49055457`, armee d'une epee courte.
+La migration 014 dirige les futures attributions Balmhyr vers `30000007`,
+compatible avec la Hache et les deux autres objets. Les anciens claims `49900802`
+restent definitifs : cette version Poing porte le Gant en relique, pas la Hache.
+Les anciens objets sont conserves. Un chapitre bonus deja reclame recoit aussi
+sa recompense revisee sans nouvelle victoire ; son ancien recu reste dans un
+journal prive et son acquittement n'est pas efface. Le Sceau reste un objet
+existant, mais n'est plus la recompense finale de ce Fragment.
+Promesse convient a Kaylis `49055457`, armee d'une epee courte.
+
+Le Gant de Fer est une relique propre a Balmhyr, toutes ses versions. Apres
+avoir survecu a une attaque en inferiorite numerique, il prepare +40 ATK pour
+sa prochaine attaque numerique conservee, une fois par partie. Il ne remplace
+ni la famille imprimee ni les bonus sur les 6 de la Hache et du Rempart. Les
+rencontres deja commencees conservent leurs definitions d'equipement figees.
 
 ### Attribution Et Transfert
 
@@ -79,23 +91,33 @@ Le canon donne les gestes et leurs limites : Momo domestique est rejete pour
 ses emotions, rencontre Taulio a la casse, trouve une flute puis retrouve des
 souvenirs par la musique. Gezinho n'est nomme qu'a la fin ; sa transformation
 par le Kalistel Electro reste suggeree, sans reunion inventee. Kaylis l'aide
-a envisager sa recherche. Balmhyr porte le gant garde par Madania, le rempart
-et son sceau ; Kaylis apprend la prise de Promesse, les appuis dans ses bottes noires et le
+a envisager sa recherche. Kaylis apprend la prise de Promesse, les appuis dans ses bottes noires et le
 nouage du tissu bleu nuit a motifs dores, eclaire par ses tatouages. Ces objets
 ne deviennent pas des artefacts majeurs. Aucun secret du roman, destin futur,
 origine non autorisee ou nouveau pouvoir n'est revele. Les equipes adverses sont
 des epreuves du parcours, pas de nouvelles alliances canoniques. Le roman
 n'est pas modifie et les evocations ne fixent pas de nouveaux evenements.
 
+Pour Balmhyr, la trame explicitement validee par l'auteur couvre la trahison
+de son frere cadet Lok, l'exil dans un territoire sous confinement magnetique,
+la liberation avec Kaylis et les retrouvailles avec Madania. Le Gant de Fer,
+cache chez elle avant le bannissement, est la grande relique de Durane. Apres
+la carte, la Hache, le passage protege par le Rempart et le combat contre Lok
+terminent le retour. Lok est le capitaine du septieme combat ; il est vaincu
+et garde vivant, sans nouvelle guerre ou mort inventee. Les revelations de
+ce Fragment sont celles de cet arc autorise, pas un changement du roman.
+
 Les 21 adversaires sont des compositions distinctes de dix personnages natifs,
 avec deux compatibilites par position et un capitaine titulaire. Momo original
-est au premier combat, Taulio au deuxieme ; les trois finales ont pour capitaine
-la version recompensee. Le catalogue publie complet fournit les candidats,
+est au premier combat, Taulio au deuxieme ; le quatrieme combat de chaque livre
+a pour capitaine la version recompensee. Le catalogue publie complet fournit les candidats,
 sans collaboration. Les equipes incarnent l'episode sans inventer des alliances.
 La difficulte vient des compositions et synergies, jamais de des truques ou de
 bonus caches. Les contres empechent de garantir une hausse contre toute equipe.
-Les compositions et 3024 matchs de comparaison sont documentes dans
-`V4/revisions/2026-10-22-fragment-adventure/DECKS.md`.
+Les compositions precedentes et leurs 3024 matchs de comparaison restent dans
+`V4/revisions/2026-10-22-fragment-adventure/DECKS.md` (preuve historique, pas
+mesure des nouveaux decks Balmhyr). La revision actuelle et ses controles
+figurent dans `V4/revisions/2026-10-22-balmhyr-fragment/README.md`.
 
 Paris dispose d'un apercu administrateur des sept combats, clairement marque,
 sans sauvegarde de rencontre, progression ou attribution. Cet apercu peut

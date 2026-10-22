@@ -10,6 +10,18 @@ const legacyData = require('./journey-legacy-4.6.85.json');
 const root = path.resolve(__dirname, '../..'), copy = value => structuredClone(value);
 const secret = 'journey-compatibility-test-only-key-never-for-production';
 const deviceId = '22222222-2222-4222-8222-222222222222';
+const equipmentProof = require('./fixtures/journey-equipment-4.6.109.json');
+const sha256 = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
+
+async function beforeGauntlet(name) {
+  const bytes = await fs.readFile(path.join(root, 'V4/site', name + '.js'));
+  if (name === 'weapons') return Buffer.from(bytes.toString().replace(/  \/\/ Balmhyr relic conversion:[\s\S]*?  \/\/ End of Balmhyr relic conversion\.\r?\n/, ''));
+  if (name === 'equipment') {
+    const text = bytes.toString();
+    return Buffer.from(text.slice(0, text.indexOf('  function reconcileLoadout(')) + equipmentProof.reconcileLoadout + text.slice(text.indexOf('  function reconcileProfile(')));
+  }
+  return bytes;
+}
 
 function fixture() {
   const runtime = Combat.create(legacyData);
@@ -127,13 +139,13 @@ test('the unpublished mapping matches the reviewed executable and exact frozen l
 });
 
 test('sequel equipment is strictly additive to the reviewed runtime and old snapshots keep their signature',async()=>{
-  const text=await fs.readFile(path.join(root,'V4/site/weapons.js'),'utf8');
+  const text=(await beforeGauntlet('weapons')).toString();
   const previous=text.replace(/  \/\/ Fragment sequel objects:[\s\S]*?  \/\/ End of additive Fragment sequel objects\.\r?\n/,'');
   assert.notEqual(previous,text);
   assert.equal(crypto.createHash('sha256').update(previous).digest('hex'),migration.additiveEquipmentProof.weaponsSha256);
   const h=crypto.createHash('sha256').update('kalistar-fragment-snapshot-v1\n');
-  for(const name of Hash.modules){h.update(name+'\n');h.update(name==='weapons'?previous:await fs.readFile(path.join(root,'V4/site',name+'.js')));}
-  assert.deepEqual(migration.snapshotHashes,[h.digest('hex')],'No executable change hidden by the compatibility allowance');
+  for(const name of Hash.modules){h.update(name+'\n');h.update(name==='weapons'?previous:await beforeGauntlet(name));}
+  assert.deepEqual(migration.snapshotHashes,[h.digest('hex'),equipmentProof.runtimeHash],'No executable change hidden by the compatibility allowance');
   const source=await builtSource(migration.compatibleHash);
   assert.deepEqual(Array.from(source.snapshotHashes),migration.snapshotHashes);
   const original=fixture();original.runtimeHash=migration.snapshotHashes[0];
@@ -147,11 +159,72 @@ test('sequel equipment is strictly additive to the reviewed runtime and old snap
   assert.equal((await (await harness(changed,original)).request('context')).status,409);
 });
 
+test('gauntlet conversion has a fixed pre-change proof; only the catalogue conversion and profile reconciliation changed', async () => {
+  assert.equal(sha256(await fs.readFile(path.join(__dirname, migration.profileEquipmentProof.file))), migration.profileEquipmentProof.sha256);
+  assert.equal(equipmentProof.runtimeHash, '84a92b1a93b6f8ff6d11ec8a8af187f9061509c196c563a64c31a4fb9a233c9e');
+  const h = crypto.createHash('sha256').update('kalistar-fragment-snapshot-v1\n');
+  for (const name of Hash.modules) {
+    const old = await beforeGauntlet(name);
+    assert.equal(sha256(old), equipmentProof.modules[name], 'Unreviewed executable change in ' + name);
+    h.update(name + '\n'); h.update(old);
+  }
+  assert.equal(h.digest('hex'), equipmentProof.runtimeHash);
+});
+
+test('a real 4.6.109 gauntlet match replays all 283 recorded actions identically, including the old ATK6 bonus', () => {
+  const attempt = copy(equipmentProof.attempt), data = attempt.state.journey.snapshot;
+  const runtime = Combat.create(data, {resume: true});
+  let state = attempt.state, gauntletUses = 0;
+  const oldEquipment = copy(state.equipment);
+  assert.equal(oldEquipment.definitions.find(w => w.id === 'mythic-iron-gauntlet').slot, 'weapon');
+  assert.equal(oldEquipment.loadouts[0].weapon.balmhyr, 'mythic-iron-gauntlet');
+  assert.equal(oldEquipment.loadouts[0].relic.balmhyr, 'exiled-king-seal');
+  assert.equal(equipmentProof.trace.length, 283);
+  for (const [index, frame] of equipmentProof.trace.entries()) {
+    state = runtime.apply(state, [frame.command]);
+    assert.equal(sha256(JSON.stringify(state)), frame.stateSha256, 'Historical action ' + index + ': ' + frame.command.method);
+    if (state.phase === 'result' && frame.command.method !== 'next' && state.duel.equipment.weapon?.weaponId === 'mythic-iron-gauntlet') gauntletUses++;
+  }
+  assert.equal(state.phase, 'over'); assert.equal(state.winner, equipmentProof.result.winner);
+  assert.equal(gauntletUses, equipmentProof.gauntletUses); assert(gauntletUses > 0);
+  assert.deepEqual(state.equipment.definitions, oldEquipment.definitions);
+  assert.deepEqual(state.equipment.loadouts, oldEquipment.loadouts);
+});
+
+test('worker accepts the recorded historical gauntlet snapshot without migrating its definitions or SQL hash', async () => {
+  const original = copy(equipmentProof.attempt), data = original.state.journey.snapshot;
+  const app = await harness(await builtSource(migration.compatibleHash), original, data);
+  assert.equal((await app.request('context')).status, 200);
+  assert.deepEqual(app.stored(), original);
+  const moved = await app.request('move', {sequence: original.sequence, commands: [equipmentProof.trace[0].command]});
+  assert.equal(moved.status, 200, JSON.stringify(moved.body));
+  assert.equal(moved.body.attempt.runtimeHash, original.runtimeHash);
+  assert.deepEqual(moved.body.attempt.state.equipment.definitions, original.state.equipment.definitions);
+  assert.deepEqual(moved.body.attempt.state.equipment.loadouts, original.state.equipment.loadouts);
+  assert.deepEqual(moved.body.attempt.state.journey.snapshot, original.state.journey.snapshot);
+  assert.equal(app.frames.length, 1);
+});
+
+test('an old-hash attempt with no initial frame normalizes its profile once, preserving its existing relic and owned specimens', async () => {
+  const data = await require('../atelier/game-catalog.cjs').buildCatalog({published: require('../donnees/catalogue.json').cards.filter(c => c.kind === 'created')});
+  const original = {...copy(equipmentProof.attempt), state: null, sequence: 0};
+  const app = await harness(await builtSource(migration.compatibleHash), original, data);
+  const result = await app.request('context');
+  assert.equal(result.status, 200, JSON.stringify(result.body));
+  const state = result.body.attempt.state;
+  assert.deepEqual(state.equipment.loadouts[0], {weapon: {}, shield: {balmhyr: 'durane-rampart'}, relic: {balmhyr: 'exiled-king-seal'}});
+  assert.deepEqual(result.body.attempt.cards, original.cards);
+  assert.deepEqual(result.body.attempt.deck, original.deck, 'No saved input deck rewrite by context');
+  assert.equal(result.body.attempt.runtimeHash, original.runtimeHash); assert.equal(app.frames.length, 1);
+  const repeated = await app.request('context');
+  assert.deepEqual(repeated.body.attempt.state, state); assert.equal(app.frames.length, 1);
+});
+
 test('real builder gate disables legacy migration after an executable hash change; unknown attempts fail closed', async () => {
   const changedHash = crypto.createHash('sha256').update(migration.compatibleHash + ':changed-engine').digest('hex');
   const source = await builtSource(changedHash);
   assert.equal(source.legacy, null);
-  for (const runtimeHash of [migration.legacyHash, migration.compatibleHash, 'a'.repeat(64)]) {
+  for (const runtimeHash of [migration.legacyHash, migration.compatibleHash, ...migration.snapshotHashes, 'a'.repeat(64)]) {
     const app = await harness(source, {...fixture(), runtimeHash});
     for (const action of ['context', 'move']) {
       const result = await app.request(action, {sequence: 1, commands: [{method: 'rollInitiative'}]});
