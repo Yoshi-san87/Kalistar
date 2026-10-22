@@ -25,6 +25,15 @@
     coutures:['momo-coutures','Taulio ajuste le harnais de Momo avant le passage du pont.'],
     boite:['momo-boite','Momo et Kaylis, en cape noire, écoutent une boîte à musique au matin.',2]
   });
+  const balmhyrScenes = Object.freeze({
+    horizon:['balmhyr-horizon','Dans la salle du Conseil, Balmhyr fait face à la trahison de son frère Lok.'],
+    durane:['balmhyr-durane','Au crépuscule, Balmhyr reste prostré devant la limite magnétique de son exil.'],
+    guide:['balmhyr-guide','Dans l’intimité de sa maison d’exil, Balmhyr se confie à Kaylis avant sa libération.'],
+    portes:['balmhyr-portes','Madania ajuste le Gant de Fer de Balmhyr, de retour après ses années d’exil.'],
+    serment:['balmhyr-serment','Avant de repartir, Balmhyr reprend sa hache et retrouve l’équilibre de sa garde.'],
+    rempart:['balmhyr-rempart','Balmhyr tient le passage vers le Conseil derrière le Rempart de Durane.'],
+    empreinte:['balmhyr-empreinte','Au cœur du combat final, Balmhyr pare la dague de Lok avec le Gant de Fer tandis que Kaylis rompt la pression magnétique.']
+  });
 
   // Parent contract: stages stays at four; bonusStages adds absolute stages 4..6.
   // Progress is read-only: cleared 0..7, completed means card earned (>=4),
@@ -113,7 +122,8 @@
       return `<img data-jv-media="${esc(id)}" data-jv-kind="${kind}" alt="${esc(alt)}" width="${kind === 'art' ? 460 : 797}" height="${kind === 'art' ? 880 : 1388}" ${lazy ? 'loading="lazy"' : ''} decoding="async" draggable="false">`;
     }
     function sceneMarkup(book,stage,id) {
-      const scene = book.id === 'momo-petits-bonheurs' && momoScenes[stage?.id || 'rester'];
+      const scene = book.id === 'momo-petits-bonheurs' ? momoScenes[stage?.id || 'rester'] :
+        book.id === 'balmhyr-retour' ? balmhyrScenes[stage?.id || 'portes'] : null;
       const key = book.id+':'+(stage?.id || 'reward');
       if (!scene) return `<figure class="jv-panorama is-portrait" data-jv-scene="${esc(key)}">${media(id,'art',stage?.title || titleOf(book),{lazy:false})}</figure>`;
       const base = 'assets/journeys/'+scene[0]+'-v'+(scene[2] || 1);
@@ -219,7 +229,7 @@
       const paragraphs = stage && !isReward ? (outro ? stage.outro : stage.intro) : [];
       const sceneId = stage?.imageModelId || book.rewardModelId, scene = model(sceneId);
       const arena = (data.arenas || []).find(item => item.id === stage?.arenaId);
-      return `<section class="jv-reader" aria-label="${esc(titleOf(book))}" style="--jv-element:${elementOf(book).color}">
+      return `<section class="jv-reader" data-jv-book="${esc(book.id)}" aria-label="${esc(titleOf(book))}" style="--jv-element:${elementOf(book).color}">
         <header class="jv-reader-toolbar">${tool('library','Fermer le livre','library')}<span>${esc(book.subtitle || characterOf(book))}</span><span class="jv-reader-status">${esc(statusLabel(p))} · ${cardCount(p)} / 4${visibleBonus(book,p) ? ' · '+(p.finished ? 'Récit achevé' : 'La suite du récit') : ''}</span></header>
         ${errorMarkup()}<div class="jv-spread${opening ? ' jv-book-opening' : ''}">
           ${sceneMarkup(book,stage,sceneId)}

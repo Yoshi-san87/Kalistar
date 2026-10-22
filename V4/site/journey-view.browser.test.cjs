@@ -11,6 +11,11 @@ const frozen = process.env.KALISTAR_BUILT_SITE === '1' || process.env.KALISTAR_D
 const output = process.env.KALISTAR_VERIFICATION_DIR || path.join(root, 'work/qa/journeys-view');
 const origin = 'https://kalistar-journey-view.invalid';
 const sequelDiagnostics = [];
+const illustratedBooks = [
+  {id:'momo-petits-bonheurs',character:'momo',rewardModelId:'30000014',stageIds:['rebuts','passage','carillons','rester','souffle','coutures','boite']},
+  {id:'balmhyr-retour',character:'balmhyr',rewardModelId:'30000007',stageIds:['horizon','durane','guide','portes','serment','rempart','empreinte']}
+];
+const sceneBase = (character,id) => character+'-'+id+'-v'+(character==='momo'&&id==='boite'?2:1);
 const currentModules = new Set(['journey-view.js', 'journey-view.css', 'journey-definitions.js']);
 const shell = fs.readFileSync(path.join(frozen ? path.join(dist,'jeu') : __dirname,'index.html'),'utf8');
 const shellStyles = shell.match(/<link[^>]+rel="stylesheet"[^>]*>/g).join('\n');
@@ -86,6 +91,19 @@ async function imagesReady(page) {
     await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
   }, selector);
 }
+async function settledShelf(page) {
+  return page.locator('.jv-shelf').evaluate(async node=>{
+    const deadline=performance.now()+5000;
+    let previous=node.scrollLeft,stable=0;
+    while(stable<8) {
+      await new Promise(resolve=>requestAnimationFrame(resolve));
+      const current=node.scrollLeft;
+      stable=Math.abs(current-previous)<0.1?stable+1:0;previous=current;
+      if(performance.now()>deadline)throw Error('The touch shelf did not settle within five seconds');
+    }
+    return node.scrollLeft;
+  });
+}
 async function assertLayout(page, label) {
   const geometry = await page.evaluate(() => {
     const rect = node => node.getBoundingClientRect();
@@ -103,7 +121,7 @@ async function assertLayout(page, label) {
         const inscription = rect(node.querySelector('.jv-cover-inscription')), art = rect(node.querySelector('.jv-cover-art')), title = rect(node.querySelector('.jv-cover-title'));
         return {inside:within(inscription,rect(node)) && within(title,inscription),separate:art.bottom+1 <= inscription.top,text:[...node.querySelectorAll('.jv-cover-title,.jv-cover-character')].every(textFits)};
       }),
-      headings:[...document.querySelectorAll('.jv-stage-heading h3,.jv-illustrated-page h2,.jv-reward h2')].every(textFits),
+      headings:[...document.querySelectorAll('.jv-stage-heading h3,.jv-illustrated-page h2,.jv-reward h2')].filter(node=>getComputedStyle(node.parentElement).clipPath!=='inset(50%)').every(textFits),
       prizes:[...document.querySelectorAll('.jv-reward-display')].every(node=>{
         const display=rect(node),name=rect(node.parentElement.querySelector('.jv-reward-name'));
         const separate=name.top>=display.bottom-1 || name.left>=display.right-1;
@@ -158,16 +176,16 @@ async function cleanupProbe(page) {
   });
   assert.deepEqual(result,{lateMediaIgnored:true,rewardCancelled:true,starts:1,acknowledgements:0,observers:0,dialogs:0,views:0});
 }
-async function assertSequelScene(page,index) {
+async function assertSequelScene(page,index,bookIndex=0) {
   await imagesReady(page);
-  const expected=await page.evaluate(index=>{
-    const book=harness.state.books[0],stage=book.bonusStages[index-4];
-    return {key:book.id+':'+stage.id,scene:stage.id};
-  },index);
+  const expected=await page.evaluate(({index,bookIndex})=>{
+    const book=harness.state.books[bookIndex],stage=book.bonusStages[index-4];
+    return {key:book.id+':'+stage.id,scene:stage.id,character:book.characterId};
+  },{index,bookIndex});
   const scene=page.locator('.jv-sequel-leaf .jv-panorama');
   assert.equal(await scene.count(),1,'the sequel ceremony has its own chapter illustration');
   assert.equal(await scene.getAttribute('data-jv-scene'),expected.key);
-  assert.match(new URL(await scene.locator('img').evaluate(img=>img.currentSrc)).pathname,new RegExp('/momo-'+expected.scene+'-v'+(expected.scene==='boite'?2:1)+'(?:-small)?\\.webp$'));
+  assert.match(new URL(await scene.locator('img').evaluate(img=>img.currentSrc)).pathname,new RegExp('/'+sceneBase(expected.character,expected.scene)+'(?:-small)?\\.webp$'));
   const backgrounds=await page.locator('.jv-sequel-reveal,.jv-sequel-leaf').evaluateAll(nodes=>nodes.map(node=>getComputedStyle(node).backgroundImage));
   sequelDiagnostics.push({stage:index,key:expected.key,backgrounds,noBookBackground:backgrounds.every(background=>!background.includes('collection-reader-grimoire'))});
   fs.writeFileSync(path.join(output,'sequel-scenes.json'),JSON.stringify(sequelDiagnostics,null,2));
@@ -331,8 +349,8 @@ async function bonusProbe(page,capture) {
   await page.evaluate(()=>Promise.resolve());
   assert.equal(await page.locator('dialog').count(),0,'late ACK cannot open a sequel in a remounted view');
 }
-async function adventureProbe(browser) {
-  const report={scenes:[],violations:[],requests:[],errors:[]};
+async function adventureProbe(browser,expected) {
+  const report={book:expected.id,scenes:[],violations:[],requests:[],errors:[]};
   for(const viewport of [{width:1440,height:1000},{width:412,height:1007}]){
     const context=await browser.newContext({viewport,isMobile:viewport.width===412,hasTouch:viewport.width===412,reducedMotion:'reduce'});
     await routeFixture(context);
@@ -346,58 +364,79 @@ async function adventureProbe(browser) {
     page.on('pageerror',error=>report.errors.push({viewport,message:error.message}));
     page.on('response',response=>{if(response.status()>=400)report.errors.push({viewport,url:response.url(),status:response.status()});});
     page.on('request',request=>{
-      const match=new URL(request.url()).pathname.match(/\/momo-([a-z]+)-v[12](?:-small)?\.webp$/);
-      if(match)requested.push(match[1]);
+      const match=new URL(request.url()).pathname.match(/\/(momo|balmhyr)-([a-z]+)-v[12](?:-small)?\.webp$/);
+      if(match)requested.push({character:match[1],id:match[2]});
     });
     try{
       await page.goto(origin);await page.waitForFunction(()=>window.fixtureReady);await imagesReady(page);
       assert.deepEqual(requested,[],'the shelf does not download unseen narrative backgrounds');
-      await page.evaluate(()=>{harness.state.books=KalistarJourneyDefinitions.catalogue(harness.data);harness.state.isAdmin=false;harness.progress(0,{});});
-      const book=await page.evaluate(()=>harness.state.books[0]),stages=[...book.stages,...book.bonusStages];
-      assert.equal(book.rewardModelId,'30000014');assert.equal(stages.length,7);assert.equal(new Set(stages.map(s=>s.id)).size,7);
-      assert.equal(await page.locator('.jv-cover-art img').first().getAttribute('data-jv-cover-model'),'30000014');
+      await page.evaluate(id=>{
+        harness.state.books=KalistarJourneyDefinitions.catalogue(harness.data);harness.state.isAdmin=false;
+        harness.sceneBookIndex=harness.state.books.findIndex(book=>book.id===id);harness.progress(harness.sceneBookIndex,{});
+      },expected.id);
+      const bookIndex=await page.evaluate(()=>harness.sceneBookIndex);
+      assert(bookIndex>=0,'the illustrated book exists in the real definitions');
+      const book=await page.evaluate(()=>harness.state.books[harness.sceneBookIndex]),stages=[...book.stages,...book.bonusStages];
+      assert.equal(book.rewardModelId,expected.rewardModelId);assert.deepEqual(stages.map(s=>s.id),expected.stageIds);
+      assert.equal(await page.locator('.jv-cover-art img').nth(bookIndex).getAttribute('data-jv-cover-model'),expected.rewardModelId);
       const noFuture=limit=>{
-        for(const id of requested)assert(stages.slice(0,limit+1).some(s=>s.id===id),'hidden scene downloaded before unlock: '+id+' at '+limit);
+        for(const {character,id} of requested)assert(character===expected.character&&stages.slice(0,limit+1).some(s=>s.id===id),'hidden or unrelated scene downloaded before unlock: '+character+'-'+id+' at '+limit);
       };
-      await page.locator(action('open')).first().click();await imagesReady(page);noFuture(0);
-      const urls=[];
+      await page.locator(action('open')+'[data-jv-book="'+expected.id+'"]').click();await imagesReady(page);noFuture(0);
+      const urls=[],alts=[];
       for(let index=0;index<7;index++){
-        if(index>0&&index<4)await page.evaluate(index=>harness.progress(0,{cleared:index}),index);
+        if(index>0&&index<4)await page.evaluate(index=>harness.progress(harness.sceneBookIndex,{cleared:index}),index);
         if(index>=4){
           // Simulate only authoritative progress/ACK state, never issue a real card.
           await page.evaluate(index=>{
-            const book=harness.state.books[0];
-            harness.progress(0,{cleared:index,completed:true,claimed:true,acknowledged:index>4,
+            const book=harness.state.books[harness.sceneBookIndex];
+            harness.progress(harness.sceneBookIndex,{cleared:index,completed:true,claimed:true,acknowledged:index>4,
               equipmentClaims:book.bonusStages.slice(0,index-4).map((s,i)=>({stage:4+i,equipmentId:s.rewardEquipmentId,kind:s.rewardKind,alreadyOwned:false,acknowledged:i<index-5}))});
           },index);
           await imagesReady(page);noFuture(index-1);
+          assert.equal(await page.evaluate(index=>harness.view.revealSequel(harness.state.books[harness.sceneBookIndex],index),index),false,'even a direct reveal call cannot load a chapter before its ACK');
+          assert.equal(await page.locator('.jv-sequel-reveal').count(),0);noFuture(index-1);
           assert.equal(await page.locator(action('stage')+'[data-jv-stage="'+index+'"]').count(),0,'next chapter absent before reward ACK');
           const nextTitles=stages.slice(index).map(s=>s.title),text=await page.locator('.jv-reader').textContent();
           for(const title of nextTitles)assert(!text.includes(title),'hidden chapter name leaked: '+title);
           await page.evaluate(index=>{
-            const p=harness.state.progress[harness.state.books[0].id];p.acknowledged=true;
+            const p=harness.state.progress[harness.state.books[harness.sceneBookIndex].id];p.acknowledged=true;
             for(const claim of p.equipmentClaims)claim.acknowledged=true;harness.view.refresh();
           },index);
           await imagesReady(page);noFuture(index);
           assert.equal(await page.locator(action('stage')).count(),index+1,'only the next earned chapter appears');
+          await page.evaluate(index=>{void harness.view.revealSequel(harness.state.books[harness.sceneBookIndex],index);},index);
+          await page.locator('.jv-sequel-reveal[open]').waitFor();await assertSequelScene(page,index,bookIndex);noFuture(index);
+          await assertLayout(page,expected.character+' sequel '+index+' '+viewport.width);
+          await page.screenshot({path:path.join(output,expected.character+'-'+stages[index].id+'-'+viewport.width+'-unlock.png')});
+          assert.deepEqual(await page.evaluate(()=>harness.calls),[],'the illustrated sequel never claims or ACKs on its own');
+          await page.locator(action('acknowledge')+':enabled').click();
         }
         await page.locator(action('stage')+'[data-jv-stage="'+index+'"]').click();await imagesReady(page);noFuture(index);
         assert.equal(await page.locator('.jv-panorama').count(),1,'one narrative background, not a preloaded strip');
         assert.equal(await page.locator('.jv-panorama').getAttribute('data-jv-scene'),book.id+':'+stages[index].id);
         const url=await page.locator('.jv-panorama img').evaluate(img=>img.currentSrc);urls.push(url);
-        assert.match(new URL(url).pathname,new RegExp('/momo-'+stages[index].id+'-v'+(stages[index].id==='boite'?2:1)+'(?:-small)?\\.webp$'));
+        const base=sceneBase(expected.character,stages[index].id);
+        assert.equal(new URL(url).pathname,'/jeu/assets/journeys/'+base+(viewport.width===412?'-small':'')+'.webp','the browser chooses the matching responsive scene');
+        assert.equal(await page.locator('.jv-panorama.is-portrait').count(),0,'dedicated scenes fill the shared panoramic reader');
+        const alt=await page.locator('.jv-panorama img').getAttribute('alt');alts.push(alt);
+        assert(alt.trim().split(/\s+/).length>=6&&alt.includes(book.subtitle)&&alt!==stages[index].title,'the image describes its narrative moment, not just the chapter title: '+alt);
         assert.equal(await page.locator('.jv-stage-heading h3').textContent(),stages[index].title);
+        if(expected.character==='balmhyr' && viewport.width===412) {
+          assert.equal(await page.locator('.jv-illustrated-page header').evaluate(node=>getComputedStyle(node).clipPath),'inset(50%)','the repeated book title cannot cover faces on phone');
+          assert.equal(await page.locator('.jv-reader-toolbar>span').first().textContent(),book.subtitle,'the character remains identified above the scene');
+        }
         assert.deepEqual(await page.locator('.jv-reading>p').allTextContents(),stages[index].intro);
         assert.equal(await page.locator('.jv-panorama img').evaluate(img=>getComputedStyle(img).animationName),'none');
         const beforeScroll=await page.locator('.jv-reader').evaluate(node=>node.scrollTop);
         await page.locator('.jv-reader').evaluate(node=>{node.scrollTop=0;});
-        const label='momo-'+stages[index].id+'-'+viewport.width;
+        const label=expected.character+'-'+stages[index].id+'-'+viewport.width;
         await page.screenshot({path:path.join(output,label+'.png')});
         await page.locator('.jv-panorama').screenshot({path:path.join(output,label+'-scene.png')});
         try{await assertLayout(page,label);}catch(error){report.violations.push({label,message:error.message});}
         const geometry=await page.evaluate(()=>{
           const r=selector=>document.querySelector(selector).getBoundingClientRect().toJSON(),img=document.querySelector('.jv-panorama img'),reading=document.querySelector('.jv-reading');
-          return {panorama:r('.jv-panorama'),spread:r('.jv-spread'),reading:r('.jv-reading'),footer:r('.jv-stage-footer'),
+          return {panorama:r('.jv-panorama'),spread:r('.jv-spread'),reading:r('.jv-reading'),footer:r('.jv-stage-footer'),heading:r('.jv-illustrated-page header'),
             image:{width:img.naturalWidth,height:img.naturalHeight,fit:getComputedStyle(img).objectFit,position:getComputedStyle(img).objectPosition},
             fontSize:getComputedStyle(reading).fontSize,lineHeight:getComputedStyle(reading).lineHeight};
         });
@@ -418,10 +457,11 @@ async function adventureProbe(browser) {
           return {lastLine:line.toJSON(),footer:footer.toJSON(),visible:last.contains(document.elementFromPoint(x,y))&&line.bottom<=footer.top+1};
         });
         if(viewport.width===412)await page.screenshot({path:path.join(output,label+'-reading-end.png')});
-        report.scenes.push({viewport,stage:index,id:stages[index].id,url,beforeScroll,hittable,ending,...geometry});
+        report.scenes.push({viewport,stage:index,id:stages[index].id,url,alt,beforeScroll,hittable,ending,...geometry});
         if(!ending.visible)report.violations.push({label,message:'The final narrative line remains behind the combat commands at maximum scroll',ending});
       }
       assert.equal(new Set(urls).size,7,'seven actual definition scenes, no copied QA bonus');
+      assert.equal(new Set(alts).size,7,'each scene has its own narrative alternative');
       const raf=await page.evaluate(()=>window.qaFrameCalls);await page.waitForTimeout(250);
       assert.equal(await page.evaluate(()=>window.qaFrameCalls),raf,'idle reader must not schedule a rendering loop');
       assert.equal(await page.evaluate(()=>window.qaIntervals),0,'no repeating JavaScript timer in the Fragment view');
@@ -435,8 +475,13 @@ async function adventureProbe(browser) {
       assert.equal(await page.locator('.jv-view').evaluate(node=>node.getAnimations({subtree:true}).filter(a=>a.playState==='running').length),0,'reader becomes static after its entrance');
       await page.emulateMedia({reducedMotion:'reduce'});await page.locator(action('stage')+'[data-jv-stage="1"]').click();await imagesReady(page);
       assert.equal(await page.locator('.jv-view').evaluate(node=>node.getAnimations({subtree:true}).length),0,'reduced motion disables all Fragment transitions');
-      report.requests.push({viewport,scenes:[...new Set(requested)],animations});
-    }finally{await context.close();fs.writeFileSync(path.join(output,'adventure-scenes.json'),JSON.stringify(report,null,2));}
+      report.requests.push({viewport,scenes:[...new Set(requested.map(scene=>scene.character+'-'+scene.id))],animations});
+      // An unknown future stage retains its own approved card painting fallback.
+      await page.evaluate(()=>{harness.state.books[harness.sceneBookIndex].stages[2].id='unmapped-qa';harness.view.refresh();});
+      await page.locator(action('stage')+'[data-jv-stage="2"]').click();await imagesReady(page);
+      assert.equal(await page.locator('.jv-panorama.is-portrait img').getAttribute('data-jv-media'),stages[2].imageModelId);
+      assert.deepEqual(await page.locator('.jv-reading>p').allTextContents(),stages[2].outro,'an unknown illustration never replaces the approved text');
+    }finally{await context.close();fs.writeFileSync(path.join(output,expected.character+'-adventure-scenes.json'),JSON.stringify(report,null,2));}
   }
   assert.deepEqual(report.errors,[]);assert.deepEqual(report.violations,[]);
   return report;
@@ -466,7 +511,7 @@ async function balmhyrProbe(browser) {
           await assertLayout(page,'balmhyr '+index+' '+mode+' '+viewport.width);
         }
         await page.locator(action('intro')).click();
-        await page.screenshot({path:path.join(output,'balmhyr-'+stage.id+'-'+viewport.width+'.png')});
+        await page.screenshot({path:path.join(output,'balmhyr-admin-'+stage.id+'-'+viewport.width+'.png')});
       }
       await page.evaluate(()=>{
         harness.state.isAdmin=false;
@@ -488,8 +533,8 @@ async function main() {
   assert.ok(fs.existsSync(path.join(dist,'jeu/catalogue.json')), 'An existing V4/deploy/dist build is required; this test never builds or changes it.');
   fs.mkdirSync(output,{recursive:true});
   const browser = await chromium.launch({channel:'chrome',headless:true});
-  let adventure;
-  try{adventure=await adventureProbe(browser);}catch(error){await browser.close();throw error;}
+  const adventures=[];
+  try{for(const book of illustratedBooks)adventures.push(await adventureProbe(browser,book));}catch(error){await browser.close();throw error;}
   const context = await browser.newContext({viewport:{width:1440,height:1000},reducedMotion:'reduce'});
   await routeFixture(context);
   const page = await context.newPage(), errors = [], failures = [];
@@ -642,15 +687,17 @@ async function main() {
       await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:from,y}]});
       for (let step=1;step<=10;step++) { await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:from+(to-from)*step/10,y}]}); await phone.waitForTimeout(16); }
       await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]}); await phone.waitForFunction(()=>document.querySelector('.jv-shelf').scrollLeft>60);
+      await settledShelf(phone);
       await phone.locator('.jv-shelf').focus(); await phone.keyboard.press('End');
-      const before = await phone.locator('.jv-shelf').evaluate(node=>node.scrollLeft);
+      const before = await settledShelf(phone);
       await phone.locator('.jv-cover').last().tap(); await phone.locator(action('library')).tap();
-      assert.ok(Math.abs(await phone.locator('.jv-shelf').evaluate(node=>node.scrollLeft)-before)<2,'closing the last book restores the shelf position');
+      const after = await settledShelf(phone);
+      assert.ok(Math.abs(after-before)<2,'closing the last book restores the shelf position: '+JSON.stringify({before,after}));
       await imagesReady(phone); await phone.screenshot({path:path.join(output,'touch-412.png')}); await cdp.detach();
     } finally { await touch.close(); }
     await balmhyrProbe(browser);
     assert.deepEqual(sequelDiagnostics.filter(scene=>!scene.noBookBackground),[],'no old book background in the sequel ceremonies');
-    console.log(JSON.stringify({ok:true,books:3,combatsPerBook:4,bonusCombats:3,viewports:7,adventureSceneCaptures:adventure.scenes.length,source:frozen?'frozen-build':'current-view-with-built-assets',dist,output,checks:['seven-real-scenes-desktop-razr','no-hidden-scene-request-before-ack','readable-narrative-ending','finite-scene-animation','idle-no-raf-loop','no-repeating-timers','cover-text-bounds','filters','keyboard','touch-swipe','four-stations','approved-narration','frozen-state','busy','async-errors','resume','seven-admin-previews','claim-once','ack-retry','already-owned','reduced-motion','remount-selection','late-action','late-media','observer-cleanup','modal-cleanup','onRefresh','no-bonus-before-card-ack','sequential-equipment-ack','reward-art-bounds','equipment-real-names','equipment-cancel','sequel-cancel','no-reload-ceremony','finite-animation-no-auto-ack','public-reveals-parent-ack','late-ack-remount']},null,2));
+    console.log(JSON.stringify({ok:true,books:3,combatsPerBook:4,bonusCombats:3,viewports:7,adventureSceneCaptures:adventures.reduce((sum,book)=>sum+book.scenes.length,0),illustratedBooks:adventures.map(book=>book.book),source:frozen?'frozen-build':'current-view-with-built-assets',dist,output,checks:['seven-real-scenes-per-book-desktop-razr','responsive-scene-size','distinct-narrative-alts','no-hidden-scene-request-before-ack','illustrated-bonus-ceremonies','unknown-stage-painting-fallback','readable-narrative-ending','finite-scene-animation','idle-no-raf-loop','no-repeating-timers','cover-text-bounds','filters','keyboard','touch-swipe','four-stations','approved-narration','frozen-state','busy','async-errors','resume','seven-admin-previews','claim-once','ack-retry','already-owned','reduced-motion','remount-selection','late-action','late-media','observer-cleanup','modal-cleanup','onRefresh','no-bonus-before-card-ack','sequential-equipment-ack','reward-art-bounds','equipment-real-names','equipment-cancel','sequel-cancel','no-reload-ceremony','finite-animation-no-auto-ack','public-reveals-parent-ack','late-ack-remount']},null,2));
   } finally { await browser.close(); }
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});

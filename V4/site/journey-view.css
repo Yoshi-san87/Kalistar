@@ -200,6 +200,8 @@ body.journeys-view #app { flex:1 1 0; width:100%; min-width:0; min-height:0; max
   .jv-illustrated-page { height:290px; flex:none; padding:18px 20px 12px; gap:16px; }
   .jv-illustrated-page header { align-self:flex-end; max-width:60%; text-align:right; }
   .jv-illustrated-page h2 { font-size:20px; max-width:24ch; }
+  .jv-reader[data-jv-book="balmhyr-retour"] .jv-illustrated-page { justify-content:flex-end; }
+  .jv-reader[data-jv-book="balmhyr-retour"] .jv-illustrated-page header { position:absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
   .jv-scene { padding:8px 0; }
   .jv-scene span { font-size:12px; }
   .jv-scene small { font-size:11px; }

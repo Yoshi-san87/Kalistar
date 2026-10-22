@@ -159,15 +159,29 @@ la revision des rencontres, les recompenses ni le schema de progression.
 
 ### Scenes Du Parcours
 
-Le lecteur ouvert n'utilise plus le fond livre. Les sept etapes Momo possedent
-chacune une peinture panoramique originale, adaptee aux references des cartes.
+Le lecteur ouvert n'utilise plus le fond livre. Les sept etapes Momo et les
+sept etapes Balmhyr possedent chacune une peinture panoramique originale,
+adaptee aux references des cartes et au moment precis du chapitre.
 Cliquer une station change la scene et le recit ; seules les etapes autorisees
 du joueur sont rendues et chargees. Les autres parcours utilisent les peintures
 approuvees de leur personnage de scene. Les chapitres bonus restent caches
 jusqu'a leurs ACK. Une image existe en 1672px et 840px, choisie par le navigateur.
 L'arrivee de scene est une animation finie, desactivee en reduced-motion ; aucun
-canvas, minuteur ou mouvement permanent. Sources, prompts et empreintes :
+canvas, minuteur ou mouvement permanent. Sources, prompts et empreintes Momo :
 `V4/revisions/2026-10-22-fragment-adventure/`.
+
+Pour `balmhyr-retour`, la table dediee `balmhyrScenes` conserve les sept ids
+historiques : `horizon`, `durane`, `guide`, `portes`, `serment`, `rempart`,
+`empreinte`. Elle associe chaque moment a son texte alternatif narratif et aux
+exports `assets/journeys/balmhyr-<id>-v1.webp` et `-v1-small.webp` (1672 et
+840 pixels, format 16:9). Les sources et empreintes sont conservees dans
+`V4/revisions/2026-10-22-balmhyr-scenes/art-provenance.json`. Ce rendu reutilise
+celui de Momo, y compris les revelations illustrees des trois chapitres bonus.
+Il ne precharge ni une station non selectionnee ni une scene bonus avant son
+ACK. Les autres parcours et les ids sans scene dediee gardent le visuel de
+leur modele ; une erreur d'image ne bloque ni la lecture ni les commandes.
+Cette integration graphique ne modifie aucun recit, adversaire, equipement,
+snapshot, droit d'attribution ou schema de progression.
 
 - `journey-definitions.js` : `catalogue()` conserve `stages` avec les quatre
   etapes historiques et expose separement `bonusStages` avec trois etapes,
@@ -345,7 +359,10 @@ directs, la non-reattribution apres transfert et les reprises sans doublon.
 PostgreSQL, puis la vraie ceremonie UI. Le parcours bonus doit egalement etre
 verifie avec ses trois attributions et ACK, pas seulement le moteur local.
 `journey-view.browser.test.cjs` verifie le rendu, les controles, les petits ecrans et le nettoyage dans un contexte
-jetable. Aucun test ne distribue de carte sur un compte reel.
+jetable. Les sept scenes reelles de Momo et Balmhyr sont parcourues sur PC et
+Razr, avec captures, controle des images responsives, absence de requetes
+bonus avant ACK et animations finies ou desactivees en reduced-motion.
+Aucun test ne distribue de carte sur un compte reel.
 `journey-covers.test.cjs` verifie les sources exactes, leurs empreintes, les
 medias inscrits et la transparence de la reliure. Le test navigateur controle
 aussi le cadrage, la separation du titre et le fallback d'une autre version.

@@ -59,6 +59,58 @@ test('the later-story Kaylis scene uses revision 2 and preserves its reference a
   for(const asset of scene) assert.match(asset.output,/momo-boite-v2(?:-small)?\.webp$/);
 });
 
+test('Balmhyr has seven distinct narrative originals and exactly two registered WebP sizes per stage', async () => {
+  const provenance = require('../revisions/2026-10-22-balmhyr-scenes/art-provenance.json');
+  const book = require('./journey-definitions.js').catalogue({cards:[]}).find(book=>book.id==='balmhyr-retour');
+  const ids = ['horizon','durane','guide','portes','serment','rempart','empreinte'];
+  assert.deepEqual([...book.stages,...book.bonusStages].map(stage=>stage.id),ids);
+  const scenes = provenance.assets.filter(asset=>!asset.modelId);
+  for(const [source,sha256] of Object.entries(provenance.references)) assert.equal(hash(source),sha256,'approved character and equipment reference unchanged');
+  const expected = ids.flatMap(id=>['','-small'].map(size=>`V4/site/assets/journeys/balmhyr-${id}-v1${size}.webp`));
+  assert.deepEqual(scenes.map(asset=>asset.output).sort(),expected.sort());
+  assert.equal(new Set(scenes.map(asset=>asset.source)).size,7,'seven original paintings, not repeated crops');
+  assert.equal(new Set(scenes.map(asset=>asset.sourceSha256)).size,7,'the originals contain seven distinct images');
+  assert.equal(new Set(scenes.map(asset=>asset.sha256)).size,14,'every delivered variant has its own pixels');
+  const media = require('../deploy/runtime-media.json').files;
+  for(const id of ids) {
+    const pair = scenes.filter(asset=>path.basename(asset.output).startsWith(`balmhyr-${id}-`));
+    assert.equal(pair.length,2);
+    assert.equal(pair[0].source,pair[1].source,'both responsive exports use the same approved original');
+    if(id==='empreinte') assert.match(pair[0].source,/\/balmhyr-empreinte-v2\.png$/,'the final combat uses the approved action revision, while runtime URLs stay v1');
+    for(const asset of pair) {
+      assert.equal(hash(asset.source),asset.sourceSha256,'approved source preserved');
+      assert.equal(hash(asset.output),asset.sha256);
+      assert.equal(fs.statSync(path.join(root,asset.output)).size,asset.bytes);
+      assert.equal(media.find(file=>file.source===asset.output)?.sha256,asset.sha256,'release registry matches the delivered scene');
+      const meta = await sharp(path.join(root,asset.output)).metadata();
+      const small = asset.output.includes('-small.');
+      assert.equal(meta.format,'webp');
+      assert.equal(meta.width,small?840:1672);assert.equal(meta.width,asset.width);assert.equal(meta.height,asset.height);
+      assert.ok(Math.abs(meta.width/meta.height-16/9)<0.01);
+      assert.ok(asset.bytes<(small?180000:500000),'bounded scene payload for '+asset.output);
+    }
+  }
+});
+
+test('the explicitly approved Madania scene retains its source and both approved exports byte for byte', () => {
+  const provenance = require('../revisions/2026-10-22-balmhyr-scenes/art-provenance.json');
+  const source = 'V4/revisions/2026-10-22-balmhyr-scenes/sources/balmhyr-portes-v1.png';
+  // Author-approved scene: updating a manifest must never silently replace it.
+  const approved = 'e74690a642966f93b34776f889261780720527933032aa9f73d71a9395224c47';
+  const exports = {
+    'balmhyr-portes-v1.webp':'ee577f8bb044c9dc8360630fc0180df378a026ab0f15585794eb4fda52235b77',
+    'balmhyr-portes-v1-small.webp':'d52c5238b071a113f0ea36616307e841b4223d61dc131e470862d50478a94d5a'
+  };
+  assert.equal(hash(source),approved);
+  for(const [name,sha256] of Object.entries(exports)) {
+    const output = 'V4/site/assets/journeys/'+name;
+    const asset = provenance.assets.find(asset=>asset.output===output);
+    assert.ok(asset,name);
+    assert.equal(asset.source,source);assert.equal(asset.sourceSha256,approved);
+    assert.equal(asset.sha256,sha256);assert.equal(hash(output),sha256);
+  }
+});
+
 test('new binding is transparent at the painting aperture and opaque at the title plaque', async () => {
   const asset = provenance.assets.find(asset=>!asset.modelId);
   assert.equal(hash(asset.source),asset.sourceSha256);
