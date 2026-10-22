@@ -27,6 +27,10 @@
       for(const book of result.books){
         const definition=definitions.find(b=>b.id===book.id);
         if(!definition||book.revision!==definition.revision||!Number.isInteger(book.cleared)||book.cleared<0||book.cleared>4+(definition.bonusStages?.length||0))throw Error('Edition de livre incompatible.');
+        const reward=data.cards.find(card=>card.id===book.rewardModelId);
+        if(typeof book.rewardModelId!=='string'||!(/^[34][0-9]{7}$/).test(book.rewardModelId)||
+          data.cards.length&&(!reward||reward.characterId!==definition.characterId)||
+          book.claimedRewardModelId!==undefined&&(book.claimed?book.claimedRewardModelId!==book.rewardModelId:book.claimedRewardModelId!==null))throw Error('Recompense de livre incompatible.');
         const claims=book.equipmentClaims===undefined?[]:book.equipmentClaims;
         if(!Array.isArray(claims)||claims.length>3||claims.some(c=>!c||typeof c!=='object')||new Set(claims.map(c=>c.stage)).size!==claims.length||claims.some(c=>{
           const stage=definition.bonusStages?.[c.stage-4];
@@ -34,7 +38,8 @@
         }))throw Error('Recompenses de livre incompatibles.');
         progress[book.id]=book;
       }
-      update({status:'ready',error:'',isAdmin:result.isAdmin,books:definitions.filter(b=>Object.hasOwn(progress,b.id)),progress});
+      // A receipt can name an older print. Never replace that earned card with a later reward definition.
+      update({status:'ready',error:'',isAdmin:result.isAdmin,books:definitions.filter(b=>Object.hasOwn(progress,b.id)).map(b=>({...b,rewardModelId:progress[b.id].rewardModelId})),progress});
     }
     async function refresh(){
       const ticket=++libraryEpoch;

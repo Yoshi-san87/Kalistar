@@ -14,6 +14,7 @@
       ]
     ],
     "ci": [
+      ["--test", "V4/revisions/2026-10-22-fragment-adventure/decks.test.cjs"],
       ["--test", "V4/expansions/2026-10-21-arenes/integration.test.cjs", "V4/expansions/2026-10-21-arenes/arena-balance.test.cjs"],
       ["--test", "V4/revisions/2026-10-21-collab-kalistels/integration.test.cjs", "V4/revisions/2026-10-21-collab-kalistels/native.test.cjs"],
       ["--test", "V4/expansions/2026-10-21-octopath-traveler/integration.test.cjs", "V4/expansions/2026-10-21-octopath-traveler/native.test.cjs", "V4/expansions/2026-10-21-octopath-traveler/publication.test.cjs"],
@@ -421,6 +422,7 @@
       ["--test", "V4/site/cloud-registry.test.cjs", "V4/site/cloud-session.test.cjs", "V4/site/cloud-sync.test.cjs", "V4/site/cloud-ownership.test.cjs", "V4/deploy/access-worker.test.cjs"]
     ],
     "local": [
+      ["--test", "V4/revisions/2026-10-22-fragment-adventure/progression.test.cjs"],
       ["--test", "V4/revisions/2026-10-16-login-cinematic/film.test.cjs"],
       ["--test", "V4/map/layers-1.33/map.test.cjs"],
       ["--test", "V4/map/layers-1.36/map.test.cjs"],

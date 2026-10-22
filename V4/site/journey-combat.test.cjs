@@ -212,7 +212,7 @@ test('pure JourneyCombat: twenty-one initial states, protected AI and twelve com
     missingReward.cards = missingReward.cards.filter(card => card.id !== '49055457');
     assert.throws(() => Combat.create(missingReward));
     const wrongCharacter = copy(data);
-    wrongCharacter.cards.find(card => card.id === '30000001').characterId = 'not-momo';
+    wrongCharacter.cards.find(card => card.id === runtime.books[0].rewardModelId).characterId = 'not-momo';
     assert.throws(() => Combat.create(wrongCharacter), /Recompense de parcours inconnue/);
     assert.throws(() => Combat.create({...data, arenas: data.arenas.filter(arena => arena.id !== 'trone-fer')}));
     const impossible = copy(data);

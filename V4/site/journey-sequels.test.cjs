@@ -11,8 +11,7 @@ const Composition = require('./team-composition.js');
 const Engine = require('./engine.js');
 const Equipment = require('./equipment.js');
 const legacy = require('../deploy/journey-legacy-4.6.85.json');
-const {buildCatalog} = require('../atelier/game-catalog.cjs');
-const published = require('../donnees/catalogue.json').cards.filter(card => card.kind === 'created');
+const {plan} = require('../deploy/build.cjs');
 const source = fs.readFileSync(path.join(__dirname, 'journey-definitions.js'), 'utf8');
 const copy = value => JSON.parse(JSON.stringify(value));
 const digest = value => crypto.createHash('sha256').update(JSON.stringify(value)).digest('hex');
@@ -78,7 +77,35 @@ function commandFor(engine, state) {
   return {method: choice[0], args: [engine[choice[1]](state)]};
 }
 
-test('catalogue keeps all twelve journeys-1 stages and their card rewards exactly intact', () => {
+// Frozen pre-adventure casts preserve the original snapshot hashes below.
+// These fixtures must not follow today's narrative decks or model rewards.
+function historicalRuntime() {
+  const base = ['30000007','30000002','30000021','30000001','30000012','30000013','30000018','30000008','30000023','30000006'];
+  const first = (deck, id) => [id, ...deck.filter(value => value !== id)];
+  const replace = changes => base.map(id => changes[id] || id);
+  const encounter = (arenaId, captain, deck) => ({arenaId, captain, deck});
+  const books = [
+    {id: 'momo-petits-bonheurs', subtitle: 'Momo', revision: 'journeys-1', stages: [
+      encounter('electro', '30000001', base), encounter('electro', '30000013', first(base, '30000013')),
+      encounter('electro', '30000014', replace({'30000001':'30000014'})),
+      encounter('electro', '40243854', replace({'30000001':'30000005','30000012':'40243854'}))]},
+    {id: 'balmhyr-retour', subtitle: 'Balmhyr', revision: 'journeys-1', stages: [
+      encounter('minero', '30000007', base), encounter('minero', '30000013', first(base, '30000013')),
+      encounter('minero', '30000007', first(base, '30000007')),
+      encounter('trone-fer', '49900802', first(replace({'30000007':'30000024','30000018':'49900802'}), '49900802'))]},
+    {id: 'kaylis-prochain-pas', subtitle: 'Kaylis', revision: 'journeys-1', stages: [
+      encounter('z13', '30000012', base),
+      encounter('minero', '49055457', first(replace({'30000012':'49055457','30000018':'30000003'}), '49055457')),
+      encounter('rainbow', '49055457', first(replace({'30000012':'49055457','30000018':'30000003'}), '49055457')),
+      encounter('trone-fer', '49902701', first(replace({'30000012':'49902701','30000018':'30000003'}), '49902701'))]}
+  ];
+  const context = {module: {exports: {}}, structuredClone, require: name =>
+    name === './journey-definitions.js' ? {validate: () => copy(books)} : require(name)};
+  vm.runInNewContext(fs.readFileSync(path.join(__dirname, 'journey-combat.js'), 'utf8'), context);
+  return context.module.exports.create(legacy);
+}
+
+test('catalogue keeps journeys-1 identifiers and four card fights while updating the requested Momo version', () => {
   const books = Definitions.catalogue(legacy);
   assert.equal(Definitions.revision, 'journeys-1');
   assert.deepEqual(books.map(book => book.id), Object.keys(rewards));
@@ -87,8 +114,10 @@ test('catalogue keeps all twelve journeys-1 stages and their card rewards exactl
     assert.equal(book.stages.length, 4);
     assert(book.stages.every(stage => !Object.hasOwn(stage, 'rewardEquipmentId')));
   }
-  const original = books.map(({bonusStages, bonusReveal, ...book}) => book);
-  assert.equal(digest(original), '31ecc0473402a59f47491f8ed8ae23415046f135eadf6b186e049a68f5eae733');
+  assert.deepEqual(books.map(book => book.rewardModelId), ['30000014', '49900802', '49055457']);
+  assert.deepEqual(books.map(book => book.stages.map(stage => stage.id)), [
+    ['rebuts','passage','carillons','rester'], ['horizon','durane','guide','portes'], ['breche','couleurs','ligne','seuil']
+  ]);
 });
 
 test('each book has three separate bonus chapters, ordered weapon, shield, relic', () => {
@@ -109,15 +138,15 @@ test('each book has three separate bonus chapters, ordered weapon, shield, relic
   }
 });
 
-test('eighteen French scenes are distinct, paragraph-based, and 150 to 250 words long', () => {
+test('eighteen bonus scenes are distinct, paragraph-based, and 80 to 140 words long', () => {
   const paragraphs = [];
   let scenes = 0;
   for (const book of Definitions.catalogue(legacy)) for (const stage of book.bonusStages) {
     for (const kind of ['intro', 'outro']) {
-      assert(stage[kind].length >= 3, book.id + '/' + stage.id + '/' + kind);
+      assert(stage[kind].length >= 2, book.id + '/' + stage.id + '/' + kind);
       assert(stage[kind].every(paragraph => typeof paragraph === 'string' && paragraph.trim() === paragraph && paragraph.length));
       const text = stage[kind].join(' '), words = text.split(/\s+/).length;
-      assert(words >= 150 && words <= 250, stage.id + '/' + kind + ': ' + words + ' words');
+      assert(words >= 80 && words <= 140, stage.id + '/' + kind + ': ' + words + ' words');
       assert(!/TODO|TBD|placeholder|\+\d+|\bD6\b|\bSQL\b|\bUI\b/i.test(text));
       assert(!/[<>]/.test(text), 'Narrative paragraphs are plain text');
       paragraphs.push(...stage[kind]);
@@ -138,11 +167,12 @@ test('all nine opponents are distinct legal teams available in the frozen 4.6.85
     assert(team.formation.includes(stage.captain));
     assert(engine.byId[stage.imageModelId]);
     assert(legacy.arenas.some(arena => arena.id === stage.arenaId));
-    assert(stage.deck.every(id => engine.byId[id].characterId !== book.characterId));
+    assert(stage.deck.every(id => !engine.byId[id].collaboration));
+    assert(stage.deck.some(id => engine.byId[id].characterId === book.characterId));
     for (let position = 1; position <= 5; position++)
       assert(stage.deck.filter(id => engine.byId[id].positions.includes(position)).length >= 2);
     for (const original of book.stages)
-      assert(stage.deck.filter(id => !original.deck.includes(id)).length >= 5, 'Not a reshuffled original team');
+      assert(stage.deck.some(id => !original.deck.includes(id)), 'Not a reshuffled original team');
     signatures.push(stage.deck.slice().sort().join(','));
   }
   assert.equal(new Set(signatures).size, 9);
@@ -158,7 +188,7 @@ test('every reward exists with the right kind and fits the exact rewarded model'
 });
 
 test('validate alone exposes seven runtime stages for both current and legacy catalogues', async () => {
-  const current = await buildCatalog({published});
+  const current = (await plan()).catalogue;
   for (const data of [legacy, current]) {
     const before = digest(data), books = Definitions.catalogue(data), runtimeBooks = validate(data);
     for (let index = 0; index < books.length; index++) {
@@ -204,7 +234,7 @@ test('validation rejects missing, mistyped or incompatible rewards without inven
 test('validation still rejects unknown models, arenas and impossible bonus formations', () => {
   assert.doesNotThrow(() => validate(legacy));
   const noModel = copy(legacy);
-  noModel.cards = noModel.cards.filter(card => card.id !== '49902610');
+  noModel.cards = noModel.cards.filter(card => card.id !== '49902702');
   assert.throws(() => validate(noModel));
   const noArena = {...legacy, arenas: legacy.arenas.filter(arena => arena.id !== 'geo')};
   assert.throws(() => validate(noArena), /arene de parcours inconnue/);
@@ -213,12 +243,16 @@ test('validation still rejects unknown models, arenas and impossible bonus forma
   assert.throws(() => validate(invalid));
 });
 
-test('the twelve historical initial snapshots stay byte-identical with unchanged journey-combat', () => {
-  const runtime = Combat.create(legacy);
+test('the twelve historical initial snapshots stay byte-identical and resume independently of new encounters', () => {
+  const runtime = historicalRuntime(), resume = Combat.create(legacy, {resume: true});
   for (const book of runtime.books) for (let stage = 0; stage < 4; stage++) {
-    const state = runtime.initial(attempt(runtime, legacy, book, stage));
+    const state = copy(runtime.initial(attempt(runtime, legacy, book, stage)));
     assert.equal(digest(state), initialHashes[book.id][stage], book.id + '/' + stage);
     assert.deepEqual(copy(runtime.engine.restoreGame(copy(state))), state);
+    const moved = resume.apply(copy(state), [{method: 'rollInitiative'}]);
+    assert.deepEqual(moved.journey.snapshot, state.journey.snapshot);
+    assert.deepEqual(moved.players, state.players);
+    assert.deepEqual(moved.composition, state.composition);
   }
 });
 

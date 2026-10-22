@@ -10,6 +10,7 @@ const dist = path.resolve(process.env.KALISTAR_DIST || path.join(__dirname, '../
 const frozen = process.env.KALISTAR_BUILT_SITE === '1' || process.env.KALISTAR_DIST !== undefined;
 const output = process.env.KALISTAR_VERIFICATION_DIR || path.join(root, 'work/qa/journeys-view');
 const origin = 'https://kalistar-journey-view.invalid';
+const sequelDiagnostics = [];
 const currentModules = new Set(['journey-view.js', 'journey-view.css', 'journey-definitions.js']);
 const shell = fs.readFileSync(path.join(frozen ? path.join(dist,'jeu') : __dirname,'index.html'),'utf8');
 const shellStyles = shell.match(/<link[^>]+rel="stylesheet"[^>]*>/g).join('\n');
@@ -69,7 +70,7 @@ async function routeFixture(context) {
     const relative = name.replace(/^\//, '');
     // Default: current UI over the existing build's real catalogue and assets.
     // Either explicit build selector checks frozen modules without source overrides.
-    const current = !frozen && name.startsWith('/jeu/') && currentModules.has(name.slice(5));
+    const current = !frozen && name.startsWith('/jeu/') && (currentModules.has(name.slice(5)) || name.startsWith('/jeu/assets/journeys/'));
     const directory = current ? __dirname : dist;
     const file = path.resolve(directory, current ? name.slice(5) : relative);
     if (!file.startsWith(directory+path.sep) || !fs.existsSync(file) || !fs.statSync(file).isFile()) return route.fulfill({status:404, body:name});
@@ -78,7 +79,7 @@ async function routeFixture(context) {
 }
 const action = name => `[data-jv-action="${name}"]`;
 async function imagesReady(page) {
-  const selector = '.jv-cover-art img,.jv-cover-skin,.jv-scene img,.jv-reward-prize img';
+  const selector = '.jv-cover-art img,.jv-cover-skin,.jv-panorama img,.jv-scene img,.jv-reward-prize img,.jv-sequel-leaf img';
   await page.waitForFunction(selector => [...document.querySelectorAll(selector)].every(image => image.complete && image.naturalWidth > 0 && (!image.hasAttribute('data-jv-media') || image.dataset.v4Cropped || image.src.startsWith('blob:'))), selector);
   await page.evaluate(async selector => {
     await Promise.all([...document.querySelectorAll(selector)].map(image => image.decode()));
@@ -97,7 +98,7 @@ async function assertLayout(page, label) {
       appBottom:rect(document.querySelector('#app')).bottom,
       navTop:rect(document.querySelector('.main-nav')).top,
       mobileNav:getComputedStyle(document.querySelector('.main-nav')).position==='fixed',
-      regions:[...document.querySelectorAll('.jv-filters,.jv-route,.jv-stage-actions,.jv-stage-heading,.jv-library-heading,.jv-reward-ceremony')].map(node => ({name:node.className,fits:node.scrollWidth <= node.clientWidth+1})),
+      regions:[...document.querySelectorAll('.jv-filters,.jv-route,.jv-stage-actions,.jv-stage-heading,.jv-library-heading,.jv-reward-ceremony,.jv-story-page,.jv-illustrated-page')].map(node => ({name:node.className,fits:node.scrollWidth <= node.clientWidth+1})),
       covers:[...document.querySelectorAll('.jv-cover-object')].map(node => {
         const inscription = rect(node.querySelector('.jv-cover-inscription')), art = rect(node.querySelector('.jv-cover-art')), title = rect(node.querySelector('.jv-cover-title'));
         return {inside:within(inscription,rect(node)) && within(title,inscription),separate:art.bottom+1 <= inscription.top,text:[...node.querySelectorAll('.jv-cover-title,.jv-cover-character')].every(textFits)};
@@ -109,6 +110,7 @@ async function assertLayout(page, label) {
         return separate && [...node.querySelectorAll('.jv-reward-prize img')].every(image=>within(rect(image),display));
       }),
       reader:[...document.querySelectorAll('.jv-spread')].every(node=>within(rect(node.querySelector('.jv-stage-footer')),rect(node))),
+      panoramas:[...document.querySelectorAll('.jv-panorama')].map(node=>({inside:within(rect(node),rect(node.closest('.jv-spread,.jv-sequel-leaf'))),width:rect(node).width,height:rect(node).height})),
       stations:[...document.querySelectorAll('.jv-route button')].every(node => rect(node).width >= 44 && rect(node).height >= 44)};
   });
   assert.ok(geometry.overflow <= 1, label+': no document overflow '+JSON.stringify(geometry));
@@ -118,6 +120,7 @@ async function assertLayout(page, label) {
   assert.ok(geometry.headings && geometry.stations, label+': readable headings and touch-sized stations '+JSON.stringify(geometry));
   assert.ok(geometry.prizes,label+': reward art stays separate from its real name '+JSON.stringify(geometry));
   assert.ok(geometry.reader,label+': book never clips its combat commands '+JSON.stringify(geometry));
+  assert.ok(geometry.panoramas.every(p=>p.inside&&p.width>200&&p.height>=200),label+': scene has a useful unclipped display area '+JSON.stringify(geometry));
 }
 async function cleanupProbe(page) {
   const result = await page.evaluate(async () => {
@@ -155,22 +158,33 @@ async function cleanupProbe(page) {
   });
   assert.deepEqual(result,{lateMediaIgnored:true,rewardCancelled:true,starts:1,acknowledgements:0,observers:0,dialogs:0,views:0});
 }
+async function assertSequelScene(page,index) {
+  await imagesReady(page);
+  const expected=await page.evaluate(index=>{
+    const book=harness.state.books[0],stage=book.bonusStages[index-4];
+    return {key:book.id+':'+stage.id,scene:stage.id};
+  },index);
+  const scene=page.locator('.jv-sequel-leaf .jv-panorama');
+  assert.equal(await scene.count(),1,'the sequel ceremony has its own chapter illustration');
+  assert.equal(await scene.getAttribute('data-jv-scene'),expected.key);
+  assert.match(new URL(await scene.locator('img').evaluate(img=>img.currentSrc)).pathname,new RegExp('/momo-'+expected.scene+'-v1(?:-small)?\\.webp$'));
+  const backgrounds=await page.locator('.jv-sequel-reveal,.jv-sequel-leaf').evaluateAll(nodes=>nodes.map(node=>getComputedStyle(node).backgroundImage));
+  sequelDiagnostics.push({stage:index,key:expected.key,backgrounds,noBookBackground:backgrounds.every(background=>!background.includes('collection-reader-grimoire'))});
+  fs.writeFileSync(path.join(output,'sequel-scenes.json'),JSON.stringify(sequelDiagnostics,null,2));
+}
 async function bonusProbe(page,capture) {
   await page.evaluate(()=>{
     document.querySelector('[data-jv-action="library"]')?.click();
-    const book=harness.state.books[0];
-    book.bonusReveal={title:'Le sceau des souvenirs',paragraphs:['Une page attendait dans le silence.','La lumière revient sur le cuivre.']};
-    book.bonusStages=['little-joys-flute','durane-rampart','little-joys-box'].map((id,index)=>({
-      ...structuredClone(book.stages[index]),title:'Chapitre secret QA '+(index+5),rewardEquipmentId:id,rewardKind:['weapon','shield','relic'][index],
-      intro:['Avant le chapitre secret QA '+(index+5)],outro:['Après le chapitre secret QA '+(index+5)],
-      ...(index===1?{reveal:{title:'Le cuivre se souvient',paragraphs:['Un second feuillet se détache.']}}:{})}));
+    harness.state.books=KalistarJourneyDefinitions.catalogue(harness.data);
     harness.state.isAdmin=false;harness.behavior={};harness.calls=[];harness.progress(0,{cleared:4,completed:true});
   });
   await page.locator(action('open')).first().click();
   for (const claimed of [false,true]) {
     await page.evaluate(claimed=>harness.progress(0,{cleared:4,completed:true,claimed}),claimed);
     assert.equal(await page.locator('.jv-bonus-route').count(),0,'no bonus locks or total before card ACK');
-    assert.doesNotMatch(await page.locator('.jv-reader').textContent(),/Chapitre secret|\/ 7|\/7/);
+    const readerText=await page.locator('.jv-reader').textContent();
+    assert.doesNotMatch(readerText,/\/ 7|\/7/);
+    for(const title of await page.evaluate(()=>harness.state.books[0].bonusStages.map(stage=>stage.title)))assert(!readerText.includes(title),'hidden bonus title: '+title);
     assert.equal(await page.evaluate(()=>harness.view.revealSequel(harness.state.books[0],4)),false);
   }
   await page.evaluate(()=>{harness.state.isAdmin=true;harness.view.refresh();});
@@ -195,6 +209,7 @@ async function bonusProbe(page,capture) {
   await page.evaluate(()=>{harness.state.progress[harness.state.books[0].id].equipmentClaims=[];harness.view.refresh();});
   assert.equal(await page.locator('dialog').count(),0,'refresh/reload never starts a ceremony');
   await page.evaluate(()=>{harness.sequelResult='pending';void harness.view.revealSequel(harness.state.books[0],4).then(result=>harness.sequelResult=result);});
+  await assertSequelScene(page,4);
   for (const viewport of [{width:1440,height:1000},{width:412,height:1007},{width:320,height:568},{width:844,height:390}]) {
     await page.setViewportSize(viewport); await assertLayout(page,'sequel '+viewport.width); await capture('sequel-'+viewport.width);
   }
@@ -203,7 +218,7 @@ async function bonusProbe(page,capture) {
   await page.locator(action('acknowledge')).click();
   assert.equal(await page.evaluate(()=>harness.sequelResult),true);
   assert.equal(await page.locator(action('stage')+'[data-jv-stage="4"]').getAttribute('aria-current'),'step');
-  assert.equal(await page.locator('.jv-reading>p').textContent(),'Avant le chapitre secret QA 5');
+  assert.equal(await page.locator('.jv-reading>p').first().textContent(),await page.evaluate(()=>harness.state.books[0].bonusStages[0].intro[0]));
   for (let index=4;index<=6;index++) {
     await page.locator(action('start')).click();
     assert.deepEqual(await page.evaluate(()=>harness.calls.at(-1)),{name:'start',args:['momo-petits-bonheurs']});
@@ -211,14 +226,14 @@ async function bonusProbe(page,capture) {
     await page.locator(action('resume')).click();
     assert.equal(await page.evaluate(()=>harness.calls.at(-1).name),'resume');
     await page.evaluate(index=>{const p=harness.state.progress[harness.state.books[0].id];p.activeAttempt=null;p.cleared=index+1;harness.view.refresh();},index);
-    assert.equal(await page.locator('.jv-reading>p').textContent(),'Après le chapitre secret QA '+(index+1));
+    assert.equal(await page.locator('.jv-reading>p').first().textContent(),await page.evaluate(index=>harness.state.books[0].bonusStages[index-4].outro[0],index));
     for (const viewport of [{width:1440,height:1000},{width:1024,height:768},{width:800,height:600},{width:412,height:1007},{width:320,height:568},{width:844,height:390}]) {
       await page.setViewportSize(viewport);await assertLayout(page,'bonus reader '+index+' '+viewport.width);await capture('bonus-reader-'+index+'-'+viewport.width);
     }
     await page.locator(action('intro')).click();
-    assert.equal(await page.locator('.jv-reading>p').textContent(),'Avant le chapitre secret QA '+(index+1));
+    assert.equal(await page.locator('.jv-reading>p').first().textContent(),await page.evaluate(index=>harness.state.books[0].bonusStages[index-4].intro[0],index));
     await page.locator(action('outro')).click();
-    assert.equal(await page.locator('.jv-scene img').getAttribute('data-jv-media'),await page.evaluate(index=>harness.state.books[0].bonusStages[index-4].imageModelId || harness.state.books[0].rewardModelId,index));
+    assert.equal(await page.locator('.jv-scene').getAttribute('data-jv-model'),await page.evaluate(index=>harness.state.books[0].bonusStages[index-4].imageModelId || harness.state.books[0].rewardModelId,index));
     if (index===4) {
       await page.evaluate(()=>{harness.behavior.claimEquipment='reject';});await page.locator(action('claim-equipment')).click();
       assert.match(await page.locator('.jv-error').textContent(),/Erreur QA claimEquipment/);
@@ -244,7 +259,11 @@ async function bonusProbe(page,capture) {
     if(index<6){
       await page.locator('.jv-sequel-reveal[open]').waitFor();
       assert.equal(await page.locator(action('stage')).count(),index+2);
-      if(index===4)assert.equal(await page.locator('.jv-reward h2').textContent(),'Le cuivre se souvient');
+      assert.equal(await page.locator('.jv-reward h2').textContent(),await page.evaluate(index=>{const stage=harness.state.books[0].bonusStages[index-3];return stage.reveal?.title || stage.title;},index));
+      await assertSequelScene(page,index+1);
+      for(const viewport of [{width:1440,height:1000},{width:412,height:1007}]){
+        await page.setViewportSize(viewport);await assertLayout(page,'sequel '+(index+1)+' '+viewport.width);await capture('sequel-'+(index+1)+'-'+viewport.width);
+      }
       await page.locator(action('acknowledge')).click();
     }
     await page.waitForFunction(()=>document.querySelector('.jv-view').getAttribute('aria-busy')==='false');
@@ -312,10 +331,122 @@ async function bonusProbe(page,capture) {
   await page.evaluate(()=>Promise.resolve());
   assert.equal(await page.locator('dialog').count(),0,'late ACK cannot open a sequel in a remounted view');
 }
+async function adventureProbe(browser) {
+  const report={scenes:[],violations:[],requests:[],errors:[]};
+  for(const viewport of [{width:1440,height:1000},{width:412,height:1007}]){
+    const context=await browser.newContext({viewport,isMobile:viewport.width===412,hasTouch:viewport.width===412,reducedMotion:'reduce'});
+    await routeFixture(context);
+    await context.addInitScript(()=>{
+      window.qaFrameCalls=0;window.qaIntervals=0;
+      const raf=window.requestAnimationFrame.bind(window),interval=window.setInterval.bind(window);
+      window.requestAnimationFrame=callback=>{window.qaFrameCalls++;return raf(callback);};
+      window.setInterval=(...args)=>{window.qaIntervals++;return interval(...args);};
+    });
+    const page=await context.newPage(),requested=[];
+    page.on('pageerror',error=>report.errors.push({viewport,message:error.message}));
+    page.on('response',response=>{if(response.status()>=400)report.errors.push({viewport,url:response.url(),status:response.status()});});
+    page.on('request',request=>{
+      const match=new URL(request.url()).pathname.match(/\/momo-([a-z]+)-v1(?:-small)?\.webp$/);
+      if(match)requested.push(match[1]);
+    });
+    try{
+      await page.goto(origin);await page.waitForFunction(()=>window.fixtureReady);await imagesReady(page);
+      assert.deepEqual(requested,[],'the shelf does not download unseen narrative backgrounds');
+      await page.evaluate(()=>{harness.state.books=KalistarJourneyDefinitions.catalogue(harness.data);harness.state.isAdmin=false;harness.progress(0,{});});
+      const book=await page.evaluate(()=>harness.state.books[0]),stages=[...book.stages,...book.bonusStages];
+      assert.equal(book.rewardModelId,'30000014');assert.equal(stages.length,7);assert.equal(new Set(stages.map(s=>s.id)).size,7);
+      assert.equal(await page.locator('.jv-cover-art img').first().getAttribute('data-jv-cover-model'),'30000014');
+      const noFuture=limit=>{
+        for(const id of requested)assert(stages.slice(0,limit+1).some(s=>s.id===id),'hidden scene downloaded before unlock: '+id+' at '+limit);
+      };
+      await page.locator(action('open')).first().click();await imagesReady(page);noFuture(0);
+      const urls=[];
+      for(let index=0;index<7;index++){
+        if(index>0&&index<4)await page.evaluate(index=>harness.progress(0,{cleared:index}),index);
+        if(index>=4){
+          // Simulate only authoritative progress/ACK state, never issue a real card.
+          await page.evaluate(index=>{
+            const book=harness.state.books[0];
+            harness.progress(0,{cleared:index,completed:true,claimed:true,acknowledged:index>4,
+              equipmentClaims:book.bonusStages.slice(0,index-4).map((s,i)=>({stage:4+i,equipmentId:s.rewardEquipmentId,kind:s.rewardKind,alreadyOwned:false,acknowledged:i<index-5}))});
+          },index);
+          await imagesReady(page);noFuture(index-1);
+          assert.equal(await page.locator(action('stage')+'[data-jv-stage="'+index+'"]').count(),0,'next chapter absent before reward ACK');
+          const nextTitles=stages.slice(index).map(s=>s.title),text=await page.locator('.jv-reader').textContent();
+          for(const title of nextTitles)assert(!text.includes(title),'hidden chapter name leaked: '+title);
+          await page.evaluate(index=>{
+            const p=harness.state.progress[harness.state.books[0].id];p.acknowledged=true;
+            for(const claim of p.equipmentClaims)claim.acknowledged=true;harness.view.refresh();
+          },index);
+          await imagesReady(page);noFuture(index);
+          assert.equal(await page.locator(action('stage')).count(),index+1,'only the next earned chapter appears');
+        }
+        await page.locator(action('stage')+'[data-jv-stage="'+index+'"]').click();await imagesReady(page);noFuture(index);
+        assert.equal(await page.locator('.jv-panorama').count(),1,'one narrative background, not a preloaded strip');
+        assert.equal(await page.locator('.jv-panorama').getAttribute('data-jv-scene'),book.id+':'+stages[index].id);
+        const url=await page.locator('.jv-panorama img').evaluate(img=>img.currentSrc);urls.push(url);
+        assert.match(new URL(url).pathname,new RegExp('/momo-'+stages[index].id+'-v1(?:-small)?\\.webp$'));
+        assert.equal(await page.locator('.jv-stage-heading h3').textContent(),stages[index].title);
+        assert.deepEqual(await page.locator('.jv-reading>p').allTextContents(),stages[index].intro);
+        assert.equal(await page.locator('.jv-panorama img').evaluate(img=>getComputedStyle(img).animationName),'none');
+        const beforeScroll=await page.locator('.jv-reader').evaluate(node=>node.scrollTop);
+        await page.locator('.jv-reader').evaluate(node=>{node.scrollTop=0;});
+        const label='momo-'+stages[index].id+'-'+viewport.width;
+        await page.screenshot({path:path.join(output,label+'.png')});
+        await page.locator('.jv-panorama').screenshot({path:path.join(output,label+'-scene.png')});
+        try{await assertLayout(page,label);}catch(error){report.violations.push({label,message:error.message});}
+        const geometry=await page.evaluate(()=>{
+          const r=selector=>document.querySelector(selector).getBoundingClientRect().toJSON(),img=document.querySelector('.jv-panorama img'),reading=document.querySelector('.jv-reading');
+          return {panorama:r('.jv-panorama'),spread:r('.jv-spread'),reading:r('.jv-reading'),footer:r('.jv-stage-footer'),
+            image:{width:img.naturalWidth,height:img.naturalHeight,fit:getComputedStyle(img).objectFit,position:getComputedStyle(img).objectPosition},
+            fontSize:getComputedStyle(reading).fontSize,lineHeight:getComputedStyle(reading).lineHeight};
+        });
+        const start=page.locator(action('start'));await start.scrollIntoViewIfNeeded();
+        const hittable=await start.evaluate(node=>{const r=node.getBoundingClientRect();return r.width>=44&&r.height>=44&&node.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));});
+        assert(hittable,label+': combat control stays reachable and touch-sized');
+        if(viewport.width===412)await page.screenshot({path:path.join(output,label+'-commands.png')});
+        await page.evaluate(()=>{
+          for(const selector of ['.jv-reading','.jv-reader']){
+            const node=document.querySelector(selector);node.scrollTo({top:node.scrollHeight,behavior:'instant'});
+          }
+        });
+        const ending=await page.evaluate(()=>{
+          const paragraphs=document.querySelectorAll('.jv-reading>p'),last=paragraphs[paragraphs.length-1];
+          const range=document.createRange();range.selectNodeContents(last);
+          const lines=[...range.getClientRects()],line=lines[lines.length-1],footer=document.querySelector('.jv-stage-footer').getBoundingClientRect();
+          const x=line.x+Math.min(line.width/2,20),y=line.y+line.height/2;
+          return {lastLine:line.toJSON(),footer:footer.toJSON(),visible:last.contains(document.elementFromPoint(x,y))&&line.bottom<=footer.top+1};
+        });
+        if(viewport.width===412)await page.screenshot({path:path.join(output,label+'-reading-end.png')});
+        report.scenes.push({viewport,stage:index,id:stages[index].id,url,beforeScroll,hittable,ending,...geometry});
+        if(!ending.visible)report.violations.push({label,message:'The final narrative line remains behind the combat commands at maximum scroll',ending});
+      }
+      assert.equal(new Set(urls).size,7,'seven actual definition scenes, no copied QA bonus');
+      const raf=await page.evaluate(()=>window.qaFrameCalls);await page.waitForTimeout(250);
+      assert.equal(await page.evaluate(()=>window.qaFrameCalls),raf,'idle reader must not schedule a rendering loop');
+      assert.equal(await page.evaluate(()=>window.qaIntervals),0,'no repeating JavaScript timer in the Fragment view');
+      await page.emulateMedia({reducedMotion:'no-preference'});
+      await page.locator(action('stage')+'[data-jv-stage="0"]').click();await imagesReady(page);
+      const animations=await page.locator('.jv-view').evaluate(node=>node.getAnimations({subtree:true}).map(a=>({name:a.animationName,iterations:a.effect.getTiming().iterations,duration:a.effect.getTiming().duration})));
+      assert(animations.some(a=>a.name==='jv-scene-arrive'),'scene change has a real entrance animation');
+      assert(animations.every(a=>Number.isFinite(a.iterations)&&Number.isFinite(a.duration)),'all reader animations are finite');
+      await page.locator('.jv-view').evaluate(async node=>{await Promise.all(node.getAnimations({subtree:true}).map(a=>a.finished.catch(()=>{})));});
+      await page.waitForTimeout(150);
+      assert.equal(await page.locator('.jv-view').evaluate(node=>node.getAnimations({subtree:true}).filter(a=>a.playState==='running').length),0,'reader becomes static after its entrance');
+      await page.emulateMedia({reducedMotion:'reduce'});await page.locator(action('stage')+'[data-jv-stage="1"]').click();await imagesReady(page);
+      assert.equal(await page.locator('.jv-view').evaluate(node=>node.getAnimations({subtree:true}).length),0,'reduced motion disables all Fragment transitions');
+      report.requests.push({viewport,scenes:[...new Set(requested)],animations});
+    }finally{await context.close();fs.writeFileSync(path.join(output,'adventure-scenes.json'),JSON.stringify(report,null,2));}
+  }
+  assert.deepEqual(report.errors,[]);assert.deepEqual(report.violations,[]);
+  return report;
+}
 async function main() {
   assert.ok(fs.existsSync(path.join(dist,'jeu/catalogue.json')), 'An existing V4/deploy/dist build is required; this test never builds or changes it.');
   fs.mkdirSync(output,{recursive:true});
   const browser = await chromium.launch({channel:'chrome',headless:true});
+  let adventure;
+  try{adventure=await adventureProbe(browser);}catch(error){await browser.close();throw error;}
   const context = await browser.newContext({viewport:{width:1440,height:1000},reducedMotion:'reduce'});
   await routeFixture(context);
   const page = await context.newPage(), errors = [], failures = [];
@@ -334,7 +465,8 @@ async function main() {
     await page.evaluate(()=>{harness.state.books[0].rewardModelId='40243854';harness.view.refresh();});
     assert.equal(await page.locator('.jv-cover-art img').first().getAttribute('data-jv-media'),'40243854','a future version uses its own card artwork, never the registered painting of another Momo');
     await imagesReady(page);
-    await page.evaluate(()=>{harness.state.books[0].rewardModelId='30000001';harness.view.refresh();});
+    await page.evaluate(()=>{harness.state.books[0].rewardModelId=KalistarJourneyDefinitions.catalogue(harness.data)[0].rewardModelId;harness.view.refresh();});
+    assert.equal(await page.locator('.jv-cover-art img').first().getAttribute('data-jv-cover-model'),'30000014','standing flute Momo is the new reward cover');
     assert.deepEqual(await page.evaluate(()=>harness.state.books.map(book=>book.stages.length)),[4,4,4]);
     for (const viewport of [{width:1440,height:1000},{width:412,height:1007},{width:320,height:568},{width:844,height:390}]) {
       await page.setViewportSize(viewport);
@@ -419,11 +551,26 @@ async function main() {
     await page.locator(action('reward-page')).click(); await capture('completed-reward-page');
     await page.locator(action('library')).click(); await open(); assert.equal(await page.locator(action('claim')).count(),0,'finished books remain readable without another claim');
     await page.locator('[data-jv-action="stage"][data-jv-stage="0"]').click(); assert.equal(await page.locator(action('start')).count(),0);
-    await page.evaluate(()=>{harness.progress(0,{cleared:4,completed:true,claimed:true});void harness.view.revealReward(harness.data.cards.find(card=>card.id==='30000001'),{alreadyOwned:true});});
-    assert.match(await page.locator('.jv-reward h2').textContent(),/collection/); await page.locator(action('acknowledge')).click();
+    // A fresh document resumes the server receipt, without passing reveal options in the test.
+    await page.reload();await page.waitForFunction(()=>window.fixtureReady);
+    await page.evaluate(()=>harness.progress(0,{cleared:4,completed:true,claimed:true,acknowledged:false,alreadyOwned:true}));
+    assert.equal(await page.locator('dialog').count(),0,'reloading an already-owned receipt never starts its ceremony automatically');
+    await open();assert.equal(await page.locator(action('claim')).count(),0);
+    await page.locator(action('reveal')).click();await page.locator('.jv-card-reveal[open]').waitFor();await imagesReady(page);
+    assert.equal(await page.locator('.jv-card-reveal h2').textContent(),'Déjà dans votre collection','resumed card ceremony preserves the authoritative alreadyOwned flag');
+    assert.equal(await page.locator('.jv-reward-note').textContent(),'Aucun deuxième exemplaire n’est ajouté.');
+    assert.equal(await page.locator('.jv-reward-prize').getAttribute('data-jv-model'),'30000014','the reused reward is the standing-flute Momo version');
+    assert.deepEqual(await page.evaluate(()=>harness.calls),[],'resuming the presentation neither claims nor acknowledges a card');
+    for(const viewport of [{width:1440,height:1000},{width:412,height:1007}]){
+      await page.setViewportSize(viewport);await assertLayout(page,'already-owned card resume '+viewport.width);await capture('already-owned-card-resume-'+viewport.width);
+    }
+    await page.locator(action('acknowledge')).click();await page.waitForFunction(()=>document.querySelector('.jv-view').getAttribute('aria-busy')==='false');
+    assert.deepEqual(await page.evaluate(()=>harness.calls),[{name:'acknowledge',args:['momo-petits-bonheurs']}],'confirmation sends one ACK and never repeats the card grant');
+    assert.equal(await page.evaluate(()=>harness.state.progress[harness.state.books[0].id].acknowledged),true);
+    assert.equal(await page.locator(action('claim')).count(),0);
     await page.emulateMedia({reducedMotion:'no-preference'}); await page.locator(action('library')).click(); await open();
     assert.equal(await page.locator('.jv-book-opening').evaluate(node=>getComputedStyle(node).animationName),'jv-book-open');
-    await page.evaluate(()=>{harness.progress(0,{cleared:4,completed:true,claimed:true});void harness.view.revealReward(harness.data.cards.find(card=>card.id==='30000001'));});
+    await page.evaluate(()=>{harness.progress(0,{cleared:4,completed:true,claimed:true});void harness.view.revealReward(harness.data.cards.find(card=>card.id===harness.state.books[0].rewardModelId));});
     assert.equal(await page.locator('.jv-reward-prize').evaluate(node=>getComputedStyle(node).animationName),'jv-card-arrive'); await page.locator(action('acknowledge')).click();
     await page.emulateMedia({reducedMotion:'reduce'}); await page.locator('[data-jv-action="stage"][data-jv-stage="2"]').click();
     const passageBefore = await page.locator('.jv-reading').textContent();
@@ -458,7 +605,8 @@ async function main() {
       assert.ok(Math.abs(await phone.locator('.jv-shelf').evaluate(node=>node.scrollLeft)-before)<2,'closing the last book restores the shelf position');
       await imagesReady(phone); await phone.screenshot({path:path.join(output,'touch-412.png')}); await cdp.detach();
     } finally { await touch.close(); }
-    console.log(JSON.stringify({ok:true,books:3,combatsPerBook:4,bonusCombats:3,viewports:7,source:frozen?'frozen-build':'current-view-with-built-assets',dist,output,checks:['cover-text-bounds','filters','keyboard','touch-swipe','four-stations','approved-narration','frozen-state','busy','async-errors','resume','seven-admin-previews','claim-once','ack-retry','already-owned','reduced-motion','remount-selection','late-action','late-media','observer-cleanup','modal-cleanup','onRefresh','no-bonus-before-card-ack','sequential-equipment-ack','reward-art-bounds','equipment-real-names','equipment-cancel','sequel-cancel','no-reload-ceremony','finite-animation-no-auto-ack','public-reveals-parent-ack','late-ack-remount']},null,2));
+    assert.deepEqual(sequelDiagnostics.filter(scene=>!scene.noBookBackground),[],'no old book background in the sequel ceremonies');
+    console.log(JSON.stringify({ok:true,books:3,combatsPerBook:4,bonusCombats:3,viewports:7,adventureSceneCaptures:adventure.scenes.length,source:frozen?'frozen-build':'current-view-with-built-assets',dist,output,checks:['seven-real-scenes-desktop-razr','no-hidden-scene-request-before-ack','readable-narrative-ending','finite-scene-animation','idle-no-raf-loop','no-repeating-timers','cover-text-bounds','filters','keyboard','touch-swipe','four-stations','approved-narration','frozen-state','busy','async-errors','resume','seven-admin-previews','claim-once','ack-retry','already-owned','reduced-motion','remount-selection','late-action','late-media','observer-cleanup','modal-cleanup','onRefresh','no-bonus-before-card-ack','sequential-equipment-ack','reward-art-bounds','equipment-real-names','equipment-cancel','sequel-cancel','no-reload-ceremony','finite-animation-no-auto-ack','public-reveals-parent-ack','late-ack-remount']},null,2));
   } finally { await browser.close(); }
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});

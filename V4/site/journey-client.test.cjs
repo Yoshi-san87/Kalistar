@@ -77,7 +77,7 @@ function harness(t, options = {}) {
   const context = vm.createContext({module:{exports:{}},structuredClone,AbortController,
     setTimeout:clock.setTimeout,clearTimeout:clock.clearTimeout,KalistarJourneyDefinitions:Definitions});
   source.runInContext(context);
-  h.api = context.module.exports.create({data,player:options.local ? null : player,sync,fetcher,
+  h.api = context.module.exports.create({data:options.data||data,player:options.local ? null : player,sync,fetcher,
     localAdmin:!!options.localAdmin,onUpdate:value=>updates.push(copy(value))});
   h.reply = (index, body, status) => calls[index].gate.resolve(response(body,status));
   h.fail = (index, error = TypeError('Fixture network unavailable')) => calls[index].gate.reject(error);
@@ -101,6 +101,49 @@ test('local library uses the three official four-combat definitions without netw
   assert.ok(Object.values(state.progress).every(progress=>progress.cleared === 0 && !progress.completed && !progress.claimed && !progress.activeAttempt));
   assert.equal(h.calls.length,0);
   await assert.rejects(h.api.claim(bookId),/compte Kalistar en ligne/);
+});
+
+test('library projects the actual historical card receipt without rewriting the local definitions', async t => {
+  const before=copy(books),h=harness(t),reading=h.api.refresh();await h.seen(1);
+  const historical=library(4,{claimed:true,acknowledged:false,rewardModelId:'30000001',
+    configuredRewardModelId:'30000014',claimedRewardModelId:'30000001'});
+  h.reply(0,historical);const state=await reading;
+  assert.equal(state.books.find(book=>book.id===bookId).rewardModelId,'30000001');
+  assert.equal(state.progress[bookId].claimedRewardModelId,'30000001');
+  assert.equal(state.progress[bookId].configuredRewardModelId,'30000014');
+  assert.deepEqual(Definitions.catalogue(data),before,'Projection must not alter future configured rewards');
+  const acknowledging=h.api.acknowledge(bookId);await h.seen(2);
+  historical.books[0].acknowledged=true;h.reply(1,historical);await acknowledging;
+  assert.equal(h.api.snapshot().books[0].rewardModelId,'30000001');
+  assert.equal(h.api.snapshot().progress[bookId].acknowledged,true);
+});
+
+test('completed but unclaimed Fragment projects the server future reward',async t=>{
+  const h=harness(t),reading=h.api.refresh();await h.seen(1);
+  h.reply(0,library(4,{rewardModelId:'30000014',configuredRewardModelId:'30000014',claimedRewardModelId:null}));
+  const state=await reading;
+  assert.equal(state.books[0].rewardModelId,'30000014');assert.equal(state.progress[bookId].claimed,false);
+  assert.equal(h.counts.playerRefresh,0,'Reading a new reward never issues it');
+});
+
+for(const patch of [
+  {rewardModelId:null}, {rewardModelId:'unknown'},
+  {claimed:true,rewardModelId:'30000001',claimedRewardModelId:'30000014'},
+  {claimed:false,rewardModelId:'30000014',claimedRewardModelId:'30000014'}
+])test('malformed historical reward cannot replace known progression: '+JSON.stringify(patch),async t=>{
+  const h=harness(t),reading=h.api.refresh();await h.seen(1);h.reply(0,library());await reading;
+  const before=h.api.snapshot(),pending=h.api.refresh(),rejected=assert.rejects(pending,/Recompense de livre incompatible/);
+  await h.seen(2);h.reply(1,library(4,patch));await rejected;
+  assert.deepEqual(h.api.snapshot().books,before.books);assert.deepEqual(h.api.snapshot().progress,before.progress);
+});
+
+for(const model of ['30000007','49999999'])test('an authoritative reward must still be a known version of its character: '+model,async t=>{
+  const modelData={cards:books.map(book=>({id:book.rewardModelId,characterId:book.characterId}))};
+  modelData.cards.push({id:'30000007',characterId:'balmhyr'});
+  const h=harness(t,{data:modelData}),reading=h.api.refresh(),rejected=assert.rejects(reading,/Recompense de livre incompatible/);
+  await h.seen(1);h.reply(0,library(4,{claimed:true,rewardModelId:model,claimedRewardModelId:model}));await rejected;
+  assert.equal(h.updates.length,1);assert.equal(h.api.snapshot().status,'error');
+  assert.deepEqual(h.api.snapshot().progress,{});
 });
 
 test('a late older library response cannot regress four wins or a claimed reward', async t => {

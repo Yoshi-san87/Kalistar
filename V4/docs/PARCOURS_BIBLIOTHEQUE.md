@@ -40,11 +40,14 @@ les trois bonus, respectivement apres la cinquieme, sixieme et septieme victoire
 
 | Livre | Carte apres 4 victoires | Arme, indice 4 | Protection, indice 5 | Relique, indice 6 |
 | --- | --- | --- | --- | --- |
-| Momo, Pour ceux que l'on oublie | `30000001` | La Flute des Petits Bonheurs, `little-joys-flute` | Harnais des Passerelles, `kalistar-chroma-harness` | Boite des Petits Bonheurs, `little-joys-box` |
+| Momo, Pour ceux que l'on oublie | `30000014`, Le Bal des objets perdus | La Flute des Petits Bonheurs, `little-joys-flute` | Harnais des Passerelles, `kalistar-chroma-harness` | Boite des Petits Bonheurs, `little-joys-box` |
 | Balmhyr, Le poids du retour | `49900802` | Le Serment de Fer, `mythic-iron-gauntlet` | Le Rempart de Durane, `durane-rampart` | Sceau du Roi sans Trone, `exiled-king-seal` |
 | Kaylis, Choisir son prochain pas | `49055457` | Promesse, `white-oath-rapier` | Bottes du Prochain Pas, `kaylis-next-step-boots` | Ruban des Couleurs, `kaylis-colours-ribbon` |
 
 La compatibilite porte sur la version recompensee, pas seulement le personnage.
+La migration 013 dirige les futures attributions Momo vers la version debout a
+la flute. Une ancienne attribution `30000001` reste definitive et affiche sa
+vraie version : ni remplacement, ni seconde carte, ni remise a zero.
 Balmhyr `49900802` utilise le Poing : son arme est le Serment de Fer, pas la
 Hache du Roi Dechu. Promesse convient a Kaylis `49055457`, armee d'une epee courte.
 
@@ -68,18 +71,31 @@ transfert de carte, ni une sauvegarde locale ne reouvrent une attribution.
 
 Les trois premiers livres concernent Momo, Balmhyr et Kaylis. Ils utilisent les
 profils et illustrations approuves, le lore des equipements et les passages
-locaux de `story-content.json`. Les quatre etapes historiques restent intactes.
-Les trois chapitres bonus forment un recit continu avec intro et conclusion
-en paragraphes, environ 150 a 250 mots par scene.
+locaux de `story-content.json`. Les identifiants des quatre etapes restent
+stables ; leurs recits et adversaires suivent desormais la demande narrative
+de l'auteur. Chaque scene avant/apres combat compte 80 a 140 mots.
 
-Le canon donne les gestes et leurs limites : Momo prend soin des objets et des
-oublies ; Balmhyr porte le gant garde par Madania, le rempart et son sceau ;
-Kaylis apprend la prise de Promesse, les appuis dans ses bottes brunes et le
+Le canon donne les gestes et leurs limites : Momo domestique est rejete pour
+ses emotions, rencontre Taulio a la casse, trouve une flute puis retrouve des
+souvenirs par la musique. Gezinho n'est nomme qu'a la fin ; sa transformation
+par le Kalistel Electro reste suggeree, sans reunion inventee. Kaylis l'aide
+a envisager sa recherche. Balmhyr porte le gant garde par Madania, le rempart
+et son sceau ; Kaylis apprend la prise de Promesse, les appuis dans ses bottes noires et le
 nouage du tissu bleu nuit a motifs dores, eclaire par ses tatouages. Ces objets
 ne deviennent pas des artefacts majeurs. Aucun secret du roman, destin futur,
-origine reservee ou nouveau pouvoir n'est revele. Les equipes adverses sont
+origine non autorisee ou nouveau pouvoir n'est revele. Les equipes adverses sont
 des epreuves du parcours, pas de nouvelles alliances canoniques. Le roman
 n'est pas modifie et les evocations ne fixent pas de nouveaux evenements.
+
+Les 21 adversaires sont des compositions distinctes de dix personnages natifs,
+avec deux compatibilites par position et un capitaine titulaire. Momo original
+est au premier combat, Taulio au deuxieme ; les trois finales ont pour capitaine
+la version recompensee. Le catalogue publie complet fournit les candidats,
+sans collaboration. Les equipes incarnent l'episode sans inventer des alliances.
+La difficulte vient des compositions et synergies, jamais de des truques ou de
+bonus caches. Les contres empechent de garantir une hausse contre toute equipe.
+Les compositions et 3024 matchs de comparaison sont documentes dans
+`V4/revisions/2026-10-22-fragment-adventure/DECKS.md`.
 
 Paris dispose d'un apercu administrateur des sept combats, clairement marque,
 sans sauvegarde de rencontre, progression ou attribution. Cet apercu peut
@@ -91,7 +107,7 @@ Le nom joueur est Fragment. La route `#journeys`, les identifiants des livres
 et les noms de tables restent stables ; `#library` reste les regles du jeu.
 Sur telephone, le bouton de filtres pres du titre deplie les champs en deux
 colonnes. Le rayonnage defile horizontalement et la page verticalement si
-necessaire. Le livre ouvert devient une page de lecture, avec ses commandes
+necessaire. Le livre ouvert devient une scene illustree, avec ses commandes
 au-dessus du menu fixe. Les quatre combats de la carte restent distincts de la
 suite, revelee chapitre par chapitre.
 
@@ -103,7 +119,7 @@ argent et cuir sombre est partagee ; sa fenetre transparente laisse voir la
 peinture sans la regenerer. Le nom et le titre restent du texte HTML lisible.
 Story et ses douze couvertures Kalistel sont independants et preserves.
 
-Les trois peintures optimisees et la reliure vivent dans `site/assets/journeys/`.
+Les peintures optimisees et la reliure vivent dans `site/assets/journeys/`.
 La table `coverArt` de `journey-view.js` est indexee par `rewardModelId`, jamais
 par nom ou `characterId`. Un modele sans export dedie utilise le recadrage de
 sa propre carte via `card-media.js`, pas l'illustration d'une autre version.
@@ -118,6 +134,18 @@ l'illustration approuvee du modele recompense, produire son WebP avec le meme
 pipeline, ajouter son entree `coverArt`, sauvegarder et inscrire le media dans
 `runtime-media.json`, puis verifier PC/Razr. Une couverture seule ne modifie pas
 la revision des rencontres, les recompenses ni le schema de progression.
+
+### Scenes Du Parcours
+
+Le lecteur ouvert n'utilise plus le fond livre. Les sept etapes Momo possedent
+chacune une peinture panoramique originale, adaptee aux references des cartes.
+Cliquer une station change la scene et le recit ; seules les etapes autorisees
+du joueur sont rendues et chargees. Les autres parcours utilisent les peintures
+approuvees de leur personnage de scene. Les chapitres bonus restent caches
+jusqu'a leurs ACK. Une image existe en 1672px et 840px, choisie par le navigateur.
+L'arrivee de scene est une animation finie, desactivee en reduced-motion ; aucun
+canvas, minuteur ou mouvement permanent. Sources, prompts et empreintes :
+`V4/revisions/2026-10-22-fragment-adventure/`.
 
 - `journey-definitions.js` : `catalogue()` conserve `stages` avec les quatre
   etapes historiques et expose separement `bonusStages` avec trois etapes,
@@ -206,6 +234,12 @@ equipements, puis la 012 ajoute les bonus sans changer `journeys-1` ni les
 attributions de cartes existantes. Le schema accepte `stage_count` 4 ou 7 ;
 les trois livres actuels passent a 7, la progression a `0..7` et les tentatives
 aux indices `0..6`.
+
+La migration 013 conserve les lignes personnelles et ajoute a `library` le
+modele configure et le modele effectivement attribue. `rewardModelId` est
+la recompense historique quand un claim existe, sinon la recompense configuree.
+`journey-client` applique cette valeur aux livres de son snapshot et refuse
+un modele d'un autre personnage. Le schema du registre passe a 12.
 
 | Table | Donnees |
 | --- | --- |

@@ -152,6 +152,16 @@ la defaite/reprise, les etapes anticipees, les droits et doubles demandes.
 `journeys.browser.test.cjs` teste l'integration avec des comptes fictifs et
 les ceremonies sur PC/Razr ; aucun combat reel des joueurs n'est modifie.
 
+La migration 013 (schema 12) change seulement la recompense Momo future vers
+`30000014`. Les claims anterieurs, leurs vrais modeles et les exemplaires
+restent intacts. La projection `library` retourne la recompense historique
+du claim s'il existe, sinon le modele configure. Le client conserve cette
+identite dans sa couverture et sa ceremonie. Aucun transfert ou changement
+de modele ne recree un droit consomme. Les rencontres figees reprennent avec
+leurs anciens adversaires ; les nouvelles utilisent les decks narratifs.
+Voir `V4/revisions/2026-10-22-fragment-adventure/BACKEND.md` pour le contrat
+et les essais de rollback, idempotence, attribution et reprise.
+
 ## Client officiel
 
 `@supabase/supabase-js` 2.118.0, distribution npm officielle, licence MIT.

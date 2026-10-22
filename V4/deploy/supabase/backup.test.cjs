@@ -10,7 +10,7 @@ test('logical export restores every application row, ownership and security sche
     const snapshot=backup.decodeCSV(csv),b=backup.bundle(snapshot),result=await drill(b);
     assert.equal(result.passed,true);assert.equal(result.tables['public.kalistar_collectibles'],data.cards.length+10);
     assert.equal(result.tables['kalistar_private.players'],2);assert.equal(result.tables['kalistar_private.admins'],1);
-    assert.equal(b.migrations.length,12);assert.equal(snapshot.tables.find(t=>t.name==='journey_config').rows.length,1);
+    assert.equal(b.migrations.length,13);assert.equal(snapshot.tables.find(t=>t.name==='journey_config').rows.length,1);
     assert.throws(()=>backup.decodeCSV(csv.replace(/.$/,'!')),/Invalid|checksum/);
     assert.throws(()=>backup.decodeCSV(csv.split('\n').slice(0,-1).join('\n')),/Incomplete/);
     const missing=structuredClone(snapshot);missing.tables=missing.tables.filter(t=>t.name!=='player_saves');assert.throws(()=>backup.validate(missing),/Missing/);

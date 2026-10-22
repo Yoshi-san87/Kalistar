@@ -176,10 +176,12 @@ async function main(){
   async function inventory(){
     const player=await database.call('kalistar_player',{},'user-tokyo');
     const cards=player.cards.filter(card=>card.status==='owned').map(card=>card.id).sort(),equipment=[...player.equipment.ids].sort();
+    const models=player.cards.filter(card=>card.status==='owned').map(card=>card.modelId).sort();
     assert.equal(new Set(cards).size,cards.length);assert.equal(new Set(equipment).size,equipment.length);
+    assert.equal(new Set(models).size,models.length,'one specimen per version');
     const ui=await page.evaluate(ids=>({cards:KALISTAR_DB.registry.owned(KALISTAR_ACTIVE_USER).map(card=>card.id).sort(),equipment:ids.filter(id=>KALISTAR_DB.registry.ownsEquipment(KALISTAR_ACTIVE_USER,id))}),equipment);
     assert.deepEqual(ui,{cards,equipment},'ownershipChanged refreshes the real local registry');
-    return {cards,equipment};
+    return {cards,models,equipment};
   }
   async function refreshStable(label){
     const before=await progress(),counts=rewardRPCs(),owned=await inventory();
@@ -217,7 +219,15 @@ async function main(){
     await page.locator('.jv-reward [data-jv-action=acknowledge]:enabled').waitFor();
     const won=await progress(),owned=await inventory();
     assert.equal(won.cleared,index+1);assert.equal(won.finished,index===6);
-    if(card){assert(won.claimed&&!won.acknowledged);assert.equal(owned.cards.length,before.cards.length+1);assert.deepEqual(owned.equipment,before.equipment);}
+    if(card){
+      const alreadyOwned=before.models.includes(definition.rewardModelId);
+      assert(won.claimed&&!won.acknowledged);assert.equal(won.alreadyOwned,alreadyOwned);
+      assert.equal(owned.cards.length,before.cards.length+(alreadyOwned?0:1));
+      assert.deepEqual(owned.models,[...new Set([...before.models,definition.rewardModelId])].sort());
+      if(alreadyOwned)assert.deepEqual(owned.cards,before.cards,'the existing specimen is reused, not reminted');
+      assert.deepEqual(owned.equipment,before.equipment);
+      assert.equal(await page.locator('.jv-reward-prize').getAttribute('data-jv-model'),definition.rewardModelId);
+    }
     else{
       const expected=definition.bonusStages[index-4],reward=won.equipmentClaims.find(item=>item.stage===index);
       assert.equal(won.equipmentClaims.length,index-3);assert(reward&&!reward.acknowledged);
@@ -239,6 +249,7 @@ async function main(){
     assert.deepEqual(await inventory(),owned);await stations(index+1);
     assert.equal(await page.locator('[data-jv-action='+claim+']').count(),0,'no duplicate claim button after reload');
     await page.locator('[data-jv-action='+reveal+']').click();await page.locator(modal+'[open]').waitFor();
+    if(card&&won.alreadyOwned)assert.equal(await page.locator('.jv-reward h2').innerText(),'Déjà dans votre collection');
     assert.deepEqual(rewardRPCs(),stable.counts,'reopening the ceremony does not claim again');
     await page.locator('.jv-reward [data-jv-action=acknowledge]:enabled').click();
     await page.waitForFunction(({book,index})=>{const p=KALISTAR_JOURNEYS.snapshot().progress[book];return index===3?p.acknowledged:p.equipmentClaims.find(c=>c.stage===index)?.acknowledged;},{book,index});
@@ -356,7 +367,8 @@ async function main(){
     assert.deepEqual(finished.equipmentClaims.map(item=>[item.stage,item.equipmentId,item.kind,item.acknowledged]),definition.bonusStages.map((item,index)=>[index+4,item.rewardEquipmentId,item.rewardKind,true]));
     assert.equal(await page.locator('[data-jv-action=start],[data-jv-action=claim],[data-jv-action=claim-equipment]').count(),0);
     const owned=await inventory();
-    assert.equal(owned.cards.length,11);assert.equal(owned.equipment.length,3);
+    assert.equal(owned.cards.length,finished.alreadyOwned?10:11);assert.equal(owned.equipment.length,3);
+    assert(owned.models.includes(definition.rewardModelId));
     // Explicit request retries are idempotent too; refresh alone was checked above.
     const replayed=await page.evaluate(async book=>({card:await KALISTAR_JOURNEYS.claim(book),equipment:await Promise.all([4,5,6].map(stage=>KALISTAR_JOURNEYS.claimEquipment(book,stage)))}),book);
     assert(replayed.card.replayed);assert(replayed.equipment.every(item=>item.replayed));

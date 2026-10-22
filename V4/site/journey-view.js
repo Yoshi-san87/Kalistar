@@ -11,8 +11,18 @@
   // Keyed by the rewarded model, never by a display name or another version.
   const coverArt = Object.freeze({
     '30000001':'assets/journeys/30000001-art-v1.webp',
+    '30000014':'assets/journeys/30000014-art-v1.webp',
     '49900802':'assets/journeys/49900802-art-v1.webp',
     '49055457':'assets/journeys/49055457-art-v1.webp'
+  });
+  const momoScenes = Object.freeze({
+    rebuts:['momo-rebuts','Momo devant la maison qui l’a rejeté.'],
+    passage:['momo-passage','Taulio abrite Momo parmi les débris de la casse.'],
+    carillons:['momo-carillons','Une première lumière accompagne la flûte de Momo.'],
+    rester:['momo-rester','Debout, Momo fait danser la lumière parmi les objets oubliés.'],
+    souffle:['momo-souffle','Momo retrouve sa mélodie au milieu des outils d’un atelier.'],
+    coutures:['momo-coutures','Taulio ajuste le harnais de Momo avant le passage du pont.'],
+    boite:['momo-boite','Momo et Kaylis écoutent une boîte à musique au matin.']
   });
 
   // Parent contract: stages stays at four; bonusStages adds absolute stages 4..6.
@@ -60,7 +70,7 @@
       const cleared = Math.max(0, Math.min(total, Number.isFinite(value.cleared) ? Math.floor(value.cleared) : 0));
       return {
         cleared, completed:cleared >= stagesOf(book).length, claimed:value.claimed === true,
-        acknowledged:value.acknowledged === true, activeAttempt:value.activeAttempt || null,
+        acknowledged:value.acknowledged === true, alreadyOwned:value.alreadyOwned === true, activeAttempt:value.activeAttempt || null,
         finished:value.finished === true || !bonusOf(book).length && value.claimed === true,
         equipmentClaims:(Array.isArray(value.equipmentClaims) ? value.equipmentClaims : []).filter(claim =>
           Number.isInteger(claim?.stage) && claim.stage >= 4 && claim.stage <= 6 && claim.stage < cleared &&
@@ -100,6 +110,13 @@
     function media(id, kind, alt, {lazy = true} = {}) {
       if (!model(id)) return `<span class="jv-missing-art" role="img" aria-label="Visuel indisponible">${icon(kind === 'art' ? 'image' : 'gem')}</span>`;
       return `<img data-jv-media="${esc(id)}" data-jv-kind="${kind}" alt="${esc(alt)}" width="${kind === 'art' ? 460 : 797}" height="${kind === 'art' ? 880 : 1388}" ${lazy ? 'loading="lazy"' : ''} decoding="async" draggable="false">`;
+    }
+    function sceneMarkup(book,stage,id) {
+      const scene = book.id === 'momo-petits-bonheurs' && momoScenes[stage?.id || 'rester'];
+      const key = book.id+':'+(stage?.id || 'reward');
+      if (!scene) return `<figure class="jv-panorama is-portrait" data-jv-scene="${esc(key)}">${media(id,'art',stage?.title || titleOf(book),{lazy:false})}</figure>`;
+      const base = 'assets/journeys/'+scene[0]+'-v1';
+      return `<figure class="jv-panorama" data-jv-scene="${esc(key)}"><img src="${esc(asset(base+'.webp'))}" srcset="${esc(asset(base+'-small.webp'))} 840w, ${esc(asset(base+'.webp'))} 1672w" sizes="100vw" alt="${esc(scene[1])}" width="1672" height="941" decoding="async" draggable="false"></figure>`;
     }
     function hydrate(scope) {
       const revision = generation, render = paint;
@@ -204,9 +221,9 @@
       return `<section class="jv-reader" aria-label="${esc(titleOf(book))}" style="--jv-element:${elementOf(book).color}">
         <header class="jv-reader-toolbar">${tool('library','Fermer le livre','library')}<span>${esc(book.subtitle || characterOf(book))}</span><span class="jv-reader-status">${esc(statusLabel(p))} · ${cardCount(p)} / 4${visibleBonus(book,p) ? ' · '+(p.finished ? 'Récit achevé' : 'La suite du récit') : ''}</span></header>
         ${errorMarkup()}<div class="jv-spread${opening ? ' jv-book-opening' : ''}">
+          ${sceneMarkup(book,stage,sceneId)}
           <aside class="jv-illustrated-page"><header><p class="jv-eyebrow">${esc(elementOf(book).label)}</p><h2 tabindex="-1" data-jv-key="book-title">${esc(titleOf(book))}</h2></header>
-            <button type="button" class="jv-scene" data-jv-action="detail" data-jv-model="${esc(sceneId)}" aria-label="Voir la fiche de ${esc(scene?.name || book.subtitle)}" title="Voir la carte" ${!scene || !onDetail ? 'disabled' : ''}>${media(sceneId,'art',scene?.title || stage?.title || titleOf(book),{lazy:false})}<span class="jv-scene-zoom" aria-hidden="true">${icon('scan-eye')}</span></button>
-            <p class="jv-scene-caption">${esc(scene?.name || book.subtitle)}${scene?.title ? `<span>${esc(scene.title)}</span>` : ''}</p>
+            <button type="button" class="jv-scene" data-jv-action="detail" data-jv-model="${esc(sceneId)}" aria-label="Voir la fiche de ${esc(scene?.name || book.subtitle)}" title="Voir la carte" ${!scene || !onDetail ? 'disabled' : ''}>${icon('scan-eye')}<span>${esc(scene?.name || book.subtitle)}${scene?.title ? `<small>${esc(scene.title)}</small>` : ''}</span></button>
           </aside>
           <section class="jv-story-page" aria-label="Parcours et récit">${routeMarkup(book,p,state)}
             <header class="jv-stage-heading"><p class="jv-eyebrow">${isReward ? 'Récompense' : `${admin ? 'Aperçu sans récompense · ' : ''}${selectedStage < 4 ? `Combat ${selectedStage+1} / 4` : `Chapitre ${selectedStage+1}`}${outro ? ' · Victoire' : ''}`}</p><h3 tabindex="-1" data-jv-key="stage-title">${esc(isReward ? card?.title || 'Le parcours achevé' : stage?.title || 'Parcours indisponible')}</h3>
@@ -241,6 +258,7 @@
     }
     function draw({opening = false, reset = false} = {}) {
       if (!view) return;
+      const previousScene = view.querySelector('[data-jv-scene]')?.dataset.jvScene;
       rememberLibrary();
       if (reset && !selectedBook) { libraryPosition.left = 0; libraryPosition.top = 0; }
       const focused = view.contains(document.activeElement) ? document.activeElement : null;
@@ -256,6 +274,12 @@
         view.innerHTML = book ? readerMarkup(book,state,opening) : libraryMarkup(state);
       }
       hydrate(view);
+      const panorama = view.querySelector('[data-jv-scene]'), picture = panorama?.querySelector('img');
+      if (picture && panorama.dataset.jvScene !== previousScene && !reduced()) {
+        const animate = () => { if (picture.isConnected) panorama.classList.add('jv-scene-enter'); };
+        if (picture.complete && picture.naturalWidth) animate();
+        else picture.addEventListener('load',animate,{once:true,signal:controller.signal});
+      }
       for (const [selector,left,top] of scrolls) { const node = view.querySelector(selector); if (node) { node.scrollLeft = left; node.scrollTop = top; } }
       const library = view.querySelector('.jv-library'), shelf = view.querySelector('.jv-shelf');
       if (library) library.scrollTop = libraryPosition.top;
@@ -363,7 +387,7 @@
       const p = progressOf(book,state);
       if (!stageAvailable(book,p,index) || index < p.cleared) return Promise.resolve(false);
       const stage = allStagesOf(book)[index], narrative = stage.reveal || (index === 4 ? book.bonusReveal : null) || {title:stage.title};
-      return ceremony({book,stage:index,kind:'sequel',label:'Une nouvelle page',markup:`<p class="jv-eyebrow">Le récit continue</p><div class="jv-sequel-leaf"><div class="jv-sequel-seal" aria-hidden="true">${icon('gem')}</div><h2>${esc(narrative.title || stage.title)}</h2><div class="jv-sequel-paragraphs">${(Array.isArray(narrative.paragraphs) ? narrative.paragraphs : []).map(text => `<p>${esc(text)}</p>`).join('')}</div></div>`,command:'Ouvrir le chapitre'});
+      return ceremony({book,stage:index,kind:'sequel',label:'Une nouvelle page',markup:`<p class="jv-eyebrow">Le récit continue</p><div class="jv-sequel-leaf">${sceneMarkup(book,stage,stage.imageModelId || book.rewardModelId)}<div class="jv-sequel-seal" aria-hidden="true">${icon('gem')}</div><h2>${esc(narrative.title || stage.title)}</h2><div class="jv-sequel-paragraphs">${(Array.isArray(narrative.paragraphs) ? narrative.paragraphs : []).map(text => `<p>${esc(text)}</p>`).join('')}</div></div>`,command:'Ouvrir le chapitre'});
     }
     function ceremony({book,stage = null,kind,label,markup,command = 'Continuer'}) {
       if (reward) return reward.bookId === book.id && reward.stage === stage && reward.kind === kind ? reward.promise : Promise.resolve(false);
@@ -408,7 +432,7 @@
       const p = progressOf(book,stateNow()), claim = index === null ? null : claimOf(p,index);
       const item = index === null ? model(book.rewardModelId) : equipmentOf(claim?.equipmentId);
       if (!item) throw Error('Équipement indisponible. Actualisez le parcours.');
-      const confirmed = await (index === null ? revealReward(item) : revealEquipment(item,{alreadyOwned:claim.alreadyOwned}));
+      const confirmed = await (index === null ? revealReward(item,{alreadyOwned:p.alreadyOwned}) : revealEquipment(item,{alreadyOwned:claim.alreadyOwned}));
       if (!confirmed || revision !== generation || !root) return;
       await (index === null ? onAcknowledge(book.id) : onAcknowledgeEquipment(book.id,index));
       if (revision !== generation || !root) return;
@@ -478,7 +502,7 @@
       root.addEventListener('submit',event => { if (event.target.matches('.jv-filters')) event.preventDefault(); },{signal});
       root.addEventListener('keydown',keydown,{signal});
       root.addEventListener('scroll',event => { if (event.target.matches('.jv-shelf')) updateShelf(); },{capture:true,passive:true,signal});
-      root.addEventListener('error',event => { if (event.target.matches('img[data-jv-media],img[data-jv-cover-model],img[data-jv-equipment-media]')) { event.target.classList.add('jv-media-unavailable'); event.target.alt = 'Visuel indisponible'; } },{capture:true,signal});
+      root.addEventListener('error',event => { if (event.target.matches('img[data-jv-media],img[data-jv-cover-model],img[data-jv-equipment-media],.jv-panorama img')) { event.target.classList.add('jv-media-unavailable'); event.target.alt = 'Visuel indisponible'; } },{capture:true,signal});
       if (globalThis.ResizeObserver) {
         observer = new ResizeObserver(() => {
           cancelAnimationFrame(frame); frame = requestAnimationFrame(() => { frame = 0; updateShelf(); });
