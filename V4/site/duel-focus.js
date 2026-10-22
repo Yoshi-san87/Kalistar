@@ -10,7 +10,9 @@
   function cancelActivation(){activation=null;for(const finish of waiting)finish();waiting.clear();}
   function capture(){
     previous=new Map(boards.flatMap(board=>[...board.querySelectorAll('.slot')].map(node=>{
-      const style=getComputedStyle(node);return [node.dataset.key,{transform:style.transform,opacity:style.opacity}];
+      const style=getComputedStyle(node),animation=node._kalistarFocusAnimation;
+      const transition=animation?.playState==='running'?{frames:animation.effect.getKeyframes(),timing:animation.effect.getTiming(),startTime:animation.startTime,currentTime:animation.currentTime}:null;
+      return [node.dataset.key,{transform:style.transform,opacity:style.opacity,target:node._kalistarFocusTransform,targetOpacity:node.style.opacity,transition}];
     })));
     unsubscribe?.();unsubscribe=null;observer?.disconnect();cancelActivation();
     for(const animation of animations)animation.cancel();animations.clear();boards=[];
@@ -44,15 +46,20 @@
         }
         const transform=`translate(${dx.toFixed(2)}px,${dy.toFixed(2)}px) scale(${scale})`;
         node.style.setProperty('--focus-scale',String(scale));
-        if(node._kalistarFocusTransform!==transform){
-          const style=getComputedStyle(node),from=node.style.transform?{transform:style.transform,opacity:style.opacity}:previous.get(node.dataset.key)||{transform:'none',opacity:'1'};
+        if(node._kalistarFocusTransform!==transform||node.style.opacity!==String(opacity)){
+          const style=getComputedStyle(node),saved=previous.get(node.dataset.key),from=node.style.transform?{transform:style.transform,opacity:style.opacity}:saved||{transform:'none',opacity:'1'};
+          node._kalistarFocusAnimation?.cancel();
           node._kalistarFocusTransform=transform;
           node.style.transform=transform;node.style.opacity=String(opacity);
           if(!motion.matches){
             const before=new DOMMatrix(from.transform==='none'?undefined:from.transform),after=new DOMMatrix(transform);
             const changed=['a','b','c','d','e','f'].some(key=>Math.abs(before[key]-after[key])>.001)||Math.abs(Number(from.opacity)-opacity)>.001;
-            if(changed){
-              const animation=node.animate([from,{transform,opacity}],{duration:520,easing:'cubic-bezier(.2,.75,.2,1)'});
+            // DOM replacement must not restart an unchanged card's easing curve.
+            const continuing=!node._kalistarFocusAnimation&&saved?.target===transform&&saved.targetOpacity===String(opacity)?saved.transition:null;
+            if(changed||continuing){
+              const animation=continuing?node.animate(continuing.frames,continuing.timing):node.animate([{transform:from.transform,opacity:from.opacity},{transform,opacity}],{duration:520,easing:'cubic-bezier(.2,.75,.2,1)'});
+              if(continuing){if(continuing.startTime!==null)animation.startTime=continuing.startTime;else animation.currentTime=continuing.currentTime||0;}
+              node._kalistarFocusAnimation=animation;
               animations.add(animation);animation.finished.catch(()=>{}).finally(()=>animations.delete(animation));
             }
           }

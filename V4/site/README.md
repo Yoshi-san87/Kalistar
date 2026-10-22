@@ -182,6 +182,9 @@ L'arene masque la navigation generale sur PC et telephone, sans imposer le
 plein ecran du navigateur. Son toolbar garde sortie et menu de combat. Le
 plateau se dimensionne dans la hauteur restante, y compris le contexte Fragment ;
 seuls les contenus longs du bilan ou des calculs peuvent defiler dans leur zone.
+`duel-focus.js` conserve l'horloge d'une transition en cours quand le plateau
+est recree sans changer sa destination. Une nouvelle disposition annule le tween
+precedent ; `duel-focus.browser.test.cjs` verifie continuite, resize et commandes.
 
 ## Images et contenu
 
