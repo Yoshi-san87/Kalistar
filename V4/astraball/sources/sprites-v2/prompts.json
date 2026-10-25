@@ -1,0 +1,231 @@
+{
+  "version": 2,
+  "tool": "Built-in image_gen",
+  "template": "V4/astraball/sources/sprites-v1/kaylis.png",
+  "commonPrompt": "EDIT IMAGE 1: replace Kaylis in ALL sixteen cells with the character from IMAGE 2. Image 1 is the exact approved Kalistar SPRITE TEMPLATE: keep its pixel-art rendering, animation order, camera and 4x4 layout, not its human appearance. Image 2 supplies character identity/clothing only; remove its background completely. Make a square transparent atlas.\nUse case: stylized-concept. Asset type: PRODUCTION PIXEL-ART ANIMATION SPRITESHEET for Kalistar Astraball, not a poster or contact sheet of illustrations.\nCreate EXACTLY 16 full-body sprites of ONE identical character, arranged in a mathematically regular 4 columns x 4 rows square atlas. Every cell occupies exactly one quarter of the image width and height. One sprite per cell, same character scale, same camera and consistent body proportions throughout. Each sprite centered horizontally in its own cell, feet near 88% of cell height, entire hat/hair/weapons/feet within the cell with at least 10% transparent margin. No overlapping cells.\nStyle: premium detailed hand-pixelled 2D JRPG sprites, the readable miniature proportions and energetic animation of FFBE-era RPG pixel art, but ORIGINAL Kalistar character design from the reference. Crisp square pixel clusters, restrained dark outline, limited intentional color ramps, clear highlights, no smooth painting, no blur, no vector, no 3D. Three-quarter side view facing RIGHT in EVERY frame, slight overhead view suitable for an isometric board. About 3.5 heads tall. Keep silhouettes clear at 72 pixels high. True transparent alpha background, no checker pattern, no ground, no shadows, no text, no labels, no borders, no ball and no VFX. The game will draw ball/shadow/effects separately.\nFRAME ORDER, reading left to right:\nROW 1: four gentle ready/idle frames: neutral poised, breathe raised chest, blink/lowered shoulders, recover neutral. Feet firmly planted, tiny changes only.\nROW 2: four distinct RUNNING frames: right leg forward/left back; legs passing under body; left leg forward/right back; other passing pose. Natural opposed arm swing, cloth/hat follows. Running IN PLACE, always right-facing.\nROW 3: four SPORTS ACTION frames: crouched anticipation with arms near body; rotate torso and bring arms forward; both hands releasing an invisible ball toward the right; recover. No ball drawn, no weapon attack.\nROW 4: braced guard with both arms forward; recoiling from an impact but still standing; celebratory upright fists lifted; relaxed joyful recovery.\nAdapt the canonical outfit for freedom of movement without changing its identity. Hands must be free during sports action; personal accessory can be strapped at hip or back. Exactly one head, two arms, two legs in each cell. Avoid a different drawing scale in different cells. This sheet will be cropped directly into its 16 equal cells.",
+  "characters": [
+    {
+      "id": "rikka",
+      "modelId": "40000042",
+      "characterId": "rikka",
+      "name": "RIKKA",
+      "race": "FELINEUS",
+      "faction": "Chroma",
+      "reference": "V4/assets/illustrations/42_ELECTRO_RIKKA_V4_02_VITRINE_FRONTALE.png",
+      "source": "sources/sprites-v2/rikka.png",
+      "subject": "Rikka: athletic elegant female anthropomorphic cheetah, golden spotted fur, rounded feline ears, short asymmetrical black side-swept bob, amber eyes, slim tail. Preserve brown fitted leather jacket with bronze shoulder plates, purple neck scarf and waist sash, fitted dark brown trousers and laced boots from image 2. Whip coiled at belt, lantern omitted. No rainbow tattoos, no human face."
+    },
+    {
+      "id": "gen",
+      "modelId": "44703335",
+      "characterId": "gen",
+      "name": "GEN",
+      "race": "CYBORG",
+      "faction": "Z13",
+      "reference": "V4/creations/44703335/illustration.png",
+      "source": "sources/sprites-v2/gen.png",
+      "subject": "Gen: young athletic human male, messy black hair with distinctive GREEN forelock, weathered dark sleeveless work shirt and dark camouflage trousers, harness, utility belt, brown rugged boots. His anatomical LEFT arm is a bronze mechanical prosthesis with amber crystal in forearm, right arm bare human. Exactly TWO arms, never change prosthesis side between frames. Tiny amber metal highlights no detached lightning."
+    },
+    {
+      "id": "keryn",
+      "modelId": "49983331",
+      "characterId": "keryn",
+      "name": "KERYN",
+      "race": "KORBOW",
+      "faction": "Nestown",
+      "reference": "V4/creations/49983331/illustration.png",
+      "source": "sources/sprites-v2/keryn.png",
+      "subject": "Keryn: lean male anthropomorphic BLACK RAVEN Korbow, long black beak, layered short black head feathers, warm amber eye, worn teal blue travelling coat, ochre yellow scarf, brown belts and boots, small leather courier pouch at hip. Hands in dark gloves, wings folded close, no pole or rope in hands. Preserve avian not human face."
+    },
+    {
+      "id": "riko",
+      "modelId": "49903201",
+      "characterId": "riko-kalistar",
+      "name": "RIKO",
+      "race": "KORBOW",
+      "faction": "Nestown",
+      "reference": "V4/expansions/2026-10-20-riko/images/riko-relais.png",
+      "source": "sources/sprites-v2/riko.png",
+      "subject": "Riko, young wingless Korbow bird-man pilot: black blue feathers, friendly amber eyes, expressive short beak, short SKY-BLUE forward forelock, BRASS AVIATOR GOGGLES above forehead not covering eyes. Cream shirt with rolled sleeves, cream scarf, teal vest, clearly visible dark pilot harness and brass fastenings, dark trousers and brown boots. ABSOLUTELY NO WINGS, he was born wingless; two arms, two legs. Friendly mischievous smile. No helmet, no large satchel obscuring harness, no windvane prop. Preserve these from image2."
+    },
+    {
+      "id": "vaerok",
+      "modelId": "49902301",
+      "characterId": "vaerok-kalistar",
+      "name": "VAEROK",
+      "race": "OKAMI",
+      "faction": "Froz",
+      "reference": "V4/propositions/2026-10-12-froz-okami/froz-okami-01.png",
+      "source": "sources/sprites-v2/vaerok.png",
+      "subject": "Vaerok, intimidating adult BLACK WOLF Okami male mercenary: pointed ears, black wolf snout and shaggy black fur, amber eyes, deep red short split coat under dark steel segmented pauldrons and gauntlets, black fur collar, black trousers and boots, brown belts. Compact black tail. Small sheathed sword at back, no sword in hands. No helmet or beret. Keep face wolf, never human."
+    },
+    {
+      "id": "elyrane",
+      "modelId": "49902101",
+      "characterId": "elyrane-kalistar",
+      "name": "ELYRANE",
+      "race": "OKAMI",
+      "faction": "Grivka",
+      "reference": "V4/propositions/2026-10-12-princesse-okami/princesse-okami-05.png",
+      "source": "sources/sprites-v2/elyrane.png",
+      "subject": "Elyrane, beautiful noble adult WHITE WOLF Okami princess with sky-blue eyes, wolf snout and ears, thick WHITE BRAID over shoulder. Ivory fitted royal tunic/dress split below knees for movement, ivory leggings and boots, SILVER pointed layered shoulder armour, sky-blue diamond chest pendant, small silver tiara. BLACK short cape with dark forest-green leafy embroidery, never blue cape. White fluffy tail compact behind. Gracious yet athletic. Preserve white outfit and wolf face from image2, not Kaylis."
+    },
+    {
+      "id": "brask",
+      "modelId": "49900315",
+      "characterId": "brask-kalistar",
+      "name": "BRASK",
+      "race": "CRUSTOS",
+      "faction": "Crabazar",
+      "reference": "V4/Illustrations/City_Guards_Brask_03.png",
+      "source": "sources/sprites-v2/brask.png",
+      "subject": "Brask, bulky male CRUSTOS humanoid crab sailor. RUST-ORANGE crab shell face with short upright eye stalks and small antennae, cream lower mandible. Large NAVY BLUE BICORNE with YELLOW rim; navy naval coat with yellow lapels and cuffs, ivory shirt, brown belts and trousers, dark boots with small bright CYAN diamonds on shins. ONE human-shaped right hand, ONE large orange LEFT crab claw replaces hand. Keep exactly two arms and two legs. Broad sturdy silhouette. No pole held, compact harpoon rifle strapped vertically back, no ship props. Do not turn into human."
+    },
+    {
+      "id": "maelka",
+      "modelId": "49900316",
+      "characterId": "maelka-kalistar",
+      "name": "MAELKA",
+      "race": "CRUSTOS",
+      "faction": "Crabazar",
+      "reference": "V4/Illustrations/City_Guards_Maelka_03.png",
+      "source": "sources/sprites-v2/maelka.png",
+      "subject": "Maelka, female CRUSTOS humanoid crab sailor, BLUE shell head and face with pale cream lower mandible, two small eye stalks, short antennae. Large NAVY BLUE BICORNE edged GOLD-YELLOW, navy military coat with yellow lapels, ivory shirt and cravat, brown belts and boots with small CYAN shin crystals. Slightly slimmer poised build than Brask. ONE human-shaped right hand, ONE BLUE crab LEFT claw replaces left hand; two arms/two legs. No model ship, no sword held. Compact harpoon rifle strapped on back. Preserve blue shell not orange."
+    },
+    {
+      "id": "ssilas",
+      "modelId": "49900201",
+      "characterId": "ssilas",
+      "name": "SSILAS",
+      "race": "SERPES",
+      "faction": "Arborium",
+      "reference": "V4/Illustrations/Ssilas_Le_Passeur_Des_Sentes_01.png",
+      "source": "sources/sprites-v2/ssilas.png",
+      "subject": "Ssilas, slim bipedal SERPES snake-headed male ranger with ochre olive-gold scales, angular snake snout, amber slit-pupil eyes and modest cobra hood close to neck. Dark olive green ragged short cloak, brown leather forearm bracers, dark brown trousers and boots, muted purple sash, bronze clasp. Small quiver strapped on back, bow secured there, empty hands. Two ARMS and two LEGS, not a snake-tail body. No human hair, no ears, no hat."
+    },
+    {
+      "id": "eryss",
+      "modelId": "49900401",
+      "characterId": "eryss-kalistar",
+      "name": "ERYSS",
+      "race": "TOXINAR",
+      "faction": "Arborium",
+      "reference": "V4/Illustrations/Arborium_Guards_Eryss_03.png",
+      "source": "sources/sprites-v2/eryss.png",
+      "subject": "Eryss, female TOXINAR plant person: light olive GREEN skin, short voluminous BURGUNDY LEAF hair, pointed delicate ears, serene amber eyes. Sculpted pale ivory WOOD cuirass and bracers, deep green short split skirt over fitted trousers, wooden boots, leaf-shaped shoulders with two brilliant lime GREEN Kalistel clasps emitting tiny contained green highlights. Preserve living botanical armour and feminine face. No staff in hands, no floating foliage."
+    },
+    {
+      "id": "varkhen",
+      "modelId": "49900501",
+      "characterId": "varkhen-kalistar",
+      "name": "VARKHEN",
+      "race": "SKULLZ",
+      "faction": "Cryptown",
+      "reference": "V4/Illustrations/Cryptown_Varkhen_01.png",
+      "source": "sources/sprites-v2/varkhen.png",
+      "subject": "Varkhen, SKULLZ skeleton knight, ivory skull face with violet pinpoint eyes, angular black medieval-futuristic helmet with open face, BLACK segmented full armour, VIOLET glowing rib-shaped plates ONLY on torso and diamond violet collar gem, short purple tattered mantle, armored gloves and boots. Fearsome but expressive skull, two bony hands armored. Sword safely sheathed at back not held. Keep helmet and rib lights throughout. No smoke or detached VFX, no hood."
+    },
+    {
+      "id": "ysane",
+      "modelId": "49900706",
+      "characterId": "ysane-kalistar",
+      "name": "DAME YSANE",
+      "race": "VAMP",
+      "faction": "Draevenheim",
+      "reference": "V4/Illustrations/Faces_Ysane_01.png",
+      "source": "sources/sprites-v2/ysane.png",
+      "subject": "Dame Ysane, mature elegant female VAMP couturiere: pale skin, fine subtle vampire fangs, sophisticated BLACK braided updo with SILVER streak at temples, dark lipstick, gold earrings. BLACK brocade fitted high-collar jacket, burgundy lining and cuffs, gold fastenings and round dark red jewel brooch. Split tailored skirt-coat above black trousers and black ankle boots to allow running. Regal refined adult, NOT young Kaylis. Small closed scissors safely in belt sheath, hands empty, no blood threads."
+    },
+    {
+      "id": "aelis",
+      "modelId": "48428173",
+      "characterId": "aelis",
+      "name": "AELIS",
+      "race": "AURELION",
+      "faction": "Solaria",
+      "reference": "V4/creations/48428173/illustration.png",
+      "source": "sources/sprites-v2/aelis.png",
+      "additionalReferences": [
+        "V3/assets/illustrations/06_LUXO_AELIS.png"
+      ],
+      "subject": "Aelis: the YOUNG brown-skinned woman at LEFT in the third identity reference, NOT the elderly hooded patient. Very short platinum-blond tightly curled hair, delicate gold sun hair clasp, warm brown eyes, gold earrings. White and gold sun-embroidered healer robe, charcoal sash, golden chest clasp. Robe adapted split to knees over cream leggings and boots so two legs visible. No staff or lantern held. Warm compassionate smile, healer identity, no wings. Image 2 is her back-view outfit, image3 shows correct face."
+    },
+    {
+      "id": "brund",
+      "modelId": "49900308",
+      "characterId": "brund-kalistar",
+      "name": "BRUND",
+      "race": "NAIN",
+      "faction": "Durane",
+      "reference": "V4/Illustrations/City_Guards_Brund_02.png",
+      "source": "sources/sprites-v2/brund.png",
+      "subject": "Brund, extremely stocky DWARF man with BALD head and a huge BLACK braided beard with bronze bands, wide mischievous grin. Layered grey iron armour and slate-grey padded split coat, heavy boots, dark brown cross-straps, bright SILVER-GREY narrow neon lines in bracers. Short strong legs, broad torso, no crown, no hair on scalp. Axe safely sheathed at back, hands empty."
+    },
+    {
+      "id": "bex",
+      "modelId": "49900710",
+      "characterId": "bex-kalistar",
+      "name": "BEX",
+      "race": "CYBORG",
+      "faction": "Chroma",
+      "reference": "V4/Illustrations/Faces_Bex_02.png",
+      "source": "sources/sprites-v2/bex.png",
+      "subject": "Bex: cheerful young CYBORG woman with warm freckled brown skin, short tousled SILVER-grey pixie hair with dark roots. Round BRASS mechanical left-eye monocle and LEFT forearm prosthesis, human right arm. Rust RED utility jacket with short coat-tails and rolled sleeves, black high-neck undershirt, brown harness and work trousers, rugged laced boots. Small tools at belt but hands empty. Wide lively smile, preserve face and red jacket from painting."
+    },
+    {
+      "id": "nell",
+      "modelId": "49900702",
+      "characterId": "nell-kalistar",
+      "name": "NELL",
+      "race": "ROBOT",
+      "faction": "Chroma",
+      "reference": "V4/Illustrations/Faces_Nell_01.png",
+      "source": "sources/sprites-v2/nell.png",
+      "subject": "Nell, endearing ROBOT train conductor: rectangular squat olive-grey metal head, TWO round glowing AMBER eyes, horizontal simple mouth plate, round ear joints. Burgundy conductor CAP with brass badge, burgundy short worn overcoat, cream scarf, brass pocket watch on belly, olive metal mechanical body and chunky boots. No human skin or hair. No staff, lantern or ticket held. Preserve hat in every frame."
+    },
+    {
+      "id": "ithrek",
+      "modelId": "49902613",
+      "characterId": "ithrek-kalistar",
+      "name": "ITHREK",
+      "race": "RHINOZ",
+      "faction": "Zarok",
+      "reference": "V4/propositions/2026-10-13-twenty-new-voices/images/04-ithrek-02.png",
+      "source": "sources/sprites-v2/ithrek.png",
+      "subject": "Ithrek, bulky RHINOZ anthropomorphic rhinoceros scholar: grey stone-like skin, one large ivory nose horn with small secondary horn, small round BRASS spectacles, small round ears. Forest GREEN explorer short coat, cream scarf, brown belts, rolled map strapped to back, brown padded trousers and heavy boots. Distinctive brass dart cartridges secured on RIGHT forearm bracer; don't float or throw them. Gentle shrewd eyes. Broad robust torso and legs, no human face."
+    },
+    {
+      "id": "odran",
+      "modelId": "49900904",
+      "characterId": "odran-kalistar",
+      "name": "ODRAN",
+      "race": "FELINEUS",
+      "faction": "Ysilis",
+      "reference": "V4/propositions/2026-10-07-twenty-lives/06-odran-01.png",
+      "source": "sources/sprites-v2/odran.png",
+      "subject": "Odran, male lynx FELINEUS scholar with beige-grey spotted fur, WHITE muzzle and cheek ruff, pointed tall ears with BLACK tufts, pale icy green eyes, very SHORT bob tail. Ivory winter short coat with muted BLUE cuffs and edging, blue-grey scarf, brown leather belt and straps, dark trousers and fur-trimmed boots. Small brass tuning fork secured at belt, no staff held. Preserve lynx anatomy, not housecat or human."
+    },
+    {
+      "id": "edris-7f",
+      "modelId": "49902702",
+      "characterId": "edris-7f-kalistar",
+      "name": "EDRIS-7F",
+      "race": "ANDROID",
+      "faction": "Chroma",
+      "reference": "V4/propositions/2026-10-14-six-new-directions/images/06-edris-7f-02.png",
+      "source": "sources/sprites-v2/edris-7f.png",
+      "subject": "Edris-7F, female ANDROID spy with realistic pale young human face with tiny fine seam on cheek, short dark tousled wavy bob with ONE SILVER-grey temple streak. Dark TEAL BLUE fitted military-spy coat with antique gold trim, cream high-neck cravat, brown corset belt and fitted black trousers, high lace boots. BOTH hands are ivory-white articulated mechanical fingers, small CYAN wrist crystal. Coat ends near knees. Dagger sheathed at hip, hands free. Subtle blue eyes, not robot mask."
+    },
+    {
+      "id": "nessyra",
+      "modelId": "49903004",
+      "characterId": "nessyra-kalistar",
+      "name": "NESSYRA",
+      "race": "DRAX",
+      "faction": "Vulkar",
+      "reference": "V4/propositions/2026-10-17-vulkar-black-guard/images/04-nessyra-scene-kalistar-04.png",
+      "source": "sources/sprites-v2/nessyra.png",
+      "subject": "Nessyra, female BLACK DRAGON humanoid DRAX elite Vulkar guard. Black scaled long dragon snout, swept-back black horns protected by SILVER metal fittings, angular glowing RED visor across eyes. Noble BLACK fitted short coat with RED incandescent embroidered cracks/trim, SILVER wing-shaped shoulder shields each holding RED Kalistel jewel. Dark greaves and boots, black clawed hands, compact black tail, real red-membrane wings FOLDED CLOSE on back so full silhouette fits every cell. Two arms/two legs, grounded sports motions not flight. No swords in hands; two compact hilts at hips. Never a human face, no fire aura."
+    }
+  ]
+}

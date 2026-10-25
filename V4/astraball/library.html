@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalistar - Bibliotheque des sprites</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="library.css">
+  <script defer src="/jeu/cloud-config.js"></script>
+  <script defer src="/jeu/cloud-session.js"></script>
+  <script defer src="/jeu/auth-guard.js"></script>
+  <script defer src="/jeu/assets/lucide.min.js"></script>
+  <script type="module" src="src/sprite-gallery.mjs"></script>
+</head>
+<body>
+  <header><div class="brand">KALISTAR <span>ASTRABALL</span></div><a href="./" class="back"><i data-lucide="arrow-left"></i> Terrain</a></header>
+  <main>
+    <div class="heading"><h1>Biblioth&egrave;que des sprites</h1><p id="count" role="status"></p></div>
+    <form class="toolbar" aria-label="Filtres et animation">
+      <label>Personnage<input id="search" type="search" placeholder="Rechercher..." autocomplete="off"></label>
+      <label>Faction<select id="faction"><option value="">Toutes</option></select></label>
+      <label>Animation<select id="pose"><option value="idle">Attente</option><option value="run">Course</option><option value="throw">Lancer</option><option value="guard">Garde</option><option value="charge">Charge</option><option value="hit">Impact</option><option value="celebrate">Victoire</option></select></label>
+      <label>Taille<select id="zoom"><option value="1">96 px</option><option value="2" selected>192 px</option><option value="3">288 px</option></select></label>
+      <div class="actions">
+        <button id="play" type="button" aria-label="Mettre en pause" title="Mettre en pause"><i data-lucide="pause"></i></button>
+        <button id="restart" type="button" aria-label="Rejouer" title="Rejouer"><i data-lucide="rotate-ccw"></i></button>
+        <button id="flip" type="button" aria-label="Regarder vers la gauche" title="Regarder vers la gauche" aria-pressed="false"><i data-lucide="flip-horizontal-2"></i></button>
+        <button id="background" type="button" aria-label="Fond clair" title="Fond clair" aria-pressed="false"><i data-lucide="sun"></i></button>
+      </div>
+    </form>
+    <p id="error" role="alert" hidden></p>
+    <section id="gallery" aria-label="Personnages"></section>
+    <p id="empty" hidden>Aucun personnage.</p>
+  </main>
+  <footer><span>Lot 02</span><a href="data/sprite-library.json" download>Catalogue JSON</a></footer>
+</body>
+</html>

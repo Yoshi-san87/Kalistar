@@ -15,7 +15,7 @@ test('every visible tile maps back to its logical cell',async()=>{
 });
 test('runtime allowlist excludes authoring, tests and tooling',()=>{
   const files=require('../runtime-files.json');assert.equal(new Set(files).size,files.length);
-  for(const file of files){assert.ok(!file.includes('..'));assert.ok(!/(?:^|\/)(?:tools|sources|tests|node_modules)\//.test(file));assert.ok(/\.(html|css|mjs|webp|png|txt)$/.test(file));}
+  for(const file of files){assert.ok(!file.includes('..'));assert.ok(!/(?:^|\/)(?:tools|sources|tests|node_modules)\//.test(file));assert.ok(file==='data/sprite-library.json'||/\.(html|css|mjs|webp|png|txt)$/.test(file));}
   for(const file of files.filter(file=>!file.startsWith('assets/')))assert.ok(fs.existsSync(path.join(__dirname,'..',file)),file);
 });
 test('hosted game reuses login guard, namespaces its save and makes no rewards calls',()=>{

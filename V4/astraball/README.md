@@ -5,6 +5,11 @@ les Fragments ou les combats du jeu de cartes.
 
 [Guides Kalistar](../../docs/INDEX.md) | [Audit des regles](tests/REPORT.md)
 
+La [bibliotheque de sprites](SPRITES.md) prepare vingt personnages
+supplementaires : galerie animee a `/jeu/astraball/library.html`, 16 poses par
+personnage, catalogue lie aux identifiants stables des cartes. Elle n'ajoute
+pas automatiquement ces personnages aux equipes de l'exhibition.
+
 ## Jouer
 
 Dans le site : menu `...` puis **Astraball**, ou `/jeu/astraball/`.
