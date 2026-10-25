@@ -1,0 +1,917 @@
+{
+  "schema": 1,
+  "generator": "Built-in image_gen",
+  "pipeline": "Deterministic Sharp resize/WebP export; no image generation",
+  "sharpVersion": "0.35.5",
+  "libvipsVersion": "8.18.7",
+  "prompts": {
+    "file": "V4/astraball/sources/arenas-pixel-v1/prompts.json",
+    "bytes": 46269,
+    "sha256": "741545a14de66271e3d9abd12c47c49b6ec7d990a3642753892ee29d9476ad28"
+  },
+  "backupRoot": "C:/Users/guill/Documents/Kalistar-sauvegardes/astraball-arenas-pixel-v1",
+  "export": {
+    "full": [
+      1536,
+      1024
+    ],
+    "preview": [
+      384,
+      256
+    ],
+    "fit": "inside",
+    "kernel": "nearest",
+    "quality": 90,
+    "effort": 6
+  },
+  "qa": "Image export only; visual and runtime QA pending",
+  "jobs": [
+    {
+      "id": "astrium",
+      "prompt": "Use case: stylized-concept. ONE production background bitmap 1536x1024 for Kalistar Astraball HD2D pixel-art game. Create THE ASTRIUM, legendary huge enclosed-in-plan open-air finals stadium in Kalistopolis. Camera elevated front orthographic, long edges field horizontal. User specifically wants ONLY IMMENSE GRANDSTANDS SURROUNDING FIELD, no palace, no cathedral, no city, no mountains, no ocean, no landscape beyond stadium. Upper entire third filled by huge multiple tiers of realistic finely spaced seats, bronze and ivory galleries, densely seated very small spectators as tiny pixels, stair aisles and restrained structural white stone ribs. Bottom quarter is nearest grandstand, seats sized coherently around12x8 pixels compared to game characters60pixels tall. Realistic tier scale, never giant stair steps. Field fills most center: empty muted green-gray playing stone x=100..1436 y=355..845 with safe gameplay rectangle x=180..1356 y=420..800. No players, no grid, no painted lines, no goalposts; game overlays those. Contrasting enormous stands all around but never obscure central rectangle. DA Kalistar: elegant worn copper, ivory and charcoal construction, daylight, serious fantastical sporting occasion. Fine clear HD-2D PIXEL ART deliberate pixel clusters, stepped contours, selective dithering. No blurry painting. Important: NO FLAGS, NO BANNERS, NO FABRIC, NO invented emblems anywhere; official faction flags added separately by game. No text, no logos, no watermark. Avoid modern screens/floodlights, bokeh, particles, overexposure. A complete playable stadium, not a concept poster.",
+      "ref": null,
+      "reference": null,
+      "source": {
+        "file": "C:/Users/guill/.codex/generated_images/01a1710d-e804-7a01-9af3-13884b143f00/exec-0cbcaa03-ff06-49a3-90b8-343423bdcee5.png",
+        "bytes": 3441272,
+        "sha256": "42d26357805d4c0305326ff62e31c54fbcea85b83b58dc16e48f0466a16cc1f4",
+        "width": 1536,
+        "height": 1024
+      },
+      "original": {
+        "file": "V4/astraball/sources/arenas-pixel-v1/originals/astrium.png",
+        "bytes": 3441272,
+        "sha256": "42d26357805d4c0305326ff62e31c54fbcea85b83b58dc16e48f0466a16cc1f4",
+        "width": 1536,
+        "height": 1024
+      },
+      "backup": {
+        "file": "C:\\Users\\guill\\Documents\\Kalistar-sauvegardes\\astraball-arenas-pixel-v1\\originals\\astrium.png",
+        "bytes": 3441272,
+        "sha256": "42d26357805d4c0305326ff62e31c54fbcea85b83b58dc16e48f0466a16cc1f4",
+        "width": 1536,
+        "height": 1024
+      },
+      "full": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/astrium.webp",
+        "bytes": 550690,
+        "sha256": "4a4f28bcaedd6912bf260c58f0f5969b9c5732a792f52122566afe790376e820",
+        "width": 1536,
+        "height": 1024
+      },
+      "preview": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/astrium-small.webp",
+        "bytes": 51680,
+        "sha256": "e51dd81816222a3473f47e22a2923513822f6ecf15f80baeb05c25e189a6d94b",
+        "width": 384,
+        "height": 256
+      }
+    },
+    {
+      "id": "kalistopolis-street",
+      "prompt": "Use case: stylized-concept. One production bitmap background for Kalistar Astraball. Landscape 1536x1024, fine HD-2D PIXEL ART, crisp intentional pixel clusters and stepped edges, rich JRPG scenery at roughly 768x512 logical resolution enlarged2x, no photographic paint blur. Elevated front orthographic view, long edges of playfield strictly horizontal, NOT a diamond and no strong vanishing perspective. Critical composition: upper environment entirely above y=380. One huge uninterrupted flat rectangular playing surface x=80..1456,y=410..850, the safe rectangle x=176..1360,y=432..820 completely empty. Very low-contrast ground texture. Enough margin around field. Foreground environment below y=860. Buildings/pillars/props never overlap the safe rectangle. ALL game lines, goals, players and UI are rendered separately: NO painted lines, no court grid, no circles, no goal structures, no text, no lettering, no logo, no watermark. Reference image is architectural/mood identity ONLY, not camera composition. City identity: White stone island city with tall narrow cathedral spires, bronze detailing, sea and clouds, teal cloth. New scene: A humble neighborhood terrace beside laundry lines, pale limestone houses and low stone balustrades overlooking the bright sea; friendly late afternoon. Quiet pale warm stone pavement. Maintain truly visible pixels, beautiful sophisticated lighting, never painterly smudges.",
+      "ref": "V4/site/assets/map/portraits/kalistopolis-03-small.webp",
+      "reference": {
+        "file": "V4/site/assets/map/portraits/kalistopolis-03-small.webp",
+        "bytes": 96750,
+        "sha256": "e66c0076b62eb324b8de42dd7edfcfbaadd1f2087ce9127023b6a3b2b1b59366",
+        "width": 768,
+        "height": 432
+      },
+      "source": {
+        "file": "C:/Users/guill/.codex/generated_images/01a1710d-e804-7a01-9af3-13884b143f00/exec-44c4cb3e-cbea-4a5d-a7b3-223748330fcf.png",
+        "bytes": 2713008,
+        "sha256": "adb9c409cae7e512574c154cbd9c87850cdaa24c2e71f1038726baceae15a31d",
+        "width": 1536,
+        "height": 1024
+      },
+      "original": {
+        "file": "V4/astraball/sources/arenas-pixel-v1/originals/kalistopolis-street.png",
+        "bytes": 2713008,
+        "sha256": "adb9c409cae7e512574c154cbd9c87850cdaa24c2e71f1038726baceae15a31d",
+        "width": 1536,
+        "height": 1024
+      },
+      "backup": {
+        "file": "C:\\Users\\guill\\Documents\\Kalistar-sauvegardes\\astraball-arenas-pixel-v1\\originals\\kalistopolis-street.png",
+        "bytes": 2713008,
+        "sha256": "adb9c409cae7e512574c154cbd9c87850cdaa24c2e71f1038726baceae15a31d",
+        "width": 1536,
+        "height": 1024
+      },
+      "full": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/kalistopolis-street.webp",
+        "bytes": 448320,
+        "sha256": "25c644e0fb8935ce84ef52e69dde8f694154d15e5de5eec0338cc28f499a3e22",
+        "width": 1536,
+        "height": 1024
+      },
+      "preview": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/kalistopolis-street-small.webp",
+        "bytes": 48348,
+        "sha256": "4a560c1e730d467ddb540bdf3f7a917cd9a95828ce22c83a3078482eef8a019d",
+        "width": 384,
+        "height": 256
+      }
+    },
+    {
+      "id": "kalistopolis-official",
+      "prompt": "Use case: stylized-concept. One production bitmap background for Kalistar Astraball. Landscape 1536x1024, fine HD-2D PIXEL ART, crisp intentional pixel clusters and stepped edges, rich JRPG scenery at roughly 768x512 logical resolution enlarged2x, no photographic paint blur. Elevated front orthographic view, long edges of playfield strictly horizontal, NOT a diamond and no strong vanishing perspective. Critical composition: upper environment entirely above y=380. One huge uninterrupted flat rectangular playing surface x=80..1456,y=410..850, the safe rectangle x=176..1360,y=432..820 completely empty. Very low-contrast ground texture. Enough margin around field. Foreground environment below y=860. Buildings/pillars/props never overlap the safe rectangle. ALL game lines, goals, players and UI are rendered separately: NO painted lines, no court grid, no circles, no goal structures, no text, no lettering, no logo, no watermark. Reference image is architectural/mood identity ONLY, not camera composition. City identity: White stone island city with tall narrow cathedral spires, bronze detailing, sea and clouds, teal cloth. New scene: An established city league courtyard with medium-sized organized pale-stone bleachers, bronze rails, teal white banners and cathedral skyline; NOT the giant finals stadium. Quiet desaturated sage stone playing surface. Maintain truly visible pixels, beautiful sophisticated lighting, never painterly smudges.",
+      "ref": "V4/site/assets/map/portraits/kalistopolis-03-small.webp",
+      "reference": {
+        "file": "V4/site/assets/map/portraits/kalistopolis-03-small.webp",
+        "bytes": 96750,
+        "sha256": "e66c0076b62eb324b8de42dd7edfcfbaadd1f2087ce9127023b6a3b2b1b59366",
+        "width": 768,
+        "height": 432
+      },
+      "source": {
+        "file": "C:/Users/guill/.codex/generated_images/01a1710d-e804-7a01-9af3-13884b143f00/exec-e2c1cec6-f9c2-4d7e-b3d9-19949dd08924.png",
+        "bytes": 2955968,
+        "sha256": "bb095a9c2457f5e75a51dda7e410a5be2110842dd3d297b0f05aeef36afe7789",
+        "width": 1536,
+        "height": 1024
+      },
+      "original": {
+        "file": "V4/astraball/sources/arenas-pixel-v1/originals/kalistopolis-official.png",
+        "bytes": 2955968,
+        "sha256": "bb095a9c2457f5e75a51dda7e410a5be2110842dd3d297b0f05aeef36afe7789",
+        "width": 1536,
+        "height": 1024
+      },
+      "backup": {
+        "file": "C:\\Users\\guill\\Documents\\Kalistar-sauvegardes\\astraball-arenas-pixel-v1\\originals\\kalistopolis-official.png",
+        "bytes": 2955968,
+        "sha256": "bb095a9c2457f5e75a51dda7e410a5be2110842dd3d297b0f05aeef36afe7789",
+        "width": 1536,
+        "height": 1024
+      },
+      "full": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/kalistopolis-official.webp",
+        "bytes": 490406,
+        "sha256": "04771f7a2d1b1840f5656ce28b7729381ea1e4dc54a45a19380772c72602e090",
+        "width": 1536,
+        "height": 1024
+      },
+      "preview": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/kalistopolis-official-small.webp",
+        "bytes": 52578,
+        "sha256": "b87cba04ef2c41a565b569fda6e69ed5f6e121164aaeb125b4c6377da3914b3c",
+        "width": 384,
+        "height": 256
+      }
+    },
+    {
+      "id": "durane-street",
+      "prompt": "Use case: stylized-concept. One production bitmap background for Kalistar Astraball. Landscape 1536x1024, fine HD-2D PIXEL ART, crisp intentional pixel clusters and stepped edges, rich JRPG scenery at roughly 768x512 logical resolution enlarged2x, no photographic paint blur. Elevated front orthographic view, long edges of playfield strictly horizontal, NOT a diamond and no strong vanishing perspective. Critical composition: upper environment entirely above y=380. One huge uninterrupted flat rectangular playing surface x=80..1456,y=410..850, the safe rectangle x=176..1360,y=432..820 completely empty. Very low-contrast ground texture. Enough margin around field. Foreground environment below y=860. Buildings/pillars/props never overlap the safe rectangle. ALL game lines, goals, players and UI are rendered separately: NO painted lines, no court grid, no circles, no goal structures, no text, no lettering, no logo, no watermark. Reference image is architectural/mood identity ONLY, not camera composition. City identity: Dwarven iron kingdom built along enormous crater cliffs; tall black Iron Obelisk, stone terraces, iron suspension bridges, subtle forge smoke. New scene: Workers street court on a flat gray dusty terrace by modest stone dwellings and a forge, rusty rails and stacked mine crates beyond edges, deep crater visible behind. Strong midday sun. Maintain truly visible pixels, beautiful sophisticated lighting, never painterly smudges.",
+      "ref": "V4/site/assets/map/portraits/durane-02-small.webp",
+      "reference": {
+        "file": "V4/site/assets/map/portraits/durane-02-small.webp",
+        "bytes": 105648,
+        "sha256": "7c5f70a3ce417d0be9da61e7616ac8950e7154c8900f7ead7884566665cbfc10",
+        "width": 768,
+        "height": 432
+      },
+      "source": {
+        "file": "C:/Users/guill/.codex/generated_images/01a1710d-e804-7a01-9af3-13884b143f00/exec-0575e5e2-6e33-4a2c-9e07-a5bb16eff4f1.png",
+        "bytes": 3069220,
+        "sha256": "e04f43dd1585ec7bc7f73a4584cf08aac2dce5f5a37d98834183372e8ecfb854",
+        "width": 1536,
+        "height": 1024
+      },
+      "original": {
+        "file": "V4/astraball/sources/arenas-pixel-v1/originals/durane-street.png",
+        "bytes": 3069220,
+        "sha256": "e04f43dd1585ec7bc7f73a4584cf08aac2dce5f5a37d98834183372e8ecfb854",
+        "width": 1536,
+        "height": 1024
+      },
+      "backup": {
+        "file": "C:\\Users\\guill\\Documents\\Kalistar-sauvegardes\\astraball-arenas-pixel-v1\\originals\\durane-street.png",
+        "bytes": 3069220,
+        "sha256": "e04f43dd1585ec7bc7f73a4584cf08aac2dce5f5a37d98834183372e8ecfb854",
+        "width": 1536,
+        "height": 1024
+      },
+      "full": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/durane-street.webp",
+        "bytes": 569510,
+        "sha256": "56dab85d94722778c167835e187d386ffaf35cfdbf42cb5a8d0081388b427a59",
+        "width": 1536,
+        "height": 1024
+      },
+      "preview": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/durane-street-small.webp",
+        "bytes": 58034,
+        "sha256": "de25b7793d10c715605a906955b972b14ee2b84fd601d4da6274529c9d2505bb",
+        "width": 384,
+        "height": 256
+      }
+    },
+    {
+      "id": "durane-official",
+      "prompt": "Use case: stylized-concept. One production bitmap background for Kalistar Astraball. Landscape 1536x1024, fine HD-2D PIXEL ART, crisp intentional pixel clusters and stepped edges, rich JRPG scenery at roughly 768x512 logical resolution enlarged2x, no photographic paint blur. Elevated front orthographic view, long edges of playfield strictly horizontal, NOT a diamond and no strong vanishing perspective. Critical composition: upper environment entirely above y=380. One huge uninterrupted flat rectangular playing surface x=80..1456,y=410..850, the safe rectangle x=176..1360,y=432..820 completely empty. Very low-contrast ground texture. Enough margin around field. Foreground environment below y=860. Buildings/pillars/props never overlap the safe rectangle. ALL game lines, goals, players and UI are rendered separately: NO painted lines, no court grid, no circles, no goal structures, no text, no lettering, no logo, no watermark. Reference image is architectural/mood identity ONLY, not camera composition. City identity: Dwarven iron kingdom built along enormous crater cliffs; tall black Iron Obelisk, stone terraces, iron suspension bridges, subtle forge smoke. New scene: Official dwarven championship ground enclosed by geometric carved-stone and riveted iron tiered stands; distant black Iron Obelisk dominates crater skyline. Low contrast cool gray fine gravel surface, warm forge glow confined to backdrop. Maintain truly visible pixels, beautiful sophisticated lighting, never painterly smudges.",
+      "ref": "V4/site/assets/map/portraits/durane-02-small.webp",
+      "reference": {
+        "file": "V4/site/assets/map/portraits/durane-02-small.webp",
+        "bytes": 105648,
+        "sha256": "7c5f70a3ce417d0be9da61e7616ac8950e7154c8900f7ead7884566665cbfc10",
+        "width": 768,
+        "height": 432
+      },
+      "source": {
+        "file": "C:/Users/guill/.codex/generated_images/01a1710d-e804-7a01-9af3-13884b143f00/exec-2364a90c-8ed5-48c3-bae6-45c176298f8a.png",
+        "bytes": 3161501,
+        "sha256": "d65e77ecc75b5661b18f2a3d006a9d074a6a3514e1311615ce93713d5db4ebdf",
+        "width": 1536,
+        "height": 1024
+      },
+      "original": {
+        "file": "V4/astraball/sources/arenas-pixel-v1/originals/durane-official.png",
+        "bytes": 3161501,
+        "sha256": "d65e77ecc75b5661b18f2a3d006a9d074a6a3514e1311615ce93713d5db4ebdf",
+        "width": 1536,
+        "height": 1024
+      },
+      "backup": {
+        "file": "C:\\Users\\guill\\Documents\\Kalistar-sauvegardes\\astraball-arenas-pixel-v1\\originals\\durane-official.png",
+        "bytes": 3161501,
+        "sha256": "d65e77ecc75b5661b18f2a3d006a9d074a6a3514e1311615ce93713d5db4ebdf",
+        "width": 1536,
+        "height": 1024
+      },
+      "full": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/durane-official.webp",
+        "bytes": 574746,
+        "sha256": "49283c07c9b9d1c57107af7539da414307428c191b605c874a5998f44619a313",
+        "width": 1536,
+        "height": 1024
+      },
+      "preview": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/durane-official-small.webp",
+        "bytes": 56354,
+        "sha256": "1ec2417d9c9e4efefad8987742f11052bd1ff43c36a9ee51a4d5fcf414ceec1d",
+        "width": 384,
+        "height": 256
+      }
+    },
+    {
+      "id": "woodland-street",
+      "prompt": "Use case: stylized-concept. One production bitmap background for Kalistar Astraball. Landscape 1536x1024, fine HD-2D PIXEL ART, crisp intentional pixel clusters and stepped edges, rich JRPG scenery at roughly 768x512 logical resolution enlarged2x, no photographic paint blur. Elevated front orthographic view, long edges of playfield strictly horizontal, NOT a diamond and no strong vanishing perspective. Critical composition: upper environment entirely above y=380. One huge uninterrupted flat rectangular playing surface x=80..1456,y=410..850, the safe rectangle x=176..1360,y=432..820 completely empty. Very low-contrast ground texture. Enough margin around field. Foreground environment below y=860. Buildings/pillars/props never overlap the safe rectangle. ALL game lines, goals, players and UI are rendered separately: NO painted lines, no court grid, no circles, no goal structures, no text, no lettering, no logo, no watermark. Reference image is architectural/mood identity ONLY, not camera composition. City identity: Cerelf city of giant living trees shaped into antler-branched ivory-gold architecture, green foliage, turquoise waterfalls and delicate wooden bridges. New scene: Neighborhood clearing on a moss-green smooth earth terrace between huge roots, modest elevated homes and water in background. Wooden benches made by residents. Afternoon leaves. Maintain truly visible pixels, beautiful sophisticated lighting, never painterly smudges.",
+      "ref": "V4/site/assets/map/portraits/woodland-07-small.webp",
+      "reference": {
+        "file": "V4/site/assets/map/portraits/woodland-07-small.webp",
+        "bytes": 156020,
+        "sha256": "27957feeb3014fc38e806beb5ed8e54c883cc0239d87e7ae621ce26657eb5720",
+        "width": 768,
+        "height": 432
+      },
+      "source": {
+        "file": "C:/Users/guill/.codex/generated_images/01a1710d-e804-7a01-9af3-13884b143f00/exec-bde10eb0-79de-4c41-8e3b-e84804901678.png",
+        "bytes": 3745819,
+        "sha256": "e270f6bea096de95bc7d0a610b1916e1ad1655ebac2bb1334f2dc60f82d9dddd",
+        "width": 1536,
+        "height": 1024
+      },
+      "original": {
+        "file": "V4/astraball/sources/arenas-pixel-v1/originals/woodland-street.png",
+        "bytes": 3745819,
+        "sha256": "e270f6bea096de95bc7d0a610b1916e1ad1655ebac2bb1334f2dc60f82d9dddd",
+        "width": 1536,
+        "height": 1024
+      },
+      "backup": {
+        "file": "C:\\Users\\guill\\Documents\\Kalistar-sauvegardes\\astraball-arenas-pixel-v1\\originals\\woodland-street.png",
+        "bytes": 3745819,
+        "sha256": "e270f6bea096de95bc7d0a610b1916e1ad1655ebac2bb1334f2dc60f82d9dddd",
+        "width": 1536,
+        "height": 1024
+      },
+      "full": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/woodland-street.webp",
+        "bytes": 743036,
+        "sha256": "5f7a9cc85d909cab1de7de25c47e032b8cf415bad36d7669cfefab2c427393f3",
+        "width": 1536,
+        "height": 1024
+      },
+      "preview": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/woodland-street-small.webp",
+        "bytes": 64720,
+        "sha256": "097d6145649520e1bc2ff68268ce07791a8ca8c9b09147f03f4ff49d74ec3078",
+        "width": 384,
+        "height": 256
+      }
+    },
+    {
+      "id": "woodland-official",
+      "prompt": "Use case: stylized-concept. One production bitmap background for Kalistar Astraball. Landscape 1536x1024, fine HD-2D PIXEL ART, crisp intentional pixel clusters and stepped edges, rich JRPG scenery at roughly 768x512 logical resolution enlarged2x, no photographic paint blur. Elevated front orthographic view, long edges of playfield strictly horizontal, NOT a diamond and no strong vanishing perspective. Critical composition: upper environment entirely above y=380. One huge uninterrupted flat rectangular playing surface x=80..1456,y=410..850, the safe rectangle x=176..1360,y=432..820 completely empty. Very low-contrast ground texture. Enough margin around field. Foreground environment below y=860. Buildings/pillars/props never overlap the safe rectangle. ALL game lines, goals, players and UI are rendered separately: NO painted lines, no court grid, no circles, no goal structures, no text, no lettering, no logo, no watermark. Reference image is architectural/mood identity ONLY, not camera composition. City identity: Cerelf city of giant living trees shaped into antler-branched ivory-gold architecture, green foliage, turquoise waterfalls and delicate wooden bridges. New scene: Ceremonial organized sports glade ringed by graceful antler-shaped living-wood grandstands and ivory arches, waterfalls visible high behind. Flat muted moss-green court clear of roots. Maintain truly visible pixels, beautiful sophisticated lighting, never painterly smudges.",
+      "ref": "V4/site/assets/map/portraits/woodland-07-small.webp",
+      "reference": {
+        "file": "V4/site/assets/map/portraits/woodland-07-small.webp",
+        "bytes": 156020,
+        "sha256": "27957feeb3014fc38e806beb5ed8e54c883cc0239d87e7ae621ce26657eb5720",
+        "width": 768,
+        "height": 432
+      },
+      "source": {
+        "file": "C:/Users/guill/.codex/generated_images/01a1710d-e804-7a01-9af3-13884b143f00/exec-f13696b5-09ab-4a3e-a89d-944d9f37d29a.png",
+        "bytes": 3504799,
+        "sha256": "550c024f27b77086d04ee20170713901aa49cb90cb3de4d3a3df7eab82cebecb",
+        "width": 1536,
+        "height": 1024
+      },
+      "original": {
+        "file": "V4/astraball/sources/arenas-pixel-v1/originals/woodland-official.png",
+        "bytes": 3504799,
+        "sha256": "550c024f27b77086d04ee20170713901aa49cb90cb3de4d3a3df7eab82cebecb",
+        "width": 1536,
+        "height": 1024
+      },
+      "backup": {
+        "file": "C:\\Users\\guill\\Documents\\Kalistar-sauvegardes\\astraball-arenas-pixel-v1\\originals\\woodland-official.png",
+        "bytes": 3504799,
+        "sha256": "550c024f27b77086d04ee20170713901aa49cb90cb3de4d3a3df7eab82cebecb",
+        "width": 1536,
+        "height": 1024
+      },
+      "full": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/woodland-official.webp",
+        "bytes": 685616,
+        "sha256": "b5f772da0eab9d29bd2e84c72e1cec6daa35bfa7298722fd647f29f280e4abc5",
+        "width": 1536,
+        "height": 1024
+      },
+      "preview": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/woodland-official-small.webp",
+        "bytes": 67202,
+        "sha256": "ca60dc609e6ef68a875cc3d025b896cc6c314b7e7224ee1f6bd30a0e17edc398",
+        "width": 384,
+        "height": 256
+      }
+    },
+    {
+      "id": "arborium-street",
+      "prompt": "Use case: stylized-concept. One production bitmap background for Kalistar Astraball. Landscape 1536x1024, fine HD-2D PIXEL ART, crisp intentional pixel clusters and stepped edges, rich JRPG scenery at roughly 768x512 logical resolution enlarged2x, no photographic paint blur. Elevated front orthographic view, long edges of playfield strictly horizontal, NOT a diamond and no strong vanishing perspective. Critical composition: upper environment entirely above y=380. One huge uninterrupted flat rectangular playing surface x=80..1456,y=410..850, the safe rectangle x=176..1360,y=432..820 completely empty. Very low-contrast ground texture. Enough margin around field. Foreground environment below y=860. Buildings/pillars/props never overlap the safe rectangle. ALL game lines, goals, players and UI are rendered separately: NO painted lines, no court grid, no circles, no goal structures, no text, no lettering, no logo, no watermark. Reference image is architectural/mood identity ONLY, not camera composition. City identity: City of verdant districts enclosed by one colossal transparent bronze-ribbed dome, central pale botanical palace-laboratory. Inside dome view with curved ribs and diffuse warm sun. New scene: Humble paved courtyard among greenhouse workshops, hanging plant boxes and brass irrigation pipes, glass dome ribs visible overhead. Quiet muted pale olive ground, home-built neighborhood benches. Maintain truly visible pixels, beautiful sophisticated lighting, never painterly smudges.",
+      "ref": "V4/site/assets/map/portraits/arborium-11-small.webp",
+      "reference": {
+        "file": "V4/site/assets/map/portraits/arborium-11-small.webp",
+        "bytes": 121238,
+        "sha256": "d019b45f12b74969850610c55a5853dafca7a756fc569971b1ced33affb1acc5",
+        "width": 768,
+        "height": 432
+      },
+      "source": {
+        "file": "C:/Users/guill/.codex/generated_images/01a1710d-e804-7a01-9af3-13884b143f00/exec-792b3878-b08d-42ab-ab8a-706596180717.png",
+        "bytes": 3181847,
+        "sha256": "77a5fba0abe3ea4d2e9cbdf9c84f19c9e8590889860c6f2902b996d902fcfb12",
+        "width": 1536,
+        "height": 1024
+      },
+      "original": {
+        "file": "V4/astraball/sources/arenas-pixel-v1/originals/arborium-street.png",
+        "bytes": 3181847,
+        "sha256": "77a5fba0abe3ea4d2e9cbdf9c84f19c9e8590889860c6f2902b996d902fcfb12",
+        "width": 1536,
+        "height": 1024
+      },
+      "backup": {
+        "file": "C:\\Users\\guill\\Documents\\Kalistar-sauvegardes\\astraball-arenas-pixel-v1\\originals\\arborium-street.png",
+        "bytes": 3181847,
+        "sha256": "77a5fba0abe3ea4d2e9cbdf9c84f19c9e8590889860c6f2902b996d902fcfb12",
+        "width": 1536,
+        "height": 1024
+      },
+      "full": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/arborium-street.webp",
+        "bytes": 576040,
+        "sha256": "71cd04cd589dffd1cf9d9ba621c0ffbfae457a1cba130f7e7488589a5092fd23",
+        "width": 1536,
+        "height": 1024
+      },
+      "preview": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/arborium-street-small.webp",
+        "bytes": 55074,
+        "sha256": "232bcb74c910d5b8090e8982d29e54da62bf2b2b06cc91174da489ba6637cbef",
+        "width": 384,
+        "height": 256
+      }
+    },
+    {
+      "id": "arborium-official",
+      "prompt": "Use case: stylized-concept. One production bitmap background for Kalistar Astraball. Landscape 1536x1024, fine HD-2D PIXEL ART, crisp intentional pixel clusters and stepped edges, rich JRPG scenery at roughly 768x512 logical resolution enlarged2x, no photographic paint blur. Elevated front orthographic view, long edges of playfield strictly horizontal, NOT a diamond and no strong vanishing perspective. Critical composition: upper environment entirely above y=380. One huge uninterrupted flat rectangular playing surface x=80..1456,y=410..850, the safe rectangle x=176..1360,y=432..820 completely empty. Very low-contrast ground texture. Enough margin around field. Foreground environment below y=860. Buildings/pillars/props never overlap the safe rectangle. ALL game lines, goals, players and UI are rendered separately: NO painted lines, no court grid, no circles, no goal structures, no text, no lettering, no logo, no watermark. Reference image is architectural/mood identity ONLY, not camera composition. City identity: City of verdant districts enclosed by one colossal transparent bronze-ribbed dome, central pale botanical palace-laboratory. Inside dome view with curved ribs and diffuse warm sun. New scene: Official university-like city sports court inside enormous ribbed dome, terraced botanical galleries, organized bronze and green bleachers, palace-laboratory visible in distance. Smooth muted green-gray mineral floor. Maintain truly visible pixels, beautiful sophisticated lighting, never painterly smudges.",
+      "ref": "V4/site/assets/map/portraits/arborium-11-small.webp",
+      "reference": {
+        "file": "V4/site/assets/map/portraits/arborium-11-small.webp",
+        "bytes": 121238,
+        "sha256": "d019b45f12b74969850610c55a5853dafca7a756fc569971b1ced33affb1acc5",
+        "width": 768,
+        "height": 432
+      },
+      "source": {
+        "file": "C:/Users/guill/.codex/generated_images/01a1710d-e804-7a01-9af3-13884b143f00/exec-59ea502d-04cc-4e0f-abe4-9ce23b9cf51b.png",
+        "bytes": 3133165,
+        "sha256": "6b586ece2550f4a64197055a9e510a3e3a03f55de12603c59cdd4dcd048ecfc1",
+        "width": 1536,
+        "height": 1024
+      },
+      "original": {
+        "file": "V4/astraball/sources/arenas-pixel-v1/originals/arborium-official.png",
+        "bytes": 3133165,
+        "sha256": "6b586ece2550f4a64197055a9e510a3e3a03f55de12603c59cdd4dcd048ecfc1",
+        "width": 1536,
+        "height": 1024
+      },
+      "backup": {
+        "file": "C:\\Users\\guill\\Documents\\Kalistar-sauvegardes\\astraball-arenas-pixel-v1\\originals\\arborium-official.png",
+        "bytes": 3133165,
+        "sha256": "6b586ece2550f4a64197055a9e510a3e3a03f55de12603c59cdd4dcd048ecfc1",
+        "width": 1536,
+        "height": 1024
+      },
+      "full": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/arborium-official.webp",
+        "bytes": 561706,
+        "sha256": "9227b6e8986fd400689f3ba2b4e764159d096fe97db66369a16a3553fe6715a1",
+        "width": 1536,
+        "height": 1024
+      },
+      "preview": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/arborium-official-small.webp",
+        "bytes": 57674,
+        "sha256": "816df548e8d1b1f3a4ea0798818a488229a51a1b4e42db1b49db717fed4385b1",
+        "width": 384,
+        "height": 256
+      }
+    },
+    {
+      "id": "velane-street",
+      "prompt": "Use case: stylized-concept. One production bitmap background for Kalistar Astraball. Landscape 1536x1024, fine HD-2D PIXEL ART, crisp intentional pixel clusters and stepped edges, rich JRPG scenery at roughly 768x512 logical resolution enlarged2x, no photographic paint blur. Elevated front orthographic view, long edges of playfield strictly horizontal, NOT a diamond and no strong vanishing perspective. Critical composition: upper environment entirely above y=380. One huge uninterrupted flat rectangular playing surface x=80..1456,y=410..850, the safe rectangle x=176..1360,y=432..820 completely empty. Very low-contrast ground texture. Enough margin around field. Foreground environment below y=860. Buildings/pillars/props never overlap the safe rectangle. ALL game lines, goals, players and UI are rendered separately: NO painted lines, no court grid, no circles, no goal structures, no text, no lettering, no logo, no watermark. Reference image is architectural/mood identity ONLY, not camera composition. City identity: Human woodland village of rustic timber treehouses, rope footbridges, warm small lanterns and leafy giant trees. No elven palaces. New scene: Village clearing with compact tan earth ground, simple wooden cabins in giant trees, rope fences, hand-built benches, vegetable baskets outside court, warm morning. Maintain truly visible pixels, beautiful sophisticated lighting, never painterly smudges. CRITICAL: no flags, no fabric banners, no shields, no invented heraldry anywhere. Authentic faction flags are composited separately. Bleacher rows and seats use the SAME architectural scale as other stadia: around12 pixels seat width,8px row rise in1536x1024 art. Official venues larger by more rows not enlarged benches. Safe ground rectangle must remain empty and spacious. The entire venue is EMPTY. Absolutely NO PEOPLE, NO SPECTATORS in stands or streets. Empty seats and benches only. No humans or creatures anywhere.",
+      "ref": "V4/site/assets/map/portraits/velane-01-small.webp",
+      "reference": {
+        "file": "V4/site/assets/map/portraits/velane-01-small.webp",
+        "bytes": 144412,
+        "sha256": "8aec49a85c96880e0e5a548c33f4d61ee81aebf8717034f48a286fe616ab5d3f",
+        "width": 768,
+        "height": 432
+      },
+      "source": {
+        "file": "C:/Users/guill/.codex/generated_images/01a1710d-e804-7a01-9af3-13884b143f00/exec-fda44664-647f-4a15-b8c8-2ae626565986.png",
+        "bytes": 3530313,
+        "sha256": "168ad7935c1a4c1154cd2a1504b5f775e585050cbc667d45332ae4701003091e",
+        "width": 1536,
+        "height": 1024
+      },
+      "original": {
+        "file": "V4/astraball/sources/arenas-pixel-v1/originals/velane-street.png",
+        "bytes": 3530313,
+        "sha256": "168ad7935c1a4c1154cd2a1504b5f775e585050cbc667d45332ae4701003091e",
+        "width": 1536,
+        "height": 1024
+      },
+      "backup": {
+        "file": "C:\\Users\\guill\\Documents\\Kalistar-sauvegardes\\astraball-arenas-pixel-v1\\originals\\velane-street.png",
+        "bytes": 3530313,
+        "sha256": "168ad7935c1a4c1154cd2a1504b5f775e585050cbc667d45332ae4701003091e",
+        "width": 1536,
+        "height": 1024
+      },
+      "full": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/velane-street.webp",
+        "bytes": 668074,
+        "sha256": "99ec45c2745b56653f7ef27124e24365e03fbafbad343dc082ca41edd132f33f",
+        "width": 1536,
+        "height": 1024
+      },
+      "preview": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/velane-street-small.webp",
+        "bytes": 58872,
+        "sha256": "d07a0717bcb2258f4c5b879345e0cb215f04d407a1860624f2d7cd652283b617",
+        "width": 384,
+        "height": 256
+      }
+    },
+    {
+      "id": "velane-official",
+      "prompt": "Use case: stylized-concept. One production bitmap background for Kalistar Astraball. Landscape 1536x1024, fine HD-2D PIXEL ART, crisp intentional pixel clusters and stepped edges, rich JRPG scenery at roughly 768x512 logical resolution enlarged2x, no photographic paint blur. Elevated front orthographic view, long edges of playfield strictly horizontal, NOT a diamond and no strong vanishing perspective. Critical composition: upper environment entirely above y=380. One huge uninterrupted flat rectangular playing surface x=80..1456,y=410..850, the safe rectangle x=176..1360,y=432..820 completely empty. Very low-contrast ground texture. Enough margin around field. Foreground environment below y=860. Buildings/pillars/props never overlap the safe rectangle. ALL game lines, goals, players and UI are rendered separately: NO painted lines, no court grid, no circles, no goal structures, no text, no lettering, no logo, no watermark. Reference image is architectural/mood identity ONLY, not camera composition. City identity: Human woodland village of rustic timber treehouses, rope footbridges, warm small lanterns and leafy giant trees. No elven palaces. New scene: Well-kept official village tournament field of compact earth with stout timber bleachers, freshly maintained railings, bare timber rails, treehouses beyond. Still a rustic human village not a marble city. Maintain truly visible pixels, beautiful sophisticated lighting, never painterly smudges. CRITICAL: no flags, no fabric banners, no shields, no invented heraldry anywhere. Authentic faction flags are composited separately. Bleacher rows and seats use the SAME architectural scale as other stadia: around12 pixels seat width,8px row rise in1536x1024 art. Official venues larger by more rows not enlarged benches. Safe ground rectangle must remain empty and spacious. The entire venue is EMPTY. Absolutely NO PEOPLE, NO SPECTATORS in stands or streets. Empty seats and benches only. No humans or creatures anywhere.",
+      "ref": "V4/site/assets/map/portraits/velane-01-small.webp",
+      "reference": {
+        "file": "V4/site/assets/map/portraits/velane-01-small.webp",
+        "bytes": 144412,
+        "sha256": "8aec49a85c96880e0e5a548c33f4d61ee81aebf8717034f48a286fe616ab5d3f",
+        "width": 768,
+        "height": 432
+      },
+      "source": {
+        "file": "C:/Users/guill/.codex/generated_images/01a1710d-e804-7a01-9af3-13884b143f00/exec-9c71d1d4-6b62-4beb-b137-3c31ba69285e.png",
+        "bytes": 3728208,
+        "sha256": "76e8419e7b06da4612dc9e6b0e06320604bcdea8138616593e1406bd6771d192",
+        "width": 1536,
+        "height": 1024
+      },
+      "original": {
+        "file": "V4/astraball/sources/arenas-pixel-v1/originals/velane-official.png",
+        "bytes": 3728208,
+        "sha256": "76e8419e7b06da4612dc9e6b0e06320604bcdea8138616593e1406bd6771d192",
+        "width": 1536,
+        "height": 1024
+      },
+      "backup": {
+        "file": "C:\\Users\\guill\\Documents\\Kalistar-sauvegardes\\astraball-arenas-pixel-v1\\originals\\velane-official.png",
+        "bytes": 3728208,
+        "sha256": "76e8419e7b06da4612dc9e6b0e06320604bcdea8138616593e1406bd6771d192",
+        "width": 1536,
+        "height": 1024
+      },
+      "full": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/velane-official.webp",
+        "bytes": 714690,
+        "sha256": "1929cd5f4db58d26770bdd62600348a10676009dee250b492faa019a132b846a",
+        "width": 1536,
+        "height": 1024
+      },
+      "preview": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/velane-official-small.webp",
+        "bytes": 62264,
+        "sha256": "628b55a37a1319b88dc9231d216222783225333916d4c249c034ec960ca920b5",
+        "width": 384,
+        "height": 256
+      }
+    },
+    {
+      "id": "vulkar-street",
+      "prompt": "Use case: stylized-concept. One production bitmap background for Kalistar Astraball. Landscape 1536x1024, fine HD-2D PIXEL ART, crisp intentional pixel clusters and stepped edges, rich JRPG scenery at roughly 768x512 logical resolution enlarged2x, no photographic paint blur. Elevated front orthographic view, long edges of playfield strictly horizontal, NOT a diamond and no strong vanishing perspective. Critical composition: upper environment entirely above y=380. One huge uninterrupted flat rectangular playing surface x=80..1456,y=410..850, the safe rectangle x=176..1360,y=432..820 completely empty. Very low-contrast ground texture. Enough margin around field. Foreground environment below y=860. Buildings/pillars/props never overlap the safe rectangle. ALL game lines, goals, players and UI are rendered separately: NO painted lines, no court grid, no circles, no goal structures, no text, no lettering, no logo, no watermark. Reference image is architectural/mood identity ONLY, not camera composition. City identity: Volcanic city INSIDE an isolated massive black crater, layered dark basalt citadels, distant low lava channels, black lake, smoky gray sky. No mountains outside crater crown, no volcano above it. New scene: A workers basalt courtyard by small forge doorways and black stone homes under crater wall, copper pipes, ember lanterns beyond edges. Smooth low-contrast ash-gray compact volcanic sand court with NO lava or cracks in play area. Maintain truly visible pixels, beautiful sophisticated lighting, never painterly smudges. CRITICAL: no flags, no fabric banners, no shields, no invented heraldry anywhere. Authentic faction flags are composited separately. Bleacher rows and seats use the SAME architectural scale as other stadia: around12 pixels seat width,8px row rise in1536x1024 art. Official venues larger by more rows not enlarged benches. Safe ground rectangle must remain empty and spacious. The entire venue is EMPTY. Absolutely NO PEOPLE, NO SPECTATORS in stands or streets. Empty seats and benches only. No humans or creatures anywhere.",
+      "ref": "V4/site/assets/map/portraits/vulkar-12-small.webp",
+      "reference": {
+        "file": "V4/site/assets/map/portraits/vulkar-12-small.webp",
+        "bytes": 110550,
+        "sha256": "94a0ada2eb10e675f12cadce90ee404c64c6c662dc482503b4ee54fe2bdcfd1d",
+        "width": 768,
+        "height": 432
+      },
+      "source": {
+        "file": "C:/Users/guill/.codex/generated_images/01a1710d-e804-7a01-9af3-13884b143f00/exec-b87f4981-c8b1-4d77-a318-af64b5254b30.png",
+        "bytes": 3282943,
+        "sha256": "5d23e5f9b21f8802530b5caa207307eb94c0bfd9e09d912dcb97c6d3f30a6d0a",
+        "width": 1536,
+        "height": 1024
+      },
+      "original": {
+        "file": "V4/astraball/sources/arenas-pixel-v1/originals/vulkar-street.png",
+        "bytes": 3282943,
+        "sha256": "5d23e5f9b21f8802530b5caa207307eb94c0bfd9e09d912dcb97c6d3f30a6d0a",
+        "width": 1536,
+        "height": 1024
+      },
+      "backup": {
+        "file": "C:\\Users\\guill\\Documents\\Kalistar-sauvegardes\\astraball-arenas-pixel-v1\\originals\\vulkar-street.png",
+        "bytes": 3282943,
+        "sha256": "5d23e5f9b21f8802530b5caa207307eb94c0bfd9e09d912dcb97c6d3f30a6d0a",
+        "width": 1536,
+        "height": 1024
+      },
+      "full": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/vulkar-street.webp",
+        "bytes": 540232,
+        "sha256": "e2000cfbb6c8f605813f9730c770abb91f0bea03be24621e5d57c57f7fa1abb8",
+        "width": 1536,
+        "height": 1024
+      },
+      "preview": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/vulkar-street-small.webp",
+        "bytes": 50086,
+        "sha256": "bbafdcbd1d7db6efc2be2b76b378e783fc8ed0cda324010820fe1f355fe50230",
+        "width": 384,
+        "height": 256
+      }
+    },
+    {
+      "id": "vulkar-official",
+      "prompt": "Use case: stylized-concept. One production bitmap background for Kalistar Astraball. Landscape 1536x1024, fine HD-2D PIXEL ART, crisp intentional pixel clusters and stepped edges, rich JRPG scenery at roughly 768x512 logical resolution enlarged2x, no photographic paint blur. Elevated front orthographic view, long edges of playfield strictly horizontal, NOT a diamond and no strong vanishing perspective. Critical composition: upper environment entirely above y=380. One huge uninterrupted flat rectangular playing surface x=80..1456,y=410..850, the safe rectangle x=176..1360,y=432..820 completely empty. Very low-contrast ground texture. Enough margin around field. Foreground environment below y=860. Buildings/pillars/props never overlap the safe rectangle. ALL game lines, goals, players and UI are rendered separately: NO painted lines, no court grid, no circles, no goal structures, no text, no lettering, no logo, no watermark. Reference image is architectural/mood identity ONLY, not camera composition. City identity: Volcanic city INSIDE an isolated massive black crater, layered dark basalt citadels, distant low lava channels, black lake, smoky gray sky. No mountains outside crater crown, no volcano above it. New scene: An official imposing basalt arena built into inner crater cliffs, structured black iron stands and bare iron rails, forge towers far behind. Smooth flat cool dark-gray stone playing surface lit enough to read. Distant magma only behind stands. Maintain truly visible pixels, beautiful sophisticated lighting, never painterly smudges. CRITICAL: no flags, no fabric banners, no shields, no invented heraldry anywhere. Authentic faction flags are composited separately. Bleacher rows and seats use the SAME architectural scale as other stadia: around12 pixels seat width,8px row rise in1536x1024 art. Official venues larger by more rows not enlarged benches. Safe ground rectangle must remain empty and spacious. The entire venue is EMPTY. Absolutely NO PEOPLE, NO SPECTATORS in stands or streets. Empty seats and benches only. No humans or creatures anywhere.",
+      "ref": "V4/site/assets/map/portraits/vulkar-12-small.webp",
+      "reference": {
+        "file": "V4/site/assets/map/portraits/vulkar-12-small.webp",
+        "bytes": 110550,
+        "sha256": "94a0ada2eb10e675f12cadce90ee404c64c6c662dc482503b4ee54fe2bdcfd1d",
+        "width": 768,
+        "height": 432
+      },
+      "source": {
+        "file": "C:/Users/guill/.codex/generated_images/01a1710d-e804-7a01-9af3-13884b143f00/exec-6b707cbe-74f3-40cf-a50d-8f0975364415.png",
+        "bytes": 3340471,
+        "sha256": "397e54eb81d5f8561e62a55a32e68d69dc626e4bad8618b6b46e3194f2d303ee",
+        "width": 1536,
+        "height": 1024
+      },
+      "original": {
+        "file": "V4/astraball/sources/arenas-pixel-v1/originals/vulkar-official.png",
+        "bytes": 3340471,
+        "sha256": "397e54eb81d5f8561e62a55a32e68d69dc626e4bad8618b6b46e3194f2d303ee",
+        "width": 1536,
+        "height": 1024
+      },
+      "backup": {
+        "file": "C:\\Users\\guill\\Documents\\Kalistar-sauvegardes\\astraball-arenas-pixel-v1\\originals\\vulkar-official.png",
+        "bytes": 3340471,
+        "sha256": "397e54eb81d5f8561e62a55a32e68d69dc626e4bad8618b6b46e3194f2d303ee",
+        "width": 1536,
+        "height": 1024
+      },
+      "full": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/vulkar-official.webp",
+        "bytes": 605496,
+        "sha256": "44e14dadee9b4d5279eb760e04755568410c5dbfe7a0c198d2fff2ee5bc4666d",
+        "width": 1536,
+        "height": 1024
+      },
+      "preview": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/vulkar-official-small.webp",
+        "bytes": 54952,
+        "sha256": "fe2ce5cecd4e1b39984aa48fa83676570028d3da2f103e2f64ff813630f93de6",
+        "width": 384,
+        "height": 256
+      }
+    },
+    {
+      "id": "cryptown-street",
+      "prompt": "Use case: stylized-concept. One production bitmap background for Kalistar Astraball. Landscape 1536x1024, fine HD-2D PIXEL ART, crisp intentional pixel clusters and stepped edges, rich JRPG scenery at roughly 768x512 logical resolution enlarged2x, no photographic paint blur. Elevated front orthographic view, long edges of playfield strictly horizontal, NOT a diamond and no strong vanishing perspective. Critical composition: upper environment entirely above y=380. One huge uninterrupted flat rectangular playing surface x=80..1456,y=410..850, the safe rectangle x=176..1360,y=432..820 completely empty. Very low-contrast ground texture. Enough margin around field. Foreground environment below y=860. Buildings/pillars/props never overlap the safe rectangle. ALL game lines, goals, players and UI are rendered separately: NO painted lines, no court grid, no circles, no goal structures, no text, no lettering, no logo, no watermark. Reference image is architectural/mood identity ONLY, not camera composition. City identity: Skullz necropolis on ledges of vast abyss, weathered Gothic mausoleums, long bridge spans, candlelight, slate mist, plum fabric. No gore, no lava. New scene: Local stone courtyard between old mausoleum facades and wrought iron fence overlooking deep misty chasm; simple stone seating and lamps. Flat muted light slate ground. Maintain truly visible pixels, beautiful sophisticated lighting, never painterly smudges. CRITICAL: no flags, no fabric banners, no shields, no invented heraldry anywhere. Authentic faction flags are composited separately. Bleacher rows and seats use the SAME architectural scale as other stadia: around12 pixels seat width,8px row rise in1536x1024 art. Official venues larger by more rows not enlarged benches. Safe ground rectangle must remain empty and spacious. The entire venue is EMPTY. Absolutely NO PEOPLE, NO SPECTATORS in stands or streets. Empty seats and benches only. No humans or creatures anywhere.",
+      "ref": "V4/site/assets/map/portraits/cryptown-03-small.webp",
+      "reference": {
+        "file": "V4/site/assets/map/portraits/cryptown-03-small.webp",
+        "bytes": 99290,
+        "sha256": "ffd8f978b4e32df68b860c0ff4d9ba63bdaef59a6b5217c84f2172c75921373d",
+        "width": 768,
+        "height": 432
+      },
+      "source": {
+        "file": "C:/Users/guill/.codex/generated_images/01a1710d-e804-7a01-9af3-13884b143f00/exec-85408c12-738c-4df7-9001-d9c4f4d119f3.png",
+        "bytes": 3439017,
+        "sha256": "b438317311c3dc33b947fd49ab8ac088f301703cda7610e037050aab93f225e6",
+        "width": 1536,
+        "height": 1024
+      },
+      "original": {
+        "file": "V4/astraball/sources/arenas-pixel-v1/originals/cryptown-street.png",
+        "bytes": 3439017,
+        "sha256": "b438317311c3dc33b947fd49ab8ac088f301703cda7610e037050aab93f225e6",
+        "width": 1536,
+        "height": 1024
+      },
+      "backup": {
+        "file": "C:\\Users\\guill\\Documents\\Kalistar-sauvegardes\\astraball-arenas-pixel-v1\\originals\\cryptown-street.png",
+        "bytes": 3439017,
+        "sha256": "b438317311c3dc33b947fd49ab8ac088f301703cda7610e037050aab93f225e6",
+        "width": 1536,
+        "height": 1024
+      },
+      "full": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/cryptown-street.webp",
+        "bytes": 604094,
+        "sha256": "68dbfb117487e0d81dacf1b4be9293a7b0bb655ded5c93c27adf71995ff933d2",
+        "width": 1536,
+        "height": 1024
+      },
+      "preview": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/cryptown-street-small.webp",
+        "bytes": 54024,
+        "sha256": "9a8527b9729bed2ad190c57c6e0cee2a0667c62cfd0d33ee27082ddb50fee42c",
+        "width": 384,
+        "height": 256
+      }
+    },
+    {
+      "id": "cryptown-official",
+      "prompt": "Use case: stylized-concept. One production bitmap background for Kalistar Astraball. Landscape 1536x1024, fine HD-2D PIXEL ART, crisp intentional pixel clusters and stepped edges, rich JRPG scenery at roughly 768x512 logical resolution enlarged2x, no photographic paint blur. Elevated front orthographic view, long edges of playfield strictly horizontal, NOT a diamond and no strong vanishing perspective. Critical composition: upper environment entirely above y=380. One huge uninterrupted flat rectangular playing surface x=80..1456,y=410..850, the safe rectangle x=176..1360,y=432..820 completely empty. Very low-contrast ground texture. Enough margin around field. Foreground environment below y=860. Buildings/pillars/props never overlap the safe rectangle. ALL game lines, goals, players and UI are rendered separately: NO painted lines, no court grid, no circles, no goal structures, no text, no lettering, no logo, no watermark. Reference image is architectural/mood identity ONLY, not camera composition. City identity: Skullz necropolis on ledges of vast abyss, weathered Gothic mausoleums, long bridge spans, candlelight, slate mist, plum fabric. No gore, no lava. New scene: Official monumental amphitheater with Gothic tiered stone galleries, carved memorial reliefs, weathered bare stone pillars and warm candle rows around distant edges above huge abyss. Clear flat cool-gray limestone court. Maintain truly visible pixels, beautiful sophisticated lighting, never painterly smudges. CRITICAL: no flags, no fabric banners, no shields, no invented heraldry anywhere. Authentic faction flags are composited separately. Bleacher rows and seats use the SAME architectural scale as other stadia: around12 pixels seat width,8px row rise in1536x1024 art. Official venues larger by more rows not enlarged benches. Safe ground rectangle must remain empty and spacious. The entire venue is EMPTY. Absolutely NO PEOPLE, NO SPECTATORS in stands or streets. Empty seats and benches only. No humans or creatures anywhere.",
+      "ref": "V4/site/assets/map/portraits/cryptown-03-small.webp",
+      "reference": {
+        "file": "V4/site/assets/map/portraits/cryptown-03-small.webp",
+        "bytes": 99290,
+        "sha256": "ffd8f978b4e32df68b860c0ff4d9ba63bdaef59a6b5217c84f2172c75921373d",
+        "width": 768,
+        "height": 432
+      },
+      "source": {
+        "file": "C:/Users/guill/.codex/generated_images/01a1710d-e804-7a01-9af3-13884b143f00/exec-66ebb98d-d973-4d12-b65c-be4ba5ad32f0.png",
+        "bytes": 3364364,
+        "sha256": "3159eb31bb595c674c8eef382870c0a1e9b2d30ab8468b5751eb33aed4e9a367",
+        "width": 1536,
+        "height": 1024
+      },
+      "original": {
+        "file": "V4/astraball/sources/arenas-pixel-v1/originals/cryptown-official.png",
+        "bytes": 3364364,
+        "sha256": "3159eb31bb595c674c8eef382870c0a1e9b2d30ab8468b5751eb33aed4e9a367",
+        "width": 1536,
+        "height": 1024
+      },
+      "backup": {
+        "file": "C:\\Users\\guill\\Documents\\Kalistar-sauvegardes\\astraball-arenas-pixel-v1\\originals\\cryptown-official.png",
+        "bytes": 3364364,
+        "sha256": "3159eb31bb595c674c8eef382870c0a1e9b2d30ab8468b5751eb33aed4e9a367",
+        "width": 1536,
+        "height": 1024
+      },
+      "full": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/cryptown-official.webp",
+        "bytes": 569776,
+        "sha256": "b4538e48c1fe863f9820df4af12e249b7443e47cc11696741af91481557aa809",
+        "width": 1536,
+        "height": 1024
+      },
+      "preview": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/cryptown-official-small.webp",
+        "bytes": 53208,
+        "sha256": "345a5ea93a1926f6ecfdbeb3ec77e78a2febf77b5c29dae2e1bed3314d0dbab6",
+        "width": 384,
+        "height": 256
+      }
+    },
+    {
+      "id": "thalassea-street",
+      "prompt": "Use case: stylized-concept. One production bitmap background for Kalistar Astraball. Landscape 1536x1024, fine HD-2D PIXEL ART, crisp intentional pixel clusters and stepped edges, rich JRPG scenery at roughly 768x512 logical resolution enlarged2x, no photographic paint blur. Elevated front orthographic view, long edges of playfield strictly horizontal, NOT a diamond and no strong vanishing perspective. Critical composition: upper environment entirely above y=380. One huge uninterrupted flat rectangular playing surface x=80..1456,y=410..850, the safe rectangle x=176..1360,y=432..820 completely empty. Very low-contrast ground texture. Enough margin around field. Foreground environment below y=860. Buildings/pillars/props never overlap the safe rectangle. ALL game lines, goals, players and UI are rendered separately: NO painted lines, no court grid, no circles, no goal structures, no text, no lettering, no logo, no watermark. Reference image is architectural/mood identity ONLY, not camera composition. City identity: A beautiful marine city INSIDE a transparent protective bubble on the seabed, brass-white slender architecture, turquoise and coral ornaments. Above and outside is continuous ocean with sunshafts and distant fish, NO open sky, no exterior waterfalls. Air and dry streets inside bubble. New scene: A small dry pearl-stone neighborhood square INSIDE underwater dome, curved homes with turquoise windows, brass pipes, sea garden boxes outside field. Quiet pale blue-gray dry stone playing surface. Maintain truly visible pixels, beautiful sophisticated lighting, never painterly smudges. CRITICAL: no flags, no fabric banners, no shields, no invented heraldry anywhere. Authentic faction flags are composited separately. Bleacher rows and seats use the SAME architectural scale as other stadia: around12 pixels seat width,8px row rise in1536x1024 art. Official venues larger by more rows not enlarged benches. Safe ground rectangle must remain empty and spacious. The entire venue is EMPTY. Absolutely NO PEOPLE, NO SPECTATORS in stands or streets. Empty seats and benches only. No humans or creatures anywhere.",
+      "ref": "V4/site/assets/map/portraits/thalassea-13-small.webp",
+      "reference": {
+        "file": "V4/site/assets/map/portraits/thalassea-13-small.webp",
+        "bytes": 118678,
+        "sha256": "94ec4fa35694cdcbb73eaa7d24f11a4443d6042a6bea5aa3e0ef61b50b6c982a",
+        "width": 768,
+        "height": 432
+      },
+      "source": {
+        "file": "C:/Users/guill/.codex/generated_images/01a1710d-e804-7a01-9af3-13884b143f00/exec-45940489-8b45-4076-b510-0d08afd28566.png",
+        "bytes": 3379508,
+        "sha256": "d5b8890e2613ae650245e596191bf2e7be618fb0ac1d8ef276b50e23afc9dfd9",
+        "width": 1536,
+        "height": 1024
+      },
+      "original": {
+        "file": "V4/astraball/sources/arenas-pixel-v1/originals/thalassea-street.png",
+        "bytes": 3379508,
+        "sha256": "d5b8890e2613ae650245e596191bf2e7be618fb0ac1d8ef276b50e23afc9dfd9",
+        "width": 1536,
+        "height": 1024
+      },
+      "backup": {
+        "file": "C:\\Users\\guill\\Documents\\Kalistar-sauvegardes\\astraball-arenas-pixel-v1\\originals\\thalassea-street.png",
+        "bytes": 3379508,
+        "sha256": "d5b8890e2613ae650245e596191bf2e7be618fb0ac1d8ef276b50e23afc9dfd9",
+        "width": 1536,
+        "height": 1024
+      },
+      "full": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/thalassea-street.webp",
+        "bytes": 640810,
+        "sha256": "8681c0034ca9eabb871ed9f56c8a5d9271559aef0e1075639f2b098263d5ec72",
+        "width": 1536,
+        "height": 1024
+      },
+      "preview": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/thalassea-street-small.webp",
+        "bytes": 62158,
+        "sha256": "bf5356e9c5b4bae5e613a36d8f00a02bab4265b2c779316ca1030c0552f29a14",
+        "width": 384,
+        "height": 256
+      }
+    },
+    {
+      "id": "thalassea-official",
+      "prompt": "Use case: stylized-concept. One production bitmap background for Kalistar Astraball. Landscape 1536x1024, fine HD-2D PIXEL ART, crisp intentional pixel clusters and stepped edges, rich JRPG scenery at roughly 768x512 logical resolution enlarged2x, no photographic paint blur. Elevated front orthographic view, long edges of playfield strictly horizontal, NOT a diamond and no strong vanishing perspective. Critical composition: upper environment entirely above y=380. One huge uninterrupted flat rectangular playing surface x=80..1456,y=410..850, the safe rectangle x=176..1360,y=432..820 completely empty. Very low-contrast ground texture. Enough margin around field. Foreground environment below y=860. Buildings/pillars/props never overlap the safe rectangle. ALL game lines, goals, players and UI are rendered separately: NO painted lines, no court grid, no circles, no goal structures, no text, no lettering, no logo, no watermark. Reference image is architectural/mood identity ONLY, not camera composition. City identity: A beautiful marine city INSIDE a transparent protective bubble on the seabed, brass-white slender architecture, turquoise and coral ornaments. Above and outside is continuous ocean with sunshafts and distant fish, NO open sky, no exterior waterfalls. Air and dry streets inside bubble. New scene: An official maritime city sports pavilion INSIDE dome, organized ivory and brass grandstands, bare brass rails, ocean dome overhead, elegant luminous architecture. Flat matte pale turquoise-gray floor. Maintain truly visible pixels, beautiful sophisticated lighting, never painterly smudges. CRITICAL: no flags, no fabric banners, no shields, no invented heraldry anywhere. Authentic faction flags are composited separately. Bleacher rows and seats use the SAME architectural scale as other stadia: around12 pixels seat width,8px row rise in1536x1024 art. Official venues larger by more rows not enlarged benches. Safe ground rectangle must remain empty and spacious. The entire venue is EMPTY. Absolutely NO PEOPLE, NO SPECTATORS in stands or streets. Empty seats and benches only. No humans or creatures anywhere.",
+      "ref": "V4/site/assets/map/portraits/thalassea-13-small.webp",
+      "reference": {
+        "file": "V4/site/assets/map/portraits/thalassea-13-small.webp",
+        "bytes": 118678,
+        "sha256": "94ec4fa35694cdcbb73eaa7d24f11a4443d6042a6bea5aa3e0ef61b50b6c982a",
+        "width": 768,
+        "height": 432
+      },
+      "source": {
+        "file": "C:/Users/guill/.codex/generated_images/01a1710d-e804-7a01-9af3-13884b143f00/exec-b08eddde-6a79-425f-a7db-ddc2da021013.png",
+        "bytes": 3193256,
+        "sha256": "cba866b50842758c936e6073242267df94e950221caf60e82b0db10ee56babda",
+        "width": 1536,
+        "height": 1024
+      },
+      "original": {
+        "file": "V4/astraball/sources/arenas-pixel-v1/originals/thalassea-official.png",
+        "bytes": 3193256,
+        "sha256": "cba866b50842758c936e6073242267df94e950221caf60e82b0db10ee56babda",
+        "width": 1536,
+        "height": 1024
+      },
+      "backup": {
+        "file": "C:\\Users\\guill\\Documents\\Kalistar-sauvegardes\\astraball-arenas-pixel-v1\\originals\\thalassea-official.png",
+        "bytes": 3193256,
+        "sha256": "cba866b50842758c936e6073242267df94e950221caf60e82b0db10ee56babda",
+        "width": 1536,
+        "height": 1024
+      },
+      "full": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/thalassea-official.webp",
+        "bytes": 561458,
+        "sha256": "997235a98ebd682001e519413f40641a04aa8bb0440c67b7f0fb7ebdf663b671",
+        "width": 1536,
+        "height": 1024
+      },
+      "preview": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/thalassea-official-small.webp",
+        "bytes": 54426,
+        "sha256": "097f3fa5b915fb9474aab77b4fc122dbb561bd375089c2720b7440c667e5d1cf",
+        "width": 384,
+        "height": 256
+      }
+    },
+    {
+      "id": "zarok-street",
+      "prompt": "Use case: stylized-concept. One production bitmap background for Kalistar Astraball. Landscape 1536x1024, fine HD-2D PIXEL ART, crisp intentional pixel clusters and stepped edges, rich JRPG scenery at roughly 768x512 logical resolution enlarged2x, no photographic paint blur. Elevated front orthographic view, long edges of playfield strictly horizontal, NOT a diamond and no strong vanishing perspective. Critical composition: upper environment entirely above y=380. One huge uninterrupted flat rectangular playing surface x=80..1456,y=410..850, the safe rectangle x=176..1360,y=432..820 completely empty. Very low-contrast ground texture. Enough margin around field. Foreground environment below y=860. Buildings/pillars/props never overlap the safe rectangle. ALL game lines, goals, players and UI are rendered separately: NO painted lines, no court grid, no circles, no goal structures, no text, no lettering, no logo, no watermark. Reference image is architectural/mood identity ONLY, not camera composition. City identity: Rhinoz village in temperate rocky forest mountains: heavy timber houses with slate roofs, stone retaining walls, thick rope ties, worn bronze, red and green fabric, warm lanterns. NOT a desert, not savanna tents. New scene: A village street playing yard, firm sandy earth with low stone and timber fence, chunky rustic houses and fir trees in mountains behind, golden late afternoon. Maintain truly visible pixels, beautiful sophisticated lighting, never painterly smudges. CRITICAL: no flags, no fabric banners, no shields, no invented heraldry anywhere. Authentic faction flags are composited separately. Bleacher rows and seats use the SAME architectural scale as other stadia: around12 pixels seat width,8px row rise in1536x1024 art. Official venues larger by more rows not enlarged benches. Safe ground rectangle must remain empty and spacious. The entire venue is EMPTY. Absolutely NO PEOPLE, NO SPECTATORS in stands or streets. Empty seats and benches only. No humans or creatures anywhere.",
+      "ref": "V4/astraball/assets/rhinoz-horizontal-v2.webp",
+      "reference": {
+        "file": "V4/astraball/assets/rhinoz-horizontal-v2.webp",
+        "bytes": 567754,
+        "sha256": "6494f12aed8e3c8c7bf1f2e9880a8bbc926e8f5bdf7daedd63b9874420341924",
+        "width": 1536,
+        "height": 1024
+      },
+      "source": {
+        "file": "C:/Users/guill/.codex/generated_images/01a1710d-e804-7a01-9af3-13884b143f00/exec-5e1e0826-5bcb-4e17-855e-28879df0b943.png",
+        "bytes": 3618483,
+        "sha256": "c92d8159076a22efb3a28adde15579600b8adef9ac1bab48cbd5c02ef880232f",
+        "width": 1536,
+        "height": 1024
+      },
+      "original": {
+        "file": "V4/astraball/sources/arenas-pixel-v1/originals/zarok-street.png",
+        "bytes": 3618483,
+        "sha256": "c92d8159076a22efb3a28adde15579600b8adef9ac1bab48cbd5c02ef880232f",
+        "width": 1536,
+        "height": 1024
+      },
+      "backup": {
+        "file": "C:\\Users\\guill\\Documents\\Kalistar-sauvegardes\\astraball-arenas-pixel-v1\\originals\\zarok-street.png",
+        "bytes": 3618483,
+        "sha256": "c92d8159076a22efb3a28adde15579600b8adef9ac1bab48cbd5c02ef880232f",
+        "width": 1536,
+        "height": 1024
+      },
+      "full": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/zarok-street.webp",
+        "bytes": 686366,
+        "sha256": "97baa94985e83dddf17985a668d26060eb548965d802d87b3517502070d10da2",
+        "width": 1536,
+        "height": 1024
+      },
+      "preview": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/zarok-street-small.webp",
+        "bytes": 58402,
+        "sha256": "f7685aabbbf63fe67244a55890f64e17e49f2adf26f297a8ea92904511a9b501",
+        "width": 384,
+        "height": 256
+      }
+    },
+    {
+      "id": "zarok-official",
+      "prompt": "Use case: stylized-concept. One production bitmap background for Kalistar Astraball. Landscape 1536x1024, fine HD-2D PIXEL ART, crisp intentional pixel clusters and stepped edges, rich JRPG scenery at roughly 768x512 logical resolution enlarged2x, no photographic paint blur. Elevated front orthographic view, long edges of playfield strictly horizontal, NOT a diamond and no strong vanishing perspective. Critical composition: upper environment entirely above y=380. One huge uninterrupted flat rectangular playing surface x=80..1456,y=410..850, the safe rectangle x=176..1360,y=432..820 completely empty. Very low-contrast ground texture. Enough margin around field. Foreground environment below y=860. Buildings/pillars/props never overlap the safe rectangle. ALL game lines, goals, players and UI are rendered separately: NO painted lines, no court grid, no circles, no goal structures, no text, no lettering, no logo, no watermark. Reference image is architectural/mood identity ONLY, not camera composition. City identity: Rhinoz village in temperate rocky forest mountains: heavy timber houses with slate roofs, stone retaining walls, thick rope ties, worn bronze, red and green fabric, warm lanterns. NOT a desert, not savanna tents. New scene: Official Rhinoz village arena of compact sandy earth, stout timber tiered bleachers, stone foundations and heavy rope-railed stands, bare timber and rope rails, rustic slate-roofed village in pine mountains behind. Evening lanterns. Maintain truly visible pixels, beautiful sophisticated lighting, never painterly smudges. CRITICAL: no flags, no fabric banners, no shields, no invented heraldry anywhere. Authentic faction flags are composited separately. Bleacher rows and seats use the SAME architectural scale as other stadia: around12 pixels seat width,8px row rise in1536x1024 art. Official venues larger by more rows not enlarged benches. Safe ground rectangle must remain empty and spacious. The entire venue is EMPTY. Absolutely NO PEOPLE, NO SPECTATORS in stands or streets. Empty seats and benches only. No humans or creatures anywhere.",
+      "ref": "V4/astraball/assets/rhinoz-horizontal-v2.webp",
+      "reference": {
+        "file": "V4/astraball/assets/rhinoz-horizontal-v2.webp",
+        "bytes": 567754,
+        "sha256": "6494f12aed8e3c8c7bf1f2e9880a8bbc926e8f5bdf7daedd63b9874420341924",
+        "width": 1536,
+        "height": 1024
+      },
+      "source": {
+        "file": "C:/Users/guill/.codex/generated_images/01a1710d-e804-7a01-9af3-13884b143f00/exec-93eba075-9d6b-48d9-bf4f-a43668a0e423.png",
+        "bytes": 3510162,
+        "sha256": "a6a0fef3238345a27fb827003408a15e3c4ae9e9a307de07526d2598f38ef6b4",
+        "width": 1536,
+        "height": 1024
+      },
+      "original": {
+        "file": "V4/astraball/sources/arenas-pixel-v1/originals/zarok-official.png",
+        "bytes": 3510162,
+        "sha256": "a6a0fef3238345a27fb827003408a15e3c4ae9e9a307de07526d2598f38ef6b4",
+        "width": 1536,
+        "height": 1024
+      },
+      "backup": {
+        "file": "C:\\Users\\guill\\Documents\\Kalistar-sauvegardes\\astraball-arenas-pixel-v1\\originals\\zarok-official.png",
+        "bytes": 3510162,
+        "sha256": "a6a0fef3238345a27fb827003408a15e3c4ae9e9a307de07526d2598f38ef6b4",
+        "width": 1536,
+        "height": 1024
+      },
+      "full": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/zarok-official.webp",
+        "bytes": 627400,
+        "sha256": "0bf2e8db1fddd948214401017f5be7154a0cc9bfc814aca2592379918f1dbe50",
+        "width": 1536,
+        "height": 1024
+      },
+      "preview": {
+        "file": "V4/astraball/assets/arenas-pixel-v1/zarok-official-small.webp",
+        "bytes": 57808,
+        "sha256": "b8d46b97064e908d8aca744a890ee462104eddbe4eb21ffb176d38be5678f4a0",
+        "width": 384,
+        "height": 256
+      }
+    }
+  ]
+}

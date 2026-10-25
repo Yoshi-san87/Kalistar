@@ -18,6 +18,10 @@ module.exports=async function lockerCases({browser,url,OUT,sharp}){
     await page.locator('#locker-tab-teams').focus();await page.keyboard.press('ArrowRight');
     assert.equal(await page.locator('#locker-tab-ball').getAttribute('aria-selected'),'true');
     await page.keyboard.press('End');assert.equal(await page.locator('#locker-tab-arena').getAttribute('aria-selected'),'true');
+    assert.equal(await page.locator('input[name="arena"]:checked').inputValue(),'kalistopolis-official');
+    assert.equal(await page.locator('#locker-panel-arena [data-view="horizontal"]').getAttribute('aria-pressed'),'true');
+    assert.equal(await page.locator('#locker-panel-arena [data-view="isometric"]').isDisabled(),true);
+    assert.equal(await page.locator('#locker-panel-arena [data-view="isometric"]').getAttribute('aria-pressed'),'false');
     await page.keyboard.press('Home');
     await page.screenshot({path:path.join(OUT,name+'-locker-teams.png')});
     assert.equal(await page.locator('#modal').evaluate(el=>el.scrollWidth>el.clientWidth),false);
@@ -39,6 +43,7 @@ module.exports=async function lockerCases({browser,url,OUT,sharp}){
     await page.locator('.arena-choice').filter({has:page.locator('input[value="rhinoz"]')}).click();
     await page.screenshot({path:path.join(OUT,name+'-locker-arena.png')});
     assert.equal(await page.locator('input[name="arena"][value="rhinoz"]').isChecked(),true);
+    for(const view of ['horizontal','isometric'])assert.equal(await page.locator('#locker-panel-arena [data-view="'+view+'"]').isEnabled(),true,'Rhinoz retains '+view);
     await page.locator('#locker-tab-ball').click();
     await page.locator('.ball-choice').filter({has:page.locator('input[value="rhinoz"]')}).click();
     await page.locator('#match-mode').selectOption('hotseat');
@@ -51,11 +56,17 @@ module.exports=async function lockerCases({browser,url,OUT,sharp}){
     assert.equal(selected.units.find(u=>u.team===0&&u.role==='sentry').stats.PAS,9);
     assert.equal(selected.units.find(u=>u.team===0&&u.role==='sentry').athlete.id,'momo');
     assert.equal(selected.phase,'placement');
+    assert.equal(await page.evaluate(()=>window.Astraball.metrics().appearance.arena),'rhinoz');
     assert.equal(await page.evaluate(()=>window.Astraball.metrics().arenaLines),0xffffff);
     assert.equal(await page.evaluate(()=>window.Astraball.metrics().sprites.count),10);
     assert.equal(await page.locator('.venue span').innerText(),'VILLAGE RHINOZ');
     for(const view of ['horizontal','isometric']){
-      await page.locator('#camera-toggle').click();await page.locator('#camera-panel [data-view="'+view+'"]').click();await page.locator('#camera-toggle').click();
+      await page.locator('#camera-toggle').click();
+      assert.equal(await page.locator('#camera-panel [data-view="'+view+'"]').isEnabled(),true);
+      await page.locator('#camera-panel [data-view="'+view+'"]').click();await page.locator('#camera-toggle').click();
+      assert.equal(await page.evaluate(()=>window.Astraball.metrics().appearance.view),view);
+      assert.equal(await page.evaluate(()=>window.Astraball.metrics().floorLabels),0);
+      assert.deepEqual(await page.evaluate(()=>window.Astraball.metrics().goals.map(goal=>goal.team)),[0,1]);
       await page.locator('#zoom-reset').click();
       assert.equal(await page.evaluate(()=>window.Astraball.metrics().sprites.selectedId),selected.units.find(u=>u.team===0&&u.role==='meneur').id,'camera preserves placement selection');
       await page.screenshot({path:path.join(OUT,name+'-rhinoz-'+view+'.png')});
@@ -70,6 +81,7 @@ module.exports=async function lockerCases({browser,url,OUT,sharp}){
     assert.equal(await page.evaluate(()=>JSON.stringify(window.Astraball.snapshot())),saved);
     assert.equal(await page.evaluate(()=>window.Astraball.metrics().appearance.arena),'rhinoz');
     assert.equal(await page.evaluate(()=>window.Astraball.metrics().appearance.ball),'rhinoz');
+    assert.equal(await page.evaluate(()=>window.Astraball.metrics().appearance.view),'isometric');
     await page.locator('#settings').click();
     await page.locator('#reset-team').click();
     await page.locator('#apply-options').click();await page.waitForFunction(()=>!document.querySelector('#modal').open);
@@ -109,11 +121,14 @@ module.exports=async function lockerCases({browser,url,OUT,sharp}){
   await retry.goto(url);await retry.waitForFunction(()=>window.Astraball?.ready);
   await retry.locator('#new-match').click();await retry.waitForFunction(()=>!document.querySelector('#modal').open);
   const preserved=await retry.evaluate(()=>JSON.stringify(window.Astraball.snapshot()));
+  const preservedAppearance=await retry.evaluate(()=>window.Astraball.metrics().appearance);
+  assert.equal(preservedAppearance.arena,'kalistopolis-official');
   await retry.route('**/rhinoz-*-v2.webp',route=>route.abort());
   await retry.locator('#settings').click();await retry.locator('#locker-tab-arena').click();
   await retry.locator('.arena-choice').filter({has:retry.locator('input[value="rhinoz"]')}).click();
   await retry.locator('#new-match').click();await retry.locator('#locker-error').waitFor({state:'visible'});
   assert.equal(await retry.evaluate(()=>JSON.stringify(window.Astraball.snapshot())),preserved,'failed media load preserves the match');
+  assert.deepEqual(await retry.evaluate(()=>window.Astraball.metrics().appearance),preservedAppearance,'failed media load preserves the pixel venue');
   assert.equal(await retry.locator('#close-dialog').isEnabled(),true);
   await retry.unroute('**/rhinoz-*-v2.webp');await retry.locator('#new-match').click();
   await retry.waitForFunction(()=>!document.querySelector('#modal').open);

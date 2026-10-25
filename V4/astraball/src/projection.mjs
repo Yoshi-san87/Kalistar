@@ -18,13 +18,14 @@ export function contains(points, x, y) {
   return inside;
 }
 
-export function createProjection(view='isometric',height=60,ground=[356,812]) {
+export function createProjection(view='isometric',height=60,ground=[356,812],art={}) {
   const mode=VIEWS.includes(view)?view:'horizontal',level=cameraHeight(height);
   const [top,bottom]=ground,centerY=(top+bottom)/2;
-  const verticalScale=mode==='horizontal'?.64+level*.006:1;
+  const verticalScale=mode==='horizontal'&&!art.pixel?.64+level*.006:1;
   const groundY=y=>centerY+(y-centerY)*verticalScale;
+  const inset=art.inset??104,nearInset=art.nearInset??inset;
   const corners=mode==='horizontal'
-    ?[[104,groundY(top)],[1432,groundY(top)],[1432,groundY(bottom)],[104,groundY(bottom)]]
+    ?[[inset,groundY(top)],[WIDTH-inset,groundY(top)],[WIDTH-nearInset,groundY(bottom)],[nearInset,groundY(bottom)]]
     :[[610,244],[1442,508],[835,902],[116,477]];
   function project(x,y) {
     const u=x/GRID_COLUMNS,v=y/GRID_ROWS;

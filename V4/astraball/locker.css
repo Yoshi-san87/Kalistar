@@ -71,22 +71,55 @@ dialog.locker[open]{display:flex;flex-direction:column}
 .character-choice small{font-size:8px;color:var(--muted)}
 .character-choice:disabled{opacity:.42;cursor:not-allowed}
 .character-choice>svg{position:absolute;top:3px;right:3px;width:13px;height:13px;color:var(--gold)}
-.arena-showcase{position:relative;aspect-ratio:2.6;overflow:hidden;border-bottom:1px solid var(--gold);margin-bottom:14px}
-.arena-showcase>img{width:100%;height:100%;object-fit:cover;object-position:50% 46%}
-.arena-showcase>div{position:absolute;inset:auto 0 0;padding:30px 20px 12px;background:linear-gradient(transparent,#061617e8)}
-.locker #dialog-content .arena-showcase h3{font-size:24px;color:var(--text);margin:5px 0}
-.locker #dialog-content .arena-showcase p{font-size:11px;margin:0}
-.arena-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;border:0;padding:0;margin:0 0 14px;min-width:0}
-.arena-options legend{padding:0;margin-bottom:9px;font:12px Cinzel,serif;color:var(--gold)}
-.locker #dialog-content label.arena-choice{display:flex;position:relative;margin:0;gap:10px;justify-content:flex-start;border:1px solid var(--line);padding:7px;background:#0a1d2166;cursor:pointer;min-width:0;border-radius:3px}
+.locker #locker-panel-arena{display:flex;flex-direction:column;overflow:hidden}
+.arena-filters{display:grid;grid-template-columns:minmax(150px,190px) minmax(0,1fr) 36px;align-items:end;gap:10px;margin-bottom:14px;flex:none}
+.locker #dialog-content .arena-filters label{display:flex;flex-direction:column;align-items:stretch;gap:5px;margin:0;min-width:0;font-size:11px;color:var(--muted)}
+.locker #dialog-content .arena-filters select{width:100%;min-width:0;max-width:100%;height:38px;padding:7px 9px;font-size:12px;border-radius:3px}
+.arena-kind-filter{display:flex;flex-direction:column;gap:5px;min-width:0}
+#arena-kind-label{font-size:11px;color:var(--muted)}
+.arena-kind-segments{display:flex;min-height:38px;border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.arena-kind-segments button{flex:1;min-width:0;padding:7px 5px;border:0;background:transparent;font-size:11px}
+.arena-kind-segments button+button{border-left:1px solid var(--line)}
+.arena-kind-segments button[aria-pressed=true]{color:var(--gold);background:#2b443b;box-shadow:inset 0 -2px var(--gold)}
+.arena-kind-segments button:focus-visible{outline-offset:-3px}
+#arena-kind-filter{display:none}
+#arena-filter-reset{height:38px}
+.arena-selection{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:18px;flex:1;min-height:0}
+.arena-showcase{min-width:0;align-self:start;background:#13292b}
+.arena-showcase>img{display:block;width:100%;aspect-ratio:16/10;object-fit:contain;background:#09191b;border-bottom:1px solid var(--gold)}
+.arena-showcase img[data-pixel=true],.arena-choice img[data-pixel=true]{image-rendering:pixelated}
+.arena-caption{display:flex;align-items:start;gap:10px;padding:12px 0}
+.arena-details{flex:1;min-width:0;overflow-wrap:anywhere}
+.arena-location{display:flex;flex-wrap:wrap;align-items:center;gap:4px 7px;font-size:10px;color:var(--muted)}
+.arena-location>svg{width:12px;height:12px;color:var(--gold)}
+.arena-location .arena-kind{border-left:1px solid var(--line);padding-left:7px}
+.arena-kind[data-kind=street]{color:var(--teal)}
+.arena-kind[data-kind=official]{color:var(--gold)}
+.arena-kind[data-kind=legendary]{color:var(--rose)}
+.arena-kind[data-kind=classic]{color:var(--muted)}
+.locker #dialog-content .arena-showcase h3{font-size:20px;line-height:1.3;color:var(--text);margin:6px 0}
+.locker #dialog-content .arena-showcase p{font-size:11px;margin:0;color:var(--muted)}
+.arena-caption .locker-view{flex:none}
+.arena-caption .locker-view button{width:36px;height:36px;padding:0;flex:none}
+.arena-caption .locker-view button:focus-visible{outline-offset:-3px}
+.arena-caption .locker-view button:disabled{opacity:.5}
+.arena-catalog{display:flex;flex-direction:column;min-width:0;min-height:0}
+.arena-list-heading{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:9px;flex:none}
+.locker #dialog-content .arena-list-heading h3{font:12px Cinzel,serif;margin:0;min-width:0;overflow-wrap:anywhere}
+#arena-count{font-size:10px;color:var(--muted);flex:none;font-variant-numeric:tabular-nums}
+.arena-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-content:start;gap:8px;border:0;padding:3px;margin:-3px;min-width:0;min-height:0;flex:1;overflow:auto;scrollbar-width:thin;scroll-padding:3px}
+.locker #dialog-content label.arena-choice{display:flex;position:relative;margin:0;gap:9px;align-items:center;justify-content:flex-start;border:1px solid var(--line);padding:6px;background:#0a1d2166;cursor:pointer;min-width:0;min-height:90px;border-radius:3px}
 .arena-choice input{position:absolute;opacity:0;width:1px;height:1px}
-.arena-choice img{width:85px;height:55px;object-fit:cover;flex:none}
-.arena-choice span{font:12px Cinzel,serif;min-width:0;overflow-wrap:anywhere}
+.arena-choice img{width:78px;aspect-ratio:4/3;object-fit:contain;flex:none;background:#09191b}
+.arena-choice-name{font:11px Cinzel,serif;line-height:1.4;min-width:0;overflow-wrap:anywhere;flex:1}
 .arena-choice small{display:block;font:10px Segoe UI,sans-serif;color:var(--muted);margin-top:4px}
-.arena-choice svg{margin-left:auto;width:14px;visibility:hidden}
+.arena-choice small.arena-kind{font-size:9px;margin-top:2px}
+.arena-choice>svg{position:absolute;left:9px;top:9px;width:17px;height:17px;padding:2px;background:#102324;color:var(--teal);visibility:hidden}
+.locker #dialog-content .arena-choice:hover{border-color:var(--gold)}
 .locker #dialog-content .arena-choice:has(input:checked){border-color:var(--gold);background:#2b443b}
 .arena-choice:has(input:checked) svg{visibility:visible}
 .arena-choice:has(input:focus-visible){outline:2px solid var(--teal);outline-offset:2px}
+.locker #dialog-content #arena-empty{padding:28px 10px;text-align:center;color:var(--muted);font-size:12px;border-top:1px solid var(--line)}
 .player-identity>.sprite-badge{--size:64px;border-bottom:1px solid var(--team)}
 .initiative-token>.sprite-badge{--size:43px;border-bottom:1px solid var(--team)}
 @media(max-width:760px){
@@ -107,11 +140,29 @@ dialog.locker[open]{display:flex;flex-direction:column}
   .locker #dialog-content .locker-options select{padding:6px;font-size:11px;max-width:190px}
   .locker .locker-toggles{gap:18px}.locker .dialog-actions{margin-top:8px}
   .locker-summary{font-size:9px;line-height:1.4}
-  .arena-showcase{aspect-ratio:1.4}.arena-showcase>div{padding:28px 12px 10px}
-  .locker #dialog-content .arena-showcase h3{font-size:19px}
-  .arena-options{grid-template-columns:1fr;gap:7px}
+  .arena-filters{grid-template-columns:minmax(0,1fr) minmax(0,1fr) 36px;gap:7px;margin-bottom:10px}
+  .arena-kind-segments{display:none}#arena-kind-filter{display:block}
+  .arena-selection{grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);gap:8px}
+  .arena-showcase>img{aspect-ratio:16/9;max-height:180px}
+  .arena-caption{gap:8px;padding:8px 0}
+  .locker #dialog-content .arena-showcase h3{font-size:17px;margin:4px 0}
+  .arena-location{font-size:10px;gap:3px 5px}
+  .arena-options{gap:7px;grid-auto-rows:max-content}
+  .locker #dialog-content label.arena-choice{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto 1fr;align-items:stretch;gap:6px;padding:5px}
+  .arena-choice img{width:100%;aspect-ratio:16/9}
+  .arena-choice-name{font-size:11px;padding:0 3px 4px}
+  .arena-choice small{font-size:10px;margin-top:3px}
   .initiative-token>.sprite-badge{--size:33px}
   .player-identity>.sprite-badge{--size:49px}
+}
+@media(min-width:761px) and (max-width:960px){
+  .arena-selection{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .arena-options{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-height:740px){
+  .locker #locker-panel-arena{overflow:auto}
+  .arena-selection{flex:none;grid-template-rows:auto}
+  .arena-options{flex:none;overflow:visible}
 }
 @media(max-height:580px) and (min-width:761px){
   dialog.locker{height:calc(100dvh - 16px);max-height:calc(100dvh - 16px);padding:10px 18px}

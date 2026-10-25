@@ -10,6 +10,11 @@ export const spriteBadge=c=>'<span class="sprite-badge" aria-hidden="true" style
 export function renderLocker({host,roster,options,lineups,initial,icons,onSubmit}) {
   let draft={...options,...normalizeAppearance(options),lineups:roster.normalize(lineups)},team=0,role='meneur',tab='teams',loading=false,page=0;
   const pageSize=30;
+  const arenaKinds=[['','Tous'],['street','Street'],['official','Officiel'],['legendary','L\u00e9gendaire'],['classic','Classiques']];
+  const arenaCity=a=>a.cityId||'astralia',arenaKind=a=>a.kind||'classic';
+  const arenaPreview=(a,view='horizontal')=>a.preview||a[view];
+  const kindName=a=>arenaKinds.find(([id])=>id===arenaKind(a))?.[1]||arenaKind(a);
+  const cities=[...new Map(ARENAS.map(a=>[arenaCity(a),a.city||'Astralia']))].sort((a,b)=>a[1].localeCompare(b[1],'fr'));
   const $=selector=>host.querySelector(selector),tabs=[['teams','users','\u00c9quipes'],['ball','circle-dot','Ballon'],['arena','mountain','Ar\u00e8ne']];
   host.innerHTML=[
     '<nav class="locker-tabs" role="tablist" aria-label="Pr\u00e9paration du match">',
@@ -22,9 +27,17 @@ export function renderLocker({host,roster,options,lineups,initial,icons,onSubmit
     '<section id="locker-panel-ball" role="tabpanel" aria-labelledby="locker-tab-ball" hidden><div class="ball-selection"><div class="ball-showcase"><span class="eyebrow">ASTRABALL</span><img id="ball-preview" src="'+getBall(draft.ball).url+'" alt=""><h3 id="ball-name"></h3><p id="ball-material"></p></div><fieldset class="ball-options"><legend>Ballon de la rencontre</legend><div class="ball-grid">',
     ...BALLS.map(b=>'<label class="ball-choice"><input type="radio" name="ball" value="'+b.id+'" '+(b.id===draft.ball?'checked':'')+'><img src="'+b.url+'" alt=""><span>'+esc(b.name)+'</span>'+icon('check')+'</label>'),
     '</div></fieldset></div></section>',
-    '<section id="locker-panel-arena" role="tabpanel" aria-labelledby="locker-tab-arena" hidden><div class="arena-showcase"><img id="arena-preview" src="'+getArena(draft.arena).horizontal+'" alt=""><div><span id="arena-region" class="eyebrow"></span><h3 id="arena-name"></h3><p id="arena-surface"></p></div></div><fieldset class="arena-options"><legend>Lieu de la rencontre</legend>',
-    ...ARENAS.map(a=>'<label class="arena-choice"><input type="radio" name="arena" value="'+a.id+'" '+(a.id===draft.arena?'checked':'')+'><img src="'+a.horizontal+'" alt="" loading="lazy"><span>'+esc(a.name)+'<small>'+esc(a.region)+'</small></span>'+icon('check')+'</label>'),
-    '</fieldset><div class="locker-view" role="group" aria-label="Vue du terrain"><button data-view="horizontal" aria-pressed="'+(draft.view==='horizontal')+'">'+icon('grid-2x2')+' HD-2D</button><button data-view="isometric" aria-pressed="'+(draft.view==='isometric')+'">'+icon('layers')+' Isom\u00e9trique</button></div></section>',
+    '<section id="locker-panel-arena" role="tabpanel" aria-labelledby="locker-tab-arena" hidden><div class="arena-filters"><label for="arena-city-filter">Ville<select id="arena-city-filter"><option value="">Toutes les villes</option>',
+    ...cities.map(([id,name])=>'<option value="'+esc(id)+'">'+esc(name)+'</option>'),
+    '</select></label><div class="arena-kind-filter"><span id="arena-kind-label">Type de terrain</span><div class="arena-kind-segments" role="group" aria-labelledby="arena-kind-label">',
+    ...arenaKinds.map(([id,name])=>'<button type="button" data-arena-kind="'+id+'" aria-pressed="'+(id==='')+'">'+name+'</button>'),
+    '</div><select id="arena-kind-filter" aria-labelledby="arena-kind-label">',
+    ...arenaKinds.map(([id,name])=>'<option value="'+id+'">'+name+'</option>'),
+    '</select></div><button type="button" id="arena-filter-reset" class="icon" title="Effacer les filtres" aria-label="Effacer les filtres" disabled>'+icon('filter-x')+'</button></div>',
+    '<div class="arena-selection"><div class="arena-showcase"><img id="arena-preview" src="'+esc(arenaPreview(getArena(draft.arena),draft.view))+'" alt="" decoding="async"><div class="arena-caption"><div class="arena-details" aria-live="polite"><div class="arena-location">'+icon('map-pin')+'<span id="arena-region"></span><span id="arena-kind" class="arena-kind"></span></div><h3 id="arena-name"></h3><p id="arena-surface"></p></div><div class="locker-view" role="group" aria-label="Vue du terrain"><button type="button" data-view="horizontal" title="Vue HD-2D" aria-label="Vue HD-2D" aria-pressed="'+(draft.view==='horizontal')+'">'+icon('grid-2x2')+'</button><button type="button" data-view="isometric" title="Vue isom\u00e9trique" aria-label="Vue isom\u00e9trique" aria-pressed="'+(draft.view==='isometric')+'">'+icon('layers')+'</button></div></div></div>',
+    '<div class="arena-catalog"><div class="arena-list-heading"><h3 id="arena-list-title">Lieu de la rencontre</h3><span id="arena-count" role="status"></span></div><fieldset class="arena-options" aria-labelledby="arena-list-title">',
+    ...ARENAS.map(a=>'<label class="arena-choice" data-arena-city="'+esc(arenaCity(a))+'" data-arena-type="'+esc(arenaKind(a))+'"><input type="radio" name="arena" value="'+esc(a.id)+'" '+(a.id===draft.arena?'checked':'')+'><img src="'+esc(arenaPreview(a))+'" alt="" loading="lazy" decoding="async" data-pixel="'+Boolean(a.pixel)+'"><span class="arena-choice-name">'+esc(a.name)+'<small>'+esc(a.city||'Astralia')+'</small><small class="arena-kind" data-kind="'+esc(arenaKind(a))+'">'+esc(kindName(a))+'</small></span>'+icon('check')+'</label>'),
+    '</fieldset><p id="arena-empty" role="status" hidden>Aucun terrain pour ces filtres.</p></div></div></section>',
     '<div class="locker-bottom"><div class="locker-options"><label>Rencontre<select id="match-mode"><option value="solo" '+(draft.mode==='solo'?'selected':'')+'>Solo contre l\u2019IA</option><option value="hotseat" '+(draft.mode==='hotseat'?'selected':'')+'>Deux joueurs, m\u00eame \u00e9cran</option></select></label><div class="locker-toggles"><label>Sons<input type="checkbox" id="sound-option" '+(draft.sound?'checked':'')+'></label><label>Animations<input type="checkbox" id="motion-option" '+(draft.motion?'checked':'')+' '+(matchMedia('(prefers-reduced-motion: reduce)').matches?'disabled':'')+'></label></div></div><div class="locker-summary" aria-live="polite"></div>',
     initial?'':'<p class="replace-warning">Les compositions sont appliqu\u00e9es au nouveau match, qui remplace la rencontre enregistr\u00e9e.</p>',
     '<p id="locker-error" role="alert" hidden></p><div class="dialog-actions">',
@@ -33,7 +46,32 @@ export function renderLocker({host,roster,options,lineups,initial,icons,onSubmit
   ].join('');
   function summarize(){$('.locker-summary').textContent='Chroma 5/5  \u00b7  Obsidienne 5/5  \u00b7  '+getBall(draft.ball).name+'  \u00b7  '+getArena(draft.arena).name;}
   function showBall(){const b=getBall(draft.ball);$('#ball-preview').src=b.url;$('#ball-preview').alt=b.name;$('#ball-name').textContent=b.name;$('#ball-material').textContent=b.material;summarize();}
-  function showArena(){const a=getArena(draft.arena);$('#arena-preview').src=a[draft.view];$('#arena-preview').alt=a.name;$('#arena-region').textContent=a.region;$('#arena-name').textContent=a.name;$('#arena-surface').textContent=a.surface;summarize();}
+  function showArena(){
+    const a=getArena(draft.arena),preview=$('#arena-preview');
+    preview.src=arenaPreview(a,draft.view);preview.alt=a.name;preview.dataset.pixel=String(Boolean(a.pixel));
+    $('#arena-region').textContent=a.city||'Astralia';$('#arena-region').title=a.region||'';
+    $('#arena-kind').textContent=kindName(a);$('#arena-kind').dataset.kind=arenaKind(a);
+    $('#arena-name').textContent=a.name;$('#arena-surface').textContent=a.surface||'';
+    for(const button of host.querySelectorAll('[data-view]')){
+      const view=button.dataset.view,available=(a.views||['horizontal','isometric']).includes(view)&&Boolean(a[view]);
+      button.disabled=!available;button.setAttribute('aria-pressed',String(available&&view===draft.view));
+      button.title=(view==='horizontal'?'Vue HD-2D':'Vue isom\u00e9trique')+(available?'':' indisponible pour ce terrain');
+      button.setAttribute('aria-label',button.title);
+    }
+    summarize();
+  }
+  function filterArenas(){
+    const city=$('#arena-city-filter').value,kind=$('#arena-kind-filter').value;
+    let count=0;
+    for(const choice of host.querySelectorAll('.arena-choice')){
+      choice.hidden=Boolean((city&&choice.dataset.arenaCity!==city)||(kind&&choice.dataset.arenaType!==kind));
+      if(!choice.hidden)count++;
+    }
+    for(const button of host.querySelectorAll('[data-arena-kind]'))button.setAttribute('aria-pressed',String(button.dataset.arenaKind===kind));
+    $('#arena-count').textContent=count+' terrain'+(count===1?'':'s');$('#arena-empty').hidden=count!==0;
+    $('.arena-options').hidden=count===0;$('.arena-options').scrollTop=0;
+    $('#arena-filter-reset').disabled=!city&&!kind;
+  }
   function lineup(){
     $('.squad-lineup').innerHTML=POSITIONS.map(p=>{
       const c=roster.get(draft.lineups[team][p.id]);
@@ -76,8 +114,11 @@ export function renderLocker({host,roster,options,lineups,initial,icons,onSubmit
   };
   $('#reset-team').onclick=()=>{draft.lineups[team]=roster.defaults()[team];lineup();characters();};
   for(const radio of host.querySelectorAll('[name="ball"]'))radio.onchange=()=>{draft.ball=radio.value;showBall();};
-  for(const radio of host.querySelectorAll('[name="arena"]'))radio.onchange=()=>{draft.arena=radio.value;showArena();};
-  for(const button of host.querySelectorAll('[data-view]'))button.onclick=()=>{draft.view=button.dataset.view;for(const b of host.querySelectorAll('[data-view]'))b.setAttribute('aria-pressed',String(b.dataset.view===draft.view));showArena();};
+  $('#arena-city-filter').onchange=filterArenas;$('#arena-kind-filter').onchange=filterArenas;
+  for(const button of host.querySelectorAll('[data-arena-kind]'))button.onclick=()=>{$('#arena-kind-filter').value=button.dataset.arenaKind;filterArenas();};
+  $('#arena-filter-reset').onclick=()=>{$('#arena-city-filter').value='';$('#arena-kind-filter').value='';filterArenas();};
+  for(const radio of host.querySelectorAll('[name="arena"]'))radio.onchange=()=>{draft={...draft,...normalizeAppearance({...draft,arena:radio.value})};showArena();};
+  for(const button of host.querySelectorAll('[data-view]'))button.onclick=()=>{if(button.disabled)return;draft={...draft,...normalizeAppearance({...draft,view:button.dataset.view})};showArena();};
   async function submit(newMatch){
     if(loading)return;loading=true;draft={...draft,mode:$('#match-mode').value,sound:$('#sound-option').checked,motion:$('#motion-option').checked};
     $('#locker-error').hidden=true;
@@ -89,5 +130,5 @@ export function renderLocker({host,roster,options,lineups,initial,icons,onSubmit
     finally{loading=false;controls.forEach((c,i)=>c.disabled=previous[i]);close.disabled=false;modal.removeEventListener('cancel',cancel);$('#new-match span').textContent=initial?'Entrer sur le terrain':'Nouveau match';}
   }
   $('#new-match').onclick=()=>void submit(true);if($('#apply-options'))$('#apply-options').onclick=()=>void submit(false);
-  lineup();characters();showBall();showArena();icons();
+  lineup();characters();showBall();showArena();filterArenas();icons();
 }

@@ -192,17 +192,44 @@ test('measurements are separate from ratings, missing data remains null and ever
   assert.match(renderMeasurements(getAthlete('ruby')),/Longueur/);
 });
 
-test('Rhinoz is cosmetic, white-lined and both arena projections keep exact picking',()=>{
+test('pixel venues default to Kalistopolis HD-2D while explicit classics retain isometric preferences',()=>{
+  assert.equal(ARENAS.length,21);
+  const pixels=ARENAS.filter(arena=>arena.pixel),classics=ARENAS.filter(arena=>!arena.pixel);
+  assert.equal(pixels.length,19);
+  assert.deepEqual(classics.map(arena=>arena.id),['resonances','rhinoz']);
+  for(const id of [undefined,null,'','invalid','__proto__'])assert.equal(getArena(id).id,'kalistopolis-official');
+  assert.deepEqual(normalizeAppearance(),{arena:'kalistopolis-official',view:'horizontal',height:60,ball:'founders'});
+  assert.deepEqual(normalizeAppearance({arena:'invalid',view:'isometric'}),{arena:'kalistopolis-official',view:'horizontal',height:60,ball:'founders'});
+  for(const arena of pixels){
+    assert.deepEqual(arena.views,['horizontal'],arena.id+' only supports its authored HD-2D view');
+    for(const view of ['horizontal','isometric','invalid']){
+      const input={arena:arena.id,view,height:35,ball:'orbital'};
+      assert.deepEqual(normalizeAppearance(input),{...input,view:'horizontal'});
+      assert.equal(input.view,view,'normalizing preferences does not mutate the draft');
+    }
+  }
+  for(const arena of classics)for(const view of ['horizontal','isometric']){
+    const input={arena:arena.id,view,height:35,ball:'orbital'};
+    assert.deepEqual(normalizeAppearance(input),input,arena.id+' preserves '+view);
+  }
+});
+
+test('Rhinoz stays white-lined and every supported arena projection keeps exact picking',()=>{
   assert.equal(getArena('rhinoz').lines,0xffffff);
-  assert.equal(getArena('invalid').id,'resonances');
+  assert.equal(getArena('invalid').id,'kalistopolis-official');
   assert.equal(normalizeAppearance({arena:'rhinoz'}).arena,'rhinoz');
   const allowed=JSON.parse(fs.readFileSync(new URL('../runtime-files.json',import.meta.url)));
   for(const arena of ARENAS){
     assert.ok(Object.isFrozen(arena));assert.ok(!('stats' in arena));
-    for(const view of ['horizontal','isometric']){
+    for(const view of arena.views||['horizontal','isometric']){
       assert.ok(allowed.includes(arena[view]));
       for(const h of [0,60,100]){
-        const projection=createProjection(view,h,arena.ground);
+        const projection=createProjection(view,h,arena.ground,arena);
+        if(arena.pixel){
+          assert.equal(projection.verticalScale,1,arena.id+' framing never stretches the playing surface');
+          assert.equal(projection.groundY(projection.top),projection.top);
+          assert.equal(projection.groundY(projection.bottom),projection.bottom);
+        }
         for(let y=0;y<7;y++)for(let x=0;x<13;x++){
           const point=projection.center(x,y);assert.deepEqual(projection.pick(point.x,point.y),{x,y});
         }

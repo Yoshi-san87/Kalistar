@@ -3,7 +3,7 @@
 Exhibition jouable autonome de sport tactique, sans effet sur la collection,
 les Fragments ou les combats du jeu de cartes.
 
-[Guides Kalistar](../../docs/INDEX.md) | [Profils des athletes](ATHLETES.md) | [Audit initial des regles](tests/REPORT.md)
+[Guides Kalistar](../../docs/INDEX.md) | [Profils des athletes](ATHLETES.md) | [Arenes et villes](ARENAS.md) | [Audit initial des regles](tests/REPORT.md)
 
 La [bibliotheque de sprites](SPRITES.md) fournit le catalogue jouable : galerie
 animee a `/jeu/astraball/library.html`, 16 poses par personnage, identifiants
@@ -40,8 +40,11 @@ deux joueurs peuvent occuper leurs nouvelles places. La composition aleatoire
 respecte aussi ces contraintes. Taille et masse sont descriptives : estimations
 visuelles explicites pour Kalistar, references ou valeurs non renseignees pour
 les collaborations. Les fiches donnent acces aux sources disponibles.
-Six ballons et deux arenes sont disponibles dans les deux vues HD-2D/isometrique,
-en solo contre l'IA ou a deux sur le meme ecran. Une sauvegarde existante reprend
+Six ballons et 21 arenes sont disponibles : neuf lieux en variantes street et
+officielle, l'Astrium legendaire, et les deux terrains classiques preserves.
+Les 19 nouveaux decors pixel sont composes en HD-2D ; les classiques gardent
+les deux vues HD-2D/isometrique. Le vestiaire filtre par ville et type de terrain.
+On joue en solo contre l'IA ou a deux sur le meme ecran. Une sauvegarde existante reprend
 directement. Le vestiaire reste accessible dans les options ; ses brouillons
 n'affectent pas la rencontre avant confirmation d'un nouveau match. Reprendre
 peut changer balle, arene et preferences, mais conserve les equipes en cours.
@@ -53,8 +56,10 @@ valider la formation. Les deux equipes valident ; en solo l'IA utilise sa
 formation legale par defaut. Le placement est sauvegarde, meme entre deux validations.
 Deplacement par clic de case ; passe, tir ou charge : selection puis confirmation.
 Clavier : fleches sur le terrain puis Entree. Tactile : glisser pour deplacer
-la camera, boutons + / - et recentrage. Le telephone zoome sur le joueur actif.
-Le bouton camera ouvre le choix de vue et le curseur de hauteur HD-2D.
+la camera, pincement a deux doigts, boutons + / - et recentrage. Sur PC, la
+molette zoome autour du curseur. Le telephone zoome sur le joueur actif.
+Le bouton camera ouvre le choix de vue et le cadrage vertical des decors pixel
+(hauteur du plan sur les classiques). La vue d'ensemble conserve tout le terrain.
 La vue, la hauteur et le ballon sont memorises sur l'appareil ; ils n'affectent
 ni les statistiques, ni l'IA, ni les probabilites, ni les sauvegardes Kalistar.
 
@@ -68,7 +73,7 @@ ni les statistiques, ni l'IA, ni les probabilites, ni les sauvegardes Kalistar.
   action. Les occupants bloquent le passage ; le ballon au sol est ramasse.
 - Passe a portee et libre : certaine. Le premier adversaire sur une case
   traversee intercepte automatiquement, y compris un contact au coin d'une case.
-- Trois U adverses selectionnables. Les adversaires traverses contrent le tir.
+- Un but adverse en U, avec trois zones de tir selectionnables. Les adversaires traverses contrent le tir.
   Une cible libre donne une probabilite affichee selon TIR et distance.
 - Un U vaut un point, ou deux pour le Scoreur. Premier a six points ; sinon,
   meilleur score apres douze manches, avec match nul possible.
@@ -108,6 +113,8 @@ et Valazar en Middle pour respecter leurs deux postes autorises.
 | `src/core/game.mjs` | Etat pur, initiative, actions, ballon, score, validation |
 | `src/core/ai.mjs` | Decisions bornees sans modifier l'etat |
 | `src/projection.mjs` | Deux projections communes au sol/clic, hauteur et zones du Pilier |
+| `src/viewport.mjs` | Zoom uniforme ancre au curseur, glissement borne, vue d'ensemble |
+| `data/venues.mjs` | 19 decors, calage du sol, vrais drapeaux et buts cosmetiques |
 | `src/appearance.mjs` | Six ballons cosmetiques et validation des preferences visuelles |
 | `src/roster.mjs` | Catalogue jouable, cinq postes, identites et equipes sans doublon |
 | `src/locker.mjs`, `locker.css` | Vestiaire responsive et brouillon avant confirmation |
@@ -132,10 +139,29 @@ Sources techniques : [PixiJS Application](https://pixijs.com/8.x/guides/componen
 
 ## Images Et Performance
 
+Les 19 decors pixel courants et leur provenance sont dans
+[`sources/arenas-pixel-v1/`](sources/arenas-pixel-v1/README.md). Chaque lieu reste
+vide, sans spectateurs. L'Astrium montre seulement une immense enceinte de gradins,
+avec une echelle de sieges coherente entre stades. Les drapeaux sont des copies
+exactes des composants approuves, superposees au decor, jamais inventees par
+la generation. Kalistopolis et Velane restent neutres faute de drapeau valide.
+
+Les fonds 1536 x 1024 gardent leur rapport d'aspect a chaque zoom ; les limites
+de camera evitent de sortir de l'image. Chaque sol a son calage propre sans
+etirer les gradins. La grille permanente est discrete, le contour des cases
+accessibles plus visible. Deux poteaux relies au sol dessinent chaque but,
+sans barre haute. Tous les buts et lignes officiels sont blancs ; les buts
+street changent de matiere uniquement. Les trois zones de tir restent les memes.
+Les apercus du vestiaire font 384 x 256 et sont charges a la demande. Le renderer
+conserve au plus deux decors GPU pendant les changements de lieu ; aucun effet
+de foule ni animation permanente du stade n'est ajoute.
+
+Les paragraphes suivants documentent les deux classiques preserves.
+
 L'arene est une peinture originale produite avec l'outil image_gen integre,
 en prenant les peintures approuvees Momo/Valazar comme references de matiere.
 Le prompt est conserve dans `sources/arena-v1.prompt.txt`. La grille et les
-trois cibles de chaque U sont dessinees par le moteur, jamais devinees depuis
+trois zones de tir de chaque U sont dessinees par le moteur, jamais devinees depuis
 des lignes generees. Les points du sol et le clic utilisent le meme quadrilatere.
 La seconde peinture conserve les lignes horizontales d'une cour HD-2D.
 Le Terrain de Zarok reprend le village Rhinoz de l'illustration canonique de
@@ -216,7 +242,7 @@ les comptes de verification sont factices, jamais les sessions personnelles.
 
 ## Limites Et Suite
 
-- Deux arenes en deux vues, six ballons cosmetiques, catalogue de personnages
+- 19 arenes pixel HD-2D et deux classiques en deux vues, six ballons cosmetiques, catalogue de personnages
   assignes a deux postes possibles et cinq postes distincts par equipe,
   IA heuristique et match local seulement.
 - Pas de matchmaking, compte Astraball, classement, recompense ni reseau de jeu.

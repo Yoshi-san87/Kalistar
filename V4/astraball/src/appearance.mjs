@@ -1,4 +1,5 @@
 import { VIEWS, cameraHeight } from './projection.mjs';
+import { PIXEL_ARENAS } from '../data/venues.mjs';
 
 export const BALLS=Object.freeze([
   {id:'founders',name:'Les Fondateurs',material:'Cuir, bronze et lumi\u00e8re astrale',color:0x93cfff},
@@ -10,10 +11,12 @@ export const BALLS=Object.freeze([
 ].map(ball=>Object.freeze({...ball,url:'assets/balls-v1/'+ball.id+'.webp'})));
 export const getBall=id=>BALLS.find(ball=>ball.id===id)||BALLS[0];
 export const ARENAS=Object.freeze([
+  ...PIXEL_ARENAS,
   {id:'resonances',name:'Cour des r\u00e9sonances',region:'Les hauts d\u2019Astralia',surface:'Pierre et mousse',horizontal:'assets/arena-horizontal-v1.webp',isometric:'assets/arena-v1.webp',lines:0xffe6ac,whiteLines:false},
   {id:'rhinoz',name:'Terrain de Zarok',region:'Village Rhinoz',surface:'Sable compact \u00b7 lignes blanches',horizontal:'assets/rhinoz-horizontal-v2.webp',isometric:'assets/rhinoz-isometric-v2.webp',lines:0xffffff,whiteLines:true,ground:Object.freeze([310,775])},
 ].map(arena=>Object.freeze(arena)));
-export const getArena=id=>ARENAS.find(arena=>arena.id===id)||ARENAS[0];
+export const getArena=id=>ARENAS.find(arena=>arena.id===id)||ARENAS.find(arena=>arena.id==='kalistopolis-official');
 export function normalizeAppearance(value={}) {
-  return {view:VIEWS.includes(value?.view)?value.view:'horizontal',height:cameraHeight(value?.height??60),ball:getBall(value?.ball).id,arena:getArena(value?.arena).id};
+  const arena=getArena(value?.arena),views=arena.views||VIEWS;
+  return {view:views.includes(value?.view)?value.view:'horizontal',height:cameraHeight(value?.height??60),ball:getBall(value?.ball).id,arena:arena.id};
 }

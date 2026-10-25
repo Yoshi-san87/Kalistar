@@ -1,0 +1,279 @@
+{
+  "schema": 1,
+  "operation": "Exact copies of locked native Atelier faction PNGs; no image generation, crop or re-encoding",
+  "componentManifest": {
+    "file": "V4/atelier/designer-assets/manifest.json",
+    "bytes": 903888,
+    "sha256": "54d75f70de22a0f10439db4de1526cc400de9df3ec8d7ff101d849e0a60f6bf4"
+  },
+  "referenceRegistry": {
+    "file": "V4/atelier/data/references.json",
+    "bytes": 331736,
+    "sha256": "1ff9dcd5f88c3c24d89305074261f859e13c60765d4000e458b2f27ad1c2e59a"
+  },
+  "backupRoot": "C:/Users/guill/Documents/Kalistar-sauvegardes/astraball-arenas-pixel-v1/flags",
+  "flags": [
+    {
+      "cityId": "durane",
+      "city": "Durane",
+      "faction": "Durane",
+      "url": "assets/arena-flags-v1/durane.png",
+      "sourceCard": "lok",
+      "sourceProfile": {
+        "file": "V4/template-stable/elements-01/lok/card.json",
+        "bytes": 996,
+        "sha256": "49c70acc375d4359ad1bea372ecf564a47e849db2f99aa8db60347a364dbd56a"
+      },
+      "lockedSha256": "827b6b68b3348358c33ad3b7955b3cf8f1b2e6a7d54de441d16812ee1906908d",
+      "source": {
+        "file": "V4/atelier/designer-assets/packed/banks/faction-Durane.png",
+        "bytes": 42559,
+        "sha256": "827b6b68b3348358c33ad3b7955b3cf8f1b2e6a7d54de441d16812ee1906908d",
+        "width": 109,
+        "height": 198
+      },
+      "output": {
+        "file": "V4/astraball/assets/arena-flags-v1/durane.png",
+        "bytes": 42559,
+        "sha256": "827b6b68b3348358c33ad3b7955b3cf8f1b2e6a7d54de441d16812ee1906908d",
+        "width": 109,
+        "height": 198
+      },
+      "backup": {
+        "file": "C:\\Users\\guill\\Documents\\Kalistar-sauvegardes\\astraball-arenas-pixel-v1\\flags\\durane.png",
+        "bytes": 42559,
+        "sha256": "827b6b68b3348358c33ad3b7955b3cf8f1b2e6a7d54de441d16812ee1906908d",
+        "width": 109,
+        "height": 198
+      }
+    },
+    {
+      "cityId": "woodland",
+      "city": "WoodLand",
+      "faction": "Woodland",
+      "url": "assets/arena-flags-v1/woodland.png",
+      "sourceCard": "elenion",
+      "sourceProfile": {
+        "file": "V4/template-stable/elements-02/elenion/card.json",
+        "bytes": 998,
+        "sha256": "d088524ee97703f4d3bf0bcea43a4aabe19c8e77806783b54a5d817123b6f5ba"
+      },
+      "lockedSha256": "f23bb9a133be864d94ded9de009ceffc459b290b8501e6ce96fdf9f44b789c85",
+      "source": {
+        "file": "V4/atelier/designer-assets/packed/banks/faction-Woodland.png",
+        "bytes": 48215,
+        "sha256": "f23bb9a133be864d94ded9de009ceffc459b290b8501e6ce96fdf9f44b789c85",
+        "width": 109,
+        "height": 196
+      },
+      "output": {
+        "file": "V4/astraball/assets/arena-flags-v1/woodland.png",
+        "bytes": 48215,
+        "sha256": "f23bb9a133be864d94ded9de009ceffc459b290b8501e6ce96fdf9f44b789c85",
+        "width": 109,
+        "height": 196
+      },
+      "backup": {
+        "file": "C:\\Users\\guill\\Documents\\Kalistar-sauvegardes\\astraball-arenas-pixel-v1\\flags\\woodland.png",
+        "bytes": 48215,
+        "sha256": "f23bb9a133be864d94ded9de009ceffc459b290b8501e6ce96fdf9f44b789c85",
+        "width": 109,
+        "height": 196
+      }
+    },
+    {
+      "cityId": "arborium",
+      "city": "Arborium",
+      "faction": "Arborium",
+      "url": "assets/arena-flags-v1/arborium.png",
+      "sourceCard": "thalie",
+      "sourceProfile": {
+        "file": "V4/template-stable/elements-01/thalie/card.json",
+        "bytes": 981,
+        "sha256": "145e271e48a2e1dc1006fd61a52bcaa969e96be960274f6856027546befe6f00"
+      },
+      "lockedSha256": "8e103eabfe8a7551f14c2eb5045a15ecd532f0a8097b240309c722cbeda8e2f7",
+      "source": {
+        "file": "V4/atelier/designer-assets/packed/banks/faction-Arborium.png",
+        "bytes": 46648,
+        "sha256": "8e103eabfe8a7551f14c2eb5045a15ecd532f0a8097b240309c722cbeda8e2f7",
+        "width": 109,
+        "height": 203
+      },
+      "output": {
+        "file": "V4/astraball/assets/arena-flags-v1/arborium.png",
+        "bytes": 46648,
+        "sha256": "8e103eabfe8a7551f14c2eb5045a15ecd532f0a8097b240309c722cbeda8e2f7",
+        "width": 109,
+        "height": 203
+      },
+      "backup": {
+        "file": "C:\\Users\\guill\\Documents\\Kalistar-sauvegardes\\astraball-arenas-pixel-v1\\flags\\arborium.png",
+        "bytes": 46648,
+        "sha256": "8e103eabfe8a7551f14c2eb5045a15ecd532f0a8097b240309c722cbeda8e2f7",
+        "width": 109,
+        "height": 203
+      }
+    },
+    {
+      "cityId": "vulkar",
+      "city": "Vulkar",
+      "faction": "Vulkar",
+      "url": "assets/arena-flags-v1/vulkar.png",
+      "sourceCard": "darnako",
+      "sourceProfile": {
+        "file": "V4/template-stable/elements-01/darnako/card.json",
+        "bytes": 1004,
+        "sha256": "5d95c2a594a1e5ff4158e6f8c290a6399370195fbdc82978ddd8b184906c70ab"
+      },
+      "lockedSha256": "cc28540c05b546eaad26fb8bf8ffed4c3f0d6b74032a0d85b17093978d5f0ed9",
+      "source": {
+        "file": "V4/atelier/designer-assets/packed/banks/faction-Vulkar.png",
+        "bytes": 45372,
+        "sha256": "cc28540c05b546eaad26fb8bf8ffed4c3f0d6b74032a0d85b17093978d5f0ed9",
+        "width": 109,
+        "height": 191
+      },
+      "output": {
+        "file": "V4/astraball/assets/arena-flags-v1/vulkar.png",
+        "bytes": 45372,
+        "sha256": "cc28540c05b546eaad26fb8bf8ffed4c3f0d6b74032a0d85b17093978d5f0ed9",
+        "width": 109,
+        "height": 191
+      },
+      "backup": {
+        "file": "C:\\Users\\guill\\Documents\\Kalistar-sauvegardes\\astraball-arenas-pixel-v1\\flags\\vulkar.png",
+        "bytes": 45372,
+        "sha256": "cc28540c05b546eaad26fb8bf8ffed4c3f0d6b74032a0d85b17093978d5f0ed9",
+        "width": 109,
+        "height": 191
+      }
+    },
+    {
+      "cityId": "cryptown",
+      "city": "Cryptown",
+      "faction": "Cryptown",
+      "url": "assets/arena-flags-v1/cryptown.png",
+      "sourceCard": "valazar",
+      "sourceProfile": {
+        "file": "V4/template-stable/elements-02/valazar/card.json",
+        "bytes": 986,
+        "sha256": "22e9c991174c6888d8365df19bfc24d8331f870c441b3076dc6a46c84375e752"
+      },
+      "lockedSha256": "df9726afc5a187e0bf904605a83ebfd02072a4c8098a2936b323cee20fcea3a6",
+      "source": {
+        "file": "V4/atelier/designer-assets/packed/banks/faction-Cryptown.png",
+        "bytes": 39380,
+        "sha256": "df9726afc5a187e0bf904605a83ebfd02072a4c8098a2936b323cee20fcea3a6",
+        "width": 109,
+        "height": 187
+      },
+      "output": {
+        "file": "V4/astraball/assets/arena-flags-v1/cryptown.png",
+        "bytes": 39380,
+        "sha256": "df9726afc5a187e0bf904605a83ebfd02072a4c8098a2936b323cee20fcea3a6",
+        "width": 109,
+        "height": 187
+      },
+      "backup": {
+        "file": "C:\\Users\\guill\\Documents\\Kalistar-sauvegardes\\astraball-arenas-pixel-v1\\flags\\cryptown.png",
+        "bytes": 39380,
+        "sha256": "df9726afc5a187e0bf904605a83ebfd02072a4c8098a2936b323cee20fcea3a6",
+        "width": 109,
+        "height": 187
+      }
+    },
+    {
+      "cityId": "thalassea",
+      "city": "Thalassea",
+      "faction": "Thalassea",
+      "url": "assets/arena-flags-v1/thalassea.png",
+      "sourceCard": "ruby",
+      "sourceProfile": {
+        "file": "V4/template-stable/elements-01/ruby/card.json",
+        "bytes": 1061,
+        "sha256": "10080ffbc9a2ea9c3f28e6b52f30041cc7872450338dedab3b6bc9acfc64ac0a"
+      },
+      "lockedSha256": "524df17b4dbd91a86bd615284496405801fdc2ae90791c941b04c77391b086be",
+      "source": {
+        "file": "V4/atelier/designer-assets/packed/banks/faction-Thalassea.png",
+        "bytes": 44903,
+        "sha256": "524df17b4dbd91a86bd615284496405801fdc2ae90791c941b04c77391b086be",
+        "width": 109,
+        "height": 190
+      },
+      "output": {
+        "file": "V4/astraball/assets/arena-flags-v1/thalassea.png",
+        "bytes": 44903,
+        "sha256": "524df17b4dbd91a86bd615284496405801fdc2ae90791c941b04c77391b086be",
+        "width": 109,
+        "height": 190
+      },
+      "backup": {
+        "file": "C:\\Users\\guill\\Documents\\Kalistar-sauvegardes\\astraball-arenas-pixel-v1\\flags\\thalassea.png",
+        "bytes": 44903,
+        "sha256": "524df17b4dbd91a86bd615284496405801fdc2ae90791c941b04c77391b086be",
+        "width": 109,
+        "height": 190
+      }
+    },
+    {
+      "cityId": "zarok",
+      "city": "Zarok",
+      "faction": "Zarok",
+      "url": "assets/arena-flags-v1/zarok.png",
+      "sourceCard": "gilmarr",
+      "sourceProfile": {
+        "file": "V4/template-stable/elements-01/gilmarr/card.json",
+        "bytes": 1001,
+        "sha256": "93a99c0f0cdb4d5d7f7fd60dd592f1962b3f8d3be25b30fad067b79816cc56d6"
+      },
+      "lockedSha256": "a80c2ea715cf6cba550a94f52683e635fd59651910812b714c2221fb57a90ca4",
+      "source": {
+        "file": "V4/atelier/designer-assets/packed/banks/faction-Zarok.png",
+        "bytes": 45766,
+        "sha256": "a80c2ea715cf6cba550a94f52683e635fd59651910812b714c2221fb57a90ca4",
+        "width": 109,
+        "height": 187
+      },
+      "output": {
+        "file": "V4/astraball/assets/arena-flags-v1/zarok.png",
+        "bytes": 45766,
+        "sha256": "a80c2ea715cf6cba550a94f52683e635fd59651910812b714c2221fb57a90ca4",
+        "width": 109,
+        "height": 187
+      },
+      "backup": {
+        "file": "C:\\Users\\guill\\Documents\\Kalistar-sauvegardes\\astraball-arenas-pixel-v1\\flags\\zarok.png",
+        "bytes": 45766,
+        "sha256": "a80c2ea715cf6cba550a94f52683e635fd59651910812b714c2221fb57a90ca4",
+        "width": 109,
+        "height": 187
+      }
+    }
+  ],
+  "unmapped": [
+    {
+      "cityId": "kalistopolis",
+      "city": "Kalistopolis",
+      "faction": null,
+      "url": null,
+      "reason": "No validated faction flag mapping found in the current reference cards or native bank"
+    },
+    {
+      "cityId": "velane",
+      "city": "Velane",
+      "faction": null,
+      "url": null,
+      "reason": "No validated faction flag mapping found in the current reference cards or native bank"
+    }
+  ],
+  "venues": {
+    "astrium": {
+      "cityId": "kalistopolis",
+      "faction": null,
+      "url": null
+    }
+  },
+  "qa": "Source identity verified; Pixi placement and visual integration remain pending"
+}

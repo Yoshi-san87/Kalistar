@@ -5,6 +5,8 @@ const {pathToFileURL}=require('node:url');
 require('./deploy-cases.cjs');
 test('Astraball rules and AI regression suite',async()=>{await import('./core.test.mjs');});
 test('Astraball formation and zone-capacity regression suite',async()=>{await import('./placement.test.mjs');});
+test('Astraball bounded camera regression suite',async()=>{await import('./viewport.test.mjs');});
+test('Astraball city venues regression suite',async()=>{await import('./venues.test.mjs');});
 test('Astraball locker and roster regression suite',async()=>{await import('./locker.test.mjs');});
 test('Astraball calibrated sprite sizing regression suite',async()=>{await import('./sprite-sizing.test.mjs');});
 test('every visible tile maps back to its logical cell',async()=>{
@@ -100,7 +102,7 @@ test('six cosmetic balls and camera options have bounded defaults and no gamepla
     assert.ok(report.files.find(file=>file.file===ball.url)?.bytes<40000);
   }
   assert.equal(getBall('invalid').id,'founders');
-  assert.deepEqual(normalizeAppearance(null),{view:'horizontal',height:60,ball:'founders',arena:'resonances'});
-  assert.deepEqual(normalizeAppearance({view:'broken',height:500,ball:'orbital'}),{view:'horizontal',height:100,ball:'orbital',arena:'resonances'});
+  assert.deepEqual(normalizeAppearance(null),{view:'horizontal',height:60,ball:'founders',arena:'kalistopolis-official'});
+  assert.deepEqual(normalizeAppearance({view:'broken',height:500,ball:'orbital'}),{view:'horizontal',height:100,ball:'orbital',arena:'kalistopolis-official'});
   assert.equal(normalizeAppearance({height:-4}).height,0);
 });

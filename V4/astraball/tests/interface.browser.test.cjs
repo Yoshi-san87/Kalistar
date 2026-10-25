@@ -72,6 +72,8 @@ async function main(){
       try{await page.waitForFunction(()=>window.Astraball?.ready,null,{timeout:20000});}
       catch(error){throw new Error(name+' boot failed: '+errors.join('\n'),{cause:error});}
       await page.getByRole('heading',{name:'Avant le coup d’envoi'}).waitFor();
+      assert.equal(await page.locator('input[name="arena"]:checked').inputValue(),'kalistopolis-official');
+      assert.equal(await page.evaluate(()=>window.Astraball.metrics().appearance.arena),'kalistopolis-official');
       assert.equal(await page.locator('.ball-choice').count(),6);
       await page.locator('#locker-tab-ball').click();
       await page.locator('.ball-choice').filter({has:page.locator('input[value="orbital"]')}).click();
@@ -79,6 +81,7 @@ async function main(){
       assert.match(await page.locator('#ball-name').textContent(),/Noyau orbital/);
       await page.screenshot({path:path.join(OUT,name+'-vestiaire.png'),fullPage:true});
       await page.locator('#new-match').click();
+      await page.waitForFunction(()=>!document.querySelector('#modal').open);
       assert.equal(await page.evaluate(()=>window.Astraball.snapshot().phase),'placement');
       await page.locator('#zoom-reset').click();
       const deployment=await page.evaluate(()=>window.Astraball.snapshot());
@@ -108,22 +111,55 @@ async function main(){
       // Camera changes are purely visual, with no duplicated goal labels or game mutations.
       const cameraState=await page.evaluate(()=>JSON.stringify(window.Astraball.snapshot()));
       await page.locator('#camera-toggle').click();
+      assert.equal(await page.locator('#height-label').innerText(),'Cadrage vertical');
+      assert.equal(await page.locator('#camera-height').isEnabled(),true);
+      assert.equal(await page.locator('#camera-panel [data-view="horizontal"]').getAttribute('aria-pressed'),'true');
+      assert.equal(await page.locator('#camera-panel [data-view="isometric"]').isDisabled(),true);
+      assert.equal(await page.locator('#camera-panel [data-view="isometric"]').getAttribute('aria-pressed'),'false');
       for(const height of [0,100,60]){
         await page.locator('#camera-height').fill(String(height));await page.locator('#camera-height').dispatchEvent('input');
         assert.equal(await page.evaluate(()=>window.Astraball.metrics().appearance.height),height);
+        const scale=await page.evaluate(()=>window.Astraball.metrics().viewport.sceneScale);
+        assert.equal(scale.x,scale.y,'pixel camera keeps the image proportions');
         await page.screenshot({path:path.join(OUT,name+'-height-'+height+'.png')});
       }
+      assert.equal(await page.evaluate(()=>window.Astraball.metrics().floorLabels),0);
+      assert.deepEqual(await page.evaluate(()=>window.Astraball.metrics().goals.map(goal=>goal.team)),[0,1]);
+      assert.equal(await page.evaluate(()=>JSON.stringify(window.Astraball.snapshot())),cameraState);
+      await page.locator('#camera-toggle').click();
+      // Classics retain both projections and the original plane-height control.
+      await page.locator('#settings').click();await page.locator('#locker-tab-arena').click();
+      await page.locator('.arena-choice').filter({has:page.locator('input[name="arena"][value="resonances"]')}).click();
+      await page.locator('#apply-options').click();await page.waitForFunction(()=>!document.querySelector('#modal').open);
+      assert.equal(await page.evaluate(()=>window.Astraball.metrics().appearance.arena),'resonances');
+      assert.equal(await page.evaluate(()=>JSON.stringify(window.Astraball.snapshot())),cameraState);
+      await page.locator('#camera-toggle').click();
+      assert.equal(await page.locator('#height-label').innerText(),'Hauteur');
+      assert.equal(await page.locator('#camera-panel [data-view="isometric"]').isEnabled(),true);
+      for(const height of [0,100,60]){
+        await page.locator('#camera-height').fill(String(height));await page.locator('#camera-height').dispatchEvent('input');
+        assert.equal(await page.evaluate(()=>window.Astraball.metrics().appearance.height),height);
+        await page.screenshot({path:path.join(OUT,name+'-classic-height-'+height+'.png')});
+      }
       await page.locator('#camera-panel [data-view="isometric"]').click();
+      assert.equal(await page.evaluate(()=>window.Astraball.metrics().appearance.view),'isometric');
       assert.equal(await page.locator('#camera-height').isDisabled(),true);
       await page.screenshot({path:path.join(OUT,name+'-isometric.png')});
       await page.locator('#camera-panel [data-view="horizontal"]').click();
+      assert.equal(await page.evaluate(()=>window.Astraball.metrics().appearance.view),'horizontal');
+      assert.equal(await page.locator('#camera-height').isEnabled(),true);
       await page.locator('#camera-toggle').click();
-      assert.equal(await page.evaluate(()=>window.Astraball.metrics().floorLabels),6);
+      assert.equal(await page.evaluate(()=>window.Astraball.metrics().floorLabels),0);
+      assert.deepEqual(await page.evaluate(()=>window.Astraball.metrics().goals.map(goal=>goal.team)),[0,1]);
+      assert.equal(await page.evaluate(()=>JSON.stringify(window.Astraball.snapshot())),cameraState);
+      await page.locator('#settings').click();await page.locator('#locker-tab-arena').click();
+      await page.locator('.arena-choice').filter({has:page.locator('input[name="arena"][value="kalistopolis-official"]')}).click();
+      await page.locator('#apply-options').click();await page.waitForFunction(()=>!document.querySelector('#modal').open);
       assert.equal(await page.evaluate(()=>JSON.stringify(window.Astraball.snapshot())),cameraState);
       const beforeReload=await page.evaluate(()=>JSON.stringify(window.Astraball.snapshot()));
       await page.reload();await page.waitForFunction(()=>window.Astraball?.ready);
       assert.equal(await page.evaluate(()=>JSON.stringify(window.Astraball.snapshot())),beforeReload);
-      assert.deepEqual(await page.evaluate(()=>window.Astraball.metrics().appearance),{view:'horizontal',height:60,ball:'orbital',arena:'resonances'});
+      assert.deepEqual(await page.evaluate(()=>window.Astraball.metrics().appearance),{view:'horizontal',height:60,ball:'orbital',arena:'kalistopolis-official'});
       assert.equal(await page.locator('#modal').isVisible(),false,'resume does not reopen kickoff');
       const overflow=await page.evaluate(()=>({x:document.documentElement.scrollWidth>innerWidth,y:document.documentElement.scrollHeight>innerHeight,canvas:document.querySelector('canvas').getBoundingClientRect().toJSON()}));
       assert.equal(overflow.x,false,'horizontal overflow '+name);
@@ -133,6 +169,7 @@ async function main(){
       const n=await page.evaluate(()=>window.Astraball.metrics().renders);await page.waitForTimeout(800);const idle=await page.evaluate(()=>window.Astraball.metrics().renders);assert.ok(idle-n<=2,'render loop should stop when idle');
       await page.locator('#help').click();await page.locator('#modal').waitFor({state:'visible'});await page.keyboard.press('Escape');await page.locator('#modal').waitFor({state:'hidden'});
       await page.locator('#settings').click();await page.locator('#match-mode').selectOption('hotseat');await page.locator('#new-match').click();
+      await page.waitForFunction(()=>!document.querySelector('#modal').open);
       assert.equal(await page.evaluate(()=>window.Astraball.snapshot().mode),'hotseat');
       await confirmFormations(page);
       await page.locator('#wait').click();await page.waitForFunction(()=>!window.Astraball.metrics().busy);
@@ -153,18 +190,25 @@ async function main(){
     reports.push({scenario:'visible interception agrees with engine',passed:true});await context.close();
     const looks=await browser.newContext({viewport:{width:1440,height:900},reducedMotion:'reduce'}),lookPage=await looks.newPage();
     await lookPage.goto(url);await lookPage.waitForFunction(()=>window.Astraball?.ready);
+    await lookPage.locator('#locker-tab-arena').click();
+    await lookPage.locator('.arena-choice').filter({has:lookPage.locator('input[name="arena"][value="resonances"]')}).click();
     for(const ball of BALLS){
       if(!await lookPage.locator('#modal').isVisible())await lookPage.locator('#settings').click();
       await lookPage.locator('#locker-tab-ball').click();
       await lookPage.locator('.ball-choice').filter({has:lookPage.locator('input[value="'+ball.id+'"]')}).click();
       await lookPage.locator('#match-mode').selectOption('hotseat');
       await lookPage.locator('#new-match').click();
+      await lookPage.waitForFunction(()=>!document.querySelector('#modal').open);
       await confirmFormations(lookPage);
+      assert.equal(await lookPage.evaluate(()=>window.Astraball.metrics().appearance.arena),'resonances');
       assert.equal(await lookPage.evaluate(()=>window.Astraball.metrics().appearance.ball),ball.id);
       assert.equal(await lookPage.evaluate(()=>window.Astraball.metrics().ballTexture),true);
       // Real pointer selection remains playable in either view at minimum and maximum depth.
       for(const view of ['horizontal','isometric']){
-        await lookPage.locator('#camera-toggle').click();await lookPage.locator('#camera-panel [data-view="'+view+'"]').click();
+        await lookPage.locator('#camera-toggle').click();
+        assert.equal(await lookPage.locator('#camera-panel [data-view="'+view+'"]').isEnabled(),true);
+        await lookPage.locator('#camera-panel [data-view="'+view+'"]').click();
+        assert.equal(await lookPage.evaluate(()=>window.Astraball.metrics().appearance.view),view);
         if(view==='horizontal'){await lookPage.locator('#camera-height').fill(ball.id==='founders'?'0':'100');await lookPage.locator('#camera-height').dispatchEvent('input');}
         await lookPage.locator('#camera-toggle').click();
         const sample=await lookPage.evaluate(()=>window.Astraball.snapshot()),move=core.legalMoves(sample).find(m=>m.path.length===1);
@@ -180,6 +224,7 @@ async function main(){
     const animated=await browser.newContext({viewport:{width:1440,height:900}}),motion=await animated.newPage(),animationErrors=[];
     motion.on('pageerror',e=>animationErrors.push(e.message));
     await motion.goto(url);await motion.waitForFunction(()=>window.Astraball?.ready);await motion.locator('#new-match').click();
+    await motion.waitForFunction(()=>!document.querySelector('#modal').open);
     await motion.waitForTimeout(2200);
     const resting=await motion.evaluate(()=>window.Astraball.metrics());await motion.waitForTimeout(800);
     const idleRenders=await motion.evaluate(()=>window.Astraball.metrics().renders)-resting.renders;
@@ -243,6 +288,7 @@ async function main(){
     assert.deepEqual(animationErrors,[]);reports.push({scenario:'animated two-point U, victory, charge and tempo',passed:true});await animated.close();
     const mobileMotion=await browser.newContext({viewport:{width:412,height:915},deviceScaleFactor:2,isMobile:true,hasTouch:true}),phone=await mobileMotion.newPage(),phoneErrors=[];
     phone.on('pageerror',e=>phoneErrors.push(e.message));await phone.goto(url);await phone.waitForFunction(()=>window.Astraball?.ready);await phone.locator('#new-match').click();
+    await phone.waitForFunction(()=>!document.querySelector('#modal').open);
     await confirmFormations(phone);
     const phoneState=await phone.evaluate(()=>window.Astraball.snapshot()),phoneMove=core.legalMoves(phoneState).find(m=>m.path.length===1);
     const phonePoint=await phone.evaluate(p=>window.Astraball.cell(p.x,p.y),phoneMove),phoneBounds=await phone.locator('#canvas-host').boundingBox();
