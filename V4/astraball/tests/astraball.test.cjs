@@ -50,3 +50,54 @@ test('animation clips have real changing frames and bounded non-looping actions'
   assert.equal(frameAt('run',334),4);assert.throws(()=>frameAt('unknown'),/Unknown/);
   assert.equal(facing({x:4},{x:1}),-1);assert.equal(facing({x:1},{x:4}),1);assert.equal(facing({x:2},{x:2},-1),-1);
 });
+
+test('both camera modes preserve all cell hit regions at every supported height',async()=>{
+  const {createProjection}=await import('../src/projection.mjs');
+  for(const view of ['horizontal','isometric'])for(const height of [0,25,60,100]){
+    const projection=createProjection(view,height);
+    for(let y=0;y<7;y++)for(let x=0;x<13;x++){
+      const p=projection.center(x,y);assert.deepEqual(projection.pick(p.x,p.y),{x,y});
+      for(const corner of projection.polygon(x,y)){
+        assert.deepEqual(projection.pick(p.x*.1+corner.x*.9,p.y*.1+corner.y*.9),{x,y});
+      }
+    }
+    if(view==='horizontal'){
+      assert.equal(projection.project(0,0).y,projection.project(13,0).y);
+      assert.equal(projection.project(0,7).y,projection.project(13,7).y);
+      assert.equal(projection.project(0,0).x,projection.project(0,7).x);
+    }
+  }
+  const low=createProjection('horizontal',0),high=createProjection('horizontal',100);
+  assert.ok(high.center(0,6).y-high.center(0,0).y>low.center(0,6).y-low.center(0,0).y);
+  assert.equal(createProjection('horizontal',NaN).height,60);
+});
+
+test('Pilier colored areas follow exactly the legal three-column defense regions',async()=>{
+  const {DEFENSE_ZONES,createProjection}=await import('../src/projection.mjs');
+  const {canOccupy}=await import('../src/core/geometry.mjs');
+  assert.deepEqual(DEFENSE_ZONES,[{team:0,left:1,right:4},{team:1,left:9,right:12}]);
+  for(const zone of DEFENSE_ZONES)for(let x=1;x<12;x++)for(let y=0;y<7;y++)
+    assert.equal(x>=zone.left&&x<zone.right,canOccupy({role:'pilier',team:zone.team},x,y));
+  for(const view of ['horizontal','isometric'])for(const height of [0,60,100]){
+    const p=createProjection(view,height);
+    for(const zone of DEFENSE_ZONES){
+      assert.deepEqual(p.polygon(zone.left,0)[0],p.project(zone.left,0));
+      assert.deepEqual(p.polygon(zone.right-1,6)[2],p.project(zone.right,7));
+    }
+  }
+});
+
+test('six cosmetic balls and camera options have bounded defaults and no gameplay stats',async()=>{
+  const {BALLS,getBall,normalizeAppearance}=await import('../src/appearance.mjs');
+  const allow=require('../runtime-files.json'),report=require('../sources/visuals-v2/media-report.json');
+  assert.equal(BALLS.length,6);assert.equal(new Set(BALLS.map(b=>b.id)).size,6);
+  for(const ball of BALLS){
+    assert.ok(Object.isFrozen(ball));assert.ok(allow.includes(ball.url));
+    assert.deepEqual(Object.keys(ball).sort(),['color','id','material','name','url']);
+    assert.ok(report.files.find(file=>file.file===ball.url)?.bytes<40000);
+  }
+  assert.equal(getBall('invalid').id,'founders');
+  assert.deepEqual(normalizeAppearance(null),{view:'horizontal',height:60,ball:'founders'});
+  assert.deepEqual(normalizeAppearance({view:'broken',height:500,ball:'orbital'}),{view:'horizontal',height:100,ball:'orbital'});
+  assert.equal(normalizeAppearance({height:-4}).height,0);
+});

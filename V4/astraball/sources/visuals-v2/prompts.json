@@ -1,0 +1,49 @@
+{
+  "tool": "Built-in image_gen",
+  "date": "2026-10-25",
+  "reference": "ball-reference.png",
+  "balls": [
+    {
+      "id": "founders",
+      "name": "Les Fondateurs",
+      "detail": "UPPER LEFT ball number 01 ONLY: dark chestnut textured leather sphere, three broad curved bronze ribs with navy insets, tiny electric blue seams, a bronze compass medallion facing viewer.",
+      "prompt": "Use case: background-extraction / game asset. Input reference: the supplied Kalistar six-ball concept board. Recreate faithfully ONLY this one ball, isolated as a single full sphere: UPPER LEFT ball number 01 ONLY: dark chestnut textured leather sphere, three broad curved bronze ribs with navy insets, tiny electric blue seams, a bronze compass medallion facing viewer. Match its material, colors, construction and orientation from the board. High quality detailed fantasy hand-painted game inventory render, readable silhouette at 32px. Centered entire sphere in a square canvas, fills 82 percent of frame. Lighting upper left with balanced readable shaded side. Transparent background with true alpha, no ground plane, no cast shadow, no typography, no swatches, no borders, no other balls. Keep glow close to the surface with clean edges. This is a reusable Kalistar Astraball game sprite."
+    },
+    {
+      "id": "orbital",
+      "name": "Noyau orbital",
+      "detail": "UPPER MIDDLE ball number 02 ONLY: translucent violet and blue glass orb filled with starlight, three floating thin golden orbital rings enclosing it, small gold compass medallion facing viewer.",
+      "prompt": "Use case: background-extraction / game asset. Input reference: the supplied Kalistar six-ball concept board. Recreate faithfully ONLY this one ball, isolated as a single full sphere: UPPER MIDDLE ball number 02 ONLY: translucent violet and blue glass orb filled with starlight, three floating thin golden orbital rings enclosing it, small gold compass medallion facing viewer. Match its material, colors, construction and orientation from the board. High quality detailed fantasy hand-painted game inventory render, readable silhouette at 32px. Centered entire sphere in a square canvas, fills 82 percent of frame. Lighting upper left with balanced readable shaded side. Transparent background with true alpha, no ground plane, no cast shadow, no typography, no swatches, no borders, no other balls. Keep glow close to the surface with clean edges. This is a reusable Kalistar Astraball game sprite."
+    },
+    {
+      "id": "celestial",
+      "name": "Tissage céleste",
+      "detail": "UPPER RIGHT ball number 03 ONLY: deep navy blue sphere woven in broad ivory bands with delicate engraved gold runes and gold edges, frontal round navy bronze compass medallion.",
+      "prompt": "Use case: background-extraction / game asset. Input reference: the supplied Kalistar six-ball concept board. Recreate faithfully ONLY this one ball, isolated as a single full sphere: UPPER RIGHT ball number 03 ONLY: deep navy blue sphere woven in broad ivory bands with delicate engraved gold runes and gold edges, frontal round navy bronze compass medallion. Match its material, colors, construction and orientation from the board. High quality detailed fantasy hand-painted game inventory render, readable silhouette at 32px. Centered entire sphere in a square canvas, fills 82 percent of frame. Lighting upper left with balanced readable shaded side. Transparent background with true alpha, no ground plane, no cast shadow, no typography, no swatches, no borders, no other balls. Keep glow close to the surface with clean edges. This is a reusable Kalistar Astraball game sprite."
+    },
+    {
+      "id": "rhinoz",
+      "name": "Rempart Rhinoz",
+      "detail": "LOWER LEFT ball number 04 ONLY: rugged blackened brown leather sphere with thick bronze reinforced ribs and bronze plates engraved with rhino reliefs, tough heavy craftsmanship.",
+      "prompt": "Use case: background-extraction / game asset. Input reference: the supplied Kalistar six-ball concept board. Recreate faithfully ONLY this one ball, isolated as a single full sphere: LOWER LEFT ball number 04 ONLY: rugged blackened brown leather sphere with thick bronze reinforced ribs and bronze plates engraved with rhino reliefs, tough heavy craftsmanship. Match its material, colors, construction and orientation from the board. High quality detailed fantasy hand-painted game inventory render, readable silhouette at 32px. Centered entire sphere in a square canvas, fills 82 percent of frame. Lighting upper left with balanced readable shaded side. Transparent background with true alpha, no ground plane, no cast shadow, no typography, no swatches, no borders, no other balls. Keep glow close to the surface with clean edges. This is a reusable Kalistar Astraball game sprite."
+    },
+    {
+      "id": "cerelf",
+      "name": "Harmonie Cerelf",
+      "detail": "LOWER MIDDLE ball number 05 ONLY: luminous emerald green glass core with white ivory organic leaf-shaped shell segments and slender golden curved ribs, graceful oval leaf motifs.",
+      "prompt": "Use case: background-extraction / game asset. Input reference: the supplied Kalistar six-ball concept board. Recreate faithfully ONLY this one ball, isolated as a single full sphere: LOWER MIDDLE ball number 05 ONLY: luminous emerald green glass core with white ivory organic leaf-shaped shell segments and slender golden curved ribs, graceful oval leaf motifs. Match its material, colors, construction and orientation from the board. High quality detailed fantasy hand-painted game inventory render, readable silhouette at 32px. Centered entire sphere in a square canvas, fills 82 percent of frame. Lighting upper left with balanced readable shaded side. Transparent background with true alpha, no ground plane, no cast shadow, no typography, no swatches, no borders, no other balls. Keep glow close to the surface with clean edges. This is a reusable Kalistar Astraball game sprite."
+    },
+    {
+      "id": "league",
+      "name": "Édition Ligue",
+      "detail": "LOWER RIGHT ball number 06 ONLY: spherical sporty ivory silver and navy segmented panels, bright electric blue illuminated seams, small gold compass emblem, clean competitive sports ball.",
+      "prompt": "Use case: background-extraction / game asset. Input reference: the supplied Kalistar six-ball concept board. Recreate faithfully ONLY this one ball, isolated as a single full sphere: LOWER RIGHT ball number 06 ONLY: spherical sporty ivory silver and navy segmented panels, bright electric blue illuminated seams, small gold compass emblem, clean competitive sports ball. Match its material, colors, construction and orientation from the board. High quality detailed fantasy hand-painted game inventory render, readable silhouette at 32px. Centered entire sphere in a square canvas, fills 82 percent of frame. Lighting upper left with balanced readable shaded side. Transparent background with true alpha, no ground plane, no cast shadow, no typography, no swatches, no borders, no other balls. Keep glow close to the surface with clean edges. This is a reusable Kalistar Astraball game sprite."
+    }
+  ],
+  "arena": {
+    "file": "arena-horizontal-v1.png",
+    "reference": "../../assets/arena-v1.webp",
+    "prompt": "Use case: stylized-concept. Asset type: playable HD-2D fantasy sports arena background, 1536x1024 landscape. Reference image is the existing Kalistar arena: preserve its world, elegant ivory stone colonnades, copper details, teal and crimson banners, glowing crystals, sunlit mountain lake and distant castle. Create a NEW camera composition, not a rotated diamond. A straight-on horizontally oriented rectangular arena, parallel orthographic RPG camera looking slightly down, similar to a stage in a high-end pixel-art tactical RPG. Horizon and ornate empty spectator terraces occupy upper 32 percent. Broad rectangular calm teal-green weathered stone/turf playing surface occupies x=5% to95%, y=35% to88%, with its upper and lower borders PERFECTLY HORIZONTAL and left and right borders VERTICAL. No isometric diagonal diamond, no converging trapezoid, no visible grid or markings (code adds exact grid), no circle, no goals. The middle playing field must be completely clear and low-contrast so small animated sprites can be read. Thin ivory stone surrounding edge, outer corner pillars strictly outside field. Bottom 10 percent low stone balustrade and ivy. Crisp fine pixel clusters with sophisticated painterly HD2D light, not vector, not photoreal; bright detailed world with restrained turquoise, grey stone, warm sunlight and red accent flags. No people, no text, no UI, no balls. Maintain open entire playable rectangle; nothing overlaps its edges."
+  },
+  "inspiration": "https://www.spiralupgames.com/projects/wandering-sword"
+}

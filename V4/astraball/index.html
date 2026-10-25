@@ -25,7 +25,14 @@
       <section class="arena" aria-label="Terrain d’Astraball">
         <div id="canvas-host"></div>
         <div class="venue"><span>LES HAUTS D’ASTRALIA</span><small>Cour des résonances</small></div>
-        <div class="view-tools"><button class="icon" id="zoom-out" title="Dézoomer" aria-label="Dézoomer"><i data-lucide="minus"></i></button><button class="icon" id="zoom-reset" title="Recentrer le terrain" aria-label="Recentrer le terrain"><i data-lucide="scan"></i></button><button class="icon" id="zoom-in" title="Zoomer" aria-label="Zoomer"><i data-lucide="plus"></i></button></div>
+        <div class="camera-controls">
+          <div class="view-tools"><button class="icon" id="camera-toggle" title="Vue du terrain" aria-label="Vue du terrain" aria-expanded="false" aria-controls="camera-panel"><i data-lucide="camera"></i></button><button class="icon" id="zoom-out" title="Dézoomer" aria-label="Dézoomer"><i data-lucide="minus"></i></button><button class="icon" id="zoom-reset" title="Recentrer le terrain" aria-label="Recentrer le terrain"><i data-lucide="scan"></i></button><button class="icon" id="zoom-in" title="Zoomer" aria-label="Zoomer"><i data-lucide="plus"></i></button></div>
+          <div id="camera-panel" hidden>
+            <div class="locker-view" role="group" aria-label="Vue du terrain"><button data-view="horizontal" aria-pressed="true">HD-2D</button><button data-view="isometric" aria-pressed="false">Isométrique</button></div>
+            <label for="camera-height">Hauteur <output id="height-value" for="camera-height">60 %</output></label>
+            <input type="range" id="camera-height" min="0" max="100" step="5" value="60">
+          </div>
+        </div>
         <div class="event-ribbon" id="event-ribbon" role="status" aria-live="polite">Entrée des équipes</div>
         <div id="celebration" aria-live="polite" hidden><span id="goal-caption"></span><strong id="goal-title">U !</strong><small id="goal-detail"></small></div>
         <div class="boot" id="boot"><img src="/jeu/assets/navigation/kalistel-rainbow-v2.webp" alt=""><span>La cour s’éveille</span></div>
@@ -41,7 +48,7 @@
         <div class="match-journal"><h2><i data-lucide="scroll-text"></i> Fil du match <button class="icon" id="journal" title="Historique complet" aria-label="Historique complet"><i data-lucide="expand"></i></button></h2><ol id="recent-events"></ol></div>
       </aside>
     </div>
-    <footer class="statusbar"><span><b class="connection-dot"></b> <span id="mode-label">Exhibition · Solo</span></span><span id="save-status">Sauvegarde locale</span><span>Astraball <b>4.7.1</b></span></footer>
+    <footer class="statusbar"><span><b class="connection-dot"></b> <span id="mode-label">Exhibition · Solo</span></span><span id="save-status">Sauvegarde locale</span><span>Astraball <b>4.7.2</b></span></footer>
   </main>
   <dialog id="modal"><div class="dialog-heading"><h2 id="dialog-title"></h2><button class="icon" id="close-dialog" aria-label="Fermer" title="Fermer"><i data-lucide="x"></i></button></div><div id="dialog-content"></div></dialog>
   <script type="module" src="./src/app.mjs"></script>

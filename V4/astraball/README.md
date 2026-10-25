@@ -24,11 +24,16 @@ Le serveur indique son adresse, normalement
 Les medias doivent etre presents sur ce PC ou restaures depuis leur sauvegarde.
 Le clone Git volontairement leger ne contient pas les peintures.
 
-Le match s'ouvre directement. Les options permettent le solo contre l'IA ou
-deux joueurs sur le meme ecran. Le livre des regles est accessible en haut.
+Le premier match ouvre un vestiaire avec six ballons cosmetiques, une vue
+HD-2D horizontale ou isometrique, le solo contre l'IA et deux joueurs sur le
+meme ecran. Une sauvegarde existante reprend directement. Le vestiaire reste
+accessible dans les options. Le livre des regles est accessible en haut.
 Deplacement par clic de case ; passe, tir ou charge : selection puis confirmation.
 Clavier : fleches sur le terrain puis Entree. Tactile : glisser pour deplacer
 la camera, boutons + / - et recentrage. Le telephone zoome sur le joueur actif.
+Le bouton camera ouvre le choix de vue et le curseur de hauteur HD-2D.
+La vue, la hauteur et le ballon sont memorises sur l'appareil ; ils n'affectent
+ni les statistiques, ni l'IA, ni les probabilites, ni les sauvegardes Kalistar.
 
 ## Regles Retenues
 
@@ -65,7 +70,8 @@ du jeu de cartes. Cette exhibition ne constitue pas une declaration d'equilibrag
 | `src/core/geometry.mjs` | Cases, limites, trajectoires supercover |
 | `src/core/game.mjs` | Etat pur, initiative, actions, ballon, score, validation |
 | `src/core/ai.mjs` | Decisions bornees sans modifier l'etat |
-| `src/projection.mjs` | Transformation commune du sol et du clic |
+| `src/projection.mjs` | Deux projections communes au sol/clic, hauteur et zones du Pilier |
+| `src/appearance.mjs` | Six ballons cosmetiques et validation des preferences visuelles |
 | `src/renderer.mjs` | Scene PixiJS, personnages, ballon, animations, camera |
 | `src/sprites.mjs` | Atlases, tailles, clips et orientation des dix personnages |
 | `src/app.mjs` | Commandes, interface, sauvegarde et pause IA |
@@ -92,6 +98,23 @@ en prenant les peintures approuvees Momo/Valazar comme references de matiere.
 Le prompt est conserve dans `sources/arena-v1.prompt.txt`. La grille et les
 trois cibles de chaque U sont dessinees par le moteur, jamais devinees depuis
 des lignes generees. Les points du sol et le clic utilisent le meme quadrilatere.
+La seconde peinture conserve les lignes horizontales d'une cour HD-2D.
+Seul le plan de jeu se comprime avec la hauteur, les sprites restent debout.
+Les zones defensives suivent exactement les trois colonnes autorisees par
+le moteur (frontieres 1/4 et 9/12), sans decalage optique fractionnaire.
+Les cibles se dessinent dans les colonnes de U, distinctes des zones du Pilier.
+
+Les six ballons sont derives de la planche fournie par l'auteur avec image_gen
+integre : Fondateurs, Noyau orbital, Tissage celeste, Rempart Rhinoz, Harmonie
+Cerelf et Edition Ligue. Leurs WebP transparents font 256 x 256 et totalisent
+moins de 195 Ko ; la nouvelle peinture fait moins de 590 Ko.
+Sources, prompts et empreintes :
+[`sources/visuals-v2/prompts.json`](sources/visuals-v2/prompts.json) et
+[`media-report.json`](sources/visuals-v2/media-report.json).
+`node tools/prepare-visuals.cjs` reproduit le redimensionnement et les exports
+depuis les PNG preserves, sans relancer de generation.
+Reference de cadrage : [Wandering Sword, editeur](https://www.spiralupgames.com/projects/wandering-sword).
+Il s'agit ici d'un rendu 2D a plans superposes, pas d'une camera 3D libre.
 
 Le terrain affiche dix personnages de corps entier en pixel art original,
 generes avec image_gen a partir de leurs illustrations Kalistar approuvees.
@@ -138,7 +161,8 @@ les comptes de verification sont factices, jamais les sessions personnelles.
 
 ## Limites Et Suite
 
-- Une arene, deux equipes fixes, IA heuristique et match local seulement.
+- Une arene en deux vues, six ballons cosmetiques, deux equipes fixes,
+  IA heuristique et match local seulement.
 - Pas de matchmaking, compte Astraball, classement, recompense ni reseau de jeu.
 - Sprites en deux orientations miroir, sans animation squelettique ni huit vues.
 - Pas de replay du dernier tir ou de bande sonore enregistree. Sons synthetiques

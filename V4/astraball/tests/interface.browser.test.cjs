@@ -8,6 +8,14 @@ let url=process.env.KALISTAR_URL||'http://127.0.0.1:4330/jeu/astraball/';
 async function main(){
   fs.mkdirSync(OUT,{recursive:true});
   const atlasProof=require('../sources/sprites-v1/atlas-report.json');
+  const {BALLS}=await import('../src/appearance.mjs');
+  for(const ball of BALLS){
+    const file=process.env.KALISTAR_DIST?path.join(process.env.KALISTAR_DIST,'jeu/astraball',ball.url):path.resolve(__dirname,'..',ball.url);
+    const {data,info}=await sharp(file).ensureAlpha().raw().toBuffer({resolveWithObject:true});
+    assert.equal(info.width,256);assert.equal(info.height,256);
+    assert.equal(data[3],0);assert.ok(data[(128*256+128)*4+3]>=230,'solid or translucent glass core');
+    assert.ok(fs.statSync(file).size<40000,'ball texture budget '+ball.id);
+  }
   for(const character of atlasProof.characters){
     const file=process.env.KALISTAR_DIST?path.join(process.env.KALISTAR_DIST,'jeu/astraball',character.file):path.resolve(__dirname,'..',character.file);
     const {data,info}=await sharp(file).ensureAlpha().raw().toBuffer({resolveWithObject:true});
@@ -53,6 +61,14 @@ async function main(){
       await page.goto(url);
       try{await page.waitForFunction(()=>window.Astraball?.ready,null,{timeout:20000});}
       catch(error){throw new Error(name+' boot failed: '+errors.join('\n'),{cause:error});}
+      await page.getByRole('heading',{name:'Avant le coup d’envoi'}).waitFor();
+      assert.equal(await page.locator('.ball-choice').count(),6);
+      await page.locator('.ball-choice').filter({has:page.locator('input[value="orbital"]')}).click();
+      assert.equal(await page.locator('input[name="ball"][value="orbital"]').isChecked(),true);
+      assert.match(await page.locator('#ball-name').textContent(),/Noyau orbital/);
+      await page.screenshot({path:path.join(OUT,name+'-vestiaire.png'),fullPage:true});
+      await page.locator('#new-match').click();
+      assert.equal(await page.evaluate(()=>window.Astraball.metrics().appearance.ball),'orbital');
       assert.ok(await page.locator('svg.lucide').count()>=10,'Lucide icons are rendered');
       const initial=await page.evaluate(()=>window.Astraball.snapshot());
       assert.equal(await page.evaluate(()=>window.Astraball.metrics().sprites.count),10);
@@ -63,9 +79,26 @@ async function main(){
       await page.waitForFunction(()=>window.Astraball.snapshot().moved);
       await page.waitForFunction(()=>!window.Astraball.metrics().busy);
       assert.equal((await page.evaluate(()=>window.Astraball.snapshot())).activeId,initial.activeId);
+      // Camera changes are purely visual, with no duplicated goal labels or game mutations.
+      const cameraState=await page.evaluate(()=>JSON.stringify(window.Astraball.snapshot()));
+      await page.locator('#camera-toggle').click();
+      for(const height of [0,100,60]){
+        await page.locator('#camera-height').fill(String(height));await page.locator('#camera-height').dispatchEvent('input');
+        assert.equal(await page.evaluate(()=>window.Astraball.metrics().appearance.height),height);
+        await page.screenshot({path:path.join(OUT,name+'-height-'+height+'.png')});
+      }
+      await page.locator('#camera-panel [data-view="isometric"]').click();
+      assert.equal(await page.locator('#camera-height').isDisabled(),true);
+      await page.screenshot({path:path.join(OUT,name+'-isometric.png')});
+      await page.locator('#camera-panel [data-view="horizontal"]').click();
+      await page.locator('#camera-toggle').click();
+      assert.equal(await page.evaluate(()=>window.Astraball.metrics().floorLabels),6);
+      assert.equal(await page.evaluate(()=>JSON.stringify(window.Astraball.snapshot())),cameraState);
       const beforeReload=await page.evaluate(()=>JSON.stringify(window.Astraball.snapshot()));
       await page.reload();await page.waitForFunction(()=>window.Astraball?.ready);
       assert.equal(await page.evaluate(()=>JSON.stringify(window.Astraball.snapshot())),beforeReload);
+      assert.deepEqual(await page.evaluate(()=>window.Astraball.metrics().appearance),{view:'horizontal',height:60,ball:'orbital'});
+      assert.equal(await page.locator('#modal').isVisible(),false,'resume does not reopen kickoff');
       const overflow=await page.evaluate(()=>({x:document.documentElement.scrollWidth>innerWidth,y:document.documentElement.scrollHeight>innerHeight,canvas:document.querySelector('canvas').getBoundingClientRect().toJSON()}));
       assert.equal(overflow.x,false,'horizontal overflow '+name);
       assert.equal(overflow.y,false,'vertical overflow '+name);
@@ -91,9 +124,33 @@ async function main(){
     await page.screenshot({path:path.join(OUT,'interception-preview.png')});await page.locator('#confirm-action').click();await page.waitForFunction(()=>!window.Astraball.metrics().busy);
     assert.equal(await page.evaluate(()=>window.Astraball.snapshot().ball.holderId),'t1-voloden');
     reports.push({scenario:'visible interception agrees with engine',passed:true});await context.close();
+    const looks=await browser.newContext({viewport:{width:1440,height:900},reducedMotion:'reduce'}),lookPage=await looks.newPage();
+    await lookPage.goto(url);await lookPage.waitForFunction(()=>window.Astraball?.ready);
+    for(const ball of BALLS){
+      if(!await lookPage.locator('#modal').isVisible())await lookPage.locator('#settings').click();
+      await lookPage.locator('.ball-choice').filter({has:lookPage.locator('input[value="'+ball.id+'"]')}).click();
+      await lookPage.locator('#match-mode').selectOption('hotseat');
+      await lookPage.locator('#new-match').click();
+      assert.equal(await lookPage.evaluate(()=>window.Astraball.metrics().appearance.ball),ball.id);
+      assert.equal(await lookPage.evaluate(()=>window.Astraball.metrics().ballTexture),true);
+      // Real pointer selection remains playable in either view at minimum and maximum depth.
+      for(const view of ['horizontal','isometric']){
+        await lookPage.locator('#camera-toggle').click();await lookPage.locator('#camera-panel [data-view="'+view+'"]').click();
+        if(view==='horizontal'){await lookPage.locator('#camera-height').fill(ball.id==='founders'?'0':'100');await lookPage.locator('#camera-height').dispatchEvent('input');}
+        await lookPage.locator('#camera-toggle').click();
+        const sample=await lookPage.evaluate(()=>window.Astraball.snapshot()),move=core.legalMoves(sample).find(m=>m.path.length===1);
+        const point=await lookPage.evaluate(p=>window.Astraball.cell(p.x,p.y),move),bounds=await lookPage.locator('#canvas-host').boundingBox();
+        await lookPage.mouse.click(bounds.x+point.x,bounds.y+point.y);await lookPage.waitForFunction(()=>window.Astraball.snapshot().moved&&!window.Astraball.metrics().busy);
+        await lookPage.locator('#wait').click();await lookPage.waitForFunction(()=>!window.Astraball.metrics().busy);
+      }
+      await lookPage.reload();await lookPage.waitForFunction(()=>window.Astraball?.ready);
+      assert.equal(await lookPage.evaluate(()=>window.Astraball.metrics().appearance.ball),ball.id);
+      assert.equal(await lookPage.evaluate(()=>window.Astraball.metrics().appearance.view),'isometric');
+    }
+    reports.push({scenario:'six transparent ball styles, persistence, real moves in both views at low/high camera',passed:true});await looks.close();
     const animated=await browser.newContext({viewport:{width:1440,height:900}}),motion=await animated.newPage(),animationErrors=[];
     motion.on('pageerror',e=>animationErrors.push(e.message));
-    await motion.goto(url);await motion.waitForFunction(()=>window.Astraball?.ready);
+    await motion.goto(url);await motion.waitForFunction(()=>window.Astraball?.ready);await motion.locator('#new-match').click();
     await motion.waitForTimeout(2200);
     const resting=await motion.evaluate(()=>window.Astraball.metrics());await motion.waitForTimeout(800);
     assert.equal(await motion.evaluate(()=>window.Astraball.metrics().renders),resting.renders,'normal motion also becomes fully idle');
@@ -127,7 +184,7 @@ async function main(){
     const chargePoses=await motion.evaluate(()=>window.Astraball.metrics().sprites.poses);assert.ok(chargePoses.charge>0&&chargePoses.hit>0&&chargePoses.guard>0);
     assert.deepEqual(animationErrors,[]);reports.push({scenario:'animated two-point U, victory, charge and tempo',passed:true});await animated.close();
     const mobileMotion=await browser.newContext({viewport:{width:412,height:915},deviceScaleFactor:2,isMobile:true,hasTouch:true}),phone=await mobileMotion.newPage(),phoneErrors=[];
-    phone.on('pageerror',e=>phoneErrors.push(e.message));await phone.goto(url);await phone.waitForFunction(()=>window.Astraball?.ready);
+    phone.on('pageerror',e=>phoneErrors.push(e.message));await phone.goto(url);await phone.waitForFunction(()=>window.Astraball?.ready);await phone.locator('#new-match').click();
     const phoneState=await phone.evaluate(()=>window.Astraball.snapshot()),phoneMove=core.legalMoves(phoneState).find(m=>m.path.length===1);
     const phonePoint=await phone.evaluate(p=>window.Astraball.cell(p.x,p.y),phoneMove),phoneBounds=await phone.locator('#canvas-host').boundingBox();
     await phone.touchscreen.tap(phoneBounds.x+phonePoint.x,phoneBounds.y+phonePoint.y);
