@@ -15,10 +15,10 @@ export function createRoster(libraryData) {
   const originals=TEAMS.flatMap(team=>team.players.map(player=>{
     const id=player.id.slice(3);
     const metadata=libraryData?.entries?.find(entry=>entry.characterId===id);
-    return Object.freeze({id,name:player.name,characterId:id,...SPRITES[id],portrait:'assets/portraits/'+id+'.webp',faction:metadata?.faction||team.name});
+    return Object.freeze({id,name:player.name,characterId:id,...SPRITES[id],calibration:metadata?.calibration,portrait:'assets/portraits/'+id+'.webp',faction:metadata?.faction||team.name});
   }));
   const extras=libraryData?createSpriteLibrary(libraryData).entries.filter(entry=>!originals.some(c=>c.url===entry.file&&c.characterId===entry.characterId)).map(entry=>Object.freeze({
-    id:entry.id,name:entry.name,characterId:entry.characterId,url:entry.file,scale:entry.scale,portrait:null,faction:entry.faction,
+    id:entry.id,name:entry.name,characterId:entry.characterId,url:entry.file,scale:entry.scale,calibration:entry.calibration,portrait:null,faction:entry.faction,
   })):[];
   const entries=Object.freeze([...originals,...extras].filter(c=>getAthlete(c.characterId)).map(c=>Object.freeze({...c,athlete:getAthlete(c.characterId)})));
   const byId=new Map(entries.map(entry=>[entry.id,entry]));

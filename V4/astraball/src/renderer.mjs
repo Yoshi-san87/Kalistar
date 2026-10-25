@@ -2,6 +2,7 @@ import { Application, Container, Sprite, Graphics, Text, Assets, Texture, Rectan
 import { WIDTH, HEIGHT, createProjection, DEFENSE_ZONES } from './projection.mjs';
 import { BALLS, getBall, getArena, normalizeAppearance } from './appearance.mjs';
 import { SPRITES, SPRITE_CELL, SPRITE_FOOT, frameAt, spriteKey, facing } from './sprites.mjs';
+import { spriteSizing } from './sprite-sizing.mjs';
 
 const colors=[0x68e6cd,0xf08d9f], roleCode={meneur:'MN',scoreur:'SC',middle:'MD',sentry:'ST',pilier:'PI'};
 const sprite=unit=>SPRITES[spriteKey(unit)];
@@ -127,7 +128,7 @@ export class CourtRenderer {
     g.poly(flat(circle)).stroke({width:chalk(arena.whiteLines?3:2),color:arena.lines,alpha:arena.whiteLines?1:.65});
   }
   makeToken(unit,texture){
-    const root=new Container(),body=new Container(),scale=this.character(unit).scale;
+    const root=new Container(),body=new Container(),sizing=spriteSizing(this.character(unit)),scale=sizing.scale;
     root.addChild(new Graphics().ellipse(0,4,28,10).fill({color:0x071819,alpha:.5}));
     const base=new Graphics().ellipse(0,1,30,10).fill({color:colors[unit.team],alpha:.14}).stroke({color:colors[unit.team],width:2,alpha:.85});root.addChild(base);
     const ring=new Graphics().ellipse(0,1,36,14).stroke({color:colors[unit.team],width:3}).poly([-5,19,0,24,5,19]).fill(colors[unit.team]);root.addChild(ring);ring.visible=false;
@@ -137,9 +138,9 @@ export class CourtRenderer {
     const label=text(unit.name.toUpperCase(),10);label.anchor.set(.5);label.position.set(0,31);
     label.style.stroke={color:0x102421,width:3};
     const role=text(roleCode[unit.role],9,colors[unit.team]);role.anchor.set(.5);role.position.set(0,44);role.style.stroke={color:0x102421,width:3};
-    const number=text('',12,0xfff0b6);number.anchor.set(.5);number.position.set(0,-82*scale);number.style.stroke={color:0x102421,width:3};
+    const number=text('',12,0xfff0b6);number.anchor.set(.5);number.position.set(0,-sizing.maxHeight-10);number.style.stroke={color:0x102421,width:3};
     root.addChild(body,label,role,number);this.unitLayer.addChild(root);
-    this.tokens.set(unit.id,{root,body,image,frames,scale,ring,label,role,number,base,frame:0,pose:'idle',direction:unit.team===0?1:-1});
+    this.tokens.set(unit.id,{root,body,image,frames,scale,sizing,ring,label,role,number,base,frame:0,pose:'idle',direction:unit.team===0?1:-1});
   }
   pose(token,name,elapsed=0){
     if(!token)return;
@@ -151,7 +152,7 @@ export class CourtRenderer {
     token.direction=facing(from,to,token.direction);token.image.scale.x=token.scale*token.direction;
   }
   spriteMetrics(){
-    return {count:this.tokens.size,selectedId:this.selectedId,frameChanges:this.frameChanges,poses:{...this.poseCounts},units:[...this.tokens].map(([id,t])=>({id,frame:t.frame,pose:t.pose,direction:t.direction,x:t.root.x,y:t.root.y,scale:t.scale}))};
+    return {count:this.tokens.size,selectedId:this.selectedId,frameChanges:this.frameChanges,poses:{...this.poseCounts},units:[...this.tokens].map(([id,t])=>({id,frame:t.frame,pose:t.pose,direction:t.direction,x:t.root.x,y:t.root.y,scale:t.scale,sizing:t.sizing,foot:t.image.anchor.y*SPRITE_CELL,imageScale:{x:t.image.scale.x,y:t.image.scale.y}}))};
   }
   resize(){
     if(!this.app)return;
@@ -188,7 +189,10 @@ export class CourtRenderer {
   worldPoint(event){const rect=this.app.canvas.getBoundingClientRect();return{x:(event.clientX-rect.left-this.scene.x)/this.scale,y:(event.clientY-rect.top-this.scene.y)/this.scale};}
   unitAtPoint(p){
     const ordered=[...this.tokens.entries()].sort((a,b)=>b[1].root.y-a[1].root.y);
-    return ordered.find(([,t])=>Math.abs(p.x-t.root.x)<=28*t.scale && p.y>=t.root.y-80*t.scale && p.y<=t.root.y+10)?.[0];
+    return ordered.find(([,t])=>{
+      const x=(p.x-t.root.x)*t.direction,s=t.sizing;
+      return x>=s.hitLeft&&x<=s.hitRight&&p.y>=t.root.y-s.standingHeight&&p.y<=t.root.y+10;
+    })?.[0];
   }
   bind(){
     const canvas=this.app.canvas;let press=null;
@@ -237,7 +241,9 @@ export class CourtRenderer {
     };this.idleTimer=setTimeout(tick,250);
   }
   stopIdle(){clearTimeout(this.idleTimer);this.idleTimer=null;}
-  placeBall(state){const p=this.camera.center(state.ball.x,state.ball.y),holder=this.tokens.get(state.ball.holderId);this.ball.position.set(p.x+(holder?28*holder.direction:0),p.y-(holder?51:9));this.ball.visible=true;this.ballImage.rotation=0;}
+  carriedBall(token){return{x:token.root.x+token.sizing.ballX*token.direction,y:token.root.y+token.body.y+token.sizing.ballY};}
+  followBall(token){const p=this.carriedBall(token);this.ball.position.set(p.x,p.y);}
+  placeBall(state){const p=this.camera.center(state.ball.x,state.ball.y),holder=this.tokens.get(state.ball.holderId);if(holder)this.followBall(holder);else this.ball.position.set(p.x,p.y-9);this.ball.visible=true;this.ballImage.rotation=0;}
   highlight(moves=[],preview=null,hover=null){
     const g=this.overlay;g.clear();
     if(this.state?.phase==='placement'){
@@ -278,21 +284,21 @@ export class CourtRenderer {
         if(e.type==='place'){
           const t=this.tokens.get(e.unitId),a=this.camera.center(e.from.x,e.from.y),b=this.camera.center(e.to.x,e.to.y);
           this.face(t,a,b);
-          await this.tween(420,(p,raw=p)=>{this.pose(t,'run',raw*420);t.root.position.set(a.x+(b.x-a.x)*p,a.y+(b.y-a.y)*p);t.root.zIndex=t.root.y;if(before.ball.holderId===e.unitId)this.ball.position.set(t.root.x+28*t.direction,t.root.y-51);});
+          await this.tween(420,(p,raw=p)=>{this.pose(t,'run',raw*420);t.root.position.set(a.x+(b.x-a.x)*p,a.y+(b.y-a.y)*p);t.root.zIndex=t.root.y;if(before.ball.holderId===e.unitId)this.followBall(t);});
         }
         if(e.type==='move'){
           const t=this.tokens.get(e.unitId);let from=e.from;
           let elapsed=0;
-          for(const cell of e.path){const a=this.camera.center(from.x,from.y),b=this.camera.center(cell.x,cell.y);this.face(t,a,b);await this.tween(300,(p,raw=p)=>{this.pose(t,'run',elapsed+raw*300);t.root.position.set(a.x+(b.x-a.x)*raw,a.y+(b.y-a.y)*raw);t.root.zIndex=t.root.y;t.body.y=-Math.sin(raw*Math.PI)*2;if(before.ball.holderId===e.unitId)this.ball.position.set(t.root.x+28*t.direction,t.root.y-51);});from=cell;elapsed+=300;}t.body.y=0;this.pose(t,'idle');
+          for(const cell of e.path){const a=this.camera.center(from.x,from.y),b=this.camera.center(cell.x,cell.y);this.face(t,a,b);await this.tween(300,(p,raw=p)=>{this.pose(t,'run',elapsed+raw*300);t.root.position.set(a.x+(b.x-a.x)*raw,a.y+(b.y-a.y)*raw);t.root.zIndex=t.root.y;t.body.y=-Math.sin(raw*Math.PI)*2;if(before.ball.holderId===e.unitId)this.followBall(t);});from=cell;elapsed+=300;}t.body.y=0;this.pose(t,'idle');
         }
         if(e.type==='pass'||e.type==='shot'){
           const blocker=e.blockerId?before.units.find(u=>u.id===e.blockerId):null,target=blocker||e.to,a=this.camera.center(e.from.x,e.from.y),b=this.camera.center(target.x,target.y);
           const actor=this.tokens.get(e.unitId),receiver=this.tokens.get(e.blockerId||e.targetId);
           this.face(actor,a,b);if(receiver){this.face(receiver,b,a);this.pose(receiver,'guard');}
-          await this.tween(e.type==='shot'?340:260,(p,raw=p)=>{this.pose(actor,'throw',raw*240);actor.body.y=-Math.sin(raw*Math.PI)*(e.type==='shot'?5:1);this.ball.position.set(a.x+actor.direction*(20+p*12),a.y-51-p*7);});
+          await this.tween(e.type==='shot'?340:260,(p,raw=p)=>{this.pose(actor,'throw',raw*240);actor.body.y=-Math.sin(raw*Math.PI)*(e.type==='shot'?5:1);this.ball.position.set(a.x+actor.direction*(actor.sizing.ballX+p*4),a.y+actor.sizing.ballY-p*7);});
           this.pose(actor,'throw',260);actor.body.y=0;
           const trail=new Graphics();this.effects.addChild(trail);
-          const start={x:a.x+actor.direction*32,y:a.y-58},end={x:b.x+(receiver?receiver.direction*28:0),y:b.y-(receiver?51:25)};
+          const start={x:a.x+actor.direction*(actor.sizing.ballX+4),y:a.y+actor.sizing.ballY-7},end={x:b.x+(receiver?receiver.direction*receiver.sizing.ballX:0),y:b.y+(receiver?receiver.sizing.ballY:-25)};
           await this.tween(e.type==='shot'?550:650,(p,raw=p)=>{this.pose(actor,'throw',260+raw*500);const x=start.x+(end.x-start.x)*p,y=start.y+(end.y-start.y)*p-Math.sin(raw*Math.PI)*45;this.ball.position.set(x,y);this.ballImage.rotation=raw*Math.PI*2*actor.direction;trail.clear().moveTo(x-16*(b.x-a.x)/300,y-8*(b.y-a.y)/300).lineTo(x,y).stroke({width:6,color:getBall(this.appearance.ball).color,alpha:.65});});trail.destroy();this.pose(actor,'idle');
         }
         if(e.type==='charge'){

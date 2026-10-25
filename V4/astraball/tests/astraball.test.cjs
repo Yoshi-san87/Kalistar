@@ -6,6 +6,7 @@ require('./deploy-cases.cjs');
 test('Astraball rules and AI regression suite',async()=>{await import('./core.test.mjs');});
 test('Astraball formation and zone-capacity regression suite',async()=>{await import('./placement.test.mjs');});
 test('Astraball locker and roster regression suite',async()=>{await import('./locker.test.mjs');});
+test('Astraball calibrated sprite sizing regression suite',async()=>{await import('./sprite-sizing.test.mjs');});
 test('every visible tile maps back to its logical cell',async()=>{
   const {center,pick,polygon}=await import('../src/projection.mjs');
   for(let y=0;y<7;y++)for(let x=0;x<13;x++){

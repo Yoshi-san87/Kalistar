@@ -4,10 +4,11 @@
 
 La bibliotheque est un catalogue de medias, pas un inventaire joueur.
 Elle regroupe les personnages disponibles des trois lots. Le vestiaire les propose
-via `src/roster.mjs`, sans attribuer de statistiques
-propres aux apparences ni modifier une sauvegarde existante. Une nouvelle equipe
-enregistre l'identifiant d'apparence dans chaque joueur ; les statistiques restent
-celles du poste. Une identite ne peut figurer deux fois dans le meme camp.
+via `src/roster.mjs`, sans attribuer de statistiques aux images ni modifier une
+sauvegarde existante. Une nouvelle equipe enregistre l'identifiant d'apparence
+dans chaque joueur ; son profil sportif et ses deux postes autorises viennent
+du catalogue [des athletes](ATHLETES.md), independant des medias. Une identite
+ne peut figurer deux fois dans le meme camp.
 Les dix sprites du prototype restent inchanges, avec leurs identifiants courts
 historiques conserves dans les equipes et les sauvegardes.
 
@@ -39,6 +40,42 @@ dans `src/sprites.mjs`, commun au jeu et a la galerie. Les personnages regardent
 a droite, avec miroir pour la gauche ; ce lot n'ajoute pas de vues de dos.
 Le dessin source est adapte au format sans etirement independant des axes.
 
+## Echelle Sur Le Terrain
+
+Le template et les PNG restent inchanges. Le constructeur derive une
+`calibration` des seize rectangles peints dans les rapports de decoupage :
+hauteur mediane des quatre poses de repos, largeur au repos et enveloppe
+maximale des animations. Les marges transparentes ne comptent pas comme du corps.
+Un chapeau ou une corne fait partie de la silhouette graphique, pas d'une
+nouvelle mesure anatomique ; cette normalisation reste une approximation visuelle.
+
+`src/sprite-sizing.mjs` combine cette calibration avec la taille renseignee
+dans le profil ou le registre des collaborations. La plage de presentation est
+bornee a **100..300 cm**, puis comprimee en **70..154 pixels monde** pour garder
+les petits lisibles : `70 + (cm - 100) * 0.42`. Les vraies mensurations ne
+sont jamais reecrites. Une taille inconnue ou une longueur de queue prend un
+gabarit neutre de 180 cm, sans le faire passer pour une mesure. Simone dispose
+explicitement du gabarit geant de 300 cm ; sa taille documentaire reste inconnue.
+
+Une echelle uniforme et constante sur les seize poses limite aussi la largeur
+a 96 pixels au repos / 144 en action et la hauteur totale a 174 pixels.
+Les silhouettes larges peuvent donc etre davantage comprimees. Les gestes
+peuvent depasser la case, mais ne changent jamais la case occupee. Aucun bras
+n'est etire, aucune pose ne fait varier la taille du corps.
+
+L'appui reste a `(48,90)`. Le zoom de camera s'applique ensuite a toute la scene,
+sans agrandir independamment un personnage. Le ballon porte, ses departs et
+arrivees de passe, la penalite au-dessus de la tete et la zone de selection
+suivent les nouvelles dimensions. Les anneaux d'equipe gardent leur taille
+commune pour lire la grille. Il n'y a aucun effet sur les statistiques,
+collisions, portees ou sauvegardes. Galerie et vignettes du vestiaire conservent
+le zoom du template pour inspecter le dessin, pas une echelle de comparaison.
+
+Pour un nouvel atlas, le constructeur calcule cette calibration automatiquement.
+Verifier sa pose de repos et ses mensurations, puis le comparer en match a un
+petit et a un grand personnage. Ne pas compenser un mauvais dessin par une
+deformation X/Y ou une echelle differente a chaque frame.
+
 ## Catalogue Et Stockage
 
 `data/sprite-library.json` est la source de metadonnees distribuable.
@@ -55,7 +92,8 @@ Le dessin source est adapte au format sans etirement independant des axes.
 | `name`, `race`, `faction` | Libelles de consultation, non utilises comme cles |
 | `file` | Chemin relatif de l'atlas public |
 | `width`, `height`, `bytes`, `sha256` | Dimensions et integrite du media |
-| `scale` | Echelle de presentation utilisee sur le terrain et dans le vestiaire |
+| `scale` | Ancien multiplicateur, conserve seulement pour les catalogues sans calibration |
+| `calibration` | Hauteur de repos et enveloppes peintes, derives du rapport de l'atlas |
 
 Exemple de resolution explicite :
 

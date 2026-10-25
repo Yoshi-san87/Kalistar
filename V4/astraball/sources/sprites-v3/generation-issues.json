@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "issues": [
+    {
+      "id": "batman-batman",
+      "date": "2026-10-25",
+      "tool": "image_gen",
+      "status": "pending",
+      "code": "moderation_blocked",
+      "stage": "output",
+      "categories": [
+        "other"
+      ],
+      "requestId": "f568bc01-50a8-464c-8be2-47612798eb7f",
+      "note": "No image produced. No more specific reason supplied; no reformulation attempted."
+    },
+    {
+      "id": "joker-batman",
+      "date": "2026-10-25",
+      "tool": "image_gen",
+      "status": "pending",
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 7eaea46f-9c92-4bbb-9ea3-9cd3aaf79301.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+      "note": "No image produced; no reformulation attempted."
+    },
+    {
+      "id": "professeur-x-xmen",
+      "date": "2026-10-25",
+      "tool": "image_gen",
+      "status": "pending",
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID b5b39575-8cae-47cd-9a6a-b5108fd27eb1.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+      "note": "No image produced; no reformulation attempted."
+    }
+  ]
+}

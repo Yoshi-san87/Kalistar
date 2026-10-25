@@ -12,6 +12,9 @@ Le registre distingue les sprites historiques (`existing`), les personnages
 a produire (`pending`), les PNG enregistres (`generated`), les atlas a regarder
 (`review`) et les atlas controles visuellement (`ready`).
 La presence d'une entree en attente ne signifie pas que son image existe.
+Les echecs du generateur sont consignes dans `generation-issues.json` : ces
+personnages restent `pending` et absents du catalogue de sprites disponible.
+Le journal conserve le message recu, sans en deduire une cause non fournie.
 
 ## Sources
 

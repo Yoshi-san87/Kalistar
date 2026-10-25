@@ -63,8 +63,9 @@ est explicitement une longueur totale, non une taille debout.
 Les collaborations ont un registre documentaire distinct, avec continuite,
 source et champs effectivement couverts. Une valeur non verifiee reste `null`
 et s'affiche Non renseigne. Une source secondaire est signalee comme telle.
-Ces chiffres ne changent ni FOR, ni MOB, ni la taille des sprites, ni les
-collisions. Ne pas deduire une puissance automatique d'une masse canonique.
+Les tailles alimentent maintenant l'[echelle visuelle des sprites](SPRITES.md).
+Elles ne changent ni FOR, ni MOB, ni les collisions ou les cases occupees.
+Ne pas deduire une puissance automatique d'une masse canonique.
 
 ## Sauvegardes Et Maintenance
 

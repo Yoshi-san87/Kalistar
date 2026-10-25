@@ -8,7 +8,7 @@ les Fragments ou les combats du jeu de cartes.
 La [bibliotheque de sprites](SPRITES.md) fournit le catalogue jouable : galerie
 animee a `/jeu/astraball/library.html`, 16 poses par personnage, identifiants
 stables des cartes. Les profils sportifs couvrent les 368 identites examinees ;
-le vestiaire ne propose que celles dont le sprite a ete publie (170 actuellement),
+le vestiaire ne propose que celles dont le sprite a ete valide et ajoute au catalogue,
 sans modifier les droits de collection.
 
 ## Jouer

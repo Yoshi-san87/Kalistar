@@ -1,0 +1,132 @@
+{
+  "version": "4.7.8",
+  "sprites": 269,
+  "ci": {
+    "invocations": 104,
+    "tests": 1999,
+    "pass": 1997,
+    "fail": 0,
+    "skipped": 2
+  },
+  "local": {
+    "invocations": 14,
+    "tests": 154,
+    "pass": 154,
+    "fail": 0,
+    "skipped": 0
+  },
+  "sizing": {
+    "viewports": [
+      "desktop",
+      "razr",
+      "compact"
+    ],
+    "projectionChecks": 18,
+    "comparison": [
+      {
+        "characterId": "tony-tony-chopper-op",
+        "standingPixels": 70,
+        "height": {
+          "source": "measurement",
+          "measuredCm": 90,
+          "cm": 100
+        }
+      },
+      {
+        "characterId": "monkey-d-luffy-op",
+        "standingPixels": 101.08000000000001,
+        "height": {
+          "source": "measurement",
+          "measuredCm": 174,
+          "cm": 174
+        }
+      },
+      {
+        "characterId": "barret-ff7",
+        "standingPixels": 110.4,
+        "height": {
+          "source": "measurement",
+          "measuredCm": 197,
+          "cm": 197
+        }
+      },
+      {
+        "characterId": "simone-nier",
+        "standingPixels": 127.25581395348838,
+        "height": {
+          "source": "giant-presentation",
+          "measuredCm": null,
+          "cm": 300
+        }
+      }
+    ],
+    "template": {
+      "cell": 96,
+      "foot": 90,
+      "atlas": 384
+    },
+    "maxDisplayCm": 300,
+    "minimumDisplayCm": 100
+  },
+  "interface": {
+    "viewports": [
+      "desktop",
+      "wide",
+      "razr",
+      "compact",
+      "landscape"
+    ],
+    "charactersStarted": 269,
+    "scenarios": [
+      {
+        "scenario": "visible interception agrees with engine",
+        "passed": true
+      },
+      {
+        "scenario": "six transparent ball styles, persistence, real moves in both views at low/high camera",
+        "passed": true
+      },
+      {
+        "scenario": "looping 4Hz idle, modal/visibility pause and real four-frame running"
+      },
+      {
+        "scenario": "goal opens placement, hotseat confirmation persists and no spent turn returns",
+        "passed": true
+      },
+      {
+        "scenario": "animated two-point U, victory, charge and tempo",
+        "passed": true
+      },
+      {
+        "scenario": "Razr touch with normal sprite animation and 2x pixels",
+        "passed": true
+      },
+      {
+        "scenario": "existing auth guard and isolated per-profile local saves",
+        "passed": true
+      }
+    ]
+  },
+  "site": {
+    "cards": 462,
+    "desktopAndPhone": true,
+    "collectionDeckArenaAndSave": true
+  },
+  "backup": {
+    "name": "2026-10-25-astraball-sprites-v3-269",
+    "files": 798,
+    "bytes": 545242190,
+    "verified": true
+  },
+  "scope": "Frozen HEAD plus sprite additions and sizing only; concurrent arena and camera drafts excluded.",
+  "commands": [
+    "npm run check",
+    "node maintenance/validate.cjs --suite ci",
+    "node maintenance/validate.cjs --suite local",
+    "node V4/deploy/build.cjs",
+    "node V4/astraball/tests/sprite-sizing.browser.test.cjs",
+    "node V4/astraball/tests/interface.browser.test.cjs",
+    "node V4/astraball/tests/sprite-library.browser.test.cjs",
+    "node V4/deploy/browser.test.cjs"
+  ]
+}
