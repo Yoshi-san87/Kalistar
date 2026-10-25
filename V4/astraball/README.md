@@ -62,7 +62,7 @@ a l'engagement. Un retard au score favorise les plans avances, une avance
 favorise la couverture ; a egalite, recevoir le ballon favorise l'attaque.
 La derniere formation validee est exclue au replacement suivant. Le choix est
 stable pendant une phase, meme apres sauvegarde/rechargement partiel, et ne
-consomme pas l'aleatoire des tirs ou charges. Pilier, soutien defensif unique,
+consomme pas l'aleatoire des charges. Pilier, soutien defensif unique,
 couloirs de Scoreur et relais de passe restent coherents. Toutes les cases
 sont verifiees par le moteur ; une case tampon legale resout les permutations.
 Les placements ne rendent aucun tour, ne modifient aucune statistique et ne
@@ -86,7 +86,9 @@ ni les statistiques, ni l'IA, ni les probabilites, ni les sauvegardes Kalistar.
 - Passe a portee et libre : certaine. Le premier adversaire sur une case
   traversee intercepte automatiquement, y compris un contact au coin d'une case.
 - Un but adverse en U, avec trois zones de tir selectionnables. Les adversaires traverses contrent le tir.
-  Une cible libre donne une probabilite affichee selon TIR et distance.
+  A portee et sans adversaire sur la trajectoire, le tir est certain, sans jet
+  aleatoire. TIR determine seulement la portee : 2 + la moitie de TIR arrondie
+  en dessous. La distance se compte par les cotes, pas en diagonale.
 - Un U vaut un point, ou deux pour le Scoreur. Premier a six points ; sinon,
   meilleur score apres douze manches, avec match nul possible.
 - Avant l'engagement et apres un U non final, placement libre dans sa moitie :
@@ -94,7 +96,7 @@ ni les statistiques, ni l'IA, ni les probabilites, ni les sauvegardes Kalistar.
   L'equipe qui recoit le ballon se place en premier ; validation des deux camps
   obligatoire. Le ballon suit son Meneur. Le placement ne consomme pas de MOB,
   de tour ou d'alea. Les activations et penalites deja depensees sont conservees.
-  Un rate rebondit devant la cible choisie sans nouvelle phase de placement.
+  Un tir intercepte donne le ballon au premier adversaire traverse, sans replacement.
 - Charge adjacente : FOR contre DEF, chance affichee ; succes = recul si libre,
   ballon lache et -3 VIT. Penalite immediate si la cible attend son tour, sinon
   pour la prochaine manche. Aucun tour supprime, penalites bornees a VIT.
@@ -110,7 +112,10 @@ Les formules exactes sont dans `src/core/game.mjs` et le livre des regles.
 Les profils sont propres a Astraball, pas aux statistiques du jeu de cartes.
 Leur budget commun limite l'inflation sans prouver l'equilibre competitif.
 Les rencontres deja sauvegardees conservent leurs valeurs, meme apres une
-revision de profil. Les nouvelles equipes initiales placent Darnako en Pilier
+revision de profil. La garantie des tirs libres s'applique aux prochaines actions,
+y compris apres une reprise : scores, positions, initiative, RNG, profils et
+ancien historique (y compris les tirs rates) ne sont pas reecrits. Aucun reset
+de sauvegarde ni migration Supabase. Les nouvelles equipes initiales placent Darnako en Pilier
 et Valazar en Middle pour respecter leurs deux postes autorises.
 
 ## Architecture

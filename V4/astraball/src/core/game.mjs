@@ -34,7 +34,7 @@ function seedValue(seed) {
   return hash;
 }
 
-// One uint32 LCG draw per unblocked shot/charge; previews never consume entropy.
+// One uint32 LCG draw per charge; clear shots/passes never consume entropy.
 function roll(state, chance) {
   state.rng = (Math.imul(state.rng, 1664525) + 1013904223) >>> 0;
   return state.rng / 4294967296 * 100 < chance;
@@ -197,7 +197,7 @@ export function previewAction(state, action) {
     cells, blockerId: blocker?.id ?? null, inRange: distance(unit, to) <= range,
   };
   if (!details.inRange) return invalid('out-of-range', details);
-  const clearChance = action.type === 'pass' ? 100 : clamp(25 + unit.stats.TIR * 9 - details.distance * 5, 30, 95);
+  const clearChance = 100;
   return {
     ...base, ...details, legal: true, chance: blocker ? 0 : clearChance,
     clearChance, points: action.type === 'shoot' ? (unit.role === 'scoreur' ? 2 : 1) : 0,
@@ -376,7 +376,7 @@ export function applyCommand(state, command) {
         targetId: unit.id, from: preview.from, to: position(receiver), success: true, action: 'pass',
       });
     } else if (command.type === 'shoot') {
-      const success = !preview.blockerId && roll(state, preview.chance);
+      const success = !preview.blockerId;
       const shot = {
         type: 'shot', ...common, cells: preview.cells, chance: preview.chance,
         success, points: success ? preview.points : 0, blockerId: preview.blockerId,
@@ -389,12 +389,7 @@ export function applyCommand(state, command) {
           type: 'intercept', round: state.round, unitId: receiver.id, team: receiver.team,
           targetId: unit.id, from: preview.from, to: position(receiver), success: true, action: 'shoot',
         });
-      } else if (success) goal(state, unit, preview, events);
-      else {
-        // A miss rebounds to the interior cell directly next to the selected U.
-        shot.landing = { x: unit.team === 0 ? 11 : 1, y: command.y };
-        shot.pickupId = dropBall(state, shot.landing);
-      }
+      } else goal(state, unit, preview, events);
     }
     endActivation(state, unit, events);
     if (state.status === 'playing' && events.some(event => event.type === 'goal')) beginPlacement(state, 1 - unit.team, 'goal', events);

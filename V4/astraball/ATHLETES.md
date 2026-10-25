@@ -32,7 +32,7 @@ versionnes, independants des sprites et des mensurations documentaires.
 - MOB : nombre maximum de cases de deplacement, entre 2 et 4.
 - FOR : probabilite d'une charge reussie.
 - PAS : portee des passes.
-- TIR : portee et precision des tirs.
+- TIR : portee des tirs. A portee et sans adversaire sur la trajectoire, le tir est certain.
 - DEF : resistance aux charges ; pas une zone d'interception invisible.
 
 Les 16 styles sportifs proposent des forces et des limites, puis les profils

@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import {
   activeUnit, applyCommand, createMatch as createSetup, getInitiative, getUnit,
-  legalMoves, previewAction, validateState,
+  legalMoves, previewAction, restoreMatch, validateState,
 } from '../src/core/game.mjs';
 import { chooseTurn } from '../src/core/ai.mjs';
 
@@ -360,7 +360,7 @@ test('each opponent U-cell is targetable for either team; range and own goal are
       assert.equal(preview.legal, true);
       assert.equal(preview.blockerId, null);
       assert.equal(preview.range, 2 + Math.floor(actor.stats.TIR / 2));
-      assert.equal(preview.chance, Math.max(30, Math.min(95, 25 + actor.stats.TIR * 9 - distance(actor, cmd) * 5)));
+      assert.equal(preview.chance, 100);
     }
     for (const cmd of [{ type: 'shoot', x: team === 0 ? 0 : 12, y: 3 }, { type: 'shoot', x: 12, y: 1 }]) {
       assert.equal(previewAction(state, cmd).legal, false);
@@ -389,6 +389,30 @@ test('Pilier blocks only traversed shot cells; moving to an open angle changes i
   assert.ok(result.events.some(e => e.type === 'intercept'));
   place(state, shooter, 10, 1);
   assert.equal(previewAction(state, { type: 'shoot', x: 12, y: 2 }).blockerId, null);
+});
+
+test('any opposing role on a shot line intercepts; a teammate does not; range cannot be bypassed', () => {
+  for (const team of [0, 1]) for (const role of ROLES) {
+    const state = fixture('scoreur', team);
+    const actor = place(state, activeUnit(state), team === 0 ? 9 : 3, 3);
+    const blocker = place(state, unit(state, 1 - team, role), team === 0 ? 10 : 2, 3);
+    const cmd = {type: 'shoot', x: team === 0 ? 12 : 0, y: 3};
+    const preview = previewAction(state, cmd);
+    assert.equal(preview.legal, true);assert.equal(preview.chance, 0);
+    assert.equal(preview.blockerId, blocker.id);
+    const blocked = structuredClone(state);
+    const result = command(blocked, cmd);
+    assert.equal(result.events.find(e => e.type === 'shot').success, false);
+    assert.equal(blocked.ball.holderId, blocker.id);
+    assert.deepEqual(blocked.score, [0, 0]);assert.equal(blocked.rng, state.rng);
+    assert.equal(blocked.phase, 'play');
+    place(state, blocker, blocker.x, 5);
+    place(state, unit(state, team, 'middle'), team === 0 ? 10 : 2, 3);
+    assert.equal(previewAction(state, cmd).chance, 100);
+    actor.stats.TIR = 0;
+    assert.equal(previewAction(state, cmd).reason, 'out-of-range');
+    rejectUnchanged(state, cmd);
+  }
 });
 
 test('scorer scores two, every other reachable shooter scores one; goal keeps acted flags', () => {
@@ -431,23 +455,55 @@ test('goal on the final activation advances exactly one round and preserves kick
   assert.equal(new Set(drainRound(after)).size, 10);
 });
 
-test('missed shot stays inside pitch and picks up immediately if landing cell is occupied', () => {
-  const state = fixture('scoreur');
-  place(state, activeUnit(state), 9, 3);
-  const cmd = { type: 'shoot', x: 12, y: 3 };
-  const missed = outcome(state, cmd, 'shot', false);
-  assert.deepEqual(missed.state.score, [0, 0]);
-  assert.ok(missed.state.ball.x >= 1 && missed.state.ball.x <= 11);
-  assert.ok(missed.state.ball.y >= 0 && missed.state.ball.y <= 6);
-  assert.ok(distance(missed.state.ball, cmd) <= 3, 'failed shot rebounds near the goal');
-  const occupied = structuredClone(state);
-  const friend = place(occupied, unit(occupied, 0, 'middle'), missed.state.ball.x, missed.state.ball.y);
-  const seeded = createMatch({ seed: missed.seed });
-  occupied.seed = seeded.seed;
-  occupied.rng = seeded.rng;
-  command(occupied, cmd);
-  assert.equal(occupied.ball.holderId, friend.id);
-  assert.deepEqual(point(occupied.ball), point(friend));
+test('clear shots score for both teams, every target and representative TIR values, without RNG', () => {
+  let checked = 0;
+  for (const team of [0, 1]) for (const role of ['scoreur', 'meneur', 'middle', 'sentry']) {
+    for (const tir of [0, 1, 2, 4, 5, 6, 9, 10, 99]) for (const y of [2, 3, 4]) {
+      const range = 2 + Math.floor(tir / 2);
+      for (const d of new Set([1, Math.min(range, 11)])) for (const seed of [0, 1, 23, 0xffffffff]) {
+        const state = fixture(role, team, { seed });
+        const actor = activeUnit(state);
+        actor.stats.TIR = tir;
+        place(state, actor, team === 0 ? 12 - d : d, y);
+        const cmd = { type: 'shoot', x: team === 0 ? 12 : 0, y };
+        const before = structuredClone(state);
+        const preview = previewAction(state, cmd);
+        assert.deepEqual(state, before, 'preview stays pure');
+        assert.equal(preview.legal, true);
+        assert.equal(preview.chance, 100);
+        assert.equal(preview.clearChance, 100);
+        assert.equal(preview.blockerId, null);
+        const result = command(state, cmd);
+        const shot = result.events.find(e => e.type === 'shot');
+        assert.equal(shot.success, true);
+        assert.equal(shot.chance, 100);
+        assert.equal(shot.landing, undefined);
+        assert.equal(state.score[team], role === 'scoreur' ? 2 : 1);
+        assert.equal(state.rng, before.rng, 'a guaranteed shot must not shift later charge rolls');
+        checked++;
+      }
+    }
+  }
+  assert.equal(checked, 1728);
+});
+
+test('resuming a saved match preserves snapshots, score and historical misses; future clear shots are guaranteed', () => {
+  const saved = fixture('scoreur');
+  place(saved, activeUnit(saved), 9, 3);
+  saved.score = [2, 1];
+  const oldMiss = {type: 'shot', round: 1, unitId: saved.activeId, team: 0,
+    from: {x: 9, y: 3}, to: {x: 12, y: 3}, success: false, chance: 91,
+    points: 0, blockerId: null, landing: {x: 11, y: 3}, pickupId: null};
+  saved.log.push(oldMiss);
+  const state = restoreMatch(JSON.parse(JSON.stringify(saved)));
+  assert.deepEqual(state, saved);
+  const result = command(state, {type: 'shoot', x: 12, y: 3});
+  assert.ok(result.events.some(e => e.type === 'goal' && e.points === 2));
+  assert.deepEqual(state.score, [4, 1]);
+  assert.deepEqual(state.log.slice(0, saved.log.length), saved.log);
+  assert.equal(state.rng, saved.rng);
+  for (const u of state.units) assert.deepEqual(u.stats, getUnit(saved, u.id).stats);
+  assert.deepEqual(restoreMatch(JSON.parse(JSON.stringify(state))), state);
 });
 
 test('first six points finishes immediately and finished matches reject all commands', () => {
@@ -686,8 +742,14 @@ test('JSON round-trip resumes identically and AI planning is pure and determinis
     const plan = chooseTurn(a);
     assert.deepEqual(a, before, 'AI must not change state or RNG');
     assert.deepEqual(plan, chooseTurn(b));
-    assert.ok(plan.length >= 1 && plan.length <= 2);
-    if (plan.length === 2) assert.equal(plan[0].type, 'move');
+    if (a.phase === 'placement') {
+      assert.ok(plan.length >= 1 && plan.length <= 11);
+      assert.ok(plan.slice(0, -1).every(cmd => cmd.type === 'place'));
+      assert.deepEqual(plan.at(-1), {type: 'ready', team: a.placement.team});
+    } else {
+      assert.ok(plan.length >= 1 && plan.length <= 2);
+      if (plan.length === 2) assert.equal(plan[0].type, 'move');
+    }
     assert.ok(['pass', 'shoot', 'charge', 'wait', 'ready'].includes(plan.at(-1).type));
     for (const cmd of plan) {
       assert.deepEqual(command(a, cmd), command(b, cmd));

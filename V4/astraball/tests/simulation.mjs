@@ -98,10 +98,17 @@ export function simulate(seed) {
     if (plan.length === 2) assert.equal(plan[0].type, 'move');
     assert.ok(['pass', 'shoot', 'charge', 'wait'].includes(plan.at(-1).type));
     for (const cmd of plan) {
+      const rng = state.rng;
       const result = applyCommand(state, cmd);
       assert.equal(result.ok, true, `seed ${seed}, turn ${turns}, ${JSON.stringify(cmd)}: ${result.error}`);
       assertInvariants(state);
       commands++;
+      if (cmd.type === 'shoot') {
+        const shot = result.events.find(e => e.type === 'shot');
+        assert.equal(shot.success, !shot.blockerId, 'only a defender on the line can stop a legal shot');
+        assert.equal(shot.chance, shot.blockerId ? 0 : 100);
+        assert.equal(state.rng, rng, 'shots do not consume charge randomness');
+      }
       for (const e of result.events) {
         assert.ok(allowedEvents.has(e.type), `undocumented event ${e.type}`);
         eventCounts[e.type] = (eventCounts[e.type] || 0) + 1;

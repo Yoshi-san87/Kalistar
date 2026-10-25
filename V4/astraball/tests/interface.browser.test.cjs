@@ -187,7 +187,25 @@ async function main(){
       await confirmFormations(page);
       await page.locator('#wait').click();await page.waitForFunction(()=>!window.Astraball.metrics().busy);
       assert.equal((await page.evaluate(()=>window.Astraball.snapshot())).units.filter(u=>u.acted).length,1);
-      reports.push({name,errors,overflow,canvasVariance:stats.channels[0].stdev,idleRenders:idle-n});assert.deepEqual(errors,[]);
+      const clearShot=createPlaying({seed:1536,mode:'hotseat'});
+      clearShot.units.filter(u=>['sentry','meneur'].includes(u.role)).forEach(u=>u.acted=true);
+      clearShot.activeId='t0-kaylis';Object.assign(core.getUnit(clearShot,'t0-kaylis'),{x:8,y:0});
+      clearShot.ball={holderId:'t0-kaylis',x:8,y:0};core.validateState(clearShot);
+      await page.evaluate(s=>localStorage.setItem('kalistar.astraball.match.v1',JSON.stringify(s)),clearShot);
+      await page.reload();await page.waitForFunction(()=>window.Astraball?.ready);
+      await page.locator('[data-mode="shoot"]').click();
+      assert.equal(await page.locator('#target-options [data-target="2"]').isDisabled(),true,'out-of-range shot stays unavailable');
+      await page.getByRole('button',{name:'U 1',exact:true}).click();
+      assert.equal(await page.locator('#target-description').textContent(),'Tir assuré · 2 points');
+      await page.screenshot({path:path.join(OUT,name+'-guaranteed-shot.png')});
+      await page.locator('#confirm-action').click();
+      await page.waitForFunction(()=>!window.Astraball.metrics().busy&&window.Astraball.snapshot().phase==='placement');
+      const scored=await page.evaluate(()=>window.Astraball.snapshot());
+      assert.deepEqual(scored.score,[2,0]);assert.equal(scored.rng,clearShot.rng);
+      assert.ok(scored.log.some(e=>e.type==='shot'&&e.success&&e.chance===100));
+      await page.reload();await page.waitForFunction(()=>window.Astraball?.ready);
+      assert.deepEqual(await page.evaluate(()=>window.Astraball.snapshot()),scored);
+      reports.push({name,errors,overflow,canvasVariance:stats.channels[0].stdev,idleRenders:idle-n,guaranteedShot:true});assert.deepEqual(errors,[]);
       await context.close();
     }
     const context=await browser.newContext({viewport:{width:1440,height:900},reducedMotion:'reduce'}),page=await context.newPage();

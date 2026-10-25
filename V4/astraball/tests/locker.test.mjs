@@ -164,7 +164,8 @@ test('personal ratings actually change movement, initiative, range and impact pr
     const shot=previewAction(setup.state,{type:'shoot',x:12,y:4});
     assert.equal(shot.legal,true);assert.equal(shot.blockerId,null);shots.push(shot);
   }
-  assert.ok(shots[1].range>shots[0].range&&shots[1].chance>shots[0].chance,'personal TIR changes range and accuracy');
+  assert.ok(shots[1].range>shots[0].range,'personal TIR still changes range');
+  assert.deepEqual(shots.map(shot=>shot.chance),[100,100],'a clear in-range shot is certain for either athlete');
 });
 
 test('documentary measurements stay intact; missing heights receive explicit Kalistar adaptations',()=>{
