@@ -13,11 +13,11 @@ const text=(value,size=13,color=0xfff1ce)=>new Text({text:value,style:{fontFamil
 const smooth=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
 
 export class CourtRenderer {
-  constructor(host,{onCell,onUnit,onHover,appearance,roster}) {
+  constructor(host,{onCell,onUnit,onHover,onViewChange,appearance,roster}) {
     this.host=host;this.onHover=onHover;this.inputCounts={cellActivations:0,unitActivations:0};
     this.onCell=(...args)=>{this.inputCounts.cellActivations++;onCell(...args);};
     this.onUnit=(...args)=>{this.inputCounts.unitActivations++;onUnit(...args);};
-    this.roster=roster;
+    this.roster=roster;this.onViewChange=onViewChange;
     this.appearance=normalizeAppearance(appearance);const arena=getArena(this.appearance.arena);this.camera=createProjection(this.appearance.view,this.appearance.height,arena.ground,arena);
     this.zoom=innerWidth<=760?1.7:1;this.pan={x:0,y:0};this.tokens=new Map();this.state=null;
     this.reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -215,6 +215,7 @@ export class CourtRenderer {
     this.pan=this.viewport.pan;this.scale=this.viewport.scale;this.viewCenter=this.viewport.center;
     this.scene.scale.set(this.scale);this.scene.position.set(this.viewport.x,this.viewport.y);
     if(this.floor&&this.floorScale!==this.scale)this.drawFloor();
+    this.onViewChange?.();
   }
   viewportSpec(){
     const arena=getArena(this.appearance.arena),horizontal=this.camera.mode==='horizontal';

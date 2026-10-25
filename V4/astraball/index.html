@@ -9,6 +9,7 @@
   <link rel="icon" type="image/webp" href="/jeu/assets/navigation/kalistel-rainbow-v2.webp">
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./locker.css">
+  <link rel="stylesheet" href="./actions.css">
   <script defer src="/jeu/assets/lucide.min.js"></script>
   <script defer src="/jeu/cloud-config.js"></script>
   <script defer src="/jeu/cloud-session.js"></script>
@@ -25,6 +26,19 @@
     <div class="match-layout">
       <section class="arena" aria-label="Terrain d’Astraball">
         <div id="canvas-host"></div>
+        <div id="action-wheel" class="action-wheel" data-open="true" hidden>
+          <svg class="wheel-lines" aria-hidden="true"><path class="wheel-link"/><path class="wheel-arc"/></svg>
+          <button id="action-toggle" class="wheel-toggle" aria-label="Actions du joueur" aria-controls="actions" aria-expanded="true"><img src="/jeu/assets/navigation/kalistel-rainbow-v2.webp" alt=""></button>
+          <div id="actions" role="group" aria-label="Actions du joueur actif">
+            <button class="wheel-action" data-mode="move" aria-label="Déplacer" title="Déplacer"><i data-lucide="footprints"></i><span>Déplacer</span></button>
+            <button class="wheel-action" data-mode="pass" aria-label="Passer" title="Passer"><i data-lucide="arrow-up-right"></i><span>Passer</span></button>
+            <button class="wheel-action" data-mode="shoot" aria-label="Tirer" title="Tirer"><i data-lucide="crosshair"></i><span>Tirer</span></button>
+            <button class="wheel-action" data-mode="charge" aria-label="Charger" title="Charger"><i data-lucide="swords"></i><span>Charger</span></button>
+          </div>
+          <button id="wait" class="wheel-action" aria-label="Terminer l’activation" title="Terminer l’activation"><i data-lucide="check"></i><span>Terminer l’activation</span></button>
+          <span class="wheel-tooltip" hidden></span>
+        </div>
+        <div id="target-panel" class="target-panel" hidden><span id="target-description"></span><div id="target-options"></div><button id="confirm-action" class="primary" hidden></button><button id="cancel-target" class="icon" title="Revenir aux actions" aria-label="Revenir aux actions"><i data-lucide="undo-2"></i></button></div>
         <div class="venue"><span>LES HAUTS D’ASTRALIA</span><small>Cour des résonances</small></div>
         <div class="camera-controls">
           <div class="view-tools"><button class="icon" id="camera-toggle" title="Vue du terrain" aria-label="Vue du terrain" aria-expanded="false" aria-controls="camera-panel"><i data-lucide="camera"></i></button><button class="icon" id="zoom-out" title="Dézoomer" aria-label="Dézoomer"><i data-lucide="minus"></i></button><button class="icon" id="zoom-reset" title="Recentrer le terrain" aria-label="Recentrer le terrain"><i data-lucide="scan"></i></button><button class="icon" id="zoom-in" title="Zoomer" aria-label="Zoomer"><i data-lucide="plus"></i></button></div>
@@ -38,19 +52,17 @@
         <div id="celebration" aria-live="polite" hidden><span id="goal-caption"></span><strong id="goal-title">U !</strong><small id="goal-detail"></small></div>
         <div class="boot" id="boot"><img src="/jeu/assets/navigation/kalistel-rainbow-v2.webp" alt=""><span>La cour s’éveille</span></div>
       </section>
-      <aside class="tactics" aria-label="Commandes du joueur">
+      <aside class="tactics" aria-label="Analyse du jeu">
         <div class="turn-heading"><span id="turn-label">À VOUS DE JOUER</span><span class="turn-dot"></span></div>
         <div id="player-summary"></div>
         <div id="stats" class="stats"></div>
         <div class="phase-track"><span id="phase-move"><b>01</b> Déplacement</span><i data-lucide="chevron-right"></i><span id="phase-action"><b>02</b> Action</span></div>
-        <div id="actions" class="actions" role="group" aria-label="Actions"><button data-mode="move"><i data-lucide="footprints"></i><span>Déplacer</span></button><button data-mode="pass"><i data-lucide="arrow-up-right"></i><span>Passer</span></button><button data-mode="shoot"><i data-lucide="crosshair"></i><span>Viser le U</span></button><button data-mode="charge"><i data-lucide="swords"></i><span>Charger</span></button></div>
-        <div id="target-panel" class="target-panel"><span id="target-description">Sélectionne une case</span><div id="target-options"></div><button id="confirm-action" class="primary" hidden></button></div>
+        <section class="analysis-section"><h2><i data-lucide="scan-line"></i> Lecture du jeu</h2><dl id="analysis-facts" class="analysis-facts"></dl><div id="analysis-detail" class="analysis-detail"></div></section>
         <section id="placement-controls" hidden aria-label="Placement de l’équipe"><div id="placement-progress"></div><p id="placement-summary"></p><button id="formation-ready" class="end-turn"><span>Valider la formation</span><i data-lucide="check"></i></button></section>
-        <button id="wait" class="end-turn"><span>Terminer l’activation</span><i data-lucide="arrow-right"></i></button>
         <div class="match-journal"><h2><i data-lucide="scroll-text"></i> Fil du match <button class="icon" id="journal" title="Historique complet" aria-label="Historique complet"><i data-lucide="expand"></i></button></h2><ol id="recent-events"></ol></div>
       </aside>
     </div>
-    <footer class="statusbar"><span><b class="connection-dot"></b> <span id="mode-label">Exhibition · Solo</span></span><span id="save-status">Sauvegarde locale</span><span>Astraball <b>4.7.13</b></span></footer>
+    <footer class="statusbar"><span><b class="connection-dot"></b> <span id="mode-label">Exhibition · Solo</span></span><span id="save-status">Sauvegarde locale</span><span>Astraball <b>4.7.14</b></span></footer>
   </main>
   <dialog id="modal"><div class="dialog-heading"><h2 id="dialog-title"></h2><button class="icon" id="close-dialog" aria-label="Fermer" title="Fermer"><i data-lucide="x"></i></button></div><div id="dialog-content"></div></dialog>
   <script type="module" src="./src/app.mjs"></script>

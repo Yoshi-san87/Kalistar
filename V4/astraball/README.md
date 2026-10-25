@@ -57,6 +57,18 @@ douze dispositions (six plans et leurs variantes haut/bas), puis place ses
 joueurs avant de valider. Le placement est sauvegarde, meme entre deux validations.
 Deplacement par clic de case ; passe, tir ou charge : selection puis confirmation.
 
+En jeu, les actions apparaissent en icones sur un demi-cercle au pied du joueur
+actif. Les actions indisponibles restent attenuees, avec leur raison au survol.
+Le choix replie le menu ; la visee et sa confirmation restent sur le terrain.
+Le cristal ou un clic sur le joueur actif rouvre les actions. Le menu suit le
+zoom et les changements de vue, se retourne pres des bords et reste dans l'ecran.
+Le panneau lateral sert aux statistiques, aux portees, aux tirs ouverts,
+a la possession et a la lecture de la trajectoire choisie. Sur telephone, il
+se reduit a l'identite et aux statistiques pour donner plus de place au terrain.
+Le placement initial et apres but conserve ses commandes dediees.
+Les transitions du menu sont finies, sans boucle de rendu ni filtre GPU ;
+Reduced Motion et l'option d'animation du vestiaire les desactivent.
+
 Le placement IA varie selon la graine du match, le score, la manche et l'equipe
 a l'engagement. Un retard au score favorise les plans avances, une avance
 favorise la couverture ; a egalite, recevoir le ballon favorise l'attaque.
@@ -138,6 +150,7 @@ et Valazar en Middle pour respecter leurs deux postes autorises.
 | `src/renderer.mjs` | Scene PixiJS, personnages, ballon, animations, camera |
 | `src/sprites.mjs` | Atlases, tailles, clips et orientation des dix personnages |
 | `src/app.mjs` | Commandes, interface, sauvegarde et pause IA |
+| `src/action-wheel.mjs`, `actions.css` | Actions contextuelles ancrees au joueur, placement borne et analyse |
 | `runtime-files.json` | Liste exacte des fichiers publiables |
 | `assets/provenance.json` | Sources et SHA-256 des peintures et portraits |
 | `sources/` | Peintures, sprites originaux et prompts, jamais servis au joueur |

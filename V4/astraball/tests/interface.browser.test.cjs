@@ -74,6 +74,7 @@ async function main(){
   const browser=await chromium.launch({channel:'chrome',headless:true,args:['--enable-webgl','--ignore-gpu-blocklist']});
   const reports=[];
   try{
+    await require('./action-wheel-cases.cjs')({browser,url,OUT,core});
     await require('./locker-cases.cjs')({browser,url,OUT,sharp});
     for(const [name,width,height] of [['desktop',1440,900],['wide',1920,1080],['razr',412,915],['compact',360,800],['landscape',915,412]]){
       const context=await browser.newContext({viewport:{width,height},deviceScaleFactor:1,reducedMotion:'reduce',isMobile:width<761,hasTouch:width<761});
@@ -116,6 +117,7 @@ async function main(){
       assert.equal(await page.evaluate(()=>window.Astraball.metrics().sprites.count),10);
       const moves=core.legalMoves(initial);assert.ok(moves.length);
       const selected=moves.find(p=>p.path.length===1)||moves[0];
+      await page.locator('[data-mode="move"]').click();
       const pos=await page.evaluate(p=>window.Astraball.cell(p.x,p.y),selected),bounds=await page.locator('#canvas-host').boundingBox();
       await page.mouse.click(bounds.x+pos.x,bounds.y+pos.y);
       await page.waitForFunction(()=>window.Astraball.snapshot().moved);
@@ -243,6 +245,7 @@ async function main(){
         if(view==='horizontal'){await lookPage.locator('#camera-height').fill(ball.id==='founders'?'0':'100');await lookPage.locator('#camera-height').dispatchEvent('input');}
         await lookPage.locator('#camera-toggle').click();
         const sample=await lookPage.evaluate(()=>window.Astraball.snapshot()),move=core.legalMoves(sample).find(m=>m.path.length===1);
+        await lookPage.locator('[data-mode="move"]').click();
         const point=await lookPage.evaluate(p=>window.Astraball.cell(p.x,p.y),move),bounds=await lookPage.locator('#canvas-host').boundingBox();
         await lookPage.mouse.click(bounds.x+point.x,bounds.y+point.y);await lookPage.waitForFunction(()=>window.Astraball.snapshot().moved&&!window.Astraball.metrics().busy);
         await lookPage.locator('#wait').click();await lookPage.waitForFunction(()=>!window.Astraball.metrics().busy);
@@ -274,6 +277,7 @@ async function main(){
     await confirmFormations(motion);
     const running=await motion.evaluate(()=>window.Astraball.snapshot());
     const longMove=core.legalMoves(running).find(m=>m.path.length===4);assert.ok(longMove);
+    await motion.locator('[data-mode="move"]').click();
     const movePoint=await motion.evaluate(p=>window.Astraball.cell(p.x,p.y),longMove),courtBounds=await motion.locator('#canvas-host').boundingBox();
     const moveRendersBefore=await motion.evaluate(()=>window.Astraball.metrics().renders);
     await motion.evaluate(()=>{window.__spriteFrames=[];window.__spriteTimes=[];let last=performance.now();const until=last+1800;const sample=now=>{if(window.Astraball.metrics().busy){window.__spriteFrames.push(window.Astraball.metrics().sprites.units.filter(u=>u.pose==='run'));window.__spriteTimes.push(now-last);}last=now;if(now<until)requestAnimationFrame(sample);};requestAnimationFrame(sample);});
@@ -322,6 +326,7 @@ async function main(){
     await phone.waitForFunction(()=>!document.querySelector('#modal').open);
     await confirmFormations(phone);
     const phoneState=await phone.evaluate(()=>window.Astraball.snapshot()),phoneMove=core.legalMoves(phoneState).find(m=>m.path.length===1);
+    await phone.locator('[data-mode="move"]').click();
     const phonePoint=await phone.evaluate(p=>window.Astraball.cell(p.x,p.y),phoneMove),phoneBounds=await phone.locator('#canvas-host').boundingBox();
     await phone.touchscreen.tap(phoneBounds.x+phonePoint.x,phoneBounds.y+phonePoint.y);
     await phone.waitForFunction(()=>window.Astraball.metrics().sprites.units.some(u=>u.pose==='run'));
