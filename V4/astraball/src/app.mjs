@@ -136,7 +136,7 @@ function tone(kind){
   if(!sound)return;
   try{audio ||= new AudioContext();if(audio.state==='suspended')void audio.resume();const o=audio.createOscillator(),g=audio.createGain();o.type='sine';const now=audio.currentTime,base={move:260,pass:420,shoot:620,charge:120,goal:740}[kind]||300;o.frequency.setValueAtTime(base,now);o.frequency.exponentialRampToValueAtTime(base*(kind==='charge'?.6:1.5),now+.15);g.gain.setValueAtTime(.035,now);g.gain.exponentialRampToValueAtTime(.001,now+.25);o.connect(g);g.connect(audio.destination);o.start();o.stop(now+.26);}catch{}
 }
-function modal(title,html){$('#dialog-title').textContent=title;$('#dialog-content').innerHTML=html;$('#modal').showModal();render();icons();}
+function modal(title,html){court.stopIdle();$('#dialog-title').textContent=title;$('#dialog-content').innerHTML=html;$('#modal').showModal();render();icons();}
 function showUnit(unit){
   inspecting=unit.id;
   modal(unit.name,`<div class="player-identity" style="--team:${TEAMS[unit.team].color}"><img src="${portrait(unit)}" alt="${esc(unit.name)}"><div><h3>${roleNames[unit.role]} · ${TEAMS[unit.team].name}</h3><p>${unit.acted?'A déjà joué cette manche.':'Activation à venir.'}${unit.id===state.activeId?' Joueur actif.':''}</p></div></div><div class="stats">${Object.entries(unit.stats).map(([s,v])=>`<dl class="stat" title="${statTitles[s]}"><dt>${s}</dt><dd>${v}</dd></dl>`).join('')}</div><p>${unit.role==='pilier'?'Reste dans les trois colonnes de sa zone défensive. Sa position coupe les trajectoires qui le traversent.':unit.role==='scoreur'?'Chaque U marqué par ce joueur rapporte deux points.':'Peut se déplacer, porter, passer, tirer, charger et intercepter.'}</p>${unit.penalty||unit.nextPenalty?'<p>Retard : '+(unit.penalty||unit.nextPenalty)+' VIT '+(unit.penalty?'cette manche.':'la prochaine manche.')+'</p>':''}`);
@@ -171,5 +171,5 @@ try{
   ribbon(state.log.length?'Rencontre reprise · manche '+state.round:'Chroma à l’engagement · '+activeUnit(state).name+' entre en jeu');
   save();if(state.status==='finished')showResult();else void runAI();
   // Read-only diagnostic seam for repeatable browser QA, no production state mutation.
-  window.Astraball=Object.freeze({snapshot:()=>structuredClone(state),cell:(x,y)=>court.screenCell(x,y),metrics:()=>({renders:court.renderCount,busy,aiRunning,zoom:court.zoom}),ready:true});
+  window.Astraball=Object.freeze({snapshot:()=>structuredClone(state),cell:(x,y)=>court.screenCell(x,y),metrics:()=>({renders:court.renderCount,busy,aiRunning,zoom:court.zoom,sprites:court.spriteMetrics()}),ready:true});
 }catch(error){console.error(error);$('#boot').innerHTML='<div class="no-webgl"><h2>La cour ne peut pas s’ouvrir</h2><p>Vérifie ta connexion et l’accélération graphique du navigateur.</p><button id="reload">Réessayer</button></div>';$('#reload').onclick=()=>location.reload();}

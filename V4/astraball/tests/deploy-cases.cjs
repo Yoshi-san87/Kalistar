@@ -62,7 +62,7 @@ test('Astraball publication plan is exactly the runtime allowlist without local 
     assert.equal(typeof relative, 'string');
     assert.equal(path.posix.normalize(relative), relative);
     assert.doesNotMatch(relative, /[\\?#]|(?:^|\/)(?:\.\.|tools|sources|tests|node_modules)(?:\/|$)|\.map$/i);
-    assert.match(relative, /\.(?:html|css|mjs|webp|txt)$/);
+    assert.match(relative, /\.(?:html|css|mjs|webp|png|txt)$/);
     assert.equal(inside(base, relative), path.join(base, relative));
   }
   for (const required of ['index.html', 'style.css', 'src/app.mjs', 'src/core/game.mjs', 'src/core/ai.mjs']) {
@@ -234,7 +234,7 @@ test('Atelier redirects the Astraball root and resolves every allowlisted resour
   assert.equal(redirect.ended, true);
   const home = await route('/jeu/astraball/');
   assert.equal(home.filename, path.join(base, 'index.html'));
-  const mimes = {'.mjs': 'text/javascript; charset=utf-8', '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.webp': 'image/webp', '.txt': 'text/plain; charset=utf-8'};
+  const mimes = {'.mjs': 'text/javascript; charset=utf-8', '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.webp': 'image/webp', '.png': 'image/png', '.txt': 'text/plain; charset=utf-8'};
   for (const file of allowlist) {
     const response = await route('/jeu/astraball/' + file);
     assert.equal(response.status, 200, file);

@@ -66,11 +66,12 @@ du jeu de cartes. Cette exhibition ne constitue pas une declaration d'equilibrag
 | `src/core/game.mjs` | Etat pur, initiative, actions, ballon, score, validation |
 | `src/core/ai.mjs` | Decisions bornees sans modifier l'etat |
 | `src/projection.mjs` | Transformation commune du sol et du clic |
-| `src/renderer.mjs` | Scene PixiJS, pions, ballon, animations, camera |
+| `src/renderer.mjs` | Scene PixiJS, personnages, ballon, animations, camera |
+| `src/sprites.mjs` | Atlases, tailles, clips et orientation des dix personnages |
 | `src/app.mjs` | Commandes, interface, sauvegarde et pause IA |
 | `runtime-files.json` | Liste exacte des fichiers publiables |
 | `assets/provenance.json` | Sources et SHA-256 des peintures et portraits |
-| `sources/` | Peinture originale et prompt, jamais servis au joueur |
+| `sources/` | Peintures, sprites originaux et prompts, jamais servis au joueur |
 | `tools/` | Serveur local, recadrage reproductible, bundle CSP |
 | `tests/` | Regles, simulations, projection et navigateur |
 
@@ -92,12 +93,29 @@ Le prompt est conserve dans `sources/arena-v1.prompt.txt`. La grille et les
 trois cibles de chaque U sont dessinees par le moteur, jamais devinees depuis
 des lignes generees. Les points du sol et le clic utilisent le meme quadrilatere.
 
-Les pions sont des portraits tactiques recadres depuis dix cartes approuvees,
-pas des sprites de corps complet : c'est une limitation artistique assumee.
-`npm run assets` reproduit les exports avec Sharp et ne modifie aucun original.
+Le terrain affiche dix personnages de corps entier en pixel art original,
+generes avec image_gen a partir de leurs illustrations Kalistar approuvees.
+Les portraits des cartes restent reserves aux fiches et a l'initiative.
+Les dix atlases PNG transparents totalisent moins de 410 Ko : 16 poses par
+personnage, cellules 96 x 96, palette de 128 couleurs et filtrage nearest.
+Deux orientations (miroir gauche/droite), sans pretendre a huit angles dessines.
+
+`npm run assets` reproduit les portraits/terrain sans modifier les originaux.
+`npm run sprites` utilise Sharp pour separer les silhouettes, normaliser leurs
+appuis et reconstruire les atlases. `KALISTAR_NODE_MODULES` indique le dossier
+des dependances du poste. Sources et prompts :
+[`sources/sprites-v1/prompts.json`](sources/sprites-v1/prompts.json).
+Le rapport adjacent `atlas-report.json` conserve references, SHA-256 et decoupes.
+La generation n'est pas relancee automatiquement par le build ni par les tests.
+
+Les clips couvrent respiration, course, lancer, garde, charge, impact et joie.
+Les commandes du moteur pilotent les clips ; aucune regle n'est decidee par
+l'animation. Texture et ombre sont separees, la direction suit la trajectoire.
 
 Aucune boucle de rendu au repos. Les mouvements, tirs et charges utilisent
-des animations finies ; une respiration de 1,8 seconde accompagne l'activation.
+des animations finies ; une respiration de 1,92 seconde accompagne l'activation,
+a douze mises a jour au total, puis le rendu s'arrete completement. Les actions
+plafonnent le rendu a environ 60 images/s, meme sur un ecran 120 ou 144 Hz.
 Onglet masque : animation et IA suspendues. Reduced Motion est respecte.
 Resolution GPU plafonnee a 1,75x. Pas de particules permanentes ni filtre flou.
 
@@ -122,7 +140,7 @@ les comptes de verification sont factices, jamais les sessions personnelles.
 
 - Une arene, deux equipes fixes, IA heuristique et match local seulement.
 - Pas de matchmaking, compte Astraball, classement, recompense ni reseau de jeu.
-- Pas d'animation squelettique ni sprite par action ; les pions sont illustres.
+- Sprites en deux orientations miroir, sans animation squelettique ni huit vues.
 - Pas de replay du dernier tir ou de bande sonore enregistree. Sons synthetiques
   facultatifs, desactives par defaut.
 - Les regles passent les tests, mais le plaisir et l'equilibre competitif demandent
@@ -130,4 +148,4 @@ les comptes de verification sont factices, jamais les sessions personnelles.
   pour Obsidienne : voir l'audit, ne pas qualifier cette tranche d'equilibree.
 
 Prochaines etapes : sessions de jeu courtes, analyse des lignes et de la duree,
-puis ajustement des stats/IA et creation de silhouettes animees dediees.
+puis ajustement des stats/IA et enrichissement des poses directionnelles.

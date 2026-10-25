@@ -7,6 +7,22 @@ const ROOT=path.resolve(__dirname,'../../..'),OUT=process.env.KALISTAR_VERIFICAT
 let url=process.env.KALISTAR_URL||'http://127.0.0.1:4330/jeu/astraball/';
 async function main(){
   fs.mkdirSync(OUT,{recursive:true});
+  const atlasProof=require('../sources/sprites-v1/atlas-report.json');
+  for(const character of atlasProof.characters){
+    const file=process.env.KALISTAR_DIST?path.join(process.env.KALISTAR_DIST,'jeu/astraball',character.file):path.resolve(__dirname,'..',character.file);
+    const {data,info}=await sharp(file).ensureAlpha().raw().toBuffer({resolveWithObject:true});
+    assert.equal(info.width,384);assert.equal(info.height,384);
+    let opaque=0;
+    for(let y=0;y<384;y++)for(let x=0;x<384;x++){
+      const alpha=data[(y*384+x)*4+3];assert.ok(alpha===0||alpha===255,'crisp alpha '+character.id);
+      if(x%96<3||x%96>=93||y%96<3||y%96>=90)assert.equal(alpha,0,'transparent atlas gutters '+character.id);
+      if(alpha)opaque++;
+    }
+    assert.ok(opaque>10000&&opaque<100000,'visible independent sprites '+character.id);
+    const hashes=[];for(let i=4;i<12;i++)hashes.push(require('node:crypto').createHash('sha256').update(await sharp(file).extract({left:i%4*96,top:Math.floor(i/4)*96,width:96,height:96}).raw().toBuffer()).digest('hex'));
+    assert.equal(new Set(hashes.slice(0,4)).size,4,'four distinct running frames '+character.id);
+    assert.equal(new Set(hashes.slice(4)).size,4,'four distinct action frames '+character.id);
+  }
   let server;
   if(process.env.KALISTAR_DIST){
     const dist=path.resolve(process.env.KALISTAR_DIST);
@@ -39,6 +55,7 @@ async function main(){
       catch(error){throw new Error(name+' boot failed: '+errors.join('\n'),{cause:error});}
       assert.ok(await page.locator('svg.lucide').count()>=10,'Lucide icons are rendered');
       const initial=await page.evaluate(()=>window.Astraball.snapshot());
+      assert.equal(await page.evaluate(()=>window.Astraball.metrics().sprites.count),10);
       const moves=core.legalMoves(initial);assert.ok(moves.length);
       const selected=moves.find(p=>p.path.length===1)||moves[0];
       const pos=await page.evaluate(p=>window.Astraball.cell(p.x,p.y),selected),bounds=await page.locator('#canvas-host').boundingBox();
@@ -77,17 +94,48 @@ async function main(){
     const animated=await browser.newContext({viewport:{width:1440,height:900}}),motion=await animated.newPage(),animationErrors=[];
     motion.on('pageerror',e=>animationErrors.push(e.message));
     await motion.goto(url);await motion.waitForFunction(()=>window.Astraball?.ready);
+    await motion.waitForTimeout(2200);
+    const resting=await motion.evaluate(()=>window.Astraball.metrics());await motion.waitForTimeout(800);
+    assert.equal(await motion.evaluate(()=>window.Astraball.metrics().renders),resting.renders,'normal motion also becomes fully idle');
+    const running=await motion.evaluate(()=>window.Astraball.snapshot());
+    const longMove=core.legalMoves(running).find(m=>m.path.length===4);assert.ok(longMove);
+    const movePoint=await motion.evaluate(p=>window.Astraball.cell(p.x,p.y),longMove),courtBounds=await motion.locator('#canvas-host').boundingBox();
+    const moveRendersBefore=await motion.evaluate(()=>window.Astraball.metrics().renders);
+    await motion.evaluate(()=>{window.__spriteFrames=[];window.__spriteTimes=[];let last=performance.now();const until=last+1800;const sample=now=>{if(window.Astraball.metrics().busy){window.__spriteFrames.push(window.Astraball.metrics().sprites.units.filter(u=>u.pose==='run'));window.__spriteTimes.push(now-last);}last=now;if(now<until)requestAnimationFrame(sample);};requestAnimationFrame(sample);});
+    await motion.mouse.click(courtBounds.x+movePoint.x,courtBounds.y+movePoint.y);
+    await motion.waitForFunction(()=>window.Astraball.metrics().sprites.units.some(u=>u.pose==='run'));
+    await motion.screenshot({path:path.join(OUT,'running-sprites.png')});
+    await motion.waitForFunction(()=>!window.Astraball.metrics().busy);
+    const movement=await motion.evaluate(()=>({frames:window.__spriteFrames.flat(),times:window.__spriteTimes}));
+    const moveRenders=await motion.evaluate(()=>window.Astraball.metrics().renders)-moveRendersBefore;
+    assert.ok(moveRenders<=90,'movement render budget at high refresh rates');
+    assert.equal(new Set(movement.frames.map(f=>f.frame)).size,4,'actual run clip advances all four poses');
+    assert.ok(new Set(movement.frames.map(f=>Math.round(f.x))).size>10,'runner traverses the pitch');
+    const sorted=movement.times.filter(t=>t>0).sort((a,b)=>a-b);
+    reports.push({scenario:'normal-motion idle and real four-frame running',idleRenders:0,uniqueFrames:4,moveRenders,browserRafP95Ms:sorted[Math.floor(sorted.length*.95)]});
     const goal=core.createMatch({seed:1,mode:'hotseat'});goal.units.filter(u=>['sentry','meneur'].includes(u.role)).forEach(u=>u.acted=true);goal.activeId='t0-kaylis';goal.score=[4,0];Object.assign(core.getUnit(goal,'t0-kaylis'),{x:9,y:0});goal.ball={holderId:'t0-kaylis',x:9,y:0};core.validateState(goal);
     await motion.evaluate(s=>localStorage.setItem('kalistar.astraball.match.v1',JSON.stringify(s)),goal);await motion.reload();await motion.waitForFunction(()=>window.Astraball?.ready);
     await motion.locator('[data-mode="shoot"]').click();await motion.getByRole('button',{name:'U 1',exact:true}).click();await motion.locator('#confirm-action').click();
     await motion.locator('#celebration').waitFor({state:'visible'});await motion.screenshot({path:path.join(OUT,'goal-animation.png')});
+    const goalPoses=await motion.evaluate(()=>window.Astraball.metrics().sprites.poses);assert.ok(goalPoses.throw>0&&goalPoses.celebrate>=5);
     await motion.getByRole('heading',{name:'Fin de la rencontre'}).waitFor();assert.deepEqual(await motion.evaluate(()=>window.Astraball.snapshot().score),[6,0]);
     await motion.locator('#result-review').click();assert.equal(await motion.locator('#wait').isDisabled(),true);
     const charge=structuredClone(fixture);charge.seed=1;charge.rng=1;Object.assign(core.getUnit(charge,'t1-voloden'),{x:5,y:3});core.validateState(charge);
     await motion.evaluate(s=>localStorage.setItem('kalistar.astraball.match.v1',JSON.stringify(s)),charge);await motion.reload();await motion.waitForFunction(()=>window.Astraball?.ready);
     await motion.locator('[data-mode="charge"]').click();await motion.locator('#target-options button').filter({hasText:'Voloden'}).click();await motion.locator('#confirm-action').click();await motion.waitForFunction(()=>!window.Astraball.metrics().busy);
     const charged=await motion.evaluate(()=>window.Astraball.snapshot());assert.equal(core.getUnit(charged,'t1-voloden').penalty,3);assert.equal(core.getUnit(charged,'t1-voloden').x,6);
+    const chargePoses=await motion.evaluate(()=>window.Astraball.metrics().sprites.poses);assert.ok(chargePoses.charge>0&&chargePoses.hit>0&&chargePoses.guard>0);
     assert.deepEqual(animationErrors,[]);reports.push({scenario:'animated two-point U, victory, charge and tempo',passed:true});await animated.close();
+    const mobileMotion=await browser.newContext({viewport:{width:412,height:915},deviceScaleFactor:2,isMobile:true,hasTouch:true}),phone=await mobileMotion.newPage(),phoneErrors=[];
+    phone.on('pageerror',e=>phoneErrors.push(e.message));await phone.goto(url);await phone.waitForFunction(()=>window.Astraball?.ready);
+    const phoneState=await phone.evaluate(()=>window.Astraball.snapshot()),phoneMove=core.legalMoves(phoneState).find(m=>m.path.length===1);
+    const phonePoint=await phone.evaluate(p=>window.Astraball.cell(p.x,p.y),phoneMove),phoneBounds=await phone.locator('#canvas-host').boundingBox();
+    await phone.touchscreen.tap(phoneBounds.x+phonePoint.x,phoneBounds.y+phonePoint.y);
+    await phone.waitForFunction(()=>window.Astraball.metrics().sprites.units.some(u=>u.pose==='run'));
+    await phone.screenshot({path:path.join(OUT,'razr-running.png')});await phone.waitForFunction(()=>!window.Astraball.metrics().busy);
+    assert.ok(await phone.evaluate(()=>window.Astraball.metrics().sprites.poses.run)>0);
+    assert.equal(await phone.evaluate(()=>document.documentElement.scrollHeight>innerHeight),false);
+    assert.deepEqual(phoneErrors,[]);reports.push({scenario:'Razr touch with normal sprite animation and 2x pixels',passed:true});await mobileMotion.close();
     const hosted=await browser.newContext({viewport:{width:1440,height:900},reducedMotion:'reduce'});
     await hosted.route('**/cloud-session.js*',route=>route.fulfill({contentType:'text/javascript',body:"window.KalistarCloudSession={required:()=>true,get:async()=>({check:async()=>({user:{id:'qa-user'},access:{localProfile:'qa-tokyo'}}),subscribe:()=>{}})};"}));
     const profileState=core.createMatch({seed:11,mode:'hotseat'});profileState.score=[2,1];
