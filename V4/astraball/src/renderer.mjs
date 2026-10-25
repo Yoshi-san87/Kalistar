@@ -4,6 +4,7 @@ import { fitViewport, normalizeZoom, zoomAt } from './viewport.mjs';
 import { BALLS, getBall, getArena, normalizeAppearance } from './appearance.mjs';
 import { SPRITES, SPRITE_CELL, SPRITE_FOOT, frameAt, spriteKey, facing } from './sprites.mjs';
 import { spriteSizing } from './sprite-sizing.mjs';
+import { goalAssetUrls, layoutGoal } from './goals.mjs';
 
 const colors=[0x68e6cd,0xf08d9f], roleCode={meneur:'MN',scoreur:'SC',middle:'MD',sentry:'ST',pilier:'PI'};
 const sprite=unit=>SPRITES[spriteKey(unit)];
@@ -37,7 +38,7 @@ export class CourtRenderer {
     // Keep texture loading compatible with Kalistar's strict production CSP.
     Assets.setPreferences({preferWorkers:false});
     const arena=getArena(this.appearance.arena);
-    const textures=await Assets.load([...new Set([arena.isometric,arena.horizontal,...(arena.flag?[arena.flag]:[]),...BALLS.map(ball=>ball.url),...units.map(unit=>this.character(unit).url)])]);
+    const textures=await Assets.load([...new Set([arena.isometric,arena.horizontal,...goalAssetUrls(arena),...(arena.flag?[arena.flag]:[]),...BALLS.map(ball=>ball.url),...units.map(unit=>this.character(unit).url)])]);
     this.textures=textures;this.loadedArenas=new Map([[arena.id,arena]]);
     this.backdrop=new Sprite(textures[arena.isometric]);this.backdrop.width=WIDTH;this.backdrop.height=HEIGHT;this.scene.addChild(this.backdrop);
     this.horizontalArt=new Container();this.scene.addChild(this.horizontalArt);
@@ -45,7 +46,8 @@ export class CourtRenderer {
     this.arenaBands=new Map();
     this.updateArenaArt();
     this.floor=new Graphics();this.floorLabels=new Container();this.scene.addChild(this.floor,this.floorLabels);
-    this.goals=new Graphics();this.scene.addChild(this.goals);
+    this.goals=new Container();this.goals.eventMode='none';this.scene.addChild(this.goals);
+    this.goalSprites=[new Sprite(),new Sprite()];this.goals.addChild(...this.goalSprites);
     this.overlay=new Graphics();this.scene.addChild(this.overlay);
     this.unitLayer=new Container();this.unitLayer.sortableChildren=true;this.scene.addChild(this.unitLayer);
     for(const unit of units)this.makeToken(unit,textures[this.character(unit).url]);
@@ -59,7 +61,7 @@ export class CourtRenderer {
   }
   character(unit){return this.roster?.forUnit(unit)||sprite(unit);}
   async prepareAssets(appearance,units=[]){
-    const arena=getArena(appearance.arena),urls=[arena.isometric,arena.horizontal,...(arena.flag?[arena.flag]:[]),...units.map(unit=>this.character(unit).url)];
+    const arena=getArena(appearance.arena),urls=[arena.isometric,arena.horizontal,...goalAssetUrls(arena),...(arena.flag?[arena.flag]:[]),...units.map(unit=>this.character(unit).url)];
     // Keep the current and incoming backdrops only; city browsing must stay bounded.
     for(const [id,old] of this.loadedArenas){
       if(id===this.appearance.arena||id===arena.id)continue;
@@ -108,7 +110,7 @@ export class CourtRenderer {
   setAppearance(value){
     if(this.animating)return false;
     const appearance=normalizeAppearance({...this.appearance,...value}),arena=getArena(appearance.arena);
-    if(!this.textures[arena.isometric]||!this.textures[arena.horizontal])return false;
+    if(!this.textures[arena.isometric]||!this.textures[arena.horizontal]||goalAssetUrls(arena).some(url=>!this.textures[url]))return false;
     this.appearance=appearance;this.updateArenaArt();
     this.camera=createProjection(this.appearance.view,this.appearance.height,arena.ground,arena);
     const horizontal=this.camera.mode==='horizontal';
@@ -152,27 +154,17 @@ export class CourtRenderer {
     this.drawGoals();
   }
   drawGoals(){
-    const g=this.goals;if(!g)return;g.clear();
-    const arena=getArena(this.appearance.arena),color=arena.goalColor??(arena.whiteLines?0xffffff:0xb98a58);
+    if(!this.goalSprites)return;
+    const arena=getArena(this.appearance.arena);
     this.goalAnchors=[];
     for(const team of [0,1]){
-      const x=team===0?.45:12.55;
-      const a={...this.camera.project(x,2)},b={...this.camera.project(x,5)};
-      if(Math.abs(a.x-b.x)<18){a.x+=26;b.x-=26;}
-      const height=76;
-      const posts=[{x:a.x,y:a.y-height},a,b,{x:b.x,y:b.y-height}];
-      g.moveTo(a.x+10,a.y+4).lineTo(b.x+10,b.y+4).stroke({color:0x071819,width:13,alpha:.2});
-      g.poly(flat(posts),false).stroke({color:0x182525,width:11,alpha:.8});
-      g.poly(flat(posts),false).stroke({color,width:7,cap:'round',join:'round'});
-      g.moveTo(a.x-1,a.y-height).lineTo(a.x-1,a.y).lineTo(b.x-1,b.y).lineTo(b.x-1,b.y-height).stroke({color:0xffffff,width:1.5,alpha:arena.whiteLines?.8:.35});
-      for(const p of [a,b]){
-        g.ellipse(p.x,p.y+3,9,4).fill({color:0x273132,alpha:.7});
-        // Street materials stay recognizable without adding a top crossbar.
-        if(!arena.whiteLines)for(const y of [p.y-15,p.y-55]){
-          g.moveTo(p.x-5,y).lineTo(p.x+5,y).stroke({color:arena.goalMaterial==='wood'?0xd6bd81:0x444e52,width:3});
-        }
-      }
-      this.goalAnchors.push({team,posts,height,material:arena.goalMaterial||'wood'});
+      const layout=layoutGoal(this.camera,arena,team),image=this.goalSprites[team];
+      image.texture=this.textures[layout.url];image.texture.source.scaleMode='nearest';
+      image.pivot.set(layout.pivot.x,layout.pivot.y);
+      image.position.set(layout.center.x,layout.center.y);
+      image.scale.set(layout.scale*layout.direction,layout.scale);
+      this.goalAnchors.push({...layout,rendered:image.texture===this.textures[layout.url]&&image.texture!==Texture.EMPTY,
+        imageScale:{x:image.scale.x,y:image.scale.y},kind:'image'});
     }
   }
   makeToken(unit,texture){

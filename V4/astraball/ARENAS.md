@@ -132,8 +132,13 @@ aux deux arenes classiques et normalise la vue selon l'arene choisie.
   la meme echelle X/Y de scene. Les fonds pixel restent entiers, sans compression
   verticale du sol ni deformation de l'architecture par le reglage de hauteur.
 
-Les lignes, la grille et les U doivent rester des elements du moteur alignes
-avec les cases interactives, pas des marques generees dans le fond. Garder
+Les lignes et la grille restent dessinees par le moteur. Les U sont des images
+transparentes distinctes du fond, posees autour des trois cases de tir par
+[goals.mjs](src/goals.mjs). Les [sources](sources/goals-v1/README.md) conservent
+les cinq materiaux, les deux angles classiques et leurs ancrages. Deux sprites
+statiques partagent une texture, sans boucle d'animation ni deformation X/Y.
+Le blanc officiel reste blanc ; les variantes street suivent goalMaterial.
+Garder
 la surface de jeu vide et lisible, les constructions et tribunes hors sol
 jouable, sans objets, personnages ou effets masquant les cibles.
 

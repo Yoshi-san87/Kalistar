@@ -9,6 +9,19 @@ async function main(){
   fs.mkdirSync(OUT,{recursive:true});
   const atlasProof=require('../sources/sprites-v1/atlas-report.json');
   const {BALLS}=await import('../src/appearance.mjs');
+  const {GOAL_ART}=await import('../src/goals.mjs');
+  for(const goal of Object.values(GOAL_ART)){
+    const file=process.env.KALISTAR_DIST?path.join(process.env.KALISTAR_DIST,'jeu/astraball',goal.url):path.resolve(__dirname,'..',goal.url);
+    const {data,info}=await sharp(file).ensureAlpha().raw().toBuffer({resolveWithObject:true});
+    assert.equal(info.width,512);assert.equal(info.height,768);
+    let clear=0,solid=0;
+    for(let i=3;i<data.length;i+=4){if(data[i]===0)clear++;if(data[i]>230)solid++;}
+    assert.ok(clear>512*768*.65,'genuine transparent goal cutout');
+    assert.ok(solid>512*768*.04,'visible goal object');
+    const x=Math.round((goal.near[0]+goal.far[0])/2),y=Math.round((goal.farTop[1]+goal.far[1])/2);
+    assert.equal(data[(y*512+x)*4+3],0,'open goal interior, no background or net');
+    assert.equal(data[3],0);assert.ok(fs.statSync(file).size<130000);
+  }
   for(const ball of BALLS){
     const file=process.env.KALISTAR_DIST?path.join(process.env.KALISTAR_DIST,'jeu/astraball',ball.url):path.resolve(__dirname,'..',ball.url);
     const {data,info}=await sharp(file).ensureAlpha().raw().toBuffer({resolveWithObject:true});

@@ -4,8 +4,41 @@ import fs from 'node:fs';
 import {PIXEL_ARENAS} from '../data/venues.mjs';
 import {ARENAS,normalizeAppearance} from '../src/appearance.mjs';
 import {createProjection} from '../src/projection.mjs';
+import {GOAL_ART,getGoalArt,goalAssetUrls,layoutGoal} from '../src/goals.mjs';
+import {createHash} from 'node:crypto';
 const read=name=>JSON.parse(fs.readFileSync(new URL(name,import.meta.url)));
 const allowed=read('../runtime-files.json'),proof=read('../sources/arenas-pixel-v1/provenance.json'),flags=read('../sources/arenas-pixel-v1/flags.json');
+
+test('goal images are explicit, shared and intact, with no procedural fallback',()=>{
+  const goalProof=read('../sources/goals-v1/provenance.json');
+  assert.equal(Object.keys(GOAL_ART).length,7);
+  for(const item of goalProof.jobs){
+    assert.ok(allowed.includes(item.url));
+    const bytes=fs.readFileSync(new URL('../'+item.url,import.meta.url));
+    assert.equal(createHash('sha256').update(bytes).digest('hex'),item.sha256);
+    assert.equal(bytes.length,item.bytes);assert.ok(bytes.length<130000);
+    assert.equal(item.width,512);assert.equal(item.height,768);
+  }
+  for(const arena of ARENAS)for(const view of arena.views||['horizontal','isometric']){
+    const asset=getGoalArt(arena,view);
+    assert.ok(goalAssetUrls(arena).includes(asset.url));
+    assert.equal(asset.material,arena.whiteLines?'white':arena.goalMaterial||'wood');
+    for(const height of [0,60,100]){
+      const camera=createProjection(view,height,arena.ground,arena);
+      for(const team of [0,1]){
+        const goal=layoutGoal(camera,arena,team),middle=camera.project(team===0?.5:12.5,3.5);
+        assert.ok(goal.scale>0&&Number.isFinite(goal.scale));
+        assert.ok(Math.abs(goal.center.x-middle.x)<1e-8&&Math.abs(goal.center.y-middle.y)<1e-8);
+        assert.equal(goal.posts.length,4);assert.ok(goal.height>0);
+        assert.equal(goal.posts[0].x,goal.posts[1].x,'far upright stays vertical');
+        assert.equal(goal.posts[2].x,goal.posts[3].x,'near upright stays vertical');
+        assert.ok(goal.posts[0].y<goal.posts[1].y&&goal.posts[3].y<goal.posts[2].y);
+        assert.equal(goal.direction,view==='horizontal'&&team===1?-1:1);
+        assert.equal(goal.url,asset.url);
+      }
+    }
+  }
+});
 
 test('nine places have street and official venues plus the unique Astrium',()=>{
   assert.equal(PIXEL_ARENAS.length,19);assert.equal(ARENAS.length,21);

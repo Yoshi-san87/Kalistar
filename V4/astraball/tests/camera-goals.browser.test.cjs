@@ -142,6 +142,12 @@ function assertOverview(observation) {
   {
     assert.equal(observation.metrics.goals.length, 2, 'two U shapes');
     for (const goal of observation.metrics.goals) {
+      assert.equal(goal.kind,'image','goals must be actual sprites, not procedural lines');
+      assert.equal(goal.rendered,true,'goal texture is loaded');
+      assert.match(goal.url,/^assets\/goals-v1\/[a-z-]+\.webp$/);
+      assert.ok(goal.scale>0&&[1,-1].includes(goal.direction),'uniform image scale and mirror');
+      close(Math.abs(goal.imageScale.x),goal.imageScale.y,'goal image is not stretched',1e-9);
+      close(goal.imageScale.y,goal.scale,'actual goal scale',1e-9);
       assert.equal(goal.posts.length, 4, 'four U vertices');
       assert.ok(goal.height > 0 && typeof goal.material === 'string', 'goal height and material are explicit');
       for (const point of goal.posts) {
