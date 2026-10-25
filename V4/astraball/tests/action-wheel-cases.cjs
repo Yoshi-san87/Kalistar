@@ -35,7 +35,9 @@ module.exports=async({browser,url,OUT,core})=>{
       const anchor=await page.evaluate(()=>({cell:window.Astraball.cell(7,3),link:document.querySelector('.wheel-link').getAttribute('d')}));
       assert.ok(anchor.link.startsWith(`M ${anchor.cell.x} ${anchor.cell.y} L `),'menu anchor follows actual camera coordinates');
       await page.locator('#help').click();assert.equal(await wheel.isVisible(),false);
-      await page.keyboard.press('Escape');assert.equal(await wheel.isVisible(),true);
+      await page.keyboard.press('Escape');
+      // The native dialog queues its close event after the Escape key event.
+      await wheel.waitFor({state:'visible'});assert.equal(await wheel.isVisible(),true);
       await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,get:()=>true});document.dispatchEvent(new Event('visibilitychange'));});
       assert.equal(await wheel.isVisible(),false);
       await page.evaluate(()=>{delete document.hidden;document.dispatchEvent(new Event('visibilitychange'));});
