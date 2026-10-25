@@ -5,18 +5,19 @@ import {PIXEL_ARENAS} from '../data/venues.mjs';
 import {ARENAS,normalizeAppearance} from '../src/appearance.mjs';
 import {createProjection} from '../src/projection.mjs';
 import {GOAL_ART,getGoalArt,goalAssetUrls,layoutGoal} from '../src/goals.mjs';
-import {createHash} from 'node:crypto';
 const read=name=>JSON.parse(fs.readFileSync(new URL(name,import.meta.url)));
 const allowed=read('../runtime-files.json'),proof=read('../sources/arenas-pixel-v1/provenance.json'),flags=read('../sources/arenas-pixel-v1/flags.json');
 
 test('goal images are explicit, shared and intact, with no procedural fallback',()=>{
   const goalProof=read('../sources/goals-v1/provenance.json');
+  const media=read('../../deploy/runtime-media.json');
   assert.equal(Object.keys(GOAL_ART).length,7);
   for(const item of goalProof.jobs){
     assert.ok(allowed.includes(item.url));
-    const bytes=fs.readFileSync(new URL('../'+item.url,import.meta.url));
-    assert.equal(createHash('sha256').update(bytes).digest('hex'),item.sha256);
-    assert.equal(bytes.length,item.bytes);assert.ok(bytes.length<130000);
+    const registered=media.files.find(file=>file.source==='V4/astraball/'+item.url);
+    assert.ok(registered,'explicit media registry entry');
+    assert.equal(registered.sha256,item.sha256);
+    assert.equal(registered.bytes,item.bytes);assert.ok(item.bytes<130000);
     assert.equal(item.width,512);assert.equal(item.height,768);
   }
   for(const arena of ARENAS)for(const view of arena.views||['horizontal','isometric']){

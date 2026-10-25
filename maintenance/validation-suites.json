@@ -16,7 +16,7 @@
       ]
     ],
     "ci": [
-      ["--test", "V4/astraball/tests/sprite-library.test.cjs", "V4/astraball/tests/sprite-library.native.test.cjs"],
+      ["--test", "V4/astraball/tests/sprite-library.test.cjs", "V4/astraball/tests/sprite-library.native.test.cjs", "V4/astraball/tests/goals.native.test.cjs"],
       ["--test", "V4/astraball/tests/astraball.test.cjs"],
       ["--test", "V4/revisions/2026-10-22-fragment-adventure/decks.test.cjs"],
       ["--test", "V4/expansions/2026-10-21-arenes/integration.test.cjs", "V4/expansions/2026-10-21-arenes/arena-balance.test.cjs"],
