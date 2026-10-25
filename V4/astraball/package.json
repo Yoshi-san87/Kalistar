@@ -1,0 +1,19 @@
+{
+  "name": "kalistar-astraball",
+  "version": "4.7.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node tools/serve.cjs",
+    "test": "node --test tests/astraball.test.cjs",
+    "simulate": "node tests/simulation.mjs",
+    "assets": "node tools/prepare-assets.cjs",
+    "vendor": "node tools/vendor.cjs"
+  },
+  "dependencies": {
+    "pixi.js": "8.22.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

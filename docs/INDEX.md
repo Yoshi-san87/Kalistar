@@ -13,6 +13,7 @@ les rapports dates racontent une livraison et ne remplacent pas les sources.
 | Cloner ou changer de poste | [TRANSFERT_ET_GIT.md](TRANSFERT_ET_GIT.md) |
 | Produire une carte native | [Organisation V4](../V4/README.md), puis [Atelier](../V4/atelier/README.md) |
 | Developper le jeu | [Architecture du site](../V4/site/README.md) |
+| Developper Astraball | [Sport tactique autonome](../V4/astraball/README.md) |
 | Publier | [Build et hebergement](../V4/deploy/README.md) |
 
 ## Univers, jeu et interface

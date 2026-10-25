@@ -46,6 +46,11 @@ le cristal rainbow approuve, pas l'icone de Library. L'entete et la fermeture
 restent visibles pendant le defilement interne, avec Retour et Echap natifs.
 Ne pas recreer de variantes de menu dans mobile.css ou les CSS de parcours.
 
+Le menu propose aussi [Astraball](../astraball/README.md), jeu de sport tactique
+independant sous `/jeu/astraball/`. Sa liste runtime est explicite. Il reutilise
+la connexion et les icones Kalistar, sans charger le moteur de cartes ni modifier
+les collections, recompenses ou sauvegardes du jeu principal.
+
 Les vues publiques sont Home, Collection, Decks, Equipements, Arene,
 Statistiques, Story, Map, Guide, Library, Fragment et Mon compte. Le serveur local garde en plus
 l'Atelier ; il ne fait pas partie du build public.

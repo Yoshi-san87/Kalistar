@@ -3,6 +3,7 @@
   "description": "Les 84 invocations CI anterieures sont conservees, dans le meme ordre. Navigateur et atelier restent explicites.",
   "suites": {
     "repository": [
+      ["--test", "V4/astraball/tests/astraball.test.cjs"],
       ["--test", "maintenance/organisation.test.cjs", "maintenance/validation.test.cjs", "V4/deploy/prepare-release.test.cjs", "V4/deploy/runtime-media.test.cjs"],
       ["--test", "V4/site/cloud-registry.test.cjs", "V4/site/cloud-session.test.cjs", "V4/site/login-intro.test.cjs", "V4/site/startup.test.cjs", "V4/site/cloud-sync.test.cjs", "V4/site/cloud-archives.test.cjs", "V4/site/cloud-ownership.test.cjs", "V4/deploy/access-worker.test.cjs"]
     ],
@@ -14,6 +15,7 @@
       ]
     ],
     "ci": [
+      ["--test", "V4/astraball/tests/astraball.test.cjs"],
       ["--test", "V4/revisions/2026-10-22-fragment-adventure/decks.test.cjs"],
       ["--test", "V4/expansions/2026-10-21-arenes/integration.test.cjs", "V4/expansions/2026-10-21-arenes/arena-balance.test.cjs"],
       ["--test", "V4/revisions/2026-10-21-collab-kalistels/integration.test.cjs", "V4/revisions/2026-10-21-collab-kalistels/native.test.cjs"],
@@ -465,6 +467,7 @@
     ]
   },
   "browserAliases": [
+    "V4/astraball/tests/interface.browser.test.cjs",
     "V4/expansions/2026-10-21-arenes/arenas.browser.test.cjs",
     "V4/revisions/2026-10-21-collab-kalistels/game.browser.test.cjs",
     "V4/revisions/2026-10-21-fragment-sequels/equipment.browser.test.cjs",

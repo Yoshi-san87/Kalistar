@@ -17,13 +17,16 @@ function inside(root, relative) {
 }
 function versionStaticAssets(html, version) {
   const value = encodeURIComponent(version);
-  return html.replace(/((?:href|src)="[^"]+\.(?:css|js|webmanifest))(?=")/g, `$1?v=${value}`);
+  return html.replace(/((?:href|src)="[^"]+\.(?:css|m?js|webmanifest))(?=")/g, `$1?v=${value}`);
+}
+function versionModuleImports(source, version) {
+  return source.replace(/(\bfrom\s+['"])(\.\.?\/[^'"]+\.mjs)(['"])/g, (_, before, url, after) => before + url + '?v=' + encodeURIComponent(version) + after);
 }
 async function releaseVersion(files) {
   if (process.env.GITHUB_SHA) return process.env.GITHUB_SHA.slice(0, 12);
   const hash = crypto.createHash('sha256');
   for (const file of files) {
-    if (!file.target.startsWith('jeu/') || !/\.(?:css|js|html|webmanifest)$/.test(file.target)) continue;
+    if (!file.target.startsWith('jeu/') || !/\.(?:css|m?js|html|webmanifest)$/.test(file.target)) continue;
     hash.update(file.target);
     hash.update(await fs.readFile(inside(ROOT, file.source)));
   }
@@ -84,6 +87,10 @@ async function plan({mediaPolicy = true} = {}) {
     if (entry.isFile() && /\.(js|css|html|webmanifest)$/.test(entry.name)) add('V4/site/' + entry.name, 'jeu/' + entry.name);
   }
   add('V4/site/story-content.json', 'jeu/story-content.json');
+  // Astraball is a separate, explicitly allowlisted game, not another card view.
+  for (const file of await json('V4/astraball/runtime-files.json')) {
+    add('V4/astraball/' + file, 'jeu/astraball/' + file);
+  }
   if(process.env.CF_PAGES==='1'){
     add('V4/deploy/access-worker.mjs','_worker.js');
     add('V4/deploy/journey-worker.mjs','journey-worker.mjs');
@@ -149,6 +156,8 @@ async function build() {
       bytes = Buffer.from(versionStaticAssets(html.replace('data-hosting="local"', 'data-hosting="static" data-auth-state="checking"'), version));
     }
     if(file.target==='jeu/login.html')bytes=Buffer.from(versionStaticAssets(bytes.toString('utf8'),version));
+    if(file.target==='jeu/astraball/index.html')bytes=Buffer.from(versionStaticAssets(bytes.toString('utf8'),version));
+    if(file.target.startsWith('jeu/astraball/')&&file.target.endsWith('.mjs'))bytes=Buffer.from(versionModuleImports(bytes.toString('utf8'),version));
     if(file.target==='journey-runtime.cjs')bytes=Buffer.from("'use strict';\nmodule.exports={Combat:require('./jeu/journey-combat.js'),Composition:require('./jeu/team-composition.js'),hash:"+JSON.stringify(journeyHash)+",snapshotHashes:"+JSON.stringify(compatibility?.snapshotHashes||[])+",legacy:"+(compatibility?"{hash:"+JSON.stringify(compatibility.legacyHash)+",data:require('./journey-legacy-4.6.85.json')}":'null')+"};\n");
     const target = inside(DIST, file.target);
     await fs.mkdir(path.dirname(target), {recursive: true});
@@ -169,7 +178,7 @@ async function build() {
   console.log(JSON.stringify({cards: manifest.cards, files: assets.length, megabytes: +(manifest.bytes / 1024 ** 2).toFixed(1), output: DIST}));
   return manifest;
 }
-module.exports = {plan, build, ROOT, DIST, inside, versionStaticAssets, releaseVersion};
+module.exports = {plan, build, ROOT, DIST, inside, versionStaticAssets, versionModuleImports, releaseVersion};
 if (require.main === module) {
   (process.argv.includes('--lfs-paths') ? plan().then(p => console.log(p.files.map(f=>f.source).join(','))) : build())
     .catch(error => {console.error(error.message); process.exitCode = 1;});

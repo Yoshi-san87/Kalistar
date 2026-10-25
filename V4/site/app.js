@@ -1096,7 +1096,7 @@ function showDeck(){setView('decks');}
     $('.nav-more')?.setAttribute('aria-expanded','true');
   }
   function learningNavigation(){
-    return navigationItem('journeys','Fragment')+navigationItem('guide','Guide')+navigationItem('library','Library · R\u00e8gles');
+    return navigationItem('journeys','Fragment')+menuAction('astraball','orbit','Astraball','','Sport tactique · Exhibition')+navigationItem('guide','Guide')+navigationItem('library','Library · R\u00e8gles');
   }
   function journeyArenaContext(){
     if(!game?.journey)return null;
@@ -1136,6 +1136,7 @@ function showDeck(){setView('decks');}
       if(b.closest('#mobile-dialog')&&action!=='duel-details')$('#mobile-dialog').close();
       if(action==='arena-menu')return showArenaMenu();
       if(action==='nav-more')return showNavigation();
+      if(action==='astraball'){window.location.assign('/jeu/astraball/');return;}
       if(action==='retry-lineup'){pendingLineup=game;render();return;}
       if(action==='skip-lineup'){
         pendingLineup=null;cancelLineup();

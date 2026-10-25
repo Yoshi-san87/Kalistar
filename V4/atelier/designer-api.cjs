@@ -56,6 +56,14 @@ function makeDesigner({token,json,file,body,getIntegrity}){
       const publicFiles={'/':'designer.html','/designer.js':'designer.js','/designer.css':'designer.css','/legacy':'index.html'};
       if(publicFiles[p]){file(res,path.join(__dirname,'public',publicFiles[p]),MIME[path.extname(publicFiles[p])]);return true;}
       if(p==='/jeu'){res.writeHead(302,{Location:'/jeu/'});res.end();return true;}
+      if(p==='/jeu/astraball'){res.writeHead(302,{Location:'/jeu/astraball/'});res.end();return true;}
+      if(p.startsWith('/jeu/astraball/')){
+        const relative=decodeURIComponent(p.slice('/jeu/astraball/'.length))||'index.html';
+        const allowed=require('../astraball/runtime-files.json');
+        if(!allowed.includes(relative)){json(res,404,{error:'Ressource Astraball absente.'});return true;}
+        const ext=path.extname(relative),mime=ext==='.mjs'?'text/javascript; charset=utf-8':ext==='.txt'?'text/plain; charset=utf-8':MIME[ext];
+        file(res,L.inside(path.join(ROOT,'V4/astraball'),relative),mime);return true;
+      }
       if(p.startsWith('/jeu/')){
         const relative=decodeURIComponent(p.slice('/jeu/'.length))||'index.html';
         if(!/^[a-zA-Z0-9_./-]+$/.test(relative)||relative.includes('..'))throw Error('Chemin de jeu invalide.');
