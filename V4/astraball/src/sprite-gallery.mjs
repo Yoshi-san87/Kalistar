@@ -3,7 +3,7 @@ import { CLIPS, frameAt } from './sprites.mjs';
 const $ = selector => document.querySelector(selector);
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 const labels = { idle: 'attente', run: 'course', throw: 'lancer', guard: 'garde', charge: 'charge', hit: 'impact', celebrate: 'victoire' };
-let running = !reduced.matches, elapsed = 0, last = 0, raf = 0, loaded = false, draws = 0;
+let running = !reduced.matches, elapsed = 0, last = 0, raf = 0, loaded = false, draws = 0, disposed = false;
 const items = [], visible = new Set(), disposers = [];
 function listen(target, event, callback) { target.addEventListener(event, callback); disposers.push(() => target.removeEventListener(event, callback)); }
 function icons() { window.lucide?.createIcons(); }
@@ -52,8 +52,28 @@ function filter() {
   $('#count').textContent = count + (count === 1 ? ' personnage / ' : ' personnages / ') + items.length + ' · ' + items.length * 16 + ' poses';
   $('#empty').hidden = count > 0; resize();
 }
+async function loadSprite(item) {
+  if (item.loading || item.ready || disposed) return;
+  item.loading = true;
+  try {
+    const image = new Image(); image.src = item.entry.file;
+    await image.decode();
+    if (image.naturalWidth !== 384 || image.naturalHeight !== 384) throw Error('Atlas invalide : ' + item.entry.name);
+    if (disposed) return;
+    item.sprite.style.backgroundImage = 'url("' + item.entry.file + '")';
+    item.ready = true; item.node.dataset.loaded = 'true';
+  } catch (error) {
+    if (!disposed) { $('#error').hidden = false; $('#error').textContent = error.message; }
+  } finally { item.loading = false; }
+}
 const observer = new IntersectionObserver(entries => {
-  for (const entry of entries) entry.isIntersecting ? visible.add(entry.target) : visible.delete(entry.target);
+  for (const entry of entries) {
+    if (entry.isIntersecting) {
+      visible.add(entry.target);
+      const item = items.find(item => item.node === entry.target);
+      if (item && !item.node.hidden) void loadSprite(item);
+    } else visible.delete(entry.target);
+  }
   draw();
 });
 async function boot() {
@@ -76,10 +96,6 @@ async function boot() {
     links.append(atlas, download);
     const identity = document.createElement('small'); identity.className = 'identity'; identity.textContent = entry.characterId + ' / ' + entry.modelId;
     info.append(name, meta, links, identity); stage.append(sprite); node.append(stage, info); $('#gallery').append(node);
-    const image = new Image(); image.src = entry.file;
-    await image.decode();
-    if (image.naturalWidth !== 384 || image.naturalHeight !== 384) throw Error('Atlas invalide : ' + entry.name);
-    sprite.style.backgroundImage = 'url("' + entry.file + '")';
     const item = { entry, node, sprite }; items.push(item); observer.observe(node);
   }
   loaded = true; playbackButton(); filter(); schedule(); document.body.dataset.ready = 'true';
@@ -105,7 +121,7 @@ listen(document, 'visibilitychange', schedule);
 listen(window, 'pageshow', schedule);
 listen(window, 'pagehide', event => {
   cancelAnimationFrame(raf);
-  if (!event.persisted) { observer.disconnect(); disposers.forEach(dispose => dispose()); }
+  if (!event.persisted) { disposed = true; observer.disconnect(); disposers.forEach(dispose => dispose()); }
 });
-Object.defineProperty(window, 'SpriteGallery', { value: Object.freeze({ metrics: () => ({ loaded, count: items.length, draws, running, visible: visible.size, elapsed }) }) });
+Object.defineProperty(window, 'SpriteGallery', { value: Object.freeze({ metrics: () => ({ loaded, textures: items.filter(item => item.ready).length, count: items.length, draws, running, visible: visible.size, elapsed }) }) });
 boot().catch(error => { running = false; schedule(); $('#error').hidden = false; $('#error').textContent = error.message; });

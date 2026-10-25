@@ -15,7 +15,7 @@ export function createRoster(libraryData) {
     const id=player.id.slice(3);
     return Object.freeze({id,name:player.name,characterId:id,...SPRITES[id],portrait:'assets/portraits/'+id+'.webp',faction:team.name});
   }));
-  const extras=libraryData?createSpriteLibrary(libraryData).entries.map(entry=>Object.freeze({
+  const extras=libraryData?createSpriteLibrary(libraryData).entries.filter(entry=>!originals.some(c=>c.url===entry.file&&c.characterId===entry.characterId)).map(entry=>Object.freeze({
     id:entry.id,name:entry.name,characterId:entry.characterId,url:entry.file,scale:entry.scale,portrait:null,faction:entry.faction,
   })):[];
   const entries=Object.freeze([...originals,...extras]),byId=new Map(entries.map(entry=>[entry.id,entry]));

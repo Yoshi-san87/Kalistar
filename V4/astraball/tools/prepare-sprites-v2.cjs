@@ -6,7 +6,8 @@ const root = path.resolve(__dirname, '..'), repo = path.resolve(root, '../..');
 const hash = file => crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
 const CELL = 96, FOOT = 90;
 
-async function pack(character) {
+async function pack(character, directory = 'sprites-v2') {
+  if (!/^sprites-v[1-9]\d*$/.test(directory)) throw Error('Invalid sprite directory');
   const source = path.join(root, character.source);
   const { data, info } = await sharp(source).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
   if (info.width !== info.height) throw Error(character.id + ': non-square source');
@@ -27,14 +28,26 @@ async function pack(character) {
       accumulated += columns[x];
       if (accumulated >= mass / 2) { anchor = x; break; }
     }
-    const width = Math.round(p.width * scale), height = Math.round(p.height * scale);
-    const left = Math.max(3, Math.min(CELL - width - 3, Math.round(CELL / 2 - anchor * scale))), top = FOOT - height;
-    const input = await sharp(pixels, { raw: { width: p.width, height: p.height, channels: 4 } })
+    let width = Math.round(p.width * scale), height = Math.round(p.height * scale);
+    let input = await sharp(pixels, { raw: { width: p.width, height: p.height, channels: 4 } })
       .resize(width, height, { kernel: 'nearest' }).png().toBuffer();
+    let trimLeft = 0;
+    if (directory !== 'sprites-v2') {
+      // Nearest-neighbour may lose a one-pixel extremity. Anchor the actual resampled alpha.
+      const rgba = await sharp(input).ensureAlpha().raw().toBuffer();
+      let x0=width,y0=height,x1=-1,y1=-1;
+      for (let y=0;y<height;y++) for (let x=0;x<width;x++) if (rgba[(y*width+x)*4+3]) {
+        x0=Math.min(x0,x);y0=Math.min(y0,y);x1=Math.max(x1,x);y1=Math.max(y1,y);
+      }
+      if (x1<0) throw Error(character.id + ': blank resampled frame');
+      trimLeft=x0;width=x1-x0+1;height=y1-y0+1;
+      input=await sharp(input).extract({left:x0,top:y0,width,height}).png().toBuffer();
+    }
+    const left = Math.max(3, Math.min(CELL - width - 3, Math.round(CELL / 2 - anchor * scale + trimLeft))), top = FOOT - height;
     frames.push({ input, left: index % 4 * CELL + left, top: Math.floor(index / 4) * CELL + top });
     placements.push({ index, sourceBounds: p, left, top, width, height, foot: FOOT });
   }
-  const file = 'assets/sprites-v2/' + character.id + '.png', target = path.join(root, file);
+  const file = 'assets/' + directory + '/' + character.id + '.png', target = path.join(root, file);
   fs.mkdirSync(path.dirname(target), { recursive: true });
   const packed = await sharp({ create: { width: CELL * 4, height: CELL * 4, channels: 4, background: '#00000000' } })
     .composite(frames).png().toBuffer();

@@ -6,16 +6,19 @@ const sharp = require(path.join(modules, 'sharp'));
 const hash = data => crypto.createHash('sha256').update(data).digest('hex');
 const report = require('../sources/sprites-v2/atlas-report.json'), library = require('../data/sprite-library.json');
 
-test('all 320 frames have crisp alpha, foot anchor, gutters and motion', async () => {
+test('all v2 and v3 frames have crisp alpha, foot anchor, gutters and motion', async () => {
   let bytes = 0;
-  for (const entry of library.entries) {
-    const file = path.join(root, entry.file), source = report.characters.find(c => c.id === entry.spriteKey);
+  for (const entry of library.entries.filter(c => !c.file.startsWith('assets/sprites-v1/'))) {
+    const file = path.join(root, entry.file), source = report.characters.find(c => c.id === entry.spriteKey) ||
+      require('../sources/sprites-v1/atlas-report.json').characters.find(c => c.id === entry.spriteKey) ||
+      JSON.parse(fs.readFileSync(path.join(root, 'sources/sprites-v3', entry.spriteKey + '.atlas.json'), 'utf8'));
     assert.equal(hash(fs.readFileSync(file)), entry.sha256);
     assert.equal(hash(fs.readFileSync(path.join(root, source.source))), source.sourceSha256);
     assert.equal(hash(fs.readFileSync(path.join(repo, source.reference))), source.referenceSha256);
     assert.equal(source.frames.length, 16);
     const buffer = fs.readFileSync(file);
-    assert.equal(buffer.length, entry.bytes); bytes += buffer.length;
+    assert.equal(buffer.length, entry.bytes);
+    if (entry.file.startsWith('assets/sprites-v2/')) bytes += buffer.length;
     const { data, info } = await sharp(buffer).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
     assert.equal(info.width, 384); assert.equal(info.height, 384);
     const visible = Array(16).fill(0), bottom = Array(16).fill(-1);

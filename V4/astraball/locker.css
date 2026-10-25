@@ -41,6 +41,9 @@ dialog.locker[open]{display:flex;flex-direction:column}
 #position-stats{display:flex;justify-content:space-between;gap:5px;font-size:9px;color:var(--muted);padding:10px 0}
 #position-stats b{color:var(--gold);font-size:11px;margin-left:3px}
 #character-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px}
+.roster-pages{display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 0;font-size:12px;color:var(--muted)}
+.roster-pages[hidden]{display:none}
+.roster-pages span{min-width:130px;text-align:center}
 .character-choice{position:relative;min-width:0;min-height:92px;padding:4px 3px 7px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px;background:#0b1f2299;border:1px solid #8e795237;border-radius:3px}
 .character-choice[aria-pressed=true]{border-color:var(--teal);background:#29483e}
 .character-choice b{font-size:9px;font-weight:500;overflow-wrap:anywhere;text-align:center;line-height:1.25;min-height:12px}

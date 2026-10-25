@@ -10,7 +10,9 @@ import { ROLE_STATS } from '../data/teams.mjs';
 const library=JSON.parse(fs.readFileSync(new URL('../data/sprite-library.json',import.meta.url)));
 const roster=createRoster(library);
 test('locker resolves all available sprites, retaining the ten original identities',()=>{
-  assert.equal(roster.entries.length,10+library.entries.length);
+  assert.equal(roster.entries.length,library.entries.length);
+  assert.equal(new Set(roster.entries.map(c=>c.characterId)).size,roster.entries.length);
+  for(const id of ['momo','kaylis','taulio','cana','balmhyr','voloden','lok','darnako','iliane','valazar'])assert.equal(roster.get(id).id,id,'v1 save IDs preserved');
   assert.equal(new Set(roster.entries.map(c=>c.id)).size,roster.entries.length);
   for(const c of roster.entries){assert.ok(Object.isFrozen(c));assert.ok(c.url.startsWith('assets/sprites-'));assert.ok(c.scale>0);}
   assert.equal(roster.get('__proto__'),null);

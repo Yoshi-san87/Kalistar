@@ -3,12 +3,13 @@
 [Guide Astraball](README.md) | [Index du projet](../../docs/INDEX.md)
 
 La bibliotheque est un catalogue de medias, pas un inventaire joueur.
-Elle fournit vingt personnages supplementaires. Le vestiaire les propose avec
-les dix personnages d'origine via `src/roster.mjs`, sans attribuer de statistiques
+Elle regroupe les personnages disponibles des trois lots. Le vestiaire les propose
+via `src/roster.mjs`, sans attribuer de statistiques
 propres aux apparences ni modifier une sauvegarde existante. Une nouvelle equipe
 enregistre l'identifiant d'apparence dans chaque joueur ; les statistiques restent
 celles du poste. Une identite ne peut figurer deux fois dans le meme camp.
-Les dix sprites du prototype restent independants et inchanges.
+Les dix sprites du prototype restent inchanges, avec leurs identifiants courts
+historiques conserves dans les equipes et les sauvegardes.
 
 ## Consulter
 
@@ -16,7 +17,8 @@ Ouvrir `/jeu/astraball/library.html` depuis le serveur Astraball ou le site
 construit. La galerie permet de consulter chaque animation, de mettre en
 pause, de retourner le personnage, de zoomer et de telecharger son atlas.
 Reduced Motion suspend les animations au depart ; la lecture reste volontaire.
-Seuls les personnages visibles sont animes et la page cachee suspend le rendu.
+Seuls les personnages visibles sont charges et animes ; la page cachee suspend le rendu.
+Le vestiaire affiche trente personnages par page, avec recherche sur tout le catalogue.
 
 ## Template Commun
 
@@ -79,17 +81,23 @@ Ce lot n'accorde aucun personnage et ne change pas les droits de collection.
 1. Identifier son `characterId` et son `modelId` dans les profils existants.
    Lire sa carte et son illustration approuvee. Conserver ses couleurs et
    attributs propres, sans inventer une autre identite pour remplir une cellule.
-2. Ajouter une entree a `sources/sprites-v2/prompts.json` avec les references
-   et la consigne individuelle. Generer le PNG separement avec le template
+2. Actualiser `sources/sprites-v3/production.json` avec
+   `node V4/astraball/tools/sprite-production.cjs inventory`.
+   Ajouter sa consigne individuelle dans `sources/sprites-v3/subjects.json`.
+   Generer le PNG separement avec le template
    Kaylis du lot 1 et l'illustration du personnage comme references visuelles.
-   Conserver la source sous `sources/sprites-v2/<spriteKey>.png` et sa provenance.
-3. Executer `node V4/astraball/tools/prepare-sprites-v2.cjs <spriteKey>` depuis
-   la racine, puis `node V4/astraball/tools/build-sprite-library.cjs`.
+   Conserver le prompt commun et l'identite dans le registre de production.
+3. Executer `node V4/astraball/tools/sprite-production.cjs record <spriteKey> <PNG-genere>`.
+   La source est copiee sous `sources/sprites-v3/` sans ecrasement, puis decoupee.
    Sharp utilise les dependances Node du poste ou `KALISTAR_NODE_MODULES`.
 4. Verifier le personnage en mouvement dans la galerie et la nettete au zoom
-   natif. Mettre a jour l'attente de taille du lot dans son test si le lot est
-   volontairement etendu ; ne pas remplacer d'anciennes empreintes pour cacher
-   une modification. Une autre carte du meme personnage garde son propre modele.
+   natif, puis executer `sprite-production.cjs accept <spriteKey>`.
+   Le constructeur `node V4/astraball/tools/build-sprite-library.cjs` ne publie
+   que les etats `ready` et les lots historiques. Les etats `pending`,
+   `generated` et `review` ne deviennent jamais de faux personnages disponibles.
+   `repack <spriteKey>` permet de reprendre un decoupage non publie, sans changer
+   le PNG source ; toute entree deja au registre de medias est protegee.
+   Ne pas remplacer d'anciennes empreintes pour cacher une modification.
 5. Sauvegarder les sources hors checkout, ajouter explicitement le nouvel
    atlas a `runtime-files.json` et au registre `runtime-media.json`, puis lancer
    les suites natives, navigateur et publication. Ne pas ajouter de PNG a Git.
@@ -112,4 +120,4 @@ tester un serveur deja ouvert si aucun build fige n'est indique. Les captures vo
 Les controles couvrent l'identite, les chemins, les hashes, la transparence,
 l'alignement, les animations, les filtres, le zoom, les ecrans et Reduced Motion.
 Les sources, prompts et mesures de ce lot sont decrits dans
-[sprites-v2](sources/sprites-v2/README.md).
+[sprites-v2](sources/sprites-v2/README.md) et [sprites-v3](sources/sprites-v3/README.md).

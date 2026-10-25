@@ -3,6 +3,7 @@ const modules = process.env.KALISTAR_NODE_MODULES || 'C:/Users/guill/.cache/code
 const { chromium } = require(path.join(modules, 'playwright'));
 const sharp = require(path.join(modules, 'sharp'));
 const repo = path.resolve(__dirname, '../../..'), out = process.env.KALISTAR_VERIFICATION_DIR || path.join(repo, 'work/astraball-sprites-v2/qa');
+const library = require('../data/sprite-library.json'), total = library.entries.length;
 async function serveLibrary() {
   const dist = process.env.KALISTAR_DIST && path.resolve(process.env.KALISTAR_DIST);
   if (!dist && process.env.KALISTAR_SPRITE_LIBRARY_URL) return { url: process.env.KALISTAR_SPRITE_LIBRARY_URL };
@@ -40,11 +41,13 @@ async function main() {
       page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
       page.on('response', response => { if (response.status() >= 400) errors.push(response.status() + ' ' + response.url()); });
       await page.goto(url); await page.waitForSelector('body[data-ready="true"]');
-      assert.equal(await page.locator('.character').count(), 20);
+      assert.equal(await page.locator('.character').count(), total);
+      await page.locator('.character[data-loaded="true"]').first().waitFor();
+      assert.ok(await page.evaluate(() => SpriteGallery.metrics().textures < SpriteGallery.metrics().count), 'offscreen textures stay unloaded');
       assert.equal(await page.locator('svg.lucide').count(), 5);
       assert.equal(await page.evaluate(() => SpriteGallery.metrics().running), false);
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, name + ' no horizontal overflow');
-      await page.screenshot({ path: path.join(out, name + '.png'), fullPage: true });
+      await page.screenshot({ path: path.join(out, name + '.png') });
       for (const pose of ['idle','run','throw','guard','charge','hit','celebrate']) {
         await page.selectOption('#pose', pose);
         assert.equal(await page.locator('.sprite').first().getAttribute('data-frame'), String({ idle:0,run:4,throw:8,guard:12,charge:8,hit:13,celebrate:14 }[pose]));
@@ -55,14 +58,15 @@ async function main() {
       await page.click('#flip'); assert.equal(await page.getAttribute('#flip','aria-pressed'),'true');
       await page.click('#background'); assert.equal(await page.getAttribute('#background','aria-pressed'),'true');
       await page.fill('#search','Riko'); assert.equal(await page.locator('.character:visible').count(),1);
+      await page.locator('.character:visible[data-loaded="true"]').waitFor();
       await page.screenshot({ path: path.join(out,name + '-riko.png'), fullPage: true });
       await page.fill('#search','personnage-inconnu'); assert.equal(await page.locator('#empty').isVisible(),true);
-      await page.fill('#search',''); await page.selectOption('#faction','Chroma'); assert.equal(await page.locator('.character:visible').count(),4);
+      await page.fill('#search',''); await page.selectOption('#faction','Chroma'); assert.equal(await page.locator('.character:visible').count(),library.entries.filter(c=>c.faction==='Chroma').length);
       await page.selectOption('#faction','');
       await page.reload(); await page.waitForSelector('body[data-ready="true"]');
-      assert.equal(await page.locator('.character').count(),20);
+      assert.equal(await page.locator('.character').count(),total);
       assert.deepEqual(errors,[]);
-      results.push({ name,width,height,characters:20,reducedMotion:true,filters:true,zoom:true,flip:true });
+      results.push({ name,width,height,characters:total,reducedMotion:true,filters:true,zoom:true,flip:true });
       await context.close();
     }
     const context = await browser.newContext({ viewport: { width:1440,height:960 } }), page = await context.newPage();

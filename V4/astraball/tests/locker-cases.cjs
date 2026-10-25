@@ -7,7 +7,10 @@ module.exports=async function lockerCases({browser,url,OUT,sharp}){
     page.on('pageerror',e=>errors.push(e.message));
     page.on('response',r=>{if(r.status()>=400)errors.push(r.status()+' '+r.url());});
     await page.goto(url);await page.waitForFunction(()=>window.Astraball?.ready);
-    assert.equal(await page.locator('.character-choice').count(),10+require('../data/sprite-library.json').entries.length);
+    assert.equal(await page.locator('.character-choice').count(),Math.min(30,require('../data/sprite-library.json').entries.length));
+    await page.locator('#roster-next').click();
+    assert.match(await page.locator('#roster-page').innerText(),/^2 \/ /);
+    await page.locator('#roster-prev').click();
     await page.locator('#locker-tab-teams').focus();await page.keyboard.press('ArrowRight');
     assert.equal(await page.locator('#locker-tab-ball').getAttribute('aria-selected'),'true');
     await page.keyboard.press('End');assert.equal(await page.locator('#locker-tab-arena').getAttribute('aria-selected'),'true');
@@ -70,9 +73,11 @@ module.exports=async function lockerCases({browser,url,OUT,sharp}){
   // Every extra appearance can start, replace the prior tokens and reload.
   const context=await browser.newContext({viewport:{width:1440,height:900},reducedMotion:'reduce'}),page=await context.newPage();
   await page.goto(url);await page.waitForFunction(()=>window.Astraball?.ready);
-  const ids=await page.locator('.character-choice').evaluateAll(nodes=>nodes.map(n=>n.dataset.character));
+  const {createRoster}=await import('../src/roster.mjs');
+  const characters=createRoster(require('../data/sprite-library.json')).entries,ids=characters.map(c=>c.id);
   for(const id of ids){
     if(!await page.locator('#modal').isVisible())await page.locator('#settings').click();
+    await page.locator('#character-search').fill(characters.find(c=>c.id===id).name);
     await page.locator('[data-character="'+id+'"]').click();await page.locator('#new-match').click();
     await page.waitForFunction(()=>!document.querySelector('#modal').open);
     assert.equal(await page.evaluate(()=>window.Astraball.metrics().sprites.count),10);

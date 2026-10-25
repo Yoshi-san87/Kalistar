@@ -6,7 +6,8 @@ const icon=name=>'<i data-lucide="'+name+'"></i>';
 export const spriteBadge=c=>'<span class="sprite-badge" aria-hidden="true" style="--sprite:url(&quot;'+esc(c.url)+'&quot;)"></span>';
 
 export function renderLocker({host,roster,options,lineups,initial,icons,onSubmit}) {
-  let draft={...options,...normalizeAppearance(options),lineups:roster.normalize(lineups)},team=0,role='meneur',tab='teams',loading=false;
+  let draft={...options,...normalizeAppearance(options),lineups:roster.normalize(lineups)},team=0,role='meneur',tab='teams',loading=false,page=0;
+  const pageSize=30;
   const $=selector=>host.querySelector(selector),tabs=[['teams','users','\u00c9quipes'],['ball','circle-dot','Ballon'],['arena','mountain','Ar\u00e8ne']];
   host.innerHTML=[
     '<nav class="locker-tabs" role="tablist" aria-label="Pr\u00e9paration du match">',
@@ -40,9 +41,15 @@ export function renderLocker({host,roster,options,lineups,initial,icons,onSubmit
     $('#chosen-position').textContent=POSITIONS.find(p=>p.id===role).name;
     $('#position-stats').innerHTML=Object.entries(ROLE_STATS[role]).map(([k,v])=>'<span>'+k+' <b>'+v+'</b></span>').join('');icons();
   }
+  const pager=document.createElement('nav');pager.className='roster-pages';pager.setAttribute('aria-label','Pages des personnages');
+  pager.innerHTML='<button type="button" id="roster-prev" class="icon" aria-label="Page pr\u00e9c\u00e9dente" title="Page pr\u00e9c\u00e9dente">'+icon('chevron-left')+'</button><span id="roster-page" role="status"></span><button type="button" id="roster-next" class="icon" aria-label="Page suivante" title="Page suivante">'+icon('chevron-right')+'</button>';
+  $('#character-grid').after(pager);
   function characters(){
     const query=$('#character-search').value.toLocaleLowerCase('fr').trim(),rows=roster.entries.filter(c=>(c.name+' '+c.faction).toLocaleLowerCase('fr').includes(query));
-    $('#character-grid').innerHTML=rows.map(c=>{
+    const pages=Math.max(1,Math.ceil(rows.length/pageSize));page=Math.min(page,pages-1);
+    pager.hidden=pages===1;$('#roster-prev').disabled=page===0;$('#roster-next').disabled=page===pages-1;
+    $('#roster-page').textContent=(page+1)+' / '+pages+' \u00b7 '+rows.length+' personnages';
+    $('#character-grid').innerHTML=rows.slice(page*pageSize,(page+1)*pageSize).map(c=>{
       const assigned=POSITIONS.find(p=>roster.get(draft.lineups[team][p.id]).characterId===c.characterId);
       return '<button class="character-choice" data-character="'+esc(c.id)+'" aria-label="'+esc(c.name)+'" aria-pressed="'+(draft.lineups[team][role]===c.id)+'" title="'+esc(c.name+' \u00b7 '+c.faction)+'">'+spriteBadge(c)+'<b>'+esc(c.name)+'</b>'+(assigned?icon(assigned.icon):'')+'</button>';
     }).join('');$('#roster-empty').hidden=rows.length!==0;
@@ -57,7 +64,9 @@ export function renderLocker({host,roster,options,lineups,initial,icons,onSubmit
     button.onkeydown=e=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();const i=tabs.findIndex(([id])=>id===tab),next=e.key==='Home'?0:e.key==='End'?2:(i+(e.key==='ArrowRight'?1:2))%3;setTab(tabs[next][0]);$('#locker-tab-'+tab).focus();};
   }
   for(const button of host.querySelectorAll('[data-team]'))button.onclick=()=>{team=Number(button.dataset.team);for(const b of host.querySelectorAll('[data-team]'))b.setAttribute('aria-pressed',String(Number(b.dataset.team)===team));lineup();characters();};
-  $('#character-search').oninput=characters;
+  $('#character-search').oninput=()=>{page=0;characters();};
+  $('#roster-prev').onclick=()=>{page=Math.max(0,page-1);characters();};
+  $('#roster-next').onclick=()=>{page++;characters();};
   $('#shuffle-team').onclick=()=>{
     const unique=[...new Map(roster.entries.map(c=>[c.characterId,c])).values()];
     for(let i=unique.length-1;i>0;i--){const j=Math.floor(crypto.getRandomValues(new Uint32Array(1))[0]/4294967296*(i+1));[unique[i],unique[j]]=[unique[j],unique[i]];}
