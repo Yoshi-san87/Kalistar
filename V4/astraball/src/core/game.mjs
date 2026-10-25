@@ -1,5 +1,6 @@
 import { TEAMS, ROLE_STATS, ROLES, FORMATION } from '../../data/teams.mjs';
 import { canOccupy, distance, isPitch, isOpponentGoal, supercover, inDefense, inOwnHalf } from './geometry.mjs';
+import { getAthlete, athleteSnapshot } from '../../data/athletes.mjs';
 
 /**
  * Public API: createMatch/restoreMatch, activeUnit/controllingTeam, getUnit,
@@ -47,10 +48,12 @@ function formationPosition(unit) {
 export function createMatch({ seed = 20261025, mode = 'solo', targetScore = 6, maxRounds = 12, teams = TEAMS } = {}) {
   if (!Array.isArray(teams) || teams.length !== 2 || teams.some((team,i) => team.id !== i || !Array.isArray(team.players) || team.players.length !== 5)) throw Error('Invalid teams');
   const units = teams.flatMap((team) => team.players.map((player) => {
+    const athlete=player.athleteId===undefined?null:athleteSnapshot(player.athleteId,player.role);
     const unit = {
       id: player.id, name: player.name, role: player.role,
       ...(player.character ? {character: player.character} : {}),
-      team: team.id, stats: { ...ROLE_STATS[player.role] },
+      ...(athlete ? {athlete} : {}),
+      team: team.id, stats: { ...(athlete?getAthlete(athlete.id).stats:ROLE_STATS[player.role]) },
       acted: false, penalty: 0, nextPenalty: 0,
     };
     return { ...unit, ...formationPosition(unit) };
@@ -420,6 +423,7 @@ export function validateState(state) {
   const ids = new Set();
   const cells = new Set();
   const roles = [new Set(), new Set()];
+  const athletes = [new Set(), new Set()];
   for (const unit of state.units) {
     require(unit && typeof unit === 'object', 'unit');
     require(typeof unit.id === 'string' && unit.id.length > 0 && !ids.has(unit.id), 'unit id');
@@ -431,6 +435,13 @@ export function validateState(state) {
     require(canOccupy(unit, unit.x, unit.y) && !cells.has(key(unit)), 'unit position');
     cells.add(key(unit));
     require(unit.stats && STAT_KEYS.every((stat) => integer(unit.stats[stat], 0, 99)), 'stats');
+    if(unit.athlete!==undefined){
+      const a=unit.athlete;
+      // Validate the saved snapshot, never recompute an ongoing match from today's catalog.
+      require(a&&typeof a.id==='string'&&a.id.length>0&&a.id.length<160&&integer(a.version,1), 'athlete identity');
+      require(ROLES.includes(a.primary)&&ROLES.includes(a.secondary)&&a.primary!==a.secondary&&[a.primary,a.secondary].includes(unit.role), 'athlete positions');
+      require(!athletes[unit.team].has(a.id), 'duplicate athlete');athletes[unit.team].add(a.id);
+    }
     require(typeof unit.acted === 'boolean', 'acted');
     require(integer(unit.penalty, 0, unit.stats.VIT) && integer(unit.nextPenalty, 0, unit.stats.VIT), 'penalty');
   }

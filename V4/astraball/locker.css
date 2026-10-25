@@ -38,8 +38,29 @@ dialog.locker[open]{display:flex;flex-direction:column}
 .locker #dialog-content label.roster-search{margin:0;gap:5px;border-bottom:1px solid var(--line);min-width:0;max-width:190px}
 .roster-search svg{width:14px;color:var(--gold)}
 .roster-search input{width:100%;min-width:0;padding:9px 2px;background:transparent;border:0;color:var(--text);outline-offset:0}
-#position-stats{display:flex;justify-content:space-between;gap:5px;font-size:9px;color:var(--muted);padding:10px 0}
-#position-stats b{color:var(--gold);font-size:11px;margin-left:3px}
+#position-stats{padding:12px 0;margin-bottom:12px;border-bottom:1px solid var(--line);color:var(--muted);font-size:11px}
+.athlete-heading{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 12px;margin-bottom:9px}
+.athlete-heading strong{font:18px Cinzel,serif;color:var(--text);overflow-wrap:anywhere}
+.athlete-heading>span{font-size:11px;color:var(--gold)}
+.athlete-positions{display:flex;gap:16px;flex-wrap:wrap;margin:8px 0}
+.athlete-positions>span{display:grid;grid-template-columns:17px auto;gap:2px 6px;color:var(--text);font-size:12px}
+.athlete-positions svg{width:16px;height:16px;grid-row:span 2;color:var(--gold);align-self:center}
+.athlete-positions small{grid-column:2;font-size:9px;color:var(--muted)}
+.athlete-measures{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:11px;margin-top:10px}
+.athlete-measures>span{display:flex;align-items:center;gap:5px}
+.athlete-measures svg{width:13px;height:13px;color:var(--gold)}
+.athlete-measures b{font-weight:500;color:var(--text)}
+.athlete-sources{font-size:10px;margin:6px 0;color:var(--muted);overflow-wrap:anywhere}
+.athlete-sources summary{cursor:pointer;min-height:28px;display:flex;align-items:center;text-decoration:underline;text-underline-offset:3px}
+.athlete-sources a{display:block;color:var(--teal);margin:6px 0}
+.locker #dialog-content .athlete-sources p{font-size:11px;margin:4px 0}
+.athlete-ratings{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin-top:8px}
+.athlete-ratings>div{display:grid;grid-template-columns:1fr auto;gap:4px;font-size:10px}
+.athlete-ratings b{color:var(--gold);font-size:14px;line-height:1}
+.athlete-ratings meter{grid-column:1/-1;width:100%;height:5px;appearance:none;background:#071517;border:0;border-radius:0}
+.athlete-ratings meter::-webkit-meter-bar{background:#071517;border:0;border-radius:0}
+.athlete-ratings meter::-webkit-meter-optimum-value{background:#74b9ac}
+.athlete-ratings meter::-moz-meter-bar{background:#74b9ac}
 #character-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px}
 .roster-pages{display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 0;font-size:12px;color:var(--muted)}
 .roster-pages[hidden]{display:none}
@@ -47,6 +68,8 @@ dialog.locker[open]{display:flex;flex-direction:column}
 .character-choice{position:relative;min-width:0;min-height:92px;padding:4px 3px 7px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px;background:#0b1f2299;border:1px solid #8e795237;border-radius:3px}
 .character-choice[aria-pressed=true]{border-color:var(--teal);background:#29483e}
 .character-choice b{font-size:9px;font-weight:500;overflow-wrap:anywhere;text-align:center;line-height:1.25;min-height:12px}
+.character-choice small{font-size:8px;color:var(--muted)}
+.character-choice:disabled{opacity:.42;cursor:not-allowed}
 .character-choice>svg{position:absolute;top:3px;right:3px;width:13px;height:13px;color:var(--gold)}
 .arena-showcase{position:relative;aspect-ratio:2.6;overflow:hidden;border-bottom:1px solid var(--gold);margin-bottom:14px}
 .arena-showcase>img{width:100%;height:100%;object-fit:cover;object-position:50% 46%}
@@ -77,6 +100,8 @@ dialog.locker[open]{display:flex;flex-direction:column}
   .lineup-slot small{font-size:8px}.lineup-slot b{font:9px Segoe UI,sans-serif;margin:3px 0 0}
   .locker #dialog-content .roster-heading h3{font-size:15px}.roster-search{font-size:12px}
   #character-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .athlete-ratings{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px 16px}
+  .athlete-heading strong{font-size:16px}.athlete-measures{gap:7px 12px}
   .character-choice{min-height:82px}.character-choice .sprite-badge{--size:54px}
   .locker .locker-options{gap:3px}.locker #dialog-content .locker-options label{margin:2px 0;font-size:11px}
   .locker #dialog-content .locker-options select{padding:6px;font-size:11px;max-width:190px}

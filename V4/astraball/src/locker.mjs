@@ -1,6 +1,8 @@
 import { BALLS, ARENAS, getBall, getArena, normalizeAppearance } from './appearance.mjs';
 import { POSITIONS } from './roster.mjs';
-import { TEAMS, ROLE_STATS } from '../data/teams.mjs';
+import { TEAMS } from '../data/teams.mjs';
+import { canPlayPosition } from '../data/athletes.mjs';
+import { renderAthlete } from './athlete-view.mjs';
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const icon=name=>'<i data-lucide="'+name+'"></i>';
 export const spriteBadge=c=>'<span class="sprite-badge" aria-hidden="true" style="--sprite:url(&quot;'+esc(c.url)+'&quot;)"></span>';
@@ -37,27 +39,29 @@ export function renderLocker({host,roster,options,lineups,initial,icons,onSubmit
       const c=roster.get(draft.lineups[team][p.id]);
       return '<button class="lineup-slot" data-position="'+p.id+'" aria-pressed="'+(role===p.id)+'" style="--team:'+TEAMS[team].color+'">'+icon(p.icon)+spriteBadge(c)+'<span><small>'+p.name+'</small><b>'+esc(c.name)+'</b></span>'+icon('chevron-right')+'</button>';
     }).join('');
-    for(const button of host.querySelectorAll('[data-position]'))button.onclick=()=>{role=button.dataset.position;lineup();characters();};
+    for(const button of host.querySelectorAll('[data-position]'))button.onclick=()=>{role=button.dataset.position;page=0;lineup();characters();};
     $('#chosen-position').textContent=POSITIONS.find(p=>p.id===role).name;
-    $('#position-stats').innerHTML=Object.entries(ROLE_STATS[role]).map(([k,v])=>'<span>'+k+' <b>'+v+'</b></span>').join('');icons();
+    $('#position-stats').innerHTML=renderAthlete(roster.get(draft.lineups[team][role]));icons();
   }
   const pager=document.createElement('nav');pager.className='roster-pages';pager.setAttribute('aria-label','Pages des personnages');
   pager.innerHTML='<button type="button" id="roster-prev" class="icon" aria-label="Page pr\u00e9c\u00e9dente" title="Page pr\u00e9c\u00e9dente">'+icon('chevron-left')+'</button><span id="roster-page" role="status"></span><button type="button" id="roster-next" class="icon" aria-label="Page suivante" title="Page suivante">'+icon('chevron-right')+'</button>';
   $('#character-grid').after(pager);
   function characters(){
-    const query=$('#character-search').value.toLocaleLowerCase('fr').trim(),rows=roster.entries.filter(c=>(c.name+' '+c.faction).toLocaleLowerCase('fr').includes(query));
+    const query=$('#character-search').value.toLocaleLowerCase('fr').trim(),rows=roster.entries.filter(c=>canPlayPosition(c.athlete,role)&&(c.name+' '+c.faction).toLocaleLowerCase('fr').includes(query));
     const pages=Math.max(1,Math.ceil(rows.length/pageSize));page=Math.min(page,pages-1);
     pager.hidden=pages===1;$('#roster-prev').disabled=page===0;$('#roster-next').disabled=page===pages-1;
     $('#roster-page').textContent=(page+1)+' / '+pages+' \u00b7 '+rows.length+' personnages';
     $('#character-grid').innerHTML=rows.slice(page*pageSize,(page+1)*pageSize).map(c=>{
       const assigned=POSITIONS.find(p=>roster.get(draft.lineups[team][p.id]).characterId===c.characterId);
-      return '<button class="character-choice" data-character="'+esc(c.id)+'" aria-label="'+esc(c.name)+'" aria-pressed="'+(draft.lineups[team][role]===c.id)+'" title="'+esc(c.name+' \u00b7 '+c.faction)+'">'+spriteBadge(c)+'<b>'+esc(c.name)+'</b>'+(assigned?icon(assigned.icon):'')+'</button>';
+      const allowed=roster.canSelect(draft.lineups,team,role,c.id),position=POSITIONS.find(p=>p.id===c.athlete.primary);
+      return '<button class="character-choice" data-character="'+esc(c.id)+'" aria-label="'+esc(c.name)+'" aria-pressed="'+(draft.lineups[team][role]===c.id)+'" '+(allowed?'':'disabled ')+'title="'+esc(c.name+' \u00b7 '+c.faction+(allowed?'': ' \u00b7 Lib\u00e8re d\u2019abord son poste de '+assigned?.name))+'">'+spriteBadge(c)+'<b>'+esc(c.name)+'</b><small>'+esc(position.name)+'</small>'+(assigned?icon(assigned.icon):'')+'</button>';
     }).join('');$('#roster-empty').hidden=rows.length!==0;
-    for(const button of host.querySelectorAll('[data-character]'))button.onclick=()=>{draft.lineups=roster.select(draft.lineups,team,role,button.dataset.character);lineup();characters();};icons();
+    for(const button of host.querySelectorAll('[data-character]'))button.onclick=()=>{draft.lineups=roster.select(draft.lineups,team,role,button.dataset.character);lineup();characters();$('#position-stats').scrollIntoView({block:'nearest'});};icons();
   }
   function setTab(id){
     tab=id;for(const button of host.querySelectorAll('[data-locker-tab]')){const selected=button.dataset.lockerTab===id;button.setAttribute('aria-selected',String(selected));button.tabIndex=selected?0:-1;}
     for(const [key] of tabs)$('#locker-panel-'+key).hidden=key!==id;
+    $('#locker-panel-'+id).scrollTop=0;
   }
   for(const button of host.querySelectorAll('[data-locker-tab]')){
     button.onclick=()=>setTab(button.dataset.lockerTab);
@@ -65,12 +69,10 @@ export function renderLocker({host,roster,options,lineups,initial,icons,onSubmit
   }
   for(const button of host.querySelectorAll('[data-team]'))button.onclick=()=>{team=Number(button.dataset.team);for(const b of host.querySelectorAll('[data-team]'))b.setAttribute('aria-pressed',String(Number(b.dataset.team)===team));lineup();characters();};
   $('#character-search').oninput=()=>{page=0;characters();};
-  $('#roster-prev').onclick=()=>{page=Math.max(0,page-1);characters();};
-  $('#roster-next').onclick=()=>{page++;characters();};
+  $('#roster-prev').onclick=()=>{page=Math.max(0,page-1);characters();$('#character-grid').scrollIntoView({block:'start'});};
+  $('#roster-next').onclick=()=>{page++;characters();$('#character-grid').scrollIntoView({block:'start'});};
   $('#shuffle-team').onclick=()=>{
-    const unique=[...new Map(roster.entries.map(c=>[c.characterId,c])).values()];
-    for(let i=unique.length-1;i>0;i--){const j=Math.floor(crypto.getRandomValues(new Uint32Array(1))[0]/4294967296*(i+1));[unique[i],unique[j]]=[unique[j],unique[i]];}
-    draft.lineups[team]=Object.fromEntries(POSITIONS.map((p,i)=>[p.id,unique[i].id]));lineup();characters();
+    draft.lineups[team]=roster.shuffle(()=>crypto.getRandomValues(new Uint32Array(1))[0]/4294967296);lineup();characters();
   };
   $('#reset-team').onclick=()=>{draft.lineups[team]=roster.defaults()[team];lineup();characters();};
   for(const radio of host.querySelectorAll('[name="ball"]'))radio.onchange=()=>{draft.ball=radio.value;showBall();};

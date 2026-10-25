@@ -3,12 +3,13 @@
 Exhibition jouable autonome de sport tactique, sans effet sur la collection,
 les Fragments ou les combats du jeu de cartes.
 
-[Guides Kalistar](../../docs/INDEX.md) | [Audit des regles](tests/REPORT.md)
+[Guides Kalistar](../../docs/INDEX.md) | [Profils des athletes](ATHLETES.md) | [Audit initial des regles](tests/REPORT.md)
 
-La [bibliotheque de sprites](SPRITES.md) fournit vingt personnages
-supplementaires : galerie animee a `/jeu/astraball/library.html`, 16 poses par
-personnage, catalogue lie aux identifiants stables des cartes. Le vestiaire
-propose trente personnages au total, sans modifier les droits de collection.
+La [bibliotheque de sprites](SPRITES.md) fournit le catalogue jouable : galerie
+animee a `/jeu/astraball/library.html`, 16 poses par personnage, identifiants
+stables des cartes. Les profils sportifs couvrent les 368 identites examinees ;
+le vestiaire ne propose que celles dont le sprite a ete publie (170 actuellement),
+sans modifier les droits de collection.
 
 ## Jouer
 
@@ -30,10 +31,15 @@ Les medias doivent etre presents sur ce PC ou restaures depuis leur sauvegarde.
 Le clone Git volontairement leger ne contient pas les peintures.
 
 Le premier match ouvre un vestiaire en trois onglets : Equipes, Balle et Arene.
-Choisir les cinq postes de chaque camp parmi trente personnages, avec recherche,
+Choisir les cinq postes de chaque camp parmi les personnages disponibles, avec recherche,
 composition aleatoire et retour aux equipes initiales. Une identite ne peut
-occuper deux postes du meme camp : choisir un personnage deja present echange
-les postes. Chaque poste conserve son profil de statistiques symetrique.
+occuper deux postes du meme camp. Chaque personnage a des statistiques propres,
+un poste principal et un secondaire, sans penalite cachee au second poste.
+La liste filtre les postes compatibles ; un echange n'est possible que si les
+deux joueurs peuvent occuper leurs nouvelles places. La composition aleatoire
+respecte aussi ces contraintes. Taille et masse sont descriptives : estimations
+visuelles explicites pour Kalistar, references ou valeurs non renseignees pour
+les collaborations. Les fiches donnent acces aux sources disponibles.
 Six ballons et deux arenes sont disponibles dans les deux vues HD-2D/isometrique,
 en solo contre l'IA ou a deux sur le meme ecran. Une sauvegarde existante reprend
 directement. Le vestiaire reste accessible dans les options ; ses brouillons
@@ -84,14 +90,20 @@ ni les statistiques, ni l'IA, ni les probabilites, ni les sauvegardes Kalistar.
   est interdit conserve son effet de retard, selon les memes regles qu'un mur.
 
 Les formules exactes sont dans `src/core/game.mjs` et le livre des regles.
-Les deux equipes partagent les memes profils de postes, pas les statistiques
-du jeu de cartes. Cette exhibition ne constitue pas une declaration d'equilibrage.
+Les profils sont propres a Astraball, pas aux statistiques du jeu de cartes.
+Leur budget commun limite l'inflation sans prouver l'equilibre competitif.
+Les rencontres deja sauvegardees conservent leurs valeurs, meme apres une
+revision de profil. Les nouvelles equipes initiales placent Darnako en Pilier
+et Valazar en Middle pour respecter leurs deux postes autorises.
 
 ## Architecture
 
 | Fichier | Responsabilite |
 | --- | --- |
-| `data/teams.mjs` | Statistiques, equipes et formation initiale |
+| `data/teams.mjs` | Equipes, formation et profils historiques des scenarios |
+| `data/athlete-definitions.mjs`, `data/athletes.mjs` | Affectations explicites et profils sportifs versionnes |
+| `data/collaboration-measurements.mjs` | Mensurations documentees, continuite et sources |
+| `src/athlete-view.mjs` | Fiches sportives, mensurations et references |
 | `src/core/geometry.mjs` | Cases, limites, trajectoires supercover |
 | `src/core/game.mjs` | Etat pur, initiative, actions, ballon, score, validation |
 | `src/core/ai.mjs` | Decisions bornees sans modifier l'etat |
@@ -191,6 +203,7 @@ Depuis la racine du depot :
 ```sh
 node --test V4/astraball/tests/astraball.test.cjs
 node V4/astraball/tests/simulation.mjs --games 120 --out work/astraball/simulation.json
+node V4/astraball/tools/audit-athletes.mjs
 node V4/astraball/tests/interface.browser.test.cjs
 ```
 
@@ -203,8 +216,8 @@ les comptes de verification sont factices, jamais les sessions personnelles.
 
 ## Limites Et Suite
 
-- Deux arenes en deux vues, six ballons cosmetiques, trente personnages repartis
-  librement sur cinq postes par equipe,
+- Deux arenes en deux vues, six ballons cosmetiques, catalogue de personnages
+  assignes a deux postes possibles et cinq postes distincts par equipe,
   IA heuristique et match local seulement.
 - Pas de matchmaking, compte Astraball, classement, recompense ni reseau de jeu.
 - Sprites en deux orientations miroir, sans animation squelettique ni huit vues.
