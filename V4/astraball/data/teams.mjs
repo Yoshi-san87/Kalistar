@@ -14,7 +14,7 @@ export const FORMATION = Object.freeze({
   meneur: Object.freeze({ x: 3, y: 3 }),
   scoreur: Object.freeze({ x: 4, y: 1 }),
   middle: Object.freeze({ x: 4, y: 5 }),
-  sentry: Object.freeze({ x: 2, y: 2 }),
+  sentry: Object.freeze({ x: 4, y: 2 }),
   pilier: Object.freeze({ x: 1, y: 3 }),
 });
 

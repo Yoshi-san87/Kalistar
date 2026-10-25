@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {
-  activeUnit, applyCommand, createMatch, getInitiative, getUnit,
+  activeUnit, applyCommand, createMatch as createSetup, getInitiative, getUnit,
   legalMoves, previewAction, validateState,
 } from '../src/core/game.mjs';
 import { chooseTurn } from '../src/core/ai.mjs';
@@ -17,6 +17,12 @@ const point = ({ x, y }) => ({ x, y });
 const key = ({ x, y }) => `${x},${y}`;
 const distance = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
 const unit = (state, team, role) => state.units.find(u => u.team === team && u.role === role);
+
+function ready(state) {
+  while (state.phase === 'placement') command(state, { type: 'ready', team: state.placement.team });
+  return state;
+}
+const createMatch = options => ready(createSetup(options));
 
 function place(state, who, x, y) {
   Object.assign(who, { x, y });
@@ -40,7 +46,7 @@ function activate(state, who) {
 
 function fixture(role = 'sentry', team = 0, options = {}) {
   const state = createMatch({ seed: 23, ...options });
-  const xs = { meneur: 2, scoreur: 3, middle: 4, sentry: 5, pilier: 1 };
+  const xs = { meneur: 4, scoreur: 5, middle: 6, sentry: 7, pilier: 1 };
   for (const u of state.units) {
     place(state, u, u.team === 0 ? xs[u.role] : 12 - xs[u.role], u.team === 0 ? 0 : 6);
   }
@@ -84,6 +90,7 @@ function outcome(source, cmd, type, success) {
 }
 
 function drainRound(state) {
+  ready(state);
   const round = state.round;
   const ids = [];
   while (state.status === 'playing' && state.round === round) {
@@ -118,7 +125,7 @@ function touchedCells(from, to) {
 
 test('public initial state, canonical symmetric roles/stats, kickoff and isolation', () => {
   const state = createMatch({ seed: 42 });
-  assert.equal(state.schema, 1);
+  assert.equal(state.schema, 2);
   assert.equal(state.round, 1);
   assert.equal(state.maxRounds, 12);
   assert.equal(state.targetScore, 6);
@@ -298,7 +305,7 @@ for (const [name, from, to, cells] of [
   });
 }
 
-test('1,980 directed trajectories match an independent closed-cell intersection oracle', () => {
+test('1,890 valid directed trajectories match an independent closed-cell intersection oracle', () => {
   const state = fixture('meneur');
   const actor = activeUnit(state);
   const receiver = unit(state, 0, 'scoreur');
@@ -307,6 +314,7 @@ test('1,980 directed trajectories match an independent closed-cell intersection 
   let checked = 0;
   for (const from of points) for (const to of points) {
     if (key(from) === key(to)) continue;
+    if (from.x <= 3 && to.x <= 3) continue;
     place(state, actor, from.x, from.y);
     place(state, receiver, to.x, to.y);
     assert.equal(validateState(state), true);
@@ -314,7 +322,7 @@ test('1,980 directed trajectories match an independent closed-cell intersection 
     assert.deepEqual(preview.cells.map(key).sort(), touchedCells(from, to).map(key).sort(), `${key(from)} -> ${key(to)}`);
     checked++;
   }
-  assert.equal(checked, 1980);
+  assert.equal(checked, 1890);
 });
 
 test('corner-touch defenders intercept in all four diagonal directions, x-neighbor first', () => {
@@ -680,7 +688,7 @@ test('JSON round-trip resumes identically and AI planning is pure and determinis
     assert.deepEqual(plan, chooseTurn(b));
     assert.ok(plan.length >= 1 && plan.length <= 2);
     if (plan.length === 2) assert.equal(plan[0].type, 'move');
-    assert.ok(['pass', 'shoot', 'charge', 'wait'].includes(plan.at(-1).type));
+    assert.ok(['pass', 'shoot', 'charge', 'wait', 'ready'].includes(plan.at(-1).type));
     for (const cmd of plan) {
       assert.deepEqual(command(a, cmd), command(b, cmd));
       assert.deepEqual(a, b);

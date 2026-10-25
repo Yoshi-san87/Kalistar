@@ -4,6 +4,7 @@ const fs=require('node:fs'),path=require('node:path');
 const {pathToFileURL}=require('node:url');
 require('./deploy-cases.cjs');
 test('Astraball rules and AI regression suite',async()=>{await import('./core.test.mjs');});
+test('Astraball formation and zone-capacity regression suite',async()=>{await import('./placement.test.mjs');});
 test('every visible tile maps back to its logical cell',async()=>{
   const {center,pick,polygon}=await import('../src/projection.mjs');
   for(let y=0;y<7;y++)for(let x=0;x<13;x++){

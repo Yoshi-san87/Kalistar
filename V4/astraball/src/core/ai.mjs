@@ -52,6 +52,7 @@ function positioning(state, unit) {
  * Paths and action legality are always obtained from the public engine API.
  */
 export function chooseTurn(state) {
+  if (state.status === 'playing' && state.phase === 'placement') return [{ type: 'ready', team: state.placement.team }];
   const initial = activeUnit(state);
   if (!initial || initial.acted) return [];
   const candidates = [null, ...legalMoves(state)];

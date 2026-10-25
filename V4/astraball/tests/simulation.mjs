@@ -8,7 +8,7 @@ import { activeUnit, applyCommand, createMatch, validateState } from '../src/cor
 import { chooseTurn } from '../src/core/ai.mjs';
 
 const root = fileURLToPath(new URL('../../../', import.meta.url));
-const allowedEvents = new Set(['move', 'pass', 'intercept', 'charge', 'shot', 'goal', 'round', 'end', 'wait']);
+const allowedEvents = new Set(['move', 'pass', 'intercept', 'charge', 'shot', 'goal', 'round', 'end', 'wait', 'placement', 'place', 'ready', 'kickoff']);
 const hash = value => createHash('sha256').update(value).digest('hex');
 
 async function engineHashes() {
@@ -49,7 +49,7 @@ export function assertInvariants(state) {
   assert.ok(state.score.every(v => Number.isInteger(v) && v >= 0));
   if (state.status === 'playing') {
     const actor = activeUnit(state);
-    assert.ok(actor && !actor.acted);
+    if(state.phase==='placement')assert.equal(actor,null);else assert.ok(actor && !actor.acted);
     assert.equal(state.winner, null);
   }
 }
@@ -66,6 +66,14 @@ export function simulate(seed) {
   let planningMs = 0;
   assertInvariants(state);
   while (state.status === 'playing') {
+    while(state.phase==='placement'){
+      const before=JSON.stringify(state),plan=chooseTurn(state);
+      assert.equal(JSON.stringify(state),before);
+      assert.deepEqual(plan,[{type:'ready',team:state.placement.team}]);
+      const result=applyCommand(state,plan[0]);assert.equal(result.ok,true);assertInvariants(state);
+      commands++;for(const e of result.events)eventCounts[e.type]=(eventCounts[e.type]||0)+1;
+      trace.update(JSON.stringify({cmd:plan[0],result,state}));
+    }
     assert.ok(turns < state.maxRounds * state.units.length, `seed ${seed}: activation cap exceeded`);
     const actor = activeUnit(state);
     const round = state.round;

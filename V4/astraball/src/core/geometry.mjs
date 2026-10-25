@@ -14,6 +14,14 @@ export function canOccupy(unit, x, y) {
     || (unit.team === 0 ? x <= 3 : x >= 9));
 }
 
+export function inDefense(team, x, y) {
+  return isPitch(x, y) && (team === 0 ? x <= 3 : x >= 9);
+}
+
+export function inOwnHalf(team, x, y) {
+  return isPitch(x, y) && (team === 0 ? x < 6 : x > 6);
+}
+
 export function isOpponentGoal(team, x, y) {
   return x === (team === 0 ? 12 : 0) && GOAL_ROWS.includes(y);
 }

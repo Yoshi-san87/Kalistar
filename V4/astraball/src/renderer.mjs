@@ -15,7 +15,7 @@ export class CourtRenderer {
     this.appearance=normalizeAppearance(appearance);this.camera=createProjection(this.appearance.view,this.appearance.height);
     this.zoom=innerWidth<=760?1.7:1;this.pan={x:0,y:0};this.tokens=new Map();this.state=null;
     this.reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-    this.animating=false;this.renderCount=0;this.frameChanges=0;this.poseCounts={};
+    this.animating=false;this.idleEnabled=false;this.renderCount=0;this.frameChanges=0;this.poseCounts={};
   }
   get reduced(){return this._reduced;}
   set reduced(value){
@@ -145,7 +145,7 @@ export class CourtRenderer {
   resetView(follow=false){this.zoom=follow&&innerWidth<=760?1.7:1;this.pan={x:0,y:0};this.layout();if(follow)this.focus(this.state?.units.find(u=>u.id===this.state.activeId));this.render();}
   focus(unit){
     if(!unit||innerWidth>760||this.zoom<=1)return;
-    const p=this.camera.center(unit.x,unit.y);
+    const p=this.state?.phase==='placement'?this.camera.center(unit.team===0?3:9,3):this.camera.center(unit.x,unit.y);
     this.pan.x=(this.viewCenter.x-p.x)*this.scale;this.pan.y=(this.viewCenter.y-p.y)*this.scale;
     this.layout();
   }
@@ -168,32 +168,48 @@ export class CourtRenderer {
     canvas.addEventListener('wheel',e=>{if(!e.ctrlKey)return;e.preventDefault();this.zoomBy(e.deltaY>0?-.1:.1);},{passive:false});
     this.cursor={x:6,y:3};
     canvas.addEventListener('keydown',e=>{const dirs={ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,-1],ArrowDown:[0,1]};if(dirs[e.key]){e.preventDefault();const [x,y]=dirs[e.key];this.cursor={x:Math.max(0,Math.min(12,this.cursor.x+x)),y:Math.max(0,Math.min(6,this.cursor.y+y))};this.onHover(this.cursor,null);}else if(e.key==='Enter'||e.key===' '){e.preventDefault();this.onCell(this.cursor);}});
-    document.addEventListener('visibilitychange',()=>{if(document.hidden)this.stopIdle();else this.render();});
+    document.addEventListener('visibilitychange',()=>{if(document.hidden)this.stopIdle();else{this.idle();this.render();}});
   }
   sync(state){
+    this.selectedId=null;
     const changed=this.lastActive!==state.activeId;
     this.lastActive=state.activeId;
     this.state=state;
     for(const unit of state.units){const t=this.tokens.get(unit.id),p=this.camera.center(unit.x,unit.y);t.root.position.set(p.x,p.y);t.root.zIndex=p.y;t.body.y=0;this.pose(t,'idle');t.ring.visible=unit.id===state.activeId;t.body.alpha=unit.acted?.78:1;t.label.alpha=unit.acted?.65:1;t.number.text=unit.penalty||unit.nextPenalty?'-'+(unit.penalty||unit.nextPenalty)+' VIT':'';}
-    this.placeBall(state);if(changed){this.focus(state.units.find(u=>u.id===state.activeId));this.idle(state.activeId);}this.render();
+    this.placeBall(state);if(changed&&state.phase!=='placement')this.focus(state.units.find(u=>u.id===state.activeId));this.idle();this.render();
   }
-  idle(id){
-    this.stopIdle();if(!this.tokens.has(id)||this.reduced||document.hidden)return;
-    // A short staggered breath when initiative changes, then zero idle redraws.
+  setSelection(id){
+    if(this.selectedId===id)return;
+    this.selectedId=id;
+    for(const [key,token] of this.tokens)token.ring.visible=key===id;
+    this.focus(this.state?.units.find(unit=>unit.id===id));this.render();
+  }
+  setIdleEnabled(enabled){
+    this.idleEnabled=!!enabled;
+    if(!enabled)this.stopIdle();else this.idle();
+  }
+  idle(){
+    if(this.idleTimer||!this.idleEnabled||this.animating||this.reduced||document.hidden)return;
+    // One shared 4 Hz clock, no Pixi ticker: only render changed sprite frames.
     let elapsed=0;
     const tick=()=>{
-      if(this.reduced||this.animating||document.hidden)return;
-      elapsed+=160;
-      let index=0;for(const token of this.tokens.values())this.pose(token,'idle',elapsed+(index++%4)*160);
-      if(elapsed<1920)this.idleTimer=setTimeout(tick,160);
-      else{this.idleTimer=null;for(const token of this.tokens.values())this.pose(token,'idle');}
-      this.render();
-    };this.idleTimer=setTimeout(tick,160);
+      this.idleTimer=null;
+      if(!this.idleEnabled||this.reduced||this.animating||document.hidden)return;
+      elapsed+=250;const previous=this.frameChanges;
+      let index=0;for(const token of this.tokens.values())this.pose(token,'idle',elapsed+(index++%4)*250);
+      if(previous!==this.frameChanges)this.render();
+      this.idleTimer=setTimeout(tick,250);
+    };this.idleTimer=setTimeout(tick,250);
   }
   stopIdle(){clearTimeout(this.idleTimer);this.idleTimer=null;}
   placeBall(state){const p=this.camera.center(state.ball.x,state.ball.y),holder=this.tokens.get(state.ball.holderId);this.ball.position.set(p.x+(holder?28*holder.direction:0),p.y-(holder?51:9));this.ball.visible=true;this.ballImage.rotation=0;}
   highlight(moves=[],preview=null,hover=null){
     const g=this.overlay;g.clear();
+    if(this.state?.phase==='placement'){
+      const team=this.state.placement.team;
+      const points=team===0?[[6,0],[12,0],[12,7],[6,7]]:[[1,0],[7,0],[7,7],[1,7]];
+      g.poly(flat(points.map(([x,y])=>this.camera.project(x,y)))).fill({color:0x081a23,alpha:.3});
+    }
     for(const cell of moves)g.poly(flat(this.camera.polygon(cell.x,cell.y))).fill({color:0x8df0d6,alpha:.17}).stroke({color:0xc6ffdf,width:1.3,alpha:.55});
     if(hover)g.poly(flat(this.camera.polygon(hover.x,hover.y))).fill({color:0xffe4a1,alpha:.25}).stroke({color:0xffefc1,width:2,alpha:.9});
     if(preview?.cells?.length){
@@ -224,6 +240,11 @@ export class CourtRenderer {
     this.animating=true;this.stopIdle();for(const t of this.tokens.values()){t.body.y=0;this.pose(t,'idle');}this.highlight();
     try {
       for(const e of events){
+        if(e.type==='place'){
+          const t=this.tokens.get(e.unitId),a=this.camera.center(e.from.x,e.from.y),b=this.camera.center(e.to.x,e.to.y);
+          this.face(t,a,b);
+          await this.tween(420,(p,raw=p)=>{this.pose(t,'run',raw*420);t.root.position.set(a.x+(b.x-a.x)*p,a.y+(b.y-a.y)*p);t.root.zIndex=t.root.y;if(before.ball.holderId===e.unitId)this.ball.position.set(t.root.x+28*t.direction,t.root.y-51);});
+        }
         if(e.type==='move'){
           const t=this.tokens.get(e.unitId);let from=e.from;
           let elapsed=0;

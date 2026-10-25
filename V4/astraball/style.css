@@ -6,6 +6,15 @@
 #celebration{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#071c2766;pointer-events:none;text-shadow:0 3px 20px #0009;color:#fff4ce}#celebration strong{font:110px Cinzel,serif;line-height:1.2}#celebration span{font:16px Cinzel,serif}#celebration small{font-size:18px;color:#fff}.boot{position:absolute;inset:0;background:#102627;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;font:16px Cinzel,serif;z-index:5}.boot img{width:70px;height:100px;object-fit:contain;animation:float-in 1.4s ease-in-out infinite alternate}@keyframes float-in{to{transform:translateY(-10px);opacity:.55}}dialog{width:min(620px,calc(100% - 30px));max-height:85dvh;background:#13292b;color:var(--text);border:1px solid var(--gold);padding:24px;box-shadow:0 20px 70px #0008;border-radius:4px}dialog::backdrop{background:#020f15b8}.dialog-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line);padding-bottom:15px}.dialog-heading h2{font:22px Cinzel,serif}#dialog-content{padding-top:20px;line-height:1.7;font-size:13px}#dialog-content h3{font:15px Cinzel,serif;color:var(--gold);margin:22px 0 8px}#dialog-content p{color:#bfcfca;margin-bottom:10px}#dialog-content ol{padding-left:20px}#dialog-content label{display:flex;gap:12px;align-items:center;justify-content:space-between;margin:14px 0}#dialog-content select{min-width:170px;padding:10px;background:#0b1d20;color:var(--text);border:1px solid var(--line)}.dialog-actions{display:flex;gap:10px;margin-top:20px}.dialog-actions button{padding:12px 18px}.final-score{text-align:center;font:60px Cinzel,serif;color:var(--gold)}.final-heading{text-align:center}.no-webgl{max-width:460px;padding:30px;text-align:center}
 
 .camera-controls{position:absolute;left:24px;bottom:22px;z-index:2}
+#placement-controls{grid-column:1/-1;min-width:0}
+#placement-progress{display:grid;grid-template-columns:1fr 1fr;gap:8px;border-bottom:1px solid var(--line);padding-bottom:12px}
+#placement-progress span{display:flex;align-items:center;justify-content:space-between;gap:6px;font-size:11px;color:var(--muted);min-width:0}
+#placement-progress .current{color:var(--team)}
+#placement-progress svg{width:15px;height:15px;color:var(--team)}
+#placement-summary{font-size:11px;line-height:1.5;color:var(--muted);padding:12px 0}
+.placing #player-summary{grid-column:1/-1}
+.placing .target-panel{min-height:50px}
+.placing .end-turn{border-color:var(--teal);background:#244b43}
 .camera-controls .view-tools{position:static}
 #camera-panel{position:absolute;left:0;bottom:50px;width:236px;padding:14px;background:#102627f5;border:1px solid var(--gold);box-shadow:0 8px 22px #0005;border-radius:4px}
 #camera-panel label{display:flex;justify-content:space-between;gap:12px;font-size:11px;color:var(--muted);margin:16px 0 8px}

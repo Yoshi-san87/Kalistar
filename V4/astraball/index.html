@@ -44,11 +44,12 @@
         <div class="phase-track"><span id="phase-move"><b>01</b> Déplacement</span><i data-lucide="chevron-right"></i><span id="phase-action"><b>02</b> Action</span></div>
         <div id="actions" class="actions" role="group" aria-label="Actions"><button data-mode="move"><i data-lucide="footprints"></i><span>Déplacer</span></button><button data-mode="pass"><i data-lucide="arrow-up-right"></i><span>Passer</span></button><button data-mode="shoot"><i data-lucide="crosshair"></i><span>Viser le U</span></button><button data-mode="charge"><i data-lucide="swords"></i><span>Charger</span></button></div>
         <div id="target-panel" class="target-panel"><span id="target-description">Sélectionne une case</span><div id="target-options"></div><button id="confirm-action" class="primary" hidden></button></div>
+        <section id="placement-controls" hidden aria-label="Placement de l’équipe"><div id="placement-progress"></div><p id="placement-summary"></p><button id="formation-ready" class="end-turn"><span>Valider la formation</span><i data-lucide="check"></i></button></section>
         <button id="wait" class="end-turn"><span>Terminer l’activation</span><i data-lucide="arrow-right"></i></button>
         <div class="match-journal"><h2><i data-lucide="scroll-text"></i> Fil du match <button class="icon" id="journal" title="Historique complet" aria-label="Historique complet"><i data-lucide="expand"></i></button></h2><ol id="recent-events"></ol></div>
       </aside>
     </div>
-    <footer class="statusbar"><span><b class="connection-dot"></b> <span id="mode-label">Exhibition · Solo</span></span><span id="save-status">Sauvegarde locale</span><span>Astraball <b>4.7.2</b></span></footer>
+    <footer class="statusbar"><span><b class="connection-dot"></b> <span id="mode-label">Exhibition · Solo</span></span><span id="save-status">Sauvegarde locale</span><span>Astraball <b>4.7.3</b></span></footer>
   </main>
   <dialog id="modal"><div class="dialog-heading"><h2 id="dialog-title"></h2><button class="icon" id="close-dialog" aria-label="Fermer" title="Fermer"><i data-lucide="x"></i></button></div><div id="dialog-content"></div></dialog>
   <script type="module" src="./src/app.mjs"></script>

@@ -1,9 +1,10 @@
 import { TEAMS, ROLE_STATS, ROLES, FORMATION } from '../../data/teams.mjs';
-import { canOccupy, distance, isPitch, isOpponentGoal, supercover } from './geometry.mjs';
+import { canOccupy, distance, isPitch, isOpponentGoal, supercover, inDefense, inOwnHalf } from './geometry.mjs';
 
 /**
- * Public API: createMatch, activeUnit, getUnit, getInitiative, legalMoves,
- * previewAction, applyCommand, validateState. Browser-native, no DOM/dependencies.
+ * Public API: createMatch/restoreMatch, activeUnit/controllingTeam, getUnit,
+ * getInitiative, legalMoves/legalPlacements, canPosition, previewAction,
+ * applyCommand, validateState. Browser-native, no DOM/dependencies.
  * Only applyCommand mutates a supplied state. Its rejected commands are atomic.
  * Call validateState on JSON-loaded saves before using them. Query results are
  * fresh except activeUnit/getUnit, which intentionally return live unit records.
@@ -13,10 +14,11 @@ import { canOccupy, distance, isPitch, isOpponentGoal, supercover } from './geom
  * Penalties stack to VIT, never delete activations, and expire after their round.
  * Events are plain records, with round, positions and actor IDs for animation.
  * A goal includes reset positions; remaining initiative survives the reset.
+ * Placement gates play until both teams confirm, without consuming an activation.
  */
 
 const STAT_KEYS = ['VIT', 'MOB', 'FOR', 'PAS', 'TIR', 'DEF'];
-const EVENT_TYPES = new Set(['move', 'pass', 'intercept', 'charge', 'shot', 'goal', 'round', 'end', 'wait']);
+const EVENT_TYPES = new Set(['move', 'pass', 'intercept', 'charge', 'shot', 'goal', 'round', 'end', 'wait', 'placement', 'place', 'ready', 'kickoff']);
 const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
 const position = ({ x, y }) => ({ x, y });
 const key = ({ x, y }) => `${x},${y}`;
@@ -52,8 +54,9 @@ export function createMatch({ seed = 20261025, mode = 'solo', targetScore = 6, m
   }));
   const kickoff = units.find((unit) => unit.team === 0 && unit.role === 'meneur');
   const state = {
-    schema: 1, seed, rng: seedValue(seed), mode, round: 1, score: [0, 0],
+    schema: 2, seed, rng: seedValue(seed), mode, round: 1, score: [0, 0],
     targetScore, maxRounds, status: 'playing', winner: null, units,
+    phase: 'placement', placement: { team: 0, kickoffTeam: 0, ready: [false, false], reason: 'opening', resumeMoved: false },
     activeId: null, moved: false,
     ball: { holderId: kickoff.id, ...position(kickoff) }, log: [],
   };
@@ -67,14 +70,37 @@ export function getUnit(state, id) {
 }
 
 export function activeUnit(state) {
-  return state.status === 'playing' ? getUnit(state, state.activeId) : null;
+  return state.status === 'playing' && state.phase !== 'placement' ? getUnit(state, state.activeId) : null;
+}
+
+export function controllingTeam(state) {
+  return state.status !== 'playing' ? null : state.phase === 'placement' ? state.placement.team : activeUnit(state)?.team ?? null;
+}
+
+// Only the defending team's extra player consumes its zone's one support slot.
+// Attackers do not consume that slot; a full zone also blocks crossing/pushing in.
+export function canPosition(state, unit, x, y) {
+  return canOccupy(unit, x, y) && (unit.role === 'pilier' || !inDefense(unit.team, x, y)
+    || !state.units.some(other => other.id !== unit.id && other.team === unit.team
+      && other.role !== 'pilier' && inDefense(unit.team, other.x, other.y)));
+}
+
+export function legalPlacements(state, id) {
+  const unit = getUnit(state, id);
+  if (state.status !== 'playing' || state.phase !== 'placement' || !unit
+    || unit.team !== state.placement.team || state.placement.ready[unit.team]) return [];
+  const cells = [];
+  for (let y = 0; y < 7; y++) for (let x = 1; x <= 11; x++) {
+    if (inOwnHalf(unit.team, x, y) && canPosition(state, unit, x, y) && !at(state, { x, y })) cells.push({ x, y });
+  }
+  return cells;
 }
 
 export function getInitiative(state) {
   const favoredTeam = (state.round - 1) % 2;
   return state.units.map((unit) => ({
     id: unit.id, speed: effectiveSpeed(unit), acted: unit.acted,
-    active: state.status === 'playing' && state.activeId === unit.id,
+    active: state.status === 'playing' && state.phase !== 'placement' && state.activeId === unit.id,
     team: unit.team,
   })).sort((a, b) => b.speed - a.speed
     || Number(b.team === favoredTeam) - Number(a.team === favoredTeam)
@@ -102,7 +128,7 @@ export function legalMoves(state) {
     for (const [dx, dy] of directions) {
       const cell = { x: current.x + dx, y: current.y + dy };
       const cellKey = key(cell);
-      if (seen.has(cellKey) || occupied.has(cellKey) || !canOccupy(unit, cell.x, cell.y)) continue;
+      if (seen.has(cellKey) || occupied.has(cellKey) || !canPosition(state, unit, cell.x, cell.y)) continue;
       seen.add(cellKey);
       queue.push({ ...cell, path: [...current.path, cell] });
     }
@@ -125,6 +151,7 @@ function lineBlocker(state, unit, cells) {
 export function previewAction(state, action) {
   const base = { legal: false, reason: null, cells: [], blockerId: null, chance: 0 };
   const invalid = (reason, details = {}) => ({ ...base, ...details, legal: false, reason });
+  if (state.status === 'playing' && state.phase === 'placement') return invalid('placement-required');
   const unit = activeUnit(state);
   if (!unit || unit.acted) return invalid('match-finished');
   if (!action || typeof action !== 'object') return invalid('invalid-command');
@@ -137,7 +164,7 @@ export function previewAction(state, action) {
     const details = { from, to, targetId: target.id, distance: distance(unit, target), range: 1, cells: [from, to] };
     if (details.distance !== 1) return invalid('not-adjacent', details);
     const pushTo = { x: target.x + target.x - unit.x, y: target.y + target.y - unit.y };
-    const pushLegal = canOccupy(target, pushTo.x, pushTo.y) && !at(state, pushTo);
+    const pushLegal = canPosition(state, target, pushTo.x, pushTo.y) && !at(state, pushTo);
     return {
       ...base, ...details, legal: true,
       chance: clamp(65 + (unit.stats.FOR - target.stats.DEF) * 5, 30, 95),
@@ -191,6 +218,8 @@ function dropBall(state, cell) {
 
 function finish(state, events, reason) {
   state.status = 'finished';
+  state.phase = 'play';
+  state.placement = null;
   state.activeId = null;
   state.moved = false;
   state.winner = state.score[0] === state.score[1] ? null : state.score[0] > state.score[1] ? 0 : 1;
@@ -238,10 +267,60 @@ function goal(state, unit, preview, events) {
   });
 }
 
+function beginPlacement(state, kickoffTeam, reason, events) {
+  const resumeMoved = reason === 'rules-update' && state.moved;
+  state.phase = 'placement';
+  state.moved = false;
+  state.placement = { team: kickoffTeam, kickoffTeam, ready: [false, false], reason, resumeMoved };
+  events.push({ type: 'placement', round: state.round, team: kickoffTeam, reason });
+}
+
+function placeCommand(state, command) {
+  const events = [], team = state.placement.team;
+  if (command.type === 'place') {
+    const unit = getUnit(state, command.unitId);
+    if (!unit || unit.team !== team) return { ok: false, error: 'placement-team', events };
+    if (!inOwnHalf(team, command.x, command.y)) return { ok: false, error: 'own-half-required', events };
+    if (!canPosition(state, unit, command.x, command.y)) return { ok: false, error: 'defense-capacity', events };
+    if (at(state, command)) return { ok: false, error: 'occupied', events };
+    const from = position(unit);
+    Object.assign(unit, { x: command.x, y: command.y });
+    if (state.ball.holderId === unit.id) giveBall(state, unit);
+    events.push({ type: 'place', round: state.round, unitId: unit.id, team, from, to: position(unit) });
+  } else if (command.type === 'ready') {
+    if (command.team !== team) return { ok: false, error: 'placement-team', events };
+    state.placement.ready[team] = true;
+    events.push({ type: 'ready', round: state.round, team });
+    if (state.placement.ready.every(Boolean)) {
+      events.push({ type: 'kickoff', round: state.round, team: state.placement.kickoffTeam });
+      state.phase = 'play';
+      state.moved = state.placement.resumeMoved;
+      state.placement = null;
+    } else state.placement.team = 1 - team;
+  } else return { ok: false, error: 'placement-required', events };
+  state.log.push(...copy(events));
+  return { ok: true, events };
+}
+
+/** Upgrade only unfinished v1 saves: preserve score/RNG/turns, reopen formation. */
+export function restoreMatch(value) {
+  validateState(value);
+  const state = copy(value);
+  if (state.schema !== 1 || state.status === 'finished') return state;
+  state.schema = 2;
+  for (const unit of state.units) Object.assign(unit, formationPosition(unit));
+  const team = getUnit(state, state.ball.holderId)?.team ?? (state.round - 1) % 2;
+  giveBall(state, state.units.find(unit => unit.team === team && unit.role === 'meneur'));
+  beginPlacement(state, team, 'rules-update', state.log);
+  validateState(state);
+  return state;
+}
+
 export function applyCommand(state, command) {
+  if (!command || typeof command !== 'object') return { ok: false, error: 'invalid-command', events: [] };
+  if (state.status === 'playing' && state.phase === 'placement') return placeCommand(state, command);
   const unit = activeUnit(state);
   if (!unit || unit.acted) return { ok: false, error: 'match-finished', events: [] };
-  if (!command || typeof command !== 'object') return { ok: false, error: 'invalid-command', events: [] };
   const events = [];
   const actor = { unitId: unit.id, team: unit.team, round: state.round };
   if (command.type === 'move') {
@@ -312,6 +391,7 @@ export function applyCommand(state, command) {
       }
     }
     endActivation(state, unit, events);
+    if (state.status === 'playing' && events.some(event => event.type === 'goal')) beginPlacement(state, 1 - unit.team, 'goal', events);
   }
   state.log.push(...copy(events));
   return { ok: true, events };
@@ -323,7 +403,7 @@ export function validateState(state) {
     if (!condition) throw new TypeError(`Invalid Astraball state: ${message}`);
   };
   const integer = (n, min, max = Number.MAX_SAFE_INTEGER) => Number.isSafeInteger(n) && n >= min && n <= max;
-  require(state && typeof state === 'object' && state.schema === 1, 'schema');
+  require(state && typeof state === 'object' && [1, 2].includes(state.schema), 'schema');
   require(typeof state.seed === 'string' || Number.isSafeInteger(state.seed), 'seed');
   require(integer(state.rng, 0, 4294967295), 'rng');
   require(typeof state.mode === 'string' && state.mode.length > 0, 'mode');
@@ -352,6 +432,20 @@ export function validateState(state) {
     require(integer(unit.penalty, 0, unit.stats.VIT) && integer(unit.nextPenalty, 0, unit.stats.VIT), 'penalty');
   }
   require(roles.every((team) => team.size === 5), 'team composition');
+  if (state.schema === 2) {
+    require(['placement', 'play'].includes(state.phase), 'phase');
+    for (const team of [0, 1]) require(state.units.filter(unit => unit.team === team && unit.role !== 'pilier' && inDefense(team, unit.x, unit.y)).length <= 1, 'defense capacity');
+    if (state.phase === 'placement') {
+      const p = state.placement;
+      require(state.status === 'playing' && !state.moved && p && [0, 1].includes(p.team) && [0, 1].includes(p.kickoffTeam), 'placement');
+      require(['opening', 'goal', 'rules-update'].includes(p.reason), 'placement reason');
+      require(typeof p.resumeMoved === 'boolean' && (p.reason === 'rules-update' || !p.resumeMoved), 'placement movement');
+      require(Array.isArray(p.ready) && p.ready.length === 2 && p.ready.every(v => typeof v === 'boolean'), 'placement ready');
+      require(!p.ready[p.team] && (p.team === p.kickoffTeam ? !p.ready[1 - p.team] : p.ready[p.kickoffTeam]), 'placement order');
+      require(state.units.every(unit => inOwnHalf(unit.team, unit.x, unit.y)), 'placement half');
+      require(state.ball?.holderId === state.units.find(unit => unit.team === p.kickoffTeam && unit.role === 'meneur').id, 'kickoff holder');
+    } else require(state.placement === null, 'inactive placement');
+  }
   require(state.ball && isPitch(state.ball.x, state.ball.y), 'ball position');
   require(state.ball.holderId === null || ids.has(state.ball.holderId), 'ball holder');
   if (state.ball.holderId !== null) {

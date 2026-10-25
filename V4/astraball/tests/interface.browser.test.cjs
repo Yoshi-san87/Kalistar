@@ -49,6 +49,15 @@ async function main(){
     url='http://127.0.0.1:'+server.address().port+'/jeu/astraball/';
   }
   const core=await import(pathToFileURL(path.resolve(__dirname,'../src/core/game.mjs')));
+  const createPlaying=options=>{const state=core.createMatch(options);while(state.phase==='placement')assert.equal(core.applyCommand(state,{type:'ready',team:state.placement.team}).ok,true);return state;};
+  async function confirmFormations(page){
+    while(await page.evaluate(()=>window.Astraball.snapshot().phase==='placement')){
+      await page.waitForFunction(()=>!window.Astraball.metrics().busy&&!window.Astraball.metrics().aiRunning);
+      if(await page.evaluate(()=>window.Astraball.snapshot().phase!=='placement'))break;
+      await page.locator('#formation-ready').click();
+      await page.waitForFunction(()=>!window.Astraball.metrics().busy&&!window.Astraball.metrics().aiRunning);
+    }
+  }
   const browser=await chromium.launch({channel:'chrome',headless:true,args:['--enable-webgl','--ignore-gpu-blocklist']});
   const reports=[];
   try{
@@ -68,6 +77,21 @@ async function main(){
       assert.match(await page.locator('#ball-name').textContent(),/Noyau orbital/);
       await page.screenshot({path:path.join(OUT,name+'-vestiaire.png'),fullPage:true});
       await page.locator('#new-match').click();
+      assert.equal(await page.evaluate(()=>window.Astraball.snapshot().phase),'placement');
+      await page.locator('#zoom-reset').click();
+      const deployment=await page.evaluate(()=>window.Astraball.snapshot());
+      const destination=core.legalPlacements(deployment,'t0-momo').find(c=>c.x===5&&c.y===3);assert.ok(destination);
+      const spot=await page.evaluate(p=>window.Astraball.cell(p.x,p.y),destination),host=await page.locator('#canvas-host').boundingBox();
+      if(width<761)await page.touchscreen.tap(host.x+spot.x,host.y+spot.y);else await page.mouse.click(host.x+spot.x,host.y+spot.y);
+      await page.waitForFunction(()=>!window.Astraball.metrics().busy&&window.Astraball.snapshot().units.find(u=>u.id==='t0-momo').x===5);
+      assert.equal(await page.evaluate(()=>window.Astraball.snapshot().ball.x),5);
+      assert.equal(await page.locator('#actions').isVisible(),false);
+      const placementSave=await page.evaluate(()=>JSON.stringify(window.Astraball.snapshot()));
+      await page.reload();await page.waitForFunction(()=>window.Astraball?.ready);
+      assert.equal(await page.evaluate(()=>JSON.stringify(window.Astraball.snapshot())),placementSave);
+      await page.screenshot({path:path.join(OUT,name+'-placement.png'),fullPage:true});
+      assert.equal(await page.evaluate(()=>document.documentElement.scrollHeight>innerHeight||document.documentElement.scrollWidth>innerWidth),false,'placement fits '+name);
+      await confirmFormations(page);
       assert.equal(await page.evaluate(()=>window.Astraball.metrics().appearance.ball),'orbital');
       assert.ok(await page.locator('svg.lucide').count()>=10,'Lucide icons are rendered');
       const initial=await page.evaluate(()=>window.Astraball.snapshot());
@@ -108,6 +132,7 @@ async function main(){
       await page.locator('#help').click();await page.locator('#modal').waitFor({state:'visible'});await page.keyboard.press('Escape');await page.locator('#modal').waitFor({state:'hidden'});
       await page.locator('#settings').click();await page.locator('#match-mode').selectOption('hotseat');await page.locator('#new-match').click();
       assert.equal(await page.evaluate(()=>window.Astraball.snapshot().mode),'hotseat');
+      await confirmFormations(page);
       await page.locator('#wait').click();await page.waitForFunction(()=>!window.Astraball.metrics().busy);
       assert.equal((await page.evaluate(()=>window.Astraball.snapshot())).units.filter(u=>u.acted).length,1);
       reports.push({name,errors,overflow,canvasVariance:stats.channels[0].stdev,idleRenders:idle-n});assert.deepEqual(errors,[]);
@@ -115,7 +140,7 @@ async function main(){
     }
     const context=await browser.newContext({viewport:{width:1440,height:900},reducedMotion:'reduce'}),page=await context.newPage();
     await page.goto(url);await page.waitForFunction(()=>window.Astraball?.ready);
-    const fixture=core.createMatch({seed:7,mode:'hotseat'});
+    const fixture=createPlaying({seed:7,mode:'hotseat'});
     fixture.units.filter(u=>u.role==='sentry').forEach(u=>u.acted=true);fixture.activeId='t0-momo';
     Object.assign(core.getUnit(fixture,'t0-momo'),{x:4,y:3});Object.assign(core.getUnit(fixture,'t0-kaylis'),{x:8,y:3});Object.assign(core.getUnit(fixture,'t1-voloden'),{x:6,y:3});fixture.ball={holderId:'t0-momo',x:4,y:3};core.validateState(fixture);
     await page.evaluate(s=>localStorage.setItem('kalistar.astraball.match.v1',JSON.stringify(s)),fixture);await page.reload();await page.waitForFunction(()=>window.Astraball?.ready);
@@ -131,6 +156,7 @@ async function main(){
       await lookPage.locator('.ball-choice').filter({has:lookPage.locator('input[value="'+ball.id+'"]')}).click();
       await lookPage.locator('#match-mode').selectOption('hotseat');
       await lookPage.locator('#new-match').click();
+      await confirmFormations(lookPage);
       assert.equal(await lookPage.evaluate(()=>window.Astraball.metrics().appearance.ball),ball.id);
       assert.equal(await lookPage.evaluate(()=>window.Astraball.metrics().ballTexture),true);
       // Real pointer selection remains playable in either view at minimum and maximum depth.
@@ -153,7 +179,20 @@ async function main(){
     await motion.goto(url);await motion.waitForFunction(()=>window.Astraball?.ready);await motion.locator('#new-match').click();
     await motion.waitForTimeout(2200);
     const resting=await motion.evaluate(()=>window.Astraball.metrics());await motion.waitForTimeout(800);
-    assert.equal(await motion.evaluate(()=>window.Astraball.metrics().renders),resting.renders,'normal motion also becomes fully idle');
+    const idleRenders=await motion.evaluate(()=>window.Astraball.metrics().renders)-resting.renders;
+    assert.ok(idleRenders>=2&&idleRenders<=4,'placement idle continues at four frames/s after the former timeout');
+    assert.ok(await motion.evaluate(()=>window.Astraball.metrics().sprites.frameChanges)>resting.sprites.frameChanges);
+    await motion.locator('#help').click();
+    const paused=await motion.evaluate(()=>window.Astraball.metrics().renders);await motion.waitForTimeout(800);
+    assert.equal(await motion.evaluate(()=>window.Astraball.metrics().renders),paused,'dialog suspends idle');
+    await motion.locator('#close-dialog').click();
+    const resumed=await motion.evaluate(()=>window.Astraball.metrics().renders);await motion.waitForTimeout(800);
+    assert.ok(await motion.evaluate(()=>window.Astraball.metrics().renders)>resumed,'idle resumes after closing dialog');
+    await motion.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,get:()=>true});document.dispatchEvent(new Event('visibilitychange'));});
+    const hidden=await motion.evaluate(()=>window.Astraball.metrics().renders);await motion.waitForTimeout(800);
+    assert.equal(await motion.evaluate(()=>window.Astraball.metrics().renders),hidden,'hidden tab suspends idle');
+    await motion.evaluate(()=>{delete document.hidden;document.dispatchEvent(new Event('visibilitychange'));});
+    await confirmFormations(motion);
     const running=await motion.evaluate(()=>window.Astraball.snapshot());
     const longMove=core.legalMoves(running).find(m=>m.path.length===4);assert.ok(longMove);
     const movePoint=await motion.evaluate(p=>window.Astraball.cell(p.x,p.y),longMove),courtBounds=await motion.locator('#canvas-host').boundingBox();
@@ -169,14 +208,30 @@ async function main(){
     assert.equal(new Set(movement.frames.map(f=>f.frame)).size,4,'actual run clip advances all four poses');
     assert.ok(new Set(movement.frames.map(f=>Math.round(f.x))).size>10,'runner traverses the pitch');
     const sorted=movement.times.filter(t=>t>0).sort((a,b)=>a-b);
-    reports.push({scenario:'normal-motion idle and real four-frame running',idleRenders:0,uniqueFrames:4,moveRenders,browserRafP95Ms:sorted[Math.floor(sorted.length*.95)]});
-    const goal=core.createMatch({seed:1,mode:'hotseat'});goal.units.filter(u=>['sentry','meneur'].includes(u.role)).forEach(u=>u.acted=true);goal.activeId='t0-kaylis';goal.score=[4,0];Object.assign(core.getUnit(goal,'t0-kaylis'),{x:9,y:0});goal.ball={holderId:'t0-kaylis',x:9,y:0};core.validateState(goal);
+    const waiting=await motion.evaluate(()=>window.Astraball.metrics().renders);await motion.waitForTimeout(2200);
+    assert.ok(await motion.evaluate(()=>window.Astraball.metrics().renders)>waiting+5,'idle loops during the action choice too');
+    reports.push({scenario:'looping 4Hz idle, modal/visibility pause and real four-frame running',idleRendersPer800ms:idleRenders,uniqueFrames:4,moveRenders,browserRafP95Ms:sorted[Math.floor(sorted.length*.95)]});
+    const goal=createPlaying({seed:1,mode:'hotseat'});goal.units.filter(u=>['sentry','meneur'].includes(u.role)).forEach(u=>u.acted=true);goal.activeId='t0-kaylis';goal.score=[4,0];Object.assign(core.getUnit(goal,'t0-kaylis'),{x:9,y:0});goal.ball={holderId:'t0-kaylis',x:9,y:0};core.validateState(goal);
     await motion.evaluate(s=>localStorage.setItem('kalistar.astraball.match.v1',JSON.stringify(s)),goal);await motion.reload();await motion.waitForFunction(()=>window.Astraball?.ready);
     await motion.locator('[data-mode="shoot"]').click();await motion.getByRole('button',{name:'U 1',exact:true}).click();await motion.locator('#confirm-action').click();
     await motion.locator('#celebration').waitFor({state:'visible'});await motion.screenshot({path:path.join(OUT,'goal-animation.png')});
     const goalPoses=await motion.evaluate(()=>window.Astraball.metrics().sprites.poses);assert.ok(goalPoses.throw>0&&goalPoses.celebrate>=5);
     await motion.getByRole('heading',{name:'Fin de la rencontre'}).waitFor();assert.deepEqual(await motion.evaluate(()=>window.Astraball.snapshot().score),[6,0]);
     await motion.locator('#result-review').click();assert.equal(await motion.locator('#wait').isDisabled(),true);
+    const rematch=structuredClone(goal);rematch.score=[0,0];
+    await motion.evaluate(s=>localStorage.setItem('kalistar.astraball.match.v1',JSON.stringify(s)),rematch);await motion.reload();await motion.waitForFunction(()=>window.Astraball?.ready);
+    await motion.locator('[data-mode="shoot"]').click();await motion.getByRole('button',{name:'U 1',exact:true}).click();await motion.locator('#confirm-action').click();
+    await motion.waitForFunction(()=>!window.Astraball.metrics().busy&&window.Astraball.snapshot().phase==='placement');
+    const replacement=await motion.evaluate(()=>window.Astraball.snapshot());assert.equal(replacement.placement.team,1);
+    await motion.screenshot({path:path.join(OUT,'goal-replacement.png')});
+    await motion.locator('#formation-ready').click();await motion.waitForFunction(()=>!window.Astraball.metrics().busy);
+    const partial=await motion.evaluate(()=>JSON.stringify(window.Astraball.snapshot()));
+    await motion.reload();await motion.waitForFunction(()=>window.Astraball?.ready);
+    assert.equal(await motion.evaluate(()=>JSON.stringify(window.Astraball.snapshot())),partial,'opponent ready persists');
+    await confirmFormations(motion);
+    const resumedGoal=await motion.evaluate(()=>window.Astraball.snapshot());
+    assert.deepEqual(resumedGoal.units,replacement.units);assert.equal(resumedGoal.activeId,replacement.activeId);assert.deepEqual(resumedGoal.score,[2,0]);
+    reports.push({scenario:'goal opens placement, hotseat confirmation persists and no spent turn returns',passed:true});
     const charge=structuredClone(fixture);charge.seed=1;charge.rng=1;Object.assign(core.getUnit(charge,'t1-voloden'),{x:5,y:3});core.validateState(charge);
     await motion.evaluate(s=>localStorage.setItem('kalistar.astraball.match.v1',JSON.stringify(s)),charge);await motion.reload();await motion.waitForFunction(()=>window.Astraball?.ready);
     await motion.locator('[data-mode="charge"]').click();await motion.locator('#target-options button').filter({hasText:'Voloden'}).click();await motion.locator('#confirm-action').click();await motion.waitForFunction(()=>!window.Astraball.metrics().busy);
@@ -185,6 +240,7 @@ async function main(){
     assert.deepEqual(animationErrors,[]);reports.push({scenario:'animated two-point U, victory, charge and tempo',passed:true});await animated.close();
     const mobileMotion=await browser.newContext({viewport:{width:412,height:915},deviceScaleFactor:2,isMobile:true,hasTouch:true}),phone=await mobileMotion.newPage(),phoneErrors=[];
     phone.on('pageerror',e=>phoneErrors.push(e.message));await phone.goto(url);await phone.waitForFunction(()=>window.Astraball?.ready);await phone.locator('#new-match').click();
+    await confirmFormations(phone);
     const phoneState=await phone.evaluate(()=>window.Astraball.snapshot()),phoneMove=core.legalMoves(phoneState).find(m=>m.path.length===1);
     const phonePoint=await phone.evaluate(p=>window.Astraball.cell(p.x,p.y),phoneMove),phoneBounds=await phone.locator('#canvas-host').boundingBox();
     await phone.touchscreen.tap(phoneBounds.x+phonePoint.x,phoneBounds.y+phonePoint.y);

@@ -28,6 +28,10 @@ Le premier match ouvre un vestiaire avec six ballons cosmetiques, une vue
 HD-2D horizontale ou isometrique, le solo contre l'IA et deux joueurs sur le
 meme ecran. Une sauvegarde existante reprend directement. Le vestiaire reste
 accessible dans les options. Le livre des regles est accessible en haut.
+Avant l'engagement et apres chaque but non final, selectionner un personnage
+sur le terrain ou dans la rangee superieure, choisir une case de son camp puis
+valider la formation. Les deux equipes valident ; en solo l'IA utilise sa
+formation legale par defaut. Le placement est sauvegarde, meme entre deux validations.
 Deplacement par clic de case ; passe, tir ou charge : selection puis confirmation.
 Clavier : fleches sur le terrain puis Entree. Tactile : glisser pour deplacer
 la camera, boutons + / - et recentrage. Le telephone zoome sur le joueur actif.
@@ -49,14 +53,22 @@ ni les statistiques, ni l'IA, ni les probabilites, ni les sauvegardes Kalistar.
   Une cible libre donne une probabilite affichee selon TIR et distance.
 - Un U vaut un point, ou deux pour le Scoreur. Premier a six points ; sinon,
   meilleur score apres douze manches, avec match nul possible.
-- Apres un U, replacement initial et ballon au Meneur adverse ; les activations
-  deja depensees ne reviennent pas. Un rate rebondit devant la cible choisie.
+- Avant l'engagement et apres un U non final, placement libre dans sa moitie :
+  colonnes 1-5 pour Chroma, 7-11 pour Obsidienne, colonne centrale 6 libre.
+  L'equipe qui recoit le ballon se place en premier ; validation des deux camps
+  obligatoire. Le ballon suit son Meneur. Le placement ne consomme pas de MOB,
+  de tour ou d'alea. Les activations et penalites deja depensees sont conservees.
+  Un rate rebondit devant la cible choisie sans nouvelle phase de placement.
 - Charge adjacente : FOR contre DEF, chance affichee ; succes = recul si libre,
   ballon lache et -3 VIT. Penalite immediate si la cible attend son tour, sinon
   pour la prochaine manche. Aucun tour supprime, penalites bornees a VIT.
 - Un recul impossible n'annule pas le retard. Si le porteur reste sur sa case,
   il ramasse immediatement le ballon lache. Le Pilier reste dans ses trois
   colonnes defensives et ne couvre que les lignes qui croisent sa position.
+- Dans sa zone defensive : Pilier + un seul coequipier, au placement et en jeu.
+  Un second soutien ne peut pas entrer, traverser ou etre pousse dans cette zone.
+  Les attaquants adverses ne consomment pas cette place. Une charge dont le recul
+  est interdit conserve son effet de retard, selon les memes regles qu'un mur.
 
 Les formules exactes sont dans `src/core/game.mjs` et le livre des regles.
 Les deux equipes partagent les memes profils de postes, pas les statistiques
@@ -135,12 +147,22 @@ Les clips couvrent respiration, course, lancer, garde, charge, impact et joie.
 Les commandes du moteur pilotent les clips ; aucune regle n'est decidee par
 l'animation. Texture et ombre sont separees, la direction suit la trajectoire.
 
-Aucune boucle de rendu au repos. Les mouvements, tirs et charges utilisent
-des animations finies ; une respiration de 1,92 seconde accompagne l'activation,
-a douze mises a jour au total, puis le rendu s'arrete completement. Les actions
+Pendant le choix du placement ou d'une action, l'idle boucle a quatre mises
+a jour par seconde, avec une horloge partagee pour les dix personnages et sans
+ticker Pixi permanent. Seuls les changements de pose declenchent un rendu.
+Il s'arrete derriere une popup, pendant l'IA, en fin de match et en onglet masque.
+Reduced Motion desactive cette boucle. Les mouvements, tirs et charges utilisent
+des animations finies. Les actions
 plafonnent le rendu a environ 60 images/s, meme sur un ecran 120 ou 144 Hz.
 Onglet masque : animation et IA suspendues. Reduced Motion est respecte.
 Resolution GPU plafonnee a 1,75x. Pas de particules permanentes ni filtre flou.
+
+Les sauvegardes Astraball passent au schema 2, sans changer leur cle par profil.
+Une ancienne rencontre inachevee conserve score, historique, graine, initiative
+et penalites, puis propose une formation conforme aux nouvelles regles. Le ballon
+revient au Meneur du camp qui le detenait (priorite de manche s'il etait au sol).
+Les anciennes rencontres terminees restent consultables sans modification.
+Cela ne migre ni la base Supabase ni les parties du jeu de cartes Kalistar.
 
 ## Verification
 
@@ -168,8 +190,9 @@ les comptes de verification sont factices, jamais les sessions personnelles.
 - Pas de replay du dernier tir ou de bande sonore enregistree. Sons synthetiques
   facultatifs, desactives par defaut.
 - Les regles passent les tests, mais le plaisir et l'equilibre competitif demandent
-  des essais humains. Les premiers matchs IA montrent davantage de victoires
-  pour Obsidienne : voir l'audit, ne pas qualifier cette tranche d'equilibree.
+  des essais humains. Les resultats IA varient selon les formations et les regles :
+  l'audit initial est historique ; les nouvelles simulations sont dans chaque
+  rapport de livraison. Ne pas qualifier cette tranche d'equilibree.
 
 Prochaines etapes : sessions de jeu courtes, analyse des lignes et de la duree,
 puis ajustement des stats/IA et enrichissement des poses directionnelles.
