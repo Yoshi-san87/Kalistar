@@ -52,9 +52,21 @@ Les nouveaux medias sont charges avant de remplacer la rencontre ; un echec
 la conserve. Le livre des regles est accessible en haut.
 Avant l'engagement et apres chaque but non final, selectionner un personnage
 sur le terrain ou dans la rangee superieure, choisir une case de son camp puis
-valider la formation. Les deux equipes valident ; en solo l'IA utilise sa
-formation legale par defaut. Le placement est sauvegarde, meme entre deux validations.
+valider la formation. Les deux equipes valident ; en solo l'IA choisit parmi
+douze dispositions (six plans et leurs variantes haut/bas), puis place ses
+joueurs avant de valider. Le placement est sauvegarde, meme entre deux validations.
 Deplacement par clic de case ; passe, tir ou charge : selection puis confirmation.
+
+Le placement IA varie selon la graine du match, le score, la manche et l'equipe
+a l'engagement. Un retard au score favorise les plans avances, une avance
+favorise la couverture ; a egalite, recevoir le ballon favorise l'attaque.
+La derniere formation validee est exclue au replacement suivant. Le choix est
+stable pendant une phase, meme apres sauvegarde/rechargement partiel, et ne
+consomme pas l'aleatoire des tirs ou charges. Pilier, soutien defensif unique,
+couloirs de Scoreur et relais de passe restent coherents. Toutes les cases
+sont verifiees par le moteur ; une case tampon legale resout les permutations.
+Les placements ne rendent aucun tour, ne modifient aucune statistique et ne
+changent pas les positions de l'adversaire. Aucun nouveau champ de sauvegarde.
 Clavier : fleches sur le terrain puis Entree. Tactile : glisser pour deplacer
 la camera, pincement a deux doigts, boutons + / - et recentrage. Sur PC, la
 molette zoome autour du curseur. Le telephone zoome sur le joueur actif.

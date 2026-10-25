@@ -1,5 +1,5 @@
 import { SPRITE_CELL, SPRITE_FOOT } from './sprites.mjs';
-import { COLLABORATION_MEASUREMENTS } from '../data/collaboration-measurements.mjs';
+import { measurementsFor } from '../data/athlete-measurements.mjs';
 
 // World pixels, before camera zoom. This is presentation, never a hit/collision rule.
 export const SPRITE_SIZE_LIMITS = Object.freeze({
@@ -35,14 +35,11 @@ export function validCalibration(c) {
 }
 
 export function displayHeight(characterId,athlete) {
-  const m=COLLABORATION_MEASUREMENTS[characterId]||athlete?.measurements;
-  const measured=m?.heightKind!=='length'&&positive(m?.heightCm);
-  // Simone's true height is undocumented. This is an explicit art direction,
-  // not a fabricated measurement added to the athlete or its saved match.
-  const giant=characterId==='simone-nier'&&!measured;
-  const cm=measured?m.heightCm:giant?SPRITE_SIZE_LIMITS.maxCm:SPRITE_SIZE_LIMITS.fallbackCm;
-  return Object.freeze({source:measured?'measurement':giant?'giant-presentation':'neutral-presentation',
-    measuredCm:measured?cm:null,cm:clamp(cm,SPRITE_SIZE_LIMITS.minCm,SPRITE_SIZE_LIMITS.maxCm)});
+  const m=measurementsFor({id:characterId,measurements:athlete?.measurements});
+  const available=m?.heightKind!=='length'&&positive(m?.heightCm),adapted=m?.heightStatus==='adapted';
+  const cm=available?m.heightCm:SPRITE_SIZE_LIMITS.fallbackCm;
+  return Object.freeze({source:available?(adapted?'adaptation':'measurement'):'neutral-presentation',
+    measuredCm:available&&!adapted?cm:null,cm:clamp(cm,SPRITE_SIZE_LIMITS.minCm,SPRITE_SIZE_LIMITS.maxCm)});
 }
 
 export function spriteSizing(character) {

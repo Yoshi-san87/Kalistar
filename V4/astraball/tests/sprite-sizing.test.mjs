@@ -62,7 +62,7 @@ test('min/max and unknown/length values never invent a physical measurement',()=
   assert.equal(ruby.source,'neutral-presentation');assert.equal(ruby.measuredCm,null);
   const simone=displayHeight('simone-nier',getAthlete('simone-nier'));
   assert.equal(simone.cm,300);assert.equal(simone.measuredCm,null);
-  assert.equal(simone.source,'giant-presentation');
+  assert.equal(simone.source,'adaptation');
   assert.equal(spriteSizing(get('momo')).standingHeight,70);
   const neutral={...get('kaylis'),characterId:'test'};
   let previous=0;
@@ -70,6 +70,15 @@ test('min/max and unknown/length values never invent a physical measurement',()=
     const s=spriteSizing({...neutral,athlete:{measurements:{heightCm:h}}});
     assert.ok(s.standingHeight>=previous);previous=s.standingHeight;
   }
+});
+
+test('Lanio is taller than Gen and newly assigned heights feed the same sprite calibration',()=>{
+  const lanio=spriteSizing(get('lanio')),gen=spriteSizing(get('gen'));
+  assert.equal(lanio.height.cm,182);assert.equal(gen.height.cm,159);
+  assert.ok(lanio.standingHeight>gen.standingHeight);
+  const vivi=spriteSizing(get('vivi-ff9'));
+  assert.equal(vivi.height.cm,120);assert.equal(vivi.height.source,'adaptation');
+  assert.equal(vivi.height.measuredCm,null,'an adaptation is not a documented measurement');
 });
 
 test('old catalogue and old matches remain readable; no gameplay migration',()=>{

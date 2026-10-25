@@ -50,12 +50,15 @@ Un chapeau ou une corne fait partie de la silhouette graphique, pas d'une
 nouvelle mesure anatomique ; cette normalisation reste une approximation visuelle.
 
 `src/sprite-sizing.mjs` combine cette calibration avec la taille renseignee
-dans le profil ou le registre des collaborations. La plage de presentation est
+par le resolveur partage `data/athlete-measurements.mjs` (profil, reference
+documentee, puis taille d'adaptation Kalistar). La plage de presentation est
 bornee a **100..300 cm**, puis comprimee en **70..154 pixels monde** pour garder
 les petits lisibles : `70 + (cm - 100) * 0.42`. Les vraies mensurations ne
 sont jamais reecrites. Une taille inconnue ou une longueur de queue prend un
-gabarit neutre de 180 cm, sans le faire passer pour une mesure. Simone dispose
-explicitement du gabarit geant de 300 cm ; sa taille documentaire reste inconnue.
+gabarit neutre de 180 cm, sans le faire passer pour une mesure. Les 368 identites
+actuelles sont renseignees. Simone a une taille d'adaptation de 900 cm, non
+canonique, ramenee au gabarit geant de 300 cm sur le terrain. Les valeurs
+documentees et les estimations restent distinguees dans la fiche.
 
 Une echelle uniforme et constante sur les seize poses limite aussi la largeur
 a 96 pixels au repos / 144 en action et la hauteur totale a 174 pixels.

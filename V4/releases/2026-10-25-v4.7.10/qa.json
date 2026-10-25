@@ -1,0 +1,13 @@
+{
+  "release": "4.7.10",
+  "date": "2026-10-25",
+  "scope": ["astraball-ai-placement", "athlete-height-coverage"],
+  "ci": {"commands": 104, "tests": 2048, "passed": 2046, "skipped": 2, "failed": 0},
+  "local": {"commands": 14, "tests": 154, "passed": 154, "failed": 0, "sandboxRetry": "Localhost EACCES, authorized rerun passed."},
+  "simulation": {"matches": 120, "goals": 479, "replayedSeeds": [1, 61, 120], "illegalPlacements": 0},
+  "measurements": {"identities": 368, "newAdaptedHeights": 177, "lanioCm": 182, "genCm": 159, "canonicalClaimsAdded": false, "massOrStatsChanged": false},
+  "browser": {"status": "passed", "viewports": [[1440, 900], [412, 915], [360, 800]], "placementSeeds": [1, 37], "checks": ["opening", "after-goal", "partial-save-resume", "height-labels", "sprite-scale", "no-overflow", "no-browser-errors"]},
+  "build": {"cards": 462, "files": 1955, "sizeMiB": 1142},
+  "evidenceDirectory": "work/astraball/placement-ai/",
+  "publicationGate": "Rerun browser checks on the frozen commit build; verify GitHub workflow and anonymous public login before reporting the release live."
+}

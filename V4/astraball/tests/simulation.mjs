@@ -69,10 +69,17 @@ export function simulate(seed) {
     while(state.phase==='placement'){
       const before=JSON.stringify(state),plan=chooseTurn(state);
       assert.equal(JSON.stringify(state),before);
-      assert.deepEqual(plan,[{type:'ready',team:state.placement.team}]);
-      const result=applyCommand(state,plan[0]);assert.equal(result.ok,true);assertInvariants(state);
-      commands++;for(const e of result.events)eventCounts[e.type]=(eventCounts[e.type]||0)+1;
-      trace.update(JSON.stringify({cmd:plan[0],result,state}));
+      assert.deepEqual(plan.at(-1),{type:'ready',team:state.placement.team});
+      assert.ok(plan.length<=11 && plan.slice(0,-1).every(cmd=>cmd.type==='place'));
+      const rng=state.rng,initiative=state.activeId,round=state.round;
+      const turns=state.units.map(u=>[u.id,u.acted,u.penalty,u.nextPenalty]);
+      for(const cmd of plan){
+        const result=applyCommand(state,cmd);assert.equal(result.ok,true);assertInvariants(state);
+        commands++;for(const e of result.events)eventCounts[e.type]=(eventCounts[e.type]||0)+1;
+        trace.update(JSON.stringify({cmd,result,state}));
+      }
+      assert.equal(state.rng,rng);assert.equal(state.activeId,initiative);assert.equal(state.round,round);
+      assert.deepEqual(state.units.map(u=>[u.id,u.acted,u.penalty,u.nextPenalty]),turns);
     }
     assert.ok(turns < state.maxRounds * state.units.length, `seed ${seed}: activation cap exceeded`);
     const actor = activeUnit(state);

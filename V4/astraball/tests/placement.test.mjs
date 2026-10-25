@@ -142,7 +142,9 @@ test('placement save round-trip resumes selected side and validated formation wi
   assert.deepEqual(resumed,state);assert.notEqual(resumed,state);assert.equal(controllingTeam(resumed),1);
   reject(resumed,{type:'place',unitId:'t0-momo',x:5,y:4});
   const before=structuredClone(resumed), plan=chooseTurn(resumed);
-  assert.deepEqual(resumed,before);assert.deepEqual(plan,[{type:'ready',team:1}]);apply(resumed,plan[0]);
+  assert.deepEqual(resumed,before);assert.deepEqual(plan.at(-1),{type:'ready',team:1});
+  assert.ok(plan.slice(0,-1).every(cmd=>cmd.type==='place'));
+  for(const cmd of plan)apply(resumed,cmd);
 });
 
 test('v1 unfinished saves migrate once without losing score, RNG, history, turns or penalties', () => {
@@ -176,6 +178,85 @@ for(const [name,forge] of Object.entries({
   order:s=>s.placement.team=1, ready:s=>s.placement.ready=[true,false],
   moved:s=>s.moved=true, holder:s=>s.placement.kickoffTeam=1,
 }))test('placement validation rejects forged '+name,()=>{const s=createMatch();forge(s);assert.throws(()=>validateState(s));});
+
+const formation = (state,team) => state.units.filter(u=>u.team===team).map(({id,x,y})=>({id,x,y}));
+function aiSetup(state) {
+  const before=structuredClone(state),team=controllingTeam(state),plan=chooseTurn(state);
+  assert.deepEqual(state,before,'planning is read-only');
+  assert.deepEqual(chooseTurn(restoreMatch(before)),plan,'save reload keeps the chosen plan');
+  assert.ok(plan.length<=11);assert.deepEqual(plan.at(-1),{type:'ready',team});
+  for(const cmd of plan)apply(state,cmd);
+  for(const key of ['seed','rng','round','score','activeId'])assert.deepEqual(state[key],before[key]);
+  for(const u of state.units) {
+    const old=getUnit(before,u.id);
+    for(const key of ['stats','acted','penalty','nextPenalty'])assert.deepEqual(u[key],old[key]);
+    if(u.team!==team)assert.deepEqual(u,old,'opponent formation is untouched');
+  }
+  return formation(state,team);
+}
+
+test('AI offers varied legal openings on both sides, retaining roles and passing relays', () => {
+  const distinct=[new Set(),new Set()];
+  for(let seed=1;seed<=80;seed++) {
+    const state=createMatch({seed});
+    for(const team of [0,1]) {
+      const result=aiSetup(state);distinct[team].add(JSON.stringify(result));
+      const leader=unit(state,team,'meneur'),scorer=unit(state,team,'scoreur'),pillar=unit(state,team,'pilier');
+      assert.ok(inDefense(team,pillar.x,pillar.y));assert.ok(pillar.y>=2&&pillar.y<=4);
+      assert.equal(team===0?scorer.x:12-scorer.x,5,'scorer has a forward lane');
+      assert.ok(state.units.some(u=>u.team===team&&u.id!==leader.id&&u.role!=='pilier'
+        &&Math.abs(u.x-leader.x)+Math.abs(u.y-leader.y)<=3),'nearby passing relay');
+    }
+  }
+  for(const variants of distinct)assert.equal(variants.size,12,'all twelve plans are reachable');
+});
+
+test('AI resumes every partial placement without a new draw, swaps or endless repositioning', () => {
+  for(let seed=21;seed<=40;seed++)for(const team of [0,1]) {
+    const state=createMatch({seed});if(team)apply(state,{type:'ready',team:0});
+    const plan=chooseTurn(state),complete=structuredClone(state);
+    for(const cmd of plan)apply(complete,cmd);
+    for(let prefix=0;prefix<plan.length;prefix++) {
+      const partial=structuredClone(state);
+      for(const cmd of plan.slice(0,prefix))apply(partial,cmd);
+      const restored=restoreMatch(JSON.parse(JSON.stringify(partial)));
+      aiSetup(restored);assert.deepEqual(formation(restored,team),formation(complete,team));
+    }
+  }
+});
+
+test('score context favors forward setups when trailing and cover when leading', () => {
+  const depth = score => {
+    let total=0;
+    for(let seed=1;seed<=240;seed++) {
+      const state=createMatch({seed});state.score=score.slice();apply(state,{type:'ready',team:0});
+      for(const cmd of chooseTurn(state))apply(state,cmd);
+      total+=state.units.filter(u=>u.team===1).reduce((sum,u)=>sum+12-u.x,0)/5;
+    }
+    return total/240;
+  };
+  assert.ok(depth([4,0])>depth([0,4])+.1,'behind AI leans forward without making its selection fixed');
+});
+
+test('AI replaces its previous formation after each real goal without restoring spent turns', () => {
+  for(let seed=1;seed<=12;seed++) {
+    const state=createMatch({seed,targetScore:99,maxRounds:99});
+    aiSetup(state);let previous=aiSetup(state),goals=0;
+    for(let attempt=0;attempt<12;attempt++) {
+      const scorer=unit(state,0,'scoreur');activate(state,scorer);
+      const y=[2,3,4].find(row=>!state.units.some(u=>u.id!==scorer.id&&u.x===11&&u.y===row));
+      moveFixture(state,scorer,11,y);state.ball={holderId:scorer.id,x:11,y};
+      const result=apply(state,{type:'shoot',x:12,y});
+      if(!result.events.some(e=>e.type==='goal'))continue;
+      goals++;unit(state,1,'middle').nextPenalty=3;
+      const current=aiSetup(state);
+      assert.notDeepEqual(current,previous,'no immediate repeated AI formation');previous=current;
+      assert.ok(scorer.acted);assert.equal(unit(state,1,'middle').nextPenalty,3);
+      apply(state,{type:'ready',team:0});
+    }
+    assert.ok(goals>=3,'fixture exercises several actual resets');
+  }
+});
 
 test('100 randomized legal formations survive full AI matches and every post-goal setup', () => {
   let rng=217;

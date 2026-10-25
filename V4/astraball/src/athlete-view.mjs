@@ -1,5 +1,6 @@
 import { STAT_TITLES } from '../data/athletes.mjs';
-import { COLLABORATION_MEASUREMENTS } from '../data/collaboration-measurements.mjs';
+import { measurementsFor } from '../data/athlete-measurements.mjs';
+export { measurementsFor } from '../data/athlete-measurements.mjs';
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const roleNames={meneur:'Meneur',scoreur:'Scoreur',middle:'Middle',sentry:'Sentry',pilier:'Pilier'};
 const roleIcons={meneur:'route',scoreur:'crosshair',middle:'diamond',sentry:'wind',pilier:'shield'};
@@ -14,14 +15,12 @@ const measureNotes={
   'dhalsim-street-fighter':'Dimensions variables ; valeurs de r\u00e9f\u00e9rence du profil.',
   'e-honda-street-fighter':'Taille incluant le chignon.',
 };
-export function measurementsFor(athlete){
-  return COLLABORATION_MEASUREMENTS[athlete.id]||athlete.measurements;
-}
 export function renderMeasurements(athlete){
-  const m=measurementsFor(athlete),estimated=m.status==='estimated',amount=(v,unit)=>v===null?'Non renseign\u00e9':(estimated?'\u2248 ':'')+esc(v)+' '+unit;
-  const note=estimated?m.note:m.status==='unknown'?'Ces mensurations ne sont pas encore confirm\u00e9es.':m.continuity+'. '+(measureNotes[athlete.id]||'');
+  const m=measurementsFor(athlete),estimated=m.status==='estimated',adapted=m.heightStatus==='adapted';
+  const amount=(v,unit,approximate=estimated)=>v===null?'Non renseign\u00e9':(approximate?'\u2248 ':'')+esc(v)+' '+unit;
+  const note=adapted?m.heightNote:estimated?m.note:m.status==='unknown'?'Ces mensurations ne sont pas encore confirm\u00e9es.':m.continuity+'. '+(measureNotes[athlete.id]||'');
   const sources=(m.sources||[]).filter(s=>/^https:\/\//.test(s.url)).map(s=>'<a href="'+esc(s.url)+'" target="_blank" rel="noopener noreferrer">'+esc(s.title)+(s.type==='secondary'?' (source secondaire)':'')+'</a>');
-  return '<div class="athlete-measures"><span><i data-lucide="ruler"></i>'+(m.heightKind==='length'?'Longueur':'Taille')+' <b>'+amount(m.heightCm,'cm')+'</b></span><span><i data-lucide="weight"></i>Masse <b>'+amount(m.weightKg,'kg')+'</b></span></div><details class="athlete-sources"><summary>'+(estimated?'Estimations visuelles':m.status==='sourced'?'R\u00e9f\u00e9rences':'Mensurations non confirm\u00e9es')+'</summary><p>'+esc(note)+'</p>'+sources.join('')+'</details>';
+  return '<div class="athlete-measures"><span><i data-lucide="ruler"></i>'+(m.heightKind==='length'?'Longueur':'Taille')+' <b>'+amount(m.heightCm,'cm',estimated||adapted)+'</b></span><span><i data-lucide="weight"></i>Masse <b>'+amount(m.weightKg,'kg')+'</b></span></div><details class="athlete-sources"><summary>'+(adapted?'Taille d\u2019adaptation Kalistar':estimated?'Estimations visuelles':m.status==='sourced'?'R\u00e9f\u00e9rences':'Mensurations non confirm\u00e9es')+'</summary><p>'+esc(note)+'</p>'+sources.join('')+'</details>';
 }
 export function renderAthlete(character){
   const a=character.athlete;

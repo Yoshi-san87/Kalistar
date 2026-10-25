@@ -62,7 +62,16 @@ est explicitement une longueur totale, non une taille debout.
 
 Les collaborations ont un registre documentaire distinct, avec continuite,
 source et champs effectivement couverts. Une valeur non verifiee reste `null`
-et s'affiche Non renseigne. Une source secondaire est signalee comme telle.
+dans ce registre historique ; une source secondaire est signalee comme telle.
+`data/athlete-measurements.mjs` resout les mensurations pour la fiche et le
+sprite : les valeurs documentees priment, puis 177 tailles d'adaptation Kalistar
+completent les manques. Ce sont des choix artistiques explicites et non des
+mesures canoniques : symbole approximatif et mention Taille d'adaptation Kalistar.
+La masse reste inconnue si elle n'est pas documentee. Les 368 identites ont
+ainsi une taille ou longueur renseignee, sans modifier la recherche initiale.
+Lanio mesure desormais 182 cm et Gen 159 cm, suivant l'echange demande par
+l'auteur ; leurs masses et notes ne changent pas. Les nouveaux choix ne
+remplacent pas retroactivement les anciens rapports de recherche.
 Les tailles alimentent maintenant l'[echelle visuelle des sprites](SPRITES.md).
 Elles ne changent ni FOR, ni MOB, ni les collisions ou les cases occupees.
 Ne pas deduire une puissance automatique d'une masse canonique.

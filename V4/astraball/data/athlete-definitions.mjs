@@ -18,7 +18,7 @@ iliane|courier|179|67|PAS:TIR
 lok|power|143|108|FOR:PAS
 belrog|ballwinner|229|238|FOR:PAS
 seraphina|strategist|176|61|PAS:TIR
-lanio|playmaker|159|49|VIT:FOR
+lanio|playmaker|182|49|VIT:FOR
 malaba|enforcer|191|112|FOR:PAS
 magnar|wall|264|640|FOR:TIR
 kognus|sweeper|137|91|DEF:TIR
@@ -40,7 +40,7 @@ baptiste|orchestrator|184|68|TIR:FOR
 brindor|wall|253|236|FOR:PAS
 asteran|duelist|188|85|DEF:PAS
 tazrik|scout|186|82|FOR:DEF
-gen|relay|182|98|FOR:TIR
+gen|relay|159|98|FOR:TIR
 sapphire|keeper|268|142|DEF:VIT
 aelis|orchestrator|175|61|DEF:FOR
 ornelle|relay|181|66|PAS:FOR

@@ -9,6 +9,7 @@ import { chooseTurn } from '../src/core/ai.mjs';
 import { ROLE_STATS } from '../data/teams.mjs';
 import { ATHLETES, getAthlete, canPlayPosition, ratingBudget } from '../data/athletes.mjs';
 import { COLLABORATION_MEASUREMENTS } from '../data/collaboration-measurements.mjs';
+import { ADAPTED_HEIGHTS } from '../data/athlete-measurements.mjs';
 import { measurementsFor, renderMeasurements } from '../src/athlete-view.mjs';
 const library=JSON.parse(fs.readFileSync(new URL('../data/sprite-library.json',import.meta.url)));
 const roster=createRoster(library);
@@ -166,7 +167,7 @@ test('personal ratings actually change movement, initiative, range and impact pr
   assert.ok(shots[1].range>shots[0].range&&shots[1].chance>shots[0].chance,'personal TIR changes range and accuracy');
 });
 
-test('measurements are separate from ratings, missing data remains null and every number is attributed',()=>{
+test('documentary measurements stay intact; missing heights receive explicit Kalistar adaptations',()=>{
   const originals=JSON.parse(fs.readFileSync(new URL('../research/kalistar-measurements.json',import.meta.url))).references;
   assert.equal(originals.length,130);assert.equal(Object.keys(COLLABORATION_MEASUREMENTS).length,238);
   for(const ref of originals){
@@ -185,11 +186,30 @@ test('measurements are separate from ratings, missing data remains null and ever
     if(m.status==='unknown'){assert.equal(m.heightCm,null);assert.equal(m.weightKg,null);assert.deepEqual(m.sources,[]);}
     else assert.ok(m.heightCm!==null||m.weightKg!==null);
     for(const s of m.sources){assert.ok(['official','secondary'].includes(s.type));assert.match(s.url,/^https:\/\//);assert.ok(s.title);}
-    assert.deepEqual(measurementsFor(getAthlete(id)),m);
+    const resolved=measurementsFor(getAthlete(id));
+    if(m.heightCm!==null)assert.equal(resolved,m,'documented record is returned unchanged');
+    else {
+      assert.equal(resolved.heightCm,ADAPTED_HEIGHTS[id]);assert.equal(resolved.heightStatus,'adapted');
+      assert.match(resolved.heightNote,/non canonique/);
+      const {heightStatus,heightNote,...record}=resolved;
+      assert.deepEqual({...record,heightCm:null},m,'documentary fields, sources and unknown mass are preserved');
+      assert.match(renderMeasurements(getAthlete(id)),/Taille d.adaptation Kalistar/);
+      assert.match(renderMeasurements(getAthlete(id)),/\u2248 /);
+    }
   }
   const unknown=Object.keys(COLLABORATION_MEASUREMENTS).find(id=>COLLABORATION_MEASUREMENTS[id].status==='unknown');
   assert.match(renderMeasurements(getAthlete(unknown)),/Non renseign/);
   assert.match(renderMeasurements(getAthlete('ruby')),/Longueur/);
+  assert.equal(Object.keys(ADAPTED_HEIGHTS).length,177);
+  for(const a of ATHLETES)assert.ok(measurementsFor(a).heightCm>0,'height coverage: '+a.id);
+  for(const [id,height] of Object.entries(ADAPTED_HEIGHTS)){
+    assert.ok(getAthlete(id));assert.equal(COLLABORATION_MEASUREMENTS[id].heightCm,null,'never mask a documented height');
+    assert.ok(Number.isInteger(height)&&height>0);
+  }
+  assert.equal(getAthlete('lanio').measurements.heightCm,182);
+  assert.equal(getAthlete('gen').measurements.heightCm,159);
+  assert.equal(getAthlete('lanio').measurements.weightKg,49);
+  assert.equal(getAthlete('gen').measurements.weightKg,98);
 });
 
 test('pixel venues default to Kalistopolis HD-2D while explicit classics retain isometric preferences',()=>{
