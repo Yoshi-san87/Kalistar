@@ -3,8 +3,11 @@
 [Guide Astraball](README.md) | [Index du projet](../../docs/INDEX.md)
 
 La bibliotheque est un catalogue de medias, pas un inventaire joueur.
-Elle prepare vingt personnages supplementaires sans les ajouter aux equipes,
-sans leur attribuer de statistiques et sans modifier une sauvegarde.
+Elle fournit vingt personnages supplementaires. Le vestiaire les propose avec
+les dix personnages d'origine via `src/roster.mjs`, sans attribuer de statistiques
+propres aux apparences ni modifier une sauvegarde existante. Une nouvelle equipe
+enregistre l'identifiant d'apparence dans chaque joueur ; les statistiques restent
+celles du poste. Une identite ne peut figurer deux fois dans le meme camp.
 Les dix sprites du prototype restent independants et inchanges.
 
 ## Consulter
@@ -50,7 +53,7 @@ Le dessin source est adapte au format sans etirement independant des axes.
 | `name`, `race`, `faction` | Libelles de consultation, non utilises comme cles |
 | `file` | Chemin relatif de l'atlas public |
 | `width`, `height`, `bytes`, `sha256` | Dimensions et integrite du media |
-| `scale` | Echelle de presentation indicative pour une future integration |
+| `scale` | Echelle de presentation utilisee sur le terrain et dans le vestiaire |
 
 Exemple de resolution explicite :
 

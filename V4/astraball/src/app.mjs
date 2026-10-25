@@ -3,7 +3,9 @@ import { inDefense } from './core/geometry.mjs';
 import { chooseTurn } from './core/ai.mjs';
 import { CourtRenderer } from './renderer.mjs';
 import { TEAMS } from '../data/teams.mjs';
-import { BALLS, getBall, normalizeAppearance } from './appearance.mjs';
+import { getArena, normalizeAppearance } from './appearance.mjs';
+import { createRoster } from './roster.mjs';
+import { renderLocker, spriteBadge } from './locker.mjs';
 
 if(window.KalistarCloudConfig)window.KalistarCloudConfig=Object.freeze({...window.KalistarCloudConfig,sdk:'/jeu/assets/supabase/supabase-2.118.0.js'});
 if(!await window.KalistarAuthGuard?.ensure())throw Error('Connexion Kalistar requise.');
@@ -16,7 +18,16 @@ const errors={'ball-required':'Ce joueur ne porte pas le ballon.','out-of-range'
 Object.assign(errors,{'placement-required':'Valide les formations avant de jouer.','placement-team':'Choisis un joueur de ton équipe.','own-half-required':'Reste dans ta moitié de terrain ; la colonne centrale reste libre.','defense-capacity':'Zone défensive : le Pilier et un seul coéquipier maximum.','occupied':'Cette case est déjà occupée.'});
 const profile=window.KALISTAR_CLOUD_ACCESS?.localProfile;
 const KEY='kalistar.astraball.match.v1'+(profile?'.'+profile:''), OPTIONS='kalistar.astraball.options.v1';
-const portrait=u=>'assets/portraits/'+u.id.split('-')[1]+'.webp';
+let libraryData;
+try{
+  const response=await fetch(new URL('../data/sprite-library.json',import.meta.url));
+  if(response.ok)libraryData=await response.json();
+}catch{}
+const roster=createRoster(libraryData);
+const portrait=u=>{
+  const c=roster.forUnit(u);
+  return c?.portrait?'<img src="'+c.portrait+'" alt="">':spriteBadge(c);
+};
 const seed=()=>crypto.getRandomValues(new Uint32Array(1))[0];
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 let state,mode='move',pending=null,busy=false,aiRunning=false,generation=0,inspecting=null,sound=false,audio=null,finishedShown=false,placementId=null;
@@ -25,7 +36,7 @@ try{options={...options,...JSON.parse(localStorage.getItem(OPTIONS)||'{}')};}cat
 options={...options,...normalizeAppearance(options)};
 try{const raw=localStorage.getItem(KEY);if(raw&&raw.length<250000){const value=restoreMatch(JSON.parse(raw));if(['solo','hotseat'].includes(value.mode))state=value;}}catch{}
 const needsKickoff=!state;
-state ||= createMatch({seed:seed(),mode:['solo','hotseat'].includes(options.mode)?options.mode:'solo'});
+state ||= createMatch({seed:seed(),mode:['solo','hotseat'].includes(options.mode)?options.mode:'solo',teams:roster.teams(options.lineups)});
 if(state.moved)mode=state.ball.holderId===state.activeId?'pass':'charge';
 sound=options.sound===true;
 const canInteract=()=>!busy&&!aiRunning&&!document.hidden&&!$('#modal').open&&state.status==='playing'&&(state.mode==='hotseat'||controllingTeam(state)===0);
@@ -36,7 +47,7 @@ function selectedUnit(){
   return getUnit(state,placementId);
 }
 const icons=()=>window.lucide?.createIcons();
-const court=new CourtRenderer($('#canvas-host'),{onCell:selectCell,onUnit:selectUnit,onHover:hover,appearance:options});
+const court=new CourtRenderer($('#canvas-host'),{onCell:selectCell,onUnit:selectUnit,onHover:hover,appearance:options,roster});
 
 function save(){try{localStorage.setItem(KEY,JSON.stringify(state));$('#save-status').textContent='Match sauvegardé sur cet appareil';}catch{$('#save-status').textContent='Sauvegarde indisponible';}}
 function saveOptions(){try{localStorage.setItem(OPTIONS,JSON.stringify(options));}catch{}}
@@ -79,9 +90,9 @@ function render(){
     $('#formation-ready').disabled=!canInteract();
   }
   $('.turn-heading').style.color=color;
-  $('#initiative').innerHTML=getInitiative(state).map(entry=>{const u=getUnit(state,entry.id);return `<button class="initiative-token ${entry.active?'active':''} ${entry.acted?'acted':''}" data-unit="${esc(u.id)}" style="--team:${TEAMS[u.team].color}" title="${esc(u.name)} · ${roleNames[u.role]} · VIT ${entry.speed}${entry.acted?' · A joué':''}" aria-label="${esc(u.name)} ${roleNames[u.role]}, vitesse ${entry.speed}${entry.active?', joueur actif':''}"><img src="${portrait(u)}" alt=""><span><b>${esc(u.name)}</b><small>${roleNames[u.role]}</small><span class="mini-role">${shortRoles[u.role]}</span></span><span class="speed">${entry.speed}</span></button>`;}).join('');
+  $('#initiative').innerHTML=getInitiative(state).map(entry=>{const u=getUnit(state,entry.id);return `<button class="initiative-token ${entry.active?'active':''} ${entry.acted?'acted':''}" data-unit="${esc(u.id)}" style="--team:${TEAMS[u.team].color}" title="${esc(u.name)} · ${roleNames[u.role]} · VIT ${entry.speed}${entry.acted?' · A joué':''}" aria-label="${esc(u.name)} ${roleNames[u.role]}, vitesse ${entry.speed}${entry.active?', joueur actif':''}">${portrait(u)}<span><b>${esc(u.name)}</b><small>${roleNames[u.role]}</small><span class="mini-role">${shortRoles[u.role]}</span></span><span class="speed">${entry.speed}</span></button>`;}).join('');
   if(placing)for(const token of $('#initiative').children){const u=getUnit(state,token.dataset.unit);token.classList.remove('acted');token.classList.toggle('active',u.id===placementId);token.disabled=!canInteract()||u.team!==unit.team;token.setAttribute('aria-pressed',String(u.id===placementId));}
-  $('#player-summary').innerHTML=`<div class="player-identity" style="--team:${color}"><img src="${portrait(unit)}" alt="${esc(unit.name)}"><div><h1>${esc(unit.name)}</h1><p>${roleNames[unit.role]}${unit.role==='scoreur'?' · U = 2 points':''}</p><small>${state.ball.holderId===unit.id?'Porteur du ballon':unit.role==='pilier'?'Gardien de la zone défensive':TEAMS[unit.team].name}</small></div></div>`;
+  $('#player-summary').innerHTML=`<div class="player-identity" style="--team:${color}">${portrait(unit)}<div><h1>${esc(unit.name)}</h1><p>${roleNames[unit.role]}${unit.role==='scoreur'?' · U = 2 points':''}</p><small>${state.ball.holderId===unit.id?'Porteur du ballon':unit.role==='pilier'?'Gardien de la zone défensive':TEAMS[unit.team].name}</small></div></div>`;
   $('#stats').innerHTML=Object.entries(unit.stats).map(([key,value])=>`<dl class="stat ${key==='VIT'&&unit.penalty?'penalized':''}" title="${statTitles[key]}"><dt>${key}</dt><dd>${key==='VIT'?Math.max(0,value-unit.penalty):value}</dd></dl>`).join('');
   $('#phase-move').className=state.moved?'complete':'current';$('#phase-action').className=state.moved?'current':'';
   for(const button of $('#actions').children){const type=button.dataset.mode;button.classList.toggle('selected',type===mode);button.setAttribute('aria-pressed',String(type===mode));button.disabled=!canPlay()||(type==='move'&&state.moved)||(['pass','shoot'].includes(type)&&state.ball.holderId!==unit.id);}
@@ -186,7 +197,7 @@ function tone(kind){
 function modal(title,html,kind=''){court.stopIdle();$('#modal').className=kind;$('#dialog-title').textContent=title;$('#dialog-content').innerHTML=html;$('#modal').showModal();render();icons();}
 function showUnit(unit){
   inspecting=unit.id;
-  modal(unit.name,`<div class="player-identity" style="--team:${TEAMS[unit.team].color}"><img src="${portrait(unit)}" alt="${esc(unit.name)}"><div><h3>${roleNames[unit.role]} · ${TEAMS[unit.team].name}</h3><p>${unit.acted?'A déjà joué cette manche.':'Activation à venir.'}${unit.id===state.activeId?' Joueur actif.':''}</p></div></div><div class="stats">${Object.entries(unit.stats).map(([s,v])=>`<dl class="stat" title="${statTitles[s]}"><dt>${s}</dt><dd>${v}</dd></dl>`).join('')}</div><p>${unit.role==='pilier'?'Reste dans les trois colonnes de sa zone défensive. Sa position coupe les trajectoires qui le traversent.':unit.role==='scoreur'?'Chaque U marqué par ce joueur rapporte deux points.':'Peut se déplacer, porter, passer, tirer, charger et intercepter.'}</p>${unit.penalty||unit.nextPenalty?'<p>Retard : '+(unit.penalty||unit.nextPenalty)+' VIT '+(unit.penalty?'cette manche.':'la prochaine manche.')+'</p>':''}`);
+  modal(unit.name,`<div class="player-identity" style="--team:${TEAMS[unit.team].color}">${portrait(unit)}<div><h3>${roleNames[unit.role]} · ${TEAMS[unit.team].name}</h3><p>${unit.acted?'A déjà joué cette manche.':'Activation à venir.'}${unit.id===state.activeId?' Joueur actif.':''}</p></div></div><div class="stats">${Object.entries(unit.stats).map(([s,v])=>`<dl class="stat" title="${statTitles[s]}"><dt>${s}</dt><dd>${v}</dd></dl>`).join('')}</div><p>${unit.role==='pilier'?'Reste dans les trois colonnes de sa zone défensive. Sa position coupe les trajectoires qui le traversent.':unit.role==='scoreur'?'Chaque U marqué par ce joueur rapporte deux points.':'Peut se déplacer, porter, passer, tirer, charger et intercepter.'}</p>${unit.penalty||unit.nextPenalty?'<p>Retard : '+(unit.penalty||unit.nextPenalty)+' VIT '+(unit.penalty?'cette manche.':'la prochaine manche.')+'</p>':''}`);
 }
 function showHelp(){modal('Les règles d’Astraball',`<p>Deux équipes de cinq joueurs. La première à <strong>6 points</strong> gagne. Au terme de la <strong>12e manche</strong>, le meilleur score gagne ; une égalité reste un match nul.</p><h3>Placer son équipe</h3><p>Avant le premier engagement et après chaque but, chaque équipe choisit sa formation puis la valide. Sélectionne un personnage sur le terrain ou dans la rangée du haut, puis une case éclairée de ton camp. La colonne centrale reste libre pendant le placement. L’équipe qui reçoit le ballon se place en premier ; en solo, l’IA valide automatiquement sa formation.</p><h3>La zone défensive</h3><p>Dans sa zone colorée, une équipe peut garder son <strong>Pilier et un seul coéquipier maximum</strong>. Cette limite vaut aussi pendant le match : un deuxième soutien ne peut pas entrer, traverser la zone ou y être repoussé. Les attaquants adverses ne consomment pas cette place.</p><h3>Une activation, deux temps</h3><p>Déplace ton joueur une seule fois, de zéro à MOB cases par les côtés, puis passe, tire, charge ou termine son activation. Une action termine le tour. Les autres joueurs bloquent le déplacement. Un ballon au sol est récupéré en le traversant.</p><h3>Le rythme du match</h3><p>Chaque joueur agit une fois par manche, par VIT décroissante. Deux coéquipiers peuvent donc jouer à la suite. En cas d’égalité de vitesse, la priorité d’équipe alterne chaque manche.</p><h3>Passer ou intercepter</h3><p>Une passe à portée, sans adversaire sur sa ligne, réussit. Tout adversaire sur une case traversée, même au coin d’une case, l’intercepte automatiquement. La ligne rouge indique le premier intercepteur. PAS augmente la portée : 3 + la moitié de PAS, arrondie en dessous.</p><h3>Trois cibles, un U</h3><p>Choisis l’une des trois cibles adverses. Tout adversaire traversé bloque le tir. Le Pilier ne couvre que les trajectoires qui le croisent. Sans obstacle, la chance affichée dépend de TIR et de la distance : 25 + 9 × TIR − 5 × distance, entre 30 et 95 %. La portée vaut 2 + la moitié de TIR, arrondie en dessous.</p><p>Un U vaut <strong>1 point</strong>, ou <strong>2 avec le Scoreur</strong>. Après un U, les équipes se replacent dans leur camp et le Meneur de l’équipe qui a encaissé reçoit le ballon. Le jeu reprend après les deux validations, avec les tours déjà utilisés et les pénalités conservés. Aucun nouveau placement n’est demandé si le match est terminé. Un tir manqué rebondit devant le U visé.</p><h3>La charge change le tempo</h3><p>Charge un adversaire adjacent : 65 + 5 × (FOR − DEF) %, entre 30 et 95 %. Si elle réussit, la cible recule d’une case libre et perd 3 VIT, sans perdre son activation. Si elle a déjà joué, le retard s’applique à la manche suivante. Le porteur lâche le ballon ; si son recul est bloqué, il reste sur place et le récupère.</p><h3>Cinq postes, toutes les actions</h3><p><strong>Meneur</strong> : passe. <strong>Scoreur</strong> : tir et double point. <strong>Middle</strong> : polyvalence. <strong>Sentry</strong> : vitesse et mobilité. <strong>Pilier</strong> : défense et impact ; il reste dans ses trois colonnes défensives. Les statistiques de cette exhibition sont symétriques.</p><h3>Commandes</h3><p>Clique une case pour te déplacer. Pour une passe, un tir ou une charge, choisis l’action puis la cible et confirme. Fais glisser le terrain pour le déplacer ; + et − règlent le zoom. Au clavier : flèches sur le terrain, puis Entrée. Le match se sauvegarde sur cet appareil ; il n’attribue pas de carte et n’affecte pas le jeu Kalistar.</p>`);}
 function updateCameraControls(){
@@ -201,24 +212,22 @@ function changeCamera(value){
   options={...options,...appearance};saveOptions();updateCameraControls();highlight();
 }
 function showSettings(initial=false){
-  let selected=getBall(options.ball).id;
-  modal(initial?'Avant le coup d’envoi':'Le vestiaire',`<section class="ball-selection" aria-label="Ballon de la rencontre">
-    <div class="ball-showcase"><span class="eyebrow">ASTRABALL</span><img id="ball-preview" src="${getBall(selected).url}" alt="${esc(getBall(selected).name)}"><h3 id="ball-name">${esc(getBall(selected).name)}</h3><p id="ball-material">${esc(getBall(selected).material)}</p></div>
-    <fieldset class="ball-options"><legend>Ballon de la rencontre</legend><div class="ball-grid">${BALLS.map(ball=>`<label class="ball-choice"><input type="radio" name="ball" value="${ball.id}" ${selected===ball.id?'checked':''}><img src="${ball.url}" alt=""><span>${esc(ball.name)}</span><i data-lucide="check"></i></label>`).join('')}</div><small class="cosmetic-note">Six styles · mêmes règles</small></fieldset>
-  </section>
-  <div class="locker-options"><label>Rencontre<select id="match-mode"><option value="solo" ${state.mode==='solo'?'selected':''}>Solo contre l’IA</option><option value="hotseat" ${state.mode==='hotseat'?'selected':''}>Deux joueurs, même écran</option></select></label><div class="locker-toggles"><label>Sons<input type="checkbox" id="sound-option" ${sound?'checked':''}></label><label>Animations<input type="checkbox" id="motion-option" ${!court.reduced?'checked':''} ${matchMedia('(prefers-reduced-motion: reduce)').matches?'disabled':''}></label></div></div>
-  <div class="locker-view" role="group" aria-label="Vue du terrain"><button data-view="horizontal" aria-pressed="${options.view==='horizontal'}"><i data-lucide="grid-2x2"></i> HD-2D</button><button data-view="isometric" aria-pressed="${options.view==='isometric'}"><i data-lucide="layers"></i> Isométrique</button></div>
-  ${initial?'':'<p class="replace-warning">Un nouveau match remplace la rencontre Astraball enregistrée sur cet appareil.</p>'}
-  <div class="dialog-actions">${initial?'':'<button id="apply-options">Reprendre</button>'}<button id="new-match" class="primary"><i data-lucide="play"></i> ${initial?'Entrer sur le terrain':'Nouveau match'}</button></div>`,'locker');
-  for(const radio of document.querySelectorAll('input[name="ball"]'))radio.onchange=()=>{
-    selected=radio.value;const ball=getBall(selected),preview=$('#ball-preview');
-    preview.src=ball.url;preview.alt=ball.name;$('#ball-name').textContent=ball.name;$('#ball-material').textContent=ball.material;
-    if(!court.reduced){preview.getAnimations().forEach(animation=>animation.cancel());preview.animate([{opacity:0,transform:'translateY(8px) scale(.92)'},{opacity:1,transform:'none'}],{duration:280,easing:'ease-out'});}
-  };
-  for(const button of $('#dialog-content').querySelectorAll('[data-view]'))button.onclick=()=>changeCamera({view:button.dataset.view});
-  const settings=()=>{options={...options,ball:selected,mode:$('#match-mode').value,sound:$('#sound-option').checked,motion:$('#motion-option').checked};sound=options.sound;court.reduced=!options.motion||matchMedia('(prefers-reduced-motion: reduce)').matches;court.setBall(selected);saveOptions();};
-  if($('#apply-options'))$('#apply-options').onclick=()=>{settings();$('#modal').close();};
-  $('#new-match').onclick=()=>{settings();generation++;state=createMatch({seed:seed(),mode:options.mode});mode='move';pending=null;finishedShown=false;save();court.sync(state);court.resetView(true);$('#modal').close();ribbon('Nouvelle rencontre · Chroma à l’engagement');render();highlight();void runAI();};
+  modal(initial?'Avant le coup d\u2019envoi':'Le vestiaire','','locker');
+  renderLocker({host:$('#dialog-content'),roster,options:{...options,mode:state.mode},lineups:roster.fromUnits(state.units),initial,icons,
+    onSubmit:async(draft,newMatch)=>{
+      const next=newMatch?createMatch({seed:seed(),mode:draft.mode,teams:roster.teams(draft.lineups)}):null;
+      await court.prepareAssets(draft,next?.units||[]);
+      // Load first: a failed asset must not replace the current saved match.
+      if(next){generation++;state=next;mode='move';pending=null;placementId=null;finishedShown=false;court.replaceUnits(state.units);court.sync(state);}
+      options={...draft};sound=options.sound;court.reduced=!options.motion||matchMedia('(prefers-reduced-motion: reduce)').matches;
+      court.setAppearance(options);saveOptions();updateCameraControls();updateVenue();
+      if(next){save();court.resetView(true);ribbon('Nouvelle rencontre \u00b7 Chroma \u00e0 l\u2019engagement');}
+      $('#modal').close();render();highlight();
+    }});
+}
+function updateVenue(){
+  const arena=getArena(options.arena);
+  $('.venue span').textContent=arena.region.toUpperCase();$('.venue small').textContent=arena.name;
 }
 
 function showResult(){
@@ -246,9 +255,9 @@ function bind(){
 }
 try{
   await court.init(state.units);court.reduced=!options.motion||matchMedia('(prefers-reduced-motion: reduce)').matches;
-  bind();updateCameraControls();court.sync(state);render();highlight();$('#boot').hidden=true;
+  bind();updateCameraControls();updateVenue();court.sync(state);render();highlight();$('#boot').hidden=true;
   ribbon(state.phase==='placement'?(state.placement.reason==='rules-update'?'Nouvelles règles · score et tours conservés, replace ton équipe.':'Placement · '+TEAMS[state.placement.team].name):state.log.length?'Rencontre reprise · manche '+state.round:'Chroma à l’engagement');
   save();if(needsKickoff)showSettings(true);else if(state.status==='finished')showResult();else void runAI();
   // Read-only diagnostic seam for repeatable browser QA, no production state mutation.
-  window.Astraball=Object.freeze({snapshot:()=>structuredClone(state),cell:(x,y)=>court.screenCell(x,y),metrics:()=>({renders:court.renderCount,busy,aiRunning,zoom:court.zoom,appearance:{...court.appearance},floorLabels:court.floorLabels.children.length,ballTexture:!!court.ballImage.texture.source,ballRotation:court.ballImage.rotation,sprites:court.spriteMetrics()}),ready:true});
+  window.Astraball=Object.freeze({snapshot:()=>structuredClone(state),cell:(x,y)=>court.screenCell(x,y),metrics:()=>({renders:court.renderCount,busy,aiRunning,zoom:court.zoom,appearance:{...court.appearance},arenaLines:getArena(court.appearance.arena).lines,rosterCount:roster.entries.length,floorLabels:court.floorLabels.children.length,ballTexture:!!court.ballImage.texture.source,ballRotation:court.ballImage.rotation,sprites:court.spriteMetrics()}),ready:true});
 }catch(error){console.error(error);$('#boot').innerHTML='<div class="no-webgl"><h2>La cour ne peut pas s’ouvrir</h2><p>Vérifie ta connexion et l’accélération graphique du navigateur.</p><button id="reload">Réessayer</button></div>';$('#reload').onclick=()=>location.reload();}

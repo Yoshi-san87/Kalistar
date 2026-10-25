@@ -44,10 +44,13 @@ function formationPosition(unit) {
   return { x: unit.team === 0 ? home.x : 12 - home.x, y: home.y };
 }
 
-export function createMatch({ seed = 20261025, mode = 'solo', targetScore = 6, maxRounds = 12 } = {}) {
-  const units = TEAMS.flatMap((team) => team.players.map((player) => {
+export function createMatch({ seed = 20261025, mode = 'solo', targetScore = 6, maxRounds = 12, teams = TEAMS } = {}) {
+  if (!Array.isArray(teams) || teams.length !== 2 || teams.some((team,i) => team.id !== i || !Array.isArray(team.players) || team.players.length !== 5)) throw Error('Invalid teams');
+  const units = teams.flatMap((team) => team.players.map((player) => {
     const unit = {
-      ...player, team: team.id, stats: { ...ROLE_STATS[player.role] },
+      id: player.id, name: player.name, role: player.role,
+      ...(player.character ? {character: player.character} : {}),
+      team: team.id, stats: { ...ROLE_STATS[player.role] },
       acted: false, penalty: 0, nextPenalty: 0,
     };
     return { ...unit, ...formationPosition(unit) };

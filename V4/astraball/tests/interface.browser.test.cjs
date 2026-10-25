@@ -61,6 +61,7 @@ async function main(){
   const browser=await chromium.launch({channel:'chrome',headless:true,args:['--enable-webgl','--ignore-gpu-blocklist']});
   const reports=[];
   try{
+    await require('./locker-cases.cjs')({browser,url,OUT,sharp});
     for(const [name,width,height] of [['desktop',1440,900],['wide',1920,1080],['razr',412,915],['compact',360,800],['landscape',915,412]]){
       const context=await browser.newContext({viewport:{width,height},deviceScaleFactor:1,reducedMotion:'reduce',isMobile:width<761,hasTouch:width<761});
       const page=await context.newPage(),errors=[];
@@ -72,6 +73,7 @@ async function main(){
       catch(error){throw new Error(name+' boot failed: '+errors.join('\n'),{cause:error});}
       await page.getByRole('heading',{name:'Avant le coup d’envoi'}).waitFor();
       assert.equal(await page.locator('.ball-choice').count(),6);
+      await page.locator('#locker-tab-ball').click();
       await page.locator('.ball-choice').filter({has:page.locator('input[value="orbital"]')}).click();
       assert.equal(await page.locator('input[name="ball"][value="orbital"]').isChecked(),true);
       assert.match(await page.locator('#ball-name').textContent(),/Noyau orbital/);
@@ -121,7 +123,7 @@ async function main(){
       const beforeReload=await page.evaluate(()=>JSON.stringify(window.Astraball.snapshot()));
       await page.reload();await page.waitForFunction(()=>window.Astraball?.ready);
       assert.equal(await page.evaluate(()=>JSON.stringify(window.Astraball.snapshot())),beforeReload);
-      assert.deepEqual(await page.evaluate(()=>window.Astraball.metrics().appearance),{view:'horizontal',height:60,ball:'orbital'});
+      assert.deepEqual(await page.evaluate(()=>window.Astraball.metrics().appearance),{view:'horizontal',height:60,ball:'orbital',arena:'resonances'});
       assert.equal(await page.locator('#modal').isVisible(),false,'resume does not reopen kickoff');
       const overflow=await page.evaluate(()=>({x:document.documentElement.scrollWidth>innerWidth,y:document.documentElement.scrollHeight>innerHeight,canvas:document.querySelector('canvas').getBoundingClientRect().toJSON()}));
       assert.equal(overflow.x,false,'horizontal overflow '+name);
@@ -153,6 +155,7 @@ async function main(){
     await lookPage.goto(url);await lookPage.waitForFunction(()=>window.Astraball?.ready);
     for(const ball of BALLS){
       if(!await lookPage.locator('#modal').isVisible())await lookPage.locator('#settings').click();
+      await lookPage.locator('#locker-tab-ball').click();
       await lookPage.locator('.ball-choice').filter({has:lookPage.locator('input[value="'+ball.id+'"]')}).click();
       await lookPage.locator('#match-mode').selectOption('hotseat');
       await lookPage.locator('#new-match').click();

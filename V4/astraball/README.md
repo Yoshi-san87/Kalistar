@@ -5,10 +5,10 @@ les Fragments ou les combats du jeu de cartes.
 
 [Guides Kalistar](../../docs/INDEX.md) | [Audit des regles](tests/REPORT.md)
 
-La [bibliotheque de sprites](SPRITES.md) prepare vingt personnages
+La [bibliotheque de sprites](SPRITES.md) fournit vingt personnages
 supplementaires : galerie animee a `/jeu/astraball/library.html`, 16 poses par
-personnage, catalogue lie aux identifiants stables des cartes. Elle n'ajoute
-pas automatiquement ces personnages aux equipes de l'exhibition.
+personnage, catalogue lie aux identifiants stables des cartes. Le vestiaire
+propose trente personnages au total, sans modifier les droits de collection.
 
 ## Jouer
 
@@ -29,10 +29,18 @@ Le serveur indique son adresse, normalement
 Les medias doivent etre presents sur ce PC ou restaures depuis leur sauvegarde.
 Le clone Git volontairement leger ne contient pas les peintures.
 
-Le premier match ouvre un vestiaire avec six ballons cosmetiques, une vue
-HD-2D horizontale ou isometrique, le solo contre l'IA et deux joueurs sur le
-meme ecran. Une sauvegarde existante reprend directement. Le vestiaire reste
-accessible dans les options. Le livre des regles est accessible en haut.
+Le premier match ouvre un vestiaire en trois onglets : Equipes, Balle et Arene.
+Choisir les cinq postes de chaque camp parmi trente personnages, avec recherche,
+composition aleatoire et retour aux equipes initiales. Une identite ne peut
+occuper deux postes du meme camp : choisir un personnage deja present echange
+les postes. Chaque poste conserve son profil de statistiques symetrique.
+Six ballons et deux arenes sont disponibles dans les deux vues HD-2D/isometrique,
+en solo contre l'IA ou a deux sur le meme ecran. Une sauvegarde existante reprend
+directement. Le vestiaire reste accessible dans les options ; ses brouillons
+n'affectent pas la rencontre avant confirmation d'un nouveau match. Reprendre
+peut changer balle, arene et preferences, mais conserve les equipes en cours.
+Les nouveaux medias sont charges avant de remplacer la rencontre ; un echec
+la conserve. Le livre des regles est accessible en haut.
 Avant l'engagement et apres chaque but non final, selectionner un personnage
 sur le terrain ou dans la rangee superieure, choisir une case de son camp puis
 valider la formation. Les deux equipes valident ; en solo l'IA utilise sa
@@ -89,6 +97,8 @@ du jeu de cartes. Cette exhibition ne constitue pas une declaration d'equilibrag
 | `src/core/ai.mjs` | Decisions bornees sans modifier l'etat |
 | `src/projection.mjs` | Deux projections communes au sol/clic, hauteur et zones du Pilier |
 | `src/appearance.mjs` | Six ballons cosmetiques et validation des preferences visuelles |
+| `src/roster.mjs` | Catalogue jouable, cinq postes, identites et equipes sans doublon |
+| `src/locker.mjs`, `locker.css` | Vestiaire responsive et brouillon avant confirmation |
 | `src/renderer.mjs` | Scene PixiJS, personnages, ballon, animations, camera |
 | `src/sprites.mjs` | Atlases, tailles, clips et orientation des dix personnages |
 | `src/app.mjs` | Commandes, interface, sauvegarde et pause IA |
@@ -116,6 +126,11 @@ Le prompt est conserve dans `sources/arena-v1.prompt.txt`. La grille et les
 trois cibles de chaque U sont dessinees par le moteur, jamais devinees depuis
 des lignes generees. Les points du sol et le clic utilisent le meme quadrilatere.
 La seconde peinture conserve les lignes horizontales d'une cour HD-2D.
+Le Terrain de Zarok reprend le village Rhinoz de l'illustration canonique de
+Lanio : roche, bois, cordages, toits d'ardoise et lanternes. Son sable compact
+porte des lignes blanches tracees par le moteur. Les deux nouvelles peintures
+WebP totalisent 1 100 688 octets. Sources et consignes :
+[`sources/rhinoz-v1/README.md`](sources/rhinoz-v1/README.md).
 Seul le plan de jeu se comprime avec la hauteur, les sprites restent debout.
 Les zones defensives suivent exactement les trois colonnes autorisees par
 le moteur (frontieres 1/4 et 9/12), sans decalage optique fractionnaire.
@@ -188,7 +203,8 @@ les comptes de verification sont factices, jamais les sessions personnelles.
 
 ## Limites Et Suite
 
-- Une arene en deux vues, six ballons cosmetiques, deux equipes fixes,
+- Deux arenes en deux vues, six ballons cosmetiques, trente personnages repartis
+  librement sur cinq postes par equipe,
   IA heuristique et match local seulement.
 - Pas de matchmaking, compte Astraball, classement, recompense ni reseau de jeu.
 - Sprites en deux orientations miroir, sans animation squelettique ni huit vues.

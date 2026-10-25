@@ -1,0 +1,18 @@
+{
+  "tool": "Built-in image_gen",
+  "date": "2026-10-25",
+  "arenas": [
+    {
+      "id": "horizontal",
+      "file": "rhinoz-horizontal-v1.png",
+      "reference": "../../assets/arena-horizontal-v1.webp",
+      "prompt": "Use case: stylized-concept. Asset: Kalistar Astraball playable arena background, 1536x1024 landscape. Reference is the existing arena for EXACT CAMERA, empty playing-field geometry and painterly HD-2D material quality only. Create a NEW Rhinoz village sports courtyard: broad hard-packed sandy earth, compact ochre sand with subtle foot scuffs, NOT dunes, NOT grass; rugged low sandstone spectator terraces, heavy timber rails, bronze fittings, restrained dark teal woven banners with abstract horn motifs. Carved rhinoceros-head stone reliefs outside the playing area evoke the Rhinoz people. Small terracotta and timber village buildings beyond, sparse green acacia trees and distant dry hills beneath a clear blue sky. Warm daylight, rich crisp narrative fantasy painting with fine pixel-like clusters; tactile, serious, inviting, no photorealism, no glossy 3D. Most of canvas is empty low-contrast sand, no objects on playing surface. NO people, balls, UI, text, watermark, grid, white lines, goals, circle, arena markings: the game engine will draw perfectly aligned white lines. All architecture remains strictly outside the playable area. Camera: straight horizontal orthographic RPG view looking slightly down, no converging trapezoid and no diamond. Match supplied reference rectangle exactly: left x=104, right x=1432, top y=356, bottom y=812 on a 1536x1024 canvas. Flat horizontal sidelines, vertical ends. Backdrop above y=340, foreground below y=830; boundaries have a narrow flush wooden or stone edge, no tall obstacles. Preserve big open rectangular field across full center. No sun beams or shadow stripes obscuring the sand."
+    },
+    {
+      "id": "isometric",
+      "file": "rhinoz-isometric-v1.png",
+      "reference": "../../assets/arena-v1.webp",
+      "prompt": "Use case: stylized-concept. Asset: Kalistar Astraball playable arena background, 1536x1024 landscape. Reference is the existing arena for EXACT CAMERA, empty playing-field geometry and painterly HD-2D material quality only. Create a NEW Rhinoz village sports courtyard: broad hard-packed sandy earth, compact ochre sand with subtle foot scuffs, NOT dunes, NOT grass; rugged low sandstone spectator terraces, heavy timber rails, bronze fittings, restrained dark teal woven banners with abstract horn motifs. Carved rhinoceros-head stone reliefs outside the playing area evoke the Rhinoz people. Small terracotta and timber village buildings beyond, sparse green acacia trees and distant dry hills beneath a clear blue sky. Warm daylight, rich crisp narrative fantasy painting with fine pixel-like clusters; tactile, serious, inviting, no photorealism, no glossy 3D. Most of canvas is empty low-contrast sand, no objects on playing surface. NO people, balls, UI, text, watermark, grid, white lines, goals, circle, arena markings: the game engine will draw perfectly aligned white lines. All architecture remains strictly outside the playable area. Camera: high oblique isometric view, match the reference playing parallelogram EXACTLY. On the 1536x1024 canvas the four corners of the empty sand surface are approximately (610,244), (1442,508), (835,902), (116,477). Expand sand gently beyond these points so the full logical court fits. Do not rotate or invert this diamond. Keep every playing point clear of architecture, trees or foreground objects. Background village and terraces outside this empty parallelogram, no tall border blocking the view."
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "tool": "Built-in image_gen",
+  "date": "2026-10-25",
+  "identityReference": "V3/assets/illustrations/21_NONE_LANIO.png",
+  "narrativeReference": "V4/site/story-content.json: arrival at Zarok",
+  "discarded": "v1 drafts too monumental and desert-like; retained as authoring sources, not published",
+  "arenas": [
+    {
+      "id": "horizontal",
+      "file": "rhinoz-horizontal-v2.png",
+      "reference": "../../assets/arena-horizontal-v1.webp",
+      "prompt": "Use case: stylized-concept. Asset: Kalistar Astraball arena, 1536x1024 landscape. Image 1 is the CANONICAL RHINOZ/ZAROK visual identity: Lanio playing in their village. Recreate the environment's humble rugged grey stone walls, massive irregular timber posts, rope fastenings, sturdy low fencing, slate roofs, warm amber lanterns, weathered leathery woven green and russet cloth. Village carved into the foothill rock, dark pines and distant mountain ridges. Materials rough, functional, hand-crafted, intimate and welcoming. The sand is firm packed sandy earth, a broad EMPTY flat court with subdued low-contrast granular scuffs, slightly darker earth than previous golden desert designs. Late afternoon into blue-hour, clear readable light across the ground, warm lamps against cooler stone and dark green mountains; readable sprites need open midtones. Match the narrative brush-painted material of Lanio, sophisticated HD-2D finish. Image 2 is ONLY exact camera/geometry reference, NOT architecture. NO monumental colonnades, no palace, no desert/oasis architecture, no palm/acacia trees, no excessive gold, no decorative animal masks, no emblems invented for Rhinoz. NO people, text, animals, ball, goals, white lines, grid, markings, UI. Game draws exact white markings. Keep all architecture entirely outside the playing court. A beautiful real place for the Rhinoz to play and live, not a grand tournament stadium. Horizontal orthographic RPG view slightly down. Empty sand rectangle x=104..1432,y=356..812 on1536x1024; perfectly horizontal top/bottom, vertical left/right, no converging trapezoid. Modest rough-stone houses, timber footbridges and low spectator steps entirely above y=340; low fence only below y=840. No object or lantern obstructs the rectangle. Maintain clear empty rectangle at exactly these coordinates."
+    },
+    {
+      "id": "isometric",
+      "file": "rhinoz-isometric-v2.png",
+      "reference": "../../assets/arena-v1.webp",
+      "prompt": "Use case: stylized-concept. Asset: Kalistar Astraball arena, 1536x1024 landscape. Image 1 is the CANONICAL RHINOZ/ZAROK visual identity: Lanio playing in their village. Recreate the environment's humble rugged grey stone walls, massive irregular timber posts, rope fastenings, sturdy low fencing, slate roofs, warm amber lanterns, weathered leathery woven green and russet cloth. Village carved into the foothill rock, dark pines and distant mountain ridges. Materials rough, functional, hand-crafted, intimate and welcoming. The sand is firm packed sandy earth, a broad EMPTY flat court with subdued low-contrast granular scuffs, slightly darker earth than previous golden desert designs. Late afternoon into blue-hour, clear readable light across the ground, warm lamps against cooler stone and dark green mountains; readable sprites need open midtones. Match the narrative brush-painted material of Lanio, sophisticated HD-2D finish. Image 2 is ONLY exact camera/geometry reference, NOT architecture. NO monumental colonnades, no palace, no desert/oasis architecture, no palm/acacia trees, no excessive gold, no decorative animal masks, no emblems invented for Rhinoz. NO people, text, animals, ball, goals, white lines, grid, markings, UI. Game draws exact white markings. Keep all architecture entirely outside the playing court. A beautiful real place for the Rhinoz to play and live, not a grand tournament stadium. High oblique orthographic/isometric composition. Empty sand quadrilateral coordinates on1536x1024: (610,244), (1442,508), (835,902), (116,477). Sand extends slightly beyond these four corners. Match image2 exact field alignment, do not invert or rotate diamond. Village and terraces outside. Low foreground fencing must not occlude playing cells."
+    }
+  ]
+}

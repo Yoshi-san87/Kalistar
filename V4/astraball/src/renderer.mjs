@@ -1,6 +1,6 @@
 import { Application, Container, Sprite, Graphics, Text, Assets, Texture, Rectangle } from '../assets/vendor/pixi-csp-sprites-v8.22.0.mjs';
 import { WIDTH, HEIGHT, createProjection, DEFENSE_ZONES } from './projection.mjs';
-import { BALLS, getBall, normalizeAppearance } from './appearance.mjs';
+import { BALLS, getBall, getArena, normalizeAppearance } from './appearance.mjs';
 import { SPRITES, SPRITE_CELL, SPRITE_FOOT, frameAt, spriteKey, facing } from './sprites.mjs';
 
 const colors=[0x68e6cd,0xf08d9f], roleCode={meneur:'MN',scoreur:'SC',middle:'MD',sentry:'ST',pilier:'PI'};
@@ -10,9 +10,10 @@ const text=(value,size=13,color=0xfff1ce)=>new Text({text:value,style:{fontFamil
 const smooth=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
 
 export class CourtRenderer {
-  constructor(host,{onCell,onUnit,onHover,appearance}) {
+  constructor(host,{onCell,onUnit,onHover,appearance,roster}) {
     this.host=host;this.onCell=onCell;this.onUnit=onUnit;this.onHover=onHover;
-    this.appearance=normalizeAppearance(appearance);this.camera=createProjection(this.appearance.view,this.appearance.height);
+    this.roster=roster;
+    this.appearance=normalizeAppearance(appearance);this.camera=createProjection(this.appearance.view,this.appearance.height,getArena(this.appearance.arena).ground);
     this.zoom=innerWidth<=760?1.7:1;this.pan={x:0,y:0};this.tokens=new Map();this.state=null;
     this.reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
     this.animating=false;this.idleEnabled=false;this.renderCount=0;this.frameChanges=0;this.poseCounts={};
@@ -31,18 +32,17 @@ export class CourtRenderer {
     this.scene=new Container();this.app.stage.addChild(this.scene);
     // Keep texture loading compatible with Kalistar's strict production CSP.
     Assets.setPreferences({preferWorkers:false});
-    const textures=await Assets.load(['assets/arena-v1.webp','assets/arena-horizontal-v1.webp',...BALLS.map(ball=>ball.url),...units.map(unit=>sprite(unit).url)]);
+    const arena=getArena(this.appearance.arena);
+    const textures=await Assets.load([arena.isometric,arena.horizontal,...BALLS.map(ball=>ball.url),...units.map(unit=>this.character(unit).url)]);
     this.textures=textures;
-    this.backdrop=new Sprite(textures['assets/arena-v1.webp']);this.backdrop.width=WIDTH;this.backdrop.height=HEIGHT;this.scene.addChild(this.backdrop);
+    this.backdrop=new Sprite(textures[arena.isometric]);this.backdrop.width=WIDTH;this.backdrop.height=HEIGHT;this.scene.addChild(this.backdrop);
     this.horizontalArt=new Container();this.scene.addChild(this.horizontalArt);
-    const source=textures['assets/arena-horizontal-v1.webp'].source;
-    this.artBands=[[0,356],[356,456],[812,212]].map(([y,height])=>{
-      const band=new Sprite(new Texture({source,frame:new Rectangle(0,y,WIDTH,height)}));band.y=y;this.horizontalArt.addChild(band);return band;
-    });
+    this.arenaBands=new Map();
+    this.updateArenaArt();
     this.floor=new Graphics();this.floorLabels=new Container();this.scene.addChild(this.floor,this.floorLabels);
     this.overlay=new Graphics();this.scene.addChild(this.overlay);
     this.unitLayer=new Container();this.unitLayer.sortableChildren=true;this.scene.addChild(this.unitLayer);
-    for(const unit of units)this.makeToken(unit,textures[sprite(unit).url]);
+    for(const unit of units)this.makeToken(unit,textures[this.character(unit).url]);
     this.ball=new Container();
     this.ball.addChild(new Graphics().ellipse(0,12,15,6).fill({color:0x081e23,alpha:.4}));
     this.ballGlow=new Graphics();this.ballImage=new Sprite();this.ballImage.anchor.set(.5);
@@ -51,15 +51,46 @@ export class CourtRenderer {
     this.resizeObserver=new ResizeObserver(()=>this.resize());this.resizeObserver.observe(this.host);
     this.setAppearance(this.appearance);this.bind();this.resize();
   }
+  character(unit){return this.roster?.forUnit(unit)||sprite(unit);}
+  async prepareAssets(appearance,units=[]){
+    const arena=getArena(appearance.arena),urls=[arena.isometric,arena.horizontal,...units.map(unit=>this.character(unit).url)];
+    const missing=[...new Set(urls)].filter(url=>!this.textures[url]);
+    if(missing.length)Object.assign(this.textures,await Assets.load(missing));
+  }
+  updateArenaArt(){
+    const arena=getArena(this.appearance.arena);
+    this.backdrop.texture=this.textures[arena.isometric];
+    if(!this.arenaBands.has(arena.id)){
+      const source=this.textures[arena.horizontal].source;
+      const [top,bottom]=arena.ground||[356,812];
+      this.arenaBands.set(arena.id,[[0,top],[top,bottom-top],[bottom,HEIGHT-bottom]].map(([y,height])=>{
+        const band=new Sprite(new Texture({source,frame:new Rectangle(0,y,WIDTH,height)}));band.y=y;this.horizontalArt.addChild(band);return band;
+      }));
+    }
+    for(const [id,bands] of this.arenaBands)for(const band of bands)band.visible=id===arena.id;
+    this.artBands=this.arenaBands.get(arena.id);
+  }
+  replaceUnits(units){
+    this.stopIdle();
+    for(const token of this.tokens.values()){
+      token.root.destroy({children:true});
+      for(const frame of token.frames)frame.destroy(false);
+    }
+    this.tokens.clear();this.lastActive=null;this.selectedId=null;
+    for(const unit of units)this.makeToken(unit,this.textures[this.character(unit).url]);
+  }
   setAppearance(value){
     if(this.animating)return false;
-    this.appearance=normalizeAppearance({...this.appearance,...value});
-    this.camera=createProjection(this.appearance.view,this.appearance.height);
+    const appearance=normalizeAppearance({...this.appearance,...value}),arena=getArena(appearance.arena);
+    if(!this.textures[arena.isometric]||!this.textures[arena.horizontal])return false;
+    this.appearance=appearance;this.updateArenaArt();
+    this.camera=createProjection(this.appearance.view,this.appearance.height,arena.ground);
     const horizontal=this.camera.mode==='horizontal';
     this.backdrop.visible=!horizontal;this.horizontalArt.visible=horizontal;
     this.drawFloor();this.setBall(this.appearance.ball);
-    if(this.state)this.sync(this.state);
-    this.layout();this.render();return true;
+    this.layout();
+    if(this.state){const selected=this.selectedId;this.sync(this.state);if(selected)this.setSelection(selected);}
+    this.render();return true;
   }
   setBall(id){
     const ball=getBall(id);this.appearance.ball=ball.id;
@@ -69,12 +100,15 @@ export class CourtRenderer {
     this.render();
   }
   drawFloor(){
-    const g=this.floor;g.clear();
+    const g=this.floor,arena=getArena(this.appearance.arena);g.clear();
+    this.floorScale=this.scale;
+    // Keep chalk readable when the whole pitch is zoomed out on a phone.
+    const chalk=width=>arena.whiteLines?Math.max(width,1.3/(this.scale||1)):width;
     for(const child of this.floorLabels.removeChildren())child.destroy();
     for(let y=0;y<7;y++)for(let x=0;x<13;x++){
       if((x===0||x===12)&&![2,3,4].includes(y))continue;
       const goal=x===0||x===12, defense=DEFENSE_ZONES.some(zone=>x>=zone.left&&x<zone.right);
-      g.poly(flat(this.camera.polygon(x,y))).fill({color:goal?colors[x===0?0:1]:defense?(x<6?0x103f3f:0x632b3a):0x183938,alpha:goal?.62:defense?.21:.09}).stroke({color:goal?0xffdc9a:0xd5dfbd,width:goal?2.5:1,alpha:goal?.9:.25});
+      g.poly(flat(this.camera.polygon(x,y))).fill({color:goal?colors[x===0?0:1]:defense?(x<6?0x103f3f:0x632b3a):0x183938,alpha:goal?.62:defense?(arena.whiteLines?.12:.21):arena.whiteLines?0:.09}).stroke({color:arena.whiteLines?0xffffff:goal?0xffdc9a:0xd5dfbd,width:goal?2.5:1,alpha:goal?.9:arena.whiteLines?.38:.25});
       if(goal){
         const p=this.camera.center(x,y),label=text('U'+(y-1),16);label.anchor.set(.5);label.position.set(p.x,p.y+4);this.floorLabels.addChild(label);
         const edge=x===0?x+.1:x+.9,a=this.camera.project(edge,y+.12),b=this.camera.project(edge,y+.88);
@@ -82,18 +116,18 @@ export class CourtRenderer {
       }
     }
     const bounds=[this.camera.project(1,0),this.camera.project(12,0),this.camera.project(12,7),this.camera.project(1,7)];
-    g.poly(flat(bounds)).stroke({width:2.5,color:0xe1c79b,alpha:.85});
+    g.poly(flat(bounds)).stroke({width:chalk(arena.whiteLines?3.5:2.5),color:arena.whiteLines?0xffffff:0xe1c79b,alpha:arena.whiteLines?1:.85});
     const a=this.camera.project(6.5,0),b=this.camera.project(6.5,7);
-    g.moveTo(a.x,a.y).lineTo(b.x,b.y).stroke({width:2,color:0xffe6ac,alpha:.65});
+    g.moveTo(a.x,a.y).lineTo(b.x,b.y).stroke({width:chalk(arena.whiteLines?3:2),color:arena.lines,alpha:arena.whiteLines?1:.65});
     for(const zone of DEFENSE_ZONES){
       const points=[this.camera.project(zone.left,0),this.camera.project(zone.right,0),this.camera.project(zone.right,7),this.camera.project(zone.left,7)];
-      g.poly(flat(points)).stroke({width:3,color:colors[zone.team],alpha:.8});
+      g.poly(flat(points)).stroke({width:chalk(3),color:arena.whiteLines?0xffffff:colors[zone.team],alpha:arena.whiteLines?1:.8});
     }
     const circle=Array.from({length:49},(_,i)=>this.camera.project(6.5+Math.cos(i*Math.PI/24)*.65,3.5+Math.sin(i*Math.PI/24)*.65));
-    g.poly(flat(circle)).stroke({width:2,color:0xffe6ac,alpha:.65});
+    g.poly(flat(circle)).stroke({width:chalk(arena.whiteLines?3:2),color:arena.lines,alpha:arena.whiteLines?1:.65});
   }
   makeToken(unit,texture){
-    const root=new Container(),body=new Container(),scale=sprite(unit).scale;
+    const root=new Container(),body=new Container(),scale=this.character(unit).scale;
     root.addChild(new Graphics().ellipse(0,4,28,10).fill({color:0x071819,alpha:.5}));
     const base=new Graphics().ellipse(0,1,30,10).fill({color:colors[unit.team],alpha:.14}).stroke({color:colors[unit.team],width:2,alpha:.85});root.addChild(base);
     const ring=new Graphics().ellipse(0,1,36,14).stroke({color:colors[unit.team],width:3}).poly([-5,19,0,24,5,19]).fill(colors[unit.team]);root.addChild(ring);ring.visible=false;
@@ -117,7 +151,7 @@ export class CourtRenderer {
     token.direction=facing(from,to,token.direction);token.image.scale.x=token.scale*token.direction;
   }
   spriteMetrics(){
-    return {count:this.tokens.size,frameChanges:this.frameChanges,poses:{...this.poseCounts},units:[...this.tokens].map(([id,t])=>({id,frame:t.frame,pose:t.pose,direction:t.direction,x:t.root.x,y:t.root.y,scale:t.scale}))};
+    return {count:this.tokens.size,selectedId:this.selectedId,frameChanges:this.frameChanges,poses:{...this.poseCounts},units:[...this.tokens].map(([id,t])=>({id,frame:t.frame,pose:t.pose,direction:t.direction,x:t.root.x,y:t.root.y,scale:t.scale}))};
   }
   resize(){
     if(!this.app)return;
@@ -127,18 +161,19 @@ export class CourtRenderer {
   layout(){
     const w=this.host.clientWidth,h=this.host.clientHeight;
     const horizontal=this.camera.mode==='horizontal';
-    this.viewCenter=horizontal?{x:768,y:584}:{x:780,y:560};
-    this.scale=Math.min(w/1510,h/(horizontal?456*this.camera.verticalScale+180:850))*this.zoom;
+    this.viewCenter=horizontal?{x:768,y:this.camera.centerY}:{x:780,y:560};
+    this.scale=Math.min(w/1510,h/(horizontal?(this.camera.bottom-this.camera.top)*this.camera.verticalScale+180:850))*this.zoom;
+    if(this.floor&&getArena(this.appearance.arena).whiteLines&&this.floorScale!==this.scale)this.drawFloor();
     if(horizontal){const margin=Math.max(0,(WIDTH*this.scale-w)/2);this.pan.x=Math.max(-margin,Math.min(margin,this.pan.x));}
     this.scene.scale.set(this.scale);this.scene.position.set(w/2-this.viewCenter.x*this.scale+this.pan.x,h/2-this.viewCenter.y*this.scale+this.pan.y);
     if(horizontal){
       // Compress only the playing plane. Keep the architecture upright and fill
       // the exposed sky/foreground instead of adding letterbox bars.
-      const top=this.camera.groundY(356),bottom=this.camera.groundY(812);
+      const top=this.camera.groundY(this.camera.top),bottom=this.camera.groundY(this.camera.bottom);
       const [sky,ground,front]=this.artBands;
-      sky.height=Math.max(356,top+this.scene.y/this.scale+2);sky.y=top-sky.height;
+      sky.height=Math.max(this.camera.top,top+this.scene.y/this.scale+2);sky.y=top-sky.height;
       ground.y=top;ground.height=bottom-top;
-      front.y=bottom;front.height=Math.max(212,(h-this.scene.y)/this.scale-bottom+2);
+      front.y=bottom;front.height=Math.max(HEIGHT-this.camera.bottom,(h-this.scene.y)/this.scale-bottom+2);
     }
   }
   zoomBy(amount){this.zoom=Math.max(.85,Math.min(2.2,this.zoom+amount));this.layout();this.render();}

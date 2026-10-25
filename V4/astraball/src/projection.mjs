@@ -18,12 +18,13 @@ export function contains(points, x, y) {
   return inside;
 }
 
-export function createProjection(view='isometric',height=60) {
+export function createProjection(view='isometric',height=60,ground=[356,812]) {
   const mode=VIEWS.includes(view)?view:'horizontal',level=cameraHeight(height);
+  const [top,bottom]=ground,centerY=(top+bottom)/2;
   const verticalScale=mode==='horizontal'?.64+level*.006:1;
-  const groundY=y=>584+(y-584)*verticalScale;
+  const groundY=y=>centerY+(y-centerY)*verticalScale;
   const corners=mode==='horizontal'
-    ?[[104,groundY(356)],[1432,groundY(356)],[1432,groundY(812)],[104,groundY(812)]]
+    ?[[104,groundY(top)],[1432,groundY(top)],[1432,groundY(bottom)],[104,groundY(bottom)]]
     :[[610,244],[1442,508],[835,902],[116,477]];
   function project(x,y) {
     const u=x/GRID_COLUMNS,v=y/GRID_ROWS;
@@ -37,7 +38,7 @@ export function createProjection(view='isometric',height=60) {
       if(contains(polygon(col,row),x,y))return {x:col,y:row};
     return null;
   }
-  return Object.freeze({mode,height:level,verticalScale,groundY,project,center,polygon,pick});
+  return Object.freeze({mode,height:level,verticalScale,groundY,top,bottom,centerY,project,center,polygon,pick});
 }
 // Preserve the original projection for older callers and saved-coordinate proofs.
 export const {project,center,polygon,pick}=createProjection('isometric');

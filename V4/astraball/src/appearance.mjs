@@ -9,6 +9,11 @@ export const BALLS=Object.freeze([
   {id:'league',name:'\u00c9dition Ligue',material:'Armature claire et \u00e9nergie bleue',color:0x85d7ff},
 ].map(ball=>Object.freeze({...ball,url:'assets/balls-v1/'+ball.id+'.webp'})));
 export const getBall=id=>BALLS.find(ball=>ball.id===id)||BALLS[0];
+export const ARENAS=Object.freeze([
+  {id:'resonances',name:'Cour des r\u00e9sonances',region:'Les hauts d\u2019Astralia',surface:'Pierre et mousse',horizontal:'assets/arena-horizontal-v1.webp',isometric:'assets/arena-v1.webp',lines:0xffe6ac,whiteLines:false},
+  {id:'rhinoz',name:'Terrain de Zarok',region:'Village Rhinoz',surface:'Sable compact \u00b7 lignes blanches',horizontal:'assets/rhinoz-horizontal-v2.webp',isometric:'assets/rhinoz-isometric-v2.webp',lines:0xffffff,whiteLines:true,ground:Object.freeze([310,775])},
+].map(arena=>Object.freeze(arena)));
+export const getArena=id=>ARENAS.find(arena=>arena.id===id)||ARENAS[0];
 export function normalizeAppearance(value={}) {
-  return {view:VIEWS.includes(value?.view)?value.view:'horizontal',height:cameraHeight(value?.height??60),ball:getBall(value?.ball).id};
+  return {view:VIEWS.includes(value?.view)?value.view:'horizontal',height:cameraHeight(value?.height??60),ball:getBall(value?.ball).id,arena:getArena(value?.arena).id};
 }
