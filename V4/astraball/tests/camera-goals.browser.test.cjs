@@ -219,8 +219,22 @@ async function fixedPlaneChecks(page, arena, baseline, report) {
   report.checks.push('pixel-fixed-plane-at-all-framing-heights', 'overview-height-0-and-100-keeps-pitch-headroom-and-goals');
 }
 
+async function clearCanvasPoint(page, preferred) {
+  return page.evaluate(point => {
+    const canvas = document.querySelector('#canvas-host canvas'), box = canvas.getBoundingClientRect();
+    const candidates = [point];
+    for (const x of [.3, .4, .5, .6, .7]) for (const y of [.35, .45, .55, .65]) candidates.push({ x: box.width * x, y: box.height * y });
+    candidates.sort((a, b) => Math.hypot(a.x - point.x, a.y - point.y) - Math.hypot(b.x - point.x, b.y - point.y));
+    const clear = candidates.find(p => document.elementFromPoint(box.x + p.x, box.y + p.y) === canvas);
+    if (!clear) throw Error('No unobstructed canvas point for camera gesture');
+    return clear;
+  }, preferred);
+}
+
 async function wheel(page, delta, point) {
   const box = await page.locator('#canvas-host canvas').boundingBox();
+  // Contextual controls move with the camera and can cover a former test point.
+  point = await clearCanvasPoint(page, point);
   await page.mouse.move(box.x + point.x, box.y + point.y);
   const before = await page.evaluate(() => window.__cameraTrace.wheels);
   await page.mouse.wheel(0, delta);
@@ -230,7 +244,8 @@ async function wheel(page, delta, point) {
 
 async function mouseDrag(page, dx, dy) {
   const box = await page.locator('#canvas-host canvas').boundingBox();
-  const x = box.x + box.width * 0.5, y = box.y + box.height * 0.55;
+  const point = await clearCanvasPoint(page, { x: box.width * 0.5, y: box.height * 0.55 });
+  const x = box.x + point.x, y = box.y + point.y;
   await page.mouse.move(x, y);
   await page.mouse.down();
   try {
