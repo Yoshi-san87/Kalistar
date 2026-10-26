@@ -58,7 +58,7 @@ async function main(){
         const next=structuredClone(afterGoal),plan=chooseTurn(next);for(const cmd of plan)apply(next,cmd);
         await page.evaluate(({key,state})=>localStorage.setItem(key,JSON.stringify(state)),{key:KEY,state:goal});
         await page.reload();await page.waitForFunction(()=>window.Astraball?.ready);
-        await page.locator('[data-mode="shoot"]').click();await page.getByRole('button',{name:'U '+(y-1),exact:true}).click();await page.locator('#confirm-action').click();
+        await page.locator('[data-mode="shoot"]').click();await page.locator('[data-goal-y="'+y+'"]').click();await page.locator('#confirm-action').click();
         await page.waitForFunction(()=>window.Astraball.snapshot().placement?.team===0&&!window.Astraball.metrics().aiRunning&&!window.Astraball.metrics().busy);
         assert.deepEqual(await page.evaluate(()=>window.Astraball.snapshot()),next,'goal replacement preserves turns and penalties');
         assert.notDeepEqual(formation(next,1),formation(opening,1));

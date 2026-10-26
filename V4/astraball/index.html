@@ -28,17 +28,19 @@
         <div id="canvas-host"></div>
         <div id="action-wheel" class="action-wheel" data-open="true" hidden>
           <svg class="wheel-lines" aria-hidden="true"><path class="wheel-link"/><path class="wheel-arc"/></svg>
-          <button id="action-toggle" class="wheel-toggle" aria-label="Actions du joueur" aria-controls="actions" aria-expanded="true"><img src="/jeu/assets/navigation/kalistel-rainbow-v2.webp" alt=""></button>
+          <button id="action-toggle" class="wheel-toggle" aria-label="Actions du joueur" aria-controls="actions target-options" aria-expanded="true"><img src="/jeu/assets/navigation/kalistel-rainbow-v2.webp" alt=""><i data-lucide="undo-2"></i></button>
           <div id="actions" role="group" aria-label="Actions du joueur actif">
-            <button class="wheel-action" data-mode="move" aria-label="Déplacer" title="Déplacer"><i data-lucide="footprints"></i><span>Déplacer</span></button>
-            <button class="wheel-action" data-mode="pass" aria-label="Passer" title="Passer"><i data-lucide="arrow-up-right"></i><span>Passer</span></button>
-            <button class="wheel-action" data-mode="shoot" aria-label="Tirer" title="Tirer"><i data-lucide="crosshair"></i><span>Tirer</span></button>
-            <button class="wheel-action" data-mode="charge" aria-label="Charger" title="Charger"><i data-lucide="swords"></i><span>Charger</span></button>
+            <button class="wheel-action" data-mode="move" aria-label="Déplacer" title="Déplacer"><i data-lucide="footprints"></i><span class="action-label">Déplacer</span></button>
+            <button class="wheel-action" data-mode="pass" aria-label="Passer" title="Passer"><i data-lucide="arrow-up-right"></i><span class="action-label">Passer</span></button>
+            <button class="wheel-action" data-mode="shoot" aria-label="Tirer" title="Tirer"><i data-lucide="crosshair"></i><span class="action-label">Tirer</span></button>
+            <button class="wheel-action" data-mode="charge" aria-label="Charger" title="Charger"><i data-lucide="swords"></i><span class="action-label">Charger</span></button>
           </div>
-          <button id="wait" class="wheel-action" aria-label="Terminer l’activation" title="Terminer l’activation"><i data-lucide="check"></i><span>Terminer l’activation</span></button>
+          <button id="wait" class="wheel-action" aria-label="Terminer l’activation" title="Terminer l’activation"><i data-lucide="check"></i><span class="action-label">Terminer l’activation</span></button>
+          <div id="target-options" role="group" aria-label="Cibles possibles" hidden></div>
+          <button id="confirm-action" class="wheel-action wheel-confirm" aria-label="Confirmer" title="Confirmer" hidden><i data-lucide="check"></i></button>
+          <span id="target-description" class="wheel-readout" role="status" hidden></span>
           <span class="wheel-tooltip" hidden></span>
         </div>
-        <div id="target-panel" class="target-panel" hidden><span id="target-description"></span><div id="target-options"></div><button id="confirm-action" class="primary" hidden></button><button id="cancel-target" class="icon" title="Revenir aux actions" aria-label="Revenir aux actions"><i data-lucide="undo-2"></i></button></div>
         <div class="venue"><span>LES HAUTS D’ASTRALIA</span><small>Cour des résonances</small></div>
         <div class="camera-controls">
           <div class="view-tools"><button class="icon" id="camera-toggle" title="Vue du terrain" aria-label="Vue du terrain" aria-expanded="false" aria-controls="camera-panel"><i data-lucide="camera"></i></button><button class="icon" id="zoom-out" title="Dézoomer" aria-label="Dézoomer"><i data-lucide="minus"></i></button><button class="icon" id="zoom-reset" title="Recentrer le terrain" aria-label="Recentrer le terrain"><i data-lucide="scan"></i></button><button class="icon" id="zoom-in" title="Zoomer" aria-label="Zoomer"><i data-lucide="plus"></i></button></div>
@@ -62,7 +64,7 @@
         <div class="match-journal"><h2><i data-lucide="scroll-text"></i> Fil du match <button class="icon" id="journal" title="Historique complet" aria-label="Historique complet"><i data-lucide="expand"></i></button></h2><ol id="recent-events"></ol></div>
       </aside>
     </div>
-    <footer class="statusbar"><span><b class="connection-dot"></b> <span id="mode-label">Exhibition · Solo</span></span><span id="save-status">Sauvegarde locale</span><span>Astraball <b>4.7.16</b></span></footer>
+    <footer class="statusbar"><span><b class="connection-dot"></b> <span id="mode-label">Exhibition · Solo</span></span><span id="save-status">Sauvegarde locale</span><span>Astraball <b>4.7.17</b></span></footer>
   </main>
   <dialog id="modal"><div class="dialog-heading"><h2 id="dialog-title"></h2><button class="icon" id="close-dialog" aria-label="Fermer" title="Fermer"><i data-lucide="x"></i></button></div><div id="dialog-content"></div></dialog>
   <script type="module" src="./src/app.mjs"></script>

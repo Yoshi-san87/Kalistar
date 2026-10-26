@@ -26,3 +26,14 @@ test('a centered wheel stays at the feet; collapsed launcher remains bounded abo
     assert.ok(result.origin.y>=86&&result.origin.y<=348);
   }
 });
+
+test('target submenus with zero to five entries stay bounded and separated',()=>{
+  for(const width of [240,360,412,645,1140])for(const height of [190,215,282,708])for(const count of [0,1,2,3,4,5]){
+    for(const point of [{x:-100,y:-100},{x:width/2,y:height/2},{x:width+100,y:height+100}]){
+      const layout=layoutWheel(point,{width,height},true,count),points=[layout.origin,...layout.items];
+      assert.equal(layout.items.length,count);
+      for(const p of points){assert.ok(p.x>=22&&p.x<=width-22);assert.ok(p.y>=22&&p.y<=height-22);}
+      for(let i=0;i<points.length;i++)for(let j=i+1;j<points.length;j++)assert.ok(Math.hypot(points[i].x-points[j].x,points[i].y-points[j].y)>=44);
+    }
+  }
+});

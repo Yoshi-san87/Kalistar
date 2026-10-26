@@ -324,6 +324,7 @@ export class CourtRenderer {
   placeBall(state){const p=this.camera.center(state.ball.x,state.ball.y),holder=this.tokens.get(state.ball.holderId);if(holder)this.followBall(holder);else this.ball.position.set(p.x,p.y-9);this.ball.visible=true;this.ballImage.rotation=0;}
   highlight(moves=[],preview=null,hover=null){
     const g=this.overlay;g.clear();
+    this.movementPreview=preview?.kind==='move'&&preview.legal?preview.cells.map(c=>({...c})):[];
     if(this.state?.phase==='placement'){
       const team=this.state.placement.team;
       const points=team===0?[[6,0],[12,0],[12,7],[6,7]]:[[1,0],[7,0],[7,7],[1,7]];
@@ -345,9 +346,20 @@ export class CourtRenderer {
     if(preview?.cells?.length){
       const color=preview.blockerId||!preview.legal?0xff718a:0xf8e4a0;
       for(const cell of preview.cells)g.poly(flat(this.camera.polygon(cell.x,cell.y))).fill({color,alpha:.18});
-      const a=this.camera.center(preview.from.x,preview.from.y),b=this.camera.center(preview.to.x,preview.to.y);
-      g.moveTo(a.x,a.y-15).lineTo(b.x,b.y-15).stroke({width:4,color,alpha:.9});
-      g.circle(b.x,b.y-15,9).stroke({color,width:2});
+      if(preview.kind==='move'){
+        const points=preview.cells.map(c=>this.camera.center(c.x,c.y)),scale=this.scale||1;
+        const line=()=>{g.moveTo(points[0].x,points[0].y);for(const p of points.slice(1))g.lineTo(p.x,p.y);};
+        line();g.stroke({width:6/scale,color:0x082326,alpha:.85});
+        line();g.stroke({width:2.5/scale,color:moveColor,alpha:1});
+        for(const p of points.slice(1,-1))g.circle(p.x,p.y,2.5/scale).fill({color:0xffffff,alpha:.9});
+        const a=points.at(-2),b=points.at(-1),angle=Math.atan2(b.y-a.y,b.x-a.x),size=8/scale;
+        g.poly([b.x+Math.cos(angle)*size,b.y+Math.sin(angle)*size,b.x+Math.cos(angle+2.5)*size,b.y+Math.sin(angle+2.5)*size,b.x+Math.cos(angle-2.5)*size,b.y+Math.sin(angle-2.5)*size]).fill({color:0xffffff});
+        g.poly(flat(this.camera.polygon(preview.to.x,preview.to.y))).stroke({color:moveColor,width:2/scale,alpha:1});
+      }else{
+        const a=this.camera.center(preview.from.x,preview.from.y),b=this.camera.center(preview.to.x,preview.to.y);
+        g.moveTo(a.x,a.y-15).lineTo(b.x,b.y-15).stroke({width:4,color,alpha:.9});
+        g.circle(b.x,b.y-15,9).stroke({color,width:2});
+      }
       if(preview.blockerId){const u=this.state.units.find(u=>u.id===preview.blockerId),p=this.camera.center(u.x,u.y);g.moveTo(p.x-13,p.y-28).lineTo(p.x+13,p.y-2).moveTo(p.x+13,p.y-28).lineTo(p.x-13,p.y-2).stroke({width:4,color:0xff718a});}
     }
     this.render();

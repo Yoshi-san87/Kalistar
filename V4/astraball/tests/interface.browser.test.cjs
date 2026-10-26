@@ -120,6 +120,8 @@ async function main(){
       await page.locator('[data-mode="move"]').click();
       const pos=await page.evaluate(p=>window.Astraball.cell(p.x,p.y),selected),bounds=await page.locator('#canvas-host').boundingBox();
       await page.mouse.click(bounds.x+pos.x,bounds.y+pos.y);
+      assert.deepEqual(await page.evaluate(()=>window.Astraball.snapshot()),initial,'move selection waits for confirmation');
+      await page.locator('#confirm-action').click();
       await page.waitForFunction(()=>window.Astraball.snapshot().moved);
       await page.waitForFunction(()=>!window.Astraball.metrics().busy);
       assert.equal((await page.evaluate(()=>window.Astraball.snapshot())).activeId,initial.activeId);
@@ -197,7 +199,7 @@ async function main(){
       await page.reload();await page.waitForFunction(()=>window.Astraball?.ready);
       await page.locator('[data-mode="shoot"]').click();
       assert.equal(await page.locator('#target-options [data-target="2"]').isDisabled(),true,'out-of-range shot stays unavailable');
-      await page.getByRole('button',{name:'U 1',exact:true}).click();
+      await page.getByRole('button',{name:'Viser à gauche',exact:true}).click();
       assert.equal(await page.locator('#target-description').textContent(),'Tir assuré · 2 points');
       await page.screenshot({path:path.join(OUT,name+'-guaranteed-shot.png')});
       await page.locator('#confirm-action').click();
@@ -216,7 +218,7 @@ async function main(){
     fixture.units.filter(u=>u.role==='sentry').forEach(u=>u.acted=true);fixture.activeId='t0-momo';
     Object.assign(core.getUnit(fixture,'t0-momo'),{x:4,y:3});Object.assign(core.getUnit(fixture,'t0-kaylis'),{x:8,y:3});Object.assign(core.getUnit(fixture,'t1-voloden'),{x:6,y:3});fixture.ball={holderId:'t0-momo',x:4,y:3};core.validateState(fixture);
     await page.evaluate(s=>localStorage.setItem('kalistar.astraball.match.v1',JSON.stringify(s)),fixture);await page.reload();await page.waitForFunction(()=>window.Astraball?.ready);
-    await page.locator('[data-mode="pass"]').click();await page.getByRole('button',{name:'Kaylis ×',exact:true}).click();
+    await page.locator('[data-mode="pass"]').click();await page.locator('[data-target-id="t0-kaylis"]').click();
     assert.match(await page.locator('#target-description').textContent(),/Interception certaine/);
     await page.screenshot({path:path.join(OUT,'interception-preview.png')});await page.locator('#confirm-action').click();await page.waitForFunction(()=>!window.Astraball.metrics().busy);
     assert.equal(await page.evaluate(()=>window.Astraball.snapshot().ball.holderId),'t1-voloden');
@@ -247,7 +249,7 @@ async function main(){
         const sample=await lookPage.evaluate(()=>window.Astraball.snapshot()),move=core.legalMoves(sample).find(m=>m.path.length===1);
         await lookPage.locator('[data-mode="move"]').click();
         const point=await lookPage.evaluate(p=>window.Astraball.cell(p.x,p.y),move),bounds=await lookPage.locator('#canvas-host').boundingBox();
-        await lookPage.mouse.click(bounds.x+point.x,bounds.y+point.y);await lookPage.waitForFunction(()=>window.Astraball.snapshot().moved&&!window.Astraball.metrics().busy);
+        await lookPage.mouse.click(bounds.x+point.x,bounds.y+point.y);await lookPage.locator('#confirm-action').click();await lookPage.waitForFunction(()=>window.Astraball.snapshot().moved&&!window.Astraball.metrics().busy);
         await lookPage.locator('#wait').click();await lookPage.waitForFunction(()=>!window.Astraball.metrics().busy);
       }
       await lookPage.reload();await lookPage.waitForFunction(()=>window.Astraball?.ready);
@@ -282,6 +284,7 @@ async function main(){
     const moveRendersBefore=await motion.evaluate(()=>window.Astraball.metrics().renders);
     await motion.evaluate(()=>{window.__spriteFrames=[];window.__spriteTimes=[];let last=performance.now();const until=last+1800;const sample=now=>{if(window.Astraball.metrics().busy){window.__spriteFrames.push(window.Astraball.metrics().sprites.units.filter(u=>u.pose==='run'));window.__spriteTimes.push(now-last);}last=now;if(now<until)requestAnimationFrame(sample);};requestAnimationFrame(sample);});
     await motion.mouse.click(courtBounds.x+movePoint.x,courtBounds.y+movePoint.y);
+    await motion.locator('#confirm-action').click();
     await motion.waitForFunction(()=>window.Astraball.metrics().sprites.units.some(u=>u.pose==='run'));
     await motion.screenshot({path:path.join(OUT,'running-sprites.png')});
     await motion.waitForFunction(()=>!window.Astraball.metrics().busy);
@@ -296,14 +299,14 @@ async function main(){
     reports.push({scenario:'looping 4Hz idle, modal/visibility pause and real four-frame running',idleRendersPer800ms:idleRenders,uniqueFrames:4,moveRenders,browserRafP95Ms:sorted[Math.floor(sorted.length*.95)]});
     const goal=createPlaying({seed:1,mode:'hotseat'});goal.units.filter(u=>['sentry','meneur'].includes(u.role)).forEach(u=>u.acted=true);goal.activeId='t0-kaylis';goal.score=[4,0];Object.assign(core.getUnit(goal,'t0-kaylis'),{x:9,y:0});goal.ball={holderId:'t0-kaylis',x:9,y:0};core.validateState(goal);
     await motion.evaluate(s=>localStorage.setItem('kalistar.astraball.match.v1',JSON.stringify(s)),goal);await motion.reload();await motion.waitForFunction(()=>window.Astraball?.ready);
-    await motion.locator('[data-mode="shoot"]').click();await motion.getByRole('button',{name:'U 1',exact:true}).click();await motion.locator('#confirm-action').click();
+    await motion.locator('[data-mode="shoot"]').click();await motion.getByRole('button',{name:'Viser à gauche',exact:true}).click();await motion.locator('#confirm-action').click();
     await motion.locator('#celebration').waitFor({state:'visible'});await motion.screenshot({path:path.join(OUT,'goal-animation.png')});
     const goalPoses=await motion.evaluate(()=>window.Astraball.metrics().sprites.poses);assert.ok(goalPoses.throw>0&&goalPoses.celebrate>=5);
     await motion.getByRole('heading',{name:'Fin de la rencontre'}).waitFor();assert.deepEqual(await motion.evaluate(()=>window.Astraball.snapshot().score),[6,0]);
     await motion.locator('#result-review').click();assert.equal(await motion.locator('#wait').isDisabled(),true);
     const rematch=structuredClone(goal);rematch.score=[0,0];
     await motion.evaluate(s=>localStorage.setItem('kalistar.astraball.match.v1',JSON.stringify(s)),rematch);await motion.reload();await motion.waitForFunction(()=>window.Astraball?.ready);
-    await motion.locator('[data-mode="shoot"]').click();await motion.getByRole('button',{name:'U 1',exact:true}).click();await motion.locator('#confirm-action').click();
+    await motion.locator('[data-mode="shoot"]').click();await motion.getByRole('button',{name:'Viser à gauche',exact:true}).click();await motion.locator('#confirm-action').click();
     await motion.waitForFunction(()=>!window.Astraball.metrics().busy&&window.Astraball.snapshot().phase==='placement');
     const replacement=await motion.evaluate(()=>window.Astraball.snapshot());assert.equal(replacement.placement.team,1);
     await motion.screenshot({path:path.join(OUT,'goal-replacement.png')});
@@ -329,6 +332,7 @@ async function main(){
     await phone.locator('[data-mode="move"]').click();
     const phonePoint=await phone.evaluate(p=>window.Astraball.cell(p.x,p.y),phoneMove),phoneBounds=await phone.locator('#canvas-host').boundingBox();
     await phone.touchscreen.tap(phoneBounds.x+phonePoint.x,phoneBounds.y+phonePoint.y);
+    await phone.locator('#confirm-action').click();
     await phone.waitForFunction(()=>window.Astraball.metrics().sprites.units.some(u=>u.pose==='run'));
     await phone.screenshot({path:path.join(OUT,'razr-running.png')});await phone.waitForFunction(()=>!window.Astraball.metrics().busy);
     assert.ok(await phone.evaluate(()=>window.Astraball.metrics().sprites.poses.run)>0);

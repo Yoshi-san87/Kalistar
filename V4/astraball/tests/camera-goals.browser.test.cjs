@@ -219,16 +219,18 @@ async function fixedPlaneChecks(page, arena, baseline, report) {
   report.checks.push('pixel-fixed-plane-at-all-framing-heights', 'overview-height-0-and-100-keeps-pitch-headroom-and-goals');
 }
 
-async function clearCanvasPoint(page, preferred) {
-  return page.evaluate(point => {
+async function clearCanvasPoint(page, preferred, offsets = [{ x: 0, y: 0 }]) {
+  return page.evaluate(({ point, offsets }) => {
     const canvas = document.querySelector('#canvas-host canvas'), box = canvas.getBoundingClientRect();
     const candidates = [point];
     for (const x of [.3, .4, .5, .6, .7]) for (const y of [.35, .45, .55, .65]) candidates.push({ x: box.width * x, y: box.height * y });
     candidates.sort((a, b) => Math.hypot(a.x - point.x, a.y - point.y) - Math.hypot(b.x - point.x, b.y - point.y));
-    const clear = candidates.find(p => document.elementFromPoint(box.x + p.x, box.y + p.y) === canvas);
+    // Leave room for native pointer rounding and the controls' painted borders.
+    const clear = candidates.find(p => offsets.every(offset => [-5, 0, 5].every(dx => [-5, 0, 5].every(dy =>
+      document.elementFromPoint(box.x + p.x + offset.x + dx, box.y + p.y + offset.y + dy) === canvas))));
     if (!clear) throw Error('No unobstructed canvas point for camera gesture');
     return clear;
-  }, preferred);
+  }, { point: preferred, offsets });
 }
 
 async function wheel(page, delta, point) {
@@ -307,7 +309,8 @@ async function touchChecks(page, context, core, report) {
     for (const remainingId of [1, 2]) {
       await reset(page);
       before = await activity(page); layout = await observe(page);
-      const center = { x: layout.rect.x + layout.width * 0.5, y: layout.rect.y + layout.height * 0.55 };
+      const clear = await clearCanvasPoint(page, { x: layout.width * 0.5, y: layout.height * 0.55 }, [{ x: -25, y: 0 }, { x: 25, y: 0 }]);
+      const center = { x: layout.rect.x + clear.x, y: layout.rect.y + clear.y };
       const pair = distance => [{ id: 1, x: center.x - distance, y: center.y }, { id: 2, x: center.x + distance, y: center.y }];
       await touch(session, 'touchStart', pair(25));
       await assertInput(page, 2, 'pinch');
@@ -345,6 +348,8 @@ async function touchChecks(page, context, core, report) {
     assert.deepEqual(trace.active, [], 'all native pointers released');
 
     await page.touchscreen.tap(cancelTarget.x, cancelTarget.y);
+    assert.deepEqual(await page.evaluate(() => Astraball.snapshot()), before.state, 'tap only prepares the move');
+    await page.locator('#confirm-action').click();
     await page.waitForFunction(() => Astraball.snapshot().moved && !Astraball.metrics().busy);
     const state = await page.evaluate(() => Astraball.snapshot()), actor = state.units.find(u => u.id === before.state.activeId);
     assert.deepEqual({ x: actor.x, y: actor.y }, { x: cancelTarget.cell.x, y: cancelTarget.cell.y }, 'ordinary tap still moves after pinch/cancel');
