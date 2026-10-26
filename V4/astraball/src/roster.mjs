@@ -2,6 +2,7 @@ import { TEAMS } from '../data/teams.mjs';
 import { SPRITES } from './sprites.mjs';
 import { createSpriteLibrary } from './sprite-library.mjs';
 import { getAthlete, canPlayPosition } from '../data/athletes.mjs';
+import { ATHLETE_CHOICES } from '../data/athlete-choices.mjs';
 
 export const POSITIONS=Object.freeze([
   {id:'meneur',name:'Meneur',icon:'route'},
@@ -20,18 +21,37 @@ export function createRoster(libraryData) {
   const extras=libraryData?createSpriteLibrary(libraryData).entries.filter(entry=>!originals.some(c=>c.url===entry.file&&c.characterId===entry.characterId)).map(entry=>Object.freeze({
     id:entry.id,name:entry.name,characterId:entry.characterId,url:entry.file,scale:entry.scale,calibration:entry.calibration,portrait:null,faction:entry.faction,
   })):[];
-  const entries=Object.freeze([...originals,...extras].filter(c=>getAthlete(c.characterId)).map(c=>Object.freeze({...c,athlete:getAthlete(c.characterId)})));
+  const entries=Object.freeze([...originals,...extras].filter(c=>getAthlete(c.characterId)&&ATHLETE_CHOICES[c.characterId]).map(c=>Object.freeze({...c,athlete:getAthlete(c.characterId)})));
   const byId=new Map(entries.map(entry=>[entry.id,entry]));
-  const defaults=()=>[
-    {meneur:'momo',scoreur:'kaylis',middle:'taulio',sentry:'cana',pilier:'balmhyr'},
-    {meneur:'voloden',scoreur:'lok',middle:'valazar',sentry:'iliane',pilier:'darnako'},
+  const preferred=[
+    {meneur:'momo',scoreur:'lanio',middle:'bex-kalistar',sentry:'kaylis',pilier:'taulio'},
+    {meneur:'ombrine-kalistar',scoreur:'nereth-kalistar',middle:'varkhen-kalistar',sentry:'voloden',pilier:'lok'},
   ];
+  const defaults=()=>preferred.map(team=>{
+    const used=new Set();
+    return Object.fromEntries(POSITIONS.map(p=>{
+      const allowed=c=>canPlayPosition(c.athlete,p.id)&&!used.has(c.characterId);
+      const c=entries.find(c=>c.characterId===team[p.id]&&allowed(c))||entries.find(allowed);
+      if(!c)throw Error('Incomplete athlete catalogue: '+p.id);
+      used.add(c.characterId);return [p.id,c.id];
+    }));
+  });
   function normalize(value) {
     return defaults().map((fallback,team)=>{
       const proposed=value?.[team];
-      if(!proposed||POSITIONS.some(p=>!canPlayPosition(byId.get(proposed[p.id])?.athlete,p.id)))return fallback;
-      const identities=POSITIONS.map(p=>byId.get(proposed[p.id]).characterId);
-      return new Set(identities).size===5?Object.fromEntries(POSITIONS.map(p=>[p.id,proposed[p.id]])):fallback;
+      if(!proposed||typeof proposed!=='object'||Array.isArray(proposed))return fallback;
+      const result={},used=new Set();
+      const assign=(role,c)=>{result[role]=c.id;used.add(c.characterId);};
+      // Repair only the next-match draft; keep already-compatible choices first.
+      for(const p of POSITIONS){
+        const c=byId.get(proposed[p.id]);
+        if(c&&canPlayPosition(c.athlete,p.id)&&!used.has(c.characterId))assign(p.id,c);
+      }
+      for(const p of POSITIONS){
+        const c=byId.get(proposed[p.id]);
+        if(c&&!result[c.athlete.position]&&!used.has(c.characterId))assign(c.athlete.position,c);
+      }
+      return Object.fromEntries(POSITIONS.map(p=>[p.id,result[p.id]||fallback[p.id]]));
     });
   }
   function fromUnits(units) {
@@ -48,10 +68,7 @@ export function createRoster(libraryData) {
     const result=normalize(value),character=byId.get(id);
     if(![0,1].includes(team)||!canPlayPosition(character?.athlete,role))throw Error('Invalid lineup choice');
     const other=POSITIONS.find(p=>p.id!==role&&byId.get(result[team][p.id]).characterId===character.characterId);
-    if(other){
-      if(!canPlayPosition(byId.get(result[team][role]).athlete,other.id))throw Error('Incompatible position swap');
-      result[team][other.id]=result[team][role];
-    }
+    if(other)throw Error('Duplicate character identity');
     result[team][role]=id;return result;
   }
   function canSelect(value,team,role,id){try{select(value,team,role,id);return true;}catch{return false;}}
@@ -72,5 +89,5 @@ export function createRoster(libraryData) {
     return Object.fromEntries(POSITIONS.map(p=>[p.id,picked[p.id]]));
   }
   return Object.freeze({entries,get:id=>byId.get(id)||null,defaults,normalize,fromUnits,teams,select,canSelect,shuffle,
-    forUnit:unit=>byId.get(unit.character||unit.id.slice(3))||byId.get(defaults()[unit.team]?.[unit.role])||null});
+    forUnit:unit=>byId.get(unit.character)||byId.get(unit.id.slice(3))||byId.get(TEAMS[unit.team]?.players.find(p=>p.role===unit.role)?.id.slice(3))||null});
 }

@@ -3,6 +3,7 @@ module.exports=async function lockerCases({browser,url,OUT,sharp}){
   const {createRoster}=await import('../src/roster.mjs');
   const {canPlayPosition}=await import('../data/athletes.mjs');
   const roster=createRoster(require('../data/sprite-library.json'));
+  const byCharacter=id=>{const c=roster.entries.find(c=>c.characterId===id);assert.ok(c,id);return c;};
   const reports=[];
   for(const [name,width,height] of [['desktop',1440,900],['wide',1920,1080],['razr',412,915],['compact',360,800],['landscape',915,412]]){
     const context=await browser.newContext({viewport:{width,height},isMobile:width<761,hasTouch:width<761,reducedMotion:'reduce'});
@@ -14,6 +15,7 @@ module.exports=async function lockerCases({browser,url,OUT,sharp}){
     assert.equal(await page.locator('.character-choice').count(),Math.min(30,eligible.length));
     if(eligible.length>30){await page.locator('#roster-next').click();assert.match(await page.locator('#roster-page').innerText(),/^2 \/ /);await page.locator('#roster-prev').click();}
     assert.equal(await page.locator('.athlete-ratings meter').count(),6);
+    assert.match(await page.locator('[data-position="meneur"]').innerText(),/Momo/);
     assert.match(await page.locator('.athlete-measures').innerText(),/95 cm/);
     await page.locator('#locker-tab-teams').focus();await page.keyboard.press('ArrowRight');
     assert.equal(await page.locator('#locker-tab-ball').getAttribute('aria-selected'),'true');
@@ -27,13 +29,22 @@ module.exports=async function lockerCases({browser,url,OUT,sharp}){
     assert.equal(await page.locator('#modal').evaluate(el=>el.scrollWidth>el.clientWidth),false);
     const initial=await page.evaluate(()=>JSON.stringify(window.Astraball.snapshot()));
     await page.locator('#character-search').fill('RIKO');
+    assert.equal(await page.locator('#roster-empty').isVisible(),true,'RIKO is no longer a meneur');
+    await page.locator('[data-position="middle"]').click();
     await page.getByRole('button',{name:'RIKO',exact:true}).click();
-    await page.locator('#character-search').fill('');
+    await page.locator('#character-search').fill('NELL');
+    await page.locator('[data-position="meneur"]').click();
+    await page.getByRole('button',{name:'NELL',exact:true}).click();
+    await page.locator('#character-search').fill('Momo');
     await page.locator('[data-position="sentry"]').click();
-    await page.getByRole('button',{name:'Momo',exact:true}).click();
-    assert.match(await page.locator('[data-position="meneur"]').innerText(),/RIKO/);
+    assert.equal(await page.locator('#roster-empty').isVisible(),true,'Momo cannot be selected as sentry');
+    await page.locator('#character-search').fill('Cana');
+    await page.getByRole('button',{name:'Cana',exact:true}).click();
+    assert.match(await page.locator('[data-position="meneur"]').innerText(),/NELL/);
+    assert.match(await page.locator('[data-position="middle"]').innerText(),/RIKO/);
     await page.locator('[data-team="1"]').click();
-    await page.locator('[data-position="pilier"]').click();
+    const ithrek=byCharacter('ithrek-kalistar');
+    await page.locator('[data-position="'+ithrek.athlete.position+'"]').click();
     await page.locator('#character-search').fill('ITHREK');
     await page.getByRole('button',{name:'ITHREK',exact:true}).click();
     await page.locator('#character-search').fill('not-a-character');
@@ -50,11 +61,17 @@ module.exports=async function lockerCases({browser,url,OUT,sharp}){
     assert.equal(await page.evaluate(()=>JSON.stringify(window.Astraball.snapshot())),initial,'draft does not alter the match');
     await page.locator('#new-match').click();await page.waitForFunction(()=>!document.querySelector('#modal').open);
     const selected=await page.evaluate(()=>window.Astraball.snapshot());
-    assert.equal(selected.units.find(u=>u.team===0&&u.role==='meneur').name,'RIKO');
-    assert.equal(selected.units.find(u=>u.team===0&&u.role==='sentry').name,'Momo');
-    assert.equal(selected.units.find(u=>u.team===1&&u.role==='pilier').name,'ITHREK');
-    assert.equal(selected.units.find(u=>u.team===0&&u.role==='sentry').stats.PAS,9);
-    assert.equal(selected.units.find(u=>u.team===0&&u.role==='sentry').athlete.id,'momo');
+    assert.equal(selected.units.find(u=>u.team===0&&u.role==='meneur').name,'NELL');
+    assert.equal(selected.units.find(u=>u.team===0&&u.role==='middle').name,'RIKO');
+    assert.equal(selected.units.find(u=>u.team===0&&u.role==='sentry').name,'Cana');
+    assert.equal(selected.units.find(u=>u.team===1&&u.role===ithrek.athlete.position).name,'ITHREK');
+    assert.equal(selected.units.find(u=>u.team===0&&u.role==='meneur').stats.PAS,9);
+    assert.equal(selected.units.find(u=>u.team===0&&u.role==='sentry').stats.PAS,8);
+    for(const [team,id] of [[0,'nell-kalistar'],[0,'riko-kalistar'],[0,'cana'],[1,'ithrek-kalistar']]){
+      const c=byCharacter(id),unit=selected.units.find(u=>u.team===team&&u.role===c.athlete.position);
+      assert.equal(unit.character,c.id);assert.deepEqual(unit.stats,c.athlete.stats);
+      assert.deepEqual(unit.athlete,{id,version:2,position:c.athlete.position});
+    }
     assert.equal(selected.phase,'placement');
     assert.equal(await page.evaluate(()=>window.Astraball.metrics().appearance.arena),'rhinoz');
     assert.equal(await page.evaluate(()=>window.Astraball.metrics().arenaLines),0xffffff);
@@ -92,19 +109,17 @@ module.exports=async function lockerCases({browser,url,OUT,sharp}){
     assert.equal(await page.evaluate(()=>document.documentElement.scrollHeight>innerHeight||document.documentElement.scrollWidth>innerWidth),false);
     assert.deepEqual(errors,[]);reports.push({name,customTeams:true,whiteLines:true,saveReload:true,errors});await context.close();
   }
-  // Every extra appearance can start, replace the prior tokens and reload.
+  // Every available appearance can start, replace the prior tokens and reload.
   const context=await browser.newContext({viewport:{width:1440,height:900},reducedMotion:'reduce'}),page=await context.newPage();
+  const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  page.on('response',r=>{if(r.status()>=400)errors.push(r.status()+' '+r.url());});
   await page.goto(url);await page.waitForFunction(()=>window.Astraball?.ready);
   const characters=roster.entries,ids=characters.map(c=>c.id);
+  assert.equal(ids.length,269);assert.equal(new Set(ids).size,269);
   for(const id of ids){
     if(!await page.locator('#modal').isVisible())await page.locator('#settings').click();
     await page.locator('#reset-team').click();
-    const c=roster.get(id),role=c.athlete.primary,defaults=roster.defaults();
-    const other=Object.keys(defaults[0]).find(r=>r!==role&&roster.get(defaults[0][r]).characterId===c.characterId);
-    if(other){
-      const replacement=characters.find(e=>e.characterId!==c.characterId&&roster.canSelect(defaults,0,other,e.id)&&!Object.values(defaults[0]).includes(e.id));
-      await page.locator('[data-position="'+other+'"]').click();await page.locator('#character-search').fill(replacement.name);await page.locator('[data-character="'+replacement.id+'"]').click();
-    }
+    const c=roster.get(id),role=c.athlete.position;
     await page.locator('[data-position="'+role+'"]').click();
     await page.locator('#character-search').fill(c.name);
     await page.locator('[data-character="'+id+'"]').click();await page.locator('#new-match').click();
@@ -112,10 +127,16 @@ module.exports=async function lockerCases({browser,url,OUT,sharp}){
     assert.equal(await page.evaluate(()=>window.Astraball.metrics().sprites.count),10);
     assert.equal(await page.evaluate(role=>window.Astraball.snapshot().units.find(u=>u.team===0&&u.role===role).character,role),id);
     assert.deepEqual(await page.evaluate(role=>window.Astraball.snapshot().units.find(u=>u.team===0&&u.role===role).stats,role),c.athlete.stats);
+    assert.deepEqual(await page.evaluate(role=>window.Astraball.snapshot().units.find(u=>u.team===0&&u.role===role).athlete,role),{id:c.characterId,version:2,position:role});
+    const saved=await page.evaluate(()=>JSON.stringify(window.Astraball.snapshot()));
+    await page.reload();await page.waitForFunction(()=>window.Astraball?.ready);
+    assert.equal(await page.evaluate(()=>JSON.stringify(window.Astraball.snapshot())),saved,'full snapshot reload: '+c.characterId);
+    assert.equal(await page.evaluate(()=>window.Astraball.metrics().sprites.count),10);
   }
   const before=await page.evaluate(()=>JSON.stringify(window.Astraball.snapshot()));
   await page.locator('#settings').click();await page.locator('#shuffle-team').click();await page.locator('#close-dialog').click();
   assert.equal(await page.evaluate(()=>JSON.stringify(window.Astraball.snapshot())),before,'cancel discards lineup changes');
+  assert.deepEqual(errors,[]);
   await context.close();
   const offline=await browser.newContext({viewport:{width:1440,height:900},reducedMotion:'reduce'}),retry=await offline.newPage();
   await retry.goto(url);await retry.waitForFunction(()=>window.Astraball?.ready);
@@ -134,5 +155,42 @@ module.exports=async function lockerCases({browser,url,OUT,sharp}){
   await retry.waitForFunction(()=>!document.querySelector('#modal').open);
   assert.equal(await retry.evaluate(()=>window.Astraball.metrics().appearance.arena),'rhinoz');
   await offline.close();
-  fs.writeFileSync(path.join(OUT,'locker-results.json'),JSON.stringify({reports,charactersStarted:ids.length},null,2));
+  const core=await import('../src/core/game.mjs');
+  const legacy=core.createMatch({mode:'hotseat',seed:871});
+  const kaylis=legacy.units.find(u=>u.id==='t0-kaylis');
+  kaylis.athlete={id:'kaylis',version:1,primary:'scoreur',secondary:'sentry'};
+  kaylis.stats={VIT:9,MOB:3,FOR:3,PAS:5,TIR:9,DEF:6};
+  while(legacy.phase==='placement')assert.equal(core.applyCommand(legacy,{type:'ready',team:legacy.placement.team}).ok,true);
+  core.validateState(legacy);
+  const legacyContext=await browser.newContext({viewport:{width:412,height:915},isMobile:true,hasTouch:true,reducedMotion:'reduce'});
+  await legacyContext.addInitScript(state=>localStorage.setItem('kalistar.astraball.match.v1',JSON.stringify(state)),legacy);
+  const old=await legacyContext.newPage();
+  await old.goto(url);await old.waitForFunction(()=>window.Astraball?.ready);
+  assert.deepEqual(await old.evaluate(()=>window.Astraball.snapshot()),legacy);
+  await old.locator('[data-unit="t0-kaylis"]').click();
+  assert.match(await old.locator('#dialog-content .player-identity').innerText(),/Scoreur/);
+  assert.doesNotMatch(await old.locator('#dialog-content').innerText(),/secondaire|undefined/);
+  await old.locator('#close-dialog').click();await old.locator('#settings').click();
+  await old.locator('#apply-options').click();await old.waitForFunction(()=>!document.querySelector('#modal').open);
+  assert.deepEqual(await old.evaluate(()=>window.Astraball.snapshot()),legacy,'resuming must not replace legacy ratings');
+  await old.locator('#wait').click();await old.waitForFunction(()=>!window.Astraball.metrics().busy);
+  assert.deepEqual((await old.evaluate(()=>window.Astraball.snapshot())).units.find(u=>u.id==='t0-kaylis').athlete,kaylis.athlete);
+  await legacyContext.close();
+  const unavailable=await browser.newContext({viewport:{width:1440,height:900},reducedMotion:'reduce'});
+  await unavailable.addInitScript(state=>{
+    localStorage.setItem('kalistar.astraball.match.v1',JSON.stringify(state));
+    localStorage.setItem('kalistar.astraball.options.v1',JSON.stringify({mode:'hotseat',motion:false}));
+  },legacy);
+  const failed=await unavailable.newPage();
+  await failed.route('**/data/sprite-library.json',route=>route.abort());
+  await failed.goto(url);await failed.locator('#boot button').waitFor();
+  assert.match(await failed.locator('#boot').innerText(),/catalogue/);
+  assert.equal(await failed.evaluate(()=>!!window.Astraball?.ready),false);
+  assert.deepEqual(await failed.evaluate(()=>JSON.parse(localStorage.getItem('kalistar.astraball.match.v1'))),legacy);
+  assert.deepEqual(await failed.evaluate(()=>JSON.parse(localStorage.getItem('kalistar.astraball.options.v1'))),{mode:'hotseat',motion:false});
+  await failed.unroute('**/data/sprite-library.json');await failed.locator('#boot button').click();
+  await failed.waitForFunction(()=>window.Astraball?.ready);
+  assert.deepEqual(await failed.evaluate(()=>window.Astraball.snapshot()),legacy);
+  await unavailable.close();
+  fs.writeFileSync(path.join(OUT,'locker-results.json'),JSON.stringify({reports,charactersStarted:ids.length,legacyResume:true,catalogueRetryPreservesSave:true},null,2));
 };

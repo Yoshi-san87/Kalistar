@@ -91,7 +91,7 @@ export function renderLocker({host,roster,options,lineups,initial,icons,onSubmit
     $('#roster-page').textContent=(page+1)+' / '+pages+' \u00b7 '+rows.length+' personnages';
     $('#character-grid').innerHTML=rows.slice(page*pageSize,(page+1)*pageSize).map(c=>{
       const assigned=POSITIONS.find(p=>roster.get(draft.lineups[team][p.id]).characterId===c.characterId);
-      const allowed=roster.canSelect(draft.lineups,team,role,c.id),position=POSITIONS.find(p=>p.id===c.athlete.primary);
+      const allowed=roster.canSelect(draft.lineups,team,role,c.id),position=POSITIONS.find(p=>p.id===c.athlete.position);
       return '<button class="character-choice" data-character="'+esc(c.id)+'" aria-label="'+esc(c.name)+'" aria-pressed="'+(draft.lineups[team][role]===c.id)+'" '+(allowed?'':'disabled ')+'title="'+esc(c.name+' \u00b7 '+c.faction+(allowed?'': ' \u00b7 Lib\u00e8re d\u2019abord son poste de '+assigned?.name))+'">'+spriteBadge(c)+'<b>'+esc(c.name)+'</b><small>'+esc(position.name)+'</small>'+(assigned?icon(assigned.icon):'')+'</button>';
     }).join('');$('#roster-empty').hidden=rows.length!==0;
     for(const button of host.querySelectorAll('[data-character]'))button.onclick=()=>{draft.lineups=roster.select(draft.lineups,team,role,button.dataset.character);lineup();characters();$('#position-stats').scrollIntoView({block:'nearest'});};icons();

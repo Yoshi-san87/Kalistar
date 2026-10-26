@@ -7,9 +7,12 @@ les Fragments ou les combats du jeu de cartes.
 
 La [bibliotheque de sprites](SPRITES.md) fournit le catalogue jouable : galerie
 animee a `/jeu/astraball/library.html`, 16 poses par personnage, identifiants
-stables des cartes. Les profils sportifs couvrent les 368 identites examinees ;
-le vestiaire ne propose que celles dont le sprite a ete valide et ajoute au catalogue,
-sans modifier les droits de collection.
+stables des cartes. Les profils sportifs v2 couvrent les 368 identites examinees,
+avec un seul poste par personnage. Les 269 choix auteur ont recu une confirmation
+explicite finale ; les 99 profils sans sprite gardent leur ancien principal
+comme poste unique provisoire et leurs notes inchangees. Le vestiaire ne propose
+que les personnages dont le profil auteur et le sprite sont valides, sans
+modifier les droits de collection. Voir la [provenance des choix](ATHLETES.md#choix-confirmes).
 
 ## Jouer
 
@@ -33,11 +36,10 @@ Le clone Git volontairement leger ne contient pas les peintures.
 Le premier match ouvre un vestiaire en trois onglets : Equipes, Balle et Arene.
 Choisir les cinq postes de chaque camp parmi les personnages disponibles, avec recherche,
 composition aleatoire et retour aux equipes initiales. Une identite ne peut
-occuper deux postes du meme camp. Chaque personnage a des statistiques propres,
-un poste principal et un secondaire, sans penalite cachee au second poste.
-La liste filtre les postes compatibles ; un echange n'est possible que si les
-deux joueurs peuvent occuper leurs nouvelles places. La composition aleatoire
-respecte aussi ces contraintes. Taille et masse sont descriptives : estimations
+occuper deux postes du meme camp. Chaque personnage a des statistiques propres
+et un poste unique. La liste filtre ce poste exact ; aucun echange entre deux
+postes differents n'est possible. La composition aleatoire respecte aussi ces
+contraintes. Taille et masse sont descriptives : estimations
 visuelles explicites pour Kalistar, references ou valeurs non renseignees pour
 les collaborations. Les fiches donnent acces aux sources disponibles.
 Six ballons et 21 arenes sont disponibles : neuf lieux en variantes street et
@@ -133,15 +135,25 @@ Les rencontres deja sauvegardees conservent leurs valeurs, meme apres une
 revision de profil. La garantie des tirs libres s'applique aux prochaines actions,
 y compris apres une reprise : scores, positions, initiative, RNG, profils et
 ancien historique (y compris les tirs rates) ne sont pas reecrits. Aucun reset
-de sauvegarde ni migration Supabase. Les nouvelles equipes initiales placent Darnako en Pilier
-et Valazar en Middle pour respecter leurs deux postes autorises.
+de sauvegarde ni migration Supabase. Les snapshots d'athlete v2 conservent
+`{id, version, position}` ; les anciens v1 `{id, version, primary, secondary}`
+restent restaurables sans recalcul ni conversion depuis le catalogue courant.
+Cette version des profils ne change pas le schema global des sauvegardes.
+
+Les nouvelles equipes initiales suivent l'ordre Meneur, Scoreur, Middle,
+Sentry, Pilier : Chroma = `momo`, `lanio`, `bex-kalistar`, `kaylis`, `taulio` ;
+Obsidienne = `ombrine-kalistar`, `nereth-kalistar`, `varkhen-kalistar`, `voloden`,
+`lok`. `roster.defaults()` les resout depuis le catalogue de sprites complet.
+`createRoster(null)` ne peut pas composer une nouvelle equipe complete ; les
+`TEAMS` historiques restent reserves aux scenarios et tests legacy.
 
 ## Architecture
 
 | Fichier | Responsabilite |
 | --- | --- |
 | `data/teams.mjs` | Equipes, formation et profils historiques des scenarios |
-| `data/athlete-definitions.mjs`, `data/athletes.mjs` | Affectations explicites et profils sportifs versionnes |
+| `data/athlete-definitions.mjs`, `data/athletes.mjs` | Definitions historiques et profils sportifs v2 a poste unique |
+| `data/athlete-choices.mjs` | 269 choix auteur geles `{position, stats}` et provenance avec empreintes |
 | `data/collaboration-measurements.mjs` | Mensurations documentees, continuite et sources |
 | `src/athlete-view.mjs` | Fiches sportives, mensurations et references |
 | `src/core/geometry.mjs` | Cases, limites, trajectoires supercover |
@@ -271,6 +283,12 @@ node V4/astraball/tests/interface.browser.test.cjs
 ```
 
 Le rapport de simulation est confine au `work/astraball/` du depot.
+L'audit des athletes couvre les 368 profils a leur poste unique dans les deux
+camps, les equipes initiales sur 100 graines dans chaque sens et 50 relectures
+deterministes. Il charge `data/sprite-library.json` pour les equipes initiales
+et consigne notamment les empreintes de ce catalogue et de
+`data/athlete-choices.mjs`. Son rapport, `work/astraball/profiles/simulation.json`,
+reste un diagnostic moteur/IA, pas une certification d'equilibre.
 Les tests navigateur utilisent Chrome et Playwright du poste, un profil jetable,
 et `KALISTAR_URL` si le port differe. Ils couvrent PC, grand ecran, Razr, compact,
 paysage, sauvegarde/reload, interception visible, charge animee et but a 2 points.
@@ -280,7 +298,7 @@ les comptes de verification sont factices, jamais les sessions personnelles.
 ## Limites Et Suite
 
 - 19 arenes pixel HD-2D et deux classiques en deux vues, six ballons cosmetiques, catalogue de personnages
-  assignes a deux postes possibles et cinq postes distincts par equipe,
+  assignes a un poste unique et cinq postes distincts par equipe,
   IA heuristique et match local seulement.
 - Pas de matchmaking, compte Astraball, classement, recompense ni reseau de jeu.
 - Sprites en deux orientations miroir, sans animation squelettique ni huit vues.

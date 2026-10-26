@@ -7,17 +7,22 @@ const MEDIA=process.env.KALISTAR_DIST?path.join(process.env.KALISTAR_DIST,'jeu/a
 const fixture=`
 import {CourtRenderer} from '/src/renderer.mjs';
 import {createRoster} from '/src/roster.mjs';
-import {createMatch} from '/src/core/game.mjs';
+import {createMatch,applyCommand,validateState} from '/src/core/game.mjs';
 const roster=createRoster(await(await fetch('/data/sprite-library.json')).json());
-const byCharacter=id=>roster.entries.find(c=>c.characterId===id).id;
+const byCharacter=id=>roster.entries.find(c=>c.characterId===id);
 let selection=roster.defaults();
-for(const [role,id] of [['meneur','tony-tony-chopper-op'],['scoreur','monkey-d-luffy-op'],['middle','barret-ff7'],['pilier','simone-nier']])selection=roster.select(selection,0,role,byCharacter(id));
-const state=createMatch({mode:'hotseat',teams:roster.teams(selection)});
-for(const [role,x] of [['pilier',1],['middle',3],['meneur',4],['scoreur',5]]){
-  Object.assign(state.units.find(u=>u.team===0&&u.role===role),{x,y:3});
+for(const [team,id] of [[0,'tony-tony-chopper-op'],[0,'monkey-d-luffy-op'],[0,'barret-ff7'],[1,'simone-nier']]){
+  const c=byCharacter(id);selection=roster.select(selection,team,c.athlete.position,c.id);
 }
-const holder=state.units.find(u=>u.team===0&&u.role==='meneur');
+const state=createMatch({mode:'hotseat',teams:roster.teams(selection)});
+while(state.phase==='placement')if(!applyCommand(state,{type:'ready',team:state.placement.team}).ok)throw Error('Fixture formation');
+for(const [team,id,x] of [[0,'barret-ff7',3],[0,'tony-tony-chopper-op',4],[0,'monkey-d-luffy-op',5],[1,'simone-nier',9]]){
+  Object.assign(state.units.find(u=>u.team===team&&u.athlete.id===id),{x,y:3});
+}
+Object.assign(state.units.find(u=>u.team===1&&u.role==='meneur'),{x:8,y:3});
+const holder=state.units.find(u=>u.team===0&&u.athlete.id==='tony-tony-chopper-op');
 state.ball={holderId:holder.id,x:holder.x,y:holder.y};
+validateState(state);
 const court=new CourtRenderer(document.querySelector('#court'),{roster,appearance:{view:'horizontal',height:60,arena:'rhinoz'},onCell:()=>{},onUnit:()=>{},onHover:()=>{}});
 await court.init(state.units);court.reduced=true;court.sync(state);court.resetView();
 window.proof={court,state,roster};window.ready=true;
@@ -89,7 +94,8 @@ async function main(){
       assert.ok((await sharp(await page.locator('canvas').screenshot()).stats()).channels[0].stdev>18);
       await page.evaluate(async()=>{
         const {court,state}=window.proof,unit=state.units.find(u=>u.id===state.ball.holderId),after=structuredClone(state),to=after.units.find(u=>u.id===unit.id);
-        to.x++;after.ball.x++;court.reduced=false;
+        to.y++;after.ball.y++;court.reduced=false;
+        (await import('/src/core/game.mjs')).validateState(after);
         const scale=court.tokens.get(unit.id).scale;
         await court.animate([{type:'move',unitId:unit.id,from:{x:unit.x,y:unit.y},path:[{x:to.x,y:to.y}]}],state,after);
         if(court.tokens.get(unit.id).scale!==scale)throw Error('Movement scale changed');

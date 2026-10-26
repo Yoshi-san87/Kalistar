@@ -434,7 +434,11 @@ export function validateState(state) {
       const a=unit.athlete;
       // Validate the saved snapshot, never recompute an ongoing match from today's catalog.
       require(a&&typeof a.id==='string'&&a.id.length>0&&a.id.length<160&&integer(a.version,1), 'athlete identity');
-      require(ROLES.includes(a.primary)&&ROLES.includes(a.secondary)&&a.primary!==a.secondary&&[a.primary,a.secondary].includes(unit.role), 'athlete positions');
+      if(a.version===1){
+        require(!Object.hasOwn(a,'position')&&ROLES.includes(a.primary)&&ROLES.includes(a.secondary)&&a.primary!==a.secondary&&[a.primary,a.secondary].includes(unit.role), 'athlete positions');
+      }else{
+        require(!Object.hasOwn(a,'primary')&&!Object.hasOwn(a,'secondary')&&ROLES.includes(a.position)&&a.position===unit.role, 'athlete position');
+      }
       require(!athletes[unit.team].has(a.id), 'duplicate athlete');athletes[unit.team].add(a.id);
     }
     require(typeof unit.acted === 'boolean', 'acted');

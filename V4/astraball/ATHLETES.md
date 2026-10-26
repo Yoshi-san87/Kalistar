@@ -6,27 +6,58 @@ Les profils sont propres a Astraball : aucun changement des cartes Kalistar,
 de leur puissance, de la collection ou de Supabase. Le vestiaire est une
 exhibition locale ; ses personnages disponibles suivent les sprites publies.
 
-## Deux Postes
+## Un Poste Par Personnage
 
-Chaque identite dispose d'un poste principal et d'un secondaire. Les valeurs
-restent identiques aux deux postes, sans penalite cachee. Les regles du poste
-s'appliquent : double point du Scoreur, zone limitee du Pilier, engagement du
-Meneur. Une seule occurrence de la meme identite par equipe, meme si plusieurs
-illustrations sont disponibles.
+Chaque identite dispose d'un seul poste dans `profil.position`, sans poste
+principal ou secondaire. `canPlayPosition(profil, poste)` exige l'egalite
+exacte avec ce poste. Les regles du poste s'appliquent : double point du Scoreur,
+zone limitee du Pilier, engagement du Meneur. Une seule occurrence de la meme
+identite par equipe, meme si plusieurs illustrations sont disponibles.
 
-La selection filtre les personnages compatibles avec le poste choisi. Un
-echange entre coequipiers n'est autorise que si chacun peut occuper l'autre
-poste. Sinon, il faut remplacer d'abord le joueur de l'autre poste. Le hasard
-cherche une affectation complete de cinq identites et cinq postes compatibles.
+La selection filtre les personnages du poste choisi ; aucun echange entre
+deux postes differents n'est possible. Le hasard compose cinq identites et
+cinq postes distincts, avec un personnage affecte a chacun de ces postes.
 
-Dans la nouvelle equipe Obsidienne initiale, Darnako devient Pilier et Valazar
-Middle. Cela ne deplace pas les personnages d'une rencontre deja enregistree.
+Les nouvelles equipes initiales sont resolues par `roster.defaults()` depuis
+le catalogue complet `data/sprite-library.json` :
+
+| Poste | Chroma | Obsidienne |
+| --- | --- | --- |
+| Meneur | `momo` | `ombrine-kalistar` |
+| Scoreur | `lanio` | `nereth-kalistar` |
+| Middle | `bex-kalistar` | `varkhen-kalistar` |
+| Sentry | `kaylis` | `voloden` |
+| Pilier | `taulio` | `lok` |
+
+`TEAMS` conserve ses compositions historiques pour les tests legacy, pas pour
+definir ces nouvelles equipes. `createRoster(null)` ne dispose pas du catalogue
+necessaire pour composer une nouvelle equipe complete. Ces changements ne
+deplacent aucun personnage d'une rencontre deja enregistree.
+
+## Choix Confirmes
+
+Les 269 choix de `Astraball-mes-choix-2026-10-26.json`, fourni depuis le dossier
+Downloads de l'auteur, ont recu sa confirmation explicite finale. L'export porte
+encore `status: draft` et aucune case `reviewed` n'est cochee : ces indicateurs
+ne sont pas une validation individuelle, et ne remplacent pas cette confirmation.
+Les 269 entrees confirment postes et statistiques, y compris les valeurs non
+modifiees dans le formulaire.
+
+`data/athlete-choices.mjs` exporte `ATHLETE_CHOICES`, une table gelee de ces 269
+choix `{position, stats}`, ainsi que `ATHLETE_CHOICE_SOURCE`, les metadonnees et
+empreintes de provenance. Les choix auteur priment sur les styles historiques.
+Les 99 autres profils, sans sprite, gardent leur ancien principal comme poste
+unique provisoire et leurs statistiques inchangees. Ils ne sont ni modifies ni
+presentes comme confirmes par le fichier auteur, et ne deviennent pas jouables
+du seul fait de ce changement de contrat.
 
 ## Statistiques
 
-`data/athlete-definitions.mjs` contient les affectations explicites des 368
+`data/athlete-definitions.mjs` conserve les definitions historiques des 368
 identites du catalogue examine. `data/athletes.mjs` construit les profils
-versionnes, independants des sprites et des mensurations documentaires.
+`ATHLETE_VERSION = 2`, en appliquant les choix confirmes de
+`data/athlete-choices.mjs`. Les profils restent independants des sprites et
+des mensurations documentaires.
 
 - VIT : ordre d'initiative, apres penalites.
 - MOB : nombre maximum de cases de deplacement, entre 2 et 4.
@@ -35,11 +66,13 @@ versionnes, independants des sprites et des mensurations documentaires.
 - TIR : portee des tirs. A portee et sans adversaire sur la trajectoire, le tir est certain.
 - DEF : resistance aux charges ; pas une zone d'interception invisible.
 
-Les 16 styles sportifs proposent des forces et des limites, puis les profils
-Kalistar peuvent echanger un point entre deux caracteristiques. Une specialite
-deja au plafond reste au profil de base, sans enlever de point ailleurs.
-Les notes sont bornees a 1-9 ; MOB est bornee a 2-4. Le budget commun est
-`VIT + FOR + PAS + TIR + DEF + 2 * MOB = 38`. Il limite l'inflation, mais
+Les 16 styles sportifs et les specialisations Kalistar constituent la base
+historique des profils sans choix auteur. Une specialite deja au plafond reste
+au profil de base, sans enlever de point ailleurs. Les statistiques confirmees
+sont utilisees telles quelles, sans leur reappliquer une specialisation.
+Les notes sont bornees a 1-9 ; MOB est bornee a 2-4. Le budget commun reste
+`VIT + FOR + PAS + TIR + DEF + 2 * MOB = 38`, y compris pour les 269 choix
+confirmes. Il limite l'inflation, mais
 ne prouve pas l'equilibre : les seuils de portee, le terrain, le poste et l'IA
 ont des effets non lineaires. Plusieurs personnages peuvent partager un style.
 
@@ -78,14 +111,19 @@ Ne pas deduire une puissance automatique d'une masse canonique.
 
 ## Sauvegardes Et Maintenance
 
-Le snapshot de match conserve les notes et `{id, version, primary, secondary}`.
-La restauration valide ce snapshot sans le recalculer depuis le catalogue
-courant. Pas de reset, de migration Supabase ou de changement de cle locale.
+Le snapshot d'athlete v2 est `{id, version, position}` ; le match conserve aussi
+les notes. La restauration accepte egalement les anciens snapshots v1
+`{id, version, primary, secondary}`, y compris un personnage a son ancien
+secondaire. Elle valide les donnees sauvegardees sans recalcul des notes ou des
+postes depuis le catalogue courant, et sans conversion retroactive en v2.
+`ATHLETE_VERSION` ne change ni le schema global du match ni sa cle locale.
+Pas de reset ou de migration Supabase.
 Une ancienne composition incompatible est corrigee uniquement dans le brouillon
 du prochain match ; Reprendre conserve integralement la rencontre existante.
 
-Une nouvelle identite doit recevoir un profil explicite avant d'etre jouable.
-Le vestiaire ignore une entree de sprite sans profil et les tests de couverture
+Une nouvelle identite doit recevoir un profil explicite et un choix auteur
+dans `ATHLETE_CHOICES` avant d'etre jouable. Le vestiaire ignore une entree de
+sprite sans profil confirme et les tests de couverture
 signalent l'ecart. Ne pas attribuer automatiquement des valeurs par hash, race
 ou masse. Lors d'un changement de notes/postes, incrementer `ATHLETE_VERSION`.
 
@@ -97,7 +135,12 @@ node V4/astraball/tools/audit-athletes.mjs
 node V4/astraball/tests/interface.browser.test.cjs
 ```
 
-L'audit couvre chaque identite a ses deux postes, en inversant les camps,
-les equipes initiales sur 100 graines dans chaque sens, et 50 relectures
-deterministes. Les resultats vont dans `work/astraball/profiles/simulation.json`.
-C'est un diagnostic moteur/IA, pas une certification d'equilibre competitif.
+L'audit couvre chaque identite a son unique poste dans chacun des deux camps,
+y compris les 99 profils provisoires dans des equipes de test sans sprites.
+Il charge le catalogue de sprites pour les equipes initiales, joue les memes
+100 graines dans chaque sens, puis 50 rencontres aleatoires et leurs relectures
+deterministes. Pour 368 profils, cela represente 1 036 matchs. Le rapport inclut
+les empreintes des sources, dont `data/athlete-choices.mjs` et
+`data/sprite-library.json`, et va dans `work/astraball/profiles/simulation.json`.
+C'est un diagnostic moteur/IA, pas une certification d'equilibre competitif ;
+deux matchs forces par athlete ne permettent pas de classer leurs performances.

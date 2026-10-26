@@ -10,6 +10,8 @@ test('Astraball formation and zone-capacity regression suite',async()=>{await im
 test('Astraball bounded camera regression suite',async()=>{await import('./viewport.test.mjs');});
 test('Astraball city venues regression suite',async()=>{await import('./venues.test.mjs');});
 test('Astraball locker and roster regression suite',async()=>{await import('./locker.test.mjs');});
+
+test('Astraball author-confirmed single positions',async()=>{await import('./single-position.test.mjs');});
 test('Astraball calibrated sprite sizing regression suite',async()=>{await import('./sprite-sizing.test.mjs');});
 test('every visible tile maps back to its logical cell',async()=>{
   const {center,pick,polygon}=await import('../src/projection.mjs');

@@ -9,7 +9,8 @@ const formation=(state,team)=>state.units.filter(u=>u.team===team).map(({id,x,y}
 async function main(){
   const core=await import('../src/core/game.mjs'),{chooseTurn}=await import('../src/core/ai.mjs');
   const {createRoster}=await import('../src/roster.mjs');
-  const roster=createRoster(JSON.parse(fs.readFileSync(path.join(DIST,'jeu/astraball/data/sprite-library.json'))));
+  const library=process.env.KALISTAR_URL?path.join(__dirname,'../data/sprite-library.json'):path.join(DIST,'jeu/astraball/data/sprite-library.json');
+  const roster=createRoster(JSON.parse(fs.readFileSync(library)));
   const apply=(state,cmd)=>{const result=core.applyCommand(state,cmd);assert.equal(result.ok,true,JSON.stringify(cmd));core.validateState(state);return result;};
   const server=http.createServer((req,res)=>{
     try{
@@ -22,7 +23,7 @@ async function main(){
     }catch{res.writeHead(404).end();}
   });
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
-  const url='http://127.0.0.1:'+server.address().port+'/jeu/astraball/';
+  const url=process.env.KALISTAR_URL||'http://127.0.0.1:'+server.address().port+'/jeu/astraball/';
   let browser;const reports=[];
   try{
     fs.mkdirSync(OUT,{recursive:true});
@@ -74,9 +75,10 @@ async function main(){
         assert.deepEqual(resumed.units,next.units);assert.deepEqual(resumed.ball,next.ball);assert.equal(resumed.rng,next.rng);
         if(seed===1){
           await page.locator('#settings').click();await page.locator('#locker-tab-teams').click();
-          for(const [id,cm] of [['lanio',182],['gen',159],['vivi-ff9',120]]){
+          for(const [team,id,cm] of [[0,'lanio',182],[0,'gen',159],[1,'vivi-ff9',120]]){
             const c=roster.entries.find(c=>c.characterId===id);
-            await page.locator('[data-position="'+c.athlete.primary+'"]').click();
+            await page.locator('[data-team="'+team+'"]').click();
+            await page.locator('[data-position="'+c.athlete.position+'"]').click();
             await page.locator('#character-search').fill(c.name);
             await page.locator('[data-character="'+c.id+'"]').click();
             assert.match(await page.locator('.athlete-measures').innerText(),new RegExp(cm+' cm'));
@@ -86,10 +88,16 @@ async function main(){
           await page.locator('#match-mode').selectOption('hotseat');await page.locator('#new-match').click();
           await page.waitForFunction(()=>!document.querySelector('#modal').open&&!window.Astraball.metrics().busy);
           const sized=await page.evaluate(()=>({state:window.Astraball.snapshot(),sprites:window.Astraball.metrics().sprites.units}));
-          const height=id=>sized.sprites.find(s=>s.id===sized.state.units.find(u=>u.team===0&&u.athlete.id===id).id).sizing;
-          assert.equal(height('lanio').height.cm,182);assert.equal(height('gen').height.cm,159);
-          assert.ok(height('lanio').standingHeight>height('gen').standingHeight);
-          assert.equal(height('vivi-ff9').height.cm,120);
+          const height=(team,id)=>{
+            const unit=sized.state.units.find(u=>u.team===team&&u.athlete.id===id);
+            const c=roster.entries.find(c=>c.characterId===id);
+            assert.ok(unit,id+' remains in team '+team);assert.equal(unit.role,c.athlete.position);
+            assert.deepEqual(unit.stats,c.athlete.stats);
+            return sized.sprites.find(s=>s.id===unit.id).sizing;
+          };
+          assert.equal(height(0,'lanio').height.cm,182);assert.equal(height(0,'gen').height.cm,159);
+          assert.ok(height(0,'lanio').standingHeight>height(0,'gen').standingHeight);
+          assert.equal(height(1,'vivi-ff9').height.cm,120);
           await page.screenshot({path:path.join(OUT,name+'-height-court.png'),fullPage:true});
         }
         assert.deepEqual(errors,[]);reports.push({name,seed,opening:formation(opening,1),replacement:formation(next,1),partialResume:true,errors});

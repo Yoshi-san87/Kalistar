@@ -6,14 +6,19 @@ import { ARENAS, getArena, normalizeAppearance } from '../src/appearance.mjs';
 import { createProjection } from '../src/projection.mjs';
 import { createMatch, restoreMatch, validateState, applyCommand, legalMoves, previewAction, getInitiative } from '../src/core/game.mjs';
 import { chooseTurn } from '../src/core/ai.mjs';
-import { ROLE_STATS } from '../data/teams.mjs';
-import { ATHLETES, getAthlete, canPlayPosition, ratingBudget } from '../data/athletes.mjs';
+import { TEAMS, ROLE_STATS } from '../data/teams.mjs';
+import { ATHLETES, ATHLETE_VERSION, getAthlete, canPlayPosition, ratingBudget } from '../data/athletes.mjs';
 import { COLLABORATION_MEASUREMENTS } from '../data/collaboration-measurements.mjs';
 import { ADAPTED_HEIGHTS } from '../data/athlete-measurements.mjs';
 import { measurementsFor, renderMeasurements } from '../src/athlete-view.mjs';
 const library=JSON.parse(fs.readFileSync(new URL('../data/sprite-library.json',import.meta.url)));
 const roster=createRoster(library);
+const byCharacter=id=>{
+  const character=roster.entries.find(c=>c.characterId===id);
+  assert.ok(character,'playable character '+id);return character;
+};
 test('locker resolves all available sprites, retaining the ten original identities',()=>{
+  assert.equal(roster.entries.length,269);
   assert.equal(roster.entries.length,library.entries.length);
   assert.equal(new Set(roster.entries.map(c=>c.characterId)).size,roster.entries.length);
   for(const id of ['momo','kaylis','taulio','cana','balmhyr','voloden','lok','darnako','iliane','valazar'])assert.equal(roster.get(id).id,id,'v1 save IDs preserved');
@@ -23,10 +28,26 @@ test('locker resolves all available sprites, retaining the ten original identiti
   const original=createMatch();
   for(const unit of original.units)assert.equal(roster.forUnit(unit).name,unit.name);
   const offline=createRoster(null);
+  assert.equal(offline.entries.length,10);
+  for(const unit of original.units)assert.equal(offline.forUnit(unit).name,unit.name);
   assert.equal(offline.forUnit({...original.units[0],character:'unavailable-atlas'}).id,original.units[0].id.slice(3));
-  assert.deepEqual(roster.fromUnits(original.units),roster.defaults());
+  assert.throws(()=>offline.defaults(),'historical appearances alone cannot supply the new teams');
+  assert.throws(()=>createRoster({...library,entries:library.entries.filter(c=>getAthlete(c.characterId).position!=='scoreur')}).defaults(),'a catalogue without a scoreur cannot supply a complete team');
+  assert.deepEqual(roster.fromUnits(original.units),roster.normalize(TEAMS.map(t=>Object.fromEntries(t.players.map(p=>[p.role,p.id.slice(3)])))));
 });
-test('invalid, missing or duplicate lineups fall back per team without mutating preferences',()=>{
+
+test('new default teams follow the confirmed single positions',()=>{
+  const identities=roster.defaults().map(team=>Object.fromEntries(POSITIONS.map(p=>[p.id,roster.get(team[p.id]).characterId])));
+  assert.deepEqual(identities,[
+    {meneur:'momo',scoreur:'lanio',middle:'bex-kalistar',sentry:'kaylis',pilier:'taulio'},
+    {meneur:'ombrine-kalistar',scoreur:'nereth-kalistar',middle:'varkhen-kalistar',sentry:'voloden',pilier:'lok'},
+  ]);
+  const state=createMatch({teams:roster.teams(roster.defaults())});
+  assert.deepEqual(roster.fromUnits(state.units),roster.defaults());
+  for(const unit of state.units)assert.equal(unit.athlete.position,unit.role);
+});
+
+test('invalid, missing or duplicate slots retain valid preferences without mutation',()=>{
   for(const input of [null,{},[],['bad'],[{meneur:'__proto__'}]]){
     assert.deepEqual(roster.normalize(input),roster.defaults());
   }
@@ -37,29 +58,65 @@ test('invalid, missing or duplicate lineups fall back per team without mutating 
   assert.throws(()=>roster.select(before,2,'meneur','momo'));
   assert.throws(()=>roster.select(before,0,'wrong','momo'));
   assert.throws(()=>roster.select(before,0,'meneur','unknown'));
+  const partial=[{meneur:byCharacter('nell-kalistar').id,scoreur:'momo',middle:byCharacter('riko-kalistar').id,sentry:'cana',pilier:'unknown'},before[1]];
+  const snapshot=structuredClone(partial),expected=structuredClone(before);
+  Object.assign(expected[0],{meneur:partial[0].meneur,middle:partial[0].middle,sentry:'cana'});
+  assert.deepEqual(roster.normalize(partial),expected);
+  assert.deepEqual(partial,snapshot,'normalization never rewrites stored preferences');
 });
-test('compatible swaps preserve five identities and the other team',()=>{
-  const original=roster.defaults(),selected=roster.select(original,0,'meneur','cana');
-  assert.equal(selected[0].meneur,'cana');assert.equal(selected[0].sentry,'momo');
-  assert.equal(original[0].meneur,'momo');
+
+test('legacy preferences preserve valid slots before relocating displaced athletes',()=>{
+  const legacy=[
+    {meneur:'momo',scoreur:'kaylis',middle:'taulio',sentry:'cana',pilier:'balmhyr'},
+    {meneur:'voloden',scoreur:'lok',middle:'valazar',sentry:'iliane',pilier:'darnako'},
+  ];
+  const snapshot=structuredClone(legacy),expected=roster.defaults();
+  Object.assign(expected[0],{sentry:'cana',pilier:'balmhyr'});
+  Object.assign(expected[1],{sentry:'iliane',pilier:'darnako'});
+  assert.deepEqual(roster.normalize(legacy),expected,'displaced Kaylis, Taulio, Voloden and Lok cannot evict valid occupants');
+  assert.deepEqual(legacy,snapshot);
+  const displaced=[{meneur:'cana',middle:'taulio'},expected[1]],before=structuredClone(displaced);
+  const relocated=roster.defaults();relocated[0].sentry='cana';relocated[1]=expected[1];
+  assert.deepEqual(roster.normalize(displaced),relocated,'vacant positions accept displaced athletes before defaults');
+  assert.deepEqual(displaced,before);
+  assert.deepEqual(roster.normalize(roster.normalize(legacy)),expected,'migration is idempotent');
+});
+
+test('same-position replacements preserve the other slots; secondary-position swaps are rejected',()=>{
+  const original=roster.defaults(),before=structuredClone(original),nell=byCharacter('nell-kalistar');
+  const selected=roster.select(original,0,'meneur',nell.id);
+  assert.deepEqual(selected,[{...original[0],meneur:nell.id},original[1]]);
+  assert.deepEqual(original,before);
   assert.equal(new Set(Object.values(selected[0])).size,5);
-  assert.deepEqual(selected[1],original[1]);
+  assert.deepEqual(roster.select(selected,0,'sentry','cana'),[{...selected[0],sentry:'cana'},original[1]]);
+  for(const [role,id] of [['meneur','cana'],['sentry','momo'],['scoreur','kaylis'],['middle','taulio']]){
+    assert.equal(roster.canSelect(original,0,role,id),false);
+    assert.throws(()=>roster.select(original,0,role,id));
+    assert.deepEqual(original,before,'rejected choices leave the draft untouched');
+  }
 });
-test('all available athletes have personal stats in their authorized roles',()=>{
+test('all 269 available athletes have personal stats in exactly their authorized position',()=>{
+  const tested=new Set();
   for(const c of roster.entries)for(const p of POSITIONS){
-    if(!canPlayPosition(c.athlete,p.id)){assert.equal(roster.canSelect(roster.defaults(),0,p.id,c.id),false);continue;}
-    let draft=roster.defaults();
-    for(const other of POSITIONS)if(other.id!==p.id&&roster.get(draft[0][other.id]).characterId===c.characterId){
-      const replacement=roster.entries.find(e=>e.characterId!==c.characterId&&roster.canSelect(draft,0,other.id,e.id)&&!Object.values(draft[0]).includes(e.id));
-      draft=roster.select(draft,0,other.id,replacement.id);
+    assert.equal(canPlayPosition(c.athlete,p.id),c.athlete.position===p.id);
+    if(c.athlete.position!==p.id){
+      assert.equal(roster.canSelect(roster.defaults(),0,p.id,c.id),false);
+      assert.throws(()=>roster.select(roster.defaults(),0,p.id,c.id));
+      const wrong=roster.teams(roster.defaults());
+      wrong[0].players.find(player=>player.role===p.id).athleteId=c.characterId;
+      assert.throws(()=>createMatch({teams:wrong}),c.id+' cannot start at '+p.id);continue;
     }
-    const selection=roster.select(draft,0,p.id,c.id);
+    const selection=roster.select(roster.defaults(),0,p.id,c.id);
     const state=createMatch({teams:roster.teams(selection)});
     const unit=state.units.find(u=>u.team===0&&u.role===p.id);
     assert.equal(unit.character,c.id);assert.equal(unit.name,c.name);
     assert.equal(roster.forUnit(unit),c);
-    assert.deepEqual(unit.stats,c.athlete.stats);assert.equal(unit.athlete.id,c.characterId);validateState(state);
+    assert.deepEqual(unit.stats,c.athlete.stats);
+    assert.deepEqual(unit.athlete,{id:c.characterId,version:2,position:p.id});validateState(state);
+    assert.deepEqual(restoreMatch(JSON.parse(JSON.stringify(state))),state);
+    tested.add(c.characterId);
   }
+  assert.equal(tested.size,269);
 });
 test('custom team state survives save/reload, goals and complete AI matches',()=>{
   for(let n=0;n<20;n++){
@@ -85,15 +142,19 @@ test('malformed team input cannot override stats or omit a required position',()
   assert.deepEqual(createMatch({teams:altered}).units[0].stats,getAthlete('momo').stats);
 });
 test('authored profiles are bounded, equal-budget and differentiated',()=>{
+  assert.equal(ATHLETE_VERSION,2);
   assert.equal(ATHLETES.length,368);
   assert.equal(new Set(ATHLETES.map(a=>a.id)).size,368);
   for(const a of ATHLETES){
-    assert.equal(ratingBudget(a.stats),38,a.id);assert.notEqual(a.primary,a.secondary);
-    assert.ok(POSITIONS.some(p=>p.id===a.primary)&&POSITIONS.some(p=>p.id===a.secondary));
+    assert.equal(ratingBudget(a.stats),38,a.id);assert.equal(a.version,2);
+    assert.ok(POSITIONS.some(p=>p.id===a.position));
+    assert.equal(Object.hasOwn(a,'primary'),false);assert.equal(Object.hasOwn(a,'secondary'),false);
+    for(const p of POSITIONS)assert.equal(canPlayPosition(a,p.id),a.position===p.id,a.id+' / '+p.id);
     assert.ok(Object.values(a.stats).every(n=>Number.isInteger(n)&&n>=1&&n<=9));
     assert.ok(a.stats.MOB>=2&&a.stats.MOB<=4);assert.ok(Object.isFrozen(a)&&Object.isFrozen(a.stats));
   }
-  for(const role of POSITIONS)assert.ok(new Set(ATHLETES.filter(a=>a.primary===role.id).map(a=>JSON.stringify(a.stats))).size>=3);
+  for(const role of POSITIONS)assert.ok(new Set(ATHLETES.filter(a=>a.position===role.id).map(a=>JSON.stringify(a.stats))).size>=3);
+  assert.equal(ATHLETES.filter(a=>!roster.entries.some(c=>c.characterId===a.id)).length,99);
   assert.equal(getAthlete('momo').measurements.status,'estimated');
   assert.equal(getAthlete('ruby').measurements.heightKind,'length');
   assert.equal(getAthlete('cloud-ff7').measurements.heightCm,null);
@@ -107,15 +168,28 @@ test('random teams are compatible and unique; invalid position changes are rejec
     assert.deepEqual(roster.normalize([team,team]),[team,team]);
   }
   assert.throws(()=>roster.shuffle(()=>1));
-  assert.equal(roster.canSelect(roster.defaults(),0,'sentry','kaylis'),false);
-  assert.throws(()=>roster.select(roster.defaults(),0,'sentry','kaylis'),/swap/);
+  assert.equal(roster.canSelect(roster.defaults(),0,'sentry','momo'),false);
+  assert.throws(()=>roster.select(roster.defaults(),0,'sentry','momo'));
   const wrong=roster.teams(roster.defaults());wrong[0].players[0].athleteId='unknown';assert.throws(()=>createMatch({teams:wrong}));
   wrong[0].players[0].athleteId='balmhyr';assert.throws(()=>createMatch({teams:wrong}));
 });
 
 test('legacy matches and athlete snapshots are not recomputed on reload',()=>{
-  const legacy=createMatch();assert.deepEqual(legacy.units[0].stats,ROLE_STATS.meneur);
+  const legacy=createMatch();
+  assert.deepEqual(legacy.units.map(({id,name,role})=>({id,name,role})),TEAMS.flatMap(team=>team.players));
+  for(const unit of legacy.units){assert.deepEqual(unit.stats,ROLE_STATS[unit.role]);assert.equal(Object.hasOwn(unit,'athlete'),false);}
   assert.deepEqual(restoreMatch(structuredClone(legacy)),legacy);
+  const swapped=structuredClone(TEAMS);
+  swapped[0].players.find(p=>p.id==='t0-momo').role='sentry';
+  swapped[0].players.find(p=>p.id==='t0-cana').role='meneur';
+  const saved=createMatch({teams:swapped}),sentry=saved.units.find(u=>u.id==='t0-momo');
+  sentry.athlete={id:'momo',version:1,primary:'meneur',secondary:'sentry'};
+  sentry.stats={VIT:8,MOB:3,FOR:3,PAS:9,TIR:6,DEF:6};
+  const meneur=saved.units.find(u=>u.id==='t0-cana');
+  meneur.athlete={id:'cana',version:1,primary:'sentry',secondary:'meneur'};
+  meneur.stats={VIT:9,MOB:4,FOR:3,PAS:8,TIR:5,DEF:5};
+  saved.activeId=getInitiative(saved).find(u=>!u.acted).id;validateState(saved);
+  assert.deepEqual(restoreMatch(structuredClone(saved)),saved,'saved secondary positions remain valid with their original ratings');
   const state=createMatch({teams:roster.teams(roster.defaults())});
   state.units[0].stats.PAS=7;state.units[0].athlete.version=99;
   assert.deepEqual(restoreMatch(structuredClone(state)),state);
@@ -123,15 +197,16 @@ test('legacy matches and athlete snapshots are not recomputed on reload',()=>{
 
 test('personal ratings actually change movement, initiative, range and impact probabilities',()=>{
   function isolated(id,role){
-    const teams=roster.teams(roster.defaults());
-    for(const t of teams)for(const p of t.players)delete p.athleteId;
-    const player=teams[0].players.find(p=>p.role===role);player.athleteId=id;
-    const state=createMatch({teams});
-    while(state.phase==='placement')applyCommand(state,{type:'ready',team:state.placement.team});
-    state.units.forEach(u=>u.acted=u.id!==player.id);state.activeId=player.id;
-    return {state,unit:state.units.find(u=>u.id===player.id)};
+    assert.equal(getAthlete(id).position,role,'fixture uses the confirmed position');
+    const selection=roster.select(roster.defaults(),0,role,byCharacter(id).id);
+    const state=createMatch({teams:roster.teams(selection)});
+    while(state.phase==='placement')assert.equal(applyCommand(state,{type:'ready',team:state.placement.team}).ok,true);
+    const unit=state.units.find(u=>u.team===0&&u.role===role);
+    state.units.forEach(u=>u.acted=u.id!==unit.id);state.activeId=unit.id;
+    state.ball={holderId:unit.id,x:unit.x,y:unit.y};validateState(state);
+    return {state,unit};
   }
-  const momo=isolated('momo','meneur'),cana=isolated('cana','meneur');
+  const momo=isolated('momo','meneur'),cana=isolated('cana','sentry');
   assert.equal(Math.max(...legalMoves(momo.state).map(m=>m.path.length)),3);
   assert.equal(Math.max(...legalMoves(cana.state).map(m=>m.path.length)),4);
   assert.equal(getInitiative(cana.state).find(u=>u.id===cana.unit.id).speed,9);
@@ -139,11 +214,14 @@ test('personal ratings actually change movement, initiative, range and impact pr
   const targetId=momo.state.units.find(u=>u.team===0&&u.role==='scoreur').id;
   assert.equal(previewAction(momo.state,{type:'pass',targetId}).range,7);
   assert.equal(previewAction(cana.state,{type:'pass',targetId}).range,7);
-  const light=isolated('valazar','middle'),heavy=isolated('taulio','middle');
+  const light=isolated('riko-kalistar','middle'),heavy=isolated('jelly-joe','middle');
   for(const setup of [light,heavy]){
     Object.assign(setup.unit,{x:5,y:3});const opponent=setup.state.units.find(u=>u.team===1&&u.role==='meneur');Object.assign(opponent,{x:6,y:3});
-    setup.chance=previewAction(setup.state,{type:'charge',targetId:opponent.id}).chance;validateState(setup.state);
+    setup.state.ball={holderId:setup.unit.id,x:5,y:3};
+    const charge=previewAction(setup.state,{type:'charge',targetId:opponent.id});
+    assert.equal(charge.legal,true);setup.chance=charge.chance;validateState(setup.state);
   }
+  assert.deepEqual([light.chance,heavy.chance],[45,75]);
   assert.ok(heavy.chance>light.chance);
   for(const setup of [light,heavy])setup.state.ball={holderId:setup.unit.id,x:setup.unit.x,y:setup.unit.y};
   const recipient=light.state.units.find(u=>u.team===0&&u.role==='scoreur').id;
@@ -153,10 +231,12 @@ test('personal ratings actually change movement, initiative, range and impact pr
   for(const setup of [light,heavy]){
     const attacker=setup.state.units.find(u=>u.team===1&&u.role==='meneur');
     setup.state.units.forEach(u=>u.acted=u.id!==attacker.id);setup.state.activeId=attacker.id;
-    incoming.push(previewAction(setup.state,{type:'charge',targetId:setup.unit.id}).chance);
+    const charge=previewAction(setup.state,{type:'charge',targetId:setup.unit.id});
+    assert.equal(charge.legal,true);incoming.push(charge.chance);
     validateState(setup.state);
   }
   assert.ok(incoming[0]>incoming[1],'personal DEF changes resistance');
+  assert.deepEqual(incoming,[50,45]);
   const shots=[];
   for(const id of ['cana','kaylis']){
     const setup=isolated(id,'sentry');Object.assign(setup.unit,{x:8,y:4});

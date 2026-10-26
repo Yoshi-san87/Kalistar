@@ -24,5 +24,5 @@ export function renderMeasurements(athlete){
 }
 export function renderAthlete(character){
   const a=character.athlete;
-  return '<div class="athlete-heading"><strong>'+esc(character.name)+'</strong><span>'+esc(a.style)+'</span></div><div class="athlete-positions">'+[a.primary,a.secondary].map((p,i)=>'<span title="Poste '+(i?'secondaire':'principal')+'"><i data-lucide="'+roleIcons[p]+'"></i>'+roleNames[p]+'<small>'+(i?'Secondaire':'Principal')+'</small></span>').join('')+'</div>'+renderMeasurements(a)+'<div class="athlete-ratings">'+Object.entries(a.stats).map(([k,v])=>'<div title="'+esc(STAT_TITLES[k])+'"><span>'+STAT_TITLES[k]+'</span><b>'+v+'</b><meter min="0" max="'+(k==='MOB'?4:9)+'" value="'+v+'" aria-label="'+STAT_TITLES[k]+'">'+v+'</meter></div>').join('')+'</div>';
+  return '<div class="athlete-heading"><strong>'+esc(character.name)+'</strong><span>'+esc(a.style)+'</span></div><div class="athlete-positions"><span title="Poste unique"><i data-lucide="'+roleIcons[a.position]+'"></i>'+roleNames[a.position]+'</span></div>'+renderMeasurements(a)+'<div class="athlete-ratings">'+Object.entries(a.stats).map(([k,v])=>'<div title="'+esc(STAT_TITLES[k])+'"><span>'+STAT_TITLES[k]+'</span><b>'+v+'</b><meter min="0" max="'+(k==='MOB'?4:9)+'" value="'+v+'" aria-label="'+STAT_TITLES[k]+'">'+v+'</meter></div>').join('')+'</div>';
 }
