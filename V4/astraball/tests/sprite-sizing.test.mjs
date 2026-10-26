@@ -81,6 +81,12 @@ test('Lanio is taller than Gen and newly assigned heights feed the same sprite c
   assert.equal(vivi.height.measuredCm,null,'an adaptation is not a documented measurement');
 });
 
+test('Malaba uses the requested 205 cm without changing his mass or sports profile',()=>{
+  const malaba=getAthlete('malaba');
+  assert.equal(malaba.measurements.heightCm,205);
+  assert.equal(malaba.measurements.weightKg,112);
+  assert.equal(spriteSizing(get('malaba')).height.cm,205);
+});
 test('old catalogue and old matches remain readable; no gameplay migration',()=>{
   const old=structuredClone(data);
   for(const c of old.entries)delete c.calibration;

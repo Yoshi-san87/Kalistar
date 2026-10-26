@@ -18,6 +18,15 @@
 - The cleanup record is `maintenance/cleanup-2026-09-19/`. Archived root scripts
   are in `maintenance/scripts-historiques/`; they are not current entry points.
 
+## Engineering Quality (26 October 2026)
+
+- Quality preference (26 October 2026): address the underlying contract or
+  source of a problem rather than accumulating per-item compensations. For
+  sprite V2, deliver bodies at a common native pixel density with a fixed root.
+  The user subsequently approved one offline conversion from source art to
+  native sprites (26 October): anatomical sizing, palette and reviewed anchors.
+  Never use per-character runtime enlargement or per-frame scale corrections.
+
 ## Versioning Every Push (2 October 2026)
 
 - Each user-authorized push to `Yoshi-san87/Kalistar` must advance the game

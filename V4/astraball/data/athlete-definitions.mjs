@@ -19,7 +19,7 @@ lok|power|143|108|FOR:PAS
 belrog|ballwinner|229|238|FOR:PAS
 seraphina|strategist|176|61|PAS:TIR
 lanio|playmaker|182|49|VIT:FOR
-malaba|enforcer|191|112|FOR:PAS
+malaba|enforcer|205|112|FOR:PAS
 magnar|wall|264|640|FOR:TIR
 kognus|sweeper|137|91|DEF:TIR
 reevus|strategist|135|78|PAS:VIT

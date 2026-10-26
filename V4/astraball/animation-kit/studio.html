@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kalistar - Sprite V2</title><link rel="stylesheet" href="studio.css"><script defer src="icons.js"></script><script type="module" src="studio.mjs"></script></head>
+<body>
+<header><h1>Kalistar <span>Sprite V2</span></h1><span class="status">Atelier local</span><a href="README.md" title="Contrat de production"><i data-lucide="book-open"></i></a></header>
+<main>
+<section class="stage">
+  <div class="toolbar"><label>Vue<select id="view"><option value="template">Gabarit natif</option><option value="motion">Kaylis : locomotion</option><option value="poses">Kaylis : poses clés</option></select></label><label>Zoom<select id="zoom"><option>1</option><option>2</option><option>3</option><option>4</option></select></label><button id="mirror" title="Retourner horizontalement" aria-label="Retourner horizontalement" aria-pressed="false"><i data-lucide="flip-horizontal-2"></i></button><label class="check"><input id="guides" type="checkbox" checked>Repères</label><span id="status" role="status"></span></div>
+  <div class="canvas-viewport"><canvas id="canvas" width="320" height="320" aria-label="Aperçu du sprite"></canvas></div>
+  <div class="transport"><button id="previous" title="Frame précédente" aria-label="Frame précédente"><i data-lucide="skip-back"></i></button><button id="play" title="Lire" aria-label="Lire"><i data-lucide="play"></i></button><button id="next" title="Frame suivante" aria-label="Frame suivante"><i data-lucide="skip-forward"></i></button><input id="frame" type="range" min="0" max="3" value="0" aria-label="Frame"><output id="counter">1 / 4</output></div>
+  <div class="metrics"><span>320 × 320 px</span><span>Origine 160, 272</span><span>64 px / m</span><span id="body"></span></div>
+</section>
+<aside>
+  <label>Personnage<input id="search" type="search" placeholder="Nom ou modèle" autocomplete="off"></label>
+  <select id="actor" size="6" aria-label="Modèle du personnage"></select>
+  <dl><dt>Taille</dt><dd id="height"></dd><dt>Arme</dt><dd id="weapon"></dd><dt>Gestuelle</dt><dd id="family"></dd></dl>
+  <label>Animation<select id="clip"></select></label>
+  <div class="clip-meta"><span id="duration"></span><span id="loop"></span></div>
+  <div id="poses" hidden><label>Pose<select id="pose"></select></label></div>
+  <button id="download"><i data-lucide="download"></i>Manifeste de travail</button>
+  <p id="error" role="alert"></p>
+</aside>
+</main>
+<footer><span>14 animations · 64 frames · 4 pages</span><span id="coverage"></span></footer>
+</body></html>

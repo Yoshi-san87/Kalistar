@@ -23,6 +23,24 @@ Le vestiaire affiche trente personnages par page, avec recherche sur tout le cat
 
 ## Template Commun
 
+Le remplacement demande le 26 octobre est prepare dans
+[Animation Kit V2](animation-kit/README.md) : dessin a densite commune,
+cellules 320 px, origine fixe, 14 sequences / 64 frames et prises d'armes
+separees. Il est encore en validation artistique. Les paragraphes ci-dessous
+decrivent le format historique actuellement jouable, pas la cible V2.
+
+Le lot local de dix personnages est consultable dans
+`http://127.0.0.1:4350/batch.html` via le serveur de l'Animation Kit.
+La conversion native autorisee intervient une seule fois a la fabrication ;
+ce lot ne modifie pas encore la bibliotheque jouable ni ses sauvegardes.
+La production de toutes les identites est consultable dans
+`http://127.0.0.1:4350/batch.html?catalog=all`. Son registre reprenable,
+ses limites et ses commandes sont decrits dans l'Animation Kit. Une apparence
+principale exacte est produite par identite ; les autres variantes de cartes
+ne sont pas remplacees par de faux alias. La production est arretee a la
+demande de l'auteur a 170 identites, pilotes inclus. Les 680 pages restent
+en revue, sans migration automatique du jeu.
+
 Chaque atlas PNG transparent mesure 384 x 384 pixels : 4 colonnes et 4 lignes
 de cellules 96 x 96, indice zero en haut a gauche. L'appui des pieds est a 90.
 
