@@ -1,8 +1,7 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path');
 process.env.KALISTAR_NODE_MODULES||='C:/Users/guill/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules';
-const sharp=require(path.join(process.env.KALISTAR_NODE_MODULES,'sharp'));
-const {silhouettes}=require('./prepare-sprites.cjs');
+const sharp=(...args)=>require(path.join(process.env.KALISTAR_NODE_MODULES,'sharp'))(...args);
 const {ROOT,OUT,read,save,hash}=require('./sprite-v2-production.cjs');
 const {audit,checkSequences}=require('./sprite-template-v2.cjs');
 const {solve:solvePlacement}=require('./sprite-v2-placement.cjs');
@@ -20,6 +19,7 @@ function calibration(recipe,source,parts,bodyPixels){
   return {reference,sourceBody,sourceScale:bodyPixels/sourceBody,soleInsetPx,order};
 }
 async function scan(file){
+  const {silhouettes}=require('./prepare-sprites.cjs');
   const {data,info}=await sharp(file).ensureAlpha().raw().toBuffer({resolveWithObject:true});
   return {...silhouettes(data,info.width,info.height),data,info};
 }

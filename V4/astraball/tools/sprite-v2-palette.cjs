@@ -1,6 +1,6 @@
 'use strict';
 const path=require('node:path');
-const sharp=require(path.join(process.env.KALISTAR_NODE_MODULES||'C:/Users/guill/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules','sharp'));
+const sharp=(...args)=>require(path.join(process.env.KALISTAR_NODE_MODULES||'C:/Users/guill/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules','sharp'))(...args);
 const COUNT=64,COLUMNS=8,ROWS=8,CELL=320,INSET=4,SIDE=COLUMNS*CELL,LIMIT=127;
 const OPTIONS={palette:true,colours:128,quality:95,dither:0,effort:10};
 function check(ok,message){if(!ok)throw Error('Canonical palette: '+message);}

@@ -1,4 +1,5 @@
 'use strict';
+// Image reduction needs Sharp; the dependency-free contract has its own test.
 const test=require('node:test'),assert=require('node:assert/strict');
 const {quantizeGlyphs}=require('../tools/sprite-v2-palette.cjs');
 const {compactPalette}=require('../tools/sprite-v2-bake.cjs');
