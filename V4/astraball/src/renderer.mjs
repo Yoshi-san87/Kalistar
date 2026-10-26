@@ -2,8 +2,9 @@ import { Application, Container, Sprite, Graphics, Text, Assets, Texture, Rectan
 import { WIDTH, HEIGHT, createProjection, DEFENSE_ZONES } from './projection.mjs';
 import { fitViewport, normalizeZoom, zoomAt } from './viewport.mjs';
 import { BALLS, getBall, getArena, normalizeAppearance } from './appearance.mjs';
-import { SPRITES, SPRITE_CELL, SPRITE_FOOT, frameAt, spriteKey, facing } from './sprites.mjs';
+import { SPRITES, SPRITE_CELL, SPRITE_FOOT, frameAt, spriteKey, facing, magicPose } from './sprites.mjs';
 import { spriteSizing } from './sprite-sizing.mjs';
+import { skillFor, unitEffects } from './core/skills.mjs';
 import { goalAssetUrls, layoutGoal } from './goals.mjs';
 
 const colors=[0x68e6cd,0xf08d9f], roleCode={meneur:'MN',scoreur:'SC',middle:'MD',sentry:'ST',pilier:'PI'};
@@ -124,8 +125,17 @@ export class CourtRenderer {
     const ball=getBall(id);this.appearance.ball=ball.id;
     this.ballImage.texture=this.textures[ball.url];this.ballImage.width=36;this.ballImage.height=36;
     this.ballImage.rotation=0;
-    this.ballGlow.clear().circle(0,0,21).fill({color:ball.color,alpha:.15});
+    this.drawBallAura(!!this.state?.ball.charge);
     this.render();
+  }
+  drawBallAura(charged){
+    const g=this.ballGlow,color=charged?0xffd98b:getBall(this.appearance.ball).color;
+    g.clear().circle(0,0,21).fill({color,alpha:charged?.22:.15});
+    if(charged){
+      g.circle(0,0,23).stroke({color,width:1.5,alpha:.9});
+      for(const [x,y] of [[0,-27],[27,0],[0,27],[-27,0]])g.poly([x,y-3,x+2,y,x,y+3,x-2,y]).fill(color);
+    }
+    this.ballCharged=charged;
   }
   drawFloor(){
     const g=this.floor,arena=getArena(this.appearance.arena);g.clear();
@@ -179,8 +189,9 @@ export class CourtRenderer {
     label.style.stroke={color:0x102421,width:3};
     const role=text(roleCode[unit.role],9,colors[unit.team]);role.anchor.set(.5);role.position.set(0,44);role.style.stroke={color:0x102421,width:3};
     const number=text('',12,0xfff0b6);number.anchor.set(.5);number.position.set(0,-sizing.maxHeight-10);number.style.stroke={color:0x102421,width:3};
-    root.addChild(body,label,role,number);this.unitLayer.addChild(root);
-    this.tokens.set(unit.id,{root,body,image,frames,scale,sizing,ring,label,role,number,base,frame:0,pose:'idle',direction:unit.team===0?1:-1});
+    const status=text('',10);status.anchor.set(.5);status.position.set(0,57);status.style.stroke={color:0x102421,width:3};
+    root.addChild(body,label,role,number,status);this.unitLayer.addChild(root);
+    this.tokens.set(unit.id,{root,body,image,frames,scale,sizing,ring,label,role,number,status,base,frame:0,pose:'idle',direction:unit.team===0?1:-1});
   }
   pose(token,name,elapsed=0){
     if(!token)return;
@@ -292,7 +303,10 @@ export class CourtRenderer {
     const changed=this.lastActive!==state.activeId;
     this.lastActive=state.activeId;
     this.state=state;
-    for(const unit of state.units){const t=this.tokens.get(unit.id),p=this.camera.center(unit.x,unit.y);t.root.position.set(p.x,p.y);t.root.zIndex=p.y;t.body.y=0;this.pose(t,'idle');t.ring.visible=unit.id===state.activeId;t.body.alpha=unit.acted?.78:1;t.label.alpha=unit.acted?.65:1;t.number.text=unit.penalty||unit.nextPenalty?'-'+(unit.penalty||unit.nextPenalty)+' VIT':'';}
+    for(const unit of state.units){const t=this.tokens.get(unit.id),p=this.camera.center(unit.x,unit.y);t.root.position.set(p.x,p.y);t.root.zIndex=p.y;t.body.y=0;this.pose(t,'idle');t.ring.visible=unit.id===state.activeId;t.body.alpha=unit.acted?.78:1;t.label.alpha=unit.acted?.65:1;t.number.text=unit.penalty||unit.nextPenalty?'-'+(unit.penalty||unit.nextPenalty)+' VIT':'';
+      const effects=unitEffects(unit);t.status.text=effects.map(e=>e.short).join(' / ');t.status.style.fill=effects[0]?.color??0xfff1ce;
+    }
+    this.drawBallAura(!!state.ball.charge);
     this.placeBall(state);if(changed&&state.phase!=='placement')this.focus(state.units.find(u=>u.id===state.activeId));this.idle();this.render();
   }
   setSelection(id){
@@ -382,6 +396,7 @@ export class CourtRenderer {
     this.animating=true;this.stopIdle();for(const t of this.tokens.values()){t.body.y=0;this.pose(t,'idle');}this.highlight();
     try {
       for(const e of events){
+        if(e.type==='skill')await this.castSkill(e);
         if(e.type==='place'){
           const t=this.tokens.get(e.unitId),a=this.camera.center(e.from.x,e.from.y),b=this.camera.center(e.to.x,e.to.y);
           this.face(t,a,b);
@@ -393,6 +408,7 @@ export class CourtRenderer {
           for(const cell of e.path){const a=this.camera.center(from.x,from.y),b=this.camera.center(cell.x,cell.y);this.face(t,a,b);await this.tween(300,(p,raw=p)=>{this.pose(t,'run',elapsed+raw*300);t.root.position.set(a.x+(b.x-a.x)*raw,a.y+(b.y-a.y)*raw);t.root.zIndex=t.root.y;t.body.y=-Math.sin(raw*Math.PI)*2;if(before.ball.holderId===e.unitId)this.followBall(t);});from=cell;elapsed+=300;}t.body.y=0;this.pose(t,'idle');
         }
         if(e.type==='pass'||e.type==='shot'){
+          this.drawBallAura(!!e.charged);
           const blocker=e.blockerId?before.units.find(u=>u.id===e.blockerId):null,target=blocker||e.to,a=this.camera.center(e.from.x,e.from.y),b=this.camera.center(target.x,target.y);
           const actor=this.tokens.get(e.unitId),receiver=this.tokens.get(e.blockerId||e.targetId);
           this.face(actor,a,b);if(receiver){this.face(receiver,b,a);this.pose(receiver,'guard');}
@@ -400,7 +416,7 @@ export class CourtRenderer {
           this.pose(actor,'throw',260);actor.body.y=0;
           const trail=new Graphics();this.effects.addChild(trail);
           const start={x:a.x+actor.direction*(actor.sizing.ballX+4),y:a.y+actor.sizing.ballY-7},end={x:b.x+(receiver?receiver.direction*receiver.sizing.ballX:0),y:b.y+(receiver?receiver.sizing.ballY:-25)};
-          await this.tween(e.type==='shot'?550:650,(p,raw=p)=>{this.pose(actor,'throw',260+raw*500);const x=start.x+(end.x-start.x)*p,y=start.y+(end.y-start.y)*p-Math.sin(raw*Math.PI)*45;this.ball.position.set(x,y);this.ballImage.rotation=raw*Math.PI*2*actor.direction;trail.clear().moveTo(x-16*(b.x-a.x)/300,y-8*(b.y-a.y)/300).lineTo(x,y).stroke({width:6,color:getBall(this.appearance.ball).color,alpha:.65});});trail.destroy();this.pose(actor,'idle');
+          await this.tween(e.type==='shot'?550:650,(p,raw=p)=>{this.pose(actor,'throw',260+raw*500);const x=start.x+(end.x-start.x)*p,y=start.y+(end.y-start.y)*p-Math.sin(raw*Math.PI)*45;this.ball.position.set(x,y);this.ballImage.rotation=raw*Math.PI*2*actor.direction;trail.clear().moveTo(x-16*(b.x-a.x)/300,y-8*(b.y-a.y)/300).lineTo(x,y).stroke({width:6,color:e.charged?0xffd98b:getBall(this.appearance.ball).color,alpha:.65});});trail.destroy();this.pose(actor,'idle');
         }
         if(e.type==='charge'){
           const t=this.tokens.get(e.unitId),target=this.tokens.get(e.targetId),a=this.camera.center(e.from.x,e.from.y),b=this.camera.center(e.to.x,e.to.y),next=this.camera.center(e.pushTo.x,e.pushTo.y);
@@ -417,6 +433,31 @@ export class CourtRenderer {
         }
       }
     } finally {this.animating=false;this.sync(after);}
+  }
+  async castSkill(event){
+    const skill=skillFor(event.skill),actor=this.tokens.get(event.unitId),target=this.tokens.get(event.targetId);
+    if(!skill||!actor||!target)return;
+    const from={x:actor.root.x,y:actor.root.y-actor.sizing.standingHeight*.55};
+    const to=event.skill==='charged-pass'?this.carriedBall(actor):{x:target.root.x,y:target.root.y-target.sizing.standingHeight*.45};
+    this.face(actor,from,to);
+    const glyph=new Graphics(),caption=text(skill.label,14,skill.color);caption.anchor.set(.5);
+    caption.position.set(to.x,to.y-35);this.effects.addChild(glyph,caption);
+    try{
+      await this.tween(720,(p,raw=p)=>{
+        this.pose(actor,magicPose(actor.frames.length),raw*720);
+        const release=Math.max(0,(raw-.4)/.6),x=from.x+(to.x-from.x)*release,y=from.y+(to.y-from.y)*release;
+        glyph.clear();caption.alpha=Math.min(1,release*3)*(1-release*.45);
+        glyph.circle(from.x,from.y,8+Math.sin(raw*Math.PI)*8).stroke({color:skill.color,width:2,alpha:1-raw});
+        if(raw>=.4){
+          glyph.moveTo(from.x,from.y).lineTo(x,y).stroke({color:skill.color,width:2,alpha:(1-release)*.7});
+          for(let i=0;i<6;i++){
+            const angle=i*Math.PI/3+raw*1.6,radius=4+release*20,px=x+Math.cos(angle)*radius,py=y+Math.sin(angle)*radius*.6;
+            glyph.rect(px-2,py-2,4,4).fill({color:skill.color,alpha:1-release*.5});
+          }
+          glyph.ellipse(to.x,to.y,12+release*20,7+release*10).stroke({color:skill.color,width:2,alpha:release*(1-release)*3});
+        }
+      });
+    }finally{glyph.destroy();caption.destroy();this.pose(actor,'idle');}
   }
   async burst(p,label,color,onFrame){
     const g=new Graphics(),caption=text(label,20,color);caption.anchor.set(.5);this.effects.addChild(g,caption);

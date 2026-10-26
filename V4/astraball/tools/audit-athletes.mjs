@@ -7,9 +7,10 @@ import { TEAMS, ROLES } from '../data/teams.mjs';
 import { createMatch, validateState, applyCommand, restoreMatch } from '../src/core/game.mjs';
 import { chooseTurn } from '../src/core/ai.mjs';
 import { createRoster } from '../src/roster.mjs';
+import { SENTRY_SKILLS } from '../src/core/skills.mjs';
 
 const sources={};
-for(const file of ['data/athlete-definitions.mjs','data/athlete-choices.mjs','data/athletes.mjs','data/teams.mjs','data/sprite-library.json','src/roster.mjs','src/core/game.mjs','src/core/geometry.mjs','src/core/ai.mjs']){
+for(const file of ['data/athlete-definitions.mjs','data/athlete-choices.mjs','data/athletes.mjs','data/teams.mjs','data/sprite-library.json','src/roster.mjs','src/core/game.mjs','src/core/skills.mjs','src/core/geometry.mjs','src/core/ai.mjs']){
   sources[file]=createHash('sha256').update(await readFile(new URL('../'+file,import.meta.url))).digest('hex');
 }
 assert.equal(ATHLETE_VERSION,2,'single-position athlete contract');
@@ -28,7 +29,7 @@ const roster=createRoster(library),defaultPlayers=roster.teams(roster.defaults()
   const a=profiles.get(p.athleteId);assert.ok(canPlayPosition(a,p.role),'compatible default: '+p.athleteId+' / '+p.role);
   return [p.role,a];
 })));
-const started=performance.now(),results=[],seen=new Set(),seenSides=new Set(),stats={commands:0,decisions:0,decisionMs:0,goals:0};
+const started=performance.now(),results=[],seen=new Set(),seenSides=new Set(),stats={commands:0,decisions:0,decisionMs:0,goals:0,skills:Object.fromEntries(SENTRY_SKILLS.map(s=>[s.id,0])),effectReloads:0};
 const rng=seed=>()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/4294967296);
 function team(random,forced){
   const chosen={},used=new Set();
@@ -60,6 +61,10 @@ function run(lineups,seed,group){
     for(const command of commands){
       const result=applyCommand(state,command);assert.equal(result.ok,true,JSON.stringify(command));validateState(state);stats.commands++;
       stats.goals+=result.events.filter(e=>e.type==='goal').length;trace.update(JSON.stringify(result));
+      for(const event of result.events.filter(e=>e.type==='skill')){
+        stats.skills[event.skill]++;
+        assert.deepEqual(restoreMatch(JSON.parse(JSON.stringify(state))),state,'effect snapshot round trip');stats.effectReloads++;
+      }
     }
   }
   assert.deepEqual(restoreMatch(JSON.parse(JSON.stringify(state))),state);

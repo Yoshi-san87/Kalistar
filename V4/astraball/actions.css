@@ -28,9 +28,31 @@
 .analysis-facts div{min-width:0}.analysis-facts dt{font-size:10px;color:var(--muted);margin-bottom:5px}.analysis-facts dd{margin:0;color:var(--text);font-size:16px;font-variant-numeric:tabular-nums}.analysis-facts dd small{font-size:10px;color:var(--muted)}
 .analysis-detail{border-left:2px solid var(--gold);padding:8px 0 8px 12px;margin-top:18px;font-size:12px;line-height:1.65;overflow-wrap:anywhere;color:#dce6dc}.analysis-detail.danger{border-color:var(--rose);color:var(--rose)}
 .analysis-detail strong{display:block;font-weight:500;color:var(--gold);font-size:10px;margin-bottom:3px}
+.wheel-skill{color:#b9dcec}.wheel-skill[data-skill="jam"]{color:#edadd6}.wheel-skill[data-skill="charged-pass"]{color:#ffdf97}
+.wheel-readout.sr-only{padding:0;border:0;max-height:1px}
+.initiative-portrait{position:relative;display:grid;flex-shrink:0}
+.initiative-portrait>.sprite-badge{--size:43px;border-bottom:1px solid var(--team)}
+.initiative-effects{position:absolute;left:0;bottom:0;display:flex;flex-wrap:wrap;gap:1px;max-width:27px;pointer-events:none}
+.unit-effect{display:inline-flex;align-items:center;gap:4px;min-width:0;max-width:100%;padding:3px 5px;border:1px solid #79cebb70;border-radius:3px;background:#123934;color:#a3f0db;font-size:10px;line-height:14px;overflow-wrap:anywhere}
+.unit-effect svg{width:12px;height:12px;flex-shrink:0}.unit-effect.harmful{color:#f6bbdc;background:#42243a;border-color:#d68eb670}
+.unit-effect[data-effect="cover"]{color:#b7ddff;background:#243944;border-color:#8ccfff70}
+.unit-effect[data-effect="charged-pass"]{color:#ffdf97;background:#3c3722;border-color:#ffdf9770}
+.initiative-effects .unit-effect{padding:0;gap:0;width:13px;height:13px;border-radius:2px;justify-content:center}
+.initiative-effects .unit-effect svg{width:10px;height:10px}
+.active-effects,.effect-list{display:flex;align-items:center;flex-wrap:wrap;gap:4px}
+.active-effects{grid-column:1/-1;padding:7px 0;border-bottom:1px solid var(--line)}
+.active-effects:before{content:'Effets';font-size:10px;color:var(--muted);margin-right:3px}
+.ball-owner{font-size:10px;color:var(--gold);overflow-wrap:anywhere;min-width:0}
+.analysis-effects{margin-top:9px;padding-top:7px;border-top:1px solid var(--line)}
+.player-identity>div{min-width:0}.player-identity img{flex-shrink:0}
+#dialog-content .base-stats-caption{font-size:10px;color:var(--gold);margin-bottom:7px}
+#dialog-content .unit-effects{border-bottom:1px solid var(--line);padding-bottom:5px;margin-bottom:14px}
+#dialog-content .unit-effects .effect-list{margin-bottom:10px}
 @media(max-width:760px){
   .arena{min-height:240px}.tactics{padding:8px 12px}.tactics .turn-heading{padding-bottom:5px}.tactics .player-identity{padding:7px 0;min-height:63px}.tactics .player-identity h1{font-size:16px}.tactics .player-identity img{height:43px;width:34px}
   .analysis-section{display:none}
+  .initiative-portrait>.sprite-badge{--size:33px}
+  .active-effects{padding:4px 0 0;border:0;gap:3px}.active-effects .unit-effect{font-size:9px;padding:1px 4px}
   #placement-controls .end-turn{padding:10px 12px}.placing .player-identity{min-height:58px}
 }
 @media(max-height:580px) and (min-width:761px){.analysis-section{margin-top:10px;padding-top:10px}.analysis-section h2{margin-bottom:8px}.analysis-facts{gap:10px}.analysis-detail{margin-top:10px}}

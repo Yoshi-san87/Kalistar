@@ -66,6 +66,11 @@ des mensurations documentaires.
 - TIR : portee des tirs. A portee et sans adversaire sur la trajectoire, le tir est certain.
 - DEF : resistance aux charges ; pas une zone d'interception invisible.
 
+Les [competences Sentry](README.md#competences-du-sentry) ajoutent des effets
+temporaires au match, jamais aux profils : Relais +1 case de passe, Couverture
++2 DEF, Brouillage -1 case de MOB (minimum 1), balle chargee +1 case de tir.
+Le Sentry garde sa charge normale ; une competence remplace son action.
+
 Les 16 styles sportifs et les specialisations Kalistar constituent la base
 historique des profils sans choix auteur. Une specialite deja au plafond reste
 au profil de base, sans enlever de point ailleurs. Les statistiques confirmees

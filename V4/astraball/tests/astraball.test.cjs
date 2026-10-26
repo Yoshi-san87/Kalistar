@@ -4,6 +4,7 @@ const fs=require('node:fs'),path=require('node:path');
 const {pathToFileURL}=require('node:url');
 require('./deploy-cases.cjs');
 test('Astraball rules and AI regression suite',async()=>{await import('./core.test.mjs');});
+test('Astraball Sentry abilities, persistence and AI',async()=>{await import('./sentry.test.mjs');});
 test('Astraball contextual action wheel geometry',async()=>{await import('./action-wheel.test.mjs');});
 test('Astraball contextual targets and movement previews',async()=>{await import('./action-options.test.mjs');});
 test('Astraball formation and zone-capacity regression suite',async()=>{await import('./placement.test.mjs');});

@@ -129,6 +129,49 @@ ni les statistiques, ni l'IA, ni les probabilites, ni les sauvegardes Kalistar.
   est interdit conserve son effet de retard, selon les memes regles qu'un mur.
 
 Les formules exactes sont dans `src/core/game.mjs` et le livre des regles.
+
+### Competences Du Sentry
+
+Seul le poste Sentry ouvre le sous-menu des competences. Apres son deplacement
+eventuel, il choisit une competence A LA PLACE de passer, tirer ou charger.
+Elle termine son activation : aucune seconde action et aucun cout de mana.
+Il conserve la charge normale. Les deux camps, y compris l'IA, suivent ces regles.
+
+| Competence | Cible et effet |
+| --- | --- |
+| Relais | Un autre allie a deux cases maximum : +1 case de portee de passe. |
+| Couverture | Un autre allie a deux cases maximum : +2 DEF contre les charges. Aucun blocage supplementaire de tir. |
+| Brouillage | Un adversaire a deux cases maximum : -1 case de deplacement, sans descendre sous 1. Ni VIT reduite, ni tour supprime. |
+| Passe chargee | Le Sentry porteur passe avec une portee reduite d'une case. En cas de passe reussie, le ballon gagne +1 case au prochain tir. |
+
+Les distances sont orthogonales. Relais, Couverture et Brouillage sont des auras
+courtes, sans trajectoire de ballon ni jet aleatoire. Ils expirent a la fin de
+la prochaine activation de la cible, meme si elle attend ou choisit une autre
+action ; un simple deplacement ne les consomme pas. Un meme effet ne se cumule
+pas et ne peut pas etre rafraichi tant qu'il est actif. Ils persistent au
+changement de manche et au replacement apres but, comme les tours restants.
+
+La passe chargee conserve toutes les interceptions normales. La charge magique
+reste sur les passes entre allies et les deplacements du porteur, sans cumul.
+Elle disparait au premier tir, a une interception ou lorsque le porteur lache
+le ballon apres une charge reussie, meme s'il le ramasse aussitot. Aucun point
+supplementaire : un but vaut toujours 1, ou 2 pour le Scoreur. Les stats du
+catalogue ne sont jamais reecrites ; tous les effets sont temporaires dans le
+snapshot du match, et disparaissent a sa fin.
+
+Les anciens snapshots sans effets restent lisibles, sans reset ni changement
+de schema. Les competences s'appliquent aux prochaines actions, sans reecrire
+les anciens scores, actions, profils ou positions. Les valeurs derivees du
+moteur alimentent aussi les apercus de la roulette, l'analyse et l'IA.
+
+Les incantations affichent un effet fini de 720 ms, arrete en onglet masque,
+sans filtre GPU ni particules permanentes. Reduced Motion l'abrege. Tant que
+le nouveau template n'est pas publie, le corps utilise une pose de garde.
+`magicPose` peut choisir `magic` uniquement si le clip publie existe et que
+toutes ses frames sont presentes dans l'atlas. Les sources/prototypes Sprite V2
+ne sont pas branches. Le marqueur visuel futur `release` ne decide jamais du
+resultat moteur.
+
 Les profils sont propres a Astraball, pas aux statistiques du jeu de cartes.
 Leur budget commun limite l'inflation sans prouver l'equilibre competitif.
 Les rencontres deja sauvegardees conservent leurs valeurs, meme apres une
@@ -158,6 +201,7 @@ Obsidienne = `ombrine-kalistar`, `nereth-kalistar`, `varkhen-kalistar`, `voloden
 | `src/athlete-view.mjs` | Fiches sportives, mensurations et references |
 | `src/core/geometry.mjs` | Cases, limites, trajectoires supercover |
 | `src/core/game.mjs` | Etat pur, initiative, actions, ballon, score, validation |
+| `src/core/skills.mjs` | Competences Sentry, valeurs derivees et descriptions communes |
 | `src/core/ai.mjs` | Decisions bornees sans modifier l'etat |
 | `src/projection.mjs` | Deux projections communes au sol/clic, hauteur et zones du Pilier |
 | `src/viewport.mjs` | Zoom uniforme ancre au curseur, glissement borne, vue d'ensemble |

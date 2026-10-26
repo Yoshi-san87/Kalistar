@@ -15,6 +15,11 @@ const clips={
   celebrate:{frames:[14,15,14,15],fps:5,loop:true},
 };
 export const CLIPS=Object.freeze(Object.fromEntries(Object.entries(clips).map(([key,value])=>[key,Object.freeze({...value,frames:Object.freeze(value.frames)})])));
+// A validated future atlas may provide magic; never index V2 frames in V1 art.
+export function magicPose(frameCount,clips=CLIPS){
+  const frames=clips.magic?.frames;
+  return Array.isArray(frames)&&frames.length>0&&frames.every(i=>Number.isInteger(i)&&i>=0&&i<frameCount)?'magic':'guard';
+}
 export function frameAt(pose,elapsed=0){
   const clip=CLIPS[pose];if(!clip)throw new Error('Unknown sprite pose: '+pose);
   const index=Math.floor(Math.max(0,Number.isFinite(elapsed)?elapsed:0)*clip.fps/1000);

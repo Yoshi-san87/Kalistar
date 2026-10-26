@@ -1,6 +1,7 @@
 import { activeUnit, applyCommand, getUnit, legalMoves, legalPlacements, previewAction } from './game.mjs';
 import { distance, GOAL_ROWS } from './geometry.mjs';
 import { FORMATION } from '../../data/teams.mjs';
+import { passRange, mobilityOf } from './skills.mjs';
 
 const progress = (unit) => unit.team === 0 ? unit.x : 12 - unit.x;
 const goalDistance = (unit) => 12 - progress(unit) + Math.max(2 - unit.y, unit.y - 4, 0);
@@ -82,7 +83,7 @@ function movedView(state, unit, move) {
   const picksUp = state.ball.holderId === null
     && move.path.some((cell) => cell.x === state.ball.x && cell.y === state.ball.y);
   const ball = state.ball.holderId === unit.id || picksUp
-    ? { holderId: unit.id, x: move.x, y: move.y } : state.ball;
+    ? { ...state.ball, holderId: unit.id, x: move.x, y: move.y } : state.ball;
   return { ...state, units: state.units.map((other) => other.id === unit.id ? moved : other), ball, moved: true };
 }
 
@@ -104,10 +105,10 @@ function positioning(state, unit) {
     return 55 - distance(unit, holder) * 7 + (goalSide ? 8 : 0);
   }
   if (unit.role === 'scoreur' || unit.role === 'meneur') {
-    const passRange = 3 + Math.floor(holder.stats.PAS / 2);
+    const range = passRange(holder);
     const separation = distance(unit, holder);
     return 20 + progress(unit) * (unit.role === 'scoreur' ? 5 : 3)
-      - Math.max(0, separation - passRange) * 8 - Math.abs(unit.y - 3);
+      - Math.max(0, separation - range) * 8 - Math.abs(unit.y - 3);
   }
   // Support the carrier while marking the opponent nearest our own goal.
   const threat = enemies.slice().sort((a, b) => distance(a, ownGoal) - distance(b, ownGoal)
@@ -120,7 +121,7 @@ function positioning(state, unit) {
  * Read-only, deterministic greedy planner for either team (caller decides AI
  * ownership). Returns legal placements + ready during setup; otherwise
  * [optional {type:'move',x,y}, action], or [] when finished.
- * At most 77 positions x (3 goal cells + 4 teammates + 5 opponents + wait).
+ * At most 77 positions; Sentry adds bounded ally/enemy support candidates.
  * No recursive search, RNG consumption, DOM, timers, or runtime dependencies.
  * Paths and action legality are always obtained from the public engine API.
  */
@@ -155,7 +156,9 @@ export function chooseTurn(state) {
       }
       for (const teammate of view.units) {
         if (teammate.team !== unit.team || teammate.id === unit.id) continue;
-        const action = { type: 'pass', targetId: teammate.id };
+        const passes=unit.role==='sentry'&&!view.ball.charge?['pass','charged-pass']:['pass'];
+        for(const type of passes){
+        const action = { type, targetId: teammate.id };
         const preview = previewAction(view, action);
         if (!preview.legal || preview.blockerId) continue;
         const advance = progress(teammate) - progress(unit);
@@ -163,7 +166,8 @@ export function chooseTurn(state) {
         if (advance <= 0 && (!available || teammate.role !== 'scoreur')) continue;
         let shootingOpportunity = 0;
         if (available) {
-          const receivingView = { ...view, activeId: teammate.id, ball: { holderId: teammate.id, x: teammate.x, y: teammate.y } };
+          const receivingView = { ...view, activeId: teammate.id, ball: { ...view.ball,holderId: teammate.id, x: teammate.x, y: teammate.y,
+            ...(type==='charged-pass'?{charge:{team:unit.team,sourceId:unit.id}}:{}) } };
           for (const y of GOAL_ROWS) {
             const shot = previewAction(receivingView, { type: 'shoot', x: teammate.team === 0 ? 12 : 0, y });
             if (shot.legal && !shot.blockerId) shootingOpportunity = Math.max(shootingOpportunity, shot.chance * shot.points * 0.6);
@@ -171,7 +175,31 @@ export function chooseTurn(state) {
         }
         const threatened = view.units.some((other) => other.team !== unit.team && !other.acted && distance(other, teammate) === 1);
         consider(action, 18 + advance * 8 + (available ? 30 : -65)
-          + (teammate.role === 'scoreur' ? 24 : 0) + shootingOpportunity - (threatened ? 25 : 0));
+          + (teammate.role === 'scoreur' ? 24 : 0) + shootingOpportunity - (threatened ? 25 : 0)
+          + (type==='charged-pass'&&available?6:0));
+        }
+      }
+    }
+    if(unit.role==='sentry'){
+      for(const target of view.units){
+        if(target.id===unit.id)continue;
+        const types=target.team===unit.team?['relay','cover']:['jam'];
+        for(const type of types){
+          const action={type,targetId:target.id};
+          if(!previewAction(view,action).legal)continue;
+          const carrier=view.ball.holderId===target.id,availability=target.acted?.5:1;
+          if(type==='jam'){
+            const danger=Math.max(0,8-goalDistance(target));
+            consider(action,availability*((carrier?52:12)+(target.role==='scoreur'?16:0)+danger*2));
+          }else if(type==='cover'){
+            const threats=view.units.filter(other=>other.team!==target.team&&!other.acted&&distance(other,target)<=mobilityOf(other)+1
+              &&65+(other.stats.FOR-target.stats.DEF)*5>30&&65+(other.stats.FOR-target.stats.DEF)*5<105).length;
+            if(threats)consider(action,availability*(carrier?25:5)+Math.min(threats,2)*9);
+          }else if(carrier&&!target.acted){
+            const extraPass=view.units.some(other=>other.team===target.team&&other.id!==target.id&&!other.acted&&distance(target,other)===passRange(target)+1);
+            if(extraPass)consider(action,32);
+          }
+        }
       }
     }
     for (const enemy of view.units) {

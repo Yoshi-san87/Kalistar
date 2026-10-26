@@ -3,7 +3,9 @@ const clamp=(n,min,max)=>Math.min(max,Math.max(min,n));
 // Try four half-circles; keep all 44px targets inside the court, nearest the actor.
 export function layoutWheel(point,{width,height,top=64,bottom=64},open=true,count=5){
   top=Math.min(top,Math.max(8,height-180));
-  const half=22,pad=8,radius=Math.min(82,Math.max(70,height-top-bottom-44));
+  const half=22,pad=8,radius=count>5?90:Math.min(82,Math.max(70,height-top-bottom-44));
+  // Six choices need wider spacing; preserve the original five-action layout.
+  if(count>5){top=Math.min(top,Math.max(8,height-bottom-44-radius));bottom=Math.min(bottom,Math.max(8,height-top-44-radius));}
   const bounds={left:pad+half,right:width-pad-half,top:Math.min(top+half,height/2),bottom:Math.max(height-bottom-half,height/2)};
   const anchor={x:point.x,y:point.y+24};
   if(!open||!count)return {origin:{x:clamp(anchor.x,bounds.left,bounds.right),y:clamp(anchor.y,bounds.top,bounds.bottom)},items:[],radius,arc:''};
@@ -40,7 +42,7 @@ export class ActionWheel {
     root.addEventListener('focusin',e=>{if(e.target.matches('button:focus-visible'))this.showTip(e.target);});
     root.addEventListener('focusout',()=>this.tip.hidden=true);
   }
-  get buttons(){return [...this.root.querySelectorAll(this.view==='actions'?'#actions .wheel-action,#wait':'#target-options .wheel-action,#confirm-action')].filter(button=>!button.hidden);}
+  get buttons(){return [...this.root.querySelectorAll(this.view==='actions'?'#actions .wheel-action,#wait':this.view==='skills'?'#skill-options .wheel-action':'#target-options .wheel-action,#confirm-action')].filter(button=>!button.hidden);}
   setOpen(value){
     this.open=value;this.root.dataset.open=String(value);this.toggle.setAttribute('aria-expanded',String(value));
     this.tip.hidden=true;this.onToggle();this.position();
@@ -59,20 +61,27 @@ export class ActionWheel {
     const width=this.host.clientWidth,height=this.host.clientHeight;
     this.root.hidden=width<240||height<190;if(this.root.hidden)return;
     this.root.dataset.view=this.view;
-    const actions=this.view==='actions';
+    const actions=this.view==='actions',skills=this.view==='skills';
     this.root.querySelector('#actions').hidden=!actions;this.root.querySelector('#wait').hidden=!actions;
-    this.root.querySelector('#target-options').hidden=actions;
-    this.toggle.setAttribute('aria-label',actions?'Actions du joueur':'Revenir aux actions');
-    this.toggle.title=actions?'Actions du joueur':'Revenir aux actions';
+    this.root.querySelector('#skill-options').hidden=!skills;
+    this.root.querySelector('#target-options').hidden=actions||skills;
+    const back=this.root.dataset.skillTarget==='true'?'Revenir aux compétences':'Revenir aux actions';
+    this.toggle.setAttribute('aria-label',actions?'Actions du joueur':back);
+    this.toggle.title=actions?'Actions du joueur':back;
     const buttons=this.buttons,layout=layoutWheel(point,{width,height},this.open,buttons.length);
     const place=(button,p)=>{button.style.left=p.x+'px';button.style.top=p.y+'px';};
     const positions=actions?layout.items:[...layout.items].reverse();
     place(this.toggle,layout.origin);positions.forEach((p,i)=>place(buttons[i],p));
     const description=this.root.querySelector('#target-description');
     description.hidden=actions||!this.open;
-    description.style.left=clamp(layout.origin.x,100,width-100)+'px';
-    const lowest=Math.max(layout.origin.y,...layout.items.map(p=>p.y));
-    description.style.top=Math.min(lowest+35,height-8-description.offsetHeight)+'px';
+    description.classList.remove('sr-only');
+    const readoutHalf=Math.min(104,(width-16)/2);
+    description.style.left=clamp(layout.origin.x,readoutHalf+8,width-readoutHalf-8)+'px';
+    const lowest=Math.max(layout.origin.y,...layout.items.map(p=>p.y)),highest=Math.min(layout.origin.y,...layout.items.map(p=>p.y));
+    const below=lowest+30,above=highest-30-description.offsetHeight;
+    if(below+description.offsetHeight<=height-8)description.style.top=below+'px';
+    else if(above>=8)description.style.top=above+'px';
+    else description.classList.add('sr-only');
     this.arc.setAttribute('d',layout.arc);
     this.link.setAttribute('d',`M ${point.x} ${point.y} L ${layout.origin.x} ${layout.origin.y}`);
     this.tip.hidden=true;
@@ -81,7 +90,9 @@ export class ActionWheel {
     if(!button||!this.visible)return;
     const host=this.host.getBoundingClientRect(),box=button.getBoundingClientRect();
     this.tip.textContent=button.title||button.getAttribute('aria-label');this.tip.hidden=false;
-    this.tip.style.left=clamp(box.x+box.width/2-host.x,90,this.host.clientWidth-90)+'px';
-    this.tip.style.top=(box.y-host.y>45?box.y-host.y-38:box.bottom-host.y+9)+'px';
+    const half=this.tip.offsetWidth/2,tipHeight=this.tip.offsetHeight;
+    this.tip.style.left=clamp(box.x+box.width/2-host.x,half+8,this.host.clientWidth-half-8)+'px';
+    const above=box.y-host.y-tipHeight-8,below=box.bottom-host.y+8;
+    this.tip.style.top=clamp(above>=8?above:below,8,this.host.clientHeight-tipHeight-8)+'px';
   }
 }

@@ -75,6 +75,7 @@ async function main(){
   const reports=[];
   try{
     await require('./action-wheel-cases.cjs')({browser,url,OUT,core});
+    reports.push(...await require('./sentry-cases.cjs')({browser,url,OUT,sharp}));
     await require('./locker-cases.cjs')({browser,url,OUT,sharp});
     for(const [name,width,height] of [['desktop',1440,900],['wide',1920,1080],['razr',412,915],['compact',360,800],['landscape',915,412]]){
       const context=await browser.newContext({viewport:{width,height},deviceScaleFactor:1,reducedMotion:'reduce',isMobile:width<761,hasTouch:width<761});

@@ -1,6 +1,7 @@
 import { TEAMS, ROLE_STATS, ROLES, FORMATION } from '../../data/teams.mjs';
 import { canOccupy, distance, isPitch, isOpponentGoal, supercover, inDefense, inOwnHalf } from './geometry.mjs';
 import { getAthlete, athleteSnapshot } from '../../data/athletes.mjs';
+import { skillFor, mobilityOf, defenseOf, passRange, shotRange } from './skills.mjs';
 
 /**
  * Public API: createMatch/restoreMatch, activeUnit/controllingTeam, getUnit,
@@ -19,7 +20,7 @@ import { getAthlete, athleteSnapshot } from '../../data/athletes.mjs';
  */
 
 const STAT_KEYS = ['VIT', 'MOB', 'FOR', 'PAS', 'TIR', 'DEF'];
-const EVENT_TYPES = new Set(['move', 'pass', 'intercept', 'charge', 'shot', 'goal', 'round', 'end', 'wait', 'placement', 'place', 'ready', 'kickoff']);
+const EVENT_TYPES = new Set(['move', 'pass', 'intercept', 'charge', 'shot', 'goal', 'round', 'end', 'wait', 'placement', 'place', 'ready', 'kickoff', 'skill']);
 const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
 const position = ({ x, y }) => ({ x, y });
 const key = ({ x, y }) => `${x},${y}`;
@@ -130,7 +131,7 @@ export function legalMoves(state) {
   const directions = [[forward, 0], [0, -1], [0, 1], [-forward, 0]];
   for (let i = 0; i < queue.length; i += 1) {
     const current = queue[i];
-    if (current.path.length >= unit.stats.MOB) continue;
+    if (current.path.length >= mobilityOf(unit)) continue;
     for (const [dx, dy] of directions) {
       const cell = { x: current.x + dx, y: current.y + dy };
       const cellKey = key(cell);
@@ -162,6 +163,22 @@ export function previewAction(state, action) {
   if (!unit || unit.acted) return invalid('match-finished');
   if (!action || typeof action !== 'object') return invalid('invalid-command');
   const from = position(unit);
+  const skill=skillFor(action.type);
+  if(skill){
+    if(unit.role!=='sentry')return invalid('sentry-required');
+    if(action.type==='charged-pass'){
+      if(state.ball.holderId!==unit.id)return invalid('ball-required');
+      if(state.ball.charge)return invalid('effect-active');
+    }else{
+      const target=getUnit(state,action.targetId),enemy=action.type==='jam';
+      if(!target||target.id===unit.id||(target.team!==unit.team)!==enemy)return invalid(enemy?'enemy-required':'teammate-required');
+      const to=position(target),details={from,to,targetId:target.id,range:2,distance:distance(unit,target),cells:[from,to],skill:skill.id};
+      if(details.distance>2)return invalid('out-of-range',details);
+      if(target.effects?.[skill.id])return invalid('effect-active',details);
+      if(enemy&&target.stats.MOB<=1)return invalid('no-effect',details);
+      return {...base,...details,legal:true,chance:100};
+    }
+  }
   if (action.type === 'wait') return { ...base, legal: true, chance: 100, from, to: from };
   if (action.type === 'charge') {
     const target = getUnit(state, action.targetId);
@@ -173,15 +190,16 @@ export function previewAction(state, action) {
     const pushLegal = canPosition(state, target, pushTo.x, pushTo.y) && !at(state, pushTo);
     return {
       ...base, ...details, legal: true,
-      chance: clamp(65 + (unit.stats.FOR - target.stats.DEF) * 5, 30, 95),
+      chance: clamp(65 + (unit.stats.FOR - defenseOf(target)) * 5, 30, 95),
       pushTo, pushLegal, penaltyRound: target.acted ? state.round + 1 : state.round,
     };
   }
-  if (action.type !== 'pass' && action.type !== 'shoot') return invalid('unknown-command');
+  const passing=action.type==='pass'||action.type==='charged-pass';
+  if (!passing && action.type !== 'shoot') return invalid('unknown-command');
   if (state.ball.holderId !== unit.id) return invalid('ball-required');
   let target = null;
   let to;
-  if (action.type === 'pass') {
+  if (passing) {
     target = getUnit(state, action.targetId);
     if (!target || target.team !== unit.team || target.id === unit.id) return invalid('teammate-required');
     to = position(target);
@@ -189,12 +207,13 @@ export function previewAction(state, action) {
     if (!isOpponentGoal(unit.team, action.x, action.y)) return invalid('opponent-goal-required');
     to = { x: action.x, y: action.y };
   }
-  const range = action.type === 'pass' ? 3 + Math.floor(unit.stats.PAS / 2) : 2 + Math.floor(unit.stats.TIR / 2);
+  const range = passing ? Math.max(1,passRange(unit)-(skill?1:0)) : shotRange(state,unit);
   const cells = supercover(from, to);
   const blocker = lineBlocker(state, unit, cells);
   const details = {
     from, to, targetId: target?.id ?? null, range, distance: distance(unit, to),
     cells, blockerId: blocker?.id ?? null, inRange: distance(unit, to) <= range,
+    ...(skill?{skill:skill.id}:{}),
   };
   if (!details.inRange) return invalid('out-of-range', details);
   const clearChance = 100;
@@ -205,6 +224,7 @@ export function previewAction(state, action) {
 }
 
 function giveBall(state, unit) {
+  if(state.ball.charge?.team!==unit.team)delete state.ball.charge;
   state.ball.holderId = unit.id;
   Object.assign(state.ball, position(unit));
 }
@@ -217,12 +237,15 @@ function collectBall(state) {
 }
 
 function dropBall(state, cell) {
+  delete state.ball.charge;
   state.ball.holderId = null;
   Object.assign(state.ball, cell);
   return collectBall(state);
 }
 
 function finish(state, events, reason) {
+  for(const unit of state.units)delete unit.effects;
+  delete state.ball.charge;
   state.status = 'finished';
   state.phase = 'play';
   state.placement = null;
@@ -233,6 +256,7 @@ function finish(state, events, reason) {
 }
 
 function endActivation(state, unit, events) {
+  delete unit.effects;
   unit.acted = true;
   state.moved = false;
   if (state.score.some((score) => score >= state.targetScore)) {
@@ -347,6 +371,14 @@ export function applyCommand(state, command) {
     const preview = previewAction(state, command);
     if (!preview.legal) return { ok: false, error: preview.reason, events };
     const common = { ...actor, from: preview.from, to: preview.to, targetId: preview.targetId ?? null };
+    const skill=skillFor(command.type);
+    if(skill){
+      events.push({type:'skill',...common,skill:skill.id,success:true});
+      if(skill.id!=='charged-pass'){
+        const target=getUnit(state,command.targetId);
+        target.effects={...target.effects,[skill.id]:{sourceId:unit.id,appliedRound:state.round}};
+      }
+    }
     if (command.type === 'wait') {
       events.push({ type: 'wait', ...common, success: true });
     } else if (command.type === 'charge') {
@@ -367,19 +399,24 @@ export function applyCommand(state, command) {
         penalty: target.penalty, nextPenalty: target.nextPenalty,
         penaltyRound: preview.penaltyRound, dropped, pickupId,
       });
-    } else if (command.type === 'pass') {
+    } else if (command.type === 'pass'||command.type==='charged-pass') {
       const receiver = getUnit(state, preview.blockerId ?? command.targetId);
       giveBall(state, receiver);
-      events.push({ type: 'pass', ...common, cells: preview.cells, success: !preview.blockerId, blockerId: preview.blockerId });
+      if(command.type==='charged-pass'&&!preview.blockerId)state.ball.charge={team:unit.team,sourceId:unit.id};
+      events.push({ type: 'pass', ...common, cells: preview.cells, success: !preview.blockerId, blockerId: preview.blockerId,
+        ...(state.ball.charge?{charged:true}:{}) });
       if (preview.blockerId) events.push({
         type: 'intercept', round: state.round, unitId: receiver.id, team: receiver.team,
         targetId: unit.id, from: preview.from, to: position(receiver), success: true, action: 'pass',
       });
     } else if (command.type === 'shoot') {
       const success = !preview.blockerId;
+      const charged=!!state.ball.charge;
+      delete state.ball.charge;
       const shot = {
         type: 'shot', ...common, cells: preview.cells, chance: preview.chance,
         success, points: success ? preview.points : 0, blockerId: preview.blockerId,
+        ...(charged?{charged:true}:{}),
       };
       events.push(shot);
       if (preview.blockerId) {
@@ -445,6 +482,21 @@ export function validateState(state) {
     require(integer(unit.penalty, 0, unit.stats.VIT) && integer(unit.nextPenalty, 0, unit.stats.VIT), 'penalty');
   }
   require(roles.every((team) => team.size === 5), 'team composition');
+  for(const unit of state.units){
+    if(unit.effects===undefined)continue;
+    require(unit.effects&&typeof unit.effects==='object'&&!Array.isArray(unit.effects),'effects');
+    const entries=Object.entries(unit.effects);
+    require(entries.length>0&&entries.length<=3&&state.status==='playing','effects count');
+    for(const [id,effect] of entries){
+      require(['relay','cover','jam'].includes(id)&&effect&&typeof effect==='object'&&!Array.isArray(effect),'effect kind');
+      require(Object.keys(effect).length===2&&Object.hasOwn(effect,'sourceId')&&Object.hasOwn(effect,'appliedRound'),'effect fields');
+      const source=getUnit(state,effect.sourceId);
+      require(source&&source.role==='sentry'&&source.id!==unit.id&&(source.team!==unit.team)===(id==='jam'),'effect source');
+      require(integer(effect.appliedRound,Math.max(1,state.round-1),state.round),'effect round');
+      require(effect.appliedRound===state.round||!unit.acted,'expired effect');
+      if(id==='jam')require(unit.stats.MOB>1,'effect mobility');
+    }
+  }
   if (state.schema === 2) {
     require(['placement', 'play'].includes(state.phase), 'phase');
     for (const team of [0, 1]) require(state.units.filter(unit => unit.team === team && unit.role !== 'pilier' && inDefense(team, unit.x, unit.y)).length <= 1, 'defense capacity');
@@ -461,6 +513,12 @@ export function validateState(state) {
   }
   require(state.ball && isPitch(state.ball.x, state.ball.y), 'ball position');
   require(state.ball.holderId === null || ids.has(state.ball.holderId), 'ball holder');
+  if(state.ball.charge!==undefined){
+    const charge=state.ball.charge,holder=getUnit(state,state.ball.holderId);
+    require(charge&&typeof charge==='object'&&!Array.isArray(charge)&&Object.keys(charge).length===2,'ball charge');
+    const source=getUnit(state,charge.sourceId);
+    require(state.status==='playing'&&state.phase!=='placement'&&[0,1].includes(charge.team)&&holder?.team===charge.team&&source?.team===charge.team&&source.role==='sentry','ball charge source');
+  }
   if (state.ball.holderId !== null) {
     const holder = getUnit(state, state.ball.holderId);
     require(holder.x === state.ball.x && holder.y === state.ball.y, 'ball must follow holder');

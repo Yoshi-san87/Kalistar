@@ -750,7 +750,9 @@ test('JSON round-trip resumes identically and AI planning is pure and determinis
       assert.ok(plan.length >= 1 && plan.length <= 2);
       if (plan.length === 2) assert.equal(plan[0].type, 'move');
     }
-    assert.ok(['pass', 'shoot', 'charge', 'wait', 'ready'].includes(plan.at(-1).type));
+    const skills=['relay','cover','jam','charged-pass'];
+    assert.ok(['pass', 'shoot', 'charge', 'wait', 'ready',...skills].includes(plan.at(-1).type));
+    if(skills.includes(plan.at(-1).type))assert.equal(activeUnit(a).role,'sentry');
     for (const cmd of plan) {
       assert.deepEqual(command(a, cmd), command(b, cmd));
       assert.deepEqual(a, b);
