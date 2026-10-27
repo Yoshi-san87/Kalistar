@@ -12,11 +12,12 @@ la reference des cartes natives.
   serveur. Un mauvais mot de passe ou un compte refuse ne lance rien.
 - Une reprise de session, un reload du jeu, une navigation et la recuperation
   du mot de passe n'imposent pas une nouvelle introduction.
-- `Passer` et Echap donnent immediatement acces a la destination demandee.
+- `Passer` et Echap terminent le film et montrent l'accueil de lecture.
+  Entrer rejoint ensuite la destination demandee des que les donnees sont pretes.
 - Le son est active au lancement a 65 % ; le bouton audio permet de le couper.
   Si le navigateur refuse l'autoplay sonore, une seule tentative silencieuse
   est faite automatiquement, et le bouton affiche le veritable etat du son.
-- Reduced Motion passe directement au jeu, sans requete video. Un changement
+- Reduced Motion passe directement a l'accueil de lecture, sans requete video. Un changement
   de cette preference en cours de lecture ferme aussi le film.
 - Erreur de media : acces au jeu. Premier decodage trop lent : abandon a
   4,5 secondes. Un watchdog borne egalement les blocages pendant la lecture.
@@ -45,15 +46,20 @@ notifications. Ce n'est pas un filtre sur un type de popup. La synchronisation
 initiale des donnees reste autorisee, mais aucun resultat de combat n'est produit
 par ce prechargement. Les preferences synchronisees sont relues a l'activation.
 
-La fin, Passer, Echap, Reduced Motion ou une erreur du film ouvrent la meme
-frontiere. Si le document est en arriere-plan, l'activation attend son retour.
+La fin, Passer, Echap, Reduced Motion ou une erreur du film ouvrent le meme
+accueil : une carte aleatoire et le recit publie sur cette carte. Les donnees
+continuent a se preparer ; Entrer apparait quand elles sont pretes. Le jeu reste
+inactif pendant toute la lecture, sans minuterie ni passage automatique.
+Le clic Entrer ouvre la frontiere. Si le document est en arriere-plan,
+l'activation attend son retour.
 Une navigation definitive annule cette attente ; le retour bfcache ne cree pas
 un second demarrage. Les erreurs de chargement attendent elles aussi la fin du
 film avant d'afficher Reessayer. Les menus restent inertes tant que l'application
 n'est pas active. Les animations CSS de la page sont en pause dans un onglet
 cache et derriere une popup globale ; celles de la popup restent independantes.
-Si le jeu n'est pas encore pret apres Passer, son ecran de chargement habituel
-reste visible ; une erreur de chargement conserve son bouton Reessayer.
+Si le jeu n'est pas encore pret apres Passer, la lecture reste visible avec
+son etat de preparation ; une erreur de chargement quitte cet accueil et
+conserve le bouton Reessayer, sans attendre un clic sur Entrer.
 Le marqueur consomme ne relance pas le film au rechargement et aucun schema
 de sauvegarde n'est modifie.
 

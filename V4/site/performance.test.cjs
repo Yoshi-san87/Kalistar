@@ -2,20 +2,21 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),crypto=require('node:crypto');
 const read=name=>fs.readFileSync(path.join(__dirname,name),'utf8');
 async function boot({invalid=false,missing='',preview=false}={}){
-  const preload=[],styles=[],executed=[],errors=[],nodes=[],listeners={};let requested=false;
+  const preload=[],styles=[],executed=[],errors=[],nodes=[],listeners={},readings=[];let requested=false;
   const document={currentScript:{src:'https://kalistar.test/jeu/boot.js?v=audit'},head:{append(node){
     nodes.push(node);if(node.tag==='link'&&node.rel==='stylesheet'){styles.push(node.href);}
     else if(node.tag==='link'){assert.equal(node.rel,'preload');assert.equal(node.as,'script');assert(requested,'catalogue starts before preloads');preload.push(node.href);}
     else{executed.push(node.src);queueMicrotask(()=>node.src.startsWith(missing)&&missing?node.onerror():node.onload());}
   }},createElement(tag){return {tag,append(){},remove(){this.removed=true;}};},getElementById(){return {replaceChildren(){errors.push('failed');},append(){}};}};
-  const window={KalistarStartup:{create:()=>({fail:fn=>fn()})},KalistarPhonePreview:preview?{isHost:true,mountHost(){window.KALISTAR_PREVIEW_READY=true;}}:null,addEventListener(name,fn){listeners[name]=fn;}};
+  const window={KalistarStartupReading:{create:()=>({setCards:cards=>readings.push(cards)})},KalistarStartup:{create:()=>({fail:fn=>fn()})},KalistarPhonePreview:preview?{isHost:true,mountHost(){window.KALISTAR_PREVIEW_READY=true;}}:null,addEventListener(name,fn){listeners[name]=fn;}};
   const fetch=()=>{requested=true;return Promise.resolve({ok:true,json:async()=>invalid?{version:3}:{version:4,edition:'V4',cards:[{edition:'V4',pngUrl:'card.png'}]}});};
   vm.runInNewContext(read('boot.js'),{window,document,fetch,URL,location:{href:'https://kalistar.test/jeu/'},encodeURIComponent,Error});
   for(let i=0;i<100;i++)await new Promise(resolve=>setImmediate(resolve));
-  return {preload,styles,executed,errors,nodes,window};
+  return {preload,styles,executed,errors,nodes,window,readings};
 }
 test('boot downloads concurrently but executes validated dependencies in order',async()=>{
   const result=await boot();assert.equal(result.preload.length,71);assert.deepEqual(result.executed,result.preload);
+  assert.deepEqual(result.readings,[[{edition:'V4',pngUrl:'card.png'}]],'only the validated catalogue supplies the reading card');
   assert.deepEqual(result.styles,['ultimate-ui.css?v=audit']);
   const names=result.executed.map(src=>src.split('?')[0]);assert.equal(new Set(names).size,names.length);
   for(const name of ['team-composition.js','matchmaking.js','pre-match.js','positions.js','home-screen.js','page-transitions.js','map-view.js','guide-scenario.js','guide-view.js','rules-documents.js','library-view.js']){assert.ok(names.includes(name));assert.ok(names.indexOf(name)<names.indexOf('app.js'));}
@@ -34,7 +35,7 @@ test('boot downloads concurrently but executes validated dependencies in order',
   assert(result.preload.every(url=>url.endsWith('?v=audit')));assert(result.nodes.filter(n=>n.rel==='preload').every(n=>n.removed));assert(result.nodes.filter(n=>n.rel==='stylesheet').every(n=>!n.removed));
 });
 test('invalid catalogue and missing modules fail closed; preview hosts stay lightweight',async()=>{
-  const invalid=await boot({invalid:true});assert.equal(invalid.executed.length,0);assert.equal(invalid.errors.length,1);
+  const invalid=await boot({invalid:true});assert.equal(invalid.executed.length,0);assert.equal(invalid.errors.length,1);assert.equal(invalid.readings.length,0);
   const missing=await boot({missing:'engine.js'});assert(missing.executed.at(-1).startsWith('engine.js'));assert(!missing.executed.some(src=>src.startsWith('app.js')));assert.equal(missing.errors.length,1);assert(missing.nodes.filter(n=>n.rel==='preload').every(n=>n.removed));
   const missingAI=await boot({missing:'ai-strategies.js'});assert(missingAI.executed.at(-1).startsWith('ai-strategies.js'));assert(!missingAI.executed.some(src=>src.startsWith('engine.js')));assert.equal(missingAI.errors.length,1);assert(missingAI.nodes.filter(n=>n.rel==='preload').every(n=>n.removed));
   const preview=await boot({preview:true});assert.deepEqual(preview.preload,[]);assert.deepEqual(preview.styles,[]);assert.deepEqual(preview.executed,['assets/lucide.min.js']);assert(preview.window.KALISTAR_PREVIEW_READY);

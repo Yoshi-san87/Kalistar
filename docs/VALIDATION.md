@@ -59,6 +59,12 @@ Le lanceur fournit par defaut `work/qa/<nom-du-test>/` aux tests qui respectent
 ne pas embarquer leurs nouvelles captures automatiquement.
 
 Tester avec profils jetables, jamais le navigateur personnel.
+Les parcours du jeu passent maintenant par l'accueil de lecture : cliquer
+`[data-startup-enter]` apres chaque navigation ou reload complet, avant
+d'attendre `KALISTAR_READY`. Ne pas definir ce drapeau dans une fixture pour
+contourner l'activation. `startup.browser.test.cjs` et
+`startup-reading.browser.test.cjs` verifient explicitement l'attente, le film,
+les erreurs et les notifications differees.
 Pour l'interface : PC, Razr/phone, ecran etroit, tactile/clavier,
 Reduced Motion et reprise apres reload suivant le changement.
 

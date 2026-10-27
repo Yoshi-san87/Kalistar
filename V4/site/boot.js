@@ -42,7 +42,8 @@
     window.KALISTAR_INTRO_PENDING=!!showIntro;
     window.KALISTAR_INTRO_FINISHED=(showIntro?window.KalistarLoginIntro.play():Promise.resolve())
       .catch(()=>{}).finally(()=>{window.KALISTAR_INTRO_PENDING=false;});
-    window.KALISTAR_STARTUP=window.KalistarStartup.create({presentation:window.KALISTAR_INTRO_FINISHED});
+    const reading=window.KalistarStartupReading.create();
+    window.KALISTAR_STARTUP=window.KalistarStartup.create({presentation:window.KALISTAR_INTRO_FINISHED,reading});
     const style=document.createElement('link');style.rel='stylesheet';style.href='ultimate-ui.css'+(release?'?v='+encodeURIComponent(release):'');document.head.append(style);
     const catalogue = fetch(window.KalistarSite?.catalogue || '/api/game/catalogue', { cache: 'no-store' });
     // Fetch concurrently, but execute only after validation and in dependency order.
@@ -57,6 +58,7 @@
       const data = await response.json();
       if (data.version !== 4 || data.edition !== 'V4' || !data.cards?.length || data.cards.some(c => c.edition !== 'V4' || !c.pngUrl)) throw Error('Catalogue V4 attendu. Aucun catalogue historique ne sera charge.');
       window.KALISTAR_DATA = data;
+      reading.setCards(data.cards);
       for (const src of scripts) await new Promise((resolve, reject) => {
         const script = document.createElement('script'); script.src = release ? `${src}?v=${encodeURIComponent(release)}` : src;
         script.onload = resolve; script.onerror = () => reject(Error('Module introuvable : ' + src));

@@ -10,6 +10,10 @@ const runtime = process.env.KALISTAR_NODE_MODULES || path.join(process.env.USERP
 const {chromium} = createRequire(path.join(runtime, '_pages_test.cjs'))('playwright');
 const output = process.env.KALISTAR_VERIFICATION_DIR || path.join(__dirname, 'verification');
 const mime = {'.html':'text/html; charset=utf-8','.json':'application/json','.webmanifest':'application/manifest+json','.js':'text/javascript','.css':'text/css','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.woff2':'font/woff2','.mp4':'video/mp4'};
+async function enter(page) {
+  await page.waitForFunction(()=>window.KALISTAR_READY||document.querySelector('[data-startup-enter]:not([hidden]):not([disabled])'));
+  if(!await page.evaluate(()=>!!window.KALISTAR_READY))await page.locator('[data-startup-enter]').click();
+}
 async function main() {
   const server = http.createServer((req,res) => {
     try {
@@ -34,8 +38,9 @@ async function main() {
     page.on('pageerror', e => errors.push(e.message));
     page.on('response', r => {if(r.status() >= 400) failures.push(r.status() + ' ' + r.url());});
     await page.goto(base);
+    await enter(page);
     await page.waitForFunction(() => window.KALISTAR_READY);
-assert.equal(await page.locator('.masthead .edition').innerText(), 'VERSION 4.7.24');
+assert.equal(await page.locator('.masthead .edition').innerText(), 'VERSION 4.7.25');
     const {appManifest, manifestUrl} = await page.evaluate(async () => {
       const manifestUrl = new URL('manifest.webmanifest', location.href);
       return {appManifest: await (await fetch(manifestUrl)).json(), manifestUrl: manifestUrl.href};
@@ -76,7 +81,7 @@ assert.equal(await page.locator('.masthead .edition').innerText(), 'VERSION 4.7.
     assert.equal(await page.locator('#match-arena-summary h3').innerText(),lastArenaName);
     await page.setViewportSize({width:390,height:844});
     await page.waitForTimeout(250);
-    assert.equal(await page.locator('.brand').evaluate(el => getComputedStyle(el, '::after').content), '"V4.7.24"');
+    assert.equal(await page.locator('.brand').evaluate(el => getComputedStyle(el, '::after').content), '"V4.7.25"');
     const preMatchWidth=await page.locator('#new-game-dialog .pre-match-form').evaluate(el=>({scroll:el.scrollWidth,client:el.clientWidth}));
     assert.ok(preMatchWidth.scroll<=preMatchWidth.client+1,'Pre-match lobby overflows on phone: '+JSON.stringify(preMatchWidth));
     await page.screenshot({path:path.join(output,'pre-match-phone.png')});
@@ -98,6 +103,7 @@ assert.equal(await page.locator('.masthead .edition').innerText(), 'VERSION 4.7.
     const covered = await page.evaluate(() => JSON.parse(localStorage.getItem('kalistar.v4.game')));
     assert.equal(covered.phase,'initiative');assert.deepEqual(covered.initiative,opening.initiative);assert.equal(covered.rng,opening.rng);
     await page.locator('.login-intro__skip').click();
+    await enter(page);
     await page.locator('.lineup-intro').waitFor();
     assert.equal(await page.locator('.lineup-intro').count(),1,'presentation starts exactly once after skipping the film');
     await page.emulateMedia({reducedMotion:'reduce'});
@@ -129,6 +135,7 @@ assert.equal(await page.locator('.masthead .edition').innerText(), 'VERSION 4.7.
     assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('kalistar.v4.game')).phase),'choose');
     const before = await page.evaluate(() => JSON.parse(localStorage.getItem('kalistar.v4.game')).matchId);
     await page.reload();
+    await enter(page);
     await page.waitForFunction(() => window.KALISTAR_READY);
     assert.equal(await page.evaluate(() => JSON.parse(localStorage.getItem('kalistar.v4.game')).matchId), before);
     await page.waitForFunction(() => [...document.images].filter(i=>i.getClientRects().length).every(i=>i.complete&&i.naturalWidth>0&&!i.src.includes('#v4-')));
@@ -178,6 +185,7 @@ assert.equal(await page.locator('.masthead .edition').innerText(), 'VERSION 4.7.
     await page.waitForFunction(() => !document.fullscreenElement);
     // Reload into the collection with the same registry and match saved.
     await page.goto(base+'jeu/#collection');
+    await enter(page);
     await page.waitForFunction(() => window.KALISTAR_READY);
     assert.equal(await page.evaluate(() => KALISTAR_DB.registry.owned('user-paris').length), count);
     await page.waitForFunction(() => [...document.images].filter(i=>i.getClientRects().length).every(i=>i.complete&&i.naturalWidth>0&&!i.src.includes('#v4-')));
@@ -186,12 +194,14 @@ assert.equal(await page.locator('.masthead .edition').innerText(), 'VERSION 4.7.
     expanded.cards.push({...expanded.cards[0],id:'49999998',slug:'v4-49999998',origin:'published',title:'TEST ONLY'});
     await context.route(base+'jeu/catalogue.json', route => route.fulfill({json:expanded}));
     await page.reload();
+    await enter(page);
     await page.waitForFunction(n => window.KALISTAR_READY && KALISTAR_DATA.cards.length===n, count+1);
     assert.equal(await page.evaluate(() => KALISTAR_DB.registry.owned('user-paris').length), count+1);
     assert.equal(await page.evaluate(() => JSON.parse(localStorage.getItem('kalistar.v4.game')).matchId), before);
-    await page.reload(); await page.waitForFunction(() => window.KALISTAR_READY);
+    await page.reload(); await enter(page);await page.waitForFunction(() => window.KALISTAR_READY);
     assert.equal(await page.evaluate(() => KALISTAR_DB.registry.owned('user-paris').length), count+1);
     await page.goto(base+'jeu/#atelier');
+    await enter(page);
     await page.waitForFunction(() => window.KALISTAR_READY);
     assert.equal(await page.locator('#atelier-frame').count(),0);
     assert.equal(await page.locator('.cb-spread').count(),1);

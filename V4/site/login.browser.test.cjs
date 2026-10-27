@@ -66,7 +66,7 @@ async function main(){
       page.on('pageerror',e=>errors.push(e.message));
       let filmCompleted=false;
       const ready=async(expectIntro=false)=>{try{
-        await page.waitForFunction(()=>window.KALISTAR_READY||document.querySelector('.login-intro[open]'),{},{timeout:30000});
+        await page.waitForFunction(()=>window.KALISTAR_PREPARED||document.querySelector('.login-intro[open]'),{},{timeout:30000});
         assert.equal(await page.locator('.login-intro[open]').count(),expectIntro&&!p.reduced?1:0,'intro only follows an explicit successful password login');
         if(await page.locator('.login-intro[open]').count()){
           assert((await context.cookies()).some(c=>c.name==='__Host-kalistar'),'intro follows server authentication');
@@ -87,6 +87,7 @@ async function main(){
             await page.locator('.login-intro').waitFor({state:'detached',timeout:35000});filmCompleted=true;
           }else await page.locator('.login-intro__skip').click();
         }
+        await page.locator('[data-startup-enter]').click();
         await page.waitForFunction(()=>window.KALISTAR_READY,{},{timeout:30000});
       }catch(e){console.error({errors,calls,leaseDevices,boot:await page.locator('#app').innerText().catch(()=>''),sync:await page.evaluate(()=>window.KALISTAR_SYNC?.snapshot())});throw e;}};
       await page.goto(origin+'/jeu/login.html?next='+encodeURIComponent('/jeu/#home'));await page.waitForURL('**/jeu/login*');await page.locator('#login-form button[type=submit]:enabled').waitFor();

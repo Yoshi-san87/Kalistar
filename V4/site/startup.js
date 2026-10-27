@@ -6,7 +6,7 @@
 })(typeof globalThis!=='undefined'?globalThis:this,function(){
   'use strict';
   // Preparation may read/cache data. Runtime controllers only mount after ready().
-  function create({host=window,doc=host.document,presentation=Promise.resolve()}={}){
+  function create({host=window,doc=host.document,presentation=Promise.resolve(),reading=null}={}){
     const events=new AbortController(),preloads=new Map(),waiters=new Set();
     const surfaces=[...doc.querySelectorAll('.masthead,#app,#atelier-panel')].map(node=>({node,inert:node.inert}));
     let finished=false,disposed=false,failed=false,away=false,state='preparing';
@@ -26,7 +26,7 @@
     }
     function destroy(){
       if(disposed)return;
-      disposed=true;events.abort();setState('closed');
+      disposed=true;events.abort();reading?.destroy();setState('closed');
       for(const link of preloads.values())link.remove();preloads.clear();notify();
     }
     for(const {node} of surfaces)node.inert=true;
@@ -34,7 +34,7 @@
     doc.addEventListener('visibilitychange',notify,{signal:events.signal});
     host.addEventListener('pagehide',event=>{away=true;if(event.persisted)notify();else destroy();},{signal:events.signal});
     host.addEventListener('pageshow',()=>{away=false;notify();},{signal:events.signal});
-    Promise.resolve(presentation).catch(()=>{}).finally(()=>{finished=true;notify();});
+    Promise.resolve(presentation).catch(()=>{}).finally(()=>{finished=true;if(!disposed&&!failed)reading?.show();notify();});
     return Object.freeze({
       get state(){return state;},
       preloadImages(urls){
@@ -52,14 +52,16 @@
         if(disposed||failed)return false;
         host.KALISTAR_PREPARED=true;host.performance?.mark('kalistar:prepared');setState('prepared');
         if(!await wait()||failed)return false;
+        if(reading&&!await reading.ready())return false;
+        if(!await wait()||failed)return false;
         setState('activating');return true;
       },
       activate(){
         if(disposed||state!=='activating')return;
-        setState('active');release();host.performance?.mark('kalistar:active');
+        setState('active');reading?.destroy();release();host.performance?.mark('kalistar:active');
       },
       async fail(show){
-        failed=true;
+        failed=true;reading?.destroy();
         if(!await wait())return;
         setState('failed');release();show();
       },

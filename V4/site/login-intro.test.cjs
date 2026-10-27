@@ -107,7 +107,7 @@ test('destination loads catalogue and modules during the film, but never before 
   for(const authorized of [true,false]){
     let allow,finish,reads=0,plays=0;const nodes=[];
     const auth=new Promise(resolve=>{allow=resolve;}),film=new Promise(resolve=>{finish=resolve;});
-    const window={KalistarStartup:{create:()=>({})},KalistarSite:{online:true},KalistarAuthGuard:{ensure:()=>auth},KalistarLoginIntro:{consume:()=>true,play:()=>{plays++;return film;}},addEventListener(){}};
+    const window={KalistarStartupReading:{create:()=>({setCards(){}})},KalistarStartup:{create:()=>({})},KalistarSite:{online:true},KalistarAuthGuard:{ensure:()=>auth},KalistarLoginIntro:{consume:()=>true,play:()=>{plays++;return film;}},addEventListener(){}};
     const doc={currentScript:{src:'https://game.invalid/jeu/boot.js'},createElement:tag=>({tag,remove(){}}),head:{append:node=>{nodes.push(node);if(node.tag==='script')queueMicrotask(()=>node.onload());}}};
     vm.runInNewContext(source,{window,document:doc,location:new URL('https://game.invalid/jeu/#journeys'),URL,fetch:async()=>{reads++;return {ok:true,json:async()=>({version:4,edition:'V4',cards:[{edition:'V4',pngUrl:'card.png'}]})};}});
     assert.equal(reads,0);assert.equal(plays,0);

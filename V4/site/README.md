@@ -17,8 +17,15 @@ consomment le meme catalogue V4. Aucun fallback vers le jeu ou `data.js` V3.
   `../deploy/access-worker.mjs` protege aussi les fichiers bruts cote Cloudflare.
 - `startup.js/css` : frontiere preparation/activation. Les donnees et un petit
   budget d'images peuvent charger ; aucun controleur de vue ni commande de jeu
-  ne demarre avant la fin du film et le retour au premier plan. `KALISTAR_PREPARED`
+  ne demarre avant la fin du film, le clic Entrer et le retour au premier plan. `KALISTAR_PREPARED`
   signifie donnees pretes, `KALISTAR_READY` signifie interface active.
+- `startup-reading.js/css` : accueil de chargement, une carte aleatoire du
+  catalogue et son recit deja publie. Un seul PNG est demande, recadre en CSS
+  suivant le cadre natif ; les originaux restent intacts. Entrer apparait quand
+  la preparation est terminee. Les animations finies ne tournent pas en boucle,
+  respectent Reduced Motion et la visibilite. Une image absente laisse le dos
+  de carte et n'empeche pas l'entree. La lecture ne se rejoue pas au changement
+  de vue, seulement au demarrage d'un document de jeu.
 - `login-intro.js/css` : film anime contemplatif de trente secondes apres le seul login
   explicite reussi, avec skip, son et coupe portrait. Reprise/reload et Reduced
   Motion ne le rejouent pas. Le jeu se prepare dans le meme document sans monter

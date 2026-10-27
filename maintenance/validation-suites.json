@@ -3,6 +3,7 @@
   "description": "Les 84 invocations CI anterieures sont conservees, dans le meme ordre. Navigateur et atelier restent explicites.",
   "suites": {
     "repository": [
+      ["--test", "V4/site/startup-reading.test.cjs"],
       ["--test", "V4/site/gaming-book.test.cjs"],
       ["--test", "V4/astraball/tests/sprite-template-v2.test.cjs", "V4/astraball/tests/sprite-v2-catalog.test.cjs", "V4/astraball/tests/sprite-v2-placement.test.cjs", "V4/astraball/tests/sprite-v2-portability.test.cjs"],
       ["--test", "V4/astraball/tests/sprite-library.test.cjs"],
@@ -18,6 +19,7 @@
       ]
     ],
     "ci": [
+      ["--test", "V4/site/startup-reading.test.cjs"],
       ["--test", "V4/site/gaming-book.test.cjs"],
       ["--test", "V4/astraball/tests/sprite-template-v2.test.cjs", "V4/astraball/tests/sprite-template-v2.native.test.cjs", "V4/astraball/tests/sprite-v2-bake.native.test.cjs", "V4/astraball/tests/sprite-v2-catalog.test.cjs", "V4/astraball/tests/sprite-v2-placement.test.cjs", "V4/astraball/tests/sprite-v2-portability.test.cjs", "V4/astraball/tests/sprite-v2-palette.native.test.cjs"],
       ["--test", "V4/astraball/tests/sprite-library.test.cjs", "V4/astraball/tests/sprite-library.native.test.cjs", "V4/astraball/tests/goals.native.test.cjs"],

@@ -44,6 +44,11 @@ async function dormant(page){
   assert.equal(await page.evaluate(()=>document.getAnimations().filter(a=>a.playState==='running'&&!a.effect?.target?.closest('.login-intro')).length),0);
   assert(await page.locator('link[rel=preload][as=image]').count()>0,'first-view media warms while no view is mounted');
 }
+async function enter(page){
+  const button=page.locator('[data-startup-enter]');await button.waitFor();
+  assert.equal(await page.evaluate(()=>!!window.KALISTAR_READY),false);
+  await button.click();await page.waitForFunction(()=>window.KALISTAR_READY);
+}
 (async()=>{
   fs.mkdirSync(output,{recursive:true});const results=[];
   const browser=await runtime('playwright').chromium.launch({channel:'chrome',headless:true});
@@ -52,7 +57,7 @@ async function dormant(page){
       const context=await browser.newContext({viewport:{width:profile.width,height:profile.height},isMobile:!!profile.mobile,hasTouch:!!profile.mobile});
       await routeSite(context);await context.addInitScript(()=>{HTMLMediaElement.prototype.play=function(){this.dispatchEvent(new Event('playing'));return Promise.resolve();};});
       const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
-      await page.goto(base+'#decks');await page.waitForFunction(()=>window.KALISTAR_READY);
+      await page.goto(base+'#decks');await enter(page);
       await page.locator('[data-deck-action=captain][data-slot="0"]').click();await page.locator('[data-deck-action=play]').click();
       await page.locator('#game-mode').selectOption('ai');await page.locator('.match-advanced summary').click();await page.locator('#game-seed').fill('PAGES-QA-2');
       await page.locator('#new-game-form [type=submit]').click();await page.locator('.lineup-intro').waitFor();
@@ -60,7 +65,7 @@ async function dormant(page){
       await page.reload();await dormant(page);await page.waitForTimeout(1100);
       assert.equal(await page.evaluate(()=>localStorage.getItem('kalistar.v4.game')),before,'no RNG, initiative, turn or persistence change during preparation');
       await page.screenshot({path:path.join(output,profile.name+'-dormant.png')});
-      await page.locator('.login-intro__skip').click();await page.waitForFunction(()=>window.KALISTAR_READY);await page.locator('.lineup-intro').waitFor();
+      await page.locator('.login-intro__skip').click();await enter(page);await page.locator('.lineup-intro').waitFor();
       assert.equal(await page.locator('.lineup-intro').count(),1);await page.locator('.li-skip').click();await page.waitForSelector('.lineup-intro',{state:'detached'});
       assert.equal(await page.locator('.masthead').evaluate(n=>n.inert),false,'lineup restores the active menu, not the preparation lock');
       assert.equal(await page.locator('#app').evaluate(n=>n.inert),false,'game is interactive after the presentation');
@@ -70,7 +75,8 @@ async function dormant(page){
       assert.equal(await page.locator('#toast').evaluate(n=>n.classList.contains('visible')),false);
       // Completing the film (not just skip) activates the real automatic conflict UI.
       await page.locator('.login-intro video').evaluate(n=>n.dispatchEvent(new Event('ended')));
-      await page.waitForFunction(()=>window.KALISTAR_READY);await page.locator('.cloud-sync-dialog[open]').waitFor();
+      await page.locator('[data-startup-enter]').waitFor();assert.equal(await page.locator('.cloud-sync-dialog[open]').count(),0);
+      await enter(page);await page.locator('.cloud-sync-dialog[open]').waitFor();
       assert.equal(await page.locator('.login-intro').count(),0);assert.equal(await page.locator('#home-root').count(),1);
       await page.screenshot({path:path.join(output,profile.name+'-conflict-after-film.png')});
       await page.locator('[data-sync-action=close]').click();
@@ -79,9 +85,9 @@ async function dormant(page){
       // Backgrounding closes the movie but must not secretly activate the app.
       await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,value:true});document.dispatchEvent(new Event('visibilitychange'));});
       await page.waitForTimeout(200);assert.equal(await page.evaluate(()=>!!window.KALISTAR_READY),false);
-      await page.evaluate(()=>{delete document.hidden;document.dispatchEvent(new Event('visibilitychange'));});await page.waitForFunction(()=>window.KALISTAR_READY);
+      await page.evaluate(()=>{delete document.hidden;document.dispatchEvent(new Event('visibilitychange'));});await enter(page);
       assert.equal(await page.locator('#home-root').count(),1);
-      await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);assert.equal(await page.locator('.login-intro').count(),0,'handoff consumed only once');
+      await page.reload();await enter(page);assert.equal(await page.locator('.login-intro').count(),0,'handoff consumed only once');
       assert.deepEqual(errors,[]);results.push({profile:profile.name,dormant:true,matchUnchanged:true,oneActivation:true,conflictDeferred:true,backgroundDeferred:true,errors});await context.close();
     }
     for(const scenario of ['reduced','failed-module','skip-slow-data','failed-media']){
@@ -95,7 +101,7 @@ async function dormant(page){
       }else{
         if(scenario==='skip-slow-data'){await page.locator('.login-intro__skip').click();assert.equal(await page.evaluate(()=>!!window.KALISTAR_READY),false);release();}
         if(scenario==='failed-media'){await page.locator('.login-intro video').evaluate(n=>n.dispatchEvent(new Event('error')));}
-        await page.waitForFunction(()=>window.KALISTAR_READY);assert.equal(await page.locator('.login-intro').count(),0);assert.equal(await page.locator('#home-root').count(),1);
+        await enter(page);assert.equal(await page.locator('.login-intro').count(),0);assert.equal(await page.locator('#home-root').count(),1);
       }
       results.push({scenario,passed:true});await context.close();
     }

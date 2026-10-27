@@ -55,7 +55,7 @@ async function main(){
       await context.addInitScript(longName=>{Math.random=()=>{const cards=window.KALISTAR_DATA?.cards;if(!longName||!cards?.length)return 0;const index=cards.reduce((best,c,i)=>c.name.length>cards[best].name.length?i:best,0);return(index+.1)/cards.length;};},!!profile.longName);
       const page=await context.newPage(),errors=[];
       page.on('pageerror',error=>errors.push(error.message));page.on('response',r=>{if(r.status()>=400)errors.push(r.status()+' '+r.url());});
-      await page.goto(base);await ready(page);await page.waitForTimeout(profile.reduced?80:1600);
+      await page.goto(base);await page.locator('[data-startup-enter]').click();await ready(page);await page.waitForTimeout(profile.reduced?80:1600);
       const layout=await geometry(page,profile);
       assert.equal(await page.locator('.home-portals>button').count(),4);
       assert.equal(await page.locator('.home-satellite').count(),2);
@@ -106,7 +106,7 @@ async function main(){
         await page.locator('.brand').click();await ready(page);
         for(let i=0;i<5;i++){await page.locator('[data-home-route=decks]').click();await page.locator('.team-page').waitFor();await page.locator('.brand').click();await ready(page);}
         assert.equal(await page.locator('.kalistar-home').count(),1,'repeated navigation mounts only one Home');
-        await page.reload();await ready(page);assert.equal(await page.locator('.home-play-row .home-deck small b').innerText(),'10/10');
+        await page.reload();await page.locator('[data-startup-enter]').click();await ready(page);assert.equal(await page.locator('.home-play-row .home-deck small b').innerText(),'10/10');
       }
       if(profile.name==='razr'){
         const app=page.locator('#app');assert(await app.evaluate(n=>n.scrollHeight>n.clientHeight),'phone can scroll down to the universe links');
