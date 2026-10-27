@@ -23,7 +23,7 @@ test('one Resident Evil collection choice counts fixture versions dynamically',t
   t.after(()=>{globalThis.KalistarCardMedia=previous;});
   for(const subset of [cards,cards.slice(0,3)]){
     const html=Binder.create({data:{cards:subset,elements:{}},getOwned:id=>subset.filter(c=>!id||c.id===id).map(c=>({id:'copy-'+c.id,cardId:c.id}))}).render();
-    const header=html.match(/<div class="cb-scopes"[^>]*>([\s\S]*?)<\/div>/)[1];
+    const header=html.match(/<label class="cb-collection-select">([\s\S]*?)<\/label>/)[1];
     assert.equal((header.match(/value="resident-evil"/g)||[]).length,1);
     assert(header.includes('Resident Evil · '+subset.length));
     assert(!header.includes('value="re1"'));

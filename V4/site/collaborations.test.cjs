@@ -52,13 +52,14 @@ test('collection groups Kalistar, Final Fantasy and NieR while retaining faction
   const reCards=['RE1','RE2','RE9'].map((faction,index)=>({...cards[0],id:String(49998108+index),characterId:'re-scope-'+index,name:'RE SCOPE '+faction,faction,collaboration:faction}));
   const scopedCards=[...cards,...extras,...reCards],binder=Binder.create({data:{cards:scopedCards,elements:{ELECTRO:{id:'ELECTRO',label:'Electricite',color:'FFDD00'}}},getOwned:id=>scopedCards.filter(c=>!id||c.id===id).map(c=>({id:'copy-'+c.id,cardId:c.id}))});
   const html=binder.render();
-  const scopeHeader=html.match(/<div class="cb-scopes"[^>]*>([\s\S]*?)<\/div>/)?.[1]||'';
+  const scopeButtons=html.match(/<div class="cb-scopes"[^>]*>([\s\S]*?)<\/div>/)?.[1]||'';
+  const scopeHeader=html.match(/<label class="cb-collection-select">([\s\S]*?)<\/label>/)?.[1]||'';
   assert.match(scopeHeader,/<select data-binder-filter="collection">/);
-  assert.match(scopeHeader,/<option value="">Toutes les collections<\/option>/);
+  assert.match(scopeHeader,/<option value="">Tous les univers<\/option>/);
   assert.match(scopeHeader,/<option value="kalistar" >Kalistar · 1<\/option>/);
   assert.match(scopeHeader,/<option value="final-fantasy" >Final Fantasy · 3<\/option>/);
   assert.match(scopeHeader,/<option value="nier" >NieR · 4<\/option>/);
-  assert.equal((scopeHeader.match(/data-binder-action="scope"/g)||[]).length,2);
+  assert.equal((scopeButtons.match(/data-binder-action="scope"/g)||[]).length,2);
   assert.match(scopeHeader,/<option value="resident-evil" >Resident Evil · 3<\/option>/);
   assert.equal((scopeHeader.match(/value="resident-evil"/g)||[]).length,1);
   assert.equal(scopedCards.filter(c=>Binder.matchesScope(c,'resident-evil')).length,3);

@@ -6,7 +6,7 @@ const { createRequire } = require('node:module');
 const runtime = process.env.KALISTAR_NODE_MODULES || path.join(process.env.USERPROFILE, '.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const { chromium } = createRequire(path.join(runtime, '__mobile_browser__.cjs'))('playwright');
 const url = process.env.KALISTAR_URL || 'http://127.0.0.1:4304';
-const output = path.join(__dirname, 'verification/mobile-cross');
+const output = process.env.KALISTAR_VERIFICATION_DIR || path.resolve(__dirname, '../../work/qa/collection-gallery-mobile');
 const failures = [];
 let browser;
 async function main() {
@@ -14,10 +14,11 @@ async function main() {
   browser = await chromium.launch({ channel: 'chrome', headless: true });
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 1, reducedMotion: process.env.KALISTAR_MOTION === 'full' ? 'no-preference' : 'reduce' });
   const page = await context.newPage();
+  page.setDefaultTimeout(10000);
   page.on('pageerror', e => failures.push(e.message));
   const capture = name => page.screenshot({ path: path.join(output, name + '.png'), fullPage: true });
   async function loaded() {
-    await page.waitForFunction(() => [...document.images].filter(i => i.getClientRects().length).every(i => i.complete && i.naturalWidth));
+    await page.waitForFunction(() => [...document.images].filter(i => {const r=i.getBoundingClientRect();return r.width&&r.height&&r.bottom>0&&r.top<innerHeight;}).every(i => i.complete && i.naturalWidth));
   }
   async function withinViewport(selector) {
     const rects = await page.locator(selector).evaluateAll(nodes => nodes.filter(n => n.getClientRects().length).map(n => {
@@ -38,40 +39,71 @@ async function main() {
       for(const control of controls)assert.ok(!overlaps(r,control),'corner controls do not hide cards: '+JSON.stringify({r,control}));
     });
   }
-  await page.goto(url + '/jeu/');
+  async function galleryGeometry(){
+    await page.waitForFunction(()=>document.querySelector('.cb-spread')?.dataset.columns==='2');
+    const geometry=await page.locator('.cb-spread').evaluate(n=>{
+      const pockets=[...n.querySelectorAll(':scope > .cb-pocket')],bounds=n.getBoundingClientRect();
+      return {count:pockets.length,capacity:Number(n.dataset.pageSize),direct:pockets.length===n.children.length,columns:Number(n.dataset.columns),inside:pockets.every(p=>{const r=p.getBoundingClientRect();return r.left>=bounds.left-1&&r.right<=bounds.right+1;}),captions:pockets.every(p=>{const caption=p.querySelector('.cb-caption'),r=caption.getBoundingClientRect();return [...caption.querySelectorAll('h2,p,.position-emblem,.cb-flip-control')].every(c=>{const b=c.getBoundingClientRect();return b.left>=r.left-1&&b.right<=r.right+1&&b.top>=r.top-1&&b.bottom<=r.bottom+1;});})};
+    });
+    assert(geometry.direct&&geometry.inside&&geometry.captions&&geometry.count>0&&geometry.count<=geometry.capacity,JSON.stringify(geometry));
+    assert.equal(geometry.capacity,6);assert.equal(await page.locator('.cb-sheet').count(),0);
+    for(const caption of await page.locator('.cb-caption').all()){await caption.scrollIntoViewIfNeeded();await loaded();await withinViewport('.cb-footer,.main-nav');}
+    assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
+  }
+  await page.goto(url + '/jeu/#collection');
+  await page.locator('[data-startup-enter]:enabled').click({timeout:90000});
   await page.waitForFunction(() => window.KALISTAR_READY === true);
-  await page.waitForFunction(() => document.querySelector('.cb-spread')?.dataset.singlePage === 'true');
+  await page.waitForFunction(() => document.querySelector('.cb-spread')?.dataset.columns === '2');
   await loaded();
   const touch = await context.newCDPSession(page);
-  const leaf = await page.locator('.cb-sheet').boundingBox();
+  const leaf = await page.locator('.cb-workbench').boundingBox();
   await touch.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: leaf.x+leaf.width*.8, y: leaf.y+leaf.height*.5 }] });
   for(let i=1;i<=8;i++) {
     await touch.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: leaf.x+leaf.width*(.8-i*.07), y: leaf.y+leaf.height*.5 }] });
     await page.waitForTimeout(30);
   }
   await touch.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
-  await page.waitForFunction(() => document.querySelector('.cb-page-label').textContent.includes('Page 2'));
+  await page.waitForFunction(() => /^\s*2\s*\//.test(document.querySelector('.cb-page-label').textContent));
   await page.waitForTimeout(400);
-  await page.locator('.cb-scopes [data-binder-filter=collection]').selectOption('final-fantasy');
   await page.locator('[data-binder-action=filters]').tap();
-  await page.locator('[data-binder-filter=faction]').selectOption('FF7');
+  await page.locator('.cb-overlay:modal [data-binder-filter=collection]').selectOption('final-fantasy');
+  await page.locator('.cb-overlay:modal [data-binder-filter=faction]').selectOption('FF7');
   await page.locator('.cb-filter-actions [data-binder-action=close-overlay]').tap();
   await capture('ff7-after-swipe');
   await touch.detach();
-  assert.ok(await page.locator('.cb-pocket').evaluateAll(nodes => nodes.every(n => KALISTAR_DATA.cards.find(c => c.id === n.dataset.cardId).faction === 'FF7')));
+  assert.ok(await page.locator('.cb-pocket').evaluateAll(nodes => nodes.length>0&&nodes.every(n => KALISTAR_DATA.cards.find(c => c.id === n.dataset.cardId).faction === 'FF7'&&KALISTAR_DB.registry.owned(KALISTAR_ACTIVE_USER,n.dataset.cardId).length>0)));
   await page.locator('[data-binder-action=next-page]').last().tap();
-  await page.waitForFunction(()=>document.querySelector('.cb-page-label').textContent.includes('Page 2'));
-  assert.match(await page.locator('.cb-page-label').textContent(), /Page 2/);
+  await page.waitForFunction(()=>/^\s*2\s*\//.test(document.querySelector('.cb-page-label').textContent));
+  assert.match(await page.locator('.cb-page-label').textContent(), /^\s*2\s*\//);
   await page.locator('.cb-card').first().tap();
   await loaded(); await capture('reader-card');
-  await withinViewport('.cb-hero-image');
+  await page.locator('.cb-hero-image').scrollIntoViewIfNeeded();await withinViewport('.cb-hero-image');
+  const flow=await page.locator('.cb-reader').evaluate(n=>({visual:n.querySelector('.cb-visual').getBoundingClientRect().bottom,notes:n.querySelector('.cb-reading').getBoundingClientRect().top}));
+  assert(flow.visual<=flow.notes+1,'mobile reader places the complete visual before its content');
   await page.locator('[data-binder-action=pane][data-id=notes]').tap();
   await capture('reader-notes');
-  await withinViewport('.cb-reading,.cb-read-content');
+  assert(await page.locator('.cb-visual').isVisible()&&await page.locator('.cb-reading').isVisible(),'pane shortcuts keep both sections in the scroll flow');
+  assert(await page.locator('.cb-reading').evaluate(n=>{const r=n.getBoundingClientRect(),work=n.closest('.cb-workbench').getBoundingClientRect();return r.left>=0&&r.right<=innerWidth+1&&r.top<work.bottom&&r.bottom>work.top;}),'notes are reachable without horizontal overflow');
   for (const id of ['profile','career','copies','story']) await page.locator('[data-binder-action=tab][data-id=' + id + ']').tap();
-  await page.locator('[data-view=arena]').tap();
-  await page.waitForSelector('[data-action=start]');
-  await loaded(); await capture('arena-setup');
+  await page.locator('[data-binder-action=back]').tap();
+  await page.locator('[data-binder-action=scope][data-id=owned]').tap();
+  for (const [width, height] of [[390,844],[412,1007],[360,740],[430,932],[320,568]]) {
+    await page.setViewportSize({ width, height });
+    await loaded(); await capture('collection-' + width);
+    await galleryGeometry();
+  }
+  console.log('PASS: mobile Collection swipe, universe/faction/ownership filters, continuous reader and five portrait geometries.');
+  await page.setViewportSize({width:390,height:844});
+  await page.locator('.main-nav [data-view=decks]').tap();
+  await page.locator('[data-deck-action=panel][data-id=board]').tap();
+  await page.locator('[data-deck-action=captain][data-slot="0"]').tap();
+  await page.locator('#deck-builder-root .kdb-play').tap();
+  await page.locator('#game-mode').selectOption('local');
+  await page.locator('#new-game-dialog [type=submit]').tap();
+  await page.locator('.li-skip').tap({timeout:15000});
+  await page.waitForFunction(()=>JSON.parse(localStorage.getItem('kalistar.v4.game'))?.phase==='choose');
+  assert.equal(await page.locator('[data-action=start]').count(),0,'composed teams start directly in the duel selection phase');
+  await loaded(); await capture('arena-choose');
   assert.equal(await page.locator('.brand').isVisible(),false,'no masthead in the phone arena');
   assert.equal(await page.locator('.arena-toolbar h1').isVisible(),false,'no location heading');
   for(const side of [0,1]){
@@ -86,12 +118,10 @@ async function main() {
   assert.ok(enemy.y + enemy.height < ally.y, 'opponent above player');
   await page.locator('.team-left [data-action=reserves]').tap();
   await capture('reserves');
-  assert.ok(await page.locator('[data-action=deploy-reserve]').count());
-  const deploy = page.locator('[data-action=deploy-reserve]').first();
-  const uid = await deploy.getAttribute('data-uid'), slot = Number(await deploy.getAttribute('data-slot'));
-  await deploy.tap();
-  assert.equal(await page.locator('.team-left .slot').nth(slot).getAttribute('data-unit'), uid);
-  await page.locator('[data-action=start]').tap();
+  const reserveIds=await page.evaluate(()=>JSON.parse(localStorage.getItem('kalistar.v4.game')).players[0].reserve.map(u=>u.cardId).sort());
+  assert.deepEqual((await page.locator('#detail-dialog .archive-list [data-action=detail]').evaluateAll(nodes=>nodes.map(n=>n.dataset.id))).sort(),reserveIds,'reserve inspection preserves every prepared model');
+  assert.equal(await page.locator('[data-action=deploy-reserve]').count(),0,'reserve replacement is forbidden during duel selection');
+  await page.locator('#detail-dialog [data-action=close]').tap();
   const beforeSelection = await page.locator('.slot-card').evaluateAll(nodes => nodes.map(n => n.getBoundingClientRect().toJSON()));
   for(const position of [1,2,3,4]){
     await page.locator('.team-left .slot-card').nth(position).tap();
@@ -185,22 +215,17 @@ async function main() {
   await capture('arena-landscape');
   assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
   await page.locator('#app').evaluate(n=>{n.scrollTop=0;});
-  await page.locator('[data-action=arena-menu]').tap();
-  await page.locator('#mobile-dialog [data-view=decks]').tap();
+  await page.locator('[data-action=exit-arena]').tap();
+  await page.locator('.cb-page').waitFor();
+  await page.locator('.main-nav [data-view=decks]').tap();
   await page.setViewportSize({ width: 390, height: 844 });
   await capture('decks');
   assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
-  await page.locator('.main-nav [data-view=collection]').tap();
+  await page.locator('.main-nav [data-view=home]').tap();
+  await page.locator('[data-home-category=collection]').tap();
   await page.locator('[data-binder-action=scope][data-id=owned]').tap();
-  for (const [width, height] of [[390,844],[360,740],[430,932],[320,568]]) {
-    await page.setViewportSize({ width, height });
-    await page.waitForFunction(() => document.querySelector('.cb-spread')?.dataset.singlePage === 'true');
-    await loaded(); await capture('collection-' + width);
-    assert.equal(await page.locator('.cb-sheet').count(), 1);
-    await withinViewport('.cb-card,.cb-caption,.cb-footer,.main-nav');
-    assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
-  }
+  await galleryGeometry();
   assert.deepEqual(failures, []);
-  console.log('PASS: phone collection, mirrored crosses, corner controls, enlarged duel cards, reserve deployment, dice pixels, attack, explicit next turn, menu, portrait/landscape and decks.');
+  console.log('PASS: phone collection, local match preparation, mirrored crosses, corner controls, enlarged duel cards, reserve inspection, dice pixels, attack, explicit next turn, menu, portrait/landscape and decks.');
 }
 main().catch(e => { console.error(e); process.exitCode = 1; }).finally(async () => { await browser?.close(); });

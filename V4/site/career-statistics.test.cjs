@@ -26,15 +26,17 @@ console.log('PASS: career means, exact totals, French rounding, zero/one match a
 
 const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const {chromium}=createRequire(path.join(runtime,'__career_statistics__.cjs'))('playwright');
-const output=process.env.KALISTAR_VERIFICATION_DIR||path.join(__dirname,'verification/career-statistics');
+const output=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'../../work/qa/career-statistics');
 let browser;
 async function main(){
   fs.mkdirSync(output,{recursive:true});
   browser=await chromium.launch({channel:'chrome',headless:true});
   const context=await browser.newContext({viewport:{width:1440,height:1000},hasTouch:true,reducedMotion:'reduce'});
   const page=await context.newPage(),errors=[];
+  page.setDefaultTimeout(60000);
   page.on('pageerror',e=>errors.push(e.message));
-  await page.goto((process.env.KALISTAR_URL||'http://127.0.0.1:4304')+'/jeu/');
+  await page.goto((process.env.KALISTAR_URL||'http://127.0.0.1:4304')+'/jeu/#collection');
+  await page.locator('[data-startup-enter]:enabled').click();
   await page.waitForFunction(()=>window.KALISTAR_READY);
   // Read-only fixture adapter in a disposable profile; no registry writes.
   await page.evaluate(()=>{
@@ -62,7 +64,7 @@ async function main(){
   await page.locator('[data-binder-field=instance]').selectOption('all');
   for(const [width,height] of [[1440,1000],[1440,700],[412,1007],[390,844],[320,568],[844,390]]){
     await page.setViewportSize({width,height});
-    if(width<700||height<500)await page.locator('[data-binder-action=pane][data-id=notes]').click();
+    const notes=page.locator('[data-binder-action=pane][data-id=notes]');if(await notes.isVisible())await notes.click();
     if(width===1440&&height===1000){
       const metric=await page.locator('.cb-career [data-career-stat=mvp]').boundingBox(),panel=await page.locator('.cb-read-content').boundingBox();
       assert.ok(metric.y+metric.height<=panel.y+panel.height+1,'all career metrics fit the desktop manuscript without scrolling');

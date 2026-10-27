@@ -1,13 +1,12 @@
 'use strict';
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
-const os=require('node:os');
 const path=require('node:path');
 const {createRequire}=require('node:module');
 const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const {chromium}=createRequire(path.join(runtime,'__collaborations__.cjs'))('playwright');
 const Binder=require('./collection-binder.js');
-const output=process.env.KALISTAR_VERIFICATION_DIR||path.join(os.tmpdir(),'kalistar-collection-filters-qa');
+const output=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'../../work/qa/collection-gallery-collaborations');
 
 async function main(){
   fs.mkdirSync(output,{recursive:true});
@@ -25,13 +24,14 @@ async function main(){
     await page.evaluate(({cards,ownedIds})=>{
       const pixel='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aY9sAAAAASUVORK5CYII=';
       const items=ownedIds.map(id=>({id:'copy-'+id,cardId:id}));
+      globalThis.fixtureData={cards,items};globalThis.fixtureBefore=JSON.stringify(fixtureData);
       globalThis.KalistarCardMedia={image:()=>pixel};
       globalThis.binder=KalistarCollection.create({data:{cards,elements:{ELECTRO:{id:'ELECTRO',label:'Electricite',color:'FFFF00'}}},getOwned:id=>items.filter(item=>!id||item.cardId===id)});
       binder.mount(document.querySelector('#app'));
     },{cards,ownedIds});
-    const collection=page.locator('.cb-scopes [data-binder-filter=collection]');
+    const collection=page.locator('.cb-toolbar [data-binder-filter=collection]');
     const state=()=>page.evaluate(()=>binder.inspect());
-    const assertCount=async expected=>assert.match(await page.locator('.cb-count').textContent(),new RegExp(expected+' versions'));
+    const assertCount=async expected=>assert.match(await page.locator('.cb-count').textContent(),new RegExp('\\b'+expected+' versions\\b'));
     assert.equal(await page.locator('.cb-scopes [data-binder-action=scope]').count(),2);
     const entries=await collection.locator('option').evaluateAll(options=>Object.fromEntries(options.map(option=>[option.value,option.textContent])));
     assert.deepEqual(Object.keys(entries),['','kalistar','final-fantasy','nier','metal-gear','resident-evil','one-piece','witcher']);
@@ -70,24 +70,39 @@ async function main(){
     await page.locator('.cb-toolbar [data-binder-action=reset]').click();
     await assertCount(ownedIds.length);
     assert.equal((await state()).filters.search,'');
-    const reports=[];
-    for(const [width,height]of [[320,568],[390,844],[412,1007],[700,900],[850,760],[1024,768],[1440,1000],[1600,1000],[844,390],[640,360]]){
+    const reports=[],targetFailures=[];
+    for(const [width,height]of [[320,568],[390,844],[412,1007],[700,900],[850,760],[1024,768],[1440,1000],[1920,1080],[2560,1440],[844,390],[640,360]]){
       await page.setViewportSize({width,height});
       await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
       const report=await page.locator('.cb-heading').evaluate(header=>{
-        const bounds=header.getBoundingClientRect(),nodes=[...header.querySelectorAll('.cb-scopes button,.cb-collection-select select,:scope > .cb-icon')];
+        const bounds=header.getBoundingClientRect(),nodes=[...header.querySelectorAll('.cb-scopes button,:scope > .cb-icon')].filter(n=>n.getClientRects().length);
         const boxes=nodes.map(node=>{const r=node.getBoundingClientRect();return {id:node.dataset.id||node.dataset.binderFilter||'archives',left:r.left,right:r.right,top:r.top,bottom:r.bottom,height:r.height,overflow:node.tagName!=='SELECT'&&node.scrollWidth>node.clientWidth+1};});
         return {width:innerWidth,height:innerHeight,headerHeight:bounds.height,boxes,inside:boxes.every(r=>r.left>=bounds.left&&r.right<=bounds.right&&r.top>=bounds.top&&r.bottom<=bounds.bottom),overlap:boxes.some((a,i)=>boxes.slice(i+1).some(b=>a.left<b.right&&b.left<a.right&&a.top<b.bottom&&b.top<a.bottom)),documentWidth:document.documentElement.scrollWidth};
       });
       reports.push(report);
       assert(report.inside&&!report.overlap&&report.boxes.every(box=>!box.overflow),'Collection controls fit: '+JSON.stringify(report));
       assert(report.documentWidth<=width+1,'no horizontal overflow at '+width+'x'+height);
-      if(width<700||height<500)assert(report.boxes.every(box=>box.height>=44),'phone targets remain 44px: '+JSON.stringify(report));
+      if(width<700||height<500)for(const box of report.boxes)if(box.height<44)targetFailures.push({width,height,...box});
+      const toolbar=await page.locator('.cb-toolbar').evaluate(n=>{
+        const r=n.getBoundingClientRect(),boxes=[...n.children].filter(c=>c.getClientRects().length).map(c=>c.getBoundingClientRect());
+        return {inside:boxes.every(b=>b.left>=r.left-1&&b.right<=r.right+1&&b.top>=r.top-1&&b.bottom<=r.bottom+1),overlap:boxes.some((a,i)=>boxes.slice(i+1).some(b=>a.left<b.right-1&&b.left<a.right-1&&a.top<b.bottom-1&&b.top<a.bottom-1))};
+      });
+      assert(toolbar.inside&&!toolbar.overlap,'toolbar controls fit '+width+'x'+height);
+      if(!await collection.isVisible()){
+        await page.locator('[data-binder-action=filters]').click();
+        const visibleCollection=page.locator('.cb-overlay:modal [data-binder-filter=collection]');
+        await visibleCollection.selectOption('nier');await assertCount(2);
+        assert.equal((await state()).scope,'owned','phone filtering does not expand ownership');
+        assert(await page.locator('.cb-pocket').evaluateAll(nodes=>nodes.length===2&&nodes.every(n=>fixtureData.items.some(c=>c.cardId===n.dataset.cardId))));
+        await visibleCollection.selectOption('');await page.locator('.cb-overlay:modal .cb-filter-actions [data-binder-action=close-overlay]').click();
+      }
       await page.locator('.cb-heading').screenshot({path:path.join(output,'header-'+width+'x'+height+'.png')});
     }
     assert.deepEqual(errors,[]);
-    fs.writeFileSync(path.join(output,'report.json'),JSON.stringify({passed:true,isolated:true,reports},null,2)+'\n');
-    console.log('PASS: collection dropdowns, ownership, faction combinations, reset, pagination and ten responsive sizes. Screenshots: '+output);
+    assert(await page.evaluate(()=>JSON.stringify(fixtureData)===fixtureBefore),'controls never mutate fixture models or ownership');
+    fs.writeFileSync(path.join(output,'report.json'),JSON.stringify({passed:targetFailures.length===0,isolated:true,reports,targetFailures},null,2)+'\n');
+    assert.deepEqual(targetFailures,[],'phone targets remain at least 44px');
+    console.log('PASS: collection dropdowns, ownership, faction combinations, reset, pagination and '+reports.length+' responsive sizes. Screenshots: '+output);
     await context.close();
   }finally{await browser.close();}
 }

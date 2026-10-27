@@ -121,15 +121,12 @@ body.kalistar-ui :is(.kdb-library-bar,.kdb-filters,.sheet-filters) { border-colo
 body.kalistar-ui :is(.team-library-tabs,.sheet-tabs,.match-tabs,.registry-tabs) { border-bottom-color:var(--kui-border); }
 body.kalistar-ui :is(.match-section-heading,.match-side-heading,.team-page .kdb-band-heading h2) { color:var(--kui-copper); }
 /* Paper controls are ink and brass, not dark panels pasted over the manuscript. */
-body.kalistar-ui :is(.cb-reading,.story-reader-book) {
+body.kalistar-ui .story-reader-book {
   --kui-ink:#ddd0b8; --kui-surface:#d5c3a17a; --kui-raised:#e5d4b5;
   --kui-text:#24160f; --kui-muted:#5c4836; --kui-edge:#795638;
   --kui-copper:#674424; --kui-energy:#275e5b; --kui-gold:#513216;
   --kui-border:#79563870; --kui-inset:#fff0d145;
 }
-body.kalistar-ui .cb-reading [data-kui=tab] { font-family:inherit; }
-body.kalistar-ui .cb-versions button[data-kui=tab][aria-pressed=true] { color:#fff0cc; background:#503925; border-color:#7f5a30; box-shadow:inset 0 0 0 1px #e2b97980; }
-body.kalistar-ui .cb-page[data-mode=reader] .cb-reading [data-kui=field] { color:var(--kui-text); background-color:#eee1c577; }
 /* Awards retain the approved illustration crops, 25% trophies and mobile flow. */
 body.kalistar-ui #match-dialog .golden-palmares .golden-award {
   border-color:#a7835c91; border-radius:3px; background:#111f1d;

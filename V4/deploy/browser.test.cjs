@@ -40,7 +40,7 @@ async function main() {
     await page.goto(base);
     await enter(page);
     await page.waitForFunction(() => window.KALISTAR_READY);
-assert.equal(await page.locator('.masthead .edition').innerText(), 'VERSION 4.7.26');
+assert.equal(await page.locator('.masthead .edition').innerText(), 'VERSION 4.7.27');
     const {appManifest, manifestUrl} = await page.evaluate(async () => {
       const manifestUrl = new URL('manifest.webmanifest', location.href);
       return {appManifest: await (await fetch(manifestUrl)).json(), manifestUrl: manifestUrl.href};
@@ -51,7 +51,7 @@ assert.equal(await page.locator('.masthead .edition').innerText(), 'VERSION 4.7.
     assert.equal(await page.evaluate(() => KalistarSite.online), true);
     const count = await page.evaluate(() => KALISTAR_DATA.cards.length);
     assert.equal(await page.evaluate(() => KALISTAR_DB.registry.owned('user-paris').length), count);
-    await page.waitForFunction(() => [...document.images].filter(i=>i.getClientRects().length).every(i=>i.complete&&i.naturalWidth>0&&!i.src.includes('#v4-')));
+    await page.waitForFunction(() => [...document.images].filter(i=>{const r=i.getBoundingClientRect();return r.width&&r.height&&r.top<innerHeight&&r.bottom>0;}).every(i=>i.complete&&i.naturalWidth>0&&!i.src.includes('#v4-')));
     await page.screenshot({path:path.join(output,'collection-desktop.png')});
     await page.locator('.cb-card').first().click();
     await page.locator('.cb-reader').waitFor();
@@ -81,7 +81,7 @@ assert.equal(await page.locator('.masthead .edition').innerText(), 'VERSION 4.7.
     assert.equal(await page.locator('#match-arena-summary h3').innerText(),lastArenaName);
     await page.setViewportSize({width:390,height:844});
     await page.waitForTimeout(250);
-    assert.equal(await page.locator('.brand').evaluate(el => getComputedStyle(el, '::after').content), '"V4.7.26"');
+    assert.equal(await page.locator('.brand').evaluate(el => getComputedStyle(el, '::after').content), '"V4.7.27"');
     const preMatchWidth=await page.locator('#new-game-dialog .pre-match-form').evaluate(el=>({scroll:el.scrollWidth,client:el.clientWidth}));
     assert.ok(preMatchWidth.scroll<=preMatchWidth.client+1,'Pre-match lobby overflows on phone: '+JSON.stringify(preMatchWidth));
     await page.screenshot({path:path.join(output,'pre-match-phone.png')});

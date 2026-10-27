@@ -99,17 +99,17 @@ test('Astralia atlas is published as lightweight media, not an authoring source'
   assert.equal(manifest.runtime.width / manifest.runtime.height, 2);
 });
 
-test('Collection atlas is continuous and does not replace reading surfaces', () => {
+test('Collection gallery owns its responsive atlas while the reader preserves original card art', () => {
   const binder = fs.readFileSync(path.join(__dirname, '../site/collection-binder.css'), 'utf8');
   const mobile = fs.readFileSync(path.join(__dirname, '../site/mobile.css'), 'utf8');
   const story = fs.readFileSync(path.join(__dirname, '../site/story-reader.css'), 'utf8');
-  assert.match(binder, /\.cb-page\[data-mode=book\] \.cb-workbench \{[^}]*isolation: isolate;[^}]*background: #b89b71;/);
-  assert.match(binder, /\.cb-page\[data-mode=book\] \.cb-workbench::before, \.cb-mini-book::before \{[^}]*pointer-events: none;[^}]*var\(--kalistar-atlas-image\)[^}]*filter: blur\(1\.6px\)/);
+  assert.match(binder, /\.cb-page::before \{[^}]*var\(--kalistar-atlas-image\)[^}]*opacity:\.12;[^}]*pointer-events:none;/);
   assert.doesNotMatch(binder, /collection-astralia-planisphere/);
-  assert.match(binder, /\.cb-spread::before \{ content: none; \}/);
-  assert.match(binder, /\.cb-spread \{[^}]*background: transparent;/);
-  assert.match(binder, /\.cb-mini-book \{[^}]*isolation: isolate;[^}]*overflow: hidden;/);
-  assert.match(binder, /\.cb-page\[data-mode=reader\] \.cb-workbench \{[^}]*collection-reader-grimoire-v1\.webp/);
+  assert.match(binder, /\.cb-spread \{[^}]*display:grid;[^}]*grid-template-columns:repeat\(var\(--cb-columns,4\),minmax\(0,1fr\)\)/);
+  assert.match(binder, /\.cb-workbench \{[^}]*overflow:auto;[^}]*touch-action:pan-y pinch-zoom;/);
+  assert.match(binder, /\.cb-page\[data-mode=reader\] \.cb-workbench \{[^}]*background:#0a1514;/);
+  assert.doesNotMatch(binder, /collection-reader-grimoire|\.cb-sheet|filter:\s*blur|animation:[^;}]*infinite/);
+  assert.doesNotMatch(mobile, /\.cb-(?:spread|sheet|stack|caption|reader|workbench)\b/);
   assert.doesNotMatch(mobile, /background-size: 200% 112%/);
   assert.doesNotMatch(story, /collection-astralia-planisphere/);
 });
@@ -126,9 +126,9 @@ test('static release versions stylesheet and script URLs together', () => {
 test('application version matches in desktop and phone headers', () => {
   const html = fs.readFileSync(path.join(__dirname, '../site/index.html'), 'utf8');
   const css = fs.readFileSync(path.join(__dirname, '../site/v4.css'), 'utf8');
-  assert.match(html, /<title>Kalistar V4\.7\.26/);
-  assert.match(html, /<span class="edition">VERSION 4\.7\.26<\/span>/);
-  assert.ok(css.includes("content:'V4.7.26'"));
+  assert.match(html, /<title>Kalistar V4\.7\.27/);
+  assert.match(html, /<span class="edition">VERSION 4\.7\.27<\/span>/);
+  assert.ok(css.includes("content:'V4.7.27'"));
 });
 test('hosting adapter supports local, project Pages and saved canonical image paths', () => {
   const script = fs.readFileSync(path.join(__dirname, '../site/site-config.js'), 'utf8');

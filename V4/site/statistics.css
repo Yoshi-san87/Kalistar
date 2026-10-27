@@ -103,17 +103,9 @@ body.statistics-view { display: flex; flex-direction: column; height: 100dvh; ov
 .trophy-keepsake b,.kill-medal-keepsake > b { font: 19px/1.1 var(--serif); }
 .trophy-keepsake > span { font: 10px/1.2 var(--sans); text-align: center; }
 .trophy-keepsake[data-earned=false] img { filter: grayscale(.8); opacity: .38; }
-.cb-career .trophy-keepsake { color: var(--cb-ink); }
-.cb-career .trophy-keepsake :is(b,span),.cb-career .kill-medal-keepsake > b { font-weight: 600; }
-.cb-career .trophy-keepsake img { height: 62px; }
-.cb-career .trophy-keepsake[data-earned=false] img { filter: grayscale(.9) brightness(.65); opacity: .65; }
-.career-statistics .lucide,.cb-page .career-statistics .lucide { width: 21px; height: 21px; stroke-width: 2.2; }
+.career-statistics .lucide { width: 21px; height: 21px; stroke-width: 2.2; }
 .career-statistics th[scope=row] { font-size: 13px; font-weight: 500; }
 .career-statistics th[scope=row] > span { gap: 10px; }
-.cb-page[data-mode=reader] .cb-reading-tabs .lucide { width: 22px; height: 22px; stroke-width: 2.2; color: #382615; }
-.cb-page .cb-reading-tabs button { color: var(--cb-ink-soft); }
-.cb-page .cb-mobile-panes .lucide { width: 21px; height: 21px; stroke-width: 2; }
-.cb-page .cb-profile .lucide { stroke-width: 2.1; color: #44301e; }
 
 @media (max-width: 1200px) and (min-width: 700px) {
   .statistics-sheet { padding: 15px 20px 10px; }
@@ -171,10 +163,7 @@ body.statistics-view { display: flex; flex-direction: column; height: 100dvh; ov
   #match-dialog .golden-winners button { min-height: 44px; }
   #match-dialog .golden-winners b { font-size: 14px; }
   #match-dialog .golden-title { min-height: 52px; }
-  .cb-page .cb-reading-tabs button { font-size: 11px; gap: 5px; }
-  .cb-page[data-mode=reader] .cb-reading-tabs .lucide { width: 22px; height: 22px; }
-  .cb-career .trophy-keepsake img { height: 50px; }
-  .career-statistics .lucide,.cb-page .career-statistics .lucide { width: 21px; height: 21px; }
+  .career-statistics .lucide { width: 21px; height: 21px; }
   .career-statistics th[scope=row] > span { gap: 7px; }
   body .main-nav button span { font-size: 10px; }
 }

@@ -1,5 +1,5 @@
 /* Phone composition is isolated from the approved desktop layouts. */
-.mobile-only, .mobile-duel-stats, .cb-mobile-panes, .cb-page .cb-mobile-sort { display: none; }
+.mobile-only, .mobile-duel-stats { display: none; }
 .reserve-placements { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 8px; }
 .reserve-placements button { min-width: 44px; min-height: 44px; }
 
@@ -45,77 +45,7 @@
   #toast { bottom: calc(var(--phone-nav) + var(--phone-action) + 10px); max-width: calc(100% - 24px); }
   .mobile-only { display: inline-flex; }
 
-  /* Two columns on the continuous atlas, with rows chosen from measured height. */
-  .cb-page { --cb-header: 100px; --cb-toolbar: 48px; --cb-pager: 48px; }
-  .cb-heading { display: block; padding: 4px 8px; }
-  .cb-title, .cb-completion, .cb-count { display: none; }
-  .cb-scopes { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)) 44px; grid-template-rows: 44px 44px; gap: 4px; }
-  .cb-scopes button { min-height: 44px; gap: 5px; padding: 4px 6px; font-size: 12px; }
-  .cb-heading > .cb-icon { position: absolute; top: 4px; right: 8px; }
-  .cb-scopes .cb-collection-select { grid-column: 1/-1; min-width: 0; margin: 0; font-size: 12px; }
-  .cb-collection-select select { flex: 1; width: 0; min-height: 44px; height: 44px; font-size: 16px; }
-  .cb-page .cb-icon, .cb-footer .cb-icon, .cb-toolbar > .cb-icon { flex: 0 0 44px; width: 44px; height: 44px; padding: 11px; }
-  .cb-toolbar { gap: 2px; padding: 2px 8px; flex-wrap: nowrap; }
-  .cb-page .cb-search { order: 0; flex: 1 1 0; margin: 0; }
-  .cb-search > input { height: 44px; font-size: 16px; }
-  .cb-toolbar > select { display: none; }
-  .cb-page .cb-mobile-sort { display: flex; }
-  .cb-spread {
-    --cb-card-gutter: 24px; --cb-column-gap: 12px; --cb-slot-width: 240px;
-    display: grid; grid-template-columns: minmax(0,1fr); gap: 0; padding: 32px 24px 78px;
-  }
-  .cb-spread::before, .cb-spread::after, .cb-page .cb-page-edge { display: none; }
-  @media (max-height:650px) { .cb-page[data-mode=book] .cb-spread { padding-bottom: 32px; } }
-  .cb-sheet { padding: 0; row-gap: 16px; }
-  .cb-shelf-row { grid-template-columns: repeat(var(--cb-row-count),minmax(0,1fr)); gap: 12px; }
-  .cb-pocket, .cb-spread[data-rows="2"] .cb-pocket {
-    --cb-card-width: min(calc(100cqw - var(--cb-card-gutter)),calc((100cqh - var(--cb-caption-height) - 12px) * .57420749)); gap: var(--cb-sleeve-gap);
-  }
-  .cb-stack { margin: 0; }
-  .cb-footer { padding: 0 12px; gap: 18px; }
-  .cb-filters { position: absolute; inset: 48px 8px auto; max-height: calc(100% - 100px); overflow-y: auto; z-index: 8; }
-  .cb-filters :is(button,select) { min-height: 44px; }
-  .cb-mobile-panes { display: flex; margin-left: auto; gap: 2px; }
-  .cb-mobile-panes button { min-height: 44px; border-color: transparent; background: transparent; }
-  .cb-mobile-panes button[aria-pressed=true] { border-bottom-color: #dfbd86; color: #ffe3b2; background: #ceb88814; }
-  .cb-page .cb-back { flex: none; min-height: 44px; padding: 4px 6px; font-size: 12px; }
-  .cb-page[data-mode=reader] .cb-workbench {
-    padding: 30px 15% 48px 10%; background-size: 200% 100%; background-position: right center;
-  }
-  .cb-page[data-mode=reader] .cb-reader { display: block; height: 100%; }
-  .cb-page[data-mode=reader] .cb-visual { display: flex; height: 100%; padding: 0; gap: 6px; }
-  .cb-page[data-mode=reader] .cb-reading { display: flex; height: 100%; gap: 12px; padding: 0; color: var(--cb-ink); }
-  .cb-page[data-mode=reader][data-reader-pane=visual] .cb-reading, .cb-page[data-mode=reader][data-reader-pane=notes] .cb-visual { display: none; }
-  .cb-media-tools { flex: 0 0 44px; }
-  .cb-media-tools button { min-height: 44px; padding-inline: 8px; font-size: 12px; }
-  .cb-page[data-mode=reader] .cb-visual figcaption { flex-basis: 36px; font-size: 11px; }
-  .cb-visual figcaption a { width: 44px; height: 36px; }
-  .cb-page[data-mode=reader] .cb-card-heading { display: flex; gap: 4px; flex: none; }
-  .cb-page[data-mode=reader] .cb-card-heading h2 { font-size: 25px; line-height: 1.2; overflow-wrap: anywhere; }
-  .cb-page[data-mode=reader] .cb-card-heading p { font-size: 13px; line-height: 1.5; }
-  .cb-page[data-mode=reader] .cb-reading-tabs { flex: 0 0 48px; }
-  .cb-page[data-mode=reader] .cb-reading-tabs button { flex: 1 1 auto; flex-direction: column; min-height: 44px; gap: 4px; font-size: 11px; padding: 3px 0; }
-  .cb-page[data-mode=reader] .cb-reading-tabs svg { width: 17px; height: 17px; }
-  .cb-page[data-mode=reader] .cb-read-content { overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; padding-right: 2px; }
-  .cb-page[data-mode=reader] .cb-story p { font-size: 17px; line-height: 1.8; color: #24160f; }
-  .cb-page[data-mode=reader] .cb-versions { height: auto; flex: none; gap: 5px; }
-  .cb-page[data-mode=reader] .cb-versions button { font-size: 11px; }
-  .cb-page[data-mode=reader] .cb-copy b { overflow-wrap: anywhere; font-size: 12px; }
-  .cb-page[data-mode=reader] .cb-reading :is(button,select) { min-height: 44px; }
-  @media (min-width:700px) and (max-height:500px) {
-    .cb-page { --cb-header: 48px; }
-    .cb-heading { display: flex; padding-block: 2px; gap: 4px; }
-    .cb-scopes { display: flex; flex: 1; min-width: 0; }
-    .cb-scopes .cb-collection-select { flex: 1; margin-left: 8px; }
-    .cb-heading > .cb-icon { position: static; }
-    .cb-page[data-mode=reader] .cb-workbench { padding: 18px 10% 24px 8%; }
-  }
-
-  /* Short leaves scroll as one manuscript, so edition titles cannot hide the story. */
-  @container (max-height: 440px) {
-    .cb-page[data-mode=reader] .cb-reading { overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; scrollbar-width: none; }
-    .cb-page[data-mode=reader] .cb-read-content { flex: none; overflow: visible; }
-  }
+  /* Collection owns its phone layout in collection-binder.css. */
 
   /* The same game state and actions, arranged vertically for a thumb-driven board. */
   html:fullscreen body.arena-view .game-shell > .arena-toolbar > div:first-child { display: none; }
@@ -306,10 +236,6 @@
   body.arena-view .team-right .mobile-duel-stats { left:118px;right:0; }
   body.arena-view .team-left .mobile-duel-stats { left:106px;right:108px; }
   }
-  .cb-page { --cb-header: 100px; --cb-toolbar: 44px; --cb-pager: 44px; }
-  @media (min-width:700px) { .cb-page { --cb-header: 48px; } }
-  .cb-page[data-mode=book] .cb-workbench { overflow-y: auto; scrollbar-width: none; }
-  .cb-spread { min-height: 360px; }
 }
 
 @media (min-width: 700px) {
