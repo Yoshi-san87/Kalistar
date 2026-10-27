@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#102521">
+  <title>Kalistar · Momo dans la casse</title>
+  <link rel="icon" href="../../assets/gaming-book/momo/ui/kalistar.webp">
+  <link rel="stylesheet" href="style.css">
+  <script src="../../assets/gaming-book/momo/vendor/matter.min.js" defer></script>
+  <script src="../../assets/lucide.min.js" defer></script>
+  <script type="module" src="app.mjs"></script>
+</head>
+<body>
+  <main id="scene" aria-label="Momo dans la casse">
+    <canvas id="world" aria-label="La casse de Momo. Cliquer, Entrée ou Espace pour continuer le récit. Flèches pour marcher. Espace pour jouer de la flûte une fois découverte." tabindex="0"></canvas>
+    <header class="scene-header">
+      <div class="identity"><img src="../../assets/gaming-book/momo/ui/kalistar.webp" alt="Kalistar" width="180" height="68"><span></span><div><p>Momo</p><h1>La casse</h1></div></div>
+      <nav aria-label="Options de la scène">
+        <button id="sound" class="icon-button" aria-label="Couper le son" title="Couper le son" aria-pressed="false"><i data-lucide="volume-2"></i></button>
+        <button id="pause" class="icon-button" aria-label="Mettre en pause" title="Pause (Échap)" aria-pressed="false"><i data-lucide="pause"></i></button>
+        <button id="fullscreen" class="icon-button" aria-label="Plein écran" title="Plein écran"><i data-lucide="maximize"></i></button>
+      </nav>
+    </header>
+    <div id="loading" role="status"><span class="loading-seal">K</span><p>Une mélodie oubliée</p></div>
+    <div id="paused" hidden><button id="resume"><i data-lucide="play"></i> Reprendre</button></div>
+    <footer class="scene-footer">
+      <div class="movement" role="group" aria-label="Déplacement">
+        <button class="control" id="left" aria-label="Marcher à gauche" title="Gauche (← / A / Q)"><i data-lucide="chevron-left"></i></button>
+        <button class="control" id="right" aria-label="Marcher à droite" title="Droite (→ / D)"><i data-lucide="chevron-right"></i></button>
+      </div>
+      <div id="narration" role="status" aria-live="polite" aria-atomic="true"></div>
+      <button id="continue" class="continue-button" disabled aria-label="Continuer le récit" title="Continuer (Entrée / Espace)"><i data-lucide="chevron-right"></i></button>
+      <button id="flute" class="flute-button" disabled hidden aria-label="Jouer de la flûte" title="Jouer de la flûte (Espace / E)"><span class="flute-inner"><i data-lucide="music-2"></i></span></button>
+    </footer>
+    <section id="ending" hidden aria-label="Momo, L’Artiste magique">
+      <img class="ending-logo" src="../../assets/gaming-book/momo/ui/kalistar.webp" alt="Kalistar" width="360" height="140">
+      <div class="ending-card"><img id="ending-card" src="../../assets/gaming-book/momo/ending/momo-night.webp" alt="Momo joue de la flûte sous les étoiles" width="897" height="1497" decoding="async"></div>
+      <div class="ending-caption"><p id="ending-name"></p><h2 id="ending-title"></h2><blockquote id="ending-quote"></blockquote></div>
+      <button id="exit" class="quiet-button"><i data-lucide="arrow-right"></i> Continuer</button>
+    </section>
+    <section id="rest" hidden aria-label="Scène terminée">
+      <img src="../../assets/gaming-book/momo/ui/kalistar.webp" alt="Kalistar" width="360" height="140">
+      <button id="restart" class="quiet-button"><i data-lucide="rotate-ccw"></i> Revenir à la casse</button>
+    </section>
+    <dialog id="film" aria-label="La mélodie de Momo">
+      <video id="momo-film" playsinline controls preload="metadata" aria-label="Momo joue de la flûte dans la casse"></video>
+      <div class="film-actions"><button id="film-back" class="icon-button" aria-label="Revenir à Momo" title="Revenir à Momo"><i data-lucide="arrow-left"></i></button><button id="film-skip" class="icon-button" aria-label="Passer le film" title="Passer le film"><i data-lucide="skip-forward"></i></button></div>
+      <div class="film-message"><p id="film-status" role="status"></p><button id="film-play" hidden><i data-lucide="play"></i> Écouter Momo</button></div>
+    </dialog>
+    <div id="error" role="alert" hidden></div>
+  </main>
+</body>
+</html>

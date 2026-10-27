@@ -87,6 +87,9 @@ async function plan({mediaPolicy = true} = {}) {
     if (entry.isFile() && /\.(js|css|html|webmanifest)$/.test(entry.name)) add('V4/site/' + entry.name, 'jeu/' + entry.name);
   }
   add('V4/site/story-content.json', 'jeu/story-content.json');
+  for (const file of await json('V4/site/gaming-book/runtime-files.json')) {
+    add('V4/site/gaming-book/' + file, 'jeu/gaming-book/' + file);
+  }
   // Astraball is a separate, explicitly allowlisted game, not another card view.
   for (const file of await json('V4/astraball/runtime-files.json')) {
     add('V4/astraball/' + file, 'jeu/astraball/' + file);
@@ -156,6 +159,8 @@ async function build() {
       bytes = Buffer.from(versionStaticAssets(html.replace('data-hosting="local"', 'data-hosting="static" data-auth-state="checking"'), version));
     }
     if(file.target==='jeu/login.html')bytes=Buffer.from(versionStaticAssets(bytes.toString('utf8'),version));
+    if(file.target.startsWith('jeu/gaming-book/')&&file.target.endsWith('.html'))bytes=Buffer.from(versionStaticAssets(bytes.toString('utf8'),version));
+    if(file.target.startsWith('jeu/gaming-book/')&&file.target.endsWith('.mjs'))bytes=Buffer.from(versionModuleImports(bytes.toString('utf8'),version));
     if(file.target==='jeu/astraball/index.html'||file.target==='jeu/astraball/library.html')bytes=Buffer.from(versionStaticAssets(bytes.toString('utf8'),version));
     if(file.target.startsWith('jeu/astraball/')&&file.target.endsWith('.mjs'))bytes=Buffer.from(versionModuleImports(bytes.toString('utf8'),version));
     if(file.target==='journey-runtime.cjs')bytes=Buffer.from("'use strict';\nmodule.exports={Combat:require('./jeu/journey-combat.js'),Composition:require('./jeu/team-composition.js'),hash:"+JSON.stringify(journeyHash)+",snapshotHashes:"+JSON.stringify(compatibility?.snapshotHashes||[])+",legacy:"+(compatibility?"{hash:"+JSON.stringify(compatibility.legacyHash)+",data:require('./journey-legacy-4.6.85.json')}":'null')+"};\n");

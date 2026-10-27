@@ -48,7 +48,7 @@
   // These callbacks only ACK/refresh; they must not open/await another ceremony.
   // revealSequel(book, absoluteStage) never runs from draw/mount, so reload is quiet.
   // Narrative: stage.reveal {title,paragraphs}, else book.bonusReveal for stage 4.
-  function create({data = {}, image, art, getState, onStart, onResume, onClaim, onAcknowledge, onClaimEquipment, onAcknowledgeEquipment, onPreview, onDetail, onRefresh, toast} = {}) {
+  function create({data = {}, image, art, getState, onStart, onResume, onClaim, onScene, onAcknowledge, onClaimEquipment, onAcknowledgeEquipment, onPreview, onDetail, onRefresh, toast} = {}) {
     let root = null, view = null, controller = null, observer = null, frame = 0;
     let generation = 0, paint = 0, selectedBook = null, selectedStage = 0, passage = 'intro', lastCleared = 0;
     let pending = null, detailPending = null, claimBook = null, claimStage = null, errorMessage = '', reward = null;
@@ -207,7 +207,7 @@
     function primaryMarkup(book,p) {
       const total = stagesOf(book).length, busy = !!pending;
       if (p.completed) {
-        if (!p.claimed) return button('claim','Recevoir la carte','gem',{primary:true,disabled:busy || !onClaim});
+        if (!p.claimed) return button('claim',onScene && globalThis.KalistarGamingBook?.supports(book) ? 'Vivre la dernière page' : 'Recevoir la carte','gem',{primary:true,disabled:busy || !onClaim});
         if (!p.acknowledged) return button('reveal','Voir la carte obtenue','gem',{primary:true,disabled:busy || !onAcknowledge});
         const visible = visibleBonus(book,p), stageIndex = visible+3, claim = claimOf(p,stageIndex);
         if (!visible) return `<span class="jv-earned">${icon('check')}Carte déjà obtenue</span>`;
@@ -243,7 +243,7 @@
             <header class="jv-stage-heading"><p class="jv-eyebrow">${isReward ? 'Récompense' : `${admin ? 'Aperçu sans récompense · ' : ''}${selectedStage < 4 ? `Combat ${selectedStage+1} / 4` : `Chapitre ${selectedStage+1}`}${outro ? ' · Victoire' : ''}`}</p><h3 tabindex="-1" data-jv-key="stage-title">${esc(isReward ? card?.title || 'Le parcours achevé' : stage?.title || 'Parcours indisponible')}</h3>
             ${stage && (done || state.isAdmin) ? `<div class="jv-passages" role="group" aria-label="Passage du récit"><button type="button" data-jv-action="intro" data-jv-key="intro" aria-pressed="${!outro}">Avant le combat</button><button type="button" data-jv-action="outro" data-jv-key="outro" aria-pressed="${outro}">Après la victoire</button></div>` : ''}</header>
             <article class="jv-reading" tabindex="0" data-jv-key="reading" aria-label="${outro ? 'Après la victoire' : 'Récit du parcours'}">${isReward ? `<div class="jv-reward-page"><button type="button" class="jv-reward-card-link" data-jv-action="detail" data-jv-model="${esc(book.rewardModelId)}" aria-label="Voir la fiche de la carte récompense" ${!onDetail ? 'disabled' : ''}>${media(book.rewardModelId,'card',card?.name || book.subtitle,{lazy:false})}</button><p>${p.claimed ? 'Carte obtenue' : 'Récompense disponible'}</p><strong>${esc(card?.name || book.subtitle)}</strong></div>` : (Array.isArray(paragraphs) ? paragraphs : []).map(text => `<p>${esc(text)}</p>`).join('')}${admin ? `<p class="jv-admin-note">${icon('eye')}Aperçu sans progression ni récompense</p>` : ''}</article>
-            <footer class="jv-stage-footer">${arena && !isReward ? `<span class="jv-arena">${icon('map-pin')}${esc(arena.name)}</span>` : ''}<div class="jv-stage-actions">${admin ? button('preview','Aperçu sans récompense','eye',{disabled:!!pending || !onPreview}) : primaryMarkup(book,p)}${state.isAdmin && stage && !admin ? tool('preview','Aperçu sans récompense','eye',pending || !onPreview ? 'disabled' : '') : ''}${tool('previous-stage','Étape précédente','chevron-left',selectedStage === 0 ? 'disabled' : '')}${tool('next-stage','Étape suivante','chevron-right',nextAvailable ? '' : 'disabled')}</div></footer>
+            <footer class="jv-stage-footer">${arena && !isReward ? `<span class="jv-arena">${icon('map-pin')}${esc(arena.name)}</span>` : ''}<div class="jv-stage-actions">${admin ? button('preview','Aperçu sans récompense','eye',{disabled:!!pending || !onPreview}) : primaryMarkup(book,p)}${state.isAdmin && stage && !admin ? tool('preview','Aperçu sans récompense','eye',pending || !onPreview ? 'disabled' : '') : ''}${onScene && globalThis.KalistarGamingBook?.supports(book) && selectedStage === 3 && (p.claimed || state.isAdmin && !p.completed) ? button('scene',p.completed ? 'Revivre la scène' : 'Aperçu Gaming Book','play',{disabled:!!pending,extra:'title="Gaming Book"'}) : ''}${tool('previous-stage','Étape précédente','chevron-left',selectedStage === 0 ? 'disabled' : '')}${tool('next-stage','Étape suivante','chevron-right',nextAvailable ? '' : 'disabled')}</div></footer>
           </section>
         </div><p class="jv-busy" role="status">${pending ? 'Action en cours…' : ''}</p>
       </section>`;
@@ -478,6 +478,7 @@
       if (action === 'current') return selectStage(p.cleared);
       if (action === 'start' && !p.activeAttempt && selectedStage === p.cleared && stageAvailable(book,p,p.cleared)) return void run(onStart,[book.id]);
       if (action === 'resume' && p.activeAttempt && stageAvailable(book,p,p.cleared)) return void run(onResume,[book.id]);
+      if (action === 'scene' && onScene && globalThis.KalistarGamingBook?.supports(book) && selectedStage === 3 && (p.completed || state.isAdmin)) return void run(onScene,[book.id,{preview:!p.completed,replay:p.claimed}]);
       if (action === 'claim' && p.completed && !p.claimed) return void run(onClaim,[book.id],{claim:true});
       if (action === 'reveal' && p.completed && p.claimed && !p.acknowledged) return void run(resumeReward,[book]);
       const index = Number(node.dataset.jvStage);
@@ -534,7 +535,7 @@
       if (view) { for (const animation of view.getAnimations?.({subtree:true}) || []) animation.cancel(); view.remove(); }
       root = null; view = null; pending = null; detailPending = null; claimBook = null; claimStage = null; errorMessage = ''; equipmentItems.clear();
     }
-    return {mount,refresh,destroy,revealReward,revealEquipment,revealSequel};
+    return {mount,refresh,destroy,openBook,revealReward,revealEquipment,revealSequel};
   }
   return {create};
 });

@@ -8,7 +8,7 @@ const out=path.resolve(process.env.KALISTAR_VERIFICATION_DIR||path.join(__dirnam
 const origin='https://kalistar.pages.dev',supa='https://fkskjhlaaagqlfcsojjp.supabase.co';
 const key='disposable-journey-browser-HMAC-key-only-for-local-QA-20261016';
 const ids={'user-paris':'11111111-1111-4111-8111-111111111111','user-tokyo':'22222222-2222-4222-8222-222222222222'};
-const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.webmanifest':'application/manifest+json','.png':'image/png','.webp':'image/webp','.svg':'image/svg+xml','.woff2':'font/woff2','.mp3':'audio/mpeg','.ogg':'audio/ogg'};
+const mime={'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.mp4':'video/mp4','.jpg':'image/jpeg','.css':'text/css','.json':'application/json','.webmanifest':'application/manifest+json','.png':'image/png','.webp':'image/webp','.svg':'image/svg+xml','.woff2':'font/woff2','.mp3':'audio/mpeg','.ogg':'audio/ogg'};
 const password='fictional-browser-password';
 function session(profile){const id=ids[profile];return {access_token:Buffer.from('{"alg":"HS256","typ":"JWT"}').toString('base64url')+'.'+Buffer.from(JSON.stringify({sub:id,exp:Math.floor(Date.now()/1000)+3600,role:'authenticated'})).toString('base64url')+'.fictional-signature',refresh_token:'fictional-refresh-'+profile,expires_in:3600,expires_at:Math.floor(Date.now()/1000)+3600,token_type:'bearer',user:{id,email:profile+'@example.invalid',email_confirmed_at:'2026-10-16T00:00:00Z',aud:'authenticated',role:'authenticated',app_metadata:{provider:'email'},user_metadata:{}}};}
 async function fixtureSources(){
@@ -215,6 +215,12 @@ async function main(){
     if(card)assert.equal(await page.locator('.jv-bonus-route').count(),0);
     const countsBefore=rewardRPCs();
     await page.locator('[data-jv-action='+claim+']').evaluate(button=>{button.click();button.click();});
+    if(card){
+      const {sceneFrame,playScene}=require('./test-support/gaming-book.cjs');
+      const frame=await sceneFrame(page);
+      assert.deepEqual(rewardRPCs(),countsBefore,'Opening the scene never claims the card');
+      await playScene(frame);
+    }
     await page.locator(modal+'[open]').waitFor({timeout:30000});
     await page.locator('.jv-reward [data-jv-action=acknowledge]:enabled').waitFor();
     const won=await progress(),owned=await inventory();
@@ -353,6 +359,11 @@ async function main(){
       let played;
       do{
         assert(++attempts<=20,'Bounded fair-play fixture exhausted its hourly start allowance');
+        if(index===3){
+          await page.evaluate(()=>KALISTAR_JOURNEYS.refresh());
+          await openBook();await page.locator('[data-jv-action=resume]').click();await page.locator('.game-shell').waitFor();
+          await view(page);
+        }
         played=await playEntireAttempt(initial,0);totalMoves+=played.moves;
         result.combats.push({stage:index,attempt:played.s.journey.attemptId,winner:played.s.winner,moves:played.moves,sequence:played.s.journey.sequence});
         console.log('Combat '+(index+1)+', tentative '+attempts+': '+(played.s.winner===0?'victoire':'sans victoire')+', '+played.moves+' commandes signées.');
@@ -360,6 +371,15 @@ async function main(){
       }while(played.s.winner!==0);
       assert.equal((await progress()).cleared,index+1);
       assert.equal((await progress()).completed,index>=3,'completed keeps its four-victory meaning');
+      if(index===3){
+        const beforeScene=rewardRPCs();
+        await page.evaluate(()=>location.hash='arena');
+        await page.locator('.gaming-book-dialog[open]').waitFor({timeout:30000});
+        assert.equal(new URL(page.url()).hash,'#journeys','Fourth victory automatically enters Story');
+        assert.deepEqual(rewardRPCs(),beforeScene,'Automatic scene is not a reward grant');
+        await page.locator('.gaming-book-dialog > header button').click();
+        await page.waitForFunction(()=>!history.state?.kalistarDialogBack);
+      }
       await reloadBook();
       if(index>=3)await receiveReward(index);
     }

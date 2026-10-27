@@ -22,6 +22,15 @@ cree. La suite reste cachee jusqu'a l'attribution ET a l'acquittement de cette
 ceremonie par le serveur. La premiere nouvelle page se revele alors, sans
 annoncer d'avance les chapitres suivants ni leurs recompenses.
 
+Momo ouvre d'abord son Gaming Book jouable apres la quatrieme victoire :
+la casse, la flute, puis sa melodie nocturne. Continuer a la fin rejoint
+l'attribution serveur et sa ceremonie. Retour a Story conserve la victoire ;
+Vivre la derniere page reprend la lecture, sans rejouer le combat.
+Le marque-page est local a ce navigateur et a ce compte ; la victoire et les
+recompenses restent synchronisees. Un autre appareil reprend la scene au debut.
+Revivre la scene et l'apercu administrateur ne reclament aucune recompense.
+Les anciens recus de carte ne sont ni rejoues automatiquement ni remplaces.
+
 Chaque victoire bonus ouvre une attribution distincte. Recevoir l'arme et
 acquitter sa ceremonie debloque la protection ; recevoir la protection et
 l'acquitter debloque la relique. Gagner un combat ne suffit pas a sauter cette
@@ -85,9 +94,10 @@ transfert de carte, ni une sauvegarde locale ne reouvrent une attribution.
 Le combat 4 Momo, « Et la nuit ecouta », rejoint la conclusion du Gaming Book :
 il monte quelques marches, s'assied et joue pour lui, sans ordre ni attente
 d'utilite. Taulio reste pres de lui ; le souvenir du createur n'a pas encore
-de nom. La decouverte de la flute reste au chapitre 3 : ce raccord ne rejoue
-pas l'abandon ni la premiere rencontre. La scene interactive en travail reste
-un prototype local distinct ; cette integration porte sur le recit et sa peinture.
+de nom. La decouverte de la flute reste au chapitre 3 du parcours.
+Apres la victoire 4, la scene interactive revient sur les premiers pas de Momo
+dans la casse jusqu'a cette nuit. Ce retour jouable ne remplace pas les combats
+deja gagnes. La copie de production est isolee du prototype de travail.
 
 Les trois premiers livres concernent Momo, Balmhyr et Kaylis. Ils utilisent les
 profils et illustrations approuves, le lore des equipements et les passages

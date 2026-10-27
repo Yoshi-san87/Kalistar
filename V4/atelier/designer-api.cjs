@@ -65,6 +65,11 @@ function makeDesigner({token,json,file,body,getIntegrity}){
         file(res,L.inside(path.join(ROOT,'V4/astraball'),relative),mime);return true;
       }
       if(p.startsWith('/jeu/')){
+        if(p.startsWith('/jeu/gaming-book/')){
+          const relative=decodeURIComponent(p.slice('/jeu/gaming-book/'.length));
+          if(!require('../site/gaming-book/runtime-files.json').includes(relative)){json(res,404,{error:'Scene absente.'});return true;}
+          file(res,L.inside(path.join(ROOT,'V4/site/gaming-book'),relative),relative.endsWith('.mjs')?'text/javascript; charset=utf-8':MIME[path.extname(relative)]);return true;
+        }
         const relative=decodeURIComponent(p.slice('/jeu/'.length))||'index.html';
         if(!/^[a-zA-Z0-9_./-]+$/.test(relative)||relative.includes('..'))throw Error('Chemin de jeu invalide.');
         let target=L.inside(path.join(ROOT,'V4/site'),relative);

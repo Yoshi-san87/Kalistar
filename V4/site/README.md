@@ -26,6 +26,10 @@ consomment le meme catalogue V4. Aucun fallback vers le jeu ou `data.js` V3.
   [Contrat du lecteur](../docs/INTRO_CONNEXION.md).
 - `app.js` : orchestration des vues et des commandes. Les regles restent dans
   les modules purs, pas dans le DOM.
+- `gaming-book.js/css` : ouverture plein ecran apres la victoire Momo 4,
+  messages de scene verifies, retour navigateur et marque-page par compte.
+  `gaming-book/runtime-files.json` autorise uniquement le lecteur de production.
+  Aucun acces Auth ou attribution dans la scene ; voir son README.
 - `ui-system.js/css`, `positions.js/css`, `navigation.css` : langage visuel commun.
 - `home-screen.js`, `page-transitions.js`, `phone-preview.js/css` :
   accueil, transitions et preview Razr. Le desktop garde sa navigation propre.
