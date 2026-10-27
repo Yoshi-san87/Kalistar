@@ -46,7 +46,7 @@
     const cards=data.cards,byId=new Map(cards.map(c=>[c.id,c])),covers=new Map();
     const searchText=new Map(cards.map(c=>[c.id,normalize([c.name,c.title,c.faction,c.race,c.id].join(' '))]));
     const elements={...data.elements,NONE:data.elements.NONE||{id:'NONE',label:'Sans cristal',color:'93AAA5'}};
-    let root=null,observer=null,painting=false,scope='owned',page=0,pageSize=12,columns=4,rows=3,selected=null,tab='story',art=false,filtersOpen=false,sort='id';
+    let root=null,observer=null,painting=false,scope='owned',page=0,pageSize=4,columns=4,rows=1,rowHeight=600,selected=null,tab='story',art=false,filtersOpen=false,sort='id';
     let historyPage=0,copyPage=0,instance='all',motion='',swipe=null,suppressClick=false,transitionTimer=null,transitioning=false;
     let singlePage=false,readerPane='visual',versionTransition=null,pagesOpen=false,density='comfortable',galleryScroll=0,resetGallery=false,swipeTimer=null,swipeFrame=null;
     const filters={search:'',collection:'',element:'',faction:'',race:'',position:'',weapon:'',favorite:false};
@@ -80,11 +80,11 @@
       const current=group.indexOf(c),behind=[...group.slice(current+1),...group.slice(0,current)],next=behind[0];
       const versionCount=`<span class="cb-flip-symbol">${icon('layers-2')}</span><b>${current+1}<span> / ${group.length}</span></b>${icon('chevron-right')}`;
       return `<article class="cb-pocket ${owned?'':'is-unowned'}" data-character="${esc(key(c))}" data-card-id="${c.id}" style="--card-color:#${element(c).color};--pocket-order:${index}">
-        <div class="cb-stack">${behind.slice(0,2).map((v,i)=>`<img class="cb-behind cb-layer-${i}" data-version-id="${v.id}" src="assets/back-obsidian-v1.webp" alt="" aria-hidden="true" draggable="false" width="797" height="1388">`).join('')}
+        <div class="cb-art-stage"><div class="cb-stack">${behind.slice(0,2).map((v,i)=>`<img class="cb-behind cb-layer-${i}" data-version-id="${v.id}" src="assets/back-obsidian-v1.webp" alt="" aria-hidden="true" draggable="false" width="797" height="1388">`).join('')}
         <button type="button" class="cb-card" data-binder-action="open" data-id="${c.id}" aria-label="Consulter ${esc(c.name+' : '+c.title)}"><img src="${image(c)}" alt="${esc(c.name+' : '+c.title)}" draggable="false" width="797" height="1388" loading="lazy" decoding="async"></button>
         ${button('favorite','star','Favori : '+c.name,`data-id="${c.id}" aria-pressed="${favorite}"`,'cb-card-favorite')}
         <span class="cb-copy-count cb-card-copies" role="img" aria-label="${owned} exemplaire${owned>1?'s':''}" title="${owned} exemplaire${owned>1?'s':''} de ${esc(c.title)}">${pedestalIcon('collection')}<b>${owned}</b></span>
-        </div>
+        </div></div>
         <div class="cb-caption cb-pedestal" data-kui-native data-faction="${esc(c.faction)}" title="${esc('Faction : '+c.faction)}">
           <span class="cb-faction-watermark" role="img" aria-label="${esc('Faction : '+c.faction)}"><img src="${asset('factions',c.faction)}" width="160" height="128" alt="" aria-hidden="true" draggable="false"></span>
           <div class="cb-pedestal-content${next?' has-versions':''}${c.positions.length>2?' has-many-positions':''}">
@@ -126,7 +126,7 @@
     }
     function book(s){
       if(!s.current.length)return `<div class="cb-empty"><img src="assets/navigation/collection-v1.webp" alt="" width="90" height="90"><h2>${scope==='owned'&&!owns().length?'Le début d’une collection':'Aucune carte ici'}</h2><button type="button" data-binder-action="${scope==='owned'&&!owns().length?'registry':'reset'}">${icon(scope==='owned'&&!owns().length?'key-round':'filter-x')}${scope==='owned'&&!owns().length?'Enregistrer une carte':'Effacer les filtres'}</button>${scope==='owned'&&!owns().length?'<button type="button" class="cb-text-button" data-binder-action="scope" data-id="catalogue">Explorer le catalogue</button>':''}</div>`;
-      return `<div class="cb-spread" data-motion="${motion}" data-page-size="${pageSize}" data-columns="${columns}" style="--cb-columns:${columns}" aria-label="Galerie, page ${page+1}">${s.current.map(pocket).join('')}</div>`;
+      return `<div class="cb-spread" data-motion="${motion}" data-page-size="${pageSize}" data-columns="${columns}" data-rows="${rows}" style="--cb-columns:${columns};--cb-rows:${rows};--cb-row-height:${rowHeight}px" aria-label="Galerie, page ${page+1}">${s.current.map(pocket).join('')}</div>`;
     }
     function profileHTML(c){
       const face=(v,isAttack)=>typeof v==='number'?number(v):`<img src="${asset('effets',v)}" alt="${esc(({guard:'Garde',retry:isAttack?'Trèfle':'Relance',mana:'Potion',revive:'Reraise',death:'Mort',dodge:'Esquive',buff_atk:'Puissance physique'})[v]||v)}">`;
@@ -298,10 +298,10 @@
       if(action==='history-page')historyPage=Math.max(0,Number(node.dataset.index)||0);
       if(action==='copy-page')copyPage=Math.max(0,Number(node.dataset.index)||0);
       paint(action==='back'?{action:'open',id:returnId}:action==='open'?singlePage?{action:'pane',id:'visual'}:{action:'tab',id:tab}:undefined);
-      if(action==='back'||action==='scope')size();
+      if(!selected)size();
     }
     function input(event){
-      if(painting||event.target.dataset.binderField!=='search')return;event.stopPropagation();filters.search=event.target.value;page=0;selected=null;resetGallery=true;paint();
+      if(painting||event.target.dataset.binderField!=='search')return;event.stopPropagation();filters.search=event.target.value;page=0;selected=null;resetGallery=true;paint();size();
     }
     function change(event){
       if(painting)return;const n=event.target;
@@ -310,7 +310,7 @@
       if(n.dataset.binderField==='sort'){sort=n.value;page=0;resetGallery=true;}
       if(n.dataset.binderField==='instance'){instance=n.value;historyPage=0;}
       if(n.dataset.binderField!=='search')paint();
-      if(n.dataset.binderFilter==='collection')size();
+      if(!selected)size();
     }
     function keyboard(event){
       if(filtersOpen||pagesOpen){if(event.key==='Escape'){event.preventDefault();event.stopPropagation();closeOverlay();}return;}
@@ -369,10 +369,22 @@
       if(!root)return;
       const {width}=root.getBoundingClientRect();
       const phone=globalThis.matchMedia?.('(max-width:699px), (pointer:coarse) and (max-width:1100px) and (max-height:500px)').matches||false;
-      // Card size follows available width, never shrinks to squeeze into the viewport height.
+      if(selected){if(phone!==singlePage){singlePage=phone;paint();}return;}
+      const work=root.querySelector('.cb-workbench'),spread=root.querySelector('.cb-spread');
+      if(!spread||!work)return;
+      const style=root.ownerDocument.defaultView.getComputedStyle(spread),px=value=>parseFloat(value)||0;
+      const horizontal=px(style.paddingLeft)+px(style.paddingRight),vertical=px(style.paddingTop)+px(style.paddingBottom);
+      const gapX=px(style.columnGap),gapY=px(style.rowGap),innerWidth=spread.clientWidth-horizontal;
+      const available=Math.max(1,work.clientHeight-(root.querySelector('.cb-gallery-heading')?.offsetHeight||0)-vertical);
+      const lateral=globalThis.matchMedia?.('(min-width:700px) and (max-height:500px)').matches;
       const target=density==='compact'?208:290;
-      const nextColumns=width<700?2:Math.max(3,Math.min(density==='compact'?8:6,Math.floor((width-64)/target))),next=nextColumns*3;
-      if(next!==pageSize||nextColumns!==columns||phone!==singlePage){const first=page*pageSize;singlePage=phone;columns=nextColumns;pageSize=next;page=Math.floor(first/pageSize);paint();}
+      const nextColumns=width<700?2:lateral?Math.max(2,Math.min(4,Math.floor(innerWidth/340))):Math.max(3,Math.min(density==='compact'?8:6,Math.floor((innerWidth+gapX)/(target+gapX))));
+      const nextRows=!phone&&!lateral&&available>=(density==='compact'?650:900)?2:1;
+      const cellWidth=(innerWidth-gapX*(nextColumns-1))/nextColumns;
+      // Limit the page itself to the viewport; CSS fits each intact card above its natural caption.
+      const nextHeight=Math.floor(Math.min((available-gapY*(nextRows-1))/nextRows,lateral?available:(cellWidth-24)*1388/797+160));
+      const next=nextColumns*nextRows;
+      if(next!==pageSize||nextColumns!==columns||nextRows!==rows||nextHeight!==rowHeight||phone!==singlePage){const first=page*pageSize;singlePage=phone;columns=nextColumns;rows=nextRows;rowHeight=nextHeight;pageSize=next;page=Math.floor(first/pageSize);paint();}
     }
     const listeners=[['click',click],['cancel',cancelOverlay,true],['input',input],['change',change],['keydown',keyboard],['pointerdown',pointerDown],['pointermove',pointerMove],['pointerup',pointerUp],['pointercancel',cancelSwipe]];
     function destroy(){observer?.disconnect();observer=null;cancelVersionTransition();globalThis.clearTimeout(transitionTimer);globalThis.clearTimeout(swipeTimer);if(swipeFrame!==null)globalThis.cancelAnimationFrame(swipeFrame);transitionTimer=swipeTimer=swipeFrame=null;transitioning=suppressClick=false;root?.querySelectorAll('.cb-overlay[open]').forEach(dialog=>dialog.close());pagesOpen=filtersOpen=false;if(root)for(const [event,fn,capture]of listeners)root.removeEventListener(event,fn,capture);root=null;swipe=null;}

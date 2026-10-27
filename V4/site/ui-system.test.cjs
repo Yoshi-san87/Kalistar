@@ -22,11 +22,15 @@ test('progressive selects, keyboard state, Reduced Motion and high contrast stay
   assert(!/localStorage|indexedDB|KalistarEngine|setInterval|innerHTML/.test(js));
 });
 
-test('collection owns its responsive gallery and reader without legacy book overrides',()=>{
+test('collection owns its fixed responsive gallery and scrollable reader without legacy book overrides',()=>{
   const css=read('collection-binder.css'),mobile=read('mobile.css'),ui=read('ui-system.css');
   assert.match(css,/\.cb-spread\s*\{[^}]*display:\s*grid/);
   assert.match(css,/grid-template-columns:\s*repeat\(/);
-  assert.match(css,/\.cb-workbench\s*\{[^}]*overflow(?:-y)?:\s*(auto|scroll)/,'gallery can scroll vertically');
+  assert.match(css,/\.cb-workbench\s*\{[^}]*overflow(?:-y)?:\s*(auto|scroll)/,'detailed reader retains vertical scrolling');
+  assert.match(css,/\.cb-page\[data-mode=book\]\s+\.cb-workbench\s*\{[^}]*overflow(?:-y)?:\s*(hidden|clip)/,'gallery cannot scroll vertically');
+  assert.match(css,/body\.collection-view\s*\{[^}]*overflow:\s*hidden/,'Collection does not scroll the document');
+  assert.match(css,/\.cb-art-stage\s*\{[^}]*container:\s*collection-art\s*\/\s*size/,'art has a bounded sizing stage');
+  assert.match(css,/\.cb-stack\s*\{[^}]*aspect-ratio:\s*797\s*\/\s*1388/,'fitting preserves the artwork ratio');
   assert.match(css,/prefers-reduced-motion/);
   assert.match(css,/:focus-visible/);
   assert.doesNotMatch(css,/collection-reader-grimoire|\.cb-sheet|\.cb-spine/);
@@ -57,6 +61,10 @@ test('collection pedestal renders real faction media and separate accessible cou
     assert(!html.includes('cb-plinth-art'),'no sliced bitmap pedestal');
     assert(!html.includes('cb-sheet'),'pockets are not split into book leaves');
     assert.match(html,/class="cb-spread"[^>]*>\s*<article class="cb-pocket/);
+    const dimensions=html.match(/class="cb-spread"[^>]*data-page-size="(\d+)"[^>]*data-columns="(\d+)"[^>]*data-rows="(\d+)"/);
+    assert(dimensions,'gallery declares both pagination axes');
+    const [,capacity,columns,rows]=dimensions.map(Number);assert(columns>=2&&columns<=8&&[1,2].includes(rows));assert.equal(capacity,columns*rows);
+    assert.match(html,/<div class="cb-art-stage"><div class="cb-stack">/,'the stack is inside its art sizing stage');
     assert(html.includes('assets/back-obsidian-v1.webp'),'stacked variants use the common back');
     assert.deepEqual(requested,[card.id],'render does not request the next variant PNG');
     assert(html.includes('cb-version-count cb-flip-control'));
@@ -64,7 +72,7 @@ test('collection pedestal renders real faction media and separate accessible cou
     assert.match(html,/<h2[^>]*>FIXTURE<\/h2><p[^>]*>One<\/p>/,'name and version title stay distinct');
     assert(html.includes('aria-label="Faction : Chroma"'));
     assert(html.includes('aria-label="1 exemplaire"'));
-    assert.match(html,/<span class="cb-copy-count cb-card-copies"[^>]*>[\s\S]*?<b>1<\/b><\/span>\s+<\/div>\s+<div class="cb-caption cb-pedestal"/,'copies sit in the card stack, not in its plinth');
+    assert.match(html,/<span class="cb-copy-count cb-card-copies"[^>]*>[\s\S]*?<b>1<\/b><\/span>\s+<\/div>\s*<\/div>\s+<div class="cb-caption cb-pedestal"/,'copies sit in the card stack inside the art stage, not in its plinth');
     assert(!html.split('class="cb-caption cb-pedestal"')[1].split('</article>')[0].includes('cb-copy-count'));
     assert(html.includes('data-binder-action="cycle-version"'));
     assert(html.includes('aria-pressed="true"'));

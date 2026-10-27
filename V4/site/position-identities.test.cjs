@@ -68,7 +68,12 @@ test('Collection and Stats restrict landscape phone layouts to coarse pointers, 
     assert(source.includes('(max-width:699px)'),'narrow screens: '+name);
     assert(source.includes('(pointer:coarse)and(max-width:1100px)and(max-height:500px)'),'touch landscape: '+name);
     assert(!source.includes('(max-width:950px)and(max-height:500px)'),'no unqualified landscape: '+name);
-    assert(!source.includes('@media(min-width:700px)and(max-height:500px)'),'no short-only phone skin: '+name);
+    if(name==='collection-binder.css'){
+      const css=fs.readFileSync(path.join(__dirname,name),'utf8');
+      const gallery=css.match(/@media \(min-width:700px\) and \(max-height:500px\) \{([\s\S]*?)\n\}/)?.[1];
+      assert(gallery?.includes('.cb-page[data-mode=book]'),'short viewport fits the gallery');
+      assert(!/\.cb-page\s*\{|\.cb-reader|\.cb-mobile-panes/.test(gallery),'short desktop gallery does not opt the reader into a phone skin');
+    }else assert(!source.includes('@media(min-width:700px)and(max-height:500px)'),'no short-only phone skin: '+name);
   }
 });
 

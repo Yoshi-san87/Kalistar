@@ -6,7 +6,7 @@ const { createRequire } = require('node:module');
 const runtime = process.env.KALISTAR_NODE_MODULES || path.join(process.env.USERPROFILE, '.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const { chromium } = createRequire(path.join(runtime, '__mobile_browser__.cjs'))('playwright');
 const url = process.env.KALISTAR_URL || 'http://127.0.0.1:4304';
-const output = process.env.KALISTAR_VERIFICATION_DIR || path.resolve(__dirname, '../../work/qa/collection-gallery-mobile');
+const output = process.env.KALISTAR_VERIFICATION_DIR || path.resolve(__dirname, '../../work/qa/collection-fixed-mobile');
 const failures = [];
 let browser;
 async function main() {
@@ -40,14 +40,36 @@ async function main() {
     });
   }
   async function galleryGeometry(){
-    await page.waitForFunction(()=>document.querySelector('.cb-spread')?.dataset.columns==='2');
+    await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
     const geometry=await page.locator('.cb-spread').evaluate(n=>{
-      const pockets=[...n.querySelectorAll(':scope > .cb-pocket')],bounds=n.getBoundingClientRect();
-      return {count:pockets.length,capacity:Number(n.dataset.pageSize),direct:pockets.length===n.children.length,columns:Number(n.dataset.columns),inside:pockets.every(p=>{const r=p.getBoundingClientRect();return r.left>=bounds.left-1&&r.right<=bounds.right+1;}),captions:pockets.every(p=>{const caption=p.querySelector('.cb-caption'),r=caption.getBoundingClientRect();return [...caption.querySelectorAll('h2,p,.position-emblem,.cb-flip-control')].every(c=>{const b=c.getBoundingClientRect();return b.left>=r.left-1&&b.right<=r.right+1&&b.top>=r.top-1&&b.bottom<=r.bottom+1;});})};
+      const rect=n=>n.getBoundingClientRect(),visible=n=>n.getClientRects().length>0&&getComputedStyle(n).visibility==='visible';
+      const within=(a,b)=>a.left>=b.left-1&&a.right<=b.right+1&&a.top>=b.top-1&&a.bottom<=b.bottom+1;
+      const separate=(a,b)=>a.right<=b.left+1||b.right<=a.left+1||a.bottom<=b.top+1||b.bottom<=a.top+1;
+      const pockets=[...n.querySelectorAll(':scope > .cb-pocket')],bounds=rect(n),work=n.closest('.cb-workbench'),workBox=rect(work),viewport={left:0,top:0,right:innerWidth,bottom:innerHeight},rows=[];
+      const cards=pockets.map(p=>{
+        const box=rect(p),caption=p.querySelector('.cb-caption'),stand=rect(caption),stage=p.querySelector('.cb-art-stage'),stack=p.querySelector('.cb-stack'),card=p.querySelector('.cb-card'),face=rect(card);
+        const model=KALISTAR_DATA.cards.find(c=>c.id===p.dataset.cardId),name=caption.querySelector('h2'),version=caption.querySelector('.cb-caption-title>p');
+        const positions=[...caption.querySelectorAll('.position-emblem')],controls=[...positions,...caption.querySelectorAll('button')];
+        const text=[name,version].filter(visible).map(c=>{const range=document.createRange();range.selectNodeContents(c);return range.getBoundingClientRect();});
+        const favorite=p.querySelector('.cb-card-favorite'),copies=p.querySelector('.cb-card-copies');
+        if(!rows.some(top=>Math.abs(top-box.top)<2))rows.push(box.top);
+        return {id:model.id,inside:within(box,bounds)&&within(box,workBox)&&within(box,viewport),
+          art:!!stage&&stack.parentElement===stage&&within(rect(stage),box)&&stack.offsetWidth<=stage.clientWidth+1&&stack.offsetHeight<=stage.clientHeight+1&&within(face,box)&&Math.abs(face.width/face.height-797/1388)<.003,
+          caption:within(stand,box)&&separate(stand,face)&&visible(name)&&name.textContent===model.name&&version.textContent===model.title&&(innerHeight>=700||!visible(version))&&text.every((ink,i)=>within(ink,stand)&&controls.every(c=>separate(ink,rect(c)))&&text.slice(i+1).every(other=>separate(ink,other))),
+          positions:positions.map(c=>Number(c.dataset.positionIcon)),expectedPositions:model.positions,
+          controls:controls.every((c,i)=>visible(c)&&within(rect(c),stand)&&controls.slice(i+1).every(other=>separate(rect(c),rect(other))))&&[favorite,copies].every(c=>visible(c)&&within(rect(c),face))&&separate(rect(favorite),rect(copies)),
+          targets:[card,favorite,...caption.querySelectorAll('button')].every(c=>{const b=rect(c);return c.contains(document.elementFromPoint(b.x+b.width/2,b.y+b.height/2));}),
+          count:Number(copies.querySelector('b').textContent),expectedCount:KALISTAR_DB.registry.owned(KALISTAR_ACTIVE_USER,model.id).length};
+      });
+      return {count:pockets.length,capacity:Number(n.dataset.pageSize),direct:pockets.length===n.children.length,columns:Number(n.dataset.columns),rowCapacity:Number(n.dataset.rows),rows:rows.length,cards,inside:within(bounds,workBox)&&within(workBox,viewport),scroll:[document.documentElement,document.body,document.querySelector('#app'),work,n].map(c=>({node:c.id||c.className||c.tagName,overflow:c.scrollHeight-c.clientHeight,top:c.scrollTop}))};
     });
-    assert(geometry.direct&&geometry.inside&&geometry.captions&&geometry.count>0&&geometry.count<=geometry.capacity,JSON.stringify(geometry));
-    assert.equal(geometry.capacity,6);assert.equal(await page.locator('.cb-sheet').count(),0);
-    for(const caption of await page.locator('.cb-caption').all()){await caption.scrollIntoViewIfNeeded();await loaded();await withinViewport('.cb-footer,.main-nav');}
+    assert(geometry.direct&&geometry.inside&&geometry.count>0&&geometry.count<=geometry.capacity,JSON.stringify(geometry));
+    assert(geometry.columns>=2&&geometry.columns<=8);if(page.viewportSize().width<700)assert.equal(geometry.columns,2);
+    assert([1,2].includes(geometry.rowCapacity)&&geometry.rows<=geometry.rowCapacity);assert.equal(geometry.capacity,geometry.columns*geometry.rowCapacity);
+    assert(geometry.scroll.every(c=>c.overflow<=1&&c.top===0),'gallery and document do not scroll: '+JSON.stringify(geometry.scroll));
+    for(const card of geometry.cards){assert(card.inside&&card.art&&card.caption&&card.controls&&card.targets,JSON.stringify(card));assert.deepEqual(card.positions,card.expectedPositions);assert.equal(card.count,card.expectedCount);}
+    assert.equal(await page.locator('.cb-sheet').count(),0);
+    await loaded();await withinViewport('.cb-pocket,.cb-card,.cb-caption,.cb-heading,.cb-toolbar,.cb-footer,.main-nav');
     assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
   }
   await page.goto(url + '/jeu/#collection');
@@ -57,6 +79,16 @@ async function main() {
   await loaded();
   const touch = await context.newCDPSession(page);
   const leaf = await page.locator('.cb-workbench').boundingBox();
+  const beforeVertical=await page.locator('.cb-page-label').textContent();
+  await touch.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: leaf.x+leaf.width*.8, y: leaf.y+leaf.height*.8 }] });
+  for(let i=1;i<=8;i++) {
+    await touch.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: leaf.x+leaf.width*.8, y: leaf.y+leaf.height*(.8-i*.07) }] });
+    await page.waitForTimeout(30);
+  }
+  await touch.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+  await page.waitForTimeout(400);await galleryGeometry();
+  assert.equal(await page.locator('.cb-page-label').textContent(),beforeVertical,'vertical touch does not paginate');
+  assert.equal(await page.locator('.cb-reader').count(),0,'vertical touch does not open a card');
   await touch.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: leaf.x+leaf.width*.8, y: leaf.y+leaf.height*.5 }] });
   for(let i=1;i<=8;i++) {
     await touch.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: leaf.x+leaf.width*(.8-i*.07), y: leaf.y+leaf.height*.5 }] });
@@ -75,6 +107,8 @@ async function main() {
   await page.locator('[data-binder-action=next-page]').last().tap();
   await page.waitForFunction(()=>/^\s*2\s*\//.test(document.querySelector('.cb-page-label').textContent));
   assert.match(await page.locator('.cb-page-label').textContent(), /^\s*2\s*\//);
+  const galleryPage=await page.locator('.cb-page-label').textContent(),openedId=await page.locator('.cb-card').first().getAttribute('data-id');
+  const galleryIds=await page.locator('.cb-pocket').evaluateAll(nodes=>nodes.map(n=>n.dataset.cardId));
   await page.locator('.cb-card').first().tap();
   await loaded(); await capture('reader-card');
   await page.locator('.cb-hero-image').scrollIntoViewIfNeeded();await withinViewport('.cb-hero-image');
@@ -86,13 +120,16 @@ async function main() {
   assert(await page.locator('.cb-reading').evaluate(n=>{const r=n.getBoundingClientRect(),work=n.closest('.cb-workbench').getBoundingClientRect();return r.left>=0&&r.right<=innerWidth+1&&r.top<work.bottom&&r.bottom>work.top;}),'notes are reachable without horizontal overflow');
   for (const id of ['profile','career','copies','story']) await page.locator('[data-binder-action=tab][data-id=' + id + ']').tap();
   await page.locator('[data-binder-action=back]').tap();
+  assert.equal(await page.locator('.cb-page-label').textContent(),galleryPage,'reader returns to the same gallery page');
+  assert.deepEqual(await page.locator('.cb-pocket').evaluateAll(nodes=>nodes.map(n=>n.dataset.cardId)),galleryIds);
+  assert(await page.locator(`.cb-card[data-id="${openedId}"]`).evaluate(n=>n===document.activeElement),'reader returns focus to the opened model');
   await page.locator('[data-binder-action=scope][data-id=owned]').tap();
-  for (const [width, height] of [[390,844],[412,1007],[360,740],[430,932],[320,568]]) {
+  for (const [width, height] of [[390,844],[412,1007],[360,740],[430,932],[320,568],[844,390]]) {
     await page.setViewportSize({ width, height });
-    await loaded(); await capture('collection-' + width);
     await galleryGeometry();
+    await capture('collection-' + width);
   }
-  console.log('PASS: mobile Collection swipe, universe/faction/ownership filters, continuous reader and five portrait geometries.');
+  console.log('PASS: mobile Collection swipe, universe/faction/ownership filters, continuous reader, page/focus return and fixed portrait/landscape galleries.');
   await page.setViewportSize({width:390,height:844});
   await page.locator('.main-nav [data-view=decks]').tap();
   await page.locator('[data-deck-action=panel][data-id=board]').tap();

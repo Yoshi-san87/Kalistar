@@ -181,15 +181,17 @@ dans leur orientation d'origine. Les ancres d'equipement en arene ne changent pa
 Respecter le proprietaire CSS d'un composant. Par exemple, le socle Collection
 est defini dans `collection-pedestal.css`, pas par de nouveaux overrides dans
 `mobile.css`, `positions.css` ou `collection-binder.css`.
-La Collection est une galerie verticale de grandes cartes, sans double page.
+La Collection est une galerie paginee qui tient dans l'ecran, sans defilement
+vertical ni double page.
 `collection-binder.css` est l'unique proprietaire de sa disposition responsive,
 de ses outils, dialogues et vue de contemplation ; `mobile.css`, `statistics.css`
-et `weapons.css` ne la redessinent pas. La largeur choisit 2 a 6 colonnes
-(8 en mode compact), trois rangees par
-page ; la hauteur ne reduit jamais les cartes. Les versions restent groupees
+et `weapons.css` ne la redessinent pas. Largeur et hauteur choisissent 2 a 6
+colonnes (8 en mode compact), une ou deux rangees par page. Le cadre disponible
+contient chaque carte entiere et son socle ; la pagination donne acces aux
+suivantes. Les versions restent groupees
 par personnage et filtrees selon les memes droits que la carte visible.
 La vue detaillee place carte et recit cote a cote sur PC, puis dans un meme
-defilement sur telephone. Le retour conserve la position dans la galerie.
+defilement sur telephone. Le retour conserve la page et le focus de la galerie.
 Les images hors champ sont paresseuses, les dos partagent un seul asset et les
 animations sont finies : apparition, survol, changement de version. Aucun
 mouvement ni boucle de mesure permanent n'est necessaire pour admirer les cartes.

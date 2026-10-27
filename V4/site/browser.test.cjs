@@ -13,7 +13,7 @@ const persistedPublications = require('../donnees/catalogue.json').cards.filter(
 const initialCount = approvedCount + persistedPublications.length;
 const url = process.env.KALISTAR_URL || 'http://127.0.0.1:43874';
 const live = !!process.env.KALISTAR_URL;
-const output = process.env.KALISTAR_VERIFICATION_DIR || path.join(ROOT, 'work/qa/site-browser');
+const output = process.env.KALISTAR_VERIFICATION_DIR || path.join(ROOT, 'work/qa/collection-fixed-browser');
 const mime = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.png': 'image/png', '.webp': 'image/webp', '.svg': 'image/svg+xml' };
 const checks = [], errors = [], badResponses = [];
 let browser;
@@ -47,6 +47,27 @@ async function main() {
   page.setDefaultTimeout(60000);
   page.on('pageerror', error => errors.push(error.message));
   page.on('response', response => { if (response.status() >= 400) badResponses.push(response.url() + ': ' + response.status()); });
+  async function fixedGallery(){
+    await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+    const layout=await page.locator('.cb-spread').evaluate(n=>{
+      const rect=n=>n.getBoundingClientRect(),within=(a,b)=>a.left>=b.left-1&&a.right<=b.right+1&&a.top>=b.top-1&&a.bottom<=b.bottom+1;
+      const separate=(a,b)=>a.right<=b.left+1||b.right<=a.left+1||a.bottom<=b.top+1||b.bottom<=a.top+1;
+      const r=rect(n),cards=[...n.children],columns=Number(n.dataset.columns),work=n.closest('.cb-workbench'),viewport={left:0,top:0,right:innerWidth,bottom:innerHeight};
+      const first=rect(cards[0]),last=rect(cards[Math.min(columns,cards.length)-1]);
+      return {columns,rows:Number(n.dataset.rows),capacity:Number(n.dataset.pageSize),count:cards.length,
+        balanced:cards.length<columns||Math.abs((first.left+last.right)/2-(r.left+r.right)/2)<2,
+        contained:within(r,rect(work))&&within(rect(work),viewport)&&cards.every(c=>{
+          const box=rect(c),stage=c.querySelector('.cb-art-stage'),stack=c.querySelector('.cb-stack'),face=rect(c.querySelector('.cb-card')),caption=rect(c.querySelector('.cb-caption'));
+          return !!stage&&stack.parentElement===stage&&within(box,r)&&within(box,viewport)&&[stage,stack,c.querySelector('.cb-caption')].every(x=>within(rect(x),box))&&stack.offsetWidth<=stage.clientWidth+1&&stack.offsetHeight<=stage.clientHeight+1&&separate(face,caption)&&face.height>=120&&face.width>60&&Math.abs(face.width/face.height-797/1388)<.003;
+        }),overflow:document.documentElement.scrollWidth-innerWidth,
+        scroll:[document.documentElement,document.body,document.querySelector('#app'),work,n].map(c=>({node:c.id||c.className||c.tagName,overflow:c.scrollHeight-c.clientHeight,top:c.scrollTop}))};
+    });
+    assert(layout.columns>=2&&layout.columns<=8&&[1,2].includes(layout.rows),JSON.stringify(layout));
+    assert.equal(layout.capacity,layout.columns*layout.rows);assert(layout.count>0&&layout.count<=layout.capacity);
+    assert(layout.contained&&layout.balanced&&layout.overflow<=1,JSON.stringify(layout));
+    assert(layout.scroll.every(c=>c.overflow<=1&&c.top===0),'fixed gallery/document: '+JSON.stringify(layout.scroll));
+    return layout;
+  }
   await page.addInitScript(() => { if (!localStorage.getItem('kalistar.v3.sentinel')) localStorage.setItem('kalistar.v3.sentinel', 'preserved'); });
   await page.goto(url + '/jeu/#collection');
   await page.locator('[data-startup-enter]:enabled').click();
@@ -64,6 +85,7 @@ async function main() {
   assert.ok((await page.locator('.cb-count').textContent()).includes(ff7Count+' versions'));
   assert.ok(await page.locator('.cb-pocket').evaluateAll((nodes,ids)=>nodes.length>0&&nodes.every(node=>ids.includes(node.dataset.cardId)),catalog.cards.filter(c=>c.faction==='FF7').map(c=>c.id)));
   await page.locator('.cb-toolbar [data-binder-action=reset]').click();
+  await fixedGallery();
   const collectionLabel=page.locator('.cb-page-label span');
   const characterCount=new Set(catalog.cards.map(c=>c.characterId||c.id)).size;
   const collectionPages=Math.ceil(characterCount/Number(await page.locator('.cb-spread').getAttribute('data-page-size')));
@@ -95,19 +117,12 @@ async function main() {
   await page.screenshot({path:path.join(output,'desktop-collection.png')});
   checks.push('gallery, grouped universe filters, page controls, drag and reduced motion');
   await page.setViewportSize({width:2560,height:1375});
-  await page.waitForFunction(()=>document.querySelector('.cb-spread')?.dataset.pageSize==='18');
-  const wide=await page.locator('.cb-spread').evaluate(n=>{
-    const r=n.getBoundingClientRect(),cards=[...n.children],first=cards[0].getBoundingClientRect(),last=cards[5].getBoundingClientRect();
-    return {width:r.width,columns:Number(n.dataset.columns),count:cards.length,cardWidth:cards[0].querySelector('.cb-card').getBoundingClientRect().width,
-      balanced:Math.abs((first.left+last.right)/2-(r.left+r.right)/2)<2,overflow:document.documentElement.scrollWidth-innerWidth,
-      contained:cards.every(c=>{const b=c.getBoundingClientRect();return [...c.querySelectorAll('.cb-stack,.cb-caption')].every(x=>{const a=x.getBoundingClientRect();return a.left>=b.left-1&&a.right<=b.right+1&&a.top>=b.top-1&&a.bottom<=b.bottom+1;});})};
-  });
-  assert.equal(wide.columns,6);assert.equal(wide.count,18);assert(wide.cardWidth>=250&&wide.contained&&wide.balanced&&wide.overflow<=1);
+  const wide=await fixedGallery();assert.equal(wide.rows,2);assert.equal(wide.count,wide.capacity);
   await page.screenshot({path:path.join(output,'wide-collection.png')});
-  const widePages=Math.ceil(characterCount/18);
+  const widePages=Math.ceil(characterCount/wide.capacity);
   await page.locator('[data-binder-action=pages]').click();
   await page.locator('[data-binder-action=jump-page][data-id="'+(widePages-1)+'"]').click();
-  assert.equal(await page.locator('.cb-card').count(),characterCount-18*(widePages-1));
+  assert.equal(await page.locator('.cb-card').count(),characterCount-wide.capacity*(widePages-1));
   assert.equal(await page.locator('.cb-pocket-empty').count(),0);
   assert.equal(await page.locator('[data-binder-action=next-page]').isDisabled(),true);
   await page.locator('[data-binder-action=pages]').click();
@@ -119,9 +134,11 @@ async function main() {
   }),'card and narrative have separate readable columns');
   await page.screenshot({path:path.join(output,'wide-collection-reader.png')});
   await page.locator('[data-binder-action=back]').click();
-  const tallWidth=await page.locator('.cb-card').first().evaluate(n=>n.getBoundingClientRect().width);
   await page.setViewportSize({width:2560,height:800});
-  assert.equal(await page.locator('.cb-card').first().evaluate(n=>n.getBoundingClientRect().width),tallWidth,'viewport height cannot shrink cards');
+  const short=await fixedGallery();assert.equal(short.rows,1);assert(short.capacity<wide.capacity,'height alone changes pagination capacity');
+  assert.equal((await collectionLabel.textContent()).trim(),'1 / '+Math.ceil(characterCount/short.capacity));
+  await page.screenshot({path:path.join(output,'short-collection.png')});
+  checks.push('gallery fits its workbench, preserves artwork ratio and paginates by width and height');
   await page.setViewportSize({width:1440,height:1000});
   await page.locator('[data-view=decks]').click();
   await page.waitForSelector('#deck-builder-root');
@@ -180,6 +197,7 @@ async function main() {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.evaluate(()=>location.hash='collection');
   await page.locator('.cb-spread').waitFor();
+  const mobile=await fixedGallery();assert.equal(mobile.columns,2);assert(mobile.capacity<wide.capacity,'width changes page capacity');
   await page.screenshot({ path: path.join(output, 'mobile-collection.png') });
   assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), 'mobile collection has no page overflow');
   await page.locator('.cb-card').first().click();

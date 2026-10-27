@@ -5,8 +5,8 @@ const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFI
 const {chromium}=createRequire(path.join(runtime,'__collection_gallery_qa__.cjs'))('playwright');
 const built=process.env.KALISTAR_BUILT_SITE==='1',url=built?'https://kalistar-gallery.invalid/Kalistar':process.env.KALISTAR_URL||'http://127.0.0.1:4304';
 const dist=path.resolve(process.env.KALISTAR_DIST||path.join(__dirname,'../deploy/dist'));
-const output=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'../../work/qa/collection-gallery-layout');
-const sizes=[[1440,1000],[1920,1080],[2560,1440],[412,1007],[390,844],[320,568],[844,390]];
+const output=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'../../work/qa/collection-fixed-layout');
+const sizes=[[1440,1000],[1920,1080],[2560,1440],[2560,800],[1440,600],[412,1007],[390,844],[320,568],[844,390]];
 const action=(p,name,id)=>p.locator(`[data-binder-action="${name}"]${id===undefined?'':`[data-id="${id}"]`}:visible`);
 async function enter(p){await p.locator('[data-startup-enter]:enabled').click();await p.waitForFunction(()=>window.KALISTAR_READY);}
 async function settle(p){await p.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));}
@@ -30,43 +30,58 @@ async function layout(p){
   return p.locator('.cb-spread').evaluate(spread=>{
     const within=(a,b)=>a.left>=b.left-1&&a.right<=b.right+1&&a.top>=b.top-1&&a.bottom<=b.bottom+1;
     const separate=(a,b)=>a.right<=b.left+1||b.right<=a.left+1||a.bottom<=b.top+1||b.bottom<=a.top+1;
-    const rect=n=>n.getBoundingClientRect(),groups=[];
+    const rect=n=>n.getBoundingClientRect(),visible=n=>n.getClientRects().length>0&&getComputedStyle(n).visibility==='visible',groups=[];
+    const viewport={left:0,top:0,right:innerWidth,bottom:innerHeight},work=spread.closest('.cb-workbench'),workBox=rect(work);
     const pockets=[...spread.querySelectorAll(':scope > .cb-pocket')].map(pocket=>{
-      const box=rect(pocket),stack=pocket.querySelector('.cb-stack'),card=pocket.querySelector('.cb-card'),caption=pocket.querySelector('.cb-caption.cb-pedestal');
+      const box=rect(pocket),stage=pocket.querySelector(':scope > .cb-art-stage'),stack=pocket.querySelector('.cb-stack'),card=pocket.querySelector('.cb-card'),caption=pocket.querySelector('.cb-caption.cb-pedestal');
       const stand=rect(caption),face=rect(card),title=caption.querySelector('.cb-caption-title'),favorite=stack.querySelector('.cb-card-favorite'),copies=stack.querySelector('.cb-card-copies');
       const controls=[...caption.querySelectorAll('.position-emblem,.cb-flip-control')];
-      const text=[...title.querySelectorAll('h2,p')].map(n=>{
+      const text=[...title.querySelectorAll('h2,p')].filter(visible).map(n=>{
         const range=document.createRange();range.selectNodeContents(n);const ink=range.getBoundingClientRect();
         // Font ascenders may exceed the line box into unpainted padding, never the pedestal.
-        const titleBox=rect(title),otherText=[...title.querySelectorAll('h2,p')].filter(other=>other!==n);
+        const titleBox=rect(title),otherText=[...title.querySelectorAll('h2,p')].filter(other=>other!==n&&visible(other));
         return {text:n.textContent,heading:n.tagName==='H2',fits:within(ink,stand)&&ink.left>=titleBox.left-1&&ink.right<=titleBox.right+1&&n.scrollWidth<=n.clientWidth+1,ink:ink.toJSON(),title:titleBox.toJSON(),stand:stand.toJSON(),clear:[...controls,...otherText].every(c=>separate(ink,rect(c))),font:parseFloat(getComputedStyle(n).fontSize),inlineFont:n.style.fontSize};
       });
       const mark=caption.querySelector('.cb-faction-watermark'),c=(window.CB_FIXTURE_DATA||KALISTAR_DATA).cards.find(c=>c.id===pocket.dataset.cardId);
       let row=groups.find(r=>Math.abs(r.top-box.top)<2);if(!row){row={top:box.top,count:0};groups.push(row);}row.count++;
-      return {id:c.id,name:c.name,positions:caption.querySelectorAll('.position-emblem').length,text,
-        fits:within(face,box)&&within(stand,box)&&controls.every(n=>within(rect(n),stand)),below:stand.top>=face.bottom-1,
-        card:{width:face.width,height:face.height,sharp:!getComputedStyle(card).filter.includes('blur')},
-        favorite:within(rect(favorite),face)&&rect(favorite).left+rect(favorite).width/2>face.left+face.width/2&&rect(favorite).top+rect(favorite).height/2>face.top+face.height/2&&!favorite.closest('.cb-card'),
-        copies:within(rect(copies),face)&&rect(copies).left+rect(copies).width/2<face.left+face.width/2&&rect(copies).top+rect(copies).height/2>face.top+face.height/2,
+      return {id:c.id,name:c.name,positions:[...caption.querySelectorAll('.position-emblem')].map(n=>Number(n.dataset.positionIcon)),expectedPositions:c.positions,text,
+        identity:title.querySelector('h2')?.textContent===c.name&&title.querySelector('p')?.textContent===c.title&&card.dataset.id===c.id&&favorite.dataset.id===c.id,
+        versionHidden:!visible(title.querySelector('p')),
+        fits:within(box,rect(spread))&&within(box,workBox)&&within(box,viewport)&&within(face,box)&&within(stand,box)&&controls.every(n=>visible(n)&&within(rect(n),stand)),
+        // Hover may lift the stack inside the pocket without changing its stage size.
+        stage:!!stage&&stack.parentElement===stage&&within(rect(stage),box)&&stack.offsetWidth<=stage.clientWidth+1&&stack.offsetHeight<=stage.clientHeight+1,
+        separate:separate(stand,face)&&controls.every((n,i)=>controls.slice(i+1).every(other=>separate(rect(n),rect(other)))),
+        targets:[card,favorite,...caption.querySelectorAll('button')].every(n=>{const r=rect(n);return visible(n)&&n.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));}),
+        card:{width:face.width,height:face.height,ratio:face.width/face.height,imageRatio:rect(card.querySelector('img')).width/rect(card.querySelector('img')).height,sharp:!getComputedStyle(card).filter.includes('blur')},
+        favorite:visible(favorite)&&within(rect(favorite),face)&&rect(favorite).left+rect(favorite).width/2>face.left+face.width/2&&rect(favorite).top+rect(favorite).height/2>face.top+face.height/2&&!favorite.closest('.cb-card'),
+        copies:visible(copies)&&within(rect(copies),face)&&rect(copies).left+rect(copies).width/2<face.left+face.width/2&&rect(copies).top+rect(copies).height/2>face.top+face.height/2&&separate(rect(copies),rect(favorite)),
         count:Number(copies.querySelector('b').textContent),expectedCount:window.CB_FIXTURE_COUNTS?.[c.id]??KALISTAR_DB.registry.owned(KALISTAR_ACTIVE_USER,c.id).length,
         source:mark.querySelector('img').getAttribute('src'),expectedSource:KalistarCollaborations.asset('factions',c.faction),markInert:getComputedStyle(mark).pointerEvents==='none',versions:caption.querySelectorAll('[data-binder-action=cycle-version]').length};
     });
-    return {columns:Number(spread.dataset.columns),pageSize:Number(spread.dataset.pageSize),rows:groups.map(r=>r.count),pockets,direct:spread.children.length===pockets.length,display:getComputedStyle(spread).display,legacy:spread.querySelectorAll('.cb-sheet,.cb-plinth-art').length,overflow:document.documentElement.scrollWidth-innerWidth};
+    const scroll=[document.documentElement,document.body,document.querySelector('#app'),spread.closest('.cb-page'),work,spread].map(n=>({node:n.id||n.className||n.tagName,overflow:n.scrollHeight-n.clientHeight,top:n.scrollTop}));
+    const chrome=[...document.querySelectorAll('.cb-heading,.cb-toolbar,.cb-footer,.main-nav')].filter(visible);
+    return {columns:Number(spread.dataset.columns),pageSize:Number(spread.dataset.pageSize),rowCapacity:Number(spread.dataset.rows),rows:groups.map(r=>r.count),pockets,direct:spread.children.length===pockets.length,display:getComputedStyle(spread).display,legacy:spread.querySelectorAll('.cb-sheet,.cb-plinth-art').length,overflow:document.documentElement.scrollWidth-innerWidth,scroll,
+      contained:within(rect(spread),workBox)&&within(workBox,viewport),chrome:chrome.every(n=>within(rect(n),viewport)&&separate(rect(n),workBox)&&[...n.querySelectorAll('button,input,select')].filter(visible).every(c=>within(rect(c),rect(n)))),short:innerHeight<700};
   });
 }
-function assertLayout(r,label,{full=false,five=false,density='comfortable'}={}){
+function assertLayout(r,label,{full=false,five=false}={}){
   assert.equal(r.display,'grid',label);assert.equal(r.direct,true,'direct grid children');assert.equal(r.legacy,0);
-  const maximum=density==='compact'?8:6;
-  assert(r.columns>=2&&r.columns<=maximum,label+': '+r.columns+' columns exceed the 2-'+maximum+' bound');assert.equal(r.pageSize,r.columns*3,'three rows per page');
-  assert(r.pockets.length>0&&r.pockets.length<=r.pageSize,label);assert(r.rows.length<=3&&r.rows.every(n=>n<=r.columns),label);
-  if(full){assert.equal(r.pockets.length,r.pageSize);assert.deepEqual(r.rows,[r.columns,r.columns,r.columns]);}
+  assert(r.columns>=2&&r.columns<=8,label+': '+r.columns+' columns exceed the 2-8 bound');
+  assert([1,2].includes(r.rowCapacity),label+': one or two rows');assert.equal(r.pageSize,r.columns*r.rowCapacity,'capacity follows both axes');
+  assert(r.pockets.length>0&&r.pockets.length<=r.pageSize,label);assert(r.rows.length<=r.rowCapacity&&r.rows.every(n=>n<=r.columns),label);
+  if(full){assert.equal(r.pockets.length,r.pageSize);assert.deepEqual(r.rows,Array(r.rowCapacity).fill(r.columns));}
   assert(r.overflow<=1,label+': no horizontal overflow');
+  assert(r.contained&&r.chrome,label+': gallery and chrome fit the viewport');
+  assert(r.scroll.every(n=>n.overflow<=1&&n.top===0),label+': no vertical gallery/document scroll '+JSON.stringify(r.scroll));
   for(const c of r.pockets){
-    const message=label+': '+JSON.stringify(c);assert(c.fits&&c.below&&c.favorite&&c.copies,message);
+    const message=label+': '+JSON.stringify(c);assert(c.fits&&c.stage&&c.separate&&c.targets&&c.favorite&&c.copies&&c.identity,message);
     assert(c.card.height>=120&&c.card.width>60&&c.card.sharp,message);
-    assert(c.text.length===2&&c.text.every(t=>t.fits&&t.clear&&t.font>=(t.heading?12:10)&&!t.inlineFont),message);
+    assert(Math.abs(c.card.ratio-797/1388)<.003&&Math.abs(c.card.imageRatio-797/1388)<.003,'card artwork keeps its aspect ratio: '+message);
+    assert(c.text.some(t=>t.heading&&t.text===c.name)&&c.text.length===(c.versionHidden?1:2)&&c.text.every(t=>t.fits&&t.clear&&t.font>=(t.heading?12:10)&&!t.inlineFont),message);
+    if(r.short)assert(c.versionHidden,'short galleries hide only the version title: '+message);
+    assert.deepEqual(c.positions,c.expectedPositions,'every position remains visible and correct');
     assert.equal(c.count,c.expectedCount,'copies follow displayed model ID');assert.equal(c.source,c.expectedSource,'faction follows displayed version');assert(c.markInert);
-    if(five)assert.equal(c.positions,5,message);
+    if(five)assert.equal(c.positions.length,5,message);
   }
 }
 async function protectedState(p){
@@ -87,23 +102,28 @@ async function main(){
         await setDensity(page,density);await images(page);assert.equal(await page.locator(`[data-binder-action=density][data-id=${density}]`).getAttribute('aria-pressed'),'true');
         const r=await layout(page);verify(`${width}x${height} ${density}`,()=>assertLayout(r,`${width}x${height} ${density}`,{full:true,density}));
         if(width<=699)assert.equal(r.columns,2);if(width>=1440)assert(r.columns>=3);
-        if(density==='comfortable')comfortable=r.columns;else assert(r.columns>=comfortable,'compact cannot reduce capacity');
+        if(density==='comfortable')comfortable=r;else assert(r.columns>=comfortable.columns&&r.pageSize>=comfortable.pageSize,'compact cannot reduce capacity');
         checks.push({width,height,density,...r});await page.screenshot({path:path.join(output,`gallery-${width}x${height}-${density}.png`),scale:'css'});
-        // Reveal each row to verify lazy artwork and off-screen pointer targets.
-        for(const favorite of await page.locator('.cb-card-favorite').all()){
-          await favorite.scrollIntoViewIfNeeded();await images(page);
-          assert(await favorite.evaluate(n=>{const r=n.getBoundingClientRect();return document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)?.closest('[data-binder-action=favorite]')===n;}),'favorite receives its pointer hit');
-        }
       }
+    }
+    for(const density of ['comfortable','compact']){
+      const at=(width,height)=>checks.find(r=>r.width===width&&r.height===height&&r.density===density);
+      assert(at(2560,1440).pageSize>at(2560,800).pageSize,'height alone changes page capacity: '+density);
+      assert(at(2560,1440).columns>at(412,1007).columns,'width changes column capacity: '+density);
+      assert.equal(at(2560,1440).rowCapacity,2);assert.equal(at(844,390).rowCapacity,1);
     }
     console.log('Gallery viewport/density matrix completed.');
     await page.setViewportSize({width:412,height:1007});await settle(page);await setDensity(page,'comfortable');
-    const opened=action(page,'open').nth(2);await opened.scrollIntoViewIfNeeded();
-    const scroll=await page.locator('.cb-workbench').evaluate(n=>({top:n.scrollTop,max:n.scrollHeight-n.clientHeight}));assert(scroll.max>0&&scroll.top>0);
-    const id=await opened.getAttribute('data-id');await opened.click();await action(page,'back').click();await settle(page);
-    assert.equal(await page.locator('.cb-page').getAttribute('data-mode'),'book');assert(Math.abs(await page.locator('.cb-workbench').evaluate(n=>n.scrollTop)-scroll.top)<=2,'Back restores scroll');
+    await action(page,'pages').click();await action(page,'jump-page','1').click();await settle(page);
+    const galleryPage=await page.locator('.cb-page-label').textContent(),galleryIds=await page.locator('.cb-pocket').evaluateAll(ns=>ns.map(n=>n.dataset.cardId));
+    const opened=action(page,'open').last(),id=await opened.getAttribute('data-id');await opened.click();
+    assert.equal(await page.locator('.cb-visual a[download]').getAttribute('href'),await page.evaluate(id=>KalistarSite.url(KALISTAR_DATA.cards.find(c=>c.id===id).pngUrl),id),'reader retains the displayed model native PNG');
+    await action(page,'back').click();await settle(page);
+    assert.equal(await page.locator('.cb-page').getAttribute('data-mode'),'book');assert.equal(await page.locator('.cb-page-label').textContent(),galleryPage,'Back restores the same page');
+    assert.deepEqual(await page.locator('.cb-pocket').evaluateAll(ns=>ns.map(n=>n.dataset.cardId)),galleryIds,'Back restores the same visible models');
+    assertLayout(await layout(page),'Back to fixed gallery');
     assert(await action(page,'open',id).evaluate(n=>n===document.activeElement),'Back restores focus');
-    console.log('Gallery Back/scroll/focus completed.');
+    console.log('Gallery Back/page/focus completed.');
     const initial=await page.locator('.cb-page-label').textContent();await action(page,'next-page').click();assert.notEqual(await page.locator('.cb-page-label').textContent(),initial);
     await action(page,'pages').click();const last=String(await action(page,'jump-page').count()-1);await action(page,'jump-page',last).click();assert(await action(page,'next-page').isDisabled());
     await action(page,'pages').click();await action(page,'jump-page','0').click();assert(await action(page,'previous-page').isDisabled());
@@ -119,7 +139,32 @@ async function main(){
     }
     await action(page,'reset').click();await page.locator('[data-binder-field=search]').fill('__no_gallery_card__');
     assert.equal(await page.locator('.cb-pocket').count(),0);assert(await page.locator('.cb-empty').isVisible());assert(await action(page,'discover').isDisabled());
-    await page.locator('.cb-empty [data-binder-action=reset]').click();assert(await page.locator('.cb-pocket').count()>0);
+    // No spread exists while empty; clearing after a resize must measure the new workbench.
+    for(const [width,height,clear] of [[390,844,'reset'],[844,390,'input'],[1440,1000,'reset']]){
+      await page.setViewportSize({width,height});await settle(page);
+      const empty=await page.locator('.cb-empty').evaluate(n=>{
+        const rect=n=>n.getBoundingClientRect(),visible=n=>n&&n.getClientRects().length>0;
+        const within=(a,b)=>a.left>=b.left-1&&a.right<=b.right+1&&a.top>=b.top-1&&a.bottom<=b.bottom+1;
+        const separate=(a,b)=>a.right<=b.left+1||b.right<=a.left+1||a.bottom<=b.top+1||b.bottom<=a.top+1;
+        const box=rect(n),work=n.closest('.cb-workbench'),heading=work.querySelector('.cb-gallery-heading');
+        return {inside:within(box,rect(work))&&within(box,{left:0,top:0,right:innerWidth,bottom:innerHeight}),heading:!visible(heading)||separate(box,rect(heading)),content:[...n.children].filter(visible).every(c=>within(rect(c),box)),scroll:[document.documentElement,document.body,document.querySelector('#app'),work].every(c=>c.scrollHeight<=c.clientHeight+1&&c.scrollTop===0)};
+      });
+      assert(empty.inside&&empty.heading&&empty.content&&empty.scroll,'empty gallery after resize '+width+'x'+height+': '+JSON.stringify(empty));
+      await page.screenshot({path:path.join(output,`empty-${width}x${height}.png`),scale:'css'});
+      if(clear==='input')await page.locator('[data-binder-field=search]').fill('');else await page.locator('.cb-empty [data-binder-action=reset]').click();
+      await settle(page);const r=await layout(page);assertLayout(r,`empty reset ${width}x${height}`,{full:true});
+      const expected=checks.find(c=>c.width===width&&c.height===height&&c.density==='comfortable');
+      assert.equal(r.pageSize,expected.pageSize,'empty reset recalculates capacity for the new viewport');assert.equal(r.columns,expected.columns);assert.equal(r.rowCapacity,expected.rowCapacity);
+      const characters=await page.evaluate(()=>new Set(KALISTAR_DATA.cards.map(c=>c.characterId||c.id)).size);
+      assert.equal((await page.locator('.cb-page-label span').textContent()).trim(),'1 / '+Math.ceil(characters/r.pageSize));
+      checks.push({scenario:'empty-resize',width,height,...r});
+      if(width!==1440)await page.locator('[data-binder-field=search]').fill('__no_gallery_card__');
+    }
+    const search=page.locator('[data-binder-field=search]');await search.pressSequentially('MOMO');
+    assert.equal(await search.inputValue(),'MOMO');assert(await search.evaluate(n=>n===document.activeElement&&n.selectionStart===4&&n.selectionEnd===4),'typing survives gallery rerenders with caret and focus');
+    const searchPage=await page.locator('.cb-page-label').textContent();await search.press('ArrowLeft');
+    assert(await search.evaluate(n=>n===document.activeElement&&n.selectionStart===3),'gallery shortcuts do not intercept search editing');
+    assert.equal(await page.locator('.cb-page-label').textContent(),searchPage);await search.fill('');
     console.log('Gallery filters/discovery/empty state completed.');
     await page.locator('[data-view=story]').click();await page.locator('.story-library').waitFor();assert.match(await page.locator('.story-volume-object img').first().getAttribute('src'),/story-closed-grimoire-v2\.webp/);
     // A changed query forces a full document navigation, unlike a hash-only change.
@@ -167,6 +212,7 @@ async function main(){
       }
       assert(await page.evaluate(()=>JSON.stringify(CB_FIXTURE_DATA)===CB_FIXTURE_ORIGINAL));console.log('Gallery fixture completed: '+fixture);
     }
+    await action(page,'pages').click();await action(page,'jump-page','0').click();
     await page.emulateMedia({forcedColors:'active'});await settle(page);
     assert(await action(page,'cycle-version').first().evaluate(n=>{const s=getComputedStyle(n);return s.borderTopStyle!=='none'||s.outlineStyle!=='none';}),'high contrast version control');
     await page.emulateMedia({forcedColors:'none',reducedMotion:'no-preference'});await page.waitForTimeout(800);
