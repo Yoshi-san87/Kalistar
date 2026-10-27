@@ -149,11 +149,11 @@ async function main(){
       assert.equal(await page.evaluate(()=>KALISTAR_ACTIVE_USER),'user-tokyo','server profile wins over former local Paris selection');
       await page.locator('.nav-more').click();
       await page.locator('[data-view=journeys]').click();
-      await page.getByRole('heading',{name:'Fragment',exact:true}).waitFor();
+      await page.getByRole('heading',{name:'Story',exact:true}).waitFor();
       assert.equal(await page.locator('.jv-cover').count(),3);
       await page.screenshot({path:path.join(output,p.name+'-fragment.png')});
       await page.locator('[data-jv-action=open]').first().click();
-      await page.locator('.jv-scene img').evaluate(img=>img.decode());
+      await page.locator('.jv-panorama img').evaluate(img=>img.decode());
       await page.locator('[data-jv-action=start]').scrollIntoViewIfNeeded();
       assert.equal(await page.locator('[data-jv-action=start]').evaluate(node=>{const r=node.getBoundingClientRect();return node.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));}),true,'Fragment combat button is reachable in the real mobile shell');
       assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'Fragment has no horizontal page overflow');

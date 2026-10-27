@@ -77,7 +77,7 @@ test('all 21 current episodes use published native casts, legal double coverage 
 
 test('Momo follows the specified version, friendship, remembered flute and gradual creator clue', async () => {
   const data = await planned, book = Definitions.catalogue(data)[0], all = Definitions.combatStages(book);
-  assert.equal(book.rewardModelId, '30000014');
+  assert.equal(book.rewardModelId, '30000001');
   assert.equal(book.stages[0].captain, '30000001');
   assert.equal(book.stages[0].deck[2], '30000001');
   assert.equal(book.stages[1].captain, '30000013');
@@ -87,6 +87,15 @@ test('Momo follows the specified version, friendship, remembered flute and gradu
   assert.match(stories[0], /défectueux/);
   assert.match(stories[1], /Taulio/);
   assert.match(stories[2], /flûte traversière/);
+  assert.equal(book.stages[3].captain, book.rewardModelId);
+  assert.equal(book.stages[3].imageModelId, book.rewardModelId);
+  assert.equal(book.stages[3].title, 'Et la nuit écouta');
+  assert.match(stories[3], /marches/);
+  assert.match(stories[3], /s’assied/);
+  assert.match(stories[3], /joue pour lui/);
+  assert.match(stories[3], /Taulio/);
+  assert.match(stories[3], /la nuit écoutait/);
+  assert(!/debout|coucher du soleil|Kaylis|Gezinho/.test(stories[3]), 'The fourth episode stays with the nocturnal Gaming Book scene, before later revelations');
   assert(!stories.slice(0, 6).join(' ').includes('Gezinho'), 'Do not reveal creator identity on the opening screen');
   assert.match(stories[6], /Gezinho/);
   assert.match(stories[6], /Kaylis/);

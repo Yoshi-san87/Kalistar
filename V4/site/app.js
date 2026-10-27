@@ -437,7 +437,7 @@ function showDeck(){setView('decks');}
     if(cloudSync){const saved=await cloudSync.flush();if(!saved.canWrite||saved.pending)throw Error('La partie reste sur cet appareil, en attente de synchronisation.');}
   }
   async function installJourney(next,{opening=true,navigate=true,expectedMatch=game?.matchId||null}={}){
-    if(expectedMatch!==(game?.matchId||null)){toast('Parcours pret. Reprends-le depuis Fragment.');return;}
+    if(expectedMatch!==(game?.matchId||null)){toast('Parcours pret. Reprends-le depuis Story.');return;}
     if(game?.collection&&game.phase!=='over'&&game.matchId!==next.matchId&&!game.journey?.preview)await db.registry.releaseGame(accountId,game.matchId);
     cancelLineup();clearTimeout(aiTimer);epoch++;game=next;lastStored='';ui.attacker=ui.target=ui.reserve=null;ui.endShown=false;
     const originView=ui.view,ticket=epoch;
@@ -863,7 +863,7 @@ function showDeck(){setView('decks');}
     const arena=matchArena(game),styles={aero:['wind','#acdccc','#152322','bridge'],hydro:['waves','#82dce3','#112429','water'],electro:['zap','#f2d668','#20232c','circuit'],pyro:['flame','#ee9b72','#2b1c1e','forge'],cryo:['snowflake','#b8eaf0','#1b2830','ice'],luxo:['sun','#e8d590','#262521','sun'],minero:['mountain','#b5cbae','#232922','stone'],herbo:['leaf','#a6d88d','#1b2a23','leaves'],hemato:['droplets','#ee879a','#291d28','gates'],necro:['moon','#b2aedf','#211f2e','gates'],geo:['brick-wall','#cfb87f','#282620','stone'],rainbow:['gem','#e4c5e2','#242231','prism'],z13:['pickaxe','#7fded6','#162a2c','circuit'],'trone-fer':['crown','#ddc799','#24282a','gates'],astraball:['goal','#e5b184','#242924','street'],ruins:['landmark','#b7c7ae','#232723','stone']};
     const [,accent,surface,material]=styles[arena.id]||styles.ruins;
     shell.dataset.arena=arena.id;console.dataset.material=material;console.style.setProperty('--arena-accent',accent);console.style.setProperty('--arena-surface',surface);
-    const journey=journeyArenaContext(),menuLabel=journey?`Options du match, Fragment, ${journey.progressLabel}`:'Options du match';
+    const journey=journeyArenaContext(),menuLabel=journey?`Options du match, Story, ${journey.progressLabel}`:'Options du match';
     $('.arena-toolbar .tools').insertAdjacentHTML('beforeend',`<button class="icon-button mobile-only${journey?' journey-arena-options':''}" data-action="arena-menu" aria-label="${menuLabel}" title="${menuLabel}" aria-haspopup="dialog" aria-controls="mobile-dialog" aria-expanded="false">${icon('ellipsis')}${journey?`<span class="journey-arena-progress" aria-hidden="true">${journey.progress}</span>`:''}</button>`);
     shell.querySelectorAll('.resources [data-action]').forEach(button=>button.setAttribute('aria-label',(button.dataset.action==='reserves'?'Réserve':'Cimetière')+' du joueur '+(Number(button.dataset.side)+1)));
     console.insertAdjacentHTML('beforeend',`<div class="arena-crown" title="${esc(arena.name)}" aria-label="${esc(arena.name)}"><img src="assets/navigation/arena-v1.webp" alt="" width="128" height="128" draggable="false"></div>`);
@@ -1092,21 +1092,21 @@ function showDeck(){setView('decks');}
   function showNavigation(){
     const account=(window.KalistarCloudConfig?.enabled?menuAction('cloud-account','fingerprint','Mon compte'):'')+
       (window.KalistarSite?.online?'':menuItem('data-view="atelier"','Atelier',icon('paintbrush')));
-    showMenu('Kalistar',menuGroup('Explorer',learningNavigation()+navigationItem('story','Story')+navigationItem('map','Map'))+(account?menuGroup('Personnel',account):''));
+    showMenu('Kalistar',menuGroup('Explorer',learningNavigation()+navigationItem('story','Book')+navigationItem('map','Map'))+(account?menuGroup('Personnel',account):''));
     $('.nav-more')?.setAttribute('aria-expanded','true');
   }
   function learningNavigation(){
-    return navigationItem('journeys','Fragment')+menuAction('astraball','orbit','Astraball','','Sport tactique · Exhibition')+navigationItem('guide','Guide')+navigationItem('library','Library · R\u00e8gles');
+    return navigationItem('journeys','Story')+menuAction('astraball','orbit','Astraball','','Sport tactique · Exhibition')+navigationItem('guide','Guide')+navigationItem('library','Library · R\u00e8gles');
   }
   function journeyArenaContext(){
     if(!game?.journey)return null;
     const book=KalistarJourneyDefinitions.catalogue(data).find(b=>b.id===game.journey.bookId);
     const step=game.journey.stage+1,progress=step<=4?`${step}/4`:String(step),progressLabel=step<=4?`\u00c9tape ${progress}`:`Chapitre ${step}`;
-    return {title:book?.title||'Fragment',step,progress,progressLabel,preview:game.journey.preview?' · Aper\u00e7u administrateur':'',label:game.phase==='over'?(game.winner===0?'\u00c9tape remport\u00e9e':'Retrouver le livre'):'Le parcours'};
+    return {title:book?.title||'Story',step,progress,progressLabel,preview:game.journey.preview?' · Aper\u00e7u administrateur':'',label:game.phase==='over'?(game.winner===0?'\u00c9tape remport\u00e9e':'Retrouver le livre'):'Le parcours'};
   }
   function showArenaMenu(){
     const journey=journeyArenaContext();
-    const journeyLink=journey?menuGroup('Fragment',menuItem('data-action="journey-return"',journey.title,'<img class="kalistar-nav-icon" src="assets/navigation/kalistel-rainbow-v2.webp" alt="" width="128" height="128">',`${journey.progressLabel}${journey.preview} · ${journey.label}`)):'';
+    const journeyLink=journey?menuGroup('Story',menuItem('data-action="journey-return"',journey.title,'<img class="kalistar-nav-icon" src="assets/navigation/kalistel-rainbow-v2.webp" alt="" width="128" height="128">',`${journey.progressLabel}${journey.preview} · ${journey.label}`)):'';
     const combat=menuAction('duel-details','list-plus','Calculs et effets du duel')+menuAction('match-stats','trophy','Bilan du match')+
       menuAction('journal','scroll-text','Journal du duel')+menuAction('reserves','layers-3',`Réserve adverse · ${game.players[1].reserve.length}`,'data-side="1"')+menuAction('grave','skull',`Cimetière adverse · ${game.players[1].dead.length}`,'data-side="1"');
     const items=[['fullscreen',document.fullscreenElement?'minimize':'maximize',document.fullscreenElement?'Quitter le plein écran':'Plein écran'],['arena-picker','map','Choisir l’arène'],['auto-formation','shuffle','Formation automatique'],['rules','book-open','Règles'],['save-game','download','Exporter la partie'],['load-game','upload','Importer une partie'],['new-game','rotate-ccw','Nouvelle partie']].filter(([action])=>action!=='auto-formation'||!game.composition);

@@ -22,7 +22,7 @@
       }finally{clearTimeout(timer);requests.delete(controller);}
     }
     function project(result){
-      if(!Array.isArray(result.books)||typeof result.isAdmin!=='boolean')throw Error('Fragment indisponible : donnees incompatibles.');
+      if(!Array.isArray(result.books)||typeof result.isAdmin!=='boolean')throw Error('Story indisponible : donnees incompatibles.');
       const progress={};
       for(const book of result.books){
         const definition=definitions.find(b=>b.id===book.id);

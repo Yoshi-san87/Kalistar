@@ -260,7 +260,7 @@ test('journeys: real migrations 001-009, signed engine outcomes, Worker and acco
       assert.equal(new Set(originalStages.map(stage => stage.id)).size, 4);
       assert(originalStages.every(stage=>!stage.rewardEquipmentId));
       // Schema 8 receipts stay exact; current definitions use the author-approved prints.
-      if(book.id==='momo-petits-bonheurs')assert.equal(definition.rewardModelId,'30000014');
+      if(book.id==='momo-petits-bonheurs')assert.equal(definition.rewardModelId,'30000001');
       else if(book.id==='balmhyr-retour')assert.equal(definition.rewardModelId,'30000007');
       else assert.equal(definition.rewardModelId,book.reward_model_id);
     }

@@ -122,9 +122,12 @@
       return `<img data-jv-media="${esc(id)}" data-jv-kind="${kind}" alt="${esc(alt)}" width="${kind === 'art' ? 460 : 797}" height="${kind === 'art' ? 880 : 1388}" ${lazy ? 'loading="lazy"' : ''} decoding="async" draggable="false">`;
     }
     function sceneMarkup(book,stage,id) {
+      const key = book.id+':'+(stage?.id || 'reward');
+      if (book.id === 'momo-petits-bonheurs' && String(id) === '30000001' && (!stage || stage.id === 'rester')) {
+        return `<figure class="jv-panorama is-portrait" data-jv-scene="${esc(key)}"><img src="${esc(asset(coverArt['30000001']))}" alt="Assis sur les marches, Momo joue de la flûte sous le ciel nocturne." width="900" height="1200" decoding="async" draggable="false"></figure>`;
+      }
       const scene = book.id === 'momo-petits-bonheurs' ? momoScenes[stage?.id || 'rester'] :
         book.id === 'balmhyr-retour' ? balmhyrScenes[stage?.id || 'portes'] : null;
-      const key = book.id+':'+(stage?.id || 'reward');
       if (!scene) return `<figure class="jv-panorama is-portrait" data-jv-scene="${esc(key)}">${media(id,'art',stage?.title || titleOf(book),{lazy:false})}</figure>`;
       const base = 'assets/journeys/'+scene[0]+'-v'+(scene[2] || 1);
       return `<figure class="jv-panorama" data-jv-scene="${esc(key)}"><img src="${esc(asset(base+'.webp'))}" srcset="${esc(asset(base+'-small.webp'))} 840w, ${esc(asset(base+'.webp'))} 1672w" sizes="100vw" alt="${esc(scene[1])}" width="1672" height="941" decoding="async" draggable="false"></figure>`;
@@ -165,8 +168,8 @@
       const elements = [...new Map(all.map(book => [book.element, elementOf(book).label])).entries()];
       const select = (key, label, options) => `<label class="jv-filter"><span>${label}</span><select data-jv-filter="${key}" data-jv-key="filter-${key}" aria-label="${label}"><option value="">Tous</option>${options.map(([value,text]) => `<option value="${esc(value)}" ${filters[key] === value ? 'selected' : ''}>${esc(text)}</option>`).join('')}</select></label>`;
       const activeFilters=Object.values(filters).filter(Boolean).length;
-      return `<section class="jv-library" aria-label="Fragment" data-filters-open="${filtersOpen}">
-        <header class="jv-library-heading"><div><p class="jv-eyebrow">Kalistar</p><h1>Fragment</h1></div><div class="jv-library-actions"><span class="jv-library-total">${all.filter(book => progressOf(book,state).claimed).length} / ${all.length} cartes obtenues</span><button type="button" class="jv-tool jv-filter-toggle" data-jv-action="toggle-filters" data-jv-key="toggle-filters" aria-label="Filtres${activeFilters ? ', '+activeFilters+' actifs' : ''}" title="Filtres" aria-expanded="${filtersOpen}" aria-controls="jv-filters">${icon('sliders-horizontal')}${activeFilters ? `<b>${activeFilters}</b>` : ''}</button></div></header>
+      return `<section class="jv-library" aria-label="Story" data-filters-open="${filtersOpen}">
+        <header class="jv-library-heading"><div><p class="jv-eyebrow">Kalistar · Gaming Book</p><h1>Story</h1></div><div class="jv-library-actions"><span class="jv-library-total">${all.filter(book => progressOf(book,state).claimed).length} / ${all.length} cartes obtenues</span><button type="button" class="jv-tool jv-filter-toggle" data-jv-action="toggle-filters" data-jv-key="toggle-filters" aria-label="Filtres${activeFilters ? ', '+activeFilters+' actifs' : ''}" title="Filtres" aria-expanded="${filtersOpen}" aria-controls="jv-filters">${icon('sliders-horizontal')}${activeFilters ? `<b>${activeFilters}</b>` : ''}</button></div></header>
         <form id="jv-filters" class="jv-filters" role="search" aria-label="Filtrer les parcours">
           <label class="jv-search"><span class="jv-sr-only">Rechercher un parcours</span>${icon('search')}<input type="search" data-jv-filter="search" data-jv-key="filter-search" value="${esc(filters.search)}" placeholder="Rechercher un parcours" autocomplete="off"></label>
           ${select('character','Personnage',characters)}${select('element','Cristal',elements)}${select('status','État',[['new','À découvrir'],['started','En cours'],['reward','Récompense disponible'],['claimed','Achevé']])}
@@ -279,7 +282,7 @@
       paint++;
       view.setAttribute('aria-busy', String(state.status === 'loading' || !!pending));
       if (state.status !== 'ready') {
-        view.innerHTML = `<section class="jv-message" ${state.status === 'error' ? 'role="alert"' : 'role="status"'}>${icon(state.status === 'error' ? 'book-x' : 'library')}<h1>${state.status === 'error' ? 'Fragment indisponible' : 'Ouverture de Fragment…'}</h1>${state.status === 'error' ? `<p>${esc(state.error?.message || state.error || 'Impossible de charger les parcours.')}</p>${button('refresh','Réessayer','refresh-cw',{disabled:!!pending})}${errorMarkup()}` : ''}</section>`;
+        view.innerHTML = `<section class="jv-message" ${state.status === 'error' ? 'role="alert"' : 'role="status"'}>${icon(state.status === 'error' ? 'book-x' : 'library')}<h1>${state.status === 'error' ? 'Story indisponible' : 'Ouverture de Story…'}</h1>${state.status === 'error' ? `<p>${esc(state.error?.message || state.error || 'Impossible de charger les parcours.')}</p>${button('refresh','Réessayer','refresh-cw',{disabled:!!pending})}${errorMarkup()}` : ''}</section>`;
       } else {
         const book = syncSelection(state);
         view.innerHTML = book ? readerMarkup(book,state,opening) : libraryMarkup(state);

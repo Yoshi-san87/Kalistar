@@ -12,7 +12,7 @@ const output = process.env.KALISTAR_VERIFICATION_DIR || path.join(root, 'work/qa
 const origin = 'https://kalistar-journey-view.invalid';
 const sequelDiagnostics = [];
 const illustratedBooks = [
-  {id:'momo-petits-bonheurs',character:'momo',rewardModelId:'30000014',stageIds:['rebuts','passage','carillons','rester','souffle','coutures','boite']},
+  {id:'momo-petits-bonheurs',character:'momo',rewardModelId:'30000001',stageIds:['rebuts','passage','carillons','rester','souffle','coutures','boite']},
   {id:'balmhyr-retour',character:'balmhyr',rewardModelId:'30000007',stageIds:['horizon','durane','guide','portes','serment','rempart','empreinte']}
 ];
 const sceneBase = (character,id) => character+'-'+id+'-v'+(character==='momo'&&id==='boite'?2:1);
@@ -417,12 +417,13 @@ async function adventureProbe(browser,expected) {
         assert.equal(await page.locator('.jv-panorama').getAttribute('data-jv-scene'),book.id+':'+stages[index].id);
         const url=await page.locator('.jv-panorama img').evaluate(img=>img.currentSrc);urls.push(url);
         const base=sceneBase(expected.character,stages[index].id);
-        assert.equal(new URL(url).pathname,'/jeu/assets/journeys/'+base+(viewport.width===412?'-small':'')+'.webp','the browser chooses the matching responsive scene');
-        assert.equal(await page.locator('.jv-panorama.is-portrait').count(),0,'dedicated scenes fill the shared panoramic reader');
+        const nightMomo=expected.character==='momo'&&index===3;
+        assert.equal(new URL(url).pathname,'/jeu/assets/journeys/'+(nightMomo?'30000001-art-v1':base+(viewport.width===412?'-small':''))+'.webp','the reader uses the exact scene or the approved night reward painting');
+        assert.equal(await page.locator('.jv-panorama.is-portrait').count(),nightMomo?1:0,'the night card painting keeps its portrait framing');
         const alt=await page.locator('.jv-panorama img').getAttribute('alt');alts.push(alt);
         assert(alt.trim().split(/\s+/).length>=6&&alt.includes(book.subtitle)&&alt!==stages[index].title,'the image describes its narrative moment, not just the chapter title: '+alt);
         assert.equal(await page.locator('.jv-stage-heading h3').textContent(),stages[index].title);
-        if(expected.character==='balmhyr' && viewport.width===412) {
+        if((expected.character==='balmhyr'||nightMomo) && viewport.width===412) {
           assert.equal(await page.locator('.jv-illustrated-page header').evaluate(node=>getComputedStyle(node).clipPath),'inset(50%)','the repeated book title cannot cover faces on phone');
           assert.equal(await page.locator('.jv-reader-toolbar>span').first().textContent(),book.subtitle,'the character remains identified above the scene');
         }
@@ -546,7 +547,7 @@ async function main() {
   try {
     await page.goto(origin); await page.waitForFunction(()=>window.fixtureReady);
     assert.equal(await page.locator('.jv-cover').count(),3);
-    assert.equal(await page.locator('.jv-library-heading h1').textContent(),'Fragment');
+    assert.equal(await page.locator('.jv-library-heading h1').textContent(),'Story');
     assert.equal(await page.locator('.jv-cover-card').count(),0,'no miniature card pasted over a generic book');
     assert.equal(await page.locator('.jv-cover-art img').count(),3,'all three reward paintings are present');
     assert.deepEqual(await page.locator('.jv-cover-art img').evaluateAll(nodes=>nodes.map(img=>img.dataset.jvCoverModel)),await page.evaluate(()=>harness.state.books.map(book=>book.rewardModelId)),'cover art follows the exact rewarded version');
@@ -554,7 +555,7 @@ async function main() {
     assert.equal(await page.locator('.jv-cover-art img').first().getAttribute('data-jv-media'),'40243854','a future version uses its own card artwork, never the registered painting of another Momo');
     await imagesReady(page);
     await page.evaluate(()=>{harness.state.books[0].rewardModelId=KalistarJourneyDefinitions.catalogue(harness.data)[0].rewardModelId;harness.view.refresh();});
-    assert.equal(await page.locator('.jv-cover-art img').first().getAttribute('data-jv-cover-model'),'30000014','standing flute Momo is the new reward cover');
+    assert.equal(await page.locator('.jv-cover-art img').first().getAttribute('data-jv-cover-model'),'30000001','night flute Momo is the new reward cover');
     assert.deepEqual(await page.evaluate(()=>harness.state.books.map(book=>book.stages.length)),[4,4,4]);
     for (const viewport of [{width:1440,height:1000},{width:412,height:1007},{width:320,height:568},{width:844,height:390}]) {
       await page.setViewportSize(viewport);
@@ -647,7 +648,7 @@ async function main() {
     await page.locator(action('reveal')).click();await page.locator('.jv-card-reveal[open]').waitFor();await imagesReady(page);
     assert.equal(await page.locator('.jv-card-reveal h2').textContent(),'Déjà dans votre collection','resumed card ceremony preserves the authoritative alreadyOwned flag');
     assert.equal(await page.locator('.jv-reward-note').textContent(),'Aucun deuxième exemplaire n’est ajouté.');
-    assert.equal(await page.locator('.jv-reward-prize').getAttribute('data-jv-model'),'30000014','the reused reward is the standing-flute Momo version');
+    assert.equal(await page.locator('.jv-reward-prize').getAttribute('data-jv-model'),'30000001','the reused reward is the nocturnal Momo version');
     assert.deepEqual(await page.evaluate(()=>harness.calls),[],'resuming the presentation neither claims nor acknowledges a card');
     for(const viewport of [{width:1440,height:1000},{width:412,height:1007}]){
       await page.setViewportSize(viewport);await assertLayout(page,'already-owned card resume '+viewport.width);await capture('already-owned-card-resume-'+viewport.width);

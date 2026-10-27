@@ -1,10 +1,10 @@
-# Fragment : parcours de personnages
+# Story : Gaming Books de personnages
 
 [Index](../../docs/INDEX.md) | [Registre](REGISTRE_EN_LIGNE.md)
 
 ## Regles joueur
 
-Fragment est accessible dans le menu Plus. Chaque livre suit un personnage :
+Story (anciennement Fragment) est accessible dans le menu Plus. Chaque livre suit un personnage :
 **quatre combats pour sa carte, puis un combat pour une arme, un pour une
 protection et un pour une relique**. Ce parcours **4+1+1+1** utilise sept equipes
 fixes. Le joueur conserve sa composition et ses propres exemplaires ; les regles
@@ -40,14 +40,15 @@ les trois bonus, respectivement apres la cinquieme, sixieme et septieme victoire
 
 | Livre | Carte apres 4 victoires | Arme, indice 4 | Protection, indice 5 | Relique, indice 6 |
 | --- | --- | --- | --- | --- |
-| Momo, Pour ceux que l'on oublie | `30000014`, Le Bal des objets perdus | La Flute des Petits Bonheurs, `little-joys-flute` | Harnais des Passerelles, `kalistar-chroma-harness` | Boite des Petits Bonheurs, `little-joys-box` |
+| Momo, Pour ceux que l'on oublie | `30000001`, L'Artiste magique (nuit) | La Flute des Petits Bonheurs, `little-joys-flute` | Harnais des Passerelles, `kalistar-chroma-harness` | Boite des Petits Bonheurs, `little-joys-box` |
 | Balmhyr, Le poids du retour | `30000007`, Le royaume a l'horizon | Hache du Roi Dechu, `fallen-king-axe` | Le Rempart de Durane, `durane-rampart` | Gant de Fer, `mythic-iron-gauntlet` |
 | Kaylis, Choisir son prochain pas | `49055457` | Promesse, `white-oath-rapier` | Bottes du Prochain Pas, `kaylis-next-step-boots` | Ruban des Couleurs, `kaylis-colours-ribbon` |
 
 La compatibilite porte sur la version recompensee, pas seulement le personnage.
-La migration 013 dirige les futures attributions Momo vers la version debout a
-la flute. Une ancienne attribution `30000001` reste definitive et affiche sa
-vraie version : ni remplacement, ni seconde carte, ni remise a zero.
+La migration 015 retablit les futures attributions Momo vers la version nocturne
+`30000001`. Les anciennes attributions des deux versions restent definitives
+et affichent leur vraie carte : ni remplacement, ni seconde carte, ni remise a zero.
+La projection du recu ajoutee par 013 est conservee.
 La migration 014 dirige les futures attributions Balmhyr vers `30000007`,
 compatible avec la Hache et les deux autres objets. Les anciens claims `49900802`
 restent definitifs : cette version Poing porte le Gant en relique, pas la Hache.
@@ -80,6 +81,13 @@ enregistree et doit etre acquittee pour poursuivre. Ni un rechargement, ni un
 transfert de carte, ni une sauvegarde locale ne reouvrent une attribution.
 
 ### Continuite Narrative
+
+Le combat 4 Momo, « Et la nuit ecouta », rejoint la conclusion du Gaming Book :
+il monte quelques marches, s'assied et joue pour lui, sans ordre ni attente
+d'utilite. Taulio reste pres de lui ; le souvenir du createur n'a pas encore
+de nom. La decouverte de la flute reste au chapitre 3 : ce raccord ne rejoue
+pas l'abandon ni la premiere rencontre. La scene interactive en travail reste
+un prototype local distinct ; cette integration porte sur le recit et sa peinture.
 
 Les trois premiers livres concernent Momo, Balmhyr et Kaylis. Ils utilisent les
 profils et illustrations approuves, le lore des equipements et les passages
@@ -125,8 +133,9 @@ montrer les bonus caches au joueur normal. Tokyo reste un joueur normal.
 
 ## Responsabilites
 
-Le nom joueur est Fragment. La route `#journeys`, les identifiants des livres
-et les noms de tables restent stables ; `#library` reste les regles du jeu.
+Le nom joueur est Story, avec la signature Gaming Book. La route `#journeys`,
+les identifiants des livres et les noms de tables restent stables.
+Book designe le roman sur `#story` ; `#library` reste les regles du jeu.
 Sur telephone, le bouton de filtres pres du titre deplie les champs en deux
 colonnes. Le rayonnage defile horizontalement et la page verticalement si
 necessaire. Le livre ouvert devient une scene illustree, avec ses commandes
@@ -136,10 +145,10 @@ suite, revelee chapitre par chapitre.
 ### Couvertures Illustrees
 
 Le livre ferme montre en grand la peinture de la **version recompense**, pas
-une miniature de carte sur une couverture Story. La reliure originale cuivre,
+une miniature de carte sur une couverture du roman. La reliure originale cuivre,
 argent et cuir sombre est partagee ; sa fenetre transparente laisse voir la
 peinture sans la regenerer. Le nom et le titre restent du texte HTML lisible.
-Story et ses douze couvertures Kalistel sont independants et preserves.
+Book et ses douze couvertures Kalistel sont independants et preserves.
 
 Les peintures optimisees et la reliure vivent dans `site/assets/journeys/`.
 La table `coverArt` de `journey-view.js` est indexee par `rewardModelId`, jamais
@@ -159,9 +168,10 @@ la revision des rencontres, les recompenses ni le schema de progression.
 
 ### Scenes Du Parcours
 
-Le lecteur ouvert n'utilise plus le fond livre. Les sept etapes Momo et les
-sept etapes Balmhyr possedent chacune une peinture panoramique originale,
-adaptee aux references des cartes et au moment precis du chapitre.
+Le lecteur ouvert n'utilise plus le fond livre. Les etapes Momo et Balmhyr ont
+une peinture adaptee au moment du chapitre. Le combat 4 Momo et sa recompense
+nocturne utilisent directement la peinture approuvee de `30000001`, en cadrage
+portrait ; les autres scenes gardent leurs panoramas.
 Cliquer une station change la scene et le recit ; seules les etapes autorisees
 du joueur sont rendues et chargees. Les autres parcours utilisent les peintures
 approuvees de leur personnage de scene. Les chapitres bonus restent caches

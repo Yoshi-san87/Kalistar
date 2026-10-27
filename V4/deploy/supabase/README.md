@@ -133,7 +133,7 @@ filtre ses brouillons et imports ; un conflit garde le parcours de recuperation
 normal de la synchronisation. Tester avec `equipment-ownership.test.cjs` et
 `cloud-sync.browser.test.cjs` (base locale, comptes fictifs).
 
-## Suite des Fragments
+## Suite des Story (anciens Fragments)
 
 La migration 012 conserve les quatre victoires et les cartes deja remises, puis
 ajoute trois chapitres : arme, protection, relique. Elle ne reinitialise aucun
@@ -173,6 +173,15 @@ retirer l'ancien. Les acquittements et la progression sont preserves ; une
 seconde application est sans effet. Ce journal est prive, RLS actif, sans
 droits pour anon/authenticated. `balmhyr-rewards.test.cjs` verifie migration,
 rollback, repetitions, incompatibilites, transferts et restauration schema 13.
+
+La migration 015 (schema 14) retablit les futures recompenses Momo vers
+`30000001`, L'Artiste magique, assis a la flute dans la nuit. Elle ne modifie
+ni les exemplaires, ni les anciens claims, ni les progressions ou combats.
+La projection de 013 reste valide dans les deux sens : un ancien recu debout
+continue d'afficher sa vraie carte. `momo-night-reward.test.cjs` verifie les
+deux historiques, les futurs claims, l'unicite, les transferts, la compatibilite
+des trois objets et la restauration du schema 14. Le renommage Story/Book
+ne renomme aucune table ni aucun identifiant.
 
 ## Client officiel
 

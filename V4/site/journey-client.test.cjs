@@ -103,18 +103,19 @@ test('local library uses the three official four-combat definitions without netw
   await assert.rejects(h.api.claim(bookId),/compte Kalistar en ligne/);
 });
 
-test('library projects the actual historical card receipt without rewriting the local definitions', async t => {
+for(const [earned,configured] of [['30000001','30000014'],['30000014','30000001']])
+test('library preserves historical Momo '+earned+' when future reward is '+configured, async t => {
   const before=copy(books),h=harness(t),reading=h.api.refresh();await h.seen(1);
-  const historical=library(4,{claimed:true,acknowledged:false,rewardModelId:'30000001',
-    configuredRewardModelId:'30000014',claimedRewardModelId:'30000001'});
+  const historical=library(4,{claimed:true,acknowledged:false,rewardModelId:earned,
+    configuredRewardModelId:configured,claimedRewardModelId:earned});
   h.reply(0,historical);const state=await reading;
-  assert.equal(state.books.find(book=>book.id===bookId).rewardModelId,'30000001');
-  assert.equal(state.progress[bookId].claimedRewardModelId,'30000001');
-  assert.equal(state.progress[bookId].configuredRewardModelId,'30000014');
+  assert.equal(state.books.find(book=>book.id===bookId).rewardModelId,earned);
+  assert.equal(state.progress[bookId].claimedRewardModelId,earned);
+  assert.equal(state.progress[bookId].configuredRewardModelId,configured);
   assert.deepEqual(Definitions.catalogue(data),before,'Projection must not alter future configured rewards');
   const acknowledging=h.api.acknowledge(bookId);await h.seen(2);
   historical.books[0].acknowledged=true;h.reply(1,historical);await acknowledging;
-  assert.equal(h.api.snapshot().books[0].rewardModelId,'30000001');
+  assert.equal(h.api.snapshot().books[0].rewardModelId,earned);
   assert.equal(h.api.snapshot().progress[bookId].acknowledged,true);
 });
 

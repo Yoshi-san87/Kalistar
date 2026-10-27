@@ -41,7 +41,7 @@ viewport. Le mode telephone garde son propre cadrage et le defilement vertical.
 
 Les menus "..." general et Arene utilisent `showMenu`, `menuGroup` et
 `menuItem` dans app.js, avec un seul habillage dans navigation.css. Toute
-nouvelle destination ou commande passe par ces lignes communes. Fragment utilise
+nouvelle destination ou commande passe par ces lignes communes. Story utilise
 le cristal rainbow approuve, pas l'icone de Library. L'entete et la fermeture
 restent visibles pendant le defilement interne, avec Retour et Echap natifs.
 Ne pas recreer de variantes de menu dans mobile.css ou les CSS de parcours.
@@ -52,7 +52,7 @@ la connexion et les icones Kalistar, sans charger le moteur de cartes ni modifie
 les collections, recompenses ou sauvegardes du jeu principal.
 
 Les vues publiques sont Home, Collection, Decks, Equipements, Arene,
-Statistiques, Story, Map, Guide, Library, Fragment et Mon compte. Le serveur local garde en plus
+Statistiques, Book, Map, Guide, Library, Story et Mon compte. Le serveur local garde en plus
 l'Atelier ; il ne fait pas partie du build public.
 
 `site-config.js` definit aussi `KalistarSite.atlas`, source unique de la Map
@@ -131,7 +131,8 @@ sans laisser une ancienne promesse recreer un cache apres destruction.
 
 `journey-definitions.js`, `journey-combat.js`, `journey-client.js` et
 `journey-view.js/css` separent livres, commandes moteur, transport et rendu.
-La route `#journeys` est Fragment ; `#library` reste les regles joueur.
+La route `#journeys` est Story (les Gaming Books) ; `#story` est Book
+(le roman). Les routes et progressions restent stables. `#library` reste les regles joueur.
 Chaque livre comporte quatre combats. Le Worker execute le meme moteur et
 Supabase conserve la progression faisant autorite. Voir le
 [contrat des parcours](../docs/PARCOURS_BIBLIOTHEQUE.md). Les essais admin sont
@@ -185,7 +186,7 @@ que possible. Ne pas ajouter un timer permanent pour un effet purement visuel.
 
 L'arene masque la navigation generale sur PC et telephone, sans imposer le
 plein ecran du navigateur. Son toolbar garde sortie et menu de combat. Le
-plateau se dimensionne dans la hauteur restante, y compris le contexte Fragment ;
+plateau se dimensionne dans la hauteur restante, y compris le contexte Story ;
 seuls les contenus longs du bilan ou des calculs peuvent defiler dans leur zone.
 `duel-focus.js` conserve l'horloge d'une transition en cours quand le plateau
 est recree sans changer sa destination. Une nouvelle disposition annule le tween

@@ -114,7 +114,7 @@ test('catalogue keeps journeys-1 identifiers and four card fights with the autho
     assert.equal(book.stages.length, 4);
     assert(book.stages.every(stage => !Object.hasOwn(stage, 'rewardEquipmentId')));
   }
-  assert.deepEqual(books.map(book => book.rewardModelId), ['30000014', '30000007', '49055457']);
+  assert.deepEqual(books.map(book => book.rewardModelId), ['30000001', '30000007', '49055457']);
   assert.deepEqual(books.map(book => book.stages.map(stage => stage.id)), [
     ['rebuts','passage','carillons','rester'], ['horizon','durane','guide','portes'], ['breche','couleurs','ligne','seuil']
   ]);

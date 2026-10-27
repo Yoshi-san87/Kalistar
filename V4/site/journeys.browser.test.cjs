@@ -128,7 +128,7 @@ async function main(){
     assert.equal(geometry.stripVisible,false,label+': no extra journey row on phone');
     assert(geometry.scrollWidth<=geometry.width+1,label+': no horizontal page overflow');
     assert(geometry.menu.width>=44&&geometry.menu.height>=44,label+': thumb-sized options');
-    assert.match(geometry.menuLabel,new RegExp('Fragment, '+(step<=4?'Étape '+step+'/4':'Chapitre '+step),'i'));
+    assert.match(geometry.menuLabel,new RegExp('Story, '+(step<=4?'Étape '+step+'/4':'Chapitre '+step),'i'));
     assert.equal(geometry.progress,step<=4?step+'/4':String(step));assert.doesNotMatch(geometry.menuLabel,/\b[567]\/4\b/);
     assert.equal(geometry.nav.height,0,label+': fullscreen arena hides navigation');
     assert(geometry.board.bottom<=geometry.shell.bottom+1,label+': journey does not extend board past its shell');

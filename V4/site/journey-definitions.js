@@ -9,7 +9,7 @@
     "title": "Pour ceux que l\u2019on oublie",
     "subtitle": "Momo",
     "characterId": "momo",
-    "rewardModelId": "30000014",
+    "rewardModelId": "30000001",
     "element": "ELECTRO",
     "stages": [
       {
@@ -95,14 +95,14 @@
       },
       {
         "id": "rester",
-        "title": "Le bal des objets perdus",
-        "imageModelId": "30000014",
+        "title": "Et la nuit \u00e9couta",
+        "imageModelId": "30000001",
         "arenaId": "electro",
-        "captain": "30000014",
+        "captain": "30000001",
         "deck": [
           "30000013",
           "49800201",
-          "30000014",
+          "30000001",
           "49900710",
           "49900702",
           "49900313",
@@ -112,19 +112,21 @@
           "49901402"
         ],
         "intro": [
-          "Au coucher du soleil, Momo se tient debout au milieu des objets qu\u2019il a mis de c\u00f4t\u00e9. La tasse est toujours l\u00e0. Les carillons, eux, attendent une note qu\u2019il sait d\u00e9sormais retrouver. Taulio veille pr\u00e8s du passage. Momo ne joue plus pour couvrir le bruit de la casse : il essaie d\u2019\u00e9couter ce qui revient \u00e0 travers lui.",
-          "\u00c0 chaque reprise, la main du souvenir devient un peu plus nette. Elle ajustait quelque chose avec soin, bien avant la maison o\u00f9 on le grondait. Momo h\u00e9site devant cette diff\u00e9rence. Quelqu\u2019un l\u2019a donc regard\u00e9 autrement. Il reprend la m\u00e9lodie, d\u00e9cid\u00e9 \u00e0 ne plus traiter ce souvenir comme une panne."
+          "La nuit gagne la casse. Momo garde la fl\u00fbte contre lui. Il conna\u00eet la place des chaussures, l\u2019heure des repas, les gestes pour faire dispara\u00eetre une tache. Mais aucun ordre ne lui apprend \u00e0 choisir sa propre place.",
+          "Quelques marches offrent un peu de hauteur. Taulio d\u00e9gage le passage, puis laisse son ami monter seul. Momo s\u2019assied face aux carcasses. Elles sont toujours l\u00e0 ; leur silence lui fait moins peur. Sa petite lumi\u00e8re bleue ne cherche plus la porte de la maison.",
+          "Il pose ses doigts sur les clefs. La m\u00e9lodie revient, avec ce geste familier qu\u2019il ne sait pas expliquer. Personne ne lui demande de jouer ni d\u2019\u00eatre utile. Cette fois, il voudrait aller jusqu\u2019au bout sans s\u2019excuser d\u2019\u00eatre diff\u00e9rent."
         ],
         "outro": [
-          "Les vieux carillons se soul\u00e8vent un \u00e0 un. Leur son est irr\u00e9gulier, parfois faux, et Momo sourit malgr\u00e9 lui. Pour la premi\u00e8re fois, il finit une m\u00e9lodie sans attendre qu\u2019on lui dise si elle a servi. Taulio regarde les objets tourner au-dessus de sa t\u00eate. Le petit robot ne se cache plus derri\u00e8re son \u00e9paule.",
-          "Lorsque la lumi\u00e8re retombe, le souvenir de la main demeure. Momo ne conna\u00eet ni le visage de son cr\u00e9ateur ni l\u2019endroit o\u00f9 le chercher. Mais il veut apprendre. Plus tard, il pourra confier cette question \u00e0 Kaylis. Ce soir, il la garde pr\u00e8s de lui, avec sa fl\u00fbte et son ami."
+          "Une note flotte au-dessus des marches. Momo ne l\u2019arr\u00eate pas. La lumi\u00e8re glisse hors de la fl\u00fbte et se m\u00eale au bleu du ciel. Il termine la phrase, puis en commence une autre, plus douce. Cette fois, il joue pour lui.",
+          "Taulio reste en retrait, sans demander davantage. Momo regarde ses mains, les m\u00eames que l\u2019on jugeait trop lentes. Elles viennent de faire quelque chose que personne ne leur avait ordonn\u00e9. Il ne comprend pas cette lumi\u00e8re, mais cesse d\u2019en avoir honte.",
+          "Une main pench\u00e9e sur un \u00e9tabli revient dans la m\u00e9lodie. Le visage lui \u00e9chappe. Momo ne force pas le souvenir : il garde son ami pr\u00e8s de lui et cette envie de savoir. Ce n\u2019\u00e9tait peut-\u00eatre pas un d\u00e9faut. Quelque chose, en lui, se souvenait. Et la nuit \u00e9coutait."
         ]
       }
     ],
     "bonusReveal": {
       "title": "Ce qu\u2019il veut retrouver",
       "paragraphs": [
-        "Apr\u00e8s le bal, Momo ne range pas la fl\u00fbte. La main entrevue dans sa m\u00e9moire a fait na\u00eetre une question qu\u2019il ne peut plus remettre \u00e0 plus tard. Avant de partir, il lui reste \u00e0 \u00e9couter, \u00e0 se pr\u00e9parer et \u00e0 trouver comment demander de l\u2019aide."
+        "Apr\u00e8s cette nuit, Momo ne range pas la fl\u00fbte. La main entrevue dans sa m\u00e9moire a fait na\u00eetre une question qu\u2019il ne peut plus remettre \u00e0 plus tard. Avant de partir, il lui reste \u00e0 \u00e9couter, \u00e0 se pr\u00e9parer et \u00e0 trouver comment demander de l\u2019aide."
       ]
     },
     "bonusStages": [

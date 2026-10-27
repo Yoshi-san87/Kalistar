@@ -36,7 +36,7 @@ Signaler une divergence entre documentation et moteur au lieu de la masquer.
 | Centrage des icones | `V4/template-stable/icon-layouts.json` |
 | Composants du generateur | `V4/atelier/designer-assets/manifest.json` |
 | Regression native | `V4/atelier/data/regression.json` |
-| Roman lu dans Story | `V4/site/story-content.json` |
+| Roman lu dans Book (route historique #story) | `V4/site/story-content.json` |
 | Explications Library | `V4/docs/joueurs/`, compilees par `V4/site/rules-documents.cjs` |
 
 Lire le profil courant et sa `nativeRevision`, pas le `set.json` d'un ancien lot.
@@ -61,7 +61,7 @@ canonique. Modele, `characterId`, exemplaire `KC-...` et instance de partie
   Un seul rendu Photoshop de production a la fois.
 - Respecter les octets proteges et la configuration Git LFS. Pas de
   normalisation generale des fins de ligne.
-- Aucun acces au Drive professionnel. Pour Story, utiliser les sources locales
+- Aucun acces au Drive professionnel. Pour le roman Book, utiliser les sources locales
   de l'auteur, garder les revelations reservees. Lanio est depose au village
   Rhinoz de Zarok, pres de ses amis de jeu, pas enterre.
 

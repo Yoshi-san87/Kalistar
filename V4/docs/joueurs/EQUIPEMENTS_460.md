@@ -4,7 +4,7 @@ Chaque personnage peut porter **une arme, une protection et une relique** en mê
 
 ## Obtenir des équipements
 
-Un nouveau joueur commence sans équipement. Dans Fragment, remportez les quatre
+Un nouveau joueur commence sans équipement. Dans Story, remportez les quatre
 combats d'un livre et recevez sa carte. La suite de son histoire s'ouvre alors :
 un combat pour l'arme, puis un pour la protection et un pour la relique. Les
 chapitres se dévoilent un à un. Une défaite conserve tous vos gains.

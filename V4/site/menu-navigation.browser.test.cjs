@@ -71,6 +71,8 @@ async function main() {
       await page.locator('.nav-more').click();
       assert.equal(await page.locator('.nav-more').getAttribute('aria-expanded'),'true');
       const general=await inspect(page,p.name+'-general');
+      assert.equal((await page.locator('#mobile-dialog [data-view=journeys]').innerText()).trim(),'Story');
+      assert.equal((await page.locator('#mobile-dialog [data-view=story]').innerText()).trim(),'Book');
       await page.keyboard.press('Tab');
       assert(await page.locator('#mobile-dialog').evaluate(d=>d.contains(document.activeElement)),'keyboard focus stays in the dialog');
       await page.keyboard.press('Escape');await page.locator('#mobile-dialog').waitFor({state:'hidden'});
@@ -119,7 +121,7 @@ async function main() {
         });
         await page.reload();await ready(page);await trigger.click();
         await inspect(page,p.name+'-fragment');
-        assert.equal(await page.locator('#mobile-dialog .kalistar-menu-group h3').first().innerText(),'Fragment');
+        assert.equal(await page.locator('#mobile-dialog .kalistar-menu-group h3').first().innerText(),'Story');
         assert((await page.locator('#mobile-dialog [data-action=journey-return] img').getAttribute('src')).endsWith('kalistel-rainbow-v2.webp'));
         await page.keyboard.press('Escape');await page.locator('#mobile-dialog').waitFor({state:'hidden'});
       }
