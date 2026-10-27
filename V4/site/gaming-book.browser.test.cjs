@@ -1,7 +1,7 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{createRequire}=require('node:module');
 const modules=createRequire(path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/_gaming_qa.cjs'));
-const {chromium}=modules('playwright'),{sceneFrame}=require('./test-support/gaming-book.cjs');
+const {chromium}=modules('playwright'),{sceneFrame,playScene}=require('./test-support/gaming-book.cjs');
 const dist=path.resolve(process.env.KALISTAR_DIST||path.join(__dirname,'../deploy/dist'));
 const output=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'../../work/qa/gaming-book');
 const origin='https://gaming-book.invalid',errors=[],checks=[];
@@ -42,6 +42,13 @@ async function main(){
       assert.equal((await frame.evaluate(()=>KalistarMomoScene.snapshot())).story.beat,1,'Bookmark resumes the read page');
       await page.locator('.gaming-book-dialog > header button').click();
       await page.waitForFunction(()=>!history.state?.kalistarDialogBack);
+      await page.evaluate(()=>localStorage.setItem('kalistar-gaming-book:momo-v6:qa-tokyo',JSON.stringify({version:1,phase:'abandoned',beat:3,acknowledged:false,x:890})));
+      await page.locator('#open').click();frame=await sceneFrame(page);
+      await frame.waitForFunction(()=>KalistarMomoScene.snapshot().cinema.mood===.72);
+      await page.screenshot({path:path.join(output,name+'-abandoned.png')});
+      assert.equal((await frame.evaluate(()=>KalistarMomoScene.snapshot())).cinema.actor,1,'Momo remains visible against the darkened scene');
+      await page.locator('.gaming-book-dialog > header button').click();
+      await page.waitForFunction(()=>!history.state?.kalistarDialogBack);
       await page.evaluate(()=>localStorage.setItem('kalistar-gaming-book:momo-v6:qa-tokyo',JSON.stringify({version:1,phase:'finding',beat:1,acknowledged:false,x:1130})));
       await page.locator('#open').click();frame=await sceneFrame(page);
       await frame.evaluate(()=>document.fonts.ready);await page.waitForTimeout(250);
@@ -50,10 +57,10 @@ async function main(){
         return a.some((n,i)=>i%4!==3&&n>40);
       }),'Scene canvas is not blank');
       const layout=await frame.evaluate(async()=>{
-        const {passages}=await import('./story.mjs'),{formatNarration}=await import('./narration.mjs');
+        const {passages}=await import('./story.mjs'),{narrationGlyphs}=await import('./narration.mjs');
         const el=document.querySelector('#narration'),s=getComputedStyle(el),r=el.getBoundingClientRect();
         const probe=document.createElement('div');probe.style.cssText='position:fixed;left:-9999px;white-space:pre-line;text-wrap:balance;overflow-wrap:break-word';probe.style.width=r.width+'px';probe.style.font=s.font;probe.style.lineHeight=s.lineHeight;document.body.append(probe);
-        let max=0;for(const text of Object.values(passages).flat().map(p=>p.text)){probe.textContent=formatNarration(text);max=Math.max(max,probe.getBoundingClientRect().height);}probe.remove();
+        let max=0;for(const text of Object.values(passages).flat().map(p=>p.text)){probe.replaceChildren(...narrationGlyphs(text).map(glyph=>{const span=document.createElement('span');span.className='narration-letter';span.textContent=glyph;return span;}));max=Math.max(max,probe.getBoundingClientRect().height);}probe.remove();
         return {w:innerWidth,h:innerHeight,scrollW:document.documentElement.scrollWidth,scrollH:document.documentElement.scrollHeight,max,height:r.height,
           buttons:[...document.querySelectorAll('.scene-header button,.scene-footer button')].filter(e=>e.getClientRects().length&&getComputedStyle(e).visibility!=='hidden').map(e=>{const b=e.getBoundingClientRect();return {left:b.left,top:b.top,right:b.right,bottom:b.bottom};})};
       });
@@ -73,11 +80,37 @@ async function main(){
       }
       await page.locator('.gaming-book-dialog > header button').click();
       // A finished page is presentation only; the host resolves once on explicit Continue.
+      for(const phase of ['journey','nightWalk']){
+        await page.waitForFunction(()=>!history.state?.kalistarDialogBack);
+        await page.evaluate(phase=>localStorage.setItem('kalistar-gaming-book:momo-v6:qa-tokyo',JSON.stringify({version:1,phase,beat:0,acknowledged:true,x:phase==='journey'?1300:1600})),phase);
+        await page.locator('#open').click();frame=await sceneFrame(page);
+        assert.equal((await frame.evaluate(()=>KalistarMomoScene.snapshot())).narration.text,'');
+        await frame.locator('#flute').click();
+        await frame.waitForFunction(()=>KalistarMomoScene.snapshot().story.phase==='playing');
+        assert(await frame.locator('#continue').isHidden());
+        await page.locator('.gaming-book-dialog > header button').click();
+        await page.waitForFunction(()=>!history.state?.kalistarDialogBack);
+        await page.locator('#open').click();frame=await sceneFrame(page);
+        const resumed=await frame.evaluate(()=>KalistarMomoScene.snapshot());
+        assert.equal(resumed.story.phase,phase);assert(resumed.canMove);assert(resumed.canPlay);assert.equal(resumed.narration.text,'');
+        assert.equal(resumed.story.nightStarted,phase==='nightWalk');
+        await page.locator('.gaming-book-dialog > header button').click();
+      }
       await page.waitForFunction(()=>!history.state?.kalistarDialogBack);
       await page.evaluate(()=>localStorage.setItem('kalistar-gaming-book:momo-v6:qa-tokyo',JSON.stringify({version:1,phase:'ending',beat:0,acknowledged:true,x:1780})));
       await page.locator('#open').click();frame=await sceneFrame(page);
       await frame.locator('#exit').click();await page.locator('.gaming-book-dialog').waitFor({state:'detached'});
-      assert.equal(await page.evaluate(()=>result),true);checks.push(name);await context.close();
+      assert.equal(await page.evaluate(()=>result),true);
+      if(name==='pc'){
+        await page.waitForFunction(()=>!history.state?.kalistarDialogBack);
+        await page.evaluate(()=>localStorage.removeItem('kalistar-gaming-book:momo-v6:qa-tokyo'));
+        await page.emulateMedia({reducedMotion:'no-preference'});
+        await page.locator('#open').click();frame=await sceneFrame(page);
+        await playScene(frame);
+        await page.locator('.gaming-book-dialog').waitFor({state:'detached'});
+        assert.equal(await page.evaluate(()=>result),true);checks.push('full typed narrative to film and host completion');
+      }
+      checks.push(name);await context.close();
     }
     assert.deepEqual(errors,[]);
     fs.writeFileSync(path.join(output,'results.json'),JSON.stringify({passed:true,checks,errors},null,2));

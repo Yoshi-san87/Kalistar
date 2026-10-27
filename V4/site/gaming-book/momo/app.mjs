@@ -20,8 +20,10 @@ let sound=true,clock=0,sequence=null,completed=0,frame=40,lastNote=-1,soundConte
 let timer=0,raf=0,lastTime=0,nextRender=0,loopActive=false;
 let particles=[],particleBudget=0,particleId=0,revision=-1,scriptStart;
 let shotZoom=1;
+let lastTextReveal=-Infinity;
 const finished=()=>['ending','exited'].includes(story?.phase);
 const cinematicOnly=()=>story?.phase==='film'||finished();
+const readingSuspended=()=>paused||background||cinematicOnly()||!$('loading').hidden;
 const metrics={renders:0,physicsSteps:0,maxParticles:0,renderMs:[],maxWalkDelta:0};
 const icon=(element,name)=>{element.innerHTML='<i data-lucide="'+name+'"></i>';globalThis.lucide?.createIcons({nodes:[element]});};
 async function image(path) {const img=new Image();img.src=path;await img.decode();return img;}
@@ -53,7 +55,11 @@ function trigger(){
   syncStory();wake();
 }
 function continueReading(){
-  if(!ready||paused||background||!continueStory(story))return;
+  if(!ready||readingSuspended()||!hasDialogue(story))return;
+  if(narrator.complete()){
+    lastTextReveal=performance.now();unlockAudio();syncReading();return;
+  }
+  if(performance.now()-lastTextReveal<220||!continueStory(story))return;
   unlockAudio();clearInput();syncStory();wake();
 }
 function primaryAction(){
@@ -61,7 +67,11 @@ function primaryAction(){
   if(hasDialogue(story))continueReading();else trigger();
 }
 function syncReading(){
-  $('continue').disabled=!canContinue(story)||paused||background;
+  if(!ready){$('continue').disabled=true;return;}
+  const typing=narrator?.isTyping();
+  $('continue').disabled=(!typing&&!canContinue(story))||readingSuspended();
+  $('continue').setAttribute('aria-label',typing?'Afficher tout le texte':'Continuer le récit');
+  $('continue').title=typing?'Afficher tout le texte (Entrée / Espace)':'Continuer (Entrée / Espace)';
 }
 function cancelLoop(){clearTimeout(timer);cancelAnimationFrame(raf);timer=raf=0;}
 function schedule(delay=0){
@@ -78,14 +88,14 @@ function wake(){
 function setPaused(value){
   if(cinematicOnly())return;
   paused=value;clearInput();stopVoices();$('paused').hidden=!value;
-  narrator?.suspend(value||background);
+  narrator?.suspend(readingSuspended());syncReading();
   $('pause').setAttribute('aria-pressed',String(value));$('pause').setAttribute('aria-label',value?'Reprendre':'Mettre en pause');icon($('pause'),value?'play':'pause');
   if(value)cancelLoop();else{lastTime=0;nextRender=0;wake();}
 }
 function suspend(value){
   background=value;clearInput();stopVoices();
   $('scene').classList.toggle('is-suspended',value);
-  narrator?.suspend(value||paused||story?.phase==='film');
+  narrator?.suspend(readingSuspended());syncReading();
   if(value){cancelLoop();soundContext?.suspend().catch(()=>{});film?.suspend();}
   else{lastTime=0;nextRender=0;if(sound)soundContext?.resume().catch(()=>{});wake();}
 }
@@ -102,7 +112,7 @@ function syncStory(){
   revision=story.revision;
   notify('checkpoint',checkpoint(story,actor));
   const {opening,captionCentered}=cinematicState(story);
-  narrator.show(finished()?'':narrative(story),{cut:$('scene').classList.contains('is-blackout')!==captionCentered});narrator.suspend(paused||background||cinematicOnly());
+  narrator.show(finished()?'':narrative(story),{cut:$('scene').classList.contains('is-blackout')!==captionCentered});narrator.suspend(readingSuspended());
   $('scene').dataset.phase=story.phase;
   $('scene').classList.toggle('is-opening',opening);
   $('scene').classList.toggle('is-blackout',captionCentered);
@@ -360,11 +370,11 @@ try{
   world=createWorld(globalThis.Matter,config);actor={x:config.world.startX,y:config.world.groundY,facing:1};
   const saved=restore(await connect(),config);story=saved.story;actor=saved.actor;
   world.place(actor.x,actor.y,true);resetMotion(motion,actor);camera={x:0,y:0};
-  narrator=createNarrator($('narration'),{reduced});
+  narrator=createNarrator($('narration'),{reduced,settings:config.narration,onChange:syncReading});
   film=createFilm({sound:()=>sound,finish:()=>{enterStory(story,'ending');syncStory();lastTime=0;wake();},returnToScene:()=>{enterStory(story,'seated');syncStory();lastTime=0;wake();}});
   ready=true;syncStory();resize();globalThis.lucide?.createIcons();
   if(!document.fullscreenEnabled)$('fullscreen').hidden=true;
-  $('loading').classList.add('leaving');setTimeout(()=>{$('loading').hidden=true;},reduced?0:650);
+  $('loading').classList.add('leaving');setTimeout(()=>{$('loading').hidden=true;narrator.suspend(readingSuspended());syncReading();},reduced?0:650);
   globalThis.KalistarMomoScene=Object.freeze({
     snapshot:()=>({ready,actor:{...actor},camera:{...camera,shotZoom},view:{...view},frame,sequence,phase:sequence===null?story.phase:sampleSequence(sequence,config.timing,reduced).phase,story:{...story,history:[...story.history]},canMove:canMove(story),canPlay:canPlay(story),canContinue:canContinue(story),cinema:cinematicState(story,reduced),emitter:pose?.emitter,particles:particles.length,paused,background,completed,reduced,scheduled:!!(timer||raf),voices:voices.size,film:film.snapshot(),narration:narrator.snapshot(),searchSites:config.searchSites.map(s=>searchSiteLayout(config,s,assets.scrap)),metrics:{...metrics,renderMs:[...metrics.renderMs]}}),
     renderPose:(target,index,facing=1)=>drawActor(target,{x:64,y:104,facing},index,true),

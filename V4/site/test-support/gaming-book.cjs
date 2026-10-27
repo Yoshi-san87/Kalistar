@@ -14,6 +14,9 @@ async function playScene(frame){
     while(s.story.phase===phase&&!s.story.acknowledged){
       assert(++guard<12);
       await frame.waitForFunction(()=>KalistarMomoScene.snapshot().canContinue,null,{timeout:20000});
+      if((await state()).narration.typing){
+        await frame.locator('#continue').click();await page.waitForTimeout(240);
+      }
       await frame.locator('#continue').click();s=await state();
     }
   }
@@ -27,7 +30,17 @@ async function playScene(frame){
   await walk('abandoned');await drain('abandoned');await drain('roadToFlute');
   await walk('finding');await drain('finding');await drain('firstNote');
   await frame.locator('#flute').click();await drain('playing');await drain('surprised');await drain('journey');
-  await walk('nightfall');await drain('nightfall');await walk('climbing');await drain('climbing');await drain('seating');await drain('seated');
+  async function repeat(phase){
+    assert.equal((await state()).narration.text,'');
+    await frame.locator('#flute').click();
+    assert.equal((await state()).story.phase,'playing');assert.equal((await state()).narration.text,'');
+    assert(await frame.locator('#continue').isHidden());
+    await frame.waitForFunction(p=>KalistarMomoScene.snapshot().story.phase===p,phase,{timeout:15000});
+    assert((await state()).canMove);assert.equal((await state()).narration.text,'');
+  }
+  await repeat('journey');
+  await walk('nightfall');await drain('nightfall');await repeat('nightWalk');
+  await walk('climbing');await drain('climbing');await drain('seating');await drain('seated');
   await frame.locator('#flute').click();await drain('finalPlaying');
   await frame.locator('#film[open]').waitFor();await frame.locator('#film-skip').click();
   await frame.locator('#ending:not([hidden])').waitFor();

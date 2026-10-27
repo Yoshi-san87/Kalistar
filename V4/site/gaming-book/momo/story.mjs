@@ -4,21 +4,21 @@ import { clamp } from './model.mjs';
 export const passages = {
   introBlack: [
     {text:'Du métal froid contre sa joue.',min:1200},
-    {text:'Avant même d’ouvrir l’œil, Momo attendit un ordre.'},
+    {text:'Avant même d’ouvrir l’œil, Momo attendit la voix familière. Elle ne vint pas.'},
   ],
   introLight: [
     {text:'Momo ouvrit un œil.',min:2000},
-    {text:'Sa petite lumière bleue trembla. Le monde, lui, ne répondit pas.'},
+    {text:'Pourquoi faisait-il si froid ? Où était la maison ?'},
   ],
   introReveal: [
     {text:'Autour de lui, des carcasses. Des choses que personne ne venait chercher.',min:3000},
-    {text:'Partout, des mains immobiles. Des visages éteints.'},
-    {text:'Il attendit qu’une voix prononce son nom.'},
-    {text:'Personne ne l’avait rappelé.'},
+    {text:'Il chercha une porte familière. Il ne reconnut que des visages éteints.'},
+    {text:'On allait venir le chercher. Il n’avait sûrement pas le droit de partir.'},
+    {text:'Mais pourquoi l’avoir laissé là, sans rien lui dire ?'},
   ],
   waking: [
     {text:'Alors, lentement, il se releva.',min:4200},
-    {text:'Rester couché ne ferait revenir personne.'},
+    {text:'Il fallait comprendre. Peut-être avait-il fait quelque chose de travers.'},
   ],
   road: [
     {text:'Il devait bien rester quelque chose, quelque part.'},
@@ -27,7 +27,7 @@ export const passages = {
   search: [
     {text:'Des vis. Un cadran brisé.',min:3000},
     {text:'Il souleva chaque pièce avec soin. On lui avait appris à ne rien abîmer.'},
-    {text:'Il chercha encore, comme si quelqu’un avait pu laisser un mot.'},
+    {text:'Il chercha encore. Un mot. Quelque chose qui dirait qu’on l’attendait.'},
   ],
   afterCrate: [{text:'Rien qui puisse lui dire comment rentrer.'}],
   abandoned: [
@@ -35,25 +35,26 @@ export const passages = {
     {text:'Il attendit encore. Peut-être fallait-il seulement être patient.'},
     {text:'On ne l’avait pas perdu.',min:1800},
     {text:'Ses maîtres l’avaient jeté ici.',min:1600},
-    {text:'Cela ne ressemblait à aucune panne. Pourtant, quelque chose en lui faisait mal.'},
+    {text:'Il avait pourtant essayé de bien faire. Même les jours où il ne comprenait pas.'},
+    {text:'Il ne savait pas où ranger cette douleur. Ce n’était pas une panne.'},
   ],
   roadToFlute: [{text:'Il n’avait plus de maison. Mais ses petits pas continuaient.'}],
   finding: [
     {text:'Sous la poussière, un éclat d’argent.',min:2600},
     {text:'Une flûte. Presque intacte.',min:1400},
-    {text:'Il ne savait pas encore quoi en faire.'},
-    {text:'Il savait seulement qu’il ne voulait pas la laisser.'},
+    {text:'Il essuya doucement le métal. À quoi pouvait bien servir une si petite chose ?'},
+    {text:'Elle aussi, on l’avait laissée là. Il la garda tout contre lui.'},
   ],
   firstNote: [
-    {text:'Ses doigts connaissaient déjà le geste.'},
+    {text:'Ses doigts hésitèrent… puis retrouvèrent un geste qu’il ne connaissait pas.'},
     {text:'Il n’avait jamais reçu l’ordre de jouer.'},
     {text:'D’où lui venait cette mélodie ?'},
   ],
   playing: [{text:'Une note s’éleva entre les carcasses.'}],
   surprised: [
     {text:'La lumière venait de lui. Momo recula, stupéfait.',min:2400},
-    {text:'Il regarda l’instrument, puis ses doigts.'},
-    {text:'Ce n’était pas prévu.'},
+    {text:'Il regarda l’instrument, puis ses doigts. Est-ce qu’il avait fait ça ?'},
+    {text:'Il aurait dû avoir peur. Pourtant, il avait envie de recommencer.'},
   ],
   journey: [
     {text:'Pour la première fois depuis longtemps, le silence ne lui faisait plus aussi peur.'},
@@ -114,14 +115,18 @@ export function advanceStory(s,ms,x,route){
 export function beginPlay(s){
   if(!canPlay(s))return false;
   if(s.phase==='seated')enterStory(s,'finalPlaying');
-  else{s.returnPhase=s.phase;enterStory(s,'playing');}
+  else{s.returnPhase=s.phase;enterStory(s,'playing');s.acknowledged=s.returnPhase!=='firstNote';}
   return true;
 }
 export function finishPlay(s){
   if(s.phase!=='playing')return;
+  if(['journey','nightWalk'].includes(s.returnPhase)){
+    const destination=s.returnPhase;enterStory(s,destination);s.acknowledged=true;s.returnPhase=null;return;
+  }
   s.performanceComplete=true;s.revision++;
 }
 export function narrative(s){
+  if(s.acknowledged)return '';
   return passages[s.phase]?.[s.beat]?.text||(s.phase==='ending'?lines.ending:'');
 }
 export function storyFrame(s,idle){
@@ -144,7 +149,7 @@ export function cinematicState(s,reduced=false){
   const opening=openingPhases.includes(s.phase);
   const reveal=s.phase==='introBlack'||s.phase==='introLight'?0:s.phase==='introReveal'?(reduced?1:smooth(s.elapsed/3000)):1;
   const actor=s.phase==='introBlack'?0:s.phase==='introLight'?(reduced?1:smooth(s.elapsed/2000)):1;
-  const mood=s.phase==='abandoned'?(s.beat<2?.1*(reduced?1:smooth(s.elapsed/1400)):s.beat===2?.1+.15*(reduced?1:smooth(s.beatElapsed/1600)):.25):s.phase==='roadToFlute'?.25*(reduced?0:1-smooth(s.elapsed/1500)):0;
+  const mood=s.phase==='abandoned'?(s.beat<2?.1*(reduced?1:smooth(s.elapsed/1400)):s.beat===2?.1+.18*(reduced?1:smooth(s.beatElapsed/1600)):s.beat===3?.28+.44*(reduced?1:smooth(s.beatElapsed/1400)):.72):s.phase==='roadToFlute'?.72*(reduced?0:1-smooth(s.elapsed/1500)):0;
   const fluteFocus=s.phase==='playing'?(reduced?1:smooth(s.elapsed/1000)):s.phase==='surprised'?(reduced?0:1-smooth(s.elapsed/1600)):s.phase==='finalPlaying'||s.phase==='film'?(reduced?1:smooth(s.elapsed/900)):0;
   return {opening,captionCentered:s.phase==='introBlack'||s.phase==='introLight',reveal,actor,spot:opening?actor*(1-reveal):0,mood,fluteFocus};
 }

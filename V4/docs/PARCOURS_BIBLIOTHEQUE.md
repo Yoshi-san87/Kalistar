@@ -31,6 +31,19 @@ recompenses restent synchronisees. Un autre appareil reprend la scene au debut.
 Revivre la scene et l'apercu administrateur ne reclament aucune recompense.
 Les anciens recus de carte ne sont ni rejoues automatiquement ni remplaces.
 
+Dans la scene jouable, les lettres apparaissent progressivement, avec de
+courtes pauses a la ponctuation. Un clic, un toucher ou Entree termine la phrase ;
+le suivant poursuit le recit une fois le geste scenaristique termine. Le texte
+garde sa mise en page complete, sans deplacement des mots. L'ecriture attend
+la fin du chargement et se suspend avec la scene ou l'onglet. La reduction des
+animations affiche immediatement la phrase, sans avancer le recit. Les lecteurs
+d'ecran recoivent la phrase entiere, pas une annonce par lettre.
+La derniere phrase disparait quand la marche ou le jeu libre reprend. Seule
+la premiere melodie declenche le recit de decouverte ; rejouer ensuite anime
+Momo et sa magie, puis rend la main sans dialogue ni nouvelle surprise.
+Le reveil garde son incomprehension, l'abandon assombrit progressivement le
+decor, et la decouverte de la flute ouvre une curiosite encore hesitante.
+
 Chaque victoire bonus ouvre une attribution distincte. Recevoir l'arme et
 acquitter sa ceremonie debloque la protection ; recevoir la protection et
 l'acquitter debloque la relique. Gagner un combat ne suffit pas a sauter cette

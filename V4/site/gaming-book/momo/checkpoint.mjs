@@ -9,7 +9,10 @@ export function restore(value,config){
   if(value?.version!==1||!phases.includes(value.phase)||!Number.isInteger(value.beat)||typeof value.acknowledged!=='boolean'||!Number.isFinite(value.x))return {story,actor};
   let phase=value.phase,beat=value.beat,ack=value.acknowledged;
   // Resume a musical gesture from its invitation, never halfway through audio/video.
-  if(phase==='playing'){phase=value.returnPhase==='journey'?'journey':'firstNote';beat=0;ack=false;}
+  if(phase==='playing'){
+    const freePlay=['journey','nightWalk'].includes(value.returnPhase);
+    phase=freePlay?value.returnPhase:'firstNote';beat=0;ack=freePlay;
+  }
   if(['film','finalPlaying'].includes(phase)){phase='seated';beat=0;ack=false;}
   const pages=passages[phase];
   if(beat<0||beat>=(pages?.length||1))return {story,actor};

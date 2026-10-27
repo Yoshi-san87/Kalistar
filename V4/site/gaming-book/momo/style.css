@@ -64,6 +64,8 @@ h1 { margin: 0; font-size: 28px; font-weight: 600; line-height: 1.2; }
 .control:disabled { opacity: .32; pointer-events: none; }
 #narration { position: relative; display: grid; place-items: center; min-width: 0; height: 144px; text-align: center; font-size: 30px; line-height: 1.35; color: var(--light); text-shadow: 0 2px 3px #07191b, 0 0 14px #041010; }
 .narration-layer { grid-area: 1 / 1; width: 100%; overflow-wrap: break-word; text-wrap: balance; white-space: pre-line; }
+.narration-letter { visibility: hidden; }
+.narration-letter.is-visible { visibility: visible; }
 .flute-button { width: 72px; height: 72px; padding: 5px; border-radius: 50%; border: 1px solid #e9d6a0; background: #122c29; box-shadow: 0 3px 16px #071b1a66; color: #f2dfb3; position: relative; }
 .flute-button:before { content: ""; position: absolute; inset: -5px; border: 1px solid #d2b47e59; border-radius: 50%; pointer-events: none; }
 .flute-inner { display: grid; place-items: center; width: 100%; height: 100%; border: 1px solid #d2b47e70; border-radius: 50%; background: linear-gradient(145deg, #28453e, #102622); }
