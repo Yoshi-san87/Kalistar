@@ -36,6 +36,8 @@ async function inspect(page, label) {
       rows:rows.map(b=>({box:box(b),columns:getComputedStyle(b).gridTemplateColumns,
         font:getComputedStyle(b).font,background:getComputedStyle(b).backgroundColor})),
       fragment:d.querySelector('[data-view=journeys] img').getAttribute('src'),
+      astraball:{src:d.querySelector('[data-action=astraball] img').getAttribute('src'),box:box(d.querySelector('[data-action=astraball] img')),
+        alt:d.querySelector('[data-action=astraball] img').alt,svg:d.querySelector('[data-action=astraball] .kalistar-menu-symbol svg')!==null},
       labelled:d.querySelector('#'+d.getAttribute('aria-labelledby'))?.textContent,
       skin:{background:getComputedStyle(d).backgroundImage,border:getComputedStyle(d).borderColor,
         rowFont:getComputedStyle(rows[0]).font,iconWidth:getComputedStyle(rows[0].querySelector('.kalistar-menu-symbol')).width}};
@@ -46,6 +48,10 @@ async function inspect(page, label) {
   const r=layout.dialog;assert(r.x>=0&&r.right<=layout.viewport[0]&&r.y>=0&&r.bottom<=layout.viewport[1],label+': bounded dialog');
   assert(layout.rows.every(r=>r.box.height>=60),label+': comfortable targets');
   assert(layout.fragment.endsWith('kalistel-rainbow-v2.webp'),label+': Fragment uses approved crystal');
+  assert.equal(layout.astraball.src,'astraball/assets/balls-v1/founders.webp',label+': real game ball');
+  assert.equal(layout.astraball.box.width,40,label+': ball fits the shared icon track');
+  assert.equal(layout.astraball.box.height,40,label+': ball remains square');
+  assert.equal(layout.astraball.alt,'');assert.equal(layout.astraball.svg,false,'No generic orbit icon');
   await page.screenshot({path:path.join(out,label+'.png')});
   return layout;
 }

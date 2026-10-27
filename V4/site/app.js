@@ -1137,7 +1137,7 @@ function showDeck(){setView('decks');}
     $('.nav-more')?.setAttribute('aria-expanded','true');
   }
   function learningNavigation(){
-    return navigationItem('journeys','Story')+menuAction('astraball','orbit','Astraball','','Sport tactique · Exhibition')+navigationItem('guide','Guide')+navigationItem('library','Library · R\u00e8gles');
+    return navigationItem('journeys','Story')+menuItem('data-action="astraball"','Astraball','<img class="kalistar-nav-icon" src="astraball/assets/balls-v1/founders.webp" alt="" width="40" height="40">','Sport tactique · Exhibition')+navigationItem('guide','Guide')+navigationItem('library','Library · R\u00e8gles');
   }
   function journeyArenaContext(){
     if(!game?.journey)return null;

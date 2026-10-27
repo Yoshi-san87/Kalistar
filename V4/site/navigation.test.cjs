@@ -2,6 +2,15 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const root=path.resolve(__dirname,'../..'),read=relative=>fs.readFileSync(path.join(root,relative));
 const proof=JSON.parse(read('V4/revisions/2026-10-03-menu-identity/media-provenance.json'));
+
+test('Astraball menu reuses the registered game ball at the shared icon size',()=>{
+  const source='V4/astraball/assets/balls-v1/founders.webp';
+  const entry=JSON.parse(read('V4/deploy/runtime-media.json')).files.find(item=>item.source===source);
+  assert(entry);assert.equal(crypto.createHash('sha256').update(read(source)).digest('hex'),entry.sha256);
+  const app=read('V4/site/app.js').toString();
+  assert(app.includes('src="astraball/assets/balls-v1/founders.webp" alt="" width="40" height="40"'));
+  assert(!app.includes("menuAction('astraball','orbit'"));
+});
 test('Guide and Library share the illustrated navigation component and transparent media',()=>{
   const learning=JSON.parse(read('V4/revisions/2026-10-12-learning-menu-icons/media-provenance.json'));
   assert.deepEqual(learning.assets.map(a=>a.name),['guide','library']);

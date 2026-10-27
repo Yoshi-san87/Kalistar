@@ -256,7 +256,7 @@ test('Atelier denies non-runtime files, source maps and encoded traversal before
 
 test('application navigation opens the standalone Astraball route and provides a return link', () => {
   const app = fs.readFileSync(path.join(ROOT, 'V4/site/app.js'), 'utf8');
-  assert.match(app, /menuAction\(\s*['"]astraball['"]\s*,\s*['"]orbit['"]\s*,\s*['"]Astraball['"]/);
+  assert.match(app, /menuItem\('data-action="astraball"','Astraball','<img class="kalistar-nav-icon" src="astraball\/assets\/balls-v1\/founders\.webp" alt="" width="40" height="40">'/);
   assert.match(app, /if\s*\(\s*action\s*===\s*['"]astraball['"]\s*\)\s*\{\s*window\.location\.assign\(\s*['"]\/jeu\/astraball\/['"]\s*\);\s*return;/);
   assert.match(read('index.html'), /<a\b[^>]*href="\/jeu\/#home"/);
 });
