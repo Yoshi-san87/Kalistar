@@ -184,6 +184,14 @@ locaux a l'appareil ; aucun ajout au schema cloud. Voir
 [Introduction et musique](../docs/INTRO_CONNEXION.md) pour le cycle de vie et
 les medias de production.
 
+`arena-audio.js` porte les effets courts JRPG : cinq textures de combat et
+douze impacts elementaires. Les MP3 sont prepares uniquement apres activation
+de l'arene ; le decodage et la lecture attendent un geste reel. Cache fixe,
+quatre voix au plus, volume local et suspension du contexte au repos. Les
+evenements viennent des actions confirmees, jamais du rendu ou du reload.
+`arena-prompts.css` porte le contour circulant de l'action centrale, sans
+deplacer sa cible. `arena.css` garde la penombre du resultat jusqu'a Tour suivant.
+
 Respecter le proprietaire CSS d'un composant. Par exemple, le socle Collection
 est defini dans `collection-pedestal.css`, pas par de nouveaux overrides dans
 `mobile.css`, `positions.css` ou `collection-binder.css`.

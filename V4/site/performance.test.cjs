@@ -62,3 +62,12 @@ test('obsolete preview and affinity pagination are gone, live DNA pips remain',(
   assert(!/^\s*\.kdb-(?:affinity|preview)\s*\{/m.test(css));
   assert(!read('app.js').includes('${builder().render()}'));
 });
+
+test('the seventeen JRPG samples are short mono assets, registered and peak-controlled',()=>{
+  const spec=JSON.parse(read('../revisions/2026-11-17-arena-jrpg/exports.json')),registry=JSON.parse(read('../deploy/runtime-media.json'));
+  assert.equal(spec.items.length,17);assert.equal(spec.creditsUsed,34);assert.equal(spec.channels,1);assert.equal(spec.sampleRate,44100);
+  assert(spec.items.reduce((n,item)=>n+item.bytes,0)<500000);
+  assert.equal(new Set(spec.items.map(item=>item.sha256)).size,17);
+  for(const item of spec.items){const bytes=fs.readFileSync(path.join(__dirname,'../..',item.path));assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),item.sha256);assert.equal(bytes.length,item.bytes);assert(item.durationSeconds<=1.4&&item.peak<.95&&item.rms>.025);assert(registry.files.some(f=>f.source===item.path&&f.sha256===item.sha256));}
+  assert(!/createOscillator|createScriptProcessor|AudioWorklet|setInterval|requestAnimationFrame/.test(read('arena-audio.js')),'decoded samples, not another procedural audio loop');
+});

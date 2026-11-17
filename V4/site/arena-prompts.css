@@ -4,19 +4,27 @@
   border:1px solid #99dcd1;box-shadow:inset 0 0 7px #99dcd138,0 0 5px #99dcd12e;opacity:.6;
 }
 .arena-view .slot.enemy .slot-card[data-arena-prompt]::after { border-color:#e8a2ac;box-shadow:inset 0 0 7px #e8a2ac38,0 0 5px #e8a2ac2e; }
-.arena-view .ritual-action .arena-action-cue { position:absolute;inset:3px;pointer-events:none;overflow:hidden;border-radius:2px;border:1px solid #d7af7940; }
-.arena-action-cue::before { content:'';position:absolute;inset:0;border:1px solid #f2d39d;box-shadow:inset 0 0 9px #eac18a44,0 0 5px #eac18a44;opacity:0; }
-.arena-action-cue::after { content:'';position:absolute;inset:0;border:1px solid var(--action-color,#9cdbcb);box-shadow:inset 0 0 11px color-mix(in srgb,var(--action-color,#9cdbcb) 28%,transparent);opacity:.15; }
+.arena-view .ritual-action .arena-action-cue { position:absolute;inset:-1px;z-index:3;pointer-events:none;overflow:hidden;border-radius:3px;padding:3px;mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude; }
+.arena-action-cue::before { content:'';position:absolute;left:50%;top:50%;width:220%;aspect-ratio:1;background:conic-gradient(transparent 0 20%,var(--action-color,#9cdbcb) 28%,#9af6ed 32%,#fffbe5 36%,transparent 40% 70%,#d6aa76 80%,#fffbe5 86%,transparent 90%);transform:translate(-50%,-50%); }
+.arena-action-cue::after { content:'';position:absolute;inset:0;border:3px solid var(--action-color,#9cdbcb);opacity:.3; }
+.arena-view .ritual-action::after { content:'';position:absolute;inset:-4px;z-index:-2;pointer-events:none;border:1px solid var(--action-color,#9cdbcb);border-radius:5px;box-shadow:0 0 12px color-mix(in srgb,var(--action-color,#9cdbcb) 45%,transparent);opacity:0; }
 body.arena-view:not(.lineup-opening):not(:has(dialog[open])) #app:not(.rolling) .slot-card[data-arena-prompt]::after { animation:arena-choice-breathe 3.4s ease-in-out infinite; }
-body.arena-view:not(.lineup-opening):not(:has(dialog[open])) #app:not(.rolling) .ritual-action:not(:disabled):not(.is-casting) .arena-action-cue::before { animation:arena-action-reflect 3.8s ease-in-out infinite; }
-body.arena-view:not(.lineup-opening):not(:has(dialog[open])) #app:not(.rolling) .ritual-action:not(:disabled):not(.is-casting) .arena-action-cue::after { animation:arena-action-reflect 3.8s ease-in-out -1.9s infinite; }
+body.arena-view:not(.lineup-opening):not(:has(dialog[open])) #app:not(.rolling) .ritual-action:not(:disabled):not(.is-casting) .arena-action-cue::before { animation:arena-action-orbit 2.1s linear infinite; }
+body.arena-view:not(.lineup-opening):not(:has(dialog[open])) #app:not(.rolling) .ritual-action:not(:disabled):not(.is-casting) .arena-action-cue::after { animation:arena-action-reflect 1.8s ease-in-out infinite; }
+body.arena-view:not(.lineup-opening):not(:has(dialog[open])) #app:not(.rolling) .ritual-action:not(:disabled):not(.is-casting) .action-sigil { animation:arena-sigil-beat 1.8s ease-in-out infinite; }
+body.arena-view:not(.lineup-opening):not(:has(dialog[open])) #app:not(.rolling) .ritual-action:not(:disabled):not(.is-casting)::after { animation:arena-action-halo 1.8s ease-in-out infinite; }
+body.arena-view:not(.lineup-opening):not(:has(dialog[open])) #app:not(.rolling) .ritual-action:not(:disabled):not(.is-casting) .action-tail { animation:arena-action-nudge .9s ease-in-out infinite alternate; }
 .arena-view .ritual-action:disabled .arena-action-cue,.arena-view .ritual-action.is-casting .arena-action-cue,
 body.lineup-opening .arena-action-cue,body:has(dialog[open]) .arena-action-cue,
 body.lineup-opening .slot-card[data-arena-prompt]::after,body:has(dialog[open]) .slot-card[data-arena-prompt]::after,
 #app.rolling .arena-action-cue,#app.rolling .slot-card[data-arena-prompt]::after { visibility:hidden; }
 @keyframes arena-choice-breathe { 0%,100%{opacity:.22;}50%{opacity:.75;} }
-@keyframes arena-action-reflect { 0%,100%{opacity:.10;}35%,55%{opacity:.80;} }
+@keyframes arena-action-orbit { from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)} }
+@keyframes arena-action-reflect { 0%,100%{opacity:.12;}45%,55%{opacity:.55;} }
+@keyframes arena-sigil-beat { 0%,100%{transform:rotate(45deg) scale(.92);opacity:.65}45%,55%{transform:rotate(45deg) scale(1.06);opacity:1} }
+@keyframes arena-action-halo { 0%,100%{opacity:.06}45%,55%{opacity:.6} }
+@keyframes arena-action-nudge { from{transform:translateX(-2px);opacity:.45}to{transform:translateX(2px);opacity:1} }
 @media(prefers-reduced-motion:reduce) {
-  .arena-view .slot-card[data-arena-prompt]::after,.arena-view .arena-action-cue::before,.arena-view .arena-action-cue::after { animation:none!important; }
+  .arena-view .slot-card[data-arena-prompt]::after,.arena-view .arena-action-cue::before,.arena-view .arena-action-cue::after,.arena-view .ritual-action .action-sigil,.arena-view .ritual-action .action-tail,.arena-view .ritual-action::after { animation:none!important; }
   .arena-view .arena-action-cue::before { display:none; }
 }

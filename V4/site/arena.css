@@ -27,9 +27,9 @@ body.arena-view .arena-finale{min-height:100%}
 .battlefield[data-last-standing="true"]>.arena-tension{opacity:.27}
 .battlefield[data-tension="true"]>.arena-tension{opacity:.34}
 .battlefield[data-awakening="true"]>.arena-tension{opacity:.26}
-.battlefield:is([data-presentation="duel"],[data-presentation="action"])>.arena-tension{background:#020907;opacity:.54}
-.battlefield:is([data-presentation="duel"],[data-presentation="action"]) .slot:not(.challenger),
-.battlefield:is([data-presentation="duel"],[data-presentation="action"]) .reserve-zone{filter:brightness(.55)}
+.battlefield:is([data-presentation="duel"],[data-presentation="action"],[data-presentation="resolved"])>.arena-tension{background:#020907;opacity:.54}
+.battlefield:is([data-presentation="duel"],[data-presentation="action"],[data-presentation="resolved"]) .slot:not(.challenger),
+.battlefield:is([data-presentation="duel"],[data-presentation="action"],[data-presentation="resolved"]) .reserve-zone{filter:brightness(.55)}
 .arena-arrival{background:radial-gradient(ellipse at center,var(--arrival-color,#e8dccb),transparent 78%);opacity:0}
 @media(prefers-reduced-motion:reduce){.arena-tension{transition:none}.arena-arrival{display:none}}
 .arena-view .battlefield{padding:18px 22px 16px;display:grid;grid-template-columns:minmax(calc(var(--card-width)*3 + var(--formation-gap)*2 + var(--reserve-width) + 18px),1fr) var(--console-width) minmax(calc(var(--card-width)*3 + var(--formation-gap)*2 + var(--reserve-width) + 18px),1fr);gap:20px;width:100%;min-width:max-content;align-items:start;min-height:calc(100dvh - 130px);background:linear-gradient(#0b17104d,#08110d8c),url('assets/arena.webp') center/cover;isolation:isolate}

@@ -1,24 +1,26 @@
 'use strict';
 const {test}=require('node:test'),assert=require('node:assert/strict'),Audio=require('./arena-audio.js');
-function fixture({blocked=false,deferred=false}={}){
-  const host=new EventTarget(),doc=new EventTarget(),timers=new Map(),nodes=[],values=new Map();let id=0,resolve;
-  const context={state:'suspended',sampleRate:8000,currentTime:10,destination:{},resume(){if(blocked)return Promise.reject(Error('blocked'));this.state='running';return deferred?new Promise(r=>resolve=r):Promise.resolve();},suspend(){this.state='suspended';return Promise.resolve();},close(){this.state='closed';return Promise.resolve();},createBuffer:(_c,n)=>({getChannelData:()=>new Float32Array(n)}),createGain(){return {gain:{setValueAtTime(){},exponentialRampToValueAtTime(){}},connect(){},disconnect(){}};},createOscillator(){const n={frequency:{setValueAtTime(){},exponentialRampToValueAtTime(){}},connect(){},disconnect(){n.disconnected=true;},start(){},stop(){}};nodes.push(n);return n;},createBufferSource(){return this.createOscillator();}};
+function fixture({blocked=false,deferred=false,missing=false}={}){
+  const host=new EventTarget(),doc=new EventTarget(),timers=new Map(),nodes=[],values=new Map(),resumes=[],requests=[];let id=0;
+  const context={state:'suspended',sampleRate:44100,currentTime:10,destination:{},resume(){if(blocked)return Promise.reject(Error('blocked'));this.state='running';return deferred?new Promise(r=>resumes.push(r)):Promise.resolve();},suspend(){this.state='suspended';return Promise.resolve();},close(){this.state='closed';return Promise.resolve();},decodeAudioData:async()=>({duration:1.35,length:59535,numberOfChannels:1}),createGain(){return {gain:{value:0,setValueAtTime(){},linearRampToValueAtTime(){}},connect(){},disconnect(){}};},createDynamicsCompressor(){return {threshold:{},knee:{},ratio:{},attack:{},release:{},connect(){},disconnect(){}};},createBufferSource(){const n={playbackRate:{value:1},connect(){},disconnect(){n.disconnected=true;},start(){n.started=true;},stop(){}};nodes.push(n);return n;}};
   let created=0;host.AudioContext=function(){created++;return context;};host.document=doc;host.location={hash:'#arena'};
   host.localStorage={getItem:k=>values.get(k)||null,setItem:(k,v)=>values.set(k,v)};host.setTimeout=fn=>{timers.set(++id,fn);return id;};host.clearTimeout=id=>timers.delete(id);
+  host.fetch=async url=>{requests.push(url);return {ok:!missing,arrayBuffer:async()=>new ArrayBuffer(30)};};
   doc.hidden=false;doc.covered=false;doc.querySelector=()=>doc.covered;doc.querySelectorAll=()=>[];
   const fire=(target,name,fields={})=>target.dispatchEvent(Object.assign(new Event(name),fields));
   // Node's Event.isTrusted is non-configurable: retain the browser gesture gate and unlock via a controlled EventTarget adapter.
   const add=doc.addEventListener.bind(doc);doc.addEventListener=(name,fn,options)=>add(name,event=>fn(name==='pointerdown'?{isTrusted:true}:event),options);
-  return {host,doc,context,nodes,timers,fire,resolve:()=>resolve?.(),get created(){return created;},finish(){for(const n of [...nodes])n.onended?.();},expire(){for(const [id,fn]of [...timers]){timers.delete(id);fn();}}};
+  return {host,doc,context,nodes,timers,requests,fire,async settle(){for(let i=0;i<15;i++)await Promise.resolve();},resolve(){for(const fn of resumes.splice(0))fn();},get created(){return created;},finish(){for(const n of [...nodes])n.onended?.();},expire(){for(const [id,fn]of [...timers]){timers.delete(id);fn();}}};
 }
 test('arena audio stays dormant before activation and a gesture; preferences are bounded',async()=>{
-  assert.deepEqual(Audio.preference(),{enabled:true,volume:.2});assert.equal(Audio.preference({volume:7}).volume,.4);
+  assert.deepEqual(Audio.preference(),{enabled:true,volume:.3});assert.equal(Audio.preference({volume:7}).volume,.4);
   const f=fixture(),audio=Audio.create(f);assert.equal(await audio.play('strike'),false);audio.activate();assert.equal(await audio.play('strike'),false);assert.equal(f.created,0);audio.destroy();
 });
 test('one bounded context, at most four concurrent cues, nodes disconnect and idle suspends',async()=>{
   const f=fixture(),audio=Audio.create(f);audio.activate();f.fire(f.doc,'pointerdown');
   for(let i=0;i<4;i++)assert.equal(await audio.play('strike'),true);assert.equal(await audio.play('strike'),false);assert.equal(f.created,1);assert.equal(audio.snapshot().voices,4);
-  f.finish();assert(f.nodes.every(n=>n.disconnected));f.expire();assert.equal(audio.snapshot().voices,0);assert.equal(f.context.state,'suspended');assert.equal(f.timers.size,0);audio.destroy();
+  f.finish();assert(f.nodes.every(n=>n.disconnected));f.expire();assert.equal(audio.snapshot().voices,0);assert.equal(f.context.state,'suspended');assert.equal(f.timers.size,0);
+  assert.equal(f.requests.filter(url=>url.endsWith('/strike.mp3')).length,1,'one fetch and decode shared by all strikes');audio.destroy();
 });
 test('hidden, modal, other routes, mute and zero volume suppress cues and cancel pending work',async()=>{
   const f=fixture(),audio=Audio.create(f);audio.activate();f.fire(f.doc,'pointerdown');assert(await audio.play('magic'));
@@ -29,8 +31,17 @@ test('hidden, modal, other routes, mute and zero volume suppress cues and cancel
 });
 test('abort releases voices; delayed resume cannot play after leaving; refused autoplay is harmless',async()=>{
   const f=fixture(),audio=Audio.create(f);audio.activate();f.fire(f.doc,'pointerdown');const c=new AbortController();assert(await audio.play('support',{signal:c.signal}));c.abort();assert.equal(audio.snapshot().voices,0);audio.destroy();assert.equal(f.timers.size,0);
-  const g=fixture({deferred:true}),b=Audio.create(g);b.activate();g.fire(g.doc,'pointerdown');const pending=b.play('roll');g.host.location.hash='#home';g.fire(g.host,'hashchange');g.resolve();assert.equal(await pending,false);g.expire();assert.equal(g.nodes.length,0);b.destroy();
+  const g=fixture({deferred:true}),b=Audio.create(g);b.activate();g.fire(g.doc,'pointerdown');const pending=b.play('roll');await g.settle();g.host.location.hash='#home';g.fire(g.host,'hashchange');g.resolve();assert.equal(await pending,false);g.expire();assert.equal(g.nodes.length,0);b.destroy();
   const h=fixture({blocked:true}),d=Audio.create(h);d.activate();h.fire(h.doc,'pointerdown');assert.equal(await d.play('roll'),false);d.destroy();
+});
+test('all twelve elements select distinct recorded impacts; unknown inputs cannot create asset paths',async()=>{
+  assert.equal(new Set(Audio.elements.map(e=>Audio.resolve('magic',e).asset)).size,12);assert.equal(Audio.resolve('magic','../../secret').asset,'RAINBOW');assert.equal(Audio.resolve('__proto__'),null);assert.equal(Audio.resolve('toString'),null);
+  const f=fixture(),audio=Audio.create(f);audio.activate();f.fire(f.doc,'pointerdown');
+  for(const element of Audio.elements){assert(await audio.play('magic',{element}));f.finish();}assert.equal(new Set(f.requests).size,17);audio.destroy();
+});
+test('failed media stays silent without repeated requests, and destruction cannot revive a decode',async()=>{
+  const f=fixture({missing:true}),audio=Audio.create(f);audio.activate();f.fire(f.doc,'pointerdown');await f.settle();assert.equal(await audio.play('strike'),false);assert.equal(await audio.play('strike'),false);assert.equal(f.requests.filter(u=>u.endsWith('/strike.mp3')).length,1);audio.destroy();assert.equal(f.timers.size,0);
+  const g=fixture(),b=Audio.create(g);b.activate();g.fire(g.doc,'pointerdown');const p=b.play('magic',{element:'PYRO'});b.destroy();assert.equal(await p,false);assert.equal(g.nodes.length,0);assert.equal(g.context.state,'closed');await g.settle();assert.equal(g.timers.size,0);
 });
 test('bfcache suspends without a second context and normal pagehide releases it',async()=>{
   const f=fixture(),audio=Audio.create(f);audio.activate();f.fire(f.doc,'pointerdown');await audio.play('shield');f.fire(f.host,'pagehide',{persisted:true});assert.equal(audio.snapshot().voices,0);assert.equal(await audio.play('roll'),false);

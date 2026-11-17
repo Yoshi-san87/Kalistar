@@ -88,8 +88,12 @@
     const reaction=outcome(before,after),d=after.duel;
     if(!reaction||signal.aborted)return;
     const sound=()=>{
-      const cue=['shield','defeat','dodge'].includes(reaction)?reaction:reaction==='reraise'?'support':['guard','guard-gain','heart','heart-gain','mana','mana-gain','power','power-gain','luck','clover-gain','second-chance'].includes(reaction)?'support':d.magic?'magic':'strike';
-      void window.KALISTAR_ARENA_AUDIO?.play(cue,reduced?{}:{signal});
+      if(signal.aborted)return;
+      const audio=window.KALISTAR_ARENA_AUDIO;if(!audio)return;
+      if(['guard','guard-gain','heart','heart-gain','mana','mana-gain','power','power-gain','luck','clover-gain','second-chance'].includes(reaction)){void audio.play('support');return;}
+      if(reaction==='dodge'){void audio.play('dodge');return;}
+      void audio.play(d.magic&&element&&element!=='NONE'?'magic':'strike',{element});
+      if(['shield','defeat','reraise'].includes(reaction))void audio.play(reaction==='reraise'?'support':reaction);
     };
     if(reduced){sound();return;}
     const field=document.querySelector('.battlefield');
@@ -227,7 +231,7 @@
         await symbol;return;
       }
       const elementalMagic=d.magic&&element&&element!=='NONE';
-      void window.KALISTAR_ARENA_AUDIO?.play(elementalMagic?'magic':'strike',{signal});
+      void window.KALISTAR_ARENA_AUDIO?.play(elementalMagic?'cast':'swing',{signal,element});
       field.dataset.combat=elementalMagic?'magic':'physical';field.dataset.reaction=reaction;field.dataset.element=element;
       source.classList.add('combat-actor');target.classList.add('combat-target');
       const direction=d.side===0?1:-1;

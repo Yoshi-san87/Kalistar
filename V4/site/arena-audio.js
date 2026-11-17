@@ -3,24 +3,16 @@
   if(typeof module==='object'&&module.exports)module.exports=api;else root.KalistarArenaAudio=api;
 })(typeof globalThis!=='undefined'?globalThis:this,function(){
   'use strict';
-  const KEY='kalistar.arena-audio.v1';
-  const cues=Object.freeze({
-    engage:[[110,165,.36,.17],[440,660,.45,.045]],
-    roll:[[180,72,.32,.07],[1800,320,.25,.045,'noise']],
-    land:[[660,440,.18,.07],[1320,880,.24,.025]],
-    strike:[[130,44,.25,.22],[1600,180,.15,.10,'noise']],
-    shield:[[880,620,.34,.09],[1320,930,.46,.04]],
-    magic:[[330,990,.50,.07],[660,1320,.60,.035]],
-    support:[[440,660,.35,.065],[660,880,.50,.04]],
-    defeat:[[164,82,.48,.12],[880,220,.35,.025]],
-    dodge:[[1100,1800,.22,.045,'noise']],
-    victory:[[330,330,.65,.07],[440,440,.72,.05],[660,660,.85,.04]]
-  });
-  function preference(value){return {enabled:typeof value?.enabled==='boolean'?value.enabled:true,volume:Number.isFinite(value?.volume)?Math.max(0,Math.min(.4,value.volume)):.20};}
+  const KEY='kalistar.arena-audio.v1',BASE='assets/audio/arena-jrpg-v1/';
+  const elements=Object.freeze(['ELECTRO','PYRO','HYDRO','AERO','CRYO','MINERO','GEO','HERBO','HEMATO','NECRO','LUXO','RAINBOW']);
+  const common=Object.freeze(['engage','roll','strike','shield','defeat']);
+  const cues=Object.freeze({engage:{asset:'engage'},roll:{asset:'roll',duration:.65,level:.65},land:{asset:'shield',duration:.16,rate:1.6,level:.4},strike:{asset:'strike'},shield:{asset:'shield',level:.85},defeat:{asset:'defeat',level:.75},cast:{asset:'engage',duration:.6,rate:.9,level:.45},swing:{asset:'AERO',duration:.17,rate:1.5,level:.5},support:{asset:'LUXO',rate:1.2,level:.6},dodge:{asset:'AERO',duration:.45,rate:1.3,level:.6},victory:{asset:'RAINBOW',rate:.9,level:.85}});
+  function resolve(name,element){return name==='magic'?{asset:elements.includes(element)?element:'RAINBOW'}:Object.hasOwn(cues,name)?{...cues[name]}:null;}
+  function preference(value){return {enabled:typeof value?.enabled==='boolean'?value.enabled:true,volume:Number.isFinite(value?.volume)?Math.max(0,Math.min(.4,value.volume)):.30};}
   function create({host=window,doc=host.document}={}){
     let saved;try{saved=JSON.parse(host.localStorage.getItem(KEY));}catch{}
-    let settings=preference(saved),active=false,dead=false,unlocked=false,context=null,noise=null,timer=null,generation=0;
-    const voices=new Set(),events=new AbortController();
+    let settings=preference(saved),active=false,dead=false,unlocked=false,context=null,master=null,limiter=null,timer=null,generation=0,pending=0;
+    const voices=new Set(),files=new Map(),records=new Map(),events=new AbortController(),downloads=new AbortController();
     const listen=(node,name,fn,capture=false)=>node.addEventListener(name,fn,{capture,signal:events.signal});
     const eligible=()=>active&&!dead&&!doc.hidden&&settings.enabled&&settings.volume>0&&/^#arena(?:$|[/?])/.test(host.location.hash)&&!doc.querySelector('dialog[open],.lineup-intro');
     const snapshot=()=>({...settings,voices:voices.size,state:context?.state||'dormant'});
@@ -43,32 +35,57 @@
       if(context)return context;
       const Context=host.AudioContext||host.webkitAudioContext;if(!Context)return null;
       context=new Context({latencyHint:'interactive'});
-      noise=context.createBuffer(1,Math.ceil(context.sampleRate*.65),context.sampleRate);
-      const data=noise.getChannelData(0);let seed=31;
-      for(let i=0;i<data.length;i++){seed=(Math.imul(seed,1664525)+1013904223)>>>0;data[i]=(seed/4294967296)*2-1;}
+      master=context.createGain();master.gain.value=settings.volume;limiter=context.createDynamicsCompressor();
+      limiter.threshold.value=-7;limiter.knee.value=3;limiter.ratio.value=12;limiter.attack.value=.002;limiter.release.value=.15;
+      master.connect(limiter);limiter.connect(context.destination);
       return context;
+    }
+    function download(asset){
+      if(!files.has(asset))files.set(asset,(async()=>{
+        const request=new AbortController(),abort=()=>request.abort(),timeout=host.setTimeout(abort,2000);
+        downloads.signal.addEventListener('abort',abort,{once:true});
+        try{
+          const response=await host.fetch(BASE+asset+'.mp3',{credentials:'same-origin',cache:'force-cache',signal:request.signal});if(!response.ok)return null;
+          const bytes=await response.arrayBuffer();if(dead||bytes.byteLength>300000)return null;
+          return bytes;
+        }catch{return null;}finally{host.clearTimeout(timeout);downloads.signal.removeEventListener('abort',abort);}
+      })());
+      return files.get(asset);
+    }
+    function load(asset){
+      if(!records.has(asset))records.set(asset,(async()=>{
+        try{const bytes=await download(asset);if(!bytes||dead)return null;const buffer=await context.decodeAudioData(bytes.slice(0));if(dead||buffer.duration<=0||buffer.duration>2.5||buffer.numberOfChannels>2||buffer.length*buffer.numberOfChannels*4>1000000)return null;return buffer;}catch{return null;}
+      })());
+      return records.get(asset);
+    }
+    const visibleElements=()=>[...doc.querySelectorAll('.formation .slot[data-element]')].map(n=>n.dataset.element).filter(value=>elements.includes(value));
+    function prefetch(){if(eligible())for(const asset of new Set([...common,...visibleElements()]))void download(asset);}
+    function warm(values=[]){
+      if(!eligible()||!unlocked)return;
+      try{if(!prepare())return;for(const asset of new Set([...common,...values.filter(value=>elements.includes(value))]))void load(asset);}catch{}
     }
     function unlock(event){
       if(!event.isTrusted||!active||dead)return;
       unlocked=true;if(!eligible())return;
-      try{const ctx=prepare();if(ctx)void ctx.resume().then(()=>{if(!eligible())stop();else idle();}).catch(()=>{});}catch{}
+      try{const ctx=prepare();if(ctx){void ctx.resume().then(()=>{if(!eligible())stop();else idle();}).catch(()=>{});warm(visibleElements());}}catch{}
     }
-    async function play(name,{signal}={}){
-      if(!eligible()||!unlocked||signal?.aborted||!cues[name]||voices.size>=4)return false;
-      const ticket=generation;let ctx;
-      try{ctx=prepare();if(!ctx)return false;await ctx.resume();}catch{return false;}
+    async function play(name,{signal,element}={}){
+      const cue=resolve(name,element);
+      if(!eligible()||!unlocked||signal?.aborted||!cue||voices.size+pending>=4)return false;
+      const ticket=generation,started=Date.now();let ctx,buffer;pending++;
+      try{ctx=prepare();if(!ctx)return false;buffer=await load(cue.asset);if(!buffer||ticket!==generation||!eligible()||signal?.aborted||Date.now()-started>350)return false;await ctx.resume();}catch{return false;}
+      finally{pending--;}
       if(ticket!==generation||!eligible()||signal?.aborted||voices.size>=4){if(!eligible())stop();else idle();return false;}
-      const nodes=[],voice={stop:()=>{for(const [source,gain]of nodes){source.onended=null;try{source.stop();}catch{}source.disconnect();gain.disconnect();}voices.delete(voice);signal?.removeEventListener('abort',voice.stop);idle();}};
-      voices.add(voice);signal?.addEventListener('abort',voice.stop,{once:true});let remaining=cues[name].length;
+      let source,gain,ended=false;
+      try{source=ctx.createBufferSource();gain=ctx.createGain();}catch{source?.disconnect();idle();return false;}
+      const clean=()=>{if(ended)return;ended=true;source.onended=null;source.disconnect();gain.disconnect();voices.delete(voice);signal?.removeEventListener('abort',voice.stop);idle();};
+      const voice={stop(){try{source.stop();}catch{}clean();}};
+      voices.add(voice);signal?.addEventListener('abort',voice.stop,{once:true});
       try{
-        for(const [from,to,duration,level,type]of cues[name]){
-          const gain=ctx.createGain(),source=type==='noise'?ctx.createBufferSource():ctx.createOscillator(),now=ctx.currentTime;
-          if(type==='noise')source.buffer=noise;else{source.type='sine';source.frequency.setValueAtTime(from,now);source.frequency.exponentialRampToValueAtTime(to,now+duration);}
-          gain.gain.setValueAtTime(.0001,now);gain.gain.exponentialRampToValueAtTime(Math.max(.0001,level*settings.volume),now+.012);gain.gain.exponentialRampToValueAtTime(.0001,now+duration);
-          source.connect(gain);gain.connect(ctx.destination);nodes.push([source,gain]);
-          source.onended=()=>{source.disconnect();gain.disconnect();if(!--remaining){voices.delete(voice);signal?.removeEventListener('abort',voice.stop);idle();}};
-          source.start(now);source.stop(now+duration+.02);
-        }
+        const now=ctx.currentTime,rate=cue.rate||1,length=Math.min(buffer.duration,cue.duration||buffer.duration),duration=length/rate;
+        source.buffer=buffer;source.playbackRate.value=rate;master.gain.value=settings.volume;
+        gain.gain.setValueAtTime(0,now);gain.gain.linearRampToValueAtTime(cue.level||1,now+.004);gain.gain.setValueAtTime(cue.level||1,now+Math.max(.005,duration-.025));gain.gain.linearRampToValueAtTime(0,now+duration);
+        source.connect(gain);gain.connect(master);source.onended=clean;source.start(now,0,length);source.stop(now+duration+.03);
         return true;
       }catch{voice.stop();return false;}
     }
@@ -81,9 +98,9 @@
     listen(doc,'visibilitychange',()=>{if(doc.hidden)stop();});listen(host,'hashchange',stop);listen(host,'kalistar-overlay',()=>{if(!eligible())stop();});
     listen(host,'storage',event=>{if(event.key===KEY||event.key===null){try{settings=preference(JSON.parse(host.localStorage.getItem(KEY)));}catch{settings=preference();}stop();update();}});
     listen(host,'pagehide',event=>{if(event.persisted){active=false;stop();}else destroy();});listen(host,'pageshow',event=>{if(event.persisted&&!dead)active=true;});
-    function destroy(){if(dead)return;dead=true;active=false;stop();events.abort();if(context)void context.close().catch(()=>{});context=noise=null;}
-    return Object.freeze({activate(){if(!dead){active=true;update();}},refresh(){update();if(!eligible())stop();},play,set,snapshot,destroy});
+    function destroy(){if(dead)return;dead=true;active=false;stop();events.abort();downloads.abort();files.clear();records.clear();master?.disconnect();limiter?.disconnect();if(context)void context.close().catch(()=>{});context=master=limiter=null;}
+    return Object.freeze({activate(){if(!dead){active=true;update();prefetch();}},refresh(){update();if(!eligible())stop();else prefetch();},play,warm,set,snapshot,destroy});
   }
   function controls(value){const s=preference(value);return `<section class="account-section"><h3>Sons de l’arène</h3><div class="account-form"><label class="account-check"><input type="checkbox" data-arena-sound-enabled ${s.enabled?'checked':''}><span>Effets sonores<small>Sur cet appareil</small></span></label><label class="account-music-volume"><span>Volume <output data-arena-sound-level>${Math.round(s.volume*100)} %</output></span><input type="range" min="0" max="40" step="1" value="${Math.round(s.volume*100)}" data-arena-sound-volume aria-label="Volume des effets sonores"></label></div></section>`;}
-  return Object.freeze({create,controls,preference,KEY});
+  return Object.freeze({create,controls,preference,resolve,elements,common,BASE,KEY});
 });

@@ -100,9 +100,10 @@ sans nouvelle musique ni dialogue generes. Les transitions suivent les reperes
 Le son n'est pas accelere pour suivre les plans.
 Les medias binaires restent hors Git, leurs SHA-256 dans le registre runtime.
 
-## Musique des menus
+## Musique du jeu
 
-`theme-music.js` possede un seul lecteur audio natif. `app.js` ne le cree
+`theme-music.js` garde deux lecteurs natifs au maximum, dont un seul joue.
+`app.js` ne cree ce controleur
 qu'apres le choix Entrer, puis l'active quand la premiere vue est prete. Aucune
 requete audio ni son de menu pendant le film ou l'accueil de lecture.
 Le morceau complet est compresse en MP3 128 kb/s, normalise a -22 LUFS puis lu
@@ -110,10 +111,18 @@ a 16 % par defaut. Le volume est borne a 40 %, avec une entree douce de 700 ms.
 Il n'existe aucune boucle de rendu, analyse audio temps reel ou minuterie
 permanente : seulement les vingt pas du fondu, annules en quittant le lecteur.
 
-La musique s'interrompt en arene, pendant le Gaming Book et en arriere-plan,
-puis reprend a sa position dans les menus. Elle ne remplace pas les sons des
+En arene, Brass Fight Call prend le relais du theme des menus, sans superposition.
+Chaque morceau conserve sa position. La musique s'interrompt pendant le Gaming
+Book, dans Astraball et en arriere-plan. Elle ne remplace pas les sons des
 autres jeux. Autoplay refuse : nouvelle tentative seulement lors d'une action
 du joueur ; fichier indisponible : silence, jamais un blocage du demarrage.
+
+Les effets JRPG sont geres independamment par `arena-audio.js` : impacts
+elementaires au contact, frappe physique, blocage et autres evenements de
+combat confirmes. Les MP3 se preparent apres Entrer en arene, sans lecture
+ni contexte audio avant un geste. Cache borne de 17 effets, quatre voix au
+plus et suspension au repos. Les reglages restent locaux a l'appareil, dans
+Mon compte > Parametres. Une mise a jour ne remplace jamais le volume choisi.
 Le menu Plus permet de couper/reprendre le theme. Mon compte > Parametres
 contient l'interrupteur et le volume. La preference est propre a l'appareil
 (`kalistar.audio.v1`), sans changement de schema des sauvegardes synchronisees.

@@ -3,7 +3,8 @@ const fs=require('node:fs'),path=require('node:path'),assert=require('node:asser
 const runtime=createRequire(path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/__arena_prompts__.cjs'));
 const dist=path.resolve(process.env.KALISTAR_DIST||path.join(__dirname,'../deploy/dist')),base='https://arena-prompts-qa.invalid/Kalistar';
 const out=process.env.KALISTAR_VERIFICATION_DIR||path.join(__dirname,'../revisions/2026-10-11-razr-experience/qa/prompts');
-const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.webmanifest':'application/manifest+json','.png':'image/png','.webp':'image/webp','.svg':'image/svg+xml','.woff2':'font/woff2'};
+const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.webmanifest':'application/manifest+json','.png':'image/png','.webp':'image/webp','.svg':'image/svg+xml','.woff2':'font/woff2','.mp3':'audio/mpeg'};
+async function ready(page){await page.locator('[data-startup-enter]:enabled').click();await page.waitForFunction(()=>window.KALISTAR_READY);await page.evaluate(()=>{window.qaHidden=true;document.dispatchEvent(new Event('visibilitychange'));});}
 async function main(){
   fs.mkdirSync(out,{recursive:true});const browser=await runtime('playwright').chromium.launch({channel:'chrome',headless:true}),checks=[],errors=[];
   try{
@@ -17,10 +18,10 @@ async function main(){
       await context.addInitScript(()=>{
         const open=IDBFactory.prototype.open;IDBFactory.prototype.open=function(n,v){return v===undefined?open.call(this,n+'-arena-prompts-qa'):open.call(this,n+'-arena-prompts-qa',v);};
         // Freeze only autonomous AI timers in this isolated UI fixture.
-        Object.defineProperty(document,'hidden',{configurable:true,get:()=>true});
+        Object.defineProperty(document,'hidden',{configurable:true,get:()=>!!window.qaHidden});
       });
       const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400)errors.push(r.status()+' '+r.url());});
-      await page.goto(base+'/jeu/#arena');await page.waitForFunction(()=>window.KALISTAR_READY);
+      await page.goto(base+'/jeu/#arena');await ready(page);
       if(await page.locator('.li-skip').count())await page.locator('.li-skip').click();
       const states=await page.evaluate(()=>{
         const E=KalistarEngine.createEngine(KALISTAR_DATA),T=KalistarTeamComposition.create(E),team=T.fromPreset({name:'Prompt QA',cards:KALISTAR_DATA.decks.player});
@@ -34,7 +35,7 @@ async function main(){
       });
       const load=async state=>{
         await page.evaluate(async s=>{await KALISTAR_DB.idle();await KALISTAR_DB.saveGame(s);localStorage.setItem('kalistar.v4.game',JSON.stringify(s));localStorage.removeItem('kalistar.v4.openingMatch');},state);
-        await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY);
+        await page.reload();await ready(page);
         await page.waitForFunction(()=>[...document.querySelectorAll('.formation .slot-card>img')].every(i=>i.complete&&i.naturalWidth>0));
       };
       await load(states['choose-0']);
@@ -45,23 +46,23 @@ async function main(){
       const first=page.locator('[data-arena-prompt=attacker]').first();assert.equal(await first.evaluate(n=>getComputedStyle(n,'::after').animationName),'arena-choice-breathe');
       assert.equal(await first.evaluate(n=>getComputedStyle(n,'::after').pointerEvents),'none');
       await page.screenshot({path:path.join(out,name+'-choose.png')});
-      await first.click();assert.equal(await page.locator('[data-arena-prompt=attacker]').count(),0);assert.equal(await page.locator('[data-arena-prompt=target]').count(),5);
-      await page.locator('[data-arena-prompt=target]').first().click();assert.equal(await page.locator('[data-arena-prompt]').count(),0);
+      await first.click({position:{x:8,y:12}});assert.equal(await page.locator('[data-arena-prompt=attacker]').count(),0);assert.equal(await page.locator('[data-arena-prompt=target]').count(),5);
+      await page.locator('[data-arena-prompt=target]').first().click({position:{x:8,y:12}});assert.equal(await page.locator('[data-arena-prompt]').count(),0);
       const button=page.locator('[data-action=lock]');assert(await button.isEnabled());
-      assert.equal(await button.locator('.arena-action-cue').evaluate(n=>getComputedStyle(n,'::before').animationName),'arena-action-reflect');
+      assert.equal(await button.locator('.arena-action-cue').evaluate(n=>getComputedStyle(n,'::before').animationName),'arena-action-orbit');
       await page.screenshot({path:path.join(out,name+'-engage.png')});await button.click();
       await page.waitForFunction(()=>document.querySelector('.duel-console')?.dataset.phase==='attack');
       assert.equal(await page.locator('[data-arena-prompt]').count(),0);
-      assert.equal(await page.locator('[data-action=roll] .arena-action-cue').evaluate(n=>getComputedStyle(n,'::before').animationName),'arena-action-reflect');
-      await load(states['result-0']);assert.equal(await page.locator('[data-action=next] .arena-action-cue').evaluate(n=>getComputedStyle(n,'::before').animationName),'arena-action-reflect');
+      assert.equal(await page.locator('[data-action=roll] .arena-action-cue').evaluate(n=>getComputedStyle(n,'::before').animationName),'arena-action-orbit');
+      await load(states['result-0']);assert.equal(await page.locator('[data-action=next] .arena-action-cue').evaluate(n=>getComputedStyle(n,'::before').animationName),'arena-action-orbit');
       await load({...states['choose-1'],mode:'ai'});assert.equal(await page.locator('[data-arena-prompt]').count(),0,'AI decisions are not clickable prompts');
       for(const state of Object.values(states).filter(s=>['clover','guard','potion','physical','heart'].includes(s.phase)).slice(0,3)){
         await load(state);const prompts=await page.locator('[data-arena-prompt=support]').evaluateAll(nodes=>nodes.map(n=>Number(n.dataset.side)));
         assert(prompts.length>0&&prompts.every(side=>side===state.turn),'only real friendly support recipients are prompted');
       }
-      await load(states['choose-0']);await page.locator(mobile?'[data-action=arena-menu]':'[data-action=journal]').click();
+      await load(states['choose-0']);await page.locator('[data-action=arena-menu]:visible').click();
       assert.equal(await first.evaluate(n=>getComputedStyle(n,'::after').visibility),'hidden','modal blocks decorative click cues');
-      await page.locator((mobile?'#mobile-dialog':'#journal-dialog')+' [data-action=close]').first().click();await page.emulateMedia({reducedMotion:'reduce'});
+      await page.locator('#mobile-dialog [data-action=close]').first().click();await page.emulateMedia({reducedMotion:'reduce'});
       assert.equal(await first.evaluate(n=>getComputedStyle(n,'::after').animationName),'none');
       await page.screenshot({path:path.join(out,name+'-reduced.png')});
       await load(Object.values(states).find(s=>s.phase==='over'));assert.equal(await page.locator('[data-arena-prompt]').count(),0);

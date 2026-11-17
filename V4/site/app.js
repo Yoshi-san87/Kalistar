@@ -320,6 +320,7 @@
     window.KalistarAmbience?.mount($('.battlefield'),{arena:matchArena(game),game,engine:matchEngine(game)});
     window.KalistarFocus?.mount(game?.phase==='over'?[]:document.querySelectorAll('.formation'));
     if(ui.view==='arena')window.KalistarEquipmentFX.mount(game,matchEngine(game));
+    if(ui.view==='arena')arenaAudio.warm([...document.querySelectorAll('.formation .slot[data-element]')].map(n=>n.dataset.element));
     syncDetailEquipment();
     presentLineup();persist();scheduleAI();
     if(ui.view==='arena'&&game?.journey){
