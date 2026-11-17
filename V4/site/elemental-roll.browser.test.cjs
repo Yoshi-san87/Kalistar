@@ -182,6 +182,17 @@ async function pixels(page) {
       KalistarDice.mount(document.querySelectorAll('.dice-stage'));
     });
     await page.waitForFunction(() => [...document.querySelectorAll('.slot-card img')].every(image => image.complete && image.naturalWidth === 797));
+    await page.evaluate(async source=>{
+      const image=document.querySelector('.slot-card img'),cropped=image.src;
+      image.src='data:image/png;base64,'+source;await image.decode();
+      KalistarDice.mount(document.querySelectorAll('.dice-stage'));
+      await new Promise(requestAnimationFrame);
+      image.src=cropped;await image.decode();
+    },momoCard);
+    await page.waitForFunction(()=>{
+      const n=document.querySelector('.ritual-result'),c=n.parentElement,img=c.querySelector('img'),r=img.getBoundingClientRect(),m=n.getBoundingClientRect(),scale=Math.min(r.width/797,r.height/1388);
+      return Math.hypot(m.x+m.width/2-(r.x+(r.width-797*scale)/2+96*scale),m.y+m.height/2-(r.y+(r.height-1388*scale)/2+97*scale))<.7;
+    });
     for (const cardWidth of [240, 106]) {
       await page.evaluate(width => {
         document.querySelectorAll('.formation').forEach(formation => { formation.style.width = width + 'px'; formation.style.aspectRatio = '797 / 1388'; });

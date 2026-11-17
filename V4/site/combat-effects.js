@@ -86,7 +86,12 @@
   }
   async function play({before,after,element,color,reduced,signal}){
     const reaction=outcome(before,after),d=after.duel;
-    if(!reaction||reduced||signal.aborted)return;
+    if(!reaction||signal.aborted)return;
+    const sound=()=>{
+      const cue=['shield','defeat','dodge'].includes(reaction)?reaction:reaction==='reraise'?'support':['guard','guard-gain','heart','heart-gain','mana','mana-gain','power','power-gain','luck','clover-gain','second-chance'].includes(reaction)?'support':d.magic?'magic':'strike';
+      void window.KALISTAR_ARENA_AUDIO?.play(cue,reduced?{}:{signal});
+    };
+    if(reduced){sound();return;}
     const field=document.querySelector('.battlefield');
     const slot=(side,index)=>field?.querySelector(`.formation[data-player="${side}"] .slot[data-position="${index+1}"]`);
     const source=slot(d.side,d.attackerSlot),target=slot(1-d.side,d.targetSlot);
@@ -212,6 +217,7 @@
     }
     try{
       if(['guard','guard-gain','heart','heart-gain','mana','mana-gain','power','power-gain','luck','clover-gain','second-chance'].includes(reaction)){
+        sound();
         const recipient=(['guard-gain','heart-gain','clover-gain','mana-gain','power-gain'].includes(reaction)?field.querySelector(`.slot[data-unit="${d.guardGranted||d.reraiseGranted||d.cloverGranted||d.manaGranted||d.physicalGranted}"]`):['attack','kalistel'].includes(before.phase)?source:target)||source,card=recipient.querySelector('.slot-card');
         field.dataset.combat='support';field.dataset.reaction=reaction;recipient.classList.add('effect-recipient');
         const [asset,label,tint]=reaction==='guard-gain'||reaction==='guard'?['guard',reaction==='guard'?'Garde obtenue':'DEF physique +60','#a6d8eb']:reaction==='heart-gain'||reaction==='heart'?['revive',reaction==='heart'?'Cœur obtenu':'Reraise','#ff96b7']:reaction==='mana-gain'?['mana','Magie +60','#74d9f7']:reaction==='mana'?['mana','Potion obtenue','#74d9f7']:reaction==='power'||reaction==='power-gain'?['buff_atk',reaction==='power'?'Puissance obtenue':'Physique +60','#f49b78']:['retry',reaction==='clover-gain'?'Trèfle':reaction==='second-chance'?'Seconde chance':['attack','kalistel'].includes(before.phase)?'Trèfle obtenu':'Relance','#7eeb9b'];
@@ -221,6 +227,7 @@
         await symbol;return;
       }
       const elementalMagic=d.magic&&element&&element!=='NONE';
+      void window.KALISTAR_ARENA_AUDIO?.play(elementalMagic?'magic':'strike',{signal});
       field.dataset.combat=elementalMagic?'magic':'physical';field.dataset.reaction=reaction;field.dataset.element=element;
       source.classList.add('combat-actor');target.classList.add('combat-target');
       const direction=d.side===0?1:-1;
@@ -234,6 +241,7 @@
         await wait(290);
       }
       if(signal.aborted)return;
+      sound();
       window.KalistarAmbience?.react({magic:!!elementalMagic,color,defeat:reaction==='defeat',major:reaction!=='dodge'&&(reaction==='defeat'||d.formula?.attack>=250)});
       if(d.formula?.ward>0&&!before.duel?.formula?.ward)await shield(target,true);
       if(signal.aborted)return;

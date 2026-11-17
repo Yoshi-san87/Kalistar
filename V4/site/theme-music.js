@@ -4,7 +4,7 @@
   if(typeof module==='object'&&module.exports)module.exports=api;else root.KalistarThemeMusic=api;
 })(typeof globalThis!=='undefined'?globalThis:this,function(){
   'use strict';
-  const KEY='kalistar.audio.v1',SOURCE='assets/audio/six-note-motif-v1.mp3';
+  const KEY='kalistar.audio.v1',SOURCE='assets/audio/six-note-motif-v1.mp3',ARENA_SOURCE='assets/audio/brass-fight-call-v1.mp3';
   function preference(value){
     return {enabled:typeof value?.enabled==='boolean'?value.enabled:true,volume:typeof value?.volume==='number'&&Number.isFinite(value.volume)?Math.min(.4,Math.max(0,value.volume)):.16};
   }
@@ -12,9 +12,11 @@
     let saved;try{saved=JSON.parse(host.localStorage.getItem(KEY));}catch{}
     let settings=preference(saved),audio=null,active=false,dead=false,failed=false,playing=false,attempt=0,fade=null;
     const events=new AbortController();
+    const tracks=new Map();let source='';
     const listen=(node,event,fn,capture=false)=>node.addEventListener(event,fn,{capture,signal:events.signal});
     const snapshot=()=>({...settings,playing,available:!failed});
-    const eligible=()=>active&&!dead&&!failed&&!doc.hidden&&settings.enabled&&settings.volume>0&&!/^#(?:arena|astraball)(?:$|[/?])/.test(host.location.hash)&&!doc.querySelector('.login-intro[open],.gaming-book-dialog[open]');
+    const track=()=>/^#arena(?:$|[/?])/.test(host.location.hash)?ARENA_SOURCE:SOURCE;
+    const eligible=()=>active&&!dead&&!failed&&!doc.hidden&&settings.enabled&&settings.volume>0&&!/^#astraball(?:$|[/?])/.test(host.location.hash)&&!doc.querySelector('.login-intro[open],.gaming-book-dialog[open]');
     function cancelFade(){host.clearTimeout(fade);fade=null;}
     function update(){
       for(const button of doc.querySelectorAll('[data-theme-music-toggle]')){
@@ -35,11 +37,13 @@
     }
     function sync(){
       if(!eligible()){pause();return;}
+      if(source!==track()){pause();source=track();audio=tracks.get(source)||null;}
       if(playing){fadeIn(attempt);return;}
-      if(!audio){audio=doc.createElement('audio');audio.preload='none';audio.loop=true;audio.src=SOURCE;listen(audio,'error',()=>{failed=true;pause();update();});}
-      const ticket=++attempt;audio.volume=0;
-      try{Promise.resolve(audio.play()).then(()=>{
-        if(ticket!==attempt||!eligible()){if(!eligible())pause();return;}
+      if(!audio){audio=doc.createElement('audio');audio.preload='none';audio.loop=true;audio.src=source;tracks.set(source,audio);
+        const player=audio;listen(player,'error',()=>{if(player===audio){failed=true;pause();update();}});}
+      const ticket=++attempt,player=audio;player.volume=0;
+      try{Promise.resolve(player.play()).then(()=>{
+        if(ticket!==attempt||!eligible()){if(player!==audio)player.pause();else if(!eligible())pause();return;}
         playing=true;fadeIn(ticket);
       }).catch(()=>{if(ticket===attempt){playing=false;cancelFade();}});}catch{playing=false;}
     }
@@ -57,12 +61,12 @@
     listen(host,'pagehide',event=>{if(event.persisted){active=false;pause();}else destroy();});
     listen(host,'pageshow',event=>{if(event.persisted&&!dead){active=true;sync();}});
     listen(host,'storage',event=>{if(event.key===KEY||event.key===null){try{settings=preference(JSON.parse(host.localStorage.getItem(KEY)));}catch{settings=preference();}update();sync();}});
-    function destroy(){if(dead)return;dead=true;pause();events.abort();if(audio){audio.removeAttribute('src');audio.load();audio=null;}}
-    return Object.freeze({activate(){if(!dead){active=true;update();sync();}},refresh:update,set,snapshot,destroy});
+    function destroy(){if(dead)return;dead=true;pause();events.abort();for(const player of tracks.values()){player.pause();player.removeAttribute('src');player.load();}tracks.clear();audio=null;}
+    return Object.freeze({activate(){if(!dead){active=true;update();sync();}},refresh(){update();sync();},set,snapshot,destroy});
   }
   function controls(value){
     const state=preference(value);
     return `<section class="account-section"><h3>Musique de Kalistar</h3><div class="account-form"><label class="account-check"><input type="checkbox" data-theme-music-enabled ${state.enabled?'checked':''}><span>Thème officiel<small>Sur cet appareil</small></span></label><label class="account-music-volume"><span>Volume <output data-theme-music-level>${Math.round(state.volume*100)} %</output></span><input type="range" min="0" max="40" step="1" value="${Math.round(state.volume*100)}" data-theme-music-volume aria-label="Volume de la musique"></label></div></section>`;
   }
-  return Object.freeze({create,preference,controls,SOURCE,KEY});
+  return Object.freeze({create,preference,controls,SOURCE,ARENA_SOURCE,KEY});
 });

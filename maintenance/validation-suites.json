@@ -9,7 +9,7 @@
       ["--test", "V4/astraball/tests/sprite-library.test.cjs"],
       ["--test", "V4/astraball/tests/astraball.test.cjs"],
       ["--test", "maintenance/organisation.test.cjs", "maintenance/validation.test.cjs", "V4/deploy/prepare-release.test.cjs", "V4/deploy/runtime-media.test.cjs"],
-      ["--test", "V4/site/cloud-registry.test.cjs", "V4/site/cloud-session.test.cjs", "V4/site/login-intro.test.cjs", "V4/site/startup.test.cjs", "V4/site/cloud-sync.test.cjs", "V4/site/cloud-archives.test.cjs", "V4/site/cloud-ownership.test.cjs", "V4/deploy/access-worker.test.cjs"]
+      ["--test", "V4/site/cloud-registry.test.cjs", "V4/site/cloud-session.test.cjs", "V4/site/login-intro.test.cjs", "V4/site/startup.test.cjs", "V4/site/arena-audio.test.cjs", "V4/site/cloud-sync.test.cjs", "V4/site/cloud-archives.test.cjs", "V4/site/cloud-ownership.test.cjs", "V4/deploy/access-worker.test.cjs"]
     ],
     "organisation": [
       [
@@ -53,7 +53,7 @@
         "--test",
         "V4/site/map-view.test.cjs"
       ],
-      ["--test", "V4/site/login-intro.test.cjs", "V4/site/startup.test.cjs"],
+      ["--test", "V4/site/login-intro.test.cjs", "V4/site/startup.test.cjs", "V4/site/arena-audio.test.cjs"],
       [
         "--test",
         "V4/atelier/game-catalog.test.cjs",

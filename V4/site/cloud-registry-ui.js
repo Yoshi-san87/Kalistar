@@ -119,6 +119,7 @@
       return `<div class="account-section-heading"><h2 id="account-section-title" tabindex="-1">Paramètres</h2><p>Confidentialité, sauvegarde et sécurité.</p></div>
         <section><h3>Visibilité</h3><form data-cloud-form="privacy" class="account-form">${privacyField()}${submit('Enregistrer')}</form></section>
         ${window.KalistarThemeMusic?.controls(window.KALISTAR_MUSIC?.snapshot())||''}
+        ${window.KalistarArenaAudio?.controls(window.KALISTAR_ARENA_AUDIO?.snapshot())||''}
         <section class="account-section"><h3>Sauvegarde</h3><div data-account-sync>${syncContent()}</div>${command('local','Archives personnelles','archive','','account-text-command')}</section>
         <section class="account-section"><h3>Mot de passe</h3><form data-cloud-form="password" class="account-form">
           <label>Nouveau mot de passe<input name="password" type="password" minlength="8" maxlength="1024" autocomplete="new-password" required></label>

@@ -182,6 +182,7 @@
       const source=unitSlot(first.sourceUid),anchor=source?.querySelector('.slot-card')||document.querySelector('.duel-status');if(!anchor)continue;
       if(w.effect.trigger==='ULTIMATE'&&['ready','grant','bonus','mark'].includes(first.kind)){await ensureOverlay(source,w,'relic',signal);if(signal.aborted)return;}
       const bounds=anchor.getBoundingClientRect(),emblem=document.createElement('span');emblem.className='eq-relic-emblem';emblem.dataset.kind=first.kind;emblem.dataset.weaponId=w.id;emblem.dataset.sourceUid=first.sourceUid;
+      void window.KALISTAR_ARENA_AUDIO?.play('magic',{signal});
       if(first.value<0)emblem.dataset.negative='true';
       emblem.setAttribute('role','status');emblem.setAttribute('aria-live','polite');emblem.setAttribute('aria-atomic','true');
       const caption=first.kind==='riposte'?'Riposte '+effectLabel(w):first.kind==='luck'?'Tr\u00e8fles alli\u00e9s':first.kind==='reraise'?'Reraise transmis':[...new Set(events.map(eventLabel))].join(' \u00b7 ');

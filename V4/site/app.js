@@ -82,6 +82,7 @@
     if(!await startup.ready()){cloudSync?.destroy();return;}
   }
   const themeMusic=KalistarThemeMusic.create();window.KALISTAR_MUSIC=themeMusic;
+  const arenaAudio=KalistarArenaAudio.create();window.KALISTAR_ARENA_AUDIO=arenaAudio;
   window.addEventListener('storage',event=>{if(event.storageArea===localStorage){if(event.key===null)storedPreferences.clear();else storedPreferences.delete(event.key);}});
   const owned=(id)=>db?.registry?.owned(accountId,id)||[];
   const ownershipErrors=ids=>db?.registry?db.registry.deckErrors(accountId,ids):['Registre local indisponible.'];
@@ -250,6 +251,7 @@
     if(view==='arena'&&ui.view!=='arena'&&game?.journey&&!game.journey.preview){try{game=await journeys.resume(game.journey.attemptId);}catch(error){toast(error.message);return;}}
     const changed=ui.view!==view;
     ui.view=view;KalistarDialogHistory.replace('#'+view+(view==='account'?'/'+(section||accountSection()):''));render();
+    themeMusic.refresh();arenaAudio.refresh();
     if(changed)window.KalistarPageTransitions?.enter(view);
     if(view==='journeys')void journeys.refresh().catch(error=>toast(error.message));
   }
@@ -970,6 +972,7 @@ function showDeck(){setView('decks');}
       checkGame();const commands=[];journeyCommands=commands;fn();journeyCommands=null;E.assertState(game);
       if(commands.length){game=before;rolling=awaiting=true;clearTimeout(aiTimer);game=await journeys.move(before,commands);}
       epoch++;if(awaiting){rolling=false;awaiting=false;}render();if(KalistarUltimateUI.newEvents(before,game).length)void playCommittedEquipment(before);
+      if(before.phase!=='over'&&game.phase==='over')void arenaAudio.play('victory');
     }catch(e){if(before.journey&&!before.journey.preview)game=before;toast(e.message);}
     finally{journeyCommands=null;if(awaiting){rolling=false;render();}}
   }
@@ -983,6 +986,7 @@ function showDeck(){setView('decks');}
     if(rolling||presentationOpening||game?.phase!=='choose'||E.equipmentChoice(game))return;
     await act(()=>{E.lock(game,ui.attacker,ui.target);ui.attacker=ui.target=null;});
     if(game?.phase==='attack'){
+      void arenaAudio.play('engage');
       window.KalistarDice?.engage();window.KalistarAmbience?.engage();window.KalistarFocus?.engage();
     }
   }
@@ -1017,8 +1021,10 @@ function showDeck(){setView('decks');}
       window.KalistarAmbience?.action();
       if(kalistel)await window.KalistarCombat?.shatterKalistel($(`.kalistel-control[data-side="${actor}"]`),{reduced,signal:combatController.signal});
       if(token!==epoch||combatController.signal.aborted)return;
+      void arenaAudio.play(kalistel?'magic':'roll',{signal:combatController.signal});
       const landed=window.KalistarDice?await KalistarDice.play(actor,value,reduced,combatController.signal):await new Promise(r=>setTimeout(()=>r(true),reduced?30:700));
       if(token===epoch&&landed){
+        void arenaAudio.play('land');
         $('.duel-centre').innerHTML=consoleBody(next);syncConsole(next);delete $('.duel-console').dataset.casting;icons();
         const label=$(`.duel-die[data-player="${actor}"] small`);
         if(label)label.textContent='D'+value+' · '+dieLabel(phase==='attack'?next.duel.attackValue:next.duel.defenseValue,phase==='attack');
@@ -1446,7 +1452,7 @@ function showDeck(){setView('decks');}
     try{game=await journeys.resume(game.journey.attemptId);}catch(error){restoreError=error.message;ui.view='journeys';}
   }
   cloudBooting=false;
-  startup?.activate();render();syncActivity();window.KALISTAR_READY=true;themeMusic.activate();
+  startup?.activate();render();syncActivity();window.KALISTAR_READY=true;themeMusic.activate();arenaAudio.activate();
   if(cloudSync)cloudSyncUI=KalistarCloudSyncUI.create({sync:cloudSync,mount:$('.header-actions'),modal,toast});
   if(ui.view==='journeys')void journeys.refresh().catch(error=>toast(error.message));
   window.addEventListener('pagehide',event=>{if(!event.persisted){journeyView?.destroy();journeys.destroy();cloudRegistryUI.destroy();cloudSyncUI?.destroy();cloudSync?.destroy();}});

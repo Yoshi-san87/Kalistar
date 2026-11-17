@@ -40,10 +40,12 @@ async function main(){
       await page.goto(origin+'/jeu/#account/profile');
       await page.addScriptTag({path:path.join(dist,'jeu/cloud-registry.js')});
       await page.addScriptTag({path:path.join(dist,'jeu/theme-music.js')});
+      await page.addScriptTag({path:path.join(dist,'jeu/arena-audio.js')});
       await page.addScriptTag({path:path.join(dist,'jeu/cloud-registry-ui.js')});
       await page.addScriptTag({path:path.join(dist,'jeu/assets/lucide.min.js')});
       await page.evaluate(data=>{
         window.KALISTAR_MUSIC=KalistarThemeMusic.create();
+        window.KALISTAR_ARENA_AUDIO=KalistarArenaAudio.create();
         let identity='user-paris',authListener;
         window.KalistarCloudConfig={enabled:true,redirectTo:location.origin+'/jeu/?registry=1'};
         window.KalistarUI={icons:root=>lucide.createIcons({root})};
@@ -98,6 +100,10 @@ async function main(){
       await page.locator('[data-theme-music-volume]').evaluate(n=>{n.value='9';n.dispatchEvent(new Event('input',{bubbles:true}));});
       assert.deepEqual(await page.evaluate(()=>KALISTAR_MUSIC.snapshot()),{enabled:false,volume:.09,playing:false,available:true});
       assert.equal(await page.locator('[data-theme-music-level]').textContent(),'9 %');
+      await page.locator('[data-arena-sound-enabled]').uncheck();
+      await page.locator('[data-arena-sound-volume]').evaluate(n=>{n.value='11';n.dispatchEvent(new Event('input',{bubbles:true}));});
+      assert.deepEqual(await page.evaluate(()=>KALISTAR_ARENA_AUDIO.snapshot()),{enabled:false,volume:.11,voices:0,state:'dormant'});
+      assert.equal(await page.locator('[data-arena-sound-level]').textContent(),'11 %');
       await page.locator('[name=publish]').check();await page.locator('[data-cloud-form=privacy] [type=submit]').click();await idle();
       assert.equal((await database.call('kalistar_me')).profile.publishOwner,true);
       await page.locator('[name=password]').fill('fixture-only-new-password');await page.locator('[name=confirmation]').fill('fixture-only-new-password');

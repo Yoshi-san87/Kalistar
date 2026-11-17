@@ -68,7 +68,10 @@
     const image = c?.querySelector('img');
     const fullImage = image?.naturalWidth === 897 && image?.naturalHeight === 1497;
     const crop = fullImage ? { left: 0, top: 0, width: 897, height: 1497 } : { left: 50, top: 50, width: 797, height: 1388 };
-    const contentWidth = image?.clientWidth || c?.clientWidth || 1, contentHeight = image?.clientHeight || c?.clientHeight || 1;
+    const imageStyle=image&&getComputedStyle(image),cardStyle=c&&getComputedStyle(c);
+    const contentWidth = parseFloat(imageStyle?.width) || c?.clientWidth || 1, contentHeight = parseFloat(imageStyle?.height) || c?.clientHeight || 1;
+    const innerWidth=cardStyle?.boxSizing==='border-box'?parseFloat(cardStyle.width)-parseFloat(cardStyle.borderLeftWidth)-parseFloat(cardStyle.borderRightWidth):c?.clientWidth||contentWidth;
+    const innerHeight=cardStyle?.boxSizing==='border-box'?parseFloat(cardStyle.height)-parseFloat(cardStyle.borderTopWidth)-parseFloat(cardStyle.borderBottomWidth):c?.clientHeight||contentHeight;
     const aspect = image?.naturalWidth && image?.naturalHeight ? image.naturalWidth / image.naturalHeight : image?.dataset.v4Cropped === 'card' ? 797 / 1388 : (image?.width && image?.height ? image.width / image.height : 797 / 1388);
     const imageWidth = Math.min(contentWidth, contentHeight * aspect), imageHeight = Math.min(contentHeight, contentWidth / aspect);
     const x = (contentWidth - imageWidth) / 2 + imageWidth * (anchor.x - crop.left) / crop.width;
@@ -76,7 +79,7 @@
     const bounds = image?.getBoundingClientRect() || c?.getBoundingClientRect();
     const scaleX = bounds ? bounds.width / contentWidth : 1, scaleY = bounds ? bounds.height / contentHeight : 1;
     const insetX = image ? 0 : c?.clientLeft || 0, insetY = image ? 0 : c?.clientTop || 0;
-    return { x: x / contentWidth, y: y / contentHeight, viewportX: bounds ? bounds.left + (insetX + x) * scaleX : 0, viewportY: bounds ? bounds.top + (insetY + y) * scaleY : 0 };
+    return { x: ((image?.offsetLeft||0)+x) / innerWidth, y: ((image?.offsetTop||0)+y) / innerHeight, viewportX: bounds ? bounds.left + (insetX + x) * scaleX : 0, viewportY: bounds ? bounds.top + (insetY + y) * scaleY : 0 };
   }
   function point(v, face) {
     const c = card(v);
@@ -98,6 +101,15 @@
     if (!n) {
       n = document.createElement('span'); n.className = 'ritual-result'; n.setAttribute('aria-hidden', 'true');
       const core = document.createElement('span'); core.className = 'ritual-result-core'; n.append(core); c.append(n);
+      // CardMedia replaces the full native PNG with its cropped derivative asynchronously.
+      // Keep the result bound to the painted circle across that load and responsive resizing.
+      const image=c.querySelector('img'),sync=()=>{
+        if(!n.isConnected||!views.has(Number(v.host.dataset.player)))return;
+        const p=position(v,n.dataset.face,c);n.style.left=p.x*100+'%';n.style.top=p.y*100+'%';
+      };
+      const observer=new ResizeObserver(sync);observer.observe(c);if(image)observer.observe(image);
+      image?.addEventListener('load',sync);
+      v.markerCleanups??=[];v.markerCleanups.push(()=>{observer.disconnect();image?.removeEventListener('load',sync);});
     }
     if (n.classList.contains('settled')) {
       n.classList.remove('settled');
@@ -403,6 +415,7 @@
     } finally { n.remove(); }
   }
   function cancel(preserveResults = false) {
+    for(const v of views.values())for(const clean of v.markerCleanups||[])clean();
     intersection?.disconnect(); overlays?.disconnect(); intersection = overlays = null;
     generation++; stopWaiting();
     for (const stop of [...pending]) stop();

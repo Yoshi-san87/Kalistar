@@ -4,18 +4,19 @@ const Intro=require('./login-intro.js');
 const Music=require('./theme-music.js');
 
 function musicFixture({blocked=false,deferred=false,brokenStorage=false}={}){
-  const host=new EventTarget(),doc=new EventTarget(),values=new Map(),timers=new Map();let id=0,resolvePlay;
-  const audio=new EventTarget();audio.currentTime=41;audio.paused=true;audio.plays=0;
-  audio.play=()=>{audio.plays++;if(blocked)return Promise.reject(new Error('NotAllowedError'));audio.paused=false;return deferred?new Promise(resolve=>{resolvePlay=resolve;}):Promise.resolve();};
-  audio.pause=()=>{audio.paused=true;};audio.removeAttribute=()=>{audio.src='';};audio.load=()=>{audio.released=true;};
+  const host=new EventTarget(),doc=new EventTarget(),values=new Map(),timers=new Map(),resolves=[];let id=0,resolvePlay;
+  function player(){const a=new EventTarget();a.currentTime=41;a.paused=true;a.plays=0;
+    a.play=()=>{a.plays++;if(blocked)return Promise.reject(new Error('NotAllowedError'));a.paused=false;return deferred?new Promise(resolve=>{resolvePlay=resolve;resolves.push(resolve);}):Promise.resolve();};
+    a.pause=()=>{a.paused=true;};a.removeAttribute=()=>{a.src='';};a.load=()=>{a.released=true;};return a;}
+  let audio=player();
   doc.hidden=false;doc.closest=()=>null;doc.querySelector=()=>doc.covered;doc.querySelectorAll=()=>[];doc.created=0;
-  doc.createElement=tag=>{assert.equal(tag,'audio');doc.created++;return audio;};
+  doc.createElement=tag=>{assert.equal(tag,'audio');if(doc.created++)audio=player();return audio;};
   host.location={hash:'#home'};host.document=doc;
   host.localStorage={getItem:key=>{if(brokenStorage)throw Error('Denied');return values.get(key)??null;},setItem:(key,value)=>{if(brokenStorage)throw Error('Denied');values.set(key,value);}};
   host.setTimeout=(fn,ms)=>{timers.set(++id,{fn,ms});return id;};host.clearTimeout=id=>timers.delete(id);
   const fire=(target,name,fields={})=>target.dispatchEvent(Object.assign(new Event(name),fields));
   const flush=async()=>{await Promise.resolve();await Promise.resolve();for(let count=0;timers.size&&count<25;count++){const [key,timer]=timers.entries().next().value;timers.delete(key);timer.fn();}assert.equal(timers.size,0,'no permanent fade loop');};
-  return {host,doc,audio,values,timers,fire,flush,allow(){blocked=false;},resolve(){resolvePlay?.();}};
+  return {host,doc,get audio(){return audio;},values,timers,fire,flush,allow(){blocked=false;},resolve(index){(index===undefined?resolvePlay:resolves[index])?.();}};
 }
 
 test('theme preferences are bounded, device-local and do not request media before activation',async()=>{
@@ -26,10 +27,10 @@ test('theme preferences are bounded, device-local and do not request media befor
   assert.equal(f.values.size,1);assert.deepEqual(JSON.parse(f.values.get(Music.KEY)),{enabled:true,volume:.12});music.destroy();
 });
 
-test('theme pauses in the arena, Gaming Book and background and resumes its position',async()=>{
+test('theme pauses in Astraball, Gaming Book and background and resumes its position',async()=>{
   const f=musicFixture(),music=Music.create(f);music.activate();await f.flush();
   for(const mode of ['arena','book','hidden']){
-    if(mode==='arena')f.host.location.hash='#arena';if(mode==='book')f.doc.covered=true;if(mode==='hidden')f.doc.hidden=true;
+    if(mode==='arena')f.host.location.hash='#astraball';if(mode==='book')f.doc.covered=true;if(mode==='hidden')f.doc.hidden=true;
     f.fire(f.host,mode==='arena'?'hashchange':'kalistar-overlay');assert(f.audio.paused);assert.equal(music.snapshot().playing,false);assert.equal(f.timers.size,0);
     f.host.location.hash='#home';f.doc.covered=false;f.doc.hidden=false;f.fire(f.doc,'visibilitychange');await f.flush();assert.equal(music.snapshot().playing,true);assert.equal(f.audio.currentTime,41);
   }
@@ -39,7 +40,7 @@ test('theme pauses in the arena, Gaming Book and background and resumes its posi
 test('pending play cannot revive sound after navigation or destruction',async()=>{
   for(const destroyed of [false,true]){
     const f=musicFixture({deferred:true}),music=Music.create(f);music.activate();
-    if(destroyed)music.destroy();else{f.host.location.hash='#arena';f.fire(f.host,'hashchange');}
+    if(destroyed)music.destroy();else{f.host.location.hash='#astraball';f.fire(f.host,'hashchange');}
     f.resolve();await f.flush();assert(f.audio.paused);assert.equal(music.snapshot().playing,false);music.destroy();
   }
 });
@@ -48,6 +49,22 @@ test('autoplay refusal waits for a gesture, media failure stays silent and denie
   const f=musicFixture({blocked:true,brokenStorage:true}),music=Music.create(f);music.activate();await f.flush();assert.equal(music.snapshot().playing,false);assert.equal(f.audio.plays,1);
   f.allow();f.fire(f.doc,'click');await f.flush();assert.equal(music.snapshot().playing,true);
   f.fire(f.audio,'error');assert.equal(music.snapshot().available,false);assert(f.audio.paused);music.set({enabled:true});assert.equal(f.audio.plays,2);music.destroy();
+});
+
+test('only one music stream plays at a time; cached tracks retain their position without seeking',async()=>{
+  const f=musicFixture(),music=Music.create(f);music.activate();await f.flush();
+  const menu=f.audio;f.host.location.hash='#arena';f.fire(f.host,'hashchange');await f.flush();assert.equal(f.audio.src,Music.ARENA_SOURCE);assert.equal(f.doc.created,2);assert(music.snapshot().playing);assert(menu.paused);
+  const arena=f.audio;arena.currentTime=18;
+  f.host.location.hash='#home';f.fire(f.host,'hashchange');await f.flush();assert.equal(menu.src,Music.SOURCE);assert.equal(menu.currentTime,41);assert(arena.paused);
+  f.host.location.hash='#arena';f.fire(f.host,'hashchange');await f.flush();assert.equal(arena.currentTime,18);assert(menu.paused);
+  music.refresh();assert.equal(f.doc.created,2);music.destroy();assert(menu.released&&arena.released);
+});
+
+test('a delayed old-track promise cannot overlap the newly selected track',async()=>{
+  const f=musicFixture({deferred:true}),music=Music.create(f);music.activate();const menu=f.audio;
+  f.host.location.hash='#arena';f.fire(f.host,'hashchange');const arena=f.audio;
+  menu.paused=false;f.resolve(0);await f.flush();assert(menu.paused);
+  f.resolve(1);await f.flush();assert(music.snapshot().playing);assert(!arena.paused);music.destroy();
 });
 
 test('bfcache suspends the theme, returns without duplicate media and normal pagehide disposes it',async()=>{
