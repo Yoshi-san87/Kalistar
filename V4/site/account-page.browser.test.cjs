@@ -39,9 +39,11 @@ async function main(){
       });
       await page.goto(origin+'/jeu/#account/profile');
       await page.addScriptTag({path:path.join(dist,'jeu/cloud-registry.js')});
+      await page.addScriptTag({path:path.join(dist,'jeu/theme-music.js')});
       await page.addScriptTag({path:path.join(dist,'jeu/cloud-registry-ui.js')});
       await page.addScriptTag({path:path.join(dist,'jeu/assets/lucide.min.js')});
       await page.evaluate(data=>{
+        window.KALISTAR_MUSIC=KalistarThemeMusic.create();
         let identity='user-paris',authListener;
         window.KalistarCloudConfig={enabled:true,redirectTo:location.origin+'/jeu/?registry=1'};
         window.KalistarUI={icons:root=>lucide.createIcons({root})};
@@ -92,6 +94,10 @@ async function main(){
       await page.locator('[data-cloud-form=profile] [type=submit]').click();await idle();
       assert.equal((await database.call('kalistar_me')).profile.displayName,'W'.repeat(40));await fit();
       await section('settings');await shot('settings');await fit();await fullPage();
+      await page.locator('[data-theme-music-enabled]').uncheck();
+      await page.locator('[data-theme-music-volume]').evaluate(n=>{n.value='9';n.dispatchEvent(new Event('input',{bubbles:true}));});
+      assert.deepEqual(await page.evaluate(()=>KALISTAR_MUSIC.snapshot()),{enabled:false,volume:.09,playing:false,available:true});
+      assert.equal(await page.locator('[data-theme-music-level]').textContent(),'9 %');
       await page.locator('[name=publish]').check();await page.locator('[data-cloud-form=privacy] [type=submit]').click();await idle();
       assert.equal((await database.call('kalistar_me')).profile.publishOwner,true);
       await page.locator('[name=password]').fill('fixture-only-new-password');await page.locator('[name=confirmation]').fill('fixture-only-new-password');

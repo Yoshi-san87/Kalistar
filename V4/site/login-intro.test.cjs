@@ -1,6 +1,61 @@
 'use strict';
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const Intro=require('./login-intro.js');
+const Music=require('./theme-music.js');
+
+function musicFixture({blocked=false,deferred=false,brokenStorage=false}={}){
+  const host=new EventTarget(),doc=new EventTarget(),values=new Map(),timers=new Map();let id=0,resolvePlay;
+  const audio=new EventTarget();audio.currentTime=41;audio.paused=true;audio.plays=0;
+  audio.play=()=>{audio.plays++;if(blocked)return Promise.reject(new Error('NotAllowedError'));audio.paused=false;return deferred?new Promise(resolve=>{resolvePlay=resolve;}):Promise.resolve();};
+  audio.pause=()=>{audio.paused=true;};audio.removeAttribute=()=>{audio.src='';};audio.load=()=>{audio.released=true;};
+  doc.hidden=false;doc.closest=()=>null;doc.querySelector=()=>doc.covered;doc.querySelectorAll=()=>[];doc.created=0;
+  doc.createElement=tag=>{assert.equal(tag,'audio');doc.created++;return audio;};
+  host.location={hash:'#home'};host.document=doc;
+  host.localStorage={getItem:key=>{if(brokenStorage)throw Error('Denied');return values.get(key)??null;},setItem:(key,value)=>{if(brokenStorage)throw Error('Denied');values.set(key,value);}};
+  host.setTimeout=(fn,ms)=>{timers.set(++id,{fn,ms});return id;};host.clearTimeout=id=>timers.delete(id);
+  const fire=(target,name,fields={})=>target.dispatchEvent(Object.assign(new Event(name),fields));
+  const flush=async()=>{await Promise.resolve();await Promise.resolve();for(let count=0;timers.size&&count<25;count++){const [key,timer]=timers.entries().next().value;timers.delete(key);timer.fn();}assert.equal(timers.size,0,'no permanent fade loop');};
+  return {host,doc,audio,values,timers,fire,flush,allow(){blocked=false;},resolve(){resolvePlay?.();}};
+}
+
+test('theme preferences are bounded, device-local and do not request media before activation',async()=>{
+  assert.deepEqual(Music.preference(),{enabled:true,volume:.16});assert.equal(Music.preference({volume:9}).volume,.4);assert.equal(Music.preference({volume:-1}).volume,0);assert.equal(Music.preference({volume:'1'}).volume,.16);
+  const f=musicFixture(),music=Music.create(f);assert.equal(f.doc.created,0);assert.equal(f.audio.plays,0);
+  music.set({enabled:false});music.activate();assert.equal(f.doc.created,0);
+  music.set({enabled:true,volume:.12});await f.flush();assert.equal(f.doc.created,1);assert.equal(f.audio.loop,true);assert.equal(f.audio.src,Music.SOURCE);assert.equal(f.audio.volume,.12);
+  assert.equal(f.values.size,1);assert.deepEqual(JSON.parse(f.values.get(Music.KEY)),{enabled:true,volume:.12});music.destroy();
+});
+
+test('theme pauses in the arena, Gaming Book and background and resumes its position',async()=>{
+  const f=musicFixture(),music=Music.create(f);music.activate();await f.flush();
+  for(const mode of ['arena','book','hidden']){
+    if(mode==='arena')f.host.location.hash='#arena';if(mode==='book')f.doc.covered=true;if(mode==='hidden')f.doc.hidden=true;
+    f.fire(f.host,mode==='arena'?'hashchange':'kalistar-overlay');assert(f.audio.paused);assert.equal(music.snapshot().playing,false);assert.equal(f.timers.size,0);
+    f.host.location.hash='#home';f.doc.covered=false;f.doc.hidden=false;f.fire(f.doc,'visibilitychange');await f.flush();assert.equal(music.snapshot().playing,true);assert.equal(f.audio.currentTime,41);
+  }
+  music.destroy();assert(f.audio.paused&&f.audio.released);assert.equal(f.audio.src,'');assert.equal(f.timers.size,0);
+});
+
+test('pending play cannot revive sound after navigation or destruction',async()=>{
+  for(const destroyed of [false,true]){
+    const f=musicFixture({deferred:true}),music=Music.create(f);music.activate();
+    if(destroyed)music.destroy();else{f.host.location.hash='#arena';f.fire(f.host,'hashchange');}
+    f.resolve();await f.flush();assert(f.audio.paused);assert.equal(music.snapshot().playing,false);music.destroy();
+  }
+});
+
+test('autoplay refusal waits for a gesture, media failure stays silent and denied storage is safe',async()=>{
+  const f=musicFixture({blocked:true,brokenStorage:true}),music=Music.create(f);music.activate();await f.flush();assert.equal(music.snapshot().playing,false);assert.equal(f.audio.plays,1);
+  f.allow();f.fire(f.doc,'click');await f.flush();assert.equal(music.snapshot().playing,true);
+  f.fire(f.audio,'error');assert.equal(music.snapshot().available,false);assert(f.audio.paused);music.set({enabled:true});assert.equal(f.audio.plays,2);music.destroy();
+});
+
+test('bfcache suspends the theme, returns without duplicate media and normal pagehide disposes it',async()=>{
+  const f=musicFixture(),music=Music.create(f);music.activate();await f.flush();
+  f.fire(f.host,'pagehide',{persisted:true});assert(f.audio.paused);
+  f.fire(f.host,'pageshow',{persisted:true});await f.flush();assert.equal(f.doc.created,1);assert.equal(music.snapshot().playing,true);
+  f.fire(f.host,'pagehide',{persisted:false});assert(f.audio.released);const plays=f.audio.plays;f.fire(f.doc,'visibilitychange');music.activate();assert.equal(f.audio.plays,plays);
+});
 class Element extends EventTarget{
   constructor(){super();this.attributes={};this.isConnected=true;this.hidden=false;this.signals=[];this.style={};}
   setAttribute(k,v){this.attributes[k]=v;}
@@ -29,7 +84,7 @@ test('Reduced Motion never creates a player or requests video',async()=>{
   const f=fixture({reduced:true});assert.equal(await Intro.play(f),'reduced-motion');assert.equal(f.nodes.length,0);assert.equal(f.media.src,undefined);
 });
 test('desktop starts with sound and a protected same-origin film, then releases every resource',async()=>{
-  const f=fixture(),p=Intro.play(f);assert.equal(f.media.src,'assets/cinematics/kalistar-anime-v3.mp4');assert.equal(f.media.muted,false);
+  const f=fixture(),p=Intro.play(f);assert.equal(f.media.src,'assets/cinematics/kalistar-anime-v4.mp4');assert.equal(f.media.muted,false);
   assert.equal(f.lookup['.login-intro__sound'].getAttribute('aria-pressed'),'true');assert.equal(f.media.volume,.65);
   assert(f.dialog.open);assert(f.lookup['.login-intro__skip'].focused);f.fire(f.media,'ended');assert.equal(await p,'completed');
   assert.equal(f.dialog.isConnected,false);assert.equal(f.media.src,'');assert(f.media.paused);assert.equal(f.media.loads,1);assert.equal(f.timers.size,0);assert.equal(f.classes.size,0);
@@ -59,7 +114,7 @@ test('sound autoplay denied retries muted once and keeps the sound control truth
 
 test('blocked autoplay offers a keyboard-focusable manual play button',async()=>{
   const f=fixture({playError:'NotAllowedError'}),p=Intro.play(f);await Promise.resolve();await Promise.resolve();assert.equal(f.media.plays,2);assert.equal(f.lookup['.login-intro__play'].hidden,false);assert(f.lookup['.login-intro__play'].focused);
-  assert(![...f.timers.values()].some(t=>t.ms===4500));f.expire(35000);assert.equal(await p,'timeout');
+  assert(![...f.timers.values()].some(t=>t.ms===4500));f.expire(38000);assert.equal(await p,'timeout');
 });
 test('unsupported decoding does not hold up login',async()=>{
   const f=fixture({playError:'NotSupportedError'});assert.equal(await Intro.play(f),'unavailable');assert.equal(f.timers.size,0);
@@ -68,7 +123,7 @@ test('slow first frame is bounded',async()=>{
   const f=fixture(),p=Intro.play(f);f.expire(4500);assert.equal(await p,'slow-network');
 });
 test('playback watchdog covers stalls after the first frame',async()=>{
-  const f=fixture(),p=Intro.play(f);f.fire(f.media,'playing');assert.equal(f.timers.size,1);f.expire(31500);assert.equal(await p,'timeout');
+  const f=fixture(),p=Intro.play(f);f.fire(f.media,'playing');assert.equal(f.timers.size,1);f.expire(34000);assert.equal(await p,'timeout');
 });
 for(const reason of ['navigation','background','reduced-motion'])test(reason+' cancels playback and timers',async()=>{
   const f=fixture(),p=Intro.play(f);

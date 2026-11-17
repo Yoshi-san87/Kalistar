@@ -15,7 +15,7 @@ async function boot({invalid=false,missing='',preview=false}={}){
   return {preload,styles,executed,errors,nodes,window,readings};
 }
 test('boot downloads concurrently but executes validated dependencies in order',async()=>{
-  const result=await boot();assert.equal(result.preload.length,71);assert.deepEqual(result.executed,result.preload);
+  const result=await boot();assert.equal(result.preload.length,72);assert.deepEqual(result.executed,result.preload);
   assert.deepEqual(result.readings,[[{edition:'V4',pngUrl:'card.png'}]],'only the validated catalogue supplies the reading card');
   assert.deepEqual(result.styles,['ultimate-ui.css?v=audit']);
   const names=result.executed.map(src=>src.split('?')[0]);assert.equal(new Set(names).size,names.length);
@@ -27,6 +27,11 @@ test('boot downloads concurrently but executes validated dependencies in order',
   for(const name of ['cloud-config.js','cloud-session.js','cloud-registry.js','cloud-registry-ui.js'])assert.ok(names.indexOf(name)>=0&&names.indexOf(name)<names.indexOf('app.js'));
   assert.ok(names.indexOf('cloud-config.js')<names.indexOf('cloud-registry-ui.js'));
   assert.ok(names.indexOf('cloud-archives.js')>=0&&names.indexOf('cloud-archives.js')<names.indexOf('cloud-player.js'));
+  assert.ok(names.indexOf('theme-music.js')>=0&&names.indexOf('theme-music.js')<names.indexOf('app.js'));
+  const app=read('app.js'),theme=read('theme-music.js');
+  assert(app.indexOf('await startup.ready()')<app.indexOf('KalistarThemeMusic.create()'),'music is constructed after explicit entry');
+  assert(app.indexOf('window.KALISTAR_READY=true')<app.indexOf('themeMusic.activate()'),'music starts only when the view is active');
+  assert(theme.length<10000&&!/setInterval|requestAnimationFrame|AudioContext|AnalyserNode/.test(theme),'bounded native player without a permanent processing loop');
   assert(!names.some(name=>name.startsWith('assets/supabase/')),'the official Auth SDK is loaded by the session controller, never as a game dependency');
   assert.ok(names.indexOf('engine.js')<names.indexOf('matchmaking.js'));
   assert.ok(names.includes('ai-strategies.js'));assert.ok(names.indexOf('ai-strategies.js')<names.indexOf('engine.js'));

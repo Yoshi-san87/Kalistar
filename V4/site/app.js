@@ -81,6 +81,7 @@
     startup.preloadImages([typeof backdrop==='string'?backdrop:null,...warmCards].filter(Boolean).map(url=>window.KalistarSite?.url(url)||url));
     if(!await startup.ready()){cloudSync?.destroy();return;}
   }
+  const themeMusic=KalistarThemeMusic.create();window.KALISTAR_MUSIC=themeMusic;
   window.addEventListener('storage',event=>{if(event.storageArea===localStorage){if(event.key===null)storedPreferences.clear();else storedPreferences.delete(event.key);}});
   const owned=(id)=>db?.registry?.owned(accountId,id)||[];
   const ownershipErrors=ids=>db?.registry?db.registry.deckErrors(accountId,ids):['Registre local indisponible.'];
@@ -1131,10 +1132,11 @@ function showDeck(){setView('decks');}
     heading.insertAdjacentHTML('afterbegin',`<img class="kalistar-nav-icon" src="assets/navigation/${emblem}.webp" alt="" width="128" height="128">`);
   }
   function showNavigation(){
-    const account=(window.KalistarCloudConfig?.enabled?menuAction('cloud-account','fingerprint','Mon compte'):'')+
+    const music=menuItem('data-theme-music-toggle aria-pressed="'+themeMusic.snapshot().enabled+'"','Musique de Kalistar',icon('music-2'),themeMusic.snapshot().enabled?'Activée':'Coupée');
+    const account=music+(window.KalistarCloudConfig?.enabled?menuAction('cloud-account','fingerprint','Mon compte'):'')+
       (window.KalistarSite?.online?'':menuItem('data-view="atelier"','Atelier',icon('paintbrush')));
     showMenu('Kalistar',menuGroup('Explorer',learningNavigation()+navigationItem('story','Book')+navigationItem('map','Map'))+(account?menuGroup('Personnel',account):''));
-    $('.nav-more')?.setAttribute('aria-expanded','true');
+    themeMusic.refresh();$('.nav-more')?.setAttribute('aria-expanded','true');
   }
   function learningNavigation(){
     return navigationItem('journeys','Story')+menuItem('data-action="astraball"','Astraball','<img class="kalistar-nav-icon" src="astraball/assets/balls-v1/founders.webp" alt="" width="40" height="40">','Sport tactique · Exhibition')+navigationItem('guide','Guide')+navigationItem('library','Library · R\u00e8gles');
@@ -1444,7 +1446,7 @@ function showDeck(){setView('decks');}
     try{game=await journeys.resume(game.journey.attemptId);}catch(error){restoreError=error.message;ui.view='journeys';}
   }
   cloudBooting=false;
-  startup?.activate();render();syncActivity();window.KALISTAR_READY=true;
+  startup?.activate();render();syncActivity();window.KALISTAR_READY=true;themeMusic.activate();
   if(cloudSync)cloudSyncUI=KalistarCloudSyncUI.create({sync:cloudSync,mount:$('.header-actions'),modal,toast});
   if(ui.view==='journeys')void journeys.refresh().catch(error=>toast(error.message));
   window.addEventListener('pagehide',event=>{if(!event.persisted){journeyView?.destroy();journeys.destroy();cloudRegistryUI.destroy();cloudSyncUI?.destroy();cloudSync?.destroy();}});

@@ -48,7 +48,7 @@ test('v3 preserves sources and music, and supplies an actual UHD master outside 
   const momo=data.editing.segments.filter(s=>s.character==='momo');
   assert.equal(momo[0].sourceEnd,momo[1].sourceStart);
 });
-for(const [version,duration,limit] of [[1,12,10],[2,30,25],[3,30,25]])for(const phone of [false,true])test('v'+version+' '+(phone?'portrait':'desktop')+' is a real '+duration+'-second H264/AAC film, small and registered',()=>{
+for(const [version,duration,limit] of [[1,12,10],[2,30,25],[3,30,25],[4,32.5,25]])for(const phone of [false,true])test('v'+version+' '+(phone?'portrait':'desktop')+' is a real '+duration+'-second H264/AAC film, small and registered',()=>{
   const name='kalistar-anime-v'+version+(phone?'-phone':'')+'.mp4',file=path.join(assets,name),bytes=fs.readFileSync(file),data=movie(bytes);
   const short=version===3?1080:720,long=version===3?1920:1280;
   assert(Math.abs(data.duration-duration)<.1);assert.deepEqual(data.tracks.find(t=>t.type==='vide'),{type:'vide',width:phone?short:long,height:phone?long:short});assert(data.tracks.some(t=>t.type==='soun'));
@@ -56,4 +56,13 @@ for(const [version,duration,limit] of [[1,12,10],[2,30,25],[3,30,25]])for(const 
   const registry=JSON.parse(fs.readFileSync(path.join(root,'V4/deploy/runtime-media.json'))),record=registry.files.find(r=>r.source.endsWith('/cinematics/'+name));
   assert(record);assert.equal(record.bytes,bytes.length);assert.equal(record.sha256,crypto.createHash('sha256').update(bytes).digest('hex'));
   assert(fs.statSync(path.join(assets,name.replace('.mp4','-poster.webp'))).size<300000);
+});
+
+test('official score preserves author source, four Runway takes and frame-aligned music cues',()=>{
+  const folder=path.join(root,'V4/revisions/2026-11-17-official-score'),record=JSON.parse(fs.readFileSync(path.join(folder,'exports.json'))),generation=JSON.parse(fs.readFileSync(path.join(folder,'generation.json')));
+  for(const input of record.inputs)assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(folder,input.file))).digest('hex'),input.sha256,input.file);
+  assert.equal(generation.music.title,'Six-Note Motif');assert.equal(generation.shots.length,4);assert.equal(generation.creditsSpent.total,336);assert.equal(generation.creditsSpent.purchasesPerformed,0);
+  assert.deepEqual(generation.editing.cueFrames,[192,314,474,578,689]);assert.equal(generation.editing.fps,24);assert.equal(generation.editing.duration,32.5);
+  const registry=JSON.parse(fs.readFileSync(path.join(root,'V4/deploy/runtime-media.json'))),music=registry.files.find(r=>r.source===record.music.file);
+  assert.equal(music.sha256,record.music.sha256);assert.equal(music.bytes,record.music.bytes);assert(music.bytes<4*1024**2);
 });

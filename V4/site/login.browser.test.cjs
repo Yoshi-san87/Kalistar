@@ -75,7 +75,7 @@ async function main(){
           assert.equal(await page.locator('iframe').count(),0);
           if(!filmCompleted&&['desktop','razr'].includes(p.name)){
             await page.waitForFunction(()=>document.querySelector('.login-intro video')?.currentTime>.3);
-            assert(Math.abs(await page.locator('.login-intro video').evaluate(v=>v.duration)-30)<.1);
+            assert(Math.abs(await page.locator('.login-intro video').evaluate(v=>v.duration)-32.5)<.1);
             await page.waitForFunction(()=>window.KALISTAR_PREPARED&&document.querySelector('.login-intro[open]'),{},{timeout:20000});
             assert.equal(await page.evaluate(()=>KALISTAR_INTRO_PENDING),true,'data prepared before film completion');
             assert.equal(await page.evaluate(()=>!!window.KALISTAR_READY),false,'game not activated during film');
@@ -84,7 +84,7 @@ async function main(){
             assert.equal(await page.locator('script[src*="/app.js"],script[src^="app.js"]').count(),1,'the application starts only once');
             const bounds=await page.locator('.login-intro').boundingBox();assert(bounds.width>=p.width&&bounds.height>=p.height,'film fills the actual game shell');
             await page.screenshot({path:path.join(output,p.name+'-game-loading-under-film.png')});
-            await page.locator('.login-intro').waitFor({state:'detached',timeout:35000});filmCompleted=true;
+            await page.locator('.login-intro').waitFor({state:'detached',timeout:38000});filmCompleted=true;
           }else await page.locator('.login-intro__skip').click();
         }
         await page.locator('[data-startup-enter]').click();

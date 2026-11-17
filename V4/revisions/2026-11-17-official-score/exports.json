@@ -1,0 +1,49 @@
+{
+  "inputs": [
+    {
+      "file": "source/six-note-motif.mp3",
+      "sha256": "e2bc0faea4c9cc0b5ff4822eff6302378eabe628188cbc9a62435177458a044d"
+    },
+    {
+      "file": "source/momo.mp4",
+      "sha256": "5e2c36386a6c9174139763ea1783a857435e31a469c407ab4f7b1afc63503fb4"
+    },
+    {
+      "file": "source/kaylis.mp4",
+      "sha256": "6313dacf26e26b70a95387bbde59743a40218051958cf3e69e319497e9c7464d"
+    },
+    {
+      "file": "source/voloden.mp4",
+      "sha256": "ee278eac90d640f375298c53bdae97e10bf0a096f4fa773886c2ed4c4b6aef5c"
+    },
+    {
+      "file": "source/balmhyr.mp4",
+      "sha256": "3816632db40a4c679dfeae1a919eee5d585f822e97b873addf16cb9da27fa058"
+    }
+  ],
+  "exports": [
+    {
+      "file": "V4/site/assets/cinematics/kalistar-anime-v4.mp4",
+      "width": 1280,
+      "height": 720,
+      "duration": 32.5,
+      "fps": 24,
+      "bytes": 17670587,
+      "sha256": "0688152454c4661686201f0e41534818f991209ceb281744bb283216d0f9a8b0"
+    },
+    {
+      "file": "V4/site/assets/cinematics/kalistar-anime-v4-phone.mp4",
+      "width": 720,
+      "height": 1280,
+      "duration": 32.5,
+      "fps": 24,
+      "bytes": 17430411,
+      "sha256": "debd59997e94eea634332b124cc705af0bbaf33bf1d5b0ccb6bdd2c19813d2e7"
+    }
+  ],
+  "music": {
+    "file": "V4/site/assets/audio/six-note-motif-v1.mp3",
+    "sha256": "c843690664a4d4300dfbf5fc2451a5a4343ceed2898ed8ace836c79b865660e3",
+    "bytes": 2701313
+  }
+}

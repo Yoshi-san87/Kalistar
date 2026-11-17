@@ -178,6 +178,12 @@ dans leur orientation d'origine. Les ancres d'equipement en arene ne changent pa
 | Fin et bilan | `arena-finale.js`, `match-report.js`, `battle-report.js`, `trophies.js` |
 | Lecture et monde | `story-reader.js`, `map-view.js`, `guide-scenario.js`, `guide-view.js`, `library-view.js` |
 
+Le theme officiel est gere par `theme-music.js`, active seulement apres Entrer,
+sans requete audio pendant le film ni l'accueil de lecture. Ses reglages sont
+locaux a l'appareil ; aucun ajout au schema cloud. Voir
+[Introduction et musique](../docs/INTRO_CONNEXION.md) pour le cycle de vie et
+les medias de production.
+
 Respecter le proprietaire CSS d'un composant. Par exemple, le socle Collection
 est defini dans `collection-pedestal.css`, pas par de nouveaux overrides dans
 `mobile.css`, `positions.css` ou `collection-binder.css`.

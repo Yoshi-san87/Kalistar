@@ -7,7 +7,7 @@
   'use strict';
   let active=null;
   const PENDING='kalistar.login.intro.pending';
-  const MEDIA='assets/cinematics/kalistar-anime-v3';
+  const MEDIA='assets/cinematics/kalistar-anime-v4';
   // A one-use, tab-local handoff, never an authentication credential.
   function prepare({host=window,now=Date.now()}={}){
     try{host.sessionStorage.setItem(PENDING,String(now));return true;}catch{return false;}
@@ -79,7 +79,7 @@
       listen(video,'playing',()=>{
         if(ended)return;
         host.clearTimeout(startTimer);dialog.dataset.state='playing';resume.hidden=true;status.textContent='';
-        if(!started){started=true;host.clearTimeout(deadline);deadline=host.setTimeout(()=>finish('timeout'),31500);}
+        if(!started){started=true;host.clearTimeout(deadline);deadline=host.setTimeout(()=>finish('timeout'),34000);}
       });
       listen(video,'timeupdate',()=>{
         if(Number.isFinite(video.duration)&&video.duration>0)progress.style.transform=`scaleX(${Math.min(1,video.currentTime/video.duration)})`;
@@ -98,7 +98,7 @@
         video.src=MEDIA+(phone?'-phone.mp4':'.mp4');
         dialog.querySelector('.login-intro__skip').focus({preventScroll:true});
         startTimer=host.setTimeout(()=>finish('slow-network'),4500);
-        deadline=host.setTimeout(()=>finish('timeout'),35000);
+        deadline=host.setTimeout(()=>finish('timeout'),38000);
         void begin();
       }catch{finish('unavailable');}
     }).finally(()=>{active=null;});

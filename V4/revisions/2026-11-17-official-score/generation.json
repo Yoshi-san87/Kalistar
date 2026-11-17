@@ -1,0 +1,99 @@
+{
+  "version": 4,
+  "createdAt": "2026-11-17",
+  "music": {
+    "file": "source/six-note-motif.mp3",
+    "title": "Six-Note Motif",
+    "duration": 168.7735,
+    "providedBy": "Kalistar creator"
+  },
+  "creditsSpent": {
+    "total": 336,
+    "purchasesPerformed": 0
+  },
+  "sourceFrames": [
+    {
+      "character": "momo",
+      "file": "V4/revisions/2026-10-16-login-cinematic/v3/source/keyframes/momo.png"
+    },
+    {
+      "character": "kaylis",
+      "file": "V4/revisions/2026-10-16-login-cinematic/v3/source/keyframes/kaylis.png"
+    },
+    {
+      "character": "voloden",
+      "file": "V4/revisions/2026-10-16-login-cinematic/v2/source/keyframes/voloden.png"
+    },
+    {
+      "character": "balmhyr",
+      "file": "V4/revisions/2026-10-16-login-cinematic/v2/source/keyframes/balmhyr-anime.png"
+    }
+  ],
+  "shots": [
+    {
+      "character": "momo",
+      "taskId": "562163d0-5a5b-4863-a884-7eef37209edb",
+      "file": "source/momo.mp4",
+      "prompt": "One continuous elegant anime fantasy cinematic shot based exactly on this approved Kalistar frame. Momo is a very small, endearing weathered domestic robot with round cyan eyes, straw hat, ragged ochre cloak, seated on this stone wall. He stays seated throughout and quietly plays a silver transverse flute, tiny precise finger movements. First six seconds: a very slow ten-degree lateral camera orbit, intimate and restrained; wisps of blue light flow gently from the flute in time with his breath, his cloak moves lightly in the breeze. Last four seconds: camera slowly cranes up following a single ribbon of blue magic toward the deep starry sky, leaving space for a later logo transition. Keep face, hands, flute, limbs and hat structurally stable. Preserve this exact hand-painted anime design, rich indigo sky, copper sunset rimlight, ruined towers, emotional solitude and wonder. No cuts, no sudden gesture, no standing up, no fast action, no dialogue, no text or logo. The feeling is a quiet film opening, not a game battle or flashy advertisement.",
+      "meta": {
+        "modelId": "gen-4.5",
+        "modelLabel": "Gen-4.5",
+        "width": 1280,
+        "height": 720,
+        "durationSeconds": 10.041667
+      }
+    },
+    {
+      "character": "kaylis",
+      "taskId": "a1cd39d1-8cfa-4844-8012-693971509dec",
+      "file": "source/kaylis.mp4",
+      "prompt": "One uninterrupted restrained anime fantasy film shot preserving this exact approved Kaylis design: beautiful adult mixed-race woman, warm brown skin, expressive eyes, dark curly tied hair, simple dark tank top and dark trousers, luminous rainbow vine tattoos. She stays in this ruined stone corridor, looks down at her open palms with quiet fear and vulnerability as she realizes the light is coming from her own skin. A tiny tremor in her fingers, soft breath, one slow blink, a few loose curls moving. Very slow lateral camera arc of eight degrees, no orbit around her back. The tattoo light gently grows and then settles, illuminating her worried face. Emotion and stillness, not action. Keep two arms, five natural fingers per hand, same face and clothing, clear eyes. Rich hand-painted anime backgrounds, cinematic motivated warm and cool light. No cuts, explosions, fighting, running, morphing, dialogue, titles or logos.",
+      "meta": {
+        "modelId": "gen-4.5",
+        "modelLabel": "Gen-4.5",
+        "width": 1280,
+        "height": 720,
+        "durationSeconds": 6.041667
+      }
+    },
+    {
+      "character": "voloden",
+      "taskId": "32d7f8db-622d-4771-a9f2-c6aca3830dee",
+      "file": "source/voloden.mp4",
+      "prompt": "One uninterrupted serious anime fantasy cinematic shot, preserving this exact approved pale long-silver-haired pointed-ear man Voloden in his black embroidered noble coat, standing beside the large window in his stone office overlooking the illuminated mine. Camera slowly travels sideways about thirty centimeters, soft parallax and subtle reflections on the glass, not a spinning orbit. His controlled stern expression conceals a brief flicker of fear: his eyes shift slightly toward the mine, fingers very subtly tighten near his chin, chest moves with one quiet breath. Lamplight quivers gently, dust floats, hair stays almost still. The mine remains evocative and coherent, no new people or events. Preserve face, anatomy and rich hand-painted anime linework. No cuts, dramatic gesturing, speaking, fighting, text, symbols or logo.",
+      "meta": {
+        "modelId": "gen-4.5",
+        "modelLabel": "Gen-4.5",
+        "width": 1280,
+        "height": 720,
+        "durationSeconds": 6.041667
+      }
+    },
+    {
+      "character": "balmhyr",
+      "taskId": "e1fdf3a3-a215-481c-8df4-ba39f783cd18",
+      "file": "source/balmhyr.mp4",
+      "prompt": "One uninterrupted contemplative heroic fantasy anime shot, preserving this exact approved Balmhyr: stocky older dwarf king with long white braided beard and hair, weathered face, layered leather and metal armor, red cape, hands resting on his grounded axe. He stands still on this sunlit canyon ledge with his loyal brown bear. Very slow graceful ten-degree camera arc, foreground rocks and vast canyon show cinematic depth. A steady gentle breeze lifts the edge of his cape and moves beard tips; the bear takes one slow small step toward him and settles peacefully. His expression carries loss, dignity and resolve; one subtle breath, no smile. Keep the axe planted, no raising weapon or attack. Stable two arms, hands and proportions, anatomically sound bear. Painterly premium anime background, copper sunlight and muted cool shadows. No cuts, charging, fast movement, combat, dialogue, text or logo.",
+      "meta": {
+        "modelId": "gen-4.5",
+        "modelLabel": "Gen-4.5",
+        "width": 1280,
+        "height": 720,
+        "durationSeconds": 6.041667
+      }
+    }
+  ],
+  "editing": {
+    "fps": 24,
+    "duration": 32.5,
+    "cueFrames": [
+      192,
+      314,
+      474,
+      578,
+      689
+    ],
+    "musicSourceStart": 0,
+    "notes": "Musical attack markers rounded to frame boundaries; the music is not time-stretched. Momo opening and return are consecutive halves of the same generated take. No generated sound or speech."
+  }
+}

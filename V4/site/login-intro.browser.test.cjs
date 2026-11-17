@@ -24,7 +24,7 @@ async function main(){
       else{
         const film=page.locator('.login-intro video');await page.waitForFunction(()=>document.querySelector('video')?.currentTime>.35);
         const info=await film.evaluate(v=>({width:v.videoWidth,height:v.videoHeight,duration:v.duration,muted:v.muted,src:v.currentSrc}));
-        assert.equal(info.muted,false);assert(Math.abs(info.duration-30)<.1);assert.equal(info.height>info.width,profile.height>profile.width&&profile.width<=699);
+        assert.equal(info.muted,false);assert(Math.abs(info.duration-32.5)<.1);assert.equal(info.height>info.width,profile.height>profile.width&&profile.width<=699);
         const layout=await page.locator('.login-intro').evaluate(d=>({w:innerWidth,scroll:document.documentElement.scrollWidth,buttons:[...d.querySelectorAll('button:not([hidden])')].map(b=>{const r=b.getBoundingClientRect();return{x:r.x,y:r.y,w:r.width,h:r.height};})}));
         assert.equal(layout.w,layout.scroll);assert(layout.buttons.every(b=>b.w>=44&&b.h>=44&&b.x>=0&&b.y>=0&&b.x+b.w<=profile.width&&b.y+b.h<=profile.height));
         const frames=[];
@@ -51,7 +51,7 @@ async function main(){
       const p=new URL(route.request().url()).pathname;
       if(p==='/jeu/')return route.fulfill({contentType:'text/html',body:'<script src="/jeu/login-intro.js"></script><button onclick="KalistarLoginIntro.play().then(v=>window.result=v)">Start</button>'});
       if(p.endsWith('.js'))return route.fulfill({contentType:'text/javascript',body:fs.readFileSync(path.join(dist,'jeu/login-intro.js'))});
-      if(playable&&p.endsWith('.mp4'))return route.fulfill({contentType:'video/mp4',body:fs.readFileSync(path.join(dist,'jeu/assets/cinematics/kalistar-anime-v3.mp4'))});
+      if(playable&&p.endsWith('.mp4'))return route.fulfill({contentType:'video/mp4',body:fs.readFileSync(path.join(dist,'jeu/assets/cinematics/kalistar-anime-v4.mp4'))});
       return route.fulfill({status:404,body:''});
     });
     await page.goto(origin+'/jeu/');await page.getByText('Start').click();await page.waitForFunction(()=>window.result==='unavailable');assert.equal(await page.locator('video').count(),0);
@@ -65,7 +65,7 @@ async function main(){
     await context.addInitScript(()=>{HTMLMediaElement.prototype.play=()=>Promise.reject(new DOMException('Fixture','NotAllowedError'));});
     await page.reload();await page.getByText('Start').click();await page.locator('.login-intro__play:not([hidden])').waitFor();await page.keyboard.press('Escape');await page.waitForFunction(()=>window.result==='skipped');await context.close();
     fs.writeFileSync(path.join(out,'results.json'),JSON.stringify({passed:true,profiles:results,failures:['404 decodes safely','autoplay denied remains skippable']},null,2));
-    console.log('PASS cinematic: real 30s playback desktop/Razr, six decoded scenes, portrait/landscape/compact, sound default/muted fallback/skip, resize, Reduced Motion, network failure and blocked autoplay.');
+    console.log('PASS cinematic: real 32.5s playback desktop/Razr, decoded scenes, portrait/landscape/compact, sound default/muted fallback/skip, resize, Reduced Motion, network failure and blocked autoplay.');
   }finally{await browser.close();}
 }
 main().catch(e=>{console.error(e);process.exitCode=1;});
