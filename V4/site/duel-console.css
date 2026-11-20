@@ -85,6 +85,8 @@
 .ritual-action::before{content:'';position:absolute;inset:4px;z-index:-1;pointer-events:none;border:1px solid color-mix(in srgb,var(--action-color) 48%,#64716b);background:linear-gradient(110deg,transparent 15%,color-mix(in srgb,var(--action-color) 10%,transparent),transparent 80%);clip-path:polygon(0 8px,8px 0,calc(100% - 8px) 0,100% 8px,100% calc(100% - 8px),calc(100% - 8px) 100%,8px 100%,0 calc(100% - 8px))}
 .ritual-action .action-sigil{height:32px;width:32px;display:grid;place-items:center;border:1px solid #bbaa8c77;background:#060f0f66;transform:rotate(45deg);box-shadow:inset 0 0 10px #8fab9922}
 .ritual-action .action-sigil>.lucide{width:20px;height:20px;transform:rotate(-45deg);color:var(--action-color);stroke-width:1.7}
+.ritual-action .action-sigil>img{width:19px;height:30px;object-fit:contain;transform:rotate(-45deg)}
+.die-fallback>img{width:32px;height:56px;object-fit:contain}
 .ritual-action .action-label{font-family:var(--serif);font-size:15px;font-weight:700;line-height:1.15;overflow-wrap:anywhere;text-wrap:balance;position:relative}
 .ritual-action .action-tail{display:flex;justify-content:center;color:#d1bea2}.ritual-action .action-tail .lucide{width:13px;height:13px}
 .ritual-action .action-charge{position:absolute;pointer-events:none;bottom:2px;left:14px;right:14px;height:1px;background:linear-gradient(90deg,transparent,var(--action-color),transparent);transform-origin:center;opacity:.7}

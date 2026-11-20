@@ -6,9 +6,18 @@
   // Native crystal centre (448,1195), minus the shared (50,50) media crop, in 797x1388.
   const crystalAnchor=Object.freeze({x:398/797,y:1145/1388});
   const waiting=new Set();
+  const highlights=new Map(),releases=new Set();
+  function spotlight(nodes,signal){
+    if(signal?.aborted)return ()=>{};
+    const targets=[...new Set((Array.isArray(nodes)?nodes:[nodes]).filter(Boolean))];let done=false;
+    const release=()=>{if(done)return;done=true;for(const node of targets){const count=(highlights.get(node)||1)-1;if(count)highlights.set(node,count);else{highlights.delete(node);node.classList.remove('effect-focused');}}signal?.removeEventListener('abort',release);releases.delete(release);};
+    for(const node of targets){highlights.set(node,(highlights.get(node)||0)+1);node.classList.add('effect-focused');}
+    releases.add(release);signal?.addEventListener('abort',release,{once:true});return release;
+  }
   const geometry=()=>boards.map(b=>[b.clientWidth,b.clientHeight,...[...b.querySelectorAll('.slot-card')].flatMap(c=>[c.offsetWidth,c.offsetHeight])].join(',')).join('|');
   function cancelActivation(){activation=null;for(const finish of waiting)finish();waiting.clear();}
   function capture(){
+    for(const release of [...releases])release();
     previous=new Map(boards.flatMap(board=>[...board.querySelectorAll('.slot')].map(node=>{
       const style=getComputedStyle(node),animation=node._kalistarFocusAnimation;
       const transition=animation?.playState==='running'?{frames:animation.effect.getKeyframes(),timing:animation.effect.getTiming(),startTime:animation.startTime,currentTime:animation.currentTime}:null;
@@ -209,5 +218,5 @@
     const left=viewport.scrollLeft+board.getBoundingClientRect().left+x-viewport.getBoundingClientRect().left-viewport.clientWidth/2;
     viewport.scrollTo({left,behavior:motion.matches?'instant':'smooth'});
   }
-  window.KalistarFocus={capture,mount,reveal,engage,ready,crystalAnchor};
+  window.KalistarFocus={capture,mount,reveal,engage,ready,crystalAnchor,spotlight};
 })();

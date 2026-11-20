@@ -172,7 +172,7 @@ dans leur orientation d'origine. Les ancres d'equipement en arene ne changent pa
 | Composition | `deck-builder.js/css`, `team-composition.js/css`, `formation-drag.js` |
 | Equipements | `weapons-ui.js`, `weapon-cards.js/css` |
 | Avant-match | `matchmaking.js`, `pre-match.js/css`, `lineup-intro.js/css` |
-| Arene | `duel-focus.js`, `combat-effects.js`, `arena-ambience.js`, `elemental-roll.js` |
+| Arene | `duel-focus.js`, `combat-effects.js`, `combat-departure.js`, `arena-ambience.js`, `elemental-roll.js` |
 | Presentation d'equipement | `equipment-presentation.js`, `ultimate-ui.js/css` |
 | Panneau et score | `duel-console.css`, `arena-console-skin.css`, `scoreboard.css`, `turn-timeline.css` |
 | Fin et bilan | `arena-finale.js`, `match-report.js`, `battle-report.js`, `trophies.js` |
@@ -184,13 +184,23 @@ locaux a l'appareil ; aucun ajout au schema cloud. Voir
 [Introduction et musique](../docs/INTRO_CONNEXION.md) pour le cycle de vie et
 les medias de production.
 
-`arena-audio.js` porte les effets courts JRPG : cinq textures de combat et
-douze impacts elementaires. Les MP3 sont prepares uniquement apres activation
+`arena-audio.js` porte les effets courts JRPG : cinq textures de combat,
+douze impacts elementaires et une dissipation. Les MP3 sont prepares uniquement apres activation
 de l'arene ; le decodage et la lecture attendent un geste reel. Cache fixe,
 quatre voix au plus, volume local et suspension du contexte au repos. Les
 evenements viennent des actions confirmees, jamais du rendu ou du reload.
+Le mix calibre chaque echantillon et applique un trim global de .42 sans
+reecrire le volume choisi. Un impact coupe les preparatifs encore audibles ;
+le son de disparition remplace le cumul impact + ancien son de defaite.
 `arena-prompts.css` porte le contour circulant de l'action centrale, sans
-deplacer sa cible. `arena.css` garde la penombre du resultat jusqu'a Tour suivant.
+deplacer sa cible. `arena.css` garde la penombre du resultat jusqu'a Poursuivre
+le combat. `KalistarFocus.spotlight` eclaire temporairement les destinataires
+de soutien et d'equipement, avec liberation referencee et annulable.
+`combat-departure.js` observe uniquement les nouvelles eliminations du moteur :
+texture reelle de carte, 72/96 fragments, horloge partagee a 30 images/s,
+canvas local a DPR plafonne 1.25 et duree inferieure a une seconde.
+Reraise/esquive/reload ne rejouent aucune mort. Reduced Motion utilise un
+fondu bref ; abort, changement de vue, resize et arriere-plan nettoient l'effet.
 
 Respecter le proprietaire CSS d'un composant. Par exemple, le socle Collection
 est defini dans `collection-pedestal.css`, pas par de nouveaux overrides dans

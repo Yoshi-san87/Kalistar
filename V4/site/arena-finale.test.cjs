@@ -66,7 +66,7 @@ test('partial archives get no fabricated trophy; ceremony preserves identities, 
 test('native materials, motion preference, cleanup and manual final action are integrated',()=>{
   const read=n=>fs.readFileSync(path.join(__dirname,n),'utf8'),css=read('arena-finale.css'),app=read('app.js'),js=read('arena-finale.js');
   assert(read('boot.js').includes("'arena-finale.js'"));assert(read('index.html').includes('arena-finale.css'));
-  assert(app.includes("terminal?'Duel terminé':'Tour suivant'"));assert(!app.includes("ui.endShown=true;showMatchStats(game)"));
+  assert(app.includes("terminal?'Duel terminé':'Poursuivre le combat'"));assert(!app.includes("ui.endShown=true;showMatchStats(game)"));
   assert(css.includes('prefers-reduced-motion'));assert(css.includes('var(--kalistar-display)'));assert(js.includes('observer?.disconnect()'));
   assert(!/setInterval|setTimeout|requestAnimationFrame|canvas|confetti/i.test(js));
 });

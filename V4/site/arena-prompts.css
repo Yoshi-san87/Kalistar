@@ -21,7 +21,7 @@ body.lineup-opening .slot-card[data-arena-prompt]::after,body:has(dialog[open]) 
 @keyframes arena-choice-breathe { 0%,100%{opacity:.22;}50%{opacity:.75;} }
 @keyframes arena-action-orbit { from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)} }
 @keyframes arena-action-reflect { 0%,100%{opacity:.12;}45%,55%{opacity:.55;} }
-@keyframes arena-sigil-beat { 0%,100%{transform:rotate(45deg) scale(.92);opacity:.65}45%,55%{transform:rotate(45deg) scale(1.06);opacity:1} }
+@keyframes arena-sigil-beat { 0%,100%{scale:.92;opacity:.65}45%,55%{scale:1.06;opacity:1} }
 @keyframes arena-action-halo { 0%,100%{opacity:.06}45%,55%{opacity:.6} }
 @keyframes arena-action-nudge { from{transform:translateX(-2px);opacity:.45}to{transform:translateX(2px);opacity:1} }
 @media(prefers-reduced-motion:reduce) {

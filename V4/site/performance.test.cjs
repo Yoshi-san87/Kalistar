@@ -15,7 +15,7 @@ async function boot({invalid=false,missing='',preview=false}={}){
   return {preload,styles,executed,errors,nodes,window,readings};
 }
 test('boot downloads concurrently but executes validated dependencies in order',async()=>{
-  const result=await boot();assert.equal(result.preload.length,73);assert.deepEqual(result.executed,result.preload);
+  const result=await boot();assert.equal(result.preload.length,74);assert.deepEqual(result.executed,result.preload);
   assert.deepEqual(result.readings,[[{edition:'V4',pngUrl:'card.png'}]],'only the validated catalogue supplies the reading card');
   assert.deepEqual(result.styles,['ultimate-ui.css?v=audit']);
   const names=result.executed.map(src=>src.split('?')[0]);assert.equal(new Set(names).size,names.length);

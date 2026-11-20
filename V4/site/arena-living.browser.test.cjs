@@ -23,9 +23,11 @@ async function main(){
         const s=E.newGame(team,team,{seed:'LIVING-ARENA',mode:'local',turnOrder:'ABBA'});E.rollInitiative(s,[6,1]);const states={};
         for(let i=0;i<2000;i++){
           E.assertState(s);states[s.phase]??=E.clone(s);if(s.phase==='over')break;
+          const prior=E.clone(s);
           if(s.phase==='choose')E.lock(s,...E.aiChoice(s));else if(s.phase==='attack')E.rollAttack(s);else if(s.phase==='kalistel')E.acceptAttack(s);
           else if(s.phase==='defense')E.rollDefense(s);else if(s.phase==='result')E.next(s);else if(s.phase==='replace')E.autoDeploy(s,s.replacing);
           else{const k={clover:'Clover',potion:'Potion',physical:'Physical',heart:'Reraise',guard:'Guard'}[s.phase];E['grant'+k](s,E['ai'+k+'Choice'](s));}
+          if(prior.phase==='defense'&&s.players.some((p,side)=>p.dead.length>prior.players[side].dead.length))states.lethal??=prior;
         }return states;
       });
       async function load(s){await page.evaluate(async state=>{await KALISTAR_DB.idle();await KALISTAR_DB.saveGame(state);localStorage.setItem('kalistar.v4.game',JSON.stringify(state));localStorage.removeItem('kalistar.v4.openingMatch');},s);await page.reload();await ready();await page.waitForFunction(()=>[...document.querySelectorAll('.formation .slot-card>img')].every(i=>i.dataset.v4Cropped==='card'&&i.complete));}
@@ -47,13 +49,15 @@ async function main(){
       const samples=await page.evaluate(async()=>{
         const ctx=new OfflineAudioContext(1,1,44100),rows=[];
         for(const key of [...KalistarArenaAudio.common,...KalistarArenaAudio.elements]){
-          const r=await fetch(KalistarArenaAudio.BASE+key+'.mp3');if(!r.ok)throw Error('Missing sound '+key);
+          const r=await fetch(KalistarArenaAudio.url(key));if(!r.ok)throw Error('Missing sound '+key);
           const b=await ctx.decodeAudioData(await r.arrayBuffer()),data=b.getChannelData(0);let sum=0,peak=0,energy=0;
           for(let i=0;i<data.length;i++){sum+=data[i]*data[i];peak=Math.max(peak,Math.abs(data[i]));if(i<4410)energy+=data[i]*data[i];}
           rows.push({key,channels:b.numberOfChannels,duration:b.duration,rms:Math.sqrt(sum/data.length),peak,attack:Math.sqrt(energy/4410)});
         }return rows;
       });
-      assert.equal(samples.length,17);assert(samples.every(s=>s.channels===1&&s.duration<1.5&&s.peak<.98&&s.rms>.025),'real MP3s decode with controlled impact and headroom');
+      assert.equal(samples.length,18);assert(samples.every(s=>s.channels===1&&s.duration<(s.key==='departure'?1.6:1.5)&&s.peak<.98&&s.rms>.025),'real MP3s decode with controlled impact and headroom');
+      const mix=await page.evaluate(samples=>samples.map(s=>({key:s.key,rms:s.rms*(KalistarArenaAudio.levels[s.key]||1)*KalistarArenaAudio.MIX_TRIM*.3})),samples);
+      assert(mix.every(s=>s.rms<.016),'recalibrated impact RMS no longer dominates the default music bed');
       assert(samples.filter(s=>/^[A-Z]+$/.test(s.key)).every(s=>s.attack>.015));
       // Recreate every result on the actual transformed, cropped cards, then resize them.
       for(const face of [6,5,4,3,2,1]){
@@ -79,8 +83,45 @@ async function main(){
       await page.screenshot({path:path.join(out,name+'-result.png')});await next.click();
       await page.waitForFunction(()=>document.querySelector('.duel-console')?.dataset.phase!=='result');await page.waitForTimeout(300);
       assert(Number(await page.locator('.arena-tension').evaluate(n=>getComputedStyle(n).opacity))<.54,'Next releases the darkness');
+      await load(states.attack);await page.waitForTimeout(850);
+      assert.equal(await page.locator('[data-action=roll] .action-sigil>img').count(),1,'the call to action uses the actual Kalistel, not a die');
+      assert(!(await page.locator('.duel-console').innerText()).includes('undefined'));
+      // Renderer-only support sample: preserve the real game and target an unselected ally.
+      await page.evaluate(state=>{
+        const recipient=document.querySelector('.formation[data-player="0"] .slot:not(.challenger):has(.slot-card)'),uid=recipient.dataset.unit;
+        const before=structuredClone(state);before.phase='guard';const after=structuredClone(before);after.phase='result';after.duel.guardGranted=uid;
+        window.directionController=new AbortController();window.directionDone=KalistarCombat.play({before,after,element:'',color:'#a6d8eb',signal:directionController.signal});
+      },states.attack);
+      await page.waitForSelector('.slot.effect-focused:not(.challenger)');
+      assert.equal(await page.locator('.slot.effect-focused:not(.challenger)').first().evaluate(n=>getComputedStyle(n).filter),'none');
+      assert(await page.locator('.slot:not(.effect-focused):not(.challenger)').first().evaluate(n=>getComputedStyle(n).filter==='brightness(0.55)'));
+      await page.screenshot({path:path.join(out,name+'-support.png')});await page.evaluate(()=>window.directionDone);
+      assert.equal(await page.locator('.effect-focused').count(),0,'support lighting is released');
+      const modes=width>=1400?['PYRO','HYDRO','CRYO','ELECTRO','NECRO','LUXO','RAINBOW','Hache','Épée','Arc']:['PYRO','CRYO','Épée'];
+      for(const mode of modes){
+        const baseline=await page.evaluate(()=>KalistarAmbience.inspect().subscribers);
+        await page.evaluate(mode=>{
+          window.directionController=new AbortController();const magic=/^[A-Z]+$/.test(mode);
+          window.directionDone=KalistarDeparture.play({node:document.querySelector('.challenger .slot-card'),magic,element:magic?mode:undefined,weapon:magic?undefined:mode,signal:directionController.signal});
+        },mode);
+        await page.waitForSelector('.combat-departure');await page.waitForTimeout(100);
+        const painted=await page.locator('.combat-departure').evaluate(n=>{const b=n.getContext('2d').getImageData(0,0,n.width,n.height).data;let alpha=0;for(let i=3;i<b.length;i+=16)if(b[i])alpha++;return {alpha,width:n.width,height:n.height,mode:n.dataset.mode};});
+        assert(painted.alpha>50,'disappearance paints the actual card: '+mode);
+        if(mode==='PYRO')await page.screenshot({path:path.join(out,name+'-departure.png')});
+        await page.evaluate(()=>window.directionDone);assert.equal(await page.locator('.combat-departure,.effect-focused').count(),0);
+        assert.equal(await page.evaluate(()=>KalistarAmbience.inspect().subscribers),baseline,'no lingering animation subscriber');
+      }
+      await page.evaluate(()=>{
+        window.directionController=new AbortController();window.directionDone=KalistarDeparture.play({node:document.querySelector('.challenger .slot-card'),magic:true,element:'PYRO',signal:directionController.signal});directionController.abort();
+      });await page.evaluate(()=>window.directionDone);assert.equal(await page.locator('.combat-departure,.effect-focused').count(),0,'abort removes canvas and lighting');
+      assert(states.lethal,'fixture contains an actual engine elimination');
+      await load(states.lethal);await page.locator('[data-action=roll]').click();await page.waitForSelector('.combat-departure');
+      await page.waitForFunction(()=>!document.querySelector('#app.rolling')&&!document.querySelector('.combat-departure'));
+      assert(await page.evaluate(previous=>JSON.parse(localStorage.getItem('kalistar.v4.game')).players.some((p,side)=>p.dead.length>previous.players[side].dead.length),states.lethal),'the real action commits its elimination after presentation');
       await load(states.attack);await page.waitForFunction(()=>KALISTAR_ARENA_AUDIO.snapshot().state==='dormant');
       await page.emulateMedia({reducedMotion:'reduce'});assert.equal(await page.locator('.arena-action-cue').first().evaluate(n=>getComputedStyle(n,'::after').animationName),'none');
+      await page.evaluate(async()=>{await KalistarDeparture.play({node:document.querySelector('.challenger .slot-card'),magic:true,element:'PYRO',reduced:true,signal:new AbortController().signal});});
+      assert.equal(await page.locator('.combat-departure,.effect-focused').count(),0,'Reduced Motion uses a brief fade without a canvas');
       await page.locator('[data-action=roll]').click();await page.waitForFunction(()=>document.querySelector('.duel-console')?.dataset.phase!=='attack'&&!document.querySelector('#app.rolling'));
       await page.waitForFunction(()=>arenaSoundNodes.length>0);
       await page.evaluate(()=>KALISTAR_ARENA_AUDIO.set({enabled:false}));const count=await page.evaluate(()=>arenaSoundNodes.length);await page.evaluate(()=>KALISTAR_ARENA_AUDIO.play('strike'));assert.equal(await page.evaluate(()=>arenaSoundNodes.length),count);

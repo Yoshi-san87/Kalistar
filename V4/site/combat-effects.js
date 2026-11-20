@@ -69,6 +69,7 @@
   }
   function outcome(before,after){
     const d=after.duel;
+    if(!d)return null;
     if(before.phase==='guard')return 'guard-gain';
     if(before.phase==='clover')return 'clover-gain';
     if(before.phase==='potion')return 'mana-gain';
@@ -84,25 +85,33 @@
     if(!after.players[1-d.side].board[d.targetSlot])return 'defeat';
     return 'shield';
   }
-  async function play({before,after,element,color,reduced,signal}){
-    const reaction=outcome(before,after),d=after.duel;
-    if(!reaction||signal.aborted)return;
+  async function play({before,after,element,color,weapon,reduced,signal}){
+    const reaction=outcome(before,after),d=after.duel,departures=window.KalistarDeparture?.changed(before,after)||[];
+    if((!reaction&&!departures.length)||signal.aborted)return;
+    const field=document.querySelector('.battlefield');
+    const slot=(side,index)=>field?.querySelector(`.formation[data-player="${side}"] .slot[data-position="${index+1}"]`);
+    const depart=async()=>{
+      if(!departures.length||signal.aborted)return;
+      void window.KALISTAR_ARENA_AUDIO?.play('departure',{signal});
+      await Promise.all(departures.map(({side,slot:index})=>window.KalistarDeparture.play({node:slot(side,index)?.querySelector('.slot-card'),magic:d?.magic,element,weapon,reduced,signal})));
+    };
     const sound=()=>{
       if(signal.aborted)return;
       const audio=window.KALISTAR_ARENA_AUDIO;if(!audio)return;
-      if(['guard','guard-gain','heart','heart-gain','mana','mana-gain','power','power-gain','luck','clover-gain','second-chance'].includes(reaction)){void audio.play('support');return;}
-      if(reaction==='dodge'){void audio.play('dodge');return;}
-      void audio.play(d.magic&&element&&element!=='NONE'?'magic':'strike',{element});
-      if(['shield','defeat','reraise'].includes(reaction))void audio.play(reaction==='reraise'?'support':reaction);
+      if(['guard','guard-gain','heart','heart-gain','mana','mana-gain','power','power-gain','luck','clover-gain','second-chance'].includes(reaction)){void audio.play('support',{signal});return;}
+      if(reaction==='dodge'){void audio.play('dodge',{signal});return;}
+      const magic=d.magic&&element&&element!=='NONE';
+      void audio.play(!magic&&reaction==='shield'?'shield':magic?'magic':'strike',{signal,element});
+      if(magic&&reaction==='shield')void audio.play('shield',{signal,layer:.4});
     };
-    if(reduced){sound();return;}
-    const field=document.querySelector('.battlefield');
-    const slot=(side,index)=>field?.querySelector(`.formation[data-player="${side}"] .slot[data-position="${index+1}"]`);
+    if(!reaction){await depart();return;}
+    if(reduced){sound();await depart();return;}
     const source=slot(d.side,d.attackerSlot),target=slot(1-d.side,d.targetSlot);
-    if(!source||!target)return;
+    if(!source||!target){await depart();return;}
     window.KalistarAmbience?.action();
     const sourceCard=source.querySelector('.slot-card'),targetCard=target.querySelector('.slot-card');
-    const animations=new Set(),nodes=new Set(),surfaces=new Map();
+    const animations=new Set(),nodes=new Set(),surfaces=new Map(),highlights=new Set();
+    const highlight=node=>{const release=window.KalistarFocus?.spotlight(node,signal);if(release)highlights.add(release);};
     const resizeObserver=new ResizeObserver(()=>{for(const sync of surfaces.values())sync();});
     let frame=0,timer=0,releaseWait=null,releaseFlight=null;
     const clean=()=>{
@@ -111,6 +120,7 @@
       releaseWait?.();releaseFlight?.();
       for(const animation of animations)animation.cancel();
       for(const node of nodes)node.remove();
+      for(const release of highlights)release();highlights.clear();
       window.KalistarAmbience?.clearReaction();
       source.classList.remove('combat-actor');target.classList.remove('combat-target');
       field.querySelectorAll('.effect-recipient').forEach(node=>node.classList.remove('effect-recipient'));
@@ -141,6 +151,7 @@
       return animate(node,[{opacity:0,transform:'translateY(12px) scale(.55)'},{opacity:1,transform:'translateY(0) scale(1.08)',offset:.25},{opacity:1,transform:'translateY(-4px) scale(1)',offset:.72},{opacity:0,transform:'translateY(-18px) scale(1.1)'}],duration);
     }
     async function reanimate(){
+      void window.KALISTAR_ARENA_AUDIO?.play('support',{signal,layer:.6});
       field.dataset.reanimation='fading';
       await animate(targetCard,[{filter:'grayscale(0) brightness(1)',opacity:1,transform:'translateY(0)'},{filter:'grayscale(1) brightness(.3)',opacity:.3,transform:'translateY(10px) scale(.94)'}],260);
       if(signal.aborted)return;
@@ -223,17 +234,19 @@
       if(['guard','guard-gain','heart','heart-gain','mana','mana-gain','power','power-gain','luck','clover-gain','second-chance'].includes(reaction)){
         sound();
         const recipient=(['guard-gain','heart-gain','clover-gain','mana-gain','power-gain'].includes(reaction)?field.querySelector(`.slot[data-unit="${d.guardGranted||d.reraiseGranted||d.cloverGranted||d.manaGranted||d.physicalGranted}"]`):['attack','kalistel'].includes(before.phase)?source:target)||source,card=recipient.querySelector('.slot-card');
+        highlight(recipient);
         field.dataset.combat='support';field.dataset.reaction=reaction;recipient.classList.add('effect-recipient');
         const [asset,label,tint]=reaction==='guard-gain'||reaction==='guard'?['guard',reaction==='guard'?'Garde obtenue':'DEF physique +60','#a6d8eb']:reaction==='heart-gain'||reaction==='heart'?['revive',reaction==='heart'?'Cœur obtenu':'Reraise','#ff96b7']:reaction==='mana-gain'?['mana','Magie +60','#74d9f7']:reaction==='mana'?['mana','Potion obtenue','#74d9f7']:reaction==='power'||reaction==='power-gain'?['buff_atk',reaction==='power'?'Puissance obtenue':'Physique +60','#f49b78']:['retry',reaction==='clover-gain'?'Trèfle':reaction==='second-chance'?'Seconde chance':['attack','kalistel'].includes(before.phase)?'Trèfle obtenu':'Relance','#7eeb9b'];
         const symbol=emblem(recipient,asset,label,tint);
         if(reaction==='guard-gain')await shield(recipient,true);
         await animate(card,[{boxShadow:`0 0 0 ${tint}`},{boxShadow:`0 0 30px ${tint}`,offset:.4},{boxShadow:`0 0 0 ${tint}`}],880);
-        await symbol;return;
+        await symbol;await depart();return;
       }
       const elementalMagic=d.magic&&element&&element!=='NONE';
       void window.KALISTAR_ARENA_AUDIO?.play(elementalMagic?'cast':'swing',{signal,element});
       field.dataset.combat=elementalMagic?'magic':'physical';field.dataset.reaction=reaction;field.dataset.element=element;
       source.classList.add('combat-actor');target.classList.add('combat-target');
+      highlight(source);highlight(target);
       const direction=d.side===0?1:-1;
       let attack;
       if(elementalMagic){
@@ -262,9 +275,9 @@
         else await hit;
         await spark;
         if(reaction==='reraise')await reanimate();
-        if(reaction==='defeat')await animate(targetCard,[{opacity:1,filter:'grayscale(0)'},{opacity:.12,filter:'grayscale(1)'}],260);
       }
       await attack;
+      await depart();
     }finally{delete field.dataset.reanimation;signal.removeEventListener('abort',clean);clean();}
   }
   window.KalistarCombat={play,shatterKalistel,celebrateKill,cancelKillCelebration};

@@ -1,0 +1,13 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),{execFileSync}=require('node:child_process');
+const root=path.resolve(__dirname,'../../..'),ffmpeg=process.env.FFMPEG||path.join(root,'work/cinematics/tools/node_modules/ffmpeg-static/ffmpeg.exe');
+const input=path.resolve(process.argv[2]||path.join(root,'../../sauvegardes-personnelles/audio/2026-11-20-arena-direction/source/departure.mp3')),target=path.join(root,'V4/site/assets/audio/arena-departure-v1.mp3');
+const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+const decode=file=>{const b=execFileSync(ffmpeg,['-v','error','-i',file,'-ar','44100','-ac','1','-f','f32le','pipe:1']);return Float32Array.from(new Float32Array(b.buffer,b.byteOffset,b.length/4));};
+const measure=data=>({rms:Math.sqrt(data.reduce((sum,x)=>sum+x*x,0)/data.length),peak:data.reduce((p,x)=>Math.max(p,Math.abs(x)),0),durationSeconds:data.length/44100});
+const source=measure(decode(input)),gain=Math.min(.1/source.rms,.72/source.peak);
+execFileSync(ffmpeg,['-v','error','-i',input,'-af','highpass=f=45,lowpass=f=14000,volume='+gain+',atrim=duration=1.55,afade=t=in:d=0.012,afade=t=out:st=1.28:d=0.27','-ar','44100','-ac','1','-b:a','128k','-map_metadata','-1','-y',target]);
+const bytes=fs.readFileSync(target),levels=measure(decode(target));
+if(levels.peak>.95||levels.rms<.025)throw Error('Unexpected output levels');
+const report={schemaVersion:1,taskId:'87b2338e-2a48-458c-bee6-77c43e53c63a',creditsUsed:2,prompt:'A defeated fantasy warrior dissolves into fading aether: a brief low resonant release, descending granular energy sweep and delicate airy dust dispersing, a somber final shimmer dying into silence. Classic serious JRPG battle disappearance, one smooth 1.5-second event starting immediately. No voice, scream, music, melody, cute bells, impact slam or notification beep.',sourceSha256:hash(fs.readFileSync(input)),path:'V4/site/assets/audio/arena-departure-v1.mp3',sha256:hash(bytes),bytes:bytes.length,sampleRate:44100,channels:1,...levels};
+fs.writeFileSync(path.join(__dirname,'sound.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));

@@ -172,6 +172,7 @@
   .duel-actions .ritual-action .action-label { font-size: 12px; line-height: 1.2; overflow-wrap: normal; }
   .duel-actions .ritual-action .action-sigil { justify-self: center; width: 20px; height: 20px; transform: none; border: 0; background: transparent; box-shadow: none; }
   .duel-actions .ritual-action .action-sigil > svg { width: 19px; height: 19px; transform: none; }
+  .duel-actions .ritual-action .action-sigil > img { width:13px;height:22px;transform:none; }
   .duel-actions .setup-actions { display: block; width: 100%; }
   .duel-actions .formation-auto { display: none; }
   .duel-actions .clover-choice-status { font-size: 11px; padding: 8px; border: 1px solid #9abb9380; border-radius: 4px; background: #0b1b1ce8; }

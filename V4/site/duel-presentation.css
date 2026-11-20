@@ -83,6 +83,7 @@
 .combat-afterimage{position:absolute;pointer-events:none;inset:22px 0 24px;z-index:2;border:1px solid #c6ffe3;opacity:.3;overflow:hidden;border-radius:6px}
 .combat-afterimage>img{width:100%;height:100%;object-fit:contain;filter:grayscale(.8) sepia(.25)}
 .combat-card-effect{inset:auto}
+.combat-departure{position:fixed;z-index:90;pointer-events:none}
 @media(min-width:2200px){.arena-view .duel-console{--die-row:224px;--status-row:102px}}
 @media(max-width:1100px){.arena-view .duel-console{--die-row:190px;--status-row:104px}.arena-view .duel-status h2{font-size:17px}}
 @media(max-width:900px){.card-detail .detail-body{grid-template-columns:minmax(0,1.1fr) minmax(280px,1fr);gap:20px;padding:12px 18px}.card-detail .detail-visual{height:calc(100dvh - 125px)}.arena-view .slot-buffs .buff-chip{font-size:8px;padding:0 1px;min-height:18px;height:18px}}

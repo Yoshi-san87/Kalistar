@@ -141,9 +141,10 @@
       }
     }previous=next;
   }
-  function pulse(source,signal,id){
+  async function pulse(source,signal,id){
+    const release=window.KalistarFocus?.spotlight(source,signal);
     const overlay=[...source?.querySelectorAll('.eq-overlay')||[]].find(n=>!id||n.dataset.weaponId===id),mechanism=overlay?.querySelector('.eq-mechanism');
-    return animate(mechanism,[{filter:'brightness(1)',transform:'translateY(0)'},{filter:'brightness(1.4)',transform:motion.matches?'none':'translateY(-1.5px)',offset:.35},{filter:'brightness(1)',transform:'translateY(0)'}],{duration:motion.matches?160:340,easing:'ease-out'},signal);
+    try{return await animate(mechanism,[{filter:'brightness(1)',transform:'translateY(0)'},{filter:'brightness(1.4)',transform:motion.matches?'none':'translateY(-1.5px)',offset:.35},{filter:'brightness(1)',transform:'translateY(0)'}],{duration:motion.matches?160:340,easing:'ease-out'},signal);}finally{release?.();}
   }
   const unitSlot=uid=>[...document.querySelectorAll('.formation .slot[data-unit]')].find(n=>n.dataset.unit===uid);
   const findOverlay=(slot,id)=>[...slot?.querySelectorAll('.eq-overlay')||[]].find(n=>n.dataset.weaponId===id);
@@ -182,7 +183,7 @@
       const source=unitSlot(first.sourceUid),anchor=source?.querySelector('.slot-card')||document.querySelector('.duel-status');if(!anchor)continue;
       if(w.effect.trigger==='ULTIMATE'&&['ready','grant','bonus','mark'].includes(first.kind)){await ensureOverlay(source,w,'relic',signal);if(signal.aborted)return;}
       const bounds=anchor.getBoundingClientRect(),emblem=document.createElement('span');emblem.className='eq-relic-emblem';emblem.dataset.kind=first.kind;emblem.dataset.weaponId=w.id;emblem.dataset.sourceUid=first.sourceUid;
-      void window.KALISTAR_ARENA_AUDIO?.play('magic',{signal});
+      void window.KALISTAR_ARENA_AUDIO?.play('magic',{signal,layer:.5});
       if(first.value<0)emblem.dataset.negative='true';
       emblem.setAttribute('role','status');emblem.setAttribute('aria-live','polite');emblem.setAttribute('aria-atomic','true');
       const caption=first.kind==='riposte'?'Riposte '+effectLabel(w):first.kind==='luck'?'Tr\u00e8fles alli\u00e9s':first.kind==='reraise'?'Reraise transmis':[...new Set(events.map(eventLabel))].join(' \u00b7 ');
@@ -227,7 +228,13 @@
   async function play({before,after,signal}){
     eventController?.abort();const controller=new AbortController();eventController=controller;
     const abort=()=>controller.abort();if(signal?.aborted)abort();else signal?.addEventListener('abort',abort,{once:true});
-    try{await playCore({before,after,signal:controller.signal});}finally{signal?.removeEventListener('abort',abort);if(eventController===controller)eventController=null;}
+    const events=newRelicEvents(before,after),d=after.duel,used=d?.formula&&(!before.duel?.formula||d.defenseRolls?.length!==before.duel.defenseRolls?.length);
+    const targets=new Set(events.flatMap(e=>[e.sourceUid,e.recipient,e.targetUid]));
+    if(d?.equipmentTransfer&&!before.duel?.equipmentTransfer){targets.add(d.equipmentTransfer.sourceUid);targets.add(d.equipmentTransfer.recipient);}
+    for(const grant of after.equipment?.defensive?.grants||[])if(grant.status==='ready'&&!(before.equipment?.defensive?.grants||[]).some(g=>g.sourceUid===grant.sourceUid&&g.recipient===grant.recipient)){targets.add(grant.sourceUid);targets.add(grant.recipient);}
+    if(used)for(const [part,formula]of [['weapon','equipmentWeapon'],['protection','equipmentProtection'],['attack','equipmentAttack'],['defense','equipmentDefense']])if(d.formula[formula]>0)targets.add(d.equipment?.[part]?.sourceUid);
+    const release=window.KalistarFocus?.spotlight([...targets].filter(Boolean).map(unitSlot),controller.signal);
+    try{await playCore({before,after,signal:controller.signal});}finally{release?.();signal?.removeEventListener('abort',abort);if(eventController===controller)eventController=null;}
   }
   window.addEventListener('pagehide',()=>capture({reset:true}));window.addEventListener('resize',()=>eventController?.abort());motion.addEventListener('change',()=>{eventController?.abort();for(const animation of animations)animation.cancel();animations.clear();});
   window.KalistarEquipmentFX={markup,art,capture,mount,mountDetail,clearDetail,play,newRelicEvents,native,layouts,arenaLayouts,skins};

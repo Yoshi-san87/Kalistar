@@ -37,7 +37,7 @@ test('abort releases voices; delayed resume cannot play after leaving; refused a
 test('all twelve elements select distinct recorded impacts; unknown inputs cannot create asset paths',async()=>{
   assert.equal(new Set(Audio.elements.map(e=>Audio.resolve('magic',e).asset)).size,12);assert.equal(Audio.resolve('magic','../../secret').asset,'RAINBOW');assert.equal(Audio.resolve('__proto__'),null);assert.equal(Audio.resolve('toString'),null);
   const f=fixture(),audio=Audio.create(f);audio.activate();f.fire(f.doc,'pointerdown');
-  for(const element of Audio.elements){assert(await audio.play('magic',{element}));f.finish();}assert.equal(new Set(f.requests).size,17);audio.destroy();
+  for(const element of Audio.elements){assert(await audio.play('magic',{element}));f.finish();}assert.equal(new Set(f.requests).size,18);audio.destroy();
 });
 test('failed media stays silent without repeated requests, and destruction cannot revive a decode',async()=>{
   const f=fixture({missing:true}),audio=Audio.create(f);audio.activate();f.fire(f.doc,'pointerdown');await f.settle();assert.equal(await audio.play('strike'),false);assert.equal(await audio.play('strike'),false);assert.equal(f.requests.filter(u=>u.endsWith('/strike.mp3')).length,1);audio.destroy();assert.equal(f.timers.size,0);
@@ -46,4 +46,13 @@ test('failed media stays silent without repeated requests, and destruction canno
 test('bfcache suspends without a second context and normal pagehide releases it',async()=>{
   const f=fixture(),audio=Audio.create(f);audio.activate();f.fire(f.doc,'pointerdown');await audio.play('shield');f.fire(f.host,'pagehide',{persisted:true});assert.equal(audio.snapshot().voices,0);assert.equal(await audio.play('roll'),false);
   f.fire(f.host,'pageshow',{persisted:true});assert(await audio.play('roll'));assert.equal(f.created,1);f.fire(f.host,'pagehide',{persisted:false});assert.equal(f.context.state,'closed');assert.equal(await audio.play('roll'),false);
+});
+
+test('mix trim preserves preferences; impacts replace buildup and departure has its own asset',async()=>{
+  assert.equal(Audio.MIX_TRIM,.42);assert.equal(Audio.url('departure'),'assets/audio/arena-departure-v1.mp3');
+  assert.equal(Audio.resolve('departure').asset,'departure');
+  const f=fixture(),audio=Audio.create(f);audio.set({volume:.11});audio.activate();f.fire(f.doc,'pointerdown');
+  assert(await audio.play('roll'));assert(await audio.play('cast'));assert.equal(audio.snapshot().voices,2);
+  assert(await audio.play('magic',{element:'PYRO'}));assert.equal(audio.snapshot().voices,1);
+  assert.equal(audio.snapshot().volume,.11);f.finish();assert(await audio.play('departure'));assert(f.requests.some(u=>u===Audio.url('departure')));audio.destroy();
 });
