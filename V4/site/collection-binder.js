@@ -41,7 +41,7 @@
     }
     if(page)pages.push(page.trim());return pages.length?pages:[''];
   }
-  function create({data,getOwned=()=>[],getCatalogueChanges=()=>[],getFavorites=()=>new Set(),getCareer=()=>null,getDecks=()=>[],onOpenDeck=()=>{},onFavorite=()=>{},onRegistry=()=>{},onArchives=()=>{},onHistory=()=>{},artImage=c=>globalThis.KalistarCardMedia.image(c,'art'),profile='',getEquipment=()=>null,onEquipment=()=>{}}={}){
+  function create({data,getOwned=()=>[],canView=id=>(getOwned(id)||[]).length>0,getCatalogueChanges=()=>[],getFavorites=()=>new Set(),getCareer=()=>null,getDecks=()=>[],onOpenDeck=()=>{},onFavorite=()=>{},onRegistry=()=>{},onArchives=()=>{},onHistory=()=>{},artImage=c=>globalThis.KalistarCardMedia.image(c,'art'),profile='',getEquipment=()=>null,onEquipment=()=>{}}={}){
     if(!Array.isArray(data?.cards)||!data.cards.length)throw new Error('Catalogue V4 requis.');
     const cards=data.cards,byId=new Map(cards.map(c=>[c.id,c])),covers=new Map();
     const searchText=new Map(cards.map(c=>[c.id,normalize([c.name,c.title,c.faction,c.race,c.id].join(' '))]));
@@ -53,6 +53,9 @@
     const owns=id=>getOwned(id)||[];
     const asset=C.asset;
     const image=c=>globalThis.KalistarCardMedia.image(c);
+    const backImage='assets/back-obsidian-v1.webp';
+    const cover=group=>group.find(c=>c.id===covers.get(key(c)))||group.find(c=>canView(c.id)&&getFavorites().has(c.id))||group.find(c=>canView(c.id))||group[0];
+    const versionLabel=c=>canView(c.id)?c.title:'Version non découverte';
     const button=(action,symbol,label,extra='',className='')=>`<button type="button" class="cb-icon${className?' '+esc(className):''}" data-binder-action="${action}" aria-label="${esc(label)}" title="${esc(label)}" ${extra}>${icon(symbol)}</button>`;
     const element=c=>elements[c.element]||elements.NONE;
     const crystal=c=>`<img src="${asset('cristaux',c.element)}" alt="${esc(element(c).label)}">`;
@@ -60,7 +63,7 @@
     function filtered(){
       const favorites=getFavorites(),search=normalize(filters.search.trim());
       return cards.filter(c=>(scope==='catalogue'||owns(c.id).length)&&(!filters.collection||matchesScope(c,filters.collection))&&(!filters.favorite||favorites.has(c.id))&&
-        (!search||searchText.get(c.id).includes(search))&&
+        (!search||(canView(c.id)?searchText.get(c.id):normalize(c.name)).includes(search))&&
         ['element','faction','race','weapon'].every(field=>!filters[field]||filters[field]===c[field])&&
         (!filters.position||c.positions.includes(Number(filters.position))))
         .sort((a,b)=>sort==='name'?a.name.localeCompare(b.name,'fr'):sort==='element'?a.element.localeCompare(b.element):sort==='faction'?a.faction.localeCompare(b.faction,'fr'):a.id.localeCompare(b.id));
@@ -68,17 +71,21 @@
     function snapshot(){
       const list=filtered(),groups=groupCards(list),pages=Math.max(1,Math.ceil(groups.length/pageSize));
       page=Math.max(0,Math.min(page,pages-1));
-      if(selected&&!list.some(c=>c.id===selected))selected=null;
+      if(selected&&(!canView(selected)||!list.some(c=>c.id===selected)))selected=null;
       if(selected){const index=groups.findIndex(g=>g.some(c=>c.id===selected));page=Math.floor(index/pageSize);}
       return {list,groups,pages,current:groups.slice(page*pageSize,(page+1)*pageSize)};
     }
     function clearReading(){historyPage=copyPage=0;instance='all';}
-    function select(id){if(!filtered().some(c=>c.id===id))return;selected=id;covers.set(key(byId.get(id)),id);clearReading();filtersOpen=false;}
+    function select(id){if(!canView(id)||!filtered().some(c=>c.id===id))return;selected=id;covers.set(key(byId.get(id)),id);clearReading();filtersOpen=false;}
     function pager(action,index,count,label){return `<nav class="cb-subpager" aria-label="${esc(label)}">${button(action,'chevron-left','Précédent',`data-index="${index-1}" ${index===0?'disabled':''}`)}<span>${index+1} / ${count}</span>${button(action,'chevron-right','Suivant',`data-index="${index+1}" ${index>=count-1?'disabled':''}`)}</nav>`;}
     function pocket(group,index){
-      const c=group.find(c=>c.id===covers.get(key(c)))||group.find(c=>getFavorites().has(c.id))||group[0],owned=owns(c.id).length,favorite=getFavorites().has(c.id);
+      const c=cover(group),owned=owns(c.id).length,favorite=getFavorites().has(c.id);
       const current=group.indexOf(c),behind=[...group.slice(current+1),...group.slice(0,current)],next=behind[0];
       const versionCount=`<span class="cb-flip-symbol">${icon('layers-2')}</span><b>${current+1}<span> / ${group.length}</span></b>${icon('chevron-right')}`;
+      if(!canView(c.id))return `<article class="cb-pocket is-undiscovered" data-character="${esc(key(c))}" data-card-id="${c.id}" style="--card-color:#88948e;--pocket-order:${index}">
+        <div class="cb-art-stage"><div class="cb-stack"><div class="cb-card cb-locked-face" role="img" aria-label="${esc(c.name)} : version non découverte"><img src="${backImage}" alt="" draggable="false" width="797" height="1388" loading="lazy"><span class="cb-discovery-lock">${icon('lock-keyhole')}</span></div></div></div>
+        <div class="cb-caption cb-pedestal" data-kui-native><div class="cb-pedestal-content${next?' has-versions':''}"><div class="cb-caption-title"><h2 title="${esc(c.name)}">${esc(c.name)}</h2><p>Non découverte</p></div>${next?`<button type="button" class="cb-version-count cb-flip-control" data-binder-action="cycle-version" data-id="${c.id}" aria-label="${esc(group.length+' versions de '+c.name+' · Version suivante')}" title="Version suivante">${versionCount}</button>`:''}</div></div>
+      </article>`;
       return `<article class="cb-pocket ${owned?'':'is-unowned'}" data-character="${esc(key(c))}" data-card-id="${c.id}" style="--card-color:#${element(c).color};--pocket-order:${index}">
         <div class="cb-art-stage"><div class="cb-stack">${behind.slice(0,2).map((v,i)=>`<img class="cb-behind cb-layer-${i}" data-version-id="${v.id}" src="assets/back-obsidian-v1.webp" alt="" aria-hidden="true" draggable="false" width="797" height="1388">`).join('')}
         <button type="button" class="cb-card" data-binder-action="open" data-id="${c.id}" aria-label="Consulter ${esc(c.name+' : '+c.title)}"><img src="${image(c)}" alt="${esc(c.name+' : '+c.title)}" draggable="false" width="797" height="1388" loading="lazy" decoding="async"></button>
@@ -90,7 +97,7 @@
           <div class="cb-pedestal-content${next?' has-versions':''}${c.positions.length>2?' has-many-positions':''}">
           <div class="cb-caption-title"><h2 title="${esc(c.name)}">${esc(c.name)}</h2><p title="${esc(c.title)}">${esc(c.title)}</p></div>
           ${globalThis.KalistarPositions.list(c.positions,{className:'cb-pocket-positions'})}
-          ${next?`<button type="button" class="cb-version-count cb-flip-control" data-binder-action="cycle-version" data-id="${c.id}" aria-label="${esc(group.length+' versions de '+c.name+' · Afficher '+next.title)}" title="${esc(c.title+' · '+(current+1)+' / '+group.length+' · Suivante : '+next.title)}">${versionCount}</button>`:''}
+          ${next?`<button type="button" class="cb-version-count cb-flip-control" data-binder-action="cycle-version" data-id="${c.id}" aria-label="${esc(group.length+' versions de '+c.name+' · Afficher '+versionLabel(next))}" title="${esc(c.title+' · '+(current+1)+' / '+group.length+' · Suivante : '+versionLabel(next))}">${versionCount}</button>`:''}
           </div>
         </div>
       </article>`;
@@ -114,7 +121,7 @@
       if(!pagesOpen)return '';
       return `<dialog class="cb-overlay cb-index" data-active="true" aria-labelledby="cb-index-title"><div class="cb-overlay-body"><header class="cb-filter-heading"><h2 id="cb-index-title">La collection</h2>${button('close-overlay','x','Fermer le sommaire')}</header><div class="cb-page-thumbnails">${Array.from({length:s.pages},(_,i)=>{
         const groups=s.groups.slice(i*pageSize,(i+1)*pageSize);
-        return `<button type="button" data-binder-action="jump-page" data-id="${i}" aria-current="${i===page?'page':'false'}" aria-label="Page ${i+1}${groups.length?' : '+esc(groups[0][0].name+' à '+groups.at(-1)[0].name):''}" ${i===page?'autofocus':''}><span class="cb-mini-book">${groups.slice(0,3).map(g=>{const c=g.find(c=>c.id===covers.get(key(c)))||g[0];return `<img src="${image(c)}" alt="" loading="lazy" width="797" height="1388">`;}).join('')}</span><b>${String(i+1).padStart(2,'0')} ${i===page?icon('check'):''}</b><small>${groups.length?esc(groups[0][0].name+' · '+groups.at(-1)[0].name):''}</small></button>`;
+        return `<button type="button" data-binder-action="jump-page" data-id="${i}" aria-current="${i===page?'page':'false'}" aria-label="Page ${i+1}${groups.length?' : '+esc(groups[0][0].name+' à '+groups.at(-1)[0].name):''}" ${i===page?'autofocus':''}><span class="cb-mini-book">${groups.slice(0,3).map(g=>{const c=cover(g);return `<img src="${canView(c.id)?image(c):backImage}" alt="" loading="lazy" width="797" height="1388">`;}).join('')}</span><b>${String(i+1).padStart(2,'0')} ${i===page?icon('check'):''}</b><small>${groups.length?esc(groups[0][0].name+' · '+groups.at(-1)[0].name):''}</small></button>`;
       }).join('')}</div></div></dialog>`;
     }
     function deckUsage(c){
@@ -151,7 +158,7 @@
       const content=tab==='profile'?profileHTML(c):tab==='career'?careerHTML(c):tab==='copies'?copiesHTML(c):`<div class="cb-story"><span class="cb-story-kicker">${esc(c.job)} · ${esc(c.faction)}</span><p>${esc(c.text||c.description||'')}</p><span class="cb-story-seal" aria-hidden="true">${crystal(c)}</span></div>`;
       return `<div class="cb-reader" data-motion="${motion}" style="--card-color:#${element(c).color}"><div class="cb-reader-backdrop" aria-hidden="true"><img src="${artImage(c)}" alt=""></div><figure class="cb-visual"><div class="cb-media-tools" role="group" aria-label="Visuel de la carte"><button type="button" data-binder-action="media" data-id="card" aria-pressed="${!art}">${icon('credit-card')}Carte</button><button type="button" data-binder-action="media" data-id="art" aria-pressed="${art}">${icon('image')}Illustration</button></div><div class="cb-hero-stage"><img class="cb-hero-image ${art?'is-art':''}" src="${art?artImage(c):image(c)}" alt="${esc((art?'Illustration de ':'Carte de ')+c.name+' : '+c.title)}"></div><figcaption><span>${owns(c.id).length?icon('fingerprint'):' '+icon('lock-keyhole')} ${owns(c.id).length?'Dans ma collection':'Catalogue'} <span>· ${c.id}</span></span><a href="${esc(globalThis.KalistarSite?.url(c.pngUrl)||c.pngUrl)}" download title="PNG d’impression" aria-label="Télécharger le PNG d’impression">${icon('download')}</a></figcaption></figure>
         <section class="cb-reading"><header class="cb-card-heading"><div><span class="cb-eyebrow">${crystal(c)}${esc(element(c).label)} <span>· ${esc(c.faction)}</span></span><h2>${esc(c.name)}</h2><p>${esc(c.title)}</p></div>${button('favorite','star','Favori : '+c.name,`data-id="${c.id}" aria-pressed="${getFavorites().has(c.id)}"`)}</header>
-        <div class="cb-versions" role="group" aria-label="Versions de ${esc(c.name)}">${versions.map(v=>`<button type="button" data-binder-action="version" data-id="${v.id}" aria-pressed="${v.id===selected}" title="${esc(v.title)}"><span class="cb-version-thumb"><img src="${image(v)}" alt="" width="797" height="1388" loading="lazy">${icon('check')}</span><span>${esc(v.title)}</span></button>`).join('')}</div>
+        <div class="cb-versions" role="group" aria-label="Versions de ${esc(c.name)}">${versions.map(v=>`<button type="button" data-binder-action="version" data-id="${v.id}" aria-pressed="${v.id===selected}" title="${esc(versionLabel(v))}" ${canView(v.id)?'':'disabled'}><span class="cb-version-thumb"><img src="${canView(v.id)?image(v):backImage}" alt="" width="797" height="1388" loading="lazy">${icon(canView(v.id)?'check':'lock-keyhole')}</span><span>${esc(versionLabel(v))}</span></button>`).join('')}</div>
         ${getEquipment(c)?`<button type="button" class="cb-equipped" data-binder-action="equipment" data-id="${getEquipment(c).id}">${icon('sword')}${esc(getEquipment(c).name)}</button>`:''}<div class="cb-reading-tabs" role="tablist" aria-label="Détails de la carte">${[['story','book-open','Récit'],['profile','scan-line','Fiche'],['career','medal','Carrière'],['copies','fingerprint','Exemplaires']].map(([id,symbol,label])=>`<button type="button" role="tab" id="cb-tab-${id}" aria-controls="cb-read-content" aria-selected="${tab===id}" tabindex="${tab===id?0:-1}" data-binder-action="tab" data-id="${id}">${icon(symbol)}${label}</button>`).join('')}</div>
         <div id="cb-read-content" class="cb-read-content" role="tabpanel" aria-labelledby="cb-tab-${tab}">${content}</div></section></div>`;
     }
@@ -162,15 +169,15 @@
     function render(){
       const s=snapshot(),allOwned=owns(),ownedVersions=new Set(allOwned.map(i=>i.cardId)).size;
       const catalogueSize=new Set([...cards.map(c=>c.id),...getCatalogueChanges(),...allOwned.map(i=>i.cardId)]).size;
-      const active=Object.values(filters).some(Boolean),index=s.list.findIndex(c=>c.id===selected);
-      const toolbar=selected?`<button type="button" class="cb-back" data-binder-action="back">${icon('arrow-left')}Collection</button><span class="cb-reader-count">${index+1} / ${s.list.length}</span>`:`<label class="cb-search">${icon('search')}<input type="search" data-binder-field="search" aria-label="Rechercher une carte" placeholder="Un personnage, une histoire…" value="${esc(filters.search)}"></label>${choose('collection','Univers',collectionChoices(),'Tous les univers','cb-collection-select')}${button('favorites','star','Mes favoris',`aria-pressed="${filters.favorite}"`)}${button('filters','sliders-horizontal','Filtres',`aria-expanded="${filtersOpen}"`)}${active?button('reset','filter-x','Effacer les filtres'):''}<select data-binder-field="sort" aria-label="Trier les cartes">${[['id','Édition'],['name','Personnage'],['element','Cristal'],['faction','Faction']].map(([id,label])=>`<option value="${id}" ${sort===id?'selected':''}>${label}</option>`).join('')}</select><div class="cb-density" role="group" aria-label="Taille des cartes">${button('density','layout-grid','Grandes cartes',`data-id="comfortable" aria-pressed="${density==='comfortable'}"`)}${button('density','grid-3x3','Galerie compacte',`data-id="compact" aria-pressed="${density==='compact'}"`)}</div>${button('discover','shuffle','Une carte au hasard',s.list.length?'':'disabled')}`;
+      const active=Object.values(filters).some(Boolean),readable=s.list.filter(c=>canView(c.id)),index=readable.findIndex(c=>c.id===selected);
+      const toolbar=selected?`<button type="button" class="cb-back" data-binder-action="back">${icon('arrow-left')}Collection</button><span class="cb-reader-count">${index+1} / ${readable.length}</span>`:`<label class="cb-search">${icon('search')}<input type="search" data-binder-field="search" aria-label="Rechercher une carte" placeholder="Un personnage, une histoire…" value="${esc(filters.search)}"></label>${choose('collection','Univers',collectionChoices(),'Tous les univers','cb-collection-select')}${button('favorites','star','Mes favoris',`aria-pressed="${filters.favorite}"`)}${button('filters','sliders-horizontal','Filtres',`aria-expanded="${filtersOpen}"`)}${active?button('reset','filter-x','Effacer les filtres'):''}<select data-binder-field="sort" aria-label="Trier les cartes">${[['id','Édition'],['name','Personnage'],['element','Cristal'],['faction','Faction']].map(([id,label])=>`<option value="${id}" ${sort===id?'selected':''}>${label}</option>`).join('')}</select><div class="cb-density" role="group" aria-label="Taille des cartes">${button('density','layout-grid','Grandes cartes',`data-id="comfortable" aria-pressed="${density==='comfortable'}"`)}${button('density','grid-3x3','Galerie compacte',`data-id="compact" aria-pressed="${density==='compact'}"`)}</div>${button('discover','shuffle','Une carte au hasard',readable.length?'':'disabled')}`;
       const panes=selected?`<div class="cb-mobile-panes" role="group" aria-label="Vue de la carte"><button data-binder-action="pane" data-id="visual" aria-pressed="${readerPane==='visual'}">${icon('image')}Carte</button><button data-binder-action="pane" data-id="notes" aria-pressed="${readerPane==='notes'}">${icon('book-open')}Détails</button></div>`:'';
       return `<section class="cb-page" data-kui-native data-density="${density}" data-reader-pane="${readerPane}" data-mode="${selected?'reader':'book'}" tabindex="-1" aria-label="Collection">
         <header class="cb-heading"><div class="cb-title"><img src="assets/navigation/collection-v1.webp" alt="" width="50" height="50"><div><span class="cb-eyebrow">Kalistar${profile?' · '+esc(profile):''}</span><h1>Collection</h1></div></div><div class="cb-scopes" role="group" aria-label="Contenu de la collection"><button type="button" data-binder-action="scope" data-id="owned" aria-pressed="${scope==='owned'}">Mes cartes <b>${allOwned.length}</b></button><button type="button" data-binder-action="scope" data-id="catalogue" aria-pressed="${scope==='catalogue'}">Catalogue</button></div><div class="cb-completion"><span><b>${ownedVersions}</b><span> / ${catalogueSize}</span></span><meter min="0" max="${catalogueSize}" value="${ownedVersions}" aria-label="Versions possédées">${ownedVersions}/${catalogueSize}</meter></div>${button('archives','archive','Archives et sauvegardes')}</header>
         <div class="cb-toolbar">${toolbar}${panes}</div>
         ${selected?'':elementsHTML()}
         <div class="cb-workbench" tabindex="0" aria-label="${selected?'Carte et récit':'Galerie de cartes'}">${selected?reader(s):`<div class="cb-gallery-heading"><span class="cb-count">${s.groups.length} personnage${s.groups.length>1?'s':''} <span>· ${s.list.length} versions</span></span><span>${filters.favorite?'Mes favoris':filters.element?esc(elements[filters.element]?.label||filters.element):scope==='owned'?'Ma collection':'Toutes les rencontres'}</span></div>${book(s)}`}</div>
-        <footer class="cb-footer"><span class="cb-footer-label">${selected?esc(byId.get(selected).name):'KALISTAR · V4'}</span><div class="cb-paging">${button(selected?'previous-card':'previous-page','chevron-left',selected?'Carte précédente':'Page précédente',(selected?index<=0:page===0)?'disabled':'')}<${selected?'div':'button type="button" data-binder-action="pages" title="Parcourir la collection" aria-haspopup="dialog"'} class="cb-page-label"><span aria-live="polite">${selected?`${index+1} / ${s.list.length}`:`${page+1} / ${s.pages} ${icon('grid-2x2')}`}</span></${selected?'div':'button'}>${button(selected?'next-card':'next-page','chevron-right',selected?'Carte suivante':'Page suivante',(selected?index>=s.list.length-1:page>=s.pages-1)?'disabled':'')}</div><span class="cb-footer-range">${selected?esc(byId.get(selected).title):s.groups.length?`${page*pageSize+1}–${Math.min((page+1)*pageSize,s.groups.length)} / ${s.groups.length}`:'0'}</span></footer>${selected?'':filtersHTML()+pagesHTML(s)}</section>`;
+        <footer class="cb-footer"><span class="cb-footer-label">${selected?esc(byId.get(selected).name):'KALISTAR · V4'}</span><div class="cb-paging">${button(selected?'previous-card':'previous-page','chevron-left',selected?'Carte précédente':'Page précédente',(selected?index<=0:page===0)?'disabled':'')}<${selected?'div':'button type="button" data-binder-action="pages" title="Parcourir la collection" aria-haspopup="dialog"'} class="cb-page-label"><span aria-live="polite">${selected?`${index+1} / ${readable.length}`:`${page+1} / ${s.pages} ${icon('grid-2x2')}`}</span></${selected?'div':'button'}>${button(selected?'next-card':'next-page','chevron-right',selected?'Carte suivante':'Page suivante',(selected?index>=readable.length-1:page>=s.pages-1)?'disabled':'')}</div><span class="cb-footer-range">${selected?esc(byId.get(selected).title):s.groups.length?`${page*pageSize+1}–${Math.min((page+1)*pageSize,s.groups.length)} / ${s.groups.length}`:'0'}</span></footer>${selected?'':filtersHTML()+pagesHTML(s)}</section>`;
     }
     function paint(focus){
       if(!root||painting)return;painting=true;
@@ -222,7 +229,7 @@
       const stack=node.closest('.cb-pocket')?.querySelector('.cb-stack'),front=stack?.querySelector('.cb-card'),back=stack?.querySelector('.cb-layer-0');
       covers.set(key(next),next.id);
       const focus={action:'cycle-version',id:next.id};
-      if(!front?.animate||!back||globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches){paint(focus);return;}
+      if(!canView(next.id)||!front?.animate||!back||globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches){paint(focus);return;}
       const transition={stack,button:node,animations:[]};versionTransition=transition;node.setAttribute('aria-busy','true');
       try{
         const ready=await loadVersionImage(back,next,transition);
@@ -243,7 +250,7 @@
       if(transitioning||!delta)return;
       const s=snapshot();
       const direction=delta>0?'next':'previous';
-      if(selected){const index=s.list.findIndex(c=>c.id===selected),next=s.list[index+delta];if(!next)return;select(next.id);motion=direction;paint();return;}
+      if(selected){const readable=s.list.filter(c=>canView(c.id)),index=readable.findIndex(c=>c.id===selected),next=readable[index+delta];if(!next)return;select(next.id);motion=direction;paint();return;}
       const next=page+delta;if(next<0||next>=s.pages)return;
       cancelVersionTransition();
       let committed=false;
@@ -273,7 +280,7 @@
         return;
       }
       if(action==='density'){density=id==='compact'?'compact':'comfortable';size();paint({action:'density',id:density});return;}
-      if(action==='discover'){const list=filtered();if(list.length){select(list[Math.floor(Math.random()*list.length)].id);motion='open';readerPane='visual';paint({action:'back'});}return;}
+      if(action==='discover'){const list=filtered().filter(c=>canView(c.id));if(list.length){select(list[Math.floor(Math.random()*list.length)].id);motion='open';readerPane='visual';paint({action:'back'});}return;}
       if(action==='previous-page'||action==='previous-card')return navigate(-1);
       if(action==='next-page'||action==='next-card')return navigate(1);
       if(action==='archives')return onArchives();
@@ -289,7 +296,7 @@
       if(action==='back'){selected=null;filtersOpen=false;motion='back';}
       if(action==='scope'){scope=id==='catalogue'?'catalogue':'owned';page=0;selected=null;filtersOpen=false;resetGallery=true;}
       if(action==='equipment'){onEquipment(id);return;}
-      if(action==='favorite'){onFavorite(id);}
+      if(action==='favorite'&&canView(id)){onFavorite(id);}
       if(action==='favorites'){filters.favorite=!filters.favorite;page=0;resetGallery=true;}
       if(action==='filters'){filtersOpen=!filtersOpen;pagesOpen=false;}
       if(action==='reset'){Object.keys(filters).forEach(k=>filters[k]=k==='favorite'?false:'');page=0;resetGallery=true;}

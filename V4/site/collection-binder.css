@@ -86,6 +86,12 @@ body.collection-view #app { flex:1 1 0; width:100%; height:100%; min-height:0; m
 .cb-pocket.is-unowned .cb-stack::before { border-color:#bac1b52b; }
 .cb-pocket.is-unowned .cb-card { opacity:.72; }
 .cb-pocket.is-unowned:hover .cb-card,.cb-pocket.is-unowned:focus-within .cb-card { opacity:1; }
+.cb-pocket.is-undiscovered .cb-card { cursor:default; }
+.cb-pocket.is-undiscovered .cb-card>img { filter:grayscale(1) brightness(.48); }
+.cb-pocket.is-undiscovered .cb-card::after { display:none; }
+.cb-pocket.is-undiscovered .cb-stack::before { border-color:#aeb9b733; }
+.cb-discovery-lock { position:absolute; inset:0; display:grid; place-content:center; color:#b7c3bc; background:#06100e25; pointer-events:none; }
+.cb-discovery-lock .lucide { width:28px; height:28px; filter:drop-shadow(0 2px 5px #000); }
 .cb-footer { display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr); align-items:center; gap:20px; padding:4px 40px; border-top:1px solid var(--cb-line); background:#0c1917f5; }
 .cb-footer-label,.cb-footer-range { color:#b6baa4; font:10px/1.4 var(--kalistar-display,Georgia,serif); overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
 .cb-footer-range { text-align:right; color:var(--cb-muted); font-family:var(--sans,'Segoe UI',sans-serif); }
@@ -166,6 +172,9 @@ body.collection-view #app { flex:1 1 0; width:100%; height:100%; min-height:0; m
 .cb-versions [aria-pressed=true] { color:#f1dfb9!important; }
 .cb-versions [aria-pressed=true] .cb-version-thumb { box-shadow:0 0 0 2px #d6b37a; }
 .cb-versions [aria-pressed=true] .lucide { visibility:visible; }
+.cb-versions button:disabled { opacity:.55; cursor:default; }
+.cb-versions button:disabled img { filter:grayscale(1); }
+.cb-versions button:disabled .lucide { visibility:visible; }
 .cb-versions:has(button:only-child) { display:none; }
 .cb-reading-tabs { display:flex; align-items:stretch; min-width:0; border-bottom:1px solid var(--cb-line); }
 .cb-page .cb-reading-tabs button { flex:1; min-width:0; padding:10px 6px; border:0; border-bottom:2px solid transparent; border-radius:0; color:var(--cb-muted); background:none; font-size:12px; }

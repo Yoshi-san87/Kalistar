@@ -1,6 +1,19 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict'),Cloud=require('./cloud-registry.js');
 const id='KC-'+'a'.repeat(32),secret='b'.repeat(64);
+test('catalogue discovers exact versions from ownership and accepted transfers only',()=>{
+  const input={owned:[{modelId:'30000001',status:'owned'},{cardId:'40000001',status:'owned'},{modelId:'30000002',status:'unclaimed'}],transfers:[
+    {status:'accepted',incoming:false,card:{modelId:'30000003'}},
+    {status:'accepted',incoming:true,card:{modelId:'30000004'}},
+    {status:'accepted',card:{modelId:'30000001'}},
+    ...['pending','rejected','cancelled'].map(status=>({status,card:{modelId:'30000005'}})),
+    {status:'accepted',card:{modelId:'invalid'}}
+  ],isAdmin:false},before=structuredClone(input);
+  assert.deepEqual(Cloud.catalogueAccess(input),{all:false,ids:['30000001','40000001','30000003','30000004']});
+  assert.deepEqual(input,before);assert.deepEqual(Cloud.catalogueAccess(),{all:false,ids:[]});
+  assert.equal(Cloud.catalogueAccess({isAdmin:true}).all,true);
+  assert.equal(Cloud.catalogueAccess({isAdmin:'true'}).all,false);
+});
 function fixture(){
   const calls=[],session={user:{id:'private-user',email:'fixture@example.invalid'}};let callback,active=session;
   const client={auth:{getSession:async()=>({data:{session:active}}),onAuthStateChange:fn=>{callback=fn;return {data:{subscription:{unsubscribe(){calls.push('unsubscribe');}}}};},

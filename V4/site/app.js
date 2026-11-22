@@ -171,6 +171,29 @@
     }
   }
   let deckBuilder=null,collectionBinder=null,statisticsSheet=null;
+  let catalogueAccessAll=false,catalogueKnown=new Set(),catalogueAccessRead=null,catalogueAccessAt=0;
+  const canViewCatalogue=id=>catalogueAccessAll||catalogueKnown.has(id)||owned(id).length>0;
+  function refreshCatalogueAccess(force=false){
+    if(catalogueAccessRead)return force?catalogueAccessRead.then(()=>refreshCatalogueAccess(true)):catalogueAccessRead;
+    if(!force&&Date.now()-catalogueAccessAt<60000)return Promise.resolve();
+    catalogueAccessRead=Promise.resolve().then(async()=>{
+      try{
+        let info;
+        if(cloudPlayer){
+          const client=cloudPlayer.client,[me,transfers]=await Promise.all([client.rpc('kalistar_me'),client.rpc('kalistar_my_transfers')]);
+          const identity=await client.auth.getSession();
+          if(me.error||transfers.error||identity.error||identity.data?.session?.user?.id!==cloudPlayer.userId||typeof me.data?.isAdmin!=='boolean'||!Array.isArray(transfers.data))throw Error('Catalogue indisponible.');
+          info=KalistarCloudRegistry.catalogueAccess({owned:owned(),transfers:transfers.data,isAdmin:me.data.isAdmin});
+        }else{
+          const registry=db?.registry;
+          info=KalistarCloudRegistry.catalogueAccess({owned:owned(),isAdmin:registry?.user(accountId)?.role==='admin',transfers:(registry?.transfers(accountId)||[]).map(t=>({...t,card:registry.get(t.collectibleId)}))});
+        }
+        catalogueAccessAll=info.all;catalogueKnown=new Set(info.ids);
+      }catch{catalogueAccessAll=false;}
+      finally{catalogueAccessAt=Date.now();}
+    }).finally(()=>{catalogueAccessRead=null;collectionBinder?.refresh();});
+    return catalogueAccessRead;
+  }
   const weaponsUI=KalistarWeaponsUI.create({data,db,userId:accountId,toast,onCard:id=>showDetail(id)});
   const journeys=KalistarJourneyClient.create({data,player:cloudPlayer,sync:cloudSync,localAdmin:!connectedAccess&&db?.registry?.user(accountId)?.role==='admin',onUpdate:()=>journeyView?.refresh()});
   journeyView=KalistarJourneyView.create({data,image:cardImage,art:artImage,getState:journeys.snapshot,onStart:startJourney,onResume:resumeJourney,onClaim:claimJourney,onScene:(id,options)=>playGamingBook(id,options),onAcknowledge:id=>journeys.acknowledge(id),onClaimEquipment:claimJourneyEquipment,onAcknowledgeEquipment:(id,stage)=>journeys.acknowledgeEquipment(id,stage),onPreview:previewJourney,onDetail:id=>showDetail(id),onRefresh:()=>journeys.refresh(),toast});
@@ -213,6 +236,7 @@
   }
   function openAccounts(tab='profile',id=null){if(connectedAccess)return cloudRegistryUI?.open({section:tab==='activation'?'activate':tab==='collection'?'transfers':tab,id});if(!accountsUI)return toast('Registre local indisponible : '+dbError);accountsUI.open(tab==='profile'?'transfers':tab,id).catch(e=>toast(e.message));}
   async function ownershipChanged(){
+    await refreshCatalogueAccess(true);
     if(game){try{db.registry.validateGame(game,accountId);}catch{suspendGame();}}
     const counts={},slots=Team.slots(teamDraft).map(id=>id&&(counts[id]=(counts[id]||0)+1)<=owned(id).length?id:null);
     teamDraft=Team.edit(teamDraft,slots);deck=teamDraft.cards.filter(Boolean);persist();
@@ -345,7 +369,7 @@
   }
   function collectionView(){
     if(!collectionBinder)collectionBinder=KalistarCollection.create({
-      data,getOwned:owned,getCatalogueChanges:()=>catalogueUpdates.ids(),getFavorites:()=>favorites,getCareer:(id,instance)=>collectionDB()?.career(id,instance),artImage,getEquipment:c=>db?.equipment.weapon(accountId,c.characterId),onEquipment:id=>weaponsUI.open(id),
+      data,getOwned:owned,canView:canViewCatalogue,getCatalogueChanges:()=>catalogueUpdates.ids(),getFavorites:()=>favorites,getCareer:(id,instance)=>collectionDB()?.career(id,instance),artImage,getEquipment:c=>db?.equipment.weapon(accountId,c.characterId),onEquipment:id=>weaponsUI.open(id),
       profile:accountId===KalistarOwnership.PARIS?'Paris':'Tokyo',
       getDecks:()=>builder().listDecks(),
       onOpenDeck:async(id,cardId)=>{try{builder().openDeck(id,cardId);await setView('decks');}catch(error){toast(error.message);}},
@@ -353,7 +377,7 @@
       onRegistry:id=>openAccounts(id&&owned(id).length?'collection':'activation',id?owned(id)[0]?.id:null),
       onArchives:showDatabase,onHistory:id=>{const archived=db?.match(id);if(archived)showMatchStats(archived.state,archived);}
     });
-    return collectionBinder;
+    void refreshCatalogueAccess();return collectionBinder;
   }
   function collection(){return '<div id="collection-binder-root"></div>';}
   function changeDeck(id,delta){

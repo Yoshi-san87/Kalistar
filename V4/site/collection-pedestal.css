@@ -53,6 +53,7 @@
   .cb-caption-title { min-height:0; }
   .cb-caption-title>p { display:none; }
 }
+.cb-pocket.is-undiscovered .cb-pedestal { filter:saturate(.15); }
 @media (prefers-reduced-motion:reduce) { .cb-flip-control .cb-flip-symbol { transform:none!important; } }
 @media (forced-colors:active) {
   .cb-caption.cb-pedestal { border:1px solid CanvasText; background:Canvas; color:CanvasText; }

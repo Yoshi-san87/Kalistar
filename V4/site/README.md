@@ -217,6 +217,14 @@ colonnes (8 en mode compact), une ou deux rangees par page. Le cadre disponible
 contient chaque carte entiere et son socle ; la pagination donne acces aux
 suivantes. Les versions restent groupees
 par personnage et filtrees selon les memes droits que la carte visible.
+Dans le Catalogue, une version est revelee apres sa premiere acquisition et
+reste connue apres un transfert. `cloud-registry.js` projette les possessions
+actuelles et les transferts acceptes du compte ; aucune nouvelle table ni
+reinitialisation de collection n'est necessaire. Le role administrateur vient
+de `kalistar_me`, jamais du pseudo. Une version inconnue affiche son nom et le
+dos commun grise, sans charger son illustration, son titre ou son recit dans
+les vignettes, le sommaire, le lecteur ou la permutation. Ce masquage visuel
+n'est pas un controle DRM des definitions de jeu utilisees par les combats IA.
 La vue detaillee place carte et recit cote a cote sur PC, puis dans un meme
 defilement sur telephone. Le retour conserve la page et le focus de la galerie.
 Les images hors champ sont paresseuses, les dos partagent un seul asset et les

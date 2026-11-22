@@ -4,6 +4,11 @@
   const handle=name=>typeof name==='string'&&/^[a-z0-9_]{3,24}$/.test(name);
   const secret=value=>typeof value==='string'&&/^[a-f0-9]{64}$/.test(value);
   const empty=()=>({user:null,profile:null,isAdmin:false,cards:[],transfers:[],models:[]});
+  function catalogueAccess({owned=[],transfers=[],isAdmin=false}={}){
+    const ids=new Set(owned.filter(c=>c.status==='owned').map(c=>c.modelId||c.cardId));
+    for(const transfer of transfers)if(transfer.status==='accepted')ids.add(transfer.card?.modelId||transfer.card?.cardId);
+    return {all:isAdmin===true,ids:[...ids].filter(id=>typeof id==='string'&&/^[34][0-9]{7}$/.test(id))};
+  }
   function create({client}){
     let state=empty(),generation=0;
     const listeners=new Set(),emit=()=>{for(const fn of listeners)fn(snapshot());};
@@ -48,5 +53,5 @@
       destroy:()=>{generation++;state=empty();subscription.unsubscribe();client.auth.stopAutoRefresh?.();listeners.clear();}
     };
   }
-  return {create,specimen,handle,secret};
+  return {create,specimen,handle,secret,catalogueAccess};
 });

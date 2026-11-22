@@ -53,6 +53,11 @@ async function main(){
       await context.route('https://fkskjhlaaagqlfcsojjp.supabase.co/**',async route=>{
         const r=route.request(),u=new URL(r.url()),args=r.postDataJSON()||{};calls.push(u.pathname);
         if(u.pathname==='/auth/v1/token'){
+          if(u.searchParams.get('grant_type')==='refresh_token'){
+            const session=[paris,tokyo].find(s=>s.refresh_token===args.refresh_token);
+            if(session)Object.assign(session,token(session===paris?'user-paris':'user-tokyo'));
+            return session?route.fulfill({json:session}):route.fulfill({status:400,json:{code:'refresh_token_not_found'}});
+          }
           if(args.password!=='only-a-fixture-password')return route.fulfill({status:400,json:{code:'invalid_credentials',msg:'Invalid login credentials'}});
           return route.fulfill({json:args.email==='paris@example.invalid'?paris:tokyo});
         }
@@ -89,7 +94,7 @@ async function main(){
         }
         await page.locator('[data-startup-enter]').click();
         await page.waitForFunction(()=>window.KALISTAR_READY,{},{timeout:30000});
-      }catch(e){console.error({errors,calls,leaseDevices,boot:await page.locator('#app').innerText().catch(()=>''),sync:await page.evaluate(()=>window.KALISTAR_SYNC?.snapshot())});throw e;}};
+      }catch(e){await page.screenshot({path:path.join(output,p.name+'-failure.png'),fullPage:true}).catch(()=>{});console.error({errors,calls,leaseDevices,boot:await page.locator('#app').innerText().catch(()=>''),sync:await page.evaluate(()=>window.KALISTAR_SYNC?.snapshot())});throw e;}};
       await page.goto(origin+'/jeu/login.html?next='+encodeURIComponent('/jeu/#home'));await page.waitForURL('**/jeu/login*');await page.locator('#login-form button[type=submit]:enabled').waitFor();
       assert.equal(await page.locator('.main-nav').count(),0);assert(!calls.some(c=>c.includes('kalistar_me')),'game does not initialize before authentication');
       assert.equal(await page.locator('.login-intro').count(),0,'no intro before authentication');
@@ -148,6 +153,19 @@ async function main(){
       assert.equal(await page.evaluate(url=>fetch(url).then(r=>r.status),origin+'/jeu/catalogue.json'),401);assert.equal(await page.evaluate(()=>localStorage.getItem('kalistar-auth-qa-marker')),'preserve');
       await page.locator('input[name=email]').fill('tokyo@example.invalid');await page.locator('input[name=password]').fill('only-a-fixture-password');await page.locator('#login-form [type=submit]').click();await ready(true);
       assert.equal(await page.evaluate(()=>KALISTAR_ACTIVE_USER),'user-tokyo','server profile wins over former local Paris selection');
+      await page.evaluate(()=>{location.hash='#collection';});
+      await page.locator('.cb-scopes [data-binder-action=scope][data-id=catalogue]').click();
+      assert(await page.locator('.cb-pocket:not(.is-undiscovered) [data-binder-action=open]').count()>0,'owned versions remain readable in the real authenticated shell');
+      // The phone's first two characters are both starter cards. Check the next
+      // page rather than assuming a locked character is already on screen.
+      for(let i=0;i<3&&!await page.locator('.cb-pocket.is-undiscovered').count();i++){
+        const label=await page.locator('.cb-page-label').textContent();
+        await page.locator('[data-binder-action=next-page]').click();
+        await page.waitForFunction(previous=>document.querySelector('.cb-page-label').textContent!==previous,label);
+      }
+      await page.locator('.cb-pocket.is-undiscovered').first().waitFor();
+      assert.equal(await page.locator('.cb-pocket.is-undiscovered [data-binder-action=open]').count(),0,'Tokyo cannot inspect never-obtained versions');
+      await page.screenshot({path:path.join(output,p.name+'-catalogue.png')});
       await page.locator('.nav-more').click();
       await page.locator('[data-view=journeys]').click();
       await page.getByRole('heading',{name:'Story',exact:true}).waitFor();
