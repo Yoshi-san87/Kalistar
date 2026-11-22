@@ -2,7 +2,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{createRequire}=require('node:module');
 const runtime=createRequire(path.join(process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules'),'_login_browser.cjs'));
 const {chromium}=runtime('playwright'),dist=path.resolve(process.env.KALISTAR_DIST||path.join(__dirname,'../deploy/dist'));
-const output=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'../../work/qa/login');
+const output=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'../../work/qa/album-vivant/login');
 const origin='https://kalistar.pages.dev',mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.webmanifest':'application/manifest+json','.png':'image/png','.webp':'image/webp','.svg':'image/svg+xml','.woff2':'font/woff2','.mp4':'video/mp4'};
 const profiles=[{name:'desktop',width:1440,height:1000},{name:'wide',width:2532,height:1412},{name:'razr',width:412,height:1007,mobile:true},{name:'compact',width:320,height:740,mobile:true},{name:'landscape',width:1007,height:412,mobile:true},{name:'reduced',width:412,height:1007,mobile:true,reduced:true}];
 function token(profile){const sub=profile==='user-paris'?'11111111-1111-4111-8111-111111111111':'22222222-2222-4222-8222-222222222222',email=profile==='user-paris'?'paris@example.invalid':'tokyo@example.invalid';
@@ -41,9 +41,15 @@ async function main(){
       const env={KALISTAR_SESSION_KEY:'test-only-session-key-'.repeat(4),ASSETS:{fetch:async r=>{
         let relative=decodeURIComponent(new URL(r.url).pathname).replace(/^\//,'');if(!relative||relative.endsWith('/'))relative+='index.html';
         if(relative==='jeu/login')relative+='.html';
-        const file=path.resolve(dist,relative);assert(file.startsWith(dist+path.sep));
-        return fs.existsSync(file)?new Response(fs.readFileSync(file),{headers:{'Content-Type':mime[path.extname(file)]||'application/octet-stream'}}):new Response('Missing QA asset',{status:404});
+        let file=path.resolve(dist,relative);assert(file.startsWith(dist+path.sep));
+        if(process.env.KALISTAR_BUILT_SITE!=='1'&&/^jeu\/collection-binder\.(js|css)$/.test(relative))file=path.join(__dirname,path.basename(relative));
+        if(process.env.KALISTAR_BUILT_SITE!=='1'&&relative.startsWith('jeu/assets/album/'))file=path.join(__dirname,'assets/album',path.basename(relative));
+        if(!fs.existsSync(file))return new Response('Missing QA asset',{status:404});
+        let body=fs.readFileSync(file);
+        if(process.env.KALISTAR_BUILT_SITE!=='1'&&relative==='jeu/index.html')body=body.toString('utf8').replace(/<link\b[^>]*href="collection-pedestal\.css[^>]*>/g,'');
+        return new Response(body,{headers:{'Content-Type':mime[path.extname(file)]||'application/octet-stream'}});
       }}};
+      await context.route('**/*',route=>route.abort());
       await context.route(origin+'/**',async route=>{
         const r=route.request(),response=await worker.handle(new Request(r.url(),{method:r.method(),headers:await r.allHeaders(),...(r.postData()?{body:r.postData()}:{}),...(r.method()==='GET'?{}:{duplex:'half'})}),env,api);
         // Playwright does not re-route redirects; navigate explicitly inside this isolated fixture.
@@ -155,16 +161,20 @@ async function main(){
       assert.equal(await page.evaluate(()=>KALISTAR_ACTIVE_USER),'user-tokyo','server profile wins over former local Paris selection');
       await page.evaluate(()=>{location.hash='#collection';});
       await page.locator('.cb-scopes [data-binder-action=scope][data-id=catalogue]').click();
+      await page.waitForFunction(()=>!document.querySelector('.cb-page-turn'));
+      assert.equal(await page.locator('.cb-album > .cb-spread > .cb-leaf[data-leaf=left] > .cb-pocket').count(),6);
+      assert.equal(await page.locator('.cb-album > .cb-spread > .cb-leaf[data-leaf=right] > .cb-pocket').count(),6);
       assert(await page.locator('.cb-pocket:not(.is-undiscovered) [data-binder-action=open]').count()>0,'owned versions remain readable in the real authenticated shell');
-      // The phone's first two characters are both starter cards. Check the next
-      // page rather than assuming a locked character is already on screen.
+      // Do not assume a never-obtained VERSION falls on the first spread.
       for(let i=0;i<3&&!await page.locator('.cb-pocket.is-undiscovered').count();i++){
         const label=await page.locator('.cb-page-label').textContent();
         await page.locator('[data-binder-action=next-page]').click();
         await page.waitForFunction(previous=>document.querySelector('.cb-page-label').textContent!==previous,label);
+        await page.waitForFunction(()=>!document.querySelector('.cb-page-turn'));
       }
       await page.locator('.cb-pocket.is-undiscovered').first().waitFor();
       assert.equal(await page.locator('.cb-pocket.is-undiscovered [data-binder-action=open]').count(),0,'Tokyo cannot inspect never-obtained versions');
+      assert(await page.locator('.cb-pocket.is-undiscovered .cb-card > img').evaluateAll(ns=>ns.every(n=>n.getAttribute('src')==='assets/back-obsidian-v1.webp')),'authenticated Catalogue uses real card backs for every unknown version');
       await page.screenshot({path:path.join(output,p.name+'-catalogue.png')});
       await page.locator('.nav-more').click();
       await page.locator('[data-view=journeys]').click();

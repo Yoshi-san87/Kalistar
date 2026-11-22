@@ -3,7 +3,23 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
 const {createRequire}=require('node:module');
 const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const {chromium}=createRequire(path.join(runtime,'__collection_deck_ux__.cjs'))('playwright');
-const url=process.env.KALISTAR_URL||'http://127.0.0.1:4304',output=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'../../work/qa/collection-gallery-deck-ux');
+const url=process.env.KALISTAR_URL||'http://127.0.0.1:4304',output=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'../../work/qa/album-vivant/deck-ux');
+async function profile(page){
+  const select=page.locator('select[data-binder-field=tab]');
+  if(await select.isVisible())await select.selectOption('profile');else await page.locator('[data-binder-action=tab][data-id=profile]').click();
+  await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+}
+async function openDeck(page,id){
+  const button=page.locator('[data-binder-action=open-deck][data-id="'+id+'"]'),previous=page.locator('[data-binder-action=read-previous]'),next=page.locator('[data-binder-action=read-next]');
+  const states=[];
+  while(await previous.isEnabled())await previous.click();
+  for(let i=0;i<100;i++){
+    const geometry=await button.evaluate(n=>{const r=n.getBoundingClientRect(),w=n.closest('.cb-read-window').getBoundingClientRect();return {reachable:!n.inert&&r.left>=w.left-1&&r.right<=w.right+1&&r.top>=w.top-1&&r.bottom<=w.bottom+1,inert:n.inert,button:r.toJSON(),window:w.toJSON(),page:document.querySelector('[data-reading-page]').textContent};});
+    states.push(geometry);if(geometry.reachable){await button.click();return;}
+    if(await next.isDisabled())break;await next.click();
+  }
+  const diagnostics={viewport:page.viewportSize(),id,states};fs.writeFileSync(path.join(output,'deck-link-failure.json'),JSON.stringify(diagnostics,null,2)+'\n');await page.screenshot({path:path.join(output,'deck-link-failure.png'),scale:'css'});const nearest=states.find(s=>Math.abs(s.button.left-s.window.left)<=1)||states.at(-1);throw Error('Deck link not reachable through text pagination: '+JSON.stringify({viewport:diagnostics.viewport,nearest})+'; see deck-link-failure.json');
+}
 async function enter(page){
   await page.locator('[data-startup-enter]:enabled').click();
   await page.waitForFunction(()=>window.KALISTAR_READY);
@@ -22,6 +38,7 @@ async function main(){
   fs.mkdirSync(output,{recursive:true});
   browser=await chromium.launch({channel:'chrome',headless:true});
   const context=await browser.newContext({viewport:{width:1440,height:1000},hasTouch:true,reducedMotion:'reduce'}),page=await context.newPage(),errors=[];
+  await context.route('**/*',route=>new URL(route.request().url()).origin===new URL(url).origin?route.continue():route.abort());
   page.setDefaultTimeout(90000);
   page.on('pageerror',e=>errors.push(e.message));
   await page.goto(url+'/jeu/');await enter(page);page.setDefaultTimeout(30000);
@@ -65,12 +82,12 @@ async function main(){
   assert.ok((await page.locator('[data-binder-filter=faction] option').allTextContents()).includes('Replicant'));
   assert.equal(await page.locator('[data-binder-filter=position][value="3"]').isChecked(),true);
   await action('close-overlay').last().click();
-  const ids=await page.locator('.cb-pocket').evaluateAll(ns=>ns.map(n=>n.dataset.cardId));
+  const ids=await page.locator('.cb-pocket[data-card-id]').evaluateAll(ns=>ns.map(n=>n.dataset.cardId));
   assert.ok(ids.length>0);assert.ok(await page.evaluate(ids=>ids.every(id=>{const c=KALISTAR_DATA.cards.find(c=>c.id===id);return c.element==='ELECTRO'&&c.positions.includes(3);}),ids));
   await action('reset').click();await action('pages').click();
   const pages=await action('jump-page').count();assert.ok(pages>1);
-  assert.equal(await page.locator('.cb-index [autofocus]').evaluate(n=>n===document.activeElement),true);
-  await action('jump-page','1').click();assert.match(await page.locator('.cb-page-label').textContent(),/2 \/ /);
+  assert.equal(await page.locator('.cb-index').evaluate(n=>n.contains(document.activeElement)),true);
+  await action('jump-page','1').click();assert.match(await page.locator('.cb-page-label').textContent(),/0?2 \/ /);
   await action('pages').click();await page.keyboard.press('Escape');
   assert.equal(await action('pages').evaluate(n=>n===document.activeElement),true);
   const fixture=await page.evaluate(()=>{
@@ -84,10 +101,10 @@ async function main(){
     KalistarDeckLibrary.create({...options,userId:'user-tokyo'}).save({name:'Deck prive Tokyo',cards:[versions[0].id,...Array(9).fill(null)]});
     return {first,second,slot:5,targetSlot:6,versions:versions.map(c=>({id:c.id,name:c.name,title:c.title,atk:c.atk,defense:c.defense}))};
   });
-  await page.locator('[data-binder-field=search]').fill('MOMO');await action('open',fixture.versions[0].id).click();await action('tab','profile').click();
+  await page.locator('[data-binder-field=search]').fill('MOMO');await action('open',fixture.versions[0].id).click();await profile(page);
   assert.equal(await action('open-deck').count(),2);assert.doesNotMatch(await page.locator('.cb-deck-usage').textContent(),/Tokyo/);
   assert.match(await action('open-deck',fixture.second.id).textContent(),new RegExp(fixture.versions[1].title));
-  await action('open-deck',fixture.first.id).click();await page.waitForSelector('.kdb-page');
+  await openDeck(page,fixture.first.id);await page.waitForSelector('.kdb-page');
   assert.equal(await deck('select').inputValue(),fixture.first.id);
   assert.equal(await page.locator('.kdb-slot.is-selected').getAttribute('data-deck-slot'),String(fixture.slot),'Collection opens the exact saved card slot');
   await page.locator('[data-deck-filter=search]').fill('MOMO');
@@ -116,11 +133,12 @@ async function main(){
   await deck('select').selectOption(fixture.second.id);assert.equal(await deck('undo').isDisabled(),true);
   await deck('select').selectOption(fixture.first.id);assert.equal(await deck('undo').isEnabled(),true);
   await page.locator(`[data-deck-action=remove][data-slot="${fixture.slot}"]`).click();
-  await collection(page);await action('open-deck',fixture.second.id).click();
+  await collection(page);await openDeck(page,fixture.second.id);
   await deck('select').selectOption(fixture.first.id);assert.deepEqual(await cards(),[],'opening another deck preserves unsaved work');
   await deck('undo').click();await page.locator(`[data-deck-action=slot][data-slot="${fixture.slot}"]`).click();
-  for(const [width,height] of [[1440,1000],[1920,1080],[2560,1440],[412,1007],[390,844],[320,568],[844,390]]){
-    await page.setViewportSize({width,height});if(width<=900)await deck('panel','board').click();await screen(`deck-${width}x${height}`);
+  const sizes=[[1440,1000],[1920,1080],[2560,1440],[412,1007],[390,844],[320,568],[1007,412],[844,390]];
+  for(const [width,height] of sizes.filter(([w,h])=>!process.env.KALISTAR_DECK_VIEWPORTS||process.env.KALISTAR_DECK_VIEWPORTS.split(',').includes(w+'x'+h))){
+    await page.setViewportSize({width,height});if(await deck('panel','board').isVisible())await deck('panel','board').click();await screen(`deck-${width}x${height}`);
     assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'no horizontal overflow '+width);
     const board=page.locator('.kdb-composition');
     if(await board.isVisible()){
@@ -128,7 +146,7 @@ async function main(){
       const outside=await page.locator('.kdb-slots').evaluateAll(nodes=>nodes.flatMap(n=>{const r=n.getBoundingClientRect();return [...n.querySelectorAll('.kdb-slot-image,.kdb-slot-top > *')].filter(c=>c.getClientRects().length).flatMap(c=>{const s=c.getBoundingClientRect();return s.top>=r.top-1&&s.bottom<=r.bottom+1?[]:[{control:c.outerHTML.slice(0,180),bounds:s.toJSON(),group:r.toJSON()}];});}));
       assert.deepEqual(outside,[],'slot controls stay inside composition '+width);
     }
-    if(width<=900){await deck('panel','recruit').click();await screen(`recruitment-${width}x${height}`);}
+    if(await deck('panel','recruit').isVisible()){await deck('panel','recruit').click();await screen(`recruitment-${width}x${height}`);}
     if(width<600){
       const expected=await page.evaluate(()=>KALISTAR_DATA.cards.filter(c=>[c.name,c.title,c.faction,c.race,c.id].join(' ').toLocaleLowerCase('fr').includes('momo')&&KALISTAR_DB.registry.owned(KALISTAR_ACTIVE_USER,c.id).length).map(c=>c.id).sort());
       assert.deepEqual((await page.locator('.kdb-candidate [data-deck-recruit]').evaluateAll(nodes=>nodes.map(n=>n.dataset.deckRecruit))).sort(),expected,'recruitment search retains every owned matching model');
@@ -142,10 +160,10 @@ async function main(){
     await action('filters').click();await screen(`filters-${width}x${height}`);
     await page.keyboard.press('Tab');assert.equal(await page.evaluate(()=>!!document.activeElement.closest('dialog')),true);
     await action('close-overlay').last().click();await action('pages').click();await screen(`index-${width}x${height}`);
-    const last=String(await action('jump-page').count()-1);await action('jump-page',last).click();assert.ok(await page.locator('.cb-pocket').count()>0);
+    const last=String(await action('jump-page').count()-1);await action('jump-page',last).click();assert.equal(await page.locator('.cb-pocket').count(),12);assert.ok(await page.locator('.cb-pocket[data-card-id]').count()>0);
     await page.locator('[data-binder-field=search]').fill('MOMO');await action('open',fixture.versions[0].id).click();
-    const notes=action('pane','notes');if(await notes.isVisible())await notes.click();await action('tab','profile').click();
-    await screen(`deck-links-${width}x${height}`);await action('open-deck',fixture.first.id).click();
+    await profile(page);
+    await screen(`deck-links-${width}x${height}`);await openDeck(page,fixture.first.id);
   }
   await page.emulateMedia({reducedMotion:'no-preference'});await page.setViewportSize({width:412,height:1007});
   await deck('panel','recruit').click();
@@ -158,6 +176,7 @@ async function main(){
   assert.equal(await page.locator('.kdb-compare:modal').count(),1);await deck('cancel-replace').first().click();
   // Touch runs in a separate phone context, not the user's browser or collection.
   const phone=await browser.newContext({viewport:{width:412,height:1007},isMobile:true,hasTouch:true,reducedMotion:'reduce'}),touch=await phone.newPage();
+  await phone.route('**/*',route=>new URL(route.request().url()).origin===new URL(url).origin?route.continue():route.abort());
   touch.setDefaultTimeout(90000);
   touch.on('pageerror',e=>errors.push(e.message));await touch.goto(url+'/jeu/#collection');await enter(touch);
   await touch.locator('[data-binder-action=filters]').tap();await touch.locator('.cb-overlay:modal [data-binder-action=filter-choice][data-id=ELECTRO]').tap();
@@ -184,7 +203,8 @@ async function main(){
   },fixture);
   assert.deepEqual(safety,{rollback:true,protectedUndo:true,restored:true,revalidated:true});
   assert.deepEqual(await protectedState(),before,'deck browsing and edits leave game, ownership and catalogue unchanged');
+  fs.writeFileSync(path.join(output,'results.json'),JSON.stringify({passed:true,viewports:sizes.filter(([w,h])=>!process.env.KALISTAR_DECK_VIEWPORTS||process.env.KALISTAR_DECK_VIEWPORTS.split(',').includes(w+'x'+h))},null,2)+'\n');
   assert.deepEqual(errors,[]);console.log('PASS: filters, recruitment grid, profile-scoped deck links, comparison, undo/redo, drafts, responsive screenshots.');
   await context.close();
 }
-main().catch(e=>{console.error(e);process.exitCode=1;}).finally(()=>browser?.close());
+main().catch(e=>{fs.writeFileSync(path.join(output,'results.json'),JSON.stringify({passed:false,error:e.message},null,2)+'\n');console.error(e);process.exitCode=1;}).finally(()=>browser?.close());

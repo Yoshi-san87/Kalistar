@@ -4,7 +4,7 @@ const runtime=createRequire(path.join(process.env.KALISTAR_NODE_MODULES||path.jo
 const {chromium}=runtime('playwright'),Cloud=require('./cloud-registry.js');
 const dist=path.resolve(process.env.KALISTAR_DIST||path.join(__dirname,'../deploy/dist')),built=process.env.KALISTAR_BUILT_SITE==='1';
 const site=built?path.join(dist,'jeu'):__dirname,origin='https://discovery.invalid';
-const output=path.resolve(process.env.KALISTAR_VERIFICATION_DIR||path.join(__dirname,'../../work/qa/catalogue-discovery'));
+const output=path.resolve(process.env.KALISTAR_VERIFICATION_DIR||path.join(__dirname,'../../work/qa/album-vivant/discovery'));
 const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.webp':'image/webp','.png':'image/png','.svg':'image/svg+xml','.woff2':'font/woff2'};
 const profiles=[['desktop',1440,900],['wide',2532,1412],['razr',412,1007],['compact',320,740],['landscape',1007,412]];
 async function main(){
@@ -40,11 +40,12 @@ async function main(){
       await context.route('**/*',async route=>{
         const url=new URL(route.request().url());assert.equal(url.origin,origin,'no production requests');
         if(url.pathname==='/jeu/'){
-          const links=fs.readFileSync(path.join(dist,'jeu/index.html'),'utf8').match(/<link[^>]+rel="stylesheet"[^>]*>/g).join('\n');
+          const links=fs.readFileSync(path.join(site,'index.html'),'utf8').match(/<link[^>]+rel="stylesheet"[^>]*>/g).join('\n');
           return route.fulfill({contentType:'text/html',body:'<!doctype html><html lang="fr"><head><meta name="viewport" content="width=device-width,initial-scale=1">'+links+'</head><body class="collection-view"><main id="app"><div id="collection-binder-root"></div></main></body></html>'});
         }
         let file=path.resolve(dist,'.'+url.pathname);assert(file.startsWith(dist+path.sep));
         if(!built&&url.pathname==='/jeu/collection-binder.css')file=path.join(site,'collection-binder.css');
+        if(!built&&url.pathname.startsWith('/jeu/assets/album/'))file=path.join(site,'assets/album',path.basename(url.pathname));
         return route.fulfill(fs.existsSync(file)?{body:fs.readFileSync(file),contentType:mime[path.extname(file)]||'application/octet-stream'}:{status:404,body:'No fixture asset'});
       });
       let mounts=0;
@@ -62,30 +63,43 @@ async function main(){
       }
       const owned=(await database.call('kalistar_my_cards',{},'user-tokyo')).map(c=>({...c,cardId:c.modelId}));
       await mount(initial,owned);
-      const momo=page.locator('.cb-pocket[data-character="momo"]');
-      assert.equal(await momo.getAttribute('data-card-id'),known.id,'discovered version is the initial cover');
+      const momo=page.locator('.cb-pocket[data-card-id="'+hidden.id+'"]'),knownPocket=page.locator('.cb-pocket[data-card-id="'+known.id+'"]');
+      assert.equal(await page.locator('.cb-pocket').count(),12);
+      assert.equal(await page.locator('.cb-pocket.is-empty').count(),9);
+      assert.equal(await page.locator('.cb-pocket[data-character="momo"]').count(),2,'versions occupy separate slots');
+      assert.equal(await knownPocket.getAttribute('data-card-id'),known.id);
       const locked=page.locator('.cb-pocket.is-undiscovered');
-      assert.equal(await locked.count(),1);assert.equal(await locked.locator('[data-binder-action=open]').count(),0);
+      assert.equal(await locked.count(),2);assert.equal(await locked.locator('[data-binder-action=open]').count(),0);
       for(const c of [hidden,unknown])assert(!(await page.locator('#app').innerHTML()).includes(c.title),'unknown title is absent');
-      await momo.locator('[data-binder-action=cycle-version]').click();
       assert.equal(await momo.getAttribute('data-card-id'),hidden.id);assert(await momo.locator('.cb-locked-face').isVisible());
+      assert.equal(await page.locator('[data-binder-action=cycle-version]').count(),0);
+      for(const c of [hidden,unknown]){
+        const pocket=page.locator('.cb-pocket[data-card-id="'+c.id+'"]');
+        assert.equal(await pocket.locator('.cb-card > img').getAttribute('src'),'assets/back-obsidian-v1.webp');
+        assert.equal(await pocket.locator('.cb-caption h2').textContent(),c.name,'only public identity remains visible');
+        assert(!(await pocket.innerHTML()).includes(c.text||c.description||'missing-lore-fixture'),'unknown lore is absent');
+      }
       assert.equal(await page.locator('[data-binder-action=discover]').isDisabled(),false);
       const random=page.locator('[data-binder-action=discover]');
       if(await random.isVisible())await random.click();else{
         // The compact toolbar omits shuffle; still exercise its shared selection guard.
         await random.evaluate(n=>n.click());
       }
+      await page.waitForFunction(()=>!document.querySelector('.cb-page-turn'));
       assert.equal(await page.locator('.cb-card-heading p').textContent(),known.title);
-      assert.equal(await page.locator('.cb-versions button:disabled').count(),1);
-      assert.equal(await page.locator('.cb-versions button:disabled img').getAttribute('src'),'assets/back-obsidian-v1.webp');
+      assert.equal(await page.locator('select[data-binder-field=version] option:disabled').count(),1);
+      assert.match(await page.locator('select[data-binder-field=version] option:disabled').textContent(),/Version non d[eé]couverte/);
+      assert.equal(await page.locator('select[data-binder-field=version]').inputValue(),known.id);
       assert(await page.locator('[data-binder-action=next-card]').isDisabled());
       assert(await page.locator('[data-binder-action=previous-card]').isDisabled());
       await page.locator('[data-binder-action=back]').click();
+      await page.waitForFunction(()=>!document.querySelector('.cb-page-turn'));
       await page.locator('[data-binder-action=pages]').click();
       for(const c of [hidden,unknown])assert(!(await page.locator('.cb-index').innerHTML()).includes(c.pngUrl));
       await page.locator('.cb-index [data-binder-action=close-overlay]').click();
       await page.locator('[data-binder-field=search]').fill(hidden.title);
-      assert.equal(await page.locator('.cb-pocket').count(),0,'undiscovered lore is not searchable');
+      assert.equal(await page.locator('.cb-pocket.is-empty').count(),12,'undiscovered lore is not searchable');
+      assert.equal(await page.locator('.cb-pocket[data-card-id]').count(),0);
       await page.locator('[data-binder-field=search]').fill('');
       assert.deepEqual(await page.evaluate(()=>({x:document.documentElement.scrollWidth>innerWidth+1,y:document.documentElement.scrollHeight>innerHeight+1})),{x:false,y:false},name+' stays in viewport');
       await page.screenshot({path:path.join(output,name+'-catalogue.png')});
@@ -97,20 +111,24 @@ async function main(){
       assert.equal(await page.locator('.is-undiscovered').count(),0,'trusted admin sees all, even without ownership');
       assert.equal(await momo.getAttribute('data-card-id'),hidden.id);
       await momo.locator('[data-binder-action=open]').click();
-      assert.equal(await page.locator('.cb-versions button:disabled').count(),0);
+      await page.waitForFunction(()=>!document.querySelector('.cb-page-turn'));
+      assert.equal(await page.locator('select[data-binder-field=version] option:disabled').count(),0);
       assert.equal(await page.locator('.cb-card-heading p').textContent(),hidden.title);
       await mount(reloaded,owned);
       assert.equal(await momo.getAttribute('data-card-id'),hidden.id,'previously owned version is readable on a fresh page');
       assert.equal(await momo.locator('.cb-card-copies b').textContent(),'0','discovery does not mint another copy');
       await momo.locator('[data-binder-action=open]').click();
+      await page.waitForFunction(()=>!document.querySelector('.cb-page-turn'));
       assert.equal(await page.locator('.cb-card-heading p').textContent(),hidden.title);
       await page.locator('[data-binder-action=back]').click();
+      await page.waitForFunction(()=>!document.querySelector('.cb-page-turn'));
       await page.evaluate(id=>{DISCOVERY.info.ids.push(id);DISCOVERY.view.refresh();},unknown.id);
       assert.equal(await page.locator('.is-undiscovered').count(),0,'an acquisition refresh reveals the newly discovered version');
       assert.deepEqual(errors,[]);await context.close();
     }
     assert.equal((await database.call('kalistar_my_cards')).length,paris.length,'round trip preserves the original distribution');
-    console.log('PASS: PostgreSQL ownership/history/admin, pending vs accepted transfers, per-version masks, thumbnails, cycling, search, reader, random, five viewports and Reduced Motion.');
+    fs.writeFileSync(path.join(output,'results.json'),JSON.stringify({passed:true,built,profiles:profiles.map(([name,width,height])=>({name,width,height,passed:true})),isolatedDatabase:true},null,2)+'\n');
+    console.log('PASS: isolated PostgreSQL ownership/history/admin, accepted transfers retained, separate version slots, unknown name/back only, disabled reader versions, search, random, five viewports and Reduced Motion.');
   }finally{await browser.close();await database.close();}
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});

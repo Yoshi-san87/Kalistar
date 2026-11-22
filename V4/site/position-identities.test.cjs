@@ -62,19 +62,20 @@ test('filtered CSV, sort order and reset leave cards and all historical sources 
   assert.equal(JSON.stringify({data,histories,matches}),before);
 });
 
-test('Collection and Stats restrict landscape phone layouts to coarse pointers, retaining narrow screens',()=>{
-  for(const name of ['collection-binder.js','collection-binder.css','statistics.js','statistics.css','statistics-skin.css']){
+test('Stats retains pointer-qualified phone skins; the album keeps twelve slots and two leaves on every device',()=>{
+  for(const name of ['statistics.js','statistics.css','statistics-skin.css']){
     const source=fs.readFileSync(path.join(__dirname,name),'utf8').replace(/\s/g,'');
     assert(source.includes('(max-width:699px)'),'narrow screens: '+name);
     assert(source.includes('(pointer:coarse)and(max-width:1100px)and(max-height:500px)'),'touch landscape: '+name);
     assert(!source.includes('(max-width:950px)and(max-height:500px)'),'no unqualified landscape: '+name);
-    if(name==='collection-binder.css'){
-      const css=fs.readFileSync(path.join(__dirname,name),'utf8');
-      const gallery=css.match(/@media \(min-width:700px\) and \(max-height:500px\) \{([\s\S]*?)\n\}/)?.[1];
-      assert(gallery?.includes('.cb-page[data-mode=book]'),'short viewport fits the gallery');
-      assert(!/\.cb-page\s*\{|\.cb-reader|\.cb-mobile-panes/.test(gallery),'short desktop gallery does not opt the reader into a phone skin');
-    }else assert(!source.includes('@media(min-width:700px)and(max-height:500px)'),'no short-only phone skin: '+name);
+    assert(!source.includes('@media(min-width:700px)and(max-height:500px)'),'no short-only phone skin: '+name);
   }
+  const css=fs.readFileSync(path.join(__dirname,'collection-binder.css'),'utf8'),js=fs.readFileSync(path.join(__dirname,'collection-binder.js'),'utf8');
+  assert(css.includes('@media(max-width:699px) and (min-height:501px)'));
+  assert.match(css,/\.cb-spread\s*\{[^}]*grid-template-columns:minmax\(0,1fr\) minmax\(0,1fr\)/,'reader and gallery retain left/right leaves');
+  assert.match(css,/\.cb-gallery-leaf\s*\{[^}]*grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/,'portrait keeps six pockets in two columns per leaf');
+  assert(js.includes('const pageSize=12'));
+  assert.doesNotMatch(js,/matchMedia\([^\n]*max-width/,'device detection cannot change the fixed album capacity');
 });
 
 test('collection uses the shared native position picker with stable string values',t=>{

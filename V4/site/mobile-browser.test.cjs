@@ -45,37 +45,52 @@ async function main() {
       const rect=n=>n.getBoundingClientRect(),visible=n=>n.getClientRects().length>0&&getComputedStyle(n).visibility==='visible';
       const within=(a,b)=>a.left>=b.left-1&&a.right<=b.right+1&&a.top>=b.top-1&&a.bottom<=b.bottom+1;
       const separate=(a,b)=>a.right<=b.left+1||b.right<=a.left+1||a.bottom<=b.top+1||b.bottom<=a.top+1;
-      const pockets=[...n.querySelectorAll(':scope > .cb-pocket')],bounds=rect(n),work=n.closest('.cb-workbench'),workBox=rect(work),viewport={left:0,top:0,right:innerWidth,bottom:innerHeight},rows=[];
+      const leaves=[...n.querySelectorAll(':scope > .cb-gallery-leaf')],pockets=[...n.querySelectorAll('.cb-pocket[data-card-id]')],bounds=rect(n),work=n.closest('.cb-workbench'),workBox=rect(work),viewport={left:0,top:0,right:innerWidth,bottom:innerHeight};
       const cards=pockets.map(p=>{
-        const box=rect(p),caption=p.querySelector('.cb-caption'),stand=rect(caption),stage=p.querySelector('.cb-art-stage'),stack=p.querySelector('.cb-stack'),card=p.querySelector('.cb-card'),face=rect(card);
-        const model=KALISTAR_DATA.cards.find(c=>c.id===p.dataset.cardId),name=caption.querySelector('h2'),version=caption.querySelector('.cb-caption-title>p');
-        const positions=[...caption.querySelectorAll('.position-emblem')],controls=[...positions,...caption.querySelectorAll('button')];
-        const text=[name,version].filter(visible).map(c=>{const range=document.createRange();range.selectNodeContents(c);return range.getBoundingClientRect();});
+        const box=rect(p),caption=p.querySelector('.cb-caption'),stand=rect(caption),slot=p.querySelector('.cb-slot'),card=p.querySelector('.cb-card'),face=rect(card);
+        const model=KALISTAR_DATA.cards.find(c=>c.id===p.dataset.cardId),name=caption.querySelector('h2');
         const favorite=p.querySelector('.cb-card-favorite'),copies=p.querySelector('.cb-card-copies');
-        if(!rows.some(top=>Math.abs(top-box.top)<2))rows.push(box.top);
-        return {id:model.id,inside:within(box,bounds)&&within(box,workBox)&&within(box,viewport),
-          art:!!stage&&stack.parentElement===stage&&within(rect(stage),box)&&stack.offsetWidth<=stage.clientWidth+1&&stack.offsetHeight<=stage.clientHeight+1&&within(face,box)&&Math.abs(face.width/face.height-797/1388)<.003,
-          caption:within(stand,box)&&separate(stand,face)&&visible(name)&&name.textContent===model.name&&version.textContent===model.title&&(innerHeight>=700||!visible(version))&&text.every((ink,i)=>within(ink,stand)&&controls.every(c=>separate(ink,rect(c)))&&text.slice(i+1).every(other=>separate(ink,other))),
-          positions:positions.map(c=>Number(c.dataset.positionIcon)),expectedPositions:model.positions,
-          controls:controls.every((c,i)=>visible(c)&&within(rect(c),stand)&&controls.slice(i+1).every(other=>separate(rect(c),rect(other))))&&[favorite,copies].every(c=>visible(c)&&within(rect(c),face))&&separate(rect(favorite),rect(copies)),
-          targets:[card,favorite,...caption.querySelectorAll('button')].every(c=>{const b=rect(c);return c.contains(document.elementFromPoint(b.x+b.width/2,b.y+b.height/2));}),
+        return {id:model.id,inside:within(box,rect(p.parentElement))&&within(box,workBox)&&within(box,viewport),
+          art:!!slot&&card.parentElement===slot&&within(rect(slot),box)&&within(face,rect(slot))&&face.height>0&&Math.abs(face.width/face.height-797/1388)<.01,
+          caption:within(stand,box)&&separate(stand,face)&&visible(name)&&name.textContent===model.name&&within(rect(name),stand),
+          controls:!!favorite&&!!copies&&(!visible(copies)||within(rect(copies),rect(slot)))&&(!visible(favorite)||within(rect(favorite),rect(slot))&&(!visible(copies)||separate(rect(favorite),rect(copies)))),
+          targets:[card,favorite].filter(visible).every(c=>{const b=rect(c);return c.contains(document.elementFromPoint(b.x+b.width/2,b.y+b.height/2));}),
           count:Number(copies.querySelector('b').textContent),expectedCount:KALISTAR_DB.registry.owned(KALISTAR_ACTIVE_USER,model.id).length};
       });
-      return {count:pockets.length,capacity:Number(n.dataset.pageSize),direct:pockets.length===n.children.length,columns:Number(n.dataset.columns),rowCapacity:Number(n.dataset.rows),rows:rows.length,cards,inside:within(bounds,workBox)&&within(workBox,viewport),scroll:[document.documentElement,document.body,document.querySelector('#app'),work,n].map(c=>({node:c.id||c.className||c.tagName,overflow:c.scrollHeight-c.clientHeight,top:c.scrollTop}))};
+      return {count:n.querySelectorAll('.cb-pocket').length,filled:pockets.length,empty:n.querySelectorAll('.cb-pocket.is-empty').length,
+        leaves:leaves.map(leaf=>({side:leaf.dataset.leaf,slots:leaf.querySelectorAll(':scope > .cb-pocket').length,columns:getComputedStyle(leaf).gridTemplateColumns.split(' ').length,rows:getComputedStyle(leaf).gridTemplateRows.split(' ').length})),
+        cards,inside:within(bounds,workBox)&&within(workBox,viewport)&&leaves.every(leaf=>within(rect(leaf),bounds)),scroll:[document.documentElement,document.body,document.querySelector('#app'),work,n.closest('.cb-album')].map(c=>({node:c.id||c.className||c.tagName,overflow:c.scrollHeight-c.clientHeight,top:c.scrollTop}))};
     });
-    assert(geometry.direct&&geometry.inside&&geometry.count>0&&geometry.count<=geometry.capacity,JSON.stringify(geometry));
-    assert(geometry.columns>=2&&geometry.columns<=8);if(page.viewportSize().width<700)assert.equal(geometry.columns,2);
-    assert([1,2].includes(geometry.rowCapacity)&&geometry.rows<=geometry.rowCapacity);assert.equal(geometry.capacity,geometry.columns*geometry.rowCapacity);
+    assert(geometry.inside&&geometry.filled>0,JSON.stringify(geometry));
+    assert.equal(geometry.count,12);assert.equal(geometry.filled+geometry.empty,12);
+    assert.deepEqual(geometry.leaves.map(n=>n.side),['left','right']);
+    const portrait=page.viewportSize().width<700&&page.viewportSize().height>500;
+    assert(geometry.leaves.every(n=>n.slots===6&&n.columns===(portrait?2:3)&&n.rows===(portrait?3:2)),JSON.stringify(geometry));
     assert(geometry.scroll.every(c=>c.overflow<=1&&c.top===0),'gallery and document do not scroll: '+JSON.stringify(geometry.scroll));
-    for(const card of geometry.cards){assert(card.inside&&card.art&&card.caption&&card.controls&&card.targets,JSON.stringify(card));assert.deepEqual(card.positions,card.expectedPositions);assert.equal(card.count,card.expectedCount);}
+    for(const card of geometry.cards){assert(card.inside&&card.art&&card.caption&&card.controls&&card.targets,JSON.stringify(card));assert.equal(card.count,card.expectedCount);}
     assert.equal(await page.locator('.cb-sheet').count(),0);
     await loaded();await withinViewport('.cb-pocket,.cb-card,.cb-caption,.cb-heading,.cb-toolbar,.cb-footer,.main-nav');
     assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
   }
+  async function readerGeometry(){
+    await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+    const geometry=await page.locator('.cb-reader').evaluate(n=>{
+      const rect=n=>n.getBoundingClientRect(),within=(a,b)=>a.left>=b.left-1&&a.right<=b.right+1&&a.top>=b.top-1&&a.bottom<=b.bottom+1;
+      const visual=n.querySelector('.cb-visual'),notes=n.querySelector('.cb-reading'),window=n.querySelector('.cb-read-window'),work=n.closest('.cb-workbench');
+      return {sides:[...n.querySelectorAll('.cb-spread > .cb-leaf')].map(n=>n.dataset.leaf),leftRight:rect(visual).right<rect(notes).left,
+        inside:[visual,notes,visual.querySelector('.cb-hero-image')].every(c=>within(rect(c),rect(n)))&&within(rect(window),rect(notes)),
+        scroll:[document.documentElement,document.body,document.querySelector('#app'),work,n,window].map(c=>({node:c.id||c.className||c.tagName,overflow:c.scrollHeight-c.clientHeight,top:c.scrollTop,left:c.scrollLeft})),
+        overflow:getComputedStyle(work).overflowY,clipped:getComputedStyle(window).overflow};
+    });
+    assert.deepEqual(geometry.sides,['left','right']);assert(geometry.leftRight&&geometry.inside,JSON.stringify(geometry));
+    assert.equal(geometry.overflow,'hidden');assert.equal(geometry.clipped,'hidden');
+    assert(geometry.scroll.every(n=>n.overflow<=1&&n.top===0&&n.left===0),JSON.stringify(geometry.scroll));
+    await withinViewport('.cb-hero-image,.cb-reading,.cb-read-window,.cb-reading-pager');
+  }
   await page.goto(url + '/jeu/#collection');
   await page.locator('[data-startup-enter]:enabled').click({timeout:90000});
   await page.waitForFunction(() => window.KALISTAR_READY === true);
-  await page.waitForFunction(() => document.querySelector('.cb-spread')?.dataset.columns === '2');
+  await page.locator('.cb-album[data-album-mode=gallery] .cb-gallery-leaf').first().waitFor();
   await loaded();
   const touch = await context.newCDPSession(page);
   const leaf = await page.locator('.cb-workbench').boundingBox();
@@ -95,7 +110,7 @@ async function main() {
     await page.waitForTimeout(30);
   }
   await touch.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
-  await page.waitForFunction(() => /^\s*2\s*\//.test(document.querySelector('.cb-page-label').textContent));
+  await page.waitForFunction(() => /^\s*02\s*\//.test(document.querySelector('.cb-page-label').textContent));
   await page.waitForTimeout(400);
   await page.locator('[data-binder-action=filters]').tap();
   await page.locator('.cb-overlay:modal [data-binder-filter=collection]').selectOption('final-fantasy');
@@ -103,25 +118,38 @@ async function main() {
   await page.locator('.cb-filter-actions [data-binder-action=close-overlay]').tap();
   await capture('ff7-after-swipe');
   await touch.detach();
-  assert.ok(await page.locator('.cb-pocket').evaluateAll(nodes => nodes.length>0&&nodes.every(n => KALISTAR_DATA.cards.find(c => c.id === n.dataset.cardId).faction === 'FF7'&&KALISTAR_DB.registry.owned(KALISTAR_ACTIVE_USER,n.dataset.cardId).length>0)));
+  assert.ok(await page.locator('.cb-pocket[data-card-id]').evaluateAll(nodes => nodes.length>0&&nodes.every(n => KALISTAR_DATA.cards.find(c => c.id === n.dataset.cardId).faction === 'FF7'&&KALISTAR_DB.registry.owned(KALISTAR_ACTIVE_USER,n.dataset.cardId).length>0)));
   await page.locator('[data-binder-action=next-page]').last().tap();
-  await page.waitForFunction(()=>/^\s*2\s*\//.test(document.querySelector('.cb-page-label').textContent));
-  assert.match(await page.locator('.cb-page-label').textContent(), /^\s*2\s*\//);
+  await page.waitForFunction(()=>/^\s*02\s*\//.test(document.querySelector('.cb-page-label').textContent));
+  assert.match(await page.locator('.cb-page-label').textContent(), /^\s*02\s*\//);
   const galleryPage=await page.locator('.cb-page-label').textContent(),openedId=await page.locator('.cb-card').first().getAttribute('data-id');
-  const galleryIds=await page.locator('.cb-pocket').evaluateAll(nodes=>nodes.map(n=>n.dataset.cardId));
+  const galleryIds=await page.locator('.cb-pocket[data-card-id]').evaluateAll(nodes=>nodes.map(n=>n.dataset.cardId));
   await page.locator('.cb-card').first().tap();
   await loaded(); await capture('reader-card');
-  await page.locator('.cb-hero-image').scrollIntoViewIfNeeded();await withinViewport('.cb-hero-image');
-  const flow=await page.locator('.cb-reader').evaluate(n=>({visual:n.querySelector('.cb-visual').getBoundingClientRect().bottom,notes:n.querySelector('.cb-reading').getBoundingClientRect().top}));
-  assert(flow.visual<=flow.notes+1,'mobile reader places the complete visual before its content');
-  await page.locator('[data-binder-action=pane][data-id=notes]').tap();
-  await capture('reader-notes');
-  assert(await page.locator('.cb-visual').isVisible()&&await page.locator('.cb-reading').isVisible(),'pane shortcuts keep both sections in the scroll flow');
-  assert(await page.locator('.cb-reading').evaluate(n=>{const r=n.getBoundingClientRect(),work=n.closest('.cb-workbench').getBoundingClientRect();return r.left>=0&&r.right<=innerWidth+1&&r.top<work.bottom&&r.bottom>work.top;}),'notes are reachable without horizontal overflow');
-  for (const id of ['profile','career','copies','story']) await page.locator('[data-binder-action=tab][data-id=' + id + ']').tap();
+  await readerGeometry();
+  const selectedTitle=await page.evaluate(id=>KALISTAR_DATA.cards.find(c=>c.id===id).title,openedId);
+  assert.equal(await page.locator('.cb-card-heading>p').textContent(),selectedTitle,'version title moves to the reader');
+  for (const id of ['profile','career','copies','story']) {
+    await page.locator('[data-binder-field=tab]').selectOption(id);await readerGeometry();
+    assert.match(await page.locator('[data-reading-page]').textContent(),/^1 \/ [1-9]\d*$/);
+    if(id==='profile')assert.deepEqual(await page.locator('.cb-identity-positions [data-position-icon]').evaluateAll(nodes=>nodes.map(n=>Number(n.dataset.positionIcon))),await page.evaluate(id=>KALISTAR_DATA.cards.find(c=>c.id===id).positions,openedId),'positions remain available in the profile');
+  }
+  const text=await page.locator('.cb-read-content').textContent(),pages=Number((await page.locator('[data-reading-page]').textContent()).split('/')[1]);
+  assert(pages>=1,'phone narrative has a bounded text page count');
+  assert(await page.locator('[data-binder-action=read-previous]').isDisabled());
+  for(let i=1;i<pages;i++)await page.locator('[data-binder-action=read-next]').tap();
+  assert.equal(await page.locator('[data-reading-page]').textContent(),pages+' / '+pages);
+  assert(await page.locator('[data-binder-action=read-next]').isDisabled());
+  assert.equal(await page.locator('.cb-read-content').textContent(),text,'paging preserves the whole narrative');
+  assert.equal(await page.locator('.cb-reader-count').textContent(),(await page.locator('.cb-page-label').textContent()),'text paging never changes card selection');
+  await readerGeometry();await capture('reader-notes');
+  if(pages>1){
+    await page.locator('[data-binder-action=read-previous]').tap();
+    assert.equal(await page.locator('[data-reading-page]').textContent(),(pages-1)+' / '+pages);
+  }else assert(await page.locator('[data-binder-action=read-previous]').isDisabled(),'short lore does not invent extra pages');
   await page.locator('[data-binder-action=back]').tap();
   assert.equal(await page.locator('.cb-page-label').textContent(),galleryPage,'reader returns to the same gallery page');
-  assert.deepEqual(await page.locator('.cb-pocket').evaluateAll(nodes=>nodes.map(n=>n.dataset.cardId)),galleryIds);
+  assert.deepEqual(await page.locator('.cb-pocket[data-card-id]').evaluateAll(nodes=>nodes.map(n=>n.dataset.cardId)),galleryIds);
   assert(await page.locator(`.cb-card[data-id="${openedId}"]`).evaluate(n=>n===document.activeElement),'reader returns focus to the opened model');
   await page.locator('[data-binder-action=scope][data-id=owned]').tap();
   for (const [width, height] of [[390,844],[412,1007],[360,740],[430,932],[320,568],[844,390]]) {
@@ -129,7 +157,7 @@ async function main() {
     await galleryGeometry();
     await capture('collection-' + width);
   }
-  console.log('PASS: mobile Collection swipe, universe/faction/ownership filters, continuous reader, page/focus return and fixed portrait/landscape galleries.');
+  console.log('PASS: mobile Collection swipe, universe/faction/ownership filters, left/right paged reader, page/focus return and twelve-slot portrait/landscape albums.');
   await page.setViewportSize({width:390,height:844});
   await page.locator('.main-nav [data-view=decks]').tap();
   await page.locator('[data-deck-action=panel][data-id=board]').tap();

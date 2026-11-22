@@ -22,84 +22,70 @@ test('progressive selects, keyboard state, Reduced Motion and high contrast stay
   assert(!/localStorage|indexedDB|KalistarEngine|setInterval|innerHTML/.test(js));
 });
 
-test('collection owns its fixed responsive gallery and scrollable reader without legacy book overrides',()=>{
-  const css=read('collection-binder.css'),mobile=read('mobile.css'),ui=read('ui-system.css');
+test('collection owns a fixed twelve-slot album and a paged reader without scroll',()=>{
+  const css=read('collection-binder.css'),js=read('collection-binder.js'),mobile=read('mobile.css'),ui=read('ui-system.css');
   assert.match(css,/\.cb-spread\s*\{[^}]*display:\s*grid/);
-  assert.match(css,/grid-template-columns:\s*repeat\(/);
-  assert.match(css,/\.cb-workbench\s*\{[^}]*overflow(?:-y)?:\s*(auto|scroll)/,'detailed reader retains vertical scrolling');
-  assert.match(css,/\.cb-page\[data-mode=book\]\s+\.cb-workbench\s*\{[^}]*overflow(?:-y)?:\s*(hidden|clip)/,'gallery cannot scroll vertically');
-  assert.match(css,/body\.collection-view\s*\{[^}]*overflow:\s*hidden/,'Collection does not scroll the document');
-  assert.match(css,/\.cb-art-stage\s*\{[^}]*container:\s*collection-art\s*\/\s*size/,'art has a bounded sizing stage');
-  assert.match(css,/\.cb-stack\s*\{[^}]*aspect-ratio:\s*797\s*\/\s*1388/,'fitting preserves the artwork ratio');
-  assert.match(css,/prefers-reduced-motion/);
-  assert.match(css,/:focus-visible/);
-  assert.doesNotMatch(css,/collection-reader-grimoire|\.cb-sheet|\.cb-spine/);
-  assert.doesNotMatch(mobile,/\.cb-(?:sheet|spread|reader|reading|workbench|pocket|caption|pedestal)\b/,'collection responsive rules stay with their owner');
-  assert.doesNotMatch(ui,/\.cb-reading\b|\.cb-versions\b/,'shared UI no longer applies manuscript colors to Collection');
-  for(const file of ['statistics.css','weapons.css']){
-    const sheet=read(file).replace(/\/\*[\s\S]*?\*\//g,'');
-    assert.doesNotMatch(sheet,/\.cb-[\w-]+/,'Collection styles have a single owner, not '+file);
-  }
-  for(const selector of ['.cb-reading-tabs','.cb-profile','.cb-career','.cb-equipped'])assert(css.includes(selector),'Collection owns '+selector);
-  assert.doesNotMatch(read('collection-binder.js'),/fitPocketNames|setInterval\s*\(/,'names wrap in CSS without an idle fitting loop');
+  assert.match(css,/\.cb-workbench\s*\{[^}]*overflow:\s*hidden/);
+  assert.match(css,/body\.collection-view\s*\{[^}]*overflow:\s*hidden/);
+  assert.match(css,/\.cb-slot\s*\{[^}]*aspect-ratio:\s*797\s*\/\s*1388/);
+  assert.match(css,/\.cb-hero-stage\s*\{[^}]*container:album-hero\s*\/\s*size/);
+  assert.match(css,/\.cb-hero-image\s*\{[^}]*height:min\(100cqh,/,'hero sizing resolves against its stage, not intrinsic PNG dimensions');
+  assert.match(css,/\.cb-read-window\s*\{[^}]*overflow:\s*hidden/);
+  assert.match(css,/\.cb-read-content\s*\{[^}]*column-width:/);
+  assert.match(js,/const pageSize=12/);
+  for(const file of ['album-open-v1.webp','album-open-phone-v1.webp','album-sleeve-v1.webp','album-leaf-v1.webp'])assert(css.includes(file),file);
+  for(const marker of ['prefers-reduced-motion',':focus-visible','forced-colors','.cb-reading-tabs','.cb-profile','.cb-career','.cb-equipped'])assert(css.includes(marker),marker);
+  assert.doesNotMatch(mobile,/\.cb-(?:sheet|spread|reader|reading|workbench|pocket|caption|pedestal)\b/);
+  assert.doesNotMatch(ui,/\.cb-reading\b|\.cb-versions\b/);
+  for(const file of ['statistics.css','weapons.css'])assert.doesNotMatch(read(file).replace(/\/\*[\s\S]*?\*\//g,''),/\.cb-[\w-]+/,'one Collection owner, not '+file);
+  assert.doesNotMatch(js,/fitPocketNames|setInterval\s*\(/);
 });
 
-test('collection pedestal renders real faction media and separate accessible counters',()=>{
+test('every version occupies its own native-card slot; empty albums still render twelve pockets',()=>{
   const Binder=require('./collection-binder.js'),Positions=require('./positions.js');
   const media=globalThis.KalistarCardMedia,positions=globalThis.KalistarPositions;
-  globalThis.KalistarCardMedia={image:()=> 'fixture-card.png'};globalThis.KalistarPositions=Positions;
+  globalThis.KalistarPositions=Positions;
   try{
-    const card={id:'49998001',characterId:'49998001',name:'FIXTURE',title:'One',faction:'Chroma',race:'ROBOT',element:'NONE',positions:[3,4]};
-    const data={cards:[card,{...card,id:'49998002',title:'Two',faction:'Niveria'}],elements:{}};
-    const before=JSON.stringify(data),requested=[];
+    const card={id:'49998001',characterId:'fixture',name:'FIXTURE',title:'One',faction:'Chroma',race:'ROBOT',weapon:'Instrument',element:'NONE',positions:[3,4]};
+    const cards=[card,{...card,id:'49998002',title:'Two',faction:'Niveria'}],data={cards,elements:{}};
+    const requested=[],before=JSON.stringify(data),owned=cards.map(c=>({cardId:c.id,id:'copy-'+c.id,status:'owned'}));
     globalThis.KalistarCardMedia={image:c=>{requested.push(c.id);return 'fixture-'+c.id+'.png';}};
-    const view=Binder.create({data,getOwned:()=>[{}],getFavorites:()=>new Set([card.id])}),html=view.render();
-    assert(html.includes('cb-caption cb-pedestal'));
-    assert(html.includes('data-faction="Chroma"'));
-    assert(html.includes('shared/factions/Chroma.png'));
-    assert(html.includes('assets/navigation/collection-v1.webp'));
-    assert(!html.includes('cb-plinth-art'),'no sliced bitmap pedestal');
-    assert(!html.includes('cb-sheet'),'pockets are not split into book leaves');
-    assert.match(html,/class="cb-spread"[^>]*>\s*<article class="cb-pocket/);
-    const dimensions=html.match(/class="cb-spread"[^>]*data-page-size="(\d+)"[^>]*data-columns="(\d+)"[^>]*data-rows="(\d+)"/);
-    assert(dimensions,'gallery declares both pagination axes');
-    const [,capacity,columns,rows]=dimensions.map(Number);assert(columns>=2&&columns<=8&&[1,2].includes(rows));assert.equal(capacity,columns*rows);
-    assert.match(html,/<div class="cb-art-stage"><div class="cb-stack">/,'the stack is inside its art sizing stage');
-    assert(html.includes('assets/back-obsidian-v1.webp'),'stacked variants use the common back');
-    assert.deepEqual(requested,[card.id],'render does not request the next variant PNG');
-    assert(html.includes('cb-version-count cb-flip-control'));
-    assert.match(html,/aria-label="2 versions de FIXTURE/);
-    assert.match(html,/<h2[^>]*>FIXTURE<\/h2><p[^>]*>One<\/p>/,'name and version title stay distinct');
-    assert(html.includes('aria-label="Faction : Chroma"'));
-    assert(html.includes('aria-label="1 exemplaire"'));
-    assert.match(html,/<span class="cb-copy-count cb-card-copies"[^>]*>[\s\S]*?<b>1<\/b><\/span>\s+<\/div>\s*<\/div>\s+<div class="cb-caption cb-pedestal"/,'copies sit in the card stack inside the art stage, not in its plinth');
-    assert(!html.split('class="cb-caption cb-pedestal"')[1].split('</article>')[0].includes('cb-copy-count'));
-    assert(html.includes('data-binder-action="cycle-version"'));
+    const view=Binder.create({data,getOwned:id=>owned.filter(c=>!id||c.cardId===id),getFavorites:()=>new Set([card.id])}),html=view.render();
+    assert.equal((html.match(/<article class="cb-pocket\b/g)||[]).length,12);
+    assert.equal((html.match(/class="cb-pocket is-empty"/g)||[]).length,10);
+    assert.equal((html.match(/data-leaf="/g)||[]).length,2);
+    assert.deepEqual(requested,cards.map(c=>c.id),'both versions have independent visible PNGs');
+    for(const c of cards)assert(html.includes('data-card-id="'+c.id+'"'));
+    assert(html.includes('cb-album'));assert(html.includes('cb-slot'));
+    assert.doesNotMatch(html,/cb-pedestal|cb-stack|data-binder-action="cycle-version"/);
+    assert.equal((html.match(/cb-card-favorite/g)||[]).length,2);
+    assert.equal((html.match(/class="cb-card-copies" role="img" aria-label="1 exemplaire"/g)||[]).length,2);
     assert(html.includes('aria-pressed="true"'));
-    assert(!html.includes('data-lucide="copy"'));
-    assert.equal((html.match(/cb-faction-watermark/g)||[]).length,1,'one current-version faction watermark per grouped character');
-    assert(!html.includes('cb-faction-crest'));
-    assert.equal((html.match(/cb-card-favorite/g)||[]).length,1,'favorite moves to the card without duplication');
-    assert.match(html,/<\/button>\s+<button[^>]*class="cb-icon cb-card-favorite"/,'favorite is a sibling of the reader button, never nested');
-    assert(!html.split('class="cb-caption cb-pedestal"')[1].split('</article>')[0].includes('data-binder-action="favorite"'));
-    assert.equal(JSON.stringify(data),before,'render does not mutate catalogue identities or fields');view.destroy();
-    const single=Binder.create({data:{cards:[card],elements:{}},getOwned:()=>[{}]});
-    const one=single.render();assert(!one.includes('cb-flip-control'));
-    assert(!one.includes('cb-version-count'));assert(!one.includes('has-versions'));single.destroy();
-    const empty=Binder.create({data:{cards:[card],elements:{}},getOwned:()=>[]}),unowned=empty.render();
-    assert(unowned.includes('class="cb-empty"'),'empty ownership has a dedicated state');
-    assert.match(unowned,/class="cb-empty"[\s\S]*data-binder-action="registry"/);
-    assert.match(unowned,/class="cb-empty"[\s\S]*data-binder-action="scope" data-id="catalogue"/);
-    assert(!unowned.includes('class="cb-pocket '),'empty ownership never silently reveals catalogue cards');empty.destroy();
+    assert.equal(JSON.stringify(data),before);view.destroy();
+    requested.length=0;
+    const empty=Binder.create({data,getOwned:()=>[]}),blank=empty.render();
+    assert.equal((blank.match(/class="cb-pocket is-empty"/g)||[]).length,12);
+    assert.deepEqual(requested,[],'empty ownership never loads catalogue artwork');
+    assert(!blank.includes('fixture-49998001.png'));empty.destroy();
   }finally{globalThis.KalistarCardMedia=media;globalThis.KalistarPositions=positions;}
 });
 
-test('pedestal supports wrapping, accessible controls and bounded motion without bitmap slicing',()=>{
-  const css=read('collection-pedestal.css'),html=read('index.html');
-  assert(html.indexOf('href="collection-pedestal.css"')>html.indexOf('href="positions.css"'));
-  for(const text of ['prefers-reduced-motion','forced-colors',':focus-visible','.cb-faction-watermark','.cb-card-copies','.cb-card-favorite'])assert(css.includes(text),text);
-  assert.match(css,/overflow-wrap:\s*(anywhere|break-word)/);
-  assert.match(css,/pointer-events:\s*none/,'watermarks do not intercept controls');
-  assert.doesNotMatch(css,/cb-plinth-art|collection-pedestal-v\d|border-image|@keyframes|infinite|\.slot-card|\.kdb-slot/);
-  assert.doesNotMatch(read('collection-binder.css'),/animation[^;{}]*\binfinite\b/);
+test('album turns use bounded composited leaves and retire the old pedestal layer',()=>{
+  const css=read('collection-binder.css'),js=read('collection-binder.js'),html=read('index.html');
+  assert(!html.includes('href="collection-pedestal.css"'));
+  for(const marker of ['.cb-page-turn','.cb-turn-sheet','backface-visibility','preserve-3d'])assert(css.includes(marker),marker);
+  assert.match(js,/duration:720/);assert(js.includes("visibilitychange"));assert(js.includes('animation.cancel()'));
+  assert(js.includes('observer?.disconnect()'));assert(js.includes('cancelAnimationFrame'));
+  assert.doesNotMatch(css,/animation[^;{}]*\binfinite\b/);
+  assert.doesNotMatch(css,/\.slot-card\s*\{|\.kdb-slot\s*\{/);
+});
+
+test('album ink and secondary labels remain legible on the paper fallback',()=>{
+  const css=read('collection-binder.css'),album=css.match(/\.cb-album\s*\{([^}]+)\}/)[1];
+  const paper=album.match(/background:#([a-f0-9]{6})/)[1];
+  const light=hex=>hex.match(/\w\w/g).map(x=>parseInt(x,16)/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4).reduce((sum,v,i)=>sum+v*[.2126,.7152,.0722][i],0);
+  for(const token of ['text','muted']){
+    const ink=album.match(new RegExp('--cb-'+token+':#([a-f0-9]{6})'))[1],values=[light(ink),light(paper)].sort((a,b)=>b-a);
+    assert((values[0]+.05)/(values[1]+.05)>=4.5,token+' text contrast');
+  }
 });

@@ -99,15 +99,24 @@ test('Astralia atlas is published as lightweight media, not an authoring source'
   assert.equal(manifest.runtime.width / manifest.runtime.height, 2);
 });
 
-test('Collection gallery owns its responsive atlas while the reader preserves original card art', () => {
+test('Collection publishes its six lightweight album components and preserves native card art', async () => {
   const binder = fs.readFileSync(path.join(__dirname, '../site/collection-binder.css'), 'utf8');
   const mobile = fs.readFileSync(path.join(__dirname, '../site/mobile.css'), 'utf8');
   const story = fs.readFileSync(path.join(__dirname, '../site/story-reader.css'), 'utf8');
-  assert.match(binder, /\.cb-page::before \{[^}]*var\(--kalistar-atlas-image\)[^}]*opacity:\.12;[^}]*pointer-events:none;/);
-  assert.doesNotMatch(binder, /collection-astralia-planisphere/);
-  assert.match(binder, /\.cb-spread \{[^}]*display:grid;[^}]*grid-template-columns:repeat\(var\(--cb-columns,4\),minmax\(0,1fr\)\)/);
-  assert.match(binder, /\.cb-workbench \{[^}]*overflow:auto;[^}]*touch-action:pan-y pinch-zoom;/);
-  assert.match(binder, /\.cb-page\[data-mode=reader\] \.cb-workbench \{[^}]*background:#0a1514;/);
+  assert.match(binder, /album-open-v1\.webp/);
+  assert.match(binder, /album-open-phone-v1\.webp/);
+  assert.match(binder, /\.cb-spread \{[^}]*grid-template-columns:minmax\(0,1fr\) minmax\(0,1fr\)/);
+  assert.match(binder, /\.cb-workbench \{[^}]*overflow:hidden;[^}]*touch-action:pan-y pinch-zoom;/);
+  assert.match(binder, /\.cb-hero-image \{[^}]*object-fit:contain;/);
+  const manifest=JSON.parse(fs.readFileSync(path.join(__dirname,'../revisions/2026-11-22-album-vivant/assets.json'),'utf8'));
+  const {files}=await plan();assert.equal(manifest.files.length,6);
+  assert(manifest.files.reduce((sum,file)=>sum+file.bytes,0)<1024*1024,'six album/HUD components stay below 1 MiB together');
+  for(const item of manifest.files){
+    assert(files.some(file=>file.source===item.target),'component is included in the frozen publication: '+item.target);
+    const bytes=fs.readFileSync(path.resolve(__dirname,'../..',item.target));
+    assert.equal(bytes.subarray(0,4).toString(),'RIFF');assert.equal(bytes.subarray(8,12).toString(),'WEBP');
+    assert.equal(bytes.length,item.bytes);assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),item.sha256);
+  }
   assert.doesNotMatch(binder, /collection-reader-grimoire|\.cb-sheet|filter:\s*blur|animation:[^;}]*infinite/);
   assert.doesNotMatch(mobile, /\.cb-(?:spread|sheet|stack|caption|reader|workbench)\b/);
   assert.doesNotMatch(mobile, /background-size: 200% 112%/);
@@ -126,9 +135,9 @@ test('static release versions stylesheet and script URLs together', () => {
 test('application version matches in desktop and phone headers', () => {
   const html = fs.readFileSync(path.join(__dirname, '../site/index.html'), 'utf8');
   const css = fs.readFileSync(path.join(__dirname, '../site/v4.css'), 'utf8');
-  assert.match(html, /<title>Kalistar V4\.7\.34/);
-  assert.match(html, /<span class="edition">VERSION 4\.7\.34<\/span>/);
-  assert.ok(css.includes("content:'V4.7.34'"));
+  assert.match(html, /<title>Kalistar V4\.7\.35/);
+  assert.match(html, /<span class="edition">VERSION 4\.7\.35<\/span>/);
+  assert.ok(css.includes("content:'V4.7.35'"));
 });
 test('hosting adapter supports local, project Pages and saved canonical image paths', () => {
   const script = fs.readFileSync(path.join(__dirname, '../site/site-config.js'), 'utf8');

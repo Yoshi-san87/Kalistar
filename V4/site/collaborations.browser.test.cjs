@@ -6,6 +6,7 @@ const {createRequire}=require('node:module');
 const runtime=process.env.KALISTAR_NODE_MODULES||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const {chromium}=createRequire(path.join(runtime,'__collaborations__.cjs'))('playwright');
 const Binder=require('./collection-binder.js');
+const url=process.env.KALISTAR_URL||'http://127.0.0.1:4304';
 const output=process.env.KALISTAR_VERIFICATION_DIR||path.resolve(__dirname,'../../work/qa/collection-gallery-collaborations');
 
 async function main(){
@@ -17,8 +18,8 @@ async function main(){
     // Mount the real controls with disposable data, without storage or publications.
     const cards=['FF7','FF8','NieR','Replicant','Chroma','MGS1','RE1','ONEPIECE','WITCHER',...Array(16).fill('FF7')].map((faction,index)=>({id:String(49998900+index),characterId:'fixture-'+index,name:'FIXTURE '+index,title:'Edition '+index,faction,race:'HUMAIN',element:'ELECTRO',weapon:'Lance',positions:[5]}));
     const ownedIds=cards.slice(0,5).map(card=>card.id);
-    await page.setContent('<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"></head><body class="collection-view"><main id="app"></main></body></html>');
-    for(const file of ['style.css','collection-binder.css','mobile.css','positions.css','collection-pedestal.css'])await page.addStyleTag({path:path.join(__dirname,file)});
+    await page.setContent('<!doctype html><html><head><base href="'+url+'/jeu/"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body class="collection-view"><main id="app"></main></body></html>');
+    for(const file of ['style.css','collection-binder.css','mobile.css','positions.css','navigation.css'])await page.addStyleTag({path:path.join(__dirname,file)});
     await page.addScriptTag({path:path.join(__dirname,'../../V3/site/assets/lucide.min.js')});
     for(const file of ['positions.js','factions.js','collaborations.js','collection-binder.js'])await page.addScriptTag({path:path.join(__dirname,file)});
     await page.evaluate(({cards,ownedIds})=>{
@@ -31,7 +32,12 @@ async function main(){
     },{cards,ownedIds});
     const collection=page.locator('.cb-toolbar [data-binder-filter=collection]');
     const state=()=>page.evaluate(()=>binder.inspect());
-    const assertCount=async expected=>assert.match(await page.locator('.cb-count').textContent(),new RegExp('\\b'+expected+' versions\\b'));
+    const assertCount=async expected=>assert.equal((await page.locator('.cb-filter-actions [data-binder-action=close-overlay]').textContent()).trim(),'Voir '+expected+' cartes');
+    const assertEmpty=async()=>{
+      assert.equal(await page.locator('.cb-pocket.is-empty').count(),12,'empty results preserve twelve empty slots');
+      assert.equal(await page.locator('.cb-pocket[data-card-id]').count(),0);
+      assert(await page.locator('[data-binder-action=next-page]').isDisabled());
+    };
     assert.equal(await page.locator('.cb-scopes [data-binder-action=scope]').count(),2);
     const entries=await collection.locator('option').evaluateAll(options=>Object.fromEntries(options.map(option=>[option.value,option.textContent])));
     assert.deepEqual(Object.keys(entries),['','kalistar','final-fantasy','nier','metal-gear','resident-evil','one-piece','witcher']);
@@ -54,7 +60,7 @@ async function main(){
     await dialog.locator('[data-binder-filter=collection]').selectOption('final-fantasy');
     assert.equal(await collection.inputValue(),'final-fantasy','both selectors stay synchronized');
     assert.equal((await state()).filters.faction,'Replicant','collection does not silently erase faction');
-    assert.equal(await page.locator('.cb-empty').count(),1,'incompatible combined filters show the empty state');
+    await assertEmpty();
     await dialog.locator('[data-binder-action=reset]').click();
     await assertCount(cards.length);
     assert.equal(await collection.inputValue(),'');
@@ -64,13 +70,14 @@ async function main(){
     await assertCount(2);
     assert.equal((await state()).scope,'owned');
     assert.equal(await collection.inputValue(),'final-fantasy','collection remains selected when changing ownership scope');
-    assert((await page.locator('.cb-pocket').evaluateAll(nodes=>nodes.map(node=>node.dataset.cardId))).every(id=>ownedIds.includes(id)));
+    assert((await page.locator('.cb-pocket[data-card-id]').evaluateAll(nodes=>nodes.map(node=>node.dataset.cardId))).every(id=>ownedIds.includes(id)));
     await page.locator('.cb-search input').fill('missing-card');
-    assert.equal(await page.locator('.cb-empty').count(),1);
+    await assertEmpty();
     await page.locator('.cb-toolbar [data-binder-action=reset]').click();
     await assertCount(ownedIds.length);
     assert.equal((await state()).filters.search,'');
     const reports=[],targetFailures=[];
+    await page.evaluate(()=>document.fonts.ready);
     for(const [width,height]of [[320,568],[390,844],[412,1007],[700,900],[850,760],[1024,768],[1440,1000],[1920,1080],[2560,1440],[844,390],[640,360]]){
       await page.setViewportSize({width,height});
       await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
@@ -80,6 +87,10 @@ async function main(){
         return {width:innerWidth,height:innerHeight,headerHeight:bounds.height,boxes,inside:boxes.every(r=>r.left>=bounds.left&&r.right<=bounds.right&&r.top>=bounds.top&&r.bottom<=bounds.bottom),overlap:boxes.some((a,i)=>boxes.slice(i+1).some(b=>a.left<b.right&&b.left<a.right&&a.top<b.bottom&&b.top<a.bottom)),documentWidth:document.documentElement.scrollWidth};
       });
       reports.push(report);
+      if(!report.inside||report.overlap||report.boxes.some(box=>box.overflow)){
+        await page.screenshot({path:path.join(output,'controls-failure.png')});
+        fs.writeFileSync(path.join(output,'controls-failure.json'),JSON.stringify(report,null,2)+'\n');
+      }
       assert(report.inside&&!report.overlap&&report.boxes.every(box=>!box.overflow),'Collection controls fit: '+JSON.stringify(report));
       assert(report.documentWidth<=width+1,'no horizontal overflow at '+width+'x'+height);
       if(width<700||height<500)for(const box of report.boxes)if(box.height<44)targetFailures.push({width,height,...box});
@@ -88,12 +99,26 @@ async function main(){
         return {inside:boxes.every(b=>b.left>=r.left-1&&b.right<=r.right+1&&b.top>=r.top-1&&b.bottom<=r.bottom+1),overlap:boxes.some((a,i)=>boxes.slice(i+1).some(b=>a.left<b.right-1&&b.left<a.right-1&&a.top<b.bottom-1&&b.top<a.bottom-1))};
       });
       assert(toolbar.inside&&!toolbar.overlap,'toolbar controls fit '+width+'x'+height);
+      const album=await page.locator('.cb-album').evaluate(n=>{
+        const rect=n=>n.getBoundingClientRect(),within=(a,b)=>a.left>=b.left-1&&a.right<=b.right+1&&a.top>=b.top-1&&a.bottom<=b.bottom+1;
+        const work=n.closest('.cb-workbench'),spread=n.querySelector('.cb-spread'),leaves=[...spread.querySelectorAll(':scope > .cb-gallery-leaf')];
+        return {slots:n.querySelectorAll('.cb-pocket').length,filled:n.querySelectorAll('.cb-pocket[data-card-id]').length,empty:n.querySelectorAll('.cb-pocket.is-empty').length,
+          leaves:leaves.map(leaf=>({side:leaf.dataset.leaf,count:leaf.querySelectorAll(':scope > .cb-pocket').length,columns:getComputedStyle(leaf).gridTemplateColumns.split(' ').length,rows:getComputedStyle(leaf).gridTemplateRows.split(' ').length})),
+          inside:within(rect(n),rect(work))&&leaves.every(leaf=>within(rect(leaf),rect(spread))&&[...leaf.querySelectorAll('.cb-pocket')].every(p=>within(rect(p),rect(leaf)))),
+          scroll:[document.documentElement,document.body,document.querySelector('#app'),work,n].map(n=>({node:n.className||n.id||n.tagName,overflow:n.scrollHeight-n.clientHeight,top:n.scrollTop}))};
+      });
+      assert.equal(album.slots,12);assert.equal(album.filled,ownedIds.length);assert.equal(album.empty,12-ownedIds.length);
+      assert.deepEqual(album.leaves.map(n=>n.side),['left','right']);
+      const portrait=width<700&&height>500;
+      assert(album.inside&&album.leaves.every(n=>n.count===6&&n.columns===(portrait?2:3)&&n.rows===(portrait?3:2)),JSON.stringify(album));
+      assert(album.scroll.every(n=>n.overflow<=1&&n.top===0),JSON.stringify(album.scroll));
+      report.album=album;
       if(!await collection.isVisible()){
         await page.locator('[data-binder-action=filters]').click();
         const visibleCollection=page.locator('.cb-overlay:modal [data-binder-filter=collection]');
         await visibleCollection.selectOption('nier');await assertCount(2);
         assert.equal((await state()).scope,'owned','phone filtering does not expand ownership');
-        assert(await page.locator('.cb-pocket').evaluateAll(nodes=>nodes.length===2&&nodes.every(n=>fixtureData.items.some(c=>c.cardId===n.dataset.cardId))));
+        assert(await page.locator('.cb-pocket[data-card-id]').evaluateAll(nodes=>nodes.length===2&&nodes.every(n=>fixtureData.items.some(c=>c.cardId===n.dataset.cardId))));
         await visibleCollection.selectOption('');await page.locator('.cb-overlay:modal .cb-filter-actions [data-binder-action=close-overlay]').click();
       }
       await page.locator('.cb-heading').screenshot({path:path.join(output,'header-'+width+'x'+height+'.png')});

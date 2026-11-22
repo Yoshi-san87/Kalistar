@@ -66,10 +66,10 @@ Les vues publiques sont Home, Collection, Decks, Equipements, Arene,
 Statistiques, Book, Map, Guide, Library, Story et Mon compte. Le serveur local garde en plus
 l'Atelier ; il ne fait pas partie du build public.
 
-`site-config.js` definit aussi `KalistarSite.atlas`, source unique de la Map
-et du fond Collection. La variable CSS `--kalistar-atlas-image` reprend cette
-URL ; Collection conserve son flou leger sans toucher aux cartes ni aux
-surfaces de lecture. Une publication Map met a jour cette seule reference.
+`site-config.js` definit aussi `KalistarSite.atlas`, source unique de la Map.
+La variable CSS `--kalistar-atlas-image` reprend cette URL pour les vues qui
+utilisent l'atlas. Collection utilise desormais ses propres textures d'album ;
+une publication Map ne modifie pas son cadrage ni les cartes.
 
 Dans Map, Ctrl + molette zoome autour du pointeur, uniquement dans la zone
 de carte. La molette seule et le comportement du navigateur hors carte sont
@@ -168,7 +168,7 @@ dans leur orientation d'origine. Les ancres d'equipement en arene ne changent pa
 
 | Vue | Modules |
 | --- | --- |
-| Collection | `catalogue.js`, `collection-binder.js/css`, `collection-pedestal.css` |
+| Collection | `catalogue.js`, `collection-binder.js/css` |
 | Composition | `deck-builder.js/css`, `team-composition.js/css`, `formation-drag.js` |
 | Equipements | `weapons-ui.js`, `weapon-cards.js/css` |
 | Avant-match | `matchmaking.js`, `pre-match.js/css`, `lineup-intro.js/css` |
@@ -205,34 +205,39 @@ canvas local a DPR plafonne 1.25 et duree inferieure a une seconde.
 Reraise/esquive/reload ne rejouent aucune mort. Reduced Motion utilise un
 fondu bref ; abort, changement de vue, resize et arriere-plan nettoient l'effet.
 
-Respecter le proprietaire CSS d'un composant. Par exemple, le socle Collection
-est defini dans `collection-pedestal.css`, pas par de nouveaux overrides dans
-`mobile.css`, `positions.css` ou `collection-binder.css`.
-La Collection est une galerie paginee qui tient dans l'ecran, sans defilement
-vertical ni double page.
-`collection-binder.css` est l'unique proprietaire de sa disposition responsive,
-de ses outils, dialogues et vue de contemplation ; `mobile.css`, `statistics.css`
-et `weapons.css` ne la redessinent pas. Largeur et hauteur choisissent 2 a 6
-colonnes (8 en mode compact), une ou deux rangees par page. Le cadre disponible
-contient chaque carte entiere et son socle ; la pagination donne acces aux
-suivantes. Les versions restent groupees
-par personnage et filtrees selon les memes droits que la carte visible.
+La Collection est un album de douze emplacements fixes par double page,
+six pochettes de chaque cote, meme lorsque le filtre retourne moins de cartes.
+Chaque version a son propre emplacement. La pagination remplace le defilement ;
+le nombre d'emplacements ne depend pas du viewport. Les pages gardent trois
+colonnes sur PC et deux en portrait smartphone, sans rogner les PNG natifs.
+`collection-binder.js/css` possede seul cette disposition et le lecteur.
+La couche historique `collection-pedestal.css` reste preservee mais n'est plus
+chargee par index.html. Aucun override Collection dans mobile.css ou les CSS
+statistiques/equipements. Les composants prepares sous `assets/album/` sont
+des textures sans texte : album paysage/portrait, pochettes, feuille mobile,
+cadre HUD et matiere. Les cartes, icones et controles restent des elements DOM.
+
+Le clic ouvre une double page : carte a gauche, recit a droite, y compris sur
+telephone. La fenetre de texte fragmente son contenu en colonnes mesurees,
+accessibles par boutons et clavier ; aucun texte n'est supprime pour tenir.
+Fiche, carriere et exemplaires utilisent ce meme lecteur pagine. Les versions
+sont disponibles dans le selecteur du lecteur, jamais fondues en un seul slot.
+Les filtres et le sommaire gardent leurs dialogues natifs et le Retour mobile.
+
 Dans le Catalogue, une version est revelee apres sa premiere acquisition et
-reste connue apres un transfert. `cloud-registry.js` projette les possessions
-actuelles et les transferts acceptes du compte ; aucune nouvelle table ni
-reinitialisation de collection n'est necessaire. Le role administrateur vient
-de `kalistar_me`, jamais du pseudo. Une version inconnue affiche son nom et le
-dos commun grise, sans charger son illustration, son titre ou son recit dans
-les vignettes, le sommaire, le lecteur ou la permutation. Ce masquage visuel
-n'est pas un controle DRM des definitions de jeu utilisees par les combats IA.
-La vue detaillee place carte et recit cote a cote sur PC, puis dans un meme
-defilement sur telephone. Le retour conserve la page et le focus de la galerie.
-Les images hors champ sont paresseuses, les dos partagent un seul asset et les
-animations sont finies : apparition, survol, changement de version. Aucun
-mouvement ni boucle de mesure permanent n'est necessaire pour admirer les cartes.
-La permutation attend le chargement du crop final CardMedia, et annule cette
-attente lors d'un changement de vue. Un delai borne retombe sur l'image normale
-si le chargement echoue ; il ne laisse jamais le selecteur bloque.
+reste connue apres transfert. La projection dans cloud-registry.js utilise les
+possessions et transferts acceptes existants ; pas de nouvelle table ni reset.
+Le role administrateur vient de kalistar_me, jamais du pseudo. Une version
+inconnue ne charge ni illustration ni titre/recit dans les apercus ou le lecteur.
+Ce masquage visuel n'est pas un DRM des definitions necessaires aux combats IA.
+
+Le changement de page anime une seule feuille en 3D, pendant 720 ms, avec
+recto/verso et ancienne page sous-jacente. Resize, filtre, changement de vue,
+arriere-plan et Reduced Motion interrompent et liberent cette couche. Pas de
+boucle au repos. Les images sont chargees seulement pour les emplacements
+visibles, le lecteur ouvert et le sommaire explicitement demande. Le PNG natif
+reste telechargeable sans modification. Sources, prompts et exports des six
+textures : ../revisions/2026-11-22-album-vivant/.
 La preparation avant-match utilise une seule zone de defilement dans
 `pre-match.css` : capitaines face a face et reglages lateraux sur PC, puis
 blocs successifs sur telephone. Entete et lancement restent fixes, meme en
