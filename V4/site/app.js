@@ -1165,7 +1165,9 @@ function showDeck(){setView('decks');}
       menuAction('journal','scroll-text','Journal du duel')+menuAction('reserves','layers-3',`Réserve adverse · ${game.players[1].reserve.length}`,'data-side="1"')+menuAction('grave','skull',`Cimetière adverse · ${game.players[1].dead.length}`,'data-side="1"');
     const items=[['fullscreen',document.fullscreenElement?'minimize':'maximize',document.fullscreenElement?'Quitter le plein écran':'Plein écran'],['arena-picker','map','Choisir l’arène'],['auto-formation','shuffle','Formation automatique'],['rules','book-open','Règles'],['save-game','download','Exporter la partie'],['load-game','upload','Importer une partie'],['new-game','rotate-ccw','Nouvelle partie']].filter(([action])=>action!=='auto-formation'||!game.composition);
     const actions=items.map(([action,symbol,label])=>menuAction(action,symbol,label,['arena-picker','auto-formation'].includes(action)&&game.phase!=='setup'?'disabled title="Disponible avant le combat"':'')).join('');
-    showMenu('La rencontre',journeyLink+menuGroup('Combat',combat)+menuGroup('Partie',actions)+menuGroup('Explorer',navigationItem('collection','Collection')+navigationItem('decks','Mes decks')+navigationItem('weapons','Équipements')+navigationItem('statistics','Statistiques')+learningNavigation()),'arena-v1');
+    const audio=KalistarThemeMusic.controls(themeMusic.snapshot(),{menu:true})+KalistarArenaAudio.controls(arenaAudio.snapshot(),{menu:true});
+    showMenu('La rencontre',journeyLink+menuGroup('Son',audio)+menuGroup('Combat',combat)+menuGroup('Partie',actions)+menuGroup('Explorer',navigationItem('collection','Collection')+navigationItem('decks','Mes decks')+navigationItem('weapons','Équipements')+navigationItem('statistics','Statistiques')+learningNavigation()),'arena-v1');
+    themeMusic.refresh();arenaAudio.refresh();
     $('[data-action=arena-menu]')?.setAttribute('aria-expanded','true');
   }
   function showArchive(side,kind,slot=null){

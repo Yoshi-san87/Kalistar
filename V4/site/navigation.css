@@ -91,6 +91,13 @@ body #mobile-dialog.navigation-sheet[open] { display:flex; flex-direction:column
 .kalistar-menu-group { min-width:0; }
 .kalistar-menu-group + .kalistar-menu-group { margin-top:10px; padding-top:6px; border-top:1px solid #b58a5e55; }
 .kalistar-menu-group h3 { margin:9px 10px 4px; color:#c3ab89; font:500 11px/1.5 var(--kalistar-display); }
+.navigation-audio-control { display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:0 12px;padding:0 10px 8px;min-width:0; }
+.navigation-audio-toggle { display:flex;flex-direction:row;align-items:center;gap:10px;min-width:0;min-height:44px;color:#e6ddc7;font:500 14px/1.4 var(--kalistar-display);cursor:pointer; }
+.navigation-audio-toggle input { flex:none;width:20px;height:20px;margin:0;accent-color:#8ed5c7;cursor:pointer; }
+.navigation-audio-toggle svg { flex:none;width:20px;height:20px;color:#d7ba8b; }
+.navigation-audio-control output { color:#a9ddd2;font:500 12px/1.4 var(--sans);font-variant-numeric:tabular-nums;min-width:4ch;text-align:right; }
+.navigation-audio-control input[type=range] { grid-column:1/-1;width:100%;min-width:0;height:32px;margin:0;padding:0;accent-color:#8ed5c7;background:transparent;border:0;box-shadow:none;cursor:pointer; }
+.navigation-audio-control input:focus-visible { outline:1px solid #acdfd0;outline-offset:3px; }
 #mobile-dialog .kalistar-menu-item {
   position:relative; display:grid; grid-template-columns:40px minmax(0,1fr) 16px; gap:12px;
   width:100%; min-height:60px; padding:8px 10px; text-align:left;

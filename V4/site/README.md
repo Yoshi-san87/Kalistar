@@ -183,6 +183,9 @@ sans requete audio pendant le film ni l'accueil de lecture. Ses reglages sont
 locaux a l'appareil ; aucun ajout au schema cloud. Voir
 [Introduction et musique](../docs/INTRO_CONNEXION.md) pour le cycle de vie et
 les medias de production.
+Le menu de l'arene affiche les variantes compactes de `controls(...,{menu:true})`
+pour musique et bruitages. Elles utilisent les memes controleurs, evenements
+et preferences locales que Mon compte ; aucun nouvel etat ni lecteur audio.
 
 `arena-audio.js` porte les effets courts JRPG : cinq textures de combat,
 douze impacts elementaires et une dissipation. Les MP3 sont prepares uniquement apres activation

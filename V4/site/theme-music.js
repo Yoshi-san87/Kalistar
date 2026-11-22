@@ -64,8 +64,9 @@
     function destroy(){if(dead)return;dead=true;pause();events.abort();for(const player of tracks.values()){player.pause();player.removeAttribute('src');player.load();}tracks.clear();audio=null;}
     return Object.freeze({activate(){if(!dead){active=true;update();sync();}},refresh(){update();sync();},set,snapshot,destroy});
   }
-  function controls(value){
+  function controls(value,{menu=false}={}){
     const state=preference(value);
+    if(menu)return `<div class="navigation-audio-control"><label class="navigation-audio-toggle"><input type="checkbox" role="switch" data-theme-music-enabled ${state.enabled?'checked':''} aria-label="Activer la musique"><i data-lucide="music-2" aria-hidden="true"></i><span>Musique</span></label><output data-theme-music-level>${Math.round(state.volume*100)} %</output><input type="range" min="0" max="40" step="1" value="${Math.round(state.volume*100)}" data-theme-music-volume aria-label="Volume de la musique"></div>`;
     return `<section class="account-section"><h3>Musique de Kalistar</h3><div class="account-form"><label class="account-check"><input type="checkbox" data-theme-music-enabled ${state.enabled?'checked':''}><span>Thème officiel<small>Sur cet appareil</small></span></label><label class="account-music-volume"><span>Volume <output data-theme-music-level>${Math.round(state.volume*100)} %</output></span><input type="range" min="0" max="40" step="1" value="${Math.round(state.volume*100)}" data-theme-music-volume aria-label="Volume de la musique"></label></div></section>`;
   }
   return Object.freeze({create,preference,controls,SOURCE,ARENA_SOURCE,KEY});

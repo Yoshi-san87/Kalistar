@@ -56,3 +56,12 @@ test('mix trim preserves preferences; impacts replace buildup and departure has 
   assert(await audio.play('magic',{element:'PYRO'}));assert.equal(audio.snapshot().voices,1);
   assert.equal(audio.snapshot().volume,.11);f.finish();assert(await audio.play('departure'));assert(f.requests.some(u=>u===Audio.url('departure')));audio.destroy();
 });
+
+test('compact menu and account controls use the same bounded values and data contract',()=>{
+  for(const menu of [false,true]){
+    const html=Audio.controls({enabled:false,volume:.13},{menu});
+    assert(html.includes('data-arena-sound-volume'));assert(html.includes('value="13"'));
+    assert(html.includes('data-arena-sound-enabled'));assert(!html.includes('checked'));
+    assert(html.includes('max="40"'));assert.equal(html.includes('navigation-audio-control'),menu);
+  }
+});

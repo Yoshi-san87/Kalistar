@@ -2,6 +2,14 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const Intro=require('./login-intro.js');
 const Music=require('./theme-music.js');
+test('music menu and account controls share volume bounds and mute preferences',()=>{
+  for(const menu of [false,true]){
+    const html=Music.controls({enabled:false,volume:.09},{menu});
+    assert(html.includes('data-theme-music-volume'));assert(html.includes('value="9"'));
+    assert(html.includes('data-theme-music-enabled'));assert(!html.includes('checked'));
+    assert(html.includes('max="40"'));assert.equal(html.includes('navigation-audio-control'),menu);
+  }
+});
 
 function musicFixture({blocked=false,deferred=false,brokenStorage=false}={}){
   const host=new EventTarget(),doc=new EventTarget(),values=new Map(),timers=new Map(),resolves=[];let id=0,resolvePlay;
